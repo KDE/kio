@@ -42,7 +42,7 @@
 #include "kpasswdserver.h"
 
 extern "C" {
-    KDEDModule *create_kpasswdserver(const QCString &name)
+    KDE_EXPORT KDEDModule *create_kpasswdserver(const QCString &name)
     {
        return new KPasswdServer(name);
     }
