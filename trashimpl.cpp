@@ -499,7 +499,8 @@ bool TrashImpl::synchronousDel( const QString& path, bool setLastErrorCode )
 void TrashImpl::emptyTrash()
 {
     kdDebug() << k_funcinfo << endl;
-    scanTrashDirectories();
+    if ( !m_trashDirectoriesScanned )
+        scanTrashDirectories();
     // For each known trash directory...
     TrashDirMap::const_iterator it = m_trashDirectories.begin();
     for ( ; it != m_trashDirectories.end() ; ++it ) {
@@ -517,7 +518,10 @@ void TrashImpl::emptyTrash()
 
 TrashImpl::TrashedFileInfoList TrashImpl::list()
 {
+    // Here we scan for trash directories unconditionally. This allows
+    // noticing plugged-in [e.g. removeable] devices, or new mounts etc.
     scanTrashDirectories();
+
     TrashedFileInfoList lst;
     // For each known trash directory...
     TrashDirMap::const_iterator it = m_trashDirectories.begin();
@@ -619,7 +623,8 @@ void TrashImpl::error( int e, const QString& s )
 bool TrashImpl::isEmpty() const
 {
     // For each known trash directory...
-    scanTrashDirectories();
+    if ( !m_trashDirectoriesScanned )
+        scanTrashDirectories();
     TrashDirMap::const_iterator it = m_trashDirectories.begin();
     for ( ; it != m_trashDirectories.end() ; ++it ) {
         QString infoPath = it.data();
@@ -683,16 +688,20 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
     if ( id > -1 )
         return id;
     // new trash dir found, register it
+    // but we need stability in the trash IDs, so that restoring or asking
+    // for properties works even kio_trash gets killed because idle.
+#if 0
     kdDebug() << k_funcinfo << "found " << trashDir << endl;
     m_trashDirectories.insert( ++m_lastId, trashDir );
     if ( !mountPoint.endsWith( "/" ) )
         mountPoint += '/';
     m_topDirectories.insert( m_lastId, mountPoint );
     return m_lastId;
+#endif
+    scanTrashDirectories();
+    return idForTrashDirectory( trashDir );
 }
 
-// Maybe we could cache the result of this method.
-// OTOH we would then fail to notice plugged-in removeable devices...
 void TrashImpl::scanTrashDirectories() const
 {
     const KMountPoint::List lst = KMountPoint::currentMountPoints();
@@ -708,9 +717,9 @@ void TrashImpl::scanTrashDirectories() const
                 // OK, trashDir is a valid trash directory. Ensure it's registered.
                 int trashId = idForTrashDirectory( trashDir );
                 if ( trashId == -1 ) {
-                    kdDebug() << k_funcinfo << "found " << trashDir << endl;
                     // new trash dir found, register it
                     m_trashDirectories.insert( ++m_lastId, trashDir );
+                    kdDebug() << k_funcinfo << "found " << trashDir << " gave it id " << m_lastId << endl;
                     if ( !topdir.endsWith( "/" ) )
                         topdir += '/';
                     m_topDirectories.insert( m_lastId, topdir );
