@@ -172,7 +172,7 @@ void TrashProtocol::rename(const KURL &oldURL, const KURL &newURL, bool overwrit
     error( KIO::ERR_UNSUPPORTED_ACTION, "rename" );
 }
 
-void TrashProtocol::copy( const KURL &src, const KURL &dest, int permissions, bool overwrite )
+void TrashProtocol::copy( const KURL &src, const KURL &dest, int permissions, bool /*overwrite*/ )
 {
     INIT_IMPL;
 
@@ -201,7 +201,7 @@ void TrashProtocol::copy( const KURL &src, const KURL &dest, int permissions, bo
                 KURL filesPath;
                 filesPath.setPath( impl.filesPath( trashId, fileId ) );
                 kdDebug() << k_funcinfo << "copying " << src << " to " << filesPath << endl;
-                KIO::Job* job = KIO::file_copy( src, filesPath, permissions, overwrite, false, false );
+                KIO::Job* job = KIO::file_copy( src, filesPath, permissions, true /*overwrite*/, false, false );
                 connect( job, SIGNAL( result( KIO::Job* ) ), SLOT( slotCopyResult( KIO::Job* ) ) );
                 m_curTrashId = trashId;
                 m_curFileId = fileId;
@@ -270,7 +270,11 @@ void TrashProtocol::stat(const KURL& url)
         bool ok = parseURL(url, trashId, fileId, relativePath);
 
         if ( !ok ) {
-            error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.prettyURL() ) );
+            kdDebug() << k_funcinfo << url << " looks fishy, returning does-not-exist" << endl;
+            // A URL like trash:/file simply means that CopyJob is trying to see if
+            // the destination exists already (it made up the URL by itself).
+            error( KIO::ERR_DOES_NOT_EXIST, url.prettyURL() );
+            //error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.prettyURL() ) );
             return;
         }
 
@@ -316,20 +320,20 @@ void TrashProtocol::del( const KURL &url, bool /*isfile*/ )
         error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.prettyURL() ) );
         return;
     }
-    
+
     ok = relativePath.isEmpty();
     if ( !ok ) {
         error( KIO::ERR_ACCESS_DENIED, url.prettyURL() );
 	return;
     }
-    
+
     ok = impl.del(trashId, fileId);
     if ( !ok ) {
         error( impl.lastErrorCode(), impl.lastErrorMessage() );
         return;
     }
 
-    finished();  
+    finished();
 }
 
 void TrashProtocol::listDir(const KURL& url)
@@ -437,7 +441,29 @@ void TrashProtocol::mkdir( const KURL& url, int )
     INIT_IMPL;
     // create info about deleted dir
     kdDebug() << "mkdir: " << url << endl;
-    error( KIO::ERR_ACCESS_DENIED, url.prettyURL() );
+    QString dir = url.directory();
+
+    if ( dir.length() <= 1 ) // new toplevel entry
+    {
+#if 0
+        // ## we should use parseURL to give the right filename to createInfo
+        int trashId;
+        QString fileId;
+        if ( !impl.createInfo( url.path(), trashId, fileId ) ) {
+            error( impl.lastErrorCode(), impl.lastErrorMessage() );
+        } else {
+            if ( !impl.mkdir( url.path(), trashId, fileId ) ) {
+                (void)impl.deleteInfo( trashId, fileId );
+                error( impl.lastErrorCode(), impl.lastErrorMessage() );
+            } else
+                finished();
+        }
+#endif
+    } else {
+        // Well it's not allowed to add a file to an existing deleted directory.
+        // During the deletion itself, we either rename() in one go or copy+del, so we never rename()...
+        error( KIO::ERR_ACCESS_DENIED, url.prettyURL() );
+    }
 }
 
 void TrashProtocol::get( const KURL& )

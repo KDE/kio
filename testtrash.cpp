@@ -237,7 +237,7 @@ void TestTrash::tryRenameInsideTrash()
 {
     kdDebug() << k_funcinfo << endl;
     // Can't use NetAccess::move(), it brings up SkipDlg.
-    bool worked = KIO::NetAccess::file_move( "trash:/tryRenameInsideTrash", "trash:/foobar" );
+    bool worked = KIO::NetAccess::file_move( "trash:/0-tryRenameInsideTrash", "trash:/foobar" );
     assert( !worked );
 }
 
@@ -266,14 +266,32 @@ void TestTrash::trashDirectoryFromHome()
 
 void TestTrash::trashDirectoryFromOther()
 {
+    kdDebug() << k_funcinfo << endl;
+    // setup
+    QString origPath = otherTmpDir() + "trashDirFromOther";
+    QDir dir;
+    bool ok = dir.mkdir( origPath );
+    Q_ASSERT( ok );
+    createTestFile( origPath + "/testfile" );
+    KURL u; u.setPath( origPath );
 
+    // test
+    KIO::NetAccess::move( u, "trash:/" );
+    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/trashDirFromOther", origPath );
+
+    QFileInfo filesDir( QDir::homeDirPath() + "/.Trash/files/trashDirFromOther" );
+    assert( filesDir.isDir() );
+    QFileInfo files( QDir::homeDirPath() + "/.Trash/files/trashDirFromOther/testfile" );
+    assert( files.isFile() );
+    assert( files.size() == 10 );
+    assert( !QFile::exists( origPath ) );
 }
 
 void TestTrash::delRootFile()
 {
     kdDebug() << k_funcinfo << endl;
 
-    // test
+    // test deleting a trashed file
     KIO::NetAccess::del( "trash:/0-trashFileFromHome", 0L );
 
     QFileInfo file( QDir::homeDirPath() + "/.Trash/files/trashFileFromHome" );
@@ -286,7 +304,7 @@ void TestTrash::delFileInDirectory()
 {
     kdDebug() << k_funcinfo << endl;
 
-    // test
+    // test deleting a file inside a trashed directory -> not allowed
     KIO::NetAccess::del( "trash:/0-trashDirFromHome/testfile", 0L );
 
     QFileInfo dir( QDir::homeDirPath() + "/.Trash/files/trashDirFromHome" );
@@ -301,7 +319,7 @@ void TestTrash::delDirectory()
 {
     kdDebug() << k_funcinfo << endl;
 
-    // test
+    // test deleting a trashed directory
     KIO::NetAccess::del( "trash:/0-trashDirFromHome", 0L );
 
     QFileInfo dir( QDir::homeDirPath() + "/.Trash/files/trashDirFromHome" );
@@ -311,4 +329,4 @@ void TestTrash::delDirectory()
     QFileInfo info( QDir::homeDirPath() + "/.Trash/info/trashDirFromHome" );
     assert( !info.exists() );
 }
-   
+
