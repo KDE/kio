@@ -290,7 +290,10 @@ QString TrashImpl::filesPath( int trashId, const QString& fileId ) const
 
 bool TrashImpl::deleteInfo( int trashId, const QString& fileId )
 {
-    return ( ::unlink( QFile::encodeName( infoPath( trashId, fileId ) ) ) == 0 );
+    bool ok = ( ::unlink( QFile::encodeName( infoPath( trashId, fileId ) ) ) == 0 );
+    if ( ok )
+        fileRemoved();
+    return ok;
 }
 
 bool TrashImpl::moveToTrash( const QString& origPath, int trashId, const QString& fileId )
@@ -312,7 +315,6 @@ bool TrashImpl::moveFromTrash( const QString& dest, int trashId, const QString& 
     }
     if ( !move( src, dest ) )
         return false;
-    fileRemoved();
     return true;
 }
 
@@ -592,6 +594,7 @@ bool TrashImpl::isEmpty() const
             ep = readdir( dp ); // look for third file
             closedir( dp );
             if ( ep != 0 ) {
+                //kdDebug() << ep->d_name << " in " << infoPath << " -> not empty" << endl;
                 return false; // not empty
             }
         }
