@@ -25,6 +25,7 @@ fileNameUsedForCopying=Name
 ExtraNames=Original Path,Deletion Date
 ExtraNames[bg]=Местоположение,Дата на изтриване
 ExtraNames[da]=Original sti, sletningsdato
+ExtraNames[fy]=Oarspronklike lokaasje,datum fan ferwidering
 ExtraNames[hu]=Eredeti elérési út,Törlési dátum
 ExtraNames[nl]=Oorspronkelijke locatie,datum van verwijdering
 ExtraNames[pt]=Localização Original,Data de Remoção
