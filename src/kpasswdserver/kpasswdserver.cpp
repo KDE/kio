@@ -83,7 +83,7 @@ KPasswdServer::~KPasswdServer()
 KIO::AuthInfo 
 KPasswdServer::checkAuthInfo(KIO::AuthInfo info, long windowId)
 {
-    kdDebug() << "KPasswdServer::checkAuthInfo: User= " << info.username
+    kdDebug(130) << "KPasswdServer::checkAuthInfo: User= " << info.username
               << ", WindowId = " << windowId << endl;
 
     QString key = createCacheKey(info);
@@ -126,7 +126,7 @@ KPasswdServer::checkAuthInfo(KIO::AuthInfo info, long windowId)
 KIO::AuthInfo 
 KPasswdServer::queryAuthInfo(KIO::AuthInfo info, QString errorMsg, long windowId, long seqNr)
 {
-    kdDebug() << "KPasswdServer::queryAuthInfo: User= " << info.username
+    kdDebug(130) << "KPasswdServer::queryAuthInfo: User= " << info.username
               << ", Message= " << info.prompt << ", WindowId = " << windowId << endl;
     QString key = createCacheKey(info);
     Request *request = new Request;
@@ -148,7 +148,7 @@ KPasswdServer::queryAuthInfo(KIO::AuthInfo info, QString errorMsg, long windowId
 void
 KPasswdServer::addAuthInfo(KIO::AuthInfo info, long windowId)
 {
-    kdDebug() << "KPasswdServer::addAuthInfo: User= " << info.username
+    kdDebug(130) << "KPasswdServer::addAuthInfo: User= " << info.username
               << ", RealmValue= " << info.realmValue << ", WindowId = " << windowId << endl;
     QString key = createCacheKey(info);
 
@@ -166,14 +166,14 @@ KPasswdServer::processRequest()
 
     KIO::AuthInfo &info = request->info;
 
-    kdDebug() << "KPasswdServer::processRequest: User= " << info.username
+    kdDebug(130) << "KPasswdServer::processRequest: User= " << info.username
               << ", Message= " << info.prompt << endl;
               
     const AuthInfo *result = findAuthInfoItem(request->key, request->info);
     
     if (result && (request->seqNr < result->seqNr))
     {
-        kdDebug() << "KPasswdServer::processRequest: auto retry!" << endl;
+        kdDebug(130) << "KPasswdServer::processRequest: auto retry!" << endl;
         if (result->isCanceled)
         {
            info.setModified(false);
@@ -438,11 +438,11 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, lo
    {
       current = new AuthInfo;
       current->expire = AuthInfo::expTime;
-      kdDebug() << "Creating AuthInfo" << endl;
+      kdDebug(130) << "Creating AuthInfo" << endl;
    }
    else
    {
-      kdDebug() << "Updating AuthInfo" << endl;
+      kdDebug(130) << "Updating AuthInfo" << endl;
    }
 
    current->url = info.url;
