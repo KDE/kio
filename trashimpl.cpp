@@ -463,6 +463,8 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
         QStrListIterator entryIt( entryNames );
         for (; entryIt.current(); ++entryIt) {
             QString fileName = QFile::decodeName( *entryIt );
+            if ( fileName == "." || fileName == ".." )
+                continue;
             Q_ASSERT( fileName.endsWith( ".trashinfo" ) );
             fileName.truncate( fileName.length() - 10 );
 

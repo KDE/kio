@@ -47,7 +47,7 @@ public:
 private:
     typedef enum CopyOrMove { Copy, Move };
     void copyOrMove( const KURL& src, const KURL& dest, bool overwrite, CopyOrMove action );
-    void createTopLevelDirEntry(KIO::UDSEntry& entry, const QString& name, const QString& url);
+    void createTopLevelDirEntry(KIO::UDSEntry& entry);
     bool createUDSEntry( const QString& physicalPath, const QString& fileName, const QString& url, KIO::UDSEntry& entry );
     void listRoot();
     void restore( const KURL& trashURL );

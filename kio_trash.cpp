@@ -263,15 +263,13 @@ static void addAtom(KIO::UDSEntry& entry, unsigned int ID, long l, const QString
     entry.append(atom);
 }
 
-void TrashProtocol::createTopLevelDirEntry(KIO::UDSEntry& entry, const QString& name, const QString& url)
+void TrashProtocol::createTopLevelDirEntry(KIO::UDSEntry& entry)
 {
     entry.clear();
-    addAtom(entry, KIO::UDS_NAME, 0, name);
+    addAtom(entry, KIO::UDS_NAME, 0, ".");
     addAtom(entry, KIO::UDS_FILE_TYPE, S_IFDIR);
     addAtom(entry, KIO::UDS_ACCESS, 0700);
     addAtom(entry, KIO::UDS_MIME_TYPE, 0, "inode/directory");
-    if ( !url.isEmpty() )
-        addAtom(entry, KIO::UDS_URL, 0, url);
     addAtom(entry, KIO::UDS_USER, 0, m_userName);
     addAtom(entry, KIO::UDS_GROUP, 0, m_groupName);
 }
@@ -283,7 +281,7 @@ void TrashProtocol::stat(const KURL& url)
     if( path.isEmpty() || path == "/" ) {
         // The root is "virtual" - it's not a single physical directory
         KIO::UDSEntry entry;
-        createTopLevelDirEntry( entry, "/", QString::null );
+        createTopLevelDirEntry( entry );
         statEntry( entry );
         finished();
     } else {
@@ -455,6 +453,8 @@ void TrashProtocol::listRoot()
     const TrashedFileInfoList lst = impl.list();
     totalSize( lst.count() );
     KIO::UDSEntry entry;
+    createTopLevelDirEntry( entry );
+    listEntry( entry, false );
     for ( TrashedFileInfoList::ConstIterator it = lst.begin(); it != lst.end(); ++it ) {
         const QString url = makeURL( (*it).trashId, (*it).fileId, QString::null );
         KURL origURL;
