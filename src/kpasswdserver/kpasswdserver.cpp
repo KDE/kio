@@ -116,6 +116,23 @@ KPasswdServer::checkAuthInfo(KIO::AuthInfo info, long windowId)
     const AuthInfo *result = findAuthInfoItem(key, info);
     if (!result || result->isCanceled)
     {
+       if (!result &&
+           (info.username.isEmpty() || info.password.isEmpty()) &&
+           !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(),
+                                             KWallet::Wallet::PasswordFolder(), key))
+       {
+          QMap<QString, QString> knownLogins;
+          KWallet::Wallet *wallet = KWallet::Wallet::openWallet(
+             KWallet::Wallet::NetworkWallet(), windowId);
+          if (wallet &&
+              readFromWallet(wallet, key, info.username, info.password,
+                             info.readOnly, knownLogins))
+          {
+             info.setModified(true);
+             return info;
+          }
+       }
+
        info.setModified(false);
        return info;
     }
