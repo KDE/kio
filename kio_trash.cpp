@@ -22,6 +22,7 @@
 #include <kapplication.h>
 #include <kdebug.h>
 #include <klocale.h>
+#include <klargefile.h>
 #include <kprocess.h>
 
 #include <dcopclient.h>
@@ -35,6 +36,7 @@
 #include <sys/stat.h>
 #include <stdlib.h>
 #include <kcmdlineargs.h>
+#include <qfile.h>
 
 static const KCmdLineOptions options[] =
 {
@@ -80,6 +82,15 @@ TrashProtocol::~TrashProtocol()
 {
 }
 
+static QString makeURL( int trashId, const QString& fileId )
+{
+    QString url = "trash:/";
+    url += QString::number( trashId );
+    url += '/';
+    url += fileId;
+    return url;
+}
+
 void TrashProtocol::rename(KURL const &oldURL, KURL const &newURL, bool overwrite)
 {
     INIT_IMPL;
@@ -99,16 +110,51 @@ void TrashProtocol::rename(KURL const &oldURL, KURL const &newURL, bool overwrit
         // Trashing a file
         if ( dir.length() <= 1 ) // new toplevel entry
         {
-            if ( !impl.add( oldURL.path() ) )
+            int trashId;
+            QString fileId;
+            if ( !impl.createInfo( oldURL.path(), trashId, fileId ) ) {
                 error( impl.lastErrorCode(), impl.lastErrorMessage() );
-            else
-                finished();
-            return;
+            } else {
+                if ( !impl.tryRename( oldURL.path(), trashId, fileId ) ) {
+                    (void)impl.deleteInfo( trashId, fileId );
+                    error( impl.lastErrorCode(), impl.lastErrorMessage() );
+                } else
+                    finished();
+            }
         } else {
             // TODO
 //            QString trashDir = impl.resolveTrash...
 //            if ( !impl.rename( oldURL.path(), trashDir + ...
-            return;
+        }
+        return;
+    }
+    error( KIO::ERR_UNSUPPORTED_ACTION, "rename" );
+}
+
+void TrashProtocol::copy( const KURL &src, const KURL &dest, int permissions, bool overwrite )
+{
+    INIT_IMPL;
+    if ( src.protocol() == "trash" && dest.protocol() == "trash" ) {
+        error( KIO::ERR_UNSUPPORTED_ACTION, i18n( "This file is already in the trash bin." ) );
+        return;
+    }
+
+    if ( src.protocol() == "trash" && dest.isLocalFile() ) {
+        // Extracting (e.g. via dnd). Ignore original location.
+        // TODO
+        //return;
+    } else if ( src.isLocalFile() && dest.protocol() == "trash" ) {
+        QString dir = dest.directory();
+        // Trashing a copy file
+        if ( dir.length() <= 1 ) // new toplevel entry
+        {
+            int trashId;
+            QString fileId;
+            if ( !impl.createInfo( src.path(), trashId, fileId ) ) {
+                error( impl.lastErrorCode(), impl.lastErrorMessage() );
+            } else {
+
+            }
         }
     }
     error( KIO::ERR_UNSUPPORTED_ACTION, "rename" );
@@ -161,7 +207,7 @@ void TrashProtocol::listDir(const KURL& url)
         listRoot();
         return;
     }
-    // TODO [see stat]
+    // TODO (parse url, list subdir, maybe using kio_file)
 }
 
 void TrashProtocol::put( const KURL& url, int /*permissions*/, bool /*overwrite*/, bool /*resume*/ )
@@ -184,23 +230,37 @@ void TrashProtocol::mkdir( const KURL& url, int )
 void TrashProtocol::listRoot()
 {
     INIT_IMPL;
-#if 0
-    KIO::UDSEntry   entry;
+    typedef TrashImpl::TrashedFileInfoList TrashedFileInfoList;
+    const TrashedFileInfoList lst = impl.list();
+    totalSize( lst.count() );
+    KIO::UDSEntry entry;
+    for ( TrashedFileInfoList::ConstIterator it = lst.begin(); it != lst.end(); ++it ) {
+        QString url = makeURL( (*it).trashId, (*it).fileId );
+        KDE_struct_stat buff;
+        if ( KDE_stat( QFile::encodeName( (*it).physicalPath ), &buff ) == -1 ) {
+            kdWarning() << "couldn't stat " << (*it).physicalPath << endl;
+            continue;
+        }
+        // TODO symlinks
 
-    {
-        QString url="devices:/"+(*it); ++it;
-        QString name=*it; ++it;
-        ++it; ++it;
-        QString type=*it; ++it; ++it;
-        createFileEntry(entry,name,url,type);
-        listEntry(entry,false);
-        count++;
+        mode_t type = buff.st_mode & S_IFMT; // extract file type
+        mode_t access = buff.st_mode & 07777; // extract permissions
+        access &= 07555; // make it readonly, since it's in the trashcan
+        entry.clear();
+        addAtom( entry, KIO::UDS_NAME, 0, (*it).fileId );
+        addAtom( entry, KIO::UDS_FILE_TYPE, type );
+        addAtom( entry, KIO::UDS_URL, 0, url );
+        addAtom( entry, KIO::UDS_ACCESS, access );
+        addAtom( entry, KIO::UDS_SIZE, buff.st_size );
+        addAtom( entry, KIO::UDS_USER, 0, m_userName ); // assumption
+        addAtom( entry, KIO::UDS_GROUP, 0, m_groupName ); // assumption
+        addAtom( entry, KIO::UDS_MODIFICATION_TIME, buff.st_mtime );
+        addAtom( entry, KIO::UDS_ACCESS_TIME, buff.st_atime ); // ## or use it for deletion time?
+        listEntry( entry, false );
     }
-    totalSize(count);
-    listEntry(entry, true);
-
+    entry.clear();
+    listEntry( entry, true );
     finished();
-#endif
 }
 
 void TrashProtocol::get( const KURL& url )
@@ -211,18 +271,4 @@ void TrashProtocol::get( const KURL& url )
   data(output);
   finished();
 */
-}
-
-static void createFileEntry(KIO::UDSEntry& entry, const QString& name, const QString& url, const QString& mime)
-{
-    entry.clear();
-    addAtom(entry, KIO::UDS_NAME, 0, name);
-    addAtom(entry, KIO::UDS_FILE_TYPE, S_IFDIR);//REG);
-    addAtom(entry, KIO::UDS_URL, 0, url);
-    addAtom(entry, KIO::UDS_ACCESS, 0500); // readonly
-    addAtom(entry, KIO::UDS_MIME_TYPE, 0, mime);
-    addAtom(entry, KIO::UDS_SIZE, 0);
-    addAtom(entry, KIO::UDS_GUESSED_MIME_TYPE, 0, "inode/directory");
-    addAtom(entry, KIO::UDS_CREATION_TIME,1);
-    addAtom(entry, KIO::UDS_MODIFICATION_TIME,time(0));
 }

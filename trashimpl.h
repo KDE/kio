@@ -23,6 +23,7 @@
 #include <qstring.h>
 #include <qdatetime.h>
 #include <qmap.h>
+#include <qvaluelist.h>
 
 /**
  * Implementation of all low-level operations done by kio_trash
@@ -37,14 +38,23 @@ public:
     /// This MUST be called before doing anything else
     bool init();
 
-    /// Trash this file
-    bool add( const QString& origPath );
+    /// Create info for a file to be trashed
+    /// Returns trashId and fileId
+    /// The caller is then responsible for actually trashing the file
+    bool createInfo( const QString& origPath, int& trashId, QString& fileId );
+
+    /// Delete info file for a file to be trashed
+    /// Usually used for undoing what createInfo did if trashing failed
+    bool deleteInfo( int trashId, const QString& fileId );
+
+    /// Try moving a file as a trashed file. The ids come from createInfo.
+    bool tryRename( const QString& origPath, int trashId, const QString& fileId );
 
     /// Get rid of a trashed file
-    bool del( int trashId, int fileId );
+    bool del( int trashId, const QString& fileId );
 
     /// Restore a trashed file
-    bool restore( int trashId, int fileId );
+    bool restore( int trashId, const QString& fileId );
 
     /// Empty trash, i.e. delete all trashed files
     bool emptyTrash();
@@ -57,21 +67,27 @@ public:
         QDateTime deletionDate; // from info file
     };
     /// List trashed files
-    QValueList<TrashedFileInfo> list();
+    typedef QValueList<TrashedFileInfo> TrashedFileInfoList;
+    TrashedFileInfoList list();
 
     /// Return the info for a given trashed file
-    bool infoForFile( TrashedFileInfo& info );
+    bool infoForFile( int trashId, const QString& fileId, TrashedFileInfo& info );
 
     /// KIO error code
     int lastErrorCode() const { return m_lastErrorCode; }
     QString lastErrorMessage() const { return m_lastErrorMessage; }
 
-    /// Helper method. Tries to call ::rename(src,dest) and does error handling.
-    bool tryRename( const char* src, const char* dest );
-
 private:
-    bool testDir( const QString &_name );
-    void error( int e, QString s );
+    /// Helper method. Tries to call ::rename(src,dest) and does error handling.
+    bool tryRename( const QString& src, const QString& dest );
+
+    bool testDir( const QString& name );
+    void error( int e, const QString& s );
+
+    QString infoPath( int trashId, const QString& fileId ) const;
+    QString filesPath( int trashId, const QString& fileId ) const;
+
+    bool readInfoFile( const QString& infoPath, TrashedFileInfo& info );
 
     /// Find the trash dir to use for a given file to delete, based on original path
     int findTrashDirectory( const QString& origPath );
@@ -82,6 +98,8 @@ private:
     }
 
 private:
+    /// Last error code stored in class to simplify API.
+    /// Note that this means almost no method can be const.
     int m_lastErrorCode;
     QString m_lastErrorMessage;
 
@@ -91,7 +109,8 @@ private:
     // e.g. $HOME/.Trash/$uid or /mnt/foo/.Trash/$uid
     // It has an id (number) and a path.
     // The home trash has id 0.
-    QMap<int, QString> m_trashDirectories; // id -> path
+    typedef QMap<int, QString> TrashDirMap;
+    TrashDirMap m_trashDirectories; // id -> path
     int m_lastId;
 
     // We don't cache any data related to the trashed files.

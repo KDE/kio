@@ -34,10 +34,10 @@ public:
     virtual void put( const KURL& url, int , bool overwrite, bool );
     virtual void mkdir( const KURL& url, int permissions );
     virtual void rename(KURL const &, KURL const &, bool);
-    // TODO copy()
-    // TODO symlink()
-    // TODO chmod()
-    // TODO del()
+    virtual void copy( const KURL &src, const KURL &dest, int permissions, bool overwrite );
+    // TODO symlink( const QString& target, const KURL& dest, bool overwrite );
+    // TODO chmod( const KURL& url, int permissions );
+    // TODO del( const KURL &url, bool isfile );
 
 private:
     void createTopLevelDirEntry(KIO::UDSEntry& entry, const QString& name, const QString& url);

@@ -29,6 +29,7 @@
 
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <sys/param.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <dirent.h>
@@ -113,7 +114,7 @@ bool TrashImpl::init()
     return true;
 }
 
-bool TrashImpl::add( const QString& origPath )
+bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& fileId )
 {
     kdDebug() << k_funcinfo << origPath << endl;
     // Check source
@@ -128,10 +129,9 @@ bool TrashImpl::add( const QString& origPath )
     }
 
     // Choose destination trash
-    int trashId = findTrashDirectory( origPath );
+    trashId = findTrashDirectory( origPath );
     if ( trashId < 0 )
         return false; // ### error() needed?
-    QString trashPath = trashDirectoryPath( trashId );
 
     // Grab original filename
     KURL url;
@@ -139,10 +139,9 @@ bool TrashImpl::add( const QString& origPath )
     QString origFileName = url.fileName();
 
     // Make destination file in info/
-    url.setPath( trashPath );
-    url.addPath( "info" );
-    KURL baseDirectory( url );
-    url.addPath( origFileName );
+    url.setPath( infoPath( trashId, origFileName ) ); // we first try with origFileName
+    KURL baseDirectory;
+    baseDirectory.setPath( url.directory() );
     // Here we need to use O_EXCL to avoid race conditions with other kioslave processes
     int fd = 0;
     do {
@@ -158,8 +157,8 @@ bool TrashImpl::add( const QString& origPath )
             }
         }
     } while ( fd < 0 );
-    QString infoPath = url.path();
-    QString fileId = url.fileName();
+    const QString infoPath = url.path();
+    fileId = url.fileName();
 
     FILE* file = ::fdopen( fd, "w" );
     if ( !file ) { // can't see how this would happen
@@ -183,37 +182,48 @@ bool TrashImpl::add( const QString& origPath )
 
     ::fclose( file );
 
-    url.setPath( trashPath );
-    url.addPath( "files" );
-    url.addPath( fileId );
-    kdDebug() << k_funcinfo << "moving to " << url.path() << endl;
-
-    if ( !tryRename( _src, QFile::encodeName( url.path() ) ) ) {
-        if ( m_lastErrorCode == KIO::ERR_UNSUPPORTED_ACTION ) {
-            // OK that's not really an error, the file is simply on another partition
-            // We *keep* the info file around, now that it's done.
-            // We'll just add the file in place when we get it via put().
-        } else { // real error, delete info file
-            ::unlink( QFile::encodeName( infoPath ) );
-        }
-        return false;
-    }
-
+    kdDebug() << k_funcinfo << "info file created:" << trashId << " " << fileId << endl;
     return true;
 }
 
-bool TrashImpl::tryRename( const char* src, const char* dest )
+QString TrashImpl::infoPath( int trashId, const QString& fileId ) const
 {
-    if ( ::rename( src, dest ) != 0 ) {
+    QString trashPath = trashDirectoryPath( trashId );
+    trashPath += "/info/";
+    trashPath += fileId;
+    return trashPath;
+}
+
+QString TrashImpl::filesPath( int trashId, const QString& fileId ) const
+{
+    QString trashPath = trashDirectoryPath( trashId );
+    trashPath += "/files/";
+    trashPath += fileId;
+    return trashPath;
+}
+
+bool TrashImpl::deleteInfo( int trashId, const QString& fileId )
+{
+    return ( ::unlink( QFile::encodeName( infoPath( trashId, fileId ) ) ) == 0 );
+}
+
+bool TrashImpl::tryRename( const QString& origPath, int trashId, const QString& fileId )
+{
+    return tryRename( origPath, filesPath( trashId, fileId ) );
+}
+
+bool TrashImpl::tryRename( const QString& src, const QString& dest )
+{
+    if ( ::rename( QFile::encodeName( src ), QFile::encodeName( dest ) ) != 0 ) {
         if (errno == EXDEV) {
-            error( KIO::ERR_UNSUPPORTED_ACTION, QString::fromLatin1("rename"));
+            error( KIO::ERR_UNSUPPORTED_ACTION, QString::fromLatin1("rename") );
         } else {
             if (( errno == EACCES ) || (errno == EPERM)) {
-                error( KIO::ERR_ACCESS_DENIED, QFile::decodeName( dest ) );
+                error( KIO::ERR_ACCESS_DENIED, dest );
             } else if (errno == EROFS) { // The file is on a read-only filesystem
-                error( KIO::ERR_CANNOT_DELETE, QFile::decodeName( src ) );
+                error( KIO::ERR_CANNOT_DELETE, src );
             } else {
-                error( KIO::ERR_CANNOT_RENAME, QFile::decodeName( src ) );
+                error( KIO::ERR_CANNOT_RENAME, src );
             }
         }
         return false;
@@ -221,14 +231,16 @@ bool TrashImpl::tryRename( const char* src, const char* dest )
     return true;
 }
 
-bool TrashImpl::del( int trashId, int fileId )
+bool TrashImpl::del( int trashId, const QString& fileId )
 {
     // TODO
+    return false;
 }
 
-bool TrashImpl::restore( int trashId, int fileId )
+bool TrashImpl::restore( int trashId, const QString& fileId )
 {
     // TODO
+    return false;
 }
 
 bool TrashImpl::emptyTrash()
@@ -237,19 +249,68 @@ bool TrashImpl::emptyTrash()
     return false;
 }
 
-QValueList<TrashImpl::TrashedFileInfo> TrashImpl::list()
+TrashImpl::TrashedFileInfoList TrashImpl::list()
 {
-    QValueList<TrashedFileInfo> lst;
-    // TODO
+    TrashedFileInfoList lst;
+    // For each known trash directory...
+    // ######## TODO: read fstab to know about all partitions, and check for trash dirs on those
+    TrashDirMap::const_iterator it = m_trashDirectories.begin();
+    for ( ; it != m_trashDirectories.end() ; ++it ) {
+        const int trashId = it.key();
+        QString infoPath = it.data();
+        infoPath += "/info";
+        const QCString infoPathEnc = QFile::encodeName( infoPath );
+        kdDebug() << k_funcinfo << "listing " << infoPath << endl;
+        DIR *dp = opendir( infoPathEnc );
+        if ( dp == 0 ) {
+            continue;
+        }
+        // Code taken from kio_file
+        QStrList entryNames;
+        KDE_struct_dirent *ep;
+        while ( ( ep = KDE_readdir( dp ) ) != 0L )
+            entryNames.append( ep->d_name );
+        closedir( dp );
+        //char path_buffer[PATH_MAX];
+        //getcwd(path_buffer, PATH_MAX - 1);
+        //if ( chdir( infoPathEnc ) )
+        //    continue;
+        QStrListIterator entryIt( entryNames );
+        for (; entryIt.current(); ++entryIt) {
+            TrashedFileInfo info;
+            if ( infoForFile( trashId, QFile::decodeName( *entryIt ), info ) )
+                lst << info;
+        }
+    }
     return lst;
 }
 
-bool TrashImpl::infoForFile( TrashedFileInfo& info )
+bool TrashImpl::infoForFile( int trashId, const QString& fileId, TrashedFileInfo& info )
 {
-    // TODO
-    return false;
+    kdDebug() << k_funcinfo << trashId << " " << fileId << endl;
+    info.trashId = trashId; // easy :)
+    info.fileId = fileId; // equally easy
+    info.physicalPath = filesPath( trashId, fileId );
+    return readInfoFile( infoPath( trashId, fileId ), info );
 }
 
+bool TrashImpl::readInfoFile( const QString& infoPath, TrashedFileInfo& info )
+{
+    QFile file( infoPath );
+    if ( !file.open( IO_ReadOnly ) ) {
+        error( KIO::ERR_CANNOT_OPEN_FOR_READING, infoPath );
+        return false;
+    }
+    char line[MAXPATHLEN + 1];
+    Q_LONG len = file.readLine( line, MAXPATHLEN );
+    if ( len <= 0 )
+        return false; // ## which error code to set?
+    // First line is the original path
+    info.origPath = QFile::decodeName( line );
+    len = file.readLine( line, MAXPATHLEN );
+    info.deletionDate = QDateTime::fromString( QString::fromLatin1( line ), Qt::ISODate );
+    return true;
+}
 
 int TrashImpl::findTrashDirectory( const QString& origPath )
 {
@@ -263,7 +324,7 @@ bool TrashImpl::initTrashDirectory( const QString& origPath )
     return true;
 }
 
-void TrashImpl::error( int e, QString s )
+void TrashImpl::error( int e, const QString& s )
 {
     kdDebug() << k_funcinfo << e << " " << s << endl;
     m_lastErrorCode = e;

@@ -17,4 +17,6 @@ maxInstances=2
 Class=:local
 renameFromFile=true
 renameToFile=true
+copyFromFile=true
+copyToFile=true
 #TODO DocPath
