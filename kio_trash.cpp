@@ -56,7 +56,8 @@ extern "C" {
         KCmdLineArgs::addCmdLineOptions( options );
         KApplication app( false, false );
 
-        TrashProtocol slave(argv[1],argv[2], argv[3]);
+        KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+        TrashProtocol slave( args->arg(0), args->arg(1), args->arg(2) );
         slave.dispatchLoop();
         return 0;
     }
@@ -71,8 +72,9 @@ typedef TrashImpl::TrashedFileInfo TrashedFileInfo;
 typedef TrashImpl::TrashedFileInfoList TrashedFileInfoList;
 
 TrashProtocol::TrashProtocol( const QCString& protocol, const QCString &pool, const QCString &app)
-    : SlaveBase(protocol,  pool, app )
+    : SlaveBase(protocol, pool, app )
 {
+    kdDebug() << k_funcinfo << protocol << endl;
     struct passwd *user = getpwuid( getuid() );
     if ( user )
         m_userName = QString::fromLatin1(user->pw_name);
@@ -209,8 +211,6 @@ void TrashProtocol::copy( const KURL &src, const KURL &dest, int permissions, bo
             }
         } else {
             // It's not allowed to add a file to an existing deleted directory.
-            // But during the deletion itself, we'll be called for subfiles
-            // TODO
             error( KIO::ERR_ACCESS_DENIED, dest.prettyURL() );
             return;
         }
@@ -469,20 +469,8 @@ void TrashProtocol::mkdir( const KURL& url, int /*permissions*/ )
         }
     } else {
         // Well it's not allowed to add a directory to an existing deleted directory.
-        // But during the deletion itself, we'll be called for subdirs
-        // TODO
         error( KIO::ERR_ACCESS_DENIED, url.prettyURL() );
     }
-}
-#endif
-
-#if 0
-void TrashProtocol::get( const KURL& )
-{
-    INIT_IMPL;
-  mimeType(...);
-  data(output);
-  finished();
 }
 #endif
 
