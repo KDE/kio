@@ -298,7 +298,6 @@ void TrashProtocol::listDir(const KURL& url)
     for (; entryIt.current(); ++entryIt) {
         const QString fileName = QFile::decodeName( entryIt.current() );
         const QString filePath = physicalPath + "/" + fileName;
-        kdDebug() << k_funcinfo << filePath << endl;
         // shouldn't be necessary
         //const QString url = makeURL( trashId, fileId, relativePath + "/" + fileName );
         entry.clear();
@@ -324,7 +323,8 @@ bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& 
     access &= 07555; // make it readonly, since it's in the trashcan
     addAtom( entry, KIO::UDS_NAME, 0, fileName );
     addAtom( entry, KIO::UDS_FILE_TYPE, type );
-    addAtom( entry, KIO::UDS_URL, 0, url );
+    if ( !url.isEmpty() )
+        addAtom( entry, KIO::UDS_URL, 0, url );
     addAtom( entry, KIO::UDS_ACCESS, access );
     addAtom( entry, KIO::UDS_SIZE, buff.st_size );
     addAtom( entry, KIO::UDS_USER, 0, m_userName ); // assumption
