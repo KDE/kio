@@ -227,6 +227,7 @@ KPasswdServer::processRequest()
                     KWallet::Wallet::NetworkWallet(), request->windowId );
                 if ( wallet && wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) )
                 {
+                    wallet->setFolder( KWallet::Wallet::PasswordFolder() );
                     QMap<QString,QString> map;
                     if ( wallet->readMap( request->key, map ) == 0 )
                     {
@@ -288,12 +289,12 @@ KPasswdServer::processRequest()
                            ok = wallet->createFolder( KWallet::Wallet::PasswordFolder() );
                        if ( ok )
                        {
+                           wallet->setFolder( KWallet::Wallet::PasswordFolder() );
                            kdDebug(130) << k_funcinfo << "saving into " << request->key << endl;
                            QMap<QString,QString> map;
                            map.insert( "login", info.username );
                            map.insert( "password", info.password );
                            wallet->writeMap( request->key, map );
-                           KWallet::Wallet::closeWallet( wallet->name(), true );
                        }
                        delete wallet;
                    }
