@@ -386,12 +386,19 @@ void TrashProtocol::listDir(const KURL& url)
 bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& fileName, const QString& url, KIO::UDSEntry& entry )
 {
     KDE_struct_stat buff;
-    if ( KDE_stat( QFile::encodeName( physicalPath ), &buff ) == -1 ) {
+    if ( KDE_lstat( QFile::encodeName( physicalPath ), &buff ) == -1 ) {
         kdWarning() << "couldn't stat " << physicalPath << endl;
         return false;
     }
-    // TODO symlinks
+    if (S_ISLNK(buff.st_mode)) {
+        char buffer2[ 1000 ];
+        int n = readlink( QFile::encodeName( physicalPath ), buffer2, 1000 );
+        if ( n != -1 ) {
+            buffer2[ n ] = 0;
+        }
 
+        addAtom( entry, KIO::UDS_LINK_DEST, 0, QFile::decodeName( buffer2 ) );
+    }
     mode_t type = buff.st_mode & S_IFMT; // extract file type
     mode_t access = buff.st_mode & 07777; // extract permissions
     access &= 07555; // make it readonly, since it's in the trashcan

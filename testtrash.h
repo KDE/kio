@@ -41,6 +41,11 @@ public:
     void delRootFile();
     void delFileInDirectory();
     void delDirectory();
+    void statRoot();
+    void statFileInRoot();
+    void statDirectoryInRoot();
+    void statSymlinkInRoot();
+    void statFileInDirectory();
 
 private:
     void trashFile( const QString& origFilePath, const QString& fileName );

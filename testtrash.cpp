@@ -35,6 +35,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <assert.h>
+#include <kfileitem.h>
 
 static bool check(const QString& txt, QString a, QString b)
 {
@@ -91,23 +92,38 @@ void TestTrash::setup()
     cleanTrash();
 }
 
+static void removeFile( const QString& trashDir, const QString& fileName )
+{
+    QDir dir;
+    dir.remove( trashDir + fileName );
+    assert( !QDir( trashDir + fileName ).exists() );
+}
+
+static void removeDir( const QString& trashDir, const QString& dirName )
+{
+    QDir dir;
+    dir.rmdir( trashDir + dirName );
+    assert( !QDir( trashDir + dirName ).exists() );
+}
+
 void TestTrash::cleanTrash()
 {
     // Start with a relatively clean trash too
-    QDir dir;
     const QString trashDir = QDir::homeDirPath() + "/.Trash/";
-    dir.remove( trashDir + "info/fileFromHome" );
-    dir.remove( trashDir + "files/fileFromHome" );
-    dir.remove( trashDir + "info/fileFromOther" );
-    dir.remove( trashDir + "files/fileFromOther" );
-    dir.remove( trashDir + "info/trashDirFromHome" );
-    dir.remove( trashDir + "files/trashDirFromHome/testfile" );
-    dir.remove( trashDir + "files/trashDirFromHome" );
-    dir.rmdir( trashDir + "info/trashDirFromOther" );
-    dir.remove( trashDir + "files/trashDirFromOther/testfile" );
-    dir.rmdir( trashDir + "files/trashDirFromOther" );
-    assert( !QDir( trashDir + "files/trashDirFromOther" ).exists() );
-    assert( !QDir( trashDir + "files/trashDirFromHome" ).exists() );
+    removeFile( trashDir, "info/fileFromHome" );
+    removeFile( trashDir, "files/fileFromHome" );
+    removeFile( trashDir, "info/fileFromOther" );
+    removeFile( trashDir, "files/fileFromOther" );
+    removeFile( trashDir, "info/symlinkFromHome" );
+    removeFile( trashDir, "files/symlinkFromHome" );
+    removeFile( trashDir, "info/symlinkFromOther" );
+    removeFile( trashDir, "files/symlinkFromOther" );
+    removeFile( trashDir, "info/trashDirFromHome" );
+    removeFile( trashDir, "files/trashDirFromHome/testfile" );
+    removeDir( trashDir, "files/trashDirFromHome" );
+    removeFile( trashDir, "info/trashDirFromOther" );
+    removeFile( trashDir, "files/trashDirFromOther/testfile" );
+    removeDir( trashDir, "files/trashDirFromOther" );
 }
 
 void TestTrash::runAll()
@@ -115,13 +131,22 @@ void TestTrash::runAll()
     urlTestFile();
     urlTestDirectory();
     urlTestSubDirectory();
+
     trashFileFromHome();
     trashFileFromOther();
     trashSymlinkFromHome();
     trashSymlinkFromOther();
     trashDirectoryFromHome();
     trashDirectoryFromOther();
+
     tryRenameInsideTrash();
+
+    statRoot();
+    statFileInRoot();
+    statDirectoryInRoot();
+    statSymlinkInRoot();
+    statFileInDirectory();
+
     delRootFile();
     delFileInDirectory();
     delDirectory();
@@ -351,3 +376,71 @@ void TestTrash::delDirectory()
     assert( !info.exists() );
 }
 
+void TestTrash::statRoot()
+{
+    KURL url( "trash:/" );
+    KIO::UDSEntry entry;
+    bool ok = KIO::NetAccess::stat( url, entry, 0 );
+    assert( ok );
+    KFileItem item( entry, url );
+    assert( item.isDir() );
+    assert( !item.isLink() );
+    assert( item.isReadable() );
+    assert( item.isWritable() );
+    assert( !item.isHidden() );
+    assert( item.name() == "/" );
+    assert( item.acceptsDrops() );
+}
+
+void TestTrash::statFileInRoot()
+{
+    KURL url( "trash:/0-fileFromOther" );
+    KIO::UDSEntry entry;
+    bool ok = KIO::NetAccess::stat( url, entry, 0 );
+    assert( ok );
+    KFileItem item( entry, url );
+    assert( item.isFile() );
+    assert( !item.isLink() );
+    assert( item.isReadable() );
+    assert( !item.isWritable() );
+    assert( !item.isHidden() );
+    assert( item.name() == "fileFromOther" );
+    assert( !item.acceptsDrops() );
+}
+
+void TestTrash::statDirectoryInRoot()
+{
+    KURL url( "trash:/0-trashDirFromHome" );
+    KIO::UDSEntry entry;
+    bool ok = KIO::NetAccess::stat( url, entry, 0 );
+    assert( ok );
+    KFileItem item( entry, url );
+    assert( item.isDir() );
+    assert( !item.isLink() );
+    assert( item.isReadable() );
+    assert( !item.isWritable() );
+    assert( !item.isHidden() );
+    assert( item.name() == "trashDirFromHome" );
+    assert( !item.acceptsDrops() );
+}
+
+void TestTrash::statSymlinkInRoot()
+{
+    KURL url( "trash:/0-symlinkFromOther" );
+    KIO::UDSEntry entry;
+    bool ok = KIO::NetAccess::stat( url, entry, 0 );
+    assert( ok );
+    KFileItem item( entry, url );
+    assert( item.isLink() );
+    assert( item.linkDest() == "/tmp" );
+    assert( item.isReadable() );
+    assert( !item.isWritable() );
+    assert( !item.isHidden() );
+    assert( item.name() == "symlinkFromOther" );
+    assert( !item.acceptsDrops() );
+}
+
+void TestTrash::statFileInDirectory()
+{
+
+}
