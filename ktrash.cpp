@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     KCmdLineArgs::init( argc, argv, "ktrash",
                         I18N_NOOP( "ktrash" ),
                         I18N_NOOP( "Helper program to handle the KDE trash can\n"
-				   "Note: to move files to the trash, don't use ktrash, but \"kfmclient move 'url' trash:/\"" ),
+				   "Note: to move files to the trash, do not use ktrash, but \"kfmclient move 'url' trash:/\"" ),
                         KDE_VERSION_STRING );
     KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;
