@@ -7,10 +7,6 @@ are a problem, trashimpl could be moved to a kded module, and
 kio_trash would use DCOP to talk to it. It's a bit hard to come up
 with use cases where the race conditions would matter though.
 
-BUGS
-====
-* $topdir partitions should store relative paths in the trashinfo files!
-
 TODO
 ====
 * Show original path and date of deletion. In properties dialog? In tooltip? In listview column?
@@ -25,6 +21,7 @@ TODO
 
 * Err, should we support renaming? :) Difficult to disable...
   In fact it's already not disabled in readonly directories (e.g. "/") -> todo
+   (for F2 and kpropertiesdialog)
 
 Bugs closed by kio_trash
 ========================

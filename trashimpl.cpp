@@ -52,6 +52,7 @@ TrashImpl::TrashImpl() :
     m_initStatus( InitToBeDone ),
     m_lastId( 0 ),
     m_homeDevice( 0 ),
+    m_trashDirectoriesScanned( false ),
     // not using kio_trashrc since KIO uses that one already for kio_trash
     // so better have a separate one, for faster parsing by e.g. kmimetype.cpp
     m_config( "trashrc" )
@@ -232,7 +233,10 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     // mean closing and reopening fd, i.e. opening a race condition...
     QCString info = "[Trash Info]\n";
     info += "Path=";
-    info += QFile::encodeName( origPath );
+    if ( trashId == 0 ) // home trash: absolute path
+        info += QFile::encodeName( origPath );
+    else
+        info += QFile::encodeName( makeRelativePath( topDirectoryPath( trashId ), origPath ) );
     info += "\n";
     info += "DeletionDate=";
     info += QDateTime::currentDateTime().toString( Qt::ISODate ).local8Bit();
@@ -251,6 +255,20 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
 
     kdDebug() << k_funcinfo << "info file created in trashId=" << trashId << " : " << fileId << endl;
     return true;
+}
+
+QString TrashImpl::makeRelativePath( const QString& topdir, const QString& path )
+{
+    const QString realPath = KStandardDirs::realFilePath( path );
+    // topdir ends with '/'
+    if ( realPath.startsWith( topdir ) ) {
+        const QString rel = realPath.mid( topdir.length() );
+        Q_ASSERT( rel[0] != '/' );
+        return rel;
+    } else { // shouldn't happen...
+        kdWarning() << "Couldn't make relative path for " << realPath << " (" << path << "), with topdir=" << topdir << endl;
+        return realPath;
+    }
 }
 
 QString TrashImpl::infoPath( int trashId, const QString& fileId ) const
@@ -439,7 +457,7 @@ bool TrashImpl::synchronousDel( const QString& file )
 bool TrashImpl::emptyTrash()
 {
     kdDebug() << k_funcinfo << endl;
-    findTrashDirectories();
+    scanTrashDirectories();
     // For each known trash directory...
     TrashDirMap::const_iterator it = m_trashDirectories.begin();
     for ( ; it != m_trashDirectories.end() ; ++it ) {
@@ -457,7 +475,7 @@ bool TrashImpl::emptyTrash()
 
 TrashImpl::TrashedFileInfoList TrashImpl::list()
 {
-    findTrashDirectories();
+    scanTrashDirectories();
     TrashedFileInfoList lst;
     // For each known trash directory...
     TrashDirMap::const_iterator it = m_trashDirectories.begin();
@@ -477,6 +495,8 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
             if ( fileName == "." || fileName == ".." )
                 continue;
             Q_ASSERT( fileName.endsWith( ".trashinfo" ) );
+            if ( !fileName.endsWith( ".trashinfo" ) )
+                continue;
             fileName.truncate( fileName.length() - 10 );
 
             TrashedFileInfo info;
@@ -509,10 +529,10 @@ bool TrashImpl::infoForFile( int trashId, const QString& fileId, TrashedFileInfo
     info.trashId = trashId; // easy :)
     info.fileId = fileId; // equally easy
     info.physicalPath = filesPath( trashId, fileId );
-    return readInfoFile( infoPath( trashId, fileId ), info );
+    return readInfoFile( infoPath( trashId, fileId ), info, trashId );
 }
 
-bool TrashImpl::readInfoFile( const QString& infoPath, TrashedFileInfo& info )
+bool TrashImpl::readInfoFile( const QString& infoPath, TrashedFileInfo& info, int trashId )
 {
     KSimpleConfig cfg( infoPath, true );
     if ( !cfg.hasGroup( "Trash Info" ) ) {
@@ -523,6 +543,12 @@ bool TrashImpl::readInfoFile( const QString& infoPath, TrashedFileInfo& info )
     info.origPath = cfg.readEntry( "Path" );
     if ( info.origPath.isEmpty() )
         return false; // path is mandatory...
+    if ( trashId == 0 )
+        Q_ASSERT( info.origPath[0] == '/' );
+    else {
+        const QString topdir = topDirectoryPath( trashId ); // includes trailing slash
+        info.origPath.prepend( topdir );
+    }
     QString line = cfg.readEntry( "DeletionDate" );
     if ( !line.isEmpty() ) {
         info.deletionDate = QDateTime::fromString( line, Qt::ISODate );
@@ -551,7 +577,7 @@ void TrashImpl::error( int e, const QString& s )
 bool TrashImpl::isEmpty() const
 {
     // For each known trash directory...
-    findTrashDirectories();
+    scanTrashDirectories();
     TrashDirMap::const_iterator it = m_trashDirectories.begin();
     for ( ; it != m_trashDirectories.end() ; ++it ) {
         QString infoPath = it.data();
@@ -607,7 +633,7 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
          && buff.st_dev == m_homeDevice )
         return 0;
 
-    const QString mountPoint = KIO::findPathMountPoint( origPath );
+    QString mountPoint = KIO::findPathMountPoint( origPath );
     const QString trashDir = trashForMountPoint( mountPoint, true );
     kdDebug() << "mountPoint=" << mountPoint << " trashDir=" << trashDir << endl;
     if ( trashDir.isEmpty() )
@@ -618,12 +644,15 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
     // new trash dir found, register it
     kdDebug() << k_funcinfo << "found " << trashDir << endl;
     m_trashDirectories.insert( ++m_lastId, trashDir );
+    if ( !mountPoint.endsWith( "/" ) )
+        mountPoint += '/';
+    m_topDirectories.insert( m_lastId, mountPoint + '/' );
     return m_lastId;
 }
 
 // Maybe we could cache the result of this method.
 // OTOH we would then fail to notice plugged-in removeable devices...
-void TrashImpl::findTrashDirectories() const
+void TrashImpl::scanTrashDirectories() const
 {
     const KMountPoint::List lst = KMountPoint::currentMountPoints();
     for ( KMountPoint::List::ConstIterator it = lst.begin() ; it != lst.end() ; ++it ) {
@@ -641,10 +670,14 @@ void TrashImpl::findTrashDirectories() const
                     kdDebug() << k_funcinfo << "found " << trashDir << endl;
                     // new trash dir found, register it
                     m_trashDirectories.insert( ++m_lastId, trashDir );
+                    if ( !topdir.endsWith( "/" ) )
+                        topdir += '/';
+                    m_topDirectories.insert( m_lastId, topdir );
                 }
             }
         }
     }
+    m_trashDirectoriesScanned = true;
 }
 
 QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeeded ) const
@@ -720,6 +753,25 @@ bool TrashImpl::initTrashDirectory( const QCString& trashDir_c ) const
     if ( ::mkdir( files_c, 0700 ) != 0 )
         return false;
     return true;
+}
+
+QString TrashImpl::trashDirectoryPath( int trashId ) const
+{
+    // Never scanned for trash dirs? (This can happen after killing kio_trash
+    // and reusing a directory listing from the earlier instance.)
+    if ( !m_trashDirectoriesScanned )
+        scanTrashDirectories();
+    Q_ASSERT( m_trashDirectories.contains( trashId ) );
+    return m_trashDirectories[trashId];
+}
+
+QString TrashImpl::topDirectoryPath( int trashId ) const
+{
+    if ( !m_trashDirectoriesScanned )
+        scanTrashDirectories();
+    assert( trashId != 0 );
+    Q_ASSERT( m_topDirectories.contains( trashId ) );
+    return m_topDirectories[trashId];
 }
 
 #include "trashimpl.moc"

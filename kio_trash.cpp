@@ -150,6 +150,17 @@ void TrashProtocol::restore( const KURL& trashURL )
     }
     KURL dest;
     dest.setPath( info.origPath );
+
+    // Check that the destination directory exists, to improve the error code in case it doesn't.
+    const QString destDir = dest.directory();
+    KDE_struct_stat buff;
+    if ( KDE_lstat( QFile::encodeName( destDir ), &buff ) == -1 ) {
+        error( KIO::ERR_SLAVE_DEFINED,
+               i18n( "The directory %1 does not exist anymore, so it is not possible to restore this item to its original location. "
+                     "You can either recreate that directory and use the restore operation again, or drag the item anywhere else to restore it." ).arg( destDir ) );
+        return;
+    }
+
     copyOrMove( trashURL, dest, false /*overwrite*/, Move );
 }
 

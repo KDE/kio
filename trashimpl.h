@@ -21,13 +21,14 @@
 #define TRASHIMPL_H
 
 #include <kio/jobclasses.h>
+#include <ksimpleconfig.h>
 
 #include <qstring.h>
 #include <qdatetime.h>
 #include <qmap.h>
 #include <qvaluelist.h>
 #include <qstrlist.h>
-#include <ksimpleconfig.h>
+#include <assert.h>
 
 /**
  * Implementation of all low-level operations done by kio_trash
@@ -117,23 +118,24 @@ private:
     bool testDir( const QString& name );
     void error( int e, const QString& s );
 
-    bool readInfoFile( const QString& infoPath, TrashedFileInfo& info );
+    bool readInfoFile( const QString& infoPath, TrashedFileInfo& info, int trashId );
 
     QString infoPath( int trashId, const QString& fileId ) const;
     QString filesPath( int trashId, const QString& fileId ) const;
 
     /// Find the trash dir to use for a given file to delete, based on original path
     int findTrashDirectory( const QString& origPath );
-    QString trashDirectoryPath( int trashId ) const {
-        return m_trashDirectories[trashId];
-    }
+
+    QString trashDirectoryPath( int trashId ) const;
+    QString topDirectoryPath( int trashId ) const;
 
     bool synchronousDel( const QString& file );
 
-    void findTrashDirectories() const;
+    void scanTrashDirectories() const;
     int idForTrashDirectory( const QString& trashDir ) const;
     bool initTrashDirectory( const QCString& trashDir_c ) const;
     QString trashForMountPoint( const QString& topdir, bool createIfNeeded ) const;
+    static QString makeRelativePath( const QString& topdir, const QString& path );
 
 private slots:
     void jobFinished(KIO::Job *job);
@@ -151,9 +153,11 @@ private:
     // It has an id (number) and a path.
     // The home trash has id 0.
     typedef QMap<int, QString> TrashDirMap;
-    mutable TrashDirMap m_trashDirectories; // id -> path
+    mutable TrashDirMap m_trashDirectories; // id -> path of trash directory
+    mutable TrashDirMap m_topDirectories; // id -> $topdir of partition
     mutable int m_lastId;
     dev_t m_homeDevice;
+    mutable bool m_trashDirectoriesScanned;
 
     KSimpleConfig m_config;
 
