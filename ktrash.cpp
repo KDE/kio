@@ -27,8 +27,8 @@
 
 static KCmdLineOptions options[] =
 {
-    // This hack is for the servicemenu on trash.desktop which uses Exec=ktrash. %f is implied...
-    { "empty", I18N_NOOP( "Empty the contents of the trash" ), 0 },
+    // This hack is for the servicemenu on trash.desktop which uses Exec=ktrash -empty. %f is implied...
+    { "empty <ignored>", I18N_NOOP( "Empty the contents of the trash" ), 0 },
     { "restore <file>", I18N_NOOP( "Restore a trashed file to its original location" ), 0 },
     KCmdLineLastOption
 };
