@@ -25,6 +25,7 @@ class TestTrash
 public:
     TestTrash() {}
     void setup();
+    void cleanTrash();
     void runAll();
 
     void urlTestFile();

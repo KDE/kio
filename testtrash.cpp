@@ -86,15 +86,23 @@ void TestTrash::setup()
     ok = dir.mkdir( otherTmpDir() );
     if ( !ok )
         kdFatal() << "Couldn't create " << otherTmpDir() << endl;
+    cleanTrash();
+}
+
+void TestTrash::cleanTrash()
+{
     // Start with a relatively clean trash too
+    QDir dir;
     const QString trashDir = QDir::homeDirPath() + "/.Trash/";
     dir.remove( trashDir + "info/trashFileFromHome" );
     dir.remove( trashDir + "files/trashFileFromHome" );
     dir.remove( trashDir + "info/trashFileFromOther" );
     dir.remove( trashDir + "files/trashFileFromOther" );
-    dir.remove( trashDir + "files/trashDirFromHome/" );
+    dir.remove( trashDir + "info/trashDirFromHome" );
+    dir.remove( trashDir + "files/trashDirFromHome" );
     dir.remove( trashDir + "files/trashDirFromHome/testfile" );
-    dir.remove( trashDir + "files/trashDirFromOther/" );
+    dir.remove( trashDir + "info/trashDirFromOther" );
+    dir.remove( trashDir + "files/trashDirFromOther" );
     dir.remove( trashDir + "files/trashDirFromOther/testfile" );
 }
 
@@ -104,7 +112,7 @@ void TestTrash::runAll()
     urlTestDirectory();
     urlTestSubDirectory();
     trashFileFromHome();
-    /////////trashFileFromOther(); TODO
+    trashFileFromOther();
     tryRenameInsideTrash();
     trashDirectoryFromHome();
     trashDirectoryFromOther();
