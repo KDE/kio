@@ -44,7 +44,7 @@ extern "C" {
     {
        return new KPasswdServer(name);
     }
-};
+}
 
 int
 KPasswdServer::AuthInfoList::compareItems(QPtrCollection::Item n1, QPtrCollection::Item n2)
