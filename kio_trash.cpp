@@ -42,8 +42,8 @@
 static const KCmdLineOptions options[] =
 {
     { "+protocol", I18N_NOOP( "Protocol name" ), 0 },
-    { "+pool", I18N_NOOP( "Protocol name" ), 0 },
-    { "+app", I18N_NOOP( "Protocol name" ), 0 },
+    { "+pool", I18N_NOOP( "Socket name" ), 0 },
+    { "+app", I18N_NOOP( "Socket name" ), 0 },
     KCmdLineLastOption
 };
 
@@ -83,13 +83,49 @@ TrashProtocol::~TrashProtocol()
 {
 }
 
-static QString makeURL( int trashId, const QString& fileId )
+// Helper method. Creates a URL with the format trash:/trashid-fileid or
+// trash:/trashid-fileid/relativePath/To/File for a file inside a trashed directory.
+QString TrashProtocol::makeURL( int trashId, const QString& fileId, const QString& relativePath )
 {
     QString url = "trash:/";
     url += QString::number( trashId );
-    url += '/';
+    url += '-';
     url += fileId;
+    if ( !relativePath.isEmpty() ) {
+        url += '/';
+        url += relativePath;
+    }
     return url;
+}
+
+// Helper method. Parses a trash URL with the URL scheme defined in makeURL.
+// The trash:/ URL itself isn't parsed here, must be caught by the caller before hand.
+bool TrashProtocol::parseURL( const KURL& url, int& trashId, QString& fileId, QString& relativePath )
+{
+    if ( url.protocol() != "trash" )
+        return false;
+    const QString path = url.path();
+    int start = 0;
+    if ( path[0] == '/' ) // always true I hope
+        start = 1;
+    int slashPos = path.find( '-', 0 ); // don't match leading slash
+    if ( slashPos <= 0 )
+        return false;
+    bool ok = false;
+    trashId = path.mid( start, slashPos - start ).toInt( &ok );
+    Q_ASSERT( ok );
+    if ( !ok )
+        return false;
+    start = slashPos + 1;
+    slashPos = path.find( '/', start );
+    if ( slashPos <= 0 ) {
+        fileId = path.mid( start );
+        relativePath = QString::null;
+        return true;
+    }
+    fileId = path.mid( start, slashPos - start );
+    relativePath = path.mid( slashPos + 1 );
+    return true;
 }
 
 void TrashProtocol::rename(KURL const &oldURL, KURL const &newURL, bool overwrite)
@@ -111,6 +147,7 @@ void TrashProtocol::rename(KURL const &oldURL, KURL const &newURL, bool overwrit
         // Trashing a file
         if ( dir.length() <= 1 ) // new toplevel entry
         {
+            // ## we should use parseURL to give the right filename to createInfo
             int trashId;
             QString fileId;
             if ( !impl.createInfo( oldURL.path(), trashId, fileId ) ) {
@@ -260,7 +297,7 @@ void TrashProtocol::listRoot()
     totalSize( lst.count() );
     KIO::UDSEntry entry;
     for ( TrashedFileInfoList::ConstIterator it = lst.begin(); it != lst.end(); ++it ) {
-        QString url = makeURL( (*it).trashId, (*it).fileId );
+        QString url = makeURL( (*it).trashId, (*it).fileId, QString::null );
         KDE_struct_stat buff;
         if ( KDE_stat( QFile::encodeName( (*it).physicalPath ), &buff ) == -1 ) {
             kdWarning() << "couldn't stat " << (*it).physicalPath << endl;
@@ -290,7 +327,7 @@ void TrashProtocol::listRoot()
     finished();
 }
 
-void TrashProtocol::get( const KURL& url )
+void TrashProtocol::get( const KURL& )
 {
     INIT_IMPL;
 /*
