@@ -39,7 +39,7 @@ public:
     virtual void copy( const KURL &src, const KURL &dest, int permissions, bool overwrite );
     // TODO symlink( const QString& target, const KURL& dest, bool overwrite );
     // TODO chmod( const KURL& url, int permissions );
-    // TODO del( const KURL &url, bool isfile );
+    virtual void del( const KURL &url, bool isfile );
 
 private slots:
     void slotCopyResult( KIO::Job* job );

@@ -36,6 +36,9 @@ public:
     void tryRenameInsideTrash();
     void trashDirectoryFromHome();
     void trashDirectoryFromOther();
+    void delRootFile();
+    void delFileInDirectory();
+    void delDirectory();
 
     QString homeTmpDir() const;
     QString otherTmpDir() const;

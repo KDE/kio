@@ -20,6 +20,8 @@
 #ifndef TRASHIMPL_H
 #define TRASHIMPL_H
 
+#include <kio/jobclasses.h>
+
 #include <qstring.h>
 #include <qdatetime.h>
 #include <qmap.h>
@@ -30,8 +32,9 @@
  * Implementation of all low-level operations done by kio_trash
  * The structure of the trash directory follows the freedesktop.org standard <TODO URL>
  */
-class TrashImpl
+class TrashImpl : public QObject
 {
+    Q_OBJECT
 public:
     TrashImpl();
 
@@ -99,6 +102,9 @@ private:
         return m_trashDirectories[trashId];
     }
 
+private slots:
+    void delJobFinished(KIO::Job *job);
+    
 private:
     /// Last error code stored in class to simplify API.
     /// Note that this means almost no method can be const.

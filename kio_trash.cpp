@@ -306,6 +306,32 @@ void TrashProtocol::stat(const KURL& url)
     }
 }
 
+void TrashProtocol::del( const KURL &url, bool /*isfile*/ )
+{
+    int trashId;
+    QString fileId, relativePath;
+
+    bool ok = parseURL(url, trashId, fileId, relativePath);
+    if ( !ok ) {
+        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.prettyURL() ) );
+        return;
+    }
+    
+    ok = relativePath.isEmpty();
+    if ( !ok ) {
+        error( KIO::ERR_ACCESS_DENIED, url.prettyURL() );
+	return;
+    }
+    
+    ok = impl.del(trashId, fileId);
+    if ( !ok ) {
+        error( impl.lastErrorCode(), impl.lastErrorMessage() );
+        return;
+    }
+
+    finished();  
+}
+
 void TrashProtocol::listDir(const KURL& url)
 {
     INIT_IMPL;

@@ -116,6 +116,9 @@ void TestTrash::runAll()
     tryRenameInsideTrash();
     trashDirectoryFromHome();
     trashDirectoryFromOther();
+    delRootFile();
+    delFileInDirectory();
+    delDirectory();
 }
 
 void TestTrash::urlTestFile()
@@ -265,3 +268,47 @@ void TestTrash::trashDirectoryFromOther()
 {
 
 }
+
+void TestTrash::delRootFile()
+{
+    kdDebug() << k_funcinfo << endl;
+
+    // test
+    KIO::NetAccess::del( "trash:/0-trashFileFromHome", 0L );
+
+    QFileInfo file( QDir::homeDirPath() + "/.Trash/files/trashFileFromHome" );
+    assert( !file.exists() );
+    QFileInfo info( QDir::homeDirPath() + "/.Trash/info/trashFileFromHome" );
+    assert( !info.exists() );
+}
+
+void TestTrash::delFileInDirectory()
+{
+    kdDebug() << k_funcinfo << endl;
+
+    // test
+    KIO::NetAccess::del( "trash:/0-trashDirFromHome/testfile", 0L );
+
+    QFileInfo dir( QDir::homeDirPath() + "/.Trash/files/trashDirFromHome" );
+    assert( dir.exists() );
+    QFileInfo file( QDir::homeDirPath() + "/.Trash/files/trashDirFromHome/testfile" );
+    assert( file.exists() );
+    QFileInfo info( QDir::homeDirPath() + "/.Trash/info/trashDirFromHome" );
+    assert( info.exists() );
+}
+
+void TestTrash::delDirectory()
+{
+    kdDebug() << k_funcinfo << endl;
+
+    // test
+    KIO::NetAccess::del( "trash:/0-trashDirFromHome", 0L );
+
+    QFileInfo dir( QDir::homeDirPath() + "/.Trash/files/trashDirFromHome" );
+    assert( !dir.exists() );
+    QFileInfo file( QDir::homeDirPath() + "/.Trash/files/trashDirFromHome/testfile" );
+    assert( !file.exists() );
+    QFileInfo info( QDir::homeDirPath() + "/.Trash/info/trashDirFromHome" );
+    assert( !info.exists() );
+}
+   

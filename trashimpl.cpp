@@ -22,8 +22,12 @@
 #include <klargefile.h>
 #include <kio/global.h>
 #include <kio/renamedlg.h>
+#include <kio/job.h>
 #include <kdebug.h>
+#include <kurl.h>
 
+#include <qapplication.h>
+#include <qeventloop.h>
 #include <qfile.h>
 #include <qdir.h>
 
@@ -37,6 +41,7 @@
 #include <errno.h>
 
 TrashImpl::TrashImpl() :
+    QObject(),
     m_lastErrorCode( 0 ),
     m_initStatus( InitToBeDone ),
     m_lastId( 0 )
@@ -232,16 +237,21 @@ bool TrashImpl::tryRename( const QString& src, const QString& dest )
     return true;
 }
 
+void TrashImpl::delJobFinished(KIO::Job *job)
+{
+    error( job->error(), job->errorText() );
+    qApp->eventLoop()->exitLoop();
+}
+
 bool TrashImpl::del( int trashId, const QString& fileId )
 {
     QString info = infoPath(trashId, fileId);
     QString file = filesPath(trashId, fileId);
 
-    QCString file_c = QFile::encodeName(file);
     QCString info_c = QFile::encodeName(info);
     
     KDE_struct_stat buff;
-    if ( KDE_stat( file_c.data(), &buff ) == -1 ) {
+    if ( KDE_stat( info_c.data(), &buff ) == -1 ) {
         if ( errno == EACCES )
             error( KIO::ERR_ACCESS_DENIED, file );
         else
@@ -249,20 +259,14 @@ bool TrashImpl::del( int trashId, const QString& fileId )
         return false;
     }
 
-    if ( S_ISDIR(buff.st_mode) && !S_ISLNK(buff.st_mode) ) {
-        // TODO
-    } else {
-        bool result;
-	result = ( ::unlink(file_c)==0 );
-	result &= ( ::unlink(info_c)==0 );
-
-        if (result==false)
-            error( KIO::ERR_ACCESS_DENIED, file );
-	
-        return result;
-    }
+    ::unlink(info_c)==0;
     
-    return false;
+    KIO::DeleteJob *job = KIO::del( KURL(file), false, false);
+    connect( job, SIGNAL( result(KIO::Job *) ),
+             this, SLOT( delJobFinished(KIO::Job *) ) );
+    qApp->eventLoop()->enterLoop();
+    
+    return m_lastErrorCode==0;
 }
 
 bool TrashImpl::restore( int trashId, const QString& fileId )
@@ -367,3 +371,5 @@ void TrashImpl::error( int e, const QString& s )
     m_lastErrorCode = e;
     m_lastErrorMessage = s;
 }
+
+#include "trashimpl.moc"
