@@ -57,6 +57,12 @@ public:
     /// Moving a file or directory out of the trash. The ids come from createInfo.
     bool moveFromTrash( const QString& origPath, int trashId, const QString& fileId );
 
+    /// Copying a file or directory into the trash. The ids come from createInfo.
+    bool copyToTrash( const QString& origPath, int trashId, const QString& fileId );
+
+    /// Copying a file or directory out of the trash. The ids come from createInfo.
+    bool copyFromTrash( const QString& origPath, int trashId, const QString& fileId );
+
     /// Create a top-level trashed directory
     //bool mkdir( int trashId, const QString& fileId, int permissions );
 
@@ -94,6 +100,7 @@ public:
 private:
     /// Helper method. Moves a file or directory using the appropriate method.
     bool move( const QString& src, const QString& dest );
+    bool copy( const QString& src, const QString& dest );
     /// Helper method. Tries to call ::rename(src,dest) and does error handling.
     bool directRename( const QString& src, const QString& dest );
 
@@ -111,8 +118,7 @@ private:
     }
 
 private slots:
-    void delJobFinished(KIO::Job *job);
-    void moveJobFinished(KIO::Job *job);
+    void jobFinished(KIO::Job *job);
 
 private:
     /// Last error code stored in class to simplify API.

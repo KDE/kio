@@ -238,16 +238,43 @@ bool TrashImpl::move( const QString& src, const QString& dest )
     kdDebug() << k_funcinfo << urlSrc << " -> " << urlDest << endl;
     KIO::CopyJob* job = KIO::move( urlSrc, urlDest, false );
     connect( job, SIGNAL( result(KIO::Job *) ),
-             this, SLOT( moveJobFinished(KIO::Job *) ) );
+             this, SLOT( jobFinished(KIO::Job *) ) );
     qApp->eventLoop()->enterLoop();
 
     return m_lastErrorCode == 0;
 }
 
-void TrashImpl::moveJobFinished(KIO::Job* job)
+void TrashImpl::jobFinished(KIO::Job* job)
 {
     error( job->error(), job->errorText() );
     qApp->eventLoop()->exitLoop();
+}
+
+bool TrashImpl::copyToTrash( const QString& origPath, int trashId, const QString& fileId )
+{
+    kdDebug() << k_funcinfo << endl;
+    const QString dest = filesPath( trashId, fileId );
+    return copy( origPath, dest );
+}
+
+bool TrashImpl::copyFromTrash( const QString& dest, int trashId, const QString& fileId )
+{
+    const QString src = filesPath( trashId, fileId );
+    return copy( src, dest );
+}
+
+bool TrashImpl::copy( const QString& src, const QString& dest )
+{
+    // kio_file's copy() method is quite complex (in order to be fast), let's just call it...
+    KURL urlSrc;
+    urlSrc.setPath( src );
+    kdDebug() << k_funcinfo << "copying " << src << " to " << dest << endl;
+    KIO::Job* job = KIO::file_copy( src, dest, -1 /*permissions*/, true /*overwrite*/, false, false );
+    connect( job, SIGNAL( result( KIO::Job* ) ),
+             this, SLOT( jobFinished( KIO::Job* ) ) );
+    qApp->eventLoop()->enterLoop();
+
+    return m_lastErrorCode == 0;
 }
 
 bool TrashImpl::directRename( const QString& src, const QString& dest )
@@ -293,12 +320,6 @@ bool TrashImpl::mkdir( int trashId, const QString& fileId, int permissions )
 }
 #endif
 
-void TrashImpl::delJobFinished(KIO::Job *job)
-{
-    error( job->error(), job->errorText() );
-    qApp->eventLoop()->exitLoop();
-}
-
 bool TrashImpl::del( int trashId, const QString& fileId )
 {
     QString info = infoPath(trashId, fileId);
@@ -321,7 +342,7 @@ bool TrashImpl::del( int trashId, const QString& fileId )
     url.setPath( file );
     KIO::DeleteJob *job = KIO::del( url, false, false);
     connect( job, SIGNAL( result(KIO::Job *) ),
-             this, SLOT( delJobFinished(KIO::Job *) ) );
+             this, SLOT( jobFinished(KIO::Job *) ) );
     qApp->eventLoop()->enterLoop();
 
     return m_lastErrorCode == 0;

@@ -24,9 +24,8 @@
 #include "trashimpl.h"
 namespace KIO { class Job; }
 
-class TrashProtocol : public QObject, public KIO::SlaveBase
+class TrashProtocol : public KIO::SlaveBase
 {
-    Q_OBJECT
 public:
     TrashProtocol( const QCString& protocol, const QCString &pool, const QCString &app);
     virtual ~TrashProtocol();
@@ -35,13 +34,12 @@ public:
     virtual void put( const KURL& url, int , bool overwrite, bool );
     virtual void rename( const KURL &, const KURL &, bool );
     virtual void copy( const KURL &src, const KURL &dest, int permissions, bool overwrite );
-    // TODO chmod( const KURL& url, int permissions );
+    // TODO (maybe) chmod( const KURL& url, int permissions );
     virtual void del( const KURL &url, bool isfile );
 
-private slots:
-    void slotCopyResult( KIO::Job* job );
-
 private:
+    typedef enum CopyOrMove { Copy, Move };
+    void copyOrMove( const KURL& src, const KURL& dest, bool overwrite, CopyOrMove action );
     void createTopLevelDirEntry(KIO::UDSEntry& entry, const QString& name, const QString& url);
     bool createUDSEntry( const QString& physicalPath, const QString& fileName, const QString& url, KIO::UDSEntry& entry );
     void listRoot();
@@ -52,10 +50,6 @@ private:
     TrashImpl impl;
     QString m_userName;
     QString m_groupName;
-
-    // During a copy
-    int m_curTrashId;
-    QString m_curFileId;
 };
 
 #endif

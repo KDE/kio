@@ -58,7 +58,7 @@ public:
     void moveSymlinkFromTrash();
 
 private:
-    void trashFile( const QString& origFilePath, const QString& fileName );
+    void trashFile( const QString& origFilePath, const QString& fileId );
     void trashSymlink( const QString& origFilePath, const QString& fileName );
     void trashDirectory( const QString& origPath, const QString& fileName );
     void moveFromTrash( const QString& fileId, const QString& destPath );
