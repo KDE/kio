@@ -27,6 +27,7 @@ ExtraNames[bg]=Местоположение,Дата на изтриване
 ExtraNames[bn]=পূর্বতন পাথ, মোছার তারিখ
 ExtraNames[ca]=Camí original,Data d'esborrat
 ExtraNames[da]=Original sti, sletningsdato
+ExtraNames[de]=Ursprünglicher Pfad, Löschzeitpunkt
 ExtraNames[es]=Ruta original,Fecha de borrado
 ExtraNames[et]=Algne asukoht,Kustutamisaeg
 ExtraNames[fi]=Alkuperäinen polku, poistopäivä
