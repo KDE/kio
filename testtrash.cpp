@@ -176,6 +176,7 @@ void TestTrash::runAll()
     delFileInDirectory();
     delDirectory();
 
+    getFile();
     restoreFile();
 
     // Not possible to test here:
@@ -614,6 +615,25 @@ void TestTrash::moveSymlinkFromTrash()
     const QString destPath = otherTmpDir() + "symlinkFromOther_restored";
     moveFromTrash( "symlinkFromOther", destPath );
     assert( QFileInfo( destPath ).isSymLink() );
+}
+
+void TestTrash::getFile()
+{
+    kdDebug() << k_funcinfo << endl;
+    const QString fileId = "fileFromHome_1";
+    const KURL url = TrashProtocol::makeURL( 0, fileId, QString::null );
+    QString tmpFile;
+    bool ok = KIO::NetAccess::download( url, tmpFile, 0 );
+    assert( ok );
+    QFile file( tmpFile );
+    ok = file.open( IO_ReadOnly );
+    assert( ok );
+    QByteArray str = file.readAll();
+    QCString cstr( str.data(), str.size() + 1 );
+    if ( cstr != "Hello world\n" )
+        kdFatal() << "get() returned the following data:" << cstr << endl;
+    file.close();
+    KIO::NetAccess::removeTempFile( tmpFile );
 }
 
 void TestTrash::restoreFile()

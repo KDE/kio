@@ -69,6 +69,7 @@ public:
     void delFileInDirectory();
     void delDirectory();
 
+    void getFile();
     void restoreFile();
 
 private slots:

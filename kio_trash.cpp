@@ -38,6 +38,8 @@
 #include <stdlib.h>
 #include <kcmdlineargs.h>
 #include <qfile.h>
+#include <kmimetype.h>
+#include <qeventloop.h>
 
 static const KCmdLineOptions options[] =
 {
@@ -507,6 +509,64 @@ void TrashProtocol::put( const KURL& url, int /*permissions*/, bool /*overwrite*
     error( KIO::ERR_ACCESS_DENIED, url.prettyURL() );
 }
 
+void TrashProtocol::get( const KURL& url )
+{
+    INIT_IMPL;
+    kdDebug() << "get: " << url << endl;
+    if ( url.path().length() <= 1 ) {
+        error( KIO::ERR_IS_DIRECTORY, url.prettyURL() );
+        return;
+    }
+    int trashId;
+    QString fileId;
+    QString relativePath;
+    bool ok = parseURL( url, trashId, fileId, relativePath );
+    if ( !ok ) {
+        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.prettyURL() ) );
+        return;
+    }
+    // Get info for fileId
+    TrashedFileInfo info;
+    ok = impl.infoForFile( trashId, fileId, info );
+    if ( !ok ) {
+        error( impl.lastErrorCode(), impl.lastErrorMessage() );
+        return;
+    }
+    QString physicalPath = info.physicalPath;
+    if ( !relativePath.isEmpty() ) {
+        physicalPath += "/";
+        physicalPath += relativePath;
+    }
+
+    KMimeType::Ptr mt = KMimeType::findByPath( physicalPath, 0, true /* local URL */ );
+    emit mimeType( mt->name() );
+
+    // Usually we run jobs in TrashImpl (for e.g. future kdedmodule)
+    // But for this one we wouldn't use DCOP for every bit of data...
+    KURL fileURL;
+    fileURL.setPath( physicalPath );
+    KIO::Job* job = KIO::get( fileURL );
+    connect( job, SIGNAL( data( KIO::Job*, const QByteArray& ) ),
+             this, SLOT( slotData( KIO::Job*, const QByteArray& ) ) );
+    connect( job, SIGNAL( result(KIO::Job *) ),
+             this, SLOT( jobFinished(KIO::Job *) ) );
+    qApp->eventLoop()->enterLoop();
+}
+
+void TrashProtocol::slotData( KIO::Job*, const QByteArray&arr )
+{
+    data( arr );
+}
+
+void TrashProtocol::jobFinished( KIO::Job* job )
+{
+    if ( job->error() )
+        error( job->error(), job->errorText() );
+    else
+        finished();
+    qApp->eventLoop()->exitLoop();
+}
+
 #if 0
 void TrashProtocol::mkdir( const KURL& url, int /*permissions*/ )
 {
@@ -537,3 +597,5 @@ void TrashProtocol::mkdir( const KURL& url, int /*permissions*/ )
     }
 }
 #endif
+
+#include "kio_trash.moc"

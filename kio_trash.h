@@ -24,13 +24,15 @@
 #include "trashimpl.h"
 namespace KIO { class Job; }
 
-class TrashProtocol : public KIO::SlaveBase
+class TrashProtocol : public QObject, public KIO::SlaveBase
 {
+    Q_OBJECT
 public:
     TrashProtocol( const QCString& protocol, const QCString &pool, const QCString &app);
     virtual ~TrashProtocol();
     virtual void stat(const KURL& url);
     virtual void listDir(const KURL& url);
+    virtual void get( const KURL& url );
     virtual void put( const KURL& url, int , bool overwrite, bool );
     virtual void rename( const KURL &, const KURL &, bool );
     virtual void copy( const KURL &src, const KURL &dest, int permissions, bool overwrite );
@@ -43,6 +45,10 @@ public:
      * 3 : restore a file to its original location. Args: KURL trashURL.
      */
     virtual void special( const QByteArray & data );
+
+private slots:
+    void slotData( KIO::Job*, const QByteArray& );
+    void jobFinished( KIO::Job* job );
 
 private:
     typedef enum CopyOrMove { Copy, Move };
