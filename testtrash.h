@@ -47,6 +47,7 @@ public:
     void trashBrokenSymlinkFromHome();
     void trashDirectoryFromHome();
     void trashDirectoryFromOther();
+    void trashDirectoryOwnedByRoot();
 
     void tryRenameInsideTrash();
 

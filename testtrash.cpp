@@ -139,6 +139,10 @@ void TestTrash::cleanTrash()
     removeFile( m_trashDir, "/info/trashDirFromOther.trashinfo" );
     removeFile( m_trashDir, "/files/trashDirFromOther/testfile" );
     removeDir( m_trashDir, "/files/trashDirFromOther" );
+    // for trashDirectoryOwnedByRoot
+    KIO::NetAccess::del( m_trashDir + "/files/cups", 0 );
+    KIO::NetAccess::del( m_trashDir + "/files/boot", 0 );
+    KIO::NetAccess::del( m_trashDir + "/files/etc", 0 );
 
     //system( "find ~/.local-testtrash/share/Trash" );
 }
@@ -158,6 +162,7 @@ void TestTrash::runAll()
     trashBrokenSymlinkFromHome();
     trashDirectoryFromHome();
     trashDirectoryFromOther();
+    trashDirectoryOwnedByRoot();
 
     tryRenameInsideTrash();
 
@@ -347,6 +352,7 @@ void TestTrash::trashFileOwnedByRoot()
     //bool ok = KIO::NetAccess::move( u, "trash:/" );
     bool ok = KIO::NetAccess::synchronousRun( job, 0, 0, 0, &metaData );
     assert( !ok );
+    assert( KIO::NetAccess::lastError() == KIO::ERR_ACCESS_DENIED );
     const QString infoPath( m_trashDir + "/info/" + fileId + ".trashinfo" );
     assert( !QFile::exists( infoPath ) );
 
@@ -440,10 +446,15 @@ void TestTrash::trashDirectoryFromOther()
 
 void TestTrash::tryRenameInsideTrash()
 {
-    kdDebug() << k_funcinfo << endl;
-    // Can't use NetAccess::move(), it brings up SkipDlg.
+    kdDebug() << k_funcinfo << " with file_move" << endl;
     bool worked = KIO::NetAccess::file_move( "trash:/0-tryRenameInsideTrash", "trash:/foobar" );
     assert( !worked );
+    assert( KIO::NetAccess::lastError() == KIO::ERR_CANNOT_RENAME );
+
+    kdDebug() << k_funcinfo << " with move" << endl;
+    worked = KIO::NetAccess::move( "trash:/0-tryRenameInsideTrash", "trash:/foobar" );
+    assert( !worked );
+    assert( KIO::NetAccess::lastError() == KIO::ERR_CANNOT_RENAME );
 }
 
 void TestTrash::delRootFile()
@@ -451,7 +462,8 @@ void TestTrash::delRootFile()
     kdDebug() << k_funcinfo << endl;
 
     // test deleting a trashed file
-    KIO::NetAccess::del( "trash:/0-fileFromHome", 0L );
+    bool ok = KIO::NetAccess::del( "trash:/0-fileFromHome", 0L );
+    assert( ok );
 
     QFileInfo file( m_trashDir + "/files/fileFromHome" );
     assert( !file.exists() );
@@ -464,7 +476,9 @@ void TestTrash::delFileInDirectory()
     kdDebug() << k_funcinfo << endl;
 
     // test deleting a file inside a trashed directory -> not allowed
-    KIO::NetAccess::del( "trash:/0-trashDirFromHome/testfile", 0L );
+    bool ok = KIO::NetAccess::del( "trash:/0-trashDirFromHome/testfile", 0L );
+    assert( !ok );
+    assert( KIO::NetAccess::lastError() == KIO::ERR_ACCESS_DENIED );
 
     QFileInfo dir( m_trashDir + "/files/trashDirFromHome" );
     assert( dir.exists() );
@@ -479,7 +493,8 @@ void TestTrash::delDirectory()
     kdDebug() << k_funcinfo << endl;
 
     // test deleting a trashed directory
-    KIO::NetAccess::del( "trash:/0-trashDirFromHome", 0L );
+    bool ok = KIO::NetAccess::del( "trash:/0-trashDirFromHome", 0L );
+    assert( ok );
 
     QFileInfo dir( m_trashDir + "/files/trashDirFromHome" );
     assert( !dir.exists() );
@@ -676,6 +691,36 @@ void TestTrash::moveDirectoryFromTrash()
     const QString destPath = otherTmpDir() + "trashDirFromOther_restored";
     moveFromTrash( "trashDirFromOther", destPath );
     assert( QFileInfo( destPath ).isDir() );
+}
+
+void TestTrash::trashDirectoryOwnedByRoot()
+{
+    KURL u;
+    if ( QFile::exists( "/etc/cups" ) )
+        u.setPath( "/etc/cups" );
+    else if ( QFile::exists( "/boot" ) )
+        u.setPath( "/boot" );
+    else
+        u.setPath( "/etc" );
+    const QString fileId = u.path();
+    kdDebug() << k_funcinfo << "fileId=" << fileId << endl;
+
+    KIO::CopyJob* job = KIO::move( u, "trash:/" );
+    job->setInteractive( false ); // no skip dialog, thanks
+    QMap<QString, QString> metaData;
+    bool ok = KIO::NetAccess::synchronousRun( job, 0, 0, 0, &metaData );
+    assert( !ok );
+    const int err = KIO::NetAccess::lastError();
+    assert( err == KIO::ERR_ACCESS_DENIED
+            || err == KIO::ERR_CANNOT_OPEN_FOR_READING );
+
+    const QString infoPath( m_trashDir + "/info/" + fileId + ".trashinfo" );
+    assert( !QFile::exists( infoPath ) );
+
+    QFileInfo files( m_trashDir + "/files/" + fileId );
+    assert( !files.exists() );
+
+    assert( QFile::exists( u.path() ) );
 }
 
 void TestTrash::moveSymlinkFromTrash()
