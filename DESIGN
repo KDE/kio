@@ -9,7 +9,7 @@ with use cases where the race conditions would matter though.
 
 BUGS
 ====
-* Undo doesn't work
+* Undo of "restore" isn't available. Need to get origPath by metadata I guess.
 
 TODO
 ====
