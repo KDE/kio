@@ -32,6 +32,7 @@
 
 #include <qdir.h>
 #include <qfileinfo.h>
+#include <qvaluevector.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -120,10 +121,11 @@ void TestTrash::setup()
 
     TrashImpl::TrashDirMap trashDirs = impl.trashDirectories();
     TrashImpl::TrashDirMap topDirs = impl.topDirectories();
-    TrashImpl::TrashDirMap::ConstIterator it = trashDirs.begin();
     bool foundTrashDir = false;
     m_otherPartitionId = 0;
-    for ( ; it != trashDirs.end() ; ++it ) {
+    m_tmpIsWritablePartition = false;
+    QValueVector<int> writableTopDirs;
+    for ( TrashImpl::TrashDirMap::ConstIterator it = trashDirs.begin(); it != trashDirs.end() ; ++it ) {
         if ( it.key() == 0 ) {
             assert( it.data() == m_trashDir );
             assert( topDirs.find( 0 ) == topDirs.end() );
@@ -132,13 +134,28 @@ void TestTrash::setup()
             assert( topDirs.find( it.key() ) != topDirs.end() );
             const QString topdir = topDirs[it.key()];
             if ( QFileInfo( topdir ).isWritable() ) {
-                m_otherPartitionTopDir = topdir;
-                m_otherPartitionTrashDir = it.data();
-                m_otherPartitionId = it.key();
-                kdDebug() << "OK, found another writable partition: topDir=" << m_otherPartitionTopDir
-                          << " trashDir=" << it.data() << " id=" << m_otherPartitionId << endl;
-                break;
+                writableTopDirs.append( it.key() );
+                if ( topdir == "/tmp/" ) {
+                    m_tmpIsWritablePartition = true;
+                    kdDebug() << "/tmp is on its own partition, some tests will be skipped" << endl;
+                }
             }
+        }
+    }
+    for ( QValueVector<int>::const_iterator it = writableTopDirs.begin(); it != writableTopDirs.end(); ++it ) {
+        const QString topdir = topDirs[ *it ];
+        const QString trashdir = trashDirs[ *it ];
+        assert( !topdir.isEmpty() );
+        assert( !trashDirs.isEmpty() );
+        if ( topdir != "/tmp/" ||         // we'd prefer not to use /tmp here, to separate the tests
+               ( writableTopDirs.count() > 1 ) ) // but well, if we have no choice, take it
+        {
+            m_otherPartitionTopDir = topdir;
+            m_otherPartitionTrashDir = trashdir;
+            m_otherPartitionId = *it;
+            kdDebug() << "OK, found another writable partition: topDir=" << m_otherPartitionTopDir
+                      << " trashDir=" << m_otherPartitionTrashDir << " id=" << m_otherPartitionId << endl;
+            break;
         }
     }
     // Check that m_trashDir got listed
@@ -324,8 +341,8 @@ static void checkInfoFile( const QString& infoPath, const QString& origFilePath 
 {
     kdDebug() << k_funcinfo << infoPath << endl;
     QFileInfo info( infoPath );
-    assert( info.isFile() );
     assert( info.exists() );
+    assert( info.isFile() );
     KSimpleConfig infoFile( info.absFilePath(), true );
     if ( !infoFile.hasGroup( "Trash Info" ) )
         kdFatal() << "no Trash Info group in " << info.absFilePath() << endl;
@@ -364,11 +381,15 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
     if ( !ok )
         kdError() << "moving " << u << " to trash failed with error " << KIO::NetAccess::lastError() << " " << KIO::NetAccess::lastErrorString() << endl;
     assert( ok );
-    checkInfoFile( m_trashDir + "/info/" + fileId + ".trashinfo", origFilePath );
+    if ( origFilePath.startsWith( "/tmp" ) && m_tmpIsWritablePartition ) {
+        kdDebug() << " TESTS SKIPPED" << endl;
+    } else {
+        checkInfoFile( m_trashDir + "/info/" + fileId + ".trashinfo", origFilePath );
 
-    QFileInfo files( m_trashDir + "/files/" + fileId );
-    assert( files.isFile() );
-    assert( files.size() == 12 );
+        QFileInfo files( m_trashDir + "/files/" + fileId );
+        assert( files.isFile() );
+        assert( files.size() == 12 );
+    }
 
     // coolo suggests testing that the original file is actually gone, too :)
     assert( !QFile::exists( origFilePath ) );
@@ -524,6 +545,10 @@ void TestTrash::trashSymlink( const QString& origFilePath, const QString& fileId
     // test
     ok = KIO::NetAccess::move( u, "trash:/" );
     assert( ok );
+    if ( origFilePath.startsWith( "/tmp" ) && m_tmpIsWritablePartition ) {
+        kdDebug() << " TESTS SKIPPED" << endl;
+        return;
+    }
     checkInfoFile( m_trashDir + "/info/" + fileId + ".trashinfo", origFilePath );
 
     QFileInfo files( m_trashDir + "/files/" + fileId );
@@ -566,6 +591,10 @@ void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )
     // test
     ok = KIO::NetAccess::move( u, "trash:/" );
     assert( ok );
+    if ( origPath.startsWith( "/tmp" ) && m_tmpIsWritablePartition ) {
+        kdDebug() << " TESTS SKIPPED" << endl;
+        return;
+    }
     checkInfoFile( m_trashDir + "/info/" + fileId + ".trashinfo", origPath );
 
     QFileInfo filesDir( m_trashDir + "/files/" + fileId );
