@@ -220,7 +220,9 @@ void TrashProtocol::copyOrMove( const KURL &src, const KURL &dest, bool overwrit
     } else if ( src.isLocalFile() && dest.protocol() == "trash" ) {
         QString dir = dest.directory();
         // Trashing a file
-        if ( dir.length() <= 1 ) // new toplevel entry
+        // We detect the case where this isn't normal trashing, but
+        // e.g. if kwrite tries to save (moving tempfile over destination)
+        if ( dir.length() <= 1 && src.fileName() == dest.fileName() ) // new toplevel entry
         {
             const QString srcPath = src.path();
             // In theory we should use parseURL to give the right filename to createInfo,
