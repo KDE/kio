@@ -306,9 +306,13 @@ bool TrashImpl::readInfoFile( const QString& infoPath, TrashedFileInfo& info )
     if ( len <= 0 )
         return false; // ## which error code to set?
     // First line is the original path
+    line[ len - 1 ] = '\0'; // erase the \n
     info.origPath = QFile::decodeName( line );
     len = file.readLine( line, MAXPATHLEN );
-    info.deletionDate = QDateTime::fromString( QString::fromLatin1( line ), Qt::ISODate );
+    if ( len > 0 ) {
+        line[ len - 1 ] = '\0'; // erase the \n
+        info.deletionDate = QDateTime::fromString( QString::fromLatin1( line ), Qt::ISODate );
+    }
     return true;
 }
 

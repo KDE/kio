@@ -22,9 +22,11 @@
 
 #include <kio/slavebase.h>
 #include "trashimpl.h"
+namespace KIO { class Job; }
 
-class TrashProtocol : public KIO::SlaveBase
+class TrashProtocol : public QObject, public KIO::SlaveBase
 {
+    Q_OBJECT
 public:
     TrashProtocol( const QCString& protocol, const QCString &pool, const QCString &app);
     virtual ~TrashProtocol();
@@ -39,6 +41,9 @@ public:
     // TODO chmod( const KURL& url, int permissions );
     // TODO del( const KURL &url, bool isfile );
 
+private slots:
+    void slotCopyResult( KIO::Job* job );
+
 private:
     void createTopLevelDirEntry(KIO::UDSEntry& entry, const QString& name, const QString& url);
     void listRoot();
@@ -46,6 +51,10 @@ private:
     TrashImpl impl;
     QString m_userName;
     QString m_groupName;
+
+    // During a copy
+    int m_curTrashId;
+    QString m_curFileId;
 };
 
 #endif

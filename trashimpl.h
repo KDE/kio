@@ -77,15 +77,15 @@ public:
     int lastErrorCode() const { return m_lastErrorCode; }
     QString lastErrorMessage() const { return m_lastErrorMessage; }
 
+    QString infoPath( int trashId, const QString& fileId ) const;
+    QString filesPath( int trashId, const QString& fileId ) const;
+
 private:
     /// Helper method. Tries to call ::rename(src,dest) and does error handling.
     bool tryRename( const QString& src, const QString& dest );
 
     bool testDir( const QString& name );
     void error( int e, const QString& s );
-
-    QString infoPath( int trashId, const QString& fileId ) const;
-    QString filesPath( int trashId, const QString& fileId ) const;
 
     bool readInfoFile( const QString& infoPath, TrashedFileInfo& info );
 

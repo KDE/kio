@@ -18,6 +18,7 @@
 */
 
 #include "kio_trash.h"
+#include <kio/job.h>
 
 #include <kapplication.h>
 #include <kdebug.h>
@@ -134,6 +135,9 @@ void TrashProtocol::rename(KURL const &oldURL, KURL const &newURL, bool overwrit
 void TrashProtocol::copy( const KURL &src, const KURL &dest, int permissions, bool overwrite )
 {
     INIT_IMPL;
+
+    kdDebug()<<"TrashProtocol::copy(): " << src << " " << dest << endl;
+
     if ( src.protocol() == "trash" && dest.protocol() == "trash" ) {
         error( KIO::ERR_UNSUPPORTED_ACTION, i18n( "This file is already in the trash bin." ) );
         return;
@@ -153,11 +157,32 @@ void TrashProtocol::copy( const KURL &src, const KURL &dest, int permissions, bo
             if ( !impl.createInfo( src.path(), trashId, fileId ) ) {
                 error( impl.lastErrorCode(), impl.lastErrorMessage() );
             } else {
-
+                // kio_file's copy() method is quite complex (in order to be fast), let's just call it...
+                KURL filesPath;
+                filesPath.setPath( impl.filesPath( trashId, fileId ) );
+                kdDebug() << k_funcinfo << "copying " << src << " to " << filesPath << endl;
+                KIO::Job* job = KIO::file_copy( src, filesPath, permissions, overwrite, false, false );
+                connect( job, SIGNAL( result( KIO::Job* ) ), SLOT( slotCopyResult( KIO::Job* ) ) );
+                m_curTrashId = trashId;
+                m_curFileId = fileId;
+                qApp->enter_loop();
             }
         }
+        return;
     }
-    error( KIO::ERR_UNSUPPORTED_ACTION, "rename" );
+    error( KIO::ERR_UNSUPPORTED_ACTION, "copy" );
+}
+
+void TrashProtocol::slotCopyResult( KIO::Job* job )
+{
+    kdDebug() << k_funcinfo << endl;
+    if ( job->error() ) {
+        (void)impl.deleteInfo( m_curTrashId, m_curFileId );
+        error( job->error(), job->errorText() );
+    } else {
+        finished();
+    }
+    qApp->exit_loop();
 }
 
 static void addAtom(KIO::UDSEntry& entry, unsigned int ID, long l, const QString& s = QString::null)
@@ -247,7 +272,9 @@ void TrashProtocol::listRoot()
         mode_t access = buff.st_mode & 07777; // extract permissions
         access &= 07555; // make it readonly, since it's in the trashcan
         entry.clear();
-        addAtom( entry, KIO::UDS_NAME, 0, (*it).fileId );
+        KURL origURL;
+        origURL.setPath( (*it).origPath );
+        addAtom( entry, KIO::UDS_NAME, 0, origURL.fileName() );
         addAtom( entry, KIO::UDS_FILE_TYPE, type );
         addAtom( entry, KIO::UDS_URL, 0, url );
         addAtom( entry, KIO::UDS_ACCESS, access );
@@ -272,3 +299,5 @@ void TrashProtocol::get( const KURL& url )
   finished();
 */
 }
+
+#include "kio_trash.moc"
