@@ -104,6 +104,9 @@ public:
 
     QStrList listDir( const QString& physicalPath );
 
+    static QString makeURL( int trashId, const QString& fileId, const QString& relativePath );
+    static bool parseURL( const KURL& url, int& trashId, QString& fileId, QString& relativePath );
+
 private:
     /// Helper method. Moves a file or directory using the appropriate method.
     bool move( const QString& src, const QString& dest );

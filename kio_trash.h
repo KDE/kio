@@ -59,10 +59,6 @@ private:
     void listRoot();
     void restore( const KURL& trashURL );
 
-    static QString makeURL( int trashId, const QString& fileId, const QString& relativePath );
-    static bool parseURL( const KURL& url, int& trashId, QString& fileId, QString& relativePath );
-    friend class TestTrash;
-
     TrashImpl impl;
     QString m_userName;
     QString m_groupName;

@@ -9,15 +9,11 @@ with use cases where the race conditions would matter though.
 
 TODO
 ====
-* Show original path and date of deletion. In properties dialog? In tooltip? In listview column?
-
 * Detect removeable media to avoid .Trash-foo on it. How?
 
 * Trashcan properties (properties for trash:/? hmm. Easier with separate dialog)
-     -  Maximum size for trash can (18109 suggest a %, but a MB size is easier).
-
-* Option to delete old files from the trash automatically. #79553
-  Combine with the code that auto-deletes the oldest file when trashcan is too full
+     -  Maximum size for trash can (#18109 suggests a %, but a MB size is easier).
+     This means to delete the oldest files from the trash automatically. #79553
 
 * Err, should we support renaming? :) Difficult to disable...
   In fact it's already not disabled in readonly directories (e.g. "/") -> todo
@@ -30,7 +26,6 @@ Bugs closed by kio_trash
 #78116 (.directory) : CLOSED
 #18109 (general one) : CLOSED
 #17744 (restore) : CLOSED
-
 #76380 #56821 (trashing on same partition) : CLOSED
 
 Choice of URL scheme

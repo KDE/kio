@@ -774,4 +774,49 @@ QString TrashImpl::topDirectoryPath( int trashId ) const
     return m_topDirectories[trashId];
 }
 
+// Helper method. Creates a URL with the format trash:/trashid-fileid or
+// trash:/trashid-fileid/relativePath/To/File for a file inside a trashed directory.
+QString TrashImpl::makeURL( int trashId, const QString& fileId, const QString& relativePath )
+{
+    QString url = "trash:/";
+    url += QString::number( trashId );
+    url += '-';
+    url += fileId;
+    if ( !relativePath.isEmpty() ) {
+        url += '/';
+        url += relativePath;
+    }
+    return url;
+}
+
+// Helper method. Parses a trash URL with the URL scheme defined in makeURL.
+// The trash:/ URL itself isn't parsed here, must be caught by the caller before hand.
+bool TrashImpl::parseURL( const KURL& url, int& trashId, QString& fileId, QString& relativePath )
+{
+    if ( url.protocol() != "trash" )
+        return false;
+    const QString path = url.path();
+    int start = 0;
+    if ( path[0] == '/' ) // always true I hope
+        start = 1;
+    int slashPos = path.find( '-', 0 ); // don't match leading slash
+    if ( slashPos <= 0 )
+        return false;
+    bool ok = false;
+    trashId = path.mid( start, slashPos - start ).toInt( &ok );
+    Q_ASSERT( ok );
+    if ( !ok )
+        return false;
+    start = slashPos + 1;
+    slashPos = path.find( '/', start );
+    if ( slashPos <= 0 ) {
+        fileId = path.mid( start );
+        relativePath = QString::null;
+        return true;
+    }
+    fileId = path.mid( start, slashPos - start );
+    relativePath = path.mid( slashPos + 1 );
+    return true;
+}
+
 #include "trashimpl.moc"

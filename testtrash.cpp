@@ -188,13 +188,13 @@ void TestTrash::runAll()
 
 void TestTrash::urlTestFile()
 {
-    QString url = TrashProtocol::makeURL( 1, "fileId", QString::null );
+    QString url = TrashImpl::makeURL( 1, "fileId", QString::null );
     check( "makeURL for a file", url, "trash:/1-fileId" );
 
     int trashId;
     QString fileId;
     QString relativePath;
-    bool ok = TrashProtocol::parseURL( KURL( url ), trashId, fileId, relativePath );
+    bool ok = TrashImpl::parseURL( KURL( url ), trashId, fileId, relativePath );
     assert( ok );
     check( "parseURL: trashId", QString::number( trashId ), "1" );
     check( "parseURL: fileId", fileId, "fileId" );
@@ -203,13 +203,13 @@ void TestTrash::urlTestFile()
 
 void TestTrash::urlTestDirectory()
 {
-    QString url = TrashProtocol::makeURL( 1, "fileId", "subfile" );
+    QString url = TrashImpl::makeURL( 1, "fileId", "subfile" );
     check( "makeURL", url, "trash:/1-fileId/subfile" );
 
     int trashId;
     QString fileId;
     QString relativePath;
-    bool ok = TrashProtocol::parseURL( KURL( url ), trashId, fileId, relativePath );
+    bool ok = TrashImpl::parseURL( KURL( url ), trashId, fileId, relativePath );
     assert( ok );
     check( "parseURL: trashId", QString::number( trashId ), "1" );
     check( "parseURL: fileId", fileId, "fileId" );
@@ -218,13 +218,13 @@ void TestTrash::urlTestDirectory()
 
 void TestTrash::urlTestSubDirectory()
 {
-    QString url = TrashProtocol::makeURL( 1, "fileId", "subfile/foobar" );
+    QString url = TrashImpl::makeURL( 1, "fileId", "subfile/foobar" );
     check( "makeURL", url, "trash:/1-fileId/subfile/foobar" );
 
     int trashId;
     QString fileId;
     QString relativePath;
-    bool ok = TrashProtocol::parseURL( KURL( url ), trashId, fileId, relativePath );
+    bool ok = TrashImpl::parseURL( KURL( url ), trashId, fileId, relativePath );
     assert( ok );
     check( "parseURL: trashId", QString::number( trashId ), "1" );
     check( "parseURL: fileId", fileId, "fileId" );
@@ -622,7 +622,7 @@ void TestTrash::getFile()
 {
     kdDebug() << k_funcinfo << endl;
     const QString fileId = "fileFromHome_1";
-    const KURL url = TrashProtocol::makeURL( 0, fileId, QString::null );
+    const KURL url = TrashImpl::makeURL( 0, fileId, QString::null );
     QString tmpFile;
     bool ok = KIO::NetAccess::download( url, tmpFile, 0 );
     assert( ok );
@@ -641,7 +641,7 @@ void TestTrash::restoreFile()
 {
     kdDebug() << k_funcinfo << endl;
     const QString fileId = "fileFromHome_1";
-    const KURL url = TrashProtocol::makeURL( 0, fileId, QString::null );
+    const KURL url = TrashImpl::makeURL( 0, fileId, QString::null );
     const QString infoFile( m_trashDir + "/info/" + fileId + ".trashinfo" );
     const QString filesItem( m_trashDir + "/files/" + fileId );
 

@@ -88,56 +88,11 @@ TrashProtocol::~TrashProtocol()
 {
 }
 
-// Helper method. Creates a URL with the format trash:/trashid-fileid or
-// trash:/trashid-fileid/relativePath/To/File for a file inside a trashed directory.
-QString TrashProtocol::makeURL( int trashId, const QString& fileId, const QString& relativePath )
-{
-    QString url = "trash:/";
-    url += QString::number( trashId );
-    url += '-';
-    url += fileId;
-    if ( !relativePath.isEmpty() ) {
-        url += '/';
-        url += relativePath;
-    }
-    return url;
-}
-
-// Helper method. Parses a trash URL with the URL scheme defined in makeURL.
-// The trash:/ URL itself isn't parsed here, must be caught by the caller before hand.
-bool TrashProtocol::parseURL( const KURL& url, int& trashId, QString& fileId, QString& relativePath )
-{
-    if ( url.protocol() != "trash" )
-        return false;
-    const QString path = url.path();
-    int start = 0;
-    if ( path[0] == '/' ) // always true I hope
-        start = 1;
-    int slashPos = path.find( '-', 0 ); // don't match leading slash
-    if ( slashPos <= 0 )
-        return false;
-    bool ok = false;
-    trashId = path.mid( start, slashPos - start ).toInt( &ok );
-    Q_ASSERT( ok );
-    if ( !ok )
-        return false;
-    start = slashPos + 1;
-    slashPos = path.find( '/', start );
-    if ( slashPos <= 0 ) {
-        fileId = path.mid( start );
-        relativePath = QString::null;
-        return true;
-    }
-    fileId = path.mid( start, slashPos - start );
-    relativePath = path.mid( slashPos + 1 );
-    return true;
-}
-
 void TrashProtocol::restore( const KURL& trashURL )
 {
     int trashId;
     QString fileId, relativePath;
-    bool ok = parseURL( trashURL, trashId, fileId, relativePath );
+    bool ok = TrashImpl::parseURL( trashURL, trashId, fileId, relativePath );
     if ( !ok ) {
         error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( trashURL.prettyURL() ) );
         return;
@@ -198,7 +153,7 @@ void TrashProtocol::copyOrMove( const KURL &src, const KURL &dest, bool overwrit
         // Extracting (e.g. via dnd). Ignore original location stored in info file.
         int trashId;
         QString fileId, relativePath;
-        bool ok = parseURL( src, trashId, fileId, relativePath );
+        bool ok = TrashImpl::parseURL( src, trashId, fileId, relativePath );
         if ( !ok ) {
             error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( src.prettyURL() ) );
             return;
@@ -236,7 +191,7 @@ void TrashProtocol::copyOrMove( const KURL &src, const KURL &dest, bool overwrit
         if ( dir.length() <= 1 && src.fileName() == dest.fileName() ) // new toplevel entry
         {
             const QString srcPath = src.path();
-            // In theory we should use parseURL to give the right filename to createInfo,
+            // In theory we should use TrashImpl::parseURL to give the right filename to createInfo,
             // in case the trash URL didn't contain the same filename as srcPath.
             // But this can only happen with copyAs/moveAs, not available in the GUI
             // for the trash (New/... or Rename from iconview/listview).
@@ -303,7 +258,7 @@ void TrashProtocol::stat(const KURL& url)
         int trashId;
         QString fileId, relativePath;
 
-        bool ok = parseURL( url, trashId, fileId, relativePath );
+        bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
 
         if ( !ok ) {
             // ######## do we still need this?
@@ -345,7 +300,7 @@ void TrashProtocol::del( const KURL &url, bool /*isfile*/ )
     int trashId;
     QString fileId, relativePath;
 
-    bool ok = parseURL( url, trashId, fileId, relativePath );
+    bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
     if ( !ok ) {
         error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.prettyURL() ) );
         return;
@@ -377,7 +332,7 @@ void TrashProtocol::listDir(const KURL& url)
     int trashId;
     QString fileId;
     QString relativePath;
-    bool ok = parseURL( url, trashId, fileId, relativePath );
+    bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
     if ( !ok ) {
         error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.prettyURL() ) );
         return;
@@ -397,7 +352,7 @@ void TrashProtocol::listDir(const KURL& url)
         QString fileName = QFile::decodeName( entryIt.current() );
         const QString filePath = physicalPath + "/" + fileName;
         // shouldn't be necessary
-        //const QString url = makeURL( trashId, fileId, relativePath + "/" + fileName );
+        //const QString url = TrashImpl::makeURL( trashId, fileId, relativePath + "/" + fileName );
         entry.clear();
         if ( createUDSEntry( filePath, fileName, QString::null /*url*/, entry ) )
             listEntry( entry, false );
@@ -457,7 +412,7 @@ void TrashProtocol::listRoot()
     createTopLevelDirEntry( entry );
     listEntry( entry, false );
     for ( TrashedFileInfoList::ConstIterator it = lst.begin(); it != lst.end(); ++it ) {
-        const QString url = makeURL( (*it).trashId, (*it).fileId, QString::null );
+        const QString url = TrashImpl::makeURL( (*it).trashId, (*it).fileId, QString::null );
         KURL origURL;
         origURL.setPath( (*it).origPath );
         entry.clear();
@@ -524,7 +479,7 @@ void TrashProtocol::get( const KURL& url )
     int trashId;
     QString fileId;
     QString relativePath;
-    bool ok = parseURL( url, trashId, fileId, relativePath );
+    bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
     if ( !ok ) {
         error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.prettyURL() ) );
         return;
@@ -580,7 +535,7 @@ void TrashProtocol::mkdir( const KURL& url, int /*permissions*/ )
 
     if ( dir.length() <= 1 ) // new toplevel entry
     {
-        // ## we should use parseURL to give the right filename to createInfo
+        // ## we should use TrashImpl::parseURL to give the right filename to createInfo
         int trashId;
         QString fileId;
         if ( !impl.createInfo( url.path(), trashId, fileId ) ) {
