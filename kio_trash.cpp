@@ -67,6 +67,8 @@ extern "C" {
         error( impl.lastErrorCode(), impl.lastErrorMessage() ); \
         return; \
     }
+typedef TrashImpl::TrashedFileInfo TrashedFileInfo;
+typedef TrashImpl::TrashedFileInfoList TrashedFileInfoList;
 
 TrashProtocol::TrashProtocol( const QCString& protocol, const QCString &pool, const QCString &app)
     : SlaveBase(protocol,  pool, app )
@@ -264,12 +266,91 @@ void TrashProtocol::listDir(const KURL& url)
 {
     INIT_IMPL;
     kdDebug() << "listdir: " << url << endl;
-    if (url.path().length() <= 1)
-    {
+    if ( url.path().length() <= 1 ) {
         listRoot();
         return;
     }
-    // TODO (parse url, list subdir, maybe using kio_file)
+    int trashId;
+    QString fileId;
+    QString relativePath;
+    bool ok = TrashProtocol::parseURL( url, trashId, fileId, relativePath );
+    if ( !ok ) {
+        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.prettyURL() ) );
+        return;
+    }
+    // Get info for fileId
+    TrashedFileInfo info;
+    ok = impl.infoForFile( trashId, fileId, info );
+    if ( !ok ) {
+        error( impl.lastErrorCode(), impl.lastErrorMessage() );
+        return;
+    }
+    QString physicalPath = info.physicalPath;
+    if ( !relativePath.isEmpty() ) {
+        physicalPath += "/";
+        physicalPath += relativePath;
+    }
+    // List subdir. Can't use kio_file here since we provide our own info...
+    QStrList entryNames = impl.listDir( physicalPath );
+    totalSize( entryNames.count() );
+    KIO::UDSEntry entry;
+    QStrListIterator entryIt( entryNames );
+    for (; entryIt.current(); ++entryIt) {
+        const QString fileName = QFile::decodeName( entryIt.current() );
+        const QString filePath = physicalPath + "/" + fileName;
+        kdDebug() << k_funcinfo << filePath << endl;
+        // shouldn't be necessary
+        //const QString url = makeURL( trashId, fileId, relativePath + "/" + fileName );
+        entry.clear();
+        if ( createUDSEntry( filePath, fileName, QString::null /*url*/, entry ) )
+            listEntry( entry, false );
+    }
+    entry.clear();
+    listEntry( entry, true );
+    finished();
+}
+
+bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& fileName, const QString& url, KIO::UDSEntry& entry )
+{
+    KDE_struct_stat buff;
+    if ( KDE_stat( QFile::encodeName( physicalPath ), &buff ) == -1 ) {
+        kdWarning() << "couldn't stat " << physicalPath << endl;
+        return false;
+    }
+    // TODO symlinks
+
+    mode_t type = buff.st_mode & S_IFMT; // extract file type
+    mode_t access = buff.st_mode & 07777; // extract permissions
+    access &= 07555; // make it readonly, since it's in the trashcan
+    addAtom( entry, KIO::UDS_NAME, 0, fileName );
+    addAtom( entry, KIO::UDS_FILE_TYPE, type );
+    addAtom( entry, KIO::UDS_URL, 0, url );
+    addAtom( entry, KIO::UDS_ACCESS, access );
+    addAtom( entry, KIO::UDS_SIZE, buff.st_size );
+    addAtom( entry, KIO::UDS_USER, 0, m_userName ); // assumption
+    addAtom( entry, KIO::UDS_GROUP, 0, m_groupName ); // assumption
+    addAtom( entry, KIO::UDS_MODIFICATION_TIME, buff.st_mtime );
+    addAtom( entry, KIO::UDS_ACCESS_TIME, buff.st_atime ); // ## or use it for deletion time?
+    return true;
+}
+
+void TrashProtocol::listRoot()
+{
+    INIT_IMPL;
+    const TrashedFileInfoList lst = impl.list();
+    totalSize( lst.count() );
+    KIO::UDSEntry entry;
+    for ( TrashedFileInfoList::ConstIterator it = lst.begin(); it != lst.end(); ++it ) {
+        const QString url = makeURL( (*it).trashId, (*it).fileId, QString::null );
+        KURL origURL;
+        origURL.setPath( (*it).origPath );
+        entry.clear();
+        if ( createUDSEntry( (*it).physicalPath, origURL.fileName(), url, entry ) )
+            listEntry( entry, false );
+    }
+    entry.clear();
+    listEntry( entry, true );
+    finished();
 }
 
 void TrashProtocol::put( const KURL& url, int /*permissions*/, bool /*overwrite*/, bool /*resume*/ )
@@ -287,44 +368,6 @@ void TrashProtocol::mkdir( const KURL& url, int )
     // create info about deleted dir
     kdDebug() << "mkdir: " << url << endl;
     error( KIO::ERR_ACCESS_DENIED, url.prettyURL() );
-}
-
-void TrashProtocol::listRoot()
-{
-    INIT_IMPL;
-    typedef TrashImpl::TrashedFileInfoList TrashedFileInfoList;
-    const TrashedFileInfoList lst = impl.list();
-    totalSize( lst.count() );
-    KIO::UDSEntry entry;
-    for ( TrashedFileInfoList::ConstIterator it = lst.begin(); it != lst.end(); ++it ) {
-        QString url = makeURL( (*it).trashId, (*it).fileId, QString::null );
-        KDE_struct_stat buff;
-        if ( KDE_stat( QFile::encodeName( (*it).physicalPath ), &buff ) == -1 ) {
-            kdWarning() << "couldn't stat " << (*it).physicalPath << endl;
-            continue;
-        }
-        // TODO symlinks
-
-        mode_t type = buff.st_mode & S_IFMT; // extract file type
-        mode_t access = buff.st_mode & 07777; // extract permissions
-        access &= 07555; // make it readonly, since it's in the trashcan
-        entry.clear();
-        KURL origURL;
-        origURL.setPath( (*it).origPath );
-        addAtom( entry, KIO::UDS_NAME, 0, origURL.fileName() );
-        addAtom( entry, KIO::UDS_FILE_TYPE, type );
-        addAtom( entry, KIO::UDS_URL, 0, url );
-        addAtom( entry, KIO::UDS_ACCESS, access );
-        addAtom( entry, KIO::UDS_SIZE, buff.st_size );
-        addAtom( entry, KIO::UDS_USER, 0, m_userName ); // assumption
-        addAtom( entry, KIO::UDS_GROUP, 0, m_groupName ); // assumption
-        addAtom( entry, KIO::UDS_MODIFICATION_TIME, buff.st_mtime );
-        addAtom( entry, KIO::UDS_ACCESS_TIME, buff.st_atime ); // ## or use it for deletion time?
-        listEntry( entry, false );
-    }
-    entry.clear();
-    listEntry( entry, true );
-    finished();
 }
 
 void TrashProtocol::get( const KURL& )

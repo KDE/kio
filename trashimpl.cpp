@@ -259,18 +259,8 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
         const int trashId = it.key();
         QString infoPath = it.data();
         infoPath += "/info";
-        const QCString infoPathEnc = QFile::encodeName( infoPath );
-        kdDebug() << k_funcinfo << "listing " << infoPath << endl;
-        DIR *dp = opendir( infoPathEnc );
-        if ( dp == 0 ) {
-            continue;
-        }
         // Code taken from kio_file
-        QStrList entryNames;
-        KDE_struct_dirent *ep;
-        while ( ( ep = KDE_readdir( dp ) ) != 0L )
-            entryNames.append( ep->d_name );
-        closedir( dp );
+        QStrList entryNames = listDir( infoPath );
         //char path_buffer[PATH_MAX];
         //getcwd(path_buffer, PATH_MAX - 1);
         //if ( chdir( infoPathEnc ) )
@@ -283,6 +273,21 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
         }
     }
     return lst;
+}
+
+QStrList TrashImpl::listDir( const QString& physicalPath )
+{
+    const QCString physicalPathEnc = QFile::encodeName( physicalPath );
+    kdDebug() << k_funcinfo << "listing " << physicalPath << endl;
+    QStrList entryNames;
+    DIR *dp = opendir( physicalPathEnc );
+    if ( dp == 0 )
+        return entryNames;
+    KDE_struct_dirent *ep;
+    while ( ( ep = KDE_readdir( dp ) ) != 0L )
+        entryNames.append( ep->d_name );
+    closedir( dp );
+    return entryNames;
 }
 
 bool TrashImpl::infoForFile( int trashId, const QString& fileId, TrashedFileInfo& info )

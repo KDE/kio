@@ -24,6 +24,7 @@
 #include <qdatetime.h>
 #include <qmap.h>
 #include <qvaluelist.h>
+#include <qstrlist.h>
 
 /**
  * Implementation of all low-level operations done by kio_trash
@@ -77,6 +78,7 @@ public:
     int lastErrorCode() const { return m_lastErrorCode; }
     QString lastErrorMessage() const { return m_lastErrorMessage; }
 
+    QStrList listDir( const QString& physicalPath );
     QString infoPath( int trashId, const QString& fileId ) const;
     QString filesPath( int trashId, const QString& fileId ) const;
 

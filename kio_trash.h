@@ -46,6 +46,7 @@ private slots:
 
 private:
     void createTopLevelDirEntry(KIO::UDSEntry& entry, const QString& name, const QString& url);
+    bool createUDSEntry( const QString& physicalPath, const QString& fileName, const QString& url, KIO::UDSEntry& entry );
     void listRoot();
     static QString makeURL( int trashId, const QString& fileId, const QString& relativePath );
     static bool parseURL( const KURL& url, int& trashId, QString& fileId, QString& relativePath );
