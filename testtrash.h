@@ -41,6 +41,7 @@ public:
     void trashFileFromHome();
     void testTrashNotEmpty();
     void trashFileFromOther();
+    void trashFileOwnedByRoot();
     void trashSymlinkFromHome();
     void trashSymlinkFromOther();
     void trashBrokenSymlinkFromHome();

@@ -152,6 +152,7 @@ void TestTrash::runAll()
     trashFileFromHome();
     testTrashNotEmpty();
     trashFileFromOther();
+    trashFileOwnedByRoot();
     trashSymlinkFromHome();
     trashSymlinkFromOther();
     trashBrokenSymlinkFromHome();
@@ -271,7 +272,8 @@ static void createTestFile( const QString& path )
 void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
 {
     // setup
-    createTestFile( origFilePath );
+    if ( !QFile::exists( origFilePath ) )
+        createTestFile( origFilePath );
     KURL u;
     u.setPath( origFilePath );
 
@@ -330,6 +332,27 @@ void TestTrash::trashFileFromOther()
     kdDebug() << k_funcinfo << endl;
     const QString fileName = "fileFromOther";
     trashFile( otherTmpDir() + fileName, fileName );
+}
+
+void TestTrash::trashFileOwnedByRoot()
+{
+    kdDebug() << k_funcinfo << endl;
+    KURL u;
+    u.setPath( "/etc/passwd" );
+    const QString fileId = "passwd";
+
+    KIO::Job* job = KIO::move( u, "trash:/" );
+    QMap<QString, QString> metaData;
+    //bool ok = KIO::NetAccess::move( u, "trash:/" );
+    bool ok = KIO::NetAccess::synchronousRun( job, 0, 0, 0, &metaData );
+    assert( !ok );
+    const QString infoPath( m_trashDir + "/info/" + fileId + ".trashinfo" );
+    assert( !QFile::exists( infoPath ) );
+
+    QFileInfo files( m_trashDir + "/files/" + fileId );
+    assert( !files.exists() );
+
+    assert( QFile::exists( u.path() ) );
 }
 
 void TestTrash::trashSymlink( const QString& origFilePath, const QString& fileId, bool broken )

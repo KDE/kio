@@ -306,8 +306,12 @@ bool TrashImpl::moveToTrash( const QString& origPath, int trashId, const QString
 {
     kdDebug() << k_funcinfo << endl;
     const QString dest = filesPath( trashId, fileId );
-    if ( !move( origPath, dest ) )
+    if ( !move( origPath, dest ) ) {
+        // Maybe the move failed due to no permissions to delete source.
+        // In that case, delete dest to keep things consistent, since KIO doesn't do it.
+        ::unlink( QFile::encodeName( dest ) );
         return false;
+    }
     fileAdded();
     return true;
 }
@@ -335,6 +339,9 @@ bool TrashImpl::move( const QString& src, const QString& dest )
     urlDest.setPath( dest );
     kdDebug() << k_funcinfo << urlSrc << " -> " << urlDest << endl;
     KIO::CopyJob* job = KIO::moveAs( urlSrc, urlDest, false );
+#ifdef KIO_COPYJOB_HAS_SETINTERACTIVE
+    job->setInteractive( false );
+#endif
     connect( job, SIGNAL( result(KIO::Job *) ),
              this, SLOT( jobFinished(KIO::Job *) ) );
     qApp->eventLoop()->enterLoop();
@@ -376,7 +383,10 @@ bool TrashImpl::copy( const QString& src, const QString& dest )
     KURL urlDest;
     urlDest.setPath( dest );
     kdDebug() << k_funcinfo << "copying " << src << " to " << dest << endl;
-    KIO::Job* job = KIO::copyAs( urlSrc, urlDest, false );
+    KIO::CopyJob* job = KIO::copyAs( urlSrc, urlDest, false );
+#ifdef KIO_COPYJOB_HAS_SETINTERACTIVE
+    job->setInteractive( false );
+#endif
     connect( job, SIGNAL( result( KIO::Job* ) ),
              this, SLOT( jobFinished( KIO::Job* ) ) );
     qApp->eventLoop()->enterLoop();
