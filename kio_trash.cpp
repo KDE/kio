@@ -130,7 +130,7 @@ bool TrashProtocol::parseURL( const KURL& url, int& trashId, QString& fileId, QS
     return true;
 }
 
-void TrashProtocol::rename(KURL const &oldURL, KURL const &newURL, bool overwrite)
+void TrashProtocol::rename(const KURL &oldURL, const KURL &newURL, bool overwrite)
 {
     INIT_IMPL;
 

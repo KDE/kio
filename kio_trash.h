@@ -35,7 +35,7 @@ public:
     virtual void listDir(const KURL& url);
     virtual void put( const KURL& url, int , bool overwrite, bool );
     virtual void mkdir( const KURL& url, int permissions );
-    virtual void rename(KURL const &, KURL const &, bool);
+    virtual void rename( const KURL &, const KURL &, bool );
     virtual void copy( const KURL &src, const KURL &dest, int permissions, bool overwrite );
     // TODO symlink( const QString& target, const KURL& dest, bool overwrite );
     // TODO chmod( const KURL& url, int permissions );
