@@ -199,8 +199,10 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
 
     // Choose destination trash
     trashId = findTrashDirectory( origPath );
-    if ( trashId < 0 )
+    if ( trashId < 0 ) {
+        kdWarning() << "OUCH - internal error, TrashImpl::createInfo got " << trashId << endl;
         return false; // ### error() needed?
+    }
 
     // Grab original filename
     KURL url;
@@ -540,9 +542,10 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
             QString fileName = QFile::decodeName( *entryIt );
             if ( fileName == "." || fileName == ".." )
                 continue;
-            Q_ASSERT( fileName.endsWith( ".trashinfo" ) );
-            if ( !fileName.endsWith( ".trashinfo" ) )
+            if ( !fileName.endsWith( ".trashinfo" ) ) {
+                kdWarning() << "Invalid info file found in " << infoPath << " : " << fileName << endl;
                 continue;
+            }
             fileName.truncate( fileName.length() - 10 );
 
             TrashedFileInfo info;
@@ -754,24 +757,28 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
     KDE_struct_stat buff;
     // Minimum permissions required: write+execute for 'others', and sticky bit
     int requiredBits = S_IWOTH | S_IXOTH | S_ISVTX;
-    if ( KDE_lstat( QFile::encodeName( rootTrashDir ), &buff ) == 0
-         && (buff.st_uid == 0) // must be owned by root
-         && (S_ISDIR(buff.st_mode)) // must be a dir
-         && (!S_ISLNK(buff.st_mode)) // not a symlink
-         && (buff.st_mode & requiredBits == requiredBits)
-        ) {
-        const QString trashDir = rootTrashDir + "/" + QString::number( uid );
-        const QCString trashDir_c = QFile::encodeName( trashDir );
-        if ( KDE_lstat( trashDir_c, &buff ) == 0 ) {
-            if ( (buff.st_uid == uid) // must be owned by user
-                 && (S_ISDIR(buff.st_mode)) // must be a dir
-                 && (!S_ISLNK(buff.st_mode)) // not a symlink
-                 && (buff.st_mode & S_IRWXU) ) { // rwx for user
+    if ( KDE_lstat( QFile::encodeName( rootTrashDir ), &buff ) == 0 ) {
+        if ( (buff.st_uid == 0) // must be owned by root
+             && (S_ISDIR(buff.st_mode)) // must be a dir
+             && (!S_ISLNK(buff.st_mode)) // not a symlink
+             && (buff.st_mode & requiredBits == requiredBits)
+            ) {
+            const QString trashDir = rootTrashDir + "/" + QString::number( uid );
+            const QCString trashDir_c = QFile::encodeName( trashDir );
+            if ( KDE_lstat( trashDir_c, &buff ) == 0 ) {
+                if ( (buff.st_uid == uid) // must be owned by user
+                     && (S_ISDIR(buff.st_mode)) // must be a dir
+                     && (!S_ISLNK(buff.st_mode)) // not a symlink
+                     && (buff.st_mode & S_IRWXU) ) { // rwx for user
+                    return trashDir;
+                }
+                kdDebug() << "Directory " << trashDir << " exists but didn't pass the security checks, can't use it" << endl;
+            }
+            else if ( createIfNeeded && initTrashDirectory( trashDir_c ) ) {
                 return trashDir;
             }
-        }
-        else if ( createIfNeeded && initTrashDirectory( trashDir_c ) ) {
-            return trashDir;
+        } else {
+            kdDebug() << "Root trash dir " << rootTrashDir << " exists but didn't pass the security checks, can't use it" << endl;
         }
     }
 
@@ -786,6 +793,7 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
              && (buff.st_mode & S_IRWXU) ) { // rwx for user
             return trashDir;
         }
+        kdDebug() << "Directory " << trashDir << " exists but didn't pass the security checks, can't use it" << endl;
         // Exists, but not useable
         return QString::null;
     }
@@ -800,8 +808,9 @@ int TrashImpl::idForTrashDirectory( const QString& trashDir ) const
     // If this is too slow we can always use a reverse map...
     TrashDirMap::ConstIterator it = m_trashDirectories.begin();
     for ( ; it != m_trashDirectories.end() ; ++it ) {
-        if ( it.data() == trashDir )
+        if ( it.data() == trashDir ) {
             return it.key();
+        }
     }
     return -1;
 }
@@ -810,12 +819,31 @@ bool TrashImpl::initTrashDirectory( const QCString& trashDir_c ) const
 {
     if ( ::mkdir( trashDir_c, 0700 ) != 0 )
         return false;
-    QCString info_c = trashDir_c + "/info";
-    if ( ::mkdir( info_c, 0700 ) != 0 )
+    // This trash dir will be useable only if the directory is owned by user.
+    // In theory this is the case, but not on e.g. USB keys...
+    uid_t uid = getuid();
+    KDE_struct_stat buff;
+    if ( KDE_lstat( trashDir_c, &buff ) != 0 )
+        return false; // huh?
+    if ( (buff.st_uid == uid) // must be owned by user
+         && (buff.st_mode & S_IRWXU) ) { // rwx for user
+
+        QCString info_c = trashDir_c + "/info";
+        if ( ::mkdir( info_c, 0700 ) != 0 )
+            return false;
+        QCString files_c = trashDir_c + "/files";
+        if ( ::mkdir( files_c, 0700 ) != 0 )
+            return false;
+    } else {
+        kdDebug() << trashDir_c << " just created, by it doesn't have the right permissions, must be a FAT partition. Removing it again." << endl;
+        // Not good, e.g. USB key. Delete again.
+        // I'm paranoid, it would be better to find a solution that allows
+        // to trash directly onto the USB key, but I don't see how that would
+        // pass the security checks. It would also make the USB key appears as
+        // empty when it's in fact full...
+        ::rmdir( trashDir_c );
         return false;
-    QCString files_c = trashDir_c + "/files";
-    if ( ::mkdir( files_c, 0700 ) != 0 )
-        return false;
+    }
     return true;
 }
 
