@@ -39,6 +39,8 @@ public:
     void urlTestSubDirectory();
 
     void trashFileFromHome();
+    void trashUtf8FileFromHome();
+    void trashUmlautFileFromHome();
     void testTrashNotEmpty();
     void trashFileFromOther();
     void trashFileIntoOtherPartition();
@@ -95,6 +97,8 @@ private:
 
     QString homeTmpDir() const;
     QString otherTmpDir() const;
+    QString utf8FileName() const;
+    QString umlautFileName() const;
 
     QString m_trashDir;
 

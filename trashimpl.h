@@ -166,6 +166,7 @@ private:
     mutable int m_lastId;
     dev_t m_homeDevice;
     mutable bool m_trashDirectoriesScanned;
+    int m_mibEnum;
 
     KSimpleConfig m_config;
 

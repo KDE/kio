@@ -23,6 +23,7 @@
 #include <config.h>
 
 #include <kurl.h>
+#include <klocale.h>
 #include <kapplication.h>
 #include <kio/netaccess.h>
 #include <kio/job.h>
@@ -55,8 +56,23 @@ static bool check(const QString& txt, QString a, QString b)
     return true;
 }
 
+// There are two ways to test encoding things:
+// * with utf8 filenames
+// * with latin1 filenames
+//
+//#define UTF8TEST 1
+
 int main(int argc, char *argv[])
 {
+    // Ensure a known QFile::encodeName behavior for trashUtf8FileFromHome
+    // However this assume your $HOME doesn't use characters from other locales...
+    setenv( "LC_ALL", "en_GB.ISO-8859-1", 1 );
+#ifdef UTF8TEST
+    setenv( "KDE_UTF8_FILENAMES", "true", 1 );
+#else
+    unsetenv( "KDE_UTF8_FILENAMES" );
+#endif
+
     // Use another directory than the real one, just to keep things clean
     setenv( "XDG_DATA_HOME", QFile::encodeName( QDir::homeDirPath() + "/.local-testtrash" ), true );
     setenv( "KDE_FORK_SLAVES", "yes", true );
@@ -81,6 +97,16 @@ QString TestTrash::otherTmpDir() const
 {
     // This one needs to be on another partition
     return "/tmp/testtrash/";
+}
+
+QString TestTrash::utf8FileName() const
+{
+    return QString( "test" ) + QChar( 0x2153 ); // "1/3" character, not part of latin1
+}
+
+QString TestTrash::umlautFileName() const
+{
+    return QString( "umlaut" ) + QChar( 0xEB );
 }
 
 void TestTrash::setup()
@@ -154,6 +180,10 @@ void TestTrash::cleanTrash()
     removeFile( m_trashDir, "/files/fileFromHome" );
     removeFile( m_trashDir, "/info/fileFromHome_1.trashinfo" );
     removeFile( m_trashDir, "/files/fileFromHome_1" );
+    removeFile( m_trashDir, "/info/" + utf8FileName() + ".trashinfo" );
+    removeFile( m_trashDir, "/files/" + utf8FileName() );
+    removeFile( m_trashDir, "/info/" + umlautFileName() + ".trashinfo" );
+    removeFile( m_trashDir, "/files/" + umlautFileName() );
     removeFile( m_trashDir, "/info/fileFromOther.trashinfo" );
     removeFile( m_trashDir, "/files/fileFromOther" );
     removeFile( m_trashDir, "/info/symlinkFromHome.trashinfo" );
@@ -186,6 +216,10 @@ void TestTrash::runAll()
     urlTestSubDirectory();
 
     trashFileFromHome();
+#ifdef UTF8TEST
+    trashUtf8FileFromHome();
+#endif
+    trashUmlautFileFromHome();
     testTrashNotEmpty();
     trashFileFromOther();
     trashFileIntoOtherPartition();
@@ -295,7 +329,7 @@ static void checkInfoFile( const QString& infoPath, const QString& origFilePath 
     infoFile.setGroup( "Trash Info" );
     const QString origPath = infoFile.readEntry( "Path" );
     assert( !origPath.isEmpty() );
-    assert( origPath == origFilePath );
+    assert( origPath == KURL::encode_string( origFilePath, KGlobal::locale()->fileEncodingMib() ) );
     const QString date = infoFile.readEntry( "DeletionDate" );
     assert( !date.isEmpty() );
     assert( date.contains( "T" ) );
@@ -359,6 +393,20 @@ void TestTrash::trashFileFromHome()
 
     // Do it again, check that we got a different id
     trashFile( homeTmpDir() + fileName, fileName + "_1" );
+}
+
+void TestTrash::trashUtf8FileFromHome()
+{
+    kdDebug() << k_funcinfo << endl;
+    const QString fileName = utf8FileName();
+    trashFile( homeTmpDir() + fileName, fileName );
+}
+
+void TestTrash::trashUmlautFileFromHome()
+{
+    kdDebug() << k_funcinfo << endl;
+    const QString fileName = umlautFileName();
+    trashFile( homeTmpDir() + fileName, fileName );
 }
 
 void TestTrash::testTrashNotEmpty()

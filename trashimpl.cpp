@@ -29,6 +29,7 @@
 #include <kglobal.h>
 #include <kstandarddirs.h>
 #include <kglobalsettings.h>
+#include <kmountpoint.h>
 
 #include <dcopref.h>
 
@@ -45,7 +46,6 @@
 #include <dirent.h>
 #include <stdlib.h>
 #include <errno.h>
-#include <kmountpoint.h>
 
 TrashImpl::TrashImpl() :
     QObject(),
@@ -54,6 +54,7 @@ TrashImpl::TrashImpl() :
     m_lastId( 0 ),
     m_homeDevice( 0 ),
     m_trashDirectoriesScanned( false ),
+    m_mibEnum( KGlobal::locale()->fileEncodingMib() ),
     // not using kio_trashrc since KIO uses that one already for kio_trash
     // so better have a separate one, for faster parsing by e.g. kmimetype.cpp
     m_config( "trashrc" )
@@ -240,10 +241,12 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     // mean closing and reopening fd, i.e. opening a race condition...
     QCString info = "[Trash Info]\n";
     info += "Path=";
+    // Escape filenames according to the way they are encoded on the filesystem
+    // All this to basically get back to the raw 8-bit representation of the filename...
     if ( trashId == 0 ) // home trash: absolute path
-        info += QFile::encodeName( origPath );
+        info += KURL::encode_string( origPath, m_mibEnum ).latin1();
     else
-        info += QFile::encodeName( makeRelativePath( topDirectoryPath( trashId ), origPath ) );
+        info += KURL::encode_string( makeRelativePath( topDirectoryPath( trashId ), origPath ), m_mibEnum ).latin1();
     info += "\n";
     info += "DeletionDate=";
     info += QDateTime::currentDateTime().toString( Qt::ISODate ).local8Bit();
@@ -579,7 +582,7 @@ bool TrashImpl::readInfoFile( const QString& infoPath, TrashedFileInfo& info, in
         return false;
     }
     cfg.setGroup( "Trash Info" );
-    info.origPath = cfg.readEntry( "Path" );
+    info.origPath = KURL::decode_string( cfg.readEntry( "Path" ), m_mibEnum );
     if ( info.origPath.isEmpty() )
         return false; // path is mandatory...
     if ( trashId == 0 )
