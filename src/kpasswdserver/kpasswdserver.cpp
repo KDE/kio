@@ -31,11 +31,12 @@
 #include <kmessagebox.h>
 #include <kdebug.h>
 #include <kio/passdlg.h>
+#include <kwallet.h>
 
 #include "config.h"
 #if defined Q_WS_X11 && ! defined K_WS_QTONLY
-#include <X11/X.h> // schroder
-#include <X11/Xlib.h> // schroder
+#include <X11/X.h>
+#include <X11/Xlib.h>
 #endif
 
 #include "kpasswdserver.h"
@@ -223,13 +224,25 @@ KPasswdServer::processRequest()
 
             if ( !info.password.isEmpty() )
                dlg.setPassword( info.password );
+            else // no pass provided, check if kwallet has one
+            {
+                KWallet::Wallet* wallet = KWallet::Wallet::openWallet(
+                    KWallet::Wallet::NetworkWallet(), dlg.winId() );
+                QString password;
+                if ( wallet && wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) &&
+                     wallet->readPassword( request->key, password ) == 0 )
+                {
+                    dlg.setPassword( password );
+                    //dlg.setKeepPassword( true ); // TODO? would make it more obvious that it's stored
+                }
+            }
 
             if (info.readOnly)
                dlg.setUserReadOnly( true );
-              
+
 #if defined Q_WS_X11 && ! defined K_WS_QTONLY
             XSetTransientForHint( qt_xdisplay(), dlg.winId(), request->windowId);
-#endif            
+#endif
 
             dlgResult = dlg.exec();
 
@@ -238,6 +251,19 @@ KPasswdServer::processRequest()
                info.username = dlg.username();
                info.password = dlg.password();
                info.keepPassword = dlg.keepPassword();
+
+               // When the user checks "keep password", that means both in the cache (kpasswdserver process)
+               // and in the wallet, if enabled.
+               if ( info.keepPassword ) {
+                   KWallet::Wallet* wallet = KWallet::Wallet::openWallet(
+                       KWallet::Wallet::NetworkWallet(), dlg.winId() );
+                   QString password;
+                   // #### do I need to create the password folder?
+                   if ( wallet && wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) )
+                   {
+                       wallet->writePassword( request->key, dlg.password() );
+                   }
+               }
             }
         }
         if ( dlgResult != QDialog::Accepted )
