@@ -58,7 +58,7 @@ TrashImpl::TrashImpl() :
     m_config( "trashrc" )
 {
     KDE_struct_stat buff;
-    if ( KDE_stat( QFile::encodeName( QDir::homeDirPath() ), &buff ) == 0 ) {
+    if ( KDE_lstat( QFile::encodeName( QDir::homeDirPath() ), &buff ) == 0 ) {
         m_homeDevice = buff.st_dev;
     } else {
         kdError() << "Should never happen: couldn't stat $HOME " << strerror( errno ) << endl;
@@ -181,7 +181,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     // Check source
     const QCString origPath_c( QFile::encodeName( origPath ) );
     KDE_struct_stat buff_src;
-    if ( KDE_stat( origPath_c.data(), &buff_src ) == -1 ) {
+    if ( KDE_lstat( origPath_c.data(), &buff_src ) == -1 ) {
         if ( errno == EACCES )
            error( KIO::ERR_ACCESS_DENIED, origPath );
         else
@@ -427,7 +427,7 @@ bool TrashImpl::del( int trashId, const QString& fileId )
     QCString info_c = QFile::encodeName(info);
 
     KDE_struct_stat buff;
-    if ( KDE_stat( info_c.data(), &buff ) == -1 ) {
+    if ( KDE_lstat( info_c.data(), &buff ) == -1 ) {
         if ( errno == EACCES )
             error( KIO::ERR_ACCESS_DENIED, file );
         else
@@ -629,7 +629,7 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
 {
     // First check if same device as $HOME, then we use the home trash right away.
     KDE_struct_stat buff;
-    if ( KDE_stat( QFile::encodeName( origPath ), &buff ) == 0
+    if ( KDE_lstat( QFile::encodeName( origPath ), &buff ) == 0
          && buff.st_dev == m_homeDevice )
         return 0;
 
@@ -690,7 +690,7 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
     KDE_struct_stat buff;
     // Minimum permissions required: write+execute for 'others', and sticky bit
     int requiredBits = S_IWOTH | S_IXOTH | S_ISVTX;
-    if ( KDE_stat( QFile::encodeName( rootTrashDir ), &buff ) == 0
+    if ( KDE_lstat( QFile::encodeName( rootTrashDir ), &buff ) == 0
          && (buff.st_uid == 0) // must be owned by root
          && (S_ISDIR(buff.st_mode)) // must be a dir
          && (!S_ISLNK(buff.st_mode)) // not a symlink
@@ -698,7 +698,7 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
         ) {
         const QString trashDir = rootTrashDir + "/" + QString::number( uid );
         const QCString trashDir_c = QFile::encodeName( trashDir );
-        if ( KDE_stat( trashDir_c, &buff ) == 0 ) {
+        if ( KDE_lstat( trashDir_c, &buff ) == 0 ) {
             if ( (buff.st_uid == uid) // must be owned by user
                  && (S_ISDIR(buff.st_mode)) // must be a dir
                  && (!S_ISLNK(buff.st_mode)) // not a symlink
@@ -714,7 +714,7 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
     // (2) $topdir/.Trash-$uid
     const QString trashDir = topdir + "/.Trash-" + QString::number( uid );
     const QCString trashDir_c = QFile::encodeName( trashDir );
-    if ( KDE_stat( trashDir_c, &buff ) == 0 )
+    if ( KDE_lstat( trashDir_c, &buff ) == 0 )
     {
         if ( (buff.st_uid == uid) // must be owned by user
              && (S_ISDIR(buff.st_mode)) // must be a dir

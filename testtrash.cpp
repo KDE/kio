@@ -123,6 +123,8 @@ void TestTrash::cleanTrash()
     removeFile( m_trashDir, "/files/symlinkFromHome" );
     removeFile( m_trashDir, "/info/symlinkFromOther.trashinfo" );
     removeFile( m_trashDir, "/files/symlinkFromOther" );
+    removeFile( m_trashDir, "/info/brokenSymlinkFromHome.trashinfo" );
+    removeFile( m_trashDir, "/files/brokenSymlinkFromHome" );
     removeFile( m_trashDir, "/info/trashDirFromHome.trashinfo" );
     removeFile( m_trashDir, "/files/trashDirFromHome/testfile" );
     removeDir( m_trashDir, "/files/trashDirFromHome" );
@@ -146,6 +148,7 @@ void TestTrash::runAll()
     trashFileFromOther();
     trashSymlinkFromHome();
     trashSymlinkFromOther();
+    trashBrokenSymlinkFromHome();
     trashDirectoryFromHome();
     trashDirectoryFromOther();
 
@@ -295,11 +298,11 @@ void TestTrash::trashFileFromOther()
     trashFile( otherTmpDir() + fileName, fileName );
 }
 
-void TestTrash::trashSymlink( const QString& origFilePath, const QString& fileId )
+void TestTrash::trashSymlink( const QString& origFilePath, const QString& fileId, bool broken )
 {
     kdDebug() << k_funcinfo << endl;
     // setup
-    const char* target = "/tmp";
+    const char* target = broken ? "/nonexistent" : "/tmp";
     bool ok = ::symlink( target, QFile::encodeName( origFilePath ) ) == 0;
     assert( ok );
     KURL u;
@@ -320,14 +323,21 @@ void TestTrash::trashSymlinkFromHome()
 {
     kdDebug() << k_funcinfo << endl;
     const QString fileName = "symlinkFromHome";
-    trashSymlink( homeTmpDir() + fileName, fileName );
+    trashSymlink( homeTmpDir() + fileName, fileName, false );
 }
 
 void TestTrash::trashSymlinkFromOther()
 {
     kdDebug() << k_funcinfo << endl;
     const QString fileName = "symlinkFromOther";
-    trashSymlink( otherTmpDir() + fileName, fileName );
+    trashSymlink( otherTmpDir() + fileName, fileName, false );
+}
+
+void TestTrash::trashBrokenSymlinkFromHome()
+{
+    kdDebug() << k_funcinfo << endl;
+    const QString fileName = "brokenSymlinkFromHome";
+    trashSymlink( homeTmpDir() + fileName, fileName, true );
 }
 
 void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )

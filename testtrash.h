@@ -42,6 +42,7 @@ public:
     void trashFileFromOther();
     void trashSymlinkFromHome();
     void trashSymlinkFromOther();
+    void trashBrokenSymlinkFromHome();
     void trashDirectoryFromHome();
     void trashDirectoryFromOther();
 
@@ -77,7 +78,7 @@ private slots:
 
 private:
     void trashFile( const QString& origFilePath, const QString& fileId );
-    void trashSymlink( const QString& origFilePath, const QString& fileName );
+    void trashSymlink( const QString& origFilePath, const QString& fileName, bool broken );
     void trashDirectory( const QString& origPath, const QString& fileName );
     void copyFromTrash( const QString& fileId, const QString& destPath, const QString& relativePath = QString::null );
     void moveFromTrash( const QString& fileId, const QString& destPath, const QString& relativePath = QString::null );
