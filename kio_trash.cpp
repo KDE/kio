@@ -435,7 +435,6 @@ bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& 
     mode_t access = buff.st_mode & 07777; // extract permissions
     access &= 07555; // make it readonly, since it's in the trashcan
     addAtom( entry, KIO::UDS_NAME, 0, fileName );
-    addAtom( entry, KIO::UDS_FILENAME, 0, fileName );
     addAtom( entry, KIO::UDS_FILE_TYPE, type );
     if ( !url.isEmpty() )
         addAtom( entry, KIO::UDS_URL, 0, url );

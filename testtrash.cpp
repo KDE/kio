@@ -252,6 +252,7 @@ static void createTestFile( const QString& path )
         kdFatal() << "Can't create " << path << endl;
     f.writeBlock( "Hello world", 10 );
     f.close();
+    assert( QFile::exists( path ) );
 }
 
 void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
@@ -328,7 +329,7 @@ void TestTrash::trashSymlinkFromOther()
 
 void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )
 {
-    kdDebug() << k_funcinfo << endl;
+    kdDebug() << k_funcinfo << fileId << endl;
     // setup
     QDir dir;
     bool ok = dir.mkdir( origPath );
@@ -344,6 +345,7 @@ void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )
     QFileInfo filesDir( m_trashDir + "/files/" + fileId );
     assert( filesDir.isDir() );
     QFileInfo files( m_trashDir + "/files/" + fileId + "/testfile" );
+    assert( files.exists() );
     assert( files.isFile() );
     assert( files.size() == 10 );
     assert( !QFile::exists( origPath ) );
@@ -616,8 +618,25 @@ void TestTrash::restoreFile()
 {
     kdDebug() << k_funcinfo << endl;
     const QString fileId = "fileFromHome_1";
-    //const KURL trashURL( "trash:/0-" + fileId );
-    system( QCString( "ktrash --restore trash:/0-" ) + QFile::encodeName( fileId ) );
+    const KURL url = TrashProtocol::makeURL( 0, fileId, QString::null );
+    const QString infoFile( m_trashDir + "/info/" + fileId + ".trashinfo" );
+    const QString filesItem( m_trashDir + "/files/" + fileId );
+
+    assert( QFile::exists( infoFile ) );
+    assert( QFile::exists( filesItem ) );
+
+    QByteArray packedArgs;
+    QDataStream stream( packedArgs, IO_WriteOnly );
+    stream << (int)3 << url;
+    KIO::Job* job = KIO::special( url, packedArgs );
+    bool ok = KIO::NetAccess::synchronousRun( job, 0 );
+    assert( ok );
+
+    assert( !QFile::exists( infoFile ) );
+    assert( !QFile::exists( filesItem ) );
+
+    const QString destPath = homeTmpDir() + "fileFromHome";
+    assert( QFile::exists( destPath ) );
 }
 
 void TestTrash::listRootDir()
@@ -635,27 +654,30 @@ void TestTrash::listRootDir()
 
 void TestTrash::slotEntries( KIO::Job*, const KIO::UDSEntryList& lst )
 {
-    // We use UDS_NAME==UDS_FILENAME so that dropping a file out of the trash
-    // and into a file:/ directory uses that as filename (and not the last part of the URL)
+    bool dotFound = false;
+
     for( KIO::UDSEntryList::ConstIterator it = lst.begin(); it != lst.end(); ++it ) {
         KIO::UDSEntry::ConstIterator it2 = (*it).begin();
         QString displayName;
-        QString fileName;
+        KURL url;
         for( ; it2 != (*it).end(); it2++ ) {
             switch ((*it2).m_uds) {
             case KIO::UDS_NAME:
                 displayName = (*it2).m_str;
                 break;
-            case KIO::UDS_FILENAME:
-                fileName = (*it2).m_str;
+            case KIO::UDS_URL:
+                url = (*it2).m_str;
                 break;
             }
         }
-        if ( displayName != "." ) {
-            if ( displayName != fileName )
-                kdFatal() << "UDS_NAME=" << displayName << " UDS_FILENAME=" << fileName << endl;
+        if ( displayName == "." ) {
+            assert( !dotFound ); // only once
+            dotFound = true;
+        } else {
+            assert( url.protocol() == "trash" );
         }
     }
+    assert( dotFound );
     m_entryCount += lst.count();
 }
 
