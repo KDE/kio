@@ -36,7 +36,7 @@
 #include <kwallet.h>
 
 #include "config.h"
-#if defined Q_WS_X11 && ! defined K_WS_QTONLY
+#ifdef Q_WS_X11
 #include <X11/X.h>
 #include <X11/Xlib.h>
 #endif
@@ -249,7 +249,7 @@ KPasswdServer::processRequest()
             if (hasWalletData)
                 dlg.setKeepPassword( true );
 
-#if defined Q_WS_X11 && ! defined K_WS_QTONLY
+#ifdef Q_WS_X11
             XSetTransientForHint( qt_xdisplay(), dlg.winId(), request->windowId);
 #endif
 
