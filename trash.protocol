@@ -5,7 +5,7 @@ input=none
 output=filesystem
 # AccessDate doesn't make sense.
 # OTOH we need deletion date :)
-listing=Name,Type,Size,Date,Access,Owner,Group,Link
+listing=Name,Type,Size,Extra1,Extra2,Date,Access,Owner,Group,Link
 reading=true
 writing=true
 makedir=true
@@ -22,3 +22,5 @@ copyToFile=true
 deleteRecursive=true
 fileNameUsedForCopying=Name
 #TODO DocPath
+ExtraNames=Original Path,Deletion Date
+ExtraTypes=QString,QDateTime

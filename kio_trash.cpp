@@ -72,8 +72,6 @@ extern "C" {
         error( impl.lastErrorCode(), impl.lastErrorMessage() ); \
         return; \
     }
-typedef TrashImpl::TrashedFileInfo TrashedFileInfo;
-typedef TrashImpl::TrashedFileInfoList TrashedFileInfoList;
 
 TrashProtocol::TrashProtocol( const QCString& protocol, const QCString &pool, const QCString &app)
     : SlaveBase(protocol, pool, app )
@@ -290,7 +288,10 @@ void TrashProtocol::stat(const KURL& url)
         }
 
         KIO::UDSEntry entry;
-        ok = createUDSEntry(filePath, fileName, fileURL, entry);
+        TrashedFileInfo info;
+        ok = impl.infoForFile( trashId, fileId, info );
+        if ( ok )
+            ok = createUDSEntry( filePath, fileName, fileURL, entry, info );
 
         if ( !ok ) {
             error( KIO::ERR_COULD_NOT_STAT, url.prettyURL() );
@@ -360,15 +361,18 @@ void TrashProtocol::listDir(const KURL& url)
         // shouldn't be necessary
         //const QString url = TrashImpl::makeURL( trashId, fileId, relativePath + "/" + fileName );
         entry.clear();
-        if ( createUDSEntry( filePath, fileName, QString::null /*url*/, entry ) )
+        TrashedFileInfo info;
+        bool ok = impl.infoForFile( trashId, fileName, info );
+        if ( ok && createUDSEntry( filePath, fileName, QString::null /*url*/, entry, info ) ) {
             listEntry( entry, false );
+        }
     }
     entry.clear();
     listEntry( entry, true );
     finished();
 }
 
-bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& fileName, const QString& url, KIO::UDSEntry& entry )
+bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& fileName, const QString& url, KIO::UDSEntry& entry, const TrashedFileInfo& info )
 {
     QCString physicalPath_c = QFile::encodeName( physicalPath );
     KDE_struct_stat buff;
@@ -409,6 +413,8 @@ bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& 
     addAtom( entry, KIO::UDS_GROUP, 0, m_groupName ); // assumption
     addAtom( entry, KIO::UDS_MODIFICATION_TIME, buff.st_mtime );
     addAtom( entry, KIO::UDS_ACCESS_TIME, buff.st_atime ); // ## or use it for deletion time?
+    addAtom( entry, KIO::UDS_EXTRA, 0, info.origPath );
+    addAtom( entry, KIO::UDS_EXTRA, 0, info.deletionDate.toString( Qt::ISODate ) );
     return true;
 }
 
@@ -425,7 +431,7 @@ void TrashProtocol::listRoot()
         KURL origURL;
         origURL.setPath( (*it).origPath );
         entry.clear();
-        if ( createUDSEntry( (*it).physicalPath, origURL.fileName(), url, entry ) )
+        if ( createUDSEntry( (*it).physicalPath, origURL.fileName(), url, entry, *it ) )
             listEntry( entry, false );
     }
     entry.clear();

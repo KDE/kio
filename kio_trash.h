@@ -24,6 +24,9 @@
 #include "trashimpl.h"
 namespace KIO { class Job; }
 
+typedef TrashImpl::TrashedFileInfo TrashedFileInfo;
+typedef TrashImpl::TrashedFileInfoList TrashedFileInfoList;
+
 class TrashProtocol : public QObject, public KIO::SlaveBase
 {
     Q_OBJECT
@@ -55,7 +58,8 @@ private:
     typedef enum CopyOrMove { Copy, Move };
     void copyOrMove( const KURL& src, const KURL& dest, bool overwrite, CopyOrMove action );
     void createTopLevelDirEntry(KIO::UDSEntry& entry);
-    bool createUDSEntry( const QString& physicalPath, const QString& fileName, const QString& url, KIO::UDSEntry& entry );
+    bool createUDSEntry( const QString& physicalPath, const QString& fileName, const QString& url,
+                         KIO::UDSEntry& entry, const TrashedFileInfo& info );
     void listRoot();
     void restore( const KURL& trashURL );
 
