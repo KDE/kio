@@ -40,5 +40,6 @@ ExtraNames[sv]=Ursprunglig sökväg,Borttagningsdatum
 ExtraNames[ta]=மூல பாதை,நீக்கப்பட்ட தேதி
 ExtraNames[tr]=Orjinal Yol, Silinme Tarihi
 ExtraNames[uk]=Шлях,Дата видалення
+ExtraNames[xx]=xxOriginal Path,Deletion Datexx
 ExtraNames[zh_CN]=原始路径,删除日期
 ExtraTypes=QString,QDateTime
