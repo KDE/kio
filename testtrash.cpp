@@ -337,7 +337,8 @@ void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )
     KURL u; u.setPath( origPath );
 
     // test
-    KIO::NetAccess::move( u, "trash:/" );
+    ok = KIO::NetAccess::move( u, "trash:/" );
+    assert( ok );
     checkInfoFile( m_trashDir + "/info/" + fileId + ".trashinfo", origPath );
 
     QFileInfo filesDir( m_trashDir + "/files/" + fileId );
@@ -634,6 +635,27 @@ void TestTrash::listRootDir()
 
 void TestTrash::slotEntries( KIO::Job*, const KIO::UDSEntryList& lst )
 {
+    // We use UDS_NAME==UDS_FILENAME so that dropping a file out of the trash
+    // and into a file:/ directory uses that as filename (and not the last part of the URL)
+    for( KIO::UDSEntryList::ConstIterator it = lst.begin(); it != lst.end(); ++it ) {
+        KIO::UDSEntry::ConstIterator it2 = (*it).begin();
+        QString displayName;
+        QString fileName;
+        for( ; it2 != (*it).end(); it2++ ) {
+            switch ((*it2).m_uds) {
+            case KIO::UDS_NAME:
+                displayName = (*it2).m_str;
+                break;
+            case KIO::UDS_FILENAME:
+                fileName = (*it2).m_str;
+                break;
+            }
+        }
+        if ( displayName != "." ) {
+            if ( displayName != fileName )
+                kdFatal() << "UDS_NAME=" << displayName << " UDS_FILENAME=" << fileName << endl;
+        }
+    }
     m_entryCount += lst.count();
 }
 
