@@ -185,7 +185,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     // Grab original filename
     KURL url;
     url.setPath( origPath );
-    QString origFileName = url.fileName();
+    const QString origFileName = url.fileName();
 
     // Make destination file in info/
     url.setPath( infoPath( trashId, origFileName ) ); // we first try with origFileName
@@ -208,6 +208,8 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     } while ( fd < 0 );
     const QString infoPath = url.path();
     fileId = url.fileName();
+    Q_ASSERT( fileId.endsWith( ".trashinfo" ) );
+    fileId.truncate( fileId.length() - 10 ); // remove .trashinfo from fileId
 
     FILE* file = ::fdopen( fd, "w" );
     if ( !file ) { // can't see how this would happen
@@ -215,9 +217,13 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
         return false;
     }
 
-    // Contents of the info file
-    QCString info = QFile::encodeName( origPath );
+    // Contents of the info file. We could use KSimpleConfig, but that would
+    // mean closing and reopening fd, i.e. opening a race condition...
+    QCString info = "[Trash Info]\n";
+    info += "Path=";
+    info += QFile::encodeName( origPath );
     info += "\n";
+    info += "DeletionDate=";
     info += QDateTime::currentDateTime().toString( Qt::ISODate ).local8Bit();
     info += "\n";
     size_t sz = info.size() - 1; // avoid trailing 0 from QCString
@@ -241,6 +247,7 @@ QString TrashImpl::infoPath( int trashId, const QString& fileId ) const
     QString trashPath = trashDirectoryPath( trashId );
     trashPath += "/info/";
     trashPath += fileId;
+    trashPath += ".trashinfo";
     return trashPath;
 }
 
@@ -490,22 +497,18 @@ bool TrashImpl::infoForFile( int trashId, const QString& fileId, TrashedFileInfo
 
 bool TrashImpl::readInfoFile( const QString& infoPath, TrashedFileInfo& info )
 {
-    QFile file( infoPath );
-    if ( !file.open( IO_ReadOnly ) ) {
+    KSimpleConfig cfg( infoPath, true );
+    if ( !cfg.hasGroup( "Trash Info" ) ) {
         error( KIO::ERR_CANNOT_OPEN_FOR_READING, infoPath );
         return false;
     }
-    char line[MAXPATHLEN + 1];
-    Q_LONG len = file.readLine( line, MAXPATHLEN );
-    if ( len <= 0 )
-        return false; // ## which error code to set?
-    // First line is the original path
-    line[ len - 1 ] = '\0'; // erase the \n
-    info.origPath = QFile::decodeName( line );
-    len = file.readLine( line, MAXPATHLEN );
-    if ( len > 0 ) {
-        line[ len - 1 ] = '\0'; // erase the \n
-        info.deletionDate = QDateTime::fromString( QString::fromLatin1( line ), Qt::ISODate );
+    cfg.setGroup( "Trash Info" );
+    info.origPath = cfg.readEntry( "Path" );
+    if ( info.origPath.isEmpty() )
+        return false; // path is mandatory...
+    QString line = cfg.readEntry( "DeletionDate" );
+    if ( !line.isEmpty() ) {
+        info.deletionDate = QDateTime::fromString( line, Qt::ISODate );
     }
     return true;
 }

@@ -111,23 +111,23 @@ void TestTrash::cleanTrash()
 {
     // Start with a relatively clean trash too
     const QString trashDir = QDir::homeDirPath() + "/.Trash/";
-    removeFile( trashDir, "info/fileFromHome" );
+    removeFile( trashDir, "info/fileFromHome.trashinfo" );
     removeFile( trashDir, "files/fileFromHome" );
-    removeFile( trashDir, "info/fileFromHome_1" );
+    removeFile( trashDir, "info/fileFromHome_1.trashinfo" );
     removeFile( trashDir, "files/fileFromHome_1" );
-    removeFile( trashDir, "info/fileFromOther" );
+    removeFile( trashDir, "info/fileFromOther.trashinfo" );
     removeFile( trashDir, "files/fileFromOther" );
-    removeFile( trashDir, "info/symlinkFromHome" );
+    removeFile( trashDir, "info/symlinkFromHome.trashinfo" );
     removeFile( trashDir, "files/symlinkFromHome" );
-    removeFile( trashDir, "info/symlinkFromOther" );
+    removeFile( trashDir, "info/symlinkFromOther.trashinfo" );
     removeFile( trashDir, "files/symlinkFromOther" );
-    removeFile( trashDir, "info/trashDirFromHome" );
+    removeFile( trashDir, "info/trashDirFromHome.trashinfo" );
     removeFile( trashDir, "files/trashDirFromHome/testfile" );
     removeDir( trashDir, "files/trashDirFromHome" );
-    removeFile( trashDir, "info/trashDirFromHome_1" );
+    removeFile( trashDir, "info/trashDirFromHome_1.trashinfo" );
     removeFile( trashDir, "files/trashDirFromHome_1/testfile" );
     removeDir( trashDir, "files/trashDirFromHome_1" );
-    removeFile( trashDir, "info/trashDirFromOther" );
+    removeFile( trashDir, "info/trashDirFromOther.trashinfo" );
     removeFile( trashDir, "files/trashDirFromOther/testfile" );
     removeDir( trashDir, "files/trashDirFromOther" );
 }
@@ -228,16 +228,17 @@ static void checkInfoFile( const QString& infoPath, const QString& origFilePath 
 {
     QFileInfo info( infoPath );
     assert( info.isFile() );
-    QFile infoFile( info.absFilePath() );
-    if ( !infoFile.open( IO_ReadOnly ) )
-        kdFatal() << "can't read " << info.absFilePath() << endl;
-    QString firstLine;
-    infoFile.readLine( firstLine, 100 );
-    assert( firstLine == origFilePath + '\n' );
-    QString secondLine;
-    infoFile.readLine( secondLine, 100 );
-    assert( !secondLine.isEmpty() );
-    assert( secondLine.endsWith("\n") );
+    assert( info.exists() );
+    KSimpleConfig infoFile( info.absFilePath(), true );
+    if ( !infoFile.hasGroup( "Trash Info" ) )
+        kdFatal() << "no Trash Info group in " << info.absFilePath() << endl;
+    infoFile.setGroup( "Trash Info" );
+    const QString origPath = infoFile.readEntry( "Path" );
+    assert( !origPath.isEmpty() );
+    assert( origPath == origFilePath );
+    const QString date = infoFile.readEntry( "DeletionDate" );
+    assert( !date.isEmpty() );
+    assert( date.contains( "T" ) );
 }
 
 static void createTestFile( const QString& path )
@@ -259,7 +260,7 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
     // test
     bool ok = KIO::NetAccess::move( u, "trash:/" );
     assert( ok );
-    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/" + fileId, origFilePath );
+    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/" + fileId + ".trashinfo", origFilePath );
 
     QFileInfo files( QDir::homeDirPath() + "/.Trash/files/" + fileId );
     assert( files.isFile() );
@@ -299,7 +300,7 @@ void TestTrash::trashSymlink( const QString& origFilePath, const QString& fileId
     // test
     ok = KIO::NetAccess::move( u, "trash:/" );
     assert( ok );
-    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/" + fileId, origFilePath );
+    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/" + fileId + ".trashinfo", origFilePath );
 
     QFileInfo files( QDir::homeDirPath() + "/.Trash/files/" + fileId );
     assert( files.isSymLink() );
@@ -333,7 +334,7 @@ void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )
 
     // test
     KIO::NetAccess::move( u, "trash:/" );
-    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/" + fileId, origPath );
+    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/" + fileId + ".trashinfo", origPath );
 
     QFileInfo filesDir( QDir::homeDirPath() + "/.Trash/files/" + fileId );
     assert( filesDir.isDir() );
@@ -376,7 +377,7 @@ void TestTrash::delRootFile()
 
     QFileInfo file( QDir::homeDirPath() + "/.Trash/files/fileFromHome" );
     assert( !file.exists() );
-    QFileInfo info( QDir::homeDirPath() + "/.Trash/info/fileFromHome" );
+    QFileInfo info( QDir::homeDirPath() + "/.Trash/info/fileFromHome.trashinfo" );
     assert( !info.exists() );
 }
 
@@ -391,7 +392,7 @@ void TestTrash::delFileInDirectory()
     assert( dir.exists() );
     QFileInfo file( QDir::homeDirPath() + "/.Trash/files/trashDirFromHome/testfile" );
     assert( file.exists() );
-    QFileInfo info( QDir::homeDirPath() + "/.Trash/info/trashDirFromHome" );
+    QFileInfo info( QDir::homeDirPath() + "/.Trash/info/trashDirFromHome.trashinfo" );
     assert( info.exists() );
 }
 
@@ -406,7 +407,7 @@ void TestTrash::delDirectory()
     assert( !dir.exists() );
     QFileInfo file( QDir::homeDirPath() + "/.Trash/files/trashDirFromHome/testfile" );
     assert( !file.exists() );
-    QFileInfo info( QDir::homeDirPath() + "/.Trash/info/trashDirFromHome" );
+    QFileInfo info( QDir::homeDirPath() + "/.Trash/info/trashDirFromHome.trashinfo" );
     assert( !info.exists() );
 }
 
@@ -508,7 +509,7 @@ void TestTrash::copyFromTrash( const QString& fileId, const QString& destPath, c
     KIO::Job* job = KIO::copyAs( src, dest );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
     assert( ok );
-    QString infoFile( QDir::homeDirPath() + "/.Trash/info/" + fileId );
+    QString infoFile( QDir::homeDirPath() + "/.Trash/info/" + fileId + ".trashinfo" );
     assert( QFile::exists( infoFile ) );
 
     QFileInfo filesItem( QDir::homeDirPath() + "/.Trash/files/" + fileId );
@@ -563,7 +564,7 @@ void TestTrash::moveFromTrash( const QString& fileId, const QString& destPath, c
     KIO::Job* job = KIO::moveAs( src, dest );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
     assert( ok );
-    QString infoFile( QDir::homeDirPath() + "/.Trash/info/" + fileId );
+    QString infoFile( QDir::homeDirPath() + "/.Trash/info/" + fileId + ".trashinfo" );
     assert( !QFile::exists( infoFile ) );
 
     QFileInfo filesItem( QDir::homeDirPath() + "/.Trash/files/" + fileId );
