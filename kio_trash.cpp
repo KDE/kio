@@ -211,8 +211,12 @@ void TrashProtocol::copyOrMove( const KURL &src, const KURL &dest, bool overwrit
                 if ( !ok ) {
                     (void)impl.deleteInfo( trashId, fileId );
                     error( impl.lastErrorCode(), impl.lastErrorMessage() );
-                } else
+                } else {
+                    // Inform caller of the final URL. Used by konq_undo.
+                    const QString url = impl.makeURL( trashId, fileId, QString::null );
+                    setMetaData( "trashURL-" + srcPath, url );
                     finished();
+                }
             }
             return;
         } else {

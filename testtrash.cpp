@@ -269,7 +269,10 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
     u.setPath( origFilePath );
 
     // test
-    bool ok = KIO::NetAccess::move( u, "trash:/" );
+    KIO::Job* job = KIO::move( u, "trash:/" );
+    QMap<QString, QString> metaData;
+    //bool ok = KIO::NetAccess::move( u, "trash:/" );
+    bool ok = KIO::NetAccess::synchronousRun( job, 0, 0, 0, &metaData );
     assert( ok );
     checkInfoFile( m_trashDir + "/info/" + fileId + ".trashinfo", origFilePath );
 
@@ -279,6 +282,22 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
 
     // coolo suggests testing that the original file is actually gone, too :)
     assert( !QFile::exists( origFilePath ) );
+
+    assert( !metaData.isEmpty() );
+    bool found = false;
+    QMap<QString, QString>::ConstIterator it = metaData.begin();
+    for ( ; it != metaData.end() ; ++it ) {
+        if ( it.key().startsWith( "trashURL" ) ) {
+            const QString origPath = it.key().mid( 9 );
+            KURL trashURL( it.data() );
+            kdDebug() << trashURL << endl;
+            assert( !trashURL.isEmpty() );
+            assert( trashURL.protocol() == "trash" );
+            assert( trashURL.path() == "/0-" + fileId );
+            found = true;
+        }
+    }
+    assert( found );
 }
 
 void TestTrash::trashFileFromHome()
