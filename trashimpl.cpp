@@ -170,6 +170,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     QCString info = QFile::encodeName( origPath );
     info += "\n";
     info += QDateTime::currentDateTime().toString( Qt::ISODate ).local8Bit();
+    info += "\n";
     size_t sz = info.size() - 1; // avoid trailing 0 from QCString
 
     size_t written = ::fwrite(info.data(), 1, sz, file);

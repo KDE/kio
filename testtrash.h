@@ -24,11 +24,18 @@ class TestTrash
 {
 public:
     TestTrash() {}
+    void setup();
     void runAll();
 
     void urlTestFile();
     void urlTestDirectory();
     void urlTestSubDirectory();
+    void trashFileFromHome();
+    void trashFileFromOther();
+    void tryRenameInsideTrash();
+
+    QString homeTmpDir() const;
+    QString otherTmpDir() const;
 };
 
 #endif

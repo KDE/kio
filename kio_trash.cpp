@@ -273,7 +273,7 @@ void TrashProtocol::listDir(const KURL& url)
     int trashId;
     QString fileId;
     QString relativePath;
-    bool ok = TrashProtocol::parseURL( url, trashId, fileId, relativePath );
+    bool ok = parseURL( url, trashId, fileId, relativePath );
     if ( !ok ) {
         error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.prettyURL() ) );
         return;
