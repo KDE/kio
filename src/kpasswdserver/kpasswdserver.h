@@ -58,6 +58,7 @@ protected:
   void removeAuthInfoItem(const QString &key, const KIO::AuthInfo &info);
   void addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, long windowId, long seqNr, bool canceled);
   KIO::AuthInfo copyAuthInfo(const AuthInfo *);
+  void updateAuthExpire(const QString &key, const AuthInfo *, long windowId, bool keep);
   
   struct AuthInfo {
     AuthInfo() { expire = expNever; isCanceled = false; seqNr = 0; }

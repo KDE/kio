@@ -81,8 +81,11 @@ KPasswdServer::~KPasswdServer()
 }
 
 KIO::AuthInfo 
-KPasswdServer::checkAuthInfo(KIO::AuthInfo info, long)
+KPasswdServer::checkAuthInfo(KIO::AuthInfo info, long windowId)
 {
+    kdDebug() << "KPasswdServer::checkAuthInfo: User= " << info.username
+              << ", WindowId = " << windowId << endl;
+
     QString key = createCacheKey(info);
 
     Request *request = m_authPending.first();
@@ -114,6 +117,8 @@ KPasswdServer::checkAuthInfo(KIO::AuthInfo info, long)
        info.setModified(false);
        return info;
     }
+
+    updateAuthExpire(key, result, windowId, false);
     
     return copyAuthInfo(result);
 }
@@ -122,7 +127,7 @@ KIO::AuthInfo
 KPasswdServer::queryAuthInfo(KIO::AuthInfo info, QString errorMsg, long windowId, long seqNr)
 {
     kdDebug() << "KPasswdServer::queryAuthInfo: User= " << info.username
-              << ", Message= " << info.prompt << endl;
+              << ", Message= " << info.prompt << ", WindowId = " << windowId << endl;
     QString key = createCacheKey(info);
     Request *request = new Request;
     request->client = callingDcopClient();
@@ -144,7 +149,7 @@ void
 KPasswdServer::addAuthInfo(KIO::AuthInfo info, long windowId)
 {
     kdDebug() << "KPasswdServer::addAuthInfo: User= " << info.username
-              << ", RealmValue= " << info.realmValue << endl;
+              << ", RealmValue= " << info.realmValue << ", WindowId = " << windowId << endl;
     QString key = createCacheKey(info);
 
     m_seqNr++;
@@ -170,9 +175,14 @@ KPasswdServer::processRequest()
     {
         kdDebug() << "KPasswdServer::processRequest: auto retry!" << endl;
         if (result->isCanceled)
+        {
            info.setModified(false);
+        }
         else
+        {
+           updateAuthExpire(request->key, result, request->windowId, false);
            info = copyAuthInfo(result);
+        }
     }
     else
     {
@@ -285,6 +295,7 @@ KPasswdServer::processRequest()
            }
            else
            {
+               updateAuthExpire(waitRequest->key, result, waitRequest->windowId, false);
                KIO::AuthInfo info = copyAuthInfo(result);
                stream2 << info;
            }
@@ -443,7 +454,17 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, lo
    current->seqNr = seqNr;
    current->isCanceled = canceled;
 
-   if (info.keepPassword && !canceled)
+   updateAuthExpire(key, current, windowId, info.keepPassword && !canceled);
+
+   // Insert into list, keep the list sorted "longest path" first.
+   authList->inSort(current);
+}
+
+void 
+KPasswdServer::updateAuthExpire(const QString &key, const AuthInfo *auth, long windowId, bool keep)
+{
+   AuthInfo *current = const_cast<AuthInfo *>(auth); 
+   if (keep)
    {
       current->expire = AuthInfo::expNever;
    }
@@ -457,9 +478,6 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, lo
    {
       current->expireTime = time(0)+10;
    }
-   
-   // Insert into list, keep the list sorted "longest path" first.
-   authList->inSort(current);
    
    // Update mWindowIdList
    if (windowId)
