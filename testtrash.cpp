@@ -227,6 +227,7 @@ void TestTrash::runAll()
 
     getFile();
     restoreFile();
+    restoreFileToDeletedDirectory();
 
     emptyTrash();
 
@@ -859,6 +860,42 @@ void TestTrash::restoreFile()
 
     const QString destPath = homeTmpDir() + "fileFromHome";
     assert( QFile::exists( destPath ) );
+}
+
+void TestTrash::restoreFileToDeletedDirectory()
+{
+    kdDebug() << k_funcinfo << endl;
+    // Ensure we'll get "fileFromHome" as fileId
+    removeFile( m_trashDir, "/info/fileFromHome.trashinfo" );
+    removeFile( m_trashDir, "/files/fileFromHome" );
+    trashFileFromHome();
+    // Delete orig dir
+    bool delOK = KIO::NetAccess::del( homeTmpDir(), 0 );
+    assert( delOK );
+
+    const QString fileId = "fileFromHome";
+    const KURL url = TrashImpl::makeURL( 0, fileId, QString::null );
+    const QString infoFile( m_trashDir + "/info/" + fileId + ".trashinfo" );
+    const QString filesItem( m_trashDir + "/files/" + fileId );
+
+    assert( QFile::exists( infoFile ) );
+    assert( QFile::exists( filesItem ) );
+
+    QByteArray packedArgs;
+    QDataStream stream( packedArgs, IO_WriteOnly );
+    stream << (int)3 << url;
+    KIO::Job* job = KIO::special( url, packedArgs );
+    bool ok = KIO::NetAccess::synchronousRun( job, 0 );
+    assert( !ok );
+    // dest dir doesn't exist -> error message
+    assert( KIO::NetAccess::lastError() == KIO::ERR_SLAVE_DEFINED );
+
+    // check that nothing happened
+    assert( QFile::exists( infoFile ) );
+    assert( QFile::exists( filesItem ) );
+
+    const QString destPath = homeTmpDir() + "fileFromHome";
+    assert( !QFile::exists( destPath ) );
 }
 
 void TestTrash::listRootDir()
