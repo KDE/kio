@@ -161,12 +161,13 @@ void TrashProtocol::rename(const KURL &oldURL, const KURL &newURL, bool overwrit
                 } else
                     finished();
             }
+            return;
         } else {
-            // TODO
-//            QString trashDir = impl.resolveTrash...
-//            if ( !impl.rename( oldURL.path(), trashDir + ...
+            // Well it's not allowed to add a file to an existing deleted directory.
+            // During the deletion itself, we either rename() in one go or copy+del, so we never rename()...
+            error( KIO::ERR_ACCESS_DENIED, newURL );
+            return;
         }
-        return;
     }
     error( KIO::ERR_UNSUPPORTED_ACTION, "rename" );
 }
@@ -206,6 +207,11 @@ void TrashProtocol::copy( const KURL &src, const KURL &dest, int permissions, bo
                 m_curFileId = fileId;
                 qApp->enter_loop();
             }
+        } else {
+            // It's not allowed to add a file to an existing deleted directory.
+            // But during the deletion itself, we'll be called for subfiles
+            error( KIO::ERR_ACCESS_DENIED, newURL );
+            return;
         }
         return;
     }
@@ -259,14 +265,14 @@ void TrashProtocol::stat(const KURL& url)
     } else {
         int trashId;
         QString fileId, relativePath;
-        
+
         bool ok = parseURL(url, trashId, fileId, relativePath);
-        
+
         if ( !ok ) {
             error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.prettyURL() ) );
             return;
         }
-        
+
         TrashedFileInfo info;
         ok = impl.infoForFile( trashId, fileId, info );
         if ( !ok ) {
@@ -279,9 +285,9 @@ void TrashProtocol::stat(const KURL& url)
             filePath += "/";
             filePath += relativePath;
         }
-        
+
         QString fileName = filePath.section('/', -1, -1, QString::SectionSkipEmpty);
-        
+
         QString fileURL = QString::null;
         if ( url.path().length() > 1 ) {
             fileURL = url.url();
@@ -289,7 +295,7 @@ void TrashProtocol::stat(const KURL& url)
 
         KIO::UDSEntry entry;
         ok = createUDSEntry(filePath, fileName, fileURL, entry);
-        
+
         if ( !ok ) {
             error( KIO::ERR_COULD_NOT_STAT, url.prettyURL() );
         }

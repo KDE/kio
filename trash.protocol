@@ -19,4 +19,5 @@ renameFromFile=true
 renameToFile=true
 copyFromFile=true
 copyToFile=true
+deleteRecursive=true
 #TODO DocPath
