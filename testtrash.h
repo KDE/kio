@@ -28,29 +28,40 @@ public:
     void cleanTrash();
     void runAll();
 
+    // tests
+
     void urlTestFile();
     void urlTestDirectory();
     void urlTestSubDirectory();
+
     void trashFileFromHome();
     void trashFileFromOther();
     void trashSymlinkFromHome();
     void trashSymlinkFromOther();
     void trashDirectoryFromHome();
     void trashDirectoryFromOther();
+
     void tryRenameInsideTrash();
+
     void delRootFile();
     void delFileInDirectory();
     void delDirectory();
+
     void statRoot();
     void statFileInRoot();
     void statDirectoryInRoot();
     void statSymlinkInRoot();
     void statFileInDirectory();
 
+    void moveFileFromTrash();
+    void moveDirectoryFromTrash();
+    void moveSymlinkFromTrash();
+
 private:
     void trashFile( const QString& origFilePath, const QString& fileName );
     void trashSymlink( const QString& origFilePath, const QString& fileName );
     void trashDirectory( const QString& origPath, const QString& fileName );
+    void moveFromTrash( const QString& fileId, const QString& destPath );
 
     QString homeTmpDir() const;
     QString otherTmpDir() const;

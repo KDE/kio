@@ -143,9 +143,22 @@ void TrashProtocol::rename(const KURL &oldURL, const KURL &newURL, bool overwrit
         return;
     }
     if ( oldURL.protocol() == "trash" && newURL.isLocalFile() ) {
-        // Extracting (e.g. via dnd). Ignore original location.
-        // TODO
-        //return;
+        // Extracting (e.g. via dnd). Ignore original location stored in info file.
+        int trashId;
+        QString fileId, relativePath;
+        bool ok = parseURL( oldURL, trashId, fileId, relativePath );
+        if ( !ok ) {
+            error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( oldURL.prettyURL() ) );
+            return;
+        }
+        kdDebug() << k_funcinfo << "calling moveFromTrash(" << newURL.path() << " " << trashId << " " << fileId << ")" << endl;
+        if ( !impl.moveFromTrash( newURL.path(), trashId, fileId ) ) {
+            error( impl.lastErrorCode(), impl.lastErrorMessage() );
+        } else {
+            (void)impl.deleteInfo( trashId, fileId );
+            finished();
+        }
+        return;
     } else if ( oldURL.isLocalFile() && newURL.protocol() == "trash" ) {
         QString dir = newURL.directory();
         // Trashing a file
@@ -157,7 +170,7 @@ void TrashProtocol::rename(const KURL &oldURL, const KURL &newURL, bool overwrit
             if ( !impl.createInfo( oldURL.path(), trashId, fileId ) ) {
                 error( impl.lastErrorCode(), impl.lastErrorMessage() );
             } else {
-                if ( !impl.tryRename( oldURL.path(), trashId, fileId ) ) {
+                if ( !impl.moveToTrash( oldURL.path(), trashId, fileId ) ) {
                     (void)impl.deleteInfo( trashId, fileId );
                     error( impl.lastErrorCode(), impl.lastErrorMessage() );
                 } else
@@ -270,6 +283,7 @@ void TrashProtocol::stat(const KURL& url)
         bool ok = parseURL(url, trashId, fileId, relativePath);
 
         if ( !ok ) {
+            // ######## do we still need this?
             kdDebug() << k_funcinfo << url << " looks fishy, returning does-not-exist" << endl;
             // A URL like trash:/file simply means that CopyJob is trying to see if
             // the destination exists already (it made up the URL by itself).

@@ -213,16 +213,27 @@ bool TrashImpl::deleteInfo( int trashId, const QString& fileId )
     return ( ::unlink( QFile::encodeName( infoPath( trashId, fileId ) ) ) == 0 );
 }
 
-bool TrashImpl::tryRename( const QString& origPath, int trashId, const QString& fileId )
+bool TrashImpl::moveToTrash( const QString& origPath, int trashId, const QString& fileId )
 {
     kdDebug() << k_funcinfo << endl;
     const QString dest = filesPath( trashId, fileId );
-    if ( directRename( origPath, dest ) )
+    return move( origPath, dest );
+}
+
+bool TrashImpl::moveFromTrash( const QString& dest, int trashId, const QString& fileId )
+{
+    const QString src = filesPath( trashId, fileId );
+    return move( src, dest );
+}
+
+bool TrashImpl::move( const QString& src, const QString& dest )
+{
+    if ( directRename( src, dest ) )
         return true;
     if ( m_lastErrorCode != KIO::ERR_UNSUPPORTED_ACTION )
         return false;
     KURL urlSrc, urlDest;
-    urlSrc.setPath( origPath );
+    urlSrc.setPath( src );
     urlDest.setPath( dest );
     kdDebug() << k_funcinfo << urlSrc << " -> " << urlDest << endl;
     KIO::CopyJob* job = KIO::move( urlSrc, urlDest, false );

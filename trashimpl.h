@@ -51,8 +51,11 @@ public:
     /// Usually used for undoing what createInfo did if trashing failed
     bool deleteInfo( int trashId, const QString& fileId );
 
-    /// Try moving a file as a trashed file. The ids come from createInfo.
-    bool tryRename( const QString& origPath, int trashId, const QString& fileId );
+    /// Moving a file or directory into the trash. The ids come from createInfo.
+    bool moveToTrash( const QString& origPath, int trashId, const QString& fileId );
+
+    /// Moving a file or directory out of the trash. The ids come from createInfo.
+    bool moveFromTrash( const QString& origPath, int trashId, const QString& fileId );
 
     /// Create a top-level trashed directory
     //bool mkdir( int trashId, const QString& fileId, int permissions );
@@ -89,6 +92,8 @@ public:
     QString filesPath( int trashId, const QString& fileId ) const;
 
 private:
+    /// Helper method. Moves a file or directory using the appropriate method.
+    bool move( const QString& src, const QString& dest );
     /// Helper method. Tries to call ::rename(src,dest) and does error handling.
     bool directRename( const QString& src, const QString& dest );
 

@@ -25,6 +25,7 @@
 #include <kurl.h>
 #include <kapplication.h>
 #include <kio/netaccess.h>
+#include <kio/job.h>
 #include <kdebug.h>
 #include <kcmdlineargs.h>
 
@@ -112,6 +113,8 @@ void TestTrash::cleanTrash()
     const QString trashDir = QDir::homeDirPath() + "/.Trash/";
     removeFile( trashDir, "info/fileFromHome" );
     removeFile( trashDir, "files/fileFromHome" );
+    removeFile( trashDir, "info/fileFromHome_1" );
+    removeFile( trashDir, "files/fileFromHome_1" );
     removeFile( trashDir, "info/fileFromOther" );
     removeFile( trashDir, "files/fileFromOther" );
     removeFile( trashDir, "info/symlinkFromHome" );
@@ -121,6 +124,9 @@ void TestTrash::cleanTrash()
     removeFile( trashDir, "info/trashDirFromHome" );
     removeFile( trashDir, "files/trashDirFromHome/testfile" );
     removeDir( trashDir, "files/trashDirFromHome" );
+    removeFile( trashDir, "info/trashDirFromHome_1" );
+    removeFile( trashDir, "files/trashDirFromHome_1/testfile" );
+    removeDir( trashDir, "files/trashDirFromHome_1" );
     removeFile( trashDir, "info/trashDirFromOther" );
     removeFile( trashDir, "files/trashDirFromOther/testfile" );
     removeDir( trashDir, "files/trashDirFromOther" );
@@ -150,6 +156,10 @@ void TestTrash::runAll()
     delRootFile();
     delFileInDirectory();
     delDirectory();
+
+    moveFileFromTrash();
+    moveDirectoryFromTrash();
+    moveSymlinkFromTrash();
 }
 
 void TestTrash::urlTestFile()
@@ -222,7 +232,7 @@ static void createTestFile( const QString& path )
     f.close();
 }
 
-void TestTrash::trashFile( const QString& origFilePath, const QString& fileName )
+void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
 {
     // setup
     createTestFile( origFilePath );
@@ -232,9 +242,9 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileName 
     // test
     bool ok = KIO::NetAccess::move( u, "trash:/" );
     assert( ok );
-    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/" + fileName, origFilePath );
+    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/" + fileId, origFilePath );
 
-    QFileInfo files( QDir::homeDirPath() + "/.Trash/files/" + fileName );
+    QFileInfo files( QDir::homeDirPath() + "/.Trash/files/" + fileId );
     assert( files.isFile() );
     assert( files.size() == 10 );
 
@@ -247,6 +257,9 @@ void TestTrash::trashFileFromHome()
     kdDebug() << k_funcinfo << endl;
     const QString fileName = "fileFromHome";
     trashFile( homeTmpDir() + fileName, fileName );
+
+    // Do it again, check that we got a different id
+    trashFile( homeTmpDir() + fileName, fileName + "_1" );
 }
 
 void TestTrash::trashFileFromOther()
@@ -256,8 +269,9 @@ void TestTrash::trashFileFromOther()
     trashFile( otherTmpDir() + fileName, fileName );
 }
 
-void TestTrash::trashSymlink( const QString& origFilePath, const QString& fileName )
+void TestTrash::trashSymlink( const QString& origFilePath, const QString& fileId )
 {
+    kdDebug() << k_funcinfo << endl;
     // setup
     const char* target = "/tmp";
     bool ok = ::symlink( target, QFile::encodeName( origFilePath ) ) == 0;
@@ -268,9 +282,9 @@ void TestTrash::trashSymlink( const QString& origFilePath, const QString& fileNa
     // test
     ok = KIO::NetAccess::move( u, "trash:/" );
     assert( ok );
-    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/" + fileName, origFilePath );
+    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/" + fileId, origFilePath );
 
-    QFileInfo files( QDir::homeDirPath() + "/.Trash/files/" + fileName );
+    QFileInfo files( QDir::homeDirPath() + "/.Trash/files/" + fileId );
     assert( files.isSymLink() );
     assert( files.readLink() == QFile::decodeName( target ) );
     assert( !QFile::exists( origFilePath ) );
@@ -290,8 +304,9 @@ void TestTrash::trashSymlinkFromOther()
     trashSymlink( otherTmpDir() + fileName, fileName );
 }
 
-void TestTrash::trashDirectory( const QString& origPath, const QString& fileName )
+void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )
 {
+    kdDebug() << k_funcinfo << endl;
     // setup
     QDir dir;
     bool ok = dir.mkdir( origPath );
@@ -301,11 +316,11 @@ void TestTrash::trashDirectory( const QString& origPath, const QString& fileName
 
     // test
     KIO::NetAccess::move( u, "trash:/" );
-    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/" + fileName, origPath );
+    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/" + fileId, origPath );
 
-    QFileInfo filesDir( QDir::homeDirPath() + "/.Trash/files/" + fileName );
+    QFileInfo filesDir( QDir::homeDirPath() + "/.Trash/files/" + fileId );
     assert( filesDir.isDir() );
-    QFileInfo files( QDir::homeDirPath() + "/.Trash/files/" + fileName + "/testfile" );
+    QFileInfo files( QDir::homeDirPath() + "/.Trash/files/" + fileId + "/testfile" );
     assert( files.isFile() );
     assert( files.size() == 10 );
     assert( !QFile::exists( origPath ) );
@@ -316,6 +331,8 @@ void TestTrash::trashDirectoryFromHome()
     kdDebug() << k_funcinfo << endl;
     QString dirName = "trashDirFromHome";
     trashDirectory( homeTmpDir() + dirName, dirName );
+    // Do it again, check that we got a different id
+    trashDirectory( homeTmpDir() + dirName, dirName + "_1" );
 }
 
 void TestTrash::trashDirectoryFromOther()
@@ -378,6 +395,7 @@ void TestTrash::delDirectory()
 
 void TestTrash::statRoot()
 {
+    kdDebug() << k_funcinfo << endl;
     KURL url( "trash:/" );
     KIO::UDSEntry entry;
     bool ok = KIO::NetAccess::stat( url, entry, 0 );
@@ -394,6 +412,7 @@ void TestTrash::statRoot()
 
 void TestTrash::statFileInRoot()
 {
+    kdDebug() << k_funcinfo << endl;
     KURL url( "trash:/0-fileFromOther" );
     KIO::UDSEntry entry;
     bool ok = KIO::NetAccess::stat( url, entry, 0 );
@@ -410,6 +429,7 @@ void TestTrash::statFileInRoot()
 
 void TestTrash::statDirectoryInRoot()
 {
+    kdDebug() << k_funcinfo << endl;
     KURL url( "trash:/0-trashDirFromHome" );
     KIO::UDSEntry entry;
     bool ok = KIO::NetAccess::stat( url, entry, 0 );
@@ -426,6 +446,7 @@ void TestTrash::statDirectoryInRoot()
 
 void TestTrash::statSymlinkInRoot()
 {
+    kdDebug() << k_funcinfo << endl;
     KURL url( "trash:/0-symlinkFromOther" );
     KIO::UDSEntry entry;
     bool ok = KIO::NetAccess::stat( url, entry, 0 );
@@ -442,6 +463,7 @@ void TestTrash::statSymlinkInRoot()
 
 void TestTrash::statFileInDirectory()
 {
+    kdDebug() << k_funcinfo << endl;
     KURL url( "trash:/0-trashDirFromHome/testfile" );
     KIO::UDSEntry entry;
     bool ok = KIO::NetAccess::stat( url, entry, 0 );
@@ -454,4 +476,47 @@ void TestTrash::statFileInDirectory()
     assert( !item.isHidden() );
     assert( item.name() == "testfile" );
     assert( !item.acceptsDrops() );
+}
+
+void TestTrash::moveFromTrash( const QString& fileId, const QString& destPath )
+{
+    KURL dest;
+    dest.setPath( destPath );
+
+    // A dnd would use move(), but we use moveAs to ensure the final filename
+    KIO::Job* job = KIO::moveAs( "trash:/0-" + fileId, dest );
+    bool ok = KIO::NetAccess::synchronousRun( job, 0 );
+    assert( ok );
+    QString infoFile( QDir::homeDirPath() + "/.Trash/info/" + fileId );
+    assert( !QFile::exists( infoFile ) );
+
+    QFileInfo filesItem( QDir::homeDirPath() + "/.Trash/files/" + fileId );
+    assert( !filesItem.exists() );
+
+    assert( QFile::exists( destPath ) );
+}
+
+void TestTrash::moveFileFromTrash()
+{
+    kdDebug() << k_funcinfo << endl;
+    const QString destPath = otherTmpDir() + "fileFromOther_restored";
+    moveFromTrash( "fileFromOther", destPath );
+    assert( QFileInfo( destPath ).isFile() );
+    assert( QFileInfo( destPath ).size() == 10 );
+}
+
+void TestTrash::moveDirectoryFromTrash()
+{
+    kdDebug() << k_funcinfo << endl;
+    const QString destPath = otherTmpDir() + "trashDirFromOther_restored";
+    moveFromTrash( "trashDirFromOther", destPath );
+    assert( QFileInfo( destPath ).isDir() );
+}
+
+void TestTrash::moveSymlinkFromTrash()
+{
+    kdDebug() << k_funcinfo << endl;
+    const QString destPath = otherTmpDir() + "symlinkFromOther_restored";
+    moveFromTrash( "symlinkFromOther", destPath );
+    assert( QFileInfo( destPath ).isSymLink() );
 }
