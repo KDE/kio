@@ -128,7 +128,13 @@ bool TrashImpl::init()
     // see also kdesktop/init.cc for first time initialization
     m_initStatus = InitError;
     // $XDG_DATA_HOME/Trash, i.e. ~/.local/share/Trash by default.
-    const QString trashDir = KGlobal::dirs()->localxdgdatadir() + "Trash";
+    const QString xdgDataDir = KGlobal::dirs()->localxdgdatadir();
+    if ( !KStandardDirs::makeDir( xdgDataDir, 0700 ) ) {
+        kdWarning() << "failed to create " << xdgDataDir << endl;
+        return false;
+    }
+
+    const QString trashDir = xdgDataDir + "Trash";
     if ( !testDir( trashDir ) )
         return false;
     if ( !testDir( trashDir + "/info" ) )
