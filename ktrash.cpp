@@ -28,7 +28,7 @@
 static KCmdLineOptions options[] =
 {
     { "empty", I18N_NOOP( "Empty the contents of the trash" ), 0 },
-    { "migrate", I18N_NOOP( "Empty the contents of the trash" ), 0 },
+    //{ "migrate", I18N_NOOP( "Migrate contents of old trash" ), 0 },
     { "restore <file>", I18N_NOOP( "Restore a trashed file to its original location" ), 0 },
     // This hack is for the servicemenu on trash.desktop which uses Exec=ktrash -empty. %f is implied...
     { "+[ignored]", I18N_NOOP( "Ignored" ), 0 },
@@ -61,9 +61,9 @@ int main(int argc, char *argv[])
         return 0;
     }
 
+#if 0
+    // This is only for testing. KDesktop handles it automatically.
     if ( args->isSet( "migrate" ) ) {
-        // We use a kio job instead of linking to TrashImpl, for a smaller binary
-        // (and the possibility of a central service at some point)
         QByteArray packedArgs;
         QDataStream stream( packedArgs, IO_WriteOnly );
         stream << (int)2;
@@ -71,6 +71,7 @@ int main(int argc, char *argv[])
         (void)KIO::NetAccess::synchronousRun( job, 0 );
         return 0;
     }
+#endif
 
     QCString restoreArg = args->getOption( "restore" );
     if ( !restoreArg.isEmpty() ) {
