@@ -200,9 +200,12 @@ KPasswdServer::processRequest()
                
             if ( !info.comment.isEmpty() )
                dlg.addCommentLine( info.commentLabel, info.comment );
+               
+            if ( !info.password.isEmpty() )
+               dlg.setPassword( info.password );
              
             if (info.readOnly)
-              dlg.setUserReadOnly( true );
+               dlg.setUserReadOnly( true );
               
             XSetTransientForHint( qt_xdisplay(), dlg.winId(), request->windowId);
             
