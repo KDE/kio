@@ -30,11 +30,11 @@ class TrashProtocol : public QObject, public KIO::SlaveBase
 public:
     TrashProtocol( const QCString& protocol, const QCString &pool, const QCString &app);
     virtual ~TrashProtocol();
-    virtual void get( const KURL& url );
+    //virtual void get( const KURL& url );
     virtual void stat(const KURL& url);
     virtual void listDir(const KURL& url);
     virtual void put( const KURL& url, int , bool overwrite, bool );
-    virtual void mkdir( const KURL& url, int permissions );
+    //virtual void mkdir( const KURL& url, int permissions );
     virtual void rename( const KURL &, const KURL &, bool );
     virtual void copy( const KURL &src, const KURL &dest, int permissions, bool overwrite );
     // TODO symlink( const QString& target, const KURL& dest, bool overwrite );

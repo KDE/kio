@@ -17,6 +17,9 @@
    Boston, MA 02111-1307, USA.
 */
 
+#include "kio_trash.h"
+#include "testtrash.h"
+
 #include <config.h>
 
 #include <kurl.h>
@@ -25,14 +28,13 @@
 #include <kdebug.h>
 #include <kcmdlineargs.h>
 
+#include <qdir.h>
 #include <qfileinfo.h>
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <assert.h>
-#include "kio_trash.h"
-#include "testtrash.h"
-#include <qdir.h>
 
 static bool check(const QString& txt, QString a, QString b)
 {
@@ -113,9 +115,11 @@ void TestTrash::runAll()
     urlTestSubDirectory();
     trashFileFromHome();
     trashFileFromOther();
-    tryRenameInsideTrash();
+    trashSymlinkFromHome();
+    trashSymlinkFromOther();
     trashDirectoryFromHome();
     trashDirectoryFromOther();
+    tryRenameInsideTrash();
     delRootFile();
     delFileInDirectory();
     delDirectory();
@@ -191,11 +195,9 @@ static void createTestFile( const QString& path )
     f.close();
 }
 
-void TestTrash::trashFileFromHome()
+void TestTrash::trashFile( const QString& origFilePath, const QString& fileName )
 {
-    kdDebug() << k_funcinfo << endl;
     // setup
-    QString origFilePath = homeTmpDir() + "fileFromHome";
     createTestFile( origFilePath );
     KURL u;
     u.setPath( origFilePath );
@@ -203,9 +205,9 @@ void TestTrash::trashFileFromHome()
     // test
     bool ok = KIO::NetAccess::move( u, "trash:/" );
     assert( ok );
-    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/fileFromHome", origFilePath );
+    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/" + fileName, origFilePath );
 
-    QFileInfo files( QDir::homeDirPath() + "/.Trash/files/fileFromHome" );
+    QFileInfo files( QDir::homeDirPath() + "/.Trash/files/" + fileName );
     assert( files.isFile() );
     assert( files.size() == 10 );
 
@@ -213,26 +215,87 @@ void TestTrash::trashFileFromHome()
     assert( !QFile::exists( origFilePath ) );
 }
 
+void TestTrash::trashFileFromHome()
+{
+    kdDebug() << k_funcinfo << endl;
+    const QString fileName = "fileFromHome";
+    trashFile( homeTmpDir() + fileName, fileName );
+}
+
 void TestTrash::trashFileFromOther()
 {
     kdDebug() << k_funcinfo << endl;
+    const QString fileName = "fileFromOther";
+    trashFile( otherTmpDir() + fileName, fileName );
+}
+
+void TestTrash::trashSymlink( const QString& origFilePath, const QString& fileName )
+{
     // setup
-    QString origFilePath = otherTmpDir() + "fileFromOther";
-    createTestFile( origFilePath );
+    const char* target = "/tmp";
+    bool ok = ::symlink( target, QFile::encodeName( origFilePath ) ) == 0;
+    assert( ok );
     KURL u;
     u.setPath( origFilePath );
 
     // test
-    bool ok = KIO::NetAccess::move( u, "trash:/" );
+    ok = KIO::NetAccess::move( u, "trash:/" );
     assert( ok );
-    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/fileFromOther", origFilePath );
+    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/" + fileName, origFilePath );
 
-    QFileInfo files( QDir::homeDirPath() + "/.Trash/files/fileFromOther" );
+    QFileInfo files( QDir::homeDirPath() + "/.Trash/files/" + fileName );
+    assert( files.isSymLink() );
+    assert( files.readLink() == QFile::decodeName( target ) );
+    assert( !QFile::exists( origFilePath ) );
+}
+
+void TestTrash::trashSymlinkFromHome()
+{
+    kdDebug() << k_funcinfo << endl;
+    const QString fileName = "symlinkFromHome";
+    trashSymlink( homeTmpDir() + fileName, fileName );
+}
+
+void TestTrash::trashSymlinkFromOther()
+{
+    kdDebug() << k_funcinfo << endl;
+    const QString fileName = "symlinkFromOther";
+    trashSymlink( otherTmpDir() + fileName, fileName );
+}
+
+void TestTrash::trashDirectory( const QString& origPath, const QString& fileName )
+{
+    // setup
+    QDir dir;
+    bool ok = dir.mkdir( origPath );
+    Q_ASSERT( ok );
+    createTestFile( origPath + "/testfile" );
+    KURL u; u.setPath( origPath );
+
+    // test
+    KIO::NetAccess::move( u, "trash:/" );
+    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/" + fileName, origPath );
+
+    QFileInfo filesDir( QDir::homeDirPath() + "/.Trash/files/" + fileName );
+    assert( filesDir.isDir() );
+    QFileInfo files( QDir::homeDirPath() + "/.Trash/files/" + fileName + "/testfile" );
     assert( files.isFile() );
     assert( files.size() == 10 );
+    assert( !QFile::exists( origPath ) );
+}
 
-    // coolo suggests testing that the original file is actually gone, too :)
-    assert( !QFile::exists( origFilePath ) );
+void TestTrash::trashDirectoryFromHome()
+{
+    kdDebug() << k_funcinfo << endl;
+    QString dirName = "trashDirFromHome";
+    trashDirectory( homeTmpDir() + dirName, dirName );
+}
+
+void TestTrash::trashDirectoryFromOther()
+{
+    kdDebug() << k_funcinfo << endl;
+    QString dirName = "trashDirFromOther";
+    trashDirectory( otherTmpDir() + dirName, dirName );
 }
 
 void TestTrash::tryRenameInsideTrash()
@@ -241,52 +304,6 @@ void TestTrash::tryRenameInsideTrash()
     // Can't use NetAccess::move(), it brings up SkipDlg.
     bool worked = KIO::NetAccess::file_move( "trash:/0-tryRenameInsideTrash", "trash:/foobar" );
     assert( !worked );
-}
-
-void TestTrash::trashDirectoryFromHome()
-{
-    kdDebug() << k_funcinfo << endl;
-    // setup
-    QString origPath = homeTmpDir() + "trashDirFromHome";
-    QDir dir;
-    bool ok = dir.mkdir( origPath );
-    Q_ASSERT( ok );
-    createTestFile( origPath + "/testfile" );
-    KURL u; u.setPath( origPath );
-
-    // test
-    KIO::NetAccess::move( u, "trash:/" );
-    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/trashDirFromHome", origPath );
-
-    QFileInfo filesDir( QDir::homeDirPath() + "/.Trash/files/trashDirFromHome" );
-    assert( filesDir.isDir() );
-    QFileInfo files( QDir::homeDirPath() + "/.Trash/files/trashDirFromHome/testfile" );
-    assert( files.isFile() );
-    assert( files.size() == 10 );
-    assert( !QFile::exists( origPath ) );
-}
-
-void TestTrash::trashDirectoryFromOther()
-{
-    kdDebug() << k_funcinfo << endl;
-    // setup
-    QString origPath = otherTmpDir() + "trashDirFromOther";
-    QDir dir;
-    bool ok = dir.mkdir( origPath );
-    Q_ASSERT( ok );
-    createTestFile( origPath + "/testfile" );
-    KURL u; u.setPath( origPath );
-
-    // test
-    KIO::NetAccess::move( u, "trash:/" );
-    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/trashDirFromOther", origPath );
-
-    QFileInfo filesDir( QDir::homeDirPath() + "/.Trash/files/trashDirFromOther" );
-    assert( filesDir.isDir() );
-    QFileInfo files( QDir::homeDirPath() + "/.Trash/files/trashDirFromOther/testfile" );
-    assert( files.isFile() );
-    assert( files.size() == 10 );
-    assert( !QFile::exists( origPath ) );
 }
 
 void TestTrash::delRootFile()

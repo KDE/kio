@@ -33,12 +33,19 @@ public:
     void urlTestSubDirectory();
     void trashFileFromHome();
     void trashFileFromOther();
-    void tryRenameInsideTrash();
+    void trashSymlinkFromHome();
+    void trashSymlinkFromOther();
     void trashDirectoryFromHome();
     void trashDirectoryFromOther();
+    void tryRenameInsideTrash();
     void delRootFile();
     void delFileInDirectory();
     void delDirectory();
+
+private:
+    void trashFile( const QString& origFilePath, const QString& fileName );
+    void trashSymlink( const QString& origFilePath, const QString& fileName );
+    void trashDirectory( const QString& origPath, const QString& fileName );
 
     QString homeTmpDir() const;
     QString otherTmpDir() const;

@@ -54,7 +54,7 @@ extern "C" {
         // KApplication is necessary to use kio_file
         KCmdLineArgs::init(argc, argv, "kio_trash", 0, 0, 0, 0);
         KCmdLineArgs::addCmdLineOptions( options );
-        KApplication app( false, true );
+        KApplication app( false, false );
 
         TrashProtocol slave(argv[1],argv[2], argv[3]);
         slave.dispatchLoop();
@@ -436,6 +436,7 @@ void TrashProtocol::put( const KURL& url, int /*permissions*/, bool /*overwrite*
     error( KIO::ERR_ACCESS_DENIED, url.prettyURL() );
 }
 
+#if 0
 void TrashProtocol::mkdir( const KURL& url, int /*permissions*/ )
 {
     INIT_IMPL;
@@ -445,7 +446,6 @@ void TrashProtocol::mkdir( const KURL& url, int /*permissions*/ )
     kdDebug() << "mkdir: " << url << endl;
     QString dir = url.directory();
 
-#if 0
     if ( dir.length() <= 1 ) // new toplevel entry
     {
         // ## we should use parseURL to give the right filename to createInfo
@@ -466,17 +466,17 @@ void TrashProtocol::mkdir( const KURL& url, int /*permissions*/ )
         // TODO
         error( KIO::ERR_ACCESS_DENIED, url.prettyURL() );
     }
-#endif
 }
+#endif
 
+#if 0
 void TrashProtocol::get( const KURL& )
 {
     INIT_IMPL;
-/*
   mimeType(...);
   data(output);
   finished();
-*/
 }
+#endif
 
 #include "kio_trash.moc"
