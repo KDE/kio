@@ -1,0 +1,49 @@
+DESIGN
+======
+kio_trash implements the XDG trash standard currently at http://www.ramendik.ru/docs/trashspec.html
+
+In case race conditions between the various instances of kio_trash
+are a problem, trashimpl could be moved to a kded module, and
+kio_trash would use DCOP to talk to it. It's a bit hard to come up
+with use cases where the race conditions would matter though.
+
+BUGS
+====
+* $topdir partitions should store relative paths in the trashinfo files!
+
+TODO
+====
+* Show original path and date of deletion. In properties dialog? In tooltip? In listview column?
+
+* Detect removeable media to avoid .Trash-foo on it. How?
+
+* Trashcan properties (properties for trash:/? hmm. Easier with separate dialog)
+     -  Maximum size for trash can (18109 suggest a %, but a MB size is easier).
+
+* Option to delete old files from the trash automatically. #79553
+  Combine with the code that auto-deletes the oldest file when trashcan is too full
+
+* Err, should we support renaming? :) Difficult to disable...
+  In fact it's already not disabled in readonly directories (e.g. "/") -> todo
+
+Bugs closed by kio_trash
+========================
+#79826 (3.3 bug only now, opendir/readdir)
+#62848 (configurable trash location) : CLOSED
+#78116 (.directory) : CLOSED
+#18109 (general one) : CLOSED
+#17744 (restore) : CLOSED
+
+#76380 #56821 (trashing on same partition) : CLOSED
+
+Choice of URL scheme
+====================
+We use trash:/trashid-fileid[/relativepath]    
+This gave problems with CopyJob::startRenameJob which exposed trashid-fileid
+to the user as a filename when dropping a file out of the trash.
+But this was fixed with the fileNameUsedForCopying=Name setting.
+
+A previous experiment was trash:/filename[/relativepath]?t=trashid&id=fileid
+but this gives problems with going Up (it first removes the query),
+with KDirLister (it wouldn't know when to remove the query, to find the URL
+of the parent directory).
