@@ -1,4 +1,5 @@
 INCLUDES = $(all_includes)
+METASOURCES = AUTO
 
 kde_module_LTLIBRARIES = kio_trash.la
 
