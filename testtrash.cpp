@@ -57,6 +57,10 @@ static bool check(const QString& txt, QString a, QString b)
 
 int main(int argc, char *argv[])
 {
+    // Use another directory than the real one, just to keep things clean
+    setenv( "XDG_DATA_HOME", QFile::encodeName( QDir::homeDirPath() + "/.local-testtrash" ), true );
+    setenv( "KDE_FORK_SLAVES", "yes", true );
+
     KApplication::disableAutoDcopRegistration();
     KCmdLineArgs::init(argc,argv,"testtrash", 0, 0, 0, 0);
     KApplication app;
@@ -82,6 +86,7 @@ QString TestTrash::otherTmpDir() const
 void TestTrash::setup()
 {
     m_trashDir = KGlobal::dirs()->localxdgdatadir() + "Trash";
+    kdDebug() << "setup: using trash directory " << m_trashDir << endl;
 
     // Start with a clean base dir
     KIO::NetAccess::del( homeTmpDir(), 0 );
@@ -135,7 +140,7 @@ void TestTrash::cleanTrash()
     removeFile( m_trashDir, "/files/trashDirFromOther/testfile" );
     removeDir( m_trashDir, "/files/trashDirFromOther" );
 
-    //system( "find ~/.local/share/Trash" );
+    //system( "find ~/.local-testtrash/share/Trash" );
 }
 
 void TestTrash::runAll()
@@ -145,6 +150,7 @@ void TestTrash::runAll()
     urlTestSubDirectory();
 
     trashFileFromHome();
+    testTrashNotEmpty();
     trashFileFromOther();
     trashSymlinkFromHome();
     trashSymlinkFromOther();
@@ -182,11 +188,11 @@ void TestTrash::runAll()
     getFile();
     restoreFile();
 
-    // Not possible to test here:
-    // - emptying the trash (test it with "kemptytrash")
-    // - initial trash creation
+    emptyTrash();
+
+    // TODO: test
     // - trash migration
-    // - the updating of the trash icon on the desktop
+    // - the actual updating of the trash icon on the desktop
 }
 
 void TestTrash::urlTestFile()
@@ -308,6 +314,14 @@ void TestTrash::trashFileFromHome()
 
     // Do it again, check that we got a different id
     trashFile( homeTmpDir() + fileName, fileName + "_1" );
+}
+
+void TestTrash::testTrashNotEmpty()
+{
+    KSimpleConfig cfg( "trashrc", true );
+    assert( cfg.hasGroup( "Status" ) );
+    cfg.setGroup( "Status" );
+    assert( cfg.readBoolEntry( "Empty", true ) == false );
 }
 
 void TestTrash::trashFileFromOther()
@@ -731,6 +745,29 @@ void TestTrash::slotEntries( KIO::Job*, const KIO::UDSEntryList& lst )
     }
     assert( dotFound );
     m_entryCount += lst.count();
+}
+
+void TestTrash::emptyTrash()
+{
+    // ## Even though we use a custom XDG_DATA_HOME value, emptying the
+    // trash would still empty the other trash directories in other partitions.
+    // So we can't activate this test by default.
+#if 0
+    kdDebug() << k_funcinfo << endl;
+    QByteArray packedArgs;
+    QDataStream stream( packedArgs, IO_WriteOnly );
+    stream << (int)1;
+    KIO::Job* job = KIO::special( "trash:/", packedArgs );
+    bool ok = KIO::NetAccess::synchronousRun( job, 0 );
+    assert( ok );
+
+    KSimpleConfig cfg( "trashrc", true );
+    assert( cfg.hasGroup( "Status" ) );
+    cfg.setGroup( "Status" );
+    assert( cfg.readBoolEntry( "Empty", false ) == true );
+#else
+    kdDebug() << k_funcinfo << " : SKIPPED" << endl;
+#endif
 }
 
 #include "testtrash.moc"

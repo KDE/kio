@@ -39,6 +39,7 @@ public:
     void urlTestSubDirectory();
 
     void trashFileFromHome();
+    void testTrashNotEmpty();
     void trashFileFromOther();
     void trashSymlinkFromHome();
     void trashSymlinkFromOther();
@@ -72,6 +73,8 @@ public:
 
     void getFile();
     void restoreFile();
+
+    void emptyTrash();
 
 private slots:
     void slotEntries( KIO::Job*, const KIO::UDSEntryList& );
