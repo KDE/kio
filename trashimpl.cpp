@@ -25,6 +25,8 @@
 #include <kio/job.h>
 #include <kdebug.h>
 #include <kurl.h>
+#include <kglobal.h>
+#include <kstandarddirs.h>
 #include <kglobalsettings.h>
 
 #include <dcopref.h>
@@ -113,10 +115,11 @@ bool TrashImpl::init()
     if ( m_initStatus == InitError )
         return false;
 
-    // Check $HOME/.Trash/{info,files}/
-    m_initStatus = InitError;
+    // Check the trash directory and its info and files subdirs
     // see also kdesktop/init.cc for first time initialization
-    const QString trashDir = QDir::homeDirPath() + "/.Trash";
+    m_initStatus = InitError;
+    // $XDG_DATA_HOME/Trash, i.e. ~/.local/share/Trash by default.
+    const QString trashDir = KGlobal::dirs()->localxdgdatadir() + "Trash";
     if ( !testDir( trashDir ) )
         return false;
     if ( !testDir( trashDir + "/info" ) )

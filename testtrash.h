@@ -84,6 +84,7 @@ private:
     QString homeTmpDir() const;
     QString otherTmpDir() const;
 
+    QString m_trashDir;
     int m_entryCount;
 };
 

@@ -39,7 +39,7 @@ class TrashImpl : public QObject
 public:
     TrashImpl();
 
-    /// Check .Trash directory in $HOME
+    /// Check the "home" trash directory
     /// This MUST be called before doing anything else
     bool init();
 
@@ -120,7 +120,7 @@ private:
 
     /// Find the trash dir to use for a given file to delete, based on original path
     int findTrashDirectory( const QString& origPath );
-    /// Check .Trash directory in another partition
+    /// Check trash directory in another partition
     bool initTrashDirectory( const QString& origPath );
     QString trashDirectoryPath( int trashId ) const {
         return m_trashDirectories[trashId];
@@ -140,7 +140,7 @@ private:
     enum { InitToBeDone, InitOK, InitError } m_initStatus;
 
     // A "trash directory" is a physical directory on disk,
-    // e.g. $HOME/.Trash/$uid or /mnt/foo/.Trash/$uid
+    // e.g. $HOME/.local/share/Trash/$uid or /mnt/foo/.Trash/$uid
     // It has an id (number) and a path.
     // The home trash has id 0.
     typedef QMap<int, QString> TrashDirMap;
