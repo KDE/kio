@@ -234,7 +234,34 @@ bool TrashImpl::tryRename( const QString& src, const QString& dest )
 
 bool TrashImpl::del( int trashId, const QString& fileId )
 {
-    // TODO
+    QString info = infoPath(trashId, fileId);
+    QString file = filesPath(trashId, fileId);
+
+    QCString file_c = QFile::encodeName(file);
+    QCString info_c = QFile::encodeName(info);
+    
+    KDE_struct_stat buff;
+    if ( KDE_stat( file_c.data(), &buff ) == -1 ) {
+        if ( errno == EACCES )
+            error( KIO::ERR_ACCESS_DENIED, file );
+        else
+            error( KIO::ERR_DOES_NOT_EXIST, file );
+        return false;
+    }
+
+    if ( S_ISDIR(buff.st_mode) && !S_ISLNK(buff.st_mode) ) {
+        // TODO
+    } else {
+        bool result;
+	result = ( ::unlink(file_c)==0 );
+	result &= ( ::unlink(info_c)==0 );
+
+        if (result==false)
+            error( KIO::ERR_ACCESS_DENIED, file );
+	
+        return result;
+    }
+    
     return false;
 }
 

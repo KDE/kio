@@ -257,8 +257,45 @@ void TrashProtocol::stat(const KURL& url)
         statEntry( entry );
         finished();
     } else {
-        // TODO Read metadata file (stat deleted file), and return information
-        error( KIO::ERR_UNSUPPORTED_ACTION, "stat" );
+        int trashId;
+        QString fileId, relativePath;
+        
+        bool ok = parseURL(url, trashId, fileId, relativePath);
+        
+        if ( !ok ) {
+            error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.prettyURL() ) );
+            return;
+        }
+        
+        TrashedFileInfo info;
+        ok = impl.infoForFile( trashId, fileId, info );
+        if ( !ok ) {
+            error( impl.lastErrorCode(), impl.lastErrorMessage() );
+            return;
+        }
+
+        QString filePath = info.physicalPath;
+        if ( !relativePath.isEmpty() ) {
+            filePath += "/";
+            filePath += relativePath;
+        }
+        
+        QString fileName = filePath.section('/', -1, -1, QString::SectionSkipEmpty);
+        
+        QString fileURL = QString::null;
+        if ( url.path().length() > 1 ) {
+            fileURL = url.url();
+        }
+
+        KIO::UDSEntry entry;
+        ok = createUDSEntry(filePath, fileName, fileURL, entry);
+        
+        if ( !ok ) {
+            error( KIO::ERR_COULD_NOT_STAT, url.prettyURL() );
+        }
+
+        statEntry( entry );
+	finished();
     }
 }
 
