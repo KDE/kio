@@ -32,9 +32,10 @@
 #include <kdebug.h>
 #include <kio/passdlg.h>
 
-#ifdef Q_WS_X11
-#include <X11/X.h>
-#include <X11/Xlib.h>
+#include "config.h"
+#if defined Q_WS_X11 && ! defined K_WS_QTONLY
+#include <X11/X.h> // schroder
+#include <X11/Xlib.h> // schroder
 #endif
 
 #include "kpasswdserver.h"
@@ -225,8 +226,10 @@ KPasswdServer::processRequest()
 
             if (info.readOnly)
                dlg.setUserReadOnly( true );
-
+              
+#if defined Q_WS_X11 && ! defined K_WS_QTONLY
             XSetTransientForHint( qt_xdisplay(), dlg.winId(), request->windowId);
+#endif            
 
             dlgResult = dlg.exec();
 
