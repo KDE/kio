@@ -25,6 +25,7 @@ fileNameUsedForCopying=Name
 ExtraNames=Original Path,Deletion Date
 ExtraNames[bg]=Местоположение,Дата на изтриване
 ExtraNames[bn]=পূর্বতন পাথ, মোছার তারিখ
+ExtraNames[ca]=Camí original,Data d'esborrat
 ExtraNames[da]=Original sti, sletningsdato
 ExtraNames[es]=Ruta original,Fecha de borrado
 ExtraNames[fr]=Chemin d'origine, date de suppression
