@@ -341,7 +341,8 @@ void TestTrash::trashFileOwnedByRoot()
     u.setPath( "/etc/passwd" );
     const QString fileId = "passwd";
 
-    KIO::Job* job = KIO::move( u, "trash:/" );
+    KIO::CopyJob* job = KIO::move( u, "trash:/" );
+    job->setInteractive( false ); // no skip dialog, thanks
     QMap<QString, QString> metaData;
     //bool ok = KIO::NetAccess::move( u, "trash:/" );
     bool ok = KIO::NetAccess::synchronousRun( job, 0, 0, 0, &metaData );
