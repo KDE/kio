@@ -442,5 +442,16 @@ void TestTrash::statSymlinkInRoot()
 
 void TestTrash::statFileInDirectory()
 {
-
+    KURL url( "trash:/0-trashDirFromHome/testfile" );
+    KIO::UDSEntry entry;
+    bool ok = KIO::NetAccess::stat( url, entry, 0 );
+    assert( ok );
+    KFileItem item( entry, url );
+    assert( item.isFile() );
+    assert( !item.isLink() );
+    assert( item.isReadable() );
+    assert( !item.isWritable() );
+    assert( !item.isHidden() );
+    assert( item.name() == "testfile" );
+    assert( !item.acceptsDrops() );
 }
