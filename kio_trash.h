@@ -48,6 +48,7 @@ public:
 
 private slots:
     void slotData( KIO::Job*, const QByteArray& );
+    void slotMimetype( KIO::Job*, const QString& );
     void jobFinished( KIO::Job* job );
 
 private:

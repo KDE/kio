@@ -90,6 +90,10 @@ public:
     /// Return the info for a given trashed file
     bool infoForFile( int trashId, const QString& fileId, TrashedFileInfo& info );
 
+    /// Return the physicalPath for a given trashed file - helper method which
+    /// encapsulates the call to infoForFile. Don't use if you need more info from TrashedFileInfo.
+    QString physicalPath( int trashId, const QString& fileId, const QString& relativePath );
+
     /// Move data from the old trash system to the new one
     void migrateOldTrash();
 

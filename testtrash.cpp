@@ -447,6 +447,7 @@ void TestTrash::statFileInRoot()
     assert( ok );
     KFileItem item( entry, url );
     assert( item.isFile() );
+    assert( !item.isDir() );
     assert( !item.isLink() );
     assert( item.isReadable() );
     assert( !item.isWritable() );

@@ -522,6 +522,17 @@ bool TrashImpl::readInfoFile( const QString& infoPath, TrashedFileInfo& info )
     return true;
 }
 
+
+QString TrashImpl::physicalPath( int trashId, const QString& fileId, const QString& relativePath )
+{
+    QString filePath = filesPath( trashId, fileId );
+    if ( !relativePath.isEmpty() ) {
+        filePath += "/";
+        filePath += relativePath;
+    }
+    return filePath;
+}
+
 int TrashImpl::findTrashDirectory( const QString& origPath )
 {
     // TODO implement the real algorithm

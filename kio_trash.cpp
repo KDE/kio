@@ -302,17 +302,10 @@ void TrashProtocol::stat(const KURL& url)
             return;
         }
 
-        TrashedFileInfo info;
-        ok = impl.infoForFile( trashId, fileId, info );
-        if ( !ok ) {
+        const QString filePath = impl.physicalPath( trashId, fileId, relativePath );
+        if ( filePath.isEmpty() ) {
             error( impl.lastErrorCode(), impl.lastErrorMessage() );
             return;
-        }
-
-        QString filePath = info.physicalPath;
-        if ( !relativePath.isEmpty() ) {
-            filePath += "/";
-            filePath += relativePath;
         }
 
         QString fileName = filePath.section('/', -1, -1, QString::SectionSkipEmpty);
@@ -376,17 +369,10 @@ void TrashProtocol::listDir(const KURL& url)
         error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.prettyURL() ) );
         return;
     }
-    // Get info for fileId
-    TrashedFileInfo info;
-    ok = impl.infoForFile( trashId, fileId, info );
-    if ( !ok ) {
+    const QString physicalPath = impl.physicalPath( trashId, fileId, relativePath );
+    if ( physicalPath.isEmpty() ) {
         error( impl.lastErrorCode(), impl.lastErrorMessage() );
         return;
-    }
-    QString physicalPath = info.physicalPath;
-    if ( !relativePath.isEmpty() ) {
-        physicalPath += "/";
-        physicalPath += relativePath;
     }
     // List subdir. Can't use kio_file here since we provide our own info...
     kdDebug() << k_funcinfo << "listing " << physicalPath << endl;
@@ -512,7 +498,12 @@ void TrashProtocol::put( const KURL& url, int /*permissions*/, bool /*overwrite*
 void TrashProtocol::get( const KURL& url )
 {
     INIT_IMPL;
-    kdDebug() << "get: " << url << endl;
+    kdDebug() << "get() : " << url << endl;
+    if ( !url.isValid() ) {
+        kdDebug() << kdBacktrace() << endl;
+        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.url() ) );
+        return;
+    }
     if ( url.path().length() <= 1 ) {
         error( KIO::ERR_IS_DIRECTORY, url.prettyURL() );
         return;
@@ -525,21 +516,11 @@ void TrashProtocol::get( const KURL& url )
         error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.prettyURL() ) );
         return;
     }
-    // Get info for fileId
-    TrashedFileInfo info;
-    ok = impl.infoForFile( trashId, fileId, info );
-    if ( !ok ) {
+    const QString physicalPath = impl.physicalPath( trashId, fileId, relativePath );
+    if ( physicalPath.isEmpty() ) {
         error( impl.lastErrorCode(), impl.lastErrorMessage() );
         return;
     }
-    QString physicalPath = info.physicalPath;
-    if ( !relativePath.isEmpty() ) {
-        physicalPath += "/";
-        physicalPath += relativePath;
-    }
-
-    KMimeType::Ptr mt = KMimeType::findByPath( physicalPath, 0, true /* local URL */ );
-    emit mimeType( mt->name() );
 
     // Usually we run jobs in TrashImpl (for e.g. future kdedmodule)
     // But for this one we wouldn't use DCOP for every bit of data...
@@ -548,6 +529,8 @@ void TrashProtocol::get( const KURL& url )
     KIO::Job* job = KIO::get( fileURL );
     connect( job, SIGNAL( data( KIO::Job*, const QByteArray& ) ),
              this, SLOT( slotData( KIO::Job*, const QByteArray& ) ) );
+    connect( job, SIGNAL( mimetype( KIO::Job*, const QString& ) ),
+             this, SLOT( slotMimetype( KIO::Job*, const QString& ) ) );
     connect( job, SIGNAL( result(KIO::Job *) ),
              this, SLOT( jobFinished(KIO::Job *) ) );
     qApp->eventLoop()->enterLoop();
@@ -556,6 +539,11 @@ void TrashProtocol::get( const KURL& url )
 void TrashProtocol::slotData( KIO::Job*, const QByteArray&arr )
 {
     data( arr );
+}
+
+void TrashProtocol::slotMimetype( KIO::Job*, const QString& mt )
+{
+    mimeType( mt );
 }
 
 void TrashProtocol::jobFinished( KIO::Job* job )
