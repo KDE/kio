@@ -38,6 +38,7 @@ ExtraNames[hi]=मूल पथ, मिटाने की तिथि
 ExtraNames[hu]=Eredeti elérési út,Törlési dátum
 ExtraNames[is]=Upprunaleg slóð,dagsetning á eyðingu
 ExtraNames[it]=Percorso originale,ora di eliminazione
+ExtraNames[ja]=元のパス,削除日
 ExtraNames[lt]=Originalus kelias,Trynimo data
 ExtraNames[lv]=Orģinālais ceļš,Dzēšanas datums
 ExtraNames[nb]=Opprinnelig sti, slettedato
