@@ -95,6 +95,7 @@ protected:
      QString errorMsg;
      long windowId;
      long seqNr;
+     bool prompt;
   };
 
   QPtrList< Request > m_authPending;

@@ -136,7 +136,16 @@ KPasswdServer::queryAuthInfo(KIO::AuthInfo info, QString errorMsg, long windowId
     request->info = info;
     request->windowId = windowId;
     request->seqNr = seqNr;
-    request->errorMsg = errorMsg;
+    if (errorMsg == "<NoAuthPrompt>")
+    {
+       request->errorMsg = QString::null;
+       request->prompt = false;
+    }
+    else
+    {
+       request->errorMsg = errorMsg;
+       request->prompt = true;
+    }
     m_authPending.append(request);
     
     if (m_authPending.count() == 1)
@@ -187,7 +196,7 @@ KPasswdServer::processRequest()
     else
     {
         m_seqNr++;
-        bool askPw = true;
+        bool askPw = request->prompt;
         if (result && !info.username.isEmpty() &&
             !request->errorMsg.isEmpty())
         {
