@@ -54,6 +54,9 @@ public:
     /// Try moving a file as a trashed file. The ids come from createInfo.
     bool tryRename( const QString& origPath, int trashId, const QString& fileId );
 
+    /// Create a top-level trashed directory
+    //bool mkdir( int trashId, const QString& fileId, int permissions );
+
     /// Get rid of a trashed file
     bool del( int trashId, const QString& fileId );
 
@@ -87,7 +90,7 @@ public:
 
 private:
     /// Helper method. Tries to call ::rename(src,dest) and does error handling.
-    bool tryRename( const QString& src, const QString& dest );
+    bool directRename( const QString& src, const QString& dest );
 
     bool testDir( const QString& name );
     void error( int e, const QString& s );
@@ -104,7 +107,8 @@ private:
 
 private slots:
     void delJobFinished(KIO::Job *job);
-    
+    void moveJobFinished(KIO::Job *job);
+
 private:
     /// Last error code stored in class to simplify API.
     /// Note that this means almost no method can be const.

@@ -436,34 +436,37 @@ void TrashProtocol::put( const KURL& url, int /*permissions*/, bool /*overwrite*
     error( KIO::ERR_ACCESS_DENIED, url.prettyURL() );
 }
 
-void TrashProtocol::mkdir( const KURL& url, int )
+void TrashProtocol::mkdir( const KURL& url, int /*permissions*/ )
 {
     INIT_IMPL;
     // create info about deleted dir
+    // ############ Problem: we don't know the original path.
+    // Let's try to avoid this case (we should get to copy() instead, for local files)
     kdDebug() << "mkdir: " << url << endl;
     QString dir = url.directory();
 
+#if 0
     if ( dir.length() <= 1 ) // new toplevel entry
     {
-#if 0
         // ## we should use parseURL to give the right filename to createInfo
         int trashId;
         QString fileId;
         if ( !impl.createInfo( url.path(), trashId, fileId ) ) {
             error( impl.lastErrorCode(), impl.lastErrorMessage() );
         } else {
-            if ( !impl.mkdir( url.path(), trashId, fileId ) ) {
+            if ( !impl.mkdir( trashId, fileId, permissions ) ) {
                 (void)impl.deleteInfo( trashId, fileId );
                 error( impl.lastErrorCode(), impl.lastErrorMessage() );
             } else
                 finished();
         }
-#endif
     } else {
-        // Well it's not allowed to add a file to an existing deleted directory.
-        // During the deletion itself, we either rename() in one go or copy+del, so we never rename()...
+        // Well it's not allowed to add a directory to an existing deleted directory.
+        // But during the deletion itself, we'll be called for subdirs
+        // TODO
         error( KIO::ERR_ACCESS_DENIED, url.prettyURL() );
     }
+#endif
 }
 
 void TrashProtocol::get( const KURL& )

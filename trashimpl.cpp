@@ -215,11 +215,33 @@ bool TrashImpl::deleteInfo( int trashId, const QString& fileId )
 
 bool TrashImpl::tryRename( const QString& origPath, int trashId, const QString& fileId )
 {
-    return tryRename( origPath, filesPath( trashId, fileId ) );
+    kdDebug() << k_funcinfo << endl;
+    const QString dest = filesPath( trashId, fileId );
+    if ( directRename( origPath, dest ) )
+        return true;
+    if ( m_lastErrorCode != KIO::ERR_UNSUPPORTED_ACTION )
+        return false;
+    KURL urlSrc, urlDest;
+    urlSrc.setPath( origPath );
+    urlDest.setPath( dest );
+    kdDebug() << k_funcinfo << urlSrc << " -> " << urlDest << endl;
+    KIO::CopyJob* job = KIO::move( urlSrc, urlDest, false );
+    connect( job, SIGNAL( result(KIO::Job *) ),
+             this, SLOT( moveJobFinished(KIO::Job *) ) );
+    qApp->eventLoop()->enterLoop();
+
+    return m_lastErrorCode == 0;
 }
 
-bool TrashImpl::tryRename( const QString& src, const QString& dest )
+void TrashImpl::moveJobFinished(KIO::Job* job)
 {
+    error( job->error(), job->errorText() );
+    qApp->eventLoop()->exitLoop();
+}
+
+bool TrashImpl::directRename( const QString& src, const QString& dest )
+{
+    kdDebug() << k_funcinfo << src << " -> " << dest << endl;
     if ( ::rename( QFile::encodeName( src ), QFile::encodeName( dest ) ) != 0 ) {
         if (errno == EXDEV) {
             error( KIO::ERR_UNSUPPORTED_ACTION, QString::fromLatin1("rename") );
@@ -237,6 +259,29 @@ bool TrashImpl::tryRename( const QString& src, const QString& dest )
     return true;
 }
 
+#if 0
+bool TrashImpl::mkdir( int trashId, const QString& fileId, int permissions )
+{
+    const QString path = filesPath( trashId, fileId );
+    if ( ::mkdir( QFile::encodeName( path ), permissions ) != 0 ) {
+        if ( errno == EACCES ) {
+            error( KIO::ERR_ACCESS_DENIED, path );
+            return false;
+        } else if ( errno == ENOSPC ) {
+            error( KIO::ERR_DISK_FULL, path );
+            return false;
+        } else {
+            error( KIO::ERR_COULD_NOT_MKDIR, path );
+            return false;
+        }
+    } else {
+        if ( permissions != -1 )
+            ::chmod( QFile::encodeName( path ), permissions );
+    }
+    return true;
+}
+#endif
+
 void TrashImpl::delJobFinished(KIO::Job *job)
 {
     error( job->error(), job->errorText() );
@@ -249,7 +294,7 @@ bool TrashImpl::del( int trashId, const QString& fileId )
     QString file = filesPath(trashId, fileId);
 
     QCString info_c = QFile::encodeName(info);
-    
+
     KDE_struct_stat buff;
     if ( KDE_stat( info_c.data(), &buff ) == -1 ) {
         if ( errno == EACCES )
@@ -259,14 +304,16 @@ bool TrashImpl::del( int trashId, const QString& fileId )
         return false;
     }
 
-    ::unlink(info_c)==0;
-    
-    KIO::DeleteJob *job = KIO::del( KURL(file), false, false);
+    ::unlink(info_c);
+
+    KURL url;
+    url.setPath( file );
+    KIO::DeleteJob *job = KIO::del( url, false, false);
     connect( job, SIGNAL( result(KIO::Job *) ),
              this, SLOT( delJobFinished(KIO::Job *) ) );
     qApp->eventLoop()->enterLoop();
-    
-    return m_lastErrorCode==0;
+
+    return m_lastErrorCode == 0;
 }
 
 bool TrashImpl::restore( int trashId, const QString& fileId )
