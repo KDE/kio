@@ -165,7 +165,7 @@ void TrashProtocol::rename(const KURL &oldURL, const KURL &newURL, bool overwrit
         } else {
             // Well it's not allowed to add a file to an existing deleted directory.
             // During the deletion itself, we either rename() in one go or copy+del, so we never rename()...
-            error( KIO::ERR_ACCESS_DENIED, newURL );
+            error( KIO::ERR_ACCESS_DENIED, newURL.prettyURL() );
             return;
         }
     }
@@ -210,7 +210,8 @@ void TrashProtocol::copy( const KURL &src, const KURL &dest, int permissions, bo
         } else {
             // It's not allowed to add a file to an existing deleted directory.
             // But during the deletion itself, we'll be called for subfiles
-            error( KIO::ERR_ACCESS_DENIED, newURL );
+            // TODO
+            error( KIO::ERR_ACCESS_DENIED, dest.prettyURL() );
             return;
         }
         return;
