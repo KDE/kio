@@ -20,8 +20,12 @@
 #ifndef TESTTRASH_H
 #define TESTTRASH_H
 
-class TestTrash
+#include <qobject.h>
+
+class TestTrash : public QObject
 {
+    Q_OBJECT
+
 public:
     TestTrash() {}
     void setup();
@@ -43,10 +47,6 @@ public:
 
     void tryRenameInsideTrash();
 
-    void delRootFile();
-    void delFileInDirectory();
-    void delDirectory();
-
     void statRoot();
     void statFileInRoot();
     void statDirectoryInRoot();
@@ -63,7 +63,16 @@ public:
     void moveDirectoryFromTrash();
     void moveSymlinkFromTrash();
 
+    void listRootDir();
+
+    void delRootFile();
+    void delFileInDirectory();
+    void delDirectory();
+
     void restoreFile();
+
+private slots:
+    void slotEntries( KIO::Job*, const KIO::UDSEntryList& );
 
 private:
     void trashFile( const QString& origFilePath, const QString& fileId );
@@ -74,6 +83,8 @@ private:
 
     QString homeTmpDir() const;
     QString otherTmpDir() const;
+
+    int m_entryCount;
 };
 
 #endif

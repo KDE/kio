@@ -389,12 +389,13 @@ void TrashProtocol::listDir(const KURL& url)
         physicalPath += relativePath;
     }
     // List subdir. Can't use kio_file here since we provide our own info...
+    kdDebug() << k_funcinfo << "listing " << physicalPath << endl;
     QStrList entryNames = impl.listDir( physicalPath );
     totalSize( entryNames.count() );
     KIO::UDSEntry entry;
     QStrListIterator entryIt( entryNames );
     for (; entryIt.current(); ++entryIt) {
-        const QString fileName = QFile::decodeName( entryIt.current() );
+        QString fileName = QFile::decodeName( entryIt.current() );
         const QString filePath = physicalPath + "/" + fileName;
         // shouldn't be necessary
         //const QString url = makeURL( trashId, fileId, relativePath + "/" + fileName );

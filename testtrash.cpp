@@ -166,6 +166,8 @@ void TestTrash::runAll()
     moveDirectoryFromTrash();
     moveSymlinkFromTrash();
 
+    listRootDir();
+
     delRootFile();
     delFileInDirectory();
     delDirectory();
@@ -614,3 +616,23 @@ void TestTrash::restoreFile()
     //const KURL trashURL( "trash:/0-" + fileId );
     system( QCString( "ktrash --restore trash:/0-" ) + QFile::encodeName( fileId ) );
 }
+
+void TestTrash::listRootDir()
+{
+    kdDebug() << k_funcinfo << endl;
+    m_entryCount = 0;
+    KIO::ListJob* job = KIO::listDir( "trash:/" );
+    connect( job, SIGNAL( entries( KIO::Job*, const KIO::UDSEntryList& ) ),
+             SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
+    bool ok = KIO::NetAccess::synchronousRun( job, 0 );
+    assert( ok );
+    kdDebug() << "listDir done - m_entryCount=" << m_entryCount << endl;
+    assert( m_entryCount > 1 );
+}
+
+void TestTrash::slotEntries( KIO::Job*, const KIO::UDSEntryList& lst )
+{
+    m_entryCount += lst.count();
+}
+
+#include "testtrash.moc"
