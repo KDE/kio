@@ -274,8 +274,10 @@ KPasswdServer::processRequest()
                info.password = dlg.password();
                info.keepPassword = dlg.keepPassword();
 
-               // When the user checks "keep password", that means both in the cache (kpasswdserver process)
-               // and in the wallet, if enabled.
+               // When the user checks "keep password", that means:
+               // * if the wallet is enabled, store it there for long-term, and in kpasswdserver
+               // only for the duration of the window (#92928)
+               // * otherwise store in kpasswdserver for the duration of the KDE session.
                if ( info.keepPassword ) {
                    if ( !wallet )
                        wallet = KWallet::Wallet::openWallet(
@@ -292,6 +294,8 @@ KPasswdServer::processRequest()
                            map.insert( "login", info.username );
                            map.insert( "password", info.password );
                            wallet->writeMap( request->key, map );
+                           // password is in wallet, don't keep it in memory after window is closed
+                           info.keepPassword = false;
                        }
                    }
                }
@@ -386,8 +390,11 @@ KPasswdServer::processRequest()
 
 QString KPasswdServer::createCacheKey( const KIO::AuthInfo &info )
 {
-    if( !info.url.isValid() )
+    if( !info.url.isValid() ) {
+        // Note that a null key will break findAuthInfoItem later on...
+        kdWarning(130) << "createCacheKey: invalid URL " << info.url << endl;
         return QString::null;
+    }
 
     // Generate the basic key sequence.
     QString key = info.url.protocol();
