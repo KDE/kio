@@ -386,12 +386,14 @@ KPasswdServer::findAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
        if (info.verifyPath)
        {
           QString path1 = current->directory;
-          if (path2.startsWith(path1))
+          if (path2.startsWith(path1) && 
+              (info.username.isEmpty() || info.username == current->username))
              return current;
        }
        else
        {
-          if (current->realmValue == info.realmValue)
+          if (current->realmValue == info.realmValue && 
+              (info.username.isEmpty() || info.username == current->username))
              return current; // TODO: Update directory info,
        }
 
