@@ -216,14 +216,13 @@ KPasswdServer::processRequest()
             QString username = info.username;
             QString password = info.password;
             bool hasWalletData = false;
-            if ( username.isEmpty() || password.isEmpty() )
-                kdDebug(130) << k_funcinfo << "looking for key " << request->key << endl;
 
+            KWallet::Wallet* wallet = 0;
             if ( ( username.isEmpty() || password.isEmpty() )
                 && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(), KWallet::Wallet::PasswordFolder(), request->key) )
             {
                 // no login+pass provided, check if kwallet has one
-                KWallet::Wallet* wallet = KWallet::Wallet::openWallet(
+                wallet = KWallet::Wallet::openWallet(
                     KWallet::Wallet::NetworkWallet(), request->windowId );
                 if ( wallet && wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) )
                 {
@@ -243,7 +242,6 @@ KPasswdServer::processRequest()
                         hasWalletData = true;
                         kdDebug(130) << k_funcinfo << " FOUND WALLET DATA" << endl;                     }
                 }
-                delete wallet;
             }
 
             KIO::PasswordDialog dlg( info.prompt, username, info.keepPassword );
@@ -280,8 +278,9 @@ KPasswdServer::processRequest()
                // and in the wallet, if enabled.
                if ( info.keepPassword ) {
                    kdDebug(130) << k_funcinfo << " saving stuff in wallet" << endl;
-                   KWallet::Wallet* wallet = KWallet::Wallet::openWallet(
-                       KWallet::Wallet::NetworkWallet(), dlg.winId() );
+                   if ( !wallet )
+                       wallet = KWallet::Wallet::openWallet(
+                           KWallet::Wallet::NetworkWallet(), request->windowId );
                    QString password;
                    if ( wallet ) {
                        bool ok = true;
@@ -296,10 +295,10 @@ KPasswdServer::processRequest()
                            map.insert( "password", info.password );
                            wallet->writeMap( request->key, map );
                        }
-                       delete wallet;
                    }
                }
             }
+            delete wallet;
         }
         if ( dlgResult != QDialog::Accepted )
         {
