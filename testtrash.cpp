@@ -86,10 +86,16 @@ void TestTrash::setup()
     ok = dir.mkdir( otherTmpDir() );
     if ( !ok )
         kdFatal() << "Couldn't create " << otherTmpDir() << endl;
-    dir.remove( QDir::homeDirPath() + "/.Trash/info/trashFileFromHome" );
-    dir.remove( QDir::homeDirPath() + "/.Trash/files/trashFileFromHome" );
-    dir.remove( QDir::homeDirPath() + "/.Trash/info/trashFileFromOther" );
-    dir.remove( QDir::homeDirPath() + "/.Trash/files/trashFileFromOther" );
+    // Start with a relatively clean trash too
+    const QString trashDir = QDir::homeDirPath() + "/.Trash/";
+    dir.remove( trashDir + "info/trashFileFromHome" );
+    dir.remove( trashDir + "files/trashFileFromHome" );
+    dir.remove( trashDir + "info/trashFileFromOther" );
+    dir.remove( trashDir + "files/trashFileFromOther" );
+    dir.remove( trashDir + "files/trashDirFromHome/" );
+    dir.remove( trashDir + "files/trashDirFromHome/testfile" );
+    dir.remove( trashDir + "files/trashDirFromOther/" );
+    dir.remove( trashDir + "files/trashDirFromOther/testfile" );
 }
 
 void TestTrash::runAll()
@@ -100,6 +106,8 @@ void TestTrash::runAll()
     trashFileFromHome();
     /////////trashFileFromOther(); TODO
     tryRenameInsideTrash();
+    trashDirectoryFromHome();
+    trashDirectoryFromOther();
 }
 
 void TestTrash::urlTestFile()
@@ -220,4 +228,32 @@ void TestTrash::tryRenameInsideTrash()
     // Can't use NetAccess::move(), it brings up SkipDlg.
     bool worked = KIO::NetAccess::file_move( "trash:/tryRenameInsideTrash", "trash:/foobar" );
     assert( !worked );
+}
+
+void TestTrash::trashDirectoryFromHome()
+{
+    kdDebug() << k_funcinfo << endl;
+    // setup
+    QString origPath = homeTmpDir() + "trashDirFromHome";
+    QDir dir;
+    bool ok = dir.mkdir( origPath );
+    Q_ASSERT( ok );
+    createTestFile( origPath + "/testfile" );
+    KURL u; u.setPath( origPath );
+
+    // test
+    KIO::NetAccess::move( u, "trash:/" );
+    checkInfoFile( QDir::homeDirPath() + "/.Trash/info/trashDirFromHome", origPath );
+
+    QFileInfo filesDir( QDir::homeDirPath() + "/.Trash/files/trashDirFromHome" );
+    assert( filesDir.isDir() );
+    QFileInfo files( QDir::homeDirPath() + "/.Trash/files/trashDirFromHome/testfile" );
+    assert( files.isFile() );
+    assert( files.size() == 10 );
+    assert( !QFile::exists( origPath ) );
+}
+
+void TestTrash::trashDirectoryFromOther()
+{
+
 }

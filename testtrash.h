@@ -33,6 +33,8 @@ public:
     void trashFileFromHome();
     void trashFileFromOther();
     void tryRenameInsideTrash();
+    void trashDirectoryFromHome();
+    void trashDirectoryFromOther();
 
     QString homeTmpDir() const;
     QString otherTmpDir() const;
