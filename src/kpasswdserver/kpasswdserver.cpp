@@ -81,7 +81,7 @@ KPasswdServer::~KPasswdServer()
 }
 
 KIO::AuthInfo 
-KPasswdServer::checkAuthInfo(KIO::AuthInfo info, long windowId)
+KPasswdServer::checkAuthInfo(KIO::AuthInfo info, long)
 {
     QString key = createCacheKey(info);
 
