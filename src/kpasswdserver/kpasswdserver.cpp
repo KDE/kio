@@ -213,7 +213,38 @@ KPasswdServer::processRequest()
         int dlgResult = QDialog::Rejected;
         if (askPw)
         {
-            KIO::PasswordDialog dlg( info.prompt, info.username, info.keepPassword );
+            QString username = info.username;
+            QString password = info.password;
+            bool hasWalletData = false;
+            if ( ( username.isEmpty() || password.isEmpty() )
+                && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(), KWallet::Wallet::PasswordFolder(), request->key) )
+            {
+                // no login+pass provided, check if kwallet has one
+                KWallet::Wallet* wallet = KWallet::Wallet::openWallet(
+                    KWallet::Wallet::NetworkWallet(), request->windowId );
+                if ( wallet && wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) )
+                {
+                    kdDebug() << k_funcinfo << "looking for key " << request->key << endl;
+                    QMap<QString,QString> map;
+                    if ( wallet->readMap( request->key, map ) == 0 )
+                    {
+                        QMap<QString, QString>::ConstIterator it = map.find( "password" );
+                        if ( it != map.end() )
+                            password = it.data();
+
+                        if ( !info.readOnly ) {
+                            it = map.find( "login" );
+                            if ( it != map.end() )
+                                username = it.data();
+                        }
+                        hasWalletData = true;
+                    }
+                }
+                delete wallet;
+            }
+
+            bool checkboxShown = info.keepPassword;
+            KIO::PasswordDialog dlg( info.prompt, username, info.keepPassword );
             if (info.caption.isEmpty())
                dlg.setPlainCaption( i18n("Authorization Dialog") );
             else
@@ -241,6 +272,9 @@ KPasswdServer::processRequest()
             if (info.readOnly)
                dlg.setUserReadOnly( true );
 
+            if (hasWalletData)
+                dlg.setKeepPassword( true );
+
 #if defined Q_WS_X11 && ! defined K_WS_QTONLY
             XSetTransientForHint( qt_xdisplay(), dlg.winId(), request->windowId);
 #endif
@@ -255,14 +289,24 @@ KPasswdServer::processRequest()
 
                // When the user checks "keep password", that means both in the cache (kpasswdserver process)
                // and in the wallet, if enabled.
-               if ( info.keepPassword ) {
+               // If the checkbox isn't shown, then we save by default.
+               if ( !checkboxShown || info.keepPassword ) {
+                   kdDebug() << k_funcinfo << " saving stuff in wallet" << endl;
                    KWallet::Wallet* wallet = KWallet::Wallet::openWallet(
                        KWallet::Wallet::NetworkWallet(), dlg.winId() );
                    QString password;
-                   // #### do I need to create the password folder?
-                   if ( wallet && wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) )
-                   {
-                       wallet->writePassword( request->key, dlg.password() );
+                   if ( wallet ) {
+                       bool ok = true;
+                       if ( !wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) )
+                           ok = wallet->createFolder( KWallet::Wallet::PasswordFolder() );
+                       if ( ok )
+                       {
+                           kdDebug() << k_funcinfo << "saving into " << request->key << endl;
+                           QMap<QString,QString> map;
+                           map.insert( "login", info.username );
+                           map.insert( "password", info.password );
+                           wallet->writeMap( request->key, map );
+                       }
                    }
                }
             }
@@ -413,13 +457,13 @@ KPasswdServer::findAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
        if (info.verifyPath)
        {
           QString path1 = current->directory;
-          if (path2.startsWith(path1) && 
+          if (path2.startsWith(path1) &&
               (info.username.isEmpty() || info.username == current->username))
              return current;
        }
        else
        {
-          if (current->realmValue == info.realmValue && 
+          if (current->realmValue == info.realmValue &&
               (info.username.isEmpty() || info.username == current->username))
              return current; // TODO: Update directory info,
        }
