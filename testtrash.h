@@ -70,6 +70,7 @@ public:
 
     void listRootDir();
     void listRecursiveRootDir();
+    void listSubDir();
 
     void delRootFile();
     void delFileInDirectory();

@@ -168,6 +168,7 @@ void TrashProtocol::copyOrMove( const KURL &src, const KURL &dest, bool overwrit
                 return;
             }
         }
+
         if ( action == Move ) {
             kdDebug() << "calling moveFromTrash(" << destPath << " " << trashId << " " << fileId << ")" << endl;
             ok = impl.moveFromTrash( destPath, trashId, fileId, relativePath );
@@ -344,26 +345,39 @@ void TrashProtocol::listDir(const KURL& url)
         error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.prettyURL() ) );
         return;
     }
-    const QString physicalPath = impl.physicalPath( trashId, fileId, relativePath );
-    if ( physicalPath.isEmpty() ) {
+    //was: const QString physicalPath = impl.physicalPath( trashId, fileId, relativePath );
+
+    // Get info for deleted directory - the date of deletion and orig path will be used
+    // for all the items in it, and we need the physicalPath.
+    TrashedFileInfo info;
+    ok = impl.infoForFile( trashId, fileId, info );
+    if ( !ok || info.physicalPath.isEmpty() ) {
         error( impl.lastErrorCode(), impl.lastErrorMessage() );
         return;
     }
+    if ( !relativePath.isEmpty() ) {
+        info.physicalPath += "/";
+        info.physicalPath += relativePath;
+    }
+
     // List subdir. Can't use kio_file here since we provide our own info...
-    kdDebug() << k_funcinfo << "listing " << physicalPath << endl;
-    QStrList entryNames = impl.listDir( physicalPath );
+    kdDebug() << k_funcinfo << "listing " << info.physicalPath << endl;
+    QStrList entryNames = impl.listDir( info.physicalPath );
     totalSize( entryNames.count() );
     KIO::UDSEntry entry;
     QStrListIterator entryIt( entryNames );
     for (; entryIt.current(); ++entryIt) {
         QString fileName = QFile::decodeName( entryIt.current() );
-        const QString filePath = physicalPath + "/" + fileName;
+        if ( fileName == ".." )
+            continue;
+        const QString filePath = info.physicalPath + "/" + fileName;
         // shouldn't be necessary
         //const QString url = TrashImpl::makeURL( trashId, fileId, relativePath + "/" + fileName );
         entry.clear();
-        TrashedFileInfo info;
-        bool ok = impl.infoForFile( trashId, fileName, info );
-        if ( ok && createUDSEntry( filePath, fileName, QString::null /*url*/, entry, info ) ) {
+        TrashedFileInfo infoForItem( info );
+        infoForItem.origPath += '/';
+        infoForItem.origPath += fileName;
+        if ( ok && createUDSEntry( filePath, fileName, QString::null /*url*/, entry, infoForItem ) ) {
             listEntry( entry, false );
         }
     }

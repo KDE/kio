@@ -220,6 +220,7 @@ void TestTrash::runAll()
 
     listRootDir();
     listRecursiveRootDir();
+    listSubDir();
 
     delRootFile();
     delFileInDirectory();
@@ -930,6 +931,24 @@ void TestTrash::listRecursiveRootDir()
 
     kdDebug() << k_funcinfo << m_listResult << endl;
     assert( m_listResult.contains( "." ) == 1 ); // found it, and only once
+}
+
+void TestTrash::listSubDir()
+{
+    kdDebug() << k_funcinfo << endl;
+    m_entryCount = 0;
+    m_listResult.clear();
+    KIO::ListJob* job = KIO::listDir( "trash:/0-trashDirFromHome" );
+    connect( job, SIGNAL( entries( KIO::Job*, const KIO::UDSEntryList& ) ),
+             SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
+    bool ok = KIO::NetAccess::synchronousRun( job, 0 );
+    assert( ok );
+    kdDebug() << "listDir done - m_entryCount=" << m_entryCount << endl;
+    assert( m_entryCount == 2 );
+
+    kdDebug() << k_funcinfo << m_listResult << endl;
+    assert( m_listResult.contains( "." ) == 1 ); // found it, and only once
+    assert( m_listResult.contains( "testfile" ) == 1 ); // found it, and only once
 }
 
 void TestTrash::slotEntries( KIO::Job*, const KIO::UDSEntryList& lst )
