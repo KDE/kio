@@ -101,11 +101,13 @@ void TestTrash::cleanTrash()
     dir.remove( trashDir + "info/fileFromOther" );
     dir.remove( trashDir + "files/fileFromOther" );
     dir.remove( trashDir + "info/trashDirFromHome" );
-    dir.remove( trashDir + "files/trashDirFromHome" );
     dir.remove( trashDir + "files/trashDirFromHome/testfile" );
-    dir.remove( trashDir + "info/trashDirFromOther" );
-    dir.remove( trashDir + "files/trashDirFromOther" );
+    dir.remove( trashDir + "files/trashDirFromHome" );
+    dir.rmdir( trashDir + "info/trashDirFromOther" );
     dir.remove( trashDir + "files/trashDirFromOther/testfile" );
+    dir.rmdir( trashDir + "files/trashDirFromOther" );
+    assert( !QDir( trashDir + "files/trashDirFromOther" ).exists() );
+    assert( !QDir( trashDir + "files/trashDirFromHome" ).exists() );
 }
 
 void TestTrash::runAll()
