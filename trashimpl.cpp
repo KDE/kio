@@ -25,6 +25,9 @@
 #include <kio/job.h>
 #include <kdebug.h>
 #include <kurl.h>
+#include <kglobalsettings.h>
+
+#include <dcopref.h>
 
 #include <qapplication.h>
 #include <qeventloop.h>
@@ -39,7 +42,6 @@
 #include <dirent.h>
 #include <stdlib.h>
 #include <errno.h>
-#include <kglobalsettings.h>
 
 TrashImpl::TrashImpl() :
     QObject(),
@@ -50,7 +52,6 @@ TrashImpl::TrashImpl() :
     // so better have a separate one, for faster parsing by e.g. kmimetype.cpp
     m_config( "trashrc" )
 {
-    m_config.setGroup( "Status" );
 }
 
 /**
@@ -91,9 +92,11 @@ bool TrashImpl::testDir( const QString &_name )
     }
     if ( !ok )
     {
-        //KMessageBox::sorry( 0, i18n( "Couldn't create directory %1. Check for permissions or reconfigure the desktop to use another path." ).arg( m ) );
+        //KMessageBox::sorry( 0, i18n( "Couldn't create directory %1. Check for permissions or reconfigure the desktop to use another path." ).arg( name ) );
         error( KIO::ERR_COULD_NOT_MKDIR, name );
         return false;
+    } else {
+        kdDebug() << name << " created." << endl;
     }
   }
   else // exists already
@@ -112,8 +115,8 @@ bool TrashImpl::init()
 
     // Check $HOME/.Trash/{info,files}/
     m_initStatus = InitError;
-    QString trashDir = QDir::homeDirPath() + "/.Trash";
-    bool firstTime = !QFile::exists( trashDir );
+    // see also kdesktop/init.cc for first time initialization
+    const QString trashDir = QDir::homeDirPath() + "/.Trash";
     if ( !testDir( trashDir ) )
         return false;
     if ( !testDir( trashDir + "/info" ) )
@@ -121,37 +124,48 @@ bool TrashImpl::init()
     if ( !testDir( trashDir + "/files" ) )
         return false;
     m_trashDirectories.insert( 0, trashDir );
-    if ( firstTime )
-        migrateOldTrash();
     m_initStatus = InitOK;
     return true;
 }
 
 void TrashImpl::migrateOldTrash()
 {
-    QStrList entries = listDir( KGlobalSettings::trashPath() );
+    kdDebug() << k_funcinfo << endl;
+    const QString oldTrashDir = KGlobalSettings::trashPath();
+    const QStrList entries = listDir( oldTrashDir );
+    bool allOK = true;
     QStrListIterator entryIt( entries );
     for (; entryIt.current(); ++entryIt) {
+        QString srcPath = QFile::decodeName( *entryIt );
+        if ( srcPath == "." || srcPath == ".." || srcPath == ".directory" )
+            continue;
+        srcPath.prepend( oldTrashDir ); // make absolute
         int trashId;
         QString fileId;
-        const QString srcPath = QFile::decodeName( *entryIt );
         if ( !createInfo( srcPath, trashId, fileId ) ) {
             kdWarning() << "Trash migration: failed to create info for " << srcPath << endl;
+            allOK = false;
         } else {
             bool ok = moveToTrash( srcPath, trashId, fileId );
             if ( !ok ) {
                 (void)deleteInfo( trashId, fileId );
                 kdWarning() << "Trash migration: failed to create info for " << srcPath << endl;
+                allOK = false;
             } else {
                 kdDebug() << "Trash migration: moved " << srcPath << endl;
             }
         }
     }
+    if ( allOK ) {
+        // We need to remove the old one, otherwise the desktop will have two trashcans...
+        kdDebug() << "Trash migration: all OK, removing old trash directory" << endl;
+        synchronousDel( oldTrashDir );
+    }
 }
 
 bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& fileId )
 {
-    kdDebug() << k_funcinfo << origPath << endl;
+    //kdDebug() << k_funcinfo << origPath << endl;
     // Check source
     QCString _src( QFile::encodeName(origPath) );
     KDE_struct_stat buff_src;
@@ -218,7 +232,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
 
     ::fclose( file );
 
-    kdDebug() << k_funcinfo << "info file created:" << trashId << " " << fileId << endl;
+    kdDebug() << k_funcinfo << "info file created in trashId=" << trashId << " : " << fileId << endl;
     return true;
 }
 
@@ -404,26 +418,20 @@ bool TrashImpl::synchronousDel( const QString& file )
     return m_lastErrorCode == 0;
 }
 
-bool TrashImpl::restore( int trashId, const QString& fileId )
-{
-    // TODO
-    return false;
-}
-
 bool TrashImpl::emptyTrash()
 {
+    kdDebug() << k_funcinfo << endl;
     // For each known trash directory...
     // ######## TODO: read fstab to know about all partitions, and check for trash dirs on those
     TrashDirMap::const_iterator it = m_trashDirectories.begin();
     for ( ; it != m_trashDirectories.end() ; ++it ) {
-        const int trashId = it.key();
-        QString infoPath = it.data();
-        infoPath += "/info";
-        ::unlink( QFile::encodeName( infoPath ) );
-
-        QString filesPath = it.data();
-        filesPath += "/files";
+        QDir dir;
+        const QString infoPath = it.data() + "/info";
+        synchronousDel( infoPath );
+        dir.mkdir( infoPath );
+        const QString filesPath = it.data() + "/files";
         synchronousDel( filesPath );
+        dir.mkdir( filesPath );
     }
     fileRemoved();
     return false;
@@ -455,6 +463,7 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
     return lst;
 }
 
+// Returns the entries in a given directory - including "." and ".."
 QStrList TrashImpl::listDir( const QString& physicalPath )
 {
     const QCString physicalPathEnc = QFile::encodeName( physicalPath );
@@ -515,7 +524,8 @@ bool TrashImpl::initTrashDirectory( const QString& origPath )
 
 void TrashImpl::error( int e, const QString& s )
 {
-    kdDebug() << k_funcinfo << e << " " << s << endl;
+    if ( e )
+        kdDebug() << k_funcinfo << e << " " << s << endl;
     m_lastErrorCode = e;
     m_lastErrorMessage = s;
 }
@@ -526,7 +536,6 @@ bool TrashImpl::isEmpty() const
     // ######## TODO: read fstab to know about all partitions, and check for trash dirs on those
     TrashDirMap::const_iterator it = m_trashDirectories.begin();
     for ( ; it != m_trashDirectories.end() ; ++it ) {
-        const int trashId = it.key();
         QString infoPath = it.data();
         infoPath += "/info";
 
@@ -548,18 +557,28 @@ bool TrashImpl::isEmpty() const
 
 void TrashImpl::fileAdded()
 {
+    m_config.setGroup( "Status" );
     if ( m_config.readBoolEntry( "Empty", true ) == true ) {
         m_config.writeEntry( "Empty", false );
         m_config.sync();
+        refreshTrashIcon();
     }
 }
 
 void TrashImpl::fileRemoved()
 {
     if ( isEmpty() ) {
+        m_config.setGroup( "Status" );
         m_config.writeEntry( "Empty", true );
         m_config.sync();
+        refreshTrashIcon();
     }
+}
+
+void TrashImpl::refreshTrashIcon()
+{
+    DCOPRef kdesktop( "kdesktop", "default" );
+    kdesktop.call( "refreshTrashIcon" );
 }
 
 #include "trashimpl.moc"

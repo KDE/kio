@@ -74,7 +74,6 @@ typedef TrashImpl::TrashedFileInfoList TrashedFileInfoList;
 TrashProtocol::TrashProtocol( const QCString& protocol, const QCString &pool, const QCString &app)
     : SlaveBase(protocol, pool, app )
 {
-    kdDebug() << k_funcinfo << protocol << endl;
     struct passwd *user = getpwuid( getuid() );
     if ( user )
         m_userName = QString::fromLatin1(user->pw_name);
@@ -130,6 +129,26 @@ bool TrashProtocol::parseURL( const KURL& url, int& trashId, QString& fileId, QS
     fileId = path.mid( start, slashPos - start );
     relativePath = path.mid( slashPos + 1 );
     return true;
+}
+
+void TrashProtocol::restore( const KURL& trashURL )
+{
+    int trashId;
+    QString fileId, relativePath;
+    bool ok = parseURL( trashURL, trashId, fileId, relativePath );
+    if ( !ok ) {
+        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( trashURL.prettyURL() ) );
+        return;
+    }
+    TrashedFileInfo info;
+    ok = impl.infoForFile( trashId, fileId, info );
+    if ( !ok ) {
+        error( impl.lastErrorCode(), impl.lastErrorMessage() );
+        return;
+    }
+    KURL dest;
+    dest.setPath( info.origPath );
+    copyOrMove( trashURL, dest, false /*overwrite*/, Move );
 }
 
 void TrashProtocol::rename( const KURL &oldURL, const KURL &newURL, bool overwrite )
@@ -446,6 +465,36 @@ void TrashProtocol::listRoot()
     entry.clear();
     listEntry( entry, true );
     finished();
+}
+
+void TrashProtocol::special( const QByteArray & data )
+{
+    INIT_IMPL;
+    QDataStream stream( data, IO_ReadOnly );
+    int cmd;
+    stream >> cmd;
+
+    switch (cmd) {
+    case 1:
+        impl.emptyTrash();
+        finished();
+        break;
+    case 2:
+        impl.migrateOldTrash();
+        finished();
+        break;
+    case 3:
+    {
+        KURL url;
+        stream >> url;
+        restore( url );
+        break;
+    }
+    default:
+        kdWarning(7116) << "Unknown command in special(): " << cmd << endl;
+        error( KIO::ERR_UNSUPPORTED_ACTION, QString::number(cmd) );
+        break;
+    }
 }
 
 void TrashProtocol::put( const KURL& url, int /*permissions*/, bool /*overwrite*/, bool /*resume*/ )

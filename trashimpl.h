@@ -70,9 +70,6 @@ public:
     /// Get rid of a trashed file
     bool del( int trashId, const QString& fileId );
 
-    /// Restore a trashed file
-    bool restore( int trashId, const QString& fileId );
-
     /// Empty trash, i.e. delete all trashed files
     bool emptyTrash();
 
@@ -93,13 +90,14 @@ public:
     /// Return the info for a given trashed file
     bool infoForFile( int trashId, const QString& fileId, TrashedFileInfo& info );
 
+    /// Move data from the old trash system to the new one
+    void migrateOldTrash();
+
     /// KIO error code
     int lastErrorCode() const { return m_lastErrorCode; }
     QString lastErrorMessage() const { return m_lastErrorMessage; }
 
     QStrList listDir( const QString& physicalPath );
-    QString infoPath( int trashId, const QString& fileId ) const;
-    QString filesPath( int trashId, const QString& fileId ) const;
 
 private:
     /// Helper method. Moves a file or directory using the appropriate method.
@@ -110,11 +108,15 @@ private:
 
     void fileAdded();
     void fileRemoved();
+    void refreshTrashIcon();
 
     bool testDir( const QString& name );
     void error( int e, const QString& s );
 
     bool readInfoFile( const QString& infoPath, TrashedFileInfo& info );
+
+    QString infoPath( int trashId, const QString& fileId ) const;
+    QString filesPath( int trashId, const QString& fileId ) const;
 
     /// Find the trash dir to use for a given file to delete, based on original path
     int findTrashDirectory( const QString& origPath );
@@ -124,7 +126,6 @@ private:
         return m_trashDirectories[trashId];
     }
 
-    void migrateOldTrash();
     bool synchronousDel( const QString& file );
 
 private slots:

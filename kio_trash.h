@@ -36,6 +36,13 @@ public:
     virtual void copy( const KURL &src, const KURL &dest, int permissions, bool overwrite );
     // TODO (maybe) chmod( const KURL& url, int permissions );
     virtual void del( const KURL &url, bool isfile );
+    /**
+     * Special actions: (first int in the byte array)
+     * 1 : empty trash
+     * 2 : migrate old (pre-kde-3.4) trash contents
+     * 3 : restore a file to its original location. Args: KURL trashURL.
+     */
+    virtual void special( const QByteArray & data );
 
 private:
     typedef enum CopyOrMove { Copy, Move };
@@ -43,6 +50,8 @@ private:
     void createTopLevelDirEntry(KIO::UDSEntry& entry, const QString& name, const QString& url);
     bool createUDSEntry( const QString& physicalPath, const QString& fileName, const QString& url, KIO::UDSEntry& entry );
     void listRoot();
+    void restore( const KURL& trashURL );
+
     static QString makeURL( int trashId, const QString& fileId, const QString& relativePath );
     static bool parseURL( const KURL& url, int& trashId, QString& fileId, QString& relativePath );
     friend class TestTrash;

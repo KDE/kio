@@ -169,6 +169,14 @@ void TestTrash::runAll()
     delRootFile();
     delFileInDirectory();
     delDirectory();
+
+    restoreFile();
+
+    // Not possible to test here:
+    // - emptying the trash (test it with "kemptytrash")
+    // - initial trash creation
+    // - trash migration
+    // - the updating of the trash icon on the desktop
 }
 
 void TestTrash::urlTestFile()
@@ -596,4 +604,12 @@ void TestTrash::moveSymlinkFromTrash()
     const QString destPath = otherTmpDir() + "symlinkFromOther_restored";
     moveFromTrash( "symlinkFromOther", destPath );
     assert( QFileInfo( destPath ).isSymLink() );
+}
+
+void TestTrash::restoreFile()
+{
+    kdDebug() << k_funcinfo << endl;
+    const QString fileId = "fileFromHome_1";
+    //const KURL trashURL( "trash:/0-" + fileId );
+    system( QCString( "ktrash --restore trash:/0-" ) + QFile::encodeName( fileId ) );
 }
