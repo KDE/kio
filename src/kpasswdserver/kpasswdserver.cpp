@@ -240,7 +240,6 @@ KPasswdServer::processRequest()
                                 username = it.data();
                         }
                         hasWalletData = true;
-                        kdDebug(130) << k_funcinfo << " FOUND WALLET DATA" << endl;                     }
                 }
             }
 
@@ -277,7 +276,6 @@ KPasswdServer::processRequest()
                // When the user checks "keep password", that means both in the cache (kpasswdserver process)
                // and in the wallet, if enabled.
                if ( info.keepPassword ) {
-                   kdDebug(130) << k_funcinfo << " saving stuff in wallet" << endl;
                    if ( !wallet )
                        wallet = KWallet::Wallet::openWallet(
                            KWallet::Wallet::NetworkWallet(), request->windowId );
@@ -289,7 +287,6 @@ KPasswdServer::processRequest()
                        if ( ok )
                        {
                            wallet->setFolder( KWallet::Wallet::PasswordFolder() );
-                           kdDebug(130) << k_funcinfo << "saving into " << request->key << endl;
                            QMap<QString,QString> map;
                            map.insert( "login", info.username );
                            map.insert( "password", info.password );
