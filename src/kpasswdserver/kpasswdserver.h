@@ -1,5 +1,5 @@
 /*
-    This file is part of the KDE Cookie Jar
+    This file is part of the KDE Password Server
 
     Copyright (C) 2002 Waldo Bastian (bastian@kde.org)
 
@@ -32,6 +32,10 @@
 #include <kio/authinfo.h>
 #include <kded/kdedmodule.h>
 
+namespace KWallet {
+    class Wallet;
+}
+
 class KPasswdServer : public KDEDModule
 {
   Q_OBJECT
@@ -59,32 +63,34 @@ protected:
   void addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, long windowId, long seqNr, bool canceled);
   KIO::AuthInfo copyAuthInfo(const AuthInfo *);
   void updateAuthExpire(const QString &key, const AuthInfo *, long windowId, bool keep);
-  
+  static bool storeInWallet( KWallet::Wallet* wallet, const QString& key, const KIO::AuthInfo &info );
+  static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, QString& username, QString& password, bool userReadOnly );
+
   struct AuthInfo {
     AuthInfo() { expire = expNever; isCanceled = false; seqNr = 0; }
-  
+
     KURL url;
     QString directory;
     QString username;
     QString password;
     QString realmValue;
     QString digestInfo;
-    
+
     enum { expNever, expWindowClose, expTime } expire;
     QValueList<long> windowList;
     unsigned long expireTime;
     long seqNr;
-    
+
     bool isCanceled;
   };
 
   class AuthInfoList : public QPtrList<AuthInfo>
   {
-    public: 
+    public:
       AuthInfoList() { setAutoDelete(true); }
       int compareItems(QPtrCollection::Item n1, QPtrCollection::Item n2);
   };
-  
+
   QDict< AuthInfoList > m_authDict;
 
   struct Request {

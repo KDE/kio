@@ -1,5 +1,5 @@
 /*
-    This file is part of the KDE Cookie Jar
+    This file is part of the KDE Password Server
 
     Copyright (C) 2002 Waldo Bastian (bastian@kde.org)
 
@@ -22,6 +22,8 @@
 // KDE Password Server
 // $Id$
 
+#include "kpasswdserver.h"
+
 #include <time.h>
 
 #include <qtimer.h>
@@ -38,8 +40,6 @@
 #include <X11/X.h>
 #include <X11/Xlib.h>
 #endif
-
-#include "kpasswdserver.h"
 
 extern "C" {
     KDE_EXPORT KDEDModule *create_kpasswdserver(const QCString &name)
@@ -224,24 +224,8 @@ KPasswdServer::processRequest()
                 // no login+pass provided, check if kwallet has one
                 wallet = KWallet::Wallet::openWallet(
                     KWallet::Wallet::NetworkWallet(), request->windowId );
-                if ( wallet && wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) )
-                {
-                    wallet->setFolder( KWallet::Wallet::PasswordFolder() );
-                    QMap<QString,QString> map;
-                    if ( wallet->readMap( request->key, map ) == 0 )
-                    {
-                        QMap<QString, QString>::ConstIterator it = map.find( "password" );
-                        if ( it != map.end() )
-                            password = it.data();
-
-                        if ( !info.readOnly ) {
-                            it = map.find( "login" );
-                            if ( it != map.end() )
-                                username = it.data();
-                        }
-                        hasWalletData = true;
-                    }
-                }
+                if ( wallet )
+                    hasWalletData = readFromWallet( wallet, request->key, username, password, info.readOnly );
             }
 
             KIO::PasswordDialog dlg( info.prompt, username, info.keepPassword );
@@ -282,21 +266,10 @@ KPasswdServer::processRequest()
                    if ( !wallet )
                        wallet = KWallet::Wallet::openWallet(
                            KWallet::Wallet::NetworkWallet(), request->windowId );
-                   QString password;
                    if ( wallet ) {
-                       bool ok = true;
-                       if ( !wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) )
-                           ok = wallet->createFolder( KWallet::Wallet::PasswordFolder() );
-                       if ( ok )
-                       {
-                           wallet->setFolder( KWallet::Wallet::PasswordFolder() );
-                           QMap<QString,QString> map;
-                           map.insert( "login", info.username );
-                           map.insert( "password", info.password );
-                           wallet->writeMap( request->key, map );
+                       if ( storeInWallet( wallet, request->key, info ) )
                            // password is in wallet, don't keep it in memory after window is closed
                            info.keepPassword = false;
-                       }
                    }
                }
             }
@@ -386,6 +359,45 @@ KPasswdServer::processRequest()
     if (m_authPending.count())
        QTimer::singleShot(0, this, SLOT(processRequest()));
 
+}
+
+bool KPasswdServer::storeInWallet( KWallet::Wallet* wallet, const QString& key, const KIO::AuthInfo &info )
+{
+    if ( !wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) )
+        if ( !wallet->createFolder( KWallet::Wallet::PasswordFolder() ) )
+            return false;
+    wallet->setFolder( KWallet::Wallet::PasswordFolder() );
+    typedef QMap<QString,QString> Map;
+    Map map;
+    map.insert( "login", info.username );
+    map.insert( "password", info.password );
+    wallet->writeMap( key, map );
+    return true;
+}
+
+
+bool KPasswdServer::readFromWallet( KWallet::Wallet* wallet, const QString& key, QString& username, QString& password, bool userReadOnly )
+{
+    if ( wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) )
+    {
+        wallet->setFolder( KWallet::Wallet::PasswordFolder() );
+        QMap<QString,QString> map;
+        if ( wallet->readMap( key, map ) == 0 )
+        {
+            QMap<QString, QString>::ConstIterator it = map.find( "password" );
+            if ( it != map.end() )
+                password = it.data();
+
+            if ( !userReadOnly ) {
+                it = map.find( "login" );
+                if ( it != map.end() )
+                    username = it.data();
+            }
+
+            return true;
+        }
+    }
+    return false;
 }
 
 QString KPasswdServer::createCacheKey( const KIO::AuthInfo &info )
