@@ -72,7 +72,7 @@ public:
     bool del( int trashId, const QString& fileId );
 
     /// Empty trash, i.e. delete all trashed files
-    bool emptyTrash();
+    void emptyTrash();
 
     /// Return true if the trash is empty
     bool isEmpty() const;
@@ -131,7 +131,7 @@ private:
     QString trashDirectoryPath( int trashId ) const;
     QString topDirectoryPath( int trashId ) const;
 
-    bool synchronousDel( const QString& file );
+    bool synchronousDel( const QString& path, bool setLastErrorCode );
 
     void scanTrashDirectories() const;
     int idForTrashDirectory( const QString& trashDir ) const;

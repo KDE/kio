@@ -178,7 +178,7 @@ void TrashImpl::migrateOldTrash()
     if ( allOK ) {
         // We need to remove the old one, otherwise the desktop will have two trashcans...
         kdDebug() << "Trash migration: all OK, removing old trash directory" << endl;
-        synchronousDel( oldTrashDir );
+        synchronousDel( oldTrashDir, false );
     }
 }
 
@@ -253,7 +253,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     size_t written = ::fwrite(info.data(), 1, sz, file);
     if ( written != sz ) {
         ::fclose( file );
-        ::unlink( QFile::encodeName( infoPath ) );
+        QFile::remove( infoPath );
         error( KIO::ERR_DISK_FULL, infoPath );
         return false;
     }
@@ -297,7 +297,7 @@ QString TrashImpl::filesPath( int trashId, const QString& fileId ) const
 
 bool TrashImpl::deleteInfo( int trashId, const QString& fileId )
 {
-    bool ok = ( ::unlink( QFile::encodeName( infoPath( trashId, fileId ) ) ) == 0 );
+    bool ok = QFile::remove( infoPath( trashId, fileId ) );
     if ( ok )
         fileRemoved();
     return ok;
@@ -310,7 +310,10 @@ bool TrashImpl::moveToTrash( const QString& origPath, int trashId, const QString
     if ( !move( origPath, dest ) ) {
         // Maybe the move failed due to no permissions to delete source.
         // In that case, delete dest to keep things consistent, since KIO doesn't do it.
-        ::unlink( QFile::encodeName( dest ) );
+        if ( QFileInfo( dest ).isFile() )
+            QFile::remove( dest );
+        else
+            synchronousDel( dest, false );
         return false;
     }
     fileAdded();
@@ -342,6 +345,7 @@ bool TrashImpl::move( const QString& src, const QString& dest )
     }
     if ( m_lastErrorCode != KIO::ERR_UNSUPPORTED_ACTION )
         return false;
+
     KURL urlSrc, urlDest;
     urlSrc.setPath( src );
     urlDest.setPath( dest );
@@ -359,6 +363,7 @@ bool TrashImpl::move( const QString& src, const QString& dest )
 
 void TrashImpl::jobFinished(KIO::Job* job)
 {
+    kdDebug() << k_funcinfo << " error=" << job->error() << endl;
     error( job->error(), job->errorText() );
     qApp->eventLoop()->exitLoop();
 }
@@ -386,6 +391,7 @@ bool TrashImpl::copyFromTrash( const QString& dest, int trashId, const QString& 
 bool TrashImpl::copy( const QString& src, const QString& dest )
 {
     // kio_file's copy() method is quite complex (in order to be fast), let's just call it...
+    m_lastErrorCode = 0;
     KURL urlSrc;
     urlSrc.setPath( src );
     KURL urlDest;
@@ -461,26 +467,33 @@ bool TrashImpl::del( int trashId, const QString& fileId )
         return false;
     }
 
-    ::unlink(info_c);
+    QFile::remove( info );
 
-    if ( !synchronousDel( file ) )
+    if ( !synchronousDel( file, true ) )
         return false;
     fileRemoved();
     return true;
 }
 
-bool TrashImpl::synchronousDel( const QString& file )
+bool TrashImpl::synchronousDel( const QString& path, bool setLastErrorCode )
 {
+    const int oldErrorCode = m_lastErrorCode;
+    const QString oldErrorMsg = m_lastErrorMessage;
     KURL url;
-    url.setPath( file );
-    KIO::DeleteJob *job = KIO::del( url, false, false);
+    url.setPath( path );
+    KIO::DeleteJob *job = KIO::del( url, false, false );
     connect( job, SIGNAL( result(KIO::Job *) ),
              this, SLOT( jobFinished(KIO::Job *) ) );
     qApp->eventLoop()->enterLoop();
-    return m_lastErrorCode == 0;
+    bool ok = m_lastErrorCode == 0;
+    if ( !setLastErrorCode ) {
+        m_lastErrorCode = oldErrorCode;
+        m_lastErrorMessage = oldErrorMsg;
+    }
+    return ok;
 }
 
-bool TrashImpl::emptyTrash()
+void TrashImpl::emptyTrash()
 {
     kdDebug() << k_funcinfo << endl;
     scanTrashDirectories();
@@ -489,14 +502,14 @@ bool TrashImpl::emptyTrash()
     for ( ; it != m_trashDirectories.end() ; ++it ) {
         QDir dir;
         const QString infoPath = it.data() + "/info";
-        synchronousDel( infoPath );
+        // TODO show errors (with warning()), e.g. when permission denied?
+        synchronousDel( infoPath, false );
         dir.mkdir( infoPath );
         const QString filesPath = it.data() + "/files";
-        synchronousDel( filesPath );
+        synchronousDel( filesPath, false );
         dir.mkdir( filesPath );
     }
     fileRemoved();
-    return false;
 }
 
 TrashImpl::TrashedFileInfoList TrashImpl::list()
