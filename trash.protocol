@@ -1,0 +1,20 @@
+[Protocol]
+exec=kio_trash
+protocol=trash
+input=none
+output=filesystem
+# AccessDate doesn't make sense.
+# OTOH we need deletion date :)
+listing=Name,Type,Size,Date,Access,Owner,Group,Link
+reading=true
+writing=true
+makedir=true
+deleting=true
+linking=false
+moving=true
+Icon=trash
+maxInstances=2
+Class=:local
+renameFromFile=true
+renameToFile=true
+#TODO DocPath
