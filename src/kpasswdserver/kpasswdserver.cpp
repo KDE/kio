@@ -216,6 +216,7 @@ KPasswdServer::processRequest()
             QString username = info.username;
             QString password = info.password;
             bool hasWalletData = false;
+            QMap<QString, QString> knownLogins;
 
             KWallet::Wallet* wallet = 0;
             if ( ( username.isEmpty() || password.isEmpty() )
@@ -225,7 +226,7 @@ KPasswdServer::processRequest()
                 wallet = KWallet::Wallet::openWallet(
                     KWallet::Wallet::NetworkWallet(), request->windowId );
                 if ( wallet )
-                    hasWalletData = readFromWallet( wallet, request->key, username, password, info.readOnly );
+                    hasWalletData = readFromWallet( wallet, request->key, username, password, info.readOnly, knownLogins );
             }
 
             KIO::PasswordDialog dlg( info.prompt, username, info.keepPassword );
@@ -242,6 +243,8 @@ KPasswdServer::processRequest()
 
             if (info.readOnly)
                dlg.setUserReadOnly( true );
+            else
+               dlg.setKnownLogins( knownLogins );
 
             if (hasWalletData)
                 dlg.setKeepPassword( true );
@@ -367,31 +370,70 @@ bool KPasswdServer::storeInWallet( KWallet::Wallet* wallet, const QString& key, 
         if ( !wallet->createFolder( KWallet::Wallet::PasswordFolder() ) )
             return false;
     wallet->setFolder( KWallet::Wallet::PasswordFolder() );
+    // Before saving, check if there's already an entry with this login.
+    // If so, replace it (with the new password). Otherwise, add a new entry.
     typedef QMap<QString,QString> Map;
+    int entryNumber = 1;
     Map map;
-    map.insert( "login", info.username );
-    map.insert( "password", info.password );
+    kdDebug() << k_funcinfo << "key=" << key << "  reading existing map" << endl;
+    if ( wallet->readMap( key, map ) == 0 ) {
+        Map::ConstIterator end = map.end();
+        Map::ConstIterator it = map.find( "login" );
+        while ( it != end ) {
+            if ( it.data() == info.username ) {
+                break; // overwrite this entry
+            }
+
+            it = map.find( QString( "login-" ) + QString::number( ++entryNumber ) );
+        }
+        // If no entry was found, create a new entry - entryNumber is set already.
+    }
+    QString loginKey = "login";
+    QString passwordKey = "password";
+    if ( entryNumber > 1 ) {
+        const QString suffix = "-" + QString::number( entryNumber );
+        loginKey += suffix;
+        passwordKey += suffix;
+    }
+    kdDebug() << k_funcinfo << "writing to " << loginKey << "," << passwordKey << endl;
+    // note the overwrite=true by default
+    map.insert( loginKey, info.username );
+    map.insert( passwordKey, info.password );
     wallet->writeMap( key, map );
     return true;
 }
 
-
-bool KPasswdServer::readFromWallet( KWallet::Wallet* wallet, const QString& key, QString& username, QString& password, bool userReadOnly )
+bool KPasswdServer::readFromWallet( KWallet::Wallet* wallet, const QString& key, QString& username, QString& password, bool userReadOnly, QMap<QString,QString>& knownLogins )
 {
     if ( wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) )
     {
         wallet->setFolder( KWallet::Wallet::PasswordFolder() );
         QMap<QString,QString> map;
+        kdDebug() << k_funcinfo << "reading with key=" << key << endl;
         if ( wallet->readMap( key, map ) == 0 )
         {
-            QMap<QString, QString>::ConstIterator it = map.find( "password" );
-            if ( it != map.end() )
-                password = it.data();
+            typedef QMap<QString,QString> Map;
+            int entryNumber = 1;
+            Map::ConstIterator end = map.end();
+            Map::ConstIterator it = map.find( "login" );
+            while ( it != end ) {
+                QString passwordKey = "password";
+                if ( entryNumber > 1 )
+                    passwordKey += "-" + QString::number( entryNumber );
+                Map::ConstIterator pwdit = map.find( passwordKey );
+                if ( pwdit != end ) {
+                    if ( it.data() == username )
+                        password = pwdit.data();
+                    knownLogins.insert( it.data(), pwdit.data() );
+                }
 
-            if ( !userReadOnly ) {
-                it = map.find( "login" );
-                if ( it != map.end() )
-                    username = it.data();
+                it = map.find( QString( "login-" ) + QString::number( ++entryNumber ) );
+            }
+
+            if ( !userReadOnly && username.isEmpty() ) {
+                // Pick one, any one...
+                username = knownLogins.begin().key();
+                password = knownLogins.begin().data();
             }
 
             return true;
