@@ -50,7 +50,7 @@ static const KCmdLineOptions options[] =
 };
 
 extern "C" {
-    int kdemain( int argc, char **argv )
+    int KDE_EXPORT kdemain( int argc, char **argv )
     {
         //KInstance instance( "kio_trash" );
         // KApplication is necessary to use kio_file
