@@ -719,7 +719,8 @@ void TrashImpl::scanTrashDirectories() const
         // Skip pseudo-filesystems, there's no chance we'll find a .Trash on them :)
         // ## Maybe we should also skip readonly filesystems
         if ( str != "proc" && str != "devfs" && str != "usbdevfs" &&
-             str != "sysfs" && str != "devpts" && str != "subfs" /* #96259 */ ) {
+             str != "sysfs" && str != "devpts" && str != "subfs" /* #96259 */ &&
+             str != "autofs" /* #101116 */ ) {
             QString topdir = (*it)->mountPoint();
             QString trashDir = trashForMountPoint( topdir, false );
             if ( !trashDir.isEmpty() ) {
