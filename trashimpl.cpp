@@ -105,7 +105,8 @@ bool TrashImpl::testDir( const QString &_name )
     }
     if ( !ok )
     {
-        //KMessageBox::sorry( 0, i18n( "Couldn't create directory %1. Check for permissions or reconfigure the desktop to use another path." ).arg( name ) );
+        //KMessageBox::sorry( 0, i18n( "Couldn't create directory %1. Check for permissions." ).arg( name ) );
+        kdWarning() << "couldn't create " << name << endl;
         error( KIO::ERR_COULD_NOT_MKDIR, name );
         return false;
     } else {
@@ -145,6 +146,7 @@ bool TrashImpl::init()
         return false;
     m_trashDirectories.insert( 0, trashDir );
     m_initStatus = InitOK;
+    kdDebug() << k_funcinfo << "initialization OK, home trash dir: " << trashDir << endl;
     return true;
 }
 
@@ -185,7 +187,7 @@ void TrashImpl::migrateOldTrash()
 
 bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& fileId )
 {
-    //kdDebug() << k_funcinfo << origPath << endl;
+    kdDebug() << k_funcinfo << origPath << endl;
     // Check source
     const QCString origPath_c( QFile::encodeName( origPath ) );
     KDE_struct_stat buff_src;
@@ -203,6 +205,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
         kdWarning() << "OUCH - internal error, TrashImpl::findTrashDirectory returned " << trashId << endl;
         return false; // ### error() needed?
     }
+    kdDebug() << k_funcinfo << "trashing to " << trashId << endl;
 
     // Grab original filename
     KURL url;
@@ -676,6 +679,7 @@ void TrashImpl::fileRemoved()
 
 int TrashImpl::findTrashDirectory( const QString& origPath )
 {
+    kdDebug() << k_funcinfo << origPath << endl;
     // First check if same device as $HOME, then we use the home trash right away.
     KDE_struct_stat buff;
     if ( KDE_lstat( QFile::encodeName( origPath ), &buff ) == 0
@@ -688,8 +692,10 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
     if ( trashDir.isEmpty() )
         return 0; // no trash available on partition
     int id = idForTrashDirectory( trashDir );
-    if ( id > -1 )
+    if ( id > -1 ) {
+        kdDebug() << " known with id " << id << endl;
         return id;
+    }
     // new trash dir found, register it
     // but we need stability in the trash IDs, so that restoring or asking
     // for properties works even kio_trash gets killed because idle.

@@ -188,6 +188,7 @@ void TrashProtocol::copyOrMove( const KURL &src, const KURL &dest, bool overwrit
         return;
     } else if ( src.isLocalFile() && dest.protocol() == "trash" ) {
         QString dir = dest.directory();
+        //kdDebug() << "trashing a file to " << dir << endl;
         // Trashing a file
         // We detect the case where this isn't normal trashing, but
         // e.g. if kwrite tries to save (moving tempfile over destination)
@@ -223,7 +224,8 @@ void TrashProtocol::copyOrMove( const KURL &src, const KURL &dest, bool overwrit
             }
             return;
         } else {
-            // It's not allowed to add a file to an existing deleted directory.
+            kdDebug() << "returning KIO::ERR_ACCESS_DENIED, it's not allowed to add a file to an existing trash directory" << endl;
+            // It's not allowed to add a file to an existing trash directory.
             error( KIO::ERR_ACCESS_DENIED, dest.prettyURL() );
             return;
         }
@@ -301,7 +303,7 @@ void TrashProtocol::stat(const KURL& url)
         }
 
         statEntry( entry );
-	finished();
+        finished();
     }
 }
 
@@ -319,7 +321,7 @@ void TrashProtocol::del( const KURL &url, bool /*isfile*/ )
     ok = relativePath.isEmpty();
     if ( !ok ) {
         error( KIO::ERR_ACCESS_DENIED, url.prettyURL() );
-	return;
+        return;
     }
 
     ok = impl.del(trashId, fileId);

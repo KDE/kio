@@ -114,6 +114,20 @@ QString TestTrash::umlautFileName() const
     return QString( "umlaut" ) + QChar( 0xEB );
 }
 
+static void removeFile( const QString& trashDir, const QString& fileName )
+{
+    QDir dir;
+    dir.remove( trashDir + fileName );
+    assert( !QDir( trashDir + fileName ).exists() );
+}
+
+static void removeDir( const QString& trashDir, const QString& dirName )
+{
+    QDir dir;
+    dir.rmdir( trashDir + dirName );
+    assert( !QDir( trashDir + dirName ).exists() );
+}
+
 void TestTrash::setup()
 {
     m_trashDir = KGlobal::dirs()->localxdgdatadir() + "Trash";
@@ -144,6 +158,13 @@ void TestTrash::setup()
                     m_tmpIsWritablePartition = true;
                     m_tmpTrashId = it.key();
                     kdDebug() << "/tmp is on its own partition (trashid=" << m_tmpTrashId << "), some tests will be skipped" << endl;
+                    removeFile( it.data(), "/info/fileFromOther.trashinfo" );
+                    removeFile( it.data(), "/files/fileFromOther" );
+                    removeFile( it.data(), "/info/symlinkFromOther.trashinfo" );
+                    removeFile( it.data(), "/files/symlinkFromOther" );
+                    removeFile( it.data(), "/info/trashDirFromOther.trashinfo" );
+                    removeFile( it.data(), "/files/trashDirFromOther/testfile" );
+                    removeDir( it.data(), "/files/trashDirFromOther" );
                 }
             }
         }
@@ -182,19 +203,6 @@ void TestTrash::setup()
     cleanTrash();
 }
 
-static void removeFile( const QString& trashDir, const QString& fileName )
-{
-    QDir dir;
-    dir.remove( trashDir + fileName );
-    assert( !QDir( trashDir + fileName ).exists() );
-}
-
-static void removeDir( const QString& trashDir, const QString& dirName )
-{
-    QDir dir;
-    dir.rmdir( trashDir + dirName );
-    assert( !QDir( trashDir + dirName ).exists() );
-}
 
 void TestTrash::cleanTrash()
 {
@@ -793,7 +801,7 @@ void TestTrash::copyFromTrash( const QString& fileId, const QString& destPath, c
     KURL dest;
     dest.setPath( destPath );
 
-    assert( KIO::NetAccess::exists( src, (QWidget*)0 ) );
+    assert( KIO::NetAccess::exists( src, true, (QWidget*)0 ) );
 
     // A dnd would use copy(), but we use copyAs to ensure the final filename
     //kdDebug() << k_funcinfo << "copyAs:" << src << " -> " << dest << endl;
@@ -851,7 +859,7 @@ void TestTrash::moveFromTrash( const QString& fileId, const QString& destPath, c
     KURL dest;
     dest.setPath( destPath );
 
-    assert( KIO::NetAccess::exists( src, (QWidget*)0 ) );
+    assert( KIO::NetAccess::exists( src, true, (QWidget*)0 ) );
 
     // A dnd would use move(), but we use moveAs to ensure the final filename
     KIO::Job* job = KIO::moveAs( src, dest );
