@@ -24,11 +24,15 @@
 #include <kdebug.h>
 #include <klocale.h>
 #include <klargefile.h>
+#include <kcmdlineargs.h>
+#include <kmimetype.h>
 #include <kprocess.h>
 
 #include <dcopclient.h>
 #include <qdatastream.h>
 #include <qtextstream.h>
+#include <qfile.h>
+#include <qeventloop.h>
 
 #include <time.h>
 #include <pwd.h>
@@ -36,10 +40,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <stdlib.h>
-#include <kcmdlineargs.h>
-#include <qfile.h>
-#include <kmimetype.h>
-#include <qeventloop.h>
 
 static const KCmdLineOptions options[] =
 {
@@ -398,6 +398,9 @@ bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& 
     addAtom( entry, KIO::UDS_FILE_TYPE, type );
     if ( !url.isEmpty() )
         addAtom( entry, KIO::UDS_URL, 0, url );
+
+    KMimeType::Ptr mt = KMimeType::findByPath( physicalPath, buff.st_mode );
+    addAtom( entry, KIO::UDS_MIME_TYPE, 0, mt->name() );
     addAtom( entry, KIO::UDS_ACCESS, access );
     addAtom( entry, KIO::UDS_SIZE, buff.st_size );
     addAtom( entry, KIO::UDS_USER, 0, m_userName ); // assumption
