@@ -27,6 +27,7 @@
 #include <qmap.h>
 #include <qvaluelist.h>
 #include <qstrlist.h>
+#include <ksimpleconfig.h>
 
 /**
  * Implementation of all low-level operations done by kio_trash
@@ -75,6 +76,9 @@ public:
     /// Empty trash, i.e. delete all trashed files
     bool emptyTrash();
 
+    /// Return true if the trash is empty
+    bool isEmpty() const;
+
     struct TrashedFileInfo {
         int trashId; // for the url
         QString fileId; // for the url
@@ -104,6 +108,9 @@ private:
     /// Helper method. Tries to call ::rename(src,dest) and does error handling.
     bool directRename( const QString& src, const QString& dest );
 
+    void fileAdded();
+    void fileRemoved();
+
     bool testDir( const QString& name );
     void error( int e, const QString& s );
 
@@ -116,6 +123,9 @@ private:
     QString trashDirectoryPath( int trashId ) const {
         return m_trashDirectories[trashId];
     }
+
+    void migrateOldTrash();
+    bool synchronousDel( const QString& file );
 
 private slots:
     void jobFinished(KIO::Job *job);
@@ -135,6 +145,8 @@ private:
     typedef QMap<int, QString> TrashDirMap;
     TrashDirMap m_trashDirectories; // id -> path
     int m_lastId;
+
+    KSimpleConfig m_config;
 
     // We don't cache any data related to the trashed files.
     // Another kioslave could change that behind our feet.

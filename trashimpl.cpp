@@ -39,13 +39,18 @@
 #include <dirent.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <kglobalsettings.h>
 
 TrashImpl::TrashImpl() :
     QObject(),
     m_lastErrorCode( 0 ),
     m_initStatus( InitToBeDone ),
-    m_lastId( 0 )
+    m_lastId( 0 ),
+    // not using kio_trashrc since KIO uses that one already for kio_trash
+    // so better have a separate one, for faster parsing by e.g. kmimetype.cpp
+    m_config( "trashrc" )
 {
+    m_config.setGroup( "Status" );
 }
 
 /**
@@ -108,6 +113,7 @@ bool TrashImpl::init()
     // Check $HOME/.Trash/{info,files}/
     m_initStatus = InitError;
     QString trashDir = QDir::homeDirPath() + "/.Trash";
+    bool firstTime = !QFile::exists( trashDir );
     if ( !testDir( trashDir ) )
         return false;
     if ( !testDir( trashDir + "/info" ) )
@@ -115,8 +121,32 @@ bool TrashImpl::init()
     if ( !testDir( trashDir + "/files" ) )
         return false;
     m_trashDirectories.insert( 0, trashDir );
+    if ( firstTime )
+        migrateOldTrash();
     m_initStatus = InitOK;
     return true;
+}
+
+void TrashImpl::migrateOldTrash()
+{
+    QStrList entries = listDir( KGlobalSettings::trashPath() );
+    QStrListIterator entryIt( entries );
+    for (; entryIt.current(); ++entryIt) {
+        int trashId;
+        QString fileId;
+        const QString srcPath = QFile::decodeName( *entryIt );
+        if ( !createInfo( srcPath, trashId, fileId ) ) {
+            kdWarning() << "Trash migration: failed to create info for " << srcPath << endl;
+        } else {
+            bool ok = moveToTrash( srcPath, trashId, fileId );
+            if ( !ok ) {
+                (void)deleteInfo( trashId, fileId );
+                kdWarning() << "Trash migration: failed to create info for " << srcPath << endl;
+            } else {
+                kdDebug() << "Trash migration: moved " << srcPath << endl;
+            }
+        }
+    }
 }
 
 bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& fileId )
@@ -217,7 +247,10 @@ bool TrashImpl::moveToTrash( const QString& origPath, int trashId, const QString
 {
     kdDebug() << k_funcinfo << endl;
     const QString dest = filesPath( trashId, fileId );
-    return move( origPath, dest );
+    if ( !move( origPath, dest ) )
+        return false;
+    fileAdded();
+    return true;
 }
 
 bool TrashImpl::moveFromTrash( const QString& dest, int trashId, const QString& fileId, const QString& relativePath )
@@ -227,7 +260,10 @@ bool TrashImpl::moveFromTrash( const QString& dest, int trashId, const QString& 
         src += '/';
         src += relativePath;
     }
-    return move( src, dest );
+    if ( !move( src, dest ) )
+        return false;
+    fileRemoved();
+    return true;
 }
 
 bool TrashImpl::move( const QString& src, const QString& dest )
@@ -258,7 +294,10 @@ bool TrashImpl::copyToTrash( const QString& origPath, int trashId, const QString
 {
     kdDebug() << k_funcinfo << endl;
     const QString dest = filesPath( trashId, fileId );
-    return copy( origPath, dest );
+    if ( !copy( origPath, dest ) )
+        return false;
+    fileAdded();
+    return true;
 }
 
 bool TrashImpl::copyFromTrash( const QString& dest, int trashId, const QString& fileId, const QString& relativePath )
@@ -348,13 +387,20 @@ bool TrashImpl::del( int trashId, const QString& fileId )
 
     ::unlink(info_c);
 
+    if ( !synchronousDel( file ) )
+        return false;
+    fileRemoved();
+    return true;
+}
+
+bool TrashImpl::synchronousDel( const QString& file )
+{
     KURL url;
     url.setPath( file );
     KIO::DeleteJob *job = KIO::del( url, false, false);
     connect( job, SIGNAL( result(KIO::Job *) ),
              this, SLOT( jobFinished(KIO::Job *) ) );
     qApp->eventLoop()->enterLoop();
-
     return m_lastErrorCode == 0;
 }
 
@@ -366,7 +412,20 @@ bool TrashImpl::restore( int trashId, const QString& fileId )
 
 bool TrashImpl::emptyTrash()
 {
-    // TODO
+    // For each known trash directory...
+    // ######## TODO: read fstab to know about all partitions, and check for trash dirs on those
+    TrashDirMap::const_iterator it = m_trashDirectories.begin();
+    for ( ; it != m_trashDirectories.end() ; ++it ) {
+        const int trashId = it.key();
+        QString infoPath = it.data();
+        infoPath += "/info";
+        ::unlink( QFile::encodeName( infoPath ) );
+
+        QString filesPath = it.data();
+        filesPath += "/files";
+        synchronousDel( filesPath );
+    }
+    fileRemoved();
     return false;
 }
 
@@ -459,6 +518,48 @@ void TrashImpl::error( int e, const QString& s )
     kdDebug() << k_funcinfo << e << " " << s << endl;
     m_lastErrorCode = e;
     m_lastErrorMessage = s;
+}
+
+bool TrashImpl::isEmpty() const
+{
+    // For each known trash directory...
+    // ######## TODO: read fstab to know about all partitions, and check for trash dirs on those
+    TrashDirMap::const_iterator it = m_trashDirectories.begin();
+    for ( ; it != m_trashDirectories.end() ; ++it ) {
+        const int trashId = it.key();
+        QString infoPath = it.data();
+        infoPath += "/info";
+
+        DIR *dp = opendir( QFile::encodeName( infoPath ) );
+        if ( dp )
+        {
+            struct dirent *ep;
+            ep = readdir( dp );
+            ep = readdir( dp ); // ignore '.' and '..' dirent
+            ep = readdir( dp ); // look for third file
+            closedir( dp );
+            if ( ep != 0 ) {
+                return false; // not empty
+            }
+        }
+    }
+    return true;
+}
+
+void TrashImpl::fileAdded()
+{
+    if ( m_config.readBoolEntry( "Empty", true ) == true ) {
+        m_config.writeEntry( "Empty", false );
+        m_config.sync();
+    }
+}
+
+void TrashImpl::fileRemoved()
+{
+    if ( isEmpty() ) {
+        m_config.writeEntry( "Empty", true );
+        m_config.sync();
+    }
 }
 
 #include "trashimpl.moc"

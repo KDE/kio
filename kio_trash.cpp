@@ -202,7 +202,10 @@ void TrashProtocol::copyOrMove( const KURL &src, const KURL &dest, bool overwrit
         if ( dir.length() <= 1 ) // new toplevel entry
         {
             const QString srcPath = src.path();
-            // ## TODO: we should use parseURL to give the right filename to createInfo
+            // In theory we should use parseURL to give the right filename to createInfo,
+            // in case the trash URL didn't contain the same filename as srcPath.
+            // But this can only happen with copyAs/moveAs, not available in the GUI
+            // for the trash (New/... or Rename from iconview/listview).
             int trashId;
             QString fileId;
             if ( !impl.createInfo( srcPath, trashId, fileId ) ) {
