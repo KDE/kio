@@ -200,7 +200,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     // Choose destination trash
     trashId = findTrashDirectory( origPath );
     if ( trashId < 0 ) {
-        kdWarning() << "OUCH - internal error, TrashImpl::createInfo got " << trashId << endl;
+        kdWarning() << "OUCH - internal error, TrashImpl::findTrashDirectory returned " << trashId << endl;
         return false; // ### error() needed?
     }
 
@@ -769,7 +769,7 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
                 if ( (buff.st_uid == uid) // must be owned by user
                      && (S_ISDIR(buff.st_mode)) // must be a dir
                      && (!S_ISLNK(buff.st_mode)) // not a symlink
-                     && (buff.st_mode & S_IRWXU) ) { // rwx for user
+                     && (buff.st_mode & 0777) == 0700 ) { // rwx for user
                     return trashDir;
                 }
                 kdDebug() << "Directory " << trashDir << " exists but didn't pass the security checks, can't use it" << endl;
@@ -790,7 +790,7 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
         if ( (buff.st_uid == uid) // must be owned by user
              && (S_ISDIR(buff.st_mode)) // must be a dir
              && (!S_ISLNK(buff.st_mode)) // not a symlink
-             && (buff.st_mode & S_IRWXU) ) { // rwx for user
+             && ((buff.st_mode & 0777) == 0700) ) { // rwx for user, ------ for group and others
             return trashDir;
         }
         kdDebug() << "Directory " << trashDir << " exists but didn't pass the security checks, can't use it" << endl;
@@ -826,7 +826,7 @@ bool TrashImpl::initTrashDirectory( const QCString& trashDir_c ) const
     if ( KDE_lstat( trashDir_c, &buff ) != 0 )
         return false; // huh?
     if ( (buff.st_uid == uid) // must be owned by user
-         && (buff.st_mode & S_IRWXU) ) { // rwx for user
+         && ((buff.st_mode & 0777) == 0700) ) { // rwx for user, --- for group and others
 
         QCString info_c = trashDir_c + "/info";
         if ( ::mkdir( info_c, 0700 ) != 0 )

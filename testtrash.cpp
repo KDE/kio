@@ -361,6 +361,8 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
     QMap<QString, QString> metaData;
     //bool ok = KIO::NetAccess::move( u, "trash:/" );
     bool ok = KIO::NetAccess::synchronousRun( job, 0, 0, 0, &metaData );
+    if ( !ok )
+        kdError() << "moving " << u << " to trash failed with error " << KIO::NetAccess::lastError() << " " << KIO::NetAccess::lastErrorString() << endl;
     assert( ok );
     checkInfoFile( m_trashDir + "/info/" + fileId + ".trashinfo", origFilePath );
 
