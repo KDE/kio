@@ -268,8 +268,10 @@ bool TrashImpl::copy( const QString& src, const QString& dest )
     // kio_file's copy() method is quite complex (in order to be fast), let's just call it...
     KURL urlSrc;
     urlSrc.setPath( src );
+    KURL urlDest;
+    urlDest.setPath( dest );
     kdDebug() << k_funcinfo << "copying " << src << " to " << dest << endl;
-    KIO::Job* job = KIO::file_copy( src, dest, -1 /*permissions*/, true /*overwrite*/, false, false );
+    KIO::Job* job = KIO::file_copy( urlSrc, urlDest, -1 /*permissions*/, true /*overwrite*/, false, false );
     connect( job, SIGNAL( result( KIO::Job* ) ),
              this, SLOT( jobFinished( KIO::Job* ) ) );
     qApp->eventLoop()->enterLoop();

@@ -157,6 +157,10 @@ void TestTrash::runAll()
     delFileInDirectory();
     delDirectory();
 
+    copyFileFromTrash();
+    copyDirectoryFromTrash();
+    copySymlinkFromTrash();
+
     moveFileFromTrash();
     moveDirectoryFromTrash();
     moveSymlinkFromTrash();
@@ -476,6 +480,51 @@ void TestTrash::statFileInDirectory()
     assert( !item.isHidden() );
     assert( item.name() == "testfile" );
     assert( !item.acceptsDrops() );
+}
+
+void TestTrash::copyFromTrash( const QString& fileId, const QString& destPath )
+{
+    KURL src( "trash:/0-" + fileId );
+    KURL dest;
+    dest.setPath( destPath );
+
+    // A dnd would use copy(), but we use copyAs to ensure the final filename
+    //kdDebug() << k_funcinfo << "copyAs:" << src << " -> " << dest << endl;
+    KIO::Job* job = KIO::copyAs( src, dest );
+    bool ok = KIO::NetAccess::synchronousRun( job, 0 );
+    assert( ok );
+    QString infoFile( QDir::homeDirPath() + "/.Trash/info/" + fileId );
+    assert( QFile::exists( infoFile ) );
+
+    QFileInfo filesItem( QDir::homeDirPath() + "/.Trash/files/" + fileId );
+    assert( filesItem.exists() );
+
+    assert( QFile::exists( destPath ) );
+}
+
+void TestTrash::copyFileFromTrash()
+{
+    kdDebug() << k_funcinfo << endl;
+    const QString destPath = otherTmpDir() + "fileFromOther_copied";
+    copyFromTrash( "fileFromOther", destPath );
+    assert( QFileInfo( destPath ).isFile() );
+    assert( QFileInfo( destPath ).size() == 10 );
+}
+
+void TestTrash::copyDirectoryFromTrash()
+{
+    kdDebug() << k_funcinfo << endl;
+    const QString destPath = otherTmpDir() + "trashDirFromOther_copied";
+    copyFromTrash( "trashDirFromOther", destPath );
+    assert( QFileInfo( destPath ).isDir() );
+}
+
+void TestTrash::copySymlinkFromTrash()
+{
+    kdDebug() << k_funcinfo << endl;
+    const QString destPath = otherTmpDir() + "symlinkFromOther_copied";
+    copyFromTrash( "symlinkFromOther", destPath );
+    assert( QFileInfo( destPath ).isSymLink() );
 }
 
 void TestTrash::moveFromTrash( const QString& fileId, const QString& destPath )

@@ -181,7 +181,8 @@ void TrashProtocol::copyOrMove( const KURL &src, const KURL &dest, bool /*overwr
         if ( !ok ) {
             error( impl.lastErrorCode(), impl.lastErrorMessage() );
         } else {
-            (void)impl.deleteInfo( trashId, fileId );
+            if ( action == Move )
+                (void)impl.deleteInfo( trashId, fileId );
             finished();
         }
         return;
