@@ -113,25 +113,27 @@ static void removeDir( const QString& trashDir, const QString& dirName )
 void TestTrash::cleanTrash()
 {
     // Start with a relatively clean trash too
-    removeFile( m_trashDir, "info/fileFromHome.trashinfo" );
-    removeFile( m_trashDir, "files/fileFromHome" );
-    removeFile( m_trashDir, "info/fileFromHome_1.trashinfo" );
-    removeFile( m_trashDir, "files/fileFromHome_1" );
-    removeFile( m_trashDir, "info/fileFromOther.trashinfo" );
-    removeFile( m_trashDir, "files/fileFromOther" );
-    removeFile( m_trashDir, "info/symlinkFromHome.trashinfo" );
-    removeFile( m_trashDir, "files/symlinkFromHome" );
-    removeFile( m_trashDir, "info/symlinkFromOther.trashinfo" );
-    removeFile( m_trashDir, "files/symlinkFromOther" );
-    removeFile( m_trashDir, "info/trashDirFromHome.trashinfo" );
-    removeFile( m_trashDir, "files/trashDirFromHome/testfile" );
-    removeDir( m_trashDir, "files/trashDirFromHome" );
-    removeFile( m_trashDir, "info/trashDirFromHome_1.trashinfo" );
-    removeFile( m_trashDir, "files/trashDirFromHome_1/testfile" );
-    removeDir( m_trashDir, "files/trashDirFromHome_1" );
-    removeFile( m_trashDir, "info/trashDirFromOther.trashinfo" );
-    removeFile( m_trashDir, "files/trashDirFromOther/testfile" );
-    removeDir( m_trashDir, "files/trashDirFromOther" );
+    removeFile( m_trashDir, "/info/fileFromHome.trashinfo" );
+    removeFile( m_trashDir, "/files/fileFromHome" );
+    removeFile( m_trashDir, "/info/fileFromHome_1.trashinfo" );
+    removeFile( m_trashDir, "/files/fileFromHome_1" );
+    removeFile( m_trashDir, "/info/fileFromOther.trashinfo" );
+    removeFile( m_trashDir, "/files/fileFromOther" );
+    removeFile( m_trashDir, "/info/symlinkFromHome.trashinfo" );
+    removeFile( m_trashDir, "/files/symlinkFromHome" );
+    removeFile( m_trashDir, "/info/symlinkFromOther.trashinfo" );
+    removeFile( m_trashDir, "/files/symlinkFromOther" );
+    removeFile( m_trashDir, "/info/trashDirFromHome.trashinfo" );
+    removeFile( m_trashDir, "/files/trashDirFromHome/testfile" );
+    removeDir( m_trashDir, "/files/trashDirFromHome" );
+    removeFile( m_trashDir, "/info/trashDirFromHome_1.trashinfo" );
+    removeFile( m_trashDir, "/files/trashDirFromHome_1/testfile" );
+    removeDir( m_trashDir, "/files/trashDirFromHome_1" );
+    removeFile( m_trashDir, "/info/trashDirFromOther.trashinfo" );
+    removeFile( m_trashDir, "/files/trashDirFromOther/testfile" );
+    removeDir( m_trashDir, "/files/trashDirFromOther" );
+
+    //system( "find ~/.local/share/Trash" );
 }
 
 void TestTrash::runAll()
@@ -250,7 +252,7 @@ static void createTestFile( const QString& path )
     QFile f( path );
     if ( !f.open( IO_WriteOnly ) )
         kdFatal() << "Can't create " << path << endl;
-    f.writeBlock( "Hello world", 10 );
+    f.writeBlock( "Hello world\n", 12 );
     f.close();
     assert( QFile::exists( path ) );
 }
@@ -269,7 +271,7 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
 
     QFileInfo files( m_trashDir + "/files/" + fileId );
     assert( files.isFile() );
-    assert( files.size() == 10 );
+    assert( files.size() == 12 );
 
     // coolo suggests testing that the original file is actually gone, too :)
     assert( !QFile::exists( origFilePath ) );
@@ -347,7 +349,7 @@ void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )
     QFileInfo files( m_trashDir + "/files/" + fileId + "/testfile" );
     assert( files.exists() );
     assert( files.isFile() );
-    assert( files.size() == 10 );
+    assert( files.size() == 12 );
     assert( !QFile::exists( origPath ) );
 }
 
@@ -531,7 +533,7 @@ void TestTrash::copyFileFromTrash()
     const QString destPath = otherTmpDir() + "fileFromOther_copied";
     copyFromTrash( "fileFromOther", destPath );
     assert( QFileInfo( destPath ).isFile() );
-    assert( QFileInfo( destPath ).size() == 10 );
+    assert( QFileInfo( destPath ).size() == 12 );
 }
 
 void TestTrash::copyFileInDirectoryFromTrash()
@@ -540,7 +542,7 @@ void TestTrash::copyFileInDirectoryFromTrash()
     const QString destPath = otherTmpDir() + "testfile_copied";
     copyFromTrash( "trashDirFromHome", destPath, "testfile" );
     assert( QFileInfo( destPath ).isFile() );
-    assert( QFileInfo( destPath ).size() == 10 );
+    assert( QFileInfo( destPath ).size() == 12 );
 }
 
 void TestTrash::copyDirectoryFromTrash()
@@ -586,7 +588,7 @@ void TestTrash::moveFileFromTrash()
     const QString destPath = otherTmpDir() + "fileFromOther_restored";
     moveFromTrash( "fileFromOther", destPath );
     assert( QFileInfo( destPath ).isFile() );
-    assert( QFileInfo( destPath ).size() == 10 );
+    assert( QFileInfo( destPath ).size() == 12 );
 }
 
 void TestTrash::moveFileInDirectoryFromTrash()
@@ -595,7 +597,7 @@ void TestTrash::moveFileInDirectoryFromTrash()
     const QString destPath = otherTmpDir() + "testfile_restored";
     copyFromTrash( "trashDirFromOther", destPath, "testfile" );
     assert( QFileInfo( destPath ).isFile() );
-    assert( QFileInfo( destPath ).size() == 10 );
+    assert( QFileInfo( destPath ).size() == 12 );
 }
 
 void TestTrash::moveDirectoryFromTrash()
