@@ -224,7 +224,8 @@ KPasswdServer::processRequest()
 
             if ( !info.password.isEmpty() )
                dlg.setPassword( info.password );
-            else // no pass provided, check if kwallet has one
+            else if (!KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(), KWallet::Wallet::PasswordFolder(), request->key))
+                 // no pass provided, check if kwallet has one
             {
                 KWallet::Wallet* wallet = KWallet::Wallet::openWallet(
                     KWallet::Wallet::NetworkWallet(), dlg.winId() );
