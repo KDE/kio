@@ -1,0 +1,56 @@
+Sequence numbers
+================
+The idea is that whenever the user is queried for a password this 
+login/pw combination gets a seq-nr. When  a slave needs a  login/pw 
+it asks kpasswdserver and sends along the last seqnr it received. If 
+this seqnr is older (lower) than the seq nr of the login/pw 
+combination stored in kpasswdserver then appearantly the user has 
+already been prompted for a new login/pw combination since the last 
+time this slave asked for a login/pw and therefor it is not necessary 
+to prompt the user again but kpassword will send the io-slave this 
+new login/pw combination. If this new combination fails as well the 
+user is being prompted for a new login/pw combo since the one stored 
+in kpasswdserver doesn't work.
+
+Let me try to draw the situation I had in mind when writing this:
+
+Slave1		Slave2			kpasswdserver
+Asks for auth
+					asks user for login/pw (1)
+sends login/pw (1) to ftp site
+		Asks for auth
+					sends back login/pw (1)
+		sends login/pw (1) to ftp site
+gets login error,
+asks for new auth
+sends along seq.nr 1
+					seq.nr 1 == (1) -->
+					asks user for new login/pw (2)
+sends login/pw (2) to ftp site
+		gets login error,
+		asks for new auth
+		sends along seq.nr 1
+					seq.nr 1 < (2) -->
+					don't ask user for new login/pw
+					but send back login/pw (2) without asking
+		sends login/pw (2) to ftp site
+
+
+Actually, I had mostly http in mind, and not so much ftp. In http you 
+typically try without password first, and only when you get an 
+authentication error you ask for a password. The above scenario is 
+then suddenly a lot more common than with ftp because it can happen 
+that you have 4 requests /io-slaves who alll discover at about the 
+same time that they need to have authentication credentials. The 
+above scenario (and the seq. nrs) is to prevent that you get 4 login 
+dialogs in such case.
+
+Now the assumption in this all, looking back on it, seems to be that 
+when you ask for the same auth credentials twice in a row, it must be 
+that the credentials issued the first time where wrong, and you will 
+be prompted again. But if the user goes to ftp-site1, then 
+ftp-site2 and then back to ftp-site1 again, the credentials for ftp-site1
+are still valid. This is why we reset the seq.nr stored in the io-slave
+to 0 whenever the io-slave switches hosts (or logins).
+
+Waldo Bastian <bastian@kde.org>
