@@ -166,7 +166,6 @@ KPasswdServer::processRequest()
               
     const AuthInfo *result = findAuthInfoItem(request->key, request->info);
     
-    int resultSeqNr = m_seqNr;
     if (result && (request->seqNr < result->seqNr))
     {
         kdDebug() << "KPasswdServer::processRequest: auto retry!" << endl;
@@ -184,9 +183,9 @@ KPasswdServer::processRequest()
         {
            QString prompt = request->errorMsg;
            prompt += i18n("  Do you want to retry?");
-           int dlgResult = KMessageBox::questionYesNo(0, prompt, 
-                           i18n("Authentication"));
-           if (dlgResult != KMessageBox::Yes)
+           int dlgResult = KMessageBox::warningContinueCancel(0, prompt, 
+                           i18n("Authentication"), i18n("Retry"));
+           if (dlgResult != KMessageBox::Continue)
               askPw = false;
         }
               
@@ -232,7 +231,7 @@ KPasswdServer::processRequest()
     QByteArray replyData;
 
     QDataStream stream2(replyData, IO_WriteOnly);
-    stream2 << info << resultSeqNr;
+    stream2 << info << m_seqNr;
     replyType = "KIO::AuthInfo";
     request->client->endTransaction( request->transaction,
                                      replyType, replyData);
@@ -335,6 +334,7 @@ KPasswdServer::copyAuthInfo(const AuthInfo *i)
     result.realmValue = i->realmValue;
     result.digestInfo = i->digestInfo; 
     result.setModified(true);
+
     return result;
 }
 
@@ -424,6 +424,11 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, lo
    {
       current = new AuthInfo;
       current->expire = AuthInfo::expTime;
+      kdDebug() << "Creating AuthInfo" << endl;
+   }
+   else
+   {
+      kdDebug() << "Updating AuthInfo" << endl;
    }
 
    current->url = info.url;
@@ -434,7 +439,7 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, lo
    current->digestInfo = info.digestInfo;
    current->seqNr = seqNr;
    current->isCanceled = canceled;
-   
+
    if (info.keepPassword && !canceled)
    {
       current->expire = AuthInfo::expNever;
