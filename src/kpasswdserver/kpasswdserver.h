@@ -30,7 +30,7 @@
 
 #include <dcopclient.h>
 #include <kio/authinfo.h>
-#include <kdedmodule.h>
+#include <kded/kdedmodule.h>
 
 class KPasswdServer : public KDEDModule
 {
