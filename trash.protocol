@@ -21,4 +21,5 @@ copyFromFile=true
 copyToFile=true
 deleteRecursive=true
 copyRecursive=true
+fileNameUsedForCopying=Name
 #TODO DocPath

@@ -44,16 +44,24 @@
 #include <dirent.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <kmountpoint.h>
 
 TrashImpl::TrashImpl() :
     QObject(),
     m_lastErrorCode( 0 ),
     m_initStatus( InitToBeDone ),
     m_lastId( 0 ),
+    m_homeDevice( 0 ),
     // not using kio_trashrc since KIO uses that one already for kio_trash
     // so better have a separate one, for faster parsing by e.g. kmimetype.cpp
     m_config( "trashrc" )
 {
+    KDE_struct_stat buff;
+    if ( KDE_stat( QFile::encodeName( QDir::homeDirPath() ), &buff ) == 0 ) {
+        m_homeDevice = buff.st_dev;
+    } else {
+        kdError() << "Should never happen: couldn't stat $HOME " << strerror( errno ) << endl;
+    }
 }
 
 /**
@@ -170,9 +178,9 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
 {
     //kdDebug() << k_funcinfo << origPath << endl;
     // Check source
-    QCString _src( QFile::encodeName(origPath) );
+    const QCString origPath_c( QFile::encodeName( origPath ) );
     KDE_struct_stat buff_src;
-    if ( KDE_stat( _src.data(), &buff_src ) == -1 ) {
+    if ( KDE_stat( origPath_c.data(), &buff_src ) == -1 ) {
         if ( errno == EACCES )
            error( KIO::ERR_ACCESS_DENIED, origPath );
         else
@@ -431,8 +439,8 @@ bool TrashImpl::synchronousDel( const QString& file )
 bool TrashImpl::emptyTrash()
 {
     kdDebug() << k_funcinfo << endl;
+    findTrashDirectories();
     // For each known trash directory...
-    // ######## TODO: read fstab to know about all partitions, and check for trash dirs on those
     TrashDirMap::const_iterator it = m_trashDirectories.begin();
     for ( ; it != m_trashDirectories.end() ; ++it ) {
         QDir dir;
@@ -449,9 +457,9 @@ bool TrashImpl::emptyTrash()
 
 TrashImpl::TrashedFileInfoList TrashImpl::list()
 {
+    findTrashDirectories();
     TrashedFileInfoList lst;
     // For each known trash directory...
-    // ######## TODO: read fstab to know about all partitions, and check for trash dirs on those
     TrashDirMap::const_iterator it = m_trashDirectories.begin();
     for ( ; it != m_trashDirectories.end() ; ++it ) {
         const int trashId = it.key();
@@ -522,7 +530,6 @@ bool TrashImpl::readInfoFile( const QString& infoPath, TrashedFileInfo& info )
     return true;
 }
 
-
 QString TrashImpl::physicalPath( int trashId, const QString& fileId, const QString& relativePath )
 {
     QString filePath = filesPath( trashId, fileId );
@@ -531,18 +538,6 @@ QString TrashImpl::physicalPath( int trashId, const QString& fileId, const QStri
         filePath += relativePath;
     }
     return filePath;
-}
-
-int TrashImpl::findTrashDirectory( const QString& origPath )
-{
-    // TODO implement the real algorithm
-    return 0;
-}
-
-bool TrashImpl::initTrashDirectory( const QString& origPath )
-{
-    // TODO
-    return true;
 }
 
 void TrashImpl::error( int e, const QString& s )
@@ -556,7 +551,7 @@ void TrashImpl::error( int e, const QString& s )
 bool TrashImpl::isEmpty() const
 {
     // For each known trash directory...
-    // ######## TODO: read fstab to know about all partitions, and check for trash dirs on those
+    findTrashDirectories();
     TrashDirMap::const_iterator it = m_trashDirectories.begin();
     for ( ; it != m_trashDirectories.end() ; ++it ) {
         QString infoPath = it.data();
@@ -602,6 +597,129 @@ void TrashImpl::refreshTrashIcon()
 {
     DCOPRef kdesktop( "kdesktop", "default" );
     kdesktop.call( "refreshTrashIcon" );
+}
+
+int TrashImpl::findTrashDirectory( const QString& origPath )
+{
+    // First check if same device as $HOME, then we use the home trash right away.
+    KDE_struct_stat buff;
+    if ( KDE_stat( QFile::encodeName( origPath ), &buff ) == 0
+         && buff.st_dev == m_homeDevice )
+        return 0;
+
+    const QString mountPoint = KIO::findPathMountPoint( origPath );
+    const QString trashDir = trashForMountPoint( mountPoint, true );
+    kdDebug() << "mountPoint=" << mountPoint << " trashDir=" << trashDir << endl;
+    if ( trashDir.isEmpty() )
+        return 0; // no trash available on partition
+    int id = idForTrashDirectory( trashDir );
+    if ( id > -1 )
+        return id;
+    // new trash dir found, register it
+    kdDebug() << k_funcinfo << "found " << trashDir << endl;
+    m_trashDirectories.insert( ++m_lastId, trashDir );
+    return m_lastId;
+}
+
+// Maybe we could cache the result of this method.
+// OTOH we would then fail to notice plugged-in removeable devices...
+void TrashImpl::findTrashDirectories() const
+{
+    const KMountPoint::List lst = KMountPoint::currentMountPoints();
+    for ( KMountPoint::List::ConstIterator it = lst.begin() ; it != lst.end() ; ++it ) {
+        const QCString str = (*it)->mountType().latin1();
+        // Skip pseudo-filesystems, there's no chance we'll find a .Trash on them :)
+        // ## Maybe we should also skip readonly filesystems
+        if ( str != "proc" && str != "devfs" && str != "usbdevfs" &&
+             str != "sysfs" && str != "devpts" ) {
+            QString topdir = (*it)->mountPoint();
+            QString trashDir = trashForMountPoint( topdir, false );
+            if ( !trashDir.isEmpty() ) {
+                // OK, trashDir is a valid trash directory. Ensure it's registered.
+                int trashId = idForTrashDirectory( trashDir );
+                if ( trashId == -1 ) {
+                    kdDebug() << k_funcinfo << "found " << trashDir << endl;
+                    // new trash dir found, register it
+                    m_trashDirectories.insert( ++m_lastId, trashDir );
+                }
+            }
+        }
+    }
+}
+
+QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeeded ) const
+{
+    // (1) Administrator-created $topdir/.Trash directory
+
+    const QString rootTrashDir = topdir + "/.Trash";
+    // Can't use QFileInfo here since we need to test for the sticky bit
+    uid_t uid = getuid();
+    KDE_struct_stat buff;
+    // Minimum permissions required: write+execute for 'others', and sticky bit
+    int requiredBits = S_IWOTH | S_IXOTH | S_ISVTX;
+    if ( KDE_stat( QFile::encodeName( rootTrashDir ), &buff ) == 0
+         && (buff.st_uid == 0) // must be owned by root
+         && (S_ISDIR(buff.st_mode)) // must be a dir
+         && (!S_ISLNK(buff.st_mode)) // not a symlink
+         && (buff.st_mode & requiredBits == requiredBits)
+        ) {
+        const QString trashDir = rootTrashDir + "/" + QString::number( uid );
+        const QCString trashDir_c = QFile::encodeName( trashDir );
+        if ( KDE_stat( trashDir_c, &buff ) == 0 ) {
+            if ( (buff.st_uid == uid) // must be owned by user
+                 && (S_ISDIR(buff.st_mode)) // must be a dir
+                 && (!S_ISLNK(buff.st_mode)) // not a symlink
+                 && (buff.st_mode & S_IRWXU) ) { // rwx for user
+                return trashDir;
+            }
+        }
+        else if ( createIfNeeded && initTrashDirectory( trashDir_c ) ) {
+            return trashDir;
+        }
+    }
+
+    // (2) $topdir/.Trash-$uid
+    const QString trashDir = topdir + "/.Trash-" + QString::number( uid );
+    const QCString trashDir_c = QFile::encodeName( trashDir );
+    if ( KDE_stat( trashDir_c, &buff ) == 0 )
+    {
+        if ( (buff.st_uid == uid) // must be owned by user
+             && (S_ISDIR(buff.st_mode)) // must be a dir
+             && (!S_ISLNK(buff.st_mode)) // not a symlink
+             && (buff.st_mode & S_IRWXU) ) { // rwx for user
+            return trashDir;
+        }
+        // Exists, but not useable
+        return QString::null;
+    }
+    if ( createIfNeeded && initTrashDirectory( trashDir_c ) ) {
+        return trashDir;
+    }
+    return QString::null;
+}
+
+int TrashImpl::idForTrashDirectory( const QString& trashDir ) const
+{
+    // If this is too slow we can always use a reverse map...
+    TrashDirMap::ConstIterator it = m_trashDirectories.begin();
+    for ( ; it != m_trashDirectories.end() ; ++it ) {
+        if ( it.data() == trashDir )
+            return it.key();
+    }
+    return -1;
+}
+
+bool TrashImpl::initTrashDirectory( const QCString& trashDir_c ) const
+{
+    if ( ::mkdir( trashDir_c, 0700 ) != 0 )
+        return false;
+    QCString info_c = trashDir_c + "/info";
+    if ( ::mkdir( info_c, 0700 ) != 0 )
+        return false;
+    QCString files_c = trashDir_c + "/files";
+    if ( ::mkdir( files_c, 0700 ) != 0 )
+        return false;
+    return true;
 }
 
 #include "trashimpl.moc"

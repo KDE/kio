@@ -124,13 +124,16 @@ private:
 
     /// Find the trash dir to use for a given file to delete, based on original path
     int findTrashDirectory( const QString& origPath );
-    /// Check trash directory in another partition
-    bool initTrashDirectory( const QString& origPath );
     QString trashDirectoryPath( int trashId ) const {
         return m_trashDirectories[trashId];
     }
 
     bool synchronousDel( const QString& file );
+
+    void findTrashDirectories() const;
+    int idForTrashDirectory( const QString& trashDir ) const;
+    bool initTrashDirectory( const QCString& trashDir_c ) const;
+    QString trashForMountPoint( const QString& topdir, bool createIfNeeded ) const;
 
 private slots:
     void jobFinished(KIO::Job *job);
@@ -148,8 +151,9 @@ private:
     // It has an id (number) and a path.
     // The home trash has id 0.
     typedef QMap<int, QString> TrashDirMap;
-    TrashDirMap m_trashDirectories; // id -> path
-    int m_lastId;
+    mutable TrashDirMap m_trashDirectories; // id -> path
+    mutable int m_lastId;
+    dev_t m_homeDevice;
 
     KSimpleConfig m_config;
 
