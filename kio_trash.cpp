@@ -216,8 +216,8 @@ void TrashProtocol::copyOrMove( const KURL &src, const KURL &dest, bool overwrit
                     error( impl.lastErrorCode(), impl.lastErrorMessage() );
                 } else {
                     // Inform caller of the final URL. Used by konq_undo.
-                    const QString url = impl.makeURL( trashId, fileId, QString::null );
-                    setMetaData( "trashURL-" + srcPath, url );
+                    const KURL url = impl.makeURL( trashId, fileId, QString::null );
+                    setMetaData( "trashURL-" + srcPath, url.url() );
                     finished();
                 }
             }
@@ -443,11 +443,11 @@ void TrashProtocol::listRoot()
     createTopLevelDirEntry( entry );
     listEntry( entry, false );
     for ( TrashedFileInfoList::ConstIterator it = lst.begin(); it != lst.end(); ++it ) {
-        const QString url = TrashImpl::makeURL( (*it).trashId, (*it).fileId, QString::null );
+        const KURL url = TrashImpl::makeURL( (*it).trashId, (*it).fileId, QString::null );
         KURL origURL;
         origURL.setPath( (*it).origPath );
         entry.clear();
-        if ( createUDSEntry( (*it).physicalPath, origURL.fileName(), url, entry, *it ) )
+        if ( createUDSEntry( (*it).physicalPath, origURL.fileName(), url.url(), entry, *it ) )
             listEntry( entry, false );
     }
     entry.clear();

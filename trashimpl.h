@@ -104,7 +104,7 @@ public:
 
     QStrList listDir( const QString& physicalPath );
 
-    static QString makeURL( int trashId, const QString& fileId, const QString& relativePath );
+    static KURL makeURL( int trashId, const QString& fileId, const QString& relativePath );
     static bool parseURL( const KURL& url, int& trashId, QString& fileId, QString& relativePath );
 
     typedef QMap<int, QString> TrashDirMap;

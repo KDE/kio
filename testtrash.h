@@ -39,6 +39,7 @@ public:
     void urlTestSubDirectory();
 
     void trashFileFromHome();
+    void trashPercentFileFromHome();
     void trashUtf8FileFromHome();
     void trashUmlautFileFromHome();
     void testTrashNotEmpty();

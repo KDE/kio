@@ -180,6 +180,8 @@ void TestTrash::cleanTrash()
     removeFile( m_trashDir, "/files/fileFromHome" );
     removeFile( m_trashDir, "/info/fileFromHome_1.trashinfo" );
     removeFile( m_trashDir, "/files/fileFromHome_1" );
+    removeFile( m_trashDir, "/info/file%2f.trashinfo" );
+    removeFile( m_trashDir, "/files/file%2f" );
     removeFile( m_trashDir, "/info/" + utf8FileName() + ".trashinfo" );
     removeFile( m_trashDir, "/files/" + utf8FileName() );
     removeFile( m_trashDir, "/info/" + umlautFileName() + ".trashinfo" );
@@ -216,6 +218,7 @@ void TestTrash::runAll()
     urlTestSubDirectory();
 
     trashFileFromHome();
+    trashPercentFileFromHome();
 #ifdef UTF8TEST
     trashUtf8FileFromHome();
 #endif
@@ -274,13 +277,13 @@ void TestTrash::runAll()
 
 void TestTrash::urlTestFile()
 {
-    QString url = TrashImpl::makeURL( 1, "fileId", QString::null );
-    check( "makeURL for a file", url, "trash:/1-fileId" );
+    const KURL url = TrashImpl::makeURL( 1, "fileId", QString::null );
+    check( "makeURL for a file", url.url(), "trash:/1-fileId" );
 
     int trashId;
     QString fileId;
     QString relativePath;
-    bool ok = TrashImpl::parseURL( KURL( url ), trashId, fileId, relativePath );
+    bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
     assert( ok );
     check( "parseURL: trashId", QString::number( trashId ), "1" );
     check( "parseURL: fileId", fileId, "fileId" );
@@ -289,13 +292,13 @@ void TestTrash::urlTestFile()
 
 void TestTrash::urlTestDirectory()
 {
-    QString url = TrashImpl::makeURL( 1, "fileId", "subfile" );
-    check( "makeURL", url, "trash:/1-fileId/subfile" );
+    const KURL url = TrashImpl::makeURL( 1, "fileId", "subfile" );
+    check( "makeURL", url.url(), "trash:/1-fileId/subfile" );
 
     int trashId;
     QString fileId;
     QString relativePath;
-    bool ok = TrashImpl::parseURL( KURL( url ), trashId, fileId, relativePath );
+    bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
     assert( ok );
     check( "parseURL: trashId", QString::number( trashId ), "1" );
     check( "parseURL: fileId", fileId, "fileId" );
@@ -304,13 +307,13 @@ void TestTrash::urlTestDirectory()
 
 void TestTrash::urlTestSubDirectory()
 {
-    QString url = TrashImpl::makeURL( 1, "fileId", "subfile/foobar" );
-    check( "makeURL", url, "trash:/1-fileId/subfile/foobar" );
+    const KURL url = TrashImpl::makeURL( 1, "fileId", "subfile/foobar" );
+    check( "makeURL", url.url(), "trash:/1-fileId/subfile/foobar" );
 
     int trashId;
     QString fileId;
     QString relativePath;
-    bool ok = TrashImpl::parseURL( KURL( url ), trashId, fileId, relativePath );
+    bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
     assert( ok );
     check( "parseURL: trashId", QString::number( trashId ), "1" );
     check( "parseURL: fileId", fileId, "fileId" );
@@ -393,6 +396,13 @@ void TestTrash::trashFileFromHome()
 
     // Do it again, check that we got a different id
     trashFile( homeTmpDir() + fileName, fileName + "_1" );
+}
+
+void TestTrash::trashPercentFileFromHome()
+{
+    kdDebug() << k_funcinfo << endl;
+    const QString fileName = "file%2f";
+    trashFile( homeTmpDir() + fileName, fileName );
 }
 
 void TestTrash::trashUtf8FileFromHome()

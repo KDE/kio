@@ -840,16 +840,19 @@ QString TrashImpl::topDirectoryPath( int trashId ) const
 
 // Helper method. Creates a URL with the format trash:/trashid-fileid or
 // trash:/trashid-fileid/relativePath/To/File for a file inside a trashed directory.
-QString TrashImpl::makeURL( int trashId, const QString& fileId, const QString& relativePath )
+KURL TrashImpl::makeURL( int trashId, const QString& fileId, const QString& relativePath )
 {
-    QString url = "trash:/";
-    url += QString::number( trashId );
-    url += '-';
-    url += fileId;
+    KURL url;
+    url.setProtocol( "trash" );
+    QString path = "/";
+    path += QString::number( trashId );
+    path += '-';
+    path += fileId;
     if ( !relativePath.isEmpty() ) {
-        url += '/';
-        url += relativePath;
+        path += '/';
+        path += relativePath;
     }
+    url.setPath( path );
     return url;
 }
 
