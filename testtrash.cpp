@@ -17,6 +17,10 @@
    Boston, MA 02111-1307, USA.
 */
 
+// Get those asserts to work
+#undef NDEBUG
+#undef NO_DEBUG
+
 #include "kio_trash.h"
 #include "testtrash.h"
 
@@ -124,6 +128,7 @@ void TestTrash::setup()
     bool foundTrashDir = false;
     m_otherPartitionId = 0;
     m_tmpIsWritablePartition = false;
+    m_tmpTrashId = -1;
     QValueVector<int> writableTopDirs;
     for ( TrashImpl::TrashDirMap::ConstIterator it = trashDirs.begin(); it != trashDirs.end() ; ++it ) {
         if ( it.key() == 0 ) {
@@ -137,7 +142,8 @@ void TestTrash::setup()
                 writableTopDirs.append( it.key() );
                 if ( topdir == "/tmp/" ) {
                     m_tmpIsWritablePartition = true;
-                    kdDebug() << "/tmp is on its own partition, some tests will be skipped" << endl;
+                    m_tmpTrashId = it.key();
+                    kdDebug() << "/tmp is on its own partition (trashid=" << m_tmpTrashId << "), some tests will be skipped" << endl;
                 }
             }
         }
@@ -404,7 +410,10 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
             kdDebug() << trashURL << endl;
             assert( !trashURL.isEmpty() );
             assert( trashURL.protocol() == "trash" );
-            assert( trashURL.path() == "/0-" + fileId );
+            int trashId = 0;
+            if ( origFilePath.startsWith( "/tmp" ) && m_tmpIsWritablePartition )
+                trashId = m_tmpTrashId;
+            assert( trashURL.path() == "/" + QString::number( trashId ) + "-" + fileId );
             found = true;
         }
     }
@@ -647,6 +656,10 @@ void TestTrash::delRootFile()
     assert( !file.exists() );
     QFileInfo info( m_trashDir + "/info/fileFromHome.trashinfo" );
     assert( !info.exists() );
+
+    // trash it again, we might need it later
+    const QString fileName = "fileFromHome";
+    trashFile( homeTmpDir() + fileName, fileName );
 }
 
 void TestTrash::delFileInDirectory()
@@ -680,6 +693,10 @@ void TestTrash::delDirectory()
     assert( !file.exists() );
     QFileInfo info( m_trashDir + "/info/trashDirFromHome.trashinfo" );
     assert( !info.exists() );
+
+    // trash it again, we'll need it later
+    QString dirName = "trashDirFromHome";
+    trashDirectory( homeTmpDir() + dirName, dirName );
 }
 
 void TestTrash::statRoot()
@@ -702,7 +719,7 @@ void TestTrash::statRoot()
 void TestTrash::statFileInRoot()
 {
     kdDebug() << k_funcinfo << endl;
-    KURL url( "trash:/0-fileFromOther" );
+    KURL url( "trash:/0-fileFromHome" );
     KIO::UDSEntry entry;
     bool ok = KIO::NetAccess::stat( url, entry, 0 );
     assert( ok );
@@ -713,7 +730,7 @@ void TestTrash::statFileInRoot()
     assert( item.isReadable() );
     assert( !item.isWritable() );
     assert( !item.isHidden() );
-    assert( item.name() == "fileFromOther" );
+    assert( item.name() == "fileFromHome" );
     assert( !item.acceptsDrops() );
 }
 
@@ -737,7 +754,7 @@ void TestTrash::statDirectoryInRoot()
 void TestTrash::statSymlinkInRoot()
 {
     kdDebug() << k_funcinfo << endl;
-    KURL url( "trash:/0-symlinkFromOther" );
+    KURL url( "trash:/0-symlinkFromHome" );
     KIO::UDSEntry entry;
     bool ok = KIO::NetAccess::stat( url, entry, 0 );
     assert( ok );
@@ -747,7 +764,7 @@ void TestTrash::statSymlinkInRoot()
     assert( item.isReadable() );
     assert( !item.isWritable() );
     assert( !item.isHidden() );
-    assert( item.name() == "symlinkFromOther" );
+    assert( item.name() == "symlinkFromHome" );
     assert( !item.acceptsDrops() );
 }
 
@@ -776,6 +793,8 @@ void TestTrash::copyFromTrash( const QString& fileId, const QString& destPath, c
     KURL dest;
     dest.setPath( destPath );
 
+    assert( KIO::NetAccess::exists( src, (QWidget*)0 ) );
+
     // A dnd would use copy(), but we use copyAs to ensure the final filename
     //kdDebug() << k_funcinfo << "copyAs:" << src << " -> " << dest << endl;
     KIO::Job* job = KIO::copyAs( src, dest );
@@ -793,8 +812,8 @@ void TestTrash::copyFromTrash( const QString& fileId, const QString& destPath, c
 void TestTrash::copyFileFromTrash()
 {
     kdDebug() << k_funcinfo << endl;
-    const QString destPath = otherTmpDir() + "fileFromOther_copied";
-    copyFromTrash( "fileFromOther", destPath );
+    const QString destPath = otherTmpDir() + "fileFromHome_copied";
+    copyFromTrash( "fileFromHome", destPath );
     assert( QFileInfo( destPath ).isFile() );
     assert( QFileInfo( destPath ).size() == 12 );
 }
@@ -811,16 +830,16 @@ void TestTrash::copyFileInDirectoryFromTrash()
 void TestTrash::copyDirectoryFromTrash()
 {
     kdDebug() << k_funcinfo << endl;
-    const QString destPath = otherTmpDir() + "trashDirFromOther_copied";
-    copyFromTrash( "trashDirFromOther", destPath );
+    const QString destPath = otherTmpDir() + "trashDirFromHome_copied";
+    copyFromTrash( "trashDirFromHome", destPath );
     assert( QFileInfo( destPath ).isDir() );
 }
 
 void TestTrash::copySymlinkFromTrash()
 {
     kdDebug() << k_funcinfo << endl;
-    const QString destPath = otherTmpDir() + "symlinkFromOther_copied";
-    copyFromTrash( "symlinkFromOther", destPath );
+    const QString destPath = otherTmpDir() + "symlinkFromHome_copied";
+    copyFromTrash( "symlinkFromHome", destPath );
     assert( QFileInfo( destPath ).isSymLink() );
 }
 
@@ -831,6 +850,8 @@ void TestTrash::moveFromTrash( const QString& fileId, const QString& destPath, c
         src.addPath( relativePath );
     KURL dest;
     dest.setPath( destPath );
+
+    assert( KIO::NetAccess::exists( src, (QWidget*)0 ) );
 
     // A dnd would use move(), but we use moveAs to ensure the final filename
     KIO::Job* job = KIO::moveAs( src, dest );
@@ -848,17 +869,21 @@ void TestTrash::moveFromTrash( const QString& fileId, const QString& destPath, c
 void TestTrash::moveFileFromTrash()
 {
     kdDebug() << k_funcinfo << endl;
-    const QString destPath = otherTmpDir() + "fileFromOther_restored";
-    moveFromTrash( "fileFromOther", destPath );
+    const QString destPath = otherTmpDir() + "fileFromHome_restored";
+    moveFromTrash( "fileFromHome", destPath );
     assert( QFileInfo( destPath ).isFile() );
     assert( QFileInfo( destPath ).size() == 12 );
+
+    // trash it again for later
+    const QString fileName = "fileFromHome";
+    trashFile( homeTmpDir() + fileName, fileName );
 }
 
 void TestTrash::moveFileInDirectoryFromTrash()
 {
     kdDebug() << k_funcinfo << endl;
     const QString destPath = otherTmpDir() + "testfile_restored";
-    copyFromTrash( "trashDirFromOther", destPath, "testfile" );
+    copyFromTrash( "trashDirFromHome", destPath, "testfile" );
     assert( QFileInfo( destPath ).isFile() );
     assert( QFileInfo( destPath ).size() == 12 );
 }
@@ -866,9 +891,13 @@ void TestTrash::moveFileInDirectoryFromTrash()
 void TestTrash::moveDirectoryFromTrash()
 {
     kdDebug() << k_funcinfo << endl;
-    const QString destPath = otherTmpDir() + "trashDirFromOther_restored";
-    moveFromTrash( "trashDirFromOther", destPath );
+    const QString destPath = otherTmpDir() + "trashDirFromHome_restored";
+    moveFromTrash( "trashDirFromHome", destPath );
     assert( QFileInfo( destPath ).isDir() );
+
+    // trash it again, we'll need it later
+    QString dirName = "trashDirFromHome";
+    trashDirectory( homeTmpDir() + dirName, dirName );
 }
 
 void TestTrash::trashDirectoryOwnedByRoot()
@@ -904,8 +933,8 @@ void TestTrash::trashDirectoryOwnedByRoot()
 void TestTrash::moveSymlinkFromTrash()
 {
     kdDebug() << k_funcinfo << endl;
-    const QString destPath = otherTmpDir() + "symlinkFromOther_restored";
-    moveFromTrash( "symlinkFromOther", destPath );
+    const QString destPath = otherTmpDir() + "symlinkFromHome_restored";
+    moveFromTrash( "symlinkFromHome", destPath );
     assert( QFileInfo( destPath ).isSymLink() );
 }
 

@@ -106,6 +106,7 @@ private:
     QString m_otherPartitionTopDir;
     QString m_otherPartitionTrashDir;
     bool m_tmpIsWritablePartition;
+    int m_tmpTrashId;
     int m_otherPartitionId;
 
     int m_entryCount;
