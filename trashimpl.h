@@ -116,7 +116,6 @@ private:
 
     void fileAdded();
     void fileRemoved();
-    void refreshTrashIcon();
 
     bool testDir( const QString& name );
     void error( int e, const QString& s );

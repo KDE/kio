@@ -632,8 +632,10 @@ void TrashImpl::fileAdded()
     if ( m_config.readBoolEntry( "Empty", true ) == true ) {
         m_config.writeEntry( "Empty", false );
         m_config.sync();
-        refreshTrashIcon();
     }
+    // The apps showing the trash (e.g. kdesktop) will be notified
+    // of this change when KDirNotify::FilesAdded("trash:/") is emitted,
+    // which will be done by the job soon after this.
 }
 
 void TrashImpl::fileRemoved()
@@ -642,14 +644,10 @@ void TrashImpl::fileRemoved()
         m_config.setGroup( "Status" );
         m_config.writeEntry( "Empty", true );
         m_config.sync();
-        refreshTrashIcon();
     }
-}
-
-void TrashImpl::refreshTrashIcon()
-{
-    DCOPRef kdesktop( "kdesktop", "default" );
-    kdesktop.call( "refreshTrashIcon" );
+    // The apps showing the trash (e.g. kdesktop) will be notified
+    // of this change when KDirNotify::FilesRemoved(...) is emitted,
+    // which will be done by the job soon after this.
 }
 
 int TrashImpl::findTrashDirectory( const QString& origPath )
