@@ -240,6 +240,7 @@ KPasswdServer::processRequest()
                                 username = it.data();
                         }
                         hasWalletData = true;
+                    }
                 }
             }
 
