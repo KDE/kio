@@ -684,7 +684,7 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
     m_trashDirectories.insert( ++m_lastId, trashDir );
     if ( !mountPoint.endsWith( "/" ) )
         mountPoint += '/';
-    m_topDirectories.insert( m_lastId, mountPoint + '/' );
+    m_topDirectories.insert( m_lastId, mountPoint );
     return m_lastId;
 }
 
@@ -716,6 +716,20 @@ void TrashImpl::scanTrashDirectories() const
         }
     }
     m_trashDirectoriesScanned = true;
+}
+
+TrashImpl::TrashDirMap TrashImpl::trashDirectories() const
+{
+    if ( !m_trashDirectoriesScanned )
+        scanTrashDirectories();
+    return m_trashDirectories;
+}
+
+TrashImpl::TrashDirMap TrashImpl::topDirectories() const
+{
+    if ( !m_trashDirectoriesScanned )
+        scanTrashDirectories();
+    return m_topDirectories;
 }
 
 QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeeded ) const

@@ -41,6 +41,7 @@ public:
     void trashFileFromHome();
     void testTrashNotEmpty();
     void trashFileFromOther();
+    void trashFileIntoOtherPartition();
     void trashFileOwnedByRoot();
     void trashSymlinkFromHome();
     void trashSymlinkFromOther();
@@ -93,6 +94,11 @@ private:
     QString otherTmpDir() const;
 
     QString m_trashDir;
+
+    QString m_otherPartitionTopDir;
+    QString m_otherPartitionTrashDir;
+    int m_otherPartitionId;
+
     int m_entryCount;
     QStringList m_listResult;
 };

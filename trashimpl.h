@@ -107,6 +107,12 @@ public:
     static QString makeURL( int trashId, const QString& fileId, const QString& relativePath );
     static bool parseURL( const KURL& url, int& trashId, QString& fileId, QString& relativePath );
 
+    typedef QMap<int, QString> TrashDirMap;
+    /// @internal This method is for TestTrash only. Home trash is included (id 0).
+    TrashDirMap trashDirectories() const;
+    /// @internal This method is for TestTrash only. No entry with id 0.
+    TrashDirMap topDirectories() const;
+
 private:
     /// Helper method. Moves a file or directory using the appropriate method.
     bool move( const QString& src, const QString& dest );
@@ -134,6 +140,7 @@ private:
     bool synchronousDel( const QString& path, bool setLastErrorCode );
 
     void scanTrashDirectories() const;
+
     int idForTrashDirectory( const QString& trashDir ) const;
     bool initTrashDirectory( const QCString& trashDir_c ) const;
     QString trashForMountPoint( const QString& topdir, bool createIfNeeded ) const;
@@ -154,7 +161,6 @@ private:
     // e.g. $HOME/.local/share/Trash/$uid or /mnt/foo/.Trash/$uid
     // It has an id (number) and a path.
     // The home trash has id 0.
-    typedef QMap<int, QString> TrashDirMap;
     mutable TrashDirMap m_trashDirectories; // id -> path of trash directory
     mutable TrashDirMap m_topDirectories; // id -> $topdir of partition
     mutable int m_lastId;

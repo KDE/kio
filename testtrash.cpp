@@ -88,6 +88,38 @@ void TestTrash::setup()
     m_trashDir = KGlobal::dirs()->localxdgdatadir() + "Trash";
     kdDebug() << "setup: using trash directory " << m_trashDir << endl;
 
+    // Look for another writable partition than $HOME (not mandatory)
+    TrashImpl impl;
+    impl.init();
+
+    TrashImpl::TrashDirMap trashDirs = impl.trashDirectories();
+    TrashImpl::TrashDirMap topDirs = impl.topDirectories();
+    TrashImpl::TrashDirMap::ConstIterator it = trashDirs.begin();
+    bool foundTrashDir = false;
+    m_otherPartitionId = 0;
+    for ( ; it != trashDirs.end() ; ++it ) {
+        if ( it.key() == 0 ) {
+            assert( it.data() == m_trashDir );
+            assert( topDirs.find( 0 ) == topDirs.end() );
+            foundTrashDir = true;
+        } else {
+            assert( topDirs.find( it.key() ) != topDirs.end() );
+            const QString topdir = topDirs[it.key()];
+            if ( QFileInfo( topdir ).isWritable() ) {
+                m_otherPartitionTopDir = topdir;
+                m_otherPartitionTrashDir = it.data();
+                m_otherPartitionId = it.key();
+                kdDebug() << "OK, found another writable partition: topDir=" << m_otherPartitionTopDir
+                          << " trashDir=" << it.data() << " id=" << m_otherPartitionId << endl;
+                break;
+            }
+        }
+    }
+    // Check that m_trashDir got listed
+    assert( foundTrashDir );
+    if ( m_otherPartitionTrashDir.isEmpty() )
+        kdWarning() << "No writable partition other than $HOME found, some tests will be skipped" << endl;
+
     // Start with a clean base dir
     KIO::NetAccess::del( homeTmpDir(), 0 );
     KIO::NetAccess::del( otherTmpDir(), 0 );
@@ -156,6 +188,7 @@ void TestTrash::runAll()
     trashFileFromHome();
     testTrashNotEmpty();
     trashFileFromOther();
+    trashFileIntoOtherPartition();
     trashFileOwnedByRoot();
     trashSymlinkFromHome();
     trashSymlinkFromOther();
@@ -249,6 +282,7 @@ void TestTrash::urlTestSubDirectory()
 
 static void checkInfoFile( const QString& infoPath, const QString& origFilePath )
 {
+    kdDebug() << k_funcinfo << infoPath << endl;
     QFileInfo info( infoPath );
     assert( info.isFile() );
     assert( info.exists() );
@@ -337,6 +371,58 @@ void TestTrash::trashFileFromOther()
     kdDebug() << k_funcinfo << endl;
     const QString fileName = "fileFromOther";
     trashFile( otherTmpDir() + fileName, fileName );
+}
+
+void TestTrash::trashFileIntoOtherPartition()
+{
+    if ( m_otherPartitionTrashDir.isEmpty() ) {
+        kdDebug() << k_funcinfo << " - SKIPPED" << endl;
+        return;
+    }
+    kdDebug() << k_funcinfo << endl;
+    const QString fileName = "testtrash-file";
+    const QString origFilePath = m_otherPartitionTopDir + fileName;
+    const QString fileId = fileName;
+    // cleanup
+    QFile::remove( m_otherPartitionTrashDir + "/info/" + fileId + ".trashinfo" );
+    QFile::remove( m_otherPartitionTrashDir + "/files/" + fileId );
+
+    // setup
+    if ( !QFile::exists( origFilePath ) )
+        createTestFile( origFilePath );
+    KURL u;
+    u.setPath( origFilePath );
+
+    // test
+    KIO::Job* job = KIO::move( u, "trash:/" );
+    QMap<QString, QString> metaData;
+    bool ok = KIO::NetAccess::synchronousRun( job, 0, 0, 0, &metaData );
+    assert( ok );
+    // Note that the Path stored in the info file is relative, on other partitions (#95652)
+    checkInfoFile( m_otherPartitionTrashDir + "/info/" + fileId + ".trashinfo", fileName );
+
+    QFileInfo files( m_otherPartitionTrashDir + "/files/" + fileId );
+    assert( files.isFile() );
+    assert( files.size() == 12 );
+
+    // coolo suggests testing that the original file is actually gone, too :)
+    assert( !QFile::exists( origFilePath ) );
+
+    assert( !metaData.isEmpty() );
+    bool found = false;
+    QMap<QString, QString>::ConstIterator it = metaData.begin();
+    for ( ; it != metaData.end() ; ++it ) {
+        if ( it.key().startsWith( "trashURL" ) ) {
+            const QString origPath = it.key().mid( 9 );
+            KURL trashURL( it.data() );
+            kdDebug() << trashURL << endl;
+            assert( !trashURL.isEmpty() );
+            assert( trashURL.protocol() == "trash" );
+            assert( trashURL.path() == QString( "/%1-%2" ).arg( m_otherPartitionId ).arg( fileId ) );
+            found = true;
+        }
+    }
+    assert( found );
 }
 
 void TestTrash::trashFileOwnedByRoot()
