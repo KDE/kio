@@ -216,6 +216,9 @@ KPasswdServer::processRequest()
             QString username = info.username;
             QString password = info.password;
             bool hasWalletData = false;
+            if ( username.isEmpty() || password.isEmpty() )
+                kdDebug(130) << k_funcinfo << "looking for key " << request->key << endl;
+
             if ( ( username.isEmpty() || password.isEmpty() )
                 && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(), KWallet::Wallet::PasswordFolder(), request->key) )
             {
@@ -224,7 +227,6 @@ KPasswdServer::processRequest()
                     KWallet::Wallet::NetworkWallet(), request->windowId );
                 if ( wallet && wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) )
                 {
-                    kdDebug() << k_funcinfo << "looking for key " << request->key << endl;
                     QMap<QString,QString> map;
                     if ( wallet->readMap( request->key, map ) == 0 )
                     {
@@ -238,12 +240,11 @@ KPasswdServer::processRequest()
                                 username = it.data();
                         }
                         hasWalletData = true;
-                    }
+                        kdDebug(130) << k_funcinfo << " FOUND WALLET DATA" << endl;                     }
                 }
                 delete wallet;
             }
 
-            bool checkboxShown = info.keepPassword;
             KIO::PasswordDialog dlg( info.prompt, username, info.keepPassword );
             if (info.caption.isEmpty())
                dlg.setPlainCaption( i18n("Authorization Dialog") );
@@ -253,21 +254,8 @@ KPasswdServer::processRequest()
             if ( !info.comment.isEmpty() )
                dlg.addCommentLine( info.commentLabel, info.comment );
 
-            if ( !info.password.isEmpty() )
-               dlg.setPassword( info.password );
-            else if (!KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(), KWallet::Wallet::PasswordFolder(), request->key))
-                 // no pass provided, check if kwallet has one
-            {
-                KWallet::Wallet* wallet = KWallet::Wallet::openWallet(
-                    KWallet::Wallet::NetworkWallet(), dlg.winId() );
-                QString password;
-                if ( wallet && wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) &&
-                     wallet->readPassword( request->key, password ) == 0 )
-                {
-                    dlg.setPassword( password );
-                    //dlg.setKeepPassword( true ); // TODO? would make it more obvious that it's stored
-                }
-            }
+            if ( !password.isEmpty() )
+               dlg.setPassword( password );
 
             if (info.readOnly)
                dlg.setUserReadOnly( true );
@@ -289,9 +277,8 @@ KPasswdServer::processRequest()
 
                // When the user checks "keep password", that means both in the cache (kpasswdserver process)
                // and in the wallet, if enabled.
-               // If the checkbox isn't shown, then we save by default.
-               if ( !checkboxShown || info.keepPassword ) {
-                   kdDebug() << k_funcinfo << " saving stuff in wallet" << endl;
+               if ( info.keepPassword ) {
+                   kdDebug(130) << k_funcinfo << " saving stuff in wallet" << endl;
                    KWallet::Wallet* wallet = KWallet::Wallet::openWallet(
                        KWallet::Wallet::NetworkWallet(), dlg.winId() );
                    QString password;
@@ -301,12 +288,14 @@ KPasswdServer::processRequest()
                            ok = wallet->createFolder( KWallet::Wallet::PasswordFolder() );
                        if ( ok )
                        {
-                           kdDebug() << k_funcinfo << "saving into " << request->key << endl;
+                           kdDebug(130) << k_funcinfo << "saving into " << request->key << endl;
                            QMap<QString,QString> map;
                            map.insert( "login", info.username );
                            map.insert( "password", info.password );
                            wallet->writeMap( request->key, map );
+                           KWallet::Wallet::closeWallet( wallet->name(), true );
                        }
+                       delete wallet;
                    }
                }
             }
