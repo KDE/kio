@@ -29,14 +29,16 @@ TODO
   In fact it's already not disabled in readonly directories (e.g. "/") -> todo
    (for F2 and kpropertiesdialog)
 
+* Deleting oldest files when size is bigger than a certain configurable amount (#79553)
+
 Bugs closed by kio_trash
 ========================
-#79826 (3.3 bug only now, opendir/readdir)
-#62848 (configurable trash location) : CLOSED
-#78116 (.directory) : CLOSED
-#18109 (general one) : CLOSED
-#17744 (restore) : CLOSED
-#76380 #56821 (trashing on same partition) : CLOSED
+#79826 (3.3 only)
+#62848 (configurable trash location)
+#78116 (.directory)
+#18109 (general one)
+#17744 (restore)
+#76380 #56821 (trashing on same partition)
 
 Choice of URL scheme
 ====================

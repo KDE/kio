@@ -25,6 +25,7 @@
 #include <kio/job.h>
 #include <kdebug.h>
 #include <kurl.h>
+#include <kdirnotify_stub.h>
 #include <kglobal.h>
 #include <kstandarddirs.h>
 #include <kglobalsettings.h>
@@ -330,8 +331,15 @@ bool TrashImpl::moveFromTrash( const QString& dest, int trashId, const QString& 
 
 bool TrashImpl::move( const QString& src, const QString& dest )
 {
-    if ( directRename( src, dest ) )
+    if ( directRename( src, dest ) ) {
+        // This notification is done by KIO::moveAs when using the code below
+        // But if we do a direct rename we need to do the notification ourselves
+        KDirNotify_stub allDirNotify( "*", "KDirNotify*" );
+        KURL urlDest; urlDest.setPath( dest );
+        urlDest.setPath( urlDest.directory() );
+        allDirNotify.FilesAdded( urlDest );
         return true;
+    }
     if ( m_lastErrorCode != KIO::ERR_UNSUPPORTED_ACTION )
         return false;
     KURL urlSrc, urlDest;
