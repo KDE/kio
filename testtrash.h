@@ -54,10 +54,12 @@ public:
     void statFileInDirectory();
 
     void copyFileFromTrash();
+    void copyFileInDirectoryFromTrash();
     void copyDirectoryFromTrash();
     void copySymlinkFromTrash();
 
     void moveFileFromTrash();
+    void moveFileInDirectoryFromTrash();
     void moveDirectoryFromTrash();
     void moveSymlinkFromTrash();
 
@@ -65,8 +67,8 @@ private:
     void trashFile( const QString& origFilePath, const QString& fileId );
     void trashSymlink( const QString& origFilePath, const QString& fileName );
     void trashDirectory( const QString& origPath, const QString& fileName );
-    void copyFromTrash( const QString& fileId, const QString& destPath );
-    void moveFromTrash( const QString& fileId, const QString& destPath );
+    void copyFromTrash( const QString& fileId, const QString& destPath, const QString& relativePath = QString::null );
+    void moveFromTrash( const QString& fileId, const QString& destPath, const QString& relativePath = QString::null );
 
     QString homeTmpDir() const;
     QString otherTmpDir() const;

@@ -153,17 +153,22 @@ void TestTrash::runAll()
     statSymlinkInRoot();
     statFileInDirectory();
 
-    delRootFile();
-    delFileInDirectory();
-    delDirectory();
-
     copyFileFromTrash();
+    // To test case of already-existing destination, uncomment this.
+    // This brings up the "rename" dialog though, so it can't be fully automated
+    //copyFileFromTrash();
+    copyFileInDirectoryFromTrash();
     copyDirectoryFromTrash();
     copySymlinkFromTrash();
 
     moveFileFromTrash();
+    moveFileInDirectoryFromTrash();
     moveDirectoryFromTrash();
     moveSymlinkFromTrash();
+
+    delRootFile();
+    delFileInDirectory();
+    delDirectory();
 }
 
 void TestTrash::urlTestFile()
@@ -482,9 +487,11 @@ void TestTrash::statFileInDirectory()
     assert( !item.acceptsDrops() );
 }
 
-void TestTrash::copyFromTrash( const QString& fileId, const QString& destPath )
+void TestTrash::copyFromTrash( const QString& fileId, const QString& destPath, const QString& relativePath )
 {
     KURL src( "trash:/0-" + fileId );
+    if ( !relativePath.isEmpty() )
+        src.addPath( relativePath );
     KURL dest;
     dest.setPath( destPath );
 
@@ -511,6 +518,15 @@ void TestTrash::copyFileFromTrash()
     assert( QFileInfo( destPath ).size() == 10 );
 }
 
+void TestTrash::copyFileInDirectoryFromTrash()
+{
+    kdDebug() << k_funcinfo << endl;
+    const QString destPath = otherTmpDir() + "testfile_copied";
+    copyFromTrash( "trashDirFromHome", destPath, "testfile" );
+    assert( QFileInfo( destPath ).isFile() );
+    assert( QFileInfo( destPath ).size() == 10 );
+}
+
 void TestTrash::copyDirectoryFromTrash()
 {
     kdDebug() << k_funcinfo << endl;
@@ -527,13 +543,16 @@ void TestTrash::copySymlinkFromTrash()
     assert( QFileInfo( destPath ).isSymLink() );
 }
 
-void TestTrash::moveFromTrash( const QString& fileId, const QString& destPath )
+void TestTrash::moveFromTrash( const QString& fileId, const QString& destPath, const QString& relativePath )
 {
+    KURL src( "trash:/0-" + fileId );
+    if ( !relativePath.isEmpty() )
+        src.addPath( relativePath );
     KURL dest;
     dest.setPath( destPath );
 
     // A dnd would use move(), but we use moveAs to ensure the final filename
-    KIO::Job* job = KIO::moveAs( "trash:/0-" + fileId, dest );
+    KIO::Job* job = KIO::moveAs( src, dest );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
     assert( ok );
     QString infoFile( QDir::homeDirPath() + "/.Trash/info/" + fileId );
@@ -550,6 +569,15 @@ void TestTrash::moveFileFromTrash()
     kdDebug() << k_funcinfo << endl;
     const QString destPath = otherTmpDir() + "fileFromOther_restored";
     moveFromTrash( "fileFromOther", destPath );
+    assert( QFileInfo( destPath ).isFile() );
+    assert( QFileInfo( destPath ).size() == 10 );
+}
+
+void TestTrash::moveFileInDirectoryFromTrash()
+{
+    kdDebug() << k_funcinfo << endl;
+    const QString destPath = otherTmpDir() + "testfile_restored";
+    copyFromTrash( "trashDirFromOther", destPath, "testfile" );
     assert( QFileInfo( destPath ).isFile() );
     assert( QFileInfo( destPath ).size() == 10 );
 }

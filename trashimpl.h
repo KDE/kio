@@ -55,13 +55,13 @@ public:
     bool moveToTrash( const QString& origPath, int trashId, const QString& fileId );
 
     /// Moving a file or directory out of the trash. The ids come from createInfo.
-    bool moveFromTrash( const QString& origPath, int trashId, const QString& fileId );
+    bool moveFromTrash( const QString& origPath, int trashId, const QString& fileId, const QString& relativePath );
 
     /// Copying a file or directory into the trash. The ids come from createInfo.
     bool copyToTrash( const QString& origPath, int trashId, const QString& fileId );
 
     /// Copying a file or directory out of the trash. The ids come from createInfo.
-    bool copyFromTrash( const QString& origPath, int trashId, const QString& fileId );
+    bool copyFromTrash( const QString& origPath, int trashId, const QString& fileId, const QString& relativePath );
 
     /// Create a top-level trashed directory
     //bool mkdir( int trashId, const QString& fileId, int permissions );

@@ -220,9 +220,13 @@ bool TrashImpl::moveToTrash( const QString& origPath, int trashId, const QString
     return move( origPath, dest );
 }
 
-bool TrashImpl::moveFromTrash( const QString& dest, int trashId, const QString& fileId )
+bool TrashImpl::moveFromTrash( const QString& dest, int trashId, const QString& fileId, const QString& relativePath )
 {
-    const QString src = filesPath( trashId, fileId );
+    QString src = filesPath( trashId, fileId );
+    if ( !relativePath.isEmpty() ) {
+        src += '/';
+        src += relativePath;
+    }
     return move( src, dest );
 }
 
@@ -236,7 +240,7 @@ bool TrashImpl::move( const QString& src, const QString& dest )
     urlSrc.setPath( src );
     urlDest.setPath( dest );
     kdDebug() << k_funcinfo << urlSrc << " -> " << urlDest << endl;
-    KIO::CopyJob* job = KIO::move( urlSrc, urlDest, false );
+    KIO::CopyJob* job = KIO::moveAs( urlSrc, urlDest, false );
     connect( job, SIGNAL( result(KIO::Job *) ),
              this, SLOT( jobFinished(KIO::Job *) ) );
     qApp->eventLoop()->enterLoop();
@@ -257,9 +261,13 @@ bool TrashImpl::copyToTrash( const QString& origPath, int trashId, const QString
     return copy( origPath, dest );
 }
 
-bool TrashImpl::copyFromTrash( const QString& dest, int trashId, const QString& fileId )
+bool TrashImpl::copyFromTrash( const QString& dest, int trashId, const QString& fileId, const QString& relativePath )
 {
-    const QString src = filesPath( trashId, fileId );
+    QString src = filesPath( trashId, fileId );
+    if ( !relativePath.isEmpty() ) {
+        src += '/';
+        src += relativePath;
+    }
     return copy( src, dest );
 }
 
@@ -271,7 +279,7 @@ bool TrashImpl::copy( const QString& src, const QString& dest )
     KURL urlDest;
     urlDest.setPath( dest );
     kdDebug() << k_funcinfo << "copying " << src << " to " << dest << endl;
-    KIO::Job* job = KIO::file_copy( urlSrc, urlDest, -1 /*permissions*/, true /*overwrite*/, false, false );
+    KIO::Job* job = KIO::copyAs( urlSrc, urlDest, false );
     connect( job, SIGNAL( result( KIO::Job* ) ),
              this, SLOT( jobFinished( KIO::Job* ) ) );
     qApp->eventLoop()->enterLoop();
