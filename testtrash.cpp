@@ -180,6 +180,7 @@ void TestTrash::runAll()
     moveSymlinkFromTrash();
 
     listRootDir();
+    listRecursiveRootDir();
 
     delRootFile();
     delFileInDirectory();
@@ -709,6 +710,7 @@ void TestTrash::listRootDir()
 {
     kdDebug() << k_funcinfo << endl;
     m_entryCount = 0;
+    m_listResult.clear();
     KIO::ListJob* job = KIO::listDir( "trash:/" );
     connect( job, SIGNAL( entries( KIO::Job*, const KIO::UDSEntryList& ) ),
              SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
@@ -716,12 +718,30 @@ void TestTrash::listRootDir()
     assert( ok );
     kdDebug() << "listDir done - m_entryCount=" << m_entryCount << endl;
     assert( m_entryCount > 1 );
+
+    kdDebug() << k_funcinfo << m_listResult << endl;
+    assert( m_listResult.contains( "." ) == 1 ); // found it, and only once
+}
+
+void TestTrash::listRecursiveRootDir()
+{
+    kdDebug() << k_funcinfo << endl;
+    m_entryCount = 0;
+    m_listResult.clear();
+    KIO::ListJob* job = KIO::listRecursive( "trash:/" );
+    connect( job, SIGNAL( entries( KIO::Job*, const KIO::UDSEntryList& ) ),
+             SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
+    bool ok = KIO::NetAccess::synchronousRun( job, 0 );
+    assert( ok );
+    kdDebug() << "listDir done - m_entryCount=" << m_entryCount << endl;
+    assert( m_entryCount > 1 );
+
+    kdDebug() << k_funcinfo << m_listResult << endl;
+    assert( m_listResult.contains( "." ) == 1 ); // found it, and only once
 }
 
 void TestTrash::slotEntries( KIO::Job*, const KIO::UDSEntryList& lst )
 {
-    bool dotFound = false;
-
     for( KIO::UDSEntryList::ConstIterator it = lst.begin(); it != lst.end(); ++it ) {
         KIO::UDSEntry::ConstIterator it2 = (*it).begin();
         QString displayName;
@@ -736,14 +756,12 @@ void TestTrash::slotEntries( KIO::Job*, const KIO::UDSEntryList& lst )
                 break;
             }
         }
-        if ( displayName == "." ) {
-            assert( !dotFound ); // only once
-            dotFound = true;
-        } else {
+        kdDebug() << k_funcinfo << displayName << " " << url << endl;
+        if ( !url.isEmpty() ) {
             assert( url.protocol() == "trash" );
         }
+        m_listResult << displayName;
     }
-    assert( dotFound );
     m_entryCount += lst.count();
 }
 

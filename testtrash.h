@@ -66,6 +66,7 @@ public:
     void moveSymlinkFromTrash();
 
     void listRootDir();
+    void listRecursiveRootDir();
 
     void delRootFile();
     void delFileInDirectory();
@@ -91,6 +92,7 @@ private:
 
     QString m_trashDir;
     int m_entryCount;
+    QStringList m_listResult;
 };
 
 #endif
