@@ -78,6 +78,7 @@ public:
 
     void getFile();
     void restoreFile();
+    void restoreFileFromSubDir();
     void restoreFileToDeletedDirectory();
 
     void emptyTrash();

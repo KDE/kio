@@ -228,6 +228,7 @@ void TestTrash::runAll()
 
     getFile();
     restoreFile();
+    restoreFileFromSubDir();
     restoreFileToDeletedDirectory();
 
     emptyTrash();
@@ -861,6 +862,34 @@ void TestTrash::restoreFile()
 
     const QString destPath = homeTmpDir() + "fileFromHome";
     assert( QFile::exists( destPath ) );
+}
+
+void TestTrash::restoreFileFromSubDir()
+{
+    kdDebug() << k_funcinfo << endl;
+    const QString fileId = "trashDirFromHome_1/testfile";
+    assert( !QFile::exists( homeTmpDir() + "trashDirFromHome_1" ) );
+
+    const KURL url = TrashImpl::makeURL( 0, fileId, QString::null );
+    const QString infoFile( m_trashDir + "/info/trashDirFromHome_1.trashinfo" );
+    const QString filesItem( m_trashDir + "/files/trashDirFromHome_1/testfile" );
+
+    assert( QFile::exists( infoFile ) );
+    assert( QFile::exists( filesItem ) );
+
+    QByteArray packedArgs;
+    QDataStream stream( packedArgs, IO_WriteOnly );
+    stream << (int)3 << url;
+    KIO::Job* job = KIO::special( url, packedArgs );
+    bool ok = KIO::NetAccess::synchronousRun( job, 0 );
+    assert( !ok );
+    // dest dir doesn't exist -> error message
+    assert( KIO::NetAccess::lastError() == KIO::ERR_SLAVE_DEFINED );
+
+    // check that nothing happened
+    assert( QFile::exists( infoFile ) );
+    assert( QFile::exists( filesItem ) );
+    assert( !QFile::exists( homeTmpDir() + "trashDirFromHome_1" ) );
 }
 
 void TestTrash::restoreFileToDeletedDirectory()

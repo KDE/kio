@@ -105,6 +105,8 @@ void TrashProtocol::restore( const KURL& trashURL )
     }
     KURL dest;
     dest.setPath( info.origPath );
+    if ( !relativePath.isEmpty() )
+        dest.addPath( relativePath );
 
     // Check that the destination directory exists, to improve the error code in case it doesn't.
     const QString destDir = dest.directory();
