@@ -15,6 +15,7 @@ moving=true
 Icon=trashcan_full
 maxInstances=2
 Class=:local
+Parent=system:/
 renameFromFile=true
 renameToFile=true
 copyFromFile=true
