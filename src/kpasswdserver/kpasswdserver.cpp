@@ -124,13 +124,16 @@ KPasswdServer::checkAuthInfo(KIO::AuthInfo info, long windowId)
           QMap<QString, QString> knownLogins;
           KWallet::Wallet *wallet = KWallet::Wallet::openWallet(
              KWallet::Wallet::NetworkWallet(), windowId);
-          if (wallet &&
-              readFromWallet(wallet, key, info.username, info.password,
+          if (wallet) {
+              if (readFromWallet(wallet, key, info.username, info.password,
                              info.readOnly, knownLogins))
-          {
-             info.setModified(true);
-             return info;
-          }
+	      {
+		      info.setModified(true);
+		      delete wallet;
+		      return info;
+	      }
+	      delete wallet;
+	  }
        }
 
        info.setModified(false);
