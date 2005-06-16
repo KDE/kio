@@ -66,6 +66,7 @@ protected:
   static bool storeInWallet( KWallet::Wallet* wallet, const QString& key, const KIO::AuthInfo &info );
   static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, QString& username, QString& password, bool userReadOnly, QMap<QString,QString>& knownLogins );
   int findWalletEntry( const QMap<QString,QString>& map, const QString& username );
+  bool openWallet( WId windowId );
 
   struct AuthInfo {
     AuthInfo() { expire = expNever; isCanceled = false; seqNr = 0; }
@@ -109,6 +110,7 @@ protected:
   QPtrList< Request > m_authWait;
   QIntDict<QStringList> mWindowIdList;
   DCOPClient *m_dcopClient;
+  KWallet::Wallet* m_wallet;
   long m_seqNr;
 };
 

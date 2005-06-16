@@ -2,6 +2,7 @@
     This file is part of the KDE Password Server
 
     Copyright (C) 2002 Waldo Bastian (bastian@kde.org)
+    Copyright (C) 2005 David Faure (faure@kde.org)
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -74,12 +75,14 @@ KPasswdServer::KPasswdServer(const QCString &name)
     m_authDict.setAutoDelete(true);
     m_authPending.setAutoDelete(true);
     m_seqNr = 0;
+    m_wallet = 0;
     connect(this, SIGNAL(windowUnregistered(long)),
             this, SLOT(removeAuthForWindowId(long)));
 }
 
 KPasswdServer::~KPasswdServer()
 {
+    delete m_wallet;
 }
 
 KIO::AuthInfo
@@ -122,17 +125,13 @@ KPasswdServer::checkAuthInfo(KIO::AuthInfo info, long windowId)
                                              KWallet::Wallet::PasswordFolder(), key))
        {
           QMap<QString, QString> knownLogins;
-          KWallet::Wallet *wallet = KWallet::Wallet::openWallet(
-             KWallet::Wallet::NetworkWallet(), windowId);
-          if (wallet) {
-              if (readFromWallet(wallet, key, info.username, info.password,
+          if (openWallet(windowId)) {
+              if (readFromWallet(m_wallet, key, info.username, info.password,
                              info.readOnly, knownLogins))
 	      {
 		      info.setModified(true);
-		      delete wallet;
 		      return info;
 	      }
-	      delete wallet;
 	  }
        }
 
@@ -188,6 +187,19 @@ KPasswdServer::addAuthInfo(KIO::AuthInfo info, long windowId)
     addAuthInfoItem(key, info, windowId, m_seqNr, false);
 }
 
+bool
+KPasswdServer::openWallet( WId windowId )
+{
+    if ( m_wallet && !m_wallet->isOpen() ) { // forced closed
+        delete m_wallet;
+        m_wallet = 0;
+    }
+    if ( !m_wallet )
+        m_wallet = KWallet::Wallet::openWallet(
+            KWallet::Wallet::NetworkWallet(), windowId );
+    return m_wallet != 0;
+}
+
 void
 KPasswdServer::processRequest()
 {
@@ -238,15 +250,12 @@ KPasswdServer::processRequest()
             bool hasWalletData = false;
             QMap<QString, QString> knownLogins;
 
-            KWallet::Wallet* wallet = 0;
             if ( ( username.isEmpty() || password.isEmpty() )
                 && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(), KWallet::Wallet::PasswordFolder(), request->key) )
             {
                 // no login+pass provided, check if kwallet has one
-                wallet = KWallet::Wallet::openWallet(
-                    KWallet::Wallet::NetworkWallet(), request->windowId );
-                if ( wallet )
-                    hasWalletData = readFromWallet( wallet, request->key, username, password, info.readOnly, knownLogins );
+                if ( openWallet( request->windowId ) )
+                    hasWalletData = readFromWallet( m_wallet, request->key, username, password, info.readOnly, knownLogins );
             }
 
             KIO::PasswordDialog dlg( info.prompt, username, info.keepPassword );
@@ -286,17 +295,13 @@ KPasswdServer::processRequest()
                // only for the duration of the window (#92928)
                // * otherwise store in kpasswdserver for the duration of the KDE session.
                if ( info.keepPassword ) {
-                   if ( !wallet )
-                       wallet = KWallet::Wallet::openWallet(
-                           KWallet::Wallet::NetworkWallet(), request->windowId );
-                   if ( wallet ) {
-                       if ( storeInWallet( wallet, request->key, info ) )
+                   if ( openWallet( request->windowId ) ) {
+                       if ( storeInWallet( m_wallet, request->key, info ) )
                            // password is in wallet, don't keep it in memory after window is closed
                            info.keepPassword = false;
                    }
                }
             }
-            delete wallet;
         }
         if ( dlgResult != QDialog::Accepted )
         {
