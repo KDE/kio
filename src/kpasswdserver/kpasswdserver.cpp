@@ -85,6 +85,104 @@ KPasswdServer::~KPasswdServer()
     delete m_wallet;
 }
 
+// Helper for storeInWallet/readFromWallet
+static QString makeMapKey( const char* key, int entryNumber )
+{
+    QString str = QString::fromLatin1( key );
+    if ( entryNumber > 1 )
+        str += "-" + QString::number( entryNumber );
+    return str;
+}
+
+static bool storeInWallet( KWallet::Wallet* wallet, const QString& key, const KIO::AuthInfo &info )
+{
+    if ( !wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) )
+        if ( !wallet->createFolder( KWallet::Wallet::PasswordFolder() ) )
+            return false;
+    wallet->setFolder( KWallet::Wallet::PasswordFolder() );
+    // Before saving, check if there's already an entry with this login.
+    // If so, replace it (with the new password). Otherwise, add a new entry.
+    typedef QMap<QString,QString> Map;
+    int entryNumber = 1;
+    Map map;
+    kdDebug(130) << "storeInWallet: key=" << key << "  reading existing map" << endl;
+    if ( wallet->readMap( key, map ) == 0 ) {
+        Map::ConstIterator end = map.end();
+        Map::ConstIterator it = map.find( "login" );
+        while ( it != end ) {
+            Map::ConstIterator realmIter = map.find( makeMapKey( "realm", entryNumber ) );
+            if ( realmIter == end || realmIter.data() == info.realmValue ) {
+                if ( it.data() == info.username ) {
+                    break; // OK, overwrite this entry
+                }
+            } else {
+                // this entry is for another realm, don't overwrite it
+                kdDebug(130) << " ignoring entry for realm " << realmIter.data() << endl;
+            }
+
+            it = map.find( QString( "login-" ) + QString::number( ++entryNumber ) );
+        }
+        // If no entry was found, create a new entry - entryNumber is set already.
+    }
+    const QString loginKey = makeMapKey( "login", entryNumber );
+    const QString passwordKey = makeMapKey( "password", entryNumber );
+    kdDebug(130) << "storeInWallet: writing to " << loginKey << "," << passwordKey << endl;
+    // note the overwrite=true by default
+    map.insert( loginKey, info.username );
+    map.insert( passwordKey, info.password );
+    if ( !info.realmValue.isEmpty() ) {
+        const QString realmKey = makeMapKey( "realm", entryNumber );
+        map.insert( realmKey, info.realmValue );
+    }
+    wallet->writeMap( key, map );
+    return true;
+}
+
+
+static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const QString& realm, QString& username, QString& password, bool userReadOnly, QMap<QString,QString>& knownLogins )
+{
+    //kdDebug(130) << "readFromWallet: key=" << key << " username=" << username << " password=" /*<< password*/ << " userReadOnly=" << userReadOnly << " realm=" << realm << endl;
+    if ( wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) )
+    {
+        wallet->setFolder( KWallet::Wallet::PasswordFolder() );
+        QMap<QString,QString> map;
+        if ( wallet->readMap( key, map ) == 0 )
+        {
+            typedef QMap<QString,QString> Map;
+            int entryNumber = 1;
+            Map::ConstIterator end = map.end();
+            Map::ConstIterator it = map.find( "login" );
+            while ( it != end ) {
+                //kdDebug(130) << "readFromWallet: found " << it.key() << "=" << it.data() << endl;
+                Map::ConstIterator realmIter = map.find( makeMapKey( "realm", entryNumber ) );
+                if ( realmIter == end || realmIter.data() == realm ) {
+                    Map::ConstIterator pwdIter = map.find( makeMapKey( "password", entryNumber ) );
+                    if ( pwdIter != end ) {
+                        if ( it.data() == username )
+                            password = pwdIter.data();
+                        knownLogins.insert( it.data(), pwdIter.data() );
+                    }
+                } else {
+                    //kdDebug(130) << " ignoring entry for realm " << realmIter.data() << endl;
+                }
+
+                it = map.find( QString( "login-" ) + QString::number( ++entryNumber ) );
+            }
+            //kdDebug(130) << knownLogins.count() << " known logins" << endl;
+
+            if ( !userReadOnly && !knownLogins.isEmpty() && username.isEmpty() ) {
+                // Pick one, any one...
+                username = knownLogins.begin().key();
+                password = knownLogins.begin().data();
+                //kdDebug(130) << "readFromWallet: picked the first one : " << username << endl;
+            }
+
+            return true;
+        }
+    }
+    return false;
+}
+
 KIO::AuthInfo
 KPasswdServer::checkAuthInfo(KIO::AuthInfo info, long windowId)
 {
@@ -126,7 +224,7 @@ KPasswdServer::checkAuthInfo(KIO::AuthInfo info, long windowId)
        {
           QMap<QString, QString> knownLogins;
           if (openWallet(windowId)) {
-              if (readFromWallet(m_wallet, key, info.username, info.password,
+              if (readFromWallet(m_wallet, key, info.realmValue, info.username, info.password,
                              info.readOnly, knownLogins))
 	      {
 		      info.setModified(true);
@@ -149,6 +247,9 @@ KPasswdServer::queryAuthInfo(KIO::AuthInfo info, QString errorMsg, long windowId
 {
     kdDebug(130) << "KPasswdServer::queryAuthInfo: User= " << info.username
               << ", Message= " << info.prompt << ", WindowId = " << windowId << endl;
+    if ( !info.password.isEmpty() ) // should we really allow the caller to pre-fill the password?
+        kdDebug(130) <<  "password was set by caller" << endl;
+
     QString key = createCacheKey(info);
     Request *request = new Request;
     request->client = callingDcopClient();
@@ -211,7 +312,6 @@ KPasswdServer::processRequest()
 
     kdDebug(130) << "KPasswdServer::processRequest: User= " << info.username
               << ", Message= " << info.prompt << endl;
-
     const AuthInfo *result = findAuthInfoItem(request->key, request->info);
 
     if (result && (request->seqNr < result->seqNr))
@@ -255,7 +355,7 @@ KPasswdServer::processRequest()
             {
                 // no login+pass provided, check if kwallet has one
                 if ( openWallet( request->windowId ) )
-                    hasWalletData = readFromWallet( m_wallet, request->key, username, password, info.readOnly, knownLogins );
+                    hasWalletData = readFromWallet( m_wallet, request->key, info.realmValue, username, password, info.readOnly, knownLogins );
             }
 
             KIO::PasswordDialog dlg( info.prompt, username, info.keepPassword );
@@ -387,84 +487,6 @@ KPasswdServer::processRequest()
     if (m_authPending.count())
        QTimer::singleShot(0, this, SLOT(processRequest()));
 
-}
-
-bool KPasswdServer::storeInWallet( KWallet::Wallet* wallet, const QString& key, const KIO::AuthInfo &info )
-{
-    if ( !wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) )
-        if ( !wallet->createFolder( KWallet::Wallet::PasswordFolder() ) )
-            return false;
-    wallet->setFolder( KWallet::Wallet::PasswordFolder() );
-    // Before saving, check if there's already an entry with this login.
-    // If so, replace it (with the new password). Otherwise, add a new entry.
-    typedef QMap<QString,QString> Map;
-    int entryNumber = 1;
-    Map map;
-    kdDebug() << k_funcinfo << "key=" << key << "  reading existing map" << endl;
-    if ( wallet->readMap( key, map ) == 0 ) {
-        Map::ConstIterator end = map.end();
-        Map::ConstIterator it = map.find( "login" );
-        while ( it != end ) {
-            if ( it.data() == info.username ) {
-                break; // overwrite this entry
-            }
-
-            it = map.find( QString( "login-" ) + QString::number( ++entryNumber ) );
-        }
-        // If no entry was found, create a new entry - entryNumber is set already.
-    }
-    QString loginKey = "login";
-    QString passwordKey = "password";
-    if ( entryNumber > 1 ) {
-        const QString suffix = "-" + QString::number( entryNumber );
-        loginKey += suffix;
-        passwordKey += suffix;
-    }
-    kdDebug() << k_funcinfo << "writing to " << loginKey << "," << passwordKey << endl;
-    // note the overwrite=true by default
-    map.insert( loginKey, info.username );
-    map.insert( passwordKey, info.password );
-    wallet->writeMap( key, map );
-    return true;
-}
-
-bool KPasswdServer::readFromWallet( KWallet::Wallet* wallet, const QString& key, QString& username, QString& password, bool userReadOnly, QMap<QString,QString>& knownLogins )
-{
-    if ( wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) )
-    {
-        wallet->setFolder( KWallet::Wallet::PasswordFolder() );
-        QMap<QString,QString> map;
-        kdDebug() << k_funcinfo << "reading with key=" << key << endl;
-        if ( wallet->readMap( key, map ) == 0 )
-        {
-            typedef QMap<QString,QString> Map;
-            int entryNumber = 1;
-            Map::ConstIterator end = map.end();
-            Map::ConstIterator it = map.find( "login" );
-            while ( it != end ) {
-                QString passwordKey = "password";
-                if ( entryNumber > 1 )
-                    passwordKey += "-" + QString::number( entryNumber );
-                Map::ConstIterator pwdit = map.find( passwordKey );
-                if ( pwdit != end ) {
-                    if ( it.data() == username )
-                        password = pwdit.data();
-                    knownLogins.insert( it.data(), pwdit.data() );
-                }
-
-                it = map.find( QString( "login-" ) + QString::number( ++entryNumber ) );
-            }
-
-            if ( !userReadOnly && username.isEmpty() ) {
-                // Pick one, any one...
-                username = knownLogins.begin().key();
-                password = knownLogins.begin().data();
-            }
-
-            return true;
-        }
-    }
-    return false;
 }
 
 QString KPasswdServer::createCacheKey( const KIO::AuthInfo &info )
