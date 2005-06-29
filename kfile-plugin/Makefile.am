@@ -10,5 +10,5 @@ kfile_trash_la_LIBADD = ../libtrashcommon.la $(LIB_KIO)
 
 METASOURCES = AUTO
 
-services_DATA = kfile_trash.desktop
+services_DATA = kfile_trash.desktop kfile_trash_system.desktop
 servicesdir = $(kde_servicesdir)

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+Name=Trash File Info
+ServiceTypes=KFilePlugin
+X-KDE-Library=kfile_trash
+X-KDE-Protocol=system
+PreferredGroups=General
+PreferredItems=OriginalPath,DateOfDeletion

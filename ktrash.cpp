@@ -76,6 +76,12 @@ int main(int argc, char *argv[])
 
     QCString restoreArg = args->getOption( "restore" );
     if ( !restoreArg.isEmpty() ) {
+
+        if (restoreArg.find("system:/trash")==0) {
+            restoreArg.remove(0, 13);
+            restoreArg.prepend("trash:");
+        }
+
         KURL trashURL( restoreArg );
         if ( !trashURL.isValid() || trashURL.protocol() != "trash" ) {
             kdError() << "Invalid URL for restoring a trashed file:" << trashURL << endl;

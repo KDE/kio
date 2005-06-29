@@ -37,7 +37,16 @@ KTrashPlugin::KTrashPlugin(QObject *parent, const char *name,
     KGlobal::locale()->insertCatalogue( "kio_trash" );
 
     kdDebug(7034) << "Trash file meta info plugin\n";
-    KFileMimeTypeInfo* info = addMimeTypeInfo( "trash" );
+
+    makeMimeTypeInfo("trash");
+    makeMimeTypeInfo("system");
+
+    (void)impl.init();
+}
+
+void KTrashPlugin::makeMimeTypeInfo(const QString& mimeType)
+{
+    KFileMimeTypeInfo* info = addMimeTypeInfo( mimeType );
 
     KFileMimeTypeInfo::GroupInfo* group =
             addGroupInfo(info, "General", i18n("General"));
@@ -45,20 +54,29 @@ KTrashPlugin::KTrashPlugin(QObject *parent, const char *name,
     KFileMimeTypeInfo::ItemInfo* item;
     item = addItemInfo(group, "OriginalPath", i18n("Original Path"), QVariant::String);
     item = addItemInfo(group, "DateOfDeletion", i18n("Date of Deletion"), QVariant::DateTime);
-
-    (void)impl.init();
 }
 
 bool KTrashPlugin::readInfo(KFileMetaInfo& info, uint)
 {
+    KURL url = info.url();
+
+    if ( url.protocol()=="system"
+      && url.path().startsWith("/trash") )
+    {
+        QString path = url.path();
+        path.remove(0, 6);
+        url.setProtocol("trash");
+        url.setPath(path);
+    }
+    
     //kdDebug() << k_funcinfo << info.url() << endl;
-    if ( info.url().protocol() != "trash" )
+    if ( url.protocol() != "trash" )
         return false;
 
     int trashId;
     QString fileId;
     QString relativePath;
-    if ( !TrashImpl::parseURL( info.url(), trashId, fileId, relativePath ) )
+    if ( !TrashImpl::parseURL( url, trashId, fileId, relativePath ) )
         return false;
 
     TrashImpl::TrashedFileInfo trashInfo;
