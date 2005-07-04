@@ -15,10 +15,11 @@
 
    You should have received a copy of the GNU General Public License
    along with this program; see the file COPYING.  If not, write to
-   the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-   Boston, MA 02111-1307, USA.
+   the Free Software Foundation, Inc., 51 Franklin Steet, Fifth Floor,
+   Boston, MA 02110-1301, USA.
 */
 
+#include <config.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <sys/stat.h>
@@ -39,15 +40,14 @@
 #include <kaboutdata.h>
 #include <kstartupinfo.h>
 #include <kshell.h>
+#include <kde_file.h>
 
 
 #include "main.h"
 
 
 static const char description[] =
-        I18N_NOOP("KFM Exec - Opens remote files, watches modifications, asks for upload");
-
-static const char version[] = "v0.0.2";
+        I18N_NOOP("KIO Exec - Opens remote files, watches modifications, asks for upload");
 
 static KCmdLineOptions options[] =
 {
@@ -62,7 +62,7 @@ int jobCounter = 0;
 
 QPtrList<KIO::Job>* jobList = 0L;
 
-KFMExec::KFMExec()
+KIOExec::KIOExec()
 {
     jobList = new QPtrList<KIO::Job>;
     jobList->setAutoDelete( false ); // jobs autodelete themselves
@@ -75,11 +75,12 @@ KFMExec::KFMExec()
 
     expectedCounter = 0;
     command = args->arg(0);
-    kdDebug() << command << endl;
+    kdDebug() << "command=" << command << endl;
 
     for ( int i = 1; i < args->count(); i++ )
     {
         KURL url = args->url(i);
+        //kdDebug() << "url=" << url.url() << " filename=" << url.fileName() << endl;
         // A local file, not an URL ?
         // => It is not encoded and not shell escaped, too.
         if ( url.isLocalFile() )
@@ -99,19 +100,22 @@ KFMExec::KFMExec()
             else
             // We must fetch the file
             {
-                // Build the destination filename, in ~/.kde/share/apps/kfmexec/tmp/
+                QString fileName = KIO::encodeFileName( url.fileName() );
+                // Build the destination filename, in ~/.kde/cache-*/krun/
                 // Unlike KDE-1.1, we put the filename at the end so that the extension is kept
                 // (Some programs rely on it)
                 QString tmp = KGlobal::dirs()->saveLocation( "cache", "krun/" ) +
-                              QString("%1.%2.%3").arg(getpid()).arg(jobCounter++).arg(url.fileName());
+                              QString("%1.%2.%3").arg(getpid()).arg(jobCounter++).arg(fileName);
                 fileInfo file;
                 file.path = tmp;
                 file.url = url;
                 fileList.append(file);
 
                 expectedCounter++;
-                kdDebug() << "Copying " << url.prettyURL() << " to " << tmp << endl;
-                KIO::Job *job = KIO::file_copy( url, tmp );
+                KURL dest;
+                dest.setPath( tmp );
+                kdDebug() << "Copying " << url.prettyURL() << " to " << dest << endl;
+                KIO::Job *job = KIO::file_copy( url, dest );
                 jobList->append( job );
 
                 connect( job, SIGNAL( result( KIO::Job * ) ), SLOT( slotResult( KIO::Job * ) ) );
@@ -128,7 +132,7 @@ KFMExec::KFMExec()
         slotResult( 0L );
 }
 
-void KFMExec::slotResult( KIO::Job * job )
+void KIOExec::slotResult( KIO::Job * job )
 {
     if (job && job->error())
     {
@@ -164,7 +168,7 @@ void KFMExec::slotResult( KIO::Job * job )
     jobList->clear();
 }
 
-void KFMExec::slotRunApp()
+void KIOExec::slotRunApp()
 {
     if ( fileList.isEmpty() ) {
         kdDebug() << k_funcinfo << "No files downloaded -> exiting" << endl;
@@ -178,8 +182,8 @@ void KFMExec::slotRunApp()
     QValueList<fileInfo>::Iterator it = fileList.begin();
     for ( ; it != fileList.end() ; ++it )
     {
-        struct stat buff;
-        (*it).time = stat( QFile::encodeName((*it).path), &buff ) ? 0 : buff.st_mtime;
+        KDE_struct_stat buff;
+        (*it).time = KDE_stat( QFile::encodeName((*it).path), &buff ) ? 0 : buff.st_mtime;
         KURL url;
         url.setPath((*it).path);
         list << url;
@@ -189,16 +193,20 @@ void KFMExec::slotRunApp()
 
     kdDebug() << "EXEC " << KShell::joinArgs( params ) << endl;
 
+#ifdef Q_WS_X11
     // propagate the startup indentification to the started process
     KStartupInfoId id;
     id.initId( kapp->startupId());
     id.setupStartupEnv();
+#endif
 
     KProcess proc;
     proc << params;
     proc.start( KProcess::Block );
 
+#ifdef Q_WS_X11
     KStartupInfo::resetStartupEnv();
+#endif
 
     kdDebug() << "EXEC done" << endl;
 
@@ -206,10 +214,10 @@ void KFMExec::slotRunApp()
     it = fileList.begin();
     for( ;it != fileList.end(); ++it )
     {
-        struct stat buff;
+        KDE_struct_stat buff;
         QString src = (*it).path;
         KURL dest = (*it).url;
-        if ( (stat( QFile::encodeName(src), &buff ) == 0) &&
+        if ( (KDE_stat( QFile::encodeName(src), &buff ) == 0) &&
              ((*it).time != buff.st_mtime) )
         {
             if ( tempfiles )
@@ -227,7 +235,7 @@ void KFMExec::slotRunApp()
                 {
                     kdDebug() << QString("src='%1'  dest='%2'").arg(src).arg(dest.url()).ascii() << endl;
                     // Do it the synchronous way.
-                    if ( !KIO::NetAccess::upload( src, dest ) )
+                    if ( !KIO::NetAccess::upload( src, dest, 0 ) )
                     {
                         KMessageBox::error( 0L, KIO::NetAccess::lastErrorString() );
                         continue; // don't delete the temp file
@@ -250,11 +258,11 @@ void KFMExec::slotRunApp()
 
 int main( int argc, char **argv )
 {
-    KAboutData aboutData( "kfmexec", I18N_NOOP("KFMExec"),
-        version, description, KAboutData::License_GPL,
+    KAboutData aboutData( "kioexec", I18N_NOOP("KIOExec"),
+        VERSION, description, KAboutData::License_GPL,
         "(c) 1998-2000,2003 The KFM/Konqueror Developers");
     aboutData.addAuthor("David Faure",0, "faure@kde.org");
-    aboutData.addAuthor("Stephen Kulow",0, "coolo@kde.org");
+    aboutData.addAuthor("Stephan Kulow",0, "coolo@kde.org");
     aboutData.addAuthor("Bernhard Rosenkraenzer",0, "bero@arklinux.org");
     aboutData.addAuthor("Waldo Bastian",0, "bastian@kde.org");
     aboutData.addAuthor("Oswald Buddenhagen",0, "ossi@kde.org");
@@ -264,7 +272,7 @@ int main( int argc, char **argv )
 
     KApplication app;
 
-    KFMExec exec;
+    KIOExec exec;
 
     kdDebug() << "Constructor returned..." << endl;
     return app.exec();
