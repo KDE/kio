@@ -224,14 +224,14 @@ void KIOExec::slotRunApp()
             {
                 if ( KMessageBox::questionYesNo( 0L,
                                                  i18n( "The supposedly temporary file\n%1\nhas been modified.\nDo you still want to delete it?" ).arg(dest.prettyURL()),
-                                                 i18n( "File Changed" ) ) != KMessageBox::Yes )
+                                                 i18n( "File Changed" ), KStdGuiItem::del(), i18n("Do Not Delete") ) != KMessageBox::Yes )
                     continue; // don't delete the temp file
             }
             else
             {
                 if ( KMessageBox::questionYesNo( 0L,
                                                  i18n( "The file\n%1\nhas been modified.\nDo you want to upload the changes?" ).arg(dest.prettyURL()),
-                                                 i18n( "File Changed" ) ) == KMessageBox::Yes )
+                                                 i18n( "File Changed" ), i18n("Upload"), i18n("Do Not Upload") ) == KMessageBox::Yes )
                 {
                     kdDebug() << QString("src='%1'  dest='%2'").arg(src).arg(dest.url()).ascii() << endl;
                     // Do it the synchronous way.
