@@ -60,11 +60,11 @@ static KCmdLineOptions options[] =
 
 int jobCounter = 0;
 
-QPtrList<KIO::Job>* jobList = 0L;
+Q3PtrList<KIO::Job>* jobList = 0L;
 
 KIOExec::KIOExec()
 {
-    jobList = new QPtrList<KIO::Job>;
+    jobList = new Q3PtrList<KIO::Job>;
     jobList->setAutoDelete( false ); // jobs autodelete themselves
 
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
@@ -143,7 +143,7 @@ void KIOExec::slotResult( KIO::Job * job )
 
         QString path = static_cast<KIO::FileCopyJob*>(job)->destURL().path();
 
-        QValueList<fileInfo>::Iterator it = fileList.begin();
+        Q3ValueList<fileInfo>::Iterator it = fileList.begin();
         for(;it != fileList.end(); ++it)
         {
            if ((*it).path == path)
@@ -179,7 +179,7 @@ void KIOExec::slotRunApp()
 
     KURL::List list;
     // Store modification times
-    QValueList<fileInfo>::Iterator it = fileList.begin();
+    Q3ValueList<fileInfo>::Iterator it = fileList.begin();
     for ( ; it != fileList.end() ; ++it )
     {
         KDE_struct_stat buff;

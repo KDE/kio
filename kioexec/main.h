@@ -3,16 +3,16 @@
 
 #include <qobject.h>
 #include <qstring.h>
-#include <qstrlist.h>
+#include <q3strlist.h>
 #include <qtimer.h>
 
 namespace KIO { class Job; }
 
-class KFMExec : public QObject
+class KIOExec : public QObject
 {
     Q_OBJECT
 public:
-    KFMExec();
+    KIOExec();
 
 public slots:
     void slotResult( KIO::Job * );
@@ -28,7 +28,7 @@ protected:
        KURL url;
        int time;
     };
-    QValueList<fileInfo> fileList;
+    Q3ValueList<fileInfo> fileList;
 };
 
 #endif
