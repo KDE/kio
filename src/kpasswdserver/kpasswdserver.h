@@ -20,13 +20,13 @@
 //----------------------------------------------------------------------------
 //
 // KDE Password Server
-// $Id$
 
 #ifndef KPASSWDSERVER_H
 #define KPASSWDSERVER_H
 
-#include <qdict.h>
-#include <qintdict.h>
+#include <q3dict.h>
+#include <q3intdict.h>
+#include <q3ptrlist.h>
 
 #include <dcopclient.h>
 #include <kio/authinfo.h>
@@ -41,7 +41,7 @@ class KPasswdServer : public KDEDModule
   Q_OBJECT
   K_DCOP
 public:
-  KPasswdServer(const QCString &);
+  KPasswdServer(const Q3CString &);
   ~KPasswdServer();
 
 k_dcop:
@@ -64,7 +64,7 @@ protected:
   KIO::AuthInfo copyAuthInfo(const AuthInfo *);
   void updateAuthExpire(const QString &key, const AuthInfo *, long windowId, bool keep);
   int findWalletEntry( const QMap<QString,QString>& map, const QString& username );
-  bool openWallet( WId windowId );
+  bool openWallet( int windowId );
 
   struct AuthInfo {
     AuthInfo() { expire = expNever; isCanceled = false; seqNr = 0; }
@@ -77,21 +77,21 @@ protected:
     QString digestInfo;
 
     enum { expNever, expWindowClose, expTime } expire;
-    QValueList<long> windowList;
+    Q3ValueList<long> windowList;
     unsigned long expireTime;
     long seqNr;
 
     bool isCanceled;
   };
 
-  class AuthInfoList : public QPtrList<AuthInfo>
+  class AuthInfoList : public Q3PtrList<AuthInfo>
   {
     public:
       AuthInfoList() { setAutoDelete(true); }
-      int compareItems(QPtrCollection::Item n1, QPtrCollection::Item n2);
+      int compareItems(Q3PtrCollection::Item n1, Q3PtrCollection::Item n2);
   };
 
-  QDict< AuthInfoList > m_authDict;
+  Q3Dict< AuthInfoList > m_authDict;
 
   struct Request {
      DCOPClient *client;
@@ -104,9 +104,9 @@ protected:
      bool prompt;
   };
 
-  QPtrList< Request > m_authPending;
-  QPtrList< Request > m_authWait;
-  QIntDict<QStringList> mWindowIdList;
+  Q3PtrList< Request > m_authPending;
+  Q3PtrList< Request > m_authWait;
+  Q3IntDict<QStringList> mWindowIdList;
   DCOPClient *m_dcopClient;
   KWallet::Wallet* m_wallet;
   long m_seqNr;

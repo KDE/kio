@@ -28,6 +28,7 @@
 #include <time.h>
 
 #include <qtimer.h>
+#include <qx11info_x11.h>
 
 #include <kapplication.h>
 #include <klocale.h>
@@ -43,14 +44,14 @@
 #endif
 
 extern "C" {
-    KDE_EXPORT KDEDModule *create_kpasswdserver(const QCString &name)
+    KDE_EXPORT KDEDModule *create_kpasswdserver(const Q3CString &name)
     {
        return new KPasswdServer(name);
     }
 }
 
 int
-KPasswdServer::AuthInfoList::compareItems(QPtrCollection::Item n1, QPtrCollection::Item n2)
+KPasswdServer::AuthInfoList::compareItems(Q3PtrCollection::Item n1, Q3PtrCollection::Item n2)
 {
    if (!n1 || !n2)
       return 0;
@@ -69,7 +70,7 @@ KPasswdServer::AuthInfoList::compareItems(QPtrCollection::Item n1, QPtrCollectio
 }
 
 
-KPasswdServer::KPasswdServer(const QCString &name)
+KPasswdServer::KPasswdServer(const Q3CString &name)
  : KDEDModule(name)
 {
     m_authDict.setAutoDelete(true);
@@ -281,7 +282,7 @@ KPasswdServer::addAuthInfo(KIO::AuthInfo info, long windowId)
 }
 
 bool
-KPasswdServer::openWallet( WId windowId )
+KPasswdServer::openWallet( int windowId )
 {
     if ( m_wallet && !m_wallet->isOpen() ) { // forced closed
         delete m_wallet;
@@ -371,7 +372,7 @@ KPasswdServer::processRequest()
                 dlg.setKeepPassword( true );
 
 #ifdef Q_WS_X11
-            XSetTransientForHint( qt_xdisplay(), dlg.winId(), request->windowId);
+            XSetTransientForHint( QX11Info::display(), dlg.winId(), request->windowId);
 #endif
 
             dlgResult = dlg.exec();
@@ -407,10 +408,10 @@ KPasswdServer::processRequest()
         }
     }
 
-    QCString replyType;
+    DCOPCString replyType;
     QByteArray replyData;
 
-    QDataStream stream2(replyData, IO_WriteOnly);
+    QDataStream stream2(&replyData, QIODevice::WriteOnly);
     stream2 << info << m_seqNr;
     replyType = "KIO::AuthInfo";
     request->client->endTransaction( request->transaction,
@@ -450,10 +451,10 @@ KPasswdServer::processRequest()
        {
            const AuthInfo *result = findAuthInfoItem(waitRequest->key, waitRequest->info);
 
-           QCString replyType;
+           DCOPCString replyType;
            QByteArray replyData;
 
-           QDataStream stream2(replyData, IO_WriteOnly);
+           QDataStream stream2(&replyData, QIODevice::WriteOnly);
 
            if (!result || result->isCanceled)
            {
