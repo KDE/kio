@@ -33,6 +33,9 @@
 #include <qtextstream.h>
 #include <qfile.h>
 #include <qeventloop.h>
+//Added by qt3to4:
+#include <Q3StrList>
+#include <Q3CString>
 
 #include <time.h>
 #include <pwd.h>
@@ -73,7 +76,7 @@ extern "C" {
         return; \
     }
 
-TrashProtocol::TrashProtocol( const QCString& protocol, const QCString &pool, const QCString &app)
+TrashProtocol::TrashProtocol( const Q3CString& protocol, const Q3CString &pool, const Q3CString &app)
     : SlaveBase(protocol, pool, app )
 {
     struct passwd *user = getpwuid( getuid() );
@@ -86,6 +89,14 @@ TrashProtocol::TrashProtocol( const QCString& protocol, const QCString &pool, co
 
 TrashProtocol::~TrashProtocol()
 {
+}
+
+void TrashProtocol::enterLoop()
+{
+    QEventLoop eventLoop;
+    connect(this, SIGNAL(leaveModality()),
+        &eventLoop, SLOT(quit()));
+    eventLoop.exec(QEventLoop::ExcludeUserInputEvents);
 }
 
 void TrashProtocol::restore( const KURL& trashURL )
@@ -366,10 +377,10 @@ void TrashProtocol::listDir(const KURL& url)
 
     // List subdir. Can't use kio_file here since we provide our own info...
     kdDebug() << k_funcinfo << "listing " << info.physicalPath << endl;
-    QStrList entryNames = impl.listDir( info.physicalPath );
+    Q3StrList entryNames = impl.listDir( info.physicalPath );
     totalSize( entryNames.count() );
     KIO::UDSEntry entry;
-    QStrListIterator entryIt( entryNames );
+    Q3StrListIterator entryIt( entryNames );
     for (; entryIt.current(); ++entryIt) {
         QString fileName = QFile::decodeName( entryIt.current() );
         if ( fileName == ".." )
@@ -392,7 +403,7 @@ void TrashProtocol::listDir(const KURL& url)
 
 bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& fileName, const QString& url, KIO::UDSEntry& entry, const TrashedFileInfo& info )
 {
-    QCString physicalPath_c = QFile::encodeName( physicalPath );
+    Q3CString physicalPath_c = QFile::encodeName( physicalPath );
     KDE_struct_stat buff;
     if ( KDE_lstat( physicalPath_c, &buff ) == -1 ) {
         kdWarning() << "couldn't stat " << physicalPath << endl;
@@ -460,7 +471,7 @@ void TrashProtocol::listRoot()
 void TrashProtocol::special( const QByteArray & data )
 {
     INIT_IMPL;
-    QDataStream stream( data, IO_ReadOnly );
+    QDataStream stream( data );
     int cmd;
     stream >> cmd;
 
@@ -534,7 +545,7 @@ void TrashProtocol::get( const KURL& url )
              this, SLOT( slotMimetype( KIO::Job*, const QString& ) ) );
     connect( job, SIGNAL( result(KIO::Job *) ),
              this, SLOT( jobFinished(KIO::Job *) ) );
-    qApp->eventLoop()->enterLoop();
+    enterLoop();
 }
 
 void TrashProtocol::slotData( KIO::Job*, const QByteArray&arr )
@@ -553,7 +564,7 @@ void TrashProtocol::jobFinished( KIO::Job* job )
         error( job->error(), job->errorText() );
     else
         finished();
-    qApp->eventLoop()->exitLoop();
+    emit leaveModality();
 }
 
 #if 0

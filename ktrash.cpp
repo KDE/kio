@@ -24,6 +24,8 @@
 #include <klocale.h>
 #include <kdirnotify_stub.h>
 #include <kdebug.h>
+//Added by qt3to4:
+#include <Q3CString>
 
 static KCmdLineOptions options[] =
 {
@@ -51,7 +53,7 @@ int main(int argc, char *argv[])
         // We use a kio job instead of linking to TrashImpl, for a smaller binary
         // (and the possibility of a central service at some point)
         QByteArray packedArgs;
-        QDataStream stream( packedArgs, IO_WriteOnly );
+        QDataStream stream( &packedArgs, QIODevice::WriteOnly );
         stream << (int)1;
         KIO::Job* job = KIO::special( "trash:/", packedArgs );
         (void)KIO::NetAccess::synchronousRun( job, 0 );
@@ -66,7 +68,7 @@ int main(int argc, char *argv[])
     // This is only for testing. KDesktop handles it automatically.
     if ( args->isSet( "migrate" ) ) {
         QByteArray packedArgs;
-        QDataStream stream( packedArgs, IO_WriteOnly );
+        QDataStream stream( packedArgs, QIODevice::WriteOnly );
         stream << (int)2;
         KIO::Job* job = KIO::special( "trash:/", packedArgs );
         (void)KIO::NetAccess::synchronousRun( job, 0 );
@@ -74,7 +76,7 @@ int main(int argc, char *argv[])
     }
 #endif
 
-    QCString restoreArg = args->getOption( "restore" );
+    Q3CString restoreArg = args->getOption( "restore" );
     if ( !restoreArg.isEmpty() ) {
 
         if (restoreArg.find("system:/trash")==0) {
@@ -89,7 +91,7 @@ int main(int argc, char *argv[])
         }
 
         QByteArray packedArgs;
-        QDataStream stream( packedArgs, IO_WriteOnly );
+        QDataStream stream( &packedArgs, QIODevice::WriteOnly );
         stream << (int)3 << trashURL;
         KIO::Job* job = KIO::special( trashURL, packedArgs );
         bool ok = KIO::NetAccess::synchronousRun( job, 0 );

@@ -31,7 +31,7 @@ class TrashProtocol : public QObject, public KIO::SlaveBase
 {
     Q_OBJECT
 public:
-    TrashProtocol( const QCString& protocol, const QCString &pool, const QCString &app);
+    TrashProtocol( const Q3CString& protocol, const Q3CString &pool, const Q3CString &app);
     virtual ~TrashProtocol();
     virtual void stat(const KURL& url);
     virtual void listDir(const KURL& url);
@@ -49,6 +49,9 @@ public:
      */
     virtual void special( const QByteArray & data );
 
+signals:
+    void leaveModality();
+
 private slots:
     void slotData( KIO::Job*, const QByteArray& );
     void slotMimetype( KIO::Job*, const QString& );
@@ -62,6 +65,7 @@ private:
                          KIO::UDSEntry& entry, const TrashedFileInfo& info );
     void listRoot();
     void restore( const KURL& trashURL );
+    void enterLoop();
 
     TrashImpl impl;
     QString m_userName;

@@ -977,7 +977,7 @@ void TestTrash::restoreFile()
     assert( QFile::exists( filesItem ) );
 
     QByteArray packedArgs;
-    QDataStream stream( packedArgs, IO_WriteOnly );
+    QDataStream stream( &packedArgs, IO_WriteOnly );
     stream << (int)3 << url;
     KIO::Job* job = KIO::special( url, packedArgs );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
@@ -1004,7 +1004,7 @@ void TestTrash::restoreFileFromSubDir()
     assert( QFile::exists( filesItem ) );
 
     QByteArray packedArgs;
-    QDataStream stream( packedArgs, IO_WriteOnly );
+    QDataStream stream( &packedArgs, IO_WriteOnly );
     stream << (int)3 << url;
     KIO::Job* job = KIO::special( url, packedArgs );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
@@ -1038,7 +1038,7 @@ void TestTrash::restoreFileToDeletedDirectory()
     assert( QFile::exists( filesItem ) );
 
     QByteArray packedArgs;
-    QDataStream stream( packedArgs, IO_WriteOnly );
+    QDataStream stream( &packedArgs, IO_WriteOnly );
     stream << (int)3 << url;
     KIO::Job* job = KIO::special( url, packedArgs );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
