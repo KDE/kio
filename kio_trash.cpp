@@ -23,7 +23,7 @@
 #include <kapplication.h>
 #include <kdebug.h>
 #include <klocale.h>
-#include <klargefile.h>
+#include <kde_file.h>
 #include <kcmdlineargs.h>
 #include <kmimetype.h>
 #include <kprocess.h>

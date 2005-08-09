@@ -19,7 +19,7 @@
 
 #include "trashimpl.h"
 #include <klocale.h>
-#include <klargefile.h>
+#include <kde_file.h>
 #include <kio/global.h>
 #include <kio/renamedlg.h>
 #include <kio/job.h>
