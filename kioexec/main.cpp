@@ -252,7 +252,7 @@ void KIOExec::slotRunApp()
         unlink( QFile::encodeName(src) );
     }
 
-    //kapp->quit(); not efficient enough
+    //qApp->quit(); not efficient enough
     exit(0);
 }
 
