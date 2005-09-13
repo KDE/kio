@@ -94,7 +94,7 @@ static QString makeWalletKey( const QString& key, const QString& realm )
 // Helper for storeInWallet/readFromWallet
 static QString makeMapKey( const char* key, int entryNumber )
 {
-    QString str = QString::fromLatin1( key );
+    QString str = QLatin1String( key );
     if ( entryNumber > 1 )
         str += "-" + QString::number( entryNumber );
     return str;
