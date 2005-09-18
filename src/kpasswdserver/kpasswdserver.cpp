@@ -43,7 +43,7 @@
 #endif
 
 extern "C" {
-    KDE_EXPORT KDEDModule *create_kpasswdserver(const Q3CString &name)
+    KDE_EXPORT KDEDModule *create_kpasswdserver(const QByteArray &name)
     {
        return new KPasswdServer(name);
     }
@@ -69,7 +69,7 @@ KPasswdServer::AuthInfoList::compareItems(Q3PtrCollection::Item n1, Q3PtrCollect
 }
 
 
-KPasswdServer::KPasswdServer(const Q3CString &name)
+KPasswdServer::KPasswdServer(const QByteArray &name)
  : KDEDModule(name)
 {
     m_authDict.setAutoDelete(true);

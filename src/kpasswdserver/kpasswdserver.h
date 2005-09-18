@@ -41,7 +41,7 @@ class KPasswdServer : public KDEDModule
   Q_OBJECT
   K_DCOP
 public:
-  KPasswdServer(const Q3CString &);
+  KPasswdServer(const QByteArray &);
   ~KPasswdServer();
 
 k_dcop:
