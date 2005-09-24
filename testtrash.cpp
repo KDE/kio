@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
 #endif
 
     // Use another directory than the real one, just to keep things clean
-    setenv( "XDG_DATA_HOME", QFile::encodeName( QDir::homeDirPath() + "/.local-testtrash" ), true );
+    setenv( "XDG_DATA_HOME", QFile::encodeName( QDir::homePath() + "/.local-testtrash" ), true );
     setenv( "KDE_FORK_SLAVES", "yes", true );
 
     KApplication::disableAutoDcopRegistration();
@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
 
 QString TestTrash::homeTmpDir() const
 {
-    return QDir::homeDirPath() + "/.kde/testtrash/";
+    return QDir::homePath() + "/.kde/testtrash/";
 }
 
 QString TestTrash::otherTmpDir() const
@@ -357,9 +357,9 @@ static void checkInfoFile( const QString& infoPath, const QString& origFilePath 
     QFileInfo info( infoPath );
     assert( info.exists() );
     assert( info.isFile() );
-    KSimpleConfig infoFile( info.absFilePath(), true );
+    KSimpleConfig infoFile( info.absoluteFilePath(), true );
     if ( !infoFile.hasGroup( "Trash Info" ) )
-        kdFatal() << "no Trash Info group in " << info.absFilePath() << endl;
+        kdFatal() << "no Trash Info group in " << info.absoluteFilePath() << endl;
     infoFile.setGroup( "Trash Info" );
     const QString origPath = infoFile.readEntry( "Path" );
     assert( !origPath.isEmpty() );

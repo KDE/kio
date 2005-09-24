@@ -63,7 +63,7 @@ TrashImpl::TrashImpl() :
     m_config( "trashrc" )
 {
     KDE_struct_stat buff;
-    if ( KDE_lstat( QFile::encodeName( QDir::homeDirPath() ), &buff ) == 0 ) {
+    if ( KDE_lstat( QFile::encodeName( QDir::homePath() ), &buff ) == 0 ) {
         m_homeDevice = buff.st_dev;
     } else {
         kdError() << "Should never happen: couldn't stat $HOME " << strerror( errno ) << endl;
@@ -257,7 +257,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
         info += KURL::encode_string( makeRelativePath( topDirectoryPath( trashId ), origPath ), m_mibEnum ).latin1();
     info += "\n";
     info += "DeletionDate=";
-    info += QDateTime::currentDateTime().toString( Qt::ISODate ).local8Bit();
+    info += QDateTime::currentDateTime().toString( Qt::ISODate ).toLocal8Bit();
     info += "\n";
     size_t sz = info.size() - 1; // avoid trailing 0 from QCString
 
