@@ -244,7 +244,7 @@ void TrashProtocol::copyOrMove( const KURL &src, const KURL &dest, bool overwrit
         error( KIO::ERR_UNSUPPORTED_ACTION, "should never happen" );
 }
 
-static void addAtom(KIO::UDSEntry& entry, unsigned int ID, long l, const QString& s = QString::null)
+static void addAtom(KIO::UDSEntry& entry, unsigned int ID, long long l, const QString& s = QString::null)
 {
     KIO::UDSAtom atom;
     atom.m_uds = ID;
