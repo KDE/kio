@@ -257,7 +257,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
         info += KURL::encode_string( makeRelativePath( topDirectoryPath( trashId ), origPath ), m_mibEnum ).latin1();
     info += "\n";
     info += "DeletionDate=";
-    info += QDateTime::currentDateTime().toString( Qt::ISODate ).toLocal8Bit();
+    info += QDateTime::currentDateTime().toString( Qt::ISODate ).toUtf8();
     info += "\n";
     size_t sz = info.size() - 1; // avoid trailing 0 from QCString
 
