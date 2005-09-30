@@ -77,7 +77,7 @@ protected:
     QString digestInfo;
 
     enum { expNever, expWindowClose, expTime } expire;
-    Q3ValueList<long> windowList;
+    QList<long> windowList;
     unsigned long expireTime;
     long seqNr;
 
