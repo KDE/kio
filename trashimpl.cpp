@@ -156,7 +156,9 @@ bool TrashImpl::init()
 void TrashImpl::migrateOldTrash()
 {
     kdDebug() << k_funcinfo << endl;
-    const QString oldTrashDir = KGlobalSettings::trashPath();
+
+    KConfigGroup g( KGlobal::config(), "Paths" );
+    const QString oldTrashDir = g.readPathEntry( "Trash" );
     const Q3StrList entries = listDir( oldTrashDir );
     bool allOK = true;
     Q3StrListIterator entryIt( entries );

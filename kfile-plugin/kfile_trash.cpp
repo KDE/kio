@@ -32,9 +32,9 @@ typedef KGenericFactory<KTrashPlugin> TrashFactory;
 K_EXPORT_COMPONENT_FACTORY(kfile_trash, TrashFactory("kfile_trash"))
 
 KTrashPlugin::KTrashPlugin(QObject *parent, const char *name,
-        const QStringList &args) : KFilePlugin(parent, name, args)
+        const QStringList &args) : KFilePlugin(parent, args)
 {
-    KGlobal::locale()->insertCatalogue( "kio_trash" );
+    KGlobal::locale()->insertCatalog( "kio_trash" );
 
     kdDebug(7034) << "Trash file meta info plugin\n";
 
