@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 1998, 1999 Torben Weis <weis@kde.org>
-   Copyright (C)       2000 David Faure <faure@kde.org>
+   Copyright (C)  2000-2005 David Faure <faure@kde.org>
    Copyright (C)       2001 Waldo Bastian <bastian@kde.org>
 
    This program is free software; you can redistribute it and/or
@@ -20,9 +20,6 @@
 */
 
 #include <config.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <sys/stat.h>
 
 #include <qfile.h>
 
@@ -58,15 +55,8 @@ static KCmdLineOptions options[] =
 };
 
 
-int jobCounter = 0;
-
-Q3PtrList<KIO::Job>* jobList = 0L;
-
 KIOExec::KIOExec()
 {
-    jobList = new Q3PtrList<KIO::Job>;
-    jobList->setAutoDelete( false ); // jobs autodelete themselves
-
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
     if (args->count() < 1)
         KCmdLineArgs::usage(i18n("'command' expected.\n"));
@@ -74,6 +64,7 @@ KIOExec::KIOExec()
     tempfiles = args->isSet("tempfiles");
 
     expectedCounter = 0;
+    jobCounter = 0;
     command = args->arg(0);
     kdDebug() << "command=" << command << endl;
 
@@ -85,7 +76,7 @@ KIOExec::KIOExec()
         // => It is not encoded and not shell escaped, too.
         if ( url.isLocalFile() )
         {
-            fileInfo file;
+            FileInfo file;
             file.path = url.path();
             file.url = url;
             fileList.append(file);
@@ -106,7 +97,7 @@ KIOExec::KIOExec()
                 // (Some programs rely on it)
                 QString tmp = KGlobal::dirs()->saveLocation( "cache", "krun/" ) +
                               QString("%1.%2.%3").arg(getpid()).arg(jobCounter++).arg(fileName);
-                fileInfo file;
+                FileInfo file;
                 file.path = tmp;
                 file.url = url;
                 fileList.append(file);
@@ -116,7 +107,7 @@ KIOExec::KIOExec()
                 dest.setPath( tmp );
                 kdDebug() << "Copying " << url.prettyURL() << " to " << dest << endl;
                 KIO::Job *job = KIO::file_copy( url, dest );
-                jobList->append( job );
+                jobList.append( job );
 
                 connect( job, SIGNAL( result( KIO::Job * ) ), SLOT( slotResult( KIO::Job * ) ) );
             }
@@ -143,7 +134,7 @@ void KIOExec::slotResult( KIO::Job * job )
 
         QString path = static_cast<KIO::FileCopyJob*>(job)->destURL().path();
 
-        Q3ValueList<fileInfo>::Iterator it = fileList.begin();
+        QList<FileInfo>::Iterator it = fileList.begin();
         for(;it != fileList.end(); ++it)
         {
            if ((*it).path == path)
@@ -151,9 +142,9 @@ void KIOExec::slotResult( KIO::Job * job )
         }
 
         if ( it != fileList.end() )
-           fileList.remove( it );
+           fileList.erase( it );
         else
-           kdDebug() <<  static_cast<KIO::FileCopyJob*>(job)->destURL().path() << " not found in list" << endl;
+           kdDebug() <<  path << " not found in list" << endl;
     }
 
     counter++;
@@ -165,21 +156,22 @@ void KIOExec::slotResult( KIO::Job * job )
     // We know we can run the app now - but let's finish the job properly first.
     QTimer::singleShot( 0, this, SLOT( slotRunApp() ) );
 
-    jobList->clear();
+    jobList.clear();
 }
 
 void KIOExec::slotRunApp()
 {
     if ( fileList.isEmpty() ) {
         kdDebug() << k_funcinfo << "No files downloaded -> exiting" << endl;
-        exit(1);
+        QApplication::exit(1);
+        return;
     }
 
     KService service("dummy", command, QString::null);
 
     KURL::List list;
     // Store modification times
-    Q3ValueList<fileInfo>::Iterator it = fileList.begin();
+    QList<FileInfo>::Iterator it = fileList.begin();
     for ( ; it != fileList.end() ; ++it )
     {
         KDE_struct_stat buff;
@@ -189,7 +181,7 @@ void KIOExec::slotRunApp()
         list << url;
     }
 
-    QStringList params = KRun::processDesktopExec(service, list, false /*no shell*/);
+    const QStringList params = KRun::processDesktopExec(service, list, false /*no shell*/);
 
     kdDebug() << "EXEC " << KShell::joinArgs( params ) << endl;
 
@@ -233,7 +225,7 @@ void KIOExec::slotRunApp()
                                                  i18n( "The file\n%1\nhas been modified.\nDo you want to upload the changes?" ).arg(dest.prettyURL()),
                                                  i18n( "File Changed" ), i18n("Upload"), i18n("Do Not Upload") ) == KMessageBox::Yes )
                 {
-                    kdDebug() << QString("src='%1'  dest='%2'").arg(src).arg(dest.url()).ascii() << endl;
+                    kdDebug() << "src='" << src << "'  dest='" << dest << "'" << endl;
                     // Do it the synchronous way.
                     if ( !KIO::NetAccess::upload( src, dest, 0 ) )
                     {
@@ -252,8 +244,7 @@ void KIOExec::slotRunApp()
         unlink( QFile::encodeName(src) );
     }
 
-    //qApp->quit(); not efficient enough
-    exit(0);
+    QApplication::exit(0);
 }
 
 int main( int argc, char **argv )
