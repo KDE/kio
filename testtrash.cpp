@@ -36,7 +36,7 @@
 
 #include <qdir.h>
 #include <qfileinfo.h>
-#include <qvaluevector.h>
+#include <qvector.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -143,7 +143,7 @@ void TestTrash::setup()
     m_otherPartitionId = 0;
     m_tmpIsWritablePartition = false;
     m_tmpTrashId = -1;
-    QValueVector<int> writableTopDirs;
+    QVector<int> writableTopDirs;
     for ( TrashImpl::TrashDirMap::ConstIterator it = trashDirs.begin(); it != trashDirs.end() ; ++it ) {
         if ( it.key() == 0 ) {
             assert( it.data() == m_trashDir );
@@ -169,7 +169,7 @@ void TestTrash::setup()
             }
         }
     }
-    for ( QValueVector<int>::const_iterator it = writableTopDirs.begin(); it != writableTopDirs.end(); ++it ) {
+    for ( QVector<int>::const_iterator it = writableTopDirs.begin(); it != writableTopDirs.end(); ++it ) {
         const QString topdir = topDirs[ *it ];
         const QString trashdir = trashDirs[ *it ];
         assert( !topdir.isEmpty() );
@@ -958,9 +958,8 @@ void TestTrash::getFile()
     ok = file.open( IO_ReadOnly );
     assert( ok );
     QByteArray str = file.readAll();
-    QCString cstr( str.data(), str.size() + 1 );
-    if ( cstr != "Hello world\n" )
-        kdFatal() << "get() returned the following data:" << cstr << endl;
+    if ( str != "Hello world\n" )
+        kdFatal() << "get() returned the following data:" << str << endl;
     file.close();
     KIO::NetAccess::removeTempFile( tmpFile );
 }
@@ -1109,19 +1108,9 @@ void TestTrash::listSubDir()
 void TestTrash::slotEntries( KIO::Job*, const KIO::UDSEntryList& lst )
 {
     for( KIO::UDSEntryList::ConstIterator it = lst.begin(); it != lst.end(); ++it ) {
-        KIO::UDSEntry::ConstIterator it2 = (*it).begin();
-        QString displayName;
-        KURL url;
-        for( ; it2 != (*it).end(); it2++ ) {
-            switch ((*it2).m_uds) {
-            case KIO::UDS_NAME:
-                displayName = (*it2).m_str;
-                break;
-            case KIO::UDS_URL:
-                url = (*it2).m_str;
-                break;
-            }
-        }
+        const KIO::UDSEntry& entry (*it);
+        QString displayName = entry.stringValue( KIO::UDS_NAME );
+        KURL url = entry.stringValue( KIO::UDS_URL );
         kdDebug() << k_funcinfo << displayName << " " << url << endl;
         if ( !url.isEmpty() ) {
             assert( url.protocol() == "trash" );
