@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
     setenv( "KDE_FORK_SLAVES", "yes", true );
 
     KApplication::disableAutoDcopRegistration();
-    KCmdLineArgs::init(argc,argv,"testtrash", 0, 0, 0, 0);
+    KCmdLineArgs::init(argc,argv,"testtrash", 0, 0, 0);
     KApplication app;
 
     TestTrash test;

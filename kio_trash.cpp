@@ -59,7 +59,7 @@ extern "C" {
         // KApplication is necessary to use kio_file
         putenv(strdup("SESSION_MANAGER="));
         KApplication::disableAutoDcopRegistration();
-        KCmdLineArgs::init(argc, argv, "kio_trash", 0, 0, 0, 0);
+        KCmdLineArgs::init(argc, argv, "kio_trash", 0, 0, 0);
         KCmdLineArgs::addCmdLineOptions( options );
         KApplication app( false, false );
 
