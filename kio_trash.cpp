@@ -244,24 +244,15 @@ void TrashProtocol::copyOrMove( const KURL &src, const KURL &dest, bool overwrit
         error( KIO::ERR_UNSUPPORTED_ACTION, "should never happen" );
 }
 
-static void addAtom(KIO::UDSEntry& entry, unsigned int ID, long long l, const QString& s = QString::null)
-{
-    KIO::UDSAtom atom;
-    atom.m_uds = ID;
-    atom.m_long = l;
-    atom.m_str = s;
-    entry.append(atom);
-}
-
 void TrashProtocol::createTopLevelDirEntry(KIO::UDSEntry& entry)
 {
     entry.clear();
-    addAtom(entry, KIO::UDS_NAME, 0, ".");
-    addAtom(entry, KIO::UDS_FILE_TYPE, S_IFDIR);
-    addAtom(entry, KIO::UDS_ACCESS, 0700);
-    addAtom(entry, KIO::UDS_MIME_TYPE, 0, "inode/directory");
-    addAtom(entry, KIO::UDS_USER, 0, m_userName);
-    addAtom(entry, KIO::UDS_GROUP, 0, m_groupName);
+    entry.insert( KIO::UDS_NAME, QString::fromLatin1("."));
+    entry.insert( KIO::UDS_FILE_TYPE, S_IFDIR);
+    entry.insert( KIO::UDS_ACCESS, 0700);
+    entry.insert( KIO::UDS_MIME_TYPE, QString::fromLatin1("inode/directory"));
+    entry.insert( KIO::UDS_USER, m_userName);
+    entry.insert( KIO::UDS_GROUP, m_groupName);
 }
 
 void TrashProtocol::stat(const KURL& url)
@@ -416,7 +407,7 @@ bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& 
             buffer2[ n ] = 0;
         }
 
-        addAtom( entry, KIO::UDS_LINK_DEST, 0, QFile::decodeName( buffer2 ) );
+        entry.insert( KIO::UDS_LINK_DEST, QFile::decodeName( buffer2 ) );
         // Follow symlink
         if ( KDE_stat( physicalPath_c, &buff ) == -1 ) {
             // It is a link pointing to nowhere
@@ -429,21 +420,21 @@ bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& 
     mode_t type = buff.st_mode & S_IFMT; // extract file type
     mode_t access = buff.st_mode & 07777; // extract permissions
     access &= 07555; // make it readonly, since it's in the trashcan
-    addAtom( entry, KIO::UDS_NAME, 0, fileName );
-    addAtom( entry, KIO::UDS_FILE_TYPE, type );
+    entry.insert( KIO::UDS_NAME, fileName );
+    entry.insert( KIO::UDS_FILE_TYPE, type );
     if ( !url.isEmpty() )
-        addAtom( entry, KIO::UDS_URL, 0, url );
+        entry.insert( KIO::UDS_URL, url );
 
     KMimeType::Ptr mt = KMimeType::findByPath( physicalPath, buff.st_mode );
-    addAtom( entry, KIO::UDS_MIME_TYPE, 0, mt->name() );
-    addAtom( entry, KIO::UDS_ACCESS, access );
-    addAtom( entry, KIO::UDS_SIZE, buff.st_size );
-    addAtom( entry, KIO::UDS_USER, 0, m_userName ); // assumption
-    addAtom( entry, KIO::UDS_GROUP, 0, m_groupName ); // assumption
-    addAtom( entry, KIO::UDS_MODIFICATION_TIME, buff.st_mtime );
-    addAtom( entry, KIO::UDS_ACCESS_TIME, buff.st_atime ); // ## or use it for deletion time?
-    addAtom( entry, KIO::UDS_EXTRA, 0, info.origPath );
-    addAtom( entry, KIO::UDS_EXTRA, 0, info.deletionDate.toString( Qt::ISODate ) );
+    entry.insert( KIO::UDS_MIME_TYPE, mt->name() );
+    entry.insert( KIO::UDS_ACCESS, access );
+    entry.insert( KIO::UDS_SIZE, buff.st_size );
+    entry.insert( KIO::UDS_USER, m_userName ); // assumption
+    entry.insert( KIO::UDS_GROUP, m_groupName ); // assumption
+    entry.insert( KIO::UDS_MODIFICATION_TIME, buff.st_mtime );
+    entry.insert( KIO::UDS_ACCESS_TIME, buff.st_atime ); // ## or use it for deletion time?
+    entry.insert( KIO::UDS_EXTRA, info.origPath );
+    entry.insert( KIO::UDS_EXTRA, info.deletionDate.toString( Qt::ISODate ) );
     return true;
 }
 
