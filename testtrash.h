@@ -34,6 +34,8 @@ public:
 
     // tests
 
+    void testIcons();
+
     void urlTestFile();
     void urlTestDirectory();
     void urlTestSubDirectory();

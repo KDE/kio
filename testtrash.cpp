@@ -45,21 +45,23 @@
 #include <kfileitem.h>
 #include <kstandarddirs.h>
 
-static bool check(const QString& txt, QString a, QString b)
+static bool check(QString a, QString b)
 {
     if (a.isEmpty())
         a = QString::null;
     if (b.isEmpty())
         b = QString::null;
     if (a == b) {
-        kdDebug() << txt << " : checking '" << a << "' against expected value '" << b << "'... " << "ok" << endl;
+        kdDebug() << " : checking '" << a << "' against expected value '" << b << "'... " << "ok" << endl;
     }
     else {
-        kdDebug() << txt << " : checking '" << a << "' against expected value '" << b << "'... " << "KO !" << endl;
+        kdDebug() << " : checking '" << a << "' against expected value '" << b << "'... " << "KO !" << endl;
         exit(1);
     }
     return true;
 }
+// for porting to qttestlib
+#define COMPARE check
 
 // There are two ways to test encoding things:
 // * with utf8 filenames
@@ -244,6 +246,8 @@ void TestTrash::cleanTrash()
 
 void TestTrash::runAll()
 {
+    testIcons();
+
     urlTestFile();
     urlTestDirectory();
     urlTestSubDirectory();
@@ -309,46 +313,46 @@ void TestTrash::runAll()
 void TestTrash::urlTestFile()
 {
     const KURL url = TrashImpl::makeURL( 1, "fileId", QString::null );
-    check( "makeURL for a file", url.url(), "trash:/1-fileId" );
+    COMPARE( url.url(), QLatin1String( "trash:/1-fileId" ) );
 
     int trashId;
     QString fileId;
     QString relativePath;
     bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
     assert( ok );
-    check( "parseURL: trashId", QString::number( trashId ), "1" );
-    check( "parseURL: fileId", fileId, "fileId" );
-    check( "parseURL: relativePath", relativePath, QString::null );
+    COMPARE( QString::number( trashId ), QString::fromLatin1( "1" ) );
+    COMPARE( fileId, QString::fromLatin1( "fileId" ) );
+    COMPARE( relativePath, QString::null );
 }
 
 void TestTrash::urlTestDirectory()
 {
     const KURL url = TrashImpl::makeURL( 1, "fileId", "subfile" );
-    check( "makeURL", url.url(), "trash:/1-fileId/subfile" );
+    COMPARE( url.url(), QString::fromLatin1( "trash:/1-fileId/subfile" ) );
 
     int trashId;
     QString fileId;
     QString relativePath;
     bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
     assert( ok );
-    check( "parseURL: trashId", QString::number( trashId ), "1" );
-    check( "parseURL: fileId", fileId, "fileId" );
-    check( "parseURL: relativePath", relativePath, "subfile" );
+    COMPARE( QString::number( trashId ), QString::fromLatin1( "1" ) );
+    COMPARE( fileId, QString::fromLatin1( "fileId" ) );
+    COMPARE( relativePath, QString::fromLatin1( "subfile" ) );
 }
 
 void TestTrash::urlTestSubDirectory()
 {
     const KURL url = TrashImpl::makeURL( 1, "fileId", "subfile/foobar" );
-    check( "makeURL", url.url(), "trash:/1-fileId/subfile/foobar" );
+    COMPARE( url.url(), QString::fromLatin1( "trash:/1-fileId/subfile/foobar" ) );
 
     int trashId;
     QString fileId;
     QString relativePath;
     bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
     assert( ok );
-    check( "parseURL: trashId", QString::number( trashId ), "1" );
-    check( "parseURL: fileId", fileId, "fileId" );
-    check( "parseURL: relativePath", relativePath, "subfile/foobar" );
+    COMPARE( QString::number( trashId ), QString::fromLatin1( "1" ) );
+    COMPARE( fileId, QString::fromLatin1( "fileId" ) );
+    COMPARE( relativePath, QString::fromLatin1( "subfile/foobar" ) );
 }
 
 static void checkInfoFile( const QString& infoPath, const QString& origFilePath )
@@ -1141,6 +1145,18 @@ void TestTrash::emptyTrash()
 #else
     kdDebug() << k_funcinfo << " : SKIPPED" << endl;
 #endif
+}
+
+static void checkIcon( const KURL& url, const QString& expectedIcon )
+{
+    QString icon = KMimeType::iconNameForURL( url );
+    COMPARE( icon, expectedIcon );
+}
+
+void TestTrash::testIcons()
+{
+    checkIcon( "trash:/", "trashcan_full" ); // #100321
+    checkIcon( "trash:/foo/", "folder" );
 }
 
 #include "testtrash.moc"
