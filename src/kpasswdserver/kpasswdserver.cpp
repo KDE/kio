@@ -27,7 +27,6 @@
 #include <time.h>
 
 #include <qtimer.h>
-#include <qx11info_x11.h>
 
 #include <kapplication.h>
 #include <klocale.h>
@@ -38,6 +37,7 @@
 
 #include "config.h"
 #ifdef Q_WS_X11
+#include <qx11info_x11.h>
 #include <X11/X.h>
 #include <X11/Xlib.h>
 #endif
@@ -289,7 +289,7 @@ KPasswdServer::openWallet( int windowId )
     }
     if ( !m_wallet )
         m_wallet = KWallet::Wallet::openWallet(
-            KWallet::Wallet::NetworkWallet(), windowId );
+            KWallet::Wallet::NetworkWallet(), (WId) windowId );
     return m_wallet != 0;
 }
 
