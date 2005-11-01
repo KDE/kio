@@ -31,7 +31,7 @@ class TrashProtocol : public QObject, public KIO::SlaveBase
 {
     Q_OBJECT
 public:
-    TrashProtocol( const Q3CString& protocol, const Q3CString &pool, const Q3CString &app);
+    TrashProtocol( const QByteArray& protocol, const QByteArray &pool, const QByteArray &app);
     virtual ~TrashProtocol();
     virtual void stat(const KURL& url);
     virtual void listDir(const KURL& url);

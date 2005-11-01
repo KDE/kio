@@ -76,7 +76,7 @@ extern "C" {
         return; \
     }
 
-TrashProtocol::TrashProtocol( const Q3CString& protocol, const Q3CString &pool, const Q3CString &app)
+TrashProtocol::TrashProtocol( const QByteArray& protocol, const QByteArray &pool, const QByteArray &app)
     : SlaveBase(protocol, pool, app )
 {
     struct passwd *user = getpwuid( getuid() );
