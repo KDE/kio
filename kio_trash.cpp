@@ -35,7 +35,6 @@
 #include <qeventloop.h>
 //Added by qt3to4:
 #include <Q3StrList>
-#include <Q3CString>
 
 #include <time.h>
 #include <pwd.h>
@@ -394,7 +393,7 @@ void TrashProtocol::listDir(const KURL& url)
 
 bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& fileName, const QString& url, KIO::UDSEntry& entry, const TrashedFileInfo& info )
 {
-    Q3CString physicalPath_c = QFile::encodeName( physicalPath );
+    QByteArray physicalPath_c = QFile::encodeName( physicalPath );
     KDE_struct_stat buff;
     if ( KDE_lstat( physicalPath_c, &buff ) == -1 ) {
         kdWarning() << "couldn't stat " << physicalPath << endl;
