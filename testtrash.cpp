@@ -376,7 +376,7 @@ static void checkInfoFile( const QString& infoPath, const QString& origFilePath 
 static void createTestFile( const QString& path )
 {
     QFile f( path );
-    if ( !f.open( IO_WriteOnly ) )
+    if ( !f.open( QIODevice::WriteOnly ) )
         kdFatal() << "Can't create " << path << endl;
     f.writeBlock( "Hello world\n", 12 );
     f.close();
@@ -959,7 +959,7 @@ void TestTrash::getFile()
     bool ok = KIO::NetAccess::download( url, tmpFile, 0 );
     assert( ok );
     QFile file( tmpFile );
-    ok = file.open( IO_ReadOnly );
+    ok = file.open( QIODevice::ReadOnly );
     assert( ok );
     QByteArray str = file.readAll();
     if ( str != "Hello world\n" )
@@ -980,7 +980,7 @@ void TestTrash::restoreFile()
     assert( QFile::exists( filesItem ) );
 
     QByteArray packedArgs;
-    QDataStream stream( &packedArgs, IO_WriteOnly );
+    QDataStream stream( &packedArgs, QIODevice::WriteOnly );
     stream << (int)3 << url;
     KIO::Job* job = KIO::special( url, packedArgs );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
@@ -1007,7 +1007,7 @@ void TestTrash::restoreFileFromSubDir()
     assert( QFile::exists( filesItem ) );
 
     QByteArray packedArgs;
-    QDataStream stream( &packedArgs, IO_WriteOnly );
+    QDataStream stream( &packedArgs, QIODevice::WriteOnly );
     stream << (int)3 << url;
     KIO::Job* job = KIO::special( url, packedArgs );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
@@ -1041,7 +1041,7 @@ void TestTrash::restoreFileToDeletedDirectory()
     assert( QFile::exists( filesItem ) );
 
     QByteArray packedArgs;
-    QDataStream stream( &packedArgs, IO_WriteOnly );
+    QDataStream stream( &packedArgs, QIODevice::WriteOnly );
     stream << (int)3 << url;
     KIO::Job* job = KIO::special( url, packedArgs );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
@@ -1132,7 +1132,7 @@ void TestTrash::emptyTrash()
 #if 0
     kdDebug() << k_funcinfo << endl;
     QByteArray packedArgs;
-    QDataStream stream( packedArgs, IO_WriteOnly );
+    QDataStream stream( packedArgs, QIODevice::WriteOnly );
     stream << (int)1;
     KIO::Job* job = KIO::special( "trash:/", packedArgs );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
