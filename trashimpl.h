@@ -87,7 +87,7 @@ public:
         QDateTime deletionDate; // from info file
     };
     /// List trashed files
-    typedef Q3ValueList<TrashedFileInfo> TrashedFileInfoList;
+    typedef QList<TrashedFileInfo> TrashedFileInfoList;
     TrashedFileInfoList list();
 
     /// Return the info for a given trashed file
