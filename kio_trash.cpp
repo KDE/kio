@@ -60,7 +60,7 @@ extern "C" {
         KApplication::disableAutoDcopRegistration();
         KCmdLineArgs::init(argc, argv, "kio_trash", 0, 0, 0);
         KCmdLineArgs::addCmdLineOptions( options );
-        KApplication app( false, false );
+        KApplication app( false );
 
         KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
         TrashProtocol slave( args->arg(0), args->arg(1), args->arg(2) );
