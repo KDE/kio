@@ -25,7 +25,7 @@
 #include <kdirnotify_stub.h>
 #include <kdebug.h>
 //Added by qt3to4:
-#include <Q3CString>
+#include <QByteArray>
 
 static KCmdLineOptions options[] =
 {
@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
     }
 #endif
 
-    Q3CString restoreArg = args->getOption( "restore" );
+    QByteArray restoreArg = args->getOption( "restore" );
     if ( !restoreArg.isEmpty() ) {
 
         if (restoreArg.find("system:/trash")==0) {

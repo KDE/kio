@@ -29,7 +29,7 @@
 #include <q3valuelist.h>
 #include <q3strlist.h>
 //Added by qt3to4:
-#include <Q3CString>
+#include <QByteArray>
 #include <assert.h>
 
 /**
@@ -147,7 +147,7 @@ private:
     void scanTrashDirectories() const;
 
     int idForTrashDirectory( const QString& trashDir ) const;
-    bool initTrashDirectory( const Q3CString& trashDir_c ) const;
+    bool initTrashDirectory( const QByteArray& trashDir_c ) const;
     QString trashForMountPoint( const QString& topdir, bool createIfNeeded ) const;
     static QString makeRelativePath( const QString& topdir, const QString& path );
     

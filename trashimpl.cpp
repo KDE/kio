@@ -39,7 +39,7 @@
 #include <qdir.h>
 //Added by qt3to4:
 #include <Q3StrList>
-#include <Q3CString>
+#include <QByteArray>
 
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -83,7 +83,7 @@ bool TrashImpl::testDir( const QString &_name )
     QString name = _name;
     if ( name.endsWith( "/" ) )
       name.truncate( name.length() - 1 );
-    Q3CString path = QFile::encodeName(name);
+    QByteArray path = QFile::encodeName(name);
 
     bool ok = ::mkdir( path, S_IRWXU ) == 0;
     if ( !ok && errno == EEXIST ) {
@@ -194,7 +194,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
 {
     kdDebug() << k_funcinfo << origPath << endl;
     // Check source
-    const Q3CString origPath_c( QFile::encodeName( origPath ) );
+    const QByteArray origPath_c( QFile::encodeName( origPath ) );
     KDE_struct_stat buff_src;
     if ( KDE_lstat( origPath_c.data(), &buff_src ) == -1 ) {
         if ( errno == EACCES )
@@ -249,7 +249,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
 
     // Contents of the info file. We could use KSimpleConfig, but that would
     // mean closing and reopening fd, i.e. opening a race condition...
-    Q3CString info = "[Trash Info]\n";
+    QByteArray info = "[Trash Info]\n";
     info += "Path=";
     // Escape filenames according to the way they are encoded on the filesystem
     // All this to basically get back to the raw 8-bit representation of the filename...
@@ -477,7 +477,7 @@ bool TrashImpl::del( int trashId, const QString& fileId )
     QString info = infoPath(trashId, fileId);
     QString file = filesPath(trashId, fileId);
 
-    Q3CString info_c = QFile::encodeName(info);
+    QByteArray info_c = QFile::encodeName(info);
 
     KDE_struct_stat buff;
     if ( KDE_lstat( info_c.data(), &buff ) == -1 ) {
@@ -575,7 +575,7 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
 // Returns the entries in a given directory - including "." and ".."
 Q3StrList TrashImpl::listDir( const QString& physicalPath )
 {
-    const Q3CString physicalPathEnc = QFile::encodeName( physicalPath );
+    const QByteArray physicalPathEnc = QFile::encodeName( physicalPath );
     kdDebug() << k_funcinfo << "listing " << physicalPath << endl;
     Q3StrList entryNames;
     DIR *dp = opendir( physicalPathEnc );
@@ -728,7 +728,7 @@ void TrashImpl::scanTrashDirectories() const
 {
     const KMountPoint::List lst = KMountPoint::currentMountPoints();
     for ( KMountPoint::List::ConstIterator it = lst.begin() ; it != lst.end() ; ++it ) {
-        const Q3CString str = (*it)->mountType().latin1();
+        const QByteArray str = (*it)->mountType().latin1();
         // Skip pseudo-filesystems, there's no chance we'll find a .Trash on them :)
         // ## Maybe we should also skip readonly filesystems
         if ( str != "proc" && str != "devfs" && str != "usbdevfs" &&
@@ -784,7 +784,7 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
              && (buff.st_mode & requiredBits == requiredBits)
             ) {
             const QString trashDir = rootTrashDir + "/" + QString::number( uid );
-            const Q3CString trashDir_c = QFile::encodeName( trashDir );
+            const QByteArray trashDir_c = QFile::encodeName( trashDir );
             if ( KDE_lstat( trashDir_c, &buff ) == 0 ) {
                 if ( (buff.st_uid == uid) // must be owned by user
                      && (S_ISDIR(buff.st_mode)) // must be a dir
@@ -804,7 +804,7 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
 
     // (2) $topdir/.Trash-$uid
     const QString trashDir = topdir + "/.Trash-" + QString::number( uid );
-    const Q3CString trashDir_c = QFile::encodeName( trashDir );
+    const QByteArray trashDir_c = QFile::encodeName( trashDir );
     if ( KDE_lstat( trashDir_c, &buff ) == 0 )
     {
         if ( (buff.st_uid == uid) // must be owned by user
@@ -835,7 +835,7 @@ int TrashImpl::idForTrashDirectory( const QString& trashDir ) const
     return -1;
 }
 
-bool TrashImpl::initTrashDirectory( const Q3CString& trashDir_c ) const
+bool TrashImpl::initTrashDirectory( const QByteArray& trashDir_c ) const
 {
     if ( ::mkdir( trashDir_c, 0700 ) != 0 )
         return false;
@@ -848,10 +848,10 @@ bool TrashImpl::initTrashDirectory( const Q3CString& trashDir_c ) const
     if ( (buff.st_uid == uid) // must be owned by user
          && ((buff.st_mode & 0777) == 0700) ) { // rwx for user, --- for group and others
 
-        Q3CString info_c = trashDir_c + "/info";
+        QByteArray info_c = trashDir_c + "/info";
         if ( ::mkdir( info_c, 0700 ) != 0 )
             return false;
-        Q3CString files_c = trashDir_c + "/files";
+        QByteArray files_c = trashDir_c + "/files";
         if ( ::mkdir( files_c, 0700 ) != 0 )
             return false;
     } else {
