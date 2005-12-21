@@ -25,7 +25,7 @@
 
 #include <qobject.h>
 #include <qstring.h>
-#include <qlist.h>
+#include <QList>
 #include <qtimer.h>
 
 namespace KIO { class Job; }
