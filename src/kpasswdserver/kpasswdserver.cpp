@@ -252,7 +252,7 @@ KPasswdServer::queryAuthInfo(KIO::AuthInfo info, QString errorMsg, long windowId
     request->seqNr = seqNr;
     if (errorMsg == "<NoAuthPrompt>")
     {
-       request->errorMsg = QString::null;
+       request->errorMsg.clear();
        request->prompt = false;
     }
     else
@@ -486,7 +486,7 @@ QString KPasswdServer::createCacheKey( const KIO::AuthInfo &info )
     if( !info.url.isValid() ) {
         // Note that a null key will break findAuthInfoItem later on...
         kdWarning(130) << "createCacheKey: invalid URL " << info.url << endl;
-        return QString::null;
+        return QString();
     }
 
     // Generate the basic key sequence.
