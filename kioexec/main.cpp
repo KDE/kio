@@ -167,7 +167,7 @@ void KIOExec::slotRunApp()
         return;
     }
 
-    KService service("dummy", command, QString::null);
+    KService service("dummy", command, QString());
 
     KURL::List list;
     // Store modification times
