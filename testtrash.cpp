@@ -48,9 +48,9 @@
 static bool check(QString a, QString b)
 {
     if (a.isEmpty())
-        a = QString::null;
+        a.clear();
     if (b.isEmpty())
-        b = QString::null;
+        b.clear();
     if (a == b) {
         kdDebug() << " : checking '" << a << "' against expected value '" << b << "'... " << "ok" << endl;
     }
@@ -312,7 +312,7 @@ void TestTrash::runAll()
 
 void TestTrash::urlTestFile()
 {
-    const KURL url = TrashImpl::makeURL( 1, "fileId", QString::null );
+    const KURL url = TrashImpl::makeURL( 1, "fileId", QString() );
     COMPARE( url.url(), QLatin1String( "trash:/1-fileId" ) );
 
     int trashId;
@@ -322,7 +322,7 @@ void TestTrash::urlTestFile()
     assert( ok );
     COMPARE( QString::number( trashId ), QString::fromLatin1( "1" ) );
     COMPARE( fileId, QString::fromLatin1( "fileId" ) );
-    COMPARE( relativePath, QString::null );
+    COMPARE( relativePath, QString() );
 }
 
 void TestTrash::urlTestDirectory()
@@ -954,7 +954,7 @@ void TestTrash::getFile()
 {
     kdDebug() << k_funcinfo << endl;
     const QString fileId = "fileFromHome_1";
-    const KURL url = TrashImpl::makeURL( 0, fileId, QString::null );
+    const KURL url = TrashImpl::makeURL( 0, fileId, QString() );
     QString tmpFile;
     bool ok = KIO::NetAccess::download( url, tmpFile, 0 );
     assert( ok );
@@ -972,7 +972,7 @@ void TestTrash::restoreFile()
 {
     kdDebug() << k_funcinfo << endl;
     const QString fileId = "fileFromHome_1";
-    const KURL url = TrashImpl::makeURL( 0, fileId, QString::null );
+    const KURL url = TrashImpl::makeURL( 0, fileId, QString() );
     const QString infoFile( m_trashDir + "/info/" + fileId + ".trashinfo" );
     const QString filesItem( m_trashDir + "/files/" + fileId );
 
@@ -999,7 +999,7 @@ void TestTrash::restoreFileFromSubDir()
     const QString fileId = "trashDirFromHome_1/testfile";
     assert( !QFile::exists( homeTmpDir() + "trashDirFromHome_1" ) );
 
-    const KURL url = TrashImpl::makeURL( 0, fileId, QString::null );
+    const KURL url = TrashImpl::makeURL( 0, fileId, QString() );
     const QString infoFile( m_trashDir + "/info/trashDirFromHome_1.trashinfo" );
     const QString filesItem( m_trashDir + "/files/trashDirFromHome_1/testfile" );
 
@@ -1033,7 +1033,7 @@ void TestTrash::restoreFileToDeletedDirectory()
     assert( delOK );
 
     const QString fileId = "fileFromHome";
-    const KURL url = TrashImpl::makeURL( 0, fileId, QString::null );
+    const KURL url = TrashImpl::makeURL( 0, fileId, QString() );
     const QString infoFile( m_trashDir + "/info/" + fileId + ".trashinfo" );
     const QString filesItem( m_trashDir + "/files/" + fileId );
 

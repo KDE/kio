@@ -815,12 +815,12 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
         }
         kdDebug() << "Directory " << trashDir << " exists but didn't pass the security checks, can't use it" << endl;
         // Exists, but not useable
-        return QString::null;
+        return QString();
     }
     if ( createIfNeeded && initTrashDirectory( trashDir_c ) ) {
         return trashDir;
     }
-    return QString::null;
+    return QString();
 }
 
 int TrashImpl::idForTrashDirectory( const QString& trashDir ) const
@@ -926,7 +926,7 @@ bool TrashImpl::parseURL( const KURL& url, int& trashId, QString& fileId, QStrin
     slashPos = path.find( '/', start );
     if ( slashPos <= 0 ) {
         fileId = path.mid( start );
-        relativePath = QString::null;
+        relativePath.clear();
         return true;
     }
     fileId = path.mid( start, slashPos - start );

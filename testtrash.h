@@ -95,8 +95,8 @@ private:
     void trashFile( const QString& origFilePath, const QString& fileId );
     void trashSymlink( const QString& origFilePath, const QString& fileName, bool broken );
     void trashDirectory( const QString& origPath, const QString& fileName );
-    void copyFromTrash( const QString& fileId, const QString& destPath, const QString& relativePath = QString::null );
-    void moveFromTrash( const QString& fileId, const QString& destPath, const QString& relativePath = QString::null );
+    void copyFromTrash( const QString& fileId, const QString& destPath, const QString& relativePath = QString() );
+    void moveFromTrash( const QString& fileId, const QString& destPath, const QString& relativePath = QString() );
 
     QString homeTmpDir() const;
     QString otherTmpDir() const;
