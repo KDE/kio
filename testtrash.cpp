@@ -468,7 +468,7 @@ void TestTrash::testTrashNotEmpty()
     KSimpleConfig cfg( "trashrc", true );
     assert( cfg.hasGroup( "Status" ) );
     cfg.setGroup( "Status" );
-    assert( cfg.readBoolEntry( "Empty", true ) == false );
+    assert( cfg.readEntry( "Empty", QVariant(true )).toBool() == false );
 }
 
 void TestTrash::trashFileFromOther()
@@ -1141,7 +1141,7 @@ void TestTrash::emptyTrash()
     KSimpleConfig cfg( "trashrc", true );
     assert( cfg.hasGroup( "Status" ) );
     cfg.setGroup( "Status" );
-    assert( cfg.readBoolEntry( "Empty", false ) == true );
+    assert( cfg.readEntry( "Empty", QVariant(false )).toBool() == true );
 #else
     kdDebug() << k_funcinfo << " : SKIPPED" << endl;
 #endif
