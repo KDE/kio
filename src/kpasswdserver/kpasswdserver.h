@@ -30,7 +30,7 @@
 
 #include <dcopclient.h>
 #include <kio/authinfo.h>
-#include <kded/kdedmodule.h>
+#include <kdedmodule.h>
 
 namespace KWallet {
     class Wallet;
