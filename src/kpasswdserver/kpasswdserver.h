@@ -49,7 +49,7 @@ k_dcop:
   KIO::AuthInfo queryAuthInfo(KIO::AuthInfo, QString, long, long);
   void addAuthInfo(KIO::AuthInfo, long);
 
-public slots:
+public Q_SLOTS:
   void processRequest();
   // Remove all authentication info associated with windowId
   void removeAuthForWindowId(long windowId);
