@@ -69,7 +69,7 @@ protected:
   struct AuthInfo {
     AuthInfo() { expire = expNever; isCanceled = false; seqNr = 0; }
 
-    KURL url;
+    KUrl url;
     QString directory;
     QString username;
     QString password;
