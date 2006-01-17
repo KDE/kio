@@ -36,7 +36,7 @@ class KIOExec : public QObject
 public:
     KIOExec();
 
-public slots:
+public Q_SLOTS:
     void slotResult( KIO::Job * );
     void slotRunApp();
 
