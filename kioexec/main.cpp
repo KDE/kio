@@ -70,7 +70,7 @@ KIOExec::KIOExec()
 
     for ( int i = 1; i < args->count(); i++ )
     {
-        KURL url = args->url(i);
+        KUrl url = args->url(i);
         //kdDebug() << "url=" << url.url() << " filename=" << url.fileName() << endl;
         // A local file, not an URL ?
         // => It is not encoded and not shell escaped, too.
@@ -103,7 +103,7 @@ KIOExec::KIOExec()
                 fileList.append(file);
 
                 expectedCounter++;
-                KURL dest;
+                KUrl dest;
                 dest.setPath( tmp );
                 kdDebug() << "Copying " << url.prettyURL() << " to " << dest << endl;
                 KIO::Job *job = KIO::file_copy( url, dest );
@@ -169,14 +169,14 @@ void KIOExec::slotRunApp()
 
     KService service("dummy", command, QString());
 
-    KURL::List list;
+    KUrl::List list;
     // Store modification times
     QList<FileInfo>::Iterator it = fileList.begin();
     for ( ; it != fileList.end() ; ++it )
     {
         KDE_struct_stat buff;
         (*it).time = KDE_stat( QFile::encodeName((*it).path), &buff ) ? 0 : buff.st_mtime;
-        KURL url;
+        KUrl url;
         url.setPath((*it).path);
         list << url;
     }
@@ -208,7 +208,7 @@ void KIOExec::slotRunApp()
     {
         KDE_struct_stat buff;
         QString src = (*it).path;
-        KURL dest = (*it).url;
+        KUrl dest = (*it).url;
         if ( (KDE_stat( QFile::encodeName(src), &buff ) == 0) &&
              ((*it).time != buff.st_mtime) )
         {
