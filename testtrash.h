@@ -88,7 +88,7 @@ public:
 
     void emptyTrash();
 
-private slots:
+private Q_SLOTS:
     void slotEntries( KIO::Job*, const KIO::UDSEntryList& );
 
 private:

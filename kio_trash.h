@@ -49,10 +49,10 @@ public:
      */
     virtual void special( const QByteArray & data );
 
-signals:
+Q_SIGNALS:
     void leaveModality();
 
-private slots:
+private Q_SLOTS:
     void slotData( KIO::Job*, const QByteArray& );
     void slotMimetype( KIO::Job*, const QString& );
     void jobFinished( KIO::Job* job );

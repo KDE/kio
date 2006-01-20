@@ -115,7 +115,7 @@ public:
     /// @internal This method is for TestTrash only. No entry with id 0.
     TrashDirMap topDirectories() const;
 
-signals:
+Q_SIGNALS:
     void leaveModality();
 
 private:
@@ -153,7 +153,7 @@ private:
     
     void enterLoop();
 
-private slots:
+private Q_SLOTS:
     void jobFinished(KIO::Job *job);
 
 private:
