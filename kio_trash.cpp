@@ -98,7 +98,7 @@ void TrashProtocol::enterLoop()
     eventLoop.exec(QEventLoop::ExcludeUserInputEvents);
 }
 
-void TrashProtocol::restore( const KURL& trashURL )
+void TrashProtocol::restore( const KUrl& trashURL )
 {
     int trashId;
     QString fileId, relativePath;
@@ -113,7 +113,7 @@ void TrashProtocol::restore( const KURL& trashURL )
         error( impl.lastErrorCode(), impl.lastErrorMessage() );
         return;
     }
-    KURL dest;
+    KUrl dest;
     dest.setPath( info.origPath );
     if ( !relativePath.isEmpty() )
         dest.addPath( relativePath );
@@ -131,7 +131,7 @@ void TrashProtocol::restore( const KURL& trashURL )
     copyOrMove( trashURL, dest, false /*overwrite*/, Move );
 }
 
-void TrashProtocol::rename( const KURL &oldURL, const KURL &newURL, bool overwrite )
+void TrashProtocol::rename( const KUrl &oldURL, const KUrl &newURL, bool overwrite )
 {
     INIT_IMPL;
 
@@ -145,7 +145,7 @@ void TrashProtocol::rename( const KURL &oldURL, const KURL &newURL, bool overwri
     copyOrMove( oldURL, newURL, overwrite, Move );
 }
 
-void TrashProtocol::copy( const KURL &src, const KURL &dest, int /*permissions*/, bool overwrite )
+void TrashProtocol::copy( const KUrl &src, const KUrl &dest, int /*permissions*/, bool overwrite )
 {
     INIT_IMPL;
 
@@ -159,7 +159,7 @@ void TrashProtocol::copy( const KURL &src, const KURL &dest, int /*permissions*/
     copyOrMove( src, dest, overwrite, Copy );
 }
 
-void TrashProtocol::copyOrMove( const KURL &src, const KURL &dest, bool overwrite, CopyOrMove action )
+void TrashProtocol::copyOrMove( const KUrl &src, const KUrl &dest, bool overwrite, CopyOrMove action )
 {
     if ( src.protocol() == "trash" && dest.isLocalFile() ) {
         // Extracting (e.g. via dnd). Ignore original location stored in info file.
@@ -227,7 +227,7 @@ void TrashProtocol::copyOrMove( const KURL &src, const KURL &dest, bool overwrit
                     error( impl.lastErrorCode(), impl.lastErrorMessage() );
                 } else {
                     // Inform caller of the final URL. Used by konq_undo.
-                    const KURL url = impl.makeURL( trashId, fileId, QString() );
+                    const KUrl url = impl.makeURL( trashId, fileId, QString() );
                     setMetaData( "trashURL-" + srcPath, url.url() );
                     finished();
                 }
@@ -254,7 +254,7 @@ void TrashProtocol::createTopLevelDirEntry(KIO::UDSEntry& entry)
     entry.insert( KIO::UDS_GROUP, m_groupName);
 }
 
-void TrashProtocol::stat(const KURL& url)
+void TrashProtocol::stat(const KUrl& url)
 {
     INIT_IMPL;
     const QString path = url.path();
@@ -308,7 +308,7 @@ void TrashProtocol::stat(const KURL& url)
     }
 }
 
-void TrashProtocol::del( const KURL &url, bool /*isfile*/ )
+void TrashProtocol::del( const KUrl &url, bool /*isfile*/ )
 {
     int trashId;
     QString fileId, relativePath;
@@ -334,7 +334,7 @@ void TrashProtocol::del( const KURL &url, bool /*isfile*/ )
     finished();
 }
 
-void TrashProtocol::listDir(const KURL& url)
+void TrashProtocol::listDir(const KUrl& url)
 {
     INIT_IMPL;
     kdDebug() << "listdir: " << url << endl;
@@ -446,8 +446,8 @@ void TrashProtocol::listRoot()
     createTopLevelDirEntry( entry );
     listEntry( entry, false );
     for ( TrashedFileInfoList::ConstIterator it = lst.begin(); it != lst.end(); ++it ) {
-        const KURL url = TrashImpl::makeURL( (*it).trashId, (*it).fileId, QString() );
-        KURL origURL;
+        const KUrl url = TrashImpl::makeURL( (*it).trashId, (*it).fileId, QString() );
+        KUrl origURL;
         origURL.setPath( (*it).origPath );
         entry.clear();
         if ( createUDSEntry( (*it).physicalPath, origURL.fileName(), url.url(), entry, *it ) )
@@ -476,7 +476,7 @@ void TrashProtocol::special( const QByteArray & data )
         break;
     case 3:
     {
-        KURL url;
+        KUrl url;
         stream >> url;
         restore( url );
         break;
@@ -488,7 +488,7 @@ void TrashProtocol::special( const QByteArray & data )
     }
 }
 
-void TrashProtocol::put( const KURL& url, int /*permissions*/, bool /*overwrite*/, bool /*resume*/ )
+void TrashProtocol::put( const KUrl& url, int /*permissions*/, bool /*overwrite*/, bool /*resume*/ )
 {
     INIT_IMPL;
     kdDebug() << "put: " << url << endl;
@@ -497,7 +497,7 @@ void TrashProtocol::put( const KURL& url, int /*permissions*/, bool /*overwrite*
     error( KIO::ERR_ACCESS_DENIED, url.prettyURL() );
 }
 
-void TrashProtocol::get( const KURL& url )
+void TrashProtocol::get( const KUrl& url )
 {
     INIT_IMPL;
     kdDebug() << "get() : " << url << endl;
@@ -526,7 +526,7 @@ void TrashProtocol::get( const KURL& url )
 
     // Usually we run jobs in TrashImpl (for e.g. future kdedmodule)
     // But for this one we wouldn't use DCOP for every bit of data...
-    KURL fileURL;
+    KUrl fileURL;
     fileURL.setPath( physicalPath );
     KIO::Job* job = KIO::get( fileURL );
     connect( job, SIGNAL( data( KIO::Job*, const QByteArray& ) ),
@@ -558,7 +558,7 @@ void TrashProtocol::jobFinished( KIO::Job* job )
 }
 
 #if 0
-void TrashProtocol::mkdir( const KURL& url, int /*permissions*/ )
+void TrashProtocol::mkdir( const KUrl& url, int /*permissions*/ )
 {
     INIT_IMPL;
     // create info about deleted dir

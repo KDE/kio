@@ -58,7 +58,7 @@ void KTrashPlugin::makeMimeTypeInfo(const QString& mimeType)
 
 bool KTrashPlugin::readInfo(KFileMetaInfo& info, uint)
 {
-    KURL url = info.url();
+    KUrl url = info.url();
 
     if ( url.protocol()=="system"
       && url.path().startsWith("/trash") )

@@ -33,19 +33,19 @@ class TrashProtocol : public QObject, public KIO::SlaveBase
 public:
     TrashProtocol( const QByteArray& protocol, const QByteArray &pool, const QByteArray &app);
     virtual ~TrashProtocol();
-    virtual void stat(const KURL& url);
-    virtual void listDir(const KURL& url);
-    virtual void get( const KURL& url );
-    virtual void put( const KURL& url, int , bool overwrite, bool );
-    virtual void rename( const KURL &, const KURL &, bool );
-    virtual void copy( const KURL &src, const KURL &dest, int permissions, bool overwrite );
-    // TODO (maybe) chmod( const KURL& url, int permissions );
-    virtual void del( const KURL &url, bool isfile );
+    virtual void stat(const KUrl& url);
+    virtual void listDir(const KUrl& url);
+    virtual void get( const KUrl& url );
+    virtual void put( const KUrl& url, int , bool overwrite, bool );
+    virtual void rename( const KUrl &, const KUrl &, bool );
+    virtual void copy( const KUrl &src, const KUrl &dest, int permissions, bool overwrite );
+    // TODO (maybe) chmod( const KUrl& url, int permissions );
+    virtual void del( const KUrl &url, bool isfile );
     /**
      * Special actions: (first int in the byte array)
      * 1 : empty trash
      * 2 : migrate old (pre-kde-3.4) trash contents
-     * 3 : restore a file to its original location. Args: KURL trashURL.
+     * 3 : restore a file to its original location. Args: KUrl trashURL.
      */
     virtual void special( const QByteArray & data );
 
@@ -59,12 +59,12 @@ private Q_SLOTS:
 
 private:
     typedef enum CopyOrMove { Copy, Move };
-    void copyOrMove( const KURL& src, const KURL& dest, bool overwrite, CopyOrMove action );
+    void copyOrMove( const KUrl& src, const KUrl& dest, bool overwrite, CopyOrMove action );
     void createTopLevelDirEntry(KIO::UDSEntry& entry);
     bool createUDSEntry( const QString& physicalPath, const QString& fileName, const QString& url,
                          KIO::UDSEntry& entry, const TrashedFileInfo& info );
     void listRoot();
-    void restore( const KURL& trashURL );
+    void restore( const KUrl& trashURL );
     void enterLoop();
 
     TrashImpl impl;

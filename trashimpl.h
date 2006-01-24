@@ -106,8 +106,8 @@ public:
 
     Q3StrList listDir( const QString& physicalPath );
 
-    static KURL makeURL( int trashId, const QString& fileId, const QString& relativePath );
-    static bool parseURL( const KURL& url, int& trashId, QString& fileId, QString& relativePath );
+    static KUrl makeURL( int trashId, const QString& fileId, const QString& relativePath );
+    static bool parseURL( const KUrl& url, int& trashId, QString& fileId, QString& relativePath );
 
     typedef QMap<int, QString> TrashDirMap;
     /// @internal This method is for TestTrash only. Home trash is included (id 0).

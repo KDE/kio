@@ -213,13 +213,13 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     kdDebug() << k_funcinfo << "trashing to " << trashId << endl;
 
     // Grab original filename
-    KURL url;
+    KUrl url;
     url.setPath( origPath );
     const QString origFileName = url.fileName();
 
     // Make destination file in info/
     url.setPath( infoPath( trashId, origFileName ) ); // we first try with origFileName
-    KURL baseDirectory;
+    KUrl baseDirectory;
     baseDirectory.setPath( url.directory() );
     // Here we need to use O_EXCL to avoid race conditions with other kioslave processes
     int fd = 0;
@@ -254,9 +254,9 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     // Escape filenames according to the way they are encoded on the filesystem
     // All this to basically get back to the raw 8-bit representation of the filename...
     if ( trashId == 0 ) // home trash: absolute path
-        info += KURL::encode_string( origPath, m_mibEnum ).latin1();
+        info += KUrl::encode_string( origPath, m_mibEnum ).latin1();
     else
-        info += KURL::encode_string( makeRelativePath( topDirectoryPath( trashId ), origPath ), m_mibEnum ).latin1();
+        info += KUrl::encode_string( makeRelativePath( topDirectoryPath( trashId ), origPath ), m_mibEnum ).latin1();
     info += "\n";
     info += "DeletionDate=";
     info += QDateTime::currentDateTime().toString( Qt::ISODate ).toLatin1();
@@ -359,7 +359,7 @@ bool TrashImpl::move( const QString& src, const QString& dest )
         // This notification is done by KIO::moveAs when using the code below
         // But if we do a direct rename we need to do the notification ourselves
         KDirNotify_stub allDirNotify( "*", "KDirNotify*" );
-        KURL urlDest; urlDest.setPath( dest );
+        KUrl urlDest; urlDest.setPath( dest );
         urlDest.setPath( urlDest.directory() );
         allDirNotify.FilesAdded( urlDest );
         return true;
@@ -367,7 +367,7 @@ bool TrashImpl::move( const QString& src, const QString& dest )
     if ( m_lastErrorCode != KIO::ERR_UNSUPPORTED_ACTION )
         return false;
 
-    KURL urlSrc, urlDest;
+    KUrl urlSrc, urlDest;
     urlSrc.setPath( src );
     urlDest.setPath( dest );
     kdDebug() << k_funcinfo << urlSrc << " -> " << urlDest << endl;
@@ -413,9 +413,9 @@ bool TrashImpl::copy( const QString& src, const QString& dest )
 {
     // kio_file's copy() method is quite complex (in order to be fast), let's just call it...
     m_lastErrorCode = 0;
-    KURL urlSrc;
+    KUrl urlSrc;
     urlSrc.setPath( src );
-    KURL urlDest;
+    KUrl urlDest;
     urlDest.setPath( dest );
     kdDebug() << k_funcinfo << "copying " << src << " to " << dest << endl;
     KIO::CopyJob* job = KIO::copyAs( urlSrc, urlDest, false );
@@ -500,7 +500,7 @@ bool TrashImpl::synchronousDel( const QString& path, bool setLastErrorCode )
 {
     const int oldErrorCode = m_lastErrorCode;
     const QString oldErrorMsg = m_lastErrorMessage;
-    KURL url;
+    KUrl url;
     url.setPath( path );
     KIO::DeleteJob *job = KIO::del( url, false, false );
     connect( job, SIGNAL( result(KIO::Job *) ),
@@ -605,7 +605,7 @@ bool TrashImpl::readInfoFile( const QString& infoPath, TrashedFileInfo& info, in
         return false;
     }
     cfg.setGroup( "Trash Info" );
-    info.origPath = KURL::decode_string( cfg.readEntry( "Path" ), m_mibEnum );
+    info.origPath = KUrl::decode_string( cfg.readEntry( "Path" ), m_mibEnum );
     if ( info.origPath.isEmpty() )
         return false; // path is mandatory...
     if ( trashId == 0 )
@@ -888,9 +888,9 @@ QString TrashImpl::topDirectoryPath( int trashId ) const
 
 // Helper method. Creates a URL with the format trash:/trashid-fileid or
 // trash:/trashid-fileid/relativePath/To/File for a file inside a trashed directory.
-KURL TrashImpl::makeURL( int trashId, const QString& fileId, const QString& relativePath )
+KUrl TrashImpl::makeURL( int trashId, const QString& fileId, const QString& relativePath )
 {
-    KURL url;
+    KUrl url;
     url.setProtocol( "trash" );
     QString path = "/";
     path += QString::number( trashId );
@@ -906,7 +906,7 @@ KURL TrashImpl::makeURL( int trashId, const QString& fileId, const QString& rela
 
 // Helper method. Parses a trash URL with the URL scheme defined in makeURL.
 // The trash:/ URL itself isn't parsed here, must be caught by the caller before hand.
-bool TrashImpl::parseURL( const KURL& url, int& trashId, QString& fileId, QString& relativePath )
+bool TrashImpl::parseURL( const KUrl& url, int& trashId, QString& fileId, QString& relativePath )
 {
     if ( url.protocol() != "trash" )
         return false;

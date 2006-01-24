@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
             restoreArg.prepend("trash:");
         }
 
-        KURL trashURL( restoreArg );
+        KUrl trashURL( restoreArg );
         if ( !trashURL.isValid() || trashURL.protocol() != "trash" ) {
             kdError() << "Invalid URL for restoring a trashed file:" << trashURL << endl;
             return 1;
