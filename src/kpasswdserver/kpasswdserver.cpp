@@ -112,7 +112,7 @@ static bool storeInWallet( KWallet::Wallet* wallet, const QString& key, const KI
     int entryNumber = 1;
     Map map;
     QString walletKey = makeWalletKey( key, info.realmValue );
-    kdDebug(130) << "storeInWallet: walletKey=" << walletKey << "  reading existing map" << endl;
+    kDebug(130) << "storeInWallet: walletKey=" << walletKey << "  reading existing map" << endl;
     if ( wallet->readMap( walletKey, map ) == 0 ) {
         Map::ConstIterator end = map.end();
         Map::ConstIterator it = map.find( "login" );
@@ -126,7 +126,7 @@ static bool storeInWallet( KWallet::Wallet* wallet, const QString& key, const KI
     }
     const QString loginKey = makeMapKey( "login", entryNumber );
     const QString passwordKey = makeMapKey( "password", entryNumber );
-    kdDebug(130) << "storeInWallet: writing to " << loginKey << "," << passwordKey << endl;
+    kDebug(130) << "storeInWallet: writing to " << loginKey << "," << passwordKey << endl;
     // note the overwrite=true by default
     map.insert( loginKey, info.username );
     map.insert( passwordKey, info.password );
@@ -137,7 +137,7 @@ static bool storeInWallet( KWallet::Wallet* wallet, const QString& key, const KI
 
 static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const QString& realm, QString& username, QString& password, bool userReadOnly, QMap<QString,QString>& knownLogins )
 {
-    //kdDebug(130) << "readFromWallet: key=" << key << " username=" << username << " password=" /*<< password*/ << " userReadOnly=" << userReadOnly << " realm=" << realm << endl;
+    //kDebug(130) << "readFromWallet: key=" << key << " username=" << username << " password=" /*<< password*/ << " userReadOnly=" << userReadOnly << " realm=" << realm << endl;
     if ( wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) )
     {
         wallet->setFolder( KWallet::Wallet::PasswordFolder() );
@@ -150,7 +150,7 @@ static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const Q
             Map::ConstIterator end = map.end();
             Map::ConstIterator it = map.find( "login" );
             while ( it != end ) {
-                //kdDebug(130) << "readFromWallet: found " << it.key() << "=" << it.data() << endl;
+                //kDebug(130) << "readFromWallet: found " << it.key() << "=" << it.data() << endl;
                 Map::ConstIterator pwdIter = map.find( makeMapKey( "password", entryNumber ) );
                 if ( pwdIter != end ) {
                     if ( it.data() == username )
@@ -160,13 +160,13 @@ static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const Q
 
                 it = map.find( QString( "login-" ) + QString::number( ++entryNumber ) );
             }
-            //kdDebug(130) << knownLogins.count() << " known logins" << endl;
+            //kDebug(130) << knownLogins.count() << " known logins" << endl;
 
             if ( !userReadOnly && !knownLogins.isEmpty() && username.isEmpty() ) {
                 // Pick one, any one...
                 username = knownLogins.begin().key();
                 password = knownLogins.begin().data();
-                //kdDebug(130) << "readFromWallet: picked the first one : " << username << endl;
+                //kDebug(130) << "readFromWallet: picked the first one : " << username << endl;
             }
 
             return true;
@@ -178,7 +178,7 @@ static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const Q
 KIO::AuthInfo
 KPasswdServer::checkAuthInfo(KIO::AuthInfo info, long windowId)
 {
-    kdDebug(130) << "KPasswdServer::checkAuthInfo: User= " << info.username
+    kDebug(130) << "KPasswdServer::checkAuthInfo: User= " << info.username
               << ", WindowId = " << windowId << endl;
 
     QString key = createCacheKey(info);
@@ -237,10 +237,10 @@ KPasswdServer::checkAuthInfo(KIO::AuthInfo info, long windowId)
 KIO::AuthInfo
 KPasswdServer::queryAuthInfo(KIO::AuthInfo info, QString errorMsg, long windowId, long seqNr)
 {
-    kdDebug(130) << "KPasswdServer::queryAuthInfo: User= " << info.username
+    kDebug(130) << "KPasswdServer::queryAuthInfo: User= " << info.username
               << ", Message= " << info.prompt << ", WindowId = " << windowId << endl;
     if ( !info.password.isEmpty() ) // should we really allow the caller to pre-fill the password?
-        kdDebug(130) <<  "password was set by caller" << endl;
+        kDebug(130) <<  "password was set by caller" << endl;
 
     QString key = createCacheKey(info);
     Request *request = new Request;
@@ -271,7 +271,7 @@ KPasswdServer::queryAuthInfo(KIO::AuthInfo info, QString errorMsg, long windowId
 void
 KPasswdServer::addAuthInfo(KIO::AuthInfo info, long windowId)
 {
-    kdDebug(130) << "KPasswdServer::addAuthInfo: User= " << info.username
+    kDebug(130) << "KPasswdServer::addAuthInfo: User= " << info.username
               << ", RealmValue= " << info.realmValue << ", WindowId = " << windowId << endl;
     QString key = createCacheKey(info);
 
@@ -302,13 +302,13 @@ KPasswdServer::processRequest()
 
     KIO::AuthInfo &info = request->info;
 
-    kdDebug(130) << "KPasswdServer::processRequest: User= " << info.username
+    kDebug(130) << "KPasswdServer::processRequest: User= " << info.username
               << ", Message= " << info.prompt << endl;
     const AuthInfo *result = findAuthInfoItem(request->key, request->info);
 
     if (result && (request->seqNr < result->seqNr))
     {
-        kdDebug(130) << "KPasswdServer::processRequest: auto retry!" << endl;
+        kDebug(130) << "KPasswdServer::processRequest: auto retry!" << endl;
         if (result->isCanceled)
         {
            info.setModified(false);
@@ -485,7 +485,7 @@ QString KPasswdServer::createCacheKey( const KIO::AuthInfo &info )
 {
     if( !info.url.isValid() ) {
         // Note that a null key will break findAuthInfoItem later on...
-        kdWarning(130) << "createCacheKey: invalid URL " << info.url << endl;
+        kWarning(130) << "createCacheKey: invalid URL " << info.url << endl;
         return QString();
     }
 
@@ -610,11 +610,11 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, lo
    {
       current = new AuthInfo;
       current->expire = AuthInfo::expTime;
-      kdDebug(130) << "Creating AuthInfo" << endl;
+      kDebug(130) << "Creating AuthInfo" << endl;
    }
    else
    {
-      kdDebug(130) << "Updating AuthInfo" << endl;
+      kDebug(130) << "Updating AuthInfo" << endl;
    }
 
    current->url = info.url;
