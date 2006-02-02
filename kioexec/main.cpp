@@ -66,12 +66,12 @@ KIOExec::KIOExec()
     expectedCounter = 0;
     jobCounter = 0;
     command = args->arg(0);
-    kdDebug() << "command=" << command << endl;
+    kDebug() << "command=" << command << endl;
 
     for ( int i = 1; i < args->count(); i++ )
     {
         KUrl url = args->url(i);
-        //kdDebug() << "url=" << url.url() << " filename=" << url.fileName() << endl;
+        //kDebug() << "url=" << url.url() << " filename=" << url.fileName() << endl;
         // A local file, not an URL ?
         // => It is not encoded and not shell escaped, too.
         if ( url.isLocalFile() )
@@ -105,7 +105,7 @@ KIOExec::KIOExec()
                 expectedCounter++;
                 KUrl dest;
                 dest.setPath( tmp );
-                kdDebug() << "Copying " << url.prettyURL() << " to " << dest << endl;
+                kDebug() << "Copying " << url.prettyURL() << " to " << dest << endl;
                 KIO::Job *job = KIO::file_copy( url, dest );
                 jobList.append( job );
 
@@ -144,7 +144,7 @@ void KIOExec::slotResult( KIO::Job * job )
         if ( it != fileList.end() )
            fileList.erase( it );
         else
-           kdDebug() <<  path << " not found in list" << endl;
+           kDebug() <<  path << " not found in list" << endl;
     }
 
     counter++;
@@ -152,7 +152,7 @@ void KIOExec::slotResult( KIO::Job * job )
     if ( counter < expectedCounter )
         return;
 
-    kdDebug() << "All files downloaded, will call slotRunApp shortly" << endl;
+    kDebug() << "All files downloaded, will call slotRunApp shortly" << endl;
     // We know we can run the app now - but let's finish the job properly first.
     QTimer::singleShot( 0, this, SLOT( slotRunApp() ) );
 
@@ -162,7 +162,7 @@ void KIOExec::slotResult( KIO::Job * job )
 void KIOExec::slotRunApp()
 {
     if ( fileList.isEmpty() ) {
-        kdDebug() << k_funcinfo << "No files downloaded -> exiting" << endl;
+        kDebug() << k_funcinfo << "No files downloaded -> exiting" << endl;
         QApplication::exit(1);
         return;
     }
@@ -183,7 +183,7 @@ void KIOExec::slotRunApp()
 
     const QStringList params = KRun::processDesktopExec(service, list, false /*no shell*/);
 
-    kdDebug() << "EXEC " << KShell::joinArgs( params ) << endl;
+    kDebug() << "EXEC " << KShell::joinArgs( params ) << endl;
 
 #ifdef Q_WS_X11
     // propagate the startup indentification to the started process
@@ -200,7 +200,7 @@ void KIOExec::slotRunApp()
     KStartupInfo::resetStartupEnv();
 #endif
 
-    kdDebug() << "EXEC done" << endl;
+    kDebug() << "EXEC done" << endl;
 
     // Test whether one of the files changed
     it = fileList.begin();
@@ -225,7 +225,7 @@ void KIOExec::slotRunApp()
                                                  i18n( "The file\n%1\nhas been modified.\nDo you want to upload the changes?" ).arg(dest.prettyURL()),
                                                  i18n( "File Changed" ), i18n("Upload"), i18n("Do Not Upload") ) == KMessageBox::Yes )
                 {
-                    kdDebug() << "src='" << src << "'  dest='" << dest << "'" << endl;
+                    kDebug() << "src='" << src << "'  dest='" << dest << "'" << endl;
                     // Do it the synchronous way.
                     if ( !KIO::NetAccess::upload( src, dest, 0 ) )
                     {
@@ -265,7 +265,7 @@ int main( int argc, char **argv )
 
     KIOExec exec;
 
-    kdDebug() << "Constructor returned..." << endl;
+    kDebug() << "Constructor returned..." << endl;
     return app.exec();
 }
 
