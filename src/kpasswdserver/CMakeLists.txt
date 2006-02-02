@@ -21,7 +21,7 @@ kde4_add_plugin(kded_kpasswdserver ${kded_kpasswdserver_PART_SRCS})
 
 target_link_libraries(kded_kpasswdserver  ${QT_AND_KDECORE_LIBS} kwalletclient kio )
 
-install_targets(/lib/kde4 kded_kpasswdserver )
+install_targets(${KDE4_LIB_INSTALL_DIR}/kde4 kded_kpasswdserver )
 
 
 ########### install files ###############
