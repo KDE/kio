@@ -52,10 +52,10 @@ static bool check(QString a, QString b)
     if (b.isEmpty())
         b.clear();
     if (a == b) {
-        kdDebug() << " : checking '" << a << "' against expected value '" << b << "'... " << "ok" << endl;
+        kDebug() << " : checking '" << a << "' against expected value '" << b << "'... " << "ok" << endl;
     }
     else {
-        kdDebug() << " : checking '" << a << "' against expected value '" << b << "'... " << "KO !" << endl;
+        kDebug() << " : checking '" << a << "' against expected value '" << b << "'... " << "KO !" << endl;
         exit(1);
     }
     return true;
@@ -91,7 +91,7 @@ int main(int argc, char *argv[])
     TestTrash test;
     test.setup();
     test.runAll();
-    kdDebug() << "All tests OK." << endl;
+    kDebug() << "All tests OK." << endl;
     return 0; // success. The exit(1) in check() is what happens in case of failure.
 }
 
@@ -133,7 +133,7 @@ static void removeDir( const QString& trashDir, const QString& dirName )
 void TestTrash::setup()
 {
     m_trashDir = KGlobal::dirs()->localxdgdatadir() + "Trash";
-    kdDebug() << "setup: using trash directory " << m_trashDir << endl;
+    kDebug() << "setup: using trash directory " << m_trashDir << endl;
 
     // Look for another writable partition than $HOME (not mandatory)
     TrashImpl impl;
@@ -159,7 +159,7 @@ void TestTrash::setup()
                 if ( topdir == "/tmp/" ) {
                     m_tmpIsWritablePartition = true;
                     m_tmpTrashId = it.key();
-                    kdDebug() << "/tmp is on its own partition (trashid=" << m_tmpTrashId << "), some tests will be skipped" << endl;
+                    kDebug() << "/tmp is on its own partition (trashid=" << m_tmpTrashId << "), some tests will be skipped" << endl;
                     removeFile( it.data(), "/info/fileFromOther.trashinfo" );
                     removeFile( it.data(), "/files/fileFromOther" );
                     removeFile( it.data(), "/info/symlinkFromOther.trashinfo" );
@@ -182,7 +182,7 @@ void TestTrash::setup()
             m_otherPartitionTopDir = topdir;
             m_otherPartitionTrashDir = trashdir;
             m_otherPartitionId = *it;
-            kdDebug() << "OK, found another writable partition: topDir=" << m_otherPartitionTopDir
+            kDebug() << "OK, found another writable partition: topDir=" << m_otherPartitionTopDir
                       << " trashDir=" << m_otherPartitionTrashDir << " id=" << m_otherPartitionId << endl;
             break;
         }
@@ -190,7 +190,7 @@ void TestTrash::setup()
     // Check that m_trashDir got listed
     assert( foundTrashDir );
     if ( m_otherPartitionTrashDir.isEmpty() )
-        kdWarning() << "No writable partition other than $HOME found, some tests will be skipped" << endl;
+        kWarning() << "No writable partition other than $HOME found, some tests will be skipped" << endl;
 
     // Start with a clean base dir
     KIO::NetAccess::del( homeTmpDir(), 0 );
@@ -198,10 +198,10 @@ void TestTrash::setup()
     QDir dir; // TT: why not a static method?
     bool ok = dir.mkdir( homeTmpDir() );
     if ( !ok )
-        kdFatal() << "Couldn't create " << homeTmpDir() << endl;
+        kFatal() << "Couldn't create " << homeTmpDir() << endl;
     ok = dir.mkdir( otherTmpDir() );
     if ( !ok )
-        kdFatal() << "Couldn't create " << otherTmpDir() << endl;
+        kFatal() << "Couldn't create " << otherTmpDir() << endl;
     cleanTrash();
 }
 
@@ -357,13 +357,13 @@ void TestTrash::urlTestSubDirectory()
 
 static void checkInfoFile( const QString& infoPath, const QString& origFilePath )
 {
-    kdDebug() << k_funcinfo << infoPath << endl;
+    kDebug() << k_funcinfo << infoPath << endl;
     QFileInfo info( infoPath );
     assert( info.exists() );
     assert( info.isFile() );
     KSimpleConfig infoFile( info.absoluteFilePath(), true );
     if ( !infoFile.hasGroup( "Trash Info" ) )
-        kdFatal() << "no Trash Info group in " << info.absoluteFilePath() << endl;
+        kFatal() << "no Trash Info group in " << info.absoluteFilePath() << endl;
     infoFile.setGroup( "Trash Info" );
     const QString origPath = infoFile.readEntry( "Path" );
     assert( !origPath.isEmpty() );
@@ -377,7 +377,7 @@ static void createTestFile( const QString& path )
 {
     QFile f( path );
     if ( !f.open( QIODevice::WriteOnly ) )
-        kdFatal() << "Can't create " << path << endl;
+        kFatal() << "Can't create " << path << endl;
     f.writeBlock( "Hello world\n", 12 );
     f.close();
     assert( QFile::exists( path ) );
@@ -397,10 +397,10 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
     //bool ok = KIO::NetAccess::move( u, "trash:/" );
     bool ok = KIO::NetAccess::synchronousRun( job, 0, 0, 0, &metaData );
     if ( !ok )
-        kdError() << "moving " << u << " to trash failed with error " << KIO::NetAccess::lastError() << " " << KIO::NetAccess::lastErrorString() << endl;
+        kError() << "moving " << u << " to trash failed with error " << KIO::NetAccess::lastError() << " " << KIO::NetAccess::lastErrorString() << endl;
     assert( ok );
     if ( origFilePath.startsWith( "/tmp" ) && m_tmpIsWritablePartition ) {
-        kdDebug() << " TESTS SKIPPED" << endl;
+        kDebug() << " TESTS SKIPPED" << endl;
     } else {
         checkInfoFile( m_trashDir + "/info/" + fileId + ".trashinfo", origFilePath );
 
@@ -419,7 +419,7 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
         if ( it.key().startsWith( "trashURL" ) ) {
             const QString origPath = it.key().mid( 9 );
             KUrl trashURL( it.data() );
-            kdDebug() << trashURL << endl;
+            kDebug() << trashURL << endl;
             assert( !trashURL.isEmpty() );
             assert( trashURL.protocol() == "trash" );
             int trashId = 0;
@@ -434,7 +434,7 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
 
 void TestTrash::trashFileFromHome()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     const QString fileName = "fileFromHome";
     trashFile( homeTmpDir() + fileName, fileName );
 
@@ -444,21 +444,21 @@ void TestTrash::trashFileFromHome()
 
 void TestTrash::trashPercentFileFromHome()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     const QString fileName = "file%2f";
     trashFile( homeTmpDir() + fileName, fileName );
 }
 
 void TestTrash::trashUtf8FileFromHome()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     const QString fileName = utf8FileName();
     trashFile( homeTmpDir() + fileName, fileName );
 }
 
 void TestTrash::trashUmlautFileFromHome()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     const QString fileName = umlautFileName();
     trashFile( homeTmpDir() + fileName, fileName );
 }
@@ -473,7 +473,7 @@ void TestTrash::testTrashNotEmpty()
 
 void TestTrash::trashFileFromOther()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     const QString fileName = "fileFromOther";
     trashFile( otherTmpDir() + fileName, fileName );
 }
@@ -481,10 +481,10 @@ void TestTrash::trashFileFromOther()
 void TestTrash::trashFileIntoOtherPartition()
 {
     if ( m_otherPartitionTrashDir.isEmpty() ) {
-        kdDebug() << k_funcinfo << " - SKIPPED" << endl;
+        kDebug() << k_funcinfo << " - SKIPPED" << endl;
         return;
     }
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     const QString fileName = "testtrash-file";
     const QString origFilePath = m_otherPartitionTopDir + fileName;
     const QString fileId = fileName;
@@ -520,7 +520,7 @@ void TestTrash::trashFileIntoOtherPartition()
         if ( it.key().startsWith( "trashURL" ) ) {
             const QString origPath = it.key().mid( 9 );
             KUrl trashURL( it.data() );
-            kdDebug() << trashURL << endl;
+            kDebug() << trashURL << endl;
             assert( !trashURL.isEmpty() );
             assert( trashURL.protocol() == "trash" );
             assert( trashURL.path() == QString( "/%1-%2" ).arg( m_otherPartitionId ).arg( fileId ) );
@@ -532,7 +532,7 @@ void TestTrash::trashFileIntoOtherPartition()
 
 void TestTrash::trashFileOwnedByRoot()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     KUrl u;
     u.setPath( "/etc/passwd" );
     const QString fileId = "passwd";
@@ -555,7 +555,7 @@ void TestTrash::trashFileOwnedByRoot()
 
 void TestTrash::trashSymlink( const QString& origFilePath, const QString& fileId, bool broken )
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     // setup
     const char* target = broken ? "/nonexistent" : "/tmp";
     bool ok = ::symlink( target, QFile::encodeName( origFilePath ) ) == 0;
@@ -567,7 +567,7 @@ void TestTrash::trashSymlink( const QString& origFilePath, const QString& fileId
     ok = KIO::NetAccess::move( u, "trash:/" );
     assert( ok );
     if ( origFilePath.startsWith( "/tmp" ) && m_tmpIsWritablePartition ) {
-        kdDebug() << " TESTS SKIPPED" << endl;
+        kDebug() << " TESTS SKIPPED" << endl;
         return;
     }
     checkInfoFile( m_trashDir + "/info/" + fileId + ".trashinfo", origFilePath );
@@ -580,28 +580,28 @@ void TestTrash::trashSymlink( const QString& origFilePath, const QString& fileId
 
 void TestTrash::trashSymlinkFromHome()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     const QString fileName = "symlinkFromHome";
     trashSymlink( homeTmpDir() + fileName, fileName, false );
 }
 
 void TestTrash::trashSymlinkFromOther()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     const QString fileName = "symlinkFromOther";
     trashSymlink( otherTmpDir() + fileName, fileName, false );
 }
 
 void TestTrash::trashBrokenSymlinkFromHome()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     const QString fileName = "brokenSymlinkFromHome";
     trashSymlink( homeTmpDir() + fileName, fileName, true );
 }
 
 void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )
 {
-    kdDebug() << k_funcinfo << fileId << endl;
+    kDebug() << k_funcinfo << fileId << endl;
     // setup
     QDir dir;
     bool ok = dir.mkdir( origPath );
@@ -613,7 +613,7 @@ void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )
     ok = KIO::NetAccess::move( u, "trash:/" );
     assert( ok );
     if ( origPath.startsWith( "/tmp" ) && m_tmpIsWritablePartition ) {
-        kdDebug() << " TESTS SKIPPED" << endl;
+        kDebug() << " TESTS SKIPPED" << endl;
         return;
     }
     checkInfoFile( m_trashDir + "/info/" + fileId + ".trashinfo", origPath );
@@ -629,7 +629,7 @@ void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )
 
 void TestTrash::trashDirectoryFromHome()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     QString dirName = "trashDirFromHome";
     trashDirectory( homeTmpDir() + dirName, dirName );
     // Do it again, check that we got a different id
@@ -638,19 +638,19 @@ void TestTrash::trashDirectoryFromHome()
 
 void TestTrash::trashDirectoryFromOther()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     QString dirName = "trashDirFromOther";
     trashDirectory( otherTmpDir() + dirName, dirName );
 }
 
 void TestTrash::tryRenameInsideTrash()
 {
-    kdDebug() << k_funcinfo << " with file_move" << endl;
+    kDebug() << k_funcinfo << " with file_move" << endl;
     bool worked = KIO::NetAccess::file_move( "trash:/0-tryRenameInsideTrash", "trash:/foobar" );
     assert( !worked );
     assert( KIO::NetAccess::lastError() == KIO::ERR_CANNOT_RENAME );
 
-    kdDebug() << k_funcinfo << " with move" << endl;
+    kDebug() << k_funcinfo << " with move" << endl;
     worked = KIO::NetAccess::move( "trash:/0-tryRenameInsideTrash", "trash:/foobar" );
     assert( !worked );
     assert( KIO::NetAccess::lastError() == KIO::ERR_CANNOT_RENAME );
@@ -658,7 +658,7 @@ void TestTrash::tryRenameInsideTrash()
 
 void TestTrash::delRootFile()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
 
     // test deleting a trashed file
     bool ok = KIO::NetAccess::del( "trash:/0-fileFromHome", 0L );
@@ -676,7 +676,7 @@ void TestTrash::delRootFile()
 
 void TestTrash::delFileInDirectory()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
 
     // test deleting a file inside a trashed directory -> not allowed
     bool ok = KIO::NetAccess::del( "trash:/0-trashDirFromHome/testfile", 0L );
@@ -693,7 +693,7 @@ void TestTrash::delFileInDirectory()
 
 void TestTrash::delDirectory()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
 
     // test deleting a trashed directory
     bool ok = KIO::NetAccess::del( "trash:/0-trashDirFromHome", 0L );
@@ -713,7 +713,7 @@ void TestTrash::delDirectory()
 
 void TestTrash::statRoot()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     KUrl url( "trash:/" );
     KIO::UDSEntry entry;
     bool ok = KIO::NetAccess::stat( url, entry, 0 );
@@ -730,7 +730,7 @@ void TestTrash::statRoot()
 
 void TestTrash::statFileInRoot()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     KUrl url( "trash:/0-fileFromHome" );
     KIO::UDSEntry entry;
     bool ok = KIO::NetAccess::stat( url, entry, 0 );
@@ -748,7 +748,7 @@ void TestTrash::statFileInRoot()
 
 void TestTrash::statDirectoryInRoot()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     KUrl url( "trash:/0-trashDirFromHome" );
     KIO::UDSEntry entry;
     bool ok = KIO::NetAccess::stat( url, entry, 0 );
@@ -765,7 +765,7 @@ void TestTrash::statDirectoryInRoot()
 
 void TestTrash::statSymlinkInRoot()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     KUrl url( "trash:/0-symlinkFromHome" );
     KIO::UDSEntry entry;
     bool ok = KIO::NetAccess::stat( url, entry, 0 );
@@ -782,7 +782,7 @@ void TestTrash::statSymlinkInRoot()
 
 void TestTrash::statFileInDirectory()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     KUrl url( "trash:/0-trashDirFromHome/testfile" );
     KIO::UDSEntry entry;
     bool ok = KIO::NetAccess::stat( url, entry, 0 );
@@ -808,7 +808,7 @@ void TestTrash::copyFromTrash( const QString& fileId, const QString& destPath, c
     assert( KIO::NetAccess::exists( src, true, (QWidget*)0 ) );
 
     // A dnd would use copy(), but we use copyAs to ensure the final filename
-    //kdDebug() << k_funcinfo << "copyAs:" << src << " -> " << dest << endl;
+    //kDebug() << k_funcinfo << "copyAs:" << src << " -> " << dest << endl;
     KIO::Job* job = KIO::copyAs( src, dest );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
     assert( ok );
@@ -823,7 +823,7 @@ void TestTrash::copyFromTrash( const QString& fileId, const QString& destPath, c
 
 void TestTrash::copyFileFromTrash()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     const QString destPath = otherTmpDir() + "fileFromHome_copied";
     copyFromTrash( "fileFromHome", destPath );
     assert( QFileInfo( destPath ).isFile() );
@@ -832,7 +832,7 @@ void TestTrash::copyFileFromTrash()
 
 void TestTrash::copyFileInDirectoryFromTrash()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     const QString destPath = otherTmpDir() + "testfile_copied";
     copyFromTrash( "trashDirFromHome", destPath, "testfile" );
     assert( QFileInfo( destPath ).isFile() );
@@ -841,7 +841,7 @@ void TestTrash::copyFileInDirectoryFromTrash()
 
 void TestTrash::copyDirectoryFromTrash()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     const QString destPath = otherTmpDir() + "trashDirFromHome_copied";
     copyFromTrash( "trashDirFromHome", destPath );
     assert( QFileInfo( destPath ).isDir() );
@@ -849,7 +849,7 @@ void TestTrash::copyDirectoryFromTrash()
 
 void TestTrash::copySymlinkFromTrash()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     const QString destPath = otherTmpDir() + "symlinkFromHome_copied";
     copyFromTrash( "symlinkFromHome", destPath );
     assert( QFileInfo( destPath ).isSymLink() );
@@ -880,7 +880,7 @@ void TestTrash::moveFromTrash( const QString& fileId, const QString& destPath, c
 
 void TestTrash::moveFileFromTrash()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     const QString destPath = otherTmpDir() + "fileFromHome_restored";
     moveFromTrash( "fileFromHome", destPath );
     assert( QFileInfo( destPath ).isFile() );
@@ -893,7 +893,7 @@ void TestTrash::moveFileFromTrash()
 
 void TestTrash::moveFileInDirectoryFromTrash()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     const QString destPath = otherTmpDir() + "testfile_restored";
     copyFromTrash( "trashDirFromHome", destPath, "testfile" );
     assert( QFileInfo( destPath ).isFile() );
@@ -902,7 +902,7 @@ void TestTrash::moveFileInDirectoryFromTrash()
 
 void TestTrash::moveDirectoryFromTrash()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     const QString destPath = otherTmpDir() + "trashDirFromHome_restored";
     moveFromTrash( "trashDirFromHome", destPath );
     assert( QFileInfo( destPath ).isDir() );
@@ -922,7 +922,7 @@ void TestTrash::trashDirectoryOwnedByRoot()
     else
         u.setPath( "/etc" );
     const QString fileId = u.path();
-    kdDebug() << k_funcinfo << "fileId=" << fileId << endl;
+    kDebug() << k_funcinfo << "fileId=" << fileId << endl;
 
     KIO::CopyJob* job = KIO::move( u, "trash:/" );
     job->setInteractive( false ); // no skip dialog, thanks
@@ -944,7 +944,7 @@ void TestTrash::trashDirectoryOwnedByRoot()
 
 void TestTrash::moveSymlinkFromTrash()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     const QString destPath = otherTmpDir() + "symlinkFromHome_restored";
     moveFromTrash( "symlinkFromHome", destPath );
     assert( QFileInfo( destPath ).isSymLink() );
@@ -952,7 +952,7 @@ void TestTrash::moveSymlinkFromTrash()
 
 void TestTrash::getFile()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     const QString fileId = "fileFromHome_1";
     const KUrl url = TrashImpl::makeURL( 0, fileId, QString() );
     QString tmpFile;
@@ -963,14 +963,14 @@ void TestTrash::getFile()
     assert( ok );
     QByteArray str = file.readAll();
     if ( str != "Hello world\n" )
-        kdFatal() << "get() returned the following data:" << str << endl;
+        kFatal() << "get() returned the following data:" << str << endl;
     file.close();
     KIO::NetAccess::removeTempFile( tmpFile );
 }
 
 void TestTrash::restoreFile()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     const QString fileId = "fileFromHome_1";
     const KUrl url = TrashImpl::makeURL( 0, fileId, QString() );
     const QString infoFile( m_trashDir + "/info/" + fileId + ".trashinfo" );
@@ -995,7 +995,7 @@ void TestTrash::restoreFile()
 
 void TestTrash::restoreFileFromSubDir()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     const QString fileId = "trashDirFromHome_1/testfile";
     assert( !QFile::exists( homeTmpDir() + "trashDirFromHome_1" ) );
 
@@ -1023,7 +1023,7 @@ void TestTrash::restoreFileFromSubDir()
 
 void TestTrash::restoreFileToDeletedDirectory()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     // Ensure we'll get "fileFromHome" as fileId
     removeFile( m_trashDir, "/info/fileFromHome.trashinfo" );
     removeFile( m_trashDir, "/files/fileFromHome" );
@@ -1059,7 +1059,7 @@ void TestTrash::restoreFileToDeletedDirectory()
 
 void TestTrash::listRootDir()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     m_entryCount = 0;
     m_listResult.clear();
     KIO::ListJob* job = KIO::listDir( "trash:/" );
@@ -1067,16 +1067,16 @@ void TestTrash::listRootDir()
              SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
     assert( ok );
-    kdDebug() << "listDir done - m_entryCount=" << m_entryCount << endl;
+    kDebug() << "listDir done - m_entryCount=" << m_entryCount << endl;
     assert( m_entryCount > 1 );
 
-    kdDebug() << k_funcinfo << m_listResult << endl;
+    kDebug() << k_funcinfo << m_listResult << endl;
     assert( m_listResult.contains( "." ) == 1 ); // found it, and only once
 }
 
 void TestTrash::listRecursiveRootDir()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     m_entryCount = 0;
     m_listResult.clear();
     KIO::ListJob* job = KIO::listRecursive( "trash:/" );
@@ -1084,16 +1084,16 @@ void TestTrash::listRecursiveRootDir()
              SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
     assert( ok );
-    kdDebug() << "listDir done - m_entryCount=" << m_entryCount << endl;
+    kDebug() << "listDir done - m_entryCount=" << m_entryCount << endl;
     assert( m_entryCount > 1 );
 
-    kdDebug() << k_funcinfo << m_listResult << endl;
+    kDebug() << k_funcinfo << m_listResult << endl;
     assert( m_listResult.contains( "." ) == 1 ); // found it, and only once
 }
 
 void TestTrash::listSubDir()
 {
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     m_entryCount = 0;
     m_listResult.clear();
     KIO::ListJob* job = KIO::listDir( "trash:/0-trashDirFromHome" );
@@ -1101,10 +1101,10 @@ void TestTrash::listSubDir()
              SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
     assert( ok );
-    kdDebug() << "listDir done - m_entryCount=" << m_entryCount << endl;
+    kDebug() << "listDir done - m_entryCount=" << m_entryCount << endl;
     assert( m_entryCount == 2 );
 
-    kdDebug() << k_funcinfo << m_listResult << endl;
+    kDebug() << k_funcinfo << m_listResult << endl;
     assert( m_listResult.contains( "." ) == 1 ); // found it, and only once
     assert( m_listResult.contains( "testfile" ) == 1 ); // found it, and only once
 }
@@ -1115,7 +1115,7 @@ void TestTrash::slotEntries( KIO::Job*, const KIO::UDSEntryList& lst )
         const KIO::UDSEntry& entry (*it);
         QString displayName = entry.stringValue( KIO::UDS_NAME );
         KUrl url = entry.stringValue( KIO::UDS_URL );
-        kdDebug() << k_funcinfo << displayName << " " << url << endl;
+        kDebug() << k_funcinfo << displayName << " " << url << endl;
         if ( !url.isEmpty() ) {
             assert( url.protocol() == "trash" );
         }
@@ -1130,7 +1130,7 @@ void TestTrash::emptyTrash()
     // trash would still empty the other trash directories in other partitions.
     // So we can't activate this test by default.
 #if 0
-    kdDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo << endl;
     QByteArray packedArgs;
     QDataStream stream( packedArgs, QIODevice::WriteOnly );
     stream << (int)1;
@@ -1143,7 +1143,7 @@ void TestTrash::emptyTrash()
     cfg.setGroup( "Status" );
     assert( cfg.readEntry( "Empty", QVariant(false )).toBool() == true );
 #else
-    kdDebug() << k_funcinfo << " : SKIPPED" << endl;
+    kDebug() << k_funcinfo << " : SKIPPED" << endl;
 #endif
 }
 

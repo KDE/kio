@@ -135,7 +135,7 @@ void TrashProtocol::rename( const KUrl &oldURL, const KUrl &newURL, bool overwri
 {
     INIT_IMPL;
 
-    kdDebug()<<"TrashProtocol::rename(): old="<<oldURL<<" new="<<newURL<<" overwrite=" << overwrite<<endl;
+    kDebug()<<"TrashProtocol::rename(): old="<<oldURL<<" new="<<newURL<<" overwrite=" << overwrite<<endl;
 
     if ( oldURL.protocol() == "trash" && newURL.protocol() == "trash" ) {
         error( KIO::ERR_CANNOT_RENAME, oldURL.prettyURL() );
@@ -149,7 +149,7 @@ void TrashProtocol::copy( const KUrl &src, const KUrl &dest, int /*permissions*/
 {
     INIT_IMPL;
 
-    kdDebug()<<"TrashProtocol::copy(): " << src << " " << dest << endl;
+    kDebug()<<"TrashProtocol::copy(): " << src << " " << dest << endl;
 
     if ( src.protocol() == "trash" && dest.protocol() == "trash" ) {
         error( KIO::ERR_UNSUPPORTED_ACTION, i18n( "This file is already in the trash bin." ) );
@@ -182,10 +182,10 @@ void TrashProtocol::copyOrMove( const KUrl &src, const KUrl &dest, bool overwrit
         }
 
         if ( action == Move ) {
-            kdDebug() << "calling moveFromTrash(" << destPath << " " << trashId << " " << fileId << ")" << endl;
+            kDebug() << "calling moveFromTrash(" << destPath << " " << trashId << " " << fileId << ")" << endl;
             ok = impl.moveFromTrash( destPath, trashId, fileId, relativePath );
         } else { // Copy
-            kdDebug() << "calling copyFromTrash(" << destPath << " " << trashId << " " << fileId << ")" << endl;
+            kDebug() << "calling copyFromTrash(" << destPath << " " << trashId << " " << fileId << ")" << endl;
             ok = impl.copyFromTrash( destPath, trashId, fileId, relativePath );
         }
         if ( !ok ) {
@@ -198,7 +198,7 @@ void TrashProtocol::copyOrMove( const KUrl &src, const KUrl &dest, bool overwrit
         return;
     } else if ( src.isLocalFile() && dest.protocol() == "trash" ) {
         QString dir = dest.directory();
-        //kdDebug() << "trashing a file to " << dir << endl;
+        //kDebug() << "trashing a file to " << dir << endl;
         // Trashing a file
         // We detect the case where this isn't normal trashing, but
         // e.g. if kwrite tries to save (moving tempfile over destination)
@@ -216,10 +216,10 @@ void TrashProtocol::copyOrMove( const KUrl &src, const KUrl &dest, bool overwrit
             } else {
                 bool ok;
                 if ( action == Move ) {
-                    kdDebug() << "calling moveToTrash(" << srcPath << " " << trashId << " " << fileId << ")" << endl;
+                    kDebug() << "calling moveToTrash(" << srcPath << " " << trashId << " " << fileId << ")" << endl;
                     ok = impl.moveToTrash( srcPath, trashId, fileId );
                 } else { // Copy
-                    kdDebug() << "calling copyToTrash(" << srcPath << " " << trashId << " " << fileId << ")" << endl;
+                    kDebug() << "calling copyToTrash(" << srcPath << " " << trashId << " " << fileId << ")" << endl;
                     ok = impl.copyToTrash( srcPath, trashId, fileId );
                 }
                 if ( !ok ) {
@@ -234,7 +234,7 @@ void TrashProtocol::copyOrMove( const KUrl &src, const KUrl &dest, bool overwrit
             }
             return;
         } else {
-            kdDebug() << "returning KIO::ERR_ACCESS_DENIED, it's not allowed to add a file to an existing trash directory" << endl;
+            kDebug() << "returning KIO::ERR_ACCESS_DENIED, it's not allowed to add a file to an existing trash directory" << endl;
             // It's not allowed to add a file to an existing trash directory.
             error( KIO::ERR_ACCESS_DENIED, dest.prettyURL() );
             return;
@@ -272,7 +272,7 @@ void TrashProtocol::stat(const KUrl& url)
 
         if ( !ok ) {
             // ######## do we still need this?
-            kdDebug() << k_funcinfo << url << " looks fishy, returning does-not-exist" << endl;
+            kDebug() << k_funcinfo << url << " looks fishy, returning does-not-exist" << endl;
             // A URL like trash:/file simply means that CopyJob is trying to see if
             // the destination exists already (it made up the URL by itself).
             error( KIO::ERR_DOES_NOT_EXIST, url.prettyURL() );
@@ -337,7 +337,7 @@ void TrashProtocol::del( const KUrl &url, bool /*isfile*/ )
 void TrashProtocol::listDir(const KUrl& url)
 {
     INIT_IMPL;
-    kdDebug() << "listdir: " << url << endl;
+    kDebug() << "listdir: " << url << endl;
     if ( url.path().length() <= 1 ) {
         listRoot();
         return;
@@ -366,7 +366,7 @@ void TrashProtocol::listDir(const KUrl& url)
     }
 
     // List subdir. Can't use kio_file here since we provide our own info...
-    kdDebug() << k_funcinfo << "listing " << info.physicalPath << endl;
+    kDebug() << k_funcinfo << "listing " << info.physicalPath << endl;
     Q3StrList entryNames = impl.listDir( info.physicalPath );
     totalSize( entryNames.count() );
     KIO::UDSEntry entry;
@@ -396,7 +396,7 @@ bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& 
     QByteArray physicalPath_c = QFile::encodeName( physicalPath );
     KDE_struct_stat buff;
     if ( KDE_lstat( physicalPath_c, &buff ) == -1 ) {
-        kdWarning() << "couldn't stat " << physicalPath << endl;
+        kWarning() << "couldn't stat " << physicalPath << endl;
         return false;
     }
     if (S_ISLNK(buff.st_mode)) {
@@ -482,7 +482,7 @@ void TrashProtocol::special( const QByteArray & data )
         break;
     }
     default:
-        kdWarning(7116) << "Unknown command in special(): " << cmd << endl;
+        kWarning(7116) << "Unknown command in special(): " << cmd << endl;
         error( KIO::ERR_UNSUPPORTED_ACTION, QString::number(cmd) );
         break;
     }
@@ -491,7 +491,7 @@ void TrashProtocol::special( const QByteArray & data )
 void TrashProtocol::put( const KUrl& url, int /*permissions*/, bool /*overwrite*/, bool /*resume*/ )
 {
     INIT_IMPL;
-    kdDebug() << "put: " << url << endl;
+    kDebug() << "put: " << url << endl;
     // create deleted file. We need to get the mtime and original location from metadata...
     // Maybe we can find the info file for url.fileName(), in case ::rename() was called first, and failed...
     error( KIO::ERR_ACCESS_DENIED, url.prettyURL() );
@@ -500,9 +500,9 @@ void TrashProtocol::put( const KUrl& url, int /*permissions*/, bool /*overwrite*
 void TrashProtocol::get( const KUrl& url )
 {
     INIT_IMPL;
-    kdDebug() << "get() : " << url << endl;
+    kDebug() << "get() : " << url << endl;
     if ( !url.isValid() ) {
-        kdDebug() << kdBacktrace() << endl;
+        kDebug() << kBacktrace() << endl;
         error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.url() ) );
         return;
     }
@@ -564,7 +564,7 @@ void TrashProtocol::mkdir( const KUrl& url, int /*permissions*/ )
     // create info about deleted dir
     // ############ Problem: we don't know the original path.
     // Let's try to avoid this case (we should get to copy() instead, for local files)
-    kdDebug() << "mkdir: " << url << endl;
+    kDebug() << "mkdir: " << url << endl;
     QString dir = url.directory();
 
     if ( dir.length() <= 1 ) // new toplevel entry

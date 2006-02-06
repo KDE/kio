@@ -36,7 +36,7 @@ KTrashPlugin::KTrashPlugin(QObject *parent, const char *name,
 {
     KGlobal::locale()->insertCatalog( "kio_trash" );
 
-    kdDebug(7034) << "Trash file meta info plugin\n";
+    kDebug(7034) << "Trash file meta info plugin\n";
 
     makeMimeTypeInfo("trash");
     makeMimeTypeInfo("system");
@@ -69,7 +69,7 @@ bool KTrashPlugin::readInfo(KFileMetaInfo& info, uint)
         url.setPath(path);
     }
     
-    //kdDebug() << k_funcinfo << info.url() << endl;
+    //kDebug() << k_funcinfo << info.url() << endl;
     if ( url.protocol() != "trash" )
         return false;
 

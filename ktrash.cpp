@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
 
         KUrl trashURL( restoreArg );
         if ( !trashURL.isValid() || trashURL.protocol() != "trash" ) {
-            kdError() << "Invalid URL for restoring a trashed file:" << trashURL << endl;
+            kError() << "Invalid URL for restoring a trashed file:" << trashURL << endl;
             return 1;
         }
 
@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
         KIO::Job* job = KIO::special( trashURL, packedArgs );
         bool ok = KIO::NetAccess::synchronousRun( job, 0 );
         if ( !ok )
-            kdError() << KIO::NetAccess::lastErrorString() << endl;
+            kError() << KIO::NetAccess::lastErrorString() << endl;
         return 0;
     }
 
