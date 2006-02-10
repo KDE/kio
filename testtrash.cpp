@@ -378,7 +378,7 @@ static void createTestFile( const QString& path )
     QFile f( path );
     if ( !f.open( QIODevice::WriteOnly ) )
         kFatal() << "Can't create " << path << endl;
-    f.writeBlock( "Hello world\n", 12 );
+    f.write( "Hello world\n", 12 );
     f.close();
     assert( QFile::exists( path ) );
 }
