@@ -5,9 +5,7 @@ include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_D
 
 ########### next target ###############
 
-set(kioexec_SRCS
-main.cpp
-)
+set(kioexec_SRCS main.cpp )
 
 kde4_automoc(${kioexec_SRCS})
 
