@@ -55,12 +55,12 @@ int main(int argc, char *argv[])
         QByteArray packedArgs;
         QDataStream stream( &packedArgs, QIODevice::WriteOnly );
         stream << (int)1;
-        KIO::Job* job = KIO::special( "trash:/", packedArgs );
+        KIO::Job* job = KIO::special( KUrl("trash:/"), packedArgs );
         (void)KIO::NetAccess::synchronousRun( job, 0 );
 
         // Update konq windows opened on trash:/
         KDirNotify_stub allDirNotify("*", "KDirNotify*");
-        allDirNotify.FilesAdded( "trash:/" ); // yeah, files were removed, but we don't know which ones...
+        allDirNotify.FilesAdded( KUrl("trash:/") ); // yeah, files were removed, but we don't know which ones...
         return 0;
     }
 

@@ -254,9 +254,9 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     // Escape filenames according to the way they are encoded on the filesystem
     // All this to basically get back to the raw 8-bit representation of the filename...
     if ( trashId == 0 ) // home trash: absolute path
-        info += KUrl::encode_string( origPath, m_mibEnum ).latin1();
+        info += KUrl::encode_string( origPath/*, m_mibEnum*/ ).latin1();
     else
-        info += KUrl::encode_string( makeRelativePath( topDirectoryPath( trashId ), origPath ), m_mibEnum ).latin1();
+        info += KUrl::encode_string( makeRelativePath( topDirectoryPath( trashId ), origPath )/*, m_mibEnum*/ ).latin1();
     info += "\n";
     info += "DeletionDate=";
     info += QDateTime::currentDateTime().toString( Qt::ISODate ).toLatin1();
@@ -605,7 +605,7 @@ bool TrashImpl::readInfoFile( const QString& infoPath, TrashedFileInfo& info, in
         return false;
     }
     cfg.setGroup( "Trash Info" );
-    info.origPath = KUrl::decode_string( cfg.readEntry( "Path" ), m_mibEnum );
+    info.origPath = KUrl::decode_string( cfg.readEntry( "Path" )/*, m_mibEnum*/ );
     if ( info.origPath.isEmpty() )
         return false; // path is mandatory...
     if ( trashId == 0 )
