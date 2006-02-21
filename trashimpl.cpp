@@ -523,11 +523,11 @@ void TrashImpl::emptyTrash()
     TrashDirMap::const_iterator it = m_trashDirectories.begin();
     for ( ; it != m_trashDirectories.end() ; ++it ) {
         QDir dir;
-        const QString infoPath = it.data() + "/info";
+        const QString infoPath = it.value() + "/info";
         // TODO show errors (with warning()), e.g. when permission denied?
         synchronousDel( infoPath, false );
         dir.mkdir( infoPath );
-        const QString filesPath = it.data() + "/files";
+        const QString filesPath = it.value() + "/files";
         synchronousDel( filesPath, false );
         dir.mkdir( filesPath );
     }
@@ -545,7 +545,7 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
     TrashDirMap::const_iterator it = m_trashDirectories.begin();
     for ( ; it != m_trashDirectories.end() ; ++it ) {
         const int trashId = it.key();
-        QString infoPath = it.data();
+        QString infoPath = it.value();
         infoPath += "/info";
         // Code taken from kio_file
         Q3StrList entryNames = listDir( infoPath );
@@ -646,7 +646,7 @@ bool TrashImpl::isEmpty() const
         scanTrashDirectories();
     TrashDirMap::const_iterator it = m_trashDirectories.begin();
     for ( ; it != m_trashDirectories.end() ; ++it ) {
-        QString infoPath = it.data();
+        QString infoPath = it.value();
         infoPath += "/info";
 
         DIR *dp = opendir( QFile::encodeName( infoPath ) );
@@ -828,7 +828,7 @@ int TrashImpl::idForTrashDirectory( const QString& trashDir ) const
     // If this is too slow we can always use a reverse map...
     TrashDirMap::ConstIterator it = m_trashDirectories.begin();
     for ( ; it != m_trashDirectories.end() ; ++it ) {
-        if ( it.data() == trashDir ) {
+        if ( it.value() == trashDir ) {
             return it.key();
         }
     }
