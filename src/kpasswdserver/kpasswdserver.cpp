@@ -117,7 +117,7 @@ static bool storeInWallet( KWallet::Wallet* wallet, const QString& key, const KI
         Map::ConstIterator end = map.end();
         Map::ConstIterator it = map.find( "login" );
         while ( it != end ) {
-            if ( it.data() == info.username ) {
+            if ( it.value() == info.username ) {
                 break; // OK, overwrite this entry
             }
             it = map.find( QString( "login-" ) + QString::number( ++entryNumber ) );
@@ -150,12 +150,12 @@ static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const Q
             Map::ConstIterator end = map.end();
             Map::ConstIterator it = map.find( "login" );
             while ( it != end ) {
-                //kDebug(130) << "readFromWallet: found " << it.key() << "=" << it.data() << endl;
+                //kDebug(130) << "readFromWallet: found " << it.key() << "=" << it.value() << endl;
                 Map::ConstIterator pwdIter = map.find( makeMapKey( "password", entryNumber ) );
                 if ( pwdIter != end ) {
-                    if ( it.data() == username )
-                        password = pwdIter.data();
-                    knownLogins.insert( it.data(), pwdIter.data() );
+                    if ( it.value() == username )
+                        password = pwdIter.value();
+                    knownLogins.insert( it.value(), pwdIter.value() );
                 }
 
                 it = map.find( QString( "login-" ) + QString::number( ++entryNumber ) );
@@ -165,7 +165,7 @@ static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const Q
             if ( !userReadOnly && !knownLogins.isEmpty() && username.isEmpty() ) {
                 // Pick one, any one...
                 username = knownLogins.begin().key();
-                password = knownLogins.begin().data();
+                password = knownLogins.begin().value();
                 //kDebug(130) << "readFromWallet: picked the first one : " << username << endl;
             }
 
