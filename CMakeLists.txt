@@ -5,9 +5,11 @@ add_subdirectory( kfile-plugin )
 include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
 
 
+set (trashcommon_PART_SRCS ${CMAKE_SOURCE_DIR}/kioslave/trash/trashimpl.cpp)
+
 ########### next target ###############
 
-set(kio_trash_PART_SRCS kio_trash.cpp )
+set(kio_trash_PART_SRCS kio_trash.cpp ${trashcommon_PART_SRCS})
 
 kde4_automoc(${kio_trash_PART_SRCS})
 
@@ -15,7 +17,7 @@ kde4_add_plugin(kio_trash ${kio_trash_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kio_trash )
 
-target_link_libraries(kio_trash  ${QT_AND_KDECORE_LIBS} trashcommon kio )
+target_link_libraries(kio_trash  ${QT_AND_KDECORE_LIBS} kio ${QT_QT3SUPPORT_LIBRARY} DCOP)
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kio_trash )
 
