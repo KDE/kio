@@ -24,8 +24,7 @@
 #ifndef KPASSWDSERVER_H
 #define KPASSWDSERVER_H
 
-#include <q3dict.h>
-#include <q3intdict.h>
+#include <qhash.h>
 #include <q3ptrlist.h>
 
 #include <dcopclient.h>
@@ -91,7 +90,7 @@ protected:
       int compareItems(Q3PtrCollection::Item n1, Q3PtrCollection::Item n2);
   };
 
-  Q3Dict< AuthInfoList > m_authDict;
+  QHash< QString, AuthInfoList* > m_authDict;
 
   struct Request {
      DCOPClient *client;
@@ -106,7 +105,7 @@ protected:
 
   Q3PtrList< Request > m_authPending;
   Q3PtrList< Request > m_authWait;
-  Q3IntDict<QStringList> mWindowIdList;
+  QHash<int, QStringList*> mWindowIdList;
   DCOPClient *m_dcopClient;
   KWallet::Wallet* m_wallet;
   long m_seqNr;

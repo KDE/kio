@@ -72,7 +72,6 @@ KPasswdServer::AuthInfoList::compareItems(Q3PtrCollection::Item n1, Q3PtrCollect
 KPasswdServer::KPasswdServer(const QByteArray &name)
  : KDEDModule(name)
 {
-    m_authDict.setAutoDelete(true);
     m_authPending.setAutoDelete(true);
     m_seqNr = 0;
     m_wallet = 0;
@@ -82,6 +81,7 @@ KPasswdServer::KPasswdServer(const QByteArray &name)
 
 KPasswdServer::~KPasswdServer()
 {
+    qDeleteAll(m_authDict);
     delete m_wallet;
 }
 
@@ -525,7 +525,7 @@ KPasswdServer::copyAuthInfo(const AuthInfo *i)
 const KPasswdServer::AuthInfo *
 KPasswdServer::findAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
 {
-   AuthInfoList *authList = m_authDict.find(key);
+   AuthInfoList *authList = m_authDict.value(key);
    if (!authList)
       return 0;
 
@@ -563,7 +563,7 @@ KPasswdServer::findAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
 void
 KPasswdServer::removeAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
 {
-   AuthInfoList *authList = m_authDict.find(key);
+   AuthInfoList *authList = m_authDict.value(key);
    if (!authList)
       return;
 
@@ -582,7 +582,7 @@ KPasswdServer::removeAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
    }
    if (authList->isEmpty())
    {
-       m_authDict.remove(key);
+       delete m_authDict.take(key);
    }
 }
 
@@ -590,7 +590,7 @@ KPasswdServer::removeAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
 void
 KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, long windowId, long seqNr, bool canceled)
 {
-   AuthInfoList *authList = m_authDict.find(key);
+   AuthInfoList *authList = m_authDict.value(key);
    if (!authList)
    {
       authList = new AuthInfoList;
@@ -654,7 +654,7 @@ KPasswdServer::updateAuthExpire(const QString &key, const AuthInfo *auth, long w
    // Update mWindowIdList
    if (windowId)
    {
-      QStringList *keysChanged = mWindowIdList.find(windowId);
+      QStringList *keysChanged = mWindowIdList.value(windowId);
       if (!keysChanged)
       {
          keysChanged = new QStringList;
@@ -668,14 +668,14 @@ KPasswdServer::updateAuthExpire(const QString &key, const AuthInfo *auth, long w
 void
 KPasswdServer::removeAuthForWindowId(long windowId)
 {
-   QStringList *keysChanged = mWindowIdList.find(windowId);
+   QStringList *keysChanged = mWindowIdList.value(windowId);
    if (!keysChanged) return;
 
    for(QStringList::ConstIterator it = keysChanged->begin();
        it != keysChanged->end(); ++it)
    {
       QString key = *it;
-      AuthInfoList *authList = m_authDict.find(key);
+      AuthInfoList *authList = m_authDict.value(key);
       if (!authList)
          continue;
 
