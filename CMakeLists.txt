@@ -14,7 +14,7 @@ kde4_add_plugin(kio_trash ${kio_trash_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kio_trash )
 
-target_link_libraries(kio_trash  ${QT_AND_KDECORE_LIBS} kio ${QT_QT3SUPPORT_LIBRARY} DCOP)
+target_link_libraries(kio_trash  ${LIB_KDE3SUPPORT})
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kio_trash )
 
@@ -28,7 +28,7 @@ kde4_automoc(${ktrash_SRCS})
 
 kde4_add_executable(ktrash ${ktrash_SRCS})
 
-target_link_libraries(ktrash  ${QT_AND_KDECORE_LIBS} kio DCOP )
+target_link_libraries(ktrash  ${LIB_KIO} )
 
 install_targets(/bin ktrash )
 
