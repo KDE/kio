@@ -684,7 +684,7 @@ KPasswdServer::removeAuthForWindowId(long windowId)
       {
         if (current->expire == AuthInfo::expWindowClose)
         {
-           if (current->windowList.remove(windowId) && current->windowList.isEmpty())
+           if (current->windowList.removeAll(windowId) && current->windowList.isEmpty())
            {
               authList->remove();
               current = authList->current();
