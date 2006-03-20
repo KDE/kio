@@ -11,7 +11,7 @@ kde4_automoc(${kioexec_SRCS})
 
 kde4_add_executable(kioexec ${kioexec_SRCS})
 
-target_link_libraries(kioexec  ${QT_AND_KDECORE_LIBS} kio )
+target_link_libraries(kioexec  ${KDE4_KDECORE_LIBS} kio )
 
 install_targets(/bin kioexec )
 
