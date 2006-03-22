@@ -30,7 +30,7 @@ kde4_automoc(${ktrash_SRCS})
 
 kde4_add_executable(ktrash ${ktrash_SRCS})
 
-target_link_libraries(ktrash  ${LIB_KIO} )
+target_link_libraries(ktrash  ${KDE4_KIO_LIBS} )
 
 install_targets(/bin ktrash )
 
