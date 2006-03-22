@@ -47,7 +47,7 @@ if(KDE4_BUILD_TESTS)
 
 kde4_add_executable(testtrash ${testtrash_SRCS})
 
-target_link_libraries(testtrash  ${QT_AND_KDECORE_LIBS} kio )
+target_link_libraries(testtrash  ${KDE4_KDECORE_LIBS} kio )
 
 endif(KDE4_BUILD_TESTS)
 
