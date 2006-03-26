@@ -2,7 +2,7 @@ kde4_header()
 
 project(kioslave-trash)
 
-include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} )
+include_directories( ${KDE4_INCLUDES} )
 
 set (trashcommon_PART_SRCS ${CMAKE_SOURCE_DIR}/kioslave/trash/trashimpl.cpp)
 
