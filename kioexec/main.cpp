@@ -85,9 +85,9 @@ KIOExec::KIOExec()
         else
         {
             if ( !url.isValid() )
-                KMessageBox::error( 0L, i18n( "The URL %1\nis malformed" ).arg( url.url() ) );
+                KMessageBox::error( 0L, i18n( "The URL %1\nis malformed" ,  url.url() ) );
             else if ( tempfiles )
-                KMessageBox::error( 0L, i18n( "Remote URL %1\nnot allowed with --tempfiles switch" ).arg( url.url() ) );
+                KMessageBox::error( 0L, i18n( "Remote URL %1\nnot allowed with --tempfiles switch" ,  url.url() ) );
             else
             // We must fetch the file
             {
@@ -215,14 +215,14 @@ void KIOExec::slotRunApp()
             if ( tempfiles )
             {
                 if ( KMessageBox::questionYesNo( 0L,
-                                                 i18n( "The supposedly temporary file\n%1\nhas been modified.\nDo you still want to delete it?" ).arg(dest.prettyURL()),
+                                                 i18n( "The supposedly temporary file\n%1\nhas been modified.\nDo you still want to delete it?" , dest.prettyURL()),
                                                  i18n( "File Changed" ), KStdGuiItem::del(), i18n("Do Not Delete") ) != KMessageBox::Yes )
                     continue; // don't delete the temp file
             }
             else
             {
                 if ( KMessageBox::questionYesNo( 0L,
-                                                 i18n( "The file\n%1\nhas been modified.\nDo you want to upload the changes?" ).arg(dest.prettyURL()),
+                                                 i18n( "The file\n%1\nhas been modified.\nDo you want to upload the changes?" , dest.prettyURL()),
                                                  i18n( "File Changed" ), i18n("Upload"), i18n("Do Not Upload") ) == KMessageBox::Yes )
                 {
                     kDebug() << "src='" << src << "'  dest='" << dest << "'" << endl;
