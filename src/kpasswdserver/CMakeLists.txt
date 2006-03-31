@@ -25,8 +25,6 @@ install_targets(${PLUGIN_INSTALL_DIR} kded_kpasswdserver )
 ########### install files ###############
 
 
-kde4_create_doxygen_docs(  )
-
 kde4_footer()
 
 
