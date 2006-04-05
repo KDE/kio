@@ -9,7 +9,7 @@ set(kioexec_SRCS main.cpp )
 
 kde4_automoc(${kioexec_SRCS})
 
-kde4_add_executable(kioexec ${kioexec_SRCS})
+kde4_add_executable(kioexec NOGUI ${kioexec_SRCS})
 
 target_link_libraries(kioexec  ${KDE4_KDECORE_LIBS} kio )
 
