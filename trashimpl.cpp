@@ -781,7 +781,7 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
         if ( (buff.st_uid == 0) // must be owned by root
              && (S_ISDIR(buff.st_mode)) // must be a dir
              && (!S_ISLNK(buff.st_mode)) // not a symlink
-             && (buff.st_mode & requiredBits == requiredBits)
+             && ((buff.st_mode & requiredBits) == requiredBits)
             ) {
             const QString trashDir = rootTrashDir + "/" + QString::number( uid );
             const QByteArray trashDir_c = QFile::encodeName( trashDir );
