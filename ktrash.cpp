@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
     QByteArray restoreArg = args->getOption( "restore" );
     if ( !restoreArg.isEmpty() ) {
 
-        if (restoreArg.find("system:/trash")==0) {
+        if (restoreArg.indexOf("system:/trash")==0) {
             restoreArg.remove(0, 13);
             restoreArg.prepend("trash:");
         }

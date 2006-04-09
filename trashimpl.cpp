@@ -914,7 +914,7 @@ bool TrashImpl::parseURL( const KUrl& url, int& trashId, QString& fileId, QStrin
     int start = 0;
     if ( path[0] == '/' ) // always true I hope
         start = 1;
-    int slashPos = path.find( '-', 0 ); // don't match leading slash
+    int slashPos = path.indexOf( '-', 0 ); // don't match leading slash
     if ( slashPos <= 0 )
         return false;
     bool ok = false;
@@ -923,7 +923,7 @@ bool TrashImpl::parseURL( const KUrl& url, int& trashId, QString& fileId, QStrin
     if ( !ok )
         return false;
     start = slashPos + 1;
-    slashPos = path.find( '/', start );
+    slashPos = path.indexOf( '/', start );
     if ( slashPos <= 0 ) {
         fileId = path.mid( start );
         relativePath.clear();
