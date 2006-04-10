@@ -104,7 +104,7 @@ void TrashProtocol::restore( const KUrl& trashURL )
     QString fileId, relativePath;
     bool ok = TrashImpl::parseURL( trashURL, trashId, fileId, relativePath );
     if ( !ok ) {
-        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( trashURL.prettyURL() ) );
+        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", trashURL.prettyURL() ) );
         return;
     }
     TrashedFileInfo info;
@@ -124,7 +124,7 @@ void TrashProtocol::restore( const KUrl& trashURL )
     if ( KDE_lstat( QFile::encodeName( destDir ), &buff ) == -1 ) {
         error( KIO::ERR_SLAVE_DEFINED,
                i18n( "The directory %1 does not exist anymore, so it is not possible to restore this item to its original location. "
-                     "You can either recreate that directory and use the restore operation again, or drag the item anywhere else to restore it." ).arg( destDir ) );
+                     "You can either recreate that directory and use the restore operation again, or drag the item anywhere else to restore it.", destDir ) );
         return;
     }
 
@@ -167,7 +167,7 @@ void TrashProtocol::copyOrMove( const KUrl &src, const KUrl &dest, bool overwrit
         QString fileId, relativePath;
         bool ok = TrashImpl::parseURL( src, trashId, fileId, relativePath );
         if ( !ok ) {
-            error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( src.prettyURL() ) );
+            error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", src.prettyURL() ) );
             return;
         }
         const QString destPath = dest.path();
@@ -315,7 +315,7 @@ void TrashProtocol::del( const KUrl &url, bool /*isfile*/ )
 
     bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
     if ( !ok ) {
-        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.prettyURL() ) );
+        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", url.prettyURL() ) );
         return;
     }
 
@@ -347,7 +347,7 @@ void TrashProtocol::listDir(const KUrl& url)
     QString relativePath;
     bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
     if ( !ok ) {
-        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.prettyURL() ) );
+        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", url.prettyURL() ) );
         return;
     }
     //was: const QString physicalPath = impl.physicalPath( trashId, fileId, relativePath );
@@ -503,7 +503,7 @@ void TrashProtocol::get( const KUrl& url )
     kDebug() << "get() : " << url << endl;
     if ( !url.isValid() ) {
         kDebug() << kBacktrace() << endl;
-        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.url() ) );
+        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", url.url() ) );
         return;
     }
     if ( url.path().length() <= 1 ) {
@@ -515,7 +515,7 @@ void TrashProtocol::get( const KUrl& url )
     QString relativePath;
     bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
     if ( !ok ) {
-        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.prettyURL() ) );
+        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", url.prettyURL() ) );
         return;
     }
     const QString physicalPath = impl.physicalPath( trashId, fileId, relativePath );
