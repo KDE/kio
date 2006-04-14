@@ -19,11 +19,10 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include <config.h>
-
 #include <qfile.h>
 
 #include <kapplication.h>
+#include <kdeversion.h>
 #include <kstandarddirs.h>
 #include <kdebug.h>
 #include <kmessagebox.h>
@@ -250,7 +249,7 @@ void KIOExec::slotRunApp()
 int main( int argc, char **argv )
 {
     KAboutData aboutData( "kioexec", I18N_NOOP("KIOExec"),
-        VERSION, description, KAboutData::License_GPL,
+        KDE_VERSION_STRING, description, KAboutData::License_GPL,
         "(c) 1998-2000,2003 The KFM/Konqueror Developers");
     aboutData.addAuthor("David Faure",0, "faure@kde.org");
     aboutData.addAuthor("Stephan Kulow",0, "coolo@kde.org");
