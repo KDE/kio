@@ -14,7 +14,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kfile_trash )
 
 target_link_libraries(kfile_trash  ${KDE4_KIO_LIBS} ${QT_QT3SUPPORT_LIBRARY} DCOP )
 
-install_targets(${LIB_INSTALL_DIR}/kde4 kfile_trash )
+install_targets(${PLUGIN_INSTALL_DIR} kfile_trash )
 
 
 ########### install files ###############
