@@ -108,7 +108,7 @@ KIOExec::KIOExec()
                 KIO::Job *job = KIO::file_copy( url, dest );
                 jobList.append( job );
 
-                connect( job, SIGNAL( result( KIO::Job * ) ), SLOT( slotResult( KIO::Job * ) ) );
+                connect( job, SIGNAL( result( KJob * ) ), SLOT( slotResult( KJob * ) ) );
             }
         }
     }
@@ -122,7 +122,7 @@ KIOExec::KIOExec()
         slotResult( 0L );
 }
 
-void KIOExec::slotResult( KIO::Job * job )
+void KIOExec::slotResult( KJob * job )
 {
     if (job && job->error())
     {
