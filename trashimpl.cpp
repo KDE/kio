@@ -254,9 +254,9 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     // Escape filenames according to the way they are encoded on the filesystem
     // All this to basically get back to the raw 8-bit representation of the filename...
     if ( trashId == 0 ) // home trash: absolute path
-        info += KUrl::encode_string( origPath/*, m_mibEnum*/ ).latin1();
+        info += KUrl::encode_string( origPath/*, m_mibEnum*/ ).toLatin1();
     else
-        info += KUrl::encode_string( makeRelativePath( topDirectoryPath( trashId ), origPath )/*, m_mibEnum*/ ).latin1();
+        info += KUrl::encode_string( makeRelativePath( topDirectoryPath( trashId ), origPath )/*, m_mibEnum*/ ).toLatin1();
     info += "\n";
     info += "DeletionDate=";
     info += QDateTime::currentDateTime().toString( Qt::ISODate ).toLatin1();
@@ -728,7 +728,7 @@ void TrashImpl::scanTrashDirectories() const
 {
     const KMountPoint::List lst = KMountPoint::currentMountPoints();
     for ( KMountPoint::List::ConstIterator it = lst.begin() ; it != lst.end() ; ++it ) {
-        const QByteArray str = (*it)->mountType().latin1();
+        const QByteArray str = (*it)->mountType().toLatin1();
         // Skip pseudo-filesystems, there's no chance we'll find a .Trash on them :)
         // ## Maybe we should also skip readonly filesystems
         if ( str != "proc" && str != "devfs" && str != "usbdevfs" &&
