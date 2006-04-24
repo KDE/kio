@@ -533,8 +533,8 @@ void TrashProtocol::get( const KUrl& url )
              this, SLOT( slotData( KIO::Job*, const QByteArray& ) ) );
     connect( job, SIGNAL( mimetype( KIO::Job*, const QString& ) ),
              this, SLOT( slotMimetype( KIO::Job*, const QString& ) ) );
-    connect( job, SIGNAL( result(KIO::Job *) ),
-             this, SLOT( jobFinished(KIO::Job *) ) );
+    connect( job, SIGNAL( result(KJob*) ),
+             this, SLOT( jobFinished(KJob*) ) );
     enterLoop();
 }
 
@@ -548,7 +548,7 @@ void TrashProtocol::slotMimetype( KIO::Job*, const QString& mt )
     mimeType( mt );
 }
 
-void TrashProtocol::jobFinished( KIO::Job* job )
+void TrashProtocol::jobFinished( KJob* job )
 {
     if ( job->error() )
         error( job->error(), job->errorText() );

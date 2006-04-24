@@ -154,7 +154,7 @@ private:
     void enterLoop();
 
 private Q_SLOTS:
-    void jobFinished(KIO::Job *job);
+    void jobFinished(KJob *job);
 
 private:
     /// Last error code stored in class to simplify API.

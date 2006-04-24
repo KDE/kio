@@ -375,14 +375,14 @@ bool TrashImpl::move( const QString& src, const QString& dest )
 #ifdef KIO_COPYJOB_HAS_SETINTERACTIVE
     job->setInteractive( false );
 #endif
-    connect( job, SIGNAL( result(KIO::Job *) ),
-             this, SLOT( jobFinished(KIO::Job *) ) );
+    connect( job, SIGNAL( result(KJob*) ),
+             this, SLOT( jobFinished(KJob*) ) );
     enterLoop();
 
     return m_lastErrorCode == 0;
 }
 
-void TrashImpl::jobFinished(KIO::Job* job)
+void TrashImpl::jobFinished(KJob* job)
 {
     kDebug() << k_funcinfo << " error=" << job->error() << endl;
     error( job->error(), job->errorText() );
@@ -422,8 +422,8 @@ bool TrashImpl::copy( const QString& src, const QString& dest )
 #ifdef KIO_COPYJOB_HAS_SETINTERACTIVE
     job->setInteractive( false );
 #endif
-    connect( job, SIGNAL( result( KIO::Job* ) ),
-             this, SLOT( jobFinished( KIO::Job* ) ) );
+    connect( job, SIGNAL( result(KJob*) ),
+             this, SLOT( jobFinished(KJob*) ) );
     enterLoop();
 
     return m_lastErrorCode == 0;
@@ -503,8 +503,8 @@ bool TrashImpl::synchronousDel( const QString& path, bool setLastErrorCode )
     KUrl url;
     url.setPath( path );
     KIO::DeleteJob *job = KIO::del( url, false, false );
-    connect( job, SIGNAL( result(KIO::Job *) ),
-             this, SLOT( jobFinished(KIO::Job *) ) );
+    connect( job, SIGNAL( result(KJob*) ),
+             this, SLOT( jobFinished(KJob*) ) );
     enterLoop();
     bool ok = m_lastErrorCode == 0;
     if ( !setLastErrorCode ) {
