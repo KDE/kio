@@ -367,7 +367,7 @@ static void checkInfoFile( const QString& infoPath, const QString& origFilePath 
     infoFile.setGroup( "Trash Info" );
     const QString origPath = infoFile.readEntry( "Path" );
     assert( !origPath.isEmpty() );
-    assert( origPath == KUrl::encode_string( origFilePath, KGlobal::locale()->fileEncodingMib() ) );
+    assert( origPath == KUrl::encode_string( origFilePath ) );
     const QString date = infoFile.readEntry( "DeletionDate" );
     assert( !date.isEmpty() );
     assert( date.contains( "T" ) );
@@ -392,7 +392,7 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
     u.setPath( origFilePath );
 
     // test
-    KIO::Job* job = KIO::move( u, "trash:/" );
+    KIO::Job* job = KIO::move( u, KUrl("trash:/") );
     QMap<QString, QString> metaData;
     //bool ok = KIO::NetAccess::move( u, "trash:/" );
     bool ok = KIO::NetAccess::synchronousRun( job, 0, 0, 0, &metaData );
@@ -499,7 +499,7 @@ void TestTrash::trashFileIntoOtherPartition()
     u.setPath( origFilePath );
 
     // test
-    KIO::Job* job = KIO::move( u, "trash:/" );
+    KIO::Job* job = KIO::move( u, KUrl("trash:/") );
     QMap<QString, QString> metaData;
     bool ok = KIO::NetAccess::synchronousRun( job, 0, 0, 0, &metaData );
     assert( ok );
@@ -537,7 +537,7 @@ void TestTrash::trashFileOwnedByRoot()
     u.setPath( "/etc/passwd" );
     const QString fileId = "passwd";
 
-    KIO::CopyJob* job = KIO::move( u, "trash:/" );
+    KIO::CopyJob* job = KIO::move( u, KUrl("trash:/") );
     job->setInteractive( false ); // no skip dialog, thanks
     QMap<QString, QString> metaData;
     //bool ok = KIO::NetAccess::move( u, "trash:/" );
@@ -564,7 +564,7 @@ void TestTrash::trashSymlink( const QString& origFilePath, const QString& fileId
     u.setPath( origFilePath );
 
     // test
-    ok = KIO::NetAccess::move( u, "trash:/" );
+    ok = KIO::NetAccess::move( u, KUrl("trash:/") );
     assert( ok );
     if ( origFilePath.startsWith( "/tmp" ) && m_tmpIsWritablePartition ) {
         kDebug() << " TESTS SKIPPED" << endl;
@@ -610,7 +610,7 @@ void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )
     KUrl u; u.setPath( origPath );
 
     // test
-    ok = KIO::NetAccess::move( u, "trash:/" );
+    ok = KIO::NetAccess::move( u, KUrl("trash:/") );
     assert( ok );
     if ( origPath.startsWith( "/tmp" ) && m_tmpIsWritablePartition ) {
         kDebug() << " TESTS SKIPPED" << endl;
@@ -646,12 +646,12 @@ void TestTrash::trashDirectoryFromOther()
 void TestTrash::tryRenameInsideTrash()
 {
     kDebug() << k_funcinfo << " with file_move" << endl;
-    bool worked = KIO::NetAccess::file_move( "trash:/0-tryRenameInsideTrash", "trash:/foobar" );
+    bool worked = KIO::NetAccess::file_move( KUrl("trash:/0-tryRenameInsideTrash"), KUrl("trash:/foobar") );
     assert( !worked );
     assert( KIO::NetAccess::lastError() == KIO::ERR_CANNOT_RENAME );
 
     kDebug() << k_funcinfo << " with move" << endl;
-    worked = KIO::NetAccess::move( "trash:/0-tryRenameInsideTrash", "trash:/foobar" );
+    worked = KIO::NetAccess::move( KUrl("trash:/0-tryRenameInsideTrash"), KUrl("trash:/foobar") );
     assert( !worked );
     assert( KIO::NetAccess::lastError() == KIO::ERR_CANNOT_RENAME );
 }
@@ -661,7 +661,7 @@ void TestTrash::delRootFile()
     kDebug() << k_funcinfo << endl;
 
     // test deleting a trashed file
-    bool ok = KIO::NetAccess::del( "trash:/0-fileFromHome", 0L );
+    bool ok = KIO::NetAccess::del( KUrl("trash:/0-fileFromHome"), 0L );
     assert( ok );
 
     QFileInfo file( m_trashDir + "/files/fileFromHome" );
@@ -679,7 +679,7 @@ void TestTrash::delFileInDirectory()
     kDebug() << k_funcinfo << endl;
 
     // test deleting a file inside a trashed directory -> not allowed
-    bool ok = KIO::NetAccess::del( "trash:/0-trashDirFromHome/testfile", 0L );
+    bool ok = KIO::NetAccess::del( KUrl("trash:/0-trashDirFromHome/testfile"), 0L );
     assert( !ok );
     assert( KIO::NetAccess::lastError() == KIO::ERR_ACCESS_DENIED );
 
@@ -696,7 +696,7 @@ void TestTrash::delDirectory()
     kDebug() << k_funcinfo << endl;
 
     // test deleting a trashed directory
-    bool ok = KIO::NetAccess::del( "trash:/0-trashDirFromHome", 0L );
+    bool ok = KIO::NetAccess::del( KUrl("trash:/0-trashDirFromHome"), 0L );
     assert( ok );
 
     QFileInfo dir( m_trashDir + "/files/trashDirFromHome" );
@@ -924,7 +924,7 @@ void TestTrash::trashDirectoryOwnedByRoot()
     const QString fileId = u.path();
     kDebug() << k_funcinfo << "fileId=" << fileId << endl;
 
-    KIO::CopyJob* job = KIO::move( u, "trash:/" );
+    KIO::CopyJob* job = KIO::move( u, KUrl("trash:/") );
     job->setInteractive( false ); // no skip dialog, thanks
     QMap<QString, QString> metaData;
     bool ok = KIO::NetAccess::synchronousRun( job, 0, 0, 0, &metaData );
@@ -1062,7 +1062,7 @@ void TestTrash::listRootDir()
     kDebug() << k_funcinfo << endl;
     m_entryCount = 0;
     m_listResult.clear();
-    KIO::ListJob* job = KIO::listDir( "trash:/" );
+    KIO::ListJob* job = KIO::listDir( KUrl("trash:/") );
     connect( job, SIGNAL( entries( KIO::Job*, const KIO::UDSEntryList& ) ),
              SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
@@ -1079,7 +1079,7 @@ void TestTrash::listRecursiveRootDir()
     kDebug() << k_funcinfo << endl;
     m_entryCount = 0;
     m_listResult.clear();
-    KIO::ListJob* job = KIO::listRecursive( "trash:/" );
+    KIO::ListJob* job = KIO::listRecursive( KUrl("trash:/") );
     connect( job, SIGNAL( entries( KIO::Job*, const KIO::UDSEntryList& ) ),
              SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
@@ -1096,7 +1096,7 @@ void TestTrash::listSubDir()
     kDebug() << k_funcinfo << endl;
     m_entryCount = 0;
     m_listResult.clear();
-    KIO::ListJob* job = KIO::listDir( "trash:/0-trashDirFromHome" );
+    KIO::ListJob* job = KIO::listDir( KUrl("trash:/0-trashDirFromHome") );
     connect( job, SIGNAL( entries( KIO::Job*, const KIO::UDSEntryList& ) ),
              SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
@@ -1155,8 +1155,8 @@ static void checkIcon( const KUrl& url, const QString& expectedIcon )
 
 void TestTrash::testIcons()
 {
-    checkIcon( "trash:/", "trashcan_full" ); // #100321
-    checkIcon( "trash:/foo/", "folder" );
+    checkIcon( KUrl("trash:/"), "trashcan_full" ); // #100321
+    checkIcon( KUrl("trash:/foo/"), "folder" );
 }
 
 #include "testtrash.moc"
