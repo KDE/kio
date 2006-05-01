@@ -257,6 +257,7 @@ int main( int argc, char **argv )
     aboutData.addAuthor("Waldo Bastian",0, "bastian@kde.org");
     aboutData.addAuthor("Oswald Buddenhagen",0, "ossi@kde.org");
 
+    KLocale::setMainCatalog("kio");
     KCmdLineArgs::init( argc, argv, &aboutData );
     KCmdLineArgs::addCmdLineOptions( options );
 
