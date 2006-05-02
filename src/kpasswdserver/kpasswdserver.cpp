@@ -184,7 +184,7 @@ KPasswdServer::checkAuthInfo(KIO::AuthInfo info, long windowId)
     QString key = createCacheKey(info);
 
     Request *request = m_authPending.first();
-    QString path2 = info.url.directory(false, false);
+    QString path2 = info.url.directory(KUrl::AppendTrailingSlash|KUrl::ObeyTrailingSlash);
     for(; request; request = m_authPending.next())
     {
        if (request->key != key)
@@ -192,7 +192,7 @@ KPasswdServer::checkAuthInfo(KIO::AuthInfo info, long windowId)
 
        if (info.verifyPath)
        {
-          QString path1 = request->info.url.directory(false, false);
+         QString path1 = request->info.url.directory(KUrl::AppendTrailingSlash|KUrl::ObeyTrailingSlash);
           if (!path2.startsWith(path1))
              continue;
        }
@@ -426,7 +426,7 @@ KPasswdServer::processRequest()
        QString key = waitRequest->key;
 
        request = m_authPending.first();
-       QString path2 = waitRequest->info.url.directory(false, false);
+       QString path2 = waitRequest->info.url.directory(KUrl::AppendTrailingSlash|KUrl::ObeyTrailingSlash);
        for(; request; request = m_authPending.next())
        {
            if (request->key != key)
@@ -434,7 +434,7 @@ KPasswdServer::processRequest()
 
            if (info.verifyPath)
            {
-               QString path1 = request->info.url.directory(false, false);
+             QString path1 = request->info.url.directory(KUrl::AppendTrailingSlash|KUrl::ObeyTrailingSlash);
                if (!path2.startsWith(path1))
                    continue;
            }
@@ -529,7 +529,7 @@ KPasswdServer::findAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
    if (!authList)
       return 0;
 
-   QString path2 = info.url.directory(false, false);
+   QString path2 = info.url.directory(KUrl::AppendTrailingSlash|KUrl::ObeyTrailingSlash);
    for(AuthInfo *current = authList->first();
        current; )
    {
@@ -618,7 +618,7 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, lo
    }
 
    current->url = info.url;
-   current->directory = info.url.directory(false, false);
+   current->directory = info.url.directory(KUrl::AppendTrailingSlash|KUrl::ObeyTrailingSlash);
    current->username = info.username;
    current->password = info.password;
    current->realmValue = info.realmValue;
