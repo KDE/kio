@@ -23,13 +23,9 @@
 #include <kio/jobclasses.h>
 #include <ksimpleconfig.h>
 
-#include <qstring.h>
 #include <qdatetime.h>
 #include <qmap.h>
-
-#include <q3strlist.h>
-//Added by qt3to4:
-#include <QByteArray>
+#include <QStringList>
 #include <assert.h>
 
 /**
@@ -104,7 +100,7 @@ public:
     int lastErrorCode() const { return m_lastErrorCode; }
     QString lastErrorMessage() const { return m_lastErrorMessage; }
 
-    Q3StrList listDir( const QString& physicalPath );
+    QStringList listDir( const QString& physicalPath );
 
     static KUrl makeURL( int trashId, const QString& fileId, const QString& relativePath );
     static bool parseURL( const KUrl& url, int& trashId, QString& fileId, QString& relativePath );
@@ -150,7 +146,7 @@ private:
     bool initTrashDirectory( const QByteArray& trashDir_c ) const;
     QString trashForMountPoint( const QString& topdir, bool createIfNeeded ) const;
     static QString makeRelativePath( const QString& topdir, const QString& path );
-    
+
     void enterLoop();
 
 private Q_SLOTS:

@@ -4,7 +4,7 @@ project(kioslave-trash)
 
 include_directories( ${KDE4_INCLUDES} )
 
-set (trashcommon_PART_SRCS ${CMAKE_SOURCE_DIR}/kioslave/trash/trashimpl.cpp)
+set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp)
 
 ########### next target ###############
 
@@ -16,11 +16,9 @@ kde4_add_plugin(kio_trash ${kio_trash_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kio_trash )
 
-target_link_libraries(kio_trash  ${KDE4_KDE3SUPPORT_LIBS})
+target_link_libraries(kio_trash  ${KDE4_KIO_LIBS})
 
 install_targets(${PLUGIN_INSTALL_DIR} kio_trash )
-
-
 
 ########### next target ###############
 
@@ -36,18 +34,20 @@ install_targets(/bin ktrash )
 
 ########### next target ###############
 
-
-########### next target ###############
-
-set(testtrash_SRCS testtrash.cpp ${trashcommon_PART_SRCS})
-
-kde4_automoc(${testtrash_SRCS})
-
 if(KDE4_BUILD_TESTS)
 
-kde4_add_executable(testtrash ${testtrash_SRCS})
+  # Tests don't need to go into toplevel/bin, they are fine in the current dir.
+  set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
 
-target_link_libraries(testtrash  ${KDE4_KIO_LIBS} )
+  set(testtrash_SRCS testtrash.cpp ${trashcommon_PART_SRCS})
+
+  kde4_automoc(${testtrash_SRCS})
+
+  kde4_add_executable(testtrash ${testtrash_SRCS})
+
+  target_link_libraries(testtrash  ${KDE4_KIO_LIBS} )
+
+  add_test(kioslave-testtrash ${EXECUTABLE_OUTPUT_PATH}/testtrash)
 
 endif(KDE4_BUILD_TESTS)
 

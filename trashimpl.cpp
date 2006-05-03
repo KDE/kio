@@ -37,9 +37,6 @@
 #include <qeventloop.h>
 #include <qfile.h>
 #include <qdir.h>
-//Added by qt3to4:
-#include <Q3StrList>
-#include <QByteArray>
 
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -57,7 +54,6 @@ TrashImpl::TrashImpl() :
     m_lastId( 0 ),
     m_homeDevice( 0 ),
     m_trashDirectoriesScanned( false ),
-    m_mibEnum( KGlobal::locale()->fileEncodingMib() ),
     // not using kio_trashrc since KIO uses that one already for kio_trash
     // so better have a separate one, for faster parsing by e.g. kmimetype.cpp
     m_config( "trashrc" )
@@ -159,11 +155,12 @@ void TrashImpl::migrateOldTrash()
 
     KConfigGroup g( KGlobal::config(), "Paths" );
     const QString oldTrashDir = g.readPathEntry( "Trash" );
-    const Q3StrList entries = listDir( oldTrashDir );
+    const QStringList entries = listDir( oldTrashDir );
     bool allOK = true;
-    Q3StrListIterator entryIt( entries );
-    for (; entryIt.current(); ++entryIt) {
-        QString srcPath = QFile::decodeName( *entryIt );
+    for ( QStringList::const_iterator entryIt = entries.begin(), entryEnd = entries.end();
+          entryIt != entryEnd ; ++entryIt )
+    {
+        QString srcPath = *entryIt;
         if ( srcPath == "." || srcPath == ".." || srcPath == ".directory" )
             continue;
         srcPath.prepend( oldTrashDir ); // make absolute
@@ -254,9 +251,9 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     // Escape filenames according to the way they are encoded on the filesystem
     // All this to basically get back to the raw 8-bit representation of the filename...
     if ( trashId == 0 ) // home trash: absolute path
-        info += KUrl::encode_string( origPath/*, m_mibEnum*/ ).toLatin1();
+        info += QUrl::toPercentEncoding( origPath );
     else
-        info += KUrl::encode_string( makeRelativePath( topDirectoryPath( trashId ), origPath )/*, m_mibEnum*/ ).toLatin1();
+        info += QUrl::toPercentEncoding( makeRelativePath( topDirectoryPath( trashId ), origPath ) );
     info += "\n";
     info += "DeletionDate=";
     info += QDateTime::currentDateTime().toString( Qt::ISODate ).toLatin1();
@@ -548,14 +545,15 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
         QString infoPath = it.value();
         infoPath += "/info";
         // Code taken from kio_file
-        Q3StrList entryNames = listDir( infoPath );
+        QStringList entryNames = listDir( infoPath );
         //char path_buffer[PATH_MAX];
         //getcwd(path_buffer, PATH_MAX - 1);
         //if ( chdir( infoPathEnc ) )
         //    continue;
-        Q3StrListIterator entryIt( entryNames );
-        for (; entryIt.current(); ++entryIt) {
-            QString fileName = QFile::decodeName( *entryIt );
+        for ( QStringList::const_iterator entryIt = entryNames.begin(), entryEnd = entryNames.end();
+              entryIt != entryEnd ; ++entryIt )
+        {
+            QString fileName = *entryIt;
             if ( fileName == "." || fileName == ".." )
                 continue;
             if ( !fileName.endsWith( ".trashinfo" ) ) {
@@ -573,19 +571,10 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
 }
 
 // Returns the entries in a given directory - including "." and ".."
-Q3StrList TrashImpl::listDir( const QString& physicalPath )
+QStringList TrashImpl::listDir( const QString& physicalPath )
 {
-    const QByteArray physicalPathEnc = QFile::encodeName( physicalPath );
-    kDebug() << k_funcinfo << "listing " << physicalPath << endl;
-    Q3StrList entryNames;
-    DIR *dp = opendir( physicalPathEnc );
-    if ( dp == 0 )
-        return entryNames;
-    KDE_struct_dirent *ep;
-    while ( ( ep = KDE_readdir( dp ) ) != 0L )
-        entryNames.append( ep->d_name );
-    closedir( dp );
-    return entryNames;
+    QDir dir( physicalPath );
+    return dir.entryList();
 }
 
 bool TrashImpl::infoForFile( int trashId, const QString& fileId, TrashedFileInfo& info )
@@ -605,7 +594,7 @@ bool TrashImpl::readInfoFile( const QString& infoPath, TrashedFileInfo& info, in
         return false;
     }
     cfg.setGroup( "Trash Info" );
-    info.origPath = KUrl::decode_string( cfg.readEntry( "Path" )/*, m_mibEnum*/ );
+    info.origPath = QUrl::fromPercentEncoding( cfg.readEntry( "Path" ).toLatin1() );
     if ( info.origPath.isEmpty() )
         return false; // path is mandatory...
     if ( trashId == 0 )
@@ -776,7 +765,7 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
     uid_t uid = getuid();
     KDE_struct_stat buff;
     // Minimum permissions required: write+execute for 'others', and sticky bit
-    int requiredBits = S_IWOTH | S_IXOTH | S_ISVTX;
+    unsigned int requiredBits = S_IWOTH | S_IXOTH | S_ISVTX;
     if ( KDE_lstat( QFile::encodeName( rootTrashDir ), &buff ) == 0 ) {
         if ( (buff.st_uid == 0) // must be owned by root
              && (S_ISDIR(buff.st_mode)) // must be a dir

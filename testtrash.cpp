@@ -148,7 +148,7 @@ void TestTrash::setup()
     QVector<int> writableTopDirs;
     for ( TrashImpl::TrashDirMap::ConstIterator it = trashDirs.begin(); it != trashDirs.end() ; ++it ) {
         if ( it.key() == 0 ) {
-            assert( it.data() == m_trashDir );
+            assert( it.value() == m_trashDir );
             assert( topDirs.find( 0 ) == topDirs.end() );
             foundTrashDir = true;
         } else {
@@ -160,13 +160,13 @@ void TestTrash::setup()
                     m_tmpIsWritablePartition = true;
                     m_tmpTrashId = it.key();
                     kDebug() << "/tmp is on its own partition (trashid=" << m_tmpTrashId << "), some tests will be skipped" << endl;
-                    removeFile( it.data(), "/info/fileFromOther.trashinfo" );
-                    removeFile( it.data(), "/files/fileFromOther" );
-                    removeFile( it.data(), "/info/symlinkFromOther.trashinfo" );
-                    removeFile( it.data(), "/files/symlinkFromOther" );
-                    removeFile( it.data(), "/info/trashDirFromOther.trashinfo" );
-                    removeFile( it.data(), "/files/trashDirFromOther/testfile" );
-                    removeDir( it.data(), "/files/trashDirFromOther" );
+                    removeFile( it.value(), "/info/fileFromOther.trashinfo" );
+                    removeFile( it.value(), "/files/fileFromOther" );
+                    removeFile( it.value(), "/info/symlinkFromOther.trashinfo" );
+                    removeFile( it.value(), "/files/symlinkFromOther" );
+                    removeFile( it.value(), "/info/trashDirFromOther.trashinfo" );
+                    removeFile( it.value(), "/files/trashDirFromOther/testfile" );
+                    removeDir( it.value(), "/files/trashDirFromOther" );
                 }
             }
         }
@@ -193,8 +193,8 @@ void TestTrash::setup()
         kWarning() << "No writable partition other than $HOME found, some tests will be skipped" << endl;
 
     // Start with a clean base dir
-    KIO::NetAccess::del( homeTmpDir(), 0 );
-    KIO::NetAccess::del( otherTmpDir(), 0 );
+    KIO::NetAccess::del( KUrl::fromPath( homeTmpDir() ), 0 );
+    KIO::NetAccess::del( KUrl::fromPath( otherTmpDir() ), 0 );
     QDir dir; // TT: why not a static method?
     bool ok = dir.mkdir( homeTmpDir() );
     if ( !ok )
@@ -237,9 +237,9 @@ void TestTrash::cleanTrash()
     removeFile( m_trashDir, "/files/trashDirFromOther/testfile" );
     removeDir( m_trashDir, "/files/trashDirFromOther" );
     // for trashDirectoryOwnedByRoot
-    KIO::NetAccess::del( m_trashDir + "/files/cups", 0 );
-    KIO::NetAccess::del( m_trashDir + "/files/boot", 0 );
-    KIO::NetAccess::del( m_trashDir + "/files/etc", 0 );
+    KIO::NetAccess::del( KUrl::fromPath( m_trashDir + "/files/cups" ), 0 );
+    KIO::NetAccess::del( KUrl::fromPath( m_trashDir + "/files/boot" ), 0 );
+    KIO::NetAccess::del( KUrl::fromPath( m_trashDir + "/files/etc" ), 0 );
 
     //system( "find ~/.local-testtrash/share/Trash" );
 }
@@ -367,7 +367,7 @@ static void checkInfoFile( const QString& infoPath, const QString& origFilePath 
     infoFile.setGroup( "Trash Info" );
     const QString origPath = infoFile.readEntry( "Path" );
     assert( !origPath.isEmpty() );
-    assert( origPath == KUrl::encode_string( origFilePath ) );
+    assert( origPath == QUrl::toPercentEncoding( origFilePath.toLatin1() ) );
     const QString date = infoFile.readEntry( "DeletionDate" );
     assert( !date.isEmpty() );
     assert( date.contains( "T" ) );
@@ -418,7 +418,7 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
     for ( ; it != metaData.end() ; ++it ) {
         if ( it.key().startsWith( "trashURL" ) ) {
             const QString origPath = it.key().mid( 9 );
-            KUrl trashURL( it.data() );
+            KUrl trashURL( it.value() );
             kDebug() << trashURL << endl;
             assert( !trashURL.isEmpty() );
             assert( trashURL.protocol() == "trash" );
@@ -519,7 +519,7 @@ void TestTrash::trashFileIntoOtherPartition()
     for ( ; it != metaData.end() ; ++it ) {
         if ( it.key().startsWith( "trashURL" ) ) {
             const QString origPath = it.key().mid( 9 );
-            KUrl trashURL( it.data() );
+            KUrl trashURL( it.value() );
             kDebug() << trashURL << endl;
             assert( !trashURL.isEmpty() );
             assert( trashURL.protocol() == "trash" );
@@ -1029,7 +1029,7 @@ void TestTrash::restoreFileToDeletedDirectory()
     removeFile( m_trashDir, "/files/fileFromHome" );
     trashFileFromHome();
     // Delete orig dir
-    bool delOK = KIO::NetAccess::del( homeTmpDir(), 0 );
+    bool delOK = KIO::NetAccess::del( KUrl::fromPath( homeTmpDir() ), 0 );
     assert( delOK );
 
     const QString fileId = "fileFromHome";

@@ -33,8 +33,6 @@
 #include <qtextstream.h>
 #include <qfile.h>
 #include <qeventloop.h>
-//Added by qt3to4:
-#include <Q3StrList>
 
 #include <time.h>
 #include <pwd.h>
@@ -367,12 +365,13 @@ void TrashProtocol::listDir(const KUrl& url)
 
     // List subdir. Can't use kio_file here since we provide our own info...
     kDebug() << k_funcinfo << "listing " << info.physicalPath << endl;
-    Q3StrList entryNames = impl.listDir( info.physicalPath );
+    const QStringList entryNames = impl.listDir( info.physicalPath );
     totalSize( entryNames.count() );
     KIO::UDSEntry entry;
-    Q3StrListIterator entryIt( entryNames );
-    for (; entryIt.current(); ++entryIt) {
-        QString fileName = QFile::decodeName( entryIt.current() );
+    for ( QStringList::const_iterator entryIt = entryNames.begin(), entryEnd = entryNames.end();
+          entryIt != entryEnd ; ++entryIt )
+    {
+        const QString fileName = *entryIt;
         if ( fileName == ".." )
             continue;
         const QString filePath = info.physicalPath + "/" + fileName;
