@@ -13,7 +13,7 @@ kde4_add_executable(kioexec NOGUI ${kioexec_SRCS})
 
 target_link_libraries(kioexec  ${KDE4_KDECORE_LIBS} kio )
 
-install_targets(/bin kioexec )
+install(TARGETS kioexec DESTINATION bin)
 
 ########### install files ###############
 
