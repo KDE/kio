@@ -30,7 +30,7 @@ kde4_add_executable(ktrash ${ktrash_SRCS})
 
 target_link_libraries(ktrash  ${KDE4_KIO_LIBS} )
 
-install_targets(/bin ktrash )
+install(TARGETS ktrash DESTINATION bin)
 
 ########### next target ###############
 
