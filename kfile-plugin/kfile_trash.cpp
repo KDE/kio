@@ -31,8 +31,8 @@ typedef KGenericFactory<KTrashPlugin> TrashFactory;
 
 K_EXPORT_COMPONENT_FACTORY(kfile_trash, TrashFactory("kfile_trash"))
 
-KTrashPlugin::KTrashPlugin(QObject *parent, const char *name,
-        const QStringList &args) : KFilePlugin(parent, args)
+KTrashPlugin::KTrashPlugin(QObject *parent, const QStringList &args)
+    : KFilePlugin(parent, args)
 {
     KGlobal::locale()->insertCatalog( "kio_trash" );
 

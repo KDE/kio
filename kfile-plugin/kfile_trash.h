@@ -31,7 +31,7 @@ class KTrashPlugin: public KFilePlugin
     Q_OBJECT
 
 public:
-    KTrashPlugin(QObject *parent, const char *name, const QStringList& args);
+    KTrashPlugin(QObject *parent, const QStringList& args);
     virtual bool readInfo(KFileMetaInfo& info, uint what);
 
 private:
