@@ -96,7 +96,7 @@ static QString makeMapKey( const char* key, int entryNumber )
 {
     QString str = QLatin1String( key );
     if ( entryNumber > 1 )
-        str += "-" + QString::number( entryNumber );
+        str += '-' + QString::number( entryNumber );
     return str;
 }
 
@@ -495,7 +495,7 @@ QString KPasswdServer::createCacheKey( const KIO::AuthInfo &info )
     if (!info.url.user().isEmpty())
     {
        key += info.url.user();
-       key += "@";
+       key += '@';
     }
     key += info.url.host();
     int port = info.url.port();
