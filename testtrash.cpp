@@ -34,7 +34,7 @@
 #include <kdebug.h>
 #include <kcmdlineargs.h>
 
-#include <qdir.h>
+#include <QDir>
 #include <qfileinfo.h>
 #include <qvector.h>
 

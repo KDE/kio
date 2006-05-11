@@ -23,9 +23,9 @@
 #include <kgenericfactory.h>
 #include <kdebug.h>
 
-#include <qfile.h>
+#include <QFile>
 #include <qstringlist.h>
-#include <qdatetime.h>
+#include <QDateTime>
 
 typedef KGenericFactory<KTrashPlugin> TrashFactory;
 

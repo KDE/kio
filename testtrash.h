@@ -20,7 +20,7 @@
 #ifndef TESTTRASH_H
 #define TESTTRASH_H
 
-#include <qobject.h>
+#include <QObject>
 
 class TestTrash : public QObject
 {

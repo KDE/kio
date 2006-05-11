@@ -35,8 +35,8 @@
 
 #include <qapplication.h>
 #include <qeventloop.h>
-#include <qfile.h>
-#include <qdir.h>
+#include <QFile>
+#include <QDir>
 
 #include <sys/stat.h>
 #include <sys/types.h>

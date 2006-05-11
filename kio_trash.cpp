@@ -29,9 +29,9 @@
 #include <kprocess.h>
 
 #include <dcopclient.h>
-#include <qdatastream.h>
+#include <QDataStream>
 #include <qtextstream.h>
-#include <qfile.h>
+#include <QFile>
 #include <qeventloop.h>
 
 #include <time.h>

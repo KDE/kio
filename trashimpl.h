@@ -23,8 +23,8 @@
 #include <kio/jobclasses.h>
 #include <ksimpleconfig.h>
 
-#include <qdatetime.h>
-#include <qmap.h>
+#include <QDateTime>
+#include <QMap>
 #include <QStringList>
 #include <assert.h>
 
