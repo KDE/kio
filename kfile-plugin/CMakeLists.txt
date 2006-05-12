@@ -1,4 +1,3 @@
-kde4_header()
 include_directories(  ${CMAKE_SOURCE_DIR}/kioslave/trash/  )
 
 
@@ -21,7 +20,6 @@ install_targets(${PLUGIN_INSTALL_DIR} kfile_trash )
 
 install_files( ${SERVICES_INSTALL_DIR} FILES kfile_trash.desktop kfile_trash_system.desktop )
 
-kde4_footer()
 
 
 

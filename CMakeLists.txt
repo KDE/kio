@@ -1,4 +1,3 @@
-kde4_header()
 
 project(kioslave-trash)
 
@@ -59,7 +58,6 @@ add_subdirectory( kfile-plugin )
 
 install_files( ${SERVICES_INSTALL_DIR} FILES trash.protocol )
 
-kde4_footer()
 
 
 
