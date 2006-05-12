@@ -1,4 +1,3 @@
-kde4_header()
 
 # for strange kio/foo.h includes
 include_directories( BEFORE ${CMAKE_SOURCE_DIR}/kio )
@@ -25,7 +24,6 @@ install_targets(${PLUGIN_INSTALL_DIR} kded_kpasswdserver )
 ########### install files ###############
 
 
-kde4_footer()
 
 
 
