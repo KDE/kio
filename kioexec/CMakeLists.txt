@@ -1,4 +1,3 @@
-kde4_header()
 
 # for strange kio/foo.h includes
 include_directories( BEFORE ${CMAKE_SOURCE_DIR}/kio )
@@ -17,5 +16,4 @@ install(TARGETS kioexec DESTINATION bin)
 
 ########### install files ###############
 
-kde4_footer()
 
