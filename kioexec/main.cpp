@@ -48,6 +48,7 @@ static const char description[] =
 static KCmdLineOptions options[] =
 {
    { "tempfiles", I18N_NOOP("Treat URLs as local files and delete them afterwards"), 0 },
+   { "suggestedfilename <file name>", I18N_NOOP("Suggested file name for the downloaded file"), 0 },
    { "+command", I18N_NOOP("Command to execute"), 0 },
    { "+[URLs]", I18N_NOOP("URL(s) or local file(s) used for 'command'"), 0 },
    KCmdLineLastOption
@@ -61,7 +62,8 @@ KIOExec::KIOExec()
         KCmdLineArgs::usage(i18n("'command' expected.\n"));
 
     tempfiles = args->isSet("tempfiles");
-
+    if ( args->isSet( "suggestedfilename" ) )
+        suggestedFileName = QString::fromLocal8Bit( args->getOption( "suggestedfilename" ) );
     expectedCounter = 0;
     jobCounter = 0;
     command = args->arg(0);
@@ -91,6 +93,8 @@ KIOExec::KIOExec()
             // We must fetch the file
             {
                 QString fileName = KIO::encodeFileName( url.fileName() );
+                if ( !suggestedFileName.isEmpty() )
+                    fileName = suggestedFileName;
                 // Build the destination filename, in ~/.kde/cache-*/krun/
                 // Unlike KDE-1.1, we put the filename at the end so that the extension is kept
                 // (Some programs rely on it)
@@ -180,7 +184,7 @@ void KIOExec::slotRunApp()
         list << url;
     }
 
-    const QStringList params = KRun::processDesktopExec(service, list, false /*no shell*/);
+    const QStringList params = KRun::processDesktopExec(service, list);
 
     kDebug() << "EXEC " << KShell::joinArgs( params ) << endl;
 

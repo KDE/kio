@@ -42,6 +42,7 @@ public Q_SLOTS:
 
 protected:
     bool tempfiles;
+    QString suggestedFileName;
     int counter;
     int expectedCounter;
     QString command;
