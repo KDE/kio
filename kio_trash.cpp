@@ -30,9 +30,9 @@
 
 #include <dcopclient.h>
 #include <QDataStream>
-#include <qtextstream.h>
+#include <QTextStream>
 #include <QFile>
-#include <qeventloop.h>
+#include <QEventLoop>
 
 #include <time.h>
 #include <pwd.h>

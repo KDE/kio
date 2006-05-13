@@ -35,8 +35,8 @@
 #include <kcmdlineargs.h>
 
 #include <QDir>
-#include <qfileinfo.h>
-#include <qvector.h>
+#include <QFileInfo>
+#include <QVector>
 
 #include <stdio.h>
 #include <stdlib.h>

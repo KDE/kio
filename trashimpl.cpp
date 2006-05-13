@@ -33,8 +33,8 @@
 
 #include <dcopref.h>
 
-#include <qapplication.h>
-#include <qeventloop.h>
+#include <QApplication>
+#include <QEventLoop>
 #include <QFile>
 #include <QDir>
 
