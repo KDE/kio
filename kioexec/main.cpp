@@ -108,7 +108,7 @@ KIOExec::KIOExec()
                 expectedCounter++;
                 KUrl dest;
                 dest.setPath( tmp );
-                kDebug() << "Copying " << url.prettyURL() << " to " << dest << endl;
+                kDebug() << "Copying " << url.prettyUrl() << " to " << dest << endl;
                 KIO::Job *job = KIO::file_copy( url, dest );
                 jobList.append( job );
 
@@ -218,14 +218,14 @@ void KIOExec::slotRunApp()
             if ( tempfiles )
             {
                 if ( KMessageBox::questionYesNo( 0L,
-                                                 i18n( "The supposedly temporary file\n%1\nhas been modified.\nDo you still want to delete it?" , dest.prettyURL()),
+                                                 i18n( "The supposedly temporary file\n%1\nhas been modified.\nDo you still want to delete it?" , dest.prettyUrl()),
                                                  i18n( "File Changed" ), KStdGuiItem::del(), i18n("Do Not Delete") ) != KMessageBox::Yes )
                     continue; // don't delete the temp file
             }
             else
             {
                 if ( KMessageBox::questionYesNo( 0L,
-                                                 i18n( "The file\n%1\nhas been modified.\nDo you want to upload the changes?" , dest.prettyURL()),
+                                                 i18n( "The file\n%1\nhas been modified.\nDo you want to upload the changes?" , dest.prettyUrl()),
                                                  i18n( "File Changed" ), i18n("Upload"), i18n("Do Not Upload") ) == KMessageBox::Yes )
                 {
                     kDebug() << "src='" << src << "'  dest='" << dest << "'" << endl;
