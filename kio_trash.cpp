@@ -102,7 +102,7 @@ void TrashProtocol::restore( const KUrl& trashURL )
     QString fileId, relativePath;
     bool ok = TrashImpl::parseURL( trashURL, trashId, fileId, relativePath );
     if ( !ok ) {
-        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", trashURL.prettyURL() ) );
+        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", trashURL.prettyUrl() ) );
         return;
     }
     TrashedFileInfo info;
@@ -136,7 +136,7 @@ void TrashProtocol::rename( const KUrl &oldURL, const KUrl &newURL, bool overwri
     kDebug()<<"TrashProtocol::rename(): old="<<oldURL<<" new="<<newURL<<" overwrite=" << overwrite<<endl;
 
     if ( oldURL.protocol() == "trash" && newURL.protocol() == "trash" ) {
-        error( KIO::ERR_CANNOT_RENAME, oldURL.prettyURL() );
+        error( KIO::ERR_CANNOT_RENAME, oldURL.prettyUrl() );
         return;
     }
 
@@ -165,7 +165,7 @@ void TrashProtocol::copyOrMove( const KUrl &src, const KUrl &dest, bool overwrit
         QString fileId, relativePath;
         bool ok = TrashImpl::parseURL( src, trashId, fileId, relativePath );
         if ( !ok ) {
-            error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", src.prettyURL() ) );
+            error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", src.prettyUrl() ) );
             return;
         }
         const QString destPath = dest.path();
@@ -234,7 +234,7 @@ void TrashProtocol::copyOrMove( const KUrl &src, const KUrl &dest, bool overwrit
         } else {
             kDebug() << "returning KIO::ERR_ACCESS_DENIED, it's not allowed to add a file to an existing trash directory" << endl;
             // It's not allowed to add a file to an existing trash directory.
-            error( KIO::ERR_ACCESS_DENIED, dest.prettyURL() );
+            error( KIO::ERR_ACCESS_DENIED, dest.prettyUrl() );
             return;
         }
     } else
@@ -273,8 +273,8 @@ void TrashProtocol::stat(const KUrl& url)
             kDebug() << k_funcinfo << url << " looks fishy, returning does-not-exist" << endl;
             // A URL like trash:/file simply means that CopyJob is trying to see if
             // the destination exists already (it made up the URL by itself).
-            error( KIO::ERR_DOES_NOT_EXIST, url.prettyURL() );
-            //error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.prettyURL() ) );
+            error( KIO::ERR_DOES_NOT_EXIST, url.prettyUrl() );
+            //error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.prettyUrl() ) );
             return;
         }
 
@@ -298,7 +298,7 @@ void TrashProtocol::stat(const KUrl& url)
             ok = createUDSEntry( filePath, fileName, fileURL, entry, info );
 
         if ( !ok ) {
-            error( KIO::ERR_COULD_NOT_STAT, url.prettyURL() );
+            error( KIO::ERR_COULD_NOT_STAT, url.prettyUrl() );
         }
 
         statEntry( entry );
@@ -313,13 +313,13 @@ void TrashProtocol::del( const KUrl &url, bool /*isfile*/ )
 
     bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
     if ( !ok ) {
-        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", url.prettyURL() ) );
+        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", url.prettyUrl() ) );
         return;
     }
 
     ok = relativePath.isEmpty();
     if ( !ok ) {
-        error( KIO::ERR_ACCESS_DENIED, url.prettyURL() );
+        error( KIO::ERR_ACCESS_DENIED, url.prettyUrl() );
         return;
     }
 
@@ -345,7 +345,7 @@ void TrashProtocol::listDir(const KUrl& url)
     QString relativePath;
     bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
     if ( !ok ) {
-        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", url.prettyURL() ) );
+        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", url.prettyUrl() ) );
         return;
     }
     //was: const QString physicalPath = impl.physicalPath( trashId, fileId, relativePath );
@@ -493,7 +493,7 @@ void TrashProtocol::put( const KUrl& url, int /*permissions*/, bool /*overwrite*
     kDebug() << "put: " << url << endl;
     // create deleted file. We need to get the mtime and original location from metadata...
     // Maybe we can find the info file for url.fileName(), in case ::rename() was called first, and failed...
-    error( KIO::ERR_ACCESS_DENIED, url.prettyURL() );
+    error( KIO::ERR_ACCESS_DENIED, url.prettyUrl() );
 }
 
 void TrashProtocol::get( const KUrl& url )
@@ -506,7 +506,7 @@ void TrashProtocol::get( const KUrl& url )
         return;
     }
     if ( url.path().length() <= 1 ) {
-        error( KIO::ERR_IS_DIRECTORY, url.prettyURL() );
+        error( KIO::ERR_IS_DIRECTORY, url.prettyUrl() );
         return;
     }
     int trashId;
@@ -514,7 +514,7 @@ void TrashProtocol::get( const KUrl& url )
     QString relativePath;
     bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
     if ( !ok ) {
-        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", url.prettyURL() ) );
+        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", url.prettyUrl() ) );
         return;
     }
     const QString physicalPath = impl.physicalPath( trashId, fileId, relativePath );
@@ -582,7 +582,7 @@ void TrashProtocol::mkdir( const KUrl& url, int /*permissions*/ )
         }
     } else {
         // Well it's not allowed to add a directory to an existing deleted directory.
-        error( KIO::ERR_ACCESS_DENIED, url.prettyURL() );
+        error( KIO::ERR_ACCESS_DENIED, url.prettyUrl() );
     }
 }
 #endif
