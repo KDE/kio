@@ -43,7 +43,7 @@
 #endif
 
 extern "C" {
-    KDE_EXPORT KDEDModule *create_kpasswdserver(const QByteArray &name)
+    KDE_EXPORT KDEDModule *create_kpasswdserver(const QString &name)
     {
        return new KPasswdServer(name);
     }
@@ -69,7 +69,7 @@ KPasswdServer::AuthInfoList::compareItems(Q3PtrCollection::Item n1, Q3PtrCollect
 }
 
 
-KPasswdServer::KPasswdServer(const QByteArray &name)
+KPasswdServer::KPasswdServer(const QString &name)
  : KDEDModule(name)
 {
     m_authPending.setAutoDelete(true);
@@ -175,9 +175,15 @@ static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const Q
     return false;
 }
 
-KIO::AuthInfo
-KPasswdServer::checkAuthInfo(KIO::AuthInfo info, long windowId)
+QByteArray
+KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong windowId, const QDBusMessage &msg)
 {
+    KIO::AuthInfo info;
+    {
+        QByteArray data2(data);
+        QDataStream stream(&data2, QIODevice::ReadOnly);
+        stream >> info;
+    }
     kDebug(130) << "KPasswdServer::checkAuthInfo: User= " << info.username
               << ", WindowId = " << windowId << endl;
 
@@ -198,12 +204,11 @@ KPasswdServer::checkAuthInfo(KIO::AuthInfo info, long windowId)
        }
 
        request = new Request;
-       request->client = callingDcopClient();
-       request->transaction = request->client->beginTransaction();
+       request->transaction = QDBusMessage::methodReply(msg);
        request->key = key;
        request->info = info;
        m_authWait.append(request);
-       return info;
+       return data;             // return value will be ignored
     }
 
     const AuthInfo *result = findAuthInfoItem(key, info);
@@ -220,23 +225,38 @@ KPasswdServer::checkAuthInfo(KIO::AuthInfo info, long windowId)
                              info.readOnly, knownLogins))
 	      {
 		      info.setModified(true);
-		      return info;
+                      // fall through
 	      }
 	  }
+       } else {
+           info.setModified(false);
        }
 
-       info.setModified(false);
-       return info;
+       QByteArray data2;
+       QDataStream stream(&data2, QIODevice::WriteOnly);
+       stream << info;
+       return data2;
     }
 
     updateAuthExpire(key, result, windowId, false);
 
-    return copyAuthInfo(result);
+    info = copyAuthInfo(result);
+    QByteArray data2;
+    QDataStream stream(&data2, QIODevice::WriteOnly);
+    stream << info;
+    return data2;
 }
 
-KIO::AuthInfo
-KPasswdServer::queryAuthInfo(KIO::AuthInfo info, QString errorMsg, long windowId, long seqNr)
+QByteArray
+KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &errorMsg, qlonglong windowId,
+                             qlonglong seqNr, const QDBusMessage &msg)
 {
+    KIO::AuthInfo info;
+    {
+        QByteArray data2(data);
+        QDataStream stream(&data2, QIODevice::ReadOnly);
+        stream >> info;
+    }
     kDebug(130) << "KPasswdServer::queryAuthInfo: User= " << info.username
               << ", Message= " << info.prompt << ", WindowId = " << windowId << endl;
     if ( !info.password.isEmpty() ) // should we really allow the caller to pre-fill the password?
@@ -244,8 +264,7 @@ KPasswdServer::queryAuthInfo(KIO::AuthInfo info, QString errorMsg, long windowId
 
     QString key = createCacheKey(info);
     Request *request = new Request;
-    request->client = callingDcopClient();
-    request->transaction = request->client->beginTransaction();
+    request->transaction = QDBusMessage::methodReply(msg);
     request->key = key;
     request->info = info;
     request->windowId = windowId;
@@ -265,12 +284,18 @@ KPasswdServer::queryAuthInfo(KIO::AuthInfo info, QString errorMsg, long windowId
     if (m_authPending.count() == 1)
        QTimer::singleShot(0, this, SLOT(processRequest()));
 
-    return info;
+    return QByteArray();        // return value is going to be ignored
 }
 
 void
-KPasswdServer::addAuthInfo(KIO::AuthInfo info, long windowId)
+KPasswdServer::addAuthInfo(const QByteArray &data, qlonglong windowId)
 {
+    KIO::AuthInfo info;
+    {
+        QByteArray data2(data);
+        QDataStream stream(&data2, QIODevice::ReadOnly);
+        stream >> info;
+    }
     kDebug(130) << "KPasswdServer::addAuthInfo: User= " << info.username
               << ", RealmValue= " << info.realmValue << ", WindowId = " << windowId << endl;
     QString key = createCacheKey(info);
@@ -407,14 +432,12 @@ KPasswdServer::processRequest()
         }
     }
 
-    DCOPCString replyType;
     QByteArray replyData;
 
     QDataStream stream2(&replyData, QIODevice::WriteOnly);
-    stream2 << info << m_seqNr;
-    replyType = "KIO::AuthInfo";
-    request->client->endTransaction( request->transaction,
-                                     replyType, replyData);
+    stream2 << info;
+    request->transaction << replyData << m_seqNr;
+    QDBus::sessionBus().send(request->transaction);
 
     m_authPending.remove((unsigned int) 0);
 
@@ -449,8 +472,6 @@ KPasswdServer::processRequest()
        else
        {
            const AuthInfo *result = findAuthInfoItem(waitRequest->key, waitRequest->info);
-
-           DCOPCString replyType;
            QByteArray replyData;
 
            QDataStream stream2(&replyData, QIODevice::WriteOnly);
@@ -467,9 +488,7 @@ KPasswdServer::processRequest()
                stream2 << info;
            }
 
-           replyType = "KIO::AuthInfo";
-           waitRequest->client->endTransaction( waitRequest->transaction,
-                                                replyType, replyData);
+           QDBus::sessionBus().send(waitRequest->transaction);
 
            m_authWait.remove();
            waitRequest = m_authWait.current();
@@ -588,7 +607,7 @@ KPasswdServer::removeAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
 
 
 void
-KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, long windowId, long seqNr, bool canceled)
+KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, qlonglong windowId, qlonglong seqNr, bool canceled)
 {
    AuthInfoList *authList = m_authDict.value(key);
    if (!authList)
@@ -633,7 +652,7 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, lo
 }
 
 void
-KPasswdServer::updateAuthExpire(const QString &key, const AuthInfo *auth, long windowId, bool keep)
+KPasswdServer::updateAuthExpire(const QString &key, const AuthInfo *auth, qlonglong windowId, bool keep)
 {
    AuthInfo *current = const_cast<AuthInfo *>(auth);
    if (keep)
@@ -666,7 +685,7 @@ KPasswdServer::updateAuthExpire(const QString &key, const AuthInfo *auth, long w
 }
 
 void
-KPasswdServer::removeAuthForWindowId(long windowId)
+KPasswdServer::removeAuthForWindowId(qlonglong windowId)
 {
    QStringList *keysChanged = mWindowIdList.value(windowId);
    if (!keysChanged) return;

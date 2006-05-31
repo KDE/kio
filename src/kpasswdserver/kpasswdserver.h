@@ -26,8 +26,8 @@
 
 #include <qhash.h>
 #include <q3ptrlist.h>
+#include <dbus/qdbus.h>
 
-#include <dcopclient.h>
 #include <kio/authinfo.h>
 #include <kdedmodule.h>
 
@@ -38,20 +38,19 @@ namespace KWallet {
 class KPasswdServer : public KDEDModule
 {
   Q_OBJECT
-  K_DCOP
+  Q_CLASSINFO("D-Bus Interface", "org.kde.KPasswdServer")
 public:
-  KPasswdServer(const QByteArray &);
+  KPasswdServer(const QString &);
   ~KPasswdServer();
 
-k_dcop:
-  KIO::AuthInfo checkAuthInfo(KIO::AuthInfo, long);
-  KIO::AuthInfo queryAuthInfo(KIO::AuthInfo, QString, long, long);
-  void addAuthInfo(KIO::AuthInfo, long);
-
 public Q_SLOTS:
+  QByteArray checkAuthInfo(const QByteArray &, qlonglong, const QDBusMessage &);
+  QByteArray queryAuthInfo(const QByteArray &, const QString &, qlonglong, qlonglong, const QDBusMessage &);
+  Q_SCRIPTABLE void addAuthInfo(const QByteArray &, qlonglong);
+
   void processRequest();
   // Remove all authentication info associated with windowId
-  void removeAuthForWindowId(long windowId);
+  void removeAuthForWindowId(qlonglong windowId);
 
 protected:
   struct AuthInfo;
@@ -59,9 +58,9 @@ protected:
   QString createCacheKey( const KIO::AuthInfo &info );
   const AuthInfo *findAuthInfoItem(const QString &key, const KIO::AuthInfo &info);
   void removeAuthInfoItem(const QString &key, const KIO::AuthInfo &info);
-  void addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, long windowId, long seqNr, bool canceled);
+  void addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, qlonglong windowId, qlonglong seqNr, bool canceled);
   KIO::AuthInfo copyAuthInfo(const AuthInfo *);
-  void updateAuthExpire(const QString &key, const AuthInfo *, long windowId, bool keep);
+  void updateAuthExpire(const QString &key, const AuthInfo *, qlonglong windowId, bool keep);
   int findWalletEntry( const QMap<QString,QString>& map, const QString& username );
   bool openWallet( int windowId );
 
@@ -76,9 +75,9 @@ protected:
     QString digestInfo;
 
     enum { expNever, expWindowClose, expTime } expire;
-    QList<long> windowList;
-    unsigned long expireTime;
-    long seqNr;
+    QList<qlonglong> windowList;
+    qulonglong expireTime;
+    qlonglong seqNr;
 
     bool isCanceled;
   };
@@ -93,22 +92,20 @@ protected:
   QHash< QString, AuthInfoList* > m_authDict;
 
   struct Request {
-     DCOPClient *client;
-     DCOPClientTransaction *transaction;
+     QDBusMessage transaction;
      QString key;
      KIO::AuthInfo info;
      QString errorMsg;
-     long windowId;
-     long seqNr;
+     qlonglong windowId;
+     qlonglong seqNr;
      bool prompt;
   };
 
   Q3PtrList< Request > m_authPending;
   Q3PtrList< Request > m_authWait;
   QHash<int, QStringList*> mWindowIdList;
-  DCOPClient *m_dcopClient;
   KWallet::Wallet* m_wallet;
-  long m_seqNr;
+  qlonglong m_seqNr;
 };
 
 #endif
