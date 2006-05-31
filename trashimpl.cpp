@@ -104,8 +104,8 @@ bool TrashImpl::testDir( const QString &_name )
     }
     if ( !ok )
     {
-        //KMessageBox::sorry( 0, i18n( "Couldn't create directory %1. Check for permissions." ).arg( name ) );
-        kWarning() << "couldn't create " << name << endl;
+        //KMessageBox::sorry( 0, i18n( "Could not create directory %1. Check for permissions." ).arg( name ) );
+        kWarning() << "could not create " << name << endl;
         error( KIO::ERR_COULD_NOT_MKDIR, name );
         return false;
     } else {
