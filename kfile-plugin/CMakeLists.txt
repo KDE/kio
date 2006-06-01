@@ -1,7 +1,5 @@
-include_directories(  ${CMAKE_SOURCE_DIR}/kioslave/trash/  )
 
-
-########### next target ###############
+########### kfile_trash ###############
 
 set(kfile_trash_PART_SRCS kfile_trash.cpp ${trashcommon_PART_SRCS})
 
@@ -11,10 +9,9 @@ kde4_add_plugin(kfile_trash ${kfile_trash_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kfile_trash )
 
-target_link_libraries(kfile_trash  ${KDE4_KIO_LIBS} ${QT_QT3SUPPORT_LIBRARY} DCOP )
+target_link_libraries(kfile_trash  ${KDE4_KIO_LIBS} ${QT_QT3SUPPORT_LIBRARY} )
 
 install_targets(${PLUGIN_INSTALL_DIR} kfile_trash )
-
 
 ########### install files ###############
 
