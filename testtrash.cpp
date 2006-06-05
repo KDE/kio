@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
     setenv( "XDG_DATA_HOME", QFile::encodeName( QDir::homePath() + "/.local-testtrash" ), true );
     setenv( "KDE_FORK_SLAVES", "yes", true );
 
-    KApplication::disableAutoDcopRegistration();
+    //KApplication::disableAutoDcopRegistration();
     KCmdLineArgs::init(argc,argv,"testtrash", 0, 0, 0);
     KApplication app;
 
