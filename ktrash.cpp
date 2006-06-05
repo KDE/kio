@@ -22,7 +22,7 @@
 #include <kio/job.h>
 #include <kcmdlineargs.h>
 #include <klocale.h>
-#include <kdirnotify_stub.h>
+#include <kdirnotify.h>
 #include <kdebug.h>
 //Added by qt3to4:
 #include <QByteArray>
@@ -39,7 +39,7 @@ static KCmdLineOptions options[] =
 
 int main(int argc, char *argv[])
 {
-    KApplication::disableAutoDcopRegistration();
+    //KApplication::disableAutoDcopRegistration();
     KCmdLineArgs::init( argc, argv, "ktrash",
                         I18N_NOOP( "ktrash" ),
                         I18N_NOOP( "Helper program to handle the KDE trash can\n"
@@ -59,8 +59,7 @@ int main(int argc, char *argv[])
         (void)KIO::NetAccess::synchronousRun( job, 0 );
 
         // Update konq windows opened on trash:/
-        KDirNotify_stub allDirNotify("*", "KDirNotify*");
-        allDirNotify.FilesAdded( KUrl("trash:/") ); // yeah, files were removed, but we don't know which ones...
+        org::kde::KDirNotify::emitFilesAdded( "trash:/" ); // yeah, files were removed, but we don't know which ones...
         return 0;
     }
 

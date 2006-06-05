@@ -28,7 +28,6 @@
 #include <kmimetype.h>
 #include <kprocess.h>
 
-#include <dcopclient.h>
 #include <QDataStream>
 #include <QTextStream>
 #include <QFile>
@@ -55,7 +54,7 @@ extern "C" {
         //KInstance instance( "kio_trash" );
         // KApplication is necessary to use kio_file
         putenv(strdup("SESSION_MANAGER="));
-        KApplication::disableAutoDcopRegistration();
+        //KApplication::disableAutoDcopRegistration();
         KCmdLineArgs::init(argc, argv, "kio_trash", 0, 0, 0);
         KCmdLineArgs::addCmdLineOptions( options );
         KApplication app( false );
