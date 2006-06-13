@@ -43,9 +43,9 @@
 #endif
 
 extern "C" {
-    KDE_EXPORT KDEDModule *create_kpasswdserver(const QString &name)
+    KDE_EXPORT KDEDModule *create_kpasswdserver()
     {
-       return new KPasswdServer(name);
+       return new KPasswdServer();
     }
 }
 
@@ -69,8 +69,8 @@ KPasswdServer::AuthInfoList::compareItems(Q3PtrCollection::Item n1, Q3PtrCollect
 }
 
 
-KPasswdServer::KPasswdServer(const QString &name)
- : KDEDModule(name)
+KPasswdServer::KPasswdServer()
+ : KDEDModule()
 {
     m_authPending.setAutoDelete(true);
     m_seqNr = 0;

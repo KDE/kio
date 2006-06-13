@@ -40,7 +40,7 @@ class KPasswdServer : public KDEDModule
   Q_OBJECT
   Q_CLASSINFO("D-Bus Interface", "org.kde.KPasswdServer")
 public:
-  KPasswdServer(const QString &);
+  KPasswdServer();
   ~KPasswdServer();
 
 public Q_SLOTS:
