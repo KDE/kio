@@ -203,9 +203,8 @@ KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong windowId, const Q
              continue;
        }
 
-       msg.setDelayedReply(true);
        request = new Request;
-       request->transaction = msg;
+       request->transaction = QDBusMessage::methodReply(msg);
        request->key = key;
        request->info = info;
        m_authWait.append(request);
@@ -265,8 +264,7 @@ KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &errorMsg, ql
 
     QString key = createCacheKey(info);
     Request *request = new Request;
-    msg.setDelayedReply(true);
-    request->transaction = msg;
+    request->transaction = QDBusMessage::methodReply(msg);
     request->key = key;
     request->info = info;
     request->windowId = windowId;
@@ -438,7 +436,8 @@ KPasswdServer::processRequest()
 
     QDataStream stream2(&replyData, QIODevice::WriteOnly);
     stream2 << info;
-    request->transaction.sendReply(QVariantList() << replyData << m_seqNr);
+    request->transaction << replyData << m_seqNr;
+    QDBus::sessionBus().send(request->transaction);
 
     m_authPending.remove((unsigned int) 0);
 
@@ -489,7 +488,7 @@ KPasswdServer::processRequest()
                stream2 << info;
            }
 
-           waitRequest->transaction.sendReply();
+           QDBus::sessionBus().send(waitRequest->transaction);
 
            m_authWait.remove();
            waitRequest = m_authWait.current();
