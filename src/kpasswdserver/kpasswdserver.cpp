@@ -75,8 +75,8 @@ KPasswdServer::KPasswdServer()
     m_authPending.setAutoDelete(true);
     m_seqNr = 0;
     m_wallet = 0;
-    connect(this, SIGNAL(windowUnregistered(long)),
-            this, SLOT(removeAuthForWindowId(long)));
+    connect(this, SIGNAL(windowUnregistered(qlonglong)),
+            this, SLOT(removeAuthForWindowId(qlonglong)));
 }
 
 KPasswdServer::~KPasswdServer()
