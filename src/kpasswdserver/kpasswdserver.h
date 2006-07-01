@@ -26,7 +26,7 @@
 
 #include <qhash.h>
 #include <q3ptrlist.h>
-#include <dbus/qdbus.h>
+#include <QtDBus/QtDBus>
 
 #include <kio/authinfo.h>
 #include <kdedmodule.h>
