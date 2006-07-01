@@ -358,7 +358,7 @@ void TrashProtocol::listDir(const KUrl& url)
         return;
     }
     if ( !relativePath.isEmpty() ) {
-        info.physicalPath += "/";
+        info.physicalPath += '/';
         info.physicalPath += relativePath;
     }
 
@@ -373,9 +373,9 @@ void TrashProtocol::listDir(const KUrl& url)
         const QString fileName = *entryIt;
         if ( fileName == ".." )
             continue;
-        const QString filePath = info.physicalPath + "/" + fileName;
+        const QString filePath = info.physicalPath + '/' + fileName;
         // shouldn't be necessary
-        //const QString url = TrashImpl::makeURL( trashId, fileId, relativePath + "/" + fileName );
+        //const QString url = TrashImpl::makeURL( trashId, fileId, relativePath + '/' + fileName );
         entry.clear();
         TrashedFileInfo infoForItem( info );
         infoForItem.origPath += '/';

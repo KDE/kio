@@ -252,10 +252,10 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
         info += QUrl::toPercentEncoding( origPath );
     else
         info += QUrl::toPercentEncoding( makeRelativePath( topDirectoryPath( trashId ), origPath ) );
-    info += "\n";
+    info += '\n';
     info += "DeletionDate=";
     info += QDateTime::currentDateTime().toString( Qt::ISODate ).toLatin1();
-    info += "\n";
+    info += '\n';
     size_t sz = info.size() - 1; // avoid trailing 0 from QCString
 
     size_t written = ::fwrite(info.data(), 1, sz, file);
@@ -609,7 +609,7 @@ QString TrashImpl::physicalPath( int trashId, const QString& fileId, const QStri
 {
     QString filePath = filesPath( trashId, fileId );
     if ( !relativePath.isEmpty() ) {
-        filePath += "/";
+        filePath += '/';
         filePath += relativePath;
     }
     return filePath;
@@ -767,7 +767,7 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
              && (!S_ISLNK(buff.st_mode)) // not a symlink
              && ((buff.st_mode & requiredBits) == requiredBits)
             ) {
-            const QString trashDir = rootTrashDir + "/" + QString::number( uid );
+            const QString trashDir = rootTrashDir + '/' + QString::number( uid );
             const QByteArray trashDir_c = QFile::encodeName( trashDir );
             if ( KDE_lstat( trashDir_c, &buff ) == 0 ) {
                 if ( (buff.st_uid == uid) // must be owned by user

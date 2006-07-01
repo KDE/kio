@@ -425,7 +425,7 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
             int trashId = 0;
             if ( origFilePath.startsWith( "/tmp" ) && m_tmpIsWritablePartition )
                 trashId = m_tmpTrashId;
-            assert( trashURL.path() == "/" + QString::number( trashId ) + "-" + fileId );
+            assert( trashURL.path() == "/" + QString::number( trashId ) + '-' + fileId );
             found = true;
         }
     }
