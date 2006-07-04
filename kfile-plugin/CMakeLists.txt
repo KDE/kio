@@ -11,11 +11,11 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kfile_trash )
 
 target_link_libraries(kfile_trash  ${KDE4_KIO_LIBS} ${QT_QT3SUPPORT_LIBRARY} )
 
-install_targets(${PLUGIN_INSTALL_DIR} kfile_trash )
+install(TARGETS kfile_trash  DESTINATION ${PLUGIN_INSTALL_DIR} )
 
 ########### install files ###############
 
-install_files( ${SERVICES_INSTALL_DIR} FILES kfile_trash.desktop kfile_trash_system.desktop )
+install( FILES kfile_trash.desktop kfile_trash_system.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
 
 
 

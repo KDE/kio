@@ -17,7 +17,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kio_trash )
 
 target_link_libraries(kio_trash  ${KDE4_KIO_LIBS})
 
-install_targets(${PLUGIN_INSTALL_DIR} kio_trash )
+install(TARGETS kio_trash  DESTINATION ${PLUGIN_INSTALL_DIR} )
 
 ########### next target ###############
 
@@ -56,7 +56,7 @@ add_subdirectory( kfile-plugin )
 
 ########### install files ###############
 
-install_files( ${SERVICES_INSTALL_DIR} FILES trash.protocol )
+install( FILES trash.protocol  DESTINATION  ${SERVICES_INSTALL_DIR} )
 
 
 
