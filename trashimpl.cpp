@@ -35,6 +35,7 @@
 #include <QEventLoop>
 #include <QFile>
 #include <QDir>
+#include <kjobuidelegate.h>
 
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -365,7 +366,7 @@ bool TrashImpl::move( const QString& src, const QString& dest )
     kDebug() << k_funcinfo << urlSrc << " -> " << urlDest << endl;
     KIO::CopyJob* job = KIO::moveAs( urlSrc, urlDest, false );
 #ifdef KIO_COPYJOB_HAS_SETINTERACTIVE
-    job->setInteractive( false );
+    job->setUiDelegate(0);
 #endif
     connect( job, SIGNAL( result(KJob*) ),
              this, SLOT( jobFinished(KJob*) ) );
@@ -412,7 +413,7 @@ bool TrashImpl::copy( const QString& src, const QString& dest )
     kDebug() << k_funcinfo << "copying " << src << " to " << dest << endl;
     KIO::CopyJob* job = KIO::copyAs( urlSrc, urlDest, false );
 #ifdef KIO_COPYJOB_HAS_SETINTERACTIVE
-    job->setInteractive( false );
+    job->setUiDelegate(0);
 #endif
     connect( job, SIGNAL( result(KJob*) ),
              this, SLOT( jobFinished(KJob*) ) );

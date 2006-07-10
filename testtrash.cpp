@@ -37,6 +37,7 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QVector>
+#include <kjobuidelegate.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -538,7 +539,7 @@ void TestTrash::trashFileOwnedByRoot()
     const QString fileId = "passwd";
 
     KIO::CopyJob* job = KIO::move( u, KUrl("trash:/") );
-    job->setInteractive( false ); // no skip dialog, thanks
+    job->setUiDelegate(0); // no skip dialog, thanks
     QMap<QString, QString> metaData;
     //bool ok = KIO::NetAccess::move( u, "trash:/" );
     bool ok = KIO::NetAccess::synchronousRun( job, 0, 0, 0, &metaData );
@@ -925,7 +926,7 @@ void TestTrash::trashDirectoryOwnedByRoot()
     kDebug() << k_funcinfo << "fileId=" << fileId << endl;
 
     KIO::CopyJob* job = KIO::move( u, KUrl("trash:/") );
-    job->setInteractive( false ); // no skip dialog, thanks
+    job->setUiDelegate(0); // no skip dialog, thanks
     QMap<QString, QString> metaData;
     bool ok = KIO::NetAccess::synchronousRun( job, 0, 0, 0, &metaData );
     assert( !ok );
