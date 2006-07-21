@@ -80,14 +80,14 @@ bool TrashImpl::testDir( const QString &_name )
       name.truncate( name.length() - 1 );
     QByteArray path = QFile::encodeName(name);
 
-    bool ok = ::mkdir( path, S_IRWXU ) == 0;
+    bool ok = KDE_mkdir( path, S_IRWXU ) == 0;
     if ( !ok && errno == EEXIST ) {
 #if 0 // this would require to use SlaveBase's method to ask the question
         //int ret = KMessageBox::warningYesNo( 0, i18n("%1 is a file, but KDE needs it to be a directory. Move it to %2.orig and create directory?").arg(name).arg(name) );
         //if ( ret == KMessageBox::Yes ) {
 #endif
             if ( ::rename( path, path + ".orig" ) == 0 ) {
-                ok = ::mkdir( path, S_IRWXU ) == 0;
+                ok = KDE_mkdir( path, S_IRWXU ) == 0;
             } else { // foo.orig existed already. How likely is that?
                 ok = false;
             }
@@ -443,10 +443,10 @@ bool TrashImpl::directRename( const QString& src, const QString& dest )
 }
 
 #if 0
-bool TrashImpl::mkdir( int trashId, const QString& fileId, int permissions )
+bool TrashImplKDE_mkdir( int trashId, const QString& fileId, int permissions )
 {
     const QString path = filesPath( trashId, fileId );
-    if ( ::mkdir( QFile::encodeName( path ), permissions ) != 0 ) {
+    if ( KDE_mkdir( QFile::encodeName( path ), permissions ) != 0 ) {
         if ( errno == EACCES ) {
             error( KIO::ERR_ACCESS_DENIED, path );
             return false;
@@ -822,7 +822,7 @@ int TrashImpl::idForTrashDirectory( const QString& trashDir ) const
 
 bool TrashImpl::initTrashDirectory( const QByteArray& trashDir_c ) const
 {
-    if ( ::mkdir( trashDir_c, 0700 ) != 0 )
+    if ( KDE_mkdir( trashDir_c, 0700 ) != 0 )
         return false;
     // This trash dir will be useable only if the directory is owned by user.
     // In theory this is the case, but not on e.g. USB keys...
@@ -834,10 +834,10 @@ bool TrashImpl::initTrashDirectory( const QByteArray& trashDir_c ) const
          && ((buff.st_mode & 0777) == 0700) ) { // rwx for user, --- for group and others
 
         QByteArray info_c = trashDir_c + "/info";
-        if ( ::mkdir( info_c, 0700 ) != 0 )
+        if ( KDE_mkdir( info_c, 0700 ) != 0 )
             return false;
         QByteArray files_c = trashDir_c + "/files";
-        if ( ::mkdir( files_c, 0700 ) != 0 )
+        if ( KDE_mkdir( files_c, 0700 ) != 0 )
             return false;
     } else {
         kDebug() << trashDir_c << " just created, by it doesn't have the right permissions, must be a FAT partition. Removing it again." << endl;
