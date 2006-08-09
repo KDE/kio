@@ -154,6 +154,10 @@ void TrashImpl::migrateOldTrash()
 
     KConfigGroup g( KGlobal::config(), "Paths" );
     const QString oldTrashDir = g.readPathEntry( "Trash" );
+
+    if ( oldTrashDir.isEmpty() )
+        return;
+
     const QStringList entries = listDir( oldTrashDir );
     bool allOK = true;
     for ( QStringList::const_iterator entryIt = entries.begin(), entryEnd = entries.end();
