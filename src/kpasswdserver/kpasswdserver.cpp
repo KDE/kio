@@ -438,7 +438,7 @@ KPasswdServer::processRequest()
 
     QDataStream stream2(&replyData, QIODevice::WriteOnly);
     stream2 << info;
-    request->transaction.sendReply(QVariantList() << replyData << m_seqNr);
+    QDBusConnection::sessionBus().send(request->transaction.createReply(QVariantList() << replyData << m_seqNr));
 
     m_authPending.remove((unsigned int) 0);
 
@@ -489,7 +489,7 @@ KPasswdServer::processRequest()
                stream2 << info;
            }
 
-           waitRequest->transaction.sendReply();
+           QDBusConnection::sessionBus().send(waitRequest->transaction.createReply());
 
            m_authWait.remove();
            waitRequest = m_authWait.current();
