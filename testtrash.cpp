@@ -1150,7 +1150,7 @@ void TestTrash::emptyTrash()
 
 static void checkIcon( const KUrl& url, const QString& expectedIcon )
 {
-    QString icon = KMimeType::iconNameForURL( url );
+    QString icon = KMimeType::iconNameForUrl( url );
     COMPARE( icon, expectedIcon );
 }
 
