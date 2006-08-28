@@ -72,7 +72,7 @@ KIOExec::KIOExec()
     for ( int i = 1; i < args->count(); i++ )
     {
         KUrl url = args->url(i);
-	url = KIO::NetAccess::mostLocalURL( url, 0 );
+	url = KIO::NetAccess::mostLocalUrl( url, 0 );
 
         //kDebug() << "url=" << url.url() << " filename=" << url.fileName() << endl;
         // A local file, not an URL ?
@@ -137,7 +137,7 @@ void KIOExec::slotResult( KJob * job )
         if ( (job->error() != KIO::ERR_USER_CANCELED) )
             KMessageBox::error( 0L, job->errorString() );
 
-        QString path = static_cast<KIO::FileCopyJob*>(job)->destURL().path();
+        QString path = static_cast<KIO::FileCopyJob*>(job)->destUrl().path();
 
         QList<FileInfo>::Iterator it = fileList.begin();
         for(;it != fileList.end(); ++it)
