@@ -356,7 +356,7 @@ KPasswdServer::processRequest()
            QString prompt = request->errorMsg;
            prompt += i18n("  Do you want to retry?");
            int dlgResult = KMessageBox::warningContinueCancel(0, prompt,
-                           i18n("Authentication"), i18n("Retry"));
+                           i18n("Authentication"), KGuiItem(i18n("Retry")));
            if (dlgResult != KMessageBox::Continue)
               askPw = false;
         }
