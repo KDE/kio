@@ -101,6 +101,11 @@ QString TestTrash::homeTmpDir() const
     return QDir::homePath() + "/.kde/testtrash/";
 }
 
+QString TestTrash::readOnlyDirPath() const
+{
+    return homeTmpDir() + QString( "readonly" );
+}
+
 QString TestTrash::otherTmpDir() const
 {
     // This one needs to be on another partition
@@ -194,8 +199,16 @@ void TestTrash::setup()
         kWarning() << "No writable partition other than $HOME found, some tests will be skipped" << endl;
 
     // Start with a clean base dir
-    KIO::NetAccess::del( KUrl::fromPath( homeTmpDir() ), 0 );
-    KIO::NetAccess::del( KUrl::fromPath( otherTmpDir() ), 0 );
+    if ( QFileInfo( homeTmpDir() ).exists() ) {
+        bool ok = KIO::NetAccess::del( KUrl::fromPath( homeTmpDir() ), 0 );
+        if ( !ok )
+            kFatal() << "Couldn't delete " << homeTmpDir() << endl;
+    }
+    if ( QFileInfo( otherTmpDir() ).exists() ) {
+        bool ok = KIO::NetAccess::del( KUrl::fromPath( otherTmpDir() ), 0 );
+        if ( !ok )
+            kFatal() << "Couldn't delete " << otherTmpDir() << endl;
+    }
     QDir dir; // TT: why not a static method?
     bool ok = dir.mkdir( homeTmpDir() );
     if ( !ok )
@@ -209,6 +222,7 @@ void TestTrash::setup()
 
 void TestTrash::cleanTrash()
 {
+    kDebug() << k_funcinfo << endl;
     // Start with a relatively clean trash too
     removeFile( m_trashDir, "/info/fileFromHome.trashinfo" );
     removeFile( m_trashDir, "/files/fileFromHome" );
@@ -230,6 +244,7 @@ void TestTrash::cleanTrash()
     removeFile( m_trashDir, "/files/brokenSymlinkFromHome" );
     removeFile( m_trashDir, "/info/trashDirFromHome.trashinfo" );
     removeFile( m_trashDir, "/files/trashDirFromHome/testfile" );
+    removeFile( m_trashDir, "/info/readonly.trashinfo" );
     removeDir( m_trashDir, "/files/trashDirFromHome" );
     removeFile( m_trashDir, "/info/trashDirFromHome_1.trashinfo" );
     removeFile( m_trashDir, "/files/trashDirFromHome_1/testfile" );
@@ -237,6 +252,7 @@ void TestTrash::cleanTrash()
     removeFile( m_trashDir, "/info/trashDirFromOther.trashinfo" );
     removeFile( m_trashDir, "/files/trashDirFromOther/testfile" );
     removeDir( m_trashDir, "/files/trashDirFromOther" );
+    KIO::NetAccess::del( m_trashDir + "/files/readonly", 0 );
     // for trashDirectoryOwnedByRoot
     KIO::NetAccess::del( KUrl::fromPath( m_trashDir + "/files/cups" ), 0 );
     KIO::NetAccess::del( KUrl::fromPath( m_trashDir + "/files/boot" ), 0 );
@@ -259,6 +275,7 @@ void TestTrash::runAll()
     trashUtf8FileFromHome();
 #endif
     trashUmlautFileFromHome();
+    trashReadOnlyDirFromHome();
     testTrashNotEmpty();
     trashFileFromOther();
     trashFileIntoOtherPartition();
@@ -604,14 +621,16 @@ void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )
 {
     kDebug() << k_funcinfo << fileId << endl;
     // setup
-    QDir dir;
-    bool ok = dir.mkdir( origPath );
-    Q_ASSERT( ok );
+    if ( !QFileInfo( origPath ).exists() ) {
+        QDir dir;
+        bool ok = dir.mkdir( origPath );
+        Q_ASSERT( ok );
+    }
     createTestFile( origPath + "/testfile" );
     KUrl u; u.setPath( origPath );
 
     // test
-    ok = KIO::NetAccess::move( u, KUrl("trash:/") );
+    bool ok = KIO::NetAccess::move( u, KUrl("trash:/") );
     assert( ok );
     if ( origPath.startsWith( "/tmp" ) && m_tmpIsWritablePartition ) {
         kDebug() << " TESTS SKIPPED" << endl;
@@ -635,6 +654,23 @@ void TestTrash::trashDirectoryFromHome()
     trashDirectory( homeTmpDir() + dirName, dirName );
     // Do it again, check that we got a different id
     trashDirectory( homeTmpDir() + dirName, dirName + "_1" );
+}
+
+void TestTrash::trashReadOnlyDirFromHome()
+{
+    kDebug() << k_funcinfo << endl;
+    const QString dirName = readOnlyDirPath();
+    QDir dir;
+    bool ok = dir.mkdir( dirName );
+    Q_ASSERT( ok );
+    // #130780
+    const QString subDirPath = dirName + "/readonly_subdir";
+    ok = dir.mkdir( subDirPath );
+    Q_ASSERT( ok );
+    createTestFile( subDirPath + "/testfile_in_subdir" );
+    ::chmod( QFile::encodeName( subDirPath ), 0500 );
+
+    trashDirectory( dirName, "readonly" );
 }
 
 void TestTrash::trashDirectoryFromOther()
@@ -1133,9 +1169,9 @@ void TestTrash::emptyTrash()
 #if 0
     kDebug() << k_funcinfo << endl;
     QByteArray packedArgs;
-    QDataStream stream( packedArgs, QIODevice::WriteOnly );
+    QDataStream stream( &packedArgs, QIODevice::WriteOnly );
     stream << (int)1;
-    KIO::Job* job = KIO::special( "trash:/", packedArgs );
+    KIO::Job* job = KIO::special( KUrl( "trash:/" ), packedArgs );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
     assert( ok );
 
@@ -1143,6 +1179,10 @@ void TestTrash::emptyTrash()
     assert( cfg.hasGroup( "Status" ) );
     cfg.setGroup( "Status" );
     assert( cfg.readEntry( "Empty", QVariant(false )).toBool() == true );
+
+    assert( !QFile::exists( m_trashDir + "/files/fileFromHome" ) );
+    assert( !QFile::exists( m_trashDir + "/files/readonly" ) );
+    assert( !QFile::exists( m_trashDir + "/info/readonly.trashinfo" ) );
 #else
     kDebug() << k_funcinfo << " : SKIPPED" << endl;
 #endif

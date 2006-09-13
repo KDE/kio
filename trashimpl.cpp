@@ -30,6 +30,8 @@
 #include <kstandarddirs.h>
 #include <kglobalsettings.h>
 #include <kmountpoint.h>
+#include <kfileitem.h>
+#include <kio/chmodjob.h>
 
 #include <QApplication>
 #include <QEventLoop>
@@ -186,7 +188,7 @@ void TrashImpl::migrateOldTrash()
     if ( allOK ) {
         // We need to remove the old one, otherwise the desktop will have two trashcans...
         kDebug() << "Trash migration: all OK, removing old trash directory" << endl;
-        synchronousDel( oldTrashDir, false );
+        synchronousDel( oldTrashDir, false, true );
     }
 }
 
@@ -334,7 +336,7 @@ bool TrashImpl::moveToTrash( const QString& origPath, int trashId, const QString
         if ( QFileInfo( dest ).isFile() )
             QFile::remove( dest );
         else
-            synchronousDel( dest, false );
+            synchronousDel( dest, false, true );
         return false;
     }
     fileAdded();
@@ -369,9 +371,7 @@ bool TrashImpl::move( const QString& src, const QString& dest )
     urlDest.setPath( dest );
     kDebug() << k_funcinfo << urlSrc << " -> " << urlDest << endl;
     KIO::CopyJob* job = KIO::moveAs( urlSrc, urlDest, false );
-#ifdef KIO_COPYJOB_HAS_SETINTERACTIVE
     job->setUiDelegate(0);
-#endif
     connect( job, SIGNAL( result(KJob*) ),
              this, SLOT( jobFinished(KJob*) ) );
     enterLoop();
@@ -416,9 +416,7 @@ bool TrashImpl::copy( const QString& src, const QString& dest )
     urlDest.setPath( dest );
     kDebug() << k_funcinfo << "copying " << src << " to " << dest << endl;
     KIO::CopyJob* job = KIO::copyAs( urlSrc, urlDest, false );
-#ifdef KIO_COPYJOB_HAS_SETINTERACTIVE
     job->setUiDelegate(0);
-#endif
     connect( job, SIGNAL( result(KJob*) ),
              this, SLOT( jobFinished(KJob*) ) );
     enterLoop();
@@ -487,18 +485,31 @@ bool TrashImpl::del( int trashId, const QString& fileId )
 
     QFile::remove( info );
 
-    if ( !synchronousDel( file, true ) )
+    if ( !synchronousDel( file, true, QFileInfo(file).isDir() ) )
         return false;
     fileRemoved();
     return true;
 }
 
-bool TrashImpl::synchronousDel( const QString& path, bool setLastErrorCode )
+bool TrashImpl::synchronousDel( const QString& path, bool setLastErrorCode, bool isDir )
 {
     const int oldErrorCode = m_lastErrorCode;
     const QString oldErrorMsg = m_lastErrorMessage;
     KUrl url;
     url.setPath( path );
+    // First ensure that all dirs have u+w permissions,
+    // otherwise we won't be able to delete files in them (#130780).
+    if ( isDir ) {
+        kDebug() << k_funcinfo << "chmod'ing " << url << endl;
+        KFileItem fileItem( url, "inode/directory", KFileItem::Unknown );
+        KFileItemList fileItemList;
+        fileItemList.append( &fileItem );
+        KIO::ChmodJob* chmodJob = KIO::chmod( fileItemList, 0777, 0222, QString::null, QString::null, true /*recursive*/, false /*showProgressInfo*/ );
+        connect( chmodJob, SIGNAL( result(KJob *) ),
+                 this, SLOT( jobFinished(KJob *) ) );
+        enterLoop();
+    }
+
     KIO::DeleteJob *job = KIO::del( url, false, false );
     connect( job, SIGNAL( result(KJob*) ),
              this, SLOT( jobFinished(KJob*) ) );
@@ -521,11 +532,11 @@ void TrashImpl::emptyTrash()
     for ( ; it != m_trashDirectories.end() ; ++it ) {
         QDir dir;
         const QString infoPath = it.value() + "/info";
-        // TODO show errors (with warning()), e.g. when permission denied?
-        synchronousDel( infoPath, false );
+        synchronousDel( infoPath, false, true );
         dir.mkdir( infoPath );
         const QString filesPath = it.value() + "/files";
-        synchronousDel( filesPath, false );
+        // TODO show errors (with warning()), e.g. when permission denied?
+        synchronousDel( filesPath, false, true );
         dir.mkdir( filesPath );
     }
     fileRemoved();

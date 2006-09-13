@@ -138,7 +138,7 @@ private:
     QString trashDirectoryPath( int trashId ) const;
     QString topDirectoryPath( int trashId ) const;
 
-    bool synchronousDel( const QString& path, bool setLastErrorCode );
+    bool synchronousDel( const QString& path, bool setLastErrorCode, bool isDir );
 
     void scanTrashDirectories() const;
 

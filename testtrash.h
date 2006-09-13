@@ -52,6 +52,7 @@ public:
     void trashSymlinkFromOther();
     void trashBrokenSymlinkFromHome();
     void trashDirectoryFromHome();
+    void trashReadOnlyDirFromHome();
     void trashDirectoryFromOther();
     void trashDirectoryOwnedByRoot();
 
@@ -102,6 +103,7 @@ private:
     QString otherTmpDir() const;
     QString utf8FileName() const;
     QString umlautFileName() const;
+    QString readOnlyDirPath() const;
 
     QString m_trashDir;
 
