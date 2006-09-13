@@ -466,8 +466,10 @@ void TrashProtocol::special( const QByteArray & data )
 
     switch (cmd) {
     case 1:
-        impl.emptyTrash();
-        finished();
+        if ( impl.emptyTrash() )
+            finished();
+        else
+            error( impl.lastErrorCode(), impl.lastErrorMessage() );
         break;
     case 2:
         impl.migrateOldTrash();

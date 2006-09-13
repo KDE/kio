@@ -70,7 +70,7 @@ public:
     bool del( int trashId, const QString& fileId );
 
     /// Empty trash, i.e. delete all trashed files
-    void emptyTrash();
+    bool emptyTrash();
 
     /// Return true if the trash is empty
     bool isEmpty() const;

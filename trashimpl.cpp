@@ -483,10 +483,10 @@ bool TrashImpl::del( int trashId, const QString& fileId )
         return false;
     }
 
-    QFile::remove( info );
-
     if ( !synchronousDel( file, true, QFileInfo(file).isDir() ) )
         return false;
+
+    QFile::remove( info );
     fileRemoved();
     return true;
 }
@@ -522,24 +522,28 @@ bool TrashImpl::synchronousDel( const QString& path, bool setLastErrorCode, bool
     return ok;
 }
 
-void TrashImpl::emptyTrash()
+bool TrashImpl::emptyTrash()
 {
     kDebug() << k_funcinfo << endl;
-    if ( !m_trashDirectoriesScanned )
-        scanTrashDirectories();
-    // For each known trash directory...
-    TrashDirMap::const_iterator it = m_trashDirectories.begin();
-    for ( ; it != m_trashDirectories.end() ; ++it ) {
-        QDir dir;
-        const QString infoPath = it.value() + "/info";
-        synchronousDel( infoPath, false, true );
-        dir.mkdir( infoPath );
-        const QString filesPath = it.value() + "/files";
-        // TODO show errors (with warning()), e.g. when permission denied?
-        synchronousDel( filesPath, false, true );
-        dir.mkdir( filesPath );
+    // The naive implementation "delete info and files in every trash directory"
+    // breaks when deleted directories contain files owned by other users.
+    // We need to ensure that the .trashinfo file is only removed when the
+    // corresponding files could indeed be removed.
+
+    const TrashedFileInfoList fileInfoList = list();
+
+    TrashedFileInfoList::const_iterator it = fileInfoList.begin();
+    const TrashedFileInfoList::const_iterator end = fileInfoList.end();
+    for ( ; it != end ; ++it ) {
+        const TrashedFileInfo& info = *it;
+        const QString filesPath = info.physicalPath;
+        if ( synchronousDel( filesPath, true, true ) ) {
+            QFile::remove( infoPath( info.trashId, info.fileId ) );
+        } // else error code is set
     }
     fileRemoved();
+
+    return m_lastErrorCode == 0;
 }
 
 TrashImpl::TrashedFileInfoList TrashImpl::list()
