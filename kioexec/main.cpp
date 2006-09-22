@@ -20,6 +20,7 @@
 */
 
 #include <qfile.h>
+#include <qprocess.h>
 
 #include <kapplication.h>
 #include <kdeversion.h>
@@ -29,7 +30,6 @@
 #include <kio/job.h>
 #include <krun.h>
 #include <kio/netaccess.h>
-#include <kprocess.h>
 #include <kservice.h>
 #include <klocale.h>
 #include <kcmdlineargs.h>
@@ -186,7 +186,7 @@ void KIOExec::slotRunApp()
         list << url;
     }
 
-    const QStringList params = KRun::processDesktopExec(service, list);
+    QStringList params = KRun::processDesktopExec(service, list);
 
     kDebug() << "EXEC " << KShell::joinArgs( params ) << endl;
 
@@ -197,9 +197,8 @@ void KIOExec::slotRunApp()
     id.setupStartupEnv();
 #endif
 
-    KProcess proc;
-    proc << params;
-    proc.start( KProcess::Block );
+    QString exe( params.takeFirst() );
+    QProcess::execute( exe, params );
 
 #ifdef Q_WS_X11
     KStartupInfo::resetStartupEnv();
