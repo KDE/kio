@@ -58,7 +58,7 @@ private Q_SLOTS:
     void jobFinished( KJob* job );
 
 private:
-    typedef enum CopyOrMove { Copy, Move };
+    typedef enum { Copy, Move } CopyOrMove;
     void copyOrMove( const KUrl& src, const KUrl& dest, bool overwrite, CopyOrMove action );
     void createTopLevelDirEntry(KIO::UDSEntry& entry);
     bool createUDSEntry( const QString& physicalPath, const QString& fileName, const QString& url,
