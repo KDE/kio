@@ -13,7 +13,6 @@ kde4_add_plugin(kded_kpasswdserver ${kded_kpasswdserver_PART_SRCS})
 
 target_link_libraries(kded_kpasswdserver  ${KDE4_KDECORE_LIBS} kwalletclient kio )
 
-kde4_install_libtool_file(${PLUGIN_INSTALL_DIR} kded_kpasswdserver )
 install(TARGETS kded_kpasswdserver  DESTINATION ${PLUGIN_INSTALL_DIR} )
 
 
