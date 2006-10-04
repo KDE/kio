@@ -25,7 +25,7 @@ set(ktrash_SRCS ktrash.cpp )
 
 kde4_automoc(${ktrash_SRCS})
 
-kde4_add_executable(ktrash ${ktrash_SRCS})
+kde4_add_executable(ktrash NOGUI ${ktrash_SRCS})
 
 target_link_libraries(ktrash  ${KDE4_KIO_LIBS} )
 
@@ -60,37 +60,3 @@ install( FILES trash.protocol  DESTINATION  ${SERVICES_INSTALL_DIR} )
 
 
 
-
-#original Makefile.am contents follow:
-
-#INCLUDES = $(all_includes)
-#METASOURCES = AUTO
-#
-#SUBDIRS = . kfile-plugin
-#
-#kde_module_LTLIBRARIES = kio_trash.la
-#
-#kio_trash_la_SOURCES = kio_trash.cpp
-#kio_trash_la_LIBADD  = libtrashcommon.la $(LIB_KIO)
-#kio_trash_la_LDFLAGS = $(all_libraries) -module $(KDE_PLUGIN) -no-undefined
-#
-#bin_PROGRAMS = ktrash
-#ktrash_SOURCES = ktrash.cpp
-#ktrash_LDADD = $(LIB_KIO)
-#ktrash_LDFLAGS = $(all_libraries) $(KDE_RPATH)
-#
-#kde_services_DATA = trash.protocol
-#
-#noinst_LTLIBRARIES = libtrashcommon.la
-#libtrashcommon_la_SOURCES = trashimpl.cpp
-#
-#check_PROGRAMS = testtrash
-#testtrash_SOURCES = testtrash.cpp
-#testtrash_LDADD = libtrashcommon.la $(LIB_KIO)
-#testtrash_LDFLAGS = $(all_libraries)
-#
-#TESTS = testtrash
-#
-#messages:
-#	$(XGETTEXT) `find . -name "*.cc" -o -name "*.cpp" -o -name "*.h"` -o $(podir)/kio_trash.pot
-#
