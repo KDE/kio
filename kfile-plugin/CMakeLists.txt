@@ -16,23 +16,3 @@ install(TARGETS kfile_trash  DESTINATION ${PLUGIN_INSTALL_DIR} )
 ########### install files ###############
 
 install( FILES kfile_trash.desktop kfile_trash_system.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
-
-
-
-
-#original Makefile.am contents follow:
-
-### Makefile.am for trash file meta info plugin
-#
-#AM_CPPFLAGS      = $(all_includes)
-#
-#kde_module_LTLIBRARIES = kfile_trash.la
-#
-#kfile_trash_la_SOURCES = kfile_trash.cpp
-#kfile_trash_la_LDFLAGS = $(all_libraries) -module $(KDE_PLUGIN)
-#kfile_trash_la_LIBADD = ../libtrashcommon.la $(LIB_KIO)
-#
-#METASOURCES = AUTO
-#
-#services_DATA = kfile_trash.desktop kfile_trash_system.desktop
-#servicesdir = $(kde_servicesdir)
