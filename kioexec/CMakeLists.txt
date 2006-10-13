@@ -6,7 +6,7 @@ include_directories( BEFORE ${CMAKE_SOURCE_DIR}/kio )
 
 set(kioexec_SRCS main.cpp )
 
-kde4_automoc(${kioexec_SRCS})
+kde4_automoc(kioexec ${kioexec_SRCS})
 
 kde4_add_executable(kioexec NOGUI ${kioexec_SRCS})
 
