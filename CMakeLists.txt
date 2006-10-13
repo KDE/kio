@@ -9,7 +9,7 @@ set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp)
 
 set(kio_trash_PART_SRCS kio_trash.cpp ${trashcommon_PART_SRCS})
 
-kde4_automoc(${kio_trash_PART_SRCS})
+kde4_automoc(kio_trash ${kio_trash_PART_SRCS})
 
 kde4_add_plugin(kio_trash ${kio_trash_PART_SRCS})
 
@@ -23,7 +23,7 @@ install(TARGETS kio_trash  DESTINATION ${PLUGIN_INSTALL_DIR} )
 
 set(ktrash_SRCS ktrash.cpp )
 
-kde4_automoc(${ktrash_SRCS})
+kde4_automoc(ktrash ${ktrash_SRCS})
 
 kde4_add_executable(ktrash NOGUI ${ktrash_SRCS})
 
@@ -40,7 +40,7 @@ if(KDE4_BUILD_TESTS)
 
   set(testtrash_SRCS testtrash.cpp ${trashcommon_PART_SRCS})
 
-  kde4_automoc(${testtrash_SRCS})
+  kde4_automoc(testtrash ${testtrash_SRCS})
 
   kde4_add_executable(testtrash ${testtrash_SRCS})
 
