@@ -45,6 +45,7 @@
 #include <assert.h>
 #include <kfileitem.h>
 #include <kstandarddirs.h>
+#include <kio/chmodjob.h>
 
 static bool check(QString a, QString b)
 {
@@ -136,6 +137,24 @@ static void removeDir( const QString& trashDir, const QString& dirName )
     assert( !QDir( trashDir + dirName ).exists() );
 }
 
+static void removeDirRecursive( const QString& dir )
+{
+    if ( QFileInfo( dir ).exists() ) {
+
+        // Make it work even with readonly dirs, like trashReadOnlyDirFromHome() creates
+        KUrl u = KUrl::fromPath( dir );
+        KFileItem fileItem( u, "inode/directory", KFileItem::Unknown );
+        KFileItemList fileItemList;
+        fileItemList.append( &fileItem );
+        KIO::ChmodJob* chmodJob = KIO::chmod( fileItemList, 0200, 0200, QString::null, QString::null, true /*recursive*/, false /*showProgressInfo*/ );
+        KIO::NetAccess::synchronousRun( chmodJob, 0 );
+
+        bool ok = KIO::NetAccess::del( u, 0 );
+        if ( !ok )
+            kFatal() << "Couldn't delete " << dir << endl;
+    }
+}
+
 void TestTrash::setup()
 {
     m_trashDir = KGlobal::dirs()->localxdgdatadir() + "Trash";
@@ -199,16 +218,9 @@ void TestTrash::setup()
         kWarning() << "No writable partition other than $HOME found, some tests will be skipped" << endl;
 
     // Start with a clean base dir
-    if ( QFileInfo( homeTmpDir() ).exists() ) {
-        bool ok = KIO::NetAccess::del( KUrl::fromPath( homeTmpDir() ), 0 );
-        if ( !ok )
-            kFatal() << "Couldn't delete " << homeTmpDir() << endl;
-    }
-    if ( QFileInfo( otherTmpDir() ).exists() ) {
-        bool ok = KIO::NetAccess::del( KUrl::fromPath( otherTmpDir() ), 0 );
-        if ( !ok )
-            kFatal() << "Couldn't delete " << otherTmpDir() << endl;
-    }
+    removeDirRecursive( homeTmpDir() );
+    removeDirRecursive( otherTmpDir() );
+
     QDir dir; // TT: why not a static method?
     bool ok = dir.mkdir( homeTmpDir() );
     if ( !ok )
@@ -216,49 +228,10 @@ void TestTrash::setup()
     ok = dir.mkdir( otherTmpDir() );
     if ( !ok )
         kFatal() << "Couldn't create " << otherTmpDir() << endl;
-    cleanTrash();
-}
 
-
-void TestTrash::cleanTrash()
-{
     kDebug() << k_funcinfo << endl;
-    // Start with a relatively clean trash too
-    removeFile( m_trashDir, "/info/fileFromHome.trashinfo" );
-    removeFile( m_trashDir, "/files/fileFromHome" );
-    removeFile( m_trashDir, "/info/fileFromHome_1.trashinfo" );
-    removeFile( m_trashDir, "/files/fileFromHome_1" );
-    removeFile( m_trashDir, "/info/file%2f.trashinfo" );
-    removeFile( m_trashDir, "/files/file%2f" );
-    removeFile( m_trashDir, "/info/" + utf8FileName() + ".trashinfo" );
-    removeFile( m_trashDir, "/files/" + utf8FileName() );
-    removeFile( m_trashDir, "/info/" + umlautFileName() + ".trashinfo" );
-    removeFile( m_trashDir, "/files/" + umlautFileName() );
-    removeFile( m_trashDir, "/info/fileFromOther.trashinfo" );
-    removeFile( m_trashDir, "/files/fileFromOther" );
-    removeFile( m_trashDir, "/info/symlinkFromHome.trashinfo" );
-    removeFile( m_trashDir, "/files/symlinkFromHome" );
-    removeFile( m_trashDir, "/info/symlinkFromOther.trashinfo" );
-    removeFile( m_trashDir, "/files/symlinkFromOther" );
-    removeFile( m_trashDir, "/info/brokenSymlinkFromHome.trashinfo" );
-    removeFile( m_trashDir, "/files/brokenSymlinkFromHome" );
-    removeFile( m_trashDir, "/info/trashDirFromHome.trashinfo" );
-    removeFile( m_trashDir, "/files/trashDirFromHome/testfile" );
-    removeFile( m_trashDir, "/info/readonly.trashinfo" );
-    removeDir( m_trashDir, "/files/trashDirFromHome" );
-    removeFile( m_trashDir, "/info/trashDirFromHome_1.trashinfo" );
-    removeFile( m_trashDir, "/files/trashDirFromHome_1/testfile" );
-    removeDir( m_trashDir, "/files/trashDirFromHome_1" );
-    removeFile( m_trashDir, "/info/trashDirFromOther.trashinfo" );
-    removeFile( m_trashDir, "/files/trashDirFromOther/testfile" );
-    removeDir( m_trashDir, "/files/trashDirFromOther" );
-    KIO::NetAccess::del( m_trashDir + "/files/readonly", 0 );
-    // for trashDirectoryOwnedByRoot
-    KIO::NetAccess::del( KUrl::fromPath( m_trashDir + "/files/cups" ), 0 );
-    KIO::NetAccess::del( KUrl::fromPath( m_trashDir + "/files/boot" ), 0 );
-    KIO::NetAccess::del( KUrl::fromPath( m_trashDir + "/files/etc" ), 0 );
-
-    //system( "find ~/.local-testtrash/share/Trash" );
+    // Start with a clean trash too
+    removeDirRecursive( m_trashDir );
 }
 
 void TestTrash::runAll()

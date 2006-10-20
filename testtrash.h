@@ -29,7 +29,6 @@ class TestTrash : public QObject
 public:
     TestTrash() {}
     void setup();
-    void cleanTrash();
     void runAll();
 
     // tests
