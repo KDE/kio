@@ -3,7 +3,7 @@
 
 set(kfile_trash_PART_SRCS kfile_trash.cpp ${trashcommon_PART_SRCS})
 
-kde4_automoc(kfile_trash ${kfile_trash_PART_SRCS})
+kde4_automoc(${kfile_trash_PART_SRCS})
 
 kde4_add_plugin(kfile_trash ${kfile_trash_PART_SRCS})
 
