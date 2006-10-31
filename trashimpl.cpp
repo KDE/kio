@@ -699,6 +699,13 @@ void TrashImpl::fileRemoved()
     // which will be done by the job soon after this.
 }
 
+static int idForDevice(Solid::Device& device)
+{
+    const Solid::Volume* volume = device.as<Solid::Volume>();
+    kDebug() << "major=" << volume->major() << " minor=" << volume->minor() << endl;
+    return volume->major()*1000 + volume->minor();
+}
+
 int TrashImpl::findTrashDirectory( const QString& origPath )
 {
     kDebug() << k_funcinfo << origPath << endl;
@@ -736,7 +743,7 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
     Solid::Device device = lst[0];
 
     // new trash dir found, register it
-    id = device.as<Solid::Volume>()->major()*1000+device.as<Solid::Volume>()->minor();
+    id = idForDevice( device );
     m_trashDirectories.insert( id, trashDir );
     kDebug() << k_funcinfo << "found " << trashDir << " gave it id " << id << endl;
     if ( !mountPoint.endsWith( "/" ) )
@@ -758,7 +765,7 @@ void TrashImpl::scanTrashDirectories() const
             int trashId = idForTrashDirectory( trashDir );
             if ( trashId == -1 ) {
                 // new trash dir found, register it
-                trashId = (*it).as<Solid::Volume>()->major()*1000+(*it).as<Solid::Volume>()->minor();
+                trashId = idForDevice( *it );
                 m_trashDirectories.insert( trashId, trashDir );
                 kDebug() << k_funcinfo << "found " << trashDir << " gave it id " << trashId << endl;
                 if ( !topdir.endsWith( "/" ) )
