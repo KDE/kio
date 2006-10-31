@@ -29,9 +29,11 @@
 #include <kglobal.h>
 #include <kstandarddirs.h>
 #include <kglobalsettings.h>
-#include <kmountpoint.h>
 #include <kfileitem.h>
 #include <kio/chmodjob.h>
+#include <solid/devicemanager.h>
+#include <solid/device.h>
+#include <solid/volume.h>
 
 #include <QApplication>
 #include <QEventLoop>
@@ -730,27 +732,21 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
 
 void TrashImpl::scanTrashDirectories() const
 {
-    const KMountPoint::List lst = KMountPoint::currentMountPoints();
-    for ( KMountPoint::List::ConstIterator it = lst.begin() ; it != lst.end() ; ++it ) {
-        const QByteArray str = (*it)->mountType().toLatin1();
-        // Skip pseudo-filesystems, there's no chance we'll find a .Trash on them :)
-        // ## Maybe we should also skip readonly filesystems
-        if ( str != "proc" && str != "devfs" && str != "usbdevfs" &&
-             str != "sysfs" && str != "devpts" && str != "subfs" /* #96259 */ &&
-             str != "autofs" /* #101116 */ ) {
-            QString topdir = (*it)->mountPoint();
-            QString trashDir = trashForMountPoint( topdir, false );
-            if ( !trashDir.isEmpty() ) {
-                // OK, trashDir is a valid trash directory. Ensure it's registered.
-                int trashId = idForTrashDirectory( trashDir );
-                if ( trashId == -1 ) {
-                    // new trash dir found, register it
-                    m_trashDirectories.insert( ++m_lastId, trashDir );
-                    kDebug() << k_funcinfo << "found " << trashDir << " gave it id " << m_lastId << endl;
-                    if ( !topdir.endsWith( "/" ) )
-                        topdir += '/';
-                    m_topDirectories.insert( m_lastId, topdir );
-                }
+    Solid::DeviceList lst = Solid::DeviceManager::self().findDevicesFromQuery(QString(), Solid::Capability::Volume,
+                                                                              "Volume.mounted = true");
+    for ( Solid::DeviceList::Iterator it = lst.begin() ; it != lst.end() ; ++it ) {
+        QString topdir = (*it).as<Solid::Volume>()->mountPoint();
+        QString trashDir = trashForMountPoint( topdir, false );
+        if ( !trashDir.isEmpty() ) {
+            // OK, trashDir is a valid trash directory. Ensure it's registered.
+            int trashId = idForTrashDirectory( trashDir );
+            if ( trashId == -1 ) {
+                // new trash dir found, register it
+                m_trashDirectories.insert( ++m_lastId, trashDir );
+                kDebug() << k_funcinfo << "found " << trashDir << " gave it id " << m_lastId << endl;
+                if ( !topdir.endsWith( "/" ) )
+                    topdir += '/';
+                m_topDirectories.insert( m_lastId, topdir );
             }
         }
     }
