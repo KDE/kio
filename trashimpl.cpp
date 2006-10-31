@@ -31,9 +31,6 @@
 #include <kglobalsettings.h>
 #include <kfileitem.h>
 #include <kio/chmodjob.h>
-#include <solid/devicemanager.h>
-#include <solid/device.h>
-#include <solid/volume.h>
 
 #include <QApplication>
 #include <QEventLoop>
@@ -50,11 +47,17 @@
 #include <stdlib.h>
 #include <errno.h>
 
+#undef minor
+#undef major
+
+#include <solid/devicemanager.h>
+#include <solid/device.h>
+#include <solid/volume.h>
+
 TrashImpl::TrashImpl() :
     QObject(),
     m_lastErrorCode( 0 ),
     m_initStatus( InitToBeDone ),
-    m_lastId( 0 ),
     m_homeDevice( 0 ),
     m_trashDirectoriesScanned( false ),
     // not using kio_trashrc since KIO uses that one already for kio_trash
@@ -726,14 +729,27 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
     m_topDirectories.insert( m_lastId, mountPoint );
     return m_lastId;
 #endif
-    scanTrashDirectories();
+
+    Solid::DeviceList lst = Solid::DeviceManager::self().findDevicesFromQuery(QString(), Solid::Capability::Volume,
+                                                             "Volume.mounted == true AND Volume.mountPoint == '"+mountPoint+"'");
+    // Pretend we got exactly one...
+    Solid::Device device = lst[0];
+
+    // new trash dir found, register it
+    id = device.as<Solid::Volume>()->major()*1000+device.as<Solid::Volume>()->minor();
+    m_trashDirectories.insert( id, trashDir );
+    kDebug() << k_funcinfo << "found " << trashDir << " gave it id " << id << endl;
+    if ( !mountPoint.endsWith( "/" ) )
+        mountPoint += '/';
+    m_topDirectories.insert( id, mountPoint );
+
     return idForTrashDirectory( trashDir );
 }
 
 void TrashImpl::scanTrashDirectories() const
 {
     Solid::DeviceList lst = Solid::DeviceManager::self().findDevicesFromQuery(QString(), Solid::Capability::Volume,
-                                                                              "Volume.mounted = true");
+                                                                              "Volume.mounted == true");
     for ( Solid::DeviceList::Iterator it = lst.begin() ; it != lst.end() ; ++it ) {
         QString topdir = (*it).as<Solid::Volume>()->mountPoint();
         QString trashDir = trashForMountPoint( topdir, false );
@@ -742,11 +758,12 @@ void TrashImpl::scanTrashDirectories() const
             int trashId = idForTrashDirectory( trashDir );
             if ( trashId == -1 ) {
                 // new trash dir found, register it
-                m_trashDirectories.insert( ++m_lastId, trashDir );
-                kDebug() << k_funcinfo << "found " << trashDir << " gave it id " << m_lastId << endl;
+                trashId = (*it).as<Solid::Volume>()->major()*1000+(*it).as<Solid::Volume>()->minor();
+                m_trashDirectories.insert( trashId, trashDir );
+                kDebug() << k_funcinfo << "found " << trashDir << " gave it id " << trashId << endl;
                 if ( !topdir.endsWith( "/" ) )
                     topdir += '/';
-                m_topDirectories.insert( m_lastId, topdir );
+                m_topDirectories.insert( trashId, topdir );
             }
         }
     }

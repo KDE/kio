@@ -166,7 +166,6 @@ private:
     // The home trash has id 0.
     mutable TrashDirMap m_trashDirectories; // id -> path of trash directory
     mutable TrashDirMap m_topDirectories; // id -> $topdir of partition
-    mutable int m_lastId;
     dev_t m_homeDevice;
     mutable bool m_trashDirectoriesScanned;
     int m_mibEnum;
