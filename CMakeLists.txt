@@ -13,7 +13,6 @@ kde4_automoc(${kio_trash_PART_SRCS})
 
 kde4_add_plugin(kio_trash ${kio_trash_PART_SRCS})
 
-kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kio_trash )
 
 target_link_libraries(kio_trash  ${KDE4_KIO_LIBS} ${KDE4_SOLID_LIBS})
 
