@@ -699,7 +699,7 @@ void TrashImpl::fileRemoved()
     // which will be done by the job soon after this.
 }
 
-static int idForDevice(Solid::Device& device)
+static int idForDevice(const Solid::Device& device)
 {
     const Solid::Volume* volume = device.as<Solid::Volume>();
     kDebug() << "major=" << volume->major() << " minor=" << volume->minor() << endl;
@@ -737,10 +737,10 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
     return m_lastId;
 #endif
 
-    Solid::DeviceList lst = Solid::DeviceManager::self().findDevicesFromQuery(QString(), Solid::Capability::Volume,
+    const Solid::DeviceList lst = Solid::DeviceManager::self().findDevicesFromQuery(QString(), Solid::Capability::Volume,
                                                              "Volume.mounted == true AND Volume.mountPoint == '"+mountPoint+"'");
     // Pretend we got exactly one...
-    Solid::Device device = lst[0];
+    const Solid::Device device = lst[0];
 
     // new trash dir found, register it
     id = idForDevice( device );
@@ -755,9 +755,9 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
 
 void TrashImpl::scanTrashDirectories() const
 {
-    Solid::DeviceList lst = Solid::DeviceManager::self().findDevicesFromQuery(QString(), Solid::Capability::Volume,
+    const Solid::DeviceList lst = Solid::DeviceManager::self().findDevicesFromQuery(QString(), Solid::Capability::Volume,
                                                                               "Volume.mounted == true");
-    for ( Solid::DeviceList::Iterator it = lst.begin() ; it != lst.end() ; ++it ) {
+    for ( Solid::DeviceList::ConstIterator it = lst.begin() ; it != lst.end() ; ++it ) {
         QString topdir = (*it).as<Solid::Volume>()->mountPoint();
         QString trashDir = trashForMountPoint( topdir, false );
         if ( !trashDir.isEmpty() ) {
