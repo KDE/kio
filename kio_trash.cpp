@@ -406,6 +406,9 @@ bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& 
 
         entry.insert( KIO::UDS_LINK_DEST, QFile::decodeName( buffer2 ) );
         // Follow symlink
+        // That makes sense in kio_file, but not in the trash, especially for the size
+        // #136876
+#if 0
         if ( KDE_stat( physicalPath_c, &buff ) == -1 ) {
             // It is a link pointing to nowhere
             buff.st_mode = S_IFLNK | S_IRWXU | S_IRWXG | S_IRWXO;
@@ -413,6 +416,7 @@ bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& 
             buff.st_atime = 0;
             buff.st_size = 0;
         }
+#endif
     }
     mode_t type = buff.st_mode & S_IFMT; // extract file type
     mode_t access = buff.st_mode & 07777; // extract permissions
