@@ -47,9 +47,6 @@
 #include <stdlib.h>
 #include <errno.h>
 
-#undef minor
-#undef major
-
 #include <solid/devicemanager.h>
 #include <solid/device.h>
 #include <solid/volume.h>
@@ -702,8 +699,8 @@ void TrashImpl::fileRemoved()
 static int idForDevice(const Solid::Device& device)
 {
     const Solid::Volume* volume = device.as<Solid::Volume>();
-    kDebug() << "major=" << volume->major() << " minor=" << volume->minor() << endl;
-    return volume->major()*1000 + volume->minor();
+    kDebug() << "major=" << volume->deviceMajor() << " minor=" << volume->deviceMinor() << endl;
+    return volume->deviceMajor()*1000 + volume->deviceMinor();
 }
 
 int TrashImpl::findTrashDirectory( const QString& origPath )
