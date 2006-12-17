@@ -223,7 +223,7 @@ void KIOExec::slotRunApp()
                                                  i18n( "File Changed" ), KStdGuiItem::del(), KGuiItem(i18n("Do Not Delete")) ) != KMessageBox::Yes )
                     continue; // don't delete the temp file
             }
-            else
+            else if ( ! dest.isLocalFile() )  // no upload when it's already a local file
             {
                 if ( KMessageBox::questionYesNo( 0L,
                                                  i18n( "The file\n%1\nhas been modified.\nDo you want to upload the changes?" , dest.prettyUrl()),
@@ -239,13 +239,10 @@ void KIOExec::slotRunApp()
                 }
             }
         }
-        else
-        {
-            // don't upload (and delete!) local files
-            if (!tempfiles && dest.isLocalFile())
-                continue;
-        }
-        unlink( QFile::encodeName(src) );
+
+        // don't delete a local file, except it is defined to be temporary (with --tempfiles switch)
+        if ( !dest.isLocalFile() || tempfiles )
+            unlink( QFile::encodeName(src) );
     }
 
     QApplication::exit(0);
