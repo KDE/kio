@@ -44,8 +44,8 @@ public:
   ~KPasswdServer();
 
 public Q_SLOTS:
-  Q_SCRIPTABLE QByteArray checkAuthInfo(const QByteArray &, qlonglong, const QDBusMessage &);
-  Q_SCRIPTABLE QByteArray queryAuthInfo(const QByteArray &, const QString &, qlonglong, qlonglong, const QDBusMessage &);
+  Q_SCRIPTABLE QByteArray checkAuthInfo(const QByteArray &, qlonglong, qlonglong, const QDBusMessage &);
+  Q_SCRIPTABLE QByteArray queryAuthInfo(const QByteArray &, const QString &, qlonglong, qlonglong, qlonglong, const QDBusMessage &);
   Q_SCRIPTABLE void addAuthInfo(const QByteArray &, qlonglong);
 
   void processRequest();
