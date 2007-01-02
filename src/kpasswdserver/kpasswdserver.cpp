@@ -32,7 +32,7 @@
 #include <klocale.h>
 #include <kmessagebox.h>
 #include <kdebug.h>
-#include <kio/passdlg.h>
+#include <kio/passworddialog.h>
 #include <kwallet.h>
 
 #include "config.h"
