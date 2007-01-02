@@ -21,7 +21,7 @@
 #include <klocale.h>
 #include <kde_file.h>
 #include <kio/global.h>
-#include <kio/renamedlg.h>
+#include <kio/renamedialog.h>
 #include <kio/job.h>
 #include <kdebug.h>
 #include <kurl.h>
@@ -232,7 +232,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
         fd = ::open( QFile::encodeName( url.path() ), O_WRONLY | O_CREAT | O_EXCL, 0600 );
         if ( fd < 0 ) {
             if ( errno == EEXIST ) {
-                url.setFileName( KIO::RenameDlg::suggestName( baseDirectory, url.fileName() ) );
+                url.setFileName( KIO::RenameDialog::suggestName( baseDirectory, url.fileName() ) );
                 // and try again on the next iteration
             } else {
                 error( KIO::ERR_COULD_NOT_WRITE, url.path() );
