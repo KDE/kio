@@ -32,7 +32,7 @@
 #include <klocale.h>
 #include <kmessagebox.h>
 #include <kdebug.h>
-#include <kio/passworddialog.h>
+#include <kpassworddialog.h>
 #include <kwallet.h>
 
 #include "config.h"
@@ -381,7 +381,9 @@ KPasswdServer::processRequest()
                     hasWalletData = readFromWallet( m_wallet, request->key, info.realmValue, username, password, info.readOnly, knownLogins );
             }
 
-            KIO::PasswordDialog dlg( info.prompt, username, info.keepPassword );
+            KPasswordDialog dlg( 0l,  info.keepPassword ? ( KPasswordDialog::ShowUsernameLine |  KPasswordDialog::ShowKeepPassword) : KPasswordDialog::ShowUsernameLine ) ;
+            dlg.setPrompt(info.prompt);
+            dlg.setUsername(username);
             if (info.caption.isEmpty())
                dlg.setPlainCaption( i18n("Authorization Dialog") );
             else
@@ -394,7 +396,7 @@ KPasswdServer::processRequest()
                dlg.setPassword( password );
 
             if (info.readOnly)
-               dlg.setUserReadOnly( true );
+               dlg.setUsernameReadOnly( true );
             else
                dlg.setKnownLogins( knownLogins );
 
