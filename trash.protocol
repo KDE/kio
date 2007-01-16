@@ -23,6 +23,7 @@ deleteRecursive=true
 fileNameUsedForCopying=Name
 #TODO DocPath
 ExtraNames=Original Path,Deletion Date
+ExtraNames[el]=Αρχική Διαδρομή,Ημερομηνία Διαγραφής
 ExtraNames[fr]=Chemin d'origine, date de suppression
 ExtraNames[x-test]=xxOriginal Path,Deletion Datexx
 ExtraTypes=QString,QDateTime

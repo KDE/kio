@@ -2,6 +2,7 @@
 Encoding=UTF-8
 Type=Service
 Name=Trash File Info
+Name[el]=Πληροφορίες για τον Κάδο Απορριμμάτων
 Name[fr]=Info Fichier Corbeille
 Name[x-test]=xxTrash File Infoxx
 ServiceTypes=KFilePlugin
