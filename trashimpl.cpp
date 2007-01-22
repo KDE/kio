@@ -734,8 +734,7 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
     return m_lastId;
 #endif
 
-    const Solid::DeviceList lst = Solid::DeviceManager::self().findDevicesFromQuery(Solid::Capability::Volume,
-                                                             "Volume.mounted == true AND Volume.mountPoint == '"+mountPoint+"'");
+    const Solid::DeviceList lst = Solid::DeviceManager::self().findDevicesFromQuery("Volume.mounted == true AND Volume.mountPoint == '"+mountPoint+"'");
     // Pretend we got exactly one...
     const Solid::Device device = lst[0];
 
@@ -752,8 +751,7 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
 
 void TrashImpl::scanTrashDirectories() const
 {
-    const Solid::DeviceList lst = Solid::DeviceManager::self().findDevicesFromQuery(Solid::Capability::Volume,
-                                                                              "Volume.mounted == true");
+    const Solid::DeviceList lst = Solid::DeviceManager::self().findDevicesFromQuery("Volume.mounted == true");
     for ( Solid::DeviceList::ConstIterator it = lst.begin() ; it != lst.end() ; ++it ) {
         QString topdir = (*it).as<Solid::Volume>()->mountPoint();
         QString trashDir = trashForMountPoint( topdir, false );
