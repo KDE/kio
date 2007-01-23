@@ -72,9 +72,10 @@ TrashImpl::TrashImpl() :
 /**
  * Test if a directory exists, create otherwise
  * @param _name full path of the directory
- * @return true if the dir was created or existed already
+ * @return errorcode, or 0 if the dir was created or existed already
+ * Warning, don't use return value like a bool
  */
-bool TrashImpl::testDir( const QString &_name )
+int TrashImpl::testDir( const QString &_name ) const
 {
   DIR *dp = opendir( QFile::encodeName(_name) );
   if ( dp == NULL )
@@ -96,12 +97,11 @@ bool TrashImpl::testDir( const QString &_name )
                 ok = false;
             }
             if ( !ok ) {
-                error( KIO::ERR_DIR_ALREADY_EXIST, name );
-                return false;
+                return KIO::ERR_DIR_ALREADY_EXIST;
             }
 #if 0
         //} else {
-        //    return false;
+        //    return 0;
         //}
 #endif
     }
@@ -109,8 +109,7 @@ bool TrashImpl::testDir( const QString &_name )
     {
         //KMessageBox::sorry( 0, i18n( "Could not create directory %1. Check for permissions." ).arg( name ) );
         kWarning() << "could not create " << name << endl;
-        error( KIO::ERR_COULD_NOT_MKDIR, name );
-        return false;
+        return KIO::ERR_COULD_NOT_MKDIR;
     } else {
         kDebug() << name << " created." << endl;
     }
@@ -119,7 +118,7 @@ bool TrashImpl::testDir( const QString &_name )
   {
     closedir( dp );
   }
-  return true;
+  return 0; // success
 }
 
 bool TrashImpl::init()
@@ -140,12 +139,19 @@ bool TrashImpl::init()
     }
 
     const QString trashDir = xdgDataDir + "Trash";
-    if ( !testDir( trashDir ) )
+    int err;
+    if ( ( err = testDir( trashDir ) ) ) {
+        error( err, trashDir );
         return false;
-    if ( !testDir( trashDir + "/info" ) )
+    }
+    if ( ( err = testDir( trashDir + "/info" ) ) ) {
+        error( err, trashDir + "/info" );
         return false;
-    if ( !testDir( trashDir + "/files" ) )
+    }
+    if ( ( err = testDir( trashDir + "/files" ) ) ) {
+        error( err, trashDir + "/files" );
         return false;
+    }
     m_trashDirectories.insert( 0, trashDir );
     m_initStatus = InitOK;
     kDebug() << k_funcinfo << "initialization OK, home trash dir: " << trashDir << endl;
@@ -830,7 +836,9 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
              && (S_ISDIR(buff.st_mode)) // must be a dir
              && (!S_ISLNK(buff.st_mode)) // not a symlink
              && ((buff.st_mode & 0777) == 0700) ) { // rwx for user, ------ for group and others
-            return trashDir;
+
+            if ( checkTrashSubdirs( trashDir_c ) )
+                return trashDir;
         }
         kDebug() << "Directory " << trashDir << " exists but didn't pass the security checks, can't use it" << endl;
         // Exists, but not useable
@@ -856,8 +864,10 @@ int TrashImpl::idForTrashDirectory( const QString& trashDir ) const
 
 bool TrashImpl::initTrashDirectory( const QByteArray& trashDir_c ) const
 {
+    kDebug() << k_funcinfo << trashDir_c << endl;
     if ( KDE_mkdir( trashDir_c, 0700 ) != 0 )
         return false;
+    kDebug() << k_funcinfo << endl;
     // This trash dir will be useable only if the directory is owned by user.
     // In theory this is the case, but not on e.g. USB keys...
     uid_t uid = getuid();
@@ -867,12 +877,8 @@ bool TrashImpl::initTrashDirectory( const QByteArray& trashDir_c ) const
     if ( (buff.st_uid == uid) // must be owned by user
          && ((buff.st_mode & 0777) == 0700) ) { // rwx for user, --- for group and others
 
-        QByteArray info_c = trashDir_c + "/info";
-        if ( KDE_mkdir( info_c, 0700 ) != 0 )
-            return false;
-        QByteArray files_c = trashDir_c + "/files";
-        if ( KDE_mkdir( files_c, 0700 ) != 0 )
-            return false;
+        return checkTrashSubdirs( trashDir_c );
+
     } else {
         kDebug() << trashDir_c << " just created, by it doesn't have the right permissions, must be a FAT partition. Removing it again." << endl;
         // Not good, e.g. USB key. Delete again.
@@ -883,6 +889,19 @@ bool TrashImpl::initTrashDirectory( const QByteArray& trashDir_c ) const
         ::rmdir( trashDir_c );
         return false;
     }
+    return true;
+}
+
+bool TrashImpl::checkTrashSubdirs( const QByteArray& trashDir_c ) const
+{
+    // testDir currently works with a QString - ## optimize
+    QString trashDir = QFile::decodeName( trashDir_c );
+    const QString info = trashDir + "/info";
+    if ( testDir( info ) != 0 )
+        return false;
+    const QString files = trashDir + "/files";
+    if ( testDir( files ) != 0 )
+        return false;
     return true;
 }
 

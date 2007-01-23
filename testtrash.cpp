@@ -459,7 +459,7 @@ void TestTrash::testTrashNotEmpty()
     KSimpleConfig cfg( "trashrc", true );
     assert( cfg.hasGroup( "Status" ) );
     cfg.setGroup( "Status" );
-    assert( cfg.readEntry( "Empty", QVariant(true )).toBool() == false );
+    assert( cfg.readEntry( "Empty", true ) == false );
 }
 
 void TestTrash::trashFileFromOther()

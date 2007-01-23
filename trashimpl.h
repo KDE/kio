@@ -124,7 +124,8 @@ private:
     void fileAdded();
     void fileRemoved();
 
-    bool testDir( const QString& name );
+    // Warning, returns error code, not a bool
+    int testDir( const QString& name ) const;
     void error( int e, const QString& s );
 
     bool readInfoFile( const QString& infoPath, TrashedFileInfo& info, int trashId );
@@ -144,6 +145,7 @@ private:
 
     int idForTrashDirectory( const QString& trashDir ) const;
     bool initTrashDirectory( const QByteArray& trashDir_c ) const;
+    bool checkTrashSubdirs( const QByteArray& trashDir_c ) const;
     QString trashForMountPoint( const QString& topdir, bool createIfNeeded ) const;
     static QString makeRelativePath( const QString& topdir, const QString& path );
 
