@@ -50,6 +50,7 @@
 #include <solid/devicemanager.h>
 #include <solid/device.h>
 #include <solid/volume.h>
+#include <kconfiggroup.h>
 
 TrashImpl::TrashImpl() :
     QObject(),
