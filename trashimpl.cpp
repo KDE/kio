@@ -23,6 +23,9 @@
 #include <kio/global.h>
 #include <kio/renamedialog.h>
 #include <kio/job.h>
+#include <kio/chmodjob.h>
+#include <kio/copyjob.h>
+#include <kio/deletejob.h>
 #include <kdebug.h>
 #include <kurl.h>
 #include <kdirnotify.h>
@@ -30,7 +33,7 @@
 #include <kstandarddirs.h>
 #include <kglobalsettings.h>
 #include <kfileitem.h>
-#include <kio/chmodjob.h>
+#include <kconfiggroup.h>
 
 #include <QApplication>
 #include <QEventLoop>
@@ -50,7 +53,6 @@
 #include <solid/devicemanager.h>
 #include <solid/device.h>
 #include <solid/volume.h>
-#include <kconfiggroup.h>
 
 TrashImpl::TrashImpl() :
     QObject(),

@@ -31,6 +31,7 @@
 #include <kapplication.h>
 #include <kio/netaccess.h>
 #include <kio/job.h>
+#include <kio/copyjob.h>
 #include <kdebug.h>
 #include <kcmdlineargs.h>
 
