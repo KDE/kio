@@ -684,7 +684,7 @@ bool TrashImpl::isEmpty() const
 void TrashImpl::fileAdded()
 {
     m_config.setGroup( "Status" );
-    if ( m_config.readEntry( "Empty", QVariant(true )).toBool() == true ) {
+    if ( m_config.readEntry( "Empty", true) == true ) {
         m_config.writeEntry( "Empty", false );
         m_config.sync();
     }
