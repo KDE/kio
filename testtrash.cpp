@@ -353,14 +353,14 @@ static void checkInfoFile( const QString& infoPath, const QString& origFilePath 
     QFileInfo info( infoPath );
     assert( info.exists() );
     assert( info.isFile() );
-    KSimpleConfig infoFile( info.absoluteFilePath(), true );
-    if ( !infoFile.hasGroup( "Trash Info" ) )
+    KSimpleConfig infoFile( info.absoluteFilePath() );
+    KConfigGroup group = infoFile.group( "Trash Info" );
+    if ( !group.exists() )
         kFatal() << "no Trash Info group in " << info.absoluteFilePath() << endl;
-    infoFile.setGroup( "Trash Info" );
-    const QString origPath = infoFile.readEntry( "Path" );
+    const QString origPath = group.readEntry( "Path" );
     assert( !origPath.isEmpty() );
     assert( origPath == QUrl::toPercentEncoding( origFilePath.toLatin1() ) );
-    const QString date = infoFile.readEntry( "DeletionDate" );
+    const QString date = group.readEntry( "DeletionDate" );
     assert( !date.isEmpty() );
     assert( date.contains( "T" ) );
 }
@@ -457,10 +457,10 @@ void TestTrash::trashUmlautFileFromHome()
 
 void TestTrash::testTrashNotEmpty()
 {
-    KSimpleConfig cfg( "trashrc", true );
-    assert( cfg.hasGroup( "Status" ) );
-    cfg.setGroup( "Status" );
-    assert( cfg.readEntry( "Empty", true ) == false );
+    KSimpleConfig cfg( "trashrc" );
+    const KConfigGroup group = cfg.group( "Status" );
+    assert( group.exists() );
+    assert( group.readEntry( "Empty", true ) == false );
 }
 
 void TestTrash::trashFileFromOther()
@@ -736,7 +736,6 @@ void TestTrash::statRoot()
     assert( item.isWritable() );
     assert( !item.isHidden() );
     assert( item.name() == "." );
-    assert( item.acceptsDrops() );
 }
 
 void TestTrash::statFileInRoot()
@@ -754,7 +753,6 @@ void TestTrash::statFileInRoot()
     assert( !item.isWritable() );
     assert( !item.isHidden() );
     assert( item.name() == "fileFromHome" );
-    assert( !item.acceptsDrops() );
 }
 
 void TestTrash::statDirectoryInRoot()
@@ -771,7 +769,6 @@ void TestTrash::statDirectoryInRoot()
     assert( !item.isWritable() );
     assert( !item.isHidden() );
     assert( item.name() == "trashDirFromHome" );
-    assert( !item.acceptsDrops() );
 }
 
 void TestTrash::statSymlinkInRoot()
@@ -788,7 +785,6 @@ void TestTrash::statSymlinkInRoot()
     assert( !item.isWritable() );
     assert( !item.isHidden() );
     assert( item.name() == "symlinkFromHome" );
-    assert( !item.acceptsDrops() );
 }
 
 void TestTrash::statFileInDirectory()
@@ -805,7 +801,6 @@ void TestTrash::statFileInDirectory()
     assert( !item.isWritable() );
     assert( !item.isHidden() );
     assert( item.name() == "testfile" );
-    assert( !item.acceptsDrops() );
 }
 
 void TestTrash::copyFromTrash( const QString& fileId, const QString& destPath, const QString& relativePath )

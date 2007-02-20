@@ -21,7 +21,7 @@
 #define TRASHIMPL_H
 
 #include <kio/jobclasses.h>
-#include <ksimpleconfig.h>
+#include <kconfig.h>
 
 #include <QDateTime>
 #include <QMap>
@@ -172,7 +172,7 @@ private:
     mutable bool m_trashDirectoriesScanned;
     int m_mibEnum;
 
-    KSimpleConfig m_config;
+    KConfig m_config;
 
     // We don't cache any data related to the trashed files.
     // Another kioslave could change that behind our feet.
