@@ -619,8 +619,8 @@ bool TrashImpl::readInfoFile( const QString& infoPath, TrashedFileInfo& info, in
         error( KIO::ERR_CANNOT_OPEN_FOR_READING, infoPath );
         return false;
     }
-    cfg.setGroup( "Trash Info" );
-    info.origPath = QUrl::fromPercentEncoding( cfg.readEntry( "Path" ).toLatin1() );
+    const KConfigGroup group = cfg.group( "Trash Info" );
+    info.origPath = QUrl::fromPercentEncoding( group.readEntry( "Path" ).toLatin1() );
     if ( info.origPath.isEmpty() )
         return false; // path is mandatory...
     if ( trashId == 0 )
@@ -629,7 +629,7 @@ bool TrashImpl::readInfoFile( const QString& infoPath, TrashedFileInfo& info, in
         const QString topdir = topDirectoryPath( trashId ); // includes trailing slash
         info.origPath.prepend( topdir );
     }
-    QString line = cfg.readEntry( "DeletionDate" );
+    const QString line = group.readEntry( "DeletionDate" );
     if ( !line.isEmpty() ) {
         info.deletionDate = QDateTime::fromString( line, Qt::ISODate );
     }
@@ -683,9 +683,9 @@ bool TrashImpl::isEmpty() const
 
 void TrashImpl::fileAdded()
 {
-    m_config.setGroup( "Status" );
-    if ( m_config.readEntry( "Empty", true) == true ) {
-        m_config.writeEntry( "Empty", false );
+    KConfigGroup group = m_config.group( "Status" );
+    if ( group.readEntry( "Empty", true) == true ) {
+        group.writeEntry( "Empty", false );
         m_config.sync();
     }
     // The apps showing the trash (e.g. kdesktop) will be notified
@@ -696,8 +696,8 @@ void TrashImpl::fileAdded()
 void TrashImpl::fileRemoved()
 {
     if ( isEmpty() ) {
-        m_config.setGroup( "Status" );
-        m_config.writeEntry( "Empty", true );
+        KConfigGroup group = m_config.group( "Status" );
+        group.writeEntry( "Empty", true );
         m_config.sync();
     }
     // The apps showing the trash (e.g. kdesktop) will be notified

@@ -353,7 +353,7 @@ static void checkInfoFile( const QString& infoPath, const QString& origFilePath 
     QFileInfo info( infoPath );
     assert( info.exists() );
     assert( info.isFile() );
-    KSimpleConfig infoFile( info.absoluteFilePath() );
+    KConfig infoFile( info.absoluteFilePath() );
     KConfigGroup group = infoFile.group( "Trash Info" );
     if ( !group.exists() )
         kFatal() << "no Trash Info group in " << info.absoluteFilePath() << endl;
@@ -457,7 +457,7 @@ void TestTrash::trashUmlautFileFromHome()
 
 void TestTrash::testTrashNotEmpty()
 {
-    KSimpleConfig cfg( "trashrc" );
+    KConfig cfg( "trashrc", KConfig::OnlyLocal );
     const KConfigGroup group = cfg.group( "Status" );
     assert( group.exists() );
     assert( group.readEntry( "Empty", true ) == false );
@@ -1144,10 +1144,9 @@ void TestTrash::emptyTrash()
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
     assert( ok );
 
-    KSimpleConfig cfg( "trashrc", true );
+    KConfig cfg( "trashrc", KConfig::OnlyLocal );
     assert( cfg.hasGroup( "Status" ) );
-    cfg.setGroup( "Status" );
-    assert( cfg.readEntry( "Empty", QVariant(false )).toBool() == true );
+    assert( cfg.group("Status").readEntry( "Empty", QVariant(false )).toBool() == true );
 
     assert( !QFile::exists( m_trashDir + "/files/fileFromHome" ) );
     assert( !QFile::exists( m_trashDir + "/files/readonly" ) );
