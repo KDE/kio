@@ -744,6 +744,8 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
 #endif
 
     const Solid::DeviceList lst = Solid::DeviceManager::self().findDevicesFromQuery("Volume.mounted == true AND Volume.mountPoint == '"+mountPoint+"'");
+    if ( lst.isEmpty() ) // not a device. Maybe some tmpfs mount for instance.
+        return 0; // use the home trash instead
     // Pretend we got exactly one...
     const Solid::Device device = lst[0];
 
