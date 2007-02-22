@@ -23,8 +23,8 @@
 #ifndef KIOEXEC_MAIN_H
 #define KIOEXEC_MAIN_H
 
-#include <qobject.h>
-#include <qstring.h>
+#include <QtCore/QObject>
+#include <QtCore/QString>
 #include <QList>
 #include <qtimer.h>
 
