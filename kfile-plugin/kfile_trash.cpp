@@ -39,7 +39,7 @@ KTrashPlugin::KTrashPlugin(QObject *parent, const QStringList &args)
     kDebug(7034) << "Trash file meta info plugin\n";
 
     makeMimeTypeInfo("trash");
-    makeMimeTypeInfo("system");
+//    makeMimeTypeInfo("system");
 
     (void)impl.init();
 }
