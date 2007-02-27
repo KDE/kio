@@ -1146,7 +1146,7 @@ void TestTrash::emptyTrash()
 
     KConfig cfg( "trashrc", KConfig::OnlyLocal );
     assert( cfg.hasGroup( "Status" ) );
-    assert( cfg.group("Status").readEntry( "Empty", QVariant(false )).toBool() == true );
+    assert( cfg.group("Status").readEntry( "Empty", false ) == true );
 
     assert( !QFile::exists( m_trashDir + "/files/fileFromHome" ) );
     assert( !QFile::exists( m_trashDir + "/files/readonly" ) );
