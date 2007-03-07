@@ -24,7 +24,7 @@ add_library(trash MODULE trashthroughanalyzer.cpp trashimpl.cpp)
 target_link_libraries(trash ${STREAMINDEXER_LIBRARY} ${KDE4_KIO_LIBS} ${KDE4_SOLID_LIBS})
 set_target_properties(trash PROPERTIES
     PREFIX strigita_)
-install(TARGETS trash LIBRARY DESTINATION ${LIB_DESTINATION}/strigi)
+install(TARGETS trash LIBRARY DESTINATION ${LIB_INSTALL_DIR}/strigi)
 
 ########### next target ###############
 
