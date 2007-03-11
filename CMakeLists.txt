@@ -1,7 +1,7 @@
 
 project(kioslave-trash)
 
-
+include_directories(${STRIGI_INCLUDE_DIR})
 
 set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp)
 
