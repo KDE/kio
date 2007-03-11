@@ -20,7 +20,7 @@ install(TARGETS kio_trash  DESTINATION ${PLUGIN_INSTALL_DIR} )
 
 ########### next target ###############
 
-add_library(trash MODULE trashthroughanalyzer.cpp trashimpl.cpp)
+kde4_add_library(trash MODULE trashthroughanalyzer.cpp trashimpl.cpp)
 target_link_libraries(trash ${STREAMINDEXER_LIBRARY} ${KDE4_KIO_LIBS} ${KDE4_SOLID_LIBS})
 set_target_properties(trash PROPERTIES
     PREFIX strigita_)
