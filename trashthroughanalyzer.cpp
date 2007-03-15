@@ -21,21 +21,21 @@
 #include <strigi/streamthroughanalyzer.h>
 #include <strigi/analyzerplugin.h>
 #include <strigi/fieldtypes.h>
-#include <strigi/indexable.h>
+#include <strigi/analysisresult.h>
 #include "trashimpl.h"
 #include <KUrl>
-using namespace jstreams;
+using namespace Strigi;
 using namespace std;
 
 class TrashThroughAnalyzerFactory;
 class TrashThroughAnalyzer : public StreamThroughAnalyzer {
     const TrashThroughAnalyzerFactory* factory;
     TrashImpl impl;
-    Indexable* idx;
-    void setIndexable(Indexable*i) {
+    AnalysisResult* idx;
+    void setIndexable(AnalysisResult*i) {
         idx = i;
     }
-    InputStream *connectInputStream(InputStream *in);
+    jstreams::InputStream *connectInputStream(jstreams::InputStream *in);
     bool isReadyWithStream() { return true; }
 public:
     TrashThroughAnalyzer(const TrashThroughAnalyzerFactory* f) :factory(f) {}
@@ -57,9 +57,8 @@ public:
     const RegisteredField* dateofdeletionField;
 };
 
-InputStream*
-TrashThroughAnalyzer::connectInputStream(InputStream* in) {
-    const string& path = idx->getPath();
+jstreams::InputStream* TrashThroughAnalyzer::connectInputStream(jstreams::InputStream* in) {
+    const string& path = idx->path();
     if (strncmp(path.c_str(), "system:/trash", 13)
             || strncmp(path.c_str(), "trash:/", 7)) {
         return in;
