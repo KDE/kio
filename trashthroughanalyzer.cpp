@@ -35,7 +35,7 @@ class TrashThroughAnalyzer : public StreamThroughAnalyzer {
     void setIndexable(AnalysisResult*i) {
         idx = i;
     }
-    jstreams::InputStream *connectInputStream(jstreams::InputStream *in);
+    InputStream *connectInputStream(InputStream *in);
     bool isReadyWithStream() { return true; }
 public:
     TrashThroughAnalyzer(const TrashThroughAnalyzerFactory* f) :factory(f) {}
@@ -43,7 +43,7 @@ public:
 //define all the available analyzers in this plugin
 class TrashThroughAnalyzerFactory : public StreamThroughAnalyzerFactory {
 private:
-    const char* getName() const {
+    const char* name() const {
         return "TrashThroughAnalyzer";
     }
     StreamThroughAnalyzer* newInstance() const {
@@ -57,7 +57,7 @@ public:
     const RegisteredField* dateofdeletionField;
 };
 
-jstreams::InputStream* TrashThroughAnalyzer::connectInputStream(jstreams::InputStream* in) {
+InputStream* TrashThroughAnalyzer::connectInputStream(InputStream* in) {
     const string& path = idx->path();
     if (strncmp(path.c_str(), "system:/trash", 13)
             || strncmp(path.c_str(), "trash:/", 7)) {
@@ -90,9 +90,9 @@ jstreams::InputStream* TrashThroughAnalyzer::connectInputStream(jstreams::InputS
         return in;
     }
 
-    idx->setField(factory->originalpathField,
+    idx->addValue(factory->originalpathField,
         (const char*)trashInfo.origPath.toUtf8());
-    idx->setField(factory->dateofdeletionField,
+    idx->addValue(factory->dateofdeletionField,
         trashInfo.deletionDate.toTime_t());
     return in;
 }
@@ -112,7 +112,7 @@ TrashThroughAnalyzerFactory::registerFields(FieldRegister& reg) {
 class Factory : public AnalyzerFactoryFactory {
 public:
     list<StreamThroughAnalyzerFactory*>
-    getStreamThroughAnalyzerFactories() const {
+    streamThroughAnalyzerFactories() const {
         list<StreamThroughAnalyzerFactory*> af;
         af.push_back(new TrashThroughAnalyzerFactory());
         return af;
