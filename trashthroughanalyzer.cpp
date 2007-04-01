@@ -50,8 +50,8 @@ private:
         return new TrashThroughAnalyzer(this);
     }
     void registerFields(FieldRegister&);
-    static const cnstr originalpathFieldName;
-    static const cnstr dateofdeletionFieldName;
+    static const string originalpathFieldName;
+    static const string dateofdeletionFieldName;
 public:
     const RegisteredField* originalpathField;
     const RegisteredField* dateofdeletionField;
@@ -97,15 +97,11 @@ InputStream* TrashThroughAnalyzer::connectInputStream(InputStream* in) {
     return in;
 }
 
-const cnstr TrashThroughAnalyzerFactory::originalpathFieldName("originalpath");
-const cnstr TrashThroughAnalyzerFactory::dateofdeletionFieldName(
-    "dateofdeletion");
-
 void
 TrashThroughAnalyzerFactory::registerFields(FieldRegister& reg) {
-    originalpathField = reg.registerField(originalpathFieldName,
+    originalpathField = reg.registerField("originalpath",
         FieldRegister::stringType, 1, 0);
-    dateofdeletionField = reg.registerField(dateofdeletionFieldName,
+    dateofdeletionField = reg.registerField("dateofdeletion",
         FieldRegister::integerType, 1, 0);
 }
 
