@@ -26,7 +26,7 @@
 #include <QtCore/QObject>
 #include <QtCore/QString>
 #include <QList>
-#include <qtimer.h>
+#include <QtCore/QTimer>
 
 namespace KIO { class Job; }
 

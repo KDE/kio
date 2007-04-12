@@ -20,7 +20,7 @@
 */
 
 #include <QtCore/QFile>
-#include <qprocess.h>
+#include <QtCore/Q_PID>
 
 #include <kapplication.h>
 #include <kdeversion.h>
