@@ -240,9 +240,16 @@ void KIOExec::slotRunApp()
             }
         }
 
-        // don't delete a local file, except it is defined to be temporary (with --tempfiles switch)
-        if ( !dest.isLocalFile() || tempfiles )
+        if ( !dest.isLocalFile() ) {
             unlink( QFile::encodeName(src) );
+        } else if ( tempfiles ) {
+            // Wait for a reasonable time so that even if the application forks on startup (like OOo or amarok)
+            // i will have time to start up and read the file before it gets deleted. #130709.
+            kdDebug() << "sleeping..." << endl;
+            sleep(180); // 3 mn
+            kdDebug() << "about to delete " << src << endl;
+            unlink( QFile::encodeName(src) );
+        }
     }
 
     QApplication::exit(0);
