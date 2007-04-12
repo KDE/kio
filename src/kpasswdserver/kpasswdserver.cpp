@@ -26,7 +26,7 @@
 
 #include <time.h>
 
-#include <qtimer.h>
+#include <QtCore/QTimer>
 
 #include <kapplication.h>
 #include <klocale.h>

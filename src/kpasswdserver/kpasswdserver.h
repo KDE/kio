@@ -24,8 +24,8 @@
 #ifndef KPASSWDSERVER_H
 #define KPASSWDSERVER_H
 
-#include <qhash.h>
-#include <q3ptrlist.h>
+#include <QtCore/QHash>
+#include <Qt3Support/Q3PtrList>
 #include <QtDBus/QtDBus>
 
 #include <kio/authinfo.h>
