@@ -245,9 +245,9 @@ void KIOExec::slotRunApp()
         } else if ( tempfiles ) {
             // Wait for a reasonable time so that even if the application forks on startup (like OOo or amarok)
             // i will have time to start up and read the file before it gets deleted. #130709.
-            kdDebug() << "sleeping..." << endl;
+            kDebug() << "sleeping..." << endl;
             sleep(180); // 3 mn
-            kdDebug() << "about to delete " << src << endl;
+            kDebug() << "about to delete " << src << endl;
             unlink( QFile::encodeName(src) );
         }
     }
