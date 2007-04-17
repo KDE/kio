@@ -99,9 +99,9 @@ InputStream* TrashThroughAnalyzer::connectInputStream(InputStream* in) {
 
 void
 TrashThroughAnalyzerFactory::registerFields(FieldRegister& reg) {
-    originalpathField = reg.registerField("originalpath",
+    originalpathField = reg.registerField("trash.original_location",
         FieldRegister::stringType, 1, 0);
-    dateofdeletionField = reg.registerField("dateofdeletion",
+    dateofdeletionField = reg.registerField("trash.deletion_time",
         FieldRegister::integerType, 1, 0);
 }
 
