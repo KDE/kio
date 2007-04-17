@@ -76,7 +76,7 @@ InputStream* TrashThroughAnalyzer::connectInputStream(InputStream* in) {
     
     //kDebug() << k_funcinfo << info.url() << endl;
     if ( url.protocol() != "trash" )
-        return false;
+        return in;
 
     int trashId;
     QString fileId;
