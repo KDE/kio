@@ -24,7 +24,7 @@ kde4_add_library(trash MODULE trashthroughanalyzer.cpp trashimpl.cpp)
 target_link_libraries(trash ${STREAMANALYZER_LIBRARY} ${KDE4_KIO_LIBS} ${KDE4_SOLID_LIBS})
 set_target_properties(trash PROPERTIES
     PREFIX strigita_)
-#install(TARGETS trash LIBRARY DESTINATION ${LIB_INSTALL_DIR}/strigi)
+install(TARGETS trash LIBRARY DESTINATION ${LIB_INSTALL_DIR}/strigi)
 
 ########### next target ###############
 
@@ -56,10 +56,6 @@ if(KDE4_BUILD_TESTS)
   add_test(kioslave-testtrash ${EXECUTABLE_OUTPUT_PATH}/testtrash)
 
 endif(KDE4_BUILD_TESTS)
-
-########### next target ###############
-#Add sub dir after: generate  /kioslave/trash/trashimpl.cpp before to go to this directory
-#add_subdirectory( kfile-plugin )
 
 ########### install files ###############
 
