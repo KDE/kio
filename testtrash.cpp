@@ -1165,7 +1165,7 @@ static void checkIcon( const KUrl& url, const QString& expectedIcon )
 void TestTrash::testIcons()
 {
     checkIcon( KUrl("trash:/"), "user-trash-full" ); // #100321
-    checkIcon( KUrl("trash:/foo/"), "folder" );
+    checkIcon( KUrl("trash:/foo/"), "inode-directory" );
 }
 
 #include "testtrash.moc"
