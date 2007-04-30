@@ -34,6 +34,7 @@
 #include <kglobalsettings.h>
 #include <kfileitem.h>
 #include <kconfiggroup.h>
+#include <kmountpoint.h>
 
 #include <QApplication>
 #include <QEventLoop>
@@ -721,7 +722,10 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
          && buff.st_dev == m_homeDevice )
         return 0;
 
-    QString mountPoint = KIO::findPathMountPoint( origPath );
+    KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath( origPath );
+    if (!mp)
+        return 0;
+    QString mountPoint = mp->mountPoint();
     const QString trashDir = trashForMountPoint( mountPoint, true );
     kDebug() << "mountPoint=" << mountPoint << " trashDir=" << trashDir << endl;
     if ( trashDir.isEmpty() )
