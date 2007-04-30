@@ -50,9 +50,9 @@
 #include <stdlib.h>
 #include <errno.h>
 
-#include <solid/devicemanager.h>
 #include <solid/device.h>
-#include <solid/volume.h>
+#include <solid/block.h>
+#include <solid/storagevolume.h>
 
 TrashImpl::TrashImpl() :
     QObject(),
@@ -707,9 +707,9 @@ void TrashImpl::fileRemoved()
 
 static int idForDevice(const Solid::Device& device)
 {
-    const Solid::Volume* volume = device.as<Solid::Volume>();
-    kDebug() << "major=" << volume->deviceMajor() << " minor=" << volume->deviceMinor() << endl;
-    return volume->deviceMajor()*1000 + volume->deviceMinor();
+    const Solid::Block* block = device.as<Solid::Block>();
+    kDebug() << "major=" << block->deviceMajor() << " minor=" << block->deviceMinor() << endl;
+    return block->deviceMajor()*1000 + block->deviceMinor();
 }
 
 int TrashImpl::findTrashDirectory( const QString& origPath )
@@ -743,7 +743,7 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
     return m_lastId;
 #endif
 
-    const Solid::DeviceList lst = Solid::DeviceManager::self().findDevicesFromQuery("Volume.mounted == true AND Volume.mountPoint == '"+mountPoint+"'");
+    const Solid::DeviceList lst = Solid::Device::listFromQuery("StorageVolume.mounted == true AND StorageVolume.mountPoint == '"+mountPoint+"'");
     if ( lst.isEmpty() ) // not a device. Maybe some tmpfs mount for instance.
         return 0; // use the home trash instead
     // Pretend we got exactly one...
@@ -762,9 +762,9 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
 
 void TrashImpl::scanTrashDirectories() const
 {
-    const Solid::DeviceList lst = Solid::DeviceManager::self().findDevicesFromQuery("Volume.mounted == true");
+    const Solid::DeviceList lst = Solid::Device::listFromQuery("StorageVolume.mounted == true");
     for ( Solid::DeviceList::ConstIterator it = lst.begin() ; it != lst.end() ; ++it ) {
-        QString topdir = (*it).as<Solid::Volume>()->mountPoint();
+        QString topdir = (*it).as<Solid::StorageVolume>()->mountPoint();
         QString trashDir = trashForMountPoint( topdir, false );
         if ( !trashDir.isEmpty() ) {
             // OK, trashDir is a valid trash directory. Ensure it's registered.
