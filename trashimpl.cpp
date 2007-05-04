@@ -806,16 +806,16 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
     // (1) Administrator-created $topdir/.Trash directory
 
     const QString rootTrashDir = topdir + "/.Trash";
+    const QByteArray rootTrashDir_c = QFile::encodeName( rootTrashDir );
     // Can't use QFileInfo here since we need to test for the sticky bit
     uid_t uid = getuid();
     KDE_struct_stat buff;
-    // Minimum permissions required: write+execute for 'others', and sticky bit
-    unsigned int requiredBits = S_IWOTH | S_IXOTH | S_ISVTX;
-    if ( KDE_lstat( QFile::encodeName( rootTrashDir ), &buff ) == 0 ) {
-        if ( (buff.st_uid == 0) // must be owned by root
-             && (S_ISDIR(buff.st_mode)) // must be a dir
+    const unsigned int requiredBits = S_ISVTX; // Sticky bit required
+    if ( KDE_lstat( rootTrashDir_c, &buff ) == 0 ) {
+        if ( (S_ISDIR(buff.st_mode)) // must be a dir
              && (!S_ISLNK(buff.st_mode)) // not a symlink
              && ((buff.st_mode & requiredBits) == requiredBits)
+             && (::access(rootTrashDir_c, W_OK))
             ) {
             const QString trashDir = rootTrashDir + '/' + QString::number( uid );
             const QByteArray trashDir_c = QFile::encodeName( trashDir );
