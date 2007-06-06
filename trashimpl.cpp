@@ -516,7 +516,7 @@ bool TrashImpl::synchronousDel( const QString& path, bool setLastErrorCode, bool
         KFileItem fileItem( url, "inode/directory", KFileItem::Unknown );
         KFileItemList fileItemList;
         fileItemList.append( &fileItem );
-        KIO::ChmodJob* chmodJob = KIO::chmod( fileItemList, 0200, 0200, QString::null, QString::null, true /*recursive*/, false /*showProgressInfo*/ );
+        KIO::ChmodJob* chmodJob = KIO::chmod( fileItemList, 0200, 0200, QString(), QString::null, true /*recursive*/, false /*showProgressInfo*/ );
         connect( chmodJob, SIGNAL( result(KJob *) ),
                  this, SLOT( jobFinished(KJob *) ) );
         enterLoop();
