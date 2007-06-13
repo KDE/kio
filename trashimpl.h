@@ -25,7 +25,6 @@
 
 #include <QDateTime>
 #include <QMap>
-#include <QStringList>
 #include <assert.h>
 
 /**
