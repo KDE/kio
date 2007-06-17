@@ -40,22 +40,13 @@ install(TARGETS ktrash DESTINATION ${BIN_INSTALL_DIR})
 
 ########### next target ###############
 
-if(KDE4_BUILD_TESTS)
+set(testtrash_SRCS testtrash.cpp ${trashcommon_PART_SRCS})
 
-  # Tests don't need to go into toplevel/bin, they are fine in the current dir.
-  set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
+kde4_automoc(${testtrash_SRCS})
 
-  set(testtrash_SRCS testtrash.cpp ${trashcommon_PART_SRCS})
+kde4_add_unit_test(testtrash ${testtrash_SRCS})
 
-  kde4_automoc(${testtrash_SRCS})
-
-  kde4_add_executable(testtrash ${testtrash_SRCS})
-
-  target_link_libraries(testtrash  ${KDE4_KIO_LIBS} ${KDE4_SOLID_LIBS})
-
-  add_test(kioslave-testtrash ${EXECUTABLE_OUTPUT_PATH}/testtrash)
-
-endif(KDE4_BUILD_TESTS)
+target_link_libraries(testtrash  ${KDE4_KIO_LIBS} ${KDE4_SOLID_LIBS})
 
 ########### install files ###############
 
