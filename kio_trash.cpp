@@ -26,7 +26,6 @@
 #include <kde_file.h>
 #include <kcmdlineargs.h>
 #include <kmimetype.h>
-#include <k3process.h>
 
 #include <QDataStream>
 #include <QTextStream>
