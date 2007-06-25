@@ -35,7 +35,7 @@
 #include <kpassworddialog.h>
 #include <kwallet.h>
 
-#include "config.h"
+#include <config-runtime.h>
 #ifdef Q_WS_X11
 #include <qx11info_x11.h>
 #include <X11/X.h>
