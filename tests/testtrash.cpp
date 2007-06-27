@@ -24,8 +24,6 @@
 #include "kio_trash.h"
 #include "testtrash.h"
 
-#include <config-runtime.h>
-
 #include <kurl.h>
 #include <klocale.h>
 #include <kapplication.h>
