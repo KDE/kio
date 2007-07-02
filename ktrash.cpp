@@ -27,24 +27,21 @@
 //Added by qt3to4:
 #include <QByteArray>
 
-static KCmdLineOptions options[] =
-{
-    { "empty", I18N_NOOP( "Empty the contents of the trash" ), 0 },
-    //{ "migrate", I18N_NOOP( "Migrate contents of old trash" ), 0 },
-    { "restore <file>", I18N_NOOP( "Restore a trashed file to its original location" ), 0 },
-    // This hack is for the servicemenu on trash.desktop which uses Exec=ktrash -empty. %f is implied...
-    { "+[ignored]", I18N_NOOP( "Ignored" ), 0 },
-    KCmdLineLastOption
-};
-
 int main(int argc, char *argv[])
 {
     //KApplication::disableAutoDcopRegistration();
-    KCmdLineArgs::init( argc, argv, "ktrash",
-                        I18N_NOOP( "ktrash" ),
-                        I18N_NOOP( "Helper program to handle the KDE trash can\n"
-				   "Note: to move files to the trash, do not use ktrash, but \"kfmclient move 'url' trash:/\"" ),
-                        KDE_VERSION_STRING );
+    KCmdLineArgs::init( argc, argv, "ktrash", 0,
+                        ki18n( "ktrash" ),
+                        KDE_VERSION_STRING ,
+                        ki18n( "Helper program to handle the KDE trash can\n"
+				   "Note: to move files to the trash, do not use ktrash, but \"kfmclient move 'url' trash:/\"" ));
+
+    KCmdLineOptions options;
+    options.add("empty", ki18n( "Empty the contents of the trash" ));
+    //{ "migrate", I18N_NOOP( "Migrate contents of old trash" ), 0 },
+    options.add("restore <file>", ki18n( "Restore a trashed file to its original location" ));
+    // This hack is for the servicemenu on trash.desktop which uses Exec=ktrash -empty. %f is implied...
+    options.add("+[ignored]", ki18n( "Ignored" ));
     KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;
 
@@ -75,7 +72,7 @@ int main(int argc, char *argv[])
     }
 #endif
 
-    QByteArray restoreArg = args->getOption( "restore" );
+    QString restoreArg = args->getOption( "restore" );
     if ( !restoreArg.isEmpty() ) {
 
         if (restoreArg.indexOf("system:/trash")==0) {

@@ -39,14 +39,6 @@
 #include <sys/stat.h>
 #include <stdlib.h>
 
-static const KCmdLineOptions options[] =
-{
-    { "+protocol", I18N_NOOP( "Protocol name" ), 0 },
-    { "+pool", I18N_NOOP( "Socket name" ), 0 },
-    { "+app", I18N_NOOP( "Socket name" ), 0 },
-    KCmdLineLastOption
-};
-
 extern "C" {
     int KDE_EXPORT kdemain( int argc, char **argv )
     {
@@ -54,12 +46,19 @@ extern "C" {
         // KApplication is necessary to use kio_file
         putenv(strdup("SESSION_MANAGER="));
         //KApplication::disableAutoDcopRegistration();
-        KCmdLineArgs::init(argc, argv, "kio_trash", 0, 0, 0);
+        KCmdLineArgs::init(argc, argv, "kio_trash", 0, KLocalizedString(), 0);
+
+        KCmdLineOptions options;
+        options.add("+protocol", ki18n( "Protocol name" ));
+        options.add("+pool", ki18n( "Socket name" ));
+        options.add("+app", ki18n( "Socket name" ));
         KCmdLineArgs::addCmdLineOptions( options );
         KApplication app( false );
 
         KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-        TrashProtocol slave( args->arg(0), args->arg(1), args->arg(2) );
+        TrashProtocol slave( QFile::encodeName( args->arg(0) ),
+                             QFile::encodeName( args->arg(1) ),
+                             QFile::encodeName( args->arg(2) ) );
         slave.dispatchLoop();
         return 0;
     }
