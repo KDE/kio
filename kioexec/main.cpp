@@ -45,25 +45,16 @@
 static const char description[] =
         I18N_NOOP("KIO Exec - Opens remote files, watches modifications, asks for upload");
 
-static KCmdLineOptions options[] =
-{
-   { "tempfiles", I18N_NOOP("Treat URLs as local files and delete them afterwards"), 0 },
-   { "suggestedfilename <file name>", I18N_NOOP("Suggested file name for the downloaded file"), 0 },
-   { "+command", I18N_NOOP("Command to execute"), 0 },
-   { "+[URLs]", I18N_NOOP("URL(s) or local file(s) used for 'command'"), 0 },
-   KCmdLineLastOption
-};
-
 
 KIOExec::KIOExec()
 {
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
     if (args->count() < 1)
-        KCmdLineArgs::usage(i18n("'command' expected.\n"));
+        KCmdLineArgs::usageError(i18n("'command' expected.\n"));
 
     tempfiles = args->isSet("tempfiles");
     if ( args->isSet( "suggestedfilename" ) )
-        suggestedFileName = QString::fromLocal8Bit( args->getOption( "suggestedfilename" ) );
+        suggestedFileName = args->getOption( "suggestedfilename" );
     expectedCounter = 0;
     jobCounter = 0;
     command = args->arg(0);
@@ -255,17 +246,22 @@ void KIOExec::slotRunApp()
 
 int main( int argc, char **argv )
 {
-    KAboutData aboutData( "kioexec", I18N_NOOP("KIOExec"),
-        KDE_VERSION_STRING, description, KAboutData::License_GPL,
-        "(c) 1998-2000,2003 The KFM/Konqueror Developers");
-    aboutData.addAuthor("David Faure",0, "faure@kde.org");
-    aboutData.addAuthor("Stephan Kulow",0, "coolo@kde.org");
-    aboutData.addAuthor("Bernhard Rosenkraenzer",0, "bero@arklinux.org");
-    aboutData.addAuthor("Waldo Bastian",0, "bastian@kde.org");
-    aboutData.addAuthor("Oswald Buddenhagen",0, "ossi@kde.org");
+    KAboutData aboutData( "kioexec", "kio", ki18n("KIOExec"),
+        KDE_VERSION_STRING, ki18n(description), KAboutData::License_GPL,
+        ki18n("(c) 1998-2000,2003 The KFM/Konqueror Developers"));
+    aboutData.addAuthor(ki18n("David Faure"),KLocalizedString(), "faure@kde.org");
+    aboutData.addAuthor(ki18n("Stephan Kulow"),KLocalizedString(), "coolo@kde.org");
+    aboutData.addAuthor(ki18n("Bernhard Rosenkraenzer"),KLocalizedString(), "bero@arklinux.org");
+    aboutData.addAuthor(ki18n("Waldo Bastian"),KLocalizedString(), "bastian@kde.org");
+    aboutData.addAuthor(ki18n("Oswald Buddenhagen"),KLocalizedString(), "ossi@kde.org");
 
-    KLocale::setMainCatalog("kio");
     KCmdLineArgs::init( argc, argv, &aboutData );
+
+    KCmdLineOptions options;
+    options.add("tempfiles", ki18n("Treat URLs as local files and delete them afterwards"));
+    options.add("suggestedfilename <file name>", ki18n("Suggested file name for the downloaded file"));
+    options.add("+command", ki18n("Command to execute"));
+    options.add("+[URLs]", ki18n("URL(s) or local file(s) used for 'command'"));
     KCmdLineArgs::addCmdLineOptions( options );
 
     KApplication app;
