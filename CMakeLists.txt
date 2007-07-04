@@ -1,5 +1,4 @@
 
-project(kioslave-trash)
 
 add_subdirectory(tests)
 
