@@ -10,7 +10,6 @@ set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/../trashimpl.cpp)
 
 set(testtrash_SRCS testtrash.cpp ${trashcommon_PART_SRCS})
 
-kde4_automoc(${testtrash_SRCS})
 
 kde4_add_unit_test(testtrash ${testtrash_SRCS})
 

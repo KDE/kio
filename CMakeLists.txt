@@ -10,7 +10,6 @@ set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp)
 
 set(kio_trash_PART_SRCS kio_trash.cpp ${trashcommon_PART_SRCS})
 
-kde4_automoc(${kio_trash_PART_SRCS})
 
 kde4_add_plugin(kio_trash ${kio_trash_PART_SRCS})
 
@@ -31,7 +30,6 @@ set_target_properties(trash PROPERTIES
 
 set(ktrash_SRCS ktrash.cpp )
 
-kde4_automoc(${ktrash_SRCS})
 
 kde4_add_executable(ktrash NOGUI ${ktrash_SRCS})
 
