@@ -246,7 +246,7 @@ void KIOExec::slotRunApp()
 
 int main( int argc, char **argv )
 {
-    KAboutData aboutData( "kioexec", "kio", ki18n("KIOExec"),
+    KAboutData aboutData( "kioexec", "kio4", ki18n("KIOExec"),
         KDE_VERSION_STRING, ki18n(description), KAboutData::License_GPL,
         ki18n("(c) 1998-2000,2003 The KFM/Konqueror Developers"));
     aboutData.addAuthor(ki18n("David Faure"),KLocalizedString(), "faure@kde.org");
