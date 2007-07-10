@@ -1,6 +1,5 @@
 set(kioexec_SRCS main.cpp )
 
-kde4_automoc(${kioexec_SRCS})
 
 kde4_add_executable(kioexec NOGUI ${kioexec_SRCS})
 
