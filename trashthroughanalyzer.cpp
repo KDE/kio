@@ -37,6 +37,9 @@ class TrashThroughAnalyzer : public StreamThroughAnalyzer {
     }
     InputStream *connectInputStream(InputStream *in);
     bool isReadyWithStream() { return true; }
+    const char* name() const {
+        return "TrashThroughAnalyzer";
+    }
 public:
     TrashThroughAnalyzer(const TrashThroughAnalyzerFactory* f) :factory(f) {}
 };
