@@ -241,12 +241,12 @@ void TrashProtocol::copyOrMove( const KUrl &src, const KUrl &dest, bool overwrit
 void TrashProtocol::createTopLevelDirEntry(KIO::UDSEntry& entry)
 {
     entry.clear();
-    entry.insert( KIO::UDS_NAME, QString::fromLatin1("."));
-    entry.insert( KIO::UDS_FILE_TYPE, S_IFDIR);
-    entry.insert( KIO::UDS_ACCESS, 0700);
-    entry.insert( KIO::UDS_MIME_TYPE, QString::fromLatin1("inode/directory"));
-    entry.insert( KIO::UDS_USER, m_userName);
-    entry.insert( KIO::UDS_GROUP, m_groupName);
+    entry.insert( KIO::UDSEntry::UDS_NAME, QString::fromLatin1("."));
+    entry.insert( KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.insert( KIO::UDSEntry::UDS_ACCESS, 0700);
+    entry.insert( KIO::UDSEntry::UDS_MIME_TYPE, QString::fromLatin1("inode/directory"));
+    entry.insert( KIO::UDSEntry::UDS_USER, m_userName);
+    entry.insert( KIO::UDSEntry::UDS_GROUP, m_groupName);
 }
 
 void TrashProtocol::stat(const KUrl& url)
@@ -402,7 +402,7 @@ bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& 
             buffer2[ n ] = 0;
         }
 
-        entry.insert( KIO::UDS_LINK_DEST, QFile::decodeName( buffer2 ) );
+        entry.insert( KIO::UDSEntry::UDS_LINK_DEST, QFile::decodeName( buffer2 ) );
         // Follow symlink
         // That makes sense in kio_file, but not in the trash, especially for the size
         // #136876
@@ -419,22 +419,22 @@ bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& 
     mode_t type = buff.st_mode & S_IFMT; // extract file type
     mode_t access = buff.st_mode & 07777; // extract permissions
     access &= 07555; // make it readonly, since it's in the trashcan
-    entry.insert( KIO::UDS_NAME, fileName );
-    entry.insert( KIO::UDS_FILE_TYPE, type );
+    entry.insert( KIO::UDSEntry::UDS_NAME, fileName );
+    entry.insert( KIO::UDSEntry::UDS_FILE_TYPE, type );
     if ( !url.isEmpty() )
-        entry.insert( KIO::UDS_URL, url );
+        entry.insert( KIO::UDSEntry::UDS_URL, url );
 
     KMimeType::Ptr mt = KMimeType::findByPath( physicalPath, buff.st_mode );
     if ( mt )
-        entry.insert( KIO::UDS_MIME_TYPE, mt->name() );
-    entry.insert( KIO::UDS_ACCESS, access );
-    entry.insert( KIO::UDS_SIZE, buff.st_size );
-    entry.insert( KIO::UDS_USER, m_userName ); // assumption
-    entry.insert( KIO::UDS_GROUP, m_groupName ); // assumption
-    entry.insert( KIO::UDS_MODIFICATION_TIME, buff.st_mtime );
-    entry.insert( KIO::UDS_ACCESS_TIME, buff.st_atime ); // ## or use it for deletion time?
-    entry.insert( KIO::UDS_EXTRA, info.origPath );
-    entry.insert( KIO::UDS_EXTRA, info.deletionDate.toString( Qt::ISODate ) );
+        entry.insert( KIO::UDSEntry::UDS_MIME_TYPE, mt->name() );
+    entry.insert( KIO::UDSEntry::UDS_ACCESS, access );
+    entry.insert( KIO::UDSEntry::UDS_SIZE, buff.st_size );
+    entry.insert( KIO::UDSEntry::UDS_USER, m_userName ); // assumption
+    entry.insert( KIO::UDSEntry::UDS_GROUP, m_groupName ); // assumption
+    entry.insert( KIO::UDSEntry::UDS_MODIFICATION_TIME, buff.st_mtime );
+    entry.insert( KIO::UDSEntry::UDS_ACCESS_TIME, buff.st_atime ); // ## or use it for deletion time?
+    entry.insert( KIO::UDSEntry::UDS_EXTRA, info.origPath );
+    entry.insert( KIO::UDSEntry::UDS_EXTRA, info.deletionDate.toString( Qt::ISODate ) );
     return true;
 }
 

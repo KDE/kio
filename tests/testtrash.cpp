@@ -1117,8 +1117,8 @@ void TestTrash::slotEntries( KIO::Job*, const KIO::UDSEntryList& lst )
 {
     for( KIO::UDSEntryList::ConstIterator it = lst.begin(); it != lst.end(); ++it ) {
         const KIO::UDSEntry& entry (*it);
-        QString displayName = entry.stringValue( KIO::UDS_NAME );
-        KUrl url = entry.stringValue( KIO::UDS_URL );
+        QString displayName = entry.stringValue( KIO::UDSEntry::UDS_NAME );
+        KUrl url = entry.stringValue( KIO::UDSEntry::UDS_URL );
         kDebug() << k_funcinfo << displayName << " " << url << endl;
         if ( !url.isEmpty() ) {
             assert( url.protocol() == "trash" );
