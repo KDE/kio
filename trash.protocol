@@ -25,6 +25,7 @@ fileNameUsedForCopying=Name
 ExtraNames=Original Path,Deletion Date
 ExtraNames[af]=Oorspronklike gids, Uitvee datum
 ExtraNames[be]=Арыгінальнае месцазнаходжанне,Час выдалення
+ExtraNames[bg]=ExtraNames=Местоположение,Дата на изтриване
 ExtraNames[ca]=Camí original,Data d'esborrat
 ExtraNames[cs]=Původní cesta,Datum smazání
 ExtraNames[csb]=Òriginalnô stegna,Datum remniãcô
