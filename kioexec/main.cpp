@@ -58,14 +58,14 @@ KIOExec::KIOExec()
     expectedCounter = 0;
     jobCounter = 0;
     command = args->arg(0);
-    kDebug() << "command=" << command << endl;
+    kDebug() << "command=" << command;
 
     for ( int i = 1; i < args->count(); i++ )
     {
         KUrl url = args->url(i);
 	url = KIO::NetAccess::mostLocalUrl( url, 0 );
 
-        //kDebug() << "url=" << url.url() << " filename=" << url.fileName() << endl;
+        //kDebug() << "url=" << url.url() << " filename=" << url.fileName();
         // A local file, not an URL ?
         // => It is not encoded and not shell escaped, too.
         if ( url.isLocalFile() )
@@ -101,7 +101,7 @@ KIOExec::KIOExec()
                 expectedCounter++;
                 KUrl dest;
                 dest.setPath( tmp );
-                kDebug() << "Copying " << url.prettyUrl() << " to " << dest << endl;
+                kDebug() << "Copying " << url.prettyUrl() << " to " << dest;
                 KIO::Job *job = KIO::file_copy( url, dest );
                 jobList.append( job );
 
@@ -140,7 +140,7 @@ void KIOExec::slotResult( KJob * job )
         if ( it != fileList.end() )
            fileList.erase( it );
         else
-           kDebug() <<  path << " not found in list" << endl;
+           kDebug() <<  path << " not found in list";
     }
 
     counter++;
@@ -148,7 +148,7 @@ void KIOExec::slotResult( KJob * job )
     if ( counter < expectedCounter )
         return;
 
-    kDebug() << "All files downloaded, will call slotRunApp shortly" << endl;
+    kDebug() << "All files downloaded, will call slotRunApp shortly";
     // We know we can run the app now - but let's finish the job properly first.
     QTimer::singleShot( 0, this, SLOT( slotRunApp() ) );
 
@@ -158,7 +158,7 @@ void KIOExec::slotResult( KJob * job )
 void KIOExec::slotRunApp()
 {
     if ( fileList.isEmpty() ) {
-        kDebug() << k_funcinfo << "No files downloaded -> exiting" << endl;
+        kDebug() << k_funcinfo << "No files downloaded -> exiting";
         QApplication::exit(1);
         return;
     }
@@ -179,7 +179,7 @@ void KIOExec::slotRunApp()
 
     QStringList params = KRun::processDesktopExec(service, list);
 
-    kDebug() << "EXEC " << KShell::joinArgs( params ) << endl;
+    kDebug() << "EXEC " << KShell::joinArgs( params );
 
 #ifdef Q_WS_X11
     // propagate the startup indentification to the started process
@@ -195,7 +195,7 @@ void KIOExec::slotRunApp()
     KStartupInfo::resetStartupEnv();
 #endif
 
-    kDebug() << "EXEC done" << endl;
+    kDebug() << "EXEC done";
 
     // Test whether one of the files changed
     it = fileList.begin();
@@ -220,7 +220,7 @@ void KIOExec::slotRunApp()
                                                  i18n( "The file\n%1\nhas been modified.\nDo you want to upload the changes?" , dest.prettyUrl()),
                                                  i18n( "File Changed" ), KGuiItem(i18n("Upload")), KGuiItem(i18n("Do Not Upload")) ) == KMessageBox::Yes )
                 {
-                    kDebug() << "src='" << src << "'  dest='" << dest << "'" << endl;
+                    kDebug() << "src='" << src << "'  dest='" << dest << "'";
                     // Do it the synchronous way.
                     if ( !KIO::NetAccess::upload( src, dest, 0 ) )
                     {
@@ -234,9 +234,9 @@ void KIOExec::slotRunApp()
         if ( !dest.isLocalFile() || tempfiles ) {
             // Wait for a reasonable time so that even if the application forks on startup (like OOo or amarok)
             // it will have time to start up and read the file before it gets deleted. #130709.
-            kDebug() << "sleeping..." << endl;
+            kDebug() << "sleeping...";
             sleep(180); // 3 mn
-            kDebug() << "about to delete " << src << endl;
+            kDebug() << "about to delete " << src;
             unlink( QFile::encodeName(src) );
         }
     }
@@ -268,7 +268,7 @@ int main( int argc, char **argv )
 
     KIOExec exec;
 
-    kDebug() << "Constructor returned..." << endl;
+    kDebug() << "Constructor returned...";
     return app.exec();
 }
 
