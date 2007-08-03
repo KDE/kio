@@ -112,7 +112,7 @@ static bool storeInWallet( KWallet::Wallet* wallet, const QString& key, const KI
     int entryNumber = 1;
     Map map;
     QString walletKey = makeWalletKey( key, info.realmValue );
-    kDebug(130) << "storeInWallet: walletKey=" << walletKey << "  reading existing map" << endl;
+    kDebug(130) << "storeInWallet: walletKey=" << walletKey << "  reading existing map";
     if ( wallet->readMap( walletKey, map ) == 0 ) {
         Map::ConstIterator end = map.end();
         Map::ConstIterator it = map.find( "login" );
@@ -126,7 +126,7 @@ static bool storeInWallet( KWallet::Wallet* wallet, const QString& key, const KI
     }
     const QString loginKey = makeMapKey( "login", entryNumber );
     const QString passwordKey = makeMapKey( "password", entryNumber );
-    kDebug(130) << "storeInWallet: writing to " << loginKey << "," << passwordKey << endl;
+    kDebug(130) << "storeInWallet: writing to " << loginKey << "," << passwordKey;
     // note the overwrite=true by default
     map.insert( loginKey, info.username );
     map.insert( passwordKey, info.password );
@@ -137,7 +137,7 @@ static bool storeInWallet( KWallet::Wallet* wallet, const QString& key, const KI
 
 static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const QString& realm, QString& username, QString& password, bool userReadOnly, QMap<QString,QString>& knownLogins )
 {
-    //kDebug(130) << "readFromWallet: key=" << key << " username=" << username << " password=" /*<< password*/ << " userReadOnly=" << userReadOnly << " realm=" << realm << endl;
+    //kDebug(130) << "readFromWallet: key=" << key << " username=" << username << " password=" /*<< password*/ << " userReadOnly=" << userReadOnly << " realm=" << realm;
     if ( wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) )
     {
         wallet->setFolder( KWallet::Wallet::PasswordFolder() );
@@ -150,7 +150,7 @@ static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const Q
             Map::ConstIterator end = map.end();
             Map::ConstIterator it = map.find( "login" );
             while ( it != end ) {
-                //kDebug(130) << "readFromWallet: found " << it.key() << "=" << it.value() << endl;
+                //kDebug(130) << "readFromWallet: found " << it.key() << "=" << it.value();
                 Map::ConstIterator pwdIter = map.find( makeMapKey( "password", entryNumber ) );
                 if ( pwdIter != end ) {
                     if ( it.value() == username )
@@ -160,13 +160,13 @@ static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const Q
 
                 it = map.find( QString( "login-" ) + QString::number( ++entryNumber ) );
             }
-            //kDebug(130) << knownLogins.count() << " known logins" << endl;
+            //kDebug(130) << knownLogins.count() << " known logins";
 
             if ( !userReadOnly && !knownLogins.isEmpty() && username.isEmpty() ) {
                 // Pick one, any one...
                 username = knownLogins.begin().key();
                 password = knownLogins.begin().value();
-                //kDebug(130) << "readFromWallet: picked the first one : " << username << endl;
+                //kDebug(130) << "readFromWallet: picked the first one : " << username;
             }
 
             return true;
@@ -263,7 +263,7 @@ KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &errorMsg, ql
     kDebug(130) << "KPasswdServer::queryAuthInfo: User= " << info.username
               << ", Message= " << info.prompt << ", WindowId = " << windowId << endl;
     if ( !info.password.isEmpty() ) // should we really allow the caller to pre-fill the password?
-        kDebug(130) <<  "password was set by caller" << endl;
+        kDebug(130) <<  "password was set by caller";
     if( usertime != 0 )
         kapp->updateUserTimestamp( usertime );
 
@@ -339,7 +339,7 @@ KPasswdServer::processRequest()
 
     if (result && (request->seqNr < result->seqNr))
     {
-        kDebug(130) << "KPasswdServer::processRequest: auto retry!" << endl;
+        kDebug(130) << "KPasswdServer::processRequest: auto retry!";
         if (result->isCanceled)
         {
            info.setModified(false);
@@ -511,7 +511,7 @@ QString KPasswdServer::createCacheKey( const KIO::AuthInfo &info )
 {
     if( !info.url.isValid() ) {
         // Note that a null key will break findAuthInfoItem later on...
-        kWarning(130) << "createCacheKey: invalid URL " << info.url << endl;
+        kWarning(130) << "createCacheKey: invalid URL " << info.url ;
         return QString();
     }
 
@@ -636,11 +636,11 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, ql
    {
       current = new AuthInfo;
       current->expire = AuthInfo::expTime;
-      kDebug(130) << "Creating AuthInfo" << endl;
+      kDebug(130) << "Creating AuthInfo";
    }
    else
    {
-      kDebug(130) << "Updating AuthInfo" << endl;
+      kDebug(130) << "Updating AuthInfo";
    }
 
    current->url = info.url;
