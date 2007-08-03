@@ -112,10 +112,10 @@ int TrashImpl::testDir( const QString &_name ) const
     if ( !ok )
     {
         //KMessageBox::sorry( 0, i18n( "Could not create directory %1. Check for permissions." ).arg( name ) );
-        kWarning() << "could not create " << name << endl;
+        kWarning() << "could not create " << name ;
         return KIO::ERR_COULD_NOT_MKDIR;
     } else {
-        kDebug() << name << " created." << endl;
+        kDebug() << name << " created.";
     }
   }
   else // exists already
@@ -138,7 +138,7 @@ bool TrashImpl::init()
     // $XDG_DATA_HOME/Trash, i.e. ~/.local/share/Trash by default.
     const QString xdgDataDir = KGlobal::dirs()->localxdgdatadir();
     if ( !KStandardDirs::makeDir( xdgDataDir, 0700 ) ) {
-        kWarning() << "failed to create " << xdgDataDir << endl;
+        kWarning() << "failed to create " << xdgDataDir ;
         return false;
     }
 
@@ -158,13 +158,13 @@ bool TrashImpl::init()
     }
     m_trashDirectories.insert( 0, trashDir );
     m_initStatus = InitOK;
-    kDebug() << k_funcinfo << "initialization OK, home trash dir: " << trashDir << endl;
+    kDebug() << k_funcinfo << "initialization OK, home trash dir: " << trashDir;
     return true;
 }
 
 void TrashImpl::migrateOldTrash()
 {
-    kDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo;
 
     KConfigGroup g( KGlobal::config(), "Paths" );
     const QString oldTrashDir = g.readPathEntry( "Trash" );
@@ -184,29 +184,29 @@ void TrashImpl::migrateOldTrash()
         int trashId;
         QString fileId;
         if ( !createInfo( srcPath, trashId, fileId ) ) {
-            kWarning() << "Trash migration: failed to create info for " << srcPath << endl;
+            kWarning() << "Trash migration: failed to create info for " << srcPath ;
             allOK = false;
         } else {
             bool ok = moveToTrash( srcPath, trashId, fileId );
             if ( !ok ) {
                 (void)deleteInfo( trashId, fileId );
-                kWarning() << "Trash migration: failed to create info for " << srcPath << endl;
+                kWarning() << "Trash migration: failed to create info for " << srcPath ;
                 allOK = false;
             } else {
-                kDebug() << "Trash migration: moved " << srcPath << endl;
+                kDebug() << "Trash migration: moved " << srcPath;
             }
         }
     }
     if ( allOK ) {
         // We need to remove the old one, otherwise the desktop will have two trashcans...
-        kDebug() << "Trash migration: all OK, removing old trash directory" << endl;
+        kDebug() << "Trash migration: all OK, removing old trash directory";
         synchronousDel( oldTrashDir, false, true );
     }
 }
 
 bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& fileId )
 {
-    kDebug() << k_funcinfo << origPath << endl;
+    kDebug() << k_funcinfo << origPath;
     // Check source
     const QByteArray origPath_c( QFile::encodeName( origPath ) );
     KDE_struct_stat buff_src;
@@ -221,10 +221,10 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     // Choose destination trash
     trashId = findTrashDirectory( origPath );
     if ( trashId < 0 ) {
-        kWarning() << "OUCH - internal error, TrashImpl::findTrashDirectory returned " << trashId << endl;
+        kWarning() << "OUCH - internal error, TrashImpl::findTrashDirectory returned " << trashId ;
         return false; // ### error() needed?
     }
-    kDebug() << k_funcinfo << "trashing to " << trashId << endl;
+    kDebug() << k_funcinfo << "trashing to " << trashId;
 
     // Grab original filename
     KUrl url;
@@ -238,7 +238,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     // Here we need to use O_EXCL to avoid race conditions with other kioslave processes
     int fd = 0;
     do {
-        kDebug() << k_funcinfo << "trying to create " << url.path()  << endl;
+        kDebug() << k_funcinfo << "trying to create " << url.path() ;
         fd = ::open( QFile::encodeName( url.path() ), O_WRONLY | O_CREAT | O_EXCL, 0600 );
         if ( fd < 0 ) {
             if ( errno == EEXIST ) {
@@ -287,7 +287,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
 
     ::fclose( file );
 
-    kDebug() << k_funcinfo << "info file created in trashId=" << trashId << " : " << fileId << endl;
+    kDebug() << k_funcinfo << "info file created in trashId=" << trashId << " : " << fileId;
     return true;
 }
 
@@ -300,7 +300,7 @@ QString TrashImpl::makeRelativePath( const QString& topdir, const QString& path 
         Q_ASSERT( rel[0] != '/' );
         return rel;
     } else { // shouldn't happen...
-        kWarning() << "Couldn't make relative path for " << realPath << " (" << path << "), with topdir=" << topdir << endl;
+        kWarning() << "Couldn't make relative path for " << realPath << " (" << path << "), with topdir=" << topdir ;
         return realPath;
     }
 }
@@ -340,7 +340,7 @@ bool TrashImpl::deleteInfo( int trashId, const QString& fileId )
 
 bool TrashImpl::moveToTrash( const QString& origPath, int trashId, const QString& fileId )
 {
-    kDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo;
     const QString dest = filesPath( trashId, fileId );
     if ( !move( origPath, dest ) ) {
         // Maybe the move failed due to no permissions to delete source.
@@ -381,7 +381,7 @@ bool TrashImpl::move( const QString& src, const QString& dest )
     KUrl urlSrc, urlDest;
     urlSrc.setPath( src );
     urlDest.setPath( dest );
-    kDebug() << k_funcinfo << urlSrc << " -> " << urlDest << endl;
+    kDebug() << k_funcinfo << urlSrc << " -> " << urlDest;
     KIO::CopyJob* job = KIO::moveAs( urlSrc, urlDest, false );
     job->setUiDelegate(0);
     connect( job, SIGNAL( result(KJob*) ),
@@ -393,14 +393,14 @@ bool TrashImpl::move( const QString& src, const QString& dest )
 
 void TrashImpl::jobFinished(KJob* job)
 {
-    kDebug() << k_funcinfo << " error=" << job->error() << endl;
+    kDebug() << k_funcinfo << " error=" << job->error();
     error( job->error(), job->errorText() );
     emit leaveModality();
 }
 
 bool TrashImpl::copyToTrash( const QString& origPath, int trashId, const QString& fileId )
 {
-    kDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo;
     const QString dest = filesPath( trashId, fileId );
     if ( !copy( origPath, dest ) )
         return false;
@@ -426,7 +426,7 @@ bool TrashImpl::copy( const QString& src, const QString& dest )
     urlSrc.setPath( src );
     KUrl urlDest;
     urlDest.setPath( dest );
-    kDebug() << k_funcinfo << "copying " << src << " to " << dest << endl;
+    kDebug() << k_funcinfo << "copying " << src << " to " << dest;
     KIO::CopyJob* job = KIO::copyAs( urlSrc, urlDest, false );
     job->setUiDelegate(0);
     connect( job, SIGNAL( result(KJob*) ),
@@ -438,7 +438,7 @@ bool TrashImpl::copy( const QString& src, const QString& dest )
 
 bool TrashImpl::directRename( const QString& src, const QString& dest )
 {
-    kDebug() << k_funcinfo << src << " -> " << dest << endl;
+    kDebug() << k_funcinfo << src << " -> " << dest;
     if ( ::rename( QFile::encodeName( src ), QFile::encodeName( dest ) ) != 0 ) {
         if (errno == EXDEV) {
             error( KIO::ERR_UNSUPPORTED_ACTION, QString::fromLatin1("rename") );
@@ -512,7 +512,7 @@ bool TrashImpl::synchronousDel( const QString& path, bool setLastErrorCode, bool
     // First ensure that all dirs have u+w permissions,
     // otherwise we won't be able to delete files in them (#130780).
     if ( isDir ) {
-        kDebug() << k_funcinfo << "chmod'ing " << url << endl;
+        kDebug() << k_funcinfo << "chmod'ing " << url;
         KFileItem fileItem( url, "inode/directory", KFileItem::Unknown );
         KFileItemList fileItemList;
         fileItemList.append( &fileItem );
@@ -536,7 +536,7 @@ bool TrashImpl::synchronousDel( const QString& path, bool setLastErrorCode, bool
 
 bool TrashImpl::emptyTrash()
 {
-    kDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo;
     // The naive implementation "delete info and files in every trash directory"
     // breaks when deleted directories contain files owned by other users.
     // We need to ensure that the .trashinfo file is only removed when the
@@ -584,7 +584,7 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
             if ( fileName == "." || fileName == ".." )
                 continue;
             if ( !fileName.endsWith( ".trashinfo" ) ) {
-                kWarning() << "Invalid info file found in " << infoPath << " : " << fileName << endl;
+                kWarning() << "Invalid info file found in " << infoPath << " : " << fileName ;
                 continue;
             }
             fileName.truncate( fileName.length() - 10 );
@@ -606,7 +606,7 @@ QStringList TrashImpl::listDir( const QString& physicalPath )
 
 bool TrashImpl::infoForFile( int trashId, const QString& fileId, TrashedFileInfo& info )
 {
-    kDebug() << k_funcinfo << trashId << " " << fileId << endl;
+    kDebug() << k_funcinfo << trashId << " " << fileId;
     info.trashId = trashId; // easy :)
     info.fileId = fileId; // equally easy
     info.physicalPath = filesPath( trashId, fileId );
@@ -650,7 +650,7 @@ QString TrashImpl::physicalPath( int trashId, const QString& fileId, const QStri
 void TrashImpl::error( int e, const QString& s )
 {
     if ( e )
-        kDebug() << k_funcinfo << e << " " << s << endl;
+        kDebug() << k_funcinfo << e << " " << s;
     m_lastErrorCode = e;
     m_lastErrorMessage = s;
 }
@@ -674,7 +674,7 @@ bool TrashImpl::isEmpty() const
             ep = readdir( dp ); // look for third file
             closedir( dp );
             if ( ep != 0 ) {
-                //kDebug() << ep->d_name << " in " << infoPath << " -> not empty" << endl;
+                //kDebug() << ep->d_name << " in " << infoPath << " -> not empty";
                 return false; // not empty
             }
         }
@@ -709,13 +709,13 @@ void TrashImpl::fileRemoved()
 static int idForDevice(const Solid::Device& device)
 {
     const Solid::Block* block = device.as<Solid::Block>();
-    kDebug() << "major=" << block->deviceMajor() << " minor=" << block->deviceMinor() << endl;
+    kDebug() << "major=" << block->deviceMajor() << " minor=" << block->deviceMinor();
     return block->deviceMajor()*1000 + block->deviceMinor();
 }
 
 int TrashImpl::findTrashDirectory( const QString& origPath )
 {
-    kDebug() << k_funcinfo << origPath << endl;
+    kDebug() << k_funcinfo << origPath;
     // First check if same device as $HOME, then we use the home trash right away.
     KDE_struct_stat buff;
     if ( KDE_lstat( QFile::encodeName( origPath ), &buff ) == 0
@@ -727,19 +727,19 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
         return 0;
     QString mountPoint = mp->mountPoint();
     const QString trashDir = trashForMountPoint( mountPoint, true );
-    kDebug() << "mountPoint=" << mountPoint << " trashDir=" << trashDir << endl;
+    kDebug() << "mountPoint=" << mountPoint << " trashDir=" << trashDir;
     if ( trashDir.isEmpty() )
         return 0; // no trash available on partition
     int id = idForTrashDirectory( trashDir );
     if ( id > -1 ) {
-        kDebug() << " known with id " << id << endl;
+        kDebug() << " known with id " << id;
         return id;
     }
     // new trash dir found, register it
     // but we need stability in the trash IDs, so that restoring or asking
     // for properties works even kio_trash gets killed because idle.
 #if 0
-    kDebug() << k_funcinfo << "found " << trashDir << endl;
+    kDebug() << k_funcinfo << "found " << trashDir;
     m_trashDirectories.insert( ++m_lastId, trashDir );
     if ( !mountPoint.endsWith( "/" ) )
         mountPoint += '/';
@@ -756,7 +756,7 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
     // new trash dir found, register it
     id = idForDevice( device );
     m_trashDirectories.insert( id, trashDir );
-    kDebug() << k_funcinfo << "found " << trashDir << " gave it id " << id << endl;
+    kDebug() << k_funcinfo << "found " << trashDir << " gave it id " << id;
     if ( !mountPoint.endsWith( "/" ) )
         mountPoint += '/';
     m_topDirectories.insert( id, mountPoint );
@@ -777,7 +777,7 @@ void TrashImpl::scanTrashDirectories() const
                 // new trash dir found, register it
                 trashId = idForDevice( *it );
                 m_trashDirectories.insert( trashId, trashDir );
-                kDebug() << k_funcinfo << "found " << trashDir << " gave it id " << trashId << endl;
+                kDebug() << k_funcinfo << "found " << trashDir << " gave it id " << trashId;
                 if ( !topdir.endsWith( "/" ) )
                     topdir += '/';
                 m_topDirectories.insert( trashId, topdir );
@@ -826,13 +826,13 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
                      && (buff.st_mode & 0777) == 0700 ) { // rwx for user
                     return trashDir;
                 }
-                kDebug() << "Directory " << trashDir << " exists but didn't pass the security checks, can't use it" << endl;
+                kDebug() << "Directory " << trashDir << " exists but didn't pass the security checks, can't use it";
             }
             else if ( createIfNeeded && initTrashDirectory( trashDir_c ) ) {
                 return trashDir;
             }
         } else {
-            kDebug() << "Root trash dir " << rootTrashDir << " exists but didn't pass the security checks, can't use it" << endl;
+            kDebug() << "Root trash dir " << rootTrashDir << " exists but didn't pass the security checks, can't use it";
         }
     }
 
@@ -849,7 +849,7 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
             if ( checkTrashSubdirs( trashDir_c ) )
                 return trashDir;
         }
-        kDebug() << "Directory " << trashDir << " exists but didn't pass the security checks, can't use it" << endl;
+        kDebug() << "Directory " << trashDir << " exists but didn't pass the security checks, can't use it";
         // Exists, but not useable
         return QString();
     }
@@ -873,10 +873,10 @@ int TrashImpl::idForTrashDirectory( const QString& trashDir ) const
 
 bool TrashImpl::initTrashDirectory( const QByteArray& trashDir_c ) const
 {
-    kDebug() << k_funcinfo << trashDir_c << endl;
+    kDebug() << k_funcinfo << trashDir_c;
     if ( KDE_mkdir( trashDir_c, 0700 ) != 0 )
         return false;
-    kDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo;
     // This trash dir will be useable only if the directory is owned by user.
     // In theory this is the case, but not on e.g. USB keys...
     uid_t uid = getuid();
@@ -889,7 +889,7 @@ bool TrashImpl::initTrashDirectory( const QByteArray& trashDir_c ) const
         return checkTrashSubdirs( trashDir_c );
 
     } else {
-        kDebug() << trashDir_c << " just created, by it doesn't have the right permissions, must be a FAT partition. Removing it again." << endl;
+        kDebug() << trashDir_c << " just created, by it doesn't have the right permissions, must be a FAT partition. Removing it again.";
         // Not good, e.g. USB key. Delete again.
         // I'm paranoid, it would be better to find a solution that allows
         // to trash directly onto the USB key, but I don't see how that would
