@@ -85,7 +85,7 @@ int TrashImpl::testDir( const QString &_name ) const
   if ( dp == NULL )
   {
     QString name = _name;
-    if ( name.endsWith( "/" ) )
+    if ( name.endsWith( '/' ) )
       name.truncate( name.length() - 1 );
     QByteArray path = QFile::encodeName(name);
 
@@ -741,7 +741,7 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
 #if 0
     kDebug() << k_funcinfo << "found " << trashDir;
     m_trashDirectories.insert( ++m_lastId, trashDir );
-    if ( !mountPoint.endsWith( "/" ) )
+    if ( !mountPoint.endsWith( '/' ) )
         mountPoint += '/';
     m_topDirectories.insert( m_lastId, mountPoint );
     return m_lastId;
@@ -757,7 +757,7 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
     id = idForDevice( device );
     m_trashDirectories.insert( id, trashDir );
     kDebug() << k_funcinfo << "found " << trashDir << " gave it id " << id;
-    if ( !mountPoint.endsWith( "/" ) )
+    if ( !mountPoint.endsWith( '/' ) )
         mountPoint += '/';
     m_topDirectories.insert( id, mountPoint );
 
@@ -778,7 +778,7 @@ void TrashImpl::scanTrashDirectories() const
                 trashId = idForDevice( *it );
                 m_trashDirectories.insert( trashId, trashDir );
                 kDebug() << k_funcinfo << "found " << trashDir << " gave it id " << trashId;
-                if ( !topdir.endsWith( "/" ) )
+                if ( !topdir.endsWith( '/' ) )
                     topdir += '/';
                 m_topDirectories.insert( trashId, topdir );
             }
