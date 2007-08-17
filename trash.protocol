@@ -72,6 +72,7 @@ ExtraNames[sr@latin]=prvobitna putanja,datum brisanja
 ExtraNames[sv]=Ursprunglig sökväg,Borttagsdatum
 ExtraNames[ta]=மூல பாதை,நீக்கப்பட்ட தேதி
 ExtraNames[te]=అసలు దారు, తీసివేసిన తేది
+ExtraNames[th]=พาธเดิม,วันที่ที่ลบ
 ExtraNames[tr]=Orjinal Yol, Silinme Tarihi
 ExtraNames[uk]=Шлях,Дата вилучення
 ExtraNames[x-test]=xxOriginal Path,Deletion Datexx
