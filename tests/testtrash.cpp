@@ -145,7 +145,7 @@ static void removeDirRecursive( const QString& dir )
         KFileItem fileItem( u, "inode/directory", KFileItem::Unknown );
         KFileItemList fileItemList;
         fileItemList.append( &fileItem );
-        KIO::ChmodJob* chmodJob = KIO::chmod( fileItemList, 0200, 0200, QString(), QString::null, true /*recursive*/, false /*showProgressInfo*/ );	//krazy:exclude=nullstrassign for old broken gcc
+        KIO::ChmodJob* chmodJob = KIO::chmod( fileItemList, 0200, 0200, QString(), QString(), true /*recursive*/, false /*showProgressInfo*/ );
         KIO::NetAccess::synchronousRun( chmodJob, 0 );
 
         bool ok = KIO::NetAccess::del( u, 0 );
