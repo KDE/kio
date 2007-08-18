@@ -809,7 +809,7 @@ void TestTrash::copyFromTrash( const QString& fileId, const QString& destPath, c
     KUrl dest;
     dest.setPath( destPath );
 
-    assert( KIO::NetAccess::exists( src, true, (QWidget*)0 ) );
+    assert( KIO::NetAccess::exists( src, KIO::NetAccess::SourceSide, (QWidget*)0 ) );
 
     // A dnd would use copy(), but we use copyAs to ensure the final filename
     //kDebug() << k_funcinfo << "copyAs:" << src << " -> " << dest;
@@ -867,7 +867,7 @@ void TestTrash::moveFromTrash( const QString& fileId, const QString& destPath, c
     KUrl dest;
     dest.setPath( destPath );
 
-    assert( KIO::NetAccess::exists( src, true, (QWidget*)0 ) );
+    assert( KIO::NetAccess::exists( src, KIO::NetAccess::SourceSide, (QWidget*)0 ) );
 
     // A dnd would use move(), but we use moveAs to ensure the final filename
     KIO::Job* job = KIO::moveAs( src, dest );
