@@ -75,6 +75,7 @@ ExtraNames[te]=అసలు దారు, తీసివేసిన తేద�
 ExtraNames[th]=พาธเดิม,วันที่ที่ลบ
 ExtraNames[tr]=Orjinal Yol, Silinme Tarihi
 ExtraNames[uk]=Шлях,Дата вилучення
+ExtraNames[vi]=Đường dẫn gốc,Ngày xoá
 ExtraNames[x-test]=xxOriginal Path,Deletion Datexx
 ExtraNames[zh_TW]=原始路徑,刪除日期
 ExtraTypes=QString,QDateTime
