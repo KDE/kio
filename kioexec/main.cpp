@@ -158,7 +158,7 @@ void KIOExec::slotResult( KJob * job )
 void KIOExec::slotRunApp()
 {
     if ( fileList.isEmpty() ) {
-        kDebug() << k_funcinfo << "No files downloaded -> exiting";
+        kDebug() << "No files downloaded -> exiting";
         QApplication::exit(1);
         return;
     }
