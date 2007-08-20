@@ -267,7 +267,7 @@ void TrashProtocol::stat(const KUrl& url)
 
         if ( !ok ) {
             // ######## do we still need this?
-            kDebug() << k_funcinfo << url << " looks fishy, returning does-not-exist";
+            kDebug() << url << " looks fishy, returning does-not-exist";
             // A URL like trash:/file simply means that CopyJob is trying to see if
             // the destination exists already (it made up the URL by itself).
             error( KIO::ERR_DOES_NOT_EXIST, url.prettyUrl() );
@@ -361,7 +361,7 @@ void TrashProtocol::listDir(const KUrl& url)
     }
 
     // List subdir. Can't use kio_file here since we provide our own info...
-    kDebug() << k_funcinfo << "listing " << info.physicalPath;
+    kDebug() << "listing " << info.physicalPath;
     const QStringList entryNames = impl.listDir( info.physicalPath );
     totalSize( entryNames.count() );
     KIO::UDSEntry entry;

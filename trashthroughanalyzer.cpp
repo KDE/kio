@@ -77,7 +77,7 @@ InputStream* TrashThroughAnalyzer::connectInputStream(InputStream* in) {
         url.setPath(path);
     }
     
-    //kDebug() << k_funcinfo << info.url();
+    //kDebug() << info.url();
     if ( url.protocol() != "trash" )
         return in;
 
