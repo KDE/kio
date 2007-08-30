@@ -1,0 +1,56 @@
+<sect2 id="socks">
+<sect2info>
+<authorgroup>
+<author>&Lauri.Watts;</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+</sect2info>
+
+<title>SOCKS</title>
+
+<para>SOCKS is a protocol to execute proxy requests for a client.  SOCKS
+is capable of authentication and encryption of traffic, and is often
+found in corporate settings, as opposed to home users.  For more
+information about SOCKS, see the <ulink
+url="http://www.socks.nec.com">NEC</ulink> website</para>
+
+<para>With this module you can enable most of the network aware &kde;
+applications to transparently use SOCKS.</para>
+
+<para>Setting up of a SOCKS client is outside the scope of this
+document, and the differences between the commonly used ones are very
+large.  If you already have a working SOCKS implementation, allowing you
+to use commandline clients (for example, if <command>lynx</command> or
+<command>ftp</command> are already working) then you can simply check
+the <guilabel>Enable SOCKS support</guilabel> checkbox.</para>
+
+<para>When this box is checked, several further options become available
+to you.</para>
+
+<para>First, you should select which of the various SOCKS clients you
+have installed on your computer.  &kde; will attempt to find this out by
+itself, if you choose <guilabel>Auto detect</guilabel>.  If you know the
+client you have, you could choose either <guilabel>NEC
+Socks</guilabel> or <guilabel>Dante</guilabel>.  If you have a
+custom built SOCKS library to use, you can select <guilabel>Use custom
+library</guilabel> and then enter the path to it in the
+<guilabel>Path</guilabel> field.</para>
+
+<para>If you want &kde; to auto detect the SOCKS library in use, but you
+suspect it isn't looking in the right places or you have installed it in
+a non-standard location, then you can add further paths to be searched in
+the bottom of this panel.  Use the <guibutton>Add</guibutton> and
+<guibutton>Remove</guibutton> to add or remove paths.</para>
+
+<para>At any time while filling in this module, you can press the
+<guibutton>Test</guibutton> button, and &kde; will report immediately
+with a message box to tell you if it could find and initialize SOCKS or
+not.</para>
+
+<para>Changes made here will not affect any applications that are
+already open.  You will need to close and restart them before they are
+able to connect via SOCKS.</para>
+
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+
+</sect2>
