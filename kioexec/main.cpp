@@ -112,7 +112,10 @@ KIOExec::KIOExec()
     args->clear();
 
     if ( tempfiles )
-        slotRunApp(); // does not return
+    {
+        slotRunApp();
+        return;
+    }
 
     counter = 0;
     if ( counter == expectedCounter )
