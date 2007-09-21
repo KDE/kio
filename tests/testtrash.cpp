@@ -1092,7 +1092,7 @@ void TestTrash::listRecursiveRootDir()
     assert( m_entryCount > 1 );
 
     kDebug() << m_listResult;
-    assert( m_listResult.contains( "." ) == 1 ); // found it, and only once
+    assert( m_listResult.count( "." ) == 1 ); // found it, and only once
 }
 
 void TestTrash::listSubDir()
@@ -1109,8 +1109,8 @@ void TestTrash::listSubDir()
     assert( m_entryCount == 2 );
 
     kDebug() << m_listResult;
-    assert( m_listResult.contains( "." ) == 1 ); // found it, and only once
-    assert( m_listResult.contains( "testfile" ) == 1 ); // found it, and only once
+    assert( m_listResult.count( "." ) == 1 ); // found it, and only once
+    assert( m_listResult.count( "testfile" ) == 1 ); // found it, and only once
 }
 
 void TestTrash::slotEntries( KIO::Job*, const KIO::UDSEntryList& lst )
