@@ -515,7 +515,7 @@ bool TrashImpl::synchronousDel( const QString& path, bool setLastErrorCode, bool
         kDebug() << "chmod'ing " << url;
         KFileItem fileItem( url, "inode/directory", KFileItem::Unknown );
         KFileItemList fileItemList;
-        fileItemList.append( &fileItem );
+        fileItemList.append( fileItem );
         KIO::ChmodJob* chmodJob = KIO::chmod( fileItemList, 0200, 0200, QString(), QString(), true /*recursive*/, false /*showProgressInfo*/ );
         connect( chmodJob, SIGNAL( result(KJob *) ),
                  this, SLOT( jobFinished(KJob *) ) );
