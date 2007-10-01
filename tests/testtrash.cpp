@@ -144,7 +144,7 @@ static void removeDirRecursive( const QString& dir )
         KUrl u = KUrl::fromPath( dir );
         KFileItem fileItem( u, "inode/directory", KFileItem::Unknown );
         KFileItemList fileItemList;
-        fileItemList.append( &fileItem );
+        fileItemList.append( fileItem );
         KIO::ChmodJob* chmodJob = KIO::chmod( fileItemList, 0200, 0200, QString(), QString(), true /*recursive*/, false /*showProgressInfo*/ );
         KIO::NetAccess::synchronousRun( chmodJob, 0 );
 
