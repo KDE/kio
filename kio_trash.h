@@ -36,9 +36,9 @@ public:
     virtual void stat(const KUrl& url);
     virtual void listDir(const KUrl& url);
     virtual void get( const KUrl& url );
-    virtual void put( const KUrl& url, int , bool overwrite, bool );
-    virtual void rename( const KUrl &, const KUrl &, bool );
-    virtual void copy( const KUrl &src, const KUrl &dest, int permissions, bool overwrite );
+    virtual void put( const KUrl& url, int , KIO::JobFlags flags );
+    virtual void rename( const KUrl &, const KUrl &, KIO::JobFlags );
+    virtual void copy( const KUrl &src, const KUrl &dest, int permissions, KIO::JobFlags flags );
     // TODO (maybe) chmod( const KUrl& url, int permissions );
     virtual void del( const KUrl &url, bool isfile );
     /**

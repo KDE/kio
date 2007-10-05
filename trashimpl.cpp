@@ -382,7 +382,7 @@ bool TrashImpl::move( const QString& src, const QString& dest )
     urlSrc.setPath( src );
     urlDest.setPath( dest );
     kDebug() << urlSrc << " -> " << urlDest;
-    KIO::CopyJob* job = KIO::moveAs( urlSrc, urlDest, false );
+    KIO::CopyJob* job = KIO::moveAs( urlSrc, urlDest, KIO::HideProgressInfo );
     job->setUiDelegate(0);
     connect( job, SIGNAL( result(KJob*) ),
              this, SLOT( jobFinished(KJob*) ) );
@@ -427,7 +427,7 @@ bool TrashImpl::copy( const QString& src, const QString& dest )
     KUrl urlDest;
     urlDest.setPath( dest );
     kDebug() << "copying " << src << " to " << dest;
-    KIO::CopyJob* job = KIO::copyAs( urlSrc, urlDest, false );
+    KIO::CopyJob* job = KIO::copyAs( urlSrc, urlDest, KIO::HideProgressInfo );
     job->setUiDelegate(0);
     connect( job, SIGNAL( result(KJob*) ),
              this, SLOT( jobFinished(KJob*) ) );
@@ -516,13 +516,13 @@ bool TrashImpl::synchronousDel( const QString& path, bool setLastErrorCode, bool
         KFileItem fileItem( url, "inode/directory", KFileItem::Unknown );
         KFileItemList fileItemList;
         fileItemList.append( fileItem );
-        KIO::ChmodJob* chmodJob = KIO::chmod( fileItemList, 0200, 0200, QString(), QString(), true /*recursive*/, false /*showProgressInfo*/ );
+        KIO::ChmodJob* chmodJob = KIO::chmod( fileItemList, 0200, 0200, QString(), QString(), true /*recursive*/, KIO::HideProgressInfo );
         connect( chmodJob, SIGNAL( result(KJob *) ),
                  this, SLOT( jobFinished(KJob *) ) );
         enterLoop();
     }
 
-    KIO::DeleteJob *job = KIO::del( url, false, false );
+    KIO::DeleteJob *job = KIO::del( url, KIO::HideProgressInfo );
     connect( job, SIGNAL( result(KJob*) ),
              this, SLOT( jobFinished(KJob*) ) );
     enterLoop();

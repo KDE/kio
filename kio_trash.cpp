@@ -126,21 +126,21 @@ void TrashProtocol::restore( const KUrl& trashURL )
     copyOrMove( trashURL, dest, false /*overwrite*/, Move );
 }
 
-void TrashProtocol::rename( const KUrl &oldURL, const KUrl &newURL, bool overwrite )
+void TrashProtocol::rename( const KUrl &oldURL, const KUrl &newURL, KIO::JobFlags flags )
 {
     INIT_IMPL;
 
-    kDebug()<<"TrashProtocol::rename(): old="<<oldURL<<" new="<<newURL<<" overwrite=" << overwrite;
+    kDebug()<<"TrashProtocol::rename(): old="<<oldURL<<" new="<<newURL<<" overwrite=" << (flags & KIO::Overwrite);
 
     if ( oldURL.protocol() == "trash" && newURL.protocol() == "trash" ) {
         error( KIO::ERR_CANNOT_RENAME, oldURL.prettyUrl() );
         return;
     }
 
-    copyOrMove( oldURL, newURL, overwrite, Move );
+    copyOrMove( oldURL, newURL, (flags & KIO::Overwrite), Move );
 }
 
-void TrashProtocol::copy( const KUrl &src, const KUrl &dest, int /*permissions*/, bool overwrite )
+void TrashProtocol::copy( const KUrl &src, const KUrl &dest, int /*permissions*/, KIO::JobFlags flags )
 {
     INIT_IMPL;
 
@@ -151,7 +151,7 @@ void TrashProtocol::copy( const KUrl &src, const KUrl &dest, int /*permissions*/
         return;
     }
 
-    copyOrMove( src, dest, overwrite, Copy );
+    copyOrMove( src, dest, (flags & KIO::Overwrite), Copy );
 }
 
 void TrashProtocol::copyOrMove( const KUrl &src, const KUrl &dest, bool overwrite, CopyOrMove action )
@@ -491,7 +491,7 @@ void TrashProtocol::special( const QByteArray & data )
     }
 }
 
-void TrashProtocol::put( const KUrl& url, int /*permissions*/, bool /*overwrite*/, bool /*resume*/ )
+void TrashProtocol::put( const KUrl& url, int /*permissions*/, KIO::JobFlags )
 {
     INIT_IMPL;
     kDebug() << "put: " << url;
