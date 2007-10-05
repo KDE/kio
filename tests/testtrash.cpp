@@ -32,6 +32,7 @@
 #include <kio/copyjob.h>
 #include <kdebug.h>
 #include <kcmdlineargs.h>
+#include <kconfiggroup.h>
 
 #include <QDir>
 #include <QFileInfo>
@@ -454,7 +455,7 @@ void TestTrash::trashUmlautFileFromHome()
 
 void TestTrash::testTrashNotEmpty()
 {
-    KConfig cfg( "trashrc", KConfig::OnlyLocal );
+    KConfig cfg( "trashrc", KConfig::SimpleConfig );
     const KConfigGroup group = cfg.group( "Status" );
     assert( group.exists() );
     assert( group.readEntry( "Empty", true ) == false );
@@ -1143,7 +1144,7 @@ void TestTrash::emptyTrash()
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
     assert( ok );
 
-    KConfig cfg( "trashrc", KConfig::OnlyLocal );
+    KConfig cfg( "trashrc", KConfig::SimpleConfig );
     assert( cfg.hasGroup( "Status" ) );
     assert( cfg.group("Status").readEntry( "Empty", false ) == true );
 

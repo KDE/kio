@@ -615,7 +615,7 @@ bool TrashImpl::infoForFile( int trashId, const QString& fileId, TrashedFileInfo
 
 bool TrashImpl::readInfoFile( const QString& infoPath, TrashedFileInfo& info, int trashId )
 {
-    KConfig cfg( infoPath, KConfig::OnlyLocal);
+    KConfig cfg( infoPath, KConfig::SimpleConfig);
     if ( !cfg.hasGroup( "Trash Info" ) ) {
         error( KIO::ERR_CANNOT_OPEN_FOR_READING, infoPath );
         return false;
