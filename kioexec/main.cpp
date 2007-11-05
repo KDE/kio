@@ -47,14 +47,12 @@ static const char description[] =
 
 
 KIOExec::KIOExec()
-    : exit( false )
 {
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
     if (args->count() < 1)
         KCmdLineArgs::usageError(i18n("'command' expected.\n"));
 
     tempfiles = args->isSet("tempfiles");
-    kDebug() << "tempfiles=" << tempfiles;
     if ( args->isSet( "suggestedfilename" ) )
         suggestedFileName = args->getOption( "suggestedfilename" );
     expectedCounter = 0;
@@ -115,22 +113,17 @@ KIOExec::KIOExec()
 
     if ( tempfiles )
     {
-        kDebug() << "tempfiles->slotRunApp";
         slotRunApp();
         return;
     }
 
     counter = 0;
-    if ( counter == expectedCounter ) {
-        kDebug() << "slotResult(0)";
+    if ( counter == expectedCounter )
         slotResult( 0L );
-    }
 }
 
 void KIOExec::slotResult( KJob * job )
 {
-    kDebug();
-    kDebug() << kBacktrace();
     if (job && job->error())
     {
         // That error dialog would be queued, i.e. not immediate...
@@ -167,10 +160,8 @@ void KIOExec::slotResult( KJob * job )
 
 void KIOExec::slotRunApp()
 {
-    kDebug();
     if ( fileList.isEmpty() ) {
         kDebug() << "No files downloaded -> exiting";
-        exit = true;
         QApplication::exit(1);
         return;
     }
@@ -247,15 +238,12 @@ void KIOExec::slotRunApp()
             // Wait for a reasonable time so that even if the application forks on startup (like OOo or amarok)
             // it will have time to start up and read the file before it gets deleted. #130709.
             kDebug() << "sleeping...";
-            //sleep(180); // 3 mn
-            sleep( 10 );
+            sleep(180); // 3 mn
             kDebug() << "about to delete " << src;
             unlink( QFile::encodeName(src) );
         }
     }
 
-    kDebug() << "Calling exit(0)!";
-    exit = true;
     QApplication::exit(0);
 }
 
@@ -282,8 +270,6 @@ int main( int argc, char **argv )
     KApplication app;
 
     KIOExec exec;
-    if ( exec.exited() )
-        return 0;
 
     kDebug() << "Constructor returned...";
     return app.exec();

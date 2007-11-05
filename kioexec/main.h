@@ -36,15 +36,12 @@ class KIOExec : public QObject
 public:
     KIOExec();
 
-    bool exited() const { return exit; }
-
 public Q_SLOTS:
     void slotResult( KJob * );
     void slotRunApp();
 
 protected:
     bool tempfiles;
-    bool exit;
     QString suggestedFileName;
     int counter;
     int expectedCounter;
