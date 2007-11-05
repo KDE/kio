@@ -35,19 +35,19 @@
 #include <kpassworddialog.h>
 #include <kwallet.h>
 
-#include <config-runtime.h>
 #ifdef Q_WS_X11
 #include <qx11info_x11.h>
 #include <X11/X.h>
 #include <X11/Xlib.h>
 #endif
 
-extern "C" {
-    KDE_EXPORT KDEDModule *create_kpasswdserver()
-    {
-       return new KPasswdServer();
-    }
-}
+#include <kpluginfactory.h>
+#include <kpluginloader.h>
+
+K_PLUGIN_FACTORY(KPasswdServerFactory,
+                 registerPlugin<KPasswdServer>();
+    )
+K_EXPORT_PLUGIN(KPasswdServerFactory("kpasswdserver"))
 
 int
 KPasswdServer::AuthInfoList::compareItems(Q3PtrCollection::Item n1, Q3PtrCollection::Item n2)
@@ -69,8 +69,8 @@ KPasswdServer::AuthInfoList::compareItems(Q3PtrCollection::Item n1, Q3PtrCollect
 }
 
 
-KPasswdServer::KPasswdServer()
- : KDEDModule()
+KPasswdServer::KPasswdServer(QObject* parent, const QList<QVariant>&)
+ : KDEDModule(parent)
 {
     m_authPending.setAutoDelete(true);
     m_seqNr = 0;
