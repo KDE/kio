@@ -601,7 +601,7 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
 QStringList TrashImpl::listDir( const QString& physicalPath )
 {
     QDir dir( physicalPath );
-    return dir.entryList();
+    return dir.entryList( QDir::Dirs | QDir::Files | QDir::Hidden );
 }
 
 bool TrashImpl::infoForFile( int trashId, const QString& fileId, TrashedFileInfo& info )
