@@ -2,7 +2,11 @@
 Encoding=UTF-8
 Type=Service
 Name=KDED Password Module
+Name[ja]=KDED パスワードモジュール
+Name[pt_BR]=Módulo de Senhas do KDED
 Comment=Password caching support
+Comment[ja]=パスワードをキャッシュに保存します
+Comment[pt_BR]=Suporte a senha em cache
 ServiceTypes=KDEDModule
 X-KDE-Library=kpasswdserver
 X-KDE-Kded-autoload=false
