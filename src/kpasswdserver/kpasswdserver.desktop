@@ -2,6 +2,7 @@
 Encoding=UTF-8
 Type=Service
 Name=KDED Password Module
+Name[ca]=Mòdul de contrasenya KDED
 Name[el]=Άρθρωμα κωδικού πρόσβασης του KDED
 Name[ga]=Modúl Focail Faire KDED
 Name[ja]=KDED パスワードモジュール
@@ -15,6 +16,7 @@ Name[sr@latin]=KDED modul za lozinke
 Name[zh_CN]=KDED 密码模块
 Name[zh_TW]=KDED 密碼模組
 Comment=Password caching support
+Comment[ca]=Permet l'ús de memòria cau de contrasenyes
 Comment[el]=Υποστήριξη προσωρινής αποθήκευσης κωδικού πρόσβασης
 Comment[ja]=パスワードをキャッシュに保存します
 Comment[nds]=Ünnerstütten för't Twischenspiekern vun Passwöör
