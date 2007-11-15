@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Service
 Name=KDED Password Module
 Name[be]=Модуль паролю KDED
@@ -37,7 +36,7 @@ Comment[sv]=Stöd för lösenordscache
 Comment[th]=การรองรับการเก็บรหัสผ่าน
 Comment[zh_CN]=密码缓存支持
 Comment[zh_TW]=密碼快取支援
-ServiceTypes=KDEDModule
+X-KDE-ServiceTypes=KDEDModule
 X-KDE-Library=kpasswdserver
 X-KDE-Kded-autoload=false
 X-KDE-Kded-load-on-demand=true
