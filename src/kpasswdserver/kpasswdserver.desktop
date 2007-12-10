@@ -35,6 +35,7 @@ Name[x-test]=xxKDED Password Modulexx
 Name[zh_CN]=KDED 密码模块
 Name[zh_TW]=KDED 密碼模組
 Comment=Password caching support
+Comment[be]=Падтрымка захоўвання пароляў
 Comment[ca]=Permet l'ús de memòria cau de contrasenyes
 Comment[csb]=Wspiarcé pòdrãczny pamiãcë dlô parolów
 Comment[de]=Verwaltet zwischengespeicherte Passwörter in KDE
