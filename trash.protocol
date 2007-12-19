@@ -26,6 +26,7 @@ ExtraNames=Original Path,Deletion Date
 ExtraNames[af]=Oorspronklike gids, Uitvee datum
 ExtraNames[be]=Арыгінальнае месцазнаходжанне,Час выдалення
 ExtraNames[bg]=ExtraNames=Местоположение,Дата на изтриване
+ExtraNames[bn]=পূর্বতন পাথ, মোছার তারিখ
 ExtraNames[ca]=Camí original,Data d'esborrat
 ExtraNames[cs]=Původní cesta,Datum smazání
 ExtraNames[csb]=Òriginalnô stegna,Datum remniãcô
@@ -43,6 +44,7 @@ ExtraNames[fy]=Oarspronklike lokaasje,datum fan wiskjen
 ExtraNames[ga]=Bunchonair,Dáta Scriosta
 ExtraNames[gl]=Rota Orixinal,Data de Eliminación
 ExtraNames[he]=נתיב מקורי,תאריך מחיקה
+ExtraNames[hi]=मूल पथ, मिटाने की तिथि
 ExtraNames[hr]=Izvorna putanja,Datum brisanja
 ExtraNames[hu]=Eredeti elérési út,Törlési dátum
 ExtraNames[is]=Upprunaleg slóð,dagsetning á eyðingu
