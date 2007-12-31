@@ -2,6 +2,7 @@
 Type=Service
 Name=KDED Password Module
 Name[be]=Модуль паролю KDED
+Name[bg]=KDED - модул за пароли
 Name[ca]=Mòdul de contrasenya KDED
 Name[csb]=Mòduł parolów KDED
 Name[de]=Passwort-Zwischenspeicherung
@@ -40,6 +41,7 @@ Name[zh_CN]=KDED 密码模块
 Name[zh_TW]=KDED 密碼模組
 Comment=Password caching support
 Comment[be]=Падтрымка захоўвання пароляў
+Comment[bg]=Кеширане на пароли
 Comment[ca]=Permet l'ús de memòria cau de contrasenyes
 Comment[csb]=Wspiarcé pòdrãczny pamiãcë dlô parolów
 Comment[de]=Verwaltet zwischengespeicherte Passwörter in KDE
