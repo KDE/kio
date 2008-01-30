@@ -96,7 +96,7 @@ InputStream* TrashThroughAnalyzer::connectInputStream(InputStream* in) {
     idx->addValue(factory->originalpathField,
         (const char*)trashInfo.origPath.toUtf8());
     idx->addValue(factory->dateofdeletionField,
-        trashInfo.deletionDate.toTime_t());
+        (uint32_t)trashInfo.deletionDate.toTime_t());
     return in;
 }
 
