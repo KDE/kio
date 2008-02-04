@@ -275,7 +275,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     info += "DeletionDate=";
     info += QDateTime::currentDateTime().toString( Qt::ISODate ).toLatin1();
     info += '\n';
-    size_t sz = info.size() - 1; // avoid trailing 0 from QCString
+    size_t sz = info.size();
 
     size_t written = ::fwrite(info.data(), 1, sz, file);
     if ( written != sz ) {
