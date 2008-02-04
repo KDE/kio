@@ -358,7 +358,12 @@ static void checkInfoFile( const QString& infoPath, const QString& origFilePath 
         kFatal() << "no Trash Info group in " << info.absoluteFilePath() ;
     const QString origPath = group.readEntry( "Path" );
     assert( !origPath.isEmpty() );
-    assert( origPath == QUrl::toPercentEncoding( origFilePath.toLatin1() ) );
+    assert( origPath == QUrl::toPercentEncoding( origFilePath.toLatin1(), "/" ) );
+    if (origFilePath.contains(QChar(0x2153)) || origFilePath.contains('%') || origFilePath.contains("umlaut")) {
+        assert(origPath.contains('%'));
+    } else {
+        assert(!origPath.contains('%'));
+    }
     const QString date = group.readEntry( "DeletionDate" );
     assert( !date.isEmpty() );
     assert( date.contains( "T" ) );
@@ -1068,7 +1073,7 @@ void TestTrash::listRootDir()
     kDebug() ;
     m_entryCount = 0;
     m_listResult.clear();
-    KIO::ListJob* job = KIO::listDir( KUrl("trash:/") );
+    KIO::ListJob* job = KIO::listDir( KUrl("trash:/"), KIO::HideProgressInfo );
     connect( job, SIGNAL( entries( KIO::Job*, const KIO::UDSEntryList& ) ),
              SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
@@ -1085,7 +1090,7 @@ void TestTrash::listRecursiveRootDir()
     kDebug() ;
     m_entryCount = 0;
     m_listResult.clear();
-    KIO::ListJob* job = KIO::listRecursive( KUrl("trash:/") );
+    KIO::ListJob* job = KIO::listRecursive( KUrl("trash:/"), KIO::HideProgressInfo );
     connect( job, SIGNAL( entries( KIO::Job*, const KIO::UDSEntryList& ) ),
              SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
@@ -1102,7 +1107,7 @@ void TestTrash::listSubDir()
     kDebug() ;
     m_entryCount = 0;
     m_listResult.clear();
-    KIO::ListJob* job = KIO::listDir( KUrl("trash:/0-trashDirFromHome") );
+    KIO::ListJob* job = KIO::listDir( KUrl("trash:/0-trashDirFromHome"), KIO::HideProgressInfo );
     connect( job, SIGNAL( entries( KIO::Job*, const KIO::UDSEntryList& ) ),
              SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );

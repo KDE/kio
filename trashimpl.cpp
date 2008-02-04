@@ -268,9 +268,9 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     // Escape filenames according to the way they are encoded on the filesystem
     // All this to basically get back to the raw 8-bit representation of the filename...
     if ( trashId == 0 ) // home trash: absolute path
-        info += QUrl::toPercentEncoding( origPath );
+        info += QUrl::toPercentEncoding( origPath, "/" );
     else
-        info += QUrl::toPercentEncoding( makeRelativePath( topDirectoryPath( trashId ), origPath ) );
+        info += QUrl::toPercentEncoding( makeRelativePath( topDirectoryPath( trashId ), origPath ), "/" );
     info += '\n';
     info += "DeletionDate=";
     info += QDateTime::currentDateTime().toString( Qt::ISODate ).toLatin1();
