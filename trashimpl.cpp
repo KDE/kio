@@ -624,9 +624,9 @@ bool TrashImpl::readInfoFile( const QString& infoPath, TrashedFileInfo& info, in
     info.origPath = QUrl::fromPercentEncoding( group.readEntry( "Path" ).toLatin1() );
     if ( info.origPath.isEmpty() )
         return false; // path is mandatory...
-    if ( trashId == 0 )
+    if ( trashId == 0 ) {
         Q_ASSERT( info.origPath[0] == '/' );
-    else {
+    } else {
         const QString topdir = topDirectoryPath( trashId ); // includes trailing slash
         info.origPath.prepend( topdir );
     }
