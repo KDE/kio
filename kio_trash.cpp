@@ -283,16 +283,16 @@ void TrashProtocol::stat(const KUrl& url)
 
         QString fileName = filePath.section('/', -1, -1, QString::SectionSkipEmpty);
 
-        QString fileURL = QString();
+        KUrl fileURL;
         if ( url.path().length() > 1 ) {
-            fileURL = url.url();
+            fileURL = url;
         }
 
         KIO::UDSEntry entry;
         TrashedFileInfo info;
         ok = impl.infoForFile( trashId, fileId, info );
         if ( ok )
-            ok = createUDSEntry( filePath, fileName, fileURL, entry, info );
+            ok = createUDSEntry( filePath, fileName, fileURL.fileName(), entry, info );
 
         if ( !ok ) {
             error( KIO::ERR_COULD_NOT_STAT, url.prettyUrl() );
@@ -378,7 +378,7 @@ void TrashProtocol::listDir(const KUrl& url)
         TrashedFileInfo infoForItem( info );
         infoForItem.origPath += '/';
         infoForItem.origPath += fileName;
-        if ( ok && createUDSEntry( filePath, fileName, QString() /*url*/, entry, infoForItem ) ) {
+        if ( ok && createUDSEntry( filePath, fileName, fileName, entry, infoForItem ) ) {
             listEntry( entry, false );
         }
     }
@@ -387,7 +387,7 @@ void TrashProtocol::listDir(const KUrl& url)
     finished();
 }
 
-bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& fileName, const QString& url, KIO::UDSEntry& entry, const TrashedFileInfo& info )
+bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& displayFileName, const QString& internalFileName, KIO::UDSEntry& entry, const TrashedFileInfo& info )
 {
     QByteArray physicalPath_c = QFile::encodeName( physicalPath );
     KDE_struct_stat buff;
@@ -419,10 +419,12 @@ bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& 
     mode_t type = buff.st_mode & S_IFMT; // extract file type
     mode_t access = buff.st_mode & 07777; // extract permissions
     access &= 07555; // make it readonly, since it's in the trashcan
-    entry.insert( KIO::UDSEntry::UDS_NAME, fileName );
+    Q_ASSERT(!internalFileName.isEmpty());
+    entry.insert( KIO::UDSEntry::UDS_NAME, internalFileName ); // internal filename, like "0-foo"
+    entry.insert( KIO::UDSEntry::UDS_DISPLAY_NAME, displayFileName ); // user-visible filename, like "foo"
     entry.insert( KIO::UDSEntry::UDS_FILE_TYPE, type );
-    if ( !url.isEmpty() )
-        entry.insert( KIO::UDSEntry::UDS_URL, url );
+    //if ( !url.isEmpty() )
+    //    entry.insert( KIO::UDSEntry::UDS_URL, url );
 
     KMimeType::Ptr mt = KMimeType::findByPath( physicalPath, buff.st_mode );
     if ( mt )
@@ -451,7 +453,7 @@ void TrashProtocol::listRoot()
         KUrl origURL;
         origURL.setPath( (*it).origPath );
         entry.clear();
-        if ( createUDSEntry( (*it).physicalPath, origURL.fileName(), url.url(), entry, *it ) )
+        if ( createUDSEntry( (*it).physicalPath, origURL.fileName(), url.fileName(), entry, *it ) )
             listEntry( entry, false );
     }
     entry.clear();

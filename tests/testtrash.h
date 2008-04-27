@@ -28,10 +28,9 @@ class TestTrash : public QObject
 
 public:
     TestTrash() {}
-    void setup();
-    void runAll();
 
-    // tests
+private Q_SLOTS:
+    void initTestCase();
 
     void testIcons();
 
@@ -88,7 +87,7 @@ public:
 
     void emptyTrash();
 
-private Q_SLOTS:
+protected Q_SLOTS:
     void slotEntries( KIO::Job*, const KIO::UDSEntryList& );
 
 private:
