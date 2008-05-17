@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=KDED Password Module
+Name[af]=KDED Wagwoordmodule
 Name[be]=Модуль паролю KDED
 Name[bg]=KDED - модул за пароли
 Name[ca]=Mòdul de contrasenya KDED
@@ -47,6 +48,7 @@ Name[x-test]=xxKDED Password Modulexx
 Name[zh_CN]=KDED 密码模块
 Name[zh_TW]=KDED 密碼模組
 Comment=Password caching support
+Comment[af]=Wagwoord byderhandhou-ondersteuning
 Comment[be]=Падтрымка захоўвання пароляў
 Comment[bg]=Кеширане на пароли
 Comment[ca]=Permet l'ús de memòria cau de contrasenyes
