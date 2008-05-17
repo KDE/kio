@@ -23,7 +23,7 @@ deleteRecursive=true
 fileNameUsedForCopying=Name
 #TODO DocPath
 ExtraNames=Original Path,Deletion Date
-ExtraNames[af]=Oorspronklike gids, Uitvee datum
+ExtraNames[af]=Oorspronklike gids, Uitvee-datum
 ExtraNames[be]=Арыгінальнае месцазнаходжанне,Час выдалення
 ExtraNames[bg]=ExtraNames=Местоположение,Дата на изтриване
 ExtraNames[bn]=পূর্বতন পাথ, মোছার তারিখ
