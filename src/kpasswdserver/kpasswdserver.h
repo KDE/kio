@@ -53,27 +53,23 @@ public Q_SLOTS:
   void removeAuthForWindowId(qlonglong windowId);
 
 protected:
-  struct AuthInfo;
+  struct AuthInfoContainer;
 
   QString createCacheKey( const KIO::AuthInfo &info );
-  const AuthInfo *findAuthInfoItem(const QString &key, const KIO::AuthInfo &info);
+  const AuthInfoContainer *findAuthInfoItem(const QString &key, const KIO::AuthInfo &info);
   void removeAuthInfoItem(const QString &key, const KIO::AuthInfo &info);
   void addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, qlonglong windowId, qlonglong seqNr, bool canceled);
-  KIO::AuthInfo copyAuthInfo(const AuthInfo *);
-  void updateAuthExpire(const QString &key, const AuthInfo *, qlonglong windowId, bool keep);
+  KIO::AuthInfo copyAuthInfo(const AuthInfoContainer *);
+  void updateAuthExpire(const QString &key, const AuthInfoContainer *, qlonglong windowId, bool keep);
   int findWalletEntry( const QMap<QString,QString>& map, const QString& username );
   bool openWallet( int windowId );
 
-  struct AuthInfo {
-    AuthInfo() { expire = expNever; isCanceled = false; seqNr = 0; }
+  struct AuthInfoContainer {
+    AuthInfoContainer() { expire = expNever; isCanceled = false; seqNr = 0; }
 
-    KUrl url;
+    KIO::AuthInfo info;
     QString directory;
-    QString username;
-    QString password;
-    QString realmValue;
-    QString digestInfo;
-
+    
     enum { expNever, expWindowClose, expTime } expire;
     QList<qlonglong> windowList;
     qulonglong expireTime;
@@ -82,14 +78,14 @@ protected:
     bool isCanceled;
   };
 
-  class AuthInfoList : public Q3PtrList<AuthInfo>
+  class AuthInfoContainerList : public Q3PtrList<AuthInfoContainer>
   {
     public:
-      AuthInfoList() { setAutoDelete(true); }
+      AuthInfoContainerList() { setAutoDelete(true); }
       int compareItems(Q3PtrCollection::Item n1, Q3PtrCollection::Item n2);
   };
 
-  QHash< QString, AuthInfoList* > m_authDict;
+  QHash< QString, AuthInfoContainerList* > m_authDict;
 
   struct Request {
      QDBusMessage transaction;
