@@ -39,7 +39,7 @@ kde4_add_executable(ktrash NOGUI ${ktrash_SRCS})
 
 target_link_libraries(ktrash  ${KDE4_KIO_LIBS} )
 
-install(TARGETS ktrash DESTINATION ${BIN_INSTALL_DIR})
+install(TARGETS ktrash ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
