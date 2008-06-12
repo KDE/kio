@@ -468,7 +468,7 @@ KPasswdServer::processRequest()
         }
         if ( dlgResult != QDialog::Accepted )
         {
-            if (!bypassCacheAndKWallet)
+            if (!bypassCacheAndKWallet && request->prompt)
             {
                 addAuthInfoItem(request->key, info, 0, m_seqNr, true);
             }
