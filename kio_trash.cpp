@@ -534,6 +534,7 @@ void TrashProtocol::get( const KUrl& url )
     KUrl fileURL;
     fileURL.setPath( physicalPath );
     KIO::Job* job = KIO::get( fileURL );
+    job->setUiDelegate(0);
     connect( job, SIGNAL( data( KIO::Job*, const QByteArray& ) ),
              this, SLOT( slotData( KIO::Job*, const QByteArray& ) ) );
     connect( job, SIGNAL( mimetype( KIO::Job*, const QString& ) ),
