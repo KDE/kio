@@ -30,7 +30,7 @@
 int main(int argc, char *argv[])
 {
     //KApplication::disableAutoDcopRegistration();
-    KCmdLineArgs::init( argc, argv, "ktrash", 0,
+    KCmdLineArgs::init( argc, argv, "ktrash", "kio_trash",
                         ki18n( "ktrash" ),
                         KDE_VERSION_STRING ,
                         ki18n( "Helper program to handle the KDE trash can\n"
