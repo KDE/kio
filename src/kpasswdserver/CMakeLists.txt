@@ -2,7 +2,7 @@ set(kded_kpasswdserver_SRCS kpasswdserver.cpp )
 
 kde4_add_plugin(kded_kpasswdserver ${kded_kpasswdserver_SRCS})
 
-target_link_libraries(kded_kpasswdserver  ${KDE4_KIO_LIBS} ${QT_QT3SUPPORT_LIBRARY})
+target_link_libraries(kded_kpasswdserver  ${KDE4_KIO_LIBS} ${QT_QT3SUPPORT_LIBRARY} ${X11_LIBRARIES})
 
 install(TARGETS kded_kpasswdserver  DESTINATION ${PLUGIN_INSTALL_DIR} )
 
