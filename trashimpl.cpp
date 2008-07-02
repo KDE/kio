@@ -209,6 +209,9 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     kDebug() << origPath;
     // Check source
     const QByteArray origPath_c( QFile::encodeName( origPath ) );
+#ifndef _FILE_OFFSET_BITS
+#error _FILE_OFFSET_BITS should be set so that off_t is 64 bit
+#endif
     KDE_struct_stat buff_src;
     if ( KDE_lstat( origPath_c.data(), &buff_src ) == -1 ) {
         if ( errno == EACCES )
