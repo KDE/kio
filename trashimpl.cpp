@@ -95,7 +95,7 @@ int TrashImpl::testDir( const QString &_name ) const
         //int ret = KMessageBox::warningYesNo( 0, i18n("%1 is a file, but KDE needs it to be a directory. Move it to %2.orig and create directory?").arg(name).arg(name) );
         //if ( ret == KMessageBox::Yes ) {
 #endif
-            if ( ::rename( path, path + ".orig" ) == 0 ) {
+            if ( KDE_rename( path, path + ".orig" ) == 0 ) {
                 ok = KDE_mkdir( path, S_IRWXU ) == 0;
             } else { // foo.orig existed already. How likely is that?
                 ok = false;
@@ -209,9 +209,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     kDebug() << origPath;
     // Check source
     const QByteArray origPath_c( QFile::encodeName( origPath ) );
-#ifndef _FILE_OFFSET_BITS
-#error _FILE_OFFSET_BITS should be set so that off_t is 64 bit
-#endif
+    char off_t_should_be_64bit[sizeof(off_t) >= 8 ? 1:-1]; (void)off_t_should_be_64bit;
     KDE_struct_stat buff_src;
     if ( KDE_lstat( origPath_c.data(), &buff_src ) == -1 ) {
         if ( errno == EACCES )
@@ -242,7 +240,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     int fd = 0;
     do {
         kDebug() << "trying to create " << url.path() ;
-        fd = ::open( QFile::encodeName( url.path() ), O_WRONLY | O_CREAT | O_EXCL, 0600 );
+        fd = KDE_open( QFile::encodeName( url.path() ), O_WRONLY | O_CREAT | O_EXCL, 0600 );
         if ( fd < 0 ) {
             if ( errno == EEXIST ) {
                 url.setFileName( KIO::RenameDialog::suggestName( baseDirectory, url.fileName() ) );
@@ -442,7 +440,7 @@ bool TrashImpl::copy( const QString& src, const QString& dest )
 bool TrashImpl::directRename( const QString& src, const QString& dest )
 {
     kDebug() << src << " -> " << dest;
-    if ( ::rename( QFile::encodeName( src ), QFile::encodeName( dest ) ) != 0 ) {
+    if ( KDE_rename( QFile::encodeName( src ), QFile::encodeName( dest ) ) != 0 ) {
         if (errno == EXDEV) {
             error( KIO::ERR_UNSUPPORTED_ACTION, QString::fromLatin1("rename") );
         } else {
@@ -671,10 +669,10 @@ bool TrashImpl::isEmpty() const
         DIR *dp = opendir( QFile::encodeName( infoPath ) );
         if ( dp )
         {
-            struct dirent *ep;
-            ep = readdir( dp );
-            ep = readdir( dp ); // ignore '.' and '..' dirent
-            ep = readdir( dp ); // look for third file
+            KDE_struct_dirent *ep;
+            ep = KDE_readdir( dp );
+            ep = KDE_readdir( dp ); // ignore '.' and '..' dirent
+            ep = KDE_readdir( dp ); // look for third file
             closedir( dp );
             if ( ep != 0 ) {
                 //kDebug() << ep->d_name << " in " << infoPath << " -> not empty";
