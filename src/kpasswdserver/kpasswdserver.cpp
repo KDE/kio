@@ -430,8 +430,10 @@ KPasswdServer::processRequest()
             
             if (info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).isValid ())
                 dlg.setAnonymousMode(info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).toBool());
-            
+
+#ifndef Q_WS_WIN            
             KWindowSystem::setMainWindow(&dlg, request->windowId);
+#endif
 
             dlgResult = dlg.exec();
 
