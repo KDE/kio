@@ -34,12 +34,7 @@
 #include <kdebug.h>
 #include <kpassworddialog.h>
 #include <kwallet.h>
-
-#ifdef Q_WS_X11
-#include <qx11info_x11.h>
-#include <X11/X.h>
-#include <X11/Xlib.h>
-#endif
+#include <kwindowsystem.h>
 
 #include <kpluginfactory.h>
 #include <kpluginloader.h>
@@ -436,9 +431,7 @@ KPasswdServer::processRequest()
             if (info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).isValid ())
                 dlg.setAnonymousMode(info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).toBool());
             
-#ifdef Q_WS_X11
-            XSetTransientForHint( QX11Info::display(), dlg.winId(), request->windowId);
-#endif
+            KWindowSystem::setMainWindow(&dlg, request->windowId);
 
             dlgResult = dlg.exec();
 
