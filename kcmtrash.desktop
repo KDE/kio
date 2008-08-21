@@ -1,0 +1,20 @@
+Name=Trash
+Name[x-test]=xxTrashxx
+Comment=This service allows configuration of the trash.
+Comment[x-test]=xxThis service allows configuration of the trash.xx
+
+[Desktop Entry]
+Icon=user-trash
+Type=Service
+X-KDE-ServiceTypes=KCModule
+Exec=kcmshell4 kcmtrash
+
+X-KDE-Library=kcm_trash
+X-KDE-PluginKeyword=trash
+X-KDE-ParentApp=kcontrol
+
+Name=Trash
+Name[x-test]=xxTrashxx
+Comment=Configure trash settings
+Comment[x-test]=xxConfigure trash settingsxx
+X-KDE-Keywords=trash

@@ -4,7 +4,9 @@ add_subdirectory(tests)
 
 include_directories(${STRIGI_INCLUDE_DIR})
 
-set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp)
+set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp
+                           ${CMAKE_CURRENT_SOURCE_DIR}/discspaceutil.cpp
+    )
 
 ########### next target ###############
 
@@ -20,7 +22,7 @@ install(TARGETS kio_trash  DESTINATION ${PLUGIN_INSTALL_DIR} )
 
 ########### next target ###############
 
-kde4_add_library(trash MODULE trashthroughanalyzer.cpp trashimpl.cpp)
+kde4_add_library(trash MODULE trashthroughanalyzer.cpp ${trashcommon_PART_SRCS})
 target_link_libraries(trash
    ${KDE4_KIO_LIBS}
    ${STRIGI_STREAMANALYZER_LIBRARY}
@@ -41,9 +43,15 @@ target_link_libraries(ktrash  ${KDE4_KIO_LIBS} )
 
 install(TARGETS ktrash ${INSTALL_TARGETS_DEFAULT_ARGS})
 
+########### next target ###############
+
+set(kcm_trash_PART_SRCS kcmtrash.cpp ${trashcommon_PART_SRCS})
+kde4_add_plugin(kcm_trash ${kcm_trash_PART_SRCS})
+target_link_libraries(kcm_trash  ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS} ${KDE4_SOLID_LIBS})
+
+install(TARGETS kcm_trash DESTINATION ${PLUGIN_INSTALL_DIR})
+
 ########### install files ###############
 
 install( FILES trash.protocol  DESTINATION  ${SERVICES_INSTALL_DIR} )
-
-
-
+install( FILES kcmtrash.desktop DESTINATION ${SERVICES_INSTALL_DIR} )

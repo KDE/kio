@@ -123,6 +123,8 @@ private:
     void fileAdded();
     void fileRemoved();
 
+    bool adaptTrashSize( const QString& origPath, int trashId );
+
     // Warning, returns error code, not a bool
     int testDir( const QString& name ) const;
     void error( int e, const QString& s );

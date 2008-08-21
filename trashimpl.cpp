@@ -18,6 +18,8 @@
 */
 
 #include "trashimpl.h"
+#include "discspaceutil.h"
+
 #include <klocale.h>
 #include <kde_file.h>
 #include <kio/global.h>
@@ -348,6 +350,9 @@ bool TrashImpl::deleteInfo( int trashId, const QString& fileId )
 bool TrashImpl::moveToTrash( const QString& origPath, int trashId, const QString& fileId )
 {
     kDebug() ;
+    if ( !adaptTrashSize( origPath, trashId ) )
+        return false;
+
     const QString dest = filesPath( trashId, fileId );
     if ( !move( origPath, dest ) ) {
         // Maybe the move failed due to no permissions to delete source.
@@ -408,6 +413,9 @@ void TrashImpl::jobFinished(KJob* job)
 bool TrashImpl::copyToTrash( const QString& origPath, int trashId, const QString& fileId )
 {
     kDebug() ;
+    if ( !adaptTrashSize( origPath, trashId ) )
+        return false;
+
     const QString dest = filesPath( trashId, fileId );
     if ( !copy( origPath, dest ) )
         return false;
@@ -988,6 +996,87 @@ bool TrashImpl::parseURL( const KUrl& url, int& trashId, QString& fileId, QStrin
     }
     fileId = path.mid( start, slashPos - start );
     relativePath = path.mid( slashPos + 1 );
+    return true;
+}
+
+bool TrashImpl::adaptTrashSize( const QString& origPath, int trashId )
+{
+    KConfig config( "ktrashrc" );
+
+    const QString trashPath = trashDirectoryPath( trashId );
+    KConfigGroup group = config.group( trashPath );
+
+    bool useTimeLimit = group.readEntry( "UseTimeLimit", false );
+    bool useSizeLimit = group.readEntry( "UseSizeLimit", true );
+    double percent = group.readEntry( "Percent", 10.0 );
+    int actionType = group.readEntry( "LimitReachedAction", 0 );
+
+    if ( useTimeLimit ) { // delete all files in trash older than X days
+        const int maxDays = group.readEntry( "Days", 7 );
+        const QDateTime currentDate = QDateTime::currentDateTime();
+
+        const TrashedFileInfoList trashedFiles = list();
+        for ( int i = 0; i < trashedFiles.count(); ++i ) {
+            struct TrashedFileInfo info = trashedFiles.at( i );
+            if ( info.trashId != trashId )
+                continue;
+
+            if ( info.deletionDate.daysTo( currentDate ) > maxDays )
+              del( info.trashId, info.fileId );
+        }
+
+        return true;
+    }
+
+    if ( useSizeLimit ) { // check if size limit exceeded
+
+        // calculate size of the files to be put into the trash
+        qulonglong additionalSize = DiscSpaceUtil::sizeOfPath( origPath );
+
+        DiscSpaceUtil util( trashPath + "/files/" );
+        if ( util.usage( additionalSize ) >= percent ) {
+            if ( actionType == 0 ) { // warn the user only
+                m_lastErrorCode = KIO::ERR_SLAVE_DEFINED;
+                m_lastErrorMessage = i18n( "The trash has reached its maximum size!\nCleanup the trash manually." );
+                return false;
+            } else {
+                // before we start to remove any files from the trash,
+                // check whether the new file will fit into the trash
+                // at all...
+
+                qulonglong partitionSize = util.size();
+
+                if ( (((double)additionalSize/(double)partitionSize)*100) >= percent ) {
+                    m_lastErrorCode = KIO::ERR_SLAVE_DEFINED;
+                    m_lastErrorMessage = i18n( "The file is too large to be trashed." );
+                    return false;
+                }
+
+                // the size of the to be trashed file is ok, so lets start removing
+                // some other files from the trash
+
+                QDir dir( trashPath + "/files" );
+                QFileInfoList infos;
+                if ( actionType == 1 )  // delete oldest files first
+                    infos = dir.entryInfoList( QDir::Files | QDir::AllDirs | QDir::NoDotAndDotDot, QDir::Time | QDir::Reversed );
+                else if ( actionType == 2 ) // delete biggest files first
+                    infos = dir.entryInfoList( QDir::Files | QDir::AllDirs | QDir::NoDotAndDotDot, QDir::Size );
+                else
+                    qWarning( "Should never happen!" );
+
+                bool deleteFurther = true;
+                for ( int i = 0; (i < infos.count()) && deleteFurther; ++i ) {
+                    const QFileInfo info = infos.at( i );
+
+                    del( trashId, info.fileName() ); // delete trashed file
+
+                    if ( util.usage( additionalSize ) < percent ) // check whether we have enough space now
+                         deleteFurther = false;
+                }
+            }
+        }
+    }
+
     return true;
 }
 
