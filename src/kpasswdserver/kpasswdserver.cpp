@@ -433,6 +433,8 @@ KPasswdServer::processRequest()
 
 #ifndef Q_WS_WIN            
             KWindowSystem::setMainWindow(&dlg, request->windowId);
+#else
+            KWindowSystem::setMainWindow(&dlg, (HWND)(long)request->windowId);
 #endif
 
             dlgResult = dlg.exec();
