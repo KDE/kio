@@ -105,6 +105,7 @@ void TrashConfigModule::defaults()
     entry.percent = 10.0;
     entry.actionType = 0;
     mConfigMap.insert( mCurrentTrash, entry );
+    trashInitialize = false;
     trashChanged( 0 );
 }
 
