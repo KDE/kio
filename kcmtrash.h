@@ -66,7 +66,7 @@ class TrashConfigModule : public KCModule
 
         TrashImpl *mTrashImpl;
         QString mCurrentTrash;
-
+    bool trashInitialize;
         typedef struct {
             bool useTimeLimit;
             int days;

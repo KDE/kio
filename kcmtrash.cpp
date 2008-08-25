@@ -37,12 +37,13 @@
 #include <klocale.h>
 #include <kpluginfactory.h>
 #include <kpluginloader.h>
+#include <KDebug>
 
 K_PLUGIN_FACTORY( KCMTrashConfigFactory, registerPlugin<TrashConfigModule>( "trash" ); )
 K_EXPORT_PLUGIN( KCMTrashConfigFactory( "kcmtrash" ) )
 
 TrashConfigModule::TrashConfigModule( QWidget* parent, const QVariantList& )
-    : KCModule( KCMTrashConfigFactory::componentData(), parent )
+    : KCModule( KCMTrashConfigFactory::componentData(), parent ), trashInitialize( false )
 {
     KGlobal::locale()->insertCatalog( "kio_trash" );
 
@@ -73,6 +74,7 @@ TrashConfigModule::TrashConfigModule( QWidget* parent, const QVariantList& )
              this, SLOT( changed() ) );
 
     trashChanged( 0 );
+    trashInitialize = true;
 }
 
 TrashConfigModule::~TrashConfigModule()
@@ -96,6 +98,14 @@ void TrashConfigModule::save()
 
 void TrashConfigModule::defaults()
 {
+    ConfigEntry entry;
+    entry.useTimeLimit = false;
+    entry.days = 7;
+    entry.useSizeLimit = true;
+    entry.percent = 10.0;
+    entry.actionType = 0;
+    mConfigMap.insert( mCurrentTrash, entry );
+    trashChanged( 0 );
 }
 
 void TrashConfigModule::percentChanged( double percent )
@@ -135,7 +145,7 @@ void TrashConfigModule::trashChanged( int value )
 {
     const TrashImpl::TrashDirMap map = mTrashImpl->trashDirectories();
 
-    if ( !mCurrentTrash.isEmpty() ) {
+    if ( !mCurrentTrash.isEmpty() && trashInitialize ) {
         ConfigEntry entry;
         entry.useTimeLimit = mUseTimeLimit->isChecked();
         entry.days = mDays->value();
@@ -146,7 +156,6 @@ void TrashConfigModule::trashChanged( int value )
     }
 
     mCurrentTrash = map[ value ];
-
     if ( mConfigMap.contains( mCurrentTrash ) ) {
         const ConfigEntry entry = mConfigMap[ mCurrentTrash ];
         mUseTimeLimit->setChecked( entry.useTimeLimit );
@@ -163,6 +172,7 @@ void TrashConfigModule::trashChanged( int value )
     }
 
     percentChanged( mPercent->value() );
+
 }
 
 void TrashConfigModule::useTypeChanged()
@@ -205,7 +215,6 @@ void TrashConfigModule::writeConfig()
     QMapIterator<QString, ConfigEntry> it( mConfigMap );
     while ( it.hasNext() ) {
         it.next();
-
         KConfigGroup group = config.group( it.key() );
 
         group.writeEntry( "UseTimeLimit", it.value().useTimeLimit );
@@ -214,7 +223,6 @@ void TrashConfigModule::writeConfig()
         group.writeEntry( "Percent", it.value().percent );
         group.writeEntry( "LimitReachedAction", it.value().actionType );
     }
-
     config.sync();
 }
 
