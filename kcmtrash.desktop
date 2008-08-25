@@ -1,7 +1,6 @@
 Name=Trash
-Name[x-test]=xxTrashxx
+Name[fa]=زباله
 Comment=This service allows configuration of the trash.
-Comment[x-test]=xxThis service allows configuration of the trash.xx
 
 [Desktop Entry]
 Icon=user-trash
@@ -14,7 +13,6 @@ X-KDE-PluginKeyword=trash
 X-KDE-ParentApp=kcontrol
 
 Name=Trash
-Name[x-test]=xxTrashxx
+Name[fa]=زباله
 Comment=Configure trash settings
-Comment[x-test]=xxConfigure trash settingsxx
 X-KDE-Keywords=trash
