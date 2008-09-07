@@ -25,6 +25,7 @@ fileNameUsedForCopying=Name
 ExtraNames=Original Path,Deletion Date
 ExtraNames[af]=Oorspronklike gids, Uitvee-datum
 ExtraNames[be]=Арыгінальнае месцазнаходжанне,Час выдалення
+ExtraNames[be@latin]=Byłaja ściežka,data vydaleńnia
 ExtraNames[bg]=ExtraNames=Местоположение,Дата на изтриване
 ExtraNames[bn]=পূর্বতন পাথ, মোছার তারিখ
 ExtraNames[bn_IN]=মূল অবস্থানের পাথ, অপসারণের তারিখ
