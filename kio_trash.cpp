@@ -333,7 +333,7 @@ void TrashProtocol::listDir(const KUrl& url)
 {
     INIT_IMPL;
     kDebug() << "listdir: " << url;
-    if ( url.path().length() <= 1 ) {
+    if ( url.path(KUrl::AddTrailingSlash) == QLatin1String("/") ) {
         listRoot();
         return;
     }
