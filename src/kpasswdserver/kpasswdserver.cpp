@@ -333,13 +333,13 @@ KPasswdServer::processRequest()
     KIO::AuthInfo &info = request->info;
     bool bypassCacheAndKWallet = info.getExtraField(AUTHINFO_EXTRAFIELD_BYPASS_CACHE_AND_KWALLET).toBool() == true;
     
-    kDebug(130) << "KPasswdServer::processRequest: User= " << info.username
-              << ", Message= " << info.prompt << endl;
+    kDebug(130) << "User =" << info.username
+              << ", Message =" << info.prompt << endl;
     const AuthInfoContainer *result = findAuthInfoItem(request->key, request->info);
 
     if (!bypassCacheAndKWallet && result && (request->seqNr < result->seqNr))
     {
-        kDebug(130) << "KPasswdServer::processRequest: auto retry!";
+        kDebug(130) << "auto retry!";
         if (result->isCanceled)
         {
            info.setModified(false);
@@ -490,8 +490,7 @@ KPasswdServer::processRequest()
     m_authPending.remove((unsigned int) 0);
 
     // Check all requests in the wait queue.
-    for(Request *waitRequest = m_authWait.first();
-        waitRequest; )
+    for (Request *waitRequest = m_authWait.first(); waitRequest; )
     {
        bool keepQueued = false;
        QString key = waitRequest->key;
