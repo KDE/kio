@@ -726,7 +726,7 @@ KPasswdServer::removeAuthForWindowId(qlonglong windowId)
    QStringList *keysChanged = mWindowIdList.value(windowId);
    if (!keysChanged) return;
 
-   foreach (QString &key, *keysChanged)
+   foreach (const QString &key, *keysChanged)
    {
       AuthInfoContainerList *authList = m_authDict.value(key);
       if (!authList)
