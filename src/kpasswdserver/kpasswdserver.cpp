@@ -111,7 +111,7 @@ static bool storeInWallet( KWallet::Wallet* wallet, const QString& key, const KI
     int entryNumber = 1;
     Map map;
     QString walletKey = makeWalletKey( key, info.realmValue );
-    kDebug(130) << "storeInWallet: walletKey=" << walletKey << "  reading existing map";
+    kDebug(130) << "walletKey =" << walletKey << "  reading existing map";
     if ( wallet->readMap( walletKey, map ) == 0 ) {
         Map::ConstIterator end = map.end();
         Map::ConstIterator it = map.find( "login" );
@@ -125,7 +125,7 @@ static bool storeInWallet( KWallet::Wallet* wallet, const QString& key, const KI
     }
     const QString loginKey = makeMapKey( "login", entryNumber );
     const QString passwordKey = makeMapKey( "password", entryNumber );
-    kDebug(130) << "storeInWallet: writing to " << loginKey << "," << passwordKey;
+    kDebug(130) << "writing to " << loginKey << "," << passwordKey;
     // note the overwrite=true by default
     map.insert( loginKey, info.username );
     map.insert( passwordKey, info.password );
@@ -136,7 +136,7 @@ static bool storeInWallet( KWallet::Wallet* wallet, const QString& key, const KI
 
 static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const QString& realm, QString& username, QString& password, bool userReadOnly, QMap<QString,QString>& knownLogins )
 {
-    //kDebug(130) << "readFromWallet: key=" << key << " username=" << username << " password=" /*<< password*/ << " userReadOnly=" << userReadOnly << " realm=" << realm;
+    //kDebug(130) << "key =" << key << " username =" << username << " password =" /*<< password*/ << " userReadOnly =" << userReadOnly << " realm =" << realm;
     if ( wallet->hasFolder( KWallet::Wallet::PasswordFolder() ) )
     {
         wallet->setFolder( KWallet::Wallet::PasswordFolder() );
@@ -149,7 +149,7 @@ static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const Q
             Map::ConstIterator end = map.end();
             Map::ConstIterator it = map.find( "login" );
             while ( it != end ) {
-                //kDebug(130) << "readFromWallet: found " << it.key() << "=" << it.value();
+                //kDebug(130) << "found " << it.key() << "=" << it.value();
                 Map::ConstIterator pwdIter = map.find( makeMapKey( "password", entryNumber ) );
                 if ( pwdIter != end ) {
                     if ( it.value() == username )
@@ -165,7 +165,7 @@ static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const Q
                 // Pick one, any one...
                 username = knownLogins.begin().key();
                 password = knownLogins.begin().value();
-                //kDebug(130) << "readFromWallet: picked the first one : " << username;
+                //kDebug(130) << "picked the first one:" << username;
             }
 
             return true;
@@ -183,8 +183,7 @@ KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong windowId, qlonglo
         QDataStream stream(&data2, QIODevice::ReadOnly);
         stream >> info;
     }
-    kDebug(130) << "KPasswdServer::checkAuthInfo: User= " << info.username
-              << ", WindowId = " << windowId << endl;
+    kDebug(130) << "User =" << info.username << ", WindowId =" << windowId << endl;
     if( usertime != 0 )
         kapp->updateUserTimestamp( usertime );
 
@@ -259,10 +258,10 @@ KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &errorMsg, ql
         QDataStream stream(&data2, QIODevice::ReadOnly);
         stream >> info;
     }
-    kDebug(130) << "KPasswdServer::queryAuthInfo: User= " << info.username
-              << ", Message= " << info.prompt << ", WindowId = " << windowId << endl;
+    kDebug(130) << "User =" << info.username << ", Message= " << info.prompt
+                << ", WindowId =" << windowId << endl;
     if ( !info.password.isEmpty() ) // should we really allow the caller to pre-fill the password?
-        kDebug(130) <<  "password was set by caller";
+        kDebug(130) << "password was set by caller";
     if( usertime != 0 )
         kapp->updateUserTimestamp( usertime );
 
@@ -301,8 +300,8 @@ KPasswdServer::addAuthInfo(const QByteArray &data, qlonglong windowId)
         QDataStream stream(&data2, QIODevice::ReadOnly);
         stream >> info;
     }
-    kDebug(130) << "KPasswdServer::addAuthInfo: User= " << info.username
-              << ", RealmValue= " << info.realmValue << ", WindowId = " << windowId << endl;
+    kDebug(130) << "User =" << info.username << ", RealmValue= " << info.realmValue
+                << ", WindowId = " << windowId << endl;
     QString key = createCacheKey(info);
 
     m_seqNr++;
@@ -333,8 +332,7 @@ KPasswdServer::processRequest()
     KIO::AuthInfo &info = request->info;
     bool bypassCacheAndKWallet = info.getExtraField(AUTHINFO_EXTRAFIELD_BYPASS_CACHE_AND_KWALLET).toBool() == true;
     
-    kDebug(130) << "User =" << info.username
-              << ", Message =" << info.prompt << endl;
+    kDebug(130) << "User =" << info.username << ", Message =" << info.prompt << endl;
     const AuthInfoContainer *result = findAuthInfoItem(request->key, request->info);
 
     if (!bypassCacheAndKWallet && result && (request->seqNr < result->seqNr))
@@ -728,10 +726,8 @@ KPasswdServer::removeAuthForWindowId(qlonglong windowId)
    QStringList *keysChanged = mWindowIdList.value(windowId);
    if (!keysChanged) return;
 
-   for(QStringList::ConstIterator it = keysChanged->begin();
-       it != keysChanged->end(); ++it)
+   foreach (QString &key, *keysChanged)
    {
-      QString key = *it;
       AuthInfoContainerList *authList = m_authDict.value(key);
       if (!authList)
          continue;
