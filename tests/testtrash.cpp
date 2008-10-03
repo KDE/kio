@@ -258,7 +258,7 @@ static void checkInfoFile( const QString& infoPath, const QString& origFilePath 
         kFatal() << "no Trash Info group in " << info.absoluteFilePath() ;
     const QString origPath = group.readEntry( "Path" );
     QVERIFY( !origPath.isEmpty() );
-    QVERIFY( origPath == QUrl::toPercentEncoding( origFilePath.toLatin1(), "/" ) );
+    QVERIFY( origPath == QUrl::toPercentEncoding( origFilePath, "/" ) );
     if (origFilePath.contains(QChar(0x2153)) || origFilePath.contains('%') || origFilePath.contains("umlaut")) {
         QVERIFY(origPath.contains('%'));
     } else {
