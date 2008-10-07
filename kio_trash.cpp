@@ -20,13 +20,13 @@
 #include "kio_trash.h"
 #include <kio/job.h>
 
-#include <kapplication.h>
 #include <kdebug.h>
 #include <klocale.h>
 #include <kde_file.h>
-#include <kcmdlineargs.h>
+#include <kcomponentdata.h>
 #include <kmimetype.h>
 
+#include <QCoreApplication>
 #include <QDataStream>
 #include <QTextStream>
 #include <QFile>
@@ -42,23 +42,12 @@
 extern "C" {
     int KDE_EXPORT kdemain( int argc, char **argv )
     {
-        //KComponentData componentData("kio_trash");
-        // KApplication is necessary to use kio_file
         putenv(strdup("SESSION_MANAGER="));
-        //KApplication::disableAutoDcopRegistration();
-        KCmdLineArgs::init(argc, argv, "kio_trash", 0, KLocalizedString(), 0);
+        KComponentData componentData("kio_trash" );
 
-        KCmdLineOptions options;
-        options.add("+protocol", ki18n( "Protocol name" ));
-        options.add("+pool", ki18n( "Socket name" ));
-        options.add("+app", ki18n( "Socket name" ));
-        KCmdLineArgs::addCmdLineOptions( options );
-        KApplication app( false );
+        QCoreApplication app(argc, argv);
 
-        KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-        TrashProtocol slave( QFile::encodeName( args->arg(0) ),
-                             QFile::encodeName( args->arg(1) ),
-                             QFile::encodeName( args->arg(2) ) );
+        TrashProtocol slave( argv[1], argv[2], argv[3] );
         slave.dispatchLoop();
         return 0;
     }
