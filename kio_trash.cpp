@@ -42,11 +42,11 @@
 extern "C" {
     int KDE_EXPORT kdemain( int argc, char **argv )
     {
-        putenv(strdup("SESSION_MANAGER="));
+        // necessary to use other kio slaves
         KComponentData componentData("kio_trash" );
-
         QCoreApplication app(argc, argv);
 
+        // start the slave
         TrashProtocol slave( argv[1], argv[2], argv[3] );
         slave.dispatchLoop();
         return 0;
