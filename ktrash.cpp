@@ -24,8 +24,6 @@
 #include <klocale.h>
 #include <kdirnotify.h>
 #include <kdebug.h>
-//Added by qt3to4:
-#include <QByteArray>
 
 int main(int argc, char *argv[])
 {
