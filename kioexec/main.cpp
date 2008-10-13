@@ -47,6 +47,7 @@ static const char description[] =
 
 
 KIOExec::KIOExec()
+    : mExited(false)
 {
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
     if (args->count() < 1)
@@ -162,6 +163,7 @@ void KIOExec::slotRunApp()
 {
     if ( fileList.isEmpty() ) {
         kDebug() << "No files downloaded -> exiting";
+        mExited = true;
         QApplication::exit(1);
         return;
     }
@@ -244,6 +246,7 @@ void KIOExec::slotRunApp()
         }
     }
 
+    mExited = true;
     QApplication::exit(0);
 }
 
@@ -271,7 +274,10 @@ int main( int argc, char **argv )
 
     KIOExec exec;
 
-    kDebug() << "Constructor returned...";
+    // Don't go into the event loop if we already want to exit (#172197)
+    if (exec.exited())
+        return 0;
+
     return app.exec();
 }
 
