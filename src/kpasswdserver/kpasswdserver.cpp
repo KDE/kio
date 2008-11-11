@@ -113,13 +113,13 @@ static bool storeInWallet( KWallet::Wallet* wallet, const QString& key, const KI
     QString walletKey = makeWalletKey( key, info.realmValue );
     kDebug(130) << "walletKey =" << walletKey << "  reading existing map";
     if ( wallet->readMap( walletKey, map ) == 0 ) {
-        Map::ConstIterator end = map.end();
-        Map::ConstIterator it = map.find( "login" );
+        Map::ConstIterator end = map.constEnd();
+        Map::ConstIterator it = map.constFind( "login" );
         while ( it != end ) {
             if ( it.value() == info.username ) {
                 break; // OK, overwrite this entry
             }
-            it = map.find( QString( "login-" ) + QString::number( ++entryNumber ) );
+            it = map.constFind( QString( "login-" ) + QString::number( ++entryNumber ) );
         }
         // If no entry was found, create a new entry - entryNumber is set already.
     }
@@ -146,18 +146,18 @@ static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const Q
         {
             typedef QMap<QString,QString> Map;
             int entryNumber = 1;
-            Map::ConstIterator end = map.end();
-            Map::ConstIterator it = map.find( "login" );
+            Map::ConstIterator end = map.constEnd();
+            Map::ConstIterator it = map.constFind( "login" );
             while ( it != end ) {
                 //kDebug(130) << "found " << it.key() << "=" << it.value();
-                Map::ConstIterator pwdIter = map.find( makeMapKey( "password", entryNumber ) );
+                Map::ConstIterator pwdIter = map.constFind( makeMapKey( "password", entryNumber ) );
                 if ( pwdIter != end ) {
                     if ( it.value() == username )
                         password = pwdIter.value();
                     knownLogins.insert( it.value(), pwdIter.value() );
                 }
 
-                it = map.find( QString( "login-" ) + QString::number( ++entryNumber ) );
+                it = map.constFind( QString( "login-" ) + QString::number( ++entryNumber ) );
             }
             //kDebug(130) << knownLogins.count() << " known logins";
 
