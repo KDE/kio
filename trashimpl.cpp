@@ -581,8 +581,8 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
 
     TrashedFileInfoList lst;
     // For each known trash directory...
-    TrashDirMap::const_iterator it = m_trashDirectories.begin();
-    for ( ; it != m_trashDirectories.end() ; ++it ) {
+    TrashDirMap::const_iterator it = m_trashDirectories.constBegin();
+    for ( ; it != m_trashDirectories.constEnd() ; ++it ) {
         const int trashId = it.key();
         QString infoPath = it.value();
         infoPath += "/info";
@@ -592,7 +592,7 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
         //getcwd(path_buffer, PATH_MAX - 1);
         //if ( chdir( infoPathEnc ) )
         //    continue;
-        for ( QStringList::const_iterator entryIt = entryNames.begin(), entryEnd = entryNames.end();
+        for ( QStringList::const_iterator entryIt = entryNames.constBegin(), entryEnd = entryNames.constEnd();
               entryIt != entryEnd ; ++entryIt )
         {
             QString fileName = *entryIt;
@@ -675,8 +675,8 @@ bool TrashImpl::isEmpty() const
     // For each known trash directory...
     if ( !m_trashDirectoriesScanned )
         scanTrashDirectories();
-    TrashDirMap::const_iterator it = m_trashDirectories.begin();
-    for ( ; it != m_trashDirectories.end() ; ++it ) {
+    TrashDirMap::const_iterator it = m_trashDirectories.constBegin();
+    for ( ; it != m_trashDirectories.constEnd() ; ++it ) {
         QString infoPath = it.value();
         infoPath += "/info";
 
@@ -880,8 +880,8 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
 int TrashImpl::idForTrashDirectory( const QString& trashDir ) const
 {
     // If this is too slow we can always use a reverse map...
-    TrashDirMap::ConstIterator it = m_trashDirectories.begin();
-    for ( ; it != m_trashDirectories.end() ; ++it ) {
+    TrashDirMap::ConstIterator it = m_trashDirectories.constBegin();
+    for ( ; it != m_trashDirectories.constEnd() ; ++it ) {
         if ( it.value() == trashDir ) {
             return it.key();
         }
