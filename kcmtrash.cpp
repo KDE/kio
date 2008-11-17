@@ -283,7 +283,7 @@ void TrashConfigModule::setupGui()
     sizeWidgetLayout->setMargin( 11 );
     sizeWidgetLayout->setSpacing( 6 );
 
-    QLabel *label = new QLabel( i18n( "Maximum Size:" ), mSizeWidget );
+    QLabel *label = new QLabel( i18n( "Maximum size:" ), mSizeWidget );
     sizeWidgetLayout->addWidget( label, 0, 0 );
 
     mPercent = new QDoubleSpinBox( mSizeWidget );
@@ -300,9 +300,9 @@ void TrashConfigModule::setupGui()
     sizeWidgetLayout->addWidget( label, 1, 0 );
 
     mLimitReachedAction = new QComboBox( mSizeWidget );
-    mLimitReachedAction->addItem( i18n( "Warn me" ) );
-    mLimitReachedAction->addItem( i18n( "Delete oldest files from trash" ) );
-    mLimitReachedAction->addItem( i18n( "Delete biggest files from trash" ) );
+    mLimitReachedAction->addItem( i18n( "Warn Me" ) );
+    mLimitReachedAction->addItem( i18n( "Delete Oldest Files From Trash" ) );
+    mLimitReachedAction->addItem( i18n( "Delete Biggest Files From Trash" ) );
     sizeWidgetLayout->addWidget( mLimitReachedAction, 1, 1, 1, 2 );
 
     layout->addStretch();
