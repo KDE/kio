@@ -2,6 +2,7 @@
 Type=Service
 Name=KDED Password Module
 Name[af]=KDED Wagwoordmodule
+Name[ar]=وحدة كلمة سر KDED
 Name[be]=Модуль паролю KDED
 Name[be@latin]=Modul parolaŭ KDED
 Name[bg]=KDED - модул за пароли
@@ -67,6 +68,7 @@ Name[zh_CN]=KDED 密码模块
 Name[zh_TW]=KDED 密碼模組
 Comment=Password caching support
 Comment[af]=Wagwoord byderhandhou-ondersteuning
+Comment[ar]=دعم اخفاء كلمة السر
 Comment[be]=Падтрымка захоўвання пароляў
 Comment[be@latin]=Absłuhoŭvańnie zapaminańnia parolaŭ
 Comment[bg]=Кеширане на пароли
