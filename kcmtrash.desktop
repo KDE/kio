@@ -1,6 +1,7 @@
 Name=Trash
 Name[be@latin]=Śmietnica
 Name[ca]=Paperera
+Name[cs]=Koš
 Name[de]=Mülleimer
 Name[el]=Κάδος απορριμάτων
 Name[es]=Papelera
@@ -85,6 +86,7 @@ X-KDE-ParentApp=kcontrol
 Name=Trash
 Name[be@latin]=Śmietnica
 Name[ca]=Paperera
+Name[cs]=Koš
 Name[de]=Mülleimer
 Name[el]=Κάδος απορριμάτων
 Name[es]=Papelera
