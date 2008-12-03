@@ -24,7 +24,7 @@ fileNameUsedForCopying=Name
 #TODO DocPath
 ExtraNames=Original Path,Deletion Date
 ExtraNames[af]=Oorspronklike gids, Uitvee-datum
-ExtraNames[ar]=المسار الاصلي لتاريخ المحذوفات
+ExtraNames[ar]=المسار الأصلي لتاريخ المحذوفات
 ExtraNames[be]=Арыгінальнае месцазнаходжанне,Час выдалення
 ExtraNames[be@latin]=Byłaja ściežka,data vydaleńnia
 ExtraNames[bg]=ExtraNames=Местоположение,Дата на изтриване
