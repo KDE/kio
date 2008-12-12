@@ -194,7 +194,7 @@ void KIOExec::slotRunApp()
 #endif
 
     QString exe( params.takeFirst() );
-    QProcess::execute( exe, params );
+    const int exit_code = QProcess::execute( exe, params );
 
 #ifdef Q_WS_X11
     KStartupInfo::resetStartupEnv();
@@ -236,7 +236,7 @@ void KIOExec::slotRunApp()
             }
         }
 
-        if ( !dest.isLocalFile() || tempfiles ) {
+        if ((!dest.isLocalFile() || tempfiles) && exit_code == 0) {
             // Wait for a reasonable time so that even if the application forks on startup (like OOo or amarok)
             // it will have time to start up and read the file before it gets deleted. #130709.
             kDebug() << "sleeping...";
@@ -247,7 +247,7 @@ void KIOExec::slotRunApp()
     }
 
     mExited = true;
-    QApplication::exit(0);
+    QApplication::exit(exit_code);
 }
 
 int main( int argc, char **argv )
