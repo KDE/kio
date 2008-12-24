@@ -555,7 +555,12 @@ bool TrashImpl::emptyTrash()
     // The naive implementation "delete info and files in every trash directory"
     // breaks when deleted directories contain files owned by other users.
     // We need to ensure that the .trashinfo file is only removed when the
-    // corresponding files could indeed be removed.
+    // corresponding files could indeed be removed (#116371)
+
+    // On the other hand, we certainly want to remove any file that has no associated
+    // .trashinfo file for some reason (#167051)
+
+    QSet<QString> unremoveableFiles;
 
     const TrashedFileInfoList fileInfoList = list();
 
@@ -566,8 +571,31 @@ bool TrashImpl::emptyTrash()
         const QString filesPath = info.physicalPath;
         if ( synchronousDel( filesPath, true, true ) ) {
             QFile::remove( infoPath( info.trashId, info.fileId ) );
-        } // else error code is set
+        } else {
+            // error code is set already
+            // just remember not to remove this file
+            unremoveableFiles.insert(filesPath);
+            kDebug() << "Unremoveable:" << filesPath;
+        }
     }
+
+    // Now do the orphaned-files cleanup
+    TrashDirMap::const_iterator trit = m_trashDirectories.constBegin();
+    for (; trit != m_trashDirectories.constEnd() ; ++trit) {
+        //const int trashId = trit.key();
+        QString filesDir = trit.value();
+        filesDir += "/files";
+        Q_FOREACH(const QString& fileName, listDir(filesDir)) {
+            if (fileName == "." || fileName == "..")
+                continue;
+            const QString filePath = filesDir + '/' + fileName;
+            if (!unremoveableFiles.contains(filePath)) {
+                kWarning() << "Removing orphaned file" << filePath;
+                QFile::remove(filePath);
+            }
+        }
+    }
+
     fileRemoved();
 
     return m_lastErrorCode == 0;
@@ -587,7 +615,7 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
         QString infoPath = it.value();
         infoPath += "/info";
         // Code taken from kio_file
-        QStringList entryNames = listDir( infoPath );
+        const QStringList entryNames = listDir( infoPath );
         //char path_buffer[PATH_MAX];
         //getcwd(path_buffer, PATH_MAX - 1);
         //if ( chdir( infoPathEnc ) )

@@ -1034,6 +1034,13 @@ void TestTrash::emptyTrash()
     // trash would still empty the other trash directories in other partitions.
     // So we can't activate this test by default.
 #if 0
+
+    // To make this test standalone
+    trashFileFromHome();
+
+    // #167051: orphaned files
+    createTestFile( m_trashDir + "/files/testfile_nometadata" );
+
     QByteArray packedArgs;
     QDataStream stream( &packedArgs, QIODevice::WriteOnly );
     stream << (int)1;
@@ -1048,6 +1055,9 @@ void TestTrash::emptyTrash()
     QVERIFY( !QFile::exists( m_trashDir + "/files/fileFromHome" ) );
     QVERIFY( !QFile::exists( m_trashDir + "/files/readonly" ) );
     QVERIFY( !QFile::exists( m_trashDir + "/info/readonly.trashinfo" ) );
+    QVERIFY(QDir(m_trashDir + "/info").entryList(QDir::NoDotAndDotDot|QDir::AllEntries).isEmpty());
+    QVERIFY(QDir(m_trashDir + "/files").entryList(QDir::NoDotAndDotDot|QDir::AllEntries).isEmpty());
+
 #else
     kDebug() << " : SKIPPED";
 #endif
