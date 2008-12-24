@@ -48,9 +48,9 @@
 
 // There are two ways to test encoding things:
 // * with utf8 filenames
-// * with latin1 filenames
+// * with latin1 filenames -- not sure this still works.
 //
-//#define UTF8TEST 1
+#define UTF8TEST 1
 
 
 QString TestTrash::homeTmpDir() const
@@ -113,12 +113,14 @@ static void removeDirRecursive( const QString& dir )
 
 void TestTrash::initTestCase()
 {
+#ifdef UTF8TEST
+    // Assume utf8 system
+    setenv( "LC_ALL", "en_GB.utf-8", 1 );
+    setenv( "KDE_UTF8_FILENAMES", "true", 1 );
+#else
     // Ensure a known QFile::encodeName behavior for trashUtf8FileFromHome
     // However this assume your $HOME doesn't use characters from other locales...
     setenv( "LC_ALL", "en_GB.ISO-8859-1", 1 );
-#ifdef UTF8TEST
-    setenv( "KDE_UTF8_FILENAMES", "true", 1 );
-#else
     unsetenv( "KDE_UTF8_FILENAMES" );
 #endif
 
