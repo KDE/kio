@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
                         ki18n( "ktrash" ),
                         KDE_VERSION_STRING ,
                         ki18n( "Helper program to handle the KDE trash can\n"
-				   "Note: to move files to the trash, do not use ktrash, but \"kfmclient move 'url' trash:/\"" ));
+				   "Note: to move files to the trash, do not use ktrash, but \"kioclient move 'url' trash:/\"" ));
 
     KCmdLineOptions options;
     options.add("empty", ki18n( "Empty the contents of the trash" ));
