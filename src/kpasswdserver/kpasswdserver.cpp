@@ -309,6 +309,41 @@ KPasswdServer::addAuthInfo(const QByteArray &data, qlonglong windowId)
     addAuthInfoItem(key, info, windowId, m_seqNr, false);
 }
 
+void
+KPasswdServer::removeAuthInfo(const QString& host, const QString& protocol, const QString& user)
+{
+    kDebug(130) << "Wanted" << protocol << host << user;
+
+    QHashIterator< QString, AuthInfoContainerList* > dictIterator(m_authDict);
+    while (dictIterator.hasNext()) 
+    {
+        dictIterator.next();
+
+        AuthInfoContainerList *authList = dictIterator.value();
+        if (!authList)
+            continue;
+
+        for(AuthInfoContainer *current = authList->first(); current; )
+        {
+            kDebug(130) << "Evaluating: " << current->info.url.protocol() 
+                     << current->info.url.host() 
+                     << current->info.username;
+            if (current->info.url.protocol() == protocol &&
+               current->info.url.host() == host &&
+               current->info.username == user)
+            {
+                kDebug(130) << "Removing this entry";
+                removeAuthInfoItem(dictIterator.key(), current->info);
+                current = authList->current();
+            }
+            else
+            {
+                current = authList->next();
+            }
+        }
+    }
+}
+
 bool
 KPasswdServer::openWallet( int windowId )
 {

@@ -47,6 +47,7 @@ public Q_SLOTS:
   Q_SCRIPTABLE QByteArray checkAuthInfo(const QByteArray &, qlonglong, qlonglong, const QDBusMessage &);
   Q_SCRIPTABLE QByteArray queryAuthInfo(const QByteArray &, const QString &, qlonglong, qlonglong, qlonglong, const QDBusMessage &);
   Q_SCRIPTABLE void addAuthInfo(const QByteArray &, qlonglong);
+  Q_SCRIPTABLE void removeAuthInfo(const QString& host, const QString& protocol, const QString& user);
 
   void processRequest();
   // Remove all authentication info associated with windowId
