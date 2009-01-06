@@ -178,11 +178,8 @@ QByteArray
 KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong windowId, qlonglong usertime, const QDBusMessage &msg)
 {
     KIO::AuthInfo info;
-    {
-        QByteArray data2(data);
-        QDataStream stream(&data2, QIODevice::ReadOnly);
-        stream >> info;
-    }
+    QDataStream stream(data);
+    stream >> info;
     kDebug(130) << "User =" << info.username << ", WindowId =" << windowId << endl;
     if( usertime != 0 )
         kapp->updateUserTimestamp( usertime );
@@ -243,8 +240,8 @@ KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong windowId, qlonglo
 
     info = copyAuthInfo(result);
     QByteArray data2;
-    QDataStream stream(&data2, QIODevice::WriteOnly);
-    stream << info;
+    QDataStream stream2(&data2, QIODevice::WriteOnly);
+    stream2 << info;
     return data2;
 }
 
@@ -253,11 +250,8 @@ KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &errorMsg, ql
                              qlonglong seqNr, qlonglong usertime, const QDBusMessage &msg)
 {
     KIO::AuthInfo info;
-    {
-        QByteArray data2(data);
-        QDataStream stream(&data2, QIODevice::ReadOnly);
-        stream >> info;
-    }
+    QDataStream stream(data);
+    stream >> info;
     kDebug(130) << "User =" << info.username << ", Message= " << info.prompt
                 << ", WindowId =" << windowId << endl;
     if ( !info.password.isEmpty() ) // should we really allow the caller to pre-fill the password?
@@ -295,11 +289,8 @@ void
 KPasswdServer::addAuthInfo(const QByteArray &data, qlonglong windowId)
 {
     KIO::AuthInfo info;
-    {
-        QByteArray data2(data);
-        QDataStream stream(&data2, QIODevice::ReadOnly);
-        stream >> info;
-    }
+    QDataStream stream(data);
+    stream >> info;
     kDebug(130) << "User =" << info.username << ", RealmValue= " << info.realmValue
                 << ", WindowId = " << windowId << endl;
     QString key = createCacheKey(info);
@@ -366,7 +357,7 @@ KPasswdServer::processRequest()
 
     KIO::AuthInfo &info = request->info;
     bool bypassCacheAndKWallet = info.getExtraField(AUTHINFO_EXTRAFIELD_BYPASS_CACHE_AND_KWALLET).toBool() == true;
-    
+
     kDebug(130) << "User =" << info.username << ", Message =" << info.prompt << endl;
     const AuthInfoContainer *result = findAuthInfoItem(request->key, request->info);
 
@@ -417,7 +408,7 @@ KPasswdServer::processRequest()
 
             // assemble dialog-flags
             KPasswordDialog::KPasswordDialogFlags dialogFlags;
-            
+
             if (info.getExtraField(AUTHINFO_EXTRAFIELD_DOMAIN).isValid())
             {
                 dialogFlags |= KPasswordDialog::ShowDomainLine;
@@ -426,15 +417,15 @@ KPasswdServer::processRequest()
                     dialogFlags |= KPasswordDialog::DomainReadOnly;
                 }
             }
-            
-            if (info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).isValid()) 
+
+            if (info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).isValid())
             {
                 dialogFlags |= KPasswordDialog::ShowAnonymousLoginCheckBox;
             }
-            
-            dialogFlags |= (info.keepPassword ? ( KPasswordDialog::ShowUsernameLine 
+
+            dialogFlags |= (info.keepPassword ? ( KPasswordDialog::ShowUsernameLine
                   |  KPasswordDialog::ShowKeepPassword) : KPasswordDialog::ShowUsernameLine );
-            
+
             // instantiate dialog
             KPasswordDialog dlg( 0l, dialogFlags) ;
             dlg.setPrompt(info.prompt);
@@ -460,11 +451,11 @@ KPasswdServer::processRequest()
 
             if (info.getExtraField(AUTHINFO_EXTRAFIELD_DOMAIN).isValid ())
                 dlg.setDomain(info.getExtraField(AUTHINFO_EXTRAFIELD_DOMAIN).toString());
-            
+
             if (info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).isValid ())
                 dlg.setAnonymousMode(info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).toBool());
 
-#ifndef Q_WS_WIN            
+#ifndef Q_WS_WIN
             KWindowSystem::setMainWindow(&dlg, request->windowId);
 #else
             KWindowSystem::setMainWindow(&dlg, (HWND)(long)request->windowId);
@@ -477,7 +468,7 @@ KPasswdServer::processRequest()
                info.username = dlg.username();
                info.password = dlg.password();
                info.keepPassword = dlg.keepPassword();
-               
+
                if (info.getExtraField(AUTHINFO_EXTRAFIELD_DOMAIN).isValid ())
                    info.setExtraField(AUTHINFO_EXTRAFIELD_DOMAIN, dlg.domain());
                if (info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).isValid ())
@@ -568,7 +559,7 @@ KPasswdServer::processRequest()
                stream2 << info;
            }
 
-           QDBusConnection::sessionBus().send(waitRequest->transaction.createReply());
+           QDBusConnection::sessionBus().send(waitRequest->transaction.createReply(QVariantList() << replyData << m_seqNr));
 
            m_authWait.remove();
            waitRequest = m_authWait.current();
