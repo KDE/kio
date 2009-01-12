@@ -45,6 +45,7 @@
 #include <kfileitem.h>
 #include <kstandarddirs.h>
 #include <kio/chmodjob.h>
+#include <kio/directorysizejob.h>
 
 // There are two ways to test encoding things:
 // * with utf8 filenames
@@ -1061,6 +1062,13 @@ void TestTrash::emptyTrash()
 #else
     kDebug() << " : SKIPPED";
 #endif
+}
+
+void TestTrash::testTrashSize()
+{
+    KIO::DirectorySizeJob* job = KIO::directorySize(KUrl("trash:/"));
+    QVERIFY(job->exec());
+    QVERIFY(job->totalSize() < 1000000000 /*1GB*/); // #157023
 }
 
 static void checkIcon( const KUrl& url, const QString& expectedIcon )

@@ -86,6 +86,7 @@ private Q_SLOTS:
     void restoreFileToDeletedDirectory();
 
     void emptyTrash();
+    void testTrashSize();
 
 protected Q_SLOTS:
     void slotEntries( KIO::Job*, const KIO::UDSEntryList& );
