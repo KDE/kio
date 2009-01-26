@@ -766,8 +766,10 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
         return 0;
 
     KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath( origPath );
-    if (!mp)
+    if (!mp) {
+        kDebug() << "KMountPoint found no mount point for" << origPath;
         return 0;
+    }
     QString mountPoint = mp->mountPoint();
     const QString trashDir = trashForMountPoint( mountPoint, true );
     kDebug() << "mountPoint=" << mountPoint << " trashDir=" << trashDir;
@@ -861,7 +863,7 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
         if ( (S_ISDIR(buff.st_mode)) // must be a dir
              && (!S_ISLNK(buff.st_mode)) // not a symlink
              && ((buff.st_mode & requiredBits) == requiredBits)
-             && (::access(rootTrashDir_c, W_OK))
+             && (::access(rootTrashDir_c, W_OK) == 0) // must be user-writable
             ) {
             const QString trashDir = rootTrashDir + '/' + QString::number( uid );
             const QByteArray trashDir_c = QFile::encodeName( trashDir );
