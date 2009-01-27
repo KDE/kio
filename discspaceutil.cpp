@@ -24,8 +24,6 @@
 
 #include <kdiskfreespaceinfo.h>
 #include <kdebug.h>
-#include <kio/netaccess.h>
-#include <kio/directorysizejob.h>
 
 #include "discspaceutil.h"
 
@@ -38,10 +36,28 @@ DiscSpaceUtil::DiscSpaceUtil( const QString &directory )
 
 qulonglong DiscSpaceUtil::sizeOfPath( const QString &path )
 {
-    KIO::DirectorySizeJob* job = KIO::directorySize( KUrl(path) );
-    job->setUiDelegate( 0 );
-    bool ok = KIO::NetAccess::synchronousRun( job, 0 );
-    return ok?job->totalSize():0;
+    QFileInfo info( path );
+    if ( !info.exists() ) {
+        return 0;
+    }
+
+    if ( info.isFile() ) {
+        return info.size();
+    } else if ( info.isDir() && !info.isSymLink() ) {
+        QDirIterator it( path, QDirIterator::Subdirectories );
+
+        qulonglong sum = 0;
+        while ( it.hasNext() ) {
+            const QFileInfo info = it.next();
+
+            if ( info.fileName() != "." && info.fileName() != ".." )
+                sum += sizeOfPath( info.absoluteFilePath() );
+        }
+
+        return sum;
+    } else {
+        return 0;
+    }
 }
 
 double DiscSpaceUtil::usage( qulonglong additional ) const
