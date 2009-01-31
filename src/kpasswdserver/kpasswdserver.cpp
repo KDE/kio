@@ -321,7 +321,7 @@ KPasswdServer::removeAuthInfo(const QString& host, const QString& protocol, cons
                      << current->info.username;
             if (current->info.url.protocol() == protocol &&
                current->info.url.host() == host &&
-               current->info.username == user)
+               (current->info.username == user || user.isEmpty()))
             {
                 kDebug(130) << "Removing this entry";
                 removeAuthInfoItem(dictIterator.key(), current->info);
