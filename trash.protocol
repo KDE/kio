@@ -31,6 +31,7 @@ ExtraNames[bg]=Местоположение,Дата на изтриване
 ExtraNames[bn]=পূর্বতন পাথ, মোছার তারিখ
 ExtraNames[bn_IN]=মূল অবস্থানের পাথ, অপসারণের তারিখ
 ExtraNames[ca]=Camí original,Data d'esborrat
+ExtraNames[ca@valencia]=Camí original,Data d'esborrat
 ExtraNames[cs]=Původní cesta,Datum smazání
 ExtraNames[csb]=Òriginalnô stegna,Datum remniãcô
 ExtraNames[da]=Original sti, sletningsdato
