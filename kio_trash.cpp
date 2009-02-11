@@ -294,6 +294,7 @@ void TrashProtocol::stat(const KUrl& url)
 
 void TrashProtocol::del( const KUrl &url, bool /*isfile*/ )
 {
+    INIT_IMPL;
     int trashId;
     QString fileId, relativePath;
 
