@@ -134,7 +134,10 @@ void TrashConfigModule::percentChanged( double percent )
         size = size/1024.0;
     }
 
-    mSizeLabel->setText( i18n( "(%1 %2)", QString::number( size, 'f', 2 ), unit ) );
+    mSizeLabel->setText( 
+    ki18nc( "%1 is amount of disk space, %2 the unit, KBytes, MBytes, GBytes, TBytes, etc.", "(%1 %2)" )
+    .subs( size, -1, 'f', 2 ).subs( unit ).toString() 
+    );
 }
 
 void TrashConfigModule::trashChanged( QListWidgetItem *item )
