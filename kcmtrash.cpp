@@ -70,7 +70,7 @@ TrashConfigModule::TrashConfigModule( QWidget* parent, const QVariantList& )
              this, SLOT( percentChanged( double ) ) );
     connect( mPercent, SIGNAL( valueChanged( double ) ),
              this, SLOT( changed() ) );
-    connect( mLimitReachedAction, SIGNAL( activated( int ) ),
+    connect( mLimitReachedAction, SIGNAL( currentIndexChanged( int ) ),
              this, SLOT( changed() ) );
 
     trashChanged( 0 );
