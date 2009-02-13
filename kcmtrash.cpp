@@ -262,17 +262,26 @@ void TrashConfigModule::setupGui()
     layout->addLayout( daysLayout );
 
     mUseTimeLimit = new QCheckBox( i18n( "Delete files older than:" ), this );
+    mUseTimeLimit->setWhatsThis( i18nc( "@info:whatsthis",
+                                     "<para>Check this box to allow <b>automatic deletion</b> of files that are older than the value specified. "
+                                     "Leave this disabled to <b>not</b> automatically delete any items after a certain timespan</para>" ) );
     daysLayout->addWidget( mUseTimeLimit );
     mDays = new QSpinBox( this );
     mDays->setRange( 1, 365 );
     mDays->setSingleStep( 1 );
     mDays->setSuffix( " days" );
+    mDays->setWhatsThis( i18nc( "@info:whatsthis",
+                                     "<para>Set the amount of days that files can remain in the trash. "
+                                     "Any files older than this will be automatically deleted.</para>" ) );
     daysLayout->addWidget( mDays );
 
     QGridLayout *sizeLayout = new QGridLayout();
     layout->addLayout( sizeLayout );
 
     mUseSizeLimit = new QCheckBox( i18n( "Limit to maximum size" ), this );
+    mUseSizeLimit->setWhatsThis( i18nc( "@info:whatsthis",
+                                     "<para>Check this box to limit the trash to the maximum amount of disk space that you specify below. "
+                                     "Otherwise, it will be unlimited.</para>" ) );
     sizeLayout->addWidget( mUseSizeLimit, 0, 0, 1, 2 );
 
     mSizeWidget = new QWidget( this );
@@ -291,9 +300,13 @@ void TrashConfigModule::setupGui()
     mPercent->setDecimals( 3 );
     mPercent->setSingleStep( 1 );
     mPercent->setSuffix( " %" );
+    mPercent->setWhatsThis( i18nc( "@info:whatsthis",
+                                     "<para>This is the maximum percent of disk space that will be used for the trash.</para>" ) );
     sizeWidgetLayout->addWidget( mPercent, 0, 1 );
 
     mSizeLabel = new QLabel( mSizeWidget );
+    mSizeLabel->setWhatsThis( i18nc( "@info:whatsthis",
+                                     "<para>This is the calculated amount of disk space that will be allowed for the trash, the maximum.</para>" ) );
     sizeWidgetLayout->addWidget( mSizeLabel, 0, 2 );
 
     label = new QLabel( i18n( "When limit reached:" ), mSizeWidget );
@@ -303,6 +316,9 @@ void TrashConfigModule::setupGui()
     mLimitReachedAction->addItem( i18n( "Warn Me" ) );
     mLimitReachedAction->addItem( i18n( "Delete Oldest Files From Trash" ) );
     mLimitReachedAction->addItem( i18n( "Delete Biggest Files From Trash" ) );
+    mLimitReachedAction->setWhatsThis( i18nc( "@info:whatsthis",
+                                              "<para>When the size limit is reached, it will prefer to delete the type of files that you specify, first. "
+                                              "If this is set to warn you, it will do so instead of automatically deleting files.</para>" ) );
     sizeWidgetLayout->addWidget( mLimitReachedAction, 1, 1, 1, 2 );
 
     layout->addStretch();
