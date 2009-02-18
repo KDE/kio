@@ -68,17 +68,17 @@ InputStream* TrashThroughAnalyzer::connectInputStream(InputStream* in) {
     }
     KUrl url(path.c_str());
 
-    if ( url.protocol()=="system"
-      && url.path().startsWith("/trash") )
+    if ( url.protocol()==QLatin1String("system")
+      && url.path().startsWith(QLatin1String("/trash")) )
     {
         QString path = url.path();
         path.remove(0, 6);
-        url.setProtocol("trash");
+        url.setProtocol(QString::fromLatin1("trash"));
         url.setPath(path);
     }
-    
+
     //kDebug() << info.url();
-    if ( url.protocol() != "trash" )
+    if (url.protocol() != QLatin1String("trash"))
         return in;
 
     int trashId;

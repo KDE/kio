@@ -50,7 +50,7 @@ qulonglong DiscSpaceUtil::sizeOfPath( const QString &path )
         while ( it.hasNext() ) {
             const QFileInfo info = it.next();
 
-            if ( info.fileName() != "." && info.fileName() != ".." )
+            if (info.fileName() != QLatin1String(".") && info.fileName() != QLatin1String(".."))
                 sum += sizeOfPath( info.absoluteFilePath() );
         }
 

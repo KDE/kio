@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
         (void)KIO::NetAccess::synchronousRun( job, 0 );
 
         // Update konq windows opened on trash:/
-        org::kde::KDirNotify::emitFilesAdded( "trash:/" ); // yeah, files were removed, but we don't know which ones...
+        org::kde::KDirNotify::emitFilesAdded(QString::fromLatin1("trash:/")); // yeah, files were removed, but we don't know which ones...
         return 0;
     }
 
@@ -73,13 +73,13 @@ int main(int argc, char *argv[])
     QString restoreArg = args->getOption( "restore" );
     if ( !restoreArg.isEmpty() ) {
 
-        if (restoreArg.indexOf("system:/trash")==0) {
+        if (restoreArg.indexOf(QLatin1String("system:/trash"))==0) {
             restoreArg.remove(0, 13);
-            restoreArg.prepend("trash:");
+            restoreArg.prepend(QString::fromLatin1("trash:"));
         }
 
         KUrl trashURL( restoreArg );
-        if ( !trashURL.isValid() || trashURL.protocol() != "trash" ) {
+        if ( !trashURL.isValid() || trashURL.protocol() != QLatin1String("trash") ) {
             kError() << "Invalid URL for restoring a trashed file:" << trashURL << endl;
             return 1;
         }

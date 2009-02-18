@@ -56,28 +56,28 @@
 
 QString TestTrash::homeTmpDir() const
 {
-    return QDir::homePath() + "/.kde/testtrash/";
+    return QDir::homePath() + QString::fromLatin1("/.kde/testtrash/");
 }
 
 QString TestTrash::readOnlyDirPath() const
 {
-    return homeTmpDir() + QString( "readonly" );
+    return homeTmpDir() + QString::fromLatin1("readonly");
 }
 
 QString TestTrash::otherTmpDir() const
 {
     // This one needs to be on another partition
-    return "/tmp/testtrash/";
+    return QString::fromLatin1("/tmp/testtrash/");
 }
 
 QString TestTrash::utf8FileName() const
 {
-    return QString( "test" ) + QChar( 0x2153 ); // "1/3" character, not part of latin1
+    return QString::fromLatin1( "test" ) + QChar( 0x2153 ); // "1/3" character, not part of latin1
 }
 
 QString TestTrash::umlautFileName() const
 {
-    return QString( "umlaut" ) + QChar( 0xEB );
+    return QString::fromLatin1( "umlaut" ) + QChar( 0xEB );
 }
 
 static void removeFile( const QString& trashDir, const QString& fileName )
@@ -100,7 +100,7 @@ static void removeDirRecursive( const QString& dir )
 
         // Make it work even with readonly dirs, like trashReadOnlyDirFromHome() creates
         KUrl u = KUrl::fromPath( dir );
-        KFileItem fileItem( u, "inode/directory", KFileItem::Unknown );
+        KFileItem fileItem(u, QString::fromLatin1("inode/directory"), KFileItem::Unknown);
         KFileItemList fileItemList;
         fileItemList.append( fileItem );
         KIO::ChmodJob* chmodJob = KIO::chmod( fileItemList, 0200, 0200, QString(), QString(), true /*recursive*/, KIO::HideProgressInfo );
@@ -128,7 +128,7 @@ void TestTrash::initTestCase()
     setenv( "KDE_FORK_SLAVES", "yes", true );
 
 
-    m_trashDir = KGlobal::dirs()->localxdgdatadir() + "Trash";
+    m_trashDir = KGlobal::dirs()->localxdgdatadir() + QString::fromLatin1("Trash");
     kDebug() << "setup: using trash directory " << m_trashDir;
 
     // Look for another writable partition than $HOME (not mandatory)
@@ -152,17 +152,17 @@ void TestTrash::initTestCase()
             const QString topdir = topDirs[it.key()];
             if ( QFileInfo( topdir ).isWritable() ) {
                 writableTopDirs.append( it.key() );
-                if ( topdir == "/tmp/" ) {
+                if (topdir == QLatin1String("/tmp/")) {
                     m_tmpIsWritablePartition = true;
                     m_tmpTrashId = it.key();
                     kDebug() << "/tmp is on its own partition (trashid=" << m_tmpTrashId << "), some tests will be skipped";
-                    removeFile( it.value(), "/info/fileFromOther.trashinfo" );
-                    removeFile( it.value(), "/files/fileFromOther" );
-                    removeFile( it.value(), "/info/symlinkFromOther.trashinfo" );
-                    removeFile( it.value(), "/files/symlinkFromOther" );
-                    removeFile( it.value(), "/info/trashDirFromOther.trashinfo" );
-                    removeFile( it.value(), "/files/trashDirFromOther/testfile" );
-                    removeDir( it.value(), "/files/trashDirFromOther" );
+                    removeFile( it.value(), QString::fromLatin1("/info/fileFromOther.trashinfo") );
+                    removeFile( it.value(), QString::fromLatin1("/files/fileFromOther") );
+                    removeFile( it.value(), QString::fromLatin1("/info/symlinkFromOther.trashinfo") );
+                    removeFile( it.value(), QString::fromLatin1("/files/symlinkFromOther") );
+                    removeFile( it.value(), QString::fromLatin1("/info/trashDirFromOther.trashinfo") );
+                    removeFile( it.value(), QString::fromLatin1("/files/trashDirFromOther/testfile") );
+                    removeDir( it.value(), QString::fromLatin1("/files/trashDirFromOther") );
                 }
             }
         }
@@ -172,8 +172,8 @@ void TestTrash::initTestCase()
         const QString trashdir = trashDirs[ *it ];
         QVERIFY( !topdir.isEmpty() );
         QVERIFY( !trashDirs.isEmpty() );
-        if ( topdir != "/tmp/" ||         // we'd prefer not to use /tmp here, to separate the tests
-               ( writableTopDirs.count() > 1 ) ) // but well, if we have no choice, take it
+        if (topdir != QLatin1String("/tmp/") ||         // we'd prefer not to use /tmp here, to separate the tests
+            (writableTopDirs.count() > 1)) // but well, if we have no choice, take it
         {
             m_otherPartitionTopDir = topdir;
             m_otherPartitionTrashDir = trashdir;
@@ -206,8 +206,8 @@ void TestTrash::initTestCase()
 
 void TestTrash::urlTestFile()
 {
-    const KUrl url = TrashImpl::makeURL( 1, "fileId", QString() );
-    QCOMPARE( url.url(), QString( "trash:/1-fileId" ) );
+    const KUrl url = TrashImpl::makeURL(1, QString::fromLatin1("fileId"), QString());
+    QCOMPARE( url.url(), QString::fromLatin1("trash:/1-fileId"));
 
     int trashId;
     QString fileId;
@@ -221,7 +221,7 @@ void TestTrash::urlTestFile()
 
 void TestTrash::urlTestDirectory()
 {
-    const KUrl url = TrashImpl::makeURL( 1, "fileId", "subfile" );
+    const KUrl url = TrashImpl::makeURL( 1, QString::fromLatin1("fileId"), QString::fromLatin1("subfile") );
     QCOMPARE( url.url(), QString::fromLatin1( "trash:/1-fileId/subfile" ) );
 
     int trashId;
@@ -236,8 +236,8 @@ void TestTrash::urlTestDirectory()
 
 void TestTrash::urlTestSubDirectory()
 {
-    const KUrl url = TrashImpl::makeURL( 1, "fileId", "subfile/foobar" );
-    QCOMPARE( url.url(), QString::fromLatin1( "trash:/1-fileId/subfile/foobar" ) );
+    const KUrl url = TrashImpl::makeURL(1, QString::fromLatin1("fileId"), QString::fromLatin1("subfile/foobar"));
+    QCOMPARE(url.url(), QString::fromLatin1("trash:/1-fileId/subfile/foobar"));
 
     int trashId;
     QString fileId;
@@ -260,16 +260,16 @@ static void checkInfoFile( const QString& infoPath, const QString& origFilePath 
     if ( !group.exists() )
         kFatal() << "no Trash Info group in " << info.absoluteFilePath() ;
     const QString origPath = group.readEntry( "Path" );
-    QVERIFY( !origPath.isEmpty() );
-    QVERIFY( origPath == QUrl::toPercentEncoding( origFilePath, "/" ) );
-    if (origFilePath.contains(QChar(0x2153)) || origFilePath.contains('%') || origFilePath.contains("umlaut")) {
-        QVERIFY(origPath.contains('%'));
+    QVERIFY(!origPath.isEmpty());
+    QVERIFY(origPath == QString::fromLatin1(QUrl::toPercentEncoding(origFilePath, "/")));
+    if (origFilePath.contains(QChar(0x2153)) || origFilePath.contains(QLatin1Char('%')) || origFilePath.contains(QString::fromLatin1("umlaut"))) {
+        QVERIFY(origPath.contains(QLatin1Char('%')));
     } else {
-        QVERIFY(!origPath.contains('%'));
+        QVERIFY(!origPath.contains(QLatin1Char('%')));
     }
     const QString date = group.readEntry( "DeletionDate" );
-    QVERIFY( !date.isEmpty() );
-    QVERIFY( date.contains( "T" ) );
+    QVERIFY(!date.isEmpty());
+    QVERIFY(date.contains(QString::fromLatin1("T")));
 }
 
 static void createTestFile( const QString& path )
@@ -297,12 +297,12 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
     if ( !ok )
         kError() << "moving " << u << " to trash failed with error " << KIO::NetAccess::lastError() << " " << KIO::NetAccess::lastErrorString() << endl;
     QVERIFY( ok );
-    if ( origFilePath.startsWith( "/tmp" ) && m_tmpIsWritablePartition ) {
+    if (origFilePath.startsWith(QLatin1String("/tmp")) && m_tmpIsWritablePartition) {
         kDebug() << " TESTS SKIPPED";
     } else {
-        checkInfoFile( m_trashDir + "/info/" + fileId + ".trashinfo", origFilePath );
+        checkInfoFile(m_trashDir + QString::fromLatin1("/info/") + fileId + QString::fromLatin1(".trashinfo"), origFilePath);
 
-        QFileInfo files( m_trashDir + "/files/" + fileId );
+        QFileInfo files(m_trashDir + QString::fromLatin1("/files/") + fileId);
         QVERIFY( files.isFile() );
         QVERIFY( files.size() == 12 );
     }
@@ -314,16 +314,16 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
     bool found = false;
     QMap<QString, QString>::ConstIterator it = metaData.begin();
     for ( ; it != metaData.end() ; ++it ) {
-        if ( it.key().startsWith( "trashURL" ) ) {
+        if (it.key().startsWith(QLatin1String("trashURL"))) {
             const QString origPath = it.key().mid( 9 );
             KUrl trashURL( it.value() );
             kDebug() << trashURL;
-            QVERIFY( !trashURL.isEmpty() );
-            QVERIFY( trashURL.protocol() == "trash" );
+            QVERIFY(!trashURL.isEmpty());
+            QVERIFY(trashURL.protocol() == QLatin1String("trash"));
             int trashId = 0;
-            if ( origFilePath.startsWith( "/tmp" ) && m_tmpIsWritablePartition )
+            if (origFilePath.startsWith(QLatin1String("/tmp")) && m_tmpIsWritablePartition)
                 trashId = m_tmpTrashId;
-            QVERIFY( trashURL.path() == "/" + QString::number( trashId ) + '-' + fileId );
+            QCOMPARE(trashURL.path(), QString::fromLatin1("/") + QString::number(trashId) + QLatin1Char('-') + fileId);
             found = true;
         }
     }
@@ -332,16 +332,16 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
 
 void TestTrash::trashFileFromHome()
 {
-    const QString fileName = "fileFromHome";
+    const QString fileName = QString::fromLatin1("fileFromHome");
     trashFile( homeTmpDir() + fileName, fileName );
 
     // Do it again, check that we got a different id
-    trashFile( homeTmpDir() + fileName, fileName + "_1" );
+    trashFile(homeTmpDir() + fileName, fileName + QString::fromLatin1("_1"));
 }
 
 void TestTrash::trashPercentFileFromHome()
 {
-    const QString fileName = "file%2f";
+    const QString fileName = QString::fromLatin1("file%2f");
     trashFile( homeTmpDir() + fileName, fileName );
 }
 
@@ -361,7 +361,7 @@ void TestTrash::trashUmlautFileFromHome()
 
 void TestTrash::testTrashNotEmpty()
 {
-    KConfig cfg( "trashrc", KConfig::SimpleConfig );
+    KConfig cfg(QString::fromLatin1("trashrc"), KConfig::SimpleConfig);
     const KConfigGroup group = cfg.group( "Status" );
     QVERIFY( group.exists() );
     QVERIFY( group.readEntry( "Empty", true ) == false );
@@ -369,7 +369,7 @@ void TestTrash::testTrashNotEmpty()
 
 void TestTrash::trashFileFromOther()
 {
-    const QString fileName = "fileFromOther";
+    const QString fileName = QString::fromLatin1("fileFromOther");
     trashFile( otherTmpDir() + fileName, fileName );
 }
 
@@ -379,12 +379,12 @@ void TestTrash::trashFileIntoOtherPartition()
         kDebug() << " - SKIPPED";
         return;
     }
-    const QString fileName = "testtrash-file";
+    const QString fileName = QString::fromLatin1("testtrash-file");
     const QString origFilePath = m_otherPartitionTopDir + fileName;
     const QString fileId = fileName;
     // cleanup
-    QFile::remove( m_otherPartitionTrashDir + "/info/" + fileId + ".trashinfo" );
-    QFile::remove( m_otherPartitionTrashDir + "/files/" + fileId );
+    QFile::remove(m_otherPartitionTrashDir + QString::fromLatin1("/info/") + fileId + QString::fromLatin1(".trashinfo"));
+    QFile::remove(m_otherPartitionTrashDir + QString::fromLatin1("/files/") + fileId);
 
     // setup
     if ( !QFile::exists( origFilePath ) )
@@ -398,9 +398,9 @@ void TestTrash::trashFileIntoOtherPartition()
     bool ok = KIO::NetAccess::synchronousRun( job, 0, 0, 0, &metaData );
     QVERIFY( ok );
     // Note that the Path stored in the info file is relative, on other partitions (#95652)
-    checkInfoFile( m_otherPartitionTrashDir + "/info/" + fileId + ".trashinfo", fileName );
+    checkInfoFile(m_otherPartitionTrashDir + QString::fromLatin1("/info/") + fileId + QString::fromLatin1(".trashinfo"), fileName);
 
-    QFileInfo files( m_otherPartitionTrashDir + "/files/" + fileId );
+    QFileInfo files(m_otherPartitionTrashDir + QString::fromLatin1("/files/") + fileId);
     QVERIFY( files.isFile() );
     QVERIFY( files.size() == 12 );
 
@@ -411,13 +411,13 @@ void TestTrash::trashFileIntoOtherPartition()
     bool found = false;
     QMap<QString, QString>::ConstIterator it = metaData.begin();
     for ( ; it != metaData.end() ; ++it ) {
-        if ( it.key().startsWith( "trashURL" ) ) {
+        if (it.key().startsWith( QLatin1String("trashURL"))) {
             const QString origPath = it.key().mid( 9 );
             KUrl trashURL( it.value() );
             kDebug() << trashURL;
             QVERIFY( !trashURL.isEmpty() );
-            QVERIFY( trashURL.protocol() == "trash" );
-            QVERIFY( trashURL.path() == QString( "/%1-%2" ).arg( m_otherPartitionId ).arg( fileId ) );
+            QVERIFY(trashURL.protocol() == QLatin1String("trash"));
+            QVERIFY(trashURL.path() == QString::fromLatin1("/%1-%2").arg( m_otherPartitionId ).arg(fileId));
             found = true;
         }
     }
@@ -427,7 +427,7 @@ void TestTrash::trashFileIntoOtherPartition()
 void TestTrash::trashFileOwnedByRoot()
 {
     KUrl u( "/etc/passwd" );
-    const QString fileId = "passwd";
+    const QString fileId = QString::fromLatin1("passwd");
 
     KIO::CopyJob* job = KIO::move( u, KUrl("trash:/"), KIO::HideProgressInfo );
     job->setUiDelegate(0); // no skip dialog, thanks
@@ -435,10 +435,10 @@ void TestTrash::trashFileOwnedByRoot()
     bool ok = KIO::NetAccess::synchronousRun( job, 0, 0, 0, &metaData );
     QVERIFY( !ok );
     QVERIFY( KIO::NetAccess::lastError() == KIO::ERR_ACCESS_DENIED );
-    const QString infoPath( m_trashDir + "/info/" + fileId + ".trashinfo" );
+    const QString infoPath(m_trashDir + QString::fromLatin1("/info/") + fileId + QString::fromLatin1(".trashinfo"));
     QVERIFY( !QFile::exists( infoPath ) );
 
-    QFileInfo files( m_trashDir + "/files/" + fileId );
+    QFileInfo files(m_trashDir + QString::fromLatin1("/files/") + fileId);
     QVERIFY( !files.exists() );
 
     QVERIFY( QFile::exists( u.path() ) );
@@ -457,13 +457,13 @@ void TestTrash::trashSymlink( const QString& origFilePath, const QString& fileId
     KIO::Job* job = KIO::move( u, KUrl("trash:/"), KIO::HideProgressInfo );
     ok = job->exec();
     QVERIFY( ok );
-    if ( origFilePath.startsWith( "/tmp" ) && m_tmpIsWritablePartition ) {
+    if (origFilePath.startsWith(QLatin1String("/tmp")) && m_tmpIsWritablePartition) {
         kDebug() << " TESTS SKIPPED";
         return;
     }
-    checkInfoFile( m_trashDir + "/info/" + fileId + ".trashinfo", origFilePath );
+    checkInfoFile(m_trashDir + QString::fromLatin1("/info/") + fileId + QString::fromLatin1(".trashinfo"), origFilePath);
 
-    QFileInfo files( m_trashDir + "/files/" + fileId );
+    QFileInfo files(m_trashDir + QString::fromLatin1("/files/") + fileId);
     QVERIFY( files.isSymLink() );
     QVERIFY( files.readLink() == QFile::decodeName( target ) );
     QVERIFY( !QFile::exists( origFilePath ) );
@@ -471,19 +471,19 @@ void TestTrash::trashSymlink( const QString& origFilePath, const QString& fileId
 
 void TestTrash::trashSymlinkFromHome()
 {
-    const QString fileName = "symlinkFromHome";
+    const QString fileName = QString::fromLatin1("symlinkFromHome");
     trashSymlink( homeTmpDir() + fileName, fileName, false );
 }
 
 void TestTrash::trashSymlinkFromOther()
 {
-    const QString fileName = "symlinkFromOther";
+    const QString fileName = QString::fromLatin1("symlinkFromOther");
     trashSymlink( otherTmpDir() + fileName, fileName, false );
 }
 
 void TestTrash::trashBrokenSymlinkFromHome()
 {
-    const QString fileName = "brokenSymlinkFromHome";
+    const QString fileName = QString::fromLatin1("brokenSymlinkFromHome");
     trashSymlink( homeTmpDir() + fileName, fileName, true );
 }
 
@@ -496,21 +496,21 @@ void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )
         bool ok = dir.mkdir( origPath );
         QVERIFY( ok );
     }
-    createTestFile( origPath + "/testfile" );
+    createTestFile(origPath + QString::fromLatin1("/testfile"));
     KUrl u; u.setPath( origPath );
 
     // test
     KIO::Job* job = KIO::move( u, KUrl("trash:/"), KIO::HideProgressInfo );
     QVERIFY( job->exec() );
-    if ( origPath.startsWith( "/tmp" ) && m_tmpIsWritablePartition ) {
+    if (origPath.startsWith(QLatin1String("/tmp")) && m_tmpIsWritablePartition) {
         kDebug() << " TESTS SKIPPED";
         return;
     }
-    checkInfoFile( m_trashDir + "/info/" + fileId + ".trashinfo", origPath );
+    checkInfoFile(m_trashDir + QString::fromLatin1("/info/") + fileId + QString::fromLatin1(".trashinfo"), origPath);
 
-    QFileInfo filesDir( m_trashDir + "/files/" + fileId );
+    QFileInfo filesDir(m_trashDir + QString::fromLatin1("/files/") + fileId);
     QVERIFY( filesDir.isDir() );
-    QFileInfo files( m_trashDir + "/files/" + fileId + "/testfile" );
+    QFileInfo files(m_trashDir + QString::fromLatin1("/files/") + fileId + QString::fromLatin1("/testfile"));
     QVERIFY( files.exists() );
     QVERIFY( files.isFile() );
     QVERIFY( files.size() == 12 );
@@ -519,10 +519,10 @@ void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )
 
 void TestTrash::trashDirectoryFromHome()
 {
-    QString dirName = "trashDirFromHome";
+    QString dirName = QString::fromLatin1("trashDirFromHome");
     trashDirectory( homeTmpDir() + dirName, dirName );
     // Do it again, check that we got a different id
-    trashDirectory( homeTmpDir() + dirName, dirName + "_1" );
+    trashDirectory(homeTmpDir() + dirName, dirName + QString::fromLatin1("_1"));
 }
 
 void TestTrash::trashReadOnlyDirFromHome()
@@ -532,18 +532,18 @@ void TestTrash::trashReadOnlyDirFromHome()
     bool ok = dir.mkdir( dirName );
     QVERIFY( ok );
     // #130780
-    const QString subDirPath = dirName + "/readonly_subdir";
+    const QString subDirPath = dirName + QString::fromLatin1("/readonly_subdir");
     ok = dir.mkdir( subDirPath );
     QVERIFY( ok );
-    createTestFile( subDirPath + "/testfile_in_subdir" );
+    createTestFile(subDirPath + QString::fromLatin1("/testfile_in_subdir"));
     ::chmod( QFile::encodeName( subDirPath ), 0500 );
 
-    trashDirectory( dirName, "readonly" );
+    trashDirectory(dirName, QString::fromLatin1("readonly"));
 }
 
 void TestTrash::trashDirectoryFromOther()
 {
-    QString dirName = "trashDirFromOther";
+    QString dirName = QString::fromLatin1("trashDirFromOther");
     trashDirectory( otherTmpDir() + dirName, dirName );
 }
 
@@ -569,13 +569,13 @@ void TestTrash::delRootFile()
     bool ok = KIO::NetAccess::synchronousRun(delJob, 0);
     QVERIFY( ok );
 
-    QFileInfo file( m_trashDir + "/files/fileFromHome" );
+    QFileInfo file( m_trashDir + QString::fromLatin1("/files/fileFromHome") );
     QVERIFY( !file.exists() );
-    QFileInfo info( m_trashDir + "/info/fileFromHome.trashinfo" );
+    QFileInfo info( m_trashDir + QString::fromLatin1("/info/fileFromHome.trashinfo") );
     QVERIFY( !info.exists() );
 
     // trash it again, we might need it later
-    const QString fileName = "fileFromHome";
+    const QString fileName = QString::fromLatin1("fileFromHome");
     trashFile( homeTmpDir() + fileName, fileName );
 }
 
@@ -587,11 +587,11 @@ void TestTrash::delFileInDirectory()
     QVERIFY( !ok );
     QVERIFY( KIO::NetAccess::lastError() == KIO::ERR_ACCESS_DENIED );
 
-    QFileInfo dir( m_trashDir + "/files/trashDirFromHome" );
+    QFileInfo dir( m_trashDir + QString::fromLatin1("/files/trashDirFromHome") );
     QVERIFY( dir.exists() );
-    QFileInfo file( m_trashDir + "/files/trashDirFromHome/testfile" );
+    QFileInfo file( m_trashDir + QString::fromLatin1("/files/trashDirFromHome/testfile") );
     QVERIFY( file.exists() );
-    QFileInfo info( m_trashDir + "/info/trashDirFromHome.trashinfo" );
+    QFileInfo info( m_trashDir + QString::fromLatin1("/info/trashDirFromHome.trashinfo") );
     QVERIFY( info.exists() );
 }
 
@@ -602,15 +602,15 @@ void TestTrash::delDirectory()
     bool ok = KIO::NetAccess::synchronousRun(delJob, 0);
     QVERIFY( ok );
 
-    QFileInfo dir( m_trashDir + "/files/trashDirFromHome" );
+    QFileInfo dir( m_trashDir + QString::fromLatin1("/files/trashDirFromHome") );
     QVERIFY( !dir.exists() );
-    QFileInfo file( m_trashDir + "/files/trashDirFromHome/testfile" );
+    QFileInfo file( m_trashDir + QString::fromLatin1("/files/trashDirFromHome/testfile") );
     QVERIFY( !file.exists() );
-    QFileInfo info( m_trashDir + "/info/trashDirFromHome.trashinfo" );
+    QFileInfo info( m_trashDir + QString::fromLatin1("/info/trashDirFromHome.trashinfo") );
     QVERIFY( !info.exists() );
 
     // trash it again, we'll need it later
-    QString dirName = "trashDirFromHome";
+    QString dirName = QString::fromLatin1("trashDirFromHome");
     trashDirectory( homeTmpDir() + dirName, dirName );
 }
 
@@ -641,7 +641,7 @@ void TestTrash::statRoot()
     QVERIFY( item.isReadable() );
     QVERIFY( item.isWritable() );
     QVERIFY( !item.isHidden() );
-    QVERIFY( item.name() == "." );
+    QCOMPARE(item.name(), QString::fromLatin1("."));
 }
 
 void TestTrash::statFileInRoot()
@@ -657,7 +657,7 @@ void TestTrash::statFileInRoot()
     QVERIFY( item.isReadable() );
     QVERIFY( !item.isWritable() );
     QVERIFY( !item.isHidden() );
-    QVERIFY( item.text() == "fileFromHome" );
+    QCOMPARE(item.text(), QString::fromLatin1("fileFromHome"));
 }
 
 void TestTrash::statDirectoryInRoot()
@@ -672,7 +672,7 @@ void TestTrash::statDirectoryInRoot()
     QVERIFY( item.isReadable() );
     QVERIFY( !item.isWritable() );
     QVERIFY( !item.isHidden() );
-    QVERIFY( item.text() == "trashDirFromHome" );
+    QCOMPARE(item.text(), QString::fromLatin1("trashDirFromHome"));
 }
 
 void TestTrash::statSymlinkInRoot()
@@ -683,11 +683,11 @@ void TestTrash::statSymlinkInRoot()
     QVERIFY( ok );
     KFileItem item( entry, url );
     QVERIFY( item.isLink() );
-    QVERIFY( item.linkDest() == "/tmp" );
+    QCOMPARE(item.linkDest(), QString::fromLatin1("/tmp"));
     QVERIFY( item.isReadable() );
     QVERIFY( !item.isWritable() );
     QVERIFY( !item.isHidden() );
-    QVERIFY( item.text() == "symlinkFromHome" );
+    QCOMPARE(item.text(), QString::fromLatin1("symlinkFromHome"));
 }
 
 void TestTrash::statFileInDirectory()
@@ -702,12 +702,12 @@ void TestTrash::statFileInDirectory()
     QVERIFY( item.isReadable() );
     QVERIFY( !item.isWritable() );
     QVERIFY( !item.isHidden() );
-    QVERIFY( item.text() == "testfile" );
+    QCOMPARE(item.text(), QString::fromLatin1("testfile"));
 }
 
 void TestTrash::copyFromTrash( const QString& fileId, const QString& destPath, const QString& relativePath )
 {
-    KUrl src( "trash:/0-" + fileId );
+    KUrl src(QString::fromLatin1("trash:/0-") + fileId);
     if ( !relativePath.isEmpty() )
         src.addPath( relativePath );
     KUrl dest;
@@ -720,10 +720,10 @@ void TestTrash::copyFromTrash( const QString& fileId, const QString& destPath, c
     KIO::Job* job = KIO::copyAs( src, dest, KIO::HideProgressInfo );
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
     QVERIFY( ok );
-    QString infoFile( m_trashDir + "/info/" + fileId + ".trashinfo" );
+    QString infoFile( m_trashDir + QString::fromLatin1("/info/") + fileId + QString::fromLatin1(".trashinfo") );
     QVERIFY( QFile::exists(infoFile) );
 
-    QFileInfo filesItem( m_trashDir + "/files/" + fileId );
+    QFileInfo filesItem( m_trashDir + QString::fromLatin1("/files/") + fileId );
     QVERIFY( filesItem.exists() );
 
     QVERIFY( QFile::exists(destPath) );
@@ -734,7 +734,7 @@ void TestTrash::copyFileFromTrash()
 // To test case of already-existing destination, uncomment this.
 // This brings up the "rename" dialog though, so it can't be fully automated
 #if 0
-    const QString destPath = otherTmpDir() + "fileFromHome_copied";
+    const QString destPath = otherTmpDir() + QString::fromLatin1("fileFromHome_copied");
     copyFromTrash( "fileFromHome", destPath );
     QVERIFY( QFileInfo( destPath ).isFile() );
     QVERIFY( QFileInfo( destPath ).size() == 12 );
@@ -743,29 +743,29 @@ void TestTrash::copyFileFromTrash()
 
 void TestTrash::copyFileInDirectoryFromTrash()
 {
-    const QString destPath = otherTmpDir() + "testfile_copied";
-    copyFromTrash( "trashDirFromHome", destPath, "testfile" );
+    const QString destPath = otherTmpDir() + QString::fromLatin1("testfile_copied");
+    copyFromTrash(QString::fromLatin1("trashDirFromHome"), destPath, QString::fromLatin1("testfile"));
     QVERIFY( QFileInfo( destPath ).isFile() );
     QVERIFY( QFileInfo( destPath ).size() == 12 );
 }
 
 void TestTrash::copyDirectoryFromTrash()
 {
-    const QString destPath = otherTmpDir() + "trashDirFromHome_copied";
-    copyFromTrash( "trashDirFromHome", destPath );
+    const QString destPath = otherTmpDir() + QString::fromLatin1("trashDirFromHome_copied");
+    copyFromTrash(QString::fromLatin1("trashDirFromHome"), destPath);
     QVERIFY( QFileInfo( destPath ).isDir() );
 }
 
 void TestTrash::copySymlinkFromTrash()
 {
-    const QString destPath = otherTmpDir() + "symlinkFromHome_copied";
-    copyFromTrash( "symlinkFromHome", destPath );
+    const QString destPath = otherTmpDir() + QString::fromLatin1("symlinkFromHome_copied");
+    copyFromTrash(QString::fromLatin1("symlinkFromHome"), destPath);
     QVERIFY( QFileInfo( destPath ).isSymLink() );
 }
 
 void TestTrash::moveFromTrash( const QString& fileId, const QString& destPath, const QString& relativePath )
 {
-    KUrl src( "trash:/0-" + fileId );
+    KUrl src( QString::fromLatin1("trash:/0-") + fileId );
     if ( !relativePath.isEmpty() )
         src.addPath( relativePath );
     KUrl dest;

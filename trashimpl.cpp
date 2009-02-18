@@ -17,6 +17,8 @@
    Boston, MA 02110-1301, USA.
 */
 
+#define QT_NO_CAST_FROM_ASCII
+
 #include "trashimpl.h"
 #include "discspaceutil.h"
 
@@ -65,7 +67,7 @@ TrashImpl::TrashImpl() :
     m_trashDirectoriesScanned( false ),
     // not using kio_trashrc since KIO uses that one already for kio_trash
     // so better have a separate one, for faster parsing by e.g. kmimetype.cpp
-    m_config( "trashrc" )
+    m_config(QString::fromLatin1("trashrc"))
 {
     KDE_struct_stat buff;
     if ( KDE_lstat( QFile::encodeName( QDir::homePath() ), &buff ) == 0 ) {
@@ -87,7 +89,7 @@ int TrashImpl::testDir( const QString &_name ) const
   if ( dp == NULL )
   {
     QString name = _name;
-    if ( name.endsWith( '/' ) )
+    if (name.endsWith(QLatin1Char('/')))
       name.truncate( name.length() - 1 );
     QByteArray path = QFile::encodeName(name);
 
@@ -114,10 +116,10 @@ int TrashImpl::testDir( const QString &_name ) const
     if ( !ok )
     {
         //KMessageBox::sorry( 0, i18n( "Could not create directory %1. Check for permissions." ).arg( name ) );
-        kWarning() << "could not create " << name ;
+        kWarning() << "could not create" << name ;
         return KIO::ERR_COULD_NOT_MKDIR;
     } else {
-        kDebug() << name << " created.";
+        kDebug() << name << "created.";
     }
   }
   else // exists already
@@ -144,18 +146,18 @@ bool TrashImpl::init()
         return false;
     }
 
-    const QString trashDir = xdgDataDir + "Trash";
+    const QString trashDir = xdgDataDir + QString::fromLatin1("Trash");
     int err;
     if ( ( err = testDir( trashDir ) ) ) {
         error( err, trashDir );
         return false;
     }
-    if ( ( err = testDir( trashDir + "/info" ) ) ) {
-        error( err, trashDir + "/info" );
+    if ( ( err = testDir( trashDir + QString::fromLatin1("/info") ) ) ) {
+        error( err, trashDir + QString::fromLatin1("/info") );
         return false;
     }
-    if ( ( err = testDir( trashDir + "/files" ) ) ) {
-        error( err, trashDir + "/files" );
+    if ( ( err = testDir( trashDir + QString::fromLatin1("/files") ) ) ) {
+        error( err, trashDir + QString::fromLatin1("/files") );
         return false;
     }
     m_trashDirectories.insert( 0, trashDir );
@@ -180,7 +182,7 @@ void TrashImpl::migrateOldTrash()
           entryIt != entryEnd ; ++entryIt )
     {
         QString srcPath = *entryIt;
-        if ( srcPath == "." || srcPath == ".." || srcPath == ".directory" )
+        if ( srcPath == QLatin1String(".") || srcPath == QLatin1String("..") || srcPath == QLatin1String(".directory") )
             continue;
         srcPath.prepend( oldTrashDir ); // make absolute
         int trashId;
@@ -261,7 +263,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     } while ( fd < 0 );
     const QString infoPath = url.path();
     fileId = url.fileName();
-    Q_ASSERT( fileId.endsWith( ".trashinfo" ) );
+    Q_ASSERT( fileId.endsWith( QLatin1String(".trashinfo") ) );
     fileId.truncate( fileId.length() - 10 ); // remove .trashinfo from fileId
 
     FILE* file = ::fdopen( fd, "w" );
@@ -306,7 +308,7 @@ QString TrashImpl::makeRelativePath( const QString& topdir, const QString& path 
     // topdir ends with '/'
     if ( realPath.startsWith( topdir ) ) {
         const QString rel = realPath.mid( topdir.length() );
-        Q_ASSERT( rel[0] != '/' );
+        Q_ASSERT( rel[0] != QLatin1Char('/') );
         return rel;
     } else { // shouldn't happen...
         kWarning() << "Couldn't make relative path for " << realPath << " (" << path << "), with topdir=" << topdir ;
@@ -325,16 +327,16 @@ void TrashImpl::enterLoop()
 QString TrashImpl::infoPath( int trashId, const QString& fileId ) const
 {
     QString trashPath = trashDirectoryPath( trashId );
-    trashPath += "/info/";
+    trashPath += QString::fromLatin1("/info/");
     trashPath += fileId;
-    trashPath += ".trashinfo";
+    trashPath += QString::fromLatin1(".trashinfo");
     return trashPath;
 }
 
 QString TrashImpl::filesPath( int trashId, const QString& fileId ) const
 {
     QString trashPath = trashDirectoryPath( trashId );
-    trashPath += "/files/";
+    trashPath += QString::fromLatin1("/files/");
     trashPath += fileId;
     return trashPath;
 }
@@ -371,7 +373,7 @@ bool TrashImpl::moveFromTrash( const QString& dest, int trashId, const QString& 
 {
     QString src = filesPath( trashId, fileId );
     if ( !relativePath.isEmpty() ) {
-        src += '/';
+        src += QLatin1Char('/');
         src += relativePath;
     }
     if ( !move( src, dest ) )
@@ -427,7 +429,7 @@ bool TrashImpl::copyFromTrash( const QString& dest, int trashId, const QString& 
 {
     QString src = filesPath( trashId, fileId );
     if ( !relativePath.isEmpty() ) {
-        src += '/';
+        src += QLatin1Char('/');
         src += relativePath;
     }
     return copy( src, dest );
@@ -528,7 +530,7 @@ bool TrashImpl::synchronousDel( const QString& path, bool setLastErrorCode, bool
     // otherwise we won't be able to delete files in them (#130780).
     if ( isDir ) {
         kDebug() << "chmod'ing " << url;
-        KFileItem fileItem( url, "inode/directory", KFileItem::Unknown );
+        KFileItem fileItem( url, QString::fromLatin1("inode/directory"), KFileItem::Unknown );
         KFileItemList fileItemList;
         fileItemList.append( fileItem );
         KIO::ChmodJob* chmodJob = KIO::chmod( fileItemList, 0200, 0200, QString(), QString(), true /*recursive*/, KIO::HideProgressInfo );
@@ -584,11 +586,11 @@ bool TrashImpl::emptyTrash()
     for (; trit != m_trashDirectories.constEnd() ; ++trit) {
         //const int trashId = trit.key();
         QString filesDir = trit.value();
-        filesDir += "/files";
+        filesDir += QString::fromLatin1("/files");
         Q_FOREACH(const QString& fileName, listDir(filesDir)) {
-            if (fileName == "." || fileName == "..")
+            if (fileName == QString::fromLatin1(".") || fileName == QString::fromLatin1(".."))
                 continue;
-            const QString filePath = filesDir + '/' + fileName;
+            const QString filePath = filesDir + QLatin1Char('/') + fileName;
             if (!unremoveableFiles.contains(filePath)) {
                 kWarning() << "Removing orphaned file" << filePath;
                 QFile::remove(filePath);
@@ -613,7 +615,7 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
     for ( ; it != m_trashDirectories.constEnd() ; ++it ) {
         const int trashId = it.key();
         QString infoPath = it.value();
-        infoPath += "/info";
+        infoPath += QString::fromLatin1("/info");
         // Code taken from kio_file
         const QStringList entryNames = listDir( infoPath );
         //char path_buffer[PATH_MAX];
@@ -624,9 +626,9 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
               entryIt != entryEnd ; ++entryIt )
         {
             QString fileName = *entryIt;
-            if ( fileName == "." || fileName == ".." )
+            if ( fileName == QLatin1String(".") || fileName == QLatin1String("..") )
                 continue;
-            if ( !fileName.endsWith( ".trashinfo" ) ) {
+            if ( !fileName.endsWith( QLatin1String(".trashinfo") ) ) {
                 kWarning() << "Invalid info file found in " << infoPath << " : " << fileName ;
                 continue;
             }
@@ -668,7 +670,7 @@ bool TrashImpl::readInfoFile( const QString& infoPath, TrashedFileInfo& info, in
     if ( info.origPath.isEmpty() )
         return false; // path is mandatory...
     if ( trashId == 0 ) {
-        Q_ASSERT( info.origPath[0] == '/' );
+        Q_ASSERT( info.origPath[0] == QLatin1Char('/') );
     } else {
         const QString topdir = topDirectoryPath( trashId ); // includes trailing slash
         info.origPath.prepend( topdir );
@@ -684,7 +686,7 @@ QString TrashImpl::physicalPath( int trashId, const QString& fileId, const QStri
 {
     QString filePath = filesPath( trashId, fileId );
     if ( !relativePath.isEmpty() ) {
-        filePath += '/';
+        filePath += QLatin1Char('/');
         filePath += relativePath;
     }
     return filePath;
@@ -706,7 +708,7 @@ bool TrashImpl::isEmpty() const
     TrashDirMap::const_iterator it = m_trashDirectories.constBegin();
     for ( ; it != m_trashDirectories.constEnd() ; ++it ) {
         QString infoPath = it.value();
-        infoPath += "/info";
+        infoPath += QString::fromLatin1("/info");
 
         DIR *dp = opendir( QFile::encodeName( infoPath ) );
         if ( dp )
@@ -792,7 +794,7 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
     return m_lastId;
 #endif
 
-    const QString query = "[StorageAccess.accessible == true AND StorageAccess.filePath == '"+mountPoint+"']";
+    const QString query = QString::fromLatin1("[StorageAccess.accessible == true AND StorageAccess.filePath == '")+mountPoint+QString::fromLatin1("']");
     //kDebug() << "doing solid query:" << query;
     const QList<Solid::Device> lst = Solid::Device::listFromQuery(query);
     //kDebug() << "got" << lst.count() << "devices";
@@ -805,8 +807,8 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
     id = idForDevice( device );
     m_trashDirectories.insert( id, trashDir );
     kDebug() << "found" << trashDir << "gave it id" << id;
-    if ( !mountPoint.endsWith( '/' ) )
-        mountPoint += '/';
+    if (!mountPoint.endsWith(QLatin1Char('/')))
+        mountPoint += QLatin1Char('/');
     m_topDirectories.insert( id, mountPoint );
 
     return idForTrashDirectory( trashDir );
@@ -814,7 +816,7 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
 
 void TrashImpl::scanTrashDirectories() const
 {
-    const QList<Solid::Device> lst = Solid::Device::listFromQuery("StorageAccess.accessible == true");
+    const QList<Solid::Device> lst = Solid::Device::listFromQuery(QString::fromLatin1("StorageAccess.accessible == true"));
     for ( QList<Solid::Device>::ConstIterator it = lst.begin() ; it != lst.end() ; ++it ) {
         QString topdir = (*it).as<Solid::StorageAccess>()->filePath();
         QString trashDir = trashForMountPoint( topdir, false );
@@ -826,8 +828,8 @@ void TrashImpl::scanTrashDirectories() const
                 trashId = idForDevice( *it );
                 m_trashDirectories.insert( trashId, trashDir );
                 kDebug() << "found " << trashDir << " gave it id " << trashId;
-                if ( !topdir.endsWith( '/' ) )
-                    topdir += '/';
+                if (!topdir.endsWith(QLatin1Char('/')))
+                    topdir += QLatin1Char('/');
                 m_topDirectories.insert( trashId, topdir );
             }
         }
@@ -853,7 +855,7 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
 {
     // (1) Administrator-created $topdir/.Trash directory
 
-    const QString rootTrashDir = topdir + "/.Trash";
+    const QString rootTrashDir = topdir + QString::fromLatin1("/.Trash");
     const QByteArray rootTrashDir_c = QFile::encodeName( rootTrashDir );
     // Can't use QFileInfo here since we need to test for the sticky bit
     uid_t uid = getuid();
@@ -865,7 +867,7 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
              && ((buff.st_mode & requiredBits) == requiredBits)
              && (::access(rootTrashDir_c, W_OK) == 0) // must be user-writable
             ) {
-            const QString trashDir = rootTrashDir + '/' + QString::number( uid );
+            const QString trashDir = rootTrashDir + QLatin1Char('/') + QString::number( uid );
             const QByteArray trashDir_c = QFile::encodeName( trashDir );
             if ( KDE_lstat( trashDir_c, &buff ) == 0 ) {
                 if ( (buff.st_uid == uid) // must be owned by user
@@ -885,7 +887,7 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
     }
 
     // (2) $topdir/.Trash-$uid
-    const QString trashDir = topdir + "/.Trash-" + QString::number( uid );
+    const QString trashDir = topdir + QString::fromLatin1("/.Trash-") + QString::number( uid );
     const QByteArray trashDir_c = QFile::encodeName( trashDir );
     if ( KDE_lstat( trashDir_c, &buff ) == 0 )
     {
@@ -953,10 +955,10 @@ bool TrashImpl::checkTrashSubdirs( const QByteArray& trashDir_c ) const
 {
     // testDir currently works with a QString - ## optimize
     QString trashDir = QFile::decodeName( trashDir_c );
-    const QString info = trashDir + "/info";
+    const QString info = trashDir + QString::fromLatin1("/info");
     if ( testDir( info ) != 0 )
         return false;
-    const QString files = trashDir + "/files";
+    const QString files = trashDir + QString::fromLatin1("/files");
     if ( testDir( files ) != 0 )
         return false;
     return true;
@@ -986,13 +988,13 @@ QString TrashImpl::topDirectoryPath( int trashId ) const
 KUrl TrashImpl::makeURL( int trashId, const QString& fileId, const QString& relativePath )
 {
     KUrl url;
-    url.setProtocol( "trash" );
-    QString path = "/";
+    url.setProtocol(QString::fromLatin1("trash"));
+    QString path = QString::fromLatin1("/");
     path += QString::number( trashId );
-    path += '-';
+    path += QLatin1Char('-');
     path += fileId;
     if ( !relativePath.isEmpty() ) {
-        path += '/';
+        path += QLatin1Char('/');
         path += relativePath;
     }
     url.setPath( path );
@@ -1003,13 +1005,13 @@ KUrl TrashImpl::makeURL( int trashId, const QString& fileId, const QString& rela
 // The trash:/ URL itself isn't parsed here, must be caught by the caller before hand.
 bool TrashImpl::parseURL( const KUrl& url, int& trashId, QString& fileId, QString& relativePath )
 {
-    if ( url.protocol() != "trash" )
+    if (url.protocol() != QLatin1String("trash"))
         return false;
     const QString path = url.path();
     int start = 0;
-    if ( path[0] == '/' ) // always true I hope
+    if ( path[0] == QLatin1Char('/') ) // always true I hope
         start = 1;
-    int slashPos = path.indexOf( '-', 0 ); // don't match leading slash
+    int slashPos = path.indexOf(QLatin1Char('-'), 0); // don't match leading slash
     if ( slashPos <= 0 )
         return false;
     bool ok = false;
@@ -1018,7 +1020,7 @@ bool TrashImpl::parseURL( const KUrl& url, int& trashId, QString& fileId, QStrin
     if ( !ok )
         return false;
     start = slashPos + 1;
-    slashPos = path.indexOf( '/', start );
+    slashPos = path.indexOf(QLatin1Char('/'), start);
     if ( slashPos <= 0 ) {
         fileId = path.mid( start );
         relativePath.clear();
@@ -1031,7 +1033,7 @@ bool TrashImpl::parseURL( const KUrl& url, int& trashId, QString& fileId, QStrin
 
 bool TrashImpl::adaptTrashSize( const QString& origPath, int trashId )
 {
-    KConfig config( "ktrashrc" );
+    KConfig config(QString::fromLatin1("ktrashrc"));
 
     const QString trashPath = trashDirectoryPath( trashId );
     KConfigGroup group = config.group( trashPath );
@@ -1063,7 +1065,7 @@ bool TrashImpl::adaptTrashSize( const QString& origPath, int trashId )
         // calculate size of the files to be put into the trash
         qulonglong additionalSize = DiscSpaceUtil::sizeOfPath( origPath );
 
-        DiscSpaceUtil util( trashPath + "/files/" );
+        DiscSpaceUtil util(trashPath + QString::fromLatin1("/files/"));
         if ( util.usage( additionalSize ) >= percent ) {
             if ( actionType == 0 ) { // warn the user only
                 m_lastErrorCode = KIO::ERR_SLAVE_DEFINED;
@@ -1085,7 +1087,7 @@ bool TrashImpl::adaptTrashSize( const QString& origPath, int trashId )
                 // the size of the to be trashed file is ok, so lets start removing
                 // some other files from the trash
 
-                QDir dir( trashPath + "/files" );
+                QDir dir(trashPath + QString::fromLatin1("/files"));
                 QFileInfoList infos;
                 if ( actionType == 1 )  // delete oldest files first
                     infos = dir.entryInfoList( QDir::Files | QDir::AllDirs | QDir::NoDotAndDotDot, QDir::Time | QDir::Reversed );
