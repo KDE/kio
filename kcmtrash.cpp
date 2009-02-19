@@ -32,6 +32,7 @@
 
 #include <kconfig.h>
 #include <kconfiggroup.h>
+#include <kdialog.h>
 #include <kglobal.h>
 #include <kicon.h>
 #include <klocale.h>
@@ -134,9 +135,9 @@ void TrashConfigModule::percentChanged( double percent )
         size = size/1024.0;
     }
 
-    mSizeLabel->setText( 
+    mSizeLabel->setText(
     ki18nc( "%1 is amount of disk space, %2 the unit, KBytes, MBytes, GBytes, TBytes, etc.", "(%1 %2)" )
-    .subs( size, -1, 'f', 2 ).subs( unit ).toString() 
+    .subs( size, -1, 'f', 2 ).subs( unit ).toString()
     );
 }
 
@@ -233,8 +234,8 @@ void TrashConfigModule::writeConfig()
 void TrashConfigModule::setupGui()
 {
     QVBoxLayout *layout = new QVBoxLayout( this );
-    layout->setMargin( 11 );
-    layout->setSpacing( 6 );
+    layout->setMargin( KDialog::marginHint() );
+    layout->setSpacing( KDialog::spacingHint() );
 
     TrashImpl::TrashDirMap map = mTrashImpl->trashDirectories();
     if ( map.count() != 1 ) {
@@ -288,15 +289,14 @@ void TrashConfigModule::setupGui()
     sizeLayout->addWidget( mUseSizeLimit, 0, 0, 1, 2 );
 
     mSizeWidget = new QWidget( this );
-    sizeLayout->setColumnMinimumWidth( 0, 30 );
     sizeLayout->addWidget( mSizeWidget, 1, 1 );
 
     QGridLayout *sizeWidgetLayout = new QGridLayout( mSizeWidget );
-    sizeWidgetLayout->setMargin( 11 );
-    sizeWidgetLayout->setSpacing( 6 );
+    sizeWidgetLayout->setMargin( 0 );
+    sizeWidgetLayout->setSpacing( KDialog::spacingHint() );
 
     QLabel *label = new QLabel( i18n( "Maximum size:" ), mSizeWidget );
-    sizeWidgetLayout->addWidget( label, 0, 0 );
+    sizeWidgetLayout->addWidget( label, 0, 0, Qt::AlignRight );
 
     mPercent = new QDoubleSpinBox( mSizeWidget );
     mPercent->setRange( 0.001, 100 );
@@ -313,7 +313,7 @@ void TrashConfigModule::setupGui()
     sizeWidgetLayout->addWidget( mSizeLabel, 0, 2 );
 
     label = new QLabel( i18n( "When limit reached:" ), mSizeWidget );
-    sizeWidgetLayout->addWidget( label, 1, 0 );
+    sizeWidgetLayout->addWidget( label, 1, 0, Qt::AlignRight );
 
     mLimitReachedAction = new QComboBox( mSizeWidget );
     mLimitReachedAction->addItem( i18n( "Warn Me" ) );
