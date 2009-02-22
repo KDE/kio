@@ -165,12 +165,14 @@ void TrashConfigModule::trashChanged( int value )
         const ConfigEntry entry = mConfigMap[ mCurrentTrash ];
         mUseTimeLimit->setChecked( entry.useTimeLimit );
         mDays->setValue( entry.days );
+        updateSpinBoxSuffix( entry.days );
         mUseSizeLimit->setChecked( entry.useSizeLimit );
         mPercent->setValue( entry.percent );
         mLimitReachedAction->setCurrentIndex( entry.actionType );
     } else {
         mUseTimeLimit->setChecked( false );
         mDays->setValue( 7 );
+        updateSpinBoxSuffix( 7 );
         mUseSizeLimit->setChecked( true );
         mPercent->setValue( 10.0 );
         mLimitReachedAction->setCurrentIndex( 0 );
@@ -271,9 +273,11 @@ void TrashConfigModule::setupGui()
                                      "Leave this disabled to <b>not</b> automatically delete any items after a certain timespan</para>" ) );
     daysLayout->addWidget( mUseTimeLimit );
     mDays = new QSpinBox( this );
+    connect( mDays, SIGNAL( valueChanged( int ) ), this, SLOT( updateSpinBoxSuffix( int ) ) );
+    
     mDays->setRange( 1, 365 );
     mDays->setSingleStep( 1 );
-    mDays->setSuffix( " days" );
+    mDays->setSuffix( QString(" ") + i18np("day", "days", mDays->value()) );
     mDays->setWhatsThis( i18nc( "@info:whatsthis",
                                      "<para>Set the amount of days that files can remain in the trash. "
                                      "Any files older than this will be automatically deleted.</para>" ) );
@@ -325,6 +329,11 @@ void TrashConfigModule::setupGui()
     sizeWidgetLayout->addWidget( mLimitReachedAction, 1, 1, 1, 2 );
 
     layout->addStretch();
+}
+
+void TrashConfigModule::updateSpinBoxSuffix( int interval )
+{
+    mDays->setSuffix( QString(" ") + i18np( "day", "days", interval ) );
 }
 
 #include "kcmtrash.moc"

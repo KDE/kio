@@ -49,6 +49,7 @@ class TrashConfigModule : public KCModule
         void percentChanged( double );
         void trashChanged( QListWidgetItem* );
         void trashChanged( int );
+        void updateSpinBoxSuffix( int interval );
         void useTypeChanged();
 
     private:
