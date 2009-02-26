@@ -279,7 +279,7 @@ void TrashConfigModule::setupGui()
     mDays->setSingleStep( 1 );
     mDays->setSuffix( QString(" ") + i18np("day", "days", mDays->value()) );
     mDays->setWhatsThis( i18nc( "@info:whatsthis",
-                                     "<para>Set the amount of days that files can remain in the trash. "
+                                     "<para>Set the number of days that files can remain in the trash. "
                                      "Any files older than this will be automatically deleted.</para>" ) );
     daysLayout->addWidget( mDays );
 
