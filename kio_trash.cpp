@@ -156,7 +156,7 @@ void TrashProtocol::copyOrMove( const KUrl &src, const KUrl &dest, bool overwrit
             error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", src.prettyUrl() ) );
             return;
         }
-        const QString destPath = dest.toLocalFile();
+        const QString destPath = dest.path();
         if ( QFile::exists( destPath ) ) {
             if ( overwrite ) {
                 ok = QFile::remove( destPath );
@@ -190,7 +190,7 @@ void TrashProtocol::copyOrMove( const KUrl &src, const KUrl &dest, bool overwrit
         // e.g. if kwrite tries to save (moving tempfile over destination)
         if ( dir.length() <= 1 && src.fileName() == dest.fileName() ) // new toplevel entry
         {
-            const QString srcPath = src.toLocalFile();
+            const QString srcPath = src.path();
             // In theory we should use TrashImpl::parseURL to give the right filename to createInfo,
             // in case the trash URL didn't contain the same filename as srcPath.
             // But this can only happen with copyAs/moveAs, not available in the GUI
@@ -244,7 +244,7 @@ void TrashProtocol::createTopLevelDirEntry(KIO::UDSEntry& entry)
 void TrashProtocol::stat(const KUrl& url)
 {
     INIT_IMPL;
-    const QString path = url.toLocalFile();
+    const QString path = url.path();
     if (path.isEmpty() || path == QLatin1String("/")) {
         // The root is "virtual" - it's not a single physical directory
         KIO::UDSEntry entry;
@@ -278,7 +278,7 @@ void TrashProtocol::stat(const KUrl& url)
         QString fileName = filePath.section(QLatin1Char('/'), -1, -1, QString::SectionSkipEmpty);
 
         KUrl fileURL;
-        if ( url.toLocalFile().length() > 1 ) {
+        if ( url.path().length() > 1 ) {
             fileURL = url;
         }
 
@@ -328,7 +328,7 @@ void TrashProtocol::listDir(const KUrl& url)
 {
     INIT_IMPL;
     kDebug() << "listdir: " << url;
-    if ( url.toLocalFile(KUrl::AddTrailingSlash) == QLatin1String("/") ) {
+    if ( url.path(KUrl::AddTrailingSlash) == QLatin1String("/") ) {
         listRoot();
         return;
     }
@@ -506,7 +506,7 @@ void TrashProtocol::get( const KUrl& url )
         error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", url.url() ) );
         return;
     }
-    if ( url.toLocalFile().length() <= 1 ) {
+    if ( url.path().length() <= 1 ) {
         error( KIO::ERR_IS_DIRECTORY, url.prettyUrl() );
         return;
     }
@@ -572,7 +572,7 @@ void TrashProtocol::mkdir( const KUrl& url, int /*permissions*/ )
         // ## we should use TrashImpl::parseURL to give the right filename to createInfo
         int trashId;
         QString fileId;
-        if ( !impl.createInfo( url.toLocalFile(), trashId, fileId ) ) {
+        if ( !impl.createInfo( url.path(), trashId, fileId ) ) {
             error( impl.lastErrorCode(), impl.lastErrorMessage() );
         } else {
             if ( !impl.mkdir( trashId, fileId, permissions ) ) {
