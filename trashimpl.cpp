@@ -249,19 +249,19 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     // Here we need to use O_EXCL to avoid race conditions with other kioslave processes
     int fd = 0;
     do {
-        kDebug() << "trying to create " << url.path() ;
-        fd = KDE_open( QFile::encodeName( url.path() ), O_WRONLY | O_CREAT | O_EXCL, 0600 );
+        kDebug() << "trying to create " << url.toLocalFile() ;
+        fd = KDE_open( QFile::encodeName( url.toLocalFile() ), O_WRONLY | O_CREAT | O_EXCL, 0600 );
         if ( fd < 0 ) {
             if ( errno == EEXIST ) {
                 url.setFileName( KIO::RenameDialog::suggestName( baseDirectory, url.fileName() ) );
                 // and try again on the next iteration
             } else {
-                error( KIO::ERR_COULD_NOT_WRITE, url.path() );
+                error( KIO::ERR_COULD_NOT_WRITE, url.toLocalFile() );
                 return false;
             }
         }
     } while ( fd < 0 );
-    const QString infoPath = url.path();
+    const QString infoPath = url.toLocalFile();
     fileId = url.fileName();
     Q_ASSERT( fileId.endsWith( QLatin1String(".trashinfo") ) );
     fileId.truncate( fileId.length() - 10 ); // remove .trashinfo from fileId
@@ -1007,7 +1007,7 @@ bool TrashImpl::parseURL( const KUrl& url, int& trashId, QString& fileId, QStrin
 {
     if (url.protocol() != QLatin1String("trash"))
         return false;
-    const QString path = url.path();
+    const QString path = url.toLocalFile();
     int start = 0;
     if ( path[0] == QLatin1Char('/') ) // always true I hope
         start = 1;
