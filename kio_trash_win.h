@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2004 David Faure <faure@kde.org>
+   Copyright (C) 2009 Christian Ehrlicher <ch.ehrlicher@gmx.de>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -55,9 +55,8 @@ private:
     void restore( const KUrl& trashURL, const KUrl &destURL );
 
     bool doFileOp(const KUrl &url, UINT wFunc, FILEOP_FLAGS fFlags);
-    bool translateError(int retValue);
-    LPITEMIDLIST  m_iilTrash;
-    IShellFolder *m_isfDesktop;
+    bool translateError(HRESULT retValue);
+    IShellFolder2 *m_isfTrashFolder;
     LPMALLOC m_pMalloc;
 };
 
