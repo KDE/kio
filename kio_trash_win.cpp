@@ -1,4 +1,5 @@
 /* This file is part of the KDE project
+   Copyright (C) 2004 David Faure <faure@kde.org>
    Copyright (C) 2009 Christian Ehrlicher <ch.ehrlicher@gmx.de>
 
    This library is free software; you can redistribute it and/or
@@ -24,28 +25,18 @@
 #include <kio/job.h>
 
 #include <kdebug.h>
-#include <klocale.h>
-#include <kde_file.h>
 #include <kcomponentdata.h>
-#include <kmimetype.h>
 
 #include <QCoreApplication>
 #include <QDateTime>
-#include <QEventLoop>
-
-#include <time.h>
-#include <pwd.h>
-#include <grp.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <stdlib.h>
 #include <objbase.h>
 
 extern "C" {
     int KDE_EXPORT kdemain( int argc, char **argv )
     {
+        CoInitializeEx (NULL, COINIT_MULTITHREADED);
         // necessary to use other kio slaves
-        KComponentData componentData("kio_trash" );
+        KComponentData componentData( "kio_trash" );
         QCoreApplication app(argc, argv);
 
         // start the slave
@@ -67,13 +58,12 @@ static inline time_t filetimeToTime_t(const FILETIME *time)
   return i64.QuadPart;
 }
 
-TrashProtocol::TrashProtocol( const QByteArray& protocol, const QByteArray &pool, const QByteArray &app)
-    : SlaveBase(protocol, pool, app )
+TrashProtocol::TrashProtocol( const QByteArray& protocol, const QByteArray &pool, const QByteArray &app )
+    : SlaveBase( protocol, pool, app )
 {
     LPITEMIDLIST  iilTrash;
     IShellFolder *isfDesktop;
 
-    OleInitialize (NULL);
     // we assume that this will always work - if not we've a bigger problem than a kio_trash crash...
     SHGetFolderLocation( NULL, CSIDL_BITBUCKET, 0, 0, &iilTrash );
     SHGetDesktopFolder( &isfDesktop );
@@ -150,6 +140,11 @@ void TrashProtocol::restore( const KUrl& trashURL, const KUrl &destURL )
     ILFree( pidl );
 }
 
+void TrashProtocol::clearTrash()
+{
+    translateError( SHEmptyRecycleBin( 0, 0, 0 ) );
+}
+
 void TrashProtocol::rename( const KUrl &oldURL, const KUrl &newURL, KIO::JobFlags flags )
 {
     kDebug()<<"TrashProtocol::rename(): old="<<oldURL<<" new="<<newURL<<" overwrite=" << (flags & KIO::Overwrite);
@@ -200,7 +195,16 @@ void TrashProtocol::stat(const KUrl& url)
     KIO::UDSEntry entry;
     if( url.path() == QLatin1String("/") ) {
         STRRET strret;
-        m_isfDesktop->GetDisplayNameOf( m_iilTrash, SHGDN_NORMAL, &strret );
+        IShellFolder *isfDesktop;
+        LPITEMIDLIST  iilTrash;
+
+        SHGetFolderLocation( NULL, CSIDL_BITBUCKET, 0, 0, &iilTrash );
+        SHGetDesktopFolder( &isfDesktop );
+        isfDesktop->BindToObject( iilTrash, NULL, IID_IShellFolder2, (void**)&m_isfTrashFolder );
+        isfDesktop->GetDisplayNameOf( iilTrash, SHGDN_NORMAL, &strret );
+        isfDesktop->Release();
+        ILFree( iilTrash );
+
         entry.insert( KIO::UDSEntry::UDS_NAME,
                       QString::fromUtf16( (const unsigned short*) strret.pOleStr ) );
         entry.insert( KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR );
@@ -290,7 +294,7 @@ void TrashProtocol::special( const QByteArray & data )
     switch (cmd) {
     case 1:
         // empty trash folder
-//            error( impl.lastErrorCode(), impl.lastErrorMessage() );
+        clearTrash();
         break;
     case 2:
         // convert old trash folder (non-windows only)

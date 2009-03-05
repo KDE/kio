@@ -1,4 +1,5 @@
 /* This file is part of the KDE project
+   Copyright (C) 2004 David Faure <faure@kde.org>
    Copyright (C) 2009 Christian Ehrlicher <ch.ehrlicher@gmx.de>
 
    This library is free software; you can redistribute it and/or
@@ -53,6 +54,7 @@ private:
     void copyOrMove( const KUrl& src, const KUrl& dest, bool overwrite, CopyOrMove action );
     void listRoot();
     void restore( const KUrl& trashURL, const KUrl &destURL );
+    void clearTrash();
 
     bool doFileOp(const KUrl &url, UINT wFunc, FILEOP_FLAGS fFlags);
     bool translateError(HRESULT retValue);
