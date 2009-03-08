@@ -19,7 +19,6 @@
 */
 
 #define QT_NO_CAST_FROM_ASCII
-#define _WIN32_WINNT 0x0500
 
 #include "kio_trash_win.h"
 #include <kio/job.h>
@@ -128,7 +127,7 @@ void TrashProtocol::restore( const KUrl& trashURL, const KUrl &destURL )
         cmi.lpVerb       = MAKEINTRESOURCEA(uiCommand);
         cmi.lpVerb       = "undelete";
         cmi.nShow        = 0;
-        cmi.fMask        = CMIC_MASK_FLAG_NO_UI| CMIC_MASK_ASYNCOK;
+        cmi.fMask        = CMIC_MASK_FLAG_NO_UI;
         res = pCtxMenu->InvokeCommand((CMINVOKECOMMANDINFO*)&cmi);
 
         bOk = translateError( res );

@@ -14,6 +14,7 @@ set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp
 
 if(WIN32)
   set(kio_trash_PART_SRCS kio_trash_win.cpp kio_trash_win.h)
+  add_definitions(-D_WIN32_WINNT=0x0500 -D_WIN32_IE=0x0500)
 else(WIN32)
   set(kio_trash_PART_SRCS kio_trash.cpp ${trashcommon_PART_SRCS})
 endif(WIN32)
