@@ -25,6 +25,7 @@
 
 #include <kdebug.h>
 #include <kcomponentdata.h>
+#include <kconfiggroup.h>
 
 #include <QCoreApplication>
 #include <QDateTime>
@@ -33,7 +34,7 @@
 extern "C" {
     int KDE_EXPORT kdemain( int argc, char **argv )
     {
-        CoInitializeEx (NULL, COINIT_MULTITHREADED);
+        bool bNeedsUninit = ( CoInitializeEx( NULL, COINIT_MULTITHREADED ) == S_OK );
         // necessary to use other kio slaves
         KComponentData componentData( "kio_trash" );
         QCoreApplication app(argc, argv);
@@ -41,39 +42,101 @@ extern "C" {
         // start the slave
         TrashProtocol slave( argv[1], argv[2], argv[3] );
         slave.dispatchLoop();
+        
+        if( bNeedsUninit )
+            CoUninitialize();
         return 0;
     }
 }
 
-#define KDE_SECONDS_SINCE_1601  11644473600LL
-#define KDE_USEC_IN_SEC             1000000LL
+static const qint64 KDE_SECONDS_SINCE_1601 =  11644473600LL;
+static const qint64 KDE_USEC_IN_SEC        =      1000000LL;
+static const int WM_SHELLNOTIFY            = (WM_USER + 42);
+static const int SHCNRF_InterruptLevel     =         0x0001;
+static const int SHCNRF_ShellLevel         =         0x0002;
+static const int SHCNRF_RecursiveInterrupt =         0x1000;
+
 static inline time_t filetimeToTime_t(const FILETIME *time)
 {
-  ULARGE_INTEGER i64;
-  i64.LowPart   = time->dwLowDateTime;
-  i64.HighPart  = time->dwHighDateTime;
-  i64.QuadPart /= KDE_USEC_IN_SEC * 10;
-  i64.QuadPart -= KDE_SECONDS_SINCE_1601;
-  return i64.QuadPart;
+    ULARGE_INTEGER i64;
+    i64.LowPart   = time->dwLowDateTime;
+    i64.HighPart  = time->dwHighDateTime;
+    i64.QuadPart /= KDE_USEC_IN_SEC * 10;
+    i64.QuadPart -= KDE_SECONDS_SINCE_1601;
+    return i64.QuadPart;
+}
+
+LRESULT CALLBACK trash_internal_proc( HWND hwnd, UINT message, WPARAM wp, LPARAM lp )
+{
+    if ( message == WM_SHELLNOTIFY ) {
+        TrashProtocol *that = (TrashProtocol *)GetWindowLongPtr( hwnd, GWLP_USERDATA );
+        that->updateRecycleBin();
+    }
+    return DefWindowProc( hwnd, message, wp, lp );
 }
 
 TrashProtocol::TrashProtocol( const QByteArray& protocol, const QByteArray &pool, const QByteArray &app )
     : SlaveBase( protocol, pool, app )
+    , m_config(QString::fromLatin1("trashrc"))
 {
+    // create a hidden window to receive notifications thorugh window messages
+    const QString className = QLatin1String("TrashProtocol_Widget") + QString::number(quintptr(trash_internal_proc));
+    HINSTANCE hi = qWinAppInst();
+    WNDCLASS wc;
+    memset( &wc, 0, sizeof(WNDCLASS) );
+    wc.lpfnWndProc = trash_internal_proc;
+    wc.hInstance = hi;
+    wc.lpszClassName = (LPCWSTR)className.utf16();
+    RegisterClass(&wc);
+    m_notificationWindow = CreateWindow( wc.lpszClassName,  // classname
+                             wc.lpszClassName,  // window name
+                             0,                 // style
+                             0, 0, 0, 0,        // geometry
+                             0,                 // parent
+                             0,                 // menu handle
+                             hi,                // application
+                             0 );               // windows creation data.
+    SetWindowLongPtr( m_notificationWindow, GWLP_USERDATA, (LONG_PTR)this );
+
+    // get trash IShellFolder object
     LPITEMIDLIST  iilTrash;
     IShellFolder *isfDesktop;
-
     // we assume that this will always work - if not we've a bigger problem than a kio_trash crash...
     SHGetFolderLocation( NULL, CSIDL_BITBUCKET, 0, 0, &iilTrash );
     SHGetDesktopFolder( &isfDesktop );
     isfDesktop->BindToObject( iilTrash, NULL, IID_IShellFolder2, (void**)&m_isfTrashFolder );
     isfDesktop->Release();
-    ILFree( iilTrash );
     SHGetMalloc( &m_pMalloc );
+
+#if 0
+    // register for recycle bin notifications, have to do it for *every* single recycle bin
+    // TODO: this does not work for devices attached after this loop here...
+    DWORD dwSize = GetLogicalDriveStrings(0, NULL);
+    LPWSTR pszDrives = (LPWSTR)malloc((dwSize + 2) * sizeof (WCHAR));
+#endif
+
+    SHChangeNotifyEntry stPIDL;
+    stPIDL.pidl = iilTrash;
+    stPIDL.fRecursive = TRUE;
+    m_hNotifyRBin = SHChangeNotifyRegister( m_notificationWindow,
+                                            SHCNRF_InterruptLevel | SHCNRF_ShellLevel | SHCNRF_RecursiveInterrupt,
+                                            SHCNE_ALLEVENTS,
+                                            WM_SHELLNOTIFY,
+                                            1,
+                                            &stPIDL );
+
+    ILFree( iilTrash );
+    
+    updateRecycleBin();
 }
 
 TrashProtocol::~TrashProtocol()
 {
+    SHChangeNotifyDeregister( m_hNotifyRBin );
+    const QString className = QLatin1String( "TrashProtocol_Widget" ) + QString::number( quintptr( trash_internal_proc ) );
+    UnregisterClass( (LPCWSTR)className.utf16(), qWinAppInst() );
+    DestroyWindow( m_notificationWindow );
+
     if( m_pMalloc )
         m_pMalloc->Release();
     if( m_isfTrashFolder )
@@ -85,50 +148,48 @@ void TrashProtocol::restore( const KUrl& trashURL, const KUrl &destURL )
     LPITEMIDLIST  pidl = NULL;
     LPCONTEXTMENU pCtxMenu = NULL;
 
-    const QString path = trashURL.path().mid(1).replace(QLatin1Char('/'), QLatin1Char('\\'));
+    const QString path = trashURL.path().mid( 1 ).replace( QLatin1Char( '/' ), QLatin1Char( '\\' ) );
     LPWSTR lpFile = (LPWSTR)path.utf16();
     HRESULT res = m_isfTrashFolder->ParseDisplayName( 0, 0, lpFile, 0, &pidl, 0 );
     bool bOk = translateError( res );
     if( !bOk )
         return;
 
-    res = m_isfTrashFolder->GetUIObjectOf( 0, 1, (LPCITEMIDLIST *)&pidl, IID_IContextMenu, NULL, (LPVOID *)&pCtxMenu);
+    res = m_isfTrashFolder->GetUIObjectOf( 0, 1, (LPCITEMIDLIST *)&pidl, IID_IContextMenu, NULL, (LPVOID *)&pCtxMenu );
     bOk = translateError( res );
     if( !bOk )
         return;
 
     // this looks hacky but it's the only solution I found so far...
     HMENU hmenuCtx = CreatePopupMenu();
-    res = pCtxMenu->QueryContextMenu(hmenuCtx, 0, 1, 0x00007FFF, CMF_NORMAL);
+    res = pCtxMenu->QueryContextMenu( hmenuCtx, 0, 1, 0x00007FFF, CMF_NORMAL );
     bOk = translateError( res );
     if( !bOk )
         return;
 
     UINT uiCommand = ~0U;
     char verb[MAX_PATH] ;
-    const int iMenuMax = GetMenuItemCount(hmenuCtx);
-    for (int i = 0 ; i < iMenuMax; i++) {
+    const int iMenuMax = GetMenuItemCount( hmenuCtx );
+    for( int i = 0 ; i < iMenuMax; i++ ) {
         UINT uiID = GetMenuItemID(hmenuCtx, i) - 1;
         if ((uiID == -1) || (uiID == 0))
             continue;
-        res = pCtxMenu->GetCommandString(uiID, GCS_VERBA, NULL, verb, sizeof (verb));
-        if (FAILED (res))
+        res = pCtxMenu->GetCommandString( uiID, GCS_VERBA, NULL, verb, sizeof( verb ) );
+        if( FAILED( res ) )
             continue;
-        if ( stricmp (verb, "undelete") == 0 ) {
+        if( stricmp( verb, "undelete" ) == 0 ) {
             uiCommand = uiID;
             break;
         }
     }
-    if ( uiCommand != ~0U ) {
+    if( uiCommand != ~0U ) {
         CMINVOKECOMMANDINFO cmi;
 			
-        memset(&cmi, 0, sizeof(CMINVOKECOMMANDINFO));
-        cmi.cbSize       = sizeof(CMINVOKECOMMANDINFO);
-        cmi.lpVerb       = MAKEINTRESOURCEA(uiCommand);
-        cmi.lpVerb       = "undelete";
-        cmi.nShow        = 0;
+        memset( &cmi, 0, sizeof( CMINVOKECOMMANDINFO ) );
+        cmi.cbSize       = sizeof( CMINVOKECOMMANDINFO );
+        cmi.lpVerb       = MAKEINTRESOURCEA( uiCommand );
         cmi.fMask        = CMIC_MASK_FLAG_NO_UI;
-        res = pCtxMenu->InvokeCommand((CMINVOKECOMMANDINFO*)&cmi);
+        res = pCtxMenu->InvokeCommand( (CMINVOKECOMMANDINFO*)&cmi );
 
         bOk = translateError( res );
         if( bOk )
@@ -142,13 +203,14 @@ void TrashProtocol::restore( const KUrl& trashURL, const KUrl &destURL )
 void TrashProtocol::clearTrash()
 {
     translateError( SHEmptyRecycleBin( 0, 0, 0 ) );
+    finished();
 }
 
 void TrashProtocol::rename( const KUrl &oldURL, const KUrl &newURL, KIO::JobFlags flags )
 {
     kDebug()<<"TrashProtocol::rename(): old="<<oldURL<<" new="<<newURL<<" overwrite=" << (flags & KIO::Overwrite);
 
-    if (oldURL.protocol() == QLatin1String("trash") && newURL.protocol() == QLatin1String("trash")) {
+    if( oldURL.protocol() == QLatin1String( "trash" ) && newURL.protocol() == QLatin1String( "trash" ) ) {
         error( KIO::ERR_CANNOT_RENAME, oldURL.prettyUrl() );
         return;
     }
@@ -160,7 +222,7 @@ void TrashProtocol::copy( const KUrl &src, const KUrl &dest, int /*permissions*/
 {
     kDebug()<<"TrashProtocol::copy(): " << src << " " << dest;
 
-    if (src.protocol() == QLatin1String("trash") && dest.protocol() == QLatin1String("trash")) {
+    if( src.protocol() == QLatin1String( "trash" ) && dest.protocol() == QLatin1String( "trash" ) ) {
         error( KIO::ERR_UNSUPPORTED_ACTION, i18n( "This file is already in the trash bin." ) );
         return;
     }
@@ -170,7 +232,7 @@ void TrashProtocol::copy( const KUrl &src, const KUrl &dest, int /*permissions*/
 
 void TrashProtocol::copyOrMove( const KUrl &src, const KUrl &dest, bool overwrite, CopyOrMove action )
 {
-    if (src.protocol() == QLatin1String("trash") && dest.isLocalFile()) {
+    if( src.protocol() == QLatin1String( "trash" ) && dest.isLocalFile() ) {
         if ( action == Move ) {
             restore( src, dest );
         } else {
@@ -178,21 +240,21 @@ void TrashProtocol::copyOrMove( const KUrl &src, const KUrl &dest, bool overwrit
         }
         // Extracting (e.g. via dnd). Ignore original location stored in info file.
         return;
-    } else if (src.isLocalFile() && dest.protocol() == QLatin1String("trash")) {
-        UINT op = (action == Move) ? FO_DELETE : FO_COPY;
+    } else if( src.isLocalFile() && dest.protocol() == QLatin1String( "trash" ) ) {
+        UINT op = ( action == Move ) ? FO_DELETE : FO_COPY;
         if( !doFileOp( src, FO_DELETE, FOF_ALLOWUNDO ) )
           return;
         finished();
         return;
     } else {
-        error(KIO::ERR_UNSUPPORTED_ACTION, i18n("Internal error in copyOrMove, should never happen"));
+        error( KIO::ERR_UNSUPPORTED_ACTION, i18n( "Internal error in copyOrMove, should never happen" ) );
     }
 }
 
 void TrashProtocol::stat(const KUrl& url)
 {
     KIO::UDSEntry entry;
-    if( url.path() == QLatin1String("/") ) {
+    if( url.path() == QLatin1String( "/" ) ) {
         STRRET strret;
         IShellFolder *isfDesktop;
         LPITEMIDLIST  iilTrash;
@@ -234,7 +296,7 @@ void TrashProtocol::listDir(const KUrl& url)
 void TrashProtocol::listRoot()
 {
     IEnumIDList *l;
-    HRESULT res = m_isfTrashFolder->EnumObjects( 0, SHCONTF_FOLDERS|SHCONTF_NONFOLDERS|SHCONTF_INCLUDEHIDDEN, &l);
+    HRESULT res = m_isfTrashFolder->EnumObjects( 0, SHCONTF_FOLDERS|SHCONTF_NONFOLDERS|SHCONTF_INCLUDEHIDDEN, &l );
     if( res != S_OK )
       return;
 
@@ -247,11 +309,11 @@ void TrashProtocol::listRoot()
       m_isfTrashFolder->GetDisplayNameOf( i, SHGDN_NORMAL, &strret );
       entry.insert( KIO::UDSEntry::UDS_DISPLAY_NAME, 
                     QString::fromUtf16( (const unsigned short*)strret.pOleStr ) );
-      m_pMalloc->Free (strret.pOleStr);
+      m_pMalloc->Free( strret.pOleStr );
       m_isfTrashFolder->GetDisplayNameOf( i, SHGDN_FORPARSING|SHGDN_INFOLDER, &strret );
       entry.insert( KIO::UDSEntry::UDS_NAME, 
                     QString::fromUtf16( (const unsigned short*)strret.pOleStr ) );
-      m_pMalloc->Free (strret.pOleStr);
+      m_pMalloc->Free( strret.pOleStr );
       m_isfTrashFolder->GetAttributesOf( 1, (LPCITEMIDLIST *)&i, &attribs );
       SHGetDataFromIDList( m_isfTrashFolder, i, SHGDFIL_FINDDATA, &findData, sizeof( findData ) );
       entry.insert( KIO::UDSEntry::UDS_SIZE,
@@ -311,6 +373,25 @@ void TrashProtocol::special( const QByteArray & data )
         error( KIO::ERR_UNSUPPORTED_ACTION, QString::number(cmd) );
         break;
     }
+}
+
+void TrashProtocol::updateRecycleBin()
+{
+    IEnumIDList *l;
+    HRESULT res = m_isfTrashFolder->EnumObjects( 0, SHCONTF_FOLDERS|SHCONTF_NONFOLDERS|SHCONTF_INCLUDEHIDDEN, &l );
+    if( res != S_OK )
+        return;
+
+    bool bEmpty = true;
+    LPITEMIDLIST i;
+    if( l->Next( 1, &i, NULL ) == S_OK ) {
+        bEmpty = false;
+        ILFree( i );
+    }
+    KConfigGroup group = m_config.group( "Status" );
+    group.writeEntry( "Empty", bEmpty );
+    m_config.sync();
+    l->Release();
 }
 
 void TrashProtocol::put( const KUrl& url, int /*permissions*/, KIO::JobFlags )

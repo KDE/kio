@@ -30,11 +30,12 @@ namespace KIO { class Job; }
 
 class TrashProtocol : public QObject, public KIO::SlaveBase
 {
+    Q_OBJECT
 public:
-    TrashProtocol( const QByteArray& protocol, const QByteArray &pool, const QByteArray &app);
+    TrashProtocol( const QByteArray& protocol, const QByteArray &pool, const QByteArray &app );
     virtual ~TrashProtocol();
-    virtual void stat(const KUrl& url);
-    virtual void listDir(const KUrl& url);
+    virtual void stat( const KUrl& url );
+    virtual void listDir( const KUrl& url );
     virtual void get( const KUrl& url );
     virtual void put( const KUrl& url, int , KIO::JobFlags flags );
     virtual void rename( const KUrl &, const KUrl &, KIO::JobFlags );
@@ -49,6 +50,7 @@ public:
      */
     virtual void special( const QByteArray & data );
 
+    void updateRecycleBin();
 private:
     typedef enum { Copy, Move } CopyOrMove;
     void copyOrMove( const KUrl& src, const KUrl& dest, bool overwrite, CopyOrMove action );
@@ -58,8 +60,12 @@ private:
 
     bool doFileOp(const KUrl &url, UINT wFunc, FILEOP_FLAGS fFlags);
     bool translateError(HRESULT retValue);
+
+    KConfig m_config;
+    HWND m_notificationWindow;
     IShellFolder2 *m_isfTrashFolder;
     LPMALLOC m_pMalloc;
+    ULONG m_hNotifyRBin;
 };
 
 #endif
