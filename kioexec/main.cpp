@@ -72,7 +72,7 @@ KIOExec::KIOExec()
         if ( url.isLocalFile() )
         {
             FileInfo file;
-            file.path = url.path();
+            file.path = url.toLocalFile();
             file.url = url;
             fileList.append(file);
         }
@@ -209,7 +209,7 @@ void KIOExec::slotRunApp()
         KDE_struct_stat buff;
         QString src = (*it).path;
         KUrl dest = (*it).url;
-        if ( (KDE_stat( QFile::encodeName(src), &buff ) == 0) &&
+        if ( (KDE::stat( src, &buff ) == 0) &&
              ((*it).time != buff.st_mtime) )
         {
             if ( tempfiles )
