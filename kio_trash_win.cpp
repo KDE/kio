@@ -52,9 +52,11 @@ extern "C" {
 static const qint64 KDE_SECONDS_SINCE_1601 =  11644473600LL;
 static const qint64 KDE_USEC_IN_SEC        =      1000000LL;
 static const int WM_SHELLNOTIFY            = (WM_USER + 42);
-static const int SHCNRF_InterruptLevel     =         0x0001;
-static const int SHCNRF_ShellLevel         =         0x0002;
-static const int SHCNRF_RecursiveInterrupt =         0x1000;
+#ifndef SHCNRF_InterruptLevel
+  static const int SHCNRF_InterruptLevel     =         0x0001;
+  static const int SHCNRF_ShellLevel         =         0x0002;
+  static const int SHCNRF_RecursiveInterrupt =         0x1000;
+#endif
 
 static inline time_t filetimeToTime_t(const FILETIME *time)
 {
