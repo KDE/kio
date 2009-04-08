@@ -142,7 +142,7 @@ void TestTrash::initTestCase()
     m_tmpIsWritablePartition = false;
     m_tmpTrashId = -1;
     QVector<int> writableTopDirs;
-    for ( TrashImpl::TrashDirMap::ConstIterator it = trashDirs.begin(); it != trashDirs.end() ; ++it ) {
+    for ( TrashImpl::TrashDirMap::ConstIterator it = trashDirs.constBegin(); it != trashDirs.constEnd() ; ++it ) {
         if ( it.key() == 0 ) {
             QVERIFY( it.value() == m_trashDir );
             QVERIFY( topDirs.find( 0 ) == topDirs.end() );
@@ -167,7 +167,7 @@ void TestTrash::initTestCase()
             }
         }
     }
-    for ( QVector<int>::const_iterator it = writableTopDirs.begin(); it != writableTopDirs.end(); ++it ) {
+    for ( QVector<int>::const_iterator it = writableTopDirs.constBegin(); it != writableTopDirs.constEnd(); ++it ) {
         const QString topdir = topDirs[ *it ];
         const QString trashdir = trashDirs[ *it ];
         QVERIFY( !topdir.isEmpty() );
@@ -312,8 +312,8 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
 
     QVERIFY( !metaData.isEmpty() );
     bool found = false;
-    QMap<QString, QString>::ConstIterator it = metaData.begin();
-    for ( ; it != metaData.end() ; ++it ) {
+    QMap<QString, QString>::ConstIterator it = metaData.constBegin();
+    for ( ; it != metaData.constEnd() ; ++it ) {
         if (it.key().startsWith(QLatin1String("trashURL"))) {
             const QString origPath = it.key().mid( 9 );
             KUrl trashURL( it.value() );
@@ -409,8 +409,8 @@ void TestTrash::trashFileIntoOtherPartition()
 
     QVERIFY( !metaData.isEmpty() );
     bool found = false;
-    QMap<QString, QString>::ConstIterator it = metaData.begin();
-    for ( ; it != metaData.end() ; ++it ) {
+    QMap<QString, QString>::ConstIterator it = metaData.constBegin();
+    for ( ; it != metaData.constEnd() ; ++it ) {
         if (it.key().startsWith( QLatin1String("trashURL"))) {
             const QString origPath = it.key().mid( 9 );
             KUrl trashURL( it.value() );
