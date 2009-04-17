@@ -48,6 +48,12 @@ K_EXPORT_PLUGIN(KPasswdServerFactory("kpasswdserver"))
 #define AUTHINFO_EXTRAFIELD_ANONYMOUS "anonymous"
 #define AUTHINFO_EXTRAFIELD_BYPASS_CACHE_AND_KWALLET "bypass-cache-and-kwallet"
 
+qlonglong getRequestId()
+{
+    static qlonglong nextRequestId = 0;
+    return nextRequestId++;
+}
+
 int
 KPasswdServer::AuthInfoContainerList::compareItems(Q3PtrCollection::Item n1, Q3PtrCollection::Item n2)
 {
@@ -71,6 +77,7 @@ KPasswdServer::AuthInfoContainerList::compareItems(Q3PtrCollection::Item n1, Q3P
 KPasswdServer::KPasswdServer(QObject* parent, const QList<QVariant>&)
  : KDEDModule(parent)
 {
+    KIO::AuthInfo::registerMetaTypes();
     m_authPending.setAutoDelete(true);
     m_seqNr = 0;
     m_wallet = 0;
@@ -80,6 +87,7 @@ KPasswdServer::KPasswdServer(QObject* parent, const QList<QVariant>&)
 
 KPasswdServer::~KPasswdServer()
 {
+    // TODO: send signals for all pending async requests?
     qDeleteAll(m_authDict);
     delete m_wallet;
 }
@@ -174,6 +182,29 @@ static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const Q
     return false;
 }
 
+bool KPasswdServer::hasPendingQuery(const QString &key, const KIO::AuthInfo &info)
+{
+    Request *request = m_authPending.first();
+    QString path2 = info.url.directory(KUrl::AppendTrailingSlash | KUrl::ObeyTrailingSlash);
+    for (; request; request = m_authPending.next()) {
+        if (request->key != key) {
+            continue;
+        }
+
+        if (info.verifyPath) {
+            QString path1 = request->info.url.directory(KUrl::AppendTrailingSlash |
+                                                        KUrl::ObeyTrailingSlash);
+            if (!path2.startsWith(path1)) {
+                continue;
+            }
+        }
+
+        return true;
+    }
+
+    return false;
+}
+
 QByteArray
 KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong windowId, qlonglong usertime, const QDBusMessage &msg)
 {
@@ -184,70 +215,114 @@ KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong windowId, qlonglo
     if( usertime != 0 )
         kapp->updateUserTimestamp( usertime );
 
+    // if the check depends on a pending query, delay it
+    // until that query is finished.
     QString key = createCacheKey(info);
-
-    Request *request = m_authPending.first();
-    QString path2 = info.url.directory(KUrl::AppendTrailingSlash|KUrl::ObeyTrailingSlash);
-    for(; request; request = m_authPending.next())
-    {
-       if (request->key != key)
-           continue;
-
-       if (info.verifyPath)
-       {
-         QString path1 = request->info.url.directory(KUrl::AppendTrailingSlash|KUrl::ObeyTrailingSlash);
-          if (!path2.startsWith(path1))
-             continue;
-       }
-
-       msg.setDelayedReply(true);
-       request = new Request;
-       request->transaction = msg;
-       request->key = key;
-       request->info = info;
-       m_authWait.append(request);
-       return data;             // return value will be ignored
+    if (hasPendingQuery(key, info)) {
+        msg.setDelayedReply(true);
+        Request *pendingCheck = new Request;
+        pendingCheck->isAsync = false;
+        pendingCheck->transaction = msg;
+        pendingCheck->key = key;
+        pendingCheck->info = info;
+        m_authWait.append(pendingCheck);
+        return data;             // return value will be ignored
     }
 
     const AuthInfoContainer *result = findAuthInfoItem(key, info);
     if (!result || result->isCanceled)
     {
-       if (!result &&
-           (info.username.isEmpty() || info.password.isEmpty()) &&
-           !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(),
-                                             KWallet::Wallet::PasswordFolder(), makeWalletKey(key, info.realmValue)))
-       {
-          QMap<QString, QString> knownLogins;
-          if (openWallet(windowId)) {
-              if (readFromWallet(m_wallet, key, info.realmValue, info.username, info.password,
-                             info.readOnly, knownLogins))
-	      {
-		      info.setModified(true);
-                      // fall through
-	      }
-	  }
-       } else {
-           info.setModified(false);
-       }
-
-       QByteArray data2;
-       QDataStream stream(&data2, QIODevice::WriteOnly);
-       stream << info;
-       return data2;
+        if (!result &&
+            (info.username.isEmpty() || info.password.isEmpty()) &&
+            !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(),
+                                              KWallet::Wallet::PasswordFolder(),
+                                              makeWalletKey(key, info.realmValue)))
+        {
+            QMap<QString, QString> knownLogins;
+            if (openWallet(windowId)) {
+                if (readFromWallet(m_wallet, key, info.realmValue, info.username,
+                                   info.password, info.readOnly, knownLogins))
+                {
+                    info.setModified(true);
+                            // fall through
+                }
+            }
+        } else {
+            info.setModified(false);
+        }
+    } else {
+        updateAuthExpire(key, result, windowId, false);
+        info = copyAuthInfo(result);
     }
-
-    updateAuthExpire(key, result, windowId, false);
-
-    info = copyAuthInfo(result);
+    
     QByteArray data2;
     QDataStream stream2(&data2, QIODevice::WriteOnly);
     stream2 << info;
     return data2;
 }
 
+qlonglong KPasswdServer::checkAuthInfoAsync(KIO::AuthInfo info, qlonglong windowId,
+                                            qlonglong usertime, const QDBusMessage &msg)
+{
+    kDebug(130) << "User =" << info.username << ", WindowId =" << windowId << endl;
+    if (usertime != 0) {
+        kapp->updateUserTimestamp(usertime);
+    }
+
+    // send the request id back to the client
+    qlonglong requestId = getRequestId();
+    QDBusMessage reply(msg.createReply(requestId));
+    QDBusConnection::sessionBus().send(reply);
+
+    // if the check depends on a pending query, delay it
+    // until that query is finished.
+    QString key = createCacheKey(info);
+    if (hasPendingQuery(key, info)) {
+        Request *pendingCheck = new Request;
+        pendingCheck->isAsync = true;
+        pendingCheck->requestId = requestId;
+        pendingCheck->key = key;
+        pendingCheck->info = info;
+        m_authWait.append(pendingCheck);
+        return 0; // ignored as we already sent a reply
+    }
+
+    const AuthInfoContainer *result = findAuthInfoItem(key, info);
+    if (!result || result->isCanceled)
+    {
+        if (!result &&
+            (info.username.isEmpty() || info.password.isEmpty()) &&
+            !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(),
+                                              KWallet::Wallet::PasswordFolder(),
+                                              makeWalletKey(key, info.realmValue)))
+        {
+            QMap<QString, QString> knownLogins;
+            if (openWallet(windowId)) {
+                if (readFromWallet(m_wallet, key, info.realmValue, info.username,
+                                   info.password, info.readOnly, knownLogins))
+                {
+                    info.setModified(true);
+                            // fall through
+                }
+            }
+        } else {
+            info.setModified(false);
+        }
+    } else {
+        updateAuthExpire(key, result, windowId, false);
+        info = copyAuthInfo(result);
+    }
+    
+    QDBusMessage resig(QDBusMessage::createSignal("/modules/kpasswdserver", "org.kde.KPasswdServer", "checkAuthInfoAsyncResult"));
+    resig << requestId << m_seqNr << QVariant::fromValue(info);
+    QDBusConnection::sessionBus().send(resig);
+    
+    return 0; // ignored
+}
+
 QByteArray
-KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &errorMsg, qlonglong windowId,
-                             qlonglong seqNr, qlonglong usertime, const QDBusMessage &msg)
+KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &errorMsg,
+                             qlonglong windowId, qlonglong seqNr, qlonglong usertime, const QDBusMessage &msg)
 {
     KIO::AuthInfo info;
     QDataStream stream(data);
@@ -262,6 +337,7 @@ KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &errorMsg, ql
     QString key = createCacheKey(info);
     Request *request = new Request;
     msg.setDelayedReply(true);
+    request->isAsync = false;
     request->transaction = msg;
     request->key = key;
     request->info = info;
@@ -284,6 +360,46 @@ KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &errorMsg, ql
 
     return QByteArray();        // return value is going to be ignored
 }
+
+qlonglong
+KPasswdServer::queryAuthInfoAsync(const KIO::AuthInfo &info, const QString &errorMsg,
+                                  qlonglong windowId, qlonglong seqNr, qlonglong usertime)
+{
+/*    KIO::AuthInfo info;
+    data >> info; */
+    kDebug(130) << "User =" << info.username << ", Message= " << info.prompt
+                << ", WindowId =" << windowId << endl;
+    if (!info.password.isEmpty()) {
+        kDebug(130) << "password was set by caller";
+    }
+    if (usertime != 0) {
+        kapp->updateUserTimestamp(usertime);
+    }
+
+    QString key = createCacheKey(info);
+    Request *request = new Request;
+    request->isAsync = true;
+    request->requestId = getRequestId();
+    request->key = key;
+    request->info = info;
+    request->windowId = windowId;
+    request->seqNr = seqNr;
+    if (errorMsg == "<NoAuthPrompt>") {
+        request->errorMsg.clear();
+        request->prompt = false;
+    } else {
+        request->errorMsg = errorMsg;
+        request->prompt = true;
+    }
+    m_authPending.append(request);
+
+    if (m_authPending.count() == 1) {
+        QTimer::singleShot(0, this, SLOT(processRequest()));
+    }
+
+    return request->requestId;
+}
+
 
 void
 KPasswdServer::addAuthInfo(const QByteArray &data, qlonglong windowId)
@@ -505,38 +621,24 @@ KPasswdServer::processRequest()
         }
     }
 
-    QByteArray replyData;
-
-    QDataStream stream2(&replyData, QIODevice::WriteOnly);
-    stream2 << info;
-    QDBusConnection::sessionBus().send(request->transaction.createReply(QVariantList() << replyData << m_seqNr));
+    if (request->isAsync) {
+        QDBusMessage resig(QDBusMessage::createSignal("/modules/kpasswdserver", "org.kde.KPasswdServer", "queryAuthInfoAsyncResult"));
+        resig << request->requestId << m_seqNr << QVariant::fromValue(info);
+        QDBusConnection::sessionBus().send(resig);
+        // emit queryAuthInfoAsyncResult(request->requestId, m_seqNr, replyData);
+    } else {
+        QByteArray replyData;
+        QDataStream stream2(&replyData, QIODevice::WriteOnly);
+        stream2 << info;
+        QDBusConnection::sessionBus().send(request->transaction.createReply(QVariantList() << replyData << m_seqNr));
+    }
 
     m_authPending.remove((unsigned int) 0);
 
     // Check all requests in the wait queue.
     for (Request *waitRequest = m_authWait.first(); waitRequest; )
     {
-       bool keepQueued = false;
-       QString key = waitRequest->key;
-
-       request = m_authPending.first();
-       QString path2 = waitRequest->info.url.directory(KUrl::AppendTrailingSlash|KUrl::ObeyTrailingSlash);
-       for(; request; request = m_authPending.next())
-       {
-           if (request->key != key)
-               continue;
-
-           if (info.verifyPath)
-           {
-             QString path1 = request->info.url.directory(KUrl::AppendTrailingSlash|KUrl::ObeyTrailingSlash);
-               if (!path2.startsWith(path1))
-                   continue;
-           }
-
-           keepQueued = true;
-           break;
-       }
-       if (keepQueued)
+       if (hasPendingQuery(waitRequest->key, waitRequest->info))
        {
            waitRequest = m_authWait.next();
        }
@@ -559,7 +661,13 @@ KPasswdServer::processRequest()
                stream2 << info;
            }
 
-           QDBusConnection::sessionBus().send(waitRequest->transaction.createReply(QVariantList() << replyData << m_seqNr));
+            if (waitRequest->isAsync) {
+                QDBusMessage resig2(QDBusMessage::createSignal("/modules/kpasswdserver", "org.kde.KPasswdServer", "checkAuthInfoAsyncResult"));
+                resig2 << request->requestId << m_seqNr << QVariant::fromValue(info);
+                QDBusConnection::sessionBus().send(resig2);
+            } else {
+                QDBusConnection::sessionBus().send(waitRequest->transaction.createReply(QVariantList() << replyData << m_seqNr));
+            }
 
            m_authWait.remove();
            waitRequest = m_authWait.current();

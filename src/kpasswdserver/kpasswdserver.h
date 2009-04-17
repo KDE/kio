@@ -35,6 +35,8 @@ namespace KWallet {
     class Wallet;
 }
 
+using namespace KIO;
+
 class KPasswdServer : public KDEDModule
 {
   Q_OBJECT
@@ -45,7 +47,9 @@ public:
 
 public Q_SLOTS:
   Q_SCRIPTABLE QByteArray checkAuthInfo(const QByteArray &, qlonglong, qlonglong, const QDBusMessage &);
+  Q_SCRIPTABLE qlonglong checkAuthInfoAsync(KIO::AuthInfo, qlonglong, qlonglong, const QDBusMessage &);
   Q_SCRIPTABLE QByteArray queryAuthInfo(const QByteArray &, const QString &, qlonglong, qlonglong, qlonglong, const QDBusMessage &);
+  Q_SCRIPTABLE qlonglong queryAuthInfoAsync(const KIO::AuthInfo &, const QString &, qlonglong, qlonglong, qlonglong);
   Q_SCRIPTABLE void addAuthInfo(const QByteArray &, qlonglong);
   Q_SCRIPTABLE void removeAuthInfo(const QString& host, const QString& protocol, const QString& user);
 
@@ -53,6 +57,10 @@ public Q_SLOTS:
   // Remove all authentication info associated with windowId
   void removeAuthForWindowId(qlonglong windowId);
 
+Q_SIGNALS:
+  void checkAuthInfoAsyncResult(qlonglong requestId, qlonglong seqNr, const KIO::AuthInfo &);
+  void queryAuthInfoAsyncResult(qlonglong requestId, qlonglong seqNr, const KIO::AuthInfo &);
+  
 protected:
   struct AuthInfoContainer;
 
@@ -64,6 +72,8 @@ protected:
   void updateAuthExpire(const QString &key, const AuthInfoContainer *, qlonglong windowId, bool keep);
   int findWalletEntry( const QMap<QString,QString>& map, const QString& username );
   bool openWallet( int windowId );
+  
+  bool hasPendingQuery(const QString &key, const KIO::AuthInfo &info);
 
   struct AuthInfoContainer {
     AuthInfoContainer() { expire = expNever; isCanceled = false; seqNr = 0; }
@@ -89,7 +99,9 @@ protected:
   QHash< QString, AuthInfoContainerList* > m_authDict;
 
   struct Request {
-     QDBusMessage transaction;
+     bool isAsync; // true for async requests
+     qlonglong requestId; // set for async requests only
+     QDBusMessage transaction; // set for sync requests only
      QString key;
      KIO::AuthInfo info;
      QString errorMsg;
