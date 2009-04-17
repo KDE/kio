@@ -37,21 +37,21 @@ namespace KWallet {
 
 using namespace KIO;
 
-class KPasswdServer : public KDEDModule
+class KPasswdServer : public KDEDModule, protected QDBusContext
 {
   Q_OBJECT
-  Q_CLASSINFO("D-Bus Interface", "org.kde.KPasswdServer")
+
 public:
   KPasswdServer(QObject* parent, const QList<QVariant>&);
   ~KPasswdServer();
 
 public Q_SLOTS:
-  Q_SCRIPTABLE QByteArray checkAuthInfo(const QByteArray &, qlonglong, qlonglong, const QDBusMessage &);
-  Q_SCRIPTABLE qlonglong checkAuthInfoAsync(KIO::AuthInfo, qlonglong, qlonglong, const QDBusMessage &);
-  Q_SCRIPTABLE QByteArray queryAuthInfo(const QByteArray &, const QString &, qlonglong, qlonglong, qlonglong, const QDBusMessage &);
-  Q_SCRIPTABLE qlonglong queryAuthInfoAsync(const KIO::AuthInfo &, const QString &, qlonglong, qlonglong, qlonglong);
-  Q_SCRIPTABLE void addAuthInfo(const QByteArray &, qlonglong);
-  Q_SCRIPTABLE void removeAuthInfo(const QString& host, const QString& protocol, const QString& user);
+  QByteArray checkAuthInfo(const QByteArray &, qlonglong, qlonglong);
+  qlonglong checkAuthInfoAsync(KIO::AuthInfo, qlonglong, qlonglong);
+  QByteArray queryAuthInfo(const QByteArray &, const QString &, qlonglong, qlonglong, qlonglong);
+  qlonglong queryAuthInfoAsync(const KIO::AuthInfo &, const QString &, qlonglong, qlonglong, qlonglong);
+  void addAuthInfo(const QByteArray &, qlonglong);
+  void removeAuthInfo(const QString& host, const QString& protocol, const QString& user);
 
   void processRequest();
   // Remove all authentication info associated with windowId

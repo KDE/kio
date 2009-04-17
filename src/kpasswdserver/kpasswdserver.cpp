@@ -39,6 +39,8 @@
 #include <kpluginfactory.h>
 #include <kpluginloader.h>
 
+#include "kpasswdserveradaptor.h"
+
 K_PLUGIN_FACTORY(KPasswdServerFactory,
                  registerPlugin<KPasswdServer>();
     )
@@ -80,6 +82,20 @@ KPasswdServer::KPasswdServer(QObject* parent, const QList<QVariant>&)
     KIO::AuthInfo::registerMetaTypes();
     m_seqNr = 0;
     m_wallet = 0;
+
+    KPasswdServerAdaptor *adaptor = new KPasswdServerAdaptor(this);
+    // register separately from kded
+    QDBusConnection::sessionBus().registerService("org.kde.kpasswdserver");
+    // connect signals to the adaptor
+    connect(this,
+            SIGNAL(checkAuthInfoAsyncResult(qlonglong, qlonglong, const KIO::AuthInfo &)),
+            adaptor,
+            SIGNAL(checkAuthInfoAsyncResult(qlonglong, qlonglong, const KIO::AuthInfo &)));
+    connect(this,
+            SIGNAL(queryAuthInfoAsyncResult(qlonglong, qlonglong, const KIO::AuthInfo &)),
+            adaptor,
+            SIGNAL(queryAuthInfoAsyncResult(qlonglong, qlonglong, const KIO::AuthInfo &)));
+    
     connect(this, SIGNAL(windowUnregistered(qlonglong)),
             this, SLOT(removeAuthForWindowId(qlonglong)));
 }
@@ -88,12 +104,8 @@ KPasswdServer::~KPasswdServer()
 {
     // TODO: what about clients waiting for requests? will they just
     //       notice kpasswdserver is gone from the dbus?
-    while (!m_authPending.isEmpty()) {
-        delete m_authPending.takeFirst();
-    }
-    while (!m_authWait.isEmpty()) {
-        delete m_authWait.takeFirst();
-    }
+    qDeleteAll(m_authPending);
+    qDeleteAll(m_authWait);
     qDeleteAll(m_authDict);
     delete m_wallet;
 }
@@ -211,7 +223,7 @@ bool KPasswdServer::hasPendingQuery(const QString &key, const KIO::AuthInfo &inf
 }
 
 QByteArray
-KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong windowId, qlonglong usertime, const QDBusMessage &msg)
+KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong windowId, qlonglong usertime)
 {
     KIO::AuthInfo info;
     QDataStream stream(data);
@@ -224,10 +236,10 @@ KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong windowId, qlonglo
     // until that query is finished.
     QString key = createCacheKey(info);
     if (hasPendingQuery(key, info)) {
-        msg.setDelayedReply(true);
+        setDelayedReply(true);
         Request *pendingCheck = new Request;
         pendingCheck->isAsync = false;
-        pendingCheck->transaction = msg;
+        pendingCheck->transaction = message();
         pendingCheck->key = key;
         pendingCheck->info = info;
         m_authWait.append(pendingCheck);
@@ -267,7 +279,7 @@ KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong windowId, qlonglo
 }
 
 qlonglong KPasswdServer::checkAuthInfoAsync(KIO::AuthInfo info, qlonglong windowId,
-                                            qlonglong usertime, const QDBusMessage &msg)
+                                            qlonglong usertime)
 {
     kDebug(130) << "User =" << info.username << ", WindowId =" << windowId << endl;
     if (usertime != 0) {
@@ -276,7 +288,7 @@ qlonglong KPasswdServer::checkAuthInfoAsync(KIO::AuthInfo info, qlonglong window
 
     // send the request id back to the client
     qlonglong requestId = getRequestId();
-    QDBusMessage reply(msg.createReply(requestId));
+    QDBusMessage reply(message().createReply(requestId));
     QDBusConnection::sessionBus().send(reply);
 
     // if the check depends on a pending query, delay it
@@ -317,17 +329,14 @@ qlonglong KPasswdServer::checkAuthInfoAsync(KIO::AuthInfo info, qlonglong window
         updateAuthExpire(key, result, windowId, false);
         info = copyAuthInfo(result);
     }
-    
-    QDBusMessage resig(QDBusMessage::createSignal("/modules/kpasswdserver", "org.kde.KPasswdServer", "checkAuthInfoAsyncResult"));
-    resig << requestId << m_seqNr << QVariant::fromValue(info);
-    QDBusConnection::sessionBus().send(resig);
-    
+
+    emit checkAuthInfoAsyncResult(requestId, m_seqNr, info);
     return 0; // ignored
 }
 
 QByteArray
 KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &errorMsg,
-                             qlonglong windowId, qlonglong seqNr, qlonglong usertime, const QDBusMessage &msg)
+                             qlonglong windowId, qlonglong seqNr, qlonglong usertime)
 {
     KIO::AuthInfo info;
     QDataStream stream(data);
@@ -341,9 +350,9 @@ KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &errorMsg,
 
     QString key = createCacheKey(info);
     Request *request = new Request;
-    msg.setDelayedReply(true);
+    setDelayedReply(true);
     request->isAsync = false;
-    request->transaction = msg;
+    request->transaction = message();
     request->key = key;
     request->info = info;
     request->windowId = windowId;
@@ -627,10 +636,7 @@ KPasswdServer::processRequest()
     }
 
     if (request->isAsync) {
-        QDBusMessage resig(QDBusMessage::createSignal("/modules/kpasswdserver", "org.kde.KPasswdServer", "queryAuthInfoAsyncResult"));
-        resig << request->requestId << m_seqNr << QVariant::fromValue(info);
-        QDBusConnection::sessionBus().send(resig);
-        // emit queryAuthInfoAsyncResult(request->requestId, m_seqNr, replyData);
+        emit queryAuthInfoAsyncResult(request->requestId, m_seqNr, info);
     } else {
         QByteArray replyData;
         QDataStream stream2(&replyData, QIODevice::WriteOnly);
@@ -667,9 +673,7 @@ KPasswdServer::processRequest()
             }
 
             if (waitRequest->isAsync) {
-                QDBusMessage resig2(QDBusMessage::createSignal("/modules/kpasswdserver", "org.kde.KPasswdServer", "checkAuthInfoAsyncResult"));
-                resig2 << waitRequest->requestId << m_seqNr << QVariant::fromValue(info);
-                QDBusConnection::sessionBus().send(resig2);
+                emit checkAuthInfoAsyncResult(waitRequest->requestId, m_seqNr, info);
             } else {
                 QDBusConnection::sessionBus().send(waitRequest->transaction.createReply(QVariantList() << replyData << m_seqNr));
             }
