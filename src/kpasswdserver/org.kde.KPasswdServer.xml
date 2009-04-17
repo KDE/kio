@@ -2,15 +2,15 @@
 <node>
   <interface name="org.kde.KPasswdServer" >
     <signal name="checkAuthInfoAsyncResult" >
-      <arg direction="out" type="x" name="requestId" />
-      <arg direction="out" type="x" name="seqNr" />
-      <arg direction="out" type="(ysssssssssbbbba{s(siv)})" name="info" />
+      <arg type="x" name="requestId" />
+      <arg type="x" name="seqNr" />
+      <arg type="(ysssssssssbbbba{s(siv)})" name="info" />
       <annotation name="com.trolltech.QtDBus.QtTypeName.In2" value="KIO::AuthInfo" />
     </signal>
     <signal name="queryAuthInfoAsyncResult" >
-      <arg direction="out" type="x" name="requestId" />
-      <arg direction="out" type="x" name="seqNr" />
-      <arg direction="out" type="(ysssssssssbbbba{s(siv)})" name="info" />
+      <arg type="x" name="requestId" />
+      <arg type="x" name="seqNr" />
+      <arg type="(ysssssssssbbbba{s(siv)})" name="info" />
       <annotation name="com.trolltech.QtDBus.QtTypeName.In2" value="KIO::AuthInfo" />
     </signal>
     <method name="checkAuthInfo" >
@@ -45,6 +45,11 @@
     </method>
     <method name="addAuthInfo" >
       <arg direction="in" type="ay" name="data" />
+      <arg direction="in" type="x" name="windowId" />
+    </method>
+    <method name="addAuthInfo" >
+      <arg direction="in" type="(ysssssssssbbbba{s(siv)})" name="info" />
+      <annotation name="com.trolltech.QtDBus.QtTypeName.In0" value="KIO::AuthInfo" />
       <arg direction="in" type="x" name="windowId" />
     </method>
     <method name="removeAuthInfo" >

@@ -46,12 +46,15 @@ public:
   ~KPasswdServer();
 
 public Q_SLOTS:
-  QByteArray checkAuthInfo(const QByteArray &, qlonglong, qlonglong);
   qlonglong checkAuthInfoAsync(KIO::AuthInfo, qlonglong, qlonglong);
-  QByteArray queryAuthInfo(const QByteArray &, const QString &, qlonglong, qlonglong, qlonglong);
   qlonglong queryAuthInfoAsync(const KIO::AuthInfo &, const QString &, qlonglong, qlonglong, qlonglong);
-  void addAuthInfo(const QByteArray &, qlonglong);
+  void addAuthInfo(const KIO::AuthInfo &, qlonglong);
   void removeAuthInfo(const QString& host, const QString& protocol, const QString& user);
+
+  // legacy methods provided for compatibility with old clients
+  QByteArray checkAuthInfo(const QByteArray &, qlonglong, qlonglong);
+  QByteArray queryAuthInfo(const QByteArray &, const QString &, qlonglong, qlonglong, qlonglong);
+  void addAuthInfo(const QByteArray &, qlonglong);
 
   void processRequest();
   // Remove all authentication info associated with windowId

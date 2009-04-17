@@ -414,6 +414,17 @@ KPasswdServer::queryAuthInfoAsync(const KIO::AuthInfo &info, const QString &erro
     return request->requestId;
 }
 
+void
+KPasswdServer::addAuthInfo(const KIO::AuthInfo &info, qlonglong windowId)
+{
+    kDebug(130) << "User =" << info.username << ", RealmValue= " << info.realmValue
+                << ", WindowId = " << windowId << endl;
+    QString key = createCacheKey(info);
+
+    m_seqNr++;
+
+    addAuthInfoItem(key, info, windowId, m_seqNr, false);
+}    
 
 void
 KPasswdServer::addAuthInfo(const QByteArray &data, qlonglong windowId)
