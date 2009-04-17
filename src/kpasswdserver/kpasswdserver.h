@@ -110,8 +110,8 @@ protected:
      bool prompt;
   };
 
-  Q3PtrList< Request > m_authPending;
-  Q3PtrList< Request > m_authWait;
+  QList<Request*> m_authPending;
+  QList<Request*> m_authWait;
   QHash<int, QStringList*> mWindowIdList;
   KWallet::Wallet* m_wallet;
   qlonglong m_seqNr;

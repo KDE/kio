@@ -78,7 +78,6 @@ KPasswdServer::KPasswdServer(QObject* parent, const QList<QVariant>&)
  : KDEDModule(parent)
 {
     KIO::AuthInfo::registerMetaTypes();
-    m_authPending.setAutoDelete(true);
     m_seqNr = 0;
     m_wallet = 0;
     connect(this, SIGNAL(windowUnregistered(qlonglong)),
@@ -87,7 +86,14 @@ KPasswdServer::KPasswdServer(QObject* parent, const QList<QVariant>&)
 
 KPasswdServer::~KPasswdServer()
 {
-    // TODO: send signals for all pending async requests?
+    // TODO: what about clients waiting for requests? will they just
+    //       notice kpasswdserver is gone from the dbus?
+    while (!m_authPending.isEmpty()) {
+        delete m_authPending.takeFirst();
+    }
+    while (!m_authWait.isEmpty()) {
+        delete m_authWait.takeFirst();
+    }
     qDeleteAll(m_authDict);
     delete m_wallet;
 }
@@ -184,9 +190,8 @@ static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const Q
 
 bool KPasswdServer::hasPendingQuery(const QString &key, const KIO::AuthInfo &info)
 {
-    Request *request = m_authPending.first();
     QString path2 = info.url.directory(KUrl::AppendTrailingSlash | KUrl::ObeyTrailingSlash);
-    for (; request; request = m_authPending.next()) {
+    Q_FOREACH(const Request *request, m_authPending) {
         if (request->key != key) {
             continue;
         }
@@ -467,7 +472,7 @@ KPasswdServer::openWallet( int windowId )
 void
 KPasswdServer::processRequest()
 {
-    Request *request = m_authPending.first();
+    Request *request = m_authPending.takeFirst();
     if (!request)
        return;
 
@@ -633,45 +638,45 @@ KPasswdServer::processRequest()
         QDBusConnection::sessionBus().send(request->transaction.createReply(QVariantList() << replyData << m_seqNr));
     }
 
-    m_authPending.remove((unsigned int) 0);
+    delete request;
 
     // Check all requests in the wait queue.
-    for (Request *waitRequest = m_authWait.first(); waitRequest; )
-    {
-       if (hasPendingQuery(waitRequest->key, waitRequest->info))
-       {
-           waitRequest = m_authWait.next();
-       }
-       else
-       {
-           const AuthInfoContainer *result = findAuthInfoItem(waitRequest->key, waitRequest->info);
-           QByteArray replyData;
+    Request *waitRequest;
+    QMutableListIterator<Request*> it(m_authWait);
+    while (it.hasNext()) {
+        waitRequest = it.next();
 
-           QDataStream stream2(&replyData, QIODevice::WriteOnly);
+        if (!hasPendingQuery(waitRequest->key, waitRequest->info))
+        {
+            const AuthInfoContainer *result = findAuthInfoItem(waitRequest->key,
+                                                               waitRequest->info);
+            QByteArray replyData;
 
-           if (!result || result->isCanceled)
-           {
-               waitRequest->info.setModified(false);
-               stream2 << waitRequest->info;
-           }
-           else
-           {
-               updateAuthExpire(waitRequest->key, result, waitRequest->windowId, false);
-               KIO::AuthInfo info = copyAuthInfo(result);
-               stream2 << info;
-           }
+            QDataStream stream2(&replyData, QIODevice::WriteOnly);
+
+            if (!result || result->isCanceled)
+            {
+                waitRequest->info.setModified(false);
+                stream2 << waitRequest->info;
+            }
+            else
+            {
+                updateAuthExpire(waitRequest->key, result, waitRequest->windowId, false);
+                KIO::AuthInfo info = copyAuthInfo(result);
+                stream2 << info;
+            }
 
             if (waitRequest->isAsync) {
                 QDBusMessage resig2(QDBusMessage::createSignal("/modules/kpasswdserver", "org.kde.KPasswdServer", "checkAuthInfoAsyncResult"));
-                resig2 << request->requestId << m_seqNr << QVariant::fromValue(info);
+                resig2 << waitRequest->requestId << m_seqNr << QVariant::fromValue(info);
                 QDBusConnection::sessionBus().send(resig2);
             } else {
                 QDBusConnection::sessionBus().send(waitRequest->transaction.createReply(QVariantList() << replyData << m_seqNr));
             }
 
-           m_authWait.remove();
-           waitRequest = m_authWait.current();
-       }
+            delete waitRequest;
+            it.remove();
+        }
     }
 
     if (m_authPending.count())
