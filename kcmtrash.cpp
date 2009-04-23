@@ -277,7 +277,7 @@ void TrashConfigModule::setupGui()
     
     mDays->setRange( 1, 365 );
     mDays->setSingleStep( 1 );
-    mDays->setSuffix( QString(" ") + i18np("day", "days", mDays->value()) );
+    mDays->setSuffix( i18np(" day", " days", mDays->value()) );
     mDays->setWhatsThis( i18nc( "@info:whatsthis",
                                      "<para>Set the number of days that files can remain in the trash. "
                                      "Any files older than this will be automatically deleted.</para>" ) );
@@ -333,7 +333,7 @@ void TrashConfigModule::setupGui()
 
 void TrashConfigModule::updateSpinBoxSuffix( int interval )
 {
-    mDays->setSuffix( QString(" ") + i18np( "day", "days", interval ) );
+    mDays->setSuffix( i18np( " day", " days", interval ) );
 }
 
 #include "kcmtrash.moc"
