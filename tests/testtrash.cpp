@@ -21,6 +21,7 @@
 
 #include "kio_trash.h"
 #include "testtrash.h"
+#include <kprotocolinfo.h>
 #include <ktemporaryfile.h>
 
 #include <kurl.h>
@@ -100,6 +101,7 @@ static void removeDirRecursive( const QString& dir )
 
         // Make it work even with readonly dirs, like trashReadOnlyDirFromHome() creates
         KUrl u = KUrl::fromPath( dir );
+        //kDebug() << "chmod +0200 on" << u;
         KFileItem fileItem(u, QString::fromLatin1("inode/directory"), KFileItem::Unknown);
         KFileItemList fileItemList;
         fileItemList.append( fileItem );
@@ -189,6 +191,7 @@ void TestTrash::initTestCase()
         kWarning() << "No writable partition other than $HOME found, some tests will be skipped" ;
 
     // Start with a clean base dir
+    kDebug() << "initial cleanup";
     removeDirRecursive( homeTmpDir() );
     removeDirRecursive( otherTmpDir() );
 
@@ -201,6 +204,7 @@ void TestTrash::initTestCase()
         kFatal() << "Couldn't create " << otherTmpDir() ;
 
     // Start with a clean trash too
+    kDebug() << "removing trash dir";
     removeDirRecursive( m_trashDir );
 }
 
@@ -523,6 +527,14 @@ void TestTrash::trashDirectoryFromHome()
     trashDirectory( homeTmpDir() + dirName, dirName );
     // Do it again, check that we got a different id
     trashDirectory(homeTmpDir() + dirName, dirName + QString::fromLatin1("_1"));
+}
+
+void TestTrash::trashDotDirectory()
+{
+    QString dirName = QString::fromLatin1(".dotTrashDirFromHome");
+    trashDirectory( homeTmpDir() + dirName, dirName );
+    // Do it again, check that we got a different id
+    // TODO trashDirectory(homeTmpDir() + dirName, dirName + QString::fromLatin1("_1"));
 }
 
 void TestTrash::trashReadOnlyDirFromHome()
@@ -1079,6 +1091,7 @@ static void checkIcon( const KUrl& url, const QString& expectedIcon )
 
 void TestTrash::testIcons()
 {
+    QCOMPARE(KProtocolInfo::icon("trash"), QString("user-trash-full") ); // #100321
     checkIcon( KUrl("trash:/"), "user-trash-full" ); // #100321
     checkIcon( KUrl("trash:/foo/"), "inode-directory" );
 }

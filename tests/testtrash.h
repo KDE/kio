@@ -50,6 +50,7 @@ private Q_SLOTS:
     void trashSymlinkFromOther();
     void trashBrokenSymlinkFromHome();
     void trashDirectoryFromHome();
+    void trashDotDirectory();
     void trashReadOnlyDirFromHome();
     void trashDirectoryFromOther();
     void trashDirectoryOwnedByRoot();
