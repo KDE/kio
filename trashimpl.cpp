@@ -564,6 +564,8 @@ bool TrashImpl::emptyTrash()
 
     QSet<QString> unremoveableFiles;
 
+    int myErrorCode = 0;
+    QString myErrorMsg;
     const TrashedFileInfoList fileInfoList = list();
 
     TrashedFileInfoList::const_iterator it = fileInfoList.begin();
@@ -574,8 +576,11 @@ bool TrashImpl::emptyTrash()
         if ( synchronousDel( filesPath, true, true ) ) {
             QFile::remove( infoPath( info.trashId, info.fileId ) );
         } else {
-            // error code is set already
-            // just remember not to remove this file
+            // error code is set by synchronousDel, let's remember it
+            // (so that successfully removing another file doesn't erase the error)
+            myErrorCode = m_lastErrorCode;
+            myErrorMsg = m_lastErrorMessage;
+            // and remember not to remove this file
             unremoveableFiles.insert(filesPath);
             kDebug() << "Unremoveable:" << filesPath;
         }
@@ -597,6 +602,9 @@ bool TrashImpl::emptyTrash()
             }
         }
     }
+
+    m_lastErrorCode = myErrorCode;
+    m_lastErrorMessage = myErrorMsg;
 
     fileRemoved();
 
