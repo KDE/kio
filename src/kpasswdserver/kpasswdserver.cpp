@@ -671,6 +671,7 @@ KPasswdServer::processRequest()
 
             QDataStream stream2(&replyData, QIODevice::WriteOnly);
 
+            KIO::AuthInfo rcinfo;
             if (!result || result->isCanceled)
             {
                 waitRequest->info.setModified(false);
@@ -679,12 +680,12 @@ KPasswdServer::processRequest()
             else
             {
                 updateAuthExpire(waitRequest->key, result, waitRequest->windowId, false);
-                KIO::AuthInfo info = copyAuthInfo(result);
-                stream2 << info;
+                rcinfo = copyAuthInfo(result);
+                stream2 << rcinfo;
             }
 
             if (waitRequest->isAsync) {
-                emit checkAuthInfoAsyncResult(waitRequest->requestId, m_seqNr, info);
+                emit checkAuthInfoAsyncResult(waitRequest->requestId, m_seqNr, rcinfo);
             } else {
                 QDBusConnection::sessionBus().send(waitRequest->transaction.createReply(QVariantList() << replyData << m_seqNr));
             }
