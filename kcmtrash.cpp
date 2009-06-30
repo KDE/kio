@@ -28,13 +28,13 @@
 #include <QtGui/QLayout>
 #include <QtGui/QListWidget>
 #include <QtGui/QListWidgetItem>
-#include <QtGui/QSpinBox>
 
 #include <kconfig.h>
 #include <kconfiggroup.h>
 #include <kdialog.h>
 #include <kglobal.h>
 #include <kicon.h>
+#include <KNumInput>
 #include <klocale.h>
 #include <kpluginfactory.h>
 #include <kpluginloader.h>
@@ -165,18 +165,17 @@ void TrashConfigModule::trashChanged( int value )
         const ConfigEntry entry = mConfigMap[ mCurrentTrash ];
         mUseTimeLimit->setChecked( entry.useTimeLimit );
         mDays->setValue( entry.days );
-        updateSpinBoxSuffix( entry.days );
         mUseSizeLimit->setChecked( entry.useSizeLimit );
         mPercent->setValue( entry.percent );
         mLimitReachedAction->setCurrentIndex( entry.actionType );
     } else {
         mUseTimeLimit->setChecked( false );
         mDays->setValue( 7 );
-        updateSpinBoxSuffix( 7 );
         mUseSizeLimit->setChecked( true );
         mPercent->setValue( 10.0 );
         mLimitReachedAction->setCurrentIndex( 0 );
     }
+    mDays->setSuffix( ki18np( " day", " days" ) );
 
     percentChanged( mPercent->value() );
 
@@ -272,8 +271,7 @@ void TrashConfigModule::setupGui()
                                      "<para>Check this box to allow <b>automatic deletion</b> of files that are older than the value specified. "
                                      "Leave this disabled to <b>not</b> automatically delete any items after a certain timespan</para>" ) );
     daysLayout->addWidget( mUseTimeLimit );
-    mDays = new QSpinBox( this );
-    connect( mDays, SIGNAL( valueChanged( int ) ), this, SLOT( updateSpinBoxSuffix( int ) ) );
+    mDays = new KIntSpinBox( this );
     
     mDays->setRange( 1, 365 );
     mDays->setSingleStep( 1 );
@@ -329,11 +327,6 @@ void TrashConfigModule::setupGui()
     sizeWidgetLayout->addWidget( mLimitReachedAction, 1, 1, 1, 2 );
 
     layout->addStretch();
-}
-
-void TrashConfigModule::updateSpinBoxSuffix( int interval )
-{
-    mDays->setSuffix( i18np( " day", " days", interval ) );
 }
 
 #include "kcmtrash.moc"
