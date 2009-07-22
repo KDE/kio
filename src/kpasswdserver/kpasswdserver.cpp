@@ -492,6 +492,13 @@ KPasswdServer::openWallet( int windowId )
 void
 KPasswdServer::processRequest()
 {
+    // guard so processRequest is only ever run once.
+    static bool processing = false;
+    if (processing) {
+        return;
+    }
+    processing = true;
+    
     Request *request = m_authPending.takeFirst();
     if (!request)
        return;
@@ -695,6 +702,9 @@ KPasswdServer::processRequest()
         }
     }
 
+    // reallow processing
+    processing = false;
+    
     if (m_authPending.count())
        QTimer::singleShot(0, this, SLOT(processRequest()));
 
