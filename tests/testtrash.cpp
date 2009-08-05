@@ -208,6 +208,14 @@ void TestTrash::initTestCase()
     removeDirRecursive( m_trashDir );
 }
 
+void TestTrash::cleanupTestCase()
+{
+    // Clean up
+    removeDirRecursive( homeTmpDir() );
+    removeDirRecursive( otherTmpDir() );
+    removeDirRecursive( m_trashDir );
+}
+
 void TestTrash::urlTestFile()
 {
     const KUrl url = TrashImpl::makeURL(1, QString::fromLatin1("fileId"), QString());
