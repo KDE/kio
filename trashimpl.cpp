@@ -40,7 +40,6 @@
 #include <kconfiggroup.h>
 #include <kmountpoint.h>
 
-#include <QApplication>
 #include <QEventLoop>
 #include <QFile>
 #include <QDir>

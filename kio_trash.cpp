@@ -30,7 +30,6 @@
 
 #include <QCoreApplication>
 #include <QDataStream>
-#include <QTextStream>
 #include <QFile>
 #include <QEventLoop>
 

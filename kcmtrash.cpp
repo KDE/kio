@@ -34,10 +34,10 @@
 #include <kdialog.h>
 #include <kglobal.h>
 #include <kicon.h>
-#include <KNumInput>
 #include <klocale.h>
 #include <kpluginfactory.h>
 #include <kpluginloader.h>
+#include <KIntSpinBox>
 #include <KDebug>
 
 K_PLUGIN_FACTORY( KCMTrashConfigFactory, registerPlugin<TrashConfigModule>( "trash" ); )
