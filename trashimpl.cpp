@@ -21,6 +21,7 @@
 
 #include "trashimpl.h"
 #include "discspaceutil.h"
+#include "trashsizecache.h"
 
 #include <klocale.h>
 #include <kde_file.h>
@@ -354,6 +355,11 @@ bool TrashImpl::moveToTrash( const QString& origPath, int trashId, const QString
     if ( !adaptTrashSize( origPath, trashId ) )
         return false;
 
+    const qulonglong pathSize = DiscSpaceUtil::sizeOfPath( origPath );
+
+    TrashSizeCache trashSize( trashDirectoryPath( trashId ) );
+    trashSize.initialize();
+
     const QString dest = filesPath( trashId, fileId );
     if ( !move( origPath, dest ) ) {
         // Maybe the move failed due to no permissions to delete source.
@@ -364,6 +370,9 @@ bool TrashImpl::moveToTrash( const QString& origPath, int trashId, const QString
             synchronousDel( dest, false, true );
         return false;
     }
+
+    trashSize.add( pathSize );
+
     fileAdded();
     return true;
 }
@@ -375,8 +384,16 @@ bool TrashImpl::moveFromTrash( const QString& dest, int trashId, const QString& 
         src += QLatin1Char('/');
         src += relativePath;
     }
+    const qulonglong pathSize = DiscSpaceUtil::sizeOfPath( src );
+
+    TrashSizeCache trashSize( trashDirectoryPath( trashId ) );
+    trashSize.initialize();
+
     if ( !move( src, dest ) )
         return false;
+
+    trashSize.remove( pathSize );
+
     return true;
 }
 
@@ -417,9 +434,17 @@ bool TrashImpl::copyToTrash( const QString& origPath, int trashId, const QString
     if ( !adaptTrashSize( origPath, trashId ) )
         return false;
 
+    const qulonglong pathSize = DiscSpaceUtil::sizeOfPath( origPath );
+
+    TrashSizeCache trashSize( trashDirectoryPath( trashId ) );
+    trashSize.initialize();
+
     const QString dest = filesPath( trashId, fileId );
     if ( !copy( origPath, dest ) )
         return false;
+
+    trashSize.add( pathSize );
+
     fileAdded();
     return true;
 }
@@ -500,6 +525,8 @@ bool TrashImpl::del( int trashId, const QString& fileId )
     QString info = infoPath(trashId, fileId);
     QString file = filesPath(trashId, fileId);
 
+    const qulonglong fileSize = DiscSpaceUtil::sizeOfPath( file );
+
     QByteArray info_c = QFile::encodeName(info);
 
     KDE_struct_stat buff;
@@ -511,8 +538,13 @@ bool TrashImpl::del( int trashId, const QString& fileId )
         return false;
     }
 
+    TrashSizeCache trashSize( trashDirectoryPath( trashId ) );
+    trashSize.initialize();
+
     if ( !synchronousDel( file, true, QFileInfo(file).isDir() ) )
         return false;
+
+    trashSize.remove( fileSize );
 
     QFile::remove( info );
     fileRemoved();
@@ -583,6 +615,9 @@ bool TrashImpl::emptyTrash()
             unremoveableFiles.insert(filesPath);
             kDebug() << "Unremoveable:" << filesPath;
         }
+
+        TrashSizeCache trashSize( trashDirectoryPath( info.trashId ) );
+        trashSize.clear();
     }
 
     // Now do the orphaned-files cleanup
@@ -1072,8 +1107,9 @@ bool TrashImpl::adaptTrashSize( const QString& origPath, int trashId )
         // calculate size of the files to be put into the trash
         qulonglong additionalSize = DiscSpaceUtil::sizeOfPath( origPath );
 
+        const TrashSizeCache trashSize( trashPath );
         DiscSpaceUtil util(trashPath + QString::fromLatin1("/files/"));
-        if ( util.usage( additionalSize ) >= percent ) {
+        if ( util.usage( trashSize.size() + additionalSize ) >= percent ) {
             if ( actionType == 0 ) { // warn the user only
                 m_lastErrorCode = KIO::ERR_SLAVE_DEFINED;
                 m_lastErrorMessage = i18n( "The trash has reached its maximum size!\nCleanup the trash manually." );
@@ -1109,7 +1145,8 @@ bool TrashImpl::adaptTrashSize( const QString& origPath, int trashId )
 
                     del( trashId, info.fileName() ); // delete trashed file
 
-                    if ( util.usage( additionalSize ) < percent ) // check whether we have enough space now
+                    const TrashSizeCache trashSize( trashPath );
+                    if ( util.usage( trashSize.size() + additionalSize ) < percent ) // check whether we have enough space now
                          deleteFurther = false;
                 }
             }

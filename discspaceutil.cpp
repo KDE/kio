@@ -60,15 +60,12 @@ qulonglong DiscSpaceUtil::sizeOfPath( const QString &path )
     }
 }
 
-double DiscSpaceUtil::usage( qulonglong additional ) const
+double DiscSpaceUtil::usage( qulonglong size ) const
 {
     if ( mFullSize == 0 )
         return 0;
 
-    qulonglong sum = sizeOfPath( mDirectory );
-    sum += additional;
-
-    return (((double)sum*100)/(double)mFullSize);
+    return (((double)size*100)/(double)mFullSize);
 }
 
 qulonglong DiscSpaceUtil::size() const

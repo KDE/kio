@@ -43,10 +43,9 @@ class DiscSpaceUtil
      * Returns the usage of the directory pass in the constructor on this
      * mount point in percent.
      *
-     * @param additional An additional amount of bytes that is added to the
-     *                   directory size before the usage is calculated.
+     * @param size The current size of the directory.
      */
-    double usage( qulonglong additional = 0 ) const;
+    double usage( qulonglong size ) const;
 
     /**
      * Returns the size of the partition in bytes.
