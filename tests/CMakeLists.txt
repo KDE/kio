@@ -6,8 +6,13 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/.. )
 
 ########### next target ###############
 
-set(testtrash_SRCS testtrash.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../trashimpl.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../discspaceutil.cpp)
+set(testtrash_SRCS 
+    testtrash.cpp 
+    ${CMAKE_CURRENT_SOURCE_DIR}/../trashimpl.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../trashsizecache.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../discspaceutil.cpp
+)
 
 kde4_add_unit_test(testtrash ${testtrash_SRCS})
 
-target_link_libraries(testtrash  ${KDE4_KIO_LIBS} ${KDE4_SOLID_LIBS} ${QT_QTTEST_LIBRARY})
+target_link_libraries(testtrash ${KDE4_KIO_LIBS} ${KDE4_SOLID_LIBS} ${QT_QTTEST_LIBRARY})
