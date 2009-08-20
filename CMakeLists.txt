@@ -9,6 +9,7 @@ include_directories(${STRIGI_INCLUDE_DIR})
 set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp
                            ${CMAKE_CURRENT_SOURCE_DIR}/discspaceutil.cpp
                            ${CMAKE_CURRENT_SOURCE_DIR}/trashsizecache.cpp
+                           ${CMAKE_CURRENT_SOURCE_DIR}/kinterprocesslock.cpp
     )
 
 ########### next target ###############

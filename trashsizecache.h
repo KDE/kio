@@ -72,9 +72,9 @@ class TrashSizeCache
         qulonglong size() const;
 
     private:
-        qulonglong currentSize() const;
+        qulonglong currentSize( bool doLocking ) const;
 
-        mutable KConfig mConfig;
+        QString mTrashSizeCachePath;
         QString mTrashPath;
         const QString mTrashSizeGroup;
         const QString mTrashSizeKey;
