@@ -36,8 +36,11 @@ int main(int argc, char **argv)
     lock.waitForLockGranted();
     qDebug("retrieved lock");
     qDebug("sleeping...");
-
+#ifdef Q_OS_WIN
+    Sleep(10*1000);
+#else
     sleep(10);
+#endif
 
     if (argc != 2) {
         lock.unlock();
