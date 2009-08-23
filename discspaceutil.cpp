@@ -44,7 +44,7 @@ qulonglong DiscSpaceUtil::sizeOfPath( const QString &path )
     if ( info.isFile() ) {
         return info.size();
     } else if ( info.isDir() && !info.isSymLink() ) {
-        QDirIterator it( path, QDirIterator::Subdirectories );
+        QDirIterator it( path, QDirIterator::NoIteratorFlags );
 
         qulonglong sum = 0;
         while ( it.hasNext() ) {
