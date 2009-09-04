@@ -36,7 +36,8 @@
  * @code
  *
  * KInterProcessLock *lock = new KInterProcessLock("myresource");
- * connect(lock, SIGNAL(lockGranted(KInterProcessLock *lock)), this, * SLOT(doCriticlTask(KInterProcessLock *lock)));
+ * connect(lock, SIGNAL(lockGranted(KInterProcessLock *)),
+ *               this, SLOT(doCriticalTask(KInterProcessLock *)));
  * lock->lock();
  *
  * ...
