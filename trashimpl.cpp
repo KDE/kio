@@ -67,7 +67,7 @@ TrashImpl::TrashImpl() :
     m_trashDirectoriesScanned( false ),
     // not using kio_trashrc since KIO uses that one already for kio_trash
     // so better have a separate one, for faster parsing by e.g. kmimetype.cpp
-    m_config(QString::fromLatin1("trashrc"))
+    m_config(QString::fromLatin1("trashrc"), KConfig::SimpleConfig)
 {
     KDE_struct_stat buff;
     if ( KDE_lstat( QFile::encodeName( QDir::homePath() ), &buff ) == 0 ) {

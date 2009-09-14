@@ -79,7 +79,7 @@ LRESULT CALLBACK trash_internal_proc( HWND hwnd, UINT message, WPARAM wp, LPARAM
 
 TrashProtocol::TrashProtocol( const QByteArray& protocol, const QByteArray &pool, const QByteArray &app )
     : SlaveBase( protocol, pool, app )
-    , m_config(QString::fromLatin1("trashrc"))
+    , m_config(QString::fromLatin1("trashrc"), KConfig::SimpleConfig)
 {
     // create a hidden window to receive notifications thorugh window messages
     const QString className = QLatin1String("TrashProtocol_Widget") + QString::number(quintptr(trash_internal_proc));
