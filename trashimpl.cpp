@@ -771,6 +771,7 @@ bool TrashImpl::isEmpty() const
 
 void TrashImpl::fileAdded()
 {
+    m_config.reparseConfiguration();
     KConfigGroup group = m_config.group( "Status" );
     if ( group.readEntry( "Empty", true) == true ) {
         group.writeEntry( "Empty", false );
