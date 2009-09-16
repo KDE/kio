@@ -328,7 +328,7 @@ void TrashProtocol::listRoot()
                     filetimeToTime_t( &findData.ftCreationTime ) );
       entry.insert( KIO::UDSEntry::UDS_EXTRA,
                     QString::fromUtf16( (const unsigned short*)strret.pOleStr ) );
-      entry.insert( KIO::UDSEntry::UDS_EXTRA, QDateTime().toString( Qt::ISODate ) );
+      entry.insert( KIO::UDSEntry::UDS_EXTRA + 1, QDateTime().toString( Qt::ISODate ) );
       mode_t type = S_IFREG;
       if ( ( attribs & SFGAO_FOLDER ) == SFGAO_FOLDER )
           type = S_IFDIR;
