@@ -1,7 +1,3 @@
-
-
-add_definitions( -DKDE_DEFAULT_DEBUG_AREA=7130 )
-
 add_subdirectory(tests)
 
 include_directories(${STRIGI_INCLUDE_DIR})

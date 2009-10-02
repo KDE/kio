@@ -26,7 +26,6 @@
 
 #include <kurl.h>
 #include <klocale.h>
-#include <kapplication.h>
 #include <kio/netaccess.h>
 #include <kio/job.h>
 #include <kio/copyjob.h>
