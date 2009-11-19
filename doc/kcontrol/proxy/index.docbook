@@ -1,26 +1,24 @@
 <?xml version="1.0" ?>
 <!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN"
 "dtd/kdex.dtd" [
-<!ENTITY socks-kcontrol SYSTEM "socks.docbook">
 <!ENTITY % addindex "IGNORE">
 <!ENTITY % English "INCLUDE" > <!-- change language only here -->
 ]>
 
 <article lang="&language;">
+<title>Proxy</title>
 <articleinfo>
-
-
 <authorgroup>
 <author>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2002-02-11</date>
-<releaseinfo>3.00.00</releaseinfo>
+<date>2009-11-18</date>
+<releaseinfo>&kde; 4.4</releaseinfo>
 
 <keywordset>
 <keyword>KDE</keyword>
-<keyword>KControl</keyword>
+<keyword>Systemsettings</keyword>
 <keyword>proxy</keyword>
 <keyword>proxies</keyword>
 </keywordset>
@@ -82,7 +80,7 @@ configure the settings for it.</para>
 
 <variablelist>
 <varlistentry>
-<term><guilabel>Automatically detected script file</guilabel></term>
+<term><guilabel>Automatically detected proxy configuration</guilabel></term>
 <listitem>
 
 <para>Select this option if you want the proxy setup configuration
@@ -101,7 +99,7 @@ more information.</para></note>
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Specified script file</guilabel></term>
+<term><guilabel>Use proxy configuration URL</guilabel></term>
 <listitem>
 <para>Select this option if your proxy support is provided through a
 script file located at a specific address.  You can then enter the
@@ -111,7 +109,7 @@ icon to browse to it.</para>
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Preset environment variables</guilabel></term>
+<term><guilabel>Use preset environment variables</guilabel></term>
 <listitem>
 <para>Some systems are setup with $<envar>HTTP_PROXY</envar> to allow
 graphical as well as non-graphical applications to share the same
@@ -123,7 +121,7 @@ variable names used to set the address of the proxy server(s).</para>
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Manually specified settings</guilabel></term>
+<term><guilabel>Manually speciffy the proxy settings</guilabel></term>
 <listitem>
 <para>Select this option, and click on the
 <guibutton>Setup...</guibutton> to manually setup the location of the
@@ -137,12 +135,6 @@ the relevant text boxes. The <guiicon>arrow</guiicon> button copies
 the information from the <guilabel>HTTP</guilabel> line to the
 <guilabel>FTP</guilabel> line, in order to help save some
 typing.</para>
-
-<para>If there are hosts which you can connect to without going
-through the proxy server, you can press <guibutton>Add</guibutton> to
-add the names of these hosts, separated by in the text box labeled
-<guilabel>No Proxy For:</guilabel>. For example, hosts that are on
-your local network can probably be contacted directly.</para>
 
 <para>You can also choose <guilabel>Only use proxy for entries in this
 list</guilabel>.</para>
@@ -169,11 +161,9 @@ proxy requires it.  You can have <guilabel>Prompt as
 needed</guilabel>, the default, in which case &konqueror; will only
 ask for a username or password if it needs to.</para>
 
-<para>The other option is <guilabel>Use automatic login</guilabel>.
-Select this option if you have already set up a login entry for your
-proxy server in the
-<filename>$<envar>KDEDIR</envar>/share/config/kionetrc</filename>
-file.</para>
+<para>The other option is to use automatic login.
+Select this option and enter <guilabel>Username</guilabel> and <guilabel>Password</guilabel>.
+</para>
 
 </sect2>
 
@@ -189,8 +179,6 @@ file.</para>
 </variablelist>
 
 </sect2>
-
-&socks-kcontrol;
 
 </sect1>
 
