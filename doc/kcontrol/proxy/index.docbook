@@ -80,7 +80,7 @@ configure the settings for it.</para>
 
 <variablelist>
 <varlistentry>
-<term><guilabel>Automatically detected proxy configuration</guilabel></term>
+<term><guilabel>Automatically detect proxy configuration</guilabel></term>
 <listitem>
 
 <para>Select this option if you want the proxy setup configuration
@@ -109,7 +109,7 @@ icon to browse to it.</para>
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Use preset environment variables</guilabel></term>
+<term><guilabel>Use preset proxy environment variables</guilabel></term>
 <listitem>
 <para>Some systems are setup with $<envar>HTTP_PROXY</envar> to allow
 graphical as well as non-graphical applications to share the same
@@ -121,7 +121,7 @@ variable names used to set the address of the proxy server(s).</para>
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Manually speciffy the proxy settings</guilabel></term>
+<term><guilabel>Manually specify the proxy settings</guilabel></term>
 <listitem>
 <para>Select this option, and click on the
 <guibutton>Setup...</guibutton> to manually setup the location of the
