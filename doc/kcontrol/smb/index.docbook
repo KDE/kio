@@ -14,12 +14,12 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2002-02-12</date>
-<releaseinfo>3.00.00</releaseinfo>
+<date>2009-11-20</date>
+<releaseinfo>&kde; 4.4</releaseinfo>
 
 <keywordset>
 <keyword>KDE</keyword>
-<keyword>KControl</keyword>
+<keyword>Systemsettings</keyword>
 <keyword>Windows shares</keyword>
 </keywordset>
 </articleinfo>
@@ -91,6 +91,7 @@ conscious environment, you should not store your password here but
 rather enter it anew every time you need to access an
 <acronym>SMB</acronym> host.</para></important>
 
+<!-- not in kde 4
 <para>In the <guilabel>Workgroup</guilabel> field, you can enter your
 workgroup name.  If you don't know it, ask your system administrator
 or have a look at other already configured machines in your network.
@@ -99,6 +100,7 @@ so you probably can also leave this empty.</para>
 
 <para>If the option <guilabel>Show hidden shares</guilabel> is
 checked, shares ending with a <quote>$</quote> will be shown.</para>
+-->
 </sect2>
 
 </sect1>
