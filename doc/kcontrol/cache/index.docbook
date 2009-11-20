@@ -6,27 +6,25 @@
 ]>
 
 <article lang="&language;">
+<title>Cache</title>
 <articleinfo>
 
 <authorgroup>
-<author><firstname></firstname><surname></surname></author>
+<author><firstname>Lauri</firstname><surname>Watts</surname></author>
 
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2003-10-12</date>
-<releaseinfo>3.2</releaseinfo>
+<date>2009-11-20</date>
+<releaseinfo>&kde; 4.4</releaseinfo>
 
 <keywordset>
 <keyword>KDE</keyword>
-<keyword>KControl</keyword>
+<keyword>Systemsettings</keyword>
 <keyword>Konqueror</keyword>
 <keyword>Cache</keyword>
 </keywordset>
 </articleinfo>
-
-<sect1 id="cache">
-<title>Cache</title>
 
 <para>This module allows you to control the size of the local cache
 folder used by &konqueror;. Note that each user account on your
@@ -39,7 +37,7 @@ will only be necessary to reload the contents from the original site
 if they have changed since your last visit, or if you click the reload
 button in &konqueror;.</para>
 
-<para>If you really don't want any of the web pages you visit to be
+<para>If you really do not want any of the web pages you visit to be
 stored on your computer, you can disable &konqueror;'s disk cache by
 clearing the checkbox labeled <guilabel>Use cache</guilabel>.</para>
 
@@ -64,6 +62,5 @@ the cache could become substantially larger.</para>
 
 <para>You can use the <guibutton>Clear Cache</guibutton> button to empty
 the cache at any time.</para>
-</sect1>
 
 </article>
