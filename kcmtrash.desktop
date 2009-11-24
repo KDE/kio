@@ -299,3 +299,4 @@ Comment[x-test]=xxConfigure trash settingsxx
 Comment[zh_CN]=配置回收站设置
 Comment[zh_TW]=設定資源回收筒
 X-KDE-Keywords=trash
+X-DocPath=kcontrol/trash/index.html
