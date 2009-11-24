@@ -14,12 +14,12 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2003-10-12</date>
-<releaseinfo>3.2</releaseinfo>
+<date>2009-11-24</date>
+<releaseinfo>&kde; 4.4</releaseinfo>
 
 <keywordset>
 <keyword>KDE</keyword>
-<keyword>KControl</keyword>
+<keyword>Systemsettings</keyword>
 <keyword>cookie</keyword>
 </keywordset>
 
@@ -45,7 +45,7 @@ be quite useful to the web site owners, for example, by allowing them to
 collect summary statistics on the number of visits different areas of
 the web sites get, or to customize banner advertising.</para>
 
-<para>The cookies module of the &kcontrol; allows you to set policies
+<para>The cookies module of the &systemsettings; allows you to set policies
 for the use of cookies when you are browsing the web with the
 &konqueror; web browser. </para>
 
@@ -62,7 +62,7 @@ as &Netscape;.</para></warning>
 general cookie policy as well as special cookie policies for certain
 domains or hosts.</para>
 
-<para>The top of the policy tab has a checkbox labeled <guilabel>Enable
+<para>The top of the policy tab has a check box labeled <guilabel>Enable
 cookies</guilabel>. If you leave this unchecked, cookies will be
 completely disabled. However, this may make browsing rather
 inconvenient, especially as some web sites require the use of browsers
@@ -78,7 +78,7 @@ specific policies on how you want them to be handled.</para>
 <term><guilabel>Only accept cookies from originating server</guilabel></term>
 <listitem>
 <para>Some pages try to set cookies from servers other than the one
-you are seeing the <acronym>HTML</acronym> page from.  For example,
+you are seeing the &HTML; page from.  For example,
 they show you advertisements, and the advertisements are from another
 computer, often one that belongs to a large advertising group.  These
 advertisements may try to set a cookie which would allow them to
@@ -194,7 +194,7 @@ delete cookies that have been set in the past.</para>
 as a tree. Click on the little <guiicon>+</guiicon> next to a domain to see all
 cookies that have been set for this particular target domain. If you select one
 of these cookies, you will notice that its contents will show up in the frame
-<guilabel>Cookie Details</guilabel> below.</para>
+<guilabel>Details</guilabel> below.</para>
 
 <para>By clicking the <guibutton>Delete</guibutton> button you can now delete the selected
 cookie. Click <guibutton>Delete All</guibutton> to delete all cookies stored.</para>

@@ -13,12 +13,12 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2003-10-12</date>
-<releaseinfo>3.2</releaseinfo>
+<date>2009-11-24</date>
+<releaseinfo>&kde; 4.4</releaseinfo>
 
 <keywordset>
 <keyword>KDE</keyword>
-<keyword>KControl</keyword>
+<keyword>Systemsettings</keyword>
 <keyword>user agent</keyword>
 <keyword>browser</keyword>
 <keyword>identification</keyword>
@@ -42,7 +42,7 @@ browsers function, web sites that rely too much on a single browser may
 sometimes not display as intended when viewed using another
 browser. Some web sites are smart enough to examine the contents of the
 user agent header and incorporate this information in the
-<acronym>HTML</acronym> code so that the content is displayed correctly
+&HTML; code so that the content is displayed correctly
 regardless of the browser used.</para>
 
 <para>However, you may find that some web sites refuse to function
@@ -59,13 +59,13 @@ another browser by means of the user agent header.</para>
 <para>In this module you can configure the
 type of browser that &konqueror; will report itself to be. You can
 control this information by web site. Usually, the list box that is
-labeled <guilabel>Site/Domain Specific Identification</guilabel> will be
+labeled <guilabel>Site Specific Identification</guilabel> will be
 empty, so that &konqueror; will always use its default useragent
 string.</para>
 
 <para>You can disable the sending of a user agent entirely, by
 unchecking the <guilabel>Send identification</guilabel>
-checkbox.  This may cause strange behavior on some sites, and may even
+check box.  This may cause strange behavior on some sites, and may even
 deny you access to some websites, so disable this with caution.</para>
 
 <para>To configure a new agent binding, press the
@@ -81,19 +81,12 @@ character <token>*</token> in this text box. However, the string
 
 <para>After typing the name of the server, type in the identifying
 string in the next combo box, which is labeled <guilabel>Use the
-following identity:</guilabel>, or choose a string from the list. If
+following identification:</guilabel>, or choose a string from the list. If
 you don't choose a string from the list, you will need to know what a
 valid string from the browser looks like. For example, you could type
 <userinput>Mozilla/4.0 (compatible; MSIE 4.0)</userinput>. </para>
 
-<para>In the field labeled <guilabel>Alias (description)</guilabel>
-you can enter a descriptive name for the configured binding, &eg;
-<userinput>Netscape Navigator 4.75 on Linux</userinput> for the
-useragent string <userinput>Mozilla/4.75 (X11; U; Linux 2.2.14
-i686)</userinput>.</para>
-
-<para>You can click on an existing entry in the <guilabel>Configured
-agent bindings</guilabel> list, and then modify the contents of the
+<para>You can click on an existing entry in the list, and then modify the contents of the
 text boxes, followed by clicking <guibutton>Change...</guibutton>.</para>
 
 <para>The <guibutton>Delete</guibutton> button can be used to delete
@@ -102,7 +95,7 @@ the selected entry in the list of configured agent bindings.  The
 agent strings.  Click the <guibutton>Apply</guibutton> to take your
 changes in effect.</para>
 
-<para>You can use the checkboxes at the top of the screen to build a
+<para>You can use the check boxes at the top of the screen to build a
 user agent that is uniquely yours, by choosing your own combination of
 operating system name and version, platform, processor type, and
 language.</para>
