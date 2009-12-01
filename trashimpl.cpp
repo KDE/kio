@@ -604,7 +604,7 @@ bool TrashImpl::emptyTrash()
     for ( ; it != end ; ++it ) {
         const TrashedFileInfo& info = *it;
         const QString filesPath = info.physicalPath;
-        if ( synchronousDel( filesPath, true, true ) ) {
+        if ( synchronousDel( filesPath, true, true ) || m_lastErrorCode == KIO::ERR_DOES_NOT_EXIST) {
             QFile::remove( infoPath( info.trashId, info.fileId ) );
         } else {
             // error code is set by synchronousDel, let's remember it
