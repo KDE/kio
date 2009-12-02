@@ -94,7 +94,7 @@ lookup services when you type in normal words and phrases instead of a &URL;.
 To disable this feature select <guilabel>None</guilabel> from the list.
 </para></listitem>
 </varlistentry>
-<varlistentry><term><guilabel>Default search engine</guilabel></term>
+<varlistentry><term><guilabel>Keyword delimiter</guilabel></term>
 <listitem>
 <para>Choose the delimiter that separates the keyword from the phrase or word to 
 be searched.</para></listitem>
