@@ -602,7 +602,7 @@ KPasswdServer::processRequest()
             if (info.getExtraField(AUTHINFO_EXTRAFIELD_DOMAIN).isValid ())
                 dlg.setDomain(info.getExtraField(AUTHINFO_EXTRAFIELD_DOMAIN).toString());
 
-            if (info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).isValid ())
+            if (info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).isValid () && password.isEmpty() && username.isEmpty())
                 dlg.setAnonymousMode(info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).toBool());
 
 #ifndef Q_WS_WIN
