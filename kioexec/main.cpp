@@ -19,6 +19,8 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "main.h"
+
 #include <QtCore/QFile>
 #include <QtCore/Q_PID>
 
@@ -37,10 +39,6 @@
 #include <kstartupinfo.h>
 #include <kshell.h>
 #include <kde_file.h>
-
-
-#include "main.h"
-
 
 static const char description[] =
         I18N_NOOP("KIO Exec - Opens remote files, watches modifications, asks for upload");

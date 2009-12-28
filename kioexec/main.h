@@ -28,7 +28,11 @@
 #include <QList>
 #include <QtCore/QTimer>
 
+#include <KUrl>
+
 namespace KIO { class Job; }
+
+class KJob;
 
 class KIOExec : public QObject
 {
