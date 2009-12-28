@@ -1132,17 +1132,17 @@ bool TrashImpl::adaptTrashSize( const QString& origPath, int trashId )
                 // some other files from the trash
 
                 QDir dir(trashPath + QString::fromLatin1("/files"));
-                QFileInfoList infos;
+                QFileInfoList infoList;
                 if ( actionType == 1 )  // delete oldest files first
-                    infos = dir.entryInfoList( QDir::Files | QDir::AllDirs | QDir::NoDotAndDotDot, QDir::Time | QDir::Reversed );
+                    infoList = dir.entryInfoList( QDir::Files | QDir::AllDirs | QDir::NoDotAndDotDot, QDir::Time | QDir::Reversed );
                 else if ( actionType == 2 ) // delete biggest files first
-                    infos = dir.entryInfoList( QDir::Files | QDir::AllDirs | QDir::NoDotAndDotDot, QDir::Size );
+                    infoList = dir.entryInfoList( QDir::Files | QDir::AllDirs | QDir::NoDotAndDotDot, QDir::Size );
                 else
                     qWarning( "Should never happen!" );
 
                 bool deleteFurther = true;
-                for ( int i = 0; (i < infos.count()) && deleteFurther; ++i ) {
-                    const QFileInfo info = infos.at( i );
+                for ( int i = 0; (i < infoList.count()) && deleteFurther; ++i ) {
+                    const QFileInfo info = infoList.at( i );
 
                     del( trashId, info.fileName() ); // delete trashed file
 

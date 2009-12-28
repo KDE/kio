@@ -19,13 +19,13 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "discspaceutil.h"
+
 #include <QtCore/QDirIterator>
 #include <QtCore/QFileInfo>
 
 #include <kdiskfreespaceinfo.h>
 #include <kdebug.h>
-
-#include "discspaceutil.h"
 
 DiscSpaceUtil::DiscSpaceUtil( const QString &directory )
     : mDirectory( directory ),

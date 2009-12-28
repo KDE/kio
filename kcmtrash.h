@@ -17,8 +17,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA            *
  ***************************************************************************/
 
-#ifndef TRASHCONFIGMODULE_H
-#define TRASHCONFIGMODULE_H
+#ifndef KCMTRASH_H
+#define KCMTRASH_H
 
 #include <kcmodule.h>
 
@@ -79,4 +79,4 @@ class TrashConfigModule : public KCModule
         ConfigMap mConfigMap;
 };
 
-#endif
+#endif // KCMTRASH_H
