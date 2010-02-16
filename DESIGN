@@ -2,10 +2,10 @@ DESIGN
 ======
 kio_trash implements the XDG trash standard currently at http://www.ramendik.ru/docs/trashspec.html
 
-In case race conditions between the various instances of kio_trash
-are a problem, trashimpl could be moved to a kded module, and
-kio_trash would use DCOP to talk to it. It's a bit hard to come up
-with use cases where the race conditions would matter though.
+The concurrency that comes from having multiple kioslaves running at the same time
+on top of the same set of files, is solved by the KInterProcessLock class, which
+synchronizes access to shared resources (like the file storing the size of the
+trash directory).
 
 BUGS
 ====
