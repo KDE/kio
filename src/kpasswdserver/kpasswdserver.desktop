@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-Name=KDED Password Module
+Name=Password Caching
 Name[af]=KDED Wagwoordmodule
 Name[ar]=وحدة كلمة سر KDED
 Name[be]=Модуль паролю KDED
@@ -79,7 +79,7 @@ Name[wa]=Module di scret di KDE
 Name[x-test]=xxKDED Password Modulexx
 Name[zh_CN]=KDED 密码模块
 Name[zh_TW]=KDED 密碼模組
-Comment=Password caching support
+Comment=Temporary password caching
 Comment[af]=Wagwoord byderhandhou-ondersteuning
 Comment[ar]=دعم اخفاء كلمة السر
 Comment[be]=Падтрымка захоўвання пароляў
