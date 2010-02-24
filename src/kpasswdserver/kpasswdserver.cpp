@@ -52,29 +52,21 @@ K_EXPORT_PLUGIN(KPasswdServerFactory("kpasswdserver"))
 
 static int debugArea() { static int s_area = KDebug::registerArea("KPasswdServer"); return s_area; }
 
-qlonglong getRequestId()
+static qlonglong getRequestId()
 {
     static qlonglong nextRequestId = 0;
     return nextRequestId++;
 }
 
-int
-KPasswdServer::AuthInfoContainerList::compareItems(Q3PtrCollection::Item n1, Q3PtrCollection::Item n2)
+bool
+KPasswdServer::AuthInfoContainer::Sorter::operator ()(AuthInfoContainer* n1, AuthInfoContainer* n2) const
 {
    if (!n1 || !n2)
       return 0;
 
-   AuthInfoContainer *i1 = (AuthInfoContainer *) n1;
-   AuthInfoContainer *i2 = (AuthInfoContainer *) n2;
-
-   int l1 = i1->directory.length();
-   int l2 = i2->directory.length();
-
-   if (l1 > l2)
-      return -1;
-   if (l1 < l2)
-      return 1;
-   return 0;
+   const int l1 = n1->directory.length();
+   const int l2 = n2->directory.length();
+   return l1 < l2;
 }
 
 
@@ -231,8 +223,9 @@ KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong windowId, qlonglo
     QDataStream stream(data);
     stream >> info;
     kDebug(debugArea()) << "User =" << info.username << ", WindowId =" << windowId << endl;
-    if( usertime != 0 )
-        kapp->updateUserTimestamp( usertime );
+    if (usertime != 0) {
+        kapp->updateUserTimestamp(usertime);
+    }
 
     // if the check depends on a pending query, delay it
     // until that query is finished.
@@ -241,7 +234,9 @@ KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong windowId, qlonglo
         setDelayedReply(true);
         Request *pendingCheck = new Request;
         pendingCheck->isAsync = false;
-        pendingCheck->transaction = message();
+        if (calledFromDBus()) {
+            pendingCheck->transaction = message();
+        }
         pendingCheck->key = key;
         pendingCheck->info = info;
         m_authWait.append(pendingCheck);
@@ -283,15 +278,17 @@ KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong windowId, qlonglo
 qlonglong KPasswdServer::checkAuthInfoAsync(KIO::AuthInfo info, qlonglong windowId,
                                             qlonglong usertime)
 {
-    kDebug(debugArea()) << "User =" << info.username << ", WindowId =" << windowId << endl;
     if (usertime != 0) {
         kapp->updateUserTimestamp(usertime);
     }
 
     // send the request id back to the client
     qlonglong requestId = getRequestId();
-    QDBusMessage reply(message().createReply(requestId));
-    QDBusConnection::sessionBus().send(reply);
+    kDebug(debugArea()) << "User =" << info.username << ", WindowId =" << windowId;
+    if (calledFromDBus()) {
+        QDBusMessage reply(message().createReply(requestId));
+        QDBusConnection::sessionBus().send(reply);
+    }
 
     // if the check depends on a pending query, delay it
     // until that query is finished.
@@ -347,8 +344,9 @@ KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &errorMsg,
                 << ", WindowId =" << windowId << endl;
     if ( !info.password.isEmpty() ) // should we really allow the caller to pre-fill the password?
         kDebug(debugArea()) << "password was set by caller";
-    if( usertime != 0 )
-        kapp->updateUserTimestamp( usertime );
+    if (usertime != 0) {
+        kapp->updateUserTimestamp(usertime);
+    }
 
     QString key = createCacheKey(info);
     Request *request = new Request;
@@ -381,8 +379,6 @@ qlonglong
 KPasswdServer::queryAuthInfoAsync(const KIO::AuthInfo &info, const QString &errorMsg,
                                   qlonglong windowId, qlonglong seqNr, qlonglong usertime)
 {
-/*    KIO::AuthInfo info;
-    data >> info; */
     kDebug(debugArea()) << "User =" << info.username << ", Message= " << info.prompt
                 << ", WindowId =" << windowId << endl;
     if (!info.password.isEmpty()) {
@@ -436,11 +432,7 @@ KPasswdServer::addAuthInfo(const QByteArray &data, qlonglong windowId)
     stream >> info;
     kDebug(debugArea()) << "User =" << info.username << ", RealmValue= " << info.realmValue
                 << ", WindowId = " << windowId << endl;
-    QString key = createCacheKey(info);
-
-    m_seqNr++;
-
-    addAuthInfoItem(key, info, windowId, m_seqNr, false);
+    addAuthInfo(info, windowId);
 }
 
 void
@@ -457,7 +449,7 @@ KPasswdServer::removeAuthInfo(const QString& host, const QString& protocol, cons
         if (!authList)
             continue;
 
-        for(AuthInfoContainer *current = authList->first(); current; )
+        Q_FOREACH(AuthInfoContainer *current, *authList)
         {
             kDebug(debugArea()) << "Evaluating: " << current->info.url.protocol()
                      << current->info.url.host()
@@ -468,11 +460,6 @@ KPasswdServer::removeAuthInfo(const QString& host, const QString& protocol, cons
             {
                 kDebug(debugArea()) << "Removing this entry";
                 removeAuthInfoItem(dictIterator.key(), current->info);
-                current = authList->current();
-            }
-            else
-            {
-                current = authList->next();
             }
         }
     }
@@ -496,19 +483,16 @@ KPasswdServer::processRequest()
 {
     // guard so processRequest is only ever run once.
     static bool processing = false;
-    if (processing) {
+    if (processing || m_authPending.isEmpty()) {
         return;
     }
     processing = true;
-    
-    Request *request = m_authPending.takeFirst();
-    if (!request)
-       return;
 
+    Request *request = m_authPending.takeFirst();
     KIO::AuthInfo &info = request->info;
     bool bypassCacheAndKWallet = info.getExtraField(AUTHINFO_EXTRAFIELD_BYPASS_CACHE_AND_KWALLET).toBool() == true;
 
-    kDebug(debugArea()) << "User =" << info.username << ", Message =" << info.prompt << endl;
+    kDebug(debugArea()) << "User =" << info.username << ", Message =" << info.prompt;
     const AuthInfoContainer *result = findAuthInfoItem(request->key, request->info);
 
     if (!bypassCacheAndKWallet && result && (request->seqNr < result->seqNr))
@@ -611,7 +595,9 @@ KPasswdServer::processRequest()
             KWindowSystem::setMainWindow(&dlg, (HWND)(long)request->windowId);
 #endif
 
+            kDebug() << "Calling exec on" << &dlg;
             dlgResult = dlg.exec();
+            kDebug() << "exec returned with" << dlgResult;
 
             if (dlgResult == QDialog::Accepted)
             {
@@ -706,7 +692,7 @@ KPasswdServer::processRequest()
 
     // reallow processing
     processing = false;
-    
+
     if (m_authPending.count())
        QTimer::singleShot(0, this, SLOT(processRequest()));
 
@@ -756,14 +742,13 @@ KPasswdServer::findAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
       return 0;
 
    QString path2 = info.url.directory(KUrl::AppendTrailingSlash|KUrl::ObeyTrailingSlash);
-   for(AuthInfoContainer *current = authList->first();
-       current; )
+   Q_FOREACH(AuthInfoContainer *current, *authList)
    {
        if ((current->expire == AuthInfoContainer::expTime) &&
           (difftime(time(0), current->expireTime) > 0))
        {
-          authList->remove();
-          current = authList->current();
+          delete current;
+          authList->removeOne(current);
           continue;
        }
 
@@ -780,8 +765,6 @@ KPasswdServer::findAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
               (info.username.isEmpty() || info.username == current->info.username))
              return current; // TODO: Update directory info,
        }
-
-       current = authList->next();
    }
    return 0;
 }
@@ -793,17 +776,12 @@ KPasswdServer::removeAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
    if (!authList)
       return;
 
-   for(AuthInfoContainer *current = authList->first();
-       current; )
+   Q_FOREACH(AuthInfoContainer *current, *authList)
    {
        if (current->info.realmValue == info.realmValue)
        {
-          authList->remove();
-          current = authList->current();
-       }
-       else
-       {
-          current = authList->next();
+          authList->removeOne(current);
+          delete current;
        }
    }
    if (authList->isEmpty())
@@ -822,12 +800,12 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, ql
       authList = new AuthInfoContainerList;
       m_authDict.insert(key, authList);
    }
-   AuthInfoContainer *current = authList->first();
-   for(; current; current = authList->next())
+   AuthInfoContainer *current = 0;
+   Q_FOREACH(current, *authList)
    {
        if (current->info.realmValue == info.realmValue)
        {
-          authList->take();
+          authList->removeOne(current);
           break;
        }
    }
@@ -851,7 +829,8 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, ql
    updateAuthExpire(key, current, windowId, info.keepPassword && !canceled);
 
    // Insert into list, keep the list sorted "longest path" first.
-   authList->inSort(current);
+   authList->append(current);
+   qSort(authList->begin(), authList->end(), AuthInfoContainer::Sorter());
 }
 
 void
@@ -876,42 +855,32 @@ KPasswdServer::updateAuthExpire(const QString &key, const AuthInfoContainer *aut
    // Update mWindowIdList
    if (windowId)
    {
-      QStringList *keysChanged = mWindowIdList.value(windowId);
-      if (!keysChanged)
-      {
-         keysChanged = new QStringList;
-         mWindowIdList.insert(windowId, keysChanged);
-      }
-      if (!keysChanged->contains(key))
-         keysChanged->append(key);
+      QStringList& keysChanged = mWindowIdList[windowId]; // find or insert
+      if (!keysChanged.contains(key))
+         keysChanged.append(key);
    }
 }
 
 void
 KPasswdServer::removeAuthForWindowId(qlonglong windowId)
 {
-   QStringList *keysChanged = mWindowIdList.value(windowId);
-   if (!keysChanged) return;
-
-   foreach (const QString &key, *keysChanged)
+   const QStringList keysChanged = mWindowIdList.value(windowId);
+   foreach (const QString &key, keysChanged)
    {
       AuthInfoContainerList *authList = m_authDict.value(key);
       if (!authList)
          continue;
 
-      AuthInfoContainer *current = authList->first();
-      for(; current; )
+      Q_FOREACH(AuthInfoContainer *current, *authList)
       {
         if (current->expire == AuthInfoContainer::expWindowClose)
         {
            if (current->windowList.removeAll(windowId) && current->windowList.isEmpty())
            {
-              authList->remove();
-              current = authList->current();
-              continue;
+              authList->removeOne(current);
+              delete current;
            }
         }
-        current = authList->next();
       }
    }
 }

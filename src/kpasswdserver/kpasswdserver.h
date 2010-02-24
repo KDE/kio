@@ -25,7 +25,7 @@
 #define KPASSWDSERVER_H
 
 #include <QtCore/QHash>
-#include <Qt3Support/Q3PtrList>
+#include <QtCore/QList>
 #include <QtDBus/QtDBus>
 
 #include <kio/authinfo.h>
@@ -42,7 +42,7 @@ class KPasswdServer : public KDEDModule, protected QDBusContext
   Q_OBJECT
 
 public:
-  KPasswdServer(QObject* parent, const QList<QVariant>&);
+  KPasswdServer(QObject* parent, const QList<QVariant>& = QList<QVariant>());
   ~KPasswdServer();
 
 public Q_SLOTS:
@@ -63,7 +63,7 @@ public Q_SLOTS:
 Q_SIGNALS:
   void checkAuthInfoAsyncResult(qlonglong requestId, qlonglong seqNr, const KIO::AuthInfo &);
   void queryAuthInfoAsyncResult(qlonglong requestId, qlonglong seqNr, const KIO::AuthInfo &);
-  
+
 protected:
   struct AuthInfoContainer;
 
@@ -75,30 +75,28 @@ protected:
   void updateAuthExpire(const QString &key, const AuthInfoContainer *, qlonglong windowId, bool keep);
   int findWalletEntry( const QMap<QString,QString>& map, const QString& username );
   bool openWallet( int windowId );
-  
+
   bool hasPendingQuery(const QString &key, const KIO::AuthInfo &info);
 
   struct AuthInfoContainer {
-    AuthInfoContainer() { expire = expNever; isCanceled = false; seqNr = 0; }
+      AuthInfoContainer() : expire( expNever ), seqNr( 0 ), isCanceled( false ) {}
 
     KIO::AuthInfo info;
     QString directory;
-    
+
     enum { expNever, expWindowClose, expTime } expire;
     QList<qlonglong> windowList;
     qulonglong expireTime;
     qlonglong seqNr;
 
     bool isCanceled;
+
+    struct Sorter {
+        bool operator() (AuthInfoContainer* n1, AuthInfoContainer* n2) const;
+    };
   };
 
-  class AuthInfoContainerList : public Q3PtrList<AuthInfoContainer>
-  {
-    public:
-      AuthInfoContainerList() { setAutoDelete(true); }
-      int compareItems(Q3PtrCollection::Item n1, Q3PtrCollection::Item n2);
-  };
-
+  typedef QList<AuthInfoContainer*> AuthInfoContainerList;
   QHash< QString, AuthInfoContainerList* > m_authDict;
 
   struct Request {
@@ -115,7 +113,7 @@ protected:
 
   QList<Request*> m_authPending;
   QList<Request*> m_authWait;
-  QHash<int, QStringList*> mWindowIdList;
+  QHash<int, QStringList> mWindowIdList;
   KWallet::Wallet* m_wallet;
   qlonglong m_seqNr;
 };
