@@ -1,7 +1,19 @@
 [Desktop Entry]
 Type=Service
 Name=Password Caching
+Name[el]=Λανθάνουσας μνήμη κωδικού πρόσβασης
+Name[pt]='Cache' de Senhas
+Name[pt_BR]=Cache de senhas
+Name[sv]=Lösenordslagring
+Name[uk]=Кешування паролів
+Name[x-test]=xxPassword Cachingxx
 Comment=Temporary password caching
+Comment[el]=Προσωρινή λανθάνουσα μνήμη κωδικού πρόσβασης
+Comment[pt]='Cache' temporária de senhas
+Comment[pt_BR]=Cache temporária de senhas
+Comment[sv]=Tillfällig lagring av lösenord
+Comment[uk]=Тимчасове кешування паролів
+Comment[x-test]=xxTemporary password cachingxx
 X-KDE-ServiceTypes=KDEDModule
 X-KDE-Library=kpasswdserver
 X-KDE-DBus-ModuleName=kpasswdserver
