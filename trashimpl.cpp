@@ -1099,8 +1099,6 @@ bool TrashImpl::adaptTrashSize( const QString& origPath, int trashId )
             if ( info.deletionDate.daysTo( currentDate ) > maxDays )
               del( info.trashId, info.fileId );
         }
-
-        return true;
     }
 
     if ( useSizeLimit ) { // check if size limit exceeded
