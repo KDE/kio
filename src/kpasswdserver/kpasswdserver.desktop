@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=Password Caching
+Name[de]=Passwort-Zwischenspeicherung
 Name[el]=Λανθάνουσας μνήμη κωδικού πρόσβασης
 Name[es]=Caché de contraseñas
 Name[nb]=Passordlagring
@@ -12,6 +13,7 @@ Name[th]=การจัดเก็บรหัสผ่าน
 Name[uk]=Кешування паролів
 Name[x-test]=xxPassword Cachingxx
 Comment=Temporary password caching
+Comment[de]=Temporäre Passwort-Zwischenspeicherung
 Comment[el]=Προσωρινή λανθάνουσα μνήμη κωδικού πρόσβασης
 Comment[es]=Cacheo temporal de contraseñas
 Comment[nb]=Midlertidig mellomlagring av passord
