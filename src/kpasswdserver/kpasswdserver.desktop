@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=Password Caching
+Name[cs]=Kešování hesel
 Name[de]=Passwort-Zwischenspeicherung
 Name[el]=Λανθάνουσας μνήμη κωδικού πρόσβασης
 Name[en_GB]=Password Caching
@@ -15,6 +16,7 @@ Name[th]=การจัดเก็บรหัสผ่าน
 Name[uk]=Кешування паролів
 Name[x-test]=xxPassword Cachingxx
 Comment=Temporary password caching
+Comment[cs]=Dočasné kešování hesel
 Comment[de]=Temporäre Passwort-Zwischenspeicherung
 Comment[el]=Προσωρινή λανθάνουσα μνήμη κωδικού πρόσβασης
 Comment[en_GB]=Temporary password caching
