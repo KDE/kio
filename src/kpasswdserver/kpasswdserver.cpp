@@ -512,8 +512,7 @@ KPasswdServer::processRequest()
     {
         m_seqNr++;
         bool askPw = request->prompt;
-        if (result && !info.username.isEmpty() &&
-            !request->errorMsg.isEmpty())
+        if (result && !request->errorMsg.isEmpty())
         {
            QString prompt = request->errorMsg + "  ";
            prompt += i18n("Do you want to retry?");
