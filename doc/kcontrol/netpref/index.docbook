@@ -7,7 +7,7 @@
 
 <article lang="&language;">
 <articleinfo>
-
+<title>Connection Preferences</title>
 <authorgroup>
 <author>&Lauri.Watts; &Lauri.Watts.mail;</author>
 
@@ -29,7 +29,7 @@
 
 <sect1 id="timeouts">
 
-<title>Preferences</title>
+<title>Connection Preferences</title>
 
 <para>Here you can set timeout values.  You might want to tweak them
 if your connection is very slow, but the default settings are
