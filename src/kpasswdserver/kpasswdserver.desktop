@@ -2,6 +2,7 @@
 Type=Service
 Name=Password Caching
 Name[cs]=Kešování hesel
+Name[da]=Caching af adgangskoder
 Name[de]=Passwort-Zwischenspeicherung
 Name[el]=Λανθάνουσας μνήμη κωδικού πρόσβασης
 Name[en_GB]=Password Caching
@@ -30,6 +31,7 @@ Name[zh_CN]=密码缓存
 Name[zh_TW]=密碼快取
 Comment=Temporary password caching
 Comment[cs]=Dočasné kešování hesel
+Comment[da]=Midlertidig caching af adgangskoder
 Comment[de]=Temporäre Passwort-Zwischenspeicherung
 Comment[el]=Προσωρινή λανθάνουσα μνήμη κωδικού πρόσβασης
 Comment[en_GB]=Temporary password caching
