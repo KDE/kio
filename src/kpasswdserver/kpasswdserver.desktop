@@ -2,6 +2,7 @@
 Type=Service
 Name=Password Caching
 Name[ca]=Ús de memòria cau de contrasenyes
+Name[ca@valencia]=Ús de memòria cau de contrasenyes
 Name[cs]=Kešování hesel
 Name[da]=Caching af adgangskoder
 Name[de]=Passwort-Zwischenspeicherung
@@ -33,6 +34,7 @@ Name[zh_CN]=密码缓存
 Name[zh_TW]=密碼快取
 Comment=Temporary password caching
 Comment[ca]=Ús temporal de memòria cau de contrasenyes
+Comment[ca@valencia]=Ús temporal de memòria cau de contrasenyes
 Comment[cs]=Dočasné kešování hesel
 Comment[da]=Midlertidig caching af adgangskoder
 Comment[de]=Temporäre Passwort-Zwischenspeicherung
