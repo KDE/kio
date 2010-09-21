@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=Password Caching
-Name[ar]=تخزين مؤقت لكلمة السر
+Name[ar]=تخبئة كلمات السر
 Name[bg]=Запомняне на пароли
 Name[ca]=Ús de memòria cau de contrasenyes
 Name[ca@valencia]=Ús de memòria cau de contrasenyes
@@ -54,7 +54,7 @@ Name[x-test]=xxPassword Cachingxx
 Name[zh_CN]=密码缓存
 Name[zh_TW]=密碼快取
 Comment=Temporary password caching
-Comment[ar]=تخزين مؤقت لكلمة السر
+Comment[ar]=تخبئة (تخزين مؤقت) كلمات السر
 Comment[bg]=Временно запомняне на пароли
 Comment[ca]=Ús temporal de memòria cau de contrasenyes
 Comment[ca@valencia]=Ús temporal de memòria cau de contrasenyes
