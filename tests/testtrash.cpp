@@ -347,7 +347,7 @@ void TestTrash::trashFileFromHome()
     trashFile( homeTmpDir() + fileName, fileName );
 
     // Do it again, check that we got a different id
-    trashFile(homeTmpDir() + fileName, fileName + QString::fromLatin1("_1"));
+    trashFile(homeTmpDir() + fileName, fileName + QString::fromLatin1(" 1"));
 }
 
 void TestTrash::trashPercentFileFromHome()
@@ -533,7 +533,7 @@ void TestTrash::trashDirectoryFromHome()
     QString dirName = QString::fromLatin1("trashDirFromHome");
     trashDirectory( homeTmpDir() + dirName, dirName );
     // Do it again, check that we got a different id
-    trashDirectory(homeTmpDir() + dirName, dirName + QString::fromLatin1("_1"));
+    trashDirectory(homeTmpDir() + dirName, dirName + QString::fromLatin1(" 1"));
 }
 
 void TestTrash::trashDotDirectory()
@@ -541,7 +541,7 @@ void TestTrash::trashDotDirectory()
     QString dirName = QString::fromLatin1(".dotTrashDirFromHome");
     trashDirectory( homeTmpDir() + dirName, dirName );
     // Do it again, check that we got a different id
-    // TODO trashDirectory(homeTmpDir() + dirName, dirName + QString::fromLatin1("_1"));
+    // TODO trashDirectory(homeTmpDir() + dirName, dirName + QString::fromLatin1(" 1"));
 }
 
 void TestTrash::trashReadOnlyDirFromHome()
@@ -875,7 +875,7 @@ void TestTrash::moveSymlinkFromTrash()
 
 void TestTrash::getFile()
 {
-    const QString fileId = "fileFromHome_1";
+    const QString fileId = "fileFromHome 1";
     const KUrl url = TrashImpl::makeURL( 0, fileId, QString() );
 
     KTemporaryFile tmpFile;
@@ -899,7 +899,7 @@ void TestTrash::getFile()
 
 void TestTrash::restoreFile()
 {
-    const QString fileId = "fileFromHome_1";
+    const QString fileId = "fileFromHome 1";
     const KUrl url = TrashImpl::makeURL( 0, fileId, QString() );
     const QString infoFile( m_trashDir + "/info/" + fileId + ".trashinfo" );
     const QString filesItem( m_trashDir + "/files/" + fileId );
@@ -923,12 +923,12 @@ void TestTrash::restoreFile()
 
 void TestTrash::restoreFileFromSubDir()
 {
-    const QString fileId = "trashDirFromHome_1/testfile";
-    QVERIFY( !QFile::exists( homeTmpDir() + "trashDirFromHome_1" ) );
+    const QString fileId = "trashDirFromHome 1/testfile";
+    QVERIFY( !QFile::exists( homeTmpDir() + "trashDirFromHome 1" ) );
 
     const KUrl url = TrashImpl::makeURL( 0, fileId, QString() );
-    const QString infoFile( m_trashDir + "/info/trashDirFromHome_1.trashinfo" );
-    const QString filesItem( m_trashDir + "/files/trashDirFromHome_1/testfile" );
+    const QString infoFile( m_trashDir + "/info/trashDirFromHome 1.trashinfo" );
+    const QString filesItem( m_trashDir + "/files/trashDirFromHome 1/testfile" );
 
     QVERIFY( QFile::exists( infoFile ) );
     QVERIFY( QFile::exists( filesItem ) );
@@ -945,7 +945,7 @@ void TestTrash::restoreFileFromSubDir()
     // check that nothing happened
     QVERIFY( QFile::exists( infoFile ) );
     QVERIFY( QFile::exists( filesItem ) );
-    QVERIFY( !QFile::exists( homeTmpDir() + "trashDirFromHome_1" ) );
+    QVERIFY( !QFile::exists( homeTmpDir() + "trashDirFromHome 1" ) );
 }
 
 void TestTrash::restoreFileToDeletedDirectory()
