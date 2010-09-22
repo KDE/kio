@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN"
+"dtd/kdex.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % English "INCLUDE">
+]>
+<article lang="&language;">
+<title>Documentation not Found</title>
+<articleinfo>
+<authorgroup>
+<author><firstname>Jack</firstname>
+<surname>Ostroff</surname>
+<affiliation>
+<address><email>ostroffjh@users.sourceforge.net</email></address>
+</affiliation>
+</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+
+<date>2010-09-21</date>
+<releaseinfo>&kde; 4.5</releaseinfo>
+
+</articleinfo>
+
+<para>The requested documentation was not found on your computer.
+Normally, &kde; looks for application handbooks in a location that depends  
+on how &kde; was installed on your computer. There are a number of  
+possible reasons why it could not find the documentation you  
+requested. The document might not exist, or it may not have been  
+installed along with the application</para>
+
+<para>How to solve this issue:</para>
+
+<para>Start by searching the <ulink url="http://docs.kde.org/">KDE  
+Documentation site</ulink> for the requested documentation. If you find  
+the documentation on that site, your distribution might ship a separate  
+package for documentation (&eg;  called kdepim-doc for all applications  
+from the kdepim module, like &kmail;, &kontact;, &etc;). Please use the  
+package manager of your distribution to find and install the missing  
+documentation.</para>
+
+<para>If you use a source based distribution, such as Gentoo, be sure that  
+there are not any configuration settings (USE flags in Gentoo) that  
+might have disabled the installation of the documentation.
+</para>
+
+<para>If you have done that, but still get this page displayed instead of the  
+application handbook, you probably found a bug in the &kde; help  
+system.  In this case, please report this on the <ulink  
+url="http://bugs.kde.org/">KDE Bug Tracker</ulink>.
+</para>
+
+<para>If you do not find any documentation on the <ulink  
+url="http://docs.kde.org/">KDE Documentation site</ulink>, the  
+application may not have offline documentation.  Please report this on  
+the <ulink url="http://bugs.kde.org/">KDE Bug Tracker</ulink>.
+</para>
+
+<para>In case the application does not have offline documentation, you should  
+use the online ressources <ulink  
+url="http://userbase.kde.org/">Userbase Documentation</ulink> and  
+<ulink url="http://forum.kde.org/">KDE Community Forums</ulink> to get  
+help.
+</para>
+
+</article>
