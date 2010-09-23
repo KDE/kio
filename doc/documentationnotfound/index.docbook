@@ -27,7 +27,7 @@ Normally, &kde; looks for application handbooks in a location that depends
 on how &kde; was installed on your computer. There are a number of  
 possible reasons why it could not find the documentation you  
 requested. The document might not exist, or it may not have been  
-installed along with the application</para>
+installed along with the application.</para>
 
 <para>How to solve this issue:</para>
 
@@ -58,7 +58,7 @@ the <ulink url="http://bugs.kde.org/">KDE Bug Tracker</ulink>.
 
 <para>In case the application does not have offline documentation, you should  
 use the online resources <ulink  
-url="http://userbase.kde.org/">Userbase Documentation</ulink> and  
+url="http://userbase.kde.org/">UserBase Documentation</ulink> and  
 <ulink url="http://forum.kde.org/">KDE Community Forums</ulink> to get  
 help.
 </para>
