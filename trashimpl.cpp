@@ -797,8 +797,13 @@ void TrashImpl::fileRemoved()
 static int idForDevice(const Solid::Device& device)
 {
     const Solid::Block* block = device.as<Solid::Block>();
-    kDebug() << "major=" << block->deviceMajor() << " minor=" << block->deviceMinor();
-    return block->deviceMajor()*1000 + block->deviceMinor();
+    if (block) {
+        kDebug() << "major=" << block->deviceMajor() << " minor=" << block->deviceMinor();
+        return block->deviceMajor()*1000 + block->deviceMinor();
+    } else {
+        // Not a block device. Maybe a NFS mount?
+        return -1;
+    }
 }
 
 int TrashImpl::findTrashDirectory( const QString& origPath )
@@ -848,6 +853,9 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
 
     // new trash dir found, register it
     id = idForDevice( device );
+    if (id == -1) {
+        return 0;
+    }
     m_trashDirectories.insert( id, trashDir );
     kDebug() << "found" << trashDir << "gave it id" << id;
     if (!mountPoint.endsWith(QLatin1Char('/')))
@@ -869,6 +877,9 @@ void TrashImpl::scanTrashDirectories() const
             if ( trashId == -1 ) {
                 // new trash dir found, register it
                 trashId = idForDevice( *it );
+                if (trashId == -1) {
+                    continue;
+                }
                 m_trashDirectories.insert( trashId, trashDir );
                 kDebug() << "found " << trashDir << " gave it id " << trashId;
                 if (!topdir.endsWith(QLatin1Char('/')))
