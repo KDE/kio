@@ -56,7 +56,7 @@
 
 QString TestTrash::homeTmpDir() const
 {
-    return QDir::homePath() + QString::fromLatin1("/.kde/testtrash/");
+    return KGlobal::dirs()->localkdedir() + QString::fromLatin1("testtrash/");
 }
 
 QString TestTrash::readOnlyDirPath() const
