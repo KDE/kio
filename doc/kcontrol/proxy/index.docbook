@@ -88,8 +88,8 @@ script file to be automatically detected and downloaded.</para>
 <para>This option only differs from the next choice in that it
 <emphasis>does not</emphasis> require you to supply the location of
 the configuration script file. Instead, it will be automatically
-downloaded using <quote>Web Access Protocol Discovery</quote>
-(<acronym>WAPD</acronym>).</para>
+downloaded using <quote>Web Proxy Auto-Discovery</quote> 
+(<acronym>WPAD</acronym>) protocol.</para>
 
 <note><para>If you have a problem using this setup, please consult the
 <acronym>FAQ</acronym> section at <ulink
