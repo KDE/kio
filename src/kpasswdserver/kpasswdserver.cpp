@@ -746,8 +746,8 @@ KPasswdServer::findAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
        if ((current->expire == AuthInfoContainer::expTime) &&
           (difftime(time(0), current->expireTime) > 0))
        {
-          delete current;
           authList->removeOne(current);
+          delete current;
           continue;
        }
 
