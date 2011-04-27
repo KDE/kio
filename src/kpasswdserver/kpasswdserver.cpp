@@ -738,6 +738,8 @@ KPasswdServer::copyAuthInfo(const AuthInfoContainer *i)
 const KPasswdServer::AuthInfoContainer *
 KPasswdServer::findAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
 {
+   kDebug(debugArea()) << "key:" << key << ", user=" << info.username;
+
    AuthInfoContainerList *authList = m_authDict.value(key);
    if (!authList)
       return 0;
@@ -827,14 +829,12 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, ql
    current->seqNr = seqNr;
    current->isCanceled = canceled;
 
-   // Store in the wallet
-   if (openWallet(windowId) && storeInWallet(m_wallet, key, info))
-   {
-      // password is in wallet, don't keep it in memory after window is closed
-      current->info.keepPassword = false;
-   }
+   // Attempt to store the password into the wallet.
+   const bool storedPasswd = (openWallet(windowId) && storeInWallet(m_wallet, key, info));
 
-   updateAuthExpire(key, current, windowId, current->info.keepPassword && !canceled);
+   // Unless storing the password information into the wallet above fails,
+   // expire the password stored in this KPasswdServer upon window close.
+   updateAuthExpire(key, current, windowId, (!storedPasswd && !canceled));
 
    // Insert into list, keep the list sorted "longest path" first.
    authList->append(current);
