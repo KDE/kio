@@ -74,7 +74,6 @@ KPasswdServer::AuthInfoContainer::Sorter::operator ()(AuthInfoContainer* n1, Aut
 KPasswdServer::KPasswdServer(QObject* parent, const QList<QVariant>&)
  : KDEDModule(parent)
 {
-    KIO::AuthInfo::registerMetaTypes();
     m_seqNr = 0;
     m_wallet = 0;
 
@@ -417,10 +416,20 @@ void
 KPasswdServer::addAuthInfo(const KIO::AuthInfo &info, qlonglong windowId)
 {
     kDebug(debugArea()) << "User =" << info.username << ", RealmValue= " << info.realmValue
-                << ", WindowId = " << windowId << endl;
-    QString key = createCacheKey(info);
+                        << ", WindowId = " << windowId << endl;
+    const QString key = createCacheKey(info);
 
     m_seqNr++;
+
+    if (openWallet(windowId) && storeInWallet(m_wallet, key, info)) {
+        // Since storing the password in the wallet succeeded, make sure the
+        // password information is stored in memory only for the duration the
+        // windows associated with it are still around.
+        AuthInfo authToken (info);
+        authToken.keepPassword = false;
+        addAuthInfoItem(key, authToken, windowId, m_seqNr, false);
+        return;
+    }
 
     addAuthInfoItem(key, info, windowId, m_seqNr, false);
 }
@@ -626,7 +635,7 @@ KPasswdServer::processRequest()
         }
         if ( dlgResult != QDialog::Accepted )
         {
-            if (!bypassCacheAndKWallet && !skipAutoCaching && request->prompt)
+            if (!bypassCacheAndKWallet && request->prompt)
             {
                 addAuthInfoItem(request->key, info, 0, m_seqNr, true);
             }
@@ -634,7 +643,7 @@ KPasswdServer::processRequest()
         }
         else
         {
-            if (!bypassCacheAndKWallet && !skipAutoCaching)
+            if (!bypassCacheAndKWallet)
             {
                 addAuthInfoItem(request->key, info, request->windowId, m_seqNr, false);
             }
@@ -806,7 +815,7 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, ql
    AuthInfoContainer *current = 0;
    Q_FOREACH(current, *authList)
    {
-       if (!info.realmValue.isEmpty() && (current->info.realmValue == info.realmValue))
+       if (current->info.realmValue == info.realmValue)
        {
           authList->removeOne(current);
           break;
@@ -829,12 +838,7 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, ql
    current->seqNr = seqNr;
    current->isCanceled = canceled;
 
-   // Attempt to store the password into the wallet.
-   const bool storedPasswd = (openWallet(windowId) && storeInWallet(m_wallet, key, info));
-
-   // Unless storing the password information into the wallet above fails,
-   // expire the password stored in this KPasswdServer upon window close.
-   updateAuthExpire(key, current, windowId, (!storedPasswd && !canceled));
+   updateAuthExpire(key, current, windowId, (info.keepPassword && !canceled));
 
    // Insert into list, keep the list sorted "longest path" first.
    authList->append(current);
