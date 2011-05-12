@@ -74,6 +74,7 @@ KPasswdServer::AuthInfoContainer::Sorter::operator ()(AuthInfoContainer* n1, Aut
 KPasswdServer::KPasswdServer(QObject* parent, const QList<QVariant>&)
  : KDEDModule(parent)
 {
+    KIO::AuthInfo::registerMetaTypes();
     m_seqNr = 0;
     m_wallet = 0;
 
