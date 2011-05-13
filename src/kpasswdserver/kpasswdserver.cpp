@@ -818,7 +818,7 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, ql
    {
        if (current->info.realmValue == info.realmValue)
        {
-          authList->removeOne(current);
+          authList->removeAll(current);
           break;
        }
    }
