@@ -334,7 +334,7 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
             int trashId = 0;
             if (origFilePath.startsWith(QLatin1String("/tmp")) && m_tmpIsWritablePartition)
                 trashId = m_tmpTrashId;
-            QCOMPARE(trashURL.path(), QString::fromLatin1("/") + QString::number(trashId) + QLatin1Char('-') + fileId);
+            QCOMPARE(trashURL.path(), QString(QString::fromLatin1("/") + QString::number(trashId) + QLatin1Char('-') + fileId));
             found = true;
         }
     }
