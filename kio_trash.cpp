@@ -391,7 +391,7 @@ bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& 
     }
     if (S_ISLNK(buff.st_mode)) {
         char buffer2[ 1000 ];
-        int n = readlink( physicalPath_c, buffer2, 1000 );
+        int n = readlink( physicalPath_c, buffer2, 999 );
         if ( n != -1 ) {
             buffer2[ n ] = 0;
         }
