@@ -813,20 +813,21 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, ql
       authList = new AuthInfoContainerList;
       m_authDict.insert(key, authList);
    }
-   AuthInfoContainer *current = 0;
-   Q_FOREACH(current, *authList)
+   AuthInfoContainer *authItem = 0;
+   Q_FOREACH(AuthInfoContainer* current, *authList)
    {
        if (current->info.realmValue == info.realmValue)
        {
           authList->removeAll(current);
+          authItem = current;
           break;
        }
    }
 
-   if (!current)
+   if (!authItem)
    {
-      current = new AuthInfoContainer;
-      current->expire = AuthInfoContainer::expTime;
+      authItem = new AuthInfoContainer;
+      authItem->expire = AuthInfoContainer::expTime;
       kDebug(debugArea()) << "Creating AuthInfoContainer";
    }
    else
@@ -834,15 +835,15 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, ql
       kDebug(debugArea()) << "Updating AuthInfoContainer";
    }
 
-   current->info = info;
-   current->directory = info.url.directory(KUrl::AppendTrailingSlash|KUrl::ObeyTrailingSlash);
-   current->seqNr = seqNr;
-   current->isCanceled = canceled;
+   authItem->info = info;
+   authItem->directory = info.url.directory(KUrl::AppendTrailingSlash|KUrl::ObeyTrailingSlash);
+   authItem->seqNr = seqNr;
+   authItem->isCanceled = canceled;
 
-   updateAuthExpire(key, current, windowId, (info.keepPassword && !canceled));
+   updateAuthExpire(key, authItem, windowId, (info.keepPassword && !canceled));
 
    // Insert into list, keep the list sorted "longest path" first.
-   authList->append(current);
+   authList->append(authItem);
    qSort(authList->begin(), authList->end(), AuthInfoContainer::Sorter());
 }
 
