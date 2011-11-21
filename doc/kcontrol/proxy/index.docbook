@@ -13,8 +13,8 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2009-11-18</date>
-<releaseinfo>&kde; 4.4</releaseinfo>
+<date>2011-11-21</date>
+<releaseinfo>&kde; 4.8</releaseinfo>
 
 <keywordset>
 <keyword>KDE</keyword>
@@ -67,10 +67,11 @@ service provider's setup guide or your system administrator.</para>
 
 <variablelist>
 <varlistentry>
-<term><guilabel>Connect to the Internet directly</guilabel></term>
+<term><guilabel>No Proxy</guilabel></term>
 <listitem>
 
-<para>Select this option if you do <emphasis>not</emphasis> want to use a proxy server.</para>
+<para>Select this option if you do <emphasis>not</emphasis> want to use a proxy server
+and connect to the Internet directly.</para>
 </listitem>
 </varlistentry>
 </variablelist>
@@ -80,7 +81,7 @@ configure the settings for it.</para>
 
 <variablelist>
 <varlistentry>
-<term><guilabel>Automatically detect proxy configuration</guilabel></term>
+<term><guilabel>Detect proxy configuration automatically</guilabel></term>
 <listitem>
 
 <para>Select this option if you want the proxy setup configuration
@@ -99,7 +100,7 @@ more information.</para></note>
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Use proxy configuration URL</guilabel></term>
+<term><guilabel>Use proxy auto configuration URL</guilabel></term>
 <listitem>
 <para>Select this option if your proxy support is provided through a
 script file located at a specific address.  You can then enter the
@@ -109,35 +110,53 @@ icon to browse to it.</para>
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Use preset proxy environment variables</guilabel></term>
+<term><guilabel>Use system proxy configuration</guilabel></term>
 <listitem>
 <para>Some systems are setup with $<envar>HTTP_PROXY</envar> to allow
 graphical as well as non-graphical applications to share the same
 proxy configuration information.</para>
 <para>If you know this applies to you, select this option and click on
-the <guibutton>Setup...</guibutton> button to provide the environment
+the <guibutton>Auto Detect</guibutton> button to provide the environment
 variable names used to set the address of the proxy server(s).</para>
 </listitem>
 </varlistentry>
+ 
+<varlistentry>
+<term><guilabel>Exceptions</guilabel></term>
+<listitem>
+<para>Enter a comma separated list of hostnames or ip addresses that should 
+be excluded from using the above proxy settings. If you want to exclude all 
+hosts for a given domain, then simply enter the domain name preceded by a dot. 
+For example, to exclude all hostnames for kde.org, enter <userinput>.kde.org</userinput>. 
+Wildcard characters such as <userinput>*</userinput> or <userinput>?</userinput> 
+are not supported and will have no effect. 
+Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and 
+IP addresses with a subnet, e.g. 192.168.0.1/24.</para>
+</listitem>
+</varlistentry>
+<!-- 
+Show the value of the environment variables ???
+-->
 
 <varlistentry>
-<term><guilabel>Manually specify the proxy settings</guilabel></term>
+<term><guilabel>Use manually specified proxy configuration</guilabel></term>
 <listitem>
-<para>Select this option, and click on the
-<guibutton>Setup...</guibutton> to manually setup the location of the
-proxy servers to be used.</para>
 
-<para>If you choose this option, another dialog will pop up.</para>
+<!--not in 4.8 para>If you choose this option, another dialog will pop up.</para-->
 
 <para>The complete addressing information for the proxy includes both
 the internet address and a port number. You should enter these into
-the relevant text boxes. The <guiicon>arrow</guiicon> button copies
+the relevant text boxes. <!-- not in 4.8 The <guiicon>arrow</guiicon> button copies
 the information from the <guilabel>HTTP</guilabel> line to the
 <guilabel>FTP</guilabel> line, in order to help save some
-typing.</para>
+  typing.-->
+<!-- 
+Use this proxy server for all protocols ???
+-->
+</para>
 
-<para>You can also choose <guilabel>Only use proxy for entries in this
-list</guilabel>.</para>
+<para>You can also choose <guilabel>Use proxy settings only for addresses 
+in the Exceptions list</guilabel>.</para>
 
 <para>Check this box to reverse the use of the exception list, &ie;
 the proxy servers will only be used when the requested &URL; matches
@@ -152,7 +171,7 @@ script.</para>
 </variablelist>
 
 </sect2>
-
+<!-- not in 4.8 anymore
 <sect2 id="authorization">
 <title><guilabel>Authorization</guilabel></title>
 
@@ -179,7 +198,7 @@ Select this option and enter <guilabel>Username</guilabel> and <guilabel>Passwor
 </variablelist>
 
 </sect2>
-
+-->
 </sect1>
 
 </article>
