@@ -114,6 +114,7 @@ protected:
   QList<Request*> m_authPending;
   QList<Request*> m_authWait;
   QHash<int, QStringList> mWindowIdList;
+  QStringList m_authPrompted;
   KWallet::Wallet* m_wallet;
   qlonglong m_seqNr;
 };

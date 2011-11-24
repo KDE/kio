@@ -492,14 +492,22 @@ KPasswdServer::openWallet( int windowId )
 void
 KPasswdServer::processRequest()
 {
-    // guard so processRequest is only ever run once.
-    static bool processing = false;
-    if (processing || m_authPending.isEmpty()) {
+    if (m_authPending.isEmpty()) {
         return;
     }
-    processing = true;
 
-    Request *request = m_authPending.takeFirst();
+    Request *request = m_authPending.first();
+
+    // Prevent multiple prompts originating from the same window or the same
+    // key (server address).
+    const QString windowIdStr = QString::number(request->windowId);
+    if (m_authPrompted.contains(windowIdStr) || m_authPrompted.contains(request->key)) {
+        return;
+    }
+
+    m_authPrompted.append(windowIdStr);
+    m_authPrompted.append(request->key);
+    m_authPending.removeFirst();
     KIO::AuthInfo &info = request->info;
     bool bypassCacheAndKWallet = info.getExtraField(AUTHINFO_EXTRAFIELD_BYPASS_CACHE_AND_KWALLET).toBool();
     bool skipAutoCaching = info.getExtraField(AUTHINFO_EXTRAFIELD_SKIP_CACHING_ON_QUERY).toBool();
@@ -701,8 +709,9 @@ KPasswdServer::processRequest()
         }
     }
 
-    // reallow processing
-    processing = false;
+    // reallow processing for the specific window.
+    m_authPrompted.removeAll(windowIdStr);
+    m_authPrompted.removeAll(request->key);
 
     if (m_authPending.count())
        QTimer::singleShot(0, this, SLOT(processRequest()));
