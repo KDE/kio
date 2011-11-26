@@ -118,9 +118,30 @@ proxy configuration information.</para>
 <para>If you know this applies to you, select this option and click on
 the <guibutton>Auto Detect</guibutton> button to provide the environment
 variable names used to set the address of the proxy server(s).</para>
+<!-- Exceptions fields are different for system proxy (envar) + manual proxy list of hosts/IPs? -->
+<para>In the <guilabel>Exceptions</guilabel> field enter the environment variable, 
+e.g. $<envar>NO_PROXY</envar>, used to store the 
+addresses of sites for which the proxy server should not be used.</para>
+<para>Use <guilabel>Show the value of the environment variables</guilabel> to 
+show the value of an environment variable istead of its name.
+However it is not possible to edit the values of environment variables in this module.</para>
+<!--
+How to enable Auto Detect button?
+-->
+
 </listitem>
 </varlistentry>
- 
+<varlistentry>
+<term><guilabel>Use manually specified proxy configuration</guilabel></term>
+<listitem>
+
+<para>The complete addressing information for the proxy includes both
+the internet address and a port number. You should enter these into
+the relevant text boxes. Check <guilabel>Use this proxy server for all 
+protocols</guilabel> to copy the adresses and port of the HTTP proxy server 
+into all other proxy fields, in order to help save some typing.</para>
+
+<variablelist>
 <varlistentry>
 <term><guilabel>Exceptions</guilabel></term>
 <listitem>
@@ -134,26 +155,7 @@ Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and
 IP addresses with a subnet, e.g. 192.168.0.1/24.</para>
 </listitem>
 </varlistentry>
-<!-- 
-Show the value of the environment variables ???
--->
-
-<varlistentry>
-<term><guilabel>Use manually specified proxy configuration</guilabel></term>
-<listitem>
-
-<!--not in 4.8 para>If you choose this option, another dialog will pop up.</para-->
-
-<para>The complete addressing information for the proxy includes both
-the internet address and a port number. You should enter these into
-the relevant text boxes. <!-- not in 4.8 The <guiicon>arrow</guiicon> button copies
-the information from the <guilabel>HTTP</guilabel> line to the
-<guilabel>FTP</guilabel> line, in order to help save some
-  typing.-->
-<!-- 
-Use this proxy server for all protocols ???
--->
-</para>
+</variablelist>
 
 <para>You can also choose <guilabel>Use proxy settings only for addresses 
 in the Exceptions list</guilabel>.</para>
@@ -162,7 +164,7 @@ in the Exceptions list</guilabel>.</para>
 the proxy servers will only be used when the requested &URL; matches
 one of the addresses listed here.</para>
 
-<para>This features is useful if all you need is a proxy to access a
+<para>This feature is useful if all you need is a proxy to access a
 few specific sites, for example, an internal intranet.  If you have
 more complex requirements you might want to use a configuration
 script.</para>
@@ -172,6 +174,9 @@ script.</para>
 
 </sect2>
 <!-- not in 4.8 anymore
+
+What if authorization is needed?
+
 <sect2 id="authorization">
 <title><guilabel>Authorization</guilabel></title>
 
