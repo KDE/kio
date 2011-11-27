@@ -576,8 +576,12 @@ KPasswdServer::processRequest()
                 dialogFlags |= KPasswordDialog::ShowAnonymousLoginCheckBox;
             }
 
-            dialogFlags |= (info.keepPassword ? ( KPasswordDialog::ShowUsernameLine
-                  |  KPasswordDialog::ShowKeepPassword) : KPasswordDialog::ShowUsernameLine );
+            dialogFlags |= KPasswordDialog::ShowUsernameLine;
+
+            // If wallet is not enabled and the caller explicitly request for it,
+            // do not show the keep password checkbox.
+            if (info.keepPassword && KWallet::Wallet::isEnabled())
+                dialogFlags |= KPasswordDialog::ShowKeepPassword;
 
             // instantiate dialog
             KPasswordDialog dlg( 0l, dialogFlags) ;
