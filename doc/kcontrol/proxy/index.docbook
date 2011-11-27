@@ -138,7 +138,7 @@ How to enable Auto Detect button?
 <para>The complete addressing information for the proxy includes both
 the Internet address and a port number. You should enter these into
 the relevant text boxes. Check <guilabel>Use this proxy server for all 
-protocols</guilabel> to copy the adsresses and port of the HTTP proxy server 
+protocols</guilabel> to copy the addresses and port of the HTTP proxy server 
 into all other proxy fields, in order to help save some typing.</para>
 
 <variablelist>
