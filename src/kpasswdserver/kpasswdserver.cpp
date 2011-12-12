@@ -496,18 +496,19 @@ KPasswdServer::processRequest()
         return;
     }
 
-    Request *request = m_authPending.first();
+    QScopedPointer<Request> request (m_authPending.takeFirst());
 
     // Prevent multiple prompts originating from the same window or the same
     // key (server address).
     const QString windowIdStr = QString::number(request->windowId);
     if (m_authPrompted.contains(windowIdStr) || m_authPrompted.contains(request->key)) {
+        m_authPending.prepend(request.take());  // put it back.
         return;
     }
 
     m_authPrompted.append(windowIdStr);
     m_authPrompted.append(request->key);
-    m_authPending.removeFirst();
+
     KIO::AuthInfo &info = request->info;
     bool bypassCacheAndKWallet = info.getExtraField(AUTHINFO_EXTRAFIELD_BYPASS_CACHE_AND_KWALLET).toBool();
     bool skipAutoCaching = info.getExtraField(AUTHINFO_EXTRAFIELD_SKIP_CACHING_ON_QUERY).toBool();
@@ -672,8 +673,6 @@ KPasswdServer::processRequest()
         stream2 << info;
         QDBusConnection::sessionBus().send(request->transaction.createReply(QVariantList() << replyData << m_seqNr));
     }
-
-    delete request;
 
     // Check all requests in the wait queue.
     Request *waitRequest;
