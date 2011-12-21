@@ -24,6 +24,7 @@
 #include <QtGui/QCheckBox>
 #include <QtGui/QComboBox>
 #include <QtGui/QDoubleSpinBox>
+#include <QtGui/QFormLayout>
 #include <QtGui/QLabel>
 #include <QtGui/QLayout>
 #include <QtGui/QListWidget>
@@ -235,8 +236,6 @@ void TrashConfigModule::writeConfig()
 void TrashConfigModule::setupGui()
 {
     QVBoxLayout *layout = new QVBoxLayout( this );
-    layout->setMargin( KDialog::marginHint() );
-    layout->setSpacing( KDialog::spacingHint() );
 
     TrashImpl::TrashDirMap map = mTrashImpl->trashDirectories();
     if ( map.count() != 1 ) {
@@ -280,25 +279,24 @@ void TrashConfigModule::setupGui()
                                      "<para>Set the number of days that files can remain in the trash. "
                                      "Any files older than this will be automatically deleted.</para>" ) );
     daysLayout->addWidget( mDays );
+    daysLayout->addStretch();
 
-    QGridLayout *sizeLayout = new QGridLayout();
+    QFormLayout *sizeLayout = new QFormLayout();
     layout->addLayout( sizeLayout );
 
     mUseSizeLimit = new QCheckBox( i18n( "Limit to maximum size" ), this );
     mUseSizeLimit->setWhatsThis( i18nc( "@info:whatsthis",
                                      "<para>Check this box to limit the trash to the maximum amount of disk space that you specify below. "
                                      "Otherwise, it will be unlimited.</para>" ) );
-    sizeLayout->addWidget( mUseSizeLimit, 0, 0, 1, 2 );
+    sizeLayout->addRow( mUseSizeLimit );
 
     mSizeWidget = new QWidget( this );
-    sizeLayout->addWidget( mSizeWidget, 1, 1 );
+    sizeLayout->addRow( mSizeWidget );
 
-    QGridLayout *sizeWidgetLayout = new QGridLayout( mSizeWidget );
+    QFormLayout *sizeWidgetLayout = new QFormLayout( mSizeWidget );
     sizeWidgetLayout->setMargin( 0 );
-    sizeWidgetLayout->setSpacing( KDialog::spacingHint() );
 
-    QLabel *label = new QLabel( i18n( "Maximum size:" ), mSizeWidget );
-    sizeWidgetLayout->addWidget( label, 0, 0, Qt::AlignRight );
+    QHBoxLayout *maximumSizeLayout = new QHBoxLayout( );
 
     mPercent = new QDoubleSpinBox( mSizeWidget );
     mPercent->setRange( 0.001, 100 );
@@ -307,15 +305,17 @@ void TrashConfigModule::setupGui()
     mPercent->setSuffix( " %" );
     mPercent->setWhatsThis( i18nc( "@info:whatsthis",
                                      "<para>This is the maximum percent of disk space that will be used for the trash.</para>" ) );
-    sizeWidgetLayout->addWidget( mPercent, 0, 1 );
+    maximumSizeLayout->addWidget( mPercent );
 
     mSizeLabel = new QLabel( mSizeWidget );
     mSizeLabel->setWhatsThis( i18nc( "@info:whatsthis",
                                      "<para>This is the calculated amount of disk space that will be allowed for the trash, the maximum.</para>" ) );
-    sizeWidgetLayout->addWidget( mSizeLabel, 0, 2 );
+    maximumSizeLayout->addWidget( mSizeLabel );
 
-    label = new QLabel( i18n( "When limit reached:" ), mSizeWidget );
-    sizeWidgetLayout->addWidget( label, 1, 0, Qt::AlignRight );
+    sizeWidgetLayout->addRow( i18n( "Maximum size:" ), maximumSizeLayout );
+
+    QLabel *label = new QLabel( i18n( "When limit reached:" ) );
+    sizeWidgetLayout->addRow( label );
 
     mLimitReachedAction = new QComboBox( mSizeWidget );
     mLimitReachedAction->addItem( i18n( "Warn Me" ) );
@@ -324,7 +324,7 @@ void TrashConfigModule::setupGui()
     mLimitReachedAction->setWhatsThis( i18nc( "@info:whatsthis",
                                               "<para>When the size limit is reached, it will prefer to delete the type of files that you specify, first. "
                                               "If this is set to warn you, it will do so instead of automatically deleting files.</para>" ) );
-    sizeWidgetLayout->addWidget( mLimitReachedAction, 1, 1, 1, 2 );
+    sizeWidgetLayout->addRow( 0, mLimitReachedAction );
 
     layout->addStretch();
 }
