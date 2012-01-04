@@ -38,6 +38,7 @@ private Q_SLOTS:
     void simpleTest()
     {
         KPasswdServer server(this);
+        server.setWalletDisabled(true);
 
         // Check that processRequest doesn't crash when it has nothing to do
         server.processRequest();
@@ -75,6 +76,7 @@ private Q_SLOTS:
     void testCheckDuringQuery()
     {
         KPasswdServer server(this);
+        server.setWalletDisabled(true);
         KIO::AuthInfo info;
         info.url = KUrl("http://www.kde.org");
 
@@ -111,6 +113,7 @@ private Q_SLOTS:
     void testExpiry()
     {
         KPasswdServer server(this);
+        server.setWalletDisabled(true);
         KIO::AuthInfo info;
         info.url = KUrl("http://www.example.com");
 
@@ -137,6 +140,7 @@ private Q_SLOTS:
     void testFillDialog()
     {
         KPasswdServer server(this);
+        server.setWalletDisabled(true);
         // What the app would ask
         KIO::AuthInfo info;
         info.url = KUrl("http://www.example.com");

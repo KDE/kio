@@ -45,6 +45,9 @@ public:
   KPasswdServer(QObject* parent, const QList<QVariant>& = QList<QVariant>());
   ~KPasswdServer();
 
+  // Called by the unit test
+  void setWalletDisabled(bool d) { m_walletDisabled = d; }
+
 public Q_SLOTS:
   qlonglong checkAuthInfoAsync(KIO::AuthInfo, qlonglong, qlonglong);
   qlonglong queryAuthInfoAsync(const KIO::AuthInfo &, const QString &, qlonglong, qlonglong, qlonglong);
@@ -116,6 +119,7 @@ protected:
   QHash<int, QStringList> mWindowIdList;
   QStringList m_authPrompted;
   KWallet::Wallet* m_wallet;
+  bool m_walletDisabled;
   qlonglong m_seqNr;
 };
 

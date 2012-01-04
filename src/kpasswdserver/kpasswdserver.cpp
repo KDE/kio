@@ -77,6 +77,7 @@ KPasswdServer::KPasswdServer(QObject* parent, const QList<QVariant>&)
     KIO::AuthInfo::registerMetaTypes();
     m_seqNr = 0;
     m_wallet = 0;
+    m_walletDisabled = false;
 
     KPasswdServerAdaptor *adaptor = new KPasswdServerAdaptor(this);
     // register separately from kded
@@ -422,7 +423,7 @@ KPasswdServer::addAuthInfo(const KIO::AuthInfo &info, qlonglong windowId)
 
     m_seqNr++;
 
-    if (openWallet(windowId) && storeInWallet(m_wallet, key, info)) {
+    if (!m_walletDisabled && openWallet(windowId) && storeInWallet(m_wallet, key, info)) {
         // Since storing the password in the wallet succeeded, make sure the
         // password information is stored in memory only for the duration the
         // windows associated with it are still around.
