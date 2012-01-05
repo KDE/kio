@@ -17,7 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include <qtest_kde.h>
+#include <qtest.h>
 
 #include "kio_trash.h"
 #include "testtrash.h"
@@ -52,6 +52,27 @@
 // * with latin1 filenames -- not sure this still works.
 //
 #define UTF8TEST 1
+
+int initLocale()
+{
+#ifdef UTF8TEST
+    // Assume utf8 system
+    setenv( "LC_ALL", "en_US.utf-8", 1 );
+    setenv( "KDE_UTF8_FILENAMES", "true", 1 );
+#else
+    // Ensure a known QFile::encodeName behavior for trashUtf8FileFromHome
+    // However this assume your $HOME doesn't use characters from other locales...
+    setenv( "LC_ALL", "en_US.ISO-8859-1", 1 );
+    unsetenv( "KDE_UTF8_FILENAMES" );
+#endif
+    setenv("KDEHOME", QFile::encodeName( QDir::homePath() + QString::fromLatin1("/.kde-unit-test") ), 1);
+    setenv("XDG_DATA_HOME", QFile::encodeName( QDir::homePath() + QString::fromLatin1("/.kde-unit-test/xdg/local") ), 1);
+    setenv("XDG_CONFIG_HOME", QFile::encodeName( QDir::homePath() + QString::fromLatin1("/.kde-unit-test/xdg/config") ), 1);
+    setenv("KDE_SKIP_KDERC", "1", 1);
+    unsetenv("KDE_COLOR_DEBUG");
+    return 0;
+}
+Q_CONSTRUCTOR_FUNCTION(initLocale)
 
 
 QString TestTrash::homeTmpDir() const
@@ -115,17 +136,7 @@ static void removeDirRecursive( const QString& dir )
 
 void TestTrash::initTestCase()
 {
-#ifdef UTF8TEST
-    // Assume utf8 system
-    setenv( "LC_ALL", "en_GB.utf-8", 1 );
-    setenv( "KDE_UTF8_FILENAMES", "true", 1 );
-#else
-    // Ensure a known QFile::encodeName behavior for trashUtf8FileFromHome
-    // However this assume your $HOME doesn't use characters from other locales...
-    setenv( "LC_ALL", "en_GB.ISO-8859-1", 1 );
-    unsetenv( "KDE_UTF8_FILENAMES" );
-#endif
-
+    qDebug() << qgetenv("LC_ALL");
     setenv( "KDE_FORK_SLAVES", "yes", true );
 
 
@@ -1103,6 +1114,6 @@ void TestTrash::testIcons()
     checkIcon( KUrl("trash:/foo/"), "inode-directory" );
 }
 
-QTEST_KDEMAIN(TestTrash, NoGUI)
+QTEST_MAIN(TestTrash) // QT5 TODO: NOGUI
 
 #include "testtrash.moc"
