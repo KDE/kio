@@ -117,28 +117,20 @@ void TrashConfigModule::percentChanged( double percent )
     qulonglong partitionSize = util.size();
     double size = ((double)(partitionSize/100))*percent;
 
-    QString unit = i18n( "Byte" );
-    if ( size > 1024 ) {
-        unit = i18n( "KByte" );
-        size = size/1024.0;
-    }
-    if ( size > 1024 ) {
-        unit = i18n( "MByte" );
-        size = size/1024.0;
-    }
-    if ( size > 1024 ) {
-        unit = i18n( "GByte" );
-        size = size/1024.0;
-    }
-    if ( size > 1024 ) {
-        unit = i18n( "TByte" );
-        size = size/1024.0;
-    }
-
-    mSizeLabel->setText(
-    ki18nc( "%1 is amount of disk space, %2 the unit, KBytes, MBytes, GBytes, TBytes, etc.", "(%1 %2)" )
-    .subs( size, -1, 'f', 2 ).subs( unit ).toString()
-    );
+    const KLocale* locale = KGlobal::locale();
+    const double multiplier = (locale->binaryUnitDialect() == KLocale::MetricBinaryDialect) ? 1000 : 1024;
+    if ( size > multiplier*multiplier*multiplier*multiplier )
+        mSizeLabel->setText("(" + locale->formatByteSize(size, 2, KLocale::DefaultBinaryDialect, KLocale::UnitTeraByte) + ")");
+    else if ( size > multiplier*multiplier*multiplier*multiplier )
+        mSizeLabel->setText("(" + locale->formatByteSize(size, 2, KLocale::DefaultBinaryDialect, KLocale::UnitTeraByte) + ")");
+    else if ( size > multiplier*multiplier*multiplier )
+        mSizeLabel->setText("(" + locale->formatByteSize(size, 2, KLocale::DefaultBinaryDialect, KLocale::UnitGigaByte) + ")");
+    else if ( size > multiplier*multiplier )
+        mSizeLabel->setText("(" + locale->formatByteSize(size, 2, KLocale::DefaultBinaryDialect, KLocale::UnitMegaByte) + ")");
+    else if ( size > multiplier )
+        mSizeLabel->setText("(" + locale->formatByteSize(size, 2, KLocale::DefaultBinaryDialect, KLocale::UnitKiloByte) + ")");
+    else
+        mSizeLabel->setText("(" + locale->formatByteSize(size, 2, KLocale::DefaultBinaryDialect, KLocale::UnitByte) + ")");
 }
 
 void TrashConfigModule::trashChanged( QListWidgetItem *item )
