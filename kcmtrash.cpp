@@ -118,20 +118,7 @@ void TrashConfigModule::percentChanged( double percent )
     qulonglong partitionSize = util.size();
     double size = ((double)(partitionSize/100))*percent;
 
-    const KLocale* locale = KGlobal::locale();
-    const double multiplier = (locale->binaryUnitDialect() == KLocale::MetricBinaryDialect) ? 1000 : 1024;
-    if ( size > multiplier*multiplier*multiplier*multiplier )
-        mSizeLabel->setText("(" + locale->formatByteSize(size, 2, KLocale::DefaultBinaryDialect, KLocale::UnitTeraByte) + ")");
-    else if ( size > multiplier*multiplier*multiplier*multiplier )
-        mSizeLabel->setText("(" + locale->formatByteSize(size, 2, KLocale::DefaultBinaryDialect, KLocale::UnitTeraByte) + ")");
-    else if ( size > multiplier*multiplier*multiplier )
-        mSizeLabel->setText("(" + locale->formatByteSize(size, 2, KLocale::DefaultBinaryDialect, KLocale::UnitGigaByte) + ")");
-    else if ( size > multiplier*multiplier )
-        mSizeLabel->setText("(" + locale->formatByteSize(size, 2, KLocale::DefaultBinaryDialect, KLocale::UnitMegaByte) + ")");
-    else if ( size > multiplier )
-        mSizeLabel->setText("(" + locale->formatByteSize(size, 2, KLocale::DefaultBinaryDialect, KLocale::UnitKiloByte) + ")");
-    else
-        mSizeLabel->setText("(" + locale->formatByteSize(size, 2, KLocale::DefaultBinaryDialect, KLocale::UnitByte) + ")");
+    mSizeLabel->setText("(" + KGlobal::locale()->formatByteSize(size, 2) + ")");
 }
 
 void TrashConfigModule::trashChanged( QListWidgetItem *item )
