@@ -411,8 +411,7 @@ void TrashProtocol::get( const KUrl& url )
 
 bool TrashProtocol::doFileOp(const KUrl &url, UINT wFunc, FILEOP_FLAGS fFlags)
 {
-    // remove first '/' - can't use toLocalFile() because scheme is not file://
-    const QString path = url.path().mid(1).replace(QLatin1Char('/'),QLatin1Char('\\'));
+    const QString path = url.path().replace(QLatin1Char('/'),QLatin1Char('\\'));
     // must be double-null terminated.
     QByteArray delBuf( ( path.length() + 2 ) * 2, 0 );
     memcpy( delBuf.data(), path.utf16(), path.length() * 2 );
