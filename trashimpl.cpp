@@ -99,7 +99,9 @@ int TrashImpl::testDir( const QString &_name ) const
         //int ret = KMessageBox::warningYesNo( 0, i18n("%1 is a file, but KDE needs it to be a directory. Move it to %2.orig and create directory?").arg(name).arg(name) );
         //if ( ret == KMessageBox::Yes ) {
 #endif
-            if ( KDE_rename( path, path + ".orig" ) == 0 ) {
+	    QByteArray new_path = path;
+	    path.append(QByteArray(".orig"));
+            if ( KDE_rename( path, new_path) == 0 ) {
                 ok = KDE_mkdir( path, S_IRWXU ) == 0;
             } else { // foo.orig existed already. How likely is that?
                 ok = false;
