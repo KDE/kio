@@ -1,7 +1,5 @@
 add_subdirectory(tests)
 
-include_directories(${STRIGI_INCLUDE_DIR})
-
 set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp
                            ${CMAKE_CURRENT_SOURCE_DIR}/discspaceutil.cpp
                            ${CMAKE_CURRENT_SOURCE_DIR}/trashsizecache.cpp
@@ -27,7 +25,9 @@ endif(NOT MINGW)
 ########### next target ###############
 
 # currently not on win32, TODO!
-if(NOT WIN32)
+if(NOT WIN32 AND STRIGI_FOUND)
+    include_directories(${STRIGI_INCLUDE_DIR})
+
     kde4_add_library(trash MODULE trashthroughanalyzer.cpp ${trashcommon_PART_SRCS})
     target_link_libraries(trash
        ${KDE4_KIO_LIBS}
@@ -37,7 +37,7 @@ if(NOT WIN32)
     set_target_properties(trash PROPERTIES
         PREFIX strigita_)
     #install(TARGETS trash LIBRARY DESTINATION ${LIB_INSTALL_DIR}/strigi)
-endif(NOT WIN32)
+endif(NOT WIN32 AND STRIGI_FOUND)
 ########### next target ###############
 
 set(ktrash_SRCS ktrash.cpp )
