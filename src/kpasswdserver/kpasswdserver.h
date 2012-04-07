@@ -2,6 +2,7 @@
     This file is part of the KDE Password Server
 
     Copyright (C) 2002 Waldo Bastian (bastian@kde.org)
+    Copyright (C) 2012 Dawit Alemayehu (adawit@kde.org)
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -27,6 +28,7 @@
 #include <QtCore/QHash>
 #include <QtCore/QList>
 #include <QtDBus/QtDBus>
+#include <qwindowdefs.h>
 
 #include <kio/authinfo.h>
 #include <kdedmodule.h>
@@ -67,20 +69,12 @@ Q_SIGNALS:
   void checkAuthInfoAsyncResult(qlonglong requestId, qlonglong seqNr, const KIO::AuthInfo &);
   void queryAuthInfoAsyncResult(qlonglong requestId, qlonglong seqNr, const KIO::AuthInfo &);
 
-protected:
-  struct AuthInfoContainer;
+private Q_SLOTS:
+  void passwordDialogDone(int);
+  void retryDialogDone(int);
+  void windowRemoved(WId);
 
-  QString createCacheKey( const KIO::AuthInfo &info );
-  const AuthInfoContainer *findAuthInfoItem(const QString &key, const KIO::AuthInfo &info);
-  void removeAuthInfoItem(const QString &key, const KIO::AuthInfo &info);
-  void addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, qlonglong windowId, qlonglong seqNr, bool canceled);
-  KIO::AuthInfo copyAuthInfo(const AuthInfoContainer *);
-  void updateAuthExpire(const QString &key, const AuthInfoContainer *, qlonglong windowId, bool keep);
-  int findWalletEntry( const QMap<QString,QString>& map, const QString& username );
-  bool openWallet( int windowId );
-
-  bool hasPendingQuery(const QString &key, const KIO::AuthInfo &info);
-
+private:
   struct AuthInfoContainer {
       AuthInfoContainer() : expire( expNever ), seqNr( 0 ), isCanceled( false ) {}
 
@@ -99,9 +93,6 @@ protected:
     };
   };
 
-  typedef QList<AuthInfoContainer*> AuthInfoContainerList;
-  QHash< QString, AuthInfoContainerList* > m_authDict;
-
   struct Request {
      bool isAsync; // true for async requests
      qlonglong requestId; // set for async requests only
@@ -114,9 +105,28 @@ protected:
      bool prompt;
   };
 
+  QString createCacheKey( const KIO::AuthInfo &info );
+  const AuthInfoContainer *findAuthInfoItem(const QString &key, const KIO::AuthInfo &info);
+  void removeAuthInfoItem(const QString &key, const KIO::AuthInfo &info);
+  void addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, qlonglong windowId, qlonglong seqNr, bool canceled);
+  void copyAuthInfo(const AuthInfoContainer*, KIO::AuthInfo&);
+  void updateAuthExpire(const QString &key, const AuthInfoContainer *, qlonglong windowId, bool keep);
+  int findWalletEntry( const QMap<QString,QString>& map, const QString& username );
+  bool openWallet( qlonglong windowId );
+
+  bool hasPendingQuery(const QString &key, const KIO::AuthInfo &info);
+  void sendResponse (Request* request);
+  void showPasswordDialog(Request* request);
+  void updateCachedRequestKey(QList<Request*>&, const QString& oldKey, const QString& newKey);
+
+  typedef QList<AuthInfoContainer*> AuthInfoContainerList;
+  QHash<QString, AuthInfoContainerList*> m_authDict;
+
   QList<Request*> m_authPending;
   QList<Request*> m_authWait;
   QHash<int, QStringList> mWindowIdList;
+  QHash<QObject*, Request*> m_authInProgress;
+  QHash<QObject*, Request*> m_authRetryInProgress;
   QStringList m_authPrompted;
   KWallet::Wallet* m_wallet;
   bool m_walletDisabled;

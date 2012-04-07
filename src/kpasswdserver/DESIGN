@@ -1,15 +1,33 @@
+Credentials storage duration
+============================
+How long credentials are stored depends on a couple of factors. The first is
+whether a window-id (see QWidget::WId) was provided when the password request
+was made. The other is the state of KIO::AuthInfo's keepPassword flag.
+
+If the window-id parameter is missing, the credentials are stored for the
+entire duration of the current KDE session. Otherwise, they are only kept
+until the application(s) associated with the window-id exit.
+
+The "keepPassword" flag on the other hand only matters for caching credetials
+in a persistent storage such as KWallet. If this flag is set to false, then
+credentials are only kept in memory based on the value of window-id as discussed
+above. See the documentation for the "keepPassword" property in KIO::AuthInfo
+for more details.
+
+Dawit A. <adawit@kde.org>
+
 Sequence numbers
 ================
-The idea is that whenever the user is queried for a password this 
-login/pw combination gets a seq-nr. When  a slave needs a  login/pw 
-it asks kpasswdserver and sends along the last seqnr it received. If 
-this seqnr is older (lower) than the seq nr of the login/pw 
-combination stored in kpasswdserver then appearantly the user has 
-already been prompted for a new login/pw combination since the last 
-time this slave asked for a login/pw and therefor it is not necessary 
-to prompt the user again but kpassword will send the io-slave this 
-new login/pw combination. If this new combination fails as well the 
-user is being prompted for a new login/pw combo since the one stored 
+The idea is that whenever the user is queried for a password this
+login/pw combination gets a seq-nr. When  a slave needs a  login/pw
+it asks kpasswdserver and sends along the last seqnr it received. If
+this seqnr is older (lower) than the seq nr of the login/pw
+combination stored in kpasswdserver then appearantly the user has
+already been prompted for a new login/pw combination since the last
+time this slave asked for a login/pw and therefor it is not necessary
+to prompt the user again but kpassword will send the io-slave this
+new login/pw combination. If this new combination fails as well the
+user is being prompted for a new login/pw combo since the one stored
 in kpasswdserver doesn't work.
 
 Let me try to draw the situation I had in mind when writing this:
