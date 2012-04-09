@@ -42,6 +42,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <kmimetype.h>
 #include <kfileitem.h>
 #include <kstandarddirs.h>
 #include <kio/chmodjob.h>
