@@ -21,14 +21,14 @@
 #include "discspaceutil.h"
 #include "trashimpl.h"
 
-#include <QtGui/QCheckBox>
-#include <QtGui/QComboBox>
-#include <QtGui/QDoubleSpinBox>
-#include <QtGui/QFormLayout>
-#include <QtGui/QLabel>
-#include <QtGui/QLayout>
-#include <QtGui/QListWidget>
-#include <QtGui/QListWidgetItem>
+#include <QCheckBox>
+#include <QComboBox>
+#include <QDoubleSpinBox>
+#include <QFormLayout>
+#include <QLabel>
+#include <QLayout>
+#include <QListWidget>
+#include <QListWidgetItem>
 
 #include <kconfig.h>
 #include <kconfiggroup.h>
