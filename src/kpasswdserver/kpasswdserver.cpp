@@ -46,10 +46,11 @@ K_PLUGIN_FACTORY(KPasswdServerFactory,
     )
 K_EXPORT_PLUGIN(KPasswdServerFactory("kpasswdserver"))
 
-#define AUTHINFO_EXTRAFIELD_DOMAIN "domain"
-#define AUTHINFO_EXTRAFIELD_ANONYMOUS "anonymous"
-#define AUTHINFO_EXTRAFIELD_BYPASS_CACHE_AND_KWALLET "bypass-cache-and-kwallet"
+#define AUTHINFO_EXTRAFIELD_DOMAIN QLatin1String("domain")
+#define AUTHINFO_EXTRAFIELD_ANONYMOUS QLatin1String("anonymous")
+#define AUTHINFO_EXTRAFIELD_BYPASS_CACHE_AND_KWALLET QLatin1String("bypass-cache-and-kwallet")
 #define AUTHINFO_EXTRAFIELD_SKIP_CACHING_ON_QUERY QLatin1String("skip-caching-on-query")
+#define AUTHINFO_EXTRAFIELD_HIDE_USERNAME_INPUT QLatin1String("hide-username-line")
 
 static int debugArea() { static int s_area = KDebug::registerArea("KPasswdServer"); return s_area; }
 
@@ -578,7 +579,10 @@ KPasswdServer::processRequest()
                 dialogFlags |= KPasswordDialog::ShowAnonymousLoginCheckBox;
             }
 
-            dialogFlags |= KPasswordDialog::ShowUsernameLine;
+            if (!info.getExtraField(AUTHINFO_EXTRAFIELD_HIDE_USERNAME_INPUT).toBool())
+            {
+                dialogFlags |= KPasswordDialog::ShowUsernameLine;
+            }
 
             // If wallet is not enabled and the caller explicitly request for it,
             // do not show the keep password checkbox.
