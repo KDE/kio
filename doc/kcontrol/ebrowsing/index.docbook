@@ -14,8 +14,8 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2009-11-23</date>
-<releaseinfo>&kde; 4.4</releaseinfo>
+<date>2012-06-02</date>
+<releaseinfo>&kde; 4.9</releaseinfo>
 
 <keywordset>
 <keyword>KDE</keyword>
@@ -84,6 +84,12 @@ descending, and you can resize the columns.</para>
 has to be checked to enable this feature. Use the buttons on the right to 
 create, modify or delete shortcuts.</para>
 
+<para>If <guilabel>Use preferred shortcuts only</guilabel> is checked, only
+web shortcuts marked as preferred in the third column of the list
+are used in places where only a few select 
+shortcuts can be shown at one time.
+</para>
+ 
 <para>Below the list you find two additional options:</para>
 <variablelist>
 <varlistentry><term><guilabel>Default search engine</guilabel></term>
