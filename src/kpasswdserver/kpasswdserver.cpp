@@ -498,7 +498,7 @@ KPasswdServer::openWallet( qlonglong windowId )
     }
     if ( !m_wallet )
         m_wallet = KWallet::Wallet::openWallet(
-            KWallet::Wallet::NetworkWallet(), static_cast<WId>(windowId));
+            KWallet::Wallet::NetworkWallet(), (WId)(windowId));
     return m_wallet != 0;
 }
 
@@ -847,7 +847,7 @@ void KPasswdServer::showPasswordDialog (KPasswdServer::Request* request)
         dialogFlags |= KPasswordDialog::ShowKeepPassword;
 
     // instantiate dialog
-    kDebug(debugArea()) << "Widget for" << request->windowId << QWidget::find(request->windowId) << QApplication::activeWindow();
+    kDebug(debugArea()) << "Widget for" << request->windowId << QWidget::find((HWND)request->windowId) << QApplication::activeWindow();
     KPasswordDialog* dlg = new KPasswordDialog(0, dialogFlags);
     connect(dlg, SIGNAL(finished(int)), this, SLOT(passwordDialogDone(int)));
     connect(this, SIGNAL(destroyed(QObject*)), dlg, SLOT(deleteLater()));
@@ -882,7 +882,7 @@ void KPasswdServer::showPasswordDialog (KPasswdServer::Request* request)
 #ifndef Q_WS_WIN
     KWindowSystem::setMainWindow(dlg, request->windowId);
 #else
-    KWindowSystem::setMainWindow(dlg, (HWND)(long)request->windowId);
+    KWindowSystem::setMainWindow(dlg, (HWND)request->windowId);
 #endif
 
     kDebug(debugArea()) << "Showing password dialog" << dlg << ", window-id=" << request->windowId;
@@ -1057,7 +1057,7 @@ void KPasswdServer::windowRemoved (WId id)
 {
     bool foundMatch = false;
     if (!m_authInProgress.isEmpty()) {
-        const qlonglong windowId = static_cast<qlonglong>(id);
+        const qlonglong windowId = (qlonglong)(id);
         QMutableHashIterator<QObject*, Request*> it (m_authInProgress);
         while (it.hasNext()) {
             it.next();
@@ -1075,7 +1075,7 @@ void KPasswdServer::windowRemoved (WId id)
     }
 
     if (!foundMatch && !m_authRetryInProgress.isEmpty()) {
-        const qlonglong windowId = static_cast<qlonglong>(id);
+        const qlonglong windowId = (qlonglong)(id);
         QMutableHashIterator<QObject*, Request*> it (m_authRetryInProgress);
         while (it.hasNext()) {
             it.next();
