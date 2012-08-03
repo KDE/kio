@@ -847,7 +847,12 @@ void KPasswdServer::showPasswordDialog (KPasswdServer::Request* request)
         dialogFlags |= KPasswordDialog::ShowKeepPassword;
 
     // instantiate dialog
+#ifndef Q_WS_WIN
+    kDebug(debugArea()) << "Widget for" << request->windowId << QWidget::find(request->windowId) << QApplication::activeWindow();
+#else
     kDebug(debugArea()) << "Widget for" << request->windowId << QWidget::find((HWND)request->windowId) << QApplication::activeWindow();
+#endif
+
     KPasswordDialog* dlg = new KPasswordDialog(0, dialogFlags);
     connect(dlg, SIGNAL(finished(int)), this, SLOT(passwordDialogDone(int)));
     connect(this, SIGNAL(destroyed(QObject*)), dlg, SLOT(deleteLater()));
