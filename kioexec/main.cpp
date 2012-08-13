@@ -91,7 +91,7 @@ KIOExec::KIOExec()
                 // Unlike KDE-1.1, we put the filename at the end so that the extension is kept
                 // (Some programs rely on it)
                 QString tmp = KGlobal::dirs()->saveLocation( "cache", "krun/" ) +
-                              QString("%1.%2.%3").arg(getpid()).arg(jobCounter++).arg(fileName);
+                              QString("%1_%2_%3").arg(getpid()).arg(jobCounter++).arg(fileName);
                 FileInfo file;
                 file.path = tmp;
                 file.url = url;
