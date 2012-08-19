@@ -560,7 +560,7 @@ KPasswdServer::processRequest()
             KDialog* dlg = new KDialog(0, Qt::Dialog);
             connect(dlg, SIGNAL(finished(int)), this, SLOT(retryDialogDone(int)));
             connect(this, SIGNAL(destroyed(QObject*)), dlg, SLOT(deleteLater()));
-            dlg->setPlainCaption(i18n("Retry Authorization"));
+            dlg->setPlainCaption(i18n("Retry Authentication"));
             dlg->setWindowIcon(KIcon("dialog-password"));
             dlg->setButtons(KDialog::Yes | KDialog::No);
             dlg->setObjectName("warningOKCancel");
@@ -860,7 +860,7 @@ void KPasswdServer::showPasswordDialog (KPasswdServer::Request* request)
     dlg->setPrompt(info.prompt);
     dlg->setUsername(username);
     if (info.caption.isEmpty())
-        dlg->setPlainCaption( i18n("Authorization Dialog") );
+        dlg->setPlainCaption( i18n("Authentication Dialog") );
     else
         dlg->setPlainCaption( info.caption );
 
