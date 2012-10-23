@@ -4,7 +4,7 @@
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE">
 ]>
-<article lang="&language;">
+<article id="trash" lang="&language;">
 <title>Trash</title>
 <articleinfo>
 <authorgroup>
