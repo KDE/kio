@@ -289,6 +289,7 @@ void TrashProtocol::stat(const KUrl& url)
 
         if ( !ok ) {
             error( KIO::ERR_COULD_NOT_STAT, url.prettyUrl() );
+            return;
         }
 
         statEntry( entry );
