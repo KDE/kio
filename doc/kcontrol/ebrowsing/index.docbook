@@ -14,8 +14,8 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2012-06-02</date>
-<releaseinfo>&kde; 4.9</releaseinfo>
+<date>2012-11-11</date>
+<releaseinfo>&kde; 4.10</releaseinfo>
 
 <keywordset>
 <keyword>KDE</keyword>
@@ -92,7 +92,7 @@ shortcuts can be shown at one time.
  
 <para>Below the list you find two additional options:</para>
 <variablelist>
-<varlistentry><term><guilabel>Default search engine</guilabel></term>
+<varlistentry><term><guilabel>Default Web shortcuts</guilabel></term>
 <listitem>
 <para>Select the search engine to use for input boxes that provide automatic 
 lookup services when you type in normal words and phrases instead of a &URL;. 
@@ -118,14 +118,14 @@ multiple shortcuts, each separated by a comma.</para>
 about an item in the list of web shortcuts, but also for modifying or
 adding new items.</para>
 
-<para>You can change the contents of either the <guilabel>Search
-URI</guilabel> or the <guilabel>URI Shortcuts</guilabel> text box.
+<para>You can change the contents of either the <guilabel>Shortcut 
+URL</guilabel> or the <guilabel>Shortcuts</guilabel> text box.
 Click <guibutton>OK</guibutton> to save your changes or
 <guibutton>Cancel</guibutton> to exit the dialog with no
 changes.</para>
 
-<para>If you examine the contents of the <guilabel>Search
-URI</guilabel> text box, you will find that most, if not all of the
+<para>If you examine the contents of the <guilabel>Shortcuts 
+URL</guilabel> text box, you will find that most, if not all of the
 entries have a <option>\{@}</option> in them. This sequence of two
 characters acts as a parameter, which is to say that they are replaced
 by whatever you happen to type after the colon character that is
