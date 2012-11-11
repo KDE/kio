@@ -14,8 +14,8 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2009-11-24</date>
-<releaseinfo>&kde; 4.4</releaseinfo>
+<date>2011-11-11</date>
+<releaseinfo>&kde; 4.10</releaseinfo>
 
 <keywordset>
 <keyword>KDE</keyword>
@@ -45,7 +45,7 @@ be quite useful to the web site owners, for example, by allowing them to
 collect summary statistics on the number of visits different areas of
 the web sites get, or to customize banner advertising.</para>
 
-<para>The cookies module of the &systemsettings; allows you to set policies
+<para>The cookies page allows you to set policies
 for the use of cookies when you are browsing the web with the
 &konqueror; web browser. </para>
 
@@ -110,29 +110,30 @@ choose to reject cookies from a particular site, session cookies from
 that site will be accepted.</para>
 </listitem>
 </varlistentry>
-
-<varlistentry>
-<term><guilabel>Treat all cookies as session cookies</guilabel></term>
-<listitem>
-<para>If this option is enabled, all cookies are treated as session
-cookies.  That is, they are not kept when you leave the
-web site.</para>
-<note>
-<para>The definition of <quote>leave the web site</quote> is vague.
-Some cookies may hang around for a little while after you are no
-longer viewing any pages on a particular web site.  This is
-normal.</para>
-</note>
-</listitem>
-</varlistentry>
 </variablelist>
 
 <para>The section for <guilabel>Default Policy</guilabel> sets some
 further options that are mutually exclusive &mdash; you can choose only one
 of these options as the default, but you are free to set a different
 option for any specific web server.</para>
+<note><para>Site specific policies always take precedence over the default 
+policy.</para></note>
 
 <variablelist>
+<varlistentry>
+<term><guilabel>Accept all cookies</guilabel></term>
+<listitem>
+<para>If this option is selected, all cookies will be accepted without
+asking for confirmation.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Accept until end of session</guilabel></term>
+<listitem>
+<para>Cookies will be accepted, but they will expire at the end
+of the session.</para>
+</listitem>
+</varlistentry>
 <varlistentry>
 <term><guilabel>Ask for confirmation</guilabel></term>
 <listitem>
@@ -141,13 +142,6 @@ every time a cookie is stored or retrieved. You can selectively accept
 or reject each cookie. The confirmation dialog will also allow you to
 set a domain specific policy, if you do not want to confirm each
 cookie for that domain.</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term><guilabel>Accept all cookies</guilabel></term>
-<listitem>
-<para>If this option is selected, all cookies will be accepted without
-asking for confirmation.</para>
 </listitem>
 </varlistentry>
 <varlistentry>
@@ -161,17 +155,17 @@ asking for confirmation.</para>
 
 <para>In addition to the default policy for handling of cookies, which you can
 set by selecting one of the three options described above, you can also set
-policies for specific host domains using the controls in the <guilabel>Domain
-Specific</guilabel> group.</para>
+policies for specific host domains using the controls in the <guilabel>Site
+Policy</guilabel> group.</para>
 
-<para>The Ask, Accept, or Reject policy can be applied to a specific
+<para>The Ask, Accept, Accept until end of session, or Reject policy can be applied to a specific
 domain by clicking on the <guibutton>New...</guibutton> button, which
 brings up a dialog. In this dialog, you can type the name of the
 domain (with a leading dot), then select the policy you want to apply
 to this domain. Note that entries may also get added while you are
 browsing, if the default policy is to ask for confirmation, and you
 choose a general policy for a specific host (for example, by selecting
-<guilabel>Reject all cookies from this domain</guilabel> when asked to
+<guilabel>Reject</guilabel> when asked to
 confirm a cookie).</para>
 
 <para>You can also select a specific host domain from the list and click the
@@ -191,13 +185,16 @@ apply to domains which have been deleted from the list.</para>
 delete cookies that have been set in the past.</para>
 
 <para>In the upper part of this dialog, you can see a list of domains displayed
-as a tree. Click on the little <guiicon>+</guiicon> next to a domain to see all
+  as a tree. Click on the little <guiicon>&gt;</guiicon> next to a domain to see all
 cookies that have been set for this particular target domain. If you select one
 of these cookies, you will notice that its contents will show up in the frame
 <guilabel>Details</guilabel> below.</para>
 
 <para>By clicking the <guibutton>Delete</guibutton> button you can now delete the selected
 cookie. Click <guibutton>Delete All</guibutton> to delete all cookies stored.</para>
+
+<para>If a domain is selected, you can use <guibutton>Configure Policy</guibutton> to set 
+a site policy.</para>
 
 <para>Choose <guibutton>Reload List</guibutton> to reload the list
 from your hard disk. You might want to do this if you have had the
