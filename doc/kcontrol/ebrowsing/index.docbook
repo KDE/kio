@@ -150,9 +150,9 @@ left as is.</para>
 
 <para>You can also have shortcuts without parameters. Suppose the
 &URI; was
-<emphasis>file:/home/me/mydocs/kofficefiles/kword</emphasis> and the
-shortcut was <emphasis>mykword</emphasis>. Then, typing
-<userinput>mykword:</userinput> is the same as typing the complete
+<emphasis>file:/home/me/mydocs/calligra/words</emphasis> and the
+shortcut was <emphasis>mywords</emphasis>. Then, typing
+<userinput>mywords:</userinput> is the same as typing the complete
 &URI;. Note that there is nothing after the colon
 when typing the shortcut, but the colon is still required in order for
 the shortcut to be recognized as such.</para>
