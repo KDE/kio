@@ -57,11 +57,7 @@ contact me if you have questions. -->
 
 <note><para>For the <acronym>SMB</acronym> protocol to work, it is
 required to have <application>Samba</application> correctly
-installed. If you have an NT domain controller, you will need at least
-<application>Samba</application> version 2.0 or higher. If you want to
-access &Windows; 2000 shares, you will need
-<application>Samba</application> version 2.0.7 or higher. Older
-versions may work too, but have not been tested.</para></note>
+installed.</para></note>
 
 <!-- TODO: link to some place which explains USING SMB, i.e. konqueror
 or file dialog manual -->
