@@ -20,7 +20,7 @@ renameToFile=true
 copyFromFile=true
 copyToFile=true
 deleteRecursive=true
-fileNameUsedForCopying=Name
+fileNameUsedForCopying=DisplayName
 #TODO DocPath
 ExtraNames=Original Path,Deletion Date
 ExtraNames[af]=Oorspronklike gids, Uitvee-datum

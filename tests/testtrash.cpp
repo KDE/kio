@@ -520,6 +520,8 @@ void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )
         QVERIFY( ok );
     }
     createTestFile(origPath + QString::fromLatin1("/testfile"));
+    QVERIFY(QDir().mkdir(origPath + QString::fromLatin1("/subdir")));
+    createTestFile(origPath + QString::fromLatin1("/subdir/subfile"));
     KUrl u; u.setPath( origPath );
 
     // test
@@ -538,6 +540,7 @@ void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )
     QVERIFY( files.isFile() );
     QVERIFY( files.size() == 12 );
     QVERIFY( !QFile::exists( origPath ) );
+    QVERIFY(QFile::exists(m_trashDir + QString::fromLatin1("/files/") + fileId + QString::fromLatin1("/subdir/subfile")));
 }
 
 void TestTrash::trashDirectoryFromHome()
@@ -785,6 +788,8 @@ void TestTrash::copyDirectoryFromTrash()
     const QString destPath = otherTmpDir() + QString::fromLatin1("trashDirFromHome_copied");
     copyFromTrash(QString::fromLatin1("trashDirFromHome"), destPath);
     QVERIFY( QFileInfo( destPath ).isDir() );
+    QVERIFY(QFile::exists(destPath + "/testfile"));
+    QVERIFY(QFile::exists(destPath + "/subdir/subfile"));
 }
 
 void TestTrash::copySymlinkFromTrash()
@@ -1029,12 +1034,17 @@ void TestTrash::listRecursiveRootDir()
     kDebug() << "listDir done - m_entryCount=" << m_entryCount;
     QVERIFY( m_entryCount > 1 );
 
-    //kDebug() << m_listResult;
-    //kDebug() << m_displayNameListResult;
+    kDebug() << m_listResult;
+    kDebug() << m_displayNameListResult;
     QCOMPARE(m_listResult.count( "." ), 1); // found it, and only once
-    QCOMPARE(m_displayNameListResult.count( "fileFromHome" ), 1);
-    QCOMPARE(m_displayNameListResult.count( "fileFromHome 1" ), 1);
-    QCOMPARE(m_displayNameListResult.count( "testfile_in_subdir" ), 1);
+    QCOMPARE(m_listResult.count("0-fileFromHome"), 1);
+    QCOMPARE(m_listResult.count("0-fileFromHome 1"), 1);
+    QCOMPARE(m_listResult.count("0-trashDirFromHome/testfile"), 1);
+    QCOMPARE(m_listResult.count("0-readonly/readonly_subdir/testfile_in_subdir"), 1);
+    QCOMPARE(m_displayNameListResult.count("fileFromHome"), 1);
+    QCOMPARE(m_displayNameListResult.count("fileFromHome 1"), 1);
+    QCOMPARE(m_displayNameListResult.count("trashDirFromHome/testfile"), 1);
+    QCOMPARE(m_displayNameListResult.count("readonly/readonly_subdir/testfile_in_subdir"), 1);
 }
 
 void TestTrash::listSubDir()
@@ -1048,13 +1058,15 @@ void TestTrash::listSubDir()
     bool ok = KIO::NetAccess::synchronousRun( job, 0 );
     QVERIFY( ok );
     kDebug() << "listDir done - m_entryCount=" << m_entryCount;
-    QVERIFY( m_entryCount == 2 );
+    QCOMPARE(m_entryCount, 3);
 
     //kDebug() << m_listResult;
     //kDebug() << m_displayNameListResult;
     QCOMPARE(m_listResult.count( "." ), 1); // found it, and only once
     QCOMPARE(m_listResult.count( "testfile" ), 1); // found it, and only once
-    QCOMPARE(m_displayNameListResult.count( "testfile" ), 1);
+    QCOMPARE(m_listResult.count("subdir"), 1);
+    QCOMPARE(m_displayNameListResult.count("testfile"), 1);
+    QCOMPARE(m_displayNameListResult.count("subdir"), 1);
 }
 
 void TestTrash::slotEntries( KIO::Job*, const KIO::UDSEntryList& lst )
