@@ -1000,6 +1000,7 @@ void TestTrash::listRootDir()
 {
     m_entryCount = 0;
     m_listResult.clear();
+    m_displayNameListResult.clear();
     KIO::ListJob* job = KIO::listDir( KUrl("trash:/"), KIO::HideProgressInfo );
     connect( job, SIGNAL( entries( KIO::Job*, const KIO::UDSEntryList& ) ),
              SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
@@ -1008,14 +1009,18 @@ void TestTrash::listRootDir()
     kDebug() << "listDir done - m_entryCount=" << m_entryCount;
     QVERIFY( m_entryCount > 1 );
 
-    kDebug() << m_listResult;
-    QVERIFY( m_listResult.contains( "." ) == 1 ); // found it, and only once
+    //kDebug() << m_listResult;
+    //kDebug() << m_displayNameListResult;
+    QCOMPARE(m_listResult.count( "." ), 1); // found it, and only once
+    QCOMPARE(m_displayNameListResult.count( "fileFromHome" ), 1);
+    QCOMPARE(m_displayNameListResult.count( "fileFromHome 1" ), 1);
 }
 
 void TestTrash::listRecursiveRootDir()
 {
     m_entryCount = 0;
     m_listResult.clear();
+    m_displayNameListResult.clear();
     KIO::ListJob* job = KIO::listRecursive( KUrl("trash:/"), KIO::HideProgressInfo );
     connect( job, SIGNAL( entries( KIO::Job*, const KIO::UDSEntryList& ) ),
              SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
@@ -1024,14 +1029,19 @@ void TestTrash::listRecursiveRootDir()
     kDebug() << "listDir done - m_entryCount=" << m_entryCount;
     QVERIFY( m_entryCount > 1 );
 
-    kDebug() << m_listResult;
-    QVERIFY( m_listResult.count( "." ) == 1 ); // found it, and only once
+    //kDebug() << m_listResult;
+    //kDebug() << m_displayNameListResult;
+    QCOMPARE(m_listResult.count( "." ), 1); // found it, and only once
+    QCOMPARE(m_displayNameListResult.count( "fileFromHome" ), 1);
+    QCOMPARE(m_displayNameListResult.count( "fileFromHome 1" ), 1);
+    QCOMPARE(m_displayNameListResult.count( "testfile_in_subdir" ), 1);
 }
 
 void TestTrash::listSubDir()
 {
     m_entryCount = 0;
     m_listResult.clear();
+    m_displayNameListResult.clear();
     KIO::ListJob* job = KIO::listDir( KUrl("trash:/0-trashDirFromHome"), KIO::HideProgressInfo );
     connect( job, SIGNAL( entries( KIO::Job*, const KIO::UDSEntryList& ) ),
              SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
@@ -1040,22 +1050,26 @@ void TestTrash::listSubDir()
     kDebug() << "listDir done - m_entryCount=" << m_entryCount;
     QVERIFY( m_entryCount == 2 );
 
-    kDebug() << m_listResult;
-    QVERIFY( m_listResult.count( "." ) == 1 ); // found it, and only once
-    QVERIFY( m_listResult.count( "testfile" ) == 1 ); // found it, and only once
+    //kDebug() << m_listResult;
+    //kDebug() << m_displayNameListResult;
+    QCOMPARE(m_listResult.count( "." ), 1); // found it, and only once
+    QCOMPARE(m_listResult.count( "testfile" ), 1); // found it, and only once
+    QCOMPARE(m_displayNameListResult.count( "testfile" ), 1);
 }
 
 void TestTrash::slotEntries( KIO::Job*, const KIO::UDSEntryList& lst )
 {
     for( KIO::UDSEntryList::ConstIterator it = lst.begin(); it != lst.end(); ++it ) {
         const KIO::UDSEntry& entry (*it);
-        QString displayName = entry.stringValue( KIO::UDSEntry::UDS_NAME );
+        QString name = entry.stringValue(KIO::UDSEntry::UDS_NAME);
+        QString displayName = entry.stringValue(KIO::UDSEntry::UDS_DISPLAY_NAME);
         KUrl url = entry.stringValue( KIO::UDSEntry::UDS_URL );
-        kDebug() << displayName << " " << url;
+        kDebug() << "name" << name << "displayName" << displayName << " UDS_URL=" << url;
         if ( !url.isEmpty() ) {
             QVERIFY( url.protocol() == "trash" );
         }
-        m_listResult << displayName;
+        m_listResult << name;
+        m_displayNameListResult << displayName;
     }
     m_entryCount += lst.count();
 }

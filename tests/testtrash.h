@@ -116,6 +116,7 @@ private:
 
     int m_entryCount;
     QStringList m_listResult;
+    QStringList m_displayNameListResult;
 };
 
 #endif

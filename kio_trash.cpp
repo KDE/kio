@@ -274,7 +274,9 @@ void TrashProtocol::stat(const KUrl& url)
             return;
         }
 
-        QString fileName = filePath.section(QLatin1Char('/'), -1, -1, QString::SectionSkipEmpty);
+        // For a toplevel file, use the fileId as display name (to hide the trashId)
+        // For a file in a subdir, use the fileName as is.
+        QString fileDisplayName = relativePath.isEmpty() ? fileId : url.fileName();
 
         KUrl fileURL;
         if ( url.path().length() > 1 ) {
@@ -285,7 +287,7 @@ void TrashProtocol::stat(const KUrl& url)
         TrashedFileInfo info;
         ok = impl.infoForFile( trashId, fileId, info );
         if ( ok )
-            ok = createUDSEntry( filePath, fileName, fileURL.fileName(), entry, info );
+            ok = createUDSEntry( filePath, fileDisplayName, fileURL.fileName(), entry, info );
 
         if ( !ok ) {
             error( KIO::ERR_COULD_NOT_STAT, url.prettyUrl() );
@@ -373,7 +375,8 @@ void TrashProtocol::listDir(const KUrl& url)
         TrashedFileInfo infoForItem( info );
         infoForItem.origPath += QLatin1Char('/');
         infoForItem.origPath += fileName;
-        if ( ok && createUDSEntry( filePath, fileName, fileName, entry, infoForItem ) ) {
+
+        if (createUDSEntry(filePath, fileName, fileName, entry, infoForItem)) {
             listEntry( entry, false );
         }
     }
@@ -448,7 +451,8 @@ void TrashProtocol::listRoot()
         KUrl origURL;
         origURL.setPath( (*it).origPath );
         entry.clear();
-        if ( createUDSEntry( (*it).physicalPath, origURL.fileName(), url.fileName(), entry, *it ) )
+        const QString fileDisplayName = (*it).fileId;
+        if ( createUDSEntry( (*it).physicalPath, fileDisplayName, url.fileName(), entry, *it ) )
             listEntry( entry, false );
     }
     entry.clear();
