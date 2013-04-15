@@ -995,12 +995,7 @@ bool TrashImpl::initTrashDirectory( const QByteArray& trashDir_c ) const
         return checkTrashSubdirs( trashDir_c );
 
     } else {
-        kDebug() << trashDir_c << " just created, by it doesn't have the right permissions, must be a FAT partition. Removing it again.";
-        // Not good, e.g. USB key. Delete again.
-        // I'm paranoid, it would be better to find a solution that allows
-        // to trash directly onto the USB key, but I don't see how that would
-        // pass the security checks. It would also make the USB key appears as
-        // empty when it's in fact full...
+        kDebug() << trashDir_c << " just created, by it doesn't have the right permissions, probably some strange unsupported filesystem";
         ::rmdir( trashDir_c );
         return false;
     }
