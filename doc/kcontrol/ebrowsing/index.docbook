@@ -107,7 +107,8 @@ be searched.</para></listitem>
 </variablelist>
 
 <para>If you double-click on a specific entry in the list of defined
-search providers, the details for that entry are shown in a popup
+search providers or click the <guibutton>Change</guibutton> button, 
+the details for that entry are shown in a popup
 dialog.  In addition to the descriptive name for the item, you can
 also see the &URI; which is used, as well as the
 associated shortcuts which you can type anywhere in &kde; where
@@ -129,8 +130,9 @@ URL</guilabel> text box, you will find that most, if not all of the
 entries have a <option>\{@}</option> in them. This sequence of four
 characters acts as a parameter, which is to say that they are replaced
 by whatever you happen to type after the colon character that is
-between a shortcut and its parameter. Let's consider some examples to
-clarify this idea.</para>
+between a shortcut and its parameter. To add this query placeholder 
+to a shortcuts url, click on the button at the right of the text box.
+Let's consider some examples to clarify this idea.</para>
 
 <para>Suppose that the &URI; is
 <userinput>http://www.google.com/search?q=\{@}</userinput>, and
