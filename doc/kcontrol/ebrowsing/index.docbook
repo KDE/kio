@@ -132,7 +132,7 @@ characters acts as a parameter, which is to say that they are replaced
 by whatever you happen to type after the colon character that is
 between a shortcut and its parameter. To add this query placeholder 
 to a shortcuts url, click on the button at the right of the text box.
-Let's consider some examples to clarify this idea.</para>
+Let's consider some examples to clarify how to use web shortcuts.</para>
 
 <para>Suppose that the &URI; is
 <userinput>http://www.google.com/search?q=\{@}</userinput>, and
