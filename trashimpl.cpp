@@ -308,7 +308,11 @@ QString TrashImpl::makeRelativePath( const QString& topdir, const QString& path 
 {
     const QString realPath = KStandardDirs::realFilePath( path );
     // topdir ends with '/'
+#ifndef Q_OS_WIN
     if ( realPath.startsWith( topdir ) ) {
+#else
+    if ( realPath.startsWith( topdir, Qt::CaseInsensitive ) ) {
+#endif
         const QString rel = realPath.mid( topdir.length() );
         Q_ASSERT( rel[0] != QLatin1Char('/') );
         return rel;
