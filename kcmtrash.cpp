@@ -46,8 +46,7 @@ K_PLUGIN_FACTORY( KCMTrashConfigFactory, registerPlugin<TrashConfigModule>( "tra
 K_EXPORT_PLUGIN( KCMTrashConfigFactory( "kcmtrash" ) )
 
 TrashConfigModule::TrashConfigModule( QWidget* parent, const QVariantList& )
-    : KCModule(// KCMTrashConfigFactory::componentData(), 
-               parent ), trashInitialize( false )
+    : KCModule( KCMTrashConfigFactory::componentData(), parent ), trashInitialize( false )
 {
 //  KGlobal::locale()->insertCatalog( "kio_trash" );
 

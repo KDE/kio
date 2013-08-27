@@ -1045,7 +1045,7 @@ QString TrashImpl::topDirectoryPath( int trashId ) const
 QUrl TrashImpl::makeURL( int trashId, const QString& fileId, const QString& relativePath )
 {
     QUrl url;
-    url.setProtocol(QString::fromLatin1("trash"));
+    url.setScheme(QString::fromLatin1("trash"));
     QString path = QString::fromLatin1("/");
     path += QString::number( trashId );
     path += QLatin1Char('-');
@@ -1062,7 +1062,7 @@ QUrl TrashImpl::makeURL( int trashId, const QString& fileId, const QString& rela
 // The trash:/ URL itself isn't parsed here, must be caught by the caller before hand.
 bool TrashImpl::parseURL( const QUrl& url, int& trashId, QString& fileId, QString& relativePath )
 {
-    if (url.protocol() != QLatin1String("trash"))
+    if (url.scheme() != QLatin1String("trash"))
         return false;
     const QString path = url.path();
     int start = 0;
