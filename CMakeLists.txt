@@ -1,3 +1,5 @@
+include_directories(${KDE4_INCLUDE_DIR}/kio ${KDE4_INCLUDE_DIR}/KDE)
+
 add_subdirectory(tests)
 
 set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp
@@ -7,32 +9,33 @@ set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp
     )
 
 ########### next target ###############
-
 if(WIN32)
   set(kio_trash_PART_SRCS kio_trash_win.cpp kio_trash_win.h)
 else(WIN32)
   set(kio_trash_PART_SRCS kio_trash.cpp ${trashcommon_PART_SRCS})
 endif(WIN32)
-
-if(NOT MINGW)
 kde4_add_plugin(kio_trash ${kio_trash_PART_SRCS})
-
-
-target_link_libraries(kio_trash  ${KDE4_KIO_LIBS} ${KDE4_SOLID_LIBS})
-
+target_link_libraries(kio_trash  ${KDE4_KIO_LIBS}
+        ${KDE4_SOLID_LIBS}   
+        ${KDE4Support_LIBRARIES}
+        ${KDECLARATIVE_LIBRARIES} 
+        KF5::KI18n KF5::KConfigCore KF5::KConfigGui 
+        )
 install(TARGETS kio_trash  DESTINATION ${PLUGIN_INSTALL_DIR} )
-endif(NOT MINGW)
-########### next target ###############
 
+########### next target ###############
 # currently not on win32, TODO!
 if(NOT WIN32 AND STRIGI_FOUND)
-    include_directories(${STRIGI_INCLUDE_DIR})
+    include_directories(${STRIGI_INCLUDE_DIR} ${KDE4_INCLUDE_DIR}/kio)
 
     kde4_add_library(trash MODULE trashthroughanalyzer.cpp ${trashcommon_PART_SRCS})
     target_link_libraries(trash
+       ${KDE4Support_LIBRARIES}
+       ${KDECLARATIVE_LIBRARIES}
        ${KDE4_KIO_LIBS}
        ${STRIGI_STREAMANALYZER_LIBRARY}
        ${KDE4_SOLID_LIBS}
+       KF5::KI18n KF5::KConfigCore KF5::KConfigGui
     )
     set_target_properties(trash PROPERTIES
         PREFIX strigita_)
@@ -42,10 +45,14 @@ endif(NOT WIN32 AND STRIGI_FOUND)
 
 set(ktrash_SRCS ktrash.cpp )
 
-
 kde4_add_executable(ktrash NOGUI ${ktrash_SRCS})
 
-target_link_libraries(ktrash  ${KDE4_KIO_LIBS} )
+target_link_libraries(ktrash    
+        ${KDE4Support_LIBRARIES}
+        ${KDECLARATIVE_LIBRARIES}
+        ${KDE4_KIO_LIBS}
+        KF5::KI18n KF5::KConfigCore KF5::KConfigGui
+        )
 
 install(TARGETS ktrash ${INSTALL_TARGETS_DEFAULT_ARGS})
 
@@ -55,7 +62,8 @@ install(TARGETS ktrash ${INSTALL_TARGETS_DEFAULT_ARGS})
 if(NOT WIN32)
     set(kcm_trash_PART_SRCS kcmtrash.cpp ${trashcommon_PART_SRCS})
     kde4_add_plugin(kcm_trash ${kcm_trash_PART_SRCS})
-    target_link_libraries(kcm_trash  ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS} ${KDE4_SOLID_LIBS})
+    target_link_libraries(kcm_trash    ${KDE4Support_LIBRARIES}
+    ${KDECLARATIVE_LIBRARIES} ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS} ${KDE4_SOLID_LIBS})
 
     install(TARGETS kcm_trash DESTINATION ${PLUGIN_INSTALL_DIR})
 endif(NOT WIN32)

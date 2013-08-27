@@ -36,18 +36,20 @@
 #include <kglobal.h>
 #include <kicon.h>
 #include <klocale.h>
+ #include <KLocalizedString>
 #include <kpluginfactory.h>
 #include <kpluginloader.h>
 #include <KIntSpinBox>
-#include <KDebug>
+#include <QDebug>
 
 K_PLUGIN_FACTORY( KCMTrashConfigFactory, registerPlugin<TrashConfigModule>( "trash" ); )
 K_EXPORT_PLUGIN( KCMTrashConfigFactory( "kcmtrash" ) )
 
 TrashConfigModule::TrashConfigModule( QWidget* parent, const QVariantList& )
-    : KCModule( KCMTrashConfigFactory::componentData(), parent ), trashInitialize( false )
+    : KCModule(// KCMTrashConfigFactory::componentData(), 
+               parent ), trashInitialize( false )
 {
-    KGlobal::locale()->insertCatalog( "kio_trash" );
+//  KGlobal::locale()->insertCatalog( "kio_trash" );
 
     mTrashImpl = new TrashImpl();
     mTrashImpl->init();

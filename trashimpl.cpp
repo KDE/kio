@@ -25,6 +25,7 @@
 
 #include <klocale.h>
 #include <kde_file.h>
+ #include <KLocalizedString>
 #include <kio/global.h>
 #include <kio/renamedialog.h>
 #include <kio/job.h>
@@ -33,6 +34,7 @@
 #include <kio/deletejob.h>
 #include <kdebug.h>
 #include <kurl.h>
+#include <QUrl>
 #include <kdirnotify.h>
 #include <kglobal.h>
 #include <kstandarddirs.h>
@@ -240,13 +242,13 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     kDebug() << "trashing to " << trashId;
 
     // Grab original filename
-    KUrl url;
+    QUrl url;
     url.setPath( origPath );
     const QString origFileName = url.fileName();
 
     // Make destination file in info/
     url.setPath( infoPath( trashId, origFileName ) ); // we first try with origFileName
-    KUrl baseDirectory;
+    QUrl baseDirectory;
     baseDirectory.setPath( url.directory() );
     // Here we need to use O_EXCL to avoid race conditions with other kioslave processes
     int fd = 0;
@@ -414,7 +416,7 @@ bool TrashImpl::move( const QString& src, const QString& dest )
     if ( m_lastErrorCode != KIO::ERR_UNSUPPORTED_ACTION )
         return false;
 
-    KUrl urlSrc, urlDest;
+    QUrl urlSrc, urlDest;
     urlSrc.setPath( src );
     urlDest.setPath( dest );
     kDebug() << urlSrc << " -> " << urlDest;
@@ -469,9 +471,9 @@ bool TrashImpl::copy( const QString& src, const QString& dest )
 {
     // kio_file's copy() method is quite complex (in order to be fast), let's just call it...
     m_lastErrorCode = 0;
-    KUrl urlSrc;
+    QUrl urlSrc;
     urlSrc.setPath( src );
-    KUrl urlDest;
+    QUrl urlDest;
     urlDest.setPath( dest );
     kDebug() << "copying " << src << " to " << dest;
     KIO::CopyJob* job = KIO::copyAs( urlSrc, urlDest, KIO::HideProgressInfo );
@@ -561,7 +563,7 @@ bool TrashImpl::synchronousDel( const QString& path, bool setLastErrorCode, bool
 {
     const int oldErrorCode = m_lastErrorCode;
     const QString oldErrorMsg = m_lastErrorMessage;
-    KUrl url;
+   QUrl url;
     url.setPath( path );
     // First ensure that all dirs have u+w permissions,
     // otherwise we won't be able to delete files in them (#130780).
@@ -1040,9 +1042,9 @@ QString TrashImpl::topDirectoryPath( int trashId ) const
 
 // Helper method. Creates a URL with the format trash:/trashid-fileid or
 // trash:/trashid-fileid/relativePath/To/File for a file inside a trashed directory.
-KUrl TrashImpl::makeURL( int trashId, const QString& fileId, const QString& relativePath )
+QUrl TrashImpl::makeURL( int trashId, const QString& fileId, const QString& relativePath )
 {
-    KUrl url;
+    QUrl url;
     url.setProtocol(QString::fromLatin1("trash"));
     QString path = QString::fromLatin1("/");
     path += QString::number( trashId );
@@ -1058,7 +1060,7 @@ KUrl TrashImpl::makeURL( int trashId, const QString& fileId, const QString& rela
 
 // Helper method. Parses a trash URL with the URL scheme defined in makeURL.
 // The trash:/ URL itself isn't parsed here, must be caught by the caller before hand.
-bool TrashImpl::parseURL( const KUrl& url, int& trashId, QString& fileId, QString& relativePath )
+bool TrashImpl::parseURL( const QUrl& url, int& trashId, QString& fileId, QString& relativePath )
 {
     if (url.protocol() != QLatin1String("trash"))
         return false;
