@@ -26,7 +26,7 @@
 
 #include <QtWidgets/QApplication>
 #include <kdeversion.h>
-#include <kstandarddirs.h>
+//#include <kstandarddirs.h>
 #include <qdebug.h>
 #include <kmessagebox.h>
 #include <kio/job.h>
@@ -35,9 +35,11 @@
 #include <kio/netaccess.h>
 #include <kservice.h>
 #include <klocale.h>
-#include <kcmdlineargs.h>
+#include <qcommandlineparser.h>
+#include <qcommandlineoption.h>
 #include <kaboutdata.h>
 #include <kstartupinfo.h>
+ #include <KLocalizedString>
 #include <kshell.h>
 #include <kde_file.h>
 
@@ -48,7 +50,8 @@ static const char description[] =
 KIOExec::KIOExec()
     : mExited(false)
 {
-    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+    QCommandLineParser *args = QCommandLineParser::argument();
+  //  KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
     if (args->count() < 1)
         KCmdLineArgs::usageError(i18n("'command' expected.\n"));
 
@@ -58,7 +61,7 @@ KIOExec::KIOExec()
     expectedCounter = 0;
     jobCounter = 0;
     command = args->arg(0);
-    kDebug() << "command=" << command;
+    qDebug() << "command=" << command;
 
     for ( int i = 1; i < args->count(); i++ )
     {
@@ -101,7 +104,7 @@ KIOExec::KIOExec()
                 expectedCounter++;
                 QUrl dest;
                 dest.setPath( tmp );
-                kDebug() << "Copying " << url.path() << " to " << dest;
+                qDebug() << "Copying " << url.path() << " to " << dest;
                 KIO::Job *job = KIO::file_copy( url, dest );
                 jobList.append( job );
 
@@ -143,7 +146,7 @@ void KIOExec::slotResult( KJob * job )
         if ( it != fileList.end() )
            fileList.erase( it );
         else
-           kDebug() <<  path << " not found in list";
+           qDebug() <<  path << " not found in list";
     }
 
     counter++;
@@ -151,7 +154,7 @@ void KIOExec::slotResult( KJob * job )
     if ( counter < expectedCounter )
         return;
 
-    kDebug() << "All files downloaded, will call slotRunApp shortly";
+    qDebug() << "All files downloaded, will call slotRunApp shortly";
     // We know we can run the app now - but let's finish the job properly first.
     QTimer::singleShot( 0, this, SLOT( slotRunApp() ) );
 
@@ -161,7 +164,7 @@ void KIOExec::slotResult( KJob * job )
 void KIOExec::slotRunApp()
 {
     if ( fileList.isEmpty() ) {
-        kDebug() << "No files downloaded -> exiting";
+        qDebug() << "No files downloaded -> exiting";
         mExited = true;
         QApplication::exit(1);
         return;
@@ -183,7 +186,7 @@ void KIOExec::slotRunApp()
 
     QStringList params = KRun::processDesktopExec(service, list);
 
-    kDebug() << "EXEC " << KShell::joinArgs( params );
+    qDebug() << "EXEC " << KShell::joinArgs( params );
 
 #ifdef Q_WS_X11
     // propagate the startup identification to the started process
