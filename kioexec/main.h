@@ -28,7 +28,7 @@
 #include <QList>
 #include <QtCore/QTimer>
 
-#include <KUrl>
+#include <QUrl>
 
 namespace KIO { class Job; }
 

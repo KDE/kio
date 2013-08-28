@@ -61,7 +61,7 @@ KIOExec::KIOExec()
 
     for ( int i = 1; i < args->count(); i++ )
     {
-        KUrl url = args->url(i);
+        QUrl url = args->url(i);
 	url = KIO::NetAccess::mostLocalUrl( url, 0 );
 
         //kDebug() << "url=" << url.url() << " filename=" << url.fileName();
@@ -98,7 +98,7 @@ KIOExec::KIOExec()
                 fileList.append(file);
 
                 expectedCounter++;
-                KUrl dest;
+                QUrl dest;
                 dest.setPath( tmp );
                 kDebug() << "Copying " << url.prettyUrl() << " to " << dest;
                 KIO::Job *job = KIO::file_copy( url, dest );
@@ -168,14 +168,14 @@ void KIOExec::slotRunApp()
 
     KService service("dummy", command, QString());
 
-    KUrl::List list;
+    QList<QUrl> list;
     // Store modification times
     QList<FileInfo>::Iterator it = fileList.begin();
     for ( ; it != fileList.end() ; ++it )
     {
         KDE_struct_stat buff;
         (*it).time = KDE_stat( QFile::encodeName((*it).path), &buff ) ? 0 : buff.st_mtime;
-        KUrl url;
+        QUrl url;
         url.setPath((*it).path);
         list << url;
     }
@@ -206,7 +206,7 @@ void KIOExec::slotRunApp()
     {
         KDE_struct_stat buff;
         QString src = (*it).path;
-        KUrl dest = (*it).url;
+        QUrl dest = (*it).url;
         if ( (KDE::stat( src, &buff ) == 0) &&
              ((*it).time != buff.st_mtime) )
         {
