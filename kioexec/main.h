@@ -55,7 +55,7 @@ protected:
     QString command;
     struct FileInfo {
        QString path;
-       KUrl url;
+       QUrl url;
        int time;
     };
     QList<FileInfo> fileList;

@@ -24,13 +24,14 @@
 #include <QtCore/QFile>
 #include <QtCore/Q_PID>
 
-#include <kapplication.h>
+#include <QtWidgets/QApplication>
 #include <kdeversion.h>
 #include <kstandarddirs.h>
-#include <kdebug.h>
+#include <qdebug.h>
 #include <kmessagebox.h>
 #include <kio/job.h>
 #include <krun.h>
+#include <kglobal.h>
 #include <kio/netaccess.h>
 #include <kservice.h>
 #include <klocale.h>
@@ -100,7 +101,7 @@ KIOExec::KIOExec()
                 expectedCounter++;
                 QUrl dest;
                 dest.setPath( tmp );
-                kDebug() << "Copying " << url.prettyUrl() << " to " << dest;
+                kDebug() << "Copying " << url.path() << " to " << dest;
                 KIO::Job *job = KIO::file_copy( url, dest );
                 jobList.append( job );
 
@@ -198,7 +199,7 @@ void KIOExec::slotRunApp()
     KStartupInfo::resetStartupEnv();
 #endif
 
-    kDebug() << "EXEC done";
+    qDebug() << "EXEC done";
 
     // Test whether one of the files changed
     it = fileList.begin();
@@ -213,17 +214,17 @@ void KIOExec::slotRunApp()
             if ( tempfiles )
             {
                 if ( KMessageBox::questionYesNo( 0L,
-                                                 i18n( "The supposedly temporary file\n%1\nhas been modified.\nDo you still want to delete it?" , dest.prettyUrl()),
+                                                 i18n( "The supposedly temporary file\n%1\nhas been modified.\nDo you still want to delete it?" , dest.path()),
                                                  i18n( "File Changed" ), KStandardGuiItem::del(), KGuiItem(i18n("Do Not Delete")) ) != KMessageBox::Yes )
                     continue; // don't delete the temp file
             }
             else if ( ! dest.isLocalFile() )  // no upload when it's already a local file
             {
                 if ( KMessageBox::questionYesNo( 0L,
-                                                 i18n( "The file\n%1\nhas been modified.\nDo you want to upload the changes?" , dest.prettyUrl()),
+                                                 i18n( "The file\n%1\nhas been modified.\nDo you want to upload the changes?" , dest.path()),
                                                  i18n( "File Changed" ), KGuiItem(i18n("Upload")), KGuiItem(i18n("Do Not Upload")) ) == KMessageBox::Yes )
                 {
-                    kDebug() << "src='" << src << "'  dest='" << dest << "'";
+                    qDebug() << "src='" << src << "'  dest='" << dest << "'";
                     // Do it the synchronous way.
                     if ( !KIO::NetAccess::upload( src, dest, 0 ) )
                     {
@@ -237,9 +238,9 @@ void KIOExec::slotRunApp()
         if ((!dest.isLocalFile() || tempfiles) && exit_code == 0) {
             // Wait for a reasonable time so that even if the application forks on startup (like OOo or amarok)
             // it will have time to start up and read the file before it gets deleted. #130709.
-            kDebug() << "sleeping...";
+            qDebug() << "sleeping...";
             sleep(180); // 3 mn
-            kDebug() << "about to delete " << src;
+            qDebug() << "about to delete " << src;
             unlink( QFile::encodeName(src) );
         }
     }
@@ -250,7 +251,7 @@ void KIOExec::slotRunApp()
 
 int main( int argc, char **argv )
 {
-    KAboutData aboutData( "kioexec", "kioexec", ki18n("KIOExec"),
+    /*KAboutData aboutData( "kioexec", "kioexec", ki18n("KIOExec"),
         KDE_VERSION_STRING, ki18n(description), KAboutData::License_GPL,
         ki18n("(c) 1998-2000,2003 The KFM/Konqueror Developers"));
     aboutData.addAuthor(ki18n("David Faure"),KLocalizedString(), "faure@kde.org");
@@ -266,9 +267,9 @@ int main( int argc, char **argv )
     options.add("suggestedfilename <file name>", ki18n("Suggested file name for the downloaded file"));
     options.add("+command", ki18n("Command to execute"));
     options.add("+[URLs]", ki18n("URL(s) or local file(s) used for 'command'"));
-    KCmdLineArgs::addCmdLineOptions( options );
+    KCmdLineArgs::addCmdLineOptions( options );*/
 
-    KApplication app;
+   QApplication app( argc, argv);
     app.setQuitOnLastWindowClosed(false);
 
     KIOExec exec;
