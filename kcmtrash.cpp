@@ -32,7 +32,7 @@
 
 #include <kconfig.h>
 #include <kconfiggroup.h>
-#include <kdialog.h>
+#include <qdialog.h>
 #include <kglobal.h>
 #include <kicon.h>
 #include <klocale.h>
@@ -47,14 +47,14 @@ K_PLUGIN_FACTORY( KCMTrashConfigFactory, registerPlugin<TrashConfigModule>( "tra
 K_EXPORT_PLUGIN( KCMTrashConfigFactory( "kcmtrash" ) )
 
 TrashConfigModule::TrashConfigModule( QWidget* parent, const QVariantList& )
-    : KCModule( KCMTrashConfigFactory::componentData(),parent ), trashInitialize( false )
+    : KCModule( Kparent ), trashInitialize( false )
 {
-    KAboutData *about = new KAboutData(
+ /* DEPRECATED   KAboutData *about = new KAboutData(
         "kcmtrash", 0, ki18n( "trash" ),
         KDE_VERSION_STRING, KLocalizedString(), KAboutData::License_GPL,
         ki18n( "Copyright 2013 Heena Mahour " ) );
         about->addAuthor( ki18n("Heena Mahour") ,KLocalizedString(), "heena393@gmail.com" );
-        setAboutData( about );
+        setAboutData( about );*/
  //error: ‘class KLocale’ has no member named ‘insertCatalog’
 //   KGlobal::locale()->insertCatalog( "kio_trash" );
 
