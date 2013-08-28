@@ -29,19 +29,22 @@
 //#include <kstandarddirs.h>
 #include <qdebug.h>
 #include <kmessagebox.h>
+#include <kaboutdata.h>
 #include <kio/job.h>
 #include <krun.h>
 #include <kglobal.h>
 #include <kio/netaccess.h>
 #include <kservice.h>
 #include <klocale.h>
-#include <qcommandlineparser.h>
-#include <qcommandlineoption.h>
+ #include <KLocalizedString>
+#include <kcmdlineargs.h>//remove it 
+#include <kdeversion.h>
 #include <kaboutdata.h>
 #include <kstartupinfo.h>
- #include <KLocalizedString>
 #include <kshell.h>
 #include <kde_file.h>
+#include <qcommandlineparser.h>
+#include <qcommandlineoption.h>
 
 static const char description[] =
         I18N_NOOP("KIO Exec - Opens remote files, watches modifications, asks for upload");
@@ -50,8 +53,7 @@ static const char description[] =
 KIOExec::KIOExec()
     : mExited(false)
 {
-    QCommandLineParser *args = QCommandLineParser::argument();
-  //  KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
     if (args->count() < 1)
         KCmdLineArgs::usageError(i18n("'command' expected.\n"));
 
@@ -94,7 +96,7 @@ KIOExec::KIOExec()
                 // Build the destination filename, in ~/.kde/cache-*/krun/
                 // Unlike KDE-1.1, we put the filename at the end so that the extension is kept
                 // (Some programs rely on it)
-                QString tmp = KGlobal::dirs()->saveLocation( "cache", "krun/" ) +
+               QString tmp = KGlobal::dirs()->saveLocation( "cache", "krun/" ) +
                               QString("%1_%2_%3").arg(getpid()).arg(jobCounter++).arg(fileName);
                 FileInfo file;
                 file.path = tmp;
@@ -254,7 +256,7 @@ void KIOExec::slotRunApp()
 
 int main( int argc, char **argv )
 {
-    /*KAboutData aboutData( "kioexec", "kioexec", ki18n("KIOExec"),
+  /*  K4AboutData aboutData( "kioexec", "kioexec", ki18n("KIOExec"),
         KDE_VERSION_STRING, ki18n(description), KAboutData::License_GPL,
         ki18n("(c) 1998-2000,2003 The KFM/Konqueror Developers"));
     aboutData.addAuthor(ki18n("David Faure"),KLocalizedString(), "faure@kde.org");
@@ -262,18 +264,16 @@ int main( int argc, char **argv )
     aboutData.addAuthor(ki18n("Bernhard Rosenkraenzer"),KLocalizedString(), "bero@arklinux.org");
     aboutData.addAuthor(ki18n("Waldo Bastian"),KLocalizedString(), "bastian@kde.org");
     aboutData.addAuthor(ki18n("Oswald Buddenhagen"),KLocalizedString(), "ossi@kde.org");
-
-    KCmdLineArgs::init( argc, argv, &aboutData );
-
-    KCmdLineOptions options;
-    options.add("tempfiles", ki18n("Treat URLs as local files and delete them afterwards"));
-    options.add("suggestedfilename <file name>", ki18n("Suggested file name for the downloaded file"));
-    options.add("+command", ki18n("Command to execute"));
-    options.add("+[URLs]", ki18n("URL(s) or local file(s) used for 'command'"));
-    KCmdLineArgs::addCmdLineOptions( options );*/
+*/
+     QCommandLineParser *parser = new QCommandLineParser;
+       parser->addOption(QCommandLineOption(QStringList() << "tempfiles" , i18n("Treat URLs as local files and delete them afterwards")));
+ parser->addOption(QCommandLineOption(QStringList() << "suggestedfilename <file name>" , ki18n("Suggested file name for the downloaded file")));
+ parser->addOption(QCommandLineOption(QStringList() << "+command", i18n("Command to execute")));
+ parser->addOption(QCommandLineOption(QStringList() << "+[URLs]", i18n("URL(s) or local file(s) used for 'command'")));
 
    QApplication app( argc, argv);
     app.setQuitOnLastWindowClosed(false);
+     parser->process(app);
 
     KIOExec exec;
 
