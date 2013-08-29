@@ -34,7 +34,7 @@
 #include <kconfiggroup.h>
 #include <qdialog.h>
 #include <kglobal.h>
-#include <kicon.h>
+#include <qicon.h>
 #include <klocale.h>
  #include <KLocalizedString>
 #include <kpluginfactory.h>
@@ -47,7 +47,7 @@ K_PLUGIN_FACTORY( KCMTrashConfigFactory, registerPlugin<TrashConfigModule>( "tra
 K_EXPORT_PLUGIN( KCMTrashConfigFactory( "kcmtrash" ) )
 
 TrashConfigModule::TrashConfigModule( QWidget* parent, const QVariantList& )
-    : KCModule( Kparent ), trashInitialize( false )
+    :  trashInitialize( false )
 {
  /* DEPRECATED   KAboutData *about = new KAboutData(
         "kcmtrash", 0, ki18n( "trash" ),
@@ -125,9 +125,9 @@ void TrashConfigModule::percentChanged( double percent )
     DiscSpaceUtil util( mCurrentTrash );
 
     qulonglong partitionSize = util.size();
-    double size = ((double)(partitionSize/100))*percent;
+ //   double size = ((double)(partitionSize/100))*percent;
 
-    mSizeLabel->setText("(" + KGlobal::locale()->formatByteSize(size, 2) + ")");
+    //mSizeLabel->setText("(" + KGlobal::locale()->formatByteSize(size, 2) + ")");
 }
 
 void TrashConfigModule::trashChanged( QListWidgetItem *item )
@@ -236,7 +236,7 @@ void TrashConfigModule::setupGui()
         while ( it.hasNext() ) {
             it.next();
             DiscSpaceUtil util( it.value() );
-            QListWidgetItem *item = new QListWidgetItem( KIcon( "folder" ), util.mountPoint() );
+            QListWidgetItem *item = new QListWidgetItem( QIcon( "folder" ), util.mountPoint() );
             item->setData( Qt::UserRole, it.key() );
 
             mountPoints->addItem( item );

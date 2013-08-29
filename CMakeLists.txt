@@ -1,6 +1,6 @@
 include_directories(${KDE4_INCLUDE_DIR}/kio ${KDE4_INCLUDE_DIR}/KDE)
 
-add_subdirectory(tests)
+#add_subdirectory(tests)
 
 set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp
                            ${CMAKE_CURRENT_SOURCE_DIR}/discspaceutil.cpp
@@ -19,6 +19,7 @@ target_link_libraries(kio_trash  ${KDE4_KIO_LIBS}
         ${KDE4_SOLID_LIBS}   
         ${KDE4Support_LIBRARIES}
         ${KDECLARATIVE_LIBRARIES} 
+           kdeqt5staging
         KF5::KI18n KF5::KConfigCore KF5::KConfigGui 
         )
 install(TARGETS kio_trash  DESTINATION ${PLUGIN_INSTALL_DIR} )
@@ -35,6 +36,7 @@ if(NOT WIN32 AND STRIGI_FOUND)
        ${KDE4_KIO_LIBS}
        ${STRIGI_STREAMANALYZER_LIBRARY}
        ${KDE4_SOLID_LIBS}
+          kdeqt5staging
        KF5::KI18n KF5::KConfigCore KF5::KConfigGui
     )
     set_target_properties(trash PROPERTIES
@@ -51,6 +53,7 @@ target_link_libraries(ktrash
         ${KDE4Support_LIBRARIES}
         ${KDECLARATIVE_LIBRARIES}
         ${KDE4_KIO_LIBS}
+           kdeqt5staging
         KF5::KI18n KF5::KConfigCore KF5::KConfigGui
         )
 

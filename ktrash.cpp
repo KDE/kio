@@ -17,50 +17,48 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include <kapplication.h>
+#include <qapplication.h>
 #include <kio/netaccess.h>
 #include <kio/job.h>
-#include <kcmdlineargs.h>
+ #include <KLocalizedString>
 #include <klocale.h>
 #include <kdirnotify.h>
 #include <kdebug.h>
+#include <kdeversion.h>
+#include <qcommandlineparser.h>
+#include <qcommandlineoption.h>
 
 int main(int argc, char *argv[])
 {
     //KApplication::disableAutoDcopRegistration();
-    KCmdLineArgs::init( argc, argv, "ktrash", "kio_trash",
-                        ki18n( "ktrash" ),
-                        KDE_VERSION_STRING ,
-                        ki18n( "Helper program to handle the KDE trash can\n"
-				   "Note: to move files to the trash, do not use ktrash, but \"kioclient move 'url' trash:/\"" ));
-
-    KCmdLineOptions options;
-    options.add("empty", ki18n( "Empty the contents of the trash" ));
-    //{ "migrate", I18N_NOOP( "Migrate contents of old trash" ), 0 },
-    options.add("restore <file>", ki18n( "Restore a trashed file to its original location" ));
-    // This hack is for the servicemenu on trash.desktop which uses Exec=ktrash -empty. %f is implied...
-    options.add("+[ignored]", ki18n( "Ignored" ));
-    KCmdLineArgs::addCmdLineOptions( options );
-    KApplication app;
-
-    KCmdLineArgs* args = KCmdLineArgs::parsedArgs();
-    if ( args->isSet( "empty" ) ) {
+    QApplication app( argc, argv);
+    QCommandLineParser *parser = new QCommandLineParser;
+    // app.setApplicationVersion(version);
+    //  parser->addVersionOption();
+    //  parser->addHelpOption(description);
+    parser->addOption(QCommandLineOption(QStringList() << "empty", i18n("Empty the contents of the trash")));
+    parser->addOption(QCommandLineOption(QStringList() << "restore <file>", i18n( "Restore a trashed file to its original location" )));
+    parser->addOption(QCommandLineOption(QStringList() <<"+[ignored]", i18n( "Ignored" )));
+    parser->process(app);
+    if ( parser->isSet( "empty" ) ) {
         // We use a kio job instead of linking to TrashImpl, for a smaller binary
         // (and the possibility of a central service at some point)
         QByteArray packedArgs;
         QDataStream stream( &packedArgs, QIODevice::WriteOnly );
         stream << (int)1;
-        KIO::Job* job = KIO::special( KUrl("trash:/"), packedArgs );
+        KIO::Job* job = KIO::special( QUrl("trash:/"), packedArgs );
         (void)KIO::NetAccess::synchronousRun( job, 0 );
 
         // Update konq windows opened on trash:/
-        org::kde::KDirNotify::emitFilesAdded(QString::fromLatin1("trash:/")); // yeah, files were removed, but we don't know which ones...
+        QUrl drl;
+        drl.setPath("trash:/");
+        org::kde::KDirNotify::emitFilesAdded(drl); // yeah, files were removed, but we don't know which ones...
         return 0;
     }
 
 #if 0
     // This is only for testing. KDesktop handles it automatically.
-    if ( args->isSet( "migrate" ) ) {
+    if ( parser->isSet( "migrate" ) ) {
         QByteArray packedArgs;
         QDataStream stream( packedArgs, QIODevice::WriteOnly );
         stream << (int)2;
@@ -70,7 +68,7 @@ int main(int argc, char *argv[])
     }
 #endif
 
-    QString restoreArg = args->getOption( "restore" );
+    QString restoreArg = parser->value( "restore" );
     if ( !restoreArg.isEmpty() ) {
 
         if (restoreArg.indexOf(QLatin1String("system:/trash"))==0) {
@@ -78,19 +76,19 @@ int main(int argc, char *argv[])
             restoreArg.prepend(QString::fromLatin1("trash:"));
         }
 
-        KUrl trashURL( restoreArg );
-        if ( !trashURL.isValid() || trashURL.protocol() != QLatin1String("trash") ) {
-            kError() << "Invalid URL for restoring a trashed file:" << trashURL << endl;
+        QUrl trashURL( restoreArg );
+        if ( !trashURL.isValid() || trashURL.scheme() != QLatin1String("trash") ) {
+          //  qDebug() << "Invalid URL for restoring a trashed file:" << trashURL << endl;
             return 1;
         }
 
         QByteArray packedArgs;
         QDataStream stream( &packedArgs, QIODevice::WriteOnly );
         stream << (int)3 << trashURL;
-        KIO::Job* job = KIO::special( trashURL, packedArgs );
-        bool ok = KIO::NetAccess::synchronousRun( job, 0 );
-        if ( !ok )
-            kError() << KIO::NetAccess::lastErrorString() << endl;
+        //    KIO::Job* job = KIO::special( trashURL, packedArgs );
+        //    bool ok = KIO::NetAccess::synchronousRun( job, 0 );
+        //     if ( !ok )
+        //        qDebug() << KIO::NetAccess::lastErrorString() << endl;
         return 0;
     }
 
