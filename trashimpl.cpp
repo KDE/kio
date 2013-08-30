@@ -74,9 +74,9 @@ TrashImpl::TrashImpl() :
     KDE_struct_stat buff;
     if ( KDE_lstat( QFile::encodeName( QDir::homePath() ), &buff ) == 0 ) {
         m_homeDevice = buff.st_dev;
-    }/* else {
+    } else {
         qError() << "Should never happen: couldn't stat $HOME " << strerror( errno ) << endl;
-    }*/
+    }
 }
 
 /**
@@ -221,9 +221,9 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
          * off_t should be 64bit on Unix systems to have large file support
          * FIXME: on windows this gets disabled until trash gets integrated
          */
-/* ERROR #ifndef Q_OS_WIN
+ #ifndef Q_OS_WIN
     char off_t_should_be_64bit[sizeof(off_t) >= 8 ? 1:-1]; (void)off_t_should_be_64bit;
-#endif*/
+#endif
     KDE_struct_stat buff_src;
     if ( KDE_lstat( origPath_c.data(), &buff_src ) == -1 ) {
         if ( errno == EACCES )

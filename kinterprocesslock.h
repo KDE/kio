@@ -110,7 +110,6 @@ class KInterProcessLock : public QObject
         class Private;
         Private* const d;
 
-      //       Q_PRIVATE_SLOT( void _k_serviceRegistered(const QString&))
         Q_PRIVATE_SLOT(d, void _k_serviceRegistered(const QString&))
 };
 

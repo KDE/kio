@@ -22,7 +22,7 @@
 #include "trashsizecache.h"
 
 #include "discspaceutil.h"
-// this file is to be fixed "kinterprocesslock.h"
+#include  "kinterprocesslock.h"
 
 #include <kconfig.h>
 #include <kconfiggroup.h>
@@ -45,9 +45,9 @@ void TrashSizeCache::initialize()
 
 void TrashSizeCache::add( qulonglong value )
 {
-  /* to be fixed   KInterProcessLock lock( QLatin1String( "trash" ) );
+    KInterProcessLock lock( QLatin1String( "trash" ) );
     lock.lock();
-    lock.waitForLockGranted(); */
+    lock.waitForLockGranted(); 
 
     KConfig config( mTrashSizeCachePath );
     KConfigGroup group = config.group( mTrashSizeGroup );
@@ -58,15 +58,15 @@ void TrashSizeCache::add( qulonglong value )
     group.writeEntry( mTrashSizeKey, size );
     config.sync();
 
-  // to be fixed   lock.unlock();
+  lock.unlock();
 }
 
 void TrashSizeCache::remove( qulonglong value )
 {
-  /*  KInterProcessLock lock( QLatin1String( "trash" ) );
+    KInterProcessLock lock( QLatin1String( "trash" ) );
     lock.lock();
     lock.waitForLockGranted();
-*/
+
     KConfig config( mTrashSizeCachePath );
     KConfigGroup group = config.group( mTrashSizeGroup );
 
@@ -76,22 +76,22 @@ void TrashSizeCache::remove( qulonglong value )
     group.writeEntry( mTrashSizeKey, size );
     config.sync();
 
-   // lock.unlock();
+    lock.unlock();
 }
 
 void TrashSizeCache::clear()
 {
- /* to be fixed    KInterProcessLock lock( QLatin1String( "trash" ) );
+    KInterProcessLock lock( QLatin1String( "trash" ) );
     lock.lock();
     lock.waitForLockGranted();
-*/
+
     KConfig config( mTrashSizeCachePath );
     KConfigGroup group = config.group( mTrashSizeGroup );
 
     group.writeEntry( mTrashSizeKey, (qulonglong)0 );
     config.sync();
 
-// to be fixed    lock.unlock();
+ lock.unlock();
 }
 
 qulonglong TrashSizeCache::size() const
@@ -101,12 +101,12 @@ qulonglong TrashSizeCache::size() const
 
 qulonglong TrashSizeCache::currentSize( bool doLocking ) const
 {
-/*to be fixed    KInterProcessLock lock( QLatin1String( "trash" ) );
+  KInterProcessLock lock( QLatin1String( "trash" ) );
 
     if ( doLocking ) {
         lock.lock();
         lock.waitForLockGranted();
-    }*/
+    }
 
     KConfig config( mTrashSizeCachePath );
     KConfigGroup group = config.group( mTrashSizeGroup );
@@ -122,8 +122,8 @@ qulonglong TrashSizeCache::currentSize( bool doLocking ) const
 
     const qulonglong value = group.readEntry( mTrashSizeKey, (qulonglong)0 );
 
-/* to be fixed     if ( doLocking )
-        lock.unlock(); */
+    if ( doLocking )
+        lock.unlock(); 
 
     return value;
 }
