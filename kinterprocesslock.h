@@ -58,6 +58,7 @@ class KInterProcessLock : public QObject
     Q_OBJECT
 
     public:
+      //  class Private;
         /**
          * Creates a new inter process lock object.
          *
@@ -97,6 +98,9 @@ class KInterProcessLock : public QObject
          * Waits for the granting of a lock by starting an internal event loop.
          */
         void waitForLockGranted();
+           class Private;
+        Private* const d;
+       //  Q_PRIVATE_SLOT(d, void _k_serviceRegistered(const QString&))
 
     Q_SIGNALS:
         /**
@@ -106,11 +110,10 @@ class KInterProcessLock : public QObject
          */
         void lockGranted(KInterProcessLock *lock);
 
-    private:
-        class Private;
-        Private* const d;
+    //private:
+     
 
-        Q_PRIVATE_SLOT(d, void _k_serviceRegistered(const QString&))
+       //Q_PRIVATE_SLOT(d, void _k_serviceRegistered(const QString&))
 };
 
 #endif
