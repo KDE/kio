@@ -5,7 +5,7 @@ set(kioexec_SRCS main.cpp )
 kde4_add_executable(kioexec NOGUI ${kioexec_SRCS})
 
 target_link_libraries(kioexec ${KDE4_KIO_LIBS} ${KDE4Support_LIBRARIES}
-    ${KDECLARATIVE_LIBRARIES} ${KDE4_KDEUI_LIBS} ${KDE4_SOLID_LIBS}
+    ${KDECLARATIVE_LIBRARIES} ${KDE4_SOLID_LIBS}
      KF5::KI18n KF5::KConfigCore KF5::KConfigGui
       ${KCore_LIBRARIES}
  kdeqt5staging
