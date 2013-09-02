@@ -20,6 +20,7 @@ target_link_libraries(kio_trash  ${KDE4_KIO_LIBS}
         ${KDE4Support_LIBRARIES}
         ${KDECLARATIVE_LIBRARIES} 
            kdeqt5staging
+           Qt5::DBus
         KF5::KI18n KF5::KConfigCore KF5::KConfigGui 
         )
 install(TARGETS kio_trash  DESTINATION ${PLUGIN_INSTALL_DIR} )
@@ -31,6 +32,7 @@ if(NOT WIN32 AND STRIGI_FOUND)
 
     kde4_add_library(trash MODULE trashthroughanalyzer.cpp ${trashcommon_PART_SRCS})
     target_link_libraries(trash
+       
        ${KDE4Support_LIBRARIES}
        ${KDECLARATIVE_LIBRARIES}
        ${KDE4_KIO_LIBS}
@@ -65,8 +67,8 @@ install(TARGETS ktrash ${INSTALL_TARGETS_DEFAULT_ARGS})
 if(NOT WIN32)
     set(kcm_trash_PART_SRCS kcmtrash.cpp ${trashcommon_PART_SRCS})
     kde4_add_plugin(kcm_trash ${kcm_trash_PART_SRCS})
-    target_link_libraries(kcm_trash    ${KDE4Support_LIBRARIES}
-    ${KDECLARATIVE_LIBRARIES} ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS} ${KDE4_SOLID_LIBS})
+    target_link_libraries(kcm_trash  Qt5::DBus  ${KDE4Support_LIBRARIES}
+    ${KDECLARATIVE_LIBRARIES} KF5::KI18n KConfigWidgets ${KDE4_KIO_LIBS} ${KDE4_SOLID_LIBS})
 
     install(TARGETS kcm_trash DESTINATION ${PLUGIN_INSTALL_DIR})
 endif(NOT WIN32)
