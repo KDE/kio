@@ -331,10 +331,10 @@ void TrashProtocol::listDir(const QUrl& url)
     INIT_IMPL;
     qDebug() << "listdir: " << url;
   //  FIXME to be fixed what to add to replace kurl add trailing space ?? 
-   /* if ( url.path(KUrl::AddTrailingSpace) == QLatin1String("/") ) {
+    if ( url.path(KUrl::AddTrailingSpace) == QLatin1String("/") ) {
         listRoot();
         return;
-    }*/
+    }
     int trashId;
     QString fileId;
     QString relativePath;
