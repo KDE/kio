@@ -24,6 +24,7 @@
 #include <QtDBus/QDBusConnectionInterface>
 
 #include <QtCore/QDebug>
+
 class KInterProcessLock::Private
 {
     public:

@@ -22,7 +22,7 @@
 #include "trashsizecache.h"
 
 #include "discspaceutil.h"
-#include  "kinterprocesslock.h"
+#include "kinterprocesslock.h"
 
 #include <kconfig.h>
 #include <kconfiggroup.h>
@@ -47,7 +47,7 @@ void TrashSizeCache::add( qulonglong value )
 {
     KInterProcessLock lock( QLatin1String( "trash" ) );
     lock.lock();
-    lock.waitForLockGranted(); 
+    lock.waitForLockGranted();
 
     KConfig config( mTrashSizeCachePath );
     KConfigGroup group = config.group( mTrashSizeGroup );
@@ -58,7 +58,7 @@ void TrashSizeCache::add( qulonglong value )
     group.writeEntry( mTrashSizeKey, size );
     config.sync();
 
-  lock.unlock();
+    lock.unlock();
 }
 
 void TrashSizeCache::remove( qulonglong value )
@@ -91,7 +91,7 @@ void TrashSizeCache::clear()
     group.writeEntry( mTrashSizeKey, (qulonglong)0 );
     config.sync();
 
- lock.unlock();
+    lock.unlock();
 }
 
 qulonglong TrashSizeCache::size() const
@@ -101,7 +101,7 @@ qulonglong TrashSizeCache::size() const
 
 qulonglong TrashSizeCache::currentSize( bool doLocking ) const
 {
-  KInterProcessLock lock( QLatin1String( "trash" ) );
+    KInterProcessLock lock( QLatin1String( "trash" ) );
 
     if ( doLocking ) {
         lock.lock();
@@ -123,7 +123,7 @@ qulonglong TrashSizeCache::currentSize( bool doLocking ) const
     const qulonglong value = group.readEntry( mTrashSizeKey, (qulonglong)0 );
 
     if ( doLocking )
-        lock.unlock(); 
+        lock.unlock();
 
     return value;
 }

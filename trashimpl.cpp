@@ -221,9 +221,9 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
          * off_t should be 64bit on Unix systems to have large file support
          * FIXME: on windows this gets disabled until trash gets integrated
          */
- #ifndef Q_OS_WIN
-    char off_t_should_be_64bit[sizeof(off_t) >= 8 ? 1:-1]; (void)off_t_should_be_64bit;
-#endif
+ //#ifndef Q_OS_WIN
+  //  char off_t_should_be_64bit[sizeof(off_t) >= 8 ? 1:-1]; (void)off_t_should_be_64bit;
+//#endif
     KDE_struct_stat buff_src;
     if ( KDE_lstat( origPath_c.data(), &buff_src ) == -1 ) {
         if ( errno == EACCES )
@@ -242,14 +242,14 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     qDebug() << "trashing to " << trashId;
 
     // Grab original filename
-    KUrl url;
+    QUrl url;
     url.setPath( origPath );
     const QString origFileName = url.fileName();
 
     // Make destination file in info/
     url.setPath( infoPath( trashId, origFileName ) ); // we first try with origFileName
     QUrl baseDirectory;
-    baseDirectory.setPath( url.directory() );
+    baseDirectory.setPath( url.path() );
     // Here we need to use O_EXCL to avoid race conditions with other kioslave processes
     int fd = 0;
     do {
@@ -257,7 +257,9 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
         fd = KDE_open( QFile::encodeName( url.path() ), O_WRONLY | O_CREAT | O_EXCL, 0600 );
         if ( fd < 0 ) {
             if ( errno == EEXIST ) {
-                url.setFileName( KIO::RenameDialog::suggestName( baseDirectory, url.fileName() ) );
+            //    url = url.adjusted(url.RemoveFileName);
+               // url.setFileName( KIO::RenameDialog::suggestName( baseDirectory, url.fileName() ) );
+                url.setPath(url.path() + KIO::RenameDialog::suggestName( baseDirectory, url.fileName() )  );
                 // and try again on the next iteration
             } else {
                 error( KIO::ERR_COULD_NOT_WRITE, url.path() );

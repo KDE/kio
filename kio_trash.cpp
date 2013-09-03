@@ -21,8 +21,8 @@
 
 #include "kio_trash.h"
 #include <kio/job.h>
-#include <kurl.h>
-#include <qdebug.h>
+
+#include <kdebug.h>
 #include <klocale.h>
 #include <kde_file.h>
 #include <kcomponentdata.h>
@@ -39,7 +39,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <stdlib.h>
-
 extern "C" {
     int Q_DECL_EXPORT kdemain( int argc, char **argv )
     {
@@ -89,7 +88,7 @@ void TrashProtocol::restore( const QUrl& trashURL )
     QString fileId, relativePath;
     bool ok = TrashImpl::parseURL( trashURL, trashId, fileId, relativePath );
     if ( !ok ) {
-        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", trashURL.url() ) );
+        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", trashURL.toString() ) );
         return;
     }
     TrashedFileInfo info;
@@ -101,7 +100,11 @@ void TrashProtocol::restore( const QUrl& trashURL )
     QUrl dest;
     dest.setPath( info.origPath );
     if ( !relativePath.isEmpty() )
-        dest.setPath( relativePath );
+        dest = dest.adjusted(QUrl::StripTrailingSlash);
+    // TODO (u.path() + '/' + txt) '/' is unable to concate ?
+    dest.setPath(dest.path()+relativePath);
+    
+       // dest.addPath( relativePath );
 
     // Check that the destination directory exists, to improve the error code in case it doesn't.
     const QString destDir = dest.path();
@@ -120,10 +123,10 @@ void TrashProtocol::rename( const QUrl &oldURL, const QUrl &newURL, KIO::JobFlag
 {
     INIT_IMPL;
 
-    qDebug()<<"TrashProtocol::rename(): old="<<oldURL<<" new="<<newURL<<" overwrite=" << (flags & KIO::Overwrite);
+    kDebug()<<"TrashProtocol::rename(): old="<<oldURL<<" new="<<newURL<<" overwrite=" << (flags & KIO::Overwrite);
 
     if (oldURL.scheme() == QLatin1String("trash") && newURL.scheme() == QLatin1String("trash")) {
-        error( KIO::ERR_CANNOT_RENAME, oldURL.url() );
+        error( KIO::ERR_CANNOT_RENAME, oldURL.toString() );
         return;
     }
 
@@ -134,7 +137,7 @@ void TrashProtocol::copy( const QUrl &src, const QUrl &dest, int /*permissions*/
 {
     INIT_IMPL;
 
-    qDebug()<<"TrashProtocol::copy(): " << src << " " << dest;
+    kDebug()<<"TrashProtocol::copy(): " << src << " " << dest;
 
     if (src.scheme() == QLatin1String("trash") && dest.scheme() == QLatin1String("trash")) {
         error( KIO::ERR_UNSUPPORTED_ACTION, i18n( "This file is already in the trash bin." ) );
@@ -152,7 +155,7 @@ void TrashProtocol::copyOrMove( const QUrl &src, const QUrl &dest, bool overwrit
         QString fileId, relativePath;
         bool ok = TrashImpl::parseURL( src, trashId, fileId, relativePath );
         if ( !ok ) {
-            error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", src.url() ) );
+            error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", src.toString() ) );
             return;
         }
         const QString destPath = dest.path();
@@ -167,10 +170,10 @@ void TrashProtocol::copyOrMove( const QUrl &src, const QUrl &dest, bool overwrit
         }
 
         if ( action == Move ) {
-            qDebug() << "calling moveFromTrash(" << destPath << " " << trashId << " " << fileId << ")";
+            kDebug() << "calling moveFromTrash(" << destPath << " " << trashId << " " << fileId << ")";
             ok = impl.moveFromTrash( destPath, trashId, fileId, relativePath );
         } else { // Copy
-            qDebug() << "calling copyFromTrash(" << destPath << " " << trashId << " " << fileId << ")";
+            kDebug() << "calling copyFromTrash(" << destPath << " " << trashId << " " << fileId << ")";
             ok = impl.copyFromTrash( destPath, trashId, fileId, relativePath );
         }
         if ( !ok ) {
@@ -183,7 +186,7 @@ void TrashProtocol::copyOrMove( const QUrl &src, const QUrl &dest, bool overwrit
         return;
     } else if (src.isLocalFile() && dest.scheme() == QLatin1String("trash")) {
         QString dir = dest.path();
-        //qDebug() << "trashing a file to " << dir;
+        //kDebug() << "trashing a file to " << dir;
         // Trashing a file
         // We detect the case where this isn't normal trashing, but
         // e.g. if kwrite tries to save (moving tempfile over destination)
@@ -201,10 +204,10 @@ void TrashProtocol::copyOrMove( const QUrl &src, const QUrl &dest, bool overwrit
             } else {
                 bool ok;
                 if ( action == Move ) {
-                    qDebug() << "calling moveToTrash(" << srcPath << " " << trashId << " " << fileId << ")";
+                    kDebug() << "calling moveToTrash(" << srcPath << " " << trashId << " " << fileId << ")";
                     ok = impl.moveToTrash( srcPath, trashId, fileId );
                 } else { // Copy
-                    qDebug() << "calling copyToTrash(" << srcPath << " " << trashId << " " << fileId << ")";
+                    kDebug() << "calling copyToTrash(" << srcPath << " " << trashId << " " << fileId << ")";
                     ok = impl.copyToTrash( srcPath, trashId, fileId );
                 }
                 if ( !ok ) {
@@ -219,9 +222,9 @@ void TrashProtocol::copyOrMove( const QUrl &src, const QUrl &dest, bool overwrit
             }
             return;
         } else {
-            qDebug() << "returning KIO::ERR_ACCESS_DENIED, it's not allowed to add a file to an existing trash directory";
+            kDebug() << "returning KIO::ERR_ACCESS_DENIED, it's not allowed to add a file to an existing trash directory";
             // It's not allowed to add a file to an existing trash directory.
-            error( KIO::ERR_ACCESS_DENIED, dest.url() );
+            error( KIO::ERR_ACCESS_DENIED, dest.toString() );
             return;
         }
     } else {
@@ -258,15 +261,15 @@ void TrashProtocol::stat(const QUrl& url)
 
         if ( !ok ) {
             // ######## do we still need this?
-            qDebug() << url << " looks fishy, returning does-not-exist";
+            kDebug() << url << " looks fishy, returning does-not-exist";
             // A URL like trash:/file simply means that CopyJob is trying to see if
             // the destination exists already (it made up the URL by itself).
-            error( KIO::ERR_DOES_NOT_EXIST, url.url() );
-            //error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.url() ) );
+            error( KIO::ERR_DOES_NOT_EXIST, url.toString() );
+            //error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1" ).arg( url.toString() ) );
             return;
         }
 
-        qDebug() << "parsed" << url << "got" << trashId << fileId << relativePath;
+        kDebug() << "parsed" << url << "got" << trashId << fileId << relativePath;
 
         const QString filePath = impl.physicalPath( trashId, fileId, relativePath );
         if ( filePath.isEmpty() ) {
@@ -290,7 +293,7 @@ void TrashProtocol::stat(const QUrl& url)
             ok = createUDSEntry( filePath, fileDisplayName, fileURL.fileName(), entry, info );
 
         if ( !ok ) {
-            error( KIO::ERR_COULD_NOT_STAT, url.url() );
+            error( KIO::ERR_COULD_NOT_STAT, url.toString() );
             return;
         }
 
@@ -307,13 +310,13 @@ void TrashProtocol::del( const QUrl &url, bool /*isfile*/ )
 
     bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
     if ( !ok ) {
-        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", url.url() ) );
+        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", url.toString() ) );
         return;
     }
 
     ok = relativePath.isEmpty();
     if ( !ok ) {
-        error( KIO::ERR_ACCESS_DENIED, url.url() );
+        error( KIO::ERR_ACCESS_DENIED, url.toString() );
         return;
     }
 
@@ -329,9 +332,8 @@ void TrashProtocol::del( const QUrl &url, bool /*isfile*/ )
 void TrashProtocol::listDir(const QUrl& url)
 {
     INIT_IMPL;
-    qDebug() << "listdir: " << url;
-  //  FIXME to be fixed what to add to replace kurl add trailing space ?? 
-    if ( url.path(KUrl::AddTrailingSlash) == QLatin1String("/") ) {
+    kDebug() << "listdir: " << url;
+    if ( url.toLocalFile() == QLatin1String("/") ) {
         listRoot();
         return;
     }
@@ -340,7 +342,7 @@ void TrashProtocol::listDir(const QUrl& url)
     QString relativePath;
     bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
     if ( !ok ) {
-        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", url.url() ) );
+        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", url.toString() ) );
         return;
     }
     //was: const QString physicalPath = impl.physicalPath( trashId, fileId, relativePath );
@@ -359,7 +361,7 @@ void TrashProtocol::listDir(const QUrl& url)
     }
 
     // List subdir. Can't use kio_file here since we provide our own info...
-    qDebug() << "listing " << info.physicalPath;
+    kDebug() << "listing " << info.physicalPath;
     const QStringList entryNames = impl.listDir( info.physicalPath );
     totalSize( entryNames.count() );
     KIO::UDSEntry entry;
@@ -391,7 +393,7 @@ bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& 
     QByteArray physicalPath_c = QFile::encodeName( physicalPath );
     KDE_struct_stat buff;
     if ( KDE_lstat( physicalPath_c, &buff ) == -1 ) {
-     //   qWarning() << "couldn't stat " << physicalPath ;
+        kWarning() << "couldn't stat " << physicalPath ;
         return false;
     }
     if (S_ISLNK(buff.st_mode)) {
@@ -487,7 +489,7 @@ void TrashProtocol::special( const QByteArray & data )
         break;
     }
     default:
-       // qWarning(7116) << "Unknown command in special(): " << cmd ;
+        kWarning(7116) << "Unknown command in special(): " << cmd ;
         error( KIO::ERR_UNSUPPORTED_ACTION, QString::number(cmd) );
         break;
     }
@@ -496,23 +498,23 @@ void TrashProtocol::special( const QByteArray & data )
 void TrashProtocol::put( const QUrl& url, int /*permissions*/, KIO::JobFlags )
 {
     INIT_IMPL;
-    qDebug() << "put: " << url;
+    kDebug() << "put: " << url;
     // create deleted file. We need to get the mtime and original location from metadata...
     // Maybe we can find the info file for url.fileName(), in case ::rename() was called first, and failed...
-    error( KIO::ERR_ACCESS_DENIED, url.url() );
+    error( KIO::ERR_ACCESS_DENIED, url.toString() );
 }
 
 void TrashProtocol::get( const QUrl& url )
 {
     INIT_IMPL;
-    qDebug() << "get() : " << url;
+    kDebug() << "get() : " << url;
     if ( !url.isValid() ) {
-      //  qDebug() << qBacktrace();
+        kDebug() << kBacktrace();
         error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", url.url() ) );
         return;
     }
     if ( url.path().length() <= 1 ) {
-        error( KIO::ERR_IS_DIRECTORY, url.url() );
+        error( KIO::ERR_IS_DIRECTORY, url.toString());
         return;
     }
     int trashId;
@@ -520,7 +522,7 @@ void TrashProtocol::get( const QUrl& url )
     QString relativePath;
     bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
     if ( !ok ) {
-        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", url.url() ) );
+        error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", url.toString() ) );
         return;
     }
     const QString physicalPath = impl.physicalPath( trashId, fileId, relativePath );
@@ -569,7 +571,7 @@ void TrashProtocol::mkdir( const QUrl& url, int /*permissions*/ )
     // create info about deleted dir
     // ############ Problem: we don't know the original path.
     // Let's try to avoid this case (we should get to copy() instead, for local files)
-    qDebug() << "mkdir: " << url;
+    kDebug() << "mkdir: " << url;
     QString dir = url.path();
 
     if ( dir.length() <= 1 ) // new toplevel entry
@@ -588,7 +590,7 @@ void TrashProtocol::mkdir( const QUrl& url, int /*permissions*/ )
         }
     } else {
         // Well it's not allowed to add a directory to an existing deleted directory.
-        error( KIO::ERR_ACCESS_DENIED, url.url() );
+        error( KIO::ERR_ACCESS_DENIED, url.toString() );
     }
 }
 #endif
