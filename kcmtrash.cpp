@@ -33,14 +33,14 @@
 #include <kconfig.h>
 #include <kconfiggroup.h>
  #include <KLocalizedString>
-#include <kdialog.h>
+#include <qdialog.h>
 #include <kglobal.h>
-#include <kicon.h>
+#include <qicon.h>
 #include <klocale.h>
 #include <kpluginfactory.h>
 #include <kpluginloader.h>
 #include <KIntSpinBox>
-#include <KDebug>
+#include <QDebug>
 
 K_PLUGIN_FACTORY( KCMTrashConfigFactory, registerPlugin<TrashConfigModule>( "trash" ); )
 K_EXPORT_PLUGIN( KCMTrashConfigFactory( "kcmtrash" ) )
@@ -229,7 +229,7 @@ void TrashConfigModule::setupGui()
         while ( it.hasNext() ) {
             it.next();
             DiscSpaceUtil util( it.value() );
-            QListWidgetItem *item = new QListWidgetItem( KIcon( "folder" ), util.mountPoint() );
+            QListWidgetItem *item = new QListWidgetItem( QIcon( "folder" ), util.mountPoint() );
             item->setData( Qt::UserRole, it.key() );
 
             mountPoints->addItem( item );
