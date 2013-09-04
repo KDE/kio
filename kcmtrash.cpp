@@ -49,7 +49,7 @@ TrashConfigModule::TrashConfigModule( QWidget* parent, const QVariantList& )
     : KCModule( //KCMTrashConfigFactory::componentData(),
                 parent ), trashInitialize( false )
 {
-   // KGlobal::locale()->insertCatalog( "kio_trash" );
+    KGlobal::locale()->insertCatalog( "kio_trash" );
 
     mTrashImpl = new TrashImpl();
     mTrashImpl->init();
@@ -118,9 +118,9 @@ void TrashConfigModule::percentChanged( double percent )
     DiscSpaceUtil util( mCurrentTrash );
 
     qulonglong partitionSize = util.size();
-   // double size = ((double)(partitionSize/100))*percent;
+    double size = ((double)(partitionSize/100))*percent;
 
-   // mSizeLabel->setText("(" + KGlobal::locale()->formatByteSize(size, 2) + ")");
+    mSizeLabel->setText("(" + KGlobal::locale()->formatByteSize(size, 2) + ")");
 }
 
 void TrashConfigModule::trashChanged( QListWidgetItem *item )

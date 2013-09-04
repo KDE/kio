@@ -101,8 +101,8 @@ void TrashProtocol::restore( const QUrl& trashURL )
     dest.setPath( info.origPath );
     if ( !relativePath.isEmpty() )
         dest = dest.adjusted(QUrl::StripTrailingSlash);
-    // TODO (u.path() + '/' + txt) '/' is unable to concate ?
-    dest.setPath(dest.path()+relativePath);
+    // (u.path() + '/' + txt) '/' is unable to concate ?
+    dest.setPath(dest.path()+'/'+relativePath);
     
        // dest.addPath( relativePath );
 
