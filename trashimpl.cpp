@@ -145,7 +145,7 @@ bool TrashImpl::init()
     m_initStatus = InitError;
     // $XDG_DATA_HOME/Trash, i.e. ~/.local/share/Trash by default.
     const QString xdgDataDir = KGlobal::dirs()->localxdgdatadir();
-   if ( !KStandardDirs::makeDir( xdgDataDir, 0700 ) ) {
+   if ( !QDir().mkpath( xdgDataDir ) ) {
         qWarning() << "failed to create " << xdgDataDir ;
         return false;
     }
