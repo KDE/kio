@@ -34,31 +34,31 @@ class TrashProtocol : public QObject, public KIO::SlaveBase
 public:
     TrashProtocol( const QByteArray& protocol, const QByteArray &pool, const QByteArray &app );
     virtual ~TrashProtocol();
-    virtual void stat( const KUrl& url );
-    virtual void listDir( const KUrl& url );
-    virtual void get( const KUrl& url );
-    virtual void put( const KUrl& url, int , KIO::JobFlags flags );
-    virtual void rename( const KUrl &, const KUrl &, KIO::JobFlags );
-    virtual void copy( const KUrl &src, const KUrl &dest, int permissions, KIO::JobFlags flags );
-    // TODO (maybe) chmod( const KUrl& url, int permissions );
-    virtual void del( const KUrl &url, bool isfile );
+    virtual void stat( const QUrl& url );
+    virtual void listDir( const QUrl& url );
+    virtual void get( const QUrl& url );
+    virtual void put( const QUrl& url, int , KIO::JobFlags flags );
+    virtual void rename( const QUrl &, const QUrl &, KIO::JobFlags );
+    virtual void copy( const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags flags );
+    // TODO (maybe) chmod( const QUrl& url, int permissions );
+    virtual void del( const QUrl &url, bool isfile );
     /**
      * Special actions: (first int in the byte array)
      * 1 : empty trash
      * 2 : migrate old (pre-kde-3.4) trash contents
-     * 3 : restore a file to its original location. Args: KUrl trashURL.
+     * 3 : restore a file to its original location. Args: QUrl trashURL.
      */
     virtual void special( const QByteArray & data );
 
     void updateRecycleBin();
 private:
     typedef enum { Copy, Move } CopyOrMove;
-    void copyOrMove( const KUrl& src, const KUrl& dest, bool overwrite, CopyOrMove action );
+    void copyOrMove( const QUrl& src, const QUrl& dest, bool overwrite, CopyOrMove action );
     void listRoot();
-    void restore( const KUrl& trashURL, const KUrl &destURL );
+    void restore( const QUrl& trashURL, const QUrl &destURL );
     void clearTrash();
 
-    bool doFileOp(const KUrl &url, UINT wFunc, FILEOP_FLAGS fFlags);
+    bool doFileOp(const QUrl &url, UINT wFunc, FILEOP_FLAGS fFlags);
     bool translateError(HRESULT retValue);
 
     KConfig m_config;

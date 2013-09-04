@@ -33,7 +33,6 @@
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
 #include <qdebug.h>
-#include <kurl.h>
 #include <QUrl>
 #include <kdirnotify.h>
 #include <kglobal.h>
