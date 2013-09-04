@@ -22,6 +22,8 @@
 
 #include <QObject>
 
+#include <KIO/Job>
+
 class TestTrash : public QObject
 {
     Q_OBJECT

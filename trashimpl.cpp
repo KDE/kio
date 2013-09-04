@@ -221,7 +221,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
          * off_t should be 64bit on Unix systems to have large file support
          * FIXME: on windows this gets disabled until trash gets integrated
          */
- #ifndef Q_OS_WIN
+#ifndef Q_OS_WIN
     char off_t_should_be_64bit[sizeof(off_t) >= 8 ? 1:-1]; (void)off_t_should_be_64bit;
 #endif
     KDE_struct_stat buff_src;

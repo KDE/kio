@@ -1130,7 +1130,7 @@ void TestTrash::testTrashSize()
 
 static void checkIcon( const KUrl& url, const QString& expectedIcon )
 {
-    QString icon = KMimeType::iconNameForUrl( url );
+    QString icon = KIO::iconNameForUrl( url );
     QCOMPARE( icon, expectedIcon );
 }
 

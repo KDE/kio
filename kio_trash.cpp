@@ -102,7 +102,7 @@ void TrashProtocol::restore( const QUrl& trashURL )
     if ( !relativePath.isEmpty() )
         dest = dest.adjusted(QUrl::StripTrailingSlash);
     // (u.path() + '/' + txt) '/' is unable to concate ?
-    dest.setPath(dest.path()+'/'+relativePath);
+    dest.setPath(dest.path()+QString::fromLatin1("/")+relativePath);
     
        // dest.addPath( relativePath );
 

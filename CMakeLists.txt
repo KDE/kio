@@ -1,5 +1,7 @@
 include_directories(${KDE4_INCLUDE_DIR}/kio ${KDE4_INCLUDE_DIR}/KDE)
 
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
+
 add_subdirectory(tests)
 
 set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp
@@ -15,6 +17,26 @@ else(WIN32)
   set(kio_trash_PART_SRCS kio_trash.cpp ${trashcommon_PART_SRCS})
 endif(WIN32)
 kde4_add_plugin(kio_trash ${kio_trash_PART_SRCS})
+
+# This flag is needed in order to be able to support files > 2GB even on
+# 32bit platforms. The default is to use the non-64bit aware syscalls on
+# 32bit platforms, which makes every application to SIGXFSZ (which is
+# equivalent to a crash) when they see or touch a file > 2GB.
+check_cxx_source_compiles("
+#include <sys/types.h>
+/* Check that off_t can represent 2**63 - 1 correctly.
+We can't simply define LARGE_OFF_T to be 9223372036854775807,
+since some C++ compilers masquerading as C compilers
+incorrectly reject 9223372036854775807.  */
+#define LARGE_OFF_T (((off_t) 1 << 62) - 1 + ((off_t) 1 << 62))
+int off_t_is_large[(LARGE_OFF_T % 2147483629 == 721 && LARGE_OFF_T % 2147483647 == 1) ? 1 : -1];
+int main() { return 0; }
+" _OFFT_IS_64BIT)
+
+if (NOT _OFFT_IS_64BIT)
+  target_compile_definitions(kio_trash PUBLIC -D_FILE_OFFSET_BITS=64)
+endif ()
+
 target_link_libraries(kio_trash  ${KDE4_KIO_LIBS}
         ${KDE4_SOLID_LIBS}   
         ${KDE4Support_LIBRARIES}
