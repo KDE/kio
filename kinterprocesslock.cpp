@@ -25,10 +25,12 @@
 
 #include <QtCore/QDebug>
 
-class KInterProcessLock::Private
+class KInterProcessLockPrivate
 {
+    Q_DECLARE_PUBLIC(KInterProcessLock)
+     KInterProcessLock *q_ptr;
     public:
-        Private(const QString &resource, KInterProcessLock *parent)
+        KInterProcessLockPrivate(const QString &resource, KInterProcessLock *parent)
             : m_resource(resource), m_parent(parent)
         {
             m_serviceName = QString::fromLatin1("org.kde.private.lock-%1").arg(m_resource);
@@ -37,7 +39,7 @@ class KInterProcessLock::Private
                               m_parent, SLOT(_k_serviceRegistered(const QString&)));
         }
 
-        ~Private()
+        ~KInterProcessLockPrivate()
         {
         }
 
@@ -53,30 +55,31 @@ class KInterProcessLock::Private
 };
 
 KInterProcessLock::KInterProcessLock(const QString &resource)
-    : d(new Private(resource, this))
+    : d_ptr(new KInterProcessLockPrivate(resource, this))
 {
+    d_ptr->q_ptr = this;
 }
 
 KInterProcessLock::~KInterProcessLock()
 {
-    delete d;
+    delete d_ptr;
 }
 
 QString KInterProcessLock::resource() const
 {
-    return d->m_resource;
+    return d_ptr->m_resource;
 }
 
 void KInterProcessLock::lock()
 {
-    QDBusConnection::sessionBus().interface()->registerService(d->m_serviceName,
+    QDBusConnection::sessionBus().interface()->registerService(d_ptr->m_serviceName,
                                                                QDBusConnectionInterface::QueueService,
                                                                QDBusConnectionInterface::DontAllowReplacement);
 }
 
 void KInterProcessLock::unlock()
 {
-    QDBusConnection::sessionBus().interface()->unregisterService(d->m_serviceName);
+    QDBusConnection::sessionBus().interface()->unregisterService(d_ptr->m_serviceName);
 }
 
 void KInterProcessLock::waitForLockGranted()
@@ -86,4 +89,4 @@ void KInterProcessLock::waitForLockGranted()
     loop.exec();
 }
 
-#include "kinterprocesslock.moc"
+#include "moc_kinterprocesslock.cpp"

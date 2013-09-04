@@ -434,4 +434,4 @@ bool TrashProtocol::translateError(HRESULT hRes)
     return true;
 }
 
-#include "kio_trash_win.moc"
+#include "moc_kio_trash_win.cpp"

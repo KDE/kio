@@ -360,7 +360,7 @@ bool TrashImpl::deleteInfo( int trashId, const QString& fileId )
 
 bool TrashImpl::moveToTrash( const QString& origPath, int trashId, const QString& fileId )
 {
-    qDebug() ;
+    qDebug() <<"Trashing" << origPath;
     if ( !adaptTrashSize( origPath, trashId ) )
         return false;
 
@@ -1170,4 +1170,4 @@ bool TrashImpl::adaptTrashSize( const QString& origPath, int trashId )
     return true;
 }
 
-#include "trashimpl.moc"
+#include "moc_trashimpl.cpp"

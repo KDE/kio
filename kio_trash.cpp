@@ -596,4 +596,4 @@ void TrashProtocol::mkdir( const QUrl& url, int /*permissions*/ )
 }
 #endif
 
-#include "kio_trash.moc"
+#include "moc_kio_trash.cpp"
