@@ -251,16 +251,17 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     baseDirectory.setPath( url.path() );
     // Here we need to use O_EXCL to avoid race conditions with other kioslave processes
     int fd = 0;
+    QString fileName;
     do {
         qDebug() << "trying to create " << url.path() ;
         fd = KDE_open( QFile::encodeName( url.path() ), O_WRONLY | O_CREAT | O_EXCL, 0600 );
         if ( fd < 0 ) {
-            if ( errno == EEXIST ) {
-            //    url = url.adjusted(url.RemoveFileName);
-               // url.setFileName( KIO::RenameDialog::suggestName( baseDirectory, url.fileName() ) );
-                url.setPath(url.path() + KIO::RenameDialog::suggestName( baseDirectory, url.fileName() )  );
+            if (errno == EEXIST ) {
+                fileName = url.fileName();
+                url = url.adjusted(QUrl::RemoveFilename);
+                url.setPath(url.path() + KIO::RenameDialog::suggestName( baseDirectory,  fileName)  );
                 // and try again on the next iteration
-            } else {
+            } else {qFatal(url.toString().toUtf8());
                 error( KIO::ERR_COULD_NOT_WRITE, url.path() );
                 return false;
             }
@@ -360,7 +361,7 @@ bool TrashImpl::deleteInfo( int trashId, const QString& fileId )
 
 bool TrashImpl::moveToTrash( const QString& origPath, int trashId, const QString& fileId )
 {
-    qDebug() <<"Trashing" << origPath;
+    qDebug() <<"Trashing" << origPath<<trashId<<fileId;
     if ( !adaptTrashSize( origPath, trashId ) )
         return false;
 
@@ -417,9 +418,9 @@ bool TrashImpl::move( const QString& src, const QString& dest )
     if ( m_lastErrorCode != KIO::ERR_UNSUPPORTED_ACTION )
         return false;
 
-    QUrl urlSrc, urlDest;
-    urlSrc.setPath( src );
-    urlDest.setPath( dest );
+    QUrl urlSrc = QUrl::fromLocalFile(src);
+    QUrl urlDest = QUrl::fromLocalFile(dest);
+
     qDebug() << urlSrc << " -> " << urlDest;
     KIO::CopyJob* job = KIO::moveAs( urlSrc, urlDest, KIO::HideProgressInfo );
     job->setUiDelegate(0);
@@ -472,10 +473,8 @@ bool TrashImpl::copy( const QString& src, const QString& dest )
 {
     // kio_file's copy() method is quite complex (in order to be fast), let's just call it...
     m_lastErrorCode = 0;
-    QUrl urlSrc;
-    urlSrc.setPath( src );
-    QUrl urlDest;
-    urlDest.setPath( dest );
+    QUrl urlSrc = QUrl::fromLocalFile( src );
+    QUrl urlDest = QUrl::fromLocalFile( dest );
     qDebug() << "copying " << src << " to " << dest;
     KIO::CopyJob* job = KIO::copyAs( urlSrc, urlDest, KIO::HideProgressInfo );
     job->setUiDelegate(0);

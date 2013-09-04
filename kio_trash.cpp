@@ -104,8 +104,6 @@ void TrashProtocol::restore( const QUrl& trashURL )
     // (u.path() + '/' + txt) '/' is unable to concate ?
     dest.setPath(dest.path()+QString::fromLatin1("/")+relativePath);
     
-       // dest.addPath( relativePath );
-
     // Check that the destination directory exists, to improve the error code in case it doesn't.
     const QString destDir = dest.path();
     KDE_struct_stat buff;
@@ -186,7 +184,7 @@ void TrashProtocol::copyOrMove( const QUrl &src, const QUrl &dest, bool overwrit
         return;
     } else if (src.isLocalFile() && dest.scheme() == QLatin1String("trash")) {
         QString dir = dest.adjusted(QUrl::RemoveFilename).path();
-        //qDebug() << "trashing a file to " << dir;
+        qDebug() << "trashing a file to " << dir;
  
         // Trashing a file
         // We detect the case where this isn't normal trashing, but
@@ -490,7 +488,7 @@ void TrashProtocol::special( const QByteArray & data )
         break;
     }
     default:
-       // qWarning(7116) << "Unknown command in special(): " << cmd ;
+        qWarning() << "Unknown command in special(): " << cmd ;
         error( KIO::ERR_UNSUPPORTED_ACTION, QString::number(cmd) );
         break;
     }
@@ -510,7 +508,7 @@ void TrashProtocol::get( const QUrl& url )
     INIT_IMPL;
     qDebug() << "get() : " << url;
     if ( !url.isValid() ) {
-        //qDebug() << qBacktrace();
+        //qDebug() << kBacktrace();
         error( KIO::ERR_SLAVE_DEFINED, i18n( "Malformed URL %1", url.url() ) );
         return;
     }
@@ -573,7 +571,7 @@ void TrashProtocol::mkdir( const QUrl& url, int /*permissions*/ )
     // ############ Problem: we don't know the original path.
     // Let's try to avoid this case (we should get to copy() instead, for local files)
     qDebug() << "mkdir: " << url;
-    QString dir = url.path();
+    QString dir = url.adjusted(QUrl::RemoveFilename).path();
 
     if ( dir.length() <= 1 ) // new toplevel entry
     {

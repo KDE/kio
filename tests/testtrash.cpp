@@ -131,7 +131,7 @@ static void removeDirRecursive( const QString& dir )
 
         KIO::Job* delJob = KIO::del(u, KIO::HideProgressInfo);
         if (!KIO::NetAccess::synchronousRun(delJob, 0))
-            qCritical() << "Couldn't delete " << dir ;
+            qFatal(QString(QString("Couldn't delete ") + dir).toUtf8()) ;
     }
 }
 
@@ -209,10 +209,10 @@ void TestTrash::initTestCase()
     QDir dir; // TT: why not a static method?
     bool ok = dir.mkdir( homeTmpDir() );
     if ( !ok )
-        qCritical() << "Couldn't create " << homeTmpDir() ;
+        qFatal(QString("Couldn't create " + homeTmpDir()).toUtf8());
     ok = dir.mkdir( otherTmpDir() );
     if ( !ok )
-        qCritical() << "Couldn't create " << otherTmpDir() ;
+        qFatal(QString("Couldn't create " + otherTmpDir()).toUtf8()) ;
 
     // Start with a clean trash too
     qDebug() << "removing trash dir";
@@ -281,7 +281,7 @@ static void checkInfoFile( const QString& infoPath, const QString& origFilePath 
     KConfig infoFile( info.absoluteFilePath() );
     KConfigGroup group = infoFile.group( "Trash Info" );
     if ( !group.exists() )
-        qCritical() << "no Trash Info group in " << info.absoluteFilePath() ;
+        qFatal(QString("no Trash Info group in " + info.absoluteFilePath()).toUtf8());
     const QString origPath = group.readEntry( "Path" );
     QVERIFY(!origPath.isEmpty());
     QVERIFY(origPath == QString::fromLatin1(QUrl::toPercentEncoding(origFilePath, "/")));
@@ -299,7 +299,7 @@ static void createTestFile( const QString& path )
 {
     QFile f( path );
     if ( !f.open( QIODevice::WriteOnly ) )
-        qCritical() << "Can't create " << path ;
+        qFatal(QString("Can't create " + path).toUtf8());
     f.write( "Hello world\n", 12 );
     f.close();
     QVERIFY( QFile::exists( path ) );
@@ -448,7 +448,7 @@ void TestTrash::trashFileIntoOtherPartition()
 
 void TestTrash::trashFileOwnedByRoot()
 {
-    QUrl u( "/etc/passwd" );
+    QUrl u( "file:///etc/passwd" );
     const QString fileId = QString::fromLatin1("passwd");
 
     KIO::CopyJob* job = KIO::move( u, QUrl("trash:/"), KIO::HideProgressInfo );
@@ -456,6 +456,7 @@ void TestTrash::trashFileOwnedByRoot()
     QMap<QString, QString> metaData;
     bool ok = KIO::NetAccess::synchronousRun( job, 0, 0, 0, &metaData );
     QVERIFY( !ok );
+
     QVERIFY( KIO::NetAccess::lastError() == KIO::ERR_ACCESS_DENIED );
     const QString infoPath(m_trashDir + QString::fromLatin1("/info/") + fileId + QString::fromLatin1(".trashinfo"));
     QVERIFY( !QFile::exists( infoPath ) );
@@ -472,8 +473,7 @@ void TestTrash::trashSymlink( const QString& origFilePath, const QString& fileId
     const char* target = broken ? "/nonexistent" : "/tmp";
     bool ok = ::symlink( target, QFile::encodeName( origFilePath ) ) == 0;
     QVERIFY( ok );
-    QUrl u;
-    u.setPath( origFilePath );
+    QUrl u = QUrl::fromLocalFile( origFilePath );
 
     // test
     KIO::Job* job = KIO::move( u, QUrl("trash:/"), KIO::HideProgressInfo );
@@ -521,7 +521,7 @@ void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )
     createTestFile(origPath + QString::fromLatin1("/testfile"));
     QVERIFY(QDir().mkdir(origPath + QString::fromLatin1("/subdir")));
     createTestFile(origPath + QString::fromLatin1("/subdir/subfile"));
-    QUrl u; u.setPath( origPath );
+    QUrl u = QUrl::fromLocalFile( origPath );
 
     // test
     KIO::Job* job = KIO::move( u, QUrl("trash:/"), KIO::HideProgressInfo );
@@ -743,8 +743,7 @@ void TestTrash::copyFromTrash( const QString& fileId, const QString& destPath, c
     QUrl src(QString::fromLatin1("trash:/0-") + fileId);
     if ( !relativePath.isEmpty() )
         src.setPath(src.path() + '/' + relativePath);
-    QUrl dest;
-    dest.setPath( destPath );
+    QUrl dest = QUrl::fromLocalFile( destPath );
 
     QVERIFY(MyNetAccess_exists(src));
 
