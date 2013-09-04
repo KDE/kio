@@ -49,8 +49,6 @@ TrashConfigModule::TrashConfigModule( QWidget* parent, const QVariantList& )
     : KCModule( //KCMTrashConfigFactory::componentData(),
                 parent ), trashInitialize( false )
 {
-    KGlobal::locale()->insertCatalog( "kio_trash" );
-
     mTrashImpl = new TrashImpl();
     mTrashImpl->init();
 
