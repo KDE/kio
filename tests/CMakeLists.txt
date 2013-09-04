@@ -35,7 +35,7 @@ if (NOT _OFFT_IS_64BIT)
   target_compile_definitions(testtrash PUBLIC -D_FILE_OFFSET_BITS=64)
 endif ()
 
-target_link_libraries(testtrash KF5::KI18n Qt5::DBus ${KDE4_KIO_LIBS} ${KDE4_SOLID_LIBS} ${QT_QTTEST_LIBRARY})
+target_link_libraries(testtrash KF5::KI18n Qt5::DBus ${KDE4_KIO_LIBS} ${KDE4_SOLID_LIBS} ${QT_QTTEST_LIBRARY} ${KDE4Support_LIBRARIES})
 
 ### next target ###
 
