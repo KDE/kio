@@ -77,7 +77,7 @@ InputStream* TrashThroughAnalyzer::connectInputStream(InputStream* in) {
         url.setPath(path);
     }
 
-    //kDebug() << info.url();
+    //qDebug() << info.url();
     if (url.protocol() != QLatin1String("trash"))
         return in;
 

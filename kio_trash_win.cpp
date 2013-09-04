@@ -23,7 +23,7 @@
 #include "kio_trash_win.h"
 #include <kio/job.h>
 
-#include <kdebug.h>
+#include <QDebug>
 #include <kcomponentdata.h>
 #include <kconfiggroup.h>
 
@@ -210,7 +210,7 @@ void TrashProtocol::clearTrash()
 
 void TrashProtocol::rename( const QUrl &oldURL, const QUrl &newURL, KIO::JobFlags flags )
 {
-    kDebug()<<"TrashProtocol::rename(): old="<<oldURL<<" new="<<newURL<<" overwrite=" << (flags & KIO::Overwrite);
+    qDebug()<<"TrashProtocol::rename(): old="<<oldURL<<" new="<<newURL<<" overwrite=" << (flags & KIO::Overwrite);
 
     if( oldURL.protocol() == QLatin1String( "trash" ) && newURL.protocol() == QLatin1String( "trash" ) ) {
         error( KIO::ERR_CANNOT_RENAME, oldURL.prettyUrl() );
@@ -222,7 +222,7 @@ void TrashProtocol::rename( const QUrl &oldURL, const QUrl &newURL, KIO::JobFlag
 
 void TrashProtocol::copy( const QUrl &src, const QUrl &dest, int /*permissions*/, KIO::JobFlags flags )
 {
-    kDebug()<<"TrashProtocol::copy(): " << src << " " << dest;
+    qDebug()<<"TrashProtocol::copy(): " << src << " " << dest;
 
     if( src.protocol() == QLatin1String( "trash" ) && dest.protocol() == QLatin1String( "trash" ) ) {
         error( KIO::ERR_UNSUPPORTED_ACTION, i18n( "This file is already in the trash bin." ) );
@@ -290,7 +290,7 @@ void TrashProtocol::del( const QUrl &url, bool /*isfile*/ )
 
 void TrashProtocol::listDir(const QUrl& url)
 {
-    kDebug()<<"TrashProtocol::listDir(): " << url;
+    qDebug()<<"TrashProtocol::listDir(): " << url;
     // There are no subfolders in Windows Trash
     listRoot();
 }
@@ -398,7 +398,7 @@ void TrashProtocol::updateRecycleBin()
 
 void TrashProtocol::put( const QUrl& url, int /*permissions*/, KIO::JobFlags )
 {
-    kDebug() << "put: " << url;
+    qDebug() << "put: " << url;
     // create deleted file. We need to get the mtime and original location from metadata...
     // Maybe we can find the info file for url.fileName(), in case ::rename() was called first, and failed...
     error( KIO::ERR_ACCESS_DENIED, url.prettyUrl() );

@@ -770,7 +770,7 @@ bool TrashImpl::isEmpty() const
             ep = KDE_readdir( dp ); // look for third file
             closedir( dp );
             if ( ep != 0 ) {
-                //kDebug() << ep->d_name << " in " << infoPath << " -> not empty";
+                //qDebug() << ep->d_name << " in " << infoPath << " -> not empty";
                 return false; // not empty
             }
         }
@@ -843,7 +843,7 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
     // but we need stability in the trash IDs, so that restoring or asking
     // for properties works even kio_trash gets killed because idle.
 #if 0
-    kDebug() << "found " << trashDir;
+    qDebug() << "found " << trashDir;
     m_trashDirectories.insert( ++m_lastId, trashDir );
     if ( !mountPoint.endsWith( '/' ) )
         mountPoint += '/';
@@ -852,9 +852,9 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
 #endif
 
     const QString query = QString::fromLatin1("[StorageAccess.accessible == true AND StorageAccess.filePath == '")+mountPoint+QString::fromLatin1("']");
-    //kDebug() << "doing solid query:" << query;
+    //qDebug() << "doing solid query:" << query;
     const QList<Solid::Device> lst = Solid::Device::listFromQuery(query);
-    //kDebug() << "got" << lst.count() << "devices";
+    //qDebug() << "got" << lst.count() << "devices";
     if ( lst.isEmpty() ) // not a device. Maybe some tmpfs mount for instance.
         return 0; // use the home trash instead
     // Pretend we got exactly one...

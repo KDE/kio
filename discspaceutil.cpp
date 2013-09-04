@@ -25,7 +25,7 @@
 #include <QtCore/QFileInfo>
 
 #include <kdiskfreespaceinfo.h>
-#include <kdebug.h>
+#include <QDebug>
 
 DiscSpaceUtil::DiscSpaceUtil( const QString &directory )
     : mDirectory( directory ),

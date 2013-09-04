@@ -23,7 +23,7 @@
 #include <kcmdlineargs.h>
 #include <klocale.h>
 #include <kdirnotify.h>
-#include <kdebug.h>
+#include <QDebug>
 #include <kdeversion.h>
 
 int main(int argc, char *argv[])
@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
 
         QUrl trashURL( restoreArg );
         if ( !trashURL.isValid() || trashURL.scheme() != QLatin1String("trash") ) {
-            kError() << "Invalid URL for restoring a trashed file:" << trashURL << endl;
+            qCritical() << "Invalid URL for restoring a trashed file:" << trashURL << endl;
             return 1;
         }
 
@@ -91,7 +91,7 @@ int main(int argc, char *argv[])
         KIO::Job* job = KIO::special( trashURL, packedArgs );
         bool ok = KIO::NetAccess::synchronousRun( job, 0 );
         if ( !ok )
-            kError() << KIO::NetAccess::lastErrorString() << endl;
+            qCritical() << KIO::NetAccess::lastErrorString() << endl;
         return 0;
     }
 
