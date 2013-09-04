@@ -36,7 +36,8 @@
 #include <kio/netaccess.h>
 #include <kservice.h>
 #include <klocale.h>
- #include <KLocalizedString>
+#include <KLocalizedString>
+#include <KStandardDirs>
 #include <kcmdlineargs.h>//remove it 
 #include <kdeversion.h>
 #include <kaboutdata.h>
@@ -96,16 +97,16 @@ KIOExec::KIOExec()
                 // Build the destination filename, in ~/.kde/cache-*/krun/
                 // Unlike KDE-1.1, we put the filename at the end so that the extension is kept
                 // (Some programs rely on it)
-          // to be fixed     QString tmp = KGlobal::dirs()->saveLocation( "cache", "krun/" ) +
+                QString tmp = KGlobal::dirs()->saveLocation( "cache", "krun/" ) +
                               QString("%1_%2_%3").arg(getpid()).arg(jobCounter++).arg(fileName);
                 FileInfo file;
-              //  file.path = tmp;
+                file.path = tmp;
                 file.url = url;
                 fileList.append(file);
 
                 expectedCounter++;
                 QUrl dest;
-                dest.setPath( "trash:/" );//earlier path is tmp 
+                dest.setPath( tmp );
                 qDebug() << "Copying " << url.path() << " to " << dest;
                 KIO::Job *job = KIO::file_copy( url, dest );
                 jobList.append( job );
@@ -226,7 +227,7 @@ void KIOExec::slotRunApp()
             else if ( ! dest.isLocalFile() )  // no upload when it's already a local file
             {
                 if ( KMessageBox::questionYesNo( 0L,
-                                                 i18n( "The file\n%1\nhas been modified.\nDo you want to upload the changes?" , dest.path()),
+                                                 i18n( "The file\n%1\nhas been modified.\nDo you want to upload the changes?" , dest.toString()),
                                                  i18n( "File Changed" ), KGuiItem(i18n("Upload")), KGuiItem(i18n("Do Not Upload")) ) == KMessageBox::Yes )
                 {
                     qDebug() << "src='" << src << "'  dest='" << dest << "'";
