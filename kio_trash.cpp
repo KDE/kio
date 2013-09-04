@@ -185,8 +185,9 @@ void TrashProtocol::copyOrMove( const QUrl &src, const QUrl &dest, bool overwrit
         }
         return;
     } else if (src.isLocalFile() && dest.scheme() == QLatin1String("trash")) {
-        QString dir = dest.path();
+        QString dir = dest.adjusted(QUrl::RemoveFilename).path();
         //qDebug() << "trashing a file to " << dir;
+ 
         // Trashing a file
         // We detect the case where this isn't normal trashing, but
         // e.g. if kwrite tries to save (moving tempfile over destination)

@@ -37,7 +37,7 @@ public:
     virtual void listDir(const QUrl& url);
     virtual void get( const QUrl& url );
     virtual void put( const QUrl& url, int , KIO::JobFlags flags );
-    virtual void rename( const QUrl &, const QUrl &, KIO::JobFlags );
+    virtual void rename( const QUrl &src, const QUrl &dest, KIO::JobFlags );
     virtual void copy( const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags flags );
     // TODO (maybe) chmod( const QUrl& url, int permissions );
     virtual void del( const QUrl &url, bool isfile );
