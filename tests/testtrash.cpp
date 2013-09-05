@@ -802,8 +802,7 @@ void TestTrash::moveFromTrash( const QString& fileId, const QString& destPath, c
     QUrl src( QString::fromLatin1("trash:/0-") + fileId );
     if ( !relativePath.isEmpty() )
         src.setPath(src.path() + '/' + relativePath);
-    QUrl dest;
-    dest.setPath( destPath );
+    QUrl dest = QUrl::fromLocalFile( destPath );
 
     QVERIFY(MyNetAccess_exists(src));
 
@@ -970,7 +969,7 @@ void TestTrash::restoreFileToDeletedDirectory()
     removeFile( m_trashDir, "/files/fileFromHome" );
     trashFileFromHome();
     // Delete orig dir
-    KIO::Job* delJob = KIO::del(QUrl(homeTmpDir()), KIO::HideProgressInfo);
+    KIO::Job* delJob = KIO::del(QUrl::fromLocalFile(homeTmpDir()), KIO::HideProgressInfo);
     bool delOK = KIO::NetAccess::synchronousRun(delJob, 0);
     QVERIFY( delOK );
 
@@ -1043,6 +1042,7 @@ void TestTrash::listRecursiveRootDir()
     QCOMPARE(m_displayNameListResult.count("fileFromHome 1"), 1);
     QCOMPARE(m_displayNameListResult.count("trashDirFromHome/testfile"), 1);
     QCOMPARE(m_displayNameListResult.count("readonly/readonly_subdir/testfile_in_subdir"), 1);
+    
 }
 
 void TestTrash::listSubDir()

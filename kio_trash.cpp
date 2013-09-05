@@ -97,8 +97,7 @@ void TrashProtocol::restore( const QUrl& trashURL )
         error( impl.lastErrorCode(), impl.lastErrorMessage() );
         return;
     }
-    QUrl dest;
-    dest.setPath( info.origPath );
+    QUrl dest = QUrl::fromLocalFile( info.origPath );
     if ( !relativePath.isEmpty() )
         dest = dest.adjusted(QUrl::StripTrailingSlash);
     // (u.path() + '/' + txt) '/' is unable to concate ?
@@ -332,7 +331,7 @@ void TrashProtocol::listDir(const QUrl& url)
 {
     INIT_IMPL;
     qDebug() << "listdir: " << url;
-    if ( url.toLocalFile() == QLatin1String("/") ) {
+    if ( url.path() == QLatin1String("/") ) {
         listRoot();
         return;
     }
@@ -377,7 +376,6 @@ void TrashProtocol::listDir(const QUrl& url)
         TrashedFileInfo infoForItem( info );
         infoForItem.origPath += QLatin1Char('/');
         infoForItem.origPath += fileName;
-
         if (createUDSEntry(filePath, fileName, fileName, entry, infoForItem)) {
             listEntry( entry, false );
         }
@@ -416,6 +414,7 @@ bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& 
         }
 #endif
     }
+
     mode_t type = buff.st_mode & S_IFMT; // extract file type
     mode_t access = buff.st_mode & 07777; // extract permissions
     access &= 07555; // make it readonly, since it's in the trashcan
@@ -454,6 +453,7 @@ void TrashProtocol::listRoot()
         origURL.setPath( (*it).origPath );
         entry.clear();
         const QString fileDisplayName = (*it).fileId;
+
         if ( createUDSEntry( (*it).physicalPath, fileDisplayName, url.fileName(), entry, *it ) )
             listEntry( entry, false );
     }
@@ -532,8 +532,7 @@ void TrashProtocol::get( const QUrl& url )
 
     // Usually we run jobs in TrashImpl (for e.g. future kdedmodule)
     // But for this one we wouldn't use DCOP for every bit of data...
-    QUrl fileURL;
-    fileURL.setPath( physicalPath );
+    QUrl fileURL = QUrl::fromLocalFile( physicalPath );
     KIO::Job* job = KIO::get( fileURL, KIO::NoReload, KIO::HideProgressInfo );
     connect( job, SIGNAL( data( KIO::Job*, const QByteArray& ) ),
              this, SLOT( slotData( KIO::Job*, const QByteArray& ) ) );
