@@ -21,6 +21,7 @@
 
 #include "kio_trash.h"
 #include <kio/job.h>
+#include <kio/jobuidelegateextension.h>
 
 #include <qdebug.h>
 #include <klocale.h>
@@ -28,7 +29,7 @@
 #include <kcomponentdata.h>
 #include <kmimetype.h>
 
-#include <QApplication>
+#include <QCoreApplication>
 #include <QDataStream>
 #include <QFile>
 #include <QEventLoop>
@@ -44,8 +45,9 @@ extern "C" {
     {
         // necessary to use other kio slaves
         KComponentData componentData("kio_trash" );
-        QApplication app(argc, argv);
+        QCoreApplication app(argc, argv);
 
+        KIO::setDefaultJobUiDelegateExtension(0);
         // start the slave
         TrashProtocol slave( argv[1], argv[2], argv[3] );
         slave.dispatchLoop();
