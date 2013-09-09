@@ -852,7 +852,7 @@ void TestTrash::moveDirectoryFromTrash()
 
 void TestTrash::trashDirectoryOwnedByRoot()
 {
-    QUrl u;
+    QUrl u("file:///");;
     if ( QFile::exists( "/etc/cups" ) )
         u.setPath( "/etc/cups" );
     else if ( QFile::exists( "/boot" ) )
@@ -896,7 +896,7 @@ void TestTrash::getFile()
     QVERIFY(tmpFile.open());
     const QString tmpFilePath = tmpFile.fileName();
 
-    KIO::Job* getJob = KIO::file_copy(url, QUrl(tmpFilePath), -1, KIO::Overwrite | KIO::HideProgressInfo);
+    KIO::Job* getJob = KIO::file_copy(url, QUrl::fromLocalFile(tmpFilePath), -1, KIO::Overwrite | KIO::HideProgressInfo);
     bool ok = KIO::NetAccess::synchronousRun(getJob, 0);
     if (!ok) {
         qDebug() << getJob->errorString();

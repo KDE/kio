@@ -563,8 +563,7 @@ bool TrashImpl::synchronousDel( const QString& path, bool setLastErrorCode, bool
 {
     const int oldErrorCode = m_lastErrorCode;
     const QString oldErrorMsg = m_lastErrorMessage;
-   QUrl url;
-    url.setPath( path );
+    QUrl url = QUrl::fromLocalFile( path );
     // First ensure that all dirs have u+w permissions,
     // otherwise we won't be able to delete files in them (#130780).
     if ( isDir ) {

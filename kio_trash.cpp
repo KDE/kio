@@ -28,7 +28,7 @@
 #include <kcomponentdata.h>
 #include <kmimetype.h>
 
-#include <QCoreApplication>
+#include <QApplication>
 #include <QDataStream>
 #include <QFile>
 #include <QEventLoop>
@@ -44,7 +44,7 @@ extern "C" {
     {
         // necessary to use other kio slaves
         KComponentData componentData("kio_trash" );
-        QCoreApplication app(argc, argv);
+        QApplication app(argc, argv);
 
         // start the slave
         TrashProtocol slave( argv[1], argv[2], argv[3] );
