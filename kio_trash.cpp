@@ -100,14 +100,16 @@ void TrashProtocol::restore( const QUrl& trashURL )
         return;
     }
     QUrl dest = QUrl::fromLocalFile( info.origPath );
-    if ( !relativePath.isEmpty() )
+    if ( !relativePath.isEmpty() ) {
         dest = dest.adjusted(QUrl::StripTrailingSlash);
     // (u.path() + '/' + txt) '/' is unable to concate ?
-    dest.setPath(dest.path()+QString::fromLatin1("/")+relativePath);
+        dest.setPath(dest.path()+QString::fromLatin1("/")+relativePath);
+    }
     
     // Check that the destination directory exists, to improve the error code in case it doesn't.
-    const QString destDir = dest.path();
+    const QString destDir = dest.adjusted(QUrl::RemoveFilename).path();
     KDE_struct_stat buff;
+
     if ( KDE_lstat( QFile::encodeName( destDir ), &buff ) == -1 ) {
         error( KIO::ERR_SLAVE_DEFINED,
                i18n( "The directory %1 does not exist anymore, so it is not possible to restore this item to its original location. "
