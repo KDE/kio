@@ -185,7 +185,7 @@ void TrashProtocol::copyOrMove( const QUrl &src, const QUrl &dest, bool overwrit
         return;
     } else if (src.isLocalFile() && dest.scheme() == QLatin1String("trash")) {
         QString dir = dest.adjusted(QUrl::RemoveFilename).path();
-        qDebug() << "trashing a file to " << dir;
+        qDebug() << "trashing a file to " << dir << src << dest;
  
         // Trashing a file
         // We detect the case where this isn't normal trashing, but
@@ -451,8 +451,7 @@ void TrashProtocol::listRoot()
     listEntry( entry, false );
     for ( TrashedFileInfoList::ConstIterator it = lst.begin(); it != lst.end(); ++it ) {
         const QUrl url = TrashImpl::makeURL( (*it).trashId, (*it).fileId, QString() );
-        QUrl origURL;
-        origURL.setPath( (*it).origPath );
+        QUrl origURL = QUrl::fromLocalFile( (*it).origPath );
         entry.clear();
         const QString fileDisplayName = (*it).fileId;
 

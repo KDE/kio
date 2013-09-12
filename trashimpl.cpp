@@ -241,14 +241,12 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     qDebug() << "trashing to " << trashId;
 
     // Grab original filename
-    QUrl url;
-    url.setPath( origPath );
+    QUrl url = QUrl::fromLocalFile( origPath );
     const QString origFileName = url.fileName();
 
     // Make destination file in info/
     url.setPath( infoPath( trashId, origFileName ) ); // we first try with origFileName
-    QUrl baseDirectory;
-    baseDirectory.setPath( url.path() );
+    QUrl baseDirectory = QUrl::fromLocalFile( url.path() );
     // Here we need to use O_EXCL to avoid race conditions with other kioslave processes
     int fd = 0;
     QString fileName;
@@ -433,8 +431,9 @@ bool TrashImpl::move( const QString& src, const QString& dest )
 
 void TrashImpl::jobFinished(KJob* job)
 {
-    qDebug() << " error=" << job->error() << job->errorString();
+    qDebug() << " error=" << job->error() << job->errorText();
     error( job->error(), job->errorText() );
+
     emit leaveModality();
 }
 
