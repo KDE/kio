@@ -412,7 +412,7 @@ bool TrashImpl::move( const QString& src, const QString& dest )
     if ( directRename( src, dest ) ) {
         // This notification is done by KIO::moveAs when using the code below
         // But if we do a direct rename we need to do the notification ourselves
-     // ERROR ->        org::kde::KDirNotify::emitFilesAdded( dest );
+        org::kde::KDirNotify::emitFilesAdded( QUrl::fromLocalFile(dest) );
         return true;
     }
     if ( m_lastErrorCode != KIO::ERR_UNSUPPORTED_ACTION )
