@@ -261,7 +261,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
                 url = url.adjusted(QUrl::RemoveFilename);
                 url.setPath(url.path() + KIO::RenameDialog::suggestName( baseDirectory,  fileName)  );
                 // and try again on the next iteration
-            } else {qFatal(url.toString().toUtf8());
+            } else {
                 error( KIO::ERR_COULD_NOT_WRITE, url.path() );
                 return false;
             }
@@ -433,7 +433,7 @@ bool TrashImpl::move( const QString& src, const QString& dest )
 
 void TrashImpl::jobFinished(KJob* job)
 {
-    qDebug() << " error=" << job->error();
+    qDebug() << " error=" << job->error() << job->errorString();
     error( job->error(), job->errorText() );
     emit leaveModality();
 }
