@@ -78,7 +78,7 @@ Q_CONSTRUCTOR_FUNCTION(initLocale)
 
 QString TestTrash::homeTmpDir() const
 {
-    return KGlobal::dirs()->localkdedir() + QString::fromLatin1("testtrash/");
+    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QString::fromLatin1("testtrash/");
 }
 
 QString TestTrash::readOnlyDirPath() const
