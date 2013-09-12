@@ -216,7 +216,7 @@ void TestTrash::initTestCase()
 
     // Start with a clean trash too
     qDebug() << "removing trash dir";
-   // removeDirRecursive( m_trashDir );
+    removeDirRecursive( m_trashDir );
 }
 
 void TestTrash::cleanupTestCase()
@@ -411,8 +411,7 @@ void TestTrash::trashFileIntoOtherPartition()
     // setup
     if ( !QFile::exists( origFilePath ) )
         createTestFile( origFilePath );
-    QUrl u;
-    u.setPath( origFilePath );
+    QUrl u = QUrl::fromLocalFile( origFilePath );
 
     // test
     KIO::Job* job = KIO::move( u, QUrl("trash:/"), KIO::HideProgressInfo );
