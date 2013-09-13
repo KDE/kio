@@ -8,8 +8,7 @@ target_link_libraries(kioexec ${KDE4_KIO_LIBS} ${KDE4Support_LIBRARIES}
     ${KDECLARATIVE_LIBRARIES} ${KDE4_SOLID_LIBS}
      KF5::KI18n KF5::KConfigCore KF5::KConfigGui
       ${KCore_LIBRARIES}
- kdeqt5staging
- ${KWindowSystem_LIBRARIES}
+  ${KWindowSystem_LIBRARIES}
  ${KCoreAddons_LIBRARIES}
  plasma
  ${Qt5Script_LIBRARIES}
