@@ -41,7 +41,6 @@ target_link_libraries(kio_trash  ${KDE4_KIO_LIBS}
         ${KDE4_SOLID_LIBS}   
         ${KDE4Support_LIBRARIES}
         ${KDECLARATIVE_LIBRARIES} 
-           kdeqt5staging
            Qt5::DBus
         KF5::KI18n KF5::KConfigCore KF5::KConfigGui 
         )
@@ -60,7 +59,6 @@ if(NOT WIN32 AND STRIGI_FOUND)
        ${KDE4_KIO_LIBS}
        ${STRIGI_STREAMANALYZER_LIBRARY}
        ${KDE4_SOLID_LIBS}
-          kdeqt5staging
        KF5::KI18n KF5::KConfigCore KF5::KConfigGui
     )
     set_target_properties(trash PROPERTIES
@@ -77,7 +75,6 @@ target_link_libraries(ktrash
         ${KDE4Support_LIBRARIES}
         ${KDECLARATIVE_LIBRARIES}
         ${KDE4_KIO_LIBS}
-           kdeqt5staging
         KF5::KI18n KF5::KConfigCore KF5::KConfigGui
         )
 
