@@ -18,7 +18,6 @@
 */
 
 #include <kapplication.h>
-#include <kio/netaccess.h>
 #include <kio/job.h>
 #include <kcmdlineargs.h>
 #include <klocale.h>
@@ -52,7 +51,7 @@ int main(int argc, char *argv[])
         QDataStream stream( &packedArgs, QIODevice::WriteOnly );
         stream << (int)1;
         KIO::Job* job = KIO::special( QUrl("trash:/"), packedArgs );
-        (void)KIO::NetAccess::synchronousRun( job, 0 );
+        job->exec();
 
         // Update konq windows opened on trash:/
         org::kde::KDirNotify::emitFilesAdded(QUrl("trash:/")); // yeah, files were removed, but we don't know which ones...
@@ -89,9 +88,9 @@ int main(int argc, char *argv[])
         QDataStream stream( &packedArgs, QIODevice::WriteOnly );
         stream << (int)3 << trashURL;
         KIO::Job* job = KIO::special( trashURL, packedArgs );
-        bool ok = KIO::NetAccess::synchronousRun( job, 0 );
+        bool ok = job->exec() ? true : false;
         if ( !ok )
-            qCritical() << KIO::NetAccess::lastErrorString() << endl;
+            qCritical() << job->errorString() << endl;
         return 0;
     }
 
