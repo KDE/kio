@@ -220,7 +220,7 @@ void KIOExec::slotRunApp()
             if ( tempfiles )
             {
                 if ( KMessageBox::questionYesNo( 0L,
-                                                 i18n( "The supposedly temporary file\n%1\nhas been modified.\nDo you still want to delete it?" , dest.path()),
+                                                 i18n( "The supposedly temporary file\n%1\nhas been modified.\nDo you still want to delete it?" , dest.pathOrUrl()),
                                                  i18n( "File Changed" ), KStandardGuiItem::del(), KGuiItem(i18n("Do Not Delete")) ) != KMessageBox::Yes )
                     continue; // don't delete the temp file
             }
