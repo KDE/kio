@@ -90,7 +90,7 @@ if(NOT WIN32)
     set(kcm_trash_PART_SRCS kcmtrash.cpp ${trashcommon_PART_SRCS})
     kde4_add_plugin(kcm_trash ${kcm_trash_PART_SRCS})
     target_link_libraries(kcm_trash  Qt5::DBus  ${KDE4Support_LIBRARIES}
-	    ${KDECLARATIVE_LIBRARIES} KF5::KI18n KF5::KDE4Attic KConfigWidgets KF5::KIOCore KF5::KIOWidgets KF5::Solid)
+	    ${KDECLARATIVE_LIBRARIES} KF5::KI18n KConfigWidgets KF5::KIOCore KF5::KIOWidgets KF5::Solid)
 
     install(TARGETS kcm_trash DESTINATION ${PLUGIN_INSTALL_DIR})
 endif(NOT WIN32)
