@@ -23,6 +23,7 @@
 #include <klocale.h>
 #include <kdirnotify.h>
 #include <QDebug>
+#include <QUrl>
 #include <kdeversion.h>
 
 int main(int argc, char *argv[])
