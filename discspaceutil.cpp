@@ -26,6 +26,7 @@
 
 #include <kdiskfreespaceinfo.h>
 #include <QDebug>
+#include <kde_file.h>
 
 DiscSpaceUtil::DiscSpaceUtil( const QString &directory )
     : mDirectory( directory ),
@@ -41,9 +42,13 @@ qulonglong DiscSpaceUtil::sizeOfPath( const QString &path )
         return 0;
     }
 
-    if ( info.isFile() ) {
+    if ( info.isSymLink() ) {
+        // QFileInfo::size does not return the actual size of a symlink. #253776
+        KDE_struct_stat buff;
+        return static_cast<qulonglong>(KDE::lstat(path, &buff) == 0 ? buff.st_size : 0);
+    } else if ( info.isFile() ) {
         return info.size();
-    } else if ( info.isDir() && !info.isSymLink() ) {
+    } else if ( info.isDir() ) {
         QDirIterator it( path, QDirIterator::NoIteratorFlags );
 
         qulonglong sum = 0;
