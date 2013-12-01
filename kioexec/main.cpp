@@ -273,7 +273,7 @@ int main( int argc, char **argv )
     parser->addOption(QCommandLineOption(QStringList() << "+[URLs]", i18n("URL(s) or local file(s) used for 'command'"))); */
     QApplication app( argc, argv);
     app.setQuitOnLastWindowClosed(false);
-    parser->process(app);
+    parser.process(app);
 
     KIOExec exec;
 
