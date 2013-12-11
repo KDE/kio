@@ -163,7 +163,7 @@ private Q_SLOTS:
         queryAuthWithDialog(server, info, filledInfo, result);
     }
 
-    void testRetryDialog()
+    void testRejectRetryDialog()
     {
         KPasswdServer server(this);
         server.setWalletDisabled(true);
@@ -185,6 +185,24 @@ private Q_SLOTS:
         info.password.clear();
         result = KIO::AuthInfo();
         queryAuthWithDialog(server, info, filledInfo, result, QDialog::Rejected, QLatin1String("Invalid username or password"));
+    }
+
+    void testAcceptRetryDialog()
+    {
+        KPasswdServer server(this);
+        server.setWalletDisabled(true);
+
+       // What the app would ask
+        KIO::AuthInfo info;
+        info.url = KUrl("http://www.example.com");
+
+        // What the user would type
+        KIO::AuthInfo filledInfo(info);
+        filledInfo.username = "username";
+        filledInfo.password = "password";
+
+        KIO::AuthInfo result;
+        queryAuthWithDialog(server, info, filledInfo, result);
 
         // Pretend that the returned credentials failed and initiate a retry,
         // but this time continue the retry.
@@ -380,8 +398,10 @@ private:
         const bool isCancelRetryDialogTest = (hasErrorMessage && code == QDialog::Rejected);
 
         if (hasErrorMessage) {
+            // Retry dialog only knows Yes/No
+            const int retryCode = (code == QDialog::Accepted ? KDialog::Yes : KDialog::No);
             QMetaObject::invokeMethod(this, "checkRetryDialog",
-                                      Qt::QueuedConnection, Q_ARG(int, code));
+                                      Qt::QueuedConnection, Q_ARG(int, retryCode));
         }
 
         if (!isCancelRetryDialogTest) {
@@ -398,9 +418,12 @@ private:
         QCOMPARE(spy[0][0].toLongLong(), id);
         //QCOMPARE(spy[0][1].toLongLong(), 3LL); // seqNr
         result = spy[0][2].value<KIO::AuthInfo>();
-        QCOMPARE(result.username, (isCancelRetryDialogTest ? QString() : filledInfo.username));
-        QCOMPARE(result.password, (isCancelRetryDialogTest ? QString() : filledInfo.password));
-        QCOMPARE(result.isModified(), (code == QDialog::Accepted ? true : false));
+        const QString username = (isCancelRetryDialogTest ? QString() : filledInfo.username);
+        const QString password = (isCancelRetryDialogTest ? QString() : filledInfo.password);
+        const bool modified = (code == QDialog::Accepted ? true : false);
+        QCOMPARE(result.username, username);
+        QCOMPARE(result.password, password);
+        QCOMPARE(result.isModified(), modified);
     }
 
     void concurrentQueryAuthWithDialog(KPasswdServer& server, const QList<KIO::AuthInfo>& infos,
