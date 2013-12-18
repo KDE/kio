@@ -1,0 +1,28 @@
+konq_run / krun should determine the mimetype by actually
+getting the contents of the URL. It should then put the slave
+on hold and tell the job-scheduler which request the
+slave is currently handling.
+
+Now krun/konq_run should determine which client should process the 
+result of the request.
+
+* When the client belongs to the same process, no action needs to be
+taken. When a new job is created for the request which is on hold the
+existing slave will be re-used and the request resumed.
+
+* When the client is an external process, the on-hold-slave should be 
+removed from the job-scheduler and should connect itself with
+klauncher. This is hard because it must ensure that the external 
+program does not request the slave before it has been transfered to
+klauncher.
+
+* When a slave is on hold but not used for a certain period of time, 
+or, when another slave is put on hold, the slave should be killed.
+
+=====
+
+The slave must emit "mimetype" during a GET before the first data is send.
+
+It may wait with sending "mimetype" until it has enough data to 
+determine the mimetype, but it should not pass any data along before it has
+sent the mimetype.

@@ -1,0 +1,184 @@
+This document describes how to add support for extended webdav features (locking,
+properties etc.) to your webdav-aware application.
+Author: Hamish Rodda, rodda@kde.org
+Version: 0.3
+
+Compatable with (tested on):
+Apache + mod_dav version 1 and 2
+Zope
+Silverstream webdav server
+
+Applications supporting extended webdav features
+  (include name and contact email, in case the interface has to change):
+[none currently]
+
+Much of the info here is elaborated by rfc #2518; the rest can be understood by reading
+davPropStat() in http.cc, specifically the setMetaData() calls.
+
+Extended information is transferred via kio's metadata system...
+
+=== MISCELLANEOUS ===
+Display Names (names suitable for presentation to the user) are passed as the metadata
+element davDisplayName.
+
+Source template locations (href, usually an absolute URL w/o host info)
+are passed as element davSource.
+
+Content languages are passed as element davContentLanguage.
+
+Extra webdav headers are passed as metadata element davHeader
+
+For doing a webdav SEARCH, use listDir() and set the metadata element
+davSearchQuery to the search query. The root element of this query should be like
+<d:basicsearch> or <d:sql>.
+
+For doing a generic webdav action, call a special request, with
+the following data:
+int, value 7 (WEBDAV generic)
+QUrl url
+int method - the HTTP/WEBDAV method to call
+Send the xml request and receive the xml response in the usual way.
+
+=== CREATING A LOCK ===
+To create a lock, call a special request, with the following data:
+
+int, value 5 (LOCK request)
+QUrl url - the location of the resource to lock
+QString scope - the scope of the lock, currently "exclusive" or "shared"
+QString type - the type of the lock, currently only "write"
+QString owner (optional) - owner contact details (url)
+
+Additionally, the lock timeout requested from the server may be altered from the default
+of Infinity by setting the metadata "davTimeout" to the number of seconds, or 0 for
+infinity.
+
+=== REMOVING A LOCK ===
+To remove a lock, call a special request, with the following data:
+
+int, value 5 (LOCK request)
+QUrl url - the location of the resource to unlock
+
+metadata required:
+davLockToken - the lock token to remove
+
+and, of course, any other lock information as below required for the operation
+to suceed.
+
+=== SETTING LOCK INFORMATION ===
+To provide lock data so that urls can be accessed, you need to pass the following metadata:
+davLockCount: (uint) the number of locks you are providing
+davLockToken%1: (string) the token
+(optional) davLockURL%1: (string) the absolute URL specified by the lock token
+(optional) davLockNot%1: (value ignored) the presence of this meta key negates the lock
+                                          (ie. requires the lock to not be set)
+
+Example data:
+=============
+davLockCount: 2
+davLockToken1: opaquelocktoken:f81de2ad-7f3d-a1b2-4f3c-00a0c91a9d76A
+davLockNot1: (value ignored)
+davLockToken2: opaquelocktoken:f81de2ad-7f3d-a1b2-4f3c-00a0c91a9d76B
+davLockURL2: http://www.foo.bar/container2/
+
+
+=== RECEIVING LOCK INFORMATION ===
+For each file, stat/listdir always returns two pieces of information:
+
+davSupportedLockCount: (uint) the number of lock types discovered for this resource.
+davLockCount: (uint) the number of locks discovered on this resource.
+
+for each count, additional information is returned:
+
+===================
+Information about the locks on a resource:
+
+davLockCount: %1 (the number of locks to be described, as below)
+*** Required items ***
+davLockScope%1 - The scope of this lock. May be exclusive, shared, or a custom type.
+davLockType%1 - The type of the lock.
+davLockDepth%1 - The depth to which this lock applies
+                    (0=only this resource, 1=this collection, infinity=applies recursively)
+
+*** Optional items ***
+davLockOwner%1 - The owner of this lock.
+davLockTimeout%1 - The timeout parameter. Possibilities: see section 9.8, rfc #2518
+davLockToken%1 - The token which iden
+
+===================
+Information about the lock types supported by the resource
+
+davSupportedLockCount: %1 (the number of locks types to be described, as below)
+
+davSupportedLockScope%1 - The scope of the lock (exclusive, shared, other custom type)
+davSupportedLockType%1 - The type of the lock (webdav 1.0 supports only the "write" type)
+===================
+
+Example Metadata which would be supplied if the response was the example XML below:
+
+davSupportedLockCount: 2
+davLockCount: 2
+davLockScope1: exclusive
+davLockType1: write
+davLockDepth1: 0
+davLockOwner1: Jane Smith
+davLockTimeout1: infinite
+davLockToken1: opaquelocktoken:f81de2ad-7f3d-a1b2-4f3c-00a0c91a9d76A
+davLockScope2: shared
+davLockType2: write
+davLockDepth2: 1
+davLockOwner2: John Doe
+davLockToken2: opaquelocktoken:f81de2ad-7f3d-a1b2-4f3c-00a0c91a9d76B
+davSupportedLockScope1: exclusive
+davSupportedLockType1: write
+davSupportedLockScope2: shared
+davSupportedLockType2: write
+
+
+(example XML:)
+
+   <?xml version="1.0" encoding="utf-8" ?>
+   <D:multistatus xmlns:D='DAV:'>
+     <D:response>
+          <D:href>http://www.foo.bar/container/</D:href>
+          <D:propstat>
+               <D:prop>
+                    <D:lockdiscovery>
+                         <D:activelock>
+                              <D:locktype><D:write/></D:locktype>
+                              <D:lockscope><D:exclusive/></D:lockscope>
+                              <D:depth>0</D:depth>
+                              <D:owner>Jane Smith</D:owner>
+                              <D:timeout>Infinite</D:timeout>
+                              <D:locktoken>
+                                   <D:href>
+               opaquelocktoken:f81de2ad-7f3d-a1b2-4f3c-00a0c91a9d76A
+                                   </D:href>
+                              </D:locktoken>
+                         </D:activelock>
+                         <D:activelock>
+                              <D:locktype><D:write/></D:locktype>
+                              <D:lockscope><D:shared/></D:lockscope>
+                              <D:depth>1</D:depth>
+                              <D:owner>John Doe</D:owner>
+                              <D:locktoken>
+                                   <D:href>
+               opaquelocktoken:f81de2ad-7f3d-a1b2-4f3c-00a0c91a9d76B
+                                   </D:href>
+                              </D:locktoken>
+                         </D:activelock>
+                    </D:lockdiscovery>
+                    <D:supportedlock>
+                         <D:lockentry>
+                              <D:lockscope><D:exclusive/></D:lockscope>
+                              <D:locktype><D:write/></D:locktype>
+                         </D:lockentry>
+                         <D:lockentry>
+                              <D:lockscope><D:shared/></D:lockscope>
+                              <D:locktype><D:write/></D:locktype>
+                         </D:lockentry>
+                    </D:supportedlock>
+               </D:prop>
+               <D:status>HTTP/1.1 200 OK</D:status>
+          </D:propstat>
+     </D:response>
+   </D:multistatus>

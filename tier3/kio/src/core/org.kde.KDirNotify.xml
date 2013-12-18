@@ -1,0 +1,29 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="org.kde.KDirNotify">
+    <signal name="FilesAdded">
+      <arg type="s" name="directory" direction="out"/>
+    </signal>
+    <signal name="FilesRemoved">
+      <arg type="as" name="fileList" direction="out"/>
+    </signal>
+    <signal name="FilesChanged">
+      <arg type="as" name="fileList" direction="out"/>
+    </signal>
+    <signal name="FileRenamed">
+      <arg type="s" name="src" direction="out"/>
+      <arg type="s" name="dst" direction="out"/>
+    </signal>
+    <signal name="FileMoved">
+      <arg type="s" name="src" direction="out"/>
+      <arg type="s" name="dst" direction="out"/>
+    </signal>
+    <signal name="enteredDirectory">
+      <arg type="s" name="url" direction="out"/>
+    </signal>
+    <signal name="leftDirectory">
+      <arg type="s" name="url" direction="out"/>
+    </signal>
+  </interface>
+</node>

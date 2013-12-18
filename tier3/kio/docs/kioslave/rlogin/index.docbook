@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN"
+"dtd/kdex.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % English "INCLUDE" > <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="rlogin">
+<title>rlogin</title>
+<articleinfo>
+<authorgroup>
+<author><personname><firstname>Christian</firstname><surname>Bunting</surname></personname></author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+</articleinfo>
+<para>Using &konqueror; you can start up an <command>rlogin</command>
+session with a server hosting the rlogin service.</para>
+
+<para>To use this kioslave feature, in the &konqueror;
+<acronym>URL</acronym> bar, type
+<userinput>rlogin:/host_to_connect_to</userinput></para>
+
+<para>This will initialize &konsole; with an <command>rlogin</command>
+session, prompting you for your password.</para>
+
+<para>The <command>rlogin</command> kioslave uses the username of the
+account you are currently using in &kde;.</para>
+
+<para>After you have successfully entered your password, you can begin
+your remote session.</para>
+
+<para> See the manual: <ulink url="man:/rlogin">rlogin</ulink>.
+</para>
+
+
+<!-- By Christian Bunting (need to ask if he wants crediting and email) -->
+
+</article>

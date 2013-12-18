@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN"
+"dtd/kdex.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % English "INCLUDE" > <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="ftp">
+<title>&FTP;</title>
+<articleinfo>
+<authorgroup>
+<author>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+</articleinfo>
+
+<para>
+&FTP; is the Internet service used to transfer a data file from the disk of 
+one computer to the disk of another, regardless of the operating system type. 
+</para>
+
+<para> Similar to other Internet applications, &FTP; uses the
+client-server approach &mdash; a user invokes an &FTP; program on the
+computer, instructs it to contact a remote computer, and then requests
+the transfer of one or more files. The local &FTP; program becomes a
+client that uses <acronym>TCP</acronym> to contact an &FTP; server
+program on the remote computer. Each time the user requests a file
+transfer, the client and the server programs cooperate to send a copy
+of the data across the Internet.  </para>
+
+<para> &FTP; servers which allow <quote>anonymous &FTP;</quote> permit
+any user, not only users with accounts on the host, to browse the
+<quote>ftp</quote> archives and download files. Some &FTP; servers are
+configured to allow users to upload files.  </para>
+
+<para>
+&FTP; is commonly used to retrieve information and obtain software stored in 
+files at &FTP; archive sites throughout the world.
+</para>
+
+
+<para>
+Source: Paraphrased from <ulink 
+url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"> 
+http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink>
+</para>
+
+<para> See the manual: <ulink url="man:/ftp">ftp</ulink>.</para>
+
+</article>

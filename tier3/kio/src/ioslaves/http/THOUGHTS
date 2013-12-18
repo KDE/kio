@@ -1,0 +1,28 @@
+Here's a few ideas for those with blistered hands and nothing better to
+do:
+
+SSL certificate verification:
+We do establish SSL connections, but we never actually verify a
+certificate!
+
+HTTP/1.1 Persistant Connections:
+The header often specifies the timeout value used for connections.
+Close the connection ourselves when the timeout has expired. That way
+we don't loose time sending stuff to an already closed connection.
+
+Rating(s) support.  http://www.w3.org/PICS
+This might involve an external program to parse the labels, and something
+to configure access.
+
+WebDAV support.  MSIE5 calls it web folders support, and a similar
+approach would probably be a good idea.  Perhaps with an exists()
+function.. one could tell if an http url was part of a WebDAV collection..
+and this could be used for some kind of integration with kfile... to
+provide seamless integration.  Uhm, also, this might entail an external
+program (xml parser and such).
+
+"Friendly" error messages.  How often have you seen a useless 404 message?
+Again something I first notied in MSIE5, and that would be some sort of
+translation of what an error really means.  Yes this would have to be
+i18n'd and easily turned off.  But this could also be extended to all the
+slaves (ftp, pop3, etc, etc).

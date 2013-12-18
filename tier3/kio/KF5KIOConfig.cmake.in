@@ -1,0 +1,16 @@
+@PACKAGE_INIT@
+
+# Any changes in this ".cmake" file will be overwritten by CMake, the source is the ".cmake.in" file.
+
+find_dependency(KF5Bookmarks "@KF5_VERSION@")
+find_dependency(KF5Completion "@KF5_VERSION@")
+find_dependency(KF5JobWidgets "@KF5_VERSION@")
+find_dependency(KF5Service "@KF5_VERSION@")
+find_dependency(KF5Solid "@KF5_VERSION@")
+find_dependency(KF5XmlGui "@KF5_VERSION@")
+
+find_dependency(Qt5Network "@QT_REQUIRED_VERSION@")
+
+include("${CMAKE_CURRENT_LIST_DIR}/KF5KIOTargets.cmake")
+
+set(KCookieServer_DBUS_INTERFACE "${PACKAGE_PREFIX_DIR}/@DBUS_INTERFACES_INSTALL_DIR@/org.kde.KCookieServer.xml")

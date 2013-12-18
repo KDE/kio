@@ -1,0 +1,61 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="org.kde.KPasswdServer" >
+    <signal name="checkAuthInfoAsyncResult" >
+      <arg type="x" name="requestId" />
+      <arg type="x" name="seqNr" />
+      <arg type="(ysssssssssbbbba{s(siv)})" name="info" />
+      <annotation name="com.trolltech.QtDBus.QtTypeName.In2" value="KIO::AuthInfo" />
+    </signal>
+    <signal name="queryAuthInfoAsyncResult" >
+      <arg type="x" name="requestId" />
+      <arg type="x" name="seqNr" />
+      <arg type="(ysssssssssbbbba{s(siv)})" name="info" />
+      <annotation name="com.trolltech.QtDBus.QtTypeName.In2" value="KIO::AuthInfo" />
+    </signal>
+    <method name="checkAuthInfo" >
+      <arg direction="out" type="ay" />
+      <arg direction="in" type="ay" name="data" />
+      <arg direction="in" type="x" name="windowId" />
+      <arg direction="in" type="x" name="usertime" />
+    </method>
+    <method name="queryAuthInfo" >
+      <arg direction="out" type="ay" />
+      <arg direction="in" type="ay" name="data" />
+      <arg direction="in" type="s" name="errorMsg" />
+      <arg direction="in" type="x" name="windowId" />
+      <arg direction="in" type="x" name="seqNr" />
+      <arg direction="in" type="x" name="usertime" />
+    </method>
+    <method name="checkAuthInfoAsync" >
+      <arg direction="out" type="x" />
+      <arg direction="in" type="(ysssssssssbbbba{s(siv)})" name="info" />
+      <annotation name="com.trolltech.QtDBus.QtTypeName.In0" value="KIO::AuthInfo" />
+      <arg direction="in" type="x" name="windowId" />
+      <arg direction="in" type="x" name="usertime" />
+    </method>
+    <method name="queryAuthInfoAsync" >
+      <arg direction="out" type="x" />
+      <arg direction="in" type="(ysssssssssbbbba{s(siv)})" name="info" />
+      <annotation name="com.trolltech.QtDBus.QtTypeName.In0" value="KIO::AuthInfo" />
+      <arg direction="in" type="s" name="errorMsg" />
+      <arg direction="in" type="x" name="windowId" />
+      <arg direction="in" type="x" name="seqNr" />
+      <arg direction="in" type="x" name="usertime" />
+    </method>
+    <method name="addAuthInfo" >
+      <arg direction="in" type="ay" name="data" />
+      <arg direction="in" type="x" name="windowId" />
+    </method>
+    <method name="addAuthInfo" >
+      <arg direction="in" type="(ysssssssssbbbba{s(siv)})" name="info" />
+      <annotation name="com.trolltech.QtDBus.QtTypeName.In0" value="KIO::AuthInfo" />
+      <arg direction="in" type="x" name="windowId" />
+    </method>
+    <method name="removeAuthInfo" >
+      <arg direction="in" type="s" name="host" />
+      <arg direction="in" type="s" name="protocol" />
+      <arg direction="in" type="s" name="user" />
+    </method>
+  </interface>
+</node>

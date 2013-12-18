@@ -1,0 +1,184 @@
+METADATA
+========
+
+Applications can provide "metadata" to the slaves. Metadata can influence
+the behavior of a slave and is usally protocol dependent. MetaData consists
+of two strings: a "key" and a "value".
+
+Any meta data whose "key" starts with the keywords {internal~currenthost} and
+"{internal~allhosts}" will be treated as internal metadata and will not be made
+available to client applications. Instead all such meta-data will be stored and
+sent back to the appropriate ioslaves along with the other regular metadata values.
+
+Use "{internal~currenthost}" to make the internal metadata available to all
+ioslaves of the same protocol and host as the ioslave that generated it. If
+you do not want to restrict the availability of the internal metadata to only
+the current host, then use {internal~allhosts}. In either case the internal
+metadata follows the rules of the regular metadata and therefore cannot be sent
+from one protocol such as "http" to a completely different one like "ftp".
+
+Please note that when internal meta-data values are sent back to ioslaves, the
+keyword used to mark them internal will be stripped from the key name.
+
+The following keys are currently in use:
+
+Key             Value(s)        Description
+----            --------        -----------
+
+referrer        string          The URL from which the request originates. (read by http)
+
+modified        string          The modification date of the document (set by http and by kio before put)
+
+accept          string          List of mimetypes to accept separated by a ", ". (read by http)
+
+responsecode    string          Original response code of the web server. (set by http)
+
+SendUserAgent   bool            Whether to send a User-Agent (read by http)
+UserAgent       string          The user agent name to send to remote host (read by http)
+
+content-type    string          The content type of the data to be uploaded (read and set by http)
+media-*         string          Media-Parameter attributes (e.g. media-boundary)
+media-*-kio-quoted  bool        The corresponding media- attribute's value was quoted. (set by http)
+
+cache           "cache"         Use entry from cache if available.
+                "cacheonly"     Do not do any remote lookups, fail if not in cache. (read by http)
+                "verify"        Use entry from cache, verify with remote server if expired
+                "refresh"       Use entry from cache after verifying with remote server
+                "reload"        Do not do any cache lookups.
+
+no-cache        bool            Flag that indicates whether caching is enabled/disabled
+
+window-id       number          winId() of the window the request is associated with.
+
+resume          number          Try to get the file starting at the given offset (set by file_copy when finding a .part file,
+                                                                                  but can also be set by apps.)
+
+resume_until    number          Try to get the file until at the given offset (not set in kdelibs; handled by kio_http).
+
+charset         string          Charset of the current content as returned by a HTTP Header Response.
+
+Charsets        string          Charset(s) send in the "Accept-Charset:" HTTP Request Header.
+
+Languages       string          Language(s) send in the "Accept-Language:" HTTP Request Header.
+
+content-disposition-type        string Type of Content-Disposition from a HTTP Header Response.
+content-disposition-*           any other valid value sent in a Content-Disposition header (e.g. filename)
+
+request-id	number              Sequence number to identify requests in a MultiGet command.
+
+expire-date	number              Date on which a cache entry needs validation.
+
+cache-creation-date  number     Date on which a cache entry has been created.
+
+http-refresh    string          Passes HTTP Refresh meta-data back to the application.
+
+cookies         "auto"          Use kcookiejar to lookup and collect cookies (default)
+                "manual"        Cookies set in "setcookies" are send, received cookies are reported
+                                via "setcookies".
+                "none"          No cookies are sent, received cookies are discarded.
+
+setcookies      string          Used to send/receive HTTP cookies when "cookies" is set to "manual".
+
+errorPage       bool            Flag that indicates that an errorPage() is preferred over an error().                                      (default:true)
+
+no-auth         bool            Flag that indicates that no authentication (neither WWW nor proxy) attempts should be made.
+no-www-auth     bool            Flag that indicates that no HTTP WWW authentication attempts should be made.
+no-proxy-auth   bool            Flag that indicates that no HTTP proxy authentication attempts should be made.
+no-auth-prompt  bool            Flag that indicates that only cached authentication tokens should be used.
+no-preemptive-auth-reuse  bool  Flag that indicates whether cached credentials should be preemptively sent to the server.
+
+ssl_activate_warnings bool      Flag that disables SSL warning dialogs if set to false.  (default: true)
+
+ssl_was_in_use  bool            Flag to tell TCPSlaveBase if SSL was in use in the previous transaction.
+                                (default: false)
+
+ssl_in_use      bool            Set in TCPSlaveBase to tell the caller if SSL is in use.
+                                (default: assume false)
+
+ssl_using_client_cert  bool     Set in TCPSlaveBase to tell the caller if the session is using a client                                    certificate   (default: assume false)
+
+ssl_no_client_cert  bool        Flag to tell TCPSlaveBase if it should, under no circumstances, use a
+                                client certificate.  (default: false)
+
+ssl_demand_certificate	bool	Flag to tell TCPSlaveBase to demand that a client certificate is used for this connection.  (default: false)
+
+ssl_no_ui	bool		Flag to tell TCPSlave that no user interaction should take place. Instead of asking security questions the connection will silently fail. This is of particular use to favicon code. (default: false)
+
+ssl_cipher	string		Set in TCPSlaveBase to tell the caller which cipher is currently being used.
+                                This string is composed of the encryption, authentication, key-exchange and digest
+                                methods separated by an LF (\n).
+
+ssl_cipher_name string          Set in TCPSlaveBase to tell the caller the name of the cipher used.
+
+ssl_cipher_desc	string		Set in TCPSlaveBase to describe the details of the current cipher being used.
+
+ssl_cipher_version	string	Set in TCPSlaveBase to describe the version of the cipher being used.
+
+ssl_cipher_used_bits	integer	Set in TCPSlaveBase to relay the number of bits of the key actually being used in this cipher and connection.
+
+ssl_cipher_bits	integer		Set in TCPSlaveBase to relay the number of bits the key is capable of in this cipher and connection.
+
+ssl_peer_ip	string		Set in TCPSlaveBase to tell the caller the IP address of the peer.
+
+ssl_cert_state	integer		Set in TCPSlaveBase to relay the state of the certificate check, without considering the cache settings.  Can be checked with KSSLCertificate enumeration.
+
+ssl_peer_certificate	string	Set in TCPSlaveBase to relay the base64 encoding of the X.509 certificate presented by the peer.
+
+ssl_peer_chain	string		Set, if present, in TCPSlaveBase to relay the entire certificate chain presented by the peer.  The is base64 encoded and \n delimited.
+
+ssl_parent_ip	string		Set in TCPSlaveBase and in the caller.  If this is the parent frame of a frame of the session (really only applies to https), this variable is set so that it can be passed back to the child frames.  It is necessary to send it to child frames so that they can do a full certificate check.
+
+ssl_parent_cert	string		Set in TCPSlaveBase and in the caller.  As above, this must be passed to child frames by the caller so that it can compare against the certificate presented in the child frames.  It is a base64 encoding of the X.509 presented.
+
+ssl_session_id	string		Set in TCPSlaveBase to indicate the SSL session ID in base64 encoded ASN.1 encoded binary format.  Also set in the caller to indicate to TCPSlaveBase to reuse a particular session ID.
+
+main_frame_request	bool	Actually for SSL, this is set in the caller to tell TCPSlaveBase if this is the request for the main frame of an html page. (dfault: true)
+
+HTTP-Version		string	The HTTP version in use for kio_http (set by http)
+
+PropagateHttpHeader	bool	Whether HTTP headers should be send back (read by http)
+
+HTTP-Headers		string	The HTTP headers, concatenated, \n delimited (set by http)
+                                Requires PropagateHttpHeader to be set.
+
+customHTTPHeader	string	Custom HTTP headers to add to the request (read by http)
+
+CustomHTTPMethod        string  Overrides the method string sent by kio_http 
+                                without changing the behavior (read by http)
+
+UseProxy		string	URL representing the proxy settings (read by http)
+ProxyUrls               string  a comma separated list of proxy urls. The first url in this list matches one set in "UseProxy".
+
+PrivacyPolicy		stringlist  \n delimited URIs referring to P3P privacy
+                                policies presented by the HTTP server
+
+PrivacyCompactPolicy	stringlist  \n delimited P3P compact tag policies
+                                presented by the HTTP server
+
+textmode		bool	When true, switches FTP up/downloads to ascii transfer mode (read by ftp)
+
+recurse                 bool    When true, del() will be able to delete non-empty directories.  (read by file)
+                                Otherwise, del() is supposed to give an error on non-empty directories.
+
+DefaultRemoteProtocol	string	Protocol to redirect file://<hostname>/ URLs to, default is "smb" (read by file)
+no-spoof-check          bool    Flag to indicate whether a username spoofing check should be performed, default is FALSE.(read by http)
+
+** NOTE: Anything in quotes ("") under Value(s) indicates literal value.
+
+
+Examples:
+
+E.g. the following disables cookies:
+job = KIO::get( QUrl("http://www.kde.org") );
+job->addMetaData("cookies", "none");
+
+If you want to handle cookies yourself, you can do:
+job = KIO::get( QUrl("http://www.kde.org") );
+job->addMetaData("cookies", "manual");
+job->addMetaData("setcookies", "Cookie: foo=bar; gnat=gnork");
+
+The above sends two cookies along with the request, any cookies send back by
+the server can be retrieved with job->queryMetaData("cookies") after
+receiving the mimetype() signal or when the job is finished.
+
+The cookiejar is not used in this case.

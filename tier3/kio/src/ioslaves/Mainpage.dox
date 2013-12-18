@@ -1,0 +1,36 @@
+/** @mainpage KIO Slaves
+
+KIO Slaves are out-of-process worker applications that
+perform protocol-specific communications.
+
+See the <a href="../../kio/html/index.html">KIO</a>
+documentation for more information.
+
+The following KIO slaves are provided by kdelibs:
+- Local file system (%file:/)
+- HTTP (%http:/)
+- FTP (%ftp:/)
+- File metadata (%metainfo:/)
+
+@authors
+Rolf Magnus \<ramagnus@kde.org\><br>
+Stephan Kulow \<coolo@kde.org\><br>
+David Faure \<faure@kde.org\><br>
+Waldo Bastian \<bastian@kde.org\><br>
+Allan Sandfeld Jensen \<sandfeld@kde.org\><br>
+George Staikos \<staikos@kde.org\><br>
+Dawit Alemayehu \<adawit@kde.org\><br>
+Hamish Rodda \<rodda@kde.org\>
+
+@maintainers
+[Unknown/None]
+
+@licenses
+@lgpl
+
+*/
+
+// DOXYGEN_REFERENCES = kdecore kio kdeui
+// DOXYGEN_SET_RECURSIVE = YES
+// DOXYGEN_SET_PROJECT_NAME = KIOSlave
+// vim:ts=4:sw=4:expandtab:filetype=doxygen

@@ -1,0 +1,203 @@
+DESIGN:
+=======
+
+libkio uses kioslaves (separate processes) that handle a given protocol.
+Launching those slaves is taken care of by the kdeinit/klauncher tandem,
+which are notified by DBus.
+
+Connection is the most low-level class, the one that encapsulates the pipe.
+
+SlaveInterface is the main class for transferring anything to the slave
+and Slave, which inherits SlaveInterface, is the sub class that Job should handle.
+
+A slave inherits SlaveBase, which is the other half of SlaveInterface.
+
+The scheduling is supposed to be on a two level basis. One is in the daemon
+and one is in the application. The daemon one (as opposite to the holy one? :)
+will determine how many slaves are ok for this app to be opened and it will
+also assign tasks to actually existing slaves.
+The application will still have some kind of a scheduler, but it should be
+a lot simpler as it doesn't have to decide anything besides which
+task goes to which pool of slaves (related to the protocol/host/user/port)
+and move tasks around.
+Currently a design study to name it cool is in scheduler.cpp but in the
+application side. This is just to test other things like recursive jobs
+and signals/slots within SlaveInterface. If someone feels brave, the scheduler
+is yours!
+On a second thought: at the daemon side there is no real scheduler, but a
+pool of slaves. So what we need is some kind of load calculation of the
+scheduler in the application and load balancing in the daemon. 
+
+A third thought: Maybe the daemon can just take care of a number of 'unused'
+slaves. When an application needs a slave, it can request it from the daemon. 
+The application will get one, either from the pool of unused slaves, 
+or a new one will be created. This keeps things simple at the daemon level.
+It is up to the application to give the slaves back to the daemon.
+The scheduler in the application must take care not to request too many
+slaves and could implement priorities.
+
+Thought on usage:
+* Typically a single slave-type is used exclusively in one application. E.g.
+http slaves are used in a web-browser. POP3 slaves used in a mail program.
+
+* Sometimes a single program can have multiple roles. E.g. konqueror is
+both a web-browser and a file-manager. As a web-browser it primarily uses
+http-slaves as a file-manager file-slaves.
+
+* Selecting a link in konqueror: konqueror does a partial download of
+the file to check the mimetype (right??) then the application is
+started which downloads the complete file. In this case it should 
+be able to pass the slave which does the partial download from konqueror
+to the application where it can do the complete download.
+
+Do we need to have a hard limit on the number of slaves/host?
+It seems so, because some protocols are about to fail if you
+have two slaves running in parallel (e.g. POP3)
+This has to be implemented in the daemon because only at daemon
+level all the slaves are known. As a consequence slaves must 
+be returned to the daemon before connecting to another host.
+(Returning the slaves back to the daemon after every job is not
+strictly needed and only causes extra overhead) 
+
+Instead of actually returning the slave to the daemon, it could 
+be enough to ask 'recycling permission' from the daemon: the 
+application asks the daemon whether it is ok to use a slave for 
+another host. The daemon can then update its administration of
+which slave is connected to which host.
+
+The above does of course not apply to hostless protocols (like file).
+(They will never change host).
+
+Apart from a 'hard limit' on the number of slaves/host we can have
+a 'soft limit'. E.g. upon connection to a HTTP 1.1 server, the web-
+server tells the slave the number of parallel connections allowed.
+THe simplest solution seems to be to treat 'soft limits' the same
+as 'hard limits'. This means that the slave has to communicate the
+'soft limit' to the daemon.
+
+Jobs using multiple slaves.
+
+If a job needs multiple slaves in parallel (e.g. copying a file from 
+a web-server to a ftp-server or browsing a tar-file on a ftp-site)
+we must make sure to request the daemon for all slaves together since 
+otherwise there is a risk of deadlock. 
+
+(If two applications both need a 'pop3' and a 'ftp' slave for a single 
+job and only a single slave/host is allowed for pop3 and ftp, we must 
+prevent giving the single pop3 slave to application #1 and the single 
+ftp slave to application #2. Both applications will then wait till the 
+end of times till they get the other slave so that they can start the 
+job. (This is a quite unlikely situation, but nevertheless possible))
+
+
+File Operations:
+listRecursive is implemented as listDir and finding out if in the result
+ is a directory. If there is, another listDir job is issued. As listDir
+ is a readonly operation it fails when a directory isn't readable
+  .. but the main job goes on and discards the error, because
+bIgnoreSubJobsError is true, which is what we want (David)
+
+del is implemented as listRecursive, removing all files and removing all
+ empty directories. This basically means if one directory isn't readable
+ we don't remove it as listRecursive didn't find it. But the del will later
+ on try to remove it's parent directory and fail. But there are cases when
+ it would be possible to delete the dir in chmod the dir before. On the
+ other hand del("/") shouldn't list the whole file system and remove all
+ user owned files just to find out it can't remove everything else (this
+ basically means we have to take care of things we can remove before we try)
+
+ ... Well, rm -rf / refuses to do anything, so we should just do the same:
+ use a listRecursive with bIgnoreSubJobsError = false. If anything can't
+ be removed, we just abort. (David)
+ 
+ ... My concern was more that the fact we can list / doesn't mean we can
+ remove it. So we shouldn't remove everything we could list without checking
+ we can. But then the question arises how do we check whether we can remove it?
+ (Stephan)
+
+ ... I was wrong, rm -rf /, even as a user, lists everything and removes
+ everything it can (don't try this at home!). I don't think we can do
+ better, unless we add a protocol-dependent "canDelete(path)", which is
+ _really_ not easy to implement, whatever protocol. (David)
+
+
+Lib docu
+========
+
+mkdir: ...
+
+rmdir: ...
+
+chmod: ...
+
+special: ...
+
+stat: ...
+
+get is implemented as TransferJob. Clients get 'data' signals with the data.
+A data block of zero size indicates end of data (EOD)
+
+put is implemented as TransferJob. Clients have to connect to the 
+'dataReq' signal. The slave will call you when it needs your data.
+
+mimetype: ...
+
+file_copy: copies a single file, either using CMD_COPY if the slave 
+           supports that or get & put otherwise.
+
+file_move: moves a single file, either using CMD_RENAME if the slave
+           supports that, CMD_COPY + del otherwise, or eventually
+           get & put & del.
+
+file_delete: delete a single file. 
+
+copy: copies a file or directory, recursively if the latter
+
+move: moves a file or directory, recursively if the latter
+
+del: deletes a file or directory, recursively if the latter
+
+Resuming
+--------
+If a .part file exists, KIO offers to resume the download.
+This requires negociation between the kioslave that reads
+(handled by the get job) and the kioslave that writes
+(handled by the put job).
+
+Here's how the negociation goes.
+(PJ=put-job, GJ=get-job)
+
+PJ can't resume:
+PJ-->app: canResume(0)  (emitted by dataReq)
+GJ-->app: data()
+PJ-->app: dataReq()
+app->PJ: data()
+
+PJ can resume but GJ can't resume:
+PJ-->app: canResume(xx)
+app->GJ: start job with "resume=xxx" metadata.
+GJ-->app: data()
+PJ-->app: dataReq()
+app->PJ: data()
+
+PJ can resume and GJ can resume:
+PJ-->app: canResume(xx)
+app->GJ: start job with "resume=xxx" metadata.
+GJ-->app: canResume(xx)
+GJ-->app: data()
+PJ-->app: dataReq()
+app->PJ: canResume(xx)
+app->PJ: data()
+
+So when the slave supports resume for "put" it has to check after the first 
+dataRequest() whether it has got a canResume() back from the app. If it did 
+it must resume. Otherwise it must start from 0.
+
+Protocols
+=========
+
+Most KIO slaves (but not all) are implementing internet protocols.
+In this case, the slave name matches the URI name for the protocol.
+A list of such URIs can be found here, as per RFC 4395:
+http://www.iana.org/assignments/uri-schemes.html
+

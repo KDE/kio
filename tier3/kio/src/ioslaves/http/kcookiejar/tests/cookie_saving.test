@@ -1,0 +1,434 @@
+## Check setting of cookies
+COOKIE ASK http://w.y.z/ Set-Cookie: some_value=value1; Path="/"; expires=%NEXTYEAR%
+COOKIE ASK http://a.b.c/ Set-Cookie: some_value=value2; Path="/"
+## Check if clearing cookie jar works
+CLEAR COOKIES
+## Check cookie syntax
+COOKIE ASK http://w.y1.z/ Set-Cookie: some_value=value with spaces; expires=%NEXTYEAR%
+COOKIE ASK http://a.b1.c/ Set-Cookie: some_value="quoted value"; expires=%NEXTYEAR%
+# Without a = sign, the cookie gets interpreted as the value for a cookie with no name
+# This is what IE and Netscape does
+COOKIE ASK http://a.b1.c/ Set-Cookie: some_value
+COOKIE ASK http://a.b1.c/ Set-Cookie: some_other_value; expires=%NEXTYEAR%
+# This doesn't work with old-style netscape cookies, it should work with RFC2965 cookies
+COOKIE ASK http://a.b2.c/ Set-Cookie: some_value="quoted value; and such"; expires=%NEXTYEAR%
+# IE & Netscape does this:
+## Check if deleting cookies works
+COOKIE ASK http://w.y3.z/ Set-Cookie: some_value=value1; Path="/"; expires=%NEXTYEAR%
+COOKIE ASK http://w.y3.z/ Set-Cookie: some_value=value1; Path="/"; expires=%LASTYEAR%
+## Check if updating cookies works
+COOKIE ASK http://w.y3.z/ Set-Cookie: some_value=value2; Path="/"; expires=%NEXTYEAR%
+COOKIE ASK http://w.y3.z/ Set-Cookie: some_value=value3; Path="/"; expires=%NEXTYEAR%
+## Check if multiple cookies work
+COOKIE ASK http://w.y3.z/ Set-Cookie: some_value2=foobar; Path="/"; expires=%NEXTYEAR%
+COOKIE ASK http://w.y3.z/ Set-Cookie: some_value=; Path="/"; expires=%LASTYEAR%
+## Check if path restrictions work
+COOKIE ASK http://w.y4.z/ Set-Cookie: some_value=value1; Path="/Foo"; expires=%NEXTYEAR%
+## Check if default path works
+COOKIE ASK http://w.y5.z/Foo/ Set-Cookie: some_value=value1; expires=%NEXTYEAR%
+## Check if cookies are correctly ordered based on path
+COOKIE ASK http://w.y6.z/ Set-Cookie: some_value=value1; Path="/Foo"; expires=%NEXTYEAR%
+COOKIE ASK http://w.y6.z/ Set-Cookie: some_value2=value2; Path="/Foo/Bar"; expires=%NEXTYEAR%
+COOKIE ASK http://w.y6.z/ Set-Cookie: some_value3=value3; Path="/"; expires=%NEXTYEAR%
+## Check cookies with same name but different paths
+COOKIE ASK http://w.y7.z/Foo/ Set-Cookie: some_value=value1; expires=%NEXTYEAR%
+COOKIE ASK http://w.y7.z/Bar/ Set-Cookie: some_value=value2; expires=%NEXTYEAR%
+COOKIE ASK http://w.y7.z/ Set-Cookie: some_value=value3; expires=%NEXTYEAR%
+## Check secure cookie handling
+COOKIE ASK https://secure.y7.z/ Set-Cookie: some_value2=value2; Path="/"; expires=%NEXTYEAR%; secure
+COOKIE ASK http://secure.y8.z/ Set-Cookie: some_value3=value3; Path="/"; expires=%NEXTYEAR%; secure
+## Check domain restrictions #1
+COOKIE ASK http://www.acme9.com/ Set-Cookie: some_value=value1; Domain=".acme9.com"; expires=%NEXTYEAR%
+## Check domain restrictions #2
+COOKIE ASK http://novell10.com/ Set-Cookie: some_value=value1; Domain=".novell10.com"; expires=%NEXTYEAR%
+COOKIE ASK http://novell11.com/ Set-Cookie: some_value=value1; Domain="novell11.com"; expires=%NEXTYEAR%
+## Check domain restrictions #3
+COOKIE ASK http://novell12.com/ Set-Cookie: some_value=value1; expires=%NEXTYEAR%
+## Check domain restrictions #4
+COOKIE ASK http://novell13.com/ Set-Cookie: some_value=value1; Domain=".com"; expires=%NEXTYEAR%
+# If the specified domain is too broad, we default to host only
+## Check domain restrictions #5
+COOKIE ASK http://novell14.co.uk/ Set-Cookie: some_value=value1; Domain=".co.uk"; expires=%NEXTYEAR%
+COOKIE ASK http://x.y.z.foobar14.com/ Set-Cookie: set_by=x.y.z.foobar14.com; Domain=".foobar14.com"; expires=%NEXTYEAR%
+## Check domain restrictions #6
+COOKIE ASK http://x.y.z.frop15.com/ Set-Cookie: set_by=x.y.z.frop15.com; Domain=".foobar15.com"; expires=%NEXTYEAR%
+COOKIE ASK http://x.y.z.frop15.com/ Set-Cookie: set_by2=x.y.z.frop15.com; Domain=".com"; expires=%NEXTYEAR%
+## Check domain restrictions #7
+COOKIE ASK http://frop16.com/ Set-Cookie: set_by=x.y.z.frop16.com; Domain=".foobar16.com"; expires=%NEXTYEAR%
+COOKIE ASK http://frop16.com/ Set-Cookie: set_by2=x.y.z.frop16.com; Domain=".com"; expires=%NEXTYEAR%
+## RFC Cookies
+## Check setting of cookies
+COOKIE ASK http://w.y20.z/ Set-Cookie2: some_value="value1"; Version=1; Path="/"; Max-Age=3600
+# Although the examples in RFC2965 uses $Version="1" the syntax description suggests that
+# such quotes are not allowed, KDE BR59990 reports that the Sun Java server fails to handle
+# cookies that use $Version="1"
+COOKIE ASK http://a.b20.c/ Set-Cookie2: some_value="value2"; Version=1; Path="/"; Max-Age=3600
+## Check cookie syntax
+COOKIE ASK http://w.y21.z/ Set-Cookie2: some_value="value with spaces"; Version=1; Max-Age=3600
+COOKIE ASK http://w.y21.z/ Set-Cookie2: some_value ="extra space 1"; Version=1; Max-Age=3600
+COOKIE ASK http://w.y21.z/ Set-Cookie2: some_value= "extra space 2"; Version=1; Max-Age=3600
+COOKIE ASK http://a.b21.c/ Set-Cookie2: some_value=unquoted; Version=1; Max-Age=3600
+# Note that we parse this different for Netscape-style cookies!
+COOKIE ASK http://a.b21.c/ Set-Cookie2: some_value="quoted value; and such"; Version=1; Max-Age=3600
+## Check if deleting cookies works #1
+COOKIE ASK http://w.y22.z/ Set-Cookie2: some_value="value1"; Version=1; Path="/"; Max-Age=3600
+COOKIE ASK http://w.y22.z/ Set-Cookie2: some_value=value1; Version=1; Path="/"; Max-Age=0
+## Check if updating cookies works
+COOKIE ASK http://w.y22.z/ Set-Cookie2: some_value=value2; Version=1; Path="/"; Max-Age=3600
+COOKIE ASK http://w.y22.z/ Set-Cookie2: some_value=value3; Version=1; Path="/"; Max-Age=3600
+## Check if multiple cookies work
+COOKIE ASK http://w.y22.z/ Set-Cookie2: some_value2=foobar; Version=1; Path="/"; Max-Age=3600
+COOKIE ASK http://w.y22.z/ Set-Cookie2: some_value=; Version=1; Path="/"; Max-Age=0
+## Check if path restrictions work
+COOKIE ASK http://w.y23.z/ Set-Cookie2: some_value=value1; Version=1; Path="/Foo"; Max-Age=3600
+## Check if default path works
+# RFC2965 says that we should default to the URL path
+COOKIE ASK http://w.y24.z/Foo/ Set-Cookie2: some_value=value1; Version=1; Max-Age=3600
+## Check if cookies are correctly ordered based on path
+COOKIE ASK http://w.y25.z/ Set-Cookie2: some_value=value1; Version=1; Path="/Foo"; Max-Age=3600
+COOKIE ASK http://w.y25.z/ Set-Cookie2: some_value2=value2; Version=1; Path="/Foo/Bar"; Max-Age=3600
+COOKIE ASK http://w.y25.z/ Set-Cookie2: some_value3=value3; Version=1; Path="/"; Max-Age=3600
+## Check cookies with same name but different paths
+COOKIE ASK http://w.y26.z/Foo/ Set-Cookie2: some_value=value1; Version=1; Max-Age=3600
+COOKIE ASK http://w.y26.z/Bar/ Set-Cookie2: some_value=value2; Version=1; Max-Age=3600
+COOKIE ASK http://w.y26.z/ Set-Cookie2: some_value=value3; Version=1; Max-Age=3600
+## Check secure cookie handling
+COOKIE ASK https://secure.y26.z/ Set-Cookie2: some_value2=value2; Version=1; Path="/"; Max-Age=3600; Secure
+COOKIE ASK http://secure.y27.z/ Set-Cookie2: some_value3=value3; Version=1; Path="/"; Max-Age=3600; Secure
+## Check domain restrictions #1
+COOKIE ASK http://www.acme28.com/ Set-Cookie2: some_value=value1; Version=1; Domain=".acme28.com"; Max-Age=3600
+## Check domain restrictions #2
+COOKIE ASK http://novell29.com/ Set-Cookie2: some_value=value1; Version=1; Domain=".novell29.com"; Max-Age=3600
+## Check domain restrictions #3
+COOKIE ASK http://novell30.com/ Set-Cookie2: some_value=value1; Version=1; Max-Age=3600
+## Check domain restrictions #4
+COOKIE ASK http://novell31.com/ Set-Cookie2: some_value=value1; Version=1; Domain=".com"; Max-Age=3600
+# If the specified domain is too broad, we ignore the Domain
+# FIXME: RFC2965 says we should ignore the cookie completely
+## Check domain restrictions #5
+COOKIE ASK http://novell32.co.uk/ Set-Cookie2: some_value=value1; Version=1; Domain=".co.uk"; Max-Age=3600
+# If the specified domain is too broad, we default to host only
+# FIXME: RFC2965 says we should ignore the cookie completely
+COOKIE ASK http://x.y.z.foobar33.com/ Set-Cookie2: set_by=x.y.z.foobar.com; Version=1; Domain=".foobar33.com"; Max-Age=3600
+## Check domain restrictions #6
+COOKIE ASK http://x.y.z.frop34.com/ Set-Cookie2: set_by=x.y.z.frop.com; Version=1; Domain=".foobar.com"; Max-Age=3600
+COOKIE ASK http://x.y.z.frop34.com/ Set-Cookie2: set_by2=x.y.z.frop.com; Version=1; Domain=".com"; Max-Age=3600
+## Check domain restrictions #7
+COOKIE ASK http://frop35.com/ Set-Cookie2: set_by=x.y.z.frop.com; Version=1; Domain=".foobar.com"; Max-Age=3600
+COOKIE ASK http://frop35.com/ Set-Cookie2: set_by2=x.y.z.frop.com; Version=1; Domain=".com"; Max-Age=3600
+## Check port restrictions (RFC2965 3.3.4)
+COOKIE ASK http://ports.foo.bar.com Set-Cookie2: name=value1; Version=1; Port="80 8080 443"; Max-Age=3600
+
+## Check results
+CHECK http://w.y.z/
+CHECK http://a.b.c/
+CHECK http://w.y1.z/ Cookie: some_value=value with spaces
+CHECK http://a.b1.c/ Cookie: some_value="quoted value"; some_other_value
+CHECK http://a.b2.c/ Cookie: some_value="quoted value
+CHECK http://w.y3.z/ Cookie: some_value2=foobar
+CHECK http://w.y4.z/
+CHECK http://w.y4.z/Foo Cookie: some_value=value1
+CHECK http://w.y4.z/Foo/ Cookie: some_value=value1
+CHECK http://w.y4.z/Foo/bar Cookie: some_value=value1
+CHECK http://w.y5.z/
+CHECK http://w.y5.z/Foo Cookie: some_value=value1
+CHECK http://w.y5.z/FooBar
+CHECK http://w.y5.z/Foo/ Cookie: some_value=value1
+CHECK http://w.y5.z/Foo/bar Cookie: some_value=value1
+CHECK http://w.y6.z/Foo/Bar Cookie: some_value2=value2; some_value=value1; some_value3=value3
+CHECK http://w.y7.z/Bar/Foo Cookie: some_value=value2; some_value=value3
+CHECK http://w.y7.z/Foo/Bar Cookie: some_value=value1; some_value=value3
+CHECK https://secure.y7.z/Foo/bar Cookie: some_value2=value2
+CHECK http://secure.y7.z/Foo/bar
+CHECK https://secure.y8.z/Foo/bar Cookie: some_value3=value3
+CHECK http://secure.y8.z/Foo/bar
+CHECK http://www.acme9.com/ Cookie: some_value=value1
+CHECK http://www.abc9.com/
+CHECK http://frop.acme9.com/ Cookie: some_value=value1
+CHECK http://novell10.com/ Cookie: some_value=value1
+CHECK http://www.novell10.com/ Cookie: some_value=value1
+CHECK http://novell11.com/ Cookie: some_value=value1
+CHECK http://www.novell11.com/ Cookie: some_value=value1
+CHECK http://novell12.com/ Cookie: some_value=value1
+CHECK http://www.novell12.com/
+CHECK http://novell13.com/ Cookie: some_value=value1
+CHECK http://www.novell13.com/
+CHECK http://com/
+CHECK http://sun13.com/
+CHECK http://novell14.co.uk/ Cookie: some_value=value1
+CHECK http://www.novell14.co.uk/
+CHECK http://co.uk/
+CHECK http://sun14.co.uk/
+CHECK http://x.y.z.foobar14.com/ Cookie: set_by=x.y.z.foobar14.com
+CHECK http://y.z.foobar14.com/ Cookie: set_by=x.y.z.foobar14.com
+CHECK http://z.foobar14.com/ Cookie: set_by=x.y.z.foobar14.com
+CHECK http://www.foobar14.com/ Cookie: set_by=x.y.z.foobar14.com
+CHECK http://foobar14.com/ Cookie: set_by=x.y.z.foobar14.com
+CHECK http://x.y.z.foobar15.com/
+CHECK http://y.z.foobar15.com/
+CHECK http://z.foobar15.com/
+CHECK http://www.foobar15.com/
+CHECK http://foobar15.com/
+CHECK http://x.y.z.foobar16.com/
+CHECK http://y.z.foobar16.com/
+CHECK http://z.foobar16.com/
+CHECK http://www.foobar16.com/
+CHECK http://foobar16.com/
+## Check results for RFC cookies
+CHECK http://w.y20.z/ Cookie: $Version=1; some_value="value1"; $Path="/"
+CHECK http://a.b20.c/ Cookie: $Version=1; some_value="value2"; $Path="/"
+CHECK http://w.y21.z/ Cookie: $Version=1; some_value="extra space 2"
+CHECK http://a.b21.c/ Cookie: $Version=1; some_value="quoted value; and such"
+CHECK http://w.y22.z/ Cookie: $Version=1; some_value2=foobar; $Path="/"
+CHECK http://w.y23.z/
+CHECK http://w.y23.z/Foo Cookie: $Version=1; some_value=value1; $Path="/Foo"
+CHECK http://w.y23.z/Foo/ Cookie: $Version=1; some_value=value1; $Path="/Foo"
+CHECK http://w.y23.z/Foo/bar Cookie: $Version=1; some_value=value1; $Path="/Foo"
+CHECK http://w.y24.z/
+CHECK http://w.y24.z/Foo Cookie: $Version=1; some_value=value1
+CHECK http://w.y24.z/FooBar
+CHECK http://w.y24.z/Foo/ Cookie: $Version=1; some_value=value1
+CHECK http://w.y24.z/Foo/bar Cookie: $Version=1; some_value=value1
+CHECK http://w.y25.z/Foo/Bar Cookie: $Version=1; some_value2=value2; $Path="/Foo/Bar"; some_value=value1; $Path="/Foo"; some_value3=value3; $Path="/"
+CHECK http://w.y26.z/Bar/Foo Cookie: $Version=1; some_value=value2; some_value=value3
+CHECK http://w.y26.z/Foo/Bar Cookie: $Version=1; some_value=value1; some_value=value3
+CHECK https://secure.y26.z/Foo/bar Cookie: $Version=1; some_value2=value2; $Path="/"
+CHECK http://secure.y26.z/Foo/bar
+CHECK https://secure.y27.z/Foo/bar Cookie: $Version=1; some_value3=value3; $Path="/"
+CHECK http://secure.y27.z/Foo/bar
+CHECK http://www.acme28.com/ Cookie: $Version=1; some_value=value1; $Domain=".acme28.com"
+CHECK http://www.abc28.com/
+CHECK http://frop.acme28.com/ Cookie: $Version=1; some_value=value1; $Domain=".acme28.com"
+CHECK http://novell29.com/ Cookie: $Version=1; some_value=value1; $Domain=".novell29.com"
+CHECK http://www.novell29.com/ Cookie: $Version=1; some_value=value1; $Domain=".novell29.com"
+CHECK http://novell30.com/ Cookie: $Version=1; some_value=value1
+CHECK http://www.novell30.com/
+CHECK http://novell31.com/ Cookie: $Version=1; some_value=value1
+CHECK http://www.novell31.com/
+CHECK http://com/
+CHECK http://sun31.com/
+CHECK http://novell32.co.uk/ Cookie: $Version=1; some_value=value1
+CHECK http://www.novell32.co.uk/
+CHECK http://co.uk/
+CHECK http://sun32.co.uk/
+CHECK http://x.y.z.foobar33.com/ Cookie: $Version=1; set_by=x.y.z.foobar.com; $Domain=".foobar33.com"
+CHECK http://y.z.foobar33.com/ Cookie: $Version=1; set_by=x.y.z.foobar.com; $Domain=".foobar33.com"
+CHECK http://z.foobar33.com/ Cookie: $Version=1; set_by=x.y.z.foobar.com; $Domain=".foobar33.com"
+CHECK http://www.foobar33.com/ Cookie: $Version=1; set_by=x.y.z.foobar.com; $Domain=".foobar33.com"
+CHECK http://foobar33.com/ Cookie: $Version=1; set_by=x.y.z.foobar.com; $Domain=".foobar33.com"
+CHECK http://x.y.z.foobar.com/
+CHECK http://y.z.foobar.com/
+CHECK http://z.foobar.com/
+CHECK http://www.foobar.com/
+CHECK http://foobar.com/
+CHECK http://ports.foo.bar.com Cookie: $Version=1; name=value1; $Port="80 8080 443"
+
+SAVE
+## Check result after saving
+CHECK http://w.y.z/
+CHECK http://a.b.c/
+CHECK http://w.y1.z/ Cookie: some_value=value with spaces
+CHECK http://a.b1.c/ Cookie: some_value="quoted value"; some_other_value
+CHECK http://a.b2.c/ Cookie: some_value="quoted value
+CHECK http://w.y3.z/ Cookie: some_value2=foobar
+CHECK http://w.y4.z/
+CHECK http://w.y4.z/Foo Cookie: some_value=value1
+CHECK http://w.y4.z/Foo/ Cookie: some_value=value1
+CHECK http://w.y4.z/Foo/bar Cookie: some_value=value1
+CHECK http://w.y5.z/
+CHECK http://w.y5.z/Foo Cookie: some_value=value1
+CHECK http://w.y5.z/FooBar
+CHECK http://w.y5.z/Foo/ Cookie: some_value=value1
+CHECK http://w.y5.z/Foo/bar Cookie: some_value=value1
+CHECK http://w.y6.z/Foo/Bar Cookie: some_value2=value2; some_value=value1; some_value3=value3
+CHECK http://w.y7.z/Bar/Foo Cookie: some_value=value2; some_value=value3
+CHECK http://w.y7.z/Foo/Bar Cookie: some_value=value1; some_value=value3
+CHECK https://secure.y7.z/Foo/bar Cookie: some_value2=value2
+CHECK http://secure.y7.z/Foo/bar
+CHECK https://secure.y8.z/Foo/bar Cookie: some_value3=value3
+CHECK http://secure.y8.z/Foo/bar
+CHECK http://www.acme9.com/ Cookie: some_value=value1
+CHECK http://www.abc9.com/
+CHECK http://frop.acme9.com/ Cookie: some_value=value1
+CHECK http://novell10.com/ Cookie: some_value=value1
+CHECK http://www.novell10.com/ Cookie: some_value=value1
+CHECK http://novell11.com/ Cookie: some_value=value1
+CHECK http://www.novell11.com/ Cookie: some_value=value1
+CHECK http://novell12.com/ Cookie: some_value=value1
+CHECK http://www.novell12.com/
+CHECK http://novell13.com/ Cookie: some_value=value1
+CHECK http://www.novell13.com/
+CHECK http://com/
+CHECK http://sun13.com/
+CHECK http://novell14.co.uk/ Cookie: some_value=value1
+CHECK http://www.novell14.co.uk/
+CHECK http://co.uk/
+CHECK http://sun14.co.uk/
+CHECK http://x.y.z.foobar14.com/ Cookie: set_by=x.y.z.foobar14.com
+CHECK http://y.z.foobar14.com/ Cookie: set_by=x.y.z.foobar14.com
+CHECK http://z.foobar14.com/ Cookie: set_by=x.y.z.foobar14.com
+CHECK http://www.foobar14.com/ Cookie: set_by=x.y.z.foobar14.com
+CHECK http://foobar14.com/ Cookie: set_by=x.y.z.foobar14.com
+CHECK http://x.y.z.foobar15.com/
+CHECK http://y.z.foobar15.com/
+CHECK http://z.foobar15.com/
+CHECK http://www.foobar15.com/
+CHECK http://foobar15.com/
+CHECK http://x.y.z.foobar16.com/
+CHECK http://y.z.foobar16.com/
+CHECK http://z.foobar16.com/
+CHECK http://www.foobar16.com/
+CHECK http://foobar16.com/
+## Check result for RFC cookies after saving
+CHECK http://w.y20.z/ Cookie: $Version=1; some_value="value1"; $Path="/"
+CHECK http://a.b20.c/ Cookie: $Version=1; some_value="value2"; $Path="/"
+CHECK http://w.y21.z/ Cookie: $Version=1; some_value="extra space 2"
+CHECK http://a.b21.c/ Cookie: $Version=1; some_value="quoted value; and such"
+CHECK http://w.y22.z/ Cookie: $Version=1; some_value2=foobar; $Path="/"
+CHECK http://w.y23.z/
+CHECK http://w.y23.z/Foo Cookie: $Version=1; some_value=value1; $Path="/Foo"
+CHECK http://w.y23.z/Foo/ Cookie: $Version=1; some_value=value1; $Path="/Foo"
+CHECK http://w.y23.z/Foo/bar Cookie: $Version=1; some_value=value1; $Path="/Foo"
+CHECK http://w.y24.z/
+CHECK http://w.y24.z/Foo Cookie: $Version=1; some_value=value1
+CHECK http://w.y24.z/FooBar
+CHECK http://w.y24.z/Foo/ Cookie: $Version=1; some_value=value1
+CHECK http://w.y24.z/Foo/bar Cookie: $Version=1; some_value=value1
+CHECK http://w.y25.z/Foo/Bar Cookie: $Version=1; some_value2=value2; $Path="/Foo/Bar"; some_value=value1; $Path="/Foo"; some_value3=value3; $Path="/"
+CHECK http://w.y26.z/Bar/Foo Cookie: $Version=1; some_value=value2; some_value=value3
+CHECK http://w.y26.z/Foo/Bar Cookie: $Version=1; some_value=value1; some_value=value3
+CHECK https://secure.y26.z/Foo/bar Cookie: $Version=1; some_value2=value2; $Path="/"
+CHECK http://secure.y26.z/Foo/bar
+CHECK https://secure.y27.z/Foo/bar Cookie: $Version=1; some_value3=value3; $Path="/"
+CHECK http://secure.y27.z/Foo/bar
+CHECK http://www.acme28.com/ Cookie: $Version=1; some_value=value1; $Domain=".acme28.com"
+CHECK http://www.abc28.com/
+CHECK http://frop.acme28.com/ Cookie: $Version=1; some_value=value1; $Domain=".acme28.com"
+CHECK http://novell29.com/ Cookie: $Version=1; some_value=value1; $Domain=".novell29.com"
+CHECK http://www.novell29.com/ Cookie: $Version=1; some_value=value1; $Domain=".novell29.com"
+CHECK http://novell30.com/ Cookie: $Version=1; some_value=value1
+CHECK http://www.novell30.com/
+CHECK http://novell31.com/ Cookie: $Version=1; some_value=value1
+CHECK http://www.novell31.com/
+CHECK http://com/
+CHECK http://sun31.com/
+CHECK http://novell32.co.uk/ Cookie: $Version=1; some_value=value1
+CHECK http://www.novell32.co.uk/
+CHECK http://co.uk/
+CHECK http://sun32.co.uk/
+CHECK http://x.y.z.foobar33.com/ Cookie: $Version=1; set_by=x.y.z.foobar.com; $Domain=".foobar33.com"
+CHECK http://y.z.foobar33.com/ Cookie: $Version=1; set_by=x.y.z.foobar.com; $Domain=".foobar33.com"
+CHECK http://z.foobar33.com/ Cookie: $Version=1; set_by=x.y.z.foobar.com; $Domain=".foobar33.com"
+CHECK http://www.foobar33.com/ Cookie: $Version=1; set_by=x.y.z.foobar.com; $Domain=".foobar33.com"
+CHECK http://foobar33.com/ Cookie: $Version=1; set_by=x.y.z.foobar.com; $Domain=".foobar33.com"
+CHECK http://x.y.z.foobar.com/
+CHECK http://y.z.foobar.com/
+CHECK http://z.foobar.com/
+CHECK http://www.foobar.com/
+CHECK http://foobar.com/
+CHECK http://ports.foo.bar.com Cookie: $Version=1; name=value1; $Port="80 8080 443"
+
+SAVE
+## Check result after saving a second time
+CHECK http://w.y.z/
+CHECK http://a.b.c/
+CHECK http://w.y1.z/ Cookie: some_value=value with spaces
+CHECK http://a.b1.c/ Cookie: some_value="quoted value"; some_other_value
+CHECK http://a.b2.c/ Cookie: some_value="quoted value
+CHECK http://w.y3.z/ Cookie: some_value2=foobar
+CHECK http://w.y4.z/
+CHECK http://w.y4.z/Foo Cookie: some_value=value1
+CHECK http://w.y4.z/Foo/ Cookie: some_value=value1
+CHECK http://w.y4.z/Foo/bar Cookie: some_value=value1
+CHECK http://w.y5.z/
+CHECK http://w.y5.z/Foo Cookie: some_value=value1
+CHECK http://w.y5.z/FooBar
+CHECK http://w.y5.z/Foo/ Cookie: some_value=value1
+CHECK http://w.y5.z/Foo/bar Cookie: some_value=value1
+CHECK http://w.y6.z/Foo/Bar Cookie: some_value2=value2; some_value=value1; some_value3=value3
+CHECK http://w.y7.z/Bar/Foo Cookie: some_value=value2; some_value=value3
+CHECK http://w.y7.z/Foo/Bar Cookie: some_value=value1; some_value=value3
+CHECK https://secure.y7.z/Foo/bar Cookie: some_value2=value2
+CHECK http://secure.y7.z/Foo/bar
+CHECK https://secure.y8.z/Foo/bar Cookie: some_value3=value3
+CHECK http://secure.y8.z/Foo/bar
+CHECK http://www.acme9.com/ Cookie: some_value=value1
+CHECK http://www.abc9.com/
+CHECK http://frop.acme9.com/ Cookie: some_value=value1
+CHECK http://novell10.com/ Cookie: some_value=value1
+CHECK http://www.novell10.com/ Cookie: some_value=value1
+CHECK http://novell11.com/ Cookie: some_value=value1
+CHECK http://www.novell11.com/ Cookie: some_value=value1
+CHECK http://novell12.com/ Cookie: some_value=value1
+CHECK http://www.novell12.com/
+CHECK http://novell13.com/ Cookie: some_value=value1
+CHECK http://www.novell13.com/
+CHECK http://com/
+CHECK http://sun13.com/
+CHECK http://novell14.co.uk/ Cookie: some_value=value1
+CHECK http://www.novell14.co.uk/
+CHECK http://co.uk/
+CHECK http://sun14.co.uk/
+CHECK http://x.y.z.foobar14.com/ Cookie: set_by=x.y.z.foobar14.com
+CHECK http://y.z.foobar14.com/ Cookie: set_by=x.y.z.foobar14.com
+CHECK http://z.foobar14.com/ Cookie: set_by=x.y.z.foobar14.com
+CHECK http://www.foobar14.com/ Cookie: set_by=x.y.z.foobar14.com
+CHECK http://foobar14.com/ Cookie: set_by=x.y.z.foobar14.com
+CHECK http://x.y.z.foobar15.com/
+CHECK http://y.z.foobar15.com/
+CHECK http://z.foobar15.com/
+CHECK http://www.foobar15.com/
+CHECK http://foobar15.com/
+CHECK http://x.y.z.foobar16.com/
+CHECK http://y.z.foobar16.com/
+CHECK http://z.foobar16.com/
+CHECK http://www.foobar16.com/
+CHECK http://foobar16.com/
+## Check result for rfc cookies after saving a second time
+CHECK http://w.y20.z/ Cookie: $Version=1; some_value="value1"; $Path="/"
+CHECK http://a.b20.c/ Cookie: $Version=1; some_value="value2"; $Path="/"
+CHECK http://w.y21.z/ Cookie: $Version=1; some_value="extra space 2"
+CHECK http://a.b21.c/ Cookie: $Version=1; some_value="quoted value; and such"
+CHECK http://w.y22.z/ Cookie: $Version=1; some_value2=foobar; $Path="/"
+CHECK http://w.y23.z/
+CHECK http://w.y23.z/Foo Cookie: $Version=1; some_value=value1; $Path="/Foo"
+CHECK http://w.y23.z/Foo/ Cookie: $Version=1; some_value=value1; $Path="/Foo"
+CHECK http://w.y23.z/Foo/bar Cookie: $Version=1; some_value=value1; $Path="/Foo"
+CHECK http://w.y24.z/
+CHECK http://w.y24.z/Foo Cookie: $Version=1; some_value=value1
+CHECK http://w.y24.z/FooBar
+CHECK http://w.y24.z/Foo/ Cookie: $Version=1; some_value=value1
+CHECK http://w.y24.z/Foo/bar Cookie: $Version=1; some_value=value1
+CHECK http://w.y25.z/Foo/Bar Cookie: $Version=1; some_value2=value2; $Path="/Foo/Bar"; some_value=value1; $Path="/Foo"; some_value3=value3; $Path="/"
+CHECK http://w.y26.z/Bar/Foo Cookie: $Version=1; some_value=value2; some_value=value3
+CHECK http://w.y26.z/Foo/Bar Cookie: $Version=1; some_value=value1; some_value=value3
+CHECK https://secure.y26.z/Foo/bar Cookie: $Version=1; some_value2=value2; $Path="/"
+CHECK http://secure.y26.z/Foo/bar
+CHECK https://secure.y27.z/Foo/bar Cookie: $Version=1; some_value3=value3; $Path="/"
+CHECK http://secure.y27.z/Foo/bar
+CHECK http://www.acme28.com/ Cookie: $Version=1; some_value=value1; $Domain=".acme28.com"
+CHECK http://www.abc28.com/
+CHECK http://frop.acme28.com/ Cookie: $Version=1; some_value=value1; $Domain=".acme28.com"
+CHECK http://novell29.com/ Cookie: $Version=1; some_value=value1; $Domain=".novell29.com"
+CHECK http://www.novell29.com/ Cookie: $Version=1; some_value=value1; $Domain=".novell29.com"
+CHECK http://novell30.com/ Cookie: $Version=1; some_value=value1
+CHECK http://www.novell30.com/
+CHECK http://novell31.com/ Cookie: $Version=1; some_value=value1
+CHECK http://www.novell31.com/
+CHECK http://com/
+CHECK http://sun31.com/
+CHECK http://novell32.co.uk/ Cookie: $Version=1; some_value=value1
+CHECK http://www.novell32.co.uk/
+CHECK http://co.uk/
+CHECK http://sun32.co.uk/
+CHECK http://x.y.z.foobar33.com/ Cookie: $Version=1; set_by=x.y.z.foobar.com; $Domain=".foobar33.com"
+CHECK http://y.z.foobar33.com/ Cookie: $Version=1; set_by=x.y.z.foobar.com; $Domain=".foobar33.com"
+CHECK http://z.foobar33.com/ Cookie: $Version=1; set_by=x.y.z.foobar.com; $Domain=".foobar33.com"
+CHECK http://www.foobar33.com/ Cookie: $Version=1; set_by=x.y.z.foobar.com; $Domain=".foobar33.com"
+CHECK http://foobar33.com/ Cookie: $Version=1; set_by=x.y.z.foobar.com; $Domain=".foobar33.com"
+CHECK http://x.y.z.foobar.com/
+CHECK http://y.z.foobar.com/
+CHECK http://z.foobar.com/
+CHECK http://www.foobar.com/
+CHECK http://foobar.com/
+CHECK http://ports.foo.bar.com Cookie: $Version=1; name=value1; $Port="80 8080 443"

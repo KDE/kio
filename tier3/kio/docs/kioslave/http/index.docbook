@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN"
+"dtd/kdex.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % English "INCLUDE" > <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="http">
+<title>http / https</title>
+<articleinfo>
+<authorgroup>
+<author>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+</articleinfo>
+
+<para><acronym>http</acronym> is the
+<emphasis>H</emphasis>yper<emphasis>T</emphasis>ext
+<emphasis>T</emphasis>ransfer <emphasis>P</emphasis>rotocol.</para>
+
+<para>The http kioslave is used by all &kde; applications to handle
+connections to http servers, that is, web servers.  The most common
+usage is to view web pages in the &konqueror; web browser.</para>
+
+<para>You can use the http kioslave in &konqueror; by giving it a
+<acronym>URL</acronym>.  
+<userinput>http://<replaceable>www.kde.org</replaceable></userinput>.</para>
+
+<para>https is http encapsulated in a SSL/TLS stream.</para>
+<para>
+SSL is the  Secure Sockets Layer  protocol, a security protocol that provides communications privacy over the Internet. The protocol allows client/server applications to communicate in a way that is designed to prevent eavesdropping, tampering, or message forgery. 
+</para>
+<para>TLS stands for Transport Layer Security.</para>
+
+</article>

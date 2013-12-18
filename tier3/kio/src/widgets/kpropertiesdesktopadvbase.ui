@@ -1,0 +1,297 @@
+<ui version="4.0" >
+ <class>KPropertiesDesktopAdvBase</class>
+ <widget class="QWidget" name="KPropertiesDesktopAdvBase" >
+  <layout class="QVBoxLayout" >
+   <property name="margin" >
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QGroupBox" name="buttonGroup2" >
+     <property name="title" >
+      <string comment="@title:group Title of a group that lets the user choose options about the terminal when launching a program" >Terminal</string>
+     </property>
+     <layout class="QGridLayout" >
+      <item rowspan="2" row="1" column="0" >
+       <spacer>
+        <property name="orientation" >
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType" >
+         <enum>QSizePolicy::Minimum</enum>
+        </property>
+        <property name="sizeHint" stdset="0" >
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="0" colspan="3" >
+       <widget class="QCheckBox" name="terminalCheck" >
+        <property name="whatsThis" >
+         <string>Check this option if the application you want to run is a text mode application or if you want the information that is provided by the terminal emulator window.</string>
+        </property>
+        <property name="text" >
+         <string>&amp;Run in terminal</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1" >
+       <widget class="QLabel" name="terminalEditLabel" >
+        <property name="text" >
+         <string>&amp;Terminal options:</string>
+        </property>
+        <property name="buddy" >
+         <cstring>terminalEdit</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1" colspan="2" >
+       <widget class="QCheckBox" name="terminalCloseCheck" >
+        <property name="whatsThis" >
+         <string>Check this option if the text mode application offers relevant information on exit. Keeping the terminal emulator open allows you to retrieve this information.</string>
+        </property>
+        <property name="text" >
+         <string>Do not &amp;close when command exits</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2" >
+       <widget class="KLineEdit" name="terminalEdit" />
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="buttonGroup2_2" >
+     <property name="title" >
+      <string comment="@title:group Title of a group that lets the user choose which user to use when launching a program" >User</string>
+     </property>
+     <layout class="QGridLayout" >
+      <item row="0" column="0" colspan="3" >
+       <widget class="QCheckBox" name="suidCheck" >
+        <property name="whatsThis" >
+         <string>Check this option if you want to run this application with a different user id. Every process has a different user id associated with it. This id code determines file access and other permissions. The password of the user is required to use this option.</string>
+        </property>
+        <property name="text" >
+         <string>Ru&amp;n as a different user</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" >
+       <spacer>
+        <property name="orientation" >
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType" >
+         <enum>QSizePolicy::Minimum</enum>
+        </property>
+        <property name="sizeHint" stdset="0" >
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="1" >
+       <widget class="QLabel" name="suidEditLabel" >
+        <property name="whatsThis" >
+         <string>Enter the user name you want to run the application as.</string>
+        </property>
+        <property name="text" >
+         <string>&amp;Username:</string>
+        </property>
+        <property name="buddy" >
+         <cstring>suidEdit</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2" >
+       <widget class="KLineEdit" name="suidEdit" >
+        <property name="whatsThis" >
+         <string>Enter the user name you want to run the application as here.</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="buttonGroup4" >
+     <property name="title" >
+      <string comment="@title:group Title of a group that lets the user choose options regargin program startup" >Startup</string>
+     </property>
+     <layout class="QGridLayout" >
+      <item row="0" column="0" colspan="3" >
+       <widget class="QCheckBox" name="startupInfoCheck" >
+        <property name="whatsThis" >
+         <string>Check this option if you want to make clear that your application has started. This visual feedback may appear as a busy cursor or in the taskbar.</string>
+        </property>
+        <property name="text" >
+         <string>Enable &amp;launch feedback</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="3" >
+       <widget class="QCheckBox" name="systrayCheck" >
+        <property name="whatsThis" >
+         <string>Check this option if you want to have a system tray handle for your application.</string>
+        </property>
+        <property name="text" >
+         <string>&amp;Place in system tray</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" >
+       <widget class="QLabel" name="textLabel12" >
+        <property name="text" >
+         <string>&amp;D-Bus registration:</string>
+        </property>
+        <property name="buddy" >
+         <cstring>dbusCombo</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1" >
+       <widget class="KComboBox" name="dbusCombo" >
+        <item>
+         <property name="text" >
+          <string>None</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>Multiple Instances</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>Single Instance</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>Run Until Finished</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="2" column="2" >
+       <spacer>
+        <property name="orientation" >
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType" >
+         <enum>QSizePolicy::Expanding</enum>
+        </property>
+        <property name="sizeHint" stdset="0" >
+         <size>
+          <width>50</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>klineedit.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>terminalCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>terminalCloseCheck</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>47</x>
+     <y>66</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>56</x>
+     <y>98</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>terminalCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>terminalEdit</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>197</x>
+     <y>66</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>373</x>
+     <y>136</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>terminalCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>terminalEditLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>115</x>
+     <y>48</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>115</x>
+     <y>125</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>suidCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>suidEdit</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>27</x>
+     <y>232</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>122</x>
+     <y>278</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>suidCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>suidEditLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>92</x>
+     <y>234</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>78</x>
+     <y>278</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

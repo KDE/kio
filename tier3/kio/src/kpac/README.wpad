@@ -1,0 +1,73 @@
+Web Proxy Auto Discovery (WPAD)
+===============================
+
+This README is intended for network administrators who want to enable the
+users on their network to fully automatically find the proxy settings.
+
+Automatic proxy discovery works in two steps:
+1) Find a configuration script
+2) Determine a proxy to use by running that script
+
+The configuration script is a "PAC" (JavaScript) file just as in plain Proxy
+Auto Configuration as described here:
+http://home.netscape.com/eng/mozilla/2.0/relnotes/demo/proxy-live.html
+
+The WPAD part of the process (#1 above) described here is about how to find
+this script without having the users enter its URL into the proxy settings.
+(All they have to do in a WPAD-enabled network is to select "Automatically
+detected script file" in KDE's proxy setup.
+
+There are two alternative ways to discover the PAC script's URL implemented
+in KDE:
+
+1. DHCP based autodiscovery
+
+	If you are running a DHCP server on your network anyway, you might
+	want to use this approach; all you have to do is to add the WPAD
+	option (numeric 252 or hex fc) as a string containing the URL to the
+	PAC script.
+
+	To do so with older versions of ISC dhcpd, add this to
+	/etc/dhcpd.conf, either globally or just for the subnets you want to
+	enable WPAD for:
+
+	option option-252 "http://example.com/path/to/proxyconfig.pac";
+
+	Or, for newer ISC dhcpd versions, add this globally:
+
+	option wpad code 252 = text;
+
+	and this either globally or for the WPAD subnets:
+	
+	option wpad "http://example.com/path/to/proxyconfig.pac";
+
+	For other DHCP servers, please consult the reference manual on how
+	to add an option by number if WPAD support is not built-in.
+
+2. DNS based autodiscovery
+
+	If you don't run a DHCP server or prefer DNS based discovery, you
+	need to configure one of your hosts to have the name
+	wpad.example.com and make sure the PAC script is available as
+	http://wpad.example.com/wpad.dat If your network consists of several
+	subdomains, like a.example.com and b.example.com you can either
+	provide both http://a.example.com/wpad.dat and
+	http://b.example.com/wpad.dat or just http://example.com/wpad.dat
+	When a client searches for that script, it will search for a host
+	named "wpad" in its own domain, then in the next higher level domain
+	until success or if only the TLD is left (i.e. wpad.com will never
+	be tried)
+
+Note that DHCP is the preferred approach since it's more flexible than DNS
+as it doesn't require a well known host name nor a fixed location
+(/wpad.dat) for the PAC script. It is also the first method tried before
+resorting to DNS, so if you use DNS there will be a noticeable delay of 5
+seconds while waiting for a DHCP reply.
+
+However, DHCP requires a helper program, kpac_dhcp_helper to be installed
+suid root. If you consider this a security problem, just delete that program
+or remove its suid permissions and use DNS instead. If the helper cannot
+execute as root, the 5 seconds delay will also go away.
+
+If you have further questions or comments, please contact me: Malte
+Starostik <malte@kde.org>

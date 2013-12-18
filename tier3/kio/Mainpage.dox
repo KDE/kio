@@ -1,0 +1,33 @@
+/** @mainpage KIO: Network-enabled File Management
+
+<p><b>
+Overview
+</b></p>
+
+This framework implements almost all the file management functions you
+will ever need. In fact, the %KDE file manager (Dolphin) and the KDE
+file dialog also uses this to provide its network-enabled file management.
+
+The easiest way to use this library from a %KDE application is via the
+KIO::Job subclasses. See the methods in the KIO namespace for how to create them.
+
+The KIO framework contains: KIOCore (the core file management technology),
+KIOWidgets (progress widgets and user-interaction dialogs triggered by the jobs
+in graphical programs), KIOFileWidgets (the implementation of the file dialog,
+provided also as an embeddable widget).
+
+@authors
+Various: see copyright headers in individual files
+
+@maintainers
+David Faure
+
+@licenses
+@lgpl
+
+*/
+
+// DOXYGEN_REFERENCES =
+// DOXYGEN_EXCLUDE = kssld
+// DOXYGEN_SET_PROJECT_NAME = KIO
+// vim:ts=4:sw=4:expandtab:filetype=doxygen

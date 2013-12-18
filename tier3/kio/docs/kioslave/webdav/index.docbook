@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN"
+"dtd/kdex.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % English "INCLUDE" > <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="webdav">
+<title>webdav / webdavs</title>
+<articleinfo>
+<authorgroup>
+<author>&Hamish.Rodda; &Hamish.Rodda.mail;</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+
+<date>2002-01-21</date>
+</articleinfo>
+<para><acronym>WebDAV</acronym> is a <emphasis>D</emphasis>istributed
+<emphasis>A</emphasis>uthoring and <emphasis>V</emphasis>ersioning
+protocol for the World Wide Web. It allows for easy management of
+documents and scripts on a <ulink
+url="help:/kioslave/webdav.html">http</ulink> server, and has
+additional features designed to simplify version management amongst
+multiple authors.</para>
+
+<para>Usage of this protocol is simple. Type the location you want to
+view, similar to a <acronym>http</acronym> URL except for the
+webdav:// protocol name at the start. An example is
+<userinput>webdav://<replaceable>www.hostname.com/path/</replaceable></userinput>.
+If you specify a folder name, a list of files and folders will be
+displayed, and you can manipulate these folders and files just as you
+would with any other filesystem.</para>
+
+<variablelist>
+<title>WebDAV Features</title>
+<varlistentry>
+<term>Locking</term>
+<listitem>
+<para>File locking allows users to lock a file, informing others that they 
+are
+currently working on this file. This way, editing can be done without fear 
+that
+the changes may be overwritten by another person who is also editing the 
+same
+document.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Source file access</term>
+<listitem>
+<para><acronym>WebDAV</acronym> allows access to the script which is called 
+to
+produce a specific page, so changes can be made to the script itself.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Per-document property support</term>
+<listitem>
+<para>Arbitrary properties may be set to assist identification of a 
+document,
+such as the author.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para>To take advantage of these additional capabilities, you will need an
+application which supports them. No application currently supports them 
+through
+this kioslave.</para>
+
+<para><acronym>WebDAVS</acronym> is the <acronym>WebDAV</acronym> protocol encrypted via SSL.</para>
+
+</article>

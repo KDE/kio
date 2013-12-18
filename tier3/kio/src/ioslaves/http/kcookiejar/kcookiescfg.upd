@@ -1,0 +1,5 @@
+# Update cookies config file...
+Id=kde4.10/git
+File=kcookiejarrc
+Group=Cookie Policy
+Script=kcookiescfg.pl,perl

@@ -1,0 +1,36 @@
+/** @mainpage File Selection Widgets
+
+@section purpose Purpose
+
+The KIOFileWidgets library provides the file selection dialog and its components.
+
+@section desc Description
+
+The file dialog is available to all kde applications by using the QFileDialog class.
+The KDE QPA theme plugin uses a KFileDialog automatically.
+
+The KIOFileWidgets library provides KFileWidget, which is the main widget in the file dialog, as well as
+the KDirOperator widget which contains the file views, and other components of the file dialog.
+Applications only need to link to KIOFileWidgets if they need direct access to KFileWidget
+or KDirOperator or to the other widgets used by the file dialog, either in order to
+modify the behavior of the file dialog, or to reuse its components into the application itself.
+
+@authors
+Stephan Kulow<br>
+Carsten Pfeiffer<br>
+Peter Penz<br>
+Aaron J. Seigo<br>
+and others
+
+@maintainers
+David Faure
+
+@licenses
+@lgpl
+
+
+*/
+
+// DOXYGEN_REFERENCES = KIOCore KIOWidgets
+// DOXYGEN_SET_PROJECT_NAME = KIOFileWidgets
+// vim:ts=4:sw=4:expandtab:filetype=doxygen

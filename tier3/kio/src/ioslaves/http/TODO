@@ -1,0 +1,35 @@
+The following is a list of items that are currently missing or partially implemented
+in kio_http:
+
+- HTTP/1.1 Persistant Connections:
+The header often specifies the timeout value used for connections.
+Close the connection ourselves when the timeout has expired. That way
+we don't loose time sending stuff to an already closed connection.
+
+- HTTP/1.1 Pipelining support
+This more of an optimization of the http io-slave that is intended to make it
+faster while using as few resources as possible.  Work on this is currently
+being done to add this support for KDE 3.x version.
+
+- WebDAV support:
+The majority of the work for this is done, see README.webdav. GUI integration
+into konqueror as a konqueror part would be nice, to add GUI support for
+features such as locking.
+
+- Rating(s) support.  http://www.w3.org/PICS:
+This might involve an external program to parse the labels, and something to
+configure access accordingly.  There is only some basic things that need to be
+added to kio_http to support this.  The majority of the work has to be done at the
+application level.  A khtml plugin in kdeaddons to do this might be a nice idea.
+
+- P3P support:
+This can also be implemented as a plugin to konqueror and does
+not need any speical support in HTTP except perhaps sending a
+flag that indicates that the web page provides some P3P information.
+This is something that can be added as a plugin to kdeaddons.
+
+
+Maintainers
+Waldo Bastian <bastian@kde.org>
+Dawit Alemayehu <adawit@kde.org>
+WebDAV support: Hamish Rodda <rodda@kde.org>

@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/" >
+        <file>images/yes.png</file>
+        <file>images/yespartial.png</file>
+        <file>images/user.png</file>
+        <file>images/user-grey.png</file>
+        <file>images/group.png</file>
+        <file>images/group-grey.png</file>
+        <file>images/others.png</file>
+        <file>images/others-grey.png</file>
+        <file>images/mask.png</file>
+    </qresource>
+</RCC>
+
+
