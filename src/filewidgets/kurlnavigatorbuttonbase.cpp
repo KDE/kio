@@ -31,7 +31,7 @@
 namespace KDEPrivate
 {
 
-KUrlNavigatorButtonBase::KUrlNavigatorButtonBase(QWidget* parent) :
+KUrlNavigatorButtonBase::KUrlNavigatorButtonBase(QWidget *parent) :
     QPushButton(parent),
     m_active(true),
     m_displayHint(0)
@@ -61,7 +61,7 @@ bool KUrlNavigatorButtonBase::isActive() const
 }
 
 void KUrlNavigatorButtonBase::setDisplayHintEnabled(DisplayHint hint,
-                                       bool enable)
+        bool enable)
 {
     if (enable) {
         m_displayHint = m_displayHint | hint;
@@ -88,21 +88,21 @@ void KUrlNavigatorButtonBase::focusOutEvent(QFocusEvent *event)
     QPushButton::focusOutEvent(event);
 }
 
-void KUrlNavigatorButtonBase::enterEvent(QEvent* event)
+void KUrlNavigatorButtonBase::enterEvent(QEvent *event)
 {
     QPushButton::enterEvent(event);
     setDisplayHintEnabled(EnteredHint, true);
     update();
 }
 
-void KUrlNavigatorButtonBase::leaveEvent(QEvent* event)
+void KUrlNavigatorButtonBase::leaveEvent(QEvent *event)
 {
     QPushButton::leaveEvent(event);
     setDisplayHintEnabled(EnteredHint, false);
     update();
 }
 
-void KUrlNavigatorButtonBase::drawHoverBackground(QPainter* painter)
+void KUrlNavigatorButtonBase::drawHoverBackground(QPainter *painter)
 {
     const bool isHighlighted = isDisplayHintEnabled(EnteredHint) ||
                                isDisplayHintEnabled(DraggedHint) ||

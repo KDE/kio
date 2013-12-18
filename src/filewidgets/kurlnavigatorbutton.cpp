@@ -41,7 +41,7 @@ namespace KDEPrivate
 
 QPointer<KUrlNavigatorMenu> KUrlNavigatorButton::m_subDirsMenu;
 
-KUrlNavigatorButton::KUrlNavigatorButton(const QUrl& url, QWidget* parent) :
+KUrlNavigatorButton::KUrlNavigatorButton(const QUrl &url, QWidget *parent) :
     KUrlNavigatorButtonBase(parent),
     m_hoverArrow(false),
     m_pendingTextChange(false),
@@ -69,7 +69,7 @@ KUrlNavigatorButton::~KUrlNavigatorButton()
 {
 }
 
-void KUrlNavigatorButton::setUrl(const QUrl& url)
+void KUrlNavigatorButton::setUrl(const QUrl &url)
 {
     m_url = url;
 
@@ -88,7 +88,7 @@ void KUrlNavigatorButton::setUrl(const QUrl& url)
 
     if (startTextResolving) {
         m_pendingTextChange = true;
-        KIO::StatJob* job = KIO::stat(m_url, KIO::HideProgressInfo);
+        KIO::StatJob *job = KIO::stat(m_url, KIO::HideProgressInfo);
         connect(job, SIGNAL(result(KJob*)),
                 this, SLOT(statFinished(KJob*)));
         emit startedTextResolving();
@@ -102,7 +102,7 @@ QUrl KUrlNavigatorButton::url() const
     return m_url;
 }
 
-void KUrlNavigatorButton::setText(const QString& text)
+void KUrlNavigatorButton::setText(const QString &text)
 {
     QString adjustedText = text;
     if (adjustedText.isEmpty()) {
@@ -119,7 +119,7 @@ void KUrlNavigatorButton::setText(const QString& text)
     m_pendingTextChange = false;
 }
 
-void KUrlNavigatorButton::setActiveSubDirectory(const QString& subDir)
+void KUrlNavigatorButton::setActiveSubDirectory(const QString &subDir)
 {
     m_subDir = subDir;
 
@@ -156,7 +156,7 @@ bool KUrlNavigatorButton::showMnemonic() const
     return m_showMnemonic;
 }
 
-void KUrlNavigatorButton::paintEvent(QPaintEvent* event)
+void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
 
@@ -252,7 +252,7 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent* event)
     }
 }
 
-void KUrlNavigatorButton::enterEvent(QEvent* event)
+void KUrlNavigatorButton::enterEvent(QEvent *event)
 {
     KUrlNavigatorButtonBase::enterEvent(event);
 
@@ -263,7 +263,7 @@ void KUrlNavigatorButton::enterEvent(QEvent* event)
     }
 }
 
-void KUrlNavigatorButton::leaveEvent(QEvent* event)
+void KUrlNavigatorButton::leaveEvent(QEvent *event)
 {
     KUrlNavigatorButtonBase::leaveEvent(event);
     setToolTip(QString());
@@ -274,7 +274,7 @@ void KUrlNavigatorButton::leaveEvent(QEvent* event)
     }
 }
 
-void KUrlNavigatorButton::keyPressEvent(QKeyEvent* event)
+void KUrlNavigatorButton::keyPressEvent(QKeyEvent *event)
 {
     switch (event->key()) {
     case Qt::Key_Enter:
@@ -290,7 +290,7 @@ void KUrlNavigatorButton::keyPressEvent(QKeyEvent* event)
     }
 }
 
-void KUrlNavigatorButton::dropEvent(QDropEvent* event)
+void KUrlNavigatorButton::dropEvent(QDropEvent *event)
 {
     if (event->mimeData()->hasUrls()) {
         setDisplayHintEnabled(DraggedHint, true);
@@ -302,7 +302,7 @@ void KUrlNavigatorButton::dropEvent(QDropEvent* event)
     }
 }
 
-void KUrlNavigatorButton::dragEnterEvent(QDragEnterEvent* event)
+void KUrlNavigatorButton::dragEnterEvent(QDragEnterEvent *event)
 {
     if (event->mimeData()->hasUrls()) {
         setDisplayHintEnabled(DraggedHint, true);
@@ -312,7 +312,7 @@ void KUrlNavigatorButton::dragEnterEvent(QDragEnterEvent* event)
     }
 }
 
-void KUrlNavigatorButton::dragMoveEvent(QDragMoveEvent* event)
+void KUrlNavigatorButton::dragMoveEvent(QDragMoveEvent *event)
 {
     QRect rect = event->answerRect();
     if (isAboveArrow(rect.center().x())) {
@@ -339,7 +339,7 @@ void KUrlNavigatorButton::dragMoveEvent(QDragMoveEvent* event)
     }
 }
 
-void KUrlNavigatorButton::dragLeaveEvent(QDragLeaveEvent* event)
+void KUrlNavigatorButton::dragLeaveEvent(QDragLeaveEvent *event)
 {
     KUrlNavigatorButtonBase::dragLeaveEvent(event);
 
@@ -348,7 +348,7 @@ void KUrlNavigatorButton::dragLeaveEvent(QDragLeaveEvent* event)
     update();
 }
 
-void KUrlNavigatorButton::mousePressEvent(QMouseEvent* event)
+void KUrlNavigatorButton::mousePressEvent(QMouseEvent *event)
 {
     if (isAboveArrow(event->x()) && (event->button() == Qt::LeftButton)) {
         // the mouse is pressed above the [>] button
@@ -357,7 +357,7 @@ void KUrlNavigatorButton::mousePressEvent(QMouseEvent* event)
     KUrlNavigatorButtonBase::mousePressEvent(event);
 }
 
-void KUrlNavigatorButton::mouseReleaseEvent(QMouseEvent* event)
+void KUrlNavigatorButton::mouseReleaseEvent(QMouseEvent *event)
 {
     if (!isAboveArrow(event->x()) || (event->button() != Qt::LeftButton)) {
         // the mouse has been released above the text area and not
@@ -368,7 +368,7 @@ void KUrlNavigatorButton::mouseReleaseEvent(QMouseEvent* event)
     KUrlNavigatorButtonBase::mouseReleaseEvent(event);
 }
 
-void KUrlNavigatorButton::mouseMoveEvent(QMouseEvent* event)
+void KUrlNavigatorButton::mouseMoveEvent(QMouseEvent *event)
 {
     KUrlNavigatorButtonBase::mouseMoveEvent(event);
 
@@ -379,7 +379,7 @@ void KUrlNavigatorButton::mouseMoveEvent(QMouseEvent* event)
     }
 }
 
-void KUrlNavigatorButton::wheelEvent(QWheelEvent* event)
+void KUrlNavigatorButton::wheelEvent(QWheelEvent *event)
 {
     if (event->orientation() == Qt::Vertical) {
         m_wheelSteps = event->delta() / 120;
@@ -417,12 +417,12 @@ void KUrlNavigatorButton::startSubDirsJob()
     }
 }
 
-void KUrlNavigatorButton::addEntriesToSubDirs(KIO::Job* job, const KIO::UDSEntryList& entries)
+void KUrlNavigatorButton::addEntriesToSubDirs(KIO::Job *job, const KIO::UDSEntryList &entries)
 {
     Q_ASSERT(job == m_subDirsJob);
     Q_UNUSED(job);
 
-    foreach (const KIO::UDSEntry& entry, entries) {
+    foreach (const KIO::UDSEntry &entry, entries) {
         if (entry.isDir()) {
             const QString name = entry.stringValue(KIO::UDSEntry::UDS_NAME);
             QString displayName = entry.stringValue(KIO::UDSEntry::UDS_DISPLAY_NAME);
@@ -436,7 +436,7 @@ void KUrlNavigatorButton::addEntriesToSubDirs(KIO::Job* job, const KIO::UDSEntry
     }
 }
 
-void KUrlNavigatorButton::urlsDropped(QAction* action, QDropEvent* event)
+void KUrlNavigatorButton::urlsDropped(QAction *action, QDropEvent *event)
 {
     const int result = action->data().toInt();
     QUrl url(m_url);
@@ -444,7 +444,7 @@ void KUrlNavigatorButton::urlsDropped(QAction* action, QDropEvent* event)
     urlsDropped(url, event);
 }
 
-void KUrlNavigatorButton::slotMenuActionClicked(QAction* action)
+void KUrlNavigatorButton::slotMenuActionClicked(QAction *action)
 {
     const int result = action->data().toInt();
     QUrl url(m_url);
@@ -452,12 +452,12 @@ void KUrlNavigatorButton::slotMenuActionClicked(QAction* action)
     emit clicked(url, Qt::MidButton);
 }
 
-void KUrlNavigatorButton::statFinished(KJob* job)
+void KUrlNavigatorButton::statFinished(KJob *job)
 {
     if (m_pendingTextChange) {
         m_pendingTextChange = false;
 
-        const KIO::UDSEntry entry = static_cast<KIO::StatJob*>(job)->statResult();
+        const KIO::UDSEntry entry = static_cast<KIO::StatJob *>(job)->statResult();
         QString name = entry.stringValue(KIO::UDSEntry::UDS_DISPLAY_NAME);
         if (name.isEmpty()) {
             name = m_url.fileName();
@@ -474,12 +474,14 @@ void KUrlNavigatorButton::statFinished(KJob* job)
 class NaturalLessThan
 {
 public:
-    NaturalLessThan() {
+    NaturalLessThan()
+    {
         m_collator.setCaseSensitivity(Qt::CaseInsensitive);
         m_collator.setNumericMode(true);
     }
 
-    bool operator()(const QPair<QString, QString>& s1, const QPair<QString, QString>& s2) {
+    bool operator()(const QPair<QString, QString> &s1, const QPair<QString, QString> &s2)
+    {
         return m_collator.compare(s1.first, s2.first) < 0;
     }
 
@@ -487,7 +489,7 @@ private:
     QCollator m_collator;
 };
 
-void KUrlNavigatorButton::openSubDirsMenu(KJob* job)
+void KUrlNavigatorButton::openSubDirsMenu(KJob *job)
 {
     Q_ASSERT(job == m_subDirsJob);
     m_subDirsJob = 0;
@@ -515,7 +517,7 @@ void KUrlNavigatorButton::openSubDirsMenu(KJob* job)
     const int popupX = leftToRight ? width() - arrowWidth() - BorderWidth : 0;
     const QPoint popupPos  = parentWidget()->mapToGlobal(geometry().bottomLeft() + QPoint(popupX, 0));
 
-    const QAction* action = m_subDirsMenu->exec(popupPos);
+    const QAction *action = m_subDirsMenu->exec(popupPos);
     if (action != 0) {
         const int result = action->data().toInt();
         QUrl url(m_url);
@@ -530,7 +532,7 @@ void KUrlNavigatorButton::openSubDirsMenu(KJob* job)
     setDisplayHintEnabled(PopupActiveHint, false);
 }
 
-void KUrlNavigatorButton::replaceButton(KJob* job)
+void KUrlNavigatorButton::replaceButton(KJob *job)
 {
     Q_ASSERT(job == m_subDirsJob);
     m_subDirsJob = 0;
@@ -645,8 +647,7 @@ void KUrlNavigatorButton::updateMinimumWidth()
     int minWidth = sizeHint().width();
     if (minWidth < 40) {
         minWidth = 40;
-    }
-    else if (minWidth > 150) {
+    } else if (minWidth > 150) {
         // don't let an overlong path name waste all the URL navigator space
         minWidth = 150;
     }
@@ -655,7 +656,7 @@ void KUrlNavigatorButton::updateMinimumWidth()
     }
 }
 
-void KUrlNavigatorButton::initMenu(KUrlNavigatorMenu* menu, int startIndex)
+void KUrlNavigatorButton::initMenu(KUrlNavigatorMenu *menu, int startIndex)
 {
     connect(menu, SIGNAL(middleMouseButtonClicked(QAction*)),
             this, SLOT(slotMenuActionClicked(QAction*)));
@@ -671,7 +672,7 @@ void KUrlNavigatorButton::initMenu(KUrlNavigatorMenu* menu, int startIndex)
         const QString subDirDisplayName = m_subDirs[i].second;
         QString text = KStringHandler::csqueeze(subDirDisplayName, 60);
         text.replace(QLatin1Char('&'), QLatin1String("&&"));
-        QAction* action = new QAction(text, this);
+        QAction *action = new QAction(text, this);
         if (m_subDir == subDirName) {
             QFont font(action->font());
             font.setBold(true);
@@ -683,7 +684,7 @@ void KUrlNavigatorButton::initMenu(KUrlNavigatorMenu* menu, int startIndex)
     if (m_subDirs.count() > maxIndex) {
         // If too much items are shown, move them into a sub menu
         menu->addSeparator();
-        KUrlNavigatorMenu* subDirsMenu = new KUrlNavigatorMenu(menu);
+        KUrlNavigatorMenu *subDirsMenu = new KUrlNavigatorMenu(menu);
         subDirsMenu->setTitle(i18nc("@action:inmenu", "More"));
         initMenu(subDirsMenu, maxIndex);
         menu->addMenu(subDirsMenu);

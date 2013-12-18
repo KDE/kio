@@ -78,7 +78,7 @@ class KIOFILEWIDGETS_EXPORT KUrlNavigator : public QWidget
 
 public:
     /** @since 4.5 */
-    KUrlNavigator(QWidget* parent = 0);
+    KUrlNavigator(QWidget *parent = 0);
 
     /**
      * @param placesModel    Model for the places which are selectable inside a
@@ -87,7 +87,7 @@ public:
      * @param url            URL which is used for the navigation or editing.
      * @param parent         Parent widget.
      */
-    KUrlNavigator(KFilePlacesModel* placesModel, const QUrl& url, QWidget* parent);
+    KUrlNavigator(KFilePlacesModel *placesModel, const QUrl &url, QWidget *parent);
     virtual ~KUrlNavigator();
 
     /**
@@ -117,7 +117,7 @@ public:
      *
      * @since 4.5
      */
-    void saveLocationState(const QByteArray& state);
+    void saveLocationState(const QByteArray &state);
 
     /**
      * @return Location state given by \a historyIndex. If \a historyIndex
@@ -174,7 +174,7 @@ public:
      */
     // KDE5: Remove the home-property. It is sufficient to invoke
     // KUrlNavigator::setLocationUrl(homeUrl) on application-side.
-    void setHomeUrl(const QUrl& url);
+    void setHomeUrl(const QUrl &url);
 
     QUrl homeUrl() const;
 
@@ -262,7 +262,7 @@ public:
      * @return The used editor when the navigator is in the edit mode
      * @see    KUrlNavigator::setUrlEditable()
      */
-    KUrlComboBox* editor() const;
+    KUrlComboBox *editor() const;
 
     /**
      * If an application supports only some special protocols, they can be set
@@ -270,7 +270,7 @@ public:
      */
     // KDE5: Think about removing the custom-protocols-property. It had been used
     // only by one application currently which uses a different approach now.
-    void setCustomProtocols(const QStringList& protocols);
+    void setCustomProtocols(const QStringList &protocols);
 
     /**
      * @return The custom protocols if they are set, QStringList() otherwise.
@@ -282,7 +282,7 @@ public:
      * @return     The current URL of the location.
      * @deprecated Use KUrlNavigator::locationUrl() instead.
      */
-    KIOFILEWIDGETS_DEPRECATED const QUrl& url() const;
+    KIOFILEWIDGETS_DEPRECATED const QUrl &url() const;
 
     /**
      * @return The portion of the current URL up to the path part given
@@ -308,7 +308,7 @@ public:
      * @return The saved root URL for the current URL (see KUrlNavigator::saveRootUrl()).
      * @deprecated Use KUrlNavigator::locationState() instead.
      */
-    KIOFILEWIDGETS_DEPRECATED const QUrl& savedRootUrl() const;
+    KIOFILEWIDGETS_DEPRECATED const QUrl &savedRootUrl() const;
 
     /**
      * @return The saved contents position of the upper left corner
@@ -318,7 +318,7 @@ public:
     KIOFILEWIDGETS_DEPRECATED QPoint savedPosition() const;
 
     /** @deprecated Use setHomeUrl(const QUrl& url) instead. */
-    KIOFILEWIDGETS_DEPRECATED void setHomeUrl(const QString& homeUrl);
+    KIOFILEWIDGETS_DEPRECATED void setHomeUrl(const QString &homeUrl);
 #endif
 
 public Q_SLOTS:
@@ -329,7 +329,7 @@ public Q_SLOTS:
      * KUrlNavigator::locationUrl() to read the location.
      * @since 4.5
      */
-    void setLocationUrl(const QUrl& url);
+    void setLocationUrl(const QUrl &url);
 
     /**
      * Activates the URL navigator (KUrlNavigator::isActive() will return true)
@@ -348,13 +348,13 @@ public Q_SLOTS:
      * Sets the location to \a url.
      * @deprecated Use KUrlNavigator::setLocationUrl(url).
      */
-    KIOFILEWIDGETS_DEPRECATED void setUrl(const QUrl& url);
+    KIOFILEWIDGETS_DEPRECATED void setUrl(const QUrl &url);
 
     /**
      * Saves the used root URL of the content for the current history element.
      * @deprecated Use KUrlNavigator::saveLocationState() instead.
      */
-    KIOFILEWIDGETS_DEPRECATED void saveRootUrl(const QUrl& url);
+    KIOFILEWIDGETS_DEPRECATED void saveRootUrl(const QUrl &url);
 
     /**
      * Saves the coordinates of the contents for the current history element.
@@ -376,7 +376,7 @@ Q_SIGNALS:
      * the user.
      * @see KUrlNavigator::setUrl()
      */
-    void urlChanged(const QUrl& url);
+    void urlChanged(const QUrl &url);
 
     /**
      * Is emitted, before the location URL is going to be changed to \a newUrl.
@@ -385,7 +385,7 @@ Q_SIGNALS:
      * of a view with KUrlNavigator::saveLocationState().
      * @since 4.5
      */
-    void urlAboutToBeChanged(const QUrl& newUrl);
+    void urlAboutToBeChanged(const QUrl &newUrl);
 
     /**
      * Is emitted, if the editable state for the URL has been changed
@@ -405,7 +405,7 @@ Q_SIGNALS:
      * the dropped data can be handled.
      * @since 4.2
      */
-    void urlsDropped(const QUrl& destination, QDropEvent* event);
+    void urlsDropped(const QUrl &destination, QDropEvent *event);
 
     /**
      * This signal is emitted when the Return or Enter key is pressed.
@@ -417,7 +417,7 @@ Q_SIGNALS:
      * the user clicked on a breadcrumb with the middle mouse button.
      * @since 4.5
      */
-    void tabRequested(const QUrl& url);
+    void tabRequested(const QUrl &url);
 
 protected:
 #if !defined(DOXYGEN_SHOULD_SKIP_THIS)
@@ -426,43 +426,43 @@ protected:
      * to the breadcrumb view.
      * @see QWidget::keyPressEvent()
      */
-    virtual void keyPressEvent(QKeyEvent* event);
+    virtual void keyPressEvent(QKeyEvent *event);
 
     /**
      * Reimplemented for internal purposes.
      */
-    virtual void keyReleaseEvent(QKeyEvent* event);
+    virtual void keyReleaseEvent(QKeyEvent *event);
 
     /**
      * Paste the clipboard content as URL, if the middle mouse
      * button has been clicked.
      * @see QWidget::mouseReleaseEvent()
      */
-    virtual void mouseReleaseEvent(QMouseEvent* event);
+    virtual void mouseReleaseEvent(QMouseEvent *event);
 
-    virtual void resizeEvent(QResizeEvent* event);
+    virtual void resizeEvent(QResizeEvent *event);
 
-    virtual void wheelEvent(QWheelEvent* event);
+    virtual void wheelEvent(QWheelEvent *event);
 
-    virtual bool eventFilter(QObject* watched, QEvent* event);
+    virtual bool eventFilter(QObject *watched, QEvent *event);
 #endif
 
 private:
     Q_PRIVATE_SLOT(d, void slotReturnPressed())
-    Q_PRIVATE_SLOT(d, void slotProtocolChanged(const QString& protocol))
+    Q_PRIVATE_SLOT(d, void slotProtocolChanged(const QString &protocol))
     Q_PRIVATE_SLOT(d, void switchView())
-    Q_PRIVATE_SLOT(d, void dropUrls(const QUrl& destination, QDropEvent*))
-    Q_PRIVATE_SLOT(d, void slotNavigatorButtonClicked(const QUrl& url, Qt::MouseButton button))
+    Q_PRIVATE_SLOT(d, void dropUrls(const QUrl &destination, QDropEvent *))
+    Q_PRIVATE_SLOT(d, void slotNavigatorButtonClicked(const QUrl &url, Qt::MouseButton button))
     Q_PRIVATE_SLOT(d, void openContextMenu())
     Q_PRIVATE_SLOT(d, void openPathSelectorMenu())
     Q_PRIVATE_SLOT(d, void updateButtonVisibility())
     Q_PRIVATE_SLOT(d, void switchToBreadcrumbMode())
-    Q_PRIVATE_SLOT(d, void slotPathBoxChanged(const QString& text))
+    Q_PRIVATE_SLOT(d, void slotPathBoxChanged(const QString &text))
     Q_PRIVATE_SLOT(d, void updateContent())
 
 private:
     class Private;
-    Private* const d;
+    Private *const d;
 
     Q_DISABLE_COPY(KUrlNavigator)
 };

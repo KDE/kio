@@ -6,5 +6,4 @@
 #ifndef QDECLAREQLISTINT_HACK_H
 #define QDECLAREQLISTINT_HACK_H
 
-
 #endif

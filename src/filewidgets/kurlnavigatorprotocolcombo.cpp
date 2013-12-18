@@ -33,13 +33,13 @@
 
 namespace
 {
-    const int ArrowSize = 10;
+const int ArrowSize = 10;
 }
 
 namespace KDEPrivate
 {
 
-KUrlNavigatorProtocolCombo::KUrlNavigatorProtocolCombo(const QString& protocol, QWidget* parent) :
+KUrlNavigatorProtocolCombo::KUrlNavigatorProtocolCombo(const QString &protocol, QWidget *parent) :
     KUrlNavigatorButtonBase(parent),
     m_menu(0),
     m_protocols(),
@@ -51,13 +51,13 @@ KUrlNavigatorProtocolCombo::KUrlNavigatorProtocolCombo(const QString& protocol, 
     setMenu(m_menu);
 }
 
-void KUrlNavigatorProtocolCombo::setCustomProtocols(const QStringList& protocols)
+void KUrlNavigatorProtocolCombo::setCustomProtocols(const QStringList &protocols)
 {
     m_protocols = protocols;
     m_menu->clear();
 
-    foreach (const QString& protocol, protocols) {
-        QAction* action = m_menu->addAction(protocol);
+    foreach (const QString &protocol, protocols) {
+        QAction *action = m_menu->addAction(protocol);
         action->setData(protocol);
     }
 }
@@ -73,7 +73,7 @@ QSize KUrlNavigatorProtocolCombo::sizeHint() const
     return QSize(width, size.height());
 }
 
-void KUrlNavigatorProtocolCombo::setProtocol(const QString& protocol)
+void KUrlNavigatorProtocolCombo::setProtocol(const QString &protocol)
 {
     setText(protocol);
 }
@@ -83,7 +83,7 @@ QString KUrlNavigatorProtocolCombo::currentProtocol() const
     return text();
 }
 
-void KUrlNavigatorProtocolCombo::showEvent(QShowEvent* event)
+void KUrlNavigatorProtocolCombo::showEvent(QShowEvent *event)
 {
     KUrlNavigatorButtonBase::showEvent(event);
     if (!event->spontaneous() && m_protocols.isEmpty()) {
@@ -105,7 +105,7 @@ void KUrlNavigatorProtocolCombo::showEvent(QShowEvent* event)
     }
 }
 
-void KUrlNavigatorProtocolCombo::paintEvent(QPaintEvent* event)
+void KUrlNavigatorProtocolCombo::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
 
@@ -128,7 +128,7 @@ void KUrlNavigatorProtocolCombo::paintEvent(QPaintEvent* event)
     option.palette.setColor(QPalette::Text, fgColor);
     option.palette.setColor(QPalette::WindowText, fgColor);
     option.palette.setColor(QPalette::ButtonText, fgColor);
-    style()->drawPrimitive(QStyle::PE_IndicatorArrowDown, &option, &painter, this );
+    style()->drawPrimitive(QStyle::PE_IndicatorArrowDown, &option, &painter, this);
 
     // draw text
     const int textWidth = arrowX - (2 * BorderWidth);
@@ -140,7 +140,7 @@ void KUrlNavigatorProtocolCombo::paintEvent(QPaintEvent* event)
                           alignment, option.palette, isEnabled(), text());
 }
 
-void KUrlNavigatorProtocolCombo::setProtocol(QAction* action)
+void KUrlNavigatorProtocolCombo::setProtocol(QAction *action)
 {
     const QString protocol = action->data().toString();
     setText(protocol);
@@ -154,7 +154,7 @@ void KUrlNavigatorProtocolCombo::updateMenu()
 
     // move all protocols into the corresponding category of 'items'
     QList<QString> items[CategoryCount];
-    foreach (const QString& protocol, m_protocols) {
+    foreach (const QString &protocol, m_protocols) {
         if (m_categories.contains(protocol)) {
             const ProtocolCategory category = m_categories.value(protocol);
             items[category].append(protocol);
@@ -166,7 +166,7 @@ void KUrlNavigatorProtocolCombo::updateMenu()
     // Create the menu that includes all entries from 'items'. The categories
     // CoreCategory and PlacesCategory are placed at the top level, the remaining
     // categories are placed in sub menus.
-    QMenu* menu = m_menu;
+    QMenu *menu = m_menu;
     for (int category = 0; category < CategoryCount; ++category) {
         if (items[category].count() > 0) {
             switch (category) {
@@ -188,8 +188,8 @@ void KUrlNavigatorProtocolCombo::updateMenu()
                 break;
             }
 
-            foreach (const QString& protocol, items[category]) {
-                QAction* action = menu->addAction(protocol);
+            foreach (const QString &protocol, items[category]) {
+                QAction *action = menu->addAction(protocol);
                 action->setData(protocol);
             }
 

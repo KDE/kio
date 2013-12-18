@@ -71,27 +71,28 @@ private Q_SLOTS:
         lst << QUrl::fromLocalFile(m_tmpDir.path());;
         menu.setPopupFiles(lst);
         menu.checkUpToDate();
-        QAction* action = coll.action("the_action");
+        QAction *action = coll.action("the_action");
         QVERIFY(action);
-        QAction* textAct = 0;
-        Q_FOREACH(QAction* act, action->menu()->actions()) {
+        QAction *textAct = 0;
+        Q_FOREACH (QAction *act, action->menu()->actions()) {
             qDebug() << act << act->text() << act->data();
-            if (act->text().contains(actionText))
+            if (act->text().contains(actionText)) {
                 textAct = act;
+            }
         }
         if (!textAct && m_first) {
             const QString err = "action with text \"" + actionText + "\" not found. kde-baseapps not installed?";
             QSKIP(qPrintable(err));
         }
         textAct->trigger();
-        QDialog* dialog = parentWidget.findChild<QDialog *>();
+        QDialog *dialog = parentWidget.findChild<QDialog *>();
         QVERIFY(dialog);
-        KNameAndUrlInputDialog* nauiDialog = qobject_cast<KNameAndUrlInputDialog *>(dialog);
+        KNameAndUrlInputDialog *nauiDialog = qobject_cast<KNameAndUrlInputDialog *>(dialog);
         if (nauiDialog) {
             nauiDialog->setSuggestedName(typedFilename);
             nauiDialog->setSuggestedUrl(QUrl("file:///etc"));
         } else {
-            QLineEdit* lineEdit = dialog->findChild<QLineEdit *>();
+            QLineEdit *lineEdit = dialog->findChild<QLineEdit *>();
             QVERIFY(lineEdit);
             lineEdit->setText(typedFilename);
         }

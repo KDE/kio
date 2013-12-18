@@ -34,7 +34,8 @@
 
 class QWidget;
 
-namespace KIO {
+namespace KIO
+{
 
 /**
  * @short A KDE implementation of QNetworkAccessManager.
@@ -138,7 +139,7 @@ public:
      * @see KIO::Integration::CookieJar::setWindow.
      * @since 4.7
      */
-    void setWindow(QWidget* widget);
+    void setWindow(QWidget *widget);
 
     /**
      * Returns the cookiejar's window id.
@@ -162,7 +163,7 @@ public:
      * @see setWindow
      * @since 4.7
      */
-    QWidget* window() const;
+    QWidget *window() const;
 
     /**
      * Returns a reference to the temporary meta data container.
@@ -174,7 +175,7 @@ public:
      *
      * @since 4.4
      */
-    KIO::MetaData& requestMetaData();
+    KIO::MetaData &requestMetaData();
 
     /**
      * Returns a reference to the persistent meta data container.
@@ -190,7 +191,7 @@ public:
      *
      * @since 4.4
      */
-    KIO::MetaData& sessionMetaData();
+    KIO::MetaData &sessionMetaData();
 
     /**
      * Puts the ioslave associated with the given @p reply on hold.
@@ -202,7 +203,7 @@ public:
      * @see KIO::get.
      * @since 4.6
      */
-    static void putReplyOnHold(QNetworkReply* reply);
+    static void putReplyOnHold(QNetworkReply *reply);
 
     /**
      * Sets the network reply object to emit readyRead when it receives meta data.
@@ -231,10 +232,11 @@ protected:
 
 private:
     class AccessManagerPrivate;
-    AccessManagerPrivate* const d;
+    AccessManagerPrivate *const d;
 };
 
-namespace Integration {
+namespace Integration
+{
 // KDE5: Move AccessManager into the KIO::Integration namespace.
 typedef KIO::AccessManager AccessManager;
 
@@ -244,7 +246,7 @@ typedef KIO::AccessManager AccessManager;
  * @since 4.5
  * @return true if @p metadata contains ssl information and the mapping succeeded.
  */
-KIOWIDGETS_EXPORT bool sslConfigFromMetaData(const KIO::MetaData& metadata, QSslConfiguration& sslconfig);
+KIOWIDGETS_EXPORT bool sslConfigFromMetaData(const KIO::MetaData &metadata, QSslConfiguration &sslconfig);
 
 /**
  * @short A KDE implementation of QNetworkCookieJar.
@@ -291,9 +293,9 @@ public:
      */
     ~CookieJar();
 
-   /**
-    * Returns the currently set window id. The default value is -1.
-    */
+    /**
+     * Returns the currently set window id. The default value is -1.
+     */
     WId windowId() const;
 
     /**
@@ -348,11 +350,11 @@ public:
      *
      * @since 4.6
      */
-    void setDisableCookieStorage (bool disable);
+    void setDisableCookieStorage(bool disable);
 
 private:
     class CookieJarPrivate;
-    CookieJarPrivate* const d;
+    CookieJarPrivate *const d;
 };
 
 }

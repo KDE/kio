@@ -37,11 +37,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <QtNetwork/QLocalServer>
 #include <QtNetwork/QLocalSocket>
 
-
 #include <QDebug>
 #include <klocalizedstring.h>
 #include <kprotocolmanager.h>
-
 
 #include <unistd.h>
 #include <qstandardpaths.h>
@@ -107,7 +105,6 @@ struct CacheFileInfo : MiniCacheFileInfo {
     quint8 compression; // for now fixed to 0
     quint8 reserved;    // for now; also alignment
 
-
     QDateTime servedDate;
     QDateTime lastModifiedDate;
     QDateTime expireDate;
@@ -136,7 +133,6 @@ struct CacheFileInfo : MiniCacheFileInfo {
         }
     }
 };
-
 
 bool MiniCacheFileInfo::operator<(const MiniCacheFileInfo &other) const
 {
@@ -360,7 +356,6 @@ uint qHash(const CacheIndex &ci)
     return ci.m_hash;
 }
 
-
 static CacheCleanerCommand readCommand(const QByteArray &cmd, CacheFileInfo *fi)
 {
     readBinaryHeader(cmd, fi);
@@ -380,7 +375,6 @@ static CacheCleanerCommand readCommand(const QByteArray &cmd, CacheFileInfo *fi)
     return static_cast<CacheCleanerCommand>(ret);
 }
 
-
 // never istantiated, on-disk format only
 struct ScoreboardEntry {
 // from scoreboard file
@@ -394,7 +388,6 @@ struct ScoreboardEntry {
     // we want to delete the least "useful" files and we'll have to sort a list for that...
     bool operator<(const MiniCacheFileInfo &other) const;
 };
-
 
 class Scoreboard
 {
@@ -442,7 +435,7 @@ public:
     bool fillInfo(const QString &baseName, MiniCacheFileInfo *mcfi)
     {
         QHash<CacheIndex, MiniCacheFileInfo>::ConstIterator it =
-                                       m_scoreboard.constFind(CacheIndex(baseName));
+            m_scoreboard.constFind(CacheIndex(baseName));
         if (it == m_scoreboard.constEnd()) {
             return false;
         }
@@ -585,7 +578,6 @@ private:
     QHash<CacheIndex, MiniCacheFileInfo> m_scoreboard;
 };
 
-
 // Keep the above in sync with the cache code in http.cpp
 // !END OF SYNC!
 
@@ -611,7 +603,7 @@ class CacheCleaner
 {
 public:
     CacheCleaner(const QDir &cacheDir)
-     : m_totalSizeOnDisk(0)
+        : m_totalSizeOnDisk(0)
     {
         // qDebug();
         m_fileNameList = cacheDir.entryList();
@@ -640,7 +632,7 @@ public:
                     continue;
                 }
                 if (baseName.length() > s_hashedUrlNibbles) {
-                    if (QFileInfo(filePath(baseName)).lastModified().secsTo(g_currentDate) > 15*60) {
+                    if (QFileInfo(filePath(baseName)).lastModified().secsTo(g_currentDate) > 15 * 60) {
                         // it looks like a temporary file that hasn't been touched in > 15 minutes...
                         QFile::remove(filePath(baseName));
                     }
@@ -710,7 +702,6 @@ private:
     qint64 m_totalSizeOnDisk;
 };
 
-
 int main(int argc, char **argv)
 {
     QCoreApplication app(argc, argv);
@@ -757,7 +748,6 @@ int main(int argc, char **argv)
             return 0;
         }
     }
-
 
     g_currentDate = QDateTime::currentDateTime();
     g_maxCacheAge = KProtocolManager::maxCacheAge();

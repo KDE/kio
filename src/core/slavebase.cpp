@@ -61,22 +61,27 @@ extern "C" {
 using namespace KIO;
 
 typedef QList<QByteArray> AuthKeysList;
-typedef QMap<QString,QByteArray> AuthKeysMap;
+typedef QMap<QString, QByteArray> AuthKeysMap;
 #define KIO_DATA QByteArray data; QDataStream stream( &data, QIODevice::WriteOnly ); stream
 #define KIO_FILESIZE_T(x) quint64(x)
 static const int KIO_MAX_ENTRIES_PER_BATCH = 200;
 static const int KIO_MAX_SEND_BATCH_TIME = 300;
 
-namespace KIO {
+namespace KIO
+{
 
-class SlaveBasePrivate {
+class SlaveBasePrivate
+{
 public:
-    SlaveBase* q;
-    SlaveBasePrivate(SlaveBase* owner): q(owner), m_passwdServer(0)
+    SlaveBase *q;
+    SlaveBasePrivate(SlaveBase *owner): q(owner), m_passwdServer(0)
     {
         pendingListEntries.reserve(KIO_MAX_ENTRIES_PER_BATCH);
     }
-    ~SlaveBasePrivate() { delete m_passwdServer; }
+    ~SlaveBasePrivate()
+    {
+        delete m_passwdServer;
+    }
 
     UDSEntryList pendingListEntries;
     QTime m_timeSinceLastBatch;
@@ -86,12 +91,12 @@ public:
     static qlonglong s_seqNr;
 
     QString slaveid;
-    bool resume:1;
-    bool needSendCanResume:1;
-    bool onHold:1;
-    bool wasKilled:1;
-    bool inOpenLoop:1;
-    bool exit_loop:1;
+    bool resume: 1;
+    bool needSendCanResume: 1;
+    bool onHold: 1;
+    bool wasKilled: 1;
+    bool inOpenLoop: 1;
+    bool exit_loop: 1;
     MetaData configData;
     KConfig *config;
     KConfigGroup *configGroup;
@@ -105,7 +110,7 @@ public:
     enum { Idle, InsideMethod, FinishedCalled, ErrorCalled } m_state;
     QByteArray timeoutData;
 
-    KPasswdServer* m_passwdServer;
+    KPasswdServer *m_passwdServer;
 
     // Reconstructs configGroup from configData and mIncomingMetaData
     void rebuildConfig()
@@ -115,29 +120,31 @@ public:
         // mIncomingMetaData cascades over config, so we write config first,
         // to let it be overwritten
         MetaData::ConstIterator end = configData.constEnd();
-        for (MetaData::ConstIterator it = configData.constBegin(); it != end; ++it)
+        for (MetaData::ConstIterator it = configData.constBegin(); it != end; ++it) {
             configGroup->writeEntry(it.key(), it->toUtf8(), KConfigGroup::WriteConfigFlags());
+        }
 
         end = q->mIncomingMetaData.constEnd();
-        for (MetaData::ConstIterator it = q->mIncomingMetaData.constBegin(); it != end; ++it)
+        for (MetaData::ConstIterator it = q->mIncomingMetaData.constBegin(); it != end; ++it) {
             configGroup->writeEntry(it.key(), it->toUtf8(), KConfigGroup::WriteConfigFlags());
+        }
     }
 
-    void verifyState(const char* cmdName)
+    void verifyState(const char *cmdName)
     {
-        if ((m_state != FinishedCalled) && (m_state != ErrorCalled)){
+        if ((m_state != FinishedCalled) && (m_state != ErrorCalled)) {
             qWarning() << cmdName << "did not call finished() or error()! Please fix the KIO slave.";
         }
     }
 
-    void verifyErrorFinishedNotCalled(const char* cmdName)
+    void verifyErrorFinishedNotCalled(const char *cmdName)
     {
         if (m_state == FinishedCalled || m_state == ErrorCalled) {
             qWarning() << cmdName << "called finished() or error(), but it's not supposed to! Please fix the KIO slave.";
         }
     }
 
-    KPasswdServer* passwdServer()
+    KPasswdServer *passwdServer()
     {
         if (!m_passwdServer) {
             m_passwdServer = new KPasswdServer;
@@ -158,27 +165,28 @@ static const char *s_protocol;
 
 #ifdef Q_OS_UNIX
 extern "C" {
-static void genericsig_handler(int sigNumber)
-{
-   ::signal(sigNumber,SIG_IGN);
-   //WABA: Don't do anything that requires malloc, we can deadlock on it since
-   //a SIGTERM signal can come in while we are in malloc/free.
-   //qDebug()<<"kioslave : exiting due to signal "<<sigNumber;
-   //set the flag which will be checked in dispatchLoop() and which *should* be checked
-   //in lengthy operations in the various slaves
-   if (globalSlave!=0)
-      globalSlave->setKillFlag();
-   ::signal(SIGALRM,SIG_DFL);
-   alarm(5);  //generate an alarm signal in 5 seconds, in this time the slave has to exit
-}
+    static void genericsig_handler(int sigNumber)
+    {
+        ::signal(sigNumber, SIG_IGN);
+        //WABA: Don't do anything that requires malloc, we can deadlock on it since
+        //a SIGTERM signal can come in while we are in malloc/free.
+        //qDebug()<<"kioslave : exiting due to signal "<<sigNumber;
+        //set the flag which will be checked in dispatchLoop() and which *should* be checked
+        //in lengthy operations in the various slaves
+        if (globalSlave != 0) {
+            globalSlave->setKillFlag();
+        }
+        ::signal(SIGALRM, SIG_DFL);
+        alarm(5);  //generate an alarm signal in 5 seconds, in this time the slave has to exit
+    }
 }
 #endif
 
 //////////////
 
-SlaveBase::SlaveBase( const QByteArray &protocol,
-                      const QByteArray &pool_socket,
-                      const QByteArray &app_socket )
+SlaveBase::SlaveBase(const QByteArray &protocol,
+                     const QByteArray &pool_socket,
+                     const QByteArray &app_socket)
     : mProtocol(protocol),
       d(new SlaveBasePrivate(this))
 
@@ -186,15 +194,14 @@ SlaveBase::SlaveBase( const QByteArray &protocol,
     d->poolSocket = QFile::decodeName(pool_socket);
     s_protocol = protocol.data();
 #ifdef Q_OS_UNIX
-    if (qgetenv("KDE_DEBUG").isEmpty())
-    {
-        ::signal(SIGSEGV,&sigsegv_handler);
-        ::signal(SIGILL,&sigsegv_handler);
-        ::signal(SIGTRAP,&sigsegv_handler);
-        ::signal(SIGABRT,&sigsegv_handler);
-        ::signal(SIGBUS,&sigsegv_handler);
-        ::signal(SIGALRM,&sigsegv_handler);
-        ::signal(SIGFPE,&sigsegv_handler);
+    if (qgetenv("KDE_DEBUG").isEmpty()) {
+        ::signal(SIGSEGV, &sigsegv_handler);
+        ::signal(SIGILL, &sigsegv_handler);
+        ::signal(SIGTRAP, &sigsegv_handler);
+        ::signal(SIGABRT, &sigsegv_handler);
+        ::signal(SIGBUS, &sigsegv_handler);
+        ::signal(SIGALRM, &sigsegv_handler);
+        ::signal(SIGFPE, &sigsegv_handler);
 #ifdef SIGPOLL
         ::signal(SIGPOLL, &sigsegv_handler);
 #endif
@@ -214,16 +221,16 @@ SlaveBase::SlaveBase( const QByteArray &protocol,
 
     struct sigaction act;
     act.sa_handler = sigpipe_handler;
-    sigemptyset( &act.sa_mask );
+    sigemptyset(&act.sa_mask);
     act.sa_flags = 0;
-    sigaction( SIGPIPE, &act, 0 );
+    sigaction(SIGPIPE, &act, 0);
 
-    ::signal(SIGINT,&genericsig_handler);
-    ::signal(SIGQUIT,&genericsig_handler);
-    ::signal(SIGTERM,&genericsig_handler);
+    ::signal(SIGINT, &genericsig_handler);
+    ::signal(SIGQUIT, &genericsig_handler);
+    ::signal(SIGTERM, &genericsig_handler);
 #endif
 
-    globalSlave=this;
+    globalSlave = this;
 
     d->isConnectedToApp = true;
 
@@ -236,10 +243,10 @@ SlaveBase::SlaveBase( const QByteArray &protocol,
     // The KConfigGroup needs the KConfig to exist during its whole lifetime.
     d->configGroup = new KConfigGroup(d->config, QString());
     d->onHold = false;
-    d->wasKilled=false;
+    d->wasKilled = false;
 //    d->processed_size = 0;
-    d->totalSize=0;
-    d->sentListEntries=0;
+    d->totalSize = 0;
+    d->sentListEntries = 0;
     connectSlave(QFile::decodeName(app_socket));
 
     d->remotefile = 0;
@@ -269,8 +276,9 @@ void SlaveBase::dispatchLoop()
         Q_ASSERT(d->appConnection.inited());
 
         int ms = -1;
-        if (d->nextTimeout.isValid())
+        if (d->nextTimeout.isValid()) {
             ms = qMax<int>(QDateTime::currentDateTime().msecsTo(d->nextTimeout), 1);
+        }
 
         int ret = -1;
         if (d->appConnection.hasTaskAvailable() || d->appConnection.waitForIncomingTask(ms)) {
@@ -280,10 +288,11 @@ void SlaveBase::dispatchLoop()
             ret = d->appConnection.read(&cmd, data);
 
             if (ret != -1) {
-                if (d->inOpenLoop)
+                if (d->inOpenLoop) {
                     dispatchOpenCommand(cmd, data);
-                else
+                } else {
                     dispatch(cmd, data);
+                }
             }
         } else {
             ret = d->appConnection.isConnected() ? 0 : -1;
@@ -319,8 +328,7 @@ void SlaveBase::connectSlave(const QString &address)
 {
     d->appConnection.connectToRemote(QUrl(address));
 
-    if (!d->appConnection.inited())
-    {
+    if (!d->appConnection.inited()) {
         /*qDebug() << "failed to connect to" << address << endl
                       << "Reason:" << d->appConnection.errorString();*/
         exit();
@@ -342,11 +350,13 @@ void SlaveBase::setMetaData(const QString &key, const QString &value)
 
 QString SlaveBase::metaData(const QString &key) const
 {
-   if (mIncomingMetaData.contains(key))
-      return mIncomingMetaData[key];
-   if (d->configData.contains(key))
-      return d->configData[key];
-   return QString();
+    if (mIncomingMetaData.contains(key)) {
+        return mIncomingMetaData[key];
+    }
+    if (d->configData.contains(key)) {
+        return d->configData[key];
+    }
+    return QString();
 }
 
 MetaData SlaveBase::allMetaData() const
@@ -356,16 +366,18 @@ MetaData SlaveBase::allMetaData() const
 
 bool SlaveBase::hasMetaData(const QString &key) const
 {
-   if (mIncomingMetaData.contains(key))
-      return true;
-   if (d->configData.contains(key))
-      return true;
-   return false;
+    if (mIncomingMetaData.contains(key)) {
+        return true;
+    }
+    if (d->configData.contains(key)) {
+        return true;
+    }
+    return false;
 }
 
 KConfigGroup *SlaveBase::config()
 {
-   return d->configGroup;
+    return d->configGroup;
 }
 
 void SlaveBase::sendMetaData()
@@ -385,35 +397,37 @@ void SlaveBase::sendAndKeepMetaData()
 
 KRemoteEncoding *SlaveBase::remoteEncoding()
 {
-   if (d->remotefile)
-      return d->remotefile;
+    if (d->remotefile) {
+        return d->remotefile;
+    }
 
-   const QByteArray charset (metaData(QLatin1String("Charset")).toLatin1());
-   return (d->remotefile = new KRemoteEncoding( charset ));
+    const QByteArray charset(metaData(QLatin1String("Charset")).toLatin1());
+    return (d->remotefile = new KRemoteEncoding(charset));
 }
 
-void SlaveBase::data( const QByteArray &data )
+void SlaveBase::data(const QByteArray &data)
 {
-   sendMetaData();
-   send( MSG_DATA, data );
+    sendMetaData();
+    send(MSG_DATA, data);
 }
 
-void SlaveBase::dataReq( )
+void SlaveBase::dataReq()
 {
-   //sendMetaData();
-   if (d->needSendCanResume)
-      canResume(0);
-   send( MSG_DATA_REQ );
+    //sendMetaData();
+    if (d->needSendCanResume) {
+        canResume(0);
+    }
+    send(MSG_DATA_REQ);
 }
 
 void SlaveBase::opened()
 {
-   sendMetaData();
-   send( MSG_OPENED );
-   d->inOpenLoop = true;
+    sendMetaData();
+    send(MSG_OPENED);
+    d->inOpenLoop = true;
 }
 
-void SlaveBase::error( int _errid, const QString &_text )
+void SlaveBase::error(int _errid, const QString &_text)
 {
     if (d->m_state == d->ErrorCalled) {
         qWarning() << "error() called twice! Please fix the KIO slave.";
@@ -429,16 +443,16 @@ void SlaveBase::error( int _errid, const QString &_text )
     mOutgoingMetaData.clear();
     KIO_DATA << (qint32) _errid << _text;
 
-    send( MSG_ERROR, data );
+    send(MSG_ERROR, data);
     //reset
-    d->sentListEntries=0;
-    d->totalSize=0;
-    d->inOpenLoop=false;
+    d->sentListEntries = 0;
+    d->totalSize = 0;
+    d->inOpenLoop = false;
 }
 
 void SlaveBase::connected()
 {
-    send( MSG_CONNECTED );
+    send(MSG_CONNECTED);
 }
 
 void SlaveBase::finished()
@@ -460,50 +474,57 @@ void SlaveBase::finished()
     mIncomingMetaData.clear(); // Clear meta data
     d->rebuildConfig();
     sendMetaData();
-    send( MSG_FINISHED );
+    send(MSG_FINISHED);
 
     // reset
-    d->sentListEntries=0;
-    d->totalSize=0;
-    d->inOpenLoop=false;
+    d->sentListEntries = 0;
+    d->totalSize = 0;
+    d->inOpenLoop = false;
 }
 
 void SlaveBase::needSubUrlData()
 {
-    send( MSG_NEED_SUBURL_DATA );
+    send(MSG_NEED_SUBURL_DATA);
 }
 
 /*
  * Map pid_t to a signed integer type that makes sense for QByteArray;
  * only the most common sizes 16 bit and 32 bit are special-cased.
  */
-template<int T> struct PIDType { typedef pid_t PID_t; } ;
-template<> struct PIDType<2> { typedef qint16 PID_t; } ;
-template<> struct PIDType<4> { typedef qint32 PID_t; } ;
+template<int T> struct PIDType {
+    typedef pid_t PID_t;
+};
+template<> struct PIDType<2> {
+    typedef qint16 PID_t;
+};
+template<> struct PIDType<4> {
+    typedef qint32 PID_t;
+};
 
-void SlaveBase::slaveStatus( const QString &host, bool connected )
+void SlaveBase::slaveStatus(const QString &host, bool connected)
 {
     pid_t pid = getpid();
     qint8 b = connected ? 1 : 0;
     KIO_DATA << (PIDType<sizeof(pid_t)>::PID_t)pid << mProtocol << host << b;
-    if (d->onHold)
-       stream << d->onHoldUrl;
-    send( MSG_SLAVE_STATUS, data );
+    if (d->onHold) {
+        stream << d->onHoldUrl;
+    }
+    send(MSG_SLAVE_STATUS, data);
 }
 
 void SlaveBase::canResume()
 {
-    send( MSG_CANRESUME );
+    send(MSG_CANRESUME);
 }
 
-void SlaveBase::totalSize( KIO::filesize_t _bytes )
+void SlaveBase::totalSize(KIO::filesize_t _bytes)
 {
     KIO_DATA << KIO_FILESIZE_T(_bytes);
-    send( INF_TOTAL_SIZE, data );
+    send(INF_TOTAL_SIZE, data);
 
     //this one is usually called before the first item is listed in listDir()
-    d->totalSize=_bytes;
-    d->sentListEntries=0;
+    d->totalSize = _bytes;
+    d->sentListEntries = 0;
 }
 
 void SlaveBase::processedSize(KIO::filesize_t _bytes)
@@ -512,13 +533,14 @@ void SlaveBase::processedSize(KIO::filesize_t _bytes)
 
     QDateTime now = QDateTime::currentDateTime();
 
-    if (_bytes == d->totalSize)
-        emitSignal=true;
-    else {
-        if (d->lastTimeout.isValid())
-            emitSignal = d->lastTimeout.msecsTo(now); // emit size 10 times a second
-        else
+    if (_bytes == d->totalSize) {
+        emitSignal = true;
+    } else {
+        if (d->lastTimeout.isValid()) {
+            emitSignal = d->lastTimeout.msecsTo(now);    // emit size 10 times a second
+        } else {
             emitSignal = true;
+        }
     }
 
     if (emitSignal) {
@@ -530,44 +552,43 @@ void SlaveBase::processedSize(KIO::filesize_t _bytes)
     //    d->processed_size = _bytes;
 }
 
-void SlaveBase::written( KIO::filesize_t _bytes )
+void SlaveBase::written(KIO::filesize_t _bytes)
 {
     KIO_DATA << KIO_FILESIZE_T(_bytes);
-    send( MSG_WRITTEN, data );
+    send(MSG_WRITTEN, data);
 }
 
-void SlaveBase::position( KIO::filesize_t _pos )
+void SlaveBase::position(KIO::filesize_t _pos)
 {
     KIO_DATA << KIO_FILESIZE_T(_pos);
-    send( INF_POSITION, data );
+    send(INF_POSITION, data);
 }
 
-void SlaveBase::processedPercent( float /* percent */ )
+void SlaveBase::processedPercent(float /* percent */)
 {
-  //qDebug() << "STUB";
+    //qDebug() << "STUB";
 }
 
-
-void SlaveBase::speed( unsigned long _bytes_per_second )
+void SlaveBase::speed(unsigned long _bytes_per_second)
 {
     KIO_DATA << (quint32) _bytes_per_second;
-    send( INF_SPEED, data );
+    send(INF_SPEED, data);
 }
 
-void SlaveBase::redirection( const QUrl& _url )
+void SlaveBase::redirection(const QUrl &_url)
 {
     KIO_DATA << _url;
-    send( INF_REDIRECTION, data );
+    send(INF_REDIRECTION, data);
 }
 
 void SlaveBase::errorPage()
 {
-    send( INF_ERROR_PAGE );
+    send(INF_ERROR_PAGE);
 }
 
 static bool isSubCommand(int cmd)
 {
-   return ( (cmd == CMD_REPARSECONFIGURATION) ||
+    return ((cmd == CMD_REPARSECONFIGURATION) ||
             (cmd == CMD_META_DATA) ||
             (cmd == CMD_CONFIG) ||
             (cmd == CMD_SUBURL) ||
@@ -577,44 +598,42 @@ static bool isSubCommand(int cmd)
             (cmd == CMD_MULTI_GET));
 }
 
-void SlaveBase::mimeType( const QString &_type)
+void SlaveBase::mimeType(const QString &_type)
 {
-  //qDebug() << _type;
-  int cmd;
-  do
-  {
-    // Send the meta-data each time we send the mime-type.
-    if (!mOutgoingMetaData.isEmpty())
-    {
-      //qDebug() << "emitting meta data";
-      KIO_DATA << mOutgoingMetaData;
-      send( INF_META_DATA, data );
-    }
-    KIO_DATA << _type;
-    send( INF_MIME_TYPE, data );
-    while(true)
-    {
-       cmd = 0;
-       int ret = -1;
-       if (d->appConnection.hasTaskAvailable() || d->appConnection.waitForIncomingTask(-1)) {
-           ret = d->appConnection.read( &cmd, data );
-       }
-       if (ret == -1) {
-           //qDebug() << "read error";
-           exit();
-           return;
-       }
-       //qDebug() << "got" << cmd;
-       if ( cmd == CMD_HOST) // Ignore.
-          continue;
-       if (!isSubCommand(cmd))
-          break;
+    //qDebug() << _type;
+    int cmd;
+    do {
+        // Send the meta-data each time we send the mime-type.
+        if (!mOutgoingMetaData.isEmpty()) {
+            //qDebug() << "emitting meta data";
+            KIO_DATA << mOutgoingMetaData;
+            send(INF_META_DATA, data);
+        }
+        KIO_DATA << _type;
+        send(INF_MIME_TYPE, data);
+        while (true) {
+            cmd = 0;
+            int ret = -1;
+            if (d->appConnection.hasTaskAvailable() || d->appConnection.waitForIncomingTask(-1)) {
+                ret = d->appConnection.read(&cmd, data);
+            }
+            if (ret == -1) {
+                //qDebug() << "read error";
+                exit();
+                return;
+            }
+            //qDebug() << "got" << cmd;
+            if (cmd == CMD_HOST) { // Ignore.
+                continue;
+            }
+            if (!isSubCommand(cmd)) {
+                break;
+            }
 
-       dispatch( cmd, data );
-    }
-  }
-  while (cmd != CMD_NONE);
-  mOutgoingMetaData.clear();
+            dispatch(cmd, data);
+        }
+    } while (cmd != CMD_NONE);
+    mOutgoingMetaData.clear();
 }
 
 void SlaveBase::exit()
@@ -627,47 +646,47 @@ void SlaveBase::exit()
     ::exit(255);
 }
 
-void SlaveBase::warning( const QString &_msg)
+void SlaveBase::warning(const QString &_msg)
 {
     KIO_DATA << _msg;
-    send( INF_WARNING, data );
+    send(INF_WARNING, data);
 }
 
-void SlaveBase::infoMessage( const QString &_msg)
+void SlaveBase::infoMessage(const QString &_msg)
 {
     KIO_DATA << _msg;
-    send( INF_INFOMESSAGE, data );
+    send(INF_INFOMESSAGE, data);
 }
 
-bool SlaveBase::requestNetwork(const QString& host)
+bool SlaveBase::requestNetwork(const QString &host)
 {
     KIO_DATA << host << d->slaveid;
-    send( MSG_NET_REQUEST, data );
+    send(MSG_NET_REQUEST, data);
 
-    if ( waitForAnswer( INF_NETWORK_STATUS, 0, data ) != -1 )
-    {
+    if (waitForAnswer(INF_NETWORK_STATUS, 0, data) != -1) {
         bool status;
-        QDataStream stream( data );
+        QDataStream stream(data);
         stream >> status;
         return status;
-    } else
+    } else {
         return false;
+    }
 }
 
-void SlaveBase::dropNetwork(const QString& host)
+void SlaveBase::dropNetwork(const QString &host)
 {
     KIO_DATA << host << d->slaveid;
-    send( MSG_NET_DROP, data );
+    send(MSG_NET_DROP, data);
 }
 
-void SlaveBase::statEntry( const UDSEntry& entry )
+void SlaveBase::statEntry(const UDSEntry &entry)
 {
     KIO_DATA << entry;
-    send( MSG_STAT_ENTRY, data );
+    send(MSG_STAT_ENTRY, data);
 }
 
 #ifndef KDE_NO_DEPRECATED
-void SlaveBase::listEntry( const UDSEntry& entry, bool _ready )
+void SlaveBase::listEntry(const UDSEntry &entry, bool _ready)
 {
     if (_ready) {
         listEntries(d->pendingListEntries);
@@ -698,25 +717,25 @@ void SlaveBase::listEntry(const UDSEntry &entry)
     }
 }
 
-void SlaveBase::listEntries( const UDSEntryList& list )
+void SlaveBase::listEntries(const UDSEntryList &list)
 {
     KIO_DATA << (quint32)list.count();
 
-    foreach(const UDSEntry &entry, list) {
+    foreach (const UDSEntry &entry, list) {
         stream << entry;
     }
 
-    send( MSG_LIST_ENTRIES, data);
-    d->sentListEntries+=(uint)list.count();
+    send(MSG_LIST_ENTRIES, data);
+    d->sentListEntries += (uint)list.count();
 }
 
 static void sigsegv_handler(int sig)
 {
 #ifdef Q_OS_UNIX
-    ::signal(sig,SIG_DFL); // Next one kills
+    ::signal(sig, SIG_DFL); // Next one kills
 
     //Kill us if we deadlock
-    ::signal(SIGALRM,SIG_DFL);
+    ::signal(SIGALRM, SIG_DFL);
     alarm(5);  //generate an alarm signal in 5 seconds, in this time the slave has to exit
 
     // Debug and printf should be avoided because they might
@@ -726,17 +745,18 @@ static void sigsegv_handler(int sig)
     write(2, buffer, strlen(buffer));
 #ifndef NDEBUG
 #if HAVE_BACKTRACE
-    void* trace[256];
+    void *trace[256];
     int n = backtrace(trace, 256);
-    if (n)
-      backtrace_symbols_fd(trace, n, 2);
+    if (n) {
+        backtrace_symbols_fd(trace, n, 2);
+    }
 #endif
 #endif
     ::exit(1);
 #endif
 }
 
-static void sigpipe_handler (int)
+static void sigpipe_handler(int)
 {
     // We ignore a SIGPIPE in slaves.
     // A SIGPIPE can happen in two cases:
@@ -751,101 +771,149 @@ void SlaveBase::setHost(QString const &, quint16, QString const &, QString const
 {
 }
 
-KIOCORE_EXPORT QString KIO::unsupportedActionErrorString(const QString &protocol, int cmd) {
-  switch (cmd) {
+KIOCORE_EXPORT QString KIO::unsupportedActionErrorString(const QString &protocol, int cmd)
+{
+    switch (cmd) {
     case CMD_CONNECT:
-      return i18n("Opening connections is not supported with the protocol %1." , protocol);
+        return i18n("Opening connections is not supported with the protocol %1.", protocol);
     case CMD_DISCONNECT:
-      return i18n("Closing connections is not supported with the protocol %1." , protocol);
+        return i18n("Closing connections is not supported with the protocol %1.", protocol);
     case CMD_STAT:
-      return i18n("Accessing files is not supported with the protocol %1.", protocol);
+        return i18n("Accessing files is not supported with the protocol %1.", protocol);
     case CMD_PUT:
-      return i18n("Writing to %1 is not supported.", protocol);
+        return i18n("Writing to %1 is not supported.", protocol);
     case CMD_SPECIAL:
-      return i18n("There are no special actions available for protocol %1.", protocol);
+        return i18n("There are no special actions available for protocol %1.", protocol);
     case CMD_LISTDIR:
-      return i18n("Listing folders is not supported for protocol %1.", protocol);
+        return i18n("Listing folders is not supported for protocol %1.", protocol);
     case CMD_GET:
-      return i18n("Retrieving data from %1 is not supported.", protocol);
+        return i18n("Retrieving data from %1 is not supported.", protocol);
     case CMD_MIMETYPE:
-      return i18n("Retrieving mime type information from %1 is not supported.", protocol);
+        return i18n("Retrieving mime type information from %1 is not supported.", protocol);
     case CMD_RENAME:
-      return i18n("Renaming or moving files within %1 is not supported.", protocol);
+        return i18n("Renaming or moving files within %1 is not supported.", protocol);
     case CMD_SYMLINK:
-      return i18n("Creating symlinks is not supported with protocol %1.", protocol);
+        return i18n("Creating symlinks is not supported with protocol %1.", protocol);
     case CMD_COPY:
-      return i18n("Copying files within %1 is not supported.", protocol);
+        return i18n("Copying files within %1 is not supported.", protocol);
     case CMD_DEL:
-      return i18n("Deleting files from %1 is not supported.", protocol);
+        return i18n("Deleting files from %1 is not supported.", protocol);
     case CMD_MKDIR:
-      return i18n("Creating folders is not supported with protocol %1.", protocol);
+        return i18n("Creating folders is not supported with protocol %1.", protocol);
     case CMD_CHMOD:
-      return i18n("Changing the attributes of files is not supported with protocol %1.", protocol);
+        return i18n("Changing the attributes of files is not supported with protocol %1.", protocol);
     case CMD_CHOWN:
-      return i18n("Changing the ownership of files is not supported with protocol %1.", protocol);
+        return i18n("Changing the ownership of files is not supported with protocol %1.", protocol);
     case CMD_SUBURL:
-      return i18n("Using sub-URLs with %1 is not supported.", protocol);
+        return i18n("Using sub-URLs with %1 is not supported.", protocol);
     case CMD_MULTI_GET:
-      return i18n("Multiple get is not supported with protocol %1.", protocol);
+        return i18n("Multiple get is not supported with protocol %1.", protocol);
     case CMD_OPEN:
-      return i18n("Opening files is not supported with protocol %1.", protocol);
+        return i18n("Opening files is not supported with protocol %1.", protocol);
     default:
-      return i18n("Protocol %1 does not support action %2.", protocol, cmd);
-  }/*end switch*/
+        return i18n("Protocol %1 does not support action %2.", protocol, cmd);
+    }/*end switch*/
 }
 
 void SlaveBase::openConnection(void)
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_CONNECT)); }
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_CONNECT));
+}
 void SlaveBase::closeConnection(void)
 { } // No response!
 void SlaveBase::stat(QUrl const &)
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_STAT)); }
-void SlaveBase::put(QUrl const &, int, JobFlags )
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_PUT)); }
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_STAT));
+}
+void SlaveBase::put(QUrl const &, int, JobFlags)
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_PUT));
+}
 void SlaveBase::special(const QByteArray &)
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_SPECIAL)); }
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_SPECIAL));
+}
 void SlaveBase::listDir(QUrl const &)
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_LISTDIR)); }
-void SlaveBase::get(QUrl const & )
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_GET)); }
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_LISTDIR));
+}
+void SlaveBase::get(QUrl const &)
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_GET));
+}
 void SlaveBase::open(QUrl const &, QIODevice::OpenMode)
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_OPEN)); }
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_OPEN));
+}
 void SlaveBase::read(KIO::filesize_t)
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_READ)); }
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_READ));
+}
 void SlaveBase::write(const QByteArray &)
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_WRITE)); }
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_WRITE));
+}
 void SlaveBase::seek(KIO::filesize_t)
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_SEEK)); }
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_SEEK));
+}
 void SlaveBase::close()
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_CLOSE)); }
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_CLOSE));
+}
 void SlaveBase::mimetype(QUrl const &url)
-{ get(url); }
+{
+    get(url);
+}
 void SlaveBase::rename(QUrl const &, QUrl const &, JobFlags)
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_RENAME)); }
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_RENAME));
+}
 void SlaveBase::symlink(QString const &, QUrl const &, JobFlags)
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_SYMLINK)); }
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_SYMLINK));
+}
 void SlaveBase::copy(QUrl const &, QUrl const &, int, JobFlags)
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_COPY)); }
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_COPY));
+}
 void SlaveBase::del(QUrl const &, bool)
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_DEL)); }
-void SlaveBase::setLinkDest(const QUrl &, const QString&)
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_SETLINKDEST)); }
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_DEL));
+}
+void SlaveBase::setLinkDest(const QUrl &, const QString &)
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_SETLINKDEST));
+}
 void SlaveBase::mkdir(QUrl const &, int)
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_MKDIR)); }
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_MKDIR));
+}
 void SlaveBase::chmod(QUrl const &, int)
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_CHMOD)); }
-void SlaveBase::setModificationTime(QUrl const &, const QDateTime&)
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_SETMODIFICATIONTIME)); }
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_CHMOD));
+}
+void SlaveBase::setModificationTime(QUrl const &, const QDateTime &)
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_SETMODIFICATIONTIME));
+}
 void SlaveBase::chown(QUrl const &, const QString &, const QString &)
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_CHOWN)); }
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_CHOWN));
+}
 void SlaveBase::setSubUrl(QUrl const &)
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_SUBURL)); }
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_SUBURL));
+}
 void SlaveBase::multiGet(const QByteArray &)
-{ error(  ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_MULTI_GET)); }
-
+{
+    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_MULTI_GET));
+}
 
 void SlaveBase::slave_status()
-{ slaveStatus( QString(), false ); }
+{
+    slaveStatus(QString(), false);
+}
 
 void SlaveBase::reparseConfiguration()
 {
@@ -853,7 +921,7 @@ void SlaveBase::reparseConfiguration()
     d->remotefile = 0;
 }
 
-bool SlaveBase::openPasswordDialog( AuthInfo& info, const QString &errorMsg )
+bool SlaveBase::openPasswordDialog(AuthInfo &info, const QString &errorMsg)
 {
     const long windowId = metaData(QLatin1String("window-id")).toLong();
     const unsigned long userTimestamp = metaData(QLatin1String("user-timestamp")).toULong();
@@ -864,7 +932,7 @@ bool SlaveBase::openPasswordDialog( AuthInfo& info, const QString &errorMsg )
         errorMessage = errorMsg;
     }
 
-    AuthInfo dlgInfo (info);
+    AuthInfo dlgInfo(info);
     // Make sure the modified flag is not set.
     dlgInfo.setModified(false);
     // Prevent queryAuthInfo from caching the user supplied password since
@@ -872,11 +940,11 @@ bool SlaveBase::openPasswordDialog( AuthInfo& info, const QString &errorMsg )
     // it to ensure it is valid.
     dlgInfo.setExtraField(QLatin1String("skip-caching-on-query"), true);
 
-    KPasswdServer* passwdServer = d->passwdServer();
+    KPasswdServer *passwdServer = d->passwdServer();
 
     if (passwdServer) {
         qlonglong seqNr = passwdServer->queryAuthInfo(dlgInfo, errorMessage, windowId,
-                                                      SlaveBasePrivate::s_seqNr, userTimestamp);
+                          SlaveBasePrivate::s_seqNr, userTimestamp);
         if (seqNr > 0) {
             SlaveBasePrivate::s_seqNr = seqNr;
             if (dlgInfo.isModified()) {
@@ -889,109 +957,103 @@ bool SlaveBase::openPasswordDialog( AuthInfo& info, const QString &errorMsg )
     return false;
 }
 
-int SlaveBase::messageBox( MessageBoxType type, const QString &text, const QString &caption,
-                           const QString &buttonYes, const QString &buttonNo )
+int SlaveBase::messageBox(MessageBoxType type, const QString &text, const QString &caption,
+                          const QString &buttonYes, const QString &buttonNo)
 {
-    return messageBox( text, type, caption, buttonYes, buttonNo, QString() );
+    return messageBox(text, type, caption, buttonYes, buttonNo, QString());
 }
 
-int SlaveBase::messageBox( const QString &text, MessageBoxType type, const QString &caption,
-                           const QString &buttonYes, const QString &buttonNo,
-                           const QString &dontAskAgainName )
+int SlaveBase::messageBox(const QString &text, MessageBoxType type, const QString &caption,
+                          const QString &buttonYes, const QString &buttonNo,
+                          const QString &dontAskAgainName)
 {
     //qDebug() << "messageBox " << type << " " << text << " - " << caption << buttonYes << buttonNo;
     KIO_DATA << (qint32)type << text << caption << buttonYes << buttonNo << dontAskAgainName;
-    send( INF_MESSAGEBOX, data );
-    if ( waitForAnswer( CMD_MESSAGEBOXANSWER, 0, data ) != -1 )
-    {
-        QDataStream stream( data );
+    send(INF_MESSAGEBOX, data);
+    if (waitForAnswer(CMD_MESSAGEBOXANSWER, 0, data) != -1) {
+        QDataStream stream(data);
         int answer;
         stream >> answer;
         //qDebug() << "got messagebox answer" << answer;
         return answer;
-    } else
-        return 0; // communication failure
+    } else {
+        return 0;    // communication failure
+    }
 }
 
-bool SlaveBase::canResume( KIO::filesize_t offset )
+bool SlaveBase::canResume(KIO::filesize_t offset)
 {
     //qDebug() << "offset=" << KIO::number(offset);
     d->needSendCanResume = false;
     KIO_DATA << KIO_FILESIZE_T(offset);
-    send( MSG_RESUME, data );
-    if ( offset )
-    {
+    send(MSG_RESUME, data);
+    if (offset) {
         int cmd;
-        if ( waitForAnswer( CMD_RESUMEANSWER, CMD_NONE, data, &cmd ) != -1 )
-        {
+        if (waitForAnswer(CMD_RESUMEANSWER, CMD_NONE, data, &cmd) != -1) {
             //qDebug() << "returning" << (cmd == CMD_RESUMEANSWER);
             return cmd == CMD_RESUMEANSWER;
-        } else
+        } else {
             return false;
-    }
-    else // No resuming possible -> no answer to wait for
+        }
+    } else { // No resuming possible -> no answer to wait for
         return true;
+    }
 }
 
-
-
-int SlaveBase::waitForAnswer( int expected1, int expected2, QByteArray & data, int *pCmd )
+int SlaveBase::waitForAnswer(int expected1, int expected2, QByteArray &data, int *pCmd)
 {
     int cmd, result = -1;
-    for (;;)
-    {
+    for (;;) {
         if (d->appConnection.hasTaskAvailable() || d->appConnection.waitForIncomingTask(-1)) {
-            result = d->appConnection.read( &cmd, data );
+            result = d->appConnection.read(&cmd, data);
         }
         if (result == -1) {
             //qDebug() << "read error.";
             return -1;
         }
 
-        if ( cmd == expected1 || cmd == expected2 )
-        {
-            if ( pCmd ) *pCmd = cmd;
+        if (cmd == expected1 || cmd == expected2) {
+            if (pCmd) {
+                *pCmd = cmd;
+            }
             return result;
         }
-        if ( isSubCommand(cmd) )
-        {
-            dispatch( cmd, data );
-        }
-        else
-        {
+        if (isSubCommand(cmd)) {
+            dispatch(cmd, data);
+        } else {
             qFatal("Fatal Error: Got cmd %d, while waiting for an answer!", cmd);
         }
     }
 }
 
-
-int SlaveBase::readData( QByteArray &buffer)
+int SlaveBase::readData(QByteArray &buffer)
 {
-   int result = waitForAnswer( MSG_DATA, 0, buffer );
-   //qDebug() << "readData: length = " << result << " ";
-   return result;
+    int result = waitForAnswer(MSG_DATA, 0, buffer);
+    //qDebug() << "readData: length = " << result << " ";
+    return result;
 }
 
 void SlaveBase::setTimeoutSpecialCommand(int timeout, const QByteArray &data)
 {
-   if (timeout > 0)
-      d->nextTimeout = QDateTime::currentDateTime().addSecs(timeout);
-   else if (timeout == 0)
-      d->nextTimeout = QDateTime::currentDateTime().addSecs(1); // Immediate timeout
-   else
-      d->nextTimeout = QDateTime(); // Canceled
+    if (timeout > 0) {
+        d->nextTimeout = QDateTime::currentDateTime().addSecs(timeout);
+    } else if (timeout == 0) {
+        d->nextTimeout = QDateTime::currentDateTime().addSecs(1);    // Immediate timeout
+    } else {
+        d->nextTimeout = QDateTime();    // Canceled
+    }
 
-   d->timeoutData = data;
+    d->timeoutData = data;
 }
 
-void SlaveBase::dispatch( int command, const QByteArray &data )
+void SlaveBase::dispatch(int command, const QByteArray &data)
 {
-    QDataStream stream( data );
+    QDataStream stream(data);
 
     QUrl url;
     int i;
 
-    switch( command ) {
+    switch (command) {
     case CMD_HOST: {
         // Reset s_seqNr, see kpasswdserver/DESIGN
         SlaveBasePrivate::s_seqNr = 0;
@@ -1000,15 +1062,15 @@ void SlaveBase::dispatch( int command, const QByteArray &data )
         quint16 port;
         stream >> host >> port >> user >> passwd;
         d->m_state = d->InsideMethod;
-        setHost( host, port, user, passwd );
+        setHost(host, port, user, passwd);
         d->verifyErrorFinishedNotCalled("setHost()");
         d->m_state = d->Idle;
     } break;
     case CMD_CONNECT: {
-        openConnection( );
+        openConnection();
     } break;
     case CMD_DISCONNECT: {
-        closeConnection( );
+        closeConnection();
     } break;
     case CMD_SLAVE_STATUS: {
         d->m_state = d->InsideMethod;
@@ -1020,9 +1082,9 @@ void SlaveBase::dispatch( int command, const QByteArray &data )
     case CMD_SLAVE_CONNECT: {
         d->onHold = false;
         QString app_socket;
-        QDataStream stream( data );
+        QDataStream stream(data);
         stream >> app_socket;
-        d->appConnection.send( MSG_SLAVE_ACK );
+        d->appConnection.send(MSG_SLAVE_ACK);
         disconnectSlave();
         d->isConnectedToApp = true;
         connectSlave(app_socket);
@@ -1030,7 +1092,7 @@ void SlaveBase::dispatch( int command, const QByteArray &data )
     } break;
     case CMD_SLAVE_HOLD: {
         QUrl url;
-        QDataStream stream( data );
+        QDataStream stream(data);
         stream >> url;
         d->onHoldUrl = url;
         d->onHold = true;
@@ -1057,7 +1119,7 @@ void SlaveBase::dispatch( int command, const QByteArray &data )
     case CMD_GET: {
         stream >> url;
         d->m_state = d->InsideMethod;
-        get( url );
+        get(url);
         d->verifyState("get()");
         d->m_state = d->Idle;
     } break;
@@ -1073,8 +1135,12 @@ void SlaveBase::dispatch( int command, const QByteArray &data )
         qint8 iOverwrite, iResume;
         stream >> url >> iOverwrite >> iResume >> permissions;
         JobFlags flags;
-        if ( iOverwrite != 0 ) flags |= Overwrite;
-        if ( iResume != 0 ) flags |= Resume;
+        if (iOverwrite != 0) {
+            flags |= Overwrite;
+        }
+        if (iResume != 0) {
+            flags |= Resume;
+        }
 
         // Remember that we need to send canResume(), TransferJob is expecting
         // it. Well, in theory this shouldn't be done if resume is true.
@@ -1082,35 +1148,35 @@ void SlaveBase::dispatch( int command, const QByteArray &data )
         d->needSendCanResume = true   /* !resume */;
 
         d->m_state = d->InsideMethod;
-        put( url, permissions, flags);
+        put(url, permissions, flags);
         d->verifyState("put()");
         d->m_state = d->Idle;
     } break;
     case CMD_STAT: {
         stream >> url;
         d->m_state = d->InsideMethod;
-        stat( url ); //krazy:exclude=syscalls
+        stat(url);   //krazy:exclude=syscalls
         d->verifyState("stat()");
         d->m_state = d->Idle;
     } break;
     case CMD_MIMETYPE: {
         stream >> url;
         d->m_state = d->InsideMethod;
-        mimetype( url );
+        mimetype(url);
         d->verifyState("mimetype()");
         d->m_state = d->Idle;
     } break;
     case CMD_LISTDIR: {
         stream >> url;
         d->m_state = d->InsideMethod;
-        listDir( url );
+        listDir(url);
         d->verifyState("listDir()");
         d->m_state = d->Idle;
     } break;
     case CMD_MKDIR: {
         stream >> url >> i;
         d->m_state = d->InsideMethod;
-        mkdir( url, i ); //krazy:exclude=syscalls
+        mkdir(url, i);   //krazy:exclude=syscalls
         d->verifyState("mkdir()");
         d->m_state = d->Idle;
     } break;
@@ -1119,9 +1185,11 @@ void SlaveBase::dispatch( int command, const QByteArray &data )
         QUrl url2;
         stream >> url >> url2 >> iOverwrite;
         JobFlags flags;
-        if ( iOverwrite != 0 ) flags |= Overwrite;
+        if (iOverwrite != 0) {
+            flags |= Overwrite;
+        }
         d->m_state = d->InsideMethod;
-        rename( url, url2, flags ); //krazy:exclude=syscalls
+        rename(url, url2, flags);   //krazy:exclude=syscalls
         d->verifyState("rename()");
         d->m_state = d->Idle;
     } break;
@@ -1130,9 +1198,11 @@ void SlaveBase::dispatch( int command, const QByteArray &data )
         QString target;
         stream >> target >> url >> iOverwrite;
         JobFlags flags;
-        if ( iOverwrite != 0 ) flags |= Overwrite;
+        if (iOverwrite != 0) {
+            flags |= Overwrite;
+        }
         d->m_state = d->InsideMethod;
-        symlink( target, url, flags );
+        symlink(target, url, flags);
         d->verifyState("symlink()");
         d->m_state = d->Idle;
     } break;
@@ -1142,9 +1212,11 @@ void SlaveBase::dispatch( int command, const QByteArray &data )
         QUrl url2;
         stream >> url >> url2 >> permissions >> iOverwrite;
         JobFlags flags;
-        if ( iOverwrite != 0 ) flags |= Overwrite;
+        if (iOverwrite != 0) {
+            flags |= Overwrite;
+        }
         d->m_state = d->InsideMethod;
-        copy( url, url2, permissions, flags );
+        copy(url, url2, permissions, flags);
         d->verifyState("copy()");
         d->m_state = d->Idle;
     } break;
@@ -1152,14 +1224,14 @@ void SlaveBase::dispatch( int command, const QByteArray &data )
         qint8 isFile;
         stream >> url >> isFile;
         d->m_state = d->InsideMethod;
-        del( url, isFile != 0);
+        del(url, isFile != 0);
         d->verifyState("del()");
         d->m_state = d->Idle;
     } break;
     case CMD_CHMOD: {
         stream >> url >> i;
         d->m_state = d->InsideMethod;
-        chmod( url, i);
+        chmod(url, i);
         d->verifyState("chmod()");
         d->m_state = d->Idle;
     } break;
@@ -1181,7 +1253,7 @@ void SlaveBase::dispatch( int command, const QByteArray &data )
     } break;
     case CMD_SPECIAL: {
         d->m_state = d->InsideMethod;
-        special( data );
+        special(data);
         d->verifyState("special()");
         d->m_state = d->Idle;
     } break;
@@ -1202,7 +1274,7 @@ void SlaveBase::dispatch( int command, const QByteArray &data )
     } break;
     case CMD_MULTI_GET: {
         d->m_state = d->InsideMethod;
-        multiGet( data );
+        multiGet(data);
         d->verifyState("multiGet()");
         d->m_state = d->Idle;
     } break;
@@ -1213,19 +1285,19 @@ void SlaveBase::dispatch( int command, const QByteArray &data )
     }
 }
 
-bool SlaveBase::checkCachedAuthentication( AuthInfo& info )
+bool SlaveBase::checkCachedAuthentication(AuthInfo &info)
 {
-    KPasswdServer* passwdServer = d->passwdServer();
+    KPasswdServer *passwdServer = d->passwdServer();
     return (passwdServer &&
             passwdServer->checkAuthInfo(info, metaData(QLatin1String("window-id")).toLong(),
                                         metaData(QLatin1String("user-timestamp")).toULong()));
 }
 
-void SlaveBase::dispatchOpenCommand( int command, const QByteArray &data )
+void SlaveBase::dispatchOpenCommand(int command, const QByteArray &data)
 {
-    QDataStream stream( data );
+    QDataStream stream(data);
 
-    switch( command ) {
+    switch (command) {
     case CMD_READ: {
         KIO::filesize_t bytes;
         stream >> bytes;
@@ -1253,9 +1325,9 @@ void SlaveBase::dispatchOpenCommand( int command, const QByteArray &data )
     }
 }
 
-bool SlaveBase::cacheAuthentication( const AuthInfo& info )
+bool SlaveBase::cacheAuthentication(const AuthInfo &info)
 {
-    KPasswdServer* passwdServer = d->passwdServer();
+    KPasswdServer *passwdServer = d->passwdServer();
 
     if (!passwdServer) {
         return false;
@@ -1270,8 +1342,9 @@ int SlaveBase::connectTimeout()
     bool ok;
     QString tmp = metaData(QLatin1String("ConnectTimeout"));
     int result = tmp.toInt(&ok);
-    if (ok)
-       return result;
+    if (ok) {
+        return result;
+    }
     return DEFAULT_CONNECT_TIMEOUT;
 }
 
@@ -1280,62 +1353,69 @@ int SlaveBase::proxyConnectTimeout()
     bool ok;
     QString tmp = metaData(QLatin1String("ProxyConnectTimeout"));
     int result = tmp.toInt(&ok);
-    if (ok)
-       return result;
+    if (ok) {
+        return result;
+    }
     return DEFAULT_PROXY_CONNECT_TIMEOUT;
 }
-
 
 int SlaveBase::responseTimeout()
 {
     bool ok;
     QString tmp = metaData(QLatin1String("ResponseTimeout"));
     int result = tmp.toInt(&ok);
-    if (ok)
-       return result;
+    if (ok) {
+        return result;
+    }
     return DEFAULT_RESPONSE_TIMEOUT;
 }
-
 
 int SlaveBase::readTimeout()
 {
     bool ok;
     QString tmp = metaData(QLatin1String("ReadTimeout"));
     int result = tmp.toInt(&ok);
-    if (ok)
-       return result;
+    if (ok) {
+        return result;
+    }
     return DEFAULT_READ_TIMEOUT;
 }
 
 bool SlaveBase::wasKilled() const
 {
-   return d->wasKilled;
+    return d->wasKilled;
 }
 
 void SlaveBase::setKillFlag()
 {
-   d->wasKilled=true;
+    d->wasKilled = true;
 }
 
-void SlaveBase::send(int cmd, const QByteArray& arr )
+void SlaveBase::send(int cmd, const QByteArray &arr)
 {
-   slaveWriteError = false;
-   if (!d->appConnection.send(cmd, arr))
-       // Note that slaveWriteError can also be set by sigpipe_handler
-       slaveWriteError = true;
-   if (slaveWriteError) exit();
+    slaveWriteError = false;
+    if (!d->appConnection.send(cmd, arr))
+        // Note that slaveWriteError can also be set by sigpipe_handler
+    {
+        slaveWriteError = true;
+    }
+    if (slaveWriteError) {
+        exit();
+    }
 }
 
-void SlaveBase::virtual_hook( int, void* )
-{ /*BASE::virtual_hook( id, data );*/ }
+void SlaveBase::virtual_hook(int, void *)
+{
+    /*BASE::virtual_hook( id, data );*/
+}
 
-void SlaveBase::lookupHost(const QString& host)
+void SlaveBase::lookupHost(const QString &host)
 {
     KIO_DATA << host;
     send(MSG_HOST_INFO_REQ, data);
 }
 
-int SlaveBase::waitForHostInfo(QHostInfo& info)
+int SlaveBase::waitForHostInfo(QHostInfo &info)
 {
     QByteArray data;
     int result = waitForAnswer(CMD_HOST_INFO, 0, data);

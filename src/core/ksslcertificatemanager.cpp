@@ -67,28 +67,24 @@ public:
     QList<KSslError::Error> ignoredErrors;
 };
 
-
 KSslCertificateRule::KSslCertificateRule(const QSslCertificate &cert, const QString &hostName)
- : d(new KSslCertificateRulePrivate())
+    : d(new KSslCertificateRulePrivate())
 {
     d->certificate = cert;
     d->hostName = hostName;
     d->isRejected = false;
 }
 
-
 KSslCertificateRule::KSslCertificateRule(const KSslCertificateRule &other)
- : d(new KSslCertificateRulePrivate())
+    : d(new KSslCertificateRulePrivate())
 {
     *d = *other.d;
 }
-
 
 KSslCertificateRule::~KSslCertificateRule()
 {
     delete d;
 }
-
 
 KSslCertificateRule &KSslCertificateRule::operator=(const KSslCertificateRule &other)
 {
@@ -96,99 +92,91 @@ KSslCertificateRule &KSslCertificateRule::operator=(const KSslCertificateRule &o
     return *this;
 }
 
-
 QSslCertificate KSslCertificateRule::certificate() const
 {
     return d->certificate;
 }
-
 
 QString KSslCertificateRule::hostName() const
 {
     return d->hostName;
 }
 
-
 void KSslCertificateRule::setExpiryDateTime(const QDateTime &dateTime)
 {
     d->expiryDateTime = dateTime;
 }
-
 
 QDateTime KSslCertificateRule::expiryDateTime() const
 {
     return d->expiryDateTime;
 }
 
-
 void KSslCertificateRule::setRejected(bool rejected)
 {
     d->isRejected = rejected;
 }
-
 
 bool KSslCertificateRule::isRejected() const
 {
     return d->isRejected;
 }
 
-
 bool KSslCertificateRule::isErrorIgnored(KSslError::Error error) const
 {
     foreach (KSslError::Error ignoredError, d->ignoredErrors)
-        if (error == ignoredError)
+        if (error == ignoredError) {
             return true;
+        }
 
     return false;
 }
-
 
 void KSslCertificateRule::setIgnoredErrors(const QList<KSslError::Error> &errors)
 {
     d->ignoredErrors.clear();
     //### Quadratic runtime, woohoo! Use a QSet if that should ever be an issue.
-    foreach(KSslError::Error e, errors)
-        if (!isErrorIgnored(e))
+    foreach (KSslError::Error e, errors)
+        if (!isErrorIgnored(e)) {
             d->ignoredErrors.append(e);
+        }
 }
-
 
 void KSslCertificateRule::setIgnoredErrors(const QList<KSslError> &errors)
 {
     QList<KSslError::Error> el;
-    foreach(const KSslError &e, errors)
+    foreach (const KSslError &e, errors) {
         el.append(e.error());
+    }
     setIgnoredErrors(el);
 }
-
 
 QList<KSslError::Error> KSslCertificateRule::ignoredErrors() const
 {
     return d->ignoredErrors;
 }
 
-
 QList<KSslError::Error> KSslCertificateRule::filterErrors(const QList<KSslError::Error> &errors) const
 {
     QList<KSslError::Error> ret;
     foreach (KSslError::Error error, errors) {
-        if (!isErrorIgnored(error))
+        if (!isErrorIgnored(error)) {
             ret.append(error);
+        }
     }
     return ret;
 }
-
 
 QList<KSslError> KSslCertificateRule::filterErrors(const QList<KSslError> &errors) const
 {
     QList<KSslError> ret;
     foreach (const KSslError &error, errors) {
-        if (!isErrorIgnored(error.error()))
+        if (!isErrorIgnored(error.error())) {
             ret.append(error);
+        }
     }
     return ret;
 }
-
 
 ////////////////////////////////////////////////////////////////////
 
@@ -207,12 +195,12 @@ static QList<QSslCertificate> deduplicate(const QList<QSslCertificate> &certs)
 }
 
 KSslCertificateManagerPrivate::KSslCertificateManagerPrivate()
- : config(QString::fromLatin1("ksslcertificatemanager"), KConfig::SimpleConfig),
-   iface(new org::kde::KSSLDInterface(QString::fromLatin1("org.kde.kded5"),
-                                      QString::fromLatin1("/modules/kssld"),
-                                      QDBusConnection::sessionBus())),
-   isCertListLoaded(false),
-   userCertDir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QString::fromLatin1("/kssl/userCaCertificates/"))
+    : config(QString::fromLatin1("ksslcertificatemanager"), KConfig::SimpleConfig),
+      iface(new org::kde::KSSLDInterface(QString::fromLatin1("org.kde.kded5"),
+                                         QString::fromLatin1("/modules/kssld"),
+                                         QDBusConnection::sessionBus())),
+      isCertListLoaded(false),
+      userCertDir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QString::fromLatin1("/kssl/userCaCertificates/"))
 {
     // set Qt's set to empty; this is protected by the lock in K_GLOBAL_STATIC.
     QSslSocket::setDefaultCaCertificates(QList<QSslCertificate>());
@@ -245,7 +233,6 @@ void KSslCertificateManagerPrivate::loadDefaultCaCertificates()
     isCertListLoaded = true;
 }
 
-
 bool KSslCertificateManagerPrivate::addCertificate(const KSslCaCertificate &in)
 {
     //qDebug() << Q_FUNC_INFO;
@@ -277,7 +264,6 @@ bool KSslCertificateManagerPrivate::addCertificate(const KSslCaCertificate &in)
 
     return true;
 }
-
 
 bool KSslCertificateManagerPrivate::removeCertificate(const KSslCaCertificate &old)
 {
@@ -357,7 +343,7 @@ void KSslCertificateManagerPrivate::setAllCertificates(const QList<KSslCaCertifi
             continue;
         }
 
-        if (certLessThan (old.at(oi), in.at(ii))) {
+        if (certLessThan(old.at(oi), in.at(ii))) {
             // the certificate in "old" is not in "in". only advance the index of "old".
             removeCertificate(old.at(oi));
             ii--;
@@ -391,7 +377,7 @@ QList<KSslCaCertificate> KSslCertificateManagerPrivate::allCertificates() const
     }
 
     foreach (const QSslCertificate &cert, QSslCertificate::fromPath(userCertDir + QLatin1String("*"),
-                                                                    QSsl::Pem, QRegExp::Wildcard)) {
+             QSsl::Pem, QRegExp::Wildcard)) {
         ret += KSslCaCertificate(cert, KSslCaCertificate::UserStore, false);
     }
 
@@ -407,15 +393,13 @@ QList<KSslCaCertificate> KSslCertificateManagerPrivate::allCertificates() const
     return ret;
 }
 
-
 bool KSslCertificateManagerPrivate::updateCertificateBlacklisted(const KSslCaCertificate &cert)
 {
     return setCertificateBlacklisted(cert.certHash, cert.isBlacklisted);
 }
 
-
 bool KSslCertificateManagerPrivate::setCertificateBlacklisted(const QByteArray &certHash,
-                                                              bool isBlacklisted)
+        bool isBlacklisted)
 {
     //qDebug() << Q_FUNC_INFO << isBlacklisted;
     KConfig config(QString::fromLatin1("ksslcablacklist"), KConfig::SimpleConfig);
@@ -433,7 +417,6 @@ bool KSslCertificateManagerPrivate::setCertificateBlacklisted(const QByteArray &
     return true;
 }
 
-
 class KSslCertificateManagerContainer
 {
 public:
@@ -442,12 +425,11 @@ public:
 
 Q_GLOBAL_STATIC(KSslCertificateManagerContainer, g_instance)
 
-
 KSslCertificateManager::KSslCertificateManager()
- : d(new KSslCertificateManagerPrivate())
+    : d(new KSslCertificateManagerPrivate())
 {
     // Make sure kded is running
-    QDBusConnectionInterface* bus = QDBusConnection::sessionBus().interface();
+    QDBusConnectionInterface *bus = QDBusConnection::sessionBus().interface();
     if (!bus->isServiceRegistered(QLatin1String("org.kde.kded5"))) {
         QDBusReply<void> reply = bus->startService(QLatin1String("org.kde.kded5"));
         if (!reply.isValid()) {
@@ -456,12 +438,10 @@ KSslCertificateManager::KSslCertificateManager()
     }
 }
 
-
 KSslCertificateManager::~KSslCertificateManager()
 {
     delete d;
 }
-
 
 //static
 KSslCertificateManager *KSslCertificateManager::self()
@@ -469,31 +449,26 @@ KSslCertificateManager *KSslCertificateManager::self()
     return &g_instance()->sslCertificateManager;
 }
 
-
 void KSslCertificateManager::setRule(const KSslCertificateRule &rule)
 {
     d->iface->setRule(rule);
 }
-
 
 void KSslCertificateManager::clearRule(const KSslCertificateRule &rule)
 {
     d->iface->clearRule(rule);
 }
 
-
 void KSslCertificateManager::clearRule(const QSslCertificate &cert, const QString &hostName)
 {
     d->iface->clearRule(cert, hostName);
 }
 
-
 KSslCertificateRule KSslCertificateManager::rule(const QSslCertificate &cert,
-                                                 const QString &hostName) const
+        const QString &hostName) const
 {
     return d->iface->rule(cert, hostName);
 }
-
 
 QList<QSslCertificate> KSslCertificateManager::caCertificates() const
 {
@@ -503,7 +478,6 @@ QList<QSslCertificate> KSslCertificateManager::caCertificates() const
     }
     return d->defaultCaCertificates;
 }
-
 
 //static
 QList<KSslError> KSslCertificateManager::nonIgnorableErrors(const QList<KSslError> &/*e*/)

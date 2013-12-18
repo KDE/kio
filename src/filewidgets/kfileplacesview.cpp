@@ -98,8 +98,8 @@ private:
 
     bool m_showHoverIndication;
 
-    QMap<QPersistentModelIndex, QTimeLine*> m_timeLineMap;
-    QMap<QTimeLine*, QPersistentModelIndex> m_timeLineInverseMap;
+    QMap<QPersistentModelIndex, QTimeLine *> m_timeLineMap;
+    QMap<QTimeLine *, QPersistentModelIndex> m_timeLineInverseMap;
 };
 
 KFilePlacesViewDelegate::KFilePlacesViewDelegate(KFilePlacesView *parent) :
@@ -128,7 +128,7 @@ QSize KFilePlacesViewDelegate::sizeHint(const QStyleOptionViewItem &option,
         iconSize = m_disappearingIconSize;
     }
 
-    const KFilePlacesModel *filePlacesModel = static_cast<const KFilePlacesModel*>(index.model());
+    const KFilePlacesModel *filePlacesModel = static_cast<const KFilePlacesModel *>(index.model());
     Solid::Device device = filePlacesModel->deviceForIndex(index);
 
     return QSize(option.rect.width(), option.fontMetrics.height() / 2 + qMax(iconSize, option.fontMetrics.height()));
@@ -149,14 +149,14 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         opt.state &= ~QStyle::State_MouseOver;
     }
     QApplication::style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter);
-    const KFilePlacesModel *placesModel = static_cast<const KFilePlacesModel*>(index.model());
+    const KFilePlacesModel *placesModel = static_cast<const KFilePlacesModel *>(index.model());
 
     bool isLTR = option.direction == Qt::LeftToRight;
 
     QIcon icon = index.model()->data(index, Qt::DecorationRole).value<QIcon>();
     QPixmap pm = icon.pixmap(m_iconSize, m_iconSize);
     QPoint point(isLTR ? option.rect.left() + LATERAL_MARGIN
-                       : option.rect.right() - LATERAL_MARGIN - m_iconSize, option.rect.top() + (option.rect.height() - m_iconSize) / 2);
+                 : option.rect.right() - LATERAL_MARGIN - m_iconSize, option.rect.top() + (option.rect.height() - m_iconSize) / 2);
     painter->drawPixmap(point, pm);
 
     if (option.state & QStyle::State_Selected) {
@@ -177,16 +177,15 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         const QString mountPointPath = placesModel->url(index).toLocalFile();
         const KDiskFreeSpaceInfo info = KDiskFreeSpaceInfo::freeSpaceInfo(mountPointPath);
         drawCapacityBar = info.size() != 0 &&
-                placesModel->data(index, KFilePlacesModel::CapacityBarRecommendedRole).toBool();
+                          placesModel->data(index, KFilePlacesModel::CapacityBarRecommendedRole).toBool();
 
-        if (drawCapacityBar && contentsOpacity(index) > 0)
-        {
+        if (drawCapacityBar && contentsOpacity(index) > 0) {
             painter->save();
             painter->setOpacity(painter->opacity() * contentsOpacity(index));
 
             int height = option.fontMetrics.height() + CAPACITYBAR_HEIGHT;
             rectText = QRect(isLTR ? m_iconSize + LATERAL_MARGIN * 2 + option.rect.left()
-                                   : 0, option.rect.top() + (option.rect.height() / 2 - height / 2), option.rect.width() - m_iconSize - LATERAL_MARGIN * 2, option.fontMetrics.height());
+                             : 0, option.rect.top() + (option.rect.height() / 2 - height / 2), option.rect.width() - m_iconSize - LATERAL_MARGIN * 2, option.fontMetrics.height());
             painter->drawText(rectText, Qt::AlignLeft | Qt::AlignTop, option.fontMetrics.elidedText(index.model()->data(index).toString(), Qt::ElideRight, rectText.width()));
             QRect capacityRect(isLTR ? rectText.x() : LATERAL_MARGIN, rectText.bottom() - 1, rectText.width() - LATERAL_MARGIN, CAPACITYBAR_HEIGHT);
             KCapacityBar capacityBar(KCapacityBar::DrawTextInline);
@@ -201,7 +200,7 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     }
 
     rectText = QRect(isLTR ? m_iconSize + LATERAL_MARGIN * 2 + option.rect.left()
-                           : 0, option.rect.top(), option.rect.width() - m_iconSize - LATERAL_MARGIN * 2, option.rect.height());
+                     : 0, option.rect.top(), option.rect.width() - m_iconSize - LATERAL_MARGIN * 2, option.rect.height());
     painter->drawText(rectText, Qt::AlignLeft | Qt::AlignVCenter, option.fontMetrics.elidedText(index.model()->data(index).toString(), Qt::ElideRight, rectText.width()));
 
     if (drawCapacityBar && contentsOpacity(index) > 0) {
@@ -228,18 +227,18 @@ void KFilePlacesViewDelegate::addAppearingItem(const QModelIndex &index)
 
 void KFilePlacesViewDelegate::setAppearingItemProgress(qreal value)
 {
-    if (value<=0.25) {
+    if (value <= 0.25) {
         m_appearingOpacity = 0.0;
-        m_appearingIconSize = iconSize()*value*4;
+        m_appearingIconSize = iconSize() * value * 4;
 
-        if (m_appearingIconSize>=m_iconSize) {
+        if (m_appearingIconSize >= m_iconSize) {
             m_appearingIconSize = m_iconSize;
         }
     } else {
         m_appearingIconSize = m_iconSize;
-        m_appearingOpacity = (value-0.25)*4/3;
+        m_appearingOpacity = (value - 0.25) * 4 / 3;
 
-        if (value>=1.0) {
+        if (value >= 1.0) {
             m_appearingItems.clear();
         }
     }
@@ -254,20 +253,20 @@ void KFilePlacesViewDelegate::setDisappearingItemProgress(qreal value)
 {
     value = 1.0 - value;
 
-    if (value<=0.25) {
+    if (value <= 0.25) {
         m_disappearingOpacity = 0.0;
-        m_disappearingIconSize = iconSize()*value*4;
+        m_disappearingIconSize = iconSize() * value * 4;
 
-        if (m_disappearingIconSize>=m_iconSize) {
+        if (m_disappearingIconSize >= m_iconSize) {
             m_disappearingIconSize = m_iconSize;
         }
 
-        if (value<=0.0) {
+        if (value <= 0.0) {
             m_disappearingItems.clear();
         }
     } else {
         m_disappearingIconSize = m_iconSize;
-        m_disappearingOpacity = (value-0.25)*4/3;
+        m_disappearingOpacity = (value - 0.25) * 4 / 3;
     }
 }
 
@@ -318,7 +317,7 @@ public:
         FadeOut
     };
 
-    KFilePlacesView * const q;
+    KFilePlacesView *const q;
 
     QUrl currentUrl;
     bool autoResizeItems;
@@ -461,29 +460,31 @@ bool KFilePlacesView::isAutoResizeItemsEnabled() const
 void KFilePlacesView::setUrl(const QUrl &url)
 {
     QUrl oldUrl = d->currentUrl;
-    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel*>(model());
+    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(model());
 
-    if (placesModel==0) return;
+    if (placesModel == 0) {
+        return;
+    }
 
     QModelIndex index = placesModel->closestItem(url);
     QModelIndex current = selectionModel()->currentIndex();
 
     if (index.isValid()) {
-        if (current!=index && placesModel->isHidden(current) && !d->showAll) {
-            KFilePlacesViewDelegate *delegate = static_cast<KFilePlacesViewDelegate*>(itemDelegate());
+        if (current != index && placesModel->isHidden(current) && !d->showAll) {
+            KFilePlacesViewDelegate *delegate = static_cast<KFilePlacesViewDelegate *>(itemDelegate());
             delegate->addDisappearingItem(current);
 
-            if (d->itemDisappearTimeline.state()!=QTimeLine::Running) {
+            if (d->itemDisappearTimeline.state() != QTimeLine::Running) {
                 delegate->setDisappearingItemProgress(0.0);
                 d->itemDisappearTimeline.start();
             }
         }
 
-        if (current!=index && placesModel->isHidden(index) && !d->showAll) {
-            KFilePlacesViewDelegate *delegate = static_cast<KFilePlacesViewDelegate*>(itemDelegate());
+        if (current != index && placesModel->isHidden(index) && !d->showAll) {
+            KFilePlacesViewDelegate *delegate = static_cast<KFilePlacesViewDelegate *>(itemDelegate());
             delegate->addAppearingItem(index);
 
-            if (d->itemAppearTimeline.state()!=QTimeLine::Running) {
+            if (d->itemAppearTimeline.state() != QTimeLine::Running) {
                 delegate->setAppearingItemProgress(0.0);
                 d->itemAppearTimeline.start();
             }
@@ -505,13 +506,15 @@ void KFilePlacesView::setUrl(const QUrl &url)
 
 void KFilePlacesView::setShowAll(bool showAll)
 {
-    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel*>(model());
+    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(model());
 
-    if (placesModel==0) return;
+    if (placesModel == 0) {
+        return;
+    }
 
     d->showAll = showAll;
 
-    KFilePlacesViewDelegate *delegate = static_cast<KFilePlacesViewDelegate*>(itemDelegate());
+    KFilePlacesViewDelegate *delegate = static_cast<KFilePlacesViewDelegate *>(itemDelegate());
 
     int rowCount = placesModel->rowCount();
     QModelIndex current = placesModel->closestItem(d->currentUrl);
@@ -519,26 +522,26 @@ void KFilePlacesView::setShowAll(bool showAll)
     if (showAll) {
         d->updateHiddenRows();
 
-        for (int i=0; i<rowCount; ++i) {
+        for (int i = 0; i < rowCount; ++i) {
             QModelIndex index = placesModel->index(i, 0);
-            if (index!=current && placesModel->isHidden(index)) {
+            if (index != current && placesModel->isHidden(index)) {
                 delegate->addAppearingItem(index);
             }
         }
 
-        if (d->itemAppearTimeline.state()!=QTimeLine::Running) {
+        if (d->itemAppearTimeline.state() != QTimeLine::Running) {
             delegate->setAppearingItemProgress(0.0);
             d->itemAppearTimeline.start();
         }
     } else {
-        for (int i=0; i<rowCount; ++i) {
+        for (int i = 0; i < rowCount; ++i) {
             QModelIndex index = placesModel->index(i, 0);
-            if (index!=current && placesModel->isHidden(index)) {
+            if (index != current && placesModel->isHidden(index)) {
                 delegate->addDisappearingItem(index);
             }
         }
 
-        if (d->itemDisappearTimeline.state()!=QTimeLine::Running) {
+        if (d->itemDisappearTimeline.state() != QTimeLine::Running) {
             delegate->setDisappearingItemProgress(0.0);
             d->itemDisappearTimeline.start();
         }
@@ -555,13 +558,15 @@ void KFilePlacesView::keyPressEvent(QKeyEvent *event)
 
 void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
 {
-    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel*>(model());
-    KFilePlacesViewDelegate *delegate = dynamic_cast<KFilePlacesViewDelegate*>(itemDelegate());
+    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(model());
+    KFilePlacesViewDelegate *delegate = dynamic_cast<KFilePlacesViewDelegate *>(itemDelegate());
 
-    if (placesModel==0) return;
+    if (placesModel == 0) {
+        return;
+    }
 
     QModelIndex index = indexAt(event->pos());
-    QString label = placesModel->text(index).replace('&',"&&");
+    QString label = placesModel->text(index).replace('&', "&&");
 
     QMenu menu;
 
@@ -586,18 +591,18 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             edit = menu.addAction(QIcon::fromTheme("document-properties"), i18n("&Edit Entry '%1'...", label));
         } else {
             eject = placesModel->ejectActionForIndex(index);
-            if (eject!=0) {
+            if (eject != 0) {
                 eject->setParent(&menu);
                 menu.addAction(eject);
             }
 
             teardown = placesModel->teardownActionForIndex(index);
-            if (teardown!=0) {
+            if (teardown != 0) {
                 teardown->setParent(&menu);
                 menu.addAction(teardown);
             }
 
-            if (teardown!=0 || eject!=0) {
+            if (teardown != 0 || eject != 0) {
                 mainSeparator = menu.addSeparator();
             }
         }
@@ -613,7 +618,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     }
 
     QAction *showAll = 0;
-    if (placesModel->hiddenCount()>0) {
+    if (placesModel->hiddenCount() > 0) {
         showAll = new QAction(i18n("&Show All Entries"), &menu);
         showAll->setCheckable(true);
         showAll->setChecked(d->showAll);
@@ -623,9 +628,9 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         menu.insertAction(mainSeparator, showAll);
     }
 
-    QAction* remove = 0;
+    QAction *remove = 0;
     if (index.isValid() && !placesModel->isDevice(index)) {
-        remove = menu.addAction( QIcon::fromTheme("edit-delete"), i18n("&Remove Entry '%1'", label));
+        remove = menu.addAction(QIcon::fromTheme("edit-delete"), i18n("&Remove Entry '%1'", label));
     }
 
     menu.addActions(actions());
@@ -639,10 +644,10 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     if (emptyTrash != 0 && result == emptyTrash) {
         const QString text = i18nc("@info", "Do you really want to empty the Trash? All items will be deleted.");
         const bool del = KMessageBox::warningContinueCancel(window(),
-                                                            text,
-                                                            QString(),
-                                                            KGuiItem(i18nc("@action:button", "Empty Trash"),
-                                                                     QIcon::fromTheme("user-trash"))
+                         text,
+                         QString(),
+                         KGuiItem(i18nc("@action:button", "Empty Trash"),
+                                  QIcon::fromTheme("user-trash"))
                                                            ) == KMessageBox::Continue;
         if (del) {
             QByteArray packedArgs;
@@ -661,10 +666,11 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         bool appLocal = !bookmark.metaDataItem("OnlyInApp").isEmpty();
 
         if (KFilePlaceEditDialog::getInformation(true, url, label,
-                                                 iconName, false, appLocal, 64, this))
-        {
+                iconName, false, appLocal, 64, this)) {
             QString appName;
-            if (appLocal) appName = QCoreApplication::instance()->applicationName();
+            if (appLocal) {
+                appName = QCoreApplication::instance()->applicationName();
+            }
 
             placesModel->editPlace(index, label, url, iconName, appName);
         }
@@ -675,10 +681,10 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         placesModel->setPlaceHidden(index, hide->isChecked());
         QModelIndex current = placesModel->closestItem(d->currentUrl);
 
-        if (index!=current && !d->showAll && hide->isChecked()) {
+        if (index != current && !d->showAll && hide->isChecked()) {
             delegate->addDisappearingItem(index);
 
-            if (d->itemDisappearTimeline.state()!=QTimeLine::Running) {
+            if (d->itemDisappearTimeline.state() != QTimeLine::Running) {
                 delegate->setDisappearingItemProgress(0.0);
                 d->itemDisappearTimeline.start();
             }
@@ -695,10 +701,11 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         QString iconName = "folder";
         bool appLocal = true;
         if (KFilePlaceEditDialog::getInformation(true, url, label,
-                                                 iconName, true, appLocal, 64, this))
-        {
+                iconName, true, appLocal, 64, this)) {
             QString appName;
-            if (appLocal) appName = QCoreApplication::instance()->applicationName();
+            if (appLocal) {
+                appName = QCoreApplication::instance()->applicationName();
+            }
 
             placesModel->addPlace(label, url, iconName, appName, index);
         }
@@ -731,7 +738,7 @@ void KFilePlacesView::dragEnterEvent(QDragEnterEvent *event)
     QListView::dragEnterEvent(event);
     d->dragging = true;
 
-    KFilePlacesViewDelegate *delegate = dynamic_cast<KFilePlacesViewDelegate*>(itemDelegate());
+    KFilePlacesViewDelegate *delegate = dynamic_cast<KFilePlacesViewDelegate *>(itemDelegate());
     delegate->setShowHoverIndication(false);
 
     d->dropRect = QRect();
@@ -742,7 +749,7 @@ void KFilePlacesView::dragLeaveEvent(QDragLeaveEvent *event)
     QListView::dragLeaveEvent(event);
     d->dragging = false;
 
-    KFilePlacesViewDelegate *delegate = dynamic_cast<KFilePlacesViewDelegate*>(itemDelegate());
+    KFilePlacesViewDelegate *delegate = dynamic_cast<KFilePlacesViewDelegate *>(itemDelegate());
     delegate->setShowHoverIndication(true);
 
     setDirtyRegion(d->dropRect);
@@ -783,7 +790,7 @@ void KFilePlacesView::dropEvent(QDropEvent *event)
     if (index.isValid()) {
         const QRect rect = visualRect(index);
         if (!d->insertAbove(rect, pos) && !d->insertBelow(rect, pos)) {
-            KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel*>(model());
+            KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(model());
             Q_ASSERT(placesModel != 0);
             emit urlsDropped(placesModel->url(index), event, this);
             event->acceptProposedAction();
@@ -793,11 +800,11 @@ void KFilePlacesView::dropEvent(QDropEvent *event)
     QListView::dropEvent(event);
     d->dragging = false;
 
-    KFilePlacesViewDelegate *delegate = dynamic_cast<KFilePlacesViewDelegate*>(itemDelegate());
+    KFilePlacesViewDelegate *delegate = dynamic_cast<KFilePlacesViewDelegate *>(itemDelegate());
     delegate->setShowHoverIndication(true);
 }
 
-void KFilePlacesView::paintEvent(QPaintEvent* event)
+void KFilePlacesView::paintEvent(QPaintEvent *event)
 {
     QListView::paintEvent(event);
     if (d->dragging && !d->dropRect.isEmpty()) {
@@ -856,10 +863,10 @@ void KFilePlacesView::rowsInserted(const QModelIndex &parent, int start, int end
     QListView::rowsInserted(parent, start, end);
     setUrl(d->currentUrl);
 
-    KFilePlacesViewDelegate *delegate = dynamic_cast<KFilePlacesViewDelegate*>(itemDelegate());
-    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel*>(model());
+    KFilePlacesViewDelegate *delegate = dynamic_cast<KFilePlacesViewDelegate *>(itemDelegate());
+    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(model());
 
-    for (int i=start; i<=end; ++i) {
+    for (int i = start; i <= end; ++i) {
         QModelIndex index = placesModel->index(i, 0, parent);
         if (d->showAll || !placesModel->isHidden(index)) {
             delegate->addAppearingItem(index);
@@ -868,7 +875,7 @@ void KFilePlacesView::rowsInserted(const QModelIndex &parent, int start, int end
         }
     }
 
-    if (d->itemAppearTimeline.state()!=QTimeLine::Running) {
+    if (d->itemAppearTimeline.state() != QTimeLine::Running) {
         delegate->setAppearingItemProgress(0.0);
         d->itemAppearTimeline.start();
     }
@@ -878,7 +885,7 @@ void KFilePlacesView::rowsInserted(const QModelIndex &parent, int start, int end
 
 QSize KFilePlacesView::sizeHint() const
 {
-    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel*>(model());
+    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(model());
     if (!placesModel) {
         return QListView::sizeHint();
     }
@@ -886,10 +893,11 @@ QSize KFilePlacesView::sizeHint() const
     QFontMetrics fm = d->q->fontMetrics();
     int textWidth = 0;
 
-    for (int i=0; i<placesModel->rowCount(); ++i) {
+    for (int i = 0; i < placesModel->rowCount(); ++i) {
         QModelIndex index = placesModel->index(i, 0);
-        if (!placesModel->isHidden(index))
-           textWidth = qMax(textWidth,fm.width(index.data(Qt::DisplayRole).toString()));
+        if (!placesModel->isHidden(index)) {
+            textWidth = qMax(textWidth, fm.width(index.data(Qt::DisplayRole).toString()));
+        }
     }
 
     const int iconSize = KIconLoader::global()->currentSize(KIconLoader::Small) + 3 * LATERAL_MARGIN;
@@ -898,9 +906,11 @@ QSize KFilePlacesView::sizeHint() const
 
 void KFilePlacesView::Private::setCurrentIndex(const QModelIndex &index)
 {
-    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel*>(q->model());
+    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(q->model());
 
-    if (placesModel==0) return;
+    if (placesModel == 0) {
+        return;
+    }
 
     QUrl url = placesModel->url(index);
 
@@ -918,8 +928,10 @@ void KFilePlacesView::Private::setCurrentIndex(const QModelIndex &index)
 
 void KFilePlacesView::Private::adaptItemSize()
 {
-    KFilePlacesViewDelegate *delegate = dynamic_cast<KFilePlacesViewDelegate*>(q->itemDelegate());
-    if (!delegate) return;
+    KFilePlacesViewDelegate *delegate = dynamic_cast<KFilePlacesViewDelegate *>(q->itemDelegate());
+    if (!delegate) {
+        return;
+    }
 
     if (!autoResizeItems) {
         int size = q->iconSize().width(); // Assume width == height
@@ -928,14 +940,16 @@ void KFilePlacesView::Private::adaptItemSize()
         return;
     }
 
-    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel*>(q->model());
+    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(q->model());
 
-    if (placesModel==0) return;
+    if (placesModel == 0) {
+        return;
+    }
 
     int rowCount = placesModel->rowCount();
 
     if (!showAll) {
-        rowCount-= placesModel->hiddenCount();
+        rowCount -= placesModel->hiddenCount();
 
         QModelIndex current = placesModel->closestItem(currentUrl);
 
@@ -944,18 +958,21 @@ void KFilePlacesView::Private::adaptItemSize()
         }
     }
 
-    if (rowCount==0) return; // We've nothing to display anyway
+    if (rowCount == 0) {
+        return;    // We've nothing to display anyway
+    }
 
     const int minSize = IconSize(KIconLoader::Small);
     const int maxSize = 64;
 
     int textWidth = 0;
     QFontMetrics fm = q->fontMetrics();
-    for (int i=0; i<placesModel->rowCount(); ++i) {
+    for (int i = 0; i < placesModel->rowCount(); ++i) {
         QModelIndex index = placesModel->index(i, 0);
 
-        if (!placesModel->isHidden(index))
-           textWidth = qMax(textWidth,fm.width(index.data(Qt::DisplayRole).toString()));
+        if (!placesModel->isHidden(index)) {
+            textWidth = qMax(textWidth, fm.width(index.data(Qt::DisplayRole).toString()));
+        }
     }
 
     const int margin = q->style()->pixelMetric(QStyle::PM_FocusFrameHMargin, 0, q) + 1;
@@ -964,21 +981,23 @@ void KFilePlacesView::Private::adaptItemSize()
 
     int size = qMin(maxHeight, maxWidth);
 
-    if (size<minSize) {
+    if (size < minSize) {
         size = minSize;
-    } else if (size>maxSize) {
+    } else if (size > maxSize) {
         size = maxSize;
     } else {
         // Make it a multiple of 16
         size &= ~0xf;
     }
 
-    if (size==delegate->iconSize()) return;
+    if (size == delegate->iconSize()) {
+        return;
+    }
 
     if (smoothItemResizing) {
         oldSize = delegate->iconSize();
         endSize = size;
-        if (adaptItemsTimeline.state()!=QTimeLine::Running) {
+        if (adaptItemsTimeline.state() != QTimeLine::Running) {
             adaptItemsTimeline.start();
         }
     } else {
@@ -989,16 +1008,18 @@ void KFilePlacesView::Private::adaptItemSize()
 
 void KFilePlacesView::Private::updateHiddenRows()
 {
-    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel*>(q->model());
+    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(q->model());
 
-    if (placesModel==0) return;
+    if (placesModel == 0) {
+        return;
+    }
 
     int rowCount = placesModel->rowCount();
     QModelIndex current = placesModel->closestItem(currentUrl);
 
-    for (int i=0; i<rowCount; ++i) {
+    for (int i = 0; i < rowCount; ++i) {
         QModelIndex index = placesModel->index(i, 0);
-        if (index!=current && placesModel->isHidden(index) && !showAll) {
+        if (index != current && placesModel->isHidden(index) && !showAll) {
             q->setRowHidden(i, true);
         } else {
             q->setRowHidden(i, false);
@@ -1060,9 +1081,11 @@ void KFilePlacesView::Private::fadeCapacityBar(const QModelIndex &index, FadeTyp
 
 void KFilePlacesView::Private::_k_placeClicked(const QModelIndex &index)
 {
-    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel*>(q->model());
+    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(q->model());
 
-    if (placesModel==0) return;
+    if (placesModel == 0) {
+        return;
+    }
 
     lastClickedIndex = QPersistentModelIndex();
 
@@ -1098,11 +1121,11 @@ void KFilePlacesView::Private::_k_placeLeft(const QModelIndex &index)
 
 void KFilePlacesView::Private::_k_storageSetupDone(const QModelIndex &index, bool success)
 {
-    if (index!=lastClickedIndex) {
+    if (index != lastClickedIndex) {
         return;
     }
 
-    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel*>(q->model());
+    KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(q->model());
 
     QObject::disconnect(placesModel, SIGNAL(setupDone(QModelIndex,bool)),
                         q, SLOT(_k_storageSetupDone(QModelIndex,bool)));
@@ -1118,18 +1141,18 @@ void KFilePlacesView::Private::_k_storageSetupDone(const QModelIndex &index, boo
 
 void KFilePlacesView::Private::_k_adaptItemsUpdate(qreal value)
 {
-    int add = (endSize-oldSize)*value;
+    int add = (endSize - oldSize) * value;
 
-    int size = oldSize+add;
+    int size = oldSize + add;
 
-    KFilePlacesViewDelegate *delegate = dynamic_cast<KFilePlacesViewDelegate*>(q->itemDelegate());
+    KFilePlacesViewDelegate *delegate = dynamic_cast<KFilePlacesViewDelegate *>(q->itemDelegate());
     delegate->setIconSize(size);
     q->scheduleDelayedItemsLayout();
 }
 
 void KFilePlacesView::Private::_k_itemAppearUpdate(qreal value)
 {
-    KFilePlacesViewDelegate *delegate = dynamic_cast<KFilePlacesViewDelegate*>(q->itemDelegate());
+    KFilePlacesViewDelegate *delegate = dynamic_cast<KFilePlacesViewDelegate *>(q->itemDelegate());
 
     delegate->setAppearingItemProgress(value);
     q->scheduleDelayedItemsLayout();
@@ -1137,11 +1160,11 @@ void KFilePlacesView::Private::_k_itemAppearUpdate(qreal value)
 
 void KFilePlacesView::Private::_k_itemDisappearUpdate(qreal value)
 {
-    KFilePlacesViewDelegate *delegate = dynamic_cast<KFilePlacesViewDelegate*>(q->itemDelegate());
+    KFilePlacesViewDelegate *delegate = dynamic_cast<KFilePlacesViewDelegate *>(q->itemDelegate());
 
     delegate->setDisappearingItemProgress(value);
 
-    if (value>=1.0) {
+    if (value >= 1.0) {
         updateHiddenRows();
     }
 
@@ -1156,14 +1179,14 @@ void KFilePlacesView::Private::_k_enableSmoothItemResizing()
 void KFilePlacesView::Private::_k_trashUpdated(KJob *job)
 {
     if (job->error()) {
-        static_cast<KIO::Job*>(job)->ui()->showErrorMessage();
+        static_cast<KIO::Job *>(job)->ui()->showErrorMessage();
     }
     org::kde::KDirNotify::emitFilesAdded(QUrl("trash:/"));
 }
 
 void KFilePlacesView::Private::_k_capacityBarFadeValueChanged()
 {
-    const QModelIndex index = delegate->indexForFadeAnimation(static_cast<QTimeLine*>(q->sender()));
+    const QModelIndex index = delegate->indexForFadeAnimation(static_cast<QTimeLine *>(q->sender()));
     if (!index.isValid()) {
         return;
     }
@@ -1174,14 +1197,14 @@ void KFilePlacesView::Private::_k_triggerDevicePolling()
 {
     const QModelIndex hoveredIndex = watcher->hoveredIndex();
     if (hoveredIndex.isValid()) {
-        const KFilePlacesModel *placesModel = static_cast<const KFilePlacesModel*>(hoveredIndex.model());
+        const KFilePlacesModel *placesModel = static_cast<const KFilePlacesModel *>(hoveredIndex.model());
         if (placesModel->isDevice(hoveredIndex)) {
             q->update(hoveredIndex);
         }
     }
     const QModelIndex focusedIndex = watcher->focusedIndex();
     if (focusedIndex.isValid() && focusedIndex != hoveredIndex) {
-        const KFilePlacesModel *placesModel = static_cast<const KFilePlacesModel*>(focusedIndex.model());
+        const KFilePlacesModel *placesModel = static_cast<const KFilePlacesModel *>(focusedIndex.model());
         if (placesModel->isDevice(focusedIndex)) {
             q->update(focusedIndex);
         }
@@ -1189,7 +1212,7 @@ void KFilePlacesView::Private::_k_triggerDevicePolling()
 }
 
 void KFilePlacesView::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight,
-        const QVector<int> &roles)
+                                  const QVector<int> &roles)
 {
     QListView::dataChanged(topLeft, bottomRight, roles);
     d->adaptItemSize();

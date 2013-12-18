@@ -32,11 +32,11 @@
  *
  * \brief Determine the space left on an arbitrary partition.
  *
- * This class determines the free space left on the partition that holds a given 
- * path.  This path can be the mount point or any file or directory on the 
+ * This class determines the free space left on the partition that holds a given
+ * path.  This path can be the mount point or any file or directory on the
  * partition.
  *
- * To find how much space is available on the partition containing @p path, 
+ * To find how much space is available on the partition containing @p path,
  * simply do the following:
  *
  * \code
@@ -55,7 +55,7 @@ public:
     /**
      * Copy constructor
      */
-    KDiskFreeSpaceInfo( const KDiskFreeSpaceInfo& );
+    KDiskFreeSpaceInfo(const KDiskFreeSpaceInfo &);
 
     /**
      * Destructor
@@ -65,7 +65,7 @@ public:
     /**
      * Assignment operator
      */
-    KDiskFreeSpaceInfo& operator=( const KDiskFreeSpaceInfo& );
+    KDiskFreeSpaceInfo &operator=(const KDiskFreeSpaceInfo &);
 
     /**
      * \return \p true if the available disk space was successfully
@@ -118,7 +118,7 @@ public:
      * use mountPoint(), size(), available(), and used() to access
      * the requested values.
      */
-    static KDiskFreeSpaceInfo freeSpaceInfo( const QString& path );
+    static KDiskFreeSpaceInfo freeSpaceInfo(const QString &path);
 
 private:
     KDiskFreeSpaceInfo();

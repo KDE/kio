@@ -88,7 +88,7 @@ class ForwardingSlaveBasePrivate;
  */
 class KIOCORE_EXPORT ForwardingSlaveBase : public QObject, public SlaveBase
 {
-Q_OBJECT
+    Q_OBJECT
 public:
     ForwardingSlaveBase(const QByteArray &protocol,
                         const QByteArray &poolSocket,
@@ -115,7 +115,7 @@ public:
 
     virtual void chmod(const QUrl &url, int permissions);
 
-    virtual void setModificationTime(const QUrl& url, const QDateTime& mtime);
+    virtual void setModificationTime(const QUrl &url, const QDateTime &mtime);
 
     virtual void copy(const QUrl &src, const QUrl &dest,
                       int permissions, JobFlags flags);
@@ -135,7 +135,7 @@ protected:
      * @param newURL The new URL to forward the slave call to
      * @return true if the given url could be correctly rewritten
      */
-    virtual bool rewriteUrl(const QUrl &url, QUrl &newURL)=0;
+    virtual bool rewriteUrl(const QUrl &url, QUrl &newURL) = 0;
 
     /**
      * Allow to modify a UDSEntry before it's sent to the ioslave endpoint.
@@ -148,7 +148,7 @@ protected:
      *                operation
      */
     virtual void prepareUDSEntry(KIO::UDSEntry &entry,
-                                 bool listing=false) const;
+                                 bool listing = false) const;
 
     /**
      * Return the URL being processed by the ioslave
@@ -180,8 +180,8 @@ private:
     // KIO::TransferJob
     Q_PRIVATE_SLOT(d, void _k_slotData(KIO::Job *job, const QByteArray &data))
     Q_PRIVATE_SLOT(d, void _k_slotDataReq(KIO::Job *job, QByteArray &data))
-    Q_PRIVATE_SLOT(d, void _k_slotMimetype (KIO::Job *job, const QString &type))
-    Q_PRIVATE_SLOT(d, void _k_slotCanResume (KIO::Job *job, KIO::filesize_t offset))
+    Q_PRIVATE_SLOT(d, void _k_slotMimetype(KIO::Job *job, const QString &type))
+    Q_PRIVATE_SLOT(d, void _k_slotCanResume(KIO::Job *job, KIO::filesize_t offset))
 
     friend class ForwardingSlaveBasePrivate;
     ForwardingSlaveBasePrivate *const d;

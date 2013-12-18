@@ -38,14 +38,14 @@
 #include <QDBusInterface>
 #include <QDBusMessage>
 
-static bool KIOSKAuthorizedAction(const KConfigGroup& cfg)
+static bool KIOSKAuthorizedAction(const KConfigGroup &cfg)
 {
     if (!cfg.hasKey("X-KDE-AuthorizeAction")) {
         return true;
     }
     const QStringList list = cfg.readEntry("X-KDE-AuthorizeAction", QStringList());
-    for(QStringList::ConstIterator it = list.constBegin();
-        it != list.constEnd(); ++it) {
+    for (QStringList::ConstIterator it = list.constBegin();
+            it != list.constEnd(); ++it) {
         if (!KAuthorized::authorize((*it).trimmed())) {
             return false;
         }
@@ -55,18 +55,19 @@ static bool KIOSKAuthorizedAction(const KConfigGroup& cfg)
 
 // This helper class stores the .desktop-file actions and the servicemenus
 // in order to support X-KDE-Priority and X-KDE-Submenu.
-namespace KIO {
+namespace KIO
+{
 class PopupServices
 {
 public:
-    ServiceList& selectList(const QString& priority, const QString& submenuName);
+    ServiceList &selectList(const QString &priority, const QString &submenuName);
 
     ServiceList builtin;
     ServiceList user, userToplevel, userPriority;
     QMap<QString, ServiceList> userSubmenus, userToplevelSubmenus, userPrioritySubmenus;
 };
 
-ServiceList& PopupServices::selectList(const QString& priority, const QString& submenuName)
+ServiceList &PopupServices::selectList(const QString &priority, const QString &submenuName)
 {
     // we use the categories .desktop entry to define submenus
     // if none is defined, we just pop it in the main menu
@@ -107,9 +108,9 @@ KFileItemActionsPrivate::~KFileItemActionsPrivate()
     qDeleteAll(m_ownActions);
 }
 
-int KFileItemActionsPrivate::insertServicesSubmenus(const QMap<QString, ServiceList>& submenus,
-                                                   QMenu* menu,
-                                                   bool isBuiltin)
+int KFileItemActionsPrivate::insertServicesSubmenus(const QMap<QString, ServiceList> &submenus,
+        QMenu *menu,
+        bool isBuiltin)
 {
     int count = 0;
     QMap<QString, ServiceList>::ConstIterator it;
@@ -119,7 +120,7 @@ int KFileItemActionsPrivate::insertServicesSubmenus(const QMap<QString, ServiceL
             continue;
         }
 
-        QMenu* actionSubmenu = new QMenu(menu);
+        QMenu *actionSubmenu = new QMenu(menu);
         actionSubmenu->setTitle(it.key());
         actionSubmenu->menuAction()->setObjectName("services_submenu"); // for the unittest
         menu->addMenu(actionSubmenu);
@@ -129,15 +130,15 @@ int KFileItemActionsPrivate::insertServicesSubmenus(const QMap<QString, ServiceL
     return count;
 }
 
-int KFileItemActionsPrivate::insertServices(const ServiceList& list,
-                                           QMenu* menu,
-                                           bool isBuiltin)
+int KFileItemActionsPrivate::insertServices(const ServiceList &list,
+        QMenu *menu,
+        bool isBuiltin)
 {
     int count = 0;
     ServiceList::const_iterator it = list.begin();
-    for(; it != list.end(); ++it) {
+    for (; it != list.end(); ++it) {
         if ((*it).isSeparator()) {
-            const QList<QAction*> actions = menu->actions();
+            const QList<QAction *> actions = menu->actions();
             if (!actions.isEmpty() && !actions.last()->isSeparator()) {
                 menu->addSeparator();
             }
@@ -149,7 +150,7 @@ int KFileItemActionsPrivate::insertServices(const ServiceList& list,
             m_ownActions.append(act);
             act->setObjectName("menuaction"); // for the unittest
             QString text = (*it).text();
-            text.replace('&',"&&");
+            text.replace('&', "&&");
             act->setText(text);
             if (!(*it).icon().isEmpty()) {
                 act->setIcon(QIcon::fromTheme((*it).icon()));
@@ -165,7 +166,7 @@ int KFileItemActionsPrivate::insertServices(const ServiceList& list,
     return count;
 }
 
-void KFileItemActionsPrivate::slotExecuteService(QAction* act)
+void KFileItemActionsPrivate::slotExecuteService(QAction *act)
 {
     KServiceAction serviceAction = act->data().value<KServiceAction>();
     if (KAuthorized::authorizeKAction(serviceAction.name())) {
@@ -175,18 +176,17 @@ void KFileItemActionsPrivate::slotExecuteService(QAction* act)
 
 ////
 
-KFileItemActions::KFileItemActions(QObject* parent)
+KFileItemActions::KFileItemActions(QObject *parent)
     : QObject(parent), d(new KFileItemActionsPrivate(this))
 {
 }
-
 
 KFileItemActions::~KFileItemActions()
 {
     delete d;
 }
 
-void KFileItemActions::setItemListProperties(const KFileItemListProperties& itemListProperties)
+void KFileItemActions::setItemListProperties(const KFileItemListProperties &itemListProperties)
 {
     d->m_props = itemListProperties;
 
@@ -195,12 +195,13 @@ void KFileItemActions::setItemListProperties(const KFileItemListProperties& item
     KFileItemList::const_iterator kit = items.constBegin();
     const KFileItemList::const_iterator kend = items.constEnd();
     for (; kit != kend; ++kit) {
-        if (!d->m_mimeTypeList.contains((*kit).mimetype()))
+        if (!d->m_mimeTypeList.contains((*kit).mimetype())) {
             d->m_mimeTypeList << (*kit).mimetype();
+        }
     }
 }
 
-int KFileItemActions::addServiceActionsTo(QMenu* mainMenu)
+int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
 {
     const KFileItemList items = d->m_props.items();
     const KFileItem firstItem = items.first();
@@ -213,7 +214,7 @@ int KFileItemActions::addServiceActionsTo(QMenu* mainMenu)
 
     // 1 - Look for builtin and user-defined services
     if (isSingleLocal && (d->m_props.mimeType() == "application/x-desktop" || // .desktop file
-        d->m_props.mimeType() == "inode/blockdevice")) { // dev file
+                          d->m_props.mimeType() == "inode/blockdevice")) { // dev file
         // get builtin services, like mount/unmount
         const QString path = firstItem.localPath();
         s.builtin = KDesktopFileActions::builtinServices(QUrl::fromLocalFile(path));
@@ -223,12 +224,12 @@ int KFileItemActions::addServiceActionsTo(QMenu* mainMenu)
         const QString submenuName = cfg.readEntry("X-KDE-Submenu");
 #if 0
         if (cfg.readEntry("Type") == "Link") {
-           d->m_url = cfg.readEntry("URL");
-           // TODO: Do we want to make all the actions apply on the target
-           // of the .desktop file instead of the .desktop file itself?
+            d->m_url = cfg.readEntry("URL");
+            // TODO: Do we want to make all the actions apply on the target
+            // of the .desktop file instead of the .desktop file itself?
         }
 #endif
-        ServiceList& list = s.selectList(priority, submenuName);
+        ServiceList &list = s.selectList(priority, submenuName);
         list = KDesktopFileActions::userDefinedServices(path, desktopFile, true /*isLocal*/);
     }
 
@@ -244,7 +245,7 @@ int KFileItemActions::addServiceActionsTo(QMenu* mainMenu)
             if (KIOSKAuthorizedAction(cfg)) {
                 const QString priority = cfg.readEntry("X-KDE-Priority");
                 const QString submenuName = cfg.readEntry("X-KDE-Submenu");
-                ServiceList& list = s.selectList(priority, submenuName);
+                ServiceList &list = s.selectList(priority, submenuName);
                 list += KDesktopFileActions::userDefinedServices(dotDirectoryFile, desktopFile, true);
             }
         }
@@ -307,14 +308,12 @@ int KFileItemActions::addServiceActionsTo(QMenu* mainMenu)
             } else if (protocol != theProtocol) {
                 continue;
             }
-        }
-        else if (cfg.hasKey("X-KDE-Protocols")) {
+        } else if (cfg.hasKey("X-KDE-Protocols")) {
             const QStringList protocols = cfg.readEntry("X-KDE-Protocols", QStringList());
             if (!protocols.contains(protocol)) {
                 continue;
             }
-        }
-        else if (protocol == "trash") {
+        } else if (protocol == "trash") {
             // Require servicemenus for the trash to ask for protocol=trash explicitly.
             // Trashed files aren't supposed to be available for actions.
             // One might want a servicemenu for trash.desktop itself though.
@@ -322,7 +321,7 @@ int KFileItemActions::addServiceActionsTo(QMenu* mainMenu)
         }
 
         if (cfg.hasKey("X-KDE-Require")) {
-            const QStringList capabilities = cfg.readEntry("X-KDE-Require" , QStringList());
+            const QStringList capabilities = cfg.readEntry("X-KDE-Require", QStringList());
             if (capabilities.contains("Write") && !d->m_props.supportsWriting()) {
                 continue;
             }
@@ -337,42 +336,41 @@ int KFileItemActions::addServiceActionsTo(QMenu* mainMenu)
             if (types.isEmpty()) {
                 continue;
             }
-            const QStringList excludeTypes = cfg.readEntry("ExcludeServiceTypes" , QStringList());
+            const QStringList excludeTypes = cfg.readEntry("ExcludeServiceTypes", QStringList());
             bool ok = false;
 
             // check for exact matches or a typeglob'd mimetype if we have a mimetype
             for (QStringList::ConstIterator it = types.constBegin();
-                 it != types.constEnd() && !ok;
-                 ++it)
-            {
+                    it != types.constEnd() && !ok;
+                    ++it) {
                 // first check if we have an all mimetype
                 bool checkTheMimetypes = false;
                 if (*it == "all/all" ||
-                    *it == "allfiles" /*compat with KDE up to 3.0.3*/) {
+                        *it == "allfiles" /*compat with KDE up to 3.0.3*/) {
                     checkTheMimetypes = true;
                 }
 
                 // next, do we match all files?
                 if (!ok &&
-                    !d->m_props.isDirectory() &&
-                    (*it == "all/allfiles" || *it == "application/octet-stream")) {
+                        !d->m_props.isDirectory() &&
+                        (*it == "all/allfiles" || *it == "application/octet-stream")) {
                     checkTheMimetypes = true;
                 }
 
                 // if we have a mimetype, see if we have an exact or a type globbed match
                 if (!ok && (
-                    (mimeTypePtr.inherits(*it)) ||
-                    (!commonMimeGroup.isEmpty() &&
-                     ((*it).right(1) == "*" &&
-                      (*it).left((*it).indexOf('/')) == commonMimeGroup)))) {
+                            (mimeTypePtr.inherits(*it)) ||
+                            (!commonMimeGroup.isEmpty() &&
+                             ((*it).right(1) == "*" &&
+                              (*it).left((*it).indexOf('/')) == commonMimeGroup)))) {
                     checkTheMimetypes = true;
                 }
 
                 if (checkTheMimetypes) {
                     ok = true;
                     for (QStringList::ConstIterator itex = excludeTypes.constBegin(); itex != excludeTypes.constEnd(); ++itex) {
-                        if(((*itex).endsWith('*') && (*itex).left((*itex).indexOf('/')) == commonMimeGroup) ||
-                            ((*itex) == commonMimeType)) {
+                        if (((*itex).endsWith('*') && (*itex).left((*itex).indexOf('/')) == commonMimeGroup) ||
+                                ((*itex) == commonMimeType)) {
                             ok = false;
                             break;
                         }
@@ -384,9 +382,9 @@ int KFileItemActions::addServiceActionsTo(QMenu* mainMenu)
                 const QString priority = cfg.readEntry("X-KDE-Priority");
                 const QString submenuName = cfg.readEntry("X-KDE-Submenu");
 
-                ServiceList& list = s.selectList(priority, submenuName);
+                ServiceList &list = s.selectList(priority, submenuName);
                 const ServiceList userServices = KDesktopFileActions::userDefinedServices(*(*it2), isLocal, urlList);
-                foreach (const KServiceAction& action, userServices) {
+                foreach (const KServiceAction &action, userServices) {
                     if (showGroup.readEntry(action.name(), true)) {
                         list += action;
                     }
@@ -395,12 +393,10 @@ int KFileItemActions::addServiceActionsTo(QMenu* mainMenu)
         }
     }
 
-
-
-    QMenu* actionMenu = mainMenu;
+    QMenu *actionMenu = mainMenu;
     int userItemCount = 0;
     if (s.user.count() + s.userSubmenus.count() +
-        s.userPriority.count() + s.userPrioritySubmenus.count() > 1) {
+            s.userPriority.count() + s.userPrioritySubmenus.count() > 1) {
         // we have more than one item, so let's make a submenu
         actionMenu = new QMenu(i18nc("@title:menu", "&Actions"), mainMenu);
         actionMenu->menuAction()->setObjectName("actions_submenu"); // for the unittest
@@ -412,10 +408,10 @@ int KFileItemActions::addServiceActionsTo(QMenu* mainMenu)
 
     // see if we need to put a separator between our priority items and our regular items
     if (userItemCount > 0 &&
-        (s.user.count() > 0 ||
-         s.userSubmenus.count() > 0 ||
-         s.builtin.count() > 0) &&
-        !actionMenu->actions().last()->isSeparator()) {
+            (s.user.count() > 0 ||
+             s.userSubmenus.count() > 0 ||
+             s.builtin.count() > 0) &&
+            !actionMenu->actions().last()->isSeparator()) {
         actionMenu->addSeparator();
     }
     userItemCount += d->insertServicesSubmenus(s.userSubmenus, actionMenu, false);
@@ -426,9 +422,8 @@ int KFileItemActions::addServiceActionsTo(QMenu* mainMenu)
     return userItemCount;
 }
 
-
 // static
-KService::List KFileItemActions::associatedApplications(const QStringList& mimeTypeList, const QString& traderConstraint)
+KService::List KFileItemActions::associatedApplications(const QStringList &mimeTypeList, const QString &traderConstraint)
 {
     if (!KAuthorized::authorizeKAction("openwith") || mimeTypeList.isEmpty()) {
         return KService::List();
@@ -480,7 +475,7 @@ KService::List KFileItemActions::associatedApplications(const QStringList& mimeT
     qSort(rankings.begin(), rankings.end(), KFileItemActionsPrivate::lessRank);
 
     KService::List result;
-    Q_FOREACH(const KFileItemActionsPrivate::ServiceRank& tempRank, rankings) {
+    Q_FOREACH (const KFileItemActionsPrivate::ServiceRank &tempRank, rankings) {
         result << tempRank.service;
     }
 
@@ -488,13 +483,13 @@ KService::List KFileItemActions::associatedApplications(const QStringList& mimeT
 }
 
 // KMimeTypeTrader::preferredService doesn't take a constraint
-static KService::Ptr preferredService(const QString& mimeType, const QString& constraint)
+static KService::Ptr preferredService(const QString &mimeType, const QString &constraint)
 {
     const KService::List services = KMimeTypeTrader::self()->query(mimeType, QString::fromLatin1("Application"), constraint);
     return !services.isEmpty() ? services.first() : KService::Ptr();
 }
 
-void KFileItemActions::addOpenWithActionsTo(QMenu* topMenu, const QString& traderConstraint)
+void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &traderConstraint)
 {
     if (!KAuthorized::authorizeKAction("openwith")) {
         return;
@@ -518,15 +513,14 @@ void KFileItemActions::addOpenWithActionsTo(QMenu* topMenu, const QString& trade
         QAction *runAct = new QAction(d->m_parentWidget);
         QString runActionName;
 
-
         const QStringList serviceIdList = d->listPreferredServiceIds(d->m_mimeTypeList, traderConstraint);
         //qDebug() << "serviceIdList=" << serviceIdList;
 
         // When selecting files with multiple mimetypes, offer either "open with <app for all>"
         // or a generic <open> (if there are any apps associated).
         if (d->m_mimeTypeList.count() > 1
-            && !serviceIdList.isEmpty()
-            && !(serviceIdList.count()==1 && serviceIdList.first().isEmpty())) { // empty means "no apps associated"
+                && !serviceIdList.isEmpty()
+                && !(serviceIdList.count() == 1 && serviceIdList.first().isEmpty())) { // empty means "no apps associated"
 
             d->m_ownActions.append(runAct);
 
@@ -536,7 +530,7 @@ void KFileItemActions::addOpenWithActionsTo(QMenu* topMenu, const QString& trade
                 runAct->setIcon(QIcon::fromTheme(app->icon()));
 
                 // Remove that app from the offers list (#242731)
-                for (int i = 0; i < offers.count() ; ++i) {
+                for (int i = 0; i < offers.count(); ++i) {
                     if (offers[i]->storageId() == app->storageId()) {
                         offers.removeAt(i);
                         break;
@@ -555,7 +549,7 @@ void KFileItemActions::addOpenWithActionsTo(QMenu* topMenu, const QString& trade
         }
 
         if (!offers.isEmpty()) {
-            QMenu* menu = topMenu;
+            QMenu *menu = topMenu;
 
             if (offers.count() > 1) { // submenu 'open with'
                 menu = new QMenu(i18nc("@title:menu", "&Open With"), topMenu);
@@ -565,8 +559,8 @@ void KFileItemActions::addOpenWithActionsTo(QMenu* topMenu, const QString& trade
             //qDebug() << offers.count() << "offers" << topMenu << menu;
 
             KService::List::ConstIterator it = offers.constBegin();
-            for(; it != offers.constEnd(); it++) {
-                QAction* act = d->createAppAction(*it,
+            for (; it != offers.constEnd(); it++) {
+                QAction *act = d->createAppAction(*it,
                                                   // no submenu -> prefix single offer
                                                   menu == topMenu);
                 menu->addAction(act);
@@ -585,9 +579,7 @@ void KFileItemActions::addOpenWithActionsTo(QMenu* topMenu, const QString& trade
             openWithAct->setObjectName("openwith_browse"); // for the unittest
             QObject::connect(openWithAct, SIGNAL(triggered()), d, SLOT(slotOpenWithDialog()));
             menu->addAction(openWithAct);
-        }
-        else // no app offers -> Open With...
-        {
+        } else { // no app offers -> Open With...
             QAction *act = new QAction(d->m_parentWidget);
             d->m_ownActions.append(act);
             act->setText(i18nc("@title:menu", "&Open With..."));
@@ -607,7 +599,7 @@ void KFileItemActionsPrivate::slotRunPreferredApplications()
 
     foreach (const QString serviceId, serviceIdList) {
         KFileItemList serviceItems;
-        foreach (const KFileItem& item, fileItems) {
+        foreach (const KFileItem &item, fileItems) {
             const KService::Ptr serv = preferredService(item.mimetype(), m_traderConstraint);
             const QString preferredServiceId = serv ? serv->storageId() : QString();
             if (preferredServiceId == serviceId) {
@@ -629,19 +621,19 @@ void KFileItemActionsPrivate::slotRunPreferredApplications()
     }
 }
 
-void KFileItemActions::runPreferredApplications(const KFileItemList& fileOpenList, const QString& traderConstraint)
+void KFileItemActions::runPreferredApplications(const KFileItemList &fileOpenList, const QString &traderConstraint)
 {
     d->m_fileOpenList = fileOpenList;
     d->m_traderConstraint = traderConstraint;
     d->slotRunPreferredApplications();
 }
 
-void KFileItemActionsPrivate::openWithByMime(const KFileItemList& fileItems)
+void KFileItemActionsPrivate::openWithByMime(const KFileItemList &fileItems)
 {
     const QStringList mimeTypeList = listMimeTypes(fileItems);
     foreach (const QString mimeType, mimeTypeList) {
         KFileItemList mimeItems;
-        foreach (const KFileItem& item, fileItems) {
+        foreach (const KFileItem &item, fileItems) {
             if (item.mimetype() == mimeType) {
                 mimeItems << item;
             }
@@ -650,7 +642,7 @@ void KFileItemActionsPrivate::openWithByMime(const KFileItemList& fileItems)
     }
 }
 
-void KFileItemActionsPrivate::slotRunApplication(QAction* act)
+void KFileItemActionsPrivate::slotRunApplication(QAction *act)
 {
     // Is it an application, from one of the "Open With" actions
     KService::Ptr app = act->data().value<KService::Ptr>();
@@ -667,20 +659,21 @@ void KFileItemActionsPrivate::slotOpenWithDialog()
     KRun::displayOpenWithDialog(m_props.urlList(), m_parentWidget);
 }
 
-QStringList KFileItemActionsPrivate::listMimeTypes(const KFileItemList& items)
+QStringList KFileItemActionsPrivate::listMimeTypes(const KFileItemList &items)
 {
     QStringList mimeTypeList;
-    foreach (const KFileItem& item, items) {
-        if (!mimeTypeList.contains(item.mimetype()))
+    foreach (const KFileItem &item, items) {
+        if (!mimeTypeList.contains(item.mimetype())) {
             mimeTypeList << item.mimetype();
+        }
     }
     return mimeTypeList;
 }
 
-QStringList KFileItemActionsPrivate::listPreferredServiceIds(const QStringList& mimeTypeList, const QString& traderConstraint)
+QStringList KFileItemActionsPrivate::listPreferredServiceIds(const QStringList &mimeTypeList, const QString &traderConstraint)
 {
     QStringList serviceIdList;
-    Q_FOREACH(const QString& mimeType, mimeTypeList) {
+    Q_FOREACH (const QString &mimeType, mimeTypeList) {
         const KService::Ptr serv = preferredService(mimeType, traderConstraint);
         const QString newOffer = serv ? serv->storageId() : QString();
         serviceIdList << newOffer;
@@ -689,7 +682,7 @@ QStringList KFileItemActionsPrivate::listPreferredServiceIds(const QStringList& 
     return serviceIdList;
 }
 
-QAction* KFileItemActionsPrivate::createAppAction(const KService::Ptr& service, bool singleOffer)
+QAction *KFileItemActionsPrivate::createAppAction(const KService::Ptr &service, bool singleOffer)
 {
     QString actionName(service->name().replace('&', "&&"));
     if (singleOffer) {
@@ -708,7 +701,7 @@ QAction* KFileItemActionsPrivate::createAppAction(const KService::Ptr& service, 
     return act;
 }
 
-QAction* KFileItemActions::preferredOpenWithAction(const QString& traderConstraint)
+QAction *KFileItemActions::preferredOpenWithAction(const QString &traderConstraint)
 {
     const KService::List offers = associatedApplications(d->m_mimeTypeList, traderConstraint);
     if (offers.isEmpty()) {
@@ -717,7 +710,7 @@ QAction* KFileItemActions::preferredOpenWithAction(const QString& traderConstrai
     return d->createAppAction(offers.first(), true);
 }
 
-void KFileItemActions::setParentWidget(QWidget* widget)
+void KFileItemActions::setParentWidget(QWidget *widget)
 {
     d->m_parentWidget = widget;
 }

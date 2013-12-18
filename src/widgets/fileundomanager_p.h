@@ -28,22 +28,24 @@
 
 class KJob;
 
-namespace KIO {
+namespace KIO
+{
 
 class FileUndoManagerAdaptor;
 
-struct BasicOperation
-{
+struct BasicOperation {
     typedef QList<BasicOperation> Stack;
 
     BasicOperation()
-    { m_valid = false; }
+    {
+        m_valid = false;
+    }
 
     bool m_valid;
     bool m_renamed;
 
     enum Type { File, Link, Directory };
-    Type m_type:2;
+    Type m_type: 2;
 
     QUrl m_src;
     QUrl m_dst;
@@ -58,11 +60,14 @@ public:
 
     UndoCommand()
     {
-      m_valid = false;
+        m_valid = false;
     }
 
     // TODO: is ::TRASH missing?
-    bool isMoveCommand() const { return m_type == FileUndoManager::Move || m_type == FileUndoManager::Rename; }
+    bool isMoveCommand() const
+    {
+        return m_type == FileUndoManager::Move || m_type == FileUndoManager::Rename;
+    }
 
     bool m_valid;
 
@@ -73,24 +78,23 @@ public:
     quint64 m_serialNumber;
 };
 
-
 // This class listens to a job, collects info while it's running (for copyjobs)
 // and when the job terminates, on success, it calls addCommand in the undomanager.
 class CommandRecorder : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 public:
-  CommandRecorder( FileUndoManager::CommandType op, const QList<QUrl> &src, const QUrl &dst, KIO::Job *job );
-  virtual ~CommandRecorder();
+    CommandRecorder(FileUndoManager::CommandType op, const QList<QUrl> &src, const QUrl &dst, KIO::Job *job);
+    virtual ~CommandRecorder();
 
 private Q_SLOTS:
-  void slotResult( KJob *job );
+    void slotResult(KJob *job);
 
-  void slotCopyingDone( KIO::Job *, const QUrl &from, const QUrl &to, const QDateTime&, bool directory, bool renamed );
-  void slotCopyingLinkDone( KIO::Job *, const QUrl &from, const QString &target, const QUrl &to );
+    void slotCopyingDone(KIO::Job *, const QUrl &from, const QUrl &to, const QDateTime &, bool directory, bool renamed);
+    void slotCopyingLinkDone(KIO::Job *, const QUrl &from, const QString &target, const QUrl &to);
 
 private:
-  UndoCommand m_cmd;
+    UndoCommand m_cmd;
 };
 
 enum UndoState { MAKINGDIRS = 0, MOVINGFILES, STATINGFILE, REMOVINGDIRS, REMOVINGLINKS };
@@ -101,21 +105,21 @@ class FileUndoManagerPrivate : public QObject
 {
     Q_OBJECT
 public:
-    FileUndoManagerPrivate(FileUndoManager* qq);
+    FileUndoManagerPrivate(FileUndoManager *qq);
 
     ~FileUndoManagerPrivate()
     {
         delete m_uiInterface;
     }
 
-    void pushCommand( const UndoCommand& cmd );
+    void pushCommand(const UndoCommand &cmd);
 
-    void broadcastPush( const UndoCommand &cmd );
+    void broadcastPush(const UndoCommand &cmd);
     void broadcastPop();
     void broadcastLock();
     void broadcastUnlock();
 
-    void addDirToUpdate(const QUrl& url);
+    void addDirToUpdate(const QUrl &url);
     bool initializeFromKDesky();
 
     void undoStep();
@@ -130,11 +134,11 @@ public:
 
     friend class UndoJob;
     /// called by UndoJob
-    void stopUndo( bool step );
+    void stopUndo(bool step);
 
     friend class UndoCommandRecorder;
     /// called by UndoCommandRecorder
-    void addCommand( const UndoCommand &cmd );
+    void addCommand(const UndoCommand &cmd);
 
     bool m_syncronized;
     bool m_lock;
@@ -148,12 +152,12 @@ public:
     QStack<QUrl> m_dirCleanupStack;
     QStack<QUrl> m_fileCleanupStack; // files and links
     QList<QUrl> m_dirsToUpdate;
-    FileUndoManager::UiInterface* m_uiInterface;
+    FileUndoManager::UiInterface *m_uiInterface;
 
     UndoJob *m_undoJob;
     quint64 m_nextCommandIndex;
 
-    FileUndoManager* q;
+    FileUndoManager *q;
 
     // DBUS interface
 Q_SIGNALS:
@@ -173,7 +177,7 @@ public Q_SLOTS:
     void slotLock();
     void slotUnlock();
 
-    void slotResult(KJob*);
+    void slotResult(KJob *);
 };
 
 } // namespace

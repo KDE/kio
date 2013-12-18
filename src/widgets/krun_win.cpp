@@ -26,74 +26,76 @@
 #include <windows.h>
 
 // TODO move to a shared lib
-static int runDll(WId windowId, const QString& libraryName, const QByteArray& functionName,
-            const QString& arguments)
+static int runDll(WId windowId, const QString &libraryName, const QByteArray &functionName,
+                  const QString &arguments)
 {
-  HMODULE libHandle = LoadLibraryW( (LPCWSTR)libraryName.utf16() );
-  if (!libHandle)
-    return 0;
-  typedef int (WINAPI *FunctionType)(HWND, HMODULE, LPCWSTR, int);
+    HMODULE libHandle = LoadLibraryW((LPCWSTR)libraryName.utf16());
+    if (!libHandle) {
+        return 0;
+    }
+    typedef int (WINAPI * FunctionType)(HWND, HMODULE, LPCWSTR, int);
 #ifdef _WIN32_WCE
-  QString functionNamestr = QString(functionName);
-  FunctionType function
-    = (FunctionType)GetProcAddressW( libHandle, functionNamestr.utf16() );
+    QString functionNamestr = QString(functionName);
+    FunctionType function
+        = (FunctionType)GetProcAddressW(libHandle, functionNamestr.utf16());
 #else
-  FunctionType function
-    = (FunctionType)GetProcAddress( libHandle, functionName.constData() );
+    FunctionType function
+        = (FunctionType)GetProcAddress(libHandle, functionName.constData());
 #endif
-  if (!function)
-    return 0;
-  int result = function((HWND)windowId, libHandle, (LPCWSTR)arguments.utf16(), SW_SHOW);
-  FreeLibrary(libHandle);
-  return result;
+    if (!function) {
+        return 0;
+    }
+    int result = function((HWND)windowId, libHandle, (LPCWSTR)arguments.utf16(), SW_SHOW);
+    FreeLibrary(libHandle);
+    return result;
 }
 
-static int runDll(WId windowId, const QString& libraryName, const QByteArray& functionName,
-            const QByteArray& arguments)
+static int runDll(WId windowId, const QString &libraryName, const QByteArray &functionName,
+                  const QByteArray &arguments)
 {
-  HMODULE libHandle = LoadLibraryW( (LPCWSTR)libraryName.utf16() );
-  if (!libHandle)
-    return 0;
-  typedef int (WINAPI *FunctionType)(HWND, HMODULE, LPCSTR, int);
+    HMODULE libHandle = LoadLibraryW((LPCWSTR)libraryName.utf16());
+    if (!libHandle) {
+        return 0;
+    }
+    typedef int (WINAPI * FunctionType)(HWND, HMODULE, LPCSTR, int);
 #ifdef _WIN32_WCE
-  QString functionNamestr = QString(functionName);
-  FunctionType function
-    = (FunctionType)GetProcAddressW( libHandle, functionNamestr.utf16() );
+    QString functionNamestr = QString(functionName);
+    FunctionType function
+        = (FunctionType)GetProcAddressW(libHandle, functionNamestr.utf16());
 #else
-  FunctionType function
-    = (FunctionType)GetProcAddress( libHandle, functionName.constData() );
+    FunctionType function
+        = (FunctionType)GetProcAddress(libHandle, functionName.constData());
 #endif
-  if (!function)
-    return 0;
-  int result = function((HWND)windowId, libHandle, (LPCSTR)arguments.constData(), SW_SHOW);
-  FreeLibrary(libHandle);
-  return result;
+    if (!function) {
+        return 0;
+    }
+    int result = function((HWND)windowId, libHandle, (LPCSTR)arguments.constData(), SW_SHOW);
+    FreeLibrary(libHandle);
+    return result;
 }
 
 // TODO move to a shared lib
-static int runDll(QWidget* parent, const QString& libraryName, const QByteArray& functionName,
-            const QString& arguments)
+static int runDll(QWidget *parent, const QString &libraryName, const QByteArray &functionName,
+                  const QString &arguments)
 {
-  return runDll(parent ? parent->winId() : 0, libraryName, functionName, arguments);
+    return runDll(parent ? parent->winId() : 0, libraryName, functionName, arguments);
 }
 
-
 // Windows implementation using "OpenAs_RunDLL" entry
-bool KRun::KRunPrivate::displayNativeOpenWithDialog( const QList<QUrl>& lst, QWidget* window, bool tempFiles,
-                                               const QString& suggestedFileName, const QByteArray& asn )
+bool KRun::KRunPrivate::displayNativeOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool tempFiles,
+        const QString &suggestedFileName, const QByteArray &asn)
 {
     Q_UNUSED(tempFiles);
     Q_UNUSED(suggestedFileName);
     Q_UNUSED(asn);
 
     QStringList fnames;
-    foreach( const QUrl& url, lst )
-    {
-      fnames += QDir::toNativeSeparators( url.path() );
+    foreach (const QUrl &url, lst) {
+        fnames += QDir::toNativeSeparators(url.path());
     }
-    int result = runDll( window,
-                         QLatin1String("shell32.dll"),
-                         "OpenAs_RunDLLW",
-                         fnames.join(QLatin1String(" ")) );
+    int result = runDll(window,
+                        QLatin1String("shell32.dll"),
+                        "OpenAs_RunDLLW",
+                        fnames.join(QLatin1String(" ")));
     return result == 0;
 }

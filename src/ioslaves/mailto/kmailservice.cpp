@@ -21,7 +21,7 @@
 #include <qurl.h>
 #include <stdio.h>
 
-int main( int argc, char **argv )
+int main(int argc, char **argv)
 {
     QGuiApplication a(argc, argv);
 

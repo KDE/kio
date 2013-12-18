@@ -35,7 +35,7 @@ class KDirSortFilterProxyModel::KDirSortFilterProxyModelPrivate
 public:
     KDirSortFilterProxyModelPrivate();
 
-    int compare(const QString&, const QString&, Qt::CaseSensitivity caseSensitivity  = Qt::CaseSensitive);
+    int compare(const QString &, const QString &, Qt::CaseSensitivity caseSensitivity  = Qt::CaseSensitive);
     void slotNaturalSortingChanged();
 
     bool m_sortFoldersFirst;
@@ -49,9 +49,9 @@ KDirSortFilterProxyModel::KDirSortFilterProxyModelPrivate::KDirSortFilterProxyMo
     slotNaturalSortingChanged();
 }
 
-int KDirSortFilterProxyModel::KDirSortFilterProxyModelPrivate::compare(const QString& a,
-                                                                       const QString& b,
-                                                                       Qt::CaseSensitivity caseSensitivity)
+int KDirSortFilterProxyModel::KDirSortFilterProxyModelPrivate::compare(const QString &a,
+        const QString &b,
+        Qt::CaseSensitivity caseSensitivity)
 {
     if (m_naturalSorting) {
         m_collator.setCaseSensitivity(caseSensitivity);
@@ -69,14 +69,13 @@ int KDirSortFilterProxyModel::KDirSortFilterProxyModelPrivate::compare(const QSt
     return QString::compare(a, b, Qt::CaseSensitive);
 }
 
-
 void KDirSortFilterProxyModel::KDirSortFilterProxyModelPrivate::slotNaturalSortingChanged()
 {
-    KConfigGroup g( KSharedConfig::openConfig(), "KDE" );
+    KConfigGroup g(KSharedConfig::openConfig(), "KDE");
     m_naturalSorting = g.readEntry("NaturalSorting", true);
 }
 
-KDirSortFilterProxyModel::KDirSortFilterProxyModel(QObject* parent)
+KDirSortFilterProxyModel::KDirSortFilterProxyModel(QObject *parent)
     : KCategorizedSortFilterProxyModel(parent), d(new KDirSortFilterProxyModelPrivate)
 {
     setDynamicSortFilter(true);
@@ -97,13 +96,13 @@ KDirSortFilterProxyModel::~KDirSortFilterProxyModel()
     delete d;
 }
 
-bool KDirSortFilterProxyModel::hasChildren(const QModelIndex& parent) const
+bool KDirSortFilterProxyModel::hasChildren(const QModelIndex &parent) const
 {
     const QModelIndex sourceParent = mapToSource(parent);
     return sourceModel()->hasChildren(sourceParent);
 }
 
-bool KDirSortFilterProxyModel::canFetchMore(const QModelIndex& parent) const
+bool KDirSortFilterProxyModel::canFetchMore(const QModelIndex &parent) const
 {
     const QModelIndex sourceParent = mapToSource(parent);
     return sourceModel()->canFetchMore(sourceParent);
@@ -121,7 +120,8 @@ int KDirSortFilterProxyModel::pointsForPermissions(const QFileInfo &info)
                                              QFile::ExeGroup,
                                              QFile::ReadOther,
                                              QFile::WriteOther,
-                                             QFile::ExeOther };
+                                             QFile::ExeOther
+                                           };
 
     for (int i = 0; i < 9; i++) {
         points += info.permission(permissionsCheck[i]) ? 1 : 0;
@@ -140,10 +140,10 @@ bool KDirSortFilterProxyModel::sortFoldersFirst() const
     return d->m_sortFoldersFirst;
 }
 
-bool KDirSortFilterProxyModel::subSortLessThan(const QModelIndex& left,
-                                               const QModelIndex& right) const
+bool KDirSortFilterProxyModel::subSortLessThan(const QModelIndex &left,
+        const QModelIndex &right) const
 {
-    KDirModel* dirModel = static_cast<KDirModel*>(sourceModel());
+    KDirModel *dirModel = static_cast<KDirModel *>(sourceModel());
 
     const KFileItem leftFileItem  = dirModel->itemForIndex(left);
     const KFileItem rightFileItem = dirModel->itemForIndex(right);
@@ -160,7 +160,6 @@ bool KDirSortFilterProxyModel::subSortLessThan(const QModelIndex& left,
             return !isLessThan;
         }
     }
-
 
     // Hidden elements go before visible ones.
     const bool leftItemIsHidden  = leftFileItem.isHidden();

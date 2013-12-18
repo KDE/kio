@@ -58,26 +58,26 @@ class QString;
 class KIOWIDGETS_EXPORT KUrlRequester : public QWidget
 {
     Q_OBJECT
-    Q_PROPERTY( QUrl url READ url WRITE setUrl NOTIFY textChanged USER true )
-    Q_PROPERTY( QString filter READ filter WRITE setFilter )
-    Q_PROPERTY( KFile::Modes mode READ mode WRITE setMode )
-    #ifndef KDE_NO_DEPRECATED
-    Q_PROPERTY( QString clickMessage READ clickMessage WRITE setClickMessage )
-    #endif
-    Q_PROPERTY( QString placeholderText READ placeholderText WRITE setPlaceholderText )
+    Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY textChanged USER true)
+    Q_PROPERTY(QString filter READ filter WRITE setFilter)
+    Q_PROPERTY(KFile::Modes mode READ mode WRITE setMode)
+#ifndef KDE_NO_DEPRECATED
+    Q_PROPERTY(QString clickMessage READ clickMessage WRITE setClickMessage)
+#endif
+    Q_PROPERTY(QString placeholderText READ placeholderText WRITE setPlaceholderText)
     Q_PROPERTY(QString text READ text WRITE setText)
-    Q_PROPERTY( Qt::WindowModality fileDialogModality READ fileDialogModality WRITE setFileDialogModality )
+    Q_PROPERTY(Qt::WindowModality fileDialogModality READ fileDialogModality WRITE setFileDialogModality)
 
 public:
     /**
      * Constructs a KUrlRequester widget.
      */
-    explicit KUrlRequester( QWidget *parent=0);
+    explicit KUrlRequester(QWidget *parent = 0);
 
     /**
      * Constructs a KUrlRequester widget with the initial URL @p url.
      */
-    explicit KUrlRequester(const QUrl& url, QWidget *parent = 0);
+    explicit KUrlRequester(const QUrl &url, QWidget *parent = 0);
 
     /**
      * Special constructor, which creates a KUrlRequester widget with a custom
@@ -85,7 +85,7 @@ public:
      * (or inherited thereof). Note: for geometry management reasons, the
      * edit-widget is reparented to have the KUrlRequester as parent.
      */
-    KUrlRequester( QWidget *editWidget, QWidget *parent);
+    KUrlRequester(QWidget *editWidget, QWidget *parent);
     /**
      * Destructs the KUrlRequester.
      */
@@ -120,7 +120,7 @@ public:
      * so KFile::Files doesn't make much sense.
      * @see QFileDialog::setFileMode()
      */
-    void setMode( KFile::Modes m );
+    void setMode(KFile::Modes m);
 
     /**
     * Returns the current mode
@@ -132,7 +132,7 @@ public:
      * Sets the filters for the file dialog, separated by \n.
      * @see QFileDialog::setNameFilters()
      */
-    void setFilter( const QString& filter );
+    void setFilter(const QString &filter);
 
     /**
     * Returns the filters for the file dialog, separated by \n.
@@ -207,7 +207,7 @@ public:
      * @deprecated use KUrlRequester::setPlaceholderText instead.
      */
 #ifndef KDE_NO_DEPRECATED
-    KIOWIDGETS_DEPRECATED void setClickMessage(const QString& msg);
+    KIOWIDGETS_DEPRECATED void setClickMessage(const QString &msg);
 #endif
 
     /**
@@ -222,7 +222,7 @@ public:
      * the purpose of the line edit.
      * @since 5.0
     */
-    void setPlaceholderText(const QString& msg);
+    void setPlaceholderText(const QString &msg);
 
     /**
      * @returns the window modality of the file dialog set with setFileDialogModality
@@ -241,14 +241,14 @@ public Q_SLOTS:
     /**
      * Sets the url in the lineedit to @p url.
      */
-    void setUrl(const QUrl& url);
+    void setUrl(const QUrl &url);
 
     /**
      * Sets the start dir @p startDir.
      * The start dir is only used when the URL isn't set.
      * @since 4.3
      */
-    void setStartDir(const QUrl& startDir);
+    void setStartDir(const QUrl &startDir);
 
     /**
      * Sets the url in the lineedit to @p QUrl::fromLocalFile(path).
@@ -259,7 +259,7 @@ public Q_SLOTS:
      * @deprecated Use setUrl(QUrl::fromLocalFile(path)) instead.
      */
 #ifndef KDE_NO_DEPRECATED
-    KIOWIDGETS_DEPRECATED void setPath(const QString& path);
+    KIOWIDGETS_DEPRECATED void setPath(const QString &path);
 #endif
 
     /**
@@ -271,7 +271,7 @@ public Q_SLOTS:
      * @see text
      * @since 4.3
      */
-    void setText(const QString& text);
+    void setText(const QString &text);
 
     /**
      * Clears the lineedit/combobox.
@@ -284,7 +284,7 @@ Q_SIGNALS:
      * Emitted when the text in the lineedit changes.
      * The parameter contains the contents of the lineedit.
      */
-    void textChanged( const QString& );
+    void textChanged(const QString &);
 
     /**
      * Emitted when return or enter was pressed in the lineedit.
@@ -295,7 +295,7 @@ Q_SIGNALS:
      * Emitted when return or enter was pressed in the lineedit.
      * The parameter contains the contents of the lineedit.
      */
-    void returnPressed( const QString& );
+    void returnPressed(const QString &);
 
     /**
      * Emitted before the filedialog is going to open. Connect
@@ -308,21 +308,21 @@ Q_SIGNALS:
      * to the same slot and use the given KUrlRequester pointer to know
      * which one is going to open.
      */
-    void openFileDialog( KUrlRequester * );
+    void openFileDialog(KUrlRequester *);
 
     /**
      * Emitted when the user changed the URL via the file dialog.
      * The parameter contains the contents of the lineedit.
      */
-    void urlSelected(const QUrl&);
+    void urlSelected(const QUrl &);
 
 protected:
-    virtual void changeEvent (QEvent *e);
-    bool eventFilter( QObject *obj, QEvent *ev );
+    virtual void changeEvent(QEvent *e);
+    bool eventFilter(QObject *obj, QEvent *ev);
 
 private:
     class KUrlRequesterPrivate;
-    KUrlRequesterPrivate* const d;
+    KUrlRequesterPrivate *const d;
 
     Q_DISABLE_COPY(KUrlRequester)
 
@@ -343,7 +343,7 @@ public:
 
 private:
     class Private;
-    Private* const d;
+    Private *const d;
 };
 
 #endif // KURLREQUESTER_H

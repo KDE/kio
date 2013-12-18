@@ -9,7 +9,7 @@
 
    This library is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the GNU
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
    Library General Public License for more details.
 
    You should have received a copy of the GNU Library General Public License
@@ -60,13 +60,13 @@ public:
      * @return the resulting pixmap
      * @see KIconLoader::StdSizes
      */
-    virtual QPixmap pixmapFor( const QString& url, int size = 0 );
+    virtual QPixmap pixmapFor(const QString &url, int size = 0);
 protected:
-    virtual void virtual_hook( int id, void* data );
+    virtual void virtual_hook(int id, void *data);
 
 private:
     class Private;
-    Private* const d;
+    Private *const d;
 };
 
 #endif // KURLPIXMAPPROVIDER_H

@@ -50,7 +50,10 @@ public:
     TimedTest(KLocalSocket *s)
         : socket(s)
     { }
-    ~TimedTest() { wait(1000); }
+    ~TimedTest()
+    {
+        wait(1000);
+    }
 
     void run()
     {
@@ -122,7 +125,7 @@ void tst_KLocalSocket::waitFor()
 void tst_KLocalSocket::reading()
 {
     static const char data1[] = "Hello ",
-                      data2[] = "World";
+                                data2[] = "World";
     KLocalSocket socket;
     socket.connectToPath(socketpath);
     QVERIFY(socket.waitForConnected(1000));
@@ -152,7 +155,7 @@ void tst_KLocalSocket::reading()
 void tst_KLocalSocket::writing()
 {
     static const char data1[] = "Hello ",
-                      data2[] = "World";
+                                data2[] = "World";
     KLocalSocket socket;
     socket.connectToPath(socketpath);
     QVERIFY(socket.waitForConnected(1000));

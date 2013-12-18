@@ -26,7 +26,8 @@
 #include <QUrl>
 #include <QObject>
 
-namespace KIO {
+namespace KIO
+{
 
 class ConnectionServerPrivate;
 class Connection;
@@ -69,7 +70,7 @@ Q_SIGNALS:
 
 private:
     friend class ConnectionServerPrivate;
-    ConnectionServerPrivate * const d;
+    ConnectionServerPrivate *const d;
 };
 
 } // namespace KIO

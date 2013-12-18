@@ -17,7 +17,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <sys/types.h>
@@ -36,7 +35,6 @@
 
 #include "dhcp.h"
 
-
 #ifndef INADDR_NONE /* some OSes don't define this */
 #define INADDR_NONE -1
 #endif
@@ -54,11 +52,13 @@ static int set_gid(gid_t gid)
     short x[2];
     x[0] = gid;
     x[1] = 73; /* catch errors */
-    if (setgroups(1, x) == -1)
-            return -1;
-#else
-    if (setgroups(1, &gid) == -1)
+    if (setgroups(1, x) == -1) {
         return -1;
+    }
+#else
+    if (setgroups(1, &gid) == -1) {
+        return -1;
+    }
 #endif
     return setgid(gid); /* _should_ be redundant, but on some systems it isn't */
 }
@@ -74,8 +74,9 @@ static int set_uid(uid_t uid)
 static int get_port(const char *service)
 {
     struct servent *serv = getservbyname(service, "udp");
-    if (serv == NULL)
+    if (serv == NULL) {
         exit(1);
+    }
 
     return serv->s_port;
 }
@@ -94,27 +95,29 @@ static int init_socket()
     addr.sin_port = get_port("bootpc");
 
     if ((proto = getprotobyname("udp")) == NULL ||
-        (sock = socket(AF_INET, SOCK_DGRAM, proto->p_proto)) == -1)
+            (sock = socket(AF_INET, SOCK_DGRAM, proto->p_proto)) == -1) {
         exit(1);
+    }
 
     if (setsockopt(sock, SOL_SOCKET, SO_BROADCAST, &bcast, sizeof(bcast)) == -1 ||
-        setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &bcast, sizeof(bcast)) == -1 ||
-        bind(sock, (struct sockaddr *)&addr, sizeof(addr)) == -1)
+            setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &bcast, sizeof(bcast)) == -1 ||
+            bind(sock, (struct sockaddr *)&addr, sizeof(addr)) == -1) {
         exit(1);
+    }
 
     if (set_gid(getgid()) != 0 || /* we don't need it anymore */
-        set_uid(getuid()) != 0)
+            set_uid(getuid()) != 0) {
         exit(1);
+    }
     return sock;
 }
 
-struct response
-{
+struct response {
     uint32_t result;
     uint16_t err;
 };
 
-static struct response send_request_for(int sock, const char* hostname)
+static struct response send_request_for(int sock, const char *hostname)
 {
     struct sockaddr_in addr;
     struct in_addr inaddr;
@@ -154,7 +157,7 @@ static struct response send_request_for(int sock, const char* hostname)
     *offs++ = DHCP_OPT_END;
 
     if (sendto(sock, &request, sizeof(request), 0,
-        (struct sockaddr *)&addr, sizeof(addr)) != sizeof(request)) {
+               (struct sockaddr *)&addr, sizeof(addr)) != sizeof(request)) {
         r.err = -1;
         r.result = 0;
     }
@@ -176,33 +179,39 @@ static uint32_t send_request(int sock)
     }
 
     for (ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next) {
-        if (ifa->ifa_addr == NULL)
+        if (ifa->ifa_addr == NULL) {
             continue;
+        }
 
-        if (ifa->ifa_flags & IFF_LOOPBACK)
+        if (ifa->ifa_flags & IFF_LOOPBACK) {
             continue;
+        }
 
-        if (ifa->ifa_addr->sa_family != AF_INET)
+        if (ifa->ifa_addr->sa_family != AF_INET) {
             continue;
+        }
 
         status = getnameinfo(ifa->ifa_addr, sizeof(struct sockaddr_in),
                              hostname, NI_MAXHOST, NULL, 0, NI_NUMERICHOST);
 
-        if (status != 0)
+        if (status != 0) {
             continue;
+        }
 
         struct response r = send_request_for(sock, hostname);
 
-        if (r.err != 0)
+        if (r.err != 0) {
             continue;
+        }
 
         status = r.result;
     }
 
     freeifaddrs(ifaddr);
 
-    if (status == -1)
-      exit(1);
+    if (status == -1) {
+        exit(1);
+    }
 
     return status;
 }
@@ -217,37 +226,40 @@ static void get_reply(int sock, uint32_t xid)
     uint8_t *offs = reply.options;
     uint8_t *end;
 
-    if ((len = recvfrom(sock, &reply, sizeof(reply), 0, NULL, NULL)) <= 0)
+    if ((len = recvfrom(sock, &reply, sizeof(reply), 0, NULL, NULL)) <= 0) {
         exit(1);
+    }
 
     end = (uint8_t *)&reply + len;
     if (end < offs + 4 ||
-        end > &reply.options[DHCP_OPT_LEN] ||
-        reply.op != DHCP_BOOTREPLY ||
-        reply.xid != xid ||
-        *offs++ != DHCP_MAGIC1 ||
-        *offs++ != DHCP_MAGIC2 ||
-        *offs++ != DHCP_MAGIC3 ||
-        *offs++ != DHCP_MAGIC4)
+            end > &reply.options[DHCP_OPT_LEN] ||
+            reply.op != DHCP_BOOTREPLY ||
+            reply.xid != xid ||
+            *offs++ != DHCP_MAGIC1 ||
+            *offs++ != DHCP_MAGIC2 ||
+            *offs++ != DHCP_MAGIC3 ||
+            *offs++ != DHCP_MAGIC4) {
         exit(1);
+    }
 
-    for ( ; offs < end - 1; offs += *offs+1)
-    {
-        switch (*offs++)
-        {
+    for (; offs < end - 1; offs += *offs + 1) {
+        switch (*offs++) {
         case DHCP_OPT_END:
             exit(1);
         case DHCP_OPT_MSGTYPE:
-            if (*offs != 1 || (offs >= end - 1) || *(offs + 1) != DHCP_ACK)
+            if (*offs != 1 || (offs >= end - 1) || *(offs + 1) != DHCP_ACK) {
                 exit(1);
+            }
             break;
         case DHCP_OPT_WPAD:
             memset(wpad, 0, sizeof(wpad));
             wpad_len = *offs++;
-            if (offs >= end)
+            if (offs >= end) {
                 exit(1);
-            if (wpad_len > end - offs)
+            }
+            if (wpad_len > end - offs) {
                 wpad_len = end - offs;
+            }
             strncpy(wpad, (char *)offs, wpad_len);
             wpad[wpad_len] = 0;
             printf("%s\n", wpad);
@@ -280,5 +292,3 @@ int main()
     exit(1);
 }
 
-/* vim: ts=4 sw=4 noet
- */

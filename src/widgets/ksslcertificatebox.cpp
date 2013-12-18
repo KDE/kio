@@ -30,24 +30,21 @@ public:
     Ui::CertificateParty ui;
 };
 
-
 KSslCertificateBox::KSslCertificateBox(QWidget *parent)
- : QWidget(parent),
-   d(new KSslCertificateBoxPrivate())
+    : QWidget(parent),
+      d(new KSslCertificateBoxPrivate())
 {
     d->ui.setupUi(this);
     // No fooling us with html tags
-    Q_FOREACH(QLabel* label, findChildren<QLabel *>()) {
+    Q_FOREACH (QLabel *label, findChildren<QLabel *>()) {
         label->setTextFormat(Qt::PlainText);
     }
 }
-
 
 KSslCertificateBox::~KSslCertificateBox()
 {
     delete d;
 }
-
 
 void KSslCertificateBox::setCertificate(const QSslCertificate &cert, CertificateParty party)
 {
@@ -56,7 +53,7 @@ void KSslCertificateBox::setCertificate(const QSslCertificate &cert, Certificate
         d->ui.commonName->setText(cert.subjectInfo(QSslCertificate::CommonName).first());
         d->ui.organization->setText(cert.subjectInfo(QSslCertificate::Organization).first());
         d->ui.organizationalUnit
-            ->setText(cert.subjectInfo(QSslCertificate::OrganizationalUnitName).first());
+        ->setText(cert.subjectInfo(QSslCertificate::OrganizationalUnitName).first());
         d->ui.country->setText(cert.subjectInfo(QSslCertificate::CountryName).first());
         d->ui.state->setText(cert.subjectInfo(QSslCertificate::StateOrProvinceName).first());
         d->ui.city->setText(cert.subjectInfo(QSslCertificate::LocalityName).first());
@@ -64,13 +61,12 @@ void KSslCertificateBox::setCertificate(const QSslCertificate &cert, Certificate
         d->ui.commonName->setText(cert.issuerInfo(QSslCertificate::CommonName).first());
         d->ui.organization->setText(cert.issuerInfo(QSslCertificate::Organization).first());
         d->ui.organizationalUnit
-            ->setText(cert.issuerInfo(QSslCertificate::OrganizationalUnitName).first());
+        ->setText(cert.issuerInfo(QSslCertificate::OrganizationalUnitName).first());
         d->ui.country->setText(cert.issuerInfo(QSslCertificate::CountryName).first());
         d->ui.state->setText(cert.issuerInfo(QSslCertificate::StateOrProvinceName).first());
         d->ui.city->setText(cert.issuerInfo(QSslCertificate::LocalityName).first());
     }
 }
-
 
 void KSslCertificateBox::clear()
 {
@@ -81,5 +77,4 @@ void KSslCertificateBox::clear()
     d->ui.state->clear();
     d->ui.city->clear();
 }
-
 

@@ -19,24 +19,29 @@
 
 #include "thumbsequencecreator.h"
 
-class ThumbSequenceCreator::Private {
+class ThumbSequenceCreator::Private
+{
 public:
-    Private() : sequenceIndex(0) {
+    Private() : sequenceIndex(0)
+    {
     }
-  
+
     float sequenceIndex;
 };
 
-float ThumbSequenceCreator::sequenceIndex() const {
+float ThumbSequenceCreator::sequenceIndex() const
+{
     return d->sequenceIndex;
 }
 
-void ThumbSequenceCreator::setSequenceIndex(float index) {
+void ThumbSequenceCreator::setSequenceIndex(float index)
+{
     d->sequenceIndex = index;
 }
 
-ThumbSequenceCreator::ThumbSequenceCreator() : d(new Private) {
-  
+ThumbSequenceCreator::ThumbSequenceCreator() : d(new Private)
+{
+
 }
 
 ThumbSequenceCreator::~ThumbSequenceCreator()

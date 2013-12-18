@@ -25,8 +25,8 @@
 #include <QPointer>
 #include <QVariant>
 
-
-namespace KIO {
+namespace KIO
+{
 class Slave;
 class SlaveInterface;
 
@@ -56,17 +56,17 @@ public:
         QHash<MessageBoxDataType, QVariant> data;
     };
 
-    UserNotificationHandler(QObject* parent = 0);
+    UserNotificationHandler(QObject *parent = 0);
     virtual ~UserNotificationHandler();
 
-    void requestMessageBox(SlaveInterface* iface, int type, const QHash<MessageBoxDataType, QVariant>& data);
+    void requestMessageBox(SlaveInterface *iface, int type, const QHash<MessageBoxDataType, QVariant> &data);
 
 private Q_SLOTS:
     void processRequest();
 
 private:
     QCache<QString, int> m_cachedResults;
-    QList<Request*> m_pendingRequests;
+    QList<Request *> m_pendingRequests;
 };
 }
 

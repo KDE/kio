@@ -39,7 +39,7 @@ public:
     /**
      * @return the instance of KProtocolInfoFactory (singleton).
      */
-    static KProtocolInfoFactory* self();
+    static KProtocolInfoFactory *self();
 
     KProtocolInfoFactory();
     ~KProtocolInfoFactory();
@@ -51,7 +51,7 @@ public:
      * @param protocol the protocol to search for
      * @return the pointer to the KProtocolInfo, or 0 if not found
      */
-    KProtocolInfoPrivate* findProtocol(const QString &protocol);
+    KProtocolInfoPrivate *findProtocol(const QString &protocol);
 
     /**
      * Loads all protocols. Slow, obviously, but fills the cache once and for all.

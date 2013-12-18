@@ -76,15 +76,15 @@ private Q_SLOTS:
 
 protected Q_SLOTS: // 'more private than private slots' - i.e. not seen by qtestlib
     void slotListingCompleted();
-    void slotExpand(const QModelIndex& index);
-    void slotRowsInserted(const QModelIndex& index, int, int);
+    void slotExpand(const QModelIndex &index);
+    void slotRowsInserted(const QModelIndex &index, int, int);
 
 private:
     void recreateTestData();
     void enterLoop();
     void fillModel(bool reload, bool expectAllIndexes = true);
     void collectKnownIndexes();
-    void testMoveDirectory(const QString& srcdir);
+    void testMoveDirectory(const QString &srcdir);
     void testUpdateParentAfterExpand();
 
 private:
@@ -93,8 +93,8 @@ private:
 #else
     QEventLoop m_eventLoop;
 #endif
-    QTemporaryDir* m_tempDir;
-    KDirModel* m_dirModel;
+    QTemporaryDir *m_tempDir;
+    KDirModel *m_dirModel;
     QModelIndex m_fileIndex;
     QModelIndex m_specialFileIndex;
     QModelIndex m_secondFileIndex;
@@ -106,11 +106,10 @@ private:
     // for slotExpand
     QStringList m_expectedExpandSignals;
     int m_nextExpectedExpandSignals; // index into m_expectedExpandSignals
-    KDirModel* m_dirModelForExpand;
+    KDirModel *m_dirModelForExpand;
     QUrl m_urlToExpandTo;
     bool m_rowsInsertedEmitted;
     bool m_expectRowsInserted;
 };
-
 
 #endif

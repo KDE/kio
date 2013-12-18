@@ -33,7 +33,6 @@
 
 #include "kssld_dbusmetatypes.h"
 
-
 /*
  * Proxy class for interface org.kde.KSSLD
  */
@@ -50,7 +49,7 @@ public:
     OrgKdeKSSLDInterface(const QString &service, const QString &path,
                          const QDBusConnection &connection,
                          QObject *parent = 0)
-     : QDBusAbstractInterface(service, path, staticInterfaceName(), connection, parent)
+        : QDBusAbstractInterface(service, path, staticInterfaceName(), connection, parent)
     {
         registerMetaTypesForKSSLD();
     }
@@ -91,11 +90,12 @@ public Q_SLOTS: // METHODS
     }
 };
 
-namespace org {
-  namespace kde {
-    typedef ::OrgKdeKSSLDInterface KSSLDInterface;
-  }
+namespace org
+{
+namespace kde
+{
+typedef ::OrgKdeKSSLDInterface KSSLDInterface;
 }
-
+}
 
 #endif //KSSLDINTERFACE_H

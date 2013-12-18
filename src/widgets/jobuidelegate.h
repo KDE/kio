@@ -81,12 +81,12 @@ public:
      * @param mtimeDest modification time of destination file
      * @return the result
      */
-    RenameDialog_Result askFileRename(KJob * job,
-                                      const QString & caption,
-                                      const QUrl & src,
-                                      const QUrl & dest,
+    RenameDialog_Result askFileRename(KJob *job,
+                                      const QString &caption,
+                                      const QUrl &src,
+                                      const QUrl &dest,
                                       KIO::RenameDialog_Mode mode,
-                                      QString& newDest,
+                                      QString &newDest,
                                       KIO::filesize_t sizeSrc = KIO::filesize_t(-1),
                                       KIO::filesize_t sizeDest = KIO::filesize_t(-1),
                                       const QDateTime &ctimeSrc = QDateTime(),
@@ -98,9 +98,9 @@ public:
      * @internal
      * See skipdialog.h
      */
-    SkipDialog_Result askSkip(KJob * job,
+    SkipDialog_Result askSkip(KJob *job,
                               bool multi,
-                              const QString & error_text) Q_DECL_OVERRIDE;
+                              const QString &error_text) Q_DECL_OVERRIDE;
 
     /**
      * Ask for confirmation before deleting/trashing @p urls.
@@ -114,7 +114,7 @@ public:
      * Note: the window passed to setWindow is used as the parent for the message box.
      * @return true if confirmed
      */
-    bool askDeleteConfirmation(const QList<QUrl>& urls, DeletionType deletionType,
+    bool askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType,
                                ConfirmationType confirmationType) Q_DECL_OVERRIDE;
 
     /**
@@ -134,19 +134,19 @@ public:
     *
     * @internal
     */
-    int requestMessageBox(MessageBoxType type, const QString& text,
-                          const QString& caption,
-                          const QString& buttonYes,
-                          const QString& buttonNo,
-                          const QString& iconYes = QString(),
-                          const QString& iconNo = QString(),
-                          const QString& dontAskAgainName = QString(),
-                          const KIO::MetaData& sslMetaData = KIO::MetaData()) Q_DECL_OVERRIDE;
+    int requestMessageBox(MessageBoxType type, const QString &text,
+                          const QString &caption,
+                          const QString &buttonYes,
+                          const QString &buttonNo,
+                          const QString &iconYes = QString(),
+                          const QString &iconNo = QString(),
+                          const QString &dontAskAgainName = QString(),
+                          const KIO::MetaData &sslMetaData = KIO::MetaData()) Q_DECL_OVERRIDE;
 
     /**
      * Creates a clipboard updater
      */
-    ClipboardUpdater* createClipboardUpdater(Job* job, ClipboardUpdaterMode mode) Q_DECL_OVERRIDE;
+    ClipboardUpdater *createClipboardUpdater(Job *job, ClipboardUpdaterMode mode) Q_DECL_OVERRIDE;
     /**
      * Update URL in clipboard, if present
      */
@@ -154,7 +154,7 @@ public:
 
 private:
     class Private;
-    Private * const d;
+    Private *const d;
 };
 }
 

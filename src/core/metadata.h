@@ -39,25 +39,24 @@ public:
     /**
      * Copy constructor.
      */
-    MetaData(const QMap<QString, QString>&metaData) :
+    MetaData(const QMap<QString, QString> &metaData) :
         QMap<QString, QString>(metaData) { }
 
     /**
      * Creates a meta data map from a QVaraint map.
      * @since 4.3.1
      */
-    MetaData(const QMap<QString,QVariant> &);
+    MetaData(const QMap<QString, QVariant> &);
 
     /**
      * Adds the given meta data map to this map.
      * @param metaData the map to add
      * @return this map
      */
-    MetaData & operator += ( const QMap<QString,QString> &metaData )
+    MetaData &operator += (const QMap<QString, QString> &metaData)
     {
-        QMap<QString,QString>::ConstIterator it;
-        for(it = metaData.constBegin(); it !=  metaData.constEnd(); ++it)
-        {
+        QMap<QString, QString>::ConstIterator it;
+        for (it = metaData.constBegin(); it !=  metaData.constEnd(); ++it) {
             insert(it.key(), it.value());
         }
         return *this;
@@ -73,7 +72,7 @@ public:
      * @return this map
      * @since 4.3.1
      */
-    MetaData & operator += ( const QMap<QString,QVariant> &metaData );
+    MetaData &operator += (const QMap<QString, QVariant> &metaData);
 
     /**
      * Sets the given meta data map to this map.
@@ -81,7 +80,7 @@ public:
      * @return this map
      * @since 4.3.1
      */
-    MetaData & operator = ( const QMap<QString,QVariant> &metaData );
+    MetaData &operator = (const QMap<QString, QVariant> &metaData);
 
     /**
      * Returns the contents of the map as a QVariant.

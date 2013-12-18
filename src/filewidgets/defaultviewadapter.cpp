@@ -25,7 +25,7 @@
 namespace KIO
 {
 
-DefaultViewAdapter::DefaultViewAdapter(QAbstractItemView* view, QObject* parent) :
+DefaultViewAdapter::DefaultViewAdapter(QAbstractItemView *view, QObject *parent) :
     KAbstractViewAdapter(parent),
     m_view(view)
 {
@@ -51,12 +51,12 @@ QRect DefaultViewAdapter::visibleArea() const
     return m_view->viewport()->rect();
 }
 
-QRect DefaultViewAdapter::visualRect(const QModelIndex& index) const
+QRect DefaultViewAdapter::visualRect(const QModelIndex &index) const
 {
     return m_view->visualRect(index);
 }
 
-void DefaultViewAdapter::connect(Signal signal, QObject* receiver, const char* slot)
+void DefaultViewAdapter::connect(Signal signal, QObject *receiver, const char *slot)
 {
     if (signal == ScrollBarValueChanged) {
         QObject::connect(m_view->horizontalScrollBar(), SIGNAL(valueChanged(int)), receiver, slot);

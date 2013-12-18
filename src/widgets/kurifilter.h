@@ -58,7 +58,7 @@ public:
     /**
      * Copy constructor.
      */
-    KUriFilterSearchProvider(const KUriFilterSearchProvider&);
+    KUriFilterSearchProvider(const KUriFilterSearchProvider &);
 
     /**
      * Destructor.
@@ -106,18 +106,18 @@ public:
     /**
      * Assignment operator.
      */
-    KUriFilterSearchProvider& operator=(const KUriFilterSearchProvider&);
+    KUriFilterSearchProvider &operator=(const KUriFilterSearchProvider &);
 
 protected:
-    void setDesktopEntryName(const QString&);
-    void setIconName(const QString&);
-    void setKeys(const QStringList&);
-    void setName(const QString&);
+    void setDesktopEntryName(const QString &);
+    void setIconName(const QString &);
+    void setKeys(const QStringList &);
+    void setName(const QString &);
 
 private:
     friend class KUriFilterPlugin;
     class KUriFilterSearchProviderPrivate;
-    KUriFilterSearchProviderPrivate * const d;
+    KUriFilterSearchProviderPrivate *const d;
 };
 
 /**
@@ -185,7 +185,7 @@ public:
      * @li Unknown      - A URI that is not identified. Default value when
      *                    a KUriFilterData is first created.
      */
-    enum UriTypes { NetProtocol=0, LocalFile, LocalDir, Executable, Help, Shell, Blocked, Error, Unknown };
+    enum UriTypes { NetProtocol = 0, LocalFile, LocalDir, Executable, Help, Shell, Blocked, Error, Unknown };
 
     /**
       * This enum describes the search filtering options to be used.
@@ -210,8 +210,7 @@ public:
       * @see KUriFilter::filterSearchUri
       * @since 4.6
       */
-    enum SearchFilterOption
-    {
+    enum SearchFilterOption {
         SearchFilterOptionNone = 0x0,
         RetrieveSearchProvidersOnly = 0x01,
         RetrievePreferredSearchProvidersOnly = 0x02,
@@ -231,14 +230,14 @@ public:
      *
      * @param url is the URL to be filtered.
      */
-    explicit KUriFilterData( const QUrl& url );
+    explicit KUriFilterData(const QUrl &url);
 
     /**
      * Creates a KUriFilterData object from the given string.
      *
      * @param url is the string to be filtered.
      */
-    explicit KUriFilterData( const QString& url );
+    explicit KUriFilterData(const QString &url);
 
     /**
      * Copy constructor.
@@ -247,7 +246,7 @@ public:
      *
      * @param other the uri filter data to be copied.
      */
-    KUriFilterData( const KUriFilterData& other );
+    KUriFilterData(const KUriFilterData &other);
 
     /**
      * Destructor.
@@ -400,7 +399,7 @@ public:
      * @see KUriFilterSearchProvider
      * @since 4.6
      */
-     KUriFilterSearchProvider queryForSearchProvider(const QString& provider) const;
+    KUriFilterSearchProvider queryForSearchProvider(const QString &provider) const;
 
     /**
      * Returns the web shortcut url for the given preferred search provider.
@@ -429,7 +428,7 @@ public:
      * @see queryForPreferredSearchProvider
      * @since 4.6
      */
-    QStringList allQueriesForSearchProvider(const QString& provider) const;
+    QStringList allQueriesForSearchProvider(const QString &provider) const;
 
     /**
      * Returns the icon associated with the given preferred search provider.
@@ -503,7 +502,7 @@ public:
      * not start that application. This is useful in the location bar of a
      * browser. The default value is true.
      */
-    void setCheckForExecutables (bool check);
+    void setCheckForExecutables(bool check);
 
     /**
      * Same as above except the argument is a URL.
@@ -513,7 +512,7 @@ public:
      *
      * @param url the URL to be filtered.
      */
-    void setData( const QUrl& url );
+    void setData(const QUrl &url);
 
     /**
      * Sets the URL to be filtered.
@@ -524,7 +523,7 @@ public:
      *
      * @param url the string to be filtered.
      */
-    void setData( const QString& url );
+    void setData(const QString &url);
 
     /**
      * Sets the absolute path to be used whenever the supplied data is a
@@ -540,7 +539,7 @@ public:
      *
      * @return true if absolute path is successfully set. Otherwise, false.
      */
-    bool setAbsolutePath( const QString& abs_path );
+    bool setAbsolutePath(const QString &abs_path);
 
     /**
      * Sets a list of search providers to use in case no preferred search
@@ -585,7 +584,7 @@ public:
      * @see defaultUrlScheme
      * @since 4.6
      */
-    void setDefaultUrlScheme(const QString&);
+    void setDefaultUrlScheme(const QString &);
 
     /**
       * Sets the options used by search filter plugins to filter requests.
@@ -612,7 +611,7 @@ public:
      *
      * @return an instance of a KUriFilterData object.
      */
-    KUriFilterData& operator=( const QUrl& url );
+    KUriFilterData &operator=(const QUrl &url);
 
     /**
      * Overloaded assigenment operator.
@@ -622,13 +621,12 @@ public:
      *
      * @return an instance of a KUriFilterData object.
      */
-    KUriFilterData& operator=( const QString& url );
+    KUriFilterData &operator=(const QString &url);
 
 private:
     friend class KUriFilterPlugin;
-    KUriFilterDataPrivate * const d;
+    KUriFilterDataPrivate *const d;
 };
-
 
 /**
  * Base class for URI filter plugins.
@@ -664,7 +662,7 @@ public:
      * @param parent the parent object, or 0 for no parent
      * @param name the name of the plugin, mandatory
      */
-    explicit KUriFilterPlugin( const QString &name, QObject *parent = 0 );
+    explicit KUriFilterPlugin(const QString &name, QObject *parent = 0);
 
     /**
      * Filters a URI.
@@ -672,7 +670,7 @@ public:
      * @param data the URI data to be filtered.
      * @return A boolean indicating whether the URI has been changed.
      */
-    virtual bool filterUri( KUriFilterData& data ) const = 0;
+    virtual bool filterUri(KUriFilterData &data) const = 0;
 
     /**
      * Creates a configuration module for the filter.
@@ -682,7 +680,7 @@ public:
      *
      * @return A configuration module, 0 if the filter isn't configurable.
      */
-    virtual KCModule *configModule( QWidget*, const char* ) const;
+    virtual KCModule *configModule(QWidget *, const char *) const;
 
     /**
      * Returns the name of the configuration module for the filter.
@@ -695,23 +693,23 @@ protected:
     /**
      * Sets the URL in @p data to @p uri.
      */
-    void setFilteredUri ( KUriFilterData& data, const QUrl& uri ) const;
+    void setFilteredUri(KUriFilterData &data, const QUrl &uri) const;
 
     /**
      * Sets the error message in @p data to @p errormsg.
      */
-    void setErrorMsg ( KUriFilterData& data, const QString& errmsg ) const;
+    void setErrorMsg(KUriFilterData &data, const QString &errmsg) const;
 
     /**
      * Sets the URI type in @p data to @p type.
      */
-    void setUriType ( KUriFilterData& data, KUriFilterData::UriTypes type) const;
+    void setUriType(KUriFilterData &data, KUriFilterData::UriTypes type) const;
 
     /**
      * Sets the arguments and options string in @p data to @p args if any were
      * found during filterting.
      */
-    void setArguments( KUriFilterData& data, const QString& args ) const;
+    void setArguments(KUriFilterData &data, const QString &args) const;
 
     /**
      * Sets the name of the search provider, the search term and keyword/term
@@ -719,22 +717,22 @@ protected:
      *
      * @since 4.5
      */
-    void setSearchProvider( KUriFilterData& data, const QString& provider,
-                            const QString& term, const QChar& separator) const;
+    void setSearchProvider(KUriFilterData &data, const QString &provider,
+                           const QString &term, const QChar &separator) const;
 
     /**
      * Sets the information about the search @p providers in @p data.
      *
      * @since 4.6
      */
-    void setSearchProviders(KUriFilterData& data, const QList<KUriFilterSearchProvider*>& providers) const;
+    void setSearchProviders(KUriFilterData &data, const QList<KUriFilterSearchProvider *> &providers) const;
 
     /**
      * Returns the icon name for the given @p url and URI @p type.
      *
      * @since 4.5
      */
-    QString iconNameFor(const QUrl& url, KUriFilterData::UriTypes type) const;
+    QString iconNameFor(const QUrl &url, KUriFilterData::UriTypes type) const;
 
     /**
      * Performs a DNS lookup for @p hostname and returns the result.
@@ -752,10 +750,10 @@ protected:
      *
      * @since 4.7
      */
-    QHostInfo resolveName (const QString& hostname, unsigned long timeout) const;
+    QHostInfo resolveName(const QString &hostname, unsigned long timeout) const;
 
 private:
-    class KUriFilterPluginPrivate * const d;
+    class KUriFilterPluginPrivate *const d;
 };
 
 /**
@@ -876,12 +874,12 @@ public:
     /**
      *  Destructor
      */
-    ~KUriFilter ();
+    ~KUriFilter();
 
     /**
      * Returns an instance of KUriFilter.
      */
-    static KUriFilter* self();
+    static KUriFilter *self();
 
     /**
      * Filters @p data using the specified @p filters.
@@ -894,7 +892,7 @@ public:
      *
      * @return a boolean indicating whether the URI has been changed
      */
-    bool filterUri( KUriFilterData& data, const QStringList& filters = QStringList() );
+    bool filterUri(KUriFilterData &data, const QStringList &filters = QStringList());
 
     /**
      * Filters the URI given by the URL.
@@ -907,7 +905,7 @@ public:
      *
      * @return a boolean indicating whether the URI has been changed
      */
-    bool filterUri( QUrl &uri, const QStringList& filters = QStringList() );
+    bool filterUri(QUrl &uri, const QStringList &filters = QStringList());
 
     /**
      * Filters a string representing a URI.
@@ -920,7 +918,7 @@ public:
      *
      * @return a boolean indicating whether the URI has been changed
      */
-    bool filterUri( QString &uri, const QStringList& filters = QStringList() );
+    bool filterUri(QString &uri, const QStringList &filters = QStringList());
 
     /**
      * Returns the filtered URI.
@@ -933,7 +931,7 @@ public:
      *
      * @return the filtered URI or null if it cannot be filtered
      */
-    QUrl filteredUri( const QUrl &uri, const QStringList& filters = QStringList() );
+    QUrl filteredUri(const QUrl &uri, const QStringList &filters = QStringList());
 
     /**
      * Return a filtered string representation of a URI.
@@ -946,7 +944,7 @@ public:
      *
      * @return the filtered URI or null if it cannot be filtered
      */
-    QString filteredUri( const QString &uri, const QStringList& filters = QStringList() );
+    QString filteredUri(const QString &uri, const QStringList &filters = QStringList());
 
     /**
      * See @ref filterSearchUri(KUriFilterData&, SearchFilterTypes)
@@ -1001,7 +999,7 @@ protected:
     void loadPlugins();
 
 private:
-    KUriFilterPrivate * const d;
+    KUriFilterPrivate *const d;
     friend class KUriFilterSingleton;
 };
 

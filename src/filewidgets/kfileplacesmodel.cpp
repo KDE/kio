@@ -69,13 +69,13 @@ public:
 
     KFilePlacesModel *q;
 
-    QList<KFilePlacesItem*> items;
+    QList<KFilePlacesItem *> items;
     QSet<QString> availableDevices;
-    QMap<QObject*, QPersistentModelIndex> setupInProgress;
+    QMap<QObject *, QPersistentModelIndex> setupInProgress;
 
     Solid::Predicate predicate;
     KBookmarkManager *bookmarkManager;
-    KFilePlacesSharedBookmarks * sharedBookmarks;
+    KFilePlacesSharedBookmarks *sharedBookmarks;
 
     void reloadAndSignal();
     QList<KFilePlacesItem *> loadBookmarkList();
@@ -122,7 +122,7 @@ KFilePlacesModel::KFilePlacesModel(QObject *parent)
                                               QUrl("remote:/"), "network-workgroup");
 #if defined(_WIN32_WCE)
         // adding drives
-        foreach ( const QFileInfo& info, QDir::drives() ) {
+        foreach (const QFileInfo &info, QDir::drives()) {
             QString driveIcon = "drive-harddisk";
             KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                                   info.absoluteFilePath(), info.absoluteFilePath(),
@@ -149,12 +149,12 @@ KFilePlacesModel::KFilePlacesModel(QObject *parent)
     d->sharedBookmarks = new KFilePlacesSharedBookmarks(d->bookmarkManager);
 
     QString predicate("[[[[ StorageVolume.ignored == false AND [ StorageVolume.usage == 'FileSystem' OR StorageVolume.usage == 'Encrypted' ]]"
-        " OR "
-        "[ IS StorageAccess AND StorageDrive.driveType == 'Floppy' ]]"
-        " OR "
-        "OpticalDisc.availableContent & 'Audio' ]"
-        " OR "
-        "StorageAccess.ignored == false ]");
+                      " OR "
+                      "[ IS StorageAccess AND StorageDrive.driveType == 'Floppy' ]]"
+                      " OR "
+                      "OpticalDisc.availableContent & 'Audio' ]"
+                      " OR "
+                      "StorageAccess.ignored == false ]");
 
     if (KProtocolInfo::isKnownProtocol("mtp")) {
         predicate.prepend("[");
@@ -206,20 +206,22 @@ bool KFilePlacesModel::isHidden(const QModelIndex &index) const
 
 bool KFilePlacesModel::isDevice(const QModelIndex &index) const
 {
-    if (!index.isValid())
+    if (!index.isValid()) {
         return false;
+    }
 
-    KFilePlacesItem *item = static_cast<KFilePlacesItem*>(index.internalPointer());
+    KFilePlacesItem *item = static_cast<KFilePlacesItem *>(index.internalPointer());
 
     return item->isDevice();
 }
 
 Solid::Device KFilePlacesModel::deviceForIndex(const QModelIndex &index) const
 {
-    if (!index.isValid())
+    if (!index.isValid()) {
         return Solid::Device();
+    }
 
-    KFilePlacesItem *item = static_cast<KFilePlacesItem*>(index.internalPointer());
+    KFilePlacesItem *item = static_cast<KFilePlacesItem *>(index.internalPointer());
 
     if (item->isDevice()) {
         return item->device();
@@ -230,10 +232,11 @@ Solid::Device KFilePlacesModel::deviceForIndex(const QModelIndex &index) const
 
 KBookmark KFilePlacesModel::bookmarkForIndex(const QModelIndex &index) const
 {
-    if (!index.isValid())
+    if (!index.isValid()) {
         return KBookmark();
+    }
 
-    KFilePlacesItem *item = static_cast<KFilePlacesItem*>(index.internalPointer());
+    KFilePlacesItem *item = static_cast<KFilePlacesItem *>(index.internalPointer());
 
     if (!item->isDevice()) {
         return item->bookmark();
@@ -244,20 +247,23 @@ KBookmark KFilePlacesModel::bookmarkForIndex(const QModelIndex &index) const
 
 QVariant KFilePlacesModel::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid())
+    if (!index.isValid()) {
         return QVariant();
+    }
 
-    KFilePlacesItem *item = static_cast<KFilePlacesItem*>(index.internalPointer());
+    KFilePlacesItem *item = static_cast<KFilePlacesItem *>(index.internalPointer());
     return item->data(role);
 }
 
 QModelIndex KFilePlacesModel::index(int row, int column, const QModelIndex &parent) const
 {
-    if (row<0 || column!=0 || row>=d->items.size())
+    if (row < 0 || column != 0 || row >= d->items.size()) {
         return QModelIndex();
+    }
 
-    if (parent.isValid())
+    if (parent.isValid()) {
         return QModelIndex();
+    }
 
     return createIndex(row, column, d->items.at(row));
 }
@@ -270,10 +276,11 @@ QModelIndex KFilePlacesModel::parent(const QModelIndex &child) const
 
 int KFilePlacesModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid())
+    if (parent.isValid()) {
         return 0;
-    else
+    } else {
         return d->items.size();
+    }
 }
 
 int KFilePlacesModel::columnCount(const QModelIndex &parent) const
@@ -291,7 +298,7 @@ QModelIndex KFilePlacesModel::closestItem(const QUrl &url) const
     // Search the item which is equal to the URL or at least is a parent URL.
     // If there are more than one possible item URL candidates, choose the item
     // which covers the bigger range of the URL.
-    for (int row = 0; row<d->items.size(); ++row) {
+    for (int row = 0; row < d->items.size(); ++row) {
         KFilePlacesItem *item = d->items[row];
         const QUrl itemUrl(item->data(UrlRole).toUrl());
 
@@ -304,10 +311,11 @@ QModelIndex KFilePlacesModel::closestItem(const QUrl &url) const
         }
     }
 
-    if (foundRow==-1)
+    if (foundRow == -1) {
         return QModelIndex();
-    else
+    } else {
         return createIndex(foundRow, 0, d->items[foundRow]);
+    }
 }
 
 void KFilePlacesModel::Private::_k_initDeviceList()
@@ -321,7 +329,7 @@ void KFilePlacesModel::Private::_k_initDeviceList()
 
     const QList<Solid::Device> &deviceList = Solid::Device::listFromQuery(predicate);
 
-    foreach(const Solid::Device &device, deviceList) {
+    foreach (const Solid::Device &device, deviceList) {
         availableDevices << device.udi();
     }
 
@@ -348,8 +356,8 @@ void KFilePlacesModel::Private::_k_deviceRemoved(const QString &udi)
 
 void KFilePlacesModel::Private::_k_itemChanged(const QString &id)
 {
-    for (int row = 0; row<items.size(); ++row) {
-        if (items.at(row)->id()==id) {
+    for (int row = 0; row < items.size(); ++row) {
+        if (items.at(row)->id() == id) {
             QModelIndex index = q->index(row, 0);
             emit q->dataChanged(index, index);
         }
@@ -358,16 +366,16 @@ void KFilePlacesModel::Private::_k_itemChanged(const QString &id)
 
 void KFilePlacesModel::Private::_k_reloadBookmarks()
 {
-    QList<KFilePlacesItem*> currentItems = loadBookmarkList();
+    QList<KFilePlacesItem *> currentItems = loadBookmarkList();
 
-    QList<KFilePlacesItem*>::Iterator it_i = items.begin();
-    QList<KFilePlacesItem*>::Iterator it_c = currentItems.begin();
+    QList<KFilePlacesItem *>::Iterator it_i = items.begin();
+    QList<KFilePlacesItem *>::Iterator it_c = currentItems.begin();
 
-    QList<KFilePlacesItem*>::Iterator end_i = items.end();
-    QList<KFilePlacesItem*>::Iterator end_c = currentItems.end();
+    QList<KFilePlacesItem *>::Iterator end_i = items.end();
+    QList<KFilePlacesItem *>::Iterator end_c = currentItems.end();
 
-    while (it_i!=end_i || it_c!=end_c) {
-        if (it_i==end_i && it_c!=end_c) {
+    while (it_i != end_i || it_c != end_c) {
+        if (it_i == end_i && it_c != end_c) {
             int row = items.count();
 
             q->beginInsertRows(QModelIndex(), row, row);
@@ -379,7 +387,7 @@ void KFilePlacesModel::Private::_k_reloadBookmarks()
             end_c = currentItems.end();
             q->endInsertRows();
 
-        } else if (it_i!=end_i && it_c==end_c) {
+        } else if (it_i != end_i && it_c == end_c) {
             int row = items.indexOf(*it_i);
 
             q->beginRemoveRows(QModelIndex(), row, row);
@@ -390,8 +398,8 @@ void KFilePlacesModel::Private::_k_reloadBookmarks()
             end_c = currentItems.end();
             q->endRemoveRows();
 
-        } else if ((*it_i)->id()==(*it_c)->id()) {
-            bool shouldEmit = !((*it_i)->bookmark()==(*it_c)->bookmark());
+        } else if ((*it_i)->id() == (*it_c)->id()) {
+            bool shouldEmit = !((*it_i)->bookmark() == (*it_c)->bookmark());
             (*it_i)->setBookmark((*it_c)->bookmark());
             if (shouldEmit) {
                 int row = items.indexOf(*it_i);
@@ -400,10 +408,10 @@ void KFilePlacesModel::Private::_k_reloadBookmarks()
             }
             ++it_i;
             ++it_c;
-        } else if ((*it_i)->id()!=(*it_c)->id()) {
+        } else if ((*it_i)->id() != (*it_c)->id()) {
             int row = items.indexOf(*it_i);
 
-            if (it_i+1!=end_i && (*(it_i+1))->id()==(*it_c)->id()) { // if the next one matches, it's a remove
+            if (it_i + 1 != end_i && (*(it_i + 1))->id() == (*it_c)->id()) { // if the next one matches, it's a remove
                 q->beginRemoveRows(QModelIndex(), row, row);
                 delete *it_i;
                 it_i = items.erase(it_i);
@@ -430,7 +438,7 @@ void KFilePlacesModel::Private::_k_reloadBookmarks()
 
 QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
 {
-    QList<KFilePlacesItem*> items;
+    QList<KFilePlacesItem *> items;
 
     KBookmarkGroup root = bookmarkManager->root();
     KBookmark bookmark = root.first();
@@ -441,7 +449,7 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
         QString appName = bookmark.metaDataItem("OnlyInApp");
         bool deviceAvailable = devices.remove(udi);
 
-        bool allowedHere = appName.isEmpty() || (appName==QCoreApplication::instance()->applicationName());
+        bool allowedHere = appName.isEmpty() || (appName == QCoreApplication::instance()->applicationName());
 
         if ((udi.isEmpty() && allowedHere) || deviceAvailable) {
             KFilePlacesItem *item;
@@ -464,7 +472,7 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
         bookmark = KFilePlacesItem::createDeviceBookmark(bookmarkManager, udi);
         if (!bookmark.isNull()) {
             KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager,
-                                                        bookmark.address(), udi);
+                    bookmark.address(), udi);
             connect(item, SIGNAL(itemChanged(QString)),
                     q, SLOT(_k_itemChanged(QString)));
             // TODO: Update bookmark internal element
@@ -487,20 +495,22 @@ Qt::DropActions KFilePlacesModel::supportedDropActions() const
 
 Qt::ItemFlags KFilePlacesModel::flags(const QModelIndex &index) const
 {
-    Qt::ItemFlags res = Qt::ItemIsSelectable|Qt::ItemIsEnabled;
+    Qt::ItemFlags res = Qt::ItemIsSelectable | Qt::ItemIsEnabled;
 
-    if (index.isValid())
-        res|= Qt::ItemIsDragEnabled;
+    if (index.isValid()) {
+        res |= Qt::ItemIsDragEnabled;
+    }
 
-    if (!index.isValid())
-        res|= Qt::ItemIsDropEnabled;
+    if (!index.isValid()) {
+        res |= Qt::ItemIsDropEnabled;
+    }
 
     return res;
 }
 
-static QString _k_internalMimetype(const KFilePlacesModel * const self)
+static QString _k_internalMimetype(const KFilePlacesModel *const self)
 {
-    return QString("application/x-kfileplacesmodel-")+QString::number((qptrdiff)self);
+    return QString("application/x-kfileplacesmodel-") + QString::number((qptrdiff)self);
 }
 
 QStringList KFilePlacesModel::mimeTypes() const
@@ -521,15 +531,17 @@ QMimeData *KFilePlacesModel::mimeData(const QModelIndexList &indexes) const
 
     foreach (const QModelIndex &index, indexes) {
         QUrl itemUrl = url(index);
-        if (itemUrl.isValid())
+        if (itemUrl.isValid()) {
             urls << itemUrl;
+        }
         stream << index.row();
     }
 
     QMimeData *mimeData = new QMimeData();
 
-    if (!urls.isEmpty())
+    if (!urls.isEmpty()) {
         mimeData->setUrls(urls);
+    }
 
     mimeData->setData(_k_internalMimetype(this), itemData);
 
@@ -539,24 +551,25 @@ QMimeData *KFilePlacesModel::mimeData(const QModelIndexList &indexes) const
 bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action,
                                     int row, int column, const QModelIndex &parent)
 {
-    if (action == Qt::IgnoreAction)
+    if (action == Qt::IgnoreAction) {
         return true;
-
-    if (column > 0)
-        return false;
-
-    if (row==-1 && parent.isValid()) {
-        return false; // Don't allow to move an item onto another one,
-                      // too easy for the user to mess something up
-                      // If we really really want to allow copying files this way,
-                      // let's do it in the views to get the good old drop menu
     }
 
+    if (column > 0) {
+        return false;
+    }
+
+    if (row == -1 && parent.isValid()) {
+        return false; // Don't allow to move an item onto another one,
+        // too easy for the user to mess something up
+        // If we really really want to allow copying files this way,
+        // let's do it in the views to get the good old drop menu
+    }
 
     QMimeDatabase db;
     KBookmark afterBookmark;
 
-    if (row==-1) {
+    if (row == -1) {
         // The dropped item is moved or added to the last position
 
         KFilePlacesItem *lastItem = d->items.last();
@@ -565,8 +578,8 @@ bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action
     } else {
         // The dropped item is moved or added before position 'row', ie after position 'row-1'
 
-        if (row>0) {
-            KFilePlacesItem *afterItem = d->items[row-1];
+        if (row > 0) {
+            KFilePlacesItem *afterItem = d->items[row - 1];
             afterBookmark = afterItem->bookmark();
         }
     }
@@ -631,8 +644,8 @@ bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action
             KFileItem item(url, mimetype.name(), S_IFDIR);
 
             KBookmark bookmark = KFilePlacesItem::createBookmark(d->bookmarkManager,
-                                                                 url.fileName(), url,
-                                                                 item.iconName());
+                                 url.fileName(), url,
+                                 item.iconName());
             group.moveBookmark(bookmark, afterBookmark);
             afterBookmark = bookmark;
         }
@@ -659,14 +672,14 @@ void KFilePlacesModel::addPlace(const QString &text, const QUrl &url,
                                 const QModelIndex &after)
 {
     KBookmark bookmark = KFilePlacesItem::createBookmark(d->bookmarkManager,
-                                                         text, url, iconName);
+                         text, url, iconName);
 
     if (!appName.isEmpty()) {
         bookmark.setMetaDataItem("OnlyInApp", appName);
     }
 
     if (after.isValid()) {
-        KFilePlacesItem *item = static_cast<KFilePlacesItem*>(after.internalPointer());
+        KFilePlacesItem *item = static_cast<KFilePlacesItem *>(after.internalPointer());
         d->bookmarkManager->root().moveBookmark(bookmark, item->bookmark());
     }
 
@@ -676,15 +689,21 @@ void KFilePlacesModel::addPlace(const QString &text, const QUrl &url,
 void KFilePlacesModel::editPlace(const QModelIndex &index, const QString &text, const QUrl &url,
                                  const QString &iconName, const QString &appName)
 {
-    if (!index.isValid()) return;
+    if (!index.isValid()) {
+        return;
+    }
 
-    KFilePlacesItem *item = static_cast<KFilePlacesItem*>(index.internalPointer());
+    KFilePlacesItem *item = static_cast<KFilePlacesItem *>(index.internalPointer());
 
-    if (item->isDevice()) return;
+    if (item->isDevice()) {
+        return;
+    }
 
     KBookmark bookmark = item->bookmark();
 
-    if (bookmark.isNull()) return;
+    if (bookmark.isNull()) {
+        return;
+    }
 
     bookmark.setFullText(text);
     bookmark.setUrl(url);
@@ -697,15 +716,21 @@ void KFilePlacesModel::editPlace(const QModelIndex &index, const QString &text, 
 
 void KFilePlacesModel::removePlace(const QModelIndex &index) const
 {
-    if (!index.isValid()) return;
+    if (!index.isValid()) {
+        return;
+    }
 
-    KFilePlacesItem *item = static_cast<KFilePlacesItem*>(index.internalPointer());
+    KFilePlacesItem *item = static_cast<KFilePlacesItem *>(index.internalPointer());
 
-    if (item->isDevice()) return;
+    if (item->isDevice()) {
+        return;
+    }
 
     KBookmark bookmark = item->bookmark();
 
-    if (bookmark.isNull()) return;
+    if (bookmark.isNull()) {
+        return;
+    }
 
     d->bookmarkManager->root().deleteBookmark(bookmark);
     d->reloadAndSignal();
@@ -713,13 +738,17 @@ void KFilePlacesModel::removePlace(const QModelIndex &index) const
 
 void KFilePlacesModel::setPlaceHidden(const QModelIndex &index, bool hidden)
 {
-    if (!index.isValid()) return;
+    if (!index.isValid()) {
+        return;
+    }
 
-    KFilePlacesItem *item = static_cast<KFilePlacesItem*>(index.internalPointer());
+    KFilePlacesItem *item = static_cast<KFilePlacesItem *>(index.internalPointer());
 
     KBookmark bookmark = item->bookmark();
 
-    if (bookmark.isNull()) return;
+    if (bookmark.isNull()) {
+        return;
+    }
 
     bookmark.setMetaDataItem("IsHidden", (hidden ? "true" : "false"));
 
@@ -732,7 +761,7 @@ int KFilePlacesModel::hiddenCount() const
     int rows = rowCount();
     int hidden = 0;
 
-    for (int i=0; i<rows; ++i) {
+    for (int i = 0; i < rows; ++i) {
         if (isHidden(index(i, 0))) {
             hidden++;
         }
@@ -749,21 +778,21 @@ QAction *KFilePlacesModel::teardownActionForIndex(const QModelIndex &index) cons
 
         Solid::StorageDrive *drive = device.as<Solid::StorageDrive>();
 
-        if (drive==0) {
+        if (drive == 0) {
             drive = device.parent().as<Solid::StorageDrive>();
         }
 
         bool hotpluggable = false;
         bool removable = false;
 
-        if (drive!=0) {
+        if (drive != 0) {
             hotpluggable = drive->isHotpluggable();
             removable = drive->isRemovable();
         }
 
         QString iconName;
         QString text;
-        QString label = data(index, Qt::DisplayRole).toString().replace('&',"&&");
+        QString label = data(index, Qt::DisplayRole).toString().replace('&', "&&");
 
         if (device.is<Solid::OpticalDisc>()) {
             text = i18n("&Release '%1'", label);
@@ -791,7 +820,7 @@ QAction *KFilePlacesModel::ejectActionForIndex(const QModelIndex &index) const
 
     if (device.is<Solid::OpticalDisc>()) {
 
-        QString label = data(index, Qt::DisplayRole).toString().replace('&',"&&");
+        QString label = data(index, Qt::DisplayRole).toString().replace('&', "&&");
         QString text = i18n("&Eject '%1'", label);
 
         return new QAction(QIcon::fromTheme("media-eject"), text, 0);
@@ -805,7 +834,7 @@ void KFilePlacesModel::requestTeardown(const QModelIndex &index)
     Solid::Device device = deviceForIndex(index);
     Solid::StorageAccess *access = device.as<Solid::StorageAccess>();
 
-    if (access!=0) {
+    if (access != 0) {
         connect(access, SIGNAL(teardownDone(Solid::ErrorType,QVariant,QString)),
                 this, SLOT(_k_storageTeardownDone(Solid::ErrorType,QVariant)));
 
@@ -819,13 +848,13 @@ void KFilePlacesModel::requestEject(const QModelIndex &index)
 
     Solid::OpticalDrive *drive = device.parent().as<Solid::OpticalDrive>();
 
-    if (drive!=0) {
+    if (drive != 0) {
         connect(drive, SIGNAL(ejectDone(Solid::ErrorType,QVariant,QString)),
                 this, SLOT(_k_storageTeardownDone(Solid::ErrorType,QVariant)));
 
         drive->eject();
     } else {
-        QString label = data(index, Qt::DisplayRole).toString().replace('&',"&&");
+        QString label = data(index, Qt::DisplayRole).toString().replace('&', "&&");
         QString message = i18n("The device '%1' is not a disk and cannot be ejected.", label);
         emit errorMessage(message);
     }
@@ -836,8 +865,8 @@ void KFilePlacesModel::requestSetup(const QModelIndex &index)
     Solid::Device device = deviceForIndex(index);
 
     if (device.is<Solid::StorageAccess>()
-     && !d->setupInProgress.contains(device.as<Solid::StorageAccess>())
-     && !device.as<Solid::StorageAccess>()->isAccessible()) {
+            && !d->setupInProgress.contains(device.as<Solid::StorageAccess>())
+            && !device.as<Solid::StorageAccess>()->isAccessible()) {
 
         Solid::StorageAccess *access = device.as<Solid::StorageAccess>();
 

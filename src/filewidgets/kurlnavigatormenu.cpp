@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "kurlnavigatormenu_p.h"
 
 #include <QKeyEvent>
@@ -27,7 +26,7 @@
 namespace KDEPrivate
 {
 
-KUrlNavigatorMenu::KUrlNavigatorMenu(QWidget* parent) :
+KUrlNavigatorMenu::KUrlNavigatorMenu(QWidget *parent) :
     QMenu(parent)
 {
     setAcceptDrops(true);
@@ -37,32 +36,32 @@ KUrlNavigatorMenu::~KUrlNavigatorMenu()
 {
 }
 
-void KUrlNavigatorMenu::dragEnterEvent(QDragEnterEvent* event)
+void KUrlNavigatorMenu::dragEnterEvent(QDragEnterEvent *event)
 {
     if (event->mimeData()->hasUrls()) {
         event->acceptProposedAction();
     }
 }
 
-void KUrlNavigatorMenu::dragMoveEvent(QDragMoveEvent* event)
+void KUrlNavigatorMenu::dragMoveEvent(QDragMoveEvent *event)
 {
-      QMouseEvent mouseEvent(QMouseEvent(QEvent::MouseMove, event->pos(),
-          Qt::LeftButton, event->mouseButtons(), event->keyboardModifiers()));
-      mouseMoveEvent(&mouseEvent);
+    QMouseEvent mouseEvent(QMouseEvent(QEvent::MouseMove, event->pos(),
+                                       Qt::LeftButton, event->mouseButtons(), event->keyboardModifiers()));
+    mouseMoveEvent(&mouseEvent);
 }
 
-void KUrlNavigatorMenu::dropEvent(QDropEvent* event)
+void KUrlNavigatorMenu::dropEvent(QDropEvent *event)
 {
-    QAction* action = actionAt(event->pos());
+    QAction *action = actionAt(event->pos());
     if (action != 0) {
         emit urlsDropped(action, event);
     }
 }
 
-void KUrlNavigatorMenu::mouseReleaseEvent(QMouseEvent* event)
+void KUrlNavigatorMenu::mouseReleaseEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::MidButton) {
-        QAction* action = actionAt(event->pos());
+        QAction *action = actionAt(event->pos());
         if (action != 0) {
             emit middleMouseButtonClicked(action);
         }

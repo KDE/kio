@@ -31,10 +31,10 @@
 class KNameAndUrlInputDialogPrivate
 {
 public:
-    KNameAndUrlInputDialogPrivate(KNameAndUrlInputDialog* qq) : m_fileNameEdited(false), q(qq) {}
+    KNameAndUrlInputDialogPrivate(KNameAndUrlInputDialog *qq) : m_fileNameEdited(false), q(qq) {}
 
-    void _k_slotNameTextChanged(const QString&);
-    void _k_slotURLTextChanged(const QString&);
+    void _k_slotNameTextChanged(const QString &);
+    void _k_slotURLTextChanged(const QString &);
 
     /**
      * The line edit widget for the fileName
@@ -51,16 +51,16 @@ public:
 
     QDialogButtonBox *m_buttonBox;
 
-    KNameAndUrlInputDialog* q;
+    KNameAndUrlInputDialog *q;
 };
 
-KNameAndUrlInputDialog::KNameAndUrlInputDialog(const QString& nameLabel, const QString& urlLabel, const QUrl& startDir, QWidget *parent)
+KNameAndUrlInputDialog::KNameAndUrlInputDialog(const QString &nameLabel, const QString &urlLabel, const QUrl &startDir, QWidget *parent)
     : QDialog(parent), d(new KNameAndUrlInputDialogPrivate(this))
 {
     QVBoxLayout *topLayout = new QVBoxLayout;
     setLayout(topLayout);
 
-    QFormLayout* formLayout = new QFormLayout;
+    QFormLayout *formLayout = new QFormLayout;
     formLayout->setMargin(0);
 
     // First line: filename
@@ -103,48 +103,50 @@ QUrl KNameAndUrlInputDialog::url() const
 {
     if (result() == QDialog::Accepted) {
         return d->m_urlRequester->url();
-    }
-    else
+    } else {
         return QUrl();
+    }
 }
 
 QString KNameAndUrlInputDialog::name() const
 {
-    if (result() == QDialog::Accepted)
+    if (result() == QDialog::Accepted) {
         return d->m_leName->text();
-    else
+    } else {
         return QString();
+    }
 }
 
-void KNameAndUrlInputDialogPrivate::_k_slotNameTextChanged(const QString&)
+void KNameAndUrlInputDialogPrivate::_k_slotNameTextChanged(const QString &)
 {
     m_fileNameEdited = true;
     m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(!m_leName->text().isEmpty() && !m_urlRequester->url().isEmpty());
 }
 
-void KNameAndUrlInputDialogPrivate::_k_slotURLTextChanged(const QString&)
+void KNameAndUrlInputDialogPrivate::_k_slotURLTextChanged(const QString &)
 {
     if (!m_fileNameEdited) {
         // use URL as default value for the filename
         // (we copy only its filename if protocol supports listing,
         // but for HTTP we don't want tons of index.html links)
         QUrl url(m_urlRequester->url());
-        if (KProtocolManager::supportsListing(url) && !url.fileName().isEmpty())
+        if (KProtocolManager::supportsListing(url) && !url.fileName().isEmpty()) {
             m_leName->setText(url.fileName());
-        else
+        } else {
             m_leName->setText(url.toString());
+        }
         m_fileNameEdited = false; // slotNameTextChanged set it to true erroneously
     }
     m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(!m_leName->text().isEmpty() && !m_urlRequester->url().isEmpty());
 }
 
-void KNameAndUrlInputDialog::setSuggestedName(const QString& name)
+void KNameAndUrlInputDialog::setSuggestedName(const QString &name)
 {
     d->m_leName->setText(name);
     d->m_urlRequester->setFocus();
 }
 
-void KNameAndUrlInputDialog::setSuggestedUrl(const QUrl& url)
+void KNameAndUrlInputDialog::setSuggestedUrl(const QUrl &url)
 {
     d->m_urlRequester->setUrl(url);
 }

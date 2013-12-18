@@ -24,7 +24,6 @@
 
 #include <qglobal.h>
 
-
 /**
  * @see ThumbCreator
  *
@@ -73,7 +72,7 @@ public:
 
 private:
     class Private;
-    Private* d;
+    Private *d;
 };
 
 typedef ThumbCreator *(*newCreator)();

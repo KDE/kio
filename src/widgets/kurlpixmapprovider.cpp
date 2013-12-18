@@ -9,7 +9,7 @@
 
    This library is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the GNU
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
    Library General Public License for more details.
 
    You should have received a copy of the GNU Library General Public License
@@ -32,11 +32,13 @@ KUrlPixmapProvider::~KUrlPixmapProvider()
 {
 }
 
-QPixmap KUrlPixmapProvider::pixmapFor( const QString& url, int size )
+QPixmap KUrlPixmapProvider::pixmapFor(const QString &url, int size)
 {
     const QUrl u = QUrl::fromUserInput(url); // absolute path or URL
-    return KIO::pixmapForUrl( u, 0, KIconLoader::Desktop, size );
+    return KIO::pixmapForUrl(u, 0, KIconLoader::Desktop, size);
 }
 
-void KUrlPixmapProvider::virtual_hook( int id, void* data )
-{ KPixmapProvider::virtual_hook( id, data ); }
+void KUrlPixmapProvider::virtual_hook(int id, void *data)
+{
+    KPixmapProvider::virtual_hook(id, data);
+}

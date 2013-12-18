@@ -37,24 +37,24 @@ class ExtraField
 {
 public:
     ExtraField()
-    : flags(AuthInfo::ExtraFieldNoFlags)
+        : flags(AuthInfo::ExtraFieldNoFlags)
     {
     }
 
-    ExtraField(const ExtraField& other)
-    : customTitle(other.customTitle),
-      flags (other.flags),
-      value (other.value)
+    ExtraField(const ExtraField &other)
+        : customTitle(other.customTitle),
+          flags(other.flags),
+          value(other.value)
     {
     }
 
-   ExtraField& operator=(const ExtraField& other)
-   {
-      customTitle = other.customTitle;
-      flags = other.flags;
-      value = other.value;
-      return *this;
-   }
+    ExtraField &operator=(const ExtraField &other)
+    {
+        customTitle = other.customTitle;
+        flags = other.flags;
+        value = other.value;
+        return *this;
+    }
 
     QString customTitle; // reserved for future use
     AuthInfo::FieldFlags flags;
@@ -62,7 +62,7 @@ public:
 };
 Q_DECLARE_METATYPE(ExtraField)
 
-QDataStream& operator<< (QDataStream& s, const ExtraField& extraField)
+QDataStream &operator<< (QDataStream &s, const ExtraField &extraField)
 {
     s << extraField.customTitle;
     s << (int)extraField.flags;
@@ -70,13 +70,13 @@ QDataStream& operator<< (QDataStream& s, const ExtraField& extraField)
     return s;
 }
 
-QDataStream& operator>> (QDataStream& s, ExtraField& extraField)
+QDataStream &operator>> (QDataStream &s, ExtraField &extraField)
 {
-    s >> extraField.customTitle ;
+    s >> extraField.customTitle;
     int i;
     s >> i;
     extraField.flags = (AuthInfo::FieldFlags)i;
-    s >> extraField.value ;
+    s >> extraField.value;
     return s;
 }
 
@@ -109,7 +109,6 @@ public:
     QMap<QString, ExtraField> extraFields;
 };
 
-
 //////
 
 AuthInfo::AuthInfo() : d(new AuthInfoPrivate())
@@ -121,7 +120,7 @@ AuthInfo::AuthInfo() : d(new AuthInfoPrivate())
     AuthInfo::registerMetaTypes();
 }
 
-AuthInfo::AuthInfo( const AuthInfo& info ) : d(new AuthInfoPrivate())
+AuthInfo::AuthInfo(const AuthInfo &info) : d(new AuthInfoPrivate())
 {
     (*this) = info;
     AuthInfo::registerMetaTypes();
@@ -132,7 +131,7 @@ AuthInfo::~AuthInfo()
     delete d;
 }
 
-AuthInfo& AuthInfo::operator= ( const AuthInfo& info )
+AuthInfo &AuthInfo::operator= (const AuthInfo &info)
 {
     url = info.url;
     username = info.username;
@@ -156,14 +155,14 @@ bool AuthInfo::isModified() const
     return modified;
 }
 
-void AuthInfo::setModified( bool flag )
+void AuthInfo::setModified(bool flag)
 {
     modified = flag;
 }
 
 /////
 
-void AuthInfo::setExtraField(const QString &fieldName, const QVariant & value)
+void AuthInfo::setExtraField(const QString &fieldName, const QVariant &value)
 {
     d->extraFields[fieldName].value = value;
 }
@@ -175,13 +174,17 @@ void AuthInfo::setExtraFieldFlags(const QString &fieldName, const FieldFlags fla
 
 QVariant AuthInfo::getExtraField(const QString &fieldName) const
 {
-    if (!d->extraFields.contains(fieldName)) return QVariant();
+    if (!d->extraFields.contains(fieldName)) {
+        return QVariant();
+    }
     return d->extraFields[fieldName].value;
 }
 
 AuthInfo::FieldFlags AuthInfo::getExtraFieldFlags(const QString &fieldName) const
 {
-    if (!d->extraFields.contains(fieldName)) return AuthInfo::ExtraFieldNoFlags;
+    if (!d->extraFields.contains(fieldName)) {
+        return AuthInfo::ExtraFieldNoFlags;
+    }
     return d->extraFields[fieldName].flags;
 }
 
@@ -195,7 +198,7 @@ void AuthInfo::registerMetaTypes()
 
 /////
 
-QDataStream& KIO::operator<< (QDataStream& s, const AuthInfo& a)
+QDataStream &KIO::operator<< (QDataStream &s, const AuthInfo &a)
 {
     s << (quint8)1
       << a.url << a.username << a.password << a.prompt << a.caption
@@ -205,7 +208,7 @@ QDataStream& KIO::operator<< (QDataStream& s, const AuthInfo& a)
     return s;
 }
 
-QDataStream& KIO::operator>> (QDataStream& s, AuthInfo& a)
+QDataStream &KIO::operator>> (QDataStream &s, AuthInfo &a)
 {
     quint8 version;
     s >> version
@@ -266,10 +269,10 @@ public:
     int index;
 };
 
-NetRC* NetRC::instance = 0L;
+NetRC *NetRC::instance = 0L;
 
 NetRC::NetRC()
-    : d( new NetRCPrivate )
+    : d(new NetRCPrivate)
 {
 }
 
@@ -280,89 +283,88 @@ NetRC::~NetRC()
     delete d;
 }
 
-NetRC* NetRC::self()
+NetRC *NetRC::self()
 {
-    if ( !instance )
+    if (!instance) {
         instance = new NetRC;
+    }
     return instance;
 }
 
-bool NetRC::lookup( const QUrl& url, AutoLogin& login, bool userealnetrc,
-                    const QString &_type, LookUpMode mode )
+bool NetRC::lookup(const QUrl &url, AutoLogin &login, bool userealnetrc,
+                   const QString &_type, LookUpMode mode)
 {
-  //qDebug() << "AutoLogin lookup for: " << url.host();
-  if ( !url.isValid() )
-    return false;
-
-  QString type = _type;
-  if ( type.isEmpty() )
-    type = url.scheme();
-
-  if ( d->loginMap.isEmpty() || d->isDirty )
-  {
-    d->loginMap.clear();
-
-    QString filename = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + QLatin1Char('/') + QLatin1String("kionetrc");
-    bool kionetrcStatus = parse(filename);
-    bool netrcStatus = false;
-    if ( userealnetrc )
-    {
-      filename =  QDir::homePath() + QLatin1String("/.netrc");
-      netrcStatus = parse(filename);
+    //qDebug() << "AutoLogin lookup for: " << url.host();
+    if (!url.isValid()) {
+        return false;
     }
 
-    if (!(kionetrcStatus || netrcStatus)) {
-      return false;
-    }
-  }
-
-  if ( !d->loginMap.contains( type ) )
-    return false;
-
-  const LoginList& l = d->loginMap[type];
-  if ( l.isEmpty() )
-    return false;
-
-  for (LoginList::ConstIterator it = l.begin(); it != l.end(); ++it)
-  {
-    const AutoLogin &log = *it;
-
-    if ( (mode & defaultOnly) == defaultOnly &&
-          log.machine == QLatin1String("default") &&
-          (login.login.isEmpty() || login.login == log.login) )
-    {
-      login.type = log.type;
-      login.machine = log.machine;
-      login.login = log.login;
-      login.password = log.password;
-      login.macdef = log.macdef;
+    QString type = _type;
+    if (type.isEmpty()) {
+        type = url.scheme();
     }
 
-    if ( (mode & presetOnly) == presetOnly &&
-          log.machine == QLatin1String("preset") &&
-          (login.login.isEmpty() || login.login == log.login) )
-    {
-      login.type = log.type;
-      login.machine = log.machine;
-      login.login = log.login;
-      login.password = log.password;
-      login.macdef = log.macdef;
+    if (d->loginMap.isEmpty() || d->isDirty) {
+        d->loginMap.clear();
+
+        QString filename = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + QLatin1Char('/') + QLatin1String("kionetrc");
+        bool kionetrcStatus = parse(filename);
+        bool netrcStatus = false;
+        if (userealnetrc) {
+            filename =  QDir::homePath() + QLatin1String("/.netrc");
+            netrcStatus = parse(filename);
+        }
+
+        if (!(kionetrcStatus || netrcStatus)) {
+            return false;
+        }
     }
 
-    if ( (mode & exactOnly) == exactOnly &&
-          log.machine == url.host() &&
-          (login.login.isEmpty() || login.login == log.login) )
-    {
-      login.type = log.type;
-      login.machine = log.machine;
-      login.login = log.login;
-      login.password = log.password;
-      login.macdef = log.macdef;
-      break;
+    if (!d->loginMap.contains(type)) {
+        return false;
     }
-  }
 
-  return true;
+    const LoginList &l = d->loginMap[type];
+    if (l.isEmpty()) {
+        return false;
+    }
+
+    for (LoginList::ConstIterator it = l.begin(); it != l.end(); ++it) {
+        const AutoLogin &log = *it;
+
+        if ((mode & defaultOnly) == defaultOnly &&
+                log.machine == QLatin1String("default") &&
+                (login.login.isEmpty() || login.login == log.login)) {
+            login.type = log.type;
+            login.machine = log.machine;
+            login.login = log.login;
+            login.password = log.password;
+            login.macdef = log.macdef;
+        }
+
+        if ((mode & presetOnly) == presetOnly &&
+                log.machine == QLatin1String("preset") &&
+                (login.login.isEmpty() || login.login == log.login)) {
+            login.type = log.type;
+            login.machine = log.machine;
+            login.login = log.login;
+            login.password = log.password;
+            login.macdef = log.macdef;
+        }
+
+        if ((mode & exactOnly) == exactOnly &&
+                log.machine == url.host() &&
+                (login.login.isEmpty() || login.login == log.login)) {
+            login.type = log.type;
+            login.machine = log.machine;
+            login.login = log.login;
+            login.password = log.password;
+            login.macdef = log.macdef;
+            break;
+        }
+    }
+
+    return true;
 }
 
 void NetRC::reload()
@@ -397,8 +399,8 @@ bool NetRC::parse(const QString &fileName)
         // If line refers to a machine, maybe it is spread in more lines.
         // getMachinePart() will take care of getting all the info and putting it into loginMap.
         if ((line.startsWith("machine")
-             || line.startsWith("default")
-             || line.startsWith("preset"))) {
+                || line.startsWith("default")
+                || line.startsWith("preset"))) {
             d->getMachinePart(line);
             continue;
         }
@@ -413,7 +415,6 @@ bool NetRC::parse(const QString &fileName)
     }
     return true;
 }
-
 
 QString NetRC::NetRCPrivate::extract(const QString &buf, const QString &key)
 {
@@ -458,7 +459,7 @@ void NetRC::NetRCPrivate::getMachinePart(const QString &line)
     }
 
     loginMap[l.type].append(l);
-    index = loginMap[l.type].count()-1;
+    index = loginMap[l.type].count() - 1;
 }
 
 void NetRC::NetRCPrivate::getMacdefPart(const QString &line)

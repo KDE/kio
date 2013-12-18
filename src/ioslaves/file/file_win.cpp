@@ -46,62 +46,68 @@ static DWORD CALLBACK CopyProgressRoutine(
     HANDLE hSourceFile,
     HANDLE hDestinationFile,
     LPVOID lpData
-) {
-    FileProtocol *f = reinterpret_cast<FileProtocol*>(lpData);
-    f->processedSize( TotalBytesTransferred.QuadPart );
+)
+{
+    FileProtocol *f = reinterpret_cast<FileProtocol *>(lpData);
+    f->processedSize(TotalBytesTransferred.QuadPart);
     return PROGRESS_CONTINUE;
 }
 
-static UDSEntry createUDSEntryWin( const QFileInfo &fileInfo )
+static UDSEntry createUDSEntryWin(const QFileInfo &fileInfo)
 {
     UDSEntry entry;
 
-    entry.insert( KIO::UDSEntry::UDS_NAME, fileInfo.fileName() );
-    if( fileInfo.isSymLink() ) {
-        entry.insert( KIO::UDSEntry::UDS_TARGET_URL, fileInfo.symLinkTarget() );
-/* TODO - or not useful on windows?
-        if ( details > 1 ) {
-            // It is a link pointing to nowhere
-            type = S_IFMT - 1;
-            access = S_IRWXU | S_IRWXG | S_IRWXO;
+    entry.insert(KIO::UDSEntry::UDS_NAME, fileInfo.fileName());
+    if (fileInfo.isSymLink()) {
+        entry.insert(KIO::UDSEntry::UDS_TARGET_URL, fileInfo.symLinkTarget());
+        /* TODO - or not useful on windows?
+                if ( details > 1 ) {
+                    // It is a link pointing to nowhere
+                    type = S_IFMT - 1;
+                    access = S_IRWXU | S_IRWXG | S_IRWXO;
 
-            entry.insert( KIO::UDSEntry::UDS_FILE_TYPE, type );
-            entry.insert( KIO::UDSEntry::UDS_ACCESS, access );
-            entry.insert( KIO::UDSEntry::UDS_SIZE, 0LL );
-            goto notype;
+                    entry.insert( KIO::UDSEntry::UDS_FILE_TYPE, type );
+                    entry.insert( KIO::UDSEntry::UDS_ACCESS, access );
+                    entry.insert( KIO::UDSEntry::UDS_SIZE, 0LL );
+                    goto notype;
 
-        }
-*/
+                }
+        */
     }
     int type = S_IFREG;
     int access = 0;
-    if( fileInfo.isDir() )
+    if (fileInfo.isDir()) {
         type = S_IFDIR;
-    else if( fileInfo.isSymLink() )
+    } else if (fileInfo.isSymLink()) {
         type = S_IFLNK;
-    if( fileInfo.isReadable() )
+    }
+    if (fileInfo.isReadable()) {
         access |= S_IRUSR;
-    if( fileInfo.isWritable() )
+    }
+    if (fileInfo.isWritable()) {
         access |= S_IWUSR;
-    if( fileInfo.isExecutable() )
+    }
+    if (fileInfo.isExecutable()) {
         access |= S_IXUSR;
+    }
 
-    entry.insert( KIO::UDSEntry::UDS_FILE_TYPE, type );
-    entry.insert( KIO::UDSEntry::UDS_ACCESS, access );
-    entry.insert( KIO::UDSEntry::UDS_SIZE, fileInfo.size() );
-    if( fileInfo.isHidden() )
-      entry.insert( KIO::UDSEntry::UDS_HIDDEN, true );
+    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, type);
+    entry.insert(KIO::UDSEntry::UDS_ACCESS, access);
+    entry.insert(KIO::UDSEntry::UDS_SIZE, fileInfo.size());
+    if (fileInfo.isHidden()) {
+        entry.insert(KIO::UDSEntry::UDS_HIDDEN, true);
+    }
 
-    entry.insert( KIO::UDSEntry::UDS_MODIFICATION_TIME, fileInfo.lastModified().toTime_t() );
-    entry.insert( KIO::UDSEntry::UDS_USER, fileInfo.owner() );
-    entry.insert( KIO::UDSEntry::UDS_GROUP, fileInfo.group() );
-    entry.insert( KIO::UDSEntry::UDS_ACCESS_TIME, fileInfo.lastRead().toTime_t() );
+    entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME, fileInfo.lastModified().toTime_t());
+    entry.insert(KIO::UDSEntry::UDS_USER, fileInfo.owner());
+    entry.insert(KIO::UDSEntry::UDS_GROUP, fileInfo.group());
+    entry.insert(KIO::UDSEntry::UDS_ACCESS_TIME, fileInfo.lastRead().toTime_t());
 
     return entry;
 }
 
-void FileProtocol::copy( const QUrl &src, const QUrl &dest,
-                         int _mode, JobFlags _flags )
+void FileProtocol::copy(const QUrl &src, const QUrl &dest,
+                        int _mode, JobFlags _flags)
 {
     // qDebug() << "copy(): " << src << " -> " << dest << ", mode=" << _mode;
 
@@ -109,54 +115,51 @@ void FileProtocol::copy( const QUrl &src, const QUrl &dest,
     QFileInfo _dest(dest.toLocalFile());
     DWORD dwFlags = COPY_FILE_FAIL_IF_EXISTS;
 
-    if( _src == _dest ) {
-	    error( KIO::ERR_IDENTICAL_FILES, _dest.filePath() );
-	    return;
-    }
-
-    if( !_src.exists() ) {
-        error( KIO::ERR_DOES_NOT_EXIST, _src.filePath() );
+    if (_src == _dest) {
+        error(KIO::ERR_IDENTICAL_FILES, _dest.filePath());
         return;
     }
 
-    if ( _src.isDir() ) {
-        error( KIO::ERR_IS_DIRECTORY, _src.filePath() );
+    if (!_src.exists()) {
+        error(KIO::ERR_DOES_NOT_EXIST, _src.filePath());
         return;
     }
 
-    if( _dest.exists() ) {
-        if( _dest.isDir() ) {
-           error( KIO::ERR_DIR_ALREADY_EXIST, _dest.filePath() );
-           return;
+    if (_src.isDir()) {
+        error(KIO::ERR_IS_DIRECTORY, _src.filePath());
+        return;
+    }
+
+    if (_dest.exists()) {
+        if (_dest.isDir()) {
+            error(KIO::ERR_DIR_ALREADY_EXIST, _dest.filePath());
+            return;
         }
 
-        if (!(_flags & KIO::Overwrite))
-        {
-           error( KIO::ERR_FILE_ALREADY_EXIST, _dest.filePath() );
-           return;
+        if (!(_flags & KIO::Overwrite)) {
+            error(KIO::ERR_FILE_ALREADY_EXIST, _dest.filePath());
+            return;
         }
 
         dwFlags = 0;
     }
 
-    if( !QFileInfo(_dest.dir().absolutePath()).exists() )
-    {
+    if (!QFileInfo(_dest.dir().absolutePath()).exists()) {
         _dest.dir().mkdir(_dest.dir().absolutePath());
     }
 
-    if ( CopyFileExW( ( LPCWSTR ) _src.filePath().utf16(),
-                      ( LPCWSTR ) _dest.filePath().utf16(),
-                      CopyProgressRoutine,
-                      ( LPVOID ) this,
-                      FALSE,
-                      dwFlags) == 0 )
-    {
+    if (CopyFileExW((LPCWSTR) _src.filePath().utf16(),
+                    (LPCWSTR) _dest.filePath().utf16(),
+                    CopyProgressRoutine,
+                    (LPVOID) this,
+                    FALSE,
+                    dwFlags) == 0) {
         DWORD dwLastErr = GetLastError();
-        if ( dwLastErr == ERROR_FILE_NOT_FOUND )
-            error( KIO::ERR_DOES_NOT_EXIST, _src.filePath() );
-        else if ( dwLastErr == ERROR_ACCESS_DENIED )
-            error( KIO::ERR_ACCESS_DENIED, _dest.filePath() );
-        else {
+        if (dwLastErr == ERROR_FILE_NOT_FOUND) {
+            error(KIO::ERR_DOES_NOT_EXIST, _src.filePath());
+        } else if (dwLastErr == ERROR_ACCESS_DENIED) {
+            error(KIO::ERR_ACCESS_DENIED, _dest.filePath());
+        } else {
 #if 0
             LPVOID lpMsgBuf;
 
@@ -168,10 +171,10 @@ void FileProtocol::copy( const QUrl &src, const QUrl &dest,
                 dwLastErr,
                 MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
                 (LPTSTR) &lpMsgBuf,
-                0, NULL );
-            OutputDebugString((WCHAR*)lpMsgBuf);
+                0, NULL);
+            OutputDebugString((WCHAR *)lpMsgBuf);
 #endif
-            error( KIO::ERR_CANNOT_RENAME, _src.filePath() );
+            error(KIO::ERR_CANNOT_RENAME, _src.filePath());
             // qDebug() <<  "Copying file " << _src.filePath() << " failed (" << dwLastErr << ")";
         }
         return;
@@ -180,7 +183,7 @@ void FileProtocol::copy( const QUrl &src, const QUrl &dest,
     finished();
 }
 
-void FileProtocol::listDir( const QUrl& url )
+void FileProtocol::listDir(const QUrl &url)
 {
     // qDebug() << "========= LIST " << url << " =========";
 
@@ -193,25 +196,25 @@ void FileProtocol::listDir( const QUrl& url )
         return;
     }
 
-    QDir dir( url.toLocalFile() );
-    dir.setFilter( QDir::AllEntries|QDir::Hidden );
+    QDir dir(url.toLocalFile());
+    dir.setFilter(QDir::AllEntries | QDir::Hidden);
 
-    if ( !dir.exists() ) {
+    if (!dir.exists()) {
         // qDebug() << "========= ERR_DOES_NOT_EXIST  =========";
-        error( KIO::ERR_DOES_NOT_EXIST, url.toLocalFile() );
+        error(KIO::ERR_DOES_NOT_EXIST, url.toLocalFile());
         return;
     }
 
-    if ( !dir.isReadable() ) {
+    if (!dir.isReadable()) {
         // qDebug() << "========= ERR_CANNOT_ENTER_DIRECTORY =========";
-        error( KIO::ERR_CANNOT_ENTER_DIRECTORY, url.toLocalFile() );
+        error(KIO::ERR_CANNOT_ENTER_DIRECTORY, url.toLocalFile());
         return;
     }
-    QDirIterator it( dir );
+    QDirIterator it(dir);
     UDSEntry entry;
-    while( it.hasNext() ) {
+    while (it.hasNext()) {
         it.next();
-        UDSEntry entry = createUDSEntryWin( it.fileInfo() );
+        UDSEntry entry = createUDSEntryWin(it.fileInfo());
 
         listEntry(entry);
         entry.clear();
@@ -222,8 +225,8 @@ void FileProtocol::listDir( const QUrl& url )
     finished();
 }
 
-void FileProtocol::rename( const QUrl &src, const QUrl &dest,
-                           KIO::JobFlags _flags )
+void FileProtocol::rename(const QUrl &src, const QUrl &dest,
+                          KIO::JobFlags _flags)
 {
     // qDebug() << "rename(): " << src << " -> " << dest;
 
@@ -231,26 +234,25 @@ void FileProtocol::rename( const QUrl &src, const QUrl &dest,
     QFileInfo _dest(dest.toLocalFile());
     DWORD dwFlags = 0;
 
-    if( _src == _dest ) {
-	    error( KIO::ERR_IDENTICAL_FILES, _dest.filePath() );
-	    return;
-    }
-
-    if( !_src.exists() ) {
-        error( KIO::ERR_DOES_NOT_EXIST, _src.filePath() );
+    if (_src == _dest) {
+        error(KIO::ERR_IDENTICAL_FILES, _dest.filePath());
         return;
     }
 
-    if( _dest.exists() ) {
-        if( _dest.isDir() ) {
-           error( KIO::ERR_DIR_ALREADY_EXIST, _dest.filePath() );
-           return;
+    if (!_src.exists()) {
+        error(KIO::ERR_DOES_NOT_EXIST, _src.filePath());
+        return;
+    }
+
+    if (_dest.exists()) {
+        if (_dest.isDir()) {
+            error(KIO::ERR_DIR_ALREADY_EXIST, _dest.filePath());
+            return;
         }
 
-        if (!(_flags & KIO::Overwrite))
-        {
-           error( KIO::ERR_FILE_ALREADY_EXIST, _dest.filePath() );
-           return;
+        if (!(_flags & KIO::Overwrite)) {
+            error(KIO::ERR_FILE_ALREADY_EXIST, _dest.filePath());
+            return;
         }
 
 #ifndef _WIN32_WCE
@@ -261,25 +263,24 @@ void FileProtocol::rename( const QUrl &src, const QUrl &dest,
 #ifndef _WIN32_WCE
     dwFlags |= MOVEFILE_COPY_ALLOWED;
 
-
-    if ( MoveFileExW( ( LPCWSTR ) _src.filePath().utf16(),
-                      ( LPCWSTR ) _dest.filePath().utf16(), dwFlags) == 0 )
+    if (MoveFileExW((LPCWSTR) _src.filePath().utf16(),
+                    (LPCWSTR) _dest.filePath().utf16(), dwFlags) == 0)
 #else
-    if ( MoveFileW( ( LPCWSTR ) _src.filePath().utf16(),
-                      ( LPCWSTR ) _dest.filePath().utf16()) == 0 )
+    if (MoveFileW((LPCWSTR) _src.filePath().utf16(),
+                  (LPCWSTR) _dest.filePath().utf16()) == 0)
 #endif
     {
         DWORD dwLastErr = GetLastError();
-        if ( dwLastErr == ERROR_FILE_NOT_FOUND )
-            error( KIO::ERR_DOES_NOT_EXIST, _src.filePath() );
-        else if ( dwLastErr == ERROR_ACCESS_DENIED )
-            error( KIO::ERR_ACCESS_DENIED, _dest.filePath() );
-        else {
-            error( KIO::ERR_CANNOT_RENAME, _src.filePath() );
+        if (dwLastErr == ERROR_FILE_NOT_FOUND) {
+            error(KIO::ERR_DOES_NOT_EXIST, _src.filePath());
+        } else if (dwLastErr == ERROR_ACCESS_DENIED) {
+            error(KIO::ERR_ACCESS_DENIED, _dest.filePath());
+        } else {
+            error(KIO::ERR_CANNOT_RENAME, _src.filePath());
             // qDebug() <<  "Renaming file "
-                           << _src.filePath()
-                           << " failed ("
-                           << dwLastErr << ")";
+                    << _src.filePath()
+                    << " failed ("
+                    << dwLastErr << ")";
         }
         return;
     }
@@ -287,16 +288,16 @@ void FileProtocol::rename( const QUrl &src, const QUrl &dest,
     finished();
 }
 
-void FileProtocol::symlink( const QString &target, const QUrl &dest, KIO::JobFlags flags )
+void FileProtocol::symlink(const QString &target, const QUrl &dest, KIO::JobFlags flags)
 {
     // no symlink on windows for now
     // vista provides a CreateSymbolicLink() function. for now use ::copy
-    FileProtocol::copy( target, dest, 0, flags );
+    FileProtocol::copy(target, dest, 0, flags);
 }
 
-void FileProtocol::del( const QUrl& url, bool isfile )
+void FileProtocol::del(const QUrl &url, bool isfile)
 {
-    QString _path( url.toLocalFile() );
+    QString _path(url.toLocalFile());
     /*****
      * Delete files
      *****/
@@ -304,29 +305,30 @@ void FileProtocol::del( const QUrl& url, bool isfile )
     if (isfile) {
         // qDebug() << "Deleting file " << _path;
 
-        if( DeleteFileW( ( LPCWSTR ) _path.utf16() ) == 0 ) {
+        if (DeleteFileW((LPCWSTR) _path.utf16()) == 0) {
             DWORD dwLastErr = GetLastError();
-            if ( dwLastErr == ERROR_PATH_NOT_FOUND )
-                error( KIO::ERR_DOES_NOT_EXIST, _path );
-            else if( dwLastErr == ERROR_ACCESS_DENIED )
-                error( KIO::ERR_ACCESS_DENIED, _path );
-            else {
-                error( KIO::ERR_CANNOT_DELETE, _path );
+            if (dwLastErr == ERROR_PATH_NOT_FOUND) {
+                error(KIO::ERR_DOES_NOT_EXIST, _path);
+            } else if (dwLastErr == ERROR_ACCESS_DENIED) {
+                error(KIO::ERR_ACCESS_DENIED, _path);
+            } else {
+                error(KIO::ERR_CANNOT_DELETE, _path);
                 // qDebug() <<  "Deleting file " << _path << " failed (" << dwLastErr << ")";
             }
         }
     } else {
         // qDebug() << "Deleting directory " << _path;
-        if (!deleteRecursive(_path))
+        if (!deleteRecursive(_path)) {
             return;
-        if( RemoveDirectoryW( ( LPCWSTR ) _path.utf16() ) == 0 ) {
+        }
+        if (RemoveDirectoryW((LPCWSTR) _path.utf16()) == 0) {
             DWORD dwLastErr = GetLastError();
-            if ( dwLastErr == ERROR_FILE_NOT_FOUND )
-                error( KIO::ERR_DOES_NOT_EXIST, _path );
-            else if( dwLastErr == ERROR_ACCESS_DENIED )
-                error( KIO::ERR_ACCESS_DENIED, _path );
-            else {
-                error( KIO::ERR_CANNOT_DELETE, _path );
+            if (dwLastErr == ERROR_FILE_NOT_FOUND) {
+                error(KIO::ERR_DOES_NOT_EXIST, _path);
+            } else if (dwLastErr == ERROR_ACCESS_DENIED) {
+                error(KIO::ERR_ACCESS_DENIED, _path);
+            } else {
+                error(KIO::ERR_CANNOT_DELETE, _path);
                 // qDebug() <<  "Deleting directory " << _path << " failed (" << dwLastErr << ")";
             }
         }
@@ -334,12 +336,12 @@ void FileProtocol::del( const QUrl& url, bool isfile )
     finished();
 }
 
-void FileProtocol::chown( const QUrl& url, const QString&, const QString& )
+void FileProtocol::chown(const QUrl &url, const QString &, const QString &)
 {
-    error( KIO::ERR_CANNOT_CHOWN, url.toLocalFile() );
+    error(KIO::ERR_CANNOT_CHOWN, url.toLocalFile());
 }
 
-void FileProtocol::stat( const QUrl & url )
+void FileProtocol::stat(const QUrl &url)
 {
     if (!url.isLocalFile()) {
         QUrl redir(url);
@@ -354,9 +356,9 @@ void FileProtocol::stat( const QUrl & url )
     int details = sDetails.isEmpty() ? 2 : sDetails.toInt();
     // qDebug() << "FileProtocol::stat details=" << details;
 
-    UDSEntry entry = createUDSEntryWin( QFileInfo(url.toLocalFile()) );
+    UDSEntry entry = createUDSEntryWin(QFileInfo(url.toLocalFile()));
 
-    statEntry( entry );
+    statEntry(entry);
 
     finished();
 }

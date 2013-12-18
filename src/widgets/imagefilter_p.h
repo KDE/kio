@@ -39,7 +39,8 @@
 
 class QImage;
 class QColor;
-namespace KIO {
+namespace KIO
+{
 
 class KIOWIDGETS_EXPORT ImageFilter
 {

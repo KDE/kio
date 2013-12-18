@@ -65,8 +65,8 @@ public:
      * @param mtimeDest modification time of destination file
      * @see RenameDialog_Mode
      */
-    RenameDialog(QWidget *parent, const QString & caption,
-                 const QUrl & src, const QUrl & dest,
+    RenameDialog(QWidget *parent, const QString &caption,
+                 const QUrl &src, const QUrl &dest,
                  RenameDialog_Mode mode,
                  KIO::filesize_t sizeSrc = KIO::filesize_t(-1),
                  KIO::filesize_t sizeDest = KIO::filesize_t(-1),
@@ -81,7 +81,6 @@ public:
      * valid only if RENAME was chosen
      */
     QUrl newDestUrl();
-
 
     /**
      * @return an automatically renamed destination
@@ -98,7 +97,7 @@ public:
      * @deprecated use KIO::suggestName
      */
 #ifndef KDE_NO_DEPRECATED
-    static KIOWIDGETS_DEPRECATED QString suggestName(const QUrl& baseURL, const QString& oldName);
+    static KIOWIDGETS_DEPRECATED QString suggestName(const QUrl &baseURL, const QString &oldName);
 #endif
 
 public Q_SLOTS:
@@ -123,11 +122,11 @@ private Q_SLOTS:
     void resizePanels();
 
 private:
-    QScrollArea* createContainerLayout(QWidget* parent, const KFileItem& item, QLabel* preview);
-    QLabel* createLabel(QWidget* parent, const QString& text, const bool containerTitle);
-    KSqueezedTextLabel* createSqueezedLabel(QWidget* parent, const QString& text);
+    QScrollArea *createContainerLayout(QWidget *parent, const KFileItem &item, QLabel *preview);
+    QLabel *createLabel(QWidget *parent, const QString &text, const bool containerTitle);
+    KSqueezedTextLabel *createSqueezedLabel(QWidget *parent, const QString &text);
     class RenameDialogPrivate;
-    RenameDialogPrivate* const d;
+    RenameDialogPrivate *const d;
 };
 
 }

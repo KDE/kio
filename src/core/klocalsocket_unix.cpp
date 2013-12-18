@@ -115,28 +115,40 @@ class KSockaddrUn
     QVarLengthArray<char, 128> data;
 public:
     KSockaddrUn(const QString &path, KLocalSocket::LocalSocketType type);
-    bool ok() const { return datalen; }
-    int length() const { return datalen; }
-    const sockaddr* address()
-        { return reinterpret_cast<sockaddr *>(data.data()); }
+    bool ok() const
+    {
+        return datalen;
+    }
+    int length() const
+    {
+        return datalen;
+    }
+    const sockaddr *address()
+    {
+        return reinterpret_cast<sockaddr *>(data.data());
+    }
 };
 
 KSockaddrUn::KSockaddrUn(const QString &path, KLocalSocket::LocalSocketType type)
     : datalen(0)
 {
-    if (path.isEmpty())
+    if (path.isEmpty()) {
         return;
+    }
 
     QString path2(path);
     if (!path.startsWith(QLatin1Char('/')))
         // relative path; put everything in /tmp
+    {
         path2.prepend(QLatin1String("/tmp/"));
+    }
 
     QByteArray encodedPath = QFile::encodeName(path2);
 
     datalen = MIN_SOCKADDR_UN_LEN + encodedPath.length();
-    if (type == KLocalSocket::AbstractUnixSocket)
+    if (type == KLocalSocket::AbstractUnixSocket) {
         ++datalen;
+    }
     data.resize(datalen);
 
     sockaddr_un *saddr = reinterpret_cast<sockaddr_un *>(data.data());
@@ -158,12 +170,14 @@ KSockaddrUn::KSockaddrUn(const QString &path, KLocalSocket::LocalSocketType type
 static bool setNonBlocking(int fd)
 {
     int fdflags = fcntl(fd, F_GETFL, 0);
-    if (fdflags == -1)
-        return false;		// error
+    if (fdflags == -1) {
+        return false;    // error
+    }
 
     fdflags |= O_NONBLOCK;
-    if (fcntl(fd, F_SETFL, fdflags) == -1)
-        return false;		// error
+    if (fcntl(fd, F_SETFL, fdflags) == -1) {
+        return false;    // error
+    }
 
     return true;
 }
@@ -259,7 +273,7 @@ bool KLocalSocketServerPrivate::listen(const QString &path, KLocalSocket::LocalS
         // try to bind to the address
         localPath = path;
         if (kBind(descriptor, addr.address(), addr.length()) == -1 ||
-            kListen(descriptor, 5) == -1) {
+                kListen(descriptor, 5) == -1) {
             int error = errno;
             close();
 
@@ -317,15 +331,17 @@ bool KLocalSocketServerPrivate::listen(const QString &path, KLocalSocket::LocalS
 
 void KLocalSocketServerPrivate::close()
 {
-    if (descriptor != -1)
+    if (descriptor != -1) {
         ::close(descriptor);
+    }
     descriptor = -1;
 
     delete readNotifier;
     readNotifier = 0;
 
-    if (type == KLocalSocket::UnixSocket)
+    if (type == KLocalSocket::UnixSocket) {
         QFile::remove(localPath);
+    }
     localPath.clear();
     type = KLocalSocket::UnknownLocalSocketType;
 
@@ -356,15 +372,17 @@ bool KLocalSocketServerPrivate::waitForNewConnection(int msec, bool *timedOut)
             return false;
         } else if (code == 0) {
             // timed out
-            if (timedOut)
+            if (timedOut) {
                 *timedOut = true;
+            }
             return false;
         }
 
         // we must've got a connection. At least, there's activity.
         if (processSocketActivity()) {
-            if (timedOut)
+            if (timedOut) {
                 *timedOut = false;
+            }
             return true;
         }
     }
@@ -398,8 +416,9 @@ bool KLocalSocketServerPrivate::processSocketActivity()
 
 void KLocalSocketServerPrivate::_k_newConnectionActivity()
 {
-    if (descriptor == -1)
+    if (descriptor == -1) {
         return;
+    }
 
     processSocketActivity();
 }

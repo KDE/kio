@@ -29,14 +29,15 @@
 
 namespace KIO
 {
-    class Job;
-    class SimpleJob;
-    class MetaData;
+class Job;
+class SimpleJob;
+class MetaData;
 }
 class KJob;
 class QUrl;
 
-namespace KDEPrivate {
+namespace KDEPrivate
+{
 
 /**
  * Used for KIO::AccessManager; KDE implementation of QNetworkReply.
@@ -57,15 +58,15 @@ public:
 
     explicit AccessManagerReply(const QNetworkAccessManager::Operation op,
                                 const QNetworkRequest &request,
-                                const QByteArray& data,
-                                const QUrl& url,
-                                const KIO::MetaData& metaData,
+                                const QByteArray &data,
+                                const QUrl &url,
+                                const KIO::MetaData &metaData,
                                 QObject *parent = 0);
 
     explicit AccessManagerReply(const QNetworkAccessManager::Operation op,
                                 const QNetworkRequest &request,
                                 QNetworkReply::NetworkError errorCode,
-                                const QString& errorMessage,
+                                const QString &errorMessage,
                                 QObject *parent = 0);
 
     virtual ~AccessManagerReply();
@@ -75,12 +76,12 @@ public:
     void setIgnoreContentDisposition(bool on);
     void putOnHold();
 
-    static bool isLocalRequest(const QUrl& url);
+    static bool isLocalRequest(const QUrl &url);
 
 protected:
     virtual qint64 readData(char *data, qint64 maxSize);
-    bool ignoreContentDisposition(const KIO::MetaData&);
-    void setHeaderFromMetaData(const KIO::MetaData&);
+    bool ignoreContentDisposition(const KIO::MetaData &);
+    void setHeaderFromMetaData(const KIO::MetaData &);
     void readHttpResponseHeaders(KIO::Job *);
     int jobError(KJob *kJob);
     void emitFinished(bool state, Qt::ConnectionType type = Qt::AutoConnection);

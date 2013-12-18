@@ -54,9 +54,7 @@ enum RenameDialog_Mode { M_OVERWRITE = 1, M_OVERWRITE_ITSELF = 2, M_SKIP = 4, M_
  */
 enum RenameDialog_Result {R_RESUME = 6, R_RESUME_ALL = 7, R_OVERWRITE = 4, R_OVERWRITE_ALL = 5, R_SKIP = 2, R_AUTO_SKIP = 3, R_RENAME = 1, R_AUTO_RENAME = 8, R_RETRY = 9, R_CANCEL = 0};
 
-
 enum SkipDialog_Result { S_SKIP = 1, S_AUTO_SKIP = 2, S_RETRY = 3, S_CANCEL = 0 };
-
 
 /**
  * An abstract class defining interaction with users from KIO jobs:
@@ -101,26 +99,26 @@ public:
      * @param mtimeDest modification time of destination file
      * @return the result
      */
-    virtual RenameDialog_Result askFileRename(KJob * job,
-                                              const QString & caption,
-                                              const QUrl & src,
-                                              const QUrl & dest,
-                                              KIO::RenameDialog_Mode mode,
-                                              QString& newDest,
-                                              KIO::filesize_t sizeSrc = KIO::filesize_t(-1),
-                                              KIO::filesize_t sizeDest = KIO::filesize_t(-1),
-                                              const QDateTime &ctimeSrc = QDateTime(),
-                                              const QDateTime &ctimeDest = QDateTime(),
-                                              const QDateTime &mtimeSrc = QDateTime(),
-                                              const QDateTime &mtimeDest = QDateTime()) = 0;
+    virtual RenameDialog_Result askFileRename(KJob *job,
+            const QString &caption,
+            const QUrl &src,
+            const QUrl &dest,
+            KIO::RenameDialog_Mode mode,
+            QString &newDest,
+            KIO::filesize_t sizeSrc = KIO::filesize_t(-1),
+            KIO::filesize_t sizeDest = KIO::filesize_t(-1),
+            const QDateTime &ctimeSrc = QDateTime(),
+            const QDateTime &ctimeDest = QDateTime(),
+            const QDateTime &mtimeSrc = QDateTime(),
+            const QDateTime &mtimeDest = QDateTime()) = 0;
 
     /**
      * @internal
      * See skipdialog.h
      */
-    virtual SkipDialog_Result askSkip(KJob * job,
+    virtual SkipDialog_Result askSkip(KJob *job,
                                       bool multi,
-                                      const QString & error_text) = 0;
+                                      const QString &error_text) = 0;
 
     /**
      * The type of deletion: real deletion, moving the files to the trash
@@ -147,7 +145,7 @@ public:
      * Note: the window passed to setWindow is used as the parent for the message box.
      * @return true if confirmed
      */
-    virtual bool askDeleteConfirmation(const QList<QUrl>& urls, DeletionType deletionType,
+    virtual bool askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType,
                                        ConfirmationType confirmationType) = 0;
 
     /**
@@ -197,7 +195,7 @@ public:
     /**
      * Creates a clipboard updater as a child of the given job.
      */
-    virtual ClipboardUpdater* createClipboardUpdater(Job* job, ClipboardUpdaterMode mode);
+    virtual ClipboardUpdater *createClipboardUpdater(Job *job, ClipboardUpdaterMode mode);
     /**
      * Update URL in clipboard, if present
      */
@@ -205,7 +203,7 @@ public:
 
 private:
     class Private;
-    Private * const d;
+    Private *const d;
 };
 
 /**
@@ -220,7 +218,7 @@ KIOCORE_EXPORT JobUiDelegateExtension *defaultJobUiDelegateExtension();
  * automatically.
  * @since 5.0
  */
-KIOCORE_EXPORT void setDefaultJobUiDelegateExtension(JobUiDelegateExtension* extension);
+KIOCORE_EXPORT void setDefaultJobUiDelegateExtension(JobUiDelegateExtension *extension);
 
 } // namespace KIO
 

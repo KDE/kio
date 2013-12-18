@@ -29,31 +29,31 @@
 
 class KStatusBarOfflineIndicatorPrivate
 {
-    public:
-        KStatusBarOfflineIndicatorPrivate( KStatusBarOfflineIndicator *parent )
-            : q(parent)
-        {
-        }
+public:
+    KStatusBarOfflineIndicatorPrivate(KStatusBarOfflineIndicator *parent)
+        : q(parent)
+    {
+    }
 
-        void initialize();
-        void _k_networkStatusChanged( Solid::Networking::Status status );
+    void initialize();
+    void _k_networkStatusChanged(Solid::Networking::Status status);
 
-        KStatusBarOfflineIndicator *q;
+    KStatusBarOfflineIndicator *q;
 };
 
-KStatusBarOfflineIndicator::KStatusBarOfflineIndicator( QWidget * parent)
-    : QWidget( parent),
-      d( new KStatusBarOfflineIndicatorPrivate( this ) )
+KStatusBarOfflineIndicator::KStatusBarOfflineIndicator(QWidget *parent)
+    : QWidget(parent),
+      d(new KStatusBarOfflineIndicatorPrivate(this))
 {
-    QVBoxLayout * layout = new QVBoxLayout( this );
-    layout->setMargin( 2 );
-    QLabel * label = new QLabel( this );
-    label->setPixmap( SmallIcon("network-disconnect") );
-    label->setToolTip( i18n( "The desktop is offline" ) );
-    layout->addWidget( label );
+    QVBoxLayout *layout = new QVBoxLayout(this);
+    layout->setMargin(2);
+    QLabel *label = new QLabel(this);
+    label->setPixmap(SmallIcon("network-disconnect"));
+    label->setToolTip(i18n("The desktop is offline"));
+    layout->addWidget(label);
     d->initialize();
-    connect( Solid::Networking::notifier(), SIGNAL(statusChanged(Solid::Networking::Status)),
-             SLOT(_k_networkStatusChanged(Solid::Networking::Status)) );
+    connect(Solid::Networking::notifier(), SIGNAL(statusChanged(Solid::Networking::Status)),
+            SLOT(_k_networkStatusChanged(Solid::Networking::Status)));
 }
 
 KStatusBarOfflineIndicator::~KStatusBarOfflineIndicator()
@@ -63,12 +63,12 @@ KStatusBarOfflineIndicator::~KStatusBarOfflineIndicator()
 
 void KStatusBarOfflineIndicatorPrivate::initialize()
 {
-    _k_networkStatusChanged( Solid::Networking::status());
+    _k_networkStatusChanged(Solid::Networking::status());
 }
 
-void KStatusBarOfflineIndicatorPrivate::_k_networkStatusChanged( Solid::Networking::Status status )
+void KStatusBarOfflineIndicatorPrivate::_k_networkStatusChanged(Solid::Networking::Status status)
 {
-    if ( status == Solid::Networking::Connected || status == Solid::Networking::Unknown ) {
+    if (status == Solid::Networking::Connected || status == Solid::Networking::Unknown) {
         q->hide();
     } else {
         q->show();

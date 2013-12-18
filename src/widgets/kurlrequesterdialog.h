@@ -17,7 +17,6 @@
     Boston, MA 02110-1301, USA.
 */
 
-
 #ifndef KURLREQUESTERDIALOG_H
 #define KURLREQUESTERDIALOG_H
 
@@ -60,7 +59,7 @@ public:
      * @param text   Text of the label
      * @param parent The parent object of this widget.
      */
-    KUrlRequesterDialog(const QUrl& url, const QString& text,
+    KUrlRequesterDialog(const QUrl &url, const QString &text,
                         QWidget *parent);
     /**
      * Destructs the dialog.
@@ -79,8 +78,8 @@ public:
      * @param parent The widget the dialog will be centered on initially.
      * @param caption The caption to use for the dialog.
      */
-    static QUrl getUrl(const QUrl& url = QUrl(),
-                       QWidget *parent= 0, const QString& caption = QString());
+    static QUrl getUrl(const QUrl &url = QUrl(),
+                       QWidget *parent = 0, const QString &caption = QString());
 
     /**
      * Returns a pointer to the file dialog used by the KUrlRequester.
@@ -107,4 +106,3 @@ private:
 
 #endif // KURLREQUESTERDIALOG_H
 
-// vim:ts=4:sw=4:tw=78

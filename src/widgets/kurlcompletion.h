@@ -79,14 +79,14 @@ public:
      * @param text the text to complete
      * @return the first match, or QString() if not found
      */
-    virtual QString makeCompletion(const QString& text);
+    virtual QString makeCompletion(const QString &text);
 
     /**
      * Sets the current directory (used as base for completion).
      * Default = $HOME.
      * @param dir the current directory, as a URL (use QUrl::fromLocalFile for local paths)
      */
-    virtual void setDir(const QUrl& dir);
+    virtual void setDir(const QUrl &dir);
 
     /**
      * Returns the current directory, as it was given in setDir
@@ -157,27 +157,27 @@ public:
      * @return the path or URL resulting from this operation. If you
      * want to convert it to a QUrl, use QUrl::fromUserInput.
      */
-    QString replacedPath(const QString& text) const;
+    QString replacedPath(const QString &text) const;
 
     /**
      * @internal I'll let ossi add a real one to KShell :)
      */
-    static QString replacedPath(const QString& text,
+    static QString replacedPath(const QString &text,
                                 bool replaceHome, bool replaceEnv = true);
 
 protected:
     // Called by KCompletion, adds '/' to directories
-    void postProcessMatch(QString* match) const;
-    void postProcessMatches(QStringList* matches) const;
-    void postProcessMatches(KCompletionMatches* matches) const;
+    void postProcessMatch(QString *match) const;
+    void postProcessMatches(QStringList *matches) const;
+    void postProcessMatches(KCompletionMatches *matches) const;
 
-    virtual void customEvent(QEvent* e);
+    virtual void customEvent(QEvent *e);
 
 private:
-    KUrlCompletionPrivate* const d;
+    KUrlCompletionPrivate *const d;
 
-    Q_PRIVATE_SLOT(d, void _k_slotEntries (KIO::Job*, const KIO::UDSEntryList&))
-    Q_PRIVATE_SLOT(d, void _k_slotIOFinished (KJob*))
+    Q_PRIVATE_SLOT(d, void _k_slotEntries(KIO::Job *, const KIO::UDSEntryList &))
+    Q_PRIVATE_SLOT(d, void _k_slotIOFinished(KJob *))
 };
 
 #endif // KURLCOMPLETION_H

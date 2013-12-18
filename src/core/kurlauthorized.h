@@ -32,33 +32,33 @@ class QString;
 */
 namespace KUrlAuthorized
 {
-  /**
-   * Returns whether a certain URL related action is authorized.
-   *
-   * @param action The name of the action. Known actions are
-   *  - list (may be listed (e.g. in file selection dialog)),
-   *  - link (may be linked to),
-   *  - open (may open) and
-   *  - redirect (may be redirected to)
-   * @param baseUrl The url where the action originates from
-   * @param destUrl The object of the action
-   * @return true when the action is authorized, false otherwise.
-   *
-   * @since 5.0
-   */
-  KIOCORE_EXPORT bool authorizeUrlAction(const QString& action, const QUrl& baseUrl, const QUrl& destUrl);
+/**
+ * Returns whether a certain URL related action is authorized.
+ *
+ * @param action The name of the action. Known actions are
+ *  - list (may be listed (e.g. in file selection dialog)),
+ *  - link (may be linked to),
+ *  - open (may open) and
+ *  - redirect (may be redirected to)
+ * @param baseUrl The url where the action originates from
+ * @param destUrl The object of the action
+ * @return true when the action is authorized, false otherwise.
+ *
+ * @since 5.0
+ */
+KIOCORE_EXPORT bool authorizeUrlAction(const QString &action, const QUrl &baseUrl, const QUrl &destUrl);
 
-  /**
-   * Allow a certain URL action. This can be useful if your application
-   * needs to ensure access to an application specific directory that may
-   * otherwise be subject to KIOSK restrictions.
-   * @param action The name of the action.
-   * @param baseUrl The url where the action originates from
-   * @param _destUrl The object of the action
-   *
-   * @since 5.0
-   */
-  KIOCORE_EXPORT void allowUrlAction(const QString& action, const QUrl& baseUrl, const QUrl&  _destUrl);
+/**
+ * Allow a certain URL action. This can be useful if your application
+ * needs to ensure access to an application specific directory that may
+ * otherwise be subject to KIOSK restrictions.
+ * @param action The name of the action.
+ * @param baseUrl The url where the action originates from
+ * @param _destUrl The object of the action
+ *
+ * @since 5.0
+ */
+KIOCORE_EXPORT void allowUrlAction(const QString &action, const QUrl &baseUrl, const QUrl  &_destUrl);
 }
 
 #endif

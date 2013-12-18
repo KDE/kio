@@ -41,7 +41,7 @@ class KUrlNavigatorButtonBase : public QPushButton
     Q_OBJECT
 
 public:
-    explicit KUrlNavigatorButtonBase(QWidget* parent);
+    explicit KUrlNavigatorButtonBase(QWidget *parent);
     virtual ~KUrlNavigatorButtonBase();
 
     /**
@@ -69,10 +69,10 @@ protected:
     virtual void focusInEvent(QFocusEvent *event);
     virtual void focusOutEvent(QFocusEvent *event);
 
-    virtual void enterEvent(QEvent* event);
-    virtual void leaveEvent(QEvent* event);
+    virtual void enterEvent(QEvent *event);
+    virtual void leaveEvent(QEvent *event);
 
-    void drawHoverBackground(QPainter* painter);
+    void drawHoverBackground(QPainter *painter);
 
     /** Returns the foreground color by respecting the current display hint. */
     QColor foregroundColor() const;

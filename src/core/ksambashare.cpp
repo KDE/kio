@@ -37,18 +37,17 @@
 
 // Default smb.conf locations
 // sorted by priority, most priority first
-static const char * const DefaultSambaConfigFilePathList[] =
-{
-  "/etc/samba/smb.conf",
-  "/etc/smb.conf",
-  "/usr/local/etc/smb.conf",
-  "/usr/local/samba/lib/smb.conf",
-  "/usr/samba/lib/smb.conf",
-  "/usr/lib/smb.conf",
-  "/usr/local/lib/smb.conf"
+static const char *const DefaultSambaConfigFilePathList[] = {
+    "/etc/samba/smb.conf",
+    "/etc/smb.conf",
+    "/usr/local/etc/smb.conf",
+    "/usr/local/samba/lib/smb.conf",
+    "/usr/samba/lib/smb.conf",
+    "/usr/lib/smb.conf",
+    "/usr/local/lib/smb.conf"
 };
 static const int DefaultSambaConfigFilePathListSize = sizeof(DefaultSambaConfigFilePathList)
-        / sizeof(char*);
+        / sizeof(char *);
 
 KSambaSharePrivate::KSambaSharePrivate(KSambaShare *parent)
     : q_ptr(parent)
@@ -69,7 +68,7 @@ KSambaSharePrivate::~KSambaSharePrivate()
 bool KSambaSharePrivate::isSambaInstalled()
 {
     if (QFile::exists("/usr/sbin/smbd")
-        || QFile::exists("/usr/local/sbin/smbd")) {
+            || QFile::exists("/usr/local/sbin/smbd")) {
         return true;
     }
 

@@ -64,7 +64,7 @@ private Q_SLOTS:
         dirOp->setView(KFile::Default);
         QVERIFY(dirOp->showHiddenFiles());
         // KDirOperatorDetail inherits QTreeView, so this test should work
-        QVERIFY(qobject_cast<QTreeView*>(dirOp->view()));
+        QVERIFY(qobject_cast<QTreeView *>(dirOp->view()));
         delete dirOp;
     }
 

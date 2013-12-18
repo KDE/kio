@@ -43,7 +43,6 @@
 #include <QtCore/QTextCodec>
 #include <QtCore/QCryptographicHash>
 
-
 static bool isWhiteSpace(char ch)
 {
     return (ch == ' ' || ch == '\t' || ch == '\v' || ch == '\f');
@@ -74,7 +73,7 @@ static bool containsScheme(const char input[], int start, int end)
 // keys on even indexes, values on odd indexes. Reduces code expansion for the templated
 // alternatives.
 // If "ba" starts with empty content it will be removed from ba to simplify later calls
-static QList<QByteArray> parseChallenge(QByteArray &ba, QByteArray *scheme, QByteArray* nextAuth = 0)
+static QList<QByteArray> parseChallenge(QByteArray &ba, QByteArray *scheme, QByteArray *nextAuth = 0)
 {
     QList<QByteArray> values;
     const char *b = ba.constData();
@@ -116,14 +115,14 @@ static QList<QByteArray> parseChallenge(QByteArray &ba, QByteArray *scheme, QByt
         }
         if (containsScheme(b, start, end) || (b[pos2] == ',' && b[pos] != '=' && pos == len)) {
             if (nextAuth) {
-                *nextAuth = QByteArray (b + start);
+                *nextAuth = QByteArray(b + start);
             }
             break;  // break on start of next scheme.
         }
         while (start < len && isWhiteSpaceOrComma(b[start])) {
             start++;
         }
-        values.append(QByteArray (b + start, end - start));
+        values.append(QByteArray(b + start, end - start));
         end = pos; // restore the end position
         if (end == len) {
             break;
@@ -161,12 +160,12 @@ static QList<QByteArray> parseChallenge(QByteArray &ba, QByteArray *scheme, QByt
                 // qDebug() << "error in quoted text for key" << values.last();
                 values.removeLast();
                 break;
-             }
+            }
             QByteArray value = QByteArray(b + start, end - start);
             if (hasBs) {
                 // skip over the next character, it might be an escaped backslash
                 int i = -1;
-                while ( (i = value.indexOf('\\', i + 1)) >= 0 ) {
+                while ((i = value.indexOf('\\', i + 1)) >= 0) {
                     value.remove(i, 1);
                 }
             }
@@ -201,7 +200,6 @@ static QList<QByteArray> parseChallenge(QByteArray &ba, QByteArray *scheme, QByt
     return values;
 }
 
-
 static QByteArray valueForKey(const QList<QByteArray> &ba, const QByteArray &key)
 {
     for (int i = 0, count = ba.count(); (i + 1) < count; i += 2) {
@@ -213,7 +211,7 @@ static QByteArray valueForKey(const QList<QByteArray> &ba, const QByteArray &key
 }
 
 KAbstractHttpAuthentication::KAbstractHttpAuthentication(KConfigGroup *config)
-                            :m_config(config), m_finalAuthStage(false)
+    : m_config(config), m_finalAuthStage(false)
 {
     reset();
 }
@@ -236,13 +234,13 @@ QByteArray KAbstractHttpAuthentication::bestOffer(const QList<QByteArray> &offer
             negotiateOffer = offer;
         } else
 #endif
-        if (scheme == "digest") { // krazy:exclude=strings
-            digestOffer = offer;
-        } else if (scheme == "ntlm") { // krazy:exclude=strings
-            ntlmOffer = offer;
-        } else if (scheme == "basic") { // krazy:exclude=strings
-            basicOffer = offer;
-        }
+            if (scheme == "digest") { // krazy:exclude=strings
+                digestOffer = offer;
+            } else if (scheme == "ntlm") { // krazy:exclude=strings
+                ntlmOffer = offer;
+            } else if (scheme == "basic") { // krazy:exclude=strings
+                basicOffer = offer;
+            }
     }
 
     if (!negotiateOffer.isEmpty()) {
@@ -260,8 +258,7 @@ QByteArray KAbstractHttpAuthentication::bestOffer(const QList<QByteArray> &offer
     return basicOffer;  //empty or not...
 }
 
-
-KAbstractHttpAuthentication *KAbstractHttpAuthentication::newAuth(const QByteArray &offer, KConfigGroup* config)
+KAbstractHttpAuthentication *KAbstractHttpAuthentication::newAuth(const QByteArray &offer, KConfigGroup *config)
 {
     const QByteArray scheme = offer.mid(0, offer.indexOf(' ')).toLower();
 #if HAVE_LIBGSSAPI
@@ -269,21 +266,21 @@ KAbstractHttpAuthentication *KAbstractHttpAuthentication::newAuth(const QByteArr
         return new KHttpNegotiateAuthentication(config);
     } else
 #endif
-    if (scheme == "digest") { // krazy:exclude=strings
-        return new KHttpDigestAuthentication();
-    } else if (scheme == "ntlm") { // krazy:exclude=strings
-        return new KHttpNtlmAuthentication(config);
-    } else if (scheme == "basic") { // krazy:exclude=strings
-        return new KHttpBasicAuthentication();
-    }
+        if (scheme == "digest") { // krazy:exclude=strings
+            return new KHttpDigestAuthentication();
+        } else if (scheme == "ntlm") { // krazy:exclude=strings
+            return new KHttpNtlmAuthentication(config);
+        } else if (scheme == "basic") { // krazy:exclude=strings
+            return new KHttpBasicAuthentication();
+        }
     return 0;
 }
 
-QList< QByteArray > KAbstractHttpAuthentication::splitOffers(const QList< QByteArray >& offers)
+QList< QByteArray > KAbstractHttpAuthentication::splitOffers(const QList< QByteArray > &offers)
 {
     // first detect if one entry may contain multiple offers
     QList<QByteArray> alloffers;
-    foreach(QByteArray offer, offers) {
+    foreach (QByteArray offer, offers) {
         QByteArray scheme, cont;
 
         parseChallenge(offer, &scheme, &cont);
@@ -318,7 +315,7 @@ void KAbstractHttpAuthentication::reset()
 }
 
 void KAbstractHttpAuthentication::setChallenge(const QByteArray &c, const QUrl &resource,
-                                               const QByteArray &httpMethod)
+        const QByteArray &httpMethod)
 {
     reset();
     m_challengeText = c.trimmed();
@@ -327,7 +324,6 @@ void KAbstractHttpAuthentication::setChallenge(const QByteArray &c, const QUrl &
     m_resource = resource;
     m_httpMethod = httpMethod.trimmed();
 }
-
 
 QString KAbstractHttpAuthentication::realm() const
 {
@@ -351,7 +347,6 @@ void KAbstractHttpAuthentication::authInfoBoilerplate(KIO::AuthInfo *a) const
     a->keepPassword = m_keepPassword;
 }
 
-
 void KAbstractHttpAuthentication::generateResponseCommon(const QString &user, const QString &password)
 {
     if (m_scheme.isEmpty() || m_httpMethod.isEmpty()) {
@@ -370,12 +365,10 @@ void KAbstractHttpAuthentication::generateResponseCommon(const QString &user, co
     m_finalAuthStage = true;
 }
 
-
 QByteArray KHttpBasicAuthentication::scheme() const
 {
     return "Basic";
 }
-
 
 void KHttpBasicAuthentication::fillKioAuthInfo(KIO::AuthInfo *ai) const
 {
@@ -394,15 +387,13 @@ void KHttpBasicAuthentication::generateResponse(const QString &user, const QStri
     m_headerFragment += "\r\n";
 }
 
-
 QByteArray KHttpDigestAuthentication::scheme() const
 {
     return "Digest";
 }
 
-
 void KHttpDigestAuthentication::setChallenge(const QByteArray &c, const QUrl &resource,
-                                             const QByteArray &httpMethod)
+        const QByteArray &httpMethod)
 {
     QString oldUsername;
     QString oldPassword;
@@ -421,15 +412,12 @@ void KHttpDigestAuthentication::setChallenge(const QByteArray &c, const QUrl &re
     }
 }
 
-
 void KHttpDigestAuthentication::fillKioAuthInfo(KIO::AuthInfo *ai) const
 {
     authInfoBoilerplate(ai);
 }
 
-
-struct DigestAuthInfo
-{
+struct DigestAuthInfo {
     QByteArray nc;
     QByteArray qop;
     QByteArray realm;
@@ -443,78 +431,74 @@ struct DigestAuthInfo
     QByteArray entityBody;
 };
 
-
 //calculateResponse() from the original HTTPProtocol
 static QByteArray calculateResponse(const DigestAuthInfo &info, const QUrl &resource)
 {
-  QCryptographicHash md(QCryptographicHash::Md5);
-  QByteArray HA1;
-  QByteArray HA2;
+    QCryptographicHash md(QCryptographicHash::Md5);
+    QByteArray HA1;
+    QByteArray HA2;
 
-  // Calculate H(A1)
-  QByteArray authStr = info.username;
-  authStr += ':';
-  authStr += info.realm;
-  authStr += ':';
-  authStr += info.password;
-  md.addData( authStr );
+    // Calculate H(A1)
+    QByteArray authStr = info.username;
+    authStr += ':';
+    authStr += info.realm;
+    authStr += ':';
+    authStr += info.password;
+    md.addData(authStr);
 
-  if ( info.algorithm.toLower() == "md5-sess" )
-  {
-    authStr = md.result().toHex();
+    if (info.algorithm.toLower() == "md5-sess") {
+        authStr = md.result().toHex();
+        authStr += ':';
+        authStr += info.nonce;
+        authStr += ':';
+        authStr += info.cnonce;
+        md.reset();
+        md.addData(authStr);
+    }
+    HA1 = md.result().toHex();
+
+    // qDebug() << "A1 => " << HA1;
+
+    // Calcualte H(A2)
+    authStr = info.method;
+    authStr += ':';
+    authStr += resource.path(QUrl::FullyEncoded).toLatin1();
+    if (resource.hasQuery()) {
+        authStr += '?' + resource.query(QUrl::FullyEncoded).toLatin1();
+    }
+    if (info.qop == "auth-int") {
+        authStr += ':';
+        md.reset();
+        md.addData(info.entityBody);
+        authStr += md.result().toHex();
+    }
+    md.reset();
+    md.addData(authStr);
+    HA2 = md.result().toHex();
+
+    // qDebug() << "A2 => " << HA2;
+
+    // Calcualte the response.
+    authStr = HA1;
     authStr += ':';
     authStr += info.nonce;
     authStr += ':';
-    authStr += info.cnonce;
+    if (!info.qop.isEmpty()) {
+        authStr += info.nc;
+        authStr += ':';
+        authStr += info.cnonce;
+        authStr += ':';
+        authStr += info.qop;
+        authStr += ':';
+    }
+    authStr += HA2;
     md.reset();
-    md.addData( authStr );
-  }
-  HA1 = md.result().toHex();
+    md.addData(authStr);
 
-  // qDebug() << "A1 => " << HA1;
-
-  // Calcualte H(A2)
-  authStr = info.method;
-  authStr += ':';
-  authStr += resource.path(QUrl::FullyEncoded).toLatin1();
-  if (resource.hasQuery())
-      authStr += '?' + resource.query(QUrl::FullyEncoded).toLatin1();
-  if ( info.qop == "auth-int" )
-  {
-    authStr += ':';
-    md.reset();
-    md.addData(info.entityBody);
-    authStr += md.result().toHex();
-  }
-  md.reset();
-  md.addData( authStr );
-  HA2 = md.result().toHex();
-
-  // qDebug() << "A2 => " << HA2;
-
-  // Calcualte the response.
-  authStr = HA1;
-  authStr += ':';
-  authStr += info.nonce;
-  authStr += ':';
-  if ( !info.qop.isEmpty() )
-  {
-    authStr += info.nc;
-    authStr += ':';
-    authStr += info.cnonce;
-    authStr += ':';
-    authStr += info.qop;
-    authStr += ':';
-  }
-  authStr += HA2;
-  md.reset();
-  md.addData( authStr );
-
-  const QByteArray response = md.result().toHex();
-  // qDebug() << "Response =>" << response;
-  return response;
+    const QByteArray response = md.result().toHex();
+    // qDebug() << "Response =>" << response;
+    return response;
 }
-
 
 void KHttpDigestAuthentication::generateResponse(const QString &user, const QString &password)
 {
@@ -577,9 +561,9 @@ void KHttpDigestAuthentication::generateResponse(const QString &user, const QStr
     // print a warning message and disregard the qop option altogether.
     if (info.qop.contains(',')) {
         const QList<QByteArray> values = info.qop.split(',');
-        if (info.qop.contains("auth"))
+        if (info.qop.contains("auth")) {
             info.qop = "auth";
-        else {
+        } else {
             qWarning() << "Unsupported digest authentication qop parameters:" << values;
             info.qop.clear();
         }
@@ -597,35 +581,37 @@ void KHttpDigestAuthentication::generateResponse(const QString &user, const QStr
     // If the "domain" attribute was not specified and the current response code
     // is authentication needed, add the current request url to the list over which
     // this credential can be automatically applied.
-    if (info.digestURIs.isEmpty() /*###&& (m_request.responseCode == 401 || m_request.responseCode == 407)*/)
-        info.digestURIs.append (m_resource);
-    else
-    {
+    if (info.digestURIs.isEmpty() /*###&& (m_request.responseCode == 401 || m_request.responseCode == 407)*/) {
+        info.digestURIs.append(m_resource);
+    } else {
         // Verify whether or not we should send a cached credential to the
         // server based on the stored "domain" attribute...
         bool send = true;
 
         // Determine the path of the request url...
         QString requestPath = m_resource.adjusted(QUrl::RemoveFilename).path();
-        if (requestPath.isEmpty())
-          requestPath = QLatin1Char('/');
+        if (requestPath.isEmpty()) {
+            requestPath = QLatin1Char('/');
+        }
 
-        Q_FOREACH (const QUrl &u, info.digestURIs)
-        {
-          send &= (m_resource.scheme().toLower() == u.scheme().toLower());
-          send &= (m_resource.host().toLower() == u.host().toLower());
+        Q_FOREACH (const QUrl &u, info.digestURIs) {
+            send &= (m_resource.scheme().toLower() == u.scheme().toLower());
+            send &= (m_resource.host().toLower() == u.host().toLower());
 
-          if (m_resource.port() > 0 && u.port() > 0)
-            send &= (m_resource.port() == u.port());
+            if (m_resource.port() > 0 && u.port() > 0) {
+                send &= (m_resource.port() == u.port());
+            }
 
-          QString digestPath = u.adjusted(QUrl::RemoveFilename).path();
-          if (digestPath.isEmpty())
-            digestPath = QLatin1Char('/');
+            QString digestPath = u.adjusted(QUrl::RemoveFilename).path();
+            if (digestPath.isEmpty()) {
+                digestPath = QLatin1Char('/');
+            }
 
-          send &= (requestPath.startsWith(digestPath));
+            send &= (requestPath.startsWith(digestPath));
 
-          if (send)
-            break;
+            if (send) {
+                break;
+            }
         }
 
         if (!send) {
@@ -656,30 +642,29 @@ void KHttpDigestAuthentication::generateResponse(const QString &user, const QStr
 
     auth += "\", uri=\"";
     auth += m_resource.path(QUrl::FullyEncoded).toLatin1();
-    if (m_resource.hasQuery())
-      auth += '?' + m_resource.query(QUrl::FullyEncoded).toLatin1();
-
-    if (!info.algorithm.isEmpty()) {
-      auth += "\", algorithm=";
-      auth += info.algorithm;
+    if (m_resource.hasQuery()) {
+        auth += '?' + m_resource.query(QUrl::FullyEncoded).toLatin1();
     }
 
-    if ( !info.qop.isEmpty() )
-    {
-      auth += ", qop=";
-      auth += info.qop;
-      auth += ", cnonce=\"";
-      auth += info.cnonce;
-      auth += "\", nc=";
-      auth += info.nc;
+    if (!info.algorithm.isEmpty()) {
+        auth += "\", algorithm=";
+        auth += info.algorithm;
+    }
+
+    if (!info.qop.isEmpty()) {
+        auth += ", qop=";
+        auth += info.qop;
+        auth += ", cnonce=\"";
+        auth += info.cnonce;
+        auth += "\", nc=";
+        auth += info.nc;
     }
 
     auth += ", response=\"";
     auth += response;
-    if ( !opaque.isEmpty() )
-    {
-      auth += "\", opaque=\"";
-      auth += opaque;
+    if (!opaque.isEmpty()) {
+        auth += "\", opaque=\"";
+        auth += opaque;
     }
     auth += "\"\r\n";
 
@@ -689,21 +674,19 @@ void KHttpDigestAuthentication::generateResponse(const QString &user, const QStr
 }
 
 #ifdef ENABLE_HTTP_AUTH_NONCE_SETTER
-void KHttpDigestAuthentication::setDigestNonceValue(const QByteArray& nonce)
+void KHttpDigestAuthentication::setDigestNonceValue(const QByteArray &nonce)
 {
     m_nonce = nonce;
 }
 #endif
-
 
 QByteArray KHttpNtlmAuthentication::scheme() const
 {
     return "NTLM";
 }
 
-
 void KHttpNtlmAuthentication::setChallenge(const QByteArray &c, const QUrl &resource,
-                                           const QByteArray &httpMethod)
+        const QByteArray &httpMethod)
 {
     QString oldUsername, oldPassword;
     if (!m_finalAuthStage && !m_username.isEmpty() && !m_password.isEmpty()) {
@@ -720,7 +703,6 @@ void KHttpNtlmAuthentication::setChallenge(const QByteArray &c, const QUrl &reso
     m_needCredentials = m_challenge.isEmpty();
 }
 
-
 void KHttpNtlmAuthentication::fillKioAuthInfo(KIO::AuthInfo *ai) const
 {
     authInfoBoilerplate(ai);
@@ -729,7 +711,6 @@ void KHttpNtlmAuthentication::fillKioAuthInfo(KIO::AuthInfo *ai) const
     // we don't have the username yet which may (may!) contain a domain, so we really have no choice
     ai->realmValue = QLatin1String("NTLM");
 }
-
 
 void KHttpNtlmAuthentication::generateResponse(const QString &_user, const QString &password)
 {
@@ -781,7 +762,6 @@ void KHttpNtlmAuthentication::generateResponse(const QString &_user, const QStri
     return;
 }
 
-
 //////////////////////////
 #if HAVE_LIBGSSAPI
 
@@ -807,21 +787,18 @@ static QByteArray gssError(int major_status, int minor_status)
     return errorstr;
 }
 
-
 QByteArray KHttpNegotiateAuthentication::scheme() const
 {
     return "Negotiate";
 }
 
-
 void KHttpNegotiateAuthentication::setChallenge(const QByteArray &c, const QUrl &resource,
-                                                const QByteArray &httpMethod)
+        const QByteArray &httpMethod)
 {
     KAbstractHttpAuthentication::setChallenge(c, resource, httpMethod);
     // GSSAPI knows how to get the credentials on its own
     m_needCredentials = false;
 }
-
 
 void KHttpNegotiateAuthentication::fillKioAuthInfo(KIO::AuthInfo *ai) const
 {
@@ -829,7 +806,6 @@ void KHttpNegotiateAuthentication::fillKioAuthInfo(KIO::AuthInfo *ai) const
     //### does GSSAPI supply anything realm-like? dummy value for now.
     ai->realmValue = QLatin1String("Negotiate");
 }
-
 
 void KHttpNegotiateAuthentication::generateResponse(const QString &user, const QString &password)
 {
@@ -860,7 +836,7 @@ void KHttpNegotiateAuthentication::generateResponse(const QString &user, const Q
         for (uint i = 0; i < mech_set->count; i++) {
             tmp_oid = &mech_set->elements[i];
             if (tmp_oid->length == spnego_oid_desc.length &&
-                !memcmp(tmp_oid->elements, spnego_oid_desc.elements, tmp_oid->length)) {
+                    !memcmp(tmp_oid->elements, spnego_oid_desc.elements, tmp_oid->length)) {
                 // qDebug() << "found SPNEGO mech";
                 mech_oid = &spnego_oid_desc;
                 break;
@@ -889,10 +865,11 @@ void KHttpNegotiateAuthentication::generateResponse(const QString &user, const Q
     }
 
     OM_uint32 req_flags;
-    if (m_config && m_config->readEntry("DelegateCredentialsOn", false))
-       req_flags = GSS_C_DELEG_FLAG;
-    else
-       req_flags = 0;
+    if (m_config && m_config->readEntry("DelegateCredentialsOn", false)) {
+        req_flags = GSS_C_DELEG_FLAG;
+    } else {
+        req_flags = 0;
+    }
 
     // GSSAPI knows how to get the credentials its own way, so don't ask for any
     major_status = gss_init_sec_context(&minor_status, GSS_C_NO_CREDENTIAL,
@@ -915,7 +892,7 @@ void KHttpNegotiateAuthentication::generateResponse(const QString &user, const Q
 
     m_headerFragment = "Negotiate ";
     m_headerFragment += QByteArray::fromRawData(static_cast<const char *>(output_token.value),
-                                                output_token.length).toBase64();
+                        output_token.length).toBase64();
     m_headerFragment += "\r\n";
 
     // free everything

@@ -38,7 +38,7 @@ public:
     /**
      * Create a directory lister.
      */
-    KDirLister(QObject* parent = 0);
+    KDirLister(QObject *parent = 0);
 
     /**
      * Destroy the directory lister.
@@ -98,7 +98,7 @@ protected:
 
 private:
     class Private;
-    Private* const d;
+    Private *const d;
     friend class Private;
 };
 

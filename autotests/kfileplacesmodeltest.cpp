@@ -32,10 +32,10 @@
 #include <qstandardpaths.h>
 
 #ifdef Q_OS_WIN
-    //c:\ as root for windows
-    #define KDE_ROOT_PATH "C:\\"
+//c:\ as root for windows
+#define KDE_ROOT_PATH "C:\\"
 #else
-    #define KDE_ROOT_PATH "/"
+#define KDE_ROOT_PATH "/"
 #endif
 
 QT_BEGIN_NAMESPACE
@@ -69,12 +69,11 @@ private:
 
     KFilePlacesModel *m_places;
     KFilePlacesModel *m_places2; // To check that they always stay in sync
-                                 // actually supposed to work across processes,
-                                 // but much harder to test
+    // actually supposed to work across processes,
+    // but much harder to test
 
-    QMap<QString, QDBusInterface*> m_interfacesMap;
+    QMap<QString, QDBusInterface *> m_interfacesMap;
 };
-
 
 void KFilePlacesModelTest::initTestCase()
 {
@@ -124,21 +123,20 @@ QStringList KFilePlacesModelTest::placesUrls() const
     }                                                                        \
     for (int row = 0; row < urls.size(); ++row) {                            \
         QModelIndex index = m_places->index(row, 0);                         \
-                                                                             \
+        \
         QCOMPARE(m_places->url(index).toString(), QUrl::fromUserInput(urls[row]).toString()); \
         QCOMPARE(m_places->data(index, KFilePlacesModel::UrlRole).toUrl(),   \
                  QUrl(m_places->url(index)));                                \
-                                                                             \
+        \
         index = m_places2->index(row, 0);                                    \
-                                                                             \
+        \
         QCOMPARE(m_places2->url(index).toString(), QUrl::fromUserInput(urls[row]).toString()); \
         QCOMPARE(m_places2->data(index, KFilePlacesModel::UrlRole).toUrl(),  \
                  QUrl(m_places2->url(index)));                               \
     }                                                                        \
-                                                                             \
+    \
     QCOMPARE(urls.size(), m_places->rowCount());                             \
     QCOMPARE(urls.size(), m_places2->rowCount());
-
 
 QDBusInterface *KFilePlacesModelTest::fakeManager()
 {
@@ -180,7 +178,7 @@ void KFilePlacesModelTest::testReparse()
     // add item
 
     m_places->addPlace("foo", QUrl::fromLocalFile("/foo"),
-                                    QString(), QString());
+                       QString(), QString());
 
     urls << QDir::homePath() << "remote:/" << KDE_ROOT_PATH << "trash:/"
          << "/media/nfs" << "/foreign" << "/media/XO-Y4" << "/media/floppy0" << "/media/cdrom" << "/foo";
@@ -226,7 +224,6 @@ void KFilePlacesModelTest::testInternalBookmarksHaveIds()
         bookmark = root.next(bookmark);
     }
 
-
     // Verify that adding a bookmark behind its back the model gives it an id
     // (in real life it requires the user to modify the file by hand,
     // unlikely but better safe than sorry).
@@ -239,7 +236,6 @@ void KFilePlacesModelTest::testInternalBookmarksHaveIds()
     bookmarkManager->emitChanged(root);
     QCOMPARE(foo.text(), QString("Foo"));
     QVERIFY(!foo.metaDataItem("ID").isEmpty());
-
 
     // Verify that all the ids are different
     bookmark = root.first();
@@ -326,7 +322,9 @@ void KFilePlacesModelTest::testMove()
 
     // Move the trash at the end of the list
     KBookmark last = root.first();
-    while (!root.next(last).isNull()) last = root.next(last);
+    while (!root.next(last).isNull()) {
+        last = root.next(last);
+    }
     root.moveBookmark(trash, last);
     bookmarkManager->emitChanged(root);
 
@@ -487,13 +485,11 @@ void KFilePlacesModelTest::testPlacesLifecycle()
     QCOMPARE(args.at(2).toInt(), 9);
     QCOMPARE(spy_removed.count(), 0);
 
-
     const QString file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "kfileplaces/bookmarks.xml";
     KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(file, "kfilePlaces");
     KBookmarkGroup root = bookmarkManager->root();
     KBookmark before_trash = m_places->bookmarkForIndex(m_places->index(2, 0));
     KBookmark foo = m_places->bookmarkForIndex(m_places->index(9, 0));
-
 
     root.moveBookmark(foo, before_trash);
     bookmarkManager->emitChanged(root);
@@ -611,8 +607,9 @@ void KFilePlacesModelTest::testDevicePlugging()
     KBookmarkGroup root = bookmarkManager->root();
     KBookmark before_trash = m_places->bookmarkForIndex(m_places->index(2, 0));
     KBookmark device = root.first(); // The device we'll move is the 7th bookmark
-    for (int i = 0; i < 6; i++) device = root.next(device);
-
+    for (int i = 0; i < 6; i++) {
+        device = root.next(device);
+    }
 
     root.moveBookmark(device, before_trash);
     bookmarkManager->emitChanged(root);
@@ -659,7 +656,9 @@ void KFilePlacesModelTest::testDevicePlugging()
     QCOMPARE(spy_removed.count(), 0);
 
     KBookmark seventh = root.first();
-    for (int i = 0; i < 6; i++) seventh = root.next(seventh);
+    for (int i = 0; i < 6; i++) {
+        seventh = root.next(seventh);
+    }
     root.moveBookmark(device, seventh);
     bookmarkManager->emitChanged(root);
 

@@ -31,22 +31,22 @@
 class KIO::FileJobPrivate: public KIO::SimpleJobPrivate
 {
 public:
-    FileJobPrivate(const QUrl& url, const QByteArray &packedArgs)
+    FileJobPrivate(const QUrl &url, const QByteArray &packedArgs)
         : SimpleJobPrivate(url, CMD_OPEN, packedArgs), m_open(false), m_size(0)
-        {}
+    {}
 
     bool m_open;
     QString m_mimetype;
     KIO::filesize_t m_size;
 
     void slotRedirection(const QUrl &url);
-    void slotData( const QByteArray &data );
-    void slotMimetype( const QString &mimetype );
-    void slotOpen( );
-    void slotWritten( KIO::filesize_t );
-    void slotFinished( );
-    void slotPosition( KIO::filesize_t );
-    void slotTotalSize( KIO::filesize_t );
+    void slotData(const QByteArray &data);
+    void slotMimetype(const QString &mimetype);
+    void slotOpen();
+    void slotWritten(KIO::filesize_t);
+    void slotFinished();
+    void slotPosition(KIO::filesize_t);
+    void slotTotalSize(KIO::filesize_t);
 
     /**
      * @internal
@@ -80,49 +80,58 @@ FileJob::~FileJob()
 void FileJob::read(KIO::filesize_t size)
 {
     Q_D(FileJob);
-    if (!d->m_open) return;
+    if (!d->m_open) {
+        return;
+    }
 
     KIO_ARGS << size;
-    d->m_slave->send( CMD_READ, packedArgs );
+    d->m_slave->send(CMD_READ, packedArgs);
 }
-
 
 void FileJob::write(const QByteArray &_data)
 {
     Q_D(FileJob);
-    if (!d->m_open) return;
+    if (!d->m_open) {
+        return;
+    }
 
-    d->m_slave->send( CMD_WRITE, _data );
+    d->m_slave->send(CMD_WRITE, _data);
 }
 
 void FileJob::seek(KIO::filesize_t offset)
 {
     Q_D(FileJob);
-    if (!d->m_open) return;
+    if (!d->m_open) {
+        return;
+    }
 
     KIO_ARGS << KIO::filesize_t(offset);
-    d->m_slave->send( CMD_SEEK, packedArgs) ;
+    d->m_slave->send(CMD_SEEK, packedArgs);
 }
 
 void FileJob::close()
 {
     Q_D(FileJob);
-    if (!d->m_open) return;
+    if (!d->m_open) {
+        return;
+    }
 
-    d->m_slave->send( CMD_CLOSE );
+    d->m_slave->send(CMD_CLOSE);
     // ###  close?
 }
 
 KIO::filesize_t FileJob::size()
 {
     Q_D(FileJob);
-    if (!d->m_open) return 0;
+    if (!d->m_open) {
+        return 0;
+    }
 
     return d->m_size;
 }
 
 // Slave sends data
-void FileJobPrivate::slotData( const QByteArray &_data)
+void FileJobPrivate::slotData(const QByteArray &_data)
 {
     Q_Q(FileJob);
     emit q_func()->data(q, _data);
@@ -135,34 +144,34 @@ void FileJobPrivate::slotRedirection(const QUrl &url)
     emit q->redirection(q, url);
 }
 
-void FileJobPrivate::slotMimetype( const QString& type )
+void FileJobPrivate::slotMimetype(const QString &type)
 {
     Q_Q(FileJob);
     m_mimetype = type;
     emit q->mimetype(q, m_mimetype);
 }
 
-void FileJobPrivate::slotPosition( KIO::filesize_t pos )
+void FileJobPrivate::slotPosition(KIO::filesize_t pos)
 {
     Q_Q(FileJob);
     emit q->position(q, pos);
 }
 
-void FileJobPrivate::slotTotalSize( KIO::filesize_t t_size )
+void FileJobPrivate::slotTotalSize(KIO::filesize_t t_size)
 {
     m_size = t_size;
     Q_Q(FileJob);
     q->setTotalAmount(KJob::Bytes, m_size);
 }
 
-void FileJobPrivate::slotOpen( )
+void FileJobPrivate::slotOpen()
 {
     Q_Q(FileJob);
     m_open = true;
-    emit q->open( q );
+    emit q->open(q);
 }
 
-void FileJobPrivate::slotWritten( KIO::filesize_t t_written )
+void FileJobPrivate::slotWritten(KIO::filesize_t t_written)
 {
     Q_Q(FileJob);
     emit q->written(q, t_written);
@@ -172,7 +181,7 @@ void FileJobPrivate::slotFinished()
 {
     Q_Q(FileJob);
     //qDebug() << this << m_url;
-    emit q->close( q );
+    emit q->close(q);
     // Return slave to the scheduler
     slaveDone();
 //     Scheduler::doJob(this);
@@ -182,26 +191,26 @@ void FileJobPrivate::slotFinished()
 void FileJobPrivate::start(Slave *slave)
 {
     Q_Q(FileJob);
-    q->connect( slave, SIGNAL(data(QByteArray)),
-                SLOT(slotData(QByteArray)) );
+    q->connect(slave, SIGNAL(data(QByteArray)),
+               SLOT(slotData(QByteArray)));
 
     q->connect(slave, SIGNAL(redirection(QUrl)),
                SLOT(slotRedirection(QUrl)));
 
-    q->connect( slave, SIGNAL(mimeType(QString)),
-                SLOT(slotMimetype(QString)) );
+    q->connect(slave, SIGNAL(mimeType(QString)),
+               SLOT(slotMimetype(QString)));
 
-    q->connect( slave, SIGNAL(open()),
-                SLOT(slotOpen()) );
+    q->connect(slave, SIGNAL(open()),
+               SLOT(slotOpen()));
 
-    q->connect( slave, SIGNAL(position(KIO::filesize_t)),
-                SLOT(slotPosition(KIO::filesize_t)) );
+    q->connect(slave, SIGNAL(position(KIO::filesize_t)),
+               SLOT(slotPosition(KIO::filesize_t)));
 
-    q->connect( slave, SIGNAL(written(KIO::filesize_t)),
-                SLOT(slotWritten(KIO::filesize_t)) );
+    q->connect(slave, SIGNAL(written(KIO::filesize_t)),
+               SLOT(slotWritten(KIO::filesize_t)));
 
-    q->connect( slave, SIGNAL(totalSize(KIO::filesize_t)),
-                SLOT(slotTotalSize(KIO::filesize_t)) );
+    q->connect(slave, SIGNAL(totalSize(KIO::filesize_t)),
+               SLOT(slotTotalSize(KIO::filesize_t)));
 
     SimpleJobPrivate::start(slave);
 }

@@ -21,12 +21,13 @@
 
 #include <kio/kiocore_export.h>
 
-namespace KIO {
-  /**
-   * @internal
-   * Commands that can be invoked by a job.
-   */
-  enum Command {
+namespace KIO
+{
+/**
+ * @internal
+ * Commands that can be invoked by a job.
+ */
+enum Command {
     CMD_HOST = '0', // 48
     CMD_CONNECT = '1', // 49
     CMD_DISCONNECT = '2', // 50
@@ -63,9 +64,9 @@ namespace KIO {
     CMD_SEEK = 92,
     CMD_CLOSE = 93,
     CMD_HOST_INFO = 94
-    // Add new ones here once a release is done, to avoid breaking binary compatibility.
-    // Note that protocol-specific commands shouldn't be added here, but should use special.
-  };
+                    // Add new ones here once a release is done, to avoid breaking binary compatibility.
+                    // Note that protocol-specific commands shouldn't be added here, but should use special.
+};
 
 } // namespace
 

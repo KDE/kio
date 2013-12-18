@@ -38,27 +38,27 @@ class KUrlNavigatorMenu : public QMenu
     Q_OBJECT
 
 public:
-    explicit KUrlNavigatorMenu(QWidget* parent);
+    explicit KUrlNavigatorMenu(QWidget *parent);
     virtual ~KUrlNavigatorMenu();
 
 Q_SIGNALS:
     /**
      * Is emitted when drop event occurs.
      */
-    void urlsDropped(QAction* action, QDropEvent* event);
+    void urlsDropped(QAction *action, QDropEvent *event);
 
     /**
      * Is emitted, if the action \p action has been clicked
      * by the middle mouse button (QMenu ignores a click
      * with the middle mouse button).
      */
-    void middleMouseButtonClicked(QAction* action);
+    void middleMouseButtonClicked(QAction *action);
 
 protected:
-    virtual void dragEnterEvent(QDragEnterEvent* event);
-    virtual void dragMoveEvent(QDragMoveEvent* event);
-    virtual void dropEvent(QDropEvent* event);
-    virtual void mouseReleaseEvent(QMouseEvent* event);
+    virtual void dragEnterEvent(QDragEnterEvent *event);
+    virtual void dragMoveEvent(QDragMoveEvent *event);
+    virtual void dropEvent(QDropEvent *event);
+    virtual void mouseReleaseEvent(QMouseEvent *event);
 };
 
 } // namespace KDEPrivate

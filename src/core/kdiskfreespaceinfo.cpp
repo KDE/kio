@@ -36,14 +36,14 @@
 #include <sys/statvfs.h>
 #endif
 
-
 class KDiskFreeSpaceInfo::Private : public QSharedData
 {
 public:
     Private()
         : valid(false),
           size(0),
-          available(0) {
+          available(0)
+    {
     }
 
     bool valid;
@@ -52,79 +52,70 @@ public:
     KIO::filesize_t available;
 };
 
-
 KDiskFreeSpaceInfo::KDiskFreeSpaceInfo()
     : d(new Private())
 {
 }
 
-
-KDiskFreeSpaceInfo::KDiskFreeSpaceInfo( const KDiskFreeSpaceInfo& other )
+KDiskFreeSpaceInfo::KDiskFreeSpaceInfo(const KDiskFreeSpaceInfo &other)
 {
     d = other.d;
 }
-
 
 KDiskFreeSpaceInfo::~KDiskFreeSpaceInfo()
 {
 }
 
-
-KDiskFreeSpaceInfo& KDiskFreeSpaceInfo::operator=( const KDiskFreeSpaceInfo& other )
+KDiskFreeSpaceInfo &KDiskFreeSpaceInfo::operator=(const KDiskFreeSpaceInfo &other)
 {
     d = other.d;
     return *this;
 }
-
 
 bool KDiskFreeSpaceInfo::isValid() const
 {
     return d->valid;
 }
 
-
 QString KDiskFreeSpaceInfo::mountPoint() const
 {
     return d->mountPoint;
 }
-
 
 KIO::filesize_t KDiskFreeSpaceInfo::size() const
 {
     return d->size;
 }
 
-
 KIO::filesize_t KDiskFreeSpaceInfo::available() const
 {
     return d->available;
 }
-
 
 KIO::filesize_t KDiskFreeSpaceInfo::used() const
 {
     return d->size - d->available;
 }
 
-
-KDiskFreeSpaceInfo KDiskFreeSpaceInfo::freeSpaceInfo( const QString& path )
+KDiskFreeSpaceInfo KDiskFreeSpaceInfo::freeSpaceInfo(const QString &path)
 {
     KDiskFreeSpaceInfo info;
 
     // determine the mount point
-    KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath( path );
-    if (mp)
+    KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(path);
+    if (mp) {
         info.d->mountPoint = mp->mountPoint();
+    }
 
 #ifdef Q_OS_WIN
     quint64 availUser;
     QFileInfo fi(info.d->mountPoint);
     QString dir = QDir::toNativeSeparators(fi.absoluteDir().canonicalPath());
 
-    if(GetDiskFreeSpaceExW((LPCWSTR)dir.utf16(),
-                           (PULARGE_INTEGER)&availUser,
-                           (PULARGE_INTEGER)&info.d->size,
-                           (PULARGE_INTEGER)&info.d->available) != 0) {
+    if (GetDiskFreeSpaceExW((LPCWSTR)dir.utf16(),
+                            (PULARGE_INTEGER)&availUser,
+                            (PULARGE_INTEGER)&info.d->size,
+                            (PULARGE_INTEGER)&info.d->available) != 0) {
         info.d->valid = true;
     }
 #else

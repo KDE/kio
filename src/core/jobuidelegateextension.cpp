@@ -30,7 +30,7 @@ JobUiDelegateExtension::~JobUiDelegateExtension()
 {
 }
 
-ClipboardUpdater* KIO::JobUiDelegateExtension::createClipboardUpdater(Job *, ClipboardUpdaterMode)
+ClipboardUpdater *KIO::JobUiDelegateExtension::createClipboardUpdater(Job *, ClipboardUpdaterMode)
 {
     return NULL;
 }
@@ -46,7 +46,7 @@ JobUiDelegateExtension *KIO::defaultJobUiDelegateExtension()
     return s_extension;
 }
 
-void KIO::setDefaultJobUiDelegateExtension(JobUiDelegateExtension* extension)
+void KIO::setDefaultJobUiDelegateExtension(JobUiDelegateExtension *extension)
 {
     s_extension = extension;
 }

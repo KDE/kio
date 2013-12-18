@@ -64,8 +64,8 @@ void OrgKdeKDirNotifyInterface::emitFilesAdded(const QUrl &directory)
 static QStringList urlListToStringList(const QList<QUrl> &urls)
 {
     QStringList lst;
-    for(QList<QUrl>::const_iterator it = urls.constBegin();
-        it != urls.constEnd(); ++it) {
+    for (QList<QUrl>::const_iterator it = urls.constBegin();
+            it != urls.constEnd(); ++it) {
         lst.append(it->toString());
     }
     return lst;

@@ -32,13 +32,13 @@ private Q_SLOTS:
 
 class TestHTTPProtocol : public HTTPProtocol
 {
-  Q_OBJECT
+    Q_OBJECT
 public:
-  TestHTTPProtocol( const QByteArray &protocol, const QByteArray &pool,
-                const QByteArray &app );
-  virtual ~TestHTTPProtocol();
+    TestHTTPProtocol(const QByteArray &protocol, const QByteArray &pool,
+                     const QByteArray &app);
+    virtual ~TestHTTPProtocol();
 
-  void testParseContentDisposition(const QString &disposition);
+    void testParseContentDisposition(const QString &disposition);
 };
 
 #endif //HTTPOBJECTTEST_H

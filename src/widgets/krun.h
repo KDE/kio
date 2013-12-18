@@ -1,4 +1,3 @@
-// -*- mode: c++; c-basic-offset: 2 -*-
 /* This file is part of the KDE project
    Copyright (C) 1998, 1999 Torben Weis <weis@kde.org>
    Copyright (C) 2006 David Faure <faure@kde.org>
@@ -80,9 +79,9 @@ public:
      * Porting note: KDE4 had mode_t mode and bool isLocalFile arguments after
      * window and before showProgressInfo. Removed in KF5.
      */
-    KRun(const QUrl& url, QWidget* window,
+    KRun(const QUrl &url, QWidget *window,
          bool showProgressInfo = true,
-         const QByteArray& asn = QByteArray());
+         const QByteArray &asn = QByteArray());
 
     /**
      * Destructor. Don't call it yourself, since a KRun object auto-deletes
@@ -140,7 +139,7 @@ public:
      * KParts::BrowserOpenOrSaveQuestion.
      * @param desktopEntryName the desktopEntryName of the service, e.g. "kate".
      */
-    void setPreferredService(const QString& desktopEntryName);
+    void setPreferredService(const QString &desktopEntryName);
 
     /**
      * Sets whether executables, .desktop files or shell scripts should
@@ -165,7 +164,7 @@ public:
      * but in the case of the HTTP Content-Disposition header, we need to override the
      * file name.
      */
-    void setSuggestedFileName(const QString& fileName);
+    void setSuggestedFileName(const QString &fileName);
 
     /**
      * Suggested file name given by the server (e.g. HTTP content-disposition)
@@ -176,8 +175,7 @@ public:
      * Associated window, as passed to the constructor
      * @since 4.9.3
      */
-    QWidget* window() const;
-
+    QWidget *window() const;
 
     /**
      * Open a list of URLs with a certain service (application).
@@ -192,9 +190,9 @@ public:
      * @param asn Application startup notification id, if any (otherwise "").
      * @return @c true on success, @c false on error
      */
-    static bool run(const KService& service, const QList<QUrl>& urls, QWidget* window,
-                    bool tempFiles = false, const QString& suggestedFileName = QString(),
-                    const QByteArray& asn = QByteArray());
+    static bool run(const KService &service, const QList<QUrl> &urls, QWidget *window,
+                    bool tempFiles = false, const QString &suggestedFileName = QString(),
+                    const QByteArray &asn = QByteArray());
 
     /**
      * Open a list of URLs with an executable.
@@ -212,10 +210,10 @@ public:
      * @param asn Application startup notification id, if any (otherwise "").
      * @return @c true on success, @c false on error
      */
-    static bool run(const QString& exec, const QList<QUrl>& urls, QWidget* window,
-                    const QString& name = QString(),
-                    const QString& icon = QString(),
-                    const QByteArray& asn = QByteArray());
+    static bool run(const QString &exec, const QList<QUrl> &urls, QWidget *window,
+                    const QString &name = QString(),
+                    const QString &icon = QString(),
+                    const QByteArray &asn = QByteArray());
 
     /**
      * Open the given URL.
@@ -235,9 +233,9 @@ public:
      * @param asn Application startup notification id, if any (otherwise "").
      * @return @c true on success, @c false on error
      */
-    static bool runUrl(const QUrl& url, const QString& mimetype, QWidget* window,
-                       bool tempFile = false , bool runExecutables = true,
-                       const QString& suggestedFileName = QString(), const QByteArray& asn = QByteArray());
+    static bool runUrl(const QUrl &url, const QString &mimetype, QWidget *window,
+                       bool tempFile = false, bool runExecutables = true,
+                       const QString &suggestedFileName = QString(), const QByteArray &asn = QByteArray());
 
     /**
      * Run the given shell command and notifies KDE of the starting
@@ -255,7 +253,7 @@ public:
      *
      * @return @c true on success, @c false on error
      */
-    static bool runCommand(const QString &cmd, QWidget* window, const QString& workingDirectory = QString());
+    static bool runCommand(const QString &cmd, QWidget *window, const QString &workingDirectory = QString());
 
     /**
      * Same as the other runCommand(), but it also takes the name of the
@@ -269,8 +267,8 @@ public:
      * @param asn Application startup notification id, if any (otherwise "").
      * @return @c true on success, @c false on error
      */
-    static bool runCommand(const QString& cmd, const QString & execName,
-                           const QString & icon, QWidget* window, const QByteArray& asn = QByteArray());
+    static bool runCommand(const QString &cmd, const QString &execName,
+                           const QString &icon, QWidget *window, const QByteArray &asn = QByteArray());
 
     /**
      * Overload that also takes a working directory, so that a command like
@@ -279,9 +277,9 @@ public:
      *                         (if passing an empty string) is the user's document path.
      * @since 4.4
      */
-    static bool runCommand(const QString& cmd, const QString & execName,
-                           const QString & icon, QWidget* window,
-                           const QByteArray& asn, const QString& workingDirectory);
+    static bool runCommand(const QString &cmd, const QString &execName,
+                           const QString &icon, QWidget *window,
+                           const QByteArray &asn, const QString &workingDirectory);
     // TODO KDE5: merge the above with 5-args runCommand, using QString()
 
     /**
@@ -294,9 +292,9 @@ public:
      * @param asn Application startup notification id, if any (otherwise "").
      * @return false if the dialog was canceled
      */
-    static bool displayOpenWithDialog(const QList<QUrl>& lst, QWidget* window,
-                                      bool tempFiles = false, const QString& suggestedFileName = QString(),
-                                      const QByteArray& asn = QByteArray());
+    static bool displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window,
+                                      bool tempFiles = false, const QString &suggestedFileName = QString(),
+                                      const QByteArray &asn = QByteArray());
 
     /**
      * Quotes a string for the shell.
@@ -325,8 +323,8 @@ public:
      */
 #ifndef KDE_NO_DEPRECATED
     static KIOWIDGETS_DEPRECATED QStringList processDesktopExec(const KService &_service, const QList<QUrl> &_urls,
-                                                                bool tempFiles = false,
-                                                                const QString& suggestedFileName = QString());
+            bool tempFiles = false,
+            const QString &suggestedFileName = QString());
 #endif
 
     /**
@@ -339,14 +337,14 @@ public:
      * or KIO::DesktopExecParser::executablePath if removePath was false.
      */
 #ifndef KDE_NO_DEPRECATED
-    static QString binaryName(const QString & execLine, bool removePath);
+    static QString binaryName(const QString &execLine, bool removePath);
 #endif
 
     /**
      * Returns whether @p serviceType refers to an executable program instead
      * of a data file.
      */
-    static bool isExecutable(const QString& serviceType);
+    static bool isExecutable(const QString &serviceType);
 
     /**
      * Returns whether the @p url of @p mimetype is executable.
@@ -360,13 +358,13 @@ public:
      * @endcode
      * to the mimetype's desktop file.
      */
-    static bool isExecutableFile(const QUrl& url, const QString &mimetype);
+    static bool isExecutableFile(const QUrl &url, const QString &mimetype);
 
     /**
      * @internal
      */
-    static bool checkStartupNotify(const QString& binName, const KService* service, bool* silent_arg,
-                                   QByteArray* wmclass_arg);
+    static bool checkStartupNotify(const QString &binName, const KService *service, bool *silent_arg,
+                                   QByteArray *wmclass_arg);
 
 Q_SIGNALS:
     /**
@@ -408,7 +406,7 @@ protected Q_SLOTS:
      * It will call foundMimeType, but also sets up protection against deletion during message boxes.
      * @since 4.0.2
      */
-    void mimeTypeDetermined(const QString& mimeType);
+    void mimeTypeDetermined(const QString &mimeType);
 
     /**
      * This slot is called when the 'stat' job has finished.
@@ -441,7 +439,7 @@ protected:
      * reimplementation is asynchronous (e.g. uses KIO jobs) then
      * it can be called later instead.
      */
-    virtual void foundMimeType(const QString& type);
+    virtual void foundMimeType(const QString &type);
 
     /**
      * Kills the file scanning job.
@@ -461,7 +459,7 @@ protected:
      *
      * The default implementation shows a message box.
      */
-    virtual void handleError(KJob * job);
+    virtual void handleError(KJob *job);
 
     /**
      * Sets the url.
@@ -501,7 +499,7 @@ protected:
     /**
      * Returns the job.
      */
-    KIO::Job* job();
+    KIO::Job *job();
 
     /**
      * Returns the timer object.
@@ -509,7 +507,7 @@ protected:
      * so this can be removed.
      */
 #ifndef KDE_NO_DEPRECATED
-    KIOWIDGETS_DEPRECATED QTimer& timer();
+    KIOWIDGETS_DEPRECATED QTimer &timer();
 #endif
 
     /**
@@ -562,7 +560,7 @@ protected:
 
 private:
     class KRunPrivate;
-    KRunPrivate* const d;
+    KRunPrivate *const d;
 };
 
 #endif

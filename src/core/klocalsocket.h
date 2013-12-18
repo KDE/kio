@@ -132,21 +132,24 @@ protected Q_SLOTS:
     void disconnectFromHostImplementation();
 
 public:
-    virtual void connectToHost(const QHostAddress &address, quint16 port, OpenMode mode = ReadWrite) {
+    virtual void connectToHost(const QHostAddress &address, quint16 port, OpenMode mode = ReadWrite)
+    {
         connectToHostImplementation(address.toString(), port, mode);
     }
-    virtual void connectToHost(const QString &hostName, quint16 port, OpenMode mode = ReadWrite, NetworkLayerProtocol protocol = AnyIPProtocol) {
+    virtual void connectToHost(const QString &hostName, quint16 port, OpenMode mode = ReadWrite, NetworkLayerProtocol protocol = AnyIPProtocol)
+    {
         Q_UNUSED(protocol)
         connectToHostImplementation(hostName, port, mode);
     }
-    virtual void disconnectFromHost() {
+    virtual void disconnectFromHost()
+    {
         disconnectFromHostImplementation();
     }
 
 private:
     Q_DISABLE_COPY(KLocalSocket)
     friend class KLocalSocketPrivate;
-    KLocalSocketPrivate * const d;
+    KLocalSocketPrivate *const d;
 };
 
 class KLocalSocketServerPrivate;
@@ -326,7 +329,7 @@ private:
     Q_PRIVATE_SLOT(d, void _k_newConnectionActivity())
     Q_DISABLE_COPY(KLocalSocketServer)
     friend class KLocalSocketServerPrivate;
-    KLocalSocketServerPrivate * const d;
+    KLocalSocketServerPrivate *const d;
 };
 
 #endif

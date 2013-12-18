@@ -41,9 +41,7 @@
 
 using namespace KIO;
 
-
 Q_GLOBAL_STATIC(UserNotificationHandler, globalUserNotificationHandler)
-
 
 SlaveInterface::SlaveInterface(SlaveInterfacePrivate &dd, QObject *parent)
     : QObject(parent), d_ptr(&dd)
@@ -58,7 +56,7 @@ SlaveInterface::~SlaveInterface()
     delete d_ptr;
 }
 
-void SlaveInterface::setConnection( Connection* connection )
+void SlaveInterface::setConnection(Connection *connection)
 {
     Q_D(SlaveInterface);
     d->connection = connection;
@@ -80,16 +78,17 @@ static KIO::filesize_t readFilesize_t(QDataStream &stream)
 bool SlaveInterface::dispatch()
 {
     Q_D(SlaveInterface);
-    Q_ASSERT( d->connection );
+    Q_ASSERT(d->connection);
 
     int cmd;
     QByteArray data;
 
-    int ret = d->connection->read( &cmd, data );
-    if (ret == -1)
-      return false;
+    int ret = d->connection->read(&cmd, data);
+    if (ret == -1) {
+        return false;
+    }
 
-    return dispatch( cmd, data );
+    return dispatch(cmd, data);
 }
 
 void SlaveInterface::calcSpeed()
@@ -104,22 +103,22 @@ void SlaveInterface::calcSpeed()
     gettimeofday(&tv, 0);
 
     long diff = ((tv.tv_sec - d->start_time.tv_sec) * 1000000 +
-                  tv.tv_usec - d->start_time.tv_usec) / 1000;
+                 tv.tv_usec - d->start_time.tv_usec) / 1000;
     if (diff - d->last_time >= 900) {
         d->last_time = diff;
         if (d->nums == max_nums) {
             // let's hope gcc can optimize that well enough
             // otherwise I'd try memcpy :)
             for (unsigned int i = 1; i < max_nums; ++i) {
-                d->times[i-1] = d->times[i];
-                d->sizes[i-1] = d->sizes[i];
+                d->times[i - 1] = d->times[i];
+                d->sizes[i - 1] = d->sizes[i];
             }
             d->nums--;
         }
         d->times[d->nums] = diff;
         d->sizes[d->nums++] = d->filesize - d->offset;
 
-        KIO::filesize_t lspeed = 1000 * (d->sizes[d->nums-1] - d->sizes[0]) / (d->times[d->nums-1] - d->times[0]);
+        KIO::filesize_t lspeed = 1000 * (d->sizes[d->nums - 1] - d->sizes[0]) / (d->times[d->nums - 1] - d->times[0]);
 
 //qDebug() << (long)d->filesize << diff
 //          << long(d->sizes[d->nums-1] - d->sizes[0])
@@ -141,9 +140,15 @@ void SlaveInterface::calcSpeed()
  * Map pid_t to a signed integer type that makes sense for QByteArray;
  * only the most common sizes 16 bit and 32 bit are special-cased.
  */
-template<int T> struct PIDType { typedef pid_t PID_t; } ;
-template<> struct PIDType<2> { typedef qint16 PID_t; } ;
-template<> struct PIDType<4> { typedef qint32 PID_t; } ;
+template<int T> struct PIDType {
+    typedef pid_t PID_t;
+};
+template<> struct PIDType<2> {
+    typedef qint16 PID_t;
+};
+template<> struct PIDType<4> {
+    typedef qint32 PID_t;
+};
 
 bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
 {
@@ -157,7 +162,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
     qint8 b;
     quint32 ul;
 
-    switch(_cmd) {
+    switch (_cmd) {
     case MSG_DATA:
         emit data(rawdata);
         break;
@@ -238,7 +243,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
     }
     case INF_PROCESSED_SIZE: {
         KIO::filesize_t size = readFilesize_t(stream);
-        emit processedSize( size );
+        emit processedSize(size);
         d->filesize = size;
         break;
     }
@@ -251,7 +256,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         stream >> ul;
         d->slave_calcs_speed = true;
         d->speed_timer.stop();
-        emit speed( ul );
+        emit speed(ul);
         break;
     case INF_GETTING_FILE:
         break;
@@ -261,14 +266,15 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
     case INF_REDIRECTION: {
         QUrl url;
         stream >> url;
-        emit redirection( url );
+        emit redirection(url);
         break;
     }
     case INF_MIME_TYPE:
         stream >> str1;
         emit mimeType(str1);
-        if (!d->connection->suspended())
+        if (!d->connection->suspended()) {
             d->connection->sendnow(CMD_NONE, QByteArray());
+        }
         break;
     case INF_WARNING:
         stream >> str1;
@@ -342,7 +348,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
     return true;
 }
 
-void SlaveInterface::setOffset( KIO::filesize_t o)
+void SlaveInterface::setOffset(KIO::filesize_t o)
 {
     Q_D(SlaveInterface);
     d->offset = o;
@@ -359,9 +365,9 @@ void SlaveInterface::requestNetwork(const QString &host, const QString &slaveid)
     Q_D(SlaveInterface);
     //qDebug() << "requestNetwork " << host << slaveid;
     QByteArray packedArgs;
-    QDataStream stream( &packedArgs, QIODevice::WriteOnly );
+    QDataStream stream(&packedArgs, QIODevice::WriteOnly);
     stream << true;
-    d->connection->sendnow( INF_NETWORK_STATUS, packedArgs );
+    d->connection->sendnow(INF_NETWORK_STATUS, packedArgs);
 }
 
 void SlaveInterface::dropNetwork(const QString &host, const QString &slaveid)
@@ -369,11 +375,11 @@ void SlaveInterface::dropNetwork(const QString &host, const QString &slaveid)
     //qDebug() << "dropNetwork " << host << slaveid;
 }
 
-void SlaveInterface::sendResumeAnswer( bool resume )
+void SlaveInterface::sendResumeAnswer(bool resume)
 {
     Q_D(SlaveInterface);
     //qDebug() << "ok for resuming:" << resume;
-    d->connection->sendnow( resume ? CMD_RESUMEANSWER : CMD_NONE, QByteArray() );
+    d->connection->sendnow(resume ? CMD_RESUMEANSWER : CMD_NONE, QByteArray());
 }
 
 void SlaveInterface::sendMessageBoxAnswer(int result)
@@ -387,20 +393,20 @@ void SlaveInterface::sendMessageBoxAnswer(int result)
         d->connection->resume();
     }
     QByteArray packedArgs;
-    QDataStream stream( &packedArgs, QIODevice::WriteOnly );
+    QDataStream stream(&packedArgs, QIODevice::WriteOnly);
     stream << result;
     d->connection->sendnow(CMD_MESSAGEBOXANSWER, packedArgs);
     // qDebug() << "message box answer" << result;
 }
 
-void SlaveInterface::messageBox( int type, const QString &text, const QString &_caption,
-                                 const QString &buttonYes, const QString &buttonNo )
+void SlaveInterface::messageBox(int type, const QString &text, const QString &_caption,
+                                const QString &buttonYes, const QString &buttonNo)
 {
-    messageBox( type, text, _caption, buttonYes, buttonNo, QString() );
+    messageBox(type, text, _caption, buttonYes, buttonNo, QString());
 }
 
-void SlaveInterface::messageBox( int type, const QString &text, const QString &caption,
-                                 const QString &buttonYes, const QString &buttonNo, const QString &dontAskAgainName )
+void SlaveInterface::messageBox(int type, const QString &text, const QString &caption,
+                                const QString &buttonYes, const QString &buttonNo, const QString &dontAskAgainName)
 {
     Q_D(SlaveInterface);
     if (d->connection) {
@@ -435,7 +441,7 @@ void SlaveInterface::messageBox( int type, const QString &text, const QString &c
     globalUserNotificationHandler()->requestMessageBox(this, type, data);
 }
 
-void SlaveInterfacePrivate::slotHostInfo(const QHostInfo& info)
+void SlaveInterfacePrivate::slotHostInfo(const QHostInfo &info)
 {
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);

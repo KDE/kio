@@ -77,12 +77,11 @@ private:
     QCryptographicHash context;
 };
 
-
 class HTTPFilterGZip : public HTTPFilterBase
 {
     Q_OBJECT
 public:
-    HTTPFilterGZip(bool deflate = false /* for subclass HTTPFilterDeflate */ );
+    HTTPFilterGZip(bool deflate = false /* for subclass HTTPFilterDeflate */);
     ~HTTPFilterGZip();
 
 public Q_SLOTS:
@@ -92,7 +91,7 @@ private:
     bool m_deflateMode;
     bool m_firstData;
     bool m_finished;
-    KFilterBase* m_gzipFilter;
+    KFilterBase *m_gzipFilter;
 };
 
 class HTTPFilterDeflate : public HTTPFilterGZip

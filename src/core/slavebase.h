@@ -33,7 +33,8 @@ class KConfigGroup;
 class KRemoteEncoding;
 class QUrl;
 
-namespace KIO {
+namespace KIO
+{
 
 class Connection;
 class SlaveBasePrivate;
@@ -50,7 +51,7 @@ class SlaveBasePrivate;
 class KIOCORE_EXPORT SlaveBase
 {
 public:
-    SlaveBase( const QByteArray &protocol, const QByteArray &pool_socket, const QByteArray &app_socket);
+    SlaveBase(const QByteArray &protocol, const QByteArray &pool_socket, const QByteArray &app_socket);
     virtual ~SlaveBase();
 
     /**
@@ -76,13 +77,13 @@ public:
      *
      * @param data the data read by the slave
      */
-    void data( const QByteArray &data );
+    void data(const QByteArray &data);
 
     /**
      * Asks for data from the job.
      * @see readData
      */
-    void dataReq( );
+    void dataReq();
 
     /**
      * open succedes
@@ -118,7 +119,7 @@ public:
      * @param _errid the error code from KIO::Error
      * @param _text the rich text error message
      */
-    void error( int _errid, const QString &_text );
+    void error(int _errid, const QString &_text);
 
     /**
      * Call in openConnection, if you reimplement it, when you're done.
@@ -151,14 +152,14 @@ public:
      * mimetype, etc.
      * @param _entry The UDSEntry containing all of the object attributes.
      */
-    void statEntry( const UDSEntry& _entry );
+    void statEntry(const UDSEntry &_entry);
 
     /**
      * Call this in listDir, each time you have a bunch of entries
      * to report.
      * @param _entry The UDSEntry containing all of the object attributes.
      */
-    void listEntries( const UDSEntryList& _entry );
+    void listEntries(const UDSEntryList &_entry);
 
     /**
      * Call this at the beginning of put(), to give the size of the existing
@@ -167,7 +168,7 @@ public:
      * In this case, the boolean returns whether we can indeed resume or not
      * (we can't if the protocol doing the get() doesn't support setting an offset)
      */
-    bool canResume( KIO::filesize_t offset );
+    bool canResume(KIO::filesize_t offset);
 
     /**
      * Call this at the beginning of get(), if the "resume" metadata was set
@@ -183,17 +184,17 @@ public:
      * Call this in get and copy, to give the total size
      * of the file.
      */
-    void totalSize( KIO::filesize_t _bytes );
+    void totalSize(KIO::filesize_t _bytes);
     /**
      * Call this during get and copy, once in a while,
      * to give some info about the current state.
      * Don't emit it in listDir, listEntries speaks for itself.
      */
-    void processedSize( KIO::filesize_t _bytes );
+    void processedSize(KIO::filesize_t _bytes);
 
-    void position( KIO::filesize_t _pos );
+    void position(KIO::filesize_t _pos);
 
-    void written( KIO::filesize_t _bytes );
+    void written(KIO::filesize_t _bytes);
 
     /**
      * Only use this if you can't know in advance the size of the
@@ -206,20 +207,20 @@ public:
      * to give some info about the current state.
      * Don't emit it in listDir, listEntries speaks for itself.
      */
-    void processedPercent( float percent );
+    void processedPercent(float percent);
 
     /**
      * Call this in get and copy, to give the current transfer
      * speed, but only if it can't be calculated out of the size you
      * passed to processedSize (in most cases you don't want to call it)
      */
-    void speed( unsigned long _bytes_per_second );
+    void speed(unsigned long _bytes_per_second);
 
     /**
      * Call this to signal a redirection
      * The job will take care of going to that url.
      */
-    void redirection( const QUrl &_url );
+    void redirection(const QUrl &_url);
 
     /**
      * Tell that we will only get an error page here.
@@ -232,18 +233,18 @@ public:
      * Call this in mimetype() and in get(), when you know the mimetype.
      * See mimetype about other ways to implement it.
      */
-    void mimeType( const QString &_type );
+    void mimeType(const QString &_type);
 
     /**
      * Call to signal a warning, to be displayed in a dialog box.
      */
-    void warning( const QString &msg );
+    void warning(const QString &msg);
 
     /**
      * Call to signal a message, to be displayed if the application wants to,
      * for instance in a status bar. Usual examples are "connecting to host xyz", etc.
      */
-    void infoMessage( const QString &msg );
+    void infoMessage(const QString &msg);
 
     /**
      * Type of message box. Should be kept in sync with KMessageBox::ButtonCode.
@@ -274,10 +275,10 @@ public:
      *       and for Information, none is used.
      * @return a button code, as defined in ButtonCode, or 0 on communication error.
      */
-    int messageBox( MessageBoxType type, const QString &text,
-                    const QString &caption = QString(),
-                    const QString &buttonYes = i18n("&Yes"),
-                    const QString &buttonNo = i18n("&No"));
+    int messageBox(MessageBoxType type, const QString &text,
+                   const QString &caption = QString(),
+                   const QString &buttonYes = i18n("&Yes"),
+                   const QString &buttonNo = i18n("&No"));
 
     /**
      * Call this to show a message box from the slave
@@ -294,11 +295,11 @@ public:
      *        If the checkbox was ticked @p dontAskAgain will be set to true, otherwise false.
      * @return a button code, as defined in ButtonCode, or 0 on communication error.
      */
-    int messageBox( const QString &text, MessageBoxType type,
-                    const QString &caption = QString(),
-                    const QString &buttonYes = i18n("&Yes"),
-                    const QString &buttonNo = i18n("&No"),
-                    const QString &dontAskAgainName = QString() );
+    int messageBox(const QString &text, MessageBoxType type,
+                   const QString &caption = QString(),
+                   const QString &buttonYes = i18n("&Yes"),
+                   const QString &buttonNo = i18n("&No"),
+                   const QString &dontAskAgainName = QString());
 
     /**
      * Sets meta-data to be send to the application before the first
@@ -317,7 +318,6 @@ public:
      */
     QString metaData(const QString &key) const;
 
-
     /**
      * @internal for ForwardingSlaveBase
      * Contains all metadata (but no config) sent by the application to the slave.
@@ -331,14 +331,13 @@ public:
      * The application provides the slave with all configuration information
      * relevant for the current protocol and host.
      */
-    KConfigGroup* config();
+    KConfigGroup *config();
 
     /**
      * Returns an object that can translate remote filenames into proper
      * Unicode forms. This encoding can be set by the user.
      */
-    KRemoteEncoding* remoteEncoding();
-
+    KRemoteEncoding *remoteEncoding();
 
     ///////////
     // Commands sent by the job, the slave has to
@@ -356,12 +355,12 @@ public:
      *
      * This method is called whenever a change in host, port or user occurs.
      */
-    virtual void setHost(const QString& host, quint16 port, const QString& user, const QString& pass);
+    virtual void setHost(const QString &host, quint16 port, const QString &user, const QString &pass);
 
     /**
      * Prepare slave for streaming operation
      */
-    virtual void setSubUrl(const QUrl&url);
+    virtual void setSubUrl(const QUrl &url);
 
     /**
      * Opens the connection (forced)
@@ -403,7 +402,7 @@ public:
      * can now happen. All with a single call to get() in the slave.
      * This mechanism is also described in KIO::get().
      */
-    virtual void get( const QUrl& url );
+    virtual void get(const QUrl &url);
 
     /**
      * open.
@@ -411,11 +410,11 @@ public:
      *        can be assumed to be the same as in the last setHost() call.
      * @param mode see \ref QIODevice::OpenMode
      */
-    virtual void open( const QUrl &url, QIODevice::OpenMode mode );
+    virtual void open(const QUrl &url, QIODevice::OpenMode mode);
 
-    virtual void read( KIO::filesize_t size );
-    virtual void write( const QByteArray &data );
-    virtual void seek( KIO::filesize_t offset );
+    virtual void read(KIO::filesize_t size);
+    virtual void write(const QByteArray &data);
+    virtual void seek(KIO::filesize_t offset);
     virtual void close();
 
     /**
@@ -433,7 +432,7 @@ public:
      *
      * @see canResume()
      */
-    virtual void put( const QUrl& url, int permissions, JobFlags flags );
+    virtual void put(const QUrl &url, int permissions, JobFlags flags);
 
     /**
      * Finds all details for one file or directory.
@@ -450,7 +449,7 @@ public:
      * details==0 is used for very simple probing: we'll only get the answer
      * "it's a file or a directory (or a symlink), or it doesn't exist".
      */
-    virtual void stat( const QUrl& url );
+    virtual void stat(const QUrl &url);
 
     /**
      * Finds mimetype for one file or directory.
@@ -464,7 +463,7 @@ public:
      * determining the mimetype on it - this is obviously not a
      * good thing in most cases.
      */
-    virtual void mimetype( const QUrl& url );
+    virtual void mimetype(const QUrl &url);
 
     /**
      * Lists the contents of @p url.
@@ -475,7 +474,7 @@ public:
      * You should not list files if the path in @p url is empty, but redirect
      * to a non-empty path instead.
      */
-    virtual void listDir( const QUrl& url );
+    virtual void listDir(const QUrl &url);
 
     /**
      * Create a directory
@@ -484,7 +483,7 @@ public:
      * (-1 if no permissions to be set)
      * The slave emits ERR_COULD_NOT_MKDIR if failure.
      */
-    virtual void mkdir( const QUrl&url, int permissions );
+    virtual void mkdir(const QUrl &url, int permissions);
 
     /**
      * Rename @p oldname into @p newname.
@@ -512,7 +511,7 @@ public:
      * @param dest where to move the file to
      * @param flags: We support Overwrite here
      */
-    virtual void rename( const QUrl& src, const QUrl& dest, JobFlags flags );
+    virtual void rename(const QUrl &src, const QUrl &dest, JobFlags flags);
 
     /**
      * Creates a symbolic link named @p dest, pointing to @p target, which
@@ -521,19 +520,19 @@ public:
      * @param dest The symlink to create.
      * @param flags: We support Overwrite here
      */
-    virtual void symlink( const QString& target, const QUrl& dest, JobFlags flags );
+    virtual void symlink(const QString &target, const QUrl &dest, JobFlags flags);
 
     /**
      * Change permissions on @p url
      * The slave emits ERR_DOES_NOT_EXIST or ERR_CANNOT_CHMOD
      */
-    virtual void chmod( const QUrl& url, int permissions );
+    virtual void chmod(const QUrl &url, int permissions);
 
     /**
      * Change ownership of @p url
      * The slave emits ERR_DOES_NOT_EXIST or ERR_CANNOT_CHOWN
      */
-    virtual void chown( const QUrl& url, const QString& owner, const QString& group );
+    virtual void chown(const QUrl &url, const QString &owner, const QString &group);
 
     /**
      * Sets the modification time for @url
@@ -542,7 +541,7 @@ public:
      * The usual implementation on unix is to call utime(path, &myutimbuf).
      * The slave emits ERR_DOES_NOT_EXIST or ERR_CANNOT_SETTIME
      */
-    virtual void setModificationTime( const QUrl& url, const QDateTime& mtime );
+    virtual void setModificationTime(const QUrl &url, const QDateTime &mtime);
 
     /**
      * Copy @p src into @p dest.
@@ -568,7 +567,7 @@ public:
      *
      * Don't forget to set the modification time of @p dest to be the modification time of @p src.
      */
-    virtual void copy( const QUrl &src, const QUrl &dest, int permissions, JobFlags flags );
+    virtual void copy(const QUrl &src, const QUrl &dest, int permissions, JobFlags flags);
 
     /**
      * Delete a file or directory.
@@ -580,14 +579,14 @@ public:
      * However, if metadata("recurse") == "true", then the slave can do a recursive deletion.
      * This behavior is only invoked if the slave specifies deleteRecursive=true in its protocol file.
      */
-    virtual void del( const QUrl &url, bool isfile);
+    virtual void del(const QUrl &url, bool isfile);
 
     /**
      * Change the destination of a symlink
      * @param url the url of the symlink to modify
      * @param target the new destination (target) of the symlink
      */
-    virtual void setLinkDest( const QUrl& url, const QString& target );
+    virtual void setLinkDest(const QUrl &url, const QString &target);
 
     /**
      * Used for any command that is specific to this slave (protocol)
@@ -597,7 +596,7 @@ public:
      *        slave, but usually starts with an int for the command number.
      * Document your slave's commands, at least in its header file.
      */
-    virtual void special( const QByteArray & data );
+    virtual void special(const QByteArray &data);
 
     /**
      * Used for multiple get. Currently only used foir HTTP pielining
@@ -606,7 +605,7 @@ public:
      * @param data packed data; Contains number of URLs to fetch, and for
      * each URL the URL itself and its associated MetaData.
      */
-    virtual void multiGet( const QByteArray & data );
+    virtual void multiGet(const QByteArray &data);
 
     /**
      * Called to get the status of the slave. Slave should respond
@@ -619,7 +618,6 @@ public:
      * changed (i.e. proxy settings) .
      */
     virtual void reparseConfiguration();
-
 
     /**
      * @return timeout value for connecting to remote host.
@@ -656,7 +654,7 @@ public:
      * Only one timeout at a time is supported, setting a timeout
      * cancels any pending timeout.
      */
-    void setTimeoutSpecialCommand(int timeout, const QByteArray &data=QByteArray());
+    void setTimeoutSpecialCommand(int timeout, const QByteArray &data = QByteArray());
 
     /////////////////
     // Dispatching (internal)
@@ -665,12 +663,12 @@ public:
     /**
      * @internal
      */
-    virtual void dispatch( int command, const QByteArray &data );
+    virtual void dispatch(int command, const QByteArray &data);
 
     /**
      * @internal
      */
-    virtual void dispatchOpenCommand( int command, const QByteArray &data );
+    virtual void dispatchOpenCommand(int command, const QByteArray &data);
 
     /**
      * Read data sent by the job, after a dataReq
@@ -680,7 +678,7 @@ public:
      *         > 0 bytes read
      *         < 0 error
      **/
-    int readData( QByteArray &buffer );
+    int readData(QByteArray &buffer);
 
     /**
      * It collects entries and emits them via listEntries
@@ -698,7 +696,7 @@ public:
      * listing is completed and simply remove the call to listEntry(entry, true).
      */
 #ifndef KDE_NO_DEPRECATED
-    KIOCORE_DEPRECATED void listEntry(const UDSEntry& _entry, bool ready);
+    KIOCORE_DEPRECATED void listEntry(const UDSEntry &_entry, bool ready);
 #endif
 
     /**
@@ -710,13 +708,13 @@ public:
      * @param entry The UDSEntry containing all of the object attributes.
      * @since 5.0
      */
-    void listEntry(const UDSEntry& entry);
+    void listEntry(const UDSEntry &entry);
 
     /**
      * internal function to connect a slave to/ disconnect from
      * either the slave pool or the application
      */
-    void connectSlave(const QString& path);
+    void connectSlave(const QString &path);
     void disconnectSlave();
 
     /**
@@ -771,7 +769,7 @@ public:
      * @param errorMsg Error message to show
      * @return      @p true if user clicks on "OK", @p false otherwsie.
      */
-    bool openPasswordDialog( KIO::AuthInfo& info, const QString &errorMsg = QString() );
+    bool openPasswordDialog(KIO::AuthInfo &info, const QString &errorMsg = QString());
 
     /**
      * Checks for cached authentication based on parameters
@@ -800,7 +798,7 @@ public:
      * @param       info See AuthInfo.
      * @return      @p true if cached Authorization is found, false otherwise.
      */
-    bool checkCachedAuthentication( AuthInfo& info );
+    bool checkCachedAuthentication(AuthInfo &info);
 
     /**
      * Caches @p info in a persistent storage like KWallet.
@@ -828,7 +826,7 @@ public:
      * @param info See AuthInfo.
      * @return @p true if @p info was successfully cached.
      */
-    bool cacheAuthentication( const AuthInfo& info );
+    bool cacheAuthentication(const AuthInfo &info);
 
     /**
      * Used by the slave to check if it can connect
@@ -848,7 +846,7 @@ public:
      * @return true in theorie, the host is reachable
      *         false the system is offline and the host is in a remote network.
      */
-    bool requestNetwork(const QString& host = QString());
+    bool requestNetwork(const QString &host = QString());
 
     /**
      * Used by the slave to withdraw a connection requested by
@@ -863,13 +861,13 @@ public:
      *
      * A slave should call this function every time it disconnect from a host.
      * */
-    void dropNetwork(const QString& host = QString());
+    void dropNetwork(const QString &host = QString());
 
     /**
      * Wait for an answer to our request, until we get @p expected1 or @p expected2
      * @return the result from readData, as well as the cmd in *pCmd if set, and the data in @p data
      */
-    int waitForAnswer( int expected1, int expected2, QByteArray & data, int * pCmd = 0 );
+    int waitForAnswer(int expected1, int expected2, QByteArray &data, int *pCmd = 0);
 
     /**
      * Internal function to transmit meta data to the application.
@@ -908,12 +906,12 @@ public:
     /** Internally used
       * @internal
     */
-    void lookupHost(const QString& host);
+    void lookupHost(const QString &host);
 
     /** Internally used
       * @internal
     */
-    int waitForHostInfo(QHostInfo& info);
+    int waitForHostInfo(QHostInfo &info);
 
 protected:
     /**
@@ -927,26 +925,26 @@ protected:
     enum VirtualFunctionId {
         AppConnectionMade = 0
     };
-    virtual void virtual_hook( int id, void* data );
+    virtual void virtual_hook(int id, void *data);
 
 private:
 #if 0 // TODO KDE5: enable
     // This helps catching missing tr() calls in error().
-    void error( int _errid, const QByteArray &_text );
+    void error(int _errid, const QByteArray &_text);
 #endif
-    void send(int cmd, const QByteArray& arr = QByteArray());
-    SlaveBasePrivate* const d;
+    void send(int cmd, const QByteArray &arr = QByteArray());
+    SlaveBasePrivate *const d;
     friend class SlaveBasePrivate;
 };
 
-    /**
-     * Returns an appropriate error message if the given command @p cmd
-     * is an unsupported action (ERR_UNSUPPORTED_ACTION).
-     * @param protocol name of the protocol
-     * @param cmd given command
-     * @see enum Command
-     */
-    KIOCORE_EXPORT QString unsupportedActionErrorString(const QString &protocol, int cmd);
+/**
+ * Returns an appropriate error message if the given command @p cmd
+ * is an unsupported action (ERR_UNSUPPORTED_ACTION).
+ * @param protocol name of the protocol
+ * @param cmd given command
+ * @see enum Command
+ */
+KIOCORE_EXPORT QString unsupportedActionErrorString(const QString &protocol, int cmd);
 }
 
 #endif

@@ -34,7 +34,10 @@ private Q_SLOTS:
 
 public:
     KUrlCompletionTest() {}
-    ~KUrlCompletionTest() { teardown(); }
+    ~KUrlCompletionTest()
+    {
+        teardown();
+    }
     void setup();
     void teardown();
     void testLocalRelativePath();
@@ -44,16 +47,16 @@ public:
 
 private:
     void waitForCompletion();
-    KUrlCompletion* m_completion;
-    QTemporaryDir* m_tempDir;
+    KUrlCompletion *m_completion;
+    QTemporaryDir *m_tempDir;
     QUrl m_dirURL;
     QString m_dir;
-    KUrlCompletion* m_completionEmptyCwd;
+    KUrlCompletion *m_completionEmptyCwd;
 };
 
 void KUrlCompletionTest::setup()
 {
-    qDebug() ;
+    qDebug();
     m_completion = new KUrlCompletion;
     m_tempDir = new QTemporaryDir;
     m_dir = m_tempDir->path();
@@ -63,17 +66,17 @@ void KUrlCompletionTest::setup()
     m_completion->setDir(QUrl::fromLocalFile(m_dir));
     m_dirURL = QUrl::fromLocalFile(m_dir);
 
-    QFile f1( m_dir + "/file1" );
-    bool ok = f1.open( QIODevice::WriteOnly );
-    QVERIFY( ok );
+    QFile f1(m_dir + "/file1");
+    bool ok = f1.open(QIODevice::WriteOnly);
+    QVERIFY(ok);
     f1.close();
 
-    QFile f2( m_dir + "/file#a" );
-    ok = f2.open( QIODevice::WriteOnly );
-    QVERIFY( ok );
+    QFile f2(m_dir + "/file#a");
+    ok = f2.open(QIODevice::WriteOnly);
+    QVERIFY(ok);
     f2.close();
 
-    QDir().mkdir( m_dir + "/file_subdir" );
+    QDir().mkdir(m_dir + "/file_subdir");
 
     m_completionEmptyCwd = new KUrlCompletion;
     m_completionEmptyCwd->setDir(QUrl());
@@ -90,17 +93,17 @@ void KUrlCompletionTest::teardown()
 }
 void KUrlCompletionTest::waitForCompletion()
 {
-    while ( m_completion->isRunning() ) {
+    while (m_completion->isRunning()) {
         qDebug() << "waiting for thread...";
-        QThread::usleep( 10 );
+        QThread::usleep(10);
     }
 }
 
 void KUrlCompletionTest::testLocalRelativePath()
 {
-    qDebug() ;
+    qDebug();
     // Completion from relative path, with two matches
-    m_completion->makeCompletion( "f" );
+    m_completion->makeCompletion("f");
     waitForCompletion();
     QStringList comp1all = m_completion->allMatches();
     qDebug() << comp1all;
@@ -123,7 +126,7 @@ void KUrlCompletionTest::testLocalRelativePath()
     QCOMPARE(comp2, QString("file#a"));
 
     // Completion with empty string
-    qDebug () << endl << "now completing on ''";
+    qDebug() << endl << "now completing on ''";
     m_completion->makeCompletion("");
     waitForCompletion();
     QStringList compEmpty = m_completion->allMatches();
@@ -133,7 +136,7 @@ void KUrlCompletionTest::testLocalRelativePath()
 void KUrlCompletionTest::testLocalAbsolutePath()
 {
     // Completion from absolute path
-    qDebug() << m_dir+"file#";
+    qDebug() << m_dir + "file#";
     m_completion->makeCompletion(m_dir + "file#");
     waitForCompletion();
     QStringList compall = m_completion->allMatches();
@@ -148,7 +151,7 @@ void KUrlCompletionTest::testLocalAbsolutePath()
 void KUrlCompletionTest::testLocalURL()
 {
     // Completion from URL
-    qDebug() ;
+    qDebug();
     QUrl url = QUrl::fromLocalFile(m_dirURL.toLocalFile() + "file");
     m_completion->makeCompletion(url.toString());
     waitForCompletion();
@@ -184,9 +187,9 @@ void KUrlCompletionTest::testLocalURL()
 
 void KUrlCompletionTest::testEmptyCwd()
 {
-    qDebug() ;
+    qDebug();
     // Completion with empty string (with a KUrlCompletion whose cwd is "")
-    qDebug () << endl << "now completing on '' with empty cwd";
+    qDebug() << endl << "now completing on '' with empty cwd";
     m_completionEmptyCwd->makeCompletion("");
     waitForCompletion();
     QStringList compEmpty = m_completionEmptyCwd->allMatches();

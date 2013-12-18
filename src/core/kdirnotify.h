@@ -62,7 +62,9 @@ class KIOCORE_EXPORT OrgKdeKDirNotifyInterface: public QDBusAbstractInterface
     Q_OBJECT
 public:
     static inline const char *staticInterfaceName()
-    { return "org.kde.KDirNotify"; }
+    {
+        return "org.kde.KDirNotify";
+    }
 
 public:
     /**
@@ -103,9 +105,11 @@ public:
     static void emitLeftDirectory(const QUrl &url);
 };
 
-namespace org {
-  namespace kde {
-    typedef ::OrgKdeKDirNotifyInterface KDirNotify;
-  }
+namespace org
+{
+namespace kde
+{
+typedef ::OrgKdeKDirNotifyInterface KDirNotify;
+}
 }
 #endif

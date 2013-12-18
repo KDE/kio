@@ -27,7 +27,8 @@
 #include <QtCore/QList>
 #include <QUrl>
 
-namespace KIO {
+namespace KIO
+{
 class AuthInfo;
 }
 
@@ -81,7 +82,10 @@ public:
      * if this is false user and password passed to generateResponse
      * will be ignored and may be empty.
      */
-    bool needCredentials() const { return m_needCredentials; }
+    bool needCredentials() const
+    {
+        return m_needCredentials;
+    }
     /**
      * KIO compatible data to find cached credentials.
      *
@@ -100,34 +104,52 @@ public:
      * Unless the authentication scheme requires multiple stages like NTLM this
      * function will always return true.
      */
-    bool wasFinalStage() const { return m_finalAuthStage; }
+    bool wasFinalStage() const
+    {
+        return m_finalAuthStage;
+    }
     /**
      * Returns true if the authentication scheme supports path matching to identify
      * resources that belong to the same protection space (realm).
      *
      * See RFC 2617.
      */
-    virtual bool supportsPathMatching() const { return false; }
+    virtual bool supportsPathMatching() const
+    {
+        return false;
+    }
 
     // the following accessors return useful data after generateResponse() has been called.
     // clients process the following fields top to bottom: highest priority is on top
 
     // malformed challenge and similar problems - it is advisable to reconnect
-    bool isError() const { return m_isError; }
+    bool isError() const
+    {
+        return m_isError;
+    }
     /**
      * force keep-alive connection because the authentication method requires it
      */
-    bool forceKeepAlive() const { return m_forceKeepAlive; }
+    bool forceKeepAlive() const
+    {
+        return m_forceKeepAlive;
+    }
     /**
      * force disconnection because the authentication method requires it
      */
-    bool forceDisconnect() const { return m_forceDisconnect; }
+    bool forceDisconnect() const
+    {
+        return m_forceDisconnect;
+    }
 
     /**
      * insert this into the next request header after "Authorization: "
      * or "Proxy-Authorization: "
      */
-    QByteArray headerFragment() const { return m_headerFragment; }
+    QByteArray headerFragment() const
+    {
+        return m_headerFragment;
+    }
     /**
      * Returns the realm sent by the server.
      *
@@ -140,11 +162,14 @@ public:
     /**
      * Sets the cache password flag to @p enable.
      */
-    void setCachePasswordEnabled(bool enable) { m_keepPassword = enable; }
+    void setCachePasswordEnabled(bool enable)
+    {
+        m_keepPassword = enable;
+    }
 
 #ifdef ENABLE_HTTP_AUTH_NONCE_SETTER
     // NOTE: FOR USE in unit testing ONLY.
-    virtual void setDigestNonceValue(const QByteArray&) {}
+    virtual void setDigestNonceValue(const QByteArray &) {}
 #endif
 
 protected:
@@ -155,7 +180,10 @@ protected:
      * NOTE: Do not reimplement this function for connection based authentication
      * schemes such as NTLM.
      */
-    virtual QByteArray authDataToCache() const { return QByteArray(); }
+    virtual QByteArray authDataToCache() const
+    {
+        return QByteArray();
+    }
     void generateResponseCommon(const QString &user, const QString &password);
 
     KConfigGroup *m_config;
@@ -177,22 +205,26 @@ protected:
     QString m_password;
 };
 
-
 class KHttpBasicAuthentication : public KAbstractHttpAuthentication
 {
 public:
     virtual QByteArray scheme() const;
     virtual void fillKioAuthInfo(KIO::AuthInfo *ai) const;
     virtual void generateResponse(const QString &user, const QString &password);
-    virtual bool supportsPathMatching() const { return true; }
+    virtual bool supportsPathMatching() const
+    {
+        return true;
+    }
 protected:
-    virtual QByteArray authDataToCache() const { return m_challengeText; }
+    virtual QByteArray authDataToCache() const
+    {
+        return m_challengeText;
+    }
 private:
     friend class KAbstractHttpAuthentication;
     KHttpBasicAuthentication(KConfigGroup *config = 0)
-     : KAbstractHttpAuthentication(config) {}
+        : KAbstractHttpAuthentication(config) {}
 };
-
 
 class KHttpDigestAuthentication : public KAbstractHttpAuthentication
 {
@@ -201,22 +233,27 @@ public:
     virtual void setChallenge(const QByteArray &c, const QUrl &resource, const QByteArray &httpMethod);
     virtual void fillKioAuthInfo(KIO::AuthInfo *ai) const;
     virtual void generateResponse(const QString &user, const QString &password);
-    virtual bool supportsPathMatching() const { return true; }
+    virtual bool supportsPathMatching() const
+    {
+        return true;
+    }
 #ifdef ENABLE_HTTP_AUTH_NONCE_SETTER
-    virtual void setDigestNonceValue(const QByteArray&);
+    virtual void setDigestNonceValue(const QByteArray &);
 #endif
 
 protected:
-    virtual QByteArray authDataToCache() const { return m_challengeText; }
+    virtual QByteArray authDataToCache() const
+    {
+        return m_challengeText;
+    }
 private:
     friend class KAbstractHttpAuthentication;
     KHttpDigestAuthentication(KConfigGroup *config = 0)
-     : KAbstractHttpAuthentication(config) {}
+        : KAbstractHttpAuthentication(config) {}
 #ifdef ENABLE_HTTP_AUTH_NONCE_SETTER
-     QByteArray m_nonce;
+    QByteArray m_nonce;
 #endif
 };
-
 
 class KHttpNtlmAuthentication : public KAbstractHttpAuthentication
 {
@@ -228,9 +265,8 @@ public:
 private:
     friend class KAbstractHttpAuthentication;
     KHttpNtlmAuthentication(KConfigGroup *config = 0)
-     : KAbstractHttpAuthentication(config) {}
+        : KAbstractHttpAuthentication(config) {}
 };
-
 
 #if HAVE_LIBGSSAPI
 class KHttpNegotiateAuthentication : public KAbstractHttpAuthentication
@@ -243,7 +279,7 @@ public:
 private:
     friend class KAbstractHttpAuthentication;
     KHttpNegotiateAuthentication(KConfigGroup *config = 0)
-     : KAbstractHttpAuthentication(config) {}
+        : KAbstractHttpAuthentication(config) {}
 };
 #endif // HAVE_LIBGSSAPI
 

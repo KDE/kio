@@ -17,7 +17,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #ifndef KPAC_DOWNLOADER_H
 #define KPAC_DOWNLOADER_H
 
@@ -26,41 +25,52 @@
 #include <QUrl>
 
 class KJob;
-namespace KIO { class Job; }
+namespace KIO
+{
+class Job;
+}
 
 namespace KPAC
 {
-    class Downloader : public QObject
+class Downloader : public QObject
+{
+    Q_OBJECT
+public:
+    Downloader(QObject *);
+
+    void download(const QUrl &);
+    const QUrl &scriptUrl()
     {
-        Q_OBJECT
-    public:
-        Downloader( QObject* );
+        return m_scriptURL;
+    }
+    const QString &script()
+    {
+        return m_script;
+    }
+    const QString &error()
+    {
+        return m_error;
+    }
 
-        void download( const QUrl & );
-        const QUrl & scriptUrl() { return m_scriptURL; }
-        const QString& script() { return m_script; }
-        const QString& error() { return m_error; }
+Q_SIGNALS:
+    void result(bool);
 
-    Q_SIGNALS:
-        void result( bool );
+protected:
+    virtual void failed();
+    void setError(const QString &);
 
-    protected:
-        virtual void failed();
-        void setError( const QString& );
+private Q_SLOTS:
+    void redirection(KIO::Job *, const QUrl &);
+    void data(KIO::Job *, const QByteArray &);
+    void result(KJob *);
 
-    private Q_SLOTS:
-        void redirection( KIO::Job*, const QUrl & );
-        void data( KIO::Job*, const QByteArray& );
-        void result( KJob* );
-
-    private:
-        QByteArray m_data;
-        QUrl m_scriptURL;
-        QString m_script;
-        QString m_error;
-    };
+private:
+    QByteArray m_data;
+    QUrl m_scriptURL;
+    QString m_script;
+    QString m_error;
+};
 }
 
 #endif // KPAC_DOWNLOADER_H
 
-// vim: ts=4 sw=4 et

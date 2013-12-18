@@ -50,7 +50,7 @@ public:
          * @param path the path to check
          * @return the mount point of the given file
          */
-        Ptr findByPath(const QString& path) const;
+        Ptr findByPath(const QString &path) const;
 
         /**
          * Returns the mount point associated with @p device,
@@ -58,7 +58,7 @@ public:
          * (after symlink resolution).
          * @return the mountpoint, or 0 if this device doesn't exist or isn't mounted
          */
-        Ptr findByDevice(const QString& device) const;
+        Ptr findByDevice(const QString &device) const;
     };
 public:
     /**
@@ -120,7 +120,8 @@ public:
     bool probablySlow() const;
 
     enum FileSystemFlag { SupportsChmod, SupportsChown, SupportsUTime,
-                          SupportsSymlinks, CaseInsensitive };
+                          SupportsSymlinks, CaseInsensitive
+                        };
     /**
      * Checks the capabilities of the filesystem.
      * @param flag the flag to check
@@ -153,7 +154,7 @@ private:
     KMountPoint();
 
     class Private;
-    Private * const d;
+    Private *const d;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(KMountPoint::DetailsNeededFlags)

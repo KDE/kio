@@ -24,7 +24,8 @@
 
 class QWidget;
 
-namespace KIO {
+namespace KIO
+{
 
 class SkipDialogPrivate;
 /**
@@ -32,22 +33,22 @@ class SkipDialogPrivate;
  */
 class KIOWIDGETS_EXPORT SkipDialog : public QDialog
 {
-  Q_OBJECT
+    Q_OBJECT
 public:
-  SkipDialog( QWidget *parent, bool _multi, const QString& _error_text );
-  ~SkipDialog();
+    SkipDialog(QWidget *parent, bool _multi, const QString &_error_text);
+    ~SkipDialog();
 
 private Q_SLOTS:
-  void cancelPressed();
-  void skipPressed();
-  void autoSkipPressed();
-  void retryPressed();
+    void cancelPressed();
+    void skipPressed();
+    void autoSkipPressed();
+    void retryPressed();
 
 Q_SIGNALS:
-  void result( SkipDialog *_this, int _button );
+    void result(SkipDialog *_this, int _button);
 
 private:
-  SkipDialogPrivate * const d;
+    SkipDialogPrivate *const d;
 };
 
 }

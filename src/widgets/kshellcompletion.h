@@ -29,15 +29,15 @@ class KShellCompletionPrivate;
 
 /**
  * This class does shell-like completion of file names.
- * A string passed to makeCompletion() will be interpreted as a shell 
- * command line. Completion will be done on the last argument on the line. 
- * Returned matches consist of the first arguments (uncompleted) plus the 
+ * A string passed to makeCompletion() will be interpreted as a shell
+ * command line. Completion will be done on the last argument on the line.
+ * Returned matches consist of the first arguments (uncompleted) plus the
  * completed last argument.
  *
  * @short Shell-like completion of file names
  * @author David Smith <dsmith@algonet.se>
  */
-class KIOWIDGETS_EXPORT KShellCompletion : public KUrlCompletion 
+class KIOWIDGETS_EXPORT KShellCompletion : public KUrlCompletion
 {
     Q_OBJECT
 
@@ -58,12 +58,12 @@ public:
 
 protected:
     // Called by KCompletion
-    void postProcessMatch( QString *match ) const;
-    void postProcessMatches( QStringList *matches ) const;
-    void postProcessMatches( KCompletionMatches *matches ) const;
+    void postProcessMatch(QString *match) const;
+    void postProcessMatches(QStringList *matches) const;
+    void postProcessMatches(KCompletionMatches *matches) const;
 
 private:
-    KShellCompletionPrivate * const d;
+    KShellCompletionPrivate *const d;
 };
 
 #endif // KSHELLCOMPLETION_H

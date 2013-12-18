@@ -39,54 +39,52 @@ Testcases:
 */
 
 HTTPFilterBase::HTTPFilterBase()
- : last(0)
+    : last(0)
 {
 }
 
 HTTPFilterBase::~HTTPFilterBase()
 {
-   delete last;
+    delete last;
 }
 
 void
 HTTPFilterBase::chain(HTTPFilterBase *previous)
 {
-   last = previous;
-   connect(last, SIGNAL(output(QByteArray)),
-           this, SLOT(slotInput(QByteArray)));
+    last = previous;
+    connect(last, SIGNAL(output(QByteArray)),
+            this, SLOT(slotInput(QByteArray)));
 }
 
 HTTPFilterChain::HTTPFilterChain()
- : first(0)
+    : first(0)
 {
 }
 
 void
 HTTPFilterChain::addFilter(HTTPFilterBase *filter)
 {
-   if (!last)
-   {
-      first = filter;
-   }
-   else
-   {
-      disconnect(last, SIGNAL(output(QByteArray)), 0, 0);
-      filter->chain(last);
-   }
-   last = filter;
-   connect(filter, SIGNAL(output(QByteArray)),
-           this, SIGNAL(output(QByteArray)));
-   connect(filter, SIGNAL(error(QString)),
-           this, SIGNAL(error(QString)));
+    if (!last) {
+        first = filter;
+    } else {
+        disconnect(last, SIGNAL(output(QByteArray)), 0, 0);
+        filter->chain(last);
+    }
+    last = filter;
+    connect(filter, SIGNAL(output(QByteArray)),
+            this, SIGNAL(output(QByteArray)));
+    connect(filter, SIGNAL(error(QString)),
+            this, SIGNAL(error(QString)));
 }
 
 void
 HTTPFilterChain::slotInput(const QByteArray &d)
 {
-   if (first)
-      first->slotInput(d);
-   else
-      emit output(d);
+    if (first) {
+        first->slotInput(d);
+    } else {
+        emit output(d);
+    }
 }
 
 HTTPFilterMD5::HTTPFilterMD5() : context(QCryptographicHash::Md5)
@@ -102,10 +100,9 @@ HTTPFilterMD5::md5()
 void
 HTTPFilterMD5::slotInput(const QByteArray &d)
 {
-   context.addData(d);
-   emit output(d);
+    context.addData(d);
+    emit output(d);
 }
-
 
 HTTPFilterGZip::HTTPFilterGZip(bool deflate)
     : m_deflateMode(deflate),
@@ -136,8 +133,9 @@ HTTPFilterGZip::~HTTPFilterGZip()
 void
 HTTPFilterGZip::slotInput(const QByteArray &d)
 {
-    if (d.isEmpty())
+    if (d.isEmpty()) {
         return;
+    }
 
     //qDebug() << "Got" << d.size() << "bytes as input";
     if (m_firstData) {
@@ -179,8 +177,7 @@ HTTPFilterGZip::slotInput(const QByteArray &d)
         //qDebug() << "uncompress returned" << result;
         switch (result) {
         case KFilterBase::Ok:
-        case KFilterBase::End:
-        {
+        case KFilterBase::End: {
             const int bytesOut = sizeof(buf) - m_gzipFilter->outBufferAvailable();
             if (bytesOut) {
                 emit output(QByteArray(buf, bytesOut));
@@ -206,4 +203,4 @@ HTTPFilterDeflate::HTTPFilterDeflate()
 {
 }
 
-#include "moc_httpfilter.cpp" 
+#include "moc_httpfilter.cpp"

@@ -26,51 +26,52 @@
 class KJob;
 class QUrl;
 
-namespace KIO  {
-    class Job;
-    class JobUiDelegate;
+namespace KIO
+{
+class Job;
+class JobUiDelegate;
+
+/**
+ * Updates the clipboard when it is affected by KIO operations.
+ *
+ * UpdateContent updates clipboard urls that were modified. This mode should
+ * be the one preferred by default because it will not change the contents
+ * of the clipboard if the urls modified by the job are not found in the
+ * clipboard.
+ *
+ * OverwriteContent blindly replaces all urls in the clipboard with the ones
+ * from the job. This mode should not be used unless you are 100% certain that
+ * the urls in the clipboard are actually there for the purposes of carrying
+ * out the specified job. This mode for example is used by the KIO::pasteClipboard
+ * job when a user performs a cut+paste operation.
+ *
+ * This class also sets @ref job as its parent object. As such, when @ref job
+ * is deleted the instance of ClipboardUpdater you create will also be deleted
+ * as well.
+ */
+class ClipboardUpdater : public QObject
+{
+    Q_OBJECT
+
+public:
+    /**
+     * Convenience function that allows renaming of a single url in the clipboard.
+     */
+    static void update(const QUrl &srcUrl, const QUrl &destUrl);
 
     /**
-     * Updates the clipboard when it is affected by KIO operations.
-     *
-     * UpdateContent updates clipboard urls that were modified. This mode should
-     * be the one preferred by default because it will not change the contents
-     * of the clipboard if the urls modified by the job are not found in the
-     * clipboard.
-     *
-     * OverwriteContent blindly replaces all urls in the clipboard with the ones
-     * from the job. This mode should not be used unless you are 100% certain that
-     * the urls in the clipboard are actually there for the purposes of carrying
-     * out the specified job. This mode for example is used by the KIO::pasteClipboard
-     * job when a user performs a cut+paste operation.
-     *
-     * This class also sets @ref job as its parent object. As such, when @ref job
-     * is deleted the instance of ClipboardUpdater you create will also be deleted
-     * as well.
+     * Sets the mode.
      */
-    class ClipboardUpdater : public QObject
-    {
-        Q_OBJECT
+    void setMode(JobUiDelegateExtension::ClipboardUpdaterMode m);
 
-    public:
-        /**
-         * Convenience function that allows renaming of a single url in the clipboard.
-         */
-        static void update(const QUrl& srcUrl, const QUrl& destUrl);
+private Q_SLOTS:
+    void slotResult(KJob *job);
 
-        /**
-         * Sets the mode.
-         */
-        void setMode(JobUiDelegateExtension::ClipboardUpdaterMode m);
-
-    private Q_SLOTS:
-        void slotResult(KJob* job);
-
-    private:
-        explicit ClipboardUpdater(Job* job, JobUiDelegateExtension::ClipboardUpdaterMode mode);
-        friend class JobUiDelegate;
-        JobUiDelegateExtension::ClipboardUpdaterMode m_mode;
-    };
+private:
+    explicit ClipboardUpdater(Job *job, JobUiDelegateExtension::ClipboardUpdaterMode mode);
+    friend class JobUiDelegate;
+    JobUiDelegateExtension::ClipboardUpdaterMode m_mode;
+};
 }
 
 #endif

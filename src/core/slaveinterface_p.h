@@ -27,7 +27,6 @@
 
 static const unsigned int max_nums = 8;
 
-
 class KIO::SlaveInterfacePrivate
 {
 public:
@@ -58,7 +57,7 @@ public:
     uint nums;
     bool slave_calcs_speed;
 
-    void slotHostInfo(const QHostInfo& info);
+    void slotHostInfo(const QHostInfo &info);
 };
 
 #endif

@@ -38,7 +38,7 @@ public:
           m_supportsMoving(false),
           m_isLocal(true)
     { }
-    void setItems(const KFileItemList& items);
+    void setItems(const KFileItemList &items);
 
     void determineMimeTypeAndGroup() const;
 
@@ -54,24 +54,23 @@ public:
     bool m_isLocal : 1;
 };
 
-
 KFileItemListProperties::KFileItemListProperties()
     : d(new KFileItemListPropertiesPrivate)
 {
 }
 
-KFileItemListProperties::KFileItemListProperties(const KFileItemList& items)
+KFileItemListProperties::KFileItemListProperties(const KFileItemList &items)
     : d(new KFileItemListPropertiesPrivate)
 {
     setItems(items);
 }
 
-void KFileItemListProperties::setItems(const KFileItemList& items)
+void KFileItemListProperties::setItems(const KFileItemList &items)
 {
     d->setItems(items);
 }
 
-void KFileItemListPropertiesPrivate::setItems(const KFileItemList& items)
+void KFileItemListPropertiesPrivate::setItems(const KFileItemList &items)
 {
     const bool initialValue = !items.isEmpty();
     m_items = items;
@@ -97,7 +96,7 @@ void KFileItemListPropertiesPrivate::setItems(const KFileItemList& items)
         // For local files we can do better: check if we have write permission in parent directory
         // TODO: if we knew about the parent KFileItem, we could even do that for remote protocols too
         if (m_isLocal && (m_supportsDeleting || m_supportsMoving)) {
-            const QString directory = url.adjusted(QUrl::RemoveFilename|QUrl::StripTrailingSlash).path();
+            const QString directory = url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash).path();
             if (parentDirInfo.filePath() != directory) {
                 parentDirInfo.setFile(directory);
             }
@@ -112,12 +111,11 @@ void KFileItemListPropertiesPrivate::setItems(const KFileItemList& items)
     }
 }
 
-KFileItemListProperties::KFileItemListProperties(const KFileItemListProperties& other)
+KFileItemListProperties::KFileItemListProperties(const KFileItemListProperties &other)
     : d(other.d)
 { }
 
-
-KFileItemListProperties& KFileItemListProperties::operator=(const KFileItemListProperties& other)
+KFileItemListProperties &KFileItemListProperties::operator=(const KFileItemListProperties &other)
 {
     d = other.d;
     return *this;
@@ -169,15 +167,17 @@ bool KFileItemListProperties::isDirectory() const
 
 QString KFileItemListProperties::mimeType() const
 {
-    if (d->m_mimeType.isEmpty())
+    if (d->m_mimeType.isEmpty()) {
         d->determineMimeTypeAndGroup();
+    }
     return d->m_mimeType;
 }
 
 QString KFileItemListProperties::mimeGroup() const
 {
-    if (d->m_mimeType.isEmpty())
+    if (d->m_mimeType.isEmpty()) {
         d->determineMimeTypeAndGroup();
+    }
     return d->m_mimeGroup;
 }
 

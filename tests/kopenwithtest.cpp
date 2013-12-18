@@ -35,32 +35,32 @@ int main(int argc, char **argv)
     list += QUrl("file:///tmp/testfile.txt");
 
     // Test with one URL
-    KOpenWithDialog* dlg = new KOpenWithDialog(list, "OpenWith_Text", "OpenWith_Value", 0);
-    if(dlg->exec()) {
+    KOpenWithDialog *dlg = new KOpenWithDialog(list, "OpenWith_Text", "OpenWith_Value", 0);
+    if (dlg->exec()) {
         qDebug() << "Dialog ended successfully\ntext: " << dlg->text();
-    }
-    else
+    } else {
         qDebug() << "Dialog was canceled.";
+    }
     delete dlg;
 
     // Test with two URLs
     list += QUrl("http://www.kde.org/index.html");
     dlg = new KOpenWithDialog(list, "OpenWith_Text", "OpenWith_Value", 0);
-    if(dlg->exec()) {
+    if (dlg->exec()) {
         qDebug() << "Dialog ended successfully\ntext: " << dlg->text();
-    }
-    else
+    } else {
         qDebug() << "Dialog was canceled.";
+    }
     delete dlg;
 
     // Test with a mimetype
     QString mimetype = "text/plain";
-    dlg = new KOpenWithDialog( mimetype, "kedit", 0);
-    if(dlg->exec()) {
+    dlg = new KOpenWithDialog(mimetype, "kedit", 0);
+    if (dlg->exec()) {
         qDebug() << "Dialog ended successfully\ntext: " << dlg->text();
-    }
-    else
+    } else {
         qDebug() << "Dialog was canceled.";
+    }
     delete dlg;
 
     return 0;

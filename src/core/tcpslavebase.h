@@ -33,7 +33,8 @@
 
 class QIODevice;
 
-namespace KIO {
+namespace KIO
+{
 
 /**
  * There are two classes that specifies the protocol between application (job)
@@ -111,7 +112,7 @@ protected:
      *         on failure, false is returned and an appropriate
      *         error message is sent to the application.
      */
-    bool connectToHost(const QString &protocol, const QString& host, quint16 port);
+    bool connectToHost(const QString &protocol, const QString &host, quint16 port);
 
     /**
      * Connects to the specified host and port.
@@ -127,7 +128,7 @@ protected:
      *
      * @since 4.7.2
      */
-    int connectToHost(const QString& host, quint16 port, QString* errorString = 0);
+    int connectToHost(const QString &host, quint16 port, QString *errorString = 0);
 
     /**
      * the current port for this service
@@ -190,7 +191,7 @@ protected:
      * @return true if any data arrived on the socket before the
      *              timeout value was reached, false otherwise.
      */
-    bool waitForResponse( int t );
+    bool waitForResponse(int t);
 
     /**
      * Sets the mode of the connection to blocking or non-blocking.
@@ -201,7 +202,7 @@ protected:
      *
      * @param b true to make the connection a blocking one, false otherwise.
      */
-    void setBlocking( bool b );
+    void setBlocking(bool b);
 
     /**
      * Return the socket object, if the class ever needs to do anything to it
@@ -209,7 +210,7 @@ protected:
     QIODevice *socket() const;
 
 protected:
-    virtual void virtual_hook( int id, void* data );
+    virtual void virtual_hook(int id, void *data);
 
 private:
     // For the certificate verification code
@@ -219,7 +220,7 @@ private:
     void selectClientCertificate();
 
     class TcpSlaveBasePrivate;
-    TcpSlaveBasePrivate* const d;
+    TcpSlaveBasePrivate *const d;
 };
 
 }

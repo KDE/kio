@@ -39,63 +39,63 @@
 
 class FileProtocol : public QObject, public KIO::SlaveBase
 {
-  Q_OBJECT
+    Q_OBJECT
 public:
-  FileProtocol( const QByteArray &pool, const QByteArray &app);
-  virtual ~FileProtocol();
+    FileProtocol(const QByteArray &pool, const QByteArray &app);
+    virtual ~FileProtocol();
 
-  virtual void get( const QUrl& url );
-  virtual void put( const QUrl& url, int _mode,
-		    KIO::JobFlags _flags );
-  virtual void copy( const QUrl &src, const QUrl &dest,
-                     int mode, KIO::JobFlags flags );
-  virtual void rename( const QUrl &src, const QUrl &dest,
-                       KIO::JobFlags flags );
-  virtual void symlink( const QString &target, const QUrl &dest,
-                        KIO::JobFlags flags );
+    virtual void get(const QUrl &url);
+    virtual void put(const QUrl &url, int _mode,
+                     KIO::JobFlags _flags);
+    virtual void copy(const QUrl &src, const QUrl &dest,
+                      int mode, KIO::JobFlags flags);
+    virtual void rename(const QUrl &src, const QUrl &dest,
+                        KIO::JobFlags flags);
+    virtual void symlink(const QString &target, const QUrl &dest,
+                         KIO::JobFlags flags);
 
-  virtual void stat( const QUrl& url );
-  virtual void listDir( const QUrl& url );
-  virtual void mkdir( const QUrl& url, int permissions );
-  virtual void chmod( const QUrl& url, int permissions );
-  virtual void chown( const QUrl& url, const QString& owner, const QString& group );
-  virtual void setModificationTime( const QUrl& url, const QDateTime& mtime );
-  virtual void del( const QUrl& url, bool isfile);
-  virtual void open( const QUrl &url, QIODevice::OpenMode mode );
-  virtual void read( KIO::filesize_t size );
-  virtual void write( const QByteArray &data );
-  virtual void seek( KIO::filesize_t offset );
-  virtual void close();
+    virtual void stat(const QUrl &url);
+    virtual void listDir(const QUrl &url);
+    virtual void mkdir(const QUrl &url, int permissions);
+    virtual void chmod(const QUrl &url, int permissions);
+    virtual void chown(const QUrl &url, const QString &owner, const QString &group);
+    virtual void setModificationTime(const QUrl &url, const QDateTime &mtime);
+    virtual void del(const QUrl &url, bool isfile);
+    virtual void open(const QUrl &url, QIODevice::OpenMode mode);
+    virtual void read(KIO::filesize_t size);
+    virtual void write(const QByteArray &data);
+    virtual void seek(KIO::filesize_t offset);
+    virtual void close();
 
-  /**
-   * Special commands supported by this slave:
-   * 1 - mount
-   * 2 - unmount
-   */
-  virtual void special( const QByteArray &data );
-  void unmount( const QString& point );
-  void mount( bool _ro, const char *_fstype, const QString& dev, const QString& point );
-  bool pumount( const QString &point );
-  bool pmount( const QString &dev );
+    /**
+     * Special commands supported by this slave:
+     * 1 - mount
+     * 2 - unmount
+     */
+    virtual void special(const QByteArray &data);
+    void unmount(const QString &point);
+    void mount(bool _ro, const char *_fstype, const QString &dev, const QString &point);
+    bool pumount(const QString &point);
+    bool pmount(const QString &dev);
 
 #if HAVE_POSIX_ACL
-  static bool isExtendedACL(acl_t acl);
+    static bool isExtendedACL(acl_t acl);
 #endif
 
 private:
-  bool createUDSEntry( const QString & filename, const QByteArray & path, KIO::UDSEntry & entry,
-                       short int details, bool withACL );
-  int setACL( const char *path, mode_t perm, bool _directoryDefault );
+    bool createUDSEntry(const QString &filename, const QByteArray &path, KIO::UDSEntry &entry,
+                        short int details, bool withACL);
+    int setACL(const char *path, mode_t perm, bool _directoryDefault);
 
-  QString getUserName( uid_t uid ) const;
-  QString getGroupName( gid_t gid ) const;
+    QString getUserName(uid_t uid) const;
+    QString getGroupName(gid_t gid) const;
 
-    bool deleteRecursive(const QString& path);
+    bool deleteRecursive(const QString &path);
 
 private:
-  mutable QHash<uid_t, QString> mUsercache;
-  mutable QHash<gid_t, QString> mGroupcache;
-  QFile *mFile;
+    mutable QHash<uid_t, QString> mUsercache;
+    mutable QHash<gid_t, QString> mGroupcache;
+    QFile *mFile;
 };
 
 #endif

@@ -59,10 +59,10 @@ public:
      *                the model of the view (or the source model of the proxy model)
      *                is an instance of KDirModel. Otherwise no previews will be generated.
      */
-    KFilePreviewGenerator(QAbstractItemView* parent);
+    KFilePreviewGenerator(QAbstractItemView *parent);
 
     /** @internal */
-    KFilePreviewGenerator(KAbstractViewAdapter* parent, QAbstractProxyModel* model);
+    KFilePreviewGenerator(KAbstractViewAdapter *parent, QAbstractProxyModel *model);
 
     virtual ~KFilePreviewGenerator();
 
@@ -106,7 +106,7 @@ public:
      *
      * @see enabledPlugins
      */
-    void setEnabledPlugins(const QStringList& list);
+    void setEnabledPlugins(const QStringList &list);
 
     /**
      * Returns the list of enabled thumbnail plugins.
@@ -116,24 +116,24 @@ public:
 
 private:
     class Private;
-    Private* const d; /// @internal
+    Private *const d; /// @internal
     class LayoutBlocker;
     class TileSet;
 
     Q_DISABLE_COPY(KFilePreviewGenerator)
 
-    Q_PRIVATE_SLOT(d, void updateIcons(const KFileItemList&))
-    Q_PRIVATE_SLOT(d, void updateIcons(const QModelIndex&, const QModelIndex&))
-    Q_PRIVATE_SLOT(d, void addToPreviewQueue(const KFileItem&, const QPixmap&))
-    Q_PRIVATE_SLOT(d, void slotPreviewJobFinished(KJob*))
+    Q_PRIVATE_SLOT(d, void updateIcons(const KFileItemList &))
+    Q_PRIVATE_SLOT(d, void updateIcons(const QModelIndex &, const QModelIndex &))
+    Q_PRIVATE_SLOT(d, void addToPreviewQueue(const KFileItem &, const QPixmap &))
+    Q_PRIVATE_SLOT(d, void slotPreviewJobFinished(KJob *))
     Q_PRIVATE_SLOT(d, void updateCutItems())
     Q_PRIVATE_SLOT(d, void dispatchIconUpdateQueue())
     Q_PRIVATE_SLOT(d, void pauseIconUpdates())
     Q_PRIVATE_SLOT(d, void resumeIconUpdates())
     Q_PRIVATE_SLOT(d, void resolveMimeType())
-    Q_PRIVATE_SLOT(d, void requestSequenceIcon(const QModelIndex&, int))
+    Q_PRIVATE_SLOT(d, void requestSequenceIcon(const QModelIndex &, int))
     Q_PRIVATE_SLOT(d, void delayedIconUpdate())
-    Q_PRIVATE_SLOT(d, void rowsAboutToBeRemoved(const QModelIndex&, int, int))
+    Q_PRIVATE_SLOT(d, void rowsAboutToBeRemoved(const QModelIndex &, int, int))
 };
 
 #endif

@@ -47,24 +47,25 @@ int main(int argc, char **argv)
 
     QUrl url(argv[1]);
     QStringList cmd;
-    if (terminal == "konsole")
+    if (terminal == "konsole") {
         cmd << "--noclose";
+    }
 
     cmd << "-e";
-    if ( url.scheme() == "telnet" )
+    if (url.scheme() == "telnet") {
         cmd << "telnet";
-    else if ( url.scheme() == "ssh" )
+    } else if (url.scheme() == "ssh") {
         cmd << "ssh";
-    else if ( url.scheme() == "rlogin" )
+    } else if (url.scheme() == "rlogin") {
         cmd << "rlogin";
-    else {
+    } else {
         qCritical() << "Invalid protocol " << url.scheme() << endl;
         return 2;
     }
 
     if (!KAuthorized::authorize("shell_access")) {
         KMessageBox::sorry(0,
-            i18n("You do not have permission to access the %1 protocol.", url.scheme()));
+                           i18n("You do not have permission to access the %1 protocol.", url.scheme()));
         return 3;
     }
 
@@ -74,10 +75,11 @@ int main(int argc, char **argv)
     }
 
     QString host;
-    if (!url.host().isEmpty())
-       host = url.host(); // telnet://host
-    else if (!url.path().isEmpty())
-       host = url.path(); // telnet:host
+    if (!url.host().isEmpty()) {
+        host = url.host();    // telnet://host
+    } else if (!url.path().isEmpty()) {
+        host = url.path();    // telnet:host
+    }
 
     if (host.isEmpty() || host.startsWith('-')) {
         qCritical() << "Invalid hostname " << host << endl;
@@ -87,10 +89,11 @@ int main(int argc, char **argv)
     cmd << host;
 
     if (url.port() > 0) {
-        if (url.scheme() == QLatin1String("ssh"))
+        if (url.scheme() == QLatin1String("ssh")) {
             cmd << "-p" << QString::number(url.port());
-        else
+        } else {
             cmd << QString::number(url.port());
+        }
     }
 
     KToolInvocation::kdeinitExec(terminal, cmd);

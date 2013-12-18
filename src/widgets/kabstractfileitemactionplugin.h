@@ -106,8 +106,8 @@ public:
      *         It is recommended to use the KAbstractFileItemActionPlugin as parent
      *         of the actions.
      */
-    virtual QList<QAction*> actions(const KFileItemListProperties &fileItemInfos,
-                                    QWidget *parentWidget) = 0;
+    virtual QList<QAction *> actions(const KFileItemListProperties &fileItemInfos,
+                                     QWidget *parentWidget) = 0;
 };
 
 #endif

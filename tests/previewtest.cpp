@@ -11,9 +11,8 @@
 #include <kiconloader.h>
 #include <kio/previewjob.h>
 
-
 PreviewTest::PreviewTest()
-    :QWidget()
+    : QWidget()
 {
     QGridLayout *layout = new QGridLayout(this);
     m_url = new QLineEdit(this);
@@ -44,12 +43,12 @@ void PreviewTest::slotGenerate()
     connect(job, SIGNAL(failed(KFileItem)), SLOT(slotFailed()));
 }
 
-void PreviewTest::slotResult(KJob*)
+void PreviewTest::slotResult(KJob *)
 {
     qDebug() << "PreviewTest::slotResult(...)";
 }
 
-void PreviewTest::slotPreview(const KFileItem&, const QPixmap &pix)
+void PreviewTest::slotPreview(const KFileItem &, const QPixmap &pix)
 {
     qDebug() << "PreviewTest::slotPreview()";
     m_preview->setPixmap(pix);

@@ -51,14 +51,13 @@ public:
     QPushButton *clearButton;
 };
 
-
-KUrlRequesterDialog::KUrlRequesterDialog( const QUrl& urlName, QWidget *parent)
+KUrlRequesterDialog::KUrlRequesterDialog(const QUrl &urlName, QWidget *parent)
     : QDialog(parent), d(new KUrlRequesterDialogPrivate(this))
 {
     d->initDialog(i18n("Location:"), urlName);
 }
 
-KUrlRequesterDialog::KUrlRequesterDialog( const QUrl& urlName, const QString& _text, QWidget *parent)
+KUrlRequesterDialog::KUrlRequesterDialog(const QUrl &urlName, const QString &_text, QWidget *parent)
     : QDialog(parent), d(new KUrlRequesterDialogPrivate(this))
 {
     d->initDialog(_text, urlName);
@@ -69,13 +68,13 @@ KUrlRequesterDialog::~KUrlRequesterDialog()
     delete d;
 }
 
-void KUrlRequesterDialogPrivate::initDialog(const QString &text,const QUrl &urlName)
+void KUrlRequesterDialogPrivate::initDialog(const QString &text, const QUrl &urlName)
 {
     QVBoxLayout *topLayout = new QVBoxLayout;
     q->setLayout(topLayout);
 
     QLabel *label = new QLabel(text, q);
-    topLayout->addWidget( label );
+    topLayout->addWidget(label);
 
     urlRequester = new KUrlRequester(urlName, q);
     urlRequester->setMinimumWidth(urlRequester->sizeHint().width() * 3);
@@ -86,7 +85,7 @@ void KUrlRequesterDialogPrivate::initDialog(const QString &text,const QUrl &urlN
     /*
     KFile::Mode mode = static_cast<KFile::Mode>( KFile::File |
             KFile::ExistingOnly );
-	urlRequester_->setMode( mode );
+    urlRequester_->setMode( mode );
     */
 
     clearButton = new QPushButton;
@@ -103,7 +102,7 @@ void KUrlRequesterDialogPrivate::initDialog(const QString &text,const QUrl &urlN
     _k_slotTextChanged(urlName.toString());
 }
 
-void KUrlRequesterDialogPrivate::_k_slotTextChanged(const QString & text)
+void KUrlRequesterDialogPrivate::_k_slotTextChanged(const QString &text)
 {
     bool state = !text.trimmed().isEmpty();
     buttonBox->button(QDialogButtonBox::Ok)->setEnabled(state);
@@ -117,15 +116,15 @@ void KUrlRequesterDialogPrivate::_k_slotClear()
 
 QUrl KUrlRequesterDialog::selectedUrl() const
 {
-    if ( result() == QDialog::Accepted )
+    if (result() == QDialog::Accepted) {
         return d->urlRequester->url();
-    else
+    } else {
         return QUrl();
+    }
 }
 
-
-QUrl KUrlRequesterDialog::getUrl(const QUrl& dir, QWidget *parent,
-                                 const QString& caption)
+QUrl KUrlRequesterDialog::getUrl(const QUrl &dir, QWidget *parent,
+                                 const QString &caption)
 {
     KUrlRequesterDialog dlg(dir, parent);
 
@@ -133,25 +132,25 @@ QUrl KUrlRequesterDialog::getUrl(const QUrl& dir, QWidget *parent,
 
     dlg.exec();
 
-    const QUrl& url = dlg.selectedUrl();
-    if (url.isValid())
+    const QUrl &url = dlg.selectedUrl();
+    if (url.isValid()) {
         KRecentDocument::add(url);
+    }
 
     return url;
 }
 
 #ifndef KDE_NO_DEPRECATED
-QFileDialog * KUrlRequesterDialog::fileDialog()
+QFileDialog *KUrlRequesterDialog::fileDialog()
 {
     return d->urlRequester->fileDialog();
 }
 #endif
 
-KUrlRequester * KUrlRequesterDialog::urlRequester()
+KUrlRequester *KUrlRequesterDialog::urlRequester()
 {
     return d->urlRequester;
 }
 
 #include "moc_kurlrequesterdialog.cpp"
 
-// vim:ts=4:sw=4:tw=78

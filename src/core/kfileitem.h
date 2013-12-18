@@ -59,7 +59,7 @@ public:
         ModificationTime = 0,
         AccessTime = 1,
         CreationTime = 2
-        //ChangeTime
+                       //ChangeTime
     };
 
     /**
@@ -85,9 +85,9 @@ public:
      * When creating KFileItems out of the UDSEntry emitted by a KIO list job,
      * use KFileItem(entry, listjob->url(), delayedMimeTypes, true);
      */
-    KFileItem( const KIO::UDSEntry& entry, const QUrl& itemOrDirUrl,
-               bool delayedMimeTypes = false,
-               bool urlIsDirectory = false );
+    KFileItem(const KIO::UDSEntry &entry, const QUrl &itemOrDirUrl,
+              bool delayedMimeTypes = false,
+              bool urlIsDirectory = false);
 
     /**
      * Creates an item representing a file, from all the necessary info for it.
@@ -105,8 +105,8 @@ public:
      * so just port to KFileItem(url) and setDelayedMimeTypes(true) if necessary.
      */
 #ifndef KDE_NO_DEPRECATED
-    KIOCORE_DEPRECATED KFileItem( mode_t mode, mode_t permissions, const QUrl& url,
-               bool delayedMimeTypes = false );
+    KIOCORE_DEPRECATED KFileItem(mode_t mode, mode_t permissions, const QUrl &url,
+                                 bool delayedMimeTypes = false);
 #endif
 
     /**
@@ -120,11 +120,11 @@ public:
     /**
      * Copy constructor
      */
-    KFileItem(const KFileItem& other);
+    KFileItem(const KFileItem &other);
     /**
      * Assignment operator
      */
-    KFileItem& operator=(const KFileItem& other);
+    KFileItem &operator=(const KFileItem &other);
 
     /**
      * Destructs the KFileItem. Extra data set via setExtraData()
@@ -162,7 +162,7 @@ public:
      * (used for example when an item got renamed).
      * @param url the item's URL
      */
-    void setUrl( const QUrl &url );
+    void setUrl(const QUrl &url);
 
     /**
      * Sets the item's name (i.e. the filename).
@@ -170,7 +170,7 @@ public:
      * This method is provided for some special cases like relative paths as names (KFindPart)
      * @param name the item's name
      */
-    void setName( const QString &name );
+    void setName(const QString &name);
 
     /**
      * Returns the permissions of the file (stat.st_mode containing only permissions).
@@ -309,7 +309,7 @@ public:
      * @return the time asked for, QDateTime() if not available
      * @see timeString()
      */
-    QDateTime time( FileTimes which ) const;
+    QDateTime time(FileTimes which) const;
 
     /**
      * Requests the modification, access or creation time as a string, depending
@@ -318,9 +318,9 @@ public:
      * @returns a formatted string of the requested time.
      * @see time
      */
-    QString timeString( FileTimes which = ModificationTime ) const;
+    QString timeString(FileTimes which = ModificationTime) const;
 #ifndef KDE_NO_DEPRECATED
-    KIOCORE_DEPRECATED QString timeString( unsigned int which) const;
+    KIOCORE_DEPRECATED QString timeString(unsigned int which) const;
 #endif
 
     /**
@@ -343,7 +343,7 @@ public:
      * which is useful to speed up sorting by name, case insensitively.
      * @return the file's name
      */
-    QString name( bool lowerCase = false ) const;
+    QString name(bool lowerCase = false) const;
 
     /**
      * Returns the mimetype of the file item.
@@ -471,18 +471,17 @@ public:
      * @param item the item to compare
      * @return true if all values are equal
      */
-    bool cmp( const KFileItem & item ) const;
+    bool cmp(const KFileItem &item) const;
 
     /**
      * Returns true if both items share the same URL.
      */
-    bool operator==(const KFileItem& other) const;
+    bool operator==(const KFileItem &other) const;
 
     /**
      * Returns true if both items do not share the same URL.
      */
-    bool operator!=(const KFileItem& other) const;
-
+    bool operator!=(const KFileItem &other) const;
 
     /**
      * Converts this KFileItem to a QVariant, this allows to use KFileItem
@@ -526,7 +525,7 @@ public:
      * @deprecated use model/view (KDirModel) and you won't need this anymore
      */
 #ifndef KDE_NO_DEPRECATED
-    KIOCORE_DEPRECATED void setExtraData( const void *key, void *value );
+    KIOCORE_DEPRECATED void setExtraData(const void *key, void *value);
 #endif
 
     /**
@@ -539,7 +538,7 @@ public:
      * @deprecated use model/view (KDirModel) and you won't need this anymore
      */
 #ifndef KDE_NO_DEPRECATED
-    KIOCORE_DEPRECATED const void * extraData( const void *key ) const;
+    KIOCORE_DEPRECATED const void *extraData(const void *key) const;
 #endif
 
     /**
@@ -549,14 +548,14 @@ public:
      * @deprecated use model/view (KDirModel) and you won't need this anymore
      */
 #ifndef KDE_NO_DEPRECATED
-    KIOCORE_DEPRECATED void removeExtraData( const void *key );
+    KIOCORE_DEPRECATED void removeExtraData(const void *key);
 #endif
 
     /**
      * @deprecated simply use '='
      */
 #ifndef KDE_NO_DEPRECATED
-    KIOCORE_DEPRECATED void assign( const KFileItem & item );
+    KIOCORE_DEPRECATED void assign(const KFileItem &item);
 #endif
 
     /**
@@ -581,15 +580,18 @@ private:
     QSharedDataPointer<KFileItemPrivate> d;
 
 private:
-    KIOCORE_EXPORT friend QDataStream & operator<< ( QDataStream & s, const KFileItem & a );
-    KIOCORE_EXPORT friend QDataStream & operator>> ( QDataStream & s, KFileItem & a );
+    KIOCORE_EXPORT friend QDataStream &operator<< (QDataStream &s, const KFileItem &a);
+    KIOCORE_EXPORT friend QDataStream &operator>> (QDataStream &s, KFileItem &a);
 
     friend class KFileItemTest;
 };
 
 Q_DECLARE_METATYPE(KFileItem)
 
-inline uint qHash(const KFileItem& item) { return qHash(item.url()); }
+inline uint qHash(const KFileItem &item)
+{
+    return qHash(item.url());
+}
 
 /**
  * List of KFileItems, which adds a few helper
@@ -598,43 +600,43 @@ inline uint qHash(const KFileItem& item) { return qHash(item.url()); }
 class KIOCORE_EXPORT KFileItemList : public QList<KFileItem>
 {
 public:
-  /// Creates an empty list of file items.
-  KFileItemList();
+    /// Creates an empty list of file items.
+    KFileItemList();
 
-  /// Creates a new KFileItemList from a QList of file @p items.
-  KFileItemList( const QList<KFileItem> &items );
+    /// Creates a new KFileItemList from a QList of file @p items.
+    KFileItemList(const QList<KFileItem> &items);
 
-  /**
-   * Find a KFileItem by name and return it.
-   * @return the item with the given name, or a null-item if none was found
-   *         (see KFileItem::isNull())
-   */
-  KFileItem findByName( const QString& fileName ) const;
+    /**
+     * Find a KFileItem by name and return it.
+     * @return the item with the given name, or a null-item if none was found
+     *         (see KFileItem::isNull())
+     */
+    KFileItem findByName(const QString &fileName) const;
 
-  /**
-   * Find a KFileItem by URL and return it.
-   * @return the item with the given URL, or a null-item if none was found
-   *         (see KFileItem::isNull())
-   */
-  KFileItem findByUrl( const QUrl& url ) const;
+    /**
+     * Find a KFileItem by URL and return it.
+     * @return the item with the given URL, or a null-item if none was found
+     *         (see KFileItem::isNull())
+     */
+    KFileItem findByUrl(const QUrl &url) const;
 
-  /// @return the list of URLs that those items represent
-  QList<QUrl> urlList() const;
+    /// @return the list of URLs that those items represent
+    QList<QUrl> urlList() const;
 
-  /// @return the list of target URLs that those items represent
-  /// @since 4.2
-  QList<QUrl> targetUrlList() const;
+    /// @return the list of target URLs that those items represent
+    /// @since 4.2
+    QList<QUrl> targetUrlList() const;
 
-  // TODO KDE-5 add d pointer here so that we can merge KFileItemListProperties into KFileItemList
+    // TODO KDE-5 add d pointer here so that we can merge KFileItemListProperties into KFileItemList
 };
 
-KIOCORE_EXPORT QDataStream & operator<< ( QDataStream & s, const KFileItem & a );
-KIOCORE_EXPORT QDataStream & operator>> ( QDataStream & s, KFileItem & a );
+KIOCORE_EXPORT QDataStream &operator<< (QDataStream &s, const KFileItem &a);
+KIOCORE_EXPORT QDataStream &operator>> (QDataStream &s, KFileItem &a);
 
 /**
  * Support for qDebug() << aFileItem
  * \since 4.4
  */
-KIOCORE_EXPORT QDebug operator<<(QDebug stream, const KFileItem& item);
+KIOCORE_EXPORT QDebug operator<<(QDebug stream, const KFileItem &item);
 
 #endif

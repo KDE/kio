@@ -35,7 +35,7 @@
 namespace KDEPrivate
 {
 
-KUrlNavigatorPlacesSelector::KUrlNavigatorPlacesSelector(QWidget* parent, KFilePlacesModel* placesModel) :
+KUrlNavigatorPlacesSelector::KUrlNavigatorPlacesSelector(QWidget *parent, KFilePlacesModel *placesModel) :
     KUrlNavigatorButtonBase(parent),
     m_selectedItem(-1),
     m_placesModel(placesModel)
@@ -72,7 +72,7 @@ void KUrlNavigatorPlacesSelector::updateMenu()
     const int rowCount = m_placesModel->rowCount();
     for (int i = 0; i < rowCount; ++i) {
         QModelIndex index = m_placesModel->index(i, 0);
-        QAction* action = new QAction(m_placesModel->icon(index),
+        QAction *action = new QAction(m_placesModel->icon(index),
                                       m_placesModel->text(index),
                                       m_placesMenu);
         m_placesMenu->addAction(action);
@@ -88,9 +88,9 @@ void KUrlNavigatorPlacesSelector::updateMenu()
 void KUrlNavigatorPlacesSelector::updateTeardownAction()
 {
     const int rowCount = m_placesModel->rowCount();
-    if (m_placesMenu->actions().size()==rowCount+2) {
+    if (m_placesMenu->actions().size() == rowCount + 2) {
         // remove teardown action
-        QAction *action = m_placesMenu->actions().at(rowCount+1);
+        QAction *action = m_placesMenu->actions().at(rowCount + 1);
         m_placesMenu->removeAction(action);
         delete action;
 
@@ -102,7 +102,7 @@ void KUrlNavigatorPlacesSelector::updateTeardownAction()
 
     const QModelIndex index = m_placesModel->index(m_selectedItem, 0);
     QAction *teardown = m_placesModel->teardownActionForIndex(index);
-    if (teardown!=0) {
+    if (teardown != 0) {
         teardown->setParent(m_placesMenu);
         teardown->setData("teardownAction");
 
@@ -111,7 +111,7 @@ void KUrlNavigatorPlacesSelector::updateTeardownAction()
     }
 }
 
-void KUrlNavigatorPlacesSelector::updateSelection(const QUrl& url)
+void KUrlNavigatorPlacesSelector::updateSelection(const QUrl &url)
 {
     const QModelIndex index = m_placesModel->closestItem(url);
     if (index.isValid()) {
@@ -145,7 +145,7 @@ QSize KUrlNavigatorPlacesSelector::sizeHint() const
     return QSize(height, height);
 }
 
-void KUrlNavigatorPlacesSelector::paintEvent(QPaintEvent* event)
+void KUrlNavigatorPlacesSelector::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
     QPainter painter(this);
@@ -158,7 +158,7 @@ void KUrlNavigatorPlacesSelector::paintEvent(QPaintEvent* event)
     painter.drawPixmap(x, y, pixmap);
 }
 
-void KUrlNavigatorPlacesSelector::dragEnterEvent(QDragEnterEvent* event)
+void KUrlNavigatorPlacesSelector::dragEnterEvent(QDragEnterEvent *event)
 {
     if (event->mimeData()->hasUrls()) {
         setDisplayHintEnabled(DraggedHint, true);
@@ -168,7 +168,7 @@ void KUrlNavigatorPlacesSelector::dragEnterEvent(QDragEnterEvent* event)
     }
 }
 
-void KUrlNavigatorPlacesSelector::dragLeaveEvent(QDragLeaveEvent* event)
+void KUrlNavigatorPlacesSelector::dragLeaveEvent(QDragLeaveEvent *event)
 {
     KUrlNavigatorButtonBase::dragLeaveEvent(event);
 
@@ -176,14 +176,14 @@ void KUrlNavigatorPlacesSelector::dragLeaveEvent(QDragLeaveEvent* event)
     update();
 }
 
-void KUrlNavigatorPlacesSelector::dropEvent(QDropEvent* event)
+void KUrlNavigatorPlacesSelector::dropEvent(QDropEvent *event)
 {
     setDisplayHintEnabled(DraggedHint, false);
     update();
 
     QMimeDatabase db;
     const QList<QUrl> urlList = KUrlMimeData::urlsFromMimeData(event->mimeData());
-    foreach(const QUrl &url, urlList) {
+    foreach (const QUrl &url, urlList) {
         QMimeType mimetype = db.mimeTypeForUrl(url);
         if (mimetype.inherits("inode/directory")) {
             m_placesModel->addPlace(url.fileName(), url);
@@ -191,10 +191,10 @@ void KUrlNavigatorPlacesSelector::dropEvent(QDropEvent* event)
     }
 }
 
-void KUrlNavigatorPlacesSelector::activatePlace(QAction* action)
+void KUrlNavigatorPlacesSelector::activatePlace(QAction *action)
 {
     Q_ASSERT(action != 0);
-    if (action->data().toString()=="teardownAction") {
+    if (action->data().toString() == "teardownAction") {
         QModelIndex index = m_placesModel->index(m_selectedItem, 0);
         m_placesModel->requestTeardown(index);
         return;

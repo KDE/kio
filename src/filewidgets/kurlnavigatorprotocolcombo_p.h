@@ -43,7 +43,7 @@ class KUrlNavigatorProtocolCombo : public KUrlNavigatorButtonBase
     Q_OBJECT
 
 public:
-    explicit KUrlNavigatorProtocolCombo(const QString& protocol, QWidget* parent = 0);
+    explicit KUrlNavigatorProtocolCombo(const QString &protocol, QWidget *parent = 0);
 
     QString currentProtocol() const;
 
@@ -52,24 +52,23 @@ public:
     virtual QSize sizeHint() const;
 
 public Q_SLOTS:
-    void setProtocol(const QString& protocol);
+    void setProtocol(const QString &protocol);
 
 Q_SIGNALS:
-    void activated(const QString& protocol);
+    void activated(const QString &protocol);
 
 protected:
-    virtual void showEvent(QShowEvent* event);
-    virtual void paintEvent(QPaintEvent* event);
+    virtual void showEvent(QShowEvent *event);
+    virtual void paintEvent(QPaintEvent *event);
 
 private Q_SLOTS:
-    void setProtocol(QAction* action);
+    void setProtocol(QAction *action);
 
 private:
     void updateMenu();
     void initializeCategories();
 
-    enum ProtocolCategory
-    {
+    enum ProtocolCategory {
         CoreCategory,
         PlacesCategory,
         DevicesCategory,
@@ -78,7 +77,7 @@ private:
         CategoryCount // mandatory last entry
     };
 
-    QMenu* m_menu;
+    QMenu *m_menu;
     QStringList m_protocols;
     QHash<QString, ProtocolCategory> m_categories;
 };

@@ -85,7 +85,6 @@ KSambaShareData::UserShareError KSambaShareData::setName(const QString &name)
         return UserShareNameInUse;
     }
 
-
     if (!dd->name.isEmpty()) {
         dd.detach();
     }

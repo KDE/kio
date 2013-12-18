@@ -18,64 +18,67 @@
 
 class KFileItem;
 class KJob;
-namespace KIO { class PreviewJob; }
+namespace KIO
+{
+class PreviewJob;
+}
 
 /**
  * Image preview widget for the file dialog.
  */
 class KIOFILEWIDGETS_EXPORT KImageFilePreview : public KPreviewWidgetBase
 {
-	Q_OBJECT
+    Q_OBJECT
 
-    public:
-        /**
-         * Creates a new image file preview.
-         *
-         * @param parent The parent widget.
-         */
-        explicit KImageFilePreview(QWidget *parent = 0);
+public:
+    /**
+     * Creates a new image file preview.
+     *
+     * @param parent The parent widget.
+     */
+    explicit KImageFilePreview(QWidget *parent = 0);
 
-        /**
-         * Destroys the image file preview.
-         */
-        ~KImageFilePreview();
+    /**
+     * Destroys the image file preview.
+     */
+    ~KImageFilePreview();
 
-        /**
-         * Returns the size hint for this widget.
-         */
-        virtual QSize sizeHint() const;
+    /**
+     * Returns the size hint for this widget.
+     */
+    virtual QSize sizeHint() const;
 
-    public Q_SLOTS:
-        /**
-         * Shows a preview for the given @p url.
-         */
-        virtual void showPreview(const QUrl &url);
+public Q_SLOTS:
+    /**
+     * Shows a preview for the given @p url.
+     */
+    virtual void showPreview(const QUrl &url);
 
-        /**
-         * Clears the preview.
-         */
-        virtual void clearPreview();
+    /**
+     * Clears the preview.
+     */
+    virtual void clearPreview();
 
-    protected Q_SLOTS:
-        void showPreview();
-        void showPreview( const QUrl& url, bool force );
+protected Q_SLOTS:
+    void showPreview();
+    void showPreview(const QUrl &url, bool force);
 
-        virtual void gotPreview( const KFileItem&, const QPixmap& );
+    virtual void gotPreview(const KFileItem &, const QPixmap &);
 
-    protected:
-        virtual void resizeEvent( QResizeEvent *event );
-        virtual KIO::PreviewJob * createJob( const QUrl& url, int width, int height );
+protected:
+    virtual void resizeEvent(QResizeEvent *event);
+    virtual KIO::PreviewJob *createJob(const QUrl &url, int width, int height);
 
-    private:
-        class KImageFilePreviewPrivate;
-        KImageFilePreviewPrivate *const d;
+private:
+    class KImageFilePreviewPrivate;
+    KImageFilePreviewPrivate *const d;
 
-        Q_DISABLE_COPY(KImageFilePreview)
+    Q_DISABLE_COPY(KImageFilePreview)
 
-        Q_PRIVATE_SLOT( d, void _k_slotResult( KJob* ) )
-        Q_PRIVATE_SLOT( d, void _k_slotFailed( const KFileItem& ) )
-        Q_PRIVATE_SLOT( d, void _k_slotStepAnimation( int frame ) )
-        Q_PRIVATE_SLOT( d, void _k_slotFinished( ) )
+    Q_PRIVATE_SLOT(d, void _k_slotResult(KJob *))
+    Q_PRIVATE_SLOT(d, void _k_slotFailed(const KFileItem &))
+    Q_PRIVATE_SLOT(d, void _k_slotStepAnimation(int frame))
+    Q_PRIVATE_SLOT(d, void _k_slotFinished())
 };
 
 #endif // KIMAGEFILEPREVIEW_H

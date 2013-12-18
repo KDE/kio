@@ -26,7 +26,8 @@
 #include <QtCore/QByteArray>
 #include <QtCore/QEventLoop>
 
-namespace KIO {
+namespace KIO
+{
 
 // Wait for the result of an asynchronous D-Bus request to KPasswdServer.
 // Objects of this class are one-way ie. as soon as they have received

@@ -24,7 +24,8 @@
 #include "job.h"
 #include <kfileitem.h>
 
-namespace KIO {
+namespace KIO
+{
 
 class DirectorySizeJobPrivate;
 /**
@@ -60,13 +61,13 @@ public:
     KIO::filesize_t totalSubdirs() const;
 
 protected Q_SLOTS:
-    virtual void slotResult( KJob *job );
+    virtual void slotResult(KJob *job);
 
 protected:
     DirectorySizeJob(DirectorySizeJobPrivate &dd);
 
 private:
-    Q_PRIVATE_SLOT(d_func(), void slotEntries( KIO::Job * , const KIO::UDSEntryList &))
+    Q_PRIVATE_SLOT(d_func(), void slotEntries(KIO::Job *, const KIO::UDSEntryList &))
     Q_PRIVATE_SLOT(d_func(), void processNextItem())
     Q_DECLARE_PRIVATE(DirectorySizeJob)
 };
@@ -78,7 +79,7 @@ private:
  *
  * This one lists a single directory.
  */
-KIOCORE_EXPORT DirectorySizeJob * directorySize(const QUrl & directory);
+KIOCORE_EXPORT DirectorySizeJob *directorySize(const QUrl &directory);
 
 /**
  * Computes a directory size (by doing a recursive listing).
@@ -90,7 +91,7 @@ KIOCORE_EXPORT DirectorySizeJob * directorySize(const QUrl & directory);
  * we directly know if the item is a file or a directory,
  * and in case of a file, we already have its size.
  */
-KIOCORE_EXPORT DirectorySizeJob * directorySize( const KFileItemList & lstItems );
+KIOCORE_EXPORT DirectorySizeJob *directorySize(const KFileItemList &lstItems);
 
 }
 

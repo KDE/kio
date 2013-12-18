@@ -28,7 +28,8 @@
 #include <QUrl>
 #include <QScopedPointer>
 
-namespace KIO {
+namespace KIO
+{
 
 class IdleSlavePrivate;
 class Connection;
@@ -47,8 +48,8 @@ public:
     explicit IdleSlave(QObject *parent);
     ~IdleSlave();
 
-    bool match( const QString &protocol, const QString &host, bool connected) const;
-    void connect( const QString &app_socket);
+    bool match(const QString &protocol, const QString &host, bool connected) const;
+    void connect(const QString &app_socket);
     Q_PID pid() const;
     int age(const QDateTime &now) const;
     void reparseConfiguration();

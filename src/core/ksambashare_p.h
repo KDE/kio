@@ -63,7 +63,7 @@ public:
     void _k_slotFileChange(const QString &path);
 
 private:
-    KSambaShare * const q_ptr;
+    KSambaShare *const q_ptr;
     Q_DECLARE_PUBLIC(KSambaShare)
 
     QMap<QString, KSambaShareData> data;

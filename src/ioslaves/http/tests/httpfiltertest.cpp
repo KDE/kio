@@ -36,21 +36,20 @@ private Q_SLOTS:
     void test_httpFilterGzip();
 
 private:
-    void test_block_write(const QString & fileName, const QByteArray& data);
-    void test_block_read( const QString & fileName );
-    void test_getch( const QString & fileName );
-    void test_textstream( const QString & fileName );
-    void test_readall(const QString & fileName, const QString& mimeType, const QByteArray& expectedData);
+    void test_block_write(const QString &fileName, const QByteArray &data);
+    void test_block_read(const QString &fileName);
+    void test_getch(const QString &fileName);
+    void test_textstream(const QString &fileName);
+    void test_readall(const QString &fileName, const QString &mimeType, const QByteArray &expectedData);
 
 protected Q_SLOTS:
-    void slotFilterOutput(const QByteArray& data);
+    void slotFilterOutput(const QByteArray &data);
 
 private:
     QString pathgz;
     QByteArray testData;
     QByteArray m_filterOutput;
 };
-
 
 QTEST_MAIN(HTTPFilterTest)
 
@@ -71,12 +70,12 @@ void HTTPFilterTest::initTestCase()
     dev.close();
 }
 
-static void getCompressedData(QByteArray& data, QByteArray& compressedData)
+static void getCompressedData(QByteArray &data, QByteArray &compressedData)
 {
     data = "Hello world, this is a test for deflate, from bug 114830 / 117683";
-    compressedData.resize(long(data.size()*1.1f) + 12L); // requirements of zlib::compress2
+    compressedData.resize(long(data.size() * 1.1f) + 12L); // requirements of zlib::compress2
     unsigned long out_bufferlen = compressedData.size();
-    const int ret = compress2((Bytef*)compressedData.data(), &out_bufferlen, (const Bytef*)data.constData(), data.size(), 1);
+    const int ret = compress2((Bytef *)compressedData.data(), &out_bufferlen, (const Bytef *)data.constData(), data.size(), 1);
     QCOMPARE(ret, Z_OK);
     compressedData.resize(out_bufferlen);
 }
@@ -142,11 +141,11 @@ void HTTPFilterTest::test_httpFilterGzip()
             QCOMPARE(spyError.count(), 0);
         }
         QCOMPARE(m_filterOutput, testData);
-        QCOMPARE(spyOutput[spyOutput.count()-1][0].toByteArray(), QByteArray()); // last one was empty
+        QCOMPARE(spyOutput[spyOutput.count() - 1][0].toByteArray(), QByteArray()); // last one was empty
     }
 }
 
-void HTTPFilterTest::slotFilterOutput(const QByteArray& data)
+void HTTPFilterTest::slotFilterOutput(const QByteArray &data)
 {
     m_filterOutput += data;
 }

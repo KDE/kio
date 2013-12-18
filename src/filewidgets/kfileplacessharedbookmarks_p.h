@@ -30,27 +30,27 @@
 class KFilePlacesSharedBookmarks : public QObject
 {
     Q_OBJECT
-public:  
-  
-    KFilePlacesSharedBookmarks(KBookmarkManager * mgr);
-    ~KFilePlacesSharedBookmarks() { /* delete m_sharedBookmarkManager; */} 
-      
+public:
+
+    KFilePlacesSharedBookmarks(KBookmarkManager *mgr);
+    ~KFilePlacesSharedBookmarks()
+    {
+        /* delete m_sharedBookmarkManager; */
+    }
+
 private:
-  
+
     bool integrateSharedBookmarks();
     bool exportSharedBookmarks();
-  
+
     KBookmarkManager *m_placesBookmarkManager;
     KBookmarkManager *m_sharedBookmarkManager;
-    
-private Q_SLOTS:    
+
+private Q_SLOTS:
 
     void slotSharedBookmarksChanged();
     void slotBookmarksChanged();
-  
+
 };
-
-
-
 
 #endif /*KFILEPLACESSHARED_P_H_*/

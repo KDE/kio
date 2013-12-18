@@ -22,7 +22,8 @@
 
 // #define SCHEDULER_DEBUG
 
-namespace KIO {
+namespace KIO
+{
 
 class SlaveKeeper : public QObject
 {
@@ -48,19 +49,33 @@ private:
     QTimer m_grimTimer;
 };
 
-
 class HostQueue
 {
 public:
     int lowestSerial() const;
 
-    bool isQueueEmpty() const { return m_queuedJobs.isEmpty(); }
-    bool isEmpty() const { return m_queuedJobs.isEmpty() && m_runningJobs.isEmpty(); }
-    int runningJobsCount() const { return m_runningJobs.count(); }
+    bool isQueueEmpty() const
+    {
+        return m_queuedJobs.isEmpty();
+    }
+    bool isEmpty() const
+    {
+        return m_queuedJobs.isEmpty() && m_runningJobs.isEmpty();
+    }
+    int runningJobsCount() const
+    {
+        return m_runningJobs.count();
+    }
 #ifdef SCHEDULER_DEBUG
-    QList<KIO::SimpleJob *> runningJobs() const { return m_runningJobs.toList(); }
+    QList<KIO::SimpleJob *> runningJobs() const
+    {
+        return m_runningJobs.toList();
+    }
 #endif
-    bool isJobRunning(KIO::SimpleJob *job) const { return m_runningJobs.contains(job); }
+    bool isJobRunning(KIO::SimpleJob *job) const
+    {
+        return m_runningJobs.contains(job);
+    }
 
     void queueJob(KIO::SimpleJob *job);
     KIO::SimpleJob *takeFirstInQueue();
@@ -72,8 +87,7 @@ private:
     QSet<KIO::SimpleJob *> m_runningJobs;
 };
 
-struct PerSlaveQueue
-{
+struct PerSlaveQueue {
     PerSlaveQueue() : runningJob(0) {}
     QList <SimpleJob *> waitingList;
     SimpleJob *runningJob;
@@ -93,8 +107,14 @@ public:
 
     // KDE5: only one caller, for doubtful reasons. remove this if possible.
     bool isIdle(KIO::Slave *slave);
-    bool isEmpty() const { return m_connectedSlaves.isEmpty(); }
-    QList<KIO::Slave *> allSlaves() const { return m_connectedSlaves.keys(); }
+    bool isEmpty() const
+    {
+        return m_connectedSlaves.isEmpty();
+    }
+    QList<KIO::Slave *> allSlaves() const
+    {
+        return m_connectedSlaves.keys();
+    }
 
 private Q_SLOTS:
     void startRunnableJobs();
@@ -105,7 +125,6 @@ private:
     QTimer m_startJobsTimer;
 };
 
-
 class SchedulerPrivate;
 
 class SerialPicker
@@ -113,7 +132,7 @@ class SerialPicker
 public:
     // note that serial number zero is the default value from job_p.h and invalid!
     SerialPicker()
-     : m_offset(1) {}
+        : m_offset(1) {}
 
     int next()
     {
@@ -132,7 +151,6 @@ public:
     static const int maxSerial = m_jobsPerPriority * 20;
 };
 
-
 class ProtoQueue : public QObject
 {
     Q_OBJECT
@@ -144,7 +162,7 @@ public:
     void changeJobPriority(KIO::SimpleJob *job, int newPriority);
     void removeJob(KIO::SimpleJob *job);
     KIO::Slave *createSlave(const QString &protocol, KIO::SimpleJob *job, const QUrl &url);
-    bool removeSlave (KIO::Slave *slave);
+    bool removeSlave(KIO::Slave *slave);
     QList<KIO::Slave *> allSlaves() const;
     ConnectedSlaveQueue m_connectedSlaveQueue;
 

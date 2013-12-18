@@ -74,7 +74,7 @@ public Q_SLOTS:
     QStringList supportedMimeTypes() const;
 
 protected:
-    void setSupportedMimeTypes( const QStringList& mimeTypes );
+    void setSupportedMimeTypes(const QStringList &mimeTypes);
 
 private:
     class KPreviewWidgetBasePrivate;

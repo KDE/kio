@@ -23,8 +23,8 @@ public:
     KFileMetaPreview(QWidget *parent);
     ~KFileMetaPreview();
 
-    virtual void addPreviewProvider( const QString& mimeType,
-                                     KPreviewWidgetBase *provider );
+    virtual void addPreviewProvider(const QString &mimeType,
+                                    KPreviewWidgetBase *provider);
     virtual void clearPreviewProviders();
 
 public Q_SLOTS:
@@ -32,18 +32,18 @@ public Q_SLOTS:
     virtual void clearPreview();
 
 protected:
-    virtual KPreviewWidgetBase *previewProviderFor( const QString& mimeType );
+    virtual KPreviewWidgetBase *previewProviderFor(const QString &mimeType);
 
 private:
     void initPreviewProviders();
-    KPreviewWidgetBase* findExistingProvider(const QString& mimeType, const QMimeType& mimeInfo) const;
+    KPreviewWidgetBase *findExistingProvider(const QString &mimeType, const QMimeType &mimeInfo) const;
 
     QStackedWidget *m_stack;
-    QHash<QString,KPreviewWidgetBase*> m_previewProviders;
+    QHash<QString, KPreviewWidgetBase *> m_previewProviders;
     bool haveAudioPreview;
 
     // may return 0L
-    static KPreviewWidgetBase * createAudioPreview( QWidget *parent );
+    static KPreviewWidgetBase *createAudioPreview(QWidget *parent);
     static bool s_tryAudioPreview;
 
 private:

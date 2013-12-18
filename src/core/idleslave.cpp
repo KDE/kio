@@ -74,8 +74,7 @@ void IdleSlave::gotInput()
         qint8 b;
         stream >> pid >> protocol >> host >> b;
         // Overload with (bool) onHold, (QUrl) url.
-        if (!stream.atEnd())
-        {
+        if (!stream.atEnd()) {
             QUrl url;
             stream >> url;
             d->mOnHold = true;
@@ -101,7 +100,7 @@ void IdleSlave::connect(const QString &app_socket)
 
 Q_PID IdleSlave::pid() const
 {
-    return d->mPid; 
+    return d->mPid;
 }
 
 void IdleSlave::reparseConfiguration()
@@ -122,8 +121,9 @@ bool IdleSlave::match(const QString &protocol, const QString &host, bool needCon
 
 bool IdleSlave::onHold(const QUrl &url) const
 {
-    if (!d->mOnHold)
+    if (!d->mOnHold) {
         return false;
+    }
     return (url == d->mUrl);
 }
 
@@ -137,7 +137,7 @@ QString IdleSlave::protocol() const
     return d->mProtocol;
 }
 
-Connection* IdleSlave::connection() const
+Connection *IdleSlave::connection() const
 {
     return &d->mConn;
 }

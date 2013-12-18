@@ -28,7 +28,6 @@
 
 QTEST_MAIN(GlobalTest)
 
-
 void GlobalTest::testUserPermissionConversion()
 {
     const int permissions = S_IRUSR | S_IWUSR | S_IXUSR;
@@ -37,10 +36,10 @@ void GlobalTest::testUserPermissionConversion()
     QFile::Permissions perms = (QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner);
     QCOMPARE(qPermissions & perms, perms);
 
-    perms = (QFile::ReadGroup | QFile::WriteGroup |QFile::ExeGroup);
+    perms = (QFile::ReadGroup | QFile::WriteGroup | QFile::ExeGroup);
     QCOMPARE(qPermissions & perms, 0);
 
-    perms = (QFile::ReadOther | QFile::WriteOther |QFile::ExeOther);
+    perms = (QFile::ReadOther | QFile::WriteOther | QFile::ExeOther);
     QCOMPARE(qPermissions & perms, 0);
 }
 
@@ -52,10 +51,10 @@ void GlobalTest::testGroupPermissionConversion()
     QFile::Permissions perms = (QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner);
     QCOMPARE(qPermissions & perms, 0);
 
-    perms = (QFile::ReadGroup | QFile::WriteGroup |QFile::ExeGroup);
+    perms = (QFile::ReadGroup | QFile::WriteGroup | QFile::ExeGroup);
     QCOMPARE(qPermissions & perms, perms);
 
-    perms = (QFile::ReadOther | QFile::WriteOther |QFile::ExeOther);
+    perms = (QFile::ReadOther | QFile::WriteOther | QFile::ExeOther);
     QCOMPARE(qPermissions & perms, 0);
 }
 
@@ -67,10 +66,10 @@ void GlobalTest::testOtherPermissionConversion()
     QFile::Permissions perms = (QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner);
     QCOMPARE(qPermissions & perms, 0);
 
-    perms = (QFile::ReadGroup | QFile::WriteGroup |QFile::ExeGroup);
+    perms = (QFile::ReadGroup | QFile::WriteGroup | QFile::ExeGroup);
     QCOMPARE(qPermissions & perms, 0);
 
-    perms = (QFile::ReadOther | QFile::WriteOther |QFile::ExeOther);
+    perms = (QFile::ReadOther | QFile::WriteOther | QFile::ExeOther);
     QCOMPARE(qPermissions & perms, perms);
 }
 

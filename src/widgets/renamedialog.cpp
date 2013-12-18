@@ -60,7 +60,8 @@ using namespace KIO;
 class RenameDialog::RenameDialogPrivate
 {
 public:
-    RenameDialogPrivate() {
+    RenameDialogPrivate()
+    {
         bCancel = 0;
         bRename = bSkip = bOverwrite = 0;
         bResume = bSuggestNewName = 0;
@@ -72,7 +73,8 @@ public:
         m_destPreview = 0;
     }
 
-    void setRenameBoxText(const QString& fileName) {
+    void setRenameBoxText(const QString &fileName)
+    {
         // sets the text in file name line edit box, selecting the filename (but not the extension if there is one).
         QMimeDatabase db;
         const QString extension = db.suffixForFileName(fileName);
@@ -93,29 +95,29 @@ public:
     QPushButton *bResume;
     QPushButton *bSuggestNewName;
     QCheckBox *bApplyAll;
-    QLineEdit* m_pLineEdit;
+    QLineEdit *m_pLineEdit;
     QUrl src;
     QUrl dest;
     bool m_srcPendingPreview;
     bool m_destPendingPreview;
-    QLabel* m_srcPreview;
-    QLabel* m_destPreview;
-    QScrollArea* m_srcArea;
-    QScrollArea* m_destArea;
+    QLabel *m_srcPreview;
+    QLabel *m_destPreview;
+    QScrollArea *m_srcArea;
+    QScrollArea *m_destArea;
     KFileItem srcItem;
     KFileItem destItem;
 };
 
-RenameDialog::RenameDialog(QWidget *parent, const QString & _caption,
+RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
                            const QUrl &_src, const QUrl &_dest,
                            RenameDialog_Mode _mode,
                            KIO::filesize_t sizeSrc,
                            KIO::filesize_t sizeDest,
                            const QDateTime &ctimeSrc,
-                           const QDateTime & ctimeDest,
-                           const QDateTime & mtimeSrc,
-                           const QDateTime & mtimeDest)
-        : QDialog(parent), d(new RenameDialogPrivate)
+                           const QDateTime &ctimeDest,
+                           const QDateTime &mtimeSrc,
+                           const QDateTime &mtimeDest)
+    : QDialog(parent), d(new RenameDialogPrivate)
 {
     setObjectName("KIO::RenameDialog");
 
@@ -162,7 +164,7 @@ RenameDialog::RenameDialog(QWidget *parent, const QString & _caption,
         connect(d->bResume, SIGNAL(clicked()), this, SLOT(resumePressed()));
     }
 
-    QVBoxLayout* pLayout = new QVBoxLayout(this);
+    QVBoxLayout *pLayout = new QVBoxLayout(this);
     pLayout->addStrut(400);     // makes dlg at least that wide
 
     // User tries to overwrite a file with itself ?
@@ -222,19 +224,19 @@ RenameDialog::RenameDialog(QWidget *parent, const QString & _caption,
         connect(d->m_destArea->horizontalScrollBar(), SIGNAL(valueChanged(int)), d->m_srcArea->horizontalScrollBar(), SLOT(setValue(int)));
 
         // create layout
-        QGridLayout* gridLayout = new QGridLayout();
+        QGridLayout *gridLayout = new QGridLayout();
         pLayout->addLayout(gridLayout);
 
-        QLabel* titleLabel = new QLabel(i18n("This action will overwrite the destination."), this);
+        QLabel *titleLabel = new QLabel(i18n("This action will overwrite the destination."), this);
 
-        QLabel* srcTitle = createLabel(parent, i18n("Source"), true);
-        QLabel* destTitle = createLabel(parent, i18n("Destination"), true);
+        QLabel *srcTitle = createLabel(parent, i18n("Source"), true);
+        QLabel *destTitle = createLabel(parent, i18n("Destination"), true);
 
-        QLabel* srcInfo = createSqueezedLabel(parent, d->src.toDisplayString(QUrl::PreferLocalFile));
-        QLabel* destInfo = createSqueezedLabel(parent, d->dest.toDisplayString(QUrl::PreferLocalFile));
+        QLabel *srcInfo = createSqueezedLabel(parent, d->src.toDisplayString(QUrl::PreferLocalFile));
+        QLabel *destInfo = createSqueezedLabel(parent, d->dest.toDisplayString(QUrl::PreferLocalFile));
 
         if (mtimeDest > mtimeSrc) {
-            QLabel* warningLabel = new QLabel(i18n("Warning, the destination is more recent."), this);
+            QLabel *warningLabel = new QLabel(i18n("Warning, the destination is more recent."), this);
 
             gridLayout->addWidget(titleLabel, 0, 0, 1, 2);    // takes the complete first line
             gridLayout->addWidget(warningLabel, 1, 0, 1, 2);
@@ -264,12 +266,13 @@ RenameDialog::RenameDialog(QWidget *parent, const QString & _caption,
         // file must be preserved (e.g. when renaming).
         QString sentence1;
 
-        if (mtimeDest < mtimeSrc)
+        if (mtimeDest < mtimeSrc) {
             sentence1 = i18n("An older item named '%1' already exists.", d->dest.toDisplayString(QUrl::PreferLocalFile));
-        else if (mtimeDest == mtimeSrc)
+        } else if (mtimeDest == mtimeSrc) {
             sentence1 = i18n("A similar file named '%1' already exists.", d->dest.toDisplayString(QUrl::PreferLocalFile));
-        else
+        } else {
             sentence1 = i18n("A more recent item named '%1' already exists.", d->dest.toDisplayString(QUrl::PreferLocalFile));
+        }
 
         QLabel *lb = new KSqueezedTextLabel(sentence1, this);
         pLayout->addWidget(lb);
@@ -284,7 +287,7 @@ RenameDialog::RenameDialog(QWidget *parent, const QString & _caption,
         pLayout->addWidget(lb2);
     }
 
-    QHBoxLayout* layout2 = new QHBoxLayout();
+    QHBoxLayout *layout2 = new QHBoxLayout();
     pLayout->addLayout(layout2);
 
     d->m_pLineEdit = new QLineEdit(this);
@@ -307,10 +310,10 @@ RenameDialog::RenameDialog(QWidget *parent, const QString & _caption,
         setTabOrder(d->m_pLineEdit, d->bSuggestNewName);
     }
 
-    KSeparator* separator = new KSeparator(this);
+    KSeparator *separator = new KSeparator(this);
     pLayout->addWidget(separator);
 
-    QHBoxLayout* layout = new QHBoxLayout();
+    QHBoxLayout *layout = new QHBoxLayout();
     pLayout->addLayout(layout);
 
     layout->addStretch(1);
@@ -380,7 +383,7 @@ QUrl RenameDialog::newDestUrl()
 
 QUrl RenameDialog::autoDestUrl() const
 {
-    const QUrl destDirectory = d->dest.adjusted(QUrl::RemoveFilename|QUrl::StripTrailingSlash);
+    const QUrl destDirectory = d->dest.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
     const QString newName = KIO::suggestName(destDirectory, d->dest.fileName());
     QUrl newDest(destDirectory);
     newDest.setPath(newDest.path() + QLatin1Char('/') + newName);
@@ -414,7 +417,7 @@ void RenameDialog::renamePressed()
 }
 
 #ifndef KDE_NO_DEPRECATED
-QString RenameDialog::suggestName(const QUrl &baseURL, const QString& oldName)
+QString RenameDialog::suggestName(const QUrl &baseURL, const QString &oldName)
 {
     return KIO::suggestName(baseURL, oldName);
 }
@@ -424,10 +427,11 @@ QString RenameDialog::suggestName(const QUrl &baseURL, const QString& oldName)
 void RenameDialog::suggestNewNamePressed()
 {
     /* no name to play with */
-    if (d->m_pLineEdit->text().isEmpty())
+    if (d->m_pLineEdit->text().isEmpty()) {
         return;
+    }
 
-    QUrl destDirectory = d->dest.adjusted(QUrl::RemoveFilename|QUrl::StripTrailingSlash);
+    QUrl destDirectory = d->dest.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
     d->setRenameBoxText(KIO::suggestName(destDirectory, d->m_pLineEdit->text()));
 
     return;
@@ -501,7 +505,7 @@ void RenameDialog::applyAllPressed()
     }
 }
 
-void RenameDialog::showSrcIcon(const KFileItem& fileitem)
+void RenameDialog::showSrcIcon(const KFileItem &fileitem)
 {
     // The preview job failed, show a standard file icon.
     d->m_srcPendingPreview = false;
@@ -511,7 +515,7 @@ void RenameDialog::showSrcIcon(const KFileItem& fileitem)
     d->m_srcPreview->setPixmap(pix);
 }
 
-void RenameDialog::showDestIcon(const KFileItem& fileitem)
+void RenameDialog::showDestIcon(const KFileItem &fileitem)
 {
     // The preview job failed, show a standard file icon.
     d->m_destPendingPreview = false;
@@ -521,7 +525,7 @@ void RenameDialog::showDestIcon(const KFileItem& fileitem)
     d->m_destPreview->setPixmap(pix);
 }
 
-void RenameDialog::showSrcPreview(const KFileItem& fileitem, const QPixmap& pixmap)
+void RenameDialog::showSrcPreview(const KFileItem &fileitem, const QPixmap &pixmap)
 {
     Q_UNUSED(fileitem);
 
@@ -531,7 +535,7 @@ void RenameDialog::showSrcPreview(const KFileItem& fileitem, const QPixmap& pixm
     }
 }
 
-void RenameDialog::showDestPreview(const KFileItem& fileitem, const QPixmap& pixmap)
+void RenameDialog::showDestPreview(const KFileItem &fileitem, const QPixmap &pixmap)
 {
     Q_UNUSED(fileitem);
 
@@ -551,8 +555,7 @@ void RenameDialog::resizePanels()
     QSize maxHalfSize = QSize(screenSize.width() / qreal(2.1), maxHeightPossible * qreal(0.9));
 
     if (halfSize.height() > maxHalfSize.height() &&
-        halfSize.width() <= maxHalfSize.width() + d->m_srcArea->verticalScrollBar()->width())
-    {
+            halfSize.width() <= maxHalfSize.width() + d->m_srcArea->verticalScrollBar()->width()) {
         halfSize.rwidth() += d->m_srcArea->verticalScrollBar()->width();
         maxHalfSize.rwidth() += d->m_srcArea->verticalScrollBar()->width();
     }
@@ -560,11 +563,11 @@ void RenameDialog::resizePanels()
     d->m_srcArea->setMinimumSize(halfSize.boundedTo(maxHalfSize));
     d->m_destArea->setMinimumSize(halfSize.boundedTo(maxHalfSize));
 
-    KIO::PreviewJob* srcJob = KIO::filePreview(KFileItemList() << d->srcItem,
+    KIO::PreviewJob *srcJob = KIO::filePreview(KFileItemList() << d->srcItem,
                               QSize(d->m_srcPreview->width() * qreal(0.9), d->m_srcPreview->height()));
     srcJob->setScaleType(KIO::PreviewJob::Unscaled);
 
-    KIO::PreviewJob* destJob = KIO::filePreview(KFileItemList() << d->destItem,
+    KIO::PreviewJob *destJob = KIO::filePreview(KFileItemList() << d->destItem,
                                QSize(d->m_destPreview->width() * qreal(0.9), d->m_destPreview->height()));
     destJob->setScaleType(KIO::PreviewJob::Unscaled);
 
@@ -578,7 +581,7 @@ void RenameDialog::resizePanels()
             this, SLOT(showDestIcon(KFileItem)));
 }
 
-QScrollArea* RenameDialog::createContainerLayout(QWidget* parent, const KFileItem& item, QLabel* preview)
+QScrollArea *RenameDialog::createContainerLayout(QWidget *parent, const KFileItem &item, QLabel *preview)
 {
     KFileItemList itemList;
     itemList << item;
@@ -586,7 +589,7 @@ QScrollArea* RenameDialog::createContainerLayout(QWidget* parent, const KFileIte
 #pragma message("TODO: use KFileMetaDataWidget in RenameDialog via a plugin")
 #if 0 // PENDING
     // widget
-    KFileMetaDataWidget* metaWidget =  new KFileMetaDataWidget(this);
+    KFileMetaDataWidget *metaWidget =  new KFileMetaDataWidget(this);
 
     metaWidget->setReadOnly(true);
     metaWidget->setItems(itemList);
@@ -597,8 +600,8 @@ QScrollArea* RenameDialog::createContainerLayout(QWidget* parent, const KFileIte
     // This prevents that the meta data widgets get vertically stretched
     // in the case where the height of m_metaDataArea > m_metaDataWidget.
 
-    QWidget* widgetContainer = new QWidget(parent);
-    QVBoxLayout* containerLayout = new QVBoxLayout(widgetContainer);
+    QWidget *widgetContainer = new QWidget(parent);
+    QVBoxLayout *containerLayout = new QVBoxLayout(widgetContainer);
 
     containerLayout->setContentsMargins(0, 0, 0, 0);
     containerLayout->setSpacing(0);
@@ -608,7 +611,7 @@ QScrollArea* RenameDialog::createContainerLayout(QWidget* parent, const KFileIte
 #endif
     containerLayout->addStretch(1);
 
-    QScrollArea* metaDataArea = new QScrollArea(parent);
+    QScrollArea *metaDataArea = new QScrollArea(parent);
 
     metaDataArea->setWidget(widgetContainer);
     metaDataArea->setWidgetResizable(true);
@@ -617,9 +620,9 @@ QScrollArea* RenameDialog::createContainerLayout(QWidget* parent, const KFileIte
     return metaDataArea;
 }
 
-QLabel* RenameDialog::createLabel(QWidget* parent, const QString& text, bool containerTitle)
+QLabel *RenameDialog::createLabel(QWidget *parent, const QString &text, bool containerTitle)
 {
-    QLabel* label = new QLabel(parent);
+    QLabel *label = new QLabel(parent);
 
     if (containerTitle) {
         QFont font = label->font();
@@ -634,9 +637,9 @@ QLabel* RenameDialog::createLabel(QWidget* parent, const QString& text, bool con
     return label;
 }
 
-KSqueezedTextLabel* RenameDialog::createSqueezedLabel(QWidget* parent, const QString& text)
+KSqueezedTextLabel *RenameDialog::createSqueezedLabel(QWidget *parent, const QString &text)
 {
-    KSqueezedTextLabel* label = new KSqueezedTextLabel(text, parent);
+    KSqueezedTextLabel *label = new KSqueezedTextLabel(text, parent);
 
     label->setAlignment(Qt::AlignHCenter);
     label->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Fixed);

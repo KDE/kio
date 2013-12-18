@@ -26,70 +26,71 @@ class KLocalSocketServer;
 class QTcpServer;
 class QTcpSocket;
 
-namespace KIO {
-    struct Task {
-        int cmd;
-        QByteArray data;
+namespace KIO
+{
+struct Task {
+    int cmd;
+    QByteArray data;
+};
+
+class AbstractConnectionBackend: public QObject
+{
+    Q_OBJECT
+public:
+    QUrl address;
+    QString errorString;
+    enum { Idle, Listening, Connected } state;
+
+    explicit AbstractConnectionBackend(QObject *parent = 0);
+    ~AbstractConnectionBackend();
+
+    virtual void setSuspended(bool enable) = 0;
+    virtual bool connectToRemote(const QUrl &url) = 0;
+    virtual bool listenForRemote() = 0;
+    virtual bool waitForIncomingTask(int ms) = 0;
+    virtual bool sendCommand(const Task &task) = 0;
+    virtual AbstractConnectionBackend *nextPendingConnection() = 0;
+
+Q_SIGNALS:
+    void disconnected();
+    void commandReceived(const Task &task);
+    void newConnection();
+};
+
+class SocketConnectionBackend: public AbstractConnectionBackend
+{
+    Q_OBJECT
+public:
+    enum Mode { LocalSocketMode, TcpSocketMode };
+
+private:
+    enum { HeaderSize = 10, StandardBufferSize = 32 * 1024 };
+
+    QTcpSocket *socket;
+    union {
+        KLocalSocketServer *localServer;
+        QTcpServer *tcpServer;
     };
+    long len;
+    int cmd;
+    int port;
+    bool signalEmitted;
+    quint8 mode;
 
-    class AbstractConnectionBackend: public QObject
-    {
-        Q_OBJECT
-    public:
-        QUrl address;
-        QString errorString;
-        enum { Idle, Listening, Connected } state;
+public:
+    explicit SocketConnectionBackend(Mode m, QObject *parent = 0);
+    ~SocketConnectionBackend();
 
-        explicit AbstractConnectionBackend(QObject *parent = 0);
-        ~AbstractConnectionBackend();
-
-        virtual void setSuspended(bool enable) = 0;
-        virtual bool connectToRemote(const QUrl &url) = 0;
-        virtual bool listenForRemote() = 0;
-        virtual bool waitForIncomingTask(int ms) = 0;
-        virtual bool sendCommand(const Task &task) = 0;
-        virtual AbstractConnectionBackend *nextPendingConnection() = 0;
-
-    Q_SIGNALS:
-        void disconnected();
-        void commandReceived(const Task &task);
-        void newConnection();
-    };
-
-    class SocketConnectionBackend: public AbstractConnectionBackend
-    {
-        Q_OBJECT
-    public:
-        enum Mode { LocalSocketMode, TcpSocketMode };
-
-    private:
-        enum { HeaderSize = 10, StandardBufferSize = 32*1024 };
-
-        QTcpSocket *socket;
-        union {
-            KLocalSocketServer *localServer;
-            QTcpServer *tcpServer;
-        };
-        long len;
-        int cmd;
-        int port;
-        bool signalEmitted;
-        quint8 mode;
-
-    public:
-        explicit SocketConnectionBackend(Mode m, QObject *parent = 0);
-        ~SocketConnectionBackend();
-
-        void setSuspended(bool enable);
-        bool connectToRemote(const QUrl &url);
-        bool listenForRemote();
-        bool waitForIncomingTask(int ms);
-        bool sendCommand(const Task &task);
-        AbstractConnectionBackend *nextPendingConnection();
-    public Q_SLOTS:
-        void socketReadyRead();
-        void socketDisconnected();
-    };
+    void setSuspended(bool enable);
+    bool connectToRemote(const QUrl &url);
+    bool listenForRemote();
+    bool waitForIncomingTask(int ms);
+    bool sendCommand(const Task &task);
+    AbstractConnectionBackend *nextPendingConnection();
+public Q_SLOTS:
+    void socketReadyRead();
+    void socketDisconnected();
+};
 }
 
 #endif

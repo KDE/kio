@@ -28,7 +28,7 @@
 namespace KDEPrivate
 {
 
-KUrlNavigatorToggleButton::KUrlNavigatorToggleButton(QWidget* parent) :
+KUrlNavigatorToggleButton::KUrlNavigatorToggleButton(QWidget *parent) :
     KUrlNavigatorButtonBase(parent)
 {
     setCheckable(true);
@@ -56,19 +56,19 @@ QSize KUrlNavigatorToggleButton::sizeHint() const
     return size;
 }
 
-void KUrlNavigatorToggleButton::enterEvent(QEvent* event)
+void KUrlNavigatorToggleButton::enterEvent(QEvent *event)
 {
     KUrlNavigatorButtonBase::enterEvent(event);
     updateCursor();
 }
 
-void KUrlNavigatorToggleButton::leaveEvent(QEvent* event)
+void KUrlNavigatorToggleButton::leaveEvent(QEvent *event)
 {
     KUrlNavigatorButtonBase::leaveEvent(event);
     setCursor(Qt::ArrowCursor);
 }
 
-void KUrlNavigatorToggleButton::paintEvent(QPaintEvent* event)
+void KUrlNavigatorToggleButton::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
     painter.setClipRect(event->rect());

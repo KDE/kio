@@ -14,7 +14,7 @@
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  *  Lesser General Public License for more details.
- * 
+ *
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -33,8 +33,8 @@ namespace KIO
 
 KPasswdServer::KPasswdServer()
     : m_interface(new OrgKdeKPasswdServerInterface("org.kde.kded5",
-                                                   "/modules/kpasswdserver",
-                                                   QDBusConnection::sessionBus()))
+                  "/modules/kpasswdserver",
+                  QDBusConnection::sessionBus()))
 {
 }
 
@@ -53,14 +53,14 @@ bool KPasswdServer::checkAuthInfo(KIO::AuthInfo &info, qlonglong windowId,
         qWarning() << "kioslave is not a QCoreApplication!";
         return legacyCheckAuthInfo(info, windowId, usertime);
     }
-    
+
     // create the loop for waiting for a result before sending the request
     KPasswdServerLoop loop;
     QObject::connect(m_interface, SIGNAL(checkAuthInfoAsyncResult(qlonglong,qlonglong,KIO::AuthInfo)),
                      &loop, SLOT(slotQueryResult(qlonglong,qlonglong,KIO::AuthInfo)));
-            
+
     QDBusReply<qlonglong> reply = m_interface->checkAuthInfoAsync(info, windowId,
-                                                                  usertime);
+                                  usertime);
     if (!reply.isValid()) {
         if (reply.error().type() == QDBusError::UnknownMethod) {
             if (legacyCheckAuthInfo(info, windowId, usertime)) {
@@ -88,15 +88,15 @@ bool KPasswdServer::checkAuthInfo(KIO::AuthInfo &info, qlonglong windowId,
 }
 
 bool KPasswdServer::legacyCheckAuthInfo(KIO::AuthInfo &info, qlonglong windowId,
-                                             qlonglong usertime)
+                                        qlonglong usertime)
 {
     qWarning() << "Querying old kded_kpasswdserver.";
-    
+
     QByteArray params;
     QDataStream stream(&params, QIODevice::WriteOnly);
     stream << info;
     QDBusReply<QByteArray> reply = m_interface->checkAuthInfo(params, windowId,
-                                                              usertime);
+                                   usertime);
     if (reply.isValid()) {
         AuthInfo authResult;
         QDataStream stream2(reply.value());
@@ -120,15 +120,15 @@ qlonglong KPasswdServer::queryAuthInfo(KIO::AuthInfo &info, const QString &error
         qWarning() << "kioslave is not a QCoreApplication!";
         return legacyQueryAuthInfo(info, errorMsg, windowId, seqNr, usertime);
     }
-    
+
     // create the loop for waiting for a result before sending the request
     KPasswdServerLoop loop;
     QObject::connect(m_interface, SIGNAL(queryAuthInfoAsyncResult(qlonglong,qlonglong,KIO::AuthInfo)),
                      &loop, SLOT(slotQueryResult(qlonglong,qlonglong,KIO::AuthInfo)));
 
     QDBusReply<qlonglong> reply = m_interface->queryAuthInfoAsync(info, errorMsg,
-                                                                  windowId, seqNr,
-                                                                  usertime);
+                                  windowId, seqNr,
+                                  usertime);
     if (!reply.isValid()) {
         // backwards compatibility for old kpasswdserver
         if (reply.error().type() == QDBusError::UnknownMethod) {
@@ -157,17 +157,17 @@ qlonglong KPasswdServer::queryAuthInfo(KIO::AuthInfo &info, const QString &error
 }
 
 qlonglong KPasswdServer::legacyQueryAuthInfo(KIO::AuthInfo &info, const QString &errorMsg,
-                                             qlonglong windowId, qlonglong seqNr,
-                                             qlonglong usertime)
+        qlonglong windowId, qlonglong seqNr,
+        qlonglong usertime)
 {
     qWarning() << "Querying old kded_kpasswdserver.";
-    
+
     QByteArray params;
     QDataStream stream(&params, QIODevice::WriteOnly);
     stream << info;
     QDBusPendingReply<QByteArray, qlonglong> reply = m_interface->queryAuthInfo(params, errorMsg,
-                                                                                windowId, seqNr,
-                                                                                usertime);
+            windowId, seqNr,
+            usertime);
     reply.waitForFinished();
     if (reply.isValid()) {
         AuthInfo authResult;
@@ -192,7 +192,7 @@ void KPasswdServer::addAuthInfo(const KIO::AuthInfo &info, qlonglong windowId)
 void KPasswdServer::legacyAddAuthInfo(const KIO::AuthInfo &info, qlonglong windowId)
 {
     qWarning() << "Querying old kded_kpasswdserver.";
-    
+
     QByteArray params;
     QDataStream stream(&params, QIODevice::WriteOnly);
     stream << info;

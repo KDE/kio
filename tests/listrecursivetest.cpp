@@ -26,50 +26,55 @@
 #include <kio/udsentry.h>
 
 class KJob;
-namespace KIO {
-    class Job;
+namespace KIO
+{
+class Job;
 }
 
-class SpeedTest : public QObject {
+class SpeedTest : public QObject
+{
     Q_OBJECT
 
 public:
-    SpeedTest(const QUrl & url);
+    SpeedTest(const QUrl &url);
 
 private Q_SLOTS:
-    void entries( KIO::Job *, const KIO::UDSEntryList& );
-    void finished( KJob *job );
+    void entries(KIO::Job *, const KIO::UDSEntryList &);
+    void finished(KJob *job);
 
 };
 
 using namespace KIO;
 
-SpeedTest::SpeedTest( const QUrl & url )
+SpeedTest::SpeedTest(const QUrl &url)
     : QObject(0)
 {
-    Job *job = listRecursive( url );
+    Job *job = listRecursive(url);
     connect(job, SIGNAL(result(KJob*)),
-	    SLOT(finished(KJob*)));
+            SLOT(finished(KJob*)));
     /*connect(job, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
-	    SLOT(entries(KIO::Job*,KIO::UDSEntryList)));
+        SLOT(entries(KIO::Job*,KIO::UDSEntryList)));
     */
 }
 
-void SpeedTest::entries(KIO::Job*, const UDSEntryList& list) {
+void SpeedTest::entries(KIO::Job *, const UDSEntryList &list)
+{
 
     UDSEntryList::ConstIterator it = list.begin();
     const UDSEntryList::ConstIterator end = list.end();
-    for (; it != end; ++it)
-        qDebug() << (*it).stringValue( UDSEntry::UDS_NAME );
+    for (; it != end; ++it) {
+        qDebug() << (*it).stringValue(UDSEntry::UDS_NAME);
+    }
 }
 
-
-void SpeedTest::finished(KJob*) {
+void SpeedTest::finished(KJob *)
+{
     qDebug() << "job finished";
     qApp->quit();
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
 
     // "A KIO::listRecursive testing tool"
 
@@ -79,12 +84,13 @@ int main(int argc, char **argv) {
     QApplication app(argc, argv);
 
     QUrl url;
-    if (argc > 1)
-      url = QUrl::fromUserInput(argv[1]);
-    else
-      url = QUrl::fromLocalFile(QDir::currentPath());
+    if (argc > 1) {
+        url = QUrl::fromUserInput(argv[1]);
+    } else {
+        url = QUrl::fromLocalFile(QDir::currentPath());
+    }
 
-    SpeedTest test( url );
+    SpeedTest test(url);
     app.exec();
 }
 

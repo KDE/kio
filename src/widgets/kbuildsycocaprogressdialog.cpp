@@ -26,7 +26,7 @@
 class KBuildSycocaProgressDialogPrivate
 {
 public:
-    KBuildSycocaProgressDialogPrivate( KBuildSycocaProgressDialog *parent )
+    KBuildSycocaProgressDialogPrivate(KBuildSycocaProgressDialog *parent)
         : m_parent(parent)
     {
     }
@@ -41,36 +41,36 @@ public:
 
 void KBuildSycocaProgressDialog::rebuildKSycoca(QWidget *parent)
 {
-  KBuildSycocaProgressDialog dlg(parent,
-                                 i18n("Updating System Configuration"),
-                                 i18n("Updating system configuration."));
+    KBuildSycocaProgressDialog dlg(parent,
+                                   i18n("Updating System Configuration"),
+                                   i18n("Updating system configuration."));
 
-  QDBusInterface kbuildsycoca("org.kde.kded5", "/kbuildsycoca",
-                              "org.kde.kbuildsycoca");
-  if (kbuildsycoca.isValid()) {
-     kbuildsycoca.callWithCallback("recreate", QVariantList(), &dlg, SLOT(_k_slotFinished()));
-  } else {
-      // kded not running, e.g. when using keditfiletype out of a KDE session
-      QObject::connect(KSycoca::self(), SIGNAL(databaseChanged(QStringList)), &dlg, SLOT(_k_slotFinished()));
-      QProcess* proc = new QProcess(&dlg);
-      proc->start(KBUILDSYCOCA_EXENAME);
-  }
-  dlg.exec();
+    QDBusInterface kbuildsycoca("org.kde.kded5", "/kbuildsycoca",
+                                "org.kde.kbuildsycoca");
+    if (kbuildsycoca.isValid()) {
+        kbuildsycoca.callWithCallback("recreate", QVariantList(), &dlg, SLOT(_k_slotFinished()));
+    } else {
+        // kded not running, e.g. when using keditfiletype out of a KDE session
+        QObject::connect(KSycoca::self(), SIGNAL(databaseChanged(QStringList)), &dlg, SLOT(_k_slotFinished()));
+        QProcess *proc = new QProcess(&dlg);
+        proc->start(KBUILDSYCOCA_EXENAME);
+    }
+    dlg.exec();
 }
 
 KBuildSycocaProgressDialog::KBuildSycocaProgressDialog(QWidget *_parent,
-                          const QString &_caption, const QString &text)
- : QProgressDialog(_parent)
- , d( new KBuildSycocaProgressDialogPrivate(this) )
+        const QString &_caption, const QString &text)
+    : QProgressDialog(_parent)
+    , d(new KBuildSycocaProgressDialogPrivate(this))
 {
-  connect(&d->m_timer, SIGNAL(timeout()), this, SLOT(_k_slotProgress()));
-  setWindowTitle(_caption);
-  setModal(true);
-  setLabelText(text);
-  setRange(0, 20);
-  d->m_timeStep = 700;
-  d->m_timer.start(d->m_timeStep);
-  setAutoClose(false);
+    connect(&d->m_timer, SIGNAL(timeout()), this, SLOT(_k_slotProgress()));
+    setWindowTitle(_caption);
+    setModal(true);
+    setLabelText(text);
+    setRange(0, 20);
+    d->m_timeStep = 700;
+    d->m_timer.start(d->m_timeStep);
+    setAutoClose(false);
 }
 
 KBuildSycocaProgressDialog::~KBuildSycocaProgressDialog()
@@ -80,26 +80,22 @@ KBuildSycocaProgressDialog::~KBuildSycocaProgressDialog()
 
 void KBuildSycocaProgressDialogPrivate::_k_slotProgress()
 {
-  const int p = m_parent->value();
-  if (p == 18)
-  {
-     m_parent->reset();
-     m_parent->setValue(1);
-     m_timeStep = m_timeStep * 2;
-     m_timer.start(m_timeStep);
-  }
-  else
-  {
-     m_parent->setValue(p+1);
-  }
+    const int p = m_parent->value();
+    if (p == 18) {
+        m_parent->reset();
+        m_parent->setValue(1);
+        m_timeStep = m_timeStep * 2;
+        m_timer.start(m_timeStep);
+    } else {
+        m_parent->setValue(p + 1);
+    }
 }
 
 void KBuildSycocaProgressDialogPrivate::_k_slotFinished()
 {
-  m_parent->setValue(20);
-  m_timer.stop();
-  QTimer::singleShot(1000, m_parent, SLOT(close()));
+    m_parent->setValue(20);
+    m_timer.stop();
+    QTimer::singleShot(1000, m_parent, SLOT(close()));
 }
-
 
 #include "moc_kbuildsycocaprogressdialog.cpp"

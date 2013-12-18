@@ -36,7 +36,7 @@ static const QString s_testACL2("user::rwx\nuser:bin:rwx\ngroup::rw-\ngroup:user
 static const QString s_testACLEffective("user::rwx\nuser:bin:rwx    #effective:r-x\ngroup::rw-      #effective:r--\ngroup:audio:--x\ngroup:users:r--\nmask::r-x\nother::r--\n");
 
 KACLTest::KACLTest()
-  : m_acl(s_testACL)
+    : m_acl(s_testACL)
 {
 }
 
@@ -86,10 +86,10 @@ void KACLTest::testGetAllUserPermissions()
     int permissions = 0;
     int count = 0;
     while (it != list.constEnd()) {
-      name = (*it).first;
-      permissions = (*it).second;
-      ++it;
-      ++count;
+        name = (*it).first;
+        permissions = (*it).second;
+        ++it;
+        ++count;
     }
     QCOMPARE(count, 1);
     QCOMPARE(name, QString("bin"));
@@ -98,26 +98,26 @@ void KACLTest::testGetAllUserPermissions()
 
 void KACLTest::testGetAllGroupsPermissions()
 {
-  ACLGroupPermissionsList list = m_acl2.allGroupPermissions();
-  ACLGroupPermissionsConstIterator it = list.constBegin();
-  QString name;
-  int permissions;
-  int count = 0;
-  while (it != list.constEnd()) {
-    name = (*it).first;
-    permissions = (*it).second;
-    // setACL sorts them alphabetically ...
-    if (count == 0) {
-        QCOMPARE(name, QString("audio"));
-        QCOMPARE(permissions, 1);
-    } else if (count == 1) {
-        QCOMPARE(name, QString("users"));
-        QCOMPARE(permissions, 4);
+    ACLGroupPermissionsList list = m_acl2.allGroupPermissions();
+    ACLGroupPermissionsConstIterator it = list.constBegin();
+    QString name;
+    int permissions;
+    int count = 0;
+    while (it != list.constEnd()) {
+        name = (*it).first;
+        permissions = (*it).second;
+        // setACL sorts them alphabetically ...
+        if (count == 0) {
+            QCOMPARE(name, QString("audio"));
+            QCOMPARE(permissions, 1);
+        } else if (count == 1) {
+            QCOMPARE(name, QString("users"));
+            QCOMPARE(permissions, 4);
+        }
+        ++it;
+        ++count;
     }
-    ++it;
-    ++count;
-  }
-  QCOMPARE(count, 2);
+    QCOMPARE(count, 2);
 }
 
 void KACLTest::testIsExtended()

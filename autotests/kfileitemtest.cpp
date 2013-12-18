@@ -36,7 +36,7 @@ void KFileItemTest::testPermissionsString()
 {
     // Directory
     QTemporaryDir tempDir;
-    KFileItem dirItem(QUrl::fromLocalFile(tempDir.path() + '/' ));
+    KFileItem dirItem(QUrl::fromLocalFile(tempDir.path() + '/'));
     QCOMPARE((uint)dirItem.permissions(), (uint)0700);
     QCOMPARE(dirItem.permissionsString(), QString("drwx------"));
     QVERIFY(dirItem.isReadable());
@@ -52,7 +52,7 @@ void KFileItemTest::testPermissionsString()
 
     // Symlink to file
     QString symlink = tempDir.path() + "/asymlink";
-    QVERIFY( file.link( symlink ) );
+    QVERIFY(file.link(symlink));
     QUrl symlinkUrl = QUrl::fromLocalFile(symlink);
     KFileItem symlinkItem(symlinkUrl, QString(), KFileItem::Unknown);
     QCOMPARE((uint)symlinkItem.permissions(), (uint)0604);
@@ -97,11 +97,11 @@ void KFileItemTest::testDetach()
     KFileItem fileItem(QUrl::fromLocalFile("/"), QString(), KFileItem::Unknown);
 #ifndef KDE_NO_DEPRECATED
     fileItem.setExtraData(this, this);
-    QCOMPARE(fileItem.extraData(this), (const void*)this);
+    QCOMPARE(fileItem.extraData(this), (const void *)this);
 #endif
     KFileItem fileItem2(fileItem);
 #ifndef KDE_NO_DEPRECATED
-    QCOMPARE(fileItem2.extraData(this), (const void*)this);
+    QCOMPARE(fileItem2.extraData(this), (const void *)this);
 #endif
     QVERIFY(fileItem == fileItem2);
     QVERIFY(fileItem.d == fileItem2.d);
@@ -311,7 +311,6 @@ void KFileItemTest::testDecodeFileName_data()
     QTest::newRow("/ at begin") << QString(QChar(0x2044)) << QString(QChar(0x2044));
 }
 
-
 void KFileItemTest::testDecodeFileName()
 {
     QFETCH(QString, filename);
@@ -357,7 +356,7 @@ void KFileItemTest::testListProperties_data()
     QTest::newRow("http url") << "h" << true << true /*says kio_http...*/
                               << false << false << "application/octet-stream" << "application";
     QTest::newRow("2 http urls") << "hh" << true << true /*says kio_http...*/
-                              << false << false << "application/octet-stream" << "application";
+                                 << false << false << "application/octet-stream" << "application";
 }
 
 void KFileItemTest::testListProperties()
@@ -371,22 +370,23 @@ void KFileItemTest::testListProperties()
     QFETCH(QString, expectedMimeGroup);
 
     QTemporaryDir tempDir;
-    QDir baseDir(tempDir.path() );
+    QDir baseDir(tempDir.path());
     KFileItemList items;
     for (int i = 0; i < itemDescriptions.size(); ++i) {
         QString fileName = tempDir.path() + "/file" + QString::number(i);
-        switch(itemDescriptions[i].toLatin1()) {
-        case 'f':
-        {
-            if (i==1) // 2nd file is html
+        switch (itemDescriptions[i].toLatin1()) {
+        case 'f': {
+            if (i == 1) { // 2nd file is html
                 fileName += ".html";
+            }
             QFile file(fileName);
             QVERIFY(file.open(QIODevice::WriteOnly));
-            if (i!=2) // 3rd file is empty
+            if (i != 2) { // 3rd file is empty
                 file.write("Hello");
+            }
             items << KFileItem(QUrl::fromLocalFile(fileName), QString(), KFileItem::Unknown);
         }
-            break;
+        break;
         case 'd':
             QVERIFY(baseDir.mkdir(fileName));
             items << KFileItem(QUrl::fromLocalFile(fileName), QString(), KFileItem::Unknown);
@@ -416,8 +416,9 @@ void KFileItemTest::testIconNameForUrl_data()
     QTest::addColumn<QString>("expectedIcon");
 
     QTest::newRow("root") << "file:/" << "folder"; // the icon comes from KProtocolInfo
-    if (QFile::exists("/tmp"))
+    if (QFile::exists("/tmp")) {
         QTest::newRow("subdir") << "file:/tmp" << "inode-directory";
+    }
     // TODO more tests
 }
 

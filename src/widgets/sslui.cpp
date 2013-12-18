@@ -26,13 +26,11 @@
 #include <ksslinfodialog.h>
 #include <ktcpsocket_p.h>
 
-
 bool KIO::SslUi::askIgnoreSslErrors(const KTcpSocket *socket, RulesStorage storedRules)
 {
     KSslErrorUiData uiData(socket);
     return askIgnoreSslErrors(uiData, storedRules);
 }
-
 
 bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage storedRules)
 {
@@ -77,17 +75,16 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
     int msgResult;
     do {
         msgResult = KMessageBox::warningYesNoCancel(0, message, i18n("Server Authentication"),
-                                                    KGuiItem(i18n("&Details"), "help-about"),
-                                                    KGuiItem(i18n("Co&ntinue"), "arrow-right"));
+                    KGuiItem(i18n("&Details"), "help-about"),
+                    KGuiItem(i18n("Co&ntinue"), "arrow-right"));
         if (msgResult == KMessageBox::Yes) {
             //Details was chosen - show the certificate and error details
-
 
             QList<QList<KSslError::Error> > meh;    // parallel list to cert list :/
 
             foreach (const QSslCertificate &cert, ud->certificateChain) {
                 QList<KSslError::Error> errors;
-                foreach(const KSslError &error, ud->sslErrors) {
+                foreach (const KSslError &error, ud->sslErrors) {
                     if (error.certificate() == cert) {
                         // we keep only the error code enum here
                         errors.append(error.error());
@@ -95,7 +92,6 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
                 }
                 meh.append(errors);
             }
-
 
             KSslInfoDialog *dialog = new KSslInfoDialog();
             dialog->setSslInfo(ud->certificateChain, ud->ip, ud->host, ud->sslProtocol,
@@ -107,24 +103,23 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
         //fall through on KMessageBox::No
     } while (msgResult == KMessageBox::Yes);
 
-
     if (storedRules & StoreRules) {
         //Save the user's choice to ignore the SSL errors.
 
         msgResult = KMessageBox::warningYesNo(0,
-                                i18n("Would you like to accept this "
-                                    "certificate forever without "
-                                    "being prompted?"),
-                                i18n("Server Authentication"),
-                                KGuiItem(i18n("&Forever"), "flag-green"),
-                                KGuiItem(i18n("&Current Session only"), "chronometer"));
+                                              i18n("Would you like to accept this "
+                                                      "certificate forever without "
+                                                      "being prompted?"),
+                                              i18n("Server Authentication"),
+                                              KGuiItem(i18n("&Forever"), "flag-green"),
+                                              KGuiItem(i18n("&Current Session only"), "chronometer"));
         QDateTime ruleExpiry = QDateTime::currentDateTime();
         if (msgResult == KMessageBox::Yes) {
             //accept forever ("for a very long time")
             ruleExpiry = ruleExpiry.addYears(1000);
         } else {
             //accept "for a short time", half an hour.
-            ruleExpiry = ruleExpiry.addSecs(30*60);
+            ruleExpiry = ruleExpiry.addSecs(30 * 60);
         }
 
         //TODO special cases for wildcard domain name in the certificate!

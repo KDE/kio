@@ -20,7 +20,6 @@
 #ifndef KFILEPLACESITEM_P_H
 #define KFILEPLACESITEM_P_H
 
-
 #include <QtCore/QObject>
 #include <QtCore/QPointer>
 #include <QtCore/QModelIndex>

@@ -55,18 +55,18 @@ int main(int argc, char *argv[])
 
     org::kde::KCookieServer *kcookiejar = new org::kde::KCookieServer("org.kde.kded5", "/modules/kcookiejar", QDBusConnection::sessionBus());
     if (parser.isSet("remove-all")) {
-      kcookiejar->deleteAllCookies();
+        kcookiejar->deleteAllCookies();
     }
     if (parser.isSet("remove")) {
-      QString domain = parser.value("remove");
-      kcookiejar->deleteCookiesFromDomain(domain);
+        QString domain = parser.value("remove");
+        kcookiejar->deleteCookiesFromDomain(domain);
     }
     if (parser.isSet("shutdown")) {
-      callKded("unloadModule", "kcookiejar");
+        callKded("unloadModule", "kcookiejar");
     } else if (parser.isSet("reload-config")) {
-      kcookiejar->reloadPolicy();
+        kcookiejar->reloadPolicy();
     } else {
-      callKded("loadModule", "kcookiejar");
+        callKded("loadModule", "kcookiejar");
     }
     delete kcookiejar;
 

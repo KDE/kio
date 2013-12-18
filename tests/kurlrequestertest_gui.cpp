@@ -12,7 +12,7 @@
 #include <kurlrequesterdialog.h>
 #include <QDebug>
 
-int main( int argc, char **argv )
+int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
     app.setQuitOnLastWindowClosed(false);
@@ -21,8 +21,8 @@ int main( int argc, char **argv )
     qDebug() << "Selected url:" << url;
 
     KUrlRequester *req = new KUrlRequester();
-    KEditListWidget *el = new KEditListWidget( req->customEditor() );
-    el->setWindowTitle( QLatin1String("Test") );
+    KEditListWidget *el = new KEditListWidget(req->customEditor());
+    el->setWindowTitle(QLatin1String("Test"));
     el->show();
 
     KUrlRequester *req1 = new KUrlRequester();

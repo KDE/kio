@@ -25,7 +25,7 @@
 
 Q_GLOBAL_STATIC(KProtocolInfoFactory, kProtocolInfoFactoryInstance)
 
-KProtocolInfoFactory* KProtocolInfoFactory::self()
+KProtocolInfoFactory *KProtocolInfoFactory::self()
 {
     return kProtocolInfoFactoryInstance();
 }
@@ -41,7 +41,8 @@ KProtocolInfoFactory::~KProtocolInfoFactory()
     m_cache.clear();
 }
 
-static QStringList servicesDirs() {
+static QStringList servicesDirs()
+{
     return QStandardPaths::locateAll(QStandardPaths::GenericDataLocation,
                                      QLatin1String("kde5/services"),
                                      QStandardPaths::LocateDirectory);
@@ -49,11 +50,12 @@ static QStringList servicesDirs() {
 
 QStringList KProtocolInfoFactory::protocols() const
 {
-    if (m_allProtocolsLoaded)
+    if (m_allProtocolsLoaded) {
         return m_cache.keys();
+    }
 
     QStringList result;
-    Q_FOREACH(const QString& serviceDir, servicesDirs()) {
+    Q_FOREACH (const QString &serviceDir, servicesDirs()) {
         QDirIterator it(serviceDir);
         while (it.hasNext()) {
             const QString file = it.next();
@@ -65,14 +67,14 @@ QStringList KProtocolInfoFactory::protocols() const
     return result;
 }
 
-
 QList<KProtocolInfoPrivate *> KProtocolInfoFactory::allProtocols()
 {
-    if (m_allProtocolsLoaded)
+    if (m_allProtocolsLoaded) {
         return m_cache.values();
+    }
 
     QStringList result;
-    Q_FOREACH(const QString& serviceDir, servicesDirs()) {
+    Q_FOREACH (const QString &serviceDir, servicesDirs()) {
         QDirIterator it(serviceDir);
         while (it.hasNext()) {
             const QString file = it.next();
@@ -86,17 +88,19 @@ QList<KProtocolInfoPrivate *> KProtocolInfoFactory::allProtocols()
     return m_cache.values();
 }
 
-KProtocolInfoPrivate* KProtocolInfoFactory::findProtocol(const QString &protocol)
+KProtocolInfoPrivate *KProtocolInfoFactory::findProtocol(const QString &protocol)
 {
     ProtocolCache::const_iterator it = m_cache.constFind(protocol);
-    if (it != m_cache.constEnd())
+    if (it != m_cache.constEnd()) {
         return *it;
+    }
 
     const QString file = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kde5/services/") + protocol + QLatin1String(".protocol"));
-    if (file.isEmpty())
+    if (file.isEmpty()) {
         return 0;
+    }
 
-    KProtocolInfoPrivate* info = new KProtocolInfoPrivate(file);
+    KProtocolInfoPrivate *info = new KProtocolInfoPrivate(file);
     m_cache.insert(protocol, info);
     return info;
 }

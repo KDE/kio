@@ -18,16 +18,16 @@
 
 #include "metadata.h"
 
-KIO::MetaData::MetaData(const QMap<QString,QVariant>& map)
+KIO::MetaData::MetaData(const QMap<QString, QVariant> &map)
 {
     *this = map;
 }
 
-KIO::MetaData & KIO::MetaData::operator += ( const QMap<QString,QVariant> &metaData )
+KIO::MetaData &KIO::MetaData::operator += (const QMap<QString, QVariant> &metaData)
 {
-    QMapIterator<QString,QVariant> it (metaData);
+    QMapIterator<QString, QVariant> it(metaData);
 
-    while(it.hasNext()) {
+    while (it.hasNext()) {
         it.next();
         insert(it.key(), it.value().toString());
     }
@@ -35,7 +35,7 @@ KIO::MetaData & KIO::MetaData::operator += ( const QMap<QString,QVariant> &metaD
     return *this;
 }
 
-KIO::MetaData & KIO::MetaData::operator = ( const QMap<QString,QVariant> &metaData )
+KIO::MetaData &KIO::MetaData::operator = (const QMap<QString, QVariant> &metaData)
 {
     clear();
     return (*this += metaData);
@@ -44,7 +44,7 @@ KIO::MetaData & KIO::MetaData::operator = ( const QMap<QString,QVariant> &metaDa
 QVariant KIO::MetaData::toVariant() const
 {
     QMap<QString, QVariant> map;
-    QMapIterator <QString,QString> it (*this);
+    QMapIterator <QString, QString> it(*this);
 
     while (it.hasNext()) {
         it.next();

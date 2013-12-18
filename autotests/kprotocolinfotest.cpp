@@ -42,18 +42,18 @@ private Q_SLOTS:
 
 void KProtocolInfoTest::testBasic()
 {
-    QVERIFY( KProtocolInfo::isKnownProtocol(QUrl("http:/")) );
-    QVERIFY( KProtocolInfo::isKnownProtocol(QUrl("file:/")) );
+    QVERIFY(KProtocolInfo::isKnownProtocol(QUrl("http:/")));
+    QVERIFY(KProtocolInfo::isKnownProtocol(QUrl("file:/")));
     QCOMPARE(KProtocolInfo::exec("file"), QString::fromLatin1("kio_file"));
     QCOMPARE(KProtocolInfo::protocolClass("file"), QString::fromLatin1(":local"));
 
     QCOMPARE(KProtocolInfo::protocolClass("http"), QString::fromLatin1(":internet"));
 
-    QVERIFY( KProtocolManager::supportsListing( QUrl( "ftp://10.1.1.10") ) );
+    QVERIFY(KProtocolManager::supportsListing(QUrl("ftp://10.1.1.10")));
 
     const QUrl url = QUrl::fromLocalFile("/tmp");
-    QCOMPARE( KProtocolManager::inputType(url), KProtocolInfo::T_NONE );
-    QCOMPARE( KProtocolManager::outputType(url), KProtocolInfo::T_FILESYSTEM );
+    QCOMPARE(KProtocolManager::inputType(url), KProtocolInfo::T_NONE);
+    QCOMPARE(KProtocolManager::outputType(url), KProtocolInfo::T_FILESYSTEM);
     QVERIFY(KProtocolManager::supportsReading(url));
 }
 
@@ -61,8 +61,9 @@ void KProtocolInfoTest::testExtraFields()
 {
     KProtocolInfo::ExtraFieldList extraFields = KProtocolInfo::extraFields(QUrl("trash:/"));
     KProtocolInfo::ExtraFieldList::Iterator extraFieldsIt = extraFields.begin();
-    for ( ; extraFieldsIt != extraFields.end() ; ++extraFieldsIt )
+    for (; extraFieldsIt != extraFields.end(); ++extraFieldsIt) {
         qDebug() << (*extraFieldsIt).name << " " << (*extraFieldsIt).type;
+    }
     // TODO
 }
 
@@ -81,7 +82,7 @@ void KProtocolInfoTest::testSlaveProtocol()
 
 void KProtocolInfoTest::testCapabilities()
 {
-    QStringList capabilities = KProtocolInfo::capabilities( "imap" );
+    QStringList capabilities = KProtocolInfo::capabilities("imap");
     qDebug() << "kio_imap capabilities: " << capabilities;
     //QVERIFY(capabilities.contains("ACL"));
 }

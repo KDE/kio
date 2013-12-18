@@ -37,9 +37,8 @@ class KHttpCookieList;
 
 typedef KHttpCookie *KHttpCookiePtr;
 
-enum KCookieAdvice
-{
-    KCookieDunno=0,
+enum KCookieAdvice {
+    KCookieDunno = 0,
     KCookieAccept,
     KCookieAcceptForSession,
     KCookieReject,
@@ -50,7 +49,7 @@ class KHttpCookie
 {
     friend class KCookieJar;
     friend class KHttpCookieList;
-    friend QDebug operator<<(QDebug, const KHttpCookie&); // for cookieStr()
+    friend QDebug operator<<(QDebug, const KHttpCookie &); // for cookieStr()
 
 protected:
     QString mHost;
@@ -71,60 +70,117 @@ protected:
     QString cookieStr(bool useDOMFormat) const;
 
 public:
-    explicit KHttpCookie(const QString &_host=QString(),
-                         const QString &_domain=QString(),
-                         const QString &_path=QString(),
-                         const QString &_name=QString(),
-                         const QString &_value=QString(),
-                         qint64 _expireDate=0,
-                         int _protocolVersion=0,
+    explicit KHttpCookie(const QString &_host = QString(),
+                         const QString &_domain = QString(),
+                         const QString &_path = QString(),
+                         const QString &_name = QString(),
+                         const QString &_value = QString(),
+                         qint64 _expireDate = 0,
+                         int _protocolVersion = 0,
                          bool _secure = false,
                          bool _httpOnly = false,
                          bool _explicitPath = false);
 
-    QString domain() const { return mDomain; }
-    QString host() const { return mHost; }
-    QString path() const { return mPath; }
-    QString name() const { return mName; }
-    QString value() const { return mValue; }
-    QList<long> &windowIds() { return mWindowIds; }
-    const QList<long> &windowIds() const { return mWindowIds; }
-    const QList<int> &ports() const { return mPorts; }
-    void fixDomain(const QString &domain) { mDomain = domain; }
-    qint64 expireDate() const { return mExpireDate; }
-    int protocolVersion() const { return mProtocolVersion; }
-    bool isSecure() const { return mSecure; }
+    QString domain() const
+    {
+        return mDomain;
+    }
+    QString host() const
+    {
+        return mHost;
+    }
+    QString path() const
+    {
+        return mPath;
+    }
+    QString name() const
+    {
+        return mName;
+    }
+    QString value() const
+    {
+        return mValue;
+    }
+    QList<long> &windowIds()
+    {
+        return mWindowIds;
+    }
+    const QList<long> &windowIds() const
+    {
+        return mWindowIds;
+    }
+    const QList<int> &ports() const
+    {
+        return mPorts;
+    }
+    void fixDomain(const QString &domain)
+    {
+        mDomain = domain;
+    }
+    qint64 expireDate() const
+    {
+        return mExpireDate;
+    }
+    int protocolVersion() const
+    {
+        return mProtocolVersion;
+    }
+    bool isSecure() const
+    {
+        return mSecure;
+    }
     /**
      *  If currentDate is -1, the default, then the current timestamp in UTC
      *  is used for comparison against this cookie's expiration date.
      */
     bool isExpired(qint64 currentDate = -1) const;
-    bool isCrossDomain() const { return mCrossDomain; }
-    bool isHttpOnly() const { return mHttpOnly; }
-    bool hasExplicitPath() const { return mExplicitPath; }
-    bool match(const QString &fqdn, const QStringList &domainList, const QString &path, int port=-1) const;
+    bool isCrossDomain() const
+    {
+        return mCrossDomain;
+    }
+    bool isHttpOnly() const
+    {
+        return mHttpOnly;
+    }
+    bool hasExplicitPath() const
+    {
+        return mExplicitPath;
+    }
+    bool match(const QString &fqdn, const QStringList &domainList, const QString &path, int port = -1) const;
 
-    KCookieAdvice getUserSelectedAdvice() const { return mUserSelectedAdvice; }
-    void setUserSelectedAdvice(KCookieAdvice advice) { mUserSelectedAdvice = advice; }
+    KCookieAdvice getUserSelectedAdvice() const
+    {
+        return mUserSelectedAdvice;
+    }
+    void setUserSelectedAdvice(KCookieAdvice advice)
+    {
+        mUserSelectedAdvice = advice;
+    }
 };
 
-QDebug operator<<(QDebug, const KHttpCookie&);
+QDebug operator<<(QDebug, const KHttpCookie &);
 
 class KHttpCookieList : public QList<KHttpCookie>
 {
 public:
-    KHttpCookieList() : QList<KHttpCookie>(), advice( KCookieDunno )
+    KHttpCookieList() : QList<KHttpCookie>(), advice(KCookieDunno)
     { }
     virtual ~KHttpCookieList() { }
 
-    KCookieAdvice getAdvice() const { return advice; }
-    void setAdvice(KCookieAdvice _advice) { advice = _advice; }
+    KCookieAdvice getAdvice() const
+    {
+        return advice;
+    }
+    void setAdvice(KCookieAdvice _advice)
+    {
+        advice = _advice;
+    }
 
 private:
     KCookieAdvice advice;
 };
 
-QDebug operator<<(QDebug, const KHttpCookieList&);
+QDebug operator<<(QDebug, const KHttpCookieList &);
 
 class KCookieJar
 {
@@ -146,7 +202,10 @@ public:
     /**
      * Returns whether the cookiejar has been changed
      */
-    bool changed() const { return m_cookiesChanged || m_configChanged; }
+    bool changed() const
+    {
+        return m_cookiesChanged || m_configChanged;
+    }
 
     /**
      * Store all the cookies in a safe(?) place
@@ -179,7 +238,7 @@ public:
      * approved yet by the user but that will be included in the result
      * none the less.
      */
-    QString findCookies(const QString &_url, bool useDOMFormat, long windowId, KHttpCookieList *pendingCookies=0);
+    QString findCookies(const QString &_url, bool useDOMFormat, long windowId, KHttpCookieList *pendingCookies = 0);
 
     /**
      * This function parses cookie_headers and returns a linked list of
@@ -211,7 +270,7 @@ public:
      * be considered persistent. Persistent cookies do not get deleted
      * at the end of the session and are saved on disk.
      */
-    bool cookieIsPersistent(const KHttpCookie& cookie) const;
+    bool cookieIsPersistent(const KHttpCookie &cookie) const;
 
     /**
      * This function advices whether a single KHttpCookie object should
@@ -226,7 +285,7 @@ public:
      * Before sending cookies back to a server this function is consulted,
      * so that cookies having advice KCookieReject are not sent back.
      */
-    KCookieAdvice cookieAdvice(const KHttpCookie& cookie) const;
+    KCookieAdvice cookieAdvice(const KHttpCookie &cookie) const;
 
     /**
      * This function gets the advice for all cookies originating from
@@ -264,7 +323,7 @@ public:
      *     - KCookieReject, reject all cookies for _domain
      *     - KCookieAsk, the user decides what to do with cookies for _domain
      */
-    void setDomainAdvice(const KHttpCookie& _cookie, KCookieAdvice _advice);
+    void setDomainAdvice(const KHttpCookie &_cookie, KCookieAdvice _advice);
 
     /**
      * Get the global advice for cookies
@@ -277,7 +336,10 @@ public:
      *
      * The global advice is used if the domain has no advice set.
      */
-    KCookieAdvice getGlobalAdvice() const { return m_globalAdvice; }
+    KCookieAdvice getGlobalAdvice() const
+    {
+        return m_globalAdvice;
+    }
 
     /**
      * This function sets the global advice for cookies
@@ -298,13 +360,13 @@ public:
      *     - It has a cookie originating from the domain
      *     - It has a specific advice set for the domain
      */
-    const QStringList& getDomainList();
+    const QStringList &getDomainList();
 
     /**
      * Get a list of all cookies in the cookie jar originating from _domain.
      */
-    KHttpCookieList *getCookieList(const QString & _domain,
-                                   const QString& _fqdn );
+    KHttpCookieList *getCookieList(const QString &_domain,
+                                   const QString &_fqdn);
 
     /**
      * Remove & delete a cookie from the jar.
@@ -329,13 +391,13 @@ public:
      * Removes all end of session cookies set by the
      * session @p windId.
      */
-    void eatSessionCookies( long windowId );
+    void eatSessionCookies(long windowId);
 
     /**
      * Removes all end of session cookies set by the
      * session @p windId.
      */
-    void eatSessionCookies( const QString& fqdn, long windowId, bool isFQDN = true );
+    void eatSessionCookies(const QString &fqdn, long windowId, bool isFQDN = true);
 
     /**
      * Parses _url and returns the FQDN (_fqdn) and path (_path).
@@ -359,30 +421,42 @@ public:
         ApplyToAllCookies = 2
     };
     /** Returns the user's choice in the cookie window */
-    KCookieDefaultPolicy preferredDefaultPolicy() const { return m_preferredPolicy; }
+    KCookieDefaultPolicy preferredDefaultPolicy() const
+    {
+        return m_preferredPolicy;
+    }
 
     /** Returns the */
-    bool showCookieDetails () const { return m_showCookieDetails; }
+    bool showCookieDetails() const
+    {
+        return m_showCookieDetails;
+    }
 
-     /**
-      * Sets the user's default preference cookie policy.
-      */
-     void setPreferredDefaultPolicy (KCookieDefaultPolicy value) { m_preferredPolicy = value; }
+    /**
+     * Sets the user's default preference cookie policy.
+     */
+    void setPreferredDefaultPolicy(KCookieDefaultPolicy value)
+    {
+        m_preferredPolicy = value;
+    }
 
-     /**
-      * Sets the user's preference of level of detail displayed
-      * by the cookie dialog.
-      */
-     void setShowCookieDetails (bool value) { m_showCookieDetails = value; }
+    /**
+     * Sets the user's preference of level of detail displayed
+     * by the cookie dialog.
+     */
+    void setShowCookieDetails(bool value)
+    {
+        m_showCookieDetails = value;
+    }
 
 protected:
-     void stripDomain(const QString &_fqdn, QString &_domain) const;
-     QString stripDomain(const KHttpCookie& cookie) const;
+    void stripDomain(const QString &_fqdn, QString &_domain) const;
+    QString stripDomain(const KHttpCookie &cookie) const;
 
 protected:
-    QStringList m_domainList;    
+    QStringList m_domainList;
     KCookieAdvice m_globalAdvice;
-    QHash<QString, KHttpCookieList*> m_cookieDomains;
+    QHash<QString, KHttpCookieList *> m_cookieDomains;
     QSet<QString> m_twoLevelTLD;
     QSet<QString> m_gTLDs;
 

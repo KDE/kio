@@ -27,7 +27,7 @@
 namespace KDEPrivate
 {
 
-KUrlNavigatorDropDownButton::KUrlNavigatorDropDownButton(QWidget* parent) :
+KUrlNavigatorDropDownButton::KUrlNavigatorDropDownButton(QWidget *parent) :
     KUrlNavigatorButtonBase(parent)
 {
 }
@@ -43,7 +43,7 @@ QSize KUrlNavigatorDropDownButton::sizeHint() const
     return size;
 }
 
-void KUrlNavigatorDropDownButton::paintEvent(QPaintEvent* event)
+void KUrlNavigatorDropDownButton::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
 
@@ -67,7 +67,7 @@ void KUrlNavigatorDropDownButton::paintEvent(QPaintEvent* event)
     }
 }
 
-void KUrlNavigatorDropDownButton::keyPressEvent(QKeyEvent* event)
+void KUrlNavigatorDropDownButton::keyPressEvent(QKeyEvent *event)
 {
     switch (event->key()) {
     case Qt::Key_Enter:

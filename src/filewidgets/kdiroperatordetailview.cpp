@@ -55,8 +55,8 @@ void KDirOperatorDetailView::setModel(QAbstractItemModel *model)
     if (model->rowCount() == 0) {
         // The model is empty. Assure that the columns get automatically resized
         // until the loading has been finished.
-        QAbstractProxyModel *proxyModel = static_cast<QAbstractProxyModel*>(model);
-        KDirModel *dirModel = static_cast<KDirModel*>(proxyModel->sourceModel());
+        QAbstractProxyModel *proxyModel = static_cast<QAbstractProxyModel *>(model);
+        KDirModel *dirModel = static_cast<KDirModel *>(proxyModel->sourceModel());
         connect(dirModel->dirLister(), SIGNAL(completed()),
                 this, SLOT(resetResizing()));
     } else {
@@ -71,7 +71,7 @@ void KDirOperatorDetailView::setModel(QAbstractItemModel *model)
 bool KDirOperatorDetailView::setViewMode(KFile::FileView viewMode)
 {
     bool tree = false;
-    
+
     if (KFile::isDetailView(viewMode)) {
         m_hideDetailColumns = false;
     } else if (KFile::isTreeView(viewMode)) {
@@ -83,17 +83,17 @@ bool KDirOperatorDetailView::setViewMode(KFile::FileView viewMode)
     } else {
         return false;
     }
-    
+
     setRootIsDecorated(tree);
     setItemsExpandable(tree);
     // This allows to have a horizontal scrollbar in case this view is used as
     // a plain treeview instead of cutting off filenames, especially useful when
     // using KDirOperator in horizontally limited parts of an app.
-    if( tree && m_hideDetailColumns ) {
-        header()->setSectionResizeMode( QHeaderView::ResizeToContents );
-        header()->setStretchLastSection( false );
+    if (tree && m_hideDetailColumns) {
+        header()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        header()->setStretchLastSection(false);
     }
-    
+
     return true;
 }
 
@@ -111,11 +111,11 @@ bool KDirOperatorDetailView::event(QEvent *event)
         hideColumn(KDirModel::Permissions);
         hideColumn(KDirModel::Owner);
         hideColumn(KDirModel::Group);
-    }
-    else if (event->type() == QEvent::UpdateRequest) {
+    } else if (event->type() == QEvent::UpdateRequest) {
         // A wheel movement will scroll 4 items
-        if (model()->rowCount())
+        if (model()->rowCount()) {
             verticalScrollBar()->setSingleStep((sizeHintForRow(0) / 3) * 4);
+        }
     }
 
     return QTreeView::event(event);
@@ -147,7 +147,7 @@ void KDirOperatorDetailView::mousePressEvent(QMouseEvent *event)
     }
 }
 
-void KDirOperatorDetailView::currentChanged(const QModelIndex& current, const QModelIndex& previous)
+void KDirOperatorDetailView::currentChanged(const QModelIndex &current, const QModelIndex &previous)
 {
     QTreeView::currentChanged(current, previous);
 }
@@ -185,4 +185,3 @@ void KDirOperatorDetailView::slotLayoutChanged()
     }
 }
 
-// kate: space-indent on; indent-width 4; replace-tabs on;

@@ -27,10 +27,7 @@
 #include <qplatformdefs.h>
 #include <qstandardpaths.h>
 
-
 #include "../kcookiejar.cpp"
-
-
 
 static KCookieJar *jar;
 static QString *lastYear;
@@ -38,205 +35,210 @@ static QString *nextYear;
 static KConfig *config = 0;
 static int windowId = 1234; // random number to be used as windowId for test cookies
 
-
 static void FAIL(const QString &msg)
 {
-   qWarning("%s", msg.toLocal8Bit().data());
-   exit(1);
+    qWarning("%s", msg.toLocal8Bit().data());
+    exit(1);
 }
 
-static void popArg(QString &command, QString & line)
+static void popArg(QString &command, QString &line)
 {
-   int i = line.indexOf(' ');
-   if (i != -1)
-   {
-      command = line.left(i);
-      line = line.mid(i+1);
-   }
-   else
-   {
-      command = line;
-      line.clear();
-   }
+    int i = line.indexOf(' ');
+    if (i != -1) {
+        command = line.left(i);
+        line = line.mid(i + 1);
+    } else {
+        command = line;
+        line.clear();
+    }
 }
-
 
 static void clearConfig()
 {
-   delete config;
-   QString file = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + QLatin1Char('/') + "kcookiejar-testconfig";
-   QFile::remove(file);
-   config = new KConfig(file);
-   KConfigGroup cg(config, "Cookie Policy");
-   cg.writeEntry("RejectCrossDomainCookies", false);
-   cg.writeEntry("AcceptSessionCookies", false);
-   cg.writeEntry("CookieGlobalAdvice", "Ask");
-   jar->loadConfig(config, false);
+    delete config;
+    QString file = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + QLatin1Char('/') + "kcookiejar-testconfig";
+    QFile::remove(file);
+    config = new KConfig(file);
+    KConfigGroup cg(config, "Cookie Policy");
+    cg.writeEntry("RejectCrossDomainCookies", false);
+    cg.writeEntry("AcceptSessionCookies", false);
+    cg.writeEntry("CookieGlobalAdvice", "Ask");
+    jar->loadConfig(config, false);
 }
 
 static void clearCookies(bool sessionOnly = false)
 {
-   if (sessionOnly) {
-      jar->eatSessionCookies(windowId);
-   } else {
-      jar->eatAllCookies();
-   }
+    if (sessionOnly) {
+        jar->eatSessionCookies(windowId);
+    } else {
+        jar->eatAllCookies();
+    }
 }
 
 static void saveCookies()
 {
-   QString file = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + QLatin1Char('/') + "kcookiejar-testcookies";
-   QFile::remove(file);
-   jar->saveCookies(file);
+    QString file = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + QLatin1Char('/') + "kcookiejar-testcookies";
+    QFile::remove(file);
+    jar->saveCookies(file);
 
-   // Add an empty domain to the cookies file, just for testing robustness
-   QFile f(file);
-   f.open(QIODevice::Append);
-   f.write("[]\n   \"\"   \"/\"    1584320400  0 h  4  x\n");
-   f.close();
+    // Add an empty domain to the cookies file, just for testing robustness
+    QFile f(file);
+    f.open(QIODevice::Append);
+    f.write("[]\n   \"\"   \"/\"    1584320400  0 h  4  x\n");
+    f.close();
 
-   delete jar;
-   jar = new KCookieJar();
-   clearConfig();
-   jar->loadCookies(file);
+    delete jar;
+    jar = new KCookieJar();
+    clearConfig();
+    jar->loadCookies(file);
 }
 
 static void endSession()
 {
-   jar->eatSessionCookies(windowId);
+    jar->eatSessionCookies(windowId);
 }
 
 static void processCookie(QString &line)
 {
-   QString policy;
-   popArg(policy, line);
-   KCookieAdvice expectedAdvice = KCookieJar::strToAdvice(policy);
-   if (expectedAdvice == KCookieDunno)
-      FAIL(QString("Unknown accept policy '%1'").arg(policy));
+    QString policy;
+    popArg(policy, line);
+    KCookieAdvice expectedAdvice = KCookieJar::strToAdvice(policy);
+    if (expectedAdvice == KCookieDunno) {
+        FAIL(QString("Unknown accept policy '%1'").arg(policy));
+    }
 
-   QString urlStr;
-   popArg(urlStr, line);
-   QUrl url(urlStr);
-   if (!url.isValid())
-      FAIL(QString("Invalid URL '%1'").arg(urlStr));
-   if (url.isEmpty())
-      FAIL(QString("Missing URL"));
+    QString urlStr;
+    popArg(urlStr, line);
+    QUrl url(urlStr);
+    if (!url.isValid()) {
+        FAIL(QString("Invalid URL '%1'").arg(urlStr));
+    }
+    if (url.isEmpty()) {
+        FAIL(QString("Missing URL"));
+    }
 
-   line.replace("%LASTYEAR%", *lastYear);
-   line.replace("%NEXTYEAR%", *nextYear);
+    line.replace("%LASTYEAR%", *lastYear);
+    line.replace("%NEXTYEAR%", *nextYear);
 
-   KHttpCookieList list = jar->makeCookies(urlStr, line.toUtf8(), windowId);
+    KHttpCookieList list = jar->makeCookies(urlStr, line.toUtf8(), windowId);
 
-   if (list.isEmpty())
-      FAIL(QString("Failed to make cookies from: '%1'").arg(line));
+    if (list.isEmpty()) {
+        FAIL(QString("Failed to make cookies from: '%1'").arg(line));
+    }
 
-   for(KHttpCookieList::iterator cookieIterator = list.begin();
-       cookieIterator != list.end(); ++cookieIterator) {
-       KHttpCookie& cookie = *cookieIterator;
-       const KCookieAdvice cookieAdvice = jar->cookieAdvice(cookie);
-       if (cookieAdvice != expectedAdvice)
-           FAIL(urlStr+QString("\n'%2'\nGot advice '%3' expected '%4'").arg(line)
-                .arg(KCookieJar::adviceToStr(cookieAdvice))
-                .arg(KCookieJar::adviceToStr(expectedAdvice)));
-       jar->addCookie(cookie);
-   }
+    for (KHttpCookieList::iterator cookieIterator = list.begin();
+            cookieIterator != list.end(); ++cookieIterator) {
+        KHttpCookie &cookie = *cookieIterator;
+        const KCookieAdvice cookieAdvice = jar->cookieAdvice(cookie);
+        if (cookieAdvice != expectedAdvice)
+            FAIL(urlStr + QString("\n'%2'\nGot advice '%3' expected '%4'").arg(line)
+                 .arg(KCookieJar::adviceToStr(cookieAdvice))
+                 .arg(KCookieJar::adviceToStr(expectedAdvice)));
+        jar->addCookie(cookie);
+    }
 }
 
 static void processCheck(QString &line)
 {
-   QString urlStr;
-   popArg(urlStr, line);
-   QUrl url(urlStr);
-   if (!url.isValid())
-      FAIL(QString("Invalid URL '%1'").arg(urlStr));
-   if (url.isEmpty())
-      FAIL(QString("Missing URL"));
+    QString urlStr;
+    popArg(urlStr, line);
+    QUrl url(urlStr);
+    if (!url.isValid()) {
+        FAIL(QString("Invalid URL '%1'").arg(urlStr));
+    }
+    if (url.isEmpty()) {
+        FAIL(QString("Missing URL"));
+    }
 
-   QString expectedCookies = line;
+    QString expectedCookies = line;
 
-   QString cookies = jar->findCookies(urlStr, false, windowId, 0).trimmed();
-   if (cookies != expectedCookies)
-      FAIL(urlStr+QString("\nGot '%1' expected '%2'")
-              .arg(cookies, expectedCookies));
+    QString cookies = jar->findCookies(urlStr, false, windowId, 0).trimmed();
+    if (cookies != expectedCookies)
+        FAIL(urlStr + QString("\nGot '%1' expected '%2'")
+             .arg(cookies, expectedCookies));
 }
 
 static void processClear(QString &line)
 {
-   if (line == "CONFIG")
-      clearConfig();
-   else if (line == "COOKIES")
-      clearCookies();
-   else if (line == "SESSIONCOOKIES")
-      clearCookies(true);
-   else
-      FAIL(QString("Unknown command 'CLEAR %1'").arg(line));
+    if (line == "CONFIG") {
+        clearConfig();
+    } else if (line == "COOKIES") {
+        clearCookies();
+    } else if (line == "SESSIONCOOKIES") {
+        clearCookies(true);
+    } else {
+        FAIL(QString("Unknown command 'CLEAR %1'").arg(line));
+    }
 }
 
 static void processConfig(QString &line)
 {
-   QString key;
-   popArg(key, line);
+    QString key;
+    popArg(key, line);
 
-   if (key.isEmpty())
-      FAIL(QString("Missing Key"));
+    if (key.isEmpty()) {
+        FAIL(QString("Missing Key"));
+    }
 
-   KConfigGroup cg(config, "Cookie Policy");
-   cg.writeEntry(key, line);
-   jar->loadConfig(config, false);
+    KConfigGroup cg(config, "Cookie Policy");
+    cg.writeEntry(key, line);
+    jar->loadConfig(config, false);
 }
 
 static void processLine(QString line)
 {
-   if (line.isEmpty())
-      return;
+    if (line.isEmpty()) {
+        return;
+    }
 
-   if (line[0] == '#')
-   {
-      if (line[1] == '#')
-         qDebug("%s", line.toLatin1().constData());
-      return;
-   }
+    if (line[0] == '#') {
+        if (line[1] == '#') {
+            qDebug("%s", line.toLatin1().constData());
+        }
+        return;
+    }
 
-   QString command;
-   popArg(command, line);
-   if (command.isEmpty())
-      return;
+    QString command;
+    popArg(command, line);
+    if (command.isEmpty()) {
+        return;
+    }
 
-   if (command == "COOKIE")
-      processCookie(line);
-   else if (command == "CHECK")
-      processCheck(line);
-   else if (command == "CLEAR")
-      processClear(line);
-   else if (command == "CONFIG")
-      processConfig(line);
-   else if (command == "SAVE")
-      saveCookies();
-   else if (command == "ENDSESSION")
-      endSession();
-   else
-      FAIL(QString("Unknown command '%1'").arg(command));
+    if (command == "COOKIE") {
+        processCookie(line);
+    } else if (command == "CHECK") {
+        processCheck(line);
+    } else if (command == "CLEAR") {
+        processClear(line);
+    } else if (command == "CONFIG") {
+        processConfig(line);
+    } else if (command == "SAVE") {
+        saveCookies();
+    } else if (command == "ENDSESSION") {
+        endSession();
+    } else {
+        FAIL(QString("Unknown command '%1'").arg(command));
+    }
 }
 
 static void runRegression(const QString &filename)
 {
-   FILE *file = QT_FOPEN(QFile::encodeName(filename).constData(), "r");
-   if (!file)
-      FAIL(QString("Can't open '%1'").arg(filename));
+    FILE *file = QT_FOPEN(QFile::encodeName(filename).constData(), "r");
+    if (!file) {
+        FAIL(QString("Can't open '%1'").arg(filename));
+    }
 
-   char buf[4096];
-   while (fgets(buf, sizeof(buf), file))
-   {
-      int l = strlen(buf);
-      if (l)
-      {
-         l--;
-         buf[l] = 0;
-      }
-      processLine(QString::fromUtf8(buf));
-   }
-   fclose( file );
-   qDebug("%s OK", filename.toLocal8Bit().data());
+    char buf[4096];
+    while (fgets(buf, sizeof(buf), file)) {
+        int l = strlen(buf);
+        if (l) {
+            l--;
+            buf[l] = 0;
+        }
+        processLine(QString::fromUtf8(buf));
+    }
+    fclose(file);
+    qDebug("%s OK", filename.toLocal8Bit().data());
 }
 
 class KCookieJarTest : public QObject

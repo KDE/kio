@@ -36,8 +36,7 @@ using namespace KIO;
 class KIO::UDSEntryPrivate : public QSharedData
 {
 public:
-    struct Field
-    {
+    struct Field {
         inline Field() : m_long(0) { }
         QString m_str;
         long long m_long;
@@ -91,7 +90,7 @@ bool UDSEntry::isLink() const
     return !stringValue(UDS_LINK_DEST).isEmpty();
 }
 
-void UDSEntry::insert(uint field, const QString& value)
+void UDSEntry::insert(uint field, const QString &value)
 {
     UDSEntryPrivate::Field f;
     f.m_str = value;
@@ -130,13 +129,13 @@ void UDSEntry::clear()
     d->fields.clear();
 }
 
-QDataStream & operator<<(QDataStream &s, const UDSEntry &a)
+QDataStream &operator<<(QDataStream &s, const UDSEntry &a)
 {
     UDSEntryPrivate::save(s, a);
     return s;
 }
 
-QDataStream & operator>>(QDataStream &s, UDSEntry &a)
+QDataStream &operator>>(QDataStream &s, UDSEntry &a)
 {
     UDSEntryPrivate::load(s, a);
     return s;
@@ -149,18 +148,18 @@ void UDSEntryPrivate::save(QDataStream &s, const UDSEntry &a)
     s << e.size();
     FieldHash::ConstIterator it = e.begin();
     const FieldHash::ConstIterator end = e.end();
-    for( ; it != end; ++it)
-    {
+    for (; it != end; ++it) {
         const quint32 uds = it.key();
         s << uds;
-        if (uds & KIO::UDSEntry::UDS_STRING)
+        if (uds & KIO::UDSEntry::UDS_STRING) {
             s << it->m_str;
-        else if (uds & KIO::UDSEntry::UDS_NUMBER)
+        } else if (uds & KIO::UDSEntry::UDS_NUMBER) {
             s << it->m_long;
-        else
+        } else {
             Q_ASSERT_X(false, "KIO::UDSEntry", "Found a field with an invalid type");
-     }
- }
+        }
+    }
+}
 
 void UDSEntryPrivate::load(QDataStream &s, UDSEntry &a)
 {
@@ -178,8 +177,7 @@ void UDSEntryPrivate::load(QDataStream &s, UDSEntry &a)
         cachedStrings.resize(size);
     }
 
-    for(quint32 i = 0; i < size; ++i)
-    {
+    for (quint32 i = 0; i < size; ++i) {
         quint32 uds;
         s >> uds;
         if (uds & KIO::UDSEntry::UDS_STRING) {
@@ -190,7 +188,7 @@ void UDSEntryPrivate::load(QDataStream &s, UDSEntry &a)
             s >> buffer;
 
             if (buffer != cachedStrings.at(i)) {
-                 cachedStrings[i] = buffer;
+                cachedStrings[i] = buffer;
             }
 
             Field f;
@@ -205,5 +203,4 @@ void UDSEntryPrivate::load(QDataStream &s, UDSEntry &a)
         }
     }
 }
-
 

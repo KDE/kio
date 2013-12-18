@@ -60,8 +60,8 @@ public:
      * @param value  is the initial value of the line
      * @param parent parent widget
      */
-    KOpenWithDialog( const QList<QUrl>& urls, const QString& text, const QString& value,
-                  QWidget *parent = 0 );
+    KOpenWithDialog(const QList<QUrl> &urls, const QString &text, const QString &value,
+                    QWidget *parent = 0);
 
     /**
      * Create a dialog to select a service for a given mimetype.
@@ -71,8 +71,8 @@ public:
      * @param value  is the initial value of the line
      * @param parent parent widget
      */
-    KOpenWithDialog( const QString& mimeType, const QString& value,
-                  QWidget *parent = 0 );
+    KOpenWithDialog(const QString &mimeType, const QString &value,
+                    QWidget *parent = 0);
 
     /**
      * Create a dialog to select an application
@@ -80,7 +80,7 @@ public:
      *
      * @param parent parent widget
      */
-    KOpenWithDialog( QWidget *parent = 0 );
+    KOpenWithDialog(QWidget *parent = 0);
 
     /**
      * Destructor
@@ -116,8 +116,8 @@ public:
     void setSaveNewApplications(bool b);
 
 public Q_SLOTS: // TODO KDE5: move all those slots to the private class!
-    void slotSelected( const QString&_name, const QString& _exec );
-    void slotHighlighted( const QString& _name, const QString& _exec );
+    void slotSelected(const QString &_name, const QString &_exec);
+    void slotHighlighted(const QString &_name, const QString &_exec);
     void slotTextChanged();
     void slotTerminalToggled(bool);
 
@@ -129,7 +129,7 @@ protected Q_SLOTS:
 
 private:
     friend class KOpenWithDialogPrivate;
-    KOpenWithDialogPrivate* const d;
+    KOpenWithDialogPrivate *const d;
 
     Q_DISABLE_COPY(KOpenWithDialog)
 

@@ -78,35 +78,35 @@ public:
         /**
          * Sets the parent widget to use for message boxes.
          */
-        void setParentWidget(QWidget* parentWidget);
+        void setParentWidget(QWidget *parentWidget);
 
         /**
          * @return the parent widget passed to the last call to undo(parentWidget), or 0.
          */
-        QWidget* parentWidget() const;
+        QWidget *parentWidget() const;
 
         /**
          * Called when an undo job errors; default implementation displays a message box.
          */
-        virtual void jobError(KIO::Job* job);
+        virtual void jobError(KIO::Job *job);
 
         /**
          * Called when we are about to remove those files.
          * Return true if we should proceed with deleting them.
          */
-        virtual bool confirmDeletion(const QList<QUrl>& files);
+        virtual bool confirmDeletion(const QList<QUrl> &files);
 
         /**
          * Called when dest was modified since it was copied from src.
          * Note that this is called after confirmDeletion.
          * Return true if we should proceed with deleting dest.
          */
-        virtual bool copiedFileWasModified(const QUrl& src, const QUrl& dest, const QDateTime& srcTime, const QDateTime& destTime);
+        virtual bool copiedFileWasModified(const QUrl &src, const QUrl &dest, const QDateTime &srcTime, const QDateTime &destTime);
 
         /**
          * \internal, for future extensions
          */
-        virtual void virtual_hook(int id, void* data);
+        virtual void virtual_hook(int id, void *data);
 
     private:
         class UiInterfacePrivate;
@@ -118,13 +118,13 @@ public:
      * This deletes the previous one.
      * @param ui the UiInterface instance, which becomes owned by the undo manager.
      */
-    void setUiInterface(UiInterface* ui);
+    void setUiInterface(UiInterface *ui);
 
     /**
      * @return the UiInterface instance passed to setUiInterface.
      * This is useful for calling setParentWidget on it. Never delete it!
      */
-    UiInterface* uiInterface() const;
+    UiInterface *uiInterface() const;
 
     /**
      * The type of job.
@@ -148,7 +148,7 @@ public:
      * Record this CopyJob while it's happening and add a command for it so that the user can undo it.
      * The signal jobRecordingStarted() is emitted.
      */
-    void recordCopyJob(KIO::CopyJob* copyJob);
+    void recordCopyJob(KIO::CopyJob *copyJob);
 
     /**
      * @return true if undo is possible. Usually used for enabling/disabling the undo action.

@@ -28,7 +28,7 @@
 class KProtocolInfoPrivate
 {
 public:
-    KProtocolInfoPrivate(const QString& path);
+    KProtocolInfoPrivate(const QString &path);
 
     QString m_name;
     QString m_exec;
@@ -57,7 +57,6 @@ public:
     QString m_config;
     int m_maxSlaves;
 
-
     QString m_docPath;
     QString m_protClass;
     QStringList m_archiveMimeTypes;
@@ -67,6 +66,5 @@ public:
     QString m_proxyProtocol;
     int m_maxSlavesPerHost;
 };
-
 
 #endif

@@ -69,9 +69,9 @@ KIO::JobUiDelegate::~JobUiDelegate()
   file dialog it encountered since it is the "next ancestor widget that has (or
   could have) a window-system frame".
 */
-static QWidget* topLevelWindow(QWidget* widget)
+static QWidget *topLevelWindow(QWidget *widget)
 {
-    QWidget* w = widget;
+    QWidget *w = widget;
     while (w && w->parentWidget()) {
         w = w->parentWidget();
     }
@@ -84,10 +84,11 @@ class JobUiDelegateStatic : public QObject
 public:
     void registerWindow(QWidget *wid)
     {
-        if (!wid)
+        if (!wid) {
             return;
+        }
 
-        QWidget* window = topLevelWindow(wid);
+        QWidget *window = topLevelWindow(wid);
         QObject *obj = static_cast<QObject *>(window);
         if (!m_windowList.contains(obj)) {
             // We must store the window Id because by the time
@@ -98,24 +99,26 @@ public:
             connect(window, SIGNAL(destroyed(QObject*)),
                     this, SLOT(slotUnregisterWindow(QObject*)));
             QDBusInterface("org.kde.kded5", "/kded", "org.kde.kded5").
-                call(QDBus::NoBlock, "registerWindowId", qlonglong(windowId));
+            call(QDBus::NoBlock, "registerWindowId", qlonglong(windowId));
         }
     }
 private Q_SLOTS:
     void slotUnregisterWindow(QObject *obj)
     {
-        if (!obj)
+        if (!obj) {
             return;
+        }
 
         QMap<QObject *, WId>::Iterator it = m_windowList.find(obj);
-        if (it == m_windowList.end())
+        if (it == m_windowList.end()) {
             return;
+        }
         WId windowId = it.value();
         disconnect(it.key(), SIGNAL(destroyed(QObject*)),
                    this, SLOT(slotUnregisterWindow(QObject*)));
-        m_windowList.erase( it );
+        m_windowList.erase(it);
         QDBusInterface("org.kde.kded5", "/kded", "org.kde.kded5").
-            call(QDBus::NoBlock, "unregisterWindowId", qlonglong(windowId));
+        call(QDBus::NoBlock, "unregisterWindowId", qlonglong(windowId));
     }
 private:
     QMap<QObject *, WId> m_windowList;
@@ -129,18 +132,18 @@ void KIO::JobUiDelegate::setWindow(QWidget *window)
     s_static()->registerWindow(window);
 }
 
-KIO::RenameDialog_Result KIO::JobUiDelegate::askFileRename(KJob * job,
-                                                           const QString & caption,
-                                                           const QUrl & src,
-                                                           const QUrl & dest,
-                                                           KIO::RenameDialog_Mode mode,
-                                                           QString& newDest,
-                                                           KIO::filesize_t sizeSrc,
-                                                           KIO::filesize_t sizeDest,
-                                                           const QDateTime &ctimeSrc,
-                                                           const QDateTime &ctimeDest,
-                                                           const QDateTime &mtimeSrc,
-                                                           const QDateTime &mtimeDest)
+KIO::RenameDialog_Result KIO::JobUiDelegate::askFileRename(KJob *job,
+        const QString &caption,
+        const QUrl &src,
+        const QUrl &dest,
+        KIO::RenameDialog_Mode mode,
+        QString &newDest,
+        KIO::filesize_t sizeSrc,
+        KIO::filesize_t sizeDest,
+        const QDateTime &ctimeSrc,
+        const QDateTime &ctimeDest,
+        const QDateTime &mtimeSrc,
+        const QDateTime &mtimeDest)
 {
     //qDebug() << "job=" << job;
     // We now do it in process, so that opening the rename dialog
@@ -153,16 +156,15 @@ KIO::RenameDialog_Result KIO::JobUiDelegate::askFileRename(KJob * job,
     KIO::RenameDialog_Result res = static_cast<RenameDialog_Result>(dlg.exec());
     if (res == R_AUTO_RENAME) {
         newDest = dlg.autoDestUrl().path();
-    }
-    else {
+    } else {
         newDest = dlg.newDestUrl().path();
     }
     return res;
 }
 
 KIO::SkipDialog_Result KIO::JobUiDelegate::askSkip(KJob *job,
-                                              bool multi,
-                                              const QString & error_text)
+        bool multi,
+        const QString &error_text)
 {
     // We now do it in process. So this method is a useless wrapper around KIO::open_RenameDialog.
     KIO::SkipDialog dlg(KJobWidgets::window(job), multi, error_text);
@@ -170,26 +172,26 @@ KIO::SkipDialog_Result KIO::JobUiDelegate::askSkip(KJob *job,
     return static_cast<KIO::SkipDialog_Result>(dlg.exec());
 }
 
-bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl>& urls,
-                                               DeletionType deletionType,
-                                               ConfirmationType confirmationType)
+bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls,
+        DeletionType deletionType,
+        ConfirmationType confirmationType)
 {
     QString keyName;
-    bool ask = ( confirmationType == ForceConfirmation );
+    bool ask = (confirmationType == ForceConfirmation);
     if (!ask) {
         KSharedConfigPtr kioConfig = KSharedConfig::openConfig("kiorc", KConfig::NoGlobals);
 
-	switch (deletionType ) {
-	case Delete:
-	    keyName = "ConfirmDelete" ;
-	    break;
-	case Trash:
-	    keyName = "ConfirmTrash" ;
-	    break;
-	case EmptyTrash:
-	    keyName = "ConfirmEmptyTrash" ;
-	    break;
-	}
+        switch (deletionType) {
+        case Delete:
+            keyName = "ConfirmDelete";
+            break;
+        case Trash:
+            keyName = "ConfirmTrash";
+            break;
+        case EmptyTrash:
+            keyName = "ConfirmEmptyTrash";
+            break;
+        }
 
         // The default value for confirmations is true (for both delete and trash)
         // If you change this, update kdebase/apps/konqueror/settings/konq/behaviour.cpp
@@ -198,8 +200,8 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl>& urls,
     }
     if (ask) {
         QStringList prettyList;
-        Q_FOREACH(const QUrl& url, urls) {
-            if ( url.scheme() == "trash" ) {
+        Q_FOREACH (const QUrl &url, urls) {
+            if (url.scheme() == "trash") {
                 QString path = url.path();
                 // HACK (#98983): remove "0-foo". Note that it works better than
                 // displaying KFileItem::name(), for files under a subdir.
@@ -210,39 +212,39 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl>& urls,
             }
         }
 
-        QWidget* widget = job() ? window() : NULL; // ### job is NULL here, most of the time, right?
+        QWidget *widget = job() ? window() : NULL; // ### job is NULL here, most of the time, right?
         int result;
-        switch(deletionType) {
+        switch (deletionType) {
         case Delete:
             result = KMessageBox::warningContinueCancelList(
-                widget,
-             	i18np("Do you really want to delete this item?", "Do you really want to delete these %1 items?", prettyList.count()),
-             	prettyList,
-		i18n("Delete Files"),
-		KStandardGuiItem::del(),
-		KStandardGuiItem::cancel(),
-		keyName, KMessageBox::Notify);
+                         widget,
+                         i18np("Do you really want to delete this item?", "Do you really want to delete these %1 items?", prettyList.count()),
+                         prettyList,
+                         i18n("Delete Files"),
+                         KStandardGuiItem::del(),
+                         KStandardGuiItem::cancel(),
+                         keyName, KMessageBox::Notify);
             break;
         case EmptyTrash:
-	    result = KMessageBox::warningContinueCancel(
-	        widget,
-		i18nc("@info", "Do you want to permanently delete all items from Trash? This action cannot be undone."),
-		QString(),
-		KGuiItem(i18nc("@action:button", "Empty Trash"),
-		QIcon::fromTheme("user-trash")),
-		KStandardGuiItem::cancel(),
-		keyName, KMessageBox::Notify);
-	    break;
+            result = KMessageBox::warningContinueCancel(
+                         widget,
+                         i18nc("@info", "Do you want to permanently delete all items from Trash? This action cannot be undone."),
+                         QString(),
+                         KGuiItem(i18nc("@action:button", "Empty Trash"),
+                                  QIcon::fromTheme("user-trash")),
+                         KStandardGuiItem::cancel(),
+                         keyName, KMessageBox::Notify);
+            break;
         case Trash:
         default:
             result = KMessageBox::warningContinueCancelList(
-                widget,
-                i18np("Do you really want to move this item to the trash?", "Do you really want to move these %1 items to the trash?", prettyList.count()),
-                prettyList,
-		i18n("Move to Trash"),
-		KGuiItem(i18nc("Verb", "&Trash"), "user-trash"),
-		KStandardGuiItem::cancel(),
-		keyName, KMessageBox::Notify);
+                         widget,
+                         i18np("Do you really want to move this item to the trash?", "Do you really want to move these %1 items to the trash?", prettyList.count()),
+                         prettyList,
+                         i18n("Move to Trash"),
+                         KGuiItem(i18nc("Verb", "&Trash"), "user-trash"),
+                         KStandardGuiItem::cancel(),
+                         keyName, KMessageBox::Notify);
         }
         if (!keyName.isEmpty()) {
             // Check kmessagebox setting... erase & copy to konquerorrc.
@@ -261,13 +263,12 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl>& urls,
     return true;
 }
 
-
 int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType type,
-                                          const QString& text, const QString& caption,
-                                          const QString& buttonYes, const QString& buttonNo,
-                                          const QString& iconYes, const QString& iconNo,
-                                          const QString& dontAskAgainName,
-                                          const KIO::MetaData& sslMetaData)
+        const QString &text, const QString &caption,
+        const QString &buttonYes, const QString &buttonNo,
+        const QString &iconYes, const QString &iconNo,
+        const QString &dontAskAgainName,
+        const KIO::MetaData &sslMetaData)
 {
     int result = -1;
 
@@ -276,37 +277,36 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
     KConfig config("kioslaverc");
     KMessageBox::setDontShowAgainConfig(&config);
 
-    const KGuiItem buttonYesGui (buttonYes, iconYes);
-    const KGuiItem buttonNoGui (buttonNo, iconNo);
+    const KGuiItem buttonYesGui(buttonYes, iconYes);
+    const KGuiItem buttonNoGui(buttonNo, iconNo);
 
     switch (type) {
     case QuestionYesNo:
         result = KMessageBox::questionYesNo(
-                    window(), text, caption, buttonYesGui,
-                    buttonNoGui, dontAskAgainName);
+                     window(), text, caption, buttonYesGui,
+                     buttonNoGui, dontAskAgainName);
         break;
     case WarningYesNo:
         result = KMessageBox::warningYesNo(
-                    window(), text, caption, buttonYesGui,
-                    buttonNoGui, dontAskAgainName);
+                     window(), text, caption, buttonYesGui,
+                     buttonNoGui, dontAskAgainName);
         break;
     case WarningYesNoCancel:
         result = KMessageBox::warningYesNoCancel(
-                    window(), text, caption, buttonYesGui, buttonNoGui,
-                    KStandardGuiItem::cancel(), dontAskAgainName);
+                     window(), text, caption, buttonYesGui, buttonNoGui,
+                     KStandardGuiItem::cancel(), dontAskAgainName);
         break;
     case WarningContinueCancel:
         result = KMessageBox::warningContinueCancel(
-                    window(), text, caption, buttonYesGui,
-                    KStandardGuiItem::cancel(), dontAskAgainName);
+                     window(), text, caption, buttonYesGui,
+                     KStandardGuiItem::cancel(), dontAskAgainName);
         break;
     case Information:
         KMessageBox::information(window(), text, caption, dontAskAgainName);
         result = 1; // whatever
         break;
-    case SSLMessageBox:
-    {
-        QPointer<KSslInfoDialog> kid (new KSslInfoDialog(window()));
+    case SSLMessageBox: {
+        QPointer<KSslInfoDialog> kid(new KSslInfoDialog(window()));
         //### this is boilerplate code and appears in khtml_part.cpp almost unchanged!
         const QStringList sl = sslMetaData.value(QLatin1String("ssl_peer_chain")).split('\x01', QString::SkipEmptyParts);
         QList<QSslCertificate> certChain;
@@ -349,12 +349,12 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
     return result;
 }
 
-KIO::ClipboardUpdater* KIO::JobUiDelegate::createClipboardUpdater(Job* job, ClipboardUpdaterMode mode)
+KIO::ClipboardUpdater *KIO::JobUiDelegate::createClipboardUpdater(Job *job, ClipboardUpdaterMode mode)
 {
-      if (qobject_cast<QGuiApplication *>(qApp) != NULL) {
-            return new KIO::ClipboardUpdater(job, mode);
-      }
-      return NULL;
+    if (qobject_cast<QGuiApplication *>(qApp) != NULL) {
+        return new KIO::ClipboardUpdater(job, mode);
+    }
+    return NULL;
 }
 
 void KIO::JobUiDelegate::updateUrlInClipboard(const QUrl &src, const QUrl &dest)
@@ -365,7 +365,8 @@ void KIO::JobUiDelegate::updateUrlInClipboard(const QUrl &src, const QUrl &dest)
 class KIOWidgetJobUiDelegateFactory : public KIO::JobUiDelegateFactory
 {
 public:
-    KJobUiDelegate *createDelegate() const Q_DECL_OVERRIDE {
+    KJobUiDelegate *createDelegate() const Q_DECL_OVERRIDE
+    {
         return new KIO::JobUiDelegate;
     }
 };

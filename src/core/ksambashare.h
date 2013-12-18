@@ -125,7 +125,7 @@ Q_SIGNALS:
 private:
     KSambaShare();
 
-    KSambaSharePrivate * const d_ptr;
+    KSambaSharePrivate *const d_ptr;
     Q_DECLARE_PRIVATE(KSambaShare)
     friend class KSambaShareData;
     friend class KSambaShareSingleton;

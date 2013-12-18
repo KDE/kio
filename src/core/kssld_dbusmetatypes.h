@@ -29,7 +29,6 @@
 Q_DECLARE_METATYPE(KSslCertificateRule)
 Q_DECLARE_METATYPE(KSslError::Error)
 
-
 QDBusArgument &operator<<(QDBusArgument &argument, const QSslCertificate &cert)
 {
     argument.beginStructure();
@@ -37,7 +36,6 @@ QDBusArgument &operator<<(QDBusArgument &argument, const QSslCertificate &cert)
     argument.endStructure();
     return argument;
 }
-
 
 const QDBusArgument &operator>>(const QDBusArgument &argument, QSslCertificate &cert)
 {
@@ -49,7 +47,6 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, QSslCertificate &
     return argument;
 }
 
-
 QDBusArgument &operator<<(QDBusArgument &argument, const KSslCertificateRule &rule)
 {
     argument.beginStructure();
@@ -59,7 +56,6 @@ QDBusArgument &operator<<(QDBusArgument &argument, const KSslCertificateRule &ru
     argument.endStructure();
     return argument;
 }
-
 
 const QDBusArgument &operator>>(const QDBusArgument &argument, KSslCertificateRule &rule)
 {
@@ -80,7 +76,6 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, KSslCertificateRu
     return argument;
 }
 
-
 QDBusArgument &operator<<(QDBusArgument &argument, const KSslError::Error &error)
 {
     argument.beginStructure();  //overhead ho!
@@ -88,7 +83,6 @@ QDBusArgument &operator<<(QDBusArgument &argument, const KSslError::Error &error
     argument.endStructure();
     return argument;
 }
-
 
 const QDBusArgument &operator>>(const QDBusArgument &argument, KSslError::Error &error)
 {
@@ -99,7 +93,6 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, KSslError::Error 
     error = static_cast<KSslError::Error>(data);
     return argument;
 }
-
 
 static void registerMetaTypesForKSSLD()
 {

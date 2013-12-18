@@ -29,7 +29,6 @@
 
 #include "kssld_dbusmetatypes.h"
 
-
 class KSSLDAdaptor: public QDBusAbstractAdaptor
 {
     Q_OBJECT
@@ -37,7 +36,7 @@ class KSSLDAdaptor: public QDBusAbstractAdaptor
 
 public:
     KSSLDAdaptor(KSSLD *parent)
-     : QDBusAbstractAdaptor(parent)
+        : QDBusAbstractAdaptor(parent)
     {
         Q_ASSERT(parent);
         registerMetaTypesForKSSLD();
@@ -45,20 +44,30 @@ public:
 
 private:
     inline KSSLD *p()
-        { return static_cast<KSSLD *>(parent()); }
+    {
+        return static_cast<KSSLD *>(parent());
+    }
 
 public Q_SLOTS:
     inline Q_NOREPLY void setRule(const KSslCertificateRule &rule)
-        { return p()->setRule(rule); }
+    {
+        return p()->setRule(rule);
+    }
 
     inline Q_NOREPLY void clearRule__rule(const KSslCertificateRule &rule)
-        { return p()->clearRule(rule); }
+    {
+        return p()->clearRule(rule);
+    }
 
     inline Q_NOREPLY void clearRule__certHost(const QSslCertificate &cert, const QString &hostName)
-        { return p()->clearRule(cert, hostName); }
+    {
+        return p()->clearRule(cert, hostName);
+    }
 
     inline KSslCertificateRule rule(const QSslCertificate &cert, const QString &hostName)
-        { return p()->rule(cert, hostName); }
+    {
+        return p()->rule(cert, hostName);
+    }
 };
 
 #endif //KSSLD_ADAPTOR_H

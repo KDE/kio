@@ -48,7 +48,7 @@ protected:
     virtual void dragEnterEvent(QDragEnterEvent *event);
     virtual void resizeEvent(QResizeEvent *event);
     virtual void mousePressEvent(QMouseEvent *event);
-    virtual void currentChanged(const QModelIndex& current, const QModelIndex& previous);
+    virtual void currentChanged(const QModelIndex &current, const QModelIndex &previous);
 
 private Q_SLOTS:
     void resetResizing();

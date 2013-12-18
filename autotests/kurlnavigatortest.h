@@ -39,7 +39,7 @@ private Q_SLOTS:
     void bug251553_goUpFromArchive();
 
 private:
-    KUrlNavigator* m_navigator;
+    KUrlNavigator *m_navigator;
 };
 
 #endif

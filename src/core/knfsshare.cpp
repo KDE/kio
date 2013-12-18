@@ -31,23 +31,24 @@
 class KNFSShare::KNFSSharePrivate
 {
 public:
-  KNFSSharePrivate( KNFSShare *parent );
+    KNFSSharePrivate(KNFSShare *parent);
 
-  void _k_slotFileChange(const QString&);
+    void _k_slotFileChange(const QString &);
 
-  bool readExportsFile();
-  bool findExportsFile();
+    bool readExportsFile();
+    bool findExportsFile();
 
-  KNFSShare *q;
-  QSet<QString> sharedPaths;
-  QString exportsFile;
+    KNFSShare *q;
+    QSet<QString> sharedPaths;
+    QString exportsFile;
 };
 
-KNFSShare::KNFSSharePrivate::KNFSSharePrivate( KNFSShare *parent )
+KNFSShare::KNFSSharePrivate::KNFSSharePrivate(KNFSShare *parent)
     : q(parent)
 {
-  if (findExportsFile())
-      readExportsFile();
+    if (findExportsFile()) {
+        readExportsFile();
+    }
 }
 
 /**
@@ -58,22 +59,23 @@ KNFSShare::KNFSSharePrivate::KNFSSharePrivate( KNFSShare *parent )
  **/
 bool KNFSShare::KNFSSharePrivate::findExportsFile()
 {
-  KConfig knfsshare("knfsshare");
-  KConfigGroup config(&knfsshare, "General");
-  exportsFile = config.readPathEntry("exportsFile", QString());
+    KConfig knfsshare("knfsshare");
+    KConfigGroup config(&knfsshare, "General");
+    exportsFile = config.readPathEntry("exportsFile", QString());
 
-  if ( QFile::exists(exportsFile) )
+    if (QFile::exists(exportsFile)) {
+        return true;
+    }
+
+    if (QFile::exists("/etc/exports")) {
+        exportsFile = "/etc/exports";
+    } else {
+        //qDebug() << "Could not find exports file! /etc/exports doesn't exist. Configure it in share/config/knfsshare, [General], exportsFile=....";
+        return false;
+    }
+
+    config.writeEntry("exportsFile", exportsFile);
     return true;
-
-  if ( QFile::exists("/etc/exports") )
-    exportsFile = "/etc/exports";
-  else {
-    //qDebug() << "Could not find exports file! /etc/exports doesn't exist. Configure it in share/config/knfsshare, [General], exportsFile=....";
-    return false;
-  }
-
-  config.writeEntry("exportsFile",exportsFile);
-  return true;
 }
 
 /**
@@ -82,147 +84,147 @@ bool KNFSShare::KNFSSharePrivate::findExportsFile()
  */
 bool KNFSShare::KNFSSharePrivate::readExportsFile()
 {
-  QFile f(exportsFile);
+    QFile f(exportsFile);
 
-  //qDebug() << exportsFile;
+    //qDebug() << exportsFile;
 
-  if (!f.open(QIODevice::ReadOnly)) {
-    qWarning() << "KNFSShare: Could not open" << exportsFile;
-    return false;
-  }
-
-  sharedPaths.clear();
-
-  QTextStream s( &f );
-
-  bool continuedLine = false; // is true if the line before ended with a backslash
-  QString completeLine;
-
-  while ( !s.atEnd() )
-  {
-    QString currentLine = s.readLine().trimmed();
-
-    if (continuedLine) {
-      completeLine += currentLine;
-      continuedLine = false;
-    }
-    else
-      completeLine = currentLine;
-
-    // is the line continued in the next line ?
-    if ( completeLine.endsWith(QLatin1Char('\\')) )
-    {
-      continuedLine = true;
-      // remove the ending backslash
-      completeLine.chop(1);
-      continue;
+    if (!f.open(QIODevice::ReadOnly)) {
+        qWarning() << "KNFSShare: Could not open" << exportsFile;
+        return false;
     }
 
-    // comments or empty lines
-    if (completeLine.startsWith(QLatin1Char('#')) || completeLine.isEmpty())
-    {
-      continue;
+    sharedPaths.clear();
+
+    QTextStream s(&f);
+
+    bool continuedLine = false; // is true if the line before ended with a backslash
+    QString completeLine;
+
+    while (!s.atEnd()) {
+        QString currentLine = s.readLine().trimmed();
+
+        if (continuedLine) {
+            completeLine += currentLine;
+            continuedLine = false;
+        } else {
+            completeLine = currentLine;
+        }
+
+        // is the line continued in the next line ?
+        if (completeLine.endsWith(QLatin1Char('\\'))) {
+            continuedLine = true;
+            // remove the ending backslash
+            completeLine.chop(1);
+            continue;
+        }
+
+        // comments or empty lines
+        if (completeLine.startsWith(QLatin1Char('#')) || completeLine.isEmpty()) {
+            continue;
+        }
+
+        QString path;
+
+        // Handle quotation marks
+        if (completeLine[0] == QLatin1Char('\"')) {
+            int i = completeLine.indexOf(QLatin1Char('"'), 1);
+            if (i == -1) {
+                qWarning() << "KNFSShare: Parse error: Missing quotation mark:" << completeLine;
+                continue;
+            }
+            path = completeLine.mid(1, i - 1);
+
+        } else { // no quotation marks
+            int i = completeLine.indexOf(QLatin1Char(' '));
+            if (i == -1) {
+                i = completeLine.indexOf(QLatin1Char('\t'));
+            }
+
+            if (i == -1) {
+                path = completeLine;
+            } else {
+                path = completeLine.left(i);
+            }
+
+        }
+
+        //qDebug() << "KNFSShare: Found path: " << path;
+
+        if (!path.isEmpty()) {
+            // normalize path
+            if (!path.endsWith(QLatin1Char('/'))) {
+                path += QLatin1Char('/');
+            }
+
+            sharedPaths.insert(path);
+        }
     }
 
-    QString path;
-
-    // Handle quotation marks
-    if ( completeLine[0] == QLatin1Char('\"') ) {
-      int i = completeLine.indexOf(QLatin1Char('"'), 1);
-      if (i == -1) {
-        qWarning() << "KNFSShare: Parse error: Missing quotation mark:" << completeLine;
-        continue;
-      }
-      path = completeLine.mid(1,i-1);
-
-    } else { // no quotation marks
-      int i = completeLine.indexOf(QLatin1Char(' '));
-      if (i == -1)
-          i = completeLine.indexOf(QLatin1Char('\t'));
-
-      if (i == -1)
-        path = completeLine;
-      else
-        path = completeLine.left(i);
-
-    }
-
-    //qDebug() << "KNFSShare: Found path: " << path;
-
-    if (!path.isEmpty()) {
-        // normalize path
-        if ( !path.endsWith(QLatin1Char('/')) )
-            path += QLatin1Char('/');
-
-        sharedPaths.insert(path);
-    }
-  }
-
-  return true;
+    return true;
 }
 
 KNFSShare::KNFSShare()
     : d(new KNFSSharePrivate(this))
 {
-  if (QFile::exists(d->exportsFile)) {
-    KDirWatch::self()->addFile(d->exportsFile);
-    connect(KDirWatch::self(), SIGNAL(dirty(QString)),this,
-               SLOT(_k_slotFileChange(QString)));
-  }
+    if (QFile::exists(d->exportsFile)) {
+        KDirWatch::self()->addFile(d->exportsFile);
+        connect(KDirWatch::self(), SIGNAL(dirty(QString)), this,
+                SLOT(_k_slotFileChange(QString)));
+    }
 }
 
 KNFSShare::~KNFSShare()
 {
-  // This is not needed, we're exiting the process anyway, and KDirWatch is already deleted.
-  //if (QFile::exists(d->exportsFile)) {
-  //  KDirWatch::self()->removeFile(d->exportsFile);
-  //}
-  delete d;
+    // This is not needed, we're exiting the process anyway, and KDirWatch is already deleted.
+    //if (QFile::exists(d->exportsFile)) {
+    //  KDirWatch::self()->removeFile(d->exportsFile);
+    //}
+    delete d;
 }
 
-
-bool KNFSShare::isDirectoryShared( const QString & path ) const
+bool KNFSShare::isDirectoryShared(const QString &path) const
 {
-  if( path.isEmpty())
-      return false;
-  QString fixedPath = path;
-  if ( path[path.length()-1] != '/' ) 
-       fixedPath += '/';
+    if (path.isEmpty()) {
+        return false;
+    }
+    QString fixedPath = path;
+    if (path[path.length() - 1] != '/') {
+        fixedPath += '/';
+    }
 
-  return d->sharedPaths.contains(fixedPath);
+    return d->sharedPaths.contains(fixedPath);
 }
 
 QStringList KNFSShare::sharedDirectories() const
 {
-  return d->sharedPaths.values();
+    return d->sharedPaths.values();
 }
 
 QString KNFSShare::exportsPath() const
 {
-  return d->exportsFile;
+    return d->exportsFile;
 }
 
-
-
-void KNFSShare::KNFSSharePrivate::_k_slotFileChange( const QString & path )
+void KNFSShare::KNFSSharePrivate::_k_slotFileChange(const QString &path)
 {
-  if (path == exportsFile)
-     readExportsFile();
+    if (path == exportsFile) {
+        readExportsFile();
+    }
 
-  emit q->changed();
+    emit q->changed();
 }
 
 class KNFSShareSingleton
 {
 public:
-  KNFSShare instance;
+    KNFSShare instance;
 };
 
 Q_GLOBAL_STATIC(KNFSShareSingleton, _instance)
 
-KNFSShare* KNFSShare::instance()
+KNFSShare *KNFSShare::instance()
 {
-  return &_instance()->instance;
+    return &_instance()->instance;
 }
 
 #include "moc_knfsshare.cpp"

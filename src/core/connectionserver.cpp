@@ -65,8 +65,9 @@ void ConnectionServer::listenForRemote()
 
 QUrl ConnectionServer::address() const
 {
-    if (d->backend)
+    if (d->backend) {
         return d->backend->address;
+    }
     return QUrl();
 }
 
@@ -83,12 +84,14 @@ void ConnectionServer::close()
 
 Connection *ConnectionServer::nextPendingConnection()
 {
-    if (!isListening())
+    if (!isListening()) {
         return 0;
+    }
 
     AbstractConnectionBackend *newBackend = d->backend->nextPendingConnection();
-    if (!newBackend)
-        return 0;               // no new backend...
+    if (!newBackend) {
+        return 0;    // no new backend...
+    }
 
     Connection *result = new Connection;
     result->d->setBackend(newBackend);

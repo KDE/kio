@@ -32,9 +32,9 @@ class KDirLister::Private
 {
 public:
     Private()
-    : errorParent(NULL),
-      window(NULL),
-      autoErrorHandling(false)
+        : errorParent(NULL),
+          window(NULL),
+          autoErrorHandling(false)
     {}
 
     QWidget *errorParent;
@@ -43,7 +43,7 @@ public:
 
 };
 
-KDirLister::KDirLister(QObject* parent)
+KDirLister::KDirLister(QObject *parent)
     : KCoreDirLister(parent), d(new Private)
 {
     setAutoErrorHandlingEnabled(true, 0);
@@ -59,13 +59,13 @@ bool KDirLister::autoErrorHandlingEnabled() const
     return d->autoErrorHandling;
 }
 
-void KDirLister::setAutoErrorHandlingEnabled( bool enable, QWidget* parent )
+void KDirLister::setAutoErrorHandlingEnabled(bool enable, QWidget *parent)
 {
     d->autoErrorHandling = enable;
     d->errorParent = parent;
 }
 
-void KDirLister::setMainWindow( QWidget *window )
+void KDirLister::setMainWindow(QWidget *window)
 {
     d->window = window;
 }
@@ -77,24 +77,27 @@ QWidget *KDirLister::mainWindow()
 
 void KDirLister::handleError(KIO::Job *job)
 {
-    if (d->autoErrorHandling)
+    if (d->autoErrorHandling) {
         job->ui()->showErrorMessage();
-    else
+    } else {
         KCoreDirLister::handleError(job);
+    }
 }
 
 void KDirLister::handleErrorMessage(const QString &message)
 {
-    if (d->autoErrorHandling)
+    if (d->autoErrorHandling) {
         KMessageBox::error(d->errorParent, message);
-    else
+    } else {
         KCoreDirLister::handleErrorMessage(message);
+    }
 }
 
 void KDirLister::jobStarted(KIO::ListJob *job)
 {
-    if (d->window)
+    if (d->window) {
         KJobWidgets::setWindow(job, d->window);
+    }
 }
 
 #include "moc_kdirlister.cpp"

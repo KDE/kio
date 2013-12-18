@@ -29,7 +29,7 @@ class OrgKdeKPasswdServerInterface;
 
 namespace KIO
 {
-    class AuthInfo;
+class AuthInfo;
 
 /**
  * Interface class for kpasswdserver.
@@ -70,7 +70,7 @@ public:
     qlonglong queryAuthInfo(KIO::AuthInfo &info, const QString &errorMsg,
                             qlonglong windowId, qlonglong seqNr,
                             qlonglong usertime);
-    
+
     /**
      * Manually add authentication information to kpasswdserver's cache.
      * @param info information to add
@@ -95,7 +95,7 @@ private:
      */
     bool legacyCheckAuthInfo(KIO::AuthInfo &info, qlonglong windowId,
                              qlonglong usertime);
-    
+
     /**
      * Legacy version of queryAuthInfo provided for compatibility with
      * old kpasswdserver.

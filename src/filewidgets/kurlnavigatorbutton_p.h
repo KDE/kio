@@ -36,7 +36,7 @@ class QPaintEvent;
 
 namespace KIO
 {
-    class Job;
+class Job;
 }
 
 namespace KDEPrivate
@@ -55,10 +55,10 @@ class KUrlNavigatorButton : public KUrlNavigatorButtonBase
     Q_OBJECT
 
 public:
-    explicit KUrlNavigatorButton(const QUrl& url, QWidget* parent);
+    explicit KUrlNavigatorButton(const QUrl &url, QWidget *parent);
     virtual ~KUrlNavigatorButton();
 
-    void setUrl(const QUrl& url);
+    void setUrl(const QUrl &url);
     QUrl url() const;
 
     /* Implementation note: QAbstractButton::setText() is not virtual,
@@ -67,13 +67,13 @@ public:
      * QAbstractButton::setText() which is not nice, but sufficient for
      * the usage in KUrlNavigator.
      */
-    void setText(const QString& text);
+    void setText(const QString &text);
 
     /**
      * Sets the name of the sub directory that should be marked when
      * opening the sub directories popup.
      */
-    void setActiveSubDirectory(const QString& subDir);
+    void setActiveSubDirectory(const QString &subDir);
     QString activeSubDirectory() const;
 
     /** @see QWidget::sizeHint() */
@@ -87,9 +87,9 @@ Q_SIGNALS:
      * Is emitted if URLs have been dropped
      * to the destination \a destination.
      */
-    void urlsDropped(const QUrl& destination, QDropEvent* event);
+    void urlsDropped(const QUrl &destination, QDropEvent *event);
 
-    void clicked(const QUrl& url, Qt::MouseButton button);
+    void clicked(const QUrl &url, Qt::MouseButton button);
 
     /**
      * Is emitted, if KUrlNavigatorButton::setUrl() cannot resolve
@@ -107,18 +107,18 @@ Q_SIGNALS:
     void finishedTextResolving();
 
 protected:
-    virtual void paintEvent(QPaintEvent* event);
-    virtual void enterEvent(QEvent* event);
-    virtual void leaveEvent(QEvent* event);
-    virtual void keyPressEvent(QKeyEvent* event);
-    virtual void dropEvent(QDropEvent* event);
-    virtual void dragEnterEvent(QDragEnterEvent* event);
-    virtual void dragMoveEvent(QDragMoveEvent* event);
-    virtual void dragLeaveEvent(QDragLeaveEvent* event);
-    virtual void mousePressEvent(QMouseEvent* event);
-    virtual void mouseReleaseEvent(QMouseEvent* event);
-    virtual void mouseMoveEvent(QMouseEvent* event);
-    virtual void wheelEvent(QWheelEvent* event);
+    virtual void paintEvent(QPaintEvent *event);
+    virtual void enterEvent(QEvent *event);
+    virtual void leaveEvent(QEvent *event);
+    virtual void keyPressEvent(QKeyEvent *event);
+    virtual void dropEvent(QDropEvent *event);
+    virtual void dragEnterEvent(QDragEnterEvent *event);
+    virtual void dragMoveEvent(QDragMoveEvent *event);
+    virtual void dragLeaveEvent(QDragLeaveEvent *event);
+    virtual void mousePressEvent(QMouseEvent *event);
+    virtual void mouseReleaseEvent(QMouseEvent *event);
+    virtual void mouseMoveEvent(QMouseEvent *event);
+    virtual void wheelEvent(QWheelEvent *event);
 
 private Q_SLOTS:
     /**
@@ -138,30 +138,30 @@ private Q_SLOTS:
      * will be shown if the job has been finished in openSubDirsMenu() or
      * replaceButton().
      */
-    void addEntriesToSubDirs(KIO::Job* job, const KIO::UDSEntryList& entries);
+    void addEntriesToSubDirs(KIO::Job *job, const KIO::UDSEntryList &entries);
 
     /**
      * Is called after the sub-directories job has been finished and opens a menu
      * showing all sub directories.
      */
-    void openSubDirsMenu(KJob* job);
+    void openSubDirsMenu(KJob *job);
 
     /**
      * Is called after the sub-directories job has been finished and replaces
      * the button content by the current sub directory (triggered by
      * the scroll wheel).
      */
-    void replaceButton(KJob* job);
+    void replaceButton(KJob *job);
 
-    void urlsDropped(QAction* action, QDropEvent* event);
+    void urlsDropped(QAction *action, QDropEvent *event);
 
     /**
      * Is called, if an action of a sub-menu has been triggered by
      * a click with the middle mouse-button.
      */
-    void slotMenuActionClicked(QAction* action);
+    void slotMenuActionClicked(QAction *action);
 
-    void statFinished(KJob*);
+    void statFinished(KJob *);
 
 private:
     /**
@@ -178,7 +178,7 @@ private:
     bool isAboveArrow(int x) const;
     bool isTextClipped() const;
     void updateMinimumWidth();
-    void initMenu(KUrlNavigatorMenu* menu, int startIndex);
+    void initMenu(KUrlNavigatorMenu *menu, int startIndex);
 
 private:
     bool m_hoverArrow;
@@ -189,11 +189,11 @@ private:
     QUrl m_url;
 
     QString m_subDir;
-    QTimer* m_openSubDirsTimer;
-    KIO::Job* m_subDirsJob;
+    QTimer *m_openSubDirsTimer;
+    KIO::Job *m_subDirsJob;
 
     /// pair of name and display name
-    QList<QPair<QString,QString> > m_subDirs;
+    QList<QPair<QString, QString> > m_subDirs;
 
     static QPointer<KUrlNavigatorMenu> m_subDirsMenu;
 };

@@ -53,8 +53,7 @@
 
 using namespace KDEPrivate;
 
-struct LocationData
-{
+struct LocationData {
     QUrl url;
 #ifndef KDE_NO_DEPRECATED
     QUrl rootUrl;      // KDE5: remove after the deprecated methods have been removed
@@ -66,12 +65,12 @@ struct LocationData
 class KUrlNavigator::Private
 {
 public:
-    Private(KUrlNavigator* q, KFilePlacesModel* placesModel);
+    Private(KUrlNavigator *q, KFilePlacesModel *placesModel);
 
-    void initialize(const QUrl& url);
+    void initialize(const QUrl &url);
 
     void slotReturnPressed();
-    void slotProtocolChanged(const QString&);
+    void slotProtocolChanged(const QString &);
     void openPathSelectorMenu();
 
     /**
@@ -79,7 +78,7 @@ public:
      * that the filler widget remains as last widget to fill the remaining
      * width.
      */
-    void appendWidget(QWidget* widget, int stretch = 0);
+    void appendWidget(QWidget *widget, int stretch = 0);
 
     /**
      * Switches the navigation bar between the breadcrumb view and the
@@ -89,18 +88,18 @@ public:
     void switchView();
 
     /** Emits the signal urlsDropped(). */
-    void dropUrls(const QUrl& destination, QDropEvent* event);
+    void dropUrls(const QUrl &destination, QDropEvent *event);
 
     /**
      * Is invoked when a navigator button has been clicked. Changes the URL
      * of the navigator if the left mouse button has been used. If the middle
      * mouse button has been used, the signal tabRequested() will be emitted.
      */
-    void slotNavigatorButtonClicked(const QUrl& url, Qt::MouseButton button);
+    void slotNavigatorButtonClicked(const QUrl &url, Qt::MouseButton button);
 
     void openContextMenu();
 
-    void slotPathBoxChanged(const QString& text);
+    void slotPathBoxChanged(const QString &text);
 
     void updateContent();
 
@@ -152,9 +151,9 @@ public:
      * Returns true, if the MIME type of the path represents a
      * compressed file like TAR or ZIP.
      */
-    bool isCompressedPath(const QUrl& path) const;
+    bool isCompressedPath(const QUrl &path) const;
 
-    void removeTrailingSlash(QString& url) const;
+    void removeTrailingSlash(QString &url) const;
 
     /**
      * Returns the current history index, if \a historyIndex is
@@ -171,22 +170,21 @@ public:
     bool m_showFullPath : 1;
     int m_historyIndex;
 
-    QHBoxLayout* m_layout;
+    QHBoxLayout *m_layout;
 
     QList<LocationData> m_history;
-    KUrlNavigatorPlacesSelector* m_placesSelector;
-    KUrlComboBox* m_pathBox;
-    KUrlNavigatorProtocolCombo* m_protocols;
-    KUrlNavigatorDropDownButton* m_dropDownButton;
-    QList<KUrlNavigatorButton*> m_navButtons;
-    KUrlNavigatorButtonBase* m_toggleEditableMode;
+    KUrlNavigatorPlacesSelector *m_placesSelector;
+    KUrlComboBox *m_pathBox;
+    KUrlNavigatorProtocolCombo *m_protocols;
+    KUrlNavigatorDropDownButton *m_dropDownButton;
+    QList<KUrlNavigatorButton *> m_navButtons;
+    KUrlNavigatorButtonBase *m_toggleEditableMode;
     QUrl m_homeUrl;
     QStringList m_customProtocols;
-    KUrlNavigator* q;
+    KUrlNavigator *q;
 };
 
-
-KUrlNavigator::Private::Private(KUrlNavigator* q, KFilePlacesModel* placesModel) :
+KUrlNavigator::Private::Private(KUrlNavigator *q, KFilePlacesModel *placesModel) :
     m_editable(false),
     m_active(true),
     m_showPlacesSelector(placesModel != 0),
@@ -239,7 +237,7 @@ KUrlNavigator::Private::Private(KUrlNavigator* q, KFilePlacesModel* placesModel)
     m_pathBox->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLength);
     m_pathBox->installEventFilter(q);
 
-    KUrlCompletion* kurlCompletion = new KUrlCompletion(KUrlCompletion::DirCompletion);
+    KUrlCompletion *kurlCompletion = new KUrlCompletion(KUrlCompletion::DirCompletion);
     m_pathBox->setCompletionObject(kurlCompletion);
     m_pathBox->setAutoDeleteCompletionObject(true);
 
@@ -271,7 +269,7 @@ KUrlNavigator::Private::Private(KUrlNavigator* q, KFilePlacesModel* placesModel)
             q, SLOT(openContextMenu()));
 }
 
-void KUrlNavigator::Private::initialize(const QUrl& url)
+void KUrlNavigator::Private::initialize(const QUrl &url)
 {
     LocationData data;
     data.url = url;
@@ -288,7 +286,7 @@ void KUrlNavigator::Private::initialize(const QUrl& url)
     updateContent();
 }
 
-void KUrlNavigator::Private::appendWidget(QWidget* widget, int stretch)
+void KUrlNavigator::Private::appendWidget(QWidget *widget, int stretch)
 {
     m_layout->insertWidget(m_layout->count() - 1, widget, stretch);
 }
@@ -324,7 +322,7 @@ void KUrlNavigator::Private::slotReturnPressed()
     }
 }
 
-void KUrlNavigator::Private::slotProtocolChanged(const QString& protocol)
+void KUrlNavigator::Private::slotProtocolChanged(const QString &protocol)
 {
     Q_ASSERT(m_editable);
 
@@ -344,12 +342,12 @@ void KUrlNavigator::Private::openPathSelectorMenu()
     const QUrl firstVisibleUrl = m_navButtons.first()->url();
 
     QString spacer;
-    QMenu* popup = new QMenu(q);
+    QMenu *popup = new QMenu(q);
     popup->setLayoutDirection(Qt::LeftToRight);
 
     const QString placePath = retrievePlacePath();
     int idx = placePath.count(QLatin1Char('/')); // idx points to the first directory
-                                                 // after the place path
+    // after the place path
 
     const QString path = m_history[m_historyIndex].url.toDisplayString(QUrl::PreferLocalFile);
     QString dirName = path.section(QLatin1Char('/'), idx, idx);
@@ -359,7 +357,7 @@ void KUrlNavigator::Private::openPathSelectorMenu()
     do {
         const QString text = spacer + dirName;
 
-        QAction* action = new QAction(text, popup);
+        QAction *action = new QAction(text, popup);
         const QUrl currentUrl = buttonUrl(idx);
         if (currentUrl == firstVisibleUrl) {
             popup->addSeparator();
@@ -373,7 +371,7 @@ void KUrlNavigator::Private::openPathSelectorMenu()
     } while (!dirName.isEmpty());
 
     const QPoint pos = q->mapToGlobal(m_dropDownButton->geometry().bottomRight());
-    const QAction* activatedAction = popup->exec(pos);
+    const QAction *activatedAction = popup->exec(pos);
     if (activatedAction != 0) {
         const QUrl url(activatedAction->data().toString());
         q->setLocationUrl(url);
@@ -396,14 +394,14 @@ void KUrlNavigator::Private::switchView()
     emit q->editableStateChanged(m_editable);
 }
 
-void KUrlNavigator::Private::dropUrls(const QUrl& destination, QDropEvent* event)
+void KUrlNavigator::Private::dropUrls(const QUrl &destination, QDropEvent *event)
 {
     if (event->mimeData()->hasUrls()) {
         emit q->urlsDropped(destination, event);
     }
 }
 
-void KUrlNavigator::Private::slotNavigatorButtonClicked(const QUrl& url, Qt::MouseButton button)
+void KUrlNavigator::Private::slotNavigatorButtonClicked(const QUrl &url, Qt::MouseButton button)
 {
     if (button & Qt::LeftButton) {
         q->setLocationUrl(url);
@@ -420,24 +418,24 @@ void KUrlNavigator::Private::openContextMenu()
 
     // provide 'Copy' action, which copies the current URL of
     // the URL navigator into the clipboard
-    QAction* copyAction = popup.addAction(QIcon::fromTheme("edit-copy"), i18n("Copy"));
+    QAction *copyAction = popup.addAction(QIcon::fromTheme("edit-copy"), i18n("Copy"));
 
     // provide 'Paste' action, which copies the current clipboard text
     // into the URL navigator
-    QAction* pasteAction = popup.addAction(QIcon::fromTheme("edit-paste"), i18n("Paste"));
-    QClipboard* clipboard = QApplication::clipboard();
+    QAction *pasteAction = popup.addAction(QIcon::fromTheme("edit-paste"), i18n("Paste"));
+    QClipboard *clipboard = QApplication::clipboard();
     pasteAction->setEnabled(!clipboard->text().isEmpty());
 
     popup.addSeparator();
 
     // provide radiobuttons for toggling between the edit and the navigation mode
-    QAction* editAction = popup.addAction(i18n("Edit"));
+    QAction *editAction = popup.addAction(i18n("Edit"));
     editAction->setCheckable(true);
 
-    QAction* navigateAction = popup.addAction(i18n("Navigate"));
+    QAction *navigateAction = popup.addAction(i18n("Navigate"));
     navigateAction->setCheckable(true);
 
-    QActionGroup* modeGroup = new QActionGroup(&popup);
+    QActionGroup *modeGroup = new QActionGroup(&popup);
     modeGroup->addAction(editAction);
     modeGroup->addAction(navigateAction);
     if (q->isUrlEditable()) {
@@ -449,13 +447,13 @@ void KUrlNavigator::Private::openContextMenu()
     popup.addSeparator();
 
     // allow showing of the full path
-    QAction* showFullPathAction = popup.addAction(i18n("Show Full Path"));
+    QAction *showFullPathAction = popup.addAction(i18n("Show Full Path"));
     showFullPathAction->setCheckable(true);
     showFullPathAction->setChecked(q->showFullPath());
 
-    QAction* activatedAction = popup.exec(QCursor::pos());
+    QAction *activatedAction = popup.exec(QCursor::pos());
     if (activatedAction == copyAction) {
-        QMimeData* mimeData = new QMimeData();
+        QMimeData *mimeData = new QMimeData();
         mimeData->setText(q->locationUrl().toDisplayString(QUrl::PreferLocalFile));
         clipboard->setMimeData(mimeData);
     } else if (activatedAction == pasteAction) {
@@ -469,7 +467,7 @@ void KUrlNavigator::Private::openContextMenu()
     }
 }
 
-void KUrlNavigator::Private::slotPathBoxChanged(const QString& text)
+void KUrlNavigator::Private::slotPathBoxChanged(const QString &text)
 {
     if (text.isEmpty()) {
         const QString protocol = q->locationUrl().scheme();
@@ -537,7 +535,7 @@ void KUrlNavigator::Private::updateButtons(int startIndex)
         const QString dirName = path.section(QLatin1Char('/'), idx, idx);
         hasNext = isFirstButton || !dirName.isEmpty();
         if (hasNext) {
-            KUrlNavigatorButton* button = 0;
+            KUrlNavigatorButton *button = 0;
             if (createButton) {
                 button = new KUrlNavigatorButton(buttonUrl(idx), q);
                 button->installEventFilter(q);
@@ -574,9 +572,9 @@ void KUrlNavigator::Private::updateButtons(int startIndex)
     // delete buttons which are not used anymore
     const int newButtonCount = idx - startIndex;
     if (newButtonCount < oldButtonCount) {
-        const QList<KUrlNavigatorButton*>::iterator itBegin = m_navButtons.begin() + newButtonCount;
-        const QList<KUrlNavigatorButton*>::iterator itEnd = m_navButtons.end();
-        QList<KUrlNavigatorButton*>::iterator it = itBegin;
+        const QList<KUrlNavigatorButton *>::iterator itBegin = m_navButtons.begin() + newButtonCount;
+        const QList<KUrlNavigatorButton *>::iterator itEnd = m_navButtons.end();
+        QList<KUrlNavigatorButton *>::iterator it = itBegin;
         while (it != itEnd) {
             (*it)->hide();
             (*it)->deleteLater();
@@ -616,7 +614,7 @@ void KUrlNavigator::Private::updateButtonVisibility()
 
     // Check whether buttons must be hidden at all...
     int requiredButtonWidth = 0;
-    foreach (const KUrlNavigatorButton* button, m_navButtons) {
+    foreach (const KUrlNavigatorButton *button, m_navButtons) {
         requiredButtonWidth += button->minimumWidth();
     }
 
@@ -628,21 +626,20 @@ void KUrlNavigator::Private::updateButtonVisibility()
     }
 
     // Hide buttons...
-    QList<KUrlNavigatorButton*>::const_iterator it = m_navButtons.constEnd();
-    const QList<KUrlNavigatorButton*>::const_iterator itBegin = m_navButtons.constBegin();
+    QList<KUrlNavigatorButton *>::const_iterator it = m_navButtons.constEnd();
+    const QList<KUrlNavigatorButton *>::const_iterator itBegin = m_navButtons.constBegin();
     bool isLastButton = true;
     bool hasHiddenButtons = false;
 
-    QLinkedList<KUrlNavigatorButton*> buttonsToShow;
+    QLinkedList<KUrlNavigatorButton *> buttonsToShow;
     while (it != itBegin) {
         --it;
-        KUrlNavigatorButton* button = (*it);
+        KUrlNavigatorButton *button = (*it);
         availableWidth -= button->minimumWidth();
         if ((availableWidth <= 0) && !isLastButton) {
             button->hide();
             hasHiddenButtons = true;
-        }
-        else {
+        } else {
             // Don't show the button immediately, as setActive()
             // might change the size and a relayout gets triggered
             // after showing the button. So the showing of all buttons
@@ -655,7 +652,7 @@ void KUrlNavigator::Private::updateButtonVisibility()
 
     // All buttons have the correct activation state and
     // can be shown now
-    foreach (KUrlNavigatorButton* button, buttonsToShow) {
+    foreach (KUrlNavigatorButton *button, buttonsToShow) {
         button->show();
     }
 
@@ -735,7 +732,7 @@ void KUrlNavigator::Private::switchToBreadcrumbMode()
 
 void KUrlNavigator::Private::deleteButtons()
 {
-    foreach (KUrlNavigatorButton* button, m_navButtons) {
+    foreach (KUrlNavigatorButton *button, m_navButtons) {
         button->hide();
         button->deleteLater();
     }
@@ -759,7 +756,7 @@ QString KUrlNavigator::Private::retrievePlacePath() const
     return placePath;
 }
 
-bool KUrlNavigator::Private::isCompressedPath(const QUrl& url) const
+bool KUrlNavigator::Private::isCompressedPath(const QUrl &url) const
 {
     QMimeDatabase db;
     const QMimeType mime = db.mimeTypeForUrl(QUrl(url.toString(QUrl::StripTrailingSlash)));
@@ -775,7 +772,7 @@ bool KUrlNavigator::Private::isCompressedPath(const QUrl& url) const
             mime.inherits("application/x-archive");
 }
 
-void KUrlNavigator::Private::removeTrailingSlash(QString& url) const
+void KUrlNavigator::Private::removeTrailingSlash(QString &url) const
 {
     const int length = url.length();
     if ((length > 0) && (url.at(length - 1) == QChar('/'))) {
@@ -796,16 +793,16 @@ int KUrlNavigator::Private::adjustedHistoryIndex(int historyIndex) const
 
 // ------------------------------------------------------------------------------------------------
 
-KUrlNavigator::KUrlNavigator(QWidget* parent) :
+KUrlNavigator::KUrlNavigator(QWidget *parent) :
     QWidget(parent),
     d(new Private(this, 0))
 {
     d->initialize(QUrl());
 }
 
-KUrlNavigator::KUrlNavigator(KFilePlacesModel* placesModel,
-                             const QUrl& url,
-                             QWidget* parent) :
+KUrlNavigator::KUrlNavigator(KFilePlacesModel *placesModel,
+                             const QUrl &url,
+                             QWidget *parent) :
     QWidget(parent),
     d(new Private(this, placesModel))
 {
@@ -823,7 +820,7 @@ QUrl KUrlNavigator::locationUrl(int historyIndex) const
     return d->m_history[historyIndex].url;
 }
 
-void KUrlNavigator::saveLocationState(const QByteArray& state)
+void KUrlNavigator::saveLocationState(const QByteArray &state)
 {
     d->m_history[d->m_historyIndex].state = state;
 }
@@ -890,7 +887,7 @@ void KUrlNavigator::goHome()
     }
 }
 
-void KUrlNavigator::setHomeUrl(const QUrl& url)
+void KUrlNavigator::setHomeUrl(const QUrl &url)
 {
     d->m_homeUrl = url;
 }
@@ -925,14 +922,13 @@ bool KUrlNavigator::showFullPath() const
     return d->m_showFullPath;
 }
 
-
 void KUrlNavigator::setActive(bool active)
 {
     if (active != d->m_active) {
         d->m_active = active;
 
         d->m_dropDownButton->setActive(active);
-        foreach(KUrlNavigatorButton* button, d->m_navButtons) {
+        foreach (KUrlNavigatorButton *button, d->m_navButtons) {
             button->setActive(active);
         }
 
@@ -975,13 +971,12 @@ QUrl KUrlNavigator::uncommittedUrl() const
     filteredData.setCheckForExecutables(false);
     if (KUriFilter::self()->filterUri(filteredData, QStringList() << "kshorturifilter" << "kurisearchfilter")) {
         return filteredData.uri();
-    }
-    else {
+    } else {
         return QUrl::fromUserInput(filteredData.typedString());
     }
 }
 
-void KUrlNavigator::setLocationUrl(const QUrl& newUrl)
+void KUrlNavigator::setLocationUrl(const QUrl &newUrl)
 {
     if (newUrl == locationUrl()) {
         return;
@@ -989,8 +984,9 @@ void KUrlNavigator::setLocationUrl(const QUrl& newUrl)
 
     QUrl url = newUrl;
     url.setPath(QDir::cleanPath(url.path()));
-    if (newUrl.path().endsWith('/'))
+    if (newUrl.path().endsWith('/')) {
         url.setPath(url.path() + '/');
+    }
 
     if ((url.scheme() == QLatin1String("tar")) || (url.scheme() == QLatin1String("zip"))) {
         // The URL represents a tar- or zip-file. Check whether
@@ -1018,7 +1014,7 @@ void KUrlNavigator::setLocationUrl(const QUrl& newUrl)
 
     // Check whether current history element has the same URL.
     // If this is the case, just ignore setting the URL.
-    const LocationData& data = d->m_history[d->m_historyIndex];
+    const LocationData &data = d->m_history[d->m_historyIndex];
     const bool isUrlEqual = url.matches(locationUrl(), QUrl::StripTrailingSlash) ||
                             (!url.isValid() && url.matches(data.url, QUrl::StripTrailingSlash));
     if (isUrlEqual) {
@@ -1074,7 +1070,7 @@ void KUrlNavigator::setFocus()
 }
 
 #ifndef KDE_NO_DEPRECATED
-void KUrlNavigator::setUrl(const QUrl& url)
+void KUrlNavigator::setUrl(const QUrl &url)
 {
     // deprecated
     setLocationUrl(url);
@@ -1082,7 +1078,7 @@ void KUrlNavigator::setUrl(const QUrl& url)
 #endif
 
 #ifndef KDE_NO_DEPRECATED
-void KUrlNavigator::saveRootUrl(const QUrl& url)
+void KUrlNavigator::saveRootUrl(const QUrl &url)
 {
     // deprecated
     d->m_history[d->m_historyIndex].rootUrl = url;
@@ -1097,7 +1093,7 @@ void KUrlNavigator::savePosition(int x, int y)
 }
 #endif
 
-void KUrlNavigator::keyPressEvent(QKeyEvent* event)
+void KUrlNavigator::keyPressEvent(QKeyEvent *event)
 {
     if (isUrlEditable() && (event->key() == Qt::Key_Escape)) {
         setUrlEditable(false);
@@ -1106,12 +1102,12 @@ void KUrlNavigator::keyPressEvent(QKeyEvent* event)
     }
 }
 
-void KUrlNavigator::keyReleaseEvent(QKeyEvent* event)
+void KUrlNavigator::keyReleaseEvent(QKeyEvent *event)
 {
     QWidget::keyReleaseEvent(event);
 }
 
-void KUrlNavigator::mouseReleaseEvent(QMouseEvent* event)
+void KUrlNavigator::mouseReleaseEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::MidButton) {
         const QRect bounds = d->m_toggleEditableMode->geometry();
@@ -1119,8 +1115,8 @@ void KUrlNavigator::mouseReleaseEvent(QMouseEvent* event)
             // The middle mouse button has been clicked above the
             // toggle-editable-mode-button. Paste the clipboard content
             // as location URL.
-            QClipboard* clipboard = QApplication::clipboard();
-            const QMimeData* mimeData = clipboard->mimeData();
+            QClipboard *clipboard = QApplication::clipboard();
+            const QMimeData *mimeData = clipboard->mimeData();
             if (mimeData->hasText()) {
                 const QString text = mimeData->text();
                 setLocationUrl(QUrl::fromUserInput(text));
@@ -1130,19 +1126,19 @@ void KUrlNavigator::mouseReleaseEvent(QMouseEvent* event)
     QWidget::mouseReleaseEvent(event);
 }
 
-void KUrlNavigator::resizeEvent(QResizeEvent* event)
+void KUrlNavigator::resizeEvent(QResizeEvent *event)
 {
     QTimer::singleShot(0, this, SLOT(updateButtonVisibility()));
     QWidget::resizeEvent(event);
 }
 
-void KUrlNavigator::wheelEvent(QWheelEvent* event)
+void KUrlNavigator::wheelEvent(QWheelEvent *event)
 {
     setActive(true);
     QWidget::wheelEvent(event);
 }
 
-bool KUrlNavigator::eventFilter(QObject* watched, QEvent* event)
+bool KUrlNavigator::eventFilter(QObject *watched, QEvent *event)
 {
     switch (event->type()) {
     case QEvent::FocusIn:
@@ -1150,13 +1146,13 @@ bool KUrlNavigator::eventFilter(QObject* watched, QEvent* event)
             requestActivation();
             setFocus();
         }
-        foreach (KUrlNavigatorButton* button, d->m_navButtons) {
+        foreach (KUrlNavigatorButton *button, d->m_navButtons) {
             button->setShowMnemonic(true);
         }
         break;
 
     case QEvent::FocusOut:
-        foreach (KUrlNavigatorButton* button, d->m_navButtons) {
+        foreach (KUrlNavigatorButton *button, d->m_navButtons) {
             button->setShowMnemonic(false);
         }
         break;
@@ -1178,7 +1174,7 @@ int KUrlNavigator::historyIndex() const
     return d->m_historyIndex;
 }
 
-KUrlComboBox* KUrlNavigator::editor() const
+KUrlComboBox *KUrlNavigator::editor() const
 {
     return d->m_pathBox;
 }
@@ -1195,7 +1191,7 @@ QStringList KUrlNavigator::customProtocols() const
 }
 
 #ifndef KDE_NO_DEPRECATED
-const QUrl& KUrlNavigator::url() const
+const QUrl &KUrlNavigator::url() const
 {
     // deprecated
 
@@ -1224,7 +1220,7 @@ QUrl KUrlNavigator::historyUrl(int historyIndex) const
 #endif
 
 #ifndef KDE_NO_DEPRECATED
-const QUrl& KUrlNavigator::savedRootUrl() const
+const QUrl &KUrlNavigator::savedRootUrl() const
 {
     // deprecated
 
@@ -1245,7 +1241,7 @@ QPoint KUrlNavigator::savedPosition() const
 #endif
 
 #ifndef KDE_NO_DEPRECATED
-void KUrlNavigator::setHomeUrl(const QString& homeUrl)
+void KUrlNavigator::setHomeUrl(const QString &homeUrl)
 {
     // deprecated
     setLocationUrl(QUrl::fromUserInput(homeUrl));

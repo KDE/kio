@@ -23,7 +23,7 @@
 #include <QDebug>
 #include <qplatformdefs.h>
 
-QTEST_MAIN( KMountPointTest )
+QTEST_MAIN(KMountPointTest)
 
 void KMountPointTest::initTestCase()
 {
@@ -35,10 +35,10 @@ void KMountPointTest::testCurrentMountPoints()
     const KMountPoint::List mountPoints = KMountPoint::currentMountPoints(KMountPoint::NeedRealDeviceName);
     QVERIFY(!mountPoints.isEmpty());
     KMountPoint::Ptr mountWithDevice;
-    foreach(KMountPoint::Ptr mountPoint, mountPoints) {
+    foreach (KMountPoint::Ptr mountPoint, mountPoints) {
         qDebug() << "Mount: " << mountPoint->mountedFrom()
-          << " (" << mountPoint->realDeviceName() << ") "
-          << mountPoint->mountPoint() << " " << mountPoint->mountType() << endl;
+                 << " (" << mountPoint->realDeviceName() << ") "
+                 << mountPoint->mountPoint() << " " << mountPoint->mountType() << endl;
         QVERIFY(!mountPoint->mountedFrom().isEmpty());
         QVERIFY(!mountPoint->mountPoint().isEmpty());
         QVERIFY(!mountPoint->mountType().isEmpty());
@@ -73,17 +73,18 @@ void KMountPointTest::testCurrentMountPoints()
     QVERIFY(!rootMountPoint->probablySlow());
 
     QT_STATBUF rootStatBuff;
-    QCOMPARE( QT_STAT( "/", &rootStatBuff ), 0 );
+    QCOMPARE(QT_STAT("/", &rootStatBuff), 0);
     QT_STATBUF homeStatBuff;
-    if ( QT_STAT( "/home", &homeStatBuff ) == 0 ) {
+    if (QT_STAT("/home", &homeStatBuff) == 0) {
         bool sameDevice = rootStatBuff.st_dev == homeStatBuff.st_dev;
         const KMountPoint::Ptr homeMountPoint = mountPoints.findByPath("/home");
         QVERIFY(homeMountPoint);
         //qDebug() << "Checking the home mount point, sameDevice=" << sameDevice;
-        if (sameDevice)
+        if (sameDevice) {
             QCOMPARE(homeMountPoint->mountPoint(), QString("/"));
-        else
+        } else {
             QCOMPARE(homeMountPoint->mountPoint(), QString("/home"));
+        }
     } else {
         qDebug() << "/home doesn't seem to exist, skipping test";
     }
@@ -92,16 +93,16 @@ void KMountPointTest::testCurrentMountPoints()
 
 void KMountPointTest::testPossibleMountPoints()
 {
-    const KMountPoint::List mountPoints = KMountPoint::possibleMountPoints(KMountPoint::NeedRealDeviceName|KMountPoint::NeedMountOptions);
+    const KMountPoint::List mountPoints = KMountPoint::possibleMountPoints(KMountPoint::NeedRealDeviceName | KMountPoint::NeedMountOptions);
     if (mountPoints.isEmpty()) { // can happen in chroot jails
         QSKIP("fstab is empty");
         return;
     }
     KMountPoint::Ptr mountWithDevice;
-    foreach(KMountPoint::Ptr mountPoint, mountPoints) {
+    foreach (KMountPoint::Ptr mountPoint, mountPoints) {
         qDebug() << "Possible mount: " << mountPoint->mountedFrom()
-          << " (" << mountPoint->realDeviceName() << ") "
-          << mountPoint->mountPoint() << " " << mountPoint->mountType()
+                 << " (" << mountPoint->realDeviceName() << ") "
+                 << mountPoint->mountPoint() << " " << mountPoint->mountType()
                  << " options:" << mountPoint->mountOptions() << endl;
         QVERIFY(!mountPoint->mountedFrom().isEmpty());
         QVERIFY(!mountPoint->mountPoint().isEmpty());
@@ -111,8 +112,9 @@ void KMountPointTest::testPossibleMountPoints()
         QVERIFY(!mountPoint->realDeviceName().endsWith('/'));
 
         // keep one (any) mountpoint with a device name for the test below
-        if (!mountPoint->realDeviceName().isEmpty())
+        if (!mountPoint->realDeviceName().isEmpty()) {
             mountWithDevice = mountPoint;
+        }
     }
 
     QVERIFY(mountWithDevice);

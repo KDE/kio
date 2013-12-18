@@ -14,7 +14,7 @@ public:
     QStringList supportedMimeTypes;
 };
 
-KPreviewWidgetBase::KPreviewWidgetBase( QWidget *parent )
+KPreviewWidgetBase::KPreviewWidgetBase(QWidget *parent)
     : QWidget(parent), d(new KPreviewWidgetBasePrivate)
 {
 }
@@ -24,7 +24,7 @@ KPreviewWidgetBase::~KPreviewWidgetBase()
     delete d;
 }
 
-void KPreviewWidgetBase::setSupportedMimeTypes( const QStringList& mimeTypes )
+void KPreviewWidgetBase::setSupportedMimeTypes(const QStringList &mimeTypes)
 {
     d->supportedMimeTypes = mimeTypes;
 }

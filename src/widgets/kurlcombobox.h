@@ -80,7 +80,7 @@ public:
      * @param parent The parent object of this widget.
      */
     explicit KUrlComboBox(Mode mode, QWidget *parent = 0);
-    KUrlComboBox( Mode mode, bool rw, QWidget *parent=0);
+    KUrlComboBox(Mode mode, bool rw, QWidget *parent = 0);
     /**
      * Destructs the combo box.
      */
@@ -107,7 +107,7 @@ public:
      * If the list of urls contains more items than maxItems, the first items
      * will be stripped.
      */
-    void setUrls( const QStringList &urls );
+    void setUrls(const QStringList &urls);
 
     /**
      * Inserts @p urls into the combobox below the "default urls" (see
@@ -116,7 +116,7 @@ public:
      * If the list of urls contains more items than maxItems, the @p remove
      * parameter determines whether the first or last items will be stripped.
      */
-    void setUrls( const QStringList &urls, OverLoadResolving remove );
+    void setUrls(const QStringList &urls, OverLoadResolving remove);
 
     /**
      * @returns a list of all urls currently handled. The list contains at most
@@ -134,7 +134,7 @@ public:
      * Sets how many items should be handled and displayed by the combobox.
      * @see maxItems
      */
-    void setMaxItems( int );
+    void setMaxItems(int);
 
     /**
      * @returns the maximum of items the combobox handles.
@@ -161,7 +161,7 @@ public:
      * Default URLs will be inserted into the combobox by setDefaults()
      */
     void addDefaultUrl(const QUrl &url, const QIcon &icon,
-		       const QString &text = QString());
+                       const QString &text = QString());
 
     /**
      * Clears all items and inserts the default urls into the combo. Will be
@@ -180,7 +180,7 @@ public:
      * Reimplemented from KComboBox (from KCompletion)
      * @internal
      */
-    virtual void setCompletionObject(KCompletion* compObj, bool hsig = true);
+    virtual void setCompletionObject(KCompletion *compObj, bool hsig = true);
 
 Q_SIGNALS:
     /**
@@ -196,12 +196,11 @@ protected:
 
 private:
     friend class KUrlComboBoxPrivate;
-    KUrlComboBoxPrivate* const d;
+    KUrlComboBoxPrivate *const d;
 
     Q_DISABLE_COPY(KUrlComboBox)
 
-    Q_PRIVATE_SLOT( d, void _k_slotActivated( int ) )
+    Q_PRIVATE_SLOT(d, void _k_slotActivated(int))
 };
-
 
 #endif // KURLCOMBOBOX_H

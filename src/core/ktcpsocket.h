@@ -35,10 +35,10 @@
   TLS::Error QCA::TLS::errorCode() - for more generic (but stil SSL) errors
  */
 
-
 class KSslKeyPrivate;
 
-class KIOCORE_EXPORT KSslKey {
+class KIOCORE_EXPORT KSslKey
+{
 public:
     enum Algorithm {
         Rsa = 0,
@@ -64,10 +64,10 @@ private:
     KSslKeyPrivate *const d;
 };
 
-
 class KSslCipherPrivate;
 
-class KIOCORE_EXPORT KSslCipher {
+class KIOCORE_EXPORT KSslCipher
+{
 public:
     KSslCipher();
     KSslCipher(const KSslCipher &other);
@@ -90,7 +90,6 @@ public:
 private:
     KSslCipherPrivate *const d;
 };
-
 
 class KSslErrorPrivate;
 class KTcpSocket;
@@ -126,7 +125,6 @@ public:
 private:
     KSslErrorPrivate *const d;
 };
-
 
 //consider killing more convenience functions with huge signatures
 //### do we need setSession() / session() ?
@@ -177,38 +175,38 @@ public:
         UnsupportedSocketOperationError,
         SslHandshakeFailedError                 ///< @since 4.10.5
     };
-/*
-The following is based on reading the OpenSSL interface code of both QSslSocket
-and QCA::TLS. Barring oversights it should be accurate. The two cases with the
-question marks apparently will never be emitted by QSslSocket so there is nothing
-to compare.
+    /*
+    The following is based on reading the OpenSSL interface code of both QSslSocket
+    and QCA::TLS. Barring oversights it should be accurate. The two cases with the
+    question marks apparently will never be emitted by QSslSocket so there is nothing
+    to compare.
 
-QSslError::NoError                                  KTcpSocket::NoError
-QSslError::UnableToGetIssuerCertificate             QCA::ErrorSignatureFailed
-QSslError::UnableToDecryptCertificateSignature      QCA::ErrorSignatureFailed
-QSslError::UnableToDecodeIssuerPublicKey            QCA::ErrorInvalidCA
-QSslError::CertificateSignatureFailed               QCA::ErrorSignatureFailed
-QSslError::CertificateNotYetValid                   QCA::ErrorExpired
-QSslError::CertificateExpired                       QCA::ErrorExpired
-QSslError::InvalidNotBeforeField                    QCA::ErrorExpired
-QSslError::InvalidNotAfterField                     QCA::ErrorExpired
-QSslError::SelfSignedCertificate                    QCA::ErrorSelfSigned
-QSslError::SelfSignedCertificateInChain             QCA::ErrorSelfSigned
-QSslError::UnableToGetLocalIssuerCertificate        QCA::ErrorInvalidCA
-QSslError::UnableToVerifyFirstCertificate           QCA::ErrorSignatureFailed
-QSslError::CertificateRevoked                       QCA::ErrorRevoked
-QSslError::InvalidCaCertificate                     QCA::ErrorInvalidCA
-QSslError::PathLengthExceeded                       QCA::ErrorPathLengthExceeded
-QSslError::InvalidPurpose                           QCA::ErrorInvalidPurpose
-QSslError::CertificateUntrusted                     QCA::ErrorUntrusted
-QSslError::CertificateRejected                      QCA::ErrorRejected
-QSslError::SubjectIssuerMismatch                    QCA::TLS::InvalidCertificate ?
-QSslError::AuthorityIssuerSerialNumberMismatch      QCA::TLS::InvalidCertificate ?
-QSslError::NoPeerCertificate                        QCA::TLS::NoCertificate
-QSslError::HostNameMismatch                         QCA::TLS::HostMismatch
-QSslError::UnspecifiedError                         KTcpSocket::UnknownError
-QSslError::NoSslSupport                             Never happens :)
- */
+    QSslError::NoError                                  KTcpSocket::NoError
+    QSslError::UnableToGetIssuerCertificate             QCA::ErrorSignatureFailed
+    QSslError::UnableToDecryptCertificateSignature      QCA::ErrorSignatureFailed
+    QSslError::UnableToDecodeIssuerPublicKey            QCA::ErrorInvalidCA
+    QSslError::CertificateSignatureFailed               QCA::ErrorSignatureFailed
+    QSslError::CertificateNotYetValid                   QCA::ErrorExpired
+    QSslError::CertificateExpired                       QCA::ErrorExpired
+    QSslError::InvalidNotBeforeField                    QCA::ErrorExpired
+    QSslError::InvalidNotAfterField                     QCA::ErrorExpired
+    QSslError::SelfSignedCertificate                    QCA::ErrorSelfSigned
+    QSslError::SelfSignedCertificateInChain             QCA::ErrorSelfSigned
+    QSslError::UnableToGetLocalIssuerCertificate        QCA::ErrorInvalidCA
+    QSslError::UnableToVerifyFirstCertificate           QCA::ErrorSignatureFailed
+    QSslError::CertificateRevoked                       QCA::ErrorRevoked
+    QSslError::InvalidCaCertificate                     QCA::ErrorInvalidCA
+    QSslError::PathLengthExceeded                       QCA::ErrorPathLengthExceeded
+    QSslError::InvalidPurpose                           QCA::ErrorInvalidPurpose
+    QSslError::CertificateUntrusted                     QCA::ErrorUntrusted
+    QSslError::CertificateRejected                      QCA::ErrorRejected
+    QSslError::SubjectIssuerMismatch                    QCA::TLS::InvalidCertificate ?
+    QSslError::AuthorityIssuerSerialNumberMismatch      QCA::TLS::InvalidCertificate ?
+    QSslError::NoPeerCertificate                        QCA::TLS::NoCertificate
+    QSslError::HostNameMismatch                         QCA::TLS::HostMismatch
+    QSslError::UnspecifiedError                         KTcpSocket::UnknownError
+    QSslError::NoSslSupport                             Never happens :)
+     */
     enum EncryptionMode {
         UnencryptedMode = 0,
         SslClientMode,
@@ -237,12 +235,12 @@ QSslError::NoSslSupport                             Never happens :)
     //### Document that this actually tries to read *more* data
     virtual bool waitForReadyRead(int msecs = 30000);
 protected:
-    virtual qint64 readData (char *data, qint64 maxSize);
-    virtual qint64 writeData (const char *data, qint64 maxSize);
+    virtual qint64 readData(char *data, qint64 maxSize);
+    virtual qint64 writeData(const char *data, qint64 maxSize);
 Q_SIGNALS:
     /// @since 4.8.1
     /// Forwarded from QSslSocket
-    void encryptedBytesWritten( qint64 written );
+    void encryptedBytesWritten(qint64 written);
 public:
     //from QAbstractSocket
     void abort();
@@ -258,16 +256,16 @@ public:
     void connectToHost(const QUrl &url, ProxyPolicy policy = AutoProxy);
     void disconnectFromHost();
     Error error() const; //### QAbstractSocket's model is strange. error() should be related to the
-                         //current state and *NOT* just report the last error if there was one.
+    //current state and *NOT* just report the last error if there was one.
     QList<KSslError> sslErrors() const; //### the errors returned can only have a subset of all
-                                //possible QSslError::SslError enum values depending on backend
+    //possible QSslError::SslError enum values depending on backend
     bool flush();
     bool isValid() const;
     QHostAddress localAddress() const;
     QHostAddress peerAddress() const;
     QString peerName() const;
     quint16 peerPort() const;
-    void setVerificationPeerName(const QString& hostName);
+    void setVerificationPeerName(const QString &hostName);
 
 #ifndef QT_NO_NETWORKPROXY
     /**
@@ -348,7 +346,7 @@ public:
      *
      * @since 4.8.4
      */
-    void setSslConfiguration(const QSslConfiguration& configuration);
+    void setSslConfiguration(const QSslConfiguration &configuration);
 
 Q_SIGNALS:
     //from QAbstractSocket
@@ -385,7 +383,6 @@ private:
     KTcpSocketPrivate *const d;
 };
 
-
 /**
  * This class can hold all the necessary data from a KTcpSocket to ask the user
  * to continue connecting in the face of SSL errors.
@@ -420,6 +417,5 @@ private:
     friend class Private;
     Private *const d;
 };
-
 
 #endif // KTCPSOCKET_H

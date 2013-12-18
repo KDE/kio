@@ -41,19 +41,19 @@ class KStatusBarOfflineIndicatorPrivate;
  */
 class KIOFILEWIDGETS_EXPORT KStatusBarOfflineIndicator : public QWidget
 {
-Q_OBJECT
+    Q_OBJECT
 public:
     /**
      * Default constructor.
      * @param parent the widget's parent
      */
-    explicit KStatusBarOfflineIndicator( QWidget * parent );
+    explicit KStatusBarOfflineIndicator(QWidget *parent);
     ~KStatusBarOfflineIndicator();
 
 private:
-    KStatusBarOfflineIndicatorPrivate * const d;
+    KStatusBarOfflineIndicatorPrivate *const d;
 
-    Q_PRIVATE_SLOT( d, void _k_networkStatusChanged( Solid::Networking::Status ) )
+    Q_PRIVATE_SLOT(d, void _k_networkStatusChanged(Solid::Networking::Status))
 };
 
 #endif

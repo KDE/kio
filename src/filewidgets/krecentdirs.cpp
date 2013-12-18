@@ -34,52 +34,50 @@
 
 static KConfigGroup recentdirs_readList(QString &key, QStringList &result)
 {
-   KConfigGroup cg(KSharedConfig::openConfig(), QLatin1String("Recent Dirs"));
-   if ((key.length() < 2) || (key[0] != ':'))
-     key = ":default";
-   if (key[1] == ':')
-   {
-      key = key.mid(2);
-      cg = KConfigGroup(KSharedConfig::openConfig(QLatin1String("krecentdirsrc")), QString());
-   }
-   else
-   {
-      key = key.mid(1);
-   }
+    KConfigGroup cg(KSharedConfig::openConfig(), QLatin1String("Recent Dirs"));
+    if ((key.length() < 2) || (key[0] != ':')) {
+        key = ":default";
+    }
+    if (key[1] == ':') {
+        key = key.mid(2);
+        cg = KConfigGroup(KSharedConfig::openConfig(QLatin1String("krecentdirsrc")), QString());
+    } else {
+        key = key.mid(1);
+    }
 
-   result=cg.readPathEntry(key, QStringList());
-   if (result.isEmpty())
-   {
-      result.append(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
-   }
-   return cg;
+    result = cg.readPathEntry(key, QStringList());
+    if (result.isEmpty()) {
+        result.append(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
+    }
+    return cg;
 }
 
 QStringList KRecentDirs::list(const QString &fileClass)
 {
-   QString key = fileClass;
-   QStringList result;
-   recentdirs_readList(key, result).sync();
-   return result;
+    QString key = fileClass;
+    QStringList result;
+    recentdirs_readList(key, result).sync();
+    return result;
 }
 
 QString KRecentDirs::dir(const QString &fileClass)
 {
-   const QStringList result = list(fileClass);
-   return result[0];
+    const QStringList result = list(fileClass);
+    return result[0];
 }
 
 void KRecentDirs::add(const QString &fileClass, const QString &directory)
 {
-   QString key = fileClass;
-   QStringList result;
-   KConfigGroup config = recentdirs_readList(key, result);
-   // make sure the dir is first in history
-   result.removeAll(directory);
-   result.prepend(directory);
-   while(result.count() > MAX_DIR_HISTORY)
-      result.removeLast();
-   config.writePathEntry(key, result);
-   config.sync();
+    QString key = fileClass;
+    QStringList result;
+    KConfigGroup config = recentdirs_readList(key, result);
+    // make sure the dir is first in history
+    result.removeAll(directory);
+    result.prepend(directory);
+    while (result.count() > MAX_DIR_HISTORY) {
+        result.removeLast();
+    }
+    config.writePathEntry(key, result);
+    config.sync();
 }
 

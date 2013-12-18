@@ -36,22 +36,23 @@ QString homeTmpDir()
     const QString dir(QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/kiotests/");
     if (!QFile::exists(dir)) {
         const bool ok = QDir().mkpath(dir);
-        if ( !ok )
+        if (!ok) {
             qFatal("Couldn't create %s", qPrintable(dir));
+        }
     }
     return dir;
 }
 
 QDateTime s_referenceTimeStamp;
 
-static void setTimeStamp( const QString& path, const QDateTime& mtime )
+static void setTimeStamp(const QString &path, const QDateTime &mtime)
 {
 #ifdef Q_OS_UNIX
     // Put timestamp in the past so that we can check that the listing is correct
     struct utimbuf utbuf;
     utbuf.actime = mtime.toTime_t();
     utbuf.modtime = utbuf.actime;
-    utime( QFile::encodeName( path ), &utbuf );
+    utime(QFile::encodeName(path), &utbuf);
     //qDebug( "Time changed for %s", qPrintable( path ) );
 #elif defined(Q_OS_WIN)
     struct _utimbuf utbuf;
@@ -61,49 +62,52 @@ static void setTimeStamp( const QString& path, const QDateTime& mtime )
 #endif
 }
 
-static void createTestFile( const QString& path, bool plainText = false )
+static void createTestFile(const QString &path, bool plainText = false)
 {
-    QFile f( path );
-    if ( !f.open( QIODevice::WriteOnly ) )
+    QFile f(path);
+    if (!f.open(QIODevice::WriteOnly)) {
         qFatal("Couldn't create %s", qPrintable(path));
+    }
     QByteArray data(plainText ? "Hello world" : "Hello\0world", 11);
-    QCOMPARE( data.size(), 11 );
+    QCOMPARE(data.size(), 11);
     f.write(data);
     f.close();
-    setTimeStamp( path, s_referenceTimeStamp );
+    setTimeStamp(path, s_referenceTimeStamp);
 }
 
-static void createTestSymlink( const QString& path, const QByteArray& target = "/IDontExist" )
+static void createTestSymlink(const QString &path, const QByteArray &target = "/IDontExist")
 {
     QFile::remove(path);
-    bool ok = symlink( target.constData(), QFile::encodeName( path ) ) == 0; // broken symlink
-    if ( !ok )
+    bool ok = symlink(target.constData(), QFile::encodeName(path)) == 0;     // broken symlink
+    if (!ok) {
         qFatal("couldn't create symlink: %s", strerror(errno));
+    }
     QT_STATBUF buf;
-    QVERIFY( QT_LSTAT( QFile::encodeName( path ), &buf ) == 0 );
-    QVERIFY( (buf.st_mode & QT_STAT_MASK) == QT_STAT_LNK );
+    QVERIFY(QT_LSTAT(QFile::encodeName(path), &buf) == 0);
+    QVERIFY((buf.st_mode & QT_STAT_MASK) == QT_STAT_LNK);
     //qDebug( "symlink %s created", qPrintable( path ) );
-    QVERIFY( QFileInfo( path ).isSymLink() );
+    QVERIFY(QFileInfo(path).isSymLink());
 }
 
 enum CreateTestDirectoryOptions { DefaultOptions = 0, NoSymlink = 1 };
-static void createTestDirectory( const QString& path, CreateTestDirectoryOptions opt = DefaultOptions )
+static void createTestDirectory(const QString &path, CreateTestDirectoryOptions opt = DefaultOptions)
 {
     QDir dir;
-    bool ok = dir.mkdir( path );
-    if ( !ok && !dir.exists() )
+    bool ok = dir.mkdir(path);
+    if (!ok && !dir.exists()) {
         qFatal("Couldn't create %s", qPrintable(path));
-    createTestFile( path + "/testfile" );
-    if ( (opt & NoSymlink) == 0 ) {
+    }
+    createTestFile(path + "/testfile");
+    if ((opt & NoSymlink) == 0) {
 #ifndef Q_OS_WIN
-        createTestSymlink( path + "/testlink" );
-        QVERIFY( QFileInfo( path + "/testlink" ).isSymLink() );
+        createTestSymlink(path + "/testlink");
+        QVERIFY(QFileInfo(path + "/testlink").isSymLink());
 #else
-    // to not change the filecount everywhere in the tests
-        createTestFile( path + "/testlink" );
+        // to not change the filecount everywhere in the tests
+        createTestFile(path + "/testlink");
 #endif
     }
-    setTimeStamp( path, s_referenceTimeStamp );
+    setTimeStamp(path, s_referenceTimeStamp);
 }
 
 #include <kio/jobuidelegateextension.h>
@@ -123,18 +127,18 @@ public:
     {
     }
 
-    KIO::RenameDialog_Result askFileRename(KJob * job,
-                                           const QString & caption,
-                                           const QUrl & src,
-                                           const QUrl & dest,
+    KIO::RenameDialog_Result askFileRename(KJob *job,
+                                           const QString &caption,
+                                           const QUrl &src,
+                                           const QUrl &dest,
                                            KIO::RenameDialog_Mode mode,
-                                           QString& newDest,
-                                           KIO::filesize_t = (KIO::filesize_t) -1,
-                                           KIO::filesize_t = (KIO::filesize_t) -1,
-                                           const QDateTime &  = QDateTime(),
-                                           const QDateTime &  = QDateTime(),
-                                           const QDateTime &  = QDateTime(),
-                                           const QDateTime &  = QDateTime()) Q_DECL_OVERRIDE {
+                                           QString &newDest,
+                                           KIO::filesize_t = (KIO::filesize_t) - 1,
+                                           KIO::filesize_t = (KIO::filesize_t) - 1,
+                                           const QDateTime  & = QDateTime(),
+                                           const QDateTime  & = QDateTime(),
+                                           const QDateTime  & = QDateTime(),
+                                           const QDateTime  & = QDateTime()) Q_DECL_OVERRIDE {
         Q_UNUSED(job)
         Q_UNUSED(caption)
         Q_UNUSED(src)
@@ -145,10 +149,9 @@ public:
         return m_renameResult;
     }
 
-    KIO::SkipDialog_Result askSkip(KJob * job,
+    KIO::SkipDialog_Result askSkip(KJob *job,
                                    bool multi,
-                                   const QString & error_text) Q_DECL_OVERRIDE
-    {
+                                   const QString &error_text) Q_DECL_OVERRIDE {
         Q_UNUSED(job)
         Q_UNUSED(multi)
         Q_UNUSED(error_text)
@@ -156,9 +159,8 @@ public:
         return m_skipResult;
     }
 
-    bool askDeleteConfirmation(const QList<QUrl>& urls, DeletionType deletionType,
-                               ConfirmationType confirmationType) Q_DECL_OVERRIDE
-    {
+    bool askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType,
+                               ConfirmationType confirmationType) Q_DECL_OVERRIDE {
         Q_UNUSED(urls);
         Q_UNUSED(deletionType);
         Q_UNUSED(confirmationType);
@@ -173,7 +175,8 @@ public:
                           const QString &iconYes = QString(),
                           const QString &iconNo = QString(),
                           const QString &dontAskAgainName = QString(),
-                          const KIO::MetaData &sslMetaData = KIO::MetaData()) {
+                          const KIO::MetaData &sslMetaData = KIO::MetaData())
+    {
         Q_UNUSED(type);
         Q_UNUSED(text);
         Q_UNUSED(caption);
@@ -186,8 +189,6 @@ public:
         ++m_messageBoxCalled;
         return m_messageBoxResult;
     }
-
-
 
     // yeah, public, for get and reset.
     int m_askFileRenameCalled;

@@ -25,7 +25,8 @@
 #include <kio/kiocore_export.h>
 #include <kio/metadata.h>
 
-namespace KIO  {
+namespace KIO
+{
 
 /**
  * @internal
@@ -38,13 +39,13 @@ public:
     SessionData();
     ~SessionData();
 
-    void configDataFor( KIO::MetaData &configData, const QString &proto, const QString &host );
+    void configDataFor(KIO::MetaData &configData, const QString &proto, const QString &host);
     void reset();
 
 private:
     // TODO: fold private class back into this one, it's internal anyway
     class SessionDataPrivate;
-    SessionDataPrivate* const d;
+    SessionDataPrivate *const d;
 };
 
 } // namespace

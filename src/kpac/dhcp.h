@@ -16,7 +16,6 @@
    Boston, MA 02110-1301, USA.
  */
 
-
 /* See RFC 2131 for details */
 
 #ifndef __dhcp_h__
@@ -30,26 +29,25 @@
 
 #define DHCP_OPT_LEN 312
 
-struct dhcp_msg
-{
+struct dhcp_msg {
 #define DHCP_BOOTREQUEST 1
 #define DHCP_BOOTREPLY   2
-	uint8_t op;           /* operation */
-	uint8_t htype;        /* hwaddr type */
-	uint8_t hlen;         /* hwaddr len */
-	uint8_t hops;
-	uint32_t xid;          /* transaction id */
-	uint16_t secs;        /* seconds since protocol start */
+    uint8_t op;           /* operation */
+    uint8_t htype;        /* hwaddr type */
+    uint8_t hlen;         /* hwaddr len */
+    uint8_t hops;
+    uint32_t xid;          /* transaction id */
+    uint16_t secs;        /* seconds since protocol start */
 #define DHCP_BROADCAST 1
-	uint16_t flags;
-	uint32_t ciaddr;      /* client IP */
-	uint32_t yiaddr;      /* "your" IP */
-	uint32_t siaddr;      /* server IP */
-	uint32_t giaddr;      /* gateway IP */
-	uint8_t chaddr[16];   /* client hwaddr */
-	uint8_t sname[64];    /* server name */
-	uint8_t file[128];    /* bootstrap file */
-	uint8_t options[DHCP_OPT_LEN];
+    uint16_t flags;
+    uint32_t ciaddr;      /* client IP */
+    uint32_t yiaddr;      /* "your" IP */
+    uint32_t siaddr;      /* server IP */
+    uint32_t giaddr;      /* gateway IP */
+    uint8_t chaddr[16];   /* client hwaddr */
+    uint8_t sname[64];    /* server name */
+    uint8_t file[128];    /* bootstrap file */
+    uint8_t options[DHCP_OPT_LEN];
 };
 
 /* first four bytes in options */
@@ -76,5 +74,3 @@ struct dhcp_msg
 
 #endif
 
-/* vim: ts=4 sw=4 noet
- */

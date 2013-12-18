@@ -25,7 +25,8 @@ class KComboBox;
 class QLineEdit;
 class QLabel;
 
-namespace KIO {
+namespace KIO
+{
 
 /**
  * @internal
@@ -35,29 +36,31 @@ class PasteDialog : public QDialog
 {
     Q_OBJECT
 public:
-    PasteDialog( const QString &caption, const QString &label,
-                 const QString &value, const QStringList& items,
-                 QWidget *parent, bool clipboard );
+    PasteDialog(const QString &caption, const QString &label,
+                const QString &value, const QStringList &items,
+                QWidget *parent, bool clipboard);
 
     QString lineEditText() const;
     int comboItem() const;
-    bool clipboardChanged() const { return m_clipboardChanged; }
+    bool clipboardChanged() const
+    {
+        return m_clipboardChanged;
+    }
 
 private Q_SLOTS:
     void slotClipboardDataChanged();
 
 private:
-    QLabel* m_label;
-    QLineEdit* m_lineEdit;
-    KComboBox* m_comboBox;
+    QLabel *m_label;
+    QLineEdit *m_lineEdit;
+    KComboBox *m_comboBox;
     bool m_clipboardChanged;
 
     class Private;
-    Private* d;
+    Private *d;
 };
 
 } // namespace
-
 
 #endif /* PASTEDIALOG_H */
 

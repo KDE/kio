@@ -1,4 +1,4 @@
-/* 
+/*
    Copyright (c) 2003 Malte Starostik <malte@kde.org>
    Copyright (c) 2011 Dawit Alemayehu <adawit@kde.org>
 
@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #ifndef KPAC_SCRIPT_H
 #define KPAC_SCRIPT_H
 
@@ -29,29 +28,31 @@ class QScriptEngine;
 
 namespace KPAC
 {
-    class Script
+class Script
+{
+public:
+    class Error
     {
     public:
-        class Error
+        Error(const QString &message)
+            : m_message(message) {}
+        const QString &message() const
         {
-        public:
-            Error( const QString& message )
-                : m_message( message ) {}
-            const QString& message() const { return m_message; }
-
-        private:
-            QString m_message;
-        };
-
-        Script( const QString& code );
-        ~Script();
-        QString evaluate( const QUrl& );
+            return m_message;
+        }
 
     private:
-        QScriptEngine* m_engine;
+        QString m_message;
     };
+
+    Script(const QString &code);
+    ~Script();
+    QString evaluate(const QUrl &);
+
+private:
+    QScriptEngine *m_engine;
+};
 }
 
 #endif // KPAC_SCRIPT_H
 
-// vim: ts=4 sw=4 et

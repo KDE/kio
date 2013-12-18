@@ -36,12 +36,11 @@
 K_PLUGIN_FACTORY(KSSLDFactory, registerPlugin<KSSLD>();)
 //KDECORE_EXPORT void *__kde_do_unload; // TODO re-add support for this?
 
-
 class KSSLDPrivate
 {
 public:
     KSSLDPrivate()
-     : config(QString::fromLatin1("ksslcertificatemanager"), KConfig::SimpleConfig)
+        : config(QString::fromLatin1("ksslcertificatemanager"), KConfig::SimpleConfig)
     {
         struct strErr {
             const char *str;
@@ -64,7 +63,7 @@ public:
             {"HostNameMismatch", KSslError::HostNameMismatch}
         };
 
-        for (int i = 0; i < int(sizeof(strError)/sizeof(strErr)); i++) {
+        for (int i = 0; i < int(sizeof(strError) / sizeof(strErr)); i++) {
             QString s = QString::fromLatin1(strError[i].str);
             KSslError::Error e = strError[i].err;
             stringToSslError.insert(s, e);
@@ -77,22 +76,18 @@ public:
     QHash<KSslError::Error, QString> sslErrorToString;
 };
 
-
-
-KSSLD::KSSLD(QObject* parent, const QVariantList&)
- : KDEDModule(parent),
-   d(new KSSLDPrivate())
+KSSLD::KSSLD(QObject *parent, const QVariantList &)
+    : KDEDModule(parent),
+      d(new KSSLDPrivate())
 {
     new KSSLDAdaptor(this);
     pruneExpiredRules();
 }
 
-
 KSSLD::~KSSLD()
 {
     delete d;
 }
-
 
 void KSSLD::setRule(const KSslCertificateRule &rule)
 {
@@ -110,27 +105,27 @@ void KSSLD::setRule(const KSslCertificateRule &rule)
     if (rule.isRejected()) {
         sl.append(QString::fromLatin1("Reject"));
     } else {
-        foreach (KSslError::Error e, rule.ignoredErrors())
+        foreach (KSslError::Error e, rule.ignoredErrors()) {
             sl.append(d->sslErrorToString.value(e));
+        }
     }
 
-    if (!group.hasKey("CertificatePEM"))
+    if (!group.hasKey("CertificatePEM")) {
         group.writeEntry("CertificatePEM", rule.certificate().toPem());
+    }
 #ifdef PARANOIA
-    else
-        if (group.readEntry("CertificatePEM") != rule.certificate().toPem())
-            return;
+    else if (group.readEntry("CertificatePEM") != rule.certificate().toPem()) {
+        return;
+    }
 #endif
     group.writeEntry(rule.hostName(), sl);
     group.sync();
 }
 
-
 void KSSLD::clearRule(const KSslCertificateRule &rule)
 {
     clearRule(rule.certificate(), rule.hostName());
 }
-
 
 void KSSLD::clearRule(const QSslCertificate &cert, const QString &hostName)
 {
@@ -141,7 +136,6 @@ void KSSLD::clearRule(const QSslCertificate &cert, const QString &hostName)
     }
     group.sync();
 }
-
 
 void KSSLD::pruneExpiredRules()
 {
@@ -157,7 +151,6 @@ void KSSLD::pruneExpiredRules()
         }
     }
 }
-
 
 // check a domain name with subdomains for well-formedness and count the dot-separated parts
 static QString normalizeSubdomains(const QString &hostName, int *namePartsCount)
@@ -189,7 +182,6 @@ static QString normalizeSubdomains(const QString &hostName, int *namePartsCount)
     return ret;
 }
 
-
 KSslCertificateRule KSSLD::rule(const QSslCertificate &cert, const QString &hostName) const
 {
     const QByteArray certDigest = cert.digest().toHex();
@@ -203,10 +195,10 @@ KSslCertificateRule KSSLD::rule(const QSslCertificate &cert, const QString &host
 
     // Find a rule for the hostname, either...
     if (group.hasKey(needle)) {
-      // directly (host, site.tld, a.site.tld etc)
-      if (needlePartsCount >= 1) {
-        foundHostName = true;
-      }
+        // directly (host, site.tld, a.site.tld etc)
+        if (needlePartsCount >= 1) {
+            foundHostName = true;
+        }
     } else {
         // or with wildcards
         //   "tld" <- "*." and "site.tld" <- "*.tld" are not valid matches,
@@ -273,7 +265,6 @@ KSslCertificateRule KSSLD::rule(const QSslCertificate &cert, const QString &host
     ret.setIgnoredErrors(ignoredErrors);
     return ret;
 }
-
 
 #include "moc_kssld.cpp"
 #include "moc_kssld_adaptor.cpp"

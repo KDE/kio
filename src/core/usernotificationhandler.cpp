@@ -40,8 +40,8 @@ QString UserNotificationHandler::Request::key() const
     return key;
 }
 
-UserNotificationHandler::UserNotificationHandler(QObject* parent)
-    :QObject(parent)
+UserNotificationHandler::UserNotificationHandler(QObject *parent)
+    : QObject(parent)
 {
 }
 
@@ -50,11 +50,11 @@ UserNotificationHandler::~UserNotificationHandler()
     qDeleteAll(m_pendingRequests);
 }
 
-void UserNotificationHandler::requestMessageBox(SlaveInterface* iface, int type, const QHash<MessageBoxDataType, QVariant>& data)
+void UserNotificationHandler::requestMessageBox(SlaveInterface *iface, int type, const QHash<MessageBoxDataType, QVariant> &data)
 {
-    Request* r = new Request;
+    Request *r = new Request;
     r->type = type;
-    r->slave = qobject_cast<KIO::Slave*>(iface);
+    r->slave = qobject_cast<KIO::Slave *>(iface);
     r->data = data;
 
     m_pendingRequests.append(r);
@@ -65,11 +65,12 @@ void UserNotificationHandler::requestMessageBox(SlaveInterface* iface, int type,
 
 void UserNotificationHandler::processRequest()
 {
-    if (m_pendingRequests.isEmpty())
+    if (m_pendingRequests.isEmpty()) {
         return;
+    }
 
     int result = -1;
-    Request* r = m_pendingRequests.first();
+    Request *r = m_pendingRequests.first();
 
     if (r->slave) {
         const QString key = r->key();
@@ -77,17 +78,17 @@ void UserNotificationHandler::processRequest()
         if (m_cachedResults.contains(key)) {
             result = *(m_cachedResults[key]);
         } else if (r->slave->job()) {
-            SimpleJobPrivate* jobPrivate = SimpleJobPrivate::get(r->slave->job());
+            SimpleJobPrivate *jobPrivate = SimpleJobPrivate::get(r->slave->job());
             if (jobPrivate) {
                 result = jobPrivate->requestMessageBox(r->type,
-                                                      r->data.value(MSG_TEXT).toString(),
-                                                      r->data.value(MSG_CAPTION).toString(),
-                                                      r->data.value(MSG_YES_BUTTON_TEXT).toString(),
-                                                      r->data.value(MSG_NO_BUTTON_TEXT).toString(),
-                                                      r->data.value(MSG_YES_BUTTON_ICON).toString(),
-                                                      r->data.value(MSG_NO_BUTTON_ICON).toString(),
-                                                      r->data.value(MSG_DONT_ASK_AGAIN).toString(),
-                                                      r->data.value(MSG_META_DATA).toMap());
+                                                       r->data.value(MSG_TEXT).toString(),
+                                                       r->data.value(MSG_CAPTION).toString(),
+                                                       r->data.value(MSG_YES_BUTTON_TEXT).toString(),
+                                                       r->data.value(MSG_NO_BUTTON_TEXT).toString(),
+                                                       r->data.value(MSG_YES_BUTTON_ICON).toString(),
+                                                       r->data.value(MSG_NO_BUTTON_ICON).toString(),
+                                                       r->data.value(MSG_DONT_ASK_AGAIN).toString(),
+                                                       r->data.value(MSG_META_DATA).toMap());
             }
             m_cachedResults.insert(key, new int(result));
         }

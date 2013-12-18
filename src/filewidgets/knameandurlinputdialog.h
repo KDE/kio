@@ -44,7 +44,7 @@ public:
      * @param startDir start directory for the URL requester (optional)
      * @param parent parent widget
      */
-    KNameAndUrlInputDialog(const QString& nameLabel, const QString& urlLabel, const QUrl& startDir, QWidget *parent);
+    KNameAndUrlInputDialog(const QString &nameLabel, const QString &urlLabel, const QUrl &startDir, QWidget *parent);
 
     /**
      * Destructor.
@@ -54,11 +54,11 @@ public:
     /**
      * Pre-fill the name lineedit.
      */
-    void setSuggestedName(const QString& name);
+    void setSuggestedName(const QString &name);
     /**
      * Pre-fill the URL requester.
      */
-    void setSuggestedUrl(const QUrl& url);
+    void setSuggestedUrl(const QUrl &url);
 
     /**
      * @return the name the user entered
@@ -72,10 +72,10 @@ public:
     QUrl url() const;
 
 private:
-    Q_PRIVATE_SLOT(d, void _k_slotNameTextChanged(const QString&))
-    Q_PRIVATE_SLOT(d, void _k_slotURLTextChanged(const QString&))
+    Q_PRIVATE_SLOT(d, void _k_slotNameTextChanged(const QString &))
+    Q_PRIVATE_SLOT(d, void _k_slotURLTextChanged(const QString &))
 
-    KNameAndUrlInputDialogPrivate* const d;
+    KNameAndUrlInputDialogPrivate *const d;
 };
 
 #endif

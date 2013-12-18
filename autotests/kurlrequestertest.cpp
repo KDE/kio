@@ -20,7 +20,6 @@
 
 #include <kurlrequester.h>
 
-
 #include <QDebug>
 #include <QtTest/QtTest>
 

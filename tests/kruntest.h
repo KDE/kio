@@ -25,18 +25,17 @@
 
 class testKRun : public KRun
 {
-  Q_OBJECT
+    Q_OBJECT
 public:
 
-  testKRun(const QUrl& _url, QWidget *_topLevel)
-    : KRun(_url, _topLevel, false /*no progress info*/) {}
+    testKRun(const QUrl &_url, QWidget *_topLevel)
+        : KRun(_url, _topLevel, false /*no progress info*/) {}
 
-  virtual ~testKRun() {}
+    virtual ~testKRun() {}
 
-  virtual void foundMimeType( const QString& _type );
+    virtual void foundMimeType(const QString &_type);
 
 };
-
 
 class QPushButton;
 class Receiver : public QWidget
@@ -51,8 +50,8 @@ public Q_SLOTS:
     void slotLaunchOne();
     void slotLaunchTest();
 private:
-    QPushButton * start;
-    QPushButton * stop;
+    QPushButton *start;
+    QPushButton *stop;
 
 };
 

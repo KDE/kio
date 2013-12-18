@@ -50,7 +50,7 @@
 
 using namespace KIO;
 
-#define SLAVE_CONNECTION_TIMEOUT_MIN	   2
+#define SLAVE_CONNECTION_TIMEOUT_MIN       2
 
 // Without debug info we consider it an error if the slave doesn't connect
 // within 10 seconds.
@@ -71,52 +71,53 @@ static org::kde::KLauncher *klauncher()
     return ::klauncherIface();
 }
 
+namespace KIO
+{
 
-namespace KIO {
-
-  /**
-   * @internal
-   */
-    class SlavePrivate: public SlaveInterfacePrivate
+/**
+ * @internal
+ */
+class SlavePrivate: public SlaveInterfacePrivate
+{
+public:
+    SlavePrivate(const QString &protocol) :
+        m_protocol(protocol),
+        m_slaveProtocol(protocol),
+        slaveconnserver(new KIO::ConnectionServer),
+        m_job(0),
+        m_pid(0),
+        m_port(0),
+        contacted(false),
+        dead(false),
+        m_refCount(1)
     {
-    public:
-        SlavePrivate(const QString &protocol) :
-            m_protocol(protocol),
-            m_slaveProtocol(protocol),
-            slaveconnserver(new KIO::ConnectionServer),
-            m_job(0),
-            m_pid(0),
-            m_port(0),
-            contacted(false),
-            dead(false),
-            m_refCount(1)
-        {
-            contact_started = QDateTime::currentDateTime();
-            m_idleSince = QDateTime();
-            slaveconnserver->listenForRemote();
-            if ( !slaveconnserver->isListening() )
-                qWarning() << "Connection server not listening, could not connect";
+        contact_started = QDateTime::currentDateTime();
+        m_idleSince = QDateTime();
+        slaveconnserver->listenForRemote();
+        if (!slaveconnserver->isListening()) {
+            qWarning() << "Connection server not listening, could not connect";
         }
-        ~SlavePrivate()
-        {
-            delete slaveconnserver;
-        }
+    }
+    ~SlavePrivate()
+    {
+        delete slaveconnserver;
+    }
 
-        QString m_protocol;
-        QString m_slaveProtocol;
-        QString m_host;
-        QString m_user;
-        QString m_passwd;
-        KIO::ConnectionServer *slaveconnserver;
-        KIO::SimpleJob *m_job;
-        pid_t m_pid;
-        quint16 m_port;
-        bool contacted;
-        bool dead;
-        QDateTime contact_started;
-        QDateTime m_idleSince;
-        int m_refCount;
-  };
+    QString m_protocol;
+    QString m_slaveProtocol;
+    QString m_host;
+    QString m_user;
+    QString m_passwd;
+    KIO::ConnectionServer *slaveconnserver;
+    KIO::SimpleJob *m_job;
+    pid_t m_pid;
+    quint16 m_port;
+    bool contacted;
+    bool dead;
+    QDateTime contact_started;
+    QDateTime m_idleSince;
+    int m_refCount;
+};
 }
 
 void Slave::accept()
@@ -132,38 +133,39 @@ void Slave::accept()
 void Slave::timeout()
 {
     Q_D(Slave);
-   if (d->dead) //already dead? then slaveDied was emitted and we are done
-      return;
-   if (d->connection->isConnected())
-      return;
+    if (d->dead) { //already dead? then slaveDied was emitted and we are done
+        return;
+    }
+    if (d->connection->isConnected()) {
+        return;
+    }
 
-   /*qDebug() << "slave failed to connect to application pid=" << d->m_pid
-                << " protocol=" << d->m_protocol;*/
-   if (d->m_pid && (::kill(d->m_pid, 0) == 0))
-   {
-      int delta_t = d->contact_started.secsTo(QDateTime::currentDateTime());
-      //qDebug() << "slave is slow... pid=" << d->m_pid << " t=" << delta_t;
-      if (delta_t < SLAVE_CONNECTION_TIMEOUT_MAX)
-      {
-         QTimer::singleShot(1000*SLAVE_CONNECTION_TIMEOUT_MIN, this, SLOT(timeout()));
-         return;
-      }
-   }
-   //qDebug() << "Houston, we lost our slave, pid=" << d->m_pid;
-   d->connection->close();
-   d->dead = true;
-   QString arg = d->m_protocol;
-   if (!d->m_host.isEmpty())
-      arg += "://"+d->m_host;
-   //qDebug() << "slave died pid = " << d->m_pid;
+    /*qDebug() << "slave failed to connect to application pid=" << d->m_pid
+                 << " protocol=" << d->m_protocol;*/
+    if (d->m_pid && (::kill(d->m_pid, 0) == 0)) {
+        int delta_t = d->contact_started.secsTo(QDateTime::currentDateTime());
+        //qDebug() << "slave is slow... pid=" << d->m_pid << " t=" << delta_t;
+        if (delta_t < SLAVE_CONNECTION_TIMEOUT_MAX) {
+            QTimer::singleShot(1000 * SLAVE_CONNECTION_TIMEOUT_MIN, this, SLOT(timeout()));
+            return;
+        }
+    }
+    //qDebug() << "Houston, we lost our slave, pid=" << d->m_pid;
+    d->connection->close();
+    d->dead = true;
+    QString arg = d->m_protocol;
+    if (!d->m_host.isEmpty()) {
+        arg += "://" + d->m_host;
+    }
+    //qDebug() << "slave died pid = " << d->m_pid;
 
-   ref();
-   // Tell the job about the problem.
-   emit error(ERR_SLAVE_DIED, arg);
-   // Tell the scheduler about the problem.
-   emit slaveDied(this);
-   // After the above signal we're dead!!
-   deref();
+    ref();
+    // Tell the job about the problem.
+    emit error(ERR_SLAVE_DIED, arg);
+    // Tell the scheduler about the problem.
+    emit slaveDied(this);
+    // After the above signal we're dead!!
+    deref();
 }
 
 Slave::Slave(const QString &protocol, QObject *parent)
@@ -187,7 +189,7 @@ QString Slave::protocol()
     return d->m_protocol;
 }
 
-void Slave::setProtocol(const QString & protocol)
+void Slave::setProtocol(const QString &protocol)
 {
     Q_D(Slave);
     d->m_protocol = protocol;
@@ -306,9 +308,9 @@ void Slave::hold(const QUrl &url)
     ref();
     {
         QByteArray data;
-        QDataStream stream( &data, QIODevice::WriteOnly );
+        QDataStream stream(&data, QIODevice::WriteOnly);
         stream << url;
-        d->connection->send( CMD_SLAVE_HOLD, data );
+        d->connection->send(CMD_SLAVE_HOLD, data);
         d->connection->close();
         d->dead = true;
         emit slaveDied(this);
@@ -347,16 +349,17 @@ void Slave::send(int cmd, const QByteArray &arr)
 void Slave::gotInput()
 {
     Q_D(Slave);
-    if (d->dead) //already dead? then slaveDied was emitted and we are done
+    if (d->dead) { //already dead? then slaveDied was emitted and we are done
         return;
+    }
     ref();
-    if (!dispatch())
-    {
+    if (!dispatch()) {
         d->connection->close();
         d->dead = true;
         QString arg = d->m_protocol;
-        if (!d->m_host.isEmpty())
-            arg += "://"+d->m_host;
+        if (!d->m_host.isEmpty()) {
+            arg += "://" + d->m_host;
+        }
         //qDebug() << "slave died pid = " << d->m_pid;
         // Tell the job about the problem.
         emit error(ERR_SLAVE_DIED, arg);
@@ -373,19 +376,18 @@ void Slave::kill()
     d->dead = true; // OO can be such simple.
     /*qDebug() << "killing slave pid" << d->m_pid
                  << "(" << QString(d->m_protocol) + "://" + d->m_host << ")";*/
-    if (d->m_pid)
-    {
+    if (d->m_pid) {
 #ifndef _WIN32_WCE
-       ::kill(d->m_pid, SIGTERM);
+        ::kill(d->m_pid, SIGTERM);
 #else
         ::kill(d->m_pid, SIGKILL);
 #endif
-       d->m_pid = 0;
+        d->m_pid = 0;
     }
 }
 
-void Slave::setHost( const QString &host, quint16 port,
-                     const QString &user, const QString &passwd)
+void Slave::setHost(const QString &host, quint16 port,
+                    const QString &user, const QString &passwd)
 {
     Q_D(Slave);
     d->m_host = host;
@@ -395,9 +397,9 @@ void Slave::setHost( const QString &host, quint16 port,
     d->sslMetaData.clear();
 
     QByteArray data;
-    QDataStream stream( &data, QIODevice::WriteOnly );
+    QDataStream stream(&data, QIODevice::WriteOnly);
     stream << d->m_host << d->m_port << d->m_user << d->m_passwd;
-    d->connection->send( CMD_HOST, data );
+    d->connection->send(CMD_HOST, data);
 }
 
 void Slave::resetHost()
@@ -411,17 +413,18 @@ void Slave::setConfig(const MetaData &config)
 {
     Q_D(Slave);
     QByteArray data;
-    QDataStream stream( &data, QIODevice::WriteOnly );
+    QDataStream stream(&data, QIODevice::WriteOnly);
     stream << config;
-    d->connection->send( CMD_CONFIG, data );
+    d->connection->send(CMD_CONFIG, data);
 }
 
-Slave* Slave::createSlave( const QString &protocol, const QUrl& url, int& error, QString& error_text )
+Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, QString &error_text)
 {
     //qDebug() << "createSlave" << protocol << "for" << url;
     // Firstly take into account all special slaves
-    if (protocol == "data")
+    if (protocol == "data") {
         return new DataProtocol();
+    }
     Slave *slave = new Slave(protocol);
     QUrl slaveAddress = slave->d_func()->slaveconnserver->address();
 
@@ -431,78 +434,75 @@ Slave* Slave::createSlave( const QString &protocol, const QUrl& url, int& error,
     // KDE_FORK_SLAVES, Clearcase seems to require this.
     static bool bForkSlaves = !qgetenv("KDE_FORK_SLAVES").isEmpty();
 
-    if (!bForkSlaves)
-    {
-       // check the UID of klauncher
-       QDBusReply<uint> reply = QDBusConnection::sessionBus().interface()->serviceUid(klauncher()->service());
-       if (reply.isValid() && getuid() != reply)
-          bForkSlaves = true;
+    if (!bForkSlaves) {
+        // check the UID of klauncher
+        QDBusReply<uint> reply = QDBusConnection::sessionBus().interface()->serviceUid(klauncher()->service());
+        if (reply.isValid() && getuid() != reply) {
+            bForkSlaves = true;
+        }
     }
 
-    if (bForkSlaves)
-    {
-       QString _name = KProtocolInfo::exec(protocol);
-       if (_name.isEmpty())
-       {
-          error_text = i18n("Unknown protocol '%1'.", protocol);
-          error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
-          delete slave;
-          return 0;
-       }
-       KLibrary lib(_name);
-       QString lib_path = lib.fileName();
-       if (lib_path.isEmpty())
-       {
-          error_text = i18n("Can not find io-slave for protocol '%1'.", protocol);
-          error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
-          delete slave;
-          return 0;
-       }
+    if (bForkSlaves) {
+        QString _name = KProtocolInfo::exec(protocol);
+        if (_name.isEmpty()) {
+            error_text = i18n("Unknown protocol '%1'.", protocol);
+            error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
+            delete slave;
+            return 0;
+        }
+        KLibrary lib(_name);
+        QString lib_path = lib.fileName();
+        if (lib_path.isEmpty()) {
+            error_text = i18n("Can not find io-slave for protocol '%1'.", protocol);
+            error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
+            delete slave;
+            return 0;
+        }
 
-       const QStringList args = QStringList() << lib_path << protocol << "" << slaveAddress.toString();
-       //qDebug() << "kioslave" << ", " << lib_path << ", " << protocol << ", " << QString() << ", " << slaveAddress;
+        const QStringList args = QStringList() << lib_path << protocol << "" << slaveAddress.toString();
+        //qDebug() << "kioslave" << ", " << lib_path << ", " << protocol << ", " << QString() << ", " << slaveAddress;
 
-       const QString kioslave = CMAKE_INSTALL_PREFIX "/" LIBEXEC_INSTALL_DIR "/kioslave";
-       if (kioslave.isEmpty()) {
-          error_text = i18n("Can not find 'kioslave' executable");
-          error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
-          delete slave;
-          return 0;
+        const QString kioslave = CMAKE_INSTALL_PREFIX "/" LIBEXEC_INSTALL_DIR "/kioslave";
+        if (kioslave.isEmpty()) {
+            error_text = i18n("Can not find 'kioslave' executable");
+            error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
+            delete slave;
+            return 0;
 
-       }
-       QProcess::startDetached(kioslave, args);
+        }
+        QProcess::startDetached(kioslave, args);
 
-       return slave;
+        return slave;
     }
 #endif
 
     QString errorStr;
     QDBusReply<int> reply = klauncher()->requestSlave(protocol, url.host(), slaveAddress.toString(), errorStr);
     if (!reply.isValid()) {
-	error_text = i18n("Cannot talk to klauncher: %1", klauncher()->lastError().message() );
-	error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
+        error_text = i18n("Cannot talk to klauncher: %1", klauncher()->lastError().message());
+        error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
         delete slave;
         return 0;
     }
     pid_t pid = reply;
-    if (!pid)
-    {
+    if (!pid) {
         error_text = i18n("Unable to create io-slave:\nklauncher said: %1", errorStr);
         error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
         delete slave;
         return 0;
     }
     slave->setPID(pid);
-    QTimer::singleShot(1000*SLAVE_CONNECTION_TIMEOUT_MIN, slave, SLOT(timeout()));
+    QTimer::singleShot(1000 * SLAVE_CONNECTION_TIMEOUT_MIN, slave, SLOT(timeout()));
     return slave;
 }
 
-Slave* Slave::holdSlave(const QString &protocol, const QUrl& url)
+Slave *Slave::holdSlave(const QString &protocol, const QUrl &url)
 {
     //qDebug() << "holdSlave" << protocol << "for" << url;
     // Firstly take into account all special slaves
-    if (protocol == "data")
+    if (protocol == "data") {
         return 0;
+    }
     Slave *slave = new Slave(protocol);
     QUrl slaveAddress = slave->d_func()->slaveconnserver->address();
     QDBusReply<int> reply = klauncher()->requestHoldSlave(url.toString(), slaveAddress.toString());
@@ -511,13 +511,12 @@ Slave* Slave::holdSlave(const QString &protocol, const QUrl& url)
         return 0;
     }
     pid_t pid = reply;
-    if (!pid)
-    {
+    if (!pid) {
         delete slave;
         return 0;
     }
     slave->setPID(pid);
-    QTimer::singleShot(1000*SLAVE_CONNECTION_TIMEOUT_MIN, slave, SLOT(timeout()));
+    QTimer::singleShot(1000 * SLAVE_CONNECTION_TIMEOUT_MIN, slave, SLOT(timeout()));
     return slave;
 }
 

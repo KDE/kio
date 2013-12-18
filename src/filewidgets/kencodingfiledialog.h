@@ -40,11 +40,12 @@ class KEncodingFileDialog : public QDialog
     Q_OBJECT
 
 public:
-    class KIOFILEWIDGETS_EXPORT Result {
-	public:
-		QStringList fileNames;
-		QList<QUrl> URLs;
-		QString encoding;
+    class KIOFILEWIDGETS_EXPORT Result
+    {
+    public:
+        QStringList fileNames;
+        QList<QUrl> URLs;
+        QString encoding;
     };
 
     /**
@@ -59,8 +60,8 @@ public:
      * @param startDir This can either be
      *         @li The URL of the directory to start in.
      *         @li QString() to start in the current working
-     *		    directory, or the last directory where a file has been
-     *		    selected.
+     *          directory, or the last directory where a file has been
+     *          selected.
      *         @li ':&lt;keyword&gt;' to start in the directory last used
      *             by a filedialog in the same application that specified
      *             the same keyword.
@@ -75,10 +76,10 @@ public:
      * @param caption The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getOpenFileNameAndEncoding(const QString &encoding = QString(),
-                                                                   const QUrl &startDir = QUrl(),
-                                                                   const QString &filter = QString(),
-                                                                   QWidget *parent = 0,
-                                                                   const QString &caption = QString());
+            const QUrl &startDir = QUrl(),
+            const QString &filter = QString(),
+            QWidget *parent = 0,
+            const QString &caption = QString());
 
     /**
      * Creates a modal file dialog and returns the selected encoding and the selected
@@ -91,8 +92,8 @@ public:
      * @param startDir This can either be
      *         @li The URL of the directory to start in.
      *         @li QString() to start in the current working
-     *		    directory, or the last directory where a file has been
-     *		    selected.
+     *          directory, or the last directory where a file has been
+     *          selected.
      *         @li ':&lt;keyword&gt;' to start in the directory last used
      *             by a filedialog in the same application that specified
      *             the same keyword.
@@ -107,10 +108,10 @@ public:
      * @param caption The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getOpenFileNamesAndEncoding(const QString &encoding = QString(),
-                                                                    const QUrl &startDir = QUrl(),
-                                                                    const QString &filter = QString(),
-                                                                    QWidget *parent = 0,
-                                                                    const QString &caption = QString());
+            const QUrl &startDir = QUrl(),
+            const QString &filter = QString(),
+            QWidget *parent = 0,
+            const QString &caption = QString());
 
     /**
      * Creates a modal file dialog and returns the selected encoding and
@@ -123,8 +124,8 @@ public:
      * @param startDir This can either be
      *         @li The URL of the directory to start in.
      *         @li QString() to start in the current working
-     *		    directory, or the last directory where a file has been
-     *		    selected.
+     *          directory, or the last directory where a file has been
+     *          selected.
      *         @li ':&lt;keyword&gt;' to start in the directory last used
      *             by a filedialog in the same application that specified
      *             the same keyword.
@@ -139,11 +140,10 @@ public:
      * @param caption The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getOpenUrlAndEncoding(const QString &encoding = QString(),
-                                                              const QUrl &startDir = QUrl(),
-                                                              const QString &filter = QString(),
-                                                              QWidget *parent= 0,
-                                                              const QString &caption = QString());
-
+            const QUrl &startDir = QUrl(),
+            const QString &filter = QString(),
+            QWidget *parent = 0,
+            const QString &caption = QString());
 
     /**
      * Creates a modal file dialog and returns the selected encoding
@@ -156,8 +156,8 @@ public:
      * @param startDir This can either be
      *         @li The URL of the directory to start in.
      *         @li QString() to start in the current working
-     *		    directory, or the last directory where a file has been
-     *		    selected.
+     *          directory, or the last directory where a file has been
+     *          selected.
      *         @li ':&lt;keyword&gt;' to start in the directory last used
      *             by a filedialog in the same application that specified
      *             the same keyword.
@@ -172,11 +172,10 @@ public:
      * @param caption The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getOpenUrlsAndEncoding(const QString &encoding = QString(),
-                                                               const QUrl &startDir = QUrl(),
-                                                               const QString &filter = QString(),
-                                                               QWidget *parent = 0,
-                                                               const QString &caption = QString());
-
+            const QUrl &startDir = QUrl(),
+            const QString &filter = QString(),
+            QWidget *parent = 0,
+            const QString &caption = QString());
 
     /**
      * Creates a modal file dialog and returns the selected encoding and
@@ -191,8 +190,8 @@ public:
      *         @li a relative path or a filename determining the
      *             directory to start in and the file to be selected.
      *         @li QString() to start in the current working
-     *		    directory, or the last directory where a file has been
-     *		    selected.
+     *          directory, or the last directory where a file has been
+     *          selected.
      *         @li ':&lt;keyword&gt;' to start in the directory last used
      *             by a filedialog in the same application that specified
      *             the same keyword.
@@ -207,11 +206,10 @@ public:
      * @param caption The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getSaveFileNameAndEncoding(const QString &encoding = QString(),
-                                                                   const QUrl &startDir = QUrl(),
-                                                                   const QString &filter = QString(),
-                                                                   QWidget *parent = 0,
-                                                                   const QString &caption = QString());
-
+            const QUrl &startDir = QUrl(),
+            const QString &filter = QString(),
+            QWidget *parent = 0,
+            const QString &caption = QString());
 
     /**
      * Creates a modal file dialog and returns the selected encoding and
@@ -226,8 +224,8 @@ public:
      *         @li a relative path or a filename determining the
      *             directory to start in and the file to be selected.
      *         @li QString() to start in the current working
-     *		    directory, or the last directory where a file has been
-     *		    selected.
+     *          directory, or the last directory where a file has been
+     *          selected.
      *         @li ':&lt;keyword&gt;' to start in the directory last used
      *             by a filedialog in the same application that specified
      *             the same keyword.
@@ -242,10 +240,10 @@ public:
      * @param caption The name of the dialog widget.
      */
     static KIOFILEWIDGETS_EXPORT Result getSaveUrlAndEncoding(const QString &encoding = QString(),
-                                                              const QUrl &startDir = QUrl(),
-                                                              const QString &filter = QString(),
-                                                              QWidget *parent= 0,
-                                                              const QString &caption = QString());
+            const QUrl &startDir = QUrl(),
+            const QString &filter = QString(),
+            QWidget *parent = 0,
+            const QString &caption = QString());
 
     QSize sizeHint() const Q_DECL_OVERRIDE;
 
@@ -265,8 +263,8 @@ private:
      * @param startDir This can either be
      *         @li The URL of the directory to start in.
      *         @li QString() to start in the current working
-     *		    directory, or the last directory where a file has been
-     *		    selected.
+     *          directory, or the last directory where a file has been
+     *          selected.
      *         @li ':&lt;keyword&gt;' to start in the directory last used
      *             by a filedialog in the same application that specified
      *             the same keyword.
@@ -275,7 +273,7 @@ private:
      *             same keyword.
      *
      * @param encoding The encoding shown in the encoding combo. If it's
-     *		    QString(), the global default encoding will be shown.
+     *          QString(), the global default encoding will be shown.
      *
      * @param filter A shell glob or a mime-type-filter that specifies which files to display.
      *    The preferred option is to set a list of mimetype names, see setMimeFilter() for details.
@@ -285,8 +283,8 @@ private:
      * @param caption The caption of the dialog
      *
      * @param type This can either be
-     *		@li QFileDialog::AcceptOpen (open dialog, the default setting)
-     *		@li QFileDialog::AcceptSave
+     *      @li QFileDialog::AcceptOpen (open dialog, the default setting)
+     *      @li QFileDialog::AcceptSave
      * @param parent The parent widget of this dialog
      */
     KEncodingFileDialog(const QUrl &startDir = QUrl(),
@@ -300,13 +298,12 @@ private:
      */
     ~KEncodingFileDialog();
 
-
     /**
     * @returns The selected encoding if the constructor with the encoding parameter was used, otherwise QString().
     */
     QString selectedEncoding() const;
 
-    KEncodingFileDialogPrivate* const d;
+    KEncodingFileDialogPrivate *const d;
 };
 
 #endif

@@ -54,14 +54,15 @@
 #include <kbuildsycocaprogressdialog.h>
 #include <kconfiggroup.h>
 
-inline void writeEntry( KConfigGroup& group, const char* key,
-                        const KCompletion::CompletionMode& aValue,
-                        KConfigBase::WriteConfigFlags flags = KConfigBase::Normal )
+inline void writeEntry(KConfigGroup &group, const char *key,
+                       const KCompletion::CompletionMode &aValue,
+                       KConfigBase::WriteConfigFlags flags = KConfigBase::Normal)
 {
     group.writeEntry(key, int(aValue), flags);
 }
 
-namespace KDEPrivate {
+namespace KDEPrivate
+{
 
 class AppNode
 {
@@ -84,7 +85,7 @@ public:
     AppNode *parent;
     bool fetched;
 
-    QList<AppNode*> children;
+    QList<AppNode *> children;
 };
 
 bool AppNodeLessThan(KDEPrivate::AppNode *n1, KDEPrivate::AppNode *n2)
@@ -107,7 +108,6 @@ bool AppNodeLessThan(KDEPrivate::AppNode *n1, KDEPrivate::AppNode *n2)
 
 }
 
-
 class KApplicationModelPrivate
 {
 public:
@@ -129,63 +129,59 @@ public:
 
 void KApplicationModelPrivate::fillNode(const QString &_entryPath, KDEPrivate::AppNode *node)
 {
-   KServiceGroup::Ptr root = KServiceGroup::group(_entryPath);
-   if (!root || !root->isValid()) return;
+    KServiceGroup::Ptr root = KServiceGroup::group(_entryPath);
+    if (!root || !root->isValid()) {
+        return;
+    }
 
-   const KServiceGroup::List list = root->entries();
+    const KServiceGroup::List list = root->entries();
 
-   for( KServiceGroup::List::ConstIterator it = list.begin();
-       it != list.end(); ++it)
-   {
-      QString icon;
-      QString text;
-      QString entryPath;
-      QString exec;
-      bool isDir = false;
-      const KSycocaEntry::Ptr p = (*it);
-      if (p->isType(KST_KService))
-      {
-         const KService::Ptr service = KService::Ptr(p);
+    for (KServiceGroup::List::ConstIterator it = list.begin();
+            it != list.end(); ++it) {
+        QString icon;
+        QString text;
+        QString entryPath;
+        QString exec;
+        bool isDir = false;
+        const KSycocaEntry::Ptr p = (*it);
+        if (p->isType(KST_KService)) {
+            const KService::Ptr service = KService::Ptr(p);
 
-         if (service->noDisplay())
+            if (service->noDisplay()) {
+                continue;
+            }
+
+            icon = service->icon();
+            text = service->name();
+            exec = service->exec();
+            entryPath = service->entryPath();
+        } else if (p->isType(KST_KServiceGroup)) {
+            const KServiceGroup::Ptr serviceGroup = KServiceGroup::Ptr(p);
+
+            if (serviceGroup->noDisplay() || serviceGroup->childCount() == 0) {
+                continue;
+            }
+
+            icon = serviceGroup->icon();
+            text = serviceGroup->caption();
+            entryPath = serviceGroup->entryPath();
+            isDir = true;
+        } else {
+            qWarning() << "KServiceGroup: Unexpected object in list!";
             continue;
+        }
 
-         icon = service->icon();
-         text = service->name();
-         exec = service->exec();
-         entryPath = service->entryPath();
-      }
-      else if (p->isType(KST_KServiceGroup))
-      {
-         const KServiceGroup::Ptr serviceGroup = KServiceGroup::Ptr(p);
-
-         if (serviceGroup->noDisplay() || serviceGroup->childCount() == 0)
-            continue;
-
-         icon = serviceGroup->icon();
-         text = serviceGroup->caption();
-         entryPath = serviceGroup->entryPath();
-         isDir = true;
-      }
-      else
-      {
-         qWarning() << "KServiceGroup: Unexpected object in list!";
-         continue;
-      }
-
-      KDEPrivate::AppNode *newnode = new KDEPrivate::AppNode();
-      newnode->icon = icon;
-      newnode->text = text;
-      newnode->entryPath = entryPath;
-      newnode->exec = exec;
-      newnode->isDir = isDir;
-      newnode->parent = node;
-      node->children.append(newnode);
-   }
-   qStableSort(node->children.begin(), node->children.end(), KDEPrivate::AppNodeLessThan);
+        KDEPrivate::AppNode *newnode = new KDEPrivate::AppNode();
+        newnode->icon = icon;
+        newnode->text = text;
+        newnode->entryPath = entryPath;
+        newnode->exec = exec;
+        newnode->isDir = isDir;
+        newnode->parent = node;
+        node->children.append(newnode);
+    }
+    qStableSort(node->children.begin(), node->children.end(), KDEPrivate::AppNodeLessThan);
 }
-
-
 
 KApplicationModel::KApplicationModel(QObject *parent)
     : QAbstractItemModel(parent), d(new KApplicationModelPrivate(this))
@@ -200,10 +196,11 @@ KApplicationModel::~KApplicationModel()
 
 bool KApplicationModel::canFetchMore(const QModelIndex &parent) const
 {
-    if (!parent.isValid())
+    if (!parent.isValid()) {
         return false;
+    }
 
-    KDEPrivate::AppNode *node = static_cast<KDEPrivate::AppNode*>(parent.internalPointer());
+    KDEPrivate::AppNode *node = static_cast<KDEPrivate::AppNode *>(parent.internalPointer());
     return node->isDir && !node->fetched;
 }
 
@@ -215,10 +212,11 @@ int KApplicationModel::columnCount(const QModelIndex &parent) const
 
 QVariant KApplicationModel::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid())
+    if (!index.isValid()) {
         return QVariant();
+    }
 
-    KDEPrivate::AppNode *node = static_cast<KDEPrivate::AppNode*>(index.internalPointer());
+    KDEPrivate::AppNode *node = static_cast<KDEPrivate::AppNode *>(index.internalPointer());
 
     switch (role) {
     case Qt::DisplayRole:
@@ -237,12 +235,14 @@ QVariant KApplicationModel::data(const QModelIndex &index, int role) const
 
 void KApplicationModel::fetchMore(const QModelIndex &parent)
 {
-    if (!parent.isValid())
+    if (!parent.isValid()) {
         return;
+    }
 
-    KDEPrivate::AppNode *node = static_cast<KDEPrivate::AppNode*>(parent.internalPointer());
-    if (!node->isDir)
+    KDEPrivate::AppNode *node = static_cast<KDEPrivate::AppNode *>(parent.internalPointer());
+    if (!node->isDir) {
         return;
+    }
 
     emit layoutAboutToBeChanged();
     d->fillNode(node->entryPath, node);
@@ -252,17 +252,19 @@ void KApplicationModel::fetchMore(const QModelIndex &parent)
 
 bool KApplicationModel::hasChildren(const QModelIndex &parent) const
 {
-    if (!parent.isValid())
+    if (!parent.isValid()) {
         return true;
+    }
 
-    KDEPrivate::AppNode *node = static_cast<KDEPrivate::AppNode*>(parent.internalPointer());
+    KDEPrivate::AppNode *node = static_cast<KDEPrivate::AppNode *>(parent.internalPointer());
     return node->isDir;
 }
 
 QVariant KApplicationModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-    if (orientation != Qt::Horizontal || section != 0)
+    if (orientation != Qt::Horizontal || section != 0) {
         return QVariant();
+    }
 
     switch (role) {
     case Qt::DisplayRole:
@@ -275,70 +277,79 @@ QVariant KApplicationModel::headerData(int section, Qt::Orientation orientation,
 
 QModelIndex KApplicationModel::index(int row, int column, const QModelIndex &parent) const
 {
-    if (row < 0 || column != 0)
+    if (row < 0 || column != 0) {
         return QModelIndex();
+    }
 
     KDEPrivate::AppNode *node = d->root;
-    if (parent.isValid())
-        node = static_cast<KDEPrivate::AppNode*>(parent.internalPointer());
+    if (parent.isValid()) {
+        node = static_cast<KDEPrivate::AppNode *>(parent.internalPointer());
+    }
 
-    if (row >= node->children.count())
+    if (row >= node->children.count()) {
         return QModelIndex();
-    else
+    } else {
         return createIndex(row, 0, node->children.at(row));
+    }
 }
 
 QModelIndex KApplicationModel::parent(const QModelIndex &index) const
 {
-    if (!index.isValid())
+    if (!index.isValid()) {
         return QModelIndex();
+    }
 
-    KDEPrivate::AppNode *node = static_cast<KDEPrivate::AppNode*>(index.internalPointer());
+    KDEPrivate::AppNode *node = static_cast<KDEPrivate::AppNode *>(index.internalPointer());
     if (node->parent->parent) {
         int id = node->parent->parent->children.indexOf(node->parent);
 
-        if (id >= 0 && id < node->parent->parent->children.count())
-           return createIndex(id, 0, node->parent);
-        else
+        if (id >= 0 && id < node->parent->parent->children.count()) {
+            return createIndex(id, 0, node->parent);
+        } else {
             return QModelIndex();
-    }
-    else
+        }
+    } else {
         return QModelIndex();
+    }
 }
 
 int KApplicationModel::rowCount(const QModelIndex &parent) const
 {
-    if (!parent.isValid())
+    if (!parent.isValid()) {
         return d->root->children.count();
+    }
 
-    KDEPrivate::AppNode *node = static_cast<KDEPrivate::AppNode*>(parent.internalPointer());
+    KDEPrivate::AppNode *node = static_cast<KDEPrivate::AppNode *>(parent.internalPointer());
     return node->children.count();
 }
 
 QString KApplicationModel::entryPathFor(const QModelIndex &index) const
 {
-    if (!index.isValid())
+    if (!index.isValid()) {
         return QString();
+    }
 
-    KDEPrivate::AppNode *node = static_cast<KDEPrivate::AppNode*>(index.internalPointer());
+    KDEPrivate::AppNode *node = static_cast<KDEPrivate::AppNode *>(index.internalPointer());
     return node->entryPath;
 }
 
 QString KApplicationModel::execFor(const QModelIndex &index) const
 {
-    if (!index.isValid())
+    if (!index.isValid()) {
         return QString();
+    }
 
-    KDEPrivate::AppNode *node = static_cast<KDEPrivate::AppNode*>(index.internalPointer());
+    KDEPrivate::AppNode *node = static_cast<KDEPrivate::AppNode *>(index.internalPointer());
     return node->exec;
 }
 
 bool KApplicationModel::isDirectory(const QModelIndex &index) const
 {
-    if (!index.isValid())
+    if (!index.isValid()) {
         return false;
+    }
 
-    KDEPrivate::AppNode *node = static_cast<KDEPrivate::AppNode*>(index.internalPointer());
+    KDEPrivate::AppNode *node = static_cast<KDEPrivate::AppNode *>(index.internalPointer());
     return node->isDir;
 }
 
@@ -367,12 +378,12 @@ void KApplicationView::setModel(QAbstractItemModel *model)
 {
     if (d->appModel) {
         disconnect(selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-                this, SLOT(slotSelectionChanged(QItemSelection,QItemSelection)));
+                   this, SLOT(slotSelectionChanged(QItemSelection,QItemSelection)));
     }
 
     QTreeView::setModel(model);
 
-    d->appModel = qobject_cast<KApplicationModel*>(model);
+    d->appModel = qobject_cast<KApplicationModel *>(model);
     if (d->appModel) {
         connect(selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
                 this, SLOT(slotSelectionChanged(QItemSelection,QItemSelection)));
@@ -413,8 +424,6 @@ void KApplicationView::slotSelectionChanged(const QItemSelection &selected, cons
     }
 }
 
-
-
 /***************************************************************
  *
  * KOpenWithDialog
@@ -435,7 +444,7 @@ public:
      */
     void setMimeType(const QList<QUrl> &_urls);
 
-    void addToMimeAppsList(const QString& serviceId);
+    void addToMimeAppsList(const QString &serviceId);
 
     /**
      * Create a dialog that asks for a application to open a given
@@ -476,53 +485,55 @@ public:
     QDialogButtonBox *buttonBox;
 };
 
-KOpenWithDialog::KOpenWithDialog( const QList<QUrl>& _urls, QWidget* parent )
+KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, QWidget *parent)
     : QDialog(parent), d(new KOpenWithDialogPrivate(this))
 {
-    setObjectName( QLatin1String( "openwith" ) );
-    setModal( true );
-    setWindowTitle( i18n( "Open With" ) );
+    setObjectName(QLatin1String("openwith"));
+    setModal(true);
+    setWindowTitle(i18n("Open With"));
 
     QString text;
-    if( _urls.count() == 1 )
-    {
+    if (_urls.count() == 1) {
         text = i18n("<qt>Select the program that should be used to open <b>%1</b>. "
-                     "If the program is not listed, enter the name or click "
-                     "the browse button.</qt>",  _urls.first().fileName() );
-    }
-    else
+                    "If the program is not listed, enter the name or click "
+                    "the browse button.</qt>",  _urls.first().fileName());
+    } else
         // Should never happen ??
-        text = i18n( "Choose the name of the program with which to open the selected files." );
+    {
+        text = i18n("Choose the name of the program with which to open the selected files.");
+    }
     d->setMimeType(_urls);
     d->init(text, QString());
 }
 
-KOpenWithDialog::KOpenWithDialog( const QList<QUrl>& _urls, const QString&_text,
-                            const QString& _value, QWidget *parent)
+KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, const QString &_text,
+                                 const QString &_value, QWidget *parent)
     : QDialog(parent), d(new KOpenWithDialogPrivate(this))
 {
-  setObjectName( QLatin1String( "openwith" ) );
-  setModal( true );
-  QString caption;
-    if (!_urls.isEmpty() && !_urls.first().isEmpty())
+    setObjectName(QLatin1String("openwith"));
+    setModal(true);
+    QString caption;
+    if (!_urls.isEmpty() && !_urls.first().isEmpty()) {
         caption = KStringHandler::csqueeze(_urls.first().toDisplayString());
-  if (_urls.count() > 1)
-      caption += QString::fromLatin1("...");
-  setWindowTitle(caption);
+    }
+    if (_urls.count() > 1) {
+        caption += QString::fromLatin1("...");
+    }
+    setWindowTitle(caption);
     d->setMimeType(_urls);
     d->init(_text, _value);
 }
 
-KOpenWithDialog::KOpenWithDialog( const QString &mimeType, const QString& value,
-                            QWidget *parent)
+KOpenWithDialog::KOpenWithDialog(const QString &mimeType, const QString &value,
+                                 QWidget *parent)
     : QDialog(parent), d(new KOpenWithDialogPrivate(this))
 {
-  setObjectName( QLatin1String( "openwith" ) );
-  setModal( true );
-  setWindowTitle(i18n("Choose Application for %1", mimeType));
-  QString text = i18n("<qt>Select the program for the file type: <b>%1</b>. "
-                      "If the program is not listed, enter the name or click "
-                      "the browse button.</qt>", mimeType);
+    setObjectName(QLatin1String("openwith"));
+    setModal(true);
+    setWindowTitle(i18n("Choose Application for %1", mimeType));
+    QString text = i18n("<qt>Select the program for the file type: <b>%1</b>. "
+                        "If the program is not listed, enter the name or click "
+                        "the browse button.</qt>", mimeType);
     d->qMimeType = mimeType;
     d->init(text, value);
     if (d->remember) {
@@ -530,15 +541,15 @@ KOpenWithDialog::KOpenWithDialog( const QString &mimeType, const QString& value,
     }
 }
 
-KOpenWithDialog::KOpenWithDialog( QWidget *parent)
+KOpenWithDialog::KOpenWithDialog(QWidget *parent)
     : QDialog(parent), d(new KOpenWithDialogPrivate(this))
 {
-  setObjectName( QLatin1String( "openwith" ) );
-  setModal( true );
-  setWindowTitle(i18n("Choose Application"));
-  QString text = i18n("<qt>Select a program. "
-                      "If the program is not listed, enter the name or click "
-                      "the browse button.</qt>");
+    setObjectName(QLatin1String("openwith"));
+    setModal(true);
+    setWindowTitle(i18n("Choose Application"));
+    QString text = i18n("<qt>Select a program. "
+                        "If the program is not listed, enter the name or click "
+                        "the browse button.</qt>");
     d->qMimeType.clear();
     d->init(text, QString());
 }
@@ -549,8 +560,9 @@ void KOpenWithDialogPrivate::setMimeType(const QList<QUrl> &_urls)
         QMimeDatabase db;
         QMimeType mime = db.mimeTypeForUrl(_urls.first());
         qMimeType = mime.name();
-        if (mime.isDefault())
+        if (mime.isDefault()) {
             qMimeType.clear();
+        }
     } else {
         qMimeType.clear();
     }
@@ -558,64 +570,61 @@ void KOpenWithDialogPrivate::setMimeType(const QList<QUrl> &_urls)
 
 void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
 {
-  bool bReadOnly = !KAuthorized::authorize("shell_access");
-  m_terminaldirty = false;
+    bool bReadOnly = !KAuthorized::authorize("shell_access");
+    m_terminaldirty = false;
     view = 0;
     m_pService = 0;
     curService = 0;
 
-  QBoxLayout *topLayout = new QVBoxLayout;
-  q->setLayout(topLayout);
+    QBoxLayout *topLayout = new QVBoxLayout;
+    q->setLayout(topLayout);
     label = new QLabel(_text, q);
-  label->setWordWrap(true);
-  topLayout->addWidget(label);
+    label->setWordWrap(true);
+    topLayout->addWidget(label);
 
-  if (!bReadOnly)
-  {
-    // init the history combo and insert it into the URL-Requester
-    KHistoryComboBox *combo = new KHistoryComboBox();
-    KLineEdit *lineEdit = new KLineEdit(q);
-    lineEdit->setClearButtonShown(true);
-    combo->setLineEdit(lineEdit);
-    combo->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLengthWithIcon);
-    combo->setDuplicatesEnabled( false );
-    KConfigGroup cg( KSharedConfig::openConfig(), QString::fromLatin1("Open-with settings") );
-    int max = cg.readEntry( "Maximum history", 15 );
-    combo->setMaxCount( max );
-    int mode = cg.readEntry( "CompletionMode", int(KCompletion::CompletionPopup));
-    combo->setCompletionMode((KCompletion::CompletionMode)mode);
-    const QStringList list = cg.readEntry( "History", QStringList() );
-    combo->setHistoryItems( list, true );
-    edit = new KUrlRequester(combo, q);
-  }
-  else
-  {
-    edit = new KUrlRequester(q);
-    edit->lineEdit()->setReadOnly(true);
-    edit->button()->hide();
-  }
+    if (!bReadOnly) {
+        // init the history combo and insert it into the URL-Requester
+        KHistoryComboBox *combo = new KHistoryComboBox();
+        KLineEdit *lineEdit = new KLineEdit(q);
+        lineEdit->setClearButtonShown(true);
+        combo->setLineEdit(lineEdit);
+        combo->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLengthWithIcon);
+        combo->setDuplicatesEnabled(false);
+        KConfigGroup cg(KSharedConfig::openConfig(), QString::fromLatin1("Open-with settings"));
+        int max = cg.readEntry("Maximum history", 15);
+        combo->setMaxCount(max);
+        int mode = cg.readEntry("CompletionMode", int(KCompletion::CompletionPopup));
+        combo->setCompletionMode((KCompletion::CompletionMode)mode);
+        const QStringList list = cg.readEntry("History", QStringList());
+        combo->setHistoryItems(list, true);
+        edit = new KUrlRequester(combo, q);
+    } else {
+        edit = new KUrlRequester(q);
+        edit->lineEdit()->setReadOnly(true);
+        edit->button()->hide();
+    }
 
-  edit->setText( _value );
-  edit->setWhatsThis(i18n(
-    "Following the command, you can have several place holders which will be replaced "
-    "with the actual values when the actual program is run:\n"
-    "%f - a single file name\n"
-    "%F - a list of files; use for applications that can open several local files at once\n"
-    "%u - a single URL\n"
-    "%U - a list of URLs\n"
-    "%d - the directory of the file to open\n"
-    "%D - a list of directories\n"
-    "%i - the icon\n"
-    "%m - the mini-icon\n"
-    "%c - the comment"));
+    edit->setText(_value);
+    edit->setWhatsThis(i18n(
+                           "Following the command, you can have several place holders which will be replaced "
+                           "with the actual values when the actual program is run:\n"
+                           "%f - a single file name\n"
+                           "%F - a list of files; use for applications that can open several local files at once\n"
+                           "%u - a single URL\n"
+                           "%U - a list of URLs\n"
+                           "%d - the directory of the file to open\n"
+                           "%D - a list of directories\n"
+                           "%i - the icon\n"
+                           "%m - the mini-icon\n"
+                           "%c - the comment"));
 
-  topLayout->addWidget(edit);
+    topLayout->addWidget(edit);
 
-  if ( edit->comboBox() ) {
-    KUrlCompletion *comp = new KUrlCompletion( KUrlCompletion::ExeCompletion );
-    edit->comboBox()->setCompletionObject( comp );
-    edit->comboBox()->setAutoDeleteCompletionObject( true );
-  }
+    if (edit->comboBox()) {
+        KUrlCompletion *comp = new KUrlCompletion(KUrlCompletion::ExeCompletion);
+        edit->comboBox()->setCompletionObject(comp);
+        edit->comboBox()->setAutoDeleteCompletionObject(true);
+    }
 
     QObject::connect(edit, SIGNAL(textChanged(QString)), q, SLOT(slotTextChanged()));
     QObject::connect(edit, SIGNAL(urlSelected(QUrl)), q, SLOT(_k_slotFileSelected()));
@@ -632,62 +641,62 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     QObject::connect(view, SIGNAL(doubleClicked(QModelIndex)),
                      q, SLOT(_k_slotDbClick()));
 
-  terminal = new QCheckBox(i18n("Run in &terminal"), q);
-  if (bReadOnly)
-     terminal->hide();
+    terminal = new QCheckBox(i18n("Run in &terminal"), q);
+    if (bReadOnly) {
+        terminal->hide();
+    }
     QObject::connect(terminal, SIGNAL(toggled(bool)), q, SLOT(slotTerminalToggled(bool)));
 
-  topLayout->addWidget(terminal);
+    topLayout->addWidget(terminal);
 
-  QStyleOptionButton checkBoxOption;
-  checkBoxOption.initFrom(terminal);
-  int checkBoxIndentation = terminal->style()->pixelMetric( QStyle::PM_IndicatorWidth, &checkBoxOption, terminal );
-  checkBoxIndentation += terminal->style()->pixelMetric( QStyle::PM_CheckBoxLabelSpacing, &checkBoxOption, terminal );
+    QStyleOptionButton checkBoxOption;
+    checkBoxOption.initFrom(terminal);
+    int checkBoxIndentation = terminal->style()->pixelMetric(QStyle::PM_IndicatorWidth, &checkBoxOption, terminal);
+    checkBoxIndentation += terminal->style()->pixelMetric(QStyle::PM_CheckBoxLabelSpacing, &checkBoxOption, terminal);
 
-  QBoxLayout* nocloseonexitLayout = new QHBoxLayout();
-  nocloseonexitLayout->setMargin( 0 );
-  QSpacerItem* spacer = new QSpacerItem( checkBoxIndentation, 0, QSizePolicy::Fixed, QSizePolicy::Minimum );
-  nocloseonexitLayout->addItem( spacer );
+    QBoxLayout *nocloseonexitLayout = new QHBoxLayout();
+    nocloseonexitLayout->setMargin(0);
+    QSpacerItem *spacer = new QSpacerItem(checkBoxIndentation, 0, QSizePolicy::Fixed, QSizePolicy::Minimum);
+    nocloseonexitLayout->addItem(spacer);
 
-  nocloseonexit = new QCheckBox(i18n("&Do not close when command exits"), q);
-  nocloseonexit->setChecked( false );
-  nocloseonexit->setDisabled( true );
+    nocloseonexit = new QCheckBox(i18n("&Do not close when command exits"), q);
+    nocloseonexit->setChecked(false);
+    nocloseonexit->setDisabled(true);
 
-  // check to see if we use konsole if not disable the nocloseonexit
-  // because we don't know how to do this on other terminal applications
-  KConfigGroup confGroup( KSharedConfig::openConfig(), QString::fromLatin1("General") );
-  QString preferredTerminal = confGroup.readPathEntry("TerminalApplication", QString::fromLatin1("konsole"));
+    // check to see if we use konsole if not disable the nocloseonexit
+    // because we don't know how to do this on other terminal applications
+    KConfigGroup confGroup(KSharedConfig::openConfig(), QString::fromLatin1("General"));
+    QString preferredTerminal = confGroup.readPathEntry("TerminalApplication", QString::fromLatin1("konsole"));
 
-  if (bReadOnly || preferredTerminal != "konsole")
-     nocloseonexit->hide();
+    if (bReadOnly || preferredTerminal != "konsole") {
+        nocloseonexit->hide();
+    }
 
-  nocloseonexitLayout->addWidget( nocloseonexit );
-  topLayout->addLayout( nocloseonexitLayout );
+    nocloseonexitLayout->addWidget(nocloseonexit);
+    topLayout->addLayout(nocloseonexitLayout);
 
-  if (!qMimeType.isNull())
-  {
-    remember = new QCheckBox(i18n("&Remember application association for this type of file"), q);
-    //    remember->setChecked(true);
-    topLayout->addWidget(remember);
-  }
-  else
-    remember = 0L;
+    if (!qMimeType.isNull()) {
+        remember = new QCheckBox(i18n("&Remember application association for this type of file"), q);
+        //    remember->setChecked(true);
+        topLayout->addWidget(remember);
+    } else {
+        remember = 0L;
+    }
 
-  buttonBox = new QDialogButtonBox(q);
-  buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-  q->connect(buttonBox, SIGNAL(accepted()), q, SLOT(accept()));
-  q->connect(buttonBox, SIGNAL(rejected()), q, SLOT(reject()));
-  topLayout->addWidget(buttonBox);
+    buttonBox = new QDialogButtonBox(q);
+    buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    q->connect(buttonBox, SIGNAL(accepted()), q, SLOT(accept()));
+    q->connect(buttonBox, SIGNAL(rejected()), q, SLOT(reject()));
+    topLayout->addWidget(buttonBox);
 
-  q->setMinimumSize(q->minimumSizeHint());
-  //edit->setText( _value );
-  // This is what caused "can't click on items before clicking on Name header".
-  // Probably due to the resizeEvent handler using width().
-  //resize( minimumWidth(), sizeHint().height() );
-  edit->setFocus();
+    q->setMinimumSize(q->minimumSizeHint());
+    //edit->setText( _value );
+    // This is what caused "can't click on items before clicking on Name header".
+    // Probably due to the resizeEvent handler using width().
+    //resize( minimumWidth(), sizeHint().height() );
+    edit->setFocus();
     q->slotTextChanged();
 }
-
 
 // ----------------------------------------------------------------------
 
@@ -696,24 +705,21 @@ KOpenWithDialog::~KOpenWithDialog()
     delete d;
 }
 
-
 // ----------------------------------------------------------------------
 
-void KOpenWithDialog::slotSelected( const QString& /*_name*/, const QString& _exec )
+void KOpenWithDialog::slotSelected(const QString & /*_name*/, const QString &_exec)
 {
     KService::Ptr pService = d->curService;
     d->edit->setText(_exec); // calls slotTextChanged :(
     d->curService = pService;
 }
 
-
 // ----------------------------------------------------------------------
 
-void KOpenWithDialog::slotHighlighted(const QString& entryPath, const QString&)
+void KOpenWithDialog::slotHighlighted(const QString &entryPath, const QString &)
 {
     d->curService = KService::serviceByDesktopPath(entryPath);
-    if (d->curService && !d->m_terminaldirty)
-    {
+    if (d->curService && !d->m_terminaldirty) {
         // ### indicate that default value was restored
         d->terminal->setChecked(d->curService->terminal());
         QString terminalOptions = d->curService->terminalOptions();
@@ -759,10 +765,10 @@ void KOpenWithDialogPrivate::_k_slotFileSelected()
 
 void KOpenWithDialog::setSaveNewApplications(bool b)
 {
-  d->saveNewApps = b;
+    d->saveNewApps = b;
 }
 
-static QString simplifiedExecLineFromService(const QString& fullExec)
+static QString simplifiedExecLineFromService(const QString &fullExec)
 {
     QString exec = fullExec;
     exec.remove("%u", Qt::CaseInsensitive);
@@ -774,7 +780,7 @@ static QString simplifiedExecLineFromService(const QString& fullExec)
     return exec.simplified();
 }
 
-void KOpenWithDialogPrivate::addToMimeAppsList(const QString& serviceId /*menu id or storage id*/)
+void KOpenWithDialogPrivate::addToMimeAppsList(const QString &serviceId /*menu id or storage id*/)
 {
     KSharedConfig::Ptr profile = KSharedConfig::openConfig("mimeapps.list", KConfig::NoGlobals, QStandardPaths::ApplicationsLocation);
     KConfigGroup addedApps(profile, "Added Associations");
@@ -786,7 +792,7 @@ void KOpenWithDialogPrivate::addToMimeAppsList(const QString& serviceId /*menu i
 
     // Also make sure the "auto embed" setting for this mimetype is off
     KSharedConfig::Ptr fileTypesConfig = KSharedConfig::openConfig("filetypesrc", KConfig::NoGlobals);
-    fileTypesConfig->group("EmbedSettings").writeEntry(QString("embed-")+qMimeType, false);
+    fileTypesConfig->group("EmbedSettings").writeEntry(QString("embed-") + qMimeType, false);
     fileTypesConfig->sync();
 
     // qDebug() << "rebuilding ksycoca...";
@@ -795,14 +801,15 @@ void KOpenWithDialogPrivate::addToMimeAppsList(const QString& serviceId /*menu i
     KBuildSycocaProgressDialog::rebuildKSycoca(q);
 
     m_pService = KService::serviceByStorageId(serviceId);
-    Q_ASSERT( m_pService );
+    Q_ASSERT(m_pService);
 }
 
 bool KOpenWithDialogPrivate::checkAccept()
 {
     const QString typedExec(edit->text());
-    if (typedExec.isEmpty())
+    if (typedExec.isEmpty()) {
         return false;
+    }
     QString fullExec(typedExec);
 
     QString serviceName;
@@ -829,7 +836,7 @@ bool KOpenWithDialogPrivate::checkAccept()
         // Check if there's already a service by that name, with the same Exec line
         do {
             // qDebug() << "looking for service" << serviceName;
-            KService::Ptr serv = KService::serviceByDesktopName( serviceName );
+            KService::Ptr serv = KService::serviceByDesktopName(serviceName);
             ok = !serv; // ok if no such service yet
             // also ok if we find the exact same service (well, "kwrite" == "kwrite %U")
             if (serv && !serv->noDisplay() /* #297720 */) {
@@ -838,7 +845,7 @@ bool KOpenWithDialogPrivate::checkAccept()
                       << "serv->exec=" << serv->exec()
                       << "simplifiedExecLineFromService=" << simplifiedExecLineFromService(fullExec);*/
                     serviceExec = simplifiedExecLineFromService(serv->exec());
-                    if (typedExec == serviceExec){
+                    if (typedExec == serviceExec) {
                         ok = true;
                         m_pService = serv;
                         // qDebug() << "OK, found identical service: " << serv->entryPath();
@@ -857,7 +864,7 @@ bool KOpenWithDialogPrivate::checkAccept()
             }
         } while (!ok);
     }
-    if ( m_pService ) {
+    if (m_pService) {
         // Existing service selected
         serviceName = m_pService->name();
         initialServiceName = serviceName;
@@ -873,19 +880,20 @@ bool KOpenWithDialogPrivate::checkAccept()
     }
 
     if (terminal->isChecked()) {
-        KConfigGroup confGroup( KSharedConfig::openConfig(), QString::fromLatin1("General") );
+        KConfigGroup confGroup(KSharedConfig::openConfig(), QString::fromLatin1("General"));
         preferredTerminal = confGroup.readPathEntry("TerminalApplication", QString::fromLatin1("konsole"));
         m_command = preferredTerminal;
         // only add --noclose when we are sure it is konsole we're using
-        if (preferredTerminal == "konsole" && nocloseonexit->isChecked())
+        if (preferredTerminal == "konsole" && nocloseonexit->isChecked()) {
             m_command += QString::fromLatin1(" --noclose");
+        }
         m_command += QString::fromLatin1(" -e ");
         m_command += edit->text();
         // qDebug() << "Setting m_command to" << m_command;
     }
-    if ( m_pService && terminal->isChecked() != m_pService->terminal() )
-        m_pService = 0; // It's not exactly this service we're running
-
+    if (m_pService && terminal->isChecked() != m_pService->terminal()) {
+        m_pService = 0;    // It's not exactly this service we're running
+    }
 
     const bool bRemember = remember && remember->isChecked();
     // qDebug() << "bRemember=" << bRemember << "service found=" << m_pService;
@@ -899,18 +907,18 @@ bool KOpenWithDialogPrivate::checkAccept()
         const bool createDesktopFile = bRemember || saveNewApps;
         if (!createDesktopFile) {
             // Create temp service
-            if (configPath.isEmpty())
+            if (configPath.isEmpty()) {
                 m_pService = new KService(initialServiceName, fullExec, QString());
-            else {
+            } else {
                 if (!typedExec.contains(QLatin1String("%u"), Qt::CaseInsensitive) &&
-                    !typedExec.contains(QLatin1String("%f"), Qt::CaseInsensitive)) {
+                        !typedExec.contains(QLatin1String("%f"), Qt::CaseInsensitive)) {
                     int index = serviceExec.indexOf(QLatin1String("%u"), 0, Qt::CaseInsensitive);
                     if (index == -1) {
-                      index = serviceExec.indexOf(QLatin1String("%f"), 0, Qt::CaseInsensitive);
+                        index = serviceExec.indexOf(QLatin1String("%f"), 0, Qt::CaseInsensitive);
                     }
                     if (index > -1) {
-                      fullExec += QLatin1Char(' ');
-                      fullExec += serviceExec.mid(index, 2);
+                        fullExec += QLatin1Char(' ');
+                        fullExec += serviceExec.mid(index, 2);
                     }
                 }
                 // qDebug() << "Creating service with Exec=" << fullExec;
@@ -920,8 +928,9 @@ bool KOpenWithDialogPrivate::checkAccept()
             if (terminal->isChecked()) {
                 m_pService->setTerminal(true);
                 // only add --noclose when we are sure it is konsole we're using
-                if (preferredTerminal == "konsole" && nocloseonexit->isChecked())
+                if (preferredTerminal == "konsole" && nocloseonexit->isChecked()) {
                     m_pService->setTerminalOptions("--noclose");
+                }
             }
         } else {
             // If we got here, we can't seem to find a service for what they wanted. Create one.
@@ -943,8 +952,9 @@ bool KOpenWithDialogPrivate::checkAccept()
             if (terminal->isChecked()) {
                 cg.writeEntry("Terminal", true);
                 // only add --noclose when we are sure it is konsole we're using
-                if (preferredTerminal == "konsole" && nocloseonexit->isChecked())
+                if (preferredTerminal == "konsole" && nocloseonexit->isChecked()) {
                     cg.writeEntry("TerminalOptions", "--noclose");
+                }
             }
             cg.writeXdgListEntry("MimeType", QStringList() << qMimeType);
             cg.sync();
@@ -959,16 +969,18 @@ bool KOpenWithDialogPrivate::checkAccept()
 
 void KOpenWithDialog::accept()
 {
-    if (d->checkAccept())
+    if (d->checkAccept()) {
         QDialog::accept();
+    }
 }
 
 QString KOpenWithDialog::text() const
 {
-    if (!d->m_command.isEmpty())
+    if (!d->m_command.isEmpty()) {
         return d->m_command;
-    else
+    } else {
         return d->edit->text();
+    }
 }
 
 void KOpenWithDialog::hideNoCloseOnExit()
@@ -991,13 +1003,13 @@ KService::Ptr KOpenWithDialog::service() const
 
 void KOpenWithDialogPrivate::saveComboboxHistory()
 {
-    KHistoryComboBox *combo = static_cast<KHistoryComboBox*>(edit->comboBox());
+    KHistoryComboBox *combo = static_cast<KHistoryComboBox *>(edit->comboBox());
     if (combo) {
         combo->addToHistory(edit->text());
 
-        KConfigGroup cg( KSharedConfig::openConfig(), QString::fromLatin1("Open-with settings") );
-        cg.writeEntry( "History", combo->historyItems() );
-        writeEntry( cg, "CompletionMode", combo->completionMode() );
+        KConfigGroup cg(KSharedConfig::openConfig(), QString::fromLatin1("Open-with settings"));
+        cg.writeEntry("History", combo->historyItems());
+        writeEntry(cg, "CompletionMode", combo->completionMode());
         // don't store the completion-list, as it contains all of KUrlCompletion's
         // executables
         cg.sync();

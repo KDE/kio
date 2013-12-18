@@ -44,6 +44,5 @@ private:
 
 };
 
-
 #endif /* KRUNUNITTEST_H */
 

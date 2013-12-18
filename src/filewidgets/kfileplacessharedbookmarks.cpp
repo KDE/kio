@@ -30,28 +30,31 @@
 
 //////////////// utility functions
 
-static bool compareBookmarks(const KBookmark & bookmark1, const KBookmark & bookmark2)
+static bool compareBookmarks(const KBookmark &bookmark1, const KBookmark &bookmark2)
 {
     return (bookmark1.url() == bookmark2.url() || bookmark1.text() == bookmark2.text());
 }
 
-static bool deepCompareDomNodes(const QDomNode & node1, const QDomNode & node2)
+static bool deepCompareDomNodes(const QDomNode &node1, const QDomNode &node2)
 {
 
     // compare name and value
-    if (node1.nodeName() != node2.nodeName() || node1.nodeValue() != node2.nodeValue())
+    if (node1.nodeName() != node2.nodeName() || node1.nodeValue() != node2.nodeValue()) {
         return false;
+    }
 
     // recursively compare children
     const QDomNodeList node1Children  = node1.childNodes();
     const QDomNodeList node2Children  = node2.childNodes();
 
-    if (node1Children.count () != node2Children.count ())
+    if (node1Children.count() != node2Children.count()) {
         return false;
+    }
 
-    for (int i=0; i<node1Children.count ();i++) {
-        if (!deepCompareDomNodes(node1Children.at(i), node2Children.at(i) ))
+    for (int i = 0; i < node1Children.count(); i++) {
+        if (!deepCompareDomNodes(node1Children.at(i), node2Children.at(i))) {
             return false;
+        }
     }
     return true;
 }
@@ -66,28 +69,27 @@ static QString nodeAsString(const QDomNode & node1)
 }
 */
 
-static bool exactCompareBookmarks(const KBookmark & bookmark1, const KBookmark & bookmark2)
+static bool exactCompareBookmarks(const KBookmark &bookmark1, const KBookmark &bookmark2)
 {
     //qDebug() << "excat comparing:\n" << nodeAsString(bookmark1.internalElement()) << "\nwith:\n" << nodeAsString(bookmark2.internalElement());
     return deepCompareDomNodes(bookmark1.internalElement(), bookmark2.internalElement());
 }
 
-static void cloneBookmarkContents(const KBookmark & target, const KBookmark & source)
+static void cloneBookmarkContents(const KBookmark &target, const KBookmark &source)
 {
     const QDomElement targetEl = target.internalElement();
-    QDomNode parent = targetEl.parentNode ();
+    QDomNode parent = targetEl.parentNode();
     QDomNode clonedNode = source.internalElement().cloneNode(true);
-    parent.replaceChild (clonedNode , targetEl );
+    parent.replaceChild(clonedNode, targetEl);
 }
 
-static KBookmark cloneBookmark(const KBookmark & toClone)
+static KBookmark cloneBookmark(const KBookmark &toClone)
 {
     const QDomNode cloned = toClone.internalElement().cloneNode(true);
-    return KBookmark(cloned.toElement ());
+    return KBookmark(cloned.toElement());
 }
 
-
-static void emptyBookmarkGroup(KBookmarkGroup & root)
+static void emptyBookmarkGroup(KBookmarkGroup &root)
 {
     KBookmark bookmark = root.first();
     while (!bookmark.isNull()) {
@@ -97,9 +99,9 @@ static void emptyBookmarkGroup(KBookmarkGroup & root)
     }
 }
 
-static int bookmarkGroupSize(KBookmarkGroup & root)
+static int bookmarkGroupSize(KBookmarkGroup &root)
 {
-    int count=0;
+    int count = 0;
     KBookmark bookmark = root.first();
     while (!bookmark.isNull()) {
         count++;
@@ -110,7 +112,7 @@ static int bookmarkGroupSize(KBookmarkGroup & root)
 
 //////////////// class KFilePlacesSharedBookmarks
 
-KFilePlacesSharedBookmarks::KFilePlacesSharedBookmarks(KBookmarkManager * mgr)
+KFilePlacesSharedBookmarks::KFilePlacesSharedBookmarks(KBookmarkManager *mgr)
 {
     m_placesBookmarkManager = mgr;
 
@@ -121,14 +123,14 @@ KFilePlacesSharedBookmarks::KFilePlacesSharedBookmarks(KBookmarkManager * mgr)
     m_sharedBookmarkManager = KBookmarkManager::managerForExternalFile(file);
 
     connect(m_sharedBookmarkManager, SIGNAL(changed(QString,QString)),
-              this, SLOT(slotSharedBookmarksChanged()));
+            this, SLOT(slotSharedBookmarksChanged()));
     connect(m_sharedBookmarkManager, SIGNAL(bookmarksChanged(QString)),
-              this, SLOT(slotSharedBookmarksChanged()));
+            this, SLOT(slotSharedBookmarksChanged()));
 
     connect(m_placesBookmarkManager, SIGNAL(changed(QString,QString)),
-              this, SLOT(slotBookmarksChanged()));
+            this, SLOT(slotBookmarksChanged()));
     connect(m_placesBookmarkManager, SIGNAL(bookmarksChanged(QString)),
-              this, SLOT(slotBookmarksChanged()));
+            this, SLOT(slotBookmarksChanged()));
 
     integrateSharedBookmarks();
 }
@@ -157,7 +159,7 @@ bool KFilePlacesSharedBookmarks::integrateSharedBookmarks()
             //qDebug() << "excat comparing: targetbk:\n" << nodeAsString(bookmark.internalElement()) << "\nsourcbk:\n" << nodeAsString(sharedBookmark.internalElement());
 
             if (!exactCompareBookmarks(bookmark, sharedBookmark)) {
-                KBookmark cloneTarget=bookmark;
+                KBookmark cloneTarget = bookmark;
                 KBookmark cloneSource = sharedBookmark;
 
                 sharedBookmark = sharedRoot.next(sharedBookmark);
@@ -187,7 +189,7 @@ bool KFilePlacesSharedBookmarks::integrateSharedBookmarks()
     }
 
     // append the remaining shared bookmarks
-    while(!sharedBookmark.isNull()) {
+    while (!sharedBookmark.isNull()) {
         root.addBookmark(cloneBookmark(sharedBookmark));
         sharedBookmark = sharedRoot.next(sharedBookmark);
         dirty = true;
@@ -207,20 +209,20 @@ bool KFilePlacesSharedBookmarks::exportSharedBookmarks()
     bool dirty = false;
 
     // first check if they are the same
-    int count=0;
+    int count = 0;
     while (!bookmark.isNull()) {
         //qDebug() << "exporting..." << bookmark.text();
 
         // skip over system items
         if (bookmark.metaDataItem("isSystemItem") == "true") {
-          bookmark = root.next(bookmark);
-          continue;
+            bookmark = root.next(bookmark);
+            continue;
         }
         count++;
 
         // end of sharedBookmarks?
         if (sharedBookmark.isNull()) {
-            dirty=true;
+            dirty = true;
             break;
         }
 
@@ -231,7 +233,7 @@ bool KFilePlacesSharedBookmarks::exportSharedBookmarks()
                 break;
             }
         } else {
-            dirty=true;
+            dirty = true;
             break;
         }
         sharedBookmark = sharedRoot.next(sharedBookmark);
@@ -240,8 +242,9 @@ bool KFilePlacesSharedBookmarks::exportSharedBookmarks()
 
     //qDebug() << "dirty=" << dirty << " oldsize=" << bookmarkGroupSize(sharedRoot) << " count=" << count;
 
-    if (bookmarkGroupSize(sharedRoot) != count)
-        dirty=true;
+    if (bookmarkGroupSize(sharedRoot) != count) {
+        dirty = true;
+    }
 
     if (dirty) {
         emptyBookmarkGroup(sharedRoot);
@@ -249,11 +252,11 @@ bool KFilePlacesSharedBookmarks::exportSharedBookmarks()
         // append all bookmarks
         KBookmark bookmark = root.first();
 
-        while(!bookmark.isNull()) {
+        while (!bookmark.isNull()) {
 
             if (bookmark.metaDataItem("isSystemItem") == "true") {
-              bookmark = root.next(bookmark);
-              continue;
+                bookmark = root.next(bookmark);
+                continue;
             }
 
             sharedRoot.addBookmark(cloneBookmark(bookmark));
@@ -270,14 +273,18 @@ void KFilePlacesSharedBookmarks::slotSharedBookmarksChanged()
 {
     //qDebug() << "shared bookmarks changed";
     bool dirty = integrateSharedBookmarks();
-    if (dirty) m_placesBookmarkManager->emitChanged();
+    if (dirty) {
+        m_placesBookmarkManager->emitChanged();
+    }
 }
 
 void KFilePlacesSharedBookmarks::slotBookmarksChanged()
 {
     //qDebug() << "places bookmarks changed";
     bool dirty = exportSharedBookmarks();
-    if (dirty) m_sharedBookmarkManager->emitChanged();
+    if (dirty) {
+        m_sharedBookmarkManager->emitChanged();
+    }
 }
 
 #include "moc_kfileplacessharedbookmarks_p.cpp"

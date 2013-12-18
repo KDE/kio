@@ -23,7 +23,6 @@
 
 #include <QtCore/QByteArray>
 
-
 QTEST_MAIN(HeaderObjectTest)
 
 static void runTest()
@@ -38,8 +37,8 @@ void HeaderObjectTest::runAllTests()
     runTest();
 }
 
-TestHTTPProtocol::TestHTTPProtocol ( const QByteArray& protocol, const QByteArray& pool, const QByteArray& app )
-  : HTTPProtocol(protocol, pool, app)
+TestHTTPProtocol::TestHTTPProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app)
+    : HTTPProtocol(protocol, pool, app)
 {
 }
 
@@ -47,7 +46,7 @@ TestHTTPProtocol::~TestHTTPProtocol()
 {
 }
 
-void TestHTTPProtocol::testParseContentDisposition ( const QString& disposition )
+void TestHTTPProtocol::testParseContentDisposition(const QString &disposition)
 {
-  parseContentDisposition(disposition);
+    parseContentDisposition(disposition);
 }

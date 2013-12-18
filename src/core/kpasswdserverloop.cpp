@@ -30,7 +30,7 @@ namespace KIO
 KPasswdServerLoop::KPasswdServerLoop() : m_seqNr(-1)
 {
     QDBusServiceWatcher *watcher = new QDBusServiceWatcher("org.kde.kded5", QDBusConnection::sessionBus(),
-                                                           QDBusServiceWatcher::WatchForUnregistration, this);
+            QDBusServiceWatcher::WatchForUnregistration, this);
     connect(watcher, SIGNAL(serviceUnregistered(QString)),
             this, SLOT(kdedServiceUnregistered()));
 }
@@ -58,7 +58,7 @@ const AuthInfo &KPasswdServerLoop::authInfo() const
 }
 
 void KPasswdServerLoop::slotQueryResult(qlonglong requestId, qlonglong seqNr,
-                                       const KIO::AuthInfo &authInfo)
+                                        const KIO::AuthInfo &authInfo)
 {
     if (m_requestId == requestId) {
         m_seqNr = seqNr;

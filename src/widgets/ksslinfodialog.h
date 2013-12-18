@@ -40,47 +40,48 @@
  * @see KSSL
  * @short KDE SSL Information Dialog
  */
-class KIOWIDGETS_EXPORT KSslInfoDialog : public QDialog {
-	Q_OBJECT
+class KIOWIDGETS_EXPORT KSslInfoDialog : public QDialog
+{
+    Q_OBJECT
 public:
-	/**
-	 *  Construct a KSSL Information Dialog
-	 *
-	 *  @param parent the parent widget
-	 */
-	explicit KSslInfoDialog(QWidget *parent = 0);
+    /**
+     *  Construct a KSSL Information Dialog
+     *
+     *  @param parent the parent widget
+     */
+    explicit KSslInfoDialog(QWidget *parent = 0);
 
-	/**
-	 *  Destroy this dialog
-	 */
-	virtual ~KSslInfoDialog();
+    /**
+     *  Destroy this dialog
+     */
+    virtual ~KSslInfoDialog();
 
-	/**
-	 *  Tell the dialog if the connection has portions that may not be
-	 *  secure (ie. a mixture of secure and insecure frames)
-	 *
-	 *  @param isIt true if security is in question
-	 */
-	void setSecurityInQuestion(bool isIt);
+    /**
+     *  Tell the dialog if the connection has portions that may not be
+     *  secure (ie. a mixture of secure and insecure frames)
+     *
+     *  @param isIt true if security is in question
+     */
+    void setSecurityInQuestion(bool isIt);
 
-	/**
-	 *  Set information to display about the SSL connection.
-	 *
-	 *  @param certificateChain the certificate chain leading from the certificate
+    /**
+     *  Set information to display about the SSL connection.
+     *
+     *  @param certificateChain the certificate chain leading from the certificate
      *         authority to the peer.
-	 *  @param ip the ip of the remote host
-	 *  @param host the remote hostname
+     *  @param ip the ip of the remote host
+     *  @param host the remote hostname
      *  @param sslProtocol the version of SSL in use (SSLv2, SSLv3, TLSv1)
-	 *  @param cipher the cipher in use
-	 *  @param usedBits the used bits of the key
-	 *  @param bits the key size of the cipher in use
-	 *  @param validationErrors errors validating the certificates, if any
-	 */
-	void setSslInfo(const QList<QSslCertificate> &certificateChain,
-			        const QString &ip, const QString &host,
-			        const QString &sslProtocol, const QString &cipher,
+     *  @param cipher the cipher in use
+     *  @param usedBits the used bits of the key
+     *  @param bits the key size of the cipher in use
+     *  @param validationErrors errors validating the certificates, if any
+     */
+    void setSslInfo(const QList<QSslCertificate> &certificateChain,
+                    const QString &ip, const QString &host,
+                    const QString &sslProtocol, const QString &cipher,
                     int usedBits, int bits,
-			        const QList<QList<KSslError::Error> > &validationErrors);
+                    const QList<QList<KSslError::Error> > &validationErrors);
 
     void setMainPartEncrypted(bool);
     void setAuxiliaryPartsEncrypted(bool);
@@ -90,12 +91,12 @@ public:
 private:
     void updateWhichPartsEncrypted();
 
-	class KSslInfoDialogPrivate;
-	KSslInfoDialogPrivate* const d;
+    class KSslInfoDialogPrivate;
+    KSslInfoDialogPrivate *const d;
 
 private Q_SLOTS:
-	void launchConfig();
-	void displayFromChain(int);
+    void launchConfig();
+    void displayFromChain(int);
 };
 
 #endif

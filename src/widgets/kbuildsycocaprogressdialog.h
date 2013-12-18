@@ -30,25 +30,25 @@ class KBuildSycocaProgressDialogPrivate;
  */
 class KIOWIDGETS_EXPORT KBuildSycocaProgressDialog : public QProgressDialog
 {
-   Q_OBJECT
+    Q_OBJECT
 public:
 
-  /**
-   * Rebuild KSycoca and show a progress dialog while doing so.
-   * @param parent Parent widget for the progress dialog
-   */
-  static void rebuildKSycoca(QWidget *parent);
+    /**
+     * Rebuild KSycoca and show a progress dialog while doing so.
+     * @param parent Parent widget for the progress dialog
+     */
+    static void rebuildKSycoca(QWidget *parent);
 
 private:
-   KBuildSycocaProgressDialog(QWidget *parent,
-                              const QString &caption, const QString &text);
-   ~KBuildSycocaProgressDialog();
+    KBuildSycocaProgressDialog(QWidget *parent,
+                               const QString &caption, const QString &text);
+    ~KBuildSycocaProgressDialog();
 
 private:
-   KBuildSycocaProgressDialogPrivate * const d;
+    KBuildSycocaProgressDialogPrivate *const d;
 
-   Q_PRIVATE_SLOT( d, void _k_slotProgress() )
-   Q_PRIVATE_SLOT( d, void _k_slotFinished() )
+    Q_PRIVATE_SLOT(d, void _k_slotProgress())
+    Q_PRIVATE_SLOT(d, void _k_slotFinished())
 };
 
 #endif

@@ -109,10 +109,10 @@ class QWidget;
 class KIOWIDGETS_EXPORT ThumbCreator
 {
 public:
-  /**
-   * The flags of this plugin.
-   * @see flags()
-   */
+    /**
+     * The flags of this plugin.
+     * @see flags()
+     */
     enum Flags { None = 0, DrawFrame = 1, BlendIcon = 2 };
     virtual ~ThumbCreator();
 
@@ -171,7 +171,7 @@ public:
      * The passed configuration widget is the instance created by
      * ThumbCreatorV2::createConfigurationWidget().
      */
-    virtual void writeConfiguration(const QWidget* configurationWidget);
+    virtual void writeConfiguration(const QWidget *configurationWidget);
 };
 
 typedef ThumbCreator *(*newCreator)();

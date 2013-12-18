@@ -53,17 +53,17 @@ class KIOFILEWIDGETS_EXPORT KDirSortFilterProxyModel
     Q_OBJECT
 
 public:
-    KDirSortFilterProxyModel(QObject* parent = 0);
+    KDirSortFilterProxyModel(QObject *parent = 0);
     virtual ~KDirSortFilterProxyModel();
 
     /** Reimplemented from QAbstractItemModel. Returns true for directories. */
-    virtual bool hasChildren(const QModelIndex& parent = QModelIndex()) const;
+    virtual bool hasChildren(const QModelIndex &parent = QModelIndex()) const;
 
     /**
      * Reimplemented from QAbstractItemModel.
      * Returns true for 'empty' directories so they can be populated later.
      */
-    virtual bool canFetchMore(const QModelIndex& parent) const;
+    virtual bool canFetchMore(const QModelIndex &parent) const;
 
     /**
      * Returns the permissions in "points". This is useful for sorting by
@@ -89,15 +89,14 @@ protected:
     /**
      * Reimplemented from KCategorizedSortFilterProxyModel.
      */
-    virtual bool subSortLessThan(const QModelIndex& left,
-                                 const QModelIndex& right) const;
+    virtual bool subSortLessThan(const QModelIndex &left,
+                                 const QModelIndex &right) const;
 private:
     Q_PRIVATE_SLOT(d, void slotNaturalSortingChanged())
 
 private:
     class KDirSortFilterProxyModelPrivate;
-    KDirSortFilterProxyModelPrivate* const d;
+    KDirSortFilterProxyModelPrivate *const d;
 };
-
 
 #endif

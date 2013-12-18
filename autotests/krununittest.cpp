@@ -38,7 +38,6 @@ QTEST_GUILESS_MAIN(KRunUnitTest)
 #include <kprocess.h>
 #include "kiotesthelper.h" // createTestFile etc.
 
-
 void KRunUnitTest::initTestCase()
 {
     QStandardPaths::enableTestMode(true);
@@ -49,7 +48,9 @@ void KRunUnitTest::initTestCase()
     // Determine the full path of sh - this is needed to make testProcessDesktopExecNoFile()
     // pass on systems where QStandardPaths::findExecutable("sh") is not "/bin/sh".
     m_sh = QStandardPaths::findExecutable("sh");
-    if (m_sh.isEmpty()) m_sh = "/bin/sh";
+    if (m_sh.isEmpty()) {
+        m_sh = "/bin/sh";
+    }
 }
 
 void KRunUnitTest::testBinaryName_data()
@@ -80,20 +81,21 @@ void KRunUnitTest::testBinaryName()
 }
 
 //static const char *bt(bool tr) { return tr?"true":"false"; }
-static void checkDesktopExecParser(const char* exec, const char* term, const char* sus,
-                     const QList<QUrl> &urls, bool tf, const QString& b)
+static void checkDesktopExecParser(const char *exec, const char *term, const char *sus,
+                                   const QList<QUrl> &urls, bool tf, const QString &b)
 {
-    QFile out( "kruntest.desktop" );
-    if ( !out.open( QIODevice::WriteOnly ) )
+    QFile out("kruntest.desktop");
+    if (!out.open(QIODevice::WriteOnly)) {
         abort();
-    QByteArray str ( "[Desktop Entry]\n"
-                     "Type=Application\n"
-                     "Name=just_a_test\n"
-                     "Icon=~/icon.png\n");
+    }
+    QByteArray str("[Desktop Entry]\n"
+                   "Type=Application\n"
+                   "Name=just_a_test\n"
+                   "Icon=~/icon.png\n");
     str += QByteArray(exec) + '\n';
     str += QByteArray(term) + '\n';
     str += QByteArray(sus) + '\n';
-    out.write( str );
+    out.write(str);
     out.close();
 
     KService service(QDir::currentPath() + "/kruntest.desktop");
@@ -115,19 +117,19 @@ void KRunUnitTest::testProcessDesktopExec()
 {
     QList<QUrl> l0;
     static const char
-        * const execs[] = { "Exec=date -u", "Exec=echo $PWD" },
-        * const terms[] = { "Terminal=false", "Terminal=true\nTerminalOptions=-T \"%f - %c\"" },
-          * const sus[] = { "X-KDE-SubstituteUID=false", "X-KDE-SubstituteUID=true\nX-KDE-Username=sprallo" },
-        * const rslts[] = {
-            "/bin/date -u", // 0
-            "/bin/sh -c 'echo $PWD '", // 1
-            "x-term -T ' - just_a_test' -e /bin/date -u", // 2
-            "x-term -T ' - just_a_test' -e /bin/sh -c 'echo $PWD '", // 3
-            /* kdesu */ " -u sprallo -c '/bin/date -u'", // 4
-            /* kdesu */ " -u sprallo -c '/bin/sh -c '\\''echo $PWD '\\'''", // 5
-            "x-term -T ' - just_a_test' -e su sprallo -c '/bin/date -u'", // 6
-            "x-term -T ' - just_a_test' -e su sprallo -c '/bin/sh -c '\\''echo $PWD '\\'''", // 7
-        };
+    * const execs[] = { "Exec=date -u", "Exec=echo $PWD" },
+                      * const terms[] = { "Terminal=false", "Terminal=true\nTerminalOptions=-T \"%f - %c\"" },
+                                        * const sus[] = { "X-KDE-SubstituteUID=false", "X-KDE-SubstituteUID=true\nX-KDE-Username=sprallo" },
+    * const rslts[] = {
+        "/bin/date -u", // 0
+        "/bin/sh -c 'echo $PWD '", // 1
+        "x-term -T ' - just_a_test' -e /bin/date -u", // 2
+        "x-term -T ' - just_a_test' -e /bin/sh -c 'echo $PWD '", // 3
+        /* kdesu */ " -u sprallo -c '/bin/date -u'", // 4
+        /* kdesu */ " -u sprallo -c '/bin/sh -c '\\''echo $PWD '\\'''", // 5
+        "x-term -T ' - just_a_test' -e su sprallo -c '/bin/date -u'", // 6
+        "x-term -T ' - just_a_test' -e su sprallo -c '/bin/sh -c '\\''echo $PWD '\\'''", // 7
+    };
 
     // Find out the full path of the shell which will be used to execute shell commands
     KProcess process;
@@ -140,7 +142,7 @@ void KRunUnitTest::testProcessDesktopExec()
     for (int su = 0; su < 2; su++)
         for (int te = 0; te < 2; te++)
             for (int ex = 0; ex < 2; ex++) {
-                int pt = ex+te*2+su*4;
+                int pt = ex + te * 2 + su * 4;
                 QString exe;
                 if (pt == 4 || pt == 5) {
                     exe = QStandardPaths::findExecutable("kdesu");
@@ -150,9 +152,9 @@ void KRunUnitTest::testProcessDesktopExec()
                     }
                 }
                 const QString result = QString::fromLatin1(rslts[pt])
-                    .replace("/bin/sh", shellPath)
-                    .replace("/bin/date", datePath);
-                checkDesktopExecParser( execs[ex], terms[te], sus[su], l0, false, exe + result);
+                                       .replace("/bin/sh", shellPath)
+                                       .replace("/bin/date", datePath);
+                checkDesktopExecParser(execs[ex], terms[te], sus[su], l0, false, exe + result);
             }
 }
 
@@ -164,23 +166,27 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
     QTest::addColumn<QString>("expected");
 
     QList<QUrl> l0;
-    QList<QUrl> l1; l1 << QUrl( "file:/tmp" );
-    QList<QUrl> l2; l2 << QUrl( "http://localhost/foo" );
-    QList<QUrl> l3; l3 << QUrl( "file:/local/file" ) << QUrl( "http://remotehost.org/bar" );
-    QList<QUrl> l4; l4 << QUrl( "http://login:password@www.kde.org" );
+    QList<QUrl> l1; l1 << QUrl("file:/tmp");
+    QList<QUrl> l2; l2 << QUrl("http://localhost/foo");
+    QList<QUrl> l3; l3 << QUrl("file:/local/file") << QUrl("http://remotehost.org/bar");
+    QList<QUrl> l4; l4 << QUrl("http://login:password@www.kde.org");
 
     // A real-world use case would be kate.
     // But I picked kdeinit5 since it's installed by kdelibs
     QString kdeinit = QStandardPaths::findExecutable("kdeinit5");
-    if (kdeinit.isEmpty()) kdeinit = "kdeinit5";
+    if (kdeinit.isEmpty()) {
+        kdeinit = "kdeinit5";
+    }
 
     QString kioexec = CMAKE_INSTALL_PREFIX "/" LIBEXEC_INSTALL_DIR "/kioexec";
-    if (!QFile::exists(kioexec))
+    if (!QFile::exists(kioexec)) {
         QSKIP("kioexec not found, kdebase needed");
+    }
 
     QString kmailservice = QStandardPaths::findExecutable("kmailservice");
-    if (!QFile::exists(kmailservice))
+    if (!QFile::exists(kmailservice)) {
         kmailservice = "kmailservice";
+    }
 
     QTest::newRow("%U l0") << "kdeinit5 %U" << l0 << false << kdeinit;
     QTest::newRow("%U l1") << "kdeinit5 %U" << l1 << false << kdeinit + " /tmp";
@@ -200,7 +206,7 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
     QTest::newRow("%F l1 tempfile") << "kdeinit5 %F" << l1 << true << kioexec + " --tempfiles 'kdeinit5 %F' file:///tmp";
 
     QTest::newRow("sh -c kdeinit5 %F") << "sh -c \"kdeinit5 \"'\\\"'\"%F\"'\\\"'"
-                                   << l1 << false << m_sh + " -c 'kdeinit5 \\\"/tmp\\\"'";
+                                       << l1 << false << m_sh + " -c 'kdeinit5 \\\"/tmp\\\"'";
 
     QTest::newRow("kmailservice %u l1") << "kmailservice %u" << l1 << false << kmailservice + " /tmp";
     QTest::newRow("kmailservice %u l4") << "kmailservice %u" << l4 << false << kmailservice + " http://login:password@www.kde.org";
@@ -221,10 +227,11 @@ void KRunUnitTest::testProcessDesktopExecNoFile()
 class KRunImpl : public KRun
 {
 public:
-    KRunImpl(const QUrl& url)
+    KRunImpl(const QUrl &url)
         : KRun(url, 0, false), m_errCode(-1) {}
 
-    virtual void foundMimeType(const QString& type) {
+    virtual void foundMimeType(const QString &type)
+    {
         m_mimeType = type;
         // don't call KRun::foundMimeType, we don't want to start an app ;-)
         setFinished(true);
@@ -235,9 +242,18 @@ public:
         m_errText = err;
     }
 
-    QString mimeTypeFound() const { return m_mimeType; }
-    int errorCode() const { return m_errCode; }
-    QString errorText() const { return m_errText; }
+    QString mimeTypeFound() const
+    {
+        return m_mimeType;
+    }
+    int errorCode() const
+    {
+        return m_errCode;
+    }
+    QString errorText() const
+    {
+        return m_errText;
+    }
 
 private:
     int m_errCode;
@@ -249,7 +265,7 @@ void KRunUnitTest::testMimeTypeFile()
 {
     const QString filePath = homeTmpDir() + "file";
     createTestFile(filePath, true);
-    KRunImpl* krun = new KRunImpl(QUrl::fromLocalFile(filePath));
+    KRunImpl *krun = new KRunImpl(QUrl::fromLocalFile(filePath));
     krun->setAutoDelete(false);
     QSignalSpy spyFinished(krun, SIGNAL(finished()));
     QVERIFY(spyFinished.wait(1000));
@@ -261,7 +277,7 @@ void KRunUnitTest::testMimeTypeDirectory()
 {
     const QString dir = homeTmpDir() + "dir";
     createTestDirectory(dir);
-    KRunImpl* krun = new KRunImpl(QUrl::fromLocalFile(dir));
+    KRunImpl *krun = new KRunImpl(QUrl::fromLocalFile(dir));
     QSignalSpy spyFinished(krun, SIGNAL(finished()));
     QVERIFY(spyFinished.wait(1000));
     QCOMPARE(krun->mimeTypeFound(), QString::fromLatin1("inode/directory"));
@@ -271,7 +287,7 @@ void KRunUnitTest::testMimeTypeBrokenLink()
 {
     const QString dir = homeTmpDir() + "dir";
     createTestDirectory(dir);
-    KRunImpl* krun = new KRunImpl(QUrl::fromLocalFile(dir + "/testlink"));
+    KRunImpl *krun = new KRunImpl(QUrl::fromLocalFile(dir + "/testlink"));
     QSignalSpy spyError(krun, SIGNAL(error()));
     QSignalSpy spyFinished(krun, SIGNAL(finished()));
     QVERIFY(spyFinished.wait(1000));
@@ -284,7 +300,7 @@ void KRunUnitTest::testMimeTypeBrokenLink()
 
 void KRunUnitTest::testMimeTypeDoesNotExist()
 {
-    KRunImpl* krun = new KRunImpl(QUrl::fromLocalFile("/does/not/exist"));
+    KRunImpl *krun = new KRunImpl(QUrl::fromLocalFile("/does/not/exist"));
     QSignalSpy spyError(krun, SIGNAL(error()));
     QSignalSpy spyFinished(krun, SIGNAL(finished()));
     QVERIFY(spyFinished.wait(1000));

@@ -42,7 +42,7 @@ JobUiDelegateFactory *KIO::defaultJobUiDelegateFactory()
     return s_factory;
 }
 
-void KIO::setDefaultJobUiDelegateFactory(JobUiDelegateFactory* factory)
+void KIO::setDefaultJobUiDelegateFactory(JobUiDelegateFactory *factory)
 {
     s_factory = factory;
 }

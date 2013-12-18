@@ -24,7 +24,9 @@ class KSslErrorUiData::Private
 {
 public:
     static const KSslErrorUiData::Private *get(const KSslErrorUiData *uiData)
-    { return uiData->d; }
+    {
+        return uiData->d;
+    }
 
     QList<QSslCertificate> certificateChain;
     QList<KSslError> sslErrors;   // parallel list to certificateChain
@@ -35,6 +37,5 @@ public:
     int usedBits;
     int bits;
 };
-
 
 #endif // KTCPSOCKET_P_H

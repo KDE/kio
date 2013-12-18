@@ -39,11 +39,11 @@
 #include <QtNetwork/QSslConfiguration>
 #include <QDBusConnection>
 
-
 using namespace KIO;
 //using namespace KNetwork;
 
-namespace KIO {
+namespace KIO
+{
 Q_DECLARE_OPERATORS_FOR_FLAGS(TCPSlaveBase::SslResult)
 }
 
@@ -78,12 +78,11 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(TCPSlaveBase::SslResult)
  - Would you like to accept this certificate forever: Yes/No/Current sessions only (inline)
  */
 
-
 /** @internal */
 class TCPSlaveBase::TcpSlaveBasePrivate
 {
 public:
-    TcpSlaveBasePrivate(TCPSlaveBase* qq) : q(qq) {}
+    TcpSlaveBasePrivate(TCPSlaveBase *qq) : q(qq) {}
 
     void setSslMetaData()
     {
@@ -105,7 +104,7 @@ public:
         for (int i = 0; i < sslErrors.count(); i++) {
             if (sslErrors[i].certificate().isNull()) {
                 sslErrors[i] = KSslError(sslErrors[i].error(),
-                                        socket.peerCertificateChain()[0]);
+                                         socket.peerCertificateChain()[0]);
             }
         }
 
@@ -151,10 +150,10 @@ public:
     }
 
     SslResult startTLSInternal(KTcpSocket::SslVersion sslVersion,
-                               const QSslConfiguration& configuration = QSslConfiguration(),
+                               const QSslConfiguration &configuration = QSslConfiguration(),
                                int waitForEncryptedTimeout = -1);
 
-    TCPSlaveBase* q;
+    TCPSlaveBase *q;
 
     bool isBlocking;
 
@@ -169,12 +168,11 @@ public:
     bool usingSSL;
     bool autoSSL;
     bool sslNoUi; // If true, we just drop the connection silently
-                  // if SSL certificate check fails in some way.
+    // if SSL certificate check fails in some way.
     QList<KSslError> sslErrors;
 
     MetaData sslMetaData;
 };
-
 
 //### uh, is this a good idea??
 QIODevice *TCPSlaveBase::socket() const
@@ -182,13 +180,12 @@ QIODevice *TCPSlaveBase::socket() const
     return &d->socket;
 }
 
-
 TCPSlaveBase::TCPSlaveBase(const QByteArray &protocol,
                            const QByteArray &poolSocket,
                            const QByteArray &appSocket,
                            bool autoSSL)
- : SlaveBase(protocol, poolSocket, appSocket),
-   d(new TcpSlaveBasePrivate(this))
+    : SlaveBase(protocol, poolSocket, appSocket),
+      d(new TcpSlaveBasePrivate(this))
 {
     d->isBlocking = true;
     d->port = 0;
@@ -202,12 +199,10 @@ TCPSlaveBase::TCPSlaveBase(const QByteArray &protocol,
     d->socket.setReadBufferSize(14680064);
 }
 
-
 TCPSlaveBase::~TCPSlaveBase()
 {
     delete d;
 }
-
 
 ssize_t TCPSlaveBase::write(const char *data, ssize_t len)
 {
@@ -240,8 +235,7 @@ ssize_t TCPSlaveBase::write(const char *data, ssize_t len)
     return written;
 }
 
-
-ssize_t TCPSlaveBase::read(char* data, ssize_t len)
+ssize_t TCPSlaveBase::read(char *data, ssize_t len)
 {
     if (d->usingSSL && (d->socket.encryptionMode() != KTcpSocket::SslClientMode)) {
         d->clearSslMetaData();
@@ -257,7 +251,7 @@ ssize_t TCPSlaveBase::read(char* data, ssize_t len)
     // Do not do this because its only benefit is to cause a nasty side effect
     // upstream in Qt. See BR# 260769.
     else if (d->socket.encryptionMode() != KTcpSocket::SslClientMode ||
-               QNetworkProxy::applicationProxy().type() == QNetworkProxy::NoProxy) {
+             QNetworkProxy::applicationProxy().type() == QNetworkProxy::NoProxy) {
         // we only do this when it doesn't trigger Qt socket bugs. When it doesn't break anything
         // it seems to help performance.
         d->socket.waitForReadyRead(0);
@@ -265,7 +259,6 @@ ssize_t TCPSlaveBase::read(char* data, ssize_t len)
 #endif
     return d->socket.read(data, len);
 }
-
 
 ssize_t TCPSlaveBase::readLine(char *data, ssize_t len)
 {
@@ -275,21 +268,21 @@ ssize_t TCPSlaveBase::readLine(char *data, ssize_t len)
         return -1;
     }
 
-    const int timeout = (d->isBlocking ? -1: (readTimeout() * 1000));
+    const int timeout = (d->isBlocking ? -1 : (readTimeout() * 1000));
     ssize_t readTotal = 0;
     do {
-        if (!d->socket.bytesAvailable())
+        if (!d->socket.bytesAvailable()) {
             d->socket.waitForReadyRead(timeout);
-        ssize_t readStep = d->socket.readLine(&data[readTotal], len-readTotal);
+        }
+        ssize_t readStep = d->socket.readLine(&data[readTotal], len - readTotal);
         if (readStep == -1 || (readStep == 0 && d->socket.state() != KTcpSocket::ConnectedState)) {
             return -1;
         }
         readTotal += readStep;
-    } while (readTotal == 0 || data[readTotal-1] != '\n');
+    } while (readTotal == 0 || data[readTotal - 1] != '\n');
 
     return readTotal;
 }
-
 
 bool TCPSlaveBase::connectToHost(const QString &/*protocol*/,
                                  const QString &host,
@@ -297,14 +290,15 @@ bool TCPSlaveBase::connectToHost(const QString &/*protocol*/,
 {
     QString errorString;
     const int errCode = connectToHost(host, port, &errorString);
-    if (errCode == 0)
+    if (errCode == 0) {
         return true;
+    }
 
     error(errCode, errorString);
     return false;
 }
 
-int TCPSlaveBase::connectToHost(const QString& host, quint16 port, QString* errorString)
+int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *errorString)
 {
     d->clearSslMetaData(); //We have separate connection and SSL setup phases
 
@@ -318,9 +312,9 @@ int TCPSlaveBase::connectToHost(const QString& host, quint16 port, QString* erro
     //### see if it makes sense to move this into the HTTP ioslave which is the only
     //    user.
     if (metaData("main_frame_request") == "TRUE"  //### this looks *really* unreliable
-          && metaData("ssl_activate_warnings") == "TRUE"
-          && metaData("ssl_was_in_use") == "TRUE"
-          && !d->autoSSL) {
+            && metaData("ssl_activate_warnings") == "TRUE"
+            && metaData("ssl_was_in_use") == "TRUE"
+            && !d->autoSSL) {
         if (d->sslSettings.warnOnLeave()) {
             int result = messageBox(i18n("You are about to leave secure "
                                          "mode. Transmissions will no "
@@ -333,8 +327,9 @@ int TCPSlaveBase::connectToHost(const QString& host, quint16 port, QString* erro
                                     "WarnOnLeaveSSLMode");
 
             if (result == SlaveBase::Cancel) {
-                if (errorString)
+                if (errorString) {
                     *errorString = host;
+                }
                 return ERR_USER_CANCELED;
             }
         }
@@ -358,7 +353,7 @@ int TCPSlaveBase::connectToHost(const QString& host, quint16 port, QString* erro
     // NOTE: Due to 'CRIME' SSL attacks, compression is always disabled.
     sslConfig.setSslOption(QSsl::SslOptionDisableCompression, true);
 #endif
-    
+
     const int lastSslVerson = config()->readEntry("LastUsedSslVersion", static_cast<int>(KTcpSocket::SecureProtocols));
     KTcpSocket::SslVersion trySslVersion = static_cast<KTcpSocket::SslVersion>(lastSslVerson);
     KTcpSocket::SslVersions alreadyTriedSslVersions = trySslVersion;
@@ -376,8 +371,9 @@ int TCPSlaveBase::connectToHost(const QString& host, quint16 port, QString* erro
                      << ", connected?" << connectOk;*/
 
         if (d->socket.state() != KTcpSocket::ConnectedState) {
-            if (errorString)
+            if (errorString) {
                 *errorString = host + QLatin1String(": ") + d->socket.errorString();
+            }
             switch (d->socket.error()) {
             case KTcpSocket::UnsupportedSocketOperationError:
                 return ERR_UNSUPPORTED_ACTION;
@@ -421,8 +417,9 @@ int TCPSlaveBase::connectToHost(const QString& host, quint16 port, QString* erro
 
             //### SSL 2.0 is (close to) dead and it's a good thing, too.
             if (res & ResultFailed) {
-                if (errorString)
+                if (errorString) {
                     *errorString = i18nc("%1 is a host name", "%1: SSL negotiation failed", host);
+                }
                 return ERR_COULD_NOT_CONNECT;
             }
         }
@@ -437,7 +434,7 @@ int TCPSlaveBase::connectToHost(const QString& host, quint16 port, QString* erro
     Q_ASSERT(false);
     // Code flow never gets here but let's make the compiler happy.
     // More: the stack allocation of QSslSettings seems to be confusing the compiler;
-    //       in fact, any non-POD allocation does. 
+    //       in fact, any non-POD allocation does.
     //       even a 'return 0;' directly after the allocation (so before the while(true))
     //       is ignored. definitely seems to be a compiler bug? - aseigo
     return 0;
@@ -461,8 +458,9 @@ void TCPSlaveBase::disconnectFromHost()
     //    does that. QCA::TLS can do it apparently but that is not enough if
     //    we want to present that as KDE API. Not a big loss in any case.
     d->socket.disconnectFromHost();
-    if (d->socket.state() != KTcpSocket::UnconnectedState)
-        d->socket.waitForDisconnected(-1); // wait for unsent data to be sent
+    if (d->socket.state() != KTcpSocket::UnconnectedState) {
+        d->socket.waitForDisconnected(-1);    // wait for unsent data to be sent
+    }
     d->socket.close(); //whatever that means on a socket
 }
 
@@ -488,14 +486,15 @@ bool TCPSlaveBase::atEnd() const
 
 bool TCPSlaveBase::startSsl()
 {
-    if (d->usingSSL)
+    if (d->usingSSL) {
         return false;
+    }
     return d->startTLSInternal(KTcpSocket::TlsV1) & ResultOk;
 }
 
-TCPSlaveBase::SslResult TCPSlaveBase::TcpSlaveBasePrivate::startTLSInternal (KTcpSocket::SslVersion version,
-                                                                             const QSslConfiguration& sslConfig,
-                                                                             int waitForEncryptedTimeout)
+TCPSlaveBase::SslResult TCPSlaveBase::TcpSlaveBasePrivate::startTLSInternal(KTcpSocket::SslVersion version,
+        const QSslConfiguration &sslConfig,
+        int waitForEncryptedTimeout)
 {
     q->selectClientCertificate();
 
@@ -510,8 +509,9 @@ TCPSlaveBase::SslResult TCPSlaveBase::TcpSlaveBasePrivate::startTLSInternal (KTc
     socket.setAdvertisedSslVersion(version);
 
     // Set SSL configuration information
-    if (!sslConfig.isNull())
+    if (!sslConfig.isNull()) {
         socket.setSslConfiguration(sslConfig);
+    }
 
     /* Usually ignoreSslErrors() would be called in the slot invoked by the sslErrors()
        signal but that would mess up the flow of control. We will check for errors
@@ -525,7 +525,7 @@ TCPSlaveBase::SslResult TCPSlaveBase::TcpSlaveBasePrivate::startTLSInternal (KTc
     KSslCipher cipher = socket.sessionCipher();
 
     if (!encryptionStarted || socket.encryptionMode() != KTcpSocket::SslClientMode
-        || cipher.isNull() || cipher.usedBits() == 0 || socket.peerCertificateChain().isEmpty()) {
+            || cipher.isNull() || cipher.usedBits() == 0 || socket.peerCertificateChain().isEmpty()) {
         usingSSL = false;
         clearSslMetaData();
         /*qDebug() << "Initial SSL handshake failed. encryptionStarted is"
@@ -578,19 +578,19 @@ TCPSlaveBase::SslResult TCPSlaveBase::TcpSlaveBasePrivate::startTLSInternal (KTc
 
     //"warn" when starting SSL/TLS
     if (q->metaData("ssl_activate_warnings") == "TRUE"
-        && q->metaData("ssl_was_in_use") == "FALSE"
-        && sslSettings.warnOnEnter()) {
+            && q->metaData("ssl_was_in_use") == "FALSE"
+            && sslSettings.warnOnEnter()) {
 
         int msgResult = q->messageBox(i18n("You are about to enter secure mode. "
-                                        "All transmissions will be encrypted "
-                                        "unless otherwise noted.\nThis means "
-                                        "that no third party will be able to "
-                                        "easily observe your data in transit."),
-                                   WarningYesNo,
-                                   i18n("Security Information"),
-                                   i18n("Display SSL &Information"),
-                                   i18n("C&onnect"),
-                                   "WarnOnEnterSSLMode");
+                                           "All transmissions will be encrypted "
+                                           "unless otherwise noted.\nThis means "
+                                           "that no third party will be able to "
+                                           "easily observe your data in transit."),
+                                      WarningYesNo,
+                                      i18n("Security Information"),
+                                      i18n("Display SSL &Information"),
+                                      i18n("C&onnect"),
+                                      "WarnOnEnterSSLMode");
         if (msgResult == SlaveBase::Yes) {
             q->messageBox(SSLMessageBox /*==the SSL info dialog*/, host);
         }
@@ -608,7 +608,9 @@ void TCPSlaveBase::selectClientCertificate()
 
     setMetaData("ssl_using_client_cert", "FALSE"); // we change this if needed
 
-    if (metaData("ssl_no_client_cert") == "TRUE") return;
+    if (metaData("ssl_no_client_cert") == "TRUE") {
+        return;
+    }
     forcePrompt = (metaData("ssl_force_cert_prompt") == "TRUE");
 
     // Delete the old cert since we're certainly done with it now
@@ -617,7 +619,9 @@ void TCPSlaveBase::selectClientCertificate()
         d->pkcs = NULL;
     }
 
-    if (!d->kssl) return;
+    if (!d->kssl) {
+        return;
+    }
 
     // Look for a general certificate
     if (!forcePrompt) {
@@ -672,7 +676,9 @@ void TCPSlaveBase::selectClientCertificate()
         }
     }
 
-    if (certname.isEmpty() && !prompt && !forcePrompt) return;
+    if (certname.isEmpty() && !prompt && !forcePrompt) {
+        return;
+    }
 
     // Ok, we're supposed to prompt the user....
     if (prompt || forcePrompt) {
@@ -690,9 +696,11 @@ void TCPSlaveBase::selectClientCertificate()
             delete pkcs;
         }
 
-        if (certs.isEmpty()) return;  // we had nothing else, and prompt failed
+        if (certs.isEmpty()) {
+            return;    // we had nothing else, and prompt failed
+        }
 
-        QDBusConnectionInterface* bus = QDBusConnection::sessionBus().interface();
+        QDBusConnectionInterface *bus = QDBusConnection::sessionBus().interface();
         if (!bus->isServiceRegistered("org.kde.kio.uiserver")) {
             bus->startService("org.kde.kuiserver");
         }
@@ -733,14 +741,16 @@ void TCPSlaveBase::selectClientCertificate()
             ai.keepPassword = true;
 
             bool showprompt;
-            if (first)
+            if (first) {
                 showprompt = !checkCachedAuthentication(ai);
-            else
+            } else {
                 showprompt = true;
+            }
             if (showprompt) {
                 if (!openPasswordDialog(ai, first ? QString() :
-                                        i18n("Unable to open the certificate. Try a new password?")))
+                                        i18n("Unable to open the certificate. Try a new password?"))) {
                     break;
+                }
             }
 
             first = false;
@@ -822,19 +832,19 @@ TCPSlaveBase::SslResult TCPSlaveBase::verifyServerCertificate()
     //Save the user's choice to ignore the SSL errors.
 
     msgResult = messageBox(WarningYesNo,
-                            i18n("Would you like to accept this "
-                                 "certificate forever without "
-                                 "being prompted?"),
-                            i18n("Server Authentication"),
-                            i18n("&Forever"),
-                            i18n("&Current Session only"));
+                           i18n("Would you like to accept this "
+                                "certificate forever without "
+                                "being prompted?"),
+                           i18n("Server Authentication"),
+                           i18n("&Forever"),
+                           i18n("&Current Session only"));
     QDateTime ruleExpiry = QDateTime::currentDateTime();
     if (msgResult == SlaveBase::Yes) {
         //accept forever ("for a very long time")
         ruleExpiry = ruleExpiry.addYears(1000);
     } else {
         //accept "for a short time", half an hour.
-        ruleExpiry = ruleExpiry.addSecs(30*60);
+        ruleExpiry = ruleExpiry.addSecs(30 * 60);
     }
 
     //TODO special cases for wildcard domain name in the certificate!
@@ -876,111 +886,107 @@ TCPSlaveBase::SslResult TCPSlaveBase::verifyServerCertificate()
 
 ////// SNIP SNIP //////////
 
-        //  - cache the results
-        d->certCache->addCertificate(pc, cp, permacache);
-        if (doAddHost) d->certCache->addHost(pc, d->host);
-    } else {    // Child frame
-        //  - Read from cache and see if there is a policy for this
-        KSSLCertificateCache::KSSLCertificatePolicy cp =
-            d->certCache->getPolicyByCertificate(pc);
-        isChild = true;
-
-        // Check the cert and IP to make sure they're the same
-        // as the parent frame
-        bool certAndIPTheSame = (d->ip == metaData("ssl_parent_ip") &&
-                                 pc.toString() == metaData("ssl_parent_cert"));
-
-        if (ksv == KSSLCertificate::Ok) {
-            if (certAndIPTheSame) {       // success
-                rc = 1;
-                setMetaData("ssl_action", "accept");
-            } else {
-                /*
-                if (d->sslNoUi) {
-                  return -1;
-                }
-                result = messageBox(WarningYesNo,
-                                    i18n("The certificate is valid but does not appear to have been assigned to this server.  Do you wish to continue loading?"),
-                                    i18n("Server Authentication"));
-                if (result == SlaveBase::Yes) {     // success
-                  rc = 1;
-                  setMetaData("ssl_action", "accept");
-                } else {    // fail
-                  rc = -1;
-                  setMetaData("ssl_action", "reject");
-                }
-                */
-                setMetaData("ssl_action", "accept");
-                rc = 1;   // Let's accept this now.  It's bad, but at least the user
-                // will see potential attacks in KDE3 with the pseudo-lock
-                // icon on the toolbar, and can investigate with the RMB
+            //  - cache the results
+            d->certCache->addCertificate(pc, cp, permacache);
+            if (doAddHost) {
+                d->certCache->addHost(pc, d->host);
             }
-        } else {
-            if (d->sslNoUi) {
-                return -1;
-            }
+        } else {    // Child frame
+            //  - Read from cache and see if there is a policy for this
+            KSSLCertificateCache::KSSLCertificatePolicy cp =
+                d->certCache->getPolicyByCertificate(pc);
+            isChild = true;
 
-            if (cp == KSSLCertificateCache::Accept) {
-                if (certAndIPTheSame) {    // success
+            // Check the cert and IP to make sure they're the same
+            // as the parent frame
+            bool certAndIPTheSame = (d->ip == metaData("ssl_parent_ip") &&
+                                     pc.toString() == metaData("ssl_parent_cert"));
+
+            if (ksv == KSSLCertificate::Ok) {
+                if (certAndIPTheSame) {       // success
                     rc = 1;
                     setMetaData("ssl_action", "accept");
-                } else {   // fail
+                } else {
+                    /*
+                    if (d->sslNoUi) {
+                      return -1;
+                    }
                     result = messageBox(WarningYesNo,
-                                        i18n("You have indicated that you wish to accept this certificate, but it is not issued to the server who is presenting it. Do you wish to continue loading?"),
+                                        i18n("The certificate is valid but does not appear to have been assigned to this server.  Do you wish to continue loading?"),
                                         i18n("Server Authentication"));
-                    if (result == SlaveBase::Yes) {
+                    if (result == SlaveBase::Yes) {     // success
+                      rc = 1;
+                      setMetaData("ssl_action", "accept");
+                    } else {    // fail
+                      rc = -1;
+                      setMetaData("ssl_action", "reject");
+                    }
+                    */
+                    setMetaData("ssl_action", "accept");
+                    rc = 1;   // Let's accept this now.  It's bad, but at least the user
+                    // will see potential attacks in KDE3 with the pseudo-lock
+                    // icon on the toolbar, and can investigate with the RMB
+                }
+            } else {
+                if (d->sslNoUi) {
+                    return -1;
+                }
+
+                if (cp == KSSLCertificateCache::Accept) {
+                    if (certAndIPTheSame) {    // success
                         rc = 1;
                         setMetaData("ssl_action", "accept");
-                        d->certCache->addHost(pc, d->host);
-                    } else {
-                        rc = -1;
-                        setMetaData("ssl_action", "reject");
+                    } else {   // fail
+                        result = messageBox(WarningYesNo,
+                                            i18n("You have indicated that you wish to accept this certificate, but it is not issued to the server who is presenting it. Do you wish to continue loading?"),
+                                            i18n("Server Authentication"));
+                        if (result == SlaveBase::Yes) {
+                            rc = 1;
+                            setMetaData("ssl_action", "accept");
+                            d->certCache->addHost(pc, d->host);
+                        } else {
+                            rc = -1;
+                            setMetaData("ssl_action", "reject");
+                        }
                     }
-                }
-            } else if (cp == KSSLCertificateCache::Reject) {      // fail
-                messageBox(Information, i18n("SSL certificate is being rejected as requested. You can disable this in the KDE System Settings."),
-                           i18n("Server Authentication"));
-                rc = -1;
-                setMetaData("ssl_action", "reject");
-            } else {
+                } else if (cp == KSSLCertificateCache::Reject) {      // fail
+                    messageBox(Information, i18n("SSL certificate is being rejected as requested. You can disable this in the KDE System Settings."),
+                               i18n("Server Authentication"));
+                    rc = -1;
+                    setMetaData("ssl_action", "reject");
+                } else {
 
 //////// SNIP SNIP //////////
 
-    return rc;
+                    return rc;
 #endif //#if 0
-    return ResultOk | ResultOverridden;
-}
+                    return ResultOk | ResultOverridden;
+                }
 
+                bool TCPSlaveBase::isConnected() const {
+                    //QSslSocket::isValid() and therefore KTcpSocket::isValid() are shady...
+                    return d->socket.state() == KTcpSocket::ConnectedState;
+                }
 
-bool TCPSlaveBase::isConnected() const
-{
-    //QSslSocket::isValid() and therefore KTcpSocket::isValid() are shady...
-    return d->socket.state() == KTcpSocket::ConnectedState;
-}
+                bool TCPSlaveBase::waitForResponse(int t) {
+                    if (d->socket.bytesAvailable()) {
+                        return true;
+                    }
+                    return d->socket.waitForReadyRead(t * 1000);
+                }
 
+                void TCPSlaveBase::setBlocking(bool b) {
+                    if (!b) {
+                        qWarning() << "Caller requested non-blocking mode, but that doesn't work";
+                        return;
+                    }
+                    d->isBlocking = b;
+                }
 
-bool TCPSlaveBase::waitForResponse(int t)
-{
-    if (d->socket.bytesAvailable()) {
-        return true;
-    }
-    return d->socket.waitForReadyRead(t * 1000);
-}
-
-void TCPSlaveBase::setBlocking(bool b)
-{
-    if (!b) {
-        qWarning() << "Caller requested non-blocking mode, but that doesn't work";
-        return;
-    }
-    d->isBlocking = b;
-}
-
-void TCPSlaveBase::virtual_hook(int id, void* data)
-{
-    if (id == SlaveBase::AppConnectionMade) {
-        d->sendSslMetaData();
-    } else {
-        SlaveBase::virtual_hook(id, data);
-    }
-}
+                void TCPSlaveBase::virtual_hook(int id, void *data) {
+                    if (id == SlaveBase::AppConnectionMade) {
+                        d->sendSslMetaData();
+                    } else {
+                        SlaveBase::virtual_hook(id, data);
+                    }
+                }

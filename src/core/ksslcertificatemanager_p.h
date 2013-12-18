@@ -25,8 +25,7 @@
 
 #include "kconfig.h"
 
-struct KSslCaCertificate
-{
+struct KSslCaCertificate {
     enum Store {
         SystemStore = 0,
         UserStore
@@ -35,10 +34,10 @@ struct KSslCaCertificate
     // TODO see if we can get rid of the .toHex() for storage and comparison; requires
     //      several changes in KSslCertificateManager and CaCertificatesPage!
     KSslCaCertificate(const QSslCertificate &c, Store s, bool _isBlacklisted)
-     : cert(c),
-       certHash(c.digest().toHex()),
-       store(s),
-       isBlacklisted(_isBlacklisted) { }
+        : cert(c),
+          certHash(c.digest().toHex()),
+          store(s),
+          isBlacklisted(_isBlacklisted) { }
     const QSslCertificate cert;
     const QByteArray certHash;
     const Store store;
@@ -55,9 +54,13 @@ struct KSslCaCertificate
 };
 
 class OrgKdeKSSLDInterface; // aka org::kde::KSSLDInterface
-namespace org { namespace kde {
+namespace org
+{
+namespace kde
+{
 typedef ::OrgKdeKSSLDInterface KSSLDInterface;
-}}
+}
+}
 
 class KSslCertificateManagerPrivate
 {
@@ -66,7 +69,9 @@ public:
     ~KSslCertificateManagerPrivate();
 
     static KSslCertificateManagerPrivate *get(KSslCertificateManager *q)
-        { return q->d; }
+    {
+        return q->d;
+    }
 
     void loadDefaultCaCertificates();
 
@@ -96,6 +101,6 @@ public:
 // don't export KSslCertificateManagerPrivate to avoid unnecessary symbols
 KIOCORE_EXPORT QList<KSslCaCertificate> _allKsslCaCertificates(KSslCertificateManager *cm);
 KIOCORE_EXPORT void _setAllKsslCaCertificates(KSslCertificateManager *cm,
-                                              const QList<KSslCaCertificate> &certsIn);
+        const QList<KSslCaCertificate> &certsIn);
 
 #endif //KSSLCERTIFICATEMANAGER_P_H

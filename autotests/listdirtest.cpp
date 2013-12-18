@@ -25,7 +25,7 @@
 #include <QTemporaryDir>
 #include <QSignalSpy>
 
-QTEST_MAIN( ListDirTest )
+QTEST_MAIN(ListDirTest)
 
 void ListDirTest::numFilesTestCase_data()
 {
@@ -46,8 +46,8 @@ void ListDirTest::numFilesTestCase()
 
     /*QBENCHMARK*/ {
         m_receivedEntryCount = -2; // We start at -2 for . and .. slotResult will just increment this value
-        KIO::ListJob* job = KIO::listDir(QUrl::fromLocalFile(tempDir.path()), KIO::HideProgressInfo);
-        job->setUiDelegate( 0 );
+        KIO::ListJob *job = KIO::listDir(QUrl::fromLocalFile(tempDir.path()), KIO::HideProgressInfo);
+        job->setUiDelegate(0);
         connect(job, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)), this, SLOT(slotEntries(KIO::Job*,KIO::UDSEntryList)));
 
         QSignalSpy spy(job, SIGNAL(result(KJob*)));
@@ -57,15 +57,14 @@ void ListDirTest::numFilesTestCase()
     QCOMPARE(m_receivedEntryCount, numOfFiles);
 }
 
-
 void ListDirTest::slotEntries(KIO::Job *, const KIO::UDSEntryList &entries)
 {
     m_receivedEntryCount += entries.count();
 }
 
-void ListDirTest::createEmptyTestFiles(int numOfFilesToCreate, const QString& path)
+void ListDirTest::createEmptyTestFiles(int numOfFilesToCreate, const QString &path)
 {
-    for(int i = 0; i < numOfFilesToCreate; i++) {
+    for (int i = 0; i < numOfFilesToCreate; i++) {
         const QString filename = path + QDir::separator() + QString::number(i) + ".txt";
         QFile file(filename);
         QVERIFY(file.open(QIODevice::WriteOnly));

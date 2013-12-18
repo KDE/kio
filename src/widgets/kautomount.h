@@ -29,8 +29,9 @@
 #ifdef Q_OS_UNIX
 
 class KJob;
-namespace KIO {
-    class Job;
+namespace KIO
+{
+class Job;
 }
 
 class KAutoMountPrivate;
@@ -57,8 +58,8 @@ public:
      * @param show_filemanager_window if true, a file-manager window for that mountpoint is shown after
      * the mount, if successful.
      */
-    KAutoMount( bool readonly, const QByteArray& format, const QString& device, const QString& mountpoint,
-                const QString & desktopFile, bool show_filemanager_window = true );
+    KAutoMount(bool readonly, const QByteArray &format, const QString &device, const QString &mountpoint,
+               const QString &desktopFile, bool show_filemanager_window = true);
 
 Q_SIGNALS:
     /** Emitted when the directory has been mounted */
@@ -69,9 +70,9 @@ Q_SIGNALS:
 private:
     /** KAutoMount deletes itself. Don't delete it manually. */
     ~KAutoMount();
-    Q_PRIVATE_SLOT(d, void slotResult( KJob * ))
+    Q_PRIVATE_SLOT(d, void slotResult(KJob *))
     friend class KAutoMountPrivate;
-    KAutoMountPrivate* const d;
+    KAutoMountPrivate *const d;
 };
 
 class KAutoUnmountPrivate;
@@ -92,7 +93,7 @@ public:
      * @param desktopFile the file the user clicked on - to notify KDirWatch of the fact that
      * it should emit fileDirty for it (to have the icon change)
      */
-    KAutoUnmount( const QString & mountpoint, const QString & desktopFile );
+    KAutoUnmount(const QString &mountpoint, const QString &desktopFile);
 
 Q_SIGNALS:
     /** Emitted when the directory has been unmounted */
@@ -103,9 +104,9 @@ Q_SIGNALS:
 private:
     /** KAutoUnmount deletes itself. Don't delete it manually. */
     ~KAutoUnmount();
-    Q_PRIVATE_SLOT(d, void slotResult( KJob * ))
+    Q_PRIVATE_SLOT(d, void slotResult(KJob *))
     friend class KAutoUnmountPrivate;
-    KAutoUnmountPrivate* const d;
+    KAutoUnmountPrivate *const d;
 };
 
 #endif //Q_OS_UNIX

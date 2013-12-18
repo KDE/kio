@@ -47,11 +47,10 @@ class QColorGroup;
 */
 class KACLListView : public QTreeWidget
 {
-Q_OBJECT
+    Q_OBJECT
     friend class KACLListViewItem;
 public:
-    enum Types
-    {
+    enum Types {
         OWNER_IDX = 0,
         GROUP_IDX,
         OTHERS_IDX,
@@ -66,56 +65,78 @@ public:
                      Mask = 8,
                      NamedUser = 16,
                      NamedGroup = 32,
-                     AllTypes = 63 };
+                     AllTypes = 63
+                   };
 
-    KACLListView( QWidget* parent = 0 );
+    KACLListView(QWidget *parent = 0);
     ~KACLListView();
 
-    bool hasMaskEntry() const { return m_hasMask; }
+    bool hasMaskEntry() const
+    {
+        return m_hasMask;
+    }
     bool hasDefaultEntries() const;
-    bool allowDefaults() const { return m_allowDefaults; }
-    void setAllowDefaults( bool v ) { m_allowDefaults = v; }
+    bool allowDefaults() const
+    {
+        return m_allowDefaults;
+    }
+    void setAllowDefaults(bool v)
+    {
+        m_allowDefaults = v;
+    }
     unsigned short maskPermissions() const;
-    void setMaskPermissions( unsigned short maskPerms );
+    void setMaskPermissions(unsigned short maskPerms);
     acl_perm_t maskPartialPermissions() const;
-    void setMaskPartialPermissions( acl_perm_t maskPerms );
+    void setMaskPartialPermissions(acl_perm_t maskPerms);
 
     bool maskCanBeDeleted() const;
     bool defaultMaskCanBeDeleted() const;
 
-    const KACLListViewItem* findDefaultItemByType( EntryType type ) const;
-    const KACLListViewItem* findItemByType( EntryType type,
-                                            bool defaults = false ) const;
-    unsigned short calculateMaskValue( bool defaults ) const;
+    const KACLListViewItem *findDefaultItemByType(EntryType type) const;
+    const KACLListViewItem *findItemByType(EntryType type,
+                                           bool defaults = false) const;
+    unsigned short calculateMaskValue(bool defaults) const;
     void calculateEffectiveRights();
 
-    QStringList allowedUsers( bool defaults, KACLListViewItem *allowedItem = 0 );
-    QStringList allowedGroups( bool defaults, KACLListViewItem *allowedItem = 0 );
+    QStringList allowedUsers(bool defaults, KACLListViewItem *allowedItem = 0);
+    QStringList allowedGroups(bool defaults, KACLListViewItem *allowedItem = 0);
 
-    const KACL getACL() const { return getACL(); }
+    const KACL getACL() const
+    {
+        return getACL();
+    }
     KACL getACL();
 
-    const KACL getDefaultACL() const { return getDefaultACL(); }
+    const KACL getDefaultACL() const
+    {
+        return getDefaultACL();
+    }
     KACL getDefaultACL();
 
-    QPixmap getYesPixmap() const { return *m_yesPixmap; }
-    QPixmap getYesPartialPixmap() const { return *m_yesPartialPixmap; }
+    QPixmap getYesPixmap() const
+    {
+        return *m_yesPixmap;
+    }
+    QPixmap getYesPartialPixmap() const
+    {
+        return *m_yesPartialPixmap;
+    }
 
 public Q_SLOTS:
     void slotAddEntry();
     void slotEditEntry();
     void slotRemoveEntry();
-    void setACL( const KACL &anACL );
-    void setDefaultACL( const KACL &anACL );
+    void setACL(const KACL &anACL);
+    void setDefaultACL(const KACL &anACL);
 
 protected Q_SLOTS:
-    void slotItemClicked( QTreeWidgetItem* pItem, int col );
+    void slotItemClicked(QTreeWidgetItem *pItem, int col);
 protected:
-    void contentsMousePressEvent( QMouseEvent * e );
+    void contentsMousePressEvent(QMouseEvent *e);
 
 private:
-    void fillItemsFromACL( const KACL &pACL, bool defaults = false );
-    KACL itemsToACL( bool defaults ) const;
+    void fillItemsFromACL(const KACL &pACL, bool defaults = false);
+    KACL itemsToACL(bool defaults) const;
 
     KACL m_ACL;
     KACL m_defaultACL;
@@ -124,68 +145,70 @@ private:
     bool m_allowDefaults;
     QStringList m_allUsers;
     QStringList m_allGroups;
-    QPixmap* m_yesPixmap;
-    QPixmap* m_yesPartialPixmap;
+    QPixmap *m_yesPixmap;
+    QPixmap *m_yesPartialPixmap;
 };
 
 class EditACLEntryDialog : public QDialog
 {
     Q_OBJECT
 public:
-    EditACLEntryDialog( KACLListView *listView, KACLListViewItem *item,
-                        const QStringList &users,
-                        const QStringList &groups,
-                        const QStringList &defaultUsers,
-                        const QStringList &defaultGroups,
-                        int allowedTypes = KACLListView::AllTypes,
-                        int allowedDefaultTypes = KACLListView::AllTypes,
-                        bool allowDefault = false );
-    KACLListViewItem* item() const { return m_item; }
+    EditACLEntryDialog(KACLListView *listView, KACLListViewItem *item,
+                       const QStringList &users,
+                       const QStringList &groups,
+                       const QStringList &defaultUsers,
+                       const QStringList &defaultGroups,
+                       int allowedTypes = KACLListView::AllTypes,
+                       int allowedDefaultTypes = KACLListView::AllTypes,
+                       bool allowDefault = false);
+    KACLListViewItem *item() const
+    {
+        return m_item;
+    }
 public Q_SLOTS:
-     void slotOk();
-     void slotSelectionChanged( QAbstractButton* );
+    void slotOk();
+    void slotSelectionChanged(QAbstractButton *);
 private Q_SLOTS:
-     void slotUpdateAllowedUsersAndGroups();
-     void slotUpdateAllowedTypes();
+    void slotUpdateAllowedUsersAndGroups();
+    void slotUpdateAllowedTypes();
 private:
-     KACLListView *m_listView;
-     KACLListViewItem *m_item;
-     QStringList m_users;
-     QStringList m_groups;
-     QStringList m_defaultUsers;
-     QStringList m_defaultGroups;
-     int m_allowedTypes;
-     int m_allowedDefaultTypes;
-     QButtonGroup *m_buttonGroup;
-     KComboBox *m_usersCombo;
-     KComboBox *m_groupsCombo;
-     QStackedWidget *m_widgetStack;
-     QCheckBox *m_defaultCB;
-     QHash<QAbstractButton*, int> m_buttonIds;
+    KACLListView *m_listView;
+    KACLListViewItem *m_item;
+    QStringList m_users;
+    QStringList m_groups;
+    QStringList m_defaultUsers;
+    QStringList m_defaultGroups;
+    int m_allowedTypes;
+    int m_allowedDefaultTypes;
+    QButtonGroup *m_buttonGroup;
+    KComboBox *m_usersCombo;
+    KComboBox *m_groupsCombo;
+    QStackedWidget *m_widgetStack;
+    QCheckBox *m_defaultCB;
+    QHash<QAbstractButton *, int> m_buttonIds;
 };
-
 
 class KACLListViewItem : public QTreeWidgetItem
 {
 public:
-    KACLListViewItem( QTreeWidget* parent, KACLListView::EntryType type,
-                      unsigned short value,
-                      bool defaultEntry,
-                      const QString& qualifier = QString() );
+    KACLListViewItem(QTreeWidget *parent, KACLListView::EntryType type,
+                     unsigned short value,
+                     bool defaultEntry,
+                     const QString &qualifier = QString());
     virtual ~KACLListViewItem();
     QString key() const;
-    bool operator< ( const QTreeWidgetItem & other ) const;
+    bool operator< (const QTreeWidgetItem &other) const;
 
     void calcEffectiveRights();
 
     bool isDeletable() const;
     bool isAllowedToChangeType() const;
 
-    void togglePerm( acl_perm_t perm );
+    void togglePerm(acl_perm_t perm);
 
 #if 0
-    virtual void paintCell( QPainter *p, const QColorGroup &cg,
-                            int column, int width, int alignment );
+    virtual void paintCell(QPainter *p, const QColorGroup &cg,
+                           int column, int width, int alignment);
 #endif
 
     void updatePermPixmaps();
@@ -198,9 +221,8 @@ public:
     bool isPartial;
 
 private:
-    KACLListView* m_pACLListView;
+    KACLListView *m_pACLListView;
 };
-
 
 #endif
 #endif

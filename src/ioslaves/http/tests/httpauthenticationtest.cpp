@@ -31,10 +31,10 @@
 // QT5 TODO QTEST_GUILESS_MAIN(HTTPAuthenticationTest)
 QTEST_MAIN(HTTPAuthenticationTest)
 
-static void parseAuthHeader(const QByteArray& header,
-                            QByteArray* bestOffer,
-                            QByteArray* scheme,
-                            QList<QByteArray>* result)
+static void parseAuthHeader(const QByteArray &header,
+                            QByteArray *bestOffer,
+                            QByteArray *scheme,
+                            QList<QByteArray> *result)
 {
     const QList<QByteArray> authHeaders = KAbstractHttpAuthentication::splitOffers(QList<QByteArray>() << header);
     QByteArray chosenHeader = KAbstractHttpAuthentication::bestOffer(authHeaders);
@@ -44,7 +44,7 @@ static void parseAuthHeader(const QByteArray& header,
     }
 
     if (!scheme && !result) {
-      return;
+        return;
     }
 
     QByteArray authScheme;
@@ -65,7 +65,7 @@ void HTTPAuthenticationTest::testHeaderParsing_data()
     QTest::addColumn<QByteArray>("resultScheme");
     QTest::addColumn<QByteArray>("resultValues");
 
-     // Tests cases from http://greenbytes.de/tech/tc/httpauth/
+    // Tests cases from http://greenbytes.de/tech/tc/httpauth/
     QTest::newRow("greenbytes-simplebasic") << QByteArray("Basic realm=\"foo\"") << QByteArray("Basic") << QByteArray("realm,foo");
     QTest::newRow("greenbytes-simplebasictok") << QByteArray("Basic realm=foo") << QByteArray("Basic") << QByteArray("realm,foo");
     QTest::newRow("greenbytes-simplebasiccomma") << QByteArray("Basic , realm=\"foo\"") << QByteArray("Basic") << QByteArray("realm,foo");
@@ -103,14 +103,15 @@ void HTTPAuthenticationTest::testHeaderParsing_data()
     QTest::newRow("invalid-quote") << QByteArray("Basic realm=\"\\\"foo\\\\\\") << QByteArray("Basic") << QByteArray();
 }
 
-QByteArray joinQByteArray(const QList<QByteArray>& list)
+QByteArray joinQByteArray(const QList<QByteArray> &list)
 {
     QByteArray data;
     const int count = list.count();
 
     for (int i = 0; i < count; ++i) {
-        if (i > 0)
+        if (i > 0) {
             data += ',';
+        }
         data += list.at(i);
     }
 
@@ -173,33 +174,33 @@ void HTTPAuthenticationTest::testAuthentication_data()
 
     // Test cases from  RFC 2617...
     QTest::newRow("rfc-2617-basic-example")
-        << QByteArray("Basic realm=\"WallyWorld\"")
-        << QByteArray("Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==")
-        << QByteArray("Aladdin")
-        << QByteArray("open sesame")
-        << QByteArray()
-        << QByteArray();
+            << QByteArray("Basic realm=\"WallyWorld\"")
+            << QByteArray("Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==")
+            << QByteArray("Aladdin")
+            << QByteArray("open sesame")
+            << QByteArray()
+            << QByteArray();
     QTest::newRow("rfc-2617-digest-example")
-        << QByteArray("Digest realm=\"testrealm@host.com\", qop=\"auth,auth-int\", nonce=\"dcd98b7102dd2f0e8b11d0f600bfb0c093\", opaque=\"5ccc069c403ebaf9f0171e9517f40e41\"")
-        << QByteArray("Digest username=\"Mufasa\", realm=\"testrealm@host.com\", nonce=\"dcd98b7102dd2f0e8b11d0f600bfb0c093\", uri=\"/dir/index.html\", algorithm=MD5, qop=auth, cnonce=\"0a4f113b\", nc=00000001, response=\"6629fae49393a05397450978507c4ef1\", opaque=\"5ccc069c403ebaf9f0171e9517f40e41\"")
-        << QByteArray("Mufasa")
-        << QByteArray("Circle Of Life")
-        << QByteArray("http://www.nowhere.org/dir/index.html")
-        << QByteArray("0a4f113b");
+            << QByteArray("Digest realm=\"testrealm@host.com\", qop=\"auth,auth-int\", nonce=\"dcd98b7102dd2f0e8b11d0f600bfb0c093\", opaque=\"5ccc069c403ebaf9f0171e9517f40e41\"")
+            << QByteArray("Digest username=\"Mufasa\", realm=\"testrealm@host.com\", nonce=\"dcd98b7102dd2f0e8b11d0f600bfb0c093\", uri=\"/dir/index.html\", algorithm=MD5, qop=auth, cnonce=\"0a4f113b\", nc=00000001, response=\"6629fae49393a05397450978507c4ef1\", opaque=\"5ccc069c403ebaf9f0171e9517f40e41\"")
+            << QByteArray("Mufasa")
+            << QByteArray("Circle Of Life")
+            << QByteArray("http://www.nowhere.org/dir/index.html")
+            << QByteArray("0a4f113b");
     QTest::newRow("ntlm-negotiate-type1")
-        << QByteArray("NTLM")
-        << QByteArray("NTLM TlRMTVNTUAABAAAABQIAAAAAAAAAAAAAAAAAAAAAAAA=")
-        << QByteArray()
-        << QByteArray()
-        << QByteArray()
-        << QByteArray();
+            << QByteArray("NTLM")
+            << QByteArray("NTLM TlRMTVNTUAABAAAABQIAAAAAAAAAAAAAAAAAAAAAAAA=")
+            << QByteArray()
+            << QByteArray()
+            << QByteArray()
+            << QByteArray();
     QTest::newRow("ntlm-challenge-type2")
-        << QByteArray("NTLM TlRMTVNTUAACAAAAAAAAACgAAAABggAAU3J2Tm9uY2UAAAAAAAAAAA==")
-        << QByteArray("NTLM TlRMTVNTUAADAAAAGAAYAFgAAAAYABgAQAAAAAAAAAAAAAAAAAAAAHAAAAAWABYAcAAAAAAAAAAAAAAAAYIAAJSg10BK9h+dU9d6Ijn04m4iDZHzFECXU3sG2ZrxJPWBGnO3BnTKK13Ku1qYqpcE6VcATwBSAEsAUwBUAEEAVABJAE8ATgA=")
-        << QByteArray("Ursa-Minor\\Zaphod")
-        << QByteArray("Beeblebrox")
-        << QByteArray()
-        << QByteArray();
+            << QByteArray("NTLM TlRMTVNTUAACAAAAAAAAACgAAAABggAAU3J2Tm9uY2UAAAAAAAAAAA==")
+            << QByteArray("NTLM TlRMTVNTUAADAAAAGAAYAFgAAAAYABgAQAAAAAAAAAAAAAAAAAAAAHAAAAAWABYAcAAAAAAAAAAAAAAAAYIAAJSg10BK9h+dU9d6Ijn04m4iDZHzFECXU3sG2ZrxJPWBGnO3BnTKK13Ku1qYqpcE6VcATwBSAEsAUwBUAEEAVABJAE8ATgA=")
+            << QByteArray("Ursa-Minor\\Zaphod")
+            << QByteArray("Beeblebrox")
+            << QByteArray()
+            << QByteArray();
 }
 
 void HTTPAuthenticationTest::testAuthentication()
@@ -213,10 +214,11 @@ void HTTPAuthenticationTest::testAuthentication()
 
     QByteArray bestOffer;
     parseAuthHeader(input, &bestOffer, 0, 0);
-    KAbstractHttpAuthentication* authObj = KAbstractHttpAuthentication::newAuth(bestOffer);
+    KAbstractHttpAuthentication *authObj = KAbstractHttpAuthentication::newAuth(bestOffer);
     QVERIFY(authObj);
-    if (!cnonce.isEmpty())
+    if (!cnonce.isEmpty()) {
         authObj->setDigestNonceValue(cnonce);
+    }
     authObj->setChallenge(bestOffer, QUrl(url), "GET");
     authObj->generateResponse(QString(user), QString(pass));
     QCOMPARE(authObj->headerFragment().trimmed().constData(), expectedResponse.constData());

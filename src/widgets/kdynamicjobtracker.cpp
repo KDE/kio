@@ -31,8 +31,7 @@
 #include <QMap>
 #include <QDebug>
 
-struct AllTrackers
-{
+struct AllTrackers {
     KUiServerJobTracker *kuiserverTracker;
     KWidgetJobTracker *widgetTracker;
 };
@@ -41,7 +40,7 @@ class KDynamicJobTracker::Private
 {
 public:
     Private() : kuiserverTracker(0),
-                widgetTracker(0)
+        widgetTracker(0)
     {
     }
 
@@ -53,7 +52,7 @@ public:
 
     KUiServerJobTracker *kuiserverTracker;
     KWidgetJobTracker *widgetTracker;
-    QMap<KJob*, AllTrackers> trackers;
+    QMap<KJob *, AllTrackers> trackers;
 };
 
 KDynamicJobTracker::KDynamicJobTracker(QObject *parent)
@@ -77,7 +76,7 @@ void KDynamicJobTracker::registerJob(KJob *job)
     d->trackers[job].kuiserverTracker->registerJob(job);
 
     QDBusInterface interface("org.kde.kuiserver", "/JobViewServer", "",
-    QDBusConnection::sessionBus(), this);
+                             QDBusConnection::sessionBus(), this);
     QDBusReply<bool> reply = interface.call("requiresJobTracker");
 
     if (reply.isValid() && reply.value()) {
@@ -102,11 +101,13 @@ void KDynamicJobTracker::unregisterJob(KJob *job)
         return;
     }
 
-    if(kuiserverTracker)
+    if (kuiserverTracker) {
         kuiserverTracker->unregisterJob(job);
+    }
 
-    if(widgetTracker)
+    if (widgetTracker) {
         widgetTracker->unregisterJob(job);
+    }
 }
 
 Q_GLOBAL_STATIC(KDynamicJobTracker, globalJobTracker)

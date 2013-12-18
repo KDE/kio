@@ -37,15 +37,15 @@ class KUrlNavigatorDropDownButton : public KUrlNavigatorButtonBase
     Q_OBJECT
 
 public:
-    explicit KUrlNavigatorDropDownButton(QWidget* parent);
+    explicit KUrlNavigatorDropDownButton(QWidget *parent);
     virtual ~KUrlNavigatorDropDownButton();
 
     /** @see QWidget::sizeHint() */
     virtual QSize sizeHint() const;
 
 protected:
-    virtual void keyPressEvent(QKeyEvent* event);
-    virtual void paintEvent(QPaintEvent* event);
+    virtual void keyPressEvent(QKeyEvent *event);
+    virtual void paintEvent(QPaintEvent *event);
 };
 
 } // namespace KDEPrivate

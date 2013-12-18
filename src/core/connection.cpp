@@ -30,26 +30,28 @@
 
 using namespace KIO;
 
-
 void ConnectionPrivate::dequeue()
 {
-    if (!backend || suspended)
+    if (!backend || suspended) {
         return;
-
-    while (!outgoingTasks.isEmpty()) {
-       const Task task = outgoingTasks.dequeue();
-       q->sendnow(task.cmd, task.data);
     }
 
-    if (!incomingTasks.isEmpty())
+    while (!outgoingTasks.isEmpty()) {
+        const Task task = outgoingTasks.dequeue();
+        q->sendnow(task.cmd, task.data);
+    }
+
+    if (!incomingTasks.isEmpty()) {
         emit q->readyRead();
+    }
 }
 
 void ConnectionPrivate::commandReceived(const Task &task)
 {
     //qDebug() << this << "Command " << task.cmd << " added to the queue";
-    if (!suspended && incomingTasks.isEmpty())
+    if (!suspended && incomingTasks.isEmpty()) {
         QMetaObject::invokeMethod(q, "dequeue", Qt::QueuedConnection);
+    }
     incomingTasks.enqueue(task);
 }
 
@@ -85,8 +87,9 @@ void Connection::suspend()
 {
     //qDebug() << this << "Suspended";
     d->suspended = true;
-    if (d->backend)
+    if (d->backend) {
         d->backend->setSuspended(true);
+    }
 }
 
 void Connection::resume()
@@ -96,8 +99,9 @@ void Connection::resume()
 
     //qDebug() << this << "Resumed";
     d->suspended = false;
-    if (d->backend)
+    if (d->backend) {
         d->backend->setSuspended(false);
+    }
 }
 
 void Connection::close()
@@ -154,12 +158,13 @@ void Connection::connectToRemote(const QUrl &address)
 
 QString Connection::errorString() const
 {
-    if (d->backend)
+    if (d->backend) {
         return d->backend->errorString;
+    }
     return QString();
 }
 
-bool Connection::send(int cmd, const QByteArray& data)
+bool Connection::send(int cmd, const QByteArray &data)
 {
     if (!inited() || !d->outgoingTasks.isEmpty()) {
         Task task;
@@ -174,11 +179,13 @@ bool Connection::send(int cmd, const QByteArray& data)
 
 bool Connection::sendnow(int _cmd, const QByteArray &data)
 {
-    if (data.size() > 0xffffff)
+    if (data.size() > 0xffffff) {
         return false;
+    }
 
-    if (!isConnected())
+    if (!isConnected()) {
         return false;
+    }
 
     //qDebug() << this << "Sending command " << _cmd << " of size " << data.size();
     Task task;
@@ -194,15 +201,17 @@ bool Connection::hasTaskAvailable() const
 
 bool Connection::waitForIncomingTask(int ms)
 {
-    if (!isConnected())
+    if (!isConnected()) {
         return false;
+    }
 
-    if (d->backend)
+    if (d->backend) {
         return d->backend->waitForIncomingTask(ms);
+    }
     return false;
 }
 
-int Connection::read( int* _cmd, QByteArray &data )
+int Connection::read(int *_cmd, QByteArray &data)
 {
     // if it's still empty, then it's an error
     if (d->incomingTasks.isEmpty()) {
@@ -216,8 +225,9 @@ int Connection::read( int* _cmd, QByteArray &data )
     data = task.data;
 
     // if we didn't empty our reading queue, emit again
-    if (!d->suspended && !d->incomingTasks.isEmpty())
+    if (!d->suspended && !d->incomingTasks.isEmpty()) {
         QMetaObject::invokeMethod(this, "dequeue", Qt::QueuedConnection);
+    }
 
     return data.size();
 }

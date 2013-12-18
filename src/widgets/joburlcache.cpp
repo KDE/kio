@@ -20,8 +20,6 @@
 #include "joburlcache_p.h"
 #include "kuiserver_interface.h"
 
-
-
 class JobUrlCacheSingleton
 {
 public:
@@ -30,7 +28,7 @@ public:
 
 Q_GLOBAL_STATIC(JobUrlCacheSingleton, s_jobUrlCache)
 
-JobUrlCache& JobUrlCache::instance()
+JobUrlCache &JobUrlCache::instance()
 {
     return s_jobUrlCache()->instance;
 }
@@ -38,11 +36,11 @@ JobUrlCache& JobUrlCache::instance()
 JobUrlCache::JobUrlCache() : QObject(0)
 {
     org::kde::kuiserver *interface = new
-        org::kde::kuiserver("org.kde.kuiserver", "/JobViewServer", QDBusConnection::sessionBus(), this);
+    org::kde::kuiserver("org.kde.kuiserver", "/JobViewServer", QDBusConnection::sessionBus(), this);
 
     //connect to receive updates about the job urls
     connect(interface, SIGNAL(jobUrlsChanged(QStringList)),
-    this, SLOT(slotJobUrlsChanged(QStringList)));
+            this, SLOT(slotJobUrlsChanged(QStringList)));
 
     //force signal emission
     interface->emitJobUrlsChanged();

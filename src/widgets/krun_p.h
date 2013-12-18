@@ -1,4 +1,3 @@
-// -*- mode: c++; c-basic-offset: 2 -*-
 /* This file is part of the KDE project
    Copyright (C) 1998, 1999 Torben Weis <weis@kde.org>
    Copyright (C) 2006 David Faure <faure@kde.org>
@@ -39,29 +38,29 @@
  */
 class KProcessRunner : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
+public:
 
 #if !HAVE_X11
-    static int run(const QString &command, const QString & executable, const QString &workingDirectory = QString());
+    static int run(const QString &command, const QString &executable, const QString &workingDirectory = QString());
 #else
-    static int run(const QString &command, const QString & executable, const KStartupInfoId& id, const QString &workingDirectory = QString());
+    static int run(const QString &command, const QString &executable, const KStartupInfoId &id, const QString &workingDirectory = QString());
 #endif
 
     virtual ~KProcessRunner();
 
     int pid() const;
 
-  protected Q_SLOTS:
+protected Q_SLOTS:
 
     void slotProcessExited(int, QProcess::ExitStatus);
 
-  private:
+private:
 #if !HAVE_X11
-    KProcessRunner(const QString &command, const QString & binName, const QString &workingDirectory);
+    KProcessRunner(const QString &command, const QString &binName, const QString &workingDirectory);
 #else
-    KProcessRunner(const QString &command, const QString & binName, const KStartupInfoId& id, const QString &workingDirectory);
+    KProcessRunner(const QString &command, const QString &binName, const KStartupInfoId &id, const QString &workingDirectory);
 #endif
 
     void terminateStartupNotification();
@@ -82,8 +81,8 @@ class KRun::KRunPrivate
 public:
     KRunPrivate(KRun *parent);
 
-    void init (const QUrl& url, QWidget* window,
-               bool showProgressInfo, const QByteArray& asn);
+    void init(const QUrl &url, QWidget *window,
+              bool showProgressInfo, const QByteArray &asn);
 
     // This helper method makes debugging easier: a single breakpoint for all
     // the code paths that start the timer - at least from KRun itself.
@@ -92,10 +91,10 @@ public:
     void startTimer();
 
 #ifdef Q_OS_WIN
-    static bool displayNativeOpenWithDialog( const QList<QUrl>& lst, QWidget* window, bool tempFiles,
-                                       const QString& suggestedFileName, const QByteArray& asn );
+    static bool displayNativeOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool tempFiles,
+                                            const QString &suggestedFileName, const QByteArray &asn);
 #endif
-    bool runExecutable(const QString& _exec);
+    bool runExecutable(const QString &_exec);
 
     KRun *q;
     bool m_showingDialog;
@@ -114,7 +113,7 @@ public:
     bool m_bAutoDelete;
     bool m_bProgressInfo;
     bool m_bFinished;
-    KIO::Job * m_job;
+    KIO::Job *m_job;
     QTimer m_timer;
 
     /**

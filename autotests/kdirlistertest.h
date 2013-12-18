@@ -31,7 +31,8 @@ Q_DECLARE_METATYPE(KFileItemList)
 class GlobalInits
 {
 public:
-    GlobalInits() {
+    GlobalInits()
+    {
         // Must be done before the QSignalSpys connect
         qRegisterMetaType<KFileItem>();
         qRegisterMetaType<KFileItemList>();
@@ -79,7 +80,7 @@ public:
     QSignalSpy spyDeleteItem;
     QSignalSpy spyItemsDeleted;
 protected:
-    virtual void handleError(KIO::Job* job);
+    virtual void handleError(KIO::Job *job);
 };
 
 class KDirListerTest : public QObject
@@ -115,10 +116,10 @@ private Q_SLOTS:
 
 protected Q_SLOTS: // 'more private than private slots' - i.e. not seen by qtestlib
     void exitLoop();
-    void slotNewItems(const KFileItemList&);
-    void slotNewItems2(const KFileItemList&);
-    void slotRefreshItems(const QList<QPair<KFileItem, KFileItem> >&);
-    void slotRefreshItems2(const QList<QPair<KFileItem, KFileItem> >&);
+    void slotNewItems(const KFileItemList &);
+    void slotNewItems2(const KFileItemList &);
+    void slotRefreshItems(const QList<QPair<KFileItem, KFileItem> > &);
+    void slotRefreshItems2(const QList<QPair<KFileItem, KFileItem> > &);
 
 Q_SIGNALS:
     void refreshItemsReceived();
@@ -126,10 +127,13 @@ Q_SIGNALS:
 private:
     void enterLoop(int exitCount = 1);
     int fileCount() const;
-    QString path() const { return m_tempDir.path() + '/'; }
+    QString path() const
+    {
+        return m_tempDir.path() + '/';
+    }
     void waitForRefreshedItems();
-    void createSimpleFile(const QString& fileName);
-    void fillDirLister2(MyDirLister& lister, const QString& path);
+    void createSimpleFile(const QString &fileName);
+    void fillDirLister2(MyDirLister &lister, const QString &path);
 
 private:
     int m_exitCount;
@@ -140,6 +144,5 @@ private:
     KFileItemList m_items2;
     QList<QPair<KFileItem, KFileItem> > m_refreshedItems, m_refreshedItems2;
 };
-
 
 #endif

@@ -35,7 +35,6 @@
 #include <solid/storagedrive.h>
 #include <solid/portablemediaplayer.h>
 
-
 KFilePlacesItem::KFilePlacesItem(KBookmarkManager *manager,
                                  const QString &address,
                                  const QString &udi)
@@ -133,7 +132,7 @@ QVariant KFilePlacesItem::data(int role) const
 {
     QVariant returnData;
 
-    if (role!=KFilePlacesModel::HiddenRole && role!=Qt::BackgroundRole && isDevice()) {
+    if (role != KFilePlacesModel::HiddenRole && role != Qt::BackgroundRole && isDevice()) {
         returnData = deviceData(role);
     } else {
         returnData = bookmarkData(role);
@@ -146,16 +145,17 @@ QVariant KFilePlacesItem::bookmarkData(int role) const
 {
     KBookmark b = bookmark();
 
-    if (b.isNull()) return QVariant();
+    if (b.isNull()) {
+        return QVariant();
+    }
 
-    switch (role)
-    {
+    switch (role) {
     case Qt::DisplayRole:
         return m_text;
     case Qt::DecorationRole:
         return QIcon::fromTheme(iconNameForBookmark(b));
     case Qt::BackgroundRole:
-        if (b.metaDataItem("IsHidden")=="true") {
+        if (b.metaDataItem("IsHidden") == "true") {
             return QColor(Qt::lightGray);
         } else {
             return QVariant();
@@ -165,7 +165,7 @@ QVariant KFilePlacesItem::bookmarkData(int role) const
     case KFilePlacesModel::SetupNeededRole:
         return false;
     case KFilePlacesModel::HiddenRole:
-        return b.metaDataItem("IsHidden")=="true";
+        return b.metaDataItem("IsHidden") == "true";
     default:
         return QVariant();
     }
@@ -176,8 +176,7 @@ QVariant KFilePlacesItem::deviceData(int role) const
     Solid::Device d = device();
 
     if (d.isValid()) {
-        switch (role)
-        {
+        switch (role) {
         case Qt::DisplayRole:
             return d.description();
         case Qt::DecorationRole:
@@ -185,7 +184,7 @@ QVariant KFilePlacesItem::deviceData(int role) const
         case KFilePlacesModel::UrlRole:
             if (m_access) {
                 return QUrl::fromLocalFile(m_access->filePath());
-            } else if (m_disc && (m_disc->availableContent() & Solid::OpticalDisc::Audio)!=0) {
+            } else if (m_disc && (m_disc->availableContent() & Solid::OpticalDisc::Audio) != 0) {
                 Solid::Block *block = d.as<Solid::Block>();
                 if (block) {
                     QString device = block->device();
@@ -207,22 +206,21 @@ QVariant KFilePlacesItem::deviceData(int role) const
                 return QVariant();
             }
 
-        case KFilePlacesModel::FixedDeviceRole:
-            {
-                Solid::StorageDrive *drive = 0;
-                Solid::Device parentDevice = m_device;
-                while (parentDevice.isValid() && !drive) {
-                    drive = parentDevice.as<Solid::StorageDrive>();
-                    parentDevice = parentDevice.parent();
-                }
-                if (drive!=0) {
-                    return !drive->isHotpluggable() && !drive->isRemovable();
-                }
-                return true;
+        case KFilePlacesModel::FixedDeviceRole: {
+            Solid::StorageDrive *drive = 0;
+            Solid::Device parentDevice = m_device;
+            while (parentDevice.isValid() && !drive) {
+                drive = parentDevice.as<Solid::StorageDrive>();
+                parentDevice = parentDevice.parent();
             }
+            if (drive != 0) {
+                return !drive->isHotpluggable() && !drive->isRemovable();
+            }
+            return true;
+        }
 
         case KFilePlacesModel::CapacityBarRecommendedRole:
-        return m_isAccessible && !m_isCdrom;
+            return m_isAccessible && !m_isCdrom;
 
         default:
             return QVariant();
@@ -233,14 +231,15 @@ QVariant KFilePlacesItem::deviceData(int role) const
 }
 
 KBookmark KFilePlacesItem::createBookmark(KBookmarkManager *manager,
-                                          const QString &label,
-                                          const QUrl &url,
-                                          const QString &iconName,
-                                          KFilePlacesItem *after)
+        const QString &label,
+        const QUrl &url,
+        const QString &iconName,
+        KFilePlacesItem *after)
 {
     KBookmarkGroup root = manager->root();
-    if (root.isNull())
+    if (root.isNull()) {
         return KBookmark();
+    }
     QString empty_icon = iconName;
     if (url.toString() == QLatin1String("trash:/")) {
         if (empty_icon.endsWith(QLatin1String("-full"))) {
@@ -260,27 +259,28 @@ KBookmark KFilePlacesItem::createBookmark(KBookmarkManager *manager,
 }
 
 KBookmark KFilePlacesItem::createSystemBookmark(KBookmarkManager *manager,
-                                                const QString &untranslatedLabel,
-                                                const QString &translatedLabel,
-                                                const QUrl &url,
-                                                const QString &iconName)
+        const QString &untranslatedLabel,
+        const QString &translatedLabel,
+        const QUrl &url,
+        const QString &iconName)
 {
     Q_UNUSED(translatedLabel); // parameter is only necessary to force the caller
-                               // providing a translated string for the label
+    // providing a translated string for the label
 
     KBookmark bookmark = createBookmark(manager, untranslatedLabel, url, iconName);
-    if (!bookmark.isNull())
+    if (!bookmark.isNull()) {
         bookmark.setMetaDataItem("isSystemItem", "true");
+    }
     return bookmark;
 }
 
-
 KBookmark KFilePlacesItem::createDeviceBookmark(KBookmarkManager *manager,
-                                                const QString &udi)
+        const QString &udi)
 {
     KBookmarkGroup root = manager->root();
-    if (root.isNull())
+    if (root.isNull()) {
         return KBookmark();
+    }
     KBookmark bookmark = root.createNewSeparator();
     bookmark.setMetaDataItem("UDI", udi);
     bookmark.setMetaDataItem("isSystemItem", "true");
@@ -294,8 +294,7 @@ QString KFilePlacesItem::generateNewId()
 //    return QString::number(count++);
 
     return QString::number(QDateTime::currentDateTime().toTime_t())
-      + '/' + QString::number(count++);
-
+           + '/' + QString::number(count++);
 
 //    return QString::number(QDateTime::currentDateTime().toTime_t())
 //         + '/' + QString::number(qrand());
@@ -318,7 +317,7 @@ bool KFilePlacesItem::hasFullIcon(const KBookmark &bookmark) const
 QString KFilePlacesItem::iconNameForBookmark(const KBookmark &bookmark) const
 {
     if (!m_folderIsEmpty && hasFullIcon(bookmark)) {
-        return bookmark.icon()+"-full";
+        return bookmark.icon() + "-full";
     } else {
         return bookmark.icon();
     }

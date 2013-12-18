@@ -52,7 +52,7 @@ public:
 
 private:
     class Private;
-    Private * const d;
+    Private *const d;
 };
 
 /**
@@ -72,7 +72,7 @@ KIOCORE_EXPORT JobUiDelegateFactory *defaultJobUiDelegateFactory();
  * automatically.
  * @since 5.0
  */
-KIOCORE_EXPORT void setDefaultJobUiDelegateFactory(JobUiDelegateFactory* factory);
+KIOCORE_EXPORT void setDefaultJobUiDelegateFactory(JobUiDelegateFactory *factory);
 
 } // namespace KIO
 

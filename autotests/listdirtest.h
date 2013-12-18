@@ -31,7 +31,7 @@ private Q_SLOTS:
     void slotEntries(KIO::Job *job, const KIO::UDSEntryList &entries);
 
 private:
-    void createEmptyTestFiles(int numOfFilesToCreate, const QString& path);
+    void createEmptyTestFiles(int numOfFilesToCreate, const QString &path);
     int m_receivedEntryCount;
 };
 

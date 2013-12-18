@@ -46,20 +46,19 @@
 #include <unistd.h>
 #include <kconfiggroup.h>
 
-
-bool KFilePlaceEditDialog::getInformation(bool allowGlobal, QUrl& url,
-                                          QString& label, QString& icon,
-                                          bool isAddingNewPlace,
-                                          bool& appLocal, int iconSize,
-                                          QWidget *parent )
+bool KFilePlaceEditDialog::getInformation(bool allowGlobal, QUrl &url,
+        QString &label, QString &icon,
+        bool isAddingNewPlace,
+        bool &appLocal, int iconSize,
+        QWidget *parent)
 {
     KFilePlaceEditDialog *dialog = new KFilePlaceEditDialog(allowGlobal, url,
-                                                            label, icon,
-                                                            isAddingNewPlace,
-                                                            appLocal,
-                                                            iconSize,
-                                                            parent );
-    if ( dialog->exec() == QDialog::Accepted ) {
+            label, icon,
+            isAddingNewPlace,
+            appLocal,
+            iconSize,
+            parent);
+    if (dialog->exec() == QDialog::Accepted) {
         // set the return parameters
         url         = dialog->url();
         label       = dialog->label();
@@ -74,24 +73,25 @@ bool KFilePlaceEditDialog::getInformation(bool allowGlobal, QUrl& url,
     return false;
 }
 
-KFilePlaceEditDialog::KFilePlaceEditDialog(bool allowGlobal, const QUrl& url,
-                                           const QString& label,
-                                           const QString &icon,
-                                           bool isAddingNewPlace,
-                                           bool appLocal, int iconSize,
-                                           QWidget *parent)
-    : QDialog( parent )
+KFilePlaceEditDialog::KFilePlaceEditDialog(bool allowGlobal, const QUrl &url,
+        const QString &label,
+        const QString &icon,
+        bool isAddingNewPlace,
+        bool appLocal, int iconSize,
+        QWidget *parent)
+    : QDialog(parent)
 {
-    if (isAddingNewPlace)
+    if (isAddingNewPlace) {
         setWindowTitle(i18n("Add Places Entry"));
-    else
+    } else {
         setWindowTitle(i18n("Edit Places Entry"));
+    }
     setModal(true);
 
-    QVBoxLayout *box = new QVBoxLayout( this );
+    QVBoxLayout *box = new QVBoxLayout(this);
 
     QFormLayout *layout = new QFormLayout();
-    box->addLayout( layout );
+    box->addLayout(layout);
 
     QString whatsThisText = i18n("<qt>This is the text that will appear in the Places panel.<br /><br />"
                                  "The label should consist of one or two words "
@@ -110,44 +110,46 @@ KFilePlaceEditDialog::KFilePlaceEditDialog(bool allowGlobal, const QUrl& url,
                          "By clicking on the button next to the text edit box you can browse to an "
                          "appropriate URL.</qt>", QDir::homePath());
     m_urlEdit = new KUrlRequester(url, this);
-    m_urlEdit->setMode( KFile::Directory );
-    layout->addRow( i18n("&Location:"), m_urlEdit );
-    m_urlEdit->setWhatsThis( whatsThisText );
-    layout->labelForField(m_urlEdit)->setWhatsThis( whatsThisText );
+    m_urlEdit->setMode(KFile::Directory);
+    layout->addRow(i18n("&Location:"), m_urlEdit);
+    m_urlEdit->setWhatsThis(whatsThisText);
+    layout->labelForField(m_urlEdit)->setWhatsThis(whatsThisText);
     // Room for at least 40 chars (average char width is half of height)
-    m_urlEdit->setMinimumWidth( m_urlEdit->fontMetrics().height() * (40 / 2) );
+    m_urlEdit->setMinimumWidth(m_urlEdit->fontMetrics().height() * (40 / 2));
 
     whatsThisText = i18n("<qt>This is the icon that will appear in the Places panel.<br /><br />"
                          "Click on the button to select a different icon.</qt>");
     m_iconButton = new KIconButton(this);
-    layout->addRow( i18n("Choose an &icon:"), m_iconButton );
-    m_iconButton->setObjectName( QLatin1String( "icon button" ) );
-    m_iconButton->setIconSize( iconSize );
-    m_iconButton->setIconType( KIconLoader::NoGroup, KIconLoader::Place );
-    if ( icon.isEmpty() )
-        m_iconButton->setIcon( KIO::iconNameForUrl( url ) );
-    else
-        m_iconButton->setIcon( icon );
-    m_iconButton->setWhatsThis( whatsThisText );
-    layout->labelForField(m_iconButton)->setWhatsThis( whatsThisText );
+    layout->addRow(i18n("Choose an &icon:"), m_iconButton);
+    m_iconButton->setObjectName(QLatin1String("icon button"));
+    m_iconButton->setIconSize(iconSize);
+    m_iconButton->setIconType(KIconLoader::NoGroup, KIconLoader::Place);
+    if (icon.isEmpty()) {
+        m_iconButton->setIcon(KIO::iconNameForUrl(url));
+    } else {
+        m_iconButton->setIcon(icon);
+    }
+    m_iconButton->setWhatsThis(whatsThisText);
+    layout->labelForField(m_iconButton)->setWhatsThis(whatsThisText);
 
-    if ( allowGlobal ) {
+    if (allowGlobal) {
         QString appName;
         appName = QGuiApplication::applicationDisplayName();
-        if ( appName.isEmpty() )
+        if (appName.isEmpty()) {
             appName = QCoreApplication::applicationName();
-        m_appLocal = new QCheckBox( i18n("&Only show when using this application (%1)", appName ), this);
-        m_appLocal->setChecked( appLocal );
+        }
+        m_appLocal = new QCheckBox(i18n("&Only show when using this application (%1)", appName), this);
+        m_appLocal->setChecked(appLocal);
         m_appLocal->setWhatsThis(i18n("<qt>Select this setting if you want this "
-                              "entry to show only when using the current application (%1).<br /><br />"
-                              "If this setting is not selected, the entry will be available in all "
-                              "applications.</qt>",
-                               appName));
+                                      "entry to show only when using the current application (%1).<br /><br />"
+                                      "If this setting is not selected, the entry will be available in all "
+                                      "applications.</qt>",
+                                      appName));
         box->addWidget(m_appLocal);
-    }
-    else
+    } else {
         m_appLocal = 0L;
-    connect(m_urlEdit->lineEdit(),SIGNAL(textChanged(QString)),this,SLOT(urlChanged(QString)));
+    }
+    connect(m_urlEdit->lineEdit(), SIGNAL(textChanged(QString)), this, SLOT(urlChanged(QString)));
     if (!label.isEmpty()) {
         // editing existing entry
         m_labelEdit->setFocus();
@@ -155,7 +157,6 @@ KFilePlaceEditDialog::KFilePlaceEditDialog(bool allowGlobal, const QUrl& url,
         // new entry
         m_urlEdit->setFocus();
     }
-
 
     m_buttonBox = new QDialogButtonBox(this);
     m_buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
@@ -170,7 +171,7 @@ KFilePlaceEditDialog::~KFilePlaceEditDialog()
 {
 }
 
-void KFilePlaceEditDialog::urlChanged(const QString & text )
+void KFilePlaceEditDialog::urlChanged(const QString &text)
 {
     m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(!text.isEmpty());
 }
@@ -204,10 +205,10 @@ const QString &KFilePlaceEditDialog::icon() const
 
 bool KFilePlaceEditDialog::applicationLocal() const
 {
-    if ( !m_appLocal )
+    if (!m_appLocal) {
         return true;
+    }
 
     return m_appLocal->isChecked();
 }
-
 

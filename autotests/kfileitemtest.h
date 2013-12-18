@@ -54,5 +54,4 @@ private Q_SLOTS:
     void testIconNameForUrl();
 };
 
-
 #endif

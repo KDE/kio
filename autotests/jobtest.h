@@ -90,24 +90,24 @@ Q_SIGNALS:
     void exitLoop();
 
 protected Q_SLOTS:
-    void slotEntries( KIO::Job*, const KIO::UDSEntryList& lst );
-    void slotGetResult( KJob* );
-    void slotDataReq( KIO::Job*, QByteArray& );
-    void slotResult( KJob* );
-    void slotMimetype(KIO::Job*, const QString&);
+    void slotEntries(KIO::Job *, const KIO::UDSEntryList &lst);
+    void slotGetResult(KJob *);
+    void slotDataReq(KIO::Job *, QByteArray &);
+    void slotResult(KJob *);
+    void slotMimetype(KIO::Job *, const QString &);
 
 private:
     void enterLoop();
     enum { AlreadyExists = 1 };
-    void copyLocalFile( const QString& src, const QString& dest );
-    void copyLocalDirectory( const QString& src, const QString& dest, int flags = 0 );
-    void moveLocalFile( const QString& src, const QString& dest );
-    void moveLocalDirectory( const QString& src, const QString& dest );
+    void copyLocalFile(const QString &src, const QString &dest);
+    void copyLocalDirectory(const QString &src, const QString &dest, int flags = 0);
+    void moveLocalFile(const QString &src, const QString &dest);
+    void moveLocalDirectory(const QString &src, const QString &dest);
     //void copyFileToSystem( bool resolve_local_urls );
     void deleteSymlink(bool using_fast_path);
     void deleteManyDirs(bool using_fast_path);
     void deleteManyFilesTogether(bool using_fast_path);
-    void moveDestAlreadyExistsAutoRename(const QString& destDir, bool moveDirs);
+    void moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveDirs);
 
     int m_result;
     QByteArray m_data;

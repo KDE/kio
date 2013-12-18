@@ -7,7 +7,6 @@ extern "C" int xmlLoadExtDtdDefaultValue;
 #include "kio_help.h"
 #include "xslt.h"
 
-
 #include <QDebug>
 
 #include <QtCore/QString>
@@ -32,14 +31,13 @@ extern "C" int xmlLoadExtDtdDefaultValue;
 
 extern "C"
 {
-    Q_DECL_EXPORT int kdemain( int argc, char **argv )
+    Q_DECL_EXPORT int kdemain(int argc, char **argv)
     {
         setupStandardDirs();
 
         //qDebug() << "Starting " << getpid();
 
-        if (argc != 4)
-        {
+        if (argc != 4) {
             fprintf(stderr, "Usage: kio_help protocol domain-socket1 domain-socket2\n");
             exit(-1);
         }
@@ -56,6 +54,4 @@ extern "C"
         return 0;
     }
 }
-
-
 

@@ -60,11 +60,11 @@ public:
      * @param items The list of items that are to have their supported
      *              capabilities checked.
      */
-    KFileItemListProperties(const KFileItemList& items);
+    KFileItemListProperties(const KFileItemList &items);
     /**
      * @brief Copy constructor
      */
-    KFileItemListProperties(const KFileItemListProperties&);
+    KFileItemListProperties(const KFileItemListProperties &);
     /**
      * @brief Destructor
      */
@@ -72,11 +72,11 @@ public:
     /**
      * @brief Assignment operator
      */
-    KFileItemListProperties& operator=(const KFileItemListProperties& other);
+    KFileItemListProperties &operator=(const KFileItemListProperties &other);
     /**
      * Sets the items that are to have their supported capabilities checked.
      */
-    void setItems(const KFileItemList& items);
+    void setItems(const KFileItemList &items);
 
     /**
      * @brief Check if reading capability is supported

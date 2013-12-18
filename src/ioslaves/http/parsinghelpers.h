@@ -26,10 +26,14 @@
 
 struct HeaderField {
     HeaderField(bool multiValued)
-        { isMultiValued = multiValued; }
+    {
+        isMultiValued = multiValued;
+    }
     // QHash requires a default constructor
     HeaderField()
-        { isMultiValued = false; }
+    {
+        isMultiValued = false;
+    }
 
     bool isMultiValued;
     QList<QPair<int, int> > beginEnd;
@@ -56,9 +60,9 @@ private:
     int m_currentToken;
     const char *m_buffer;
     TokenIterator(const QList<QPair<int, int> > &tokens, const char *buffer)
-     : m_tokens(tokens),
-       m_currentToken(0),
-       m_buffer(buffer) {}
+        : m_tokens(tokens),
+          m_currentToken(0),
+          m_buffer(buffer) {}
 };
 
 class HeaderTokenizer : public QHash<QByteArray, HeaderField>

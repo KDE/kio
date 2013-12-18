@@ -36,7 +36,6 @@
 
 #include "ktcpsocket.h"
 
-
 class KSslInfoDialog::KSslInfoDialogPrivate
 {
 public:
@@ -51,11 +50,9 @@ public:
     KSslCertificateBox *issuer;
 };
 
-
-
 KSslInfoDialog::KSslInfoDialog(QWidget *parent)
- : QDialog(parent),
-   d(new KSslInfoDialogPrivate)
+    : QDialog(parent),
+      d(new KSslInfoDialogPrivate)
 {
     setWindowTitle(i18n("KDE SSL Information"));
     setAttribute(Qt::WA_DeleteOnClose);
@@ -98,12 +95,10 @@ KSslInfoDialog::KSslInfoDialog(QWidget *parent)
 #endif
 }
 
-
 KSslInfoDialog::~KSslInfoDialog()
 {
     delete d;
 }
-
 
 //slot
 void KSslInfoDialog::launchConfig()
@@ -111,20 +106,17 @@ void KSslInfoDialog::launchConfig()
     QProcess::startDetached("kcmshell4", QStringList() << "crypto");
 }
 
-
 void KSslInfoDialog::setMainPartEncrypted(bool mainEncrypted)
 {
     d->isMainPartEncrypted = mainEncrypted;
     updateWhichPartsEncrypted();
 }
 
-
 void KSslInfoDialog::setAuxiliaryPartsEncrypted(bool auxEncrypted)
 {
     d->auxPartsEncrypted = auxEncrypted;
     updateWhichPartsEncrypted();
 }
-
 
 void KSslInfoDialog::updateWhichPartsEncrypted()
 {
@@ -149,12 +141,12 @@ void KSslInfoDialog::updateWhichPartsEncrypted()
     }
 }
 
-
 void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
                                 const QString &ip, const QString &host,
                                 const QString &sslProtocol, const QString &cipher,
                                 int usedBits, int bits,
-                                const QList<QList<KSslError::Error> > &validationErrors) {
+                                const QList<QList<KSslError::Error> > &validationErrors)
+{
 
     d->certificateChain = certificateChain;
     d->certificateErrors = validationErrors;
@@ -170,7 +162,9 @@ void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
         };
         for (int j = 0; j < 3 && name.isEmpty(); j++)
 #warning QT5 PORT TO NEW API
+        {
             name = cert.subjectInfo(si[j]).first();
+        }
         d->ui.certSelector->addItem(name);
     }
     if (certificateChain.size() < 2) {
@@ -178,8 +172,9 @@ void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
     }
     connect(d->ui.certSelector, SIGNAL(currentIndexChanged(int)),
             this, SLOT(displayFromChain(int)));
-    if (d->certificateChain.isEmpty())
+    if (d->certificateChain.isEmpty()) {
         d->certificateChain.append(QSslCertificate());
+    }
     displayFromChain(0);
 
     d->ui.ip->setText(ip);
@@ -189,19 +184,18 @@ void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
     const QStringList cipherInfo = cipher.split('\n', QString::SkipEmptyParts);
     if (cipherInfo.size() >= 4) {
         d->ui.encryption->setText(i18nc("%1, using %2 bits of a %3 bit key", "%1, %2 %3", cipherInfo[0],
-                                  i18ncp("Part of: %1, using %2 bits of a %3 bit key",
-                                  "using %1 bit", "using %1 bits", usedBits),
-                                  i18ncp("Part of: %1, using %2 bits of a %3 bit key",
-                                  "of a %1 bit key", "of a %1 bit key", bits)));
+                                        i18ncp("Part of: %1, using %2 bits of a %3 bit key",
+                                               "using %1 bit", "using %1 bits", usedBits),
+                                        i18ncp("Part of: %1, using %2 bits of a %3 bit key",
+                                               "of a %1 bit key", "of a %1 bit key", bits)));
         d->ui.details->setText(QString("Auth = %1, Kx = %2, MAC = %3")
-                                      .arg(cipherInfo[1], cipherInfo[2],
-                                           cipherInfo[3]));
+                               .arg(cipherInfo[1], cipherInfo[2],
+                                    cipherInfo[3]));
     } else {
         d->ui.encryption->setText("");
         d->ui.details->setText("");
     }
 }
-
 
 void KSslInfoDialog::displayFromChain(int i)
 {
@@ -221,8 +215,8 @@ void KSslInfoDialog::displayFromChain(int i)
     d->ui.trusted->setText(trusted);
 
     QString vp = i18nc("%1 is the effective date of the certificate, %2 is the expiry date", "%1 to %2",
-                cert.effectiveDate().toString(),
-                cert.expiryDate().toString());
+                       cert.effectiveDate().toString(),
+                       cert.expiryDate().toString());
     d->ui.validityPeriod->setText(vp);
 
     d->ui.serial->setText(cert.serialNumber());
@@ -232,7 +226,6 @@ void KSslInfoDialog::displayFromChain(int i)
     d->subject->setCertificate(cert, KSslCertificateBox::Subject);
     d->issuer->setCertificate(cert, KSslCertificateBox::Issuer);
 }
-
 
 //static
 QList<QList<KSslError::Error> > KSslInfoDialog::errorsFromString(const QString &es)

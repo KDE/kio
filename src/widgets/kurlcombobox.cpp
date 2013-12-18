@@ -39,8 +39,8 @@ public:
 
     ~KUrlComboBoxPrivate()
     {
-      qDeleteAll( itemList );
-      qDeleteAll( defaultList );
+        qDeleteAll(itemList);
+        qDeleteAll(defaultList);
     }
 
     struct KUrlComboItem {
@@ -52,12 +52,12 @@ public:
     };
 
     void init(KUrlComboBox::Mode mode);
-    QString textForItem(const KUrlComboItem* item) const;
-    void insertUrlItem( const KUrlComboItem * );
-    QIcon getIcon( const QUrl& url ) const;
-    void updateItem(const KUrlComboItem *item, int index, const QIcon& icon);
+    QString textForItem(const KUrlComboItem *item) const;
+    void insertUrlItem(const KUrlComboItem *);
+    QIcon getIcon(const QUrl &url) const;
+    void updateItem(const KUrlComboItem *item, int index, const QIcon &icon);
 
-    void _k_slotActivated( int );
+    void _k_slotActivated(int);
 
     KUrlComboBox *m_parent;
     QIcon dirIcon;
@@ -66,17 +66,18 @@ public:
     KUrlComboBox::Mode myMode;
     QPoint m_dragPoint;
 
-    QList<const KUrlComboItem*> itemList;
-    QList<const KUrlComboItem*> defaultList;
-    QMap<int,const KUrlComboItem*> itemMapper;
+    QList<const KUrlComboItem *> itemList;
+    QList<const KUrlComboItem *> defaultList;
+    QMap<int, const KUrlComboItem *> itemMapper;
 
     QIcon opendirIcon;
 };
 
-QString KUrlComboBoxPrivate::textForItem(const KUrlComboItem* item) const
+QString KUrlComboBoxPrivate::textForItem(const KUrlComboItem *item) const
 {
-    if (!item->text.isEmpty())
+    if (!item->text.isEmpty()) {
         return item->text;
+    }
     QString text;
     QUrl url = item->url;
     if (myMode == KUrlComboBox::Directories) {
@@ -93,25 +94,22 @@ QString KUrlComboBoxPrivate::textForItem(const KUrlComboItem* item) const
     }
 }
 
-KUrlComboBox::KUrlComboBox( Mode mode, QWidget *parent)
-    : KComboBox( parent),d(new KUrlComboBoxPrivate(this))
+KUrlComboBox::KUrlComboBox(Mode mode, QWidget *parent)
+    : KComboBox(parent), d(new KUrlComboBoxPrivate(this))
 {
-    d->init( mode );
+    d->init(mode);
 }
 
-
-KUrlComboBox::KUrlComboBox( Mode mode, bool rw, QWidget *parent)
-    : KComboBox( rw, parent),d(new KUrlComboBoxPrivate(this))
+KUrlComboBox::KUrlComboBox(Mode mode, bool rw, QWidget *parent)
+    : KComboBox(rw, parent), d(new KUrlComboBoxPrivate(this))
 {
-    d->init( mode );
+    d->init(mode);
 }
-
 
 KUrlComboBox::~KUrlComboBox()
 {
     delete d;
 }
-
 
 void KUrlComboBoxPrivate::init(KUrlComboBox::Mode mode)
 {
@@ -119,18 +117,17 @@ void KUrlComboBoxPrivate::init(KUrlComboBox::Mode mode)
     urlAdded = false;
     myMaximum = 10; // default
     m_parent->setInsertPolicy(KUrlComboBox::NoInsert);
-    m_parent->setTrapReturnKey( true );
-    m_parent->setSizePolicy( QSizePolicy( QSizePolicy::Expanding, QSizePolicy::Fixed ));
-    m_parent->setLayoutDirection( Qt::LeftToRight );
-    if ( m_parent->completionObject() ) {
-        m_parent->completionObject()->setOrder( KCompletion::Sorted );
+    m_parent->setTrapReturnKey(true);
+    m_parent->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed));
+    m_parent->setLayoutDirection(Qt::LeftToRight);
+    if (m_parent->completionObject()) {
+        m_parent->completionObject()->setOrder(KCompletion::Sorted);
     }
 
     opendirIcon = QIcon::fromTheme(QLatin1String("folder-open"));
 
-    m_parent->connect( m_parent, SIGNAL(activated(int)), SLOT(_k_slotActivated(int)));
+    m_parent->connect(m_parent, SIGNAL(activated(int)), SLOT(_k_slotActivated(int)));
 }
-
 
 QStringList KUrlComboBox::urls() const
 {
@@ -138,32 +135,29 @@ QStringList KUrlComboBox::urls() const
     //const QLatin1Sting fileProt("file:");
     QStringList list;
     QString url;
-    for ( int i = d->defaultList.count(); i < count(); i++ ) {
-        url = itemText( i );
-        if ( !url.isEmpty() ) {
+    for (int i = d->defaultList.count(); i < count(); i++) {
+        url = itemText(i);
+        if (!url.isEmpty()) {
             //if ( url.at(0) == '/' )
             //    list.append( url.prepend( fileProt ) );
             //else
-                list.append( url );
+            list.append(url);
         }
     }
 
     return list;
 }
 
-
-void KUrlComboBox::addDefaultUrl( const QUrl& url, const QString& text )
+void KUrlComboBox::addDefaultUrl(const QUrl &url, const QString &text)
 {
-    addDefaultUrl( url, d->getIcon( url ), text );
+    addDefaultUrl(url, d->getIcon(url), text);
 }
 
-
-void KUrlComboBox::addDefaultUrl(const QUrl& url, const QIcon& icon,
-                                 const QString& text)
+void KUrlComboBox::addDefaultUrl(const QUrl &url, const QIcon &icon,
+                                 const QString &text)
 {
     d->defaultList.append(new KUrlComboBoxPrivate::KUrlComboItem(url, icon, text));
 }
-
 
 void KUrlComboBox::setDefaults()
 {
@@ -171,34 +165,36 @@ void KUrlComboBox::setDefaults()
     d->itemMapper.clear();
 
     const KUrlComboBoxPrivate::KUrlComboItem *item;
-    for ( int id = 0; id < d->defaultList.count(); id++ ) {
-        item = d->defaultList.at( id );
-        d->insertUrlItem( item );
+    for (int id = 0; id < d->defaultList.count(); id++) {
+        item = d->defaultList.at(id);
+        d->insertUrlItem(item);
     }
 }
 
-void KUrlComboBox::setUrls( const QStringList &urls )
+void KUrlComboBox::setUrls(const QStringList &urls)
 {
-    setUrls( urls, RemoveBottom );
+    setUrls(urls, RemoveBottom);
 }
 
-void KUrlComboBox::setUrls( const QStringList &_urls, OverLoadResolving remove )
+void KUrlComboBox::setUrls(const QStringList &_urls, OverLoadResolving remove)
 {
     setDefaults();
-    qDeleteAll( d->itemList );
+    qDeleteAll(d->itemList);
     d->itemList.clear();
     d->urlAdded = false;
 
-    if ( _urls.isEmpty() )
+    if (_urls.isEmpty()) {
         return;
+    }
 
     QStringList urls;
     QStringList::ConstIterator it = _urls.constBegin();
 
     // kill duplicates
-    while ( it != _urls.constEnd() ) {
-        if ( !urls.contains( *it ) )
+    while (it != _urls.constEnd()) {
+        if (!urls.contains(*it)) {
             urls += *it;
+        }
         ++it;
     }
 
@@ -206,14 +202,15 @@ void KUrlComboBox::setUrls( const QStringList &_urls, OverLoadResolving remove )
     /* Note: overload is an (old) C++ keyword, some compilers (KCC) choke
        on that, so call it Overload (capital 'O').  (matz) */
     int Overload = urls.count() - d->myMaximum + d->defaultList.count();
-    while ( Overload > 0) {
+    while (Overload > 0) {
         if (remove == RemoveBottom) {
-            if (!urls.isEmpty())
+            if (!urls.isEmpty()) {
                 urls.removeLast();
-        }
-        else {
-            if (!urls.isEmpty())
+            }
+        } else {
+            if (!urls.isEmpty()) {
                 urls.removeFirst();
+            }
         }
         Overload--;
     }
@@ -222,8 +219,8 @@ void KUrlComboBox::setUrls( const QStringList &_urls, OverLoadResolving remove )
 
     KUrlComboBoxPrivate::KUrlComboItem *item = 0L;
 
-    while ( it != urls.constEnd() ) {
-        if ( (*it).isEmpty() ) {
+    while (it != urls.constEnd()) {
+        if ((*it).isEmpty()) {
             ++it;
             continue;
         }
@@ -236,33 +233,34 @@ void KUrlComboBox::setUrls( const QStringList &_urls, OverLoadResolving remove )
         }
 
         item = new KUrlComboBoxPrivate::KUrlComboItem(u, d->getIcon(u));
-        d->insertUrlItem( item );
-        d->itemList.append( item );
+        d->insertUrlItem(item);
+        d->itemList.append(item);
         ++it;
     }
 }
 
-
-void KUrlComboBox::setUrl( const QUrl& url )
+void KUrlComboBox::setUrl(const QUrl &url)
 {
-    if ( url.isEmpty() )
+    if (url.isEmpty()) {
         return;
+    }
 
-    bool blocked = blockSignals( true );
+    bool blocked = blockSignals(true);
 
     // check for duplicates
-    QMap<int,const KUrlComboBoxPrivate::KUrlComboItem*>::ConstIterator mit = d->itemMapper.constBegin();
+    QMap<int, const KUrlComboBoxPrivate::KUrlComboItem *>::ConstIterator mit = d->itemMapper.constBegin();
     QString urlToInsert = url.toString(QUrl::StripTrailingSlash);
-    while ( mit != d->itemMapper.constEnd() ) {
-      Q_ASSERT( mit.value() );
+    while (mit != d->itemMapper.constEnd()) {
+        Q_ASSERT(mit.value());
 
-      if (urlToInsert == mit.value()->url.toString(QUrl::StripTrailingSlash)) {
-            setCurrentIndex( mit.key() );
+        if (urlToInsert == mit.value()->url.toString(QUrl::StripTrailingSlash)) {
+            setCurrentIndex(mit.key());
 
-            if (d->myMode == Directories)
-                d->updateItem( mit.value(), mit.key(), d->opendirIcon );
+            if (d->myMode == Directories) {
+                d->updateItem(mit.value(), mit.key(), d->opendirIcon);
+            }
 
-            blockSignals( blocked );
+            blockSignals(blocked);
             return;
         }
         ++mit;
@@ -279,52 +277,51 @@ void KUrlComboBox::setUrl( const QUrl& url )
 
     setDefaults();
 
-    int offset = qMax (0, d->itemList.count() - d->myMaximum + d->defaultList.count());
-    for ( int i = offset; i < d->itemList.count(); i++ )
-        d->insertUrlItem( d->itemList[i] );
+    int offset = qMax(0, d->itemList.count() - d->myMaximum + d->defaultList.count());
+    for (int i = offset; i < d->itemList.count(); i++) {
+        d->insertUrlItem(d->itemList[i]);
+    }
 
     KUrlComboBoxPrivate::KUrlComboItem *item = new KUrlComboBoxPrivate::KUrlComboItem(url, d->getIcon(url));
 
     const int id = count();
     const QString text = d->textForItem(item);
-    if (d->myMode == Directories)
+    if (d->myMode == Directories) {
         KComboBox::insertItem(id, d->opendirIcon, text);
-    else
+    } else {
         KComboBox::insertItem(id, item->icon, text);
+    }
 
-    d->itemMapper.insert( id, item );
-    d->itemList.append( item );
+    d->itemMapper.insert(id, item);
+    d->itemList.append(item);
 
-    setCurrentIndex( id );
+    setCurrentIndex(id);
     Q_ASSERT(!d->itemList.isEmpty());
     d->urlAdded = true;
-    blockSignals( blocked );
+    blockSignals(blocked);
 }
 
-
-void KUrlComboBoxPrivate::_k_slotActivated( int index )
+void KUrlComboBoxPrivate::_k_slotActivated(int index)
 {
     const KUrlComboItem *item = itemMapper.value(index);
 
-    if ( item ) {
-        m_parent->setUrl( item->url );
-        emit m_parent->urlActivated( item->url );
+    if (item) {
+        m_parent->setUrl(item->url);
+        emit m_parent->urlActivated(item->url);
     }
 }
 
-
-void KUrlComboBoxPrivate::insertUrlItem( const KUrlComboBoxPrivate::KUrlComboItem *item )
+void KUrlComboBoxPrivate::insertUrlItem(const KUrlComboBoxPrivate::KUrlComboItem *item)
 {
-    Q_ASSERT( item );
+    Q_ASSERT(item);
 
 // qDebug() << "insertURLItem " << d->textForItem(item);
     int id = m_parent->count();
     m_parent->KComboBox::insertItem(id, item->icon, textForItem(item));
-    itemMapper.insert( id, item );
+    itemMapper.insert(id, item);
 }
 
-
-void KUrlComboBox::setMaxItems( int max )
+void KUrlComboBox::setMaxItems(int max)
 {
     d->myMaximum = max;
 
@@ -333,14 +330,16 @@ void KUrlComboBox::setMaxItems( int max )
 
         setDefaults();
 
-        int offset = qMax (0, d->itemList.count() - d->myMaximum + d->defaultList.count());
-        for ( int i = offset; i < d->itemList.count(); i++ )
-            d->insertUrlItem( d->itemList[i] );
+        int offset = qMax(0, d->itemList.count() - d->myMaximum + d->defaultList.count());
+        for (int i = offset; i < d->itemList.count(); i++) {
+            d->insertUrlItem(d->itemList[i]);
+        }
 
-        if ( count() > 0 ) { // restore the previous currentItem
-            if ( oldCurrent >= count() )
-                oldCurrent = count() -1;
-            setCurrentIndex( oldCurrent );
+        if (count() > 0) {   // restore the previous currentItem
+            if (oldCurrent >= count()) {
+                oldCurrent = count() - 1;
+            }
+            setCurrentIndex(oldCurrent);
         }
     }
 }
@@ -350,35 +349,36 @@ int KUrlComboBox::maxItems() const
     return d->myMaximum;
 }
 
-void KUrlComboBox::removeUrl( const QUrl& url, bool checkDefaultURLs )
+void KUrlComboBox::removeUrl(const QUrl &url, bool checkDefaultURLs)
 {
-    QMap<int,const KUrlComboBoxPrivate::KUrlComboItem*>::ConstIterator mit = d->itemMapper.constBegin();
-    while ( mit != d->itemMapper.constEnd() ) {
-      if (url.toString(QUrl::StripTrailingSlash) == mit.value()->url.toString(QUrl::StripTrailingSlash)) {
-            if ( !d->itemList.removeAll( mit.value() ) && checkDefaultURLs )
-                d->defaultList.removeAll( mit.value() );
+    QMap<int, const KUrlComboBoxPrivate::KUrlComboItem *>::ConstIterator mit = d->itemMapper.constBegin();
+    while (mit != d->itemMapper.constEnd()) {
+        if (url.toString(QUrl::StripTrailingSlash) == mit.value()->url.toString(QUrl::StripTrailingSlash)) {
+            if (!d->itemList.removeAll(mit.value()) && checkDefaultURLs) {
+                d->defaultList.removeAll(mit.value());
+            }
         }
         ++mit;
     }
 
-    bool blocked = blockSignals( true );
+    bool blocked = blockSignals(true);
     setDefaults();
-    QListIterator<const KUrlComboBoxPrivate::KUrlComboItem*> it( d->itemList );
-    while ( it.hasNext() ) {
-        d->insertUrlItem( it.next() );
+    QListIterator<const KUrlComboBoxPrivate::KUrlComboItem *> it(d->itemList);
+    while (it.hasNext()) {
+        d->insertUrlItem(it.next());
     }
-    blockSignals( blocked );
+    blockSignals(blocked);
 }
 
-void KUrlComboBox::setCompletionObject(KCompletion* compObj, bool hsig)
+void KUrlComboBox::setCompletionObject(KCompletion *compObj, bool hsig)
 {
-    if ( compObj ) {
+    if (compObj) {
         // on a url combo box we want completion matches to be sorted. This way, if we are given
         // a suggestion, we match the "best" one. For instance, if we have "foo" and "foobar",
         // and we write "foo", the match is "foo" and never "foobar". (ereslibre)
-        compObj->setOrder( KCompletion::Sorted );
+        compObj->setOrder(KCompletion::Sorted);
     }
-    KComboBox::setCompletionObject( compObj, hsig );
+    KComboBox::setCompletionObject(compObj, hsig);
 }
 
 void KUrlComboBox::mousePressEvent(QMouseEvent *event)
@@ -404,7 +404,7 @@ void KUrlComboBox::mouseMoveEvent(QMouseEvent *event)
     const KUrlComboBoxPrivate::KUrlComboItem *item = d->itemMapper.value(index);
 
     if (item && !d->m_dragPoint.isNull() && event->buttons() & Qt::LeftButton &&
-        (event->pos() - d->m_dragPoint).manhattanLength() > QApplication::startDragDistance()) {
+            (event->pos() - d->m_dragPoint).manhattanLength() > QApplication::startDragDistance()) {
         QDrag *drag = new QDrag(this);
         QMimeData *mime = new QMimeData();
         mime->setUrls(QList<QUrl>() << item->url);
@@ -419,29 +419,28 @@ void KUrlComboBox::mouseMoveEvent(QMouseEvent *event)
     KComboBox::mouseMoveEvent(event);
 }
 
-QIcon KUrlComboBoxPrivate::getIcon( const QUrl& url ) const
+QIcon KUrlComboBoxPrivate::getIcon(const QUrl &url) const
 {
-    if (myMode == KUrlComboBox::Directories)
+    if (myMode == KUrlComboBox::Directories) {
         return dirIcon;
-    else
+    } else {
         return QIcon::fromTheme(KIO::iconNameForUrl(url));
+    }
 }
-
 
 // updates "item" with icon "icon"
 // KDE4 used to also say "and sets the URL instead of text", but this breaks const-ness,
 // now that it would require clearing the text, and I don't see the point since the URL was already in the text.
 void KUrlComboBoxPrivate::updateItem(const KUrlComboBoxPrivate::KUrlComboItem *item,
-                                     int index, const QIcon& icon)
+                                     int index, const QIcon &icon)
 {
-    m_parent->setItemIcon(index,icon);
+    m_parent->setItemIcon(index, icon);
 #if 0
-    if ( m_parent->isEditable() ) {
+    if (m_parent->isEditable()) {
         item->text.clear(); // so that it gets recalculated
     }
 #endif
     m_parent->setItemText(index, textForItem(item));
 }
-
 
 #include "moc_kurlcombobox.cpp"

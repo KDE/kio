@@ -25,7 +25,7 @@
 class KFilePlacesEventWatcher
     : public QObject
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
     KFilePlacesEventWatcher(QObject *parent = 0)
@@ -65,37 +65,37 @@ protected:
     virtual bool eventFilter(QObject *watched, QEvent *event)
     {
         switch (event->type()) {
-            case QEvent::MouseMove: {
-                    QAbstractItemView *view = qobject_cast<QAbstractItemView*>(watched->parent());
-                    const QModelIndex index = view->indexAt(static_cast<QMouseEvent*>(event)->pos());
-                    if (index != m_hoveredIndex) {
-                        if (m_hoveredIndex.isValid() && m_hoveredIndex != m_focusedIndex) {
-                            emit entryLeft(m_hoveredIndex);
-                        }
-                        if (index.isValid() && index != m_focusedIndex) {
-                            emit entryEntered(index);
-                        }
-                        m_hoveredIndex = index;
-                    }
-                }
-                break;
-            case QEvent::Leave:
+        case QEvent::MouseMove: {
+            QAbstractItemView *view = qobject_cast<QAbstractItemView *>(watched->parent());
+            const QModelIndex index = view->indexAt(static_cast<QMouseEvent *>(event)->pos());
+            if (index != m_hoveredIndex) {
                 if (m_hoveredIndex.isValid() && m_hoveredIndex != m_focusedIndex) {
                     emit entryLeft(m_hoveredIndex);
                 }
-                m_hoveredIndex = QModelIndex();
-                break;
-            case QEvent::MouseButtonPress:
-            case QEvent::MouseButtonDblClick: {
-                    // Prevent the selection clearing by clicking on the viewport directly
-                    QAbstractItemView *view = qobject_cast<QAbstractItemView*>(watched->parent());
-                    if (!view->indexAt(static_cast<QMouseEvent*>(event)->pos()).isValid()) {
-                        return true;
-                    }
+                if (index.isValid() && index != m_focusedIndex) {
+                    emit entryEntered(index);
                 }
-                break;
-            default:
-                return false;
+                m_hoveredIndex = index;
+            }
+        }
+        break;
+        case QEvent::Leave:
+            if (m_hoveredIndex.isValid() && m_hoveredIndex != m_focusedIndex) {
+                emit entryLeft(m_hoveredIndex);
+            }
+            m_hoveredIndex = QModelIndex();
+            break;
+        case QEvent::MouseButtonPress:
+        case QEvent::MouseButtonDblClick: {
+            // Prevent the selection clearing by clicking on the viewport directly
+            QAbstractItemView *view = qobject_cast<QAbstractItemView *>(watched->parent());
+            if (!view->indexAt(static_cast<QMouseEvent *>(event)->pos()).isValid()) {
+                return true;
+            }
+        }
+        break;
+        default:
+            return false;
         }
 
         return false;

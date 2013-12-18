@@ -23,17 +23,17 @@
 #include <QtCore/QString>
 #include <QtCore/QQueue>
 #include "klocalsocket.h"
-#define MIN_SOCKADDR_UN_LEN	(sizeof(quint16) + sizeof(char))
+#define MIN_SOCKADDR_UN_LEN (sizeof(quint16) + sizeof(char))
 
 class QSocketNotifier;
 
 class KLocalSocketPrivate
 {
 public:
-    KLocalSocket * const q;
+    KLocalSocket *const q;
     KLocalSocketPrivate(KLocalSocket *qq)
         : q(qq), type(KLocalSocket::UnknownLocalSocketType)
-        { }
+    { }
 
     QString localPath;
     QString peerPath;
@@ -45,13 +45,15 @@ public:
     void emitError(QAbstractSocket::SocketError, const QString &errorString);
 
     static inline KLocalSocketPrivate *d(KLocalSocket *aq)
-        { return aq->d; }
+    {
+        return aq->d;
+    }
 };
 
 class KLocalSocketServerPrivate
 {
 public:
-    KLocalSocketServer * const q;
+    KLocalSocketServer *const q;
     KLocalSocketServerPrivate(KLocalSocketServer *qq);
 
     int descriptor;

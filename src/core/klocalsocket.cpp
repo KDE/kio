@@ -23,7 +23,6 @@
 
 #include <QtCore/QSocketNotifier>
 
-
 //#define LocalSocket (QAbstractSocket::SocketType(int(QAbstractSocket::UdpSocket) + 1))
 
 void KLocalSocketPrivate::emitError(QAbstractSocket::SocketError error, const QString &errorString)
@@ -66,8 +65,9 @@ void KLocalSocket::connectToPath(const QString &path, LocalSocketType type, Open
 
 void KLocalSocket::connectToHostImplementation(const QString &path, quint16 type, OpenMode mode)
 {
-    if (state() == ConnectedState || state() == ConnectingState)
+    if (state() == ConnectedState || state() == ConnectingState) {
         return;
+    }
 
     d->localPath.clear();
     d->peerPath.clear();
@@ -135,8 +135,9 @@ bool KLocalSocketServer::isListening() const
 
 bool KLocalSocketServer::listen(const QString &path, KLocalSocket::LocalSocketType type)
 {
-    if (d->state == QAbstractSocket::ListeningState)
-        return false;           // already created
+    if (d->state == QAbstractSocket::ListeningState) {
+        return false;    // already created
+    }
 
     if (!d->listen(path, type)) {
         // the private set the error code
@@ -179,8 +180,9 @@ QString KLocalSocketServer::localPath() const
 
 bool KLocalSocketServer::waitForNewConnection(int msec, bool *timedOut)
 {
-    if (!isListening())
-        return false;           // can't wait if we're not not listening
+    if (!isListening()) {
+        return false;    // can't wait if we're not not listening
+    }
 
     return d->waitForNewConnection(msec, timedOut);
 }

@@ -59,7 +59,6 @@ private:
     KSslCertificateRulePrivate *const d;
 };
 
-
 //### document this too... :/
 class KIOCORE_EXPORT KSslCertificateManager
 {
@@ -73,7 +72,9 @@ public:
     // use caCertificates() instead
 #ifndef KDE_NO_DEPRECATED
     KIOCORE_DEPRECATED QList<QSslCertificate> rootCertificates() const
-        { return caCertificates(); }
+    {
+        return caCertificates();
+    }
 #endif
 
     QList<QSslCertificate> caCertificates() const;
@@ -89,6 +90,5 @@ private:
 
     KSslCertificateManagerPrivate *const d;
 };
-
 
 #endif

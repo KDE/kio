@@ -53,7 +53,7 @@ class KNewFileMenuPrivate;
  */
 class KIOFILEWIDGETS_EXPORT KNewFileMenu : public KActionMenu
 {
-  Q_OBJECT
+    Q_OBJECT
 public:
     /**
      * Constructor.
@@ -63,7 +63,7 @@ public:
      * If the parent object is a widget, it will also used as parent widget
      * for any dialogs that this class might show. Otherwise, call setParentWidget.
      */
-    KNewFileMenu(KActionCollection* collection, const QString& name, QObject* parent);
+    KNewFileMenu(KActionCollection *collection, const QString &name, QObject *parent);
 
     /**
      * Destructor.
@@ -93,16 +93,16 @@ public:
      * Sets a parent widget for the dialogs shown by KNewFileMenu.
      * This is strongly recommended, for apps with a main window.
      */
-    void setParentWidget(QWidget* parentWidget);
+    void setParentWidget(QWidget *parentWidget);
 
     /**
      * Set the files the popup is shown for
      * Call this before showing up the menu
      */
-    void setPopupFiles(const QList<QUrl>& files);
+    void setPopupFiles(const QList<QUrl> &files);
 
 #ifndef KDE_NO_DEPRECATED
-    void setPopupFiles(const QUrl& file)
+    void setPopupFiles(const QUrl &file)
     {
         setPopupFiles(QList<QUrl>() << file);
     }
@@ -113,7 +113,7 @@ public:
      * This is useful in specialized applications (while file managers, on
      * the other hand, want to show all mimetypes).
      */
-    void setSupportedMimeTypes(const QStringList& mime);
+    void setSupportedMimeTypes(const QStringList &mime);
 
     /**
      * Set if the directory view currently shows dot files.
@@ -147,12 +147,12 @@ Q_SIGNALS:
     /**
      * Emitted once the file (or symlink) @p url has been successfully created
      */
-    void fileCreated(const QUrl& url);
+    void fileCreated(const QUrl &url);
 
     /**
      * Emitted once the directory @p url has been successfully created
      */
-    void directoryCreated(const QUrl& url);
+    void directoryCreated(const QUrl &url);
 
 protected Q_SLOTS:
 
@@ -161,12 +161,11 @@ protected Q_SLOTS:
      * This method is virtual so that error handling can be reimplemented.
      * Make sure to call the base class slotResult when !job->error() though.
      */
-    virtual void slotResult(KJob* job);
-
+    virtual void slotResult(KJob *job);
 
 private:
     Q_PRIVATE_SLOT(d, void _k_slotAbortDialog())
-    Q_PRIVATE_SLOT(d, void _k_slotActionTriggered(QAction*))
+    Q_PRIVATE_SLOT(d, void _k_slotActionTriggered(QAction *))
     Q_PRIVATE_SLOT(d, void _k_slotCreateDirectory(bool writeHiddenDir = false))
     Q_PRIVATE_SLOT(d, void _k_slotCreateHiddenDirectory())
     Q_PRIVATE_SLOT(d, void _k_slotFillTemplates())
@@ -176,7 +175,7 @@ private:
     Q_PRIVATE_SLOT(d, void _k_slotSymLink())
     Q_PRIVATE_SLOT(d, void _k_slotUrlDesktopFile())
 
-    KNewFileMenuPrivate* const d;
+    KNewFileMenuPrivate *const d;
 
 };
 

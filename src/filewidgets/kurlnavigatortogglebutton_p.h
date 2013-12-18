@@ -37,16 +37,16 @@ class KUrlNavigatorToggleButton : public KUrlNavigatorButtonBase
     Q_OBJECT
 
 public:
-    explicit KUrlNavigatorToggleButton(QWidget* parent);
+    explicit KUrlNavigatorToggleButton(QWidget *parent);
     virtual ~KUrlNavigatorToggleButton();
 
     /** @see QWidget::sizeHint() */
     virtual QSize sizeHint() const;
 
 protected:
-    virtual void enterEvent(QEvent* event);
-    virtual void leaveEvent(QEvent* event);
-    virtual void paintEvent(QPaintEvent* event);
+    virtual void enterEvent(QEvent *event);
+    virtual void leaveEvent(QEvent *event);
+    virtual void paintEvent(QPaintEvent *event);
 
 private Q_SLOTS:
     void updateToolTip();

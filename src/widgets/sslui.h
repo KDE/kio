@@ -24,8 +24,10 @@
 #include <kio/kiowidgets_export.h>
 #include <ktcpsocket.h>
 
-namespace KIO {
-namespace SslUi {
+namespace KIO
+{
+namespace SslUi
+{
 
 enum RulesStorage {
     RecallRules = 1, ///< apply stored certificate rules (typically ignored errors)
@@ -34,9 +36,9 @@ enum RulesStorage {
 };
 
 bool KIOWIDGETS_EXPORT askIgnoreSslErrors(const KTcpSocket *socket,
-                                   RulesStorage storedRules = RecallAndStoreRules);
+        RulesStorage storedRules = RecallAndStoreRules);
 bool KIOWIDGETS_EXPORT askIgnoreSslErrors(const KSslErrorUiData &uiData,
-                                   RulesStorage storedRules = RecallAndStoreRules);
+        RulesStorage storedRules = RecallAndStoreRules);
 }
 }
 

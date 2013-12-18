@@ -47,17 +47,18 @@ public Q_SLOTS:
         // Start with a clean base dir
         cleanupTestCase();
         homeTmpDir(); // create it
-        if ( !QFile::exists( otherTmpDir() ) ) {
-            bool ok = QDir().mkdir( otherTmpDir() );
-            if ( !ok )
+        if (!QFile::exists(otherTmpDir())) {
+            bool ok = QDir().mkdir(otherTmpDir());
+            if (!ok) {
                 qFatal("Couldn't create %s", qPrintable(homeTmpDir()));
+            }
         }
     }
 
     void cleanupTestCase()
     {
-        delDir( homeTmpDir() );
-        delDir( otherTmpDir() );
+        delDir(homeTmpDir());
+        delDir(otherTmpDir());
     }
 
     void pasteFileToOtherPartition()
@@ -65,29 +66,29 @@ public Q_SLOTS:
         const QString filePath = homeTmpDir() + "fileFromHome";
         const QString dest = otherTmpDir() + "fileFromHome_copied";
         QFile::remove(dest);
-        createTestFile( filePath );
+        createTestFile(filePath);
 
-        QMimeData* mimeData = new QMimeData;
+        QMimeData *mimeData = new QMimeData;
         QUrl fileUrl = QUrl::fromLocalFile(filePath);
         mimeData->setUrls(QList<QUrl>() << fileUrl);
         QApplication::clipboard()->setMimeData(mimeData);
 
-        KIO::Job* job = KIO::pasteClipboard(QUrl::fromLocalFile(otherTmpDir()), static_cast<QWidget*>(0));
+        KIO::Job *job = KIO::pasteClipboard(QUrl::fromLocalFile(otherTmpDir()), static_cast<QWidget *>(0));
         job->setUiDelegate(0);
         bool ok = job->exec();
-        QVERIFY( ok );
+        QVERIFY(ok);
 
-        QVERIFY( QFile::exists( dest ) );
-        QVERIFY( QFile::exists( filePath ) ); // still there
+        QVERIFY(QFile::exists(dest));
+        QVERIFY(QFile::exists(filePath));     // still there
     }
 
 private:
-    static void delDir(const QString& pathOrUrl) {
-        KIO::Job* job = KIO::del(QUrl::fromLocalFile(pathOrUrl), KIO::HideProgressInfo);
+    static void delDir(const QString &pathOrUrl)
+    {
+        KIO::Job *job = KIO::del(QUrl::fromLocalFile(pathOrUrl), KIO::HideProgressInfo);
         job->setUiDelegate(0);
         job->exec();
     }
-
 
 };
 

@@ -2,7 +2,7 @@
 #include <QDebug>
 #include <kpropertiesdialog.h>
 
-int main ( int argc, char** argv )
+int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
 
@@ -17,8 +17,8 @@ int main ( int argc, char** argv )
     // and asking for the dialog to be modal too creates problems.
     // (A non-modal, URL-only dialog is the one kicker uses for app buttons, no problem there)
     {
-    KPropertiesDialog dlg( u, 0 );
-    dlg.exec();
+        KPropertiesDialog dlg(u, 0);
+        dlg.exec();
     }
 
     return 0;

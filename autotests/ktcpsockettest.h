@@ -46,7 +46,6 @@ public Q_SLOTS: //auxiliary slots to check signal emission from the socket
     void states_hostFound();
 };
 
-
 class QTcpServer;
 class QTcpSocket;
 

@@ -43,7 +43,10 @@ tst_KLocalSocketServer::~tst_KLocalSocketServer()
 class TimedConnection: public QThread
 {
 public:
-    ~TimedConnection() { wait(); }
+    ~TimedConnection()
+    {
+        wait();
+    }
 protected:
     void run()
     {
@@ -261,8 +264,9 @@ void tst_KLocalSocketServer::abstractUnixSocket()
     QFETCH(QString, path);
     QFETCH(bool, success);
 
-    if (success)
+    if (success) {
         QVERIFY(!QFile::exists(path));
+    }
 
     KLocalSocketServer server;
     QCOMPARE(server.listen(path, KLocalSocket::AbstractUnixSocket), success);

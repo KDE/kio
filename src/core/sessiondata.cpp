@@ -28,38 +28,40 @@
 #include <kprotocolmanager.h>
 #include <ksharedconfig.h>
 
-
 #include <kio/slaveconfig.h>
 #include <kio/http_slave_defaults.h>
 #include <qstandardpaths.h>
 
-namespace KIO {
+namespace KIO
+{
 
 /***************************** SessionData::AuthData ************************/
 #if 0
-struct SessionData::AuthData
-{
+struct SessionData::AuthData {
 
 public:
-  AuthData() {}
+    AuthData() {}
 
-  AuthData(const QByteArray& k, const QByteArray& g, bool p) {
-    key = k;
-    group = g;
-    persist = p;
-  }
+    AuthData(const QByteArray &k, const QByteArray &g, bool p)
+    {
+        key = k;
+        group = g;
+        persist = p;
+    }
 
-  bool isKeyMatch( const QByteArray& val ) const {
-    return (val==key);
-  }
+    bool isKeyMatch(const QByteArray &val) const
+    {
+        return (val == key);
+    }
 
-  bool isGroupMatch( const QByteArray& val ) const {
-    return (val==group);
-  }
+    bool isGroupMatch(const QByteArray &val) const
+    {
+        return (val == group);
+    }
 
-  QByteArray key;
-  QByteArray group;
-  bool persist;
+    QByteArray key;
+    QByteArray group;
+    bool persist;
 };
 #endif
 
@@ -68,51 +70,57 @@ public:
 class SessionData::SessionDataPrivate
 {
 public:
-  SessionDataPrivate() {
-    useCookie = true;
-    initDone = false;
-  }
+    SessionDataPrivate()
+    {
+        useCookie = true;
+        initDone = false;
+    }
 
-  bool initDone;
-  bool useCookie;
-  QString charsets;
-  QString language;
+    bool initDone;
+    bool useCookie;
+    QString charsets;
+    QString language;
 };
 
 SessionData::SessionData()
-	:d(new SessionDataPrivate)
+    : d(new SessionDataPrivate)
 {
 //  authData = 0;
 }
 
 SessionData::~SessionData()
 {
-  delete d;
+    delete d;
 }
 
-void SessionData::configDataFor( MetaData &configData, const QString &proto,
-                             const QString & )
+void SessionData::configDataFor(MetaData &configData, const QString &proto,
+                                const QString &)
 {
-  if ( (proto.startsWith(QLatin1String("http"), Qt::CaseInsensitive)) ||
-       (proto.startsWith(QLatin1String("webdav"), Qt::CaseInsensitive)) )
-  {
-    if (!d->initDone)
-        reset();
+    if ((proto.startsWith(QLatin1String("http"), Qt::CaseInsensitive)) ||
+            (proto.startsWith(QLatin1String("webdav"), Qt::CaseInsensitive))) {
+        if (!d->initDone) {
+            reset();
+        }
 
-    // These might have already been set so check first
-    // to make sure that we do not trumpt settings sent
-    // by apps or end-user.
-    if ( configData["Cookies"].isEmpty() )
-        configData["Cookies"] = d->useCookie ? "true" : "false";
-    if ( configData["Languages"].isEmpty() )
-        configData["Languages"] = d->language;
-    if ( configData["Charsets"].isEmpty() )
-        configData["Charsets"] = d->charsets;
-    if ( configData["CacheDir"].isEmpty() )
-        configData["CacheDir"] = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + '/' + "http";
-    if ( configData["UserAgent"].isEmpty() )
-        configData["UserAgent"] = KProtocolManager::defaultUserAgent();
-  }
+        // These might have already been set so check first
+        // to make sure that we do not trumpt settings sent
+        // by apps or end-user.
+        if (configData["Cookies"].isEmpty()) {
+            configData["Cookies"] = d->useCookie ? "true" : "false";
+        }
+        if (configData["Languages"].isEmpty()) {
+            configData["Languages"] = d->language;
+        }
+        if (configData["Charsets"].isEmpty()) {
+            configData["Charsets"] = d->charsets;
+        }
+        if (configData["CacheDir"].isEmpty()) {
+            configData["CacheDir"] = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + '/' + "http";
+        }
+        if (configData["UserAgent"].isEmpty()) {
+            configData["UserAgent"] = KProtocolManager::defaultUserAgent();
+        }
+    }
 }
 
 void SessionData::reset()

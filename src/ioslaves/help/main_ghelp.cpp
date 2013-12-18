@@ -10,7 +10,6 @@ extern "C" int xmlLoadExtDtdDefaultValue;
 
 #include <QDebug>
 
-
 #include <QtCore/QString>
 
 #include <stdlib.h>
@@ -33,14 +32,13 @@ extern "C" int xmlLoadExtDtdDefaultValue;
 
 extern "C"
 {
-    Q_DECL_EXPORT int kdemain( int argc, char **argv )
+    Q_DECL_EXPORT int kdemain(int argc, char **argv)
     {
         setupStandardDirs();
 
         //qDebug() << "Starting " << getpid();
 
-        if (argc != 4)
-        {
+        if (argc != 4) {
             fprintf(stderr, "Usage: kio_ghelp protocol domain-socket1 domain-socket2\n");
             exit(-1);
         }
@@ -50,13 +48,11 @@ extern "C"
         xmlLoadExtDtdDefaultValue = 1;
         exsltRegisterAll();
 
-        HelpProtocol slave( true, argv[2], argv[3] );
+        HelpProtocol slave(true, argv[2], argv[3]);
         slave.dispatchLoop();
 
         //qDebug() << "Done";
         return 0;
     }
 }
-
-
 

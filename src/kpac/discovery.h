@@ -1,4 +1,4 @@
-/* 
+/*
    Copyright (c) 2003 Malte Starostik <malte@kde.org>
 
    This library is free software; you can redistribute it and/or
@@ -17,7 +17,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #ifndef KPAC_DISCOVERY_H
 #define KPAC_DISCOVERY_H
 
@@ -27,27 +26,26 @@ class QProcess;
 
 namespace KPAC
 {
-    class Discovery : public Downloader
-    {
-        Q_OBJECT
-    public:
-        Discovery( QObject* );
+class Discovery : public Downloader
+{
+    Q_OBJECT
+public:
+    Discovery(QObject *);
 
-    protected Q_SLOTS:
-        virtual void failed();
+protected Q_SLOTS:
+    virtual void failed();
 
-    private Q_SLOTS:
-        void helperOutput();
+private Q_SLOTS:
+    void helperOutput();
 
-    private:
-        bool initDomainName();
-        bool checkDomain() const;
+private:
+    bool initDomainName();
+    bool checkDomain() const;
 
-        QProcess* m_helper;
-        QString m_domainName;
-    };
+    QProcess *m_helper;
+    QString m_domainName;
+};
 }
 
 #endif // KPAC_DISCOVERY_H
 
-// vim: ts=4 sw=4 et

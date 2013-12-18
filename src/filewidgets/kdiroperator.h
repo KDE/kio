@@ -106,8 +106,7 @@ public:
     /**
      * The various action types. These values can be or'd together
      */
-    enum ActionType
-    {
+    enum ActionType {
         SortActions =  1,
         ViewActions =  2,
         NavActions  =  4,
@@ -151,7 +150,7 @@ public:
      * @see KDirLister::setNameFilter
      * @see nameFilter
      */
-    void setNameFilter(const QString& filter);
+    void setNameFilter(const QString &filter);
 
     /**
      * @returns the current namefilter.
@@ -176,7 +175,7 @@ public:
      * @see KDirLister::setMimeFilter
      * @see mimeFilter
      */
-    void setMimeFilter(const QStringList& mimetypes);
+    void setMimeFilter(const QStringList &mimetypes);
 
     /**
      * @returns the current mime filter.
@@ -203,7 +202,7 @@ public:
      * @see newFileMenuSupportedMimeTypes
      * @since 4.5
      */
-    void setNewFileMenuSupportedMimeTypes(const QStringList& mime);
+    void setNewFileMenuSupportedMimeTypes(const QStringList &mime);
 
     /**
      * @returns the current Supported Mimes Types.
@@ -230,33 +229,33 @@ public:
      * @param clearforward specifies whether the "forward" history should be cleared.
      * @param url the URL to set
      */
-    virtual void setUrl(const QUrl& url, bool clearforward);
+    virtual void setUrl(const QUrl &url, bool clearforward);
 
     /**
      * Clears the current selection and attempts to set @p url
      * the current url file.
      */
-    void setCurrentItem(const QUrl& url);
+    void setCurrentItem(const QUrl &url);
 
     /**
      * Clears the current selection and attempts to set @p item
      * as the current item.
      */
-    void setCurrentItem(const KFileItem& item);
+    void setCurrentItem(const KFileItem &item);
 
     /**
      * Clears the current selection and attempts to set @p urls
      * the current url files.
      * @since 4.2
      */
-    void setCurrentItems(const QList<QUrl>& urls);
+    void setCurrentItems(const QList<QUrl> &urls);
 
     /**
      * Clears the current selection and attempts to set @p items
      * as the current items.
      * @since 4.2
      */
-    void setCurrentItems(const KFileItemList& items);
+    void setCurrentItems(const KFileItemList &items);
 
     /**
      * Sets a new view to be used for showing and browsing files.
@@ -271,7 +270,7 @@ public:
      * @returns the currently used view.
      * @see setView
      */
-    QAbstractItemView* view() const;
+    QAbstractItemView *view() const;
 
     /**
      * Sets one of the predefined fileviews.
@@ -297,13 +296,13 @@ public:
     /**
      * @returns the object listing the directory
      */
-    KDirLister* dirLister() const;
+    KDirLister *dirLister() const;
 
     /**
      * @returns the progress widget, that is shown during directory listing.
      * You can for example reparent() it to put it into a statusbar.
      */
-    QProgressBar* progressBar() const;
+    QProgressBar *progressBar() const;
 
     /**
      * Sets the listing/selection mode for the views, an OR'ed combination of
@@ -360,7 +359,7 @@ public:
      * has been called. It will be implicitly called from makeCompletion()
      * or makeDirCompletion()
      */
-    KCompletion* completionObject() const;
+    KCompletion *completionObject() const;
 
     /**
      * @returns a KCompletion object, containing only all directories of the
@@ -370,7 +369,7 @@ public:
      * prepareCompletionObjects() has been called. It will be implicitly
      * called from makeCompletion() or makeDirCompletion()
      */
-    KCompletion* dirCompletionObject() const;
+    KCompletion *dirCompletionObject() const;
 
     /**
      * an accessor to a collection of all available Actions. The actions
@@ -413,7 +412,7 @@ public:
      *
      * @returns all available Actions
      */
-    KActionCollection* actionCollection() const;
+    KActionCollection *actionCollection() const;
 
     /**
      * Sets the config object and the to be used group in KDirOperator. This
@@ -433,12 +432,12 @@ public:
      * @see viewConfig
      * @see viewConfigGroup
      */
-    virtual void setViewConfig(KConfigGroup& configGroup);
+    virtual void setViewConfig(KConfigGroup &configGroup);
 
     /*
      * @returns the group set by setViewConfig configuration.
      */
-    KConfigGroup* viewConfigGroup() const;
+    KConfigGroup *viewConfigGroup() const;
 
     /**
      * Reads the default settings for a view, i.e. the default KFile::FileView.
@@ -453,7 +452,7 @@ public:
      * @see setViewConfig
      * @see writeConfig
      */
-    virtual void readConfig(const KConfigGroup& configGroup);
+    virtual void readConfig(const KConfigGroup &configGroup);
 
     /**
      * Saves the current settings like sorting, simple or detailed view.
@@ -461,7 +460,7 @@ public:
      * @see readConfig
      * @see setViewConfig
      */
-    virtual void writeConfig(KConfigGroup& configGroup);
+    virtual void writeConfig(KConfigGroup &configGroup);
 
     /**
      * This toggles between double/single click file and directory selection mode.
@@ -489,7 +488,7 @@ public:
      * to the user.
      * @returns true if the directory could be created.
      */
-    virtual bool mkdir(const QString& directory, bool enterDirectory = true);
+    virtual bool mkdir(const QString &directory, bool enterDirectory = true);
 
     /**
      * Starts and returns a KIO::DeleteJob to delete the given @p items.
@@ -499,7 +498,7 @@ public:
      * @param ask specifies whether a confirmation dialog should be shown
      * @param showProgress passed to the DeleteJob to show a progress dialog
      */
-    virtual KIO::DeleteJob* del(const KFileItemList& items, QWidget *parent = 0,
+    virtual KIO::DeleteJob *del(const KFileItemList &items, QWidget *parent = 0,
                                 bool ask = true, bool showProgress = true);
 
     /**
@@ -560,7 +559,7 @@ public:
      * @param ask specifies whether a confirmation dialog should be shown
      * @param showProgress passed to the CopyJob to show a progress dialog
      */
-    virtual KIO::CopyJob* trash(const KFileItemList& items, QWidget *parent,
+    virtual KIO::CopyJob *trash(const KFileItemList &items, QWidget *parent,
                                 bool ask = true, bool showProgress = true);
 
     /**
@@ -628,7 +627,7 @@ protected:
      * @see KFile::FileView
      * @see setView
      */
-    virtual QAbstractItemView* createView(QWidget *parent, KFile::FileView viewKind);
+    virtual QAbstractItemView *createView(QWidget *parent, KFile::FileView viewKind);
 
     /**
      * Sets a custom KDirLister to list directories.
@@ -638,7 +637,7 @@ protected:
 
     virtual void resizeEvent(QResizeEvent *event);
 
-    virtual void keyPressEvent(QKeyEvent * event);
+    virtual void keyPressEvent(QKeyEvent *event);
 
     /**
      * Sets up all the actions. Called from the constructor, you usually
@@ -740,12 +739,12 @@ public Q_SLOTS:
     /**
      * Tries to complete the given string (only completes files).
      */
-    QString makeCompletion(const QString&);
+    QString makeCompletion(const QString &);
 
     /**
      * Tries to complete the given string (only completes directores).
      */
-    QString makeDirCompletion(const QString&);
+    QString makeDirCompletion(const QString &);
 
     /**
      * Trashes the currently selected files/directories.
@@ -835,9 +834,9 @@ protected Q_SLOTS:
     void slotCompletionMatch(const QString &match);
 
 Q_SIGNALS:
-    void urlEntered(const QUrl&);
+    void urlEntered(const QUrl &);
     void updateInformation(int files, int dirs);
-    void completion(const QString&);
+    void completion(const QString &);
     void finishedLoading();
 
     /**
@@ -872,7 +871,7 @@ Q_SIGNALS:
      * @param menu the context menu, pre-populated with the file-management actions
      * @since 4.2
      */
-    void contextMenuAboutToShow(const KFileItem& item, QMenu* menu);
+    void contextMenuAboutToShow(const KFileItem &item, QMenu *menu);
 
     /**
      * Will notify that the icon size has changed. Since we save the icon size depending
@@ -884,42 +883,42 @@ Q_SIGNALS:
 
 private:
     class Private;
-    Private* const d;
+    Private *const d;
 
-    Q_PRIVATE_SLOT( d, void _k_slotDetailedView() )
-    Q_PRIVATE_SLOT( d, void _k_slotSimpleView() )
-    Q_PRIVATE_SLOT( d, void _k_slotTreeView() )
-    Q_PRIVATE_SLOT( d, void _k_slotDetailedTreeView() )
-    Q_PRIVATE_SLOT( d, void _k_slotToggleHidden(bool) )
-    Q_PRIVATE_SLOT( d, void _k_togglePreview(bool) )
-    Q_PRIVATE_SLOT( d, void _k_toggleInlinePreviews(bool) )
-    Q_PRIVATE_SLOT( d, void _k_slotOpenFileManager() )
-    Q_PRIVATE_SLOT( d, void _k_slotSortByName() )
-    Q_PRIVATE_SLOT( d, void _k_slotSortBySize() )
-    Q_PRIVATE_SLOT( d, void _k_slotSortByDate() )
-    Q_PRIVATE_SLOT( d, void _k_slotSortByType() )
-    Q_PRIVATE_SLOT( d, void _k_slotSortReversed(bool) )
-    Q_PRIVATE_SLOT( d, void _k_slotToggleDirsFirst() )
-    Q_PRIVATE_SLOT( d, void _k_slotToggleIgnoreCase() )
-    Q_PRIVATE_SLOT( d, void _k_slotStarted() )
-    Q_PRIVATE_SLOT( d, void _k_slotProgress(int) )
-    Q_PRIVATE_SLOT( d, void _k_slotShowProgress() )
-    Q_PRIVATE_SLOT( d, void _k_slotIOFinished() )
-    Q_PRIVATE_SLOT( d, void _k_slotCanceled() )
-    Q_PRIVATE_SLOT( d, void _k_slotRedirected(const QUrl&) )
-    Q_PRIVATE_SLOT( d, void _k_slotProperties() )
-    Q_PRIVATE_SLOT( d, void _k_slotActivated(const QModelIndex&) )
-    Q_PRIVATE_SLOT( d, void _k_slotSelectionChanged() )
-    Q_PRIVATE_SLOT( d, void _k_openContextMenu(const QPoint&) )
-    Q_PRIVATE_SLOT( d, void _k_triggerPreview(const QModelIndex&) )
-    Q_PRIVATE_SLOT( d, void _k_showPreview() )
-    Q_PRIVATE_SLOT( d, void _k_slotSplitterMoved(int, int) )
-    Q_PRIVATE_SLOT( d, void _k_assureVisibleSelection() )
-    Q_PRIVATE_SLOT( d, void _k_synchronizeSortingState(int, Qt::SortOrder) )
-    Q_PRIVATE_SLOT( d, void _k_slotChangeDecorationPosition() )
-    Q_PRIVATE_SLOT( d, void _k_slotExpandToUrl(const QModelIndex&) )
-    Q_PRIVATE_SLOT( d, void _k_slotItemsChanged() )
-    Q_PRIVATE_SLOT( d, void _k_slotDirectoryCreated(const QUrl&) )
+    Q_PRIVATE_SLOT(d, void _k_slotDetailedView())
+    Q_PRIVATE_SLOT(d, void _k_slotSimpleView())
+    Q_PRIVATE_SLOT(d, void _k_slotTreeView())
+    Q_PRIVATE_SLOT(d, void _k_slotDetailedTreeView())
+    Q_PRIVATE_SLOT(d, void _k_slotToggleHidden(bool))
+    Q_PRIVATE_SLOT(d, void _k_togglePreview(bool))
+    Q_PRIVATE_SLOT(d, void _k_toggleInlinePreviews(bool))
+    Q_PRIVATE_SLOT(d, void _k_slotOpenFileManager())
+    Q_PRIVATE_SLOT(d, void _k_slotSortByName())
+    Q_PRIVATE_SLOT(d, void _k_slotSortBySize())
+    Q_PRIVATE_SLOT(d, void _k_slotSortByDate())
+    Q_PRIVATE_SLOT(d, void _k_slotSortByType())
+    Q_PRIVATE_SLOT(d, void _k_slotSortReversed(bool))
+    Q_PRIVATE_SLOT(d, void _k_slotToggleDirsFirst())
+    Q_PRIVATE_SLOT(d, void _k_slotToggleIgnoreCase())
+    Q_PRIVATE_SLOT(d, void _k_slotStarted())
+    Q_PRIVATE_SLOT(d, void _k_slotProgress(int))
+    Q_PRIVATE_SLOT(d, void _k_slotShowProgress())
+    Q_PRIVATE_SLOT(d, void _k_slotIOFinished())
+    Q_PRIVATE_SLOT(d, void _k_slotCanceled())
+    Q_PRIVATE_SLOT(d, void _k_slotRedirected(const QUrl &))
+    Q_PRIVATE_SLOT(d, void _k_slotProperties())
+    Q_PRIVATE_SLOT(d, void _k_slotActivated(const QModelIndex &))
+    Q_PRIVATE_SLOT(d, void _k_slotSelectionChanged())
+    Q_PRIVATE_SLOT(d, void _k_openContextMenu(const QPoint &))
+    Q_PRIVATE_SLOT(d, void _k_triggerPreview(const QModelIndex &))
+    Q_PRIVATE_SLOT(d, void _k_showPreview())
+    Q_PRIVATE_SLOT(d, void _k_slotSplitterMoved(int, int))
+    Q_PRIVATE_SLOT(d, void _k_assureVisibleSelection())
+    Q_PRIVATE_SLOT(d, void _k_synchronizeSortingState(int, Qt::SortOrder))
+    Q_PRIVATE_SLOT(d, void _k_slotChangeDecorationPosition())
+    Q_PRIVATE_SLOT(d, void _k_slotExpandToUrl(const QModelIndex &))
+    Q_PRIVATE_SLOT(d, void _k_slotItemsChanged())
+    Q_PRIVATE_SLOT(d, void _k_slotDirectoryCreated(const QUrl &))
 };
 
 #endif

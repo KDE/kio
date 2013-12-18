@@ -51,7 +51,7 @@ private Q_SLOTS:
 
 private:
     void doUndo();
-    TestUiInterface* m_uiInterface;
+    TestUiInterface *m_uiInterface;
 };
 
 #endif

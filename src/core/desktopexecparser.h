@@ -60,10 +60,10 @@ public:
      */
     ~DesktopExecParser();
 
-     /**
-      * If @p tempFiles is set to true and the urls given to the constructor are local files,
-      * they will be deleted when the application exits.
-      */
+    /**
+     * If @p tempFiles is set to true and the urls given to the constructor are local files,
+     * they will be deleted when the application exits.
+     */
     void setUrlsAreTempFiles(bool tempFiles);
 
     /**

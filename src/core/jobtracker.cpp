@@ -19,17 +19,18 @@
 #include "jobtracker.h"
 #include <kjobtrackerinterface.h>
 
-static KJobTrackerInterface* s_tracker = 0;
+static KJobTrackerInterface *s_tracker = 0;
 Q_GLOBAL_STATIC(KJobTrackerInterface, globalDummyTracker)
 
 KJobTrackerInterface *KIO::getJobTracker()
 {
-    if (!s_tracker)
-        s_tracker = globalDummyTracker(); // don't return NULL, caller doesn't expect that
+    if (!s_tracker) {
+        s_tracker = globalDummyTracker();    // don't return NULL, caller doesn't expect that
+    }
     return s_tracker;
 }
 
-void KIO::setJobTracker(KJobTrackerInterface* tracker)
+void KIO::setJobTracker(KJobTrackerInterface *tracker)
 {
     s_tracker = tracker;
 }

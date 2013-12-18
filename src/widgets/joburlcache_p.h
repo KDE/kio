@@ -27,7 +27,7 @@ class JobUrlCache : public QObject
 {
     Q_OBJECT
 public:
-    static JobUrlCache& instance();
+    static JobUrlCache &instance();
 
     void requestJobUrlsChanged();
 

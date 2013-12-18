@@ -50,7 +50,7 @@ public:
      * @param parent Parent widget where the bookmark selector
      *               is embedded into.
      */
-    KUrlNavigatorPlacesSelector(QWidget* parent, KFilePlacesModel* placesModel);
+    KUrlNavigatorPlacesSelector(QWidget *parent, KFilePlacesModel *placesModel);
 
     virtual ~KUrlNavigatorPlacesSelector();
 
@@ -61,7 +61,7 @@ public:
      * is selected. If there are more than one possible parent URL candidates,
      * the bookmark which covers the bigger range of the URL is selected.
      */
-    void updateSelection(const QUrl& url);
+    void updateSelection(const QUrl &url);
 
     /** Returns the selected bookmark. */
     QUrl selectedPlaceUrl() const;
@@ -76,25 +76,25 @@ Q_SIGNALS:
      * Is send when a bookmark has been activated by the user.
      * @param url URL of the selected place.
      */
-    void placeActivated(const QUrl& url);
+    void placeActivated(const QUrl &url);
 
 protected:
     /**
      * Draws the icon of the selected Url as content of the Url
      * selector.
      */
-    virtual void paintEvent(QPaintEvent* event);
+    virtual void paintEvent(QPaintEvent *event);
 
-    virtual void dragEnterEvent(QDragEnterEvent* event);
-    virtual void dragLeaveEvent(QDragLeaveEvent* event);
-    virtual void dropEvent(QDropEvent* event);
+    virtual void dragEnterEvent(QDragEnterEvent *event);
+    virtual void dragLeaveEvent(QDragLeaveEvent *event);
+    virtual void dropEvent(QDropEvent *event);
 
 private Q_SLOTS:
     /**
      * Updates the selected index and the icon to the bookmark
      * which is indicated by the triggered action \a action.
      */
-    void activatePlace(QAction* action);
+    void activatePlace(QAction *action);
 
     void updateMenu();
     void updateTeardownAction();
@@ -104,8 +104,8 @@ private Q_SLOTS:
 private:
     int m_selectedItem;
     QPersistentModelIndex m_lastClickedIndex;
-    QMenu* m_placesMenu;
-    KFilePlacesModel* m_placesModel;
+    QMenu *m_placesMenu;
+    KFilePlacesModel *m_placesModel;
     QUrl m_selectedUrl;
 };
 

@@ -73,13 +73,16 @@ static bool isValidPercentEncoding(const QByteArray &data)
     const int last = data.length() - 1;
     const char *d = data.constData();
 
-    while ( (i = data.indexOf('%', i)) != -1) {
-        if ( i >= last - 2 )
+    while ((i = data.indexOf('%', i)) != -1) {
+        if (i >= last - 2) {
             return false;
-        if ( ! isxdigit(d[i + 1]) )
+        }
+        if (! isxdigit(d[i + 1])) {
             return false;
-        if ( ! isxdigit(d[i + 2]) )
+        }
+        if (! isxdigit(d[i + 2])) {
             return false;
+        }
         i++;
     }
 
@@ -113,7 +116,6 @@ QList<QByteArray> TokenIterator::all() const
     return ret;
 }
 
-
 HeaderTokenizer::HeaderTokenizer(char *buffer)
     : m_buffer(buffer)
 {
@@ -146,13 +148,13 @@ HeaderTokenizer::HeaderTokenizer(char *buffer)
         {"p3p", true}, // http://www.w3.org/TR/P3P/
         {"pragma", true},
         {"proxy-authenticate", false}, //complicated multi-valuedness: quoted commas don't separate
-                                       //multiple values. we handle this at a higher level.
+        //multiple values. we handle this at a higher level.
         {"proxy-connection", true}, //inofficial but well-known; to avoid misunderstandings
-                                    //when using "connection" when talking to a proxy.
+        //when using "connection" when talking to a proxy.
         {"refresh", false}, //not sure, only found some mailing list posts mentioning it
         {"set-cookie", false}, //RFC 2109; the multi-valuedness seems to be usually achieved
-                               //by sending several instances of this field as opposed to
-                               //usually comma-separated lists with maybe multiple instances.
+        //by sending several instances of this field as opposed to
+        //usually comma-separated lists with maybe multiple instances.
         {"transfer-encoding", true},
         {"upgrade", true},
         {"warning", true},
@@ -273,7 +275,6 @@ int HeaderTokenizer::tokenize(int begin, int end)
     } while (nextLine(buf, &idx, end));
     return idx;
 }
-
 
 TokenIterator HeaderTokenizer::iterator(const char *key) const
 {
@@ -550,8 +551,9 @@ static QMap<QString, QString> contentDispositionParserInternal(const QString &di
         const QString lang = val.mid(spos + 1, npos - spos - 1);
         const QByteArray encodedVal = val.mid(npos + 1).toLatin1();
 
-        if ( ! isValidPercentEncoding(encodedVal) )
+        if (! isValidPercentEncoding(encodedVal)) {
             continue;
+        }
 
         const QByteArray rawval = QByteArray::fromPercentEncoding(encodedVal);
 
@@ -561,13 +563,15 @@ static QMap<QString, QString> contentDispositionParserInternal(const QString &di
                 valid = (rawval.at(j) >= 32);
             }
 
-            if (!valid)
+            if (!valid) {
                 continue;
+            }
             val = QString::fromLatin1(rawval.constData());
         } else {
             QTextCodec *codec = QTextCodec::codecForName(charset.toLatin1());
-            if (!codec)
+            if (!codec) {
                 continue;
+            }
             val = codec->toUnicode(rawval);
         }
 

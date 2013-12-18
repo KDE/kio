@@ -50,7 +50,7 @@ public:
      * Note that this instance must stay alive for at least as long as the popupmenu;
      * it has the slots for the actions created by addOpenWithActionsTo/addServiceActionsTo.
      */
-    KFileItemActions(QObject* parent = 0);
+    KFileItemActions(QObject *parent = 0);
 
     /**
      * Destructor
@@ -61,7 +61,7 @@ public:
      * Sets all the data for the next instance of the popupmenu.
      * @see KFileItemListProperties
      */
-    void setItemListProperties(const KFileItemListProperties& itemList);
+    void setItemListProperties(const KFileItemListProperties &itemList);
 
     /**
      * Set the parent widget for any dialogs being shown.
@@ -71,7 +71,7 @@ public:
      * (e.g. error message from KRun) and so that QAction::setStatusTip
      * can find a statusbar, too.
      */
-    void setParentWidget(QWidget* widget);
+    void setParentWidget(QWidget *widget);
 
     /**
      * Generate the "Open With <Application>" actions, and adds them to the @p menu.
@@ -81,7 +81,7 @@ public:
      * from the "open with" list. Example: "DesktopEntryName != 'kfmclient'".
      * (Default value added in kdelibs-4.5, pass QString() explicitly for earlier versions).
      */
-    void addOpenWithActionsTo(QMenu* menu, const QString& traderConstraint = QString());
+    void addOpenWithActionsTo(QMenu *menu, const QString &traderConstraint = QString());
 
     /**
      * Returns an action for the preferred application only.
@@ -89,7 +89,7 @@ public:
      * from the "open with" list. Example: "DesktopEntryName != 'kfmclient'".
      * @return the action - or 0 if no application was found.
      */
-    QAction* preferredOpenWithAction(const QString& traderConstraint);
+    QAction *preferredOpenWithAction(const QString &traderConstraint);
 
     /**
      * Helper method used internally, can also be used for similar GUIs that
@@ -114,7 +114,7 @@ public:
      * @return the sorted list of services.
      * @since 4.4
      */
-    static KService::List associatedApplications(const QStringList& mimeTypeList, const QString& traderConstraint);
+    static KService::List associatedApplications(const QStringList &mimeTypeList, const QString &traderConstraint);
 
     /**
      * Generate the user-defined actions and submenus, and adds them to the @p menu.
@@ -129,7 +129,7 @@ public:
      * All actions are created as children of the menu.
      * @return the number of actions added
      */
-    int addServiceActionsTo(QMenu* menu);
+    int addServiceActionsTo(QMenu *menu);
 
 Q_SIGNALS:
     /**
@@ -146,10 +146,10 @@ public Q_SLOTS:
      * @param traderConstraint this optional constraint allows to exclude the current application
      * @since 4.5
      */
-    void runPreferredApplications(const KFileItemList& fileOpenList, const QString& traderConstraint);
+    void runPreferredApplications(const KFileItemList &fileOpenList, const QString &traderConstraint);
 
 private:
-    KFileItemActionsPrivate* const d;
+    KFileItemActionsPrivate *const d;
     friend class KFileItemActionsPrivate;
 };
 

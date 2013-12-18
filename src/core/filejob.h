@@ -24,7 +24,8 @@
 #include <kio/kiocore_export.h>
 #include <kio/jobclasses.h>
 
-namespace KIO {
+namespace KIO
+{
 
 class FileJobPrivate;
 /**
@@ -36,7 +37,7 @@ class FileJobPrivate;
 
 class KIOCORE_EXPORT FileJob : public SimpleJob
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
     ~FileJob();
@@ -47,14 +48,14 @@ public:
      * The slave emits the data through data().
      * @param size the requested amount of data
      */
-    void read( KIO::filesize_t size );
+    void read(KIO::filesize_t size);
 
     /**
      * Write block
      *
      * @param data the data to write
      */
-    void write( const QByteArray &data );
+    void write(const QByteArray &data);
 
     /**
      * Close
@@ -69,7 +70,7 @@ public:
      * The slave emits position()
      * @param offset the position from start to go to
      */
-    void seek( KIO::filesize_t offset );
+    void seek(KIO::filesize_t offset);
 
     /**
      * Size
@@ -84,7 +85,7 @@ Q_SIGNALS:
      * @param job the job that emitted this signal
      * @param data data received from the slave.
      */
-    void data( KIO::Job *job, const QByteArray &data );
+    void data(KIO::Job *job, const QByteArray &data);
 
     /**
      * Signals the file is a redirection.
@@ -99,7 +100,7 @@ Q_SIGNALS:
      * @param job the job that emitted this signal
      * @param type the mime type
      */
-    void mimetype( KIO::Job *job, const QString &type );
+    void mimetype(KIO::Job *job, const QString &type);
 
     /**
      * File is open, metadata has been determined and the
@@ -113,7 +114,7 @@ Q_SIGNALS:
      * @param job the job that emitted this signal
      * @param written bytes written.
      */
-    void written( KIO::Job *job, KIO::filesize_t written);
+    void written(KIO::Job *job, KIO::filesize_t written);
 
     /**
      * File is closed and will accept no more commands
@@ -126,20 +127,20 @@ Q_SIGNALS:
      * @param job the job that emitted this signal
      * @param offset the new position
      */
-    void position( KIO::Job *job, KIO::filesize_t offset);
+    void position(KIO::Job *job, KIO::filesize_t offset);
 
 protected:
     FileJob(FileJobPrivate &dd);
 
 private:
     Q_PRIVATE_SLOT(d_func(), void slotRedirection(const QUrl &))
-    Q_PRIVATE_SLOT(d_func(), void slotData( const QByteArray &data))
-    Q_PRIVATE_SLOT(d_func(), void slotMimetype( const QString &mimetype ))
-    Q_PRIVATE_SLOT(d_func(), void slotOpen( ))
-    Q_PRIVATE_SLOT(d_func(), void slotWritten( KIO::filesize_t ))
-    Q_PRIVATE_SLOT(d_func(), void slotFinished( ))
-    Q_PRIVATE_SLOT(d_func(), void slotPosition( KIO::filesize_t ))
-    Q_PRIVATE_SLOT(d_func(), void slotTotalSize( KIO::filesize_t ))
+    Q_PRIVATE_SLOT(d_func(), void slotData(const QByteArray &data))
+    Q_PRIVATE_SLOT(d_func(), void slotMimetype(const QString &mimetype))
+    Q_PRIVATE_SLOT(d_func(), void slotOpen())
+    Q_PRIVATE_SLOT(d_func(), void slotWritten(KIO::filesize_t))
+    Q_PRIVATE_SLOT(d_func(), void slotFinished())
+    Q_PRIVATE_SLOT(d_func(), void slotPosition(KIO::filesize_t))
+    Q_PRIVATE_SLOT(d_func(), void slotTotalSize(KIO::filesize_t))
 
     Q_DECLARE_PRIVATE(FileJob)
 };

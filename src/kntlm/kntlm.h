@@ -74,7 +74,7 @@ public:
         Add_LM = 0x4
     };
 
-    Q_DECLARE_FLAGS( AuthFlags, AuthFlag )
+    Q_DECLARE_FLAGS(AuthFlags, AuthFlag)
 
     typedef struct {
         quint16 len;
@@ -140,9 +140,9 @@ public:
      *
      * @return true if creating the structure succeeds, false otherwise.
      */
-    static bool getNegotiate( QByteArray &negotiate, const QString &domain = QString(),
-                              const QString &workstation = QString(),
-                              quint32 flags = Negotiate_Unicode | Request_Target | Negotiate_NTLM );
+    static bool getNegotiate(QByteArray &negotiate, const QString &domain = QString(),
+                             const QString &workstation = QString(),
+                             quint32 flags = Negotiate_Unicode | Request_Target | Negotiate_NTLM);
     /**
      * Creates the type 3 message which should be sent to the server after
      * the challenge (type 2) received.
@@ -163,60 +163,60 @@ public:
      * (challenge data invalid, NTLMv2 authentication forced, but the challenge data says
      * no NTLMv2 supported, or no NTLM supported at all, and Add_LM not specified).
      */
-    static bool getAuth( QByteArray &auth, const QByteArray &challenge, const QString &user,
-                         const QString &password, const QString &domain = QString(),
-                         const QString &workstation = QString(), AuthFlags authflags = Add_LM );
+    static bool getAuth(QByteArray &auth, const QByteArray &challenge, const QString &user,
+                        const QString &password, const QString &domain = QString(),
+                        const QString &workstation = QString(), AuthFlags authflags = Add_LM);
 
     /**
      * Returns the LanManager response from the password and the server challenge.
      */
-    static QByteArray getLMResponse( const QString &password, const unsigned char *challenge );
+    static QByteArray getLMResponse(const QString &password, const unsigned char *challenge);
 
     /**
      * Calculates the LanManager hash of the specified password.
      */
-    static QByteArray lmHash( const QString &password );
+    static QByteArray lmHash(const QString &password);
 
     /**
      * Calculates the LanManager response from the LanManager hash and the server challenge.
      */
-    static QByteArray lmResponse( const QByteArray &hash, const unsigned char *challenge );
+    static QByteArray lmResponse(const QByteArray &hash, const unsigned char *challenge);
 
     /**
      * Returns the NTLM response from the password and the server challenge.
      */
-    static QByteArray getNTLMResponse( const QString &password, const unsigned char *challenge );
+    static QByteArray getNTLMResponse(const QString &password, const unsigned char *challenge);
 
     /**
      * Returns the NTLM hash (MD4) from the password.
      */
-    static QByteArray ntlmHash( const QString &password );
+    static QByteArray ntlmHash(const QString &password);
 
     /**
      * Calculates the NTLMv2 response.
      */
-    static QByteArray getNTLMv2Response( const QString &target, const QString &user,
-                                         const QString &password, const QByteArray &targetInformation,
-                                         const unsigned char *challenge );
+    static QByteArray getNTLMv2Response(const QString &target, const QString &user,
+                                        const QString &password, const QByteArray &targetInformation,
+                                        const unsigned char *challenge);
 
     /**
      * Calculates the LMv2 response.
      */
-    static QByteArray getLMv2Response( const QString &target, const QString &user,
-                                       const QString &password, const unsigned char *challenge );
+    static QByteArray getLMv2Response(const QString &target, const QString &user,
+                                      const QString &password, const unsigned char *challenge);
 
     /**
      * Returns the NTLMv2 hash.
      */
-    static QByteArray ntlmv2Hash( const QString &target, const QString &user, const QString &password );
+    static QByteArray ntlmv2Hash(const QString &target, const QString &user, const QString &password);
 
     /**
      * Calculates the LMv2 response.
      */
-    static QByteArray lmv2Response( const QByteArray &hash,
-                                    const QByteArray &clientData, const unsigned char *challenge );
+    static QByteArray lmv2Response(const QByteArray &hash,
+                                   const QByteArray &clientData, const unsigned char *challenge);
 };
 
-Q_DECLARE_OPERATORS_FOR_FLAGS( KNTLM::AuthFlags )
+Q_DECLARE_OPERATORS_FOR_FLAGS(KNTLM::AuthFlags)
 
 #endif /* KNTLM_H */

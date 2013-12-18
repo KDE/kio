@@ -24,7 +24,6 @@
     Boston, MA 02110-1301, USA.
 */
 
-
 #ifndef KFILEWIDGET_H
 #define KFILEWIDGET_H
 
@@ -87,7 +86,7 @@ public:
       * @param parent The parent widget of this widget
       *
       */
-    KFileWidget(const QUrl& startDir, QWidget *parent);
+    KFileWidget(const QUrl &startDir, QWidget *parent);
 
     /**
      * Destructor
@@ -147,7 +146,7 @@ public:
      *
      * This takes absolute URLs and relative file names.
      */
-    void setSelection(const QString& name);
+    void setSelection(const QString &name);
 
     /**
      * Sets the operational mode of the filedialog to @p Saving, @p Opening
@@ -166,7 +165,7 @@ public:
      * @see operationMode
      * @see KFileWidget::OperationMode
      */
-    void setOperationMode( OperationMode );
+    void setOperationMode(OperationMode);
 
     /**
      * @returns the current operation mode, Opening, Saving or Other. Default
@@ -188,7 +187,7 @@ public:
      * you can type in the filename and change the directory without having
      * to type the name again.
      */
-    void setKeepLocation( bool keep );
+    void setKeepLocation(bool keep);
 
     /**
      * @returns whether the contents of the location edit are kept when
@@ -230,7 +229,7 @@ public:
      * @see filterChanged
      * @see setMimeFilter
      */
-    void setFilter(const QString& filter);
+    void setFilter(const QString &filter);
 
     /**
      * Returns the current filter as entered by the user or one of the
@@ -262,8 +261,8 @@ public:
      *
      * Do not use in conjunction with setFilter()
      */
-    void setMimeFilter( const QStringList& types,
-                        const QString& defaultType = QString() );
+    void setMimeFilter(const QStringList &types,
+                       const QString &defaultType = QString());
 
     /**
      * The mimetype for the desired output format.
@@ -314,7 +313,7 @@ public:
      * setMode( mode );
      * \endcode
      */
-    void setMode( KFile::Modes m );
+    void setMode(KFile::Modes m);
 
     /**
      * Returns the mode of the filedialog.
@@ -329,7 +328,7 @@ public:
      * Most useful if you want to make clear what
      * the location is used for.
      */
-    void setLocationLabel(const QString& text);
+    void setLocationLabel(const QString &text);
 
     /**
      * Returns a pointer to the toolbar.
@@ -391,7 +390,7 @@ public:
      *         KDirSelectDialog).
      * @see KFileWidget::KFileWidget()
      */
-    static QUrl getStartUrl( const QUrl& startDir, QString& recentDirClass );
+    static QUrl getStartUrl(const QUrl &startDir, QString &recentDirClass);
 
     /**
      * Similar to getStartUrl(const QUrl& startDir,QString& recentDirClass),
@@ -413,13 +412,13 @@ public:
      * @see KFileWidget::KFileWidget()
      * @since 4.3
      */
-    static QUrl getStartUrl( const QUrl& startDir, QString& recentDirClass, QString& fileName );
+    static QUrl getStartUrl(const QUrl &startDir, QString &recentDirClass, QString &fileName);
 
     /**
      * @internal
      * Used by KDirSelectDialog to share the dialog's start directory.
      */
-    static void setStartDir( const QUrl& directory );
+    static void setStartDir(const QUrl &directory);
 
     /**
      * Set a custom widget that should be added to the file dialog.
@@ -429,7 +428,7 @@ public:
      *               When creating this widget, you don't need to specify a parent,
      *               since the widget's parent will be set automatically by KFileWidget.
      */
-    void setCustomWidget(QWidget* widget);
+    void setCustomWidget(QWidget *widget);
 
     /**
      * Sets a custom widget that should be added below the location and the filter
@@ -441,7 +440,7 @@ public:
      *                 When creating this widget, you don't need to specify a parent,
      *                 since the widget's parent will be set automatically by KFileWidget.
      */
-    void setCustomWidget(const QString& text, QWidget* widget);
+    void setCustomWidget(const QString &text, QWidget *widget);
 
     /**
      * Sets whether the user should be asked for confirmation
@@ -478,9 +477,9 @@ public Q_SLOTS:
     void slotCancel();
 
 protected:
-    void resizeEvent(QResizeEvent* event) Q_DECL_OVERRIDE;
-    void showEvent(QShowEvent* event) Q_DECL_OVERRIDE;
-    bool eventFilter(QObject* watched, QEvent* event) Q_DECL_OVERRIDE;
+    void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
+    void showEvent(QShowEvent *event) Q_DECL_OVERRIDE;
+    bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     /**
@@ -492,13 +491,13 @@ Q_SIGNALS:
       *
       * \since 4.4
       */
-    void fileSelected(const QUrl&);
+    void fileSelected(const QUrl &);
 
     /**
      * Emitted when the user highlights a file.
      * \since 4.4
      */
-    void fileHighlighted(const QUrl&);
+    void fileHighlighted(const QUrl &);
 
     /**
      * Emitted when the user hilights one or more files in multiselection mode.
@@ -520,7 +519,7 @@ Q_SIGNALS:
      * @see setFilter()
      * @see currentFilter()
      */
-    void filterChanged( const QString& filter );
+    void filterChanged(const QString &filter);
 
     /**
      * Emitted by slotOk() (directly or asynchronously) once everything has
@@ -533,29 +532,29 @@ public:
      * @returns the KDirOperator used to navigate the filesystem
      * @since 4.3
      */
-    KDirOperator* dirOperator();
+    KDirOperator *dirOperator();
 
     /**
      * reads the configuration for this widget from the given config group
      * @param group the KConfigGroup to read from
      * @since 4.4
      */
-    void readConfig( KConfigGroup& group );
+    void readConfig(KConfigGroup &group);
 
 private:
     friend class KFileWidgetPrivate;
-    KFileWidgetPrivate* const d;
+    KFileWidgetPrivate *const d;
 
-    Q_PRIVATE_SLOT(d, void _k_slotLocationChanged(const QString&))
-    Q_PRIVATE_SLOT(d, void _k_urlEntered(const QUrl&))
-    Q_PRIVATE_SLOT(d, void _k_enterUrl(const QUrl&))
-    Q_PRIVATE_SLOT(d, void _k_enterUrl(const QString&))
-    Q_PRIVATE_SLOT(d, void _k_locationAccepted(const QString&))
+    Q_PRIVATE_SLOT(d, void _k_slotLocationChanged(const QString &))
+    Q_PRIVATE_SLOT(d, void _k_urlEntered(const QUrl &))
+    Q_PRIVATE_SLOT(d, void _k_enterUrl(const QUrl &))
+    Q_PRIVATE_SLOT(d, void _k_enterUrl(const QString &))
+    Q_PRIVATE_SLOT(d, void _k_locationAccepted(const QString &))
     Q_PRIVATE_SLOT(d, void _k_slotFilterChanged())
-    Q_PRIVATE_SLOT(d, void _k_fileHighlighted(const KFileItem&))
-    Q_PRIVATE_SLOT(d, void _k_fileSelected(const KFileItem&))
+    Q_PRIVATE_SLOT(d, void _k_fileHighlighted(const KFileItem &))
+    Q_PRIVATE_SLOT(d, void _k_fileSelected(const KFileItem &))
     Q_PRIVATE_SLOT(d, void _k_slotLoadingFinished())
-    Q_PRIVATE_SLOT(d, void _k_fileCompletion(const QString&))
+    Q_PRIVATE_SLOT(d, void _k_fileCompletion(const QString &))
     Q_PRIVATE_SLOT(d, void _k_toggleSpeedbar(bool))
     Q_PRIVATE_SLOT(d, void _k_toggleBookmarks(bool))
     Q_PRIVATE_SLOT(d, void _k_slotAutoSelectExtClicked())

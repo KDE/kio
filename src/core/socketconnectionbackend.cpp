@@ -31,7 +31,6 @@
 #include <QPointer>
 #include <QTime>
 
-
 using namespace KIO;
 
 AbstractConnectionBackend::AbstractConnectionBackend(QObject *parent)
@@ -54,14 +53,16 @@ SocketConnectionBackend::SocketConnectionBackend(Mode m, QObject *parent)
 SocketConnectionBackend::~SocketConnectionBackend()
 {
     if (mode == LocalSocketMode && localServer &&
-        localServer->localSocketType() == KLocalSocket::UnixSocket)
+            localServer->localSocketType() == KLocalSocket::UnixSocket) {
         QFile::remove(localServer->localPath());
+    }
 }
 
 void SocketConnectionBackend::setSuspended(bool enable)
 {
-    if (state != Connected)
+    if (state != Connected) {
         return;
+    }
     Q_ASSERT(socket);
     Q_ASSERT(!localServer);     // !tcpServer as well
 
@@ -80,8 +81,9 @@ void SocketConnectionBackend::setSuspended(bool enable)
         // to read at least one byte (even if there isn't any) so that the
         // socket notifier is reenabled
         QByteArray data = socket->read(socket->bytesAvailable() + 1);
-        for (int i = data.size(); --i >= 0; )
+        for (int i = data.size(); --i >= 0;) {
             socket->ungetChar(data[i]);
+        }
     }
 }
 
@@ -98,14 +100,15 @@ bool SocketConnectionBackend::connectToRemote(const QUrl &url)
         // TODO: Activate once abstract socket support is implemented in Qt.
         KLocalSocket::LocalSocketType type = KLocalSocket::UnixSocket;
 
-        if (url.queryItem(QLatin1String("abstract")) == QLatin1String("1"))
+        if (url.queryItem(QLatin1String("abstract")) == QLatin1String("1")) {
             type = KLocalSocket::AbstractUnixSocket;
+        }
 #endif
         sock->connectToPath(path);
         socket = sock;
     } else {
         socket = new QTcpSocket(this);
-        socket->connectToHost(url.host(),url.port());
+        socket->connectToHost(url.host(), url.port());
 
         if (!socket->waitForConnected(1000)) {
             state = Idle;
@@ -134,8 +137,7 @@ bool SocketConnectionBackend::listenForRemote()
     if (mode == LocalSocketMode) {
         const QString prefix = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation);
         QTemporaryFile socketfile(prefix + QLatin1Char('/') + QCoreApplication::instance()->applicationName() + QLatin1String("XXXXXX.slave-socket"));
-        if (!socketfile.open())
-        {
+        if (!socketfile.open()) {
             errorString = i18n("Unable to create io-slave: %1", strerror(errno));
             return false;
         }
@@ -183,24 +185,29 @@ bool SocketConnectionBackend::waitForIncomingTask(int ms)
     }
 
     signalEmitted = false;
-    if (socket->bytesAvailable())
+    if (socket->bytesAvailable()) {
         socketReadyRead();
-    if (signalEmitted)
-        return true;            // there was enough data in the socket
+    }
+    if (signalEmitted) {
+        return true;    // there was enough data in the socket
+    }
 
     // not enough data in the socket, so wait for more
     QTime timer;
     timer.start();
 
     while (socket->state() == QAbstractSocket::ConnectedState && !signalEmitted &&
-           (ms == -1 || timer.elapsed() < ms))
-        if (!socket->waitForReadyRead(ms == -1 ? -1 : ms - timer.elapsed()))
+            (ms == -1 || timer.elapsed() < ms))
+        if (!socket->waitForReadyRead(ms == -1 ? -1 : ms - timer.elapsed())) {
             break;
+        }
 
-    if (signalEmitted)
+    if (signalEmitted) {
         return true;
-    if (socket->state() != QAbstractSocket::ConnectedState)
+    }
+    if (socket->state() != QAbstractSocket::ConnectedState) {
         state = Idle;
+    }
     return false;
 }
 
@@ -219,8 +226,9 @@ bool SocketConnectionBackend::sendCommand(const Task &task)
     //         << " bytes left to write";
 
     // blocking mode:
-    while (socket->bytesToWrite() > 0 && socket->state() == QAbstractSocket::ConnectedState)
+    while (socket->bytesToWrite() > 0 && socket->state() == QAbstractSocket::ConnectedState) {
         socket->waitForBytesWritten(-1);
+    }
 
     return socket->state() == QAbstractSocket::ConnectedState;
 }
@@ -234,12 +242,14 @@ AbstractConnectionBackend *SocketConnectionBackend::nextPendingConnection()
     //qDebug() << "Got a new connection";
 
     QTcpSocket *newSocket;
-    if (mode == LocalSocketMode)
+    if (mode == LocalSocketMode) {
         newSocket = localServer->nextPendingConnection();
-    else
+    } else {
         newSocket = tcpServer->nextPendingConnection();
-    if (!newSocket)
-        return 0;               // there was no connection...
+    }
+    if (!newSocket) {
+        return 0;    // there was no connection...
+    }
 
     SocketConnectionBackend *result = new SocketConnectionBackend(Mode(mode));
     result->state = Connected;
@@ -257,7 +267,9 @@ void SocketConnectionBackend::socketReadyRead()
     do {
         if (!socket)
             // might happen if the invokeMethods were delivered after we disconnected
+        {
             return;
+        }
 
         // qDebug() << this << "Got " << socket->bytesAvailable() << " bytes";
         if (len == -1) {
@@ -273,12 +285,16 @@ void SocketConnectionBackend::socketReadyRead()
             buffer[9] = 0;
 
             char *p = buffer;
-            while( *p == ' ' ) p++;
-            len = strtol( p, 0L, 16 );
+            while (*p == ' ') {
+                p++;
+            }
+            len = strtol(p, 0L, 16);
 
             p = buffer + 7;
-            while( *p == ' ' ) p++;
-            cmd = strtol( p, 0L, 16 );
+            while (*p == ' ') {
+                p++;
+            }
+            cmd = strtol(p, 0L, 16);
 
             // qDebug() << this << " Beginning of command " << hex << cmd << " of size "
             //        << len;
@@ -290,8 +306,9 @@ void SocketConnectionBackend::socketReadyRead()
         if (socket->bytesAvailable() >= len) {
             Task task;
             task.cmd = cmd;
-            if (len)
+            if (len) {
                 task.data = socket->read(len);
+            }
             len = -1;
 
             signalEmitted = true;
@@ -302,15 +319,16 @@ void SocketConnectionBackend::socketReadyRead()
         }
 
         // If we're dead, better don't try anything.
-        if (that.isNull())
+        if (that.isNull()) {
             return;
+        }
 
         // Do we have enough for an another read?
-        if (len == -1)
+        if (len == -1) {
             shouldReadAnother = socket->bytesAvailable() >= HeaderSize;
-        else
+        } else {
             shouldReadAnother = socket->bytesAvailable() >= len;
-    }
-    while (shouldReadAnother);
+        }
+    } while (shouldReadAnother);
 }
 

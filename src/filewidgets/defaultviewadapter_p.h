@@ -27,24 +27,24 @@ class QAbstractItemView;
 
 namespace KIO
 {
-    /**
-     * Implementation of the view adapter for the default case when
-     * an instance of QAbstractItemView is used as view.
-     */
-    class KIOFILEWIDGETS_EXPORT DefaultViewAdapter : public KAbstractViewAdapter
-    {
-    public:
-        DefaultViewAdapter(QAbstractItemView* view, QObject* parent);
-        virtual QAbstractItemModel* model() const;
-        virtual QSize iconSize() const;
-        virtual QPalette palette() const;
-        virtual QRect visibleArea() const;
-        virtual QRect visualRect(const QModelIndex& index) const;
-        virtual void connect(Signal signal, QObject* receiver, const char* slot);
+/**
+ * Implementation of the view adapter for the default case when
+ * an instance of QAbstractItemView is used as view.
+ */
+class KIOFILEWIDGETS_EXPORT DefaultViewAdapter : public KAbstractViewAdapter
+{
+public:
+    DefaultViewAdapter(QAbstractItemView *view, QObject *parent);
+    virtual QAbstractItemModel *model() const;
+    virtual QSize iconSize() const;
+    virtual QPalette palette() const;
+    virtual QRect visibleArea() const;
+    virtual QRect visualRect(const QModelIndex &index) const;
+    virtual void connect(Signal signal, QObject *receiver, const char *slot);
 
-    private:
-        QAbstractItemView* m_view;
-    };
+private:
+    QAbstractItemView *m_view;
+};
 }
 
 #endif

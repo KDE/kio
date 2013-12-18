@@ -39,51 +39,50 @@ public:
     KFileItemActionsPrivate(KFileItemActions *qq);
     ~KFileItemActionsPrivate();
 
-    int insertServicesSubmenus(const QMap<QString, ServiceList>& list, QMenu* menu, bool isBuiltin);
-    int insertServices(const ServiceList& list, QMenu* menu, bool isBuiltin);
+    int insertServicesSubmenus(const QMap<QString, ServiceList> &list, QMenu *menu, bool isBuiltin);
+    int insertServices(const ServiceList &list, QMenu *menu, bool isBuiltin);
 
     // For "open with"
-    KService::List associatedApplications(const QString& traderConstraint);
-    QAction* createAppAction(const KService::Ptr& service, bool singleOffer);
+    KService::List associatedApplications(const QString &traderConstraint);
+    QAction *createAppAction(const KService::Ptr &service, bool singleOffer);
 
-    struct ServiceRank
-    {
+    struct ServiceRank {
         int score;
         KService::Ptr service;
     };
 
     // Inline function for sorting lists of ServiceRank
-    static bool lessRank(const ServiceRank& id1, const ServiceRank& id2)
+    static bool lessRank(const ServiceRank &id1, const ServiceRank &id2)
     {
         return id1.score < id2.score;
     }
 
-    QStringList listMimeTypes(const KFileItemList& items);
-    QStringList listPreferredServiceIds(const QStringList& mimeTypeList, const QString& traderConstraint);
+    QStringList listMimeTypes(const KFileItemList &items);
+    QStringList listPreferredServiceIds(const QStringList &mimeTypeList, const QString &traderConstraint);
 
 public Q_SLOTS:
     void slotRunPreferredApplications();
 
 private:
-    void openWithByMime(const KFileItemList& fileItems);
+    void openWithByMime(const KFileItemList &fileItems);
 
 private Q_SLOTS:
     // For servicemenus
-    void slotExecuteService(QAction* act);
+    void slotExecuteService(QAction *act);
     // For "open with" applications
-    void slotRunApplication(QAction* act);
+    void slotRunApplication(QAction *act);
     void slotOpenWithDialog();
 
 public:
-    KFileItemActions* const q;
+    KFileItemActions *const q;
     KFileItemListProperties m_props;
     QStringList m_mimeTypeList;
     QString m_traderConstraint;
     KFileItemList m_fileOpenList;
     QActionGroup m_executeServiceActionGroup;
     QActionGroup m_runApplicationActionGroup;
-    QList<QAction*> m_ownActions;
-    QWidget* m_parentWidget;
+    QList<QAction *> m_ownActions;
+    QWidget *m_parentWidget;
 };
 
 Q_DECLARE_METATYPE(KService::Ptr)

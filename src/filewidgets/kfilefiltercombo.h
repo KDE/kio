@@ -36,7 +36,7 @@ public:
      *
      * @param parent The parent widget.
      */
-    KFileFilterCombo(QWidget *parent=0);
+    KFileFilterCombo(QWidget *parent = 0);
 
     /**
      * Destroys the filter combo box.
@@ -46,7 +46,7 @@ public:
     /**
      * Sets the @p filter string.
      */
-    void setFilter(const QString& filter);
+    void setFilter(const QString &filter);
 
     /**
      * @returns the current filter, either something like "*.cpp *.h"
@@ -59,14 +59,14 @@ public:
      * Sets the current filter. Filter must match one of the filter items
      * passed before to this widget.
      */
-    void setCurrentFilter( const QString& filter );
+    void setCurrentFilter(const QString &filter);
 
     /**
      * Sets a list of mimetypes.
      * If @p defaultType is set, it will be set as the current item.
      * Otherwise, a first item showing all the mimetypes will be created.
      */
-    void setMimeFilter( const QStringList& types, const QString& defaultType );
+    void setMimeFilter(const QStringList &types, const QString &defaultType);
 
     /**
      * @return true if the filter's first item is the list of all mimetypes
@@ -81,7 +81,7 @@ public:
      * By default, this is set to i18n("*|All Files")
      * @see defaultFilter
      */
-    void setDefaultFilter( const QString& filter );
+    void setDefaultFilter(const QString &filter);
 
     /**
      * @return the default filter, used when an empty filter is set.
@@ -93,7 +93,7 @@ public:
      * @return all filters (this can be a list of patterns or a list of mimetypes)
      */
     QStringList filters() const;
-    
+
     /**
      * Returns true if the filter has been set using setMimeFilter().
      * @since 4.6.1
@@ -101,7 +101,7 @@ public:
     bool isMimeFilter() const;
 
 protected:
-    virtual bool eventFilter( QObject*, QEvent* );
+    virtual bool eventFilter(QObject *, QEvent *);
 
 Q_SIGNALS:
     /**
@@ -111,9 +111,9 @@ Q_SIGNALS:
 
 private:
     class Private;
-    Private* const d;
+    Private *const d;
 
-    Q_PRIVATE_SLOT( d, void _k_slotFilterChanged() )
+    Q_PRIVATE_SLOT(d, void _k_slotFilterChanged())
 };
 
 #endif

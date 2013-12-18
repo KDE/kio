@@ -31,15 +31,15 @@
 /// @internal
 class KACLEditWidget : public QWidget
 {
-  Q_OBJECT
+    Q_OBJECT
 public:
     explicit KACLEditWidget(QWidget *parent = 0);
     ~KACLEditWidget();
     KACL getACL() const;
     KACL getDefaultACL() const;
-    void setACL( const KACL & );
-    void setDefaultACL( const KACL & );
-    void setAllowDefaults( bool value );
+    void setACL(const KACL &);
+    void setDefaultACL(const KACL &);
+    void setAllowDefaults(bool value);
 
 private:
     class KACLEditWidgetPrivate;

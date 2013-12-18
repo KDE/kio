@@ -33,18 +33,20 @@ int main(int argc, char **argv)
     QCoreApplication app(argc, argv);
 
     QUrl url;
-    if (argc > 1)
-      url = QUrl::fromUserInput(argv[1]);
-    else
-      url = QUrl::fromLocalFile(QDir::currentPath());
+    if (argc > 1) {
+        url = QUrl::fromUserInput(argv[1]);
+    } else {
+        url = QUrl::fromLocalFile(QDir::currentPath());
+    }
 
     const KMountPoint::List mountPoints = KMountPoint::currentMountPoints();
 
     KMountPoint::Ptr mp = mountPoints.findByDevice(url.toLocalFile());
     if (!mp) {
         qDebug() << "no mount point for device" << url << "found";
-    } else
+    } else {
         qDebug() << mp->mountPoint() << "is the mount point for device" << url;
+    }
 
     mp = mountPoints.findByPath(url.toLocalFile());
     if (!mp) {
@@ -59,8 +61,9 @@ int main(int argc, char **argv)
     mp = mountPoints.findByPath(url.toLocalFile());
     if (!mp) {
         qDebug() << "no mount point for path" << url << "found";
-    } else
+    } else {
         qDebug() << mp->mountPoint() << "is the mount point for path" << url;
+    }
 
     return 0;
 }

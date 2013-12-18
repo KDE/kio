@@ -53,27 +53,26 @@ Q_SIGNALS:
 
 protected Q_SLOTS:
     //void slotEntries( KIO::Job*, const KIO::UDSEntryList& lst );
-    void slotGetResult( KJob* );
-    void slotDataReq( KIO::Job*, QByteArray& );
-    void slotResult( KJob* );
-    void slotMimetype(KIO::Job*, const QString&);
+    void slotGetResult(KJob *);
+    void slotDataReq(KIO::Job *, QByteArray &);
+    void slotResult(KJob *);
+    void slotMimetype(KIO::Job *, const QString &);
 
-    void slotFileJobData (KIO::Job *job, const QByteArray &data);
-    void slotFileJobRedirection (KIO::Job *job, const QUrl &url);
-    void slotFileJobMimetype (KIO::Job *job, const QString &type);
-    void slotFileJobOpen (KIO::Job *job);
-    void slotFileJobWritten (KIO::Job *job, KIO::filesize_t written);
-    void slotFileJobPosition (KIO::Job *job, KIO::filesize_t offset);
-    void slotFileJobClose (KIO::Job *job);
+    void slotFileJobData(KIO::Job *job, const QByteArray &data);
+    void slotFileJobRedirection(KIO::Job *job, const QUrl &url);
+    void slotFileJobMimetype(KIO::Job *job, const QString &type);
+    void slotFileJobOpen(KIO::Job *job);
+    void slotFileJobWritten(KIO::Job *job, KIO::filesize_t written);
+    void slotFileJobPosition(KIO::Job *job, KIO::filesize_t offset);
+    void slotFileJobClose(KIO::Job *job);
 
-    void slotFileJob2Data (KIO::Job *job, const QByteArray &data);
-    void slotFileJob2Redirection (KIO::Job *job, const QUrl &url);
-    void slotFileJob2Mimetype (KIO::Job *job, const QString &type);
-    void slotFileJob2Open (KIO::Job *job);
-    void slotFileJob2Written (KIO::Job *job, KIO::filesize_t written);
-    void slotFileJob2Position (KIO::Job *job, KIO::filesize_t offset);
-    void slotFileJob2Close (KIO::Job *job);
-
+    void slotFileJob2Data(KIO::Job *job, const QByteArray &data);
+    void slotFileJob2Redirection(KIO::Job *job, const QUrl &url);
+    void slotFileJob2Mimetype(KIO::Job *job, const QString &type);
+    void slotFileJob2Open(KIO::Job *job);
+    void slotFileJob2Written(KIO::Job *job, KIO::filesize_t written);
+    void slotFileJob2Position(KIO::Job *job, KIO::filesize_t offset);
+    void slotFileJob2Close(KIO::Job *job);
 
 private:
     void enterLoop();
@@ -86,7 +85,7 @@ private:
     QString m_mimetype;
 
     // openReadWrite test
-    KIO::FileJob * fileJob;
+    KIO::FileJob *fileJob;
     int m_rwCount;
 };
 

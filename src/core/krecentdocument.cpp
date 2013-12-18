@@ -52,56 +52,58 @@ QStringList KRecentDocument::recentDocuments()
     QDir d(recentDocumentDirectory(), "*.desktop", QDir::Time,
            QDir::Files | QDir::Readable | QDir::Hidden);
 
-    if (!d.exists())
+    if (!d.exists()) {
         d.mkdir(recentDocumentDirectory());
+    }
 
     const QStringList list = d.entryList();
     QStringList fullList;
 
     for (QStringList::ConstIterator it = list.begin(); it != list.end(); ++it) {
-       QString fileName = *it ;
-       QString pathDesktop;
-       if (fileName.startsWith(":")) {
-       // FIXME: Remove when Qt will be fixed
-       // http://bugreports.qt.nokia.com/browse/QTBUG-11223
-           pathDesktop = KRecentDocument::recentDocumentDirectory() + *it ;
-       }
-       else {
-           pathDesktop = d.absoluteFilePath( *it );
-       }
-       KDesktopFile tmpDesktopFile( pathDesktop );
-       QUrl urlDesktopFile(tmpDesktopFile.desktopGroup().readPathEntry("URL", QString()));
-       if (urlDesktopFile.isLocalFile() && !QFile(urlDesktopFile.toLocalFile()).exists()) {
-           d.remove(pathDesktop);
-       } else {
-           fullList.append( pathDesktop );
-       }
+        QString fileName = *it;
+        QString pathDesktop;
+        if (fileName.startsWith(":")) {
+            // FIXME: Remove when Qt will be fixed
+            // http://bugreports.qt.nokia.com/browse/QTBUG-11223
+            pathDesktop = KRecentDocument::recentDocumentDirectory() + *it;
+        } else {
+            pathDesktop = d.absoluteFilePath(*it);
+        }
+        KDesktopFile tmpDesktopFile(pathDesktop);
+        QUrl urlDesktopFile(tmpDesktopFile.desktopGroup().readPathEntry("URL", QString()));
+        if (urlDesktopFile.isLocalFile() && !QFile(urlDesktopFile.toLocalFile()).exists()) {
+            d.remove(pathDesktop);
+        } else {
+            fullList.append(pathDesktop);
+        }
     }
 
     return fullList;
 }
 
-void KRecentDocument::add(const QUrl& url)
+void KRecentDocument::add(const QUrl &url)
 {
     KRecentDocument::add(url, QCoreApplication::applicationName());
     // ### componentName might not match the service filename...
 }
 
-void KRecentDocument::add(const QUrl& url, const QString& desktopEntryName)
+void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName)
 {
-    if (url.isLocalFile() && url.toLocalFile().startsWith(QDir::tempPath()))
-      return; // inside tmp resource, do not save
+    if (url.isLocalFile() && url.toLocalFile().startsWith(QDir::tempPath())) {
+        return;    // inside tmp resource, do not save
+    }
 
     QString openStr = url.toDisplayString();
-    openStr.replace( QRegExp("\\$"), "$$" ); // Desktop files with type "Link" are $-variable expanded
+    openStr.replace(QRegExp("\\$"), "$$");   // Desktop files with type "Link" are $-variable expanded
 
     // qDebug() << "KRecentDocument::add for " << openStr;
     KConfigGroup config = KSharedConfig::openConfig()->group(QByteArray("RecentDocuments"));
     bool useRecent = config.readEntry(QLatin1String("UseRecent"), true);
     int maxEntries = config.readEntry(QLatin1String("MaxEntries"), 10);
 
-    if(!useRecent || maxEntries <= 0)
+    if (!useRecent || maxEntries <= 0) {
         return;
+    }
 
     const QString path = recentDocumentDirectory();
     const QString fileName = url.fileName();
@@ -110,9 +112,9 @@ void KRecentDocument::add(const QUrl& url, const QString& desktopEntryName)
 
     QString ddesktop = dStr + QLatin1String(".desktop");
 
-    int i=1;
+    int i = 1;
     // check for duplicates
-    while(QFile::exists(ddesktop)){
+    while (QFile::exists(ddesktop)) {
         // see if it points to the same file and application
         KDesktopFile tmp(ddesktop);
         if (tmp.desktopGroup().readEntry("X-KDE-LastOpenedWith") == desktopEntryName) {
@@ -122,8 +124,9 @@ void KRecentDocument::add(const QUrl& url, const QString& desktopEntryName)
         }
         // if not append a (num) to it
         ++i;
-        if ( i > maxEntries )
+        if (i > maxEntries) {
             break;
+        }
         ddesktop = dStr + QString::fromLatin1("[%1].desktop").arg(i);
     }
 
@@ -131,10 +134,10 @@ void KRecentDocument::add(const QUrl& url, const QString& desktopEntryName)
     // check for max entries, delete oldest files if exceeded
     const QStringList list = dir.entryList(QDir::Files | QDir::Hidden, QFlags<QDir::SortFlag>(QDir::Time | QDir::Reversed));
     i = list.count();
-    if(i > maxEntries-1){
+    if (i > maxEntries - 1) {
         QStringList::ConstIterator it;
         it = list.begin();
-        while(i > maxEntries-1){
+        while (i > maxEntries - 1) {
             QFile::remove(dir.absolutePath() + QLatin1String("/") + (*it));
             --i, ++it;
         }
@@ -143,20 +146,21 @@ void KRecentDocument::add(const QUrl& url, const QString& desktopEntryName)
     // create the applnk
     KDesktopFile configFile(ddesktop);
     KConfigGroup conf = configFile.desktopGroup();
-    conf.writeEntry( "Type", QString::fromLatin1("Link") );
-    conf.writePathEntry( "URL", openStr );
+    conf.writeEntry("Type", QString::fromLatin1("Link"));
+    conf.writePathEntry("URL", openStr);
     // If you change the line below, change the test in the above loop
-    conf.writeEntry( "X-KDE-LastOpenedWith", desktopEntryName );
-    conf.writeEntry( "Name", url.fileName() );
-    conf.writeEntry( "Icon", KIO::iconNameForUrl( url ) );
+    conf.writeEntry("X-KDE-LastOpenedWith", desktopEntryName);
+    conf.writeEntry("Name", url.fileName());
+    conf.writeEntry("Icon", KIO::iconNameForUrl(url));
 }
 
 void KRecentDocument::clear()
 {
-  const QStringList list = recentDocuments();
-  QDir dir;
-  for(QStringList::ConstIterator it = list.begin(); it != list.end() ; ++it)
-    dir.remove(*it);
+    const QStringList list = recentDocuments();
+    QDir dir;
+    for (QStringList::ConstIterator it = list.begin(); it != list.end(); ++it) {
+        dir.remove(*it);
+    }
 }
 
 int KRecentDocument::maximumItems()
@@ -164,5 +168,4 @@ int KRecentDocument::maximumItems()
     KConfigGroup cg(KSharedConfig::openConfig(), QLatin1String("RecentDocuments"));
     return cg.readEntry(QLatin1String("MaxEntries"), 10);
 }
-
 

@@ -10,11 +10,12 @@
 #include <QtCore/QObject>
 #include <QtCore/QString>
 
-class DataProtocolTest : public QObject {
-  Q_OBJECT
+class DataProtocolTest : public QObject
+{
+    Q_OBJECT
 private Q_SLOTS:
-  void runAllTests();
-  void runAllTests_data();
+    void runAllTests();
+    void runAllTests_data();
 };
 
 #endif /* DATAPROTOCOLTEST_H */

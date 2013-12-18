@@ -42,8 +42,11 @@ class ServerThread : public QThread
 public:
     Server *volatile server;
     ServerThread()
-     : server(0) {}
-    ~ServerThread() { wait(100); }
+        : server(0) {}
+    ~ServerThread()
+    {
+        wait(100);
+    }
 protected:
     virtual void run();
 };
@@ -64,18 +67,16 @@ void KTcpSocketTest::invokeOnServer(const char *method)
     QTest::qWait(1); //Enter the event loop
 }
 
-
 void ServerThread::run()
 {
     server = new Server(testPort);
     exec(); //Start the event loop; this won't return.
 }
 
-
 Server::Server(quint16 _port)
- : listener(0),
-   socket(0),
-   port(_port)
+    : listener(0),
+      socket(0),
+      port(_port)
 {
     listener = new QTcpServer();
     listener->listen(QHostAddress("127.0.0.1"), testPort);
@@ -89,7 +90,6 @@ void Server::cleanupSocket()
     socket = 0;
 }
 
-
 void KTcpSocketTest::initTestCase()
 {
     ServerThread *st = new ServerThread();
@@ -100,7 +100,6 @@ void KTcpSocketTest::initTestCase()
     QTest::qWait(200);
     server = st->server;
 }
-
 
 void KTcpSocketTest::connectDisconnect()
 {
@@ -132,7 +131,6 @@ void Server::connectDisconnect()
     cleanupSocket();
 }
 
-
 #define TESTDATA QByteArray("things and stuff and a bag of chips")
 
 void KTcpSocketTest::read()
@@ -157,7 +155,6 @@ void Server::read()
     socket->waitForBytesWritten(150);
     cleanupSocket();
 }
-
 
 void KTcpSocketTest::write()
 {
@@ -199,7 +196,7 @@ void Server::write()
 
 static QString stateToString(KTcpSocket::State state)
 {
-    switch(state) {
+    switch (state) {
     case KTcpSocket::UnconnectedState:
         return "UnconnectedState";
     case KTcpSocket::HostLookupState:
@@ -234,7 +231,7 @@ void KTcpSocketTest::statesIana()
     QCOMPARE(s->state(), KTcpSocket::HostLookupState);
     s->write(HTTPREQUEST);
     QCOMPARE(s->state(), KTcpSocket::HostLookupState);
-    s->waitForBytesWritten(2500) ;
+    s->waitForBytesWritten(2500);
     QCOMPARE(s->state(), KTcpSocket::ConnectedState);
 
     // Try to ensure that inbound data in the next part of the test is really from the second request;
@@ -296,7 +293,7 @@ void KTcpSocketTest::statesManyHosts()
     QByteArray requestProlog("GET /  HTTP/1.1\r\n"         //exact copy of a real HTTP query
                              "Connection: Keep-Alive\r\n"  //not really...
                              "User-Agent: Mozilla/5.0 (compatible; Konqueror/3.96; Linux) "
-                              "KHTML/3.96.0 (like Gecko)\r\n"
+                             "KHTML/3.96.0 (like Gecko)\r\n"
                              "Pragma: no-cache\r\n"
                              "Cache-control: no-cache\r\n"
                              "Accept: text/html, image/jpeg, image/png, text/*, image/*, */*\r\n"
@@ -329,9 +326,9 @@ void KTcpSocketTest::statesManyHosts()
         skip = true;
         qDebug() << "Skipping test on state(), because DNS caching is unreliable in this Qt version";
 #endif
-        if (!skip)
+        if (!skip) {
             QCOMPARE(stateToString(s->state()), stateToString(expectedState));
-        else { // let's make sure it's at least one of the two expected states
+        } else { // let's make sure it's at least one of the two expected states
             QVERIFY(stateToString(s->state()) == stateToString(KTcpSocket::HostLookupState) ||
                     stateToString(s->state()) == stateToString(KTcpSocket::ConnectingState));
 
@@ -343,8 +340,9 @@ void KTcpSocketTest::statesManyHosts()
         request.append(requestEpilog);
         s->write(request);
 
-        if (!skip)
+        if (!skip) {
             QCOMPARE(stateToString(s->state()), stateToString(expectedState));
+        }
 
         s->waitForBytesWritten(-1);
         QCOMPARE(s->state(), KTcpSocket::ConnectedState);
@@ -359,11 +357,13 @@ void KTcpSocketTest::statesManyHosts()
             QVERIFY(s->bytesAvailable() > 100 - 1);
         }
         s->disconnectFromHost();
-        if (s->state() != KTcpSocket::UnconnectedState)
+        if (s->state() != KTcpSocket::UnconnectedState) {
             s->waitForDisconnected(-1);
-        if (i % 2)
-            s->close();     //close() is not very well defined for sockets so just check that it
-                            //does no harm
+        }
+        if (i % 2) {
+            s->close();    //close() is not very well defined for sockets so just check that it
+        }
+        //does no harm
     }
 
     s->deleteLater();
@@ -386,7 +386,6 @@ void Server::states()
     cleanupSocket();
 }
 
-
 void KTcpSocketTest::errors()
 {
     //invokeOnServer("errors");
@@ -399,7 +398,6 @@ void Server::errors()
 
     cleanupSocket();
 }
-
 
 QTEST_MAIN(KTcpSocketTest)
 

@@ -70,42 +70,40 @@ public:
         NoSelection = 8
     };
 
-
     //
     // some bittests
     //
 
     // sorting specific
 
-    static bool isSortByName( const QDir::SortFlags& sort );
+    static bool isSortByName(const QDir::SortFlags &sort);
 
-    static bool isSortBySize( const QDir::SortFlags& sort );
+    static bool isSortBySize(const QDir::SortFlags &sort);
 
-    static bool isSortByDate( const QDir::SortFlags& sort ); 
+    static bool isSortByDate(const QDir::SortFlags &sort);
 
-    static bool isSortByType( const QDir::SortFlags& sort );
+    static bool isSortByType(const QDir::SortFlags &sort);
 
-    static bool isSortDirsFirst( const QDir::SortFlags& sort );
+    static bool isSortDirsFirst(const QDir::SortFlags &sort);
 
-    static bool isSortCaseInsensitive( const QDir::SortFlags& sort );
-
+    static bool isSortCaseInsensitive(const QDir::SortFlags &sort);
 
     // view specific
-    static bool isDefaultView( const FileView& view );
+    static bool isDefaultView(const FileView &view);
 
-    static bool isSimpleView( const FileView& view );
+    static bool isSimpleView(const FileView &view);
 
-    static bool isDetailView( const FileView& view ); 
+    static bool isDetailView(const FileView &view);
 
-    static bool isSeparateDirs( const FileView& view );
+    static bool isSeparateDirs(const FileView &view);
 
-    static bool isPreviewContents( const FileView& view ); 
+    static bool isPreviewContents(const FileView &view);
 
-    static bool isPreviewInfo( const FileView& view );
-    
-    static bool isTreeView( const FileView& view );
-    
-    static bool isDetailTreeView( const FileView& view );
+    static bool isPreviewInfo(const FileView &view);
+
+    static bool isTreeView(const FileView &view);
+
+    static bool isDetailTreeView(const FileView &view);
 
 private:
     KFile(); // forbidden
