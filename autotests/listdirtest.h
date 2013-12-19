@@ -25,6 +25,7 @@ class ListDirTest : public QObject
 {
     Q_OBJECT
 private Q_SLOTS:
+    void initTestCase();
     void numFilesTestCase_data();
     void numFilesTestCase();
 
