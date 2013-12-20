@@ -33,6 +33,8 @@ class KDirOperatorTest : public QObject
 private Q_SLOTS:
     void initTestCase()
     {
+        // To avoid a runtime dependency on klauncher
+        qputenv("KDE_FORK_SLAVES", "yes");
     }
 
     void cleanupTestCase()

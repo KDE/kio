@@ -75,6 +75,9 @@ void JobTest::initTestCase()
 {
     QStandardPaths::enableTestMode(true);
 
+    // To avoid a runtime dependency on klauncher
+    qputenv("KDE_FORK_SLAVES", "yes");
+
     s_referenceTimeStamp = QDateTime::currentDateTime().addSecs(-30);   // 30 seconds ago
 
     // Start with a clean base dir

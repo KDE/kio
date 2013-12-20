@@ -43,6 +43,9 @@ void MyDirLister::handleError(KIO::Job *job)
 
 void KDirListerTest::initTestCase()
 {
+    // To avoid a runtime dependency on klauncher
+    qputenv("KDE_FORK_SLAVES", "yes");
+
     m_exitCount = 1;
 
     s_referenceTimeStamp = QDateTime::currentDateTime().addSecs(-120);   // 2 minutes ago

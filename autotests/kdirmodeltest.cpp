@@ -56,7 +56,8 @@ Q_DECLARE_METATYPE(KFileItemList)
 
 void KDirModelTest::initTestCase()
 {
-    qRegisterMetaType<QModelIndex>("QModelIndex"); // beats me why Qt doesn't do that
+    // To avoid a runtime dependency on klauncher
+    qputenv("KDE_FORK_SLAVES", "yes");
 
     qRegisterMetaType<KFileItemList>("KFileItemList");
 
