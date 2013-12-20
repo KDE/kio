@@ -27,6 +27,7 @@ class ClipboardUpdaterTest : public QObject
     Q_OBJECT
 
 private Q_SLOTS:
+    void initTestCase();
     void testPasteAfterRenameFiles();
     void testPasteAfterMoveFile();
     void testPasteAfterMoveFiles();

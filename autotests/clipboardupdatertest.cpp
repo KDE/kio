@@ -49,6 +49,12 @@ static QList<QUrl> tempFiles(const QTemporaryDir &dir, const QString &baseName, 
     return urls;
 }
 
+void ClipboardUpdaterTest::initTestCase()
+{
+    // To avoid a runtime dependency on klauncher
+    qputenv("KDE_FORK_SLAVES", "yes");
+}
+
 void ClipboardUpdaterTest::testPasteAfterRenameFiles()
 {
     QTemporaryDir dir;
