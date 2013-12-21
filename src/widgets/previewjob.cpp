@@ -279,7 +279,7 @@ void PreviewJobPrivate::startPreview()
             }
         }
         if (enabledPlugins.contains((*it)->desktopEntryName())) {
-            const QStringList mimeTypes = (*it)->serviceTypes();
+            const QStringList mimeTypes = (*it)->mimeTypes();
             for (QStringList::ConstIterator mt = mimeTypes.constBegin(); mt != mimeTypes.constEnd(); ++mt) {
                 mimeMap.insert(*mt, *it);
             }
@@ -718,7 +718,7 @@ QStringList PreviewJob::supportedMimeTypes()
     QStringList result;
     const KService::List plugins = KServiceTypeTrader::self()->query("ThumbCreator");
     for (KService::List::ConstIterator it = plugins.begin(); it != plugins.end(); ++it) {
-        result += (*it)->serviceTypes();
+        result += (*it)->mimeTypes();
     }
     return result;
 }
