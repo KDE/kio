@@ -243,6 +243,7 @@ bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool t
     }
 #endif
     KOpenWithDialog l(lst, i18n("Open with:"), QString(), window);
+    l.setWindowModality(Qt::WindowModal);
     if (l.exec()) {
         KService::Ptr service = l.service();
         if (!service) {
