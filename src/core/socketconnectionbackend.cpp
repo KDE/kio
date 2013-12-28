@@ -71,7 +71,10 @@ void SocketConnectionBackend::setSuspended(bool enable)
         socket->setReadBufferSize(1);
     } else {
         //qDebug() << this << " resuming";
+        // Calling setReadBufferSize from a readyRead slot leads to a bug in Qt, fixed in 13c246ee119
+#if QT_VERSION >= QT_VERSION_CHECK(5, 3, 0)
         socket->setReadBufferSize(StandardBufferSize);
+#endif
         if (socket->bytesAvailable() >= HeaderSize) {
             // there are bytes available
             QMetaObject::invokeMethod(this, "socketReadyRead", Qt::QueuedConnection);
@@ -315,7 +318,10 @@ void SocketConnectionBackend::socketReadyRead()
             emit commandReceived(task);
         } else if (len > StandardBufferSize) {
             qDebug() << this << "Jumbo packet of" << len << "bytes";
+            // Calling setReadBufferSize from a readyRead slot leads to a bug in Qt, fixed in 13c246ee119
+#if QT_VERSION >= QT_VERSION_CHECK(5, 3, 0)
             socket->setReadBufferSize(len + 1);
+#endif
         }
 
         // If we're dead, better don't try anything.
