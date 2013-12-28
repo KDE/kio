@@ -1,0 +1,24 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="org.kde.KSlaveLauncher">
+    <method name="requestHoldSlave">
+      <arg type="i" direction="out"/>
+      <arg name="url" type="s" direction="in"/>
+      <arg name="app_socket" type="s" direction="in"/>
+    </method>
+    <method name="requestSlave">
+      <arg type="i" direction="out"/>
+      <arg name="protocol" type="s" direction="in"/>
+      <arg name="host" type="s" direction="in"/>
+      <arg name="app_socket" type="s" direction="in"/>
+      <arg name="error" type="s" direction="out"/>
+    </method>
+    <method name="checkForHeldSlave">
+      <arg type="b" direction="out"/>
+      <arg name="url" type="s" direction="in"/>
+    </method>
+    <method name="waitForSlave">
+      <arg name="pid" type="i" direction="in"/>
+    </method>
+  </interface>
+</node>

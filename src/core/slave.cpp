@@ -62,10 +62,10 @@ using namespace KIO;
 #define SLAVE_CONNECTION_TIMEOUT_MAX    3600
 #endif
 
-Q_GLOBAL_STATIC_WITH_ARGS(org::kde::KLauncher, klauncherIface,
-                          (QString::fromLatin1("org.kde.klauncher5"), QString::fromLatin1("/KLauncher"), QDBusConnection::sessionBus()))
+Q_GLOBAL_STATIC_WITH_ARGS(org::kde::KSlaveLauncher, klauncherIface,
+                          (QString::fromLatin1("org.kde.klauncher5"), QString::fromLatin1("/KSlaveLauncher"), QDBusConnection::sessionBus()))
 
-static org::kde::KLauncher *klauncher()
+static org::kde::KSlaveLauncher *klauncher()
 {
     KDEInitInterface::ensureKdeinitRunning();
     return ::klauncherIface();
@@ -316,7 +316,7 @@ void Slave::hold(const QUrl &url)
         emit slaveDied(this);
     }
     deref();
-    // Call KLauncher::waitForSlave(pid);
+    // Call KSlaveLauncher::waitForSlave(pid);
     {
         klauncher()->waitForSlave(d->m_pid);
     }
