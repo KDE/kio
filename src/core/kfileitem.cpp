@@ -187,9 +187,6 @@ public:
     // For special case like link to dirs over FTP
     QString m_guessedMimeType;
     mutable QString m_access;
-#ifndef KDE_NO_DEPRECATED
-    QMap<const void *, void *> m_extra; // DEPRECATED
-#endif
 
     enum { NumFlags = KFileItem::CreationTime + 1 };
     mutable QDateTime m_time[3];
@@ -1258,43 +1255,6 @@ KFileItem::operator QVariant() const
 {
     return qVariantFromValue(*this);
 }
-
-#ifndef KDE_NO_DEPRECATED
-void KFileItem::setExtraData(const void *key, void *value)
-{
-    if (!d) {
-        return;
-    }
-
-    if (!key) {
-        return;
-    }
-
-    d->m_extra.insert(key, value);   // replaces the value of key if already there
-}
-#endif
-
-#ifndef KDE_NO_DEPRECATED
-const void *KFileItem::extraData(const void *key) const
-{
-    if (!d) {
-        return 0;
-    }
-
-    return d->m_extra.value(key, 0);
-}
-#endif
-
-#ifndef KDE_NO_DEPRECATED
-void KFileItem::removeExtraData(const void *key)
-{
-    if (!d) {
-        return;
-    }
-
-    d->m_extra.remove(key);
-}
-#endif
 
 QString KFileItem::permissionsString() const
 {

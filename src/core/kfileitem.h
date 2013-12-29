@@ -127,8 +127,7 @@ public:
     KFileItem &operator=(const KFileItem &other);
 
     /**
-     * Destructs the KFileItem. Extra data set via setExtraData()
-     * is not deleted.
+     * Destructs the KFileItem.
      */
     ~KFileItem();
 
@@ -488,68 +487,6 @@ public:
      * in QVariant() constructor
      */
     operator QVariant() const;
-
-    /**
-     * This allows to associate some "extra" data to a KFileItem. As one
-     * KFileItem can be used by several objects (often views) which all need
-     * to add some data, you have to use a key to reference your extra data
-     * within the KFileItem.
-     *
-     * That way a KFileItem can hold and provide access to all those views
-     * separately.
-     *
-     * I.e. a KFileIconView that associates a KFileIconViewItem (an item suitable
-     * for use with QIconView) does
-     *
-     * \code
-     * kfileItem->setExtraData( this, iconViewItem );
-     * \endcode
-     *
-     * and can later access the iconViewItem by doing
-     *
-     * \code
-     * KFileIconViewItem *iconViewItem = static_cast<KFileIconViewItem*>( kfileItem->extraData( this ));
-     * \endcode
-     *
-     * This is usually more efficient then having every view associate data to
-     * items by using a separate QDict or QMap.
-     *
-     * Note: you have to remove and destroy the data you associated yourself
-     * when you don't need it anymore!
-     *
-     * @param key the key of the extra data
-     * @param value the value of the extra data
-     * @see extraData
-     * @see removeExtraData
-     *
-     * @deprecated use model/view (KDirModel) and you won't need this anymore
-     */
-#ifndef KDE_NO_DEPRECATED
-    KIOCORE_DEPRECATED void setExtraData(const void *key, void *value);
-#endif
-
-    /**
-     * Retrieves the extra data with the given @p key.
-     * @param key the key of the extra data
-     * @return the extra data associated to an item with @p key via
-     * setExtraData. 0L if nothing was associated with @p key.
-     * @see extraData
-     *
-     * @deprecated use model/view (KDirModel) and you won't need this anymore
-     */
-#ifndef KDE_NO_DEPRECATED
-    KIOCORE_DEPRECATED const void *extraData(const void *key) const;
-#endif
-
-    /**
-     * Removes the extra data associated with an item via @p key.
-     * @param key the key of the extra data to remove
-     *
-     * @deprecated use model/view (KDirModel) and you won't need this anymore
-     */
-#ifndef KDE_NO_DEPRECATED
-    KIOCORE_DEPRECATED void removeExtraData(const void *key);
-#endif
 
     /**
      * @deprecated simply use '='
