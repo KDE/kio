@@ -145,10 +145,10 @@ void HeaderTokenizeTest::testMessyHeader()
     it = tokenizer.constBegin();
     for (; it != tokenizer.constEnd(); ++it) {
         if (!it.value().beginEnd.isEmpty()) {
-            // qDebug() << it.key() << ":";
+            qDebug() << it.key() << ":";
         }
         foreach (const intPair &be, it.value().beginEnd) {
-            // qDebug() << "  " << QByteArray(buffer + be.first, be.second - be.first);
+            qDebug() << "  " << QByteArray(buffer + be.first, be.second - be.first);
         }
     }
 }

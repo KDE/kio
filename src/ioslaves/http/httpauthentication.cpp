@@ -831,7 +831,7 @@ void KHttpNegotiateAuthentication::generateResponse(const QString &user, const Q
     // see whether we can use the SPNEGO mechanism
     major_status = gss_indicate_mechs(&minor_status, &mech_set);
     if (GSS_ERROR(major_status)) {
-        // qDebug() << "gss_indicate_mechs failed: " << gssError(major_status, minor_status);
+        qDebug() << "gss_indicate_mechs failed:" << gssError(major_status, minor_status);
     } else {
         for (uint i = 0; i < mech_set->count; i++) {
             tmp_oid = &mech_set->elements[i];
@@ -859,7 +859,7 @@ void KHttpNegotiateAuthentication::generateResponse(const QString &user, const Q
     input_token.length = 0;
 
     if (GSS_ERROR(major_status)) {
-        // qDebug() << "gss_import_name failed: " << gssError(major_status, minor_status);
+        qDebug() << "gss_import_name failed:" << gssError(major_status, minor_status);
         m_isError = true;
         return;
     }
@@ -880,7 +880,7 @@ void KHttpNegotiateAuthentication::generateResponse(const QString &user, const Q
                                         NULL, NULL);
 
     if (GSS_ERROR(major_status) || (output_token.length == 0)) {
-        // qDebug() << "gss_init_sec_context failed: " << gssError(major_status, minor_status);
+        qDebug() << "gss_init_sec_context failed:" << gssError(major_status, minor_status);
         gss_release_name(&minor_status, &server);
         if (ctx != GSS_C_NO_CONTEXT) {
             gss_delete_sec_context(&minor_status, &ctx, GSS_C_NO_BUFFER);

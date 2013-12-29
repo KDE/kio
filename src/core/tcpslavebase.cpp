@@ -364,7 +364,7 @@ int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *erro
         d->host = host;
 
         d->socket.connectToHost(host, port);
-        const bool connectOk = d->socket.waitForConnected(timeout > -1 ? timeout : -1);
+        /*const bool connectOk = */d->socket.waitForConnected(timeout > -1 ? timeout : -1);
 
         /*qDebug() << "Socket: state=" << d->socket.state()
                      << ", error=" << d->socket.error()
