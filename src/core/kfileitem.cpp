@@ -757,7 +757,7 @@ QMimeType KFileItem::determineMimeType() const
     if (!d->m_mimeType.isValid() || !d->m_bMimeTypeKnown) {
         QMimeDatabase db;
         bool isLocalUrl;
-        const QUrl url = mostLocalUrl(isLocalUrl);
+        const QUrl url = mostLocalUrl(&isLocalUrl);
         d->m_mimeType = db.mimeTypeForUrl(url);
         // was:  d->m_mimeType = KMimeType::findByUrl( url, d->m_fileMode, isLocalUrl );
         // => we are no longer using d->m_fileMode for remote URLs.
@@ -826,7 +826,7 @@ QString KFileItem::mimeComment() const
     }
 
     bool isLocalUrl;
-    QUrl url = mostLocalUrl(isLocalUrl);
+    QUrl url = mostLocalUrl(&isLocalUrl);
 
     QMimeType mime = currentMimeType();
     // This cannot move to kio_file (with UDS_DISPLAY_TYPE) because it needs
@@ -935,7 +935,7 @@ QString KFileItem::iconName() const
     }
 
     bool isLocalUrl;
-    QUrl url = mostLocalUrl(isLocalUrl);
+    QUrl url = mostLocalUrl(&isLocalUrl);
 
     QMimeDatabase db;
     QMimeType mime;
@@ -977,7 +977,7 @@ static bool checkDesktopFile(const KFileItem &item, bool _determineMimeType)
 {
     // only local files
     bool isLocal;
-    const QUrl url = item.mostLocalUrl(isLocal);
+    const QUrl url = item.mostLocalUrl(&isLocal);
     if (!isLocal) {
         return false;
     }
@@ -1345,7 +1345,7 @@ void KFileItem::assign(const KFileItem &item)
 }
 #endif
 
-QUrl KFileItem::mostLocalUrl(bool &local) const
+QUrl KFileItem::mostLocalUrl(bool *local) const
 {
     if (!d) {
         return QUrl();
@@ -1353,18 +1353,16 @@ QUrl KFileItem::mostLocalUrl(bool &local) const
 
     const QString local_path = localPath();
     if (!local_path.isEmpty()) {
-        local = true;
+        if (local) {
+            *local = true;
+        }
         return QUrl::fromLocalFile(local_path);
     } else {
-        local = d->m_bIsLocalUrl;
+        if (local) {
+            *local = d->m_bIsLocalUrl;
+        }
         return d->m_url;
     }
-}
-
-QUrl KFileItem::mostLocalUrl() const
-{
-    bool local = false;
-    return mostLocalUrl(local);
 }
 
 QDataStream &operator<< (QDataStream &s, const KFileItem &a)

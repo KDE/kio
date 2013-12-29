@@ -561,15 +561,16 @@ public:
     /**
      * Tries to give a local URL for this file item if possible.
      * The given boolean indicates if the returned url is local or not.
-     */
-    QUrl mostLocalUrl(bool &local) const; // KDE5 TODO: bool* local = 0
-
-    /**
-     * Tries to give a local URL for this file item if possible.
-     *
      * \since 4.6
      */
-    QUrl mostLocalUrl() const; // KDE5: merge with above version
+    QUrl mostLocalUrl(bool *local = 0) const;
+
+    /**
+     * @deprecated since 5.0 add '&' in front of your boolean argument
+     */
+#ifndef KDE_NO_DEPRECATED
+    QUrl mostLocalUrl(bool &local) const { return mostLocalUrl(&local); }
+#endif
 
     /**
      * Return true if default-constructed
