@@ -829,6 +829,9 @@ public:
     bool cacheAuthentication(const AuthInfo &info);
 
     /**
+     * @deprecated for a very very long time, not implemented anymore
+     * Probably dates back to model dialup times.
+     *
      * Used by the slave to check if it can connect
      * to a given host. This should be called where the slave is ready
      * to do a ::connect() on a socket. For each call to
@@ -843,12 +846,17 @@ public:
      *             the host currenctly connected to (but that's the default
      *             value)
      *
-     * @return true in theorie, the host is reachable
+     * @return true in theory, the host is reachable
      *         false the system is offline and the host is in a remote network.
      */
+#ifndef KDE_NO_DEPRECATED
     bool requestNetwork(const QString &host = QString());
+#endif
 
     /**
+     * @deprecated for a very very long time, not implemented anymore
+     * Probably dates back to model dialup times.
+     *
      * Used by the slave to withdraw a connection requested by
      * requestNetwork. This function cancels the last call to
      * requestNetwork. If a client uses more than one internet
@@ -861,7 +869,9 @@ public:
      *
      * A slave should call this function every time it disconnect from a host.
      * */
+#ifndef KDE_NO_DEPRECATED
     void dropNetwork(const QString &host = QString());
+#endif
 
     /**
      * Wait for an answer to our request, until we get @p expected1 or @p expected2

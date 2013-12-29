@@ -658,6 +658,7 @@ void SlaveBase::infoMessage(const QString &_msg)
     send(INF_INFOMESSAGE, data);
 }
 
+#ifndef KDE_NO_DEPRECATED
 bool SlaveBase::requestNetwork(const QString &host)
 {
     KIO_DATA << host << d->slaveid;
@@ -678,6 +679,7 @@ void SlaveBase::dropNetwork(const QString &host)
     KIO_DATA << host << d->slaveid;
     send(MSG_NET_DROP, data);
 }
+#endif
 
 void SlaveBase::statEntry(const UDSEntry &entry)
 {

@@ -363,7 +363,12 @@ KIO::filesize_t SlaveInterface::offset() const
 void SlaveInterface::requestNetwork(const QString &host, const QString &slaveid)
 {
     Q_D(SlaveInterface);
+    Q_UNUSED(host);
+    Q_UNUSED(slaveid);
     //qDebug() << "requestNetwork " << host << slaveid;
+
+    // This is old stuff. We just always return true...
+
     QByteArray packedArgs;
     QDataStream stream(&packedArgs, QIODevice::WriteOnly);
     stream << true;
@@ -372,6 +377,8 @@ void SlaveInterface::requestNetwork(const QString &host, const QString &slaveid)
 
 void SlaveInterface::dropNetwork(const QString &host, const QString &slaveid)
 {
+    Q_UNUSED(host);
+    Q_UNUSED(slaveid);
     //qDebug() << "dropNetwork " << host << slaveid;
 }
 
