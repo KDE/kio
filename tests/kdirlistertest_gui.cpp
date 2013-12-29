@@ -73,8 +73,8 @@ KDirListerTest::KDirListerTest(QWidget *parent)
             debug,  SLOT(newItems(KFileItemList)));
     connect(lister, SIGNAL(itemsFilteredByMime(KFileItemList)),
             debug,  SLOT(itemsFilteredByMime(KFileItemList)));
-    connect(lister, SIGNAL(deleteItem(KFileItem)),
-            debug,  SLOT(deleteItem(KFileItem)));
+    connect(lister, SIGNAL(itemsDeleted(KFileItemList)),
+            debug,  SLOT(itemsDeleted(KFileItemList)));
     connect(lister, SIGNAL(refreshItems(QList<QPair<KFileItem,KFileItem> >)),
             debug,  SLOT(refreshItems(QList<QPair<KFileItem,KFileItem> >)));
     connect(lister, SIGNAL(infoMessage(QString)),

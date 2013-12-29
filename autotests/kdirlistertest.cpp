@@ -316,12 +316,12 @@ void KDirListerTest::testNewItemsInSymlink() // #213799
         qDebug() << "Deleting" << (path + fileName);
         QTest::qWait(1000); // for timestamp difference
         QFile::remove(path + fileName);
-        while (dirLister2.spyDeleteItem.count() == 0) {
+        while (dirLister2.spyItemsDeleted.count() == 0) {
             QVERIFY(++numTries < 10);
             QTest::qWait(200);
         }
-        QCOMPARE(dirLister2.spyDeleteItem.count(), 1);
-        const KFileItem item = dirLister2.spyDeleteItem[0][0].value<KFileItem>();
+        QCOMPARE(dirLister2.spyItemsDeleted.count(), 1);
+        const KFileItem item = dirLister2.spyItemsDeleted[0][0].value<KFileItemList>().at(0);
         QCOMPARE(item.url().toLocalFile(), QString(symPath + '/' + fileName));
     }
 
@@ -445,18 +445,17 @@ void KDirListerTest::testDeleteItem()
     const int origItemCount = m_items.count();
     QCOMPARE(fileCount(), origItemCount);
     const QString path = m_tempDir.path() + '/';
-    connect(&m_dirLister, SIGNAL(deleteItem(KFileItem)), this, SLOT(exitLoop()));
+    connect(&m_dirLister, SIGNAL(itemsDeleted(KFileItemList)), this, SLOT(exitLoop()));
 
     //qDebug() << "Removing " << path+"toplevelfile_1";
     QFile::remove(path + "toplevelfile_1");
     // the remove() doesn't always trigger kdirwatch in stat mode, if this all happens in the same second
     KDirWatch::self()->setDirty(path);
-    if (m_dirLister.spyDeleteItem.count() == 0) {
-        qDebug("waiting for deleteItem");
+    if (m_dirLister.spyItemsDeleted.count() == 0) {
+        qDebug("waiting for itemsDeleted");
         enterLoop();
     }
 
-    QCOMPARE(m_dirLister.spyDeleteItem.count(), 1);
     QCOMPARE(m_dirLister.spyItemsDeleted.count(), 1);
 
     // OK now kdirlister told us the file was deleted, let's try a re-listing

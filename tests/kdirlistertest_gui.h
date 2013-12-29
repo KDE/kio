@@ -79,9 +79,10 @@ public Q_SLOTS:
             cout << (*it).name().toLocal8Bit().data() << endl;
         }
     }
-    void deleteItem(const KFileItem &item)
+    void itemsDeleted(const KFileItemList &)
     {
-        cout << "*** deleteItem: " << item.url().toString().toLocal8Bit().constData() << endl;
+        cout << "*** itemsDeleted: " << endl;
+        // TODO
     }
     void itemsFilteredByMime(const KFileItemList &)
     {
