@@ -130,14 +130,6 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
 #if HAVE_FADVISE
     posix_fadvise(src_file.handle(), 0, 0, POSIX_FADV_SEQUENTIAL);
 #endif
-    // WABA: Make sure that we keep writing permissions ourselves,
-    // otherwise we can be in for a surprise on NFS.
-    mode_t initialMode;
-    if (_mode != -1) {
-        initialMode = _mode | S_IWUSR;
-    } else {
-        initialMode = 0666;
-    }
 
     QFile dest_file(dest);
     if (!dest_file.open(QIODevice::Truncate | QIODevice::WriteOnly)) {
