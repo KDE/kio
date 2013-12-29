@@ -928,10 +928,8 @@ protected:
     virtual void virtual_hook(int id, void *data);
 
 private:
-#if 0 // TODO KDE5: enable
-    // This helps catching missing tr() calls in error().
+    // This helps catching missing tr()/i18n() calls in error().
     void error(int _errid, const QByteArray &_text);
-#endif
     void send(int cmd, const QByteArray &arr = QByteArray());
     SlaveBasePrivate *const d;
     friend class SlaveBasePrivate;
