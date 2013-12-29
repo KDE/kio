@@ -173,7 +173,7 @@ void UDSEntryPrivate::load(QDataStream &s, UDSEntry &a)
     // will often be the same for many entries in a row. Caching them
     // permits to use implicit sharing to save memory.
     static QVector<QString> cachedStrings;
-    if (cachedStrings.size() < size) {
+    if (quint32(cachedStrings.size()) < size) {
         cachedStrings.resize(size);
     }
 
