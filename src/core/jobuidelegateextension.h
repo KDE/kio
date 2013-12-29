@@ -33,21 +33,19 @@ class Job;
 class ClipboardUpdater;
 
 // KDE5: get rid of M_OVERWRITE_ITSELF, trigger it internally if src==dest
-// KDE5: get rid of M_SINGLE. If not multi, then single ;)
 // KDE5: use QFlags to get rid of all the casting!
 /**
  * M_OVERWRITE: We have an existing dest, show details about it and offer to overwrite it.
  * M_OVERWRITE_ITSELF: Warn that the current operation would overwrite a file with itself,
  *                     which is not allowed.
  * M_SKIP: Offer a "Skip" button, to skip other files too. Requires M_MULTI.
- * M_SINGLE: Deprecated and unused, please ignore.
  * M_MULTI: Set if the current operation concerns multiple files, so it makes sense
  *  to offer buttons that apply the user's choice to all files/folders.
  * M_RESUME: Offer a "Resume" button (plus "Resume All" if M_MULTI)
  * M_NORENAME: Don't offer a "Rename" button
  * M_ISDIR: The dest is a directory, so label the "overwrite" button something like "merge" instead.
  */
-enum RenameDialog_Mode { M_OVERWRITE = 1, M_OVERWRITE_ITSELF = 2, M_SKIP = 4, M_SINGLE = 8, M_MULTI = 16, M_RESUME = 32, M_NORENAME = 64, M_ISDIR = 128 };
+enum RenameDialog_Mode { M_OVERWRITE = 1, M_OVERWRITE_ITSELF = 2, M_SKIP = 4, M_MULTI = 16, M_RESUME = 32, M_NORENAME = 64, M_ISDIR = 128 };
 
 /**
  * The result of open_RenameDialog().
