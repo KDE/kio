@@ -1057,15 +1057,15 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
     assert(!q->hasSubjobs());    // We should have only one job at a time ...
 
     // Always multi and skip (since there are files after that)
-    RenameDialog_Mode mode = (RenameDialog_Mode)(M_MULTI | M_SKIP | M_ISDIR);
+    RenameDialog_Options options(RenameDialog_MultipleItems | RenameDialog_Skip | RenameDialog_IsDirectory);
     // Overwrite only if the existing thing is a dir (no chance with a file)
     if (m_conflictError == ERR_DIR_ALREADY_EXIST) {
         if ((*it).uSource == (*it).uDest ||
                 ((*it).uSource.scheme() == (*it).uDest.scheme() &&
                  (*it).uSource.adjusted(QUrl::StripTrailingSlash).path() == linkDest)) {
-            mode = (RenameDialog_Mode)(mode | M_OVERWRITE_ITSELF);
+            options |= RenameDialog_OverwriteItself;
         } else {
-            mode = (RenameDialog_Mode)(mode | M_OVERWRITE);
+            options |= RenameDialog_Overwrite;
         }
     }
 
@@ -1077,7 +1077,7 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
     RenameDialog_Result r = q->uiDelegateExtension()->askFileRename(q, i18n("Folder Already Exists"),
                             (*it).uSource,
                             (*it).uDest,
-                            mode, newPath,
+                            options, newPath,
                             (*it).size, destsize,
                             (*it).ctime, destctime,
                             (*it).mtime, destmtime);
@@ -1322,31 +1322,31 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
 
         // Offer overwrite only if the existing thing is a file
         // If src==dest, use "overwrite-itself"
-        RenameDialog_Mode mode;
+        RenameDialog_Options options;
         bool isDir = true;
 
         if (m_conflictError == ERR_DIR_ALREADY_EXIST) {
-            mode = M_ISDIR;
+            options = RenameDialog_IsDirectory;
         } else {
             if ((*it).uSource == (*it).uDest  ||
                     ((*it).uSource.scheme() == (*it).uDest.scheme() &&
                      (*it).uSource.adjusted(QUrl::StripTrailingSlash).path() == linkDest)) {
-                mode = M_OVERWRITE_ITSELF;
+                options = RenameDialog_OverwriteItself;
             } else {
-                mode = M_OVERWRITE;
+                options = RenameDialog_Overwrite;
             }
             isDir = false;
         }
 
         if (!m_bSingleFileCopy) {
-            mode = (RenameDialog_Mode)(mode | M_MULTI | M_SKIP);
+            options = RenameDialog_Options(RenameDialog_MultipleItems | RenameDialog_Skip);
         }
 
         res = q->uiDelegateExtension()->askFileRename(q, !isDir ?
                 i18n("File Already Exists") : i18n("Already Exists as Folder"),
                 (*it).uSource,
                 (*it).uDest,
-                mode, newPath,
+                options, newPath,
                 (*it).size, destsize,
                 (*it).ctime, destctime,
                 (*it).mtime, destmtime);
@@ -1902,17 +1902,17 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                 }
 
                 // If src==dest, use "overwrite-itself"
-                RenameDialog_Mode mode = (m_currentSrcURL == dest) ? M_OVERWRITE_ITSELF : M_OVERWRITE;
+                RenameDialog_Options options = (m_currentSrcURL == dest) ?  RenameDialog_OverwriteItself : RenameDialog_Overwrite;
                 if (!isDir && destIsDir) {
                     // We can't overwrite a dir with a file.
-                    mode = (RenameDialog_Mode) 0;
+                    options = RenameDialog_Options();
                 }
 
                 if (m_srcList.count() > 1) {
-                    mode = (RenameDialog_Mode)(mode | M_MULTI | M_SKIP);
+                    options |= RenameDialog_Options(RenameDialog_MultipleItems | RenameDialog_Skip);
                 }
                 if (destIsDir) {
-                    mode = (RenameDialog_Mode)(mode | M_ISDIR);
+                    options |= RenameDialog_IsDirectory;
                 }
 
                 if (m_reportTimer) {
@@ -1924,7 +1924,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                                             err != ERR_DIR_ALREADY_EXIST ? i18n("File Already Exists") : i18n("Already Exists as Folder"),
                                             m_currentSrcURL,
                                             dest,
-                                            mode, newPath,
+                                            options, newPath,
                                             sizeSrc, sizeDest,
                                             ctimeSrc, ctimeDest,
                                             mtimeSrc, mtimeDest);

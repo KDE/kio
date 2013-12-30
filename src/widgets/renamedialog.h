@@ -56,18 +56,17 @@ public:
      * @param caption the caption for the dialog box
      * @param src the url to the file/dir we're trying to copy, as it's part of the text message
      * @param dest the path to destination file/dir, i.e. the one that already exists
-     * @param mode parameters for the dialog (which buttons to show...),
+     * @param options parameters for the dialog (which buttons to show...),
      * @param sizeSrc size of source file
      * @param sizeDest size of destination file
      * @param ctimeSrc creation time of source file
      * @param ctimeDest creation time of destination file
      * @param mtimeSrc modification time of source file
      * @param mtimeDest modification time of destination file
-     * @see RenameDialog_Mode
      */
     RenameDialog(QWidget *parent, const QString &caption,
                  const QUrl &src, const QUrl &dest,
-                 RenameDialog_Mode mode,
+                 RenameDialog_Options options,
                  KIO::filesize_t sizeSrc = KIO::filesize_t(-1),
                  KIO::filesize_t sizeDest = KIO::filesize_t(-1),
                  const QDateTime &ctimeSrc = QDateTime(),

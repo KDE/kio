@@ -110,7 +110,7 @@ public:
 
 RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
                            const QUrl &_src, const QUrl &_dest,
-                           RenameDialog_Mode _mode,
+                           RenameDialog_Options _options,
                            KIO::filesize_t sizeSrc,
                            KIO::filesize_t sizeDest,
                            const QDateTime &ctimeSrc,
@@ -130,14 +130,14 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
     KGuiItem::assign(d->bCancel, KStandardGuiItem::cancel());
     connect(d->bCancel, SIGNAL(clicked()), this, SLOT(cancelPressed()));
 
-    if (_mode & M_MULTI) {
+    if (_options & RenameDialog_MultipleItems) {
         d->bApplyAll = new QCheckBox(i18n("Appl&y to All"), this);
-        d->bApplyAll->setToolTip((_mode & M_ISDIR) ? i18n("When this is checked the button pressed will be applied to all subsequent folder conflicts for the remainder of the current job.\nUnless you press Skip you will still be prompted in case of a conflict with an existing file in the directory.")
+        d->bApplyAll->setToolTip((_options & RenameDialog_IsDirectory) ? i18n("When this is checked the button pressed will be applied to all subsequent folder conflicts for the remainder of the current job.\nUnless you press Skip you will still be prompted in case of a conflict with an existing file in the directory.")
                                  : i18n("When this is checked the button pressed will be applied to all subsequent conflicts for the remainder of the current job."));
         connect(d->bApplyAll, SIGNAL(clicked()), this, SLOT(applyAllPressed()));
     }
 
-    if (!(_mode & M_NORENAME)) {
+    if (!(_options & RenameDialog_NoRename)) {
         d->bRename = new QPushButton(i18n("&Rename"), this);
         d->bRename->setEnabled(false);
         d->bSuggestNewName = new QPushButton(i18n("Suggest New &Name"), this);
@@ -145,21 +145,21 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
         connect(d->bRename, SIGNAL(clicked()), this, SLOT(renamePressed()));
     }
 
-    if ((_mode & M_MULTI) && (_mode & M_SKIP)) {
+    if ((_options & RenameDialog_MultipleItems) && (_options & RenameDialog_Skip)) {
         d->bSkip = new QPushButton(i18n("&Skip"), this);
-        d->bSkip->setToolTip((_mode & M_ISDIR) ? i18n("Do not copy or move this folder, skip to the next item instead")
+        d->bSkip->setToolTip((_options & RenameDialog_IsDirectory) ? i18n("Do not copy or move this folder, skip to the next item instead")
                              : i18n("Do not copy or move this file, skip to the next item instead"));
         connect(d->bSkip, SIGNAL(clicked()), this, SLOT(skipPressed()));
     }
 
-    if (_mode & M_OVERWRITE) {
-        const QString text = (_mode & M_ISDIR) ? i18nc("Write files into an existing folder", "&Write Into") : i18n("&Overwrite");
+    if (_options & RenameDialog_Overwrite) {
+        const QString text = (_options & RenameDialog_IsDirectory) ? i18nc("Write files into an existing folder", "&Write Into") : i18n("&Overwrite");
         d->bOverwrite = new QPushButton(text, this);
         d->bOverwrite->setToolTip(i18n("Files and folders will be copied into the existing directory, alongside its existing contents.\nYou will be prompted again in case of a conflict with an existing file in the directory."));
         connect(d->bOverwrite, SIGNAL(clicked()), this, SLOT(overwritePressed()));
     }
 
-    if (_mode & M_RESUME) {
+    if (_options & RenameDialog_Resume) {
         d->bResume = new QPushButton(i18n("&Resume"), this);
         connect(d->bResume, SIGNAL(clicked()), this, SLOT(resumePressed()));
     }
@@ -168,14 +168,14 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
     pLayout->addStrut(400);     // makes dlg at least that wide
 
     // User tries to overwrite a file with itself ?
-    if (_mode & M_OVERWRITE_ITSELF) {
+    if (_options & RenameDialog_OverwriteItself) {
         QLabel *lb = new QLabel(i18n("This action would overwrite '%1' with itself.\n"
                                      "Please enter a new file name:",
                                      KStringHandler::csqueeze(d->src.toDisplayString(QUrl::PreferLocalFile), 100)), this);
 
         d->bRename->setText(i18n("C&ontinue"));
         pLayout->addWidget(lb);
-    } else if (_mode & M_OVERWRITE) {
+    } else if (_options & RenameDialog_Overwrite) {
         if (d->src.isLocalFile()) {
             d->srcItem = KFileItem(d->src);
         } else {
@@ -278,8 +278,8 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
         pLayout->addWidget(lb);
     }
 
-    if ((_mode != M_OVERWRITE_ITSELF) && (_mode != M_NORENAME)) {
-        if (_mode == M_OVERWRITE) {
+    if ((_options != RenameDialog_OverwriteItself) && (_options != RenameDialog_NoRename)) {
+        if (_options == RenameDialog_Overwrite) {
             pLayout->addSpacing(15);    // spacer
         }
 

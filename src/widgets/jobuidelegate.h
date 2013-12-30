@@ -70,8 +70,7 @@ public:
      * @param caption the caption for the dialog box
      * @param src the URL of the file/dir we're trying to copy, as it's part of the text message
      * @param dest the URL of the destination file/dir, i.e. the one that already exists
-     * @param mode parameters for the dialog (which buttons to show...),
-     *             see RenameDialog_Mode
+     * @param options parameters for the dialog (which buttons to show...)
      * @param newDestPath the new destination path, valid if R_RENAME was returned.
      * @param sizeSrc size of source file
      * @param sizeDest size of destination file
@@ -85,7 +84,7 @@ public:
                                       const QString &caption,
                                       const QUrl &src,
                                       const QUrl &dest,
-                                      KIO::RenameDialog_Mode mode,
+                                      KIO::RenameDialog_Options options,
                                       QString &newDest,
                                       KIO::filesize_t sizeSrc = KIO::filesize_t(-1),
                                       KIO::filesize_t sizeDest = KIO::filesize_t(-1),

@@ -131,7 +131,7 @@ public:
                                            const QString &caption,
                                            const QUrl &src,
                                            const QUrl &dest,
-                                           KIO::RenameDialog_Mode mode,
+                                           KIO::RenameDialog_Options options,
                                            QString &newDest,
                                            KIO::filesize_t = (KIO::filesize_t) - 1,
                                            KIO::filesize_t = (KIO::filesize_t) - 1,
@@ -143,7 +143,7 @@ public:
         Q_UNUSED(caption)
         Q_UNUSED(src)
         Q_UNUSED(dest)
-        Q_UNUSED(mode)
+        Q_UNUSED(options)
         Q_UNUSED(newDest)
         ++m_askFileRenameCalled;
         return m_renameResult;

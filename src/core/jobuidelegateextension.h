@@ -32,20 +32,48 @@ namespace KIO
 class Job;
 class ClipboardUpdater;
 
-// KDE5: get rid of M_OVERWRITE_ITSELF, trigger it internally if src==dest
-// KDE5: use QFlags to get rid of all the casting!
 /**
- * M_OVERWRITE: We have an existing dest, show details about it and offer to overwrite it.
- * M_OVERWRITE_ITSELF: Warn that the current operation would overwrite a file with itself,
+ * RenameDialog_Overwrite: We have an existing dest, show details about it and offer to overwrite it.
+ * RenameDialog_OverwriteItself: Warn that the current operation would overwrite a file with itself,
  *                     which is not allowed.
- * M_SKIP: Offer a "Skip" button, to skip other files too. Requires M_MULTI.
- * M_MULTI: Set if the current operation concerns multiple files, so it makes sense
+ * RenameDialog_Skip: Offer a "Skip" button, to skip other files too. Requires RenameDialog_MultipleItems.
+ * RenameDialog_MultipleItems: Set if the current operation concerns multiple files, so it makes sense
  *  to offer buttons that apply the user's choice to all files/folders.
- * M_RESUME: Offer a "Resume" button (plus "Resume All" if M_MULTI)
- * M_NORENAME: Don't offer a "Rename" button
- * M_ISDIR: The dest is a directory, so label the "overwrite" button something like "merge" instead.
+ * RenameDialog_Resume: Offer a "Resume" button (plus "Resume All" if RenameDialog_MultipleItems).
+ * RenameDialog_NoRename: Don't offer a "Rename" button
+ * RenameDialog_IsDirectory: The dest is a directory, so label the "overwrite" button something like "merge" instead.
+ * @since 5.0
  */
-enum RenameDialog_Mode { M_OVERWRITE = 1, M_OVERWRITE_ITSELF = 2, M_SKIP = 4, M_MULTI = 16, M_RESUME = 32, M_NORENAME = 64, M_ISDIR = 128 };
+enum RenameDialog_Option {
+    RenameDialog_Overwrite = 1,
+    RenameDialog_OverwriteItself = 2,
+    RenameDialog_Skip = 4,
+    RenameDialog_MultipleItems = 8,
+    RenameDialog_Resume = 16,
+    RenameDialog_NoRename = 64,
+    RenameDialog_IsDirectory = 128
+};
+Q_DECLARE_FLAGS(RenameDialog_Options, RenameDialog_Option)
+
+// For compat
+#ifndef KDE_NO_DEPRECATED
+/**
+ * @deprecated since 5.0, use the RenameDialog_Option enum values
+ */
+enum {
+    M_OVERWRITE = RenameDialog_Overwrite,
+    M_OVERWRITE_ITSELF = RenameDialog_OverwriteItself,
+    M_SKIP = RenameDialog_Skip,
+    M_MULTI = RenameDialog_MultipleItems,
+    M_RESUME = RenameDialog_Resume,
+    M_NORENAME = RenameDialog_NoRename,
+    M_ISDIR = RenameDialog_IsDirectory
+};
+/**
+ * @deprecated since 5.0, use RenameDialog_Options
+ */
+typedef RenameDialog_Options RenameDialog_Mode;
+#endif
 
 /**
  * The result of open_RenameDialog().
@@ -86,8 +114,7 @@ public:
      * @param caption the caption for the dialog box
      * @param src the URL of the file/dir we're trying to copy, as it's part of the text message
      * @param dest the URL of the destination file/dir, i.e. the one that already exists
-     * @param mode parameters for the dialog (which buttons to show...),
-     *             see RenameDialog_Mode
+     * @param options parameters for the dialog (which buttons to show...)
      * @param newDestPath the new destination path, valid if R_RENAME was returned.
      * @param sizeSrc size of source file
      * @param sizeDest size of destination file
@@ -101,7 +128,7 @@ public:
             const QString &caption,
             const QUrl &src,
             const QUrl &dest,
-            KIO::RenameDialog_Mode mode,
+            KIO::RenameDialog_Options options,
             QString &newDest,
             KIO::filesize_t sizeSrc = KIO::filesize_t(-1),
             KIO::filesize_t sizeDest = KIO::filesize_t(-1),
@@ -219,5 +246,7 @@ KIOCORE_EXPORT JobUiDelegateExtension *defaultJobUiDelegateExtension();
 KIOCORE_EXPORT void setDefaultJobUiDelegateExtension(JobUiDelegateExtension *extension);
 
 } // namespace KIO
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(KIO::RenameDialog_Options)
 
 #endif

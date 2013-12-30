@@ -2105,7 +2105,7 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
                           job, i18n("File Already Exists"),
                           m_src,
                           m_dest,
-                          (RenameDialog_Mode)(M_OVERWRITE | M_RESUME | M_NORENAME), newPath,
+                          RenameDialog_Options(RenameDialog_Overwrite | RenameDialog_Resume | RenameDialog_NoRename), newPath,
                           m_sourceSize, offset);
             }
 
