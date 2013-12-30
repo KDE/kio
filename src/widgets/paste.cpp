@@ -79,7 +79,7 @@ static KIO::Job *pasteClipboardUrls(const QMimeData *mimeData, const QUrl &destD
     return 0;
 }
 
-static QUrl getNewFileName(const QUrl &u, const QString &text, const QString &suggestedFileName, QWidget *widget, bool delIfOverwrite)
+static QUrl getNewFileName(const QUrl &u, const QString &text, const QString &suggestedFileName, QWidget *widget)
 {
     bool ok;
     QString dialogText(text);
@@ -105,53 +105,25 @@ static QUrl getNewFileName(const QUrl &u, const QString &text, const QString &su
     // And now we're using a put job anyway, no destination checking included.
     if (job->exec()) {
         //qDebug() << "Paste will overwrite file.  Prompting...";
-        KIO::RenameDialog_Result res = KIO::Result_Overwrite;
-
         KIO::RenameDialog dlg(widget,
                               i18n("File Already Exists"),
                               u,
                               myurl,
                               KIO::RenameDialog_Overwrite);
-        res = static_cast<KIO::RenameDialog_Result>(dlg.exec());
+        KIO::RenameDialog_Result res = static_cast<KIO::RenameDialog_Result>(dlg.exec());
 
         if (res == KIO::Result_Rename) {
             myurl = dlg.newDestUrl();
         } else if (res == KIO::Result_Cancel) {
             return QUrl();
         } else if (res == KIO::Result_Overwrite) {
-            // Old hack. With the put job we just pass Overwrite.
-            if (delIfOverwrite) {
-                // Ideally we would just pass KIO::Overwrite to the job in pasteDataAsyncTo.
-                // But 1) CopyJob doesn't support that (it wouldn't really apply to multiple files) [not true anymore]
-                // 2) we can't use file_move because CopyJob* is everywhere in the API (see TODO)
-                // But well the simpler is really to delete the dest:
-                KIO::Job *delJob = KIO::del(myurl);
-                delJob->exec();
-            }
+            // OK, proceed
         }
     }
 
     return myurl;
 }
 
-// Old solution
-// The final step: write _data to tempfile and move it to newUrl
-static KIO::CopyJob *pasteDataAsyncTo(const QUrl &newUrl, const QByteArray &_data)
-{
-    // ### Bug: because we move from a tempfile to the destination,
-    // if the user does "Undo" then we won't ask for confirmation, and we'll
-    // move back to a tempfile, instead of just deleting.
-    // A KIO::storedPut would be better but FileUndoManager would need to support it first.
-    QTemporaryFile tempFile;
-    tempFile.setAutoRemove(false);
-    tempFile.open();
-    tempFile.write(_data.data(), _data.size());
-    tempFile.flush();
-    QUrl origUrl = QUrl::fromLocalFile(tempFile.fileName());
-    return KIO::move(origUrl, newUrl);
-}
-
-// New solution
 static KIO::Job *putDataAsyncTo(const QUrl &url, const QByteArray &data, QWidget *widget, KIO::JobFlags flags)
 {
     KIO::Job *job = KIO::storedPut(data, url, -1, flags);
@@ -242,51 +214,7 @@ static QStringList extractFormats(const QMimeData *mimeData)
     return formats;
 }
 
-#ifndef KDE_NO_DEPRECATED
-// The [old] main method for dropping
-KIO::CopyJob *KIO::pasteMimeSource(const QMimeData *mimeData, const QUrl &destUrl,
-                                   const QString &dialogText, QWidget *widget, bool clipboard)
-{
-    QByteArray ba;
-
-    const QString suggestedFilename = QString::fromUtf8(mimeData->data("application/x-kde-suggestedfilename"));
-
-    // Now check for plain text
-    // We don't want to display a mimetype choice for a QTextDrag, those mimetypes look ugly.
-    if (mimeData->hasText()) {
-        ba = mimeData->text().toLocal8Bit(); // encoding OK?
-    } else {
-        const QStringList formats = extractFormats(mimeData);
-        if (formats.size() == 0) {
-            return 0;
-        }
-
-        if (formats.size() > 1) {
-            QUrl newUrl;
-            ba = chooseFormatAndUrl(destUrl, mimeData, formats, dialogText, suggestedFilename, widget, clipboard, &newUrl);
-            KIO::CopyJob *job = pasteDataAsyncTo(newUrl, ba);
-            KJobWidgets::setWindow(job, widget);
-            return job;
-        }
-        ba = mimeData->data(formats.first());
-    }
-    if (ba.isEmpty()) {
-        KMessageBox::sorry(widget, i18n("The clipboard is empty"));
-        return 0;
-    }
-
-    const QUrl newUrl = getNewFileName(destUrl, dialogText, suggestedFilename, widget, true);
-    if (newUrl.isEmpty()) {
-        return 0;
-    }
-
-    KIO::CopyJob *job = pasteDataAsyncTo(newUrl, ba);
-    KJobWidgets::setWindow(job, widget);
-    return job;
-}
-#endif
-
-KIOWIDGETS_EXPORT bool KIO::canPasteMimeSource(const QMimeData *data)
+KIOWIDGETS_EXPORT bool KIO::canPasteMimeData(const QMimeData *data)
 {
     return data->hasText() || !extractFormats(data).isEmpty();
 }
@@ -320,7 +248,7 @@ KIO::Job *pasteMimeDataImpl(const QMimeData *mimeData, const QUrl &destUrl,
         return 0;
     }
 
-    const QUrl newUrl = getNewFileName(destUrl, dialogText, suggestedFilename, widget, false);
+    const QUrl newUrl = getNewFileName(destUrl, dialogText, suggestedFilename, widget);
     if (newUrl.isEmpty()) {
         return 0;
     }
@@ -353,32 +281,6 @@ KIOWIDGETS_EXPORT KIO::Job *KIO::pasteClipboard(const QUrl &destUrl, QWidget *wi
     }
 
     return pasteMimeDataImpl(mimeData, destUrl, QString(), widget, true /*clipboard*/);
-}
-
-KIOWIDGETS_EXPORT void KIO::pasteData(const QUrl &u, const QByteArray &data, QWidget *widget)
-{
-    const QUrl newUrl = getNewFileName(u, QString(), QString(), widget, false);
-    if (newUrl.isEmpty()) {
-        return;
-    }
-
-    KIO::Job *job = putDataAsyncTo(newUrl, data, widget, KIO::Overwrite);
-    KJobWidgets::setWindow(job, widget);
-    job->exec();
-}
-
-// KDE5: remove
-KIOWIDGETS_EXPORT KIO::CopyJob *KIO::pasteDataAsync(const QUrl &u, const QByteArray &_data, QWidget *widget, const QString &text)
-{
-    QUrl newUrl = getNewFileName(u, text, QString(), widget, true);
-
-    if (newUrl.isEmpty()) {
-        return 0;
-    }
-
-    KIO::CopyJob *job = pasteDataAsyncTo(newUrl, _data);
-    KJobWidgets::setWindow(job, widget);
-    return job;
 }
 
 // NOTE: DolphinView::pasteInfo() has a better version of this

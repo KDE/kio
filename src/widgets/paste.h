@@ -45,38 +45,6 @@ class CopyJob;
 KIOWIDGETS_EXPORT Job *pasteClipboard(const QUrl &destURL, QWidget *widget, bool move = false);
 
 /**
- * Pastes the given @p data to the given destination URL.
- * NOTE: This method is blocking (uses NetAccess for saving the data).
- * Please consider using pasteDataAsync instead.
- *
- * @param destURL the URL of the directory where the data will be pasted.
- * The filename to use in that directory is prompted by this method.
- * @param data the data to copy
- * @param widget parent widget to use for dialogs
- * @see pasteClipboard()
- *
- * This method is a candidate for disappearing in KDE5, email faure at kde.org if you
- * are using it in your application, then I'll reconsider.
- */
-KIOWIDGETS_EXPORT void pasteData(const QUrl &destURL, const QByteArray &data, QWidget *widget);
-
-/**
- * Pastes the given @p data to the given destination URL.
- * Note that this method requires the caller to have chosen the QByteArray
- * to paste before hand, unlike pasteClipboard and pasteMimeSource.
- *
- * @param destURL the URL of the directory where the data will be pasted.
- * The filename to use in that directory is prompted by this method.
- * @param data the data to copy
- * @param dialogText the text to show in the dialog
- * @see pasteClipboard()
- *
- * This method is a candidate for disappearing in KDE5, email faure at kde.org if you
- * are using it in your application, then I'll reconsider.
- */
-KIOWIDGETS_EXPORT CopyJob *pasteDataAsync(const QUrl &destURL, const QByteArray &data, QWidget *widget, const QString &dialogText = QString());
-
-/**
  * Save the given mime @p data to the given destination URL
  * after offering the user to choose a data format.
  * This is the method used when handling drops (of anything else than URLs)
@@ -96,23 +64,11 @@ KIOWIDGETS_EXPORT Job *pasteMimeData(const QMimeData *data, const QUrl &destUrl,
                                      const QString &dialogText, QWidget *widget);
 
 /**
- * @deprecated because it returns a CopyJob*, and this is better implemented
- * without a copy job. Use pasteMimeData instead.
- * Note that you'll have to tell the user in case of an error (no data to paste),
- * while pasteMimeSource did that.
- */
-#ifndef KDE_NO_DEPRECATED
-KIOWIDGETS_DEPRECATED_EXPORT CopyJob *pasteMimeSource(const QMimeData *data, const QUrl &destURL,
-        const QString &dialogText, QWidget *widget,
-        bool clipboard = false);
-#endif
-
-/**
- * Returns true if pasteMimeSource finds any interesting format in @p data.
+ * Returns true if pasteMimeData will find any interesting format in @p data.
  * You can use this method to enable/disable the paste action appropriately.
- * @since 4.3
+ * @since 5.0 (was called canPasteMimeSource before)
  */
-KIOWIDGETS_EXPORT bool canPasteMimeSource(const QMimeData *data);
+KIOWIDGETS_EXPORT bool canPasteMimeData(const QMimeData *data);
 
 /**
  * Returns the text to use for the Paste action, when the application supports
