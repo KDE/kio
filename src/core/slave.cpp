@@ -63,7 +63,7 @@ using namespace KIO;
 #endif
 
 Q_GLOBAL_STATIC_WITH_ARGS(org::kde::KSlaveLauncher, klauncherIface,
-                          (QString::fromLatin1("org.kde.klauncher5"), QString::fromLatin1("/KSlaveLauncher"), QDBusConnection::sessionBus()))
+                          (QString::fromLatin1("org.kde.klauncher5"), QString::fromLatin1("/KLauncher"), QDBusConnection::sessionBus()))
 
 static org::kde::KSlaveLauncher *klauncher()
 {
