@@ -1232,7 +1232,7 @@ void KFileWidgetPrivate::setLocationText(const QUrl &url)
 {
     if (!url.isEmpty()) {
         QPixmap mimeTypeIcon = KIconLoader::global()->loadMimeTypeIcon(KIO::iconNameForUrl(url), KIconLoader::Small);
-        if (!url.path().isEmpty()) {
+        if (!url.isRelative()) {
             const QUrl directory = url.adjusted(QUrl::RemoveFilename);
             if (!directory.path().isEmpty()) {
                 q->setUrl(directory, false);

@@ -13,6 +13,7 @@ KIOWIDGETS_EXECUTABLE_TESTS(
   kruntest
   kioslavetest
   kopenwithtest
+  kencodingfiledialogtest_gui
   kdirmodeltest_gui
   kdirlistertest_gui
   previewtest
