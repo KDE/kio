@@ -1358,8 +1358,11 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
             q->Job::slotResult(job);   // will set the error and emit result(this)
             return;
         } else {
-            SkipDialog_Result skipResult = q->uiDelegateExtension()->askSkip(q, files.count() > 1,
-                                           job->errorString());
+            SkipDialog_Options options;
+            if (files.count() > 1) {
+                options |= SkipDialog_MultipleItems;
+            }
+            SkipDialog_Result skipResult = q->uiDelegateExtension()->askSkip(q, options, job->errorString());
 
             // Convert the return code from SkipDialog into a RenameDialog code
             switch (skipResult) {

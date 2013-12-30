@@ -98,7 +98,7 @@ public:
      * See skipdialog.h
      */
     SkipDialog_Result askSkip(KJob *job,
-                              bool multi,
+                              KIO::SkipDialog_Options options,
                               const QString &error_text) Q_DECL_OVERRIDE;
 
     /**

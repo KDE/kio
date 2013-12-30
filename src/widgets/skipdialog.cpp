@@ -32,7 +32,7 @@
 
 using namespace KIO;
 
-SkipDialog::SkipDialog(QWidget *parent, bool _multi, const QString &_error_text)
+SkipDialog::SkipDialog(QWidget *parent, KIO::SkipDialog_Options options, const QString &_error_text)
     : QDialog(parent), d(0)
 {
     setWindowTitle(i18n("Information"));
@@ -49,7 +49,7 @@ SkipDialog::SkipDialog(QWidget *parent, bool _multi, const QString &_error_text)
     connect(retryButton, SIGNAL(clicked()), SLOT(retryPressed()));
     buttonBox->addButton(retryButton, QDialogButtonBox::ActionRole);
 
-    if (_multi) {
+    if (options & SkipDialog_MultipleItems) {
         QPushButton *skipButton = new QPushButton(i18n("Skip"));
         connect(skipButton, SIGNAL(clicked()), SLOT(skipPressed()));
         buttonBox->addButton(skipButton, QDialogButtonBox::ActionRole);

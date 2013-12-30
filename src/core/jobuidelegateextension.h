@@ -80,6 +80,16 @@ typedef RenameDialog_Options RenameDialog_Mode;
  */
 enum RenameDialog_Result {R_RESUME = 6, R_RESUME_ALL = 7, R_OVERWRITE = 4, R_OVERWRITE_ALL = 5, R_SKIP = 2, R_AUTO_SKIP = 3, R_RENAME = 1, R_AUTO_RENAME = 8, R_RETRY = 9, R_CANCEL = 0};
 
+/**
+ * SkipDialog_MultipleItems: Set if the current operation concerns multiple files, so it makes sense
+ *  to offer buttons that apply the user's choice to all files/folders.
+ * @since 5.0
+ */
+enum SkipDialog_Option {
+    SkipDialog_MultipleItems = 8
+};
+Q_DECLARE_FLAGS(SkipDialog_Options, SkipDialog_Option)
+
 enum SkipDialog_Result { S_SKIP = 1, S_AUTO_SKIP = 2, S_RETRY = 3, S_CANCEL = 0 };
 
 /**
@@ -142,7 +152,7 @@ public:
      * See skipdialog.h
      */
     virtual SkipDialog_Result askSkip(KJob *job,
-                                      bool multi,
+                                      KIO::SkipDialog_Options options,
                                       const QString &error_text) = 0;
 
     /**
@@ -248,5 +258,6 @@ KIOCORE_EXPORT void setDefaultJobUiDelegateExtension(JobUiDelegateExtension *ext
 } // namespace KIO
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(KIO::RenameDialog_Options)
+Q_DECLARE_OPERATORS_FOR_FLAGS(KIO::SkipDialog_Options)
 
 #endif

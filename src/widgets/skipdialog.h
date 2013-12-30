@@ -20,6 +20,7 @@
 #define KIO_SKIPDIALOG_H
 
 #include <kio/kiowidgets_export.h>
+#include <kio/jobuidelegateextension.h>
 #include <QDialog>
 
 class QWidget;
@@ -35,7 +36,7 @@ class KIOWIDGETS_EXPORT SkipDialog : public QDialog
 {
     Q_OBJECT
 public:
-    SkipDialog(QWidget *parent, bool _multi, const QString &_error_text);
+    SkipDialog(QWidget *parent, KIO::SkipDialog_Options options, const QString &_error_text);
     ~SkipDialog();
 
 private Q_SLOTS:

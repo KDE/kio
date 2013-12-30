@@ -150,10 +150,10 @@ public:
     }
 
     KIO::SkipDialog_Result askSkip(KJob *job,
-                                   bool multi,
+                                   KIO::SkipDialog_Options options,
                                    const QString &error_text) Q_DECL_OVERRIDE {
         Q_UNUSED(job)
-        Q_UNUSED(multi)
+        Q_UNUSED(options)
         Q_UNUSED(error_text)
         ++m_askSkipCalled;
         return m_skipResult;
