@@ -76,11 +76,6 @@ typedef RenameDialog_Options RenameDialog_Mode;
 #endif
 
 /**
- * The result of open_RenameDialog().
- */
-enum RenameDialog_Result {R_RESUME = 6, R_RESUME_ALL = 7, R_OVERWRITE = 4, R_OVERWRITE_ALL = 5, R_SKIP = 2, R_AUTO_SKIP = 3, R_RENAME = 1, R_AUTO_RENAME = 8, R_RETRY = 9, R_CANCEL = 0};
-
-/**
  * SkipDialog_MultipleItems: Set if the current operation concerns multiple files, so it makes sense
  *  to offer buttons that apply the user's choice to all files/folders.
  * @since 5.0
@@ -90,7 +85,39 @@ enum SkipDialog_Option {
 };
 Q_DECLARE_FLAGS(SkipDialog_Options, SkipDialog_Option)
 
-enum SkipDialog_Result { S_SKIP = 1, S_AUTO_SKIP = 2, S_RETRY = 3, S_CANCEL = 0 };
+/**
+ * The result of a rename or skip dialog
+ */
+enum RenameDialog_Result {
+    Result_Cancel = 0,
+    Result_Rename = 1,
+    Result_Skip = 2,
+    Result_AutoSkip = 3,
+    Result_Overwrite = 4,
+    Result_OverwriteAll = 5,
+    Result_Resume = 6,
+    Result_ResumeAll = 7,
+    Result_AutoRename = 8,
+    Result_Retry = 9,
+
+    // @deprecated since 5.0, use the RenameDialog_Option enum values
+    R_CANCEL = Result_Cancel,
+    R_RENAME = Result_Rename,
+    R_SKIP = Result_Skip,
+    R_AUTO_SKIP = Result_AutoSkip,
+    R_OVERWRITE = Result_Overwrite,
+    R_OVERWRITE_ALL = Result_OverwriteAll,
+    R_RESUME = Result_Resume,
+    R_RESUME_ALL = Result_ResumeAll,
+    R_AUTO_RENAME = Result_AutoRename,
+    R_RETRY = Result_Retry,
+
+    S_CANCEL = Result_Cancel,
+    S_SKIP = Result_Skip,
+    S_AUTO_SKIP = Result_AutoSkip,
+    S_RETRY = Result_Retry
+};
+typedef RenameDialog_Result SkipDialog_Result;
 
 /**
  * An abstract class defining interaction with users from KIO jobs:
@@ -134,7 +161,7 @@ public:
      * @param mtimeDest modification time of destination file
      * @return the result
      */
-    virtual RenameDialog_Result askFileRename(KJob *job,
+    virtual KIO::RenameDialog_Result askFileRename(KJob *job,
             const QString &caption,
             const QUrl &src,
             const QUrl &dest,
@@ -151,7 +178,7 @@ public:
      * @internal
      * See skipdialog.h
      */
-    virtual SkipDialog_Result askSkip(KJob *job,
+    virtual KIO::SkipDialog_Result askSkip(KJob *job,
                                       KIO::SkipDialog_Options options,
                                       const QString &error_text) = 0;
 

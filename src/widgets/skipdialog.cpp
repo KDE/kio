@@ -71,21 +71,21 @@ SkipDialog::~SkipDialog()
 
 void SkipDialog::cancelPressed()
 {
-    done(KIO::S_CANCEL);
+    done(KIO::Result_Cancel);
 }
 
 void SkipDialog::skipPressed()
 {
-    done(KIO::S_SKIP);
+    done(KIO::Result_Skip);
 }
 
 void SkipDialog::autoSkipPressed()
 {
-    done(KIO::S_AUTO_SKIP);
+    done(KIO::Result_AutoSkip);
 }
 
 void SkipDialog::retryPressed()
 {
-    done(KIO::S_RETRY);
+    done(KIO::Result_Retry);
 }
 

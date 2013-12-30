@@ -392,7 +392,7 @@ QUrl RenameDialog::autoDestUrl() const
 
 void RenameDialog::cancelPressed()
 {
-    done(R_CANCEL);
+    done(Result_Cancel);
 }
 
 // Rename
@@ -403,7 +403,7 @@ void RenameDialog::renamePressed()
     }
 
     if (d->bApplyAll  && d->bApplyAll->isChecked()) {
-        done(R_AUTO_RENAME);
+        done(Result_AutoRename);
     } else {
         const QUrl u = newDestUrl();
         if (!u.isValid()) {
@@ -412,7 +412,7 @@ void RenameDialog::renamePressed()
             return;
         }
 
-        done(R_RENAME);
+        done(Result_Rename);
     }
 }
 
@@ -440,43 +440,43 @@ void RenameDialog::suggestNewNamePressed()
 void RenameDialog::skipPressed()
 {
     if (d->bApplyAll  && d->bApplyAll->isChecked()) {
-        done(R_AUTO_SKIP);
+        done(Result_AutoSkip);
     } else {
-        done(R_SKIP);
+        done(Result_Skip);
     }
 }
 
 void RenameDialog::autoSkipPressed()
 {
-    done(R_AUTO_SKIP);
+    done(Result_AutoSkip);
 }
 
 void RenameDialog::overwritePressed()
 {
     if (d->bApplyAll  && d->bApplyAll->isChecked()) {
-        done(R_OVERWRITE_ALL);
+        done(Result_OverwriteAll);
     } else {
-        done(R_OVERWRITE);
+        done(Result_Overwrite);
     }
 }
 
 void RenameDialog::overwriteAllPressed()
 {
-    done(R_OVERWRITE_ALL);
+    done(Result_OverwriteAll);
 }
 
 void RenameDialog::resumePressed()
 {
     if (d->bApplyAll  && d->bApplyAll->isChecked()) {
-        done(R_RESUME_ALL);
+        done(Result_ResumeAll);
     } else {
-        done(R_RESUME);
+        done(Result_Resume);
     }
 }
 
 void RenameDialog::resumeAllPressed()
 {
-    done(R_RESUME_ALL);
+    done(Result_ResumeAll);
 }
 
 void RenameDialog::applyAllPressed()

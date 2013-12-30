@@ -210,17 +210,18 @@ void ChmodJobPrivate::_k_chmodNextFile()
                     }
                     const SkipDialog_Result skipResult = m_uiDelegateExtension->askSkip(q, options, errMsg);
                     switch (skipResult) {
-                    case S_AUTO_SKIP:
+                    case Result_AutoSkip:
                         m_bAutoSkipFiles = true;
                     // fall through
-                    case S_SKIP:
+                    case Result_Skip:
                         QMetaObject::invokeMethod(q, "_k_chmodNextFile", Qt::QueuedConnection);
                         return;
-                    case S_RETRY:
+                    case Result_Retry:
                         m_infos.prepend(info);
                         QMetaObject::invokeMethod(q, "_k_chmodNextFile", Qt::QueuedConnection);
                         return;
-                    case S_CANCEL:
+                    case Result_Cancel:
+                    default:
                         q->setError(ERR_USER_CANCELED);
                         q->emitResult();
                         return;

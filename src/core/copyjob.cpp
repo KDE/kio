@@ -1085,38 +1085,38 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
         m_reportTimer->start(REPORT_TIMEOUT);
     }
     switch (r) {
-    case R_CANCEL:
+    case Result_Cancel:
         q->setError(ERR_USER_CANCELED);
         q->emitResult();
         return;
-    case R_AUTO_RENAME:
+    case Result_AutoRename:
         m_bAutoRenameDirs = true;
     // fall through
-    case R_RENAME: {
+    case Result_Rename: {
         QUrl newUrl((*it).uDest);
         newUrl.setPath(newPath, QUrl::DecodedMode);
 
         renameDirectory(it, newUrl);
     }
     break;
-    case R_AUTO_SKIP:
+    case Result_AutoSkip:
         m_bAutoSkipDirs = true;
     // fall through
-    case R_SKIP:
+    case Result_Skip:
         m_skipList.append(existingDest);
         skip((*it).uSource, true);
         // Move on to next dir
         dirs.erase(it);
         m_processedDirs++;
         break;
-    case R_OVERWRITE:
+    case Result_Overwrite:
         m_overwriteList.insert(existingDest);
         emit q->copyingDone(q, (*it).uSource, (*it).uDest, (*it).mtime, true /* directory */, false /* renamed */);
         // Move on to next dir
         dirs.erase(it);
         m_processedDirs++;
         break;
-    case R_OVERWRITE_ALL:
+    case Result_OverwriteAll:
         m_bOverwriteAllDirs = true;
         emit q->copyingDone(q, (*it).uSource, (*it).uDest, (*it).mtime, true /* directory */, false /* renamed */);
         // Move on to next dir
@@ -1353,7 +1353,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
 
     } else {
         if (job->error() == ERR_USER_CANCELED) {
-            res = R_CANCEL;
+            res = Result_Cancel;
         } else if (!q->uiDelegateExtension()) {
             q->Job::slotResult(job);   // will set the error and emit result(this)
             return;
@@ -1362,22 +1362,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
             if (files.count() > 1) {
                 options |= SkipDialog_MultipleItems;
             }
-            SkipDialog_Result skipResult = q->uiDelegateExtension()->askSkip(q, options, job->errorString());
-
-            // Convert the return code from SkipDialog into a RenameDialog code
-            switch (skipResult) {
-            case S_SKIP:
-                res = R_SKIP;
-                break;
-            case S_AUTO_SKIP:
-                res = R_AUTO_SKIP;
-                break;
-            case S_RETRY:
-                res = R_RETRY;
-                break;
-            case S_CANCEL:
-                res = R_CANCEL;
-            }
+            res = q->uiDelegateExtension()->askSkip(q, options, job->errorString());
         }
     }
 
@@ -1388,14 +1373,14 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
     q->removeSubjob(job);
     assert(!q->hasSubjobs());
     switch (res) {
-    case R_CANCEL:
+    case Result_Cancel:
         q->setError(ERR_USER_CANCELED);
         q->emitResult();
         return;
-    case R_AUTO_RENAME:
+    case Result_AutoRename:
         m_bAutoRenameFiles = true;
     // fall through
-    case R_RENAME: {
+    case Result_Rename: {
         QUrl newUrl((*it).uDest);
         newUrl.setPath(newPath);
         emit q->renamed(q, (*it).uDest, newUrl);   // for e.g. kpropsdlg
@@ -1406,24 +1391,24 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
         emit q->aboutToCreate(q, files);
     }
     break;
-    case R_AUTO_SKIP:
+    case Result_AutoSkip:
         m_bAutoSkipFiles = true;
     // fall through
-    case R_SKIP:
+    case Result_Skip:
         // Move on to next file
         skip((*it).uSource, false);
         m_processedSize += (*it).size;
         files.erase(it);
         m_processedFiles++;
         break;
-    case R_OVERWRITE_ALL:
+    case Result_OverwriteAll:
         m_bOverwriteAllFiles = true;
         break;
-    case R_OVERWRITE:
+    case Result_Overwrite:
         // Add to overwrite list, so that copyNextFile knows to overwrite
         m_overwriteList.insert((*it).uDest.path());
         break;
-    case R_RETRY:
+    case Result_Retry:
         // Do nothing, copy file again
         break;
     default:
@@ -1937,19 +1922,19 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                 }
 
                 switch (r) {
-                case R_CANCEL: {
+                case Result_Cancel: {
                     q->setError(ERR_USER_CANCELED);
                     q->emitResult();
                     return;
                 }
-                case R_AUTO_RENAME:
+                case Result_AutoRename:
                     if (isDir) {
                         m_bAutoRenameDirs = true;
                     } else {
                         m_bAutoRenameFiles = true;
                     }
                 // fall through
-                case R_RENAME: {
+                case Result_Rename: {
                     // Set m_dest to the chosen destination
                     // This is only for this src url; the next one will revert to m_globalDest
                     m_dest.setPath(newPath);
@@ -1959,25 +1944,25 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                     q->addSubjob(job);
                     return;
                 }
-                case R_AUTO_SKIP:
+                case Result_AutoSkip:
                     if (isDir) {
                         m_bAutoSkipDirs = true;
                     } else {
                         m_bAutoSkipFiles = true;
                     }
                 // fall through
-                case R_SKIP:
+                case Result_Skip:
                     // Move on to next url
                     skipSrc(isDir);
                     return;
-                case R_OVERWRITE_ALL:
+                case Result_OverwriteAll:
                     if (destIsDir) {
                         m_bOverwriteAllDirs = true;
                     } else {
                         m_bOverwriteAllFiles = true;
                     }
                     break;
-                case R_OVERWRITE:
+                case Result_Overwrite:
                     // Add to overwrite list
                     // Note that we add dest, not m_dest.
                     // This ensures that when moving several urls into a dir (m_dest),

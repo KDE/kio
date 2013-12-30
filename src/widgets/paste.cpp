@@ -105,7 +105,7 @@ static QUrl getNewFileName(const QUrl &u, const QString &text, const QString &su
     // And now we're using a put job anyway, no destination checking included.
     if (job->exec()) {
         //qDebug() << "Paste will overwrite file.  Prompting...";
-        KIO::RenameDialog_Result res = KIO::R_OVERWRITE;
+        KIO::RenameDialog_Result res = KIO::Result_Overwrite;
 
         KIO::RenameDialog dlg(widget,
                               i18n("File Already Exists"),
@@ -114,11 +114,11 @@ static QUrl getNewFileName(const QUrl &u, const QString &text, const QString &su
                               KIO::RenameDialog_Overwrite);
         res = static_cast<KIO::RenameDialog_Result>(dlg.exec());
 
-        if (res == KIO::R_RENAME) {
+        if (res == KIO::Result_Rename) {
             myurl = dlg.newDestUrl();
-        } else if (res == KIO::R_CANCEL) {
+        } else if (res == KIO::Result_Cancel) {
             return QUrl();
-        } else if (res == KIO::R_OVERWRITE) {
+        } else if (res == KIO::Result_Overwrite) {
             // Old hack. With the put job we just pass Overwrite.
             if (delIfOverwrite) {
                 // Ideally we would just pass KIO::Overwrite to the job in pasteDataAsyncTo.
