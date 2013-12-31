@@ -34,7 +34,7 @@
 
 #include <klocalizedstring.h>
 
-#include <kdeinit_interface.h>
+#include <kdeinitinterface.h>
 #include <klauncher_interface.h>
 #include <klibrary.h>
 
