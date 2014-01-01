@@ -119,6 +119,11 @@ target_include_directories(KF5KIOCore PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include>" # kio/global.h
 )
 
+# KIO headers are a bit special: half are namespaced (KIO/ListJob, kio/listjob.h)
+# and half are not (KFileItem, kfileitem.h)
+# All of them are installed under KIO, so that one cannot include <listjob.h>
+target_include_directories(KF5KIOCore INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KIOCore>")
+
 target_link_libraries(KF5KIOCore
 PUBLIC
  KF5::CoreAddons   # KJob
@@ -140,73 +145,96 @@ set_target_properties(KF5KIOCore PROPERTIES VERSION ${KIO_VERSION_STRING}
                                             EXPORT_NAME KIOCore
 )
 
+ecm_generate_headers(
+  IdleSlave
+  ConnectionServer
+  TCPSlaveBase
+  DirectorySizeJob
+  ForwardingSlaveBase
+  Job #     ### should forward to job_base.h, not job.h...
+  ChmodJob
+  DeleteJob
+  CopyJob
+  FileJob
+  MkdirJob
+  SlaveBase
+  SlaveConfig
+  HostInfo
+  MetaData
+  UDSEntry
+  JobUiDelegateExtension
+  JobUiDelegateFactory
+  SlaveInterface
+  Slave
+  FileCopyJob
+  ListJob
+  MimetypeJob
+  MultiGetJob
+  SimpleJob
+  SpecialJob
+  StatJob
+  StoredTransferJob
+  TransferJob
+  Scheduler
+  AuthInfo
+  DavJob
+  DesktopExecParser
+
+  MODULE_NAME KIOCore/KIO
+  REQUIRED_HEADERS KIO_namespaced_HEADERS
+)
+
 install(TARGETS KF5KIOCore EXPORT KF5KIOTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
 
-install( FILES
-  idleslave.h # installed for klauncher
-  connectionserver.h # installed for klauncher
-  tcpslavebase.h
-  directorysizejob.h
-  forwardingslavebase.h
-  chmodjob.h
-  deletejob.h
-  copyjob.h
-  filejob.h
-  mkdirjob.h
-  slavebase.h
+install(FILES
   http_slave_defaults.h
-  slaveconfig.h
   global.h
   http.h
   ioslave_defaults.h
-  hostinfo.h
   jobtracker.h
-  metadata.h
-  udsentry.h
-  jobuidelegateextension.h
-  jobuidelegatefactory.h
-  slaveinterface.h
-  slave.h
-  job.h
   job_base.h
-  filecopyjob.h
-  listjob.h
-  mimetypejob.h
-  multigetjob.h
-  simplejob.h
-  specialjob.h
-  statjob.h
-  storedtransferjob.h
-  transferjob.h
-  scheduler.h
   jobclasses.h
-  authinfo.h
-  davjob.h
-  desktopexecparser.h
   ${CMAKE_CURRENT_BINARY_DIR}/kiocore_export.h
 
-   DESTINATION ${INCLUDE_INSTALL_DIR}/kio COMPONENT Devel)
+  ${KIO_namespaced_HEADERS}
+  DESTINATION ${INCLUDE_INSTALL_DIR}/KIOCore/kio COMPONENT Devel
+)
+
+ecm_generate_headers(
+  KACL
+  KUrlAuthorized
+  KCoreDirLister
+  KRemoteEncoding
+  KDirNotify
+  KDiskFreeSpaceInfo
+  KFileItem
+  KFileItemListProperties
+  KMountPoint
+  KNFSShare
+  KSambaShare
+  KSambaShareData
+  KProtocolInfo
+  KProtocolManager
+  KRecentDocument
+  KSslCertificateManager
+  KTcpSocket
+
+  MODULE_NAME KIOCore
+  REQUIRED_HEADERS KIOCore_HEADERS
+)
+
+ecm_generate_headers(
+  KSSLSettings
+
+  RELATIVE kssl
+  MODULE_NAME KIOCore
+  REQUIRED_HEADERS KIOCore_HEADERS
+)
+install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KIOCore DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
 
 install(FILES
-  kacl.h
-  kurlauthorized.h
-  kcoredirlister.h
-  kremoteencoding.h
-  kdiskfreespaceinfo.h
-  kdirnotify.h
-  kfileitem.h
-  kfileitemlistproperties.h
-  kmountpoint.h
-  knfsshare.h
-  ksambashare.h
-  ksambasharedata.h
-  kprotocolinfo.h
-  kprotocolmanager.h
-  krecentdocument.h
-  ksslcertificatemanager.h
   ksslcertificatemanager_p.h
-  ktcpsocket.h
-  kssl/ksslsettings.h
-  DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
+  ${KIOCore_HEADERS}
+  DESTINATION ${INCLUDE_INSTALL_DIR}/KIOCore COMPONENT Devel)
 
 install(FILES accept-languages.codes DESTINATION ${CONFIG_INSTALL_DIR})
