@@ -21,6 +21,7 @@
 #define KABSTRACTVIEWADAPTER_H
 
 #include <QObject>
+#include <kio/kiofilewidgets_export.h>
 
 class QAbstractItemModel;
 class QModelIndex;
@@ -33,7 +34,7 @@ class QSize;
  * for files. The interface allows KFilePreviewGenerator to be
  * independent from the view implementation.
  */
-class KAbstractViewAdapter : public QObject
+class KIOFILEWIDGETS_EXPORT KAbstractViewAdapter : public QObject
 {
 public:
     enum Signal { ScrollBarValueChanged };
