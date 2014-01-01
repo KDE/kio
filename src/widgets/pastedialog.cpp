@@ -16,7 +16,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "pastedialog.h"
+#include "pastedialog_p.h"
 
 #include <kcombobox.h>
 #include <klocalizedstring.h>

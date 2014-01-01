@@ -89,6 +89,8 @@ target_include_directories(KF5KIOWidgets PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include/kio>" # krun.h
 )
 
+target_include_directories(KF5KIOWidgets INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KIOWidgets>")
+
 target_link_libraries(KF5KIOWidgets
   PUBLIC
     KF5::KIOCore
@@ -113,56 +115,68 @@ set_target_properties(KF5KIOWidgets PROPERTIES VERSION ${KIO_VERSION_STRING}
                                                EXPORT_NAME KIOWidgets
 )
 
+ecm_generate_headers(
+  KPropertiesDialog
+  KUrlRequesterDialog
+  KUrlComboBox
+  KFileItemActions
+  KFileItemDelegate
+  KAutoMount
+  KDesktopFileActions
+  KOpenWithDialog
+  KAbstractFileItemActionPlugin
+  KBuildSycocaProgressDialog
+  KFile
+  KUrlRequester
+  KRun
+  KUrlPixmapProvider
+  KSslCertificateBox
+  KSslInfoDialog
+  KDirLister
+  KDirModel
+  KShellCompletion
+  KUrlCompletion
+  KUriFilter
+
+  MODULE_NAME KIOWidgets
+  REQUIRED_HEADERS KIOWidgets_HEADERS
+)
+
+ecm_generate_headers(
+  AccessManager
+  SslUi
+  ThumbSequenceCreator
+  ThumbCreator
+  PreviewJob
+  RenameDialog
+  SkipDialog
+  JobUiDelegate
+  FileUndoManager
+  Paste
+
+  MODULE_NAME KIOWidgets/KIO
+  REQUIRED_HEADERS KIO_namespaced_widgets_HEADERS
+)
+install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KIOWidgets DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
+
 install(TARGETS KF5KIOWidgets EXPORT KF5KIOTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES
    org.kde.kio.FileUndoManager.xml
    DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
 
-install( FILES
-  pastedialog.h
-  paste.h
-  accessmanager.h
-  sslui.h
+install(FILES
   pixmaploader.h
-  thumbsequencecreator.h
-  thumbcreator.h
-  previewjob.h
-  renamedialog.h
-  skipdialog.h
-  jobuidelegate.h
-  fileundomanager.h
 
-   ${CMAKE_CURRENT_BINARY_DIR}/kiowidgets_export.h
-   DESTINATION ${INCLUDE_INSTALL_DIR}/kio COMPONENT Devel)
+  ${CMAKE_CURRENT_BINARY_DIR}/kiowidgets_export.h
+  ${KIO_namespaced_widgets_HEADERS}
+  DESTINATION ${INCLUDE_INSTALL_DIR}/KIOWidgets/kio COMPONENT Devel)
 
-install( FILES
-  kacleditwidget.h
-  kpropertiesdialog.h
-  kpropertiesdialog.h
-  kurlrequesterdialog.h
-  kurlcombobox.h
-  kfileitemactions.h
-  kfileitemdelegate.h
-  kautomount.h
-  kdesktopfileactions.h
-  kopenwithdialog.h
-  kabstractfileitemactionplugin.h
-  kbuildsycocaprogressdialog.h
-  kfile.h
-  kurlrequester.h
-  krun.h
-  kurlpixmapprovider.h
-  ksslcertificatebox.h
-  ksslinfodialog.h
-  kdirlister.h
-  kdirmodel.h
-  kshellcompletion.h
-  kurlcompletion.h
-  kurifilter.h
-   DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
+install(FILES
+  ${KIOWidgets_HEADERS}
+  DESTINATION ${INCLUDE_INSTALL_DIR}/KIOWidgets COMPONENT Devel)
 
-install( FILES
+install(FILES
   kfileitemactionplugin.desktop
   kpropertiesdialogplugin.desktop
   kurifilterplugin.desktop

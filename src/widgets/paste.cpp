@@ -18,7 +18,7 @@
 
 #include "paste.h"
 #include "clipboardupdater_p.h"
-#include "pastedialog.h"
+#include "pastedialog_p.h"
 
 #include "kio/job.h"
 #include "kio/copyjob.h"
