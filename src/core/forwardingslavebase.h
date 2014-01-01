@@ -22,7 +22,7 @@
 
 #include <kio/kiocore_export.h>
 #include <kio/slavebase.h>
-#include <kio/jobclasses.h>
+#include <kio/job_base.h> // JobFlags
 
 #include <QtCore/QObject>
 #include <QtCore/QEventLoop>

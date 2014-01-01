@@ -24,7 +24,7 @@
 #include "kcoredirlister_p.h"
 
 #include <klocalizedstring.h>
-#include <kio/job.h>
+#include <kio/listjob.h>
 #include "kprotocolmanager.h"
 #include "kmountpoint.h"
 

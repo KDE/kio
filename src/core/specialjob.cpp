@@ -1,6 +1,6 @@
 /* This file is part of the KDE libraries
     Copyright (C) 2000 Stephan Kulow <coolo@kde.org>
-                  2000-2009 David Faure <faure@kde.org>
+                  2000-2013 David Faure <faure@kde.org>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Library General Public
@@ -18,20 +18,38 @@
     Boston, MA 02110-1301, USA.
 */
 
-#ifndef KIO_JOBCLASSES_H
-#define KIO_JOBCLASSES_H
-
-// For source compatibility
-#include "simplejob.h"
-#include "statjob.h"
-#include "transferjob.h"
-#include "storedtransferjob.h"
-#include "multigetjob.h"
-#include "mimetypejob.h"
-#include "filecopyjob.h"
-#include "filejob.h"
 #include "specialjob.h"
-#include "listjob.h"
-#include <kio/mkdirjob.h>
+#include "job_p.h"
 
-#endif
+using namespace KIO;
+
+class KIO::SpecialJobPrivate: public TransferJobPrivate
+{
+    SpecialJobPrivate(const QUrl &url, int command,
+                      const QByteArray &packedArgs,
+                      const QByteArray &_staticData)
+        : TransferJobPrivate(url, command, packedArgs, _staticData)
+    {}
+};
+
+SpecialJob::SpecialJob(const QUrl &url, const QByteArray &packedArgs)
+    : TransferJob(*new TransferJobPrivate(url, CMD_SPECIAL, packedArgs, QByteArray()))
+{
+}
+
+SpecialJob::~SpecialJob()
+{
+}
+
+void SpecialJob::setArguments(const QByteArray &data)
+{
+    Q_D(SpecialJob);
+    d->m_packedArgs = data;
+}
+
+QByteArray SpecialJob::arguments() const
+{
+    return d_func()->m_packedArgs;
+}
+
+#include "moc_specialjob.cpp"

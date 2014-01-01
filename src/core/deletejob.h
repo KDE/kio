@@ -27,7 +27,7 @@
 #include <kio/kiocore_export.h>
 #include "global.h"
 
-#include "jobclasses.h"
+#include "job_base.h"
 
 class QTimer;
 

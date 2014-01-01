@@ -21,7 +21,7 @@
 #define DIRECTORYSIZEJOB_H
 
 #include <kio/kiocore_export.h>
-#include "job.h"
+#include "job_base.h"
 #include <kfileitem.h>
 
 namespace KIO

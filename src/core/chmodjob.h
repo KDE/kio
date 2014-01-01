@@ -22,7 +22,7 @@
 #define KIO_CHMODJOB_H
 
 #include "global.h"
-#include "job.h"
+#include "job_base.h"
 #include <kio/kiocore_export.h>
 #include <kfileitem.h>
 

@@ -24,7 +24,8 @@
 #ifndef KIO_JOB_P_H
 #define KIO_JOB_P_H
 
-#include "job.h"
+#include "simplejob.h"
+#include "transferjob.h"
 #include "commands_p.h"
 #include "kjobtrackerinterface.h"
 #include <kio/jobuidelegateextension.h>

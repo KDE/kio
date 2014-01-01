@@ -21,6 +21,7 @@
 
 #include "chmodjob.h"
 
+#include "listjob.h"
 #include <klocalizedstring.h>
 #include <kio/jobuidelegatefactory.h>
 #include <QtCore/QFile>

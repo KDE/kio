@@ -21,6 +21,9 @@
 
 #include "deletejob.h"
 
+#include "job.h" // buildErrorString
+#include "statjob.h"
+#include "listjob.h"
 #include "kcoredirlister.h"
 #include "scheduler.h"
 #include "kdirwatch.h"

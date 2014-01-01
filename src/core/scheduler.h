@@ -22,8 +22,7 @@
 #ifndef _kio_scheduler_h
 #define _kio_scheduler_h
 
-#include "kio/job.h"
-#include "kio/jobclasses.h"
+#include "simplejob.h"
 #include <QtCore/QTimer>
 #include <QtCore/QMap>
 #include <sys/types.h> // pid_t

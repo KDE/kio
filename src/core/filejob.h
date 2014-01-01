@@ -22,7 +22,7 @@
 #define KIO_FILEJOB_H
 
 #include <kio/kiocore_export.h>
-#include <kio/jobclasses.h>
+#include "simplejob.h"
 
 namespace KIO
 {

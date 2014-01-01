@@ -28,7 +28,8 @@
 #include <QUrl>
 
 #include <kio/kiocore_export.h>
-#include "jobclasses.h"
+#include <kio/global.h> // filesize_t
+#include "kio/job_base.h"
 
 class QTimer;
 

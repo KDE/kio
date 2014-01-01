@@ -1,0 +1,131 @@
+/* This file is part of the KDE libraries
+    Copyright (C) 2000 Stephan Kulow <coolo@kde.org>
+                  2000-2009 David Faure <faure@kde.org>
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Library General Public
+    License as published by the Free Software Foundation; either
+    version 2 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Library General Public License for more details.
+
+    You should have received a copy of the GNU Library General Public License
+    along with this library; see the file COPYING.LIB.  If not, write to
+    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+    Boston, MA 02110-1301, USA.
+*/
+
+#ifndef KIO_STOREDTRANSFERJOB
+#define KIO_STOREDTRANSFERJOB
+
+#include "transferjob.h"
+
+namespace KIO
+{
+
+class StoredTransferJobPrivate;
+/**
+ * StoredTransferJob is a TransferJob (for downloading or uploading data) that
+ * also stores a QByteArray with the data, making it simpler to use than the
+ * standard TransferJob.
+ *
+ * For KIO::storedGet it puts the data into the member QByteArray, so the user
+ * of this class can get hold of the whole data at once by calling data()
+ * when the result signal is emitted.
+ * You should only use StoredTransferJob to download data if you cannot
+ * process the data by chunks while it's being downloaded, since storing
+ * everything in a QByteArray can potentially require a lot of memory.
+ *
+ * For KIO::storedPut the user of this class simply provides the bytearray from
+ * the start, and the job takes care of uploading it.
+ * You should only use StoredTransferJob to upload data if you cannot
+ * provide the in chunks while it's being uploaded, since storing
+ * everything in a QByteArray can potentially require a lot of memory.
+ */
+class KIOCORE_EXPORT StoredTransferJob : public KIO::TransferJob
+{
+    Q_OBJECT
+
+public:
+    ~StoredTransferJob();
+
+    /**
+     * Set data to be uploaded. This is for put jobs.
+     * Automatically called by KIO::storedPut(const QByteArray &, ...),
+     * do not call this yourself.
+     */
+    void setData(const QByteArray &arr);
+
+    /**
+     * Get hold of the downloaded data. This is for get jobs.
+     * You're supposed to call this only from the slot connected to the result() signal.
+     */
+    QByteArray data() const;
+
+protected:
+    StoredTransferJob(StoredTransferJobPrivate &dd);
+private:
+    Q_PRIVATE_SLOT(d_func(), void slotStoredData(KIO::Job *job, const QByteArray &data))
+    Q_PRIVATE_SLOT(d_func(), void slotStoredDataReq(KIO::Job *job, QByteArray &data))
+
+    Q_DECLARE_PRIVATE(StoredTransferJob)
+};
+
+/**
+ * Get (a.k.a. read), into a single QByteArray.
+ * @see StoredTransferJob
+ *
+ * @param url the URL of the file
+ * @param reload: Reload to reload the file, NoReload if it can be taken from the cache
+ * @param flags Can be HideProgressInfo here
+ * @return the job handling the operation.
+ */
+KIOCORE_EXPORT StoredTransferJob *storedGet(const QUrl &url, LoadType reload = NoReload, JobFlags flags = DefaultFlags);
+
+/**
+ * Put (a.k.a. write) data from a single QByteArray.
+ * @see StoredTransferJob
+ *
+ * @param arr The data to write
+ * @param url Where to write data.
+ * @param permissions May be -1. In this case no special permission mode is set.
+ * @param flags Can be HideProgressInfo, Overwrite and Resume here. WARNING:
+ * Setting Resume means that the data will be appended to @p dest if @p dest exists.
+ * @return the job handling the operation.
+ */
+KIOCORE_EXPORT StoredTransferJob *storedPut(const QByteArray &arr, const QUrl &url, int permissions,
+        JobFlags flags = DefaultFlags);
+
+/**
+ * HTTP POST (a.k.a. write) data from a single QByteArray.
+ * @see StoredTransferJob
+ *
+ * @param arr The data to write
+ * @param url Where to write data.
+ * @param flags Can be HideProgressInfo here.
+ * @return the job handling the operation.
+ * @since 4.2
+ */
+KIOCORE_EXPORT StoredTransferJob *storedHttpPost(const QByteArray &arr, const QUrl &url,
+        JobFlags flags = DefaultFlags);
+/**
+ * HTTP POST (a.k.a. write) data from the given IO device.
+ * @see StoredTransferJob
+ *
+ * @param device Device from which the encoded data to be posted is read.
+ * @param url Where to write data.
+ * @param size Size of the encoded data to be posted.
+ * @param flags Can be HideProgressInfo here.
+ * @return the job handling the operation.
+ *
+ * @since 4.7
+ */
+KIOCORE_EXPORT StoredTransferJob *storedHttpPost(QIODevice *device, const QUrl &url,
+        qint64 size = -1, JobFlags flags = DefaultFlags);
+
+}
+
+#endif

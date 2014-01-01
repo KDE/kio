@@ -23,8 +23,12 @@
 #include <errno.h>
 #include "kcoredirlister.h"
 #include "kfileitem.h"
+#include "job.h" // buildErrorString
 #include "mkdirjob.h"
+#include "listjob.h"
+#include "statjob.h"
 #include "deletejob.h"
+#include "filecopyjob.h"
 
 #include <kconfiggroup.h>
 #include <klocalizedstring.h>

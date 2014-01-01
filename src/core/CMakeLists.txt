@@ -54,6 +54,15 @@ set(kiocore_SRCS
   slave.cpp
   job_error.cpp
   job.cpp
+  filecopyjob.cpp
+  listjob.cpp
+  mimetypejob.cpp
+  multigetjob.cpp
+  simplejob.cpp
+  specialjob.cpp
+  statjob.cpp
+  storedtransferjob.cpp
+  transferjob.cpp
   scheduler.cpp
   slaveconfig.cpp
   kprotocolmanager.cpp
@@ -159,6 +168,16 @@ install( FILES
   slaveinterface.h
   slave.h
   job.h
+  job_base.h
+  filecopyjob.h
+  listjob.h
+  mimetypejob.h
+  multigetjob.h
+  simplejob.h
+  specialjob.h
+  statjob.h
+  storedtransferjob.h
+  transferjob.h
   scheduler.h
   jobclasses.h
   authinfo.h

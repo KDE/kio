@@ -31,7 +31,7 @@
 #include <sys/stat.h>
 
 #include <kio/kiocore_export.h>
-#include "jobclasses.h"
+#include "transferjob.h"
 #include "global.h"
 
 namespace KIO

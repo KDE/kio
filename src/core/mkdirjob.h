@@ -22,7 +22,7 @@
 #define MKDIRJOB_H
 
 #include <kio/kiocore_export.h>
-#include "jobclasses.h"
+#include "simplejob.h"
 
 namespace KIO
 {
@@ -69,6 +69,16 @@ private:
     Q_PRIVATE_SLOT(d_func(), void slotRedirection(const QUrl &url))
     Q_DECLARE_PRIVATE(MkdirJob)
 };
+
+/**
+ * Creates a single directory.
+ *
+ * @param url The URL of the directory to create.
+ * @param permissions The permissions to set after creating the
+ *                    directory (unix-style), -1 for default permissions.
+ * @return A pointer to the job handling the operation.
+ */
+KIOCORE_EXPORT MkdirJob *mkdir(const QUrl &url, int permissions = -1);
 
 }
 
