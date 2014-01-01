@@ -45,6 +45,8 @@ target_include_directories(KF5KIOFileWidgets PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include>" # kio/global.h
 )
 
+target_include_directories(KF5KIOFileWidgets INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/kiofilewidgets>" "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KIOFileWidgets>")
+
 target_link_libraries(KF5KIOFileWidgets
   PUBLIC
     KF5::KIOWidgets
@@ -62,30 +64,36 @@ set_target_properties(KF5KIOFileWidgets PROPERTIES VERSION ${KIO_VERSION_STRING}
                                                    EXPORT_NAME KIOFileWidgets
 )
 
+ecm_generate_headers(
+  KAbstractViewAdapter
+  KImageFilePreview
+  KPreviewWidgetBase
+  KRecentDirs
+  KStatusBarOfflineIndicator
+  KDirOperator
+  KDirSortFilterProxyModel
+  KFileFilterCombo
+  KFilePlacesModel
+  KFilePlacesView
+  KFilePreviewGenerator
+  KFileWidget
+  KUrlNavigator
+  KNewFileMenu
+  KNameAndUrlInputDialog
+  KEncodingFileDialog
+
+  MODULE_NAME KIOFileWidgets
+  REQUIRED_HEADERS KIOFileWidgets_HEADERS
+)
+install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KIOFileWidgets DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
+
 install(TARGETS KF5KIOFileWidgets EXPORT KF5KIOTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
 
-install( FILES
-  kimagefilepreview.h
-  kpreviewwidgetbase.h
-  krecentdirs.h
-  kstatusbarofflineindicator.h
-
-  kabstractviewadapter.h
-  kdiroperator.h
-  kdirsortfilterproxymodel.h
-  kencodingfiledialog.h
-  kfilefiltercombo.h
-  kfileplacesmodel.h
-  kfileplacesview.h
-  kfilepreviewgenerator.h
-  kfilewidget.h
-  kurlnavigator.h
-  knewfilemenu.h
-  knameandurlinputdialog.h
-
-  DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
+install(FILES
+  ${KIOFileWidgets_HEADERS}
+  DESTINATION ${INCLUDE_INSTALL_DIR}/kiofilewidgets COMPONENT Devel)
 
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/kiofilewidgets_export.h
-  DESTINATION ${INCLUDE_INSTALL_DIR}/kio
+  DESTINATION ${INCLUDE_INSTALL_DIR}/kiofilewidgets/kio
   COMPONENT Devel)
