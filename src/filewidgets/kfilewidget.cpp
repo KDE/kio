@@ -36,6 +36,7 @@
 #include <defaults-kfile.h>
 
 #include <kactioncollection.h>
+#include <kactionmenu.h>
 #include <kconfiggroup.h>
 #include <kdiroperator.h>
 #include <kfilefiltercombo.h>
@@ -61,6 +62,7 @@
 #include <QLayout>
 #include <QLabel>
 #include <QLineEdit>
+#include <QMenu>
 #include <QSplitter>
 #include <QAbstractProxyModel>
 #include <QHelpEvent>
