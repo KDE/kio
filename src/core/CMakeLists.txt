@@ -119,10 +119,7 @@ target_include_directories(KF5KIOCore PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include>" # kio/global.h
 )
 
-# KIO headers are a bit special: half are namespaced (KIO/ListJob, kio/listjob.h)
-# and half are not (KFileItem, kfileitem.h)
-# All of them are installed under KIO, so that one cannot include <listjob.h>
-target_include_directories(KF5KIOCore INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KIOCore>")
+target_include_directories(KF5KIOCore INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KIOCore>" "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/kiocore>")
 
 target_link_libraries(KF5KIOCore
 PUBLIC
@@ -197,7 +194,7 @@ install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/kiocore_export.h
 
   ${KIO_namespaced_HEADERS}
-  DESTINATION ${INCLUDE_INSTALL_DIR}/KIOCore/kio COMPONENT Devel
+  DESTINATION ${INCLUDE_INSTALL_DIR}/kiocore/kio COMPONENT Devel
 )
 
 ecm_generate_headers(

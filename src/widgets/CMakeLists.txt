@@ -89,7 +89,7 @@ target_include_directories(KF5KIOWidgets PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include/kio>" # krun.h
 )
 
-target_include_directories(KF5KIOWidgets INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KIOWidgets>")
+target_include_directories(KF5KIOWidgets INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KIOWidgets>" "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/kiowidgets>")
 
 target_link_libraries(KF5KIOWidgets
   PUBLIC
@@ -170,11 +170,11 @@ install(FILES
 
   ${CMAKE_CURRENT_BINARY_DIR}/kiowidgets_export.h
   ${KIO_namespaced_widgets_HEADERS}
-  DESTINATION ${INCLUDE_INSTALL_DIR}/KIOWidgets/kio COMPONENT Devel)
+  DESTINATION ${INCLUDE_INSTALL_DIR}/kiowidgets/kio COMPONENT Devel)
 
 install(FILES
   ${KIOWidgets_HEADERS}
-  DESTINATION ${INCLUDE_INSTALL_DIR}/KIOWidgets COMPONENT Devel)
+  DESTINATION ${INCLUDE_INSTALL_DIR}/kiowidgets COMPONENT Devel)
 
 install(FILES
   kfileitemactionplugin.desktop
