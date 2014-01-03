@@ -89,7 +89,7 @@ target_include_directories(KF5KIOWidgets PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include/kio>" # krun.h
 )
 
-target_include_directories(KF5KIOWidgets INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KIOWidgets>" "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KIOWidgets>")
+target_include_directories(KF5KIOWidgets INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KIOWidgets>")
 
 target_link_libraries(KF5KIOWidgets
   PUBLIC
@@ -154,7 +154,8 @@ ecm_generate_headers(
   FileUndoManager
   Paste
 
-  MODULE_NAME KIOWidgets/KIO
+  MODULE_NAME KIOWidgets
+  PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_widgets_HEADERS
 )
 install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KIOWidgets DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)

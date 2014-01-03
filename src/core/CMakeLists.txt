@@ -119,7 +119,7 @@ target_include_directories(KF5KIOCore PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include>" # kio/global.h
 )
 
-target_include_directories(KF5KIOCore INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KIOCore>" "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/kiocore>")
+target_include_directories(KF5KIOCore INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KIOCore>")
 
 target_link_libraries(KF5KIOCore
 PUBLIC
@@ -177,7 +177,8 @@ ecm_generate_headers(
   DavJob
   DesktopExecParser
 
-  MODULE_NAME KIOCore/KIO
+  MODULE_NAME KIOCore
+  PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_HEADERS
 )
 
@@ -194,7 +195,7 @@ install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/kiocore_export.h
 
   ${KIO_namespaced_HEADERS}
-  DESTINATION ${INCLUDE_INSTALL_DIR}/kiocore/kio COMPONENT Devel
+  DESTINATION ${INCLUDE_INSTALL_DIR}/KIOCore/kio COMPONENT Devel
 )
 
 ecm_generate_headers(
@@ -232,6 +233,6 @@ install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KIOCore DESTINATION ${INCLUDE_INST
 install(FILES
   ksslcertificatemanager_p.h
   ${KIOCore_HEADERS}
-  DESTINATION ${INCLUDE_INSTALL_DIR}/kiocore COMPONENT Devel)
+  DESTINATION ${INCLUDE_INSTALL_DIR}/KIOCore COMPONENT Devel)
 
 install(FILES accept-languages.codes DESTINATION ${CONFIG_INSTALL_DIR})
