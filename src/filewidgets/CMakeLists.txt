@@ -45,7 +45,7 @@ target_include_directories(KF5KIOFileWidgets PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include>" # kio/global.h
 )
 
-target_include_directories(KF5KIOFileWidgets INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/kiofilewidgets>" "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KIOFileWidgets>")
+target_include_directories(KF5KIOFileWidgets INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KIOFileWidgets>")
 
 target_link_libraries(KF5KIOFileWidgets
   PUBLIC
@@ -91,9 +91,9 @@ install(TARGETS KF5KIOFileWidgets EXPORT KF5KIOTargets ${INSTALL_TARGETS_DEFAULT
 
 install(FILES
   ${KIOFileWidgets_HEADERS}
-  DESTINATION ${INCLUDE_INSTALL_DIR}/kiofilewidgets COMPONENT Devel)
+  DESTINATION ${INCLUDE_INSTALL_DIR}/KIOFileWidgets COMPONENT Devel)
 
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/kiofilewidgets_export.h
-  DESTINATION ${INCLUDE_INSTALL_DIR}/kiofilewidgets/kio
+  DESTINATION ${INCLUDE_INSTALL_DIR}/KIOFileWidgets/kio
   COMPONENT Devel)
