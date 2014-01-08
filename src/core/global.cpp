@@ -67,69 +67,50 @@ BinaryUnitDialect _k_loadBinaryDialect()
 QStringList _k_loadBinaryDialectUnits()
 {
     BinaryUnitDialect dialect = *_k_defaultBinaryDialect();
+    // hack: i18nc expects all %-arguments to be replaced,
+    // so just pass a argument placeholder again
+    // That way just .arg(size) has to be called on the chosen unit string.
+    const QString dummyArgument = QStringLiteral("%1");
 
     // Choose appropriate units.
-    QList<QString> dialectUnits;
+    QStringList dialectUnits;
+    dialectUnits.reserve(9);
 
-    dialectUnits << i18nc("size in bytes", "%1 B");
+    dialectUnits << i18nc("size in bytes", "%1 B", dummyArgument);
 
     switch (dialect) {
     case MetricBinaryDialect:
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("size in 1000 bytes", "%1 kB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("size in 10^6 bytes", "%1 MB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("size in 10^9 bytes", "%1 GB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("size in 10^12 bytes", "%1 TB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("size in 10^15 bytes", "%1 PB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("size in 10^18 bytes", "%1 EB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("size in 10^21 bytes", "%1 ZB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("size in 10^24 bytes", "%1 YB");
+        dialectUnits << i18nc("size in 1000 bytes",  "%1 kB", dummyArgument)
+                     << i18nc("size in 10^6 bytes",  "%1 MB", dummyArgument)
+                     << i18nc("size in 10^9 bytes",  "%1 GB", dummyArgument)
+                     << i18nc("size in 10^12 bytes", "%1 TB", dummyArgument)
+                     << i18nc("size in 10^15 bytes", "%1 PB", dummyArgument)
+                     << i18nc("size in 10^18 bytes", "%1 EB", dummyArgument)
+                     << i18nc("size in 10^21 bytes", "%1 ZB", dummyArgument)
+                     << i18nc("size in 10^24 bytes", "%1 YB", dummyArgument);
         break;
 
     case JEDECBinaryDialect:
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("memory size in 1024 bytes", "%1 KB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("memory size in 2^20 bytes", "%1 MB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("memory size in 2^30 bytes", "%1 GB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("memory size in 2^40 bytes", "%1 TB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("memory size in 2^50 bytes", "%1 PB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("memory size in 2^60 bytes", "%1 EB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("memory size in 2^70 bytes", "%1 ZB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("memory size in 2^80 bytes", "%1 YB");
+        dialectUnits << i18nc("memory size in 1024 bytes", "%1 KB", dummyArgument)
+                     << i18nc("memory size in 2^20 bytes", "%1 MB", dummyArgument)
+                     << i18nc("memory size in 2^30 bytes", "%1 GB", dummyArgument)
+                     << i18nc("memory size in 2^40 bytes", "%1 TB", dummyArgument)
+                     << i18nc("memory size in 2^50 bytes", "%1 PB", dummyArgument)
+                     << i18nc("memory size in 2^60 bytes", "%1 EB", dummyArgument)
+                     << i18nc("memory size in 2^70 bytes", "%1 ZB", dummyArgument)
+                     << i18nc("memory size in 2^80 bytes", "%1 YB", dummyArgument);
         break;
 
     case IECBinaryDialect:
     default:
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("size in 1024 bytes", "%1 KiB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("size in 2^20 bytes", "%1 MiB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("size in 2^30 bytes", "%1 GiB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("size in 2^40 bytes", "%1 TiB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("size in 2^50 bytes", "%1 PiB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("size in 2^60 bytes", "%1 EiB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("size in 2^70 bytes", "%1 ZiB");
-        // i18n: Dumb message, avoid any markup or scripting.
-        dialectUnits << i18nc("size in 2^80 bytes", "%1 YiB");
+        dialectUnits << i18nc("size in 1024 bytes", "%1 KiB", dummyArgument)
+                     << i18nc("size in 2^20 bytes", "%1 MiB", dummyArgument)
+                     << i18nc("size in 2^30 bytes", "%1 GiB", dummyArgument)
+                     << i18nc("size in 2^40 bytes", "%1 TiB", dummyArgument)
+                     << i18nc("size in 2^50 bytes", "%1 PiB", dummyArgument)
+                     << i18nc("size in 2^60 bytes", "%1 EiB", dummyArgument)
+                     << i18nc("size in 2^70 bytes", "%1 ZiB", dummyArgument)
+                     << i18nc("size in 2^80 bytes", "%1 YiB", dummyArgument);
         break;
     }
 
@@ -139,7 +120,7 @@ QStringList _k_loadBinaryDialectUnits()
 KIOCORE_EXPORT QString KIO::convertSize(KIO::filesize_t fileSize)
 {
     const BinaryUnitDialect dialect = *_k_defaultBinaryDialect();
-    const QStringList dialectUnits = *_k_defaultBinaryDialectUnits();
+    const QStringList &dialectUnits = *_k_defaultBinaryDialectUnits();
     double size = fileSize;
     int unit = 0; // Selects what unit to use from cached list
     double multiplier = 1024.0;
@@ -153,12 +134,8 @@ KIOCORE_EXPORT QString KIO::convertSize(KIO::filesize_t fileSize)
         unit++;
     }
 
-    if (unit == 0) {
-        // Bytes, no rounding
-        return dialectUnits[unit].arg(QLocale().toString(size, 'f', 0));
-    } else {
-        return dialectUnits[unit].arg(QLocale().toString(size, 'f', 1));
-    }
+    const int precision = (unit == 0) ? 0 : 1; // unit == 0 -> Bytes, no rounding
+    return dialectUnits.at(unit).arg(QLocale().toString(size, 'f', precision));
 }
 
 KIOCORE_EXPORT QString KIO::convertSizeFromKiB(KIO::filesize_t kibSize)
