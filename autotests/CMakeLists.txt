@@ -60,6 +60,7 @@ kiowidgets_unit_tests(
  krununittest
  kdirlistertest
  kdirmodeltest
+ kfileitemactionstest
  fileundomanagertest
  kurlcompletiontest
  kurlrequestertest

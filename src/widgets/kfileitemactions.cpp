@@ -105,7 +105,6 @@ KFileItemActionsPrivate::KFileItemActionsPrivate(KFileItemActions *qq)
 
 KFileItemActionsPrivate::~KFileItemActionsPrivate()
 {
-    qDeleteAll(m_ownActions);
 }
 
 int KFileItemActionsPrivate::insertServicesSubmenus(const QMap<QString, ServiceList> &submenus,
@@ -146,8 +145,7 @@ int KFileItemActionsPrivate::insertServices(const ServiceList &list,
         }
 
         if (isBuiltin || !(*it).noDisplay()) {
-            QAction *act = new QAction(m_parentWidget);
-            m_ownActions.append(act);
+            QAction *act = new QAction(q);
             act->setObjectName("menuaction"); // for the unittest
             QString text = (*it).text();
             text.replace('&', "&&");
@@ -510,7 +508,7 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
             topMenu->addSeparator();
         }
 
-        QAction *runAct = new QAction(d->m_parentWidget);
+        QAction *runAct = new QAction(this);
         QString runActionName;
 
         const QStringList serviceIdList = d->listPreferredServiceIds(d->m_mimeTypeList, traderConstraint);
@@ -521,8 +519,6 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
         if (d->m_mimeTypeList.count() > 1
                 && !serviceIdList.isEmpty()
                 && !(serviceIdList.count() == 1 && serviceIdList.first().isEmpty())) { // empty means "no apps associated"
-
-            d->m_ownActions.append(runAct);
 
             if (serviceIdList.count() == 1) {
                 const KService::Ptr app = preferredService(d->m_mimeTypeList.first(), traderConstraint);
@@ -573,15 +569,13 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
             } else {
                 openWithActionName = i18nc("@title:menu", "&Open With...");
             }
-            QAction *openWithAct = new QAction(d->m_parentWidget);
-            d->m_ownActions.append(openWithAct);
+            QAction *openWithAct = new QAction(this);
             openWithAct->setText(openWithActionName);
             openWithAct->setObjectName("openwith_browse"); // for the unittest
             QObject::connect(openWithAct, SIGNAL(triggered()), d, SLOT(slotOpenWithDialog()));
             menu->addAction(openWithAct);
         } else { // no app offers -> Open With...
-            QAction *act = new QAction(d->m_parentWidget);
-            d->m_ownActions.append(act);
+            QAction *act = new QAction(this);
             act->setText(i18nc("@title:menu", "&Open With..."));
             QObject::connect(act, SIGNAL(triggered()), d, SLOT(slotOpenWithDialog()));
             topMenu->addAction(act);
@@ -691,9 +685,8 @@ QAction *KFileItemActionsPrivate::createAppAction(const KService::Ptr &service, 
         actionName = i18nc("@item:inmenu Open With, %1 is application name", "%1", actionName);
     }
 
-    QAction *act = new QAction(m_parentWidget);
+    QAction *act = new QAction(q);
     act->setObjectName("openwith"); // for the unittest
-    m_ownActions.append(act);
     act->setIcon(QIcon::fromTheme(service->icon()));
     act->setText(actionName);
     act->setData(QVariant::fromValue(service));

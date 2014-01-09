@@ -81,7 +81,6 @@ public:
     KFileItemList m_fileOpenList;
     QActionGroup m_executeServiceActionGroup;
     QActionGroup m_runApplicationActionGroup;
-    QList<QAction *> m_ownActions;
     QWidget *m_parentWidget;
 };
 
