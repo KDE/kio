@@ -1,11 +1,11 @@
 
-add_executable(kmailservice kmailservice.cpp)
-ecm_mark_nongui_executable(kmailservice)
+add_executable(kmailservice5 kmailservice.cpp)
+ecm_mark_nongui_executable(kmailservice5)
 
-target_link_libraries(kmailservice
+target_link_libraries(kmailservice5
    Qt5::Gui
 )
 
-install(TARGETS kmailservice ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kmailservice5 ${INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS kmailservice.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 

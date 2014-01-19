@@ -183,9 +183,9 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
         QSKIP("kioexec not found, kdebase needed");
     }
 
-    QString kmailservice = QStandardPaths::findExecutable("kmailservice");
+    QString kmailservice = QStandardPaths::findExecutable("kmailservice5");
     if (!QFile::exists(kmailservice)) {
-        kmailservice = "kmailservice";
+        kmailservice = "kmailservice5";
     }
 
     QTest::newRow("%U l0") << "kdeinit5 %U" << l0 << false << kdeinit;
@@ -208,8 +208,8 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
     QTest::newRow("sh -c kdeinit5 %F") << "sh -c \"kdeinit5 \"'\\\"'\"%F\"'\\\"'"
                                        << l1 << false << m_sh + " -c 'kdeinit5 \\\"/tmp\\\"'";
 
-    QTest::newRow("kmailservice %u l1") << "kmailservice %u" << l1 << false << kmailservice + " /tmp";
-    QTest::newRow("kmailservice %u l4") << "kmailservice %u" << l4 << false << kmailservice + " http://login:password@www.kde.org";
+    QTest::newRow("kmailservice5 %u l1") << "kmailservice5 %u" << l1 << false << kmailservice + " /tmp";
+    QTest::newRow("kmailservice5 %u l4") << "kmailservice5 %u" << l4 << false << kmailservice + " http://login:password@www.kde.org";
 }
 
 void KRunUnitTest::testProcessDesktopExecNoFile()

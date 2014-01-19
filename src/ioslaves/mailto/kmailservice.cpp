@@ -28,7 +28,7 @@ int main(int argc, char **argv)
     const QStringList args = a.arguments();
 
     if (args.count() != 2) {
-        fprintf(stderr, "Usage: kmailservice <url>\n");
+        fprintf(stderr, "Usage: kmailservice5 <url>\n");
         return 1;
     }
 

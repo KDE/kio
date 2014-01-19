@@ -37,7 +37,7 @@ int main(int argc, char **argv)
     QApplication a(argc, argv);
 
     if (argc != 1) {
-        fprintf(stderr, "Usage: ktelnetservice <url>\n");
+        fprintf(stderr, "Usage: ktelnetservice5 <url>\n");
         return 1;
     }
 

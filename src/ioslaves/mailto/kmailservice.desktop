@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=kmailservice %u
+Exec=kmailservice5 %u
 Icon=mail-message-new
 MimeType=x-scheme-handler/mailto;
 
