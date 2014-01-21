@@ -1,0 +1,51 @@
+## Check that persistent cookies are not deleted at the end of the session
+CLEAR CONFIG
+CONFIG CookieGlobalAdvice Accept
+COOKIE ACCEPT http://a.example1.net/ Set-Cookie: some_value=value1; Path="/"; expires=%NEXTYEAR%
+COOKIE ACCEPT http://a.example2.net/ Set-Cookie: some_value=value2; Path="/"; max-age="600"
+CHECK http://a.example1.net/ Cookie: some_value=value1
+CHECK http://a.example2.net/ Cookie: some_value=value2
+ENDSESSION
+CHECK http://a.example1.net/ Cookie: some_value=value1
+CHECK http://a.example2.net/ Cookie: some_value=value2
+CONFIG CookieGlobalAdvice Reject
+CONFIG CookieDomainAdvice a.example3.net:Accept,.example4.net:Accept
+COOKIE ACCEPT http://a.example3.net/ Set-Cookie: some_value=value3; Path="/"; expires=%NEXTYEAR%
+COOKIE ACCEPT http://a.example4.net/ Set-Cookie: some_value=value4; Path="/"; expires=%NEXTYEAR%
+CHECK http://a.example3.net/ Cookie: some_value=value3
+CHECK http://a.example4.net/ Cookie: some_value=value4
+ENDSESSION
+CHECK http://a.example3.net/ Cookie: some_value=value3
+CHECK http://a.example4.net/ Cookie: some_value=value4
+## Check that non persistent cookies are deleted at the end of the session
+CLEAR CONFIG
+CONFIG CookieGlobalAdvice Accept
+COOKIE ACCEPT http://x.example1.net/ Set-Cookie: some_value=value1; Path="/"
+CHECK http://x.example1.net/ Cookie: some_value=value1
+ENDSESSION
+CHECK http://x.example1.net/
+CONFIG CookieGlobalAdvice AcceptForSession
+COOKIE ACCEPTFORSESSION http://x.example2.net/ Set-Cookie: some_value=value2; Path="/"
+COOKIE ACCEPTFORSESSION http://x.example3.net/ Set-Cookie: some_value=value3; Path="/"; expires=%NEXTYEAR%
+CHECK http://x.example2.net/ Cookie: some_value=value2
+CHECK http://x.example3.net/ Cookie: some_value=value3
+ENDSESSION
+CHECK http://x.example2.net/
+CHECK http://x.example3.net/
+CONFIG CookieGlobalAdvice Reject
+CONFIG CookieDomainAdvice x.example4.net:AcceptForSession,.example5.net:AcceptForSession,x.y.example6.net:AcceptForSession,.y.example6.net:Accept
+COOKIE ACCEPTFORSESSION http://x.example4.net/ Set-Cookie: some_value=value4; Path="/"; expires=%NEXTYEAR%
+COOKIE ACCEPTFORSESSION http://x.example5.net/ Set-Cookie: some_value=value5; Path="/"; expires=%NEXTYEAR%
+COOKIE ACCEPTFORSESSION http://x.y.example6.net/ Set-Cookie: some_value=value6; Path="/"; expires=%NEXTYEAR%
+CHECK http://x.example4.net/ Cookie: some_value=value4
+CHECK http://x.example5.net/ Cookie: some_value=value5
+CHECK http://x.y.example6.net/ Cookie: some_value=value6
+ENDSESSION
+CHECK http://x.example4.net/
+CHECK http://x.example5.net/
+CHECK http://x.y.example6.net/
+CONFIG AcceptSessionCookies true
+COOKIE ACCEPT http://x.example7.net/ Set-Cookie: some_value=value7; Path="/"
+CHECK http://x.example7.net/ Cookie: some_value=value7
+ENDSESSION
+CHECK http://x.example7.net/

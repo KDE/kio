@@ -1,0 +1,172 @@
+## Check setting of cookies
+COOKIE ASK http://w.y.z/ Set-Cookie2: some_value="value1"; Version=1; Path="/"; Max-Age=3600
+# Although the examples in RFC2965 uses $Version="1" the syntax description suggests that
+# such quotes are not allowed, KDE BR59990 reports that the Sun Java server fails to handle
+# cookies that use $Version="1"
+CHECK http://w.y.z/ Cookie: $Version=1; some_value="value1"; $Path="/"
+COOKIE ASK http://a.b.c/ Set-Cookie2: some_value="value2"; Version=1; Path="/"
+CHECK http://a.b.c/ Cookie: $Version=1; some_value="value2"; $Path="/"
+## Check if clearing cookie jar works
+CLEAR COOKIES
+CHECK http://w.y.z/
+CHECK http://a.b.c/
+## Check cookie syntax
+COOKIE ASK http://w.y.z/ Set-Cookie2: some_value="value with spaces"; Version=1
+CHECK http://w.y.z/ Cookie: $Version=1; some_value="value with spaces"
+COOKIE ASK http://w.y.z/ Set-Cookie2: some_value ="extra space 1"; Version=1
+CHECK http://w.y.z/ Cookie: $Version=1; some_value="extra space 1"
+COOKIE ASK http://w.y.z/ Set-Cookie2: some_value= "extra space 2"; Version=1
+CHECK http://w.y.z/ Cookie: $Version=1; some_value="extra space 2"
+COOKIE ASK http://a.b.c/ Set-Cookie2: some_value=unquoted; Version=1
+CHECK http://a.b.c/ Cookie: $Version=1; some_value=unquoted
+# Note that we parse this different for Netscape-style cookies!
+COOKIE ASK http://a.b.c/ Set-Cookie2: some_value="quoted value; and such"; Version=1;
+CHECK http://a.b.c/ Cookie: $Version=1; some_value="quoted value; and such"
+CLEAR COOKIES
+## Check if deleting cookies works #1
+COOKIE ASK http://w.y.z/ Set-Cookie2: some_value="value1"; Version=1; Path="/"; Max-Age=3600
+CHECK http://w.y.z/ Cookie: $Version=1; some_value="value1"; $Path="/"
+COOKIE ASK http://w.y.z/ Set-Cookie2: some_value=value1; Version=1; Path="/"; Max-Age=0
+CHECK http://w.y.z/
+## Check if updating cookies works
+COOKIE ASK http://w.y.z/ Set-Cookie2: some_value=value2; Version=1; Path="/"; Max-Age=3600
+COOKIE ASK http://w.y.z/ Set-Cookie2: some_value=value3; Version=1; Path="/"; Max-Age=3600
+CHECK http://w.y.z/ Cookie: $Version=1; some_value=value3; $Path="/"
+## Check if multiple cookies work
+COOKIE ASK http://w.y.z/ Set-Cookie2: some_value2=foobar; Version=1; Path="/"; Max-Age=3600
+CHECK http://w.y.z/ Cookie: $Version=1; some_value=value3; $Path="/"; some_value2=foobar; $Path="/"
+COOKIE ASK http://w.y.z/ Set-Cookie2: some_value=; Version=1; Path="/"; Max-Age=0
+CHECK http://w.y.z/ Cookie: $Version=1; some_value2=foobar; $Path="/"
+CLEAR COOKIES
+## Check if we prepend domain with a dot
+COOKIE ASK http://w.y.z/ Set-Cookie2: some_value=value2; Version=1; Path="/"; Domain=.y.z; Max-Age=3600
+COOKIE ASK http://w.y.z/ Set-Cookie2: some_value=value3; Version=1; Path="/"; Domain=y.z.; Max-Age=3600
+CHECK http://w.y.z/ Cookie: $Version=1; some_value=value3; $Path="/"; $Domain=".y.z"
+CLEAR COOKIES
+## Check if multiple cookies on a single line work
+## FIXME
+#COOKIE ASK http://w.y.z/ Set-Cookie2: some_value=value3; Version=1; Path="/"; Max-Age=3600, some_value2=foobar; Version=1; Path="/"; Max-Age=3600
+# CHECK http://w.y.z/ Cookie: $Version=1; some_value2=foobar; $Path="/"; some_value=value3; $Path="/"
+# COOKIE ASK http://w.y.z/ Set-Cookie2: some_value=; Version=1; Path="/"; Max-Age=0
+# CHECK http://w.y.z/ Cookie: $Version=1; some_value2=foobar; $Path="/"
+CLEAR COOKIES
+## Check if path restrictions work
+COOKIE ASK http://w.y.z/ Set-Cookie2: some_value=value1; Version=1; Path="/Foo"; Max-Age=3600
+CHECK http://w.y.z/
+CHECK http://w.y.z/Foo Cookie: $Version=1; some_value=value1; $Path="/Foo"
+CHECK http://w.y.z/Foo/ Cookie: $Version=1; some_value=value1; $Path="/Foo"
+CHECK http://w.y.z/Foo/bar Cookie: $Version=1; some_value=value1; $Path="/Foo"
+CLEAR COOKIES
+## Check if default path works
+# RFC2965 says that we should default to the URL path
+COOKIE ASK http://w.y.z/Foo/ Set-Cookie2: some_value=value1; Version=1; Max-Age=3600
+CHECK http://w.y.z/
+CHECK http://w.y.z/Foo Cookie: $Version=1; some_value=value1
+CHECK http://w.y.z/FooBar
+CHECK http://w.y.z/Foo/ Cookie: $Version=1; some_value=value1
+CHECK http://w.y.z/Foo/bar Cookie: $Version=1; some_value=value1
+CLEAR COOKIES
+## Check if cookies are correctly ordered based on path
+COOKIE ASK http://w.y.z/ Set-Cookie2: some_value=value1; Version=1; Path="/Foo"; Max-Age=3600
+COOKIE ASK http://w.y.z/ Set-Cookie2: some_value2=value2; Version=1; Path="/Foo/Bar"; Max-Age=3600
+CHECK http://w.y.z/Foo/Bar Cookie: $Version=1; some_value2=value2; $Path="/Foo/Bar"; some_value=value1; $Path="/Foo"
+COOKIE ASK http://w.y.z/ Set-Cookie2: some_value3=value3; Version=1; Path="/"; Max-Age=3600
+CHECK http://w.y.z/Foo/Bar Cookie: $Version=1; some_value2=value2; $Path="/Foo/Bar"; some_value=value1; $Path="/Foo"; some_value3=value3; $Path="/"
+CLEAR COOKIES
+## Check cookies with same name but different paths
+COOKIE ASK http://w.y.z/Foo/ Set-Cookie2: some_value=value1; Version=1; Max-Age=3600
+COOKIE ASK http://w.y.z/Bar/ Set-Cookie2: some_value=value2; Version=1; Max-Age=3600
+CHECK http://w.y.z/Foo/Bar Cookie: $Version=1; some_value=value1
+CHECK http://w.y.z/Bar/Foo Cookie: $Version=1; some_value=value2
+COOKIE ASK http://w.y.z/ Set-Cookie2: some_value=value3; Version=1; Max-Age=3600
+CHECK http://w.y.z/Foo/Bar Cookie: $Version=1; some_value=value1; some_value=value3
+CLEAR COOKIES
+## Check port selection handling (rfc 2965 3.3.4)
+COOKIE ASK http://w.y.z/ Set-Cookie2: some_value=value1; Version=1; Domain=.y.z; Port
+CHECK http://foo.y.z/ Cookie: $Version=1; some_value=value1; $Domain=".y.z"; $Port
+CHECK http://foo.y.z:8080
+COOKIE ASK http://w.y.z/ Set-Cookie2: some_value=value1; Version=1; Domain=.y.z; Port="80 8080 443"
+CHECK http://foo.y.z/ Cookie: $Version=1; some_value=value1; $Domain=".y.z"; $Port="80 8080 443"
+CHECK http://foo.y.z:8080 Cookie: $Version=1; some_value=value1; $Domain=".y.z"; $Port="80 8080 443"
+CHECK http://foo.y.z:443 Cookie: $Version=1; some_value=value1; $Domain=".y.z"; $Port="80 8080 443"
+CHECK http://w.y.z:3129
+COOKIE ASK http://w.y.z/ Set-Cookie2: some_value=value1; Version=1; Domain=.y.z
+CHECK http://w.y.z:80 Cookie: $Version=1; some_value=value1; $Domain=".y.z"
+CHECK http://w.y.z:443 Cookie: $Version=1; some_value=value1; $Domain=".y.z"
+CHECK http://w.y.z:3129 Cookie: $Version=1; some_value=value1; $Domain=".y.z"
+CHECK http://w.y.z:8080 Cookie: $Version=1; some_value=value1; $Domain=".y.z"
+CLEAR COOKIES
+## Check secure cookie handling
+COOKIE ASK https://secure.y.z/ Set-Cookie2: some_value2=value2; Version=1; Path="/"; Max-Age=3600; Secure
+CHECK https://secure.y.z/Foo/bar Cookie: $Version=1; some_value2=value2; $Path="/"
+CHECK http://secure.y.z/Foo/bar
+CLEAR COOKIES
+COOKIE ASK http://secure.y.z/ Set-Cookie2: some_value3=value3; Version=1; Path="/"; Max-Age=3600; Secure
+CHECK https://secure.y.z/Foo/bar Cookie: $Version=1; some_value3=value3; $Path="/"
+CHECK http://secure.y.z/Foo/bar
+CLEAR COOKIES
+COOKIE ASK https://secure.y.z/ Set-Cookie: some_value=value; Path="/"; Max-Age=3600;
+CHECK https://secure.y.z/Foo/bar Cookie: some_value=value
+CHECK http://secure.y.z/Foo/bar Cookie: some_value=value
+CLEAR COOKIES
+COOKIE ASK http://secure.y.z/ Set-Cookie: some_value=value; Path="/"; Max-Age=3600;
+CHECK https://secure.y.z/Foo/bar Cookie: some_value=value
+CHECK http://secure.y.z/Foo/bar Cookie: some_value=value
+CLEAR COOKIES
+## Check domain restrictions #1
+COOKIE ASK http://www.acme.com/ Set-Cookie2: some_value=value1; Version=1; Domain=".acme.com"; Max-Age=3600
+CHECK http://www.acme.com/ Cookie: $Version=1; some_value=value1; $Domain=".acme.com"
+CHECK http://www.abc.com/
+CHECK http://frop.acme.com/ Cookie: $Version=1; some_value=value1; $Domain=".acme.com"
+CLEAR COOKIES
+## Check domain restrictions #2
+COOKIE ASK http://novell.com/ Set-Cookie2: some_value=value1; Version=1; Domain=".novell.com"; Max-Age=3600
+CHECK http://novell.com/ Cookie: $Version=1; some_value=value1; $Domain=".novell.com"
+CHECK http://www.novell.com/ Cookie: $Version=1; some_value=value1; $Domain=".novell.com"
+CLEAR COOKIES
+## Check domain restrictions #3
+COOKIE ASK http://novell.com/ Set-Cookie2: some_value=value1; Version=1; Max-Age=3600
+CHECK http://novell.com/ Cookie: $Version=1; some_value=value1
+CHECK http://www.novell.com/
+CLEAR COOKIES
+## Check domain restrictions #4
+COOKIE ASK http://novell.com/ Set-Cookie2: some_value=value1; Version=1; Domain=".com"; Max-Age=3600
+# If the specified domain is too broad, we ignore the Domain
+# FIXME: RFC2965 says we should ignore the cookie completely
+CHECK http://novell.com/ Cookie: $Version=1; some_value=value1
+CHECK http://www.novell.com/
+CHECK http://com/
+CHECK http://sun.com/
+## Check domain restrictions #5
+CLEAR COOKIES
+COOKIE ASK http://novell.co.uk/ Set-Cookie2: some_value=value1; Version=1; Domain=".co.uk"; Max-Age=3600
+# If the specified domain is too broad, we default to host only
+# FIXME: RFC2965 says we should ignore the cookie completely
+CHECK http://novell.co.uk/ Cookie: $Version=1; some_value=value1
+CHECK http://www.novell.co.uk/
+CHECK http://co.uk/
+CHECK http://sun.co.uk/
+COOKIE ASK http://x.y.z.foobar.com/ Set-Cookie2: set_by=x.y.z.foobar.com; Version=1; Domain=".foobar.com"; Max-Age=3600
+CHECK http://x.y.z.foobar.com/ Cookie: $Version=1; set_by=x.y.z.foobar.com; $Domain=".foobar.com"
+CHECK http://y.z.foobar.com/ Cookie: $Version=1; set_by=x.y.z.foobar.com; $Domain=".foobar.com"
+CHECK http://z.foobar.com/ Cookie: $Version=1; set_by=x.y.z.foobar.com; $Domain=".foobar.com"
+CHECK http://www.foobar.com/ Cookie: $Version=1; set_by=x.y.z.foobar.com; $Domain=".foobar.com"
+CHECK http://foobar.com/ Cookie: $Version=1; set_by=x.y.z.foobar.com; $Domain=".foobar.com"
+CLEAR COOKIES
+## Check domain restrictions #6
+COOKIE ASK http://x.y.z.frop.com/ Set-Cookie2: set_by=x.y.z.frop.com; Version=1; Domain=".foobar.com"; Max-Age=3600
+COOKIE ASK http://x.y.z.frop.com/ Set-Cookie2: set_by2=x.y.z.frop.com; Version=1; Domain=".com"; Max-Age=3600
+CHECK http://x.y.z.foobar.com/
+CHECK http://y.z.foobar.com/
+CHECK http://z.foobar.com/
+CHECK http://www.foobar.com/
+CHECK http://foobar.com/
+CLEAR COOKIES
+## Check domain restrictions #7
+COOKIE ASK http://frop.com/ Set-Cookie2: set_by=x.y.z.frop.com; Version=1; Domain=".foobar.com"; Max-Age=3600
+COOKIE ASK http://frop.com/ Set-Cookie2: set_by2=x.y.z.frop.com; Version=1; Domain=".com"; Max-Age=3600
+CHECK http://x.y.z.foobar.com/
+CHECK http://y.z.foobar.com/
+CHECK http://z.foobar.com/
+CHECK http://www.foobar.com/
+CHECK http://foobar.com/

@@ -1,5 +1,3 @@
-add_subdirectory( tests )
-
 include(ECMMarkNonGuiExecutable)
 
 ####### kcookiejar: command line tool for talking to the kded kcookiejar module #######

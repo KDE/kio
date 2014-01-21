@@ -41,7 +41,6 @@ include_directories(${ZLIB_INCLUDE_DIR})
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 
 add_subdirectory( kcookiejar )
-add_subdirectory( tests )
 
 ########### next target ###############
 

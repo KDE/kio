@@ -1,0 +1,112 @@
+## Check CookieGlobalAdvice setting
+COOKIE ASK http://a.b.c/ Set-Cookie: some_value=value1; Path="/"; expires=%NEXTYEAR%
+COOKIE ASK http://a.b.c/ Set-Cookie: some_value=value2; Path="/"
+CONFIG CookieGlobalAdvice Reject
+COOKIE REJECT http://a.b.c/ Set-Cookie: some_value=value3; Path="/"; expires=%NEXTYEAR%
+COOKIE REJECT http://a.b.c/ Set-Cookie: some_value=value4; Path="/"
+CONFIG CookieGlobalAdvice Accept
+COOKIE ACCEPT http://a.b.c/ Set-Cookie: some_value=value5; Path="/"; expires=%NEXTYEAR%
+COOKIE ACCEPT http://a.b.c/ Set-Cookie: some_value=value6; Path="/"
+CONFIG CookieGlobalAdvice AcceptForSession
+COOKIE ACCEPTFORSESSION http://a.b.c/ Set-Cookie: some_value=value5; Path="/"; expires=%NEXTYEAR%
+COOKIE ACCEPTFORSESSION http://a.b.c/ Set-Cookie: some_value=value6; Path="/"
+CONFIG CookieGlobalAdvice Ask
+COOKIE ASK http://a.b.c/ Set-Cookie: some_value=value7; Path="/"; expires=%NEXTYEAR%
+COOKIE ASK http://a.b.c/ Set-Cookie: some_value=value8; Path="/"
+CONFIG AcceptSessionCookies true
+COOKIE ASK http://a.b.c/ Set-Cookie: some_value=value9; Path="/"; expires=%NEXTYEAR%
+COOKIE ASK http://a.b.c/ Set-Cookie2: some_value=value10; Version=1; Path="/"; max-age="600"
+COOKIE ACCEPT http://a.b.c/ Set-Cookie: some_value=value11; Path="/"
+COOKIE ACCEPT http://a.b.c/ Set-Cookie2: some_value=value12; Version=1; Path="/"
+# FIXME: Shouldn't this be considered a session cookie?
+# COOKIE ACCEPT http://a.b.c/ Set-Cookie2: some_value=value10; Version=1; Path="/"; max-age="0"
+# COOKIE ACCEPT http://a.b.c/ Set-Cookie: some_value=value9; Path="/"; expires=%LASTYEAR%
+# FIXME: The 'Discard' attribute makes the cookie a session cookie
+# COOKIE ACCEPT http://a.b.c/ Set-Cookie2: some_value=value10; Version=1; Path="/"; max-age="600"
+## Check host-based domain policies
+CONFIG AcceptSessionCookies false
+CONFIG CookieDomainAdvice a.b.c:Reject
+COOKIE REJECT http://a.b.c/ Set-Cookie: some_value=value9; Path="/"; expires=%NEXTYEAR%
+COOKIE REJECT http://a.b.c/ Set-Cookie2: some_value=value10; Version=1; Path="/"; max-age="600"
+COOKIE REJECT http://a.b.c/ Set-Cookie: some_value=value11; Path="/"
+COOKIE REJECT http://a.b.c/ Set-Cookie2: some_value=value12; Version=1; Path="/"
+COOKIE ASK http://d.b.c/ Set-Cookie: some_value=value9; Path="/"; expires=%NEXTYEAR%
+COOKIE ASK http://d.b.c/ Set-Cookie2: some_value=value10; Version=1; Path="/"; max-age="600"
+COOKIE ASK http://d.b.c/ Set-Cookie: some_value=value11; Path="/"
+COOKIE ASK http://d.b.c/ Set-Cookie2: some_value=value12; Version=1; Path="/"
+## Check resetting of domain policies
+CONFIG CookieDomainAdvice
+COOKIE ASK http://a.b.c/ Set-Cookie: some_value=value9; Path="/"; expires=%NEXTYEAR%
+COOKIE ASK http://a.b.c/ Set-Cookie2: some_value=value10; Version=1; Path="/"; max-age="600"
+COOKIE ASK http://a.b.c/ Set-Cookie: some_value=value11; Path="/"
+COOKIE ASK http://a.b.c/ Set-Cookie2: some_value=value12; Version=1; Path="/"
+COOKIE ASK http://d.b.c/ Set-Cookie: some_value=value9; Path="/"; expires=%NEXTYEAR%
+COOKIE ASK http://d.b.c/ Set-Cookie2: some_value=value10; Version=1; Path="/"; max-age="600"
+COOKIE ASK http://d.b.c/ Set-Cookie: some_value=value11; Path="/"
+COOKIE ASK http://d.b.c/ Set-Cookie2: some_value=value12; Version=1; Path="/"
+## Check domain policies
+CONFIG CookieDomainAdvice .b.c:Reject
+COOKIE REJECT http://a.b.c/ Set-Cookie: some_value=value9; Path="/"; expires=%NEXTYEAR%
+COOKIE REJECT http://a.b.c/ Set-Cookie2: some_value=value10; Version=1; Path="/"; max-age="600"
+COOKIE REJECT http://a.b.c/ Set-Cookie: some_value=value11; Path="/"
+COOKIE REJECT http://a.b.c/ Set-Cookie2: some_value=value12; Version=1; Path="/"
+COOKIE REJECT http://d.b.c/ Set-Cookie: some_value=value9; Path="/"; expires=%NEXTYEAR%
+COOKIE REJECT http://d.b.c/ Set-Cookie2: some_value=value10; Version=1; Path="/"; max-age="600"
+COOKIE REJECT http://d.b.c/ Set-Cookie: some_value=value11; Path="/"
+COOKIE REJECT http://d.b.c/ Set-Cookie2: some_value=value12; Version=1; Path="/"
+## Check overriding of domain policies #1
+CONFIG CookieDomainAdvice .b.c:Reject,a.b.c:Accept
+COOKIE ACCEPT http://a.b.c/ Set-Cookie: some_value=value9; Path="/"; expires=%NEXTYEAR%
+COOKIE ACCEPT http://a.b.c/ Set-Cookie2: some_value=value10; Version=1; Path="/"; max-age="600"
+COOKIE ACCEPT http://a.b.c/ Set-Cookie: some_value=value11; Path="/"
+COOKIE ACCEPT http://a.b.c/ Set-Cookie2: some_value=value12; Version=1; Path="/"
+COOKIE REJECT http://d.b.c/ Set-Cookie: some_value=value9; Path="/"; expires=%NEXTYEAR%
+COOKIE REJECT http://d.b.c/ Set-Cookie2: some_value=value10; Version=1; Path="/"; max-age="600"
+COOKIE REJECT http://d.b.c/ Set-Cookie: some_value=value11; Path="/"
+COOKIE REJECT http://d.b.c/ Set-Cookie2: some_value=value12; Version=1; Path="/"
+## Check overriding of domain policies #2
+CONFIG CookieDomainAdvice a.b.c:Reject,.b.c:Accept
+COOKIE REJECT http://a.b.c/ Set-Cookie: some_value=value9; Path="/"; expires=%NEXTYEAR%
+COOKIE REJECT http://a.b.c/ Set-Cookie2: some_value=value10; Version=1; Path="/"; max-age="600"
+COOKIE REJECT http://a.b.c/ Set-Cookie: some_value=value11; Path="/"
+COOKIE REJECT http://a.b.c/ Set-Cookie2: some_value=value12; Version=1; Path="/"
+COOKIE ACCEPT http://d.b.c/ Set-Cookie: some_value=value9; Path="/"; expires=%NEXTYEAR%
+COOKIE ACCEPT http://d.b.c/ Set-Cookie2: some_value=value10; Version=1; Path="/"; max-age="600"
+COOKIE ACCEPT http://d.b.c/ Set-Cookie: some_value=value11; Path="/"
+COOKIE ACCEPT http://d.b.c/ Set-Cookie2: some_value=value12; Version=1; Path="/"
+## Check resetting of domain policies
+CONFIG CookieDomainAdvice
+COOKIE ASK http://a.b.c/ Set-Cookie: some_value=value9; Path="/"; expires=%NEXTYEAR%
+COOKIE ASK http://a.b.c/ Set-Cookie2: some_value=value10; Version=1; Path="/"; max-age="600"
+COOKIE ASK http://a.b.c/ Set-Cookie: some_value=value11; Path="/"
+COOKIE ASK http://a.b.c/ Set-Cookie2: some_value=value12; Version=1; Path="/"
+COOKIE ASK http://d.b.c/ Set-Cookie: some_value=value9; Path="/"; expires=%NEXTYEAR%
+COOKIE ASK http://d.b.c/ Set-Cookie2: some_value=value10; Version=1; Path="/"; max-age="600"
+COOKIE ASK http://d.b.c/ Set-Cookie: some_value=value11; Path="/"
+COOKIE ASK http://d.b.c/ Set-Cookie2: some_value=value12; Version=1; Path="/"
+## Check overriding of domain policies #3
+CONFIG CookieDomainAdvice b.c:Reject,.b.c:Accept
+COOKIE REJECT http://b.c/ Set-Cookie: some_value=value9; Path="/"; expires=%NEXTYEAR%
+COOKIE REJECT http://b.c/ Set-Cookie2: some_value=value10; Version=1; Path="/"; max-age="600"
+COOKIE REJECT http://b.c/ Set-Cookie: some_value=value11; Path="/"
+COOKIE REJECT http://b.c/ Set-Cookie2: some_value=value12; Version=1; Path="/"
+COOKIE ACCEPT http://a.b.c/ Set-Cookie: some_value=value9; Path="/"; expires=%NEXTYEAR%
+COOKIE ACCEPT http://a.b.c/ Set-Cookie2: some_value=value10; Version=1; Path="/"; max-age="600"
+COOKIE ACCEPT http://a.b.c/ Set-Cookie: some_value=value11; Path="/"
+COOKIE ACCEPT http://a.b.c/ Set-Cookie2: some_value=value12; Version=1; Path="/"
+## Check overriding of domain policies #4
+CONFIG CookieDomainAdvice .a.b.c.d:Reject,.b.c.d:Accept,.c.d:Ask
+COOKIE REJECT http://www.a.b.c.d/ Set-Cookie: some_value=value9; Path="/"; expires=%NEXTYEAR%
+COOKIE ACCEPT http://www.b.c.d/ Set-Cookie: some_value=value9; Path="/"; expires=%NEXTYEAR%
+COOKIE ASK http://www.c.d/ Set-Cookie: some_value=value9; Path="/"; expires=%NEXTYEAR%
+## Check interaction with session policy
+CONFIG AcceptSessionCookies true
+CONFIG CookieDomainAdvice .b.c:Reject
+COOKIE REJECT http://a.b.c/ Set-Cookie: some_value=value9; Path="/"; expires=%NEXTYEAR%
+COOKIE REJECT http://a.b.c/ Set-Cookie2: some_value=value10; Version=1; Path="/"; max-age="600"
+COOKIE ACCEPT http://a.b.c/ Set-Cookie: some_value=value11; Path="/"
+COOKIE ACCEPT http://a.b.c/ Set-Cookie2: some_value=value12; Version=1; Path="/"
+COOKIE REJECT http://d.b.c/ Set-Cookie: some_value=value9; Path="/"; expires=%NEXTYEAR%
+COOKIE REJECT http://d.b.c/ Set-Cookie2: some_value=value10; Version=1; Path="/"; max-age="600"
+COOKIE ACCEPT http://d.b.c/ Set-Cookie: some_value=value11; Path="/"
+COOKIE ACCEPT http://d.b.c/ Set-Cookie2: some_value=value12; Version=1; Path="/"

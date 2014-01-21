@@ -2,6 +2,9 @@ remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 
 include(ECMMarkAsTest)
 
+add_subdirectory(http)
+add_subdirectory(kcookiejar)
+
 ########### unittests ###############
 
 find_package(Qt5Concurrent 5.2.0 REQUIRED NO_MODULE)
