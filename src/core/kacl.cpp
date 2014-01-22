@@ -22,10 +22,7 @@
 
 #include <config-kiocore.h>
 
-#include <sys/types.h>
-#include <pwd.h>
-#include <grp.h>
-#include <sys/stat.h>
+#include <qplatformdefs.h>
 #if HAVE_POSIX_ACL
 #include <sys/acl.h>
 #include <acl/libacl.h>

@@ -41,7 +41,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <klocalizedstring.h>
 #include <kprotocolmanager.h>
 
-#include <unistd.h>
+#include <qplatformdefs.h>
 #include <qstandardpaths.h>
 #include <qcommandlineparser.h>
 #include <qcommandlineoption.h>

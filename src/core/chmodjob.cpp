@@ -28,10 +28,9 @@
 #include <QtCore/QLinkedList>
 #include <QDebug>
 
-#include <pwd.h>
-#include <grp.h>
+
 #include <sys/types.h>
-#include <unistd.h>
+#include <qplatformdefs.h>
 #include <assert.h>
 
 #include "job_p.h"

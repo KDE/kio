@@ -37,11 +37,9 @@
 #include <QIcon>
 #include <QLocale>
 #include <qplatformdefs.h>
-#include <sys/types.h>
-#include <dirent.h>
 
 #ifdef Q_OS_WIN
-#include <windows.h>
+#include <qt_windows.h>
 #endif
 
 class KDirModelNode;

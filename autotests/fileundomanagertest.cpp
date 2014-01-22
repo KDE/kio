@@ -39,9 +39,14 @@
 #include <kconfiggroup.h>
 
 #include <errno.h>
-#include <utime.h>
 #include <time.h>
+#ifdef Q_OS_WIN
+#include <sys/utime.h>
+#else
+#include <utime.h>
 #include <sys/time.h>
+#endif
+
 
 #include <QClipboard>
 #include <QApplication>

@@ -43,7 +43,7 @@
 #include <QPainter>
 #include <QStyle>
 
-#include <unistd.h>
+#include <qplatformdefs.h>
 #include <kconfiggroup.h>
 
 bool KFilePlaceEditDialog::getInformation(bool allowGlobal, QUrl &url,

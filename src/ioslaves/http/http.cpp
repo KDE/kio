@@ -32,7 +32,7 @@
 
 #include <config-kioslave-http.h>
 
-#include <unistd.h> // must be explicitly included for MacOSX
+#include <qplatformdefs.h> // must be explicitly included for MacOSX
 
 #include <QtXml/qdom.h>
 #include <QtCore/QFile>

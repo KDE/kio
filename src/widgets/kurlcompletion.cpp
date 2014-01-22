@@ -48,17 +48,14 @@
 #include <ksharedconfig.h>
 #include <kcompletion.h>
 
-#include <sys/types.h>
-#include <dirent.h>
-#include <unistd.h>
-#include <sys/stat.h>
-#include <pwd.h>
+#include <qplatformdefs.h>
 #include <time.h>
-#include <sys/param.h>
 #include <kconfiggroup.h>
 
 #ifdef Q_OS_WIN
-#include <windows.h>
+#include <qt_windows.h>
+#else
+#include <sys/param.h>
 #endif
 
 static bool expandTilde(QString &);

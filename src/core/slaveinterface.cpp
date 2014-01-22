@@ -24,10 +24,7 @@
 #include "connection_p.h"
 #include "commands_p.h"
 #include "hostinfo.h"
-#include <errno.h>
-#include <stdlib.h>
-#include <sys/time.h>
-#include <unistd.h>
+#include <qplatformdefs.h>
 #include <signal.h>
 #include <klocalizedstring.h>
 #include <time.h>

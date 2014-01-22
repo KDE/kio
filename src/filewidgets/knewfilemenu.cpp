@@ -52,7 +52,11 @@
 
 #include <kpropertiesdialog.h>
 #include <qmimedatabase.h>
+#ifdef Q_OS_WIN
+#include <sys/utime.h>
+#else
 #include <utime.h>
+#endif
 
 static QString expandTilde(const QString &name, bool isfile = false)
 {

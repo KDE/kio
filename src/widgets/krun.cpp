@@ -24,11 +24,9 @@
 #include <config-kiowidgets.h> // HAVE_X11
 
 #include <assert.h>
-#include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
 #include <typeinfo>
-#include <sys/stat.h>
+#include <qplatformdefs.h>
 
 #include <QDialog>
 #include <QDialogButtonBox>

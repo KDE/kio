@@ -27,8 +27,7 @@
 #include <QLayout>
 #include <QtTest/QtTest>
 
-#include <stdlib.h>
-#include <unistd.h>
+#include <qplatformdefs.h>
 
 const int MAXKRUNS = 100;
 

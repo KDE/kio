@@ -20,8 +20,6 @@
 #ifndef KFILEITEM_H
 #define KFILEITEM_H
 
-#include <sys/stat.h>
-
 #include <kio/kiocore_export.h>
 #include <kio/global.h>
 #include <kacl.h>
@@ -32,6 +30,7 @@
 
 #include <qmimetype.h>
 #include <QtCore/QList>
+#include <qplatformdefs.h>
 
 class KFileItemPrivate;
 

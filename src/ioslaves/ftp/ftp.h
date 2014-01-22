@@ -20,8 +20,7 @@
 #ifndef KDELIBS_FTP_H
 #define KDELIBS_FTP_H
 
-#include <sys/types.h>
-#include <sys/socket.h>
+#include <qplatformdefs.h>
 
 #include <QtCore/QDateTime>
 

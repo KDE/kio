@@ -27,8 +27,13 @@
 #include <config-kiocore.h>
 
 #include <string.h>
-#include <unistd.h>
+#include <qplatformdefs.h>
+#ifdef Q_OS_WIN
+#include <qt_windows.h>
+#undef interface //windows.h defines this, breaks QtDBus since it has parameters named interface
+#else
 #include <sys/utsname.h>
+#endif
 
 #include <QtCore/QCoreApplication>
 #include <QUrl>

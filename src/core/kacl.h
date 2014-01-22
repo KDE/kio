@@ -20,7 +20,7 @@
 #ifndef KACL_H
 #define KACL_H
 
-#include <sys/types.h>
+#include <qplatformdefs.h>
 #include <kio/kiocore_export.h>
 
 #include <QtCore/QPair>

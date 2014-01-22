@@ -25,7 +25,7 @@
 
 #include "file.h"
 
-#include <windows.h>
+#include <qt_windows.h>
 
 #include <QtCore/QDir>
 #include <QtCore/QDirIterator>

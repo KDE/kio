@@ -19,6 +19,11 @@
 #ifndef KIO_SLAVEINTERFACEPRIVATE_H
 #define KIO_SLAVEINTERFACEPRIVATE_H
 
+#ifdef Q_OS_WIN
+#undef _INC_WINDOWS // don't include windows.h from WinSock2.h
+#include <WinSock2.h> // struct timeval
+#endif
+
 #include "global.h"
 #include "connection_p.h"
 #include <QtCore/QTimer>

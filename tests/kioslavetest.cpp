@@ -18,7 +18,7 @@
 #include <QDebug>
 #include <QUrl>
 
-#include <unistd.h>
+#include <qplatformdefs.h>
 
 #include <kjobuidelegate.h>
 #include <kio/job.h>
@@ -29,7 +29,6 @@
 #include <QtCore/QTimer>
 #include <qcommandlineparser.h>
 #include <qcommandlineoption.h>
-#include <qplatformdefs.h>
 
 #include "kioslavetest.h"
 

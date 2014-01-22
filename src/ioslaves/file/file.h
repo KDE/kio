@@ -29,7 +29,7 @@
 #include <QtCore/QObject>
 #include <QtCore/QHash>
 #include <QtCore/QFile>
-
+#include<qplatformdefs.h>
 #include <config-kioslave-file.h>
 
 #if HAVE_POSIX_ACL

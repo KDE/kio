@@ -46,15 +46,7 @@
 
 #include <config-kiowidgets.h>
 
-extern "C" {
-#include <pwd.h>
-#include <grp.h>
-#include <time.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-}
-#include <unistd.h>
-#include <errno.h>
+#include <qplatformdefs.h>
 #include <algorithm>
 #include <functional>
 

@@ -20,12 +20,9 @@
 
 #include "slave.h"
 
-#include <errno.h>
-#include <unistd.h>
-#include <stdlib.h>
+#include <qplatformdefs.h>
 #include <stdio.h>
 #include <signal.h>
-#include <sys/types.h>
 
 #include <QtCore/QFile>
 #include <QtCore/QTimer>

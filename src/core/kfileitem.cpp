@@ -20,13 +20,6 @@
 
 #include "kfileitem.h"
 
-#include <pwd.h>
-#include <grp.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-
-#include <unistd.h>
-
 #include <QtCore/QDate>
 #include <QtCore/QDir>
 #include <QtCore/QDirIterator>

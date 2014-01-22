@@ -32,7 +32,11 @@
 #define  KIO_FTP_PRIVATE_INCLUDE
 #include "ftp.h"
 
+#ifdef Q_OS_WIN
+#include <sys/utime.h>
+#else
 #include <utime.h>
+#endif
 
 #include <cctype>
 #include <cerrno>
@@ -48,7 +52,6 @@
 #include <QtNetwork/QSslSocket>
 #include <QtNetwork/QAuthenticator>
 #include <qmimedatabase.h>
-#include <qplatformdefs.h>
 
 #include <QDebug>
 #include <kio/ioslave_defaults.h>

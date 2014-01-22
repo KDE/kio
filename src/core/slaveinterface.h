@@ -20,8 +20,7 @@
 #ifndef __kio_slaveinterface_h
 #define __kio_slaveinterface_h
 
-#include <unistd.h>
-#include <sys/types.h>
+#include <qplatformdefs.h>
 
 #include <QtCore/QObject>
 #include <QtNetwork/QHostInfo>

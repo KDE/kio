@@ -26,9 +26,11 @@
 #include <config-kiocore.h>
 
 #include <stdlib.h>
-#include <errno.h>
-#include <unistd.h>
+#include <qplatformdefs.h>
 #include <signal.h>
+#ifdef Q_OS_WIN
+#include <process.h>
+#endif
 
 #include <QtCore/QFile>
 #include <QtCore/QList>

@@ -27,11 +27,9 @@
 
 #include <QtCore/QString>
 
-#include <sys/types.h>
-#include <sys/stat.h>
+#include <qplatformdefs.h>
 
 #include <stdio.h>
-#include <unistd.h>
 
 class HelpProtocol : public KIO::SlaveBase
 {
