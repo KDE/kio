@@ -68,6 +68,7 @@ find_package(X11)
 set(HAVE_X11 ${X11_FOUND})
 
 add_subdirectory(docs)
+include(CheckLibraryExists)
 add_subdirectory(src)
 add_subdirectory(autotests)
 add_subdirectory(tests)
