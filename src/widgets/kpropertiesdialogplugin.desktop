@@ -2,6 +2,7 @@
 Type=ServiceType
 X-KDE-ServiceType=KPropertiesDialog/Plugin
 Comment=Plugin for the Properties Dialog
+Comment[x-test]=xxPlugin for the Properties Dialogxx
 
 [PropertyDef::X-KDE-Protocol]
 Type=QString

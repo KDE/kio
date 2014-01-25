@@ -9,4 +9,5 @@ reading=false
 Icon=www
 Class=:internet
 Description=Microsoft Media Server Protocol
+Description[x-test]=xxMicrosoft Media Server Protocolxx
 URIMode=url

@@ -1,7 +1,9 @@
 [Desktop Entry]
 Type=Service
 Name=Cookie Jar
+Name[x-test]=xxCookie Jarxx
 Comment=Stores network cookies
+Comment[x-test]=xxStores network cookiesxx
 X-KDE-ServiceTypes=KDEDModule
 X-KDE-Library=kcookiejar
 X-KDE-DBus-ModuleName=kcookiejar

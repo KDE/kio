@@ -1,18 +1,25 @@
 [Global]
 IconName=preferences-system-network-proxy
 Comment=Network Proxy Configuration
+Comment[x-test]=xxNetwork Proxy Configurationxx
 
 [Event/script-error]
 Name=Invalid Proxy Script
+Name[x-test]=xxInvalid Proxy Scriptxx
 Comment=The downloaded proxy configuration script is invalid
+Comment[x-test]=xxThe downloaded proxy configuration script is invalidxx
 Action=Popup
 
 [Event/download-error]
 Name=Script Download Error
+Name[x-test]=xxScript Download Errorxx
 Comment=The proxy configuration script could not be downloaded
+Comment[x-test]=xxThe proxy configuration script could not be downloadedxx
 Action=Popup
 
 [Event/evaluation-error]
 Name=Script Evaluation Error
+Name[x-test]=xxScript Evaluation Errorxx
 Comment=There was an error executing the proxy configuration script
+Comment[x-test]=xxThere was an error executing the proxy configuration scriptxx
 

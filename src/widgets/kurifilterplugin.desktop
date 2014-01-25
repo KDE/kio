@@ -2,3 +2,4 @@
 Type=ServiceType
 X-KDE-ServiceType=KUriFilter/Plugin
 Name=Enhanced Browsing Plugin
+Name[x-test]=xxEnhanced Browsing Pluginxx

@@ -6,6 +6,7 @@ reading=true
 Icon=applications-internet
 Class=:internet
 Description=A kioslave for data URIs (rfc2397)
+Description[x-test]=xxA kioslave for data URIs (rfc2397)xx
 X-DocPath=kioslave/data/index.html
 URIMode=rawuri
 defaultMimetype=application/octet-stream

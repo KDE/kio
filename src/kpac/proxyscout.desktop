@@ -1,7 +1,9 @@
 [Desktop Entry]
 Type=Service
 Name=Network Proxy Configuration
+Name[x-test]=xxNetwork Proxy Configurationxx
 Comment=Automatic proxy configuration
+Comment[x-test]=xxAutomatic proxy configurationxx
 X-KDE-ServiceTypes=KDEDModule
 X-KDE-Library=proxyscout
 X-KDE-DBus-ModuleName=proxyscout

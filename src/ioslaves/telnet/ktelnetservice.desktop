@@ -8,3 +8,4 @@ X-DocPath=kioslave/telnet/index.html
 NoDisplay=true
 
 Name=KTelnetService
+Name[x-test]=xxKTelnetServicexx

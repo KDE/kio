@@ -1,6 +1,8 @@
 [Desktop Entry]
 Type=Service
 Name=HTTP Cache Cleaner
+Name[x-test]=xxHTTP Cache Cleanerxx
 Exec=kio_http_cache_cleaner
 Comment=Cleans up old entries from the HTTP cache
+Comment[x-test]=xxCleans up old entries from the HTTP cachexx
 X-KDE-StartupNotify=false
