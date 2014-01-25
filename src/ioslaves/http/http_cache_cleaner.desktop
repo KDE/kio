@@ -1,8 +1,14 @@
 [Desktop Entry]
 Type=Service
 Name=HTTP Cache Cleaner
+Name[pt_BR]=Limpador de cache HTTP
+Name[sk]=Čistič vyrovnávacej pamäte HTTP
+Name[uk]=Очищувач кешу HTTP
 Name[x-test]=xxHTTP Cache Cleanerxx
 Exec=kio_http_cache_cleaner
 Comment=Cleans up old entries from the HTTP cache
+Comment[pt_BR]=Limpa itens antigos do cache HTTP
+Comment[sk]=Vyčistí staré položky z vyrovnávacej pamäte HTTP
+Comment[uk]=Вичищає старі елементи з кешу HTTP
 Comment[x-test]=xxCleans up old entries from the HTTP cachexx
 X-KDE-StartupNotify=false

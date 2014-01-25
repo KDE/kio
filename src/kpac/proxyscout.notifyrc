@@ -1,25 +1,46 @@
 [Global]
 IconName=preferences-system-network-proxy
 Comment=Network Proxy Configuration
+Comment[pt_BR]=Configuração do proxy de rede
+Comment[sk]=Nastavenie sieťového proxy
+Comment[uk]=Налаштування проксі-сервера мережі
 Comment[x-test]=xxNetwork Proxy Configurationxx
 
 [Event/script-error]
 Name=Invalid Proxy Script
+Name[pt_BR]=Script de proxy inválido
+Name[sk]=Neplatný proxy skript
+Name[uk]=Некоректний скрипт проксі
 Name[x-test]=xxInvalid Proxy Scriptxx
 Comment=The downloaded proxy configuration script is invalid
+Comment[pt_BR]=O script de configuração do proxy obtido é inválido
+Comment[sk]=Stiahnutý konfiguračný skript pre proxy je neplatný
+Comment[uk]=Звантажено некоректний скрип проксі
 Comment[x-test]=xxThe downloaded proxy configuration script is invalidxx
 Action=Popup
 
 [Event/download-error]
 Name=Script Download Error
+Name[pt_BR]=Erro no download do script
+Name[sk]=Chyba počas sťahovania skriptu
+Name[uk]=Помилка звантаження проксі
 Name[x-test]=xxScript Download Errorxx
 Comment=The proxy configuration script could not be downloaded
+Comment[pt_BR]=O script de configuração do proxy não pôde ser baixado
+Comment[sk]=Nepodarilo sa stiahnuť konfiguračný skript pre proxy
+Comment[uk]=Неможливо звантажити скрипт налаштування проксі
 Comment[x-test]=xxThe proxy configuration script could not be downloadedxx
 Action=Popup
 
 [Event/evaluation-error]
 Name=Script Evaluation Error
+Name[pt_BR]=Erro de avaliação do script
+Name[sk]=Chyba vykonávania skriptu
+Name[uk]=Помилка оцінки скрипту
 Name[x-test]=xxScript Evaluation Errorxx
 Comment=There was an error executing the proxy configuration script
+Comment[pt_BR]=Houve um erro ao executar o script de configuração do proxy
+Comment[sk]=Nastala chyba pri spúšťaní konfiguračného skriptu pre proxy
+Comment[uk]=Помилка запуску скрипту налаштування проксі
 Comment[x-test]=xxThere was an error executing the proxy configuration scriptxx
 

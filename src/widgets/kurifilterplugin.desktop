@@ -2,4 +2,7 @@
 Type=ServiceType
 X-KDE-ServiceType=KUriFilter/Plugin
 Name=Enhanced Browsing Plugin
+Name[pt_BR]=Plugin de navegação melhorada
+Name[sk]=Modul rozšíreného prehliadania
+Name[uk]=Додаток розширеної навігації
 Name[x-test]=xxEnhanced Browsing Pluginxx

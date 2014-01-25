@@ -1,8 +1,14 @@
 [Desktop Entry]
 Type=Service
 Name=Cookie Jar
+Name[pt_BR]=Repositório de cookies
+Name[sk]=Úložisko cookie
+Name[uk]=Глечик з куками
 Name[x-test]=xxCookie Jarxx
 Comment=Stores network cookies
+Comment[pt_BR]=Armazena os cookies da rede
+Comment[sk]=Ukladá sieťové cookies
+Comment[uk]=Зберігання кук мережі
 Comment[x-test]=xxStores network cookiesxx
 X-KDE-ServiceTypes=KDEDModule
 X-KDE-Library=kcookiejar

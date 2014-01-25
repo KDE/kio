@@ -1,8 +1,14 @@
 [Desktop Entry]
 Type=Service
 Name=Network Proxy Configuration
+Name[pt_BR]=Configuração do proxy de rede
+Name[sk]=Nastavenie sieťového proxy
+Name[uk]=Налаштування проксі-сервера мережі
 Name[x-test]=xxNetwork Proxy Configurationxx
 Comment=Automatic proxy configuration
+Comment[pt_BR]=Configuração automática do proxy
+Comment[sk]=Automatické nastavenie proxy
+Comment[uk]=Автоматичне визначення проксі-сервера
 Comment[x-test]=xxAutomatic proxy configurationxx
 X-KDE-ServiceTypes=KDEDModule
 X-KDE-Library=proxyscout

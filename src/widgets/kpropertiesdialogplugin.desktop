@@ -2,6 +2,9 @@
 Type=ServiceType
 X-KDE-ServiceType=KPropertiesDialog/Plugin
 Comment=Plugin for the Properties Dialog
+Comment[pt_BR]=Plugin para a janela de propriedades
+Comment[sk]=Modul pre dialóg vlastností
+Comment[uk]=Додаток для створення діалогових вікон властивостей
 Comment[x-test]=xxPlugin for the Properties Dialogxx
 
 [PropertyDef::X-KDE-Protocol]
