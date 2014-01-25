@@ -23,3 +23,7 @@ target_include_directories(KF5KIONTLM PUBLIC
 
 install( FILES ${CMAKE_CURRENT_BINARY_DIR}/kntlm_export.h kntlm.h  DESTINATION  ${INCLUDE_INSTALL_DIR}/kio COMPONENT Devel)
 
+
+include(ECMGeneratePriFile)
+ecm_generate_pri_file(BASE_NAME KNTLM LIB_NAME KF5KIONTLM DEPS "KCoreAddons" FILENAME_VAR PRI_FILENAME)
+install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
