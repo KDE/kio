@@ -62,7 +62,7 @@ remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 
 set(QT_REQUIRED_VERSION 5.2.0)
-find_package(Qt5 ${QT_REQUIRED_VERSION} CONFIG REQUIRED Widgets DBus Network Concurrent Xml Test Script)
+find_package(Qt5 ${QT_REQUIRED_VERSION} CONFIG REQUIRED Widgets DBus Network Concurrent Xml Test)
 
 find_package(X11)
 set(HAVE_X11 ${X11_FOUND})
