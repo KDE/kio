@@ -64,6 +64,12 @@ add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 set(QT_REQUIRED_VERSION 5.2.0)
 find_package(Qt5 ${QT_REQUIRED_VERSION} CONFIG REQUIRED Widgets DBus Network Concurrent Xml Test)
 
+find_package(GSSAPI)
+set_package_properties(GSSAPI PROPERTIES DESCRIPTION "Allows KIO to make use of certain HTTP authentication services"
+                       URL "http://web.mit.edu/kerberos/www"
+                       TYPE OPTIONAL
+                       PURPOSE "A MIT or HEIMDAL flavor of GSSAPI can be used"
+                      )
 find_package(X11)
 set(HAVE_X11 ${X11_FOUND})
 

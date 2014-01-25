@@ -10,12 +10,6 @@ set_package_properties(ZLIB PROPERTIES DESCRIPTION "Support for gzip compressed 
 include(ConfigureChecks.cmake)
 configure_file(config-kioslave-http.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kioslave-http.h )
 
-find_package(GSSAPI)
-set_package_properties(GSSAPI PROPERTIES DESCRIPTION "Allows KIO to make use of certain HTTP authentication services"
-                       URL "http://web.mit.edu/kerberos/www"
-                       TYPE OPTIONAL
-                       PURPOSE "A MIT or HEIMDAL flavor of GSSAPI can be used"
-                      )
 find_package(X11)
 set(HAVE_X11 ${X11_FOUND})
 
