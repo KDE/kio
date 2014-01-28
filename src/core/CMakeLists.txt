@@ -105,9 +105,16 @@ set_source_files_properties(org.kde.KPasswdServer.xml
 qt5_add_dbus_interface(kiocore_SRCS org.kde.KPasswdServer.xml kpasswdserver_interface)
 install(FILES
    org.kde.KDirNotify.xml
+   DESTINATION ${DBUS_INTERFACES_INSTALL_DIR}
+   RENAME kf5_org.kde.KDirNotify.xml)
+install(FILES
    org.kde.KPasswdServer.xml
+   DESTINATION ${DBUS_INTERFACES_INSTALL_DIR}
+   RENAME kf5_org.kde.KPasswdServer.xml)
+install(FILES
    org.kde.KSlaveLauncher.xml
-   DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
+   DESTINATION ${DBUS_INTERFACES_INSTALL_DIR}
+   RENAME kf5_org.kde.KSlaveLauncher.xml)
 
 add_library(KF5KIOCore ${kiocore_SRCS})
 generate_export_header(KF5KIOCore BASE_NAME KIOCore)

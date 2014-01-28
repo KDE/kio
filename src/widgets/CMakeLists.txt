@@ -164,7 +164,8 @@ install(TARGETS KF5KIOWidgets EXPORT KF5KIOTargets ${INSTALL_TARGETS_DEFAULT_ARG
 
 install(FILES
    org.kde.kio.FileUndoManager.xml
-   DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
+   DESTINATION ${DBUS_INTERFACES_INSTALL_DIR}
+   RENAME kf5_org.kde.kio.FileUndoManager.xml)
 
 install(FILES
   pixmaploader.h
