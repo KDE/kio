@@ -10,5 +10,5 @@ target_link_libraries(ktelnetservice5
 )
 
 install(TARGETS ktelnetservice5 ${INSTALL_TARGETS_DEFAULT_ARGS})
-install(PROGRAMS ktelnetservice.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(PROGRAMS ktelnetservice5.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 

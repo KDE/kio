@@ -7,5 +7,5 @@ target_link_libraries(kmailservice5
 )
 
 install(TARGETS kmailservice5 ${INSTALL_TARGETS_DEFAULT_ARGS})
-install(PROGRAMS kmailservice.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(PROGRAMS kmailservice5.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 
