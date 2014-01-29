@@ -2,8 +2,8 @@
 
 # Any changes in this ".cmake" file will be overwritten by CMake, the source is the ".cmake.in" file.
 
-set(KCookieServer_DBUS_INTERFACE "${PACKAGE_PREFIX_DIR}/@DBUS_INTERFACES_INSTALL_DIR@/org.kde.KCookieServer.xml")
-set(KSlaveLauncher_DBUS_INTERFACE "${PACKAGE_PREFIX_DIR}/@DBUS_INTERFACES_INSTALL_DIR@/org.kde.KSlaveLauncher.xml")
+set(KCookieServer_DBUS_INTERFACE "${PACKAGE_PREFIX_DIR}/@DBUS_INTERFACES_INSTALL_DIR@/kf5_org.kde.KCookieServer.xml")
+set(KSlaveLauncher_DBUS_INTERFACE "${PACKAGE_PREFIX_DIR}/@DBUS_INTERFACES_INSTALL_DIR@/kf5_org.kde.KSlaveLauncher.xml")
 
 find_dependency(KF5Bookmarks "@KF5_VERSION@")
 find_dependency(KF5Completion "@KF5_VERSION@")
