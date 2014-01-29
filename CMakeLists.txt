@@ -24,22 +24,6 @@ install(TARGETS kio_trash  DESTINATION ${PLUGIN_INSTALL_DIR} )
 endif(NOT MINGW)
 ########### next target ###############
 
-# currently not on win32, TODO!
-if(NOT WIN32 AND STRIGI_FOUND)
-    include_directories(${STRIGI_INCLUDE_DIR})
-
-    kde4_add_library(trash MODULE trashthroughanalyzer.cpp ${trashcommon_PART_SRCS})
-    target_link_libraries(trash
-       ${KDE4_KIO_LIBS}
-       ${STRIGI_STREAMANALYZER_LIBRARY}
-       ${KDE4_SOLID_LIBS}
-    )
-    set_target_properties(trash PROPERTIES
-        PREFIX strigita_)
-    #install(TARGETS trash LIBRARY DESTINATION ${LIB_INSTALL_DIR}/strigi)
-endif(NOT WIN32 AND STRIGI_FOUND)
-########### next target ###############
-
 set(ktrash_SRCS ktrash.cpp )
 
 
