@@ -24,6 +24,7 @@
 #include <QtCore/QMutableStringListIterator>
 #include <QtCore/QRegExp>
 #include <kcompletion.h>
+#include <kcompletionmatches.h>
 
 class KShellCompletionPrivate
 {
