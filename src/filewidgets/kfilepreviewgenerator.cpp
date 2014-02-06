@@ -896,7 +896,7 @@ bool KFilePreviewGenerator::Private::isCutItem(const KFileItem &item) const
 void KFilePreviewGenerator::Private::applyCutItemEffect(const KFileItemList &items)
 {
     const QMimeData *mimeData = QApplication::clipboard()->mimeData();
-    m_hasCutSelection = decodeIsCutSelection(mimeData);
+    m_hasCutSelection = mimeData && decodeIsCutSelection(mimeData);
     if (!m_hasCutSelection) {
         return;
     }
@@ -1128,6 +1128,9 @@ void KFilePreviewGenerator::Private::orderItems(KFileItemList &items)
 
 bool KFilePreviewGenerator::Private::decodeIsCutSelection(const QMimeData *mimeData)
 {
+    if (!mimeData) {
+        return false;
+    }
     const QByteArray data = mimeData->data("application/x-kde-cutselection");
     if (data.isEmpty()) {
         return false;
