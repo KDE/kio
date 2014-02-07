@@ -74,9 +74,7 @@ KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList,
 #endif
     } else {
         // No window associated... make sure the user notices our dialog.
-#if HAVE_X11
         KWindowSystem::setState(winId(), NET::KeepAbove);
-#endif
         KUserTimestamp::updateUserTimestamp();
     }
 
