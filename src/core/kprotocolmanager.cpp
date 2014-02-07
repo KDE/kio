@@ -460,7 +460,7 @@ static QStringList getSystemProxyFor(const QUrl &url)
 
         url.setHost(proxy.hostName());
         url.setPort(proxy.port());
-        url.setUser(proxy.user());
+        url.setUserName(proxy.user());
         proxies << url.url();
     }
 #else
