@@ -73,7 +73,7 @@ class KFileItemListProperties;
  * cmake terms this looks roughly as follows:
  *
  * \code
- * desktop_to_json(myactionplugin.desktop) # generate the json file
+ * desktop_to_json(myactionplugin myactionplugin.desktop) # generate the json file
  *
  * add_library(myactionplugin MODULE ${myactionplugin_SRCS} )
  * set_target_properties(myactionplugin PROPERTIES PREFIX "") # remove lib prefix from binary
