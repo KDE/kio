@@ -215,7 +215,7 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls,
 
         int result;
         QWidget *widget = job() ? window() : NULL; // ### job is NULL here, most of the time, right?
-        const KMessageBox::Options options = KMessageBox::Notify | KMessageBox::WindowModal;
+        const KMessageBox::Options options(KMessageBox::Notify | KMessageBox::WindowModal);
         switch (deletionType) {
         case Delete:
             result = KMessageBox::warningContinueCancelList(
@@ -281,7 +281,7 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
 
     const KGuiItem buttonYesGui(buttonYes, iconYes);
     const KGuiItem buttonNoGui(buttonNo, iconNo);
-    KMessageBox::Options options = (KMessageBox::Notify | KMessageBox::WindowModal);
+    KMessageBox::Options options(KMessageBox::Notify | KMessageBox::WindowModal);
 
     switch (type) {
     case QuestionYesNo:
