@@ -34,6 +34,7 @@
 #include <qplatformdefs.h>
 
 #include <assert.h>
+#include <errno.h>
 #ifdef Q_OS_WIN
 #include <sys/utime.h>
 #undef _INC_WINDOWS // don't include windows.h from WinSock2.h
