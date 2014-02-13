@@ -687,7 +687,7 @@ static QString defaultUserAgentFromPreferredService()
 // This is not the OS, but the windowing system, e.g. X11 on Unix/Linux.
 static QString platform()
 {
-#if HAVE_X11
+#if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
     return QL1S("X11");
 #elif defined(Q_OS_MAC)
     return QL1S("Macintosh");
