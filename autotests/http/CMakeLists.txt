@@ -1,6 +1,13 @@
 find_package(Qt5Test REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 
+find_package(ZLIB)
+set_package_properties(ZLIB PROPERTIES DESCRIPTION "Support for gzip compressed files and data streams"
+                       URL "http://www.zlib.net"
+                       TYPE REQUIRED
+                       PURPOSE "Required for httpfiltertest"
+                      )
+
 include_directories("${CMAKE_CURRENT_BINARY_DIR}/../../src/ioslaves/http" "${CMAKE_CURRENT_SOURCE_DIR}/../../src/ioslaves/http" )
 
 include(ECMAddTests)
