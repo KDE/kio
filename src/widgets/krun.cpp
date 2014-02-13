@@ -297,55 +297,58 @@ static bool runCommandInternal(const QString &command, const KService *service, 
 
     QString bin = KIO::DesktopExecParser::executableName(executable);
 #if HAVE_X11 // Startup notification doesn't work with QT/E, service isn't needed without Startup notification
-    bool silent;
-    QByteArray wmclass;
-    KStartupInfoId id;
-    bool startup_notify = (asn != "0" && KRun::checkStartupNotify(QString() /*unused*/, service, &silent, &wmclass));
-    if (startup_notify) {
-        id.initId(asn);
-        id.setupStartupEnv();
-        KStartupInfoData data;
-        data.setHostname();
-        data.setBin(bin);
-        if (!userVisibleName.isEmpty()) {
-            data.setName(userVisibleName);
-        } else if (service && !service->name().isEmpty()) {
-            data.setName(service->name());
+    static bool isX11 = QGuiApplication::platformName() == QStringLiteral("xcb");
+    if (isX11) {
+        bool silent;
+        QByteArray wmclass;
+        KStartupInfoId id;
+        bool startup_notify = (asn != "0" && KRun::checkStartupNotify(QString() /*unused*/, service, &silent, &wmclass));
+        if (startup_notify) {
+            id.initId(asn);
+            id.setupStartupEnv();
+            KStartupInfoData data;
+            data.setHostname();
+            data.setBin(bin);
+            if (!userVisibleName.isEmpty()) {
+                data.setName(userVisibleName);
+            } else if (service && !service->name().isEmpty()) {
+                data.setName(service->name());
+            }
+            data.setDescription(i18n("Launching %1",  data.name()));
+            if (!iconName.isEmpty()) {
+                data.setIcon(iconName);
+            } else if (service && !service->icon().isEmpty()) {
+                data.setIcon(service->icon());
+            }
+            if (!wmclass.isEmpty()) {
+                data.setWMClass(wmclass);
+            }
+            if (silent) {
+                data.setSilent(KStartupInfoData::Yes);
+            }
+            data.setDesktop(KWindowSystem::currentDesktop());
+            if (window) {
+                data.setLaunchedBy(window->winId());
+            }
+            if (service && !service->entryPath().isEmpty()) {
+                data.setApplicationId(service->entryPath());
+            }
+            KStartupInfo::sendStartup(id, data);
         }
-        data.setDescription(i18n("Launching %1",  data.name()));
-        if (!iconName.isEmpty()) {
-            data.setIcon(iconName);
-        } else if (service && !service->icon().isEmpty()) {
-            data.setIcon(service->icon());
+        int pid = KProcessRunner::run(command, executable, id, workingDirectory);
+        if (startup_notify && pid) {
+            KStartupInfoData data;
+            data.addPid(pid);
+            KStartupInfo::sendChange(id, data);
+            KStartupInfo::resetStartupEnv();
         }
-        if (!wmclass.isEmpty()) {
-            data.setWMClass(wmclass);
-        }
-        if (silent) {
-            data.setSilent(KStartupInfoData::Yes);
-        }
-        data.setDesktop(KWindowSystem::currentDesktop());
-        if (window) {
-            data.setLaunchedBy(window->winId());
-        }
-        if (service && !service->entryPath().isEmpty()) {
-            data.setApplicationId(service->entryPath());
-        }
-        KStartupInfo::sendStartup(id, data);
+        return pid != 0;
     }
-    int pid = KProcessRunner::run(command, executable, id, workingDirectory);
-    if (startup_notify && pid) {
-        KStartupInfoData data;
-        data.addPid(pid);
-        KStartupInfo::sendChange(id, data);
-        KStartupInfo::resetStartupEnv();
-    }
-    return pid != 0;
 #else
     Q_UNUSED(userVisibleName);
     Q_UNUSED(iconName);
-    return KProcessRunner::run(command, bin, workingDirectory) != 0;
 #endif
+    return KProcessRunner::run(command, bin, KStartupInfoId(), workingDirectory) != 0;
 }
 
 // This code is also used in klauncher.
@@ -1370,24 +1373,13 @@ bool KRun::isLocalFile() const
 
 /****************/
 
-#if !HAVE_X11
-int KProcessRunner::run(const QString &command, const QString &executable, const QString &workingDirectory)
-{
-    return (new KProcessRunner(command, executable, workingDirectory))->pid();
-}
-#else
 int KProcessRunner::run(const QString &command, const QString &executable, const KStartupInfoId &id, const QString &workingDirectory)
 {
     return (new KProcessRunner(command, executable, id, workingDirectory))->pid();
 }
-#endif
 
-#if !HAVE_X11
-KProcessRunner::KProcessRunner(const QString &command, const QString &executable, const QString &workingDirectory)
-#else
 KProcessRunner::KProcessRunner(const QString &command, const QString &executable, const KStartupInfoId &id, const QString &workingDirectory) :
     id(id)
-#endif
 {
     m_pid = 0;
     process = new QProcess;
@@ -1406,9 +1398,7 @@ KProcessRunner::KProcessRunner(const QString &command, const QString &executable
         // Note that exitCode is 255 here (the first time), and 0 later on (bug?).
         slotProcessExited(255, process->exitStatus());
     } else {
-#if HAVE_X11
         m_pid = process->pid();
-#endif
     }
 }
 

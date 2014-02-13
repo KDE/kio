@@ -27,7 +27,6 @@
 #include <QtCore/QEventLoopLocker>
 #include <QtCore/QProcess>
 
-#include <config-kiowidgets.h> // HAVE_X11
 #include "kstartupinfo.h"
 
 /**
@@ -42,11 +41,7 @@ class KProcessRunner : public QObject
 
 public:
 
-#if !HAVE_X11
-    static int run(const QString &command, const QString &executable, const QString &workingDirectory = QString());
-#else
     static int run(const QString &command, const QString &executable, const KStartupInfoId &id, const QString &workingDirectory = QString());
-#endif
 
     virtual ~KProcessRunner();
 
@@ -57,11 +52,7 @@ protected Q_SLOTS:
     void slotProcessExited(int, QProcess::ExitStatus);
 
 private:
-#if !HAVE_X11
-    KProcessRunner(const QString &command, const QString &binName, const QString &workingDirectory);
-#else
     KProcessRunner(const QString &command, const QString &binName, const KStartupInfoId &id, const QString &workingDirectory);
-#endif
 
     void terminateStartupNotification();
 
