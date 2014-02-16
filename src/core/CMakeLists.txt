@@ -150,7 +150,9 @@ set_target_properties(KF5KIOCore PROPERTIES VERSION ${KIO_VERSION_STRING}
                                             EXPORT_NAME KIOCore
 )
 
-ecm_generate_headers(
+# Headers prefixed with KIO/
+ecm_generate_headers(KIOCore_CamelCase_HEADERS
+  HEADER_NAMES
   IdleSlave
   ConnectionServer
   TCPSlaveBase
@@ -185,7 +187,6 @@ ecm_generate_headers(
   DavJob
   DesktopExecParser
 
-  MODULE_NAME KIOCore
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_HEADERS
 )
@@ -206,7 +207,9 @@ install(FILES
   DESTINATION ${INCLUDE_INSTALL_DIR}/KIOCore/kio COMPONENT Devel
 )
 
-ecm_generate_headers(
+# Headers not prefixed with KIO/
+ecm_generate_headers(KIOCore_HEADERS
+  HEADER_NAMES
   KACL
   KUrlAuthorized
   KCoreDirLister
@@ -225,18 +228,17 @@ ecm_generate_headers(
   KSslCertificateManager
   KTcpSocket
 
-  MODULE_NAME KIOCore
   REQUIRED_HEADERS KIOCore_HEADERS
 )
 
-ecm_generate_headers(
+ecm_generate_headers(KIOCore_HEADERS
+  HEADER_NAMES
   KSSLSettings
 
   RELATIVE kssl
-  MODULE_NAME KIOCore
   REQUIRED_HEADERS KIOCore_HEADERS
 )
-install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KIOCore DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
+install(FILES ${KIOCore_CamelCase_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR}/KIOCore/KIO COMPONENT Devel)
 
 install(FILES
   ksslcertificatemanager_p.h

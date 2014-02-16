@@ -64,7 +64,8 @@ set_target_properties(KF5KIOFileWidgets PROPERTIES VERSION ${KIO_VERSION_STRING}
                                                    EXPORT_NAME KIOFileWidgets
 )
 
-ecm_generate_headers(
+ecm_generate_headers(KIOFileWidgets_HEADERS
+  HEADER_NAMES
   KAbstractViewAdapter
   KImageFilePreview
   KPreviewWidgetBase
@@ -82,10 +83,8 @@ ecm_generate_headers(
   KNameAndUrlInputDialog
   KEncodingFileDialog
 
-  MODULE_NAME KIOFileWidgets
   REQUIRED_HEADERS KIOFileWidgets_HEADERS
 )
-install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KIOFileWidgets DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
 
 install(TARGETS KF5KIOFileWidgets EXPORT KF5KIOTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
 

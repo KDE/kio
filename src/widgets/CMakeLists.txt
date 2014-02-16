@@ -115,7 +115,9 @@ set_target_properties(KF5KIOWidgets PROPERTIES VERSION ${KIO_VERSION_STRING}
                                                EXPORT_NAME KIOWidgets
 )
 
-ecm_generate_headers(
+# Headers not prefixed with KIO/
+ecm_generate_headers(KIOWidgets_HEADERS
+  HEADER_NAMES
   KPropertiesDialog
   KUrlRequesterDialog
   KUrlComboBox
@@ -138,11 +140,12 @@ ecm_generate_headers(
   KUrlCompletion
   KUriFilter
 
-  MODULE_NAME KIOWidgets
   REQUIRED_HEADERS KIOWidgets_HEADERS
 )
 
-ecm_generate_headers(
+# Headers not prefixed with KIO/
+ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
+  HEADER_NAMES
   AccessManager
   SslUi
   ThumbSequenceCreator
@@ -154,11 +157,10 @@ ecm_generate_headers(
   FileUndoManager
   Paste
 
-  MODULE_NAME KIOWidgets
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_widgets_HEADERS
 )
-install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KIOWidgets DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
+install(FILES ${KIOWidgets_CamelCase_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR}/KIOWidgets/KIO COMPONENT Devel)
 
 install(TARGETS KF5KIOWidgets EXPORT KF5KIOTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
 
