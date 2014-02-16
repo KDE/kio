@@ -47,6 +47,7 @@
 #include <kstandarddirs.h>
 #include <kio/chmodjob.h>
 #include <kio/directorysizejob.h>
+#include <QStandardPaths>
 
 // There are two ways to test encoding things:
 // * with utf8 filenames

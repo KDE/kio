@@ -173,7 +173,7 @@ void TrashImpl::migrateOldTrash()
 {
     qDebug() ;
 
-    KConfigGroup g( KGlobal::config(), "Paths" );
+    KConfigGroup g( KSharedConfig::openConfig(), "Paths" );
     const QString oldTrashDir = g.readPathEntry( "Trash", QString() );
 
     if ( oldTrashDir.isEmpty() )
