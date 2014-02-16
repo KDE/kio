@@ -21,7 +21,7 @@
 #define KABSTRACTVIEWADAPTER_H
 
 #include <QObject>
-#include <kio/kiofilewidgets_export.h>
+#include "kiofilewidgets_export.h"
 
 class QAbstractItemModel;
 class QModelIndex;

@@ -143,7 +143,7 @@ ecm_generate_headers(KIOWidgets_HEADERS
   REQUIRED_HEADERS KIOWidgets_HEADERS
 )
 
-# Headers not prefixed with KIO/
+# Headers prefixed with KIO/
 ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   HEADER_NAMES
   AccessManager
@@ -156,6 +156,7 @@ ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   JobUiDelegate
   FileUndoManager
   Paste
+  PixmapLoader
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_widgets_HEADERS
@@ -170,14 +171,12 @@ install(FILES
    RENAME kf5_org.kde.kio.FileUndoManager.xml)
 
 install(FILES
-  pixmaploader.h
-
-  ${CMAKE_CURRENT_BINARY_DIR}/kiowidgets_export.h
   ${KIO_namespaced_widgets_HEADERS}
   DESTINATION ${INCLUDE_INSTALL_DIR}/KIOWidgets/kio COMPONENT Devel)
 
 install(FILES
   ${KIOWidgets_HEADERS}
+  ${CMAKE_CURRENT_BINARY_DIR}/kiowidgets_export.h
   DESTINATION ${INCLUDE_INSTALL_DIR}/KIOWidgets COMPONENT Devel)
 
 install(FILES

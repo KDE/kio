@@ -23,7 +23,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <QtCore/QString>
 #include <QtCore/QObject>
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 
 class QHostInfo;
 

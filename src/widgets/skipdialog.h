@@ -19,7 +19,7 @@
 #ifndef KIO_SKIPDIALOG_H
 #define KIO_SKIPDIALOG_H
 
-#include <kio/kiowidgets_export.h>
+#include "kiowidgets_export.h"
 #include <kio/jobuidelegateextension.h>
 #include <QDialog>
 

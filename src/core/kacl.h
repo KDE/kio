@@ -21,7 +21,7 @@
 #define KACL_H
 
 #include <qplatformdefs.h>
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 
 #include <QtCore/QPair>
 #include <QtCore/QList>

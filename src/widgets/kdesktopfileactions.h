@@ -21,7 +21,7 @@
 #define KDESKTOPFILEACTIONS_H
 
 #include <kserviceaction.h>
-#include <kio/kiowidgets_export.h>
+#include "kiowidgets_export.h"
 #include <QtCore/QList>
 #include <QtCore/QUrl>
 #include <QDebug>

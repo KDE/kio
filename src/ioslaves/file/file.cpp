@@ -69,7 +69,7 @@
 #endif
 
 #include <kdirnotify.h>
-#include <kio/ioslave_defaults.h>
+#include <ioslave_defaults.h>
 
 using namespace KIO;
 

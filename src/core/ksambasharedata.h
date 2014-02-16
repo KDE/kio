@@ -22,7 +22,7 @@
 #define ksambasharedata_h
 
 #include <QtCore/QExplicitlySharedDataPointer>
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 
 class QString;
 class KSambaShare;

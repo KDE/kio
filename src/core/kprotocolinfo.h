@@ -20,7 +20,7 @@
 #ifndef KPROTOCOLINFO_H
 #define KPROTOCOLINFO_H
 
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 #include <QtCore/QVariant>
 #include <QtCore/QStringList>
 

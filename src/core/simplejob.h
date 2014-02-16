@@ -21,7 +21,7 @@
 #ifndef KIO_SIMPLEJOB_H
 #define KIO_SIMPLEJOB_H
 
-#include <kio/job_base.h>
+#include "job_base.h"
 #include <kio/global.h> // filesize_t
 
 namespace KIO

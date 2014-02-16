@@ -21,7 +21,7 @@
 #ifndef KIO_AUTHINFO_H
 #define KIO_AUTHINFO_H
 
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 
 #include <QtCore/QMap>
 #include <QtCore/QList>

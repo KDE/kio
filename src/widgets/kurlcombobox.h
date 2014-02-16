@@ -19,7 +19,7 @@
 #ifndef KURLCOMBOBOX_H
 #define KURLCOMBOBOX_H
 
-#include <kio/kiowidgets_export.h>
+#include "kiowidgets_export.h"
 
 #include <QtCore/QList>
 #include <QtCore/QMap>

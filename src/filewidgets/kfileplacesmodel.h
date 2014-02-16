@@ -20,7 +20,7 @@
 #ifndef KFILEPLACESMODEL_H
 #define KFILEPLACESMODEL_H
 
-#include <kio/kiofilewidgets_export.h>
+#include "kiofilewidgets_export.h"
 
 #include <QtCore/QAbstractItemModel>
 #include <QUrl>

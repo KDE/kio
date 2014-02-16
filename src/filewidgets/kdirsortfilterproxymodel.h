@@ -27,7 +27,7 @@
 
 #include <kcategorizedsortfilterproxymodel.h>
 
-#include <kio/kiofilewidgets_export.h>
+#include "kiofilewidgets_export.h"
 
 /**
  * @brief Acts as proxy model for KDirModel to sort and filter

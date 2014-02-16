@@ -25,7 +25,7 @@
 #include "kio/deletejob.h"
 #include "kio/global.h"
 #include "kio/renamedialog.h"
-#include "kio/kprotocolmanager.h"
+#include "kprotocolmanager.h"
 
 #include <kjobwidgets.h>
 #include <klocalizedstring.h>

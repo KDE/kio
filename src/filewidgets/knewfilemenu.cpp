@@ -48,7 +48,7 @@
 #include <kio/copyjob.h>
 #include <kio/jobuidelegate.h>
 #include <kio/fileundomanager.h>
-#include <kio/kurifilter.h>
+#include <kurifilter.h>
 
 #include <kpropertiesdialog.h>
 #include <qmimedatabase.h>

@@ -20,7 +20,7 @@
 #ifndef _THUMBCREATOR_H_
 #define _THUMBCREATOR_H_
 
-#include <kio/kiowidgets_export.h>
+#include "kiowidgets_export.h"
 
 class QString;
 class QImage;

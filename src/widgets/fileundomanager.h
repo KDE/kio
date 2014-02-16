@@ -23,7 +23,7 @@
 #include <QtCore/QObject>
 #include <QtCore/QUrl>
 
-#include <kio/kiowidgets_export.h>
+#include "kiowidgets_export.h"
 
 class QDateTime;
 

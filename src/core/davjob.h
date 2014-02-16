@@ -30,7 +30,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 #include "transferjob.h"
 #include "global.h"
 

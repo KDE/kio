@@ -25,7 +25,6 @@
 #include "kdirsortfilterproxymodel.h"
 
 #include <kio/job.h>
-#include <kio/jobclasses.h>
 #include <klocalizedstring.h>
 #include <kstringhandler.h>
 

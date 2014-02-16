@@ -21,7 +21,7 @@
 #ifndef KSSLCERTIFICATEBOX_H
 #define KSSLCERTIFICATEBOX_H
 
-#include "kio/kiowidgets_export.h"
+#include "kiowidgets_export.h"
 
 #include <QWidget>
 

@@ -28,7 +28,7 @@
 #ifndef __KRECENTDOCUMENT_H
 #define __KRECENTDOCUMENT_H
 
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 
 #include <QtCore/QString>
 #include <QUrl>

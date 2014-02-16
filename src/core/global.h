@@ -18,7 +18,7 @@
 #ifndef KIO_GLOBAL_H
 #define KIO_GLOBAL_H
 
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 
 #include <QtCore/QString>
 #include <QFile>  // for QFile::Permissions

@@ -26,7 +26,7 @@
 #include <QtCore/QString>
 #include <QUrl>
 
-#include <kio/kiowidgets_export.h>
+#include "kiowidgets_export.h"
 #include <kfileitem.h>
 #include <kpagedialog.h>
 

@@ -24,7 +24,7 @@
 #include <QtNetwork/QSslSocket>
 #include <QtNetwork/QSslConfiguration>
 
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 
 /*
   Notes on QCA::TLS compatibility

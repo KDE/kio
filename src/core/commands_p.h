@@ -19,7 +19,7 @@
 #ifndef KIO_COMMANDS_P_H
 #define KIO_COMMANDS_P_H
 
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 
 namespace KIO
 {

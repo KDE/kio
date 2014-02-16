@@ -30,7 +30,7 @@
 #include <QtCore/QStringList>
 #include <QtCore/QVariant>
 #include <QtDBus/QDBusAbstractInterface>
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 
 class QDBusConnection;
 

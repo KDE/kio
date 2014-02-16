@@ -21,7 +21,7 @@
 #ifndef KURLAUTHORIZED_H
 #define KURLAUTHORIZED_H
 
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 #include <kauthorized.h>
 
 class QUrl;

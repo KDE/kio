@@ -21,7 +21,7 @@
 */
 
 #include "kdirlister.h"
-#include <kio/jobclasses.h> // ListJob
+#include <kio/listjob.h>
 #include <kjobwidgets.h>
 #include <kjobuidelegate.h>
 

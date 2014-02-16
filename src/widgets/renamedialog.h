@@ -28,7 +28,7 @@
 #include <QDateTime>
 
 #include <kio/global.h>
-#include "kio/kiowidgets_export.h"
+#include "kiowidgets_export.h"
 
 class QScrollArea;
 class QLabel;

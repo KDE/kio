@@ -25,7 +25,7 @@
 #ifndef KURIFILTER_H
 #define KURIFILTER_H
 
-#include <kio/kiowidgets_export.h>
+#include "kiowidgets_export.h"
 
 #include <QtCore/QObject>
 #include <QtCore/QHash>

@@ -21,7 +21,7 @@
 #ifndef KURLPIXMAPPROVIDER_H
 #define KURLPIXMAPPROVIDER_H
 
-#include <kio/kiowidgets_export.h>
+#include "kiowidgets_export.h"
 #include <kpixmapprovider.h>
 
 /**

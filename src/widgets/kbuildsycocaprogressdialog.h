@@ -21,7 +21,7 @@
 
 #include <QtCore/QTimer>
 #include <QProgressDialog>
-#include <kio/kiowidgets_export.h>
+#include "kiowidgets_export.h"
 
 class KBuildSycocaProgressDialogPrivate;
 /**

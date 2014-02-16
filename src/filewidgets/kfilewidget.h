@@ -27,7 +27,7 @@
 #ifndef KFILEWIDGET_H
 #define KFILEWIDGET_H
 
-#include "kio/kiofilewidgets_export.h"
+#include "kiofilewidgets_export.h"
 #include "kfile.h"
 #include <QWidget>
 

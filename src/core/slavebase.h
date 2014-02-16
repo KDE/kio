@@ -23,7 +23,7 @@
 #include <kio/global.h>
 #include <kio/udsentry.h>
 #include <kio/authinfo.h>
-#include <kio/jobclasses.h> // for KIO::JobFlags
+#include "job_base.h" // for KIO::JobFlags
 #include <klocalizedstring.h>
 
 #include <QtCore/QByteArray>

@@ -28,7 +28,7 @@
 #include <sys/types.h>
 #include <stdio.h>
 
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 #include <kio/slavebase.h>
 
 class QIODevice;

@@ -20,7 +20,7 @@
 #ifndef KFILEPREVIEWGENERATOR_H
 #define KFILEPREVIEWGENERATOR_H
 
-#include <kio/kiofilewidgets_export.h>
+#include "kiofilewidgets_export.h"
 
 #include <QtCore/QObject>
 

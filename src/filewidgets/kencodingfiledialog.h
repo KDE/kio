@@ -23,7 +23,7 @@
 #ifndef __KENCODINGFILEDIALOG_H__
 #define __KENCODINGFILEDIALOG_H__
 
-#include <kio/kiofilewidgets_export.h>
+#include "kiofilewidgets_export.h"
 
 #include <QFileDialog>
 

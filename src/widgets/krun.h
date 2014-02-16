@@ -21,7 +21,7 @@
 #ifndef KRUN_H
 #define KRUN_H
 
-#include <kio/kiowidgets_export.h>
+#include "kiowidgets_export.h"
 
 #include <QtCore/QObject>
 #include <QtCore/QString>

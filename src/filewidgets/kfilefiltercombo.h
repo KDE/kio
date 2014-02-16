@@ -20,7 +20,7 @@
 #ifndef KFILEFILTERCOMBO_H
 #define KFILEFILTERCOMBO_H
 
-#include <kio/kiofilewidgets_export.h>
+#include "kiofilewidgets_export.h"
 
 #include <QtCore/QStringList>
 

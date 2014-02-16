@@ -20,7 +20,7 @@
 #ifndef KFILEITEM_H
 #define KFILEITEM_H
 
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 #include <kio/global.h>
 #include <kacl.h>
 #include <kio/udsentry.h>

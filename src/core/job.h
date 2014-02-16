@@ -21,7 +21,7 @@
 #ifndef KIO_JOB_H
 #define KIO_JOB_H
 
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 
 #include <QUrl>
 namespace KIO

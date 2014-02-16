@@ -20,7 +20,7 @@
 #ifndef KIO_JOBUIDELEGATEFACTORY_H
 #define KIO_JOBUIDELEGATEFACTORY_H
 
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 #include <kio/global.h>
 #include <QDateTime>
 

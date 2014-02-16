@@ -23,7 +23,7 @@
 #ifndef KIO_PREVIEWJOB_H
 #define KIO_PREVIEWJOB_H
 
-#include "kio/kiowidgets_export.h"
+#include "kiowidgets_export.h"
 #include <kfileitem.h>
 #include <kio/job.h>
 

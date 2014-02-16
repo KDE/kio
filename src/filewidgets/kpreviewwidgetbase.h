@@ -23,7 +23,7 @@
 
 #include <QWidget>
 
-#include <kio/kiofilewidgets_export.h>
+#include "kiofilewidgets_export.h"
 
 class QUrl;
 

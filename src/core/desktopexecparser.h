@@ -21,7 +21,7 @@
 #ifndef KIO_DESKTOPEXECPARSER_H
 #define KIO_DESKTOPEXECPARSER_H
 
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 
 #include <QList>
 #include <QScopedPointer>

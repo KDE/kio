@@ -19,7 +19,7 @@
 #ifndef KIO_PASTE_H
 #define KIO_PASTE_H
 
-#include <kio/kiowidgets_export.h>
+#include "kiowidgets_export.h"
 #include <QtCore/QString>
 class QWidget;
 class QUrl;

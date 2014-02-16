@@ -21,7 +21,7 @@
 #ifndef KIO_CONNECTIONSERVER_H
 #define KIO_CONNECTIONSERVER_H
 
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 
 #include <QUrl>
 #include <QObject>

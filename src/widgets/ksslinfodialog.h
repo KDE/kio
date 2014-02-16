@@ -24,7 +24,7 @@
 
 #include <QDialog>
 
-#include <kio/kiowidgets_export.h>
+#include "kiowidgets_export.h"
 #include "ktcpsocket.h"
 
 /**

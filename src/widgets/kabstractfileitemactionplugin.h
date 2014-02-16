@@ -22,7 +22,7 @@
 #ifndef KABSTRACTFILEITEMACTION_PLUGIN_H
 #define KABSTRACTFILEITEMACTION_PLUGIN_H
 
-#include <kio/kiowidgets_export.h>
+#include "kiowidgets_export.h"
 #include <QtCore/QObject>
 
 class QAction;

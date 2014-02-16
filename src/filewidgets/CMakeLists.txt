@@ -90,12 +90,8 @@ install(TARGETS KF5KIOFileWidgets EXPORT KF5KIOTargets ${INSTALL_TARGETS_DEFAULT
 
 install(FILES
   ${KIOFileWidgets_HEADERS}
-  DESTINATION ${INCLUDE_INSTALL_DIR}/KIOFileWidgets COMPONENT Devel)
-
-install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/kiofilewidgets_export.h
-  DESTINATION ${INCLUDE_INSTALL_DIR}/KIOFileWidgets/kio
-  COMPONENT Devel)
+  DESTINATION ${INCLUDE_INSTALL_DIR}/KIOFileWidgets COMPONENT Devel)
 
 include(ECMGeneratePriFile)
 ecm_generate_pri_file(BASE_NAME KIOFileWidgets LIB_NAME KF5KIOFileWidgets DEPS "KIOWidgets KBookmarks KXmlGui Solid" FILENAME_VAR PRI_FILENAME)

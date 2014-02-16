@@ -22,7 +22,7 @@
 
 #include <QtXml/QDomDocument>
 
-#include <kio/http.h>
+#include "httpmethod_p.h"
 
 #include "jobclasses.h"
 #include "global.h"

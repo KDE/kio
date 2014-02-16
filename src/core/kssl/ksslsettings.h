@@ -21,7 +21,7 @@
 #ifndef _KSSLSETTINGS_H
 #define _KSSLSETTINGS_H
 
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 
 #include <QtCore/QString>
 

@@ -124,7 +124,6 @@ add_library(KF5::KIOCore ALIAS KF5KIOCore)
 target_include_directories(KF5KIOCore PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/..>" # kio_version.h
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/kssl>"
-  "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include>" # kio/global.h
 )
 
 target_include_directories(KF5KIOCore INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KIOCore>")
@@ -159,6 +158,8 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   DirectorySizeJob
   ForwardingSlaveBase
   Job #     ### should forward to job_base.h, not job.h...
+  JobTracker
+  Global
   ChmodJob
   DeleteJob
   CopyJob
@@ -195,13 +196,9 @@ install(TARGETS KF5KIOCore EXPORT KF5KIOTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES
   http_slave_defaults.h
-  global.h
-  http.h
   ioslave_defaults.h
-  jobtracker.h
   job_base.h
   jobclasses.h
-  ${CMAKE_CURRENT_BINARY_DIR}/kiocore_export.h
 
   ${KIO_namespaced_HEADERS}
   DESTINATION ${INCLUDE_INSTALL_DIR}/KIOCore/kio COMPONENT Devel
@@ -243,6 +240,7 @@ install(FILES ${KIOCore_CamelCase_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR}/KI
 install(FILES
   ksslcertificatemanager_p.h
   ${KIOCore_HEADERS}
+  ${CMAKE_CURRENT_BINARY_DIR}/kiocore_export.h
   DESTINATION ${INCLUDE_INSTALL_DIR}/KIOCore COMPONENT Devel)
 
 install(FILES accept-languages.codes DESTINATION ${CONFIG_INSTALL_DIR})

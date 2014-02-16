@@ -19,7 +19,7 @@
 #ifndef KFILEPLACESVIEW_H
 #define KFILEPLACESVIEW_H
 
-#include <kio/kiofilewidgets_export.h>
+#include "kiofilewidgets_export.h"
 
 #include <QListView>
 

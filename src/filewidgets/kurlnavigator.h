@@ -23,7 +23,7 @@
 #ifndef KURLNAVIGATOR_H
 #define KURLNAVIGATOR_H
 
-#include <kio/kiofilewidgets_export.h>
+#include "kiofilewidgets_export.h"
 
 #include <QUrl>
 #include <QWidget>

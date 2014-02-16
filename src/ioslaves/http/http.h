@@ -32,7 +32,7 @@
 #include <QUrl>
 
 #include "kio/tcpslavebase.h"
-#include "kio/http.h"
+#include "httpmethod_p.h"
 
 class QDomNodeList;
 class QFile;

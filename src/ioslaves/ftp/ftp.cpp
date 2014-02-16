@@ -54,7 +54,7 @@
 #include <qmimedatabase.h>
 
 #include <QDebug>
-#include <kio/ioslave_defaults.h>
+#include <ioslave_defaults.h>
 #include <kremoteencoding.h>
 #include <kconfiggroup.h>
 

@@ -21,7 +21,7 @@
 #define ksambashare_h
 
 #include <QtCore/QObject>
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 
 class KSambaShareData;
 class KSambaSharePrivate;

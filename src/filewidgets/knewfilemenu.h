@@ -23,7 +23,7 @@
 
 #include <QUrl>
 #include <kactionmenu.h>
-#include <kio/kiofilewidgets_export.h>
+#include "kiofilewidgets_export.h"
 
 class KJob;
 

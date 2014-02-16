@@ -30,7 +30,7 @@
 #include <kdirlister.h>
 #include <kfileitem.h>
 #include <kfile.h>
-#include <kio/kiofilewidgets_export.h>
+#include "kiofilewidgets_export.h"
 
 class QAbstractItemView;
 class QModelIndex;

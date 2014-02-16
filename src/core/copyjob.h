@@ -27,9 +27,9 @@
 #include <QDateTime>
 #include <QUrl>
 
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 #include <kio/global.h> // filesize_t
-#include "kio/job_base.h"
+#include "job_base.h"
 
 class QTimer;
 

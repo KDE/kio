@@ -58,8 +58,8 @@
 #include <kremoteencoding.h>
 #include <ktcpsocket.h>
 
-#include <kio/ioslave_defaults.h>
-#include <kio/http_slave_defaults.h>
+#include <ioslave_defaults.h>
+#include <http_slave_defaults.h>
 
 #include <QDBusReply>
 #include <QProcess>

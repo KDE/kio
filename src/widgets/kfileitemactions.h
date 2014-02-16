@@ -23,7 +23,7 @@
 
 #include <kservice.h>
 #include <kfileitem.h>
-#include <kio/kiowidgets_export.h>
+#include "kiowidgets_export.h"
 
 class KFileItemListProperties;
 class QAction;

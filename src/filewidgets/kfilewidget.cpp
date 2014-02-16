@@ -53,7 +53,7 @@
 #include <krecentdirs.h>
 #include <QDebug>
 #include <klocalizedstring.h>
-#include <kio/kfileitemdelegate.h>
+#include <kfileitemdelegate.h>
 #include <ksharedconfig.h>
 
 #include <QCheckBox>

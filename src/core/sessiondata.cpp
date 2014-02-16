@@ -29,7 +29,7 @@
 #include <ksharedconfig.h>
 
 #include <kio/slaveconfig.h>
-#include <kio/http_slave_defaults.h>
+#include "http_slave_defaults.h"
 #include <qstandardpaths.h>
 
 namespace KIO

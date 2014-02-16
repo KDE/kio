@@ -30,7 +30,7 @@
 
 #include <QtCore/QStringList>
 
-#include <kio/kiofilewidgets_export.h>
+#include "kiofilewidgets_export.h"
 
 /**
  * The goal of this namespace is to make sure that, when the user needs to

@@ -23,10 +23,12 @@
 #ifndef KURLCOMPLETION_H
 #define KURLCOMPLETION_H
 
-#include <kio/kiowidgets_export.h>
+#include "kiowidgets_export.h"
 #include <kcompletion.h>
-#include <kio/jobclasses.h>
+#include <kio/udsentry.h>
 #include <QtCore/QString>
+
+namespace KIO { class Job; }
 
 class QStringList;
 class KUrlCompletionPrivate;

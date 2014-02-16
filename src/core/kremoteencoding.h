@@ -19,7 +19,7 @@
 #ifndef KREMOTEENCODING_H
 #define KREMOTEENCODING_H
 
-#include <kio/kiocore_export.h>
+#include "kiocore_export.h"
 #include <QtCore/QString>
 #include <QtCore/QByteArray>
 class QUrl;
