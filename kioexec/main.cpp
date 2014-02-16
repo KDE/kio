@@ -46,6 +46,7 @@
 #include <kde_file.h>
 #include <qcommandlineparser.h>
 #include <qcommandlineoption.h>
+#include <QStandardPaths>
 
 static const char description[] =
         I18N_NOOP("KIO Exec - Opens remote files, watches modifications, asks for upload");
@@ -97,7 +98,7 @@ KIOExec::KIOExec()
                 // Build the destination filename, in ~/.kde/cache-*/krun/
                 // Unlike KDE-1.1, we put the filename at the end so that the extension is kept
                 // (Some programs rely on it)
-                QString tmp = KGlobal::dirs()->saveLocation( "cache", "krun/" ) +
+                QString tmp = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + '/' + "krun/"  +
                               QString("%1_%2_%3").arg(getpid()).arg(jobCounter++).arg(fileName);
                 FileInfo file;
                 file.path = tmp;
