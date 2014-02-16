@@ -79,7 +79,7 @@ Q_CONSTRUCTOR_FUNCTION(initLocale)
 
 QString TestTrash::homeTmpDir() const
 {
-    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QString::fromLatin1("testtrash/");
+    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QString::fromLatin1("/testtrash/");
 }
 
 QString TestTrash::readOnlyDirPath() const
@@ -142,7 +142,7 @@ void TestTrash::initTestCase()
     setenv( "KDE_FORK_SLAVES", "yes", true );
 
 
-    m_trashDir = KGlobal::dirs()->localxdgdatadir() + QString::fromLatin1("Trash");
+    m_trashDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QString::fromLatin1("/Trash");
     qDebug() << "setup: using trash directory " << m_trashDir;
 
     // Look for another writable partition than $HOME (not mandatory)

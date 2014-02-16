@@ -59,6 +59,7 @@
 #include <solid/device.h>
 #include <solid/block.h>
 #include <solid/storageaccess.h>
+#include <QStandardPaths>
 
 TrashImpl::TrashImpl() :
     QObject(),
@@ -143,7 +144,7 @@ bool TrashImpl::init()
     // see also kdesktop/init.cc for first time initialization
     m_initStatus = InitError;
     // $XDG_DATA_HOME/Trash, i.e. ~/.local/share/Trash by default.
-    const QString xdgDataDir = KGlobal::dirs()->localxdgdatadir();
+    const QString xdgDataDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/');
    if ( !QDir().mkpath( xdgDataDir ) ) {
         qWarning() << "failed to create " << xdgDataDir ;
         return false;
