@@ -977,7 +977,7 @@ bool KFilePreviewGenerator::Private::applyImageFrame(QPixmap &icon)
 void KFilePreviewGenerator::Private::limitToSize(QPixmap &icon, const QSize &maxSize)
 {
     if ((icon.width() > maxSize.width()) || (icon.height() > maxSize.height())) {
-#warning Cannot use XRender with QPixmap anymore. Find equivalent with Qt API.
+#pragma message("Cannot use XRender with QPixmap anymore. Find equivalent with Qt API.")
 #if 0 // HAVE_X11 && HAVE_XRENDER
         // Assume that the texture size limit is 2048x2048
         if ((icon.width() <= 2048) && (icon.height() <= 2048) && icon.x11PictureHandle()) {

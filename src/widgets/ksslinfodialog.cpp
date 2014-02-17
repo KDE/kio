@@ -161,7 +161,7 @@ void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
             QSslCertificate::OrganizationalUnitName
         };
         for (int j = 0; j < 3 && name.isEmpty(); j++)
-#warning QT5 PORT TO NEW API
+#pragma message("QT5 PORT TO NEW API")
         {
             name = cert.subjectInfo(si[j]).first();
         }

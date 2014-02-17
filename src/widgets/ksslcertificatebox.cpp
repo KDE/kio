@@ -48,7 +48,7 @@ KSslCertificateBox::~KSslCertificateBox()
 
 void KSslCertificateBox::setCertificate(const QSslCertificate &cert, CertificateParty party)
 {
-#warning QT5 PORT TO NEW API
+#pragma message("QT5 PORT TO NEW API")
     if (party == Subject)  {
         d->ui.commonName->setText(cert.subjectInfo(QSslCertificate::CommonName).first());
         d->ui.organization->setText(cert.subjectInfo(QSslCertificate::Organization).first());

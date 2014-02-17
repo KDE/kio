@@ -381,7 +381,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
                                  i18n("Drive: %1",  u.toLocalFile()));
     }
 #else
-#pragma message(QT5 PORT)
+#pragma message("QT5 PORT")
 #endif
 #else
     u = QUrl::fromLocalFile(QDir::rootPath());
