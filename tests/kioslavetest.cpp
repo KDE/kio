@@ -17,6 +17,7 @@
 #include <QStatusBar>
 #include <QDebug>
 #include <QUrl>
+#include <QThread>
 
 #include <qplatformdefs.h>
 
@@ -452,7 +453,7 @@ void KioslaveTest::slotDataReq(KIO::Job *, QByteArray &data)
         data = QByteArray(fileData, strlen(fileData));
     }
     qDebug() << "DataReq: \"" << fileData << "\"";
-    sleep(1); // want to see progress info...
+    QThread::sleep(1); // want to see progress info...
 }
 
 void KioslaveTest::stopJob()
