@@ -40,11 +40,6 @@ add_library(KF5KIOFileWidgets ${kiofilewidgets_SRCS})
 generate_export_header(KF5KIOFileWidgets BASE_NAME KIOFileWidgets)
 add_library(KF5::KIOFileWidgets ALIAS KF5KIOFileWidgets)
 
-target_include_directories(KF5KIOFileWidgets PUBLIC
-  "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/..>" # kio_version.h
-  "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include>" # kio/global.h
-)
-
 target_include_directories(KF5KIOFileWidgets INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KIOFileWidgets>")
 
 target_link_libraries(KF5KIOFileWidgets
