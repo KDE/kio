@@ -31,7 +31,7 @@
 
 #ifdef Q_OS_WIN
 #include <QtCore/QDir>
-#include <windows.h>
+#include <qt_windows.h>
 #else
 #include <sys/statvfs.h>
 #endif

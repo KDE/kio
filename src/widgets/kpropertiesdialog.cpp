@@ -123,7 +123,7 @@ extern "C" {
 #include <kmimetypechooser.h>
 
 #ifdef Q_OS_WIN
-#include <windows.h>
+#include <qt_windows.h>
 #include <shellapi.h>
 #include <process.h>
 #ifdef __GNUC__

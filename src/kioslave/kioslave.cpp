@@ -40,7 +40,7 @@
 #include <QtCore/QProcess>
 #include <QtCore/QStringList>
 #ifdef Q_OS_WIN
-#include <windows.h>
+#include <qt_windows.h>
 #include <process.h>
 #endif
 #endif

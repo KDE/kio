@@ -23,7 +23,7 @@
 #include <QDir>
 #include <QWidget>
 
-#include <windows.h>
+#include <qt_windows.h>
 
 // TODO move to a shared lib
 static int runDll(WId windowId, const QString &libraryName, const QByteArray &functionName,
