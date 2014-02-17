@@ -1,6 +1,4 @@
-include_directories(${KDE4_INCLUDE_DIR}/kio ${KDE4_INCLUDE_DIR}/KDE)
 set(kioexec_SRCS main.cpp )
-
 
 kde4_add_executable(kioexec NOGUI ${kioexec_SRCS})
 
