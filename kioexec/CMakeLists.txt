@@ -1,6 +1,6 @@
-set(kioexec_SRCS main.cpp )
+add_executable(kioexec main.cpp)
 
-kde4_add_executable(kioexec NOGUI ${kioexec_SRCS})
+ecm_mark_nongui_executable(kioexec)
 
 target_link_libraries(kioexec
     KF5::WidgetsAddons
