@@ -65,7 +65,8 @@ endif(NOT WIN32 AND STRIGI_FOUND)
 
 set(ktrash_SRCS ktrash.cpp )
 
-kde4_add_executable(ktrash NOGUI ${ktrash_SRCS})
+add_executable(ktrash ${ktrash_SRCS})
+ecm_mark_nongui_executable(ktrash)
 
 target_link_libraries(ktrash    
         KF5::KDE4Support

@@ -39,8 +39,7 @@ target_link_libraries(testtrash KF5::I18n Qt5::DBus KF5::KIOCore ${KDE4_SOLID_LI
 
 ### next target ###
 
-set(lockingtest_SRCS lockingtest.cpp ../kinterprocesslock.cpp )
-
-kde4_add_executable(lockingtest NOGUI ${lockingtest_SRCS})
+add_executable(lockingtest lockingtest.cpp ../kinterprocesslock.cpp)
+ecm_mark_nongui_executable(lockingtest)
 
 target_link_libraries(lockingtest ${QT_QTCORE_LIBRARY} ${QT_QTDBUS_LIBRARY})
