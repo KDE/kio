@@ -23,7 +23,7 @@ ecm_setup_version(
   VARIABLE_PREFIX KIO
   VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/src/kio_version.h"
   PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5KIOConfigVersion.cmake"
-)
+  SOVERSION 5)
 
 find_package(KF5Archive ${KF5_VERSION} REQUIRED)
 find_package(KF5Bookmarks ${KF5_VERSION} REQUIRED)
