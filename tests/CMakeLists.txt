@@ -24,4 +24,5 @@ KIOWIDGETS_EXECUTABLE_TESTS(
   listrecursivetest
   kionetrctest
   ksycocaupdatetest
+  udsentrybenchmark
 )
