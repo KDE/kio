@@ -25,6 +25,7 @@
 #include <QtCore/QList>
 #include <QtCore/QSharedData>
 #include <QtCore/QMetaType>
+#include <QtGlobal>
 
 #include "kiocore_export.h"
 
@@ -257,6 +258,13 @@ private:
     friend class UDSEntryPrivate;
     QSharedDataPointer<UDSEntryPrivate> d;
 };
+
+}
+
+Q_DECLARE_TYPEINFO(KIO::UDSEntry, Q_MOVABLE_TYPE);
+
+namespace KIO
+{
 
 /**
  * A directory listing is a list of UDSEntry instances.
