@@ -45,6 +45,7 @@
 #include "kpropertiesdialog_p.h"
 
 #include <config-kiowidgets.h>
+#include <config-getgrouplist.h>
 
 #include <qplatformdefs.h>
 #include <algorithm>
