@@ -23,7 +23,6 @@ set(kiowidgets_SRCS
   fileundomanager.cpp
   kacleditwidget.cpp
   kpropertiesdialog.cpp
-  getgrouplist-fake.c
   kurlrequesterdialog.cpp
   kurlcombobox.cpp
   kfileitemactions.cpp
@@ -63,6 +62,11 @@ set(kiowidgets_SRCS
 if (WIN32)
   LIST(APPEND kiowidgets_SRCS
     krun_win.cpp
+  )
+endif()
+if (NOT HAVE_GETGROUPLIST)
+  list(APPEND kiowidgets_SRCS
+    getgrouplist-fake.c
   )
 endif()
 
