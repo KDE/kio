@@ -41,7 +41,6 @@
  * SUCH DAMAGE.
  */
 
-#ifndef HAVE_GETGROUPLIST
 #if 0
 #if defined(LIBC_SCCS) && !defined(lint)
 static char sccsid[] = "@(#)getgrouplist.c	8.2 (Berkeley) 12/8/94";
@@ -106,5 +105,4 @@ getgrouplist(const char *uname, gid_t agroup, gid_t *groups, int *grpcnt)
     *grpcnt = ngroups;
     return (ret);
 }
-#endif
 
