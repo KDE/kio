@@ -242,8 +242,8 @@ void UDSEntryBenchmark::saveLargeEntries()
         stream << m_largeEntries;
     }
 }
-
-bool operator==(const KIO::UDSEntry &a, const KIO::UDSEntry &b)
+namespace KIO {
+bool operator==(const UDSEntry &a, const UDSEntry &b)
 {
     if (a.count() != b.count()) {
         return false;
@@ -255,7 +255,7 @@ bool operator==(const KIO::UDSEntry &a, const KIO::UDSEntry &b)
             return false;
         }
 
-        if (field & KIO::UDSEntry::UDS_STRING) {
+        if (field & UDSEntry::UDS_STRING) {
             if (a.stringValue(field) != b.stringValue(field)) {
                 return false;
             }
@@ -268,7 +268,7 @@ bool operator==(const KIO::UDSEntry &a, const KIO::UDSEntry &b)
 
     return true;
 }
-
+}
 void UDSEntryBenchmark::loadSmallEntries()
 {
     // Save the entries if that has not been done yet.
