@@ -32,7 +32,7 @@
 #include <objbase.h>
 
 extern "C" {
-    int KDE_EXPORT kdemain( int argc, char **argv )
+    int Q_DECL_EXPORT kdemain( int argc, char **argv )
     {
         bool bNeedsUninit = ( CoInitializeEx( NULL, COINIT_MULTITHREADED ) == S_OK );
         // necessary to use other kio slaves
