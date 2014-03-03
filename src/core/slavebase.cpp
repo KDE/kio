@@ -968,9 +968,11 @@ int SlaveBase::messageBox(MessageBoxType type, const QString &text, const QStrin
 }
 
 int SlaveBase::messageBox(const QString &text, MessageBoxType type, const QString &caption,
-                          const QString &buttonYes, const QString &buttonNo,
+                          const QString &_buttonYes, const QString &_buttonNo,
                           const QString &dontAskAgainName)
 {
+    QString buttonYes = _buttonYes.isNull() ? i18n("&Yes") : _buttonYes;
+    QString buttonNo = _buttonNo.isNull() ? i18n("&No") : _buttonNo;
     //qDebug() << "messageBox " << type << " " << text << " - " << caption << buttonYes << buttonNo;
     KIO_DATA << (qint32)type << text << caption << buttonYes << buttonNo << dontAskAgainName;
     send(INF_MESSAGEBOX, data);

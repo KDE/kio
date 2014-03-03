@@ -33,6 +33,7 @@
 
 #include <QDebug>
 #include <kconfiggroup.h>
+#include <klocalizedstring.h>
 #include <kmountpoint.h>
 
 #include <errno.h>

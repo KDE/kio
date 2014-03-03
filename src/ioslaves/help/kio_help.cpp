@@ -25,6 +25,8 @@
 #include "xslt.h"
 #include "xslt_help.h"
 
+#include <KLocalizedString>
+
 #include <QDebug>
 
 #include <QtCore/QDir>

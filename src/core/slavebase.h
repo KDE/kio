@@ -24,7 +24,6 @@
 #include <kio/udsentry.h>
 #include <kio/authinfo.h>
 #include "job_base.h" // for KIO::JobFlags
-#include <klocalizedstring.h>
 
 #include <QtCore/QByteArray>
 #include <QtNetwork/QHostInfo>
@@ -277,8 +276,8 @@ public:
      */
     int messageBox(MessageBoxType type, const QString &text,
                    const QString &caption = QString(),
-                   const QString &buttonYes = i18n("&Yes"),
-                   const QString &buttonNo = i18n("&No"));
+                   const QString &buttonYes = QString(),
+                   const QString &buttonNo = QString());
 
     /**
      * Call this to show a message box from the slave
@@ -297,8 +296,8 @@ public:
      */
     int messageBox(const QString &text, MessageBoxType type,
                    const QString &caption = QString(),
-                   const QString &buttonYes = i18n("&Yes"),
-                   const QString &buttonNo = i18n("&No"),
+                   const QString &buttonYes = QString(),
+                   const QString &buttonNo = QString(),
                    const QString &dontAskAgainName = QString());
 
     /**

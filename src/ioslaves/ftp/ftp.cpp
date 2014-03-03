@@ -55,6 +55,7 @@
 
 #include <QDebug>
 #include <ioslave_defaults.h>
+#include <klocalizedstring.h>
 #include <kremoteencoding.h>
 #include <kconfiggroup.h>
 

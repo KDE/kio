@@ -60,6 +60,7 @@
 #include <kconfiggroup.h>
 #include <kshell.h>
 #include <kmountpoint.h>
+#include <klocalizedstring.h>
 #include <QMimeDatabase>
 #include <QStandardPaths>
 

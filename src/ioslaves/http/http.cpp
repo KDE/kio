@@ -52,6 +52,7 @@
 #include <QDebug>
 #include <kconfig.h>
 #include <kconfiggroup.h>
+#include <klocalizedstring.h>
 #include <kservice.h>
 
 #include <QDBusInterface>
