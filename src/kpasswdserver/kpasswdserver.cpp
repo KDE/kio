@@ -207,15 +207,14 @@ static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const Q
 
 bool KPasswdServer::hasPendingQuery(const QString &key, const KIO::AuthInfo &info)
 {
-    const QString path2 (info.url.directory(KUrl::AppendTrailingSlash | KUrl::ObeyTrailingSlash));
+    const QString path2 (info.url.path().left(info.url.path().indexOf('/')+1));
     Q_FOREACH(const Request *request, m_authPending) {
         if (request->key != key) {
             continue;
         }
 
         if (info.verifyPath) {
-            const QString path1 (request->info.url.directory(KUrl::AppendTrailingSlash |
-                                                             KUrl::ObeyTrailingSlash));
+            const QString path1 (request->info.url.path().left(info.url.path().indexOf('/')+1));
             if (!path2.startsWith(path1)) {
                 continue;
             }
@@ -475,10 +474,10 @@ KPasswdServer::removeAuthInfo(const QString& host, const QString& protocol, cons
 
         Q_FOREACH(AuthInfoContainer *current, *authList)
         {
-            kDebug(debugArea()) << "Evaluating: " << current->info.url.protocol()
+            kDebug(debugArea()) << "Evaluating: " << current->info.url.scheme()
                      << current->info.url.host()
                      << current->info.username;
-            if (current->info.url.protocol() == protocol &&
+            if (current->info.url.scheme() == protocol &&
                current->info.url.host() == host &&
                (current->info.username == user || user.isEmpty()))
             {
@@ -524,11 +523,11 @@ KPasswdServer::processRequest()
 
     KIO::AuthInfo &info = request->info;
 
-    // NOTE: If info.username is empty and info.url.user() is not, set
-    // info.username to info.url.user() to ensure proper caching. See
+    // NOTE: If info.username is empty and info.url.userName() is not, set
+    // info.username to info.url.userName() to ensure proper caching. See
     // note passwordDialogDone.
-    if (info.username.isEmpty() && !info.url.user().isEmpty()) {
-        info.username = info.url.user();
+    if (info.username.isEmpty() && !info.url.userName().isEmpty()) {
+        info.username = info.url.userName();
     }
     const bool bypassCacheAndKWallet = info.getExtraField(AUTHINFO_EXTRAFIELD_BYPASS_CACHE_AND_KWALLET).toBool();
 
@@ -561,7 +560,7 @@ KPasswdServer::processRequest()
             connect(dlg, SIGNAL(finished(int)), this, SLOT(retryDialogDone(int)));
             connect(this, SIGNAL(destroyed(QObject*)), dlg, SLOT(deleteLater()));
             dlg->setPlainCaption(i18n("Retry Authentication"));
-            dlg->setWindowIcon(KIcon("dialog-password"));
+            dlg->setWindowIcon(QIcon::fromTheme("dialog-password"));
             dlg->setButtons(KDialog::Yes | KDialog::No);
             dlg->setObjectName("warningOKCancel");
             KGuiItem buttonContinue (i18nc("@action:button filter-continue", "Retry"));
@@ -613,11 +612,11 @@ QString KPasswdServer::createCacheKey( const KIO::AuthInfo &info )
     }
 
     // Generate the basic key sequence.
-    QString key = info.url.protocol();
+    QString key = info.url.scheme();
     key += '-';
-    if (!info.url.user().isEmpty())
+    if (!info.url.userName().isEmpty())
     {
-       key += info.url.user();
+       key += info.url.userName();
        key += '@';
     }
     key += info.url.host();
@@ -645,7 +644,7 @@ KPasswdServer::findAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
    AuthInfoContainerList *authList = m_authDict.value(key);
    if (authList)
    {
-      QString path2 = info.url.directory(KUrl::AppendTrailingSlash|KUrl::ObeyTrailingSlash);
+      QString path2 = info.url.path().left(info.url.path().indexOf('/')+1);
       Q_FOREACH(AuthInfoContainer *current, *authList)
       {
           if (current->expire == AuthInfoContainer::expTime &&
@@ -731,7 +730,7 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, ql
    }
 
    authItem->info = info;
-   authItem->directory = info.url.directory(KUrl::AppendTrailingSlash|KUrl::ObeyTrailingSlash);
+   authItem->directory = info.url.path().left(info.url.path().indexOf('/')+1);
    authItem->seqNr = seqNr;
    authItem->isCanceled = canceled;
 
@@ -860,9 +859,9 @@ void KPasswdServer::showPasswordDialog (KPasswdServer::Request* request)
     dlg->setPrompt(info.prompt);
     dlg->setUsername(username);
     if (info.caption.isEmpty())
-        dlg->setPlainCaption( i18n("Authentication Dialog") );
+        dlg->setWindowTitle( i18n("Authentication Dialog") );
     else
-        dlg->setPlainCaption( info.caption );
+        dlg->setWindowTitle( info.caption );
 
     if ( !info.comment.isEmpty() )
         dlg->addCommentLine( info.commentLabel, info.comment );
@@ -1001,10 +1000,10 @@ void KPasswdServer::passwordDialogDone (int result)
                   requests and the user will be end up being prompted over and
                   over to re-enter the password unnecessarily.
                 */
-                if (!info.url.user().isEmpty() && info.username != info.url.user()) {
+                if (!info.url.userName().isEmpty() && info.username != info.url.userName()) {
                     const QString oldKey(request->key);
                     removeAuthInfoItem(oldKey, info);
-                    info.url.setUser(info.username);
+                    info.url.setUserName(info.username);
                     request->key = createCacheKey(info);
                     updateCachedRequestKey(m_authPending, oldKey, request->key);
                     updateCachedRequestKey(m_authWait, oldKey, request->key);

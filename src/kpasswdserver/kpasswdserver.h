@@ -28,10 +28,10 @@
 #include <QtCore/QHash>
 #include <QtCore/QList>
 #include <QtDBus/QtDBus>
-#include <qwindowdefs.h>
 
 #include <kio/authinfo.h>
 #include <kdedmodule.h>
+#include <kdialog.h>
 
 namespace KWallet {
     class Wallet;

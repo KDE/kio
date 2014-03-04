@@ -6,7 +6,7 @@ qt4_add_dbus_adaptor(kded_kpasswdserver_SRCS org.kde.KPasswdServer.xml kpasswdse
 
 kde4_add_plugin(kded_kpasswdserver ${kded_kpasswdserver_SRCS})
 
-target_link_libraries(kded_kpasswdserver ${KDE4_KIO_LIBS})
+target_link_libraries(kded_kpasswdserver KF5::DBusAddons KF5::KIOCore KF5::Wallet KF5::KDE4Support)
 
 install(TARGETS kded_kpasswdserver  DESTINATION ${PLUGIN_INSTALL_DIR} )
 
