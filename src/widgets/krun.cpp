@@ -91,7 +91,7 @@ KRun::KRunPrivate::KRunPrivate(KRun *parent)
 
 void KRun::KRunPrivate::startTimer()
 {
-    m_timer.start(0);
+    m_timer->start(0);
 }
 
 // ---------------------------------------------------------------------------
@@ -796,8 +796,9 @@ KRun::KRun(const QUrl &url, QWidget *window,
            bool showProgressInfo, const QByteArray &asn)
     : d(new KRunPrivate(this))
 {
-    d->m_timer.setObjectName("KRun::timer");
-    d->m_timer.setSingleShot(true);
+    d->m_timer = new QTimer(this);
+    d->m_timer->setObjectName("KRun::timer");
+    d->m_timer->setSingleShot(true);
     d->init(url, window, showProgressInfo, asn);
 }
 
@@ -821,9 +822,9 @@ void KRun::KRunPrivate::init(const QUrl &url, QWidget *window,
     // loop and do initialization afterwards.
     // Reason: We must complete the constructor before we do anything else.
     m_bInit = true;
-    q->connect(&m_timer, SIGNAL(timeout()), q, SLOT(slotTimeout()));
+    q->connect(m_timer, SIGNAL(timeout()), q, SLOT(slotTimeout()));
     startTimer();
-    //qDebug() << "new KRun" << q << url << "timer=" << &m_timer;
+    //qDebug() << "new KRun" << q << url << "timer=" << m_timer;
 }
 
 void KRun::init()
@@ -931,7 +932,7 @@ void KRun::init()
 KRun::~KRun()
 {
     //qDebug() << this;
-    d->m_timer.stop();
+    d->m_timer->stop();
     killJob();
     //qDebug() << this << "done";
     delete d;
@@ -1322,7 +1323,7 @@ KIO::Job *KRun::job()
 #ifndef KDE_NO_DEPRECATED
 QTimer &KRun::timer()
 {
-    return d->m_timer;
+    return *d->m_timer;
 }
 #endif
 

@@ -105,7 +105,7 @@ public:
     bool m_bProgressInfo;
     bool m_bFinished;
     KIO::Job *m_job;
-    QTimer m_timer;
+    QTimer *m_timer;
 
     /**
      * Used to indicate that the next action is to scan the file.
