@@ -1,3 +1,15 @@
+# find_package(Strigi)
+# set_package_properties(Strigi PROPERTIES DESCRIPTION "Desktop indexing and search support"
+#                        URL "http://strigi.sourceforge.net"
+#                        TYPE ${STRIGI_TYPE}
+#                       )
+# if (WIN32)
+#     set (STRIGI_TYPE "OPTIONAL")
+# else ()
+#     set (STRIGI_TYPE "REQUIRED")
+# endif ()
+
+
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
 
 #add_subdirectory(tests)
