@@ -1390,14 +1390,9 @@ void HTTPProtocol::rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags
     }
 }
 
-void HTTPProtocol::del(const QUrl &_url, bool isFile)
+void HTTPProtocol::del(const QUrl &url, bool)
 {
     // qDebug() << url;
-    QUrl url(_url);
-    if (!isFile && !url.path().endsWith(QLatin1Char('/'))) {
-      url.setPath(url.path() + QLatin1Char('/'));
-    }
-
     if (!maybeSetRequestUrl(url)) {
         return;
     }
