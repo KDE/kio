@@ -67,7 +67,7 @@ QString HelpProtocol::langLookup(const QString &fname)
     for (int id = 0; id < ldCount; id++) {
         QStringList::ConstIterator lang;
         for (lang = langs.constBegin(); lang != langs.constEnd(); ++lang) {
-            search.append(QString("%1%2/%3").arg(localDoc[id], *lang, fname));
+            search.append(QString("%1/%2/%3").arg(localDoc[id], *lang, fname));
         }
     }
 
