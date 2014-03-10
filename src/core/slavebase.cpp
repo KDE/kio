@@ -489,25 +489,11 @@ void SlaveBase::needSubUrlData()
     send(MSG_NEED_SUBURL_DATA);
 }
 
-/*
- * Map pid_t to a signed integer type that makes sense for QByteArray;
- * only the most common sizes 16 bit and 32 bit are special-cased.
- */
-template<int T> struct PIDType {
-    typedef pid_t PID_t;
-};
-template<> struct PIDType<2> {
-    typedef qint16 PID_t;
-};
-template<> struct PIDType<4> {
-    typedef qint32 PID_t;
-};
-
 void SlaveBase::slaveStatus(const QString &host, bool connected)
 {
-    pid_t pid = getpid();
+    KIO::ProcessId pid = getpid();
     qint8 b = connected ? 1 : 0;
-    KIO_DATA << (PIDType<sizeof(pid_t)>::PID_t)pid << mProtocol << host << b;
+    KIO_DATA << pid << mProtocol << host << b;
     if (d->onHold) {
         stream << d->onHoldUrl;
     }

@@ -132,7 +132,7 @@ Q_SIGNALS:
     void error(int, const QString &);
     void connected();
     void finished();
-    void slaveStatus(pid_t, const QByteArray &, const QString &, bool);
+    void slaveStatus(KIO::ProcessId, const QByteArray &, const QString &, bool);
     void listEntries(const KIO::UDSEntryList &);
     void statEntry(const KIO::UDSEntry &);
     void needSubUrlData();

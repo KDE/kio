@@ -133,20 +133,6 @@ void SlaveInterface::calcSpeed()
     }
 }
 
-/*
- * Map pid_t to a signed integer type that makes sense for QByteArray;
- * only the most common sizes 16 bit and 32 bit are special-cased.
- */
-template<int T> struct PIDType {
-    typedef pid_t PID_t;
-};
-template<> struct PIDType<2> {
-    typedef qint16 PID_t;
-};
-template<> struct PIDType<4> {
-    typedef qint32 PID_t;
-};
-
 bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
 {
     Q_D(SlaveInterface);
@@ -209,11 +195,9 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         emit error(i, str1);
         break;
     case MSG_SLAVE_STATUS: {
-        PIDType<sizeof(pid_t)>::PID_t stream_pid;
-        pid_t pid;
+        KIO::ProcessId pid;
         QByteArray protocol;
-        stream >> stream_pid >> protocol >> str1 >> b;
-        pid = stream_pid;
+        stream >> pid >> protocol >> str1 >> b;
         emit slaveStatus(pid, protocol, str1, (b != 0));
         break;
     }

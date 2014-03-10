@@ -22,8 +22,8 @@
 #define IDLESLAVE_H
 
 #include "kiocore_export.h"
+#include "global.h" // KIO::ProcessId
 #include <QObject>
-#include <QProcess> // Q_PID
 #include <QDateTime>
 #include <QUrl>
 #include <QScopedPointer>
@@ -50,7 +50,7 @@ public:
 
     bool match(const QString &protocol, const QString &host, bool connected) const;
     void connect(const QString &app_socket);
-    Q_PID pid() const;
+    KIO::ProcessId pid() const;
     int age(const QDateTime &now) const;
     void reparseConfiguration();
     bool onHold(const QUrl &url) const;

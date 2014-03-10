@@ -714,7 +714,7 @@ bool KRun::run(const KService &_service, const QList<QUrl> &_urls, QWidget *wind
     const QList<QUrl> urls = resolveURLs(_urls, _service);
 
     QString error;
-    int pid = 0;
+    KIO::ProcessId pid = 0;
 
     QByteArray myasn = asn;
     // startServiceByDesktopPath() doesn't take QWidget*, add it to the startup info now
@@ -1374,7 +1374,7 @@ bool KRun::isLocalFile() const
 
 /****************/
 
-int KProcessRunner::run(const QString &command, const QString &executable, const KStartupInfoId &id, const QString &workingDirectory)
+KIO::ProcessId KProcessRunner::run(const QString &command, const QString &executable, const KStartupInfoId &id, const QString &workingDirectory)
 {
     return (new KProcessRunner(command, executable, id, workingDirectory))->pid();
 }
@@ -1408,7 +1408,7 @@ KProcessRunner::~KProcessRunner()
     delete process;
 }
 
-int KProcessRunner::pid() const
+KIO::ProcessId KProcessRunner::pid() const
 {
     return m_pid;
 }

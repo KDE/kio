@@ -28,6 +28,7 @@
 #include <QtCore/QProcess>
 
 #include "kstartupinfo.h"
+#include "global.h" // KIO::ProcessId
 
 /**
  * @internal
@@ -41,11 +42,11 @@ class KProcessRunner : public QObject
 
 public:
 
-    static int run(const QString &command, const QString &executable, const KStartupInfoId &id, const QString &workingDirectory = QString());
+    static KIO::ProcessId run(const QString &command, const QString &executable, const KStartupInfoId &id, const QString &workingDirectory = QString());
 
     virtual ~KProcessRunner();
 
-    int pid() const;
+    KIO::ProcessId pid() const;
 
 protected Q_SLOTS:
 
@@ -59,7 +60,7 @@ private:
     QProcess *process;
     QString m_executable; // can be a full path
     KStartupInfoId id;
-    int m_pid;
+    KIO::ProcessId m_pid;
 
     Q_DISABLE_COPY(KProcessRunner)
 };
