@@ -29,6 +29,7 @@
 #endif
 #include <QHash>
 #include <QString>
+#include <QDataStream>
 
 #include <QList>
 #include <QPair>
@@ -56,11 +57,11 @@ public:
     bool setNamedUserOrGroupPermissions(const QString &name, unsigned short permissions, acl_tag_t type);
 
     acl_t m_acl;
+    mutable QHash<uid_t, QString> m_usercache;
+    mutable QHash<gid_t, QString> m_groupcache;
 #else
     int m_acl;
 #endif
-    mutable QHash<uid_t, QString> m_usercache;
-    mutable QHash<gid_t, QString> m_groupcache;
 };
 
 KACL::KACL(const QString &aclString)
