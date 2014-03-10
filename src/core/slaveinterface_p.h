@@ -36,11 +36,9 @@ class KIO::SlaveInterfacePrivate
 {
 public:
     SlaveInterfacePrivate()
-        : connection(0), filesize(0), offset(0), last_time(0),
+        : connection(0), filesize(0), offset(0), last_time(0), start_time(0),
           nums(0), slave_calcs_speed(false)
     {
-        start_time.tv_sec = 0;
-        start_time.tv_usec = 0;
     }
     ~SlaveInterfacePrivate()
     {
@@ -54,11 +52,11 @@ public:
     MetaData sslMetaData;
 
     KIO::filesize_t sizes[max_nums];
-    long times[max_nums];
+    qint64 times[max_nums];
 
     KIO::filesize_t filesize, offset;
     size_t last_time;
-    struct timeval start_time;
+    qint64 start_time;
     uint nums;
     bool slave_calcs_speed;
 

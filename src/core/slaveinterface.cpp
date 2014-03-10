@@ -96,11 +96,8 @@ void SlaveInterface::calcSpeed()
         return;
     }
 
-    struct timeval tv;
-    gettimeofday(&tv, 0);
-
-    long diff = ((tv.tv_sec - d->start_time.tv_sec) * 1000000 +
-                 tv.tv_usec - d->start_time.tv_usec) / 1000;
+    const qint64 currentTime = QDateTime::currentMSecsSinceEpoch();
+    const qint64 diff = currentTime - d->start_time;
     if (diff - d->last_time >= 900) {
         d->last_time = diff;
         if (d->nums == max_nums) {
@@ -211,7 +208,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
     }
     case INF_TOTAL_SIZE: {
         KIO::filesize_t size = readFilesize_t(stream);
-        gettimeofday(&d->start_time, 0);
+        d->start_time = QDateTime::currentMSecsSinceEpoch();
         d->last_time = 0;
         d->filesize = d->offset;
         d->sizes[0] = d->filesize - d->offset;
