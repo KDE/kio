@@ -2651,7 +2651,7 @@ QUrl KFileWidget::getStartUrl(const QUrl &startDir,
 
     if (useDefaultStartDir) {
         if (lastDirectory()->isEmpty()) {
-            lastDirectory()->setPath(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
+            *lastDirectory() = QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
             const QUrl home(QUrl::fromLocalFile(QDir::homePath()));
             // if there is no docpath set (== home dir), we prefer the current
             // directory over it. We also prefer the homedir when our CWD is
