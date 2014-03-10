@@ -338,7 +338,7 @@ static void removeDuplicateFromList(KHttpCookieList *list, KHttpCookie &cookiePt
         if (cookiePtr.name() == cookie.name() &&
                 (nameMatchOnly || (domain1 == domain2 && cookiePtr.path() == cookie.path()))) {
             if (updateWindowId) {
-                Q_FOREACH (long windowId, cookie.windowIds()) {
+                Q_FOREACH (WId windowId, cookie.windowIds()) {
                     if (windowId && (!cookiePtr.windowIds().contains(windowId))) {
                         cookiePtr.windowIds().append(windowId);
                     }
@@ -355,7 +355,7 @@ static void removeDuplicateFromList(KHttpCookieList *list, KHttpCookie &cookiePt
 // Returned is a string containing all appropriate cookies in a format
 // which can be added to a HTTP-header without any additional processing.
 //
-QString KCookieJar::findCookies(const QString &_url, bool useDOMFormat, long windowId, KHttpCookieList *pendingCookies)
+QString KCookieJar::findCookies(const QString &_url, bool useDOMFormat, WId windowId, KHttpCookieList *pendingCookies)
 {
     QString cookieStr, fqdn, path;
     QStringList domains;
@@ -680,7 +680,7 @@ void KCookieJar::extractDomains(const QString &_fqdn,
 //
 KHttpCookieList KCookieJar::makeCookies(const QString &_url,
                                         const QByteArray &cookie_headers,
-                                        long windowId)
+                                        WId windowId)
 {
     QString fqdn, path;
 
@@ -866,7 +866,7 @@ KHttpCookieList KCookieJar::makeCookies(const QString &_url,
 */
 KHttpCookieList KCookieJar::makeDOMCookies(const QString &_url,
         const QByteArray &cookie_domstring,
-        long windowId)
+        WId windowId)
 {
     // A lot copied from above
     KHttpCookieList cookieList;
@@ -1227,7 +1227,7 @@ void KCookieJar::eatAllCookies()
     }
 }
 
-void KCookieJar::eatSessionCookies(const QString &fqdn, long windowId,
+void KCookieJar::eatSessionCookies(const QString &fqdn, WId windowId,
                                    bool isFQDN)
 {
     KHttpCookieList *cookieList;
@@ -1248,7 +1248,7 @@ void KCookieJar::eatSessionCookies(const QString &fqdn, long windowId,
                 continue;
             }
 
-            QList<long> &ids = cookie.windowIds();
+            QList<WId> &ids = cookie.windowIds();
 
 #ifndef NDEBUG
             if (ids.contains(windowId)) {

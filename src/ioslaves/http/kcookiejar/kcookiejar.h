@@ -29,6 +29,7 @@
 #include <QtCore/QStringList>
 #include <QtCore/QHash>
 #include <QtCore/QSet>
+#include <qwindowdefs.h> //WId
 
 class KConfig;
 class KCookieJar;
@@ -63,7 +64,7 @@ protected:
     bool    mCrossDomain;
     bool    mHttpOnly;
     bool    mExplicitPath;
-    QList<long> mWindowIds;
+    QList<WId> mWindowIds;
     QList<int> mPorts;
     KCookieAdvice mUserSelectedAdvice;
 
@@ -101,11 +102,11 @@ public:
     {
         return mValue;
     }
-    QList<long> &windowIds()
+    QList<WId> &windowIds()
     {
         return mWindowIds;
     }
-    const QList<long> &windowIds() const
+    const QList<WId> &windowIds() const
     {
         return mWindowIds;
     }
@@ -238,7 +239,7 @@ public:
      * approved yet by the user but that will be included in the result
      * none the less.
      */
-    QString findCookies(const QString &_url, bool useDOMFormat, long windowId, KHttpCookieList *pendingCookies = 0);
+    QString findCookies(const QString &_url, bool useDOMFormat, WId windowId, KHttpCookieList *pendingCookies = 0);
 
     /**
      * This function parses cookie_headers and returns a linked list of
@@ -248,7 +249,7 @@ public:
      * cookie_headers should be a concatenation of all lines of a HTTP-header
      * which start with "Set-Cookie". The lines should be separated by '\n's.
      */
-    KHttpCookieList makeCookies(const QString &_url, const QByteArray &cookie_headers, long windowId);
+    KHttpCookieList makeCookies(const QString &_url, const QByteArray &cookie_headers, WId windowId);
 
     /**
      * This function parses cookie_headers and returns a linked list of
@@ -258,7 +259,7 @@ public:
      * cookie_domstr should be a concatenation of "name=value" pairs, separated
      * by a semicolon ';'.
      */
-    KHttpCookieList makeDOMCookies(const QString &_url, const QByteArray &cookie_domstr, long windowId);
+    KHttpCookieList makeDOMCookies(const QString &_url, const QByteArray &cookie_domstr, WId windowId);
 
     /**
      * This function hands a KHttpCookie object over to the cookie jar.
@@ -397,7 +398,7 @@ public:
      * Removes all end of session cookies set by the
      * session @p windId.
      */
-    void eatSessionCookies(const QString &fqdn, long windowId, bool isFQDN = true);
+    void eatSessionCookies(const QString &fqdn, WId windowId, bool isFQDN = true);
 
     /**
      * Parses _url and returns the FQDN (_fqdn) and path (_path).
