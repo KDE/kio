@@ -34,10 +34,10 @@ check_cxx_source_compiles("
   #include <sys/types.h>
   #include <sys/statvfs.h>
   int main(){
-  ·struct statvfs *mntbufp;
-·  int flags;
-·  return getmntinfo(&mntbufp, flags);
-·  }
+    struct statvfs *mntbufp;
+    int flags;
+    return getmntinfo(&mntbufp, flags);
+  }
 " GETMNTINFO_USES_STATVFS )
 
 ###
