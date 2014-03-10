@@ -32,6 +32,12 @@ class QUrl;
 
 class QTime;
 
+#ifdef Q_OS_WIN
+// on windows ssize_t is not defined, only SSIZE_T exists
+#include <basetsd.h>
+typedef SSIZE_T ssize_t;
+#endif
+
 /**
  * @short A namespace for KIO globals
  *
