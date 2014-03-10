@@ -889,10 +889,6 @@ QString KProtocolManager::userAgentForApplication(const QString &appName, const 
 bool KProtocolManager::getSystemNameVersionAndMachine(
     QString &systemName, QString &systemVersion, QString &machine)
 {
-    struct utsname unameBuf;
-    if (0 != uname(&unameBuf)) {
-        return false;
-    }
 #if defined(Q_OS_WIN) && !defined(_WIN32_WCE)
     // we do not use unameBuf.sysname information constructed in kdewin32
     // because we want to get separate name and version
@@ -912,10 +908,14 @@ bool KProtocolManager::getSystemNameVersionAndMachine(
         systemVersion += QString::number(versioninfo.dwMinorVersion);
     }
 #else
+    struct utsname unameBuf;
+    if (0 != uname(&unameBuf)) {
+        return false;
+    }
     systemName = unameBuf.sysname;
     systemVersion = unameBuf.release;
-#endif
     machine = unameBuf.machine;
+#endif
     return true;
 }
 
