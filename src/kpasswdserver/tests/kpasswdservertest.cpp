@@ -29,8 +29,8 @@ static const char* sigCheckAuthInfoResult = SIGNAL(checkAuthInfoAsyncResult(qlon
 
 static QString getUserNameFrom(const KIO::AuthInfo& auth)
 {
-    if (auth.username.isEmpty() && !auth.url.user().isEmpty()) {
-        return auth.url.user();
+    if (auth.username.isEmpty() && !auth.url.userName().isEmpty()) {
+        return auth.url.userName();
     }
 
     return auth.username;
@@ -78,7 +78,7 @@ private Q_SLOTS:
         QVERIFY(successCheckAuth(server, info, realInfo));
 
         // Now remove auth
-        server.removeAuthInfo(info.url.host(), info.url.protocol(), info.username);
+        server.removeAuthInfo(info.url.host(), info.url.scheme(), info.username);
         // Check we can't find that auth anymore
         QVERIFY(noCheckAuth(server, info));
     }
@@ -253,7 +253,7 @@ private Q_SLOTS:
         // What the app would ask.
         KIO::AuthInfo info;
         info.url = KUrl("http://www.example.com");
-        info.username = info.url.user();
+        info.username = info.url.userName();
 
         KIO::AuthInfo result;
         queryAuthWithDialog(server, info, KIO::AuthInfo(), result, QDialog::Rejected);

@@ -8,6 +8,9 @@ set (kpasswdserver_test_SRCS
 )
 qt5_add_dbus_adaptor(kpasswdserver_test_SRCS ../org.kde.KPasswdServer.xml kpasswdserver.h KPasswdServer)
 
-kde4_add_unit_test(kpasswdservertest ${kpasswdserver_test_SRCS} )
-target_link_libraries(kpasswdservertest  ${KDE4_KIO_LIBRARY}
+add_executable(kpasswdservertest ${kpasswdserver_test_SRCS} )
+target_link_libraries(kpasswdservertest KF5::KDE4Support KF5::DBusAddons KF5::Wallet
                       Qt5::Core Qt5::Test)
+
+ecm_mark_as_test(kpasswdservertest)
+add_test(kpasswdservertest kpasswdservertest)
