@@ -14,7 +14,9 @@ set(testtrash_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/../kinterprocesslock.cpp
 )
 
-kde4_add_unit_test(testtrash ${testtrash_SRCS})
+add_executable(testtrash ${testtrash_SRCS})
+ecm_mark_as_test(testtrash)
+add_test(testtrash testtrash)
 
 # This flag is needed in order to be able to support files > 2GB even on
 # 32bit platforms. The default is to use the non-64bit aware syscalls on
@@ -35,11 +37,11 @@ if (NOT _OFFT_IS_64BIT)
   target_compile_definitions(testtrash PUBLIC -D_FILE_OFFSET_BITS=64)
 endif ()
 
-target_link_libraries(testtrash KF5::I18n Qt5::DBus KF5::KIOCore ${KDE4_SOLID_LIBS} ${QT_QTTEST_LIBRARY} KF5::KDE4Support)
+target_link_libraries(testtrash KF5::I18n Qt5::DBus KF5::KIOCore KF5::Solid Qt5::Test KF5::KDE4Support)
 
 ### next target ###
 
 add_executable(lockingtest lockingtest.cpp ../kinterprocesslock.cpp)
 ecm_mark_nongui_executable(lockingtest)
 
-target_link_libraries(lockingtest ${QT_QTCORE_LIBRARY} ${QT_QTDBUS_LIBRARY})
+target_link_libraries(lockingtest Qt5::Core Qt5::DBus)

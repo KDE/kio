@@ -26,7 +26,7 @@ if(WIN32)
 else(WIN32)
   set(kio_trash_PART_SRCS kio_trash.cpp ${trashcommon_PART_SRCS})
 endif(WIN32)
-kde4_add_plugin(kio_trash ${kio_trash_PART_SRCS})
+add_library(kio_trash MODULE ${kio_trash_PART_SRCS})
 
 # This flag is needed in order to be able to support files > 2GB even on
 # 32bit platforms. The default is to use the non-64bit aware syscalls on
@@ -61,7 +61,7 @@ install(TARGETS kio_trash  DESTINATION ${PLUGIN_INSTALL_DIR} )
 if(NOT WIN32 AND STRIGI_FOUND)
     include_directories(${STRIGI_INCLUDE_DIR})
 
-    kde4_add_library(trash MODULE trashthroughanalyzer.cpp ${trashcommon_PART_SRCS})
+    add_library(trash MODULE trashthroughanalyzer.cpp ${trashcommon_PART_SRCS})
     target_link_libraries(trash
        KF5::KDE4Support
        KF5::KIOCore
@@ -93,7 +93,7 @@ install(TARGETS ktrash ${INSTALL_TARGETS_DEFAULT_ARGS})
 # currently not on win32, TODO!
 if(NOT WIN32)
     set(kcm_trash_PART_SRCS kcmtrash.cpp ${trashcommon_PART_SRCS})
-    kde4_add_plugin(kcm_trash ${kcm_trash_PART_SRCS})
+    add_library(kcm_trash MODULE ${kcm_trash_PART_SRCS})
     target_link_libraries(kcm_trash  Qt5::DBus  KF5::KDE4Support
         ${KDECLARATIVE_LIBRARIES} KF5::I18n KF5::ConfigWidgets KF5::KIOCore KF5::KIOWidgets KF5::Solid)
 
