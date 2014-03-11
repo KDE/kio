@@ -2,9 +2,9 @@ add_subdirectory(tests)
 
 set(kded_kpasswdserver_SRCS kpasswdserver.cpp )
 
-qt4_add_dbus_adaptor(kded_kpasswdserver_SRCS org.kde.KPasswdServer.xml kpasswdserver.h KPasswdServer)
+qt5_add_dbus_adaptor(kded_kpasswdserver_SRCS org.kde.KPasswdServer.xml kpasswdserver.h KPasswdServer)
 
-kde4_add_plugin(kded_kpasswdserver ${kded_kpasswdserver_SRCS})
+add_library(kded_kpasswdserver MODULE ${kded_kpasswdserver_SRCS})
 
 target_link_libraries(kded_kpasswdserver KF5::DBusAddons KF5::KIOCore KF5::Wallet KF5::KDE4Support)
 

@@ -6,8 +6,8 @@ set (kpasswdserver_test_SRCS
  kpasswdservertest.cpp
  ../kpasswdserver.cpp
 )
-qt4_add_dbus_adaptor(kpasswdserver_test_SRCS ../org.kde.KPasswdServer.xml kpasswdserver.h KPasswdServer)
+qt5_add_dbus_adaptor(kpasswdserver_test_SRCS ../org.kde.KPasswdServer.xml kpasswdserver.h KPasswdServer)
 
 kde4_add_unit_test(kpasswdservertest ${kpasswdserver_test_SRCS} )
-target_link_libraries(kpasswdservertest ${KDE4_KDECORE_LIBS} ${KDE4_KIO_LIBRARY}
-                      ${QT_QTCORE_LIBRARY} ${QT_QTTEST_LIBRARY})
+target_link_libraries(kpasswdservertest  ${KDE4_KIO_LIBRARY}
+                      Qt5::Core Qt5::Test)

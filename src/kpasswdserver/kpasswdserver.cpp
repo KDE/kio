@@ -569,8 +569,8 @@ KPasswdServer::processRequest()
             dlg->setDefaultButton(KDialog::Yes);
             dlg->setEscapeButton(KDialog::No);
 
-            KMessageBox::createKMessageBox(dlg, QMessageBox::Warning, prompt,
-                                           QStringList(), QString(), 0L,
+            KMessageBox::createKMessageBox(dlg, new QDialogButtonBox(QDialogButtonBox::Yes|QDialogButtonBox::No), QMessageBox::Warning, prompt,
+                                           QStringList(), QString(), 0,
                                            (KMessageBox::Notify | KMessageBox::NoExec));
 
         #ifndef Q_WS_WIN
