@@ -15,7 +15,7 @@ CHECK http://a.b.c/ Cookie: some_value="quoted value"
 # Without a = sign, the cookie gets interpreted as the value for a cookie with no name
 # This is what IE and Netscape does
 COOKIE ASK http://a.b.c/ Set-Cookie: some_value
-# Note: order in the expected list does not matter. Changed between kde3 and kde4.
+# Note: order in the expected list does not matter.
 CHECK http://a.b.c/ Cookie: some_value="quoted value"; some_value
 COOKIE ASK http://a.b.c/ Set-Cookie: some_other_value
 CHECK http://a.b.c/ Cookie: some_value="quoted value"; some_other_value

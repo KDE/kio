@@ -97,7 +97,8 @@ public:
      * Used in KParts::BrowserOpenOrSaveQuestion for example.
      *
      * This is basically a KMimeTypeTrader::query, but it supports multiple mimetypes, and
-     * also cleans up "apparent" duplicates, such as the kde3 and kde4 applications with the same name.
+     * also cleans up "apparent" duplicates, such as different versions of the same
+     * application installed in parallel.
      *
      * The list is sorted according to the user preferences for the given mimetype(s).
      * In case multiple mimetypes appear in the url list, the logic is:
