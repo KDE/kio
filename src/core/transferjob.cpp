@@ -100,6 +100,11 @@ void TransferJob::slotFinished()
             emit permanentRedirection(this, d->m_url, d->m_redirectionURL);
         }
 
+        if (queryMetaData(QLatin1String("redirect-to-get")) == QLatin1String("true")) {
+            d->m_command = CMD_GET;
+            d->m_outgoingMetaData.remove(QLatin1String("CustomHTTPMethod"));
+        }
+
         if (d->m_redirectionHandlingEnabled) {
             // Honour the redirection
             // We take the approach of "redirecting this same job"
@@ -116,7 +121,8 @@ void TransferJob::slotFinished()
             QUrl dummyUrl;
             QDataStream istream(d->m_packedArgs);
             switch (d->m_command) {
-            case CMD_GET: {
+            case CMD_GET:
+            case CMD_DEL: {
                 d->m_packedArgs.truncate(0);
                 QDataStream stream(&d->m_packedArgs, QIODevice::WriteOnly);
                 stream << d->m_redirectionURL;

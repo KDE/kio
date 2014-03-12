@@ -456,8 +456,6 @@ void AccessManagerReply::slotStatResult(KJob *kJob)
 
 void AccessManagerReply::slotRedirection(KIO::Job *job, const QUrl &u)
 {
-    Q_UNUSED(job);
-
     if (!KUrlAuthorized::authorizeUrlAction(QLatin1String("redirect"), url(), u)) {
         qWarning() << "Redirection from" << url() << "to" << u << "REJECTED by policy!";
         setError(QNetworkReply::ContentAccessDenied, u.toString());
@@ -465,6 +463,9 @@ void AccessManagerReply::slotRedirection(KIO::Job *job, const QUrl &u)
         return;
     }
     setAttribute(QNetworkRequest::RedirectionTargetAttribute, QUrl(u));
+    if (job->queryMetaData(QL1S("redirect-to-get")) == QL1S("true")) {
+        setOperation(QNetworkAccessManager::GetOperation);
+    }
 }
 
 void AccessManagerReply::slotPercent(KJob *job, unsigned long percent)

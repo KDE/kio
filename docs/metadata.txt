@@ -162,6 +162,7 @@ recurse                 bool    When true, del() will be able to delete non-empt
 
 DefaultRemoteProtocol	string	Protocol to redirect file://<hostname>/ URLs to, default is "smb" (read by file)
 no-spoof-check          bool    Flag to indicate whether a username spoofing check should be performed, default is FALSE.(read by http)
+redirect-to-get         bool    If "true", changes a redrirection request to a GET operation regardless of the original operation.
 
 ** NOTE: Anything in quotes ("") under Value(s) indicates literal value.
 

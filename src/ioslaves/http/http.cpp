@@ -3048,20 +3048,36 @@ try_again:
                 return false;
             }
         } else if (m_request.responseCode >= 301 && m_request.responseCode <= 303) {
-            // 301 Moved permanently
-            if (m_request.responseCode == 301) {
+            // NOTE: According to RFC 2616 (section 10.3.[2-4,8]), 301 and 302
+            // redirects for a POST operation should not be convered to a GET
+            // request. That should only be done for a 303 response. However,
+            // because almost all other client implementations do exactly that
+            // in violation of the spec, many servers have simply adapted to
+            // this way of doing things! Thus, we are forced to do the same
+            // thing here. Otherwise, we loose compatibility and might not be
+            // able to correctly retrieve sites that redirect.
+            switch (m_request.responseCode) {
+              case 301: // Moved Permanently
                 setMetaData(QLatin1String("permanent-redirect"), QLatin1String("true"));
-            }
-            // 302 Found (temporary location)
-            // 303 See Other
-            // NOTE: This is wrong according to RFC 2616 (section 10.3.[2-4,8]).
-            // However, because almost all client implementations treat a 301/302
-            // response as a 303 response in violation of the spec, many servers
-            // have simply adapted to this way of doing things! Thus, we are
-            // forced to do the same thing. Otherwise, we loose compatibility and
-            // might not be able to correctly retrieve sites that redirect.
-            if (m_request.method != HTTP_HEAD) {
-                m_request.method = HTTP_GET; // Force a GET
+                if (m_request.method == HTTP_POST) {
+                    m_request.method = HTTP_GET; // FORCE a GET
+                    setMetaData(QLatin1String("redirect-to-get"), QLatin1String("true"));
+                }
+                break;
+              case 302: // Found
+                if (m_request.method == HTTP_POST) {
+                    m_request.method = HTTP_GET; // FORCE a GET
+                    setMetaData(QLatin1String("redirect-to-get"), QLatin1String("true"));
+                }
+                break;
+              case 303: // See Other
+                if (m_request.method != HTTP_HEAD) {
+                    m_request.method = HTTP_GET; // FORCE a GET
+                    setMetaData(QLatin1String("redirect-to-get"), QLatin1String("true"));
+                }
+                break;
+              default:
+                break;
             }
         } else if (m_request.responseCode == 204) {
             // No content

@@ -285,8 +285,9 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
             return new KDEPrivate::AccessManagerReply(op, req, QNetworkReply::ProtocolUnknownError, i18n("Unknown HTTP verb."), this);
         }
 
-        if (outgoingData) {
-            kioJob = KIO::http_post(reqUrl, outgoingData, sizeFromRequest(req), KIO::HideProgressInfo);
+        const qint64 size = sizeFromRequest(req);
+        if (size > 0) {
+            kioJob = KIO::http_post(reqUrl, outgoingData, size, KIO::HideProgressInfo);
         } else {
             kioJob = KIO::get(reqUrl, KIO::NoReload, KIO::HideProgressInfo);
         }
@@ -338,6 +339,7 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
             //qDebug() << "Synchronous XHR:" << reply << reqUrl;
         } else {
             qWarning() << "Failed to create a synchronous XHR for" << reqUrl;
+            qWarning() << "REASON:" << kioJob->errorString();
             reply = new KDEPrivate::AccessManagerReply(op, req, QNetworkReply::UnknownNetworkError, kioJob->errorText(), this);
         }
     } else {
