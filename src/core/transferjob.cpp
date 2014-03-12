@@ -103,6 +103,7 @@ void TransferJob::slotFinished()
         if (queryMetaData(QLatin1String("redirect-to-get")) == QLatin1String("true")) {
             d->m_command = CMD_GET;
             d->m_outgoingMetaData.remove(QLatin1String("CustomHTTPMethod"));
+            d->m_outgoingMetaData.remove(QLatin1String("content-type"));
         }
 
         if (d->m_redirectionHandlingEnabled) {
