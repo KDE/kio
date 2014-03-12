@@ -322,7 +322,7 @@ void KAbstractHttpAuthentication::setChallenge(const QByteArray &c, const QUrl &
     m_challenge = parseChallenge(m_challengeText, &m_scheme);
     Q_ASSERT(m_scheme.toLower() == scheme().toLower());
     m_resource = resource;
-    m_httpMethod = httpMethod.trimmed();
+    m_httpMethod = httpMethod;
 }
 
 QString KAbstractHttpAuthentication::realm() const

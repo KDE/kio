@@ -137,6 +137,7 @@ public:
 
         KIO::HTTP_METHOD method;
         QString methodStringOverride;     // Overrides method if non-empty.
+        QByteArray sentMethodString;      // Stores http method actually sent
         KIO::filesize_t offset;
         KIO::filesize_t endoffset;
         QString windowId;                 // Window Id this request is related to.
