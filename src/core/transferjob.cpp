@@ -122,6 +122,7 @@ void TransferJob::slotFinished()
             QDataStream istream(d->m_packedArgs);
             switch (d->m_command) {
             case CMD_GET:
+            case CMD_STAT:
             case CMD_DEL: {
                 d->m_packedArgs.truncate(0);
                 QDataStream stream(&d->m_packedArgs, QIODevice::WriteOnly);
