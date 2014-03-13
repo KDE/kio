@@ -52,8 +52,8 @@ remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
 
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 
-set(QT_REQUIRED_VERSION 5.2.0)
-find_package(Qt5 ${QT_REQUIRED_VERSION} CONFIG REQUIRED Widgets DBus Network Concurrent Xml Test)
+set(REQUIRED_QT_VERSION 5.2.0)
+find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets DBus Network Concurrent Xml Test)
 
 find_package(GSSAPI)
 set_package_properties(GSSAPI PROPERTIES DESCRIPTION "Allows KIO to make use of certain HTTP authentication services"
