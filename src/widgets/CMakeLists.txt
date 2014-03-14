@@ -29,7 +29,6 @@ set(kiowidgets_SRCS
   delegateanimationhandler.cpp
   imagefilter.cpp
   kfileitemdelegate.cpp
-  kautomount.cpp
   kdesktopfileactions.cpp
   kopenwithdialog.cpp
   kfile.cpp
@@ -60,8 +59,12 @@ set(kiowidgets_SRCS
   kdirmodel.cpp
 )
 if (WIN32)
-  LIST(APPEND kiowidgets_SRCS
+  list(APPEND kiowidgets_SRCS
     krun_win.cpp
+  )
+else()
+  list(APPEND kiowidgets_SRCS
+    kautomount.cpp
   )
 endif()
 if (NOT HAVE_GETGROUPLIST)
