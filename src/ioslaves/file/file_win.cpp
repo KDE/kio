@@ -34,6 +34,8 @@
 #include <kconfiggroup.h>
 #include <QDebug>
 
+#include "kioglobal_p.h"
+
 using namespace KIO;
 
 static DWORD CALLBACK CopyProgressRoutine(
@@ -79,7 +81,7 @@ static UDSEntry createUDSEntryWin(const QFileInfo &fileInfo)
     if (fileInfo.isDir()) {
         type = S_IFDIR;
     } else if (fileInfo.isSymLink()) {
-        type = S_IFLNK;
+        type = QT_STAT_LNK;
     }
     if (fileInfo.isReadable()) {
         access |= S_IRUSR;
@@ -277,7 +279,7 @@ void FileProtocol::rename(const QUrl &src, const QUrl &dest,
             error(KIO::ERR_ACCESS_DENIED, _dest.filePath());
         } else {
             error(KIO::ERR_CANNOT_RENAME, _src.filePath());
-            // qDebug() <<  "Renaming file "
+            qDebug() <<  "Renaming file "
                     << _src.filePath()
                     << " failed ("
                     << dwLastErr << ")";

@@ -29,7 +29,9 @@
 #include <QtCore/QObject>
 #include <QtCore/QHash>
 #include <QtCore/QFile>
-#include<qplatformdefs.h>
+#include <KUser>
+
+#include <qplatformdefs.h> // mode_t
 #include <config-kioslave-file.h>
 
 #if HAVE_POSIX_ACL
@@ -86,15 +88,13 @@ private:
     bool createUDSEntry(const QString &filename, const QByteArray &path, KIO::UDSEntry &entry,
                         short int details, bool withACL);
     int setACL(const char *path, mode_t perm, bool _directoryDefault);
-
-    QString getUserName(uid_t uid) const;
-    QString getGroupName(gid_t gid) const;
-
+    QString getUserName(KUserId uid) const;
+    QString getGroupName(KGroupId gid) const;
     bool deleteRecursive(const QString &path);
 
 private:
-    mutable QHash<uid_t, QString> mUsercache;
-    mutable QHash<gid_t, QString> mGroupcache;
+    mutable QHash<KUserId, QString> mUsercache;
+    mutable QHash<KGroupId, QString> mGroupcache;
     QFile *mFile;
 };
 

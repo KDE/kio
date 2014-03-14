@@ -33,6 +33,8 @@
 #include <QDirIterator>
 #include <qplatformdefs.h>
 
+#include "kioglobal_p.h"
+
 #include <assert.h>
 #include <errno.h>
 #ifdef Q_OS_WIN
@@ -718,28 +720,36 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
     finished();
 }
 
-QString FileProtocol::getUserName(uid_t uid) const
+QString FileProtocol::getUserName(KUserId uid) const
 {
+    if (Q_UNLIKELY(!uid.isValid())) {
+        return QString();
+    }
     if (!mUsercache.contains(uid)) {
-        struct passwd *user = getpwuid(uid);
-        if (user) {
-            mUsercache.insert(uid, QString::fromLatin1(user->pw_name));
-        } else {
-            return QString::number(uid);
+        KUser user(uid);
+        QString name = user.loginName();
+        if (name.isEmpty()) {
+            name = uid.toString();
         }
+        mUsercache.insert(uid, name);
+        return name;
     }
     return mUsercache[uid];
 }
 
-QString FileProtocol::getGroupName(gid_t gid) const
+QString FileProtocol::getGroupName(KGroupId gid) const
 {
+    if (Q_UNLIKELY(!gid.isValid())) {
+        return QString();
+    }
     if (!mGroupcache.contains(gid)) {
-        struct group *grp = getgrgid(gid);
-        if (grp) {
-            mGroupcache.insert(gid, QString::fromLatin1(grp->gr_name));
-        } else {
-            return QString::number(gid);
+        KUserGroup group(gid);
+        QString name = group.name();
+        if (name.isEmpty()) {
+            name = gid.toString();
         }
+        mGroupcache.insert(gid, name);
+        return name;
     }
     return mGroupcache[gid];
 }
@@ -765,13 +775,9 @@ bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &pat
 
         if ((buff.st_mode & QT_STAT_MASK) == QT_STAT_LNK) {
 
-            char buffer2[ 1000 ];
-            int n = readlink(path.data(), buffer2, 999);
-            if (n != -1) {
-                buffer2[ n ] = 0;
-            }
+            const QString linkTarget = QFile::symLinkTarget(QString::fromLocal8Bit(path));
 
-            entry.insert(KIO::UDSEntry::UDS_LINK_DEST, QFile::decodeName(buffer2));
+            entry.insert(KIO::UDSEntry::UDS_LINK_DEST, linkTarget);
 
             // A symlink -> follow it only if details>1
             if (details > 1 && QT_STAT(path.constData(), &buff) == -1) {
@@ -813,8 +819,12 @@ bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &pat
 notype:
     if (details > 0) {
         entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME, buff.st_mtime);
+#ifndef Q_OS_WIN
         entry.insert(KIO::UDSEntry::UDS_USER, getUserName(buff.st_uid));
         entry.insert(KIO::UDSEntry::UDS_GROUP, getGroupName(buff.st_gid));
+#else
+#pragma message("TODO: st_uid and st_gid are always zero, use GetSecurityInfo to find the owner")
+#endif
         entry.insert(KIO::UDSEntry::UDS_ACCESS_TIME, buff.st_atime);
     }
 
