@@ -691,6 +691,7 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
         if (dt.isValid()) {
             QT_STATBUF dest_statbuf;
             if (QT_STAT(QFile::encodeName(dest_orig).constData(), &dest_statbuf) == 0) {
+#ifndef Q_OS_WIN
                 struct timeval utbuf[2];
                 // access time
                 utbuf[0].tv_sec = dest_statbuf.st_atime; // access time, unchanged  ## TODO preserve msec
@@ -699,6 +700,12 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
                 utbuf[1].tv_sec = dt.toTime_t();
                 utbuf[1].tv_usec = dt.time().msec() * 1000;
                 utimes(QFile::encodeName(dest_orig).constData(), utbuf);
+#else
+                struct utimbuf utbuf;
+                utbuf.actime = dest_statbuf.st_atime;
+                utbuf.modtime = dt.toTime_t();
+                utime(QFile::encodeName(dest_orig).constData(), &utbuf);
+#endif
             }
         }
 
