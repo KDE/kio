@@ -70,6 +70,7 @@
 #include <sys/stat.h>
 
 #include "httpauthentication.h"
+#include "kioglobal_p.h"
 
 // HeaderTokenizer declarations
 #include "parsinghelpers.h"
@@ -2835,6 +2836,11 @@ void HTTPProtocol::fixupResponseContentEncoding()
         m_mimeType = QLatin1String("application/x-bzip");
     }
 }
+
+#ifdef Q_OS_WIN
+// strncasecmp does not exist on windows, have to use _strnicmp
+static inline int strncasecmp(const char *c1, const char* c2, size_t max) { return _strnicmp(c1, c2, max);  }
+#endif
 
 //Return true if the term was found, false otherwise. Advance *pos.
 //If (*pos + strlen(term) >= end) just advance *pos to end and return false.
