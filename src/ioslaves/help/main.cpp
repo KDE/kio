@@ -13,8 +13,7 @@ extern "C" int xmlLoadExtDtdDefaultValue;
 
 #include <stdlib.h>
 #include <string.h>
-#include <sys/time.h>
-#include <unistd.h>
+#include <qplatformdefs.h>
 
 #include <libxml/xmlversion.h>
 #include <libxml/xmlmemory.h>

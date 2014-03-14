@@ -71,7 +71,11 @@ target_link_libraries(kio_ghelp
    ${LIBXSLT_LIBRARIES}
    ${LIBXSLT_EXSLT_LIBRARIES}
 )
-
+if(WIN32)
+    # libxml/libxslt pulls in windows.h, this breaks QDateTime
+    target_compile_definitions(kio_help PRIVATE NOMINMAX)
+    target_compile_definitions(kio_ghelp PRIVATE NOMINMAX)
+endif()
 install(TARGETS kio_ghelp  DESTINATION ${PLUGIN_INSTALL_DIR} )
 
 
