@@ -292,9 +292,11 @@ void FileProtocol::rename(const QUrl &src, const QUrl &dest,
 
 void FileProtocol::symlink(const QString &target, const QUrl &dest, KIO::JobFlags flags)
 {
-    // no symlink on windows for now
-    // vista provides a CreateSymbolicLink() function. for now use ::copy
-    FileProtocol::copy(target, dest, 0, flags);
+    QString localDest = dest.toLocalFile();
+    //TODO handle overwrite, etc
+    if (!KIOPrivate::createSymlink(target, localDest)) {
+        error(KIO::ERR_UNKNOWN, localDest);
+    }
 }
 
 void FileProtocol::del(const QUrl &url, bool isfile)
