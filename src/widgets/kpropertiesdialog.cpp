@@ -1679,11 +1679,11 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     bool isMyFile = false;
 
     if (isLocal && !d->strOwner.isEmpty()) { // local files, and all owned by the same person
-        struct passwd *myself = getpwuid(geteuid());
-        if (myself != 0L) {
-            isMyFile = (d->strOwner == QString::fromLocal8Bit(myself->pw_name));
+        KUser myself(KUser::UseEffectiveUID);
+        if (myself.isValid()) {
+            isMyFile = (d->strOwner == myself.loginName());
         } else {
-            qWarning() << "I don't exist ?! geteuid=" << geteuid();
+            qWarning() << "I don't exist ?! geteuid=" << KUserId::currentEffectiveUserId().toString();
         }
     } else {
         //We don't know, for remote files, if they are ours or not.
@@ -1801,11 +1801,10 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
         d->usrEdit = new KLineEdit(gb);
         KCompletion *kcom = d->usrEdit->completionObject();
         kcom->setOrder(KCompletion::Sorted);
-        setpwent();
-        for (i = 0; ((user = getpwent()) != 0L) && (i < maxEntries); ++i) {
-            kcom->addItem(QString::fromLatin1(user->pw_name));
+        QStringList userNames = KUser::allUserNames(maxEntries);
+        Q_FOREACH(const QString& s, userNames) {
+            kcom->addItem(s);
         }
-        endpwent();
         d->usrEdit->setCompletionMode((i < maxEntries) ? KCompletion::CompletionAuto :
                                       KCompletion::CompletionNone);
         d->usrEdit->setText(d->strOwner);
@@ -3441,11 +3440,10 @@ void KDesktopPropsPlugin::slotAdvanced()
     kcom->setOrder(KCompletion::Sorted);
     struct passwd *pw;
     int i, maxEntries = 1000;
-    setpwent();
-    for (i = 0; ((pw = getpwent()) != 0L) && (i < maxEntries); i++) {
-        kcom->addItem(QString::fromLatin1(pw->pw_name));
+    QStringList userNames = KUser::allUserNames(maxEntries);
+    Q_FOREACH(const QString& userName, userNames) {
+        kcom->addItem(userName);
     }
-    endpwent();
     if (i < maxEntries) {
         w.suidEdit->setCompletionObject(kcom, true);
         w.suidEdit->setAutoDeleteCompletionObject(true);
