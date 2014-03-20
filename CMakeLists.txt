@@ -56,25 +56,6 @@ target_link_libraries(kio_trash
         )
 install(TARGETS kio_trash  DESTINATION ${PLUGIN_INSTALL_DIR} )
 
-########### next target ###############
-# currently not on win32, TODO!
-if(NOT WIN32 AND STRIGI_FOUND)
-    include_directories(${STRIGI_INCLUDE_DIR})
-
-    add_library(trash MODULE trashthroughanalyzer.cpp ${trashcommon_PART_SRCS})
-    target_link_libraries(trash
-       KF5::KDE4Support
-       KF5::KIOCore
-       ${STRIGI_STREAMANALYZER_LIBRARY}
-       KF5::Solid
-       KF5::I18n KF5::ConfigCore KF5::ConfigGui
-    )
-    set_target_properties(trash PROPERTIES
-        PREFIX strigita_)
-    #install(TARGETS trash LIBRARY DESTINATION ${LIB_INSTALL_DIR}/strigi)
-endif(NOT WIN32 AND STRIGI_FOUND)
-########### next target ###############
-
 set(ktrash_SRCS ktrash.cpp )
 
 add_executable(ktrash ${ktrash_SRCS})
