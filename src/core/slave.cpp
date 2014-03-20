@@ -33,7 +33,7 @@
 
 #include <kdeinitinterface.h>
 #include <klauncher_interface.h>
-#include <klibrary.h>
+#include <kpluginloader.h>
 
 #include "dataprotocol_p.h"
 #include "kservice.h"
@@ -447,8 +447,10 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
             delete slave;
             return 0;
         }
-        KLibrary lib(_name);
-        QString lib_path = lib.fileName();
+        // find the kioslave using KPluginLoader; kioslave would do this
+        // anyway, but if it doesn't exist, we want to be able to return
+        // a useful error message immediately
+        QString lib_path = KPluginLoader::findPlugin(_name);
         if (lib_path.isEmpty()) {
             error_text = i18n("Can not find io-slave for protocol '%1'.", protocol);
             error = KIO::ERR_CANNOT_LAUNCH_PROCESS;

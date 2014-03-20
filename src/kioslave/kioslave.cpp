@@ -28,8 +28,9 @@
 
 #include <QtCore/QString>
 #include <QtCore/QLibrary>
-#include <QtCore/QPluginLoader>
 #include <QtCore/QFile>
+
+#include <KPluginLoader>
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
 #define USE_KPROCESS_FOR_KIOSLAVES
@@ -63,25 +64,25 @@ int main(int argc, char **argv)
 #ifndef _WIN32_WCE
     setlocale(LC_ALL, "");
 #endif
-    QString libpath = QFile::decodeName(argv[1]);
+    QString libname = QFile::decodeName(argv[1]);
 
-    if (libpath.isEmpty()) {
+    if (libname.isEmpty()) {
         fprintf(stderr, "library path is empty.\n");
         return 1;
     }
 
-    // Use QPluginLoader to locate the library when using a relative path
+    // Use KPluginLoader to locate the library when using a relative path
     // But we need to use QLibrary to actually load it, because of resolve()!
-    QPluginLoader loader(libpath);
-    if (loader.fileName().isEmpty()) {
-        fprintf(stderr, "could not locate %s, check QT_PLUGIN_PATH\n", qPrintable(libpath));
+    QString libpath = KPluginLoader::findPlugin(libname);
+    if (libpath.isEmpty()) {
+        fprintf(stderr, "could not locate %s, check QT_PLUGIN_PATH\n", qPrintable(libname));
         return 1;
     }
 
-    qDebug() << "trying to load" << libpath << "from" << loader.fileName();
-    QLibrary lib(loader.fileName());
+    qDebug() << "trying to load" << libname << "from" << libpath;
+    QLibrary lib(libpath);
     if (!lib.load()) {
-        fprintf(stderr, "could not open %s: %s\n", qPrintable(libpath),
+        fprintf(stderr, "could not open %s: %s\n", qPrintable(libname),
                 qPrintable(lib.errorString()));
         return 1;
     }
