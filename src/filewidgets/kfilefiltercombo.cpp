@@ -187,7 +187,7 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types,
 
     if (hasAllFilesFilter) {
         addItem(i18n("All Files"));
-        d->m_filters.append(QLatin1String("all/allfiles"));
+        d->m_filters.append(QLatin1String("application/octet-stream"));
     }
 
     d->lastFilter = currentText();
