@@ -163,7 +163,7 @@ Comment[zh_TW]=此服務允許設定資源回收筒的檢視。
 Icon=user-trash
 Type=Service
 X-KDE-ServiceTypes=KCModule
-Exec=kcmshell4 kcmtrash
+Exec=kcmshell5 kcmtrash
 
 X-KDE-Library=kcm_trash
 X-KDE-PluginKeyword=trash
