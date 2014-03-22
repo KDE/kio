@@ -914,12 +914,13 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
                 this, SLOT(slotIconChanged()));
     } else {
         QLabel *iconLabel = new QLabel(d->m_frame);
+        iconLabel->setAlignment(Qt::AlignCenter);
         int bsize = 66 + 2 * iconLabel->style()->pixelMetric(QStyle::PM_ButtonMargin);
         iconLabel->setFixedSize(bsize, bsize);
         iconLabel->setPixmap(KIconLoader::global()->loadIcon(iconStr, KIconLoader::Desktop, 48));
         d->iconArea = iconLabel;
     }
-    grid->addWidget(d->iconArea, curRow, 0, Qt::AlignLeft);
+    grid->addWidget(d->iconArea, curRow, 0, Qt::AlignCenter);
 
     if (d->bMultiple || isTrash || hasRoot) {
         QLabel *lab = new QLabel(d->m_frame);
