@@ -412,7 +412,7 @@ QString KFileItemPrivate::parsePermissions(mode_t perm) const
         oxbit = '-';
     }
 
-    // Include the type in the first char like kde3 did; people are more used to seeing it,
+    // Include the type in the first char like ls does; people are more used to seeing it,
     // even though it's not really part of the permissions per se.
     if (m_bLink) {
         buffer[0] = 'l';

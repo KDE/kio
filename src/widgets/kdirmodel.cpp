@@ -993,16 +993,6 @@ QMimeData *KDirModel::mimeData(const QModelIndexList &indexes) const
         data->setUrls(urls);
     }
 
-    // for compatibility reasons (when dropping or pasting into kde3 applications)
-    QString application_x_qiconlist;
-    const int items = urls.count();
-    for (int i = 0; i < items; i++) {
-        const int offset = i * 16;
-        QString tmp("%1$@@$%2$@@$32$@@$32$@@$%3$@@$%4$@@$32$@@$16$@@$no data$@@$");
-        application_x_qiconlist += tmp.arg(offset).arg(offset).arg(offset).arg(offset + 40);
-    }
-    data->setData("application/x-qiconlist", application_x_qiconlist.toLatin1());
-
     return data;
 }
 

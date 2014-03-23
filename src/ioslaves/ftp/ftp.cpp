@@ -109,7 +109,6 @@ static bool isSocksProxy()
 }
 
 // JPF: somebody should find a better solution for this or move this to KIO
-// JPF: anyhow, in KDE 3.2.0 I found diffent MAX_IPC_SIZE definitions!
 namespace KIO
 {
 enum buffersizes {
