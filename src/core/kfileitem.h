@@ -63,9 +63,6 @@ public:
 
     /**
      * Null KFileItem. Doesn't represent any file, only exists for convenience.
-     *
-     * NOTE KDE 4.0 when porting from KFileItem* to KFileItem&:
-     * '(KFileItem*)a==0'  becomes '(KFileItem)a.isNull()'
      */
     KFileItem();
 
@@ -364,7 +361,7 @@ public:
      * This will not try to determine the mimetype if unknown.
      * @return the known mime type
      */
-    QMimeType currentMimeType() const; // KDE4: was mimeTypePtr()
+    QMimeType currentMimeType() const;
 
     /**
      * @return true if we have determined the final icon of this file already.

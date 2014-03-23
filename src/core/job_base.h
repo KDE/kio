@@ -243,7 +243,9 @@ protected:
     /**
      * Mark a sub job as being done.
      *
-     * KDE4 change: this doesn't terminate the parent job anymore, call emitResult to do that.
+     * Note that this does not terminate the parent job, even if @p job
+     * is the last subjob.  emitResult must be called to indicate that
+     * the job is complete.
      *
      * @param job the subjob to remove
      */

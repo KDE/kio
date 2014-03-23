@@ -2258,7 +2258,7 @@ void KDirOperator::resizeEvent(QResizeEvent *)
 void KDirOperator::setOnlyDoubleClickSelectsFiles(bool enable)
 {
     d->onlyDoubleClickSelectsFiles = enable;
-    // TODO: port to Qt4's QAbstractItemModel
+    // TODO: port to QAbstractItemModel
     //if (d->itemView != 0) {
     //    d->itemView->setOnlyDoubleClickSelectsFiles(enable);
     //}

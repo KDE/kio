@@ -34,7 +34,7 @@ namespace KIO
  * Call this one when you don't know the mimetype.
  *
  * @param url URL for the file.
- * @param dummy ignored (was a mode_t parameter in KDE4)
+ * @param dummy ignored (was a mode_t parameter in kdelibs 4)
  * @param group The icon group where the icon is going to be used.
  * @param force_size Override globally configured icon size.
  *        Use 0 for the default size
@@ -44,7 +44,7 @@ namespace KIO
  *              Ignored if 0
  * @return the pixmap of the URL, can be a default icon if not found
  */
-KIOWIDGETS_EXPORT QPixmap pixmapForUrl(const QUrl &url, int mode = 0, KIconLoader::Group group = KIconLoader::Desktop,
+KIOWIDGETS_EXPORT QPixmap pixmapForUrl(const QUrl &url, int dummy = 0, KIconLoader::Group group = KIconLoader::Desktop,
                                        int force_size = 0, int state = 0, QString *path = 0);
 
 }

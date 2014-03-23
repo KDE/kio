@@ -467,9 +467,9 @@ public:
      * When argument is true, files and directories are highlighted with single click and
      * selected (executed) with double click.
      *
-     * NOTE: this is not implemented in KDE 4 yet
+     * NOTE: this currently has no effect.
      *
-     * The default follows the signle/double click system setting.
+     * The default follows the single/double click system setting.
      */
     void setOnlyDoubleClickSelectsFiles(bool enable);
 

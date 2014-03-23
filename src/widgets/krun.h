@@ -76,7 +76,7 @@ public:
      * @param asn
      *        Application startup notification id, if available (otherwise "").
      *
-     * Porting note: KDE4 had mode_t mode and bool isLocalFile arguments after
+     * Porting note: kdelibs 4 had mode_t mode and bool isLocalFile arguments after
      * window and before showProgressInfo. Removed in KF5.
      */
     KRun(const QUrl &url, QWidget *window,

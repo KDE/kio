@@ -429,7 +429,7 @@ QIcon KUrlComboBoxPrivate::getIcon(const QUrl &url) const
 }
 
 // updates "item" with icon "icon"
-// KDE4 used to also say "and sets the URL instead of text", but this breaks const-ness,
+// kdelibs4 used to also say "and sets the URL instead of text", but this breaks const-ness,
 // now that it would require clearing the text, and I don't see the point since the URL was already in the text.
 void KUrlComboBoxPrivate::updateItem(const KUrlComboBoxPrivate::KUrlComboItem *item,
                                      int index, const QIcon &icon)

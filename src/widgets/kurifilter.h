@@ -146,16 +146,9 @@ private:
 * \endcode
 *
 * If you are only interested in getting the list of preferred search providers,
-* then you can do the following (requires KDE >= 4.5):
+* then you can do the following:
 *
 * \code
-* KDE 4.5:
-* KUriFilterData data;
-* data.setData("<text-to-search-for>");
-* data.setAlternateDefaultSearchProvider("google");
-* bool filtered = KUriFilter::self()->filterUri(data, "kuriikwsfilter");
-*
-* KDE >= 4.6:
 * KUriFilterData data;
 * data.setData("<text-to-search-for>");
 * data.setSearchFilteringOption(KUriFilterData::RetrievePreferredSearchProvidersOnly);

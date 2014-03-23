@@ -759,9 +759,10 @@ public:
      * \note A call to this function can fail and return @p false,
      * if the UIServer could not be started for whatever reason.
      *
-     * \note Starting with KDE 4.7, this function will no longer store the password
-     * information automatically. If you want to store the password information in
-     * a persistent storage like KWallet, then you MUST call @ref cacheAuthentication.
+     * \note This function does not store the password information
+     * automatically (and has not since kdelibs 4.7). If you want to
+     * store the password information in a persistent storage like
+     * KWallet, then you MUST call @ref cacheAuthentication.
      *
      * @see checkCachedAuthentication
      * @param info  See AuthInfo.
@@ -802,9 +803,8 @@ public:
     /**
      * Caches @p info in a persistent storage like KWallet.
      *
-     * Starting with KDE 4.7, calling openPasswordDialog will no longer store
-     * passwords automatically for you. This was done to avoid accidental storage
-     * of incorrect or invalid password information.
+     * Note that calling openPasswordDialog does not store passwords
+     * automatically for you (and has not since kdelibs 4.7).
      *
      * Here is a simple example of how to use cacheAuthentication:
      *

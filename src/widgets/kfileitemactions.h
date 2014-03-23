@@ -79,7 +79,6 @@ public:
      * @param menu the QMenu where to add actions
      * @param traderConstraint this constraint allows to exclude the current application
      * from the "open with" list. Example: "DesktopEntryName != 'kfmclient'".
-     * (Default value added in kdelibs-4.5, pass QString() explicitly for earlier versions).
      */
     void addOpenWithActionsTo(QMenu *menu, const QString &traderConstraint = QString());
 

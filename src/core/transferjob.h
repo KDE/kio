@@ -75,8 +75,8 @@ public:
      * instead of the amount of data that that has been received.
      * @see slotProcessedSize
      * @see slotSpeed
-     * @deprecated not needed, this is false for KIO::get and true for KIO::put,
-     *             automatically since KDE-4.2.1
+     * @deprecated since 4.2.1, this is unnecessary (it is always false for
+     *             KIO::get and true for KIO::put)
      */
 #ifndef KDE_NO_DEPRECATED
     KIOCORE_DEPRECATED void setReportDataSent(bool enabled);
@@ -86,8 +86,8 @@ public:
      *  Returns whether the job reports the amount of data that has been
      *  sent (true), or whether the job reports the amount of data that
      * has been received (false)
-     * @deprecated not needed, this is false for KIO::get and true for KIO::put,
-     *             automatically since KDE-4.2.1 (and not useful as public API)
+     * @deprecated since 4.2.1, this is unnecessary (it is always false for
+     *             KIO::get and true for KIO::put)
      */
 #ifndef KDE_NO_DEPRECATED
     KIOCORE_DEPRECATED bool reportDataSent() const;

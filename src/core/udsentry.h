@@ -245,11 +245,11 @@ public:
         UDS_INODE = 30 | UDS_NUMBER,
 
         /// Extra data (used only if you specified Columns/ColumnsTypes)
-        /// KDE 4.0 change: you cannot repeat this entry anymore, use UDS_EXTRA + i
+        /// NB: you cannot repeat this entry; use UDS_EXTRA + i
         /// until UDS_EXTRA_END.
         UDS_EXTRA = 100 | UDS_STRING,
         /// Extra data (used only if you specified Columns/ColumnsTypes)
-        /// KDE 4.0 change: you cannot repeat this entry anymore, use UDS_EXTRA + i
+        /// NB: you cannot repeat this entry; use UDS_EXTRA + i
         /// until UDS_EXTRA_END.
         UDS_EXTRA_END = 140 | UDS_STRING
     };

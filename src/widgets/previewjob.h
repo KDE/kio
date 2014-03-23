@@ -172,14 +172,14 @@ public:
      * icons for the same item. For example it may allow iterating through
      * the items of a directory, or the frames of a video.
      *
-     * @since KDE 4.3
+     * @since 4.3
      **/
     void setSequenceIndex(int index);
 
     /**
      * Returns the currently set sequence index
      *
-     * @since KDE 4.3
+     * @since 4.3
      **/
     int sequenceIndex() const;
 
