@@ -34,8 +34,8 @@
 
 enum BinaryUnitDialect {
     DefaultBinaryDialect = -1, ///< Used if no specific preference
-    IECBinaryDialect,          ///< KDE Default, KiB, MiB, etc. 2^(10*n)
-    JEDECBinaryDialect,        ///< KDE 3.5 default, KB, MB, etc. 2^(10*n)
+    IECBinaryDialect,          ///< KiB, MiB, etc. 2^(10*n)
+    JEDECBinaryDialect,        ///< KB, MB, etc. 2^(10*n)
     MetricBinaryDialect,       ///< SI Units, kB, MB, etc. 10^(3*n)
     LastBinaryDialect = MetricBinaryDialect
 };
