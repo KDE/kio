@@ -17,7 +17,6 @@
 */
 
 #include "paste.h"
-#include "clipboardupdater_p.h"
 #include "pastedialog_p.h"
 
 #include "kio/job.h"
@@ -67,10 +66,6 @@ static KIO::Job *pasteClipboardUrls(const QMimeData *mimeData, const QUrl &destD
         KIO::Job *job = 0;
         if (move) {
             job = KIO::move(urls, destDir, flags);
-            KIO::ClipboardUpdater *clipboardUpdater = job->findChild<KIO::ClipboardUpdater *>();
-            if (clipboardUpdater) {
-                clipboardUpdater->setMode(KIO::JobUiDelegateExtension::OverwriteContent);
-            }
         } else {
             job = KIO::copy(urls, destDir, flags);
         }
