@@ -1102,9 +1102,6 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
     case CMD_CONFIG: {
         stream >> d->configData;
         d->rebuildConfig();
-#if 0 //TODO: decide what to do in KDE 4.1
-        KSocks::setConfig(d->configGroup);
-#endif
         delete d->remotefile;
         d->remotefile = 0;
     } break;
