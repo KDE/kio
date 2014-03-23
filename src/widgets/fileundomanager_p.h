@@ -114,13 +114,7 @@ public:
 
     void pushCommand(const UndoCommand &cmd);
 
-    void broadcastPush(const UndoCommand &cmd);
-    void broadcastPop();
-    void broadcastLock();
-    void broadcastUnlock();
-
     void addDirToUpdate(const QUrl &url);
-    bool initializeFromKDesky();
 
     void undoStep();
 
@@ -140,7 +134,6 @@ public:
     /// called by UndoCommandRecorder
     void addCommand(const UndoCommand &cmd);
 
-    bool m_syncronized;
     bool m_lock;
 
     UndoCommand::Stack m_commands;
