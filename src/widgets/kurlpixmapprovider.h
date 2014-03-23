@@ -31,8 +31,8 @@
  *
  * Instatiate this class and supply it to the desired class, e.g.
  * \code
- * KHistoryCombo *combo = new KHistoryCombo( this );
- * combo->setPixmapProvider( new KUrlPixmapProvider );
+ * KHistoryComboBox *combo = new KHistoryComboBox(this);
+ * combo->setPixmapProvider(new KUrlPixmapProvider);
  * [...]
  * \endcode
  *
@@ -54,7 +54,9 @@ public:
 
     /**
      * Returns a pixmap for @p url with size @p size.
+     *
      * Uses KMimeType::pixmapForURL().
+     *
      * @param url the URL to fetch a pixmap for
      * @param size the size of the pixmap in pixels, or 0 for default.
      * @return the resulting pixmap
