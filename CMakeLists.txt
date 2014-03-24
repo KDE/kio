@@ -23,9 +23,9 @@ set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp
 ########### next target ###############
 if(WIN32)
   set(kio_trash_PART_SRCS kio_trash_win.cpp kio_trash_win.h)
-else(WIN32)
+else()
   set(kio_trash_PART_SRCS kio_trash.cpp ${trashcommon_PART_SRCS})
-endif(WIN32)
+endif()
 add_library(kio_trash MODULE ${kio_trash_PART_SRCS})
 
 # This flag is needed in order to be able to support files > 2GB even on
@@ -79,7 +79,7 @@ if(NOT WIN32)
         ${KDECLARATIVE_LIBRARIES} KF5::I18n KF5::ConfigWidgets KF5::KIOCore KF5::KIOWidgets KF5::Solid)
 
     install(TARGETS kcm_trash DESTINATION ${PLUGIN_INSTALL_DIR})
-endif(NOT WIN32)
+endif()
 
 ########### install files ###############
 
