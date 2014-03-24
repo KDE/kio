@@ -12,7 +12,7 @@
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
 
-#add_subdirectory(tests)
+add_subdirectory(tests)
 
 set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp
                            ${CMAKE_CURRENT_SOURCE_DIR}/discspaceutil.cpp
