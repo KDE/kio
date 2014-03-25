@@ -132,7 +132,7 @@ static void removeDirRecursive( const QString& dir )
 
         KIO::Job* delJob = KIO::del(u, KIO::HideProgressInfo);
         if (!KIO::NetAccess::synchronousRun(delJob, 0))
-            qFatal(QString(QString("Couldn't delete ") + dir).toUtf8()) ;
+            qFatal("Couldn't delete %s", qPrintable(dir));
     }
 }
 
@@ -210,10 +210,10 @@ void TestTrash::initTestCase()
     QDir dir; // TT: why not a static method?
     bool ok = dir.mkdir( homeTmpDir() );
     if ( !ok )
-        qFatal(QString("Couldn't create " + homeTmpDir()).toUtf8());
+        qFatal("Couldn't create directory: %s", qPrintable(homeTmpDir()));
     ok = dir.mkdir( otherTmpDir() );
     if ( !ok )
-        qFatal(QString("Couldn't create " + otherTmpDir()).toUtf8()) ;
+        qFatal("Couldn't create directory: %s", qPrintable(otherTmpDir()));
 
     // Start with a clean trash too
     qDebug() << "removing trash dir";
@@ -282,7 +282,7 @@ static void checkInfoFile( const QString& infoPath, const QString& origFilePath 
     KConfig infoFile( info.absoluteFilePath() );
     KConfigGroup group = infoFile.group( "Trash Info" );
     if ( !group.exists() )
-        qFatal(QString("no Trash Info group in " + info.absoluteFilePath()).toUtf8());
+        qFatal("no Trash Info group in %s", qPrintable(info.absoluteFilePath()));
     const QString origPath = group.readEntry( "Path" );
     QVERIFY(!origPath.isEmpty());
     QVERIFY(origPath == QString::fromLatin1(QUrl::toPercentEncoding(origFilePath, "/")));
@@ -300,7 +300,7 @@ static void createTestFile( const QString& path )
 {
     QFile f( path );
     if ( !f.open( QIODevice::WriteOnly ) )
-        qFatal(QString("Can't create " + path).toUtf8());
+        qFatal("Can't create %s", qPrintable(path));
     f.write( "Hello world\n", 12 );
     f.close();
     QVERIFY( QFile::exists( path ) );
