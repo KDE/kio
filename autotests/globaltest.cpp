@@ -20,7 +20,8 @@
 #include "globaltest.h"
 #include <QTest>
 
-#include <kio/global.h>
+#include "global.h"
+#include "kioglobal_p.h"
 
 #include <QFile>
 

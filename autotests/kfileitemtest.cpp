@@ -422,6 +422,9 @@ void KFileItemTest::testIconNameForUrl()
     QCOMPARE(KIO::iconNameForUrl(QUrl(url)), expectedIcon);
 }
 
+
+#ifndef Q_OS_WIN // user/group/other write permissions are not handled on windows
+
 void KFileItemTest::testIsReadable_data()
 {
     QTest::addColumn<int>("mode");
@@ -446,3 +449,5 @@ void KFileItemTest::testIsReadable()
     KFileItem fileItem(QUrl::fromLocalFile(file.fileName()));
     QCOMPARE(fileItem.isReadable(), readable);
 }
+
+#endif

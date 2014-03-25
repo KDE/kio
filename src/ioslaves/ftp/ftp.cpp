@@ -59,6 +59,8 @@
 #include <kremoteencoding.h>
 #include <kconfiggroup.h>
 
+#include "kioglobal_p.h"
+
 #if HAVE_STRTOLL
 #define charToLongLong(a) strtoll(a, 0, 10)
 #else

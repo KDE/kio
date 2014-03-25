@@ -113,6 +113,7 @@ extern "C" {
 #include <kcapacitybar.h>
 #include <kfileitemlistproperties.h>
 #include <kwindowconfig.h>
+#include <kioglobal_p.h>
 
 #include "ui_kpropertiesdesktopbase.h"
 #include "ui_kpropertiesdesktopadvbase.h"
@@ -277,7 +278,7 @@ KPropertiesDialog::KPropertiesDialog(const QUrl &_tempUrl, const QUrl &_currentD
 #ifdef Q_OS_WIN
 bool showWin32FilePropertyDialog(const QString &fileName)
 {
-    QString path_ = QDir::convertSeparators(QFileInfo(fileName).absoluteFilePath());
+    QString path_ = QDir::toNativeSeparators(QFileInfo(fileName).absoluteFilePath());
 
 #ifndef _WIN32_WCE
     SHELLEXECUTEINFOW execInfo;
@@ -292,8 +293,8 @@ bool showWin32FilePropertyDialog(const QString &fileName)
     execInfo.fMask = SEE_MASK_NOCLOSEPROCESS | SEE_MASK_FLAG_NO_UI;
 #endif
     const QString verb(QLatin1String("properties"));
-    execInfo.lpVerb = WIN32_CAST_CHAR verb.utf16();
-    execInfo.lpFile = WIN32_CAST_CHAR path_.utf16();
+    execInfo.lpVerb = (LPCWSTR)verb.utf16();
+    execInfo.lpFile = (LPCWSTR)path_.utf16();
 #ifndef _WIN32_WCE
     return ShellExecuteExW(&execInfo);
 #else

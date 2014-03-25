@@ -37,8 +37,10 @@ private Q_SLOTS:
     void testCmp();
     void testRename();
     void testDotDirectory();
+#ifndef Q_OS_WIN
     void testIsReadable_data();
     void testIsReadable();
+#endif
 
     void testDecodeFileName_data();
     void testDecodeFileName();
