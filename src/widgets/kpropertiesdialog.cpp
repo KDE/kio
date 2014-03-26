@@ -1790,8 +1790,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     * (possibly) making this unacceptably slow.
     * OTOH, it is nice to offer this functionality for the standard user.
     */
-    int i, maxEntries = 1000;
-    struct passwd *user;
+    int maxEntries = 1000;
 
     /* File owner: For root, offer a KLineEdit with autocompletion.
     * For a user, who can never chown() a file, offer a QLabel.
@@ -1804,7 +1803,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
         Q_FOREACH(const QString& s, userNames) {
             kcom->addItem(s);
         }
-        d->usrEdit->setCompletionMode((i < maxEntries) ? KCompletion::CompletionAuto :
+        d->usrEdit->setCompletionMode((userNames.size() < maxEntries) ? KCompletion::CompletionAuto :
                                       KCompletion::CompletionNone);
         d->usrEdit->setText(d->strOwner);
         gl->addWidget(d->usrEdit, 1, 1);
@@ -3374,7 +3373,7 @@ void KDesktopPropsPlugin::slotAdvanced()
     bool terminalCloseBool = false;
 
     if (preferredTerminal == "konsole") {
-        terminalCloseBool = (d->m_terminalOptionStr.contains("--noclose") > 0);
+        terminalCloseBool = d->m_terminalOptionStr.contains("--noclose");
         w.terminalCloseCheck->setChecked(terminalCloseBool);
         d->m_terminalOptionStr.remove("--noclose");
     } else {
@@ -3408,7 +3407,6 @@ void KDesktopPropsPlugin::slotAdvanced()
     // Provide username completion up to 1000 users.
     KCompletion *kcom = new KCompletion;
     kcom->setOrder(KCompletion::Sorted);
-    struct passwd *pw;
     int i, maxEntries = 1000;
     QStringList userNames = KUser::allUserNames(maxEntries);
     Q_FOREACH(const QString& userName, userNames) {
