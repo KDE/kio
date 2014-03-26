@@ -31,6 +31,7 @@
 #include <kio/job.h>
 #include <kio/deletejob.h>
 #include <kio/paste.h>
+#include <kioglobal_p.h>
 #include <kprotocolinfo.h>
 #include <kurlmimedata.h>
 
@@ -119,7 +120,7 @@ static void createTestSymlink(const QString &path)
     // Create symlink if it doesn't exist yet
     QT_STATBUF buf;
     if (QT_LSTAT(QFile::encodeName(path).constData(), &buf) != 0) {
-        bool ok = symlink("/IDontExist", QFile::encodeName(path).constData()) == 0; // broken symlink
+        bool ok = KIOPrivate::createSymlink(QStringLiteral("/IDontExist"), path); // broken symlink
         if (!ok) {
             qFatal("couldn't create symlink: %s", strerror(errno));
         }
