@@ -20,6 +20,8 @@
 
 #include "kfileitem.h"
 
+#include "kioglobal_p.h"
+
 #include <QtCore/QDate>
 #include <QtCore/QDir>
 #include <QtCore/QDirIterator>

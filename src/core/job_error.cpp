@@ -17,6 +17,7 @@
 */
 
 #include "job.h"
+#include "kioglobal_p.h"
 #include <kprotocolmanager.h>
 #include <klocalizedstring.h>
 #include <QUrl>
