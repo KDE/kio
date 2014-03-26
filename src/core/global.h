@@ -44,13 +44,6 @@ typedef qlonglong fileoffset_t;
 /// 64-bit file size
 typedef qulonglong filesize_t;
 
-#ifdef Q_OS_WIN
-// Windows does not have a pid_t type, use int
-typedef int ProcessId;
-#else
-typedef pid_t ProcessId;
-#endif
-
 /**
  * Converts @p size from bytes to the string representation.
  *

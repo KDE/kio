@@ -155,8 +155,8 @@ private:
     friend class SimpleJobPrivate;
     friend class UserNotificationHandler;
 
-    void setPID(KIO::ProcessId);
-    KIO::ProcessId slave_pid();
+    void setPID(qint64);
+    qint64 slave_pid();
 
     void setJob(KIO::SimpleJob *job);
     KIO::SimpleJob *job() const;

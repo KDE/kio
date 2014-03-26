@@ -107,7 +107,7 @@ public:
     QString m_passwd;
     KIO::ConnectionServer *slaveconnserver;
     KIO::SimpleJob *m_job;
-    KIO::ProcessId m_pid;
+    qint64 m_pid;
     quint16 m_port;
     bool contacted;
     bool dead;
@@ -266,13 +266,13 @@ int Slave::idleTime()
     return d->m_idleSince.secsTo(QDateTime::currentDateTime());
 }
 
-void Slave::setPID(KIO::ProcessId pid)
+void Slave::setPID(qint64 pid)
 {
     Q_D(Slave);
     d->m_pid = pid;
 }
 
-KIO::ProcessId Slave::slave_pid()
+qint64 Slave::slave_pid()
 {
     Q_D(Slave);
     return d->m_pid;
@@ -483,7 +483,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
         delete slave;
         return 0;
     }
-    KIO::ProcessId pid = reply;
+    qint64 pid = reply;
     if (!pid) {
         error_text = i18n("Unable to create io-slave:\nklauncher said: %1", errorStr);
         error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
@@ -509,7 +509,7 @@ Slave *Slave::holdSlave(const QString &protocol, const QUrl &url)
         delete slave;
         return 0;
     }
-    KIO::ProcessId pid = reply;
+    qint64 pid = reply;
     if (!pid) {
         delete slave;
         return 0;

@@ -32,7 +32,7 @@ public:
     QString mProtocol;
     QString mHost;
     bool mConnected;
-    KIO::ProcessId mPid;
+    qint64 mPid;
     QDateTime mBirthDate;
     bool mOnHold;
     QUrl mUrl;
@@ -68,7 +68,7 @@ void IdleSlave::gotInput()
         deleteLater();
     } else {
         QDataStream stream(data);
-        KIO::ProcessId pid;
+        qint64 pid;
         QByteArray protocol;
         QString host;
         qint8 b;
@@ -98,7 +98,7 @@ void IdleSlave::connect(const QString &app_socket)
     // Timeout!
 }
 
-KIO::ProcessId IdleSlave::pid() const
+qint64 IdleSlave::pid() const
 {
     return d->mPid;
 }

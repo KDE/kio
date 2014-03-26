@@ -195,7 +195,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         emit error(i, str1);
         break;
     case MSG_SLAVE_STATUS: {
-        KIO::ProcessId pid;
+        qint64 pid;
         QByteArray protocol;
         stream >> pid >> protocol >> str1 >> b;
         emit slaveStatus(pid, protocol, str1, (b != 0));

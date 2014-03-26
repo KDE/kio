@@ -527,8 +527,8 @@ Slave *ProtoQueue::createSlave(const QString &protocol, SimpleJob *job, const QU
     if (slave) {
         scheduler()->connect(slave, SIGNAL(slaveDied(KIO::Slave*)),
                              SLOT(slotSlaveDied(KIO::Slave*)));
-        scheduler()->connect(slave, SIGNAL(slaveStatus(KIO::ProcessId,QByteArray,QString,bool)),
-                             SLOT(slotSlaveStatus(KIO::ProcessId,QByteArray,QString,bool)));
+        scheduler()->connect(slave, SIGNAL(slaveStatus(qint64,QByteArray,QString,bool)),
+                             SLOT(slotSlaveStatus(qint64,QByteArray,QString,bool)));
     } else {
         qWarning() << "couldn't create slave:" << errortext;
         if (job) {
@@ -692,7 +692,7 @@ public:
                     const QStringList &proxyList, bool newSlave, const KIO::MetaData *config = 0);
 
     void slotSlaveDied(KIO::Slave *slave);
-    void slotSlaveStatus(KIO::ProcessId pid, const QByteArray &protocol,
+    void slotSlaveStatus(qint64 pid, const QByteArray &protocol,
                          const QString &host, bool connected);
 
     void slotReparseSlaveConfiguration(const QString &, const QDBusMessage &);
@@ -1095,7 +1095,7 @@ void SchedulerPrivate::setupSlave(KIO::Slave *slave, const QUrl &url, const QStr
     }
 }
 
-void SchedulerPrivate::slotSlaveStatus(KIO::ProcessId, const QByteArray &, const QString &, bool)
+void SchedulerPrivate::slotSlaveStatus(qint64, const QByteArray &, const QString &, bool)
 {
 }
 

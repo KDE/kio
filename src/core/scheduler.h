@@ -23,7 +23,6 @@
 #define _kio_scheduler_h
 
 #include "simplejob.h"
-#include "global.h" // KIO::ProcessId
 #include <QtCore/QTimer>
 #include <QtCore/QMap>
 
@@ -281,7 +280,7 @@ private:
     static Scheduler *self();
 
     Q_PRIVATE_SLOT(d_func(), void slotSlaveDied(KIO::Slave *slave))
-    Q_PRIVATE_SLOT(d_func(), void slotSlaveStatus(KIO::ProcessId pid, const QByteArray &protocol,
+    Q_PRIVATE_SLOT(d_func(), void slotSlaveStatus(qint64 pid, const QByteArray &protocol,
                    const QString &host, bool connected))
 
     // connected to D-Bus signal:

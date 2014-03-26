@@ -491,7 +491,7 @@ void SlaveBase::needSubUrlData()
 
 void SlaveBase::slaveStatus(const QString &host, bool connected)
 {
-    KIO::ProcessId pid = getpid();
+    qint64 pid = getpid();
     qint8 b = connected ? 1 : 0;
     KIO_DATA << pid << mProtocol << host << b;
     if (d->onHold) {
