@@ -45,7 +45,6 @@
 #include "kpropertiesdialog_p.h"
 
 #include <config-kiowidgets.h>
-#include <config-getgrouplist.h>
 
 #include <qplatformdefs.h>
 #include <algorithm>
@@ -1615,7 +1614,8 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     QString fname = properties->url().fileName();
     bool isLocal = properties->url().isLocalFile();
     bool isTrash = (properties->url().scheme() == "trash");
-    bool IamRoot = (geteuid() == 0);
+    KUser myself(KUser::UseEffectiveUID);
+    const bool IamRoot = myself.isSuperUser();
 
     const KFileItem item = properties->item();
     bool isLink = item.isLink();
@@ -1679,7 +1679,6 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     bool isMyFile = false;
 
     if (isLocal && !d->strOwner.isEmpty()) { // local files, and all owned by the same person
-        KUser myself(KUser::UseEffectiveUID);
         if (myself.isValid()) {
             isMyFile = (d->strOwner == myself.loginName());
         } else {
@@ -1820,37 +1819,8 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
 
     QStringList groupList;
     QByteArray strUser;
-    user = getpwuid(geteuid());
-    if (user != 0L) {
-        strUser = user->pw_name;
-    }
-
-#if HAVE_GETGROUPLIST
-    // pick the groups to which the user belongs
-    int groupCount = 0;
-#ifdef Q_OS_MAC
-    QVarLengthArray<int> groups;
-#else
-    QVarLengthArray<gid_t> groups;
-#endif
-    if (getgrouplist(strUser, user->pw_gid, NULL, &groupCount) < 0) {
-        groups.resize(groupCount);
-        if (groups.data()) {
-            getgrouplist(strUser, user->pw_gid, groups.data(), &groupCount);
-        } else {
-            groupCount = 0;
-        }
-    }
-
-    for (i = 0; i < groupCount; i++) {
-        struct group *mygroup = getgrgid(groups[i]);
-        if (mygroup) {
-            groupList += QString::fromLocal8Bit(mygroup->gr_name);
-        }
-    }
-#endif // HAVE_GETGROUPLIST
-
-    bool isMyGroup = groupList.contains(d->strGroup);
+    KUser user(KUser::UseEffectiveUID);
+    const bool isMyGroup = user.groupNames().contains(d->strGroup);
 
     /* add the group the file currently belongs to ..
     * .. if it is not there already

@@ -12,10 +12,7 @@ set(HAVE_POSIX_ACL ${ACL_FOUND})
 
 set_package_properties(ACL PROPERTIES DESCRIPTION "LibACL" URL "ftp://oss.sgi.com/projects/xfs/cmd_tars"
                        TYPE RECOMMENDED PURPOSE "Support for manipulating access control lists")
-check_symbol_exists(getgrouplist    "unistd.h;grp.h"           HAVE_GETGROUPLIST)
 configure_file(config-kiowidgets.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kiowidgets.h)
-configure_file(config-getgrouplist.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-getgrouplist.h)
-
 
 set(kiowidgets_SRCS
   accessmanager.cpp
@@ -65,11 +62,6 @@ if (WIN32)
 else()
   list(APPEND kiowidgets_SRCS
     kautomount.cpp
-  )
-endif()
-if (NOT HAVE_GETGROUPLIST)
-  list(APPEND kiowidgets_SRCS
-    getgrouplist-fake.c
   )
 endif()
 
