@@ -6,6 +6,7 @@ add_subdirectory(ioslaves)
 add_subdirectory(kssld)
 add_subdirectory(kioslave)
 add_subdirectory(kioexec)
+add_subdirectory(kpasswdserver)
 
 if(NOT WIN32)
   # arpa/nameser.h

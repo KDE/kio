@@ -13,6 +13,7 @@ include(KDECMakeSettings)
 include(FeatureSummary)
 include(GenerateExportHeader)
 
+include(ECMMarkAsTest)
 include(ECMSetupVersion)
 include(ECMGenerateHeaders)
 
@@ -44,6 +45,7 @@ find_package(KF5Solid ${KF5_VERSION} REQUIRED)
 find_package(KF5WidgetsAddons ${KF5_VERSION} REQUIRED)
 find_package(KF5WindowSystem ${KF5_VERSION} REQUIRED)
 find_package(KF5XmlGui ${KF5_VERSION} REQUIRED)
+find_package(KF5Wallet ${KF5_VERSION} REQUIRED)
 
 # TODO: Remove these
 remove_definitions(-DQT_NO_CAST_TO_ASCII)
