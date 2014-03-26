@@ -90,11 +90,13 @@ set(kiocore_SRCS
 if (UNIX)
    set(kiocore_SRCS ${kiocore_SRCS}
       klocalsocket_unix.cpp
+      kioglobal_p_unix.cpp
    )
 endif()
 if (WIN32)
    set(kiocore_SRCS ${kiocore_SRCS}
       klocalsocket_win.cpp
+      kioglobal_p_win.cpp
    )
 endif()
 

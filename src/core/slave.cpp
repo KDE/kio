@@ -22,7 +22,6 @@
 
 #include <qplatformdefs.h>
 #include <stdio.h>
-#include <signal.h>
 
 #include <QtCore/QFile>
 #include <QtCore/QTimer>
@@ -40,6 +39,7 @@
 #include "connection_p.h"
 #include "commands_p.h"
 #include "connectionserver.h"
+#include "kioglobal_p.h"
 #include <kprotocolinfo.h>
 #include <config-kiocore.h> // CMAKE_INSTALL_PREFIX
 
@@ -139,7 +139,7 @@ void Slave::timeout()
 
     /*qDebug() << "slave failed to connect to application pid=" << d->m_pid
                  << " protocol=" << d->m_protocol;*/
-    if (d->m_pid && (::kill(d->m_pid, 0) == 0)) {
+    if (d->m_pid && KIOPrivate::isProcessAlive(d->m_pid)) {
         int delta_t = d->contact_started.secsTo(QDateTime::currentDateTime());
         //qDebug() << "slave is slow... pid=" << d->m_pid << " t=" << delta_t;
         if (delta_t < SLAVE_CONNECTION_TIMEOUT_MAX) {
@@ -374,11 +374,7 @@ void Slave::kill()
     /*qDebug() << "killing slave pid" << d->m_pid
                  << "(" << QString(d->m_protocol) + "://" + d->m_host << ")";*/
     if (d->m_pid) {
-#ifndef _WIN32_WCE
-        ::kill(d->m_pid, SIGTERM);
-#else
-        ::kill(d->m_pid, SIGKILL);
-#endif
+        KIOPrivate::sendTerminateSignal(d->m_pid);
         d->m_pid = 0;
     }
 }

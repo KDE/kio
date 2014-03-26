@@ -54,4 +54,11 @@ Q_STATIC_ASSERT(S_IRUSR == _S_IREAD && S_IWUSR == _S_IWRITE && S_IXUSR == _S_IEX
 
 #endif //Q_OS_WIN
 
+namespace KIOPrivate {
+    /** @return true if the process with given PID is currently running */
+    bool isProcessAlive(qint64 pid);
+    /** Send a terminate signal (SIGTERM on UNIX) to the process with given PID. */
+    void sendTerminateSignal(qint64 pid);
+}
+
 #endif // KIO_KIOGLOBAL_P_H
