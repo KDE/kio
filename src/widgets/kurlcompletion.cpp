@@ -47,6 +47,8 @@
 #include <kconfig.h>
 #include <ksharedconfig.h>
 #include <kcompletion.h>
+#include <kioglobal_p.h>
+#include <KUser>
 
 #include <qplatformdefs.h>
 #include <time.h>
@@ -275,13 +277,21 @@ protected:
 
         // we don't need to handle prepend here, right? ~user is always at pos 0
         assert(m_prepend.isEmpty());
+#pragma message("TODO: add KUser::allUserNames() with a std::function<bool()> shouldTerminate parameter")
+#ifndef Q_OS_WIN
         struct passwd *pw;
+        ::setpwent();
         while ((pw = ::getpwent()) && !terminationRequested()) {
             addMatch(tilde + QString::fromLocal8Bit(pw->pw_name));
         }
-
         ::endpwent();
-
+#else
+        //currently terminationRequested is ignored on Windows
+        QStringList allUsers = KUser::allUserNames();
+        Q_FOREACH(const QString& s, allUsers) {
+            addMatch(tilde + s);
+        }
+#endif
         addMatch(QString(tilde));
 
         done();
@@ -1346,17 +1356,6 @@ void KUrlCompletion::postProcessMatch(QString *pMatch) const
             QString copy = QUrl(*pMatch).toLocalFile();
             expandTilde(copy);
             expandEnv(copy);
-#ifdef Q_OS_WIN
-            DWORD dwAttr = GetFileAttributesW((LPCWSTR) copy.utf16());
-            if (dwAttr == INVALID_FILE_ATTRIBUTES) {
-                //qDebug() << "Could not get file attribs ( "
-                        << GetLastError()
-                        << " ) for "
-                        << copy;
-            } else if ((dwAttr & FILE_ATTRIBUTE_DIRECTORY) == FILE_ATTRIBUTE_DIRECTORY) {
-                pMatch->append(QLatin1Char('/'));
-            }
-#else
             if (QDir::isRelativePath(copy)) {
                 copy.prepend(d->cwd.toLocalFile() + QLatin1Char('/'));
             }
@@ -1373,7 +1372,6 @@ void KUrlCompletion::postProcessMatch(QString *pMatch) const
             } else {
                 //qDebug() << "Could not stat file" << copy;
             }
-#endif
         }
     }
 }
@@ -1536,24 +1534,19 @@ static bool expandTilde(QString &text)
     //
     if (pos2 >= 0) {
 
-        QString user = text.mid(1, pos2 - 1);
+        QString userName = text.mid(1, pos2 - 1);
         QString dir;
 
         // A single ~ is replaced with $HOME
         //
-        if (user.isEmpty()) {
+        if (userName.isEmpty()) {
             dir = QDir::homePath();
         }
         // ~user is replaced with the dir from passwd
         //
         else {
-            struct passwd *pw = ::getpwnam(user.toLocal8Bit());
-
-            if (pw) {
-                dir = QFile::decodeName(pw->pw_dir);
-            }
-
-            ::endpwent();
+            KUser user(userName);
+            dir = user.homeDir();
         }
 
         if (!dir.isEmpty()) {
