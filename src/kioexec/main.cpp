@@ -24,9 +24,9 @@
 #include <QtCore/QFile>
 #include <QtCore/Q_PID>
 
-#include <kio/job.h>
-#include <kio/copyjob.h>
-#include <kio/desktopexecparser.h>
+#include <job.h>
+#include <copyjob.h>
+#include <desktopexecparser.h>
 #include <QApplication>
 #include <QDebug>
 #include <KMessageBox>
@@ -58,7 +58,7 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
 
     for ( int i = 1; i < args.count(); i++ )
     {
-        KIO::StatJob* mostlocal = KIO::mostLocalUrl( args.value(i) );
+        KIO::StatJob* mostlocal = KIO::mostLocalUrl( QUrl::fromUserInput(args.value(i)) );
         bool b = mostlocal->exec();
         Q_ASSERT(b);
         QUrl url = mostlocal->mostLocalUrl();
@@ -222,7 +222,7 @@ void KIOExec::slotRunApp()
                 {
                     qDebug() << "src='" << src << "'  dest='" << dest << "'";
                     // Do it the synchronous way.
-                    KIO::CopyJob* job = KIO::copy(src, dest);
+                    KIO::CopyJob* job = KIO::copy(QUrl::fromLocalFile(src), dest);
                     if ( !job->exec() )
                     {
                         KMessageBox::error( 0L, job->errorText() );

@@ -5,6 +5,7 @@ add_subdirectory(kntlm)
 add_subdirectory(ioslaves)
 add_subdirectory(kssld)
 add_subdirectory(kioslave)
+add_subdirectory(kioexec)
 
 if(NOT WIN32)
   # arpa/nameser.h
