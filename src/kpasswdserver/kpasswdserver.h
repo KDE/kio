@@ -25,13 +25,14 @@
 #ifndef KPASSWDSERVER_H
 #define KPASSWDSERVER_H
 
-#include <QtCore/QHash>
-#include <QtCore/QList>
-#include <QtDBus/QtDBus>
+#include <QHash>
+#include <QList>
+#include <QWidget>
+#include <QDBusContext>
+#include <QDBusMessage>
 
 #include <kio/authinfo.h>
 #include <kdedmodule.h>
-#include <kdialog.h>
 
 namespace KWallet {
     class Wallet;

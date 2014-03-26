@@ -18,11 +18,11 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include <kdebug.h>
 #include <kpassworddialog.h>
 #include <QApplication>
-#include <qtest_kde.h>
 #include <kpasswdserver.h>
+#include <QTest>
+#include <QSignalSpy>
 
 static const char* sigQueryAuthInfoResult = SIGNAL(queryAuthInfoAsyncResult(qlonglong,qlonglong,KIO::AuthInfo));
 static const char* sigCheckAuthInfoResult = SIGNAL(checkAuthInfoAsyncResult(qlonglong,qlonglong,KIO::AuthInfo));
@@ -54,7 +54,7 @@ private Q_SLOTS:
         server.processRequest();
 
         KIO::AuthInfo info;
-        info.url = KUrl("http://www.example.com");
+        info.url = QUrl("http://www.example.com");
 
         // Make a check for that host, should say "not found"
         QVERIFY(noCheckAuth(server, info));
@@ -88,7 +88,7 @@ private Q_SLOTS:
         KPasswdServer server(this);
         server.setWalletDisabled(true);
         KIO::AuthInfo info;
-        info.url = KUrl("http://www.kde.org");
+        info.url = QUrl("http://www.kde.org");
 
         // Start a query
         QSignalSpy spyQuery(&server, sigQueryAuthInfoResult);
@@ -106,7 +106,7 @@ private Q_SLOTS:
         QCOMPARE(spyCheck.count(), 0); // no reply yet
 
         // Wait for the query to be processed
-        QVERIFY(QTest::kWaitForSignal(&server, sigQueryAuthInfoResult, 1000));
+        QVERIFY(QSignalSpy(&server, sigQueryAuthInfoResult).wait(1000));
         QCOMPARE(spyQuery.count(), 1);
         QCOMPARE(spyQuery[0][0].toLongLong(), id);
         KIO::AuthInfo result = spyQuery[0][2].value<KIO::AuthInfo>();
@@ -124,7 +124,7 @@ private Q_SLOTS:
         KPasswdServer server(this);
         server.setWalletDisabled(true);
         KIO::AuthInfo info;
-        info.url = KUrl("http://www.example.com");
+        info.url = QUrl("http://www.example.com");
 
         // Add auth to the cache
         const qlonglong windowId = 42;
@@ -152,7 +152,7 @@ private Q_SLOTS:
         server.setWalletDisabled(true);
         // What the app would ask
         KIO::AuthInfo info;
-        info.url = KUrl("http://www.example.com");
+        info.url = QUrl("http://www.example.com");
 
         // What the user would type
         KIO::AuthInfo filledInfo(info);
@@ -170,7 +170,7 @@ private Q_SLOTS:
 
        // What the app would ask
         KIO::AuthInfo info;
-        info.url = KUrl("http://www.example.com");
+        info.url = QUrl("http://www.example.com");
 
         // What the user would type
         KIO::AuthInfo filledInfo(info);
@@ -194,7 +194,7 @@ private Q_SLOTS:
 
        // What the app would ask
         KIO::AuthInfo info;
-        info.url = KUrl("http://www.example.com");
+        info.url = QUrl("http://www.example.com");
 
         // What the user would type
         KIO::AuthInfo filledInfo(info);
@@ -218,7 +218,7 @@ private Q_SLOTS:
 
         // What the app would ask. Note the username in the URL.
         KIO::AuthInfo info;
-        info.url = KUrl("http://foo@www.example.com");
+        info.url = QUrl("http://foo@www.example.com");
 
         // What the user would type
         KIO::AuthInfo filledInfo(info);
@@ -238,7 +238,7 @@ private Q_SLOTS:
 
         // Verify there is a cached auth data if the request URL contains the
         // new user name (bar).
-        filledInfo.url = KUrl("http://bar@www.example.com");
+        filledInfo.url = QUrl("http://bar@www.example.com");
         QVERIFY(successCheckAuth(server, filledInfo, result));
 
         // Now the URL check should be valid too.
@@ -252,7 +252,7 @@ private Q_SLOTS:
 
         // What the app would ask.
         KIO::AuthInfo info;
-        info.url = KUrl("http://www.example.com");
+        info.url = QUrl("http://www.example.com");
         info.username = info.url.userName();
 
         KIO::AuthInfo result;
@@ -267,13 +267,13 @@ private Q_SLOTS:
         // Add auth to the cache
         const qlonglong windowId = 42;
         KIO::AuthInfo authInfo;
-        authInfo.url = KUrl("http://www.example.com/test/test.html");
+        authInfo.url = QUrl("http://www.example.com/test/test.html");
         authInfo.username = "toto";
         authInfo.password = "foobar";
         server.addAuthInfo(authInfo, windowId);
 
         KIO::AuthInfo queryAuthInfo;
-        queryAuthInfo.url = KUrl("http://www.example.com/test/test2/test.html");
+        queryAuthInfo.url = QUrl("http://www.example.com/test/test2/test.html");
         queryAuthInfo.verifyPath = true;
 
         KIO::AuthInfo expectedAuthInfo;
@@ -291,7 +291,7 @@ private Q_SLOTS:
         QList<KIO::AuthInfo> authInfos;
         for (int i=0; i < 10; ++i) {
            KIO::AuthInfo info;
-           info.url = KUrl("http://www.example.com/test" + QString::number(i) + ".html");
+           info.url = QUrl("http://www.example.com/test" + QString::number(i) + ".html");
            authInfos << info;
         }
 
@@ -312,7 +312,7 @@ private Q_SLOTS:
         QList<KIO::AuthInfo> authInfos;
         for (int i=0; i < 10; ++i) {
            KIO::AuthInfo info;
-           info.url = KUrl("http://www.example.com/test" + QString::number(i) + ".html");
+           info.url = QUrl("http://www.example.com/test" + QString::number(i) + ".html");
            authInfos << info;
         }
 
@@ -353,7 +353,7 @@ private:
         const qlonglong id = server.checkAuthInfoAsync(info, windowId, 17 /*usertime*/);
         QCOMPARE(id, 0LL); // always
         if (spy.isEmpty()) {
-            QVERIFY(QTest::kWaitForSignal(&server, sigCheckAuthInfoResult, 1000));
+            QVERIFY(QSignalSpy(&server, sigCheckAuthInfoResult).wait(1000));
         }
         QCOMPARE(spy.count(), 1);
         // kpasswdserver emits a requestId via dbus, we can't get that id here
@@ -373,7 +373,7 @@ private:
             windowId, seqNr, 16 /*usertime*/);
         QVERIFY(id >= 0); // requestId, ever increasing
         if (spy.isEmpty())
-            QVERIFY(QTest::kWaitForSignal(&server, sigQueryAuthInfoResult, 1000));
+            QVERIFY(QSignalSpy(&server, sigQueryAuthInfoResult).wait(1000));
         QCOMPARE(spy.count(), 1);
         QCOMPARE(spy[0][0].toLongLong(), id);
         //QCOMPARE(spy[0][1].toLongLong(), 3LL); // seqNr
@@ -399,9 +399,8 @@ private:
 
         if (hasErrorMessage) {
             // Retry dialog only knows Yes/No
-            const int retryCode = (code == QDialog::Accepted ? KDialog::Yes : KDialog::No);
             QMetaObject::invokeMethod(this, "checkRetryDialog",
-                                      Qt::QueuedConnection, Q_ARG(int, retryCode));
+                                      Qt::QueuedConnection, Q_ARG(int, code));
         }
 
         if (!isCancelRetryDialogTest) {
@@ -413,7 +412,7 @@ private:
         // Force KPasswdServer to process the request now, otherwise the checkAndFillDialog needs a timer too...
         server.processRequest();
         if (spy.isEmpty())
-            QVERIFY(QTest::kWaitForSignal(&server, sigQueryAuthInfoResult, 1000));
+            QVERIFY(QSignalSpy(&server, sigQueryAuthInfoResult).wait(1000));
         QCOMPARE(spy.count(), 1);
         QCOMPARE(spy[0][0].toLongLong(), id);
         //QCOMPARE(spy[0][1].toLongLong(), 3LL); // seqNr
@@ -453,7 +452,7 @@ private:
         // Force KPasswdServer to process the request now, otherwise the checkAndFillDialog needs a timer too...
         server.processRequest();
         while (spy.count() < infos.count())
-            QVERIFY(QTest::kWaitForSignal(&server, sigQueryAuthInfoResult, 1000));
+            QVERIFY(QSignalSpy(&server, sigQueryAuthInfoResult).wait(1000));
 
         QCOMPARE(spy.count(), infos.count());
 
@@ -501,11 +500,12 @@ private:
 
         // Force KPasswdServer to process the request now, otherwise the checkAndFillDialog needs a timer too...
         server.processRequest();
-        if (spy.isEmpty())
-            QVERIFY(QTest::kWaitForSignal(&server, sigQueryAuthInfoResult, 1000));
+        if (spy.isEmpty()) {
+            QVERIFY(QSignalSpy(&server, sigQueryAuthInfoResult).wait(1000));
+        }
 
         while ((spy.count()-1) < infos.count()) {
-            QVERIFY(QTest::kWaitForSignal(&server, sigCheckAuthInfoResult, 1000));
+            QVERIFY(QSignalSpy(&server, sigCheckAuthInfoResult).wait(1000));
         }
 
         for(int i = 0, count = spy.count(); i < count; ++i) {
@@ -534,13 +534,13 @@ protected Q_SLOTS:
                 return;
             }
         }
-        kWarning() << "No KPasswordDialog found!";
+        qWarning() << "No KPasswordDialog found!";
     }
 
     void checkRetryDialog(int code = QDialog::Accepted)
     {
         Q_FOREACH(QWidget *widget, QApplication::topLevelWidgets()) {
-            KDialog* dialog = qobject_cast<KDialog*>(widget);
+            QDialog* dialog = qobject_cast<QDialog*>(widget);
             if (dialog && !dialog->inherits("KPasswordDialog")) {
                 dialog->done(code);
                 return;
@@ -549,6 +549,6 @@ protected Q_SLOTS:
     }
 };
 
-QTEST_KDEMAIN( KPasswdServerTest, GUI )
+QTEST_MAIN( KPasswdServerTest )
 
 #include "kpasswdservertest.moc"
