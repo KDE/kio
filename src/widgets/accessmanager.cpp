@@ -458,15 +458,15 @@ using namespace KIO::Integration;
 
 static QSsl::SslProtocol qSslProtocolFromString(const QString &str)
 {
-    if (str.compare(QLatin1String("SSLv3"), Qt::CaseInsensitive) == 0) {
+    if (str.compare(QL1S("SSLv3"), Qt::CaseInsensitive) == 0) {
         return QSsl::SslV3;
     }
 
-    if (str.compare(QLatin1String("SSLv2"), Qt::CaseInsensitive) == 0) {
+    if (str.compare(QL1S("SSLv2"), Qt::CaseInsensitive) == 0) {
         return QSsl::SslV2;
     }
 
-    if (str.compare(QLatin1String("TLSv1"), Qt::CaseInsensitive) == 0) {
+    if (str.compare(QL1S("TLSv1"), Qt::CaseInsensitive) == 0) {
         return QSsl::TlsV1_0;
     }
 
@@ -477,7 +477,7 @@ bool KIO::Integration::sslConfigFromMetaData(const KIO::MetaData &metadata, QSsl
 {
     bool success = false;
 
-    if (metadata.contains(QL1S("ssl_in_use"))) {
+    if (metadata.value(QL1S("ssl_in_use")) == QL1S("TRUE")) {
         const QSsl::SslProtocol sslProto = qSslProtocolFromString(metadata.value(QL1S("ssl_protocol_version")));
         QList<QSslCipher> cipherList;
         cipherList << QSslCipher(metadata.value(QL1S("ssl_cipher_name")), sslProto);
