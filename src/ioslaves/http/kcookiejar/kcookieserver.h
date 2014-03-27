@@ -29,7 +29,6 @@
 #include <kdedmodule.h>
 #include <QDBusConnection>
 #include <QtDBus/QDBusContext>
-#include <qwindowdefs.h> //WId
 
 class KHttpCookieList;
 class KCookieJar;
@@ -37,6 +36,14 @@ class KHttpCookie;
 class QTimer;
 class RequestList;
 class KConfig;
+
+// IMPORTANT: Do *NOT* replace qlonglong with WId in this class.
+//
+// KCookieServer is exposed over DBus and DBus does not know how to handle the
+// WId type. If a method has a WId argument it is not exposed and one gets a
+// warning at compile time:
+//
+// "addFunction: Unregistered input type in parameter list: WId"
 
 class KCookieServer : public KDEDModule, protected QDBusContext
 {
@@ -49,17 +56,17 @@ public:
 public Q_SLOTS:
     // KDE5 TODO: don't overload names here, it prevents calling e.g. findCookies from the command-line using qdbus.
     QString listCookies(const QString &url);
-    QString findCookies(const QString &url, WId windowId);
+    QString findCookies(const QString &url, qlonglong windowId);
     QStringList findDomains();
     // KDE5: rename
     QStringList findCookies(const QList<int> &fields, const QString &domain, const QString &fqdn, const QString &path, const QString &name);
     QString findDOMCookies(const QString &url);
-    QString findDOMCookies(const QString &url, WId windowId); // KDE5: merge with above, using default value (windowId = 0)
-    void addCookies(const QString &url, const QByteArray &cookieHeader, WId windowId);
+    QString findDOMCookies(const QString &url, qlonglong windowId); // KDE5: merge with above, using default value (windowId = 0)
+    void addCookies(const QString &url, const QByteArray &cookieHeader, qlonglong windowId);
     void deleteCookie(const QString &domain, const QString &fqdn, const QString &path, const QString &name);
     void deleteCookiesFromDomain(const QString &domain);
-    void deleteSessionCookies(WId windowId);
-    void deleteSessionCookiesFor(const QString &fqdn, WId windowId);
+    void deleteSessionCookies(qlonglong windowId);
+    void deleteSessionCookiesFor(const QString &fqdn, qlonglong windowId);
     void deleteAllCookies();
     void addDOMCookies(const QString &url, const QByteArray &cookieHeader, qlonglong windowId);
     /**
@@ -76,15 +83,15 @@ public Q_SLOTS:
 public:
     bool cookiesPending(const QString &url, KHttpCookieList *cookieList = 0);
     void addCookies(const QString &url, const QByteArray &cookieHeader,
-                    WId windowId, bool useDOMFormat);
+                    qlonglong windowId, bool useDOMFormat);
     void checkCookies(KHttpCookieList *cookieList);
     // TODO: KDE5 merge with above function and make all these public functions
     // private since they are not used externally.
-    void checkCookies(KHttpCookieList *cookieList, WId windowId);
+    void checkCookies(KHttpCookieList *cookieList, qlonglong windowId);
 
 private Q_SLOTS:
     void slotSave();
-    void slotDeleteSessionCookies(WId windowId);
+    void slotDeleteSessionCookies(qlonglong windowId);
 
 private:
     KCookieJar *mCookieJar;

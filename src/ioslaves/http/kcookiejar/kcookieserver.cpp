@@ -141,7 +141,7 @@ bool KCookieServer::cookiesPending(const QString &url, KHttpCookieList *cookieLi
 }
 
 void KCookieServer::addCookies(const QString &url, const QByteArray &cookieHeader,
-                               WId windowId, bool useDOMFormat)
+                               qlonglong windowId, bool useDOMFormat)
 {
     KHttpCookieList cookieList;
     if (useDOMFormat) {
@@ -168,7 +168,7 @@ void KCookieServer::checkCookies(KHttpCookieList *cookieList)
     checkCookies(cookieList, 0);
 }
 
-void KCookieServer::checkCookies(KHttpCookieList *cookieList, WId windowId)
+void KCookieServer::checkCookies(KHttpCookieList *cookieList, qlonglong windowId)
 {
     KHttpCookieList *list;
 
@@ -348,7 +348,7 @@ QString KCookieServer::listCookies(const QString &url)
 }
 
 // DBUS function
-QString KCookieServer::findCookies(const QString &url, WId windowId)
+QString KCookieServer::findCookies(const QString &url, qlonglong windowId)
 {
     if (cookiesPending(url)) {
         CookieRequest *request = new CookieRequest;
@@ -437,7 +437,7 @@ KCookieServer::findDOMCookies(const QString &url)
 
 // DBUS function
 QString
-KCookieServer::findDOMCookies(const QString &url, WId windowId)
+KCookieServer::findDOMCookies(const QString &url, qlonglong windowId)
 {
     // We don't wait for pending cookies because it locks up konqueror
     // which can cause a deadlock if it happens to have a popup-menu up.
@@ -450,7 +450,7 @@ KCookieServer::findDOMCookies(const QString &url, WId windowId)
 
 // DBUS function
 void
-KCookieServer::addCookies(const QString &arg1, const QByteArray &arg2, WId arg3)
+KCookieServer::addCookies(const QString &arg1, const QByteArray &arg2, qlonglong arg3)
 {
     addCookies(arg1, arg2, arg3, false);
 }
@@ -483,21 +483,21 @@ KCookieServer::deleteCookiesFromDomain(const QString &domain)
 
 // Qt function
 void
-KCookieServer::slotDeleteSessionCookies(WId windowId)
+KCookieServer::slotDeleteSessionCookies(qlonglong windowId)
 {
     deleteSessionCookies(windowId);
 }
 
 // DBUS function
 void
-KCookieServer::deleteSessionCookies(WId windowId)
+KCookieServer::deleteSessionCookies(qlonglong windowId)
 {
     mCookieJar->eatSessionCookies(windowId);
     saveCookieJar();
 }
 
 void
-KCookieServer::deleteSessionCookiesFor(const QString &fqdn, WId windowId)
+KCookieServer::deleteSessionCookiesFor(const QString &fqdn, qlonglong windowId)
 {
     mCookieJar->eatSessionCookies(fqdn, windowId);
     saveCookieJar();
