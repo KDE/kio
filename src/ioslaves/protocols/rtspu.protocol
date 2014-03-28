@@ -1,5 +1,4 @@
 [Protocol]
-defaultMimetype=uri/rtspu
 exec=
 protocol=rtspu
 input=none

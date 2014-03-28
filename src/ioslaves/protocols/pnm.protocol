@@ -1,5 +1,4 @@
 [Protocol]
-defaultMimetype=uri/pnm
 exec=
 protocol=pnm
 input=none

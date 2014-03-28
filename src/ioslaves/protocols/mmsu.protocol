@@ -1,5 +1,4 @@
 [Protocol]
-defaultMimetype=uri/mmsu
 exec=
 protocol=mmsu
 input=none

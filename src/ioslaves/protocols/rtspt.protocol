@@ -1,5 +1,4 @@
 [Protocol]
-defaultMimetype=uri/rtspt
 exec=
 protocol=rtspt
 input=none

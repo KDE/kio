@@ -1,5 +1,4 @@
 [Protocol]
-defaultMimetype=uri/mmst
 exec=
 protocol=mmst
 input=none
