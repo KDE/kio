@@ -7,6 +7,7 @@ set(KSlaveLauncher_DBUS_INTERFACE "${PACKAGE_PREFIX_DIR}/@DBUS_INTERFACES_INSTAL
 
 find_dependency(KF5Bookmarks "@KF5_VERSION@")
 find_dependency(KF5Completion "@KF5_VERSION@")
+find_dependency(KF5ItemViews "@KF5_VERSION@")
 find_dependency(KF5JobWidgets "@KF5_VERSION@")
 find_dependency(KF5Service "@KF5_VERSION@")
 find_dependency(KF5Solid "@KF5_VERSION@")
