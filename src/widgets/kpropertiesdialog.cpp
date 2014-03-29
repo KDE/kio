@@ -98,6 +98,7 @@ extern "C" {
 #include <kmountpoint.h>
 #include <kmessagebox.h>
 #include <kservice.h>
+#include <ksharedconfig.h>
 #include <kcombobox.h>
 #include <kcompletion.h>
 #include <klineedit.h>

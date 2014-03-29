@@ -25,6 +25,7 @@
 #include <QMenu>
 #include <QTest>
 #include <QVector>
+#include <QStandardPaths>
 
 /**
  * In KDE 4.x, calling KFileItemActions::setParentWidget(QWidget *widget) would

@@ -23,6 +23,7 @@
 
 #include <kmacroexpander.h>
 #include <kshell.h>
+#include <ksharedconfig.h>
 #include <kdesktopfile.h>
 #include <kservice.h>
 #include <kconfiggroup.h>

@@ -39,6 +39,7 @@
 #include <khistorycombobox.h>
 #include <kdesktopfile.h>
 #include <klineedit.h>
+#include <ksharedconfig.h>
 #include <klocalizedstring.h>
 #include <kmessagebox.h>
 #include <kshell.h>
