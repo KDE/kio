@@ -1,11 +1,13 @@
 [Desktop Entry]
 Type=Service
 Name=Password Caching
+Name[ca]=Ús de memòria cau de contrasenyes
 Name[de]=Passwort-Zwischenspeicherung
 Name[es]=Caché de contraseñas
 Name[fi]=Salasanavälimuisti
 Name[hu]=Jelszavak gyorsítótárazása
 Name[nds]=Passwoort twischenspiekern
+Name[nl]=Caching van wachtwoorden
 Name[nn]=Mellomlager for passord
 Name[pl]=Przechowywanie haseł
 Name[pt]='Cache' de Senhas
@@ -15,11 +17,13 @@ Name[sv]=Lösenordslagring
 Name[uk]=Кешування паролів
 Name[x-test]=xxPassword Cachingxx
 Comment=Temporary password caching
+Comment[ca]=Ús temporal de memòria cau de contrasenyes
 Comment[de]=Temporäre Passwort-Zwischenspeicherung
 Comment[es]=Caché temporal de contraseñas
 Comment[fi]=Väliaikainen salasanavälimuisti
 Comment[hu]=Jelszavak ideiglenes gyorsítótárazása
 Comment[nds]=Passwoort temporeer wohren
+Comment[nl]=Tijdelijke caching van wachtwoorden
 Comment[nn]=Mellombels lagring av passord
 Comment[pl]=Tymczasowe przechowywanie haseł
 Comment[pt]='Cache' temporária de senhas
