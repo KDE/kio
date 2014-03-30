@@ -384,7 +384,7 @@ int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *erro
             case KTcpSocket::HostNotFoundError:
                 return ERR_UNKNOWN_HOST;
             default:
-                return ERR_COULD_NOT_CONNECT;
+                return ERR_CANNOT_CONNECT;
             }
         }
 
@@ -420,7 +420,7 @@ int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *erro
                 if (errorString) {
                     *errorString = i18nc("%1 is a host name", "%1: SSL negotiation failed", host);
                 }
-                return ERR_COULD_NOT_CONNECT;
+                return ERR_CANNOT_CONNECT;
             }
         }
         // If the SSL handshake was done with anything protocol other than the default,

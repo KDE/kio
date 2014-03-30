@@ -2190,7 +2190,7 @@ bool HTTPProtocol::httpOpenConnection()
             const QUrl url(proxyUrl);
             const QString proxyScheme(url.scheme());
             if (!supportedProxyScheme(proxyScheme)) {
-                connectError = ERR_COULD_NOT_CONNECT;
+                connectError = ERR_CANNOT_CONNECT;
                 errorString = url.toDisplayString();
                 badProxyUrls << url;
                 continue;
@@ -2283,7 +2283,7 @@ bool HTTPProtocol::satisfyRequestFromCache(bool *cacheHasPage)
                 if (isCacheOnly) {
                     error(ERR_DOES_NOT_EXIST, m_request.url.toDisplayString());
                 } else if (offline) {
-                    error(ERR_COULD_NOT_CONNECT, m_request.url.toDisplayString());
+                    error(ERR_CANNOT_CONNECT, m_request.url.toDisplayString());
                 }
                 return true;
             }
@@ -4521,7 +4521,7 @@ void HTTPProtocol::error(int _err, const QString &_text)
 {
     // Close the connection only on connection errors. Otherwise, honor the
     // keep alive flag.
-    if (_err == ERR_CONNECTION_BROKEN || _err == ERR_COULD_NOT_CONNECT) {
+    if (_err == ERR_CONNECTION_BROKEN || _err == ERR_CANNOT_CONNECT) {
         httpClose(false);
     } else {
         httpClose(m_request.isKeepAlive);

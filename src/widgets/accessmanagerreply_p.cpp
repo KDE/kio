@@ -333,9 +333,9 @@ int AccessManagerReply::jobError(KJob *kJob)
         setHeader(QNetworkRequest::ContentTypeHeader, "inode/directory");
         setError(QNetworkReply::NoError, kJob->errorText());
         break;
-    case KIO::ERR_COULD_NOT_CONNECT:
+    case KIO::ERR_CANNOT_CONNECT:
         setError(QNetworkReply::ConnectionRefusedError, kJob->errorText());
-        //qDebug() << "KIO::ERR_COULD_NOT_CONNECT -> QNetworkReply::ConnectionRefusedError";
+        //qDebug() << "KIO::ERR_CANNOT_CONNECT -> QNetworkReply::ConnectionRefusedError";
         break;
     case KIO::ERR_UNKNOWN_HOST:
         setError(QNetworkReply::HostNotFoundError, kJob->errorText());
@@ -366,9 +366,9 @@ int AccessManagerReply::jobError(KJob *kJob)
         setError(QNetworkReply::ContentNotFoundError, kJob->errorText());
         //qDebug() << "KIO::ERR_DOES_NOT_EXIST -> QNetworkReply::ContentNotFoundError";
         break;
-    case KIO::ERR_COULD_NOT_AUTHENTICATE:
+    case KIO::ERR_CANNOT_AUTHENTICATE:
         setError(QNetworkReply::AuthenticationRequiredError, kJob->errorText());
-        //qDebug() << "KIO::ERR_COULD_NOT_AUTHENTICATE -> QNetworkReply::AuthenticationRequiredError";
+        //qDebug() << "KIO::ERR_CANNOT_AUTHENTICATE -> QNetworkReply::AuthenticationRequiredError";
         break;
     case KIO::ERR_UNSUPPORTED_PROTOCOL:
     case KIO::ERR_NO_SOURCE_PROTOCOL:

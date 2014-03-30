@@ -391,7 +391,7 @@ void HelpProtocol::get_file(const QString &path)
     const qint64 n = f.read(array.data(), array.size());
         if (n == -1)
         {
-            error(KIO::ERR_COULD_NOT_READ, path);
+            error(KIO::ERR_CANNOT_READ, path);
             return;
         }
         if (n == 0)

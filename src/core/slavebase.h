@@ -480,7 +480,7 @@ public:
      * @param url path to the directory to create
      * @param permissions the permissions to set after creating the directory
      * (-1 if no permissions to be set)
-     * The slave emits ERR_COULD_NOT_MKDIR if failure.
+     * The slave emits ERR_CANNOT_MKDIR if failure.
      */
     virtual void mkdir(const QUrl &url, int permissions);
 

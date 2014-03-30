@@ -196,7 +196,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
                 }
             } else
 #endif
-                error(KIO::ERR_COULD_NOT_READ, src);
+                error(KIO::ERR_CANNOT_READ, src);
             src_file.close();
             dest_file.close();
 #if HAVE_POSIX_ACL
@@ -218,7 +218,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
                     remove(_dest.data());
                 } else {
                     qWarning() << "Couldn't write[2]. Error:" << dest_file.errorString();
-                    error(KIO::ERR_COULD_NOT_WRITE, dest);
+                    error(KIO::ERR_CANNOT_WRITE, dest);
                 }
 #if HAVE_POSIX_ACL
                 if (acl) {
@@ -239,7 +239,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
 
     if (dest_file.error() != QFile::NoError) {
         qWarning() << "Error when closing file descriptor[2]:" << dest_file.errorString();
-        error(KIO::ERR_COULD_NOT_WRITE, dest);
+        error(KIO::ERR_CANNOT_WRITE, dest);
 #if HAVE_POSIX_ACL
         if (acl) {
             acl_free(acl);
@@ -534,7 +534,7 @@ void FileProtocol::del(const QUrl &url, bool isfile)
                 error(KIO::ERR_ACCESS_DENIED, path);
             } else {
                 // qDebug() << "could not rmdir " << perror;
-                error(KIO::ERR_COULD_NOT_RMDIR, path);
+                error(KIO::ERR_CANNOT_RMDIR, path);
                 return;
             }
         }

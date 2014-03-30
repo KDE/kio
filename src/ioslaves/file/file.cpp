@@ -271,7 +271,7 @@ void FileProtocol::mkdir(const QUrl &url, int permissions)
     if (QT_LSTAT(QFile::encodeName(path).constData(), &buff) == -1) {
         if (!QDir().mkdir(path)) {
             //TODO: add access denied & disk full (or another reasons) handling (into Qt, possibly)
-            error(KIO::ERR_COULD_NOT_MKDIR, path);
+            error(KIO::ERR_CANNOT_MKDIR, path);
             return;
         } else {
             if (permissions != -1) {
@@ -367,7 +367,7 @@ void FileProtocol::get(const QUrl &url)
             if (errno == EINTR) {
                 continue;
             }
-            error(KIO::ERR_COULD_NOT_READ, path);
+            error(KIO::ERR_CANNOT_READ, path);
             f.close();
             return;
         }
@@ -459,7 +459,7 @@ void FileProtocol::read(KIO::filesize_t bytes)
             // empty array designates eof
             data(QByteArray());
             if (!mFile->atEnd()) {
-                error(KIO::ERR_COULD_NOT_READ, mFile->fileName());
+                error(KIO::ERR_CANNOT_READ, mFile->fileName());
                 close();
             }
             break;
@@ -481,7 +481,7 @@ void FileProtocol::write(const QByteArray &data)
             close();
         } else {
             qWarning() << "Couldn't write. Error:" << mFile->errorString();
-            error(KIO::ERR_COULD_NOT_WRITE, mFile->fileName());
+            error(KIO::ERR_CANNOT_WRITE, mFile->fileName());
             close();
         }
     } else {
@@ -497,7 +497,7 @@ void FileProtocol::seek(KIO::filesize_t offset)
     if (mFile->seek(offset)) {
         position(offset);
     } else {
-        error(KIO::ERR_COULD_NOT_SEEK, mFile->fileName());
+        error(KIO::ERR_CANNOT_SEEK, mFile->fileName());
         close();
     }
 }
@@ -618,7 +618,7 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
                     result = -2; // means: remove dest file
                 } else {
                     qWarning() << "Couldn't write. Error:" << f.errorString();
-                    error(KIO::ERR_COULD_NOT_WRITE, dest_orig);
+                    error(KIO::ERR_CANNOT_WRITE, dest_orig);
                     result = -1;
                 }
             }
@@ -653,7 +653,7 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
 
     if (f.error() != QFile::NoError) {
         qWarning() << "Error when closing file descriptor:" << f.errorString();
-        error(KIO::ERR_COULD_NOT_WRITE, dest_orig);
+        error(KIO::ERR_CANNOT_WRITE, dest_orig);
         return;
     }
 
@@ -886,7 +886,7 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
         if (volmgt_check(devname.data()) == 0) {
             // qDebug() << "VOLMGT: no media in " << devname.data();
             err = i18n("No Media inserted or Media not recognized.");
-            error(KIO::ERR_COULD_NOT_MOUNT, err);
+            error(KIO::ERR_CANNOT_MOUNT, err);
             return;
         } else {
             // qDebug() << "VOLMGT: " << devname.data() << ": media ok";
@@ -896,7 +896,7 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
     } else {
         err = i18n("\"vold\" is not running.");
         // qDebug() << "VOLMGT: " << err;
-        error(KIO::ERR_COULD_NOT_MOUNT, err);
+        error(KIO::ERR_CANNOT_MOUNT, err);
         return;
     }
 #else
@@ -927,7 +927,7 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
         mountProg = QStandardPaths::findExecutable(QLatin1String("mount"), fallbackSystemPath()).toLocal8Bit();
     }
     if (mountProg.isEmpty()) {
-        error(KIO::ERR_COULD_NOT_MOUNT, i18n("Could not find program \"mount\""));
+        error(KIO::ERR_CANNOT_MOUNT, i18n("Could not find program \"mount\""));
         return;
     }
 
@@ -987,7 +987,7 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
                     // different devices, well they shouldn't specify the
                     // mountpoint but just the device.
                 } else {
-                    error(KIO::ERR_COULD_NOT_MOUNT, err);
+                    error(KIO::ERR_CANNOT_MOUNT, err);
                     return;
                 }
             }
@@ -997,7 +997,7 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
 #else
     QString err;
     err = i18n("mounting is not supported by wince.");
-    error(KIO::ERR_COULD_NOT_MOUNT, err);
+    error(KIO::ERR_CANNOT_MOUNT, err);
 #endif
 
 }
@@ -1029,7 +1029,7 @@ void FileProtocol::unmount(const QString &_point)
         if ((mnttab = QT_FOPEN(MNTTAB, "r")) == NULL) {
             err = QLatin1String("could not open mnttab");
             // qDebug() << "VOLMGT: " << err;
-            error(KIO::ERR_COULD_NOT_UNMOUNT, err);
+            error(KIO::ERR_CANNOT_UNMOUNT, err);
             return;
         }
 
@@ -1054,7 +1054,7 @@ void FileProtocol::unmount(const QString &_point)
             // qDebug() << "VOLMGT: "
                     << QFile::encodeName(_point).data()
                     << ": " << err;
-            error(KIO::ERR_COULD_NOT_UNMOUNT, err);
+            error(KIO::ERR_CANNOT_UNMOUNT, err);
             return;
         }
 
@@ -1092,7 +1092,7 @@ void FileProtocol::unmount(const QString &_point)
          */
         err = i18n("\"vold\" is not running.");
         // qDebug() << "VOLMGT: " << err;
-        error(KIO::ERR_COULD_NOT_UNMOUNT, err);
+        error(KIO::ERR_CANNOT_UNMOUNT, err);
         return;
     }
 #else
@@ -1101,7 +1101,7 @@ void FileProtocol::unmount(const QString &_point)
         umountProg = QStandardPaths::findExecutable(QLatin1String("umount"), fallbackSystemPath()).toLocal8Bit();
     }
     if (umountProg.isEmpty()) {
-        error(KIO::ERR_COULD_NOT_UNMOUNT, i18n("Could not find program \"umount\""));
+        error(KIO::ERR_CANNOT_UNMOUNT, i18n("Could not find program \"umount\""));
         return;
     }
     buffer = umountProg + ' ' + QFile::encodeName(KShell::quoteArg(_point)) + " 2>" + tmpFileName;
@@ -1112,12 +1112,12 @@ void FileProtocol::unmount(const QString &_point)
     if (err.isEmpty()) {
         finished();
     } else {
-        error(KIO::ERR_COULD_NOT_UNMOUNT, err);
+        error(KIO::ERR_CANNOT_UNMOUNT, err);
     }
 #else
     QString err;
     err = i18n("unmounting is not supported by wince.");
-    error(KIO::ERR_COULD_NOT_MOUNT, err);
+    error(KIO::ERR_CANNOT_MOUNT, err);
 #endif
 }
 

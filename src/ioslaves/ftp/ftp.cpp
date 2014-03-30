@@ -134,7 +134,7 @@ static // JPF: in ftp.cc we make it static
  * This helper handles some special issues (blocking and interrupted
  * system call) when writing to a file handle.
  *
- * @return 0 on success or an error code on failure (ERR_COULD_NOT_WRITE,
+ * @return 0 on success or an error code on failure (ERR_CANNOT_WRITE,
  * ERR_DISK_FULL, ERR_CONNECTION_BROKEN).
  */
 int WriteToFile(int fd, const char *buf, size_t len)
@@ -151,7 +151,7 @@ int WriteToFile(int fd, const char *buf, size_t len)
         case EINTR:   continue;
         case EPIPE:   return ERR_CONNECTION_BROKEN;
         case ENOSPC:  return ERR_DISK_FULL;
-        default:      return ERR_COULD_NOT_WRITE;
+        default:      return ERR_CANNOT_WRITE;
         }
     }
     return 0;
@@ -419,7 +419,7 @@ bool Ftp::ftpOpenControlConnection()
 
         if (!supportedProxyScheme(scheme)) {
             // TODO: Need a new error code to indicate unsupported URL scheme.
-            errorCode = ERR_COULD_NOT_CONNECT;
+            errorCode = ERR_CANNOT_CONNECT;
             errorMessage = url.toString();
             continue;
         }
@@ -461,7 +461,7 @@ bool Ftp::ftpOpenControlConnection(const QString &host, int port)
     m_control = synchronousConnectToHost(host, port);
     connect(m_control, SIGNAL(proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)),
             this, SLOT(proxyAuthentication(QNetworkProxy,QAuthenticator*)));
-    int iErrorCode = m_control->state() == QAbstractSocket::ConnectedState ? 0 : ERR_COULD_NOT_CONNECT;
+    int iErrorCode = m_control->state() == QAbstractSocket::ConnectedState ? 0 : ERR_CANNOT_CONNECT;
 
     // on connect success try to read the server message...
     if (iErrorCode == 0) {
@@ -471,7 +471,7 @@ bool Ftp::ftpOpenControlConnection(const QString &host, int port)
             if (psz[0]) {
                 sErrorMsg = i18n("%1.\n\nReason: %2", host, psz);
             }
-            iErrorCode = ERR_COULD_NOT_CONNECT;
+            iErrorCode = ERR_CANNOT_CONNECT;
         }
     } else {
         if (m_control->error() == QAbstractSocket::HostNotFoundError) {
@@ -681,7 +681,7 @@ bool Ftp::ftpLogin(bool *userChanged)
     // qDebug() << "Searching for pwd";
     if (!ftpSendCmd("PWD") || (m_iRespType != 2)) {
         // qDebug() << "Couldn't issue pwd command";
-        error(ERR_COULD_NOT_LOGIN, i18n("Could not login to %1.", m_host));   // or anything better ?
+        error(ERR_CANNOT_LOGIN, i18n("Could not login to %1.", m_host));   // or anything better ?
         return false;
     }
 
@@ -803,7 +803,7 @@ bool Ftp::ftpSendCmd(const QByteArray &cmd, int maxretries)
                 if (!m_bLoggedOn) {
                     if (m_control != NULL) { // if openConnection succeeded ...
                         // qDebug() << "Login failure, aborting";
-                        error(ERR_COULD_NOT_LOGIN, m_host);
+                        error(ERR_CANNOT_LOGIN, m_host);
                         closeConnection();
                     }
                     return false;
@@ -1000,7 +1000,7 @@ int Ftp::ftpOpenPortDataConnection()
     if (!m_server->isListening()) {
         delete m_server;
         m_server = NULL;
-        return ERR_COULD_NOT_LISTEN;
+        return ERR_CANNOT_LISTEN;
     }
 
     m_server->setMaxPendingConnections(1);
@@ -1035,7 +1035,7 @@ bool Ftp::ftpOpenCommand(const char *_command, const QString &_path, char _mode,
 {
     int errCode = 0;
     if (!ftpDataMode(ftpModeFromPath(_path, _mode))) {
-        errCode = ERR_COULD_NOT_CONNECT;
+        errCode = ERR_CANNOT_CONNECT;
     } else {
         errCode = ftpOpenDataConnection();
     }
@@ -1093,7 +1093,7 @@ bool Ftp::ftpOpenCommand(const char *_command, const QString &_path, char _mode,
         }
 
         // qDebug() << "no connection received from remote.";
-        errorcode = ERR_COULD_NOT_ACCEPT;
+        errorcode = ERR_CANNOT_ACCEPT;
         errormessage = m_host;
         return false;
     }
@@ -1143,7 +1143,7 @@ void Ftp::mkdir(const QUrl &url, int permissions)
             return;
         }
 
-        error(ERR_COULD_NOT_MKDIR, path);
+        error(ERR_CANNOT_MKDIR, path);
         return;
     }
 
@@ -1932,7 +1932,7 @@ Ftp::StatusCode Ftp::ftpGet(int &iError, int iCopyFile, const QUrl &url, KIO::fi
                 break;
             }
             // unexpected eof. Happens when the daemon gets killed.
-            iError = ERR_COULD_NOT_READ;
+            iError = ERR_CANNOT_READ;
             return statusServerError;
         }
         processed_size += n;
@@ -2018,14 +2018,14 @@ void Ftp::ftpAbortTransfer()
     // qDebug() << "send ABOR";
     QCString buf = "ABOR\r\n";
     if (KSocks::self()->write(sControl, buf.data(), buf.length()) <= 0)  {
-        error(ERR_COULD_NOT_WRITE, QString());
+        error(ERR_CANNOT_WRITE, QString());
         return;
     }
 
     //
     // qDebug() << "read resp";
     if (readresp() != '2') {
-        error(ERR_COULD_NOT_READ, QString());
+        error(ERR_CANNOT_READ, QString());
         return;
     }
 
@@ -2141,7 +2141,7 @@ Ftp::StatusCode Ftp::ftpPut(int &iError, int iCopyFile, const QUrl &dest_url,
         }
     }
 
-    if (! ftpOpenCommand("stor", dest, '?', ERR_COULD_NOT_WRITE, offset)) {
+    if (! ftpOpenCommand("stor", dest, '?', ERR_CANNOT_WRITE, offset)) {
         return statusServerError;
     }
 
@@ -2164,7 +2164,7 @@ Ftp::StatusCode Ftp::ftpPut(int &iError, int iCopyFile, const QUrl &dest_url,
             buffer.resize(iBlockSize);
             result = QT_READ(iCopyFile, buffer.data(), buffer.size());
             if (result < 0) {
-                iError = ERR_COULD_NOT_WRITE;
+                iError = ERR_CANNOT_WRITE;
             } else {
                 buffer.resize(result);
             }
@@ -2194,7 +2194,7 @@ Ftp::StatusCode Ftp::ftpPut(int &iError, int iCopyFile, const QUrl &dest_url,
     }
 
     if (!ftpCloseCommand()) {
-        iError = ERR_COULD_NOT_WRITE;
+        iError = ERR_CANNOT_WRITE;
         return statusServerError;
     }
 
@@ -2475,7 +2475,7 @@ Ftp::StatusCode Ftp::ftpCopyGet(int &iError, int &iCopyFile, const QString &sCop
     // delegate the real work (iError gets status) ...
     StatusCode iRes = ftpGet(iError, iCopyFile, url, hCopyOffset);
     if (QT_CLOSE(iCopyFile) && iRes == statusSuccess) {
-        iError = ERR_COULD_NOT_WRITE;
+        iError = ERR_CANNOT_WRITE;
         iRes = statusClientError;
     }
     iCopyFile = -1;
@@ -2528,7 +2528,7 @@ Ftp::StatusCode Ftp::ftpSendMimeType(int &iError, const QUrl &url)
     while (true) {
         // Wait for content to be available...
         if (m_data->bytesAvailable() == 0 && !m_data->waitForReadyRead((readTimeout() * 1000))) {
-            iError = ERR_COULD_NOT_READ;
+            iError = ERR_CANNOT_READ;
             return statusServerError;
         }
 
@@ -2536,7 +2536,7 @@ Ftp::StatusCode Ftp::ftpSendMimeType(int &iError, const QUrl &url)
 
         // If we got a -1, it must be an error so return an error.
         if (bytesRead == -1) {
-            iError = ERR_COULD_NOT_READ;
+            iError = ERR_CANNOT_READ;
             return statusServerError;
         }
 
