@@ -122,13 +122,13 @@ static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg)
     return retval;
 }
 
-static bool runApplication(const QUrl &, const QString &_serviceFile)
+static bool runApplication(const QUrl &_url, const QString &_serviceFile)
 {
     KService s(_serviceFile);
     if (!s.isValid())
-        // The error message was already displayed, so we can just quit here
-        // ### KDE4: is this still the case?
     {
+        QString tmp = i18n("The desktop entry file\n%1\nis not valid.", _url.toString());
+        KMessageBox::error(0, tmp);
         return false;
     }
 
