@@ -27,125 +27,125 @@ class QImage;
 class QWidget;
 
 /**
- * This is the baseclass for "thumbnail-plugins" in KDE. Using the class
- * KIO::PreviewJob allows you to generate small images (thumbnails)
- * for any kind of file, where a "ThumbCreator" is available. Have a look
- * at kdebase/kioslave/thumbnail/ for existing ThumbCreators.
+ * Base class for thumbnail generator plugins.
  *
- * What you need to do to create and register a ThumbCreator:
- * @li Inherit from this class and reimplement the create() method to
- *     generate a thumbnail for the given file-path.
- * @li Provide a factory method in your implementation file to instantiate
- * your plugin, e.g.:
+ * KIO::PreviewJob, via the "thumbnail" kioslave, uses instances of this class
+ * to generate the thumbnail previews.
+ *
+ * To add support for a new document type, subclass ThumbCreator and implement
+ * create() to generate a thumbnail for a given path.  Then create a factory
+ * method called "new_creator" to return instances of your subclass:
  * \code
  * extern "C"
  * {
  *   Q_DECL_EXPORT ThumbCreator *new_creator()
  *   {
- *     return new YourThumbCreator();
+ *     return new FooThumbCreator();
  *   }
  * };
  * \endcode
  *
- * Compile your ThumbCreator as a module. The contents of CMakeLists.txt
- * should look something like this, with "filetype" replaced by the type of
- * file this plugin creates thumbnails for:
+ * Compile your ThumbCreator as a module; for example, the relevant CMake code
+ * for a thumbnailer for the "foo" filetype might look like
  * \code
- * project(filetypethumbcreator)
+ * set(foothumbnail_SRCS foothumbnail.cpp)
+ * add_library(foothumbnail MODULE ${foothumbnail_SRCS})
+ * target_link_libraries(foothumbnail PRIVATE KF5::KIOWidgets)
  *
- * find_package(KDE4 REQUIRED)
- * include (KDE4Defaults)
- * include (ECMOptionalAddSubdirectory)
- *
- * set(filetypethumbnail_SRCS filetypethumbnail.cpp)
- *
- *
- * qt5_wrap_ui(filetypethumbnail_SRCS config.ui)
- *
- * add_library(filetypethumbnail MODULE ${filetypethumbnail_SRCS})
- * target_link_libraries(filetypethumbnail ${KDE4_KIO_LIBS})
- *
- * install(TARGETS filetypethumbnail DESTINATION ${PLUGIN_INSTALL_DIR})
- * install(FILES filetypethumbcreator.desktop DESTINATION ${SERVICES_INSTALL_DIR})
- *
+ * install(TARGETS foothumbnail DESTINATION ${PLUGIN_INSTALL_DIR})
  * \endcode
  *
- * @li Create a file filetypethumbcreator.desktop with the following contents:
+ * You also need to create a desktop file describing the thumbnailer.  For
+ * example:
  * \code
  * [Desktop Entry]
  * Encoding=UTF-8
  * Type=Service
- * Name=Name of the type of files your ThumbCreator supports
+ * Name=Foo Documents
  * ServiceTypes=ThumbCreator
- * MimeType=application/x-somemimetype;
+ * MimeType=application/x-foo;
  * CacheThumbnail=true
- * X-KDE-Library=yourthumbcreator
+ * X-KDE-Library=foothumbcreator
  * \endcode
  *
- * You can supply a comma-separated list of mimetypes to the MimeTypes entry,
- * naming all mimetypes your ThumbCreator supports. You can also use simple
- * wildcards, like (where you see [slash], put a /)
+ * Of course, you will need to install it:
  * \code
- *              text[slash]* or image[slash]*.
+ * install(FILES foothumbcreator.desktop DESTINATION ${SERVICES_INSTALL_DIR})
  * \endcode
  *
- * If your plugin is rather inexpensive (e.g. like the text preview ThumbCreator),
- * you can set CacheThumbnail=false to prevent your thumbnails from being cached
- * on disk.
+ * Note that you can supply a comma-separated list of mimetypes to the MimeTypes
+ * entry, naming all mimetypes your ThumbCreator supports. You can also use
+ * simple wildcards, like
+ * \htmlonly "text/&#42;".\endhtmlonly\latexonly text/$\ast$.\endlatexonly
  *
- * The following optional property can also be added to the .desktop file:
+ * If the thumbnail creation is cheap (such as text previews), you can set
  * \code
- * ThumbnailerVersion=N
+ * CacheThumbnail=false
  * \endcode
- * where N is some nonnegative integer. If a cached thumbnail has been created with a
- * previous version of the thumbnailer, then the cached thumbnail will be discarded and
- * a new one will be regenerated. Increase (or define) the version number if and only if
- * old thumbnails need to be regenerated.
- * If no version number is provided, then the version is assumed to be <0.
+ * in the desktop file to prevent your thumbnails from being cached on disk.
  *
- * @short Baseclass for thumbnail-generating plugins.
+ * You can also use the "ThumbnailerVersion" optional property in the .desktop
+ * file, like
+ * \code
+ * ThumbnailerVersion=5
+ * \endcode
+ * When this is incremented (or defined when it previously was not), all the
+ * previously-cached thumbnails for this creator will be discarded.  You should
+ * increase the version if and only if old thumbnails need to be regenerated.
  */
+// KF6 TODO: put this in the KIO namespace
 class KIOWIDGETS_EXPORT ThumbCreator
 {
 public:
     /**
-     * The flags of this plugin.
+     * Flags to provide hints to the user of this plugin.
      * @see flags()
      */
-    enum Flags { None = 0, DrawFrame = 1, BlendIcon = 2 };
+    enum Flags {
+        None = 0,      /**< No hints. */
+        DrawFrame = 1, /**< A frame should be painted around the preview. */
+        BlendIcon = 2  /**< The mimetype icon should be blended over the preview. */
+    };
+
+    /**
+     * Destructor.
+     */
     virtual ~ThumbCreator();
 
     /**
-     * Creates a thumbnail
-     * Note that the width and height parameters should not be used
-     * for scaling. Only plugins that create an image "from scratch",
-     * like the TextCreator should directly use the specified size.
-     * If the resulting preview is larger than width x height, it will be
-     * scaled down.
+     * Creates a thumbnail.
      *
-     * @param path the (always local) file path to create a preview for
-     * @param width maximum width for the preview
-     * @param height maximum height for the preview
-     * @param img this image will contain the preview on success
+     * Note that this method should not do any scaling.  The @p width and @p
+     * height parameters are provided as hints for images that are generated
+     * from non-image data (like text).
      *
-     * @return true if preview generation succeeded
+     * @param path    The path of the file to create a preview for.  This is
+     *                always a local path.
+     * @param width   The requested preview width (see the note on scaling
+     *                above).
+     * @param height  The requested preview height (see the note on scaling
+     *                above).
+     * @param img     The QImage to store the preview in.
+     *
+     * @return @c true if a preview was successfully generated and store in @p
+     *         img, @c false otherwise.
      */
     virtual bool create(const QString &path, int width, int height, QImage &img) = 0;
 
     /**
-     * The flags of this plugin:
-     * @li None nothing special
-     * @li DrawFrame a frame should be painted around the preview
-     * @li BlendIcon the mimetype icon should be blended over the preview
+     * Returns the flags for this plugin.
      *
-     * @return flags for this plugin
+     * @return XOR'd flags values.
+     * @see Flags
      */
     virtual Flags flags() const;
 
     /**
-     * Creates a widget that allows to configure the
-     * thumbcreator by the user. The caller of this method is defined
-     * as owner of the returned instance and must take care to delete it.
+     * Create a widget for configuring the thumb creator.
+     *
+     * The caller will take ownership of the returned instance and must ensure
+     * its deletion.
+     *
      * The default implementation returns 0.
      *
      * The following key in the thumbcreator .desktop file must be set to
@@ -153,13 +153,16 @@ public:
      * \code
      * Configurable=true
      * \endcode
+     *
+     * @return A QWidget instance, which the caller takes ownership of, or 0.
      */
     virtual QWidget *createConfigurationWidget();
 
     /**
-     * Writes the configuration that is specified by \p configurationWidget.
-     * The passed configuration widget is the instance created by
-     * createConfigurationWidget().
+     * Write the updated configuration.
+     *
+     * @param configurationWidget  An object returned by
+     *                             createConfigurationWidget().
      */
     virtual void writeConfiguration(const QWidget *configurationWidget);
 };
@@ -174,6 +177,7 @@ public:
     virtual ~ThumbCreatorV2();
 };
 
+// KF6 TODO: rename this to something less generic
 typedef ThumbCreator *(*newCreator)();
 
 #endif
