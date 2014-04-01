@@ -171,9 +171,10 @@ static QByteArray chooseFormatAndUrl(const QUrl &u, const QMimeData *mimeData,
     //qDebug() << " result=" << result << " chosenFormat=" << chosenFormat;
     *newUrl = u;
     newUrl->setPath(newUrl->path() + '/' + result);
-    // if "data" came from QClipboard, then it was deleted already - by a nice 0-seconds timer
-    // In that case, get it again. Let's hope the user didn't copy something else meanwhile :/
-    // #### QT4/KDE4 TODO: check that this is still the case
+    // In Qt3, the result of clipboard()->mimeData() only existed until the next
+    // event loop run (see dlg.exec() above), so we re-fetched it.
+    // TODO: This should not be necessary with Qt5; remove this conditional
+    // and test that it still works.
     if (clipboard) {
         mimeData = QApplication::clipboard()->mimeData();
     }
