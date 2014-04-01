@@ -82,7 +82,12 @@ void TransferJob::slotRedirection(const QUrl &url)
     } else {
         d->m_redirectionURL = url; // We'll remember that when the job finishes
         d->m_redirectionList.append(url);
-        d->m_outgoingMetaData["ssl_was_in_use"] = d->m_incomingMetaData["ssl_in_use"];
+        QString sslInUse = queryMetaData(QLatin1String("ssl_in_use"));
+        if (!sslInUse.isNull()) { // the key is present
+            addMetaData(QLatin1String("ssl_was_in_use"), sslInUse);
+        } else {
+            addMetaData(QLatin1String("ssl_was_in_use"), QLatin1String("FALSE"));
+        }
         // Tell the user that we haven't finished yet
         emit redirection(this, d->m_redirectionURL);
     }
