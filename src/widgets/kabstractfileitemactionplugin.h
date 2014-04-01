@@ -33,22 +33,21 @@ class KFileItemListProperties;
 /**
  * @brief Base class for KFileItemAction plugins.
  *
- * Please try to use servicemenus first, if you simply need to add
- * actions to the popup menu for one or more mimetypes.
+ * KFileItemAction plugins allow dynamic features to be added to the context
+ * menus for files and directories when browsing.
  *
- * However if you need some dynamic logic, like "only show this item if
- * two files are selected", or "show a submenu with a variable number of actions",
- * then you have to implement a KAbstractFileItemActionPlugin subclass.
+ * Most filetype-based popup menu items can be implemented using servicemenus
+ * linked to mime types, and that should be the preferred way of doing this.
+ * However, complex scenarios such as showing submenus with a variable number of
+ * actions or only showing an item if exactly two files are selected need to be
+ * implemented as a KFileItemAction plugin.
  *
- * Create a KPluginFactory instance and register your plugin as return type:
- *
- * \code
- * K_PLUGIN_FACTORY(MyActionPluginFactory, registerPlugin<MyActionPlugin>();)
- * \endcode
- *
- * You can compile the metadata into the plugin using
+ * To create such a plugin, subclass KAbstractFileItemActionPlugin and implement
+ * actions() to return the actions to want to add to the context menu.  Then
+ * create a plugin in the usual KPluginFactory based way:
  * \code
  * K_PLUGIN_FACTORY(MyActionPluginFactory, myactionplugin.json, registerPlugin<MyActionPlugin>();)
+ * #include <thisfile.moc>
  * \endcode
  *
  * A desktop file is necessary to register the plugin with the KDE plugin system:
@@ -68,17 +67,14 @@ class KFileItemListProperties;
  * and the \p MimeType field which specifies for which types of file items
  * the setup() method should be called.
  *
- *
- * As with all KDE plugins one needs to install the plugin as a module. In
- * cmake terms this looks roughly as follows:
- *
+ * The desktop file contents must also be compiled into the plugin as JSON data.
+ * The following CMake code builds and installs the plugin:
  * \code
+ * set(myactionplugin_SRCS myactionplugin.cpp)
  * desktop_to_json(myactionplugin myactionplugin.desktop) # generate the json file
+ * add_library(myactionplugin MODULE ${myactionplugin_SRCS})
  *
- * add_library(myactionplugin MODULE ${myactionplugin_SRCS} )
- * set_target_properties(myactionplugin PROPERTIES PREFIX "") # remove lib prefix from binary
- *
- * target_link_libraries(myactionplugin ${KDE4_KIO_LIBS})
+ * target_link_libraries(myactionplugin KF5::KIOWidgets)
  * install(TARGETS myactionplugin DESTINATION ${PLUGIN_INSTALL_DIR})
  * install(FILES myactionplugin.desktop DESTINATION ${SERVICES_INSTALL_DIR})
  * \endcode
@@ -99,12 +95,14 @@ public:
     /**
      * Implement the actions method in the plugin in order to create actions.
      *
-     * @param fileItemInfos The information about the selected file items.
-     * (Which file items, their common mimetype, etc.)
-     * @param parentWidget A parent widget for error messages or the like.
-     * @return List of actions, that should added to e. g. the popup menu.
-     *         It is recommended to use the KAbstractFileItemActionPlugin as parent
-     *         of the actions.
+     * The returned actions should have the KAbstractFileItemActionPlugin object
+     * as their parent.
+     *
+     * @param fileItemInfos  Information about the selected file items.
+     * @param parentWidget   A parent widget for error messages or the like.
+     *
+     * @return A list of actions to be added to a contextual menu for the file
+     *         items.
      */
     virtual QList<QAction *> actions(const KFileItemListProperties &fileItemInfos,
                                      QWidget *parentWidget) = 0;
