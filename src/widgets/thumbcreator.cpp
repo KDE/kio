@@ -34,12 +34,12 @@ ThumbCreatorV2::~ThumbCreatorV2()
 {
 }
 
-QWidget *ThumbCreatorV2::createConfigurationWidget()
+QWidget *ThumbCreator::createConfigurationWidget()
 {
     return 0;
 }
 
-void ThumbCreatorV2::writeConfiguration(const QWidget *configurationWidget)
+void ThumbCreator::writeConfiguration(const QWidget *configurationWidget)
 {
     Q_UNUSED(configurationWidget);
 }
