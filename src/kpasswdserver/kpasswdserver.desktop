@@ -2,6 +2,7 @@
 Type=Service
 Name=Password Caching
 Name[ca]=Ús de memòria cau de contrasenyes
+Name[cs]=Kešování hesel
 Name[de]=Passwort-Zwischenspeicherung
 Name[es]=Caché de contraseñas
 Name[fi]=Salasanavälimuisti
@@ -23,6 +24,7 @@ Name[uk]=Кешування паролів
 Name[x-test]=xxPassword Cachingxx
 Comment=Temporary password caching
 Comment[ca]=Ús temporal de memòria cau de contrasenyes
+Comment[cs]=Dočasné kešování hesel
 Comment[de]=Temporäre Passwort-Zwischenspeicherung
 Comment[es]=Caché temporal de contraseñas
 Comment[fi]=Väliaikainen salasanavälimuisti
