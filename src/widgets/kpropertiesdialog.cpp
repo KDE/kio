@@ -1800,9 +1800,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
         KCompletion *kcom = d->usrEdit->completionObject();
         kcom->setOrder(KCompletion::Sorted);
         QStringList userNames = KUser::allUserNames(maxEntries);
-        Q_FOREACH(const QString& s, userNames) {
-            kcom->addItem(s);
-        }
+        kcom->setItems(userNames);
         d->usrEdit->setCompletionMode((userNames.size() < maxEntries) ? KCompletion::CompletionAuto :
                                       KCompletion::CompletionNone);
         d->usrEdit->setText(d->strOwner);
@@ -3405,19 +3403,15 @@ void KDesktopPropsPlugin::slotAdvanced()
     }
 
     // Provide username completion up to 1000 users.
-    KCompletion *kcom = new KCompletion;
-    kcom->setOrder(KCompletion::Sorted);
-    int i, maxEntries = 1000;
+    const int maxEntries = 1000;
     QStringList userNames = KUser::allUserNames(maxEntries);
-    Q_FOREACH(const QString& userName, userNames) {
-        kcom->addItem(userName);
-    }
-    if (i < maxEntries) {
+    if (userNames.size() < maxEntries) {
+        KCompletion *kcom = new KCompletion;
+        kcom->setOrder(KCompletion::Sorted);
         w.suidEdit->setCompletionObject(kcom, true);
         w.suidEdit->setAutoDeleteCompletionObject(true);
         w.suidEdit->setCompletionMode(KCompletion::CompletionAuto);
-    } else {
-        delete kcom;
+        kcom->setItems(userNames);
     }
 
     connect(w.terminalEdit, SIGNAL(textChanged(QString)),
