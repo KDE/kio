@@ -573,12 +573,7 @@ QString KFileItem::linkDest() const
 
     // If not in the KIO::UDSEntry, or if UDSEntry empty, use readlink() [if local URL]
     if (d->m_bIsLocalUrl) {
-        char buf[1000];
-        const int n = readlink(QFile::encodeName(d->m_url.adjusted(QUrl::StripTrailingSlash).toLocalFile()), buf, sizeof(buf) - 1);
-        if (n != -1) {
-            buf[ n ] = 0;
-            return QFile::decodeName(buf);
-        }
+        return QFile::symLinkTarget(d->m_url.adjusted(QUrl::StripTrailingSlash).toLocalFile());
     }
     return QString();
 }
