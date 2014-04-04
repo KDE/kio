@@ -22,6 +22,9 @@ Boston, MA 02110-1301, USA.
 #include <QtGlobal>
 #include <qplatformdefs.h>
 
+#include <qplatformdefs.h>
+#include <KUser>
+
 #ifdef Q_OS_WIN
 // windows just sets the mode_t access rights bits to the same value for user+group+other.
 // This means using the Linux values here is fine.
@@ -59,6 +62,8 @@ namespace KIOPrivate {
     bool isProcessAlive(qint64 pid);
     /** Send a terminate signal (SIGTERM on UNIX) to the process with given PID. */
     void sendTerminateSignal(qint64 pid);
+    /** Changes the ownership of @p file (like chown()) */
+    bool changeOwnership(const QString& file, KUserId newOwner, KGroupId newGroup);
 }
 
 #endif // KIO_KIOGLOBAL_P_H

@@ -52,3 +52,10 @@ void KIOPrivate::sendTerminateSignal(qint64 pid)
         CloseHandle(procHandle);
     }
 }
+
+bool KIOPrivate::changeOwnership(const QString& file, KUserId newOwner, KGroupId newGroup)
+{
+#pragma message("TODO")
+    qWarning("KIOPrivate::changeOwnership: not implemented yet");
+    return false;
+}

@@ -29,3 +29,8 @@ void KIOPrivate::sendTerminateSignal(qint64 pid)
 {
     ::kill(pid, SIGTERM);
 }
+
+bool KIOPrivate::changeOwnership(const QString& file, KUserID newOwner, KGroupId newGroup)
+{
+    return chown(QFile::encodeName(file), newOwner.nativeId(), newGroup.nativeId()) == 0;
+}

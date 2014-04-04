@@ -21,19 +21,17 @@
 
 #include "chmodjob.h"
 
-#include "listjob.h"
-#include <klocalizedstring.h>
-#include <kio/jobuidelegatefactory.h>
+#include <KLocalizedString>
+#include <KUser>
 #include <QtCore/QFile>
 #include <QtCore/QLinkedList>
 #include <QDebug>
 
 
-#include <sys/types.h>
-#include <qplatformdefs.h>
-#include <assert.h>
-
+#include "listjob.h"
 #include "job_p.h"
+#include "jobuidelegatefactory.h"
+#include "kioglobal_p.h"
 
 namespace KIO
 {
@@ -52,7 +50,7 @@ class ChmodJobPrivate: public KIO::JobPrivate
 {
 public:
     ChmodJobPrivate(const KFileItemList &lstItems, int permissions, int mask,
-                    int newOwner, int newGroup, bool recursive)
+                    KUserId newOwner, KGroupId newGroup, bool recursive)
         : state(CHMODJOB_STATE_LISTING)
         , m_permissions(permissions)
         , m_mask(mask)
@@ -67,8 +65,8 @@ public:
     ChmodJobState state;
     int m_permissions;
     int m_mask;
-    int m_newOwner;
-    int m_newGroup;
+    KUserId m_newOwner;
+    KGroupId m_newGroup;
     bool m_recursive;
     bool m_bAutoSkipFiles;
     KFileItemList m_lstItems;
@@ -81,7 +79,7 @@ public:
     Q_DECLARE_PUBLIC(ChmodJob)
 
     static inline ChmodJob *newJob(const KFileItemList &lstItems, int permissions, int mask,
-                                   int newOwner, int newGroup, bool recursive, JobFlags flags)
+                                   KUserId newOwner, KGroupId newGroup, bool recursive, JobFlags flags)
     {
         ChmodJob *job = new ChmodJob(*new ChmodJobPrivate(lstItems, permissions, mask,
                                      newOwner, newGroup, recursive));
@@ -197,9 +195,9 @@ void ChmodJobPrivate::_k_chmodNextFile()
         ChmodInfo info = m_infos.takeFirst();
         // First update group / owner (if local file)
         // (permissions have to set after, in case of suid and sgid)
-        if (info.url.isLocalFile() && (m_newOwner != -1 || m_newGroup != -1)) {
+        if (info.url.isLocalFile() && (m_newOwner.isValid() || m_newGroup.isValid())) {
             QString path = info.url.toLocalFile();
-            if (chown(QFile::encodeName(path), m_newOwner, m_newGroup) != 0) {
+            if (!KIOPrivate::changeOwnership(path, m_newOwner, m_newGroup)) {
                 if (!m_uiDelegateExtension) {
                     emit q->warning(q, i18n("Could not modify the ownership of file %1", path));
                 } else if (!m_bAutoSkipFiles) {
@@ -272,7 +270,7 @@ void ChmodJob::slotResult(KJob *job)
         d->_k_chmodNextFile();
         return;
     default:
-        assert(0);
+        Q_ASSERT(false);
         return;
     }
 }
@@ -281,26 +279,10 @@ ChmodJob *KIO::chmod(const KFileItemList &lstItems, int permissions, int mask,
                      const QString &owner, const QString &group,
                      bool recursive, JobFlags flags)
 {
-    uid_t newOwnerID = uid_t(-1); // chown(2) : -1 means no change
-    if (!owner.isEmpty()) {
-        struct passwd *pw = getpwnam(QFile::encodeName(owner));
-        if (pw == 0L) {
-            qWarning() << " ERROR: No user" << owner;
-        } else {
-            newOwnerID = pw->pw_uid;
-        }
-    }
-    gid_t newGroupID = gid_t(-1); // chown(2) : -1 means no change
-    if (!group.isEmpty()) {
-        struct group *g = getgrnam(QFile::encodeName(group));
-        if (g == 0L) {
-            qWarning() << " ERROR: No group" << group;
-        } else {
-            newGroupID = g->gr_gid;
-        }
-    }
-    return ChmodJobPrivate::newJob(lstItems, permissions, mask, newOwnerID,
-                                   newGroupID, recursive, flags);
+    KUserId uid = KUserId::fromName(owner);
+    KGroupId gid = KGroupId::fromName(owner);
+    return ChmodJobPrivate::newJob(lstItems, permissions, mask, uid,
+                                   gid, recursive, flags);
 }
 
 #include "moc_chmodjob.cpp"
