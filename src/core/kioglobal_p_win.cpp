@@ -24,7 +24,7 @@ Boston, MA 02110-1301, USA.
 #define _WIN32_WINNT 0x600 //Vista is minimum supported windows version (we need CreateSymbolicLinkW)
 #include <qt_windows.h>
 
-bool KIOPrivate::isProcessAlive(qint64 pid) {
+KIOCORE_EXPORT bool KIOPrivate::isProcessAlive(qint64 pid) {
     HANDLE procHandle = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, FALSE, pid);
     bool alive = false;
     if (procHandle != INVALID_HANDLE_VALUE) {
@@ -48,7 +48,7 @@ BOOL CALLBACK closeProcessCallback(HWND hwnd, LPARAM lParam)
     return TRUE;
 }
 
-void KIOPrivate::sendTerminateSignal(qint64 pid)
+KIOCORE_EXPORT void KIOPrivate::sendTerminateSignal(qint64 pid)
 {
     //no error checking whether kill succeeded, Linux code also just sends a SIGTERM without checking
     HANDLE procHandle = OpenProcess(SYNCHRONIZE | PROCESS_TERMINATE, FALSE, pid);
@@ -58,7 +58,7 @@ void KIOPrivate::sendTerminateSignal(qint64 pid)
     }
 }
 
-bool KIOPrivate::createSymlink(const QString &source, const QString &destination, KIOPrivate::SymlinkType type)
+KIOCORE_EXPORT bool KIOPrivate::createSymlink(const QString &source, const QString &destination, KIOPrivate::SymlinkType type)
 {
     DWORD flag;
     if (type == KIOPrivate::DirectorySymlink) {
@@ -85,7 +85,7 @@ bool KIOPrivate::createSymlink(const QString &source, const QString &destination
     return ok;
 }
 
-bool KIOPrivate::changeOwnership(const QString& file, KUserId newOwner, KGroupId newGroup)
+KIOCORE_EXPORT bool KIOPrivate::changeOwnership(const QString& file, KUserId newOwner, KGroupId newGroup)
 {
 #pragma message("TODO")
     qWarning("KIOPrivate::changeOwnership: not implemented yet");

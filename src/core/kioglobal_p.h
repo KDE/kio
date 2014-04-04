@@ -21,6 +21,7 @@ Boston, MA 02110-1301, USA.
 
 #include <QtGlobal>
 #include <qplatformdefs.h>
+#include "kiocore_export.h"
 
 #include <qplatformdefs.h>
 #include <KUser>
@@ -59,9 +60,9 @@ Q_STATIC_ASSERT(S_IRUSR == _S_IREAD && S_IWUSR == _S_IWRITE && S_IXUSR == _S_IEX
 
 namespace KIOPrivate {
     /** @return true if the process with given PID is currently running */
-    bool isProcessAlive(qint64 pid);
+    KIOCORE_EXPORT bool isProcessAlive(qint64 pid);
     /** Send a terminate signal (SIGTERM on UNIX) to the process with given PID. */
-    void sendTerminateSignal(qint64 pid);
+    KIOCORE_EXPORT void sendTerminateSignal(qint64 pid);
 
     enum SymlinkType {
         GuessSymlinkType,
@@ -77,10 +78,10 @@ namespace KIOPrivate {
      * is usually only given to administrators.
      * @return true on success, false on error
      */
-    bool createSymlink(const QString &source, const QString &destination, SymlinkType type = GuessSymlinkType);
+    KIOCORE_EXPORT bool createSymlink(const QString &source, const QString &destination, SymlinkType type = GuessSymlinkType);
 
     /** Changes the ownership of @p file (like chown()) */
-    bool changeOwnership(const QString& file, KUserId newOwner, KGroupId newGroup);
+    KIOCORE_EXPORT bool changeOwnership(const QString& file, KUserId newOwner, KGroupId newGroup);
 }
 
 #endif // KIO_KIOGLOBAL_P_H

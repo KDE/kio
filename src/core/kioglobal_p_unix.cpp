@@ -20,23 +20,23 @@ Boston, MA 02110-1301, USA.
 #include <unistd.h>
 #include <signal.h>
 
-bool KIOPrivate::isProcessAlive(qint64 pid)
+KIOCORE_EXPORT bool KIOPrivate::isProcessAlive(qint64 pid)
 {
     return ::kill(pid, 0) == 0;
 }
 
-void KIOPrivate::sendTerminateSignal(qint64 pid)
+KIOCORE_EXPORT void KIOPrivate::sendTerminateSignal(qint64 pid)
 {
     ::kill(pid, SIGTERM);
 }
 
-bool KIOPrivate::createSymlink(const QString &source, const QString &destination, SymlinkType type)
+KIOCORE_EXPORT bool KIOPrivate::createSymlink(const QString &source, const QString &destination, SymlinkType type)
 {
     Q_UNUSED(type)
     return ::symlink(QFile::encodeName(source), QFile::encodeName(destination)) == 0;
 }
 
-bool KIOPrivate::changeOwnership(const QString& file, KUserID newOwner, KGroupId newGroup)
+KIOCORE_EXPORT bool KIOPrivate::changeOwnership(const QString& file, KUserID newOwner, KGroupId newGroup)
 {
     return chown(QFile::encodeName(file), newOwner.nativeId(), newGroup.nativeId()) == 0;
 }
