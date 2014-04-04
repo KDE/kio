@@ -19,6 +19,7 @@ Boston, MA 02110-1301, USA.
 
 #include <QDebug>
 #include <QFile>
+#include <QFileInfo>
 
 #undef _WIN32_WINNT
 #define _WIN32_WINNT 0x600 //Vista is minimum supported windows version (we need CreateSymbolicLinkW)
@@ -83,6 +84,22 @@ KIOCORE_EXPORT bool KIOPrivate::createSymlink(const QString &source, const QStri
         ok = QFile::link(source, destination);
     }
     return ok;
+}
+
+KIOCORE_EXPORT int kio_windows_lstat(const char* path, QT_STATBUF* buffer)
+{
+    int result = QT_STAT(path, buffer);
+    if (result != 0) {
+        return result;
+    }
+    const QString pathStr = QFile::decodeName(path);
+    // QFileInfo currently only checks for .lnk file in isSymlink() -> also check native win32 symlinks
+    const DWORD fileAttrs = GetFileAttributesW((LPCWSTR)pathStr.utf16());
+    if (fileAttrs != INVALID_FILE_ATTRIBUTES && (fileAttrs & FILE_ATTRIBUTE_REPARSE_POINT)
+        || QFileInfo(pathStr).isSymLink()) {
+        buffer->st_mode |= QT_STAT_LNK;
+    }
+    return result;
 }
 
 KIOCORE_EXPORT bool KIOPrivate::changeOwnership(const QString& file, KUserId newOwner, KGroupId newGroup)
