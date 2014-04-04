@@ -62,6 +62,23 @@ namespace KIOPrivate {
     bool isProcessAlive(qint64 pid);
     /** Send a terminate signal (SIGTERM on UNIX) to the process with given PID. */
     void sendTerminateSignal(qint64 pid);
+
+    enum SymlinkType {
+        GuessSymlinkType,
+        FileSymlink,
+        DirectorySymlink
+    };
+
+    /** Creates a symbolic link at @p destination pointing to @p source
+     * Unlink UNIX, Windows needs to know whether the symlink points to a file or a directory
+     * when creating the link. This information can be passed in @p type. If @p type is not given
+     * the windows code will guess the type based on the source file.
+     * @note On Windows this requires the current user to have the SeCreateSymbolicLink privilege which
+     * is usually only given to administrators.
+     * @return true on success, false on error
+     */
+    bool createSymlink(const QString &source, const QString &destination, SymlinkType type = GuessSymlinkType);
+
     /** Changes the ownership of @p file (like chown()) */
     bool changeOwnership(const QString& file, KUserId newOwner, KGroupId newGroup);
 }

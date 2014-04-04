@@ -31,6 +31,8 @@
 #endif
 #include <errno.h>
 
+#include "kioglobal_p.h"
+
 QString homeTmpDir()
 {
     const QString dir(QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/kiotests/");
@@ -78,7 +80,7 @@ static void createTestFile(const QString &path, bool plainText = false)
 static void createTestSymlink(const QString &path, const QByteArray &target = "/IDontExist")
 {
     QFile::remove(path);
-    bool ok = symlink(target.constData(), QFile::encodeName(path)) == 0;     // broken symlink
+    bool ok = KIOPrivate::createSymlink(target, path);     // broken symlink
     if (!ok) {
         qFatal("couldn't create symlink: %s", strerror(errno));
     }

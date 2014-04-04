@@ -30,6 +30,12 @@ void KIOPrivate::sendTerminateSignal(qint64 pid)
     ::kill(pid, SIGTERM);
 }
 
+bool KIOPrivate::createSymlink(const QString &source, const QString &destination, SymlinkType type)
+{
+    Q_UNUSED(type)
+    return ::symlink(QFile::encodeName(source), QFile::encodeName(destination)) == 0;
+}
+
 bool KIOPrivate::changeOwnership(const QString& file, KUserID newOwner, KGroupId newGroup)
 {
     return chown(QFile::encodeName(file), newOwner.nativeId(), newGroup.nativeId()) == 0;

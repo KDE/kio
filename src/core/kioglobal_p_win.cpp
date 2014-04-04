@@ -17,6 +17,11 @@ Boston, MA 02110-1301, USA.
 */
 #include "kioglobal_p.h"
 
+#include <QDebug>
+#include <QFile>
+
+#undef _WIN32_WINNT
+#define _WIN32_WINNT 0x600 //Vista is minimum supported windows version (we need CreateSymbolicLinkW)
 #include <qt_windows.h>
 
 bool KIOPrivate::isProcessAlive(qint64 pid) {
@@ -51,6 +56,33 @@ void KIOPrivate::sendTerminateSignal(qint64 pid)
         EnumWindows(&closeProcessCallback, (LPARAM)pid);
         CloseHandle(procHandle);
     }
+}
+
+bool KIOPrivate::createSymlink(const QString &source, const QString &destination, KIOPrivate::SymlinkType type)
+{
+    DWORD flag;
+    if (type == KIOPrivate::DirectorySymlink) {
+        flag = SYMBOLIC_LINK_FLAG_DIRECTORY;
+    } else if (type == KIOPrivate::FileSymlink) {
+        flag = 0;
+    }
+    else {
+        // Guess the type of the symlink based on the source path
+        // If the source is a directory we set the flag SYMBOLIC_LINK_FLAG_DIRECTORY, for files
+        // and non-existent paths we create a symlink to a file
+        DWORD sourceAttrs = GetFileAttributesW((LPCWSTR)source.utf16());
+        if (sourceAttrs != INVALID_FILE_ATTRIBUTES && (sourceAttrs & FILE_ATTRIBUTE_DIRECTORY)) {
+            flag = SYMBOLIC_LINK_FLAG_DIRECTORY;
+        } else {
+            flag = 0;
+        }
+    }
+    bool ok = CreateSymbolicLinkW((LPCWSTR)destination.utf16(), (LPCWSTR)source.utf16(), flag);
+    if (!ok) {
+        // create a .lnk file
+        ok = QFile::link(source, destination);
+    }
+    return ok;
 }
 
 bool KIOPrivate::changeOwnership(const QString& file, KUserId newOwner, KGroupId newGroup)
