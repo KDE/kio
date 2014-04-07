@@ -49,11 +49,7 @@ BinaryUnitDialect _k_loadBinaryDialect()
 {
     KConfigGroup mainGroup(KSharedConfig::openConfig(), "Locale");
 
-    KConfig entryFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("locale/") + QString::fromLatin1("l10n/%1/kf5_entry.desktop").arg(QLocale::countryToString(QLocale().country()))));
-    entryFile.setLocale(QLocale::languageToString(QLocale().language()));
-    KConfigGroup entryGroup(&entryFile, "KCM Locale");
-
-    BinaryUnitDialect dialect = (BinaryUnitDialect) entryGroup.readEntry("BinaryUnitDialect", int(IECBinaryDialect));
+    BinaryUnitDialect dialect(BinaryUnitDialect(mainGroup.readEntry("BinaryUnitDialect", int(DefaultBinaryDialect))));
     dialect = (BinaryUnitDialect) mainGroup.readEntry("BinaryUnitDialect", int(dialect));
 
     // Error checking
