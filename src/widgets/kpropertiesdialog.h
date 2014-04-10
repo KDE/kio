@@ -55,6 +55,9 @@ class Job;
  *
  * If you are looking for more flexibility, see KFileMetaInfo and
  * KFileMetaInfoWidget.
+ *
+ * This respects the "editfiletype", "run_desktop_files" and "shell_access"
+ * Kiosk action restrictions (see KAuthorized::authorize()).
  */
 class KIOWIDGETS_EXPORT KPropertiesDialog : public KPageDialog
 {

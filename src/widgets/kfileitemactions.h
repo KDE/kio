@@ -39,6 +39,17 @@ class KFileItemActionsPrivate;
  * @li user-defined actions for a .desktop file, defined in the file itself (see the desktop entry standard)
  * @li servicemenus actions, defined in .desktop files and selected based on the mimetype of the url
  *
+ * KFileItemActions respects Kiosk-based restrictions (see the KAuthorized
+ * namespace in the KConfig framework).  In particular, the "action/openwith"
+ * action is checked when determining actions for opening files (see
+ * addOpenWithActionsTo()) and service-specific actions are checked before
+ * adding service actions to a menu (see addServiceActionsTo()).
+ *
+ * For user-defined actions in a .desktop file, the "X-KDE-AuthorizeAction" key
+ * can be used to determine which actions are checked before the user-defined
+ * action is allowed.  The action is ignored if any of the listed actions are
+ * not authorized.
+ *
  * @since 4.3
  */
 class KIOWIDGETS_EXPORT KFileItemActions : public QObject
@@ -76,6 +87,10 @@ public:
     /**
      * Generate the "Open With <Application>" actions, and adds them to the @p menu.
      * All actions are created as children of the menu.
+     *
+     * No actions will be added if the "openwith" Kiosk action is not authorized
+     * (see KAuthorized::authorize()).
+     *
      * @param menu the QMenu where to add actions
      * @param traderConstraint this constraint allows to exclude the current application
      * from the "open with" list. Example: "DesktopEntryName != 'kfmclient'".
@@ -91,6 +106,8 @@ public:
     QAction *preferredOpenWithAction(const QString &traderConstraint);
 
     /**
+     * Returns the applications associated with all the given mimetypes.
+     *
      * Helper method used internally, can also be used for similar GUIs that
      * show the list of associated applications.
      * Used in KParts::BrowserOpenOrSaveQuestion for example.
@@ -107,7 +124,9 @@ public:
      * Note that for a single mimetype there is no need to use this, you should use
      * KMimeTypeTrader instead, e.g. query() or preferredService().
      *
-     * Returns the applications associated with all the given mimetypes.
+     * This will return an empty list if the "openwith" Kiosk action is not
+     * authorized (see KAuthorized::authorize()).
+     *
      * @param mimeTypeList the mimetypes
      * @param traderConstraint this optional constraint allows to exclude the current application
      * from the "open with" list. Example: "DesktopEntryName != 'kfmclient'".
@@ -125,6 +144,11 @@ public:
      *
      * When KFileItemListProperties::supportsWriting() is false, actions that modify the files are not shown.
      * This is controlled by Require=Write in the servicemenu desktop files.
+     *
+     * Service actions that are not authorized (see KAuthorized::authorize())
+     * are not added.  For user-defined actions in a .desktop file, the
+     * "X-KDE-AuthorizeAction" key determines the Kiosk actions that are
+     * checked.
      *
      * All actions are created as children of the menu.
      * @return the number of actions added

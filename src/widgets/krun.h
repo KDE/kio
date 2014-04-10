@@ -52,6 +52,9 @@ class Job;
  * itself when the it finished its task. If you allocate the KRun
  * object on the stack you must disable auto deletion, otherwise it will crash.
  *
+ * This respects the "shell_access", "openwith" and "run_desktop_files" Kiosk
+ * action restrictions (see KAuthorized::authorize()).
+ *
  * @short Opens files with their associated applications in KDE
  */
 class KIOWIDGETS_EXPORT KRun : public QObject

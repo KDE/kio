@@ -34,6 +34,10 @@ class KOpenWithDialogPrivate;
  * @note To let the user choose an application and run it immediately,
  *       use simpler KRun::displayOpenWithDialog().
  *
+ * If the Kiosk "shell_access" action is not authorized (see
+ * KAuthorized::authorize()), arbitrary commands are not allowed; instead, the
+ * user must browse to and choose an executable.
+ *
  * @author David Faure <faure@kde.org>
  */
 class KIOWIDGETS_EXPORT KOpenWithDialog : public QDialog
