@@ -14,7 +14,7 @@
 #include <kpreviewwidgetbase.h>
 #include <qmimetype.h>
 
-// Internal, but exported for KDirOperator (kfile) and KPreviewProps (kde4support)
+// Internal, but exported for KDirOperator (kfile) and KPreviewProps (kdelibs4support)
 class KIOFILEWIDGETS_EXPORT KFileMetaPreview : public KPreviewWidgetBase
 {
     Q_OBJECT
