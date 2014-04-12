@@ -499,15 +499,21 @@ void HTTPProtocol::resetSessionSettings()
         m_request.languages.clear();
     }
 
-    // Adjust the offset value based on the "resume" meta-data.
-    QString resumeOffset = metaData(QLatin1String("resume"));
+    // Adjust the offset value based on the "range-start" meta-data.
+    QString resumeOffset = metaData(QLatin1String("range-start"));
+    if (resumeOffset.isEmpty()) {
+        resumeOffset = metaData(QLatin1String("resume")); // old name
+    }
     if (!resumeOffset.isEmpty()) {
         m_request.offset = resumeOffset.toULongLong();
     } else {
         m_request.offset = 0;
     }
     // Same procedure for endoffset.
-    QString resumeEndOffset = metaData(QLatin1String("resume_until"));
+    QString resumeEndOffset = metaData(QLatin1String("range-end"));
+    if (resumeEndOffset.isEmpty()) {
+        resumeEndOffset = metaData(QLatin1String("resume_until")); // old name
+    }
     if (!resumeEndOffset.isEmpty()) {
         m_request.endoffset = resumeEndOffset.toULongLong();
     } else {

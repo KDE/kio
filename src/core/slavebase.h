@@ -170,8 +170,8 @@ public:
     bool canResume(KIO::filesize_t offset);
 
     /**
-     * Call this at the beginning of get(), if the "resume" metadata was set
-     * and resuming is implemented by this protocol.
+     * Call this at the beginning of get(), if the "range-start" metadata was set
+     * and returning byte ranges is implemented by this protocol.
      */
     void canResume();
 

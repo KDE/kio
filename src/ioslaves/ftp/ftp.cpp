@@ -1865,7 +1865,10 @@ Ftp::StatusCode Ftp::ftpGet(int &iError, int iCopyFile, const QUrl &url, KIO::fi
         return statusServerError;
     }
 
-    QString resumeOffset = metaData("resume");
+    QString resumeOffset = metaData("range-start");
+    if (resumeOffset.isEmpty()) {
+        resumeOffset = metaData("resume"); // old name
+    }
     if (!resumeOffset.isEmpty()) {
         llOffset = resumeOffset.toLongLong();
         // qDebug() << "got offset from metadata : " << llOffset;

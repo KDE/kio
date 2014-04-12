@@ -395,9 +395,7 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
             }
             if (offset) {
                 //qDebug() << "Setting metadata for resume to" << (unsigned long) offset;
-                // TODO KDE4: rename to seek or offset and document it
-                // This isn't used only for resuming, but potentially also for extracting (#72302).
-                m_getJob->addMetaData("resume", KIO::number(offset));
+                m_getJob->addMetaData("range-start", KIO::number(offset));
 
                 // Might or might not get emitted
                 q->connect(m_getJob, SIGNAL(canResume(KIO::Job*,KIO::filesize_t)),

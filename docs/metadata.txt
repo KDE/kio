@@ -50,10 +50,13 @@ no-cache        bool            Flag that indicates whether caching is enabled/d
 
 window-id       number          winId() of the window the request is associated with.
 
-resume          number          Try to get the file starting at the given offset (set by file_copy when finding a .part file,
+range-start     number          Try to get the file starting at the given offset (set by file_copy when finding a .part file,
                                                                                   but can also be set by apps.)
 
-resume_until    number          Try to get the file until at the given offset (not set in kdelibs; handled by kio_http).
+range-end       number          Try to get the file until at the given offset (not set in kdelibs; handled by kio_http).
+
+resume          number          Deprecated compatibility name for range-start
+resume_until    number          Deprecated compatibility name for range-end
 
 charset         string          Charset of the current content as returned by a HTTP Header Response.
 

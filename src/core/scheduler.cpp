@@ -1176,8 +1176,9 @@ Slave *SchedulerPrivate::heldSlaveForJob(SimpleJob *job)
             if (canJobReuse) {
                 KIO::MetaData outgoing = tJob->outgoingMetaData();
                 const QString resume = outgoing.value("resume");
+                const QString rangeStart = outgoing.value("range-start");
                 //qDebug() << "Resume metadata is" << resume;
-                canJobReuse = (resume.isEmpty() || resume == "0");
+                canJobReuse = (resume.isEmpty() || resume == "0") && (rangeStart.isEmpty() || rangeStart == "0");
             }
         }
 

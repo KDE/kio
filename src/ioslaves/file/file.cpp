@@ -345,7 +345,10 @@ void FileProtocol::get(const QUrl &url)
 
     KIO::filesize_t processed_size = 0;
 
-    const QString resumeOffset = metaData(QLatin1String("resume"));
+    QString resumeOffset = metaData(QLatin1String("range-start"));
+    if (resumeOffset.isEmpty()) {
+        resumeOffset = metaData(QLatin1String("resume")); // old name
+    }
     if (!resumeOffset.isEmpty()) {
         bool ok;
         KIO::fileoffset_t offset = resumeOffset.toLongLong(&ok);
