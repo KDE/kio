@@ -47,6 +47,7 @@
 #include <QtNetwork/QAuthenticator>
 #include <QtNetwork/QNetworkProxy>
 #include <QtNetwork/QTcpSocket>
+#include <QNetworkConfigurationManager>
 #include <QUrl>
 
 #include <QDebug>
@@ -65,8 +66,6 @@
 #include <QDBusReply>
 #include <QProcess>
 #include <httpfilter.h>
-
-#include <solid/networking.h>
 
 #include <sys/stat.h>
 
@@ -385,6 +384,7 @@ HTTPProtocol::HTTPProtocol(const QByteArray &protocol, const QByteArray &pool,
     , m_wwwAuth(0)
     , m_proxyAuth(0)
     , m_socketProxyAuth(0)
+    , m_networkConfig(0)
     , m_iError(0)
     , m_isLoadingErrorPage(false)
     , m_remoteRespTimeout(DEFAULT_RESPONSE_TIMEOUT)
@@ -1899,16 +1899,11 @@ bool HTTPProtocol::sendErrorPageNotification()
 
 bool HTTPProtocol::isOffline()
 {
-    // ### TEMPORARY WORKAROUND (While investigating why solid may
-    // produce false positives)
-    return false;
+    if (!m_networkConfig) {
+        m_networkConfig = new QNetworkConfigurationManager(this);
+    }
 
-    Solid::Networking::Status status = Solid::Networking::status();
-
-    // qDebug() << "networkstatus:" << status;
-
-    // on error or unknown, we assume online
-    return status == Solid::Networking::Unconnected;
+    return !m_networkConfig->isOnline();
 }
 
 void HTTPProtocol::multiGet(const QByteArray &data)

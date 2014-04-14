@@ -27,6 +27,8 @@
 #include <QDBusMessage>
 
 class QFileSystemWatcher;
+class QNetworkConfiguration;
+class QNetworkConfigurationManager;
 
 namespace KPAC
 {
@@ -48,7 +50,7 @@ public Q_SLOTS:
     Q_SCRIPTABLE Q_NOREPLY void reset();
 
 private Q_SLOTS:
-    void disconnectNetwork();
+    void disconnectNetwork(const QNetworkConfiguration &config);
     void downloadResult(bool);
     void proxyScriptFileChanged(const QString &);
 
@@ -75,6 +77,7 @@ private:
     BlackList m_blackList;
     qint64 m_suspendTime;
     QFileSystemWatcher *m_watcher;
+    QNetworkConfigurationManager *m_networkConfig;
 };
 }
 

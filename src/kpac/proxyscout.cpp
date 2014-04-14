@@ -32,9 +32,7 @@
 #include <kpluginfactory.h>
 #include <kpluginloader.h>
 
-#if ! KPAC_NO_SOLID
-#include <solid/networking.h>
-#endif
+#include <QNetworkConfigurationManager>
 
 #include <QtCore/QFileSystemWatcher>
 #include <QDBusConnection>
@@ -86,9 +84,7 @@ ProxyScout::ProxyScout(QObject *parent, const QList<QVariant> &)
       m_suspendTime(0),
       m_watcher(0)
 {
-#if ! KPAC_NO_SOLID
-    connect(Solid::Networking::notifier(), SIGNAL(shouldDisconnect()), SLOT(disconnectNetwork()));
-#endif
+    connect(m_networkConfig, SIGNAL(configurationChanged(QNetworkConfiguration)), SLOT(disconnectNetwork(QNetworkConfiguration)));
 }
 
 ProxyScout::~ProxyScout()
@@ -216,12 +212,14 @@ bool ProxyScout::startDownload()
     return true;
 }
 
-void ProxyScout::disconnectNetwork()
+void ProxyScout::disconnectNetwork(const QNetworkConfiguration &config)
 {
-    // NOTE: We only connect to Solid's network notifier's shouldDisconnect
-    // signal because we only want to redo WPAD when a network interface is
-    // brought out of hibernation or restarted for whatever reason.
-    reset();
+    // NOTE: We only care of Defined state because we only want
+    //to redo WPAD when a network interface is brought out of
+    //hibernation or restarted for whatever reason.
+    if (config.state() == QNetworkConfiguration::Defined) {
+        reset();
+    }
 }
 
 void ProxyScout::downloadResult(bool success)

@@ -26,19 +26,22 @@
 #include <QVBoxLayout>
 #include <kiconloader.h>
 #include <klocalizedstring.h>
+#include <QNetworkConfigurationManager>
 
 class KStatusBarOfflineIndicatorPrivate
 {
 public:
     KStatusBarOfflineIndicatorPrivate(KStatusBarOfflineIndicator *parent)
         : q(parent)
+        , networkConfiguration(new QNetworkConfigurationManager(parent))
     {
     }
 
     void initialize();
-    void _k_networkStatusChanged(Solid::Networking::Status status);
+    void _k_networkStatusChanged(bool isOnline);
 
     KStatusBarOfflineIndicator *q;
+    QNetworkConfigurationManager *networkConfiguration;
 };
 
 KStatusBarOfflineIndicator::KStatusBarOfflineIndicator(QWidget *parent)
@@ -52,8 +55,8 @@ KStatusBarOfflineIndicator::KStatusBarOfflineIndicator(QWidget *parent)
     label->setToolTip(i18n("The desktop is offline"));
     layout->addWidget(label);
     d->initialize();
-    connect(Solid::Networking::notifier(), SIGNAL(statusChanged(Solid::Networking::Status)),
-            SLOT(_k_networkStatusChanged(Solid::Networking::Status)));
+    connect(d->networkConfiguration, SIGNAL(onlineStateChanged(bool)),
+            SLOT(_k_networkStatusChanged(bool)));
 }
 
 KStatusBarOfflineIndicator::~KStatusBarOfflineIndicator()
@@ -63,12 +66,12 @@ KStatusBarOfflineIndicator::~KStatusBarOfflineIndicator()
 
 void KStatusBarOfflineIndicatorPrivate::initialize()
 {
-    _k_networkStatusChanged(Solid::Networking::status());
+    _k_networkStatusChanged(networkConfiguration->isOnline());
 }
 
-void KStatusBarOfflineIndicatorPrivate::_k_networkStatusChanged(Solid::Networking::Status status)
+void KStatusBarOfflineIndicatorPrivate::_k_networkStatusChanged(bool isOnline)
 {
-    if (status == Solid::Networking::Connected || status == Solid::Networking::Unknown) {
+    if (isOnline) {
         q->hide();
     } else {
         q->show();

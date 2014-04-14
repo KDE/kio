@@ -1,12 +1,4 @@
 
-if(KDE_PLATFORM_FEATURE_BINARY_COMPATIBLE_FEATURE_REDUCTION)
-    set(KPAC_NO_SOLID TRUE)
-endif()
-
-if(NOT KPAC_NO_SOLID)
-   set(KPAC_EXTRA_LIBS KF5::Solid)
-endif()
-
 kde_enable_exceptions()
 
 include(ConfigureChecks.cmake)

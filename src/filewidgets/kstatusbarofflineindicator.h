@@ -25,12 +25,11 @@
 
 #include <QWidget>
 #include "kiofilewidgets_export.h"
-#include <solid/networking.h>
 
 class KStatusBarOfflineIndicatorPrivate;
 /**
  * Widget indicating network connection status using an icon and tooltip.  This widget uses
- * Solid::Networking internally to automatically show and hide itself as required.
+ * QNetworkConfigurationMAnager internally to automatically show and hide itself as required.
  *
  * @code
  * KStatusBarOfflineIndicator * indicator = new KStatusBarOfflineIndicator( this );
@@ -53,7 +52,7 @@ public:
 private:
     KStatusBarOfflineIndicatorPrivate *const d;
 
-    Q_PRIVATE_SLOT(d, void _k_networkStatusChanged(Solid::Networking::Status))
+    Q_PRIVATE_SLOT(d, void _k_networkStatusChanged(bool isOnline))
 };
 
 #endif

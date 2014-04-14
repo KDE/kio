@@ -37,7 +37,7 @@
 class QDomNodeList;
 class QFile;
 class QIODevice;
-
+class QNetworkConfigurationManager;
 namespace KIO
 {
 class AuthInfo;
@@ -560,6 +560,8 @@ protected:
     // For proxy auth when it's handled by the Qt/KDE socket classes
     QAuthenticator *m_socketProxyAuth;
 
+    // To know if we are online or not
+    QNetworkConfigurationManager *m_networkConfig;
     // Indicates whether there was some error.
     int m_iError;
     // Whether we are loading an error page (we should close the connection afterwards)
