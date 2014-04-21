@@ -678,7 +678,7 @@ static QString defaultUserAgentFromPreferredService()
     // Check if the default COMPONENT contains a custom default UA string...
     KService::Ptr service = KMimeTypeTrader::self()->preferredService(QL1S("text/html"),
                             QL1S("KParts/ReadOnlyPart"));
-    if (service && service->showInKDE())
+    if (service && service->showInCurrentDesktop())
         agentStr = service->property(QL1S("X-KDE-Default-UserAgent"),
                                      QVariant::String).toString();
     return agentStr;
