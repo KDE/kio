@@ -1426,7 +1426,7 @@ qint64 KProcessRunner::pid() const
 void KProcessRunner::terminateStartupNotification()
 {
 #if HAVE_X11
-    if (!id.none()) {
+    if (!id.isNull()) {
         KStartupInfoData data;
         data.addPid(m_pid); // announce this pid for the startup notification has finished
         data.setHostname();
