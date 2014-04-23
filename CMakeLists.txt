@@ -66,6 +66,7 @@ set_package_properties(GSSAPI PROPERTIES DESCRIPTION "Allows KIO to make use of 
 find_package(X11)
 set(HAVE_X11 ${X11_FOUND})
 
+add_definitions(-DTRANSLATION_DOMAIN=\"kio5\")
 add_subdirectory(docs)
 include(CheckLibraryExists)
 add_subdirectory(src)
