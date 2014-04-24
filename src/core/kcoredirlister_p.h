@@ -275,9 +275,10 @@ private:
     void handleDirDirty(const QUrl &url);
 
     // when there were items deleted from the filesystem all the listers holding
-    // the parent directory need to be notified, the unmarked items have to be deleted
+    // the parent directory need to be notified, the items have to be deleted
     // and removed from the cache including all the children.
-    void deleteUnmarkedItems(const QList<KCoreDirLister *> &, KFileItemList &);
+    void deleteUnmarkedItems(const QList<KCoreDirLister *>&, KFileItemList &lstItems, const QHash<QString, KFileItem *> &itemsToDelete);
+
     // Helper method called when we know that a list of items was deleted
     void itemsDeleted(const QList<KCoreDirLister *> &listers, const KFileItemList &deletedItems);
     void slotFilesRemoved(const QList<QUrl> &urls);

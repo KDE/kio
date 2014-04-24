@@ -1744,11 +1744,11 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
         delayedMimeTypes &= kdl->d->delayedMimeTypes;
     }
 
-    QHash<QString, KFileItem *> fileItems; // fileName -> KFileItem*
+    typedef QHash<QString, KFileItem*> FileItemHash; // fileName -> KFileItem*
+    FileItemHash fileItems;
 
     // Unmark all items in url
     for (KFileItemList::iterator kit = dir->lstItems.begin(), kend = dir->lstItems.end(); kit != kend; ++kit) {
-        (*kit).unmark();
         fileItems.insert((*kit).name(), &*kit);
     }
 
@@ -1783,7 +1783,9 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
         }
 
         // Find this item
-        if (KFileItem *tmp = fileItems.value(item.name())) {
+        FileItemHash::iterator fiit = fileItems.find(item.name());
+        if (fiit != fileItems.end()) {
+            KFileItem* tmp = fiit.value();
             QSet<KFileItem *>::iterator pru_it = pendingRemoteUpdates.find(tmp);
             const bool inPendingRemoteUpdates = (pru_it != pendingRemoteUpdates.end());
 
@@ -1802,24 +1804,24 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
                     kdl->d->addRefreshItem(jobUrl, oldItem, *tmp);
                 }
             }
-            //qDebug() << "marking" << tmp;
-            tmp->mark();
+            // Seen, remove
+            fileItems.erase(fiit);
         } else { // this is a new file
             //qDebug() << "new file:" << name;
 
-            KFileItem pitem(item);
-            pitem.mark();
-            dir->lstItems.append(pitem);
+            dir->lstItems.append(item);
 
             foreach (KCoreDirLister *kdl, listers) {
-                kdl->d->addNewItem(jobUrl, pitem);
+                kdl->d->addNewItem(jobUrl, item);
             }
         }
     }
 
     runningListJobs.remove(job);
 
-    deleteUnmarkedItems(listers, dir->lstItems);
+    if (!fileItems.isEmpty()) {
+        deleteUnmarkedItems(listers, dir->lstItems, fileItems);
+    }
 
     foreach (KCoreDirLister *kdl, listers) {
         kdl->d->emitItems();
@@ -1871,22 +1873,25 @@ void KCoreDirListerCache::killJob(KIO::ListJob *job)
     job->kill();
 }
 
-void KCoreDirListerCache::deleteUnmarkedItems(const QList<KCoreDirLister *> &listers, KFileItemList &lstItems)
+void KCoreDirListerCache::deleteUnmarkedItems(const QList<KCoreDirLister *> &listers, KFileItemList &lstItems, const QHash<QString, KFileItem*> &itemsToDelete)
 {
+    // Make list of deleted items (for emitting)
     KFileItemList deletedItems;
-    // Find all unmarked items and delete them
-    QMutableListIterator<KFileItem> kit(lstItems);
+    QHashIterator<QString, KFileItem*> kit(itemsToDelete);
     while (kit.hasNext()) {
-        const KFileItem &item = kit.next();
-        if (!item.isMarked()) {
-            //qDebug() << "deleted:" << item.name() << &item;
-            deletedItems.append(item);
-            kit.remove();
-        }
+        const KFileItem& item = *kit.next().value();
+        deletedItems.append(item);
+        //qDebug() << "deleted:" << item.name() << &item;
     }
-    if (!deletedItems.isEmpty()) {
-        itemsDeleted(listers, deletedItems);
-    }
+
+    // Delete all remaining items
+    QMutableListIterator<KFileItem> it(lstItems);
+    while (it.hasNext()) {
+        if (itemsToDelete.contains(it.next().name())) {
+            it.remove();
+         }
+     }
+    itemsDeleted(listers, deletedItems);
 }
 
 void KCoreDirListerCache::itemsDeleted(const QList<KCoreDirLister *> &listers, const KFileItemList &deletedItems)
