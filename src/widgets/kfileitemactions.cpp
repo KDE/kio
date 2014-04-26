@@ -259,7 +259,7 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
     const KService::List entries = KServiceTypeTrader::self()->query("KonqPopupMenu/Plugin");
     KService::List::const_iterator eEnd = entries.end();
     for (KService::List::const_iterator it2 = entries.begin(); it2 != eEnd; ++it2) {
-        QString file = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kde5/services/") + (*it2)->entryPath());
+        QString file = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + (*it2)->entryPath());
         KDesktopFile desktopFile(file);
         const KConfigGroup cfg = desktopFile.desktopGroup();
 

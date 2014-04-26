@@ -95,7 +95,7 @@ KProtocolInfoPrivate *KProtocolInfoFactory::findProtocol(const QString &protocol
         return *it;
     }
 
-    const QString file = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kde5/services/") + protocol + QLatin1String(".protocol"));
+    const QString file = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + protocol + QLatin1String(".protocol"));
     if (file.isEmpty()) {
         return 0;
     }

@@ -89,7 +89,7 @@ void KProtocolInfoTest::testCapabilities()
 
 void KProtocolInfoTest::testProtocolForArchiveMimetype()
 {
-    if (!QFile::exists(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kde5/services/") + "zip.protocol"))) {
+    if (!QFile::exists(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + "zip.protocol"))) {
         QSKIP("kdebase not installed");
     } else {
         const QString zip = KProtocolManager::protocolForArchiveMimetype("application/zip");
