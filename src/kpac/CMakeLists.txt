@@ -55,6 +55,6 @@ install(TARGETS kpac_dhcp_helper DESTINATION ${LIBEXEC_INSTALL_DIR} )
 
 ########### install files ###############
 
-install( FILES proxyscout.notifyrc  DESTINATION  ${DATA_INSTALL_DIR}/proxyscout )
+install( FILES proxyscout.notifyrc  DESTINATION  ${KNOTIFYRC_INSTALL_DIR} )
 install( FILES proxyscout.desktop  DESTINATION  ${SERVICES_INSTALL_DIR}/kded )
 
