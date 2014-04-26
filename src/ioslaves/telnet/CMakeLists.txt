@@ -9,6 +9,6 @@ target_link_libraries(ktelnetservice5
    Qt5::Widgets
 )
 
-install(TARGETS ktelnetservice5 ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS ktelnetservice5 ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS ktelnetservice5.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 

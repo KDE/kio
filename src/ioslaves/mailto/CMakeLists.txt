@@ -6,6 +6,6 @@ target_link_libraries(kmailservice5
    Qt5::Gui
 )
 
-install(TARGETS kmailservice5 ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kmailservice5 ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS kmailservice5.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 

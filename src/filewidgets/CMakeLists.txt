@@ -40,7 +40,7 @@ add_library(KF5KIOFileWidgets ${kiofilewidgets_SRCS})
 generate_export_header(KF5KIOFileWidgets BASE_NAME KIOFileWidgets)
 add_library(KF5::KIOFileWidgets ALIAS KF5KIOFileWidgets)
 
-target_include_directories(KF5KIOFileWidgets INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KIOFileWidgets>")
+target_include_directories(KF5KIOFileWidgets INTERFACE "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR}/KIOFileWidgets>")
 
 target_link_libraries(KF5KIOFileWidgets
   PUBLIC
@@ -81,12 +81,12 @@ ecm_generate_headers(KIOFileWidgets_HEADERS
   REQUIRED_HEADERS KIOFileWidgets_HEADERS
 )
 
-install(TARGETS KF5KIOFileWidgets EXPORT KF5KIOTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KF5KIOFileWidgets EXPORT KF5KIOTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES
   ${KIOFileWidgets_HEADERS}
   ${CMAKE_CURRENT_BINARY_DIR}/kiofilewidgets_export.h
-  DESTINATION ${INCLUDE_INSTALL_DIR}/KIOFileWidgets COMPONENT Devel)
+  DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KIOFileWidgets COMPONENT Devel)
 
 include(ECMGeneratePriFile)
 ecm_generate_pri_file(BASE_NAME KIOFileWidgets LIB_NAME KF5KIOFileWidgets DEPS "KIOWidgets KBookmarks KXmlGui Solid" FILENAME_VAR PRI_FILENAME)

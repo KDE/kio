@@ -16,7 +16,7 @@ target_link_libraries( kcookiejar5
    KF5::WidgetsAddons
 )
 
-install(TARGETS kcookiejar5 ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS kcookiejar5 ${KF5_INSTALL_TARGETS_DEFAULT_ARGS} )
 
 ########### kded kcookiejar module ###############
 

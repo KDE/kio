@@ -126,7 +126,7 @@ target_include_directories(KF5KIOCore PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/kssl>"
 )
 
-target_include_directories(KF5KIOCore INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KIOCore>")
+target_include_directories(KF5KIOCore INTERFACE "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR}/KIOCore>")
 
 target_link_libraries(KF5KIOCore
 PUBLIC
@@ -192,7 +192,7 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   REQUIRED_HEADERS KIO_namespaced_HEADERS
 )
 
-install(TARGETS KF5KIOCore EXPORT KF5KIOTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KF5KIOCore EXPORT KF5KIOTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES
   http_slave_defaults.h
@@ -201,7 +201,7 @@ install(FILES
   jobclasses.h
 
   ${KIO_namespaced_HEADERS}
-  DESTINATION ${INCLUDE_INSTALL_DIR}/KIOCore/kio COMPONENT Devel
+  DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KIOCore/kio COMPONENT Devel
 )
 
 # Headers not prefixed with KIO/
@@ -235,13 +235,13 @@ ecm_generate_headers(KIOCore_HEADERS
   RELATIVE kssl
   REQUIRED_HEADERS KIOCore_HEADERS
 )
-install(FILES ${KIOCore_CamelCase_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR}/KIOCore/KIO COMPONENT Devel)
+install(FILES ${KIOCore_CamelCase_HEADERS} DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KIOCore/KIO COMPONENT Devel)
 
 install(FILES
   ksslcertificatemanager_p.h
   ${KIOCore_HEADERS}
   ${CMAKE_CURRENT_BINARY_DIR}/kiocore_export.h
-  DESTINATION ${INCLUDE_INSTALL_DIR}/KIOCore COMPONENT Devel)
+  DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KIOCore COMPONENT Devel)
 
 install(FILES accept-languages.codes DESTINATION ${CONFIG_INSTALL_DIR})
 
