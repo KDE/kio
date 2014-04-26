@@ -2798,4 +2798,10 @@ QSize KFileWidget::dialogSizeHint() const
     return (goodSize.expandedTo(minSize).boundedTo(maxSize));
 }
 
+void KFileWidget::setViewMode(KFile::FileView mode)
+{
+    d->ops->setView(mode);
+    d->hasView = true;
+}
+
 #include "moc_kfilewidget.cpp"

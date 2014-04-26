@@ -467,6 +467,14 @@ public:
      */
     QSize dialogSizeHint() const;
 
+    /**
+     * Sets how the view should be displayed.
+     *
+     * @see KFile::FileView
+     * @since 5.0
+     */
+    void setViewMode(KFile::FileView mode);
+
 public Q_SLOTS:
     /**
      * Called when clicking ok (when this widget is used in KFileDialog)

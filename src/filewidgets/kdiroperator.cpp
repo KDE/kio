@@ -1515,6 +1515,11 @@ void KDirOperator::setView(KFile::FileView viewKind)
     d->_k_togglePreview(preview);
 }
 
+KFile::FileView KDirOperator::viewMode() const
+{
+    return static_cast<KFile::FileView>(d->viewKind);
+}
+
 QAbstractItemView *KDirOperator::view() const
 {
     return d->itemView;

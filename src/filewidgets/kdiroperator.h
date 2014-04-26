@@ -279,6 +279,14 @@ public:
     virtual void setView(KFile::FileView viewKind);
 
     /**
+     * Returns the current view mode.
+     * @returns KFile::FileView
+     * @see KFile::FileView
+     * @since 5.0
+     */
+    KFile::FileView viewMode() const;
+
+    /**
      * Sets the way to sort files and directories.
      */
     void setSorting(QDir::SortFlags);
