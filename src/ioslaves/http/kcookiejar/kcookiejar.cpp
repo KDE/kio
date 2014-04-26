@@ -302,7 +302,7 @@ KCookieJar::KCookieJar()
     m_configChanged = false;
     m_cookiesChanged = false;
 
-    KConfig cfg("khtml/domain_info", KConfig::NoGlobals, QStandardPaths::GenericDataLocation);
+    KConfig cfg("kf5/kcookiejar/domain_info", KConfig::NoGlobals, QStandardPaths::GenericDataLocation);
     KConfigGroup group(&cfg, QString());
     m_gTLDs = QSet<QString>::fromList(group.readEntry("gTLDs", QStringList()));
     m_twoLevelTLD = QSet<QString>::fromList(group.readEntry("twoLevelTLD", QStringList()));
