@@ -15,5 +15,5 @@ ProxiedBy=http
 Icon=folder-remote
 maxInstances=20
 maxInstancesPerHost=5
-X-DocPath=kioslave/ftp/index.html
+X-DocPath=kioslave5/ftp/index.html
 Class=:internet

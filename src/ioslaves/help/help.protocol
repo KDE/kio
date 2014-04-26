@@ -7,4 +7,4 @@ reading=true
 defaultMimetype=text/html
 Icon=help-browser
 Class=:local
-X-DocPath=kioslave/help/index.html
+X-DocPath=kioslave5/help/index.html

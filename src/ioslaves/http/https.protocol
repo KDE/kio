@@ -12,5 +12,5 @@ Icon=text-html
 maxInstances=20
 maxInstancesPerHost=5
 config=http
-X-DocPath=kioslave/http/index.html
+X-DocPath=kioslave5/http/index.html
 Class=:internet

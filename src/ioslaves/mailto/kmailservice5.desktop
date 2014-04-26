@@ -4,7 +4,7 @@ Exec=kmailservice5 %u
 Icon=mail-message-new
 MimeType=x-scheme-handler/mailto;
 
-X-DocPath=kioslave/mailto/index.html
+X-DocPath=kioslave5/mailto/index.html
 NoDisplay=true
 
 # KMailService is the handler for mailto URLs

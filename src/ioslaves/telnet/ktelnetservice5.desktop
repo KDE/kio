@@ -4,7 +4,7 @@ Exec=ktelnetservice5 %u
 Icon=utilities-terminal
 MimeType=x-scheme-handler/telnet;x-scheme-handler/rlogin;x-scheme-handler/ssh;
 
-X-DocPath=kioslave/telnet/index.html
+X-DocPath=kioslave5/telnet/index.html
 NoDisplay=true
 
 Name=KTelnetService

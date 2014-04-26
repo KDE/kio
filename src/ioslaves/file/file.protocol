@@ -14,5 +14,5 @@ moving=true
 opening=true
 deleteRecursive=true
 maxInstances=5
-X-DocPath=kioslave/file/index.html
+X-DocPath=kioslave5/file/index.html
 Class=:local
