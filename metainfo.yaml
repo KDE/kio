@@ -1,1 +1,11 @@
+maintainer: dfaure
+description: Resource and network access abstraction
 tier: 3
+type: solution
+platforms:
+    - name: Linux
+    - name: Windows
+    - name: MacOSX
+portingAid: false
+deprecated: false
+release: true
