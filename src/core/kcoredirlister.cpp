@@ -2182,20 +2182,17 @@ void KCoreDirLister::Private::emitChanges()
     const Private::FilterSettings newSettings = settings;
     settings = oldSettings; // temporarily
 
-    // Mark all items that are currently visible
+    // Fill hash with all items that are currently visible
+    QSet<QString> oldVisibleItems;
     Q_FOREACH (const QUrl &dir, lstDirs) {
         KFileItemList *itemList = kDirListerCache()->itemsForDir(dir);
         if (!itemList) {
             continue;
         }
 
-        KFileItemList::iterator kit = itemList->begin();
-        const KFileItemList::iterator kend = itemList->end();
-        for (; kit != kend; ++kit) {
-            if (isItemVisible(*kit) && m_parent->matchesMimeFilter(*kit)) {
-                (*kit).mark();
-            } else {
-                (*kit).unmark();
+        foreach (const KFileItem &item, *itemList) {
+            if (isItemVisible(item) && m_parent->matchesMimeFilter(item)) {
+                oldVisibleItems.insert(item.name());
             }
         }
     }
@@ -2218,10 +2215,11 @@ void KCoreDirLister::Private::emitChanges()
             if (text == "." || text == "..") {
                 continue;
             }
+            const bool wasVisible = oldVisibleItems.contains(item.name());
             const bool nowVisible = isItemVisible(item) && m_parent->matchesMimeFilter(item);
-            if (nowVisible && !item.isMarked()) {
+            if (nowVisible && !wasVisible) {
                 addNewItem(dir, item);    // takes care of emitting newItem or itemsFilteredByMime
-            } else if (!nowVisible && item.isMarked()) {
+            } else if (!nowVisible && wasVisible) {
                 deletedItems.append(*kit);
             }
         }
