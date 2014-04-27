@@ -775,7 +775,7 @@ bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &pat
 
         if ((buff.st_mode & QT_STAT_MASK) == QT_STAT_LNK) {
 
-            const QString linkTarget = QFile::symLinkTarget(QString::fromLocal8Bit(path));
+            const QString linkTarget = QFile::symLinkTarget(QFile::decodeName(path));
 
             entry.insert(KIO::UDSEntry::UDS_LINK_DEST, linkTarget);
 
