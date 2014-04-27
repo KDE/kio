@@ -1747,7 +1747,8 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
     typedef QHash<QString, KFileItem*> FileItemHash; // fileName -> KFileItem*
     FileItemHash fileItems;
 
-    // Unmark all items in url
+    // Fill the hash from the old list of items. We'll remove entries as we see them
+    // in the new listing, and the resulting hash entries will be the deleted items.
     for (KFileItemList::iterator kit = dir->lstItems.begin(), kend = dir->lstItems.end(); kit != kend; ++kit) {
         fileItems.insert((*kit).name(), &*kit);
     }
