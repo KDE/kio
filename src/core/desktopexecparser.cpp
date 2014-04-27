@@ -274,7 +274,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     // Check if we need "tempexec" (kioexec in fact)
     appHasTempFileOption = d->tempFiles && d->service.property("X-KDE-HasTempFileOption").toBool();
     if (d->tempFiles && !appHasTempFileOption && d->urls.size()) {
-        const QString kioexec = QFile::decodeName(CMAKE_INSTALL_PREFIX "/" LIBEXEC_INSTALL_DIR "/kioexec");
+        const QString kioexec = QFile::decodeName(CMAKE_INSTALL_PREFIX "/" KF5_LIBEXEC_INSTALL_DIR "/kioexec");
         Q_ASSERT(QFile::exists(kioexec));
         result << kioexec << "--tempfiles" << exec;
         if (!d->suggestedFileName.isEmpty()) {
@@ -306,7 +306,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     }
     if (useKioexec) {
         // We need to run the app through kioexec
-        const QString kioexec = CMAKE_INSTALL_PREFIX "/" LIBEXEC_INSTALL_DIR "/kioexec";
+        const QString kioexec = CMAKE_INSTALL_PREFIX "/" KF5_LIBEXEC_INSTALL_DIR "/kioexec";
         Q_ASSERT(QFile::exists(kioexec));
         result << kioexec;
         if (d->tempFiles) {
@@ -379,7 +379,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         // Too bad for commands that need a shell - they must reside in $PATH.
         QString exePath = QStandardPaths::findExecutable(execlist.first());
         if (exePath.isEmpty()) {
-            exePath = QFile::decodeName(CMAKE_INSTALL_PREFIX "/" LIBEXEC_INSTALL_DIR "/") + execlist.first();
+            exePath = QFile::decodeName(CMAKE_INSTALL_PREFIX "/" KF5_LIBEXEC_INSTALL_DIR "/") + execlist.first();
         }
         if (QFile::exists(exePath)) {
             execlist[0] = exePath;

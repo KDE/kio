@@ -9,5 +9,5 @@ target_link_libraries(kioexec
     KF5::KIOWidgets
  )
 
-install(TARGETS kioexec DESTINATION ${LIBEXEC_INSTALL_DIR} )
+install(TARGETS kioexec DESTINATION ${KF5_LIBEXEC_INSTALL_DIR} )
 

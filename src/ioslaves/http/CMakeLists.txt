@@ -45,7 +45,7 @@ target_link_libraries(kio_http_cache_cleaner
    KF5::KIOCore # KProtocolManager
    KF5::I18n)
 
-install(TARGETS kio_http_cache_cleaner DESTINATION ${LIBEXEC_INSTALL_DIR} )
+install(TARGETS kio_http_cache_cleaner DESTINATION ${KF5_LIBEXEC_INSTALL_DIR} )
 
 ########### next target ###############
 

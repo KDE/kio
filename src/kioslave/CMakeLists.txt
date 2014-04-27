@@ -3,4 +3,4 @@ ecm_mark_nongui_executable(kioslave)
 
 target_link_libraries(kioslave KF5::Service KF5::KIOCore)
 
-install(TARGETS kioslave DESTINATION ${LIBEXEC_INSTALL_DIR} )
+install(TARGETS kioslave DESTINATION ${KF5_LIBEXEC_INSTALL_DIR} )

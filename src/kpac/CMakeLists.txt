@@ -51,7 +51,7 @@ if (HAVE_SOCKET_LIBRARY)
   target_link_libraries(kpac_dhcp_helper socket)
 endif ()
 
-install(TARGETS kpac_dhcp_helper DESTINATION ${LIBEXEC_INSTALL_DIR} )
+install(TARGETS kpac_dhcp_helper DESTINATION ${KF5_LIBEXEC_INSTALL_DIR} )
 
 ########### install files ###############
 

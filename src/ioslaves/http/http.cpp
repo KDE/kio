@@ -4960,7 +4960,7 @@ void HTTPProtocol::sendCacheCleanerCommand(const QByteArray &command)
     int attempts = 0;
     while (m_cacheCleanerConnection.state() != QLocalSocket::ConnectedState && attempts < 6) {
         if (attempts == 2) {
-            QString exe = QFile::decodeName(CMAKE_INSTALL_PREFIX "/" LIBEXEC_INSTALL_DIR "/kio_http_cache_cleaner");
+            QString exe = QFile::decodeName(CMAKE_INSTALL_PREFIX "/" KF5_LIBEXEC_INSTALL_DIR "/kio_http_cache_cleaner");
             if (QFile::exists(exe)) {
                 QProcess::startDetached(exe);
             } else {
