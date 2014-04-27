@@ -56,7 +56,6 @@ public:
           m_mimeType(),
           m_fileMode(mode),
           m_permissions(permissions),
-          m_bMarked(false),
           m_bLink(false),
           m_bIsLocalUrl(itemOrDirUrl.isLocalFile()),
           m_bMimeTypeKnown(false),
@@ -152,10 +151,6 @@ public:
      */
     mode_t m_permissions;
 
-    /**
-     * Marked : see mark()
-     */
-    bool m_bMarked: 1;
     /**
      * Whether the file is a link
      */
@@ -1495,35 +1490,6 @@ KIO::UDSEntry KFileItem::entry() const
     }
 
     return d->m_entry;
-}
-
-bool KFileItem::isMarked() const
-{
-    if (!d) {
-        return false;
-    }
-
-    return d->m_bMarked;
-}
-
-void KFileItem::mark()
-{
-    if (!d) {
-        qWarning() << "null item";
-        return;
-    }
-
-    d->m_bMarked = true;
-}
-
-void KFileItem::unmark()
-{
-    if (!d) {
-        qWarning() << "null item";
-        return;
-    }
-
-    d->m_bMarked = false;
 }
 
 KFileItem &KFileItem::operator=(const KFileItem &other)

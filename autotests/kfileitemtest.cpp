@@ -75,10 +75,8 @@ void KFileItemTest::testNull()
     QVERIFY(null.isNull());
     KFileItem fileItem(QUrl::fromLocalFile("/"), QString(), KFileItem::Unknown);
     QVERIFY(!fileItem.isNull());
-    fileItem.mark();
     null = fileItem; // ok, now 'null' isn't so null anymore
     QVERIFY(!null.isNull());
-    QVERIFY(null.isMarked());
     QVERIFY(null.isReadable());
     QVERIFY(!null.isHidden());
 }
@@ -94,18 +92,19 @@ void KFileItemTest::testDoesNotExist()
 
 void KFileItemTest::testDetach()
 {
-    KFileItem fileItem(QUrl::fromLocalFile("/"), QString(), KFileItem::Unknown);
+    KFileItem fileItem(QUrl::fromLocalFile("/one"), QString(), KFileItem::Unknown);
+    QCOMPARE(fileItem.name(), QString("one"));
     KFileItem fileItem2(fileItem);
     QVERIFY(fileItem == fileItem2);
     QVERIFY(fileItem.d == fileItem2.d);
-    fileItem2.mark();
-    QVERIFY(fileItem2.isMarked());
-    QVERIFY(!fileItem.isMarked());
+    fileItem2.setName("two");
+    QCOMPARE(fileItem2.name(), QString("two"));
+    QCOMPARE(fileItem.name(), QString("one")); // it detached
     QVERIFY(fileItem == fileItem2);
     QVERIFY(fileItem.d != fileItem2.d);
 
     fileItem = fileItem2;
-    QVERIFY(fileItem2.isMarked());
+    QCOMPARE(fileItem.name(), QString("two"));
     QVERIFY(fileItem == fileItem2);
     QVERIFY(fileItem.d == fileItem2.d);
     QVERIFY(!(fileItem != fileItem2));

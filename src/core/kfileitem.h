@@ -436,22 +436,6 @@ public:
     KIO::UDSEntry entry() const;
 
     /**
-     * Used when updating a directory. marked == seen when refreshing.
-     * @return true if the file item is marked
-     */
-    bool isMarked() const;
-    /**
-     * Marks the item.
-     * @see isMarked()
-     */
-    void mark();
-    /**
-     * Unmarks the item.
-     * @see isMarked()
-     */
-    void unmark();
-
-    /**
      * Return true if this item is a regular file,
      * false otherwise (directory, link, character/block device, fifo, socket)
      * @since 4.3
