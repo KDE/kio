@@ -381,11 +381,10 @@ void TrashProtocol::listDir(const QUrl& url)
         infoForItem.origPath += QLatin1Char('/');
         infoForItem.origPath += fileName;
         if (createUDSEntry(filePath, fileName, fileName, entry, infoForItem)) {
-            listEntry( entry, false );
+            listEntry( entry );
         }
     }
     entry.clear();
-    listEntry( entry, true );
     finished();
 }
 
@@ -450,7 +449,7 @@ void TrashProtocol::listRoot()
     totalSize( lst.count() );
     KIO::UDSEntry entry;
     createTopLevelDirEntry( entry );
-    listEntry( entry, false );
+    listEntry( entry );
     for ( TrashedFileInfoList::ConstIterator it = lst.begin(); it != lst.end(); ++it ) {
         const QUrl url = TrashImpl::makeURL( (*it).trashId, (*it).fileId, QString() );
         QUrl origURL = QUrl::fromLocalFile( (*it).origPath );
@@ -458,10 +457,9 @@ void TrashProtocol::listRoot()
         const QString fileDisplayName = (*it).fileId;
 
         if ( createUDSEntry( (*it).physicalPath, fileDisplayName, url.fileName(), entry, *it ) )
-            listEntry( entry, false );
+            listEntry( entry );
     }
     entry.clear();
-    listEntry( entry, true );
     finished();
 }
 
