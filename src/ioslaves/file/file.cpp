@@ -820,8 +820,8 @@ notype:
     if (details > 0) {
         entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME, buff.st_mtime);
 #ifndef Q_OS_WIN
-        entry.insert(KIO::UDSEntry::UDS_USER, getUserName(buff.st_uid));
-        entry.insert(KIO::UDSEntry::UDS_GROUP, getGroupName(buff.st_gid));
+        entry.insert(KIO::UDSEntry::UDS_USER, getUserName(KUserId(buff.st_uid)));
+        entry.insert(KIO::UDSEntry::UDS_GROUP, getGroupName(KGroupId(buff.st_gid)));
 #else
 #pragma message("TODO: st_uid and st_gid are always zero, use GetSecurityInfo to find the owner")
 #endif
