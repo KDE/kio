@@ -17,6 +17,7 @@ Boston, MA 02110-1301, USA.
 */
 #include "kioglobal_p.h"
 
+#include <QFile>
 #include <unistd.h>
 #include <signal.h>
 
@@ -36,7 +37,7 @@ KIOCORE_EXPORT bool KIOPrivate::createSymlink(const QString &source, const QStri
     return ::symlink(QFile::encodeName(source), QFile::encodeName(destination)) == 0;
 }
 
-KIOCORE_EXPORT bool KIOPrivate::changeOwnership(const QString& file, KUserID newOwner, KGroupId newGroup)
+KIOCORE_EXPORT bool KIOPrivate::changeOwnership(const QString& file, KUserId newOwner, KGroupId newGroup)
 {
     return chown(QFile::encodeName(file), newOwner.nativeId(), newGroup.nativeId()) == 0;
 }
