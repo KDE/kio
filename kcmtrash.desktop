@@ -1,7 +1,9 @@
 Name=Trash
+Name[nl]=Prullenbak
 Name[uk]=Смітник
 Name[x-test]=xxTrashxx
 Comment=This service allows configuration of the trash.
+Comment[nl]=Met deze dienst kunt u de prullenbak instellen.
 Comment[uk]=Ця служба надає змогу налаштувати смітник.
 Comment[x-test]=xxThis service allows configuration of the trash.xx
 
@@ -16,12 +18,15 @@ X-KDE-PluginKeyword=trash
 X-KDE-ParentApp=kcontrol
 
 Name=Trash
+Name[nl]=Prullenbak
 Name[uk]=Смітник
 Name[x-test]=xxTrashxx
 Comment=Configure trash settings
+Comment[nl]=Prullenbakconfiguratie instellen
 Comment[uk]=Налаштування параметрів смітника
 Comment[x-test]=xxConfigure trash settingsxx
 X-KDE-Keywords=trash
+X-KDE-Keywords[nl]=prullenbak
 X-KDE-Keywords[uk]=trash,смітник
 X-KDE-Keywords[x-test]=xxtrashxx
 X-DocPath=kcontrol/trash/index.html

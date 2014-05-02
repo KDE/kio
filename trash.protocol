@@ -23,6 +23,7 @@ deleteRecursive=true
 fileNameUsedForCopying=DisplayName
 #TODO DocPath
 ExtraNames=Original Path,Deletion Date
+ExtraNames[nl]=Oorspronkelijke locatie,Datum van verwijdering
 ExtraNames[uk]=Шлях,Дата вилучення
 ExtraNames[x-test]=xxOriginal Path,Deletion Datexx
 ExtraTypes=QString,QDateTime
