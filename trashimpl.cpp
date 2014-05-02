@@ -236,6 +236,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
 
     // Grab original filename
     QUrl url = QUrl::fromLocalFile( origPath );
+    url = url.adjusted(QUrl::StripTrailingSlash);
     const QString origFileName = url.fileName();
 
     // Make destination file in info/

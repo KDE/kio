@@ -580,6 +580,12 @@ void TestTrash::trashDirectoryFromOther()
     trashDirectory( otherTmpDir() + dirName, dirName );
 }
 
+void TestTrash::trashDirectoryWithTrailingSlash()
+{
+    QString dirName = QString::fromLatin1("dirwithslash/");
+    trashDirectory(homeTmpDir() + dirName, "dirwithslash");
+}
+
 void TestTrash::tryRenameInsideTrash()
 {
     qDebug() << " with file_move";

@@ -57,6 +57,7 @@ private Q_SLOTS:
     void trashReadOnlyDirFromHome();
     void trashDirectoryFromOther();
     void trashDirectoryOwnedByRoot();
+    void trashDirectoryWithTrailingSlash();
 
     void tryRenameInsideTrash();
 
