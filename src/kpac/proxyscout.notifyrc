@@ -1,32 +1,39 @@
 [Global]
 IconName=preferences-system-network-proxy
 Comment=Network Proxy Configuration
+Comment[nl]=Configuratie voor netwerk-proxy
 Comment[uk]=Налаштування проксі-сервера мережі
 Comment[x-test]=xxNetwork Proxy Configurationxx
 
 [Event/script-error]
 Name=Invalid Proxy Script
+Name[nl]=Ongeldig proxyscript
 Name[uk]=Некоректний скрипт проксі
 Name[x-test]=xxInvalid Proxy Scriptxx
 Comment=The downloaded proxy configuration script is invalid
+Comment[nl]=Het gedownloade script met de proxyconfiguratie is ongeldig
 Comment[uk]=Звантажено некоректний скрип проксі
 Comment[x-test]=xxThe downloaded proxy configuration script is invalidxx
 Action=Popup
 
 [Event/download-error]
 Name=Script Download Error
+Name[nl]=Fout bij scriptdownload
 Name[uk]=Помилка звантаження проксі
 Name[x-test]=xxScript Download Errorxx
 Comment=The proxy configuration script could not be downloaded
+Comment[nl]=Het script met de proxyconfiguratie kon niet worden gedownload
 Comment[uk]=Неможливо звантажити скрипт налаштування проксі
 Comment[x-test]=xxThe proxy configuration script could not be downloadedxx
 Action=Popup
 
 [Event/evaluation-error]
 Name=Script Evaluation Error
+Name[nl]=Fout bij evalueren van script
 Name[uk]=Помилка оцінки скрипту
 Name[x-test]=xxScript Evaluation Errorxx
 Comment=There was an error executing the proxy configuration script
+Comment[nl]=Er deed zich een fout voor tijdens het uitvoeren van het script met de proxyconfiguratie
 Comment[uk]=Помилка запуску скрипту налаштування проксі
 Comment[x-test]=xxThere was an error executing the proxy configuration scriptxx
 

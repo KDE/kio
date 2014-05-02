@@ -6,6 +6,7 @@ reading=true
 Icon=applications-internet
 Class=:internet
 Description=A kioslave for data URIs (rfc2397)
+Description[nl]=Een kioslave voor data-URI-adressen (rfc2397)
 Description[uk]=Підлеглий В/В для адрес (URI) даних (rfc2397)
 Description[x-test]=xxA kioslave for data URIs (rfc2397)xx
 X-DocPath=kioslave5/data/index.html

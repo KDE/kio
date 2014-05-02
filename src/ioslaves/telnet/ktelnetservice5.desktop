@@ -8,5 +8,6 @@ X-DocPath=kioslave5/telnet/index.html
 NoDisplay=true
 
 Name=KTelnetService
+Name[nl]=KTelnetService
 Name[uk]=Служба telnet KTelnet
 Name[x-test]=xxKTelnetServicexx

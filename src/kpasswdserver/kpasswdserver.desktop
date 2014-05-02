@@ -1,9 +1,11 @@
 [Desktop Entry]
 Type=Service
 Name=Password Caching
+Name[nl]=Caching van wachtwoorden
 Name[uk]=Кешування паролів
 Name[x-test]=xxPassword Cachingxx
 Comment=Temporary password caching
+Comment[nl]=Tijdelijke caching van wachtwoorden
 Comment[uk]=Тимчасове кешування паролів
 Comment[x-test]=xxTemporary password cachingxx
 X-KDE-ServiceTypes=KDEDModule

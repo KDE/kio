@@ -1,9 +1,11 @@
 [Desktop Entry]
 Type=Service
 Name=Cookie Jar
+Name[nl]=Cookie-depot
 Name[uk]=Глечик з куками
 Name[x-test]=xxCookie Jarxx
 Comment=Stores network cookies
+Comment[nl]=Slaat netwerk-cookies op
 Comment[uk]=Зберігання кук мережі
 Comment[x-test]=xxStores network cookiesxx
 X-KDE-ServiceTypes=KDEDModule

@@ -8,6 +8,7 @@ reading=false
 Icon=www
 Class=:internet
 Description=Microsoft Media Server Protocol
+Description[nl]=Microsoft Media Server-protocol
 Description[uk]=Протокол медіа сервера Microsoft
 Description[x-test]=xxMicrosoft Media Server Protocolxx
 URIMode=url
