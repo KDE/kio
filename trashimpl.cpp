@@ -27,7 +27,6 @@
 #include <kde_file.h>
  #include <KLocalizedString>
 #include <kio/global.h>
-#include <kio/renamedialog.h>
 #include <kio/job.h>
 #include <kio/chmodjob.h>
 #include <kio/copyjob.h>
@@ -252,7 +251,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
             if (errno == EEXIST ) {
                 fileName = url.fileName();
                 url = url.adjusted(QUrl::RemoveFilename);
-                url.setPath(url.path() + KIO::RenameDialog::suggestName( baseDirectory,  fileName)  );
+                url.setPath(url.path() + KIO::suggestName( baseDirectory,  fileName)  );
                 // and try again on the next iteration
             } else {
                 error( KIO::ERR_COULD_NOT_WRITE, url.path() );

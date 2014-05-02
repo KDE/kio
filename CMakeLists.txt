@@ -76,7 +76,7 @@ if(NOT WIN32)
     set(kcm_trash_PART_SRCS kcmtrash.cpp ${trashcommon_PART_SRCS})
     add_library(kcm_trash MODULE ${kcm_trash_PART_SRCS})
     target_link_libraries(kcm_trash  Qt5::DBus  KF5::KDE4Support
-        ${KDECLARATIVE_LIBRARIES} KF5::I18n KF5::ConfigWidgets KF5::KIOCore KF5::KIOWidgets KF5::Solid)
+        ${KDECLARATIVE_LIBRARIES} KF5::I18n KF5::ConfigWidgets KF5::KIOCore KF5::Solid)
 
     install(TARGETS kcm_trash DESTINATION ${PLUGIN_INSTALL_DIR})
 endif()
