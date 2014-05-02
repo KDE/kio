@@ -103,7 +103,7 @@ KSslInfoDialog::~KSslInfoDialog()
 //slot
 void KSslInfoDialog::launchConfig()
 {
-    QProcess::startDetached("kcmshell4", QStringList() << "crypto");
+    QProcess::startDetached("kcmshell5", QStringList() << "crypto");
 }
 
 void KSslInfoDialog::setMainPartEncrypted(bool mainEncrypted)
