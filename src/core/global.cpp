@@ -388,14 +388,19 @@ QString KIO::suggestName(const QUrl &baseURL, const QString &oldName)
 {
     QString dotSuffix, suggestedName;
     QString basename = oldName;
-    const QChar spacer(' ');
+    QString spacer = QChar(' ');
 
     //ignore dots at the beginning, that way "..aFile.tar.gz" will become "..aFile 1.tar.gz" instead of " 1..aFile.tar.gz"
-    int index = basename.indexOf('.');
-    int continous = 0;
-    while (continous == index) {
-        index = basename.indexOf('.', index + 1);
-        ++continous;
+    int start = 0;
+    while (start < basename.length()-1 && basename.at(start) == '.') {
+        ++start;
+    }
+    // find next dot
+    int index = basename.indexOf('.', start);
+    if (index == -1 && start > 0) {
+        // last chance, using one of the leading dots we skipped, if any
+        index = start - 1;
+        spacer.clear();
     }
 
     if (index != -1) {
