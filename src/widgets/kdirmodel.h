@@ -176,6 +176,8 @@ public:
     /// Reimplemented from QAbstractItemModel.
     QModelIndex parent(const QModelIndex &index) const Q_DECL_OVERRIDE;
     /// Reimplemented from QAbstractItemModel.
+    QModelIndex sibling(int row, int column, const QModelIndex &index) const Q_DECL_OVERRIDE;
+    /// Reimplemented from QAbstractItemModel.
     int rowCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
     /// Reimplemented from QAbstractItemModel.
     /// Call this to set a new icon, e.g. a preview
