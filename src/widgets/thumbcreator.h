@@ -130,7 +130,7 @@ public:
      * @return @c true if a preview was successfully generated and store in @p
      *         img, @c false otherwise.
      */
-    virtual bool create(const QString &path, int width, int height, QImage &img) = 0;
+    virtual bool create(const QString &path, int width, int height, QImage &img) = 0; // KF6 TODO: turn first arg into QUrl (see thumbnail/htmlcreator.cpp)
 
     /**
      * Returns the flags for this plugin.
