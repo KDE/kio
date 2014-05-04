@@ -5,13 +5,13 @@
 set(KCookieServer_DBUS_INTERFACE "${PACKAGE_PREFIX_DIR}/@DBUS_INTERFACES_INSTALL_DIR@/kf5_org.kde.KCookieServer.xml")
 set(KSlaveLauncher_DBUS_INTERFACE "${PACKAGE_PREFIX_DIR}/@DBUS_INTERFACES_INSTALL_DIR@/kf5_org.kde.KSlaveLauncher.xml")
 
-find_dependency(KF5Bookmarks "@KF5_VERSION@")
-find_dependency(KF5Completion "@KF5_VERSION@")
-find_dependency(KF5ItemViews "@KF5_VERSION@")
-find_dependency(KF5JobWidgets "@KF5_VERSION@")
-find_dependency(KF5Service "@KF5_VERSION@")
-find_dependency(KF5Solid "@KF5_VERSION@")
-find_dependency(KF5XmlGui "@KF5_VERSION@")
+find_dependency(KF5Bookmarks "@KF5_DEP_VERSION@")
+find_dependency(KF5Completion "@KF5_DEP_VERSION@")
+find_dependency(KF5ItemViews "@KF5_DEP_VERSION@")
+find_dependency(KF5JobWidgets "@KF5_DEP_VERSION@")
+find_dependency(KF5Service "@KF5_DEP_VERSION@")
+find_dependency(KF5Solid "@KF5_DEP_VERSION@")
+find_dependency(KF5XmlGui "@KF5_DEP_VERSION@")
 
 find_dependency(Qt5Network "@REQUIRED_QT_VERSION@")
 
