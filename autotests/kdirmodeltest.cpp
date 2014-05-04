@@ -256,7 +256,7 @@ void KDirModelTest::testIndex()
     // Index of a directory
     QVERIFY(m_dirIndex.isValid());
     QCOMPARE(m_dirIndex.model(), static_cast<const QAbstractItemModel *>(m_dirModel));
-    //QCOMPARE(m_dirIndex.row(), 3);
+    //QCOMPARE(m_dirIndex.row(), 3); // ordering isn't guaranteed
     QCOMPARE(m_dirIndex.column(), 0);
     QVERIFY(!m_dirIndex.parent().isValid());
     QVERIFY(m_dirModel->hasChildren(m_dirIndex));
@@ -264,7 +264,7 @@ void KDirModelTest::testIndex()
     // Index of a file inside a directory (subdir/testfile)
     QVERIFY(m_fileInDirIndex.isValid());
     QCOMPARE(m_fileInDirIndex.model(), static_cast<const QAbstractItemModel *>(m_dirModel));
-    //QCOMPARE(m_fileInDirIndex.row(), 0);
+    //QCOMPARE(m_fileInDirIndex.row(), 0); // ordering isn't guaranteed
     QCOMPARE(m_fileInDirIndex.column(), 0);
     QVERIFY(m_fileInDirIndex.parent() == m_dirIndex);
     QVERIFY(!m_dirModel->hasChildren(m_fileInDirIndex));
@@ -272,10 +272,20 @@ void KDirModelTest::testIndex()
     // Index of subdir/subsubdir/testfile
     QVERIFY(m_fileInSubdirIndex.isValid());
     QCOMPARE(m_fileInSubdirIndex.model(), static_cast<const QAbstractItemModel *>(m_dirModel));
-    //QCOMPARE(m_fileInSubdirIndex.row(), 0);
+    QCOMPARE(m_fileInSubdirIndex.row(), 0); // we can check it because it's the only file there
     QCOMPARE(m_fileInSubdirIndex.column(), 0);
     QVERIFY(m_fileInSubdirIndex.parent().parent() == m_dirIndex);
     QVERIFY(!m_dirModel->hasChildren(m_fileInSubdirIndex));
+
+    // Test sibling() by going from subdir/testfile to subdir/subsubdir
+    const QModelIndex subsubdirIndex = m_fileInSubdirIndex.parent();
+    QVERIFY(subsubdirIndex.isValid());
+    QModelIndex sibling1 = m_dirModel->sibling(subsubdirIndex.row(), 0, m_fileInDirIndex);
+    QVERIFY(sibling1.isValid());
+    QVERIFY(sibling1 == subsubdirIndex);
+
+    // Invalid sibling call
+    QVERIFY(!m_dirModel->sibling(1, 0, m_fileInSubdirIndex).isValid());
 }
 
 void KDirModelTest::testNames()
