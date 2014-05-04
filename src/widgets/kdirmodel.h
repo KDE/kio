@@ -152,36 +152,36 @@ public:
     void setDropsAllowed(DropsAllowed dropsAllowed);
 
     /// Reimplemented from QAbstractItemModel. Returns true for empty directories.
-    virtual bool canFetchMore(const QModelIndex &parent) const;
+    bool canFetchMore(const QModelIndex &parent) const Q_DECL_OVERRIDE;
     /// Reimplemented from QAbstractItemModel. Returns ColumnCount.
-    virtual int columnCount(const QModelIndex &parent = QModelIndex()) const;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
     /// Reimplemented from QAbstractItemModel.
-    virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
     /// Reimplemented from QAbstractItemModel. Not implemented yet.
-    virtual bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent);
+    bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) Q_DECL_OVERRIDE;
     /// Reimplemented from QAbstractItemModel. Lists the subdirectory.
-    virtual void fetchMore(const QModelIndex &parent);
+    void fetchMore(const QModelIndex &parent) Q_DECL_OVERRIDE;
     /// Reimplemented from QAbstractItemModel.
-    virtual Qt::ItemFlags flags(const QModelIndex &index) const;
+    Qt::ItemFlags flags(const QModelIndex &index) const Q_DECL_OVERRIDE;
     /// Reimplemented from QAbstractItemModel. Returns true for directories.
-    virtual bool hasChildren(const QModelIndex &parent = QModelIndex()) const;
+    bool hasChildren(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
     /// Reimplemented from QAbstractItemModel. Returns the column titles.
-    virtual QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
     /// Reimplemented from QAbstractItemModel. O(1)
-    virtual QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const;
+    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
     /// Reimplemented from QAbstractItemModel.
-    virtual QMimeData *mimeData(const QModelIndexList &indexes) const;
+    QMimeData *mimeData(const QModelIndexList &indexes) const Q_DECL_OVERRIDE;
     /// Reimplemented from QAbstractItemModel.
-    virtual QStringList mimeTypes() const;
+    QStringList mimeTypes() const Q_DECL_OVERRIDE;
     /// Reimplemented from QAbstractItemModel.
-    virtual QModelIndex parent(const QModelIndex &index) const;
+    QModelIndex parent(const QModelIndex &index) const Q_DECL_OVERRIDE;
     /// Reimplemented from QAbstractItemModel.
-    virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
     /// Reimplemented from QAbstractItemModel.
     /// Call this to set a new icon, e.g. a preview
-    virtual bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole);
+    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) Q_DECL_OVERRIDE;
     /// Reimplemented from QAbstractItemModel. Not implemented. @see KDirSortFilterProxyModel
-    virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
+    void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) Q_DECL_OVERRIDE;
 
     /**
      * Remove urls from the list if an ancestor is present on the list. This can
@@ -253,10 +253,10 @@ Q_SIGNALS:
 
 private:
     // Make those private, they shouldn't be called by applications
-    virtual bool insertRows(int, int, const QModelIndex & = QModelIndex());
-    virtual bool insertColumns(int, int, const QModelIndex & = QModelIndex());
-    virtual bool removeRows(int, int, const QModelIndex & = QModelIndex());
-    virtual bool removeColumns(int, int, const QModelIndex & = QModelIndex());
+    bool insertRows(int, int, const QModelIndex & = QModelIndex()) Q_DECL_OVERRIDE;
+    bool insertColumns(int, int, const QModelIndex & = QModelIndex()) Q_DECL_OVERRIDE;
+    bool removeRows(int, int, const QModelIndex & = QModelIndex()) Q_DECL_OVERRIDE;
+    bool removeColumns(int, int, const QModelIndex & = QModelIndex()) Q_DECL_OVERRIDE;
 
 private:
     friend class KDirModelPrivate;

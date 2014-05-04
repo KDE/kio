@@ -36,16 +36,16 @@ class KApplicationModel : public QAbstractItemModel
 public:
     KApplicationModel(QObject *parent = 0);
     virtual ~KApplicationModel();
-    virtual bool canFetchMore(const QModelIndex &parent) const;
-    virtual int columnCount(const QModelIndex &parent = QModelIndex()) const;
-    virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
-    virtual void fetchMore(const QModelIndex &parent);
-//        virtual Qt::ItemFlags flags(const QModelIndex &index) const;
-    virtual bool hasChildren(const QModelIndex &parent = QModelIndex()) const;
-    virtual QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
-    virtual QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const;
-    virtual QModelIndex parent(const QModelIndex &index) const;
-    virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
+    bool canFetchMore(const QModelIndex &parent) const Q_DECL_OVERRIDE;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
+    void fetchMore(const QModelIndex &parent) Q_DECL_OVERRIDE;
+//        Qt::ItemFlags flags(const QModelIndex &index) const Q_DECL_OVERRIDE;
+    bool hasChildren(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
+    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
+    QModelIndex parent(const QModelIndex &index) const Q_DECL_OVERRIDE;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
 
     QString entryPathFor(const QModelIndex &index) const;
     QString execFor(const QModelIndex &index) const;
@@ -71,7 +71,7 @@ public:
     KApplicationView(QWidget *parent = 0);
     ~KApplicationView();
 
-    virtual void setModel(QAbstractItemModel *model);
+    void setModel(QAbstractItemModel *model) Q_DECL_OVERRIDE;
 
     bool isDirSel() const;
 
@@ -80,7 +80,7 @@ Q_SIGNALS:
     void highlighted(const QString &_name, const QString &_exec);
 
 protected Q_SLOTS:
-    virtual void currentChanged(const QModelIndex &current, const QModelIndex &previous);
+    void currentChanged(const QModelIndex &current, const QModelIndex &previous) Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void slotSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);

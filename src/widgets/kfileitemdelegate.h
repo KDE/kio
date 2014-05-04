@@ -199,7 +199,7 @@ public:
      * @param option  The style options that should be used when painting the item.
      * @param index   The index to the item for which to return the size hint.
      */
-    virtual QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
 
     /**
      * Paints the item indicated by @p index, using @p painter.
@@ -222,32 +222,32 @@ public:
      * @param option  The style options that should be used when painting the item.
      * @param index   The index to the item that should be painted.
      */
-    virtual void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
 
     /**
      * Reimplemented from @ref QAbstractItemDelegate.
      */
-    virtual QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
 
     /**
      * Reimplemented from @ref QAbstractItemDelegate.
      */
-    virtual bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index);
+    bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) Q_DECL_OVERRIDE;
 
     /**
      * Reimplemented from @ref QAbstractItemDelegate.
      */
-    virtual void setEditorData(QWidget *editor, const QModelIndex &index) const;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const Q_DECL_OVERRIDE;
 
     /**
      * Reimplemented from @ref QAbstractItemDelegate.
      */
-    virtual void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const Q_DECL_OVERRIDE;
 
     /**
      * Reimplemented from @ref QAbstractItemDelegate.
      */
-    virtual void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
 
     /**
      * Sets the list of information lines that are shown below the icon label in list views.
@@ -418,7 +418,7 @@ public:
     /**
      * Reimplemented from @ref QAbstractItemDelegate.
      */
-    virtual bool eventFilter(QObject *object, QEvent *event);
+    bool eventFilter(QObject *object, QEvent *event) Q_DECL_OVERRIDE;
 
 public Q_SLOTS:
     /**
