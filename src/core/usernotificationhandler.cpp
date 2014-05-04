@@ -98,6 +98,7 @@ void UserNotificationHandler::processRequest()
 
     r->slave->sendMessageBoxAnswer(result);
     m_pendingRequests.removeFirst();
+    delete r;
 
     if (!m_pendingRequests.isEmpty()) {
         QTimer::singleShot(0, this, SLOT(processRequest()));
