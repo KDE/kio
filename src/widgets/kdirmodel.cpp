@@ -900,7 +900,6 @@ int KDirModel::rowCount(const QModelIndex &parent) const
     return count;
 }
 
-// sibling() calls parent() and isn't virtual! So parent() should be fast...
 QModelIndex KDirModel::parent(const QModelIndex &index) const
 {
     if (!index.isValid()) {
@@ -911,6 +910,25 @@ QModelIndex KDirModel::parent(const QModelIndex &index) const
     KDirModelNode *parentNode = childNode->parent();
     Q_ASSERT(parentNode);
     return d->indexForNode(parentNode); // O(n)
+}
+
+// Reimplemented to avoid the default implementation which calls parent
+// (O(n) for finding the parent's row number for nothing). This implementation is O(1).
+QModelIndex KDirModel::sibling(int row, int column, const QModelIndex &index) const
+{
+    if (!index.isValid()) {
+        return QModelIndex();
+    }
+    KDirModelNode *oldChildNode = static_cast<KDirModelNode *>(index.internalPointer());
+    Q_ASSERT(oldChildNode);
+    KDirModelNode *parentNode = oldChildNode->parent();
+    Q_ASSERT(parentNode);
+    Q_ASSERT(d->isDir(parentNode));
+    KDirModelNode *childNode = static_cast<KDirModelDirNode *>(parentNode)->m_childNodes.value(row); // O(1)
+    if (childNode) {
+        return createIndex(row, column, childNode);
+    }
+    return QModelIndex();
 }
 
 static bool lessThan(const QUrl &left, const QUrl &right)
