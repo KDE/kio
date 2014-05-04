@@ -111,12 +111,6 @@ public:
     bool contains(uint field) const;
 
     /**
-     * remove a field with a certain numeric id
-     * @param field numeric type id
-     */
-    bool remove(uint field);
-
-    /**
      * lists all fields
      */
     QList<uint> listFields() const;

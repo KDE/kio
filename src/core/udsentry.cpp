@@ -119,11 +119,6 @@ bool UDSEntry::contains(uint field) const
     return d->fields.contains(field);
 }
 
-bool UDSEntry::remove(uint field)
-{
-    return d->fields.remove(field) > 0;
-}
-
 void UDSEntry::clear()
 {
     d->fields.clear();
