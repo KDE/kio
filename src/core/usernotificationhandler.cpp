@@ -100,7 +100,9 @@ void UserNotificationHandler::processRequest()
     m_pendingRequests.removeFirst();
     delete r;
 
-    if (!m_pendingRequests.isEmpty()) {
+    if (m_pendingRequests.isEmpty()) {
+	m_cachedResults.clear();
+    } else {
         QTimer::singleShot(0, this, SLOT(processRequest()));
     }
 }
