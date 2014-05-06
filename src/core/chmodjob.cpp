@@ -280,7 +280,7 @@ ChmodJob *KIO::chmod(const KFileItemList &lstItems, int permissions, int mask,
                      bool recursive, JobFlags flags)
 {
     KUserId uid = KUserId::fromName(owner);
-    KGroupId gid = KGroupId::fromName(owner);
+    KGroupId gid = KGroupId::fromName(group);
     return ChmodJobPrivate::newJob(lstItems, permissions, mask, uid,
                                    gid, recursive, flags);
 }
