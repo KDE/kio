@@ -173,7 +173,7 @@ class NameLookUpThreadWorker : public QObject
 {
     Q_OBJECT
 public Q_SLOTS:
-    void lookupHost(const QSharedPointer<NameLookupThreadRequest> &request)
+    void lookupHost(const QSharedPointer<KIO::NameLookupThreadRequest> &request)
     {
         const QString hostName = request->hostName();
         const int lookupId = QHostInfo::lookupHost(hostName, this, SLOT(lookupFinished(QHostInfo)));
@@ -181,7 +181,7 @@ public Q_SLOTS:
         m_lookups.insert(lookupId, request);
     }
 
-    void abortLookup(const QSharedPointer<NameLookupThreadRequest> &request)
+    void abortLookup(const QSharedPointer<KIO::NameLookupThreadRequest> &request)
     {
         QHostInfo::abortHostLookup(request->lookupId());
         m_lookups.remove(request->lookupId());
@@ -274,14 +274,14 @@ QHostInfo HostInfo::lookupHost(const QString &hostName, unsigned long timeout)
     QSharedPointer<NameLookupThreadRequest> request = QSharedPointer<NameLookupThreadRequest>(new NameLookupThreadRequest(hostName));
     nameLookUpThread()->semaphore()->acquire();
     nameLookUpThread()->semaphore()->release();
-    QMetaObject::invokeMethod(nameLookUpThread()->worker(), "lookupHost", Qt::QueuedConnection, Q_ARG(QSharedPointer<NameLookupThreadRequest>, request));
+    QMetaObject::invokeMethod(nameLookUpThread()->worker(), "lookupHost", Qt::QueuedConnection, Q_ARG(QSharedPointer<KIO::NameLookupThreadRequest>, request));
     if (request->semaphore()->tryAcquire(1, timeout)) {
         hostInfo = request->result();
         if (!hostInfo.hostName().isEmpty() && hostInfo.error() == QHostInfo::NoError) {
             HostInfo::cacheLookup(hostInfo); // cache the look up...
         }
     } else {
-        QMetaObject::invokeMethod(nameLookUpThread()->worker(), "abortLookup", Qt::QueuedConnection, Q_ARG(QSharedPointer<NameLookupThreadRequest>, request));
+        QMetaObject::invokeMethod(nameLookUpThread()->worker(), "abortLookup", Qt::QueuedConnection, Q_ARG(QSharedPointer<KIO::NameLookupThreadRequest>, request));
     }
 
     //qDebug() << "Name look up succeeded for" << hostName;
