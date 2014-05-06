@@ -266,7 +266,7 @@ KUriFilterData::KUriFilterData(const QUrl &url)
 }
 
 KUriFilterData::KUriFilterData(const QString &url)
-    : d(new KUriFilterDataPrivate(QUrl(url), url))
+    : d(new KUriFilterDataPrivate(QUrl::fromUserInput(url), url))
 {
 }
 

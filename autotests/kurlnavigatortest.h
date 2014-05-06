@@ -38,6 +38,9 @@ private Q_SLOTS:
 
     void bug251553_goUpFromArchive();
 
+    void testUrlParsing_data();
+    void testUrlParsing();
+
 private:
     KUrlNavigator *m_navigator;
 };
