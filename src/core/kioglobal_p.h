@@ -63,6 +63,10 @@ KIOCORE_EXPORT int kio_windows_lstat(const char* path, QT_STATBUF* buffer);
 #define QT_LSTAT kio_windows_lstat
 #endif
 
+#ifndef QT_STAT_LNK
+#       define QT_STAT_LNK 0120000
+#endif // QT_STAT_LNK
+
 #endif //Q_OS_WIN
 
 namespace KIOPrivate {

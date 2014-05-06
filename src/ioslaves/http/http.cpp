@@ -2837,7 +2837,7 @@ void HTTPProtocol::fixupResponseContentEncoding()
     }
 }
 
-#ifdef Q_OS_WIN
+#ifdef Q_CC_MSVC
 // strncasecmp does not exist on windows, have to use _strnicmp
 static inline int strncasecmp(const char *c1, const char* c2, size_t max) { return _strnicmp(c1, c2, max);  }
 #endif
