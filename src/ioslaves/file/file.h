@@ -86,7 +86,7 @@ public:
 
 private:
     bool createUDSEntry(const QString &filename, const QByteArray &path, KIO::UDSEntry &entry,
-                        short int details, bool withACL);
+                        short int details);
     int setACL(const char *path, mode_t perm, bool _directoryDefault);
     QString getUserName(KUserId uid) const;
     QString getGroupName(KGroupId gid) const;

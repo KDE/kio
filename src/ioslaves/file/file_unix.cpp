@@ -394,7 +394,7 @@ void FileProtocol::listDir(const QUrl &url)
             listEntry(entry);
 
         } else {
-            if (createUDSEntry(filename, QByteArray(ep->d_name), entry, details, true)) {
+            if (createUDSEntry(filename, QByteArray(ep->d_name), entry, details)) {
                 listEntry(entry);
             }
         }
@@ -617,7 +617,7 @@ void FileProtocol::stat(const QUrl &url)
     const int details = sDetails.isEmpty() ? 2 : sDetails.toInt();
 
     UDSEntry entry;
-    if (!createUDSEntry(url.fileName(), _path, entry, details, true /*with acls*/)) {
+    if (!createUDSEntry(url.fileName(), _path, entry, details)) {
         error(KIO::ERR_DOES_NOT_EXIST, path);
         return;
     }
