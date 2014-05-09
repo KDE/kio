@@ -6,9 +6,9 @@ set (kpasswdserver_test_SRCS
 )
 qt5_add_dbus_adaptor(kpasswdserver_test_SRCS ../org.kde.KPasswdServer.xml kpasswdserver.h KPasswdServer)
 
-add_executable(kpasswdservertest ${kpasswdserver_test_SRCS} )
-target_link_libraries(kpasswdservertest KF5::DBusAddons KF5::Wallet KF5::KIOCore KF5::WidgetsAddons KF5::WindowSystem KF5::I18n
-                      Qt5::Core Qt5::Test)
+include(ECMAddTests)
 
-ecm_mark_as_test(kpasswdservertest)
-add_test(kpasswdservertest kpasswdservertest)
+ecm_add_test(${kpasswdserver_test_SRCS}
+             TEST_NAME kpasswdserver
+             LINK_LIBRARIES KF5::DBusAddons KF5::Wallet KF5::KIOCore KF5::WidgetsAddons KF5::WindowSystem KF5::I18n Qt5::Core Qt5::Test)
+
