@@ -45,7 +45,7 @@ set(httpobjecttest_SRCS
 )
 
 ecm_add_test(${httpobjecttest_SRCS}
-   TEST_NAME "kioslave-httpobjecttest"
+   TEST_NAME "httpobjecttest" NAME_PREFIX "kioslave-"
    LINK_LIBRARIES
    Qt5::Test
    Qt5::DBus
