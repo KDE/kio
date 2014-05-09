@@ -19,6 +19,8 @@
 
 #include "kurlnavigatortest.h"
 #include <QtTestWidgets>
+#include <QDir>
+#include <KUser>
 
 #include "kurlnavigator.h"
 #include "kurlcombobox.h"
@@ -194,21 +196,24 @@ void KUrlNavigatorTest::bug251553_goUpFromArchive()
 void KUrlNavigatorTest::testUrlParsing_data()
 {
     QTest::addColumn<QString>("input");
-    QTest::addColumn<QString>("urlString");
+    QTest::addColumn<QUrl>("url");
     // due to a bug in the KF5 porting input such as '/home/foo/.config' was parsed as 'http:///home/foo/.config/'.
-    QTest::newRow("hiddenFile") << QStringLiteral("/home/foo/.config") << QStringLiteral("file:///home/foo/.config");
+    QTest::newRow("hiddenFile") << QStringLiteral("/home/foo/.config") << QUrl::fromLocalFile("/home/foo/.config");
     // TODO: test this on windows: e.g. 'C:/foo/.config' or 'C:\foo\.config'
+    QTest::newRow("homeDir") << QStringLiteral("~") << QUrl::fromLocalFile(QDir::homePath());
+    KUser user(KUser::UseRealUserID);
+    QTest::newRow("userHomeDir") << (QStringLiteral("~") + user.loginName()) << QUrl::fromLocalFile(user.homeDir());
 }
 
 void KUrlNavigatorTest::testUrlParsing()
 {
     QFETCH(QString, input);
-    QFETCH(QString, urlString);
+    QFETCH(QUrl, url);
 
     m_navigator->setLocationUrl(QUrl());
     m_navigator->setUrlEditable(true);
     m_navigator->editor()->setCurrentText(input);
-    // QCOMPARE(m_navigator->uncommittedUrl().toString(), urlString);
+    QCOMPARE(m_navigator->uncommittedUrl(), url);
     QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
-    QCOMPARE(m_navigator->locationUrl().toString(), urlString);
+    QCOMPARE(m_navigator->locationUrl(), url);
 }
