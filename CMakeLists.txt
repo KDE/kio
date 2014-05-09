@@ -39,16 +39,16 @@ install(TARGETS kio_trash  DESTINATION ${PLUGIN_INSTALL_DIR} )
 
 set(ktrash_SRCS ktrash.cpp )
 
-add_executable(ktrash ${ktrash_SRCS})
-ecm_mark_nongui_executable(ktrash)
+add_executable(ktrash5 ${ktrash_SRCS})
+ecm_mark_nongui_executable(ktrash5)
 
-target_link_libraries(ktrash    
+target_link_libraries(ktrash5
         KF5::KDE4Support
 	KF5::KIOCore
         KF5::I18n KF5::ConfigCore KF5::ConfigGui
         )
 
-install(TARGETS ktrash ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS ktrash5 ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### next target ###############
 
