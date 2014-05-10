@@ -806,7 +806,7 @@ bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &pat
     entry.insert(KIO::UDSEntry::UDS_SIZE, buff.st_size);
 
 #if HAVE_POSIX_ACL
-    if (details > 0) {
+    if (details > 1) {
         /* Append an atom indicating whether the file has extended acl information
          * and if withACL is specified also one with the acl itself. If it's a directory
          * and it has a default ACL, also append that. */
