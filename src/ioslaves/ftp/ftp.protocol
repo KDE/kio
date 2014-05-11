@@ -1,5 +1,5 @@
 [Protocol]
-exec=kio_ftp
+exec=kf5/kio/ftp
 protocol=ftp
 input=none
 output=filesystem

@@ -1,5 +1,5 @@
 [Protocol]
-exec=kio_http
+exec=kf5/kio/http
 protocol=http
 input=none
 output=filesystem

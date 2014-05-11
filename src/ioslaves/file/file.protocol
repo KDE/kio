@@ -1,5 +1,5 @@
 [Protocol]
-exec=kio_file
+exec=kf5/kio/file
 protocol=file
 Icon=folder
 input=none

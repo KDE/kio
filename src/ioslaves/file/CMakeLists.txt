@@ -21,7 +21,6 @@ set_package_properties(ACL PROPERTIES DESCRIPTION "LibACL" URL "ftp://oss.sgi.co
 configure_file(config-kioslave-file.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kioslave-file.h )
 
 add_library(kio_file MODULE ${kio_file_PART_SRCS})
-set_target_properties(kio_file PROPERTIES PREFIX "")
 target_link_libraries(kio_file KF5::KIOCore KF5::I18n)
 
 # This flag is needed in order to be able to support files > 2GB even on
@@ -51,7 +50,8 @@ if(ACL_FOUND)
    target_link_libraries(kio_file ${ACL_LIBS})
 endif()
 
-install(TARGETS kio_file  DESTINATION ${PLUGIN_INSTALL_DIR} )
+set_target_properties(kio_file PROPERTIES OUTPUT_NAME "file")
+install(TARGETS kio_file  DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kio)
 
 
 ########### install files ###############

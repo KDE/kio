@@ -1,5 +1,5 @@
 [Protocol]
-exec=kio_help
+exec=kf5/kio/help
 protocol=help
 input=none
 output=filesystem

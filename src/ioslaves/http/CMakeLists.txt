@@ -75,7 +75,8 @@ if(GSSAPI_FOUND)
   target_link_libraries(kio_http ${GSSAPI_LIBS} )
 endif()
 
-install(TARGETS  kio_http  DESTINATION ${PLUGIN_INSTALL_DIR} )
+set_target_properties(kio_http PROPERTIES OUTPUT_NAME "http")
+install(TARGETS kio_http  DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kio)
 
 
 ########### install files ###############

@@ -1,5 +1,5 @@
 [Protocol]
-exec=kio_ghelp
+exec=kf5/kio/ghelp
 protocol=ghelp
 input=none
 output=filesystem
