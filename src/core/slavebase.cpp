@@ -35,6 +35,7 @@
 #include <QtCore/QFile>
 #include <QtCore/QList>
 #include <QtCore/QDateTime>
+#include <QtCore/QElapsedTimer>
 #include <QtCore/QCoreApplication>
 
 #include <kconfig.h>
@@ -86,7 +87,7 @@ public:
     }
 
     UDSEntryList pendingListEntries;
-    QTime m_timeSinceLastBatch;
+    QElapsedTimer m_timeSinceLastBatch;
     Connection appConnection;
     QString poolSocket;
     bool isConnectedToApp;
