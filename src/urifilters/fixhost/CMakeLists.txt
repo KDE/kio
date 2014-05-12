@@ -4,7 +4,7 @@ add_library(fixhosturifilter MODULE ${fixhosturifilter_PART_SRCS})
 
 target_link_libraries(fixhosturifilter KF5::KIOWidgets)
 
-install(TARGETS fixhosturifilter DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS fixhosturifilter DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/urifilters)
 
 ########### install files ###############
 

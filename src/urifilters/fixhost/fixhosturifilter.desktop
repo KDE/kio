@@ -84,6 +84,6 @@ Name[wa]=FixHostFilter
 Name[x-test]=xxFixHostFilterxx
 Name[zh_CN]=固定主机过滤器
 Name[zh_TW]=固定主機過濾
-X-KDE-Library=fixhosturifilter
+X-KDE-Library=kf5/urifilters/fixhosturifilter
 X-KDE-ServiceTypes=KUriFilter/Plugin
 InitialPreference=1

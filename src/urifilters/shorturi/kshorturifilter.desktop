@@ -92,6 +92,6 @@ Name[xh]=ShortURIFilter
 Name[x-test]=xxShortURIFilterxx
 Name[zh_CN]=短 URI 过滤
 Name[zh_TW]=短 URI 過濾器
-X-KDE-Library=kshorturifilter
+X-KDE-Library=kf5/urifilters/kshorturifilter
 X-KDE-ServiceTypes=KUriFilter/Plugin
 InitialPreference=5

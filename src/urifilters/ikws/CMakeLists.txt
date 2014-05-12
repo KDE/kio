@@ -8,7 +8,7 @@ add_library(kuriikwsfilter MODULE ${kuriikwsfilter_PART_SRCS})
 
 target_link_libraries(kuriikwsfilter KF5::ConfigWidgets KF5::KIOWidgets KF5::I18n Qt5::DBus)
 
-install(TARGETS kuriikwsfilter DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kuriikwsfilter DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/urifilters)
 
 set(kurisearchfilter_PART_SRCS 
    kurisearchfilter.cpp 
@@ -23,7 +23,7 @@ add_library(kurisearchfilter MODULE ${kurisearchfilter_PART_SRCS})
 
 target_link_libraries(kurisearchfilter KF5::I18n KF5::KIOWidgets KF5::ConfigWidgets Qt5::DBus)
 
-install(TARGETS kurisearchfilter DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kurisearchfilter DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/urifilters)
 
 ########### install files ###############
 

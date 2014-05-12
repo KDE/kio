@@ -91,6 +91,6 @@ Name[xh]=LocalDomainFilter
 Name[x-test]=xxLocalDomainFilterxx
 Name[zh_CN]=本地域名过滤
 Name[zh_TW]=區域網域過濾器
-X-KDE-Library=localdomainurifilter
+X-KDE-Library=kf5/urifilters/localdomainurifilter
 X-KDE-ServiceTypes=KUriFilter/Plugin
 InitialPreference=2
