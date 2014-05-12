@@ -41,8 +41,8 @@ QLoggingCategory category("org.kde.kurifilter-ikws");
 #define PDVAR(n,v) qCDebug(category) << n << " = '" << v << "'"
 
 /**
- * IMPORTANT: If you change anything here, please run the regression test
- * ../tests/kurifiltertest
+ * IMPORTANT: If you change anything here, make sure you run the kurifiltertest
+ * regression test (this should be included as part of "make test").
  */
 
 KURISearchFilterEngine::KURISearchFilterEngine()

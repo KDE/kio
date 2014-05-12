@@ -34,8 +34,8 @@
 QLoggingCategory category("org.kde.kurlfilter-ikws");
 
 /**
- * IMPORTANT: If you change anything here, please run the regression test
- * ../tests/kurifiltertest
+ * IMPORTANT: If you change anything here, make sure you run the kurifiltertest
+ * regression test (this should be included as part of "make test").
  */
 
 K_PLUGIN_FACTORY(KAutoWebSearchFactory, registerPlugin<KAutoWebSearch>();)

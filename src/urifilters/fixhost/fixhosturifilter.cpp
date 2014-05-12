@@ -29,8 +29,8 @@
 #define QL1C(x)   QLatin1Char(x)
 
 /**
- * IMPORTANT: If you change anything here, please run the regression test
- * ../tests/kurifiltertest
+ * IMPORTANT: If you change anything here, make sure you run the kurifiltertest
+ * regression test (this should be included as part of "make test").
  */
 
 FixHostUriFilter::FixHostUriFilter(QObject *parent, const QVariantList & /*args*/)

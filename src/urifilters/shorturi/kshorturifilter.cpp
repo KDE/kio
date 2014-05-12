@@ -44,14 +44,13 @@ namespace {
 QLoggingCategory category("org.kde.kurifilter-shorturi");
 }
 
- /**
-  * IMPORTANT:
-  *  If you change anything here, please run the regression test
-  *  ../tests/kurifiltertest.
-  *
-  *  If you add anything here, make sure to add a corresponding
-  *  test code to ../tests/kurifiltertest.
-  */
+/**
+ * IMPORTANT: If you change anything here, make sure you run the kurifiltertest
+ * regression test (this should be included as part of "make test").
+ *
+ * If you add anything, make sure to extend kurifiltertest to make sure it is
+ * covered.
+ */
 
 typedef QMap<QString,QString> EntryMap;
 

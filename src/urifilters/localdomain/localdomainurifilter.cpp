@@ -33,8 +33,8 @@
 #define HOSTPORT_PATTERN "[a-zA-Z0-9][a-zA-Z0-9+-]*(?:\\:[0-9]{1,5})?(?:/[\\w:@&=+$,-.!~*'()]*)*"
 
 /**
- * IMPORTANT: If you change anything here, please run the regression test
- * ../tests/kurifiltertest
+ * IMPORTANT: If you change anything here, make sure you run the kurifiltertest
+ * regression test (this should be included as part of "make test").
  */
 LocalDomainUriFilter::LocalDomainUriFilter( QObject *parent, const QVariantList & /*args*/ )
                      :KUriFilterPlugin( "localdomainurifilter", parent ),
