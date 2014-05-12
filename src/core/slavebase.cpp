@@ -108,7 +108,6 @@ public:
     QDateTime lastTimeout;
     QDateTime nextTimeout;
     KIO::filesize_t totalSize;
-    KIO::filesize_t sentListEntries;
     KRemoteEncoding *remotefile;
     enum { Idle, InsideMethod, FinishedCalled, ErrorCalled } m_state;
     QByteArray timeoutData;
@@ -249,7 +248,6 @@ SlaveBase::SlaveBase(const QByteArray &protocol,
     d->wasKilled = false;
 //    d->processed_size = 0;
     d->totalSize = 0;
-    d->sentListEntries = 0;
     connectSlave(QFile::decodeName(app_socket));
 
     d->remotefile = 0;
@@ -448,7 +446,6 @@ void SlaveBase::error(int _errid, const QString &_text)
 
     send(MSG_ERROR, data);
     //reset
-    d->sentListEntries = 0;
     d->totalSize = 0;
     d->inOpenLoop = false;
 }
@@ -480,7 +477,6 @@ void SlaveBase::finished()
     send(MSG_FINISHED);
 
     // reset
-    d->sentListEntries = 0;
     d->totalSize = 0;
     d->inOpenLoop = false;
 }
@@ -513,7 +509,6 @@ void SlaveBase::totalSize(KIO::filesize_t _bytes)
 
     //this one is usually called before the first item is listed in listDir()
     d->totalSize = _bytes;
-    d->sentListEntries = 0;
 }
 
 void SlaveBase::processedSize(KIO::filesize_t _bytes)
@@ -717,7 +712,6 @@ void SlaveBase::listEntries(const UDSEntryList &list)
     }
 
     send(MSG_LIST_ENTRIES, data);
-    d->sentListEntries += (uint)list.count();
 }
 
 static void sigsegv_handler(int sig)
