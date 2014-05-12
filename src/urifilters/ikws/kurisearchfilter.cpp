@@ -34,7 +34,6 @@
  */
 
 K_PLUGIN_FACTORY(KUriSearchFilterFactory, registerPlugin<KUriSearchFilter>();)
-K_EXPORT_PLUGIN(KUriSearchFilterFactory("kcmkurifilt"))
 
 namespace {
 QLoggingCategory category("org.kde.kurifilter-ikws");

@@ -125,8 +125,9 @@ void ProvidersModel::setProviders(const QList<SearchProvider*>& providers, const
 
 void ProvidersModel::setFavoriteProviders(const QStringList& favoriteEngines)
 {
+  beginResetModel();
   m_favoriteEngines = QSet<QString>::fromList(favoriteEngines);
-  reset();
+  endResetModel();
 }
 
 int ProvidersModel::rowCount(const QModelIndex & parent) const
@@ -284,7 +285,7 @@ void FilterOptions::setDefaultEngine(int index)
 
 void FilterOptions::load()
 {
-  KConfig config(KURISearchFilterEngine::self()->name() + "rc", KConfig::NoGlobals);
+  KConfig config(KURISearchFilterEngine::self()->name() + QStringLiteral("rc"), KConfig::NoGlobals);
   KConfigGroup group = config.group("General");
 
   const QString defaultSearchEngine = group.readEntry("DefaultWebShortcut");
@@ -329,7 +330,7 @@ void FilterOptions::setDelimiter (char sep)
 
 void FilterOptions::save()
 {
-  KConfig config(KURISearchFilterEngine::self()->name() + "rc", KConfig::NoGlobals );
+  KConfig config(KURISearchFilterEngine::self()->name() + QStringLiteral("rc"), KConfig::NoGlobals );
 
   KConfigGroup group = config.group("General");
   group.writeEntry("EnableWebShortcuts", m_dlg.cbEnableShortcuts->isChecked());

@@ -29,7 +29,7 @@ class KUriFilterTest : public QObject
 public:
     KUriFilterTest();
 
-private slots:
+private Q_SLOTS:
     void init();
     void noFiltering_data();
     void noFiltering();

@@ -45,7 +45,7 @@ static void setupColumns()
     QTest::addColumn<bool>("checkForExecutables");
 }
 
-static void addRow(const char *input, const char *expectedResult = 0, int expectedUriType = -1, const QStringList& list = QStringList(), const char *absPath = 0, bool checkForExecutables = true )
+static void addRow(const char *input, const QString &expectedResult = QString(), int expectedUriType = -1, const QStringList& list = QStringList(), const QString &absPath = QString(), bool checkForExecutables = true )
 {
     QTest::newRow(input) << input << expectedResult << expectedUriType << list << absPath << checkForExecutables;
 }
@@ -210,7 +210,7 @@ void KUriFilterTest::init()
       KSharedConfig::openConfig("kshorturifilterrc", KConfig::SimpleConfig )->group(QString()).writeEntry( "Verbose", true );
     }
 
-    QDir().mkpath(datahome + "/urifilter");
+    QDir().mkpath(datahome + QStringLiteral("/urifilter"));
 }
 
 void KUriFilterTest::noFiltering_data()
@@ -236,15 +236,15 @@ void KUriFilterTest::localFiles_data()
     addRow( "/", "/", KUriFilterData::LocalDir );
     addRow( "/", "/", KUriFilterData::LocalDir, QStringList( "kshorturifilter" ) );
     if (QFile::exists(QDir::homePath() + QLatin1String("/.bashrc")))
-        addRow( "~/.bashrc", QDir::homePath().toLocal8Bit()+"/.bashrc", KUriFilterData::LocalFile, QStringList( "kshorturifilter" ) );
+        addRow( "~/.bashrc", QDir::homePath()+QStringLiteral("/.bashrc"), KUriFilterData::LocalFile, QStringList( "kshorturifilter" ) );
     addRow( "~", QDir::homePath().toLocal8Bit(), KUriFilterData::LocalDir, QStringList( "kshorturifilter" ), "/tmp" );
     addRow( "~bin", 0, KUriFilterData::LocalDir, QStringList( "kshorturifilter" ) );
     addRow( "~does_not_exist", 0, KUriFilterData::Error, QStringList( "kshorturifilter" ) );
 
     // Absolute Path tests for kshorturifilter
     const QStringList kshorturifilter( QString("kshorturifilter") );
-    addRow( "./", datahome, KUriFilterData::LocalDir, kshorturifilter, datahome+"/" ); // cleanPath removes the trailing slash
-    const QString parentDir = QDir().cleanPath(datahome + "/..");
+    addRow( "./", datahome, KUriFilterData::LocalDir, kshorturifilter, datahome+QStringLiteral("/") ); // cleanPath removes the trailing slash
+    const QString parentDir = QDir().cleanPath(datahome + QStringLiteral("/.."));
     addRow( "../", QFile::encodeName(parentDir), KUriFilterData::LocalDir, kshorturifilter, datahome );
     addRow( "share", datahome, KUriFilterData::LocalDir, kshorturifilter, QFile::encodeName(parentDir) );
     // Invalid URLs
@@ -354,12 +354,12 @@ void KUriFilterTest::executables_data()
     setupColumns();
     // Executable tests - No IKWS in minicli
     addRow( "cp", "cp", KUriFilterData::Executable, minicliFilters );
-    addRow( "ktraderclient5", "ktraderclient5", KUriFilterData::Executable, minicliFilters );
+    addRow( "kbuildsycoca5", "kbuildsycoca5", KUriFilterData::Executable, minicliFilters );
     addRow( "KDE", "KDE", NO_FILTERING, minicliFilters );
     addRow( "I/dont/exist", "I/dont/exist", NO_FILTERING, minicliFilters );      //krazy:exclude=spelling
     addRow( "/I/dont/exist", 0, KUriFilterData::Error, minicliFilters );         //krazy:exclude=spelling
     addRow( "/I/dont/exist#a", 0, KUriFilterData::Error, minicliFilters );       //krazy:exclude=spelling
-    addRow( "ktraderclient5 --help", "ktraderclient5 --help", KUriFilterData::Executable, minicliFilters ); // the args are in argsAndOptions()
+    addRow( "kbuildsycoca5 --help", "kbuildsycoca5 --help", KUriFilterData::Executable, minicliFilters ); // the args are in argsAndOptions()
     addRow( "/usr/bin/gs", "/usr/bin/gs", KUriFilterData::Executable, minicliFilters );
     addRow( "/usr/bin/gs -q -option arg1", "/usr/bin/gs -q -option arg1", KUriFilterData::Executable, minicliFilters ); // the args are in argsAndOptions()
 
@@ -384,7 +384,7 @@ void KUriFilterTest::environmentVariables_data()
 
     addRow( "$SOMEVAR/kdelibs/kio", 0, KUriFilterData::Error ); // note: this dir doesn't exist...
     addRow( "$ETC/passwd", "/etc/passwd", KUriFilterData::LocalFile );
-    QString qtdocPath = qtdir+"/doc/html/functions.html";
+    QString qtdocPath = qtdir+QStringLiteral("/doc/html/functions.html");
     if (QFile::exists(qtdocPath)) {
         QString expectedUrl = QUrl::fromLocalFile(qtdocPath).toString()+"#s";
         addRow( "$QTDIR/doc/html/functions.html#s", expectedUrl.toUtf8(), KUriFilterData::LocalFile );
@@ -392,25 +392,25 @@ void KUriFilterTest::environmentVariables_data()
     addRow( "http://www.kde.org/$USER", "http://www.kde.org/$USER", KUriFilterData::NetProtocol ); // no expansion
 
     addRow( "$DATAHOME", datahome, KUriFilterData::LocalDir );
-    QDir().mkpath(datahome + "/urifilter/a+plus");
-    addRow( "$DATAHOME/urifilter/a+plus", datahome+"/urifilter/a+plus", KUriFilterData::LocalDir );
+    QDir().mkpath(datahome + QStringLiteral("/urifilter/a+plus"));
+    addRow( "$DATAHOME/urifilter/a+plus", datahome+QStringLiteral("/urifilter/a+plus"), KUriFilterData::LocalDir );
 
     // BR 27788
-    QDir().mkpath(datahome + "/Dir With Space");
-    addRow( "$DATAHOME/Dir With Space", datahome+"/Dir With Space", KUriFilterData::LocalDir );
+    QDir().mkpath(datahome + QStringLiteral("/Dir With Space"));
+    addRow( "$DATAHOME/Dir With Space", datahome+QStringLiteral("/Dir With Space"), KUriFilterData::LocalDir );
 
     // support for name filters (BR 93825)
-    addRow( "$DATAHOME/*.txt", datahome+"/*.txt", KUriFilterData::LocalDir );
-    addRow( "$DATAHOME/[a-b]*.txt", datahome+"/[a-b]*.txt", KUriFilterData::LocalDir );
-    addRow( "$DATAHOME/a?c.txt", datahome+"/a?c.txt", KUriFilterData::LocalDir );
-    addRow( "$DATAHOME/?c.txt", datahome+"/?c.txt", KUriFilterData::LocalDir );
+    addRow( "$DATAHOME/*.txt", datahome+QStringLiteral("/*.txt"), KUriFilterData::LocalDir );
+    addRow( "$DATAHOME/[a-b]*.txt", datahome+QStringLiteral("/[a-b]*.txt"), KUriFilterData::LocalDir );
+    addRow( "$DATAHOME/a?c.txt", datahome+QStringLiteral("/a?c.txt"), KUriFilterData::LocalDir );
+    addRow( "$DATAHOME/?c.txt", datahome+QStringLiteral("/?c.txt"), KUriFilterData::LocalDir );
     // but let's check that a directory with * in the name still works
-    QDir().mkpath(datahome + "/share/Dir*With*Stars");
-    addRow( "$DATAHOME/Dir*With*Stars", datahome+"/Dir*With*Stars", KUriFilterData::LocalDir );
-    QDir().mkpath(datahome + "/Dir?QuestionMark");
-    addRow( "$DATAHOME/Dir?QuestionMark", datahome+"/Dir?QuestionMark", KUriFilterData::LocalDir );
-    QDir().mkpath(datahome + "/Dir[Bracket");
-    addRow( "$DATAHOME/Dir[Bracket", datahome+"/Dir[Bracket", KUriFilterData::LocalDir );
+    QDir().mkpath(datahome + QStringLiteral("/share/Dir*With*Stars"));
+    addRow( "$DATAHOME/Dir*With*Stars", datahome+QStringLiteral("/Dir*With*Stars"), KUriFilterData::LocalDir );
+    QDir().mkpath(datahome + QStringLiteral("/Dir?QuestionMark"));
+    addRow( "$DATAHOME/Dir?QuestionMark", datahome+QStringLiteral("/Dir?QuestionMark"), KUriFilterData::LocalDir );
+    QDir().mkpath(datahome + QStringLiteral("/Dir[Bracket"));
+    addRow( "$DATAHOME/Dir[Bracket", datahome+QStringLiteral("/Dir[Bracket"), KUriFilterData::LocalDir );
 
     addRow( "$HOME/$KDEDIR/kdebase/kcontrol/ebrowsing", 0, KUriFilterData::Error );
     addRow( "$1/$2/$3", "https://www.google.com/search?q=%241%2F%242%2F%243&ie=UTF-8", KUriFilterData::NetProtocol );  // can be used as bogus or valid test. Currently triggers default search, i.e. google

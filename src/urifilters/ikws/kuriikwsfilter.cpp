@@ -39,7 +39,6 @@ QLoggingCategory category("org.kde.kurlfilter-ikws");
  */
 
 K_PLUGIN_FACTORY(KAutoWebSearchFactory, registerPlugin<KAutoWebSearch>();)
-K_EXPORT_PLUGIN(KAutoWebSearchFactory("kcmkurifilt"))
 
 KAutoWebSearch::KAutoWebSearch(QObject *parent, const QVariantList&)
                :KUriFilterPlugin( "kuriikwsfilter", parent )
