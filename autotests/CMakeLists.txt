@@ -44,6 +44,7 @@ ecm_add_tests(
  kdirmodeltest.cpp
  kfileitemactionstest.cpp
  fileundomanagertest.cpp
+ kurifiltertest.cpp
  kurlcompletiontest.cpp
  kurlrequestertest.cpp
  jobguitest.cpp
