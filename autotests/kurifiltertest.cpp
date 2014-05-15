@@ -379,14 +379,8 @@ void KUriFilterTest::environmentVariables_data()
 {
     setupColumns();
     // ENVIRONMENT variable
-    if( qgetenv( "SOMEVAR" ).isNull() )
-    {
-        qputenv( "SOMEVAR", "/somevar" );
-    }
-    if( qgetenv( "ETC" ).isNull() )
-    {
-        qputenv( "ETC", "/etc" );
-    }
+    qputenv( "SOMEVAR", "/somevar" );
+    qputenv( "ETC", "/etc" );
 
     addRow( "$SOMEVAR/kdelibs/kio", 0, KUriFilterData::Error ); // note: this dir doesn't exist...
     addRow( "$ETC/passwd", "/etc/passwd", KUriFilterData::LocalFile );
