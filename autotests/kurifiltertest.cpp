@@ -187,7 +187,7 @@ KUriFilterTest::KUriFilterTest()
 void KUriFilterTest::init()
 {
     qDebug() ;
-    setenv( "KDE_FORK_SLAVES", "yes", true ); // simpler, for the final cleanup
+    qputenv( "KDE_FORK_SLAVES", "yes" ); // simpler, for the final cleanup
 
     // Allow testing of the search engine using both delimiters...
     const char* envDelimiter = ::getenv( "KURIFILTERTEST_DELIMITER" );
@@ -379,8 +379,14 @@ void KUriFilterTest::environmentVariables_data()
 {
     setupColumns();
     // ENVIRONMENT variable
-    setenv( "SOMEVAR", "/somevar", 0 );
-    setenv( "ETC", "/etc", 0 );
+    if( qgetenv( "SOMEVAR" ).isNull() )
+    {
+        qputenv( "SOMEVAR", "/somevar" );
+    }
+    if( qgetenv( "ETC" ).isNull() )
+    {
+        qputenv( "ETC", "/etc" );
+    }
 
     addRow( "$SOMEVAR/kdelibs/kio", 0, KUriFilterData::Error ); // note: this dir doesn't exist...
     addRow( "$ETC/passwd", "/etc/passwd", KUriFilterData::LocalFile );
