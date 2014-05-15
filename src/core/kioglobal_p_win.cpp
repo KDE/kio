@@ -21,8 +21,6 @@ Boston, MA 02110-1301, USA.
 #include <QFile>
 #include <QFileInfo>
 
-#undef _WIN32_WINNT
-#define _WIN32_WINNT 0x600 //Vista is minimum supported windows version (we need CreateSymbolicLinkW)
 #include <qt_windows.h>
 
 KIOCORE_EXPORT bool KIOPrivate::isProcessAlive(qint64 pid) {
