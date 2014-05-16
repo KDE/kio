@@ -25,7 +25,7 @@ Name[kk]=Google Shopping
 Name[ko]=Google 쇼핑
 Name[lt]=Yahoo parduotuvė
 Name[nb]=Google Shopping
-Name[nds]=Google - Inköpen
+Name[nds]=Google.de - Inköpen
 Name[nl]=Google Shopping
 Name[nn]=Google Shopping
 Name[pa]=ਗੂਗਲ ਖਰੀਦਦਾਰੀ
@@ -75,7 +75,7 @@ Query[kk]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ko]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[lt]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[nb]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
-Query[nds]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Query[nds]=https://www.google.de/search?hl=de&tbm=shop&q=\\{@}
 Query[nl]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[nn]=https://www.google.com/search?hl=nn&hl=en&tbm=shop&q=\\{@}
 Query[pa]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

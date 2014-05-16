@@ -56,7 +56,7 @@ Name[ml]=വിക്കിപീഡിയ - സ്വതന്ത്ര സര�
 Name[mr]=विकिपेडिया- मोफत विश्वकोश
 Name[ms]=Wikipedia - Ensiklopedia Percuma
 Name[nb]=Wikipedia – det frie leksikonet
-Name[nds]=Wikipedia - dat fre'e Nakieksel (hdt.)
+Name[nds]=Wikipedia.nds - dat fre'e plattdüütsche Nakieksel
 Name[ne]=विकिपिडिया - नि:शुल्क इन्साइक्लोपेडिया
 Name[nl]=Wikipedia - de vrije encyclopedie
 Name[nn]=Wikipedia – det frie oppslagsverket
@@ -117,7 +117,7 @@ Query[kk]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ko]=https://ko.wikipedia.org/wiki/특수기능:검색?search=\\{@}&go=Go
 Query[lt]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[nb]=https://no.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
-Query[nds]=https://de.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[nds]=https://nds.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[nl]=https://nl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[nn]=https://nn.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[pa]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go

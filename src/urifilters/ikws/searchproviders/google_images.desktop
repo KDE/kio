@@ -56,7 +56,7 @@ Name[ml]=ഗൂഗിളില്‍ ചിത്രങ്ങള്‍ക്ക�
 Name[mr]=Google प्रतिमा शोध
 Name[ms]=Carian Imej Google
 Name[nb]=Bildesøk i Google
-Name[nds]=Google sien Biller-Söök
+Name[nds]=Google.de sien Biller-Söök
 Name[ne]=गुगल छवि खोजी
 Name[nl]=Google afbeeldingen zoeken
 Name[nn]=Google biletsøk
@@ -118,7 +118,7 @@ Query[kk]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ko]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[lt]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[nb]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
-Query[nds]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[nds]=https://www.google.de/search?site=imghp&tbm=isch&q=\\{@}
 Query[nl]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[nn]=https://www.google.com/search?hl=nn&site=imghp&tbm=isch&q=\\{@}
 Query[pa]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}

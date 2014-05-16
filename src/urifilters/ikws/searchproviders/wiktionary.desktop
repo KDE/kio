@@ -54,7 +54,7 @@ Name[mk]=Wiktionary - Слободниот речник
 Name[ml]=വിക്ഷ്ണറി - സ്വതന്ത്ര നിഘണ്ടു
 Name[mr]=विकिपेडिया- मोफत विश्वकोश
 Name[nb]=Wiktionary – den frie ordboka
-Name[nds]=Wiktionary - dat fre'e Wöörbook (hdt.)
+Name[nds]=Wiktionary.nds - dat fre'e plattdüütsche Wöörbook
 Name[ne]=विक्सनरी - नि:शुल्क शब्दकोश
 Name[nl]=Wiktionary - het vrije woordenboek
 Name[nn]=Wiktionary – den frie ordboka
@@ -115,7 +115,7 @@ Query[kk]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ko]=https://ko.wiktionary.org/wiki/특수기능:검색?search=\\{@}&go=Go
 Query[lt]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[nb]=https://no.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
-Query[nds]=http://de.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[nds]=https://nds.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[nl]=https://nl.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[nn]=https://nn.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[pa]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
