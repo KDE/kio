@@ -33,38 +33,18 @@ struct Task {
     QByteArray data;
 };
 
-class AbstractConnectionBackend: public QObject
+
+class ConnectionBackend: public QObject
 {
     Q_OBJECT
+
 public:
+    enum { Idle, Listening, Connected } state;
+    enum Mode { LocalSocketMode, TcpSocketMode };
     QUrl address;
     QString errorString;
-    enum { Idle, Listening, Connected } state;
-
-    explicit AbstractConnectionBackend(QObject *parent = 0);
-    ~AbstractConnectionBackend();
-
-    virtual void setSuspended(bool enable) = 0;
-    virtual bool connectToRemote(const QUrl &url) = 0;
-    virtual bool listenForRemote() = 0;
-    virtual bool waitForIncomingTask(int ms) = 0;
-    virtual bool sendCommand(const Task &task) = 0;
-    virtual AbstractConnectionBackend *nextPendingConnection() = 0;
-
-Q_SIGNALS:
-    void disconnected();
-    void commandReceived(const Task &task);
-    void newConnection();
-};
-
-class SocketConnectionBackend: public AbstractConnectionBackend
-{
-    Q_OBJECT
-public:
-    enum Mode { LocalSocketMode, TcpSocketMode };
 
 private:
-    enum { HeaderSize = 10, StandardBufferSize = 32 * 1024 };
 
     QTcpSocket *socket;
     union {
@@ -77,16 +57,25 @@ private:
     bool signalEmitted;
     quint8 mode;
 
+    static const int HeaderSize = 10;
+    static const int StandardBufferSize = 32 * 1024;
+
+Q_SIGNALS:
+    void disconnected();
+    void commandReceived(const Task &task);
+    void newConnection();
+
 public:
-    explicit SocketConnectionBackend(Mode m, QObject *parent = 0);
-    ~SocketConnectionBackend();
+    explicit ConnectionBackend(Mode m, QObject *parent = 0);
+    ~ConnectionBackend();
 
     void setSuspended(bool enable);
     bool connectToRemote(const QUrl &url);
     bool listenForRemote();
     bool waitForIncomingTask(int ms);
     bool sendCommand(const Task &task);
-    AbstractConnectionBackend *nextPendingConnection();
+    ConnectionBackend *nextPendingConnection();
+
 public Q_SLOTS:
     void socketReadyRead();
     void socketDisconnected();

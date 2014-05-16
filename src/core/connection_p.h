@@ -43,11 +43,11 @@ public:
     void dequeue();
     void commandReceived(const Task &task);
     void disconnected();
-    void setBackend(AbstractConnectionBackend *b);
+    void setBackend(ConnectionBackend *b);
 
     QQueue<Task> outgoingTasks;
     QQueue<Task> incomingTasks;
-    AbstractConnectionBackend *backend;
+    ConnectionBackend *backend;
     Connection *q;
     bool suspended;
 };

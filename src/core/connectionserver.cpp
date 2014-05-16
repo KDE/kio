@@ -32,7 +32,7 @@ public:
     { }
 
     ConnectionServer *q;
-    AbstractConnectionBackend *backend;
+    ConnectionBackend *backend;
 };
 
 ConnectionServer::ConnectionServer(QObject *parent)
@@ -49,9 +49,9 @@ ConnectionServer::~ConnectionServer()
 void ConnectionServer::listenForRemote()
 {
 #ifdef Q_OS_WIN
-    d->backend = new SocketConnectionBackend(SocketConnectionBackend::TcpSocketMode, this);
+    d->backend = new ConnectionBackend(ConnectionBackend::TcpSocketMode, this);
 #else
-    d->backend = new SocketConnectionBackend(SocketConnectionBackend::LocalSocketMode, this);
+    d->backend = new ConnectionBackend(ConnectionBackend::LocalSocketMode, this);
 #endif
     if (!d->backend->listenForRemote()) {
         delete d->backend;
@@ -73,7 +73,7 @@ QUrl ConnectionServer::address() const
 
 bool ConnectionServer::isListening() const
 {
-    return d->backend && d->backend->state == AbstractConnectionBackend::Listening;
+    return d->backend && d->backend->state == ConnectionBackend::Listening;
 }
 
 void ConnectionServer::close()
@@ -88,7 +88,7 @@ Connection *ConnectionServer::nextPendingConnection()
         return 0;
     }
 
-    AbstractConnectionBackend *newBackend = d->backend->nextPendingConnection();
+    ConnectionBackend *newBackend = d->backend->nextPendingConnection();
     if (!newBackend) {
         return 0;    // no new backend...
     }
@@ -102,7 +102,7 @@ Connection *ConnectionServer::nextPendingConnection()
 
 void ConnectionServer::setNextPendingConnection(Connection *conn)
 {
-    AbstractConnectionBackend *newBackend = d->backend->nextPendingConnection();
+    ConnectionBackend *newBackend = d->backend->nextPendingConnection();
     Q_ASSERT(newBackend);
 
     conn->d->backend = newBackend;

@@ -61,7 +61,7 @@ void ConnectionPrivate::disconnected()
     QMetaObject::invokeMethod(q, "readyRead", Qt::QueuedConnection);
 }
 
-void ConnectionPrivate::setBackend(AbstractConnectionBackend *b)
+void ConnectionPrivate::setBackend(ConnectionBackend *b)
 {
     backend = b;
     if (backend) {
@@ -117,7 +117,7 @@ void Connection::close()
 
 bool Connection::isConnected() const
 {
-    return d->backend && d->backend->state == AbstractConnectionBackend::Connected;
+    return d->backend && d->backend->state == ConnectionBackend::Connected;
 }
 
 bool Connection::inited() const
@@ -136,9 +136,9 @@ void Connection::connectToRemote(const QUrl &address)
     const QString scheme = address.scheme();
 
     if (scheme == QLatin1String("local")) {
-        d->setBackend(new SocketConnectionBackend(SocketConnectionBackend::LocalSocketMode, this));
+        d->setBackend(new ConnectionBackend(ConnectionBackend::LocalSocketMode, this));
     } else if (scheme == QLatin1String("tcp")) {
-        d->setBackend(new SocketConnectionBackend(SocketConnectionBackend::TcpSocketMode, this));
+        d->setBackend(new ConnectionBackend(ConnectionBackend::TcpSocketMode, this));
     } else {
         qWarning() << "Unknown protocol requested:" << scheme << "(" << address << ")";
         Q_ASSERT(0);
