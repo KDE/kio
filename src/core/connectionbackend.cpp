@@ -19,7 +19,7 @@
     Boston, MA 02110-1301, USA.
 */
 
-#include "socketconnectionbackend_p.h"
+#include "connectionbackend_p.h"
 #include <errno.h>
 #include <QTcpServer>
 #include <QCoreApplication>

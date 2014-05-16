@@ -25,7 +25,7 @@
 #include <QObject>
 #include <QString>
 #include <QQueue>
-#include "socketconnectionbackend_p.h"
+#include "connectionbackend_p.h"
 
 namespace KIO
 {

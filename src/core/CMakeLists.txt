@@ -21,7 +21,7 @@ configure_file(config-kmountpoint.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kmo
 set(kiocore_SRCS
   idleslave.cpp
   klocalsocket.cpp
-  socketconnectionbackend.cpp
+  connectionbackend.cpp
   connection.cpp
   connectionserver.cpp
   krecentdocument.cpp

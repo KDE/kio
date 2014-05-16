@@ -20,7 +20,7 @@
 
 #include "connectionserver.h"
 #include "connection_p.h"
-#include "socketconnectionbackend_p.h"
+#include "connectionbackend_p.h"
 
 using namespace KIO;
 
