@@ -30,6 +30,9 @@ qt5_add_dbus_adaptor( kded_kcookiejar_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.K
 
 
 add_library(kded_kcookiejar MODULE ${kded_kcookiejar_SRCS})
+set_target_properties(kded_kcookiejar PROPERTIES
+    OUTPUT_NAME kcookiejar
+)
 
 target_link_libraries(kded_kcookiejar
    KF5::WindowSystem
@@ -39,7 +42,7 @@ target_link_libraries(kded_kcookiejar
    KF5::WidgetsAddons
 )
 
-install(TARGETS kded_kcookiejar  DESTINATION ${PLUGIN_INSTALL_DIR} )
+install(TARGETS kded_kcookiejar  DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kded )
 
 
 ########### install files ###############

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Service
 X-KDE-ServiceTypes=KDEDModule
-X-KDE-Library=kssld
+X-KDE-Library=kf5/kded/kssld
 X-KDE-DBus-ModuleName=kssld
 X-KDE-Kded-autoload=false
 X-KDE-Kded-load-on-demand=true

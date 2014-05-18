@@ -18,6 +18,9 @@ if (Qt5Script_FOUND)
     )
 
     add_library(kded_proxyscout MODULE ${kded_proxyscout_PART_SRCS})
+    set_target_properties(kded_proxyscout PROPERTIES
+        OUTPUT_NAME proxyscout
+    )
 
     target_link_libraries(kded_proxyscout
        Qt5::Network
@@ -34,7 +37,7 @@ if (Qt5Script_FOUND)
       target_link_libraries(kded_proxyscout resolv)
     endif ()
 
-    install(TARGETS kded_proxyscout  DESTINATION ${PLUGIN_INSTALL_DIR} )
+    install(TARGETS kded_proxyscout  DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kded )
 endif()
 
 ########### next target ###############
