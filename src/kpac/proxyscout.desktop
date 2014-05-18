@@ -1,7 +1,9 @@
 [Desktop Entry]
 Type=Service
 Name=Network Proxy Configuration
+Name[ca]=Configuració del servidor intermediari de xarxa
 Name[de]=Netzwerk-Proxy-Einrichtung
+Name[fi]=Verkon välityspalvelinasetukset
 Name[hy]=Ցանցի փոխարինող կերպարանք
 Name[ia]=Configuration de proxy de rete
 Name[nds]=Nettwark-Proxy instellen
@@ -14,7 +16,9 @@ Name[tt]=Челтәрнең прокси көйләнеше
 Name[uk]=Налаштування проксі-сервера мережі
 Name[x-test]=xxNetwork Proxy Configurationxx
 Comment=Automatic proxy configuration
+Comment[ca]=Configuració automàtica de l'intermediari
 Comment[de]=Sucht nach einem Proxy-Server und richtet ihn ein
+Comment[fi]=Automaattiset välityspalvelinasetukset
 Comment[hy]=Ավտոմատ պոխարինողի ձևակերպություն
 Comment[ia]=Configuration automatic de proxy
 Comment[lb]=Automatesch Proxy-Configuratioun

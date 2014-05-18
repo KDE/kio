@@ -1,7 +1,9 @@
 [Global]
 IconName=preferences-system-network-proxy
 Comment=Network Proxy Configuration
+Comment[ca]=Configuració del servidor intermediari de xarxa
 Comment[de]=Netzwerk-Proxy-Einrichtung
+Comment[fi]=Verkon välityspalvelinasetukset
 Comment[hy]=Ցանցի փոխարինողի ձեվակերպություն
 Comment[ia]=Configuration de proxy de rete
 Comment[nds]=Nettwark-Proxy instellen
@@ -16,7 +18,9 @@ Comment[x-test]=xxNetwork Proxy Configurationxx
 
 [Event/script-error]
 Name=Invalid Proxy Script
+Name[ca]=Script de l'intermediari no vàlid
 Name[de]=Ungültiges Proxy-Skript
+Name[fi]=Virheellinen välityspalvelinskripti
 Name[hy]=սխալ փոխարինող գիր
 Name[ia]=Script de proxy invalide
 Name[nds]=Leeg Proxy-Skript
@@ -30,7 +34,9 @@ Name[tt]=Прокси скриптында хата
 Name[uk]=Некоректний скрипт проксі
 Name[x-test]=xxInvalid Proxy Scriptxx
 Comment=The downloaded proxy configuration script is invalid
+Comment[ca]=L'script descarregat de configuració de l'intermediari no és vàlid
 Comment[de]=Das heruntergeladene Konfigurationsskript für den Proxy ist ungültig.
+Comment[fi]=Ladattu välityspalvelin asetusskripti on virheellinen
 Comment[ia]=Le script de configuration de proxy discargate es invalide
 Comment[lb]=D'Proxy-Configuratiounsskript, dat erofgelude gouf, ass ongülteg
 Comment[nds]=Dat daallaadte Proxy-Instellskript is leeg
@@ -48,7 +54,9 @@ Action=Popup
 
 [Event/download-error]
 Name=Script Download Error
+Name[ca]=Error de descàrrega de l'script
 Name[de]=Fehler beim Herunterladen des Skripts
+Name[fi]=Skriptin latausvirhe
 Name[hy]=Գրի ներբեռման սխալ
 Name[ia]=Error de discarga del script
 Name[nds]=Skript-Daallaadfehler
@@ -62,7 +70,9 @@ Name[tt]=Бирелгән скрипта хата
 Name[uk]=Помилка звантаження проксі
 Name[x-test]=xxScript Download Errorxx
 Comment=The proxy configuration script could not be downloaded
+Comment[ca]=L'script de configuració de l'intermediari no es pot descarregar
 Comment[de]=Das Konfigurationsskript für den Proxy kann nicht heruntergeladen werden.
+Comment[fi]=Välityspalvelimen asetusskriptin lataaminen ei onnistunut
 Comment[hy]=Փոխարինող ձեւավորման գիրը չի ներբեռվել
 Comment[ia]=Le configuration del script poterea non esser discargate
 Comment[lb]=D'Proxy-Konfiguratiounsskript konnt net erofgeluede ginn
@@ -81,7 +91,9 @@ Action=Popup
 
 [Event/evaluation-error]
 Name=Script Evaluation Error
+Name[ca]=Error d'avaluació de l'script
 Name[de]=Fehler bei der Auswertung des Skripts
+Name[fi]=Skriptinsuoritusvirhe
 Name[hy]=Գրի գնահատման սխալ
 Name[ia]=Error de evalutation del script
 Name[nds]=Skript-Utföhrfehler
@@ -94,7 +106,9 @@ Name[tt]=Скрипт эчтәлегендә хата
 Name[uk]=Помилка оцінки скрипту
 Name[x-test]=xxScript Evaluation Errorxx
 Comment=There was an error executing the proxy configuration script
+Comment[ca]=Hi ha hagut un error en executar l'script de configuració de l'intermediari
 Comment[de]=Beim Ausführen des Skripts zur Proxy-Konfiguration ist ein Fehler aufgetreten.
+Comment[fi]=Välityspalvelimen asetuskriptin suorittamisessa tapahtui virhe
 Comment[hy]=Փոխարինող ձեւավորման գրի կատարելու ժամանակ սխալ կար
 Comment[ia]=Il esseva un error durante que il executava le proxy de configuration del script
 Comment[lb]=Et gouf e Feeler beim Ausféiere vum Proxy-Konfiguratiounsskript

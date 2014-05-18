@@ -1,7 +1,9 @@
 [Desktop Entry]
 Type=Service
 Name=Cookie Jar
+Name[ca]=Repositori de galetes
 Name[de]=Cookie-Behälter
+Name[fi]=Evästeiden säilytys
 Name[hy]=Քուքի բանկա
 Name[ia]=Cookie Jar
 Name[nds]=Kookjepleeg
@@ -15,7 +17,9 @@ Name[tt]=Cookie Jar
 Name[uk]=Глечик з куками
 Name[x-test]=xxCookie Jarxx
 Comment=Stores network cookies
+Comment[ca]=Emmagatzema les galetes de la xarxa
 Comment[de]=Netzwerk-Cookies speichern
+Comment[fi]=Säilyttää verkkoevästeitä
 Comment[hy]=Պահում է ցանցի քուքիները
 Comment[ia]=Il immagazina le cookies de rete
 Comment[nds]=Wohrt Nettwark-Kookjes
