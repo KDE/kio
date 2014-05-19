@@ -5,13 +5,13 @@
       <arg type="x" name="requestId" />
       <arg type="x" name="seqNr" />
       <arg type="(ysssssssssbbbba{s(siv)})" name="info" />
-      <annotation name="com.trolltech.QtDBus.QtTypeName.In2" value="KIO::AuthInfo" />
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In2" value="KIO::AuthInfo" />
     </signal>
     <signal name="queryAuthInfoAsyncResult" >
       <arg type="x" name="requestId" />
       <arg type="x" name="seqNr" />
       <arg type="(ysssssssssbbbba{s(siv)})" name="info" />
-      <annotation name="com.trolltech.QtDBus.QtTypeName.In2" value="KIO::AuthInfo" />
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In2" value="KIO::AuthInfo" />
     </signal>
     <method name="checkAuthInfo" >
       <arg direction="out" type="ay" />
@@ -30,14 +30,14 @@
     <method name="checkAuthInfoAsync" >
       <arg direction="out" type="x" />
       <arg direction="in" type="(ysssssssssbbbba{s(siv)})" name="info" />
-      <annotation name="com.trolltech.QtDBus.QtTypeName.In0" value="KIO::AuthInfo" />
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="KIO::AuthInfo" />
       <arg direction="in" type="x" name="windowId" />
       <arg direction="in" type="x" name="usertime" />
     </method>
     <method name="queryAuthInfoAsync" >
       <arg direction="out" type="x" />
       <arg direction="in" type="(ysssssssssbbbba{s(siv)})" name="info" />
-      <annotation name="com.trolltech.QtDBus.QtTypeName.In0" value="KIO::AuthInfo" />
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="KIO::AuthInfo" />
       <arg direction="in" type="s" name="errorMsg" />
       <arg direction="in" type="x" name="windowId" />
       <arg direction="in" type="x" name="seqNr" />
@@ -49,7 +49,7 @@
     </method>
     <method name="addAuthInfo" >
       <arg direction="in" type="(ysssssssssbbbba{s(siv)})" name="info" />
-      <annotation name="com.trolltech.QtDBus.QtTypeName.In0" value="KIO::AuthInfo" />
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="KIO::AuthInfo" />
       <arg direction="in" type="x" name="windowId" />
     </method>
     <method name="removeAuthInfo" >
