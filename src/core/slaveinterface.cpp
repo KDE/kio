@@ -165,15 +165,14 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         break;
     }
     case MSG_LIST_ENTRIES: {
-        quint32 count;
-        stream >> count;
-
         UDSEntryList list;
         UDSEntry entry;
-        for (uint i = 0; i < count; i++) {
+
+        while (!stream.atEnd()) {
             stream >> entry;
             list.append(entry);
         }
+
         emit listEntries(list);
         break;
     }

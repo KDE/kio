@@ -705,7 +705,8 @@ void SlaveBase::listEntry(const UDSEntry &entry)
 
 void SlaveBase::listEntries(const UDSEntryList &list)
 {
-    KIO_DATA << (quint32)list.count();
+    QByteArray data;
+    QDataStream stream(&data, QIODevice::WriteOnly);
 
     foreach (const UDSEntry &entry, list) {
         stream << entry;
