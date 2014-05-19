@@ -44,7 +44,7 @@ KProtocolInfoFactory::~KProtocolInfoFactory()
 static QStringList servicesDirs()
 {
     return QStandardPaths::locateAll(QStandardPaths::GenericDataLocation,
-                                     QLatin1String("kde5/services"),
+                                     QLatin1String("kservices5"),
                                      QStandardPaths::LocateDirectory);
 }
 
