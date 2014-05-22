@@ -95,7 +95,6 @@ private:
     KSslInfoDialogPrivate *const d;
 
 private Q_SLOTS:
-    void launchConfig();
     void displayFromChain(int);
 };
 

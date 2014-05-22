@@ -100,12 +100,6 @@ KSslInfoDialog::~KSslInfoDialog()
     delete d;
 }
 
-//slot
-void KSslInfoDialog::launchConfig()
-{
-    QProcess::startDetached("kcmshell5", QStringList() << "crypto");
-}
-
 void KSslInfoDialog::setMainPartEncrypted(bool mainEncrypted)
 {
     d->isMainPartEncrypted = mainEncrypted;
@@ -161,9 +155,8 @@ void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
             QSslCertificate::OrganizationalUnitName
         };
         for (int j = 0; j < 3 && name.isEmpty(); j++)
-#pragma message("QT5 PORT TO NEW API")
         {
-            name = cert.subjectInfo(si[j]).first();
+            name = cert.subjectInfo(si[j]).join(", ");
         }
         d->ui.certSelector->addItem(name);
     }

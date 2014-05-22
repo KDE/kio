@@ -48,23 +48,22 @@ KSslCertificateBox::~KSslCertificateBox()
 
 void KSslCertificateBox::setCertificate(const QSslCertificate &cert, CertificateParty party)
 {
-#pragma message("QT5 PORT TO NEW API")
     if (party == Subject)  {
-        d->ui.commonName->setText(cert.subjectInfo(QSslCertificate::CommonName).first());
-        d->ui.organization->setText(cert.subjectInfo(QSslCertificate::Organization).first());
+        d->ui.commonName->setText(cert.subjectInfo(QSslCertificate::CommonName).join(", "));
+        d->ui.organization->setText(cert.subjectInfo(QSslCertificate::Organization).join(", "));
         d->ui.organizationalUnit
-        ->setText(cert.subjectInfo(QSslCertificate::OrganizationalUnitName).first());
-        d->ui.country->setText(cert.subjectInfo(QSslCertificate::CountryName).first());
-        d->ui.state->setText(cert.subjectInfo(QSslCertificate::StateOrProvinceName).first());
-        d->ui.city->setText(cert.subjectInfo(QSslCertificate::LocalityName).first());
+        ->setText(cert.subjectInfo(QSslCertificate::OrganizationalUnitName).join(", "));
+        d->ui.country->setText(cert.subjectInfo(QSslCertificate::CountryName).join(", "));
+        d->ui.state->setText(cert.subjectInfo(QSslCertificate::StateOrProvinceName).join(", "));
+        d->ui.city->setText(cert.subjectInfo(QSslCertificate::LocalityName).join(", "));
     } else if (party == Issuer) {
-        d->ui.commonName->setText(cert.issuerInfo(QSslCertificate::CommonName).first());
-        d->ui.organization->setText(cert.issuerInfo(QSslCertificate::Organization).first());
+        d->ui.commonName->setText(cert.issuerInfo(QSslCertificate::CommonName).join(", "));
+        d->ui.organization->setText(cert.issuerInfo(QSslCertificate::Organization).join(", "));
         d->ui.organizationalUnit
-        ->setText(cert.issuerInfo(QSslCertificate::OrganizationalUnitName).first());
-        d->ui.country->setText(cert.issuerInfo(QSslCertificate::CountryName).first());
-        d->ui.state->setText(cert.issuerInfo(QSslCertificate::StateOrProvinceName).first());
-        d->ui.city->setText(cert.issuerInfo(QSslCertificate::LocalityName).first());
+        ->setText(cert.issuerInfo(QSslCertificate::OrganizationalUnitName).join(", "));
+        d->ui.country->setText(cert.issuerInfo(QSslCertificate::CountryName).join(", "));
+        d->ui.state->setText(cert.issuerInfo(QSslCertificate::StateOrProvinceName).join(", "));
+        d->ui.city->setText(cert.issuerInfo(QSslCertificate::LocalityName).join(", "));
     }
 }
 
