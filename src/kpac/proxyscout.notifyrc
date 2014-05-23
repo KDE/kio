@@ -3,6 +3,7 @@ IconName=preferences-system-network-proxy
 Comment=Network Proxy Configuration
 Comment[ca]=Configuració del servidor intermediari de xarxa
 Comment[de]=Netzwerk-Proxy-Einrichtung
+Comment[es]=Configuración del proxy de red
 Comment[fi]=Verkon välityspalvelinasetukset
 Comment[gl]=Configuración do proxy de rede
 Comment[hy]=Ցանցի փոխարինողի ձեվակերպություն

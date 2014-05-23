@@ -8,6 +8,7 @@ Class=:internet
 Description=A kioslave for data URIs (rfc2397)
 Description[ca]=Un «kioslave» per a URI de dades (RFC2397)
 Description[de]=Ein-/Ausgabemodul für Daten-URIs (rfc2397)
+Description[es]=Un kioslave para URI de datos (rfc2397)
 Description[fi]=kioslave data URI:lle (rfc2397)
 Description[gl]=Un kioslave para os URI de datos (rfc2397)
 Description[ia]=Un kioslave pro le datos URIs (rfc2397)

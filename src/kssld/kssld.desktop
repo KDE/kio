@@ -8,6 +8,7 @@ X-KDE-Kded-load-on-demand=true
 Name=SSL Certificate Policy
 Name[ca]=Política de certificats SSL
 Name[de]=SSL-Zertifikat-Regel
+Name[es]=Política de certificados SSL
 Name[fi]=SSL-varmennekäytäntö
 Name[gl]=Política de certificados de SSL
 Name[hy]=SSL-ի վկայականի սկզբունք
