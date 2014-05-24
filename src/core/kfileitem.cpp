@@ -94,7 +94,6 @@ public:
     void setTime(KFileItem::FileTimes which, uint time_t_val) const;
     void setTime(KFileItem::FileTimes which, const QDateTime &val) const;
     bool cmp(const KFileItemPrivate &item) const;
-    QString user() const;
     QString group() const;
     bool isSlow() const;
     void stat();
@@ -342,7 +341,6 @@ bool KFileItemPrivate::cmp(const KFileItemPrivate &item) const
     //qDebug() << " local" << (m_bIsLocalUrl == item.m_bIsLocalUrl);
     //qDebug() << " mode" << (m_fileMode == item.m_fileMode);
     //qDebug() << " perm" << (m_permissions == item.m_permissions);
-    //qDebug() << " UDS_USER" << (user() == item.user());
     //qDebug() << " UDS_GROUP" << (group() == item.group());
     //qDebug() << " UDS_EXTENDED_ACL" << (m_entry.stringValue( KIO::UDSEntry::UDS_EXTENDED_ACL ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_EXTENDED_ACL ));
     //qDebug() << " UDS_ACL_STRING" << (m_entry.stringValue( KIO::UDSEntry::UDS_ACL_STRING ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_ACL_STRING ));
@@ -357,7 +355,6 @@ bool KFileItemPrivate::cmp(const KFileItemPrivate &item) const
             && m_bIsLocalUrl == item.m_bIsLocalUrl
             && m_fileMode == item.m_fileMode
             && m_permissions == item.m_permissions
-            && user() == item.user()
             && group() == item.group()
             && m_entry.stringValue(KIO::UDSEntry::UDS_EXTENDED_ACL) == item.m_entry.stringValue(KIO::UDSEntry::UDS_EXTENDED_ACL)
             && m_entry.stringValue(KIO::UDSEntry::UDS_ACL_STRING) == item.m_entry.stringValue(KIO::UDSEntry::UDS_ACL_STRING)
@@ -667,18 +664,7 @@ QString KFileItem::user() const
         return QString();
     }
 
-    return d->user();
-}
-
-QString KFileItemPrivate::user() const
-{
-    QString userName = m_entry.stringValue(KIO::UDSEntry::UDS_USER);
-    if (userName.isEmpty() && m_bIsLocalUrl) {
-        QFileInfo a(m_url.adjusted(QUrl::StripTrailingSlash).toLocalFile());
-        userName = QFileInfo(a.canonicalFilePath()).owner(); // get user of the link, if it's a link
-        m_entry.insert(KIO::UDSEntry::UDS_USER, userName);
-    }
-    return userName;
+    return d->m_entry.stringValue(KIO::UDSEntry::UDS_USER);
 }
 
 QString KFileItem::group() const
