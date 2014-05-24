@@ -23,6 +23,7 @@ Comment[sv]=Insticksprogram för egenskapsdialogen
 Comment[tt]=Сайлау диалогы өчен өстәмә
 Comment[uk]=Додаток для створення діалогових вікон властивостей
 Comment[x-test]=xxPlugin for the Properties Dialogxx
+Comment[zh_CN]=属性对话框插件
 Comment[zh_HK]=屬性對話盒的外掛程式
 
 [PropertyDef::X-KDE-Protocol]

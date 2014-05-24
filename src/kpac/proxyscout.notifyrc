@@ -21,6 +21,7 @@ Comment[sv]=Inställning av nätverksproxy
 Comment[tt]=Челтәрнең прокси көйләнеше
 Comment[uk]=Налаштовування проксі-сервера мережі
 Comment[x-test]=xxNetwork Proxy Configurationxx
+Comment[zh_CN]=网络代理配置
 
 [Event/script-error]
 Name=Invalid Proxy Script
@@ -44,6 +45,7 @@ Name[sv]=Ogiltigt proxyskript
 Name[tt]=Прокси скриптында хата
 Name[uk]=Некоректний скрипт проксі
 Name[x-test]=xxInvalid Proxy Scriptxx
+Name[zh_CN]=无效的代理脚本
 Comment=The downloaded proxy configuration script is invalid
 Comment[ca]=L'script descarregat de configuració de l'intermediari no és vàlid
 Comment[de]=Das heruntergeladene Konfigurationsskript für den Proxy ist ungültig.
@@ -65,6 +67,7 @@ Comment[sv]=Det nerladdade proxyinställningsskriptet är ogiltigt
 Comment[tt]=Кабул ителгән прокси көйләүченең скрипты бозык
 Comment[uk]=Звантажено некоректний скрип проксі
 Comment[x-test]=xxThe downloaded proxy configuration script is invalidxx
+Comment[zh_CN]=下载的代理配置脚本无效
 Comment[zh_HK]=剛下載的代理伺服器組態 script 語法有誤
 Action=Popup
 
@@ -90,6 +93,7 @@ Name[sv]=Nerladdningsfel för skript
 Name[tt]=Бирелгән скрипта хата
 Name[uk]=Помилка звантаження проксі
 Name[x-test]=xxScript Download Errorxx
+Name[zh_CN]=脚本下载错误
 Comment=The proxy configuration script could not be downloaded
 Comment[ca]=L'script de configuració de l'intermediari no es pot descarregar
 Comment[de]=Das Konfigurationsskript für den Proxy kann nicht heruntergeladen werden.
@@ -112,6 +116,7 @@ Comment[sv]=Proxyinställningsskriptet kunde inte laddas ner
 Comment[tt]=Прокси көйләүченең скриптын кабыл итеп булмый
 Comment[uk]=Неможливо звантажити скрипт налаштування проксі
 Comment[x-test]=xxThe proxy configuration script could not be downloadedxx
+Comment[zh_CN]=无法下载代理配置脚本
 Comment[zh_HK]=無法取得代理伺服器組態 script 檔案
 Action=Popup
 
@@ -136,6 +141,7 @@ Name[sv]=Utvärderingsfel för skript
 Name[tt]=Скрипт эчтәлегендә хата
 Name[uk]=Помилка оцінки скрипту
 Name[x-test]=xxScript Evaluation Errorxx
+Name[zh_CN]=脚本执行错误
 Comment=There was an error executing the proxy configuration script
 Comment[ca]=Hi ha hagut un error en executar l'script de configuració de l'intermediari
 Comment[de]=Beim Ausführen des Skripts zur Proxy-Konfiguration ist ein Fehler aufgetreten.
@@ -158,5 +164,6 @@ Comment[sv]=Fel uppstod vid körning av proxyinställningsskriptet
 Comment[tt]=Прокси көйләүченең скриптын җибәргәндә ялгыш килеп чыкты
 Comment[uk]=Помилка запуску скрипту налаштування проксі
 Comment[x-test]=xxThere was an error executing the proxy configuration scriptxx
+Comment[zh_CN]=执行代理配置脚本时出错
 Comment[zh_HK]=代理伺服器組態檔案執行錯誤
 
