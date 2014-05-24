@@ -97,6 +97,7 @@ public:
     QString user() const;
     QString group() const;
     bool isSlow() const;
+    void stat();
 
     /**
      * Extracts the data from the UDSEntry member and updates the KFileItem
@@ -472,12 +473,14 @@ KFileItem::KFileItem(mode_t mode, mode_t permissions, const QUrl &url, bool dela
     : d(new KFileItemPrivate(KIO::UDSEntry(), mode, permissions,
                              url, false, delayedMimeTypes))
 {
+    d->stat();
 }
 
 KFileItem::KFileItem(const QUrl &url, const QString &mimeType, mode_t mode)
     : d(new KFileItemPrivate(KIO::UDSEntry(), mode, KFileItem::Unknown,
                              url, false, false))
 {
+    d->stat();
     d->m_bMimeTypeKnown = !mimeType.isEmpty();
     if (d->m_bMimeTypeKnown) {
         QMimeDatabase db;
@@ -511,6 +514,7 @@ void KFileItem::refresh()
     // Clearing m_entry makes it possible to detect changes in the size of the file,
     // the time information, etc.
     d->m_entry.clear();
+    d->stat(); // re-populates d->m_entry
     d->init();
 }
 
@@ -709,6 +713,22 @@ bool KFileItemPrivate::isSlow() const
         }
     }
     return m_slow == Slow;
+}
+
+// This function should only be called when:
+// - KFileItem is called with a QUrl object directly!
+// - refresh is called.
+// This is done to re-populate the UDSEntry object.
+void KFileItemPrivate::stat()
+{
+    if(m_url.isLocalFile()) {
+        QT_STATBUF buf;
+        const QString path = m_url.adjusted(QUrl::StripTrailingSlash).toLocalFile();
+        const QByteArray pathBA = QFile::encodeName(path);
+        if (QT_LSTAT(pathBA.constData(), &buf) == 0) {
+            m_entry = KIO::UDSEntry(buf, m_url.fileName());
+        }
+    }
 }
 
 bool KFileItem::isSlow() const
