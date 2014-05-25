@@ -94,7 +94,6 @@ public:
     void setTime(KFileItem::FileTimes which, uint time_t_val) const;
     void setTime(KFileItem::FileTimes which, const QDateTime &val) const;
     bool cmp(const KFileItemPrivate &item) const;
-    QString group() const;
     bool isSlow() const;
     void stat();
 
@@ -341,7 +340,6 @@ bool KFileItemPrivate::cmp(const KFileItemPrivate &item) const
     //qDebug() << " local" << (m_bIsLocalUrl == item.m_bIsLocalUrl);
     //qDebug() << " mode" << (m_fileMode == item.m_fileMode);
     //qDebug() << " perm" << (m_permissions == item.m_permissions);
-    //qDebug() << " UDS_GROUP" << (group() == item.group());
     //qDebug() << " UDS_EXTENDED_ACL" << (m_entry.stringValue( KIO::UDSEntry::UDS_EXTENDED_ACL ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_EXTENDED_ACL ));
     //qDebug() << " UDS_ACL_STRING" << (m_entry.stringValue( KIO::UDSEntry::UDS_ACL_STRING ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_ACL_STRING ));
     //qDebug() << " UDS_DEFAULT_ACL_STRING" << (m_entry.stringValue( KIO::UDSEntry::UDS_DEFAULT_ACL_STRING ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_DEFAULT_ACL_STRING ));
@@ -355,7 +353,6 @@ bool KFileItemPrivate::cmp(const KFileItemPrivate &item) const
             && m_bIsLocalUrl == item.m_bIsLocalUrl
             && m_fileMode == item.m_fileMode
             && m_permissions == item.m_permissions
-            && group() == item.group()
             && m_entry.stringValue(KIO::UDSEntry::UDS_EXTENDED_ACL) == item.m_entry.stringValue(KIO::UDSEntry::UDS_EXTENDED_ACL)
             && m_entry.stringValue(KIO::UDSEntry::UDS_ACL_STRING) == item.m_entry.stringValue(KIO::UDSEntry::UDS_ACL_STRING)
             && m_entry.stringValue(KIO::UDSEntry::UDS_DEFAULT_ACL_STRING) == item.m_entry.stringValue(KIO::UDSEntry::UDS_DEFAULT_ACL_STRING)
@@ -673,18 +670,7 @@ QString KFileItem::group() const
         return QString();
     }
 
-    return d->group();
-}
-
-QString KFileItemPrivate::group() const
-{
-    QString groupName = m_entry.stringValue(KIO::UDSEntry::UDS_GROUP);
-    if (groupName.isEmpty() && m_bIsLocalUrl) {
-        QFileInfo a(m_url.adjusted(QUrl::StripTrailingSlash).toLocalFile());
-        groupName = QFileInfo(a.canonicalFilePath()).group(); // get group of the link, if it's a link
-        m_entry.insert(KIO::UDSEntry::UDS_GROUP, groupName);
-    }
-    return groupName;
+    return d->m_entry.stringValue(KIO::UDSEntry::UDS_GROUP);
 }
 
 bool KFileItemPrivate::isSlow() const
