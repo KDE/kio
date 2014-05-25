@@ -26,6 +26,7 @@
 #include <QtCore/QSharedData>
 #include <QtCore/QMetaType>
 #include <QtGlobal>
+#include <qplatformdefs.h>
 
 #include "kiocore_export.h"
 
@@ -62,6 +63,14 @@ public:
 
     UDSEntry();
     UDSEntry(const UDSEntry &other);
+
+    /**
+     * Create a UDSEntry by QT_STATBUF
+     * @param buff QT_STATBUFF object
+     * @param name filename
+     * @since 5.0
+     */
+    UDSEntry(const QT_STATBUF &buff, const QString &name = QString());
     ~UDSEntry();
     UDSEntry &operator=(const UDSEntry &other);
 

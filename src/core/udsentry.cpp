@@ -27,7 +27,7 @@
 #include <QtCore/QDataStream>
 #include <QtCore/QVector>
 
-#include <qplatformdefs.h>
+#include <KUser>
 
 using namespace KIO;
 
@@ -57,6 +57,20 @@ UDSEntry::UDSEntry()
 UDSEntry::UDSEntry(const UDSEntry &other)
     : d(other.d)
 {
+}
+
+UDSEntry::UDSEntry(const QT_STATBUF &buff, const QString &name)
+    : d(new UDSEntryPrivate())
+{
+    insert(UDS_NAME,                name);
+    insert(UDS_SIZE,                buff.st_size);
+    insert(UDS_DEVICE_ID,           buff.st_dev);
+    insert(UDS_INODE,               buff.st_ino);
+    insert(UDS_ACCESS,              buff.st_mode);
+    insert(UDS_MODIFICATION_TIME,   buff.st_mtim.tv_sec);
+    insert(UDS_ACCESS_TIME,         buff.st_mtim.tv_sec);
+    insert(UDS_USER,                KUser(buff.st_uid).loginName());
+    insert(UDS_GROUP,               KUserGroup(buff.st_gid).name());
 }
 
 UDSEntry::~UDSEntry()
