@@ -63,6 +63,7 @@ void ConnectionPrivate::disconnected()
 
 void ConnectionPrivate::setBackend(ConnectionBackend *b)
 {
+    delete backend;
     backend = b;
     if (backend) {
         q->connect(backend, SIGNAL(commandReceived(Task)), SLOT(commandReceived(Task)));
