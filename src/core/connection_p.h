@@ -37,7 +37,7 @@ class ConnectionPrivate
 {
 public:
     inline ConnectionPrivate()
-        : backend(0), suspended(false)
+        : backend(0), q(0), suspended(false)
     { }
 
     void dequeue();
