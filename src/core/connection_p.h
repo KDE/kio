@@ -45,7 +45,7 @@ public:
     void disconnected();
     void setBackend(ConnectionBackend *b);
 
-    QQueue<Task> outgoingTasks;
+    QList<Task> outgoingTasks;
     QQueue<Task> incomingTasks;
     ConnectionBackend *backend;
     Connection *q;

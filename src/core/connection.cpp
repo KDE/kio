@@ -36,10 +36,10 @@ void ConnectionPrivate::dequeue()
         return;
     }
 
-    while (!outgoingTasks.isEmpty()) {
-        const Task task = outgoingTasks.dequeue();
+    for (auto task: outgoingTasks) {
         q->sendnow(task.cmd, task.data);
     }
+    outgoingTasks.clear();
 
     if (!incomingTasks.isEmpty()) {
         emit q->readyRead();
@@ -170,7 +170,7 @@ bool Connection::send(int cmd, const QByteArray &data)
         Task task;
         task.cmd = cmd;
         task.data = data;
-        d->outgoingTasks.enqueue(task);
+        d->outgoingTasks.append(task);
         return true;
     } else {
         return sendnow(cmd, data);
