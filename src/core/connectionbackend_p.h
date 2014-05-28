@@ -73,7 +73,7 @@ public:
     bool connectToRemote(const QUrl &url);
     bool listenForRemote();
     bool waitForIncomingTask(int ms);
-    bool sendCommand(const Task &task);
+    bool sendCommand(int command, const QByteArray &data) const;
     ConnectionBackend *nextPendingConnection();
 
 public Q_SLOTS:

@@ -177,21 +177,14 @@ bool Connection::send(int cmd, const QByteArray &data)
     }
 }
 
-bool Connection::sendnow(int _cmd, const QByteArray &data)
+bool Connection::sendnow(int cmd, const QByteArray &data)
 {
-    if (data.size() > 0xffffff) {
-        return false;
-    }
-
-    if (!isConnected()) {
+    if (!d->backend || data.size() > 0xffffff || !isConnected()) {
         return false;
     }
 
     //qDebug() << this << "Sending command " << _cmd << " of size " << data.size();
-    Task task;
-    task.cmd = _cmd;
-    task.data = data;
-    return d->backend->sendCommand(task);
+    return d->backend->sendCommand(cmd, data);
 }
 
 bool Connection::hasTaskAvailable() const

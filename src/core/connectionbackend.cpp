@@ -209,18 +209,18 @@ bool ConnectionBackend::waitForIncomingTask(int ms)
     return false;
 }
 
-bool ConnectionBackend::sendCommand(const Task &task)
+bool ConnectionBackend::sendCommand(int cmd, const QByteArray &data) const
 {
     Q_ASSERT(state == Connected);
     Q_ASSERT(socket);
 
     static char buffer[HeaderSize + 2];
-    sprintf(buffer, "%6x_%2x_", task.data.size(), task.cmd);
+    sprintf(buffer, "%6x_%2x_", data.size(), cmd);
     socket->write(buffer, HeaderSize);
-    socket->write(task.data);
+    socket->write(data);
 
-    //qDebug() << this << " Sending command " << hex << task.cmd << " of "
-    //         << task.data.size() << " bytes (" << socket->bytesToWrite()
+    //qDebug() << this << " Sending command " << hex << cmd << " of "
+    //         << data.size() << " bytes (" << socket->bytesToWrite()
     //         << " bytes left to write";
 
     // blocking mode:
