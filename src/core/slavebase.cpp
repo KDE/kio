@@ -351,13 +351,11 @@ void SlaveBase::setMetaData(const QString &key, const QString &value)
 
 QString SlaveBase::metaData(const QString &key) const
 {
-    if (mIncomingMetaData.contains(key)) {
-        return mIncomingMetaData[key];
+    auto it = mIncomingMetaData.find(key);
+    if (it != mIncomingMetaData.end()) {
+        return *it;
     }
-    if (d->configData.contains(key)) {
-        return d->configData[key];
-    }
-    return QString();
+    return d->configData.value(key);
 }
 
 MetaData SlaveBase::allMetaData() const
