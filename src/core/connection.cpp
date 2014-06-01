@@ -36,7 +36,7 @@ void ConnectionPrivate::dequeue()
         return;
     }
 
-    for (auto task: outgoingTasks) {
+    foreach (const Task &task, outgoingTasks) {
         q->sendnow(task.cmd, task.data);
     }
     outgoingTasks.clear();
