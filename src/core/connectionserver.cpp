@@ -105,7 +105,6 @@ void ConnectionServer::setNextPendingConnection(Connection *conn)
     ConnectionBackend *newBackend = d->backend->nextPendingConnection();
     Q_ASSERT(newBackend);
 
-    conn->d->backend = newBackend;
     conn->d->setBackend(newBackend);
     newBackend->setParent(conn);
 
