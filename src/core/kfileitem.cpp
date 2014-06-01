@@ -39,7 +39,7 @@
 #include <knfsshare.h>
 #include <ksambashare.h>
 #endif
-#include <kfilesystemtype_p.h>
+#include <kfilesystemtype.h>
 
 class KFileItemPrivate : public QSharedData
 {

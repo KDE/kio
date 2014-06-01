@@ -59,7 +59,7 @@
 
 #include "job_p.h"
 #include <kdiskfreespaceinfo.h>
-#include <kfilesystemtype_p.h>
+#include <kfilesystemtype.h>
 
 using namespace KIO;
 
