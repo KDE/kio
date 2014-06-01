@@ -62,10 +62,10 @@ void ConnectionBackend::setSuspended(bool enable)
     Q_ASSERT(!localServer);     // !tcpServer as well
 
     if (enable) {
-        //qDebug() << this << " suspending";
+        //qDebug() << socket << "suspending";
         socket->setReadBufferSize(1);
     } else {
-        //qDebug() << this << " resuming";
+        //qDebug() << socket << "resuming";
         // Calling setReadBufferSize from a readyRead slot leads to a bug in Qt, fixed in 13c246ee119
 #if QT_VERSION >= QT_VERSION_CHECK(5, 3, 0)
         socket->setReadBufferSize(StandardBufferSize);
@@ -221,9 +221,9 @@ bool ConnectionBackend::sendCommand(int cmd, const QByteArray &data) const
     socket->write(buffer, HeaderSize);
     socket->write(data);
 
-    //qDebug() << this << " Sending command " << hex << cmd << " of "
-    //         << data.size() << " bytes (" << socket->bytesToWrite()
-    //         << " bytes left to write";
+    //qDebug() << this << "Sending command" << hex << cmd << "of"
+    //         << data.size() << "bytes (" << socket->bytesToWrite()
+    //         << "bytes left to write )";
 
     // blocking mode:
     while (socket->bytesToWrite() > 0 && socket->state() == QAbstractSocket::ConnectedState) {
@@ -272,7 +272,7 @@ void ConnectionBackend::socketReadyRead()
             return;
         }
 
-        // qDebug() << this << "Got " << socket->bytesAvailable() << " bytes";
+        //qDebug() << this << "Got" << socket->bytesAvailable() << "bytes";
         if (len == -1) {
             // We have to read the header
             static char buffer[HeaderSize];
@@ -297,13 +297,12 @@ void ConnectionBackend::socketReadyRead()
             }
             cmd = strtol(p, 0L, 16);
 
-            // qDebug() << this << " Beginning of command " << hex << cmd << " of size "
-            //        << len;
+            //qDebug() << this << "Beginning of command" << hex << cmd << "of size" << len;
         }
 
         QPointer<ConnectionBackend> that = this;
 
-        // qDebug() << this <<  "Want to read " << len << " bytes";
+        //qDebug() << socket << "Want to read" << len << "bytes";
         if (socket->bytesAvailable() >= len) {
             Task task;
             task.cmd = cmd;
@@ -315,7 +314,7 @@ void ConnectionBackend::socketReadyRead()
             signalEmitted = true;
             emit commandReceived(task);
         } else if (len > StandardBufferSize) {
-            qDebug() << this << "Jumbo packet of" << len << "bytes";
+            qDebug() << socket << "Jumbo packet of" << len << "bytes";
             // Calling setReadBufferSize from a readyRead slot leads to a bug in Qt, fixed in 13c246ee119
 #if QT_VERSION >= QT_VERSION_CHECK(5, 3, 0)
             socket->setReadBufferSize(len + 1);
