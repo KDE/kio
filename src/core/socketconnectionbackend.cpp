@@ -87,6 +87,8 @@ void SocketConnectionBackend::setSuspended(bool enable)
         for (int i = data.size(); --i >= 0;) {
             socket->ungetChar(data[i]);
         }
+        // Workaround Qt5 bug, readyRead isn't always emitted here...
+        QMetaObject::invokeMethod(this, "socketReadyRead", Qt::QueuedConnection);
     }
 }
 
