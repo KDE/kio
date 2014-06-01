@@ -21,7 +21,7 @@
 
 #include "connection_p.h"
 #include <QDebug>
-#include "socketconnectionbackend_p.h"
+#include "connectionbackend_p.h"
 
 #include <errno.h>
 
@@ -36,10 +36,10 @@ void ConnectionPrivate::dequeue()
         return;
     }
 
-    while (!outgoingTasks.isEmpty()) {
-        const Task task = outgoingTasks.dequeue();
+    for (auto task: outgoingTasks) {
         q->sendnow(task.cmd, task.data);
     }
+    outgoingTasks.clear();
 
     if (!incomingTasks.isEmpty()) {
         emit q->readyRead();
@@ -61,8 +61,9 @@ void ConnectionPrivate::disconnected()
     QMetaObject::invokeMethod(q, "readyRead", Qt::QueuedConnection);
 }
 
-void ConnectionPrivate::setBackend(AbstractConnectionBackend *b)
+void ConnectionPrivate::setBackend(ConnectionBackend *b)
 {
+    delete backend;
     backend = b;
     if (backend) {
         q->connect(backend, SIGNAL(commandReceived(Task)), SLOT(commandReceived(Task)));
@@ -117,7 +118,7 @@ void Connection::close()
 
 bool Connection::isConnected() const
 {
-    return d->backend && d->backend->state == AbstractConnectionBackend::Connected;
+    return d->backend && d->backend->state == ConnectionBackend::Connected;
 }
 
 bool Connection::inited() const
@@ -136,9 +137,9 @@ void Connection::connectToRemote(const QUrl &address)
     const QString scheme = address.scheme();
 
     if (scheme == QLatin1String("local")) {
-        d->setBackend(new SocketConnectionBackend(SocketConnectionBackend::LocalSocketMode, this));
+        d->setBackend(new ConnectionBackend(ConnectionBackend::LocalSocketMode, this));
     } else if (scheme == QLatin1String("tcp")) {
-        d->setBackend(new SocketConnectionBackend(SocketConnectionBackend::TcpSocketMode, this));
+        d->setBackend(new ConnectionBackend(ConnectionBackend::TcpSocketMode, this));
     } else {
         qWarning() << "Unknown protocol requested:" << scheme << "(" << address << ")";
         Q_ASSERT(0);
@@ -170,28 +171,21 @@ bool Connection::send(int cmd, const QByteArray &data)
         Task task;
         task.cmd = cmd;
         task.data = data;
-        d->outgoingTasks.enqueue(task);
+        d->outgoingTasks.append(task);
         return true;
     } else {
         return sendnow(cmd, data);
     }
 }
 
-bool Connection::sendnow(int _cmd, const QByteArray &data)
+bool Connection::sendnow(int cmd, const QByteArray &data)
 {
-    if (data.size() > 0xffffff) {
-        return false;
-    }
-
-    if (!isConnected()) {
+    if (!d->backend || data.size() > 0xffffff || !isConnected()) {
         return false;
     }
 
     //qDebug() << this << "Sending command " << _cmd << " of size " << data.size();
-    Task task;
-    task.cmd = _cmd;
-    task.data = data;
-    return d->backend->sendCommand(task);
+    return d->backend->sendCommand(cmd, data);
 }
 
 bool Connection::hasTaskAvailable() const

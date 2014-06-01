@@ -25,7 +25,7 @@
 #include <QObject>
 #include <QString>
 #include <QQueue>
-#include "socketconnectionbackend_p.h"
+#include "connectionbackend_p.h"
 
 namespace KIO
 {
@@ -37,17 +37,17 @@ class ConnectionPrivate
 {
 public:
     inline ConnectionPrivate()
-        : backend(0), suspended(false)
+        : backend(0), q(0), suspended(false)
     { }
 
     void dequeue();
     void commandReceived(const Task &task);
     void disconnected();
-    void setBackend(AbstractConnectionBackend *b);
+    void setBackend(ConnectionBackend *b);
 
-    QQueue<Task> outgoingTasks;
+    QList<Task> outgoingTasks;
     QQueue<Task> incomingTasks;
-    AbstractConnectionBackend *backend;
+    ConnectionBackend *backend;
     Connection *q;
     bool suspended;
 };
