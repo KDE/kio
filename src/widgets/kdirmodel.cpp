@@ -717,10 +717,8 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
             case Name:
                 return item.text();
             case Size:
-                //
-                //return KIO::convertSize(item->size());
-                // Default to "file size in bytes" like in kde3's filedialog
-                return QLocale().toString(item.size());
+                // Filesize in bytes (type qulonglong)
+                return item.size();
             case ModifiedTime: {
                 QDateTime dt = item.time(KFileItem::ModificationTime);
                 return dt.toString();
