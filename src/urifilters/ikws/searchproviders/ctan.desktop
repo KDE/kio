@@ -54,7 +54,6 @@ Name[mk]=CTAN - Обемна мрежа со TeX архиви
 Name[ml]=സിടാന്‍ - അനേകം വിഷയങ്ങളടങ്ങിയിട്ടുള്ള ടെക് ശേഖരങ്ങളുടെ ശൃംഖല
 Name[mr]=CTAN - कॉम्प्रेहेंसिव टेक्स संग्रह संजाळ
 Name[ms]=CTAN - Rangkaian Arkib TeX Komprehensif
-Name[nb]=CTAN -– TeX-arkiv: «Comprehensive TeX Archive Network»
 Name[nds]=CTAN - Ümfaten TeX-Archievnettwark
 Name[ne]=CTAN - व्यापक TeX सङ्ग्रह सञ्जाल
 Name[nl]=CTAN - Comprehensive TeX Archive Network
@@ -114,7 +113,6 @@ Query[ja]=http://ctan.org/search?phrase=\\{@}
 Query[kk]=http://ctan.org/search?phrase=\\{@}
 Query[ko]=http://ctan.org/search?phrase=\\{@}
 Query[lt]=http://ctan.org/search?phrase=\\{@}
-Query[nb]=http://ctan.org/search?phrase=\\{@}
 Query[nds]=http://ctan.org/search?phrase=\\{@}
 Query[nl]=http://ctan.org/search?phrase=\\{@}
 Query[nn]=http://ctan.org/search?phrase=\\{@}

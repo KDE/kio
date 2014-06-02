@@ -42,7 +42,6 @@ Name[lt]=Yahoo Local
 Name[lv]=Yahoo Local
 Name[ml]=യാഹൂ പ്രാദേശികം
 Name[mr]=याहू स्थानिक
-Name[nb]=Yahoo lokalt
 Name[nds]=Yahoo - Lokaal
 Name[nl]=Yahoo lokaal
 Name[nn]=Yahoo Local
@@ -110,7 +109,6 @@ Query[lt]=http://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab
 Query[lv]=http://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[ml]=http://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[mr]=http://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
-Query[nb]=http://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[nds]=http://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[nl]=http://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[nn]=http://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img

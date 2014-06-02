@@ -54,7 +54,6 @@ Name[mk]=CPAN - Обемна мрежа со Perl архиви
 Name[ml]=സിപാന്‍ - അനേകം വിഷയങ്ങളടങ്ങിയിട്ടുള്ള പേള്‍ ശേഖരങ്ങളുടെ ശൃംഖല
 Name[mr]=CPAN - कॉम्प्रेहेंसिव पर्ल संग्रह संजाळ
 Name[ms]=CPAN - Comprehensive Perl Archive Network
-Name[nb]=CPAN -– Perl-arkiv: «Comprehensive Perl Archive Network»
 Name[nds]=CPAN - Ümfaten Perl-Archievnettwark
 Name[ne]=CPAN - व्यापक पर्ल सङ्ग्रह सञ्जाल
 Name[nl]=CPAN - Comprehensive Perl Archive Network
@@ -125,7 +124,6 @@ Query[ko]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[lt]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[lv]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[mr]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
-Query[nb]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[nds]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[nl]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[nn]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}

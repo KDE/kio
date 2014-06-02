@@ -55,7 +55,6 @@ Name[mk]=Интернет база на филмови
 Name[ml]=ഇന്റര്‍നെറ്റിലുള്ള ചലചിത്ര ശേഖരം
 Name[mr]=इंटरनेट चलप्रतिमा डेटाबेस
 Name[ms]=Pangkalan Data Wayang Internet
-Name[nb]=Internett filmdatabase
 Name[nds]=Internet-Filmdatenbank
 Name[ne]=इन्टरनेट चलचित्र डाटाबेस
 Name[nl]=Internet filmdatabase
@@ -132,7 +131,6 @@ Query[lt]=http://imdb.com/find?s=all&q=\\{@}
 Query[lv]=http://imdb.com/find?s=all&q=\\{@}
 Query[mai]=http://imdb.com/find?s=all&q=\\{@}
 Query[mr]=http://imdb.com/find?s=all&q=\\{@}
-Query[nb]=http://imdb.com/find?s=all&q=\\{@}
 Query[nds]=http://imdb.com/find?s=all&q=\\{@}
 Query[nl]=http://imdb.com/find?s=all&q=\\{@}
 Query[nn]=http://imdb.com/find?s=all&q=\\{@}

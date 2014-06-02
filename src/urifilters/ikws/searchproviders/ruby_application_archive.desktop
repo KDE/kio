@@ -55,7 +55,6 @@ Name[mk]=Архива со Ruby-апликации
 Name[ml]=റൂബി പ്രയോഗങ്ങളുടെ ശേഖരം
 Name[mr]=रूबी अनुप्रयोग संग्रह
 Name[ms]=Arkib Aplikasi Ruby
-Name[nb]=Ruby programarkiv
 Name[nds]=Ruby-Programmarchiv
 Name[ne]=रुबी अनुप्रयोग सङ्ग्रह
 Name[nl]=Ruby programma-archief
@@ -144,7 +143,6 @@ Query[lv]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[mai]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ml]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[mr]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
-Query[nb]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[nds]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ne]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[nl]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

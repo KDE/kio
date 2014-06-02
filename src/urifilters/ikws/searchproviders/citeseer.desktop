@@ -55,7 +55,6 @@ Name[mk]=CiteSeer: дигитална библиотека со научна л�
 Name[ml]=സൈറ്റ്സിയര്‍: ശാസ്ത്രസാഹിത്യത്തിന്റെ ഡിജിറ്റല്‍ വായനശാല
 Name[mr]=CiteSeer: वैज्ञानिक साहित्य डिजिटल पुस्तकालय
 Name[ms]=CiteSeer: Pustaka Digital Risalah Sains
-Name[nb]=CiteSeer: Digitalt bibliotek for vitenskapelig litteratur
 Name[nds]=CiteSeer: Digitale Bibliotheek för wetenschaplich Literatuur
 Name[ne]=CiteSeer: वैज्ञानिक साहित्य डिजिटल लाइब्रेरी
 Name[nl]=CiteSeer: Scientific Literature Digital Library
@@ -114,7 +113,6 @@ Query[ja]=http://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=do
 Query[kk]= http://citeseer.ist.psu.edu/cs?q=\\{@}&submit=Search+Documents&cs=1
 Query[ko]=http://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[lt]=http://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
-Query[nb]=http://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[nds]=http://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[nl]=http://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[nn]=http://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc

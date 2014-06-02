@@ -43,7 +43,6 @@ Name[lv]=7Digital
 Name[mai]=7Digital
 Name[ml]=7ഡിജിറ്റല്‍
 Name[mr]=7डिजिटल
-Name[nb]=7Digital
 Name[nds]=7Digital
 Name[nl]=7Digital
 Name[nn]=7Digital
@@ -111,7 +110,6 @@ Query[lt]=http://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Se
 Query[lv]=http://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[mai]=http://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[mr]=http://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
-Query[nb]=http://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[nds]=http://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[nl]=http://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[nn]=http://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search

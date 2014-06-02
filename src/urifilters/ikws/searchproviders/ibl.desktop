@@ -53,7 +53,6 @@ Name[mai]=इंटरनेट पुस्तक सूची
 Name[mk]=Листа на книги на Интернет
 Name[ml]=ഇന്റര്‍നെറ്റ് ബുക്കു് ലിസ്റ്റ്
 Name[mr]=इंटरनेट पुस्तक सूची
-Name[nb]=Internetts bokliste
 Name[nds]=Internet-Booklist
 Name[ne]=इन्टरनेट पुस्तक सूची
 Name[nl]=Internet-boekenlijst
@@ -139,7 +138,6 @@ Query[lv]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[mai]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[ml]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[mr]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
-Query[nb]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[nds]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[ne]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[nl]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search

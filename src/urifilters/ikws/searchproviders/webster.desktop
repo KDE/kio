@@ -55,7 +55,6 @@ Name[mk]=Merriam-Webster Речник
 Name[ml]=മെറിയാം-വെബ്സ്റ്റര്‍ നിഘണ്ടു
 Name[mr]=मरियम-वेबस्टर शब्दकोश
 Name[ms]=Merriam-Webster Dictionary
-Name[nb]=Merriam-Webster Dictionary
 Name[nds]=Merriam-Webster-Wöörbook
 Name[ne]=मेरियम-वेबस्टर शब्दकोश
 Name[nl]=Merriam-Webster Dictionary
@@ -146,7 +145,6 @@ Query[mai]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[ml]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[mr]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[ms]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
-Query[nb]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[nds]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[ne]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionaryva=\\{@}
 Query[nl]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}

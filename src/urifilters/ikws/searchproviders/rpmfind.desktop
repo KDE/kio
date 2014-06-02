@@ -55,7 +55,6 @@ Name[mk]=RPM-барање
 Name[ml]=RPM-തെരയുക
 Name[mr]=TV-फाइंड
 Name[ms]=RPM-Find
-Name[nb]=RPM-Søk
 Name[nds]=RPM-Find
 Name[ne]=RPM-फेला पार्नुहोस्
 Name[nl]=RPM-Find
@@ -144,7 +143,6 @@ Query[lv]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[mai]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ml]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[mr]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
-Query[nb]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[nds]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ne]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[nl]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

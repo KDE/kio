@@ -55,7 +55,6 @@ Name[mk]=Каталог од CTAN
 Name[ml]=സിടാന്‍ വിവരപ്പട്ടിക
 Name[mr]=CTAN कैटलॉग
 Name[ms]=Katalog CTAN
-Name[nb]=CTAN-katalog
 Name[nds]=CTAN Kataloog
 Name[ne]=CTAN विवरणिका
 Name[nl]=CTAN Catalogus
@@ -139,7 +138,6 @@ Query[lv]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSea
 Query[mai]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[ml]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[mr]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
-Query[nb]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[nds]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[nl]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[nn]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search

@@ -42,7 +42,6 @@ Name[lt]=Wikia
 Name[lv]=Wikia
 Name[ml]=വിക്കിയ
 Name[mr]=विकिआ
-Name[nb]=Wikia
 Name[nds]=Wikia
 Name[nl]=Wikia
 Name[nn]=Wikia
@@ -111,7 +110,6 @@ Query[lv]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=S
 Query[mai]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[ml]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[mr]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
-Query[nb]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[nds]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[nl]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[nn]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search

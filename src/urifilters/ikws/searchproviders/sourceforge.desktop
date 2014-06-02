@@ -55,7 +55,6 @@ Name[mk]=SourceForge
 Name[ml]=സോഴ്സ്ഫോര്‍ജ്
 Name[mr]=सोर्सफोर्ज
 Name[ms]=SourceForge
-Name[nb]=SourceForge
 Name[nds]=SourceForge
 Name[ne]=सोर्स फर्ज
 Name[nl]=SourceForge
@@ -142,7 +141,6 @@ Query[lv]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\
 Query[mai]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[ml]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[mr]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
-Query[nb]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[nds]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[ne]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[nl]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}

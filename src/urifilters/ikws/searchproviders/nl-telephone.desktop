@@ -52,7 +52,6 @@ Name[mk]=Telephonebook сервис за пребарување
 Name[ml]=ടെലിഫോണ്‍ബുക്ക് തെരച്ചില്‍ സേവനദാതാവു്
 Name[mr]=टेलिफोनबुक शोध पुरवठाकर्ता
 Name[ms]=Penyedia Carian Buku Telefon
-Name[nb]=Søkemotor for telefonkataloger
 Name[nds]=Nedderlannsch Telefoonbook
 Name[ne]=टेलिफोन पुस्तिका खोजी प्रदायक
 Name[nl]=Telefoonboek-zoekmachine
@@ -112,7 +111,6 @@ Query[it]=http://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2
 Query[ja]=http://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[kk]=http://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[ko]=http://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
-Query[nb]=http://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[nds]=http://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[nl]=http://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[nn]=http://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}

@@ -54,7 +54,6 @@ Name[mk]=LEO - превод
 Name[ml]=ലിയോ-പരിഭാഷ
 Name[mr]=लिओ-अनुवाद
 Name[ms]=LEO-Terjemah
-Name[nb]=LEO-oversetter
 Name[nds]=LEO-Översetten
 Name[ne]=LEO-अनुवाद
 Name[nl]=LEO-Translate (Vertaling Duits-Engels-Duits)
@@ -145,7 +144,6 @@ Query[mai]=http://dict.leo.org/?search=\\{@}
 Query[ml]=http://dict.leo.org/?search=\\{@}
 Query[mr]=http://dict.leo.org/?search=\\{@}
 Query[ms]=http://dict.leo.org/?search=\\{@}
-Query[nb]=http://dict.leo.org/?search=\\{@}
 Query[nds]=http://dict.leo.org/?search=\\{@}
 Query[ne]=http://dict.leo.org/?search=\\{@}
 Query[nl]=http://dict.leo.org/?search=\\{@}

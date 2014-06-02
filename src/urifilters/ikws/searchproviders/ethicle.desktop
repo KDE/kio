@@ -43,7 +43,6 @@ Name[lv]=Ethicle
 Name[mai]=एथिकल
 Name[ml]=ഇത്തിക്കിള്‍
 Name[mr]=एथिकल
-Name[nb]=Ethicle
 Name[nds]=Ethicle
 Name[nl]=Ethisch
 Name[nn]=Ethicle
@@ -116,7 +115,6 @@ Query[lv]=http://www.ethicle.com/search.php?q=\\{@}
 Query[mai]=http://www.ethicle.com/search.php?q=\\{@}
 Query[ml]=http://www.ethicle.com/search.php?q=\\{@}
 Query[mr]=http://www.ethicle.com/search.php?q=\\{@}
-Query[nb]=http://www.ethicle.com/search.php?q=\\{@}
 Query[nds]=http://www.ethicle.com/search.php?q=\\{@}
 Query[nl]=http://www.ethicle.com/search.php?q=\\{@}
 Query[nn]=http://www.ethicle.com/search.php?q=\\{@}

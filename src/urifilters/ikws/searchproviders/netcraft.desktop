@@ -55,7 +55,6 @@ Name[mk]=Netcraft
 Name[ml]=നെറ്റ്ക്രാഫ്റ്റ്
 Name[mr]=नेटक्राफ्ट
 Name[ms]=Netcraft
-Name[nb]=Netcraft
 Name[nds]=Netcraft
 Name[ne]=नेटक्राफ्ट
 Name[nl]=Netcraft
@@ -145,7 +144,6 @@ Query[mai]=http://uptime.netcraft.com/up/graph?site=\\{
 Query[ml]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[mr]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ms]=http://uptime.netcraft.com/up/graph?site=\\{@}
-Query[nb]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[nds]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ne]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[nl]=http://uptime.netcraft.com/up/graph?site=\\{@}

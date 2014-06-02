@@ -54,7 +54,6 @@ Name[mk]=База на податоци со бубачки од KDE, преба
 Name[ml]=കെഡിഇയുടെ പിഴവുകളുടെ ഡാറ്റാബേസിലെ മുഴുവന്‍ പദാവലിയിലുമുള്ള തെരച്ചില്‍
 Name[mr]=केडीई बग डेटाबेस संपूर्ण पाठ्य शोध
 Name[ms]=Carian Teks Penuh Pangkalan Data Pepijat
-Name[nb]=Fulltekstsøk i KDEs feildatabase
 Name[nds]=KDE Fehler-Datenbank: Vulltext-Söök
 Name[ne]=केडीई बग डाटाबेस पूरा पाठ खोजी
 Name[nl]=KDE Bug Database -  volledige-tekst-zoekactie
@@ -114,7 +113,6 @@ Query[ja]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[kk]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ko]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[lt]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
-Query[nb]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[nds]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[nl]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[nn]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

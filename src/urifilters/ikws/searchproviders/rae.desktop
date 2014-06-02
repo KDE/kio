@@ -57,7 +57,6 @@ Name[mk]=Речник на Шпанската академија (RAE)
 Name[ml]=സ്പാനിഷ് അക്കാദമിയുടെ (RAE) നിഘണ്ടു
 Name[mr]=स्पॅनीश अकादमी चा शब्दकोश (RAE)
 Name[ms]=Kamus Akademi Bahasa Sepanyol (RAE)
-Name[nb]=Ordboka til det spanske akademiet (RAE)
 Name[nds]=Nakieksel vun de Spaansche Akademie (RAE)
 Name[ne]=स्प्यानिश प्रतिष्ठानको शब्दकोश (RAE)
 Name[nl]=Woordenboek van de Spaanse academie (RAE)
@@ -116,7 +115,6 @@ Query[ja]=http://www.rae.es/drae/?val=\\{@}
 Query[kk]=http://www.rae.es/drae/?val=\\{@}
 Query[ko]=http://www.rae.es/drae/?val=\\{@}
 Query[lt]=http://www.rae.es/drae/?val=\\{@}
-Query[nb]=http://www.rae.es/drae/?val=\\{@}
 Query[nds]=http://www.rae.es/drae/?val=\\{@}
 Query[nl]=http://www.rae.es/drae/?val=\\{@}
 Query[nn]=http://www.rae.es/drae/?val=\\{@}

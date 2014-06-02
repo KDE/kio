@@ -43,7 +43,6 @@ Name[lv]=KDE UserBase
 Name[mai]=केडीई प्रयोक्ता बेस
 Name[ml]=കെഡിഇ യൂസര്‍ബേസ്
 Name[mr]=केडीई युजरबेस
-Name[nb]=Brukerbase for KDE
 Name[nds]=KDE-UserBase
 Name[nl]=KDE UserBase
 Name[nn]=KDE UserBase
@@ -112,7 +111,6 @@ Query[lv]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[mai]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ml]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[mr]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
-Query[nb]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[nds]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[nl]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[nn]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

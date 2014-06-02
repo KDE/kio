@@ -52,7 +52,6 @@ Name[mai]=Multitran - Translate Between Dutch and Russian
 Name[mk]=Multitran - превод меѓу холандски и руски
 Name[ml]=മള്‍ട്ടിട്രാന്‍ - ഡച്ചും റഷ്യനും തമ്മില്‍ പരിഭാഷപ്പെടുത്തുക
 Name[mr]=मल्टिट्रान - डच व रशियन भाषांतर करा
-Name[nb]=Multitran – Oversett mellom nederlandsk og russisk
 Name[nds]=Multitran - Översetten twischen Nedderlannsch un Russ'sch
 Name[nl]=Multitran - vertaal van Nederlands naar Russisch
 Name[nn]=Multitran – Omsetjing mellom nederlandsk og russisk
@@ -136,7 +135,6 @@ Query[lv]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[mai]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[ml]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[mr]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
-Query[nb]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[nds]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[nl]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[nn]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}

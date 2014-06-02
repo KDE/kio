@@ -39,7 +39,6 @@ Name[lt]=Baidu
 Name[lv]=Baidu
 Name[mai]=बैडू
 Name[mr]=बैदु
-Name[nb]=Baidu
 Name[nds]=Baidu
 Name[nl]=Baidu
 Name[nn]=Baidu
@@ -108,7 +107,6 @@ Query[lt]=http://www.baidu.com/s?wd=\\{@}
 Query[lv]=http://www.baidu.com/s?wd=\\{@}
 Query[mai]=http://www.baidu.com/s?wd=\\{@}
 Query[mr]=http://www.baidu.com/s?wd=\\{@}
-Query[nb]=http://www.baidu.com/s?wd=\\{@}
 Query[nds]=http://www.baidu.com/s?wd=\\{@}
 Query[nl]=http://www.baidu.com/s?wd=\\{@}
 Query[nn]=http://www.baidu.com/s?wd=\\{@}

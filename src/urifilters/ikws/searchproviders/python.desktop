@@ -56,7 +56,6 @@ Name[mk]=Референтен прирачник за Python
 Name[ml]=പൈത്തണ്‍ സഹായക ഗ്രന്ഥം 
 Name[mr]=पायथन रेफरेंस पुस्तिका
 Name[ms]=Manual Rujukan Python
-Name[nb]=Referansehåndbok for Python
 Name[nds]=Python-Referenzhandbook
 Name[ne]=पाइथन सन्दर्भ म्यानुअल
 Name[nl]=Python Reference Manual
@@ -116,7 +115,6 @@ Query[ja]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Se
 Query[kk]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[ko]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[lt]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
-Query[nb]=https://www.google.no/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[nds]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[nl]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[nn]=https://www.google.com/search?hl=nn&sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org

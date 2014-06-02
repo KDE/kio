@@ -43,7 +43,6 @@ Name[lv]=GitHub
 Name[mai]=GitHub
 Name[ml]=ഗിറ്റ്ഹബ്
 Name[mr]=जिटहब
-Name[nb]=GitHub
 Name[nds]=GitHub
 Name[nl]=GitHub
 Name[nn]=GitHub
@@ -95,7 +94,6 @@ Query[ja]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[kk]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[ko]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[lt]=https://github.com/search?q=\\{@}&x=0&y=0
-Query[nb]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[nds]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[nl]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[nn]=https://github.com/search?q=\\{@}&x=0&y=0

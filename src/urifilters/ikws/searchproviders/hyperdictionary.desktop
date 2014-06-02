@@ -55,7 +55,6 @@ Name[mk]=HyperDictionary.com
 Name[ml]=HyperDictionary.com
 Name[mr]=HyperDictionary.com
 Name[ms]=HyperDictionary.com
-Name[nb]=HyperDictionary.com
 Name[nds]=HyperDictionary.com
 Name[ne]=HyperDictionary.com
 Name[nl]=HyperDictionary.com
@@ -145,7 +144,6 @@ Query[mai]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[ml]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[mr]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[ms]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
-Query[nb]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[nds]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[ne]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[nl]=http://www.hyperdictionary.com/search.aspx?define=\\{@}

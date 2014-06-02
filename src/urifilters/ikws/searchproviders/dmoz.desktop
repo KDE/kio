@@ -55,7 +55,6 @@ Name[mk]=Отворен директориум
 Name[ml]=തട്ടു് തുറക്കുക
 Name[mr]=संचयीका उघडा
 Name[ms]=Open Directory
-Name[nb]=Open Directory
 Name[nds]=Open Directory
 Name[ne]=डाइरेक्टरी खोल्नुहोस्
 Name[nl]=Open Directory
@@ -146,7 +145,6 @@ Query[mai]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[ml]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[mr]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[ms]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
-Query[nb]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[nds]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[ne]=http://search.dmoz.org/cgi-bin/search?खोज्नुहोस्=\\{@}
 Query[nl]=http://search.dmoz.org/cgi-bin/search?search=\\{@}

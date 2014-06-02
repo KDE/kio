@@ -42,7 +42,6 @@ Name[lv]=Identi.ca cilvēki
 Name[mai]=Identi.ca लोकनिसभ
 Name[ml]=ഐഡന്റിക്കയിലെ ആളുകള്‍
 Name[mr]=Identi.ca लोक
-Name[nb]=Identi.ca folk
 Name[nds]=Identi.ca - Lüüd
 Name[nl]=Identi.ca Mensen
 Name[nn]=Identi.ca-folk
@@ -94,7 +93,6 @@ Query[ja]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[kk]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[ko]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[lt]=https://identi.ca/search/people?q=\\{@}&search=Search
-Query[nb]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[nds]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[nl]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[nn]=https://identi.ca/search/people?q=\\{@}&search=Search

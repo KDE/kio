@@ -54,7 +54,6 @@ Name[mk]=Technorati
 Name[ml]=ടെക്നോറാറ്റി
 Name[mr]=टेक्नोराती
 Name[ms]=Technorati
-Name[nb]=Technorati
 Name[nds]=Technorati
 Name[ne]=टेक्नोरती
 Name[nl]=Technorati
@@ -115,7 +114,6 @@ Query[ja]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[kk]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ko]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[lt]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
-Query[nb]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[nds]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[nl]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[nn]=http://technorati.com/search?return=sites&authority=high&q=\\{@}

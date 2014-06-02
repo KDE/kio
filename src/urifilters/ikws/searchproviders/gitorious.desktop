@@ -43,7 +43,6 @@ Name[lv]=Gitorious
 Name[mai]=Gitorious
 Name[ml]=ഗിറ്റോറിയസ്
 Name[mr]=जिटोरिअस
-Name[nb]=Gitorious
 Name[nds]=Gitorious
 Name[nl]=Gitorious
 Name[nn]=Gitorious
@@ -95,7 +94,6 @@ Query[ja]=https://gitorious.org/search?q=\\{@}&commit=Search
 Query[kk]=https://gitorious.org/search?q=\\{@}&commit=Search
 Query[ko]=https://gitorious.org/search?q=\\{@}&commit=Search
 Query[lt]=https://gitorious.org/search?q=\\{@}&commit=Search
-Query[nb]=https://gitorious.org/search?q=\\{@}&commit=Search
 Query[nds]=https://gitorious.org/search?q=\\{@}&commit=Search
 Query[nl]=https://gitorious.org/search?q=\\{@}&commit=Search
 Query[nn]=https://gitorious.org/search?q=\\{@}&commit=Search

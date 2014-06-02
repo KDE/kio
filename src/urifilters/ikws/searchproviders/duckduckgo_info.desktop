@@ -42,7 +42,6 @@ Name[lt]=Duck Duck Go Info
 Name[lv]=Duck Duck Go informācija
 Name[ml]=ഡക്ക് ഡക്ക് ഗോ വിവരം
 Name[mr]=डक डक गो माहिती
-Name[nb]=Duck Duck Go Info
 Name[nds]=Duck Duck Go - Informatschonen
 Name[nl]=Duck Duck Go Info
 Name[nn]=Duck Duck Go-informasjon
@@ -94,7 +93,6 @@ Query[ja]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[kk]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ko]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[lt]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
-Query[nb]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[nds]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[nl]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[nn]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde

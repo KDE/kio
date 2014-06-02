@@ -43,7 +43,6 @@ Name[lv]=Identi.ca piezīmes
 Name[mai]=Identi.ca सूचना
 Name[ml]=ഐഡന്റിക്ക നോട്ടീസുകള്‍
 Name[mr]=Identi.ca सूचना
-Name[nb]=Identi.ca notiser
 Name[nds]=Identi.ca - Uthäng
 Name[nl]=Identi.ca Notities
 Name[nn]=Identi.ca-varsel
@@ -95,7 +94,6 @@ Query[ja]=https://identi.ca/search/notice?q=\\{@}
 Query[kk]=https://identi.ca/search/notice?q=\\{@}
 Query[ko]=https://identi.ca/search/notice?q=\\{@}
 Query[lt]=https://identi.ca/search/notice?q=\\{@}
-Query[nb]=https://identi.ca/search/notice?q=\\{@}
 Query[nds]=https://identi.ca/search/notice?q=\\{@}
 Query[nl]=https://identi.ca/search/notice?q=\\{@}
 Query[nn]=https://identi.ca/search/notice?q=\\{@}

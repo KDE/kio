@@ -54,7 +54,6 @@ Name[mai]=dict.cc अनुवादः जर्मन सँ अंग्र�
 Name[mk]=dict.cc превод: од германски на англиски
 Name[ml]=dict.cc പരിഭാഷ: ജര്‍മനില്‍ നിന്നും ഇംഗ്ലീഷിലേയ്ക്കു്
 Name[mr]=dict.cc अनुवादः जर्मन ते अंग्रेजी
-Name[nb]=dict.cc Oversettelse fra tysk til engelsk
 Name[nds]=dict.cc Översetten: Hoochdüütsch na Engelsch
 Name[ne]=dict.cc अनुवाद: जर्मनीलाई अङ्ग्रेजीमा
 Name[nl]=dict.cc-vertaling: Duits naar Engels
@@ -142,7 +141,6 @@ Query[mai]=http://www.dict.cc/?s=\\{@}
 Query[ml]=http://www.dict.cc/?s=\\{@}
 Query[mr]=http://www.dict.cc/?s=\\{@}
 Query[ms]=http://www.dict.cc/?s=\\{@}
-Query[nb]=http://www.dict.cc/?s=\\{@}
 Query[nds]=http://www.dict.cc/?s=\\{@}
 Query[ne]=http://www.dict.cc/?s=\\{@}
 Query[nl]=http://www.dict.cc/?s=\\{@}

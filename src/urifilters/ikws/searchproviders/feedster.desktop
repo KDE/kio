@@ -55,7 +55,6 @@ Name[mk]=Feedster
 Name[ml]=ഫീഡ്സ്റ്റര്‍
 Name[mr]=Feedster
 Name[ms]=Feedster
-Name[nb]=Feedster
 Name[nds]=Feedster
 Name[ne]=फेडस्टर
 Name[nl]=Feedster
@@ -116,7 +115,6 @@ Query[ja]=http://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@
 Query[kk]=http://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[ko]=http://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[lt]=http://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
-Query[nb]=http://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[nds]=http://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[nl]=http://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[nn]=http://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}

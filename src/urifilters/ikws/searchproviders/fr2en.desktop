@@ -55,7 +55,6 @@ Name[mai]=WordReference.com अनुवादः फ्रांसीसी �
 Name[mk]=WordReference.com превод: од француски на англиски
 Name[ml]=WordReference.com പരിഭാഷ: ഫ്രഞ്ചില്‍ നിന്നും ഇംഗ്ലീഷിലേയ്ക്കു്
 Name[mr]=WordReference.com अनुवादः फ्रांसीसी ते अंग्रेजी
-Name[nb]=WordReference.com – oversettelse fra fransk til engelsk
 Name[nds]=WordReference.com Översetten: Franzöösch na Engelsch
 Name[ne]=WordReference.com Translation: फ्रेन्चलाई अङ्ग्रेजीमा
 Name[nl]=WordReference.com-vertaling: Frans naar Engels
@@ -143,7 +142,6 @@ Query[mai]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[ml]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[mr]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[ms]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
-Query[nb]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[nds]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[ne]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[nl]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
