@@ -2377,6 +2377,9 @@ bool HTTPProtocol::sendQuery()
     }
 
     m_request.cacheTag.ioMode = NoCache;
+    m_request.cacheTag.servedDate = QDateTime();
+    m_request.cacheTag.lastModifiedDate = QDateTime();
+    m_request.cacheTag.expireDate = QDateTime();
     QString header;
     bool hasBodyData = false;
     bool hasDavData = false;
