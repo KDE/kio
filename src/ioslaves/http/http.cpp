@@ -533,6 +533,9 @@ void HTTPProtocol::resetSessionSettings()
     }
 
     m_request.cacheTag.etag.clear();
+    m_request.cacheTag.servedDate = QDateTime();
+    m_request.cacheTag.lastModifiedDate = QDateTime();
+    m_request.cacheTag.expireDate = QDateTime();
     m_request.responseCode = 0;
     m_request.prevResponseCode = 0;
 
@@ -3624,6 +3627,10 @@ void HTTPProtocol::cacheParseResponseHeader(const HeaderTokenizer &tokenizer)
     if (m_request.responseCode != 200 && m_request.responseCode != 304) {
         return;
     }
+
+    m_request.cacheTag.servedDate = QDateTime();
+    m_request.cacheTag.lastModifiedDate = QDateTime();
+    m_request.cacheTag.expireDate = QDateTime();
 
     const QDateTime currentDate = QDateTime::currentDateTime();
     bool mayCache = m_request.cacheTag.ioMode != NoCache;
