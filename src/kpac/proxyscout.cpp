@@ -82,7 +82,8 @@ ProxyScout::ProxyScout(QObject *parent, const QList<QVariant> &)
       m_downloader(0),
       m_script(0),
       m_suspendTime(0),
-      m_watcher(0)
+      m_watcher(0),
+      m_networkConfig(new QNetworkConfigurationManager(this))
 {
     connect(m_networkConfig, SIGNAL(configurationChanged(QNetworkConfiguration)), SLOT(disconnectNetwork(QNetworkConfiguration)));
 }
