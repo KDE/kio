@@ -23,11 +23,14 @@ ecm_add_tests(
  kprotocolinfotest.cpp
  ktcpsockettest.cpp
  globaltest.cpp
+ threadtest.cpp
  udsentrytest.cpp
  udsentry_benchmark.cpp
  NAME_PREFIX "kiocore-"
  LINK_LIBRARIES KF5::KIOCore KF5::I18n Qt5::Test Qt5::Network
 )
+
+target_link_libraries(kiocore-threadtest Qt5::Concurrent)
 
 if(UNIX)
   ecm_add_tests(
