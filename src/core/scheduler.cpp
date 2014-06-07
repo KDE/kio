@@ -33,6 +33,7 @@
 
 #include <QtCore/QHash>
 #include <QThread>
+#include <QThreadStorage>
 #include <QCoreApplication>
 #include <QDBusConnection>
 #include <QDBusMessage>
@@ -729,7 +730,18 @@ private:
     QHash<QString, ProtoQueue *> m_protocols;
 };
 
-Q_GLOBAL_STATIC(SchedulerPrivate, schedulerPrivate)
+template <typename T>
+T * perThreadGlobalStatic()
+{
+    static QThreadStorage<T *> s_storage;
+    if (!s_storage.hasLocalData()) {
+        s_storage.setLocalData(new T);
+    }
+    return s_storage.localData();
+};
+
+//Q_GLOBAL_STATIC(SchedulerPrivate, schedulerPrivate)
+SchedulerPrivate *schedulerPrivate() { return perThreadGlobalStatic<SchedulerPrivate>(); }
 
 Scheduler *Scheduler::self()
 {
@@ -934,10 +946,6 @@ static bool mayReturnContent(int cmd, const QString &protocol)
 void SchedulerPrivate::doJob(SimpleJob *job)
 {
     //qDebug() << job;
-    if (QThread::currentThread() != QCoreApplication::instance()->thread()) {
-        qWarning() << "KIO is not thread-safe.";
-    }
-
     KIO::SimpleJobPrivate *const jobPriv = SimpleJobPrivate::get(job);
     jobPriv->m_proxyList.clear();
     jobPriv->m_protocol = KProtocolManager::slaveProtocol(job->url(), jobPriv->m_proxyList);
@@ -986,10 +994,6 @@ void SchedulerPrivate::cancelJob(SimpleJob *job)
 void SchedulerPrivate::jobFinished(SimpleJob *job, Slave *slave)
 {
     //qDebug() << job << slave;
-    if (QThread::currentThread() != QCoreApplication::instance()->thread()) {
-        qWarning() << "KIO is not thread-safe.";
-    }
-
     KIO::SimpleJobPrivate *const jobPriv = SimpleJobPrivate::get(job);
 
     // make sure that we knew about the job!
