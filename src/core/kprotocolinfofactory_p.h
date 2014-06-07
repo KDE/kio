@@ -23,6 +23,7 @@
 #include <QtCore/QHash>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
+#include <QtCore/QMutex>
 
 class KProtocolInfoPrivate;
 
@@ -68,6 +69,7 @@ private:
     typedef QHash<QString, KProtocolInfoPrivate *> ProtocolCache;
     ProtocolCache m_cache;
     bool m_allProtocolsLoaded;
+    mutable QMutex m_mutex; // protects m_cache and m_allProtocolsLoaded
 };
 
 #endif

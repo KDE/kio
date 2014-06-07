@@ -37,6 +37,8 @@
  * this information and stores the result into an internal cache.
  *
  * *.protocol files are installed in the "services" resource.
+ *
+ * The KProtocolInfo methods are reentrant (i.e. can be called from multiple threads simultaneously).
  */
 class KIOCORE_EXPORT KProtocolInfo
 {

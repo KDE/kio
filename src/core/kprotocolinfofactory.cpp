@@ -37,6 +37,7 @@ KProtocolInfoFactory::KProtocolInfoFactory()
 
 KProtocolInfoFactory::~KProtocolInfoFactory()
 {
+    QMutexLocker locker(&m_mutex);
     qDeleteAll(m_cache);
     m_cache.clear();
 }
@@ -50,6 +51,7 @@ static QStringList servicesDirs()
 
 QStringList KProtocolInfoFactory::protocols() const
 {
+    QMutexLocker locker(&m_mutex);
     if (m_allProtocolsLoaded) {
         return m_cache.keys();
     }
@@ -69,6 +71,7 @@ QStringList KProtocolInfoFactory::protocols() const
 
 QList<KProtocolInfoPrivate *> KProtocolInfoFactory::allProtocols()
 {
+    QMutexLocker locker(&m_mutex);
     if (m_allProtocolsLoaded) {
         return m_cache.values();
     }
@@ -90,6 +93,7 @@ QList<KProtocolInfoPrivate *> KProtocolInfoFactory::allProtocols()
 
 KProtocolInfoPrivate *KProtocolInfoFactory::findProtocol(const QString &protocol)
 {
+    QMutexLocker locker(&m_mutex);
     ProtocolCache::const_iterator it = m_cache.constFind(protocol);
     if (it != m_cache.constEnd()) {
         return *it;
