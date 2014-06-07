@@ -72,7 +72,6 @@ private Q_SLOTS:
     void chmodFileError();
     void mimeType();
     void mimeTypeError();
-    //void newApiPerformance();
     void calculateRemainingSeconds();
     void moveFileDestAlreadyExists();
     void moveDestAlreadyExistsAutoRename_data();

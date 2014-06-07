@@ -24,6 +24,7 @@ ecm_add_tests(
  ktcpsockettest.cpp
  globaltest.cpp
  udsentrytest.cpp
+ udsentry_benchmark.cpp
  NAME_PREFIX "kiocore-"
  LINK_LIBRARIES KF5::KIOCore KF5::I18n Qt5::Test Qt5::Network
 )
