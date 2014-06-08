@@ -38,6 +38,8 @@
 #include <QDBusConnection>
 #include <QDBusMessage>
 
+#include <KDBusConnectionPool>
+
 // Slaves may be idle for a certain time (3 minutes) before they are killed.
 static const int s_idleSlaveLifetime = 3 * 60;
 
@@ -771,9 +773,10 @@ Scheduler::Scheduler()
 
     const QString dbusPath = "/KIO/Scheduler";
     const QString dbusInterface = "org.kde.KIO.Scheduler";
-    QDBusConnection dbus = QDBusConnection::sessionBus();
-    dbus.registerObject("/KIO/Scheduler", this, QDBusConnection::ExportScriptableSlots |
-                        QDBusConnection::ExportScriptableSignals);
+    QDBusConnection dbus = KDBusConnectionPool::threadConnection();
+    // Not needed, right? We just want to emit two signals.
+    //dbus.registerObject("/KIO/Scheduler", this, QDBusConnection::ExportScriptableSlots |
+    //                    QDBusConnection::ExportScriptableSignals);
     dbus.connect(QString(), dbusPath, dbusInterface, "reparseSlaveConfiguration",
                  this, SLOT(slotReparseSlaveConfiguration(QString,QDBusMessage)));
     dbus.connect(QString(), dbusPath, dbusInterface, "slaveOnHoldListChanged",
