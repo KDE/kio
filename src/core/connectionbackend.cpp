@@ -216,7 +216,7 @@ bool ConnectionBackend::sendCommand(int cmd, const QByteArray &data) const
     Q_ASSERT(state == Connected);
     Q_ASSERT(socket);
 
-    static char buffer[HeaderSize + 2];
+    char buffer[HeaderSize + 2];
     sprintf(buffer, "%6x_%2x_", data.size(), cmd);
     socket->write(buffer, HeaderSize);
     socket->write(data);
@@ -275,7 +275,7 @@ void ConnectionBackend::socketReadyRead()
         //qDebug() << this << "Got" << socket->bytesAvailable() << "bytes";
         if (len == -1) {
             // We have to read the header
-            static char buffer[HeaderSize];
+            char buffer[HeaderSize];
 
             if (socket->bytesAvailable() < HeaderSize) {
                 return;             // wait for more data
