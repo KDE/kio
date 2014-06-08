@@ -59,13 +59,19 @@ using namespace KIO;
 #define SLAVE_CONNECTION_TIMEOUT_MAX    3600
 #endif
 
-Q_GLOBAL_STATIC_WITH_ARGS(org::kde::KSlaveLauncher, klauncherIface,
-                          (QString::fromLatin1("org.kde.klauncher5"), QString::fromLatin1("/KLauncher"), QDBusConnection::sessionBus()))
+static QThreadStorage<org::kde::KSlaveLauncher *> s_kslaveLauncher;
 
 static org::kde::KSlaveLauncher *klauncher()
 {
     KDEInitInterface::ensureKdeinitRunning();
-    return ::klauncherIface();
+    if (!s_kslaveLauncher.hasLocalData()) {
+        org::kde::KSlaveLauncher *launcher = new org::kde::KSlaveLauncher(QString::fromLatin1("org.kde.klauncher5"),
+                QString::fromLatin1("/KLauncher"),
+                KDBusConnectionPool::threadConnection());
+        s_kslaveLauncher.setLocalData(launcher);
+        return launcher;
+    }
+    return s_kslaveLauncher.localData();
 }
 
 namespace KIO
