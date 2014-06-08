@@ -25,9 +25,9 @@
 
 #include <QtCore/QFile>
 #include <QtCore/QTimer>
-#include <QDBusConnection>
 #include <QtCore/QProcess>
 
+#include <KDBusConnectionPool>
 #include <klocalizedstring.h>
 
 #include <kdeinitinterface.h>
@@ -425,17 +425,23 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
     // In such case we start the slave via QProcess.
     // It's possible to force this by setting the env. variable
     // KDE_FORK_SLAVES, Clearcase seems to require this.
-    static bool bForkSlaves = !qgetenv("KDE_FORK_SLAVES").isEmpty();
+    static QBasicAtomicInt bForkSlaves = Q_BASIC_ATOMIC_INITIALIZER(-1);
 
-    if (!bForkSlaves) {
-        // check the UID of klauncher
-        QDBusReply<uint> reply = QDBusConnection::sessionBus().interface()->serviceUid(klauncher()->service());
-        if (reply.isValid() && getuid() != reply) {
-            bForkSlaves = true;
+    if (bForkSlaves.load() == -1) {
+        bool fork = !qgetenv("KDE_FORK_SLAVES").isEmpty();
+
+        if (!fork) {
+            // check the UID of klauncher
+            QDBusReply<uint> reply = KDBusConnectionPool::threadConnection().interface()->serviceUid(klauncher()->service());
+            if (reply.isValid() && getuid() != reply) {
+                fork = true;
+            }
         }
+
+        bForkSlaves.testAndSetRelaxed(-1, fork ? 1 : 0);
     }
 
-    if (bForkSlaves) {
+    if (bForkSlaves.load() == 1) {
         QString _name = KProtocolInfo::exec(protocol);
         if (_name.isEmpty()) {
             error_text = i18n("Unknown protocol '%1'.", protocol);
