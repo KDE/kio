@@ -21,6 +21,7 @@
 #include "slaveconfig.h"
 
 #include <QtCore/QHash>
+#include <QThreadStorage>
 
 #include <kconfig.h>
 #include <ksharedconfig.h>
@@ -138,7 +139,18 @@ public:
     SlaveConfig instance;
 };
 
-Q_GLOBAL_STATIC(SlaveConfigSingleton, _self)
+template <typename T>
+T * perThreadGlobalStatic()
+{
+    static QThreadStorage<T *> s_storage;
+    if (!s_storage.hasLocalData()) {
+        s_storage.setLocalData(new T);
+    }
+    return s_storage.localData();
+};
+//Q_GLOBAL_STATIC(SlaveConfigSingleton, _self)
+SlaveConfigSingleton *_self() { return perThreadGlobalStatic<SlaveConfigSingleton>(); }
+
 
 SlaveConfig *SlaveConfig::self()
 {
