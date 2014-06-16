@@ -26,7 +26,6 @@ Name[et]=LEO-Translate
 Name[eu]=LEO itzulpenak
 Name[fa]=LEO - ترجمه کردن
 Name[fi]=LEO-käännös
-Name[fr]=LEO-Translate
 Name[fy]=LEO-oersetting (oersetting: Dûtsk-Ingelsk-Dûtsk)
 Name[ga]=Aistriúchán LEO
 Name[gl]=Tradución con LEO
@@ -117,7 +116,6 @@ Query[et]=http://dict.leo.org/?search=\\{@}
 Query[eu]=http://dict.leo.org/?search=\\{@}
 Query[fa]=http://dict.leo.org/?search=\\{@}
 Query[fi]=http://dict.leo.org/?search=\\{@}
-Query[fr]=http://dict.leo.org/?search=\\{@}
 Query[fy]=http://dict.leo.org/?search=\\{@}
 Query[ga]=http://dict.leo.org/?search=\\{@}
 Query[gl]=http://dict.leo.org/?search=\\{@}

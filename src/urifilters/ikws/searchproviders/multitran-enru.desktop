@@ -25,7 +25,6 @@ Name[et]=Multitran - tõlkimine: inglise-vene
 Name[eu]=Multitran ingelesetik errusierarako itzulpenak
 Name[fa]=Multitran - Translate Between English and Russian
 Name[fi]=Multitran – käännä englannista venäjään
-Name[fr]=Multitran - Traduction anglais - russe
 Name[fy]=Multitran - Oersetting tusken Ingelsk en Russysk
 Name[ga]=Multitran - Aistriúchán idir Béarla agus Rúisis
 Name[gl]=Multitran, tradución entre inglés e ruso
@@ -109,7 +108,6 @@ Query[et]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[eu]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[fa]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[fi]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
-Query[fr]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[fy]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[ga]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[gl]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}

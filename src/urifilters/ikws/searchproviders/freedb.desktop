@@ -27,7 +27,6 @@ Name[et]=FreeDB
 Name[eu]=FreeDB
 Name[fa]=FreeDB
 Name[fi]=FreeDB
-Name[fr]=FreeDB
 Name[fy]=FreeDB
 Name[ga]=FreeDB
 Name[gl]=FreeDB
@@ -117,7 +116,6 @@ Query[et]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[eu]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[fa]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[fi]=http://www.freedb.org/freedb_search.php?words=\\{@}
-Query[fr]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[fy]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[ga]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[gl]=http://www.freedb.org/freedb_search.php?words=\\{@}

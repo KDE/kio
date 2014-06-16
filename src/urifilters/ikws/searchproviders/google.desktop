@@ -27,7 +27,6 @@ Name[et]=Google
 Name[eu]=Google
 Name[fa]=گوگل
 Name[fi]=Google
-Name[fr]=Google
 Name[fy]=Google
 Name[ga]=Google
 Name[gl]=Google
@@ -104,7 +103,6 @@ Query[el]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[es]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[eu]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[fi]=https://www.google.fi/search?q=\\{@}&ie=UTF-8
-Query[fr]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[gl]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[hi]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[hu]=https://www.google.com/search?q=\\{@}&ie=UTF-8

@@ -25,7 +25,6 @@ Name[et]=LEO - tõlkimine: saksa-prantsuse
 Name[eu]=LEO alemanetik ingeleserako itzulpenak
 Name[fa]=LEO - ترجمه بین آلمانی و فرانسوی
 Name[fi]=LEO – käännös saksasta ranskaan
-Name[fr]=LEO - Traduction allemand - français
 Name[fy]=LEO -oersetting tusken Dûtsk en Frânsk
 Name[ga]=LEO - Aistrigh idir Gearmáinis agus Fraincis
 Name[gl]=Tradución LEO de alemán a francés
@@ -114,7 +113,6 @@ Query[et]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[eu]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[fa]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[fi]=http://dict.leo.org/?lp=frde&search=\\{@}
-Query[fr]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[fy]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[ga]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[gl]=http://dict.leo.org/?lp=frde&search=\\{@}

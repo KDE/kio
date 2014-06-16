@@ -29,7 +29,6 @@ Name[et]=WordReference.com inglise keele sõnaraamat
 Name[eu]=WordReference.com ingeles-hiztegia
 Name[fa]=واژه‌نامه انگلیسی WordReference.com
 Name[fi]=WordReference.comin englannin kielen sanasto
-Name[fr]=Dictionnaire anglais de WordReference.com
 Name[fy]=WordReference.com Ingelsk wurdboek
 Name[ga]=Foclóir Béarla WordReference.com
 Name[gl]=Dicionario de inglés de WordReference.com
@@ -116,7 +115,6 @@ Query[et]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[eu]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[fa]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[fi]=http://www.wordreference.com/english/definition.asp?en=\\{@}
-Query[fr]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[fy]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ga]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[gl]=http://www.wordreference.com/english/definition.asp?en=\\{@}

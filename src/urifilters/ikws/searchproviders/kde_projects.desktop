@@ -12,7 +12,6 @@ Name[el]=Έργα KDE
 Name[es]=Proyectos de KDE
 Name[eu]=KDE Proiektuak
 Name[fi]=KDE Projects
-Name[fr]=Projets de KDE
 Name[gl]=Proxectos de KDE
 Name[hi]=केडीई परियोजनाएँ
 Name[hu]=KDE projektek
@@ -60,7 +59,6 @@ Query[el]=https://projects.kde.org/search?projects=1&q=\\{@}
 Query[es]=https://projects.kde.org/search?projects=1&q=\\{@}
 Query[eu]=https://projects.kde.org/search?projects=1&q=\\{@}
 Query[fi]=https://projects.kde.org/search?projects=1&q=\\{@}
-Query[fr]=https://projects.kde.org/search?projects=1&q=\\{@}
 Query[gl]=https://projects.kde.org/search?projects=1&q=\\{@}
 Query[hi]=https://projects.kde.org/search?projects=1&q=\\{@}
 Query[hu]=https://projects.kde.org/search?projects=1&q=\\{@}

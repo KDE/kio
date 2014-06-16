@@ -25,7 +25,6 @@ Name[et]=Veanumbri otsing KDE vigade andmebaasist
 Name[eu]=KDEren akatsen datu-baseko zenbaki-bilaketa
 Name[fa]=جستجوی شماره اشکال دادگان اشکال KDE
 Name[fi]=KDE-vikailmoitustietokannan numerohaku
-Name[fr]=Recherche dans la base de données de bogues de KDE par numéro
 Name[fy]=KDE Bug Databank  - sykje op breknûmer
 Name[ga]=Cuardach bugs.kde.org de réir uimhir an fhabht
 Name[gl]=Busca numérica na base de datos de fallos de KDE
@@ -108,7 +107,6 @@ Query[et]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[eu]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[fa]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[fi]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
-Query[fr]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[fy]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[ga]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[gl]=https://bugs.kde.org/show_bug.cgi?id=\\{@}

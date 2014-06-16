@@ -27,7 +27,6 @@ Name[et]=Merriam-Websteri sõnaraamat
 Name[eu]=Merriam-Webster hiztegia
 Name[fa]=واژه‌نامه Merriam-Webster
 Name[fi]=Merriam–Webster-sanakirja
-Name[fr]=Dictionnaire « Merriam-Webster »
 Name[fy]=Merriam-Webster Dictionary
 Name[ga]=Foclóir Merriam-Webster
 Name[gl]=Dicionario Merriam-Webster
@@ -118,7 +117,6 @@ Query[et]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[eu]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[fa]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[fi]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
-Query[fr]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[fy]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[ga]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[gl]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}

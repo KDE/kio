@@ -27,7 +27,6 @@ Name[et]=Google uudisegrupid
 Name[eu]=Google-ren taldeak
 Name[fa]=گروههای گوگل
 Name[fi]=Googlen keskusteluryhmät
-Name[fr]=Groupes « Google »
 Name[fy]=Google Diskusjegroepen
 Name[ga]=Grúpaí Google
 Name[gl]=Grupos de Google
@@ -104,7 +103,6 @@ Query[el]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[es]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[eu]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[fi]=https://groups.google.fi/groups?oi=djq&as_q=\\{@}
-Query[fr]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[gl]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[hi]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[hu]=https://groups.google.com/groups?oi=djq&as_q=\\{@}

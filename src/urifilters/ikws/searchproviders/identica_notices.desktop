@@ -21,7 +21,6 @@ Name[et]=Identi.ca teadaanded
 Name[eu]=Identi.ca-ren jakinarazpenak
 Name[fa]=Identi.ca Notices
 Name[fi]=Identi.ca-tekstihaku
-Name[fr]=Annonces « Identi.ca »
 Name[ga]=Fógraí Identi.ca
 Name[gl]=Noticias de Identi.ca
 Name[gu]=આઈડેન્ટિ.કા નોંધો
@@ -82,7 +81,6 @@ Query[el]=https://identi.ca/search/notice?q=\\{@}
 Query[es]=https://identi.ca/search/notice?q=\\{@}
 Query[eu]=https://identi.ca/search/notice?q=\\{@}
 Query[fi]=https://identi.ca/search/notice?q=\\{@}
-Query[fr]=https://identi.ca/search/notice?q=\\{@}
 Query[gl]=https://identi.ca/search/notice?q=\\{@}
 Query[hi]=https://identi.ca/search/notice?q=\\{@}
 Query[hu]=https://identi.ca/search/notice?q=\\{@}

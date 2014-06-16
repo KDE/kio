@@ -27,7 +27,6 @@ Name[et]=Ask Jeeves
 Name[eu]=Ask Jeeves
 Name[fa]=پرسیدن Jeeves
 Name[fi]=Ask Jeeves
-Name[fr]=Ask Jeeves
 Name[fy]=Ask Jeeves
 Name[ga]=Ask Jeeves
 Name[gl]=Pregúntalle a Jeeves
@@ -117,7 +116,6 @@ Query[et]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jee
 Query[eu]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[fa]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[fi]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
-Query[fr]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[fy]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[ga]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[gl]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}

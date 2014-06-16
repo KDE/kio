@@ -26,7 +26,6 @@ Name[et]=FSF/UNESCO Free Software Directory
 Name[eu]=FSF/UNESCO software-direktorio askea
 Name[fa]=واژه‌نامه نرم‌افزار آزاد FSF/UNESCO
 Name[fi]=FSF/UNESCO:n vapaiden ohjelmien hakemisto
-Name[fr]=Catalogue de logiciels libres FSF / UNESCO
 Name[fy]=FSF/UNESCO Free Software Directory
 Name[ga]=Eolaire Saorbhogearraí FSF/UNESCO
 Name[gl]=Directorio de software libre da FSF/UNESCO
@@ -112,7 +111,6 @@ Query[et]=http://directory.fsf.org/search/?query=\\{@}
 Query[eu]=http://directory.fsf.org/search/?query=\\{@}
 Query[fa]=http://directory.fsf.org/search/?query=\\{@}
 Query[fi]=http://directory.fsf.org/search/?query=\\{@}
-Query[fr]=http://directory.fsf.org/search/?query=\\{@}
 Query[fy]=http://directory.fsf.org/search/?query=\\{@}
 Query[ga]=http://directory.fsf.org/search/?query=\\{@}
 Query[gl]=http://directory.fsf.org/search/?query=\\{@}

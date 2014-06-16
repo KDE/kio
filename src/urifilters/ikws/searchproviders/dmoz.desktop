@@ -27,7 +27,6 @@ Name[et]=Open Directory
 Name[eu]=Open Directory
 Name[fa]=Open Directory
 Name[fi]=Open Directory
-Name[fr]=Open Directory
 Name[fy]=Iepen Directory
 Name[ga]=Open Directory
 Name[gl]=Directorio aberto
@@ -118,7 +117,6 @@ Query[et]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[eu]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[fa]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[fi]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
-Query[fr]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[fy]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[ga]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[gl]=http://search.dmoz.org/cgi-bin/search?search=\\{@}

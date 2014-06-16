@@ -27,7 +27,6 @@ Name[et]=MetaCrawler
 Name[eu]=MetaCrawler
 Name[fa]=MetaCrawler
 Name[fi]=MetaCrawler
-Name[fr]=MetaCrawler
 Name[fy]=MetaCrawler
 Name[ga]=MetaCrawler
 Name[gl]=MetaCrawler
@@ -104,7 +103,6 @@ Query[el]=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[es]=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[eu]=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[fi]=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
-Query[fr]=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[gl]=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[hi]=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[hu]=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}

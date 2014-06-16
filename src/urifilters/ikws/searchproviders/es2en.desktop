@@ -28,7 +28,6 @@ Name[et]=WordReference.com tõlkimine: hispaania->inglise
 Name[eu]=WordReference.com gaztelaniatik ingeleserako itzulpenak
 Name[fa]=ترجمه WordReference.com: اسپانیایی به انگلیسی
 Name[fi]=WordReference.com-käännös espanjasta englanniksi
-Name[fr]=Traduction sur WordReference.com : espagnol vers anglais
 Name[fy]=WordReference.com-oersetting: Spaansk nei Ingelsk
 Name[ga]=WordReference.com Aistriúchán: Spáinnis go Béarla
 Name[gl]=Tradución WordReference.com: español a inglés
@@ -115,7 +114,6 @@ Query[et]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[eu]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[fa]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[fi]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
-Query[fr]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[fy]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[ga]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[gl]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}

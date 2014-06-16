@@ -27,7 +27,6 @@ Name[et]=dict.cc tõlkimine: saksa->inglise
 Name[eu]=dict.cc alemanetik ingeleserako itzulpenak
 Name[fa]=ترجمه dict.cc: آلمانی به انگلیسی
 Name[fi]=dict.cc-käännös saksasta englanniksi
-Name[fr]=Traduction dict.cc : allemand vers anglais
 Name[fy]=dict.cc-oersetting Dûts nei Ingelsk
 Name[ga]=dict.cc Aistriúchán: Gearmáinis go Béarla
 Name[gl]=Tradución dict.cc: Alemán a inglés
@@ -114,7 +113,6 @@ Query[et]=http://www.dict.cc/?s=\\{@}
 Query[eu]=http://www.dict.cc/?s=\\{@}
 Query[fa]=http://www.dict.cc/?s=\\{@}
 Query[fi]=http://www.dict.cc/?s=\\{@}
-Query[fr]=http://www.dict.cc/?s=\\{@}
 Query[fy]=http://www.dict.cc/?s=\\{@}
 Query[ga]=http://www.dict.cc/?s=\\{@}
 Query[gl]=http://www.dict.cc/?s=\\{@}
