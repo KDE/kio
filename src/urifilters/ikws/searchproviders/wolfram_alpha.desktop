@@ -20,6 +20,7 @@ Name[et]=Wolfram Alpha
 Name[eu]=Wolfram Alpha
 Name[fa]=Wolfram Alpha
 Name[fi]=Wolfram Alpha
+Name[fr]=Wolfram Alpha
 Name[fy]=Wolfram Alpha
 Name[ga]=Wolfram Alpha
 Name[gl]=Wolfram Alpha
@@ -82,6 +83,7 @@ Query[el]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[es]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[eu]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[fi]=https://www.wolframalpha.com/input/?i=\\{@}
+Query[fr]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[gl]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[hi]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[hu]=https://www.wolframalpha.com/input/?i=\\{@}

@@ -27,6 +27,7 @@ Name[et]=Google News
 Name[eu]=Google News
 Name[fa]=اخبار گوگل
 Name[fi]=Googlen uutiset
+Name[fr]=Actualités « Google »
 Name[fy]=Google-nijs
 Name[ga]=Nuacht Google
 Name[gl]=Novas de Google
@@ -102,6 +103,7 @@ Query[el]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[es]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[eu]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[fi]=https://news.google.fi/news?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[fr]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[gl]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[hi]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[hu]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8

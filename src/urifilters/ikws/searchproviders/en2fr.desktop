@@ -28,6 +28,7 @@ Name[et]=WordReference.com tõlkimine: inglise->prantsuse
 Name[eu]=WordReference.com ingelesetik frantseserako itzulpenak
 Name[fa]=ترجمه WordReference.com: انگلیسی به فرانسوی
 Name[fi]=WordReference.com-käännös englannista ranskaksi
+Name[fr]=Traduction sur WordReference.com : anglais vers français
 Name[fy]=WordReference.com-oersetting: Ingelsk nei Frânsk
 Name[ga]=Aistriúchán WordReference.com: Béarla go Fraincis
 Name[gl]=Tradución WordReference.com: inglés a francés
@@ -114,6 +115,7 @@ Query[et]=http://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[eu]=http://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[fa]=http://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[fi]=http://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
+Query[fr]=http://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[fy]=http://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[ga]=http://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[gl]=http://www.wordreference.com/fr/Translation.asp?enfr=\\{@}

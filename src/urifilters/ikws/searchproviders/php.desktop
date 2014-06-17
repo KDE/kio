@@ -27,6 +27,7 @@ Name[et]=PHP Search
 Name[eu]=PHP bilatzailea
 Name[fa]=جستجوی PHP
 Name[fi]=PHP-haku
+Name[fr]=Recherche sur PHP
 Name[fy]=PHP-sykaksje
 Name[ga]=Cuardach PHP
 Name[gl]=Busca de PHP
@@ -108,6 +109,7 @@ Query[et]=http://www.php.net/manual-lookup.php?pattern=\\{@}
 Query[eu]=http://www.php.net/manual-lookup.php?pattern=\\{@}
 Query[fa]=http://www.php.net/manual-lookup.php?pattern=\\{@}
 Query[fi]=http://www.php.net/manual-lookup.php?pattern=\\{@}
+Query[fr]=http://www.php.net/manual-lookup.php?pattern=\\{@}
 Query[ga]=http://www.php.net/manual-lookup.php?pattern=\\{@}
 Query[gl]=http://www.php.net/manual-lookup.php?pattern=\\{@}
 Query[gu]=http://www.php.net/manual-lookup.php?pattern=\\{@}

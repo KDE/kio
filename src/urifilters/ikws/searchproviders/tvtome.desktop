@@ -27,6 +27,7 @@ Name[et]=TV Tome
 Name[eu]=TV Tome
 Name[fa]=TV Tome
 Name[fi]=TV Tome
+Name[fr]=TV Tome
 Name[fy]=TV Tome
 Name[ga]=TV Tome
 Name[gl]=TV Tome
@@ -115,6 +116,7 @@ Query[et]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[eu]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[fa]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[fi]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
+Query[fr]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[fy]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[ga]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[gl]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0

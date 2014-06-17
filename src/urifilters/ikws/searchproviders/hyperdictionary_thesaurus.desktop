@@ -27,6 +27,7 @@ Name[et]=HyperDictionary.com tesaurus
 Name[eu]=HyperDictionary.com thesaurusa
 Name[fa]=فرهنگ جامع HyperDictionary.com
 Name[fi]=HyperDictionary.com-synonyymisanakirja
+Name[fr]=Thésaurus « HyperDictionary.com »
 Name[fy]=HyperDictionary.com Thesaurus
 Name[ga]=Teasáras HyperDictionary.com
 Name[gl]=Tesauro de HyperDictionary.com
@@ -116,6 +117,7 @@ Query[et]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[eu]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[fa]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[fi]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
+Query[fr]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[fy]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[ga]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[gl]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}

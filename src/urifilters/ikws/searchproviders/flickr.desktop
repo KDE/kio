@@ -21,6 +21,7 @@ Name[et]=Flickr
 Name[eu]=Flickr
 Name[fa]=فلیکر
 Name[fi]=Flickr
+Name[fr]=Flickr
 Name[ga]=Flickr
 Name[gl]=Flickr
 Name[gu]=ફ્લિકર
@@ -88,6 +89,7 @@ Query[et]=http://www.flickr.com/search/?q=\\{@}
 Query[eu]=http://www.flickr.com/search/?q=\\{@}
 Query[fa]=http://www.flickr.com/search/?q=\\{@}
 Query[fi]=http://www.flickr.com/search/?q=\\{@}
+Query[fr]=http://www.flickr.com/search/?q=\\{@}
 Query[ga]=http://www.flickr.com/search/?q=\\{@}
 Query[gl]=http://www.flickr.com/search/?q=\\{@}
 Query[gu]=http://www.flickr.com/search/?q=\\{@}

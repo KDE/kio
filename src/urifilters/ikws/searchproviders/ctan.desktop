@@ -26,6 +26,7 @@ Name[et]=CTAN - Comprehensive TeX Archive Network
 Name[eu]=CTAN - TeX artxibo-sare zabala
 Name[fa]=CTAN - شبکه وسیع بایگانی TeX
 Name[fi]=CTAN – Comprehensive TeX Archive Network
+Name[fr]=CTAN (Comprehensive TeX Archive Network)
 Name[fy]=CTAN - Comprehensive TeX Archive Network
 Name[ga]=CTAN - Comprehensive TeX Archive Network
 Name[gl]=CTAN, o Comprehensive TeX Archive Network
@@ -100,6 +101,7 @@ Query[el]=http://ctan.org/search?phrase=\\{@}
 Query[es]=http://ctan.org/search?phrase=\\{@}
 Query[eu]=http://ctan.org/search?phrase=\\{@}
 Query[fi]=http://ctan.org/search?phrase=\\{@}
+Query[fr]=http://ctan.org/search?phrase=\\{@}
 Query[gl]=http://ctan.org/search?phrase=\\{@}
 Query[hi]=http://ctan.org/search?phrase=\\{@}
 Query[hu]=http://ctan.org/search?phrase=\\{@}

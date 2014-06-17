@@ -18,6 +18,7 @@ Name[et]=Bing
 Name[eu]=Bing
 Name[fa]=Bing
 Name[fi]=Bing
+Name[fr]=Bing
 Name[ga]=Bing
 Name[gl]=Bing
 Name[gu]=બિંગ
@@ -85,6 +86,7 @@ Query[et]=http://www.bing.com/search?q=\\{@}
 Query[eu]=http://www.bing.com/search?q=\\{@}
 Query[fa]=http://www.bing.com/search?q=\\{@}
 Query[fi]=http://www.bing.com/search?q=\\{@}&cc=fi
+Query[fr]=http://www.bing.com/search?q=\\{@}
 Query[ga]=http://www.bing.com/search?q=\\{@}
 Query[gl]=http://www.bing.com/search?q=\\{@}
 Query[gu]=http://www.bing.com/search?q=\\{@}

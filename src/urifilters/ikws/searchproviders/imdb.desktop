@@ -27,6 +27,7 @@ Name[et]=Interneti filmide andmebaas
 Name[eu]=Interneteko filmeen datu-basea
 Name[fa]=دادگان فیلم اینترنت
 Name[fi]=Internet Movie Database
+Name[fr]=Base de données de films sur Internet
 Name[fy]=Ynternetfilm-databank
 Name[ga]=Internet Movie Database
 Name[gl]=Base de datos de filmes de Internet
@@ -109,6 +110,7 @@ Query[et]=http://imdb.com/find?s=all&q=\\{@}
 Query[eu]=http://imdb.com/find?s=all&q=\\{@}
 Query[fa]=http://imdb.com/find?s=all&q=\\{@}
 Query[fi]=http://imdb.com/find?s=all&q=\\{@}
+Query[fr]=http://imdb.com/find?s=all&q=\\{@}
 Query[ga]=http://imdb.com/find?s=all&q=\\{@}
 Query[gl]=http://imdb.com/find?s=all&q=\\{@}
 Query[gu]=http://imdb.com/find?s=all&q=\\{@}

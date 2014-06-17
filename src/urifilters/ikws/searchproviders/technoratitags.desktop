@@ -26,6 +26,7 @@ Name[et]=Technorati sildid
 Name[eu]=Technorati etiketak
 Name[fa]=برچسبهای Technorati
 Name[fi]=Technorati-tunnisteet
+Name[fr]=Balises « Technorati »
 Name[fy]=Technorati-markearring
 Name[ga]=Clibeanna Technorati
 Name[gl]=Etiquetas de Technorati
@@ -112,6 +113,7 @@ Query[et]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[eu]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[fa]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[fi]=http://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[fr]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[fy]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ga]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[gl]=http://technorati.com/tag/\\{@}?sourceid=kde-search

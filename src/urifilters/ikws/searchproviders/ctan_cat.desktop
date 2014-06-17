@@ -27,6 +27,7 @@ Name[et]=CTAN kataloog
 Name[eu]=CTAN katalogoa
 Name[fa]=فهرست CTAN
 Name[fi]=CTAN-katalogi
+Name[fr]=Catalogue du CTAN
 Name[fy]=CTAN Catalogus
 Name[ga]=Catalóg CTAN
 Name[gl]=Catálogo CTAN
@@ -111,6 +112,7 @@ Query[et]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSea
 Query[eu]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[fa]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[fi]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
+Query[fr]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[fy]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[ga]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[gl]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search

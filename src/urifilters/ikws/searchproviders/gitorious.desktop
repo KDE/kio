@@ -21,6 +21,7 @@ Name[et]=Gitorious
 Name[eu]=Gitorious
 Name[fa]=Gitorious
 Name[fi]=Gitorious
+Name[fr]=Gitorious
 Name[ga]=Gitorious
 Name[gl]=Gitorious
 Name[gu]=ગિટોરીઅસ
@@ -81,6 +82,7 @@ Query[el]=https://gitorious.org/search?q=\\{@}&commit=Search
 Query[es]=https://gitorious.org/search?q=\\{@}&commit=Search
 Query[eu]=https://gitorious.org/search?q=\\{@}&commit=Search
 Query[fi]=https://gitorious.org/search?q=\\{@}&commit=Search
+Query[fr]=https://gitorious.org/search?q=\\{@}&commit=Search
 Query[gl]=https://gitorious.org/search?q=\\{@}&commit=Search
 Query[hi]=https://gitorious.org/search?q=\\{@}&commit=Search
 Query[hu]=https://gitorious.org/search?q=\\{@}&commit=Search

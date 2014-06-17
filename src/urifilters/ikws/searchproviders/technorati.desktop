@@ -26,6 +26,7 @@ Name[et]=Technorati
 Name[eu]=Technorati
 Name[fa]=Technorati
 Name[fi]=Technorati
+Name[fr]=Technorati
 Name[fy]=Technorati
 Name[ga]=Technorati
 Name[gl]=Technorati
@@ -101,6 +102,7 @@ Query[el]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[es]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[eu]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[fi]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[fr]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[gl]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[hi]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[hu]=http://technorati.com/search?return=sites&authority=high&q=\\{@}

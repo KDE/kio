@@ -29,6 +29,7 @@ Name[et]=Hispaania akadeemia (RAE) sõnaraamat
 Name[eu]=RAE Espainiako Errege Akademiaren hiztegia
 Name[fa]=واژه‌نامه فرهنگستان اسپانیایی (RAE)
 Name[fi]=Espanjan Akatemian sanakirja (RAE)
+Name[fr]=Dictionnaire de l'Académie Espagnole (RAE)
 Name[fy]=Wurdboek fan de Spaanske akademy (RAE)
 Name[ga]=Diccionario de la lengua española (RAE)
 Name[gl]=Dicionario da real academia española (RAE)
@@ -102,6 +103,7 @@ Query[el]=http://www.rae.es/drae/?val=\\{@}
 Query[es]=http://www.rae.es/drae/?val=\\{@}
 Query[eu]=http://www.rae.es/drae/?val=\\{@}
 Query[fi]=http://www.rae.es/drae/?val=\\{@}
+Query[fr]=http://www.rae.es/drae/?val=\\{@}
 Query[gl]=http://www.rae.es/drae/?val=\\{@}
 Query[hi]=http://www.rae.es/drae/?val=\\{@}
 Query[hu]=http://www.rae.es/drae/?val=\\{@}

@@ -27,6 +27,7 @@ Name[et]=HyperDictionary.com
 Name[eu]=HyperDictionary.com
 Name[fa]=HyperDictionary.com
 Name[fi]=HyperDictionary.com
+Name[fr]=HyperDictionary.com
 Name[fy]=HyperDictionary.com
 Name[ga]=HyperDictionary.com
 Name[gl]=Dicionario Digalego da lingua galega
@@ -116,6 +117,7 @@ Query[et]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[eu]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[fa]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[fi]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
+Query[fr]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[fy]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[ga]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[gl]=http://digalego.com/diccionario/html/index.php?op=procesa&buscado=\{@}&opcion=entrada

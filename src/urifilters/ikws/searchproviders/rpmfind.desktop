@@ -27,6 +27,7 @@ Name[et]=RPM-Find
 Name[eu]=RPM bilatzailea
 Name[fa]=یافتن RPM
 Name[fi]=RPM-haku
+Name[fr]=Recherche de paquets RPM
 Name[fy]=RPM-Find
 Name[ga]=RPM-Find
 Name[gl]=RPM-Find
@@ -116,6 +117,7 @@ Query[et]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[eu]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[fa]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[fi]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[fr]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[fy]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ga]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[gl]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

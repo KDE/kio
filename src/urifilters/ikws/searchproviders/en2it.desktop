@@ -28,6 +28,7 @@ Name[et]=WordReference.com tõlkimine: inglise->itaalia
 Name[eu]=WordReference.com ingelesetik italierarako itzulpenak
 Name[fa]=ترجمه WordReference.com: انگلیسی به ایتالیایی
 Name[fi]=WordReference.com-käännös englannista italiaksi
+Name[fr]=Traduction sur WordReference.com : anglais vers italien
 Name[fy]=WordReference.com-oersetting: Ingelsk nei Italiaansk
 Name[ga]=Aistriúchán WordReference.com: Béarla go hIodáilis
 Name[gl]=Tradución WordReference.com: inglés a italiano
@@ -114,6 +115,7 @@ Query[et]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[eu]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[fa]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[fi]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
+Query[fr]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[fy]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ga]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[gl]=http://www.wordreference.com/it/translation.asp?enit=\\{@}

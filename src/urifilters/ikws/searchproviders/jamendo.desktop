@@ -21,6 +21,7 @@ Name[et]=Jamendo
 Name[eu]=Jamendo
 Name[fa]=Jamendo
 Name[fi]=Jamendo
+Name[fr]=Jamendo
 Name[ga]=Jamendo
 Name[gl]=Jamendo
 Name[gu]=જમેન્ડો
@@ -82,6 +83,7 @@ Query[el]=http://www.jamendo.com/en/search?qs=q=\\{@}
 Query[es]=http://www.jamendo.com/en/search?qs=q=\\{@}
 Query[eu]=http://www.jamendo.com/en/search?qs=q=\\{@}
 Query[fi]=http://www.jamendo.com/en/search?qs=q=\\{@}
+Query[fr]=http://www.jamendo.com/en/search?qs=q=\\{@}
 Query[gl]=http://www.jamendo.com/en/search?qs=q=\\{@}
 Query[hi]=http://www.jamendo.com/en/search?qs=q=\\{@}
 Query[hu]=http://www.jamendo.com/en/search?qs=q=\\{@}

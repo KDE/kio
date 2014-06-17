@@ -21,6 +21,7 @@ Name[et]=Magnatune
 Name[eu]=Magnatune
 Name[fa]=Magnatune
 Name[fi]=Magnatune
+Name[fr]=Magnatune
 Name[ga]=Magnatune
 Name[gl]=Magnatune
 Name[gu]=મેગ્નાટ્યુન
@@ -88,6 +89,7 @@ Query[et]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[eu]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[fa]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[fi]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
+Query[fr]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[ga]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[gl]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[gu]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0

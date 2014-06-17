@@ -27,6 +27,7 @@ Name[et]=Google piltide otsing
 Name[eu]=Google-ren irudi-bilaketa
 Name[fa]=جستجوی تصویر گوگل
 Name[fi]=Googlen kuvahaku
+Name[fr]=Recherche d'images avec Google
 Name[fy]=Google printsjesykjen
 Name[ga]=Cuardach Íomhá Google
 Name[gl]=Busca de imaxes de Google
@@ -103,6 +104,7 @@ Query[el]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[es]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[eu]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[fi]=https://www.google.fi/search?site=imghp&tbm=isch&q=\\{@}
+Query[fr]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[gl]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[hi]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[hu]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
