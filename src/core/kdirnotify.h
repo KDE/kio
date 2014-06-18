@@ -74,11 +74,10 @@ public:
      * string to connect to all services/applications.
      * \param path The path to the D-Bus object whose signals one wants to listed to.
      * Use an empty string to connect to signals from all objects.
-     * \param connection Typically QDBusConnection::sessionBus(), or
-     * KDBusConnectionPool::threadConnection() in multithreaded apps.
+     * \param connection Typically QDBusConnection::sessionBus().
      * \param parent The parent QObject.
      */
-    OrgKdeKDirNotifyInterface(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent = 0);
+    OrgKdeKDirNotifyInterface(const QString &service, const QString &path, const QDBusConnection &connection = QDBusConnection::sessionBus(), QObject *parent = 0);
 
     /**
      * Destructor.

@@ -27,7 +27,7 @@
 #include <QtCore/QTimer>
 #include <QtCore/QProcess>
 
-#include <KDBusConnectionPool>
+#include <QDBusConnection>
 #include <klocalizedstring.h>
 
 #include <kdeinitinterface.h>
@@ -67,7 +67,7 @@ static org::kde::KSlaveLauncher *klauncher()
     if (!s_kslaveLauncher.hasLocalData()) {
         org::kde::KSlaveLauncher *launcher = new org::kde::KSlaveLauncher(QString::fromLatin1("org.kde.klauncher5"),
                 QString::fromLatin1("/KLauncher"),
-                KDBusConnectionPool::threadConnection());
+                QDBusConnection::sessionBus());
         s_kslaveLauncher.setLocalData(launcher);
         return launcher;
     }
@@ -438,7 +438,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
 
         if (!fork) {
             // check the UID of klauncher
-            QDBusReply<uint> reply = KDBusConnectionPool::threadConnection().interface()->serviceUid(klauncher()->service());
+            QDBusReply<uint> reply = QDBusConnection::sessionBus().interface()->serviceUid(klauncher()->service());
             if (reply.isValid() && getuid() != reply) {
                 fork = true;
             }

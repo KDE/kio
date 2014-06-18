@@ -41,8 +41,7 @@ static void emitSignal(const QString &signalName, const QVariantList &args)
     QDBusMessage message =
         QDBusMessage::createSignal("/", QLatin1String(org::kde::KDirNotify::staticInterfaceName()), signalName);
     message.setArguments(args);
-    // HAND-EDIT
-    KDBusConnectionPool::threadConnection().send(message);
+    QDBusConnection::sessionBus().send(message);
 }
 
 void OrgKdeKDirNotifyInterface::emitFileRenamed(const QUrl &src, const QUrl &dst)
