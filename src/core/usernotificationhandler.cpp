@@ -77,18 +77,23 @@ void UserNotificationHandler::processRequest()
 
         if (m_cachedResults.contains(key)) {
             result = *(m_cachedResults[key]);
-        } else if (r->slave->job()) {
-            SimpleJobPrivate *jobPrivate = SimpleJobPrivate::get(r->slave->job());
-            if (jobPrivate) {
-                result = jobPrivate->requestMessageBox(r->type,
-                                                       r->data.value(MSG_TEXT).toString(),
-                                                       r->data.value(MSG_CAPTION).toString(),
-                                                       r->data.value(MSG_YES_BUTTON_TEXT).toString(),
-                                                       r->data.value(MSG_NO_BUTTON_TEXT).toString(),
-                                                       r->data.value(MSG_YES_BUTTON_ICON).toString(),
-                                                       r->data.value(MSG_NO_BUTTON_ICON).toString(),
-                                                       r->data.value(MSG_DONT_ASK_AGAIN).toString(),
-                                                       r->data.value(MSG_META_DATA).toMap());
+        } else {
+            JobUiDelegateExtension *delegateExtension = 0;
+            if (r->slave->job())
+                delegateExtension = SimpleJobPrivate::get(r->slave->job())->m_uiDelegateExtension;
+            if (!delegateExtension)
+                delegateExtension = KIO::defaultJobUiDelegateExtension();
+            if (delegateExtension) {
+                const JobUiDelegateExtension::MessageBoxType type = static_cast<JobUiDelegateExtension::MessageBoxType>(r->type);
+                result = delegateExtension->requestMessageBox(type,
+                                                              r->data.value(MSG_TEXT).toString(),
+                                                              r->data.value(MSG_CAPTION).toString(),
+                                                              r->data.value(MSG_YES_BUTTON_TEXT).toString(),
+                                                              r->data.value(MSG_NO_BUTTON_TEXT).toString(),
+                                                              r->data.value(MSG_YES_BUTTON_ICON).toString(),
+                                                              r->data.value(MSG_NO_BUTTON_ICON).toString(),
+                                                              r->data.value(MSG_DONT_ASK_AGAIN).toString(),
+                                                              r->data.value(MSG_META_DATA).toMap());
             }
             m_cachedResults.insert(key, new int(result));
         }
