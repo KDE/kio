@@ -336,7 +336,7 @@ void KCoreDirListerCache::emitItemsFromCache(KCoreDirLister::Private::CachedItem
     if (!itemU) {
         qWarning() << "Can't find item for directory" << urlStr << "anymore";
     } else {
-        const KFileItemList items = itemU->lstItems;
+        const NonMovableFileItemList items = itemU->lstItems;
         const KFileItem rootItem = itemU->rootItem;
         _reload = _reload || !itemU->complete;
 
@@ -613,8 +613,8 @@ void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, b
                     // Look for a manually-mounted directory inside
                     // If there's one, we can't keep a watch either, FAM would prevent unmounting the CDROM
                     // I hope this isn't too slow
-                    KFileItemList::const_iterator kit = item->lstItems.constBegin();
-                    KFileItemList::const_iterator kend = item->lstItems.constEnd();
+                    NonMovableFileItemList::const_iterator kit = item->lstItems.constBegin();
+                    NonMovableFileItemList::const_iterator kend = item->lstItems.constEnd();
                     for (; kit != kend && !containsManuallyMounted; ++kit)
                         if ((*kit).isDir() && manually_mounted((*kit).url().toLocalFile(), possibleMountPoints)) {
                             containsManuallyMounted = true;
@@ -787,7 +787,7 @@ KCoreDirListerCache::DirItem *KCoreDirListerCache::dirItemForUrl(const QUrl &dir
     return item;
 }
 
-KFileItemList *KCoreDirListerCache::itemsForDir(const QUrl &dir) const
+NonMovableFileItemList *KCoreDirListerCache::itemsForDir(const QUrl &dir) const
 {
     DirItem *item = dirItemForUrl(dir);
     return item ? &item->lstItems : 0;
@@ -820,8 +820,8 @@ KFileItem *KCoreDirListerCache::findByUrl(const KCoreDirLister *lister, const QU
     if (dirItem) {
         // If lister is set, check that it contains this dir
         if (!lister || lister->d->lstDirs.contains(parentDir)) {
-            KFileItemList::iterator it = dirItem->lstItems.begin();
-            const KFileItemList::iterator end = dirItem->lstItems.end();
+            NonMovableFileItemList::iterator it = dirItem->lstItems.begin();
+            const NonMovableFileItemList::iterator end = dirItem->lstItems.end();
             for (; it != end; ++it) {
                 if ((*it).url() == url) {
                     return &*it;
@@ -888,7 +888,7 @@ void KCoreDirListerCache::slotFilesRemoved(const QList<QUrl> &fileList)
         if (!dirItem) {
             continue;
         }
-        for (KFileItemList::iterator fit = dirItem->lstItems.begin(), fend = dirItem->lstItems.end(); fit != fend; ++fit) {
+        for (NonMovableFileItemList::iterator fit = dirItem->lstItems.begin(), fend = dirItem->lstItems.end(); fit != fend; ++fit) {
             if ((*fit).url() == url) {
                 const KFileItem fileitem = *fit;
                 removedItemsByDir[parentDir.toString()].append(fileitem);
@@ -1572,7 +1572,7 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
                                                  dir));
             // Rename all items under that dir
 
-            for (KFileItemList::iterator kit = dir->lstItems.begin(), kend = dir->lstItems.end();
+            for (NonMovableFileItemList::iterator kit = dir->lstItems.begin(), kend = dir->lstItems.end();
                     kit != kend; ++kit) {
                 const KFileItem oldItem = *kit;
 
@@ -1749,7 +1749,7 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
 
     // Fill the hash from the old list of items. We'll remove entries as we see them
     // in the new listing, and the resulting hash entries will be the deleted items.
-    for (KFileItemList::iterator kit = dir->lstItems.begin(), kend = dir->lstItems.end(); kit != kend; ++kit) {
+    for (NonMovableFileItemList::iterator kit = dir->lstItems.begin(), kend = dir->lstItems.end(); kit != kend; ++kit) {
         fileItems.insert((*kit).name(), &*kit);
     }
 
@@ -1874,7 +1874,7 @@ void KCoreDirListerCache::killJob(KIO::ListJob *job)
     job->kill();
 }
 
-void KCoreDirListerCache::deleteUnmarkedItems(const QList<KCoreDirLister *> &listers, KFileItemList &lstItems, const QHash<QString, KFileItem*> &itemsToDelete)
+void KCoreDirListerCache::deleteUnmarkedItems(const QList<KCoreDirLister *> &listers, NonMovableFileItemList &lstItems, const QHash<QString, KFileItem*> &itemsToDelete)
 {
     // Make list of deleted items (for emitting)
     KFileItemList deletedItems;
@@ -1886,7 +1886,7 @@ void KCoreDirListerCache::deleteUnmarkedItems(const QList<KCoreDirLister *> &lis
     }
 
     // Delete all remaining items
-    QMutableListIterator<KFileItem> it(lstItems);
+    QMutableListIterator<NonMovableFileItem> it(lstItems);
     while (it.hasNext()) {
         if (itemsToDelete.contains(it.next().name())) {
             it.remove();
@@ -2185,7 +2185,7 @@ void KCoreDirLister::Private::emitChanges()
     // Fill hash with all items that are currently visible
     QSet<QString> oldVisibleItems;
     Q_FOREACH (const QUrl &dir, lstDirs) {
-        KFileItemList *itemList = kDirListerCache()->itemsForDir(dir);
+        NonMovableFileItemList *itemList = kDirListerCache()->itemsForDir(dir);
         if (!itemList) {
             continue;
         }
@@ -2202,13 +2202,13 @@ void KCoreDirLister::Private::emitChanges()
     Q_FOREACH (const QUrl &dir, lstDirs) {
         KFileItemList deletedItems;
 
-        KFileItemList *itemList = kDirListerCache()->itemsForDir(dir);
+        NonMovableFileItemList *itemList = kDirListerCache()->itemsForDir(dir);
         if (!itemList) {
             continue;
         }
 
-        KFileItemList::iterator kit = itemList->begin();
-        const KFileItemList::iterator kend = itemList->end();
+        NonMovableFileItemList::iterator kit = itemList->begin();
+        const NonMovableFileItemList::iterator kend = itemList->end();
         for (; kit != kend; ++kit) {
             KFileItem &item = *kit;
             const QString text = item.text();
@@ -2448,13 +2448,13 @@ void KCoreDirLister::Private::addNewItem(const QUrl &directoryUrl, const KFileIt
     }
 }
 
-void KCoreDirLister::Private::addNewItems(const QUrl &directoryUrl, const KFileItemList &items)
+void KCoreDirLister::Private::addNewItems(const QUrl &directoryUrl, const NonMovableFileItemList &items)
 {
     // TODO: make this faster - test if we have a filter at all first
     // DF: was this profiled? The matchesFoo() functions should be fast, w/o filters...
     // Of course if there is no filter and we can do a range-insertion instead of a loop, that might be good.
-    KFileItemList::const_iterator kit = items.begin();
-    const KFileItemList::const_iterator kend = items.end();
+    NonMovableFileItemList::const_iterator kit = items.begin();
+    const NonMovableFileItemList::const_iterator kend = items.end();
     for (; kit != kend; ++kit) {
         addNewItem(directoryUrl, *kit);
     }
@@ -2683,17 +2683,17 @@ KFileItemList KCoreDirLister::items(WhichItems which) const
 
 KFileItemList KCoreDirLister::itemsForDir(const QUrl &dir, WhichItems which) const
 {
-    KFileItemList *allItems = kDirListerCache()->itemsForDir(dir);
+    NonMovableFileItemList *allItems = kDirListerCache()->itemsForDir(dir);
     if (!allItems) {
         return KFileItemList();
     }
 
     if (which == AllItems) {
-        return *allItems;
+        return allItems->toKFileItemList();
     } else { // only items passing the filters
         KFileItemList result;
-        KFileItemList::const_iterator kit = allItems->constBegin();
-        const KFileItemList::const_iterator kend = allItems->constEnd();
+        NonMovableFileItemList::const_iterator kit = allItems->constBegin();
+        const NonMovableFileItemList::const_iterator kend = allItems->constEnd();
         for (; kit != kend; ++kit) {
             const KFileItem &item = *kit;
             if (d->isItemVisible(item) && matchesMimeFilter(item)) {

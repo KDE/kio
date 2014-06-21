@@ -34,6 +34,61 @@
 #include <kio/global.h>
 #include <kdirwatch.h>
 
+/**
+ * KCoreDirListerCache stores pointers to KFileItems internally and expects that
+ * these pointers remain valid, even if the number of items in the list 'lstItems'
+ * in KCoreDirLister::DirItem changes. Since such changes in a QList<KFileItem>
+ * may change the internal memory layout of the QList, pointers to KFileItems in a
+ * QList<KFileItem> might become invalid.
+ *
+ * Therefore, we make 'lstItems' a QList<NonMovableFileItem>, where
+ * NonMovableFileItem is a class that inherits KFileItem, but is not declared as a
+ * Q_MOVABLE_TYPE. This forces QList to never move these items in memory, which is
+ * achieved by allocating space for each individual item, and store pointers to
+ * these items in the contiguous region in memory.
+ *
+ * TODO:   Try to get rid of the raw KFileItem pointers in KCoreDirListerCache, and
+ *         replace all occurrences of NonMovableFileItem(List) with KFileItem(List).
+ */
+class NonMovableFileItem : public KFileItem
+{
+public:
+    NonMovableFileItem(const KFileItem &item) :
+        KFileItem(item)
+    {}
+};
+
+class NonMovableFileItemList : public QList<NonMovableFileItem>
+{
+public:
+    NonMovableFileItemList()
+    {}
+
+    KFileItem findByName(const QString &fileName) const
+    {
+        const_iterator it = begin();
+        const const_iterator itend = end();
+        for (; it != itend; ++it) {
+            if ((*it).name() == fileName) {
+                return *it;
+            }
+        }
+        return KFileItem();
+    }
+
+    KFileItemList toKFileItemList() const
+    {
+        KFileItemList result;
+        result.reserve(count());
+
+        foreach (const NonMovableFileItem &item, *this) {
+            result.append(item);
+        }
+
+        return result;
+    }
+};
+
 class KCoreDirLister;
 namespace KIO
 {
@@ -77,7 +132,7 @@ public:
     void jobDone(KIO::ListJob *);
     uint numJobs();
     void addNewItem(const QUrl &directoryUrl, const KFileItem &item);
-    void addNewItems(const QUrl &directoryUrl, const KFileItemList &items);
+    void addNewItems(const QUrl &directoryUrl, const NonMovableFileItemList &items);
     void addRefreshItem(const QUrl &directoryUrl, const KFileItem &oldItem, const KFileItem &item);
     void emitItems();
     void emitItemsDeleted(const KFileItemList &items);
@@ -182,7 +237,7 @@ public:
     void updateDirectory(const QUrl &dir);
 
     KFileItem itemForUrl(const QUrl &url) const;
-    KFileItemList *itemsForDir(const QUrl &dir) const;
+    NonMovableFileItemList *itemsForDir(const QUrl &dir) const;
 
     bool listDir(KCoreDirLister *lister, const QUrl &_url, bool _keep, bool _reload);
 
@@ -277,7 +332,7 @@ private:
     // when there were items deleted from the filesystem all the listers holding
     // the parent directory need to be notified, the items have to be deleted
     // and removed from the cache including all the children.
-    void deleteUnmarkedItems(const QList<KCoreDirLister *>&, KFileItemList &lstItems, const QHash<QString, KFileItem *> &itemsToDelete);
+    void deleteUnmarkedItems(const QList<KCoreDirLister *>&, NonMovableFileItemList &lstItems, const QHash<QString, KFileItem *> &itemsToDelete);
 
     // Helper method called when we know that a list of items was deleted
     void itemsDeleted(const QList<KCoreDirLister *> &listers, const KFileItemList &deletedItems);
@@ -411,7 +466,7 @@ private:
         // Remember that this is optional. FTP sites don't return '.' in
         // the list, so they give no root item
         KFileItem rootItem;
-        KFileItemList lstItems;
+        NonMovableFileItemList lstItems;
     };
 
     //static const unsigned short MAX_JOBS_PER_LISTER;
