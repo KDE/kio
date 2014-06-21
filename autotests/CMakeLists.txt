@@ -30,7 +30,7 @@ ecm_add_tests(
  LINK_LIBRARIES KF5::KIOCore KF5::I18n Qt5::Test Qt5::Network
 )
 
-target_link_libraries(kiocore-threadtest Qt5::Concurrent)
+target_link_libraries(threadtest Qt5::Concurrent)
 
 if(UNIX)
   ecm_add_tests(
@@ -56,7 +56,7 @@ ecm_add_tests(
  LINK_LIBRARIES KF5::KIOCore KF5::KIOWidgets Qt5::Test
 )
 
-set_target_properties(kiowidgets-krununittest PROPERTIES COMPILE_FLAGS "-DCMAKE_INSTALL_PREFIX=\\\"${CMAKE_INSTALL_PREFIX}\\\" -DKF5_LIBEXEC_INSTALL_DIR=\\\"${KF5_LIBEXEC_INSTALL_DIR}\\\"")
+set_target_properties(krununittest PROPERTIES COMPILE_FLAGS "-DCMAKE_INSTALL_PREFIX=\\\"${CMAKE_INSTALL_PREFIX}\\\" -DKF5_LIBEXEC_INSTALL_DIR=\\\"${KF5_LIBEXEC_INSTALL_DIR}\\\"")
 
 include_directories(${CMAKE_SOURCE_DIR}/src/filewidgets ${CMAKE_BINARY_DIR}/src/filewidgets)
 ecm_add_tests(
