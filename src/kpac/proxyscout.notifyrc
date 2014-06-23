@@ -1,7 +1,7 @@
 [Global]
 IconName=preferences-system-network-proxy
 Comment=Network Proxy Configuration
-Comment[ca]=Configuració del servidor intermediari de xarxa
+Comment[ca]=Configuració del servidor intermediari de la xarxa
 Comment[de]=Netzwerk-Proxy-Einrichtung
 Comment[es]=Configuración del proxy de red
 Comment[fi]=Verkon välityspalvelinasetukset
@@ -31,7 +31,7 @@ Comment[zh_CN]=网络代理配置
 
 [Event/script-error]
 Name=Invalid Proxy Script
-Name[ca]=Script de l'intermediari no vàlid
+Name[ca]=L'script de l'intermediari no és vàlid
 Name[de]=Ungültiges Proxy-Skript
 Name[es]=Script de proxy no válido
 Name[fi]=Virheellinen välityspalvelinskripti
@@ -61,7 +61,7 @@ Name[uk]=Некоректний скрипт проксі
 Name[x-test]=xxInvalid Proxy Scriptxx
 Name[zh_CN]=无效的代理脚本
 Comment=The downloaded proxy configuration script is invalid
-Comment[ca]=L'script descarregat de configuració de l'intermediari no és vàlid
+Comment[ca]=L'script de configuració baixat de l'intermediari no és vàlid
 Comment[de]=Das heruntergeladene Konfigurationsskript für den Proxy ist ungültig.
 Comment[es]=El script de configuración del proxy descargado no es válido
 Comment[fi]=Ladattu välityspalvelin asetusskripti on virheellinen
@@ -95,7 +95,7 @@ Action=Popup
 
 [Event/download-error]
 Name=Script Download Error
-Name[ca]=Error de descàrrega de l'script
+Name[ca]=Error en baixar l'script
 Name[de]=Fehler beim Herunterladen des Skripts
 Name[es]=Error de descarga de script
 Name[fi]=Skriptin latausvirhe
@@ -125,7 +125,7 @@ Name[uk]=Помилка звантаження проксі
 Name[x-test]=xxScript Download Errorxx
 Name[zh_CN]=脚本下载错误
 Comment=The proxy configuration script could not be downloaded
-Comment[ca]=L'script de configuració de l'intermediari no es pot descarregar
+Comment[ca]=L'script de configuració de l'intermediari no es pot baixar
 Comment[de]=Das Konfigurationsskript für den Proxy kann nicht heruntergeladen werden.
 Comment[es]=El script de configuración del proxy no se puede descargar
 Comment[fi]=Välityspalvelimen asetusskriptin lataaminen ei onnistunut
@@ -160,7 +160,7 @@ Action=Popup
 
 [Event/evaluation-error]
 Name=Script Evaluation Error
-Name[ca]=Error d'avaluació de l'script
+Name[ca]=Error en avaluar l'script
 Name[de]=Fehler bei der Auswertung des Skripts
 Name[es]=Error de evaluación de script
 Name[fi]=Skriptinsuoritusvirhe

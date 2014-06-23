@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=HTTP Cache Cleaner
-Name[ca]=Neteja la memòria cau del HTTP
+Name[ca]=Netejador de la memòria cau HTTP
 Name[de]=Aufräumprogramm für den HTTP-Zwischenspeicher
 Name[es]=Limpiador de la caché HTTP
 Name[fi]=HTTP-välimuistin tyhjentäjä
@@ -34,7 +34,7 @@ Name[zh_CN]=HTTP 缓存清除程序
 Name[zh_HK]=HTTP 快取清除程式
 Exec=kio_http_cache_cleaner
 Comment=Cleans up old entries from the HTTP cache
-Comment[ca]=Neteja les entrades antigues de la memòria cau del HTTP
+Comment[ca]=Neteja les entrades antigues de la memòria cau HTTP
 Comment[de]=Löscht alte Einträge aus dem HTTP-Zwischenspeicher
 Comment[es]=Borra entradas antiguas de la caché de HTTP
 Comment[fi]=Puhdistaa vanhat tiedot HTTP-välimuistista
