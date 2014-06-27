@@ -153,9 +153,7 @@ Q_GLOBAL_STATIC(KProtocolManagerPrivate, kProtocolManagerPrivate)
 
 static void syncOnExit()
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 1, 1)
     if (kProtocolManagerPrivate.exists())
-#endif
         kProtocolManagerPrivate()->sync();
 }
 
