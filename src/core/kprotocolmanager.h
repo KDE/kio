@@ -675,6 +675,6 @@ private:
      * @internal
      * (Shared with SlaveConfig)
      */
-    KIOCORE_NO_EXPORT static KSharedConfigPtr config();
+    KIOCORE_NO_EXPORT static QMap<QString, QString> entryMap(const QString &group);
 };
 #endif

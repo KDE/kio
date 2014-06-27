@@ -69,11 +69,8 @@ void SlaveConfigPrivate::readGlobalConfig()
 {
     global.clear();
     // Read stuff...
-    KSharedConfig::Ptr config = KProtocolManager::config();
     readConfig(KSharedConfig::openConfig().data(), "Socks", &global); // Socks settings.
-    if (config) {
-        readConfig(config.data(), "<default>", &global);
-    }
+    global += KProtocolManager::entryMap("<default>");
 }
 
 SlaveConfigProtocol *SlaveConfigPrivate::readProtocolConfig(const QString &_protocol)
