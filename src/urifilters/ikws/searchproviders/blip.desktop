@@ -79,6 +79,7 @@ Query[cs]=https://blip.tv/search?q=\\{@}
 Query[da]=https://blip.tv/search?q=\\{@}
 Query[de]=https://blip.tv/search?q=\\{@}
 Query[el]=https://blip.tv/search?q=\\{@}
+Query[en_GB]=https://blip.tv/search?q=\\{@}
 Query[es]=https://blip.tv/search?q=\\{@}
 Query[eu]=https://blip.tv/search?q=\\{@}
 Query[fi]=https://blip.tv/search?q=\\{@}

@@ -96,6 +96,7 @@ Query[cs]=http://www.allmusic.com/search/all/\\{@}
 Query[da]=http://www.allmusic.com/search/all/\\{@}
 Query[de]=http://www.allmusic.com/search/all/\\{@}
 Query[el]=http://www.allmusic.com/search/all/\\{@}
+Query[en_GB]=http://www.allmusic.com/search/all/\\{@}
 Query[es]=http://www.allmusic.com/search/all/\\{@}
 Query[eu]=http://www.allmusic.com/search/all/\\{@}
 Query[fi]=http://www.allmusic.com/search/all/\\{@}

@@ -100,6 +100,7 @@ Query[cs]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[da]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[de]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[el]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[en_GB]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[es]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[eu]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[fi]=https://fi.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go

@@ -100,6 +100,7 @@ Query[cs]=http://www.rae.es/drae/?val=\\{@}
 Query[da]=http://www.rae.es/drae/?val=\\{@}
 Query[de]=http://www.rae.es/drae/?val=\\{@}
 Query[el]=http://www.rae.es/drae/?val=\\{@}
+Query[en_GB]=http://www.rae.es/drae/?val=\\{@}
 Query[es]=http://www.rae.es/drae/?val=\\{@}
 Query[eu]=http://www.rae.es/drae/?val=\\{@}
 Query[fi]=http://www.rae.es/drae/?val=\\{@}

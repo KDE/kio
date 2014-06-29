@@ -10,6 +10,7 @@ Class=:internet
 Description=Microsoft Media Server Protocol
 Description[ca]=Protocol del Microsoft Media Server
 Description[de]=Microsoft Media-Server-Protokoll
+Description[en_GB]=Microsoft Media Server Protocol
 Description[es]=Protocolo del servidor multimedia de Microsoft
 Description[fi]=Microsoft Media -palvelinyhteyskäytäntö
 Description[fr]=Protocole « Microsoft Média Server »

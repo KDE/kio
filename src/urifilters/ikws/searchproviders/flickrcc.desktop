@@ -77,6 +77,7 @@ Query[cs]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[da]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[de]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[el]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
+Query[en_GB]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[es]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[eu]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[fi]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1

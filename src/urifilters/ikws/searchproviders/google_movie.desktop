@@ -99,6 +99,7 @@ Query[cs]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[da]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[de]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[el]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[en_GB]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[es]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[eu]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[fi]=http://www.google.fi/search?q=\\{@}&ie=UTF-8&oe=UTF-8
