@@ -23,6 +23,7 @@ Description[nn]=Ein KIO-slave for data-URI-ar (RFC 2397)
 Description[pl]=Wtyczka protokołu URI danych (rfc2397)
 Description[pt]=Um 'kioslave' para os URI's de dados (RFC2397)
 Description[pt_BR]=Um kioslave para URIs de dados (rfc2397)
+Description[ru]=Открытие URI по rfc2397
 Description[se]=kiošláva dáhta-URI:aid várás (rfc2397)
 Description[sk]=IO klient pre dátové URI (RFC 2397)
 Description[sl]=kioslave za podatkovne URI-je (rfc2397)
