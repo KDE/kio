@@ -61,6 +61,7 @@ private Q_SLOTS:
     void testZipFile();
     void testSmb();
     void testBug196695();
+    void testMimeData();
 
     // These tests must be done last
     void testDeleteFile();

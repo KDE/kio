@@ -1113,6 +1113,21 @@ void KDirModelTest::testBug196695()
     fillModel(true);
 }
 
+void KDirModelTest::testMimeData()
+{
+    QModelIndex index0 = m_dirModel->index(0, 0);
+    QVERIFY(index0.isValid());
+    QModelIndex index1 = m_dirModel->index(1, 0);
+    QVERIFY(index1.isValid());
+    QList<QModelIndex> indexes;
+    indexes << index0 << index1;
+    QMimeData *mimeData = m_dirModel->mimeData(indexes);
+    QVERIFY(mimeData);
+    QVERIFY(mimeData->hasUrls());
+    const QList<QUrl> urls = mimeData->urls();
+    QCOMPARE(urls.count(), indexes.count());
+}
+
 void KDirModelTest::testDeleteFile()
 {
     fillModel(false);
