@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=Baidu
+Name[ar]=Baidu
 Name[ast]=Baidu
 Name[bg]=Търсене в Baidu
 Name[bn]=বাইডু
@@ -69,6 +70,7 @@ Name[zh_TW]=百度
 X-KDE-ServiceTypes=SearchProvider
 Keys=baidu
 Query=http://www.baidu.com/s?wd=\\{@}
+Query[ar]=http://www.baidu.com/s?wd=\\{@}
 Query[ast]=http://www.baidu.com/s?wd=\\{@}
 Query[bg]=http://www.baidu.com/s?wd=\\{@}
 Query[bn]=http://www.baidu.com/s?wd=\\{@}

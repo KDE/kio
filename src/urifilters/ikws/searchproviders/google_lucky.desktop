@@ -2,7 +2,7 @@
 Type=Service
 Name=Google (I'm Feeling Lucky)
 Name[af]=Google (Vat 'n kaans)
-Name[ar]=جوجل (أنا محظوظ)
+Name[ar]=جوجل (باستخدام ميزة ضربة حظ)
 Name[as]=Google (I'm Feeling Lucky)
 Name[ast]=Google (Voi tener suerte)
 Name[be]=Google (Мне пашанцуе)
@@ -92,6 +92,7 @@ Name[zh_TW]=Google (好手氣)
 X-KDE-ServiceTypes=SearchProvider
 Keys=ggl,gglucky
 Query=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
+Query[ar]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[bg]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[bs]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[ca]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8

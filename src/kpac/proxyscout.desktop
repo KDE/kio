@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=Network Proxy Configuration
+Name[ar]=تضبيط وسيط الشبكة
 Name[ca]=Configuració del servidor intermediari de la xarxa
 Name[de]=Netzwerk-Proxy-Einrichtung
 Name[en_GB]=Network Proxy Configuration
@@ -31,6 +32,7 @@ Name[uk]=Налаштування проксі-сервера мережі
 Name[x-test]=xxNetwork Proxy Configurationxx
 Name[zh_CN]=网络代理配置
 Comment=Automatic proxy configuration
+Comment[ar]=تضبيط وسيط الشبكة التلقائي
 Comment[ca]=Configuració automàtica de l'intermediari
 Comment[de]=Sucht nach einem Proxy-Server und richtet ihn ein
 Comment[en_GB]=Automatic proxy configuration

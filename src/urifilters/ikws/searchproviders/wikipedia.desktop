@@ -2,7 +2,7 @@
 Type=Service
 Name=Wikipedia - The Free Encyclopedia
 Name[af]=Wikipedia - Die gratis ensiklopidie
-Name[ar]=ويكيبيديا الموسوعة الحرّة
+Name[ar]=ويكيبيديا - الموسوعة الحرّة
 Name[as]=Wikipedia - The Free Encyclopedia
 Name[ast]=Wikipedia - La enciclopedia llibre
 Name[be]=Wikipedia - Свабодная Энцыклапедыя
@@ -92,6 +92,7 @@ Name[zh_TW]=Wikipedia - 免費的 Encyclopedia
 X-KDE-ServiceTypes=SearchProvider
 Keys=wp
 Query=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[ar]=https://ar.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[bg]=https://bg.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[bs]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ca]=https://ca.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go

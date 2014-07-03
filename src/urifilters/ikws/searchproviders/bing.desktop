@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=Bing
+Name[ar]=Bing
 Name[ast]=Bing
 Name[bg]=Bing
 Name[bn]=বিং
@@ -69,6 +70,7 @@ Name[zh_TW]=Bing
 X-KDE-ServiceTypes=SearchProvider
 Keys=bing
 Query=http://www.bing.com/search?q=\\{@}
+Query[ar]=http://www.bing.com/search?q=\\{@}
 Query[ast]=http://www.bing.com/search?q=\\{@}
 Query[bg]=http://www.bing.com/search?q=\\{@}
 Query[bn]=http://www.bing.com/search?q=\\{@}

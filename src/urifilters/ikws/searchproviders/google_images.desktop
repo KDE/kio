@@ -2,7 +2,7 @@
 Type=Service
 Name=Google Image Search
 Name[af]=Google Beeld Soektog
-Name[ar]=بحث صور جوجل
+Name[ar]=بحث الصور عبر جوجل
 Name[as]=Google ছবিৰৰ অনুনসন্ধান
 Name[ast]=Gueta d'imáxenes de Google
 Name[be]=Пошук відарысаў Google
@@ -93,6 +93,7 @@ Name[zh_TW]=Google 圖片搜尋
 X-KDE-ServiceTypes=SearchProvider
 Keys=ggi,images
 Query=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[ar]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[bg]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[bs]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ca]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}

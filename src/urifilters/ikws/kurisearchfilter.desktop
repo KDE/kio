@@ -2,7 +2,6 @@
 Type=Service
 Name=SearchKeywordsFilter
 Name[af]=Soektogsleutelwoordfilter
-Name[ar]=مرشح كلمات البحث
 Name[ast]=Peñera de pallabres contraseña de gueta
 Name[be]=Фільтр пошуку ключавых словаў
 Name[be@latin]=SearchKeywordsFilter

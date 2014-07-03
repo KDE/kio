@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=KDE Projects
+Name[ar]=مشاريع كدي
 Name[bg]=Проекти на KDE
 Name[bs]=KDE projekti
 Name[ca]=Projectes del KDE
@@ -50,6 +51,7 @@ Name[zh_TW]=KDE 專案
 X-KDE-ServiceTypes=SearchProvider
 Keys=kp,kdeprojects
 Query=https://projects.kde.org/search?projects=1&q=\\{@}
+Query[ar]=https://projects.kde.org/search?projects=1&q=\\{@}
 Query[bg]=https://projects.kde.org/search?projects=1&q=\\{@}
 Query[bs]=https://projects.kde.org/search?projects=1&q=\\{@}
 Query[ca]=https://projects.kde.org/search?projects=1&q=\\{@}

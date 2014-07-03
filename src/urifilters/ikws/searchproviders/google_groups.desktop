@@ -93,6 +93,7 @@ Name[zh_TW]=Google 群組
 X-KDE-ServiceTypes=SearchProvider
 Keys=ggg,groups,dj,deja
 Query=https://groups.google.com/groups?oi=djq&as_q=\\{@}
+Query[ar]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[bg]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[bs]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[ca]=https://groups.google.com/groups?oi=djq&as_q=\\{@}

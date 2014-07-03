@@ -71,6 +71,7 @@ Name[x-test]=xxBlip.tvxx
 Name[zh_CN]=Blip.tv
 Name[zh_TW]=Blip.tv
 Query=https://blip.tv/search?q=\\{@}
+Query[ar]=https://blip.tv/search?q=\\{@}
 Query[bg]=https://blip.tv/search?q=\\{@}
 Query[bs]=https://blip.tv/search?q=\\{@}
 Query[ca]=https://blip.tv/search?q=\\{@}

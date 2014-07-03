@@ -71,6 +71,7 @@ Name[x-test]=xxFacebookxx
 Name[zh_CN]=Facebook
 Name[zh_TW]=Facebook
 Query=https://www.facebook.com/search/?q=\\{@}&init=quick
+Query[ar]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[bg]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[bs]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[ca]=https://www.facebook.com/search/?q=\\{@}&init=quick

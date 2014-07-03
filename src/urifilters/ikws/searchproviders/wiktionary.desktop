@@ -2,7 +2,7 @@
 Type=Service
 Name=Wiktionary - The Free Dictionary
 Name[af]=Wiktionary - Die gratis woordeboek
-Name[ar]=القاموس المجاني Wiktionary
+Name[ar]=ويكاموس - القاموس الحرّ
 Name[as]=Wiktionary - The Free Dictionary
 Name[ast]=Wiktionary - El diccionariu llibre
 Name[be]=Wiktionary - Свабодны Слоўнік
@@ -90,6 +90,7 @@ Name[zh_TW]=Wiktionary - 免費的字典
 X-KDE-ServiceTypes=SearchProvider
 Keys=wt,wikt
 Query=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[ar]=https://ar.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[bg]=https://bg.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[bs]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ca]=https://ca.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go

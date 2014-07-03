@@ -3,7 +3,7 @@ Charset=
 Hidden=false
 Keys=flickr,flkr
 Name=Flickr
-Name[ar]=فلكر
+Name[ar]=Flickr
 Name[ast]=Flickr
 Name[bg]=Flickr
 Name[bn]=ফ্লিকর
@@ -71,7 +71,7 @@ Name[x-test]=xxFlickrxx
 Name[zh_CN]=Flickr
 Name[zh_TW]=Flickr
 Query=http://www.flickr.com/search/?q=\\{@}
-Query[ar]=http://www.ethicle.com/search.php?q=\\{@}
+Query[ar]=http://www.flickr.com/search/?q=\\{@}
 Query[ast]=http://www.flickr.com/search/?q=\\{@}
 Query[bg]=http://www.flickr.com/search/?q=\\{@}
 Query[bn]=http://www.flickr.com/search/?q=\\{@}

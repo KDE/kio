@@ -3,7 +3,7 @@ Hidden=false
 Keys=cia
 Name=CIA World Fact Book
 Name[af]=CIA Wêreldfeiteboek
-Name[ar]=كتاب وكالة المخابرات المركزية لحقائق العالم
+Name[ar]=كتاب وكالة الاستخبارات الأمريكية لحقائق العالم
 Name[as]=CIA World Fact Book
 Name[ast]=Llibru del estáu del mundu de la CIA
 Name[be]=CIA World Factbook
@@ -86,6 +86,7 @@ Name[x-test]=xxCIA World Fact Bookxx
 Name[zh_CN]=CIA World Fact Book
 Name[zh_TW]=CIA World Fact Book
 Query=https://www.cia.gov/search?q=\\{@}&site=WORLD_FACTBOOK&btnG=Search&client=CIA&myAction=/search&proxystylesheet=CIA&submitMethod=get&oe=UTF-8&ie=UTF-8&ud=1
+Query[ar]=https://www.cia.gov/search?q=\\{@}&site=WORLD_FACTBOOK&btnG=Search&client=CIA&myAction=/search&proxystylesheet=CIA&submitMethod=get&oe=UTF-8&ie=UTF-8&ud=1
 Query[bg]=https://www.cia.gov/search?q=\\{@}&site=WORLD_FACTBOOK&btnG=Search&client=CIA&myAction=/search&proxystylesheet=CIA&submitMethod=get&oe=UTF-8&ie=UTF-8&ud=1
 Query[bs]=https://www.cia.gov/search?q=\\{@}&site=WORLD_FACTBOOK&btnG=Search&client=CIA&myAction=/search&proxystylesheet=CIA&submitMethod=get&oe=UTF-8&ie=UTF-8&ud=1
 Query[ca]=https://www.cia.gov/search?q=\\{@}&site=WORLD_FACTBOOK&btnG=Search&client=CIA&myAction=/search&proxystylesheet=CIA&submitMethod=get&oe=UTF-8&ie=UTF-8&ud=1

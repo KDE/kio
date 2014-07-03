@@ -1,6 +1,7 @@
 [Global]
 IconName=preferences-system-network-proxy
 Comment=Network Proxy Configuration
+Comment[ar]=تضبيط وسيط الشبكة
 Comment[ca]=Configuració del servidor intermediari de la xarxa
 Comment[de]=Netzwerk-Proxy-Einrichtung
 Comment[en_GB]=Network Proxy Configuration
@@ -33,6 +34,7 @@ Comment[zh_CN]=网络代理配置
 
 [Event/script-error]
 Name=Invalid Proxy Script
+Name[ar]=سكرِبت وسيط غير صالح
 Name[ca]=L'script de l'intermediari no és vàlid
 Name[de]=Ungültiges Proxy-Skript
 Name[en_GB]=Invalid Proxy Script
@@ -65,6 +67,7 @@ Name[uk]=Некоректний скрипт проксі
 Name[x-test]=xxInvalid Proxy Scriptxx
 Name[zh_CN]=无效的代理脚本
 Comment=The downloaded proxy configuration script is invalid
+Comment[ar]=سكرِبت تضبيط الوسيط الذي نُزِّل غير صالح
 Comment[ca]=L'script de configuració baixat de l'intermediari no és vàlid
 Comment[de]=Das heruntergeladene Konfigurationsskript für den Proxy ist ungültig.
 Comment[en_GB]=The downloaded proxy configuration script is invalid
@@ -101,6 +104,7 @@ Action=Popup
 
 [Event/download-error]
 Name=Script Download Error
+Name[ar]=خطأ في تحميل السكرِبت
 Name[ca]=Error en baixar l'script
 Name[de]=Fehler beim Herunterladen des Skripts
 Name[en_GB]=Script Download Error
@@ -133,6 +137,7 @@ Name[uk]=Помилка звантаження проксі
 Name[x-test]=xxScript Download Errorxx
 Name[zh_CN]=脚本下载错误
 Comment=The proxy configuration script could not be downloaded
+Comment[ar]=تعذّر تحميل سكرِبت تضبيط الوسيط
 Comment[ca]=L'script de configuració de l'intermediari no es pot baixar
 Comment[de]=Das Konfigurationsskript für den Proxy kann nicht heruntergeladen werden.
 Comment[en_GB]=The proxy configuration script could not be downloaded
@@ -201,6 +206,7 @@ Name[uk]=Помилка оцінки скрипту
 Name[x-test]=xxScript Evaluation Errorxx
 Name[zh_CN]=脚本执行错误
 Comment=There was an error executing the proxy configuration script
+Comment[ar]=خطأ في تنفيذ سكرِبت تضبيط الوسيط
 Comment[ca]=Hi ha hagut un error en executar l'script de configuració de l'intermediari
 Comment[de]=Beim Ausführen des Skripts zur Proxy-Konfiguration ist ein Fehler aufgetreten.
 Comment[en_GB]=There was an error executing the proxy configuration script

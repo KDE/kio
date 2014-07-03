@@ -8,6 +8,7 @@ reading=false
 Icon=www
 Class=:internet
 Description=Microsoft Media Server Protocol
+Description[ar]=ميفاق خادوم مايكروسوفت للوسائط
 Description[ca]=Protocol del Microsoft Media Server
 Description[de]=Microsoft Media-Server-Protokoll
 Description[en_GB]=Microsoft Media Server Protocol

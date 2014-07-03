@@ -3,7 +3,7 @@ Charset=
 Hidden=false
 Keys=vimeo,vm
 Name=Vimeo
-Name[ar]=فيديو Vimeo
+Name[ar]=ڤيميو
 Name[ast]=Vimeo
 Name[bg]=Vimeo
 Name[bn]=ভিমিও
@@ -71,6 +71,7 @@ Name[x-test]=xxVimeoxx
 Name[zh_CN]=Vimeo
 Name[zh_TW]=Vimeo
 Query=http://vimeo.com/search?q=\\{@}
+Query[ar]=http://vimeo.com/search?q=\\{@}
 Query[bg]=http://vimeo.com/search?q=\\{@}
 Query[bs]=http://vimeo.com/search?q=\\{@}
 Query[ca]=http://vimeo.com/search?q=\\{@}

@@ -2,7 +2,7 @@
 Type=Service
 Name=Google Movies
 Name[af]=Google Films
-Name[ar]=أفلام جوجل
+Name[ar]=فيديوهات جوجل
 Name[as]=Google Movies
 Name[ast]=Películes de Google
 Name[be]=Фільмы Google
@@ -91,6 +91,7 @@ Name[zh_TW]=Google 電影
 X-KDE-ServiceTypes=SearchProvider
 Keys=ggmovie
 Query=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[ar]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[bg]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[bs]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ca]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
