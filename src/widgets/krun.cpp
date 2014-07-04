@@ -176,7 +176,8 @@ bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, bool
     } else if (isExecutableFile(u, _mimetype)) {
         if (u.isLocalFile() && runExecutables) {
             if (KAuthorized::authorize("shell_access")) {
-                return (KRun::runCommand(KShell::quoteArg(u.toLocalFile()), QString(), QString(), window, asn, u.adjusted(QUrl::RemoveFilename).path())); // just execute the url as a command
+                return (KRun::runCommand(KShell::quoteArg(u.toLocalFile()), QString(), QString(),
+                            window, asn, u.adjusted(QUrl::RemoveFilename).toLocalFile())); // just execute the url as a command
                 // ## TODO implement deleting the file if tempFile==true
             } else {
                 noAuth = true;
@@ -426,8 +427,13 @@ static bool runTempService(const KService &_service, const QList<QUrl> &_urls, Q
     }
     //qDebug() << "runTempService: KProcess args=" << args;
 
+    QString path(_service.path());
+    if (path.isEmpty() && !_urls.isEmpty() && _urls.first().isLocalFile()) {
+        path = _urls.first().adjusted(QUrl::RemoveFilename).toLocalFile();
+    }
+
     return runCommandInternal(args.join(" "), &_service, KIO::DesktopExecParser::executablePath(_service.exec()),
-                              _service.name(), _service.icon(), window, asn, _service.path());
+                              _service.name(), _service.icon(), window, asn, path);
 }
 
 // WARNING: don't call this from DesktopExecParser, since klauncher uses that too...
