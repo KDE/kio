@@ -273,6 +273,7 @@ void KProtocolManager::reparseConfiguration()
     d->noProxyFor.clear();
     d->modifiers.clear();
     d->useragent.clear();
+    lock.unlock();
 
     // Force the slave config to re-read its config...
     KIO::SlaveConfig::self()->reset();
