@@ -78,6 +78,11 @@ void KProtocolInfoTest::testSlaveProtocol()
     QString proxy;
     QString protocol = KProtocolManager::slaveProtocol(QUrl("http://bugs.kde.org"), proxy);
     QCOMPARE(protocol, QString::fromLatin1("http"));
+
+    // Just to test it doesn't deadlock
+    KProtocolManager::reparseConfiguration();
+    protocol = KProtocolManager::slaveProtocol(QUrl("http://bugs.kde.org"), proxy);
+    QCOMPARE(protocol, QString::fromLatin1("http"));
 }
 
 void KProtocolInfoTest::testCapabilities()
