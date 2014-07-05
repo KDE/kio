@@ -841,10 +841,12 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
 {
     KNewFileMenuSingleton *s = kNewMenuGlobals();
     //qDebug();
+
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "templates", QStandardPaths::LocateDirectory);
+
     // Ensure any changes in the templates dir will call this
     if (! s->dirWatch) {
         s->dirWatch = new KDirWatch;
-        const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "templates", QStandardPaths::LocateDirectory);
         for (QStringList::const_iterator it = dirs.constBegin(); it != dirs.constEnd(); ++it) {
             //qDebug() << "Templates resource dir:" << *it;
             s->dirWatch->addDir(*it);
@@ -863,7 +865,17 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
     s->templatesList->clear();
 
     // Look into "templates" dirs.
-    const QStringList files = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "templates", QStandardPaths::LocateDirectory);
+    QStringList files;
+    QDir dir;
+
+    Q_FOREACH (const QString &path, dirs) {
+        dir.setPath(path);
+        const QStringList &entryList(dir.entryList(QStringList() << "*.desktop", QDir::Files));
+        Q_FOREACH (const QString &entry, entryList) {
+            files.append(dir.path() + dir.separator() + entry);
+        }
+    }
+
     QMap<QString, KNewFileMenuSingleton::Entry> slist; // used for sorting
     Q_FOREACH (const QString &file, files) {
         //qDebug() << file;
