@@ -103,7 +103,7 @@ KIOCORE_EXPORT QString convertSeconds(unsigned int seconds);
  * @param  speed          speed in bytes per second
  * @return calculated remaining time
  */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
 KIOCORE_DEPRECATED_EXPORT QTime calculateRemaining(KIO::filesize_t totalSize, KIO::filesize_t processedSize, KIO::filesize_t speed);
 #endif
 

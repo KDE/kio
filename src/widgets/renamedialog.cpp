@@ -416,7 +416,7 @@ void RenameDialog::renamePressed()
     }
 }
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
 QString RenameDialog::suggestName(const QUrl &baseURL, const QString &oldName)
 {
     return KIO::suggestName(baseURL, oldName);

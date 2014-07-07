@@ -63,7 +63,7 @@ public:
         ScaledAndCached
     };
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     /**
      * Creates a new PreviewJob.
      * @param items a list of files to create previews for
@@ -205,7 +205,7 @@ public:
      * @deprecated PreviewJob uses different maximum file sizes dependent on the URL since 4.5.
      *             The returned file size is only valid for local URLs.
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     KIOWIDGETS_DEPRECATED static KIO::filesize_t maximumFileSize();
 #endif
 
@@ -234,7 +234,7 @@ private:
     Q_DECLARE_PRIVATE(PreviewJob)
 };
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
 /**
  * Creates a PreviewJob to generate or retrieve a preview image
  * for the given URL.

@@ -673,7 +673,7 @@ public:
     SessionData sessionData;
 
     void doJob(SimpleJob *job);
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
     void scheduleJob(SimpleJob *job);
 #endif
     void setJobPriority(SimpleJob *job, int priority);
@@ -792,7 +792,7 @@ void Scheduler::doJob(SimpleJob *job)
     schedulerPrivate()->doJob(job);
 }
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
 void Scheduler::scheduleJob(SimpleJob *job)
 {
     schedulerPrivate()->scheduleJob(job);
@@ -962,7 +962,7 @@ void SchedulerPrivate::doJob(SimpleJob *job)
     proto->queueJob(job);
 }
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
 void SchedulerPrivate::scheduleJob(SimpleJob *job)
 {
     //qDebug() << job;

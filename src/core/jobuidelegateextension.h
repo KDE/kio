@@ -56,7 +56,7 @@ enum RenameDialog_Option {
 Q_DECLARE_FLAGS(RenameDialog_Options, RenameDialog_Option)
 
 // For compat
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
 /**
  * @deprecated since 5.0, use the RenameDialog_Option enum values
  */

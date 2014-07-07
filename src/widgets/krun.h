@@ -309,7 +309,7 @@ public:
      *
      * @param str the string to quote. The quoted string will be written here
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     static KIOWIDGETS_DEPRECATED void shellQuote(QString &str);
 #endif
 
@@ -324,7 +324,7 @@ public:
      * @return a list of arguments suitable for QProcess.
      * @deprecated since 5.0, use KIO::DesktopExecParser
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     static KIOWIDGETS_DEPRECATED QStringList processDesktopExec(const KService &_service, const QList<QUrl> &_urls,
             bool tempFiles = false,
             const QString &suggestedFileName = QString());
@@ -339,7 +339,7 @@ public:
      * @deprecated since 5.0, use KIO::DesktopExecParser::executableName if removePath was true,
      * or KIO::DesktopExecParser::executablePath if removePath was false.
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     static QString binaryName(const QString &execLine, bool removePath);
 #endif
 
@@ -509,7 +509,7 @@ protected:
      * @deprecated setFinished(true) now takes care of the timer().start(0),
      * so this can be removed.
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     KIOWIDGETS_DEPRECATED QTimer &timer();
 #endif
 
@@ -517,7 +517,7 @@ protected:
      * Indicate that the next action is to scan the file.
      * @deprecated not useful in public API
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     KIOWIDGETS_DEPRECATED void setDoScanFile(bool scanFile);
 #endif
 
@@ -525,7 +525,7 @@ protected:
      * Returns whether the file shall be scanned.
      * @deprecated not useful in public API
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     KIOWIDGETS_DEPRECATED bool doScanFile() const;
 #endif
 
@@ -533,7 +533,7 @@ protected:
      * Sets whether it is a directory.
      * @deprecated typo in the name, and not useful as a public method
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     KIOWIDGETS_DEPRECATED void setIsDirecory(bool isDirectory);
 #endif
 
@@ -545,14 +545,14 @@ protected:
     /**
      * @deprecated not useful in public API
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     KIOWIDGETS_DEPRECATED void setInitializeNextAction(bool initialize);
 #endif
 
     /**
      * @deprecated not useful in public API
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     KIOWIDGETS_DEPRECATED bool initializeNextAction() const;
 #endif
 

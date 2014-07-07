@@ -645,7 +645,7 @@ public:
      * @since 4.5
      * @deprecated Use @ref KUriFilterSearchProvider instead. See @ref setSearchProviders;
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     KIOWIDGETS_DEPRECATED typedef QHash<QString, QPair<QString, QString> > ProviderInfoList;
 #endif
 
@@ -945,7 +945,7 @@ public:
      * @since 4.5
      * @deprecated Use filterSearchUri(KUriFilterData&, SearchFilterTypes) instead.
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     KIOWIDGETS_DEPRECATED bool filterSearchUri(KUriFilterData &data);
 #endif
 

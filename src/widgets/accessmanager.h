@@ -125,7 +125,7 @@ public:
      * @since 4.4
      * @deprecated Use setWindow
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     KIOWIDGETS_DEPRECATED void setCookieJarWindowId(WId id);
 #endif
 
@@ -153,7 +153,7 @@ public:
      * @since 4.4
      * @deprecated Use KIO::Integration::CookieJar::windowId
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     KIOWIDGETS_DEPRECATED WId cookieJarWindowid() const;
 #endif
 

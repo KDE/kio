@@ -95,7 +95,7 @@ public:
      * The suggested file name is of the form "foo 1", "foo 2" etc.
      * @deprecated use KIO::suggestName
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     static KIOWIDGETS_DEPRECATED QString suggestName(const QUrl &baseURL, const QString &oldName);
 #endif
 

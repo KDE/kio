@@ -277,7 +277,7 @@ public:
      */
     QStringList customProtocols() const;
 
-#if !defined(KDE_NO_DEPRECATED) && !defined(DOXYGEN_SHOULD_SKIP_THIS)
+#if !defined(KIOFILEWIDGETS_NO_DEPRECATED) && !defined(DOXYGEN_SHOULD_SKIP_THIS)
     /**
      * @return     The current URL of the location.
      * @deprecated Use KUrlNavigator::locationUrl() instead.
@@ -343,7 +343,7 @@ public Q_SLOTS:
     void setFocus();
 #endif
 
-#if !defined(KDE_NO_DEPRECATED) && !defined(DOXYGEN_SHOULD_SKIP_THIS)
+#if !defined(KIOFILEWIDGETS_NO_DEPRECATED) && !defined(DOXYGEN_SHOULD_SKIP_THIS)
     /**
      * Sets the location to \a url.
      * @deprecated Use KUrlNavigator::setLocationUrl(url).

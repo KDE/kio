@@ -73,7 +73,7 @@ StatJob::~StatJob()
 {
 }
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
 void StatJob::setSide(bool source)
 {
     d_func()->m_bSource = source;
@@ -190,7 +190,7 @@ StatJob *KIO::mostLocalUrl(const QUrl &url, JobFlags flags)
     return job;
 }
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
 StatJob *KIO::stat(const QUrl &url, bool sideIsSource, short int details, JobFlags flags)
 {
     //qDebug() << "stat" << url;

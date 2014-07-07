@@ -100,7 +100,7 @@ public:
      * @deprecated since 5.0. Most callers gave Unknown for mode and permissions,
      * so just port to KFileItem(url) and setDelayedMimeTypes(true) if necessary.
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
     KIOCORE_DEPRECATED KFileItem(mode_t mode, mode_t permissions, const QUrl &url,
                                  bool delayedMimeTypes = false);
 #endif
@@ -314,7 +314,7 @@ public:
      * @see time
      */
     QString timeString(FileTimes which = ModificationTime) const;
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
     KIOCORE_DEPRECATED QString timeString(unsigned int which) const;
 #endif
 
@@ -424,7 +424,7 @@ public:
      * mostly makes sense for file managers only.
      * KDirModel has setDropsAllowed for similar (but configurable) logic.
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
     KIOCORE_DEPRECATED bool acceptsDrops() const;
 #endif
 
@@ -471,7 +471,7 @@ public:
     /**
      * @deprecated simply use '='
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
     KIOCORE_DEPRECATED void assign(const KFileItem &item);
 #endif
 
@@ -485,7 +485,7 @@ public:
     /**
      * @deprecated since 5.0 add '&' in front of your boolean argument
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
     QUrl mostLocalUrl(bool &local) const { return mostLocalUrl(&local); }
 #endif
 

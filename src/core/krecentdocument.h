@@ -87,7 +87,7 @@ public:
      * @param isURL Set to @p true if @p documentStr is an URL and not a local file path.
      * @deprecated call add(QUrl(str)) if isURL=true, and add(QUrl::fromLocalFile(str)) if isURL=false.
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
     static KIOCORE_DEPRECATED void add(const QString &documentStr, bool isUrl = false)
     {
         if (isUrl) {

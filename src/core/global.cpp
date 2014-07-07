@@ -172,7 +172,7 @@ KIOCORE_EXPORT QString KIO::convertSeconds(unsigned int seconds)
     }
 }
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
 KIOCORE_EXPORT QTime KIO::calculateRemaining(KIO::filesize_t totalSize, KIO::filesize_t processedSize, KIO::filesize_t speed)
 {
     QTime remainingTime;

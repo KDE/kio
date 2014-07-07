@@ -257,7 +257,7 @@ bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool t
     return false;
 }
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
 void KRun::shellQuote(QString &_str)
 {
     // Credits to Walter, says Bernd G. :)
@@ -277,7 +277,7 @@ QStringList KRun::processDesktopExec(const KService &_service, const QList<QUrl>
     return parser.resultingArguments();
 }
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
 QString KRun::binaryName(const QString &execLine, bool removePath)
 {
     return removePath ? KIO::DesktopExecParser::executableName(execLine) : KIO::DesktopExecParser::executablePath(execLine);
@@ -1328,28 +1328,28 @@ KIO::Job *KRun::job()
     return d->m_job;
 }
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
 QTimer &KRun::timer()
 {
     return *d->m_timer;
 }
 #endif
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
 void KRun::setDoScanFile(bool scanFile)
 {
     d->m_bScanFile = scanFile;
 }
 #endif
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
 bool KRun::doScanFile() const
 {
     return d->m_bScanFile;
 }
 #endif
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
 void KRun::setIsDirecory(bool isDirectory)
 {
     d->m_bIsDirectory = isDirectory;
@@ -1361,14 +1361,14 @@ bool KRun::isDirectory() const
     return d->m_bIsDirectory;
 }
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
 void KRun::setInitializeNextAction(bool initialize)
 {
     d->m_bInit = initialize;
 }
 #endif
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
 bool KRun::initializeNextAction() const
 {
     return d->m_bInit;

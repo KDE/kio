@@ -694,7 +694,7 @@ public:
      * You should make sure that finished() is called when the entry
      * listing is completed and simply remove the call to listEntry(entry, true).
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
     KIOCORE_DEPRECATED void listEntry(const UDSEntry &_entry, bool ready);
 #endif
 
@@ -848,7 +848,7 @@ public:
      * @return true in theory, the host is reachable
      *         false the system is offline and the host is in a remote network.
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
     bool requestNetwork(const QString &host = QString());
 #endif
 
@@ -868,7 +868,7 @@ public:
      *
      * A slave should call this function every time it disconnect from a host.
      * */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
     void dropNetwork(const QString &host = QString());
 #endif
 

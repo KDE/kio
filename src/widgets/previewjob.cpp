@@ -150,7 +150,7 @@ public:
     Q_DECLARE_PUBLIC(PreviewJob)
 };
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
 PreviewJob::PreviewJob(const KFileItemList &items, int width, int height,
                        int iconSize, int iconAlpha, bool scale, bool save,
                        const QStringList *enabledPlugins)
@@ -723,7 +723,7 @@ QStringList PreviewJob::supportedMimeTypes()
     return result;
 }
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
 PreviewJob *KIO::filePreview(const KFileItemList &items, int width, int height,
                              int iconSize, int iconAlpha, bool scale, bool save,
                              const QStringList *enabledPlugins)
@@ -751,7 +751,7 @@ PreviewJob *KIO::filePreview(const KFileItemList &items, const QSize &size, cons
     return new PreviewJob(items, size, enabledPlugins);
 }
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
 KIO::filesize_t PreviewJob::maximumFileSize()
 {
     KConfigGroup cg(KSharedConfig::openConfig(), "PreviewSettings");

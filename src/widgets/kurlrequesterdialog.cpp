@@ -140,7 +140,7 @@ QUrl KUrlRequesterDialog::getUrl(const QUrl &dir, QWidget *parent,
     return url;
 }
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
 QFileDialog *KUrlRequesterDialog::fileDialog()
 {
     return d->urlRequester->fileDialog();

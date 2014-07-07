@@ -1022,7 +1022,7 @@ KFileItem KDirModel::itemForIndex(const QModelIndex &index) const
     }
 }
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
 QModelIndex KDirModel::indexForItem(const KFileItem *item) const
 {
     // Note that we can only use the URL here, not the pointer.

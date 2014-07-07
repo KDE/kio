@@ -206,7 +206,7 @@ public:
      */
     void insertPlugin(KPropertiesDialogPlugin *plugin);
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     /**
      * @deprecated since 5.0, use url()
      */
@@ -386,7 +386,7 @@ public:
      * @return true if the file is a local, regular, readable, desktop file
      * @deprecated use KFileItem::isDesktopFile
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     static KIOWIDGETS_DEPRECATED bool isDesktopFile(const KFileItem &_item);
 #endif
 

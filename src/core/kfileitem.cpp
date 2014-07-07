@@ -1145,7 +1145,7 @@ bool KFileItem::isFile() const
     return !isDir();
 }
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
 bool KFileItem::acceptsDrops() const
 {
     // A directory ?
@@ -1256,7 +1256,7 @@ QString KFileItem::timeString(FileTimes which) const
     return d->time(which).toString();
 }
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
 QString KFileItem::timeString(unsigned int which) const
 {
     if (!d) {
@@ -1275,7 +1275,7 @@ QString KFileItem::timeString(unsigned int which) const
 }
 #endif
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
 void KFileItem::assign(const KFileItem &item)
 {
     *this = item;

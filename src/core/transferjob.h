@@ -78,7 +78,7 @@ public:
      * @deprecated since 4.2.1, this is unnecessary (it is always false for
      *             KIO::get and true for KIO::put)
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
     KIOCORE_DEPRECATED void setReportDataSent(bool enabled);
 #endif
 
@@ -89,7 +89,7 @@ public:
      * @deprecated since 4.2.1, this is unnecessary (it is always false for
      *             KIO::get and true for KIO::put)
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
     KIOCORE_DEPRECATED bool reportDataSent() const;
 #endif
 

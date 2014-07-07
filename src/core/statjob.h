@@ -63,7 +63,7 @@ public:
      * @param source true for "source" mode, false for "dest" mode
      * @deprecated use setSide(StatSide side).
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
     KIOCORE_DEPRECATED void setSide(bool source);
 #endif
 
@@ -206,7 +206,7 @@ KIOCORE_EXPORT StatJob *stat(const QUrl &url, KIO::StatJob::StatSide side,
  * @param flags Can be HideProgressInfo here
  * @return the job handling the operation.
  */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
 KIOCORE_DEPRECATED_EXPORT StatJob *stat(const QUrl &url, bool sideIsSource,
                                         short int details, JobFlags flags = DefaultFlags);
 #endif

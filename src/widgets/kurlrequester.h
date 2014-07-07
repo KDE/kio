@@ -61,7 +61,7 @@ class KIOWIDGETS_EXPORT KUrlRequester : public QWidget
     Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY textChanged USER true)
     Q_PROPERTY(QString filter READ filter WRITE setFilter)
     Q_PROPERTY(KFile::Modes mode READ mode WRITE setMode)
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     Q_PROPERTY(QString clickMessage READ clickMessage WRITE setClickMessage)
 #endif
     Q_PROPERTY(QString placeholderText READ placeholderText WRITE setPlaceholderText)
@@ -150,7 +150,7 @@ public:
      * @deprecated since 5.0. The dialog will be created anyway when the user
      * requests it, and will behave according to the properties of KUrlRequester.
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     virtual KIOWIDGETS_DEPRECATED QFileDialog *fileDialog() const;
 #endif
 
@@ -197,7 +197,7 @@ public:
      * @since 4.2
      * @deprecated use KUrlRequester::placeholderText instead.
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     KIOWIDGETS_DEPRECATED QString clickMessage() const;
 #endif
 
@@ -206,7 +206,7 @@ public:
      * @since 4.2
      * @deprecated use KUrlRequester::setPlaceholderText instead.
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     KIOWIDGETS_DEPRECATED void setClickMessage(const QString &msg);
 #endif
 
@@ -258,7 +258,7 @@ public Q_SLOTS:
      *
      * @deprecated Use setUrl(QUrl::fromLocalFile(path)) instead.
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     KIOWIDGETS_DEPRECATED void setPath(const QString &path);
 #endif
 

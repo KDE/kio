@@ -450,7 +450,7 @@ KSambaShare::~KSambaShare()
     delete d_ptr;
 }
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
 QString KSambaShare::smbConfPath() const
 {
     Q_D(const KSambaShare);

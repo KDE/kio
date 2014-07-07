@@ -70,7 +70,7 @@ public:
     KSslCertificateRule rule(const QSslCertificate &cert, const QString &hostName) const;
 
     // use caCertificates() instead
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
     KIOCORE_DEPRECATED QList<QSslCertificate> rootCertificates() const
     {
         return caCertificates();

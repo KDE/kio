@@ -101,7 +101,7 @@ public:
      */
     void setPopupFiles(const QList<QUrl> &files);
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOFILEWIDGETS_NO_DEPRECATED
     void setPopupFiles(const QUrl &file)
     {
         setPopupFiles(QList<QUrl>() << file);

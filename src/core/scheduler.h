@@ -123,7 +123,7 @@ public:
      * recommended to replace calls to scheduleJob(job) with setJobPriority(job, 1).
      * @param job the job to schedule
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOCORE_NO_DEPRECATED
     KIOCORE_DEPRECATED static void scheduleJob(SimpleJob *job);
 #endif
 

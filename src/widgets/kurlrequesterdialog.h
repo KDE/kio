@@ -85,7 +85,7 @@ public:
      * Returns a pointer to the file dialog used by the KUrlRequester.
      * @deprecated since 5.0
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
     KIOWIDGETS_DEPRECATED QFileDialog *fileDialog();
 #endif
 

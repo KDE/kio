@@ -133,7 +133,7 @@ bool AccessManager::isExternalContentAllowed() const
     return d->externalContentAllowed;
 }
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
 void AccessManager::setCookieJarWindowId(WId id)
 {
     QWidget *window = QWidget::find(id);
@@ -168,7 +168,7 @@ void AccessManager::setWindow(QWidget *widget)
     }
 }
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KIOWIDGETS_NO_DEPRECATED
 WId AccessManager::cookieJarWindowid() const
 {
     KIO::Integration::CookieJar *jar = qobject_cast<KIO::Integration::CookieJar *> (cookieJar());
