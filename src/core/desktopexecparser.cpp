@@ -176,7 +176,8 @@ QStringList KIO::DesktopExecParser::supportedProtocols(const KService &service)
     KRunMX1 mx1(service);
     QString exec = service.exec();
     if (mx1.expandMacrosShellQuote(exec) && !mx1.hasUrls) {
-        Q_ASSERT(supportedProtocols.isEmpty());   // huh? If you support protocols you need %u or %U...
+        qWarning() << service.entryPath() << "contains a X-KDE-Protocols line but doesn't use %u or %U in its Exec line! This is inconsistent.";
+        return QStringList();
     } else {
         if (supportedProtocols.isEmpty()) {
             // compat mode: assume KIO if not set and it's a KDE app (or a KDE service)
