@@ -213,7 +213,7 @@ public:
     // slots
     void _k_slotUpdateUrl();
     void _k_slotOpenDialog();
-    void _k_slotFileDialogFinished();
+    void _k_slotFileDialogAccepted();
 
     QUrl m_startDir;
     KUrlRequester *m_parent; // TODO: rename to 'q'
@@ -408,18 +408,16 @@ void KUrlRequester::KUrlRequesterPrivate::_k_slotOpenDialog()
     }
 }
 
-void KUrlRequester::KUrlRequesterPrivate::_k_slotFileDialogFinished()
+void KUrlRequester::KUrlRequesterPrivate::_k_slotFileDialogAccepted()
 {
     if (!myFileDialog) {
         return;
     }
 
-    if (myFileDialog->result() == QDialog::Accepted) {
-        QUrl newUrl = myFileDialog->selectedUrls().first();
-        if (newUrl.isValid()) {
-            m_parent->setUrl(newUrl);
-            emit m_parent->urlSelected(url());
-        }
+    QUrl newUrl = myFileDialog->selectedUrls().first();
+    if (newUrl.isValid()) {
+        m_parent->setUrl(newUrl);
+        emit m_parent->urlSelected(url());
     }
 }
 
@@ -466,7 +464,7 @@ QFileDialog *KUrlRequester::fileDialog() const
         d->applyFileMode(d->myFileDialog, d->fileDialogMode);
 
         d->myFileDialog->setWindowModality(d->fileDialogModality);
-        connect(d->myFileDialog, SIGNAL(finished()), SLOT(_k_slotFileDialogFinished()));
+        connect(d->myFileDialog, SIGNAL(accepted()), SLOT(_k_slotFileDialogAccepted()));
     }
 
     return d->myFileDialog;

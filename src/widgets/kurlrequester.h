@@ -328,7 +328,7 @@ private:
 
     Q_PRIVATE_SLOT(d, void _k_slotUpdateUrl())
     Q_PRIVATE_SLOT(d, void _k_slotOpenDialog())
-    Q_PRIVATE_SLOT(d, void _k_slotFileDialogFinished())
+    Q_PRIVATE_SLOT(d, void _k_slotFileDialogAccepted())
 
 };
 
