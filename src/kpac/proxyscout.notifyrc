@@ -32,6 +32,7 @@ Comment[tt]=Челтәрнең прокси көйләнеше
 Comment[uk]=Налаштовування проксі-сервера мережі
 Comment[x-test]=xxNetwork Proxy Configurationxx
 Comment[zh_CN]=网络代理配置
+Comment[zh_TW]=網路代理組態
 
 [Event/script-error]
 Name=Invalid Proxy Script
@@ -68,6 +69,7 @@ Name[tt]=Прокси скриптында хата
 Name[uk]=Некоректний скрипт проксі
 Name[x-test]=xxInvalid Proxy Scriptxx
 Name[zh_CN]=无效的代理脚本
+Name[zh_TW]=不合法的代理文稿
 Comment=The downloaded proxy configuration script is invalid
 Comment[ar]=سكرِبت تضبيط الوسيط الذي نُزِّل غير صالح
 Comment[ca]=L'script de configuració baixat de l'intermediari no és vàlid
@@ -103,6 +105,7 @@ Comment[uk]=Звантажено некоректний скрип проксі
 Comment[x-test]=xxThe downloaded proxy configuration script is invalidxx
 Comment[zh_CN]=下载的代理配置脚本无效
 Comment[zh_HK]=剛下載的代理伺服器組態 script 語法有誤
+Comment[zh_TW]=下載的代理組態文稿不合法
 Action=Popup
 
 [Event/download-error]
@@ -140,6 +143,7 @@ Name[tt]=Бирелгән скрипта хата
 Name[uk]=Помилка звантаження проксі
 Name[x-test]=xxScript Download Errorxx
 Name[zh_CN]=脚本下载错误
+Name[zh_TW]=文稿下載錯誤
 Comment=The proxy configuration script could not be downloaded
 Comment[ar]=تعذّر تحميل سكرِبت تضبيط الوسيط
 Comment[ca]=L'script de configuració de l'intermediari no es pot baixar
@@ -176,6 +180,7 @@ Comment[uk]=Неможливо звантажити скрипт налашту�
 Comment[x-test]=xxThe proxy configuration script could not be downloadedxx
 Comment[zh_CN]=无法下载代理配置脚本
 Comment[zh_HK]=無法取得代理伺服器組態 script 檔案
+Comment[zh_TW]=代理組態文稿無法下載
 Action=Popup
 
 [Event/evaluation-error]
@@ -211,6 +216,7 @@ Name[tt]=Скрипт эчтәлегендә хата
 Name[uk]=Помилка оцінки скрипту
 Name[x-test]=xxScript Evaluation Errorxx
 Name[zh_CN]=脚本执行错误
+Name[zh_TW]=文稿執行錯誤
 Comment=There was an error executing the proxy configuration script
 Comment[ar]=خطأ في تنفيذ سكرِبت تضبيط الوسيط
 Comment[ca]=Hi ha hagut un error en executar l'script de configuració de l'intermediari
@@ -247,4 +253,5 @@ Comment[uk]=Помилка запуску скрипту налаштуванн�
 Comment[x-test]=xxThere was an error executing the proxy configuration scriptxx
 Comment[zh_CN]=执行代理配置脚本时出错
 Comment[zh_HK]=代理伺服器組態檔案執行錯誤
+Comment[zh_TW]=執行代理組態文稿時發生錯誤
 
