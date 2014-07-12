@@ -146,7 +146,7 @@ void KApplicationModelPrivate::fillNode(const QString &_entryPath, KDEPrivate::A
         bool isDir = false;
         const KSycocaEntry::Ptr p = (*it);
         if (p->isType(KST_KService)) {
-            const KService::Ptr service = KService::Ptr(p);
+            const KService::Ptr service(static_cast<KService*>(p.data()));
 
             if (service->noDisplay()) {
                 continue;
@@ -157,7 +157,7 @@ void KApplicationModelPrivate::fillNode(const QString &_entryPath, KDEPrivate::A
             exec = service->exec();
             entryPath = service->entryPath();
         } else if (p->isType(KST_KServiceGroup)) {
-            const KServiceGroup::Ptr serviceGroup = KServiceGroup::Ptr(p);
+            const KServiceGroup::Ptr serviceGroup(static_cast<KServiceGroup*>(p.data()));
 
             if (serviceGroup->noDisplay() || serviceGroup->childCount() == 0) {
                 continue;
