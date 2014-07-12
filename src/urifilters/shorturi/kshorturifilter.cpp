@@ -386,7 +386,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
     }
 
     // Can be abs path to file or directory, or to executable with args
-    bool isDir = S_ISDIR( buff.st_mode );
+    bool isDir = ((buff.st_mode & QT_STAT_MASK) == QT_STAT_DIR);
     if( !isDir && access ( QFile::encodeName(path).data(), X_OK) == 0 )
     {
       //qCDebug(category) << "Abs path to EXECUTABLE";
@@ -396,7 +396,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
     }
 
     // Open "uri" as file:/xxx if it is a non-executable local resource.
-    if( isDir || S_ISREG( buff.st_mode ) )
+    if( isDir || (( buff.st_mode & QT_STAT_MASK ) == QT_STAT_REG) )
     {
       //qCDebug(category) << "Abs path as local file or directory";
       if ( !nameFilter.isEmpty() )
