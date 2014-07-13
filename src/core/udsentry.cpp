@@ -69,8 +69,10 @@ UDSEntry::UDSEntry(const QT_STATBUF &buff, const QString &name)
     insert(UDS_ACCESS,              buff.st_mode);
     insert(UDS_MODIFICATION_TIME,   buff.st_mtime);
     insert(UDS_ACCESS_TIME,         buff.st_atime);
+#ifndef Q_OS_WIN
     insert(UDS_USER,                KUser(buff.st_uid).loginName());
     insert(UDS_GROUP,               KUserGroup(buff.st_gid).name());
+#endif
 }
 
 UDSEntry::~UDSEntry()
