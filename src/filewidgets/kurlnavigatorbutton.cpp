@@ -516,7 +516,16 @@ void KUrlNavigatorButton::openSubDirsMenu(KJob *job)
     const int popupX = leftToRight ? width() - arrowWidth() - BorderWidth : 0;
     const QPoint popupPos  = parentWidget()->mapToGlobal(geometry().bottomLeft() + QPoint(popupX, 0));
 
+    QPointer<QObject> guard(this);
+
     const QAction *action = m_subDirsMenu->exec(popupPos);
+
+    // If 'this' has been deleted in the menu's nested event loop, we have to return
+    // immediatedely because any access to a member variable might cause a crash.
+    if (!guard) {
+        return;
+    }
+
     if (action != 0) {
         const int result = action->data().toInt();
         QUrl url(m_url);
