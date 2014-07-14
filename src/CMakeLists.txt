@@ -8,9 +8,9 @@ add_subdirectory(kioslave)
 add_subdirectory(kioexec)
 add_subdirectory(kpasswdserver)
 add_subdirectory(urifilters)
+add_subdirectory(kcms)
 
 if(NOT WIN32)
   # arpa/nameser.h
   add_subdirectory(kpac)
 endif()
-

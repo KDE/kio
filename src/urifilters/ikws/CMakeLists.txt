@@ -1,4 +1,4 @@
-add_subdirectory(searchproviders) 
+add_subdirectory(searchproviders)
 
 set(kuriikwsfilter_PART_SRCS kuriikwsfiltereng.cpp kuriikwsfilter.cpp searchprovider.cpp)
 
@@ -10,11 +10,11 @@ target_link_libraries(kuriikwsfilter KF5::ConfigWidgets KF5::KIOWidgets KF5::I18
 
 install(TARGETS kuriikwsfilter DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/urifilters)
 
-set(kurisearchfilter_PART_SRCS 
-   kurisearchfilter.cpp 
-   kuriikwsfiltereng.cpp 
-   ikwsopts.cpp 
-   searchproviderdlg.cpp 
+set(kurisearchfilter_PART_SRCS
+   kurisearchfilter.cpp
+   kuriikwsfiltereng.cpp
+   ikwsopts.cpp
+   searchproviderdlg.cpp
    searchprovider.cpp )
 
 ki18n_wrap_ui(kurisearchfilter_PART_SRCS ikwsopts_ui.ui searchproviderdlg_ui.ui)
