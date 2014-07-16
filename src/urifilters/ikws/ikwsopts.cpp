@@ -104,7 +104,7 @@ QVariant ProvidersModel::data(const QModelIndex& index, int role) const
     if (role == Qt::ToolTipRole || role == Qt::WhatsThisRole)
     {
       if (index.column() == Preferred)
-        return i18nc("@info:tooltip", "Check this box to select the highlighted web shortcut "
+        return xi18nc("@info:tooltip", "Check this box to select the highlighted web shortcut "
                     "as preferred.<nl/>Preferred web shortcuts are used in "
                     "places where only a few select shortcuts can be shown "
                     "at one time.");
@@ -261,7 +261,7 @@ FilterOptions::FilterOptions(const KAboutData* about, QWidget *parent)
 
 QString FilterOptions::quickHelp() const
 {
-  return i18nc("@info:whatsthis", "<para>In this module you can configure the web shortcuts feature. "
+  return xi18nc("@info:whatsthis", "<para>In this module you can configure the web shortcuts feature. "
               "Web shortcuts allow you to quickly search or lookup words on "
               "the Internet. For example, to search for information about the "
               "KDE project using the Google engine, you simply type <emphasis>gg:KDE</emphasis> "
@@ -452,7 +452,5 @@ void FilterOptions::updateSearchProviderEditingButons()
   m_dlg.pbChange->setEnabled(enable);
   m_dlg.pbDelete->setEnabled(enable);
 }
-
-#include "ikwsopts.moc"
 
 // kate: replace-tabs 1; indent-width 2;
