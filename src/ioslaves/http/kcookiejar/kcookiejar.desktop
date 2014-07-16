@@ -2,6 +2,7 @@
 Type=Service
 Name=Cookie Jar
 Name[ca]=Repositori de les galetes
+Name[cs]=Cookie Jar
 Name[de]=Cookie-Behälter
 Name[en_GB]=Cookie Jar
 Name[es]=Tarro de las galletas
@@ -36,6 +37,7 @@ Name[zh_TW]=Cookie Jar
 Comment=Stores network cookies
 Comment[ar]=يخزّن كعكات الشبكة
 Comment[ca]=Emmagatzema les galetes de la xarxa
+Comment[cs]=Ukládá síťová cookie
 Comment[de]=Netzwerk-Cookies speichern
 Comment[en_GB]=Stores network cookies
 Comment[es]=Guarda las cookies de la red
