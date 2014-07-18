@@ -178,7 +178,7 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
         kdeinit = "kdeinit5";
     }
 
-    QString kioexec = CMAKE_INSTALL_PREFIX "/" KF5_LIBEXEC_INSTALL_DIR "/kioexec";
+    QString kioexec = CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kioexec";
     if (!QFile::exists(kioexec)) {
         QSKIP("kioexec not found, kdebase needed");
     }
