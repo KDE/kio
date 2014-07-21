@@ -9,7 +9,7 @@
 #     set (STRIGI_TYPE "REQUIRED")
 # endif ()
 
-
+add_definitions(-DTRANSLATION_DOMAIN=\"kio_trash\")
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
 
 add_subdirectory(tests)
