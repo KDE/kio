@@ -69,7 +69,7 @@ qt5_add_dbus_adaptor(kiowidgets_SRCS org.kde.kio.FileUndoManager.xml fileundoman
 
 qt5_add_dbus_interface(kiowidgets_SRCS org.kde.kuiserver.xml kuiserver_interface)
 
-qt5_wrap_ui(kiowidgets_SRCS
+ki18n_wrap_ui(kiowidgets_SRCS
   certificateparty.ui
   sslinfo.ui
   kpropertiesdesktopadvbase.ui

@@ -2,7 +2,7 @@ add_subdirectory(searchproviders)
 
 set(kuriikwsfilter_PART_SRCS kuriikwsfiltereng.cpp kuriikwsfilter.cpp searchprovider.cpp)
 
-qt5_wrap_ui(kuriikwsfilter_PART_SRCS ikwsopts_ui.ui searchproviderdlg_ui.ui)
+ki18n_wrap_ui(kuriikwsfilter_PART_SRCS ikwsopts_ui.ui searchproviderdlg_ui.ui)
 
 add_library(kuriikwsfilter MODULE ${kuriikwsfilter_PART_SRCS})
 
@@ -17,7 +17,7 @@ set(kurisearchfilter_PART_SRCS
    searchproviderdlg.cpp 
    searchprovider.cpp )
 
-qt5_wrap_ui(kurisearchfilter_PART_SRCS ikwsopts_ui.ui searchproviderdlg_ui.ui)
+ki18n_wrap_ui(kurisearchfilter_PART_SRCS ikwsopts_ui.ui searchproviderdlg_ui.ui)
 
 add_library(kurisearchfilter MODULE ${kurisearchfilter_PART_SRCS})
 

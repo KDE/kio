@@ -1067,7 +1067,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             l = new QLabel(i18n("Created:"), d->m_frame);
             grid->addWidget(l, curRow, 0, Qt::AlignRight);
 
-            l = new QLabel(dt.toString(), d->m_frame);
+            l = new QLabel(dt.toString(Qt::DefaultLocaleLongDate), d->m_frame);
             grid->addWidget(l, curRow++, 2);
         }
 
@@ -1076,7 +1076,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             l = new QLabel(i18n("Modified:"), d->m_frame);
             grid->addWidget(l, curRow, 0, Qt::AlignRight);
 
-            l = new QLabel(dt.toString(), d->m_frame);
+            l = new QLabel(dt.toString(Qt::DefaultLocaleLongDate), d->m_frame);
             grid->addWidget(l, curRow++, 2);
         }
 
@@ -1085,7 +1085,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             l = new QLabel(i18n("Accessed:"), d->m_frame);
             grid->addWidget(l, curRow, 0, Qt::AlignRight);
 
-            l = new QLabel(dt.toString(), d->m_frame);
+            l = new QLabel(dt.toString(Qt::DefaultLocaleLongDate), d->m_frame);
             grid->addWidget(l, curRow++, 2);
         }
     }
