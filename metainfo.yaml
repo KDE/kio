@@ -9,3 +9,6 @@ platforms:
 portingAid: false
 deprecated: false
 release: true
+framework-dependencies:
+    # kio calls org.kde.kded5 via dbus
+    - KDED
