@@ -24,13 +24,13 @@
 
 #include "discspaceutil.h"
 
-#include <ksavefile.h>
-#include <kde_file.h>
+#include <qplatformdefs.h> // QT_LSTAT, QT_STAT, QT_STATBUF
 #include <QDir>
 #include <QDirIterator>
 #include <QFile>
 #include <QDateTime>
-#include <kdebug.h>
+#include <QSaveFile>
+#include <QDebug>
 
 TrashSizeCache::TrashSizeCache( const QString &path )
     : mTrashSizeCachePath( path + QString::fromLatin1( "/directorysizes" ) ),
@@ -45,14 +45,14 @@ void TrashSizeCache::add( const QString &directoryName, qulonglong directorySize
     const QByteArray encodedDir = QFile::encodeName(directoryName).toPercentEncoding();
     const QByteArray spaceAndDirAndNewline = ' ' + encodedDir + '\n';
     QFile file( mTrashSizeCachePath );
-    KSaveFile out( mTrashSizeCachePath );
+    QSaveFile out( mTrashSizeCachePath );
     if (out.open(QIODevice::WriteOnly)) {
         if (file.open(QIODevice::ReadOnly)) {
             while (!file.atEnd()) {
                 const QByteArray line = file.readLine();
                 if (line.endsWith(spaceAndDirAndNewline)) {
                     // Already there!
-                    out.abort();
+                    out.cancelWriting();
                     //qDebug() << "already there!";
                     return;
                 }
@@ -64,7 +64,7 @@ void TrashSizeCache::add( const QString &directoryName, qulonglong directorySize
         QDateTime mtime = QFileInfo(fileInfoPath).lastModified();
         QByteArray newLine = QByteArray::number(directorySize) + ' ' + QByteArray::number(mtime.toMSecsSinceEpoch()) + spaceAndDirAndNewline;
         out.write(newLine);
-        out.finalize();
+        out.commit();
     }
     //qDebug() << mTrashSizeCachePath << "exists:" << QFile::exists(mTrashSizeCachePath);
 }
@@ -75,7 +75,7 @@ void TrashSizeCache::remove( const QString &directoryName )
     const QByteArray encodedDir = QFile::encodeName(directoryName).toPercentEncoding();
     const QByteArray spaceAndDirAndNewline = ' ' + encodedDir + '\n';
     QFile file( mTrashSizeCachePath );
-    KSaveFile out( mTrashSizeCachePath );
+    QSaveFile out( mTrashSizeCachePath );
     if (file.open(QIODevice::ReadOnly) && out.open(QIODevice::WriteOnly)) {
         while (!file.atEnd()) {
             const QByteArray line = file.readLine();
@@ -86,7 +86,7 @@ void TrashSizeCache::remove( const QString &directoryName )
             out.write(line);
         }
     }
-    out.finalize();
+    out.commit();
 }
 
 void TrashSizeCache::clear()
@@ -129,8 +129,8 @@ qulonglong TrashSizeCache::calculateSize()
         }
         if ( file.isSymLink() ) {
             // QFileInfo::size does not return the actual size of a symlink. #253776
-            KDE_struct_stat buff;
-            return static_cast<qulonglong>(KDE::lstat(file.absoluteFilePath(), &buff) == 0 ? buff.st_size : 0);
+            QT_STATBUF buff;
+            return static_cast<qulonglong>(QT_LSTAT(QFile::encodeName(file.absoluteFilePath()), &buff) == 0 ? buff.st_size : 0);
         } else if (file.isFile()) {
             sum += file.size();
         } else {
