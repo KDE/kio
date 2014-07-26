@@ -2,6 +2,7 @@
    This file is part of the KDE project
 
    Copyright (C) 2009 Tobias Koenig <tokoe@kde.org>
+   Copyright (C) 2014 David Faure <faure@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -27,15 +28,13 @@
 #include <kconfig.h>
 
 /**
- * @short A class that encapsulates the access to the trash size cache.
+ * @short A class that encapsulates the directory size cache.
  *
- * The trash size cache is used to prevent the scanning of trash size
- * on every move/copy operation to the trash, which might result in performance
- * problems with many files inside the trash.
+ * The directory size cache is used to speed up the determination of the trash size.
  *
- * The trash size cache is kept in the ktrashrc configuration file and
- * updated by the moveToTrash/moveFromTrash/copyToTrash and emptyTrash
- * methods in the TrashImpl object.
+ * Since version 1.0, http://standards.freedesktop.org/trash-spec/trashspec-latest.html specifies this cache
+ * as a standard way to cache this information.
+ *
  */
 class TrashSizeCache
 {
@@ -46,20 +45,16 @@ class TrashSizeCache
         TrashSizeCache( const QString &path );
 
         /**
-         * Initializes the trash metadata config file and does an initial scan
-         * if called the first time.
+         * Adds a directory to the cache.
+         * @param directoryName fileId of the directory
+         * @param directorySize size in bytes
          */
-        void initialize();
+        void add( const QString &directoryName, qulonglong directorySize );
 
         /**
-         * Increases the size of the trash by @p value.
+         * Removes a directory from the cache.
          */
-        void add( qulonglong value );
-
-        /**
-         * Decreases the size of the trash by @p value.
-         */
-        void remove( qulonglong value );
+        void remove( const QString &directoryName );
 
         /**
          * Sets the trash size to 0 bytes.
@@ -67,17 +62,13 @@ class TrashSizeCache
         void clear();
 
         /**
-         * Returns the current trash size.
+         * Calculates and returns the current trash size.
          */
-        qulonglong size() const;
+        qulonglong calculateSize();
 
     private:
-        qulonglong currentSize( bool doLocking ) const;
-
         QString mTrashSizeCachePath;
         QString mTrashPath;
-        const QString mTrashSizeGroup;
-        const QString mTrashSizeKey;
 };
 
 #endif

@@ -540,6 +540,43 @@ void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )
     QVERIFY( files.size() == 12 );
     QVERIFY( !QFile::exists( origPath ) );
     QVERIFY(QFile::exists(m_trashDir + QString::fromLatin1("/files/") + fileId + QString::fromLatin1("/subdir/subfile")));
+
+    QFile dirCache(m_trashDir + QString::fromLatin1("/directorysizes"));
+    QVERIFY2(dirCache.open(QIODevice::ReadOnly), qPrintable(dirCache.fileName()));
+    QByteArray lines;
+    bool found = false;
+    while (!dirCache.atEnd()) {
+        const QByteArray line = dirCache.readLine();
+        if (line.endsWith(' ' + QFile::encodeName(fileId).toPercentEncoding() + '\n')) {
+            QVERIFY(!found); // should be there only once!
+            found = true;
+        }
+        lines += line;
+    }
+    QVERIFY2(found, lines.constData());
+    //qDebug() << lines;
+
+    checkDirCacheValidity();
+}
+
+void TestTrash::checkDirCacheValidity()
+{
+    QFile dirCache(m_trashDir + QString::fromLatin1("/directorysizes"));
+    QVERIFY2(dirCache.open(QIODevice::ReadOnly), qPrintable(dirCache.fileName()));
+    QSet<QByteArray> seenDirs;
+    while (!dirCache.atEnd()) {
+        QByteArray line = dirCache.readLine();
+        QVERIFY(line.endsWith('\n'));
+        line.chop(1);
+        qDebug() << "LINE" << line;
+        const int lastSpace = line.lastIndexOf(' ');
+        const QByteArray dir = QByteArray::fromPercentEncoding(line.mid(lastSpace + 1));
+        QVERIFY2(!seenDirs.contains(dir), dir.constData());
+        seenDirs.insert(dir);
+        const QString localDir =m_trashDir + QString::fromLatin1("/files/") + QFile::decodeName(dir);
+        QVERIFY2(QFile::exists(localDir), qPrintable(localDir));
+        QVERIFY(QFileInfo(localDir).isDir());
+    }
 }
 
 void TestTrash::trashDirectoryFromHome()
@@ -850,6 +887,7 @@ void TestTrash::moveDirectoryFromTrash()
     const QString destPath = otherTmpDir() + "trashDirFromHome_restored";
     moveFromTrash( "trashDirFromHome", destPath );
     QVERIFY( QFileInfo( destPath ).isDir() );
+    checkDirCacheValidity();
 
     // trash it again, we'll need it later
     QString dirName = "trashDirFromHome";
@@ -1125,7 +1163,7 @@ void TestTrash::emptyTrash()
 #endif
 }
 
-void TestTrash::testTrashSize()
+void TestTrash::testEmptyTrashSize()
 {
     KIO::DirectorySizeJob* job = KIO::directorySize(QUrl("trash:/"));
     QVERIFY(job->exec());

@@ -2,6 +2,7 @@
    This file is part of the KDE project
 
    Copyright (C) 2009 Tobias Koenig <tokoe@kde.org>
+   Copyright (C) 2014 David Faure <faure@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -22,108 +23,136 @@
 #include "trashsizecache.h"
 
 #include "discspaceutil.h"
-#include "kinterprocesslock.h"
 
-#include <kconfig.h>
-#include <kconfiggroup.h>
-
-#include <QtCore/QDir>
+#include <ksavefile.h>
+#include <kde_file.h>
+#include <QDir>
+#include <QDirIterator>
+#include <QFile>
+#include <QDateTime>
+#include <kdebug.h>
 
 TrashSizeCache::TrashSizeCache( const QString &path )
-    : mTrashSizeCachePath( path + QDir::separator() + QString::fromLatin1( "metadata" ) ),
-      mTrashPath( path ),
-      mTrashSizeGroup( QLatin1String( "Cached" ) ),
-      mTrashSizeKey( QLatin1String( "Size" ) )
+    : mTrashSizeCachePath( path + QString::fromLatin1( "/directorysizes" ) ),
+      mTrashPath( path )
 {
+    //qDebug() << "CACHE:" << mTrashSizeCachePath;
 }
 
-void TrashSizeCache::initialize()
+void TrashSizeCache::add( const QString &directoryName, qulonglong directorySize )
 {
-    // we call just currentSize here, as it does the initialization for us
-    currentSize( true );
+    //qDebug() << directoryName << directorySize;
+    const QByteArray encodedDir = QFile::encodeName(directoryName).toPercentEncoding();
+    const QByteArray spaceAndDirAndNewline = ' ' + encodedDir + '\n';
+    QFile file( mTrashSizeCachePath );
+    KSaveFile out( mTrashSizeCachePath );
+    if (out.open(QIODevice::WriteOnly)) {
+        if (file.open(QIODevice::ReadOnly)) {
+            while (!file.atEnd()) {
+                const QByteArray line = file.readLine();
+                if (line.endsWith(spaceAndDirAndNewline)) {
+                    // Already there!
+                    out.abort();
+                    //qDebug() << "already there!";
+                    return;
+                }
+                out.write(line);
+            }
+        }
+
+        const QString fileInfoPath = mTrashPath + "/info/" + directoryName + ".trashinfo";
+        QDateTime mtime = QFileInfo(fileInfoPath).lastModified();
+        QByteArray newLine = QByteArray::number(directorySize) + ' ' + QByteArray::number(mtime.toMSecsSinceEpoch()) + spaceAndDirAndNewline;
+        out.write(newLine);
+        out.finalize();
+    }
+    //qDebug() << mTrashSizeCachePath << "exists:" << QFile::exists(mTrashSizeCachePath);
 }
 
-void TrashSizeCache::add( qulonglong value )
+void TrashSizeCache::remove( const QString &directoryName )
 {
-    KInterProcessLock lock( QLatin1String( "trash" ) );
-    lock.lock();
-    lock.waitForLockGranted();
-
-    KConfig config( mTrashSizeCachePath );
-    KConfigGroup group = config.group( mTrashSizeGroup );
-
-    qulonglong size = currentSize( false );
-    size += value;
-
-    group.writeEntry( mTrashSizeKey, size );
-    config.sync();
-
-    lock.unlock();
-}
-
-void TrashSizeCache::remove( qulonglong value )
-{
-    KInterProcessLock lock( QLatin1String( "trash" ) );
-    lock.lock();
-    lock.waitForLockGranted();
-
-    KConfig config( mTrashSizeCachePath );
-    KConfigGroup group = config.group( mTrashSizeGroup );
-
-    qulonglong size = currentSize( false );
-    size -= value;
-
-    group.writeEntry( mTrashSizeKey, size );
-    config.sync();
-
-    lock.unlock();
+    //qDebug() << directoryName;
+    const QByteArray encodedDir = QFile::encodeName(directoryName).toPercentEncoding();
+    const QByteArray spaceAndDirAndNewline = ' ' + encodedDir + '\n';
+    QFile file( mTrashSizeCachePath );
+    KSaveFile out( mTrashSizeCachePath );
+    if (file.open(QIODevice::ReadOnly) && out.open(QIODevice::WriteOnly)) {
+        while (!file.atEnd()) {
+            const QByteArray line = file.readLine();
+            if (line.endsWith(spaceAndDirAndNewline)) {
+                // Found it -> skip it
+                continue;
+            }
+            out.write(line);
+        }
+    }
+    out.finalize();
 }
 
 void TrashSizeCache::clear()
 {
-    KInterProcessLock lock( QLatin1String( "trash" ) );
-    lock.lock();
-    lock.waitForLockGranted();
-
-    KConfig config( mTrashSizeCachePath );
-    KConfigGroup group = config.group( mTrashSizeGroup );
-
-    group.writeEntry( mTrashSizeKey, (qulonglong)0 );
-    config.sync();
-
-    lock.unlock();
+    QFile::remove(mTrashSizeCachePath);
 }
 
-qulonglong TrashSizeCache::size() const
-{
-    return currentSize( true );
-}
+struct CacheData {
+    qint64 mtime;
+    qulonglong size;
+};
 
-qulonglong TrashSizeCache::currentSize( bool doLocking ) const
+qulonglong TrashSizeCache::calculateSize()
 {
-    KInterProcessLock lock( QLatin1String( "trash" ) );
+    // First read the directorysizes cache into memory
+    QFile file( mTrashSizeCachePath );
+    typedef QHash<QByteArray, CacheData> DirCacheHash;
+    DirCacheHash dirCache;
+    if (file.open(QIODevice::ReadOnly)) {
+        while (!file.atEnd()) {
+            const QByteArray line = file.readLine();
+            const int firstSpace = line.indexOf(' ');
+            const int secondSpace = line.indexOf(' ', firstSpace + 1);
+            CacheData data;
+            data.mtime = line.left(firstSpace).toLongLong();
+            // "012 4567 name" -> firstSpace=3, secondSpace=8, we want mid(4,4)
+            data.size = line.mid(firstSpace + 1, secondSpace - firstSpace - 1).toULongLong();
+            dirCache.insert(line.mid(secondSpace + 1), data);
+        }
+    }
+    // Iterate over the actual trashed files.
+    // Orphan items (no .fileinfo) still take space.
+    QDirIterator it( mTrashPath + QString::fromLatin1( "/files/" ), QDirIterator::NoIteratorFlags );
 
-    if ( doLocking ) {
-        lock.lock();
-        lock.waitForLockGranted();
+    qulonglong sum = 0;
+    while ( it.hasNext() ) {
+        const QFileInfo file = it.next();
+        if (file.fileName() == QLatin1String(".") || file.fileName() == QLatin1String("..")) {
+            continue;
+        }
+        if ( file.isSymLink() ) {
+            // QFileInfo::size does not return the actual size of a symlink. #253776
+            KDE_struct_stat buff;
+            return static_cast<qulonglong>(KDE::lstat(file.absoluteFilePath(), &buff) == 0 ? buff.st_size : 0);
+        } else if (file.isFile()) {
+            sum += file.size();
+        } else {
+            bool usableCache = false;
+            const QString fileId = file.fileName();
+            DirCacheHash::const_iterator it = dirCache.constFind(QFile::encodeName(fileId));
+            if (it != dirCache.constEnd()) {
+                const CacheData &data = *it;
+                const QString fileInfoPath = mTrashPath + "/info/" + fileId + ".trashinfo";
+                if (QFileInfo(fileInfoPath).lastModified().toMSecsSinceEpoch() == data.mtime) {
+                    sum += data.size;
+                    usableCache = true;
+                }
+            }
+            if (!usableCache) {
+                const qulonglong size = DiscSpaceUtil::sizeOfPath(file.absoluteFilePath());
+                sum += size;
+                add(fileId, size);
+            }
+        }
+
     }
 
-    KConfig config( mTrashSizeCachePath );
-    KConfigGroup group = config.group( mTrashSizeGroup );
-
-    if ( !group.hasKey( mTrashSizeKey ) ) {
-        // For the first call to the trash size cache, we have to calculate
-        // the current size.
-        const qulonglong size = DiscSpaceUtil::sizeOfPath( mTrashPath + QString::fromLatin1( "/files/" ) );
-
-        group.writeEntry( mTrashSizeKey, size );
-        config.sync();
-    }
-
-    const qulonglong value = group.readEntry( mTrashSizeKey, (qulonglong)0 );
-
-    if ( doLocking )
-        lock.unlock();
-
-    return value;
+    return sum;
 }
