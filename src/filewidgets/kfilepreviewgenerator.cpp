@@ -682,11 +682,9 @@ void KFilePreviewGenerator::Private::slotPreviewJobFinished(KJob *job)
     m_previewJobs.removeAt(index);
 
     if (m_previewJobs.isEmpty()) {
-        if (!m_pendingItems.isEmpty()) {
-            foreach (const KFileItem &item, m_pendingItems) {
-                if (item.isMimeTypeKnown()) {
-                    m_resolvedMimeTypes.append(item);
-                }
+        foreach (const KFileItem &item, m_pendingItems) {
+            if (item.isMimeTypeKnown()) {
+                m_resolvedMimeTypes.append(item);
             }
         }
 
