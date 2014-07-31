@@ -682,6 +682,14 @@ void KFilePreviewGenerator::Private::slotPreviewJobFinished(KJob *job)
     m_previewJobs.removeAt(index);
 
     if (m_previewJobs.isEmpty()) {
+        if (!m_pendingItems.isEmpty()) {
+            foreach (const KFileItem &item, m_pendingItems) {
+                if (item.isMimeTypeKnown()) {
+                    m_resolvedMimeTypes.append(item);
+                }
+            }
+        }
+
         if (m_clearItemQueues) {
             m_pendingItems.clear();
             m_dispatchedItems.clear();
@@ -748,8 +756,7 @@ void KFilePreviewGenerator::Private::dispatchIconUpdateQueue()
         return;
     }
 
-    const int count = m_previewShown ? m_previews.count()
-                      : m_resolvedMimeTypes.count();
+    const int count = m_previews.count() + m_resolvedMimeTypes.count();
     if (count > 0) {
         LayoutBlocker blocker(m_itemView);
         DataChangeObtainer obt(this);
@@ -763,14 +770,14 @@ void KFilePreviewGenerator::Private::dispatchIconUpdateQueue()
                 }
             }
             m_previews.clear();
-        } else {
-            // dispatch mime type queue
-            foreach (const KFileItem &item, m_resolvedMimeTypes) {
-                const QModelIndex idx = dirModel->indexForItem(item);
-                dirModel->itemChanged(idx);
-            }
-            m_resolvedMimeTypes.clear();
         }
+
+        // dispatch mime type queue
+        foreach (const KFileItem &item, m_resolvedMimeTypes) {
+            const QModelIndex idx = dirModel->indexForItem(item);
+            dirModel->itemChanged(idx);
+        }
+        m_resolvedMimeTypes.clear();
 
         m_pendingVisibleIconUpdates -= count;
         if (m_pendingVisibleIconUpdates < 0) {
