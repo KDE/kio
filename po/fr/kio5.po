@@ -1,0 +1,6174 @@
+# translation of kio4.po to Français
+# translation of kio4.po to
+# traduction de kio4.po en Français
+# Matthieu Robin <kde@macolu.org>, 2002,2003, 2004.
+# Robert Jacolin <rjacolin@ifrance.com>, 2003.
+# Gilles CAULIER <caulier.gilles@free.fr>, 2003.
+# Delafond <gerard@delafond.org>, 2003, 2004.
+# Matthieu Robin <kde@macolu.org>, 2004, 2005, 2006.
+# Sebastien Renard <Sebastien.Renard@digitalfox.homeip.net>, 2004.
+# Nicolas Ternisien <nicolas.ternisien@gmail.com>, 2004, 2005.
+# Nicolas Ternisien <nicolas.ternisien@gmail.com>, 2005, 2008.
+# Matthieu Robin <matthieu@macolu.org>, 2005.
+# Sébastien Renard <Sebastien.Renard@digitalfox.org>, 2007, 2008, 2009.
+# Sebastien Renard <Sebastien.Renard@digitalfox.org>, 2009, 2010, 2012, 2013.
+# Sébastien Renard <renard@kde.org>, 2010, 2011, 2012, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: kio4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-07-31 08:26+0000\n"
+"PO-Revision-Date: 2014-06-29 21:59+0200\n"
+"Last-Translator: Sebastien Renard <renard@kde.org>\n"
+"Language-Team: French <kde-francophone@kde.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 1.5\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Matthieu Robin, Sébastien Renard"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde@macolu.org, renard@kde.org"
+
+#: core/chmodjob.cpp:202
+#, kde-format
+msgid "Could not modify the ownership of file %1"
+msgstr "Impossible de modifier le propriétaire du fichier %1"
+
+#: core/chmodjob.cpp:204
+#, kde-format
+msgid ""
+"<qt>Could not modify the ownership of file <b>%1</b>. You have insufficient "
+"access to the file to perform the change.</qt>"
+msgstr ""
+"<qt>Impossible de changer le propriétaire du fichier <b>%1</b>. Vos droits "
+"d'accès sont insuffisants pour effectuer cette modification.</qt>"
+
+#: core/connectionbackend.cpp:143
+#, kde-format
+msgid "Unable to create io-slave: %1"
+msgstr "Impossible de créer le module d'entrée / sortie : %1"
+
+#: core/copyjob.cpp:1081 core/job_error.cpp:504
+msgid "Folder Already Exists"
+msgstr "Le dossier existe déjà"
+
+#: core/copyjob.cpp:1350 core/copyjob.cpp:1916 core/filecopyjob.cpp:360
+#: core/job_error.cpp:494 widgets/paste.cpp:104
+msgid "File Already Exists"
+msgstr "Le fichier existe déjà"
+
+#: core/copyjob.cpp:1350 core/copyjob.cpp:1916
+msgid "Already Exists as Folder"
+msgstr "Existe déjà en tant que dossier"
+
+#: core/global.cpp:75
+#, kde-format
+msgctxt "size in bytes"
+msgid "%1 B"
+msgstr "%1 o"
+
+#: core/global.cpp:79
+#, kde-format
+msgctxt "size in 1000 bytes"
+msgid "%1 kB"
+msgstr "%1 ko"
+
+#: core/global.cpp:80
+#, kde-format
+msgctxt "size in 10^6 bytes"
+msgid "%1 MB"
+msgstr "%1 Mo"
+
+#: core/global.cpp:81
+#, kde-format
+msgctxt "size in 10^9 bytes"
+msgid "%1 GB"
+msgstr "%1 Go"
+
+#: core/global.cpp:82
+#, kde-format
+msgctxt "size in 10^12 bytes"
+msgid "%1 TB"
+msgstr "%1 To"
+
+#: core/global.cpp:83
+#, kde-format
+msgctxt "size in 10^15 bytes"
+msgid "%1 PB"
+msgstr "%1 Po"
+
+#: core/global.cpp:84
+#, kde-format
+msgctxt "size in 10^18 bytes"
+msgid "%1 EB"
+msgstr "%1 Eo"
+
+#: core/global.cpp:85
+#, kde-format
+msgctxt "size in 10^21 bytes"
+msgid "%1 ZB"
+msgstr "%1 Zo"
+
+#: core/global.cpp:86
+#, kde-format
+msgctxt "size in 10^24 bytes"
+msgid "%1 YB"
+msgstr "%1 Yo"
+
+#: core/global.cpp:90
+#, kde-format
+msgctxt "memory size in 1024 bytes"
+msgid "%1 KB"
+msgstr "%1 Ko"
+
+#: core/global.cpp:91
+#, kde-format
+msgctxt "memory size in 2^20 bytes"
+msgid "%1 MB"
+msgstr "%1 Mo"
+
+#: core/global.cpp:92
+#, kde-format
+msgctxt "memory size in 2^30 bytes"
+msgid "%1 GB"
+msgstr "%1 Go"
+
+#: core/global.cpp:93
+#, kde-format
+msgctxt "memory size in 2^40 bytes"
+msgid "%1 TB"
+msgstr "%1 To"
+
+#: core/global.cpp:94
+#, kde-format
+msgctxt "memory size in 2^50 bytes"
+msgid "%1 PB"
+msgstr "%1 Po"
+
+#: core/global.cpp:95
+#, kde-format
+msgctxt "memory size in 2^60 bytes"
+msgid "%1 EB"
+msgstr "%1 Eo"
+
+#: core/global.cpp:96
+#, kde-format
+msgctxt "memory size in 2^70 bytes"
+msgid "%1 ZB"
+msgstr "%1 Zo"
+
+#: core/global.cpp:97
+#, kde-format
+msgctxt "memory size in 2^80 bytes"
+msgid "%1 YB"
+msgstr "%1 Yo"
+
+#: core/global.cpp:102
+#, kde-format
+msgctxt "size in 1024 bytes"
+msgid "%1 KiB"
+msgstr "%1 Kio"
+
+#: core/global.cpp:103
+#, kde-format
+msgctxt "size in 2^20 bytes"
+msgid "%1 MiB"
+msgstr "%1 Mio"
+
+#: core/global.cpp:104
+#, kde-format
+msgctxt "size in 2^30 bytes"
+msgid "%1 GiB"
+msgstr "%1 Gio"
+
+#: core/global.cpp:105
+#, kde-format
+msgctxt "size in 2^40 bytes"
+msgid "%1 TiB"
+msgstr "%1 Tio"
+
+#: core/global.cpp:106
+#, kde-format
+msgctxt "size in 2^50 bytes"
+msgid "%1 PiB"
+msgstr "%1 Pio"
+
+#: core/global.cpp:107
+#, kde-format
+msgctxt "size in 2^60 bytes"
+msgid "%1 EiB"
+msgstr "%1 Eio"
+
+#: core/global.cpp:108
+#, kde-format
+msgctxt "size in 2^70 bytes"
+msgid "%1 ZiB"
+msgstr "%1 Zio"
+
+#: core/global.cpp:109
+#, kde-format
+msgctxt "size in 2^80 bytes"
+msgid "%1 YiB"
+msgstr "%1 Yio"
+
+#: core/global.cpp:169
+#, kde-format
+msgid "1 day %2"
+msgid_plural "%1 days %2"
+msgstr[0] "1 jour %2"
+msgstr[1] "%1 jours %2"
+
+#: core/global.cpp:204 core/global.cpp:221
+#, kde-format
+msgid "%1 Item"
+msgid_plural "%1 Items"
+msgstr[0] "%1 élément"
+msgstr[1] "%1 éléments"
+
+#: core/global.cpp:208
+#, kde-format
+msgid "1 Folder"
+msgid_plural "%1 Folders"
+msgstr[0] "Un dossier"
+msgstr[1] "%1 dossiers"
+
+#: core/global.cpp:209
+#, kde-format
+msgid "1 File"
+msgid_plural "%1 Files"
+msgstr[0] "1 fichier"
+msgstr[1] "%1 fichiers"
+
+#: core/global.cpp:212
+#, kde-format
+msgctxt "folders, files (size)"
+msgid "%1, %2 (%3)"
+msgstr "%1, %2 (%3)"
+
+#: core/global.cpp:213
+#, kde-format
+msgctxt "folders, files"
+msgid "%1, %2"
+msgstr "%1, %2"
+
+#: core/global.cpp:215
+#, kde-format
+msgctxt "files (size)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: core/global.cpp:222
+#, kde-format
+msgctxt "items: folders, files (size)"
+msgid "%1: %2"
+msgstr "%1 : %2"
+
+#: core/job.cpp:108
+msgctxt "@title job"
+msgid "Moving"
+msgstr "Déplacement"
+
+#: core/job.cpp:109 core/job.cpp:116 core/job.cpp:141
+#: widgets/fileundomanager.cpp:130
+msgctxt "The source of a file operation"
+msgid "Source"
+msgstr "Source"
+
+#: core/job.cpp:110 core/job.cpp:117 widgets/fileundomanager.cpp:131
+msgctxt "The destination of a file operation"
+msgid "Destination"
+msgstr "Destination"
+
+#: core/job.cpp:115
+msgctxt "@title job"
+msgid "Copying"
+msgstr "Copie"
+
+#: core/job.cpp:122
+msgctxt "@title job"
+msgid "Creating directory"
+msgstr "Création du dossier"
+
+#: core/job.cpp:123 widgets/fileundomanager.cpp:125
+msgid "Directory"
+msgstr "Dossier"
+
+#: core/job.cpp:128
+msgctxt "@title job"
+msgid "Deleting"
+msgstr "Suppression"
+
+#: core/job.cpp:129 core/job.cpp:135 widgets/fileundomanager.cpp:136
+msgid "File"
+msgstr "Fichier"
+
+#: core/job.cpp:134
+msgctxt "@title job"
+msgid "Examining"
+msgstr "Analyse"
+
+#: core/job.cpp:140
+msgctxt "@title job"
+msgid "Transferring"
+msgstr "Transfert"
+
+#: core/job.cpp:146
+msgctxt "@title job"
+msgid "Mounting"
+msgstr "Montage"
+
+#: core/job.cpp:147
+msgid "Device"
+msgstr "Périphérique"
+
+#: core/job.cpp:148 core/job.cpp:154
+msgid "Mountpoint"
+msgstr "Point de montage"
+
+#: core/job.cpp:153
+msgctxt "@title job"
+msgid "Unmounting"
+msgstr "Démontage"
+
+#: core/job_error.cpp:38
+#, kde-format
+msgid "Could not read %1."
+msgstr "Impossible de lire %1."
+
+#: core/job_error.cpp:41
+#, kde-format
+msgid "Could not write to %1."
+msgstr "Impossible d'écrire dans %1."
+
+#: core/job_error.cpp:44
+#, kde-format
+msgid "Could not start process %1."
+msgstr "Impossible de démarrer le processus %1."
+
+#: core/job_error.cpp:47
+#, kde-format
+msgid ""
+"Internal Error\n"
+"Please send a full bug report at http://bugs.kde.org\n"
+"%1"
+msgstr ""
+"Problème interne.\n"
+"Veuillez envoyer un rapport de bogue complet à http://bugs.kde.org\n"
+"%1"
+
+#: core/job_error.cpp:50
+#, kde-format
+msgid "Malformed URL %1."
+msgstr "URL %1 mal formée."
+
+#: core/job_error.cpp:53
+#, kde-format
+msgid "The protocol %1 is not supported."
+msgstr "Le protocole %1 n'est pas géré."
+
+#: core/job_error.cpp:56
+#, kde-format
+msgid "The protocol %1 is only a filter protocol."
+msgstr "Le protocole %1 est seulement un protocole de filtre."
+
+#: core/job_error.cpp:63
+#, kde-format
+msgid "%1 is a folder, but a file was expected."
+msgstr "%1 est un dossier, alors qu'un fichier était attendu."
+
+#: core/job_error.cpp:66
+#, kde-format
+msgid "%1 is a file, but a folder was expected."
+msgstr "%1 est un fichier, alors qu'un dossier était attendu."
+
+#: core/job_error.cpp:69
+#, kde-format
+msgid "The file or folder %1 does not exist."
+msgstr "Le fichier ou le dossier %1 n'existe pas."
+
+#: core/job_error.cpp:72
+#, kde-format
+msgid "A file named %1 already exists."
+msgstr "Un fichier nommé %1 existe déjà."
+
+#: core/job_error.cpp:75
+#, kde-format
+msgid "A folder named %1 already exists."
+msgstr "Un dossier nommé %1 existe déjà."
+
+#: core/job_error.cpp:78
+msgid "No hostname specified."
+msgstr "Aucun hôte spécifié."
+
+#: core/job_error.cpp:78
+#, kde-format
+msgid "Unknown host %1"
+msgstr "Hôte %1 inconnu"
+
+#: core/job_error.cpp:81
+#, kde-format
+msgid "Access denied to %1."
+msgstr "Accès refusé à %1."
+
+#: core/job_error.cpp:84
+#, kde-format
+msgid ""
+"Access denied.\n"
+"Could not write to %1."
+msgstr ""
+"Accès refusé.\n"
+"Impossible d'écrire dans %1."
+
+#: core/job_error.cpp:87
+#, kde-format
+msgid "Could not enter folder %1."
+msgstr "Impossible d'entrer dans le dossier %1."
+
+#: core/job_error.cpp:90
+#, kde-format
+msgid "The protocol %1 does not implement a folder service."
+msgstr "Le protocole %1 ne met en oeuvre aucun service de dossier."
+
+#: core/job_error.cpp:93
+#, kde-format
+msgid "Found a cyclic link in %1."
+msgstr "Lien circulaire trouvé dans %1."
+
+#: core/job_error.cpp:99
+#, kde-format
+msgid "Found a cyclic link while copying %1."
+msgstr "Lien circulaire trouvé lors de la copie de %1."
+
+#: core/job_error.cpp:102
+#, kde-format
+msgid "Could not create socket for accessing %1."
+msgstr "Impossible de créer la communication (« socket ») pour accéder à %1."
+
+#: core/job_error.cpp:105
+#, kde-format
+msgid "Could not connect to host %1."
+msgstr "Impossible de se connecter à l'hôte %1."
+
+#: core/job_error.cpp:108
+#, kde-format
+msgid "Connection to host %1 is broken."
+msgstr "La connexion avec l'hôte %1 a été coupée."
+
+#: core/job_error.cpp:111
+#, kde-format
+msgid "The protocol %1 is not a filter protocol."
+msgstr "Le protocole %1 n'est pas un protocole de filtre."
+
+#: core/job_error.cpp:114
+#, kde-format
+msgid ""
+"Could not mount device.\n"
+"The reported error was:\n"
+"%1"
+msgstr ""
+"Impossible de monter le périphérique.\n"
+"L'erreur signalée est :\n"
+"%1"
+
+#: core/job_error.cpp:117
+#, kde-format
+msgid ""
+"Could not unmount device.\n"
+"The reported error was:\n"
+"%1"
+msgstr ""
+"Impossible de libérer le périphérique.\n"
+"L'erreur signalée est :\n"
+"%1"
+
+#: core/job_error.cpp:120
+#, kde-format
+msgid "Could not read file %1."
+msgstr "Impossible de lire le fichier %1."
+
+#: core/job_error.cpp:123
+#, kde-format
+msgid "Could not write to file %1."
+msgstr "Impossible d'écrire dans le fichier %1."
+
+#: core/job_error.cpp:126
+#, kde-format
+msgid "Could not bind %1."
+msgstr "Impossible de lier %1."
+
+#: core/job_error.cpp:129
+#, kde-format
+msgid "Could not listen %1."
+msgstr "Impossible d'écouter %1."
+
+#: core/job_error.cpp:132
+#, kde-format
+msgid "Could not accept %1."
+msgstr "Impossible d'accepter %1."
+
+#: core/job_error.cpp:138
+#, kde-format
+msgid "Could not access %1."
+msgstr "Impossible d'accéder à %1."
+
+#: core/job_error.cpp:141
+#, kde-format
+msgid "Could not terminate listing %1."
+msgstr "Impossible de terminer le listage de %1."
+
+#: core/job_error.cpp:144
+#, kde-format
+msgid "Could not make folder %1."
+msgstr "Impossible de créer le dossier %1."
+
+#: core/job_error.cpp:147
+#, kde-format
+msgid "Could not remove folder %1."
+msgstr "Impossible de supprimer le dossier %1."
+
+#: core/job_error.cpp:150
+#, kde-format
+msgid "Could not resume file %1."
+msgstr "Impossible de reprendre le fichier %1."
+
+#: core/job_error.cpp:153
+#, kde-format
+msgid "Could not rename file %1."
+msgstr "Impossible de renommer le fichier %1."
+
+#: core/job_error.cpp:156
+#, kde-format
+msgid "Could not change permissions for %1."
+msgstr "Impossible de modifier les droits d'accès de %1."
+
+#: core/job_error.cpp:159
+#, kde-format
+msgid "Could not change ownership for %1."
+msgstr "Impossible de modifier les droits d'accès de %1."
+
+#: core/job_error.cpp:162
+#, kde-format
+msgid "Could not delete file %1."
+msgstr "Impossible de supprimer le fichier %1."
+
+#: core/job_error.cpp:165
+#, kde-format
+msgid "The process for the %1 protocol died unexpectedly."
+msgstr ""
+"Le processus traitant le protocole %1 s'est arrêté de façon inattendue."
+
+#: core/job_error.cpp:168
+#, kde-format
+msgid ""
+"Error. Out of memory.\n"
+"%1"
+msgstr ""
+"Problème : plus de mémoire disponible.\n"
+"%1"
+
+#: core/job_error.cpp:171
+#, kde-format
+msgid ""
+"Unknown proxy host\n"
+"%1"
+msgstr ""
+"Serveur mandataire (proxy) inconnu\n"
+"%1"
+
+#: core/job_error.cpp:174
+#, kde-format
+msgid "Authorization failed, %1 authentication not supported"
+msgstr ""
+"L'autorisation a échoué ; l'authentification de %1 n'est pas prise en charge"
+
+#: core/job_error.cpp:177
+#, kde-format
+msgid ""
+"User canceled action\n"
+"%1"
+msgstr ""
+"L'utilisateur a annulé l'action\n"
+"%1"
+
+#: core/job_error.cpp:180
+#, kde-format
+msgid ""
+"Internal error in server\n"
+"%1"
+msgstr ""
+"Problème interne du serveur\n"
+"%1"
+
+#: core/job_error.cpp:183
+#, kde-format
+msgid ""
+"Timeout on server\n"
+"%1"
+msgstr ""
+"Pas de réponse du serveur\n"
+"%1"
+
+#: core/job_error.cpp:186
+#, kde-format
+msgid ""
+"Unknown error\n"
+"%1"
+msgstr ""
+"Problème inconnu\n"
+"%1"
+
+#: core/job_error.cpp:189
+#, kde-format
+msgid ""
+"Unknown interrupt\n"
+"%1"
+msgstr ""
+"Interruption inconnue\n"
+"%1"
+
+#: core/job_error.cpp:200
+#, kde-format
+msgid ""
+"Could not delete original file %1.\n"
+"Please check permissions."
+msgstr ""
+"Impossible de supprimer le fichier d'origine %1.\n"
+"Veuillez vérifier vos droits d'accès."
+
+#: core/job_error.cpp:203
+#, kde-format
+msgid ""
+"Could not delete partial file %1.\n"
+"Please check permissions."
+msgstr ""
+"Impossible de supprimer le fichier partiel %1.\n"
+"Veuillez vérifier vos droits d'accès."
+
+#: core/job_error.cpp:206
+#, kde-format
+msgid ""
+"Could not rename original file %1.\n"
+"Please check permissions."
+msgstr ""
+"Impossible de renommer le fichier original %1.\n"
+"Veuillez vérifier vos droits d'accès."
+
+#: core/job_error.cpp:209
+#, kde-format
+msgid ""
+"Could not rename partial file %1.\n"
+"Please check permissions."
+msgstr ""
+"Impossible de renommer le fichier partiel %1.\n"
+"Veuillez vérifier vos droits d'accès."
+
+#: core/job_error.cpp:212
+#, kde-format
+msgid ""
+"Could not create symlink %1.\n"
+"Please check permissions."
+msgstr ""
+"Impossible de créer le lien symbolique %1.\n"
+"Veuillez vérifier vos droits d'accès."
+
+#: core/job_error.cpp:218
+#, kde-format
+msgid ""
+"Could not write file %1.\n"
+"Disk full."
+msgstr ""
+"Impossible d'écrire le fichier %1.\n"
+"Disque plein."
+
+#: core/job_error.cpp:221
+#, kde-format
+msgid ""
+"The source and destination are the same file.\n"
+"%1"
+msgstr ""
+"Les fichiers source et destination sont identiques.\n"
+"%1"
+
+#: core/job_error.cpp:227
+#, kde-format
+msgid "%1 is required by the server, but is not available."
+msgstr "%1 est requis par le serveur, mais n'est pas disponible."
+
+#: core/job_error.cpp:230
+msgid "Access to restricted port in POST denied."
+msgstr "Accès au port restreint refusé dans POST."
+
+#: core/job_error.cpp:233
+msgid ""
+"The required content size information was not provided for a POST operation."
+msgstr ""
+"L'information sur la taille du contenu est obligatoire et n'a pas été "
+"fournie pour l'opération de type POST"
+
+#: core/job_error.cpp:236
+#, kde-format
+msgid ""
+"Unknown error code %1\n"
+"%2\n"
+"Please send a full bug report at http://bugs.kde.org."
+msgstr ""
+"Code d'erreur %1 inconnu\n"
+"%2\n"
+"Veuillez envoyer un rapport de bogue détaillé à http://bugs.kde.org."
+
+#: core/job_error.cpp:261
+msgctxt "@info url"
+msgid "(unknown)"
+msgstr "(inconnue)"
+
+#: core/job_error.cpp:268
+#, kde-format
+msgctxt "@info %1 error name, %2 description"
+msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
+msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
+
+#: core/job_error.cpp:272
+msgid "<b>Technical reason</b>: "
+msgstr "<b>Raison technique</b> : "
+
+#: core/job_error.cpp:274
+msgid "<b>Details of the request</b>:"
+msgstr "<b>Détails de la requête</b> :"
+
+#: core/job_error.cpp:275
+#, kde-format
+msgid "<li>URL: %1</li>"
+msgstr "<li>URL : %1</li>"
+
+#: core/job_error.cpp:277
+#, kde-format
+msgid "<li>Protocol: %1</li>"
+msgstr "<li>Protocole : %1</li>"
+
+#: core/job_error.cpp:279
+#, kde-format
+msgid "<li>Date and time: %1</li>"
+msgstr "<li>Date et heure : %1</li>"
+
+#: core/job_error.cpp:280
+#, kde-format
+msgid "<li>Additional information: %1</li>"
+msgstr "<li>Informations complémentaires : %1</li>"
+
+#: core/job_error.cpp:283
+msgid "<b>Possible causes</b>:"
+msgstr "<b>Causes possibles</b> :"
+
+#: core/job_error.cpp:288
+msgid "<b>Possible solutions</b>:"
+msgstr "<b>Solutions possibles</b> :"
+
+#: core/job_error.cpp:322
+msgctxt "@info protocol"
+msgid "(unknown)"
+msgstr "(inconnu)"
+
+#: core/job_error.cpp:331
+msgid ""
+"Contact your appropriate computer support system, whether the system "
+"administrator, or technical support group for further assistance."
+msgstr ""
+"Contactez votre assistance technique, qu'il s'agisse de votre administrateur "
+"système ou d'un groupe d'assistance technique, pour une aide plus "
+"approfondie."
+
+#: core/job_error.cpp:334
+msgid "Contact the administrator of the server for further assistance."
+msgstr "Contactez l'administrateur du serveur pour une aide plus approfondie."
+
+#: core/job_error.cpp:337
+msgid "Check your access permissions on this resource."
+msgstr "Vérifiez vos droits d'accès à cette ressource."
+
+#: core/job_error.cpp:338
+msgid ""
+"Your access permissions may be inadequate to perform the requested operation "
+"on this resource."
+msgstr ""
+"Vos droits d'accès ne sont peut-être pas suffisants pour exécuter "
+"l'opération demandée sur cette ressource."
+
+#: core/job_error.cpp:340
+msgid ""
+"The file may be in use (and thus locked) by another user or application."
+msgstr ""
+"Le fichier est peut-être en cours de manipulation (et donc verrouillé) dans "
+"une autre application ou par un autre utilisateur."
+
+#: core/job_error.cpp:342
+msgid ""
+"Check to make sure that no other application or user is using the file or "
+"has locked the file."
+msgstr ""
+"Assurez-vous qu'aucune autre application et qu'aucun autre utilisateur "
+"n'accède au fichier ou ne l'a verrouillé."
+
+#: core/job_error.cpp:344
+msgid "Although unlikely, a hardware error may have occurred."
+msgstr ""
+"Bien que cela soit peu probable, un problème matériel est peut-être survenu."
+
+#: core/job_error.cpp:346
+msgid "You may have encountered a bug in the program."
+msgstr "Vous avez peut-être découvert un bogue dans ce logiciel."
+
+#: core/job_error.cpp:347
+msgid ""
+"This is most likely to be caused by a bug in the program. Please consider "
+"submitting a full bug report as detailed below."
+msgstr ""
+"Cela est probablement dû à un bogue dans le logiciel. Veuillez le signaler "
+"selon la procédure décrite ci-dessous."
+
+#: core/job_error.cpp:349
+msgid ""
+"Update your software to the latest version. Your distribution should provide "
+"tools to update your software."
+msgstr ""
+"Mettez votre logiciel à jour. Votre distribution devrait proposer des outils "
+"de mise à jour pour ce faire."
+
+#: core/job_error.cpp:351
+msgid ""
+"When all else fails, please consider helping the KDE team or the third party "
+"maintainer of this software by submitting a high quality bug report. If the "
+"software is provided by a third party, please contact them directly. "
+"Otherwise, first look to see if the same bug has been submitted by someone "
+"else by searching at the <a href=\"http://bugs.kde.org/\">KDE bug reporting "
+"website</a>. If not, take note of the details given above, and include them "
+"in your bug report, along with as many other details as you think might help."
+msgstr ""
+"Si rien ne fonctionne plus, pensez à aider l'équipe KDE ou le mainteneur "
+"indépendant de ce logiciel en envoyant un rapport de bogue clair et "
+"détaillé. Si le logiciel est l'oeuvre d'un tiers, veuillez le contacter "
+"directement. S'il s'agit d'un logiciel KDE, vérifiez d'abord si quelqu'un a "
+"déjà signalé ce bogue sur le <a href=\"http://bugs.kde.org/\">site de "
+"rapport de bogues de KDE</a>. Si tel n'est pas le cas, notez les indications "
+"ci-dessus et incluez-les dans votre rapport de bogue, ainsi que tout autre "
+"détail que vous jugez utile."
+
+#: core/job_error.cpp:359
+msgid "There may have been a problem with your network connection."
+msgstr "Un problème est peut-être survenu avec votre connexion réseau."
+
+#: core/job_error.cpp:362
+msgid ""
+"There may have been a problem with your network configuration. If you have "
+"been accessing the Internet with no problems recently, this is unlikely."
+msgstr ""
+"Un problème est peut-être survenu avec votre configuration réseau. Si vous "
+"avez pu accéder à l'Internet sans problème récemment, c'est cependant peu "
+"probable."
+
+#: core/job_error.cpp:365
+msgid ""
+"There may have been a problem at some point along the network path between "
+"the server and this computer."
+msgstr ""
+"Un incident s'est peut-être produit à un endroit quelconque de l'itinéraire "
+"du réseau entre le serveur et cet ordinateur."
+
+#: core/job_error.cpp:367
+msgid "Try again, either now or at a later time."
+msgstr "Réessayez, maintenant ou plus tard."
+
+#: core/job_error.cpp:368
+msgid "A protocol error or incompatibility may have occurred."
+msgstr "Une erreur ou une incompatibilité de protocole est peut-être survenue."
+
+#: core/job_error.cpp:369
+msgid "Ensure that the resource exists, and try again."
+msgstr "Assurez-vous que la ressource existe réellement, puis réessayez."
+
+#: core/job_error.cpp:370
+msgid "The specified resource may not exist."
+msgstr "La ressource spécifiée n'existe peut-être pas."
+
+#: core/job_error.cpp:371
+msgid "You may have incorrectly typed the location."
+msgstr ""
+"Vous avez peut-être fait une faute de frappe en saisissant l'emplacement."
+
+#: core/job_error.cpp:372
+msgid "Double-check that you have entered the correct location and try again."
+msgstr ""
+"Vérifiez à nouveau que vous avez saisi l'emplacement correct, puis réessayez."
+
+#: core/job_error.cpp:374
+msgid "Check your network connection status."
+msgstr "Vérifiez l'état de votre connexion réseau."
+
+#: core/job_error.cpp:378
+msgid "Cannot Open Resource For Reading"
+msgstr "Impossible d'ouvrir la ressource en lecture"
+
+#: core/job_error.cpp:379
+#, kde-format
+msgid ""
+"This means that the contents of the requested file or folder <strong>%1</"
+"strong> could not be retrieved, as read access could not be obtained."
+msgstr ""
+"Cela signifie que le contenu du fichier ou du dossier <strong>%1</strong> "
+"n'a pas pu être reçu, car des droits d'accès insuffisants n'ont pas permis "
+"de le lire."
+
+#: core/job_error.cpp:382
+msgid "You may not have permissions to read the file or open the folder."
+msgstr ""
+"Vous n'avez sans doute pas les droits d'accès permettant de lire le fichier "
+"ou d'ouvrir le dossier."
+
+#: core/job_error.cpp:388
+msgid "Cannot Open Resource For Writing"
+msgstr "Impossible d'ouvrir la ressource en écriture"
+
+#: core/job_error.cpp:389
+#, kde-format
+msgid ""
+"This means that the file, <strong>%1</strong>, could not be written to as "
+"requested, because access with permission to write could not be obtained."
+msgstr ""
+"Cela signifie que le fichier <strong>%1</strong> n'a pas pu être écrit comme "
+"vous l'aviez demandé, car vous n'avez pas les droits d'accès en écriture."
+
+#: core/job_error.cpp:397
+#, kde-format
+msgid "Cannot Initiate the %1 Protocol"
+msgstr "Impossible d'initialiser le protocole %1"
+
+#: core/job_error.cpp:398
+msgid "Unable to Launch Process"
+msgstr "Impossible de démarrer le processus"
+
+#: core/job_error.cpp:399
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol could not be started. This is usually due to technical "
+"reasons."
+msgstr ""
+"Le programme de votre ordinateur permettant l'accès au protocole <strong>%1</"
+"strong> n'a pas pu démarrer. Cela est habituellement dû à des problèmes "
+"techniques."
+
+#: core/job_error.cpp:402
+msgid ""
+"The program which provides compatibility with this protocol may not have "
+"been updated with your last update of KDE. This can cause the program to be "
+"incompatible with the current version and thus not start."
+msgstr ""
+"Il est possible que le programme offrant la compatibilité avec ce protocole "
+"n'ait pas été actualisé lors de votre dernière mise à jour de KDE. Cela peut "
+"rendre le programme incompatible avec la version actuelle et donc empêcher "
+"son démarrage."
+
+#: core/job_error.cpp:410
+msgid "Internal Error"
+msgstr "Problème interne"
+
+#: core/job_error.cpp:411
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an internal error."
+msgstr ""
+"Le programme de votre ordinateur permettant d'accéder au protocole <strong>"
+"%1</strong> a signalé un problème interne."
+
+#: core/job_error.cpp:419
+msgid "Improperly Formatted URL"
+msgstr "URL formatée de façon incorrecte"
+
+#: core/job_error.cpp:420
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered was not properly formatted. The format "
+"of a URL is generally as follows:<blockquote><strong>protocol://user:"
+"password@www.example.org:port/folder/filename.extension?query=value</"
+"strong></blockquote>"
+msgstr ""
+"L'URL (<strong>Uniform Resource Locator</strong>) que vous avez saisie "
+"n'était pas formatée correctement. Le format d'une URL est habituellement le "
+"suivant : <blockquote><strong> protocole://utilisateur:mot_de_passe@www."
+"exemple.org:port/dossier/nom_de_fichier.extension?requête=valeur</strong></"
+"blockquote>"
+
+#: core/job_error.cpp:429
+#, kde-format
+msgid "Unsupported Protocol %1"
+msgstr "Protocole %1 non géré"
+
+#: core/job_error.cpp:430
+#, kde-format
+msgid ""
+"The protocol <strong>%1</strong> is not supported by the KDE programs "
+"currently installed on this computer."
+msgstr ""
+"Le protocole <strong>%1</strong> n'est pas géré par les programmes KDE "
+"actuellement installés sur votre ordinateur."
+
+#: core/job_error.cpp:433
+msgid "The requested protocol may not be supported."
+msgstr "Le protocole demandé n'est peut-être pas géré."
+
+#: core/job_error.cpp:434
+#, kde-format
+msgid ""
+"The versions of the %1 protocol supported by this computer and the server "
+"may be incompatible."
+msgstr ""
+"Les versions du protocole %1 gérées par votre ordinateur et celles gérées "
+"par le serveur sont peut-être incompatibles."
+
+#: core/job_error.cpp:436
+msgid ""
+"You may perform a search on the Internet for a KDE program (called a "
+"kioslave or ioslave) which supports this protocol. Places to search include "
+"<a href=\"http://kde-apps.org/\">http://kde-apps.org/</a> and <a href="
+"\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+msgstr ""
+"Vous pouvez rechercher sur Internet un programme KDE (appelé module "
+"d'entrée / sortie, « kioslave » ou « ioslave » en anglais) qui gère ce "
+"protocole. Parmi les emplacements où chercher, citons <a href=\"http://kde-"
+"apps.org/\">http://kde-apps.org/</a> et <a href=\"http://freshmeat.net/"
+"\">http://freshmeat.net/</a>."
+
+#: core/job_error.cpp:445
+msgid "URL Does Not Refer to a Resource."
+msgstr "L'URL ne se rapporte à aucune ressource."
+
+#: core/job_error.cpp:446
+msgid "Protocol is a Filter Protocol"
+msgstr "Le protocole est un protocole de filtre"
+
+#: core/job_error.cpp:447
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered did not refer to a specific resource."
+msgstr ""
+"L'URL (<strong>Universal Resource Locator</strong>) que vous avez saisie ne "
+"se rapporte à aucune ressource spécifique."
+
+#: core/job_error.cpp:450
+msgid ""
+"KDE is able to communicate through a protocol within a protocol; the "
+"protocol specified is only for use in such situations, however this is not "
+"one of these situations. This is a rare event, and is likely to indicate a "
+"programming error."
+msgstr ""
+"KDE est capable de communiquer via un protocole intégré à un autre "
+"protocole. Le protocole spécifié n'est utilisé que dans ce genre de "
+"situation, alors que ce n'est pas ici le cas. Il s'agit d'un évènement rare, "
+"et qui résulte probablement d'un problème de programmation."
+
+#: core/job_error.cpp:458
+#, kde-format
+msgid "Unsupported Action: %1"
+msgstr "Action non gérée : %1"
+
+#: core/job_error.cpp:459
+#, kde-format
+msgid ""
+"The requested action is not supported by the KDE program which is "
+"implementing the <strong>%1</strong> protocol."
+msgstr ""
+"L'action demandée n'est pas disponible dans le programme KDE gérant le "
+"protocole <strong>%1</strong>."
+
+#: core/job_error.cpp:462
+msgid ""
+"This error is very much dependent on the KDE program. The additional "
+"information should give you more information than is available to the KDE "
+"input/output architecture."
+msgstr ""
+"Ce problème dépend en grande partie du programme KDE. Les informations "
+"complémentaires devraient vous fournir plus de détails que ne peut en "
+"recueillir l'architecture d'entrée / sortie de KDE."
+
+#: core/job_error.cpp:465
+msgid "Attempt to find another way to accomplish the same outcome."
+msgstr "Essayer de trouver un autre moyen d'arriver au même résultat."
+
+#: core/job_error.cpp:470
+msgid "File Expected"
+msgstr "Un fichier était attendu"
+
+#: core/job_error.cpp:471
+#, kde-format
+msgid ""
+"The request expected a file, however the folder <strong>%1</strong> was "
+"found instead."
+msgstr ""
+"La requête attendait un fichier, mais le dossier <strong>%1</strong> a été "
+"reçu à la place."
+
+#: core/job_error.cpp:473
+msgid "This may be an error on the server side."
+msgstr "Il peut s'agir d'un problème côté serveur."
+
+#: core/job_error.cpp:478
+msgid "Folder Expected"
+msgstr "Un dossier était attendu"
+
+#: core/job_error.cpp:479
+#, kde-format
+msgid ""
+"The request expected a folder, however the file <strong>%1</strong> was "
+"found instead."
+msgstr ""
+"La requête attendait un dossier, mais le fichier <strong>%1</strong> a été "
+"reçu à la place."
+
+#: core/job_error.cpp:486
+msgid "File or Folder Does Not Exist"
+msgstr "Le fichier ou le dossier n'existe pas"
+
+#: core/job_error.cpp:487
+#, kde-format
+msgid "The specified file or folder <strong>%1</strong> does not exist."
+msgstr "Le fichier ou le dossier indiqué <strong>%1</strong> n'existe pas."
+
+#: core/job_error.cpp:495
+msgid ""
+"The requested file could not be created because a file with the same name "
+"already exists."
+msgstr ""
+"Le fichier demandé n'a pas pu être créé car il existe déjà un fichier du "
+"même nom."
+
+#: core/job_error.cpp:497
+msgid "Try moving the current file out of the way first, and then try again."
+msgstr "Essayer de déplacer le fichier existant d'abord, puis réessayer."
+
+#: core/job_error.cpp:499
+msgid "Delete the current file and try again."
+msgstr "Supprimer le fichier existant, puis réessayer."
+
+#: core/job_error.cpp:500
+msgid "Choose an alternate filename for the new file."
+msgstr "Donner un autre nom au nouveau fichier."
+
+#: core/job_error.cpp:505
+msgid ""
+"The requested folder could not be created because a folder with the same "
+"name already exists."
+msgstr ""
+"Le dossier demandé n'a pas pu être créé car il existe déjà un dossier du "
+"même nom."
+
+#: core/job_error.cpp:507
+msgid "Try moving the current folder out of the way first, and then try again."
+msgstr "Essayez de déplacer le dossier courant d'abord, puis réessayez."
+
+#: core/job_error.cpp:509
+msgid "Delete the current folder and try again."
+msgstr "Supprimez le dossier courant, puis réessayer."
+
+#: core/job_error.cpp:510
+msgid "Choose an alternate name for the new folder."
+msgstr "Donner un autre nom au nouveau dossier."
+
+#: core/job_error.cpp:514
+msgid "Unknown Host"
+msgstr "Hôte inconnu"
+
+#: core/job_error.cpp:515
+#, kde-format
+msgid ""
+"An unknown host error indicates that the server with the requested name, "
+"<strong>%1</strong>, could not be located on the Internet."
+msgstr ""
+"Un message « Hôte inconnu » indique que le serveur portant ce nom, <strong>"
+"%1</strong>, n'a pu être trouvé sur l'Internet."
+
+#: core/job_error.cpp:518
+#, kde-format
+msgid ""
+"The name that you typed, %1, may not exist: it may be incorrectly typed."
+msgstr ""
+"Le nom que vous avez saisi, %1, n'existe peut-être pas. Vérifiez que vous "
+"n'avez pas fait de faute de frappe."
+
+#: core/job_error.cpp:525
+msgid "Access Denied"
+msgstr "Accès refusé"
+
+#: core/job_error.cpp:526
+#, kde-format
+msgid "Access was denied to the specified resource, <strong>%1</strong>."
+msgstr "L'accès à la ressource spécifiée a été refusé, <strong>%1</strong>."
+
+#: core/job_error.cpp:528 core/job_error.cpp:754
+msgid "You may have supplied incorrect authentication details or none at all."
+msgstr ""
+"Les informations d'authentification que vous avez fournies sont peut-être "
+"incorrectes, voire manquantes."
+
+#: core/job_error.cpp:530 core/job_error.cpp:756
+msgid "Your account may not have permission to access the specified resource."
+msgstr ""
+"Votre compte ne dispose peut-être pas des droits d'accès requis pour accéder "
+"à la ressource spécifiée."
+
+#: core/job_error.cpp:532 core/job_error.cpp:758 core/job_error.cpp:770
+msgid ""
+"Retry the request and ensure your authentication details are entered "
+"correctly."
+msgstr ""
+"Relancez la requête en vous assurant que les informations d'authentification "
+"ont été correctement saisies."
+
+#: core/job_error.cpp:540
+msgid "Write Access Denied"
+msgstr "Accès en écriture refusé"
+
+#: core/job_error.cpp:541
+#, kde-format
+msgid ""
+"This means that an attempt to write to the file <strong>%1</strong> was "
+"rejected."
+msgstr ""
+"Cela signifie qu'une tentative d'écriture dans le fichier <strong>%1</"
+"strong> a été rejetée."
+
+#: core/job_error.cpp:548
+msgid "Unable to Enter Folder"
+msgstr "Impossible d'entrer dans le dossier"
+
+#: core/job_error.cpp:549
+#, kde-format
+msgid ""
+"This means that an attempt to enter (in other words, to open) the requested "
+"folder <strong>%1</strong> was rejected."
+msgstr ""
+"Cela signifie qu'une tentative d'entrer dans le dossier <strong>%1</strong> "
+"(c'est-à-dire de l'ouvrir) a été rejetée."
+
+#: core/job_error.cpp:557
+msgid "Folder Listing Unavailable"
+msgstr "Listage du dossier non disponible"
+
+#: core/job_error.cpp:558
+#, kde-format
+msgid "Protocol %1 is not a Filesystem"
+msgstr "Le protocole %1 n'est pas un système de fichiers"
+
+#: core/job_error.cpp:559
+msgid ""
+"This means that a request was made which requires determining the contents "
+"of the folder, and the KDE program supporting this protocol is unable to do "
+"so."
+msgstr ""
+"Cela signifie qu'une requête exige la détermination du contenu du dossier et "
+"que le programme KDE gérant le protocole concerné n'est pas en mesure de la "
+"satisfaire."
+
+#: core/job_error.cpp:567
+msgid "Cyclic Link Detected"
+msgstr "Lien circulaire détecté"
+
+#: core/job_error.cpp:568
+msgid ""
+"UNIX environments are commonly able to link a file or folder to a separate "
+"name and/or location. KDE detected a link or series of links that results in "
+"an infinite loop - i.e. the file was (perhaps in a roundabout way) linked to "
+"itself."
+msgstr ""
+"Les environnements UNIX sont d'ordinaire capables de lier un fichier ou un "
+"dossier sous un autre nom et/ou à un autre emplacement. KDE a détecté un "
+"lien ou une série de liens formant une boucle infinie : cela signifie que le "
+"fichier est (peut-être d'une manière indirecte) lié à lui-même."
+
+#: core/job_error.cpp:572 core/job_error.cpp:594
+msgid ""
+"Delete one part of the loop in order that it does not cause an infinite "
+"loop, and try again."
+msgstr ""
+"Supprimez une partie de la boucle, regardez si le problème subsiste et "
+"réessayez."
+
+#: core/job_error.cpp:581
+msgid "Request Aborted By User"
+msgstr "Requête interrompue par l'utilisateur"
+
+#: core/job_error.cpp:582 core/job_error.cpp:897
+msgid "The request was not completed because it was aborted."
+msgstr "La requête n'a pas abouti car elle a été interrompue."
+
+#: core/job_error.cpp:584 core/job_error.cpp:788 core/job_error.cpp:899
+msgid "Retry the request."
+msgstr "Relancer la requête."
+
+#: core/job_error.cpp:588
+msgid "Cyclic Link Detected During Copy"
+msgstr "Lien circulaire détecté pendant la copie"
+
+#: core/job_error.cpp:589
+msgid ""
+"UNIX environments are commonly able to link a file or folder to a separate "
+"name and/or location. During the requested copy operation, KDE detected a "
+"link or series of links that results in an infinite loop - i.e. the file was "
+"(perhaps in a roundabout way) linked to itself."
+msgstr ""
+"Les environnements UNIX sont d'ordinaire capables de lier un fichier ou un "
+"dossier sous un autre nom et/ou à un autre emplacement. KDE a détecté "
+"pendant l'opération un lien ou une série de liens formant une boucle "
+"infinie : cela signifie que le fichier est (peut-être d'une manière "
+"indirecte) lié à lui-même."
+
+#: core/job_error.cpp:599
+msgid "Could Not Create Network Connection"
+msgstr "Impossible de créer la connexion réseau"
+
+#: core/job_error.cpp:600
+msgid "Could Not Create Socket"
+msgstr "Impossible de créer la « socket »"
+
+#: core/job_error.cpp:601
+msgid ""
+"This is a fairly technical error in which a required device for network "
+"communications (a socket) could not be created."
+msgstr ""
+"C'est un problème plutôt technique : le périphérique réseau requis pour la "
+"communication (une « socket ») n'a pas pu être créé."
+
+#: core/job_error.cpp:603 core/job_error.cpp:724 core/job_error.cpp:735
+#: core/job_error.cpp:744
+msgid ""
+"The network connection may be incorrectly configured, or the network "
+"interface may not be enabled."
+msgstr ""
+"La connexion réseau n'est peut-être pas configurée correctement, ou bien "
+"l'interface réseau n'est pas activée."
+
+#: core/job_error.cpp:609
+msgid "Connection to Server Refused"
+msgstr "La connexion a été refusée par le serveur"
+
+#: core/job_error.cpp:610
+#, kde-format
+msgid ""
+"The server <strong>%1</strong> refused to allow this computer to make a "
+"connection."
+msgstr ""
+"Le serveur <strong>%1</strong> a rejeté la tentative de connexion de cet "
+"ordinateur."
+
+#: core/job_error.cpp:612
+msgid ""
+"The server, while currently connected to the Internet, may not be configured "
+"to allow requests."
+msgstr ""
+"Le serveur, bien que connecté à l'Internet, n'a peut-être pas été configuré "
+"pour autoriser les requêtes."
+
+#: core/job_error.cpp:614
+#, kde-format
+msgid ""
+"The server, while currently connected to the Internet, may not be running "
+"the requested service (%1)."
+msgstr ""
+"Le serveur, bien que connecté à l'Internet, n'exécute peut-être pas le "
+"service demandé (%1)."
+
+#: core/job_error.cpp:616
+msgid ""
+"A network firewall (a device which restricts Internet requests), either "
+"protecting your network or the network of the server, may have intervened, "
+"preventing this request."
+msgstr ""
+"Un pare-feu (périphérique servant à restreindre les requêtes d'accès "
+"réseau), protégeant votre réseau ou celui du serveur, est peut-être "
+"intervenu, faisant obstacle à votre requête."
+
+#: core/job_error.cpp:623
+msgid "Connection to Server Closed Unexpectedly"
+msgstr "La connexion au serveur s'est terminée de façon inattendue"
+
+#: core/job_error.cpp:624
+#, kde-format
+msgid ""
+"Although a connection was established to <strong>%1</strong>, the connection "
+"was closed at an unexpected point in the communication."
+msgstr ""
+"Bien que la connexion à <strong>%1</strong> ait été établie, elle a été "
+"fermée de façon inattendue par la suite."
+
+#: core/job_error.cpp:627
+msgid ""
+"A protocol error may have occurred, causing the server to close the "
+"connection as a response to the error."
+msgstr ""
+"Un problème de protocole est survenu, et le serveur y a répondu en fermant "
+"la connexion."
+
+#: core/job_error.cpp:633
+msgid "URL Resource Invalid"
+msgstr "Ressource d'URL mal formée"
+
+#: core/job_error.cpp:634
+#, kde-format
+msgid "Protocol %1 is not a Filter Protocol"
+msgstr "Le protocole %1 n'est pas un protocole de filtre"
+
+#: core/job_error.cpp:635
+#, kde-format
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered did not refer to a valid mechanism of "
+"accessing the specific resource, <strong>%1%2</strong>."
+msgstr ""
+"L'URL (<strong>Universal Resource Locator</strong>) que vous avez saisie ne "
+"correspond à aucun mécanisme valable d'accès à la ressource spécifique, "
+"<strong>%1%2</strong>."
+
+#: core/job_error.cpp:640
+msgid ""
+"KDE is able to communicate through a protocol within a protocol. This "
+"request specified a protocol be used as such, however this protocol is not "
+"capable of such an action. This is a rare event, and is likely to indicate a "
+"programming error."
+msgstr ""
+"KDE est capable de communiquer via un protocole intégré à un autre "
+"protocole. Le protocole spécifié n'est utilisé que dans ce genre de "
+"situation, alors que ce n'est pas ici le cas. Il s'agit d'un évènement rare, "
+"et qui résulte probablement d'un problème de programmation."
+
+#: core/job_error.cpp:648
+msgid "Unable to Initialize Input/Output Device"
+msgstr "Impossible d'initialiser le périphérique d'entrée /sortie"
+
+#: core/job_error.cpp:649
+msgid "Could Not Mount Device"
+msgstr "Impossible de monter le périphérique"
+
+#: core/job_error.cpp:650
+#, kde-format
+msgid ""
+"The requested device could not be initialized (\"mounted\"). The reported "
+"error was: <strong>%1</strong>"
+msgstr ""
+"Le périphérique spécifié n'a pas pu être initialisé (« monté »). L'erreur "
+"renvoyée est : <strong>%1</strong>"
+
+#: core/job_error.cpp:653
+msgid ""
+"The device may not be ready, for example there may be no media in a "
+"removable media device (i.e. no CD-ROM in a CD drive), or in the case of a "
+"peripheral/portable device, the device may not be correctly connected."
+msgstr ""
+"Le périphérique n'est peut-être pas prêt : par exemple, il est possible "
+"qu'aucun média ne soit présent dans le périphérique correspondant (c'est-à-"
+"dire, pas de CD-ROM dans un lecteur de CD), ou dans le cas d'un périphérique "
+"portable / auxiliaire, celui-ci n'est peut-être pas connecté correctement."
+
+#: core/job_error.cpp:657
+msgid ""
+"You may not have permissions to initialize (\"mount\") the device. On UNIX "
+"systems, often system administrator privileges are required to initialize a "
+"device."
+msgstr ""
+"Vous n'avez peut-être pas les droits d'accès pour initialiser (« monter ») "
+"le périphérique. Sur les systèmes Unix, les privilèges d'administrateur "
+"système sont souvent requis pour initialiser un périphérique."
+
+#: core/job_error.cpp:661
+msgid ""
+"Check that the device is ready; removable drives must contain media, and "
+"portable devices must be connected and powered on.; and try again."
+msgstr ""
+"Assurez-vous que le périphérique est prêt. Les lecteurs de disque amovibles "
+"doivent contenir un disque, les périphériques portables doivent être "
+"branchés et allumés, puis réessayez."
+
+#: core/job_error.cpp:667
+msgid "Unable to Uninitialize Input/Output Device"
+msgstr "Impossible de libérer le périphérique d'entrée /sortie"
+
+#: core/job_error.cpp:668
+msgid "Could Not Unmount Device"
+msgstr "Impossible de libérer le périphérique"
+
+#: core/job_error.cpp:669
+#, kde-format
+msgid ""
+"The requested device could not be uninitialized (\"unmounted\"). The "
+"reported error was: <strong>%1</strong>"
+msgstr ""
+"Le périphérique spécifié n'a pas pu être libéré (« démonté »). L'erreur "
+"renvoyée est : <strong>%1</strong>"
+
+#: core/job_error.cpp:672
+msgid ""
+"The device may be busy, that is, still in use by another application or "
+"user. Even such things as having an open browser window on a location on "
+"this device may cause the device to remain in use."
+msgstr ""
+"Le périphérique est peut-être occupé, encore utilisé par une autre "
+"application ou un autre utilisateur. Une seule fenêtre de navigation ouverte "
+"sur un emplacement lié à ce périphérique peut suffire à provoquer cette "
+"situation."
+
+#: core/job_error.cpp:676
+msgid ""
+"You may not have permissions to uninitialize (\"unmount\") the device. On "
+"UNIX systems, system administrator privileges are often required to "
+"uninitialize a device."
+msgstr ""
+"Vous n'avez pas le droit de libérer (« démonter ») le périphérique. Sur les "
+"systèmes Unix, les privilèges d'administrateur système sont souvent requis "
+"pour libérer un périphérique."
+
+#: core/job_error.cpp:680
+msgid "Check that no applications are accessing the device, and try again."
+msgstr ""
+"Assurez-vous qu'aucune autre application n'accède au périphérique, puis "
+"réessayez."
+
+#: core/job_error.cpp:685
+msgid "Cannot Read From Resource"
+msgstr "Impossible de lire le contenu de la ressource"
+
+#: core/job_error.cpp:686
+#, kde-format
+msgid ""
+"This means that although the resource, <strong>%1</strong>, was able to be "
+"opened, an error occurred while reading the contents of the resource."
+msgstr ""
+"Cela signifie que la ressource <strong>%1</strong> a pu être ouverte mais "
+"qu'il a été impossible de lire son contenu."
+
+#: core/job_error.cpp:689
+msgid "You may not have permissions to read from the resource."
+msgstr ""
+"Vous n'avez peut-être pas le droit de lire le contenu de cette ressource."
+
+#: core/job_error.cpp:702
+msgid "Cannot Write to Resource"
+msgstr "Impossible d'écrire dans cette ressource"
+
+#: core/job_error.cpp:703
+#, kde-format
+msgid ""
+"This means that although the resource, <strong>%1</strong>, was able to be "
+"opened, an error occurred while writing to the resource."
+msgstr ""
+"Cela signifie que la ressource <strong>%1</strong> a pu être ouverte mais "
+"qu'il a été impossible d'écrire dedans."
+
+#: core/job_error.cpp:706
+msgid "You may not have permissions to write to the resource."
+msgstr "Vous n'avez peut-être pas le droit d'écrire dans cette ressource."
+
+#: core/job_error.cpp:719 core/job_error.cpp:730
+msgid "Could Not Listen for Network Connections"
+msgstr "Impossible d'écouter les connexions réseau"
+
+#: core/job_error.cpp:720
+msgid "Could Not Bind"
+msgstr "Impossible de lier"
+
+#: core/job_error.cpp:721 core/job_error.cpp:732
+msgid ""
+"This is a fairly technical error in which a required device for network "
+"communications (a socket) could not be established to listen for incoming "
+"network connections."
+msgstr ""
+"C'est un problème plutôt technique : le périphérique réseau requis pour la "
+"communication (une « socket ») n'a pas pu être créé afin d'écouter les "
+"connexions réseau entrantes."
+
+#: core/job_error.cpp:731
+msgid "Could Not Listen"
+msgstr "Impossible d'écouter"
+
+#: core/job_error.cpp:741
+msgid "Could Not Accept Network Connection"
+msgstr "Impossible d'accepter la connexion réseau"
+
+#: core/job_error.cpp:742
+msgid ""
+"This is a fairly technical error in which an error occurred while attempting "
+"to accept an incoming network connection."
+msgstr ""
+"C'est un problème plutôt technique, survenu en tentant d'accepter une "
+"connexion réseau entrante."
+
+#: core/job_error.cpp:746
+msgid "You may not have permissions to accept the connection."
+msgstr "Vous n'avez peut-être pas le droit d'accepter la connexion."
+
+#: core/job_error.cpp:751
+#, kde-format
+msgid "Could Not Login: %1"
+msgstr "Impossible de se connecter : %1"
+
+#: core/job_error.cpp:752
+msgid ""
+"An attempt to login to perform the requested operation was unsuccessful."
+msgstr ""
+"La tentative de connexion pour pouvoir réaliser l'opération demandée n'a pas "
+"abouti."
+
+#: core/job_error.cpp:763
+msgid "Could Not Determine Resource Status"
+msgstr "Impossible de déterminer l'état de la ressource"
+
+#: core/job_error.cpp:764
+msgid "Could Not Stat Resource"
+msgstr "Impossible d'analyser la ressource"
+
+#: core/job_error.cpp:765
+#, kde-format
+msgid ""
+"An attempt to determine information about the status of the resource <strong>"
+"%1</strong>, such as the resource name, type, size, etc., was unsuccessful."
+msgstr ""
+"La tentative pour déterminer des informations sur l'état de la ressource "
+"<strong>%1</strong> (son nom, sa taille, son type, etc.) n'a pas abouti."
+
+#: core/job_error.cpp:768
+msgid "The specified resource may not have existed or may not be accessible."
+msgstr "La ressource spécifiée n'existe peut-être pas ou n'est pas accessible."
+
+#: core/job_error.cpp:776
+msgid "Could Not Cancel Listing"
+msgstr "Impossible d'annuler le listage"
+
+#: core/job_error.cpp:777
+msgid "FIXME: Document this"
+msgstr "À FAIRE : documenter ceci"
+
+#: core/job_error.cpp:781
+msgid "Could Not Create Folder"
+msgstr "Impossible de créer le dossier"
+
+#: core/job_error.cpp:782
+msgid "An attempt to create the requested folder failed."
+msgstr "Une tentative de création du dossier demandé n'a pas abouti."
+
+#: core/job_error.cpp:783
+msgid "The location where the folder was to be created may not exist."
+msgstr "L'emplacement où le dossier devait être créé n'existe peut-être pas."
+
+#: core/job_error.cpp:792
+msgid "Could Not Remove Folder"
+msgstr "Impossible de supprimer le dossier"
+
+#: core/job_error.cpp:793
+#, kde-format
+msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
+msgstr ""
+"La tentative pour supprimer le dossier demandé, <strong>%1</strong>, n'a pas "
+"abouti."
+
+#: core/job_error.cpp:795
+msgid "The specified folder may not exist."
+msgstr "Le dossier spécifié n'existe peut-être pas."
+
+#: core/job_error.cpp:796
+msgid "The specified folder may not be empty."
+msgstr "Le dossier spécifié n'est peut-être pas vide."
+
+#: core/job_error.cpp:801
+msgid "Ensure that the folder exists and is empty, and try again."
+msgstr "Assurez-vous que le dossier existe, qu'il est vide, et réessayez."
+
+#: core/job_error.cpp:806
+msgid "Could Not Resume File Transfer"
+msgstr "Impossible de reprendre le transfert de fichier"
+
+#: core/job_error.cpp:807
+#, kde-format
+msgid ""
+"The specified request asked that the transfer of file <strong>%1</strong> be "
+"resumed at a certain point of the transfer. This was not possible."
+msgstr ""
+"La requête spécifiée a demandé à ce que le transfert du fichier <strong>%1</"
+"strong> soit repris à un certain point. Cela n'a pas été possible."
+
+#: core/job_error.cpp:810
+msgid "The protocol, or the server, may not support file resuming."
+msgstr ""
+"Le protocole ou le serveur ne gère peut-être pas la reprise de transfert de "
+"fichier."
+
+#: core/job_error.cpp:812
+msgid "Retry the request without attempting to resume transfer."
+msgstr "Relancer la requête sans essayer de reprendre le transfert."
+
+#: core/job_error.cpp:817
+msgid "Could Not Rename Resource"
+msgstr "Impossible de renommer la ressource"
+
+#: core/job_error.cpp:818
+#, kde-format
+msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
+msgstr ""
+"La tentative pour renommer la ressource spécifiée, <strong>%1</strong> n'a "
+"pas abouti."
+
+#: core/job_error.cpp:828
+msgid "Could Not Alter Permissions of Resource"
+msgstr "Impossible de changer les droits d'accès de la ressource"
+
+#: core/job_error.cpp:829
+#, kde-format
+msgid ""
+"An attempt to alter the permissions on the specified resource <strong>%1</"
+"strong> failed."
+msgstr ""
+"Impossible de modifier les droits d'accès de la ressource <strong>%1</"
+"strong>."
+
+#: core/job_error.cpp:836
+msgid "Could Not Change Ownership of Resource"
+msgstr "Impossible de changer les droits d'accès de la ressource"
+
+#: core/job_error.cpp:837
+#, kde-format
+msgid ""
+"An attempt to change the ownership of the specified resource <strong>%1</"
+"strong> failed."
+msgstr ""
+"Impossible de modifier les droits d'accès de la ressource <strong>%1</"
+"strong>."
+
+#: core/job_error.cpp:844
+msgid "Could Not Delete Resource"
+msgstr "Impossible de supprimer la ressource"
+
+#: core/job_error.cpp:845
+#, kde-format
+msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
+msgstr ""
+"La tentative de supprimer la ressource spécifiée, <strong>%1</strong>, n'a "
+"pas abouti."
+
+#: core/job_error.cpp:852
+msgid "Unexpected Program Termination"
+msgstr "Fin inattendue du programme"
+
+#: core/job_error.cpp:853
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has unexpectedly terminated."
+msgstr ""
+"Le programme de votre ordinateur permettant d'accéder au protocole <strong>"
+"%1</strong> s'est terminé de façon inattendue."
+
+#: core/job_error.cpp:861
+msgid "Out of Memory"
+msgstr "Mémoire insuffisante"
+
+#: core/job_error.cpp:862
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol could not obtain the memory required to continue."
+msgstr ""
+"Le programme de votre ordinateur qui permet l'accès au protocole <strong>%1</"
+"strong> n'a pas pu obtenir la quantité de mémoire dont il avait besoin."
+
+#: core/job_error.cpp:870
+msgid "Unknown Proxy Host"
+msgstr "Serveur mandataire (proxy) inconnu"
+
+#: core/job_error.cpp:871
+#, kde-format
+msgid ""
+"While retrieving information about the specified proxy host, <strong>%1</"
+"strong>, an Unknown Host error was encountered. An unknown host error "
+"indicates that the requested name could not be located on the Internet."
+msgstr ""
+"Lors de la réception des informations sur le serveur mandataire (proxy) "
+"spécifié, <strong>%1</strong>, une erreur « Serveur mandataire (proxy) "
+"inconnu » est survenue. Cela signifie qu'il est impossible de trouver le nom "
+"spécifié sur Internet."
+
+#: core/job_error.cpp:875
+msgid ""
+"There may have been a problem with your network configuration, specifically "
+"your proxy's hostname. If you have been accessing the Internet with no "
+"problems recently, this is unlikely."
+msgstr ""
+"Un problème est peut-être survenu avec votre configuration réseau, en "
+"particulier au niveau du nom du serveur mandataire (proxy). Si vous avez pu "
+"accéder à l'Internet sans problème récemment, c'est cependant peu probable."
+
+#: core/job_error.cpp:879
+msgid "Double-check your proxy settings and try again."
+msgstr ""
+"Vérifiez à nouveau que la configuration de votre serveur mandataire (proxy) "
+"est correcte, puis réessayez."
+
+#: core/job_error.cpp:884
+#, kde-format
+msgid "Authentication Failed: Method %1 Not Supported"
+msgstr "Authentification impossible : la méthode %1 n'est pas gérée"
+
+#: core/job_error.cpp:886
+#, kde-format
+msgid ""
+"Although you may have supplied the correct authentication details, the "
+"authentication failed because the method that the server is using is not "
+"supported by the KDE program implementing the protocol %1."
+msgstr ""
+"Même si vous avez saisi des informations d'authentification correctes, la "
+"procédure d'authentification n'a pas abouti. La méthode utilisée par le "
+"serveur n'est peut-être pas connue du programme KDE gérant le protocole %1."
+
+#: core/job_error.cpp:890
+msgid ""
+"Please file a bug at <a href=\"http://bugs.kde.org/\">http://bugs.kde.org/</"
+"a> to inform the KDE team of the unsupported authentication method."
+msgstr ""
+"Veuillez signaler ce bogue à l'adresse <a href=\"http://bugs.kde.org/"
+"\">http://bugs.kde.org/</a> pour informer l'équipe KDE de l'existence de "
+"cette méthode d'authentification non gérée."
+
+#: core/job_error.cpp:896
+msgid "Request Aborted"
+msgstr "Requête interrompue"
+
+#: core/job_error.cpp:903
+msgid "Internal Error in Server"
+msgstr "Problème interne du serveur"
+
+#: core/job_error.cpp:904
+#, kde-format
+msgid ""
+"The program on the server which provides access to the <strong>%1</strong> "
+"protocol has reported an internal error: %2."
+msgstr ""
+"Le programme du serveur permettant d'accéder au protocole <strong>%1</"
+"strong> a signalé un problème interne : %2."
+
+#: core/job_error.cpp:907
+msgid ""
+"This is most likely to be caused by a bug in the server program. Please "
+"consider submitting a full bug report as detailed below."
+msgstr ""
+"Celui-ci est probablement dû à un bogue dans le logiciel du serveur. "
+"Veuillez le signaler selon la procédure décrite ci-dessous."
+
+#: core/job_error.cpp:910
+msgid "Contact the administrator of the server to advise them of the problem."
+msgstr "Contactez l'administrateur du serveur pour lui signaler le problème."
+
+#: core/job_error.cpp:912
+msgid ""
+"If you know who the authors of the server software are, submit the bug "
+"report directly to them."
+msgstr ""
+"Si vous connaissez les auteurs du logiciel du serveur, envoyez-leur un "
+"rapport de bogue directement."
+
+#: core/job_error.cpp:917
+msgid "Timeout Error"
+msgstr "Délai expiré"
+
+#: core/job_error.cpp:918
+#, kde-format
+msgid ""
+"Although contact was made with the server, a response was not received "
+"within the amount of time allocated for the request as follows:"
+"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+"settings in the KDE System Settings, by selecting Network Settings -> "
+"Connection Preferences."
+msgstr ""
+"Bien que le serveur ait été contacté, il n'a envoyé aucune réponse dans les "
+"délais impartis pour la requête :<ul><li>Délai d'établissement de la "
+"connexion : %1 secondes</li> <li>Délai de réception d'une réponse : %2 "
+"secondes</li> <li>Délai d'accès aux serveurs mandataire (proxy) : %3 "
+"secondes</li> </ul>Notez que vous pouvez modifier ces délais dans le Centre "
+"d'information de KDE en choisissant « Réseau / Configuration »."
+
+#: core/job_error.cpp:929
+msgid "The server was too busy responding to other requests to respond."
+msgstr ""
+"Le serveur était trop occupé à satisfaire d'autres requêtes pour pouvoir "
+"répondre."
+
+#: core/job_error.cpp:935 core/slavebase.cpp:1408
+msgid "Unknown Error"
+msgstr "Problème inconnu"
+
+#: core/job_error.cpp:936
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an unknown error: %2."
+msgstr ""
+"Le programme de votre ordinateur permettant d'accéder au protocole <strong>"
+"%1</strong> a signalé un problème inconnu : %2."
+
+#: core/job_error.cpp:944
+msgid "Unknown Interruption"
+msgstr "Interruption inconnue"
+
+#: core/job_error.cpp:945
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an interruption of an unknown type: %2."
+msgstr ""
+"Le programme de votre ordinateur permettant d'accéder au protocole <strong>"
+"%1</strong> a signalé une interruption d'un type inconnu : %2."
+
+#: core/job_error.cpp:953
+msgid "Could Not Delete Original File"
+msgstr "Impossible de supprimer le fichier d'origine"
+
+#: core/job_error.cpp:954
+#, kde-format
+msgid ""
+"The requested operation required the deleting of the original file, most "
+"likely at the end of a file move operation. The original file <strong>%1</"
+"strong> could not be deleted."
+msgstr ""
+"L'opération demandée nécessitait la suppression du fichier d'origine, par "
+"exemple pour une opération de déplacement. Le fichier original <strong>%1</"
+"strong> n'a pas pu être supprimé."
+
+#: core/job_error.cpp:963
+msgid "Could Not Delete Temporary File"
+msgstr "Impossible de supprimer le fichier temporaire"
+
+#: core/job_error.cpp:964
+#, kde-format
+msgid ""
+"The requested operation required the creation of a temporary file in which "
+"to save the new file while being downloaded. This temporary file <strong>%1</"
+"strong> could not be deleted."
+msgstr ""
+"L'opération demandée nécessitait la création d'un fichier temporaire pour y "
+"enregistrer le nouveau fichier en cours de téléchargement. Ce fichier "
+"temporaire, <strong>%1</strong>, n'a pas pu être supprimé."
+
+#: core/job_error.cpp:973
+msgid "Could Not Rename Original File"
+msgstr "Impossible de renommer le fichier d'origine"
+
+#: core/job_error.cpp:974
+#, kde-format
+msgid ""
+"The requested operation required the renaming of the original file <strong>"
+"%1</strong>, however it could not be renamed."
+msgstr ""
+"L'opération demandée nécessitait le renommage du fichier d'origine, <strong>"
+"%1</strong>, mais il n'a pas pu être renommé."
+
+#: core/job_error.cpp:982
+msgid "Could Not Rename Temporary File"
+msgstr "Impossible de renommer le fichier temporaire"
+
+#: core/job_error.cpp:983
+#, kde-format
+msgid ""
+"The requested operation required the creation of a temporary file <strong>"
+"%1</strong>, however it could not be created."
+msgstr ""
+"L'opération demandée exigeait la création d'un fichier temporaire <strong>"
+"%1</strong>, mais il n'a pas pu être créé."
+
+#: core/job_error.cpp:991
+msgid "Could Not Create Link"
+msgstr "Impossible de créer le lien"
+
+#: core/job_error.cpp:992
+msgid "Could Not Create Symbolic Link"
+msgstr "Impossible de créer le lien symbolique"
+
+#: core/job_error.cpp:993
+#, kde-format
+msgid "The requested symbolic link %1 could not be created."
+msgstr "Le lien symbolique demandé, %1, n'a pas pu être créé."
+
+#: core/job_error.cpp:1000
+msgid "No Content"
+msgstr "Aucun contenu"
+
+#: core/job_error.cpp:1005
+msgid "Disk Full"
+msgstr "Disque plein"
+
+#: core/job_error.cpp:1006
+#, kde-format
+msgid ""
+"The requested file <strong>%1</strong> could not be written to as there is "
+"inadequate disk space."
+msgstr ""
+"Le fichier demandé, <strong>%1</strong>, n'a pas pu être écrit sur le disque "
+"car il n'y avait pas assez d'espace disque libre."
+
+#: core/job_error.cpp:1008
+msgid ""
+"Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
+"archiving files to removable media storage such as CD-Recordable discs; or "
+"3) obtain more storage capacity."
+msgstr ""
+"Libérez suffisamment d'espace disque 1) en supprimant tous les fichiers "
+"inutiles ou temporaires, 2) en archivant des fichiers sur un média amovible "
+"comme une disquette ou un CD enregistrable, ou 3) en acquérant une capacité "
+"de stockage supérieure."
+
+#: core/job_error.cpp:1015
+msgid "Source and Destination Files Identical"
+msgstr "Les fichiers source et destination sont identiques"
+
+#: core/job_error.cpp:1016
+msgid ""
+"The operation could not be completed because the source and destination "
+"files are the same file."
+msgstr ""
+"L'opération n'a pas abouti car les fichiers source et destination sont un "
+"seul et même fichier."
+
+#: core/job_error.cpp:1018
+msgid "Choose a different filename for the destination file."
+msgstr "Donnez un autre nom au fichier de destination."
+
+#: core/job_error.cpp:1029
+msgid "Undocumented Error"
+msgstr "Problème non documenté"
+
+#: core/kcoredirlister.cpp:397 widgets/krun.cpp:842 widgets/paste.cpp:261
+#: widgets/renamedialog.cpp:410
+#, kde-format
+msgid ""
+"Malformed URL\n"
+"%1"
+msgstr ""
+"URL mal formée\n"
+"%1"
+
+#: core/kcoredirlister.cpp:402
+#, kde-format
+msgid ""
+"URL cannot be listed\n"
+"%1"
+msgstr ""
+"L'URL ne peut être listée\n"
+"%1"
+
+#: core/kfileitem.cpp:1186
+#, kde-format
+msgid "(Symbolic Link to %1)"
+msgstr "(Lien symbolique vers %1)"
+
+#: core/kfileitem.cpp:1188
+#, kde-format
+msgid "(%1, Link to %2)"
+msgstr "(%1 pointe vers %2)"
+
+#: core/kfileitem.cpp:1191
+#, kde-format
+msgid " (Points to %1)"
+msgstr " (pointe vers %1)"
+
+#: core/klocalsocket_unix.cpp:192 core/klocalsocket_unix.cpp:260
+msgid "Specified socket path is invalid"
+msgstr "L'emplacement de la socket indiquée n'est pas valable"
+
+#: core/klocalsocket_unix.cpp:201 core/klocalsocket_unix.cpp:248
+#: core/klocalsocket_unix.cpp:269
+msgid "The socket operation is not supported"
+msgstr "L'opération sur la socket n'est pas prise en charge"
+
+#: core/klocalsocket_unix.cpp:214
+msgid "Connection refused"
+msgstr "Connexion refusée"
+
+#: core/klocalsocket_unix.cpp:219 core/klocalsocket_unix.cpp:282
+msgid "Permission denied"
+msgstr "Permission refusée"
+
+#: core/klocalsocket_unix.cpp:223
+msgid "Connection timed out"
+msgstr "Délai de connexion expiré"
+
+#: core/klocalsocket_unix.cpp:227 core/klocalsocket_unix.cpp:307
+msgid "Unknown error"
+msgstr "Erreur inconnue"
+
+#: core/klocalsocket_unix.cpp:235 core/klocalsocket_unix.cpp:315
+msgid "Could not set non-blocking mode"
+msgstr "Impossible de définir le mode non bloquant"
+
+#: core/klocalsocket_unix.cpp:286
+msgid "Address is already in use"
+msgstr "Adresse déjà en cours d'utilisation"
+
+#: core/klocalsocket_unix.cpp:291
+msgid "Path cannot be used"
+msgstr "Impossible d'utiliser l'emplacement"
+
+#: core/klocalsocket_unix.cpp:295
+msgid "No such file or directory"
+msgstr "Fichier ou dossier introuvable"
+
+# unreviewed-context
+#: core/klocalsocket_unix.cpp:299
+msgid "Not a directory"
+msgstr "N'est pas un dossier"
+
+#: core/klocalsocket_unix.cpp:303
+msgid "Read-only filesystem"
+msgstr "Système de fichiers en lecture seule"
+
+#: core/klocalsocket_unix.cpp:370 core/klocalsocket_unix.cpp:404
+msgid "Unknown socket error"
+msgstr "Erreur de socket inconnue"
+
+#: core/klocalsocket_win.cpp:31 core/klocalsocket_win.cpp:36
+msgid "Operation not supported"
+msgstr "Opération non prise en charge"
+
+#: core/ktcpsocket.cpp:165
+msgctxt "SSL error"
+msgid "No error"
+msgstr "Aucune erreur"
+
+#: core/ktcpsocket.cpp:167
+msgctxt "SSL error"
+msgid "The certificate authority's certificate is invalid"
+msgstr "Le certificat d'autorité de certification n'est pas valable"
+
+#: core/ktcpsocket.cpp:169
+msgctxt "SSL error"
+msgid "The certificate has expired"
+msgstr "Le certificat a expiré"
+
+#: core/ktcpsocket.cpp:171
+msgctxt "SSL error"
+msgid "The certificate is invalid"
+msgstr "Le certificat n'est pas valable"
+
+#: core/ktcpsocket.cpp:173
+msgctxt "SSL error"
+msgid "The certificate is not signed by any trusted certificate authority"
+msgstr ""
+"Le certificat n'est signé par aucune autorité de certification de confiance"
+
+#: core/ktcpsocket.cpp:175
+msgctxt "SSL error"
+msgid "The certificate has been revoked"
+msgstr "Le certificat a été révoqué"
+
+#: core/ktcpsocket.cpp:177
+msgctxt "SSL error"
+msgid "The certificate is unsuitable for this purpose"
+msgstr "Le certificat est inapproprié à ce besoin"
+
+#: core/ktcpsocket.cpp:179
+msgctxt "SSL error"
+msgid ""
+"The root certificate authority's certificate is not trusted for this purpose"
+msgstr ""
+"Le certificat racine de l'autorité de certification n'est pas sécurisé pour "
+"ce besoin"
+
+#: core/ktcpsocket.cpp:181
+msgctxt "SSL error"
+msgid ""
+"The certificate authority's certificate is marked to reject this "
+"certificate's purpose"
+msgstr ""
+"Le certificat d'autorité de certification est marqué pour rejeter l'objectif "
+"de ce certificat"
+
+#: core/ktcpsocket.cpp:183
+msgctxt "SSL error"
+msgid "The peer did not present any certificate"
+msgstr "L'homologue n'a présenté aucun certificat"
+
+#: core/ktcpsocket.cpp:185
+msgctxt "SSL error"
+msgid "The certificate does not apply to the given host"
+msgstr "Le certificat ne s'applique pas à l'hôte indiqué"
+
+#: core/ktcpsocket.cpp:187
+msgctxt "SSL error"
+msgid "The certificate cannot be verified for internal reasons"
+msgstr "Impossible de vérifier le certificat pour des raisons internes"
+
+#: core/ktcpsocket.cpp:189
+msgctxt "SSL error"
+msgid "The certificate chain is too long"
+msgstr "La chaîne de certificat est trop longue"
+
+#: core/ktcpsocket.cpp:192
+msgctxt "SSL error"
+msgid "Unknown error"
+msgstr "Erreur inconnue"
+
+#: core/slave.cpp:453
+#, kde-format
+msgid "Unknown protocol '%1'."
+msgstr "Protocole « %1 » inconnu."
+
+#: core/slave.cpp:463
+#, kde-format
+msgid "Can not find io-slave for protocol '%1'."
+msgstr ""
+"Impossible de trouver un module d'entrée / sortie pour le protocole « %1 »."
+
+#: core/slave.cpp:474
+msgid "Can not find 'kioslave' executable"
+msgstr "Impossible de trouver le programme d'entrée / sortie (kioslave)"
+
+#: core/slave.cpp:489
+#, kde-format
+msgid "Cannot talk to klauncher: %1"
+msgstr "Impossible de dialoguer avec KLauncher : %1"
+
+#: core/slave.cpp:496
+#, kde-format
+msgid ""
+"Unable to create io-slave:\n"
+"klauncher said: %1"
+msgstr ""
+"Impossible de créer le module d'entrée / sortie :\n"
+"klauncher a retourné : %1"
+
+#: core/slavebase.cpp:762
+#, kde-format
+msgid "Opening connections is not supported with the protocol %1."
+msgstr ""
+"L'ouverture des connexions avec le protocole %1 n'est pas prise en charge."
+
+#: core/slavebase.cpp:764
+#, kde-format
+msgid "Closing connections is not supported with the protocol %1."
+msgstr ""
+"La fermeture des connexions avec le protocole %1 n'est pas prise en charge."
+
+#: core/slavebase.cpp:766
+#, kde-format
+msgid "Accessing files is not supported with the protocol %1."
+msgstr "L'accès à des fichiers avec le protocole %1 n'est pas pris en charge."
+
+#: core/slavebase.cpp:768
+#, kde-format
+msgid "Writing to %1 is not supported."
+msgstr "L'écriture vers %1 n'est pas prise en charge."
+
+#: core/slavebase.cpp:770
+#, kde-format
+msgid "There are no special actions available for protocol %1."
+msgstr "Aucune action spéciale n'est disponible pour le protocole %1."
+
+#: core/slavebase.cpp:772
+#, kde-format
+msgid "Listing folders is not supported for protocol %1."
+msgstr "Le protocole %1 ne gère pas le listage de dossiers."
+
+#: core/slavebase.cpp:774
+#, kde-format
+msgid "Retrieving data from %1 is not supported."
+msgstr "La réception de données depuis %1 n'est pas gérée."
+
+#: core/slavebase.cpp:776
+#, kde-format
+msgid "Retrieving mime type information from %1 is not supported."
+msgstr "La réception du type MIME depuis %1 n'est pas prise en charge."
+
+#: core/slavebase.cpp:778
+#, kde-format
+msgid "Renaming or moving files within %1 is not supported."
+msgstr "Le renommage ou le déplacement de fichiers dans %1 n'est pas géré."
+
+#: core/slavebase.cpp:780
+#, kde-format
+msgid "Creating symlinks is not supported with protocol %1."
+msgstr "Le protocole %1 ne gère pas la création de liens symboliques."
+
+#: core/slavebase.cpp:782
+#, kde-format
+msgid "Copying files within %1 is not supported."
+msgstr "La copie de fichiers dans %1 n'est pas prise en charge."
+
+#: core/slavebase.cpp:784
+#, kde-format
+msgid "Deleting files from %1 is not supported."
+msgstr "La suppression de fichiers dans %1 n'est pas gérée."
+
+#: core/slavebase.cpp:786
+#, kde-format
+msgid "Creating folders is not supported with protocol %1."
+msgstr "Le protocole %1 ne gère pas la création de dossiers."
+
+#: core/slavebase.cpp:788
+#, kde-format
+msgid "Changing the attributes of files is not supported with protocol %1."
+msgstr ""
+"Le protocole %1 ne permet pas la modification des attributs de fichiers."
+
+#: core/slavebase.cpp:790
+#, kde-format
+msgid "Changing the ownership of files is not supported with protocol %1."
+msgstr ""
+"Le protocole %1 ne permet pas la modification des attributs de fichiers."
+
+#: core/slavebase.cpp:792
+#, kde-format
+msgid "Using sub-URLs with %1 is not supported."
+msgstr "L'utilisation de sous-URL dans %1 n'est pas gérée."
+
+#: core/slavebase.cpp:794
+#, kde-format
+msgid "Multiple get is not supported with protocol %1."
+msgstr "Le protocole %1 ne gère pas les téléchargements multiples."
+
+#: core/slavebase.cpp:796
+#, kde-format
+msgid "Opening files is not supported with protocol %1."
+msgstr "Le protocole %1 ne gère pas l'ouverture de fichiers."
+
+#: core/slavebase.cpp:798
+#, kde-format
+msgid "Protocol %1 does not support action %2."
+msgstr "Le protocole %1 ne prend pas en charge l'action %2."
+
+#: core/slavebase.cpp:954
+msgid "&Yes"
+msgstr "&Oui"
+
+#: core/slavebase.cpp:955
+msgid "&No"
+msgstr "&Non"
+
+#: core/slaveinterface.cpp:409 core/tcpslavebase.cpp:822 widgets/sslui.cpp:78
+msgid "&Details"
+msgstr "&Détails"
+
+#: core/slaveinterface.cpp:411 core/tcpslavebase.cpp:842 widgets/sslui.cpp:114
+msgid "&Forever"
+msgstr "Oui, &toujours"
+
+#: core/slaveinterface.cpp:415 core/tcpslavebase.cpp:822 widgets/sslui.cpp:79
+msgid "Co&ntinue"
+msgstr "Co&ntinuer"
+
+#: core/slaveinterface.cpp:417 core/tcpslavebase.cpp:843 widgets/sslui.cpp:115
+msgid "&Current Session only"
+msgstr "Pour &cette session seulement"
+
+#: core/tcpslavebase.cpp:319
+msgid ""
+"You are about to leave secure mode. Transmissions will no longer be "
+"encrypted.\n"
+"This means that a third party could observe your data in transit."
+msgstr ""
+"Vous êtes sur le point de sortir du mode sécurisé. Les transmissions ne "
+"seront plus chiffrées.\n"
+"Cela signifie que quelqu'un pourrait intercepter et connaître vos données en "
+"cours de transfert."
+
+#: core/tcpslavebase.cpp:325 core/tcpslavebase.cpp:590
+msgid "Security Information"
+msgstr "Informations sur la sécurité"
+
+#: core/tcpslavebase.cpp:326
+msgid "C&ontinue Loading"
+msgstr "C&ontinuer le chargement"
+
+#: core/tcpslavebase.cpp:421
+#, kde-format
+msgctxt "%1 is a host name"
+msgid "%1: SSL negotiation failed"
+msgstr "Échec de la négociation SSL avec %1"
+
+#: core/tcpslavebase.cpp:584
+msgid ""
+"You are about to enter secure mode. All transmissions will be encrypted "
+"unless otherwise noted.\n"
+"This means that no third party will be able to easily observe your data in "
+"transit."
+msgstr ""
+"Vous êtes sur le point de passer en mode sécurisé. Toutes les transmissions "
+"seront chiffrées, à moins que le contraire n'ait été signalé.\n"
+"Cela signifie que personne ne sera capable d'intercepter et de connaître "
+"aisément vos données en cours de transfert."
+
+#: core/tcpslavebase.cpp:591
+msgid "Display SSL &Information"
+msgstr "Afficher les &informations SSL"
+
+#: core/tcpslavebase.cpp:592
+msgid "C&onnect"
+msgstr "C&onnecter"
+
+#: core/tcpslavebase.cpp:736
+msgid "Enter the certificate password:"
+msgstr "Saisissez le mot de passe du certificat :"
+
+#: core/tcpslavebase.cpp:737
+msgid "SSL Certificate Password"
+msgstr "Mot de passe du certificat SSL"
+
+#: core/tcpslavebase.cpp:751
+msgid "Unable to open the certificate. Try a new password?"
+msgstr "Impossible d'ouvrir le certificat. Essayer un autre mot de passe ?"
+
+#: core/tcpslavebase.cpp:765
+msgid "The procedure to set the client certificate for the session failed."
+msgstr "La mise en place du certificat client pour la session n'a pas abouti."
+
+#: core/tcpslavebase.cpp:767 widgets/jobuidelegate.cpp:341
+msgid "SSL"
+msgstr "SSL"
+
+#: core/tcpslavebase.cpp:811 widgets/sslui.cpp:68
+#, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr ""
+"Le certificat du serveur n'a pas réussi le test d'authenticité (%1)\n"
+"\n"
+
+#: core/tcpslavebase.cpp:821 core/tcpslavebase.cpp:841
+#: core/tcpslavebase.cpp:945 core/tcpslavebase.cpp:957 widgets/sslui.cpp:77
+#: widgets/sslui.cpp:113
+msgid "Server Authentication"
+msgstr "Authentification du serveur"
+
+#: core/tcpslavebase.cpp:838 widgets/sslui.cpp:110
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr ""
+"Voulez-vous désormais accepter ce certificat sans que la question vous soit "
+"posée à chaque fois ?"
+
+#: core/tcpslavebase.cpp:944
+msgid ""
+"You have indicated that you wish to accept this certificate, but it is not "
+"issued to the server who is presenting it. Do you wish to continue loading?"
+msgstr ""
+"Vous avez indiqué vouloir accepter ce certificat, mais il n'est pas "
+"distribué au serveur qui le présente. Voulez-vous poursuivre le chargement ?"
+
+#: core/tcpslavebase.cpp:956
+msgid ""
+"SSL certificate is being rejected as requested. You can disable this in the "
+"KDE System Settings."
+msgstr ""
+"Le certificat SSL est rejeté comme vous l'aviez demandé. Vous pouvez "
+"désactiver ce comportement dans le Centre de Configuration de KDE."
+
+#: filewidgets/kdiroperator.cpp:761
+#, kde-format
+msgid "A file or folder named %1 already exists."
+msgstr "Un fichier ou dossier nommé « %1 » existe déjà."
+
+#: filewidgets/kdiroperator.cpp:764
+msgid "You do not have permission to create that folder."
+msgstr "Vous n'avez pas le droit de créer ce dossier."
+
+#: filewidgets/kdiroperator.cpp:779
+msgid "You did not select a file to delete."
+msgstr "Vous n'avez choisi aucun fichier à supprimer."
+
+#: filewidgets/kdiroperator.cpp:780
+msgid "Nothing to Delete"
+msgstr "Rien à supprimer"
+
+#: filewidgets/kdiroperator.cpp:801
+#, kde-format
+msgid ""
+"<qt>Do you really want to delete\n"
+" <b>'%1'</b>?</qt>"
+msgstr ""
+"<qt>Voulez-vous vraiment supprimer\n"
+"<b>%1</b> ?</qt>"
+
+#: filewidgets/kdiroperator.cpp:803
+msgid "Delete File"
+msgstr "Supprimer le fichier"
+
+#: filewidgets/kdiroperator.cpp:808 widgets/jobuidelegate.cpp:223
+#, kde-format
+msgid "Do you really want to delete this item?"
+msgid_plural "Do you really want to delete these %1 items?"
+msgstr[0] "Voulez-vous vraiment supprimer cet élément ?"
+msgstr[1] "Voulez-vous vraiment supprimer ces %1 éléments ?"
+
+#: filewidgets/kdiroperator.cpp:810 widgets/jobuidelegate.cpp:225
+msgid "Delete Files"
+msgstr "Supprimer les fichiers"
+
+#: filewidgets/kdiroperator.cpp:841
+msgid "You did not select a file to trash."
+msgstr "Vous n'avez choisi aucun fichier à mettre à la corbeille."
+
+#: filewidgets/kdiroperator.cpp:842
+msgid "Nothing to Trash"
+msgstr "Rien à mettre à la corbeille"
+
+#: filewidgets/kdiroperator.cpp:859
+#, kde-format
+msgid ""
+"<qt>Do you really want to trash\n"
+" <b>'%1'</b>?</qt>"
+msgstr ""
+"<qt>Voulez-vous vraiment mettre le fichier\n"
+"<b>%1</b> à la corbeille ?</qt>"
+
+#: filewidgets/kdiroperator.cpp:861
+msgid "Trash File"
+msgstr "Mettre un fichier à la corbeille"
+
+#: filewidgets/kdiroperator.cpp:862 filewidgets/kdiroperator.cpp:869
+msgctxt "to trash"
+msgid "&Trash"
+msgstr "Mettre à la &corbeille"
+
+#: filewidgets/kdiroperator.cpp:866
+#, kde-format
+msgid "translators: not called for n == 1"
+msgid_plural "Do you really want to trash these %1 items?"
+msgstr[0] "Message non traduit."
+msgstr[1] "Voulez-vous vraiment mettre ces %1 éléments à la corbeille ?"
+
+#: filewidgets/kdiroperator.cpp:868
+msgid "Trash Files"
+msgstr "Mettre des fichiers à la corbeille"
+
+#: filewidgets/kdiroperator.cpp:1058 filewidgets/kdiroperator.cpp:1196
+msgid "The specified folder does not exist or was not readable."
+msgstr "Le dossier spécifié n'existe pas ou n'est pas lisible."
+
+#: filewidgets/kdiroperator.cpp:1863
+msgid "Menu"
+msgstr "Menu"
+
+#: filewidgets/kdiroperator.cpp:1867
+msgid "Parent Folder"
+msgstr "Dossier parent"
+
+#: filewidgets/kdiroperator.cpp:1874
+msgid "Home Folder"
+msgstr "Dossier utilisateur"
+
+#: filewidgets/kdiroperator.cpp:1877
+msgid "Reload"
+msgstr "Recharger"
+
+#: filewidgets/kdiroperator.cpp:1880
+msgid "New Folder..."
+msgstr "Nouveau dossier..."
+
+#: filewidgets/kdiroperator.cpp:1885 widgets/jobuidelegate.cpp:246
+msgid "Move to Trash"
+msgstr "Mettre dans la corbeille"
+
+#: filewidgets/kdiroperator.cpp:1891
+msgid "Delete"
+msgstr "Supprimer"
+
+#: filewidgets/kdiroperator.cpp:1898
+msgid "Sorting"
+msgstr "Tri"
+
+#: filewidgets/kdiroperator.cpp:1901
+msgid "By Name"
+msgstr "Par nom"
+
+#: filewidgets/kdiroperator.cpp:1905
+msgid "By Size"
+msgstr "Par taille"
+
+#: filewidgets/kdiroperator.cpp:1909
+msgid "By Date"
+msgstr "Par date"
+
+#: filewidgets/kdiroperator.cpp:1913
+msgid "By Type"
+msgstr "Par type"
+
+#: filewidgets/kdiroperator.cpp:1917
+msgid "Descending"
+msgstr "Descendant"
+
+#: filewidgets/kdiroperator.cpp:1921
+msgid "Folders First"
+msgstr "Les dossiers d'abord"
+
+#: filewidgets/kdiroperator.cpp:1931
+msgid "Icon Position"
+msgstr "Position de l'icône"
+
+#: filewidgets/kdiroperator.cpp:1934
+msgid "Next to File Name"
+msgstr "À coté du nom de fichier"
+
+#: filewidgets/kdiroperator.cpp:1938
+msgid "Above File Name"
+msgstr "Au-dessus du nom de fichier"
+
+#: filewidgets/kdiroperator.cpp:1949
+msgid "Short View"
+msgstr "Affichage simple"
+
+#: filewidgets/kdiroperator.cpp:1954
+msgid "Detailed View"
+msgstr "Affichage détaillé"
+
+#: filewidgets/kdiroperator.cpp:1959
+msgid "Tree View"
+msgstr "Affichage arborescent"
+
+#: filewidgets/kdiroperator.cpp:1964
+msgid "Detailed Tree View"
+msgstr "Affichage arborescent détaillé"
+
+#: filewidgets/kdiroperator.cpp:1975
+msgid "Show Hidden Files"
+msgstr "Afficher les fichiers cachés"
+
+#: filewidgets/kdiroperator.cpp:1979
+msgid "Show Aside Preview"
+msgstr "Afficher l'aperçu à coté"
+
+#: filewidgets/kdiroperator.cpp:1985
+msgid "Show Preview"
+msgstr "Afficher l'aperçu"
+
+#: filewidgets/kdiroperator.cpp:1989
+msgid "Open File Manager"
+msgstr "Ouvrir le gestionnaire de fichiers"
+
+#: filewidgets/kdiroperator.cpp:1994
+msgid "Properties"
+msgstr "Propriétés"
+
+#: filewidgets/kdiroperator.cpp:2001
+msgid "&View"
+msgstr "Afficha&ge"
+
+#: filewidgets/kencodingfiledialog.cpp:86
+msgid "Encoding:"
+msgstr "Encodage :"
+
+#: filewidgets/kencodingfiledialog.cpp:142
+#: filewidgets/kencodingfiledialog.cpp:161
+#: filewidgets/kencodingfiledialog.cpp:179
+#: filewidgets/kencodingfiledialog.cpp:198 widgets/kurlrequesterdialog.cpp:131
+msgid "Open"
+msgstr "Ouvrir"
+
+#: filewidgets/kencodingfiledialog.cpp:217
+#: filewidgets/kencodingfiledialog.cpp:240
+msgid "Save As"
+msgstr "Enregistrer sous"
+
+#: filewidgets/kfilefiltercombo.cpp:36 filewidgets/kfilewidget.cpp:1842
+msgid "*|All Files"
+msgstr "*|Tous les fichiers"
+
+#: filewidgets/kfilefiltercombo.cpp:180
+msgid "All Supported Files"
+msgstr "Tous les fichiers pris en charge"
+
+#: filewidgets/kfilefiltercombo.cpp:189
+msgid "All Files"
+msgstr "Tous les fichiers"
+
+#: filewidgets/kfileplaceeditdialog.cpp:85
+msgid "Add Places Entry"
+msgstr "Ajouter un emplacement"
+
+#: filewidgets/kfileplaceeditdialog.cpp:87
+msgid "Edit Places Entry"
+msgstr "Modifier la liste des emplacements"
+
+#: filewidgets/kfileplaceeditdialog.cpp:96
+msgid ""
+"<qt>This is the text that will appear in the Places panel.<br /><br />The "
+"label should consist of one or two words that will help you remember what "
+"this entry refers to. If you do not enter a label, it will be derived from "
+"the location's URL.</qt>"
+msgstr ""
+"<qt>Il s'agit du texte qui apparaîtra dans le panneau d'accès rapide.<br/"
+"><br/>Choisissez un court descriptif d'un ou plusieurs mots pour pouvoir "
+"vous rappeler à quoi se rapporte ce raccourci. Si vous ne saisissez rien, "
+"celui-ci sera déduit de l'URL de l'emplacement.</qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:102
+msgid "L&abel:"
+msgstr "&Nom :"
+
+#: filewidgets/kfileplaceeditdialog.cpp:104
+msgid "Enter descriptive label here"
+msgstr "Saisissez une description"
+
+#: filewidgets/kfileplaceeditdialog.cpp:108
+#, kde-format
+msgid ""
+"<qt>This is the location associated with the entry. Any valid URL may be "
+"used. For example:<br /><br />%1<br />http://www.kde.org<br />ftp://ftp.kde."
+"org/pub/kde/stable<br /><br />By clicking on the button next to the text "
+"edit box you can browse to an appropriate URL.</qt>"
+msgstr ""
+"<qt>Ceci est l'emplacement associé au raccourci. Toute URL valable peut être "
+"utilisée. Par exemple :<br/><br/>%1<br/>http://www.kde.org<br/>ftp://ftp.kde."
+"org/pub/kde/stable<br/>En cliquant sur le bouton situé à côté de la zone de "
+"modification de texte, vous pouvez naviguer vers une URL appropriée.</qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:114
+msgid "&Location:"
+msgstr "E&mplacement :"
+
+#: filewidgets/kfileplaceeditdialog.cpp:120
+msgid ""
+"<qt>This is the icon that will appear in the Places panel.<br /><br />Click "
+"on the button to select a different icon.</qt>"
+msgstr ""
+"<qt>Il s'agit de l'icône qui apparaîtra dans le panneau d'accès rapide.<br/"
+"><br/>Cliquez sur le bouton pour choisir une autre icône.</qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:123
+msgid "Choose an &icon:"
+msgstr "Choisir une &icône :"
+
+#: filewidgets/kfileplaceeditdialog.cpp:141
+#, kde-format
+msgid "&Only show when using this application (%1)"
+msgstr "N'a&fficher que lors de l'utilisation de cette application (%1)"
+
+#: filewidgets/kfileplaceeditdialog.cpp:143
+#, kde-format
+msgid ""
+"<qt>Select this setting if you want this entry to show only when using the "
+"current application (%1).<br /><br />If this setting is not selected, the "
+"entry will be available in all applications.</qt>"
+msgstr ""
+"<qt>Choisissez ce paramètre si vous désirez n'afficher cet élément que lors "
+"de l'utilisation de l'application en cours (%1). <br/><br/>Si ce paramètre "
+"n'est pas choisi, le raccourci sera disponible dans toutes les applications."
+"</qt>"
+
+#: filewidgets/kfileplacesmodel.cpp:118
+msgctxt "KFile System Bookmarks"
+msgid "Home"
+msgstr "Dossier Personnel"
+
+#: filewidgets/kfileplacesmodel.cpp:121
+msgctxt "KFile System Bookmarks"
+msgid "Network"
+msgstr "Réseau"
+
+#: filewidgets/kfileplacesmodel.cpp:133
+msgctxt "KFile System Bookmarks"
+msgid "Root"
+msgstr "Racine"
+
+#: filewidgets/kfileplacesmodel.cpp:137
+msgctxt "KFile System Bookmarks"
+msgid "Trash"
+msgstr "Corbeille"
+
+#: filewidgets/kfileplacesmodel.cpp:798
+#, kde-format
+msgid "&Release '%1'"
+msgstr "&Libérer « %1 »"
+
+#: filewidgets/kfileplacesmodel.cpp:800
+#, kde-format
+msgid "&Safely Remove '%1'"
+msgstr "&Retirer en toute sécurité « %1 »"
+
+#: filewidgets/kfileplacesmodel.cpp:803
+#, kde-format
+msgid "&Unmount '%1'"
+msgstr "&Libérer « %1 »"
+
+#: filewidgets/kfileplacesmodel.cpp:824
+#, kde-format
+msgid "&Eject '%1'"
+msgstr "&Éjecter %1"
+
+#: filewidgets/kfileplacesmodel.cpp:858
+#, kde-format
+msgid "The device '%1' is not a disk and cannot be ejected."
+msgstr ""
+"Le périphérique « %1 » n'est pas un disque et ne peut donc être éjecté."
+
+#: filewidgets/kfileplacesmodel.cpp:894
+#, kde-format
+msgid "An error occurred while accessing '%1', the system responded: %2"
+msgstr "Une erreur est survenue en accédant à « %1 ». Message reçu : %2"
+
+#: filewidgets/kfileplacesmodel.cpp:898
+#, kde-format
+msgid "An error occurred while accessing '%1'"
+msgstr "Une erreur s'est produite en accédant à « %1 »"
+
+#: filewidgets/kfileplacesview.cpp:584
+msgctxt "@action:inmenu"
+msgid "Empty Trash"
+msgstr "Vider la corbeille"
+
+#: filewidgets/kfileplacesview.cpp:589 filewidgets/kfileplacesview.cpp:610
+#: filewidgets/kfileplacesview.cpp:617 widgets/kacleditwidget.cpp:96
+msgid "Add Entry..."
+msgstr "Ajouter une entrée..."
+
+#: filewidgets/kfileplacesview.cpp:591
+#, kde-format
+msgid "&Edit Entry '%1'..."
+msgstr "&Modifier l'entrée « %1 »..."
+
+#: filewidgets/kfileplacesview.cpp:613
+#, kde-format
+msgid "&Hide Entry '%1'"
+msgstr "&Masquer l'entrée « %1 »"
+
+#: filewidgets/kfileplacesview.cpp:622
+msgid "&Show All Entries"
+msgstr "&Afficher toutes les entrées"
+
+#: filewidgets/kfileplacesview.cpp:633
+#, kde-format
+msgid "&Remove Entry '%1'"
+msgstr "&Supprimer l'entrée « %1 »"
+
+#: filewidgets/kfileplacesview.cpp:645
+msgctxt "@info"
+msgid "Do you really want to empty the Trash? All items will be deleted."
+msgstr ""
+"Voulez-vous vraiment vider la corbeille ? Tous les éléments seront supprimés."
+
+#: filewidgets/kfileplacesview.cpp:649 widgets/jobuidelegate.cpp:235
+msgctxt "@action:button"
+msgid "Empty Trash"
+msgstr "Vider la corbeille"
+
+#: filewidgets/kfilewidget.cpp:297
+msgid ""
+"<qt>While typing in the text area, you may be presented with possible "
+"matches. This feature can be controlled by clicking with the right mouse "
+"button and selecting a preferred mode from the <b>Text Completion</b> menu.</"
+"qt>"
+msgstr ""
+"<qt>Au fil de votre saisie dans la zone de texte, vous pouvez voir "
+"s'afficher des correspondances possibles. Cette fonctionnalité peut être "
+"contrôlée en cliquant avec le bouton droit de la souris et en choisissant un "
+"mode préféré dans le menu <b>Autocomplètement</b> de texte.</qt>"
+
+#: filewidgets/kfilewidget.cpp:381
+#, kde-format
+msgid "Drive: %1"
+msgstr "Lecteur : %1"
+
+#: filewidgets/kfilewidget.cpp:437
+#, kde-format
+msgid ""
+"<qt>Click this button to enter the parent folder.<br /><br />For instance, "
+"if the current location is file:/home/%1 clicking this button will take you "
+"to file:/home.</qt>"
+msgstr ""
+"<qt>Cliquez sur ce bouton pour accéder au dossier de plus haut niveau.<br/"
+"><br/> Par exemple, si l'emplacement actuel est « file:/home/%1 », un clic "
+"sur ce bouton vous amène à « file:/home ».</qt>"
+
+#: filewidgets/kfilewidget.cpp:441
+msgid "Click this button to move backwards one step in the browsing history."
+msgstr ""
+"Cliquez sur ce bouton pour reculer d'un niveau dans l'historique de "
+"navigation."
+
+#: filewidgets/kfilewidget.cpp:442
+msgid "Click this button to move forward one step in the browsing history."
+msgstr ""
+"Cliquez sur ce bouton pour avancer d'un niveau dans l'historique de "
+"navigation."
+
+#: filewidgets/kfilewidget.cpp:444
+msgid "Click this button to reload the contents of the current location."
+msgstr ""
+"Cliquez sur ce bouton pour recharger le contenu de l'emplacement actuel."
+
+#: filewidgets/kfilewidget.cpp:446
+msgid "Click this button to create a new folder."
+msgstr "Cliquez sur ce bouton pour créer un nouveau dossier."
+
+#: filewidgets/kfilewidget.cpp:452
+msgid "Show Places Navigation Panel"
+msgstr "Afficher le panneau de navigation"
+
+#: filewidgets/kfilewidget.cpp:459
+msgid "Show Bookmarks"
+msgstr "Afficher les signets"
+
+#: filewidgets/kfilewidget.cpp:464
+msgid "Options"
+msgstr "Options"
+
+#: filewidgets/kfilewidget.cpp:466
+msgid ""
+"<qt>This is the preferences menu for the file dialog. Various options can be "
+"accessed from this menu including: <ul><li>how files are sorted in the list</"
+"li><li>types of view, including icon and list</li><li>showing of hidden "
+"files</li><li>the Places navigation panel</li><li>file previews</"
+"li><li>separating folders from files</li></ul></qt>"
+msgstr ""
+"<qt>Voici le menu de configuration de la boîte de dialogue des fichiers. "
+"Diverses options sont accessibles dans ce menu, parmi lesquelles :"
+"<ul><li>comment les fichiers sont triés dans la liste</li><li>les types "
+"d'affichage, y compris par icônes et par listes</li><li>l'affichage des "
+"fichiers cachés</li><li>l'accès rapide au panneau de navigation</"
+"li><li>l'aperçu des fichiers</li><li>la séparation des dossiers et des "
+"fichiers</li></ul></qt>"
+
+#: filewidgets/kfilewidget.cpp:509
+msgid "Zoom out"
+msgstr "Zoom arrière"
+
+#: filewidgets/kfilewidget.cpp:511
+msgid "Zoom in"
+msgstr "Zoom avant"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: filewidgets/kfilewidget.cpp:552 widgets/kpropertiesdesktopbase.ui:17
+msgid "&Name:"
+msgstr "&Nom :"
+
+#: filewidgets/kfilewidget.cpp:575
+msgid ""
+"<qt>This is the filter to apply to the file list. File names that do not "
+"match the filter will not be shown.<p>You may select from one of the preset "
+"filters in the drop down menu, or you may enter a custom filter directly "
+"into the text area.</p><p>Wildcards such as * and ? are allowed.</p></qt>"
+msgstr ""
+"<qt>Il s'agit du filtre à appliquer à la liste de fichiers. Les noms de "
+"fichiers qui ne correspondent pas au filtre ne seront pas affichés.<p>Vous "
+"pouvez choisir un des filtres présélectionnés dans le menu contextuel ou "
+"ajouter un filtre personnalisé directement dans la zone de texte.</p><p>Les "
+"caractères génériques tels que « * » et « ? » sont autorisés.</p></qt>"
+
+#: filewidgets/kfilewidget.cpp:581
+msgid "&Filter:"
+msgstr "F&iltre :"
+
+#: filewidgets/kfilewidget.cpp:813
+msgid "You can only select one file"
+msgstr "Vous ne pouvez sélectionner qu'un seul fichier"
+
+#: filewidgets/kfilewidget.cpp:814
+msgid "More than one file provided"
+msgstr "Plus d'un fichier a été fourni"
+
+#: filewidgets/kfilewidget.cpp:983
+msgid "You can only select local files"
+msgstr "Vous ne pouvez choisir que des fichiers locaux"
+
+#: filewidgets/kfilewidget.cpp:984
+msgid "Remote files not accepted"
+msgstr "Fichiers distants non acceptés"
+
+#: filewidgets/kfilewidget.cpp:1003
+msgid ""
+"More than one folder has been selected and this dialog does not accept "
+"folders, so it is not possible to decide which one to enter. Please select "
+"only one folder to list it."
+msgstr ""
+"Plus d'un dossier a été sélectionné et cette boîte de dialogue n'accepte "
+"qu'un seul dossier, il n'est donc pas possible de savoir lequel choisir. "
+"Merci de ne sélectionner qu'un seul dossier"
+
+#: filewidgets/kfilewidget.cpp:1003
+msgid "More than one folder provided"
+msgstr "Plus d'un dossier fourni"
+
+#: filewidgets/kfilewidget.cpp:1011
+msgid ""
+"At least one folder and one file has been selected. Selected files will be "
+"ignored and the selected folder will be listed"
+msgstr ""
+"Au moins un dossier et un fichier ont été sélectionnés. Les fichiers "
+"sélectionnés seront ignorés et le dossier sélectionné sera listé"
+
+#: filewidgets/kfilewidget.cpp:1011
+msgid "Files and folders selected"
+msgstr "Fichiers et dossiers sélectionnés"
+
+#: filewidgets/kfilewidget.cpp:1026
+#, kde-format
+msgid "The file \"%1\" could not be found"
+msgstr "Impossible de trouver le fichier « %1 »"
+
+#: filewidgets/kfilewidget.cpp:1026
+msgid "Cannot open file"
+msgstr "Impossible d'ouvrir le fichier"
+
+#: filewidgets/kfilewidget.cpp:1300
+msgid "This is the name to save the file as."
+msgstr "Ceci est le nom sous lequel le fichier sera enregistré."
+
+#: filewidgets/kfilewidget.cpp:1303
+msgid ""
+"This is the list of files to open. More than one file can be specified by "
+"listing several files, separated by spaces."
+msgstr ""
+"Ceci est la liste des fichiers à ouvrir. Plusieurs fichiers peuvent être "
+"spécifiés, en listant plusieurs fichiers séparés par des espaces."
+
+#: filewidgets/kfilewidget.cpp:1308
+msgid "This is the name of the file to open."
+msgstr "Ceci est le nom du fichier à ouvrir."
+
+#: filewidgets/kfilewidget.cpp:1322
+msgctxt "@title:window"
+msgid "Places"
+msgstr "Emplacements"
+
+#: filewidgets/kfilewidget.cpp:1512
+#, kde-format
+msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
+msgstr "Le fichier « %1 » existe déjà. Voulez-vous l'écraser ?"
+
+#: filewidgets/kfilewidget.cpp:1513
+msgid "Overwrite File?"
+msgstr "Écraser le fichier ?"
+
+#: filewidgets/kfilewidget.cpp:1647
+msgid ""
+"The chosen filenames do not\n"
+"appear to be valid."
+msgstr "Les noms de fichiers choisis ne semblent pas valables."
+
+#: filewidgets/kfilewidget.cpp:1649
+msgid "Invalid Filenames"
+msgstr "Noms de fichiers non valables"
+
+#: filewidgets/kfilewidget.cpp:1734
+msgid "You can only select local files."
+msgstr "Vous ne pouvez choisir que des fichiers locaux."
+
+#: filewidgets/kfilewidget.cpp:1735
+msgid "Remote Files Not Accepted"
+msgstr "Fichiers distants non acceptés"
+
+#: filewidgets/kfilewidget.cpp:1840
+msgid "*|All Folders"
+msgstr "*|Tous les dossiers"
+
+#: filewidgets/kfilewidget.cpp:2009 widgets/kfileitemactions.cpp:536
+msgid "&Open"
+msgstr "&Ouvrir"
+
+#: filewidgets/kfilewidget.cpp:2095
+#, kde-format
+msgid "Icon size: %1 pixels (standard size)"
+msgstr "Taille d'icône : %1 pixels (taille standard)"
+
+#: filewidgets/kfilewidget.cpp:2098
+#, kde-format
+msgid "Icon size: %1 pixels"
+msgstr "Taille d'icône : %1 pixels"
+
+#: filewidgets/kfilewidget.cpp:2232
+#, kde-format
+msgid "Automatically select filename e&xtension (%1)"
+msgstr "Sélectionner automatiquement le nom et l'e&xtension du fichier (%1)"
+
+#: filewidgets/kfilewidget.cpp:2233
+#, kde-format
+msgid "the extension <b>%1</b>"
+msgstr "l'extension <b>%1</b>"
+
+#: filewidgets/kfilewidget.cpp:2239
+msgid "Automatically select filename e&xtension"
+msgstr "Sélectionner automatiquement le nom et l'e&xtension du fichier"
+
+#: filewidgets/kfilewidget.cpp:2240
+msgid "a suitable extension"
+msgstr "une extension adéquate"
+
+#: filewidgets/kfilewidget.cpp:2250
+#, kde-format
+msgid ""
+"This option enables some convenient features for saving files with "
+"extensions:<br /><ol><li>Any extension specified in the <b>%1</b> text area "
+"will be updated if you change the file type to save in.<br /><br /></"
+"li><li>If no extension is specified in the <b>%2</b> text area when you "
+"click <b>Save</b>, %3 will be added to the end of the filename (if the "
+"filename does not already exist). This extension is based on the file type "
+"that you have chosen to save in.<br /><br />If you do not want KDE to supply "
+"an extension for the filename, you can either turn this option off or you "
+"can suppress it by adding a period (.) to the end of the filename (the "
+"period will be automatically removed).</li></ol>If unsure, keep this option "
+"enabled as it makes your files more manageable."
+msgstr ""
+"Cette option active certaines fonctions pratiques pour enregistrer les "
+"fichiers avec des extensions :<br/><ol><li>Toute extension spécifiée dans la "
+"zone de texte <b>%1</b> sera mise à jour si vous changez le type de fichier "
+"à enregistrer.<br/><br/></li><li>Si aucune extension n'est spécifiée dans la "
+"zone de texte <b>%2</b> quand vous cliquez sur <b>Enregistrer</b>, %3 sera "
+"ajouté à la fin du nom du fichier (si le nom de fichier n'existe pas déjà). "
+"Cette extension est fondée sur le type de fichier que vous souhaitez "
+"enregistrer. <br/><br/>Si vous ne voulez pas que KDE fournisse une extension "
+"au nom du fichier, vous pouvez soit désactiver cette option, soit la "
+"supprimer en ajoutant un point (« . ») à la fin du nom du fichier (le point "
+"sera automatiquement retiré).</li></ol>Si vous n'êtes pas sûr, conservez "
+"cette option activée, car cela rend vos fichiers plus faciles à gérer."
+
+#: filewidgets/kfilewidget.cpp:2560
+msgid "Bookmarks"
+msgstr "Signets"
+
+#: filewidgets/kfilewidget.cpp:2564
+msgid ""
+"<qt>This button allows you to bookmark specific locations. Click on this "
+"button to open the bookmark menu where you may add, edit or select a "
+"bookmark.<br /><br />These bookmarks are specific to the file dialog, but "
+"otherwise operate like bookmarks elsewhere in KDE.</qt>"
+msgstr ""
+"<qt>Ce bouton permet de créer des signets pour des emplacements "
+"particuliers. Cliquez sur ce bouton pour ouvrir le menu des signets dans "
+"lequel vous pourrez en ajouter ou en choisir un.<br/><br/>Ces signets sont "
+"propres à la boîte de dialogue des fichiers mais se comportent comme les "
+"signets utilisés ailleurs dans KDE.</qt>"
+
+#: filewidgets/knewfilemenu.cpp:380 filewidgets/knewfilemenu.cpp:935
+msgid "Sorry"
+msgstr "Désolé"
+
+#: filewidgets/knewfilemenu.cpp:389
+#, kde-format
+msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
+msgstr "<qt>Le fichier modèle <b>%1</b> n'existe pas.</qt>"
+
+# unreviewed-context
+#: filewidgets/knewfilemenu.cpp:408
+msgctxt "@action:button"
+msgid "Create directory"
+msgstr "Créer un dossier"
+
+#: filewidgets/knewfilemenu.cpp:410
+msgctxt "@action:button"
+msgid "Enter a different name"
+msgstr "Saisissez un nom différent"
+
+# unreviewed-context
+#: filewidgets/knewfilemenu.cpp:413
+msgid "Create hidden directory?"
+msgstr "Créer un dossier caché ?"
+
+#: filewidgets/knewfilemenu.cpp:423
+#, kde-format
+msgid ""
+"The name \"%1\" starts with a dot, so the directory will be hidden by "
+"default."
+msgstr ""
+"Le nom « %1 » commence par un point, aussi ce dossier sera caché par défaut."
+
+#: filewidgets/knewfilemenu.cpp:425
+msgid "Do not ask again"
+msgstr "Ne plus poser la question"
+
+#: filewidgets/knewfilemenu.cpp:518 filewidgets/knewfilemenu.cpp:591
+msgid "File name:"
+msgstr "Nom de fichier :"
+
+#: filewidgets/knewfilemenu.cpp:521
+msgid "Create Symlink"
+msgstr "Créer un lien symbolique"
+
+#: filewidgets/knewfilemenu.cpp:595
+msgid "Create link to URL"
+msgstr "Créer un lien vers cette URL"
+
+#: filewidgets/knewfilemenu.cpp:640 filewidgets/knewfilemenu.cpp:685
+#, kde-format
+msgctxt "@item:inmenu Create New"
+msgid "%1"
+msgstr "%1"
+
+#: filewidgets/knewfilemenu.cpp:946
+msgid ""
+"Basic links can only point to local files or directories.\n"
+"Please use \"Link to Location\" for remote URLs."
+msgstr ""
+"Les liens standards ne peuvent pointer que sur des fichiers ou dossiers "
+"locaux.\n"
+"Utilisez « Lier vers un emplacement » pour les URL distantes."
+
+#: filewidgets/knewfilemenu.cpp:1023
+msgid "Create New"
+msgstr "Créer un nouveau"
+
+#: filewidgets/knewfilemenu.cpp:1036
+msgid "Link to Device"
+msgstr "Lier au périphérique"
+
+#: filewidgets/knewfilemenu.cpp:1083
+msgctxt "Default name for a new folder"
+msgid "New Folder"
+msgstr "Nouveau dossier"
+
+# unreviewed-context
+#: filewidgets/knewfilemenu.cpp:1093
+msgctxt "@title:window"
+msgid "New Folder"
+msgstr "Nouveau dossier"
+
+#: filewidgets/knewfilemenu.cpp:1096
+#, kde-format
+msgid ""
+"Create new folder in:\n"
+"%1"
+msgstr ""
+"Créer un nouveau dossier dans :\n"
+"%1"
+
+#: filewidgets/kstatusbarofflineindicator.cpp:55
+msgid "The desktop is offline"
+msgstr "Le bureau est hors ligne"
+
+#: filewidgets/kurlnavigator.cpp:424
+msgid "Copy"
+msgstr "Copier"
+
+#: filewidgets/kurlnavigator.cpp:428
+msgid "Paste"
+msgstr "Coller"
+
+#: filewidgets/kurlnavigator.cpp:435
+msgid "Edit"
+msgstr "Modifier"
+
+#: filewidgets/kurlnavigator.cpp:438
+msgid "Navigate"
+msgstr "Naviguer"
+
+#: filewidgets/kurlnavigator.cpp:453
+msgid "Show Full Path"
+msgstr "Afficher l'emplacement complet"
+
+#: filewidgets/kurlnavigator.cpp:693
+msgid "Custom Path"
+msgstr "Emplacement personnalisé"
+
+#: filewidgets/kurlnavigatorbutton.cpp:696
+msgctxt "@action:inmenu"
+msgid "More"
+msgstr "Plus"
+
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:174
+msgctxt "@item:inmenu"
+msgid "Devices"
+msgstr "Périphériques"
+
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:178
+msgctxt "@item:inmenu"
+msgid "Subversion"
+msgstr "Subversion"
+
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:182
+msgctxt "@item:inmenu"
+msgid "Other"
+msgstr "Autre"
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:42
+msgid "Edit mode"
+msgstr "Mode modification"
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:97
+msgid "Click for Location Navigation"
+msgstr "Cliquez pour une navigation par emplacement"
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:99
+msgid "Click to Edit Location"
+msgstr "Cliquez pour modifier l'emplacement"
+
+#: ioslaves/file/file.cpp:228
+#, kde-format
+msgid "Setting ACL for %1"
+msgstr "Application des ACL pour %1"
+
+#: ioslaves/file/file.cpp:687 ioslaves/file/file_unix.cpp:261
+#, kde-format
+msgid ""
+"Could not change permissions for\n"
+"%1"
+msgstr ""
+"Impossible de modifier les droits d'accès de\n"
+"« %1 »"
+
+#: ioslaves/file/file.cpp:899
+msgid "No Media inserted or Media not recognized."
+msgstr "Aucun média inséré ou média non reconnu."
+
+#: ioslaves/file/file.cpp:908 ioslaves/file/file.cpp:1104
+msgid "\"vold\" is not running."
+msgstr "Le programme « vold » n'est pas lancé."
+
+#: ioslaves/file/file.cpp:941
+msgid "Could not find program \"mount\""
+msgstr "Impossible de trouver le programme « mount »."
+
+#: ioslaves/file/file.cpp:1010
+msgid "mounting is not supported by wince."
+msgstr "Le montage n'est pas prise en charge par WinCE."
+
+#: ioslaves/file/file.cpp:1115
+msgid "Could not find program \"umount\""
+msgstr "Impossible de trouver le programme « umount »."
+
+#: ioslaves/file/file.cpp:1130
+msgid "unmounting is not supported by wince."
+msgstr "La libération n'est pas prise en charge par WinCE."
+
+#: ioslaves/file/file_unix.cpp:194
+#, kde-format
+msgid "Cannot copy file from %1 to %2. (Errno: %3)"
+msgstr "Impossible de copier le fichier %1 vers %2. (Num. d'erreur : %3)"
+
+#: ioslaves/file/file_unix.cpp:326
+#, kde-format
+msgid "No media in device for %1"
+msgstr "Aucune méta-information dans le périphérique pour %1"
+
+#: ioslaves/file/file_unix.cpp:559
+#, kde-format
+msgid "Could not get user id for given user name %1"
+msgstr "Impossible de trouver l'identifiant de l'utilisateur nommé %1"
+
+#: ioslaves/file/file_unix.cpp:572
+#, kde-format
+msgid "Could not get group id for given group name %1"
+msgstr "Impossible de trouver l'identifiant de du groupe nommé %1"
+
+#: ioslaves/ftp/ftp.cpp:349
+#, kde-format
+msgid "Opening connection to host %1"
+msgstr "Ouverture de la connexion à l'hôte %1"
+
+#: ioslaves/ftp/ftp.cpp:364
+#, kde-format
+msgid "Connected to host %1"
+msgstr "Connecté à l'hôte %1"
+
+#: ioslaves/ftp/ftp.cpp:474
+#, kde-format
+msgid ""
+"%1.\n"
+"\n"
+"Reason: %2"
+msgstr ""
+"%1.\n"
+"\n"
+"Motif : %2"
+
+#: ioslaves/ftp/ftp.cpp:504
+msgid "Sending login information"
+msgstr "Envoi des informations de connexion"
+
+#: ioslaves/ftp/ftp.cpp:562
+#, kde-format
+msgid ""
+"Message sent:\n"
+"Login using username=%1 and password=[hidden]\n"
+"\n"
+"Server replied:\n"
+"%2\n"
+"\n"
+msgstr ""
+"Message envoyé :\n"
+"Nom de connexion=%1 et mot de passe=[caché]\n"
+"\n"
+"Le serveur a répondu :\n"
+"%2\n"
+"\n"
+
+#: ioslaves/ftp/ftp.cpp:571 ioslaves/http/http.cpp:5330
+msgid "You need to supply a username and a password to access this site."
+msgstr ""
+"Vous devez fournir un nom d'utilisateur et un mot de passe pour accéder à ce "
+"site."
+
+#: ioslaves/ftp/ftp.cpp:573 ioslaves/http/http.cpp:5332
+msgid "Site:"
+msgstr "Site :"
+
+#: ioslaves/ftp/ftp.cpp:574
+#, kde-format
+msgid "<b>%1</b>"
+msgstr "<b>%1</b>"
+
+#: ioslaves/ftp/ftp.cpp:657
+msgid "Login OK"
+msgstr "Connexion réussie"
+
+#: ioslaves/ftp/ftp.cpp:686
+#, kde-format
+msgid "Could not login to %1."
+msgstr "Impossible de se connecter à « %1 »."
+
+#: ioslaves/ftp/ftp.cpp:2585 ioslaves/http/http.cpp:5216
+#: ioslaves/http/http.cpp:5342
+msgid ""
+"You need to supply a username and a password for the proxy server listed "
+"below before you are allowed to access any sites."
+msgstr ""
+"Vous devez fournir un nom d'utilisateur et un mot de passe pour le serveur "
+"mandataire (proxy) listé ci-dessous avant de pouvoir accéder à n'importe "
+"quel site."
+
+#: ioslaves/ftp/ftp.cpp:2589 ioslaves/http/http.cpp:5220
+#: ioslaves/http/http.cpp:5345
+msgid "Proxy:"
+msgstr "Mandataire (proxy) :"
+
+#: ioslaves/ftp/ftp.cpp:2590 ioslaves/http/http.cpp:5221
+#: ioslaves/http/http.cpp:5426
+#, kde-format
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> à <b>%2</b>"
+
+#: ioslaves/ftp/ftp.cpp:2591 ioslaves/http/http.cpp:5223
+#: ioslaves/http/http.cpp:5362
+msgid "Proxy Authentication Failed."
+msgstr "L'identification au serveur mandataire (proxy) a échoué."
+
+#: ioslaves/help/kio_help.cpp:124
+#, kde-format
+msgid "There is no documentation available for %1."
+msgstr "Aucune documentation n'est disponible concernant « %1 »."
+
+#: ioslaves/help/kio_help.cpp:178
+msgid "Looking up correct file"
+msgstr "Recherche du fichier correct"
+
+#: ioslaves/help/kio_help.cpp:229
+msgid "Preparing document"
+msgstr "Préparation du document"
+
+#: ioslaves/help/kio_help.cpp:238 ioslaves/help/kio_help.cpp:283
+#, kde-format
+msgid "The requested help file could not be parsed:<br />%1"
+msgstr "Impossible d'analyser le fichier d'aide demandé :<br/>%1"
+
+#: ioslaves/help/kio_help.cpp:260
+msgid "Saving to cache"
+msgstr "Enregistrement dans le cache"
+
+#: ioslaves/help/kio_help.cpp:277
+msgid "Using cached version"
+msgstr "Utilisation de la version en cache"
+
+#: ioslaves/help/kio_help.cpp:339
+msgid "Looking up section"
+msgstr "Recherche de la session"
+
+#: ioslaves/help/kio_help.cpp:350
+#, kde-format
+msgid "Could not find filename %1 in %2."
+msgstr "Impossible de trouver le nom de fichier %1 dans %2."
+
+#: ioslaves/http/http.cpp:602
+msgid "No host specified."
+msgstr "Aucun hôte spécifié."
+
+#: ioslaves/http/http.cpp:1565
+msgid "Otherwise, the request would have succeeded."
+msgstr "Sinon, la requête aurait réussi."
+
+#: ioslaves/http/http.cpp:1569
+msgctxt "request type"
+msgid "retrieve property values"
+msgstr "trouver les valeurs de propriété"
+
+#: ioslaves/http/http.cpp:1572
+msgctxt "request type"
+msgid "set property values"
+msgstr "déterminer les valeurs de propriété"
+
+#: ioslaves/http/http.cpp:1575
+msgctxt "request type"
+msgid "create the requested folder"
+msgstr "créer le dossier demandé"
+
+#: ioslaves/http/http.cpp:1578
+msgctxt "request type"
+msgid "copy the specified file or folder"
+msgstr "copier le fichier ou dossier spécifié"
+
+#: ioslaves/http/http.cpp:1581
+msgctxt "request type"
+msgid "move the specified file or folder"
+msgstr "déplacer le fichier ou dossier spécifié"
+
+#: ioslaves/http/http.cpp:1584
+msgctxt "request type"
+msgid "search in the specified folder"
+msgstr "chercher dans le dossier spécifié"
+
+#: ioslaves/http/http.cpp:1587
+msgctxt "request type"
+msgid "lock the specified file or folder"
+msgstr "verrouiller le fichier ou dossier spécifié"
+
+#: ioslaves/http/http.cpp:1590
+msgctxt "request type"
+msgid "unlock the specified file or folder"
+msgstr "déverrouiller le fichier ou dossier spécifié"
+
+#: ioslaves/http/http.cpp:1593
+msgctxt "request type"
+msgid "delete the specified file or folder"
+msgstr "supprimer le fichier ou dossier spécifié"
+
+#: ioslaves/http/http.cpp:1596
+msgctxt "request type"
+msgid "query the server's capabilities"
+msgstr "interroger les possibilités du serveur"
+
+#: ioslaves/http/http.cpp:1599
+msgctxt "request type"
+msgid "retrieve the contents of the specified file or folder"
+msgstr "trouver le contenu du fichier ou dossier spécifié"
+
+#: ioslaves/http/http.cpp:1602
+msgctxt "request type"
+msgid "run a report in the specified folder"
+msgstr "chercher dans le dossier spécifié"
+
+#: ioslaves/http/http.cpp:1613
+#, kde-format
+msgctxt "%1: code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "Une erreur inattendue (%1) est survenue en tentant de %2."
+
+#: ioslaves/http/http.cpp:1620
+msgid "The server does not support the WebDAV protocol."
+msgstr "Le serveur ne prend pas en charge le protocole WebDAV."
+
+#: ioslaves/http/http.cpp:1662
+#, kde-format
+msgctxt "%1: request type, %2: url"
+msgid ""
+"An error occurred while attempting to %1, %2. A summary of the reasons is "
+"below."
+msgstr ""
+"Une erreur est survenue en tentant de %1, %2. Un résumé des raisons est ci-"
+"dessous."
+
+#: ioslaves/http/http.cpp:1677 ioslaves/http/http.cpp:1810
+#, kde-format
+msgctxt "%1: request type"
+msgid "Access was denied while attempting to %1."
+msgstr "Accès refusé en tentant de %1."
+
+#: ioslaves/http/http.cpp:1690 ioslaves/http/http.cpp:1816
+msgid ""
+"A resource cannot be created at the destination until one or more "
+"intermediate collections (folders) have been created."
+msgstr ""
+"Une ressource ne peut être créée à la destination jusqu'à ce qu'une "
+"collection (dossier) intermédiaire ait été créée."
+
+#: ioslaves/http/http.cpp:1698
+#, kde-format
+msgid ""
+"The server was unable to maintain the liveness of the properties listed in "
+"the propertybehavior XML element or you attempted to overwrite a file while "
+"requesting that files are not overwritten. %1"
+msgstr ""
+"Le serveur a été incapable de maintenir la synchronisation des propriétés "
+"listées dans l'élément XML de comportement des propriétés ou vous avez tenté "
+"d'écraser un fichier en demandant quels fichiers ne sont pas écrasés. %1"
+
+#: ioslaves/http/http.cpp:1706
+#, kde-format
+msgid "The requested lock could not be granted. %1"
+msgstr "Le verrou demandé n'a pas pu être accordé. %1"
+
+#: ioslaves/http/http.cpp:1712
+msgid "The server does not support the request type of the body."
+msgstr "Le serveur ne gère pas le type de requête du corps."
+
+#: ioslaves/http/http.cpp:1717 ioslaves/http/http.cpp:1824
+#, kde-format
+msgctxt "%1: request type"
+msgid "Unable to %1 because the resource is locked."
+msgstr "Impossible de %1 car la ressource est verrouillée."
+
+#: ioslaves/http/http.cpp:1721
+msgid "This action was prevented by another error."
+msgstr "Cette action a été empêchée par une autre erreur."
+
+#: ioslaves/http/http.cpp:1727 ioslaves/http/http.cpp:1830
+#, kde-format
+msgctxt "%1: request type"
+msgid ""
+"Unable to %1 because the destination server refuses to accept the file or "
+"folder."
+msgstr ""
+"Impossible de %1 car le serveur de destination refuse d'accepter le fichier "
+"ou le dossier."
+
+#: ioslaves/http/http.cpp:1734 ioslaves/http/http.cpp:1837
+msgid ""
+"The destination resource does not have sufficient space to record the state "
+"of the resource after the execution of this method."
+msgstr ""
+"La ressource de destination n'a pas assez d'espace pour enregistrer l'état "
+"de la ressource après l'exécution de cette méthode."
+
+#: ioslaves/http/http.cpp:1788
+msgid "The resource cannot be deleted."
+msgstr "La ressource ne peut être effacée."
+
+#: ioslaves/http/http.cpp:1801
+#, kde-format
+msgctxt "request type"
+msgid "upload %1"
+msgstr "envoi de %1"
+
+#: ioslaves/http/http.cpp:1851
+#, kde-format
+msgctxt "%1: response code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "Une erreur inattendue (%1) est survenue en tentant de %2."
+
+#: ioslaves/http/http.cpp:2677
+#, kde-format
+msgid "%1 contacted. Waiting for reply..."
+msgstr "%1 contacté, attente de la réponse..."
+
+#: ioslaves/http/http.cpp:3021
+#, kde-format
+msgctxt "@info Security check on url being accessed"
+msgid ""
+"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
+"the website does not require authentication. This may be an attempt to trick "
+"you.</p><p>Is \"%1\" the site you want to visit?</p>"
+msgstr ""
+"<p>Vous êtes sur le point de vous identifier sur le site « %1 » avec le nom "
+"d'utilisateur « %2 », mais le site web ne requière pas d'authentification. "
+"Ceci est peut-être une tentative pour vous piéger. </p><p>Le site « %1 » est-"
+"il bien le site que vous souhaitez visiter ?</p>"
+
+#: ioslaves/http/http.cpp:3027
+msgctxt "@title:window"
+msgid "Confirm Website Access"
+msgstr "Confirmer l'accès au site web"
+
+#: ioslaves/http/http.cpp:3118
+msgid "Server processing request, please wait..."
+msgstr "Le serveur exécute la requête, veuillez patienter..."
+
+#: ioslaves/http/http.cpp:3827 ioslaves/http/http.cpp:3881
+#, kde-format
+msgid "Sending data to %1"
+msgstr "Envoi des données à %1"
+
+#: ioslaves/http/http.cpp:4338
+#, kde-format
+msgid "Retrieving %1 from %2..."
+msgstr "Réception de %1 depuis %2..."
+
+#: ioslaves/http/http.cpp:5361
+msgid "Authentication Failed."
+msgstr "Échec de l'identification."
+
+#: ioslaves/http/http.cpp:5459
+msgid "Authorization failed."
+msgstr "Autorisation refusée."
+
+#: ioslaves/http/http.cpp:5475
+msgid "Unknown Authorization method."
+msgstr "Méthode d'autorisation inconnue"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:66
+msgid "Cookie Alert"
+msgstr "Avertissement"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:90
+#, kde-format
+msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+msgid ""
+"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject this cookie?</p>"
+msgid_plural ""
+"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject these cookies?</p>"
+msgstr[0] ""
+"<p>Vous avez reçu un cookie provenant de<br/> <b>%2%3</b><br/> Voulez-vous "
+"l'accepter ou le refuser ?</p>"
+msgstr[1] ""
+"<p>Vous avez reçu %1 cookies provenant de<br/> <b>%2%3</b><br/> Voulez-vous "
+"les accepter ou les refuser ?</p>"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:98
+msgctxt "@item:intext cross domain cookie"
+msgid " [Cross Domain]"
+msgstr " [Domaine croisé]"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:108
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:363
+msgid "See or modify the cookie information"
+msgstr "Afficher ou modifier les informations du cookie"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:112
+msgid "Accept for this &session"
+msgstr "Accepter pour cette &session"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:114
+msgid "Accept cookie(s) until the end of the current session"
+msgstr "Accepter le(s) cookie(s) jusqu'à la fin de cette session"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:121
+msgid "&Accept"
+msgstr "&Accepter"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:122
+msgid "&Reject"
+msgstr "&Refuser"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:156
+msgid "Apply Choice To"
+msgstr "Appliquer le choix à"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:159
+msgid "&Only this cookie"
+msgstr "&Seulement ce cookie"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:159
+msgid "&Only these cookies"
+msgstr "&Seulement ces cookies"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:163
+msgid ""
+"Select this option to only accept or reject this cookie. You will be "
+"prompted again if you receive another cookie."
+msgstr ""
+"Choisissez cette option pour accepter / refuser seulement ce cookie. La "
+"question vous sera reposée si un autre cookie est reçu."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:166
+msgid "All cookies from this do&main"
+msgstr "Tous les cookies de ce &domaine"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:169
+msgid ""
+"Select this option to accept or reject all cookies from this site. Choosing "
+"this option will add a new policy for the site this cookie originated from. "
+"This policy will be permanent until you manually change it from the System "
+"Settings."
+msgstr ""
+"Choisissez cette option pour accepter / refuser tous les cookies venant de "
+"ce site. Choisir cette option ajoutera une nouvelle règle pour le site "
+"duquel vient ce cookie. Cette règle sera permanente jusqu'à ce que vous la "
+"modifiiez manuellement dans le Centre de configuration de KDE."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:174
+msgid "All &cookies"
+msgstr "Tous les &cookies"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:177
+msgid ""
+"Select this option to accept/reject all cookies from anywhere. Choosing this "
+"option will change the global cookie policy for all cookies until you "
+"manually change it from the System Settings."
+msgstr ""
+"Choisissez cette option pour accepter / refuser tous les cookies quelle que "
+"soit leur provenance. Choisir cette option changera la règle globale définie "
+"pour tous les cookies dans le Centre de configuration de KDE."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:245
+msgid "Cookie Details"
+msgstr "Détails du cookie"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:250
+msgid "Name:"
+msgstr "Nom :"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:258
+msgid "Value:"
+msgstr "Valeur :"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:265
+msgid "Expires:"
+msgstr "Expire le :"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:272
+msgid "Path:"
+msgstr "Emplacement :"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:279
+msgid "Domain:"
+msgstr "Domaine :"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:286
+msgid "Exposure:"
+msgstr "Exposition :"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:294
+msgctxt "Next cookie"
+msgid "&Next >>"
+msgstr "&Suivant >>"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:299
+msgid "Show details of the next cookie"
+msgstr "Afficher les détails du cookie suivant"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:327
+msgid "Not specified"
+msgstr "Non spécifié"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:337
+msgid "End of Session"
+msgstr "Fin de session"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:342
+msgid "Secure servers only"
+msgstr "Serveurs sécurisés uniquement"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:344
+msgid "Secure servers, page scripts"
+msgstr "Serveurs sécurisés, scripts de page"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:348
+msgid "Servers"
+msgstr "Serveurs"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:350
+msgid "Servers, page scripts"
+msgstr "Serveurs, scripts de page"
+
+#: ioslaves/telnet/ktelnetservice.cpp:68
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Vous n'avez pas le droit d'accéder au protocole %1."
+
+#: kcms/webshortcuts/main.cpp:42
+#, fuzzy
+#| msgid "New Web Shortcut"
+msgid "Web Shortcuts"
+msgstr "Nouveau raccourci web"
+
+#: kcms/webshortcuts/main.cpp:49
+msgid ""
+"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
+"browsing features of KDE. <h2>Web Shortcuts</h2>Web Shortcuts are a quick "
+"way of using Web search engines. For example, type \"altavista:frobozz\" or "
+"\"av:frobozz\" and Konqueror will do a search on AltaVista for \"frobozz\". "
+"Even easier: just press Alt+F2 (if you have not changed this shortcut) and "
+"enter the shortcut in the KDE Run Command dialog."
+msgstr ""
+
+#: kioexec/main.cpp:46
+msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
+msgstr ""
+"KIO Exec - Ouvre des fichiers distants, surveille les modifications, demande "
+"confirmation pour les envois"
+
+#: kioexec/main.cpp:80
+#, kde-format
+msgid ""
+"The URL %1\n"
+"is malformed"
+msgstr ""
+"L'URL « %1 »\n"
+"est mal formée"
+
+#: kioexec/main.cpp:82
+#, kde-format
+msgid ""
+"Remote URL %1\n"
+"not allowed with --tempfiles switch"
+msgstr ""
+"URL distante « %1 »\n"
+"non permise avec le paramètre « --tempfiles »"
+
+#: kioexec/main.cpp:213
+#, kde-format
+msgid ""
+"The supposedly temporary file\n"
+"%1\n"
+"has been modified.\n"
+"Do you still want to delete it?"
+msgstr ""
+"Le fichier supposé temporaire\n"
+"« %1 »\n"
+"a été modifié.\n"
+"Voulez-vous malgré tout l'effacer ?"
+
+#: kioexec/main.cpp:214 kioexec/main.cpp:221
+msgid "File Changed"
+msgstr "Fichier modifié"
+
+#: kioexec/main.cpp:214
+msgid "Do Not Delete"
+msgstr "Ne pas supprimer"
+
+#: kioexec/main.cpp:220
+#, kde-format
+msgid ""
+"The file\n"
+"%1\n"
+"has been modified.\n"
+"Do you want to upload the changes?"
+msgstr ""
+"Le fichier\n"
+"« %1 »\n"
+"a été modifié.\n"
+"Voulez-vous envoyer les modifications ?"
+
+#: kioexec/main.cpp:221
+msgid "Upload"
+msgstr "Envoyer"
+
+#: kioexec/main.cpp:221
+msgid "Do Not Upload"
+msgstr "Ne pas envoyer"
+
+#: kioexec/main.cpp:252
+msgid "KIOExec"
+msgstr "KIOExec"
+
+#: kioexec/main.cpp:254
+msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
+msgstr "(c) 1998-2000,2003, Les développeurs de KFM / Konqueror"
+
+#: kioexec/main.cpp:255
+msgid "David Faure"
+msgstr "David Faure"
+
+#: kioexec/main.cpp:256
+msgid "Stephan Kulow"
+msgstr "Stephan Kulow"
+
+#: kioexec/main.cpp:257
+msgid "Bernhard Rosenkraenzer"
+msgstr "Bernhard Rosenkraenzer"
+
+#: kioexec/main.cpp:258
+msgid "Waldo Bastian"
+msgstr "Waldo Bastian"
+
+#: kioexec/main.cpp:259
+msgid "Oswald Buddenhagen"
+msgstr "Oswald Buddenhagen"
+
+#: kioexec/main.cpp:264
+msgid "Treat URLs as local files and delete them afterwards"
+msgstr "Traite les URL comme des fichiers locaux et les efface ensuite"
+
+#: kioexec/main.cpp:265
+msgid "Suggested file name for the downloaded file"
+msgstr "Nom suggéré pour le fichier téléchargé"
+
+#: kioexec/main.cpp:266
+msgid "Command to execute"
+msgstr "Commande à exécuter"
+
+#: kioexec/main.cpp:267
+msgid "URL(s) or local file(s) used for 'command'"
+msgstr "URL ou fichier(s) local(aux) utilisé(s) comme « command »"
+
+#: kpac/discovery.cpp:112
+msgid "Could not find a usable proxy configuration script"
+msgstr ""
+"Impossible de trouver un script de configuration de serveur mandataire "
+"(proxy) utilisable"
+
+#: kpac/downloader.cpp:92
+#, kde-format
+msgid ""
+"Could not download the proxy configuration script:\n"
+"%1"
+msgstr ""
+"Impossible de télécharger le script de configuration du serveur mandataire "
+"(proxy) : %1"
+
+#: kpac/downloader.cpp:95
+msgid "Could not download the proxy configuration script"
+msgstr ""
+"Impossible de télécharger le script de configuration du serveur mandataire "
+"(proxy)"
+
+#: kpac/proxyscout.cpp:236
+#, kde-format
+msgid ""
+"The proxy configuration script is invalid:\n"
+"%1"
+msgstr ""
+"Le script de configuration du serveur mandataire (proxy) n'est pas "
+"valable :\n"
+"%1"
+
+#: kpac/proxyscout.cpp:345
+#, kde-format
+msgid ""
+"The proxy configuration script returned an error:\n"
+"%1"
+msgstr ""
+"Le script de configuration du serveur mandataire (proxy) a retourné une "
+"erreur :\n"
+"%1"
+
+#: kpac/script.cpp:752
+msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
+msgstr "Impossible de trouver « FindProxyForURL » ou « FindProxyForURLEx »"
+
+#: kpac/script.cpp:763
+#, kde-format
+msgid "Got an invalid reply when calling %1"
+msgstr "Réponse non valable en appelant « %1 »"
+
+#: kpasswdserver/kpasswdserver.cpp:556
+msgid "Do you want to retry?"
+msgstr "Voulez-vous réessayer ?"
+
+#: kpasswdserver/kpasswdserver.cpp:561
+msgid "Retry Authentication"
+msgstr "Essayer à nouveau de s'authentifier"
+
+#: kpasswdserver/kpasswdserver.cpp:565
+msgctxt "@action:button filter-continue"
+msgid "Retry"
+msgstr "Réessayer"
+
+#: kpasswdserver/kpasswdserver.cpp:858
+msgid "Authentication Dialog"
+msgstr "Boîte de dialogue d'authentification"
+
+#: urifilters/ikws/ikwsopts.cpp:54
+msgctxt "@title:column Name label from web shortcuts column"
+msgid "Name"
+msgstr "Nom"
+
+#: urifilters/ikws/ikwsopts.cpp:56
+msgctxt "@title:column"
+msgid "Shortcuts"
+msgstr "Raccourcis"
+
+#: urifilters/ikws/ikwsopts.cpp:58
+msgctxt "@title:column"
+msgid "Preferred"
+msgstr "Préférée"
+
+#: urifilters/ikws/ikwsopts.cpp:200
+msgctxt "@item:inlistbox No default web shortcut"
+msgid "None"
+msgstr "Aucun"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:17
+msgid ""
+"<html><head/><body><p>Enable or disable web shortcuts. </p><p>Web shortcuts "
+"allow you to quickly access or search for information located online or on "
+"your hard drive. </p><p>KDE comes with many predefined Web shortcuts. One "
+"such Web shortcut is the Google (TM) search shortcut. To use it, you simply "
+"type the keyword 'gg' followed by the keyword delimiter and the search term, "
+"e.g. <span style=\" font-weight:600;\">gg:KDE</span>.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Active ou désactive les raccourcis web.</p><p> Les "
+"raccourcis web vous permettent d'accéder ou de chercher rapidement des "
+"informations en ligne ou sur votre disque dur. </p><p> KDE est fournis avec "
+"plusieurs raccourcis web prédéfinis. Comme par exemple le raccourci de "
+"recherche Google (TM). Pour l'utiliser, vous tapez simplement le mot clé "
+"« gg » suivi du séparateur et du terme à chercher, exemple : <span style=\" "
+"font-weight:600;\">gg:KDE</span>.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:20
+msgid "&Enable Web shortcuts"
+msgstr "Acti&ver les raccourcis web"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: urifilters/ikws/ikwsopts_ui.ui:30
+msgid "&Use preferred shortcuts only"
+msgstr "&Utiliser seulement les raccourcis préférés"
+
+#. i18n: ectx: property (placeholderText), widget (KLineEdit, searchLineEdit)
+#: urifilters/ikws/ikwsopts_ui.ui:37
+msgid "Search for shortcut"
+msgstr "Chercher un raccourci"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:71
+msgid "Add a new Web shortcut"
+msgstr "Ajouter un raccourci web"
+
+# unreviewed-context
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:74
+msgid "&New..."
+msgstr "&Nouveau..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:84
+msgid "Modify the highlighted Web shortcut"
+msgstr "Modifier le raccourci web surligné"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:87
+msgid "Chan&ge..."
+msgstr "Chan&ger..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:97
+msgid "Delete the highlighted Web shortcut"
+msgstr "Supprimer le raccourci web surligné"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:100
+msgid "De&lete"
+msgstr "Su&pprimer"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:138
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Choisissez le moteur de recherche à utiliser pour les zones de saisie qui "
+"permettent d'effectuer une recherche automatique lorsque vous y saisissez un "
+"mot ou une phrase au lieu d'une URL. Pour désactiver cette fonctionnalité, "
+"sélectionnez <b>Aucun</b> depuis la liste.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:141
+msgid "Default Web &shortcut:"
+msgstr "Raccourcis web par défaut :"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cmbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:166
+msgid ""
+"<html><head/><body><p>Select a default web shortcut. </p><p>This allows "
+"applications to automatically convert the typed word or phrase to web "
+"shortcut queries when they cannot be filtered into a proper URL. </p><p>To "
+"disable this functionality select <span style=\" font-weight:600;\">None</"
+"span> from the list. </p></body></html>"
+msgstr ""
+"<html><head/><body><p>Sélection d'un raccourci web par défaut. </p><p>Cette "
+"option permet aux applications de convertir automatiquement les phrases ou "
+"mots tapés en requêtes de raccourcis web quand une URL valable ne peut être "
+"filtrée. </p><p>Pour désactiver cette fonctionnalité sélectionnez <span "
+"style=\" font-weight:600;\">Aucun</span> depuis la liste. </p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:182
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr ""
+"Choisissez le délimiteur qui sépare le mot clé de la phrase ou du mot à "
+"rechercher."
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:185
+msgid "&Keyword delimiter:"
+msgstr "&Délimiteur du mot clé :"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:204
+msgid "Choose a delimiter to mark the Web shortcut keyword."
+msgstr "Choisissez un délimiteur pour marquer le mot clé du raccourci web."
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:208
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr "Deux points"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:213
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr "Espace"
+
+#: urifilters/ikws/kuriikwsfilter.cpp:121
+msgid "No preferred search providers were found."
+msgstr "Aucun fournisseur de recherche préféré trouvé."
+
+#: urifilters/ikws/kuriikwsfilter.cpp:140
+msgid "No search providers were found."
+msgstr "Aucun fournisseur de recherche trouvé."
+
+#: urifilters/ikws/kurisearchfilter.cpp:92
+msgid "Search F&ilters"
+msgstr "F&iltres de recherche"
+
+#: urifilters/ikws/searchproviderdlg.cpp:58
+msgctxt "@item:inlistbox The default character set"
+msgid "Default"
+msgstr "Par défaut"
+
+#: urifilters/ikws/searchproviderdlg.cpp:62
+msgid "Modify Web Shortcut"
+msgstr "Modifier les raccourcis web"
+
+#: urifilters/ikws/searchproviderdlg.cpp:72
+msgid "New Web Shortcut"
+msgstr "Nouveau raccourci web"
+
+#: urifilters/ikws/searchproviderdlg.cpp:125
+#, kde-format
+msgid ""
+"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
+"one."
+msgstr ""
+"Le raccourci « %1 » est déjà attribué à « %2 ». Veuillez en sélectionner un "
+"autre."
+
+#: urifilters/ikws/searchproviderdlg.cpp:130
+#, kde-format
+msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+msgid "- %1: \"%2\""
+msgstr "- %1: \"%2\""
+
+#: urifilters/ikws/searchproviderdlg.cpp:134
+#, kde-format
+msgid ""
+"The following shortcuts are already assigned. Please choose different ones.\n"
+"%1"
+msgstr ""
+"Les raccourcis suivants sont déjà attribués. Veuillez en sélectionner "
+"d'autres.\n"
+" %1"
+
+#: urifilters/ikws/searchproviderdlg.cpp:146
+msgid ""
+"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
+"This means that the same page is always going to be visited, regardless of "
+"the text typed in with the shortcut."
+msgstr ""
+"Le raccourci URL saisie ne contient pas de séquence \\{...} dans la requête "
+"utilisateur.\n"
+"Cela signifie que la même page sera toujours consultée, quoi que vous "
+"saisissiez."
+
+#: urifilters/ikws/searchproviderdlg.cpp:149
+msgid "Keep It"
+msgstr "Conserver"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:17
+msgid "Enter the human-readable name of the search provider here."
+msgstr "Saisissez ici le nom complet du moteur de recherche."
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:23
+msgid "Shortcut &name:"
+msgstr "Nom du &raccourci :"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:42
+#: urifilters/ikws/searchproviderdlg_ui.ui:64
+#: urifilters/ikws/searchproviderdlg_ui.ui:70
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Saisissez ici l'URI à utiliser pour effectuer une recherche avec le moteur "
+"de recherche. <br/>Le texte à rechercher peut être spécifié avec \\{@} ou "
+"\\{0}. <br/>\n"
+"Il est recommandé d'utiliser \\{@} car cela supprimera toutes les variables "
+"de requête (nom=valeur) de la chaîne résultante, alors que la chaîne \\{0} "
+"sera remplacée par le texte à rechercher sans modification.<br/>Vous pouvez "
+"utiliser \\{1}, ..., \\{n} pour spécifier certains mots de la requête et "
+"\\{nom} pour spécifier une valeur donnée par « nom = valeur » dans la "
+"requête de recherche. <br/>De plus, Il est possible de spécifier des "
+"références multiples (noms, chiffres et chaînes) en une seule fois par "
+"\\{nom1, nom2, ..., « chaîne » }.<br/>La première valeur de cette chaîne, en "
+"partant de la gauche, qui coïncide avec la requête de recherche sera "
+"utilisée pour la substitution dans l'URI résultante.<br/>Une chaîne entre "
+"guillemets peut être utilisée comme valeur par défaut si rien ne coïncide à "
+"partir de la gauche de la liste de référence.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:48
+msgid "Shortcut &URL:"
+msgstr "&URL du raccourci :"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:83
+msgid "Select the character set that will be used to encode your search query."
+msgstr ""
+"Sélectionne le jeu de caractères qui sera utilisé pour encoder votre requête "
+"de recherche."
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:92
+#: urifilters/ikws/searchproviderdlg_ui.ui:97
+#: urifilters/ikws/searchproviderdlg_ui.ui:116
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Les raccourcis saisis ici peuvent être utilisés comme des schémas de pseudo-"
+"URI dans KDE. Par exemple, le raccourci <b>av</b> peut s'utiliser de la "
+"façon suivante : <b>av</b>:<b>ma recherche</b>.\n"
+"</qt>"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:104
+#: urifilters/ikws/searchproviderdlg_ui.ui:107
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Saisissez ici le nom du raccourci Web.</p></body></"
+"html>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:119
+msgid "&Shortcuts:"
+msgstr "&Raccourcis :"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:132
+msgid "Select the character set that will be used to encode your search query"
+msgstr ""
+"Sélectionne le jeu de caractères qui sera utilisé pour encoder votre requête "
+"de recherche"
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:135
+msgid "&Charset:"
+msgstr "Jeu de &caractères :"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: urifilters/ikws/searchproviderdlg_ui.ui:158
+msgid "Insert query placeholder"
+msgstr "Insérer un paramètre substituable"
+
+#: urifilters/shorturi/kshorturifilter.cpp:270
+#, kde-format
+msgid "<qt><b>%1</b> does not have a home folder.</qt>"
+msgstr "<qt><b>%1</b> ne possède pas de dossier personnel.</qt>"
+
+#: urifilters/shorturi/kshorturifilter.cpp:272
+#, kde-format
+msgid "<qt>There is no user called <b>%1</b>.</qt>"
+msgstr "<qt>Il n'existe pas d'utilisateur nommé <b>%1</b>.</qt>"
+
+#: urifilters/shorturi/kshorturifilter.cpp:520
+#, kde-format
+msgid "<qt>The file or folder <b>%1</b> does not exist.</qt>"
+msgstr "<qt>Le fichier ou dossier <b>%1</b> n'existe pas.</qt>"
+
+#: widgets/accessmanager.cpp:221
+msgid "Blocked request."
+msgstr "Requête bloquée."
+
+#: widgets/accessmanager.cpp:285
+msgid "Unknown HTTP verb."
+msgstr "Verbe HTTP inconnu."
+
+#. i18n: ectx: property (text), widget (QLabel, commonNameTag)
+#: widgets/certificateparty.ui:28
+msgid "Common name:"
+msgstr "Nom commun :"
+
+#. i18n: ectx: property (text), widget (QLabel, commonName)
+#: widgets/certificateparty.ui:38
+msgid "Acme Co."
+msgstr "Acme Co."
+
+#. i18n: ectx: property (text), widget (QLabel, organizationTag)
+#: widgets/certificateparty.ui:48
+msgid "Organization:"
+msgstr "Organisation :"
+
+#. i18n: ectx: property (text), widget (QLabel, organization)
+#: widgets/certificateparty.ui:58
+msgid "Acme Sundry Products Company"
+msgstr "Acme Sundry Products Company"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
+#: widgets/certificateparty.ui:68
+msgid "Organizational unit:"
+msgstr "Unité organisationnelle :"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
+#: widgets/certificateparty.ui:78
+msgid "Fraud Department"
+msgstr "Département des fraudes"
+
+#. i18n: ectx: property (text), widget (QLabel, countryTag)
+#: widgets/certificateparty.ui:88
+msgid "Country:"
+msgstr "Pays :"
+
+#. i18n: ectx: property (text), widget (QLabel, country)
+#: widgets/certificateparty.ui:98
+msgid "Canada"
+msgstr "Canada"
+
+#. i18n: ectx: property (text), widget (QLabel, stateTag)
+#: widgets/certificateparty.ui:108
+msgid "State:"
+msgstr "État :"
+
+#. i18n: ectx: property (text), widget (QLabel, state)
+#: widgets/certificateparty.ui:118
+msgid "Quebec"
+msgstr "Québec"
+
+#. i18n: ectx: property (text), widget (QLabel, cityTag)
+#: widgets/certificateparty.ui:128
+msgid "City:"
+msgstr "Ville :"
+
+#. i18n: ectx: property (text), widget (QLabel, city)
+#: widgets/certificateparty.ui:138
+msgid "Lakeridge Meadows"
+msgstr "Lakeridge Meadows"
+
+# unreviewed-context
+#: widgets/fileundomanager.cpp:124
+msgid "Creating directory"
+msgstr "Création du dossier"
+
+# unreviewed-context
+#: widgets/fileundomanager.cpp:129
+msgid "Moving"
+msgstr "Déplacement"
+
+# unreviewed-context
+#: widgets/fileundomanager.cpp:135
+msgid "Deleting"
+msgstr "Suppression"
+
+#: widgets/fileundomanager.cpp:299
+msgid "Und&o"
+msgstr "Ann&uler"
+
+#: widgets/fileundomanager.cpp:305
+msgid "Und&o: Copy"
+msgstr "A&nnuler : copier"
+
+#: widgets/fileundomanager.cpp:307
+msgid "Und&o: Link"
+msgstr "A&nnuler : lier"
+
+#: widgets/fileundomanager.cpp:309
+msgid "Und&o: Move"
+msgstr "A&nnuler : déplacer"
+
+#: widgets/fileundomanager.cpp:311
+msgid "Und&o: Rename"
+msgstr "A&nnuler : renommer"
+
+#: widgets/fileundomanager.cpp:313
+msgid "Und&o: Trash"
+msgstr "A&nnuler : mettre à la corbeille"
+
+#: widgets/fileundomanager.cpp:315
+msgid "Und&o: Create Folder"
+msgstr "A&nnuler : créer un dossier"
+
+#: widgets/fileundomanager.cpp:317
+msgid "Und&o: Create File"
+msgstr "A&nnuler : créer un fichier"
+
+#: widgets/fileundomanager.cpp:698
+#, kde-format
+msgid ""
+"The file %1 was copied from %2, but since then it has apparently been "
+"modified at %3.\n"
+"Undoing the copy will delete the file, and all modifications will be lost.\n"
+"Are you sure you want to delete %4?"
+msgstr ""
+"Le fichier %1 a été copié à partir de %2, mais depuis, il a été modifié "
+"(%3).\n"
+"Annuler la copie effacera le fichier et les modifications seront perdues.\n"
+"Voulez-vous vraiment effacer %4 ?"
+
+#: widgets/fileundomanager.cpp:701
+msgid "Undo File Copy Confirmation"
+msgstr "Confirmation d'annulation de copie"
+
+#: widgets/jobuidelegate.cpp:233
+msgctxt "@info"
+msgid ""
+"Do you want to permanently delete all items from Trash? This action cannot "
+"be undone."
+msgstr ""
+"Voulez-vous vraiment supprimer tous les éléments sélectionnés ? Cette action "
+"ne peut être annulée."
+
+#: widgets/jobuidelegate.cpp:244
+#, kde-format
+msgid "Do you really want to move this item to the trash?"
+msgid_plural "Do you really want to move these %1 items to the trash?"
+msgstr[0] "Voulez-vous vraiment mettre cet élément à la corbeille ?"
+msgstr[1] "Voulez-vous vraiment mettre ces %1 éléments à la corbeille ?"
+
+# unreviewed-context
+#: widgets/jobuidelegate.cpp:247
+msgctxt "Verb"
+msgid "&Trash"
+msgstr "Mettre à la &corbeille"
+
+#: widgets/jobuidelegate.cpp:340
+msgid "The peer SSL certificate chain appears to be corrupt."
+msgstr "Le certificat SSL du pair semble endommagé."
+
+#: widgets/kacleditwidget.cpp:59 widgets/kacleditwidget.cpp:448
+msgid "Owner"
+msgstr "Propriétaire"
+
+#: widgets/kacleditwidget.cpp:60 widgets/kacleditwidget.cpp:453
+msgid "Owning Group"
+msgstr "Groupe propriétaire"
+
+#: widgets/kacleditwidget.cpp:61 widgets/kacleditwidget.cpp:458
+#: widgets/kpropertiesdialog.cpp:1992
+msgid "Others"
+msgstr "Autres"
+
+#: widgets/kacleditwidget.cpp:62 widgets/kacleditwidget.cpp:463
+msgid "Mask"
+msgstr "Masque"
+
+#: widgets/kacleditwidget.cpp:63
+msgid "Named User"
+msgstr "Utilisateur nommé"
+
+#: widgets/kacleditwidget.cpp:64
+msgid "Named Group"
+msgstr "Groupe nommé"
+
+#: widgets/kacleditwidget.cpp:100
+msgid "Edit Entry..."
+msgstr "Modifier l'entrée..."
+
+#: widgets/kacleditwidget.cpp:104
+msgid "Delete Entry"
+msgstr "Supprimer l'entrée"
+
+#: widgets/kacleditwidget.cpp:308
+msgid " (Default)"
+msgstr " (par défaut)"
+
+#: widgets/kacleditwidget.cpp:429
+msgid "Edit ACL Entry"
+msgstr "Modifier l'entrée ACL"
+
+#: widgets/kacleditwidget.cpp:433
+msgid "Entry Type"
+msgstr "Type d'entrée"
+
+#: widgets/kacleditwidget.cpp:439
+msgid "Default for new files in this folder"
+msgstr "Valeur par défaut des nouveaux fichiers de ce dossier"
+
+#: widgets/kacleditwidget.cpp:468
+msgid "Named user"
+msgstr "Utilisateur nommé"
+
+#: widgets/kacleditwidget.cpp:473
+msgid "Named group"
+msgstr "Groupe nommé"
+
+#: widgets/kacleditwidget.cpp:493
+msgid "User: "
+msgstr "Utilisateur : "
+
+#: widgets/kacleditwidget.cpp:508
+msgid "Group: "
+msgstr "Groupe : "
+
+#: widgets/kacleditwidget.cpp:645
+msgid "Type"
+msgstr "Type"
+
+#: widgets/kacleditwidget.cpp:646
+msgid "Name"
+msgstr "Nom"
+
+#: widgets/kacleditwidget.cpp:647
+msgctxt "read permission"
+msgid "r"
+msgstr "l"
+
+#: widgets/kacleditwidget.cpp:648
+msgctxt "write permission"
+msgid "w"
+msgstr "é"
+
+#: widgets/kacleditwidget.cpp:649
+msgctxt "execute permission"
+msgid "x"
+msgstr "e"
+
+#: widgets/kacleditwidget.cpp:650
+msgid "Effective"
+msgstr "Effective"
+
+#: widgets/kbuildsycocaprogressdialog.cpp:45
+msgid "Updating System Configuration"
+msgstr "Mise à jour de la configuration du système"
+
+#: widgets/kbuildsycocaprogressdialog.cpp:46
+msgid "Updating system configuration."
+msgstr "Mise à jour de la configuration du système."
+
+#: widgets/kdesktopfileactions.cpp:67
+#, kde-format
+msgid "The desktop entry file %1 has no Type=... entry."
+msgstr ""
+"Le fichier de configuration de bureau %1 ne comporte pas de ligne "
+"« Type=... »."
+
+#: widgets/kdesktopfileactions.cpp:84
+#, kde-format
+msgid ""
+"The desktop entry of type\n"
+"%1\n"
+"is unknown."
+msgstr ""
+"Le type de fichier de configuration de bureau\n"
+"%1\n"
+"est inconnu."
+
+#: widgets/kdesktopfileactions.cpp:97 widgets/kdesktopfileactions.cpp:177
+#: widgets/kdesktopfileactions.cpp:310
+#, kde-format
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is of type FSDevice but has no Dev=... entry."
+msgstr ""
+"Le fichier de configuration de bureau\n"
+"%1\n"
+"est du type « fsdevice » mais ne comporte aucune ligne « Dev=... »."
+
+#: widgets/kdesktopfileactions.cpp:130
+#, kde-format
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is not valid."
+msgstr ""
+"Le type de fichier de configuration de bureau\n"
+"%1\n"
+"n'est pas valable."
+
+#: widgets/kdesktopfileactions.cpp:143
+#, kde-format
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is of type Link but has no URL=... entry."
+msgstr ""
+"Le fichier de configuration de bureau\n"
+"%1\n"
+"est du type « Link » mais ne comporte aucune ligne « URL=... »."
+
+#: widgets/kdesktopfileactions.cpp:213
+msgid "Mount"
+msgstr "Monter"
+
+#: widgets/kdesktopfileactions.cpp:224
+msgid "Eject"
+msgstr "Éjecter"
+
+#: widgets/kdesktopfileactions.cpp:226
+msgid "Unmount"
+msgstr "Libérer"
+
+#: widgets/kdirmodel.cpp:1072
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Nom"
+
+#: widgets/kdirmodel.cpp:1074
+msgctxt "@title:column"
+msgid "Size"
+msgstr "Taille"
+
+#: widgets/kdirmodel.cpp:1076
+msgctxt "@title:column"
+msgid "Date"
+msgstr "Date"
+
+#: widgets/kdirmodel.cpp:1078
+msgctxt "@title:column"
+msgid "Permissions"
+msgstr "Droits d'accès"
+
+#: widgets/kdirmodel.cpp:1080
+msgctxt "@title:column"
+msgid "Owner"
+msgstr "Propriétaire"
+
+#: widgets/kdirmodel.cpp:1082
+msgctxt "@title:column"
+msgid "Group"
+msgstr "Groupe"
+
+#: widgets/kdirmodel.cpp:1084
+msgctxt "@title:column"
+msgid "Type"
+msgstr "Type"
+
+#: widgets/kfileitemactions.cpp:399
+msgctxt "@title:menu"
+msgid "&Actions"
+msgstr "&Actions"
+
+#: widgets/kfileitemactions.cpp:525
+#, kde-format
+msgid "&Open with %1"
+msgstr "Ouvrir &avec %1"
+
+#: widgets/kfileitemactions.cpp:551
+msgctxt "@title:menu"
+msgid "&Open With"
+msgstr "&Ouvrir avec"
+
+#: widgets/kfileitemactions.cpp:568
+msgctxt "@action:inmenu Open With"
+msgid "&Other..."
+msgstr "&Autres..."
+
+#: widgets/kfileitemactions.cpp:570 widgets/kfileitemactions.cpp:579
+msgctxt "@title:menu"
+msgid "&Open With..."
+msgstr "&Ouvrir avec..."
+
+#: widgets/kfileitemactions.cpp:683
+#, kde-format
+msgid "Open &with %1"
+msgstr "Ouvrir &avec %1"
+
+#: widgets/kfileitemactions.cpp:685
+#, kde-format
+msgctxt "@item:inmenu Open With, %1 is application name"
+msgid "%1"
+msgstr "%1"
+
+#: widgets/kfileitemdelegate.cpp:221
+#, kde-format
+msgctxt "Items in a folder"
+msgid "1 item"
+msgid_plural "%1 items"
+msgstr[0] "1 élément"
+msgstr[1] "%1 éléments"
+
+#: widgets/kfileitemdelegate.cpp:277 widgets/kfileitemdelegate.cpp:281
+msgctxt "@info mimetype"
+msgid "Unknown"
+msgstr "Inconnu"
+
+#: widgets/kopenwithdialog.cpp:272
+msgid "Known Applications"
+msgstr "Applications connues"
+
+#: widgets/kopenwithdialog.cpp:494
+msgid "Open With"
+msgstr "Ouvrir avec"
+
+#: widgets/kopenwithdialog.cpp:498
+#, kde-format
+msgid ""
+"<qt>Select the program that should be used to open <b>%1</b>. If the program "
+"is not listed, enter the name or click the browse button.</qt>"
+msgstr ""
+"<qt>Choisissez le programme à utiliser pour ouvrir <b>%1</b>. Si ce "
+"programme n'est pas répertorié, saisissez son nom ou cliquez sur le bouton "
+"du sélecteur de fichiers.</qt>"
+
+#: widgets/kopenwithdialog.cpp:504
+msgid "Choose the name of the program with which to open the selected files."
+msgstr ""
+"Choisissez le nom du programme qui servira à ouvrir les fichiers choisis."
+
+#: widgets/kopenwithdialog.cpp:534
+#, kde-format
+msgid "Choose Application for %1"
+msgstr "Choisir l'application pour %1"
+
+#: widgets/kopenwithdialog.cpp:535
+#, kde-format
+msgid ""
+"<qt>Select the program for the file type: <b>%1</b>. If the program is not "
+"listed, enter the name or click the browse button.</qt>"
+msgstr ""
+"<qt>Choisissez le programme à utiliser pour le type de fichier : <b>%1</b>. "
+"Si ce programme n'est pas dans la liste, saisissez son nom ou cliquez sur le "
+"bouton du sélecteur de fichiers.</qt>"
+
+#: widgets/kopenwithdialog.cpp:550
+msgid "Choose Application"
+msgstr "Choisir une application"
+
+#: widgets/kopenwithdialog.cpp:551
+msgid ""
+"<qt>Select a program. If the program is not listed, enter the name or click "
+"the browse button.</qt>"
+msgstr ""
+"<qt>Choisissez un programme. S'il n'est pas répertorié, saisissez son nom ou "
+"cliquez sur le bouton du sélecteur de fichiers.</qt>"
+
+#: widgets/kopenwithdialog.cpp:610
+msgid ""
+"Following the command, you can have several place holders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"%f - a single file name\n"
+"%F - a list of files; use for applications that can open several local files "
+"at once\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%d - the directory of the file to open\n"
+"%D - a list of directories\n"
+"%i - the icon\n"
+"%m - the mini-icon\n"
+"%c - the comment"
+msgstr ""
+"En suivant la commande, vous pouvez avoir plusieurs entités qui seront "
+"remplacées par les vraies valeurs quand le vrai programme fonctionne :\n"
+"%f - un simple nom de fichier\n"
+"%F - une liste de fichiers, utiliser pour les applications qui ouvrent "
+"plusieurs fichiers locaux d'un coup\n"
+"%u - une simple URL\n"
+"%U - une liste d'URLs\n"
+"%d - le dossier du fichier à ouvrir\n"
+"%D - une liste de dossiers\n"
+"%i - l'icône\n"
+"%m - la mini-icône\n"
+"%c - le commentaire"
+
+#: widgets/kopenwithdialog.cpp:645
+msgid "Run in &terminal"
+msgstr "E&xécuter dans un terminal"
+
+#: widgets/kopenwithdialog.cpp:663
+msgid "&Do not close when command exits"
+msgstr "Ne pas fermer quan&d la commande se termine"
+
+#: widgets/kopenwithdialog.cpp:680
+msgid "&Remember application association for this type of file"
+msgstr "Mémoriser l'&association entre l'application et ce type de fichier"
+
+#: widgets/kopenwithdialog.cpp:828
+#, kde-format
+msgid ""
+"Could not extract executable name from '%1', please type a valid program "
+"name."
+msgstr ""
+"Impossible de trouver le nom de l'exécutable dans « %1 ». Donnez un nom de "
+"programme valable s'il-vous-plaît."
+
+#: widgets/kopenwithdialog.cpp:878
+#, kde-format
+msgid "'%1' not found, please type a valid program name."
+msgstr ""
+"Impossible de trouver « %1 ». Donnez un nom de programme valable s'il-vous-"
+"plaît."
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
+#: widgets/kpropertiesdesktopadvbase.ui:11
+msgctxt ""
+"@title:group Title of a group that lets the user choose options about the "
+"terminal when launching a program"
+msgid "Terminal"
+msgstr "Terminal"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:33
+msgid ""
+"Check this option if the application you want to run is a text mode "
+"application or if you want the information that is provided by the terminal "
+"emulator window."
+msgstr ""
+"Cochez cette option si l'application que vous voulez lancer est une "
+"application en mode texte ou si vous voulez les informations fournies par la "
+"fenêtre d'émulateur de terminal."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:36
+msgid "&Run in terminal"
+msgstr "&Exécuter dans un terminal"
+
+#. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:43
+msgid "&Terminal options:"
+msgstr "O&ptions du terminal :"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:53
+msgid ""
+"Check this option if the text mode application offers relevant information "
+"on exit. Keeping the terminal emulator open allows you to retrieve this "
+"information."
+msgstr ""
+"Cochez cette option si l'application en mode texte offre des informations "
+"intéressantes en quittant. En conservant l'émulateur de terminal ouvert, "
+"vous pourrez retrouver ces informations."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:56
+msgid "Do not &close when command exits"
+msgstr "Ne pas fermer quand la &commande se termine"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
+#: widgets/kpropertiesdesktopadvbase.ui:69
+msgctxt ""
+"@title:group Title of a group that lets the user choose which user to use "
+"when launching a program"
+msgid "User"
+msgstr "Utilisateur"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:75
+msgid ""
+"Check this option if you want to run this application with a different user "
+"id. Every process has a different user id associated with it. This id code "
+"determines file access and other permissions. The password of the user is "
+"required to use this option."
+msgstr ""
+"Cochez cette option si vous voulez lancer cette application avec un "
+"identifiant d'utilisateur différent. Chaque processus a un identifiant "
+"d'utilisateur associé. Ce code identifiant détermine l'accès au fichiers et "
+"d'autres permissions. Le mot de passe de l'utilisateur est exigé pour "
+"utiliser cette option."
+
+#. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:78
+msgid "Ru&n as a different user"
+msgstr "Exécute&r en tant qu'utilisateur différent"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:101
+msgid "Enter the user name you want to run the application as."
+msgstr ""
+"Donnez le nom de l'utilisateur que vous voulez pour lancer l'application."
+
+#. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:104
+msgid "&Username:"
+msgstr "Nom d'&utilisateur :"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
+#: widgets/kpropertiesdesktopadvbase.ui:114
+msgid "Enter the user name you want to run the application as here."
+msgstr ""
+"Donnez le nom de l'utilisateur que vous voulez pour lancer l'application "
+"comme ici."
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
+#: widgets/kpropertiesdesktopadvbase.ui:124
+msgctxt ""
+"@title:group Title of a group that lets the user choose options regargin "
+"program startup"
+msgid "Startup"
+msgstr "Démarrage"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:130
+msgid ""
+"Check this option if you want to make clear that your application has "
+"started. This visual feedback may appear as a busy cursor or in the taskbar."
+msgstr ""
+"Cochez cette option si vous voulez rendre visible que votre application a "
+"démarré. Ce retour d'information peut apparaître comme un curseur occupé ou "
+"dans la barre des tâches."
+
+#. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:133
+msgid "Enable &launch feedback"
+msgstr "Activer le &retour d'information sur le lancement"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, systrayCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:140
+msgid ""
+"Check this option if you want to have a system tray handle for your "
+"application."
+msgstr ""
+"Cliquez sur ce bouton si vous voulez ajouter un type de fichier (type MIME) "
+"que votre application peut gérer."
+
+#. i18n: ectx: property (text), widget (QCheckBox, systrayCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:143
+msgid "&Place in system tray"
+msgstr "&Placer dans la boîte à miniatures"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel12)
+#: widgets/kpropertiesdesktopadvbase.ui:150
+msgid "&D-Bus registration:"
+msgstr "&Enregistrement D-Bus :"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:161
+msgid "None"
+msgstr "Aucun"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:166
+msgid "Multiple Instances"
+msgstr "Instances multiples"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:171
+msgid "Single Instance"
+msgstr "Instance unique"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:176
+msgid "Run Until Finished"
+msgstr "Lancer jusqu'à la fin"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, nameEdit)
+#: widgets/kpropertiesdesktopbase.ui:14 widgets/kpropertiesdesktopbase.ui:27
+msgid ""
+"Type the name you want to give to this application here. This application "
+"will appear under this name in the applications menu and in the panel."
+msgstr ""
+"Donnez le nom que vous voulez donner à cette application ici. Cette "
+"application apparaîtra sous ce nom dans le menu des applications et dans le "
+"tableau de bord."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, genNameEdit)
+#: widgets/kpropertiesdesktopbase.ui:34 widgets/kpropertiesdesktopbase.ui:47
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"a dial up application (KPPP) would be \"Dial up tool\"."
+msgstr ""
+"Donnez la description de cette application, selon son utilisation. "
+"Exemples : une numéroteur téléphonique (KPPP) serait « Outil de numérotation "
+"téléphonique »."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: widgets/kpropertiesdesktopbase.ui:37
+msgid "&Description:"
+msgstr "&Description :"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, commentEdit)
+#: widgets/kpropertiesdesktopbase.ui:54 widgets/kpropertiesdesktopbase.ui:67
+msgid "Type any comment you think is useful here."
+msgstr "Donnez n'importe quel commentaire que vous pensez utile ici."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: widgets/kpropertiesdesktopbase.ui:57
+msgid "Comm&ent:"
+msgstr "Comm&entaire :"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, commandEdit)
+#: widgets/kpropertiesdesktopbase.ui:85 widgets/kpropertiesdesktopbase.ui:111
+#, no-c-format
+msgid ""
+"Type the command to start this application here.\n"
+"\n"
+"Following the command, you can have several place holders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"%f - a single file name\n"
+"%F - a list of files; use for applications that can open several local files "
+"at once\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%d - the directory of the file to open\n"
+"%D - a list of directories\n"
+"%i - the icon\n"
+"%m - the mini-icon\n"
+"%c - the caption"
+msgstr ""
+"Saisissez la commande pour démarrer cette application ici.\n"
+"\n"
+"En suivant la commande, vous pouvez avoir plusieurs variables qui seront "
+"remplacées par les vraies valeurs quand le vrai programme sera lancé :\n"
+"%f - un simple nom de fichier\n"
+"%F - une liste de fichiers ; à utiliser pour les applications qui peuvent "
+"ouvrir plusieurs fichiers locaux d'un coup\n"
+"%u - une simple URL\n"
+"%U - une liste d'URL\n"
+"%d - le dossier du fichier à ouvrir\n"
+"%D - une liste de dossiers\n"
+"%i - l'icône\n"
+"%m - la mini-icône\n"
+"%c - le titre"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:88
+msgid "Co&mmand:"
+msgstr "Co&mmande :"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:118
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr ""
+"Cliquez ici pour naviguer votre système de fichiers pour trouver "
+"l'exécutable désiré."
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:121
+msgid "&Browse..."
+msgstr "&Parcourir..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
+#: widgets/kpropertiesdesktopbase.ui:130 widgets/kpropertiesdesktopbase.ui:143
+msgid "Sets the working directory for your application."
+msgstr "Règle le dossier de travail de votre application."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel5)
+#: widgets/kpropertiesdesktopbase.ui:133
+msgid "&Work path:"
+msgstr "&Dossier de travail :"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:157 widgets/kpropertiesdesktopbase.ui:178
+msgid ""
+"<qt><p>This list should show the types of file that your application can "
+"handle. This list is organized by <u>mimetypes</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol for "
+"identifying the type of data based on filename extensions and correspondent "
+"<u>mimetypes</u>. Example: the \"bmp\" part that comes after the dot in "
+"flower.bmp indicates that it is a specific kind of image, <u>image/x-bmp</"
+"u>. To know which application should open each type of file, the system "
+"should be informed about the abilities of each application to handle these "
+"extensions and mimetypes.</p>\n"
+"<p>If you want to associate this application with one or more mimetypes that "
+"are not in this list, click on the button <b>Add</b> below. If there are one "
+"or more filetypes that this application cannot handle, you may want to "
+"remove them from the list clicking on the button <b>Remove</b> below.</p></"
+"qt>"
+msgstr ""
+"<qt><p>Cette liste devrait contenir les types de fichiers que votre "
+"application peut gérer. Cette liste est organisée par <u>types MIME</u>.</"
+"p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, est un protocole standard "
+"pour identifier le type de données en fonction des extensions de nom de "
+"fichier et du type <u>MIME</u> correspondant. Exemple : la partie « bmp » "
+"qui se trouve après le point dans fleur.bmp indique que c'est une certaine "
+"sorte d'image, <u>image/x-bmp</u>. Pour savoir quelle application doit "
+"ouvrir chaque type de fichier, le système doit être informé sur les "
+"possibilités de chaque application pour gérer ces extensions et types MIME.</"
+"p>\n"
+"<p>Si vous voulez associer cette application avec un type MIME ou plus qui "
+"ne sont pas dans la liste, cliquez sur le bouton <b>Ajouter</b> au-dessous. "
+"S'il y a un type de fichiers ou plusieurs que cette application ne peut "
+"gérer, vous pouvez les supprimer de la liste en cliquant sur le bouton "
+"<b>Supprimer</b> au-dessous.</p></qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: widgets/kpropertiesdesktopbase.ui:160
+msgid "&Supported file types:"
+msgstr "Type&s de fichiers pris en charge :"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:191
+msgid "Mimetype"
+msgstr "Type MIME"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:196
+msgid "Description"
+msgstr "Description"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:206
+msgid ""
+"Click on this button if you want to add a type of file (mimetype) that your "
+"application can handle."
+msgstr ""
+"Cliquez sur ce bouton si vous voulez ajouter un type de fichier (type MIME) "
+"que votre application peut gérer."
+
+#. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:209
+msgid "Add..."
+msgstr "Ajouter..."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:216
+msgid ""
+"If you want to remove a type of file (mimetype) that your application cannot "
+"handle, select the mimetype in the list above and click on this button."
+msgstr ""
+"Si vous voulez supprimer un type de fichier (type MIME) que votre "
+"application ne peut gérer, sélectionnez le type MIME dans la liste au-dessus "
+"et cliquez sur ce bouton."
+
+#. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:219
+msgid "Remove"
+msgstr "Supprimer"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:242
+msgid ""
+"Click here to modify the way this application will run, launch feedback, D-"
+"Bus options or to run it as a different user."
+msgstr ""
+"Cliquez ici pour modifier la manière dont cette application se lancera, "
+"lancera le témoin de démarrage, les options D-Bus à lancer ou pour la lancer "
+"en tant qu'utilisateur différent."
+
+#. i18n: ectx: property (text), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:245
+msgid "Ad&vanced Options"
+msgstr "Options a&vancées"
+
+#: widgets/kpropertiesdialog.cpp:204 widgets/kpropertiesdialog.cpp:219
+#: widgets/kpropertiesdialog.cpp:231 widgets/kpropertiesdialog.cpp:247
+#: widgets/kpropertiesdialog.cpp:265
+#, kde-format
+msgid "Properties for %1"
+msgstr "Propriétés de %1"
+
+#: widgets/kpropertiesdialog.cpp:229
+#, kde-format
+msgid "Properties for 1 item"
+msgid_plural "Properties for %1 Selected Items"
+msgstr[0] "Propriétés de l'élément"
+msgstr[1] "Propriétés des %1 éléments sélectionnés"
+
+#: widgets/kpropertiesdialog.cpp:785
+msgctxt "@title:tab File properties"
+msgid "&General"
+msgstr "&Général"
+
+#: widgets/kpropertiesdialog.cpp:967
+msgid "Type:"
+msgstr "Type :"
+
+#: widgets/kpropertiesdialog.cpp:986
+msgid "Create New File Type"
+msgstr "Créer un nouveau type de fichier"
+
+#: widgets/kpropertiesdialog.cpp:988
+msgid "File Type Options"
+msgstr "Options du type de fichier"
+
+#: widgets/kpropertiesdialog.cpp:999
+msgid "Contents:"
+msgstr "Contenu :"
+
+#: widgets/kpropertiesdialog.cpp:1007 widgets/kurlrequesterdialog.cpp:57
+msgid "Location:"
+msgstr "Emplacement :"
+
+#: widgets/kpropertiesdialog.cpp:1022
+msgid "Size:"
+msgstr "Taille :"
+
+#: widgets/kpropertiesdialog.cpp:1038
+msgid "Calculate"
+msgstr "Calculer"
+
+#: widgets/kpropertiesdialog.cpp:1039
+msgid "Stop"
+msgstr "Arrêter"
+
+#: widgets/kpropertiesdialog.cpp:1048 widgets/kpropertiesdialog.cpp:1249
+msgid "Refresh"
+msgstr "Actualiser"
+
+#: widgets/kpropertiesdialog.cpp:1056
+msgid "Points to:"
+msgstr "Pointe vers :"
+
+#: widgets/kpropertiesdialog.cpp:1067
+msgid "Created:"
+msgstr "Création :"
+
+#: widgets/kpropertiesdialog.cpp:1076
+msgid "Modified:"
+msgstr "Modification :"
+
+#: widgets/kpropertiesdialog.cpp:1085
+msgid "Accessed:"
+msgstr "Accès :"
+
+#: widgets/kpropertiesdialog.cpp:1103
+msgid "Mounted on:"
+msgstr "Point de montage :"
+
+#: widgets/kpropertiesdialog.cpp:1111 widgets/kpropertiesdialog.cpp:2829
+msgid "Device usage:"
+msgstr "Occupation du périphérique :"
+
+#: widgets/kpropertiesdialog.cpp:1212 widgets/kpropertiesdialog.cpp:2961
+#, kde-format
+msgctxt "Available space out of total partition size (percent used)"
+msgid "%1 free of %2 (%3% used)"
+msgstr "%1 libres sur %2 (%3 % utilisés)"
+
+#: widgets/kpropertiesdialog.cpp:1226
+#, kde-format
+msgid ""
+"Calculating... %1 (%2)\n"
+"%3, %4"
+msgstr ""
+"Calcul en cours... %1 (%2)\n"
+"%3, %4"
+
+#: widgets/kpropertiesdialog.cpp:1229 widgets/kpropertiesdialog.cpp:1244
+#, kde-format
+msgid "1 file"
+msgid_plural "%1 files"
+msgstr[0] "1 fichier"
+msgstr[1] "%1 fichiers"
+
+#: widgets/kpropertiesdialog.cpp:1230 widgets/kpropertiesdialog.cpp:1245
+#, kde-format
+msgid "1 sub-folder"
+msgid_plural "%1 sub-folders"
+msgstr[0] "1 sous-dossier"
+msgstr[1] "%1 sous-dossiers"
+
+#: widgets/kpropertiesdialog.cpp:1258
+msgid "Calculating..."
+msgstr "Calcul en cours..."
+
+#: widgets/kpropertiesdialog.cpp:1290
+#, kde-format
+msgid "At least %1"
+msgstr "Au moins %1 "
+
+#: widgets/kpropertiesdialog.cpp:1328
+msgid "The new file name is empty."
+msgstr "Le nouveau nom de fichier est vide."
+
+#: widgets/kpropertiesdialog.cpp:1511 widgets/kpropertiesdialog.cpp:2706
+#: widgets/kpropertiesdialog.cpp:3006 widgets/kpropertiesdialog.cpp:3260
+#, kde-format
+msgid ""
+"<qt>Could not save properties. You do not have sufficient access to write to "
+"<b>%1</b>.</qt>"
+msgstr ""
+"<qt>Impossible d'enregistrer les propriétés. Vous n'avez pas le droit "
+"d'écrire dans <b>%1</b>.</qt>"
+
+#: widgets/kpropertiesdialog.cpp:1587 widgets/kpropertiesdialog.cpp:1593
+#: widgets/kpropertiesdialog.cpp:1600
+msgid "Forbidden"
+msgstr "Interdit"
+
+#: widgets/kpropertiesdialog.cpp:1588
+msgid "Can Read"
+msgstr "Peut lire"
+
+#: widgets/kpropertiesdialog.cpp:1589
+msgid "Can Read & Write"
+msgstr "Peut lire et écrire"
+
+#: widgets/kpropertiesdialog.cpp:1594
+msgid "Can View Content"
+msgstr "Peut voir le contenu"
+
+#: widgets/kpropertiesdialog.cpp:1595
+msgid "Can View & Modify Content"
+msgstr "Peut voir et modifier le contenu"
+
+#: widgets/kpropertiesdialog.cpp:1601
+msgid "Can View Content & Read"
+msgstr "Peut voir le contenu et lire"
+
+#: widgets/kpropertiesdialog.cpp:1602
+msgid "Can View/Read & Modify/Write"
+msgstr "Peut voir / lire et modifier / écrire"
+
+#: widgets/kpropertiesdialog.cpp:1699
+msgid "&Permissions"
+msgstr "&Droits d'accès"
+
+#: widgets/kpropertiesdialog.cpp:1711 widgets/kpropertiesdialog.cpp:1914
+msgid "Access Permissions"
+msgstr "Droits d'accès"
+
+#: widgets/kpropertiesdialog.cpp:1719
+msgid "This file is a link and does not have permissions."
+msgid_plural "All files are links and do not have permissions."
+msgstr[0] "Ce fichier est un lien et n'a pas de permissions."
+msgstr[1] "Ces fichiers sont des liens et n'ont pas de permissions."
+
+#: widgets/kpropertiesdialog.cpp:1723
+msgid "Only the owner can change permissions."
+msgstr "Seul le propriétaire peut modifier les permissions."
+
+#: widgets/kpropertiesdialog.cpp:1727
+msgid "O&wner:"
+msgstr "Propri&étaire :"
+
+#: widgets/kpropertiesdialog.cpp:1733
+msgid "Specifies the actions that the owner is allowed to do."
+msgstr "Précise les actions que le propriétaire est autorisé à faire."
+
+#: widgets/kpropertiesdialog.cpp:1735
+msgid "Gro&up:"
+msgstr "Gro&upe :"
+
+#: widgets/kpropertiesdialog.cpp:1741
+msgid "Specifies the actions that the members of the group are allowed to do."
+msgstr "Précise les actions que les membres du groupe sont autorisés à faire."
+
+#: widgets/kpropertiesdialog.cpp:1743
+msgid "O&thers:"
+msgstr "Au&tres :"
+
+#: widgets/kpropertiesdialog.cpp:1749
+msgid ""
+"Specifies the actions that all users, who are neither owner nor in the "
+"group, are allowed to do."
+msgstr ""
+"Précise les actions que tous les utilisateurs, qui ne sont ni propriétaires "
+"ni membres du groupe, sont autorisés à faire."
+
+#: widgets/kpropertiesdialog.cpp:1754
+msgid "Only own&er can rename and delete folder content"
+msgstr "S&eul le propriétaire peut renommer et effacer le contenu du dossier"
+
+#: widgets/kpropertiesdialog.cpp:1755
+msgid "Is &executable"
+msgstr "est &exécutable"
+
+#: widgets/kpropertiesdialog.cpp:1759
+msgid ""
+"Enable this option to allow only the folder's owner to delete or rename the "
+"contained files and folders. Other users can only add new files, which "
+"requires the 'Modify Content' permission."
+msgstr ""
+"Activer cette option pour n'autoriser que le propriétaire du dossier à "
+"supprimer ou renommer les fichiers et dossiers contenus dedans. Les autres "
+"utilisateurs ne peuvent qu'ajouter des fichiers, ce qui nécessite la "
+"permission de modifier le contenu."
+
+#: widgets/kpropertiesdialog.cpp:1763
+msgid ""
+"Enable this option to mark the file as executable. This only makes sense for "
+"programs and scripts. It is required when you want to execute them."
+msgstr ""
+"Activez cette option pour marquer le fichier comme exécutable. Ceci n'a du "
+"sens que pour les programmes et les scripts. C'est nécessaire si vous voulez "
+"les exécuter."
+
+#: widgets/kpropertiesdialog.cpp:1770
+msgid "A&dvanced Permissions"
+msgstr "&Droits d'accès avancés"
+
+#: widgets/kpropertiesdialog.cpp:1778
+msgid "Ownership"
+msgstr "Appartenance"
+
+#: widgets/kpropertiesdialog.cpp:1785
+msgid "User:"
+msgstr "Utilisateur :"
+
+#: widgets/kpropertiesdialog.cpp:1829
+msgid "Group:"
+msgstr "Groupe :"
+
+#: widgets/kpropertiesdialog.cpp:1866
+msgid "Apply changes to all subfolders and their contents"
+msgstr "Appliquer les modifications aux sous-dossiers et à leur contenu"
+
+#: widgets/kpropertiesdialog.cpp:1905
+msgid "Advanced Permissions"
+msgstr "Droits d'accès avancés"
+
+#: widgets/kpropertiesdialog.cpp:1922
+msgid "Class"
+msgstr "Classe"
+
+#: widgets/kpropertiesdialog.cpp:1927
+msgid ""
+"Show\n"
+"Entries"
+msgstr "Lecture"
+
+#: widgets/kpropertiesdialog.cpp:1929
+msgid "Read"
+msgstr "Lecture"
+
+#: widgets/kpropertiesdialog.cpp:1935
+msgid "This flag allows viewing the content of the folder."
+msgstr "Ce drapeau permet de voir le contenu du dossier."
+
+#: widgets/kpropertiesdialog.cpp:1937
+msgid "The Read flag allows viewing the content of the file."
+msgstr "Le drapeau rouge permet de voir le contenu du fichier."
+
+#: widgets/kpropertiesdialog.cpp:1942
+msgid ""
+"Write\n"
+"Entries"
+msgstr "Écriture"
+
+#: widgets/kpropertiesdialog.cpp:1944
+msgid "Write"
+msgstr "Écriture"
+
+#: widgets/kpropertiesdialog.cpp:1950
+msgid ""
+"This flag allows adding, renaming and deleting of files. Note that deleting "
+"and renaming can be limited using the Sticky flag."
+msgstr ""
+"Ce drapeau permet l'ajout, le renommage et la suppression des fichiers. "
+"Notez que la suppression et le renommage peuvent être limitées par le "
+"drapeau « collant »."
+
+#: widgets/kpropertiesdialog.cpp:1953
+msgid "The Write flag allows modifying the content of the file."
+msgstr "Le drapeau d'écriture permet de modifier le contenu du fichier."
+
+#: widgets/kpropertiesdialog.cpp:1959
+msgctxt "Enter folder"
+msgid "Enter"
+msgstr "Entrer"
+
+#: widgets/kpropertiesdialog.cpp:1960
+msgid "Enable this flag to allow entering the folder."
+msgstr "Activer ce drapeau pour autoriser l'entrée dans le dossier."
+
+#: widgets/kpropertiesdialog.cpp:1962
+msgid "Exec"
+msgstr "Exécution"
+
+#: widgets/kpropertiesdialog.cpp:1963
+msgid "Enable this flag to allow executing the file as a program."
+msgstr ""
+"Activez ce drapeau pour autoriser l'exécution du fichier comme un programme."
+
+#: widgets/kpropertiesdialog.cpp:1973
+msgid "Special"
+msgstr "Fichier spécial"
+
+#: widgets/kpropertiesdialog.cpp:1977
+msgid ""
+"Special flag. Valid for the whole folder, the exact meaning of the flag can "
+"be seen in the right hand column."
+msgstr ""
+"Drapeau spécial. Valable pour le dossier en entier, la signification exacte "
+"du drapeau peut être vue à droite de la colonne."
+
+#: widgets/kpropertiesdialog.cpp:1980
+msgid ""
+"Special flag. The exact meaning of the flag can be seen in the right hand "
+"column."
+msgstr ""
+"Drapeau spécial. La signification exacte du drapeau peut être vue à droite "
+"de la colonne."
+
+#: widgets/kpropertiesdialog.cpp:1984
+msgid "User"
+msgstr "Utilisateur"
+
+#: widgets/kpropertiesdialog.cpp:1988
+msgid "Group"
+msgstr "Groupe"
+
+#: widgets/kpropertiesdialog.cpp:1996
+msgid "Set UID"
+msgstr "Donner l'UID"
+
+#: widgets/kpropertiesdialog.cpp:2000
+msgid ""
+"If this flag is set, the owner of this folder will be the owner of all new "
+"files."
+msgstr ""
+"Si ce drapeau est positionné, le propriétaire de ce dossier sera le "
+"propriétaire de tous les nouveaux fichiers."
+
+#: widgets/kpropertiesdialog.cpp:2003
+msgid ""
+"If this file is an executable and the flag is set, it will be executed with "
+"the permissions of the owner."
+msgstr ""
+"Si ce fichier est un exécutable et que le drapeau est positionné, il sera "
+"exécuté avec les permissions du propriétaire."
+
+#: widgets/kpropertiesdialog.cpp:2007
+msgid "Set GID"
+msgstr "Donner le GID"
+
+#: widgets/kpropertiesdialog.cpp:2011
+msgid ""
+"If this flag is set, the group of this folder will be set for all new files."
+msgstr ""
+"Si ce drapeau est positionné, le groupe de ce dossier sera donné à tous les "
+"nouveaux fichiers."
+
+#: widgets/kpropertiesdialog.cpp:2014
+msgid ""
+"If this file is an executable and the flag is set, it will be executed with "
+"the permissions of the group."
+msgstr ""
+"Si ce fichier est un exécutable et que ce drapeau est positionné, il sera "
+"exécuté avec les permissions du groupe."
+
+#: widgets/kpropertiesdialog.cpp:2018
+msgctxt "File permission"
+msgid "Sticky"
+msgstr "Sticky"
+
+#: widgets/kpropertiesdialog.cpp:2022
+msgid ""
+"If the Sticky flag is set on a folder, only the owner and root can delete or "
+"rename files. Otherwise everybody with write permissions can do this."
+msgstr ""
+"Si le drapeau « Sticky » (collant) est positionné sur un dossier, seul "
+"l'utilisateur et le superutilisateur peuvent supprimer ou renommer les "
+"fichiers. Sinon, toute personne avec des permissions d'écriture peuvent "
+"faire ceci."
+
+#: widgets/kpropertiesdialog.cpp:2026
+msgid ""
+"The Sticky flag on a file is ignored on Linux, but may be used on some "
+"systems"
+msgstr ""
+"Le drapeau « Sticky » sur un fichier est ignoré sur Linux mais peut être "
+"utilisé sur certains systèmes"
+
+#: widgets/kpropertiesdialog.cpp:2214
+msgid "Link"
+msgstr "Lien"
+
+#: widgets/kpropertiesdialog.cpp:2233
+msgid "Varying (No Change)"
+msgstr "Variant (pas de changement)"
+
+#: widgets/kpropertiesdialog.cpp:2346
+msgid "This file uses advanced permissions"
+msgid_plural "These files use advanced permissions."
+msgstr[0] "Ce fichier utilise des droits d'accès avancés."
+msgstr[1] "Ces fichiers utilisent des droits d'accès avancés."
+
+#: widgets/kpropertiesdialog.cpp:2367
+msgid "This folder uses advanced permissions."
+msgid_plural "These folders use advanced permissions."
+msgstr[0] "Ce dossier utilise des droits d'accès avancés."
+msgstr[1] "Ces dossiers utilisent des droits d'accès avancés."
+
+#: widgets/kpropertiesdialog.cpp:2382
+msgid "These files use advanced permissions."
+msgstr "Ces fichiers utilisent des droits d'accès avancés."
+
+#: widgets/kpropertiesdialog.cpp:2617
+msgid "U&RL"
+msgstr "U&RL"
+
+#: widgets/kpropertiesdialog.cpp:2624
+msgid "URL:"
+msgstr "URL :"
+
+#: widgets/kpropertiesdialog.cpp:2764
+msgid "De&vice"
+msgstr "&Périphérique"
+
+#: widgets/kpropertiesdialog.cpp:2793
+msgid "Device (/dev/fd0):"
+msgstr "Périphérique (/dev/fd0) :"
+
+#: widgets/kpropertiesdialog.cpp:2794
+msgid "Device:"
+msgstr "Périphérique :"
+
+#: widgets/kpropertiesdialog.cpp:2807
+msgid "Read only"
+msgstr "Lecture seule"
+
+#: widgets/kpropertiesdialog.cpp:2811
+msgid "File system:"
+msgstr "Système de fichiers :"
+
+#: widgets/kpropertiesdialog.cpp:2819
+msgid "Mount point (/mnt/floppy):"
+msgstr "Point de montage (/mnt/floppy) :"
+
+#: widgets/kpropertiesdialog.cpp:2820
+msgid "Mount point:"
+msgstr "Point de montage :"
+
+#: widgets/kpropertiesdialog.cpp:3064
+msgid "&Application"
+msgstr "&Application"
+
+#: widgets/kpropertiesdialog.cpp:3190
+#, kde-format
+msgid "Add File Type for %1"
+msgstr "Ajouter le type de fichier pour %1"
+
+#: widgets/kpropertiesdialog.cpp:3191
+msgid "Select one or more file types to add:"
+msgstr "Sélectionnez un type de fichier ou plus pour ajouter :"
+
+#: widgets/kpropertiesdialog.cpp:3252
+msgid ""
+"Could not save properties. Only entries on local file systems are supported."
+msgstr ""
+"Impossible d'enregistrer les propriétés. Seuls les fichiers placés sur les "
+"systèmes de fichiers locaux sont pris en charge."
+
+#: widgets/kpropertiesdialog.cpp:3331
+msgid "Only executables on local file systems are supported."
+msgstr ""
+"Seuls les exécutables placés sur les systèmes de fichiers locaux sont gérés."
+
+#: widgets/kpropertiesdialog.cpp:3345
+#, kde-format
+msgid "Advanced Options for %1"
+msgstr "Options avancées de %1"
+
+#: widgets/krun.cpp:170
+#, kde-format
+msgid ""
+"<qt>Unable to enter <b>%1</b>.\n"
+"You do not have access rights to this location.</qt>"
+msgstr ""
+"<qt>Impossible d'entrer dans <b>%1</b>.\n"
+"Vous n'avez pas le droit d'accéder à ce dossier.</qt>"
+
+#: widgets/krun.cpp:200
+#, kde-format
+msgid ""
+"<qt>The file <b>%1</b> is an executable program. For safety it will not be "
+"started.</qt>"
+msgstr ""
+"<qt>Le fichier <b>%1</b> est un programme exécutable. Pour raisons de "
+"sûreté, il ne sera pas lancé.</qt>"
+
+#: widgets/krun.cpp:206
+#, kde-format
+msgid "<qt>You do not have permission to run <b>%1</b>.</qt>"
+msgstr "<qt>Vous n'avez pas les droits d'accès pour exécuter <b>%1</b>.</qt>"
+
+#: widgets/krun.cpp:236
+msgid "You are not authorized to select an application to open this file."
+msgstr ""
+"Vous n'avez pas l'autorisation de choisir une application pour ouvrir ce "
+"fichier."
+
+#: widgets/krun.cpp:247
+msgid "Open with:"
+msgstr "Ouvrir avec :"
+
+#: widgets/krun.cpp:297
+msgid "You are not authorized to execute this file."
+msgstr "Vous n'avez pas l'autorisation d'exécuter ce fichier."
+
+#: widgets/krun.cpp:320
+#, kde-format
+msgid "Launching %1"
+msgstr "Lancement de %1"
+
+#: widgets/krun.cpp:425
+#, kde-format
+msgid "Error processing Exec field in %1"
+msgstr "Erreur lors de l'analyse du champs dans %1"
+
+#: widgets/krun.cpp:602
+msgid "You are not authorized to execute this service."
+msgstr "Vous n'avez pas l'autorisation d'exécuter ce service."
+
+#: widgets/krun.cpp:607
+msgctxt "Warning about executing unknown .desktop file"
+msgid "Warning"
+msgstr "Avertissement"
+
+#: widgets/krun.cpp:624
+msgctxt "program name follows in a line edit below"
+msgid "This will start the program:"
+msgstr "Ceci va démarrer le programme :"
+
+#: widgets/krun.cpp:641
+msgid "If you do not trust this program, click Cancel"
+msgstr "Si vous ne faites pas confiance à ce programme, cliquez sur Annuler"
+
+#: widgets/krun.cpp:684
+#, kde-format
+msgid "Unable to make the service %1 executable, aborting execution"
+msgstr ""
+"Impossible de rendre le service %1 exécutable. L'exécution est abandonnée."
+
+#: widgets/krun.cpp:866
+#, kde-format
+msgid ""
+"<qt>Unable to run the command specified. The file or folder <b>%1</b> does "
+"not exist.</qt>"
+msgstr ""
+"<qt>Impossible d'exécuter la commande spécifiée. Le fichier ou le dossier <b>"
+"%1</b> n'existe pas.</qt>"
+
+#: widgets/krun.cpp:1461
+#, kde-format
+msgid "Could not find the program '%1'"
+msgstr "Impossible de trouver le programme « %1 »."
+
+#: widgets/ksslinfodialog.cpp:57
+msgid "KDE SSL Information"
+msgstr "Informations SSL de KDE"
+
+#: widgets/ksslinfodialog.cpp:69
+msgctxt "The receiver of the SSL certificate"
+msgid "Subject"
+msgstr "Sujet"
+
+#: widgets/ksslinfodialog.cpp:70
+msgctxt "The authority that issued the SSL certificate"
+msgid "Issuer"
+msgstr "Émetteur"
+
+#: widgets/ksslinfodialog.cpp:86 widgets/ksslinfodialog.cpp:120
+msgid "Current connection is secured with SSL."
+msgstr "La connexion actuelle est sécurisée par SSL."
+
+#: widgets/ksslinfodialog.cpp:89 widgets/ksslinfodialog.cpp:133
+msgid "Current connection is not secured with SSL."
+msgstr "La connexion actuelle n'est pas sécurisée par SSL."
+
+#: widgets/ksslinfodialog.cpp:93
+msgid "SSL support is not available in this build of KDE."
+msgstr "La gestion de SSL n'est pas disponible dans cette construction de KDE."
+
+#: widgets/ksslinfodialog.cpp:123
+msgid ""
+"The main part of this document is secured with SSL, but some parts are not."
+msgstr ""
+"La partie principale de ce document est sécurisée par SSL, mais certaines "
+"parties ne le sont pas."
+
+#: widgets/ksslinfodialog.cpp:129
+msgid "Some of this document is secured with SSL, but the main part is not."
+msgstr ""
+"Certaines parties de ce document sont sécurisées avec SSL, mais la partie "
+"principale ne l'est pas."
+
+#: widgets/ksslinfodialog.cpp:179
+#, kde-format
+msgctxt "%1, using %2 bits of a %3 bit key"
+msgid "%1, %2 %3"
+msgstr "%1, %2 %3"
+
+#: widgets/ksslinfodialog.cpp:181
+#, kde-format
+msgctxt "Part of: %1, using %2 bits of a %3 bit key"
+msgid "using %1 bit"
+msgid_plural "using %1 bits"
+msgstr[0] "utilise %1 bit"
+msgstr[1] "utilise %1 bits"
+
+#: widgets/ksslinfodialog.cpp:183
+#, kde-format
+msgctxt "Part of: %1, using %2 bits of a %3 bit key"
+msgid "of a %1 bit key"
+msgid_plural "of a %1 bit key"
+msgstr[0] "d'une clé de %1 bit"
+msgstr[1] "d'une clé de %1 bit"
+
+#: widgets/ksslinfodialog.cpp:199
+msgctxt "The certificate is not trusted"
+msgid "NO, there were errors:"
+msgstr "Non, il y avait des erreurs :"
+
+#: widgets/ksslinfodialog.cpp:206
+msgctxt "The certificate is trusted"
+msgid "Yes"
+msgstr "Oui"
+
+#: widgets/ksslinfodialog.cpp:210
+#, kde-format
+msgctxt "%1 is the effective date of the certificate, %2 is the expiry date"
+msgid "%1 to %2"
+msgstr "%1 à %2"
+
+#: widgets/kurlrequester.cpp:284
+msgid "Open file dialog"
+msgstr "Ouvrir le sélecteur de fichiers"
+
+#: widgets/paste.cpp:82 widgets/paste.cpp:151
+msgid "Filename for clipboard content:"
+msgstr "Nom de fichier pour le contenu du presse-papiers :"
+
+#: widgets/paste.cpp:143
+#, kde-format
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: widgets/paste.cpp:162
+msgid ""
+"The clipboard has changed since you used 'paste': the chosen data format is "
+"no longer applicable. Please copy again what you wanted to paste."
+msgstr ""
+"Le presse-papiers a changé depuis que vous avez utilisé l'action "
+"« Coller » : le format de données choisi n'est plus applicable. Veuillez "
+"copier à nouveau ce que vous souhaitiez coller."
+
+#: widgets/paste.cpp:291
+#, kde-format
+msgid "&Paste File"
+msgid_plural "&Paste %1 Files"
+msgstr[0] "&Coller le fichier"
+msgstr[1] "&Coller les %1 fichiers"
+
+#: widgets/paste.cpp:293
+#, kde-format
+msgid "&Paste URL"
+msgid_plural "&Paste %1 URLs"
+msgstr[0] "&Coller l'URL"
+msgstr[1] "&Coller les %1 URLs"
+
+#: widgets/paste.cpp:296
+msgid "&Paste Clipboard Contents"
+msgstr "&Coller le contenu du presse-papiers"
+
+#: widgets/pastedialog.cpp:57
+msgid "Data format:"
+msgstr "Format de données :"
+
+#: widgets/renamedialog.cpp:134
+msgid "Appl&y to All"
+msgstr "Appliquer à &tous"
+
+#: widgets/renamedialog.cpp:135
+msgid ""
+"When this is checked the button pressed will be applied to all subsequent "
+"folder conflicts for the remainder of the current job.\n"
+"Unless you press Skip you will still be prompted in case of a conflict with "
+"an existing file in the directory."
+msgstr ""
+"Quand ceci est coché, le bouton utilisé sera appliqué à tous les conflits de "
+"dossiers suivants pour le travail en cours. À moins que vous ne choisissiez "
+"l'option ignorer, cette question vous sera posée en cas de conflit avec un "
+"fichier existant dans ce dossier."
+
+#: widgets/renamedialog.cpp:136
+msgid ""
+"When this is checked the button pressed will be applied to all subsequent "
+"conflicts for the remainder of the current job."
+msgstr ""
+"Quand ceci est coché, le bouton utilisé sera appliqué à tous les conflits "
+"suivants pour le travail en cours."
+
+#: widgets/renamedialog.cpp:141
+msgid "&Rename"
+msgstr "&Renommer"
+
+#: widgets/renamedialog.cpp:143
+msgid "Suggest New &Name"
+msgstr "Suggérer un &nouveau nom"
+
+#: widgets/renamedialog.cpp:149
+msgid "&Skip"
+msgstr "&Ignorer"
+
+#: widgets/renamedialog.cpp:150
+msgid "Do not copy or move this folder, skip to the next item instead"
+msgstr "Ne pas copier ou déplacer ce dossier ; passer au suivant"
+
+#: widgets/renamedialog.cpp:151
+msgid "Do not copy or move this file, skip to the next item instead"
+msgstr "Ne pas copier ou déplacer ce fichier ; passer au suivant"
+
+#: widgets/renamedialog.cpp:156
+msgctxt "Write files into an existing folder"
+msgid "&Write Into"
+msgstr "&Écrire à l'intérieur"
+
+#: widgets/renamedialog.cpp:156
+msgid "&Overwrite"
+msgstr "&Écraser"
+
+#: widgets/renamedialog.cpp:158
+msgid ""
+"Files and folders will be copied into the existing directory, alongside its "
+"existing contents.\n"
+"You will be prompted again in case of a conflict with an existing file in "
+"the directory."
+msgstr ""
+"Les fichiers et les dossiers seront copiés dans le dossier existant à coté "
+"du contenu existant.\n"
+"Vous serez averti en cas de conflit avec des fichiers existants dans ce "
+"dossier."
+
+#: widgets/renamedialog.cpp:163
+msgid "&Resume"
+msgstr "C&ontinuer"
+
+#: widgets/renamedialog.cpp:172
+#, kde-format
+msgid ""
+"This action would overwrite '%1' with itself.\n"
+"Please enter a new file name:"
+msgstr ""
+"Cette action écraserait « %1 » avec lui-même.\n"
+"Veuillez saisir un nouveau nom de fichier :"
+
+#: widgets/renamedialog.cpp:176
+msgid "C&ontinue"
+msgstr "&Continuer"
+
+#: widgets/renamedialog.cpp:230
+msgid "This action will overwrite the destination."
+msgstr "Cette action écrasera la destination."
+
+#: widgets/renamedialog.cpp:232
+msgid "Source"
+msgstr "Source"
+
+#: widgets/renamedialog.cpp:233
+msgid "Destination"
+msgstr "Destination"
+
+#: widgets/renamedialog.cpp:239
+msgid "Warning, the destination is more recent."
+msgstr "Attention, la destination est plus récente."
+
+#: widgets/renamedialog.cpp:270
+#, kde-format
+msgid "An older item named '%1' already exists."
+msgstr "Un élément plus ancien nommé « %1 » existe déjà."
+
+#: widgets/renamedialog.cpp:272
+#, kde-format
+msgid "A similar file named '%1' already exists."
+msgstr "Un fichier identique nommé « %1 » existe déjà."
+
+#: widgets/renamedialog.cpp:274
+#, kde-format
+msgid "A more recent item named '%1' already exists."
+msgstr "Un élément plus récent nommé « %1 » existe déjà."
+
+#: widgets/renamedialog.cpp:286
+msgid "Rename:"
+msgstr "Renommer : "
+
+#: widgets/skipdialog.cpp:38
+msgid "Information"
+msgstr "Information"
+
+#: widgets/skipdialog.cpp:48
+msgid "Retry"
+msgstr "Réessayer"
+
+#: widgets/skipdialog.cpp:53
+msgid "Skip"
+msgstr "Ignorer"
+
+#: widgets/skipdialog.cpp:57
+msgid "AutoSkip"
+msgstr "Ignorer toujours"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
+#: widgets/sslinfo.ui:17
+msgid "[padlock]"
+msgstr "[cadenas]"
+
+#. i18n: ectx: property (text), widget (QLabel, addressTag)
+#: widgets/sslinfo.ui:34
+msgctxt "Web page address"
+msgid "Address:"
+msgstr "Adresse :"
+
+#. i18n: ectx: property (text), widget (QLabel, ipTag)
+#: widgets/sslinfo.ui:54
+msgid "IP address:"
+msgstr "Adresse IP :"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionTag)
+#: widgets/sslinfo.ui:74
+msgid "Encryption:"
+msgstr "Chiffrement :"
+
+#. i18n: ectx: property (text), widget (QLabel, detailsTag)
+#: widgets/sslinfo.ui:94
+msgid "Details:"
+msgstr "Détails :"
+
+#. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
+#: widgets/sslinfo.ui:114
+msgid "SSL version:"
+msgstr "Version de SSL :"
+
+#. i18n: ectx: property (text), widget (QLabel, certSelectorTag)
+#: widgets/sslinfo.ui:134
+msgid "Certificate chain:"
+msgstr "Chaîne de certificat :"
+
+#. i18n: ectx: property (text), widget (QLabel, trustedTag)
+#: widgets/sslinfo.ui:163
+msgid "Trusted:"
+msgstr "Approuvé :"
+
+#. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
+#: widgets/sslinfo.ui:183
+msgid "Validity period:"
+msgstr "Période de validité :"
+
+#. i18n: ectx: property (text), widget (QLabel, serialTag)
+#: widgets/sslinfo.ui:203
+msgid "Serial number:"
+msgstr "Numéro de série :"
+
+#. i18n: ectx: property (text), widget (QLabel, digestTag)
+#: widgets/sslinfo.ui:223
+msgid "MD5 digest:"
+msgstr "Empreinte MD5 :"
+
+#. i18n: ectx: property (text), widget (QLabel, sha1DigestTag)
+#: widgets/sslinfo.ui:243
+msgid "SHA1 digest:"
+msgstr "Empreinte SHA1 :"
+
+#: widgets/sslui.cpp:49
+msgid ""
+"The remote host did not send any SSL certificates.\n"
+"Aborting because the identity of the host cannot be established."
+msgstr ""
+"L'hôte distant n'a pas envoyé de certificat SSL.\n"
+"Abandon car il est impossible de connaître l'identité de cet hôte."

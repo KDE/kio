@@ -1,0 +1,6114 @@
+# translation of kio4.po to Icelandic
+# translation of kio4.po to
+# íslensk þýðing kio4.po
+# Copyright (C) 1998,2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation, Inc.
+#
+# Logi Ragnarsson <logir@logi.org>, 1998.
+# Richard Allen <ra@ra.is>, 1998.
+# Pjetur G. Hjaltason <pjetur@pjetur.net>, 2003.
+# Svanur Palsson <svanur@tern.is>, 2004.
+# Arnar Leosson <leosson@frisurf.no>, 2004, 2005.
+# Arnar Leósson <leosson@frisurf.no>, 2005.
+# Sveinn í Felli <sveinki@nett.is>, 2008, 2009, 2010, 2011, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kio4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-07-31 08:26+0000\n"
+"PO-Revision-Date: 2012-09-07 08:43+0000\n"
+"Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
+"Language-Team: Icelandic <kde-isl@molar.is>\n"
+"Language: is\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"Richard Allen, Logi Ragnarsson, Pjetur G. Hjaltason, Svanur Pálsson, Arnar "
+"Leósson"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"ra@ra.is, logir@logi.org, pjetur@pjetur.net, svanur@tern.is, leosson@frisurf."
+"no"
+
+#: core/chmodjob.cpp:202
+#, fuzzy, kde-format
+#| msgid "Could not change ownership for %1."
+msgid "Could not modify the ownership of file %1"
+msgstr "Ekki tókst að breyta eiganda %1."
+
+#: core/chmodjob.cpp:204
+#, kde-format
+msgid ""
+"<qt>Could not modify the ownership of file <b>%1</b>. You have insufficient "
+"access to the file to perform the change.</qt>"
+msgstr ""
+"<qt>Ekki tókst að breyta eiganda skráarinnar <b>%1</b>. Þú hefur ekki "
+"heimild til þess.</qt>"
+
+#: core/connectionbackend.cpp:143
+#, kde-format
+msgid "Unable to create io-slave: %1"
+msgstr "Ekki tókst að búa til io-slave: %1"
+
+#: core/copyjob.cpp:1081 core/job_error.cpp:504
+msgid "Folder Already Exists"
+msgstr "Mappan er þegar til"
+
+#: core/copyjob.cpp:1350 core/copyjob.cpp:1916 core/filecopyjob.cpp:360
+#: core/job_error.cpp:494 widgets/paste.cpp:104
+msgid "File Already Exists"
+msgstr "Skráin er þegar til"
+
+#: core/copyjob.cpp:1350 core/copyjob.cpp:1916
+msgid "Already Exists as Folder"
+msgstr "Er nú þegar til sem mappa"
+
+#: core/global.cpp:75
+#, kde-format
+msgctxt "size in bytes"
+msgid "%1 B"
+msgstr ""
+
+#: core/global.cpp:79
+#, kde-format
+msgctxt "size in 1000 bytes"
+msgid "%1 kB"
+msgstr ""
+
+#: core/global.cpp:80
+#, kde-format
+msgctxt "size in 10^6 bytes"
+msgid "%1 MB"
+msgstr ""
+
+#: core/global.cpp:81
+#, kde-format
+msgctxt "size in 10^9 bytes"
+msgid "%1 GB"
+msgstr ""
+
+#: core/global.cpp:82
+#, kde-format
+msgctxt "size in 10^12 bytes"
+msgid "%1 TB"
+msgstr ""
+
+#: core/global.cpp:83
+#, kde-format
+msgctxt "size in 10^15 bytes"
+msgid "%1 PB"
+msgstr ""
+
+#: core/global.cpp:84
+#, kde-format
+msgctxt "size in 10^18 bytes"
+msgid "%1 EB"
+msgstr ""
+
+#: core/global.cpp:85
+#, kde-format
+msgctxt "size in 10^21 bytes"
+msgid "%1 ZB"
+msgstr ""
+
+#: core/global.cpp:86
+#, kde-format
+msgctxt "size in 10^24 bytes"
+msgid "%1 YB"
+msgstr ""
+
+#: core/global.cpp:90
+#, kde-format
+msgctxt "memory size in 1024 bytes"
+msgid "%1 KB"
+msgstr ""
+
+#: core/global.cpp:91
+#, kde-format
+msgctxt "memory size in 2^20 bytes"
+msgid "%1 MB"
+msgstr ""
+
+#: core/global.cpp:92
+#, kde-format
+msgctxt "memory size in 2^30 bytes"
+msgid "%1 GB"
+msgstr ""
+
+#: core/global.cpp:93
+#, kde-format
+msgctxt "memory size in 2^40 bytes"
+msgid "%1 TB"
+msgstr ""
+
+#: core/global.cpp:94
+#, kde-format
+msgctxt "memory size in 2^50 bytes"
+msgid "%1 PB"
+msgstr ""
+
+#: core/global.cpp:95
+#, kde-format
+msgctxt "memory size in 2^60 bytes"
+msgid "%1 EB"
+msgstr ""
+
+#: core/global.cpp:96
+#, kde-format
+msgctxt "memory size in 2^70 bytes"
+msgid "%1 ZB"
+msgstr ""
+
+#: core/global.cpp:97
+#, kde-format
+msgctxt "memory size in 2^80 bytes"
+msgid "%1 YB"
+msgstr ""
+
+#: core/global.cpp:102
+#, kde-format
+msgctxt "size in 1024 bytes"
+msgid "%1 KiB"
+msgstr ""
+
+#: core/global.cpp:103
+#, kde-format
+msgctxt "size in 2^20 bytes"
+msgid "%1 MiB"
+msgstr ""
+
+#: core/global.cpp:104
+#, kde-format
+msgctxt "size in 2^30 bytes"
+msgid "%1 GiB"
+msgstr ""
+
+#: core/global.cpp:105
+#, kde-format
+msgctxt "size in 2^40 bytes"
+msgid "%1 TiB"
+msgstr ""
+
+#: core/global.cpp:106
+#, kde-format
+msgctxt "size in 2^50 bytes"
+msgid "%1 PiB"
+msgstr ""
+
+#: core/global.cpp:107
+#, kde-format
+msgctxt "size in 2^60 bytes"
+msgid "%1 EiB"
+msgstr ""
+
+#: core/global.cpp:108
+#, kde-format
+msgctxt "size in 2^70 bytes"
+msgid "%1 ZiB"
+msgstr ""
+
+#: core/global.cpp:109
+#, kde-format
+msgctxt "size in 2^80 bytes"
+msgid "%1 YiB"
+msgstr ""
+
+#: core/global.cpp:169
+#, kde-format
+msgid "1 day %2"
+msgid_plural "%1 days %2"
+msgstr[0] "1 dagur %2"
+msgstr[1] "%1 dagar %2"
+
+#: core/global.cpp:204 core/global.cpp:221
+#, kde-format
+msgid "%1 Item"
+msgid_plural "%1 Items"
+msgstr[0] "%1 hlutur"
+msgstr[1] "%1 hlutir"
+
+#: core/global.cpp:208
+#, kde-format
+msgid "1 Folder"
+msgid_plural "%1 Folders"
+msgstr[0] "1 mappa"
+msgstr[1] "%1 möppur"
+
+#: core/global.cpp:209
+#, kde-format
+msgid "1 File"
+msgid_plural "%1 Files"
+msgstr[0] "1 skrá"
+msgstr[1] "%1 skrár"
+
+#: core/global.cpp:212
+#, kde-format
+msgctxt "folders, files (size)"
+msgid "%1, %2 (%3)"
+msgstr "%1, %2 (%3)"
+
+#: core/global.cpp:213
+#, kde-format
+msgctxt "folders, files"
+msgid "%1, %2"
+msgstr "%1, %2"
+
+#: core/global.cpp:215
+#, kde-format
+msgctxt "files (size)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: core/global.cpp:222
+#, kde-format
+msgctxt "items: folders, files (size)"
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: core/job.cpp:108
+msgctxt "@title job"
+msgid "Moving"
+msgstr "Færi"
+
+#: core/job.cpp:109 core/job.cpp:116 core/job.cpp:141
+#: widgets/fileundomanager.cpp:130
+msgctxt "The source of a file operation"
+msgid "Source"
+msgstr "Uppruni"
+
+#: core/job.cpp:110 core/job.cpp:117 widgets/fileundomanager.cpp:131
+msgctxt "The destination of a file operation"
+msgid "Destination"
+msgstr "Áfangastaður"
+
+#: core/job.cpp:115
+msgctxt "@title job"
+msgid "Copying"
+msgstr "Afrita"
+
+#: core/job.cpp:122
+msgctxt "@title job"
+msgid "Creating directory"
+msgstr "Bý til möppu"
+
+#: core/job.cpp:123 widgets/fileundomanager.cpp:125
+msgid "Directory"
+msgstr "Mappa"
+
+#: core/job.cpp:128
+msgctxt "@title job"
+msgid "Deleting"
+msgstr "Eyði"
+
+#: core/job.cpp:129 core/job.cpp:135 widgets/fileundomanager.cpp:136
+msgid "File"
+msgstr "Skrá"
+
+#: core/job.cpp:134
+msgctxt "@title job"
+msgid "Examining"
+msgstr "Skoðun"
+
+#: core/job.cpp:140
+msgctxt "@title job"
+msgid "Transferring"
+msgstr "Flyt"
+
+#: core/job.cpp:146
+msgctxt "@title job"
+msgid "Mounting"
+msgstr "Tengi"
+
+#: core/job.cpp:147
+msgid "Device"
+msgstr "Tæki"
+
+#: core/job.cpp:148 core/job.cpp:154
+msgid "Mountpoint"
+msgstr "Tengipunktur"
+
+#: core/job.cpp:153
+msgctxt "@title job"
+msgid "Unmounting"
+msgstr "Aftengi"
+
+#: core/job_error.cpp:38
+#, kde-format
+msgid "Could not read %1."
+msgstr "Ekki tókst að lesa %1."
+
+#: core/job_error.cpp:41
+#, kde-format
+msgid "Could not write to %1."
+msgstr "Ekki tókst að skrifa í %1."
+
+#: core/job_error.cpp:44
+#, kde-format
+msgid "Could not start process %1."
+msgstr "Ekki tókst að ræsa ferlið %1."
+
+#: core/job_error.cpp:47
+#, kde-format
+msgid ""
+"Internal Error\n"
+"Please send a full bug report at http://bugs.kde.org\n"
+"%1"
+msgstr ""
+"Innri villa\n"
+"Vinsamlega sendu okkur villuskýrslu á http://bugs.kde.org\n"
+"%1"
+
+#: core/job_error.cpp:50
+#, kde-format
+msgid "Malformed URL %1."
+msgstr "Gölluð slóð %1."
+
+#: core/job_error.cpp:53
+#, kde-format
+msgid "The protocol %1 is not supported."
+msgstr "Samskiptaregla %1 er ekki studd."
+
+#: core/job_error.cpp:56
+#, kde-format
+msgid "The protocol %1 is only a filter protocol."
+msgstr "Samskiptareglan %1 er einungis til síunar."
+
+#: core/job_error.cpp:63
+#, kde-format
+msgid "%1 is a folder, but a file was expected."
+msgstr "%1 er mappa en ég bjóst við skrá."
+
+#: core/job_error.cpp:66
+#, kde-format
+msgid "%1 is a file, but a folder was expected."
+msgstr "%1 er skrá en ég bjóst við möppu."
+
+#: core/job_error.cpp:69
+#, kde-format
+msgid "The file or folder %1 does not exist."
+msgstr "Skráin eða mappan %1 er ekki til."
+
+#: core/job_error.cpp:72
+#, kde-format
+msgid "A file named %1 already exists."
+msgstr "Nú þegar er til skrá sem heitir %1."
+
+#: core/job_error.cpp:75
+#, kde-format
+msgid "A folder named %1 already exists."
+msgstr "Nú þegar er til mappa sem heitir %1."
+
+#: core/job_error.cpp:78
+msgid "No hostname specified."
+msgstr "Vantar vélarheiti."
+
+#: core/job_error.cpp:78
+#, kde-format
+msgid "Unknown host %1"
+msgstr "Óþekkt vél %1"
+
+#: core/job_error.cpp:81
+#, kde-format
+msgid "Access denied to %1."
+msgstr "Aðgangi að %1 hafnað."
+
+#: core/job_error.cpp:84
+#, kde-format
+msgid ""
+"Access denied.\n"
+"Could not write to %1."
+msgstr ""
+"Aðgangi hafnað.\n"
+"Gat ekki ritað í %1."
+
+#: core/job_error.cpp:87
+#, kde-format
+msgid "Could not enter folder %1."
+msgstr "Ekki tókst að fara inn í möppuna %1."
+
+#: core/job_error.cpp:90
+#, kde-format
+msgid "The protocol %1 does not implement a folder service."
+msgstr "Samskiptareglan %1 leyfir ekki til uppflettingar."
+
+#: core/job_error.cpp:93
+#, kde-format
+msgid "Found a cyclic link in %1."
+msgstr "Fann hringtengingu í %1."
+
+#: core/job_error.cpp:99
+#, kde-format
+msgid "Found a cyclic link while copying %1."
+msgstr "Fann hringtengingu við afritun á %1."
+
+#: core/job_error.cpp:102
+#, kde-format
+msgid "Could not create socket for accessing %1."
+msgstr "Ekki tókst að búa til sökkul til að tengjast %1."
+
+#: core/job_error.cpp:105
+#, kde-format
+msgid "Could not connect to host %1."
+msgstr "Ekki tókst að tengjast vélinni %1."
+
+#: core/job_error.cpp:108
+#, kde-format
+msgid "Connection to host %1 is broken."
+msgstr "Tenging við vélina %1 rofnaði."
+
+#: core/job_error.cpp:111
+#, kde-format
+msgid "The protocol %1 is not a filter protocol."
+msgstr "Samskiptareglan %1 er ekki til síunar."
+
+#: core/job_error.cpp:114
+#, kde-format
+msgid ""
+"Could not mount device.\n"
+"The reported error was:\n"
+"%1"
+msgstr ""
+"Ekki tókst að tengja tæki inn\n"
+"í skráakerfið. Villuboðin voru:\n"
+"%1"
+
+#: core/job_error.cpp:117
+#, kde-format
+msgid ""
+"Could not unmount device.\n"
+"The reported error was:\n"
+"%1"
+msgstr ""
+"Ekki tókst að aftengja tæki úr \n"
+"skráakerfinu. Villuboðin voru:\n"
+"%1"
+
+#: core/job_error.cpp:120
+#, kde-format
+msgid "Could not read file %1."
+msgstr "Ekki tókst að lesa skrána %1."
+
+#: core/job_error.cpp:123
+#, kde-format
+msgid "Could not write to file %1."
+msgstr "Ekki tókst að skrifa í skrána %1."
+
+#: core/job_error.cpp:126
+#, kde-format
+msgid "Could not bind %1."
+msgstr "Ekki tókst að binda %1."
+
+#: core/job_error.cpp:129
+#, kde-format
+msgid "Could not listen %1."
+msgstr "Ekki tókst að hlusta við %1."
+
+#: core/job_error.cpp:132
+#, kde-format
+msgid "Could not accept %1."
+msgstr "Ekki tókst að taka við tengingum á %1."
+
+#: core/job_error.cpp:138
+#, kde-format
+msgid "Could not access %1."
+msgstr "Komst ekki í %1."
+
+#: core/job_error.cpp:141
+#, kde-format
+msgid "Could not terminate listing %1."
+msgstr "Ekki tókst að stöðva listun %1."
+
+#: core/job_error.cpp:144
+#, kde-format
+msgid "Could not make folder %1."
+msgstr "Ekki tókst að búa til möppuna %1."
+
+#: core/job_error.cpp:147
+#, kde-format
+msgid "Could not remove folder %1."
+msgstr "Ekki tókst að fjarlægja möppuna %1."
+
+#: core/job_error.cpp:150
+#, kde-format
+msgid "Could not resume file %1."
+msgstr "Ekki tókst að halda áfram með skrána %1."
+
+#: core/job_error.cpp:153
+#, kde-format
+msgid "Could not rename file %1."
+msgstr "Ekki tókst að endurnefna skrána %1."
+
+#: core/job_error.cpp:156
+#, kde-format
+msgid "Could not change permissions for %1."
+msgstr "Ekki tókst að breyta aðgangsheimildum að %1."
+
+#: core/job_error.cpp:159
+#, kde-format
+msgid "Could not change ownership for %1."
+msgstr "Ekki tókst að breyta eiganda %1."
+
+#: core/job_error.cpp:162
+#, kde-format
+msgid "Could not delete file %1."
+msgstr "Ekki tókst að eyða skránni %1."
+
+#: core/job_error.cpp:165
+#, kde-format
+msgid "The process for the %1 protocol died unexpectedly."
+msgstr "Ferlið fyrir %1 samskiptaregluna dó skyndilega."
+
+#: core/job_error.cpp:168
+#, kde-format
+msgid ""
+"Error. Out of memory.\n"
+"%1"
+msgstr ""
+"Villa. Minni búið.\n"
+"%1"
+
+#: core/job_error.cpp:171
+#, kde-format
+msgid ""
+"Unknown proxy host\n"
+"%1"
+msgstr ""
+"Óþekkt vefsel\n"
+"%1"
+
+#: core/job_error.cpp:174
+#, kde-format
+msgid "Authorization failed, %1 authentication not supported"
+msgstr "Auðkenning brást. %1 auðkenning er ekki studd"
+
+#: core/job_error.cpp:177
+#, kde-format
+msgid ""
+"User canceled action\n"
+"%1"
+msgstr ""
+"Notandi hætti við aðgerðina\n"
+"%1"
+
+#: core/job_error.cpp:180
+#, kde-format
+msgid ""
+"Internal error in server\n"
+"%1"
+msgstr ""
+"Innri villa í miðlara\n"
+"%1"
+
+#: core/job_error.cpp:183
+#, kde-format
+msgid ""
+"Timeout on server\n"
+"%1"
+msgstr ""
+"Miðlarinn féll á tíma\n"
+"%1"
+
+#: core/job_error.cpp:186
+#, kde-format
+msgid ""
+"Unknown error\n"
+"%1"
+msgstr ""
+"Óþekkt villa\n"
+"%1"
+
+#: core/job_error.cpp:189
+#, kde-format
+msgid ""
+"Unknown interrupt\n"
+"%1"
+msgstr ""
+"Óþekkt ígrip\n"
+"%1"
+
+#: core/job_error.cpp:200
+#, kde-format
+msgid ""
+"Could not delete original file %1.\n"
+"Please check permissions."
+msgstr ""
+"Ekki tókst að eyða upprunalegu skránni\n"
+"%1. Gáðu að aðgangsheimildum."
+
+#: core/job_error.cpp:203
+#, kde-format
+msgid ""
+"Could not delete partial file %1.\n"
+"Please check permissions."
+msgstr ""
+"Ekki tókst að eyða hlutskránni\n"
+"%1. Gáðu að aðgangsheimildum."
+
+#: core/job_error.cpp:206
+#, kde-format
+msgid ""
+"Could not rename original file %1.\n"
+"Please check permissions."
+msgstr ""
+"Ekki tókst að endurnefna upprunalegu skrána\n"
+"%1. Gáðu að aðgangsheimildum."
+
+#: core/job_error.cpp:209
+#, kde-format
+msgid ""
+"Could not rename partial file %1.\n"
+"Please check permissions."
+msgstr ""
+"Ekki tókst að endurnefna hlutskrána\n"
+"%1. Gáðu að aðgangsheimildum."
+
+#: core/job_error.cpp:212
+#, kde-format
+msgid ""
+"Could not create symlink %1.\n"
+"Please check permissions."
+msgstr ""
+"Ekki tókst að búa til tákntengið\n"
+"%1. Gáðu að aðgangsheimildum."
+
+#: core/job_error.cpp:218
+#, kde-format
+msgid ""
+"Could not write file %1.\n"
+"Disk full."
+msgstr ""
+"Ekki tókst að skrifa í skrána %1.\n"
+"Diskurinn er fullur."
+
+#: core/job_error.cpp:221
+#, kde-format
+msgid ""
+"The source and destination are the same file.\n"
+"%1"
+msgstr ""
+"Upprunalega skráin og markskráin eru ein og sú sama.\n"
+"%1"
+
+#: core/job_error.cpp:227
+#, kde-format
+msgid "%1 is required by the server, but is not available."
+msgstr "Miðlarinn þarfnast %1. en er ekki til."
+
+#: core/job_error.cpp:230
+msgid "Access to restricted port in POST denied."
+msgstr "Aðgangur að læstri gátt með POST ekki leyfður."
+
+#: core/job_error.cpp:233
+msgid ""
+"The required content size information was not provided for a POST operation."
+msgstr ""
+
+#: core/job_error.cpp:236
+#, kde-format
+msgid ""
+"Unknown error code %1\n"
+"%2\n"
+"Please send a full bug report at http://bugs.kde.org."
+msgstr ""
+"Óþekkt villa %1\n"
+"%2\n"
+"Vinsamlega sendið villuskýrslu til http://bugs.kde.org."
+
+#: core/job_error.cpp:261
+msgctxt "@info url"
+msgid "(unknown)"
+msgstr "(óþekkt)"
+
+#: core/job_error.cpp:268
+#, kde-format
+msgctxt "@info %1 error name, %2 description"
+msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
+msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
+
+#: core/job_error.cpp:272
+msgid "<b>Technical reason</b>: "
+msgstr "<b>Tæknileg skýring</b>: "
+
+#: core/job_error.cpp:274
+msgid "<b>Details of the request</b>:"
+msgstr "<b>Nánar um beiðnina</b>:"
+
+#: core/job_error.cpp:275
+#, kde-format
+msgid "<li>URL: %1</li>"
+msgstr "<li>Slóð: %1</li>"
+
+#: core/job_error.cpp:277
+#, kde-format
+msgid "<li>Protocol: %1</li>"
+msgstr "<li>Samskiptaregla: %1</li>"
+
+#: core/job_error.cpp:279
+#, kde-format
+msgid "<li>Date and time: %1</li>"
+msgstr "<li>Dagur og tími: %1</li>"
+
+#: core/job_error.cpp:280
+#, kde-format
+msgid "<li>Additional information: %1</li>"
+msgstr "<li>Aukalegar upplýsingar: %1</li>"
+
+#: core/job_error.cpp:283
+msgid "<b>Possible causes</b>:"
+msgstr "<b>Mögulegar ástæður</b>:"
+
+#: core/job_error.cpp:288
+msgid "<b>Possible solutions</b>:"
+msgstr "<b>Mögulegar úrlausnir</b>:"
+
+#: core/job_error.cpp:322
+msgctxt "@info protocol"
+msgid "(unknown)"
+msgstr "(óþekktur)"
+
+#: core/job_error.cpp:331
+msgid ""
+"Contact your appropriate computer support system, whether the system "
+"administrator, or technical support group for further assistance."
+msgstr ""
+"Hafðu samband við þjónustuaðila, kerfisstjóra eða tæknihóp varðandi frekari "
+"aðstoð."
+
+#: core/job_error.cpp:334
+msgid "Contact the administrator of the server for further assistance."
+msgstr "Hafðu samband við kerfisstjóra miðlara varðandi aðstoð."
+
+#: core/job_error.cpp:337
+msgid "Check your access permissions on this resource."
+msgstr "Athugaðu aðgangsheimildir þínar að þessarri auðlind."
+
+#: core/job_error.cpp:338
+msgid ""
+"Your access permissions may be inadequate to perform the requested operation "
+"on this resource."
+msgstr ""
+"Aðgangsheimildir þínar geta verið ónógar til að framkvæma umbeðna aðgerð á "
+"þessarri auðlind."
+
+#: core/job_error.cpp:340
+msgid ""
+"The file may be in use (and thus locked) by another user or application."
+msgstr ""
+"Þessi skrá getur verið í notkun (og þá læst) af öðrum notanda eða forriti."
+
+#: core/job_error.cpp:342
+msgid ""
+"Check to make sure that no other application or user is using the file or "
+"has locked the file."
+msgstr ""
+"Athugaðu hvort nokkur annar notandi eða forrit sé að nota skrána eða hafi "
+"læst henni."
+
+#: core/job_error.cpp:344
+msgid "Although unlikely, a hardware error may have occurred."
+msgstr "Þó ólíklegt sé þá er villa í vélbúnaði möguleg."
+
+#: core/job_error.cpp:346
+msgid "You may have encountered a bug in the program."
+msgstr "Þú gætir hafa fundið villu í forritinu."
+
+#: core/job_error.cpp:347
+msgid ""
+"This is most likely to be caused by a bug in the program. Please consider "
+"submitting a full bug report as detailed below."
+msgstr ""
+"Þetta stafar líklegast af villu í forritinu. Athugaðu hvort tilefni sé til "
+"að senda villulýsingar eins og tilgreint er hér er að neðan."
+
+#: core/job_error.cpp:349
+msgid ""
+"Update your software to the latest version. Your distribution should provide "
+"tools to update your software."
+msgstr ""
+"Uppfærðu hugbúnaðinn í nýjustu útgáfu. Dreifiaðili ætti að veita þér tól til "
+"að uppfæra hugbúnaðinn."
+
+#: core/job_error.cpp:351
+msgid ""
+"When all else fails, please consider helping the KDE team or the third party "
+"maintainer of this software by submitting a high quality bug report. If the "
+"software is provided by a third party, please contact them directly. "
+"Otherwise, first look to see if the same bug has been submitted by someone "
+"else by searching at the <a href=\"http://bugs.kde.org/\">KDE bug reporting "
+"website</a>. If not, take note of the details given above, and include them "
+"in your bug report, along with as many other details as you think might help."
+msgstr ""
+"Þegar allt annað bregst, athugaðu hvort þú getið lagt KDE hópnum (eða öðrum "
+"viðhaldsforritara) lið með því að senda nákvæma villulýsingu. Ef "
+"hugbúnaðurinn er frá öðrum aðila, endilega hafðu samband beint við hann. "
+"Annars, leitaðu fyrst hvort að samskonar villa sé tilgreind af öðrum með því "
+"að leita á <a href=\"http://bugs.kde.org/\">KDE villu síðum</a>.  Ef ekki "
+"taktu fyrrgreindar upplýsingar og sendu þær með í þinni villulýsingu, ásamt "
+"öðrum atriðum sem þú telur að geti komið að gagni."
+
+#: core/job_error.cpp:359
+msgid "There may have been a problem with your network connection."
+msgstr "Það gætu verið vandkvæði í þínum netsamskiptum."
+
+#: core/job_error.cpp:362
+msgid ""
+"There may have been a problem with your network configuration. If you have "
+"been accessing the Internet with no problems recently, this is unlikely."
+msgstr ""
+"Það gætu hafa verið vandkvæði með þína netuppsetningu, Ef þú hefur verið með "
+"góða tengingu við Internetið án vandkvæða nýverið, þá er það ekki líklegt."
+
+#: core/job_error.cpp:365
+msgid ""
+"There may have been a problem at some point along the network path between "
+"the server and this computer."
+msgstr ""
+"Það gætu hafa komið upp villur einhverstaðar á leiðinni frá miðlara til "
+"þessarar tölvu."
+
+#: core/job_error.cpp:367
+msgid "Try again, either now or at a later time."
+msgstr "Reyndu aftur, núna eða síðar."
+
+#: core/job_error.cpp:368
+msgid "A protocol error or incompatibility may have occurred."
+msgstr "Samskiptavilla eða ósamræmi í samskiptum gæti verið ástæðan."
+
+#: core/job_error.cpp:369
+msgid "Ensure that the resource exists, and try again."
+msgstr "Staðfestu að auðlindin sé til og reyndu aftur."
+
+#: core/job_error.cpp:370
+msgid "The specified resource may not exist."
+msgstr "Þessi auðlind er kannski ekki til."
+
+#: core/job_error.cpp:371
+msgid "You may have incorrectly typed the location."
+msgstr "Þú gætir hafa slegið inn ranga slóð."
+
+#: core/job_error.cpp:372
+msgid "Double-check that you have entered the correct location and try again."
+msgstr "Athugaðu vandlega hvort slóðin sé rétt og reyndu aftur."
+
+#: core/job_error.cpp:374
+msgid "Check your network connection status."
+msgstr "Athugaðu ástand nettenginga."
+
+#: core/job_error.cpp:378
+msgid "Cannot Open Resource For Reading"
+msgstr "Ekki tókst opna aðfang fyrir lestur"
+
+#: core/job_error.cpp:379
+#, kde-format
+msgid ""
+"This means that the contents of the requested file or folder <strong>%1</"
+"strong> could not be retrieved, as read access could not be obtained."
+msgstr ""
+"Þetta þýðir að innihald skráar eða möppu <strong>%1</strong> var "
+"óaðgengilegt, þar sem ekki var hægt að fá lestraraðgang."
+
+#: core/job_error.cpp:382
+msgid "You may not have permissions to read the file or open the folder."
+msgstr "Þú hefur kannski ekki réttindi til að lesa þessa skrá eða möppu."
+
+#: core/job_error.cpp:388
+msgid "Cannot Open Resource For Writing"
+msgstr "Ekki tókst opna aðfang fyrir skrift"
+
+#: core/job_error.cpp:389
+#, kde-format
+msgid ""
+"This means that the file, <strong>%1</strong>, could not be written to as "
+"requested, because access with permission to write could not be obtained."
+msgstr ""
+"Þetta þýðir að ekki var hægt að skrifa í skrána <strong>%1</strong> þar sem "
+"ekki var hægt að fá skriftaraðgang."
+
+#: core/job_error.cpp:397
+#, kde-format
+msgid "Cannot Initiate the %1 Protocol"
+msgstr "Get ekki ræst samkiptaregluna %1"
+
+#: core/job_error.cpp:398
+msgid "Unable to Launch Process"
+msgstr "Ekki tókst að ræsa forrit"
+
+#: core/job_error.cpp:399
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol could not be started. This is usually due to technical "
+"reasons."
+msgstr ""
+"Ekki var hægt að ræsa forritið á tölvunni sem gefur aðgang að "
+"samskiptareglunni <strong>%1</strong>.  Þetta er venjulega af tæknilegum "
+"ástæðum."
+
+#: core/job_error.cpp:402
+msgid ""
+"The program which provides compatibility with this protocol may not have "
+"been updated with your last update of KDE. This can cause the program to be "
+"incompatible with the current version and thus not start."
+msgstr ""
+"Forritið sem hefur samskipti um þessa reglu hefur kannski ekki verið uppfært "
+"þegar þú uppfærðir KDE síðast.  Þetta getur valdið ósamhæfni við núverandi "
+"útgáfu og ræsir því ekki."
+
+#: core/job_error.cpp:410
+msgid "Internal Error"
+msgstr "Innri villa"
+
+#: core/job_error.cpp:411
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an internal error."
+msgstr ""
+"Forritið á tölvunni þinni sem veitir aðgang um samskiptaregluna <strong>%1</"
+"strong> hefur gefið skilaboð um innri villu."
+
+#: core/job_error.cpp:419
+msgid "Improperly Formatted URL"
+msgstr "Ógilt form slóðar"
+
+#: core/job_error.cpp:420
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered was not properly formatted. The format "
+"of a URL is generally as follows:<blockquote><strong>protocol://user:"
+"password@www.example.org:port/folder/filename.extension?query=value</"
+"strong></blockquote>"
+msgstr ""
+"Slóðin sem þú slóst inn var óskiljanleg. Almennt form vefslóða er:"
+"<blockquote><strong>samskiptaregla://notandi:lykilorð@www.dæmi.is:gátt/mappa/"
+"skrá.ending?breyta=gildi </strong></blockquote>"
+
+#: core/job_error.cpp:429
+#, kde-format
+msgid "Unsupported Protocol %1"
+msgstr "Óstudd samskiptaregla %1"
+
+#: core/job_error.cpp:430
+#, kde-format
+msgid ""
+"The protocol <strong>%1</strong> is not supported by the KDE programs "
+"currently installed on this computer."
+msgstr ""
+"Samskiptareglan <strong>%1</strong> er ekki studd af KDE forritum sem eru nú "
+"uppsett á þessarri tölvu."
+
+#: core/job_error.cpp:433
+msgid "The requested protocol may not be supported."
+msgstr "Umbeðin samskiptaregla er sennilega ekki studd."
+
+#: core/job_error.cpp:434
+#, kde-format
+msgid ""
+"The versions of the %1 protocol supported by this computer and the server "
+"may be incompatible."
+msgstr ""
+"Útgáfa af samskiptareglunni %1 sem er studd af þessarri tölvu og miðlaranum "
+"eru kannski ósamhæfðar."
+
+#: core/job_error.cpp:436
+msgid ""
+"You may perform a search on the Internet for a KDE program (called a "
+"kioslave or ioslave) which supports this protocol. Places to search include "
+"<a href=\"http://kde-apps.org/\">http://kde-apps.org/</a> and <a href="
+"\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+msgstr ""
+"Þú getur leitað á Internetinu að KDE forriti (kallað kioslave eða ioslave) "
+"sem styður þessa samkiptareglu. Gott er að leita á: <a href=\"http://kde-"
+"apps.org/\">http://kde-apps.org/ </a>  og <a href=\"http://freshmeat.net/"
+"\">http://freshmeat.net/</a>."
+
+#: core/job_error.cpp:445
+msgid "URL Does Not Refer to a Resource."
+msgstr "Slóðin vísar ekki á aðfang."
+
+#: core/job_error.cpp:446
+msgid "Protocol is a Filter Protocol"
+msgstr "Samskiptareglan er síunarregla"
+
+#: core/job_error.cpp:447
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered did not refer to a specific resource."
+msgstr "Slóðin sem þú gafst upp vísar ekki á neina ákveðna auðlind."
+
+#: core/job_error.cpp:450
+msgid ""
+"KDE is able to communicate through a protocol within a protocol; the "
+"protocol specified is only for use in such situations, however this is not "
+"one of these situations. This is a rare event, and is likely to indicate a "
+"programming error."
+msgstr ""
+"KDE getur haft samskipti um samskiptareglu innan samskiptareglu; Reglan er "
+"aðeins skilgreind til notkunar í þessum tilvikum, og svo er ekki í þessu "
+"tilviki Þetta er sjaldgæft og bendir líklega til forritunarvillu."
+
+#: core/job_error.cpp:458
+#, kde-format
+msgid "Unsupported Action: %1"
+msgstr "Óstudd aðgerð: %1"
+
+#: core/job_error.cpp:459
+#, kde-format
+msgid ""
+"The requested action is not supported by the KDE program which is "
+"implementing the <strong>%1</strong> protocol."
+msgstr ""
+"Þessi aðgerð er ekki studd af KDE forritinu sem skilgreinir <strong>%1</"
+"strong> samskiptaregluna."
+
+#: core/job_error.cpp:462
+msgid ""
+"This error is very much dependent on the KDE program. The additional "
+"information should give you more information than is available to the KDE "
+"input/output architecture."
+msgstr ""
+"Þessi villa veltur mjög á KDE forritinu. Aukalegar upplýsingar ættu að gefa "
+"þér nánari skýringar en mögulegt er með tilvísun í staðla KDE samskipta."
+
+#: core/job_error.cpp:465
+msgid "Attempt to find another way to accomplish the same outcome."
+msgstr "Reyndu að finna aðra leið að sama marki."
+
+#: core/job_error.cpp:470
+msgid "File Expected"
+msgstr "Bjóst við skrá"
+
+#: core/job_error.cpp:471
+#, kde-format
+msgid ""
+"The request expected a file, however the folder <strong>%1</strong> was "
+"found instead."
+msgstr "Bjóst við skrá, en mappan <strong>%1</strong> fannst í staðinn."
+
+#: core/job_error.cpp:473
+msgid "This may be an error on the server side."
+msgstr "Þetta gæti verið villa á miðlara."
+
+#: core/job_error.cpp:478
+msgid "Folder Expected"
+msgstr "Bjóst við möppu"
+
+#: core/job_error.cpp:479
+#, kde-format
+msgid ""
+"The request expected a folder, however the file <strong>%1</strong> was "
+"found instead."
+msgstr "Beðið var um möppu, en skráin <strong>%1</strong>fannst í staðinn."
+
+#: core/job_error.cpp:486
+msgid "File or Folder Does Not Exist"
+msgstr "Skráin eða mappan er ekki til"
+
+#: core/job_error.cpp:487
+#, kde-format
+msgid "The specified file or folder <strong>%1</strong> does not exist."
+msgstr "Skráin eða mappan <strong>%1</strong> er ekki til."
+
+#: core/job_error.cpp:495
+msgid ""
+"The requested file could not be created because a file with the same name "
+"already exists."
+msgstr ""
+"Ekki var hægt að búa til skrána, því skrá með sama heiti var þegar til "
+"staðar."
+
+#: core/job_error.cpp:497
+msgid "Try moving the current file out of the way first, and then try again."
+msgstr "Reyndu að færa núverandi skrá burt fyrst, og reyna svo aftur."
+
+#: core/job_error.cpp:499
+msgid "Delete the current file and try again."
+msgstr "Eyddu skránni og reyndu síðan aftur."
+
+#: core/job_error.cpp:500
+msgid "Choose an alternate filename for the new file."
+msgstr "Veldu annað skráarheiti fyrir nýju skrána."
+
+#: core/job_error.cpp:505
+msgid ""
+"The requested folder could not be created because a folder with the same "
+"name already exists."
+msgstr ""
+"Ekki var hægt að búa til möppuna, því mappa með sama heiti var þegar til "
+"staðar."
+
+#: core/job_error.cpp:507
+msgid "Try moving the current folder out of the way first, and then try again."
+msgstr "Reyndu að færa núverandi möppu burt fyrst, og reyna svo aftur."
+
+#: core/job_error.cpp:509
+msgid "Delete the current folder and try again."
+msgstr "Eyddu núverandi möppu og reyndu aftur."
+
+#: core/job_error.cpp:510
+msgid "Choose an alternate name for the new folder."
+msgstr "Veldu annað heiti fyrir nýju möppuna."
+
+#: core/job_error.cpp:514
+msgid "Unknown Host"
+msgstr "Óþekkt vél"
+
+#: core/job_error.cpp:515
+#, kde-format
+msgid ""
+"An unknown host error indicates that the server with the requested name, "
+"<strong>%1</strong>, could not be located on the Internet."
+msgstr ""
+"Villan 'Óþekkt vél' bendir til þess að miðlari með umbeðnu heiti <strong>%1</"
+"strong>, hafi ekki fundist á Internetinu."
+
+#: core/job_error.cpp:518
+#, kde-format
+msgid ""
+"The name that you typed, %1, may not exist: it may be incorrectly typed."
+msgstr ""
+"Heitið sem þú slóst inn, %1 er kannski ekki til: það getur verið rangt "
+"stafað."
+
+#: core/job_error.cpp:525
+msgid "Access Denied"
+msgstr "Aðgangi hafnað"
+
+#: core/job_error.cpp:526
+#, kde-format
+msgid "Access was denied to the specified resource, <strong>%1</strong>."
+msgstr "Aðgangi að umbeðinni auðlind var hafnað, <strong>%1</strong>."
+
+#: core/job_error.cpp:528 core/job_error.cpp:754
+msgid "You may have supplied incorrect authentication details or none at all."
+msgstr ""
+"Þú hefur kannski ekki gefið upp réttar aðgangsupplýsingar eða jafnvel engar."
+
+#: core/job_error.cpp:530 core/job_error.cpp:756
+msgid "Your account may not have permission to access the specified resource."
+msgstr "Þú hefur kannski ekki réttindi til að nálgast þessa auðlind."
+
+#: core/job_error.cpp:532 core/job_error.cpp:758 core/job_error.cpp:770
+msgid ""
+"Retry the request and ensure your authentication details are entered "
+"correctly."
+msgstr "Reyndu aftur og fullvissaðu þig um að auðkenni þín eru rétt."
+
+#: core/job_error.cpp:540
+msgid "Write Access Denied"
+msgstr "Skrifaðgangi hafnað"
+
+#: core/job_error.cpp:541
+#, kde-format
+msgid ""
+"This means that an attempt to write to the file <strong>%1</strong> was "
+"rejected."
+msgstr ""
+"Þetta þýðir að beiðni um að skrifa í skrána <strong>%1</strong> var hafnað."
+
+#: core/job_error.cpp:548
+msgid "Unable to Enter Folder"
+msgstr "Get ekki farið í möppu"
+
+#: core/job_error.cpp:549
+#, kde-format
+msgid ""
+"This means that an attempt to enter (in other words, to open) the requested "
+"folder <strong>%1</strong> was rejected."
+msgstr ""
+"Þetta þýðir að tilraun þinni (þ.e.a.s að opna) tilgreinda möppu <strong>%1</"
+"strong> var hafnað."
+
+#: core/job_error.cpp:557
+msgid "Folder Listing Unavailable"
+msgstr "Skráarlisti ekki fáanlegur"
+
+#: core/job_error.cpp:558
+#, kde-format
+msgid "Protocol %1 is not a Filesystem"
+msgstr "Samskiptareglan %1 er ekki skráarkerfi"
+
+#: core/job_error.cpp:559
+msgid ""
+"This means that a request was made which requires determining the contents "
+"of the folder, and the KDE program supporting this protocol is unable to do "
+"so."
+msgstr ""
+"Þetta þýðir að beiðni var gerð um aðgang að innihaldi möppu, og KDE forritið "
+"sem styður þessa samskiptareglu gat það ekki."
+
+#: core/job_error.cpp:567
+msgid "Cyclic Link Detected"
+msgstr "Hringtenging fannst"
+
+#: core/job_error.cpp:568
+msgid ""
+"UNIX environments are commonly able to link a file or folder to a separate "
+"name and/or location. KDE detected a link or series of links that results in "
+"an infinite loop - i.e. the file was (perhaps in a roundabout way) linked to "
+"itself."
+msgstr ""
+"Í UNIX umhverfi er algengt að tengja skrár eða möppur öðru heiti og/eða "
+"staðsetningu.  KDE fann röð tenginga sem eru í óendanlegri lykkju -- t.d. "
+"var skráin (með nokkrum útúrdúrum) tengd við sig sjálfa."
+
+#: core/job_error.cpp:572 core/job_error.cpp:594
+msgid ""
+"Delete one part of the loop in order that it does not cause an infinite "
+"loop, and try again."
+msgstr ""
+"Eyddu hluta útúrdúranna þannig að skráin sé ekki í óendanlegri lykkju og "
+"reyndu aftur."
+
+#: core/job_error.cpp:581
+msgid "Request Aborted By User"
+msgstr "Beiðni stöðvuð af notanda"
+
+#: core/job_error.cpp:582 core/job_error.cpp:897
+msgid "The request was not completed because it was aborted."
+msgstr "Beiðninni var ekki lokið vegna þess að hún var stöðvuð af notanda."
+
+#: core/job_error.cpp:584 core/job_error.cpp:788 core/job_error.cpp:899
+msgid "Retry the request."
+msgstr "Reyndu aftur."
+
+#: core/job_error.cpp:588
+msgid "Cyclic Link Detected During Copy"
+msgstr "Hringtenging fannst við afritun"
+
+#: core/job_error.cpp:589
+msgid ""
+"UNIX environments are commonly able to link a file or folder to a separate "
+"name and/or location. During the requested copy operation, KDE detected a "
+"link or series of links that results in an infinite loop - i.e. the file was "
+"(perhaps in a roundabout way) linked to itself."
+msgstr ""
+"Í UNIX umhverfi er algengt að tengja skrár eða möppur öðru heiti og/eða "
+"staðsetningu.  KDE fann röð tenginga sem eru í óendanlegri lykkju -- t.d. "
+"var skráin (með nokkrum útúrdúrum) tengd við sig sjálfa."
+
+#: core/job_error.cpp:599
+msgid "Could Not Create Network Connection"
+msgstr "Gat ekki búið til nettengingu"
+
+#: core/job_error.cpp:600
+msgid "Could Not Create Socket"
+msgstr "Gat ekki búið til sökkul"
+
+#: core/job_error.cpp:601
+msgid ""
+"This is a fairly technical error in which a required device for network "
+"communications (a socket) could not be created."
+msgstr ""
+"Þetta er nokkuð tæknileg villa þar sem ekki tókst að búa til nettengingu "
+"(sökkul/socket)."
+
+#: core/job_error.cpp:603 core/job_error.cpp:724 core/job_error.cpp:735
+#: core/job_error.cpp:744
+msgid ""
+"The network connection may be incorrectly configured, or the network "
+"interface may not be enabled."
+msgstr "Netið er ekki skilgreint rétt eða nettenging ekki virkjuð."
+
+#: core/job_error.cpp:609
+msgid "Connection to Server Refused"
+msgstr "Tengingu við miðlara hafnað"
+
+#: core/job_error.cpp:610
+#, kde-format
+msgid ""
+"The server <strong>%1</strong> refused to allow this computer to make a "
+"connection."
+msgstr "Miðlarinn <strong>%1</strong> hafnaði tengingu við þessa tölvu."
+
+#: core/job_error.cpp:612
+msgid ""
+"The server, while currently connected to the Internet, may not be configured "
+"to allow requests."
+msgstr ""
+"Miðlarinn sem er tengdur Internetinu, er kannski ekki uppsettur til að taka "
+"á móti uppköllum."
+
+#: core/job_error.cpp:614
+#, kde-format
+msgid ""
+"The server, while currently connected to the Internet, may not be running "
+"the requested service (%1)."
+msgstr ""
+"Miðlarinn sem er tengdur við Internetið keyrir kannski ekki umbeðna þjónustu "
+"(%1)."
+
+#: core/job_error.cpp:616
+msgid ""
+"A network firewall (a device which restricts Internet requests), either "
+"protecting your network or the network of the server, may have intervened, "
+"preventing this request."
+msgstr ""
+"Eldveggur (tæki sem takmarkgar aðgang að Internetinu), varnar miðlaranum eða "
+"þér aðgengi, þannig að tengingu er hafnað."
+
+#: core/job_error.cpp:623
+msgid "Connection to Server Closed Unexpectedly"
+msgstr "Tengingu við miðlara lauk óvænt"
+
+#: core/job_error.cpp:624
+#, kde-format
+msgid ""
+"Although a connection was established to <strong>%1</strong>, the connection "
+"was closed at an unexpected point in the communication."
+msgstr ""
+"Þó að tenging væri við miðlara <strong>%1</strong>, þá lauk henni á óvæntum "
+"tíma/stað í samkiptunum."
+
+#: core/job_error.cpp:627
+msgid ""
+"A protocol error may have occurred, causing the server to close the "
+"connection as a response to the error."
+msgstr ""
+"Samskiptavilla gæti hafa komið upp, sem veldur því að miðlari lokar tengingu "
+"sem svari við villunni."
+
+#: core/job_error.cpp:633
+msgid "URL Resource Invalid"
+msgstr "Aðfangsslóð ógild"
+
+#: core/job_error.cpp:634
+#, kde-format
+msgid "Protocol %1 is not a Filter Protocol"
+msgstr "Samskiptareglan %1 er ekki til síunar"
+
+#: core/job_error.cpp:635
+#, kde-format
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered did not refer to a valid mechanism of "
+"accessing the specific resource, <strong>%1%2</strong>."
+msgstr ""
+"Slóðin sem þú slóst inn vitnaði ekki í ákveðna auðlind, <strong>%1%2</"
+"strong>."
+
+#: core/job_error.cpp:640
+msgid ""
+"KDE is able to communicate through a protocol within a protocol. This "
+"request specified a protocol be used as such, however this protocol is not "
+"capable of such an action. This is a rare event, and is likely to indicate a "
+"programming error."
+msgstr ""
+"KDE getur haft samskipti um samskiptareglu innan samskiptareglu; Reglan er "
+"aðeins skilgreind til notkunar í þessum tilvikum, og svo er ekki í þessu "
+"tilviki Þetta er sjaldgæft og bendir líklega til forritunarvillu."
+
+#: core/job_error.cpp:648
+msgid "Unable to Initialize Input/Output Device"
+msgstr "Get ekki frumstillt inntaks/úttaks tæki"
+
+#: core/job_error.cpp:649
+msgid "Could Not Mount Device"
+msgstr "Gat ekki tengt tæki"
+
+#: core/job_error.cpp:650
+#, kde-format
+msgid ""
+"The requested device could not be initialized (\"mounted\"). The reported "
+"error was: <strong>%1</strong>"
+msgstr ""
+"Ekki var hægt að frumstilla tækið (\"tengja/mount\").  Villan var: <strong>"
+"%1</strong>"
+
+#: core/job_error.cpp:653
+msgid ""
+"The device may not be ready, for example there may be no media in a "
+"removable media device (i.e. no CD-ROM in a CD drive), or in the case of a "
+"peripheral/portable device, the device may not be correctly connected."
+msgstr ""
+"Það getur verið að tækið sé ekki tilbúið, t.d. enginn diskur í geisladrifi "
+"eða disketta í diskettudrifi.  Ef um er að ræða einverskonar flytjanlegt "
+"jaðartæki gæti það verið rangt tengt."
+
+#: core/job_error.cpp:657
+msgid ""
+"You may not have permissions to initialize (\"mount\") the device. On UNIX "
+"systems, often system administrator privileges are required to initialize a "
+"device."
+msgstr ""
+"Það er ekki víst að þú hafir rétt til að tengja jaðartækið. á UNIX kerfum "
+"þarf oft réttindi kerfisstjóra til að tengja jaðartæki."
+
+#: core/job_error.cpp:661
+msgid ""
+"Check that the device is ready; removable drives must contain media, and "
+"portable devices must be connected and powered on.; and try again."
+msgstr ""
+"Athugaðu hvort tækið sé tilbúið; diskar í, flytjanleg jaðartæki tengd og "
+"kveikt á þeim. reyndu svo aftur."
+
+#: core/job_error.cpp:667
+msgid "Unable to Uninitialize Input/Output Device"
+msgstr "Gat ekki aftengt inntaks/úttaks tæki"
+
+#: core/job_error.cpp:668
+msgid "Could Not Unmount Device"
+msgstr "Gat ekki aftengt tæki"
+
+#: core/job_error.cpp:669
+#, kde-format
+msgid ""
+"The requested device could not be uninitialized (\"unmounted\"). The "
+"reported error was: <strong>%1</strong>"
+msgstr ""
+"Ekki var hægt að aftengja tækið (\"unmount\") villuboðin voru: <strong>%1</"
+"strong>"
+
+#: core/job_error.cpp:672
+msgid ""
+"The device may be busy, that is, still in use by another application or "
+"user. Even such things as having an open browser window on a location on "
+"this device may cause the device to remain in use."
+msgstr ""
+"Tækið gæti verið upptekið, það er, í notkun af öðru foriti eða notanda. "
+"Jafnvel vafrari sem er með opinn glugga á svæði á þessu tæki gæti valdið því "
+"að það sé enn í notkun."
+
+#: core/job_error.cpp:676
+msgid ""
+"You may not have permissions to uninitialize (\"unmount\") the device. On "
+"UNIX systems, system administrator privileges are often required to "
+"uninitialize a device."
+msgstr ""
+"Það er ekki víst að þú hafir réttindi til að aftengja (\"unmount\") tækið Á "
+"UNIX kerfum er algengt að aðeins kerfisstjóri hafi réttindi til að aftengja "
+"tæki."
+
+#: core/job_error.cpp:680
+msgid "Check that no applications are accessing the device, and try again."
+msgstr ""
+"Athugaðu hvort nokkur önnur forrit séu að nota tækið, og reyndu svo aftur."
+
+#: core/job_error.cpp:685
+msgid "Cannot Read From Resource"
+msgstr "Get ekki lesið frá aðfangi"
+
+#: core/job_error.cpp:686
+#, kde-format
+msgid ""
+"This means that although the resource, <strong>%1</strong>, was able to be "
+"opened, an error occurred while reading the contents of the resource."
+msgstr ""
+"Þetta þýðir að þó að auðlindin, <strong>%1</strong>, sé opin, þá kom upp "
+"villa þegar reynt var að lesa gögn."
+
+#: core/job_error.cpp:689
+msgid "You may not have permissions to read from the resource."
+msgstr "Þú hefur kannski ekki réttindi til að lesa frá þessarri auðlind."
+
+#: core/job_error.cpp:702
+msgid "Cannot Write to Resource"
+msgstr "Get ekki skrifað í aðfang"
+
+#: core/job_error.cpp:703
+#, kde-format
+msgid ""
+"This means that although the resource, <strong>%1</strong>, was able to be "
+"opened, an error occurred while writing to the resource."
+msgstr ""
+"Þetta þýðir að þó að hægt hafi verið að opna auðlindina, <strong>%1</"
+"strong>, þá kom upp villa þegar reynt var að skrifa á hana."
+
+#: core/job_error.cpp:706
+msgid "You may not have permissions to write to the resource."
+msgstr "Þú hefur kannski ekki réttindi til að skrifa í þessa auðlind."
+
+#: core/job_error.cpp:719 core/job_error.cpp:730
+msgid "Could Not Listen for Network Connections"
+msgstr "Gat ekki hlustað eftir netuppköllum"
+
+#: core/job_error.cpp:720
+msgid "Could Not Bind"
+msgstr "Ekki tókst að binda"
+
+#: core/job_error.cpp:721 core/job_error.cpp:732
+msgid ""
+"This is a fairly technical error in which a required device for network "
+"communications (a socket) could not be established to listen for incoming "
+"network connections."
+msgstr ""
+"Þetta er frekar tæknileg villa sem verður að vera hægt að framkvæma á "
+"netsökklum (socket) svo hægt sé að hlusta eftir uppköllum á neti."
+
+#: core/job_error.cpp:731
+msgid "Could Not Listen"
+msgstr "Ekki tókst að hlusta"
+
+#: core/job_error.cpp:741
+msgid "Could Not Accept Network Connection"
+msgstr "Gat ekki staðfest nettengingu"
+
+#: core/job_error.cpp:742
+msgid ""
+"This is a fairly technical error in which an error occurred while attempting "
+"to accept an incoming network connection."
+msgstr ""
+"Þetta er frekar tæknileg villa þar sem upp kom villa þegar reynt var að "
+"staðfesta móttöku uppkalls."
+
+#: core/job_error.cpp:746
+msgid "You may not have permissions to accept the connection."
+msgstr "Þú hefur kannski ekki réttindi til að samþykkja uppkallið."
+
+#: core/job_error.cpp:751
+#, kde-format
+msgid "Could Not Login: %1"
+msgstr "Ekki tókst að stimpla inn: %1"
+
+#: core/job_error.cpp:752
+msgid ""
+"An attempt to login to perform the requested operation was unsuccessful."
+msgstr "Tilraun til að stimpla sig inn til að framkvæma beiðni tókst ekki."
+
+#: core/job_error.cpp:763
+msgid "Could Not Determine Resource Status"
+msgstr "Gat ekki ákvarðað stöðu aðfangs"
+
+#: core/job_error.cpp:764
+msgid "Could Not Stat Resource"
+msgstr "Óþekkt staða aðfangs"
+
+#: core/job_error.cpp:765
+#, kde-format
+msgid ""
+"An attempt to determine information about the status of the resource <strong>"
+"%1</strong>, such as the resource name, type, size, etc., was unsuccessful."
+msgstr ""
+"Tilraun sem gerð var til að ákvarða stöðu auðlindarinnar <strong>%1</"
+"strong>, t.d. heiti, tegund, stærð o.s.frv. tókst ekki."
+
+#: core/job_error.cpp:768
+msgid "The specified resource may not have existed or may not be accessible."
+msgstr "Auðlindin er kannski ekki til eða ekki aðgengileg."
+
+#: core/job_error.cpp:776
+msgid "Could Not Cancel Listing"
+msgstr "Ekki tókst að stöðva hlustun"
+
+#: core/job_error.cpp:777
+msgid "FIXME: Document this"
+msgstr "LAGA: skilgreina"
+
+#: core/job_error.cpp:781
+msgid "Could Not Create Folder"
+msgstr "Gat ekki búið til möppu"
+
+#: core/job_error.cpp:782
+msgid "An attempt to create the requested folder failed."
+msgstr "Beiðni um að búa til umbeðna möppu mistókst."
+
+#: core/job_error.cpp:783
+msgid "The location where the folder was to be created may not exist."
+msgstr "Staðurinn þar sem mappan átti að verða til er jafnvel ekki til."
+
+#: core/job_error.cpp:792
+msgid "Could Not Remove Folder"
+msgstr "Ekki tókst að eyða möppunni"
+
+#: core/job_error.cpp:793
+#, kde-format
+msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
+msgstr ""
+"Tilraun til að eyða tilgreindri möppu, <strong>%1</strong>, tókst ekki."
+
+#: core/job_error.cpp:795
+msgid "The specified folder may not exist."
+msgstr "Þessi mappa er kannski ekki til."
+
+#: core/job_error.cpp:796
+msgid "The specified folder may not be empty."
+msgstr "Þessi mappa er kannski ekki tóm."
+
+#: core/job_error.cpp:801
+msgid "Ensure that the folder exists and is empty, and try again."
+msgstr "Vertu viss um að mappan sé til og tóm,  reyndu svo aftur."
+
+#: core/job_error.cpp:806
+msgid "Could Not Resume File Transfer"
+msgstr "Ekki tókst að halda áfram með skrána"
+
+#: core/job_error.cpp:807
+#, kde-format
+msgid ""
+"The specified request asked that the transfer of file <strong>%1</strong> be "
+"resumed at a certain point of the transfer. This was not possible."
+msgstr ""
+"Beiðni um að halda áfram með flutning skráarinnar <strong>%1</strong> frá "
+"ákveðnum stað var hafnað.  Þetta var ekki mögulegt."
+
+#: core/job_error.cpp:810
+msgid "The protocol, or the server, may not support file resuming."
+msgstr "Samskiptareglan eða miðlarinn styður kannski ekki þessa þjónustu."
+
+#: core/job_error.cpp:812
+msgid "Retry the request without attempting to resume transfer."
+msgstr "Reyndu aftur án þess að byrja þaðan sem frá var horfið."
+
+#: core/job_error.cpp:817
+msgid "Could Not Rename Resource"
+msgstr "Ekki tókst að endurnefna aðfang"
+
+#: core/job_error.cpp:818
+#, kde-format
+msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
+msgstr ""
+"Tilraun sem var gerð til að endurnefna auðlindina <strong>%1</strong> "
+"mistókst."
+
+#: core/job_error.cpp:828
+msgid "Could Not Alter Permissions of Resource"
+msgstr "Ekki tókst að breyta aðgangsheimildum aðfangs"
+
+#: core/job_error.cpp:829
+#, kde-format
+msgid ""
+"An attempt to alter the permissions on the specified resource <strong>%1</"
+"strong> failed."
+msgstr ""
+"Tilraun sem var gerð til að breyta aðgengi að auðlindinni <strong>%1</"
+"strong> mistókst."
+
+#: core/job_error.cpp:836
+msgid "Could Not Change Ownership of Resource"
+msgstr "Ekki tókst að breyta eiganda aðfangs"
+
+#: core/job_error.cpp:837
+#, kde-format
+msgid ""
+"An attempt to change the ownership of the specified resource <strong>%1</"
+"strong> failed."
+msgstr ""
+"Tilraun sem var gerð til að breyta eiganda auðlindarinnar <strong>%1</"
+"strong> mistókst."
+
+#: core/job_error.cpp:844
+msgid "Could Not Delete Resource"
+msgstr "Ekki tókst að eyða aðfangi"
+
+#: core/job_error.cpp:845
+#, kde-format
+msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
+msgstr "Tilraun til að eyða tilgreindri auðlind <strong>%1</strong> mistókst."
+
+#: core/job_error.cpp:852
+msgid "Unexpected Program Termination"
+msgstr "Forrit stöðvaði óvænt"
+
+#: core/job_error.cpp:853
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has unexpectedly terminated."
+msgstr ""
+"Forritið sem gefur aðgang að auðlindinni <strong>%1</strong> stöðvaðist "
+"óvænt."
+
+#: core/job_error.cpp:861
+msgid "Out of Memory"
+msgstr "Ekkert minni eftir"
+
+#: core/job_error.cpp:862
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol could not obtain the memory required to continue."
+msgstr ""
+"Forritið sem gefur aðgang að samskiptareglunni <strong>%1</strong> fékk ekki "
+"nægt minni til að geta haldið áfram."
+
+#: core/job_error.cpp:870
+msgid "Unknown Proxy Host"
+msgstr "Óþekkt vefsel"
+
+#: core/job_error.cpp:871
+#, kde-format
+msgid ""
+"While retrieving information about the specified proxy host, <strong>%1</"
+"strong>, an Unknown Host error was encountered. An unknown host error "
+"indicates that the requested name could not be located on the Internet."
+msgstr ""
+"Meðan upplýsingar voru mótteknar um vefselið <strong>%1</strong>, kom upp "
+"óþekkt villa. Þetta þýðir venjulega að umbeðinn þjónn fannst ekki á "
+"Internetinu."
+
+#: core/job_error.cpp:875
+msgid ""
+"There may have been a problem with your network configuration, specifically "
+"your proxy's hostname. If you have been accessing the Internet with no "
+"problems recently, this is unlikely."
+msgstr ""
+"Það gætu verið einhver vandamál varðandi netuppsetningu. sérstaklega á heiti "
+"vefsels. Ef þú hefur tengst Internetinu eðlilega nýlega, þá er þetta þó ekki "
+"líklegt."
+
+#: core/job_error.cpp:879
+msgid "Double-check your proxy settings and try again."
+msgstr "Athugaðu vandlega uppsetningu á vefseli og reyndu aftur."
+
+#: core/job_error.cpp:884
+#, kde-format
+msgid "Authentication Failed: Method %1 Not Supported"
+msgstr "Auðkenning mistókst: Aðferð %1 er ekki studd"
+
+#: core/job_error.cpp:886
+#, kde-format
+msgid ""
+"Although you may have supplied the correct authentication details, the "
+"authentication failed because the method that the server is using is not "
+"supported by the KDE program implementing the protocol %1."
+msgstr ""
+"Þó að þú hafir gefið upp rétt auðkenni, þá tókst ekki að tengjast vegna þess "
+"að aðferðin sem miðlarinn notar er ekki studd af KDE forritinu sem notar "
+"samskiptareglu %1."
+
+#: core/job_error.cpp:890
+msgid ""
+"Please file a bug at <a href=\"http://bugs.kde.org/\">http://bugs.kde.org/</"
+"a> to inform the KDE team of the unsupported authentication method."
+msgstr ""
+"Vinsamlega sendið villulýsingu til <a href=\"http://bugs.kde.org/\">http://"
+"bugs.kde.org/</a> til að upplýsa forritarateymi KDE um óstudda auðkenningu."
+
+#: core/job_error.cpp:896
+msgid "Request Aborted"
+msgstr "Beiðni stöðvuð"
+
+#: core/job_error.cpp:903
+msgid "Internal Error in Server"
+msgstr "Innri villa í miðlara"
+
+#: core/job_error.cpp:904
+#, kde-format
+msgid ""
+"The program on the server which provides access to the <strong>%1</strong> "
+"protocol has reported an internal error: %2."
+msgstr ""
+"Forritið á miðlaranum sem veitir aðgang að samskiptareglu <strong>%1</"
+"strong> hefur sent skilaboð um innri villu: %2."
+
+#: core/job_error.cpp:907
+msgid ""
+"This is most likely to be caused by a bug in the server program. Please "
+"consider submitting a full bug report as detailed below."
+msgstr ""
+"Líklegast er um að ræða villu í forriti miðlarans.  Vinsamlega athugið hvort "
+"þið getið aðstoðað með því að senda villulýsingu eins og lýst er hér að "
+"neðan."
+
+#: core/job_error.cpp:910
+msgid "Contact the administrator of the server to advise them of the problem."
+msgstr ""
+"Hafið samband við kerfisstjóra miðlara og látið þá vita af vandamálinu."
+
+#: core/job_error.cpp:912
+msgid ""
+"If you know who the authors of the server software are, submit the bug "
+"report directly to them."
+msgstr ""
+"Ef þú veist hverjir eru höfundar þjónsins sendu villulýsinguna beint til "
+"þeirra."
+
+#: core/job_error.cpp:917
+msgid "Timeout Error"
+msgstr "Tímalokun"
+
+#: core/job_error.cpp:918
+#, kde-format
+msgid ""
+"Although contact was made with the server, a response was not received "
+"within the amount of time allocated for the request as follows:"
+"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+"settings in the KDE System Settings, by selecting Network Settings -> "
+"Connection Preferences."
+msgstr ""
+"Þó að tenging hafi tekist við miðlara. þá barst ekki svar innan þess tíma "
+"sem beiðninni var gefinn:<ul> <li>Tímalokun, hversu lengi skal bíða eftir "
+"tengingu: %1 sekúndur</li> <li>Tímalokun, hversu lengi skal bíða eftir "
+"svari: %2 sekúndur</li> <li>Tímalokun, hversu lengi skal bíða eftir "
+"milliþjóni: %3 sekúndur</li></ul>Athugaðu að þú getur breytt öllum þessum "
+"stillingum í KDE stjórnborði með því að fara í \"Netstillingar --> "
+"Stillingar tenginga\"."
+
+#: core/job_error.cpp:929
+msgid "The server was too busy responding to other requests to respond."
+msgstr "Miðlarinn var of upptekinn við að svara öðrum beiðnum."
+
+#: core/job_error.cpp:935 core/slavebase.cpp:1408
+msgid "Unknown Error"
+msgstr "Óþekkt villa"
+
+#: core/job_error.cpp:936
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an unknown error: %2."
+msgstr ""
+"Forritið á tölvunni þinni sem gefur aðgangu um samskiptareglu <strong>%1</"
+"strong> hefur gefið skilaboð um óþekkta villu: %2."
+
+#: core/job_error.cpp:944
+msgid "Unknown Interruption"
+msgstr "Óþekkt ígrip"
+
+#: core/job_error.cpp:945
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an interruption of an unknown type: %2."
+msgstr ""
+"Forritið á tölvunni þinni sem gefur aðgang að samskiptareglu <strong>%1</"
+"strong> hefur gefið til kynna að það hafi móttekið óþekkt ígrip: %2."
+
+#: core/job_error.cpp:953
+msgid "Could Not Delete Original File"
+msgstr "Ekki tókst að eyða upprunalegu skránni"
+
+#: core/job_error.cpp:954
+#, kde-format
+msgid ""
+"The requested operation required the deleting of the original file, most "
+"likely at the end of a file move operation. The original file <strong>%1</"
+"strong> could not be deleted."
+msgstr ""
+"Beiðnin um að eyða upprunalegu skránni (líklega í lok þess að skrá er færð) "
+"tókst ekki. Það tókst því ekki að eyða upprunalegu skránni <strong>%1</"
+"strong>."
+
+#: core/job_error.cpp:963
+msgid "Could Not Delete Temporary File"
+msgstr "Ekki tókst að eyða vinnuskrá"
+
+#: core/job_error.cpp:964
+#, kde-format
+msgid ""
+"The requested operation required the creation of a temporary file in which "
+"to save the new file while being downloaded. This temporary file <strong>%1</"
+"strong> could not be deleted."
+msgstr ""
+"Umbeðin aðgerð þurfti á vinnuskrá að halda til að geyma nýja skrá á meðan "
+"henni var hlaðið niður.  Það tókst ekki að eyða vinnuskránni <strong>%1</"
+"strong>."
+
+#: core/job_error.cpp:973
+msgid "Could Not Rename Original File"
+msgstr "Ekki tókst að endurnefna upprunalegu skrána"
+
+#: core/job_error.cpp:974
+#, kde-format
+msgid ""
+"The requested operation required the renaming of the original file <strong>"
+"%1</strong>, however it could not be renamed."
+msgstr ""
+"Umbeðin aðgerð þurfti að endurnefna upprunalegu skrána <strong>%1</strong>, "
+"það tókst hins vegar ekki."
+
+#: core/job_error.cpp:982
+msgid "Could Not Rename Temporary File"
+msgstr "Ekki tókst að endurnefna vinnuskrána"
+
+#: core/job_error.cpp:983
+#, kde-format
+msgid ""
+"The requested operation required the creation of a temporary file <strong>"
+"%1</strong>, however it could not be created."
+msgstr ""
+"Umbeðin aðgerð þarfnaðið vinnuskráar <strong>%1</strong>, Það tókst "
+"hinsvegar ekki að búa hana til."
+
+#: core/job_error.cpp:991
+msgid "Could Not Create Link"
+msgstr "Ekki tókst að búa til tengil"
+
+#: core/job_error.cpp:992
+msgid "Could Not Create Symbolic Link"
+msgstr "Ekki tókst að búa til tengil"
+
+#: core/job_error.cpp:993
+#, kde-format
+msgid "The requested symbolic link %1 could not be created."
+msgstr "Ekki var hægt að búa til umbeðinn tengill %1."
+
+#: core/job_error.cpp:1000
+msgid "No Content"
+msgstr "Ekkert innihald"
+
+#: core/job_error.cpp:1005
+msgid "Disk Full"
+msgstr "Diskur fullur"
+
+#: core/job_error.cpp:1006
+#, kde-format
+msgid ""
+"The requested file <strong>%1</strong> could not be written to as there is "
+"inadequate disk space."
+msgstr ""
+"Ekki var hægt að skrifa skrána <strong>%1</strong> vegna þess að það var "
+"ekki nægilegt pláss á diski."
+
+#: core/job_error.cpp:1008
+msgid ""
+"Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
+"archiving files to removable media storage such as CD-Recordable discs; or "
+"3) obtain more storage capacity."
+msgstr ""
+"Losið diskpláss með 1) Eyða óþarfa og vinnuskrám; 2) Safna og flytja skrár á "
+"annan miðil svo sem CD-ROM; eða 3) fá sér annan disk."
+
+#: core/job_error.cpp:1015
+msgid "Source and Destination Files Identical"
+msgstr "Upprunalega skráin og markskráin eru ein og sú sama"
+
+#: core/job_error.cpp:1016
+msgid ""
+"The operation could not be completed because the source and destination "
+"files are the same file."
+msgstr ""
+"Aðgerðin var ekki framkvæmd vegna þess að upprunalega skráin og markskráin "
+"eru ein og sú sama."
+
+#: core/job_error.cpp:1018
+msgid "Choose a different filename for the destination file."
+msgstr "Veldu annað heiti fyrir markskrána."
+
+#: core/job_error.cpp:1029
+msgid "Undocumented Error"
+msgstr "Óskilgreind villa"
+
+#: core/kcoredirlister.cpp:397 widgets/krun.cpp:842 widgets/paste.cpp:261
+#: widgets/renamedialog.cpp:410
+#, kde-format
+msgid ""
+"Malformed URL\n"
+"%1"
+msgstr ""
+"Gölluð slóð\n"
+"%1"
+
+#: core/kcoredirlister.cpp:402
+#, kde-format
+msgid ""
+"URL cannot be listed\n"
+"%1"
+msgstr ""
+"Slóðina er ekki hægt að lista\n"
+"%1"
+
+#: core/kfileitem.cpp:1186
+#, kde-format
+msgid "(Symbolic Link to %1)"
+msgstr "(Tákntengi í %1)"
+
+#: core/kfileitem.cpp:1188
+#, kde-format
+msgid "(%1, Link to %2)"
+msgstr "(%1, tengi á %2)"
+
+#: core/kfileitem.cpp:1191
+#, kde-format
+msgid " (Points to %1)"
+msgstr " (Vísar á %1)"
+
+#: core/klocalsocket_unix.cpp:192 core/klocalsocket_unix.cpp:260
+#, fuzzy
+#| msgid "The certificate is invalid."
+msgid "Specified socket path is invalid"
+msgstr "Skírteinið er ekki gilt."
+
+#: core/klocalsocket_unix.cpp:201 core/klocalsocket_unix.cpp:248
+#: core/klocalsocket_unix.cpp:269
+#, fuzzy
+#| msgid "The protocol %1 is not supported."
+msgid "The socket operation is not supported"
+msgstr "Samskiptaregla %1 er ekki studd."
+
+#: core/klocalsocket_unix.cpp:214
+#, fuzzy
+#| msgid "Connection to Server Refused"
+msgid "Connection refused"
+msgstr "Tengingu við miðlara hafnað"
+
+#: core/klocalsocket_unix.cpp:219 core/klocalsocket_unix.cpp:282
+#, fuzzy
+#| msgctxt "@label"
+#| msgid "Permissions"
+msgid "Permission denied"
+msgstr "Aðgangsheimildir"
+
+#: core/klocalsocket_unix.cpp:223
+#, fuzzy
+#| msgid "Connection timed out."
+msgid "Connection timed out"
+msgstr "Tenging féll á tíma."
+
+#: core/klocalsocket_unix.cpp:227 core/klocalsocket_unix.cpp:307
+#, fuzzy
+#| msgid "Unknown Error"
+msgid "Unknown error"
+msgstr "Óþekkt villa"
+
+#: core/klocalsocket_unix.cpp:235 core/klocalsocket_unix.cpp:315
+#, fuzzy
+#| msgid "Could not login to %1."
+msgid "Could not set non-blocking mode"
+msgstr "Ekki tókst að stimpla inn á %1."
+
+#: core/klocalsocket_unix.cpp:286
+msgid "Address is already in use"
+msgstr ""
+
+#: core/klocalsocket_unix.cpp:291
+#, fuzzy
+#| msgid ""
+#| "URL cannot be listed\n"
+#| "%1"
+msgid "Path cannot be used"
+msgstr ""
+"Slóðina er ekki hægt að lista\n"
+"%1"
+
+#: core/klocalsocket_unix.cpp:295
+msgid "No such file or directory"
+msgstr ""
+
+#: core/klocalsocket_unix.cpp:299
+#, fuzzy
+#| msgctxt "@action:button"
+#| msgid "Create directory"
+msgid "Not a directory"
+msgstr "Búa til möppu"
+
+#: core/klocalsocket_unix.cpp:303
+msgid "Read-only filesystem"
+msgstr ""
+
+#: core/klocalsocket_unix.cpp:370 core/klocalsocket_unix.cpp:404
+#, fuzzy
+#| msgid "Unknown Error"
+msgid "Unknown socket error"
+msgstr "Óþekkt villa"
+
+#: core/klocalsocket_win.cpp:31 core/klocalsocket_win.cpp:36
+#, fuzzy
+#| msgid "Writing to %1 is not supported."
+msgid "Operation not supported"
+msgstr "Ekki er stuðningur við að skrifa í %1."
+
+#: core/ktcpsocket.cpp:165
+msgctxt "SSL error"
+msgid "No error"
+msgstr ""
+
+#: core/ktcpsocket.cpp:167
+#, fuzzy
+#| msgid "The certificate's CA (Certificate Authority) is invalid."
+msgctxt "SSL error"
+msgid "The certificate authority's certificate is invalid"
+msgstr "Vottunarstöð skilríkisins (Certificate Authority) er ekki gild."
+
+#: core/ktcpsocket.cpp:169
+#, fuzzy
+#| msgid "The certificate has been revoked."
+msgctxt "SSL error"
+msgid "The certificate has expired"
+msgstr "Skilríkið hefur veriið afturkallað."
+
+#: core/ktcpsocket.cpp:171
+#, fuzzy
+#| msgid "The certificate is invalid."
+msgctxt "SSL error"
+msgid "The certificate is invalid"
+msgstr "Skírteinið er ekki gilt."
+
+#: core/ktcpsocket.cpp:173
+#, fuzzy
+#| msgid "The certificate has not been issued for this host."
+msgctxt "SSL error"
+msgid "The certificate is not signed by any trusted certificate authority"
+msgstr "Skilríkið var ekki gefið út á þessa vél."
+
+#: core/ktcpsocket.cpp:175
+#, fuzzy
+#| msgid "The certificate has been revoked."
+msgctxt "SSL error"
+msgid "The certificate has been revoked"
+msgstr "Skilríkið hefur veriið afturkallað."
+
+#: core/ktcpsocket.cpp:177
+#, fuzzy
+#| msgid "The certificate has not been issued for this host."
+msgctxt "SSL error"
+msgid "The certificate is unsuitable for this purpose"
+msgstr "Skilríkið var ekki gefið út á þessa vél."
+
+#: core/ktcpsocket.cpp:179
+#, fuzzy
+#| msgid ""
+#| "The CA's (Certificate Authority) certificate can not be found. Most "
+#| "likely, your trust chain is broken."
+msgctxt "SSL error"
+msgid ""
+"The root certificate authority's certificate is not trusted for this purpose"
+msgstr ""
+"Skilríki vottunarstöðvar (Certificate Authority) fannst ekki. Líklegt er að "
+"vottunarkeðjan þín (trust chain) sé slitin."
+
+#: core/ktcpsocket.cpp:181
+#, fuzzy
+#| msgid ""
+#| "The certificate's CA (Certificate Authority) is not allowed to sign "
+#| "certificates."
+msgctxt "SSL error"
+msgid ""
+"The certificate authority's certificate is marked to reject this "
+"certificate's purpose"
+msgstr ""
+"Vottunarstöð skilríkisins (Certificate Authority) hefur ekki leyfi til að "
+"undirrrita skilríki."
+
+#: core/ktcpsocket.cpp:183
+#, fuzzy
+#| msgid "Do not send a certificate"
+msgctxt "SSL error"
+msgid "The peer did not present any certificate"
+msgstr "Ekki senda skírteini"
+
+#: core/ktcpsocket.cpp:185
+#, fuzzy
+#| msgid "The certificate has not been issued for this host."
+msgctxt "SSL error"
+msgid "The certificate does not apply to the given host"
+msgstr "Skilríkið var ekki gefið út á þessa vél."
+
+#: core/ktcpsocket.cpp:187
+#, fuzzy
+#| msgid "The certificate has not been issued for this host."
+msgctxt "SSL error"
+msgid "The certificate cannot be verified for internal reasons"
+msgstr "Skilríkið var ekki gefið út á þessa vél."
+
+#: core/ktcpsocket.cpp:189
+#, fuzzy
+#| msgid "The certificate is valid."
+msgctxt "SSL error"
+msgid "The certificate chain is too long"
+msgstr "Skírteinið er gilt."
+
+#: core/ktcpsocket.cpp:192
+#, fuzzy
+#| msgid "Unknown Error"
+msgctxt "SSL error"
+msgid "Unknown error"
+msgstr "Óþekkt villa"
+
+#: core/slave.cpp:453
+#, kde-format
+msgid "Unknown protocol '%1'."
+msgstr "Óþekktur samskiptamáti '%1'."
+
+#: core/slave.cpp:463
+#, kde-format
+msgid "Can not find io-slave for protocol '%1'."
+msgstr "Fann ekki þjónustuna fyrir samskiptamáta '%1'."
+
+#: core/slave.cpp:474
+#, fuzzy
+#| msgid "Can not find io-slave for protocol '%1'."
+msgid "Can not find 'kioslave' executable"
+msgstr "Fann ekki þjónustuna fyrir samskiptamáta '%1'."
+
+#: core/slave.cpp:489
+#, kde-format
+msgid "Cannot talk to klauncher: %1"
+msgstr "Get ekki talað við klauncher: %1"
+
+#: core/slave.cpp:496
+#, kde-format
+msgid ""
+"Unable to create io-slave:\n"
+"klauncher said: %1"
+msgstr ""
+"Ekki tókst að búa til io-slave:\n"
+"klauncher sagði: %1"
+
+#: core/slavebase.cpp:762
+#, kde-format
+msgid "Opening connections is not supported with the protocol %1."
+msgstr "Tengingar með samskiptamáta %1 eru ekki studdar."
+
+#: core/slavebase.cpp:764
+#, kde-format
+msgid "Closing connections is not supported with the protocol %1."
+msgstr "Lokun tenginga er ekki studd með samskiptareglu %1."
+
+#: core/slavebase.cpp:766
+#, kde-format
+msgid "Accessing files is not supported with the protocol %1."
+msgstr ""
+"Stuðningur við að sækja skrár með %1 samskiptareglunni er ekki fyrir hendi."
+
+#: core/slavebase.cpp:768
+#, kde-format
+msgid "Writing to %1 is not supported."
+msgstr "Ekki er stuðningur við að skrifa í %1."
+
+#: core/slavebase.cpp:770
+#, kde-format
+msgid "There are no special actions available for protocol %1."
+msgstr "Það eru engar aðgerðir til fyrir %1 samskiptaregluna."
+
+#: core/slavebase.cpp:772
+#, kde-format
+msgid "Listing folders is not supported for protocol %1."
+msgstr ""
+"Stuðningur við að sýna innihald í möppum með %1 samskiptareglunni er ekki "
+"fyrir hendi."
+
+#: core/slavebase.cpp:774
+#, kde-format
+msgid "Retrieving data from %1 is not supported."
+msgstr "Ekki er hægt að sækja gögn frá %1."
+
+#: core/slavebase.cpp:776
+#, kde-format
+msgid "Retrieving mime type information from %1 is not supported."
+msgstr "Það er ekki hægt að sækja Mime lýsi-gögn frá %1."
+
+#: core/slavebase.cpp:778
+#, kde-format
+msgid "Renaming or moving files within %1 is not supported."
+msgstr "Ekki hægt að endurnefna eða færa skrár í %1."
+
+#: core/slavebase.cpp:780
+#, kde-format
+msgid "Creating symlinks is not supported with protocol %1."
+msgstr "Ekki hægt að búa til sýndarhlekki með %1 samskiptareglunni."
+
+#: core/slavebase.cpp:782
+#, kde-format
+msgid "Copying files within %1 is not supported."
+msgstr "Ekki hægt að afrita skrár í %1."
+
+#: core/slavebase.cpp:784
+#, kde-format
+msgid "Deleting files from %1 is not supported."
+msgstr "Ekki er hægt að eyða skrám í %1."
+
+#: core/slavebase.cpp:786
+#, kde-format
+msgid "Creating folders is not supported with protocol %1."
+msgstr ""
+"Stuðningur við búa til nýjar möppur með %1 samskiptareglunni er ekki fyrir "
+"hendi."
+
+#: core/slavebase.cpp:788
+#, kde-format
+msgid "Changing the attributes of files is not supported with protocol %1."
+msgstr "Ekki hægt að breyta eiginleikum skráa með %1 samskiptareglunni."
+
+#: core/slavebase.cpp:790
+#, kde-format
+msgid "Changing the ownership of files is not supported with protocol %1."
+msgstr "Ekki hægt að breyta eiganda skráa með %1 samskiptareglunni."
+
+#: core/slavebase.cpp:792
+#, kde-format
+msgid "Using sub-URLs with %1 is not supported."
+msgstr "Ekki er hægt að nota undirslóðir með %1."
+
+#: core/slavebase.cpp:794
+#, kde-format
+msgid "Multiple get is not supported with protocol %1."
+msgstr "Ekki er hægt sækja margar skrár í einu með %1 samskiptareglunni."
+
+#: core/slavebase.cpp:796
+#, kde-format
+msgid "Opening files is not supported with protocol %1."
+msgstr "Ekki er hægt að opna skrár með %1 samskiptareglunni."
+
+#: core/slavebase.cpp:798
+#, kde-format
+msgid "Protocol %1 does not support action %2."
+msgstr "Samskiptareglan %1 styður ekki aðgerð %2."
+
+#: core/slavebase.cpp:954
+msgid "&Yes"
+msgstr "&Já"
+
+#: core/slavebase.cpp:955
+msgid "&No"
+msgstr "&Nei"
+
+#: core/slaveinterface.cpp:409 core/tcpslavebase.cpp:822 widgets/sslui.cpp:78
+msgid "&Details"
+msgstr "&Smáatriði"
+
+#: core/slaveinterface.cpp:411 core/tcpslavebase.cpp:842 widgets/sslui.cpp:114
+msgid "&Forever"
+msgstr "Að &eilífu"
+
+#: core/slaveinterface.cpp:415 core/tcpslavebase.cpp:822 widgets/sslui.cpp:79
+msgid "Co&ntinue"
+msgstr "Á&fram"
+
+#: core/slaveinterface.cpp:417 core/tcpslavebase.cpp:843 widgets/sslui.cpp:115
+msgid "&Current Session only"
+msgstr "Aðeins í &þessari setu"
+
+#: core/tcpslavebase.cpp:319
+msgid ""
+"You are about to leave secure mode. Transmissions will no longer be "
+"encrypted.\n"
+"This means that a third party could observe your data in transit."
+msgstr ""
+"Þú ert að fara úr öruggum ham. Samskiptin eru ekki lengur dulrituð.\n"
+"Þetta þýðir að þriðji aðili gæti hlerað samskipti þín."
+
+#: core/tcpslavebase.cpp:325 core/tcpslavebase.cpp:590
+msgid "Security Information"
+msgstr "Upplýsingar um dulritun"
+
+#: core/tcpslavebase.cpp:326
+msgid "C&ontinue Loading"
+msgstr "Ha&lda áfram að hlaða"
+
+#: core/tcpslavebase.cpp:421
+#, kde-format
+msgctxt "%1 is a host name"
+msgid "%1: SSL negotiation failed"
+msgstr "%1: SSL auðkenning brást"
+
+#: core/tcpslavebase.cpp:584
+msgid ""
+"You are about to enter secure mode. All transmissions will be encrypted "
+"unless otherwise noted.\n"
+"This means that no third party will be able to easily observe your data in "
+"transit."
+msgstr ""
+"Þú ert að fara í öruggan ham. Öll samskipti verða dulrituð nema annað sé  "
+"tekið fram.\n"
+"Þetta þýðir að þriðji aðili á mjög erfitt með að hlera samskipti þín."
+
+#: core/tcpslavebase.cpp:591
+msgid "Display SSL &Information"
+msgstr "&Sýna SSL Upplýsingar"
+
+#: core/tcpslavebase.cpp:592
+msgid "C&onnect"
+msgstr "Ten&gjast"
+
+#: core/tcpslavebase.cpp:736
+msgid "Enter the certificate password:"
+msgstr "Sláðu inn lykilorðið að skírteininu:"
+
+#: core/tcpslavebase.cpp:737
+msgid "SSL Certificate Password"
+msgstr "Lykilorð að SSL skírteini"
+
+#: core/tcpslavebase.cpp:751
+msgid "Unable to open the certificate. Try a new password?"
+msgstr "Ekki tókst að opna skírteini. Reyna annað lykilorð?"
+
+#: core/tcpslavebase.cpp:765
+msgid "The procedure to set the client certificate for the session failed."
+msgstr "Það mistókst að setja notandaskírteinið í þessari tengingu."
+
+#: core/tcpslavebase.cpp:767 widgets/jobuidelegate.cpp:341
+msgid "SSL"
+msgstr "SSL"
+
+#: core/tcpslavebase.cpp:811 widgets/sslui.cpp:68
+#, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr ""
+"Auðkenning þjónsins stóðst ekki skoðun (%1)\n"
+"\n"
+
+#: core/tcpslavebase.cpp:821 core/tcpslavebase.cpp:841
+#: core/tcpslavebase.cpp:945 core/tcpslavebase.cpp:957 widgets/sslui.cpp:77
+#: widgets/sslui.cpp:113
+msgid "Server Authentication"
+msgstr "Auðkenning miðlara"
+
+#: core/tcpslavebase.cpp:838 widgets/sslui.cpp:110
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr ""
+"Vilt þú samþykkja þetta skírteini um ókomna framtíð án þess að vera spurður "
+"í hvert sinn?"
+
+#: core/tcpslavebase.cpp:944
+msgid ""
+"You have indicated that you wish to accept this certificate, but it is not "
+"issued to the server who is presenting it. Do you wish to continue loading?"
+msgstr ""
+"Þú sagðist vilja taka við þessu skírteini en það var ekki gefið út á "
+"miðlarann sem er að bjóða það.  Viltu halda áfram?"
+
+#: core/tcpslavebase.cpp:956
+msgid ""
+"SSL certificate is being rejected as requested. You can disable this in the "
+"KDE System Settings."
+msgstr ""
+"Eins og um var beðið þá er SSL skírteininu hér með hafnað.  Þú getur gert "
+"þetta óvirkt í KDE stjórnborðinu."
+
+#: filewidgets/kdiroperator.cpp:761
+#, kde-format
+msgid "A file or folder named %1 already exists."
+msgstr "Nú þegar er til skrá eða mappa sem heitir %1."
+
+#: filewidgets/kdiroperator.cpp:764
+msgid "You do not have permission to create that folder."
+msgstr "Þú hefur ekki réttindi til að búa þessa möppu til."
+
+#: filewidgets/kdiroperator.cpp:779
+msgid "You did not select a file to delete."
+msgstr "Þú hefur ekki valið skrá til að eyða."
+
+#: filewidgets/kdiroperator.cpp:780
+msgid "Nothing to Delete"
+msgstr "Engu að eyða"
+
+#: filewidgets/kdiroperator.cpp:801
+#, kde-format
+msgid ""
+"<qt>Do you really want to delete\n"
+" <b>'%1'</b>?</qt>"
+msgstr ""
+"<qt>Viltu örugglega eyða\n"
+" <b>'%1'</b>?</qt>"
+
+#: filewidgets/kdiroperator.cpp:803
+msgid "Delete File"
+msgstr "Eyða skrá"
+
+#: filewidgets/kdiroperator.cpp:808 widgets/jobuidelegate.cpp:223
+#, kde-format
+msgid "Do you really want to delete this item?"
+msgid_plural "Do you really want to delete these %1 items?"
+msgstr[0] "Viltu örugglega eyða þessum hlut?"
+msgstr[1] "Viltu örugglega eyða þessum %1 hlutum?"
+
+#: filewidgets/kdiroperator.cpp:810 widgets/jobuidelegate.cpp:225
+msgid "Delete Files"
+msgstr "Eyða skrám"
+
+#: filewidgets/kdiroperator.cpp:841
+msgid "You did not select a file to trash."
+msgstr "Þú hefur ekki valið skrá til að eyða."
+
+#: filewidgets/kdiroperator.cpp:842
+msgid "Nothing to Trash"
+msgstr "Engu að eyða"
+
+#: filewidgets/kdiroperator.cpp:859
+#, kde-format
+msgid ""
+"<qt>Do you really want to trash\n"
+" <b>'%1'</b>?</qt>"
+msgstr ""
+"<qt>Viltu örugglega eyða\n"
+" <b>'%1'</b>?</qt>"
+
+#: filewidgets/kdiroperator.cpp:861
+msgid "Trash File"
+msgstr "Eyða skrá"
+
+#: filewidgets/kdiroperator.cpp:862 filewidgets/kdiroperator.cpp:869
+msgctxt "to trash"
+msgid "&Trash"
+msgstr "&Ruslið"
+
+#: filewidgets/kdiroperator.cpp:866
+#, kde-format
+msgid "translators: not called for n == 1"
+msgid_plural "Do you really want to trash these %1 items?"
+msgstr[0] "Viltu örugglega eyða þessum hlut"
+msgstr[1] "Viltu örugglega eyða þessum %1 hlutum?"
+
+#: filewidgets/kdiroperator.cpp:868
+msgid "Trash Files"
+msgstr "Eyða skrám"
+
+#: filewidgets/kdiroperator.cpp:1058 filewidgets/kdiroperator.cpp:1196
+msgid "The specified folder does not exist or was not readable."
+msgstr "Mappan er ekki til eða er ekki læsileg."
+
+#: filewidgets/kdiroperator.cpp:1863
+msgid "Menu"
+msgstr "Valmynd"
+
+#: filewidgets/kdiroperator.cpp:1867
+msgid "Parent Folder"
+msgstr "Yfirmappa"
+
+#: filewidgets/kdiroperator.cpp:1874
+msgid "Home Folder"
+msgstr "Heimamappa"
+
+#: filewidgets/kdiroperator.cpp:1877
+msgid "Reload"
+msgstr "Hressa"
+
+#: filewidgets/kdiroperator.cpp:1880
+msgid "New Folder..."
+msgstr "Ný mappa..."
+
+#: filewidgets/kdiroperator.cpp:1885 widgets/jobuidelegate.cpp:246
+msgid "Move to Trash"
+msgstr "Setja í ruslið"
+
+#: filewidgets/kdiroperator.cpp:1891
+msgid "Delete"
+msgstr "Eyða"
+
+#: filewidgets/kdiroperator.cpp:1898
+msgid "Sorting"
+msgstr "Röðun"
+
+#: filewidgets/kdiroperator.cpp:1901
+msgid "By Name"
+msgstr "Eftir heiti"
+
+#: filewidgets/kdiroperator.cpp:1905
+msgid "By Size"
+msgstr "Eftir stærð"
+
+#: filewidgets/kdiroperator.cpp:1909
+msgid "By Date"
+msgstr "Eftir dagsetningu"
+
+#: filewidgets/kdiroperator.cpp:1913
+msgid "By Type"
+msgstr "Eftir gerð"
+
+#: filewidgets/kdiroperator.cpp:1917
+msgid "Descending"
+msgstr "Lækkandi"
+
+#: filewidgets/kdiroperator.cpp:1921
+msgid "Folders First"
+msgstr "Möppur fremst"
+
+#: filewidgets/kdiroperator.cpp:1931
+msgid "Icon Position"
+msgstr "Staða táknmyndar"
+
+#: filewidgets/kdiroperator.cpp:1934
+msgid "Next to File Name"
+msgstr "Næst skrárheiti"
+
+#: filewidgets/kdiroperator.cpp:1938
+msgid "Above File Name"
+msgstr "Yfir skrárheiti"
+
+#: filewidgets/kdiroperator.cpp:1949
+msgid "Short View"
+msgstr "Stuttur listi"
+
+#: filewidgets/kdiroperator.cpp:1954
+msgid "Detailed View"
+msgstr "Nákvæmur listi"
+
+#: filewidgets/kdiroperator.cpp:1959
+msgid "Tree View"
+msgstr "Sýna tré"
+
+#: filewidgets/kdiroperator.cpp:1964
+msgid "Detailed Tree View"
+msgstr "Nákvæmur trjáasýn"
+
+#: filewidgets/kdiroperator.cpp:1975
+msgid "Show Hidden Files"
+msgstr "Sýna faldar skrár"
+
+#: filewidgets/kdiroperator.cpp:1979
+msgid "Show Aside Preview"
+msgstr "Forsýna til hliðar"
+
+#: filewidgets/kdiroperator.cpp:1985
+msgid "Show Preview"
+msgstr "Forsýna"
+
+#: filewidgets/kdiroperator.cpp:1989
+msgid "Open File Manager"
+msgstr "Opna skráastjóra"
+
+#: filewidgets/kdiroperator.cpp:1994
+msgid "Properties"
+msgstr "Eiginleikar"
+
+#: filewidgets/kdiroperator.cpp:2001
+msgid "&View"
+msgstr "&Sýn"
+
+#: filewidgets/kencodingfiledialog.cpp:86
+msgid "Encoding:"
+msgstr "Kóðun:"
+
+#: filewidgets/kencodingfiledialog.cpp:142
+#: filewidgets/kencodingfiledialog.cpp:161
+#: filewidgets/kencodingfiledialog.cpp:179
+#: filewidgets/kencodingfiledialog.cpp:198 widgets/kurlrequesterdialog.cpp:131
+msgid "Open"
+msgstr "Opna"
+
+#: filewidgets/kencodingfiledialog.cpp:217
+#: filewidgets/kencodingfiledialog.cpp:240
+msgid "Save As"
+msgstr "Vista sem"
+
+#: filewidgets/kfilefiltercombo.cpp:36 filewidgets/kfilewidget.cpp:1842
+msgid "*|All Files"
+msgstr "*|Allar skrár"
+
+#: filewidgets/kfilefiltercombo.cpp:180
+msgid "All Supported Files"
+msgstr "Allar studdar skrár"
+
+#: filewidgets/kfilefiltercombo.cpp:189
+msgid "All Files"
+msgstr "Allar skrár"
+
+#: filewidgets/kfileplaceeditdialog.cpp:85
+msgid "Add Places Entry"
+msgstr "Bæta við staðsetningarfærslu"
+
+#: filewidgets/kfileplaceeditdialog.cpp:87
+msgid "Edit Places Entry"
+msgstr "Sýsla með staðsetningarfærslu"
+
+#: filewidgets/kfileplaceeditdialog.cpp:96
+msgid ""
+"<qt>This is the text that will appear in the Places panel.<br /><br />The "
+"label should consist of one or two words that will help you remember what "
+"this entry refers to. If you do not enter a label, it will be derived from "
+"the location's URL.</qt>"
+msgstr ""
+"<qt>Þetta er textinn sem birtist á Staðir-valmyndinni.<br /><br />Lýsingin "
+"ætti að samanstanda af einu til tveimur orðum sem munu hjálpa að muna fyrir "
+"hvað flýtimyndin stendur. Ef þú setur ekkert inn verður heitið dregið af "
+"slóð staðsetningarinnar.</qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:102
+msgid "L&abel:"
+msgstr "&Merking:"
+
+#: filewidgets/kfileplaceeditdialog.cpp:104
+msgid "Enter descriptive label here"
+msgstr "Settu hér inn lýsandi merkingu"
+
+#: filewidgets/kfileplaceeditdialog.cpp:108
+#, kde-format
+msgid ""
+"<qt>This is the location associated with the entry. Any valid URL may be "
+"used. For example:<br /><br />%1<br />http://www.kde.org<br />ftp://ftp.kde."
+"org/pub/kde/stable<br /><br />By clicking on the button next to the text "
+"edit box you can browse to an appropriate URL.</qt>"
+msgstr ""
+"<qt>Þetta er staðsetningin sem er tengd færslunni. Allar löglegar vefslóðir "
+"eru leyfilegar. Til dæmis:<br /><br />%1<br />http://www.kde.org<br />ftp://"
+"ftp.kde.org/pub/kde/stable<br /><br />Með því að smella á hnappinn við "
+"hliðina á Innsláttarboxinu getur þú farið á viðkomandi slóð.</qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:114
+msgid "&Location:"
+msgstr "&Staðsetning:"
+
+#: filewidgets/kfileplaceeditdialog.cpp:120
+msgid ""
+"<qt>This is the icon that will appear in the Places panel.<br /><br />Click "
+"on the button to select a different icon.</qt>"
+msgstr ""
+"<qt>þetta er táknmyndin sem verður sýnd í flýtivalmynd. <br /><br />Smelltu "
+"á hnappinn til að velja aðra táknmynd</qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:123
+msgid "Choose an &icon:"
+msgstr "Veldu &táknmynd:"
+
+#: filewidgets/kfileplaceeditdialog.cpp:141
+#, kde-format
+msgid "&Only show when using this application (%1)"
+msgstr "Aðeins við n&otkun þessa forrits (%1)"
+
+#: filewidgets/kfileplaceeditdialog.cpp:143
+#, kde-format
+msgid ""
+"<qt>Select this setting if you want this entry to show only when using the "
+"current application (%1).<br /><br />If this setting is not selected, the "
+"entry will be available in all applications.</qt>"
+msgstr ""
+"<qt>Veldu þessa stillingu ef þú vilt þetta flýtiaðgangsatriði aðeins í "
+"skráarvals-gluggum þessa forrits (%1).<br /><br />Annars verður það virkt í "
+"öllum skráarvalsgluggum.</qt>"
+
+#: filewidgets/kfileplacesmodel.cpp:118
+msgctxt "KFile System Bookmarks"
+msgid "Home"
+msgstr "Heimamappa"
+
+#: filewidgets/kfileplacesmodel.cpp:121
+msgctxt "KFile System Bookmarks"
+msgid "Network"
+msgstr "Netkerfi"
+
+#: filewidgets/kfileplacesmodel.cpp:133
+msgctxt "KFile System Bookmarks"
+msgid "Root"
+msgstr "Kerfisstjóri (root)"
+
+#: filewidgets/kfileplacesmodel.cpp:137
+msgctxt "KFile System Bookmarks"
+msgid "Trash"
+msgstr "Rusl"
+
+#: filewidgets/kfileplacesmodel.cpp:798
+#, kde-format
+msgid "&Release '%1'"
+msgstr "Sle&ppa '%1'"
+
+#: filewidgets/kfileplacesmodel.cpp:800
+#, kde-format
+msgid "&Safely Remove '%1'"
+msgstr "&Fjarlægja '%1' öruggt"
+
+#: filewidgets/kfileplacesmodel.cpp:803
+#, kde-format
+msgid "&Unmount '%1'"
+msgstr "&Aftengja '%1'"
+
+#: filewidgets/kfileplacesmodel.cpp:824
+#, kde-format
+msgid "&Eject '%1'"
+msgstr "&Spýta út '%1'"
+
+#: filewidgets/kfileplacesmodel.cpp:858
+#, kde-format
+msgid "The device '%1' is not a disk and cannot be ejected."
+msgstr "Tækið '%1' er ekki diskur og er ekki hægt að spýta út."
+
+#: filewidgets/kfileplacesmodel.cpp:894
+#, kde-format
+msgid "An error occurred while accessing '%1', the system responded: %2"
+msgstr "Villa kom upp þegar reynt var að lesa '%1'. Kerfið sagði: %2"
+
+#: filewidgets/kfileplacesmodel.cpp:898
+#, kde-format
+msgid "An error occurred while accessing '%1'"
+msgstr "Villa kom upp þegar reynt var að lesa '%1'"
+
+#: filewidgets/kfileplacesview.cpp:584
+msgctxt "@action:inmenu"
+msgid "Empty Trash"
+msgstr "Tæma rusl"
+
+#: filewidgets/kfileplacesview.cpp:589 filewidgets/kfileplacesview.cpp:610
+#: filewidgets/kfileplacesview.cpp:617 widgets/kacleditwidget.cpp:96
+msgid "Add Entry..."
+msgstr "Bæta færslu við..."
+
+#: filewidgets/kfileplacesview.cpp:591
+#, kde-format
+msgid "&Edit Entry '%1'..."
+msgstr "Br&eyta færslunni '%1'..."
+
+#: filewidgets/kfileplacesview.cpp:613
+#, kde-format
+msgid "&Hide Entry '%1'"
+msgstr "&Fela færsluna '%1'"
+
+#: filewidgets/kfileplacesview.cpp:622
+msgid "&Show All Entries"
+msgstr "&Sýna allar færslur"
+
+#: filewidgets/kfileplacesview.cpp:633
+#, kde-format
+msgid "&Remove Entry '%1'"
+msgstr "Fja&rlægja færsluna '%1'"
+
+#: filewidgets/kfileplacesview.cpp:645
+msgctxt "@info"
+msgid "Do you really want to empty the Trash? All items will be deleted."
+msgstr "Viltu örugglega tæma ruslafötuna? Öllum hlutum verður eytt."
+
+#: filewidgets/kfileplacesview.cpp:649 widgets/jobuidelegate.cpp:235
+msgctxt "@action:button"
+msgid "Empty Trash"
+msgstr "Tæma ruslakörfu"
+
+#: filewidgets/kfilewidget.cpp:297
+msgid ""
+"<qt>While typing in the text area, you may be presented with possible "
+"matches. This feature can be controlled by clicking with the right mouse "
+"button and selecting a preferred mode from the <b>Text Completion</b> menu.</"
+"qt>"
+msgstr ""
+"<qt>Þegar þú skrifar í textasvæðið birtast þér möguleikar á texta sem passar "
+"við það sem þú ert búin(n) að skrifa.  Hægt er að stýra þessari virkni með "
+"því að hægrismella og kjörsnið úr valmyndinni <b>Textkaklárun</b>.</qt>"
+
+#: filewidgets/kfilewidget.cpp:381
+#, kde-format
+msgid "Drive: %1"
+msgstr "Drif: %1"
+
+#: filewidgets/kfilewidget.cpp:437
+#, kde-format
+msgid ""
+"<qt>Click this button to enter the parent folder.<br /><br />For instance, "
+"if the current location is file:/home/%1 clicking this button will take you "
+"to file:/home.</qt>"
+msgstr ""
+"<qt>Smelltu á þennan hnapp til að fara í næstu yfirmöppu.<br /><br />T.d. ef "
+"núverandi staða er file:/home/%1 þá muntu flytjast yfir á file:/home ef þú "
+"smellir á hnappinn.</qt>"
+
+#: filewidgets/kfilewidget.cpp:441
+msgid "Click this button to move backwards one step in the browsing history."
+msgstr "Smelltu á þennan hnapp til að fara aftur um eitt skref í vafrsögu."
+
+#: filewidgets/kfilewidget.cpp:442
+msgid "Click this button to move forward one step in the browsing history."
+msgstr "Smelltu á þennan hnapp til að fara áfram um eitt skref í vafrsögu."
+
+#: filewidgets/kfilewidget.cpp:444
+msgid "Click this button to reload the contents of the current location."
+msgstr ""
+"Smelltu á þennan hnapp til að endurlesa innihald núverandi staðsetningar."
+
+#: filewidgets/kfilewidget.cpp:446
+msgid "Click this button to create a new folder."
+msgstr "Smelltu á þennan hnapp til að búa til nýja möppu."
+
+#: filewidgets/kfilewidget.cpp:452
+msgid "Show Places Navigation Panel"
+msgstr "Sýna staðaflakkara"
+
+#: filewidgets/kfilewidget.cpp:459
+msgid "Show Bookmarks"
+msgstr "Sýna bókamerki"
+
+#: filewidgets/kfilewidget.cpp:464
+msgid "Options"
+msgstr "Rofar"
+
+#: filewidgets/kfilewidget.cpp:466
+msgid ""
+"<qt>This is the preferences menu for the file dialog. Various options can be "
+"accessed from this menu including: <ul><li>how files are sorted in the list</"
+"li><li>types of view, including icon and list</li><li>showing of hidden "
+"files</li><li>the Places navigation panel</li><li>file previews</"
+"li><li>separating folders from files</li></ul></qt>"
+msgstr ""
+"<qt>Þetta er stillingavalmyndin fyrir skráargluggann.  Hægt er að fá aðgang "
+"að ýmsum valmöguleikum héðan.  Til dæmis:<ul><li>hvernig skrárnum er raða í "
+"listanum</li><li>hvernig skrár eru sýndar, t.d. skjámyndir eða listi</"
+"li><li>hvort sýna á faldar skrár</li><li>stillingar fyrir hraðvalmyndina</"
+"li><li>stillingar fyrir forsýn skráa</li> <li>hvernig/hvort möppur og skrár "
+"séu aðskildar</li></ul></qt>"
+
+#: filewidgets/kfilewidget.cpp:509
+msgid "Zoom out"
+msgstr "Frádráttur"
+
+#: filewidgets/kfilewidget.cpp:511
+msgid "Zoom in"
+msgstr "Aðdráttur"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: filewidgets/kfilewidget.cpp:552 widgets/kpropertiesdesktopbase.ui:17
+msgid "&Name:"
+msgstr "&Heiti:"
+
+#: filewidgets/kfilewidget.cpp:575
+msgid ""
+"<qt>This is the filter to apply to the file list. File names that do not "
+"match the filter will not be shown.<p>You may select from one of the preset "
+"filters in the drop down menu, or you may enter a custom filter directly "
+"into the text area.</p><p>Wildcards such as * and ? are allowed.</p></qt>"
+msgstr ""
+"<qt>Þetta er sían sem notuð er á skráarlistann.  Skráarnöfnum sem ekki "
+"komast gegnum síuna er sleppt.<p>Þú getur valið eina af forstilltu síunum úr "
+"fellivalmyndinni, eða skrifað inn þína eigin síu beint í textasvæðið.</p><p> "
+"Hægt er að nota blindstafi eins og '*' og '?'.</p></qt>"
+
+#: filewidgets/kfilewidget.cpp:581
+msgid "&Filter:"
+msgstr "&Sía:"
+
+#: filewidgets/kfilewidget.cpp:813
+msgid "You can only select one file"
+msgstr "Þú getur aðeins valið eina skrá"
+
+#: filewidgets/kfilewidget.cpp:814
+msgid "More than one file provided"
+msgstr "Fleiri en ein skrá tilgreindar"
+
+#: filewidgets/kfilewidget.cpp:983
+msgid "You can only select local files"
+msgstr "Þú getur aðeins valið skrár á þessu skráakerfi"
+
+#: filewidgets/kfilewidget.cpp:984
+msgid "Remote files not accepted"
+msgstr "Ekki er tekið við fjartengdum skrám"
+
+#: filewidgets/kfilewidget.cpp:1003
+msgid ""
+"More than one folder has been selected and this dialog does not accept "
+"folders, so it is not possible to decide which one to enter. Please select "
+"only one folder to list it."
+msgstr ""
+"Fleiri en ein mappa hafa verið valdar, en þar sem þessi samskiptagluggi "
+"tekur ekki við möppum, er ekki hægt að ákveða hverja þeirra eigi að opna. "
+"Veldu einverja eina þeirra til að sjá innihald hennar."
+
+#: filewidgets/kfilewidget.cpp:1003
+msgid "More than one folder provided"
+msgstr "Fleiri en ein mappa tilgreindar"
+
+#: filewidgets/kfilewidget.cpp:1011
+msgid ""
+"At least one folder and one file has been selected. Selected files will be "
+"ignored and the selected folder will be listed"
+msgstr ""
+"Að minnsta kosti ein mappa og ein skrá hafa verið valin. Valdar skrár verða "
+"hunsaðar og mappan verður tiltekin í lista"
+
+#: filewidgets/kfilewidget.cpp:1011
+msgid "Files and folders selected"
+msgstr "Skrár og möppur valdar"
+
+#: filewidgets/kfilewidget.cpp:1026
+#, kde-format
+msgid "The file \"%1\" could not be found"
+msgstr "Skráin \"%1\" fannst ekki"
+
+#: filewidgets/kfilewidget.cpp:1026
+msgid "Cannot open file"
+msgstr "Gat ekki opnað skrá"
+
+#: filewidgets/kfilewidget.cpp:1300
+msgid "This is the name to save the file as."
+msgstr "Þetta er heitið sem á að gefa skránni."
+
+#: filewidgets/kfilewidget.cpp:1303
+msgid ""
+"This is the list of files to open. More than one file can be specified by "
+"listing several files, separated by spaces."
+msgstr ""
+"Þetta er listi af skrám til að opna. Tiltaka má meira en eina skrá með því "
+"að telja þær upp, með bili á milli."
+
+#: filewidgets/kfilewidget.cpp:1308
+msgid "This is the name of the file to open."
+msgstr "Þetta er heitið á skránni sem á að opna."
+
+#: filewidgets/kfilewidget.cpp:1322
+msgctxt "@title:window"
+msgid "Places"
+msgstr "Staðir"
+
+#: filewidgets/kfilewidget.cpp:1512
+#, kde-format
+msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
+msgstr "Skráin \"%1\" er þegar til. Viltu skrifa yfir hana?"
+
+#: filewidgets/kfilewidget.cpp:1513
+msgid "Overwrite File?"
+msgstr "Skrifa yfir skrá?"
+
+#: filewidgets/kfilewidget.cpp:1647
+msgid ""
+"The chosen filenames do not\n"
+"appear to be valid."
+msgstr ""
+"Skráarheitin sem eru valin\n"
+"virðast ekki vera lögleg."
+
+#: filewidgets/kfilewidget.cpp:1649
+msgid "Invalid Filenames"
+msgstr "Ólögleg skráarnöfn"
+
+#: filewidgets/kfilewidget.cpp:1734
+msgid "You can only select local files."
+msgstr "Þú getur aðeins valið skrár á þessu skráakerfi."
+
+#: filewidgets/kfilewidget.cpp:1735
+msgid "Remote Files Not Accepted"
+msgstr "Ekki er tekið við fjartengdum skrám"
+
+#: filewidgets/kfilewidget.cpp:1840
+msgid "*|All Folders"
+msgstr "*|Allar möppur"
+
+#: filewidgets/kfilewidget.cpp:2009 widgets/kfileitemactions.cpp:536
+msgid "&Open"
+msgstr "&Opna"
+
+#: filewidgets/kfilewidget.cpp:2095
+#, kde-format
+msgid "Icon size: %1 pixels (standard size)"
+msgstr "Stærð táknmynda: %1 dílar (staðalstærð)"
+
+#: filewidgets/kfilewidget.cpp:2098
+#, kde-format
+msgid "Icon size: %1 pixels"
+msgstr "Stærð táknmynda: %1 dílar"
+
+#: filewidgets/kfilewidget.cpp:2232
+#, kde-format
+msgid "Automatically select filename e&xtension (%1)"
+msgstr "Setja en&dingu skráar sjálfkrafa (%1)"
+
+#: filewidgets/kfilewidget.cpp:2233
+#, kde-format
+msgid "the extension <b>%1</b>"
+msgstr "endingin <b>%1</b>"
+
+#: filewidgets/kfilewidget.cpp:2239
+msgid "Automatically select filename e&xtension"
+msgstr "Setja en&dingu skráar sjálfkrafa"
+
+#: filewidgets/kfilewidget.cpp:2240
+msgid "a suitable extension"
+msgstr "passandi skráarending"
+
+#: filewidgets/kfilewidget.cpp:2250
+#, kde-format
+msgid ""
+"This option enables some convenient features for saving files with "
+"extensions:<br /><ol><li>Any extension specified in the <b>%1</b> text area "
+"will be updated if you change the file type to save in.<br /><br /></"
+"li><li>If no extension is specified in the <b>%2</b> text area when you "
+"click <b>Save</b>, %3 will be added to the end of the filename (if the "
+"filename does not already exist). This extension is based on the file type "
+"that you have chosen to save in.<br /><br />If you do not want KDE to supply "
+"an extension for the filename, you can either turn this option off or you "
+"can suppress it by adding a period (.) to the end of the filename (the "
+"period will be automatically removed).</li></ol>If unsure, keep this option "
+"enabled as it makes your files more manageable."
+msgstr ""
+"Þessi möguleiki kveikir á ýmsum þægilegum þjónustum þegar vista á skrár með "
+"endingu:<br /><ol><li>Allar endingar tilgreindar í textasvæðinu <b>%1</b> "
+"uppfærast ef þú breytir tegund skrárinnar til að vista í.<br /><br /></"
+"li><li>Ef engin ending er tilgreind í textasvæðinu <b>%2</b> þegar þú "
+"smellir á <b>Vista</b>, verður endingunni %3 bætt við enda skráarnafnins (ef "
+"skráarnafnið er ekki til fyrir).  Þessi ending byggist á tegund skrárinnar "
+"sem þú hefur valið að vista í.<br /><br />Ef þú vilt ekki að KDE skaffi "
+"endingu fyrir skráarnafnið geturðu annað hvort komið í veg fyrir það með því "
+"að setja punkt (.) fyrir aftan skráarnafnið (punkturinn verður fjarlægður "
+"sjálfkrafa) eða slökkt á eiginleikanum.</li></ol>Hafðu þessa stillingu á ef "
+"þú er ekki viss þar sem það gerir skrárnar þínar meðfærilegri."
+
+#: filewidgets/kfilewidget.cpp:2560
+msgid "Bookmarks"
+msgstr "Bókamerki"
+
+#: filewidgets/kfilewidget.cpp:2564
+msgid ""
+"<qt>This button allows you to bookmark specific locations. Click on this "
+"button to open the bookmark menu where you may add, edit or select a "
+"bookmark.<br /><br />These bookmarks are specific to the file dialog, but "
+"otherwise operate like bookmarks elsewhere in KDE.</qt>"
+msgstr ""
+"<qt>Þessi hnappur gerir þér kleyft að setja bókamerki á tilgreinda staði. "
+"Smelltu á hnappinn til að fá valmynd þar sem þú getur sýslað með eða valið "
+"bókamerki. <br /><br />Þessi bókamerki eru fyrir skrár, en að öðru leyti "
+"virka þau eins og bókamerki allstaðar annarstaðar í KDE.</qt>"
+
+#: filewidgets/knewfilemenu.cpp:380 filewidgets/knewfilemenu.cpp:935
+msgid "Sorry"
+msgstr "Því miður"
+
+#: filewidgets/knewfilemenu.cpp:389
+#, kde-format
+msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
+msgstr "<qt>Sniðmátsskráin <b>%1</b> er ekki til.</qt>"
+
+#: filewidgets/knewfilemenu.cpp:408
+msgctxt "@action:button"
+msgid "Create directory"
+msgstr "Búa til möppu"
+
+#: filewidgets/knewfilemenu.cpp:410
+msgctxt "@action:button"
+msgid "Enter a different name"
+msgstr "Settu inn annað nafn"
+
+#: filewidgets/knewfilemenu.cpp:413
+msgid "Create hidden directory?"
+msgstr "Búa til falda möppu?"
+
+#: filewidgets/knewfilemenu.cpp:423
+#, kde-format
+msgid ""
+"The name \"%1\" starts with a dot, so the directory will be hidden by "
+"default."
+msgstr ""
+"Heitið \"%1\" byrjar með punkti, þannig að sjálfgefið er að mappan sé falin."
+
+#: filewidgets/knewfilemenu.cpp:425
+msgid "Do not ask again"
+msgstr "Ekki spyrja aftur"
+
+#: filewidgets/knewfilemenu.cpp:518 filewidgets/knewfilemenu.cpp:591
+msgid "File name:"
+msgstr "Skráarheiti:"
+
+#: filewidgets/knewfilemenu.cpp:521
+msgid "Create Symlink"
+msgstr "Búa til tákntengi (symlink)"
+
+#: filewidgets/knewfilemenu.cpp:595
+msgid "Create link to URL"
+msgstr "Búa til tengil á URL-slóð"
+
+#: filewidgets/knewfilemenu.cpp:640 filewidgets/knewfilemenu.cpp:685
+#, kde-format
+msgctxt "@item:inmenu Create New"
+msgid "%1"
+msgstr "%1"
+
+#: filewidgets/knewfilemenu.cpp:946
+msgid ""
+"Basic links can only point to local files or directories.\n"
+"Please use \"Link to Location\" for remote URLs."
+msgstr ""
+"Einfaldir tenglar geta bara vísað á staðværar skrár eða möppur.\n"
+"Notaðu \"Tengill á staðsetningu\" fyrir fjartengdar slóðir (URL)."
+
+#: filewidgets/knewfilemenu.cpp:1023
+msgid "Create New"
+msgstr "Búa til nýtt"
+
+#: filewidgets/knewfilemenu.cpp:1036
+msgid "Link to Device"
+msgstr "Tengill í tæki"
+
+#: filewidgets/knewfilemenu.cpp:1083
+msgctxt "Default name for a new folder"
+msgid "New Folder"
+msgstr "Ný mappa"
+
+#: filewidgets/knewfilemenu.cpp:1093
+msgctxt "@title:window"
+msgid "New Folder"
+msgstr "Ný mappa"
+
+#: filewidgets/knewfilemenu.cpp:1096
+#, kde-format
+msgid ""
+"Create new folder in:\n"
+"%1"
+msgstr ""
+"Búa til nýja möppu í:\n"
+"%1"
+
+#: filewidgets/kstatusbarofflineindicator.cpp:55
+msgid "The desktop is offline"
+msgstr "Sjáborðið er ótengt"
+
+#: filewidgets/kurlnavigator.cpp:424
+msgid "Copy"
+msgstr "Afrita"
+
+#: filewidgets/kurlnavigator.cpp:428
+msgid "Paste"
+msgstr "Líma"
+
+#: filewidgets/kurlnavigator.cpp:435
+msgid "Edit"
+msgstr "Breyta"
+
+#: filewidgets/kurlnavigator.cpp:438
+msgid "Navigate"
+msgstr "Flakka"
+
+#: filewidgets/kurlnavigator.cpp:453
+msgid "Show Full Path"
+msgstr "Sýna heildarslóð"
+
+#: filewidgets/kurlnavigator.cpp:693
+msgid "Custom Path"
+msgstr "Sérsniðin slóð"
+
+#: filewidgets/kurlnavigatorbutton.cpp:696
+msgctxt "@action:inmenu"
+msgid "More"
+msgstr "Meira"
+
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:174
+msgctxt "@item:inmenu"
+msgid "Devices"
+msgstr "Tæki"
+
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:178
+msgctxt "@item:inmenu"
+msgid "Subversion"
+msgstr "Subversion"
+
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:182
+msgctxt "@item:inmenu"
+msgid "Other"
+msgstr "Annað"
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:42
+#, fuzzy
+#| msgid "Edit"
+msgid "Edit mode"
+msgstr "Breyta"
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:97
+msgid "Click for Location Navigation"
+msgstr "Smelltu til að flakka"
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:99
+msgid "Click to Edit Location"
+msgstr "Smelltu til að breyta staðsetningu"
+
+#: ioslaves/file/file.cpp:228
+#, kde-format
+msgid "Setting ACL for %1"
+msgstr "Set ACL á %1"
+
+#: ioslaves/file/file.cpp:687 ioslaves/file/file_unix.cpp:261
+#, kde-format
+msgid ""
+"Could not change permissions for\n"
+"%1"
+msgstr ""
+"Ekki tókst að breyta aðgangsheimildum að\n"
+"%1"
+
+#: ioslaves/file/file.cpp:899
+msgid "No Media inserted or Media not recognized."
+msgstr "Enginn miðill settur inn, eða miðill er óþekktur."
+
+#: ioslaves/file/file.cpp:908 ioslaves/file/file.cpp:1104
+msgid "\"vold\" is not running."
+msgstr "\"vold\" er ekki keyrandi."
+
+#: ioslaves/file/file.cpp:941
+msgid "Could not find program \"mount\""
+msgstr "Finn ekki forritið \"mount\""
+
+#: ioslaves/file/file.cpp:1010
+msgid "mounting is not supported by wince."
+msgstr "wince styður ekki tengingar inn í skráakerfi."
+
+#: ioslaves/file/file.cpp:1115
+msgid "Could not find program \"umount\""
+msgstr "Finn ekki forritið \"umount\""
+
+#: ioslaves/file/file.cpp:1130
+msgid "unmounting is not supported by wince."
+msgstr "wince styður ekki aftengingar úr skráakerfi."
+
+#: ioslaves/file/file_unix.cpp:194
+#, kde-format
+msgid "Cannot copy file from %1 to %2. (Errno: %3)"
+msgstr "Get ekki afritað skrá frá %1 til %2. (Villa: %3)"
+
+#: ioslaves/file/file_unix.cpp:326
+#, kde-format
+msgid "No media in device for %1"
+msgstr "Engin miðill í tæki fyrir %1"
+
+#: ioslaves/file/file_unix.cpp:559
+#, kde-format
+msgid "Could not get user id for given user name %1"
+msgstr "Ekki tókst að sækja notandanúmer fyrir notandann %1"
+
+#: ioslaves/file/file_unix.cpp:572
+#, kde-format
+msgid "Could not get group id for given group name %1"
+msgstr "Ekki tókst að sækja hópnúmer fyrir hópinn %1"
+
+#: ioslaves/ftp/ftp.cpp:349
+#, kde-format
+msgid "Opening connection to host %1"
+msgstr "Opna tengingu við vélina %1"
+
+#: ioslaves/ftp/ftp.cpp:364
+#, kde-format
+msgid "Connected to host %1"
+msgstr "Tengdur vélinni %1"
+
+#: ioslaves/ftp/ftp.cpp:474
+#, kde-format
+msgid ""
+"%1.\n"
+"\n"
+"Reason: %2"
+msgstr ""
+"%1.\n"
+"\n"
+"Skýring: %2"
+
+#: ioslaves/ftp/ftp.cpp:504
+msgid "Sending login information"
+msgstr "Sendi auðkenni"
+
+#: ioslaves/ftp/ftp.cpp:562
+#, kde-format
+msgid ""
+"Message sent:\n"
+"Login using username=%1 and password=[hidden]\n"
+"\n"
+"Server replied:\n"
+"%2\n"
+"\n"
+msgstr ""
+"Skeyti sent:\n"
+"Stimpla inn sem notandi %1 með lykilorði [falið]\n"
+"\n"
+"Þjónninn svaraði:\n"
+"%2\n"
+"\n"
+
+#: ioslaves/ftp/ftp.cpp:571 ioslaves/http/http.cpp:5330
+msgid "You need to supply a username and a password to access this site."
+msgstr ""
+"Þú þarft að gefa upp notandanafn og lykilorð til að komast á þennan vef."
+
+#: ioslaves/ftp/ftp.cpp:573 ioslaves/http/http.cpp:5332
+msgid "Site:"
+msgstr "Staður:"
+
+#: ioslaves/ftp/ftp.cpp:574
+#, kde-format
+msgid "<b>%1</b>"
+msgstr "<b>%1</b>"
+
+#: ioslaves/ftp/ftp.cpp:657
+msgid "Login OK"
+msgstr "Auðkenni í lagi"
+
+#: ioslaves/ftp/ftp.cpp:686
+#, kde-format
+msgid "Could not login to %1."
+msgstr "Ekki tókst að stimpla inn á %1."
+
+#: ioslaves/ftp/ftp.cpp:2585 ioslaves/http/http.cpp:5216
+#: ioslaves/http/http.cpp:5342
+msgid ""
+"You need to supply a username and a password for the proxy server listed "
+"below before you are allowed to access any sites."
+msgstr ""
+"Þú þarft að gefa upp notnadanafn og lykilorð fyrir vefselið hér að neðan "
+"áður en þú kemst á vefinn."
+
+#: ioslaves/ftp/ftp.cpp:2589 ioslaves/http/http.cpp:5220
+#: ioslaves/http/http.cpp:5345
+msgid "Proxy:"
+msgstr "Vefsel:"
+
+#: ioslaves/ftp/ftp.cpp:2590 ioslaves/http/http.cpp:5221
+#: ioslaves/http/http.cpp:5426
+#, kde-format
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> á <b>%2</b>"
+
+#: ioslaves/ftp/ftp.cpp:2591 ioslaves/http/http.cpp:5223
+#: ioslaves/http/http.cpp:5362
+msgid "Proxy Authentication Failed."
+msgstr "Auðkenning við vefsel brást."
+
+#: ioslaves/help/kio_help.cpp:124
+#, fuzzy, kde-format
+#| msgid "There are no special actions available for protocol %1."
+msgid "There is no documentation available for %1."
+msgstr "Það eru engar aðgerðir til fyrir %1 samskiptaregluna."
+
+#: ioslaves/help/kio_help.cpp:178
+msgid "Looking up correct file"
+msgstr ""
+
+#: ioslaves/help/kio_help.cpp:229
+msgid "Preparing document"
+msgstr ""
+
+#: ioslaves/help/kio_help.cpp:238 ioslaves/help/kio_help.cpp:283
+#, fuzzy, kde-format
+#| msgid "The requested lock could not be granted. %1"
+msgid "The requested help file could not be parsed:<br />%1"
+msgstr "Ekki tókst að læsa. %1"
+
+#: ioslaves/help/kio_help.cpp:260
+msgid "Saving to cache"
+msgstr ""
+
+#: ioslaves/help/kio_help.cpp:277
+msgid "Using cached version"
+msgstr ""
+
+#: ioslaves/help/kio_help.cpp:339
+msgid "Looking up section"
+msgstr ""
+
+#: ioslaves/help/kio_help.cpp:350
+#, fuzzy, kde-format
+#| msgid "Could not read file %1."
+msgid "Could not find filename %1 in %2."
+msgstr "Ekki tókst að lesa skrána %1."
+
+#: ioslaves/http/http.cpp:602
+msgid "No host specified."
+msgstr "Enginn þjónn skilgreindur."
+
+#: ioslaves/http/http.cpp:1565
+msgid "Otherwise, the request would have succeeded."
+msgstr "Annars, hefði beiðnin tekist."
+
+#: ioslaves/http/http.cpp:1569
+msgctxt "request type"
+msgid "retrieve property values"
+msgstr "sækja eiginleika"
+
+#: ioslaves/http/http.cpp:1572
+msgctxt "request type"
+msgid "set property values"
+msgstr "setja eiginleika"
+
+#: ioslaves/http/http.cpp:1575
+msgctxt "request type"
+msgid "create the requested folder"
+msgstr "búa til umbeðna möppu"
+
+#: ioslaves/http/http.cpp:1578
+msgctxt "request type"
+msgid "copy the specified file or folder"
+msgstr "afrita umbeðna skrá eða möppu"
+
+#: ioslaves/http/http.cpp:1581
+msgctxt "request type"
+msgid "move the specified file or folder"
+msgstr "færa umbeðna skrá eða möppu"
+
+#: ioslaves/http/http.cpp:1584
+msgctxt "request type"
+msgid "search in the specified folder"
+msgstr "leita í umbeðinni möppu"
+
+#: ioslaves/http/http.cpp:1587
+msgctxt "request type"
+msgid "lock the specified file or folder"
+msgstr "læsa umbeðinni skrá eða möppu"
+
+#: ioslaves/http/http.cpp:1590
+msgctxt "request type"
+msgid "unlock the specified file or folder"
+msgstr "aflæsa umbeðinni skrá eða möppu"
+
+#: ioslaves/http/http.cpp:1593
+msgctxt "request type"
+msgid "delete the specified file or folder"
+msgstr "eyða umbeðinni skrá eða möppu"
+
+#: ioslaves/http/http.cpp:1596
+msgctxt "request type"
+msgid "query the server's capabilities"
+msgstr "spyrja um getu miðlara"
+
+#: ioslaves/http/http.cpp:1599
+msgctxt "request type"
+msgid "retrieve the contents of the specified file or folder"
+msgstr "sækja innihald umbeðinnar skrár eða möppu"
+
+#: ioslaves/http/http.cpp:1602
+msgctxt "request type"
+msgid "run a report in the specified folder"
+msgstr "keyra skýrslu í umbeðinni möppu"
+
+#: ioslaves/http/http.cpp:1613
+#, kde-format
+msgctxt "%1: code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "Óvænt villa (%1) kom upp þegar reynt var að framkvæma %2."
+
+#: ioslaves/http/http.cpp:1620
+msgid "The server does not support the WebDAV protocol."
+msgstr "Miðlarinn styður ekki WebDAV samskiptaregluna."
+
+#: ioslaves/http/http.cpp:1662
+#, kde-format
+msgctxt "%1: request type, %2: url"
+msgid ""
+"An error occurred while attempting to %1, %2. A summary of the reasons is "
+"below."
+msgstr "Villa kom upp þegar reynt var að %1, %2. Niðurstöður eru hér að neðan."
+
+#: ioslaves/http/http.cpp:1677 ioslaves/http/http.cpp:1810
+#, kde-format
+msgctxt "%1: request type"
+msgid "Access was denied while attempting to %1."
+msgstr "Aðgangi var hafnað þegar reynt var að %1."
+
+#: ioslaves/http/http.cpp:1690 ioslaves/http/http.cpp:1816
+msgid ""
+"A resource cannot be created at the destination until one or more "
+"intermediate collections (folders) have been created."
+msgstr ""
+"Ekki er hægt að búa til auðlind á áfangastað fyrr en ein eða fleiri möppur í "
+"slóðinni hafa verið búna til."
+
+#: ioslaves/http/http.cpp:1698
+#, kde-format
+msgid ""
+"The server was unable to maintain the liveness of the properties listed in "
+"the propertybehavior XML element or you attempted to overwrite a file while "
+"requesting that files are not overwritten. %1"
+msgstr ""
+"Miðlarinn gat ekki haldið lífi í eiginleikum í XML eiginleikahegðunar "
+"staksins eða þú reyndir að skrifa yfir skrá meðan þú baðst um að ekki sé "
+"skrifað yfir skrár. %1"
+
+#: ioslaves/http/http.cpp:1706
+#, kde-format
+msgid "The requested lock could not be granted. %1"
+msgstr "Ekki tókst að læsa. %1"
+
+#: ioslaves/http/http.cpp:1712
+msgid "The server does not support the request type of the body."
+msgstr "Þjónninn styður ekki gerð beiðninnar."
+
+#: ioslaves/http/http.cpp:1717 ioslaves/http/http.cpp:1824
+#, kde-format
+msgctxt "%1: request type"
+msgid "Unable to %1 because the resource is locked."
+msgstr "Get ekki %1 vegna þess að auðlind er læst."
+
+#: ioslaves/http/http.cpp:1721
+msgid "This action was prevented by another error."
+msgstr "Þessi aðgerð var stöðvuð vegna annarrar villu."
+
+#: ioslaves/http/http.cpp:1727 ioslaves/http/http.cpp:1830
+#, kde-format
+msgctxt "%1: request type"
+msgid ""
+"Unable to %1 because the destination server refuses to accept the file or "
+"folder."
+msgstr "Get ekki %1 því viðtakandinn neitar að taka við skránni eða möppunni."
+
+#: ioslaves/http/http.cpp:1734 ioslaves/http/http.cpp:1837
+msgid ""
+"The destination resource does not have sufficient space to record the state "
+"of the resource after the execution of this method."
+msgstr ""
+"Viðtökuauðlindin hefur ekki nægjanlegt pláss til að skrá ástand "
+"auðlindarinnar eftir keyrslu þessarar aðgerðar."
+
+#: ioslaves/http/http.cpp:1788
+msgid "The resource cannot be deleted."
+msgstr "Ekki er hægt að eyða þessari auðlind."
+
+#: ioslaves/http/http.cpp:1801
+#, kde-format
+msgctxt "request type"
+msgid "upload %1"
+msgstr "Sendi %1"
+
+#: ioslaves/http/http.cpp:1851
+#, kde-format
+msgctxt "%1: response code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "Óvænt villa (%1) kom upp þegar reynt var að %2."
+
+#: ioslaves/http/http.cpp:2677
+#, kde-format
+msgid "%1 contacted. Waiting for reply..."
+msgstr "Náði sambandi við %1. Bíð eftir svari..."
+
+#: ioslaves/http/http.cpp:3021
+#, kde-format
+msgctxt "@info Security check on url being accessed"
+msgid ""
+"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
+"the website does not require authentication. This may be an attempt to trick "
+"you.</p><p>Is \"%1\" the site you want to visit?</p>"
+msgstr ""
+
+#: ioslaves/http/http.cpp:3027
+msgctxt "@title:window"
+msgid "Confirm Website Access"
+msgstr "Staðfesta aðgang á vefsvæði"
+
+#: ioslaves/http/http.cpp:3118
+msgid "Server processing request, please wait..."
+msgstr "Miðlari vinnur úr beiðni, vinsamlegast bíðið..."
+
+#: ioslaves/http/http.cpp:3827 ioslaves/http/http.cpp:3881
+#, kde-format
+msgid "Sending data to %1"
+msgstr "Sendi gögn til %1"
+
+#: ioslaves/http/http.cpp:4338
+#, kde-format
+msgid "Retrieving %1 from %2..."
+msgstr "Sæki %1 frá %2..."
+
+#: ioslaves/http/http.cpp:5361
+msgid "Authentication Failed."
+msgstr "Auðkenning brást."
+
+#: ioslaves/http/http.cpp:5459
+msgid "Authorization failed."
+msgstr "Auðkenning brást."
+
+#: ioslaves/http/http.cpp:5475
+msgid "Unknown Authorization method."
+msgstr "Óþekkt auðkenningaraðferð."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:66
+msgid "Cookie Alert"
+msgstr "Smákökuaðvörun"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:90
+#, fuzzy, kde-format
+#| msgid "Do you want to accept or reject?"
+msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+msgid ""
+"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject this cookie?</p>"
+msgid_plural ""
+"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject these cookies?</p>"
+msgstr[0] "Viltu taka við henni eða hafna?"
+msgstr[1] "Viltu taka við henni eða hafna?"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:98
+#, fuzzy
+#| msgid " <b>[Cross Domain]</b>"
+msgctxt "@item:intext cross domain cookie"
+msgid " [Cross Domain]"
+msgstr " <b>[Milli léna]</b>"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:108
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:363
+msgid "See or modify the cookie information"
+msgstr "Sjá eða breyta upplýsingum um smákökuna"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:112
+msgid "Accept for this &session"
+msgstr ""
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:114
+msgid "Accept cookie(s) until the end of the current session"
+msgstr ""
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:121
+msgid "&Accept"
+msgstr "&Taka við"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:122
+msgid "&Reject"
+msgstr "&Hafna"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:156
+msgid "Apply Choice To"
+msgstr "Gildir um"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:159
+msgid "&Only this cookie"
+msgstr "Þessa &einu smáköku"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:159
+msgid "&Only these cookies"
+msgstr "Bara þ&essar smákökur"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:163
+#, fuzzy
+#| msgid ""
+#| "Select this option to accept/reject only this cookie. You will be "
+#| "prompted if another cookie is received. <em>(see WebBrowsing/Cookies in "
+#| "the System Settings)</em>."
+msgid ""
+"Select this option to only accept or reject this cookie. You will be "
+"prompted again if you receive another cookie."
+msgstr ""
+"Veldu þennan kost til að taka við eða hafna þessari einu köku. Þú verður þá "
+"spurður aftur ef þér býðst önnur smákaka. Sjá einnig <em>Flakk um vefinn -> "
+"Smákökur í stjórnborðinu</em>."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:166
+msgid "All cookies from this do&main"
+msgstr "Allar smákökur frá þessu &léni"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:169
+#, fuzzy
+#| msgid ""
+#| "Select this option to accept/reject all cookies from this site. Choosing "
+#| "this option will add a new policy for the site this cookie originated "
+#| "from. This policy will be permanent until you manually change it from the "
+#| "System Settings <em>(see WebBrowsing/Cookies in the System Settings)</em>."
+msgid ""
+"Select this option to accept or reject all cookies from this site. Choosing "
+"this option will add a new policy for the site this cookie originated from. "
+"This policy will be permanent until you manually change it from the System "
+"Settings."
+msgstr ""
+"Veldu þetta til að taka við eða hafna öllum smákökum frá þessum stað. Þá "
+"verður sett ný regla fyrir staðinn hvaðan kökurnar eru uprunnar. Hún gildir "
+"þá þar til henni er breytt á stjórnborðinu <em>(sjá Flakk um vefinn -> "
+"Smákökur í stjórnborðinu)</em>."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:174
+msgid "All &cookies"
+msgstr "Allar smá&kökur"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:177
+#, fuzzy
+#| msgid ""
+#| "Select this option to accept/reject all cookies from anywhere. Choosing "
+#| "this option will change the global cookie policy set in the System "
+#| "Settings for all cookies <em>(see WebBrowsing/Cookies in the System "
+#| "Settings)</em>."
+msgid ""
+"Select this option to accept/reject all cookies from anywhere. Choosing this "
+"option will change the global cookie policy for all cookies until you "
+"manually change it from the System Settings."
+msgstr ""
+"Veldu þetta til að taka við eða hafna öllum smákökum allstaðar frá. Þá "
+"verður altæku smákökureglunni á stjórnborðinu breytt. <em>(sjá Flakk um "
+"vefinn -> Smákökur í stjórnborðinu)</em>."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:245
+msgid "Cookie Details"
+msgstr "Nánar um smáköku"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:250
+msgid "Name:"
+msgstr "Heiti:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:258
+msgid "Value:"
+msgstr "Gildi:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:265
+msgid "Expires:"
+msgstr "Gildir til:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:272
+msgid "Path:"
+msgstr "Slóð:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:279
+msgid "Domain:"
+msgstr "Lén:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:286
+msgid "Exposure:"
+msgstr "Afhjúpun:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:294
+msgctxt "Next cookie"
+msgid "&Next >>"
+msgstr "&Næsta >>"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:299
+msgid "Show details of the next cookie"
+msgstr "Sýna ítarlegri upplýsingar um næstu smáköku"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:327
+msgid "Not specified"
+msgstr "Ótilgreint"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:337
+msgid "End of Session"
+msgstr "Enda setu"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:342
+msgid "Secure servers only"
+msgstr "Öruggir þjónar eingöngu"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:344
+msgid "Secure servers, page scripts"
+msgstr "Öruggir þjónar, síðuskriftur"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:348
+msgid "Servers"
+msgstr "Þjónar"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:350
+msgid "Servers, page scripts"
+msgstr "Þjónar, síðuskriftur"
+
+#: ioslaves/telnet/ktelnetservice.cpp:68
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Þú hefur ekki réttindi til að nota %1 samskiptamátann."
+
+#: kcms/webshortcuts/main.cpp:42
+msgid "Web Shortcuts"
+msgstr ""
+
+#: kcms/webshortcuts/main.cpp:49
+msgid ""
+"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
+"browsing features of KDE. <h2>Web Shortcuts</h2>Web Shortcuts are a quick "
+"way of using Web search engines. For example, type \"altavista:frobozz\" or "
+"\"av:frobozz\" and Konqueror will do a search on AltaVista for \"frobozz\". "
+"Even easier: just press Alt+F2 (if you have not changed this shortcut) and "
+"enter the shortcut in the KDE Run Command dialog."
+msgstr ""
+
+#: kioexec/main.cpp:46
+msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
+msgstr ""
+
+#: kioexec/main.cpp:80
+#, kde-format
+msgid ""
+"The URL %1\n"
+"is malformed"
+msgstr ""
+
+#: kioexec/main.cpp:82
+#, kde-format
+msgid ""
+"Remote URL %1\n"
+"not allowed with --tempfiles switch"
+msgstr ""
+
+#: kioexec/main.cpp:213
+#, kde-format
+msgid ""
+"The supposedly temporary file\n"
+"%1\n"
+"has been modified.\n"
+"Do you still want to delete it?"
+msgstr ""
+
+#: kioexec/main.cpp:214 kioexec/main.cpp:221
+#, fuzzy
+#| msgid "File name:"
+msgid "File Changed"
+msgstr "Skráarheiti:"
+
+#: kioexec/main.cpp:214
+#, fuzzy
+#| msgid "Do Not Store"
+msgid "Do Not Delete"
+msgstr "Ekki geyma"
+
+#: kioexec/main.cpp:220
+#, kde-format
+msgid ""
+"The file\n"
+"%1\n"
+"has been modified.\n"
+"Do you want to upload the changes?"
+msgstr ""
+
+#: kioexec/main.cpp:221
+#, fuzzy
+#| msgid "Reload"
+msgid "Upload"
+msgstr "Hressa"
+
+#: kioexec/main.cpp:221
+#, fuzzy
+#| msgid "Do Not Store"
+msgid "Do Not Upload"
+msgstr "Ekki geyma"
+
+#: kioexec/main.cpp:252
+#, fuzzy
+#| msgid "Exec"
+msgid "KIOExec"
+msgstr "Keyra"
+
+#: kioexec/main.cpp:254
+msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
+msgstr ""
+
+#: kioexec/main.cpp:255
+msgid "David Faure"
+msgstr ""
+
+#: kioexec/main.cpp:256
+msgid "Stephan Kulow"
+msgstr "Stephan Kulow"
+
+#: kioexec/main.cpp:257
+msgid "Bernhard Rosenkraenzer"
+msgstr ""
+
+#: kioexec/main.cpp:258
+msgid "Waldo Bastian"
+msgstr ""
+
+#: kioexec/main.cpp:259
+msgid "Oswald Buddenhagen"
+msgstr ""
+
+#: kioexec/main.cpp:264
+msgid "Treat URLs as local files and delete them afterwards"
+msgstr ""
+
+#: kioexec/main.cpp:265
+#, fuzzy
+#| msgid "Choose an alternate filename for the new file."
+msgid "Suggested file name for the downloaded file"
+msgstr "Veldu annað skráarheiti fyrir nýju skrána."
+
+#: kioexec/main.cpp:266
+msgid "Command to execute"
+msgstr ""
+
+#: kioexec/main.cpp:267
+msgid "URL(s) or local file(s) used for 'command'"
+msgstr ""
+
+#: kpac/discovery.cpp:112
+msgid "Could not find a usable proxy configuration script"
+msgstr "Tókst ekki að finna nothæfa stillingarskriftu fyrir vefsel"
+
+#: kpac/downloader.cpp:92
+#, kde-format
+msgid ""
+"Could not download the proxy configuration script:\n"
+"%1"
+msgstr ""
+"Ekki tókst að sækja stillingarskriftu vefsels:\n"
+"%1"
+
+#: kpac/downloader.cpp:95
+msgid "Could not download the proxy configuration script"
+msgstr "Ekki tókst að sækja stillingarskriftu vefsels"
+
+#: kpac/proxyscout.cpp:236
+#, kde-format
+msgid ""
+"The proxy configuration script is invalid:\n"
+"%1"
+msgstr ""
+"Stillingarskrifta vefsels er ógild:\n"
+"%1"
+
+#: kpac/proxyscout.cpp:345
+#, kde-format
+msgid ""
+"The proxy configuration script returned an error:\n"
+"%1"
+msgstr ""
+"Stillingarskrifta vefsels skilaði villu:\n"
+"%1"
+
+#: kpac/script.cpp:752
+msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
+msgstr "Gat ekki fundið 'FindProxyForURL' eða 'FindProxyForURLEx'"
+
+#: kpac/script.cpp:763
+#, kde-format
+msgid "Got an invalid reply when calling %1"
+msgstr ""
+
+#: kpasswdserver/kpasswdserver.cpp:556
+#, fuzzy
+#| msgid "Do you really want to delete this item?"
+#| msgid_plural "Do you really want to delete these %1 items?"
+msgid "Do you want to retry?"
+msgstr "Viltu örugglega eyða þessum hlut?"
+
+#: kpasswdserver/kpasswdserver.cpp:561
+#, fuzzy
+#| msgid "Server Authentication"
+msgid "Retry Authentication"
+msgstr "Auðkenning miðlara"
+
+#: kpasswdserver/kpasswdserver.cpp:565
+msgctxt "@action:button filter-continue"
+msgid "Retry"
+msgstr ""
+
+#: kpasswdserver/kpasswdserver.cpp:858
+#, fuzzy
+#| msgid "Authorization Dialog"
+msgid "Authentication Dialog"
+msgstr "Auðkenningargluggi"
+
+#: urifilters/ikws/ikwsopts.cpp:54
+#, fuzzy
+#| msgid "Name"
+msgctxt "@title:column Name label from web shortcuts column"
+msgid "Name"
+msgstr "Heiti"
+
+#: urifilters/ikws/ikwsopts.cpp:56
+msgctxt "@title:column"
+msgid "Shortcuts"
+msgstr ""
+
+#: urifilters/ikws/ikwsopts.cpp:58
+msgctxt "@title:column"
+msgid "Preferred"
+msgstr ""
+
+#: urifilters/ikws/ikwsopts.cpp:200
+#, fuzzy
+#| msgid "None"
+msgctxt "@item:inlistbox No default web shortcut"
+msgid "None"
+msgstr "Engin"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:17
+msgid ""
+"<html><head/><body><p>Enable or disable web shortcuts. </p><p>Web shortcuts "
+"allow you to quickly access or search for information located online or on "
+"your hard drive. </p><p>KDE comes with many predefined Web shortcuts. One "
+"such Web shortcut is the Google (TM) search shortcut. To use it, you simply "
+"type the keyword 'gg' followed by the keyword delimiter and the search term, "
+"e.g. <span style=\" font-weight:600;\">gg:KDE</span>.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:20
+msgid "&Enable Web shortcuts"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: urifilters/ikws/ikwsopts_ui.ui:30
+msgid "&Use preferred shortcuts only"
+msgstr ""
+
+#. i18n: ectx: property (placeholderText), widget (KLineEdit, searchLineEdit)
+#: urifilters/ikws/ikwsopts_ui.ui:37
+msgid "Search for shortcut"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:71
+msgid "Add a new Web shortcut"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:74
+#, fuzzy
+#| msgctxt "@action:button"
+#| msgid "&New Folder..."
+msgid "&New..."
+msgstr "&Ný mappa..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:84
+msgid "Modify the highlighted Web shortcut"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:87
+#, fuzzy
+#| msgctxt "@label"
+#| msgid "Change..."
+msgid "Chan&ge..."
+msgstr "Breyta..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:97
+msgid "Delete the highlighted Web shortcut"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:100
+#, fuzzy
+#| msgid "Delete"
+msgid "De&lete"
+msgstr "Eyða"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:138
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:141
+msgid "Default Web &shortcut:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cmbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:166
+msgid ""
+"<html><head/><body><p>Select a default web shortcut. </p><p>This allows "
+"applications to automatically convert the typed word or phrase to web "
+"shortcut queries when they cannot be filtered into a proper URL. </p><p>To "
+"disable this functionality select <span style=\" font-weight:600;\">None</"
+"span> from the list. </p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:182
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:185
+msgid "&Keyword delimiter:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:204
+msgid "Choose a delimiter to mark the Web shortcut keyword."
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:208
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:213
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr ""
+
+#: urifilters/ikws/kuriikwsfilter.cpp:121
+msgid "No preferred search providers were found."
+msgstr ""
+
+#: urifilters/ikws/kuriikwsfilter.cpp:140
+msgid "No search providers were found."
+msgstr ""
+
+#: urifilters/ikws/kurisearchfilter.cpp:92
+msgid "Search F&ilters"
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:58
+#, fuzzy
+#| msgid "Default"
+msgctxt "@item:inlistbox The default character set"
+msgid "Default"
+msgstr "Sjálfgefið"
+
+#: urifilters/ikws/searchproviderdlg.cpp:62
+msgid "Modify Web Shortcut"
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:72
+msgid "New Web Shortcut"
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:125
+#, kde-format
+msgid ""
+"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
+"one."
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:130
+#, fuzzy, kde-format
+#| msgctxt "items: folders, files (size)"
+#| msgid "%1: %2"
+msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+msgid "- %1: \"%2\""
+msgstr "%1: %2"
+
+#: urifilters/ikws/searchproviderdlg.cpp:134
+#, kde-format
+msgid ""
+"The following shortcuts are already assigned. Please choose different ones.\n"
+"%1"
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:146
+msgid ""
+"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
+"This means that the same page is always going to be visited, regardless of "
+"the text typed in with the shortcut."
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:149
+msgid "Keep It"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:17
+msgid "Enter the human-readable name of the search provider here."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:23
+msgid "Shortcut &name:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:42
+#: urifilters/ikws/searchproviderdlg_ui.ui:64
+#: urifilters/ikws/searchproviderdlg_ui.ui:70
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:48
+msgid "Shortcut &URL:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:83
+msgid "Select the character set that will be used to encode your search query."
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:92
+#: urifilters/ikws/searchproviderdlg_ui.ui:97
+#: urifilters/ikws/searchproviderdlg_ui.ui:116
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:104
+#: urifilters/ikws/searchproviderdlg_ui.ui:107
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:119
+msgid "&Shortcuts:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:132
+msgid "Select the character set that will be used to encode your search query"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:135
+msgid "&Charset:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: urifilters/ikws/searchproviderdlg_ui.ui:158
+#, fuzzy
+#| msgctxt "@label"
+#| msgid "Interlace Mode"
+msgid "Insert query placeholder"
+msgstr "Fléttunarhamur"
+
+#: urifilters/shorturi/kshorturifilter.cpp:270
+#, fuzzy, kde-format
+#| msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
+msgid "<qt><b>%1</b> does not have a home folder.</qt>"
+msgstr "<qt>Sniðmátsskráin <b>%1</b> er ekki til.</qt>"
+
+#: urifilters/shorturi/kshorturifilter.cpp:272
+#, fuzzy, kde-format
+#| msgid "<qt>You do not have permission to run <b>%1</b>.</qt>"
+msgid "<qt>There is no user called <b>%1</b>.</qt>"
+msgstr "<qt>þú hefur ekki nægar aðgangsheimildir til að keyra <b>%1</b>.</qt>"
+
+#: urifilters/shorturi/kshorturifilter.cpp:520
+#, fuzzy, kde-format
+#| msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
+msgid "<qt>The file or folder <b>%1</b> does not exist.</qt>"
+msgstr "<qt>Sniðmátsskráin <b>%1</b> er ekki til.</qt>"
+
+#: widgets/accessmanager.cpp:221
+msgid "Blocked request."
+msgstr "Óleyfileg beiðni."
+
+#: widgets/accessmanager.cpp:285
+#, fuzzy
+#| msgid "Unknown Host"
+msgid "Unknown HTTP verb."
+msgstr "Óþekkt vél"
+
+#. i18n: ectx: property (text), widget (QLabel, commonNameTag)
+#: widgets/certificateparty.ui:28
+msgid "Common name:"
+msgstr "Gefið Nafn:"
+
+#. i18n: ectx: property (text), widget (QLabel, commonName)
+#: widgets/certificateparty.ui:38
+msgid "Acme Co."
+msgstr "Hrifsir og Gleypir Group."
+
+#. i18n: ectx: property (text), widget (QLabel, organizationTag)
+#: widgets/certificateparty.ui:48
+msgid "Organization:"
+msgstr "Fyrirtæki/stofnun:"
+
+#. i18n: ectx: property (text), widget (QLabel, organization)
+#: widgets/certificateparty.ui:58
+msgid "Acme Sundry Products Company"
+msgstr "Eignarhaldsfélagið Hrifsir og Gleypir hf"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
+#: widgets/certificateparty.ui:68
+msgid "Organizational unit:"
+msgstr "Deild:"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
+#: widgets/certificateparty.ui:78
+msgid "Fraud Department"
+msgstr "Svika- og prettadeild"
+
+#. i18n: ectx: property (text), widget (QLabel, countryTag)
+#: widgets/certificateparty.ui:88
+msgid "Country:"
+msgstr "Land:"
+
+#. i18n: ectx: property (text), widget (QLabel, country)
+#: widgets/certificateparty.ui:98
+msgid "Canada"
+msgstr "Langtbortistan"
+
+#. i18n: ectx: property (text), widget (QLabel, stateTag)
+#: widgets/certificateparty.ui:108
+msgid "State:"
+msgstr "Hérað/Fylki:"
+
+#. i18n: ectx: property (text), widget (QLabel, state)
+#: widgets/certificateparty.ui:118
+msgid "Quebec"
+msgstr "Norðurhjara"
+
+#. i18n: ectx: property (text), widget (QLabel, cityTag)
+#: widgets/certificateparty.ui:128
+msgid "City:"
+msgstr "Borg/Staður:"
+
+#. i18n: ectx: property (text), widget (QLabel, city)
+#: widgets/certificateparty.ui:138
+msgid "Lakeridge Meadows"
+msgstr "Nágreni"
+
+#: widgets/fileundomanager.cpp:124
+msgid "Creating directory"
+msgstr "Bý til möppu"
+
+#: widgets/fileundomanager.cpp:129
+msgid "Moving"
+msgstr "Færi"
+
+#: widgets/fileundomanager.cpp:135
+msgid "Deleting"
+msgstr "Eyði"
+
+#: widgets/fileundomanager.cpp:299
+msgid "Und&o"
+msgstr "&Afturkalla"
+
+#: widgets/fileundomanager.cpp:305
+msgid "Und&o: Copy"
+msgstr "&Afturkalla: Afrita"
+
+#: widgets/fileundomanager.cpp:307
+msgid "Und&o: Link"
+msgstr "&Afturkalla: Tengill"
+
+#: widgets/fileundomanager.cpp:309
+msgid "Und&o: Move"
+msgstr "&Afturkalla: Færa"
+
+#: widgets/fileundomanager.cpp:311
+msgid "Und&o: Rename"
+msgstr "&Afturkalla: Endurnefna"
+
+#: widgets/fileundomanager.cpp:313
+msgid "Und&o: Trash"
+msgstr "&Afturkalla: Henda í ruslið"
+
+#: widgets/fileundomanager.cpp:315
+msgid "Und&o: Create Folder"
+msgstr "&Afturkalla: Búa til möppu"
+
+#: widgets/fileundomanager.cpp:317
+#, fuzzy
+#| msgid "Und&o: Create Folder"
+msgid "Und&o: Create File"
+msgstr "&Afturkalla: Búa til möppu"
+
+#: widgets/fileundomanager.cpp:698
+#, kde-format
+msgid ""
+"The file %1 was copied from %2, but since then it has apparently been "
+"modified at %3.\n"
+"Undoing the copy will delete the file, and all modifications will be lost.\n"
+"Are you sure you want to delete %4?"
+msgstr ""
+"Skráin %1 var afrituð frá %2 en síðan þá virðist henni hafa verið breytt á "
+"%3.\n"
+"Ef afritunin er afturkölluð verður skránni eytt og allar breytingar tapast.\n"
+"Ertu viss um að þú viljir eyða %4?"
+
+#: widgets/fileundomanager.cpp:701
+msgid "Undo File Copy Confirmation"
+msgstr "Afturkalla staðfestingu afritunar"
+
+#: widgets/jobuidelegate.cpp:233
+msgctxt "@info"
+msgid ""
+"Do you want to permanently delete all items from Trash? This action cannot "
+"be undone."
+msgstr ""
+"Viltu eyða endanlega öllum hlutum úr ruslinu? Þessi aðgerð er ekki "
+"afturkallanleg."
+
+#: widgets/jobuidelegate.cpp:244
+#, kde-format
+msgid "Do you really want to move this item to the trash?"
+msgid_plural "Do you really want to move these %1 items to the trash?"
+msgstr[0] "Viltu örugglega setja þessa skrá í ruslið?"
+msgstr[1] "Viltu örugglega setja þessar %1 skrár í ruslið?"
+
+#: widgets/jobuidelegate.cpp:247
+msgctxt "Verb"
+msgid "&Trash"
+msgstr "&Rusl"
+
+#: widgets/jobuidelegate.cpp:340
+msgid "The peer SSL certificate chain appears to be corrupt."
+msgstr "Skírteiniskeðja SSL-jafningja lítur út fyrir að vera gölluð."
+
+#: widgets/kacleditwidget.cpp:59 widgets/kacleditwidget.cpp:448
+msgid "Owner"
+msgstr "Eigandi"
+
+#: widgets/kacleditwidget.cpp:60 widgets/kacleditwidget.cpp:453
+msgid "Owning Group"
+msgstr "Hópur"
+
+#: widgets/kacleditwidget.cpp:61 widgets/kacleditwidget.cpp:458
+#: widgets/kpropertiesdialog.cpp:1992
+msgid "Others"
+msgstr "Aðrir"
+
+#: widgets/kacleditwidget.cpp:62 widgets/kacleditwidget.cpp:463
+msgid "Mask"
+msgstr "Möskvi"
+
+#: widgets/kacleditwidget.cpp:63
+msgid "Named User"
+msgstr "Nefndur notandi"
+
+#: widgets/kacleditwidget.cpp:64
+msgid "Named Group"
+msgstr "Nefndur hópur"
+
+#: widgets/kacleditwidget.cpp:100
+msgid "Edit Entry..."
+msgstr "Breyta færslu..."
+
+#: widgets/kacleditwidget.cpp:104
+msgid "Delete Entry"
+msgstr "Fjarlægja færslu"
+
+#: widgets/kacleditwidget.cpp:308
+msgid " (Default)"
+msgstr " (Sjálfgefið)"
+
+#: widgets/kacleditwidget.cpp:429
+msgid "Edit ACL Entry"
+msgstr "Sýsla með ACL færslu"
+
+#: widgets/kacleditwidget.cpp:433
+msgid "Entry Type"
+msgstr "Færslutegund"
+
+#: widgets/kacleditwidget.cpp:439
+msgid "Default for new files in this folder"
+msgstr "Sjálfgefið fyrir nýjar skrár í möppunni"
+
+#: widgets/kacleditwidget.cpp:468
+msgid "Named user"
+msgstr "Nefndur notandi"
+
+#: widgets/kacleditwidget.cpp:473
+msgid "Named group"
+msgstr "Nefndur hópur"
+
+#: widgets/kacleditwidget.cpp:493
+msgid "User: "
+msgstr "Notandi: "
+
+#: widgets/kacleditwidget.cpp:508
+msgid "Group: "
+msgstr "Hópur: "
+
+#: widgets/kacleditwidget.cpp:645
+msgid "Type"
+msgstr "Tegund"
+
+#: widgets/kacleditwidget.cpp:646
+msgid "Name"
+msgstr "Heiti"
+
+#: widgets/kacleditwidget.cpp:647
+msgctxt "read permission"
+msgid "r"
+msgstr "r"
+
+#: widgets/kacleditwidget.cpp:648
+msgctxt "write permission"
+msgid "w"
+msgstr "w"
+
+#: widgets/kacleditwidget.cpp:649
+msgctxt "execute permission"
+msgid "x"
+msgstr "x"
+
+#: widgets/kacleditwidget.cpp:650
+msgid "Effective"
+msgstr "Í gildi"
+
+#: widgets/kbuildsycocaprogressdialog.cpp:45
+msgid "Updating System Configuration"
+msgstr "Uppfæri kerfisstillingar"
+
+#: widgets/kbuildsycocaprogressdialog.cpp:46
+msgid "Updating system configuration."
+msgstr "Uppfæri kerfisstillingar."
+
+#: widgets/kdesktopfileactions.cpp:67
+#, kde-format
+msgid "The desktop entry file %1 has no Type=... entry."
+msgstr "Skjáborðshlutsskráin %1 er ekki með neina Type=... færslu."
+
+#: widgets/kdesktopfileactions.cpp:84
+#, kde-format
+msgid ""
+"The desktop entry of type\n"
+"%1\n"
+"is unknown."
+msgstr ""
+"Skjáborðshlutur af taginu\n"
+"%1\n"
+"er óþekktur."
+
+#: widgets/kdesktopfileactions.cpp:97 widgets/kdesktopfileactions.cpp:177
+#: widgets/kdesktopfileactions.cpp:310
+#, kde-format
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is of type FSDevice but has no Dev=... entry."
+msgstr ""
+"Skjáborðshlutsskráin\n"
+"%1\n"
+"er af taginu Tæki. En er ekki með neina tækjafærslu."
+
+#: widgets/kdesktopfileactions.cpp:130
+#, fuzzy, kde-format
+#| msgid ""
+#| "The desktop entry of type\n"
+#| "%1\n"
+#| "is unknown."
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is not valid."
+msgstr ""
+"Skjáborðshlutur af taginu\n"
+"%1\n"
+"er óþekktur."
+
+#: widgets/kdesktopfileactions.cpp:143
+#, kde-format
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is of type Link but has no URL=... entry."
+msgstr ""
+"Skjáborðshlutsskráin\n"
+"%1\n"
+"er af taginu tengill. En er ekki með neina slóðarfærslu."
+
+#: widgets/kdesktopfileactions.cpp:213
+msgid "Mount"
+msgstr "Tengja í skráakerfið"
+
+#: widgets/kdesktopfileactions.cpp:224
+msgid "Eject"
+msgstr "Spýta út"
+
+#: widgets/kdesktopfileactions.cpp:226
+msgid "Unmount"
+msgstr "Aftengja skráakerfinu"
+
+#: widgets/kdirmodel.cpp:1072
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Heiti"
+
+#: widgets/kdirmodel.cpp:1074
+msgctxt "@title:column"
+msgid "Size"
+msgstr "Stærð"
+
+#: widgets/kdirmodel.cpp:1076
+msgctxt "@title:column"
+msgid "Date"
+msgstr "Dagsetning"
+
+#: widgets/kdirmodel.cpp:1078
+msgctxt "@title:column"
+msgid "Permissions"
+msgstr "Aðgangsheimildir"
+
+#: widgets/kdirmodel.cpp:1080
+msgctxt "@title:column"
+msgid "Owner"
+msgstr "Eigandi"
+
+#: widgets/kdirmodel.cpp:1082
+msgctxt "@title:column"
+msgid "Group"
+msgstr "Hópur"
+
+#: widgets/kdirmodel.cpp:1084
+msgctxt "@title:column"
+msgid "Type"
+msgstr "Tegund"
+
+#: widgets/kfileitemactions.cpp:399
+msgctxt "@title:menu"
+msgid "&Actions"
+msgstr "&Aðgerðir"
+
+#: widgets/kfileitemactions.cpp:525
+#, kde-format
+msgid "&Open with %1"
+msgstr "&Opna með %1"
+
+#: widgets/kfileitemactions.cpp:551
+msgctxt "@title:menu"
+msgid "&Open With"
+msgstr "&Opna með"
+
+#: widgets/kfileitemactions.cpp:568
+msgctxt "@action:inmenu Open With"
+msgid "&Other..."
+msgstr "A&nnað..."
+
+#: widgets/kfileitemactions.cpp:570 widgets/kfileitemactions.cpp:579
+msgctxt "@title:menu"
+msgid "&Open With..."
+msgstr "&Opna með..."
+
+#: widgets/kfileitemactions.cpp:683
+#, kde-format
+msgid "Open &with %1"
+msgstr "O&pna með %1"
+
+#: widgets/kfileitemactions.cpp:685
+#, kde-format
+msgctxt "@item:inmenu Open With, %1 is application name"
+msgid "%1"
+msgstr "%1"
+
+#: widgets/kfileitemdelegate.cpp:221
+#, kde-format
+msgctxt "Items in a folder"
+msgid "1 item"
+msgid_plural "%1 items"
+msgstr[0] "1 hlutur"
+msgstr[1] "%1 hlutir"
+
+#: widgets/kfileitemdelegate.cpp:277 widgets/kfileitemdelegate.cpp:281
+msgctxt "@info mimetype"
+msgid "Unknown"
+msgstr "Óþekkt"
+
+#: widgets/kopenwithdialog.cpp:272
+msgid "Known Applications"
+msgstr "Þekkt forrit"
+
+#: widgets/kopenwithdialog.cpp:494
+msgid "Open With"
+msgstr "Opna með"
+
+#: widgets/kopenwithdialog.cpp:498
+#, kde-format
+msgid ""
+"<qt>Select the program that should be used to open <b>%1</b>. If the program "
+"is not listed, enter the name or click the browse button.</qt>"
+msgstr ""
+"<qt>Veldu forrit til að opna <b>%1</b>. Ef forritið er ekki á listanum, "
+"sláðu þá inn heitið eða smelltu á \"velja\" takkann.</qt>"
+
+#: widgets/kopenwithdialog.cpp:504
+msgid "Choose the name of the program with which to open the selected files."
+msgstr "Veldu heiti forritsins sem þú vilt opna þessar skrár með."
+
+#: widgets/kopenwithdialog.cpp:534
+#, kde-format
+msgid "Choose Application for %1"
+msgstr "Veldu forrit fyrir %1"
+
+#: widgets/kopenwithdialog.cpp:535
+#, kde-format
+msgid ""
+"<qt>Select the program for the file type: <b>%1</b>. If the program is not "
+"listed, enter the name or click the browse button.</qt>"
+msgstr ""
+"<qt>Veldu forrit til að opna <b>%1</b> skrár með. Ef forritið er ekki á "
+"listanum, sláðu þá inn heitið eða smelltu á \"velja\" takkann.</qt>"
+
+#: widgets/kopenwithdialog.cpp:550
+msgid "Choose Application"
+msgstr "Veldu forrit"
+
+#: widgets/kopenwithdialog.cpp:551
+msgid ""
+"<qt>Select a program. If the program is not listed, enter the name or click "
+"the browse button.</qt>"
+msgstr ""
+"<qt>Veldu forrit. Ef forritið er ekki á listanum, sláðu þá inn heitið eða "
+"smelltu á \"velja\" takkann.</qt>"
+
+#: widgets/kopenwithdialog.cpp:610
+msgid ""
+"Following the command, you can have several place holders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"%f - a single file name\n"
+"%F - a list of files; use for applications that can open several local files "
+"at once\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%d - the directory of the file to open\n"
+"%D - a list of directories\n"
+"%i - the icon\n"
+"%m - the mini-icon\n"
+"%c - the comment"
+msgstr ""
+"Hægt er að setja ýmsar færibreytur á eftir skipuninni.  Þeim verður skipt út "
+"fyrir raunveruleg gildi þegar forritið er keyrt.\n"
+"%f - nafn skrár\n"
+"%F - listi skráa, notist á forrit sem opnað margar skrár í einu.\n"
+"%u - slóð (URL)\n"
+"%U - listi af slóðum\n"
+"%d - mappa þeirrar skrár sem á að opna\n"
+"%D - listi af möppum\n"
+"%i - skjámyndin\n"
+"%m - litla skjámyndin\n"
+"%c - athugasemd"
+
+#: widgets/kopenwithdialog.cpp:645
+msgid "Run in &terminal"
+msgstr "Keyra í skjá&hermi"
+
+#: widgets/kopenwithdialog.cpp:663
+msgid "&Do not close when command exits"
+msgstr "&Ekki loka þegar skipunin hættir keyrslu"
+
+#: widgets/kopenwithdialog.cpp:680
+msgid "&Remember application association for this type of file"
+msgstr "&Muna hvaða forrit kann að vinna með þessa skrá"
+
+#: widgets/kopenwithdialog.cpp:828
+#, kde-format
+msgid ""
+"Could not extract executable name from '%1', please type a valid program "
+"name."
+msgstr ""
+"Gat ekki fundið nafn forrits út frá '%1', sláðu inn gilt nafn á forriti."
+
+#: widgets/kopenwithdialog.cpp:878
+#, kde-format
+msgid "'%1' not found, please type a valid program name."
+msgstr "'%1' fannst ekki, sláðu inn gilt nafn á forriti."
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
+#: widgets/kpropertiesdesktopadvbase.ui:11
+msgctxt ""
+"@title:group Title of a group that lets the user choose options about the "
+"terminal when launching a program"
+msgid "Terminal"
+msgstr "Skjáhermir"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:33
+msgid ""
+"Check this option if the application you want to run is a text mode "
+"application or if you want the information that is provided by the terminal "
+"emulator window."
+msgstr ""
+"Hakaðu við hér ef forritið sem þú vilt keyra er textahamsforrit eða ef þú "
+"vilt sjá þær upplýsingar sem fara um skipanagluggann."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:36
+msgid "&Run in terminal"
+msgstr "Keyra í &skjáhermi"
+
+#. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:43
+msgid "&Terminal options:"
+msgstr "S&tillingar skjáhermis:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:53
+msgid ""
+"Check this option if the text mode application offers relevant information "
+"on exit. Keeping the terminal emulator open allows you to retrieve this "
+"information."
+msgstr ""
+"Hakaðu við hér ef textaforritið birtir upplýsingar sem skipta máli þegar það "
+"hættir keyrslu.  Ef skelin er höfð í gangi sérðu þessar upplýsingar."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:56
+msgid "Do not &close when command exits"
+msgstr "Ekki lo&ka þegar forritið hættir"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
+#: widgets/kpropertiesdesktopadvbase.ui:69
+msgctxt ""
+"@title:group Title of a group that lets the user choose which user to use "
+"when launching a program"
+msgid "User"
+msgstr "Notandi"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:75
+msgid ""
+"Check this option if you want to run this application with a different user "
+"id. Every process has a different user id associated with it. This id code "
+"determines file access and other permissions. The password of the user is "
+"required to use this option."
+msgstr ""
+"Hakaðu við hér ef þú vilt keyra þetta forrit með öðru notandaauðkenni.  "
+"Allir keyrsluþræðir eru með sér notandaauðkenni.  Þetta auðkenni ákvarðar "
+"aðgangsheimildir að skrám og öðru.  Lykilorð notandanna þarf fyrir þennan "
+"valmöguleika."
+
+#. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:78
+msgid "Ru&n as a different user"
+msgstr "Keyra sem &annar notandi"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:101
+msgid "Enter the user name you want to run the application as."
+msgstr "Sláðu inn notandanafn þess sem þú vilt keyra forritið sem."
+
+#. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:104
+msgid "&Username:"
+msgstr "&Notandanafn:"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
+#: widgets/kpropertiesdesktopadvbase.ui:114
+msgid "Enter the user name you want to run the application as here."
+msgstr "Sláðu inn notandanafn þess sem þú vilt keyra forritið sem hér."
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
+#: widgets/kpropertiesdesktopadvbase.ui:124
+msgctxt ""
+"@title:group Title of a group that lets the user choose options regargin "
+"program startup"
+msgid "Startup"
+msgstr "Ræsing"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:130
+msgid ""
+"Check this option if you want to make clear that your application has "
+"started. This visual feedback may appear as a busy cursor or in the taskbar."
+msgstr ""
+"Hakaðu við hér ef þú vilt ganga úr skugga um að forritið þitt er komið í "
+"gang.  Þessar sjónrænu upplýsingar geta birtst í formi biðbendils eða í "
+"forritakvínni."
+
+#. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:133
+msgid "Enable &launch feedback"
+msgstr "Virkja keyrs&lu upplýsingar"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, systrayCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:140
+msgid ""
+"Check this option if you want to have a system tray handle for your "
+"application."
+msgstr "Smelltu hér ef þú vilt hafa spjaldtengi fyrir forritið."
+
+#. i18n: ectx: property (text), widget (QCheckBox, systrayCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:143
+msgid "&Place in system tray"
+msgstr "&Setja á spjaldið"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel12)
+#: widgets/kpropertiesdesktopadvbase.ui:150
+msgid "&D-Bus registration:"
+msgstr "&D-Bus skráning:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:161
+msgid "None"
+msgstr "Engin"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:166
+msgid "Multiple Instances"
+msgstr "Mörg tilvik"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:171
+msgid "Single Instance"
+msgstr "Eitt tilvik"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:176
+msgid "Run Until Finished"
+msgstr "Keyra til loka"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, nameEdit)
+#: widgets/kpropertiesdesktopbase.ui:14 widgets/kpropertiesdesktopbase.ui:27
+msgid ""
+"Type the name you want to give to this application here. This application "
+"will appear under this name in the applications menu and in the panel."
+msgstr ""
+"Sláðu inn heitið sem þú vilt gefa þessu forriti hér.  Forritið mun birtast "
+"undir þessu nafni í forritavalmyndinni og á spjaldinu."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, genNameEdit)
+#: widgets/kpropertiesdesktopbase.ui:34 widgets/kpropertiesdesktopbase.ui:47
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"a dial up application (KPPP) would be \"Dial up tool\"."
+msgstr ""
+"Sláðu inn lýsingu fyrir forritið, byggða á notagildi þess, hér.  Dæmi:  "
+"innhringi forrit (KPPP) myndi verða \"Innhringitól\"."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: widgets/kpropertiesdesktopbase.ui:37
+msgid "&Description:"
+msgstr "&Lýsing:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, commentEdit)
+#: widgets/kpropertiesdesktopbase.ui:54 widgets/kpropertiesdesktopbase.ui:67
+msgid "Type any comment you think is useful here."
+msgstr "Sláðu inn skipunina sem þú telur gagnlega hér."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: widgets/kpropertiesdesktopbase.ui:57
+msgid "Comm&ent:"
+msgstr "Ath&ugasemd:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, commandEdit)
+#: widgets/kpropertiesdesktopbase.ui:85 widgets/kpropertiesdesktopbase.ui:111
+#, no-c-format
+msgid ""
+"Type the command to start this application here.\n"
+"\n"
+"Following the command, you can have several place holders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"%f - a single file name\n"
+"%F - a list of files; use for applications that can open several local files "
+"at once\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%d - the directory of the file to open\n"
+"%D - a list of directories\n"
+"%i - the icon\n"
+"%m - the mini-icon\n"
+"%c - the caption"
+msgstr ""
+"Sláðu inn skipunina til að ræsa forritið hér.\n"
+"\n"
+"Hægt er að setja ýmsar færibreytur á eftir skipuninni.  Þeim verður skipt út "
+"fyrir raunveruleg gildi þegar forritið er keyrt.\n"
+"%f - nafn skrár\n"
+"%F - listi skráa, notist á forrit sem geta opnað margar skrár í einu.\n"
+"%u - slóð (URL)\n"
+"%U - listi af slóðum\n"
+"%d - mappa þeirrar skrár sem á að opna\n"
+"%D - listi af möppum\n"
+"%i - skjámyndin\n"
+"%m - litla skjámyndin\n"
+"%c - titillinn"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:88
+msgid "Co&mmand:"
+msgstr "S&kipun:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:118
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr "Smelltu hér til að vafra um skráarkerfið til að finna keyrsluskrána."
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:121
+msgid "&Browse..."
+msgstr "&Velja..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
+#: widgets/kpropertiesdesktopbase.ui:130 widgets/kpropertiesdesktopbase.ui:143
+msgid "Sets the working directory for your application."
+msgstr "Stillir vinnumöppu forritsins."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel5)
+#: widgets/kpropertiesdesktopbase.ui:133
+msgid "&Work path:"
+msgstr "&Vinnumappa:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:157 widgets/kpropertiesdesktopbase.ui:178
+msgid ""
+"<qt><p>This list should show the types of file that your application can "
+"handle. This list is organized by <u>mimetypes</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol for "
+"identifying the type of data based on filename extensions and correspondent "
+"<u>mimetypes</u>. Example: the \"bmp\" part that comes after the dot in "
+"flower.bmp indicates that it is a specific kind of image, <u>image/x-bmp</"
+"u>. To know which application should open each type of file, the system "
+"should be informed about the abilities of each application to handle these "
+"extensions and mimetypes.</p>\n"
+"<p>If you want to associate this application with one or more mimetypes that "
+"are not in this list, click on the button <b>Add</b> below. If there are one "
+"or more filetypes that this application cannot handle, you may want to "
+"remove them from the list clicking on the button <b>Remove</b> below.</p></"
+"qt>"
+msgstr ""
+"<qt><p>Þessi listi ætti að sýna þær skráartegundir sem forritið þitt ræður "
+"við.  Listinn er flokkaður eftir <u>MIME-tögum</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, er staðall til þess að "
+"auðkenna tegund gagna byggt á skráarendingu og samsvarandi <u>MIME-tagi</"
+"u>.  Til dæmis gefur \"bmp\" sem kemur á eftir punktinum í blóm.bmp til "
+"kynna að hér sé um ákveðna tegund myndar að ræða, <u>image/x-bmp</u>.  Svo "
+"að stýrikerfið viti hvaða forrit á að opna hverja tegund, þarf að láta það "
+"vita hvaða forrit ráða við hvaða skráarendingar og MIME-tag.</p>\n"
+"<p>Ef þú vilt tengja þetta forrit við skráarendingu sem ekki í listanum, "
+"smelltu þá á <b>Bæta við</b> takkan fyrir neðan.  Ef það er ein eða fleiri "
+"skráartegundir í listanum sem forritið ræður ekki við, viltu líklegast "
+"fjarlægja þær með því að velja þær og smella á <b>Fjarlægja</b> takkann "
+"fyrir neðan.</p></qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: widgets/kpropertiesdesktopbase.ui:160
+msgid "&Supported file types:"
+msgstr "&Studdar skráargerðir:"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:191
+msgid "Mimetype"
+msgstr "Mime-tög"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:196
+msgid "Description"
+msgstr "Lýsing"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:206
+msgid ""
+"Click on this button if you want to add a type of file (mimetype) that your "
+"application can handle."
+msgstr ""
+"Smelltu hér ef þú vilt bæta við skráartegund (MIME-tagi) sem forritið ræður "
+"við."
+
+#. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:209
+msgid "Add..."
+msgstr "Bæta við..."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:216
+msgid ""
+"If you want to remove a type of file (mimetype) that your application cannot "
+"handle, select the mimetype in the list above and click on this button."
+msgstr ""
+"Ef þú vilt fjarlægja skráartegund (MIME-tag) sem forritið ræður ekki við, "
+"veldu þá MIME-tagið í listanum fyrir ofan og smelltu á þennan takka."
+
+#. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:219
+msgid "Remove"
+msgstr "Fjarlægja"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:242
+msgid ""
+"Click here to modify the way this application will run, launch feedback, D-"
+"Bus options or to run it as a different user."
+msgstr ""
+"Smelltu hér til að breyta því hvernig forritið keyrir, keyrsluupplýsingum, D-"
+"Bus stillingum eða til þess að keyra það sem annar notandi."
+
+#. i18n: ectx: property (text), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:245
+msgid "Ad&vanced Options"
+msgstr "Ítarlegri &valkostir"
+
+#: widgets/kpropertiesdialog.cpp:204 widgets/kpropertiesdialog.cpp:219
+#: widgets/kpropertiesdialog.cpp:231 widgets/kpropertiesdialog.cpp:247
+#: widgets/kpropertiesdialog.cpp:265
+#, kde-format
+msgid "Properties for %1"
+msgstr "Eiginleikar %1"
+
+#: widgets/kpropertiesdialog.cpp:229
+#, kde-format
+msgid "Properties for 1 item"
+msgid_plural "Properties for %1 Selected Items"
+msgstr[0] "Eiginleikar eins hlutar"
+msgstr[1] "Eiginleikar %1 valinna hluta"
+
+#: widgets/kpropertiesdialog.cpp:785
+msgctxt "@title:tab File properties"
+msgid "&General"
+msgstr "Al&mennt"
+
+#: widgets/kpropertiesdialog.cpp:967
+msgid "Type:"
+msgstr "Tegund:"
+
+#: widgets/kpropertiesdialog.cpp:986
+#, fuzzy
+#| msgid "Create new file type"
+msgid "Create New File Type"
+msgstr "Búa til nýja skráagerð"
+
+#: widgets/kpropertiesdialog.cpp:988
+msgid "File Type Options"
+msgstr ""
+
+#: widgets/kpropertiesdialog.cpp:999
+msgid "Contents:"
+msgstr "Innihald:"
+
+#: widgets/kpropertiesdialog.cpp:1007 widgets/kurlrequesterdialog.cpp:57
+msgid "Location:"
+msgstr "Staðsetning:"
+
+#: widgets/kpropertiesdialog.cpp:1022
+msgid "Size:"
+msgstr "Stærð:"
+
+#: widgets/kpropertiesdialog.cpp:1038
+msgid "Calculate"
+msgstr "Reikna"
+
+#: widgets/kpropertiesdialog.cpp:1039
+msgid "Stop"
+msgstr "Stöðva"
+
+#: widgets/kpropertiesdialog.cpp:1048 widgets/kpropertiesdialog.cpp:1249
+msgid "Refresh"
+msgstr "Endurlesa"
+
+#: widgets/kpropertiesdialog.cpp:1056
+msgid "Points to:"
+msgstr "Vísar á:"
+
+#: widgets/kpropertiesdialog.cpp:1067
+msgid "Created:"
+msgstr "Búið til:"
+
+#: widgets/kpropertiesdialog.cpp:1076
+msgid "Modified:"
+msgstr "Breytt:"
+
+#: widgets/kpropertiesdialog.cpp:1085
+msgid "Accessed:"
+msgstr "Notuð:"
+
+#: widgets/kpropertiesdialog.cpp:1103
+msgid "Mounted on:"
+msgstr "Tengipunktur:"
+
+#: widgets/kpropertiesdialog.cpp:1111 widgets/kpropertiesdialog.cpp:2829
+msgid "Device usage:"
+msgstr "Notkun tækis:"
+
+#: widgets/kpropertiesdialog.cpp:1212 widgets/kpropertiesdialog.cpp:2961
+#, kde-format
+msgctxt "Available space out of total partition size (percent used)"
+msgid "%1 free of %2 (%3% used)"
+msgstr "%1 laust af %2 (%3% í notkun)"
+
+#: widgets/kpropertiesdialog.cpp:1226
+#, kde-format
+msgid ""
+"Calculating... %1 (%2)\n"
+"%3, %4"
+msgstr ""
+"Reikna...%1 (%2)\n"
+"%3, %4"
+
+#: widgets/kpropertiesdialog.cpp:1229 widgets/kpropertiesdialog.cpp:1244
+#, kde-format
+msgid "1 file"
+msgid_plural "%1 files"
+msgstr[0] "1 skrá"
+msgstr[1] "%1 skrár"
+
+#: widgets/kpropertiesdialog.cpp:1230 widgets/kpropertiesdialog.cpp:1245
+#, kde-format
+msgid "1 sub-folder"
+msgid_plural "%1 sub-folders"
+msgstr[0] "1 undirmappa"
+msgstr[1] "%1 undirmöppur"
+
+#: widgets/kpropertiesdialog.cpp:1258
+msgid "Calculating..."
+msgstr "Reikna..."
+
+#: widgets/kpropertiesdialog.cpp:1290
+#, kde-format
+msgid "At least %1"
+msgstr "Að minnsta kosti %1"
+
+#: widgets/kpropertiesdialog.cpp:1328
+msgid "The new file name is empty."
+msgstr "Nýja skráarheitið er tómt."
+
+#: widgets/kpropertiesdialog.cpp:1511 widgets/kpropertiesdialog.cpp:2706
+#: widgets/kpropertiesdialog.cpp:3006 widgets/kpropertiesdialog.cpp:3260
+#, kde-format
+msgid ""
+"<qt>Could not save properties. You do not have sufficient access to write to "
+"<b>%1</b>.</qt>"
+msgstr ""
+"<qt>Ekki tókst að vista eiginleikana. Þú hefur ekki heimildir til að skrifa "
+"í <b>%1</b>.</qt>"
+
+#: widgets/kpropertiesdialog.cpp:1587 widgets/kpropertiesdialog.cpp:1593
+#: widgets/kpropertiesdialog.cpp:1600
+msgid "Forbidden"
+msgstr "Bannað"
+
+#: widgets/kpropertiesdialog.cpp:1588
+msgid "Can Read"
+msgstr "Má lesa"
+
+#: widgets/kpropertiesdialog.cpp:1589
+msgid "Can Read & Write"
+msgstr "Má lesa & skrifa"
+
+#: widgets/kpropertiesdialog.cpp:1594
+msgid "Can View Content"
+msgstr "Má birta innihald"
+
+#: widgets/kpropertiesdialog.cpp:1595
+msgid "Can View & Modify Content"
+msgstr "Má birta & breyta innihaldi"
+
+#: widgets/kpropertiesdialog.cpp:1601
+msgid "Can View Content & Read"
+msgstr "Má birta innihald & lesa"
+
+#: widgets/kpropertiesdialog.cpp:1602
+msgid "Can View/Read & Modify/Write"
+msgstr "Má lesa/skrifa & breyta/skrifa"
+
+#: widgets/kpropertiesdialog.cpp:1699
+msgid "&Permissions"
+msgstr "&Heimildir"
+
+#: widgets/kpropertiesdialog.cpp:1711 widgets/kpropertiesdialog.cpp:1914
+msgid "Access Permissions"
+msgstr "Aðgangsheimildir"
+
+#: widgets/kpropertiesdialog.cpp:1719
+msgid "This file is a link and does not have permissions."
+msgid_plural "All files are links and do not have permissions."
+msgstr[0] "Skráin er tengill og hefur ekki aðgangsstillingar."
+msgstr[1] "Allar skrárnar eru tenglar og hafa ekki aðgangsstillingar."
+
+#: widgets/kpropertiesdialog.cpp:1723
+msgid "Only the owner can change permissions."
+msgstr "Einungis eigandinn má breyta aðgangsheimildum."
+
+#: widgets/kpropertiesdialog.cpp:1727
+msgid "O&wner:"
+msgstr "&Eigandi:"
+
+#: widgets/kpropertiesdialog.cpp:1733
+msgid "Specifies the actions that the owner is allowed to do."
+msgstr "Tiltekur aðgerðirnar sem eigandinn má gera."
+
+#: widgets/kpropertiesdialog.cpp:1735
+msgid "Gro&up:"
+msgstr "Hó&pur:"
+
+#: widgets/kpropertiesdialog.cpp:1741
+msgid "Specifies the actions that the members of the group are allowed to do."
+msgstr "Tiltekur aðgerðirnar sem meðlimir hópsins mega gera."
+
+#: widgets/kpropertiesdialog.cpp:1743
+msgid "O&thers:"
+msgstr "&Aðrir:"
+
+#: widgets/kpropertiesdialog.cpp:1749
+msgid ""
+"Specifies the actions that all users, who are neither owner nor in the "
+"group, are allowed to do."
+msgstr ""
+"Tiltekur aðgerðirnar sem allir notendur sem ekki eru eigendur eða í hópnum "
+"mega gera."
+
+#: widgets/kpropertiesdialog.cpp:1754
+msgid "Only own&er can rename and delete folder content"
+msgstr "Einungis &eigandinn má endurnefna og eyða innihaldi möppunnar"
+
+#: widgets/kpropertiesdialog.cpp:1755
+msgid "Is &executable"
+msgstr "Er &keyranlegt"
+
+#: widgets/kpropertiesdialog.cpp:1759
+msgid ""
+"Enable this option to allow only the folder's owner to delete or rename the "
+"contained files and folders. Other users can only add new files, which "
+"requires the 'Modify Content' permission."
+msgstr ""
+"Virkjaðu þessa stillingu til þess að leyfa aðeins eiganda möppunnar að eyða "
+"eða endurnefna skrár og möppur í möppunni.  Aðrir notendur geta aðeins sett "
+"inn nýjar skrár, og það krefst leyfist til að 'Breyta Innihaldi'."
+
+#: widgets/kpropertiesdialog.cpp:1763
+msgid ""
+"Enable this option to mark the file as executable. This only makes sense for "
+"programs and scripts. It is required when you want to execute them."
+msgstr ""
+"Virkjaðu þetta til að merkja skrána sem keyrsluskrá.  Þetta ættirðu bara að "
+"gera fyrir forrit og skriftur.  Þetta þarf að vera á þegar þú vilt keyra "
+"hana."
+
+#: widgets/kpropertiesdialog.cpp:1770
+msgid "A&dvanced Permissions"
+msgstr "&Frekari aðgangsheimildir"
+
+#: widgets/kpropertiesdialog.cpp:1778
+msgid "Ownership"
+msgstr "Eigandi"
+
+#: widgets/kpropertiesdialog.cpp:1785
+msgid "User:"
+msgstr "Notandi:"
+
+#: widgets/kpropertiesdialog.cpp:1829
+msgid "Group:"
+msgstr "Hópur:"
+
+#: widgets/kpropertiesdialog.cpp:1866
+msgid "Apply changes to all subfolders and their contents"
+msgstr "Virkja breytingarnar í öllum undirmöppum og innihaldi þeirra"
+
+#: widgets/kpropertiesdialog.cpp:1905
+msgid "Advanced Permissions"
+msgstr "Frekari aðgangsheimildir"
+
+#: widgets/kpropertiesdialog.cpp:1922
+msgid "Class"
+msgstr "Flokkur"
+
+#: widgets/kpropertiesdialog.cpp:1927
+msgid ""
+"Show\n"
+"Entries"
+msgstr ""
+"Sýna\n"
+"færslur"
+
+#: widgets/kpropertiesdialog.cpp:1929
+msgid "Read"
+msgstr "Lesa"
+
+#: widgets/kpropertiesdialog.cpp:1935
+msgid "This flag allows viewing the content of the folder."
+msgstr "Þessi biti leyfir birtingu á innihaldi möppunnar."
+
+#: widgets/kpropertiesdialog.cpp:1937
+msgid "The Read flag allows viewing the content of the file."
+msgstr "Les bitinn leyfir skoðun á innihaldi skrárinnar."
+
+#: widgets/kpropertiesdialog.cpp:1942
+msgid ""
+"Write\n"
+"Entries"
+msgstr ""
+"Skrifa\n"
+"færslur"
+
+#: widgets/kpropertiesdialog.cpp:1944
+msgid "Write"
+msgstr "Skrifa"
+
+#: widgets/kpropertiesdialog.cpp:1950
+msgid ""
+"This flag allows adding, renaming and deleting of files. Note that deleting "
+"and renaming can be limited using the Sticky flag."
+msgstr ""
+"Þessi biti leyfir að bæta við, endurnefna og eyða skrám.  Athugaðu að hægt "
+"er að takmarka endurnefningu og eyðslu með viðloðunarbitanum."
+
+#: widgets/kpropertiesdialog.cpp:1953
+msgid "The Write flag allows modifying the content of the file."
+msgstr "Skrif bitinn leyfir breytingar á innihaldi skrárinnar."
+
+#: widgets/kpropertiesdialog.cpp:1959
+msgctxt "Enter folder"
+msgid "Enter"
+msgstr "Fara í"
+
+#: widgets/kpropertiesdialog.cpp:1960
+msgid "Enable this flag to allow entering the folder."
+msgstr "Smelltu á þennan bita til að leyfa aðgang í möppuna."
+
+#: widgets/kpropertiesdialog.cpp:1962
+msgid "Exec"
+msgstr "Keyra"
+
+#: widgets/kpropertiesdialog.cpp:1963
+msgid "Enable this flag to allow executing the file as a program."
+msgstr "Smelltu á þennan bita til að leyfa keyrlu á skránni."
+
+#: widgets/kpropertiesdialog.cpp:1973
+msgid "Special"
+msgstr "Sérstök skrá"
+
+#: widgets/kpropertiesdialog.cpp:1977
+msgid ""
+"Special flag. Valid for the whole folder, the exact meaning of the flag can "
+"be seen in the right hand column."
+msgstr ""
+"Sérstakur biti.  Gildir fyrir alla möppuna.  Hægt er að sjá nákvæma þýðingu "
+"bitans í dálknum hægra megin."
+
+#: widgets/kpropertiesdialog.cpp:1980
+msgid ""
+"Special flag. The exact meaning of the flag can be seen in the right hand "
+"column."
+msgstr ""
+"Sérstakur biti.  Hægt er að sjá nákvæma þýðingu bitans í dálknum hægra megin."
+
+#: widgets/kpropertiesdialog.cpp:1984
+msgid "User"
+msgstr "Notandi"
+
+#: widgets/kpropertiesdialog.cpp:1988
+msgid "Group"
+msgstr "Hópur"
+
+#: widgets/kpropertiesdialog.cpp:1996
+msgid "Set UID"
+msgstr "Setja UID"
+
+#: widgets/kpropertiesdialog.cpp:2000
+msgid ""
+"If this flag is set, the owner of this folder will be the owner of all new "
+"files."
+msgstr ""
+"Ef þessi biti er settur, verður eigandi þessarar möppu eigandi allra nýja "
+"skráa."
+
+#: widgets/kpropertiesdialog.cpp:2003
+msgid ""
+"If this file is an executable and the flag is set, it will be executed with "
+"the permissions of the owner."
+msgstr ""
+"Ef þetta er keyrsluskrá og bitinn er settur, mun hún verða ræst með "
+"aðgangsheimildum eigandans."
+
+#: widgets/kpropertiesdialog.cpp:2007
+msgid "Set GID"
+msgstr "Setja GID"
+
+#: widgets/kpropertiesdialog.cpp:2011
+msgid ""
+"If this flag is set, the group of this folder will be set for all new files."
+msgstr ""
+"Ef þessi biti er settur mun hópur þessarar möppu verða settur fyrir allar "
+"nýjar skrár."
+
+#: widgets/kpropertiesdialog.cpp:2014
+msgid ""
+"If this file is an executable and the flag is set, it will be executed with "
+"the permissions of the group."
+msgstr ""
+"Ef þetta er keyrsluskrá og bitinn er settur verðu hún keyrðu með "
+"aðgangsheimildum hópsins."
+
+#: widgets/kpropertiesdialog.cpp:2018
+msgctxt "File permission"
+msgid "Sticky"
+msgstr "Loðir við"
+
+#: widgets/kpropertiesdialog.cpp:2022
+msgid ""
+"If the Sticky flag is set on a folder, only the owner and root can delete or "
+"rename files. Otherwise everybody with write permissions can do this."
+msgstr ""
+"Ef viðloðunarbitinn er settur á möppu, getur aðeins eigandi hennar og "
+"rótarnotandinn eytt eða endurnefnt skrár.  Annars geta allir með "
+"skrifréttindi gert það."
+
+#: widgets/kpropertiesdialog.cpp:2026
+msgid ""
+"The Sticky flag on a file is ignored on Linux, but may be used on some "
+"systems"
+msgstr ""
+"Viðloðunarbitinn á skrám er hunsaður í Linux, en gæti verið notaður á öðrum "
+"kerfum"
+
+#: widgets/kpropertiesdialog.cpp:2214
+msgid "Link"
+msgstr "Tengill"
+
+#: widgets/kpropertiesdialog.cpp:2233
+msgid "Varying (No Change)"
+msgstr "Breyti (engin breyting)"
+
+#: widgets/kpropertiesdialog.cpp:2346
+msgid "This file uses advanced permissions"
+msgid_plural "These files use advanced permissions."
+msgstr[0] "Þessi skrá notar flóknar aðgangsheimildir."
+msgstr[1] "Þessar skrár nota flóknar aðgangsheimildir."
+
+#: widgets/kpropertiesdialog.cpp:2367
+msgid "This folder uses advanced permissions."
+msgid_plural "These folders use advanced permissions."
+msgstr[0] "Þessi mappa notar flóknar aðgangsheimildir."
+msgstr[1] "Þessar möppur nota flóknar aðgangsheimildir."
+
+#: widgets/kpropertiesdialog.cpp:2382
+msgid "These files use advanced permissions."
+msgstr "Þessar skrár nota flóknar aðgangsheimildir."
+
+#: widgets/kpropertiesdialog.cpp:2617
+msgid "U&RL"
+msgstr "&Slóð"
+
+#: widgets/kpropertiesdialog.cpp:2624
+msgid "URL:"
+msgstr "Slóð:"
+
+#: widgets/kpropertiesdialog.cpp:2764
+msgid "De&vice"
+msgstr "Tæ&ki"
+
+#: widgets/kpropertiesdialog.cpp:2793
+msgid "Device (/dev/fd0):"
+msgstr "Tæki (/dev/fd0):"
+
+#: widgets/kpropertiesdialog.cpp:2794
+msgid "Device:"
+msgstr "Tæki:"
+
+#: widgets/kpropertiesdialog.cpp:2807
+msgid "Read only"
+msgstr "Skrifvarið"
+
+#: widgets/kpropertiesdialog.cpp:2811
+msgid "File system:"
+msgstr "Skráarkerfi:"
+
+#: widgets/kpropertiesdialog.cpp:2819
+msgid "Mount point (/mnt/floppy):"
+msgstr "Tengipunktur (/mnt/floppy):"
+
+#: widgets/kpropertiesdialog.cpp:2820
+msgid "Mount point:"
+msgstr "Tengipunktur:"
+
+#: widgets/kpropertiesdialog.cpp:3064
+msgid "&Application"
+msgstr "&Forrit"
+
+#: widgets/kpropertiesdialog.cpp:3190
+#, kde-format
+msgid "Add File Type for %1"
+msgstr "Bæta við skráartegund fyrir %1"
+
+#: widgets/kpropertiesdialog.cpp:3191
+msgid "Select one or more file types to add:"
+msgstr "Veldu eina eða fleiri skráargerðir til að bæta við:"
+
+#: widgets/kpropertiesdialog.cpp:3252
+#, fuzzy
+#| msgid "Only executables on local file systems are supported."
+msgid ""
+"Could not save properties. Only entries on local file systems are supported."
+msgstr "Það er bara hægt að keyra forrit af þessu skráakerfi."
+
+#: widgets/kpropertiesdialog.cpp:3331
+msgid "Only executables on local file systems are supported."
+msgstr "Það er bara hægt að keyra forrit af þessu skráakerfi."
+
+#: widgets/kpropertiesdialog.cpp:3345
+#, kde-format
+msgid "Advanced Options for %1"
+msgstr "Ítarlegri valkostir fyrir %1"
+
+#: widgets/krun.cpp:170
+#, kde-format
+msgid ""
+"<qt>Unable to enter <b>%1</b>.\n"
+"You do not have access rights to this location.</qt>"
+msgstr ""
+"<qt>Ekki tókst að skipta í <b>%1</b>.\n"
+"Þú hefur ekki nægar aðgangsheimildir.</qt>"
+
+#: widgets/krun.cpp:200
+#, kde-format
+msgid ""
+"<qt>The file <b>%1</b> is an executable program. For safety it will not be "
+"started.</qt>"
+msgstr ""
+"<qt>Skráin <b>%1</b> er keyrsluforrit.  Af öryggisástæðum verður það ekki "
+"keyrt.</qt>"
+
+#: widgets/krun.cpp:206
+#, kde-format
+msgid "<qt>You do not have permission to run <b>%1</b>.</qt>"
+msgstr "<qt>þú hefur ekki nægar aðgangsheimildir til að keyra <b>%1</b>.</qt>"
+
+#: widgets/krun.cpp:236
+msgid "You are not authorized to select an application to open this file."
+msgstr "Þú hefur ekki heimild til að velja forrit til að opna þessa skrá."
+
+#: widgets/krun.cpp:247
+msgid "Open with:"
+msgstr "Opna með:"
+
+#: widgets/krun.cpp:297
+msgid "You are not authorized to execute this file."
+msgstr "Þú hefur ekki leyfi til að keyra þessa skrá."
+
+#: widgets/krun.cpp:320
+#, kde-format
+msgid "Launching %1"
+msgstr "Keyri %1"
+
+#: widgets/krun.cpp:425
+#, kde-format
+msgid "Error processing Exec field in %1"
+msgstr "Villa við að þátta Exec svæðið í %1"
+
+#: widgets/krun.cpp:602
+msgid "You are not authorized to execute this service."
+msgstr "Þú hefur ekki leyfi til að keyra þessa þjónustu."
+
+#: widgets/krun.cpp:607
+msgctxt "Warning about executing unknown .desktop file"
+msgid "Warning"
+msgstr "Aðvörun"
+
+#: widgets/krun.cpp:624
+msgctxt "program name follows in a line edit below"
+msgid "This will start the program:"
+msgstr "Þetta mun ræsa forritið:"
+
+#: widgets/krun.cpp:641
+msgid "If you do not trust this program, click Cancel"
+msgstr "Ef þú treystir ekki þessu forriti, ýttu þá á 'Hætta við'"
+
+#: widgets/krun.cpp:684
+#, kde-format
+msgid "Unable to make the service %1 executable, aborting execution"
+msgstr "Gat ekki gert þjónustuna %1 keyranlega, hætti við ræsingu"
+
+#: widgets/krun.cpp:866
+#, kde-format
+msgid ""
+"<qt>Unable to run the command specified. The file or folder <b>%1</b> does "
+"not exist.</qt>"
+msgstr ""
+"<qt>Ekki er hægt að framkvæma þessa skipun. Skráin eða mappan <b>%1</b> er "
+"ekki til.</qt>"
+
+#: widgets/krun.cpp:1461
+#, kde-format
+msgid "Could not find the program '%1'"
+msgstr "Finn ekki forritið '%1'"
+
+#: widgets/ksslinfodialog.cpp:57
+msgid "KDE SSL Information"
+msgstr "KDE SSL Upplýsingar"
+
+#: widgets/ksslinfodialog.cpp:69
+msgctxt "The receiver of the SSL certificate"
+msgid "Subject"
+msgstr "Efni"
+
+#: widgets/ksslinfodialog.cpp:70
+msgctxt "The authority that issued the SSL certificate"
+msgid "Issuer"
+msgstr "Útgefandi"
+
+#: widgets/ksslinfodialog.cpp:86 widgets/ksslinfodialog.cpp:120
+msgid "Current connection is secured with SSL."
+msgstr "Þessi tenging er tryggð með SSL."
+
+#: widgets/ksslinfodialog.cpp:89 widgets/ksslinfodialog.cpp:133
+msgid "Current connection is not secured with SSL."
+msgstr "Þessi tenging er ekki tryggð með SSL."
+
+#: widgets/ksslinfodialog.cpp:93
+msgid "SSL support is not available in this build of KDE."
+msgstr "Þessi uppsetning á KDE styður ekki SSL."
+
+#: widgets/ksslinfodialog.cpp:123
+msgid ""
+"The main part of this document is secured with SSL, but some parts are not."
+msgstr "Meginhluti þessa skeytis er dulkóðaður með SSL, en sumir hlutar ekki."
+
+#: widgets/ksslinfodialog.cpp:129
+msgid "Some of this document is secured with SSL, but the main part is not."
+msgstr ""
+"Sumir hlutar þessa skeytis eru dulkóðaðir með SSL en meginhlutinn er það "
+"ekki."
+
+#: widgets/ksslinfodialog.cpp:179
+#, kde-format
+msgctxt "%1, using %2 bits of a %3 bit key"
+msgid "%1, %2 %3"
+msgstr "%1, %2 %3"
+
+#: widgets/ksslinfodialog.cpp:181
+#, fuzzy, kde-format
+#| msgctxt "Part of: %1, using %2 bits of a %3 bit key"
+#| msgid "using %2 bit"
+#| msgid_plural "using %2 bits"
+msgctxt "Part of: %1, using %2 bits of a %3 bit key"
+msgid "using %1 bit"
+msgid_plural "using %1 bits"
+msgstr[0] "nota %2 bita"
+msgstr[1] "nota %2 bita"
+
+#: widgets/ksslinfodialog.cpp:183
+#, fuzzy, kde-format
+#| msgctxt "Part of: %1, using %2 bits of a %3 bit key"
+#| msgid "of a %3 bit key"
+#| msgid_plural "of a %3 bit key"
+msgctxt "Part of: %1, using %2 bits of a %3 bit key"
+msgid "of a %1 bit key"
+msgid_plural "of a %1 bit key"
+msgstr[0] "af %3 bita dulritunarlykli"
+msgstr[1] "af %3 bita dulritunarlykli"
+
+#: widgets/ksslinfodialog.cpp:199
+msgctxt "The certificate is not trusted"
+msgid "NO, there were errors:"
+msgstr "NEI, það fundust villur:"
+
+#: widgets/ksslinfodialog.cpp:206
+msgctxt "The certificate is trusted"
+msgid "Yes"
+msgstr "Já"
+
+#: widgets/ksslinfodialog.cpp:210
+#, kde-format
+msgctxt "%1 is the effective date of the certificate, %2 is the expiry date"
+msgid "%1 to %2"
+msgstr "%1 í %2"
+
+#: widgets/kurlrequester.cpp:284
+msgid "Open file dialog"
+msgstr "Opna skráarglugga"
+
+#: widgets/paste.cpp:82 widgets/paste.cpp:151
+msgid "Filename for clipboard content:"
+msgstr "Skráarheiti fyrir innihald klippispjalds:"
+
+#: widgets/paste.cpp:143
+#, kde-format
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: widgets/paste.cpp:162
+msgid ""
+"The clipboard has changed since you used 'paste': the chosen data format is "
+"no longer applicable. Please copy again what you wanted to paste."
+msgstr ""
+"Klippispjaldið hefur breyst eftir að þú notaður 'líma'; valda gagnasniðið er "
+"ekki lengur gilt. Vinsamlega afritaðu aftur gögnin sem þú vilt líma inn."
+
+#: widgets/paste.cpp:291
+#, kde-format
+msgid "&Paste File"
+msgid_plural "&Paste %1 Files"
+msgstr[0] "&Líma skrá"
+msgstr[1] "&Líma %1 skrár"
+
+#: widgets/paste.cpp:293
+#, kde-format
+msgid "&Paste URL"
+msgid_plural "&Paste %1 URLs"
+msgstr[0] "&Líma slóð"
+msgstr[1] "&Líma %1 slóðir"
+
+#: widgets/paste.cpp:296
+msgid "&Paste Clipboard Contents"
+msgstr "&Líma innihald klippispjalds"
+
+#: widgets/pastedialog.cpp:57
+msgid "Data format:"
+msgstr "Gagnasnið:"
+
+#: widgets/renamedialog.cpp:134
+msgid "Appl&y to All"
+msgstr "N&ota á allt"
+
+#: widgets/renamedialog.cpp:135
+msgid ""
+"When this is checked the button pressed will be applied to all subsequent "
+"folder conflicts for the remainder of the current job.\n"
+"Unless you press Skip you will still be prompted in case of a conflict with "
+"an existing file in the directory."
+msgstr ""
+"Ef hakað er við þetta, verður aðgerð hnappsins sem ýtt er á beitt á alla "
+"eftirfarandi árekstra sem upp gætu komið í eftirstöðvum verksins.\n"
+"Þú verður samt látinn vita ef um árekstra verður að ræða við skrár sem þegar "
+"eru til staðar, nema ef þú ýtir á 'Sleppa'."
+
+#: widgets/renamedialog.cpp:136
+msgid ""
+"When this is checked the button pressed will be applied to all subsequent "
+"conflicts for the remainder of the current job."
+msgstr ""
+"Ef hakað er við þetta, verður aðgerð hnappsins sem ýtt er á beitt á alla "
+"eftirfarandi árekstra sem upp gætu komið í eftirstöðvum verksins."
+
+#: widgets/renamedialog.cpp:141
+msgid "&Rename"
+msgstr "Endu&rnefna"
+
+#: widgets/renamedialog.cpp:143
+msgid "Suggest New &Name"
+msgstr "Tillaga um &nýtt heiti"
+
+#: widgets/renamedialog.cpp:149
+msgid "&Skip"
+msgstr "&Sleppa"
+
+#: widgets/renamedialog.cpp:150
+msgid "Do not copy or move this folder, skip to the next item instead"
+msgstr "Ekki afrita eða færa þessa möppu, halda í staðinn áfram í næsta hlut"
+
+#: widgets/renamedialog.cpp:151
+msgid "Do not copy or move this file, skip to the next item instead"
+msgstr "Ekki afrita eða færa þessa skrá, halda í staðinn áfram í næsta hlut"
+
+#: widgets/renamedialog.cpp:156
+msgctxt "Write files into an existing folder"
+msgid "&Write Into"
+msgstr "Skri&fa inn í"
+
+#: widgets/renamedialog.cpp:156
+msgid "&Overwrite"
+msgstr "Skrifa &yfir"
+
+#: widgets/renamedialog.cpp:158
+msgid ""
+"Files and folders will be copied into the existing directory, alongside its "
+"existing contents.\n"
+"You will be prompted again in case of a conflict with an existing file in "
+"the directory."
+msgstr ""
+"Skrár og möppur verða afritaðar inn í úttaksmöppuna, samhliða innihaldi "
+"hennar sem þegar er fyrir.\n"
+"Þú verður samt látinn vita ef um árekstra verður að ræða við skrár sem þegar "
+"eru til staðar."
+
+#: widgets/renamedialog.cpp:163
+msgid "&Resume"
+msgstr "Halda áf&ram"
+
+#: widgets/renamedialog.cpp:172
+#, kde-format
+msgid ""
+"This action would overwrite '%1' with itself.\n"
+"Please enter a new file name:"
+msgstr ""
+"Þessi aðgerð myndi skrifa '%1' yfir sjálfa sig.\n"
+"Vinsamlegast sláðu inn nýtt heiti:"
+
+#: widgets/renamedialog.cpp:176
+msgid "C&ontinue"
+msgstr "Á&fram"
+
+#: widgets/renamedialog.cpp:230
+#, fuzzy
+#| msgid "This action will overwrite '%1' with an older file '%2'."
+msgid "This action will overwrite the destination."
+msgstr "Þessi aðgerð myndi skrifa eldri skrána '%2' yfir '%1'."
+
+#: widgets/renamedialog.cpp:232
+msgid "Source"
+msgstr "Uppruni"
+
+#: widgets/renamedialog.cpp:233
+msgid "Destination"
+msgstr "Áfangastaður"
+
+#: widgets/renamedialog.cpp:239
+#, fuzzy
+msgid "Warning, the destination is more recent."
+msgstr "Aðvörun, úttakið er nýrra."
+
+#: widgets/renamedialog.cpp:270
+#, kde-format
+msgid "An older item named '%1' already exists."
+msgstr "Heitið '%1' er nú þegar til."
+
+#: widgets/renamedialog.cpp:272
+#, kde-format
+msgid "A similar file named '%1' already exists."
+msgstr "Það er nú þegar til skrá sem heitir %1."
+
+#: widgets/renamedialog.cpp:274
+#, fuzzy, kde-format
+#| msgid "An older item named '%1' already exists."
+msgid "A more recent item named '%1' already exists."
+msgstr "Heitið '%1' er nú þegar til."
+
+#: widgets/renamedialog.cpp:286
+#, fuzzy
+#| msgid "&Rename"
+msgid "Rename:"
+msgstr "Endu&rnefna"
+
+#: widgets/skipdialog.cpp:38
+msgid "Information"
+msgstr "Upplýsingar"
+
+#: widgets/skipdialog.cpp:48
+msgid "Retry"
+msgstr ""
+
+#: widgets/skipdialog.cpp:53
+msgid "Skip"
+msgstr "Sleppa"
+
+#: widgets/skipdialog.cpp:57
+msgid "AutoSkip"
+msgstr "Sleppa sjálfkrafa"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
+#: widgets/sslinfo.ui:17
+msgid "[padlock]"
+msgstr "[padlock]"
+
+#. i18n: ectx: property (text), widget (QLabel, addressTag)
+#: widgets/sslinfo.ui:34
+msgctxt "Web page address"
+msgid "Address:"
+msgstr "Vistfang:"
+
+#. i18n: ectx: property (text), widget (QLabel, ipTag)
+#: widgets/sslinfo.ui:54
+msgid "IP address:"
+msgstr "IP vistfang:"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionTag)
+#: widgets/sslinfo.ui:74
+msgid "Encryption:"
+msgstr "Dulritun:"
+
+#. i18n: ectx: property (text), widget (QLabel, detailsTag)
+#: widgets/sslinfo.ui:94
+msgid "Details:"
+msgstr "Nánar:"
+
+#. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
+#: widgets/sslinfo.ui:114
+msgid "SSL version:"
+msgstr "Útgáfa SSL:"
+
+#. i18n: ectx: property (text), widget (QLabel, certSelectorTag)
+#: widgets/sslinfo.ui:134
+msgid "Certificate chain:"
+msgstr "Vottunarkeðja (certificate chain):"
+
+#. i18n: ectx: property (text), widget (QLabel, trustedTag)
+#: widgets/sslinfo.ui:163
+msgid "Trusted:"
+msgstr "Treyst:"
+
+#. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
+#: widgets/sslinfo.ui:183
+msgid "Validity period:"
+msgstr "Gildistími:"
+
+#. i18n: ectx: property (text), widget (QLabel, serialTag)
+#: widgets/sslinfo.ui:203
+msgid "Serial number:"
+msgstr "Raðnúmer:"
+
+#. i18n: ectx: property (text), widget (QLabel, digestTag)
+#: widgets/sslinfo.ui:223
+msgid "MD5 digest:"
+msgstr "MD5 gátsumma:"
+
+#. i18n: ectx: property (text), widget (QLabel, sha1DigestTag)
+#: widgets/sslinfo.ui:243
+msgid "SHA1 digest:"
+msgstr "SHA1 gátsumma:"
+
+#: widgets/sslui.cpp:49
+msgid ""
+"The remote host did not send any SSL certificates.\n"
+"Aborting because the identity of the host cannot be established."
+msgstr ""
+"Fjarlæga tölvan sendi engin SSL skilríki.\n"
+"Hætti við vegna þess að ekki var hægt að sannreyna auðkenni vélarinnar."

@@ -1,0 +1,6125 @@
+# translation of kio4.po to Latvian
+# translation of kio4.po to
+# kio4.po tulkojums uz Latviešu valodu
+# Copyright (C) 2005, 2006, 2007, 2008, 2009, 2011 Free Software Foundation, Inc.
+#
+# Maris Nartiss <maris.nartiss@gmail.com>, 2005.
+# Maris Nartiss <maris.kde@gmail.com>, 2006, 2007, 2008, 2009, 2011.
+# Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2007, 2008, 2010.
+# Viesturs Zariņš <viesturs.zarins@mii.lu.lv>, 2009.
+# Einars Sprugis <einars8@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: kio4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-07-31 08:26+0000\n"
+"PO-Revision-Date: 2011-07-06 12:49+0300\n"
+"Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
+"Language-Team: Latvian\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Māris Nartišs, Viesturs Zariņš"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "maris.kde@gmail.com, viesturs.zarins@mii.lu.lv"
+
+#: core/chmodjob.cpp:202
+#, fuzzy, kde-format
+#| msgid "Could not change ownership for %1."
+msgid "Could not modify the ownership of file %1"
+msgstr "Nevar izmainīt īpašnieku priekš %1."
+
+#: core/chmodjob.cpp:204
+#, kde-format
+msgid ""
+"<qt>Could not modify the ownership of file <b>%1</b>. You have insufficient "
+"access to the file to perform the change.</qt>"
+msgstr ""
+"<qt>Nevar izmainīt īpašnieku failam <b>%1</b>. Jums nepietiek atļauju šī "
+"faila atribūtu mainīšanai.</qt>"
+
+#: core/connectionbackend.cpp:143
+#, kde-format
+msgid "Unable to create io-slave: %1"
+msgstr "Nevar izveidot IO apstrādātāju: %1"
+
+#: core/copyjob.cpp:1081 core/job_error.cpp:504
+msgid "Folder Already Exists"
+msgstr "Mape jau eksistē"
+
+#: core/copyjob.cpp:1350 core/copyjob.cpp:1916 core/filecopyjob.cpp:360
+#: core/job_error.cpp:494 widgets/paste.cpp:104
+msgid "File Already Exists"
+msgstr "Fails jau pastāv"
+
+#: core/copyjob.cpp:1350 core/copyjob.cpp:1916
+msgid "Already Exists as Folder"
+msgstr "Jau eksistē kā mape"
+
+#: core/global.cpp:75
+#, kde-format
+msgctxt "size in bytes"
+msgid "%1 B"
+msgstr ""
+
+#: core/global.cpp:79
+#, kde-format
+msgctxt "size in 1000 bytes"
+msgid "%1 kB"
+msgstr ""
+
+#: core/global.cpp:80
+#, kde-format
+msgctxt "size in 10^6 bytes"
+msgid "%1 MB"
+msgstr ""
+
+#: core/global.cpp:81
+#, kde-format
+msgctxt "size in 10^9 bytes"
+msgid "%1 GB"
+msgstr ""
+
+#: core/global.cpp:82
+#, kde-format
+msgctxt "size in 10^12 bytes"
+msgid "%1 TB"
+msgstr ""
+
+#: core/global.cpp:83
+#, kde-format
+msgctxt "size in 10^15 bytes"
+msgid "%1 PB"
+msgstr ""
+
+#: core/global.cpp:84
+#, kde-format
+msgctxt "size in 10^18 bytes"
+msgid "%1 EB"
+msgstr ""
+
+#: core/global.cpp:85
+#, kde-format
+msgctxt "size in 10^21 bytes"
+msgid "%1 ZB"
+msgstr ""
+
+#: core/global.cpp:86
+#, kde-format
+msgctxt "size in 10^24 bytes"
+msgid "%1 YB"
+msgstr ""
+
+#: core/global.cpp:90
+#, kde-format
+msgctxt "memory size in 1024 bytes"
+msgid "%1 KB"
+msgstr ""
+
+#: core/global.cpp:91
+#, kde-format
+msgctxt "memory size in 2^20 bytes"
+msgid "%1 MB"
+msgstr ""
+
+#: core/global.cpp:92
+#, kde-format
+msgctxt "memory size in 2^30 bytes"
+msgid "%1 GB"
+msgstr ""
+
+#: core/global.cpp:93
+#, kde-format
+msgctxt "memory size in 2^40 bytes"
+msgid "%1 TB"
+msgstr ""
+
+#: core/global.cpp:94
+#, kde-format
+msgctxt "memory size in 2^50 bytes"
+msgid "%1 PB"
+msgstr ""
+
+#: core/global.cpp:95
+#, kde-format
+msgctxt "memory size in 2^60 bytes"
+msgid "%1 EB"
+msgstr ""
+
+#: core/global.cpp:96
+#, kde-format
+msgctxt "memory size in 2^70 bytes"
+msgid "%1 ZB"
+msgstr ""
+
+#: core/global.cpp:97
+#, kde-format
+msgctxt "memory size in 2^80 bytes"
+msgid "%1 YB"
+msgstr ""
+
+#: core/global.cpp:102
+#, kde-format
+msgctxt "size in 1024 bytes"
+msgid "%1 KiB"
+msgstr ""
+
+#: core/global.cpp:103
+#, kde-format
+msgctxt "size in 2^20 bytes"
+msgid "%1 MiB"
+msgstr ""
+
+#: core/global.cpp:104
+#, kde-format
+msgctxt "size in 2^30 bytes"
+msgid "%1 GiB"
+msgstr ""
+
+#: core/global.cpp:105
+#, kde-format
+msgctxt "size in 2^40 bytes"
+msgid "%1 TiB"
+msgstr ""
+
+#: core/global.cpp:106
+#, kde-format
+msgctxt "size in 2^50 bytes"
+msgid "%1 PiB"
+msgstr ""
+
+#: core/global.cpp:107
+#, kde-format
+msgctxt "size in 2^60 bytes"
+msgid "%1 EiB"
+msgstr ""
+
+#: core/global.cpp:108
+#, kde-format
+msgctxt "size in 2^70 bytes"
+msgid "%1 ZiB"
+msgstr ""
+
+#: core/global.cpp:109
+#, kde-format
+msgctxt "size in 2^80 bytes"
+msgid "%1 YiB"
+msgstr ""
+
+#: core/global.cpp:169
+#, kde-format
+msgid "1 day %2"
+msgid_plural "%1 days %2"
+msgstr[0] "%1 diena %2"
+msgstr[1] "%1 dienas %2"
+msgstr[2] "%1 dienu %2"
+
+#: core/global.cpp:204 core/global.cpp:221
+#, kde-format
+msgid "%1 Item"
+msgid_plural "%1 Items"
+msgstr[0] "%1 vienība"
+msgstr[1] "%1 vienības"
+msgstr[2] "%1 vienību"
+
+#: core/global.cpp:208
+#, kde-format
+msgid "1 Folder"
+msgid_plural "%1 Folders"
+msgstr[0] "%1 mape"
+msgstr[1] "%1 mapes"
+msgstr[2] "%1 mapju"
+
+#: core/global.cpp:209
+#, kde-format
+msgid "1 File"
+msgid_plural "%1 Files"
+msgstr[0] "%1 fails"
+msgstr[1] "%1 faili"
+msgstr[2] "%1 failu"
+
+#: core/global.cpp:212
+#, kde-format
+msgctxt "folders, files (size)"
+msgid "%1, %2 (%3)"
+msgstr "%1, %2 (%3)"
+
+#: core/global.cpp:213
+#, kde-format
+msgctxt "folders, files"
+msgid "%1, %2"
+msgstr "%1, %2"
+
+#: core/global.cpp:215
+#, kde-format
+msgctxt "files (size)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: core/global.cpp:222
+#, kde-format
+msgctxt "items: folders, files (size)"
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: core/job.cpp:108
+msgctxt "@title job"
+msgid "Moving"
+msgstr "Pārvietošana"
+
+#: core/job.cpp:109 core/job.cpp:116 core/job.cpp:141
+#: widgets/fileundomanager.cpp:130
+msgctxt "The source of a file operation"
+msgid "Source"
+msgstr "Avots"
+
+#: core/job.cpp:110 core/job.cpp:117 widgets/fileundomanager.cpp:131
+msgctxt "The destination of a file operation"
+msgid "Destination"
+msgstr "Mērķis"
+
+#: core/job.cpp:115
+msgctxt "@title job"
+msgid "Copying"
+msgstr "Kopēšana"
+
+#: core/job.cpp:122
+msgctxt "@title job"
+msgid "Creating directory"
+msgstr "Mapes veidošana"
+
+#: core/job.cpp:123 widgets/fileundomanager.cpp:125
+msgid "Directory"
+msgstr "Mape"
+
+#: core/job.cpp:128
+msgctxt "@title job"
+msgid "Deleting"
+msgstr "Dzēšana"
+
+#: core/job.cpp:129 core/job.cpp:135 widgets/fileundomanager.cpp:136
+msgid "File"
+msgstr "Fails"
+
+#: core/job.cpp:134
+msgctxt "@title job"
+msgid "Examining"
+msgstr "Analizē"
+
+#: core/job.cpp:140
+msgctxt "@title job"
+msgid "Transferring"
+msgstr "Pārsūta"
+
+#: core/job.cpp:146
+msgctxt "@title job"
+msgid "Mounting"
+msgstr "Montēšana"
+
+#: core/job.cpp:147
+msgid "Device"
+msgstr "Ierīce"
+
+#: core/job.cpp:148 core/job.cpp:154
+msgid "Mountpoint"
+msgstr "Montēšanas punkts"
+
+#: core/job.cpp:153
+msgctxt "@title job"
+msgid "Unmounting"
+msgstr "Nomontēšana"
+
+#: core/job_error.cpp:38
+#, kde-format
+msgid "Could not read %1."
+msgstr "Neizdevās nolasīt %1."
+
+#: core/job_error.cpp:41
+#, kde-format
+msgid "Could not write to %1."
+msgstr "Neizdevās ierakstīt %1."
+
+#: core/job_error.cpp:44
+#, kde-format
+msgid "Could not start process %1."
+msgstr "Neizdevās palaist procesu %1."
+
+#: core/job_error.cpp:47
+#, kde-format
+msgid ""
+"Internal Error\n"
+"Please send a full bug report at http://bugs.kde.org\n"
+"%1"
+msgstr ""
+"Iekšēja kļūda\n"
+"Lūdzu, nosūtiet pilnu kļūdas ziņojumu uz http://bugs.kde.org\n"
+"%1"
+
+#: core/job_error.cpp:50
+#, kde-format
+msgid "Malformed URL %1."
+msgstr "Kļūdains URL %1."
+
+#: core/job_error.cpp:53
+#, kde-format
+msgid "The protocol %1 is not supported."
+msgstr "Protokols %1 netiek uzturēts."
+
+#: core/job_error.cpp:56
+#, kde-format
+msgid "The protocol %1 is only a filter protocol."
+msgstr "Protokols %1 ir tikai filtra protokols."
+
+#: core/job_error.cpp:63
+#, kde-format
+msgid "%1 is a folder, but a file was expected."
+msgstr "%1 ir mape, bet prasīts bija fails."
+
+#: core/job_error.cpp:66
+#, kde-format
+msgid "%1 is a file, but a folder was expected."
+msgstr "%1 ir fails, bet prasīta bija mape."
+
+#: core/job_error.cpp:69
+#, kde-format
+msgid "The file or folder %1 does not exist."
+msgstr "Fails vai mape %1 neeksistē."
+
+#: core/job_error.cpp:72
+#, kde-format
+msgid "A file named %1 already exists."
+msgstr "Fails %1 jau eksistē."
+
+#: core/job_error.cpp:75
+#, kde-format
+msgid "A folder named %1 already exists."
+msgstr "Mape ar nosaukumu %1 jau eksistē."
+
+#: core/job_error.cpp:78
+msgid "No hostname specified."
+msgstr "Nav norādīts resursdators."
+
+#: core/job_error.cpp:78
+#, kde-format
+msgid "Unknown host %1"
+msgstr "Nezināms resursdators %1"
+
+#: core/job_error.cpp:81
+#, kde-format
+msgid "Access denied to %1."
+msgstr "Pieeja %1 aizliegta."
+
+#: core/job_error.cpp:84
+#, kde-format
+msgid ""
+"Access denied.\n"
+"Could not write to %1."
+msgstr ""
+"Pieeja aizliegta.\n"
+"Nevar rakstīt uz %1."
+
+#: core/job_error.cpp:87
+#, kde-format
+msgid "Could not enter folder %1."
+msgstr "Nevar ieiet mapē %1."
+
+#: core/job_error.cpp:90
+#, kde-format
+msgid "The protocol %1 does not implement a folder service."
+msgstr "Protokols %1 nesatur mapju servisu."
+
+#: core/job_error.cpp:93
+#, kde-format
+msgid "Found a cyclic link in %1."
+msgstr "Atrasta cikliska saite iekš %1."
+
+#: core/job_error.cpp:99
+#, kde-format
+msgid "Found a cyclic link while copying %1."
+msgstr "Kopējot %1 tika atrasta cikliska saite."
+
+#: core/job_error.cpp:102
+#, kde-format
+msgid "Could not create socket for accessing %1."
+msgstr "Nevar izveidot ligzdu, lai piekļūtu %1."
+
+#: core/job_error.cpp:105
+#, kde-format
+msgid "Could not connect to host %1."
+msgstr "Nevar pieslēgties resursdatoram %1."
+
+#: core/job_error.cpp:108
+#, kde-format
+msgid "Connection to host %1 is broken."
+msgstr "Savienojums ar resursdatoru %1 ir bojāts."
+
+#: core/job_error.cpp:111
+#, kde-format
+msgid "The protocol %1 is not a filter protocol."
+msgstr "Protokols %1 nav filtra protokols."
+
+#: core/job_error.cpp:114
+#, kde-format
+msgid ""
+"Could not mount device.\n"
+"The reported error was:\n"
+"%1"
+msgstr ""
+"Nevar piemontēt ierīci.\n"
+"Ziņotā kļūda bija:\n"
+"%1"
+
+#: core/job_error.cpp:117
+#, kde-format
+msgid ""
+"Could not unmount device.\n"
+"The reported error was:\n"
+"%1"
+msgstr ""
+"Nevar nomontēt ierīci.\n"
+"Ziņotā kļūda bija:\n"
+"%1"
+
+#: core/job_error.cpp:120
+#, kde-format
+msgid "Could not read file %1."
+msgstr "Nevar nolasīt failu %1."
+
+#: core/job_error.cpp:123
+#, kde-format
+msgid "Could not write to file %1."
+msgstr "Nevar ierakstīt failā %1."
+
+#: core/job_error.cpp:126
+#, kde-format
+msgid "Could not bind %1."
+msgstr "Nevar sasaistīt %1."
+
+#: core/job_error.cpp:129
+#, kde-format
+msgid "Could not listen %1."
+msgstr "Nevar klausīties %1."
+
+#: core/job_error.cpp:132
+#, kde-format
+msgid "Could not accept %1."
+msgstr "Nevar pieņemt %1."
+
+#: core/job_error.cpp:138
+#, kde-format
+msgid "Could not access %1."
+msgstr "Nevar piekļūt %1."
+
+#: core/job_error.cpp:141
+#, kde-format
+msgid "Could not terminate listing %1."
+msgstr "Nevar pārtraukt uzskaitījumu %1."
+
+#: core/job_error.cpp:144
+#, kde-format
+msgid "Could not make folder %1."
+msgstr "Nevar izveidot mapi %1."
+
+#: core/job_error.cpp:147
+#, kde-format
+msgid "Could not remove folder %1."
+msgstr "Nevar aizvākt mapi %1."
+
+#: core/job_error.cpp:150
+#, kde-format
+msgid "Could not resume file %1."
+msgstr "Nevar atsākt failu %1."
+
+#: core/job_error.cpp:153
+#, kde-format
+msgid "Could not rename file %1."
+msgstr "Nevar pārdēvēt failu %1."
+
+#: core/job_error.cpp:156
+#, kde-format
+msgid "Could not change permissions for %1."
+msgstr "Nevar izmainīt atļaujas priekš %1."
+
+#: core/job_error.cpp:159
+#, kde-format
+msgid "Could not change ownership for %1."
+msgstr "Nevar izmainīt īpašnieku priekš %1."
+
+#: core/job_error.cpp:162
+#, kde-format
+msgid "Could not delete file %1."
+msgstr "Nevar dzēst failu %1."
+
+#: core/job_error.cpp:165
+#, kde-format
+msgid "The process for the %1 protocol died unexpectedly."
+msgstr "Process %1 protokolam miris neparedzēti."
+
+#: core/job_error.cpp:168
+#, kde-format
+msgid ""
+"Error. Out of memory.\n"
+"%1"
+msgstr ""
+"Kļūda. Trūkst atmiņas.\n"
+"%1"
+
+#: core/job_error.cpp:171
+#, kde-format
+msgid ""
+"Unknown proxy host\n"
+"%1"
+msgstr ""
+"Nezināms starpniekdators\n"
+"%1"
+
+#: core/job_error.cpp:174
+#, kde-format
+msgid "Authorization failed, %1 authentication not supported"
+msgstr "Autorizācijas kļūda, %1 autentificēšana nav atbalstīta"
+
+#: core/job_error.cpp:177
+#, kde-format
+msgid ""
+"User canceled action\n"
+"%1"
+msgstr ""
+"Lietotājs atsaucis darbību\n"
+"%1"
+
+#: core/job_error.cpp:180
+#, kde-format
+msgid ""
+"Internal error in server\n"
+"%1"
+msgstr ""
+"Iekšēja kļūda serverī\n"
+"%1"
+
+#: core/job_error.cpp:183
+#, kde-format
+msgid ""
+"Timeout on server\n"
+"%1"
+msgstr ""
+"Servera gaidīšanas laiks beidzies\n"
+"%1"
+
+#: core/job_error.cpp:186
+#, kde-format
+msgid ""
+"Unknown error\n"
+"%1"
+msgstr ""
+"Nezināma kļūda\n"
+"%1"
+
+#: core/job_error.cpp:189
+#, kde-format
+msgid ""
+"Unknown interrupt\n"
+"%1"
+msgstr ""
+"Nezināms pārtraukums\n"
+"%1"
+
+#: core/job_error.cpp:200
+#, kde-format
+msgid ""
+"Could not delete original file %1.\n"
+"Please check permissions."
+msgstr ""
+"Nevar dzēst oriģinālo failu %1.\n"
+"Lūdzu, pārbaudiet atļaujas."
+
+#: core/job_error.cpp:203
+#, kde-format
+msgid ""
+"Could not delete partial file %1.\n"
+"Please check permissions."
+msgstr ""
+"Nevar dzēst daļēju failu %1.\n"
+"Lūdzu, pārbaudiet atļaujas."
+
+#: core/job_error.cpp:206
+#, kde-format
+msgid ""
+"Could not rename original file %1.\n"
+"Please check permissions."
+msgstr ""
+"Nevar pārdēvēt oriģinālo failu %1.\n"
+"Lūdzu, pārbaudiet atļaujas."
+
+#: core/job_error.cpp:209
+#, kde-format
+msgid ""
+"Could not rename partial file %1.\n"
+"Please check permissions."
+msgstr ""
+"Nevar pārdēvēt daļēju failu %1.\n"
+"Lūdzu, pārbaudiet atļaujas."
+
+#: core/job_error.cpp:212
+#, kde-format
+msgid ""
+"Could not create symlink %1.\n"
+"Please check permissions."
+msgstr ""
+"Nevar izveidot simbolsaiti %1.\n"
+"Lūdzu, pārbaudiet atļaujas."
+
+#: core/job_error.cpp:218
+#, kde-format
+msgid ""
+"Could not write file %1.\n"
+"Disk full."
+msgstr ""
+"Nevar ierakstīt failu %1.\n"
+"Disks ir pilns."
+
+#: core/job_error.cpp:221
+#, kde-format
+msgid ""
+"The source and destination are the same file.\n"
+"%1"
+msgstr ""
+"Avots un mērķis ir tas pats fails.\n"
+"%1"
+
+#: core/job_error.cpp:227
+#, kde-format
+msgid "%1 is required by the server, but is not available."
+msgstr "Serverim pieprasa %1, bet tas nav pieejams."
+
+#: core/job_error.cpp:230
+msgid "Access to restricted port in POST denied."
+msgstr "Aizliegta POST pieeja ierobežotam portam."
+
+#: core/job_error.cpp:233
+msgid ""
+"The required content size information was not provided for a POST operation."
+msgstr "POST darbībai nepieciešamā izmēra informācija nebija norādīta."
+
+#: core/job_error.cpp:236
+#, kde-format
+msgid ""
+"Unknown error code %1\n"
+"%2\n"
+"Please send a full bug report at http://bugs.kde.org."
+msgstr ""
+"Nezināms kļūdas kods %1\n"
+"%2\n"
+"Lūdzu, nosūtiet pilnu kļūdas ziņojumu uz http://bugs.kde.org."
+
+#: core/job_error.cpp:261
+msgctxt "@info url"
+msgid "(unknown)"
+msgstr "(nezināms)"
+
+#: core/job_error.cpp:268
+#, kde-format
+msgctxt "@info %1 error name, %2 description"
+msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
+msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
+
+#: core/job_error.cpp:272
+msgid "<b>Technical reason</b>: "
+msgstr "<b>Tehniskais iemesls</b>: "
+
+#: core/job_error.cpp:274
+msgid "<b>Details of the request</b>:"
+msgstr "<b>Pieprasījuma detaļas</b>:"
+
+#: core/job_error.cpp:275
+#, kde-format
+msgid "<li>URL: %1</li>"
+msgstr "<li>URL: %1</li>"
+
+#: core/job_error.cpp:277
+#, kde-format
+msgid "<li>Protocol: %1</li>"
+msgstr "<li>Protokols: %1</li>"
+
+#: core/job_error.cpp:279
+#, kde-format
+msgid "<li>Date and time: %1</li>"
+msgstr "<li>Datums un laiks: %1</li>"
+
+#: core/job_error.cpp:280
+#, kde-format
+msgid "<li>Additional information: %1</li>"
+msgstr "<li>Papildu informācija: %1</li>"
+
+#: core/job_error.cpp:283
+msgid "<b>Possible causes</b>:"
+msgstr "<b>Iespējamie iemesli</b>:"
+
+#: core/job_error.cpp:288
+msgid "<b>Possible solutions</b>:"
+msgstr "<b>Iespējamie risinājumi</b>:"
+
+#: core/job_error.cpp:322
+msgctxt "@info protocol"
+msgid "(unknown)"
+msgstr "(nezināms)"
+
+#: core/job_error.cpp:331
+msgid ""
+"Contact your appropriate computer support system, whether the system "
+"administrator, or technical support group for further assistance."
+msgstr ""
+"Papildu palīdzībai griezieties pie kādas datoru atbalsta sistēmas - sistēmas "
+"administratora vai tehniskā atbalsta grupas."
+
+#: core/job_error.cpp:334
+msgid "Contact the administrator of the server for further assistance."
+msgstr "Papildu palīdzībai sazinieties ar severa administratoru."
+
+#: core/job_error.cpp:337
+msgid "Check your access permissions on this resource."
+msgstr "Pārbaudiet jūsu pieejas atļaujas šim resursam."
+
+#: core/job_error.cpp:338
+msgid ""
+"Your access permissions may be inadequate to perform the requested operation "
+"on this resource."
+msgstr ""
+"Jūsu pieejas atļaujas var būt nepietiekamas, lai šajā resursā veiktu prasīto "
+"operāciju."
+
+#: core/job_error.cpp:340
+msgid ""
+"The file may be in use (and thus locked) by another user or application."
+msgstr ""
+"Failu pašlaik izmanto (tādējādi tas ir slēgts) cits lietotājs vai programma."
+
+#: core/job_error.cpp:342
+msgid ""
+"Check to make sure that no other application or user is using the file or "
+"has locked the file."
+msgstr ""
+"Pārliecinieties, ka cita programma vai lietotājs neizmanto failu un nav "
+"slēdzis to."
+
+#: core/job_error.cpp:344
+msgid "Although unlikely, a hardware error may have occurred."
+msgstr "Lai gan maz ticams, bet tā var būt aparatūras kļūda."
+
+#: core/job_error.cpp:346
+msgid "You may have encountered a bug in the program."
+msgstr "Jūs, iespējams, esat atradis kļūdu programmā."
+
+#: core/job_error.cpp:347
+msgid ""
+"This is most likely to be caused by a bug in the program. Please consider "
+"submitting a full bug report as detailed below."
+msgstr ""
+"To, visticamāk, izsauc kļūda programmā. Lūdzu, apsveriet pilna kļūdas "
+"ziņojuma nosūtīšanu, kā aprakstīts zemāk."
+
+#: core/job_error.cpp:349
+msgid ""
+"Update your software to the latest version. Your distribution should provide "
+"tools to update your software."
+msgstr ""
+"Atjauniniet jūsu programmatūru uz jaunāko versiju. Jūsu distribūcijā jābūt "
+"rīkiem programmatūras atjaunināšanai."
+
+#: core/job_error.cpp:351
+msgid ""
+"When all else fails, please consider helping the KDE team or the third party "
+"maintainer of this software by submitting a high quality bug report. If the "
+"software is provided by a third party, please contact them directly. "
+"Otherwise, first look to see if the same bug has been submitted by someone "
+"else by searching at the <a href=\"http://bugs.kde.org/\">KDE bug reporting "
+"website</a>. If not, take note of the details given above, and include them "
+"in your bug report, along with as many other details as you think might help."
+msgstr ""
+"Kad viss pārējais atkrīt, lūdzu, izvēlieties palīdzēt KDE komandai vai trešo "
+"pušu programmu uzturētājam, nosūtot kvalitatīvu kļūdas ziņojumu. Ja "
+"programmatūru ir sniegusi trešā puse, lūdzu, kontaktējieties ar to. Pretējā "
+"gadījumā, vispirms apskatiet, vai kāds jau nav ziņojis par šo kļūdu, "
+"meklējot <a href=\"http://bugs.kde.org/\">KDE kļūdu ziņošanas tīmekļa "
+"vietnē</a>. Ja nav, pierakstiet augstāk norādītās detaļas un iekļaujiet tās "
+"jūsu kļūdas ziņojumā kopā ar citu informāciju, kura, jūsuprāt, var palīdzēt."
+
+#: core/job_error.cpp:359
+msgid "There may have been a problem with your network connection."
+msgstr "Šeit, iespējams, ir problēma ar jūsu tīkla savienojumu."
+
+#: core/job_error.cpp:362
+msgid ""
+"There may have been a problem with your network configuration. If you have "
+"been accessing the Internet with no problems recently, this is unlikely."
+msgstr ""
+"Varētu būt problēma ar jūsu tīkla konfigurāciju. Ja jūs nesen bez problēmām "
+"piekļuvāt Internetam, tad tas ir maz ticami."
+
+#: core/job_error.cpp:365
+msgid ""
+"There may have been a problem at some point along the network path between "
+"the server and this computer."
+msgstr ""
+"Varētu būt problēma kādā tīkla savienojuma punktā starp serveri un šo datoru."
+
+#: core/job_error.cpp:367
+msgid "Try again, either now or at a later time."
+msgstr "Mēģiniet vēlreiz, vai nu tagad vai vēlāk."
+
+#: core/job_error.cpp:368
+msgid "A protocol error or incompatibility may have occurred."
+msgstr "Varētu būt gadījusies protokola kļūda vai nesavietojamība."
+
+#: core/job_error.cpp:369
+msgid "Ensure that the resource exists, and try again."
+msgstr "Pārliecinieties, ka resurss eksistē, un mēģiniet vēlreiz."
+
+#: core/job_error.cpp:370
+msgid "The specified resource may not exist."
+msgstr "Norādītais resurss var neeksistēt."
+
+#: core/job_error.cpp:371
+msgid "You may have incorrectly typed the location."
+msgstr "Jūs, iespējams, esat nekorekti ievadījis adresi."
+
+#: core/job_error.cpp:372
+msgid "Double-check that you have entered the correct location and try again."
+msgstr "Kārtīgi pārbaudiet, ka ievadījāt pareizo adresi un mēģiniet vēlreiz."
+
+#: core/job_error.cpp:374
+msgid "Check your network connection status."
+msgstr "Pārbaudiet tīkla savienojuma statusu."
+
+#: core/job_error.cpp:378
+msgid "Cannot Open Resource For Reading"
+msgstr "Nevar atvērt resursu lasīšanai"
+
+#: core/job_error.cpp:379
+#, kde-format
+msgid ""
+"This means that the contents of the requested file or folder <strong>%1</"
+"strong> could not be retrieved, as read access could not be obtained."
+msgstr ""
+"Tas nozīmē, ka prasītā faila vai mapes <strong>%1</strong> saturu nevarēja "
+"nolasīt, jo nevarēja iegūt lasīšanas pieeju."
+
+#: core/job_error.cpp:382
+msgid "You may not have permissions to read the file or open the folder."
+msgstr "Jums nav atļauju lasīt failu vai atvērt mapi."
+
+#: core/job_error.cpp:388
+msgid "Cannot Open Resource For Writing"
+msgstr "Nevar atvērt resursu rakstīšanai"
+
+#: core/job_error.cpp:389
+#, kde-format
+msgid ""
+"This means that the file, <strong>%1</strong>, could not be written to as "
+"requested, because access with permission to write could not be obtained."
+msgstr ""
+"Tas nozīmē, ka failā <strong>%1</strong> nevar ierakstīt kā prasīts, jo "
+"nevarēja iegūt pieeju ar rakstīšanas atļaujām."
+
+#: core/job_error.cpp:397
+#, kde-format
+msgid "Cannot Initiate the %1 Protocol"
+msgstr "Nevar inicializēt %1 protokolu"
+
+#: core/job_error.cpp:398
+msgid "Unable to Launch Process"
+msgstr "Nevar palaist procesu"
+
+#: core/job_error.cpp:399
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol could not be started. This is usually due to technical "
+"reasons."
+msgstr ""
+"Programmu jūsu datorā, kura nodrošina pieeju <strong>%1</strong> protokolam, "
+"neizdodas palaist. Tas parasti notiek tehnisku iemeslu dēļ."
+
+#: core/job_error.cpp:402
+msgid ""
+"The program which provides compatibility with this protocol may not have "
+"been updated with your last update of KDE. This can cause the program to be "
+"incompatible with the current version and thus not start."
+msgstr ""
+"Programma, kura sniedz savietojamību ar šo protokolu, varbūt nav atjaunināta "
+"kopā ar jūsu pēdējo KDE atjaunināšanu. Tas var izsaukt programmas "
+"nesavietojamību ar pašreizējo versiju un arī neiespējamu palaišanu."
+
+#: core/job_error.cpp:410
+msgid "Internal Error"
+msgstr "Iekšēja kļūda"
+
+#: core/job_error.cpp:411
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an internal error."
+msgstr ""
+"Programma jūsu datorā, kura sniedz pieeju <strong>%1</strong> protokolam, "
+"ziņo par iekšēju kļūdu."
+
+#: core/job_error.cpp:419
+msgid "Improperly Formatted URL"
+msgstr "Nekorekti formatēts URL"
+
+#: core/job_error.cpp:420
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered was not properly formatted. The format "
+"of a URL is generally as follows:<blockquote><strong>protocol://user:"
+"password@www.example.org:port/folder/filename.extension?query=value</"
+"strong></blockquote>"
+msgstr ""
+"Jūsu ievadītais <strong>U</strong>niform <strong>R</strong>esource "
+"<strong>L</strong>ocator (URL) nav korekti formatēts. URL formāts parasti ir "
+"sekojošs:<blockquote><strong>protokols://lietotājs:parole@www.example.org:"
+"ports/mape/failavārds.paplašinājums?pieprasījums=vērtība</strong></"
+"blockquote>"
+
+#: core/job_error.cpp:429
+#, kde-format
+msgid "Unsupported Protocol %1"
+msgstr "Neatbalstīts protokols %1"
+
+#: core/job_error.cpp:430
+#, kde-format
+msgid ""
+"The protocol <strong>%1</strong> is not supported by the KDE programs "
+"currently installed on this computer."
+msgstr ""
+"Pašlaik datorā instalētās KDE programmas nesatur atbalstu <strong>%1</"
+"strong> protokolam."
+
+#: core/job_error.cpp:433
+msgid "The requested protocol may not be supported."
+msgstr "Prasītais protokols var būt neatbalstīts."
+
+#: core/job_error.cpp:434
+#, kde-format
+msgid ""
+"The versions of the %1 protocol supported by this computer and the server "
+"may be incompatible."
+msgstr ""
+"Protokola %1 versijas, kuras atbalsta šis dators un serveris, ir "
+"nesavietojamas."
+
+#: core/job_error.cpp:436
+msgid ""
+"You may perform a search on the Internet for a KDE program (called a "
+"kioslave or ioslave) which supports this protocol. Places to search include "
+"<a href=\"http://kde-apps.org/\">http://kde-apps.org/</a> and <a href="
+"\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+msgstr ""
+"Jūs varat meklēt Internetā KDE programmu (sauktu kioslave vai ioslave), kas "
+"atbalsta šo protokolu. Meklējiet <a href=\"http://apps.kde.com/\">http://"
+"apps.kde.com/</a> un <a href=\"http://freshmeat.net/\">http://freshmeat.net/"
+"</a>."
+
+#: core/job_error.cpp:445
+msgid "URL Does Not Refer to a Resource."
+msgstr "URL nenorāda uz resursu."
+
+#: core/job_error.cpp:446
+msgid "Protocol is a Filter Protocol"
+msgstr "Protokols ir filtra protokols"
+
+#: core/job_error.cpp:447
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered did not refer to a specific resource."
+msgstr ""
+"<strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator "
+"(URL), ko ievadījāt, nenorāda uz konkrētu resursu."
+
+#: core/job_error.cpp:450
+msgid ""
+"KDE is able to communicate through a protocol within a protocol; the "
+"protocol specified is only for use in such situations, however this is not "
+"one of these situations. This is a rare event, and is likely to indicate a "
+"programming error."
+msgstr ""
+"KDE var sazināties caur protokolu protokolā; norādītais protokols ir "
+"izmantojams tikai tādā situācijā, bet šī nav tā tāda. Tas ir rets notikums, "
+"un, visticamāk, norāda uz programmēšanas kļūdu."
+
+#: core/job_error.cpp:458
+#, kde-format
+msgid "Unsupported Action: %1"
+msgstr "Neatbalstīta darbība: %1"
+
+#: core/job_error.cpp:459
+#, kde-format
+msgid ""
+"The requested action is not supported by the KDE program which is "
+"implementing the <strong>%1</strong> protocol."
+msgstr ""
+"Prasīto darbību neatbalsta KDE programma, kura realizē <strong>%1</strong> "
+"protokolu."
+
+#: core/job_error.cpp:462
+msgid ""
+"This error is very much dependent on the KDE program. The additional "
+"information should give you more information than is available to the KDE "
+"input/output architecture."
+msgstr ""
+"Šī kļūda ir ļoti atkarīga no KDE programmas. Papildu informācijai vajadzētu "
+"jums sniegt vairāk informācijas, nekā pieejams KDE ievades/izvades "
+"arhitektūrai."
+
+#: core/job_error.cpp:465
+msgid "Attempt to find another way to accomplish the same outcome."
+msgstr "Mēģiniet atrast citu ceļu, kā iegūt vēlamo rezultātu."
+
+#: core/job_error.cpp:470
+msgid "File Expected"
+msgstr "Tika gaidīts fails"
+
+#: core/job_error.cpp:471
+#, kde-format
+msgid ""
+"The request expected a file, however the folder <strong>%1</strong> was "
+"found instead."
+msgstr ""
+"Pieprasījums gaidīja failu, bet tā vietā tika atrasta mape <strong>%1</"
+"strong>."
+
+#: core/job_error.cpp:473
+msgid "This may be an error on the server side."
+msgstr "Šī var būt kļūda servera pusē."
+
+#: core/job_error.cpp:478
+msgid "Folder Expected"
+msgstr "Tika gaidīta mape"
+
+#: core/job_error.cpp:479
+#, kde-format
+msgid ""
+"The request expected a folder, however the file <strong>%1</strong> was "
+"found instead."
+msgstr ""
+"Pieprasijums gaidīja mapi, bet tā vietā tika atrasts fails <strong>%1</"
+"strong>."
+
+#: core/job_error.cpp:486
+msgid "File or Folder Does Not Exist"
+msgstr "Fails vai mape neeksistē"
+
+#: core/job_error.cpp:487
+#, kde-format
+msgid "The specified file or folder <strong>%1</strong> does not exist."
+msgstr "Norādītais fails vai mape <strong>%1</strong> neeksistē."
+
+#: core/job_error.cpp:495
+msgid ""
+"The requested file could not be created because a file with the same name "
+"already exists."
+msgstr ""
+"Prasīto failu nevar izveidot, jo fails ar tādu pašu nosaukumu jau eksistē."
+
+#: core/job_error.cpp:497
+msgid "Try moving the current file out of the way first, and then try again."
+msgstr ""
+"Mēģiniet vispirms pašreizējo failu noņemt no ceļa, un tad mēģiniet vēlreiz."
+
+#: core/job_error.cpp:499
+msgid "Delete the current file and try again."
+msgstr "Izdzēsiet pašreizējo failu un mēģiniet vēlreiz."
+
+#: core/job_error.cpp:500
+msgid "Choose an alternate filename for the new file."
+msgstr "Izvēlieties citu faila nosaukumu jaunajam failam."
+
+#: core/job_error.cpp:505
+msgid ""
+"The requested folder could not be created because a folder with the same "
+"name already exists."
+msgstr ""
+"Prasīto mapi nevar izveidot, jo mape ar tādu pašu nosaukumu jau eksistē."
+
+#: core/job_error.cpp:507
+msgid "Try moving the current folder out of the way first, and then try again."
+msgstr ""
+"Mēginiet vispirms pašreizējo mapi noņemt no ceļa, un tad mēģiniet vēlreiz."
+
+#: core/job_error.cpp:509
+msgid "Delete the current folder and try again."
+msgstr "Izdzēsiet pašreizējo mapi un mēģiniet vēlreiz."
+
+#: core/job_error.cpp:510
+msgid "Choose an alternate name for the new folder."
+msgstr "Izvēlieties citu mapes nosaukumu jaunajai mapei."
+
+#: core/job_error.cpp:514
+msgid "Unknown Host"
+msgstr "Nezināms resursdators"
+
+#: core/job_error.cpp:515
+#, kde-format
+msgid ""
+"An unknown host error indicates that the server with the requested name, "
+"<strong>%1</strong>, could not be located on the Internet."
+msgstr ""
+"Nezināma resursdatora kļūda rāda, ka serveri ar prasīto nosaukumu, <strong>"
+"%1</strong>, Internetā nevar atrast."
+
+#: core/job_error.cpp:518
+#, kde-format
+msgid ""
+"The name that you typed, %1, may not exist: it may be incorrectly typed."
+msgstr ""
+"Jūsu uzrakstītais nosaukums, %1, var neeksistēt: tas varētu būt nekorekti "
+"uzrakstīts."
+
+#: core/job_error.cpp:525
+msgid "Access Denied"
+msgstr "Pieeja liegta"
+
+#: core/job_error.cpp:526
+#, kde-format
+msgid "Access was denied to the specified resource, <strong>%1</strong>."
+msgstr "Tika liegta pieeja norādītajam resursam, <strong>%1</strong>."
+
+#: core/job_error.cpp:528 core/job_error.cpp:754
+msgid "You may have supplied incorrect authentication details or none at all."
+msgstr ""
+"Jūs varbūt esat sniedzis nekorektas autentificēšanas detaļas, vai vispār "
+"nekādas."
+
+#: core/job_error.cpp:530 core/job_error.cpp:756
+msgid "Your account may not have permission to access the specified resource."
+msgstr "Jūsu kontam varbūt nav pieejas atļauju norādītajam resursam."
+
+#: core/job_error.cpp:532 core/job_error.cpp:758 core/job_error.cpp:770
+msgid ""
+"Retry the request and ensure your authentication details are entered "
+"correctly."
+msgstr ""
+"Atkārtojiet pieprasījumu un pārliecinieties, ka jūsu autentificēšanas "
+"detaļas ir pareizi ievadītas."
+
+#: core/job_error.cpp:540
+msgid "Write Access Denied"
+msgstr "Rakstīšanas pieeja aizliegta"
+
+#: core/job_error.cpp:541
+#, kde-format
+msgid ""
+"This means that an attempt to write to the file <strong>%1</strong> was "
+"rejected."
+msgstr ""
+"Tas nozīmē, ka mēģinājums rakstīt failā <strong>%1</strong> tika noraidīts."
+
+#: core/job_error.cpp:548
+msgid "Unable to Enter Folder"
+msgstr "Nevar ieiet mapē"
+
+#: core/job_error.cpp:549
+#, kde-format
+msgid ""
+"This means that an attempt to enter (in other words, to open) the requested "
+"folder <strong>%1</strong> was rejected."
+msgstr ""
+"Tas nozīmē, ka mēģinājums ieiet (citiem vārdiem - atvērt) prasītajā mapē "
+"<strong>%1</strong> tika noraidīts."
+
+#: core/job_error.cpp:557
+msgid "Folder Listing Unavailable"
+msgstr "Mapes saturs nav pieejams"
+
+#: core/job_error.cpp:558
+#, kde-format
+msgid "Protocol %1 is not a Filesystem"
+msgstr "Protokols %1 nav failu sistēma"
+
+#: core/job_error.cpp:559
+msgid ""
+"This means that a request was made which requires determining the contents "
+"of the folder, and the KDE program supporting this protocol is unable to do "
+"so."
+msgstr ""
+"Tas nozīmē, ka tika veikts pieprasījums mapes satura noteikšanai un KDE "
+"programma, kas uztur šo protokolu, nevar to izpildīt."
+
+#: core/job_error.cpp:567
+msgid "Cyclic Link Detected"
+msgstr "Atrasta cikliska saite"
+
+#: core/job_error.cpp:568
+msgid ""
+"UNIX environments are commonly able to link a file or folder to a separate "
+"name and/or location. KDE detected a link or series of links that results in "
+"an infinite loop - i.e. the file was (perhaps in a roundabout way) linked to "
+"itself."
+msgstr ""
+"Unix vidēs failu vai mapi var piesaistīt uz citu nosaukumu un/vai vietu. KDE "
+"atrada saiti vai saišu sērijas, kuru rezultāts ir mūžīgā cilpa - t.i., fails "
+"bija (iespējams, pa apkārtceļu) piesaistīts pats uz sevi."
+
+#: core/job_error.cpp:572 core/job_error.cpp:594
+msgid ""
+"Delete one part of the loop in order that it does not cause an infinite "
+"loop, and try again."
+msgstr ""
+"Izdzēsiet vienu cilpas daļu, lai tā neveidotu mūžīgo cilpu, un mēģiniet "
+"vēlreiz."
+
+#: core/job_error.cpp:581
+msgid "Request Aborted By User"
+msgstr "Pieprasījumu pārtrauca lietotājs"
+
+#: core/job_error.cpp:582 core/job_error.cpp:897
+msgid "The request was not completed because it was aborted."
+msgstr "Pieprasījums nav pabeigts, jo tika pārtraukts."
+
+#: core/job_error.cpp:584 core/job_error.cpp:788 core/job_error.cpp:899
+msgid "Retry the request."
+msgstr "Atkārtot pieprasījumu."
+
+#: core/job_error.cpp:588
+msgid "Cyclic Link Detected During Copy"
+msgstr "Kopēšanas laikā atklāta cikliska saite"
+
+#: core/job_error.cpp:589
+msgid ""
+"UNIX environments are commonly able to link a file or folder to a separate "
+"name and/or location. During the requested copy operation, KDE detected a "
+"link or series of links that results in an infinite loop - i.e. the file was "
+"(perhaps in a roundabout way) linked to itself."
+msgstr ""
+"Unix vidēs failu vai mapi var piesaistīt uz citu nosaukumu un/vai vietu. KDE "
+"pieprasītās kopēšanas laikā atklāja saiti vai saišu sērijas, kuru rezultāts "
+"ir mūžīgā cilpa - t.i., fails bija (iespējams, pa apkārtceļu) piesaistīts "
+"pats uz sevi."
+
+#: core/job_error.cpp:599
+msgid "Could Not Create Network Connection"
+msgstr "Nevar izveidot tīkla savienojumu"
+
+#: core/job_error.cpp:600
+msgid "Could Not Create Socket"
+msgstr "Nevar izveidot ligzdu"
+
+#: core/job_error.cpp:601
+msgid ""
+"This is a fairly technical error in which a required device for network "
+"communications (a socket) could not be created."
+msgstr ""
+"Tā ir visai tehniska kļūda, kurā nevar izveidot tīkla savienojumam "
+"nepieciešamo ierīci (ligzdu)."
+
+#: core/job_error.cpp:603 core/job_error.cpp:724 core/job_error.cpp:735
+#: core/job_error.cpp:744
+msgid ""
+"The network connection may be incorrectly configured, or the network "
+"interface may not be enabled."
+msgstr ""
+"Tīkla savienojums varētu būt nepareizi konfigurēts, vai arī tīkla ierīce nav "
+"ieslēgta."
+
+#: core/job_error.cpp:609
+msgid "Connection to Server Refused"
+msgstr "Savienojums ar serveri atteikts"
+
+#: core/job_error.cpp:610
+#, kde-format
+msgid ""
+"The server <strong>%1</strong> refused to allow this computer to make a "
+"connection."
+msgstr ""
+"Serveris <strong>%1</strong> atteica savienojuma izveidošanu ar šo datoru."
+
+#: core/job_error.cpp:612
+msgid ""
+"The server, while currently connected to the Internet, may not be configured "
+"to allow requests."
+msgstr ""
+"Serveris, lai gan pieslēgts Internetam, varētu nebūt konfigurēts "
+"pieprasījumu apstrādei."
+
+#: core/job_error.cpp:614
+#, kde-format
+msgid ""
+"The server, while currently connected to the Internet, may not be running "
+"the requested service (%1)."
+msgstr ""
+"Serveris, lai gan pieslēgts Internetam, varētu nenodrošināt prasīto servisu "
+"(%1)."
+
+#: core/job_error.cpp:616
+msgid ""
+"A network firewall (a device which restricts Internet requests), either "
+"protecting your network or the network of the server, may have intervened, "
+"preventing this request."
+msgstr ""
+"Tīkla ugunsmūris (ierīce, kas ierobežo Interneta pieprasījumus), aizsargājot "
+"jūsu tīklu vai servera tīklu, varētu būt iejaucies, aizliedzot šo "
+"pierasījumu."
+
+#: core/job_error.cpp:623
+msgid "Connection to Server Closed Unexpectedly"
+msgstr "Savienojums ar serveri tika neparedzēti aizvērts"
+
+#: core/job_error.cpp:624
+#, kde-format
+msgid ""
+"Although a connection was established to <strong>%1</strong>, the connection "
+"was closed at an unexpected point in the communication."
+msgstr ""
+"Lai arī savienojums ar <strong>%1</strong> bija izveidots, savienojums tika "
+"aizvērts neparedzētā veidā."
+
+#: core/job_error.cpp:627
+msgid ""
+"A protocol error may have occurred, causing the server to close the "
+"connection as a response to the error."
+msgstr ""
+"Varētu būt radusies protokola kļūda, liekot serverim slēgt savienojumu kā "
+"atbildi uz kļūdu."
+
+#: core/job_error.cpp:633
+msgid "URL Resource Invalid"
+msgstr "Nederīgs URL resurss"
+
+#: core/job_error.cpp:634
+#, kde-format
+msgid "Protocol %1 is not a Filter Protocol"
+msgstr "Protokols %1 nav filtra protokols"
+
+#: core/job_error.cpp:635
+#, kde-format
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered did not refer to a valid mechanism of "
+"accessing the specific resource, <strong>%1%2</strong>."
+msgstr ""
+"<strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator "
+"(URL), ko jūs ievadījāt, neapraksta derīgu pieejas mehānismu norādītajam "
+"resursam, <strong>%1%2</strong>."
+
+#: core/job_error.cpp:640
+msgid ""
+"KDE is able to communicate through a protocol within a protocol. This "
+"request specified a protocol be used as such, however this protocol is not "
+"capable of such an action. This is a rare event, and is likely to indicate a "
+"programming error."
+msgstr ""
+"KDE var sazināties caur protokolu protokolā. Šis pieprasījums norādīja, ka "
+"protokols ir jāizmato tādā veidā, bet šo protokolu tā izmantot nevar. Tas ir "
+"rets notikums, un, visticamāk, norāda uz programmēšanas kļūdu."
+
+#: core/job_error.cpp:648
+msgid "Unable to Initialize Input/Output Device"
+msgstr "Nevar inicializēt ievades/izvades ierīci"
+
+#: core/job_error.cpp:649
+msgid "Could Not Mount Device"
+msgstr "Nevar piemontēt ierīci"
+
+#: core/job_error.cpp:650
+#, kde-format
+msgid ""
+"The requested device could not be initialized (\"mounted\"). The reported "
+"error was: <strong>%1</strong>"
+msgstr ""
+"Pieprasīto ierīci nevar inicializēt (\"piemontēt\"). Ziņotā kļūda bija: "
+"<strong>%1</strong>"
+
+#: core/job_error.cpp:653
+msgid ""
+"The device may not be ready, for example there may be no media in a "
+"removable media device (i.e. no CD-ROM in a CD drive), or in the case of a "
+"peripheral/portable device, the device may not be correctly connected."
+msgstr ""
+"Ierīce varētu nebūt gatava, piemēram, nav datu nesēja ierīcē ar izņemamu "
+"datu nesēju (t.i, nav CD-ROM CD ierīcē), vai, ārējas/pārnēsājamas ierīces "
+"gadījumā, ierīce, iespējams, ir nekorekti pievienota."
+
+#: core/job_error.cpp:657
+msgid ""
+"You may not have permissions to initialize (\"mount\") the device. On UNIX "
+"systems, often system administrator privileges are required to initialize a "
+"device."
+msgstr ""
+"Jums var nebūt atļauju inicializēt (\"piemontēt\") ierīci. UNIX sistēmās "
+"bieži ir nepieciešamas sistēmas administratora privelēģijas, lai "
+"inicializētu ierīci."
+
+#: core/job_error.cpp:661
+msgid ""
+"Check that the device is ready; removable drives must contain media, and "
+"portable devices must be connected and powered on.; and try again."
+msgstr ""
+"Pārliecinieties, ka ierīce ir gatava. Noņemajiem dziņiem jāsatur datu "
+"nesējs, un pārvietojamām ierīcēm jābūt pieslēgtām un ieslēgtām. Pēc tam "
+"mēģiniet vēlreiz."
+
+#: core/job_error.cpp:667
+msgid "Unable to Uninitialize Input/Output Device"
+msgstr "Nevar atinicializēt ievades/izvades ierīci"
+
+#: core/job_error.cpp:668
+msgid "Could Not Unmount Device"
+msgstr "Nevar nomontēt ierīci"
+
+#: core/job_error.cpp:669
+#, kde-format
+msgid ""
+"The requested device could not be uninitialized (\"unmounted\"). The "
+"reported error was: <strong>%1</strong>"
+msgstr ""
+"Pieprasīto ierīci nevar atinicializēt (\"nomontēt\"). Ziņotā kļūda bija: "
+"<strong>%1</strong>"
+
+#: core/job_error.cpp:672
+msgid ""
+"The device may be busy, that is, still in use by another application or "
+"user. Even such things as having an open browser window on a location on "
+"this device may cause the device to remain in use."
+msgstr ""
+"Ierīce var būt aizņemta, tas ir, to vēl izmanto kāda programma vai "
+"lietotājs. Arī tādas lietas, kā atvērts pārlūka logs uz vietu šajā ierīcē,"
+"var likt ierīcei palikt aizņemtai."
+
+#: core/job_error.cpp:676
+msgid ""
+"You may not have permissions to uninitialize (\"unmount\") the device. On "
+"UNIX systems, system administrator privileges are often required to "
+"uninitialize a device."
+msgstr ""
+"Jums var nebūt atļauju atinicializēt (\"nomontēt\") ierīci. UNIX sistēmās "
+"bieži ir nepieciešamas sistēmas administratora privelēģijas, lai "
+"atinicializētu ierīci."
+
+#: core/job_error.cpp:680
+msgid "Check that no applications are accessing the device, and try again."
+msgstr ""
+"Pārliecinieties, ka neviena programma neizmanto šo ierīci, un mēģiniet "
+"vēlreiz."
+
+#: core/job_error.cpp:685
+msgid "Cannot Read From Resource"
+msgstr "Nevar lasīt no resursa"
+
+#: core/job_error.cpp:686
+#, kde-format
+msgid ""
+"This means that although the resource, <strong>%1</strong>, was able to be "
+"opened, an error occurred while reading the contents of the resource."
+msgstr ""
+"Tas nozīmē, ka, lai gan resursu <strong>%1</strong> varēja atvērt, gadījās "
+"kļūda, lasot resursa saturu."
+
+#: core/job_error.cpp:689
+msgid "You may not have permissions to read from the resource."
+msgstr "Jums varbūŧ nav atļauju lasīt no resursa."
+
+#: core/job_error.cpp:702
+msgid "Cannot Write to Resource"
+msgstr "Nevar rakstīt resursā"
+
+#: core/job_error.cpp:703
+#, kde-format
+msgid ""
+"This means that although the resource, <strong>%1</strong>, was able to be "
+"opened, an error occurred while writing to the resource."
+msgstr ""
+"Tas nozīmē, ka, lai gan resursu <strong>%1</strong> varēja atvērt, gadījās "
+"kļūda, rakstot resursā."
+
+#: core/job_error.cpp:706
+msgid "You may not have permissions to write to the resource."
+msgstr "Jums varbūt nav atļauju rakstīt resursā."
+
+#: core/job_error.cpp:719 core/job_error.cpp:730
+msgid "Could Not Listen for Network Connections"
+msgstr "Nevar klausīties savienojumu pieprasījumus"
+
+#: core/job_error.cpp:720
+msgid "Could Not Bind"
+msgstr "Nevar sasaistīt"
+
+#: core/job_error.cpp:721 core/job_error.cpp:732
+msgid ""
+"This is a fairly technical error in which a required device for network "
+"communications (a socket) could not be established to listen for incoming "
+"network connections."
+msgstr ""
+"Tā ir visai tehniska kļūda, kurā nevar izveidot tīkla savienojumam "
+"nepieciešamo ierīci (ligzdu), lai klausītos ienākošos tīkla savienojumus."
+
+#: core/job_error.cpp:731
+msgid "Could Not Listen"
+msgstr "Nevar klausīties"
+
+#: core/job_error.cpp:741
+msgid "Could Not Accept Network Connection"
+msgstr "Nevar pieņemt tīkla savienojumu"
+
+#: core/job_error.cpp:742
+msgid ""
+"This is a fairly technical error in which an error occurred while attempting "
+"to accept an incoming network connection."
+msgstr ""
+"Tā ir visai tehniska kļūda, kurā kļūda gadījās, mēģinot pieņemt ienākošu "
+"tīkla savienojumu."
+
+#: core/job_error.cpp:746
+msgid "You may not have permissions to accept the connection."
+msgstr "Jums varbūt nav atļauju pieņemt savienojumu."
+
+#: core/job_error.cpp:751
+#, kde-format
+msgid "Could Not Login: %1"
+msgstr "Nevar pieteikties: %1"
+
+#: core/job_error.cpp:752
+msgid ""
+"An attempt to login to perform the requested operation was unsuccessful."
+msgstr ""
+"Mēģinājums pieteikties, lai veiktu pieprasīto operāciju, bija neveiksmīgs."
+
+#: core/job_error.cpp:763
+msgid "Could Not Determine Resource Status"
+msgstr "Nevar noteikt resursa statusu"
+
+#: core/job_error.cpp:764
+msgid "Could Not Stat Resource"
+msgstr "Nevar noteikt resursa statusu"
+
+#: core/job_error.cpp:765
+#, kde-format
+msgid ""
+"An attempt to determine information about the status of the resource <strong>"
+"%1</strong>, such as the resource name, type, size, etc., was unsuccessful."
+msgstr ""
+"Meģinājums iegūt informāciju par resursa <strong>%1</strong> statusu, tādu "
+"kā resursa nosaukums, tips, izmērs, u.t.t, bija neveiksmīgs."
+
+#: core/job_error.cpp:768
+msgid "The specified resource may not have existed or may not be accessible."
+msgstr "Uzrādītais resurss neeksistē vai nav pieejams."
+
+#: core/job_error.cpp:776
+msgid "Could Not Cancel Listing"
+msgstr "Nevar pārtraukt uzskaitījumu"
+
+#: core/job_error.cpp:777
+msgid "FIXME: Document this"
+msgstr "LABOMANI: Dokumentē šo"
+
+#: core/job_error.cpp:781
+msgid "Could Not Create Folder"
+msgstr "Nevar izveidot mapi"
+
+#: core/job_error.cpp:782
+msgid "An attempt to create the requested folder failed."
+msgstr "Neizdevās izveidot pieprasīto mapi."
+
+#: core/job_error.cpp:783
+msgid "The location where the folder was to be created may not exist."
+msgstr "Vieta, kur jāizveido mape, var būt neeksistējoša."
+
+#: core/job_error.cpp:792
+msgid "Could Not Remove Folder"
+msgstr "Nevar izdzēst mapi"
+
+#: core/job_error.cpp:793
+#, kde-format
+msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
+msgstr "Neizdevās izdzēst norādīto mapi <strong>%1</strong>."
+
+#: core/job_error.cpp:795
+msgid "The specified folder may not exist."
+msgstr "Norādītā mape var neeksistēt."
+
+#: core/job_error.cpp:796
+msgid "The specified folder may not be empty."
+msgstr "Norādītā mape var nebūt tukša."
+
+#: core/job_error.cpp:801
+msgid "Ensure that the folder exists and is empty, and try again."
+msgstr "Pārliecinieties, ka mape eksistē un ir tukša, un mēģiniet vēlreiz."
+
+#: core/job_error.cpp:806
+msgid "Could Not Resume File Transfer"
+msgstr "Nevar atsākt failu pārsūtīšanu"
+
+#: core/job_error.cpp:807
+#, kde-format
+msgid ""
+"The specified request asked that the transfer of file <strong>%1</strong> be "
+"resumed at a certain point of the transfer. This was not possible."
+msgstr ""
+"Norādītais pieprasījums lika atsākt faila <strong>%1</strong> pārsūtīšanu no "
+"konkrētas pozīcijas. Tas nebija iespējams."
+
+#: core/job_error.cpp:810
+msgid "The protocol, or the server, may not support file resuming."
+msgstr "Protokols vai serveris var neuzturēt failu pārsūtīšanas atsākšanu."
+
+#: core/job_error.cpp:812
+msgid "Retry the request without attempting to resume transfer."
+msgstr "Atkārtojiet pieprasījumu bez mēģinājuma atsākt pārsūtīšanu."
+
+#: core/job_error.cpp:817
+msgid "Could Not Rename Resource"
+msgstr "Nevar pārdēvēt resursu"
+
+#: core/job_error.cpp:818
+#, kde-format
+msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
+msgstr "Neveiksmīgs mēģinājums pārdēvēt norādīto resursu <strong>%1</strong>."
+
+#: core/job_error.cpp:828
+msgid "Could Not Alter Permissions of Resource"
+msgstr "Nevar izmainīt resursa atļaujas"
+
+#: core/job_error.cpp:829
+#, kde-format
+msgid ""
+"An attempt to alter the permissions on the specified resource <strong>%1</"
+"strong> failed."
+msgstr ""
+"Neveiksmīgs mēģinājums mainīt norādītā resursa <strong>%1</strong> atļaujas."
+
+#: core/job_error.cpp:836
+msgid "Could Not Change Ownership of Resource"
+msgstr "Nevar izmainīt resursa īpašnieku"
+
+#: core/job_error.cpp:837
+#, kde-format
+msgid ""
+"An attempt to change the ownership of the specified resource <strong>%1</"
+"strong> failed."
+msgstr ""
+"Neveiksmīgs mēģinājums mainīt norādītā resursa <strong>%1</strong> īpašnieku."
+
+#: core/job_error.cpp:844
+msgid "Could Not Delete Resource"
+msgstr "Nevar dzēst resursu"
+
+#: core/job_error.cpp:845
+#, kde-format
+msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
+msgstr "Neveiksmīgs mēģinājums dzēst norādīto resursu <strong>%1</strong>."
+
+#: core/job_error.cpp:852
+msgid "Unexpected Program Termination"
+msgstr "Neparedzēta programmas izbeigšanās"
+
+#: core/job_error.cpp:853
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has unexpectedly terminated."
+msgstr ""
+"Programma jūsu datorā, kura sniedz pieeju <strong>%1</strong> protokolam, "
+"neparedzēti beidza darbu."
+
+#: core/job_error.cpp:861
+msgid "Out of Memory"
+msgstr "Nepietiek atmiņas"
+
+#: core/job_error.cpp:862
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol could not obtain the memory required to continue."
+msgstr ""
+"Programma jūsu datorā, kura sniedz pieeju <strong>%1</strong> protokolam, "
+"nevar saņemt turpināšanai nepieciešamo atmiņu."
+
+#: core/job_error.cpp:870
+msgid "Unknown Proxy Host"
+msgstr "Nezināms starpniekdators"
+
+#: core/job_error.cpp:871
+#, kde-format
+msgid ""
+"While retrieving information about the specified proxy host, <strong>%1</"
+"strong>, an Unknown Host error was encountered. An unknown host error "
+"indicates that the requested name could not be located on the Internet."
+msgstr ""
+"Iegūstot informāciju par norādīto starpniekserveri <strong>%1</strong> "
+"gadījusies kļūda 'Nezināms resursdators'. Šī kļūda rāda, ka pieprasīto "
+"resursdatora nosaukumu Internetā nevar atrast."
+
+#: core/job_error.cpp:875
+msgid ""
+"There may have been a problem with your network configuration, specifically "
+"your proxy's hostname. If you have been accessing the Internet with no "
+"problems recently, this is unlikely."
+msgstr ""
+"Šeit var būt ir problēma ar jūsu tīkla konfigurāciju, īpaši jūsu "
+"starpniekservera nosaukumu. Ja jūs nesen bez problēmām piekļuvāt Internetam, "
+"tad tas ir maz ticami."
+
+#: core/job_error.cpp:879
+msgid "Double-check your proxy settings and try again."
+msgstr ""
+"Kārtīgi pārbaudiet jūsu starpniekservera iestatījumus un mēģiniet vēlreiz."
+
+#: core/job_error.cpp:884
+#, kde-format
+msgid "Authentication Failed: Method %1 Not Supported"
+msgstr "Autentificēšanas kļūda: Metode %1 netiek atbalstīta"
+
+#: core/job_error.cpp:886
+#, kde-format
+msgid ""
+"Although you may have supplied the correct authentication details, the "
+"authentication failed because the method that the server is using is not "
+"supported by the KDE program implementing the protocol %1."
+msgstr ""
+"Lai arī jūs sniedzāt korektas autentificēšanas detaļas, autentificēšana bija "
+"nesekmīga, jo servera izmantotā autentificēšanas metode netiek atbalstīta "
+"KDE programmā, kas realizē protokolu %1."
+
+#: core/job_error.cpp:890
+msgid ""
+"Please file a bug at <a href=\"http://bugs.kde.org/\">http://bugs.kde.org/</"
+"a> to inform the KDE team of the unsupported authentication method."
+msgstr ""
+"Lūdzu, sūtiet kļūdas ziņojumu uz <a href=\"http://bugs.kde.org/\">http://"
+"bugs.kde.org/</a>, lai informētu KDE komandu par neatbalstītu "
+"autentificēšanas metodi."
+
+#: core/job_error.cpp:896
+msgid "Request Aborted"
+msgstr "Pieprasījums pārtraukts"
+
+#: core/job_error.cpp:903
+msgid "Internal Error in Server"
+msgstr "Iekšēja kļūda serverī"
+
+#: core/job_error.cpp:904
+#, kde-format
+msgid ""
+"The program on the server which provides access to the <strong>%1</strong> "
+"protocol has reported an internal error: %2."
+msgstr ""
+"Programma serverī, kura sniedz pieeju <strong>%1</strong> protokolam, ziņo "
+"par iekšēju kļūdu: %2."
+
+#: core/job_error.cpp:907
+msgid ""
+"This is most likely to be caused by a bug in the server program. Please "
+"consider submitting a full bug report as detailed below."
+msgstr ""
+"To, visticamāk, izsauc kļūda servera programmā. Lūdzu, izvēlieties sūtīt "
+"pilnu kļūdas ziņojumu, kā aprakstīts zemāk."
+
+#: core/job_error.cpp:910
+msgid "Contact the administrator of the server to advise them of the problem."
+msgstr "Griezieties pie servera administratora, lai informētu to par problēmu."
+
+#: core/job_error.cpp:912
+msgid ""
+"If you know who the authors of the server software are, submit the bug "
+"report directly to them."
+msgstr ""
+"Ja jūs zināt servera programmas autorus, sūtiet kļūdas ziņojumu uzreiz "
+"viņiem."
+
+#: core/job_error.cpp:917
+msgid "Timeout Error"
+msgstr "Noildzes kļūda"
+
+#: core/job_error.cpp:918
+#, kde-format
+msgid ""
+"Although contact was made with the server, a response was not received "
+"within the amount of time allocated for the request as follows:"
+"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+"settings in the KDE System Settings, by selecting Network Settings -> "
+"Connection Preferences."
+msgstr ""
+"Lai arī savienojums ar serveri tika izveidots, atbilde nav saņemta sekojošos "
+"pieprasījumam atvēlētajos laikos:<ul><li>Savienojuma nodibināšanas noildze: "
+"%1 sekundes</li><li>Atbildes saņemšanas noildze: %2 sekundes</"
+"li><li>Piekļūšanas noildze starpniekserveriem: %3 sekundes</li></ul>Lūdzu, "
+"atcerieties, ka jūs varat mainīt šos noildzes iestatījumus KDE sistēmas "
+"iestatījumos, izvēloties 'Tīkls' -> 'Savienojumu parametri'."
+
+#: core/job_error.cpp:929
+msgid "The server was too busy responding to other requests to respond."
+msgstr ""
+"Serveris bija pārāk aizņemts, atbildot uz citiem pieprasījumiem, lai "
+"atbildētu."
+
+#: core/job_error.cpp:935 core/slavebase.cpp:1408
+msgid "Unknown Error"
+msgstr "Nezināma kļūda"
+
+#: core/job_error.cpp:936
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an unknown error: %2."
+msgstr ""
+"Programma jūsu datorā, kura sniedz pieeju <strong>%1</strong> protokolam, "
+"ziņo par nezināmu kļūdu: %2."
+
+#: core/job_error.cpp:944
+msgid "Unknown Interruption"
+msgstr "Nezināms pārtraukums"
+
+#: core/job_error.cpp:945
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an interruption of an unknown type: %2."
+msgstr ""
+"Programma jūsu datorā, kura sniedz pieeju <strong>%1</strong> protokolam, "
+"ziņo par nezināma tipa pārtraukumu: %2."
+
+#: core/job_error.cpp:953
+msgid "Could Not Delete Original File"
+msgstr "Nevar dzēst oriģinālo failu"
+
+#: core/job_error.cpp:954
+#, kde-format
+msgid ""
+"The requested operation required the deleting of the original file, most "
+"likely at the end of a file move operation. The original file <strong>%1</"
+"strong> could not be deleted."
+msgstr ""
+"Pieprasītā operācija prasa oriģinālā faila dzēšanu, visticamāk faila "
+"pārvietošanas operācijas beigās. Nevar izdzēst orģinālo failu <strong>%1</"
+"strong>."
+
+#: core/job_error.cpp:963
+msgid "Could Not Delete Temporary File"
+msgstr "Nevar dzēst pagaidu failu"
+
+#: core/job_error.cpp:964
+#, kde-format
+msgid ""
+"The requested operation required the creation of a temporary file in which "
+"to save the new file while being downloaded. This temporary file <strong>%1</"
+"strong> could not be deleted."
+msgstr ""
+"Pieprasītā operācija prasa pagaidu faila izveidi, kurā saglabāt jauno "
+"lejupielādējamo failu. Šo pagaidu failu <strong>%1</strong> nevar izdzēst."
+
+#: core/job_error.cpp:973
+msgid "Could Not Rename Original File"
+msgstr "Nevar pārdēvēt oriģinālo failu"
+
+#: core/job_error.cpp:974
+#, kde-format
+msgid ""
+"The requested operation required the renaming of the original file <strong>"
+"%1</strong>, however it could not be renamed."
+msgstr ""
+"Pieprasītā operācija prasa oriģinālā faila <strong>%1</strong> pārdēvēšanu, "
+"tomēr to nevar pārdēvēt."
+
+#: core/job_error.cpp:982
+msgid "Could Not Rename Temporary File"
+msgstr "Nevar pārdēvēt pagaidu failu"
+
+#: core/job_error.cpp:983
+#, kde-format
+msgid ""
+"The requested operation required the creation of a temporary file <strong>"
+"%1</strong>, however it could not be created."
+msgstr ""
+"Pieprasītā operācija prasa pagaidu faila <strong>%1</strong> izveidošanu, "
+"tomēr to nevar izveidot."
+
+#: core/job_error.cpp:991
+msgid "Could Not Create Link"
+msgstr "Nevar izveidot saiti"
+
+#: core/job_error.cpp:992
+msgid "Could Not Create Symbolic Link"
+msgstr "Nevar izveidot simbolsaiti"
+
+#: core/job_error.cpp:993
+#, kde-format
+msgid "The requested symbolic link %1 could not be created."
+msgstr "Pieprasīto simbolisko saiti %1 nevar izveidot."
+
+#: core/job_error.cpp:1000
+msgid "No Content"
+msgstr "Nav satura"
+
+#: core/job_error.cpp:1005
+msgid "Disk Full"
+msgstr "Disks pilns"
+
+#: core/job_error.cpp:1006
+#, kde-format
+msgid ""
+"The requested file <strong>%1</strong> could not be written to as there is "
+"inadequate disk space."
+msgstr ""
+"Pieprasīto failu <strong>%1</strong> nevar ierakstīt, jo nepietiek diska "
+"vietas."
+
+#: core/job_error.cpp:1008
+msgid ""
+"Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
+"archiving files to removable media storage such as CD-Recordable discs; or "
+"3) obtain more storage capacity."
+msgstr ""
+"Atbrīvojiet nepieciešamo diska vietu: 1) nodzēšot nevajadzīgos un pagaidu "
+"failus; 2) arhivējot failus uz izņemajiem datu nesējiem, piem., rakstāmajiem "
+"CD; vai 3) iegādājieties lielāku cieto disku."
+
+#: core/job_error.cpp:1015
+msgid "Source and Destination Files Identical"
+msgstr "Avota un mērķa faili sakrīt"
+
+#: core/job_error.cpp:1016
+msgid ""
+"The operation could not be completed because the source and destination "
+"files are the same file."
+msgstr "Operāciju nevar pabeigt, jo avota un mērķa faili ir tie paši faili."
+
+#: core/job_error.cpp:1018
+msgid "Choose a different filename for the destination file."
+msgstr "Izvēlieties citu nosaukumu mērķa failam."
+
+#: core/job_error.cpp:1029
+msgid "Undocumented Error"
+msgstr "Nedokumentēta kļūda"
+
+#: core/kcoredirlister.cpp:397 widgets/krun.cpp:842 widgets/paste.cpp:261
+#: widgets/renamedialog.cpp:410
+#, kde-format
+msgid ""
+"Malformed URL\n"
+"%1"
+msgstr ""
+"Kļūdains URL\n"
+"%1"
+
+#: core/kcoredirlister.cpp:402
+#, kde-format
+msgid ""
+"URL cannot be listed\n"
+"%1"
+msgstr ""
+"Šim URL nevar iegūt vienību sarakstu\n"
+"%1"
+
+#: core/kfileitem.cpp:1186
+#, kde-format
+msgid "(Symbolic Link to %1)"
+msgstr "(Simboliskā saite uz %1)"
+
+#: core/kfileitem.cpp:1188
+#, kde-format
+msgid "(%1, Link to %2)"
+msgstr "(%1, Saite uz %2)"
+
+#: core/kfileitem.cpp:1191
+#, kde-format
+msgid " (Points to %1)"
+msgstr " (Norāda uz %1)"
+
+#: core/klocalsocket_unix.cpp:192 core/klocalsocket_unix.cpp:260
+#, fuzzy
+#| msgid "The certificate is invalid."
+msgid "Specified socket path is invalid"
+msgstr "Sertifikāts ir nederīgs."
+
+#: core/klocalsocket_unix.cpp:201 core/klocalsocket_unix.cpp:248
+#: core/klocalsocket_unix.cpp:269
+#, fuzzy
+#| msgid "The protocol %1 is not supported."
+msgid "The socket operation is not supported"
+msgstr "Protokols %1 netiek uzturēts."
+
+#: core/klocalsocket_unix.cpp:214
+#, fuzzy
+#| msgid "Connection to Server Refused"
+msgid "Connection refused"
+msgstr "Savienojums ar serveri atteikts"
+
+#: core/klocalsocket_unix.cpp:219 core/klocalsocket_unix.cpp:282
+#, fuzzy
+#| msgctxt "@label"
+#| msgid "Permissions"
+msgid "Permission denied"
+msgstr "Atļaujas"
+
+#: core/klocalsocket_unix.cpp:223
+#, fuzzy
+#| msgid "Connection timed out."
+msgid "Connection timed out"
+msgstr "Savienojuma laiks beidzies."
+
+#: core/klocalsocket_unix.cpp:227 core/klocalsocket_unix.cpp:307
+#, fuzzy
+#| msgid "Unknown Error"
+msgid "Unknown error"
+msgstr "Nezināma kļūda"
+
+#: core/klocalsocket_unix.cpp:235 core/klocalsocket_unix.cpp:315
+#, fuzzy
+#| msgid "Could not login to %1."
+msgid "Could not set non-blocking mode"
+msgstr "Nevar pieteikties %1."
+
+#: core/klocalsocket_unix.cpp:286
+msgid "Address is already in use"
+msgstr ""
+
+#: core/klocalsocket_unix.cpp:291
+#, fuzzy
+#| msgid ""
+#| "URL cannot be listed\n"
+#| "%1"
+msgid "Path cannot be used"
+msgstr ""
+"Šim URL nevar iegūt vienību sarakstu\n"
+"%1"
+
+#: core/klocalsocket_unix.cpp:295
+msgid "No such file or directory"
+msgstr ""
+
+#: core/klocalsocket_unix.cpp:299
+#, fuzzy
+#| msgctxt "@action:button"
+#| msgid "Create directory"
+msgid "Not a directory"
+msgstr "Izveidot mapi"
+
+#: core/klocalsocket_unix.cpp:303
+msgid "Read-only filesystem"
+msgstr ""
+
+#: core/klocalsocket_unix.cpp:370 core/klocalsocket_unix.cpp:404
+#, fuzzy
+#| msgid "Unknown Error"
+msgid "Unknown socket error"
+msgstr "Nezināma kļūda"
+
+#: core/klocalsocket_win.cpp:31 core/klocalsocket_win.cpp:36
+#, fuzzy
+#| msgid "Writing to %1 is not supported."
+msgid "Operation not supported"
+msgstr "Rakstīšana uz %1 nav atbalstīta."
+
+#: core/ktcpsocket.cpp:165
+msgctxt "SSL error"
+msgid "No error"
+msgstr ""
+
+#: core/ktcpsocket.cpp:167
+#, fuzzy
+#| msgid "The certificate's CA (Certificate Authority) is invalid."
+msgctxt "SSL error"
+msgid "The certificate authority's certificate is invalid"
+msgstr "Sertifikāta CA (sertifikāta autoritāte) ir nederīga."
+
+#: core/ktcpsocket.cpp:169
+#, fuzzy
+#| msgid "The certificate has been revoked."
+msgctxt "SSL error"
+msgid "The certificate has expired"
+msgstr "Sertifikāts ir anulēts."
+
+#: core/ktcpsocket.cpp:171
+#, fuzzy
+#| msgid "The certificate is invalid."
+msgctxt "SSL error"
+msgid "The certificate is invalid"
+msgstr "Sertifikāts ir nederīgs."
+
+#: core/ktcpsocket.cpp:173
+#, fuzzy
+#| msgid "The certificate has not been issued for this host."
+msgctxt "SSL error"
+msgid "The certificate is not signed by any trusted certificate authority"
+msgstr "Sertifikāts ir izsniegts citai vietnei."
+
+#: core/ktcpsocket.cpp:175
+#, fuzzy
+#| msgid "The certificate has been revoked."
+msgctxt "SSL error"
+msgid "The certificate has been revoked"
+msgstr "Sertifikāts ir anulēts."
+
+#: core/ktcpsocket.cpp:177
+#, fuzzy
+#| msgid "The certificate has not been issued for this host."
+msgctxt "SSL error"
+msgid "The certificate is unsuitable for this purpose"
+msgstr "Sertifikāts ir izsniegts citai vietnei."
+
+#: core/ktcpsocket.cpp:179
+#, fuzzy
+#| msgid ""
+#| "The CA's (Certificate Authority) certificate can not be found. Most "
+#| "likely, your trust chain is broken."
+msgctxt "SSL error"
+msgid ""
+"The root certificate authority's certificate is not trusted for this purpose"
+msgstr ""
+"Neizdevās atrast CA (sertifikāta autoritātes) sertifikātu. Visdrīzāk, "
+"uzticamības ķēde ir bojāta."
+
+#: core/ktcpsocket.cpp:181
+#, fuzzy
+#| msgid ""
+#| "The certificate's CA (Certificate Authority) is not allowed to sign "
+#| "certificates."
+msgctxt "SSL error"
+msgid ""
+"The certificate authority's certificate is marked to reject this "
+"certificate's purpose"
+msgstr ""
+"Sertifikāta CA (sertifikāta autoritāte) nav tiesību parakstīt sertifikātus."
+
+#: core/ktcpsocket.cpp:183
+#, fuzzy
+#| msgid "Do not send a certificate"
+msgctxt "SSL error"
+msgid "The peer did not present any certificate"
+msgstr "Nesūtīt sertifikātu"
+
+#: core/ktcpsocket.cpp:185
+#, fuzzy
+#| msgid "The certificate has not been issued for this host."
+msgctxt "SSL error"
+msgid "The certificate does not apply to the given host"
+msgstr "Sertifikāts ir izsniegts citai vietnei."
+
+#: core/ktcpsocket.cpp:187
+#, fuzzy
+#| msgid "The certificate has not been issued for this host."
+msgctxt "SSL error"
+msgid "The certificate cannot be verified for internal reasons"
+msgstr "Sertifikāts ir izsniegts citai vietnei."
+
+#: core/ktcpsocket.cpp:189
+#, fuzzy
+#| msgid "The certificate is valid."
+msgctxt "SSL error"
+msgid "The certificate chain is too long"
+msgstr "Sertifikāts ir derīgs."
+
+#: core/ktcpsocket.cpp:192
+#, fuzzy
+#| msgid "Unknown Error"
+msgctxt "SSL error"
+msgid "Unknown error"
+msgstr "Nezināma kļūda"
+
+#: core/slave.cpp:453
+#, kde-format
+msgid "Unknown protocol '%1'."
+msgstr "Nezināms protokols '%1'."
+
+#: core/slave.cpp:463
+#, kde-format
+msgid "Can not find io-slave for protocol '%1'."
+msgstr "Nevar atrast IO apstrādātāju protokolam '%1'."
+
+#: core/slave.cpp:474
+#, fuzzy
+#| msgid "Can not find io-slave for protocol '%1'."
+msgid "Can not find 'kioslave' executable"
+msgstr "Nevar atrast IO apstrādātāju protokolam '%1'."
+
+#: core/slave.cpp:489
+#, kde-format
+msgid "Cannot talk to klauncher: %1"
+msgstr "Nevar sazināties ar klauncher: %1"
+
+#: core/slave.cpp:496
+#, kde-format
+msgid ""
+"Unable to create io-slave:\n"
+"klauncher said: %1"
+msgstr ""
+"Nevar izveidot IO apstrādātāju:\n"
+"klauncher paziņoja: %1"
+
+#: core/slavebase.cpp:762
+#, kde-format
+msgid "Opening connections is not supported with the protocol %1."
+msgstr "Protokols %1 neatbalsta savienojumu izveidošanu."
+
+#: core/slavebase.cpp:764
+#, kde-format
+msgid "Closing connections is not supported with the protocol %1."
+msgstr "Protokols %1 neatbalsta savienojumu slēgšanu."
+
+#: core/slavebase.cpp:766
+#, kde-format
+msgid "Accessing files is not supported with the protocol %1."
+msgstr "Protokols %1 neatbalsta piekļuvi failiem."
+
+#: core/slavebase.cpp:768
+#, kde-format
+msgid "Writing to %1 is not supported."
+msgstr "Rakstīšana uz %1 nav atbalstīta."
+
+#: core/slavebase.cpp:770
+#, kde-format
+msgid "There are no special actions available for protocol %1."
+msgstr "Protokolam %1 nav pieejamas speciālas darbības."
+
+#: core/slavebase.cpp:772
+#, kde-format
+msgid "Listing folders is not supported for protocol %1."
+msgstr "Protokols %1 neatbalsta mapju satura aplūkošanu."
+
+#: core/slavebase.cpp:774
+#, kde-format
+msgid "Retrieving data from %1 is not supported."
+msgstr "Datu saņemšana no %1 nav atbalstīta."
+
+#: core/slavebase.cpp:776
+#, kde-format
+msgid "Retrieving mime type information from %1 is not supported."
+msgstr "MIME tipa informācijas saņemšana no %1 nav atbalstīta."
+
+#: core/slavebase.cpp:778
+#, kde-format
+msgid "Renaming or moving files within %1 is not supported."
+msgstr "Failu pārdēvēšana vai pārvietošana iekš %1 nav atbalstīta."
+
+#: core/slavebase.cpp:780
+#, kde-format
+msgid "Creating symlinks is not supported with protocol %1."
+msgstr "Protokols %1 neatbalsta simbolsaišu veidošanu."
+
+#: core/slavebase.cpp:782
+#, kde-format
+msgid "Copying files within %1 is not supported."
+msgstr "Failu kopēšana iekš %1 nav atbalstīta."
+
+#: core/slavebase.cpp:784
+#, kde-format
+msgid "Deleting files from %1 is not supported."
+msgstr "Failu dzēšana no %1 nav atbalstīta."
+
+#: core/slavebase.cpp:786
+#, kde-format
+msgid "Creating folders is not supported with protocol %1."
+msgstr "Protokols %1 neatbalsta mapju veidošanu."
+
+#: core/slavebase.cpp:788
+#, kde-format
+msgid "Changing the attributes of files is not supported with protocol %1."
+msgstr "Protokols %1 neatbalsta faila atribūtu maiņu."
+
+#: core/slavebase.cpp:790
+#, kde-format
+msgid "Changing the ownership of files is not supported with protocol %1."
+msgstr "Protokols %1 neatbalsta faila īpašnieka maiņu."
+
+#: core/slavebase.cpp:792
+#, kde-format
+msgid "Using sub-URLs with %1 is not supported."
+msgstr "Apakš-URLu lietošana iekš %1 nav atbalstīta."
+
+#: core/slavebase.cpp:794
+#, kde-format
+msgid "Multiple get is not supported with protocol %1."
+msgstr "Vairāki 'get' netiek atbalstīti ar protokolu %1."
+
+#: core/slavebase.cpp:796
+#, kde-format
+msgid "Opening files is not supported with protocol %1."
+msgstr "Protokols %1 neatbalsta failu atvēršanu."
+
+#: core/slavebase.cpp:798
+#, kde-format
+msgid "Protocol %1 does not support action %2."
+msgstr "Protokols %1 neatbalsta darbību %2."
+
+#: core/slavebase.cpp:954
+msgid "&Yes"
+msgstr "&Jā"
+
+#: core/slavebase.cpp:955
+msgid "&No"
+msgstr "&Nē"
+
+#: core/slaveinterface.cpp:409 core/tcpslavebase.cpp:822 widgets/sslui.cpp:78
+msgid "&Details"
+msgstr "&Detaļas"
+
+#: core/slaveinterface.cpp:411 core/tcpslavebase.cpp:842 widgets/sslui.cpp:114
+msgid "&Forever"
+msgstr "&Uz mūžu"
+
+#: core/slaveinterface.cpp:415 core/tcpslavebase.cpp:822 widgets/sslui.cpp:79
+msgid "Co&ntinue"
+msgstr "Turpi&nāt"
+
+#: core/slaveinterface.cpp:417 core/tcpslavebase.cpp:843 widgets/sslui.cpp:115
+msgid "&Current Session only"
+msgstr "Tikai &šai sesijai"
+
+#: core/tcpslavebase.cpp:319
+msgid ""
+"You are about to leave secure mode. Transmissions will no longer be "
+"encrypted.\n"
+"This means that a third party could observe your data in transit."
+msgstr ""
+"Jūs gatavojaties pamest drošo režīmu. Pārraide vairs netiks šifrēta.\n"
+"Tas nozīmē, ka trešā puse var redzēt jūsu pārraides saturu."
+
+#: core/tcpslavebase.cpp:325 core/tcpslavebase.cpp:590
+msgid "Security Information"
+msgstr "Drošības informācija"
+
+#: core/tcpslavebase.cpp:326
+msgid "C&ontinue Loading"
+msgstr "&Turpināt ielādi"
+
+#: core/tcpslavebase.cpp:421
+#, kde-format
+msgctxt "%1 is a host name"
+msgid "%1: SSL negotiation failed"
+msgstr "%1: neveiksmīga SSL komunikācija"
+
+#: core/tcpslavebase.cpp:584
+msgid ""
+"You are about to enter secure mode. All transmissions will be encrypted "
+"unless otherwise noted.\n"
+"This means that no third party will be able to easily observe your data in "
+"transit."
+msgstr ""
+"Jūs gatavojaties ieiet drošajā režīmā. Visa pārraide tiks šifrēta, par "
+"šifrēšanas pārtraukšanu tiks paziņots.\n"
+"Tas nozīmē, ka neviena trešā puse nevarēs vienkārši redzēt jūsu pārraidītos "
+"datus."
+
+#: core/tcpslavebase.cpp:591
+msgid "Display SSL &Information"
+msgstr "Rādīt SSL &informāciju"
+
+#: core/tcpslavebase.cpp:592
+msgid "C&onnect"
+msgstr "&Pieslēgties"
+
+#: core/tcpslavebase.cpp:736
+msgid "Enter the certificate password:"
+msgstr "Ievadiet sertifikāta paroli:"
+
+#: core/tcpslavebase.cpp:737
+msgid "SSL Certificate Password"
+msgstr "SSL sertifikāta parole"
+
+#: core/tcpslavebase.cpp:751
+msgid "Unable to open the certificate. Try a new password?"
+msgstr "Nevar atvērt sertifikātu. Mēģināt jaunu paroli?"
+
+#: core/tcpslavebase.cpp:765
+msgid "The procedure to set the client certificate for the session failed."
+msgstr ""
+"Atvainojiet, neveiksmīga sesijas klienta sertifikāta uzstādīšanas procedūra."
+
+#: core/tcpslavebase.cpp:767 widgets/jobuidelegate.cpp:341
+msgid "SSL"
+msgstr "SSL"
+
+#: core/tcpslavebase.cpp:811 widgets/sslui.cpp:68
+#, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr ""
+"Serveris neizgāja autentiskuma testu (%1).\n"
+"\n"
+
+#: core/tcpslavebase.cpp:821 core/tcpslavebase.cpp:841
+#: core/tcpslavebase.cpp:945 core/tcpslavebase.cpp:957 widgets/sslui.cpp:77
+#: widgets/sslui.cpp:113
+msgid "Server Authentication"
+msgstr "Servera autentificēšana"
+
+#: core/tcpslavebase.cpp:838 widgets/sslui.cpp:110
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr "Vai vēlaties vienmēr pieņemt šo sertifikātu bez prasīšanas?"
+
+#: core/tcpslavebase.cpp:944
+msgid ""
+"You have indicated that you wish to accept this certificate, but it is not "
+"issued to the server who is presenting it. Do you wish to continue loading?"
+msgstr ""
+"Jūs norādījāt, ka vēlaties pieņemt šo sertifikātu, bet to nav izdevis "
+"serveris, kurš to prezentē. Vai jūs vēlaties turpināt ielādi?"
+
+#: core/tcpslavebase.cpp:956
+msgid ""
+"SSL certificate is being rejected as requested. You can disable this in the "
+"KDE System Settings."
+msgstr ""
+"SSL sertifikāts tiek noraidīts, kā pieprasīts. Jūs varat šo atslēgt Sistēmas "
+"iestatījumos."
+
+#: filewidgets/kdiroperator.cpp:761
+#, kde-format
+msgid "A file or folder named %1 already exists."
+msgstr "Mape ar nosaukumu %1 jau eksistē."
+
+#: filewidgets/kdiroperator.cpp:764
+msgid "You do not have permission to create that folder."
+msgstr "Jums nav atļauju izveidot šo mapi."
+
+#: filewidgets/kdiroperator.cpp:779
+msgid "You did not select a file to delete."
+msgstr "Jūs neizvēlējāties failu, ko dzēst."
+
+#: filewidgets/kdiroperator.cpp:780
+msgid "Nothing to Delete"
+msgstr "Nav ko dzēst"
+
+#: filewidgets/kdiroperator.cpp:801
+#, kde-format
+msgid ""
+"<qt>Do you really want to delete\n"
+" <b>'%1'</b>?</qt>"
+msgstr ""
+"<qt>Vai tiešām vēlaties dzēst\n"
+" <b>'%1'</b>?</qt>"
+
+#: filewidgets/kdiroperator.cpp:803
+msgid "Delete File"
+msgstr "Dzēst failu"
+
+#: filewidgets/kdiroperator.cpp:808 widgets/jobuidelegate.cpp:223
+#, kde-format
+msgid "Do you really want to delete this item?"
+msgid_plural "Do you really want to delete these %1 items?"
+msgstr[0] "Vai tiešām vēlaties dzēst šo %1 vienību?"
+msgstr[1] "Vai tiešām vēlaties dzēst šīs %1 vienības?"
+msgstr[2] "Vai tiešām vēlaties dzēst šīs %1 vienību?"
+
+#: filewidgets/kdiroperator.cpp:810 widgets/jobuidelegate.cpp:225
+msgid "Delete Files"
+msgstr "Dzēst failus"
+
+#: filewidgets/kdiroperator.cpp:841
+msgid "You did not select a file to trash."
+msgstr "Jūs neizvēlējāties failu, ko izmest."
+
+#: filewidgets/kdiroperator.cpp:842
+msgid "Nothing to Trash"
+msgstr "Nav ko izmest"
+
+#: filewidgets/kdiroperator.cpp:859
+#, kde-format
+msgid ""
+"<qt>Do you really want to trash\n"
+" <b>'%1'</b>?</qt>"
+msgstr ""
+"<qt>Vai tiešām vēlaties izmest\n"
+" <b>'%1'</b>?</qt>"
+
+#: filewidgets/kdiroperator.cpp:861
+msgid "Trash File"
+msgstr "Izmest failu miskastē"
+
+#: filewidgets/kdiroperator.cpp:862 filewidgets/kdiroperator.cpp:869
+msgctxt "to trash"
+msgid "&Trash"
+msgstr "&Miskasti"
+
+#: filewidgets/kdiroperator.cpp:866
+#, kde-format
+msgid "translators: not called for n == 1"
+msgid_plural "Do you really want to trash these %1 items?"
+msgstr[0] "Vai tiešām vēlaties izmest miskastē šo %1 vienību?"
+msgstr[1] "Vai tiešām vēlaties izmest miskastē šīs %1 vienības?"
+msgstr[2] "Vai tiešām vēlaties izmest miskastē šīs %1 vienības?"
+
+#: filewidgets/kdiroperator.cpp:868
+msgid "Trash Files"
+msgstr "Izmest failus"
+
+#: filewidgets/kdiroperator.cpp:1058 filewidgets/kdiroperator.cpp:1196
+msgid "The specified folder does not exist or was not readable."
+msgstr "Norādītā mape nepastāv vai nav pieejama."
+
+#: filewidgets/kdiroperator.cpp:1863
+msgid "Menu"
+msgstr "Izvēlne"
+
+#: filewidgets/kdiroperator.cpp:1867
+msgid "Parent Folder"
+msgstr "Vecāka mape"
+
+#: filewidgets/kdiroperator.cpp:1874
+msgid "Home Folder"
+msgstr "Mājas mape"
+
+#: filewidgets/kdiroperator.cpp:1877
+msgid "Reload"
+msgstr "Pārielādēt"
+
+#: filewidgets/kdiroperator.cpp:1880
+msgid "New Folder..."
+msgstr "Jauna mape..."
+
+#: filewidgets/kdiroperator.cpp:1885 widgets/jobuidelegate.cpp:246
+msgid "Move to Trash"
+msgstr "Pārvietot uz miskasti"
+
+#: filewidgets/kdiroperator.cpp:1891
+msgid "Delete"
+msgstr "Dzēst"
+
+#: filewidgets/kdiroperator.cpp:1898
+msgid "Sorting"
+msgstr "Kārtošana"
+
+#: filewidgets/kdiroperator.cpp:1901
+msgid "By Name"
+msgstr "Pēc nosaukuma"
+
+#: filewidgets/kdiroperator.cpp:1905
+msgid "By Size"
+msgstr "Pēc izmēra"
+
+#: filewidgets/kdiroperator.cpp:1909
+msgid "By Date"
+msgstr "Pēc datuma"
+
+#: filewidgets/kdiroperator.cpp:1913
+msgid "By Type"
+msgstr "Pēc tipa"
+
+#: filewidgets/kdiroperator.cpp:1917
+msgid "Descending"
+msgstr "Dilstoši"
+
+#: filewidgets/kdiroperator.cpp:1921
+msgid "Folders First"
+msgstr "Mapes vispirms"
+
+#: filewidgets/kdiroperator.cpp:1931
+msgid "Icon Position"
+msgstr "Ikonas novietojums"
+
+#: filewidgets/kdiroperator.cpp:1934
+msgid "Next to File Name"
+msgstr "Blakus faila nosaukumam"
+
+#: filewidgets/kdiroperator.cpp:1938
+msgid "Above File Name"
+msgstr "Virs faila nosaukuma"
+
+#: filewidgets/kdiroperator.cpp:1949
+msgid "Short View"
+msgstr "Īss skatījums"
+
+#: filewidgets/kdiroperator.cpp:1954
+msgid "Detailed View"
+msgstr "Detalizēts skatījums"
+
+#: filewidgets/kdiroperator.cpp:1959
+msgid "Tree View"
+msgstr "Koka skatījums"
+
+#: filewidgets/kdiroperator.cpp:1964
+msgid "Detailed Tree View"
+msgstr "Detalizēts koka skatījums"
+
+#: filewidgets/kdiroperator.cpp:1975
+msgid "Show Hidden Files"
+msgstr "Rādīt slēptos failus"
+
+#: filewidgets/kdiroperator.cpp:1979
+msgid "Show Aside Preview"
+msgstr "Rādīt  priekšskatījumu sānos"
+
+#: filewidgets/kdiroperator.cpp:1985
+msgid "Show Preview"
+msgstr "Rādīt priekšskatījumu"
+
+#: filewidgets/kdiroperator.cpp:1989
+msgid "Open File Manager"
+msgstr "Atvērt failu pārvaldnieku"
+
+#: filewidgets/kdiroperator.cpp:1994
+msgid "Properties"
+msgstr "Īpašības"
+
+#: filewidgets/kdiroperator.cpp:2001
+msgid "&View"
+msgstr "&Skats"
+
+#: filewidgets/kencodingfiledialog.cpp:86
+msgid "Encoding:"
+msgstr "Kodējums:"
+
+#: filewidgets/kencodingfiledialog.cpp:142
+#: filewidgets/kencodingfiledialog.cpp:161
+#: filewidgets/kencodingfiledialog.cpp:179
+#: filewidgets/kencodingfiledialog.cpp:198 widgets/kurlrequesterdialog.cpp:131
+msgid "Open"
+msgstr "Atvērt"
+
+#: filewidgets/kencodingfiledialog.cpp:217
+#: filewidgets/kencodingfiledialog.cpp:240
+msgid "Save As"
+msgstr "Saglabāt kā"
+
+#: filewidgets/kfilefiltercombo.cpp:36 filewidgets/kfilewidget.cpp:1842
+msgid "*|All Files"
+msgstr "*|Visi Faili"
+
+#: filewidgets/kfilefiltercombo.cpp:180
+msgid "All Supported Files"
+msgstr "Visi atbalstītie faili"
+
+#: filewidgets/kfilefiltercombo.cpp:189
+msgid "All Files"
+msgstr "Visi faili"
+
+#: filewidgets/kfileplaceeditdialog.cpp:85
+msgid "Add Places Entry"
+msgstr "Pievienot vietu ierakstu"
+
+#: filewidgets/kfileplaceeditdialog.cpp:87
+msgid "Edit Places Entry"
+msgstr "Rediģēt vietu ierakstu"
+
+#: filewidgets/kfileplaceeditdialog.cpp:96
+msgid ""
+"<qt>This is the text that will appear in the Places panel.<br /><br />The "
+"label should consist of one or two words that will help you remember what "
+"this entry refers to. If you do not enter a label, it will be derived from "
+"the location's URL.</qt>"
+msgstr ""
+"<qt>Šis teksts būs redzams vietu panelī.<br /><br />Etiķetei vajadzētu "
+"saturēt vienu vai divus vārdus, kas palīdzētu atcerēties, uz ko šis ieraksts "
+"norāda. Ja nevēlaties pievienot etiķeti, tā tiks izveidota no vietas URLa</"
+"qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:102
+msgid "L&abel:"
+msgstr "&Etiķete:"
+
+#: filewidgets/kfileplaceeditdialog.cpp:104
+msgid "Enter descriptive label here"
+msgstr "Ievadiet aprakstošu etiķeti"
+
+#: filewidgets/kfileplaceeditdialog.cpp:108
+#, kde-format
+msgid ""
+"<qt>This is the location associated with the entry. Any valid URL may be "
+"used. For example:<br /><br />%1<br />http://www.kde.org<br />ftp://ftp.kde."
+"org/pub/kde/stable<br /><br />By clicking on the button next to the text "
+"edit box you can browse to an appropriate URL.</qt>"
+msgstr ""
+"<qt>Šī ir ierakstam piesaistītā vieta. Varat izmantot jebkuru derīgu URL. "
+"Piemēram:<br /><br />%1<br />http://www.kde.org<br />ftp://ftp.kde.org/pub/"
+"kde/stable<br /><br />Nospiežot uz pogas blakus tekstam, jūs varat pārlūkot "
+"failu sistēmu, lai izvēlētos URL.</qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:114
+msgid "&Location:"
+msgstr "&Atrašanās vieta:"
+
+#: filewidgets/kfileplaceeditdialog.cpp:120
+msgid ""
+"<qt>This is the icon that will appear in the Places panel.<br /><br />Click "
+"on the button to select a different icon.</qt>"
+msgstr ""
+"<qt>Šī ir ikona, kas būs redzama vietu panelī.<br /><br />Nospiediet uz "
+"pogas, lai izvēlētos citu ikonu.</qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:123
+msgid "Choose an &icon:"
+msgstr "Izvēlieties &ikonu:"
+
+#: filewidgets/kfileplaceeditdialog.cpp:141
+#, kde-format
+msgid "&Only show when using this application (%1)"
+msgstr "&Rādīt tikai tad, ja izmanto šo programmu (%1)"
+
+#: filewidgets/kfileplaceeditdialog.cpp:143
+#, kde-format
+msgid ""
+"<qt>Select this setting if you want this entry to show only when using the "
+"current application (%1).<br /><br />If this setting is not selected, the "
+"entry will be available in all applications.</qt>"
+msgstr ""
+"<qt>Ieslēdziet šo iespēju, ja vēlaties, lai šis ieraksts ir redzams tikai "
+"tad, kad lietojat šo programmu (%1).<br /><br />Ja šī iespēja nav ieslēgta, "
+"ieraksts būs redzams visās programmās.</qt>"
+
+#: filewidgets/kfileplacesmodel.cpp:118
+msgctxt "KFile System Bookmarks"
+msgid "Home"
+msgstr "Mājas"
+
+#: filewidgets/kfileplacesmodel.cpp:121
+msgctxt "KFile System Bookmarks"
+msgid "Network"
+msgstr "Tīkls"
+
+#: filewidgets/kfileplacesmodel.cpp:133
+msgctxt "KFile System Bookmarks"
+msgid "Root"
+msgstr "Sakne"
+
+#: filewidgets/kfileplacesmodel.cpp:137
+msgctxt "KFile System Bookmarks"
+msgid "Trash"
+msgstr "Miskaste"
+
+#: filewidgets/kfileplacesmodel.cpp:798
+#, kde-format
+msgid "&Release '%1'"
+msgstr "&Atlaist '%1'"
+
+#: filewidgets/kfileplacesmodel.cpp:800
+#, kde-format
+msgid "&Safely Remove '%1'"
+msgstr "&Droši atvienot '%1'"
+
+#: filewidgets/kfileplacesmodel.cpp:803
+#, kde-format
+msgid "&Unmount '%1'"
+msgstr "&Nomontēt '%1'"
+
+#: filewidgets/kfileplacesmodel.cpp:824
+#, kde-format
+msgid "&Eject '%1'"
+msgstr "&Izgrūst '%1'"
+
+#: filewidgets/kfileplacesmodel.cpp:858
+#, kde-format
+msgid "The device '%1' is not a disk and cannot be ejected."
+msgstr "Ierīce '%1' nav disks un to nevar izgrūst."
+
+#: filewidgets/kfileplacesmodel.cpp:894
+#, kde-format
+msgid "An error occurred while accessing '%1', the system responded: %2"
+msgstr "Gadījusies kļūda, mēģinot piekļūt '%1', sistēma teica: %2"
+
+#: filewidgets/kfileplacesmodel.cpp:898
+#, kde-format
+msgid "An error occurred while accessing '%1'"
+msgstr "Gadījusies kļūda, mēģinot piekļūt '%1'"
+
+#: filewidgets/kfileplacesview.cpp:584
+msgctxt "@action:inmenu"
+msgid "Empty Trash"
+msgstr "Iztukšot miskasti"
+
+#: filewidgets/kfileplacesview.cpp:589 filewidgets/kfileplacesview.cpp:610
+#: filewidgets/kfileplacesview.cpp:617 widgets/kacleditwidget.cpp:96
+msgid "Add Entry..."
+msgstr "Pievienot ierakstu..."
+
+#: filewidgets/kfileplacesview.cpp:591
+#, kde-format
+msgid "&Edit Entry '%1'..."
+msgstr "R&ediģēt ierakstu '%1'..."
+
+#: filewidgets/kfileplacesview.cpp:613
+#, kde-format
+msgid "&Hide Entry '%1'"
+msgstr "&Slēpt ierakstu '%1'"
+
+#: filewidgets/kfileplacesview.cpp:622
+msgid "&Show All Entries"
+msgstr "&Parādīt visus ierakstus"
+
+#: filewidgets/kfileplacesview.cpp:633
+#, kde-format
+msgid "&Remove Entry '%1'"
+msgstr "&Izņemt ierakstu '%1'"
+
+#: filewidgets/kfileplacesview.cpp:645
+msgctxt "@info"
+msgid "Do you really want to empty the Trash? All items will be deleted."
+msgstr "Vai tiešām vēlaties iztukšot miskasti? Visas vienības tiks dzēstas."
+
+#: filewidgets/kfileplacesview.cpp:649 widgets/jobuidelegate.cpp:235
+msgctxt "@action:button"
+msgid "Empty Trash"
+msgstr "Iztukšot miskasti"
+
+#: filewidgets/kfilewidget.cpp:297
+msgid ""
+"<qt>While typing in the text area, you may be presented with possible "
+"matches. This feature can be controlled by clicking with the right mouse "
+"button and selecting a preferred mode from the <b>Text Completion</b> menu.</"
+"qt>"
+msgstr ""
+"<qt>Rakstīšanas laikā jums var piedāvāt iespējamās atbilstības. Šo iespēju "
+"var kontrolēt, noklikšķinot ar labo peles pogu un izvēloties vēlamo režīmu "
+"no izvēlnes <b>Teksta pabeigšana</b>.</qt>"
+
+#: filewidgets/kfilewidget.cpp:381
+#, kde-format
+msgid "Drive: %1"
+msgstr "Disks: %1"
+
+#: filewidgets/kfilewidget.cpp:437
+#, kde-format
+msgid ""
+"<qt>Click this button to enter the parent folder.<br /><br />For instance, "
+"if the current location is file:/home/%1 clicking this button will take you "
+"to file:/home.</qt>"
+msgstr ""
+"<qt>Nospiediet šo pogu, lai pārietu uz vecāka mapi.<br /><br />Piemēram, ja "
+"aktīvā pape ir 'file:/home/%1', tad šīs pogas nospiešana pārcels jūs uz mapi "
+"'file:/home'.</qt>"
+
+#: filewidgets/kfilewidget.cpp:441
+msgid "Click this button to move backwards one step in the browsing history."
+msgstr ""
+"Nospiediet šo pogu, lai paietu vienu soli atpakaļ pārlūkošanas vēsturē."
+
+#: filewidgets/kfilewidget.cpp:442
+msgid "Click this button to move forward one step in the browsing history."
+msgstr ""
+"Nospiediet šo pogu, lai paietu vienu soli uz priekšu pārlūkošanas vēsturē."
+
+#: filewidgets/kfilewidget.cpp:444
+msgid "Click this button to reload the contents of the current location."
+msgstr "Nospiediet šo pogu, lai pārielādētu aktīvās vietas saturu."
+
+#: filewidgets/kfilewidget.cpp:446
+msgid "Click this button to create a new folder."
+msgstr "Nospiediet šo pogu, lai izveidotu jaunu mapi."
+
+#: filewidgets/kfilewidget.cpp:452
+msgid "Show Places Navigation Panel"
+msgstr "Rādīt vietu navigācijas paneli"
+
+#: filewidgets/kfilewidget.cpp:459
+msgid "Show Bookmarks"
+msgstr "Rādīt grāmatzīmes"
+
+#: filewidgets/kfilewidget.cpp:464
+msgid "Options"
+msgstr "Opcijas"
+
+#: filewidgets/kfilewidget.cpp:466
+msgid ""
+"<qt>This is the preferences menu for the file dialog. Various options can be "
+"accessed from this menu including: <ul><li>how files are sorted in the list</"
+"li><li>types of view, including icon and list</li><li>showing of hidden "
+"files</li><li>the Places navigation panel</li><li>file previews</"
+"li><li>separating folders from files</li></ul></qt>"
+msgstr ""
+"<qt>Šī ir failu dialoga iestatījumu izvēlne. Šajā izvēlnē var piekļūt "
+"dažādām iespējām, tai skaitā: <ul><li>kā sakārtot failus sarakstā</"
+"li><li>skata veidi, t.sk. ikonu un saraksta</li><li>parādīt slēptos failus</"
+"li><li>vietu navigācijas panelis</li><li>failu priekšapskates</li><li>mapju "
+"un failu atdalīšana</li></ul></qt>"
+
+#: filewidgets/kfilewidget.cpp:509
+msgid "Zoom out"
+msgstr "Samazināt"
+
+#: filewidgets/kfilewidget.cpp:511
+msgid "Zoom in"
+msgstr "Palielināt"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: filewidgets/kfilewidget.cpp:552 widgets/kpropertiesdesktopbase.ui:17
+msgid "&Name:"
+msgstr "&Nosaukums:"
+
+#: filewidgets/kfilewidget.cpp:575
+msgid ""
+"<qt>This is the filter to apply to the file list. File names that do not "
+"match the filter will not be shown.<p>You may select from one of the preset "
+"filters in the drop down menu, or you may enter a custom filter directly "
+"into the text area.</p><p>Wildcards such as * and ? are allowed.</p></qt>"
+msgstr ""
+"<qt>Šis ir filtrs, ko var izmantot failu saraksta filtrēšanai. Faili, kuru "
+"nosaukumi neatbilst filtram, tiks noslēpti.<p>Jūs varat izvēlēties kādu no "
+"esošajiem filtriem no izkrītošās izvēlnes, vai ievadīt savu filtru teksta "
+"laukā.</p><p>Iespējams lietot aizstājējzīmes * un ?.</p></qt>"
+
+#: filewidgets/kfilewidget.cpp:581
+msgid "&Filter:"
+msgstr "&Filtrs:"
+
+#: filewidgets/kfilewidget.cpp:813
+msgid "You can only select one file"
+msgstr "Jūs varat izvēlēties tikai vienu failu"
+
+#: filewidgets/kfilewidget.cpp:814
+msgid "More than one file provided"
+msgstr "Piedāvāts vairāk nekā viens fails"
+
+#: filewidgets/kfilewidget.cpp:983
+msgid "You can only select local files"
+msgstr "Jūs varat izvēlēties tikai lokālus failus"
+
+#: filewidgets/kfilewidget.cpp:984
+msgid "Remote files not accepted"
+msgstr "Attālināti faili netiek pieņemti"
+
+#: filewidgets/kfilewidget.cpp:1003
+msgid ""
+"More than one folder has been selected and this dialog does not accept "
+"folders, so it is not possible to decide which one to enter. Please select "
+"only one folder to list it."
+msgstr ""
+"Ir izvēlēta vairāk nekā viena mape, bet šis logs nepieņem mapes, tāpēc nav "
+"iespējams izvēlēties, kurā mapē ieiet. Lūdzu, izvēlieties vienu mapi, lai "
+"parādītu tās saturu."
+
+#: filewidgets/kfilewidget.cpp:1003
+msgid "More than one folder provided"
+msgstr "Piedāvāta vairāk nekā viena mape"
+
+#: filewidgets/kfilewidget.cpp:1011
+msgid ""
+"At least one folder and one file has been selected. Selected files will be "
+"ignored and the selected folder will be listed"
+msgstr ""
+"Ir izvēlēts vismaz viens fails un viena mape. Izvēlētie faili tiks ignorēti, "
+"un tiks parādīts izvēlētās mapes saturs"
+
+#: filewidgets/kfilewidget.cpp:1011
+msgid "Files and folders selected"
+msgstr "Izvēlēti faili un mapes"
+
+#: filewidgets/kfilewidget.cpp:1026
+#, kde-format
+msgid "The file \"%1\" could not be found"
+msgstr "Neizdevās atrast failu \"%1\""
+
+#: filewidgets/kfilewidget.cpp:1026
+msgid "Cannot open file"
+msgstr "Neizdevās atvērt failu"
+
+#: filewidgets/kfilewidget.cpp:1300
+msgid "This is the name to save the file as."
+msgstr "Šis ir nosaukums, ar kādu tiks saglabāts fails."
+
+#: filewidgets/kfilewidget.cpp:1303
+msgid ""
+"This is the list of files to open. More than one file can be specified by "
+"listing several files, separated by spaces."
+msgstr ""
+"Šis ir saraksts ar failiem, ko var atvērt. Iespējams norādīt vairākus "
+"failus, atdalot tos ar atstarpi."
+
+#: filewidgets/kfilewidget.cpp:1308
+msgid "This is the name of the file to open."
+msgstr "Šis ir atveramā faila nosaukums."
+
+#: filewidgets/kfilewidget.cpp:1322
+msgctxt "@title:window"
+msgid "Places"
+msgstr "Vietas"
+
+#: filewidgets/kfilewidget.cpp:1512
+#, kde-format
+msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
+msgstr "Fails \"%1\" jau pastāv. Vai vēlaties to pārrakstīt?"
+
+#: filewidgets/kfilewidget.cpp:1513
+msgid "Overwrite File?"
+msgstr "Pārrakstīt failu?"
+
+#: filewidgets/kfilewidget.cpp:1647
+msgid ""
+"The chosen filenames do not\n"
+"appear to be valid."
+msgstr ""
+"Izvēlētie failu nosaukumi \n"
+"neizskatās pareizi."
+
+#: filewidgets/kfilewidget.cpp:1649
+msgid "Invalid Filenames"
+msgstr "Nepareizi failu nosaukumi"
+
+#: filewidgets/kfilewidget.cpp:1734
+msgid "You can only select local files."
+msgstr "Jūs varat izvēlēties tikai lokālus failus."
+
+#: filewidgets/kfilewidget.cpp:1735
+msgid "Remote Files Not Accepted"
+msgstr "Attālinātie faili netiek pieņemti"
+
+#: filewidgets/kfilewidget.cpp:1840
+msgid "*|All Folders"
+msgstr "*|Visas mapes"
+
+#: filewidgets/kfilewidget.cpp:2009 widgets/kfileitemactions.cpp:536
+msgid "&Open"
+msgstr "&Atvērt"
+
+#: filewidgets/kfilewidget.cpp:2095
+#, kde-format
+msgid "Icon size: %1 pixels (standard size)"
+msgstr "Ikonas izmērs: %1 pikseļi (standarta izmērs)"
+
+#: filewidgets/kfilewidget.cpp:2098
+#, kde-format
+msgid "Icon size: %1 pixels"
+msgstr "Ikonas izmērs: %1 pikseļi"
+
+#: filewidgets/kfilewidget.cpp:2232
+#, kde-format
+msgid "Automatically select filename e&xtension (%1)"
+msgstr "Automātiski izvēlēties faila nosaukuma &paplašinājumu (%1)"
+
+#: filewidgets/kfilewidget.cpp:2233
+#, kde-format
+msgid "the extension <b>%1</b>"
+msgstr "paplašinājums <b>%1</b>"
+
+#: filewidgets/kfilewidget.cpp:2239
+msgid "Automatically select filename e&xtension"
+msgstr "Automātiski izvēlēties faila nosaukuma &paplašinājumu"
+
+#: filewidgets/kfilewidget.cpp:2240
+msgid "a suitable extension"
+msgstr "piemērots paplašinājums"
+
+#: filewidgets/kfilewidget.cpp:2250
+#, kde-format
+msgid ""
+"This option enables some convenient features for saving files with "
+"extensions:<br /><ol><li>Any extension specified in the <b>%1</b> text area "
+"will be updated if you change the file type to save in.<br /><br /></"
+"li><li>If no extension is specified in the <b>%2</b> text area when you "
+"click <b>Save</b>, %3 will be added to the end of the filename (if the "
+"filename does not already exist). This extension is based on the file type "
+"that you have chosen to save in.<br /><br />If you do not want KDE to supply "
+"an extension for the filename, you can either turn this option off or you "
+"can suppress it by adding a period (.) to the end of the filename (the "
+"period will be automatically removed).</li></ol>If unsure, keep this option "
+"enabled as it makes your files more manageable."
+msgstr ""
+"Šī izvēle ieslēdz vairākas ērtas funkcijas failu ar paplašinājumu "
+"saglabāšanai:<br /><ol><li>Norādītie paplašinājumi teksta laukā <b>%1</b> "
+"tiks izmainīti, ja izmainīsiet saglabājamā faila tipu.<br /><br /></"
+"li><li>Ja, nospiežot <b>Saglabāt</b>, nav norādīts paplašinājums teksta "
+"laukā <b>%2</b>, tad faila nosaukuma beigās tiks pievienots %3 (bet ne tad, "
+"ja jau eksistē fails ar ievadīto nosaukumu). Šis paplašinājums būs balstīts "
+"uz izvēlēto faila tipu.<br /><br />Ja jūs nevēlaties, lai KDE nodrošina "
+"faila paplašinājumu, jūs varat vai nu atslēgt šo iespēju, vai varat to "
+"novērst, pieliekot punktu (.) faila nosaukuma beigās (punkts tiks izņemts no "
+"faila nosaukuma).</li></ol>Ja neesat pārliecināts, atstājiet šo izvēli "
+"ieslēgtu, jo tā padara jūsu failus vieglāk pārvaldāmus."
+
+#: filewidgets/kfilewidget.cpp:2560
+msgid "Bookmarks"
+msgstr "Grāmatzīmes"
+
+#: filewidgets/kfilewidget.cpp:2564
+msgid ""
+"<qt>This button allows you to bookmark specific locations. Click on this "
+"button to open the bookmark menu where you may add, edit or select a "
+"bookmark.<br /><br />These bookmarks are specific to the file dialog, but "
+"otherwise operate like bookmarks elsewhere in KDE.</qt>"
+msgstr ""
+"<qt>Šī poga ļauj jums pievienot grāmatzīmēm jaunas vietas. Nospiediet uz šīs "
+"pogas, lai atvērtu grāmatzīmju izvēlni, kur jūs varat pievienot, rediģēt vai "
+"izvēlēties grāmatzīmi.<br /><br />Šīs grāmatzīmes ir atrodamas tikai faila "
+"dialogā, bet citādi strādā tāpat kā citas KDE grāmatzīmes.</qt>"
+
+#: filewidgets/knewfilemenu.cpp:380 filewidgets/knewfilemenu.cpp:935
+msgid "Sorry"
+msgstr "Atvainojiet"
+
+#: filewidgets/knewfilemenu.cpp:389
+#, kde-format
+msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
+msgstr "<qt>Šablona fails <b>%1</b> neeksistē.</qt>"
+
+#: filewidgets/knewfilemenu.cpp:408
+msgctxt "@action:button"
+msgid "Create directory"
+msgstr "Izveidot mapi"
+
+#: filewidgets/knewfilemenu.cpp:410
+msgctxt "@action:button"
+msgid "Enter a different name"
+msgstr "Ievadiet citu nosaukumu"
+
+#: filewidgets/knewfilemenu.cpp:413
+msgid "Create hidden directory?"
+msgstr "Izveidot slēptu mapi?"
+
+#: filewidgets/knewfilemenu.cpp:423
+#, kde-format
+msgid ""
+"The name \"%1\" starts with a dot, so the directory will be hidden by "
+"default."
+msgstr ""
+"Nosaukums \"%1\" sākas ar punktu un tāpēc izveidotā mape būs noklusēti "
+"slēpta."
+
+#: filewidgets/knewfilemenu.cpp:425
+msgid "Do not ask again"
+msgstr "Vairs nejautāt"
+
+#: filewidgets/knewfilemenu.cpp:518 filewidgets/knewfilemenu.cpp:591
+msgid "File name:"
+msgstr "Faila nosaukums:"
+
+#: filewidgets/knewfilemenu.cpp:521
+msgid "Create Symlink"
+msgstr "Izveidot simbolsaiti"
+
+#: filewidgets/knewfilemenu.cpp:595
+msgid "Create link to URL"
+msgstr "Izveidot saiti uz URL"
+
+#: filewidgets/knewfilemenu.cpp:640 filewidgets/knewfilemenu.cpp:685
+#, fuzzy, kde-format
+#| msgctxt "@item:inmenu Open With, %1 is application name"
+#| msgid "%1"
+msgctxt "@item:inmenu Create New"
+msgid "%1"
+msgstr "%1"
+
+#: filewidgets/knewfilemenu.cpp:946
+msgid ""
+"Basic links can only point to local files or directories.\n"
+"Please use \"Link to Location\" for remote URLs."
+msgstr ""
+"Parastās saites var norādīt tikai uz lokāliem failiem vai mapēm.\n"
+"Izmantojiet \"Saite uz vietu\" priekš attālinātiem URL."
+
+#: filewidgets/knewfilemenu.cpp:1023
+msgid "Create New"
+msgstr "Izveidot jaunu"
+
+#: filewidgets/knewfilemenu.cpp:1036
+msgid "Link to Device"
+msgstr "Saite uz ierīci"
+
+#: filewidgets/knewfilemenu.cpp:1083
+msgctxt "Default name for a new folder"
+msgid "New Folder"
+msgstr "Jauna mape"
+
+#: filewidgets/knewfilemenu.cpp:1093
+msgctxt "@title:window"
+msgid "New Folder"
+msgstr "Jauna mape"
+
+#: filewidgets/knewfilemenu.cpp:1096
+#, kde-format
+msgid ""
+"Create new folder in:\n"
+"%1"
+msgstr ""
+"Izveidot jaunu mapi iekš:\n"
+"%1"
+
+#: filewidgets/kstatusbarofflineindicator.cpp:55
+msgid "The desktop is offline"
+msgstr "Darbvirsma nav pieslēgta tīklam"
+
+#: filewidgets/kurlnavigator.cpp:424
+msgid "Copy"
+msgstr "Kopēt"
+
+#: filewidgets/kurlnavigator.cpp:428
+msgid "Paste"
+msgstr "Ielīmēt"
+
+#: filewidgets/kurlnavigator.cpp:435
+msgid "Edit"
+msgstr "Rediģēt"
+
+#: filewidgets/kurlnavigator.cpp:438
+msgid "Navigate"
+msgstr "Pārvietoties"
+
+#: filewidgets/kurlnavigator.cpp:453
+msgid "Show Full Path"
+msgstr "Rādīt pilnu ceļu"
+
+#: filewidgets/kurlnavigator.cpp:693
+msgid "Custom Path"
+msgstr "Pielāgots ceļš"
+
+#: filewidgets/kurlnavigatorbutton.cpp:696
+msgctxt "@action:inmenu"
+msgid "More"
+msgstr "Vairāk"
+
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:174
+msgctxt "@item:inmenu"
+msgid "Devices"
+msgstr "Ierīces"
+
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:178
+msgctxt "@item:inmenu"
+msgid "Subversion"
+msgstr "Subversion"
+
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:182
+msgctxt "@item:inmenu"
+msgid "Other"
+msgstr "Citi"
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:42
+#, fuzzy
+#| msgid "Edit"
+msgid "Edit mode"
+msgstr "Rediģēt"
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:97
+msgid "Click for Location Navigation"
+msgstr "Nospiediet, lai ieslēgtu navigāciju"
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:99
+msgid "Click to Edit Location"
+msgstr "Nospiediet, lai rediģētu atrašanās vietu"
+
+#: ioslaves/file/file.cpp:228
+#, kde-format
+msgid "Setting ACL for %1"
+msgstr "Uzstāda ACL priekš %1"
+
+#: ioslaves/file/file.cpp:687 ioslaves/file/file_unix.cpp:261
+#, kde-format
+msgid ""
+"Could not change permissions for\n"
+"%1"
+msgstr ""
+"Nevar izmainīt atļaujas priekš\n"
+"%1"
+
+#: ioslaves/file/file.cpp:899
+msgid "No Media inserted or Media not recognized."
+msgstr "Nav ievietots datu nesējs, vai arī tas nav atpazīts."
+
+#: ioslaves/file/file.cpp:908 ioslaves/file/file.cpp:1104
+msgid "\"vold\" is not running."
+msgstr "nav palaists \"vold\"."
+
+#: ioslaves/file/file.cpp:941
+msgid "Could not find program \"mount\""
+msgstr "Nevar atrast programmu \"mount\""
+
+#: ioslaves/file/file.cpp:1010
+msgid "mounting is not supported by wince."
+msgstr "wince neatbalsta montēšanu."
+
+#: ioslaves/file/file.cpp:1115
+msgid "Could not find program \"umount\""
+msgstr "Nevar atrast programmu \"umount\""
+
+#: ioslaves/file/file.cpp:1130
+msgid "unmounting is not supported by wince."
+msgstr "wince neatbalsta nomontēšanu."
+
+#: ioslaves/file/file_unix.cpp:194
+#, kde-format
+msgid "Cannot copy file from %1 to %2. (Errno: %3)"
+msgstr "Nevar kopēt failu no %1 uz %2. (Kļūda: %3)"
+
+#: ioslaves/file/file_unix.cpp:326
+#, kde-format
+msgid "No media in device for %1"
+msgstr "Nav atrasts datu nesējs iekš %1"
+
+#: ioslaves/file/file_unix.cpp:559
+#, kde-format
+msgid "Could not get user id for given user name %1"
+msgstr "Nevar atrast lietotāja id lietotājvārdam %1"
+
+#: ioslaves/file/file_unix.cpp:572
+#, kde-format
+msgid "Could not get group id for given group name %1"
+msgstr "Nevar atrast grupas id grupas vārdam %1"
+
+#: ioslaves/ftp/ftp.cpp:349
+#, kde-format
+msgid "Opening connection to host %1"
+msgstr "Izveido savienojumu ar resursdatoru %1"
+
+#: ioslaves/ftp/ftp.cpp:364
+#, kde-format
+msgid "Connected to host %1"
+msgstr "Savienots ar resursdatoru %1"
+
+#: ioslaves/ftp/ftp.cpp:474
+#, kde-format
+msgid ""
+"%1.\n"
+"\n"
+"Reason: %2"
+msgstr ""
+"%1.\n"
+"\n"
+"Iemesls: %2"
+
+#: ioslaves/ftp/ftp.cpp:504
+msgid "Sending login information"
+msgstr "Sūta pieteikšanās informāciju"
+
+#: ioslaves/ftp/ftp.cpp:562
+#, kde-format
+msgid ""
+"Message sent:\n"
+"Login using username=%1 and password=[hidden]\n"
+"\n"
+"Server replied:\n"
+"%2\n"
+"\n"
+msgstr ""
+"Ziņojums nosūtīts:\n"
+"Pieteikšanās izmantojot lietotāja vārdu=%1 un paroli=[slēpta]\n"
+"\n"
+"Serveris atbildēja:\n"
+"%2\n"
+"\n"
+
+#: ioslaves/ftp/ftp.cpp:571 ioslaves/http/http.cpp:5330
+msgid "You need to supply a username and a password to access this site."
+msgstr ""
+"Jums nepieciešams norādīt lietotāja vārdu un paroli, lai piekļūtu šai "
+"vietnei."
+
+#: ioslaves/ftp/ftp.cpp:573 ioslaves/http/http.cpp:5332
+msgid "Site:"
+msgstr "Vietne:"
+
+#: ioslaves/ftp/ftp.cpp:574
+#, kde-format
+msgid "<b>%1</b>"
+msgstr "<b>%1</b>"
+
+#: ioslaves/ftp/ftp.cpp:657
+msgid "Login OK"
+msgstr "Pieteikšanās OK"
+
+#: ioslaves/ftp/ftp.cpp:686
+#, kde-format
+msgid "Could not login to %1."
+msgstr "Nevar pieteikties %1."
+
+#: ioslaves/ftp/ftp.cpp:2585 ioslaves/http/http.cpp:5216
+#: ioslaves/http/http.cpp:5342
+msgid ""
+"You need to supply a username and a password for the proxy server listed "
+"below before you are allowed to access any sites."
+msgstr ""
+"Jums nepieciešams lietotāja vārds un parole zemāk norādītajam "
+"starpniekserverim, pirms jums tiks atļauts piekļūt jebkādām vietnēm."
+
+#: ioslaves/ftp/ftp.cpp:2589 ioslaves/http/http.cpp:5220
+#: ioslaves/http/http.cpp:5345
+msgid "Proxy:"
+msgstr "Starpniekserveris:"
+
+#: ioslaves/ftp/ftp.cpp:2590 ioslaves/http/http.cpp:5221
+#: ioslaves/http/http.cpp:5426
+#, kde-format
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> uz <b>%2</b>"
+
+#: ioslaves/ftp/ftp.cpp:2591 ioslaves/http/http.cpp:5223
+#: ioslaves/http/http.cpp:5362
+msgid "Proxy Authentication Failed."
+msgstr "Kļūdaina starpniekservera autentificēšana."
+
+#: ioslaves/help/kio_help.cpp:124
+#, fuzzy, kde-format
+#| msgid "There are no special actions available for protocol %1."
+msgid "There is no documentation available for %1."
+msgstr "Protokolam %1 nav pieejamas speciālas darbības."
+
+#: ioslaves/help/kio_help.cpp:178
+msgid "Looking up correct file"
+msgstr ""
+
+#: ioslaves/help/kio_help.cpp:229
+msgid "Preparing document"
+msgstr ""
+
+#: ioslaves/help/kio_help.cpp:238 ioslaves/help/kio_help.cpp:283
+#, fuzzy, kde-format
+#| msgid "The requested lock could not be granted. %1"
+msgid "The requested help file could not be parsed:<br />%1"
+msgstr "Nevar realizēt pieprasīto slēgšanu. %1"
+
+#: ioslaves/help/kio_help.cpp:260
+msgid "Saving to cache"
+msgstr ""
+
+#: ioslaves/help/kio_help.cpp:277
+msgid "Using cached version"
+msgstr ""
+
+#: ioslaves/help/kio_help.cpp:339
+msgid "Looking up section"
+msgstr ""
+
+#: ioslaves/help/kio_help.cpp:350
+#, fuzzy, kde-format
+#| msgid "Could not read file %1."
+msgid "Could not find filename %1 in %2."
+msgstr "Nevar nolasīt failu %1."
+
+#: ioslaves/http/http.cpp:602
+msgid "No host specified."
+msgstr "Nav uzrādīts resursdators."
+
+#: ioslaves/http/http.cpp:1565
+msgid "Otherwise, the request would have succeeded."
+msgstr "Citādi pieprasījums tiktu izpildīts."
+
+#: ioslaves/http/http.cpp:1569
+msgctxt "request type"
+msgid "retrieve property values"
+msgstr "saņemt īpašību vērtības"
+
+#: ioslaves/http/http.cpp:1572
+msgctxt "request type"
+msgid "set property values"
+msgstr "uzstādīt īpašību vērtības"
+
+#: ioslaves/http/http.cpp:1575
+msgctxt "request type"
+msgid "create the requested folder"
+msgstr "izveidot pieprasīto mapi"
+
+#: ioslaves/http/http.cpp:1578
+msgctxt "request type"
+msgid "copy the specified file or folder"
+msgstr "kopēt norādīto failu vai mapi"
+
+#: ioslaves/http/http.cpp:1581
+msgctxt "request type"
+msgid "move the specified file or folder"
+msgstr "pārvietot norādīto failu vai mapi"
+
+#: ioslaves/http/http.cpp:1584
+msgctxt "request type"
+msgid "search in the specified folder"
+msgstr "meklēt norādītajā mapē"
+
+#: ioslaves/http/http.cpp:1587
+msgctxt "request type"
+msgid "lock the specified file or folder"
+msgstr "slēgt norādīto failu vai mapi"
+
+#: ioslaves/http/http.cpp:1590
+msgctxt "request type"
+msgid "unlock the specified file or folder"
+msgstr "atslēgt norādīto failu vai mapi"
+
+#: ioslaves/http/http.cpp:1593
+msgctxt "request type"
+msgid "delete the specified file or folder"
+msgstr "dzēst norādīto failu vai mapi"
+
+#: ioslaves/http/http.cpp:1596
+msgctxt "request type"
+msgid "query the server's capabilities"
+msgstr "pārbaudīt servera iespējas"
+
+#: ioslaves/http/http.cpp:1599
+msgctxt "request type"
+msgid "retrieve the contents of the specified file or folder"
+msgstr "saņemt norādītās mapes vai faila saturu"
+
+#: ioslaves/http/http.cpp:1602
+msgctxt "request type"
+msgid "run a report in the specified folder"
+msgstr "darbināt atskaiti norādītajā mapē"
+
+#: ioslaves/http/http.cpp:1613
+#, kde-format
+msgctxt "%1: code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "Gadījusies neparedzēta kļūda (%1), mēģinot %2."
+
+#: ioslaves/http/http.cpp:1620
+msgid "The server does not support the WebDAV protocol."
+msgstr "Serveris neatbalsta WebDAV protokolu."
+
+#: ioslaves/http/http.cpp:1662
+#, kde-format
+msgctxt "%1: request type, %2: url"
+msgid ""
+"An error occurred while attempting to %1, %2. A summary of the reasons is "
+"below."
+msgstr "Gadījusies kļūda, mēģinot %1, %2. Iemeslu kopsavilkums ir zemāk."
+
+#: ioslaves/http/http.cpp:1677 ioslaves/http/http.cpp:1810
+#, kde-format
+msgctxt "%1: request type"
+msgid "Access was denied while attempting to %1."
+msgstr "Pieeja bija aizliegta, mēģinot %1."
+
+#: ioslaves/http/http.cpp:1690 ioslaves/http/http.cpp:1816
+msgid ""
+"A resource cannot be created at the destination until one or more "
+"intermediate collections (folders) have been created."
+msgstr ""
+"Nevar izveidot resursu mērķī, vispirms jāizveido viena vai vairākas "
+"starpkolekcijas (mapes)."
+
+#: ioslaves/http/http.cpp:1698
+#, fuzzy, kde-format
+#| msgid ""
+#| "The server was unable to maintain the liveness of the properties listed "
+#| "in the propertybehavior XML element or you attempted to overwrite a file "
+#| "while requesting that files are not overwritten. %1"
+msgid ""
+"The server was unable to maintain the liveness of the properties listed in "
+"the propertybehavior XML element or you attempted to overwrite a file while "
+"requesting that files are not overwritten. %1"
+msgstr ""
+"Serveris nespēja realizēt XML 'propertybehavior' elementā norādītās īpašības "
+"vai arī jūs mēģinājāt pārrakstīt failu, vienlaicīgi pieprasot, ka faili nav "
+"pārrakstāmi. %1"
+
+#: ioslaves/http/http.cpp:1706
+#, kde-format
+msgid "The requested lock could not be granted. %1"
+msgstr "Nevar realizēt pieprasīto slēgšanu. %1"
+
+#: ioslaves/http/http.cpp:1712
+msgid "The server does not support the request type of the body."
+msgstr "Serveris neatbalsta pieprasījuma tipa ķermeni."
+
+#: ioslaves/http/http.cpp:1717 ioslaves/http/http.cpp:1824
+#, kde-format
+msgctxt "%1: request type"
+msgid "Unable to %1 because the resource is locked."
+msgstr "Nevar %1, jo resurss ir slēgts."
+
+#: ioslaves/http/http.cpp:1721
+msgid "This action was prevented by another error."
+msgstr "Šo darbību apturēja cita kļūda."
+
+#: ioslaves/http/http.cpp:1727 ioslaves/http/http.cpp:1830
+#, kde-format
+msgctxt "%1: request type"
+msgid ""
+"Unable to %1 because the destination server refuses to accept the file or "
+"folder."
+msgstr "Nevar %1, jo mērķa serveris atteicās pieņemt failu vai mapi."
+
+#: ioslaves/http/http.cpp:1734 ioslaves/http/http.cpp:1837
+msgid ""
+"The destination resource does not have sufficient space to record the state "
+"of the resource after the execution of this method."
+msgstr ""
+"Uz mērķa resursa nav pietiekoši vietas, lai ierakstītu resursa stāvokli pēc "
+"šīs metodes izpildes."
+
+#: ioslaves/http/http.cpp:1788
+msgid "The resource cannot be deleted."
+msgstr "Šo resursu nevar izdzēst."
+
+#: ioslaves/http/http.cpp:1801
+#, kde-format
+msgctxt "request type"
+msgid "upload %1"
+msgstr "augšupielādēt %1"
+
+#: ioslaves/http/http.cpp:1851
+#, kde-format
+msgctxt "%1: response code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "Gadījusies neparedzēta kļūda (%1), mēģinot %2."
+
+#: ioslaves/http/http.cpp:2677
+#, kde-format
+msgid "%1 contacted. Waiting for reply..."
+msgstr "Nosūtīts pieprasījums %1. Gaida atbildi..."
+
+#: ioslaves/http/http.cpp:3021
+#, kde-format
+msgctxt "@info Security check on url being accessed"
+msgid ""
+"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
+"the website does not require authentication. This may be an attempt to trick "
+"you.</p><p>Is \"%1\" the site you want to visit?</p>"
+msgstr ""
+
+#: ioslaves/http/http.cpp:3027
+msgctxt "@title:window"
+msgid "Confirm Website Access"
+msgstr "Apstiprināt tīmekļa lapas apmeklēšanu"
+
+#: ioslaves/http/http.cpp:3118
+msgid "Server processing request, please wait..."
+msgstr "Serveris apstrādā pieprasījumu, lūdzu, gaidiet..."
+
+#: ioslaves/http/http.cpp:3827 ioslaves/http/http.cpp:3881
+#, kde-format
+msgid "Sending data to %1"
+msgstr "Sūta datus uz %1"
+
+#: ioslaves/http/http.cpp:4338
+#, kde-format
+msgid "Retrieving %1 from %2..."
+msgstr "Saņem %1 no %2..."
+
+#: ioslaves/http/http.cpp:5361
+msgid "Authentication Failed."
+msgstr "Neveiksmīga autentificēšana."
+
+#: ioslaves/http/http.cpp:5459
+msgid "Authorization failed."
+msgstr "Autorizācija neveiksmīga"
+
+#: ioslaves/http/http.cpp:5475
+msgid "Unknown Authorization method."
+msgstr "Nezināma autorizācijas metode."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:66
+msgid "Cookie Alert"
+msgstr "Sīkdatņu brīdinājums"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:90
+#, fuzzy, kde-format
+#| msgid "Do you want to accept or reject?"
+msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+msgid ""
+"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject this cookie?</p>"
+msgid_plural ""
+"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject these cookies?</p>"
+msgstr[0] "Vēlaties pieņemt vai noraidīt?"
+msgstr[1] "Vēlaties pieņemt vai noraidīt?"
+msgstr[2] "Vēlaties pieņemt vai noraidīt?"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:98
+#, fuzzy
+#| msgid " <b>[Cross Domain]</b>"
+msgctxt "@item:intext cross domain cookie"
+msgid " [Cross Domain]"
+msgstr " <b>[Starpdomēnu!]</b>"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:108
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:363
+msgid "See or modify the cookie information"
+msgstr "Skatīt vai mainīt sīkdatņu informāciju"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:112
+msgid "Accept for this &session"
+msgstr ""
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:114
+msgid "Accept cookie(s) until the end of the current session"
+msgstr ""
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:121
+msgid "&Accept"
+msgstr "&Pieņemt"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:122
+msgid "&Reject"
+msgstr "&Noraidīt"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:156
+msgid "Apply Choice To"
+msgstr "Pielietot izvēli"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:159
+msgid "&Only this cookie"
+msgstr "&Tikai šai sīkdatnei"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:159
+msgid "&Only these cookies"
+msgstr "&Tikai šām sīkdatnēm"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:163
+#, fuzzy
+#| msgid ""
+#| "Select this option to accept/reject only this cookie. You will be "
+#| "prompted if another cookie is received. <em>(see WebBrowsing/Cookies in "
+#| "the System Settings)</em>."
+msgid ""
+"Select this option to only accept or reject this cookie. You will be "
+"prompted again if you receive another cookie."
+msgstr ""
+"Izvēlieties šo iespēju, lai pieņemtu/noraidītu tikai šo sīkdatni. Jūs "
+"tiksiet informēts, ja tiks saņemta cita sīkdatne. <em>(skatīt 'Tīmekļa "
+"pārlūkošana'/'Sīkdatnes' Sistēmas iestatījumos)</em>."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:166
+msgid "All cookies from this do&main"
+msgstr "Visām sīkdatnēm no šī do&mēna"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:169
+#, fuzzy
+#| msgid ""
+#| "Select this option to accept/reject all cookies from this site. Choosing "
+#| "this option will add a new policy for the site this cookie originated "
+#| "from. This policy will be permanent until you manually change it from the "
+#| "System Settings <em>(see WebBrowsing/Cookies in the System Settings)</em>."
+msgid ""
+"Select this option to accept or reject all cookies from this site. Choosing "
+"this option will add a new policy for the site this cookie originated from. "
+"This policy will be permanent until you manually change it from the System "
+"Settings."
+msgstr ""
+"Izvēlieties šo iespēju, lai pieņemtu/noraidītu visas sīkdatnes no šīs "
+"vietnes. Izvēloties šo iespēju, tiks pievienoti jauni noteikumi vietnei, no "
+"kuras šī sīkdatne ir nākusi. Šie noteikumi būs spēkā līdz jūs pašrocīgi "
+"izmainīsiet tos no Sistēmas iestatījiem<em>(skat 'Tīmekļa "
+"pārlūkošana'/'Sīkdatnes' Sistēmas iestatījumos)</em>."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:174
+msgid "All &cookies"
+msgstr "Visām &sīkdatnēm"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:177
+#, fuzzy
+#| msgid ""
+#| "Select this option to accept/reject all cookies from anywhere. Choosing "
+#| "this option will change the global cookie policy set in the System "
+#| "Settings for all cookies <em>(see WebBrowsing/Cookies in the System "
+#| "Settings)</em>."
+msgid ""
+"Select this option to accept/reject all cookies from anywhere. Choosing this "
+"option will change the global cookie policy for all cookies until you "
+"manually change it from the System Settings."
+msgstr ""
+"Izvēlieties šo iespēju, lai pieņemtu/noraidītu visas sīkdatnes no jebkuras "
+"vietnes. Izvēloties šo iespēju, tiks nomainīti globālie sīkdatņu noteikumi "
+"Sistēmas iesatījumos visām sīkdatnēm <em>(skat 'Tīmekļa "
+"pārlūkošana'/'Sīkdatnes' Sistēmas iestatījumos)</em>."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:245
+msgid "Cookie Details"
+msgstr "Sīkdatnes detaļas"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:250
+msgid "Name:"
+msgstr "Nosaukums:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:258
+msgid "Value:"
+msgstr "Vērtība:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:265
+msgid "Expires:"
+msgstr "Izbeidzas:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:272
+msgid "Path:"
+msgstr "Ceļš:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:279
+msgid "Domain:"
+msgstr "Domēns:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:286
+msgid "Exposure:"
+msgstr "Redzamība:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:294
+msgctxt "Next cookie"
+msgid "&Next >>"
+msgstr "&Nākamā >>"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:299
+msgid "Show details of the next cookie"
+msgstr "Rādīt nākamās sīkdatnes detaļas"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:327
+msgid "Not specified"
+msgstr "Nav uzrādīts"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:337
+msgid "End of Session"
+msgstr "Sesijas beigas"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:342
+msgid "Secure servers only"
+msgstr "Tikai drošiem serveriem"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:344
+msgid "Secure servers, page scripts"
+msgstr "Drošiem serveriem, skriptiem"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:348
+msgid "Servers"
+msgstr "Serveri"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:350
+msgid "Servers, page scripts"
+msgstr "Serveriem, skriptiem"
+
+#: ioslaves/telnet/ktelnetservice.cpp:68
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Jums nav atļajuju piekļūt %1 protokolam."
+
+#: kcms/webshortcuts/main.cpp:42
+msgid "Web Shortcuts"
+msgstr ""
+
+#: kcms/webshortcuts/main.cpp:49
+msgid ""
+"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
+"browsing features of KDE. <h2>Web Shortcuts</h2>Web Shortcuts are a quick "
+"way of using Web search engines. For example, type \"altavista:frobozz\" or "
+"\"av:frobozz\" and Konqueror will do a search on AltaVista for \"frobozz\". "
+"Even easier: just press Alt+F2 (if you have not changed this shortcut) and "
+"enter the shortcut in the KDE Run Command dialog."
+msgstr ""
+
+#: kioexec/main.cpp:46
+msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
+msgstr ""
+
+#: kioexec/main.cpp:80
+#, kde-format
+msgid ""
+"The URL %1\n"
+"is malformed"
+msgstr ""
+
+#: kioexec/main.cpp:82
+#, kde-format
+msgid ""
+"Remote URL %1\n"
+"not allowed with --tempfiles switch"
+msgstr ""
+
+#: kioexec/main.cpp:213
+#, kde-format
+msgid ""
+"The supposedly temporary file\n"
+"%1\n"
+"has been modified.\n"
+"Do you still want to delete it?"
+msgstr ""
+
+#: kioexec/main.cpp:214 kioexec/main.cpp:221
+#, fuzzy
+#| msgid "File name:"
+msgid "File Changed"
+msgstr "Faila nosaukums:"
+
+#: kioexec/main.cpp:214
+#, fuzzy
+#| msgid "Do Not Store"
+msgid "Do Not Delete"
+msgstr "Neglabāt"
+
+#: kioexec/main.cpp:220
+#, kde-format
+msgid ""
+"The file\n"
+"%1\n"
+"has been modified.\n"
+"Do you want to upload the changes?"
+msgstr ""
+
+#: kioexec/main.cpp:221
+#, fuzzy
+#| msgid "Reload"
+msgid "Upload"
+msgstr "Pārielādēt"
+
+#: kioexec/main.cpp:221
+#, fuzzy
+#| msgid "Do Not Store"
+msgid "Do Not Upload"
+msgstr "Neglabāt"
+
+#: kioexec/main.cpp:252
+#, fuzzy
+#| msgid "Exec"
+msgid "KIOExec"
+msgstr "Izpildīt"
+
+#: kioexec/main.cpp:254
+msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
+msgstr ""
+
+#: kioexec/main.cpp:255
+msgid "David Faure"
+msgstr ""
+
+#: kioexec/main.cpp:256
+msgid "Stephan Kulow"
+msgstr "Stephan Kulow"
+
+#: kioexec/main.cpp:257
+msgid "Bernhard Rosenkraenzer"
+msgstr ""
+
+#: kioexec/main.cpp:258
+msgid "Waldo Bastian"
+msgstr ""
+
+#: kioexec/main.cpp:259
+msgid "Oswald Buddenhagen"
+msgstr ""
+
+#: kioexec/main.cpp:264
+msgid "Treat URLs as local files and delete them afterwards"
+msgstr ""
+
+#: kioexec/main.cpp:265
+#, fuzzy
+#| msgid "Choose an alternate filename for the new file."
+msgid "Suggested file name for the downloaded file"
+msgstr "Izvēlieties citu faila nosaukumu jaunajam failam."
+
+#: kioexec/main.cpp:266
+msgid "Command to execute"
+msgstr ""
+
+#: kioexec/main.cpp:267
+msgid "URL(s) or local file(s) used for 'command'"
+msgstr ""
+
+#: kpac/discovery.cpp:112
+msgid "Could not find a usable proxy configuration script"
+msgstr "Nevar atrast derīgu starpniekservera konfigurācijas skriptu"
+
+#: kpac/downloader.cpp:92
+#, kde-format
+msgid ""
+"Could not download the proxy configuration script:\n"
+"%1"
+msgstr ""
+"Nevar lejupielādēt starpniekservera konfigurācijas skriptu:\n"
+"%1"
+
+#: kpac/downloader.cpp:95
+msgid "Could not download the proxy configuration script"
+msgstr "Nevar lejupielādēt starpniekservera konfigurācijas skriptu"
+
+#: kpac/proxyscout.cpp:236
+#, kde-format
+msgid ""
+"The proxy configuration script is invalid:\n"
+"%1"
+msgstr ""
+"Nederīgs starpniekservera konfigurācijas skripts:\n"
+"%1"
+
+#: kpac/proxyscout.cpp:345
+#, kde-format
+msgid ""
+"The proxy configuration script returned an error:\n"
+"%1"
+msgstr ""
+"Starpniekservera konfigurācijas skripts atgrieza kļūdu:\n"
+"%1"
+
+#: kpac/script.cpp:752
+msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
+msgstr ""
+
+#: kpac/script.cpp:763
+#, kde-format
+msgid "Got an invalid reply when calling %1"
+msgstr "Saņemta nederīga atbilde uz izsaukumu %1"
+
+#: kpasswdserver/kpasswdserver.cpp:556
+#, fuzzy
+#| msgid "Do you really want to delete this item?"
+#| msgid_plural "Do you really want to delete these %1 items?"
+msgid "Do you want to retry?"
+msgstr "Vai tiešām vēlaties dzēst šo %1 vienību?"
+
+#: kpasswdserver/kpasswdserver.cpp:561
+#, fuzzy
+#| msgid "Server Authentication"
+msgid "Retry Authentication"
+msgstr "Servera autentificēšana"
+
+#: kpasswdserver/kpasswdserver.cpp:565
+msgctxt "@action:button filter-continue"
+msgid "Retry"
+msgstr ""
+
+#: kpasswdserver/kpasswdserver.cpp:858
+#, fuzzy
+#| msgid "Authorization Dialog"
+msgid "Authentication Dialog"
+msgstr "Autorizācijas dialogs"
+
+#: urifilters/ikws/ikwsopts.cpp:54
+#, fuzzy
+#| msgid "Name"
+msgctxt "@title:column Name label from web shortcuts column"
+msgid "Name"
+msgstr "Nosaukums"
+
+#: urifilters/ikws/ikwsopts.cpp:56
+msgctxt "@title:column"
+msgid "Shortcuts"
+msgstr ""
+
+#: urifilters/ikws/ikwsopts.cpp:58
+msgctxt "@title:column"
+msgid "Preferred"
+msgstr ""
+
+#: urifilters/ikws/ikwsopts.cpp:200
+#, fuzzy
+#| msgid "None"
+msgctxt "@item:inlistbox No default web shortcut"
+msgid "None"
+msgstr "Nav"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:17
+msgid ""
+"<html><head/><body><p>Enable or disable web shortcuts. </p><p>Web shortcuts "
+"allow you to quickly access or search for information located online or on "
+"your hard drive. </p><p>KDE comes with many predefined Web shortcuts. One "
+"such Web shortcut is the Google (TM) search shortcut. To use it, you simply "
+"type the keyword 'gg' followed by the keyword delimiter and the search term, "
+"e.g. <span style=\" font-weight:600;\">gg:KDE</span>.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:20
+msgid "&Enable Web shortcuts"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: urifilters/ikws/ikwsopts_ui.ui:30
+msgid "&Use preferred shortcuts only"
+msgstr ""
+
+#. i18n: ectx: property (placeholderText), widget (KLineEdit, searchLineEdit)
+#: urifilters/ikws/ikwsopts_ui.ui:37
+msgid "Search for shortcut"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:71
+msgid "Add a new Web shortcut"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:74
+#, fuzzy
+#| msgctxt "@action:button"
+#| msgid "&New Folder..."
+msgid "&New..."
+msgstr "&Jauna mape..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:84
+msgid "Modify the highlighted Web shortcut"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:87
+#, fuzzy
+#| msgctxt "@label"
+#| msgid "Change..."
+msgid "Chan&ge..."
+msgstr "Mainīt..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:97
+msgid "Delete the highlighted Web shortcut"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:100
+#, fuzzy
+#| msgid "Delete"
+msgid "De&lete"
+msgstr "Dzēst"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:138
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:141
+msgid "Default Web &shortcut:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cmbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:166
+msgid ""
+"<html><head/><body><p>Select a default web shortcut. </p><p>This allows "
+"applications to automatically convert the typed word or phrase to web "
+"shortcut queries when they cannot be filtered into a proper URL. </p><p>To "
+"disable this functionality select <span style=\" font-weight:600;\">None</"
+"span> from the list. </p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:182
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:185
+msgid "&Keyword delimiter:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:204
+msgid "Choose a delimiter to mark the Web shortcut keyword."
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:208
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:213
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr ""
+
+#: urifilters/ikws/kuriikwsfilter.cpp:121
+msgid "No preferred search providers were found."
+msgstr ""
+
+#: urifilters/ikws/kuriikwsfilter.cpp:140
+msgid "No search providers were found."
+msgstr ""
+
+#: urifilters/ikws/kurisearchfilter.cpp:92
+msgid "Search F&ilters"
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:58
+#, fuzzy
+#| msgid "Default"
+msgctxt "@item:inlistbox The default character set"
+msgid "Default"
+msgstr "Noklusētais"
+
+#: urifilters/ikws/searchproviderdlg.cpp:62
+msgid "Modify Web Shortcut"
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:72
+msgid "New Web Shortcut"
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:125
+#, kde-format
+msgid ""
+"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
+"one."
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:130
+#, fuzzy, kde-format
+#| msgctxt "items: folders, files (size)"
+#| msgid "%1: %2"
+msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+msgid "- %1: \"%2\""
+msgstr "%1: %2"
+
+#: urifilters/ikws/searchproviderdlg.cpp:134
+#, kde-format
+msgid ""
+"The following shortcuts are already assigned. Please choose different ones.\n"
+"%1"
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:146
+msgid ""
+"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
+"This means that the same page is always going to be visited, regardless of "
+"the text typed in with the shortcut."
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:149
+msgid "Keep It"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:17
+msgid "Enter the human-readable name of the search provider here."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:23
+msgid "Shortcut &name:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:42
+#: urifilters/ikws/searchproviderdlg_ui.ui:64
+#: urifilters/ikws/searchproviderdlg_ui.ui:70
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:48
+msgid "Shortcut &URL:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:83
+msgid "Select the character set that will be used to encode your search query."
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:92
+#: urifilters/ikws/searchproviderdlg_ui.ui:97
+#: urifilters/ikws/searchproviderdlg_ui.ui:116
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:104
+#: urifilters/ikws/searchproviderdlg_ui.ui:107
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:119
+msgid "&Shortcuts:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:132
+msgid "Select the character set that will be used to encode your search query"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:135
+msgid "&Charset:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: urifilters/ikws/searchproviderdlg_ui.ui:158
+#, fuzzy
+#| msgctxt "@label"
+#| msgid "Interlace Mode"
+msgid "Insert query placeholder"
+msgstr "Rindpārlēces izvērse"
+
+#: urifilters/shorturi/kshorturifilter.cpp:270
+#, fuzzy, kde-format
+#| msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
+msgid "<qt><b>%1</b> does not have a home folder.</qt>"
+msgstr "<qt>Šablona fails <b>%1</b> neeksistē.</qt>"
+
+#: urifilters/shorturi/kshorturifilter.cpp:272
+#, fuzzy, kde-format
+#| msgid "<qt>You do not have permission to run <b>%1</b>.</qt>"
+msgid "<qt>There is no user called <b>%1</b>.</qt>"
+msgstr "<qt>Jums nav tiesību darbināt <b>%1</b>.</qt>"
+
+#: urifilters/shorturi/kshorturifilter.cpp:520
+#, fuzzy, kde-format
+#| msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
+msgid "<qt>The file or folder <b>%1</b> does not exist.</qt>"
+msgstr "<qt>Šablona fails <b>%1</b> neeksistē.</qt>"
+
+#: widgets/accessmanager.cpp:221
+msgid "Blocked request."
+msgstr "Bloķēts pieprasījums."
+
+#: widgets/accessmanager.cpp:285
+msgid "Unknown HTTP verb."
+msgstr "Nezināms HTTP vārds"
+
+#. i18n: ectx: property (text), widget (QLabel, commonNameTag)
+#: widgets/certificateparty.ui:28
+msgid "Common name:"
+msgstr "Parastais nosaukums:"
+
+#. i18n: ectx: property (text), widget (QLabel, commonName)
+#: widgets/certificateparty.ui:38
+msgid "Acme Co."
+msgstr "Acme Co."
+
+#. i18n: ectx: property (text), widget (QLabel, organizationTag)
+#: widgets/certificateparty.ui:48
+msgid "Organization:"
+msgstr "Organizācija:"
+
+#. i18n: ectx: property (text), widget (QLabel, organization)
+#: widgets/certificateparty.ui:58
+msgid "Acme Sundry Products Company"
+msgstr "Acme žūstošo produktu kompānija"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
+#: widgets/certificateparty.ui:68
+msgid "Organizational unit:"
+msgstr "Organizatoriskā vienība:"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
+#: widgets/certificateparty.ui:78
+msgid "Fraud Department"
+msgstr "Krāpniecības departaments"
+
+#. i18n: ectx: property (text), widget (QLabel, countryTag)
+#: widgets/certificateparty.ui:88
+msgid "Country:"
+msgstr "Valsts:"
+
+#. i18n: ectx: property (text), widget (QLabel, country)
+#: widgets/certificateparty.ui:98
+msgid "Canada"
+msgstr "Kanāda"
+
+#. i18n: ectx: property (text), widget (QLabel, stateTag)
+#: widgets/certificateparty.ui:108
+msgid "State:"
+msgstr "Štats:"
+
+#. i18n: ectx: property (text), widget (QLabel, state)
+#: widgets/certificateparty.ui:118
+msgid "Quebec"
+msgstr "Kvebeka"
+
+#. i18n: ectx: property (text), widget (QLabel, cityTag)
+#: widgets/certificateparty.ui:128
+msgid "City:"
+msgstr "Pilsēta:"
+
+#. i18n: ectx: property (text), widget (QLabel, city)
+#: widgets/certificateparty.ui:138
+msgid "Lakeridge Meadows"
+msgstr "Tontontorontona"
+
+#: widgets/fileundomanager.cpp:124
+msgid "Creating directory"
+msgstr "Izveido mapi"
+
+#: widgets/fileundomanager.cpp:129
+msgid "Moving"
+msgstr "Pārvieto"
+
+#: widgets/fileundomanager.cpp:135
+msgid "Deleting"
+msgstr "Dzēš"
+
+#: widgets/fileundomanager.cpp:299
+msgid "Und&o"
+msgstr "Atjaun&ot"
+
+#: widgets/fileundomanager.cpp:305
+msgid "Und&o: Copy"
+msgstr "&Atcelt: Kopēšanu"
+
+#: widgets/fileundomanager.cpp:307
+msgid "Und&o: Link"
+msgstr "&Atcelt: Saitēšanu"
+
+#: widgets/fileundomanager.cpp:309
+msgid "Und&o: Move"
+msgstr "&Atcelt: Pārvietošanu"
+
+#: widgets/fileundomanager.cpp:311
+msgid "Und&o: Rename"
+msgstr "&Atcelt: Pārdēvēšanu"
+
+#: widgets/fileundomanager.cpp:313
+msgid "Und&o: Trash"
+msgstr "&Atcelt: Izmešanu"
+
+#: widgets/fileundomanager.cpp:315
+msgid "Und&o: Create Folder"
+msgstr "&Atcelt: Mapes izveidošanu"
+
+#: widgets/fileundomanager.cpp:317
+msgid "Und&o: Create File"
+msgstr "&Atcelt: faila izveidošanu"
+
+#: widgets/fileundomanager.cpp:698
+#, kde-format
+msgid ""
+"The file %1 was copied from %2, but since then it has apparently been "
+"modified at %3.\n"
+"Undoing the copy will delete the file, and all modifications will be lost.\n"
+"Are you sure you want to delete %4?"
+msgstr ""
+"Fails %1 tika iekopēts no %2, bet kopš kopēšanas ir mainīts %3.\n"
+"Kopēšanas atcelšana dzēsīs mainīto failu, un visas izmaiņas būs zaudētas.\n"
+"Vai tiešām vēlaties dzēst %4?"
+
+#: widgets/fileundomanager.cpp:701
+msgid "Undo File Copy Confirmation"
+msgstr "Faila kopēšanas atcelšanas apstiprināšana"
+
+#: widgets/jobuidelegate.cpp:233
+msgctxt "@info"
+msgid ""
+"Do you want to permanently delete all items from Trash? This action cannot "
+"be undone."
+msgstr ""
+"Vai tiešām vēlaties pilnībā iztukšot miskasti? Šo darbību nevar atcelt."
+
+#: widgets/jobuidelegate.cpp:244
+#, kde-format
+msgid "Do you really want to move this item to the trash?"
+msgid_plural "Do you really want to move these %1 items to the trash?"
+msgstr[0] "Vai tiešām vēlaties izmest miskastē šo %1 vienību?"
+msgstr[1] "Vai tiešām vēlaties izmest miskastē šīs %1 vienības?"
+msgstr[2] "Vai tiešām vēlaties izmest miskastē šīs %1 vienību?"
+
+#: widgets/jobuidelegate.cpp:247
+msgctxt "Verb"
+msgid "&Trash"
+msgstr "Iz&mest"
+
+#: widgets/jobuidelegate.cpp:340
+msgid "The peer SSL certificate chain appears to be corrupt."
+msgstr "Partnera SSL sertifikāta ķēde izskatās bojāta."
+
+#: widgets/kacleditwidget.cpp:59 widgets/kacleditwidget.cpp:448
+msgid "Owner"
+msgstr "Īpašnieks"
+
+#: widgets/kacleditwidget.cpp:60 widgets/kacleditwidget.cpp:453
+msgid "Owning Group"
+msgstr "Grupa"
+
+#: widgets/kacleditwidget.cpp:61 widgets/kacleditwidget.cpp:458
+#: widgets/kpropertiesdialog.cpp:1992
+msgid "Others"
+msgstr "Citi"
+
+#: widgets/kacleditwidget.cpp:62 widgets/kacleditwidget.cpp:463
+msgid "Mask"
+msgstr "Maska"
+
+#: widgets/kacleditwidget.cpp:63
+msgid "Named User"
+msgstr "Nosaukts lietotājs"
+
+#: widgets/kacleditwidget.cpp:64
+msgid "Named Group"
+msgstr "Nosaukta grupa"
+
+#: widgets/kacleditwidget.cpp:100
+msgid "Edit Entry..."
+msgstr "Rediģēt ierakstu..."
+
+#: widgets/kacleditwidget.cpp:104
+msgid "Delete Entry"
+msgstr "Dzēst ierakstu"
+
+#: widgets/kacleditwidget.cpp:308
+msgid " (Default)"
+msgstr " (Noklusējuma)"
+
+#: widgets/kacleditwidget.cpp:429
+msgid "Edit ACL Entry"
+msgstr "Rediģēt ACL ierakstu"
+
+#: widgets/kacleditwidget.cpp:433
+msgid "Entry Type"
+msgstr "Ieraksta tips"
+
+#: widgets/kacleditwidget.cpp:439
+msgid "Default for new files in this folder"
+msgstr "Noklusētais jauniem failiem šajā mapē"
+
+#: widgets/kacleditwidget.cpp:468
+msgid "Named user"
+msgstr "Nosaukts lietotājs"
+
+#: widgets/kacleditwidget.cpp:473
+msgid "Named group"
+msgstr "Nosaukta grupa"
+
+#: widgets/kacleditwidget.cpp:493
+msgid "User: "
+msgstr "Lietotājs: "
+
+#: widgets/kacleditwidget.cpp:508
+msgid "Group: "
+msgstr "Grupa: "
+
+#: widgets/kacleditwidget.cpp:645
+msgid "Type"
+msgstr "Tips"
+
+#: widgets/kacleditwidget.cpp:646
+msgid "Name"
+msgstr "Nosaukums"
+
+#: widgets/kacleditwidget.cpp:647
+msgctxt "read permission"
+msgid "r"
+msgstr "r"
+
+#: widgets/kacleditwidget.cpp:648
+msgctxt "write permission"
+msgid "w"
+msgstr "w"
+
+#: widgets/kacleditwidget.cpp:649
+msgctxt "execute permission"
+msgid "x"
+msgstr "x"
+
+#: widgets/kacleditwidget.cpp:650
+msgid "Effective"
+msgstr "Efektīvais"
+
+#: widgets/kbuildsycocaprogressdialog.cpp:45
+msgid "Updating System Configuration"
+msgstr "Atjaunina sistēmas konfigurāciju"
+
+#: widgets/kbuildsycocaprogressdialog.cpp:46
+msgid "Updating system configuration."
+msgstr "Atjaunina sistēmas konfigurāciju."
+
+#: widgets/kdesktopfileactions.cpp:67
+#, kde-format
+msgid "The desktop entry file %1 has no Type=... entry."
+msgstr "Darbvirsmas elementa failam %1 nav tipa (Type=...) ieraksta."
+
+#: widgets/kdesktopfileactions.cpp:84
+#, kde-format
+msgid ""
+"The desktop entry of type\n"
+"%1\n"
+"is unknown."
+msgstr ""
+"Darbvirsmas elementa tips\n"
+"%1\n"
+"nav zināms."
+
+#: widgets/kdesktopfileactions.cpp:97 widgets/kdesktopfileactions.cpp:177
+#: widgets/kdesktopfileactions.cpp:310
+#, kde-format
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is of type FSDevice but has no Dev=... entry."
+msgstr ""
+"Darbvirsmas elementa failam\n"
+"%1\n"
+"ir tips 'FSDevice', bet tas nesatur 'Dev=...' ierakstu."
+
+#: widgets/kdesktopfileactions.cpp:130
+#, fuzzy, kde-format
+#| msgid ""
+#| "The desktop entry of type\n"
+#| "%1\n"
+#| "is unknown."
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is not valid."
+msgstr ""
+"Darbvirsmas elementa tips\n"
+"%1\n"
+"nav zināms."
+
+#: widgets/kdesktopfileactions.cpp:143
+#, kde-format
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is of type Link but has no URL=... entry."
+msgstr ""
+"Darbvirsmas ievada fails\n"
+"%1\n"
+"ir saites tipa, bet nesatur 'URL=...' ierakstu."
+
+#: widgets/kdesktopfileactions.cpp:213
+msgid "Mount"
+msgstr "Piemontēt"
+
+#: widgets/kdesktopfileactions.cpp:224
+msgid "Eject"
+msgstr "Izgrūst"
+
+#: widgets/kdesktopfileactions.cpp:226
+msgid "Unmount"
+msgstr "Nomontēt"
+
+#: widgets/kdirmodel.cpp:1072
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Nosaukums"
+
+#: widgets/kdirmodel.cpp:1074
+msgctxt "@title:column"
+msgid "Size"
+msgstr "Izmērs"
+
+#: widgets/kdirmodel.cpp:1076
+msgctxt "@title:column"
+msgid "Date"
+msgstr "Datums"
+
+#: widgets/kdirmodel.cpp:1078
+msgctxt "@title:column"
+msgid "Permissions"
+msgstr "Atļaujas"
+
+#: widgets/kdirmodel.cpp:1080
+msgctxt "@title:column"
+msgid "Owner"
+msgstr "Īpašnieks"
+
+#: widgets/kdirmodel.cpp:1082
+msgctxt "@title:column"
+msgid "Group"
+msgstr "Grupa"
+
+#: widgets/kdirmodel.cpp:1084
+msgctxt "@title:column"
+msgid "Type"
+msgstr "Tips"
+
+#: widgets/kfileitemactions.cpp:399
+msgctxt "@title:menu"
+msgid "&Actions"
+msgstr "D&arbības"
+
+#: widgets/kfileitemactions.cpp:525
+#, kde-format
+msgid "&Open with %1"
+msgstr "At&vērt ar %1"
+
+#: widgets/kfileitemactions.cpp:551
+msgctxt "@title:menu"
+msgid "&Open With"
+msgstr "&Atvērt ar"
+
+#: widgets/kfileitemactions.cpp:568
+msgctxt "@action:inmenu Open With"
+msgid "&Other..."
+msgstr "&Citu..."
+
+#: widgets/kfileitemactions.cpp:570 widgets/kfileitemactions.cpp:579
+msgctxt "@title:menu"
+msgid "&Open With..."
+msgstr "&Atvērt ar..."
+
+#: widgets/kfileitemactions.cpp:683
+#, kde-format
+msgid "Open &with %1"
+msgstr "At&vērt ar %1"
+
+#: widgets/kfileitemactions.cpp:685
+#, kde-format
+msgctxt "@item:inmenu Open With, %1 is application name"
+msgid "%1"
+msgstr "%1"
+
+#: widgets/kfileitemdelegate.cpp:221
+#, kde-format
+msgctxt "Items in a folder"
+msgid "1 item"
+msgid_plural "%1 items"
+msgstr[0] "%1 vienība"
+msgstr[1] "%1 vienības"
+msgstr[2] "%1 vienību"
+
+#: widgets/kfileitemdelegate.cpp:277 widgets/kfileitemdelegate.cpp:281
+msgctxt "@info mimetype"
+msgid "Unknown"
+msgstr "Nezināms"
+
+#: widgets/kopenwithdialog.cpp:272
+msgid "Known Applications"
+msgstr "Zināmās programmas"
+
+#: widgets/kopenwithdialog.cpp:494
+msgid "Open With"
+msgstr "Atvērt ar"
+
+#: widgets/kopenwithdialog.cpp:498
+#, kde-format
+msgid ""
+"<qt>Select the program that should be used to open <b>%1</b>. If the program "
+"is not listed, enter the name or click the browse button.</qt>"
+msgstr ""
+"<qt>Izvēlēties programmu, ko izmantot, lai atvērtu <b>%1</b>. Ja programma "
+"nav sarakstā, ievadiet tās komandu vai nospiediet pārlūkošanas pogu.</qt>"
+
+#: widgets/kopenwithdialog.cpp:504
+msgid "Choose the name of the program with which to open the selected files."
+msgstr "Izvēlieties programmas nosaukumu, ar kuru atvērt iezīmētos failus."
+
+#: widgets/kopenwithdialog.cpp:534
+#, kde-format
+msgid "Choose Application for %1"
+msgstr "Izvēlieties programmu priekš %1"
+
+#: widgets/kopenwithdialog.cpp:535
+#, kde-format
+msgid ""
+"<qt>Select the program for the file type: <b>%1</b>. If the program is not "
+"listed, enter the name or click the browse button.</qt>"
+msgstr ""
+"<qt>Izvēlieties programmu faila tipam: <b>%1</b>. Ja programma nav sarakstā, "
+"ievadiet tās komandu vai nospiediet pārlūkošanas pogu.</qt>"
+
+#: widgets/kopenwithdialog.cpp:550
+msgid "Choose Application"
+msgstr "Izvēlieties programmu"
+
+#: widgets/kopenwithdialog.cpp:551
+msgid ""
+"<qt>Select a program. If the program is not listed, enter the name or click "
+"the browse button.</qt>"
+msgstr ""
+"<qt>Izvēlieties programmu. Ja programma nav sarakstā, ievadiet tās komandu "
+"vai nospiediet pārlūkošanas pogu.</qt>"
+
+#: widgets/kopenwithdialog.cpp:610
+msgid ""
+"Following the command, you can have several place holders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"%f - a single file name\n"
+"%F - a list of files; use for applications that can open several local files "
+"at once\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%d - the directory of the file to open\n"
+"%D - a list of directories\n"
+"%i - the icon\n"
+"%m - the mini-icon\n"
+"%c - the comment"
+msgstr ""
+"Pēc komandas jūs varat lietot vairākus vietturus, kas tiks aizstāti ar "
+"vērtībām programmas palaišanas brīdī:\n"
+"%f - viena faila nosaukums\n"
+"%F - failu saraksts; izmantojiet, ja programma spēj atvērt vairākus lokālos "
+"failus uzreiz\n"
+"%u - viens URL\n"
+"%U - saraksts ar URL-iem\n"
+"%d - mape, kurā atrodas atveramais fails\n"
+"%D - mapju saraksts\n"
+"%i - ikona\n"
+"%m - mini-ikona\n"
+"%c - komentārs"
+
+#: widgets/kopenwithdialog.cpp:645
+msgid "Run in &terminal"
+msgstr "Darbināt &terminālā"
+
+#: widgets/kopenwithdialog.cpp:663
+msgid "&Do not close when command exits"
+msgstr "&Neaizvērt, kad komanda beidz darbu"
+
+#: widgets/kopenwithdialog.cpp:680
+msgid "&Remember application association for this type of file"
+msgstr "Atce&rēties programmas piekārtojumu šim faila tipam"
+
+#: widgets/kopenwithdialog.cpp:828
+#, kde-format
+msgid ""
+"Could not extract executable name from '%1', please type a valid program "
+"name."
+msgstr ""
+"Neizdevās no '%1' iegūt izpildfaila nosaukumu, lūdzu, ievadiet derīgu "
+"programmas nosaukumu."
+
+#: widgets/kopenwithdialog.cpp:878
+#, kde-format
+msgid "'%1' not found, please type a valid program name."
+msgstr "'%1' nav atrasts, ievadiet derīgu programmas nosaukumu."
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
+#: widgets/kpropertiesdesktopadvbase.ui:11
+msgctxt ""
+"@title:group Title of a group that lets the user choose options about the "
+"terminal when launching a program"
+msgid "Terminal"
+msgstr "Terminālis"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:33
+msgid ""
+"Check this option if the application you want to run is a text mode "
+"application or if you want the information that is provided by the terminal "
+"emulator window."
+msgstr ""
+"Ieslēdziet šo opciju, ja vēlaties palaist programmu teksta režīmā, vai "
+"vēlaties redzēt informāciju, ko tā izvada termināla logā."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:36
+msgid "&Run in terminal"
+msgstr "Da&rbināt terminālī"
+
+#. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:43
+msgid "&Terminal options:"
+msgstr "&Termināla parametri:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:53
+msgid ""
+"Check this option if the text mode application offers relevant information "
+"on exit. Keeping the terminal emulator open allows you to retrieve this "
+"information."
+msgstr ""
+"Ieslēdziet šo opciju, ja programma, beidzot darbu, terminālī izdrukā "
+"noderīgu informāciju. Paturot termināla emulatoru atvērtu, jūs varēsiet "
+"nolasīt šo informāciju."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:56
+msgid "Do not &close when command exits"
+msgstr "&Neaizvērt, kad komanda beidz darbu"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
+#: widgets/kpropertiesdesktopadvbase.ui:69
+msgctxt ""
+"@title:group Title of a group that lets the user choose which user to use "
+"when launching a program"
+msgid "User"
+msgstr "Lietotājs"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:75
+msgid ""
+"Check this option if you want to run this application with a different user "
+"id. Every process has a different user id associated with it. This id code "
+"determines file access and other permissions. The password of the user is "
+"required to use this option."
+msgstr ""
+"Ieslēdziet šo opciju, ja vēlaties palaist šo programmu ar citu lietotāja id. "
+"Katram procesam ir piesaistīts savs lietotāja id. Šis id tiek lietots, lai "
+"noteiktu pieeju failiem un citas atļaujas. Lai palaistu programmu, ir "
+"nepieciešama šī lietotāja parole."
+
+#. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:78
+msgid "Ru&n as a different user"
+msgstr "&Darbināt kā citam lietotājam"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:101
+msgid "Enter the user name you want to run the application as."
+msgstr "Ievadiet lietotājvārdu, ar kuru vēlaties darbināt programmu."
+
+#. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:104
+msgid "&Username:"
+msgstr "&Lietotājs:"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
+#: widgets/kpropertiesdesktopadvbase.ui:114
+msgid "Enter the user name you want to run the application as here."
+msgstr "Ievadiet lietotājvārdu, ar kuru vēlaties darbināt programmu."
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
+#: widgets/kpropertiesdesktopadvbase.ui:124
+msgctxt ""
+"@title:group Title of a group that lets the user choose options regargin "
+"program startup"
+msgid "Startup"
+msgstr "Palaišana"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:130
+msgid ""
+"Check this option if you want to make clear that your application has "
+"started. This visual feedback may appear as a busy cursor or in the taskbar."
+msgstr ""
+"Ieslēdziet šo opciju, ja vēlaties, lai būtu redzams, ka programma ir "
+"palaista. Šī vizuālā reakcija var parādīties kā aizņemts kursors vai kā "
+"ieraksts uzdevumu joslā."
+
+#. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:133
+msgid "Enable &launch feedback"
+msgstr "Ieslēgt pa&laišanas reakciju"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, systrayCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:140
+msgid ""
+"Check this option if you want to have a system tray handle for your "
+"application."
+msgstr ""
+"Ieslēdziet šo opciju, ja vēlaties, lai jūsu programma atrodas sistēmas ikonu "
+"joslā."
+
+#. i18n: ectx: property (text), widget (QCheckBox, systrayCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:143
+msgid "&Place in system tray"
+msgstr "&Novietot sistēmas ikonu joslā"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel12)
+#: widgets/kpropertiesdesktopadvbase.ui:150
+msgid "&D-Bus registration:"
+msgstr "&D-Bus reģistrācija:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:161
+msgid "None"
+msgstr "Nav"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:166
+msgid "Multiple Instances"
+msgstr "Vairākas instances"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:171
+msgid "Single Instance"
+msgstr "Viena instance"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:176
+msgid "Run Until Finished"
+msgstr "Darbināt līdz pabeigts"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, nameEdit)
+#: widgets/kpropertiesdesktopbase.ui:14 widgets/kpropertiesdesktopbase.ui:27
+msgid ""
+"Type the name you want to give to this application here. This application "
+"will appear under this name in the applications menu and in the panel."
+msgstr ""
+"Ierakstiet programmas nosaukumu šeit. Programma ar šo nosaukumu parādīsies "
+"paneļa programmu izvēlnē."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, genNameEdit)
+#: widgets/kpropertiesdesktopbase.ui:34 widgets/kpropertiesdesktopbase.ui:47
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"a dial up application (KPPP) would be \"Dial up tool\"."
+msgstr ""
+"Ierakstiet programmas aprakstu, pamatojoties uz tās pielietojumu. Piemēram, "
+"iezvanpieejas programmu (KPPP) varētu aprakstīt kā \"Iezvanpieejas rīks\"."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: widgets/kpropertiesdesktopbase.ui:37
+msgid "&Description:"
+msgstr "A&praksts:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, commentEdit)
+#: widgets/kpropertiesdesktopbase.ui:54 widgets/kpropertiesdesktopbase.ui:67
+msgid "Type any comment you think is useful here."
+msgstr "Ierakstiet komentāru, ja jūs domājat, ka tāds būtu noderīgs."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: widgets/kpropertiesdesktopbase.ui:57
+msgid "Comm&ent:"
+msgstr "Kom&entārs:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, commandEdit)
+#: widgets/kpropertiesdesktopbase.ui:85 widgets/kpropertiesdesktopbase.ui:111
+#, no-c-format
+msgid ""
+"Type the command to start this application here.\n"
+"\n"
+"Following the command, you can have several place holders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"%f - a single file name\n"
+"%F - a list of files; use for applications that can open several local files "
+"at once\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%d - the directory of the file to open\n"
+"%D - a list of directories\n"
+"%i - the icon\n"
+"%m - the mini-icon\n"
+"%c - the caption"
+msgstr ""
+"Ievadiet komandu, kas palaiž programmu.\n"
+"\n"
+"Pēc komandas jūs varat pievienot vairākus vietturus, kas tiks aizstāti ar "
+"vērtībām, kad programma tiks palaista:\n"
+"%f - viena faila nosaukums\n"
+"%F - failu saraksts; lieto programmām, kas varētu atvērt vairākus failus "
+"uzreiz\n"
+"%u - viens URL\n"
+"%U - saraksts ar URLiem\n"
+"%d - atveramā faila mape\n"
+"%D - mapju saraksta\n"
+"%i - ikona\n"
+"%m - mini-ikona\n"
+"%c - virsraksts"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:88
+msgid "Co&mmand:"
+msgstr "Ko&manda:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:118
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr ""
+"Nospiediet šeit, lai pārlūkotu vajadzīgo izpildāmo failu jūsu failu sistēmā."
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:121
+msgid "&Browse..."
+msgstr "&Pārlūkot..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
+#: widgets/kpropertiesdesktopbase.ui:130 widgets/kpropertiesdesktopbase.ui:143
+msgid "Sets the working directory for your application."
+msgstr "Uzstāda jūsu programmas darba mapi."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel5)
+#: widgets/kpropertiesdesktopbase.ui:133
+msgid "&Work path:"
+msgstr "&Darba ceļš:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:157 widgets/kpropertiesdesktopbase.ui:178
+msgid ""
+"<qt><p>This list should show the types of file that your application can "
+"handle. This list is organized by <u>mimetypes</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol for "
+"identifying the type of data based on filename extensions and correspondent "
+"<u>mimetypes</u>. Example: the \"bmp\" part that comes after the dot in "
+"flower.bmp indicates that it is a specific kind of image, <u>image/x-bmp</"
+"u>. To know which application should open each type of file, the system "
+"should be informed about the abilities of each application to handle these "
+"extensions and mimetypes.</p>\n"
+"<p>If you want to associate this application with one or more mimetypes that "
+"are not in this list, click on the button <b>Add</b> below. If there are one "
+"or more filetypes that this application cannot handle, you may want to "
+"remove them from the list clicking on the button <b>Remove</b> below.</p></"
+"qt>"
+msgstr ""
+"<qt><p>Šim sarastam vajadzētu parādīt failu tipus, ko jūsu programma spēj "
+"apstrādāt. Šis saraksts ir sakārtots pēc <u>mime tipiem</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, ir standarta protokols "
+"datu tipa identificēšanai, balstoties uz failu nosaukuma paplašinājumiem un "
+"atbilstošajiem <u>mime tipiem</u>. Piemēram: \"bmp\" daļa, kas seko punktam "
+"nosaukumā 'puķe.bmp', norāda, ka šis ir attēla faila paveids - <u>image/x-"
+"bmp</u>. Lai zinātu, ar kuru programmu jāatver kurš fails, sistēmai "
+"nepieciešama informācija par katras programmas spējām apstrādāt dažādu "
+"paplašinājumu un mime tipu failus.</p>\n"
+"<p>Ja jūs vēlaties piesaistīt šo programmu ar kādu mime tipu, kas nav šajā "
+"sarakstā, nospiediet apakšā redzamo pogu <b>Pievienot</b>. Ja sarakstā ir "
+"kādi mime tipi, ko šī programma nespēj apstrādāt, jūs varat izmantot pogu "
+"<b>Izņemt</b>, lai izņemtu tos no saraksta.</p></qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: widgets/kpropertiesdesktopbase.ui:160
+msgid "&Supported file types:"
+msgstr "&Atbalstītie failu tipi:"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:191
+msgid "Mimetype"
+msgstr "MIME tipi"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:196
+msgid "Description"
+msgstr "Apraksts"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:206
+msgid ""
+"Click on this button if you want to add a type of file (mimetype) that your "
+"application can handle."
+msgstr ""
+"Nospiediet šo pogu, ja vēlaties pievienot faila tipu (mime tipu), ko jūsu "
+"programma spēj apstrādāt."
+
+#. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:209
+msgid "Add..."
+msgstr "Pievienot..."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:216
+msgid ""
+"If you want to remove a type of file (mimetype) that your application cannot "
+"handle, select the mimetype in the list above and click on this button."
+msgstr ""
+"Ja vēlaties izņemt faila tipu (mime tipu), ko jūsu programma nespēj "
+"apstrādāt, izvēlieties mime tipu no saraksta un nospiediet šo pogu."
+
+#. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:219
+msgid "Remove"
+msgstr "Izņemt"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:242
+msgid ""
+"Click here to modify the way this application will run, launch feedback, D-"
+"Bus options or to run it as a different user."
+msgstr ""
+"Spiediet šeit, lai mainītu programmas darbināšanas veidu, palaišanas "
+"reakciju, D-BUS opcijas vai lai darbinātu to kā cits lietotājs."
+
+#. i18n: ectx: property (text), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:245
+msgid "Ad&vanced Options"
+msgstr "&Paplašināti parametri"
+
+#: widgets/kpropertiesdialog.cpp:204 widgets/kpropertiesdialog.cpp:219
+#: widgets/kpropertiesdialog.cpp:231 widgets/kpropertiesdialog.cpp:247
+#: widgets/kpropertiesdialog.cpp:265
+#, kde-format
+msgid "Properties for %1"
+msgstr "%1 īpašības"
+
+#: widgets/kpropertiesdialog.cpp:229
+#, kde-format
+msgid "Properties for 1 item"
+msgid_plural "Properties for %1 Selected Items"
+msgstr[0] "Īpašības %1 vienībai"
+msgstr[1] "Īpašības %1 vienībām"
+msgstr[2] "Īpašības %1 vienībām"
+
+#: widgets/kpropertiesdialog.cpp:785
+msgctxt "@title:tab File properties"
+msgid "&General"
+msgstr "&Pamata"
+
+#: widgets/kpropertiesdialog.cpp:967
+msgid "Type:"
+msgstr "Tips:"
+
+#: widgets/kpropertiesdialog.cpp:986
+#, fuzzy
+#| msgid "Create new file type"
+msgid "Create New File Type"
+msgstr "Izveidot jaunu faila tipu"
+
+#: widgets/kpropertiesdialog.cpp:988
+msgid "File Type Options"
+msgstr ""
+
+#: widgets/kpropertiesdialog.cpp:999
+msgid "Contents:"
+msgstr "Saturs:"
+
+#: widgets/kpropertiesdialog.cpp:1007 widgets/kurlrequesterdialog.cpp:57
+msgid "Location:"
+msgstr "Atrašanās vieta:"
+
+#: widgets/kpropertiesdialog.cpp:1022
+msgid "Size:"
+msgstr "Izmērs:"
+
+#: widgets/kpropertiesdialog.cpp:1038
+msgid "Calculate"
+msgstr "Aprēķināt"
+
+#: widgets/kpropertiesdialog.cpp:1039
+msgid "Stop"
+msgstr "Apturēt"
+
+#: widgets/kpropertiesdialog.cpp:1048 widgets/kpropertiesdialog.cpp:1249
+msgid "Refresh"
+msgstr "Atsvaidzināt"
+
+#: widgets/kpropertiesdialog.cpp:1056
+msgid "Points to:"
+msgstr "Norāda uz:"
+
+#: widgets/kpropertiesdialog.cpp:1067
+msgid "Created:"
+msgstr "Izveidots:"
+
+#: widgets/kpropertiesdialog.cpp:1076
+msgid "Modified:"
+msgstr "Mainīts:"
+
+#: widgets/kpropertiesdialog.cpp:1085
+msgid "Accessed:"
+msgstr "Piekļūts:"
+
+#: widgets/kpropertiesdialog.cpp:1103
+msgid "Mounted on:"
+msgstr "Montēts uz:"
+
+#: widgets/kpropertiesdialog.cpp:1111 widgets/kpropertiesdialog.cpp:2829
+msgid "Device usage:"
+msgstr "Ierīces izlietojums:"
+
+#: widgets/kpropertiesdialog.cpp:1212 widgets/kpropertiesdialog.cpp:2961
+#, kde-format
+msgctxt "Available space out of total partition size (percent used)"
+msgid "%1 free of %2 (%3% used)"
+msgstr "%1 brīvi no %2 (izmantoti %3%)"
+
+#: widgets/kpropertiesdialog.cpp:1226
+#, kde-format
+msgid ""
+"Calculating... %1 (%2)\n"
+"%3, %4"
+msgstr ""
+"Aprēķina... %1 (%2)\n"
+"%3, %4"
+
+#: widgets/kpropertiesdialog.cpp:1229 widgets/kpropertiesdialog.cpp:1244
+#, kde-format
+msgid "1 file"
+msgid_plural "%1 files"
+msgstr[0] "%1 fails"
+msgstr[1] "%1 faili"
+msgstr[2] "%1 failu"
+
+#: widgets/kpropertiesdialog.cpp:1230 widgets/kpropertiesdialog.cpp:1245
+#, kde-format
+msgid "1 sub-folder"
+msgid_plural "%1 sub-folders"
+msgstr[0] "%1 apakšmape"
+msgstr[1] "%1 apakšmapes"
+msgstr[2] "%1 apakšmapju"
+
+#: widgets/kpropertiesdialog.cpp:1258
+msgid "Calculating..."
+msgstr "Aprēķina..."
+
+#: widgets/kpropertiesdialog.cpp:1290
+#, kde-format
+msgid "At least %1"
+msgstr "Vismaz %1"
+
+#: widgets/kpropertiesdialog.cpp:1328
+msgid "The new file name is empty."
+msgstr "Jaunais faila nosaukums ir tukšs."
+
+#: widgets/kpropertiesdialog.cpp:1511 widgets/kpropertiesdialog.cpp:2706
+#: widgets/kpropertiesdialog.cpp:3006 widgets/kpropertiesdialog.cpp:3260
+#, kde-format
+msgid ""
+"<qt>Could not save properties. You do not have sufficient access to write to "
+"<b>%1</b>.</qt>"
+msgstr ""
+"<qt>Nevar saglabāt īpašības. Jums nav atļauju rakstīt iekš <b>%1</b>.</qt>"
+
+#: widgets/kpropertiesdialog.cpp:1587 widgets/kpropertiesdialog.cpp:1593
+#: widgets/kpropertiesdialog.cpp:1600
+msgid "Forbidden"
+msgstr "Aizliegts"
+
+#: widgets/kpropertiesdialog.cpp:1588
+msgid "Can Read"
+msgstr "Var lasīt"
+
+#: widgets/kpropertiesdialog.cpp:1589
+msgid "Can Read & Write"
+msgstr "Var lasīt un rakstīt"
+
+#: widgets/kpropertiesdialog.cpp:1594
+msgid "Can View Content"
+msgstr "Var aplūkot saturu"
+
+#: widgets/kpropertiesdialog.cpp:1595
+msgid "Can View & Modify Content"
+msgstr "Var aplūkot un mainīt saturu"
+
+#: widgets/kpropertiesdialog.cpp:1601
+msgid "Can View Content & Read"
+msgstr "Var aplūkot saturu un lasīt"
+
+#: widgets/kpropertiesdialog.cpp:1602
+msgid "Can View/Read & Modify/Write"
+msgstr "Var aplūkot/lasīt un mainīt/rakstīt saturu"
+
+#: widgets/kpropertiesdialog.cpp:1699
+msgid "&Permissions"
+msgstr "&Atļaujas"
+
+#: widgets/kpropertiesdialog.cpp:1711 widgets/kpropertiesdialog.cpp:1914
+msgid "Access Permissions"
+msgstr "Piekļuves atļaujas"
+
+#: widgets/kpropertiesdialog.cpp:1719
+msgid "This file is a link and does not have permissions."
+msgid_plural "All files are links and do not have permissions."
+msgstr[0] "Fails ir saite un tam nav atļauju."
+msgstr[1] "Visi faili ir saites un tiem nav atļauju."
+msgstr[2] "Visi faili ir saites un tiem nav atļauju."
+
+#: widgets/kpropertiesdialog.cpp:1723
+msgid "Only the owner can change permissions."
+msgstr "Tikai īpašnieks var mainīt atļaujas."
+
+#: widgets/kpropertiesdialog.cpp:1727
+msgid "O&wner:"
+msgstr "Ī&pašnieks:"
+
+#: widgets/kpropertiesdialog.cpp:1733
+msgid "Specifies the actions that the owner is allowed to do."
+msgstr "Norāda darbības, ko var veikt īpašnieks."
+
+#: widgets/kpropertiesdialog.cpp:1735
+msgid "Gro&up:"
+msgstr "Gr&upa:"
+
+#: widgets/kpropertiesdialog.cpp:1741
+msgid "Specifies the actions that the members of the group are allowed to do."
+msgstr "Norāda darbības, ko var veikt grupai piederīgie."
+
+#: widgets/kpropertiesdialog.cpp:1743
+msgid "O&thers:"
+msgstr "Ci&ti:"
+
+#: widgets/kpropertiesdialog.cpp:1749
+msgid ""
+"Specifies the actions that all users, who are neither owner nor in the "
+"group, are allowed to do."
+msgstr "Norāda darbības, ko var veikt tie, kas nav ne īpašnieks, ne grupā."
+
+#: widgets/kpropertiesdialog.cpp:1754
+msgid "Only own&er can rename and delete folder content"
+msgstr "Tikai īpašni&eks var pārdēvēt vai dzēst mapes saturu"
+
+#: widgets/kpropertiesdialog.cpp:1755
+msgid "Is &executable"
+msgstr "Ir &izpildāms"
+
+#: widgets/kpropertiesdialog.cpp:1759
+msgid ""
+"Enable this option to allow only the folder's owner to delete or rename the "
+"contained files and folders. Other users can only add new files, which "
+"requires the 'Modify Content' permission."
+msgstr ""
+"Ieslēdziet šo opciju, lai atļautu tikai mapes īpašniekam dzēst vai pārdēvēt "
+"mapē esošos failus un mapes. Citi lietotāji varēs tikai pievienot jaunus "
+"failus, kam nepieciešama \"Mainīt saturu\" atļauja."
+
+#: widgets/kpropertiesdialog.cpp:1763
+msgid ""
+"Enable this option to mark the file as executable. This only makes sense for "
+"programs and scripts. It is required when you want to execute them."
+msgstr ""
+"Ieslēdziet šo opciju, lai padarītu failu par izpildāmu. Tam ir jēga tikai, "
+"darbinot programmas vai skriptus. Tas ir nepieciešams, ja vēlaties failu "
+"izpildīt."
+
+#: widgets/kpropertiesdialog.cpp:1770
+msgid "A&dvanced Permissions"
+msgstr "&Paplašinātas atļaujas"
+
+#: widgets/kpropertiesdialog.cpp:1778
+msgid "Ownership"
+msgstr "Īpašnieks"
+
+#: widgets/kpropertiesdialog.cpp:1785
+msgid "User:"
+msgstr "Lietotājs:"
+
+#: widgets/kpropertiesdialog.cpp:1829
+msgid "Group:"
+msgstr "Grupa:"
+
+#: widgets/kpropertiesdialog.cpp:1866
+msgid "Apply changes to all subfolders and their contents"
+msgstr "Pielieto izmaiņas visām apakšmapēm un to saturam"
+
+#: widgets/kpropertiesdialog.cpp:1905
+msgid "Advanced Permissions"
+msgstr "Paplašinātas atļaujas"
+
+#: widgets/kpropertiesdialog.cpp:1922
+msgid "Class"
+msgstr "Klase"
+
+#: widgets/kpropertiesdialog.cpp:1927
+msgid ""
+"Show\n"
+"Entries"
+msgstr ""
+"Rādīt\n"
+"saturu"
+
+#: widgets/kpropertiesdialog.cpp:1929
+msgid "Read"
+msgstr "Lasīt"
+
+#: widgets/kpropertiesdialog.cpp:1935
+msgid "This flag allows viewing the content of the folder."
+msgstr "Šis parametrs ļauj skatīt mapes saturu."
+
+#: widgets/kpropertiesdialog.cpp:1937
+msgid "The Read flag allows viewing the content of the file."
+msgstr "Parametrs 'Lasīt' ļauj aplūkot faila saturu."
+
+#: widgets/kpropertiesdialog.cpp:1942
+msgid ""
+"Write\n"
+"Entries"
+msgstr ""
+"Mainīt\n"
+"saturu"
+
+#: widgets/kpropertiesdialog.cpp:1944
+msgid "Write"
+msgstr "Rakstīt"
+
+#: widgets/kpropertiesdialog.cpp:1950
+msgid ""
+"This flag allows adding, renaming and deleting of files. Note that deleting "
+"and renaming can be limited using the Sticky flag."
+msgstr ""
+"Šī pazīme ļauj pievienot, pārdēvēt un dzēst failus. Atcerieties, ka dzēšanu "
+"un pārdēvēšanu var ierobežot ar 'Lipīgs' karodziņu."
+
+#: widgets/kpropertiesdialog.cpp:1953
+msgid "The Write flag allows modifying the content of the file."
+msgstr "Parametrs 'Rakstīt' ļauj mainīt faila saturu."
+
+#: widgets/kpropertiesdialog.cpp:1959
+msgctxt "Enter folder"
+msgid "Enter"
+msgstr "Ieiet"
+
+#: widgets/kpropertiesdialog.cpp:1960
+msgid "Enable this flag to allow entering the folder."
+msgstr "Šis parametrs ļauj ieiet mapē."
+
+#: widgets/kpropertiesdialog.cpp:1962
+msgid "Exec"
+msgstr "Izpildīt"
+
+#: widgets/kpropertiesdialog.cpp:1963
+msgid "Enable this flag to allow executing the file as a program."
+msgstr "Šis parametrs ļauj izpildīt (darbināt) failu kā programmu."
+
+#: widgets/kpropertiesdialog.cpp:1973
+msgid "Special"
+msgstr "Speciāls"
+
+#: widgets/kpropertiesdialog.cpp:1977
+msgid ""
+"Special flag. Valid for the whole folder, the exact meaning of the flag can "
+"be seen in the right hand column."
+msgstr ""
+"Speciālais parametrs. Pielietojams visai mapei, precīza nozīme ir aprakstīta "
+"labajā kolonnā."
+
+#: widgets/kpropertiesdialog.cpp:1980
+msgid ""
+"Special flag. The exact meaning of the flag can be seen in the right hand "
+"column."
+msgstr "Speciālais parametrs. Precīza nozīme ir aprakstīta labajā kolonnā."
+
+#: widgets/kpropertiesdialog.cpp:1984
+msgid "User"
+msgstr "Lietotājs"
+
+#: widgets/kpropertiesdialog.cpp:1988
+msgid "Group"
+msgstr "Grupa"
+
+#: widgets/kpropertiesdialog.cpp:1996
+msgid "Set UID"
+msgstr "Piešķirt UID"
+
+#: widgets/kpropertiesdialog.cpp:2000
+msgid ""
+"If this flag is set, the owner of this folder will be the owner of all new "
+"files."
+msgstr ""
+"Ja ir uzstādīts šis parametrs, tad šīs mapes īpašnieks būs arī visu jauno "
+"failu īpašnieks tajā."
+
+#: widgets/kpropertiesdialog.cpp:2003
+msgid ""
+"If this file is an executable and the flag is set, it will be executed with "
+"the permissions of the owner."
+msgstr ""
+"Ja fails ir izpildāms un ir norādīts šis parametrs, tad šis fails tiks "
+"izpildīts ar faila īpašnieka atļaujām."
+
+#: widgets/kpropertiesdialog.cpp:2007
+msgid "Set GID"
+msgstr "Piešķirt GID"
+
+#: widgets/kpropertiesdialog.cpp:2011
+msgid ""
+"If this flag is set, the group of this folder will be set for all new files."
+msgstr ""
+"Ja ir uzstādīts šis parametrs, tad šīs mapes īpašnieku grupa būs arī visu "
+"jauno failu īpašnieku grupa tajā."
+
+#: widgets/kpropertiesdialog.cpp:2014
+msgid ""
+"If this file is an executable and the flag is set, it will be executed with "
+"the permissions of the group."
+msgstr ""
+"Ja fails ir izpildāms un ir norādīts šis parametrs, tad šis fails tiks "
+"izpildīts ar tā īpašnieku grupas atļaujām."
+
+#: widgets/kpropertiesdialog.cpp:2018
+msgctxt "File permission"
+msgid "Sticky"
+msgstr "Lipīgs"
+
+#: widgets/kpropertiesdialog.cpp:2022
+msgid ""
+"If the Sticky flag is set on a folder, only the owner and root can delete or "
+"rename files. Otherwise everybody with write permissions can do this."
+msgstr ""
+"Ja mapei uzstādīts šis parametrs, tikai faila īpašnieks vai root var izdzēst "
+"vai pārdēvēt failus tajā. Citādi to var darīt jebkurš ar rakstīšanas atļauju "
+"mapē."
+
+#: widgets/kpropertiesdialog.cpp:2026
+msgid ""
+"The Sticky flag on a file is ignored on Linux, but may be used on some "
+"systems"
+msgstr ""
+"Linux ignorē 'Lipīgs' parametru failam, bet citas sistēmas to var izmantot"
+
+#: widgets/kpropertiesdialog.cpp:2214
+msgid "Link"
+msgstr "Saite"
+
+#: widgets/kpropertiesdialog.cpp:2233
+msgid "Varying (No Change)"
+msgstr "Mainīgas (Bez izmaiņām)"
+
+#: widgets/kpropertiesdialog.cpp:2346
+msgid "This file uses advanced permissions"
+msgid_plural "These files use advanced permissions."
+msgstr[0] "Šie faili izmanto paplašinātas atļaujas"
+msgstr[1] "Šie faili izmanto paplašinātas atļaujas"
+msgstr[2] "Šie faili izmanto paplašinātas atļaujas"
+
+#: widgets/kpropertiesdialog.cpp:2367
+msgid "This folder uses advanced permissions."
+msgid_plural "These folders use advanced permissions."
+msgstr[0] "Šīs mapes izmanto paplašinātas tiesības."
+msgstr[1] "Šīs mapes izmanto paplašinātas tiesības."
+msgstr[2] "Šīs mapes izmanto paplašinātas tiesības."
+
+#: widgets/kpropertiesdialog.cpp:2382
+msgid "These files use advanced permissions."
+msgstr "Šiem failiem ir paplašinātas atļaujas."
+
+#: widgets/kpropertiesdialog.cpp:2617
+msgid "U&RL"
+msgstr "U&RL"
+
+#: widgets/kpropertiesdialog.cpp:2624
+msgid "URL:"
+msgstr "URL:"
+
+#: widgets/kpropertiesdialog.cpp:2764
+msgid "De&vice"
+msgstr "Ie&rīce"
+
+#: widgets/kpropertiesdialog.cpp:2793
+msgid "Device (/dev/fd0):"
+msgstr "Ierīce (/dev/fd0):"
+
+#: widgets/kpropertiesdialog.cpp:2794
+msgid "Device:"
+msgstr "Ierīce:"
+
+#: widgets/kpropertiesdialog.cpp:2807
+msgid "Read only"
+msgstr "Tikai lasīt"
+
+#: widgets/kpropertiesdialog.cpp:2811
+msgid "File system:"
+msgstr "Failu sistēma:"
+
+#: widgets/kpropertiesdialog.cpp:2819
+msgid "Mount point (/mnt/floppy):"
+msgstr "Montēšanas punkts (/mnt/floppy):"
+
+#: widgets/kpropertiesdialog.cpp:2820
+msgid "Mount point:"
+msgstr "Montēšanas punkts:"
+
+#: widgets/kpropertiesdialog.cpp:3064
+msgid "&Application"
+msgstr "&Programma"
+
+#: widgets/kpropertiesdialog.cpp:3190
+#, kde-format
+msgid "Add File Type for %1"
+msgstr "Pievienot failu tipu priekš %1"
+
+#: widgets/kpropertiesdialog.cpp:3191
+msgid "Select one or more file types to add:"
+msgstr "Izvēlieties vienu vai vairākus failu tipus, ko pievienot:"
+
+#: widgets/kpropertiesdialog.cpp:3252
+#, fuzzy
+#| msgid "Only executables on local file systems are supported."
+msgid ""
+"Could not save properties. Only entries on local file systems are supported."
+msgstr ""
+"Atvainojiet, bet izpildāmie faili ir atbalstīti tikai lokālās failu sistēmās."
+
+#: widgets/kpropertiesdialog.cpp:3331
+msgid "Only executables on local file systems are supported."
+msgstr ""
+"Atvainojiet, bet izpildāmie faili ir atbalstīti tikai lokālās failu sistēmās."
+
+#: widgets/kpropertiesdialog.cpp:3345
+#, kde-format
+msgid "Advanced Options for %1"
+msgstr "Paplašināti %1 parametri"
+
+#: widgets/krun.cpp:170
+#, kde-format
+msgid ""
+"<qt>Unable to enter <b>%1</b>.\n"
+"You do not have access rights to this location.</qt>"
+msgstr ""
+"<qt>Nevar ieiet <b>%1</b>.\n"
+"Jums nav atļauju piekļūt šai vietai.</qt>"
+
+#: widgets/krun.cpp:200
+#, kde-format
+msgid ""
+"<qt>The file <b>%1</b> is an executable program. For safety it will not be "
+"started.</qt>"
+msgstr ""
+"<qt>Fails <b>%1</b> ir izpildāma programma. Drošības nolūkos tas netiks "
+"palaists.</qt>"
+
+#: widgets/krun.cpp:206
+#, kde-format
+msgid "<qt>You do not have permission to run <b>%1</b>.</qt>"
+msgstr "<qt>Jums nav tiesību darbināt <b>%1</b>.</qt>"
+
+#: widgets/krun.cpp:236
+msgid "You are not authorized to select an application to open this file."
+msgstr "Jums nav atļauju atvērt šo failu."
+
+#: widgets/krun.cpp:247
+msgid "Open with:"
+msgstr "Atvērt ar:"
+
+#: widgets/krun.cpp:297
+msgid "You are not authorized to execute this file."
+msgstr "Jums nav atļauju darbināt šo failu."
+
+#: widgets/krun.cpp:320
+#, kde-format
+msgid "Launching %1"
+msgstr "Palaiž %1"
+
+#: widgets/krun.cpp:425
+#, kde-format
+msgid "Error processing Exec field in %1"
+msgstr "Kļūda apstrādājot 'Exec' lauku iekš %1"
+
+#: widgets/krun.cpp:602
+msgid "You are not authorized to execute this service."
+msgstr "Jums nav atļauju darbināt šo servisu."
+
+#: widgets/krun.cpp:607
+msgctxt "Warning about executing unknown .desktop file"
+msgid "Warning"
+msgstr "Brīdinājums"
+
+#: widgets/krun.cpp:624
+msgctxt "program name follows in a line edit below"
+msgid "This will start the program:"
+msgstr "Šis palaidīs programmu:"
+
+#: widgets/krun.cpp:641
+msgid "If you do not trust this program, click Cancel"
+msgstr "Ja neuzticieties šai programmai, spiediet Atcelt"
+
+#: widgets/krun.cpp:684
+#, kde-format
+msgid "Unable to make the service %1 executable, aborting execution"
+msgstr "Neizdevās padadīt servisu %1 izpildāmu, pārtrauc izpildi"
+
+#: widgets/krun.cpp:866
+#, kde-format
+msgid ""
+"<qt>Unable to run the command specified. The file or folder <b>%1</b> does "
+"not exist.</qt>"
+msgstr ""
+"<qt>Nevar palaist norādīto komandu. Fails vai mape <b>%1</b> neeksistē.</qt>"
+
+#: widgets/krun.cpp:1461
+#, kde-format
+msgid "Could not find the program '%1'"
+msgstr "Nevar atrast programmu '%1'"
+
+#: widgets/ksslinfodialog.cpp:57
+msgid "KDE SSL Information"
+msgstr "KDE SSL informācija"
+
+#: widgets/ksslinfodialog.cpp:69
+msgctxt "The receiver of the SSL certificate"
+msgid "Subject"
+msgstr "Saņēmējs"
+
+#: widgets/ksslinfodialog.cpp:70
+msgctxt "The authority that issued the SSL certificate"
+msgid "Issuer"
+msgstr "Izdevējs"
+
+#: widgets/ksslinfodialog.cpp:86 widgets/ksslinfodialog.cpp:120
+msgid "Current connection is secured with SSL."
+msgstr "Šis savienojums ir aizsargāts ar SSL."
+
+#: widgets/ksslinfodialog.cpp:89 widgets/ksslinfodialog.cpp:133
+msgid "Current connection is not secured with SSL."
+msgstr "Šis savienojums nav aizsargāts ar SSL."
+
+#: widgets/ksslinfodialog.cpp:93
+msgid "SSL support is not available in this build of KDE."
+msgstr "SSL atbalsts nav pieejams šajā KDE būvējumā."
+
+#: widgets/ksslinfodialog.cpp:123
+msgid ""
+"The main part of this document is secured with SSL, but some parts are not."
+msgstr "Galvenā šī dokumenta daļa ir aizsargāta ar SSL, bet dažas daļas nav."
+
+#: widgets/ksslinfodialog.cpp:129
+msgid "Some of this document is secured with SSL, but the main part is not."
+msgstr "Daļa no šī dokumenta ir aizsargāta ar SSL, bet ne galvenā daļa."
+
+#: widgets/ksslinfodialog.cpp:179
+#, kde-format
+msgctxt "%1, using %2 bits of a %3 bit key"
+msgid "%1, %2 %3"
+msgstr "%1, %2 %3"
+
+#: widgets/ksslinfodialog.cpp:181
+#, kde-format
+msgctxt "Part of: %1, using %2 bits of a %3 bit key"
+msgid "using %1 bit"
+msgid_plural "using %1 bits"
+msgstr[0] "izmantojot %1 bitu"
+msgstr[1] "izmantojot %1 bitus"
+msgstr[2] "izmantojot %1 bitu"
+
+#: widgets/ksslinfodialog.cpp:183
+#, kde-format
+msgctxt "Part of: %1, using %2 bits of a %3 bit key"
+msgid "of a %1 bit key"
+msgid_plural "of a %1 bit key"
+msgstr[0] "no %1 bita atslēgas"
+msgstr[1] "no %1 bitu atslēgas"
+msgstr[2] "no %1 bitu atslēgas"
+
+#: widgets/ksslinfodialog.cpp:199
+msgctxt "The certificate is not trusted"
+msgid "NO, there were errors:"
+msgstr "NĒ, bija kļūdas:"
+
+#: widgets/ksslinfodialog.cpp:206
+msgctxt "The certificate is trusted"
+msgid "Yes"
+msgstr "Jā"
+
+#: widgets/ksslinfodialog.cpp:210
+#, kde-format
+msgctxt "%1 is the effective date of the certificate, %2 is the expiry date"
+msgid "%1 to %2"
+msgstr "%1 līdz %2"
+
+#: widgets/kurlrequester.cpp:284
+msgid "Open file dialog"
+msgstr "Faila atvēršanas dialogs"
+
+#: widgets/paste.cpp:82 widgets/paste.cpp:151
+msgid "Filename for clipboard content:"
+msgstr "Faila nosaukums starpliktuves saturam:"
+
+#: widgets/paste.cpp:143
+#, kde-format
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: widgets/paste.cpp:162
+msgid ""
+"The clipboard has changed since you used 'paste': the chosen data format is "
+"no longer applicable. Please copy again what you wanted to paste."
+msgstr ""
+"Starpliktuves saturs kopš ielīmēšanas izsaukšanas ir mainījies: izvēlētais "
+"datu formāts vairs nav pieejams. Lūdzu, nokopējiet ielīmējamo saturu vēlreiz."
+
+#: widgets/paste.cpp:291
+#, kde-format
+msgid "&Paste File"
+msgid_plural "&Paste %1 Files"
+msgstr[0] "&Ielīmēt %1 failu"
+msgstr[1] "&Ielīmēt %1 failus"
+msgstr[2] "&Ielīmēt %1 failu"
+
+#: widgets/paste.cpp:293
+#, kde-format
+msgid "&Paste URL"
+msgid_plural "&Paste %1 URLs"
+msgstr[0] "&Ielīmēt %1 URL"
+msgstr[1] "&Ielīmēt %1 URL"
+msgstr[2] "&Ielīmēt %1 URL"
+
+#: widgets/paste.cpp:296
+msgid "&Paste Clipboard Contents"
+msgstr "&Ielīmēt starpliktuves saturu"
+
+#: widgets/pastedialog.cpp:57
+msgid "Data format:"
+msgstr "Datu formāts:"
+
+#: widgets/renamedialog.cpp:134
+msgid "Appl&y to All"
+msgstr "Pielietot &visam"
+
+#: widgets/renamedialog.cpp:135
+#, fuzzy
+#| msgid ""
+#| "Files and folders will be copied into the existing directory, alongside "
+#| "its existing contents.\n"
+#| "You will be prompted again in case of a conflict with an existing file in "
+#| "the directory."
+msgid ""
+"When this is checked the button pressed will be applied to all subsequent "
+"folder conflicts for the remainder of the current job.\n"
+"Unless you press Skip you will still be prompted in case of a conflict with "
+"an existing file in the directory."
+msgstr ""
+"Faili un mapes tiks iekopēti šajā esošajā mapē, kopā ar jau esošo tās "
+"saturu.\n"
+"Jums vaicās, ja būs konflikts ar kādu eksistējošu failu mapē."
+
+#: widgets/renamedialog.cpp:136
+msgid ""
+"When this is checked the button pressed will be applied to all subsequent "
+"conflicts for the remainder of the current job."
+msgstr ""
+
+#: widgets/renamedialog.cpp:141
+msgid "&Rename"
+msgstr "&Pārdēvēt"
+
+#: widgets/renamedialog.cpp:143
+msgid "Suggest New &Name"
+msgstr "Ieteikt jaunu &nosaukumu"
+
+#: widgets/renamedialog.cpp:149
+msgid "&Skip"
+msgstr "Izlai&st"
+
+#: widgets/renamedialog.cpp:150
+msgid "Do not copy or move this folder, skip to the next item instead"
+msgstr "Nevajag kopēt vai pārvietot šo mapi, pāriet uz nākamo vienību"
+
+#: widgets/renamedialog.cpp:151
+msgid "Do not copy or move this file, skip to the next item instead"
+msgstr "Nevajag kopēt vai pārvietot šo failu, pāriet uz nākamo vienību"
+
+#: widgets/renamedialog.cpp:156
+msgctxt "Write files into an existing folder"
+msgid "&Write Into"
+msgstr "&Rakstīt iekš"
+
+#: widgets/renamedialog.cpp:156
+msgid "&Overwrite"
+msgstr "&Pārrakstīt"
+
+#: widgets/renamedialog.cpp:158
+msgid ""
+"Files and folders will be copied into the existing directory, alongside its "
+"existing contents.\n"
+"You will be prompted again in case of a conflict with an existing file in "
+"the directory."
+msgstr ""
+"Faili un mapes tiks iekopēti šajā esošajā mapē, kopā ar jau esošo tās "
+"saturu.\n"
+"Jums vaicās, ja būs konflikts ar kādu eksistējošu failu mapē."
+
+#: widgets/renamedialog.cpp:163
+msgid "&Resume"
+msgstr "A&tsākt"
+
+#: widgets/renamedialog.cpp:172
+#, kde-format
+msgid ""
+"This action would overwrite '%1' with itself.\n"
+"Please enter a new file name:"
+msgstr ""
+"Šī darbība pārrakstīs '%1' ar sevi.\n"
+"Lūdzu, ievadiet jaunu faila nosaukumu:"
+
+#: widgets/renamedialog.cpp:176
+msgid "C&ontinue"
+msgstr "T&urpināt"
+
+#: widgets/renamedialog.cpp:230
+msgid "This action will overwrite the destination."
+msgstr "Šī darbība pārrakstīs mērķi."
+
+#: widgets/renamedialog.cpp:232
+msgid "Source"
+msgstr "Avots"
+
+#: widgets/renamedialog.cpp:233
+msgid "Destination"
+msgstr "Mērķis"
+
+#: widgets/renamedialog.cpp:239
+msgid "Warning, the destination is more recent."
+msgstr "Brīdinājums. Mērķis ir jaunāks."
+
+#: widgets/renamedialog.cpp:270
+#, kde-format
+msgid "An older item named '%1' already exists."
+msgstr "Vecāka vienība ar nosaukumu '%1' jau eksistē."
+
+#: widgets/renamedialog.cpp:272
+#, kde-format
+msgid "A similar file named '%1' already exists."
+msgstr "Līdzīgs fails ar nosaukumu '%1' jau eksistē."
+
+#: widgets/renamedialog.cpp:274
+#, kde-format
+msgid "A more recent item named '%1' already exists."
+msgstr "Jaunāka vienība ar nosaukumu '%1' jau eksistē."
+
+#: widgets/renamedialog.cpp:286
+msgid "Rename:"
+msgstr "Pārdēvēt:"
+
+#: widgets/skipdialog.cpp:38
+msgid "Information"
+msgstr "Informācija"
+
+#: widgets/skipdialog.cpp:48
+msgid "Retry"
+msgstr ""
+
+#: widgets/skipdialog.cpp:53
+msgid "Skip"
+msgstr "Izlaist"
+
+#: widgets/skipdialog.cpp:57
+msgid "AutoSkip"
+msgstr "Automātiski izlaist"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
+#: widgets/sslinfo.ui:17
+msgid "[padlock]"
+msgstr "[piekaramā atslēga]"
+
+#. i18n: ectx: property (text), widget (QLabel, addressTag)
+#: widgets/sslinfo.ui:34
+msgctxt "Web page address"
+msgid "Address:"
+msgstr "Adrese:"
+
+#. i18n: ectx: property (text), widget (QLabel, ipTag)
+#: widgets/sslinfo.ui:54
+msgid "IP address:"
+msgstr "IP adrese:"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionTag)
+#: widgets/sslinfo.ui:74
+msgid "Encryption:"
+msgstr "Šifrēšana:"
+
+#. i18n: ectx: property (text), widget (QLabel, detailsTag)
+#: widgets/sslinfo.ui:94
+msgid "Details:"
+msgstr "Detaļas:"
+
+#. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
+#: widgets/sslinfo.ui:114
+msgid "SSL version:"
+msgstr "SSL versija:"
+
+#. i18n: ectx: property (text), widget (QLabel, certSelectorTag)
+#: widgets/sslinfo.ui:134
+msgid "Certificate chain:"
+msgstr "Sertifikātu ķēde:"
+
+#. i18n: ectx: property (text), widget (QLabel, trustedTag)
+#: widgets/sslinfo.ui:163
+msgid "Trusted:"
+msgstr "Uzticams:"
+
+#. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
+#: widgets/sslinfo.ui:183
+msgid "Validity period:"
+msgstr "Derīguma termiņš:"
+
+#. i18n: ectx: property (text), widget (QLabel, serialTag)
+#: widgets/sslinfo.ui:203
+msgid "Serial number:"
+msgstr "Sērijas numurs:"
+
+#. i18n: ectx: property (text), widget (QLabel, digestTag)
+#: widgets/sslinfo.ui:223
+msgid "MD5 digest:"
+msgstr "MD5 kontrolskaitlis:"
+
+#. i18n: ectx: property (text), widget (QLabel, sha1DigestTag)
+#: widgets/sslinfo.ui:243
+msgid "SHA1 digest:"
+msgstr "SHA1 kontrolskaitlis:"
+
+#: widgets/sslui.cpp:49
+msgid ""
+"The remote host did not send any SSL certificates.\n"
+"Aborting because the identity of the host cannot be established."
+msgstr ""
+"Attālinātais dators nenosūtīja SSL sertifikātu.\n"
+"Pārtrauc, jo nevar noteikt datora identitāti."
