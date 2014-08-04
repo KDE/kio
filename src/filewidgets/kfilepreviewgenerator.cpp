@@ -673,6 +673,8 @@ void KFilePreviewGenerator::Private::addToPreviewQueue(const KFileItem &item, co
     preview.pixmap = icon;
     m_previews.append(preview);
 
+    m_pendingItems.removeOne(item);
+
     m_dispatchedItems.append(item);
 }
 
