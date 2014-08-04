@@ -1,3 +1,4 @@
+remove_definitions(-DTRANSLATION_DOMAIN=\"kio5\")
 add_definitions(-DTRANSLATION_DOMAIN=\"kcm_webshortcuts\")
 
 set(kcm_webshortcuts_PART_SRCS main.cpp )
@@ -6,9 +7,8 @@ add_library(kcm_webshortcuts MODULE ${kcm_webshortcuts_PART_SRCS})
 
 target_link_libraries(kcm_webshortcuts
   PUBLIC
-    KF5::ConfigWidgets
-    KF5::KIOWidgets
-    KF5::Service
+    KF5::ConfigWidgets # KCModule
+    KF5::KIOWidgets    # KUriFilter
   PRIVATE
     KF5::I18n)
 
