@@ -103,7 +103,6 @@ public:
           dummyAdded(false),
           confirmOverwrite(false),
           differentHierarchyLevelItemsEntered(false),
-          previewGenerator(0),
           iconSizeSlider(0)
     {
     }
@@ -283,7 +282,6 @@ public:
     bool confirmOverwrite : 1;
     bool differentHierarchyLevelItemsEntered;
 
-    KFilePreviewGenerator *previewGenerator;
     QSlider *iconSizeSlider;
 
     // The group which stores app-specific settings. These settings are recent
