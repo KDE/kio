@@ -37,7 +37,7 @@ class QSize;
 
 /* TODO KF6 Q_PROPERTY(QSize iconSize READ iconSize WRITE setIconSize NOTIFY iconSizeChanged)
  * TODO KF6 virtual void setIconSize(const QSize &size);
- * TODO KF6 iconSizeChanged() const;
+ * TODO KF6 iconSizeChanged();
  *
  * TODO KF6:
  * KAbstractViewAdapter exists to allow KFilePreviewGenerator to be
