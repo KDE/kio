@@ -482,6 +482,8 @@ KFilePreviewGenerator::Private::Private(KFilePreviewGenerator *parent,
     m_scrollAreaTimer->setInterval(200);
     connect(m_scrollAreaTimer, SIGNAL(timeout()),
             q, SLOT(resumeIconUpdates()));
+    m_viewAdapter->connect(KAbstractViewAdapter::IconSizeChanged,
+                           q, SLOT(updateIcons()));
     m_viewAdapter->connect(KAbstractViewAdapter::ScrollBarValueChanged,
                            q, SLOT(pauseIconUpdates()));
 

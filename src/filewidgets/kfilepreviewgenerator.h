@@ -82,19 +82,6 @@ public:
     void updatePreviews();
 
     /**
-     * Updates the icons for all items. Usually it is only
-     * necessary to invoke this method when the icon size of the abstract item view
-     * has been changed by QAbstractItemView::setIconSize(). Note that this method
-     * should also be invoked if previews have been turned off, as the icons for
-     * cut items must be updated when the icon size has changed.
-     * @since 4.3
-     */
-    void updateIcons();
-
-    /** Cancels all pending previews. */
-    void cancelPreviews();
-
-    /**
      * Sets the list of enabled thumbnail plugins.
      * Per default all plugins enabled in the KConfigGroup "PreviewSettings"
      * are used.
@@ -113,6 +100,20 @@ public:
      * @see setEnabledPlugins
      */
     QStringList enabledPlugins() const;
+
+public Q_SLOTS:
+    /**
+     * Updates the icons for all items. Usually it is only
+     * necessary to invoke this method when the icon size of the abstract item view
+     * has been changed by QAbstractItemView::setIconSize(). Note that this method
+     * should also be invoked if previews have been turned off, as the icons for
+     * cut items must be updated when the icon size has changed.
+     * @since 4.3
+     */
+    void updateIcons();
+
+    /** Cancels all pending previews. */
+    void cancelPreviews();
 
 private:
     class Private;
