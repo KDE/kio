@@ -26,6 +26,7 @@
 #include <kfileitem.h>
 #include <kiconeffect.h>
 #include <kio/previewjob.h>
+#include <kio/paste.h>
 #include <kdirlister.h>
 #include <kdirmodel.h>
 #include <kiconloader.h>
@@ -285,12 +286,6 @@ public:
      * first.
      */
     void orderItems(KFileItemList &items);
-
-    /**
-     * Returns true, if \a mimeData represents a selection that has
-     * been cut.
-     */
-    bool decodeIsCutSelection(const QMimeData *mimeData);
 
     /**
      * Helper method for KFilePreviewGenerator::updateIcons(). Adds
@@ -905,7 +900,7 @@ bool KFilePreviewGenerator::Private::isCutItem(const KFileItem &item) const
 void KFilePreviewGenerator::Private::applyCutItemEffect(const KFileItemList &items)
 {
     const QMimeData *mimeData = QApplication::clipboard()->mimeData();
-    m_hasCutSelection = mimeData && decodeIsCutSelection(mimeData);
+    m_hasCutSelection = mimeData && KIO::isClipboardDataCut(mimeData);
     if (!m_hasCutSelection) {
         return;
     }
@@ -1032,7 +1027,7 @@ void KFilePreviewGenerator::Private::createPreviews(const KFileItemList &items)
     }
 
     const QMimeData *mimeData = QApplication::clipboard()->mimeData();
-    m_hasCutSelection = decodeIsCutSelection(mimeData);
+    m_hasCutSelection = mimeData && KIO::isClipboardDataCut(mimeData);
 
     // PreviewJob internally caches items always with the size of
     // 128 x 128 pixels or 256 x 256 pixels. A downscaling is done
@@ -1132,19 +1127,6 @@ void KFilePreviewGenerator::Private::orderItems(KFileItemList &items)
             ++insertPos;
             ++m_pendingVisibleIconUpdates;
         }
-    }
-}
-
-bool KFilePreviewGenerator::Private::decodeIsCutSelection(const QMimeData *mimeData)
-{
-    if (!mimeData) {
-        return false;
-    }
-    const QByteArray data = mimeData->data("application/x-kde-cutselection");
-    if (data.isEmpty()) {
-        return false;
-    } else {
-        return data.at(0) == QLatin1Char('1');
     }
 }
 

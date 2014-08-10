@@ -52,6 +52,7 @@ ecm_add_tests(
  kurlcompletiontest.cpp
  kurlrequestertest.cpp
  jobguitest.cpp
+ pastetest.cpp
  NAME_PREFIX "kiowidgets-"
  LINK_LIBRARIES KF5::KIOCore KF5::KIOWidgets Qt5::Test
 )

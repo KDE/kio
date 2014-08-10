@@ -568,7 +568,7 @@ void FileUndoManagerTest::testPasteClipboardUndo()
     const QList<QUrl> urls(sourceList());
     QMimeData *mimeData = new QMimeData();
     mimeData->setUrls(urls);
-    mimeData->setData(QLatin1String("application/x-kde-cutselection"), "1");
+    KIO::setClipboardDataCut(mimeData, true);
     QClipboard *clipboard = QApplication::clipboard();
     clipboard->setMimeData(mimeData);
 

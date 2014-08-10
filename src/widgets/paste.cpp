@@ -39,12 +39,6 @@
 #include <qinputdialog.h>
 #include <QDebug>
 
-static bool decodeIsCutSelection(const QMimeData *mimeData)
-{
-    const QByteArray data = mimeData->data("application/x-kde-cutselection");
-    return data.isEmpty() ? false : data.at(0) == '1';
-}
-
 // This could be made a public method, if there's a need for pasting only urls
 // and not random data.
 /**
@@ -62,7 +56,7 @@ static KIO::Job *pasteClipboardUrls(const QMimeData *mimeData, const QUrl &destD
 {
     const QList<QUrl> urls = KUrlMimeData::urlsFromMimeData(mimeData, KUrlMimeData::PreferLocalUrls);
     if (!urls.isEmpty()) {
-        const bool move = decodeIsCutSelection(mimeData);
+        const bool move = KIO::isClipboardDataCut(mimeData);
         KIO::Job *job = 0;
         if (move) {
             job = KIO::move(urls, destDir, flags);
@@ -187,10 +181,10 @@ static QStringList extractFormats(const QMimeData *mimeData)
     QStringList formats;
     const QStringList allFormats = mimeData->formats();
     Q_FOREACH (const QString &format, allFormats) {
-        if (format == QLatin1String("application/x-qiconlist")) { // see QIconDrag
+        if (format == QLatin1String("application/x-qiconlist")) { // Q3IconView and kde4's libkonq
             continue;
         }
-        if (format == QLatin1String("application/x-kde-cutselection")) { // see KonqDrag
+        if (format == QLatin1String("application/x-kde-cutselection")) { // see isClipboardDataCut
             continue;
         }
         if (format == QLatin1String("application/x-kde-suggestedfilename")) {
@@ -304,4 +298,16 @@ KIOWIDGETS_EXPORT KIO::Job *KIO::pasteMimeData(const QMimeData *mimeData, const 
         const QString &dialogText, QWidget *widget)
 {
     return pasteMimeDataImpl(mimeData, destUrl, dialogText, widget, false /*not clipboard*/);
+}
+
+KIOWIDGETS_EXPORT void KIO::setClipboardDataCut(QMimeData* mimeData, bool cut)
+{
+    const QByteArray cutSelectionData = cut ? "1" : "0";
+    mimeData->setData("application/x-kde-cutselection", cutSelectionData);
+}
+
+KIOWIDGETS_EXPORT bool KIO::isClipboardDataCut(const QMimeData *mimeData)
+{
+    const QByteArray a = mimeData->data("application/x-kde-cutselection");
+    return (!a.isEmpty() && a.at(0) == '1');
 }

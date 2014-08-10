@@ -77,6 +77,22 @@ KIOWIDGETS_EXPORT bool canPasteMimeData(const QMimeData *data);
  * isn't possible right now.
  */
 KIOWIDGETS_EXPORT QString pasteActionText();
+
+/**
+ * Add the information whether the files were cut, into the mimedata.
+ * @param mimeData pointer to the mimeData object to be populated. Must not be null.
+ * @param cut if true, the user selected "cut" (saved as application/x-kde-cutselection in the mimedata).
+ * @since 5.2
+ */
+KIOWIDGETS_EXPORT void setClipboardDataCut(QMimeData* mimeData, bool cut);
+
+/**
+ * Returns true if the URLs in @p mimeData were cut by the user.
+ * This should be called when pasting, to choose between moving and copying.
+ * @since 5.2
+ */
+KIOWIDGETS_EXPORT bool isClipboardDataCut(const QMimeData *mimeData);
+
 }
 
 #endif
