@@ -12,3 +12,13 @@ release: true
 framework-dependencies:
     # kio calls org.kde.kded5 via dbus
     - KDED
+libraries:
+ - qmake: KIOCore
+   cmake: "KF5::KIOCore"
+ - qmake: KIOFileWidgets
+   cmake: "KF5::KIOFileWidgets"
+ - qmake: KIOWidgets
+   cmake: "KF5::KIOWidgets"
+ - qmake: KNTLM
+   cmake: "KF5::KIONTLM"
+cmakename: KF5KIO

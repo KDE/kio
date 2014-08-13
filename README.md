@@ -16,9 +16,3 @@ The framework can also be used to bridge a native protocol to a file-based
 interface. This makes the data accessible in all applications using the KDE
 file dialog or any other KIO enabled infrastructure.
 
-## Links
-
-- Home page: <https://projects.kde.org/projects/frameworks/kio>
-- Mailing list: <https://mail.kde.org/mailman/listinfo/kde-frameworks-devel>
-- IRC channel: #kde-devel on Freenode
-- Git repository: <https://projects.kde.org/projects/frameworks/kio/repository>
