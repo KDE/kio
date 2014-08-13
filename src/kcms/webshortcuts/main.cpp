@@ -47,10 +47,10 @@ KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
 
     setQuickHelp(i18n("<h1>Enhanced Browsing</h1> In this module you can configure some enhanced browsing"
                       " features of KDE. "
-                      "<h2>Web Shortcuts</h2>Web Shortcuts are a quick way of using Web search engines. For example, type \"altavista:frobozz\""
-                      " or \"av:frobozz\" and Konqueror will do a search on AltaVista for \"frobozz\"."
+                      "<h2>Web Shortcuts</h2>Web Shortcuts are a quick way of using Web search engines. For example, type \"duckduckgo:frobozz\""
+                      " or \"dd:frobozz\" and your web browser will do a search on DuckDuckGo for \"frobozz\"."
                       " Even easier: just press Alt+F2 (if you have not"
-                      " changed this shortcut) and enter the shortcut in the KDE Run Command dialog."));
+                      " changed this keyboard shortcut) and enter the shortcut in the Run Command dialog."));
 
     QVBoxLayout *layout = new QVBoxLayout(this);
 
