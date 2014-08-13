@@ -34,10 +34,9 @@
 
 K_PLUGIN_FACTORY(KURIFilterModuleFactory, registerPlugin<KURIFilterModule>();)
 
-
 KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
     : KCModule(parent, args),
-    m_widget(0)
+      m_widget(0)
 {
     KAboutData *about = new KAboutData(QStringLiteral("kcm_webshortcuts"), QString(), i18n("Web Shortcuts"), QStringLiteral("0.1"), KAboutLicense::GPL);
     setAboutData(about);
@@ -46,23 +45,22 @@ KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
 
     filter = KUriFilter::self();
 
-    setQuickHelp( i18n("<h1>Enhanced Browsing</h1> In this module you can configure some enhanced browsing"
-      " features of KDE. "
-      "<h2>Web Shortcuts</h2>Web Shortcuts are a quick way of using Web search engines. For example, type \"altavista:frobozz\""
-      " or \"av:frobozz\" and Konqueror will do a search on AltaVista for \"frobozz\"."
-      " Even easier: just press Alt+F2 (if you have not"
-      " changed this shortcut) and enter the shortcut in the KDE Run Command dialog."));
+    setQuickHelp(i18n("<h1>Enhanced Browsing</h1> In this module you can configure some enhanced browsing"
+                      " features of KDE. "
+                      "<h2>Web Shortcuts</h2>Web Shortcuts are a quick way of using Web search engines. For example, type \"altavista:frobozz\""
+                      " or \"av:frobozz\" and Konqueror will do a search on AltaVista for \"frobozz\"."
+                      " Even easier: just press Alt+F2 (if you have not"
+                      " changed this shortcut) and enter the shortcut in the KDE Run Command dialog."));
 
     QVBoxLayout *layout = new QVBoxLayout(this);
 
-    QMap<QString,KCModule*> helper;
+    QMap<QString, KCModule *> helper;
     // Load the plugins. This saves a public method in KUriFilter just for this.
-    const KService::List offers = KServiceTypeTrader::self()->query( "KUriFilter/Plugin" );
+    const KService::List offers = KServiceTypeTrader::self()->query("KUriFilter/Plugin");
     KService::List::ConstIterator it = offers.begin();
     const KService::List::ConstIterator end = offers.end();
-    for (; it != end; ++it )
-    {
-        KUriFilterPlugin *plugin = ( *it )->createInstance<KUriFilterPlugin>( this );
+    for (; it != end; ++it) {
+        KUriFilterPlugin *plugin = (*it)->createInstance<KUriFilterPlugin>(this);
         if (plugin) {
             KCModule *module = plugin->configModule(this, 0);
             if (module) {
@@ -73,22 +71,21 @@ KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
         }
     }
 
-    if (modules.count() > 1)
-    {
+    if (modules.count() > 1) {
         QTabWidget *tab = new QTabWidget(this);
 
-        QMap<QString,KCModule*>::iterator it2;
-        for (it2 = helper.begin(); it2 != helper.end(); ++it2)
+        QMap<QString, KCModule *>::iterator it2;
+        for (it2 = helper.begin(); it2 != helper.end(); ++it2) {
             tab->addTab(it2.value(), it2.key());
+        }
 
         tab->setCurrentIndex(tab->indexOf(modules.first()));
         m_widget = tab;
-    }
-    else if (modules.count() == 1)
-    {
+    } else if (modules.count() == 1) {
         m_widget = modules.first();
-        if (m_widget->layout())
+        if (m_widget->layout()) {
             m_widget->layout()->setMargin(0);
+        }
     }
 
     if (m_widget) {
@@ -101,29 +98,27 @@ void KURIFilterModule::load()
 // seems not to be necessary, since modules automatically call load() on show (uwolfer)
 //     foreach( KCModule* module, modules )
 //     {
-// 	  module->load();
+//    module->load();
 //     }
 }
 
 void KURIFilterModule::save()
 {
-    foreach( KCModule* module, modules )
-    {
-	  module->save();
+    foreach(KCModule * module, modules) {
+        module->save();
     }
 }
 
 void KURIFilterModule::defaults()
 {
-    foreach( KCModule* module, modules )
-    {
-	  module->defaults();
+    foreach(KCModule * module, modules) {
+        module->defaults();
     }
 }
 
 KURIFilterModule::~KURIFilterModule()
 {
-    qDeleteAll( modules );
+    qDeleteAll(modules);
 }
 
 #include "main.moc"

@@ -16,7 +16,6 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-
 #ifndef MAIN_H
 #define MAIN_H
 
@@ -24,7 +23,8 @@
 
 class KUriFilter;
 
-class KURIFilterModule : public KCModule {
+class KURIFilterModule : public KCModule
+{
     Q_OBJECT
 
 public:
