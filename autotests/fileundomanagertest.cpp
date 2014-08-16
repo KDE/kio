@@ -31,6 +31,7 @@
 #include <kio/job.h>
 #include <kio/deletejob.h>
 #include <kio/paste.h>
+#include <kio/restorejob.h>
 #include <kioglobal_p.h>
 #include <kprotocolinfo.h>
 #include <kurlmimedata.h>
@@ -519,6 +520,43 @@ void FileUndoManagerTest::testTrashFiles()
     QVERIFY(QFile::exists(srcSubDir()));
 
     // We can't check that the trash is empty; other partitions might have their own trash
+}
+
+void FileUndoManagerTest::testRestoreTrashedFiles()
+{
+    if (!KProtocolInfo::isKnownProtocol("trash")) {
+        QSKIP("kio_trash not installed");
+    }
+
+    // Trash it all at once: the file, the symlink, the subdir.
+    QList<QUrl> lst = sourceList();
+    lst.append(QUrl::fromLocalFile(srcSubDir()));
+    KIO::Job *job = KIO::trash(lst, KIO::HideProgressInfo);
+    job->setUiDelegate(0);
+    QVERIFY(job->exec());
+
+    const QMap<QString, QString> metaData = job->metaData();
+    QList<QUrl> trashUrls;
+    foreach(const QUrl &src, lst) {
+        QMap<QString, QString>::ConstIterator it = metaData.find("trashURL-" + src.path());
+        QVERIFY(it != metaData.constEnd());
+        trashUrls.append(QUrl(it.value()));
+    }
+
+    qDebug() << trashUrls;
+
+    // Restore from trash
+    KIO::RestoreJob *restoreJob = KIO::restoreFromTrash(trashUrls, KIO::HideProgressInfo);
+    restoreJob->setUiDelegate(0);
+    QVERIFY(restoreJob->exec());
+
+    QVERIFY(QFile::exists(srcFile()));
+#ifndef Q_OS_WIN
+    QVERIFY(QFileInfo(srcLink()).isSymLink());
+#endif
+    QVERIFY(QFile::exists(srcSubDir()));
+
+    // TODO support for RestoreJob in FileUndoManager !!!
 }
 
 static void setTimeStamp(const QString &path)

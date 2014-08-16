@@ -59,6 +59,7 @@ set(kiocore_SRCS
   listjob.cpp
   mimetypejob.cpp
   multigetjob.cpp
+  restorejob.cpp
   simplejob.cpp
   specialjob.cpp
   statjob.cpp
@@ -181,6 +182,7 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   ListJob
   MimetypeJob
   MultiGetJob
+  RestoreJob
   SimpleJob
   SpecialJob
   StatJob

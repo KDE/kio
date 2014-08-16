@@ -37,6 +37,7 @@ private Q_SLOTS:
     void testRenameFile();
     void testRenameDir();
     void testTrashFiles();
+    void testRestoreTrashedFiles();
     void testModifyFileBeforeUndo(); // #20532
     void testCreateDir();
     void testPasteClipboardUndo(); // #318757
