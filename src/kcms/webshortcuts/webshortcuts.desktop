@@ -108,6 +108,7 @@ Comment[sv]=Anpassa webbgenvägar
 Comment[uk]=Налаштування вебскорочень
 Comment[x-test]=xxConfigure web shortcutsxx
 Comment[zh_CN]=配置网页快捷键
+Comment[zh_TW]=設定網頁捷徑
 
 X-KDE-Keywords=Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts
 X-KDE-Keywords[ca]=Dreceres web,Navegació,WWW,Internet,Filtres d'internet,Xarxa,Motors de cerca,Dreceres
@@ -131,5 +132,6 @@ X-KDE-Keywords[sv]=Webbgenvägar,bläddra,WWW,Internet,Internetfilter,Nätverk,S
 X-KDE-Keywords[uk]=Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts,додатково,додатковий,інтернет,фільтри,фільтрування,фільтр,мережа,рушій,пошук,рушії пошуку,скорочення,вебскорочення
 X-KDE-Keywords[x-test]=xxWeb Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcutsxx
 X-KDE-Keywords[zh_CN]=Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts,网页快捷键,浏览,互联网,搜索引擎,快捷键,网络
+X-KDE-Keywords[zh_TW]=Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts
 
 Categories=Qt;KDE;X-KDE-settings-webbrowsing;
