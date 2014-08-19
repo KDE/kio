@@ -101,6 +101,18 @@ enum CopyJobState {
     STATE_SETTING_DIR_ATTRIBUTES
 };
 
+namespace KIO {
+struct CopyInfo {
+    QUrl uSource;
+    QUrl uDest;
+    QString linkDest; // for symlinks only
+    int permissions;
+    QDateTime ctime;
+    QDateTime mtime;
+    KIO::filesize_t size; // 0 for dirs
+};
+}
+
 static QUrl addPathToUrl(const QUrl &url, const QString &relPath)
 {
     QString path = url.path();
@@ -806,12 +818,6 @@ void CopyJobPrivate::statCurrentSrc()
         //qDebug()<<"Stating finished. To copy:"<<m_totalSize<<", available:"<<m_freeSpace;
         //TODO warn user beforehand if space is not enough
 
-        if (!dirs.isEmpty()) {
-            emit q->aboutToCreate(q, dirs);
-        }
-        if (!files.isEmpty()) {
-            emit q->aboutToCreate(q, files);
-        }
         // Check if we are copying a single file
         m_bSingleFileCopy = (files.count() == 1 && dirs.isEmpty());
         // Then start copying things
@@ -841,15 +847,6 @@ void CopyJobPrivate::startRenameJob(const QUrl &slave_url)
     m_currentDestURL = dest;
     //qDebug() << m_currentSrcURL << "->" << dest << "trying direct rename first";
     state = STATE_RENAMING;
-
-    struct CopyInfo info;
-    info.permissions = -1;
-    info.size = (KIO::filesize_t) - 1;
-    info.uSource = m_currentSrcURL;
-    info.uDest = dest;
-    QList<CopyInfo> files;
-    files.append(info);
-    emit q->aboutToCreate(q, files);
 
     KIO_ARGS << m_currentSrcURL << dest << (qint8) false /*no overwrite*/;
     SimpleJob *newJob = SimpleJobPrivate::newJobNoUi(slave_url, CMD_RENAME, packedArgs);
@@ -957,12 +954,6 @@ void CopyJobPrivate::renameDirectory(QList<CopyInfo>::iterator it, const QUrl &n
                          << ", changed into" << n;*/
             (*renamefileit).uDest.setPath(n, QUrl::DecodedMode);
         }
-    }
-    if (!dirs.isEmpty()) {
-        emit q->aboutToCreate(q, dirs);
-    }
-    if (!files.isEmpty()) {
-        emit q->aboutToCreate(q, files);
     }
 }
 
@@ -1210,10 +1201,6 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
                     newDest.setPath(newDest.path() + QLatin1Char('/') + newName);
                     emit q->renamed(q, (*it).uDest, newDest); // for e.g. kpropsdlg
                     (*it).uDest = newDest;
-
-                    QList<CopyInfo> files;
-                    files.append(*it);
-                    emit q->aboutToCreate(q, files);
                 } else {
                     if (!q->uiDelegateExtension()) {
                         q->Job::slotResult(job);   // will set the error and emit result(this)
@@ -1389,10 +1376,6 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
         newUrl.setPath(newPath);
         emit q->renamed(q, (*it).uDest, newUrl);   // for e.g. kpropsdlg
         (*it).uDest = newUrl;
-
-        QList<CopyInfo> files;
-        files.append(*it);
-        emit q->aboutToCreate(q, files);
     }
     break;
     case Result_AutoSkip:
