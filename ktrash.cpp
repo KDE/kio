@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication app(argc, argv);
     app.setApplicationName("ktrash");
-    app.setApplicationVersion(KDE_VERSION_STRING);
+    app.setApplicationVersion(PROJECT_VERSION);
     app.setOrganizationDomain("kde.org");
 
     QCommandLineParser parser;

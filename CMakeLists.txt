@@ -40,6 +40,7 @@ install(TARGETS kio_trash  DESTINATION ${PLUGIN_INSTALL_DIR} )
 set(ktrash_SRCS ktrash.cpp )
 
 add_executable(ktrash5 ${ktrash_SRCS})
+target_compile_definitions(ktrash5 PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 ecm_mark_nongui_executable(ktrash5)
 
 target_link_libraries(ktrash5
