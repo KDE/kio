@@ -50,6 +50,7 @@ set(kiocore_SRCS
   dataprotocol.cpp
   dataprotocol.cpp
   desktopexecparser.cpp
+  emptytrashjob.cpp
   authinfo.cpp
   slaveinterface.cpp
   slave.cpp
@@ -167,6 +168,7 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   ChmodJob
   DeleteJob
   CopyJob
+  EmptyTrashJob
   FileJob
   MkdirJob
   SlaveBase

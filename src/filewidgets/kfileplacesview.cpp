@@ -37,8 +37,7 @@
 #include <kdirnotify.h>
 #include <klocalizedstring.h>
 #include <kmessagebox.h>
-//#include <knotification.h>
-#include <kio/job.h>
+#include <kio/emptytrashjob.h>
 #include <kio/jobuidelegate.h>
 #include <kjob.h>
 #include <kjobwidgets.h>
@@ -346,7 +345,6 @@ public:
     void _k_itemAppearUpdate(qreal value);
     void _k_itemDisappearUpdate(qreal value);
     void _k_enableSmoothItemResizing();
-    void _k_trashUpdated(KJob *job);
     void _k_capacityBarFadeValueChanged();
     void _k_triggerDevicePolling();
 
@@ -642,21 +640,13 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     QAction *result = menu.exec(event->globalPos());
 
     if (emptyTrash != 0 && result == emptyTrash) {
-        const QString text = i18nc("@info", "Do you really want to empty the Trash? All items will be deleted.");
-        const bool del = KMessageBox::warningContinueCancel(window(),
-                         text,
-                         QString(),
-                         KGuiItem(i18nc("@action:button", "Empty Trash"),
-                                  QIcon::fromTheme("user-trash"))
-                                                           ) == KMessageBox::Continue;
-        if (del) {
-            QByteArray packedArgs;
-            QDataStream stream(&packedArgs, QIODevice::WriteOnly);
-            stream << int(1);
-            KIO::Job *job = KIO::special(QUrl("trash:/"), packedArgs);
-            //KNotification::event("Trash: emptied", QString() , QPixmap() , 0, KNotification::DefaultEvent);
-            KJobWidgets::setWindow(job, parentWidget());
-            connect(job, SIGNAL(result(KJob*)), SLOT(_k_trashUpdated(KJob*)));
+
+        KIO::JobUiDelegate uiDelegate;
+        uiDelegate.setWindow(window());
+        if (uiDelegate.askDeleteConfirmation(QList<QUrl>(), KIO::JobUiDelegate::EmptyTrash, KIO::JobUiDelegate::DefaultConfirmation)) {
+            KIO::Job* job = KIO::emptyTrash();
+            KJobWidgets::setWindow(job, window());
+            job->ui()->setAutoErrorHandlingEnabled(true);
         }
     } else if (edit != 0 && result == edit) {
         KBookmark bookmark = placesModel->bookmarkForIndex(index);
@@ -1174,14 +1164,6 @@ void KFilePlacesView::Private::_k_itemDisappearUpdate(qreal value)
 void KFilePlacesView::Private::_k_enableSmoothItemResizing()
 {
     smoothItemResizing = true;
-}
-
-void KFilePlacesView::Private::_k_trashUpdated(KJob *job)
-{
-    if (job->error()) {
-        static_cast<KIO::Job *>(job)->ui()->showErrorMessage();
-    }
-    org::kde::KDirNotify::emitFilesAdded(QUrl("trash:/"));
 }
 
 void KFilePlacesView::Private::_k_capacityBarFadeValueChanged()
