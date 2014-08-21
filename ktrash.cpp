@@ -17,16 +17,13 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include <kapplication.h>
-#include <kio/job.h>
-
-#include <klocale.h>
-#include <kdirnotify.h>
+#include <QCoreApplication>
 #include <QDebug>
 #include <QUrl>
-#include <kdeversion.h>
 #include <QCommandLineParser>
 #include <QCommandLineOption>
+#include <KLocalizedString>
+#include <KIO/EmptyTrashJob>
 
 int main(int argc, char *argv[])
 {
@@ -49,14 +46,8 @@ int main(int argc, char *argv[])
     if (parser.isSet("empty")) {
         // We use a kio job instead of linking to TrashImpl, for a smaller binary
         // (and the possibility of a central service at some point)
-        QByteArray packedArgs;
-        QDataStream stream( &packedArgs, QIODevice::WriteOnly );
-        stream << (int)1;
-        KIO::Job* job = KIO::special( QUrl("trash:/"), packedArgs );
+        KIO::Job* job = KIO::emptyTrash();
         job->exec();
-
-        // Update konq windows opened on trash:/
-        org::kde::KDirNotify::emitFilesAdded(QUrl("trash:/")); // yeah, files were removed, but we don't know which ones...
         return 0;
     }
 
