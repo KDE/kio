@@ -785,32 +785,13 @@ KIO::DeleteJob *KDirOperator::del(const KFileItemList &items,
         parent = this;
     }
 
-    QList<QUrl> urls;
-    QStringList files;
-    foreach (const KFileItem &item, items) {
-        const QUrl url = item.url();
-        urls.append(url);
-        files.append(url.toDisplayString(QUrl::PreferLocalFile));
-    }
+    const QList<QUrl> urls = items.urlList();
 
     bool doIt = !ask;
     if (ask) {
-        int ret;
-        if (items.count() == 1) {
-            ret = KMessageBox::warningContinueCancel(parent,
-                    i18n("<qt>Do you really want to delete\n <b>'%1'</b>?</qt>",
-                         files.first()),
-                    i18n("Delete File"),
-                    KStandardGuiItem::del(),
-                    KStandardGuiItem::cancel(), "AskForDelete");
-        } else
-            ret = KMessageBox::warningContinueCancelList(parent,
-                    i18np("Do you really want to delete this item?", "Do you really want to delete these %1 items?", items.count()),
-                    files,
-                    i18n("Delete Files"),
-                    KStandardGuiItem::del(),
-                    KStandardGuiItem::cancel(), "AskForDelete");
-        doIt = (ret == KMessageBox::Continue);
+        KIO::JobUiDelegate uiDelegate;
+        uiDelegate.setWindow(parent);
+        doIt = uiDelegate.askDeleteConfirmation(urls, KIO::JobUiDelegate::Delete, KIO::JobUiDelegate::DefaultConfirmation);
     }
 
     if (doIt) {
@@ -843,32 +824,13 @@ KIO::CopyJob *KDirOperator::trash(const KFileItemList &items,
         return 0L;
     }
 
-    QList<QUrl> urls;
-    QStringList files;
-    foreach (const KFileItem &item, items) {
-        const QUrl url = item.url();
-        urls.append(url);
-        files.append(url.toDisplayString(QUrl::PreferLocalFile));
-    }
+    const QList<QUrl> urls = items.urlList();
 
     bool doIt = !ask;
     if (ask) {
-        int ret;
-        if (items.count() == 1) {
-            ret = KMessageBox::warningContinueCancel(parent,
-                    i18n("<qt>Do you really want to trash\n <b>'%1'</b>?</qt>",
-                         files.first()),
-                    i18n("Trash File"),
-                    KGuiItem(i18nc("to trash", "&Trash"), "user-trash"),
-                    KStandardGuiItem::cancel(), "AskForTrash");
-        } else
-            ret = KMessageBox::warningContinueCancelList(parent,
-                    i18np("translators: not called for n == 1", "Do you really want to trash these %1 items?", items.count()),
-                    files,
-                    i18n("Trash Files"),
-                    KGuiItem(i18nc("to trash", "&Trash"), "user-trash"),
-                    KStandardGuiItem::cancel(), "AskForTrash");
-        doIt = (ret == KMessageBox::Continue);
+        KIO::JobUiDelegate uiDelegate;
+        uiDelegate.setWindow(parent);
+        doIt = uiDelegate.askDeleteConfirmation(urls, KIO::JobUiDelegate::Trash, KIO::JobUiDelegate::DefaultConfirmation);
     }
 
     if (doIt) {
