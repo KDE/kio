@@ -62,6 +62,11 @@ bool KDesktopFileActions::run(const QUrl &u, bool _is_local)
         return false;
     }
 
+    if (u.fileName() == QLatin1String(".directory")) {
+        // We cannot execute a .directory file. Open with a text editor instead.
+        return KRun::runUrl(u, QStringLiteral("text/plain"), 0, false /*tempFile*/, false /*runExecutables*/);
+    }
+
     KDesktopFile cfg(u.toLocalFile());
     if (!cfg.desktopGroup().hasKey("Type")) {
         QString tmp = i18n("The desktop entry file %1 "
