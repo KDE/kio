@@ -209,7 +209,7 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls,
                 path.remove(QRegExp("^/[0-9]*-"));
                 prettyList.append(path);
             } else {
-                prettyList.append(url.toDisplayString());
+                prettyList.append(url.toDisplayString(QUrl::PreferLocalFile));
             }
         }
 
