@@ -83,7 +83,7 @@ public:
           shmaddr(0)
     {
         // http://specifications.freedesktop.org/thumbnail-spec/thumbnail-spec-latest.html#DIRECTORY
-        thumbRoot = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1String("/thumbnails/");
+        thumbRoot = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/thumbnails/");
     }
 
     enum { STATE_STATORIG, // if the thumbnail exists
@@ -679,7 +679,7 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *, const QByteArray &data)
             signature.append(" (v" + thumbnailerVersion + ')');
         }
         thumb.setText("Software", signature);
-        QSaveFile saveFile(thumbPath + "kde-tmp-XXXXXX.png");
+        QSaveFile saveFile(thumbPath + thumbName);
         if (saveFile.open(QIODevice::WriteOnly)) {
             if (thumb.save(&saveFile, "PNG")) {
                 saveFile.commit();
