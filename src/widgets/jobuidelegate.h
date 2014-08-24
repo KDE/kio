@@ -62,6 +62,16 @@ public:
     void setWindow(QWidget *window) Q_DECL_OVERRIDE;
 
     /**
+     * Unregister the given window from kded.
+     * This is normally done automatically when the window is destroyed.
+     *
+     * This method is useful for instance when keeping a hidden window
+     * around to make it faster to reuse later.
+     * @since 5.2
+     */
+    static void unregisterWindow(QWidget *window);
+
+    /**
      * \relates KIO::RenameDialog
      * Construct a modal, parent-less "rename" dialog, and return
      * a result code, as well as the new dest. Much easier to use than the

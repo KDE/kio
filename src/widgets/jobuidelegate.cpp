@@ -102,7 +102,7 @@ public:
             call(QDBus::NoBlock, "registerWindowId", qlonglong(windowId));
         }
     }
-private Q_SLOTS:
+public Q_SLOTS:
     void slotUnregisterWindow(QObject *obj)
     {
         if (!obj) {
@@ -130,6 +130,11 @@ void KIO::JobUiDelegate::setWindow(QWidget *window)
 {
     KDialogJobUiDelegate::setWindow(window);
     s_static()->registerWindow(window);
+}
+
+void KIO::JobUiDelegate::unregisterWindow(QWidget *window)
+{
+    s_static()->slotUnregisterWindow(window);
 }
 
 KIO::RenameDialog_Result KIO::JobUiDelegate::askFileRename(KJob *job,
