@@ -45,7 +45,7 @@ Name[ja]=Wictionary - フリーな辞書
 Name[kk]=Wiktionary - ашық сөздік
 Name[km]=Wikipedia - វចនានុក្រម​ឥត​គិត​ថ្លៃ
 Name[kn]=ವಿಕ್ಷನರಿ - ಮುಕ್ತ ಶಬ್ದಕೋಶ
-Name[ko]=위키낱말사전
+Name[ko]=위키낱말사전 - 말과 글의 누리
 Name[ku]=Wîkîferheng - Ferhenga Azad
 Name[lt]=Wiktionary – laisvasis žodynas
 Name[lv]=Wiktionary - brīvā vārdnīca
@@ -113,7 +113,7 @@ Query[is]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[it]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ja]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[kk]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
-Query[ko]=https://ko.wiktionary.org/wiki/특수기능:검색?search=\\{@}&go=Go
+Query[ko]=https://ko.wiktionary.org/wiki/특수:검색?search=\\{@}&go=Go
 Query[lt]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[nds]=https://nds.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[nl]=https://nl.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
