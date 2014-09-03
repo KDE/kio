@@ -59,25 +59,14 @@ void OrgKdeKDirNotifyInterface::emitFilesAdded(const QUrl &directory)
     emitSignal(QLatin1String("FilesAdded"), QVariantList() << directory.toString());
 }
 
-// HAND-EDIT
-static QStringList urlListToStringList(const QList<QUrl> &urls)
-{
-    QStringList lst;
-    for (QList<QUrl>::const_iterator it = urls.constBegin();
-            it != urls.constEnd(); ++it) {
-        lst.append(it->toString());
-    }
-    return lst;
-}
-
 void OrgKdeKDirNotifyInterface::emitFilesChanged(const QList<QUrl> &fileList)
 {
-    emitSignal(QLatin1String("FilesChanged"), QVariantList() << QVariant(urlListToStringList(fileList)));
+    emitSignal(QLatin1String("FilesChanged"), QVariantList() << QVariant(QUrl::toStringList(fileList)));
 }
 
 void OrgKdeKDirNotifyInterface::emitFilesRemoved(const QList<QUrl> &fileList)
 {
-    emitSignal(QLatin1String("FilesRemoved"), QVariantList() << QVariant(urlListToStringList(fileList)));
+    emitSignal(QLatin1String("FilesRemoved"), QVariantList() << QVariant(QUrl::toStringList(fileList)));
 }
 
 void OrgKdeKDirNotifyInterface::emitEnteredDirectory(const QUrl &url)
