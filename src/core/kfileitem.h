@@ -111,7 +111,7 @@ public:
      * @param mimeType the name of the file's mimetype
      * @param mode the mode (S_IFDIR...)
      */
-    KFileItem(const QUrl &url, const QString &mimeType = QString(), mode_t mode = KFileItem::Unknown);
+    KFileItem(const QUrl &url, const QString &mimeType = QString(), mode_t mode = KFileItem::Unknown); // KF6 TODO: explicit!
 
     /**
      * Copy constructor
