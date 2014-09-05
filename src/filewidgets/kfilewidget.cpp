@@ -909,7 +909,7 @@ void KFileWidget::slotOk()
                  containsProtocolSection(locationEditCurrentText))) {
 
             QString fileName;
-            QUrl url(locationEditCurrentText);
+            QUrl url = QUrl::fromUserInput(locationEditCurrentText);
             if (d->operationMode == Opening) {
                 KIO::StatJob *statJob = KIO::stat(url, KIO::HideProgressInfo);
                 KJobWidgets::setWindow(statJob, this);
