@@ -783,7 +783,7 @@ static QString simplifiedExecLineFromService(const QString &fullExec)
 
 void KOpenWithDialogPrivate::addToMimeAppsList(const QString &serviceId /*menu id or storage id*/)
 {
-    KSharedConfig::Ptr profile = KSharedConfig::openConfig("mimeapps.list", KConfig::NoGlobals, QStandardPaths::ApplicationsLocation);
+    KSharedConfig::Ptr profile = KSharedConfig::openConfig("mimeapps.list", KConfig::NoGlobals, QStandardPaths::GenericConfigLocation);
     KConfigGroup addedApps(profile, "Added Associations");
     QStringList apps = addedApps.readXdgListEntry(qMimeType);
     apps.removeAll(serviceId);
