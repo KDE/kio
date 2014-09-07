@@ -784,12 +784,18 @@ static QString simplifiedExecLineFromService(const QString &fullExec)
 void KOpenWithDialogPrivate::addToMimeAppsList(const QString &serviceId /*menu id or storage id*/)
 {
     KSharedConfig::Ptr profile = KSharedConfig::openConfig("mimeapps.list", KConfig::NoGlobals, QStandardPaths::GenericConfigLocation);
+
+    // Save the default application according to mime-apps-spec 1.0
+    KConfigGroup defaultApp(profile, "Default Applications");
+    defaultApp.writeXdgListEntry(qMimeType, QStringList(serviceId));
+
     KConfigGroup addedApps(profile, "Added Associations");
     QStringList apps = addedApps.readXdgListEntry(qMimeType);
     apps.removeAll(serviceId);
     apps.prepend(serviceId); // make it the preferred app
     addedApps.writeXdgListEntry(qMimeType, apps);
-    addedApps.sync();
+
+    profile->sync();
 
     // Also make sure the "auto embed" setting for this mimetype is off
     KSharedConfig::Ptr fileTypesConfig = KSharedConfig::openConfig("filetypesrc", KConfig::NoGlobals);
