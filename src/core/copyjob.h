@@ -37,8 +37,7 @@ namespace KIO
 {
 
 /// @internal
-/// FIXME: If this is internal, why is being used in a public signal below?
-/// (aboutToCreate, see also konq_operations.h/cpp
+/// KF6 TODO: move to .cpp and remove aboutToCreate signal
 struct CopyInfo {
     QUrl uSource;
     QUrl uDest;
@@ -149,13 +148,14 @@ Q_SIGNALS:
     void totalDirs(KJob *job, unsigned long dirs);
 
     /**
-    * Emitted when it is known which files / directories are going
+     * Emitted when it is known which files / directories are going
      * to be created. Note that this may still change e.g. when
      * existing files with the same name are discovered.
      * @param job the job that emitted this signal
      * @param files a list of items that are about to be created.
+     * @deprecated since 5.2 -- this signal is unused since kde 3...
      */
-    void aboutToCreate(KIO::Job *job, const QList<KIO::CopyInfo> &files);
+    QT_MOC_COMPAT void aboutToCreate(KIO::Job *job, const QList<KIO::CopyInfo> &files);
 
     /**
     * Sends the number of processed files.
