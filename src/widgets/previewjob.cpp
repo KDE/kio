@@ -268,20 +268,25 @@ void PreviewJobPrivate::startPreview()
             protocols.append(p);
         }
         foreach (const QString &protocol, protocols) {
-            const QStringList mtypes = (*it)->mimeTypes();
+            // We cannot use mimeTypes() here, it doesn't support groups such as: text/*
+            const QStringList mtypes = (*it)->serviceTypes();
             // Add supported mimetype for this protocol
             QStringList &_ms = m_remoteProtocolPlugins[protocol];
             foreach (const QString &_m, mtypes) {
-                protocolMap[protocol].insert(_m, *it);
-                if (!_ms.contains(_m)) {
-                    _ms.append(_m);
+                if (_m != QLatin1String("ThumbCreator")) {
+                    protocolMap[protocol].insert(_m, *it);
+                    if (!_ms.contains(_m)) {
+                        _ms.append(_m);
+                    }
                 }
             }
         }
         if (enabledPlugins.contains((*it)->desktopEntryName())) {
-            const QStringList mimeTypes = (*it)->mimeTypes();
+            const QStringList mimeTypes = (*it)->serviceTypes();
             for (QStringList::ConstIterator mt = mimeTypes.constBegin(); mt != mimeTypes.constEnd(); ++mt) {
-                mimeMap.insert(*mt, *it);
+                if (*mt != QLatin1String("ThumbCreator")) {
+                    mimeMap.insert(*mt, *it);
+                }
             }
         }
     }
