@@ -1,0 +1,6426 @@
+# translation of kio4.po to Cymraeg
+# Translation of kdelibs.po to Cymraeg
+# Translation of clearfuzzytest.po to Cymraeg
+# translation of clearfuzzytest.po to Cymraeg
+# translation of clearfuzzy.po to Cymraeg
+# KDE yn Gymraeg.
+# Copyright (C) 2003, 2004 Free Software Foundation, Inc.
+# www.kyfieithu.co.uk <kyfieithu@dotmon.com>, 2003.
+# Kgyfieithu <kyfieithu@dotmon.com>, 2003.
+# KGyfieithu <kyfieithu@dotmon.com>, 2003.
+# KD at KGyfieithu <kyfieithu@dotmon.com>, 2003, 2004.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kio4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-09-08 07:57+0000\n"
+"PO-Revision-Date: 2004-01-16 09:20+0000\n"
+"Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
+"Language-Team: Cymraeg <cy@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.2\n"
+"\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "KD wrth KGyfieithu"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kyfieithu@dotmon.com"
+
+#: core/chmodjob.cpp:202
+#, fuzzy, kde-format
+msgid "Could not modify the ownership of file %1"
+msgstr "Methu newid caniatàd i %1"
+
+#: core/chmodjob.cpp:204
+#, fuzzy, kde-format
+msgid ""
+"<qt>Could not modify the ownership of file <b>%1</b>. You have insufficient "
+"access to the file to perform the change.</qt>"
+msgstr ""
+"<qt>Methu newid perchnogaeth y ffeil <b>%1</b> Does ganddych dim digon o "
+"hawliau i gyflawni'r newid.</qt>"
+
+#: core/connectionbackend.cpp:143
+#, kde-format
+msgid "Unable to create io-slave: %1"
+msgstr "Methu creu gwas-io: %1"
+
+#: core/copyjob.cpp:1081 core/job_error.cpp:504
+msgid "Folder Already Exists"
+msgstr "Plygell yn Bodoli'n Barod"
+
+#: core/copyjob.cpp:1350 core/copyjob.cpp:1916 core/filecopyjob.cpp:360
+#: core/job_error.cpp:494 widgets/paste.cpp:98
+msgid "File Already Exists"
+msgstr "Ffeil yn Bodoli'n Barod"
+
+#: core/copyjob.cpp:1350 core/copyjob.cpp:1916
+msgid "Already Exists as Folder"
+msgstr "Yn Bodoli'n Barod fel Plygell"
+
+#: core/global.cpp:75
+#, kde-format
+msgctxt "size in bytes"
+msgid "%1 B"
+msgstr ""
+
+#: core/global.cpp:79
+#, fuzzy, kde-format
+#| msgid " %1 kB/s "
+msgctxt "size in 1000 bytes"
+msgid "%1 kB"
+msgstr "%1 kB/s"
+
+#: core/global.cpp:80
+#, fuzzy, kde-format
+#| msgid "%1 MB"
+msgctxt "size in 10^6 bytes"
+msgid "%1 MB"
+msgstr "%1 MB"
+
+#: core/global.cpp:81
+#, fuzzy, kde-format
+#| msgid "%1 GB"
+msgctxt "size in 10^9 bytes"
+msgid "%1 GB"
+msgstr "%1 GB"
+
+#: core/global.cpp:82
+#, fuzzy, kde-format
+#| msgid "%1 TB"
+msgctxt "size in 10^12 bytes"
+msgid "%1 TB"
+msgstr "%1 TB"
+
+#: core/global.cpp:83
+#, kde-format
+msgctxt "size in 10^15 bytes"
+msgid "%1 PB"
+msgstr ""
+
+#: core/global.cpp:84
+#, kde-format
+msgctxt "size in 10^18 bytes"
+msgid "%1 EB"
+msgstr ""
+
+#: core/global.cpp:85
+#, kde-format
+msgctxt "size in 10^21 bytes"
+msgid "%1 ZB"
+msgstr ""
+
+#: core/global.cpp:86
+#, kde-format
+msgctxt "size in 10^24 bytes"
+msgid "%1 YB"
+msgstr ""
+
+#: core/global.cpp:90
+#, fuzzy, kde-format
+#| msgid "%1 KB"
+msgctxt "memory size in 1024 bytes"
+msgid "%1 KB"
+msgstr "%1 KB"
+
+#: core/global.cpp:91
+#, fuzzy, kde-format
+#| msgid "%1 MB"
+msgctxt "memory size in 2^20 bytes"
+msgid "%1 MB"
+msgstr "%1 MB"
+
+#: core/global.cpp:92
+#, fuzzy, kde-format
+#| msgid "%1 GB"
+msgctxt "memory size in 2^30 bytes"
+msgid "%1 GB"
+msgstr "%1 GB"
+
+#: core/global.cpp:93
+#, fuzzy, kde-format
+#| msgid "%1 TB"
+msgctxt "memory size in 2^40 bytes"
+msgid "%1 TB"
+msgstr "%1 TB"
+
+#: core/global.cpp:94
+#, kde-format
+msgctxt "memory size in 2^50 bytes"
+msgid "%1 PB"
+msgstr ""
+
+#: core/global.cpp:95
+#, kde-format
+msgctxt "memory size in 2^60 bytes"
+msgid "%1 EB"
+msgstr ""
+
+#: core/global.cpp:96
+#, kde-format
+msgctxt "memory size in 2^70 bytes"
+msgid "%1 ZB"
+msgstr ""
+
+#: core/global.cpp:97
+#, kde-format
+msgctxt "memory size in 2^80 bytes"
+msgid "%1 YB"
+msgstr ""
+
+#: core/global.cpp:102
+#, fuzzy, kde-format
+#| msgid "%1 KB"
+msgctxt "size in 1024 bytes"
+msgid "%1 KiB"
+msgstr "%1 KB"
+
+#: core/global.cpp:103
+#, fuzzy, kde-format
+#| msgid "%1 MB"
+msgctxt "size in 2^20 bytes"
+msgid "%1 MiB"
+msgstr "%1 MB"
+
+#: core/global.cpp:104
+#, fuzzy, kde-format
+#| msgid "%1 GB"
+msgctxt "size in 2^30 bytes"
+msgid "%1 GiB"
+msgstr "%1 GB"
+
+#: core/global.cpp:105
+#, fuzzy, kde-format
+#| msgid "%1 TB"
+msgctxt "size in 2^40 bytes"
+msgid "%1 TiB"
+msgstr "%1 TB"
+
+#: core/global.cpp:106
+#, kde-format
+msgctxt "size in 2^50 bytes"
+msgid "%1 PiB"
+msgstr ""
+
+#: core/global.cpp:107
+#, kde-format
+msgctxt "size in 2^60 bytes"
+msgid "%1 EiB"
+msgstr ""
+
+#: core/global.cpp:108
+#, kde-format
+msgctxt "size in 2^70 bytes"
+msgid "%1 ZiB"
+msgstr ""
+
+#: core/global.cpp:109
+#, kde-format
+msgctxt "size in 2^80 bytes"
+msgid "%1 YiB"
+msgstr ""
+
+#: core/global.cpp:169
+#, kde-format
+msgid "1 day %2"
+msgid_plural "%1 days %2"
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/global.cpp:204 core/global.cpp:221
+#, fuzzy, kde-format
+msgid "%1 Item"
+msgid_plural "%1 Items"
+msgstr[0] "%1 ffeil"
+msgstr[1] "%1 o ffeiliau"
+
+#: core/global.cpp:208
+#, fuzzy, kde-format
+#| msgid "%1 folder"
+#| msgid_plural "%1 folders"
+msgid "1 Folder"
+msgid_plural "%1 Folders"
+msgstr[0] "%1 plygell"
+msgstr[1] "%1 o blygyll"
+
+#: core/global.cpp:209
+#, fuzzy, kde-format
+msgid "1 File"
+msgid_plural "%1 Files"
+msgstr[0] "%1 ffeil"
+msgstr[1] "%1 o ffeiliau"
+
+#: core/global.cpp:212
+#, fuzzy, kde-format
+msgctxt "folders, files (size)"
+msgid "%1, %2 (%3)"
+msgstr "%1(%2)"
+
+#: core/global.cpp:213
+#, fuzzy, kde-format
+#| msgid "%1 %"
+msgctxt "folders, files"
+msgid "%1, %2"
+msgstr "%1 %"
+
+#: core/global.cpp:215
+#, fuzzy, kde-format
+#| msgid "%1 (%2)"
+msgctxt "files (size)"
+msgid "%1 (%2)"
+msgstr "%1(%2)"
+
+#: core/global.cpp:222
+#, fuzzy, kde-format
+#| msgid "%1 %"
+msgctxt "items: folders, files (size)"
+msgid "%1: %2"
+msgstr "%1 %"
+
+#: core/job.cpp:108
+#, fuzzy
+#| msgid "Moving"
+msgctxt "@title job"
+msgid "Moving"
+msgstr "Symud"
+
+#: core/job.cpp:109 core/job.cpp:116 core/job.cpp:141
+#: widgets/fileundomanager.cpp:130
+#, fuzzy
+msgctxt "The source of a file operation"
+msgid "Source"
+msgstr "Tarddiad:"
+
+#: core/job.cpp:110 core/job.cpp:117 widgets/fileundomanager.cpp:131
+#, fuzzy
+msgctxt "The destination of a file operation"
+msgid "Destination"
+msgstr "Cyrchfan:"
+
+#: core/job.cpp:115
+#, fuzzy
+#| msgid "Copying"
+msgctxt "@title job"
+msgid "Copying"
+msgstr "Copïo"
+
+#: core/job.cpp:122
+#, fuzzy
+msgctxt "@title job"
+msgid "Creating directory"
+msgstr "Creu Plygell"
+
+#: core/job.cpp:123 widgets/fileundomanager.cpp:125
+msgid "Directory"
+msgstr ""
+
+#: core/job.cpp:128
+#, fuzzy
+msgctxt "@title job"
+msgid "Deleting"
+msgstr "(Dileu)"
+
+#: core/job.cpp:129 core/job.cpp:135 widgets/fileundomanager.cpp:136
+#, fuzzy
+msgid "File"
+msgstr "&Hidl:"
+
+#: core/job.cpp:134
+#, fuzzy
+#| msgid "Examining"
+msgctxt "@title job"
+msgid "Examining"
+msgstr "Arholi"
+
+#: core/job.cpp:140
+msgctxt "@title job"
+msgid "Transferring"
+msgstr ""
+
+#: core/job.cpp:146
+#, fuzzy
+#| msgid "Mounting"
+msgctxt "@title job"
+msgid "Mounting"
+msgstr "Gosod"
+
+#: core/job.cpp:147
+#, fuzzy
+msgid "Device"
+msgstr "Dyfais:"
+
+#: core/job.cpp:148 core/job.cpp:154
+#, fuzzy
+msgid "Mountpoint"
+msgstr "Man gosod:"
+
+#: core/job.cpp:153
+#, fuzzy
+#| msgid "Unmounting"
+msgctxt "@title job"
+msgid "Unmounting"
+msgstr "Ddi-osod"
+
+#: core/job_error.cpp:38
+#, kde-format
+msgid "Could not read %1."
+msgstr "Methu darllen %1."
+
+#: core/job_error.cpp:41
+#, fuzzy, kde-format
+msgid "Could not write to %1."
+msgstr "Methu ysgrifennu at %1"
+
+#: core/job_error.cpp:44
+#, fuzzy, kde-format
+msgid "Could not start process %1."
+msgstr "Methu dechrau proses %1"
+
+#: core/job_error.cpp:47
+#, kde-format
+msgid ""
+"Internal Error\n"
+"Please send a full bug report at http://bugs.kde.org\n"
+"%1"
+msgstr ""
+"Gwall mewnol\n"
+" Gyrrwch adroddiad nam llawn i http://bugs.kde.org\n"
+" %1"
+
+#: core/job_error.cpp:50
+#, kde-format
+msgid "Malformed URL %1."
+msgstr "URL annilys %1."
+
+#: core/job_error.cpp:53
+#, kde-format
+msgid "The protocol %1 is not supported."
+msgstr "Ni chefnogir y protocol %1."
+
+#: core/job_error.cpp:56
+#, kde-format
+msgid "The protocol %1 is only a filter protocol."
+msgstr "Dim ond protocol hidlo yw protocol %1."
+
+#: core/job_error.cpp:63
+#, kde-format
+msgid "%1 is a folder, but a file was expected."
+msgstr "Plygell yw %1, ond disgwylwyd ffeil."
+
+#: core/job_error.cpp:66
+#, kde-format
+msgid "%1 is a file, but a folder was expected."
+msgstr "Ffeil yw %1, ond disgwylwyd plygell."
+
+#: core/job_error.cpp:69
+#, kde-format
+msgid "The file or folder %1 does not exist."
+msgstr "Nid ydy'r ffeil neu plygell %1 mewn bod."
+
+#: core/job_error.cpp:72
+#, kde-format
+msgid "A file named %1 already exists."
+msgstr "Mae ffeil o'r enw %1 mewn bod yn barod."
+
+#: core/job_error.cpp:75
+#, kde-format
+msgid "A folder named %1 already exists."
+msgstr "Mae plygell o'r enw %1 mewn bod yn barod."
+
+#: core/job_error.cpp:78
+msgid "No hostname specified."
+msgstr "Nid yw enw'r gwesteiwr wedi'i benodi."
+
+#: core/job_error.cpp:78
+#, kde-format
+msgid "Unknown host %1"
+msgstr "Gwesteiwr anhysbys %1"
+
+#: core/job_error.cpp:81
+#, fuzzy, kde-format
+msgid "Access denied to %1."
+msgstr "Gwaharddwyd cyrchiad i %1"
+
+#: core/job_error.cpp:84
+#, fuzzy, kde-format
+msgid ""
+"Access denied.\n"
+"Could not write to %1."
+msgstr ""
+"Gwaharddwyd cyrchiad. \n"
+"Methu ysgrifennu i %1"
+
+#: core/job_error.cpp:87
+#, fuzzy, kde-format
+msgid "Could not enter folder %1."
+msgstr "Methu mynd i mewn i blygell %1"
+
+#: core/job_error.cpp:90
+#, kde-format
+msgid "The protocol %1 does not implement a folder service."
+msgstr "Nid yw'r protocol %1 yn gweithredoli gwasanaeth plygell."
+
+#: core/job_error.cpp:93
+#, fuzzy, kde-format
+msgid "Found a cyclic link in %1."
+msgstr "Wedi canfod cyswllt cylchredol yn %1"
+
+#: core/job_error.cpp:99
+#, fuzzy, kde-format
+msgid "Found a cyclic link while copying %1."
+msgstr "Wedi canfod cyswllt cylchredol wrth gopïo %1"
+
+#: core/job_error.cpp:102
+#, fuzzy, kde-format
+msgid "Could not create socket for accessing %1."
+msgstr "Methu creu soced i gyrchu %1"
+
+#: core/job_error.cpp:105
+#, fuzzy, kde-format
+msgid "Could not connect to host %1."
+msgstr "Methu cysylltu i westeiwr %1"
+
+#: core/job_error.cpp:108
+#, fuzzy, kde-format
+msgid "Connection to host %1 is broken."
+msgstr "Cysylltiad i westeiwr %1 wedi torri"
+
+#: core/job_error.cpp:111
+#, fuzzy, kde-format
+msgid "The protocol %1 is not a filter protocol."
+msgstr "Nid yw'r protocol %1 yn protocol hidl"
+
+#: core/job_error.cpp:114
+#, kde-format
+msgid ""
+"Could not mount device.\n"
+"The reported error was:\n"
+"%1"
+msgstr ""
+"Methu gosod dyfais.\n"
+" Y gwall a adroddwyd oedd:\n"
+" %1"
+
+#: core/job_error.cpp:117
+#, kde-format
+msgid ""
+"Could not unmount device.\n"
+"The reported error was:\n"
+"%1"
+msgstr ""
+"Methu ddad-osod dyfais.\n"
+" Y gwall a adroddwyd oedd:\n"
+" %1"
+
+#: core/job_error.cpp:120
+#, fuzzy, kde-format
+msgid "Could not read file %1."
+msgstr "Methu darllen ffeil %1"
+
+#: core/job_error.cpp:123
+#, fuzzy, kde-format
+msgid "Could not write to file %1."
+msgstr "Methu ysgrifennu i ffeil %1"
+
+#: core/job_error.cpp:126
+#, fuzzy, kde-format
+msgid "Could not bind %1."
+msgstr "Methu rhwymo %1"
+
+#: core/job_error.cpp:129
+#, fuzzy, kde-format
+msgid "Could not listen %1."
+msgstr "Methu gwrando %1"
+
+#: core/job_error.cpp:132
+#, fuzzy, kde-format
+msgid "Could not accept %1."
+msgstr "Methu derbyn %1"
+
+#: core/job_error.cpp:138
+#, fuzzy, kde-format
+msgid "Could not access %1."
+msgstr "Methu cyrchu %1"
+
+#: core/job_error.cpp:141
+#, fuzzy, kde-format
+msgid "Could not terminate listing %1."
+msgstr "Methu terfynnu rhestriad %1"
+
+#: core/job_error.cpp:144
+#, fuzzy, kde-format
+msgid "Could not make folder %1."
+msgstr "Methu creu plygell %1"
+
+#: core/job_error.cpp:147
+#, fuzzy, kde-format
+msgid "Could not remove folder %1."
+msgstr "Methu gwaredu plygell %1"
+
+#: core/job_error.cpp:150
+#, fuzzy, kde-format
+msgid "Could not resume file %1."
+msgstr "Methu ail-ddechrau ffeil %1"
+
+#: core/job_error.cpp:153
+#, fuzzy, kde-format
+msgid "Could not rename file %1."
+msgstr "Methu ail-enwi ffeil %1"
+
+#: core/job_error.cpp:156
+#, fuzzy, kde-format
+msgid "Could not change permissions for %1."
+msgstr "Methu newid caniatàd i %1"
+
+#: core/job_error.cpp:159
+#, fuzzy, kde-format
+msgid "Could not change ownership for %1."
+msgstr "Methu newid caniatàd i %1"
+
+#: core/job_error.cpp:162
+#, fuzzy, kde-format
+msgid "Could not delete file %1."
+msgstr "Methu dileu ffeil %1"
+
+#: core/job_error.cpp:165
+#, kde-format
+msgid "The process for the %1 protocol died unexpectedly."
+msgstr "Marwodd y broses i brotocol %1 yn annisgwyl."
+
+#: core/job_error.cpp:168
+#, fuzzy, kde-format
+msgid ""
+"Error. Out of memory.\n"
+"%1"
+msgstr ""
+"Gwall.  Allan o Gof. \n"
+" %1"
+
+#: core/job_error.cpp:171
+#, kde-format
+msgid ""
+"Unknown proxy host\n"
+"%1"
+msgstr ""
+"Gwesteiwr dirprwy anhysbys\n"
+" %1"
+
+#: core/job_error.cpp:174
+#, kde-format
+msgid "Authorization failed, %1 authentication not supported"
+msgstr "Methu awdurdodi, ni chynhelir dilysiant %1"
+
+#: core/job_error.cpp:177
+#, kde-format
+msgid ""
+"User canceled action\n"
+"%1"
+msgstr ""
+"Diddymodd y defnyddiwr y weithred\n"
+" %1"
+
+#: core/job_error.cpp:180
+#, kde-format
+msgid ""
+"Internal error in server\n"
+"%1"
+msgstr ""
+"Gwall mewnol yng gweinydd\n"
+" %1"
+
+#: core/job_error.cpp:183
+#, kde-format
+msgid ""
+"Timeout on server\n"
+"%1"
+msgstr ""
+"Goramser ar y gweinydd \n"
+" %1"
+
+#: core/job_error.cpp:186
+#, kde-format
+msgid ""
+"Unknown error\n"
+"%1"
+msgstr ""
+"Gwall anhysbys \n"
+" %1"
+
+#: core/job_error.cpp:189
+#, kde-format
+msgid ""
+"Unknown interrupt\n"
+"%1"
+msgstr ""
+"Ymyriad anhysbys\n"
+" %1"
+
+#: core/job_error.cpp:200
+#, kde-format
+msgid ""
+"Could not delete original file %1.\n"
+"Please check permissions."
+msgstr ""
+"Methu dileu'r ffeil gwreiddiol %1.\n"
+" Cywirwch y caniatadau."
+
+#: core/job_error.cpp:203
+#, kde-format
+msgid ""
+"Could not delete partial file %1.\n"
+"Please check permissions."
+msgstr ""
+"Methu dileu ffeil rhannol %1.\n"
+" Cywirwch y caniatadau."
+
+#: core/job_error.cpp:206
+#, kde-format
+msgid ""
+"Could not rename original file %1.\n"
+"Please check permissions."
+msgstr ""
+"Methu ail-enwi ffeil gwreiddiol %1.\n"
+" Cywirwch y caniatadau."
+
+#: core/job_error.cpp:209
+#, kde-format
+msgid ""
+"Could not rename partial file %1.\n"
+"Please check permissions."
+msgstr ""
+"Methu ail-enwi ffeil rhannol %1.\n"
+" Cywirwch y caniatadau."
+
+#: core/job_error.cpp:212
+#, kde-format
+msgid ""
+"Could not create symlink %1.\n"
+"Please check permissions."
+msgstr ""
+"Methu creu cyswllt symbolaidd %1.\n"
+" Cywirwch y caniatadau."
+
+#: core/job_error.cpp:218
+#, kde-format
+msgid ""
+"Could not write file %1.\n"
+"Disk full."
+msgstr ""
+"Methu ysgrifennu ffeil %1. \n"
+" Mae'r ddisg yn llawn."
+
+#: core/job_error.cpp:221
+#, kde-format
+msgid ""
+"The source and destination are the same file.\n"
+"%1"
+msgstr ""
+"Yr un un ffeil yw'r tarddiad a'r cyrchfan. \n"
+" %1"
+
+#: core/job_error.cpp:227
+#, kde-format
+msgid "%1 is required by the server, but is not available."
+msgstr "Mae angen %1 gan y gweinydd, ond nid yw ar gael."
+
+#: core/job_error.cpp:230
+#, fuzzy
+msgid "Access to restricted port in POST denied."
+msgstr "Gwaharddwyd cyrchiad i borth cyfyngedig yn POST"
+
+#: core/job_error.cpp:233
+msgid ""
+"The required content size information was not provided for a POST operation."
+msgstr ""
+
+#: core/job_error.cpp:236
+#, kde-format
+msgid ""
+"Unknown error code %1\n"
+"%2\n"
+"Please send a full bug report at http://bugs.kde.org."
+msgstr ""
+"Côd gwall anhysbys %1\n"
+" %2\n"
+" Anfonwch adroddiad nam llawn i http://bugs.kde.org."
+
+#: core/job_error.cpp:261
+#, fuzzy
+#| msgid "(unknown)"
+msgctxt "@info url"
+msgid "(unknown)"
+msgstr "(anhysbys)"
+
+#: core/job_error.cpp:268
+#, kde-format
+msgctxt "@info %1 error name, %2 description"
+msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
+msgstr ""
+
+#: core/job_error.cpp:272
+msgid "<b>Technical reason</b>: "
+msgstr "<b>Rheswm technegol</b>:"
+
+#: core/job_error.cpp:274
+#, fuzzy
+#| msgid "</p><p><b>Details of the request</b>:"
+msgid "<b>Details of the request</b>:"
+msgstr "</p><p><b>Manylion y cais</b>:"
+
+#: core/job_error.cpp:275
+#, fuzzy, kde-format
+#| msgid "</p><ul><li>URL: %1</li>"
+msgid "<li>URL: %1</li>"
+msgstr "</p><ul><li>URL: %1</li>"
+
+#: core/job_error.cpp:277
+#, kde-format
+msgid "<li>Protocol: %1</li>"
+msgstr "<li>Protocol: %1</li>"
+
+#: core/job_error.cpp:279
+#, kde-format
+msgid "<li>Date and time: %1</li>"
+msgstr "<li>Dyddiad ac Amser: %1</li>"
+
+#: core/job_error.cpp:280
+#, fuzzy, kde-format
+#| msgid "<li>Additional information: %1</li></ul>"
+msgid "<li>Additional information: %1</li>"
+msgstr "<li>Gwybodaeth ychwanegol: %1</li></ul>"
+
+#: core/job_error.cpp:283
+#, fuzzy
+#| msgid "<p><b>Possible causes</b>:</p><ul><li>"
+msgid "<b>Possible causes</b>:"
+msgstr "<p><b>Achosion Posibl</b>:</p><ul><li> "
+
+#: core/job_error.cpp:288
+#, fuzzy
+#| msgid "<p><b>Possible solutions</b>:</p><ul><li>"
+msgid "<b>Possible solutions</b>:"
+msgstr "<p><b>Datrysiadau Posibl</b>:</p><ul><li> "
+
+#: core/job_error.cpp:322
+#, fuzzy
+#| msgid "(unknown)"
+msgctxt "@info protocol"
+msgid "(unknown)"
+msgstr "(anhysbys)"
+
+#: core/job_error.cpp:331
+msgid ""
+"Contact your appropriate computer support system, whether the system "
+"administrator, or technical support group for further assistance."
+msgstr ""
+"Cysylltwch â'ch cysawd cynnal cyfrifiadur addas (ai'r gwasanaethwr cysawd, "
+"neu'r grw^p cynnal technegol) am fwy o gymorth."
+
+#: core/job_error.cpp:334
+msgid "Contact the administrator of the server for further assistance."
+msgstr "Cysylltwch â gwasanaethwr y gweinydd am fwy o gymorth."
+
+#: core/job_error.cpp:337
+msgid "Check your access permissions on this resource."
+msgstr "Cywirwch eich caniatadau cyrch ar yr adnodd yma."
+
+#: core/job_error.cpp:338
+msgid ""
+"Your access permissions may be inadequate to perform the requested operation "
+"on this resource."
+msgstr ""
+"Efallai bod eich caniatadau cyrch yn annigonol i gyflawni'r gweithrediad a "
+"gofynwyd ar yr adnodd yma."
+
+#: core/job_error.cpp:340
+msgid ""
+"The file may be in use (and thus locked) by another user or application."
+msgstr ""
+"Efallai y defnyddir y ffeil gan ddefnyddiwr neu cymhwysiad arall - felly mae "
+"o ar glo."
+
+#: core/job_error.cpp:342
+msgid ""
+"Check to make sure that no other application or user is using the file or "
+"has locked the file."
+msgstr ""
+"Cywirwch i sicrhau nad yw cymhwysiad neu ddefnyddiwr arall yn defnyddio'r "
+"ffeil, neu wedi cloi'r ffeil."
+
+#: core/job_error.cpp:344
+msgid "Although unlikely, a hardware error may have occurred."
+msgstr "Er annhebygol, efallai bod gwall caletwedd wedi digwydd."
+
+#: core/job_error.cpp:346
+msgid "You may have encountered a bug in the program."
+msgstr "Efallai eich bod wedi cyfarfod nam yn y rhaglen."
+
+#: core/job_error.cpp:347
+msgid ""
+"This is most likely to be caused by a bug in the program. Please consider "
+"submitting a full bug report as detailed below."
+msgstr ""
+"Mae'n eitha debyg yr achosir hynny gan nam yn y rhaglen.  Ystyriedwch "
+"gyflwyno adroddiad nam llawn fel yn y manylion isod."
+
+#: core/job_error.cpp:349
+msgid ""
+"Update your software to the latest version. Your distribution should provide "
+"tools to update your software."
+msgstr ""
+"Diweddarwch eich meddalwedd i'r fersiwn diweddaraf.  Mae'n debyg y mae eich "
+"dosbarthiad yn darparu offer i ddiweddaru eich meddalwedd."
+
+#: core/job_error.cpp:351
+msgid ""
+"When all else fails, please consider helping the KDE team or the third party "
+"maintainer of this software by submitting a high quality bug report. If the "
+"software is provided by a third party, please contact them directly. "
+"Otherwise, first look to see if the same bug has been submitted by someone "
+"else by searching at the <a href=\"http://bugs.kde.org/\">KDE bug reporting "
+"website</a>. If not, take note of the details given above, and include them "
+"in your bug report, along with as many other details as you think might help."
+msgstr ""
+"Pan mae popeth arall yn methu. ystyriedwch helpu'r tîm KDE neu cynhaliwr "
+"trydydd blaid y feddalwedd yma drwy gyflwyno adroddiad nam o safon uchel.  "
+"Os darperir y feddalwedd gan drydydd blaid, cysylltwch â nhw yn "
+"uniongyrchol.  Fel arall, edrychwch yn gyntaf i weld os mae rhywun arall "
+"wedi cyflwyno yr un nam, drwy chwilio'r <a href=\"http://bugs.kde.org/"
+"\">safwê adroddiadau nam KDE</a>. Os dim, nodwch y manylion uchod, a'u "
+"cynnwys yn eich adroddiad nam, efo cymaint o fanylion eraill ac y meddyliwch "
+"bydd o gymorth."
+
+#: core/job_error.cpp:359
+msgid "There may have been a problem with your network connection."
+msgstr "Efallai yr oedd problem efo'ch cysylltiad rhwydwaith."
+
+#: core/job_error.cpp:362
+msgid ""
+"There may have been a problem with your network configuration. If you have "
+"been accessing the Internet with no problems recently, this is unlikely."
+msgstr ""
+"Efallai yr oedd problem efo'ch ffurfweddiad rhwydwaith.  Os ydych wedi bod "
+"yn cyrchu'r Rhyngrwyd yn ddiweddar heb broblemau, mae hynny'n annhebyg."
+
+#: core/job_error.cpp:365
+msgid ""
+"There may have been a problem at some point along the network path between "
+"the server and this computer."
+msgstr ""
+"Efallai yr oedd problem rhywle ar y llwybr rhwydwaith rhwng y gweinydd a'r "
+"cyfrifiadur yma."
+
+#: core/job_error.cpp:367
+msgid "Try again, either now or at a later time."
+msgstr "Ceisiwch eto, un ai rwan neu yn hwyrach."
+
+#: core/job_error.cpp:368
+msgid "A protocol error or incompatibility may have occurred."
+msgstr "Effallai y ddigwyddodd gwall protocol neu anghydnawsedd."
+
+#: core/job_error.cpp:369
+msgid "Ensure that the resource exists, and try again."
+msgstr "Sicrhewch fod yr adnodd mewn bod, a ceisiwch eto."
+
+#: core/job_error.cpp:370
+msgid "The specified resource may not exist."
+msgstr "Efallai nad yw'r adnodd penodol mewn bod."
+
+#: core/job_error.cpp:371
+msgid "You may have incorrectly typed the location."
+msgstr "Efallai yr ydych wedi cam-deipio'r lleoliad."
+
+#: core/job_error.cpp:372
+msgid "Double-check that you have entered the correct location and try again."
+msgstr ""
+"Sicrhewch yn ofalus yr ydych wedi mewnosod y lleoliad cywir a ceisiwch eto."
+
+#: core/job_error.cpp:374
+msgid "Check your network connection status."
+msgstr "Cywirwch statws eich cysylltiad rhwydwaith."
+
+#: core/job_error.cpp:378
+msgid "Cannot Open Resource For Reading"
+msgstr "Methu Agor Adnodd i'w Ddarllen"
+
+#: core/job_error.cpp:379
+#, kde-format
+msgid ""
+"This means that the contents of the requested file or folder <strong>%1</"
+"strong> could not be retrieved, as read access could not be obtained."
+msgstr ""
+"Golygir hwn nad oedd yn bosib nôl cynnwys y ffeil neu blygell<strong>%1</"
+"strong> a ofynwyd amdano, gan ni ellid cael cyrchiad darllen."
+
+#: core/job_error.cpp:382
+msgid "You may not have permissions to read the file or open the folder."
+msgstr ""
+"Efallai nid oes ganddoch ganiatadau i ddarllen y ffeil neu agor y plygell."
+
+#: core/job_error.cpp:388
+msgid "Cannot Open Resource For Writing"
+msgstr "Methu Agor Adnodd i Ysgrifennu."
+
+#: core/job_error.cpp:389
+#, kde-format
+msgid ""
+"This means that the file, <strong>%1</strong>, could not be written to as "
+"requested, because access with permission to write could not be obtained."
+msgstr ""
+"Golygir hwn nad oedd yn bosib ysgrifennu at y ffeil, <strong>%1</strong>, a "
+"ofynwyd amdano, gan ni ellid cael cyrchiad ysgrifennu."
+
+#: core/job_error.cpp:397
+#, kde-format
+msgid "Cannot Initiate the %1 Protocol"
+msgstr "Methu Cychwyn y protocol %1"
+
+#: core/job_error.cpp:398
+msgid "Unable to Launch Process"
+msgstr "Methu Lansio Proses"
+
+#: core/job_error.cpp:399
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol could not be started. This is usually due to technical "
+"reasons."
+msgstr ""
+"Ni ellir dechrau'r rhaglen ar eich cyfrifiadur sy'n darparu cyrchiad i'r "
+"protocol <strong>%1</strong>.  Fel arfer, mae hynny o achos rhesymau "
+"technegol."
+
+#: core/job_error.cpp:402
+msgid ""
+"The program which provides compatibility with this protocol may not have "
+"been updated with your last update of KDE. This can cause the program to be "
+"incompatible with the current version and thus not start."
+msgstr ""
+"Efallai na chafodd y rhaglen sy'n darparu cytunedd efo'r protocol yma ei "
+"diweddaru efo'ch diweddariad diwetha o KDE.  Gall hynny achosi'r rhaglen i "
+"fod yn anghytu^n efo'r fersiwn cyfredol, ac felly ni fydd hi'n cychwyn."
+
+#: core/job_error.cpp:410
+msgid "Internal Error"
+msgstr "Gwall Mewnol"
+
+#: core/job_error.cpp:411
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an internal error."
+msgstr ""
+"Mae'r rhaglen ar eich cyfrifiadur sy'n darparu cyrchiad i'r protocol <strong>"
+"%1</strong> wedi adrodd gwall mewnol."
+
+#: core/job_error.cpp:419
+msgid "Improperly Formatted URL"
+msgstr "URL heb ei Fformatio yn Ddilys "
+
+#: core/job_error.cpp:420
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered was not properly formatted. The format "
+"of a URL is generally as follows:<blockquote><strong>protocol://user:"
+"password@www.example.org:port/folder/filename.extension?query=value</"
+"strong></blockquote>"
+msgstr ""
+"Nid oedd y <strong>Ll</strong>eolydd <strong>A</strong>dnoddau <strong>U</"
+"strong>nffurf  (URL) yr ydych wedi cyflwyno wedi ei fformatio yn ddilys.   "
+"Fel arfer mae fformat URL fel y ganlyn: <blockquote><strong>protocol://"
+"user@password:www.example.org:port/directory/filename.extension?query "
+"=value</strong></blockquote> "
+
+#: core/job_error.cpp:429
+#, kde-format
+msgid "Unsupported Protocol %1"
+msgstr "Ni chyhelir y Protocol %1"
+
+#: core/job_error.cpp:430
+#, kde-format
+msgid ""
+"The protocol <strong>%1</strong> is not supported by the KDE programs "
+"currently installed on this computer."
+msgstr ""
+"Ni chynhelir y protocol <strong>%1</strong> gan y rhaglenni KDE sydd wedi eu "
+"gosod ar hyn o bryd ar y cyfrifiadur yma. "
+
+#: core/job_error.cpp:433
+msgid "The requested protocol may not be supported."
+msgstr "Efallai na chynhelir y protocol a ofynwyd amdano."
+
+#: core/job_error.cpp:434
+#, kde-format
+msgid ""
+"The versions of the %1 protocol supported by this computer and the server "
+"may be incompatible."
+msgstr ""
+"Efallai mae fersiynau'r protocol %1 a gynhelir gan y cyfrifiadur yma a'r "
+"gweinydd yn anghytûn."
+
+#: core/job_error.cpp:436
+#, fuzzy
+msgid ""
+"You may perform a search on the Internet for a KDE program (called a "
+"kioslave or ioslave) which supports this protocol. Places to search include "
+"<a href=\"http://kde-apps.org/\">http://kde-apps.org/</a> and <a href="
+"\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+msgstr ""
+"Cewch chwilio ar y Rhyngrwyd am raglen KDE (o'r enw kioslave neu  ioslave) "
+"sy'n cynnal y protocol yma.  Mae llefydd i chwilio yn cynnwys <a href="
+"\"http://apps.kde.com/\">http://apps.kde.com/</a> a <a href=\"http://"
+"freshmeat.net/\">http://freshmeat.net/</a>."
+
+#: core/job_error.cpp:445
+msgid "URL Does Not Refer to a Resource."
+msgstr "Nid yw'r URL yn cyfeirio at adnodd."
+
+#: core/job_error.cpp:446
+msgid "Protocol is a Filter Protocol"
+msgstr "Protocol Hidl yw'r Protocol"
+
+#: core/job_error.cpp:447
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered did not refer to a specific resource."
+msgstr ""
+"Nid oedd y <strong>L</strong>leolydd <strong>A</strong>dnoddau <strong>U</"
+"strong>nffurf (URL) yr ydych wedi cyflwyno yn cyfeirio at adnodd penodol."
+
+#: core/job_error.cpp:450
+msgid ""
+"KDE is able to communicate through a protocol within a protocol; the "
+"protocol specified is only for use in such situations, however this is not "
+"one of these situations. This is a rare event, and is likely to indicate a "
+"programming error."
+msgstr ""
+"Gall KDE cyfathrebu drwy protocol tu mewn i'r protocol; nid yw'r protocol "
+"penodol i gael ei ddefnyddio ond yn y math sefyllfa, ond nid yw hwn yn un "
+"o'r sefyllfaoedd yma. Mae hwn yn ddigwyddiad eithriadol, a mae'n debyg o "
+"ddynodi gwall rhaglennu."
+
+#: core/job_error.cpp:458
+#, kde-format
+msgid "Unsupported Action: %1"
+msgstr "Ni Chynhelir y Gweithrediad: %1"
+
+#: core/job_error.cpp:459
+#, kde-format
+msgid ""
+"The requested action is not supported by the KDE program which is "
+"implementing the <strong>%1</strong> protocol."
+msgstr ""
+"Ni chynhelir y gwethrediad a gofynwyd amdano gan y rhaglen KDE sydd yn "
+"gweithredu y protocol <strong>%1</strong>."
+
+#: core/job_error.cpp:462
+msgid ""
+"This error is very much dependent on the KDE program. The additional "
+"information should give you more information than is available to the KDE "
+"input/output architecture."
+msgstr ""
+"Mae'r gwall yma yn dibynnu llawer ar y rhaglen KDE.  Dylai'r wybodaeth "
+"ychwanegol rhoi fwy o wybodaeth i chi nag sydd ar gael i'r pensaernïaeth "
+"mewnbwn/allbwn KDE."
+
+#: core/job_error.cpp:465
+msgid "Attempt to find another way to accomplish the same outcome."
+msgstr "Ceisio canfod ffordd arall i gyflawni'r un canlyniad."
+
+#: core/job_error.cpp:470
+msgid "File Expected"
+msgstr "Ffeil a Ddisgwylir."
+
+#: core/job_error.cpp:471
+#, kde-format
+msgid ""
+"The request expected a file, however the folder <strong>%1</strong> was "
+"found instead."
+msgstr ""
+"Disgwylodd y cais ffeil, ond wnaeth ganfod y plygell <strong>%1</strong> yn "
+"lle."
+
+#: core/job_error.cpp:473
+msgid "This may be an error on the server side."
+msgstr "Efallai mae gwall ar ochr y gweinydd."
+
+#: core/job_error.cpp:478
+msgid "Folder Expected"
+msgstr "Plygell a Ddisgwylir."
+
+#: core/job_error.cpp:479
+#, kde-format
+msgid ""
+"The request expected a folder, however the file <strong>%1</strong> was "
+"found instead."
+msgstr ""
+"Disgwylodd y cais blygell, ond wnaeth ganfod y ffeil <strong>%1</strong> yn "
+"lle."
+
+#: core/job_error.cpp:486
+msgid "File or Folder Does Not Exist"
+msgstr "Nid yw'r Ffeil neu'r Plygell mewn Bod."
+
+#: core/job_error.cpp:487
+#, kde-format
+msgid "The specified file or folder <strong>%1</strong> does not exist."
+msgstr "Nid yw'r ffeil neu'r plygell penodol <strong>%1</strong> mewn bod."
+
+#: core/job_error.cpp:495
+msgid ""
+"The requested file could not be created because a file with the same name "
+"already exists."
+msgstr ""
+"Ni ellir creu'r ffeil a ofynwyd amdano gan fod ffeil efo'r un enw mewn bod "
+"yn barod."
+
+#: core/job_error.cpp:497
+msgid "Try moving the current file out of the way first, and then try again."
+msgstr ""
+"Ceisiwch symud y ffeil cyfredol allan o'r ffordd yn gyntaf, ac wedyn "
+"ceisiwch eto."
+
+#: core/job_error.cpp:499
+msgid "Delete the current file and try again."
+msgstr "Dileuwch y ffeil cyfredol a ceisiwch eto."
+
+#: core/job_error.cpp:500
+msgid "Choose an alternate filename for the new file."
+msgstr "Dewiswch enw ffeil amgen i'r ffeil newydd."
+
+#: core/job_error.cpp:505
+msgid ""
+"The requested folder could not be created because a folder with the same "
+"name already exists."
+msgstr ""
+"Ni ellir creu'r plygell a ofynwyd amdano gan fod plygell efo'r un enw mewn "
+"bod yn barod."
+
+#: core/job_error.cpp:507
+msgid "Try moving the current folder out of the way first, and then try again."
+msgstr ""
+"Ceisiwch symud y plygell cyfredol allan o'r ffordd yn gyntaf, ac wedyn "
+"ceisiwch eto."
+
+#: core/job_error.cpp:509
+msgid "Delete the current folder and try again."
+msgstr "Dileuwch y plygell cyfredol a ceisiwch eto."
+
+#: core/job_error.cpp:510
+msgid "Choose an alternate name for the new folder."
+msgstr "Dewiswch enw amgen i'r plygell newydd."
+
+#: core/job_error.cpp:514
+msgid "Unknown Host"
+msgstr "Gwesteiwr anhysbys"
+
+#: core/job_error.cpp:515
+#, kde-format
+msgid ""
+"An unknown host error indicates that the server with the requested name, "
+"<strong>%1</strong>, could not be located on the Internet."
+msgstr ""
+"Mae gwall gweinydd anhysbys yn dynodi na allir darganfod y gwesteiwr efo'r "
+"enw a ofynwyd amdano, <strong>%1</strong>, ar y Rhyngrwyd. "
+
+#: core/job_error.cpp:518
+#, kde-format
+msgid ""
+"The name that you typed, %1, may not exist: it may be incorrectly typed."
+msgstr ""
+"Efallai nad yw'r enw yr ydych wedi ei deipio, %1, mewn bod: efallai mae o "
+"wedi ei deipio yn anghywir.  "
+
+#: core/job_error.cpp:525
+msgid "Access Denied"
+msgstr "Gwaharddwyd Cyrchiad."
+
+#: core/job_error.cpp:526
+#, kde-format
+msgid "Access was denied to the specified resource, <strong>%1</strong>."
+msgstr "Gwaharddwyd cyrchiad i'r adnodd penodol, <strong>%1</strong>."
+
+#: core/job_error.cpp:528 core/job_error.cpp:754
+msgid "You may have supplied incorrect authentication details or none at all."
+msgstr ""
+"Efallai yr ydych wedi darparu manylion dilysu anghywir, neu dim byd o gwbl."
+
+#: core/job_error.cpp:530 core/job_error.cpp:756
+msgid "Your account may not have permission to access the specified resource."
+msgstr "Efallai nad oes caniatàd gan eich cyfrif i gyrchu'r adnodd penodol."
+
+#: core/job_error.cpp:532 core/job_error.cpp:758 core/job_error.cpp:770
+msgid ""
+"Retry the request and ensure your authentication details are entered "
+"correctly."
+msgstr ""
+"Ail-geisiwch, a sicrhewch bod eich manylion dilysu wedi eu mewnosod yn gywir."
+
+#: core/job_error.cpp:540
+msgid "Write Access Denied"
+msgstr "Gwaharddwyd Cyrchiad Ysgrifennu"
+
+#: core/job_error.cpp:541
+#, kde-format
+msgid ""
+"This means that an attempt to write to the file <strong>%1</strong> was "
+"rejected."
+msgstr ""
+"Golygir hwn y gafodd cais i ysgrifennu i'r ffeil <strong>%1</strong> ei "
+"wrthod."
+
+#: core/job_error.cpp:548
+msgid "Unable to Enter Folder"
+msgstr "Methu Mynd i mewn i'r Plygell."
+
+#: core/job_error.cpp:549
+#, kde-format
+msgid ""
+"This means that an attempt to enter (in other words, to open) the requested "
+"folder <strong>%1</strong> was rejected."
+msgstr ""
+"Golygir hwn y gafodd cais i fynd i mewn i'r plygell <strong>%1</strong> "
+"(hynny yw, i'w agor) ei wrthod."
+
+#: core/job_error.cpp:557
+msgid "Folder Listing Unavailable"
+msgstr "Nid oes Rhestriad Plygell ar Gael."
+
+#: core/job_error.cpp:558
+#, kde-format
+msgid "Protocol %1 is not a Filesystem"
+msgstr "Dim cysawd ffeil yw Protocol %1"
+
+#: core/job_error.cpp:559
+msgid ""
+"This means that a request was made which requires determining the contents "
+"of the folder, and the KDE program supporting this protocol is unable to do "
+"so."
+msgstr ""
+"Golygir hwn y gwnaed cais lle mae angen pederfynu cynnwys y plygell, ac "
+"mae'r rhaglen KDE sy'n cynnal y protocol yma yn methu gwneud."
+
+#: core/job_error.cpp:567
+msgid "Cyclic Link Detected"
+msgstr "Datgelwyd Cyswllt Cylchol"
+
+#: core/job_error.cpp:568
+msgid ""
+"UNIX environments are commonly able to link a file or folder to a separate "
+"name and/or location. KDE detected a link or series of links that results in "
+"an infinite loop - i.e. the file was (perhaps in a roundabout way) linked to "
+"itself."
+msgstr ""
+"Mae amgylcheddau Unix fel arfer yn gallu cysylltu ffeil neu plygell i enw a/"
+"neu lleoliad sy'n wahân.  Mae KDE wedi datgelu cysylltiad neu gyfres o "
+"gysylltiadau sy'n creu dolen ddiddiwedd - h.y., roedd y ffeil wedi ei "
+"gysylltu (efallai mewn ffordd cylchfannol) i'w hun."
+
+#: core/job_error.cpp:572 core/job_error.cpp:594
+msgid ""
+"Delete one part of the loop in order that it does not cause an infinite "
+"loop, and try again."
+msgstr ""
+"Dileuwch un rhan o'r ddolen fel nad yw'n achosi dolen ddiddiwedd, a ceisiwch "
+"eto."
+
+#: core/job_error.cpp:581
+msgid "Request Aborted By User"
+msgstr "Terfynwyd y Cais gan y Defnyddiwr"
+
+#: core/job_error.cpp:582 core/job_error.cpp:897
+msgid "The request was not completed because it was aborted."
+msgstr "Ni chyflawnwyd y cais achos terfynwyd."
+
+#: core/job_error.cpp:584 core/job_error.cpp:788 core/job_error.cpp:899
+msgid "Retry the request."
+msgstr "Ail-geisio'r cais."
+
+#: core/job_error.cpp:588
+msgid "Cyclic Link Detected During Copy"
+msgstr "Datgelwyd Cyswllt Cylchol wrth Gopïo "
+
+#: core/job_error.cpp:589
+msgid ""
+"UNIX environments are commonly able to link a file or folder to a separate "
+"name and/or location. During the requested copy operation, KDE detected a "
+"link or series of links that results in an infinite loop - i.e. the file was "
+"(perhaps in a roundabout way) linked to itself."
+msgstr ""
+"Mae amgylcheddau Unix fel arfer yn gallu cysylltu ffeil neu plygell i enw a/"
+"neu lleoliad sy'n wahân.  Yn ystod y gweithrediad copïo ceisiedig, mae KDE "
+"wedi datgelu cysylltiad neu gyfres o gysylltiadau sy'n creu dolen ddiddiwedd "
+"- h.y., roedd y ffeil wedi ei gysylltu (efallai mewn ffordd cylchfannol) i'w "
+"hun."
+
+#: core/job_error.cpp:599
+msgid "Could Not Create Network Connection"
+msgstr "Methu Creu Cysylltiad Rhwydwaith"
+
+#: core/job_error.cpp:600
+msgid "Could Not Create Socket"
+msgstr "Methu Creu Soced"
+
+#: core/job_error.cpp:601
+msgid ""
+"This is a fairly technical error in which a required device for network "
+"communications (a socket) could not be created."
+msgstr ""
+"Mae hwn yn wall go dechnegol, lle ni ellir creu dyfais gofynnol (soced) i "
+"gyfathrebion rhwydwaith."
+
+#: core/job_error.cpp:603 core/job_error.cpp:724 core/job_error.cpp:735
+#: core/job_error.cpp:744
+msgid ""
+"The network connection may be incorrectly configured, or the network "
+"interface may not be enabled."
+msgstr ""
+"Efallai mae'r cysylltiad rhwydwaith wedi ei ffurfweddu yn anghywir, neu "
+"analluogir y rhyngwyneb rhwydwaith."
+
+#: core/job_error.cpp:609
+msgid "Connection to Server Refused"
+msgstr "Gwrthodwyd y Cysylltiad i'r Gweinydd"
+
+#: core/job_error.cpp:610
+#, kde-format
+msgid ""
+"The server <strong>%1</strong> refused to allow this computer to make a "
+"connection."
+msgstr ""
+"Gwrthododd y gweinydd <strong>%1</strong> adael i'r cyfrifiadur yma wneud "
+"cyswlltiad."
+
+#: core/job_error.cpp:612
+msgid ""
+"The server, while currently connected to the Internet, may not be configured "
+"to allow requests."
+msgstr ""
+"Efallai nad yw'r gweinydd, er ei fod yn gysylltiedig i'r Rhyngrwyd ar hyn o "
+"bryd, wedi ei ffurfweddu i ganiatàu ceisiadau.  "
+
+#: core/job_error.cpp:614
+#, kde-format
+msgid ""
+"The server, while currently connected to the Internet, may not be running "
+"the requested service (%1)."
+msgstr ""
+"Efallai nad yw'r gweinydd, er ei fod yn gysylltiedig i'r Rhyngrwyd ar hyn o "
+"bryd, yn rhedeg y wasanaeth a ofynwyd amdani (%1).  "
+
+#: core/job_error.cpp:616
+msgid ""
+"A network firewall (a device which restricts Internet requests), either "
+"protecting your network or the network of the server, may have intervened, "
+"preventing this request."
+msgstr ""
+"Efallai mae mur gwarchod rhwydwaith (dyfais sy'n cyfyngu ceisiadau  "
+"Rhyngrwyd), sy'n amddiffyn un ai eich rhwydwaith neu rhwydwaith y gweinydd, "
+"wedi ymyrryd, a gwrthod y cais yma. "
+
+#: core/job_error.cpp:623
+msgid "Connection to Server Closed Unexpectedly"
+msgstr "Cauwyd y Cysylltiad i'r Gweinydd yn Annisgwyl"
+
+#: core/job_error.cpp:624
+#, kde-format
+msgid ""
+"Although a connection was established to <strong>%1</strong>, the connection "
+"was closed at an unexpected point in the communication."
+msgstr ""
+"Er bod cysylltiad wedi eu greu i <strong>%1</strong>, cauwyd y cysylltiad "
+"wrth fan annisgwyl yn y cyfathrebu."
+
+#: core/job_error.cpp:627
+msgid ""
+"A protocol error may have occurred, causing the server to close the "
+"connection as a response to the error."
+msgstr ""
+"Efallai mae gwall protocol wedi digwydd, yn achosi i'r gweinydd gau'r "
+"cysylltiad fel ymateb i'r gwall."
+
+#: core/job_error.cpp:633
+msgid "URL Resource Invalid"
+msgstr "Adnodd URL Annilys"
+
+#: core/job_error.cpp:634
+#, kde-format
+msgid "Protocol %1 is not a Filter Protocol"
+msgstr "Nid yw protocol %1 yn Brotocol Hidl"
+
+#: core/job_error.cpp:635
+#, kde-format
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered did not refer to a valid mechanism of "
+"accessing the specific resource, <strong>%1%2</strong>."
+msgstr ""
+"Nid oedd y <strong>L</strong>leolydd <strong>A</strong>dnoddau <strong>U</"
+"strong>nffurf (URL) yr ydych wedi cyflwyno yn cyfeirio at ffordd dilys o "
+"gyrchu'r adnodd penodol, <strong>%1%2</strong>."
+
+#: core/job_error.cpp:640
+msgid ""
+"KDE is able to communicate through a protocol within a protocol. This "
+"request specified a protocol be used as such, however this protocol is not "
+"capable of such an action. This is a rare event, and is likely to indicate a "
+"programming error."
+msgstr ""
+"Gall KDE cyfathrebu drwy protocol tu mewn i'r protocol.  Penododd y cais yma "
+"brotocol i'w defnyddio felly, ond nid yw'r protocol yma yn gallu gwneud "
+"gweithrediad o'r fath.  Mae hwn yn ddigwyddiad eithriadol, a mae'n debyg o "
+"ddynodi gwall rhaglennu."
+
+#: core/job_error.cpp:648
+msgid "Unable to Initialize Input/Output Device"
+msgstr "Methu Cychwyn Dyfais Mewnbwn/Allbwn"
+
+#: core/job_error.cpp:649
+msgid "Could Not Mount Device"
+msgstr "Methu Gosod Dyfais"
+
+#: core/job_error.cpp:650
+#, kde-format
+msgid ""
+"The requested device could not be initialized (\"mounted\"). The reported "
+"error was: <strong>%1</strong>"
+msgstr ""
+"Ni ellid ymgychwyn (\"mount\") y dyfais a ofynwyd amdano.  Y gwall a "
+"adroddwyd oedd: <strong>%1</strong>"
+
+#: core/job_error.cpp:653
+msgid ""
+"The device may not be ready, for example there may be no media in a "
+"removable media device (i.e. no CD-ROM in a CD drive), or in the case of a "
+"peripheral/portable device, the device may not be correctly connected."
+msgstr ""
+"Efallai nad yw'r dyfais yn barod. Er enghraifft, efallai nad oes cyfryngau "
+"mewn dyfais cyfryngau symudadwy (h.y. dim CD-ROM mewn gyriant CD), neu mewn "
+"achos dyfais perifferol/cludadwy efallai nad yw'r dyfais wedi ei gysylltu yn "
+"gywir."
+
+#: core/job_error.cpp:657
+msgid ""
+"You may not have permissions to initialize (\"mount\") the device. On UNIX "
+"systems, often system administrator privileges are required to initialize a "
+"device."
+msgstr ""
+"Efallai nad oes ganddoch caniatadau i ymgychwyn (\"mount\") y dyfais.  Ar "
+"gysodau Unix, y rhan fwyaf o'r amser mae angen hawliau gwasanaethydd cysawd "
+"i ymgychwyn dyfais."
+
+#: core/job_error.cpp:661
+msgid ""
+"Check that the device is ready; removable drives must contain media, and "
+"portable devices must be connected and powered on.; and try again."
+msgstr ""
+"Cywirwch bod y dyfais yn barod; rhaid i gyriannau symudadwy gynnwys "
+"cyfryngau, a rhaid i dyfeisiau cludadwy fod wedi eu cysylltu a bod arnodd; "
+"ceisiwch eto."
+
+#: core/job_error.cpp:667
+msgid "Unable to Uninitialize Input/Output Device"
+msgstr "Methu Ddi-ymgychwyn Dyfais Mewnbwn/Allbwn"
+
+#: core/job_error.cpp:668
+msgid "Could Not Unmount Device"
+msgstr "Methu Datosod Dyfais"
+
+#: core/job_error.cpp:669
+#, kde-format
+msgid ""
+"The requested device could not be uninitialized (\"unmounted\"). The "
+"reported error was: <strong>%1</strong>"
+msgstr ""
+"Ni ellid ddi-ymgychwyn (\"unmount\") y dyfais a ofynwyd amdano.  Y gwall a "
+"adroddwyd oedd: <strong>%1</strong>"
+
+#: core/job_error.cpp:672
+msgid ""
+"The device may be busy, that is, still in use by another application or "
+"user. Even such things as having an open browser window on a location on "
+"this device may cause the device to remain in use."
+msgstr ""
+"Efallai mae'r dyfais yn brysur, hynny yw, mae cymhwysiad neu defnyddiwr "
+"arall yn dal i'w ddefnyddio.  Mae hyd yn oed pethau fel cadw ffenest porwr "
+"ar agor ar leoliad ar y dyfais yma yn gallu achosi i'r dyfais barhau  mewn "
+"defnydd."
+
+#: core/job_error.cpp:676
+msgid ""
+"You may not have permissions to uninitialize (\"unmount\") the device. On "
+"UNIX systems, system administrator privileges are often required to "
+"uninitialize a device."
+msgstr ""
+"Efallai nad oes ganddoch caniatadau i ddi-ymgychwyn (\"unmount\") y dyfais.  "
+"Ar gysodau Unix, y rhan fwyaf o'r amser mae angen hawliau gwasanaethydd "
+"cysawd i ddi-ymgychwyn dyfais."
+
+#: core/job_error.cpp:680
+msgid "Check that no applications are accessing the device, and try again."
+msgstr "Cywirwch nad oes cymhwysiadau yn cyrchu'r dyfais, a ceisiwch eto."
+
+#: core/job_error.cpp:685
+msgid "Cannot Read From Resource"
+msgstr "Methu Darllen oddiwrth yr Adnodd"
+
+#: core/job_error.cpp:686
+#, kde-format
+msgid ""
+"This means that although the resource, <strong>%1</strong>, was able to be "
+"opened, an error occurred while reading the contents of the resource."
+msgstr ""
+"Golygir hwn bod, er roedd yn bosib agor yr adnodd <strong>%1</strong>, "
+"digwyddodd gwall wrth ddarllen cynnwys yr adnodd."
+
+#: core/job_error.cpp:689
+msgid "You may not have permissions to read from the resource."
+msgstr "Efallai nad oes ganddoch caniatadau i ddarllen oddiwrth yr adnodd."
+
+#: core/job_error.cpp:702
+msgid "Cannot Write to Resource"
+msgstr "Methu ysgrifennu at yr adnodd."
+
+#: core/job_error.cpp:703
+#, kde-format
+msgid ""
+"This means that although the resource, <strong>%1</strong>, was able to be "
+"opened, an error occurred while writing to the resource."
+msgstr ""
+"Golygir hwn bod, er roedd yn bosib agor yr adnodd <strong>%1</strong>, "
+"digwyddodd gwall wrth ysgrifennu at yr adnodd."
+
+#: core/job_error.cpp:706
+msgid "You may not have permissions to write to the resource."
+msgstr "Efallai nad oes ganddoch caniatadau i ysgrifennu at yr adnodd."
+
+#: core/job_error.cpp:719 core/job_error.cpp:730
+msgid "Could Not Listen for Network Connections"
+msgstr "Methu Gwrando am Gysylltiadau Rhwydwaith"
+
+#: core/job_error.cpp:720
+msgid "Could Not Bind"
+msgstr "Methu Ymrwymo"
+
+#: core/job_error.cpp:721 core/job_error.cpp:732
+msgid ""
+"This is a fairly technical error in which a required device for network "
+"communications (a socket) could not be established to listen for incoming "
+"network connections."
+msgstr ""
+"Mae hwn yn wall go dechnegol, lle ni ellir creu dyfais gofynnol (soced) i "
+"gyfathrebion rhwydwaith i wrando am gysylltiadau rhwydwaith cyrhaeddol."
+
+#: core/job_error.cpp:731
+msgid "Could Not Listen"
+msgstr "Methu Gwrando"
+
+#: core/job_error.cpp:741
+msgid "Could Not Accept Network Connection"
+msgstr "Methu Derbyn Cysylltiad Rhwydwaith"
+
+#: core/job_error.cpp:742
+msgid ""
+"This is a fairly technical error in which an error occurred while attempting "
+"to accept an incoming network connection."
+msgstr ""
+"Mae hwn yn wall go dechnegol, lle ddigwyddodd gwall wrth ceisio derbyn "
+"cysylltiad rhwydwaith cyrhaeddol."
+
+#: core/job_error.cpp:746
+msgid "You may not have permissions to accept the connection."
+msgstr "Efallai nad oes ganddoch caniatadau i dderbyn y cysylltiad."
+
+#: core/job_error.cpp:751
+#, kde-format
+msgid "Could Not Login: %1"
+msgstr "Methu Mewngofnodi: %1"
+
+#: core/job_error.cpp:752
+msgid ""
+"An attempt to login to perform the requested operation was unsuccessful."
+msgstr ""
+"Roedd cais i fewngofnodi i gyflawni'r gweithrediad ceisiedig yn "
+"aflwyddiannus."
+
+#: core/job_error.cpp:763
+msgid "Could Not Determine Resource Status"
+msgstr "Methu Pennu Statws yr Adnodd"
+
+#: core/job_error.cpp:764
+msgid "Could Not Stat Resource"
+msgstr "Methu Canfod Statws yr Adnodd"
+
+#: core/job_error.cpp:765
+#, kde-format
+msgid ""
+"An attempt to determine information about the status of the resource <strong>"
+"%1</strong>, such as the resource name, type, size, etc., was unsuccessful."
+msgstr ""
+"Roedd cais i bennu gwybodaeth am statws yr adnodd <strong>%1</strong>, er "
+"enghraifft enw yr adnodd, ei fath, ei faint ac yn y blaen, yn aflwyddiannus."
+
+#: core/job_error.cpp:768
+msgid "The specified resource may not have existed or may not be accessible."
+msgstr "Efallai nad oedd yr adnodd penodol mewn bod, neu ar gael."
+
+#: core/job_error.cpp:776
+msgid "Could Not Cancel Listing"
+msgstr "Methu Diddymu'r Rhestriad"
+
+#: core/job_error.cpp:777
+msgid "FIXME: Document this"
+msgstr "FIXME: Mae angen dogfennu hyn"
+
+#: core/job_error.cpp:781
+msgid "Could Not Create Folder"
+msgstr "Methu Creu Plygell"
+
+#: core/job_error.cpp:782
+msgid "An attempt to create the requested folder failed."
+msgstr "Methwyd cais i greu'r plygell a ofynwyd amdano."
+
+#: core/job_error.cpp:783
+msgid "The location where the folder was to be created may not exist."
+msgstr "Efallai nad oedd y lleoliad lle roedd eisiau creu'r plygell mewn bod."
+
+#: core/job_error.cpp:792
+msgid "Could Not Remove Folder"
+msgstr "Methu Gwaredu Plygell"
+
+#: core/job_error.cpp:793
+#, kde-format
+msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
+msgstr "Methwyd cais i ddileu'r plygell penodol, <strong>%1</strong>."
+
+#: core/job_error.cpp:795
+msgid "The specified folder may not exist."
+msgstr "Efallai nad yw'r plygell penodol mewn bod."
+
+#: core/job_error.cpp:796
+msgid "The specified folder may not be empty."
+msgstr "Efallai nad yw'r plygell penodol yn wag."
+
+#: core/job_error.cpp:801
+msgid "Ensure that the folder exists and is empty, and try again."
+msgstr "Sicrhewch fod y plygell mewn bod ac yn wag, a ceisiwch eto."
+
+#: core/job_error.cpp:806
+msgid "Could Not Resume File Transfer"
+msgstr "Methu Ail-gychwyn Trosglwyddo'r Ffeil"
+
+#: core/job_error.cpp:807
+#, kde-format
+msgid ""
+"The specified request asked that the transfer of file <strong>%1</strong> be "
+"resumed at a certain point of the transfer. This was not possible."
+msgstr ""
+"Gofynnodd y cais penodol i trosglwyddiad y ffeil <strong>%1</strong> gael ei "
+"ail-gychwyn mewn man arbennig o'r trosglwyddiad.  Nid oedd hyn yn bosib."
+
+#: core/job_error.cpp:810
+msgid "The protocol, or the server, may not support file resuming."
+msgstr ""
+"Efallai nid yw'r protocol neu'r gweinydd yn cynnal ail-gychwyn y ffeil."
+
+#: core/job_error.cpp:812
+msgid "Retry the request without attempting to resume transfer."
+msgstr "Ail-geisiwch, heb geisio ail-gychwyn y trosgwyddiad."
+
+#: core/job_error.cpp:817
+msgid "Could Not Rename Resource"
+msgstr "Methu Ail-enwi yr Adnodd"
+
+#: core/job_error.cpp:818
+#, kde-format
+msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
+msgstr "Methwyd cais i ail-enwi'r adnodd penodol <strong>%1</strong>."
+
+#: core/job_error.cpp:828
+msgid "Could Not Alter Permissions of Resource"
+msgstr "Methu Newid Caniatadau'r Adnodd"
+
+#: core/job_error.cpp:829
+#, kde-format
+msgid ""
+"An attempt to alter the permissions on the specified resource <strong>%1</"
+"strong> failed."
+msgstr ""
+"Methwyd cais i newid caniatadau ar yr adnodd penodol <strong>%1</strong>."
+
+#: core/job_error.cpp:836
+#, fuzzy
+#| msgid "Could Not Alter Permissions of Resource"
+msgid "Could Not Change Ownership of Resource"
+msgstr "Methu Newid Caniatadau'r Adnodd"
+
+#: core/job_error.cpp:837
+#, fuzzy, kde-format
+#| msgid ""
+#| "An attempt to alter the permissions on the specified resource <strong>%1</"
+#| "strong> failed."
+msgid ""
+"An attempt to change the ownership of the specified resource <strong>%1</"
+"strong> failed."
+msgstr ""
+"Methwyd cais i newid caniatadau ar yr adnodd penodol <strong>%1</strong>."
+
+#: core/job_error.cpp:844
+msgid "Could Not Delete Resource"
+msgstr "Methu Dileu'r Adnodd"
+
+#: core/job_error.cpp:845
+#, kde-format
+msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
+msgstr "Methwyd cais i ddileu'r adnodd penodol <strong>%1</strong>."
+
+#: core/job_error.cpp:852
+msgid "Unexpected Program Termination"
+msgstr "Terfynwyd y Rhaglen yn Annisgwyl"
+
+#: core/job_error.cpp:853
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has unexpectedly terminated."
+msgstr ""
+"Mae'r rhaglen ar eich cyfrifiadur sy'n darparu cyrchiad i'r protocol <strong>"
+"%1</strong> wedi terfynu yn annisgwyl."
+
+#: core/job_error.cpp:861
+msgid "Out of Memory"
+msgstr "Allan o Gof."
+
+#: core/job_error.cpp:862
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol could not obtain the memory required to continue."
+msgstr ""
+"Ni allai'r rhaglen ar eich cyfrifiadur sy'n darparu cyrchiad i'r protocol "
+"<strong>%1</strong> gael digon o gof i barhau."
+
+#: core/job_error.cpp:870
+msgid "Unknown Proxy Host"
+msgstr "Gwesteiwr Dirpwry Anhysbys"
+
+#: core/job_error.cpp:871
+#, kde-format
+msgid ""
+"While retrieving information about the specified proxy host, <strong>%1</"
+"strong>, an Unknown Host error was encountered. An unknown host error "
+"indicates that the requested name could not be located on the Internet."
+msgstr ""
+"Wrth nôl gwybodaeth am y gwesteiwr dirprwy penodol, <strong>%1</strong>, "
+"canfodwyd gwall Gwesteiwr Anhysbys.  Mae gwall gwesteiwr anhysbys yn dynodi "
+"na ellid lleoli'r enw ceisiedig ar y Rhyngrwyd."
+
+#: core/job_error.cpp:875
+#, fuzzy
+msgid ""
+"There may have been a problem with your network configuration, specifically "
+"your proxy's hostname. If you have been accessing the Internet with no "
+"problems recently, this is unlikely."
+msgstr ""
+"Efallai roedd problem efo ffurfweddiad eich rhwydwaith, yn benodol enw eich "
+"gwesteiwr dirpwry.  Os ydych wedi bod yn cyrchu'r Rhyngrwyd heb broblemau yn "
+"ddiweddar, mae hyn yn anhebyg."
+
+#: core/job_error.cpp:879
+msgid "Double-check your proxy settings and try again."
+msgstr "Cywirwch eich gosodiadau dirprwy a ceisiwch eto."
+
+#: core/job_error.cpp:884
+#, kde-format
+msgid "Authentication Failed: Method %1 Not Supported"
+msgstr "Methodd Dilysiant: Ni Chynhelir Dull %1"
+
+#: core/job_error.cpp:886
+#, kde-format
+msgid ""
+"Although you may have supplied the correct authentication details, the "
+"authentication failed because the method that the server is using is not "
+"supported by the KDE program implementing the protocol %1."
+msgstr ""
+"Er eich bod wedi darparu'r manylion dilyiant cywir, methodd y dilysiant o "
+"achos ni chynhelir y dull a ddefnyddir gan y gweinydd gan y rhaglen KDE sy'n "
+"cyflawni'r protocol %1."
+
+#: core/job_error.cpp:890
+msgid ""
+"Please file a bug at <a href=\"http://bugs.kde.org/\">http://bugs.kde.org/</"
+"a> to inform the KDE team of the unsupported authentication method."
+msgstr ""
+"Cyflwynwch nam wrth <a href=\"http://bugs.kde.org/\">http://bugs.kde.org/</"
+"a> i hysbysu'r tîm KDE am y dull dilysiant na chynhelir."
+
+#: core/job_error.cpp:896
+msgid "Request Aborted"
+msgstr "Ataliwyd y Cais"
+
+#: core/job_error.cpp:903
+msgid "Internal Error in Server"
+msgstr "Camgymeriad Mewnol yn y Gweinydd"
+
+#: core/job_error.cpp:904
+#, fuzzy, kde-format
+msgid ""
+"The program on the server which provides access to the <strong>%1</strong> "
+"protocol has reported an internal error: %2."
+msgstr ""
+"Mae'r rhaglen ar y gweinydd sy'n darparu cyrchiad i'r protocol <strong>%1</"
+"strong> wedi adrodd gwall mewnol: %0."
+
+#: core/job_error.cpp:907
+msgid ""
+"This is most likely to be caused by a bug in the server program. Please "
+"consider submitting a full bug report as detailed below."
+msgstr ""
+"Achosir hyn gan nam, mwy na thebyg.  Ystyriedwch cyflwyno adrodd nam llawn, "
+"yn ôl y manylion isod."
+
+#: core/job_error.cpp:910
+msgid "Contact the administrator of the server to advise them of the problem."
+msgstr "Cysylltwch â gwasanaethwr y gweinuydd i'w gynghori am y problem."
+
+#: core/job_error.cpp:912
+msgid ""
+"If you know who the authors of the server software are, submit the bug "
+"report directly to them."
+msgstr ""
+"Os wyddoch pwy yw awduron y feddalwedd weinydd, cyflwynwch yr adrodd nam yn "
+"uniongyrchol iddynt."
+
+#: core/job_error.cpp:917
+msgid "Timeout Error"
+msgstr "Gwall goramser"
+
+#: core/job_error.cpp:918
+#, fuzzy, kde-format
+#| msgid ""
+#| "Although contact was made with the server, a response was not received "
+#| "within the amount of time allocated for the request as follows:"
+#| "<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+#| "for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+#| "servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+#| "settings in the KDE Control Center, by selecting Network -> Preferences."
+msgid ""
+"Although contact was made with the server, a response was not received "
+"within the amount of time allocated for the request as follows:"
+"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+"settings in the KDE System Settings, by selecting Network Settings -> "
+"Connection Preferences."
+msgstr ""
+"Er gwnaed cyswllt efo'r gweinydd, ni dderbynnir ymateb tu mewn y faint o "
+"amser sydd wedi ei neilltuo am yr ymateb fel a ganlyn:<ul><li>Goramser am "
+"sefydlu cysylltiad: %1 eiliad</li><li>Goramser am dderbyn ymateb: %2 eiliad</"
+"li><li>Goramser am gyrchu gweinyddion dirprwy: %3 eiliad</li></ul>  Noder y "
+"gallwch newid y gosodiadau goramser yn y Ganolfan Rheoli KDE, drwy ddewis "
+"Rhwydwaith -> Hoffiannau."
+
+#: core/job_error.cpp:929
+msgid "The server was too busy responding to other requests to respond."
+msgstr "Roedd y gweinydd yn rhy brysur yn ymateb i geisiadau eraill i ymateb."
+
+#: core/job_error.cpp:935 core/slavebase.cpp:1408
+msgid "Unknown Error"
+msgstr "Gwall Anhysbys"
+
+#: core/job_error.cpp:936
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an unknown error: %2."
+msgstr ""
+"Mae'r rhaglen ar y gweinydd sy'n darparu cyrchiad i'r protocol <strong>%1</"
+"strong> wedi adrodd gwall mewnol: %2."
+
+#: core/job_error.cpp:944
+msgid "Unknown Interruption"
+msgstr "Ymyriad Anhysbys"
+
+#: core/job_error.cpp:945
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an interruption of an unknown type: %2."
+msgstr ""
+"Mae'r rhaglen ar y gweinydd sy'n darparu cyrchiad i'r protocol <strong>%1</"
+"strong> wedi adrodd ymyriad o fath anhysbys: %2."
+
+#: core/job_error.cpp:953
+msgid "Could Not Delete Original File"
+msgstr "Methu Dileu Ffeil Gwreiddiol"
+
+#: core/job_error.cpp:954
+#, kde-format
+msgid ""
+"The requested operation required the deleting of the original file, most "
+"likely at the end of a file move operation. The original file <strong>%1</"
+"strong> could not be deleted."
+msgstr ""
+"Roedd gan y weithrediad ceisiedig angen ddileu ffeil gwreiddiol, wrth "
+"ddiwedd gweithrediad symud ffeil, mwy na thebyg.  Ni ellid dileu'r ffeil "
+"gwreiddiol <strong>%1</strong>."
+
+#: core/job_error.cpp:963
+msgid "Could Not Delete Temporary File"
+msgstr "Methu Dileu Ffeil Dros Dro"
+
+#: core/job_error.cpp:964
+#, kde-format
+msgid ""
+"The requested operation required the creation of a temporary file in which "
+"to save the new file while being downloaded. This temporary file <strong>%1</"
+"strong> could not be deleted."
+msgstr ""
+"Roedd gan y weithrediad ceisiedig angen greu ffeil dros dro i gadw'r ffeil "
+"newydd  wrth iddo gael ei lawrlwytho.  Ni ellid dileu'r ffeil dros dro "
+"<strong>%1</strong>."
+
+#: core/job_error.cpp:973
+msgid "Could Not Rename Original File"
+msgstr "Methu Ail-enwi Ffeil Gwreiddiol"
+
+#: core/job_error.cpp:974
+#, kde-format
+msgid ""
+"The requested operation required the renaming of the original file <strong>"
+"%1</strong>, however it could not be renamed."
+msgstr ""
+"Roedd gan y weithrediad ceisiedig angen ail-enwi'r ffeil gwreiddiol <strong>"
+"%1</strong>.  Ond ni ellid ail-enwi'r ffeil."
+
+#: core/job_error.cpp:982
+msgid "Could Not Rename Temporary File"
+msgstr "Methu Ail-enwi Ffeil Dro Dro"
+
+#: core/job_error.cpp:983
+#, kde-format
+msgid ""
+"The requested operation required the creation of a temporary file <strong>"
+"%1</strong>, however it could not be created."
+msgstr ""
+"Roedd gan y weithrediad ceisiedig angen greu ffeil dros dro <strong>%1</"
+"strong>.  Ond ni ellid creu'r ffeil."
+
+#: core/job_error.cpp:991
+msgid "Could Not Create Link"
+msgstr "Methu Creu Cyswllt"
+
+#: core/job_error.cpp:992
+msgid "Could Not Create Symbolic Link"
+msgstr "Methu Creu Cyswllt Symbolaidd"
+
+#: core/job_error.cpp:993
+#, kde-format
+msgid "The requested symbolic link %1 could not be created."
+msgstr "Methu creu y cyswllt symbolaidd %1 a ofynwyd amdano."
+
+#: core/job_error.cpp:1000
+msgid "No Content"
+msgstr "Dim Cynnwys"
+
+#: core/job_error.cpp:1005
+msgid "Disk Full"
+msgstr "Disg Llawn"
+
+#: core/job_error.cpp:1006
+#, kde-format
+msgid ""
+"The requested file <strong>%1</strong> could not be written to as there is "
+"inadequate disk space."
+msgstr ""
+"Ni ellid ysgrifennu at y ffeil ceisiedig <strong>%1</strong> gan fod diffyg "
+"lle ar y ddisg."
+
+#: core/job_error.cpp:1008
+msgid ""
+"Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
+"archiving files to removable media storage such as CD-Recordable discs; or "
+"3) obtain more storage capacity."
+msgstr ""
+"Rhyddhawch ddigon o le ar y ddisg gan 1)dileu ffeiliau di-eisiau a dros dro; "
+"2) archifo ffeiliau i gronfa cyfryngau symudadwy fel disgiau CD-Cofnodi; neu "
+"3) darganfod mwy o le cronfa."
+
+#: core/job_error.cpp:1015
+msgid "Source and Destination Files Identical"
+msgstr "Ffeiliau Tarddiad a Cyrchfan yn Unwy"
+
+#: core/job_error.cpp:1016
+msgid ""
+"The operation could not be completed because the source and destination "
+"files are the same file."
+msgstr ""
+"Methu cwblhau'r gweithrediad gan fod ffeil tarddiad a ffeil cyrchfan yr un "
+"un ffeil."
+
+#: core/job_error.cpp:1018
+#, fuzzy
+msgid "Choose a different filename for the destination file."
+msgstr "Dewiswch enw ffeil gwahanol i'r ffeil cyrchfan."
+
+#: core/job_error.cpp:1029
+msgid "Undocumented Error"
+msgstr "Gwall Heb ei Ddogfennu"
+
+#: core/kcoredirlister.cpp:397 widgets/krun.cpp:842 widgets/paste.cpp:255
+#: widgets/renamedialog.cpp:410
+#, kde-format
+msgid ""
+"Malformed URL\n"
+"%1"
+msgstr ""
+"URL Annilys \n"
+" %1"
+
+#: core/kcoredirlister.cpp:402
+#, kde-format
+msgid ""
+"URL cannot be listed\n"
+"%1"
+msgstr ""
+
+#: core/kfileitem.cpp:1186
+#, fuzzy, kde-format
+#| msgid "Symbolic Link"
+msgid "(Symbolic Link to %1)"
+msgstr "Cyswllt Symbolaidd"
+
+#: core/kfileitem.cpp:1188
+#, fuzzy, kde-format
+msgid "(%1, Link to %2)"
+msgstr "Cyswllt i %1"
+
+#: core/kfileitem.cpp:1191
+#, fuzzy, kde-format
+#| msgid "Points to:"
+msgid " (Points to %1)"
+msgstr "Cyfeirio at:"
+
+#: core/klocalsocket_unix.cpp:192 core/klocalsocket_unix.cpp:260
+#, fuzzy
+#| msgid "The certificate is invalid."
+msgid "Specified socket path is invalid"
+msgstr "Mae'r dystysgrif yn annilys."
+
+#: core/klocalsocket_unix.cpp:201 core/klocalsocket_unix.cpp:248
+#: core/klocalsocket_unix.cpp:269
+#, fuzzy
+#| msgid "The protocol %1 is not supported."
+msgid "The socket operation is not supported"
+msgstr "Ni chefnogir y protocol %1."
+
+#: core/klocalsocket_unix.cpp:214
+#, fuzzy
+#| msgid "Connection to Server Refused"
+msgid "Connection refused"
+msgstr "Gwrthodwyd y Cysylltiad i'r Gweinydd"
+
+#: core/klocalsocket_unix.cpp:219 core/klocalsocket_unix.cpp:282
+#, fuzzy
+#| msgid "Permissions"
+msgid "Permission denied"
+msgstr "Caniatad"
+
+#: core/klocalsocket_unix.cpp:223
+#, fuzzy
+#| msgid "Connection timed out."
+msgid "Connection timed out"
+msgstr "Cysylltiad wedi goramseru."
+
+#: core/klocalsocket_unix.cpp:227 core/klocalsocket_unix.cpp:307
+#, fuzzy
+#| msgid "Unknown Error"
+msgid "Unknown error"
+msgstr "Gwall Anhysbys"
+
+#: core/klocalsocket_unix.cpp:235 core/klocalsocket_unix.cpp:315
+#, fuzzy
+#| msgid "Could not login to %1."
+msgid "Could not set non-blocking mode"
+msgstr "Methu mewngofnodi i %1"
+
+#: core/klocalsocket_unix.cpp:286
+msgid "Address is already in use"
+msgstr ""
+
+#: core/klocalsocket_unix.cpp:291
+msgid "Path cannot be used"
+msgstr ""
+
+#: core/klocalsocket_unix.cpp:295
+msgid "No such file or directory"
+msgstr ""
+
+#: core/klocalsocket_unix.cpp:299
+#, fuzzy
+msgid "Not a directory"
+msgstr "Creu Plygell"
+
+#: core/klocalsocket_unix.cpp:303
+msgid "Read-only filesystem"
+msgstr ""
+
+#: core/klocalsocket_unix.cpp:370 core/klocalsocket_unix.cpp:404
+#, fuzzy
+#| msgid "Unknown Error"
+msgid "Unknown socket error"
+msgstr "Gwall Anhysbys"
+
+#: core/klocalsocket_win.cpp:31 core/klocalsocket_win.cpp:36
+#, fuzzy
+msgid "Operation not supported"
+msgstr "Ni chynhelir ysgrifennu at %1"
+
+#: core/ktcpsocket.cpp:165
+msgctxt "SSL error"
+msgid "No error"
+msgstr ""
+
+#: core/ktcpsocket.cpp:167
+#, fuzzy
+#| msgid "The certificate is invalid."
+msgctxt "SSL error"
+msgid "The certificate authority's certificate is invalid"
+msgstr "Mae'r dystysgrif yn annilys."
+
+#: core/ktcpsocket.cpp:169
+#, fuzzy
+#| msgid "Certificate has expired."
+msgctxt "SSL error"
+msgid "The certificate has expired"
+msgstr "Mae'r dystysgrif wedi darfod."
+
+#: core/ktcpsocket.cpp:171
+#, fuzzy
+#| msgid "The certificate is invalid."
+msgctxt "SSL error"
+msgid "The certificate is invalid"
+msgstr "Mae'r dystysgrif yn annilys."
+
+#: core/ktcpsocket.cpp:173
+#, fuzzy
+#| msgid "The certificate has not been issued for this host."
+msgctxt "SSL error"
+msgid "The certificate is not signed by any trusted certificate authority"
+msgstr "Ni chyhoeddwyd y tystysgrif am y gwesteiwr yma."
+
+#: core/ktcpsocket.cpp:175
+#, fuzzy
+#| msgid "Certificate has been revoked."
+msgctxt "SSL error"
+msgid "The certificate has been revoked"
+msgstr "Mae'r dystysgrif wedi ei ddirymu."
+
+#: core/ktcpsocket.cpp:177
+#, fuzzy
+#| msgid "The certificate has not been issued for this host."
+msgctxt "SSL error"
+msgid "The certificate is unsuitable for this purpose"
+msgstr "Ni chyhoeddwyd y tystysgrif am y gwesteiwr yma."
+
+#: core/ktcpsocket.cpp:179
+#, fuzzy
+#| msgid "The certificate has not been issued for this host."
+msgctxt "SSL error"
+msgid ""
+"The root certificate authority's certificate is not trusted for this purpose"
+msgstr "Ni chyhoeddwyd y tystysgrif am y gwesteiwr yma."
+
+#: core/ktcpsocket.cpp:181
+#, fuzzy
+#| msgid ""
+#| "The IP address of the host %1 does not match the one the certificate was "
+#| "issued to."
+msgctxt "SSL error"
+msgid ""
+"The certificate authority's certificate is marked to reject this "
+"certificate's purpose"
+msgstr ""
+"Nid yw cyfeiriad IP gwesteiwr %1 yn cydweddu â'r un a rowyd y tystysgrif "
+"iddo."
+
+#: core/ktcpsocket.cpp:183
+#, fuzzy
+#| msgid "Do not send a certificate"
+msgctxt "SSL error"
+msgid "The peer did not present any certificate"
+msgstr "Peidio ag anfon tystysgrif"
+
+#: core/ktcpsocket.cpp:185
+#, fuzzy
+#| msgid "The certificate has not been issued for this host."
+msgctxt "SSL error"
+msgid "The certificate does not apply to the given host"
+msgstr "Ni chyhoeddwyd y tystysgrif am y gwesteiwr yma."
+
+#: core/ktcpsocket.cpp:187
+#, fuzzy
+#| msgid "The certificate has not been issued for this host."
+msgctxt "SSL error"
+msgid "The certificate cannot be verified for internal reasons"
+msgstr "Ni chyhoeddwyd y tystysgrif am y gwesteiwr yma."
+
+#: core/ktcpsocket.cpp:189
+#, fuzzy
+#| msgid "The certificate is valid."
+msgctxt "SSL error"
+msgid "The certificate chain is too long"
+msgstr "Mae'r dystysgrif yn ddilys."
+
+#: core/ktcpsocket.cpp:192
+#, fuzzy
+#| msgid "Unknown Error"
+msgctxt "SSL error"
+msgid "Unknown error"
+msgstr "Gwall Anhysbys"
+
+#: core/slave.cpp:453
+#, fuzzy, kde-format
+msgid "Unknown protocol '%1'."
+msgstr "Protocol anhysbys '%1'. \n"
+
+#: core/slave.cpp:463
+#, kde-format
+msgid "Can not find io-slave for protocol '%1'."
+msgstr "Methu canfod gwas-io i brotocol '%1'."
+
+#: core/slave.cpp:474
+#, fuzzy
+#| msgid "Can not find io-slave for protocol '%1'."
+msgid "Can not find 'kioslave' executable"
+msgstr "Methu canfod gwas-io i brotocol '%1'."
+
+#: core/slave.cpp:489
+#, fuzzy, kde-format
+msgid "Cannot talk to klauncher: %1"
+msgstr "Methu siarad efo Klauncher"
+
+#: core/slave.cpp:496
+#, kde-format
+msgid ""
+"Unable to create io-slave:\n"
+"klauncher said: %1"
+msgstr ""
+"Methu creu gwas-io:\n"
+" dywedodd klauncher: %1"
+
+#: core/slavebase.cpp:762
+#, fuzzy, kde-format
+msgid "Opening connections is not supported with the protocol %1."
+msgstr "Ni chynhelir agor cysylltiadau efo'r protocol %1"
+
+#: core/slavebase.cpp:764
+#, fuzzy, kde-format
+msgid "Closing connections is not supported with the protocol %1."
+msgstr "Ni chynhelir cau cysylltiadau efo'r protocol %1"
+
+#: core/slavebase.cpp:766
+#, fuzzy, kde-format
+msgid "Accessing files is not supported with the protocol %1."
+msgstr "Ni chynhelir cyrchu cysylltiadau efo'r protocol %1"
+
+#: core/slavebase.cpp:768
+#, fuzzy, kde-format
+msgid "Writing to %1 is not supported."
+msgstr "Ni chynhelir ysgrifennu at %1"
+
+#: core/slavebase.cpp:770
+#, fuzzy, kde-format
+msgid "There are no special actions available for protocol %1."
+msgstr "Dim gweithrediadau arbennig ar gael i brotocol %1"
+
+#: core/slavebase.cpp:772
+#, fuzzy, kde-format
+msgid "Listing folders is not supported for protocol %1."
+msgstr "Ni chynhelir rhestru plygyll efo'r protocol %1"
+
+#: core/slavebase.cpp:774
+#, fuzzy, kde-format
+msgid "Retrieving data from %1 is not supported."
+msgstr "Ni chynhelir nôl data oddiwrth %1"
+
+#: core/slavebase.cpp:776
+#, fuzzy, kde-format
+msgid "Retrieving mime type information from %1 is not supported."
+msgstr "Ni chynhelir nôl data math mime oddiwrth %1"
+
+#: core/slavebase.cpp:778
+#, fuzzy, kde-format
+msgid "Renaming or moving files within %1 is not supported."
+msgstr "Ni chynhelir ail-enwi neu symud ffeiliau tu mewn i %1"
+
+#: core/slavebase.cpp:780
+#, fuzzy, kde-format
+msgid "Creating symlinks is not supported with protocol %1."
+msgstr "Ni chynhelir creu cysylltau symbolaidd efo'r protocol %1"
+
+#: core/slavebase.cpp:782
+#, fuzzy, kde-format
+msgid "Copying files within %1 is not supported."
+msgstr "Ni chynhelir copïo ffeiliau tu mewn i %1"
+
+#: core/slavebase.cpp:784
+#, fuzzy, kde-format
+msgid "Deleting files from %1 is not supported."
+msgstr "Ni chynhelir dileu ffeiliau o %1"
+
+#: core/slavebase.cpp:786
+#, fuzzy, kde-format
+msgid "Creating folders is not supported with protocol %1."
+msgstr "Ni chynhelir creu plygyll efo'r protocol %1"
+
+#: core/slavebase.cpp:788
+#, fuzzy, kde-format
+msgid "Changing the attributes of files is not supported with protocol %1."
+msgstr "Ni chynhelir newid priodoleddau ffeiliau efo'r protocol %1"
+
+#: core/slavebase.cpp:790
+#, fuzzy, kde-format
+msgid "Changing the ownership of files is not supported with protocol %1."
+msgstr "Ni chynhelir newid priodoleddau ffeiliau efo'r protocol %1"
+
+#: core/slavebase.cpp:792
+#, fuzzy, kde-format
+msgid "Using sub-URLs with %1 is not supported."
+msgstr "Ni chynhelir defnyddio is-URLs efo %1"
+
+#: core/slavebase.cpp:794
+#, fuzzy, kde-format
+msgid "Multiple get is not supported with protocol %1."
+msgstr "Ni chynhelir nôl lluosol efo'r protocol %1"
+
+#: core/slavebase.cpp:796
+#, fuzzy, kde-format
+msgid "Opening files is not supported with protocol %1."
+msgstr "Ni chynhelir creu plygyll efo'r protocol %1"
+
+#: core/slavebase.cpp:798
+#, fuzzy, kde-format
+msgid "Protocol %1 does not support action %2."
+msgstr "Nid yw protocol %1 yn cynnal gweithred %2"
+
+#: core/slavebase.cpp:954
+#, fuzzy
+#| msgid "&Reset"
+msgid "&Yes"
+msgstr "&Ailosod"
+
+#: core/slavebase.cpp:955
+#, fuzzy
+msgid "&No"
+msgstr "Dim"
+
+#: core/slaveinterface.cpp:409 core/tcpslavebase.cpp:822 widgets/sslui.cpp:78
+msgid "&Details"
+msgstr "&Manylion"
+
+#: core/slaveinterface.cpp:411 core/tcpslavebase.cpp:842 widgets/sslui.cpp:114
+msgid "&Forever"
+msgstr "&Am Byth"
+
+#: core/slaveinterface.cpp:415 core/tcpslavebase.cpp:822 widgets/sslui.cpp:79
+msgid "Co&ntinue"
+msgstr "Par&hau"
+
+#: core/slaveinterface.cpp:417 core/tcpslavebase.cpp:843 widgets/sslui.cpp:115
+#, fuzzy
+#| msgid "&Current Sessions Only"
+msgid "&Current Session only"
+msgstr "&Sesiynau Cyfredol yn Unig"
+
+#: core/tcpslavebase.cpp:319
+msgid ""
+"You are about to leave secure mode. Transmissions will no longer be "
+"encrypted.\n"
+"This means that a third party could observe your data in transit."
+msgstr ""
+"Rydych ar fin gadael modd diogel. Ni fydd trosglwyddiadau yn cael eu "
+"amgryptio. \n"
+"Golygir hwn y gallai trydydd blaid wylio eich data ar y daith. "
+
+#: core/tcpslavebase.cpp:325 core/tcpslavebase.cpp:590
+msgid "Security Information"
+msgstr "Gwybodaeth Ddiogelwch"
+
+#: core/tcpslavebase.cpp:326
+#, fuzzy
+msgid "C&ontinue Loading"
+msgstr "Dal i Lwytho"
+
+#: core/tcpslavebase.cpp:421
+#, fuzzy, kde-format
+#| msgid "Authentication Failed."
+msgctxt "%1 is a host name"
+msgid "%1: SSL negotiation failed"
+msgstr "Methodd dilysiant."
+
+#: core/tcpslavebase.cpp:584
+msgid ""
+"You are about to enter secure mode. All transmissions will be encrypted "
+"unless otherwise noted.\n"
+"This means that no third party will be able to easily observe your data in "
+"transit."
+msgstr ""
+"Rydych ar fin mynd i mewn i modd diogel. Bydd pob trosglwyddiad yn cael ei "
+"amgriptio onibai i chi glywed yn wahanol. \n"
+"Golygir hyn na allai trydydd blaid wylio eich data yn hawdd ar y daith."
+
+#: core/tcpslavebase.cpp:591
+#, fuzzy
+msgid "Display SSL &Information"
+msgstr "Dangos Gwybodaeth SSL"
+
+#: core/tcpslavebase.cpp:592
+msgid "C&onnect"
+msgstr "C&ysylltu"
+
+#: core/tcpslavebase.cpp:736
+msgid "Enter the certificate password:"
+msgstr "Mewnosodwch cyfrinair y tystysgrif:"
+
+#: core/tcpslavebase.cpp:737
+msgid "SSL Certificate Password"
+msgstr "Cyfrinair Tystysgrif SSL"
+
+#: core/tcpslavebase.cpp:751
+msgid "Unable to open the certificate. Try a new password?"
+msgstr "Methu agor y tystysgrif.  Ceisio cyfrinair newydd?"
+
+#: core/tcpslavebase.cpp:765
+msgid "The procedure to set the client certificate for the session failed."
+msgstr "Methodd y weithdrefn i osod y tystysgrif cleient i'r sesiwn."
+
+#: core/tcpslavebase.cpp:767 widgets/jobuidelegate.cpp:346
+msgid "SSL"
+msgstr "SSL"
+
+#: core/tcpslavebase.cpp:811 widgets/sslui.cpp:68
+#, fuzzy, kde-format
+#| msgid "The server certificate failed the authenticity test (%1)."
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr "Methodd y tystysgrif gweinydd y prawf dilysiant (%1)."
+
+#: core/tcpslavebase.cpp:821 core/tcpslavebase.cpp:841
+#: core/tcpslavebase.cpp:945 core/tcpslavebase.cpp:957 widgets/sslui.cpp:77
+#: widgets/sslui.cpp:113
+msgid "Server Authentication"
+msgstr "Dilysiant Gweinydd"
+
+#: core/tcpslavebase.cpp:838 widgets/sslui.cpp:110
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr "Liciwch chi dderbyn y tystysgrif yma am byth heb gofweini arnoch?"
+
+#: core/tcpslavebase.cpp:944
+msgid ""
+"You have indicated that you wish to accept this certificate, but it is not "
+"issued to the server who is presenting it. Do you wish to continue loading?"
+msgstr ""
+"Rydych wedi mynegi yr ydych eisiau derbyn y tystysgrif yma, ond nid yw wedi "
+"ei gyhoeddi i'r gweinydd sy'n ei gyflwyno.  Ydych eisiau dal i lwytho?"
+
+#: core/tcpslavebase.cpp:956
+#, fuzzy
+#| msgid ""
+#| "SSL certificate is being rejected as requested. You can disable this in "
+#| "the KDE Control Center."
+msgid ""
+"SSL certificate is being rejected as requested. You can disable this in the "
+"KDE System Settings."
+msgstr ""
+"Gwrthodir y tystysgrif fel a ofynwyd.  Gallwch analluogi hyn yn y ganolfan "
+"rheoli KDE."
+
+#: filewidgets/kdiroperator.cpp:761
+#, kde-format
+msgid "A file or folder named %1 already exists."
+msgstr "Mae ffeil neu blygell o'r enw %1 mewn bod yn barod."
+
+#: filewidgets/kdiroperator.cpp:764
+#, fuzzy
+msgid "You do not have permission to create that folder."
+msgstr "Does dim hawliau ganddoch i greu'r plygell yna."
+
+#: filewidgets/kdiroperator.cpp:779
+#, fuzzy
+msgid "You did not select a file to delete."
+msgstr "Wnaethoch chi ddim dewis ffeil i ddileu."
+
+#: filewidgets/kdiroperator.cpp:780
+msgid "Nothing to Delete"
+msgstr "Dim byd i'w dileu."
+
+#: filewidgets/kdiroperator.cpp:822
+#, fuzzy
+msgid "You did not select a file to trash."
+msgstr "Wnaethoch chi ddim dewis ffeil i ddileu."
+
+#: filewidgets/kdiroperator.cpp:823
+#, fuzzy
+msgid "Nothing to Trash"
+msgstr "Dim byd i'w Ddadwneud"
+
+#: filewidgets/kdiroperator.cpp:1020 filewidgets/kdiroperator.cpp:1158
+msgid "The specified folder does not exist or was not readable."
+msgstr "Nid ydy'r plygell penodol yn bodoli, neu doedd o ddim yn ddarllenadwy."
+
+#: filewidgets/kdiroperator.cpp:1825
+msgid "Menu"
+msgstr "Dewislen"
+
+#: filewidgets/kdiroperator.cpp:1829
+msgid "Parent Folder"
+msgstr "Plygell Rhiant"
+
+#: filewidgets/kdiroperator.cpp:1836
+msgid "Home Folder"
+msgstr "Plygell Cartref"
+
+#: filewidgets/kdiroperator.cpp:1839
+#, fuzzy
+msgid "Reload"
+msgstr "Darllen"
+
+#: filewidgets/kdiroperator.cpp:1842
+msgid "New Folder..."
+msgstr "Plygell Newydd..."
+
+#: filewidgets/kdiroperator.cpp:1847 widgets/jobuidelegate.cpp:251
+msgid "Move to Trash"
+msgstr "Symud i'r Sbwriel"
+
+#: filewidgets/kdiroperator.cpp:1853
+#, fuzzy
+msgid "Delete"
+msgstr "Dileu"
+
+#: filewidgets/kdiroperator.cpp:1860
+msgid "Sorting"
+msgstr "Didoli"
+
+#: filewidgets/kdiroperator.cpp:1863
+msgid "By Name"
+msgstr "Gan Enw"
+
+#: filewidgets/kdiroperator.cpp:1867
+msgid "By Size"
+msgstr "Gan Faint"
+
+#: filewidgets/kdiroperator.cpp:1871
+msgid "By Date"
+msgstr "Gan Ddyddiad"
+
+#: filewidgets/kdiroperator.cpp:1875
+#, fuzzy
+#| msgid "Type"
+msgid "By Type"
+msgstr "Math"
+
+#: filewidgets/kdiroperator.cpp:1879
+#, fuzzy
+msgid "Descending"
+msgstr "(Dileu)"
+
+#: filewidgets/kdiroperator.cpp:1883
+msgid "Folders First"
+msgstr "Plygyll yn Gyntaf"
+
+#: filewidgets/kdiroperator.cpp:1893
+msgid "Icon Position"
+msgstr ""
+
+#: filewidgets/kdiroperator.cpp:1896
+msgid "Next to File Name"
+msgstr ""
+
+#: filewidgets/kdiroperator.cpp:1900
+#, fuzzy
+msgid "Above File Name"
+msgstr "Enw Ffeil Lleol"
+
+#: filewidgets/kdiroperator.cpp:1911
+msgid "Short View"
+msgstr "Golwg Byr"
+
+#: filewidgets/kdiroperator.cpp:1916
+msgid "Detailed View"
+msgstr "Golwg Manwl"
+
+#: filewidgets/kdiroperator.cpp:1921
+#, fuzzy
+#| msgid "Detailed View"
+msgid "Tree View"
+msgstr "Golwg Manwl"
+
+#: filewidgets/kdiroperator.cpp:1926
+#, fuzzy
+#| msgid "Detailed View"
+msgid "Detailed Tree View"
+msgstr "Golwg Manwl"
+
+#: filewidgets/kdiroperator.cpp:1937
+msgid "Show Hidden Files"
+msgstr "Dangos Ffeiliau Cudd"
+
+#: filewidgets/kdiroperator.cpp:1941
+#, fuzzy
+#| msgid "Show Preview"
+msgid "Show Aside Preview"
+msgstr "Dangos Rhagolwg"
+
+#: filewidgets/kdiroperator.cpp:1947
+msgid "Show Preview"
+msgstr "Dangos Rhagolwg"
+
+#: filewidgets/kdiroperator.cpp:1951
+#, fuzzy
+#| msgid "Open file dialog"
+msgid "Open File Manager"
+msgstr "Agor Ymgom Ffeil"
+
+#: filewidgets/kdiroperator.cpp:1956
+#, fuzzy
+msgid "Properties"
+msgstr "Priodweddau i %1"
+
+#: filewidgets/kdiroperator.cpp:1963
+#, fuzzy
+msgid "&View"
+msgstr "&Rhagolwg"
+
+#: filewidgets/kencodingfiledialog.cpp:86
+#, fuzzy
+#| msgid "Loading"
+msgid "Encoding:"
+msgstr "llwytho"
+
+#: filewidgets/kencodingfiledialog.cpp:142
+#: filewidgets/kencodingfiledialog.cpp:161
+#: filewidgets/kencodingfiledialog.cpp:179
+#: filewidgets/kencodingfiledialog.cpp:198 widgets/kurlrequesterdialog.cpp:131
+#, fuzzy
+msgid "Open"
+msgstr "&Agor"
+
+#: filewidgets/kencodingfiledialog.cpp:217
+#: filewidgets/kencodingfiledialog.cpp:240
+msgid "Save As"
+msgstr ""
+
+#: filewidgets/kfilefiltercombo.cpp:36 filewidgets/kfilewidget.cpp:1840
+msgid "*|All Files"
+msgstr "*|Pob Ffeil"
+
+#: filewidgets/kfilefiltercombo.cpp:180
+msgid "All Supported Files"
+msgstr "Pob Ffeil a Cynhelir"
+
+#: filewidgets/kfilefiltercombo.cpp:189
+#, fuzzy
+#| msgid "*|All Files"
+msgid "All Files"
+msgstr "*|Pob Ffeil"
+
+#: filewidgets/kfileplaceeditdialog.cpp:85
+#, fuzzy
+msgid "Add Places Entry"
+msgstr "&Golygu cofnod ..."
+
+#: filewidgets/kfileplaceeditdialog.cpp:87
+#, fuzzy
+msgid "Edit Places Entry"
+msgstr "&Golygu cofnod ..."
+
+#: filewidgets/kfileplaceeditdialog.cpp:96
+#, fuzzy
+#| msgid ""
+#| "<qt>This is the text that will appear in the Quick Access panel.<p>The "
+#| "description should consist of one or two words that will help you "
+#| "remember what this entry refers to.</qt>"
+msgid ""
+"<qt>This is the text that will appear in the Places panel.<br /><br />The "
+"label should consist of one or two words that will help you remember what "
+"this entry refers to. If you do not enter a label, it will be derived from "
+"the location's URL.</qt>"
+msgstr ""
+"<qt>Dyma'r testun a fydd yn ymddangos yn y panel Cyrchu ar Frys.<p>Dylai'r "
+"disgrifiad gynnwys un neu ddau o eiriau a fydd yn helpu chi gofio be mae'r "
+"cofnod hwn yn cyfeirio ato.</qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:102
+#, fuzzy
+#| msgid "&Name:"
+msgid "L&abel:"
+msgstr "&Enw:"
+
+#: filewidgets/kfileplaceeditdialog.cpp:104
+#, fuzzy
+#| msgid "Enter a description"
+msgid "Enter descriptive label here"
+msgstr "Rhoi disgrifiad"
+
+#: filewidgets/kfileplaceeditdialog.cpp:108
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This is the location associated with the entry. Any valid URL may be "
+#| "used. For example:<p>%1<br>http://www.kde.org<br>ftp://ftp.kde.org/pub/"
+#| "kde/stable<p>By clicking on the button next to the text edit box you can "
+#| "browse to an appropriate URL.</qt>"
+msgid ""
+"<qt>This is the location associated with the entry. Any valid URL may be "
+"used. For example:<br /><br />%1<br />http://www.kde.org<br />ftp://ftp.kde."
+"org/pub/kde/stable<br /><br />By clicking on the button next to the text "
+"edit box you can browse to an appropriate URL.</qt>"
+msgstr ""
+"<qt>Y lleoliad sydd ar y cyd efo'r cofnod.  Gellir defnyddio unrhyw URL "
+"dilys.  Er enghraifft: <p>%1<br>http://www.kde.org<br>ftp://ftp.kde.org/pub/"
+"kde/stable <p>Gan glicio ar y botwm wrth ymyl y blwch golygu testun, gallwch "
+"pori at URL addas. </qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:114
+msgid "&Location:"
+msgstr "&Lleoliad:"
+
+#: filewidgets/kfileplaceeditdialog.cpp:120
+#, fuzzy
+#| msgid ""
+#| "<qt>This is the icon that will appear in the Quick Access panel.<p>Click "
+#| "on the button to select a different icon.</qt>"
+msgid ""
+"<qt>This is the icon that will appear in the Places panel.<br /><br />Click "
+"on the button to select a different icon.</qt>"
+msgstr ""
+"<qt>Yr eicon a ymddenygs yn y panel Cyrchu ar Frys.<p>Cliciwch ar y botwm i "
+"ddewis eicon gwahanol.</qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:123
+msgid "Choose an &icon:"
+msgstr "Dewis &eicon:"
+
+#: filewidgets/kfileplaceeditdialog.cpp:141
+#, kde-format
+msgid "&Only show when using this application (%1)"
+msgstr "Dangos 'mond &pan ddefnyddir y cymhwysiad yma (%1)"
+
+#: filewidgets/kfileplaceeditdialog.cpp:143
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>Select this setting if you want this entry to show only when using "
+#| "the current application (%1).<p>If this setting is not selected, the "
+#| "entry will be available in all applications.</qt>"
+msgid ""
+"<qt>Select this setting if you want this entry to show only when using the "
+"current application (%1).<br /><br />If this setting is not selected, the "
+"entry will be available in all applications.</qt>"
+msgstr ""
+"<qt>Dewis y gosodiad yma os ydych eisiau i'r cofnod yma ddangos 'mond pan "
+"ddefnyddir y cymhwysiad yma (%1).<p>Os ni ddewisir y gosodiad yma, bydd y "
+"cofnod ar gael ym mhob chymhwysiad.</qt>"
+
+#: filewidgets/kfileplacesmodel.cpp:118
+msgctxt "KFile System Bookmarks"
+msgid "Home"
+msgstr ""
+
+#: filewidgets/kfileplacesmodel.cpp:121
+#, fuzzy
+msgctxt "KFile System Bookmarks"
+msgid "Network"
+msgstr "Plygell Newydd"
+
+#: filewidgets/kfileplacesmodel.cpp:133
+msgctxt "KFile System Bookmarks"
+msgid "Root"
+msgstr ""
+
+#: filewidgets/kfileplacesmodel.cpp:137
+#, fuzzy
+msgctxt "KFile System Bookmarks"
+msgid "Trash"
+msgstr "Sbwriel"
+
+#: filewidgets/kfileplacesmodel.cpp:798
+#, fuzzy, kde-format
+msgid "&Release '%1'"
+msgstr "&Diddymu Cofnod"
+
+#: filewidgets/kfileplacesmodel.cpp:800
+#, fuzzy, kde-format
+msgid "&Safely Remove '%1'"
+msgstr "&Diddymu Cofnod"
+
+#: filewidgets/kfileplacesmodel.cpp:803
+#, fuzzy, kde-format
+#| msgid "Unmount"
+msgid "&Unmount '%1'"
+msgstr "Datosod"
+
+#: filewidgets/kfileplacesmodel.cpp:824
+#, fuzzy, kde-format
+#| msgid "Eject"
+msgid "&Eject '%1'"
+msgstr "Allfwrw"
+
+#: filewidgets/kfileplacesmodel.cpp:858
+#, fuzzy, kde-format
+#| msgid "The specified resource may not exist."
+msgid "The device '%1' is not a disk and cannot be ejected."
+msgstr "Efallai nad yw'r adnodd penodol mewn bod."
+
+#: filewidgets/kfileplacesmodel.cpp:894
+#, fuzzy, kde-format
+#| msgid ""
+#| "An error occurred while attempting to %1, %2. A summary of the reasons is "
+#| "below.<ul>"
+msgid "An error occurred while accessing '%1', the system responded: %2"
+msgstr ""
+"Digwyddodd gwall wrth geisio %1, %2.  Mae crynodeb o'r rhesymau yn isod.<ul>"
+
+#: filewidgets/kfileplacesmodel.cpp:898
+#, fuzzy, kde-format
+#| msgid "An unexpected error (%1) occurred while attempting to %2."
+msgid "An error occurred while accessing '%1'"
+msgstr "Digwyddodd gwall annisgwyl (%1) wrth geisio cysylltu i %2"
+
+#: filewidgets/kfileplacesview.cpp:582
+#, fuzzy
+msgctxt "@action:inmenu"
+msgid "Empty Trash"
+msgstr "Sbwriel"
+
+#: filewidgets/kfileplacesview.cpp:587 filewidgets/kfileplacesview.cpp:608
+#: filewidgets/kfileplacesview.cpp:615 widgets/kacleditwidget.cpp:96
+msgid "Add Entry..."
+msgstr "Ychwanegu cofnod ..."
+
+#: filewidgets/kfileplacesview.cpp:589
+#, fuzzy, kde-format
+#| msgid "&Edit Entry..."
+msgid "&Edit Entry '%1'..."
+msgstr "&Golygu cofnod ..."
+
+#: filewidgets/kfileplacesview.cpp:611
+#, fuzzy, kde-format
+#| msgid "&Add Entry..."
+msgid "&Hide Entry '%1'"
+msgstr "&Ychwanegu cofnod ..."
+
+#: filewidgets/kfileplacesview.cpp:620
+#, fuzzy
+#| msgid ""
+#| "Show\n"
+#| "Entries"
+msgid "&Show All Entries"
+msgstr ""
+" Dangos\n"
+" Cofnodion"
+
+#: filewidgets/kfileplacesview.cpp:631
+#, fuzzy, kde-format
+#| msgid "&Remove Entry"
+msgid "&Remove Entry '%1'"
+msgstr "&Diddymu Cofnod"
+
+#: filewidgets/kfilewidget.cpp:295
+#, fuzzy
+#| msgid ""
+#| "<p>While typing in the text area, you may be presented with possible "
+#| "matches. This feature can be controlled by clicking with the right mouse "
+#| "button and selecting a preferred mode from the <b>Text Completion</b> "
+#| "menu."
+msgid ""
+"<qt>While typing in the text area, you may be presented with possible "
+"matches. This feature can be controlled by clicking with the right mouse "
+"button and selecting a preferred mode from the <b>Text Completion</b> menu.</"
+"qt>"
+msgstr ""
+"<p>Wrth deipio yn yr ardal testun, cyflwynir cydweddiadau posib.  Rheolir y "
+"nodwedd yma drwy glicio efo botwm de y llygoden, a dewis modd amgen oddiar y "
+"ddewislen <b>Cwblhau Testun</b>"
+
+#: filewidgets/kfilewidget.cpp:379
+#, fuzzy, kde-format
+msgid "Drive: %1"
+msgstr "maint : %1"
+
+#: filewidgets/kfilewidget.cpp:435
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>Click this button to enter the parent folder.<p>For instance, if the "
+#| "current location is file:/home/%1 clicking this button will take you to "
+#| "file:/home.</qt>"
+msgid ""
+"<qt>Click this button to enter the parent folder.<br /><br />For instance, "
+"if the current location is file:/home/%1 clicking this button will take you "
+"to file:/home.</qt>"
+msgstr ""
+"<qt>Cliciwch y botwm yma i fynd i mewn i'r plygell rhiant.<p> Er enghraifft, "
+"os file:/home/%1 yw'r lleoliad cyfredol, bydd clicio'r botwm yma yn mynd â "
+"chi i file:/home.</qt>"
+
+#: filewidgets/kfilewidget.cpp:439
+msgid "Click this button to move backwards one step in the browsing history."
+msgstr "Cliciwch y botwm yma i symud un cam yn ôl yn yr hanes pori."
+
+#: filewidgets/kfilewidget.cpp:440
+msgid "Click this button to move forward one step in the browsing history."
+msgstr "Cliciwch y botwm yma i symud un cam ymlaen yn yr hanes pori."
+
+#: filewidgets/kfilewidget.cpp:442
+msgid "Click this button to reload the contents of the current location."
+msgstr "Cliciwch y botwm yma i ail-lwytho cynnwys y lleoliad cyfredol."
+
+#: filewidgets/kfilewidget.cpp:444
+msgid "Click this button to create a new folder."
+msgstr "Cliciwch y botwm yma i greu plygell newydd."
+
+#: filewidgets/kfilewidget.cpp:450
+#, fuzzy
+#| msgid "Show Quick Access Navigation Panel"
+msgid "Show Places Navigation Panel"
+msgstr "Dangos Panel Morlywio Cyrchu ar Frys"
+
+#: filewidgets/kfilewidget.cpp:457
+#, fuzzy
+msgid "Show Bookmarks"
+msgstr "Nodau tudalen"
+
+#: filewidgets/kfilewidget.cpp:462
+#, fuzzy
+#| msgid "Operation"
+msgid "Options"
+msgstr "Gweithrediad"
+
+#: filewidgets/kfilewidget.cpp:464
+#, fuzzy
+#| msgid ""
+#| "<qt>This is the configuration menu for the file dialog. Various options "
+#| "can be accessed from this menu including: <ul><li>how files are sorted in "
+#| "the list</li><li>types of view, including icon and list</li><li>showing "
+#| "of hidden files</li><li>the Quick Access navigation panel</li><li>file "
+#| "previews</li><li>separating folders from files</li></ul></qt>"
+msgid ""
+"<qt>This is the preferences menu for the file dialog. Various options can be "
+"accessed from this menu including: <ul><li>how files are sorted in the list</"
+"li><li>types of view, including icon and list</li><li>showing of hidden "
+"files</li><li>the Places navigation panel</li><li>file previews</"
+"li><li>separating folders from files</li></ul></qt>"
+msgstr ""
+"<qt>Hon yw'r ddewislen osodiadau i'r ymgom ffeil.  Cyrchir amryw dewisiad "
+"o'r ddewislen yma, yn cynnwys: <ul><li>sut y didolir ffeiliau yn y rhestr</"
+"li><li>mathau golwg, yn cynnwys eicon a rhestr</li><li>dangos ffeiliau cudd</"
+"li><li>y panel morlywio Cyrchu ar Frys</li><li>rhagolygon ffeil</"
+"li><li>gwahanu plygyll oddiwrth ffeiliau</li></ul></qt>"
+
+#: filewidgets/kfilewidget.cpp:507
+msgid "Zoom out"
+msgstr ""
+
+#: filewidgets/kfilewidget.cpp:509
+msgid "Zoom in"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: filewidgets/kfilewidget.cpp:550 widgets/kpropertiesdesktopbase.ui:17
+msgid "&Name:"
+msgstr "&Enw:"
+
+#: filewidgets/kfilewidget.cpp:573
+#, fuzzy
+#| msgid ""
+#| "<qt>This is the filter to apply to the file list. File names that do not "
+#| "match the filter will not be shown.<p>You may select from one of the "
+#| "preset filters in the drop down menu, or you may enter a custom filter "
+#| "directly into the text area.<p>Wildcards such as * and ? are allowed.</qt>"
+msgid ""
+"<qt>This is the filter to apply to the file list. File names that do not "
+"match the filter will not be shown.<p>You may select from one of the preset "
+"filters in the drop down menu, or you may enter a custom filter directly "
+"into the text area.</p><p>Wildcards such as * and ? are allowed.</p></qt>"
+msgstr ""
+"<qt>Yr hidl i weithredu i'r rhestr ffeil. Ni ddangosir enwau ffeil sy ddim "
+"yn cydweddu efo'r hidl.<p>Gallwch ddewis un o'r hidlau rhagosodedig yn y "
+"cwymplen, neu gallwch mewnosod hidl addasu yn syth i mewn i'r ardal testun."
+"<p> Caniateir nod-chwilwyr fel * a ?. </qt>"
+
+#: filewidgets/kfilewidget.cpp:579
+msgid "&Filter:"
+msgstr "&Hidl:"
+
+#: filewidgets/kfilewidget.cpp:811
+#, fuzzy
+#| msgid "You can only select local files."
+msgid "You can only select one file"
+msgstr "Gallwch ddewis 'mond ffeiliau lleol."
+
+#: filewidgets/kfilewidget.cpp:812
+msgid "More than one file provided"
+msgstr ""
+
+#: filewidgets/kfilewidget.cpp:981
+#, fuzzy
+#| msgid "You can only select local files."
+msgid "You can only select local files"
+msgstr "Gallwch ddewis 'mond ffeiliau lleol."
+
+#: filewidgets/kfilewidget.cpp:982
+#, fuzzy
+msgid "Remote files not accepted"
+msgstr "Ni derbynnir Ffeiliau Pell"
+
+#: filewidgets/kfilewidget.cpp:1001
+msgid ""
+"More than one folder has been selected and this dialog does not accept "
+"folders, so it is not possible to decide which one to enter. Please select "
+"only one folder to list it."
+msgstr ""
+
+#: filewidgets/kfilewidget.cpp:1001
+msgid "More than one folder provided"
+msgstr ""
+
+#: filewidgets/kfilewidget.cpp:1009
+msgid ""
+"At least one folder and one file has been selected. Selected files will be "
+"ignored and the selected folder will be listed"
+msgstr ""
+
+#: filewidgets/kfilewidget.cpp:1009
+#, fuzzy
+#| msgid "%1 is a file, but a folder was expected."
+msgid "Files and folders selected"
+msgstr "Ffeil yw %1, ond disgwylwyd plygell."
+
+#: filewidgets/kfilewidget.cpp:1024
+#, fuzzy, kde-format
+#| msgid "The requested lock could not be granted. %1"
+msgid "The file \"%1\" could not be found"
+msgstr "Methu rhoi'r clo penodol. %1"
+
+#: filewidgets/kfilewidget.cpp:1024
+msgid "Cannot open file"
+msgstr ""
+
+#: filewidgets/kfilewidget.cpp:1298
+msgid "This is the name to save the file as."
+msgstr " Yr enw i ddefnyddio wrth gadw'r ffeil."
+
+#: filewidgets/kfilewidget.cpp:1301
+msgid ""
+"This is the list of files to open. More than one file can be specified by "
+"listing several files, separated by spaces."
+msgstr ""
+"Y rhestr o ffeiliau i agor.  Gellir benodi mwy nac un ffeil drwy restru "
+"amryw ffeil, wedi eu gwahanu gan fylchau."
+
+#: filewidgets/kfilewidget.cpp:1306
+msgid "This is the name of the file to open."
+msgstr " Enw'r ffeil i agor."
+
+#: filewidgets/kfilewidget.cpp:1320
+#, fuzzy
+msgctxt "@title:window"
+msgid "Places"
+msgstr "Tudalennau"
+
+#: filewidgets/kfilewidget.cpp:1510
+#, kde-format
+msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
+msgstr ""
+
+#: filewidgets/kfilewidget.cpp:1511
+#, fuzzy
+#| msgid "O&verwrite All"
+msgid "Overwrite File?"
+msgstr "D&ros-ysgrifennu Popeth"
+
+#: filewidgets/kfilewidget.cpp:1645
+#, fuzzy
+msgid ""
+"The chosen filenames do not\n"
+"appear to be valid."
+msgstr ""
+"Ymddengys nad ydy \n"
+" enwau'r ffeiliau a ddewiswyd yn ddilys."
+
+#: filewidgets/kfilewidget.cpp:1647
+msgid "Invalid Filenames"
+msgstr "Enwau Ffeil Annilys"
+
+#: filewidgets/kfilewidget.cpp:1732
+msgid "You can only select local files."
+msgstr "Gallwch ddewis 'mond ffeiliau lleol."
+
+#: filewidgets/kfilewidget.cpp:1733
+#, fuzzy
+msgid "Remote Files Not Accepted"
+msgstr "Ni derbynnir Ffeiliau Pell"
+
+#: filewidgets/kfilewidget.cpp:1838
+msgid "*|All Folders"
+msgstr "*|Pob Plygell"
+
+#: filewidgets/kfilewidget.cpp:2007 widgets/kfileitemactions.cpp:536
+#, fuzzy
+msgid "&Open"
+msgstr "&Agor"
+
+#: filewidgets/kfilewidget.cpp:2093
+#, kde-format
+msgid "Icon size: %1 pixels (standard size)"
+msgstr ""
+
+#: filewidgets/kfilewidget.cpp:2096
+#, kde-format
+msgid "Icon size: %1 pixels"
+msgstr ""
+
+#: filewidgets/kfilewidget.cpp:2230
+#, fuzzy, kde-format
+msgid "Automatically select filename e&xtension (%1)"
+msgstr "Dewis e&styniad yr enw ffeil yn awtomatig (%1)"
+
+#: filewidgets/kfilewidget.cpp:2231
+#, kde-format
+msgid "the extension <b>%1</b>"
+msgstr "yr estyniad<b>%1</b>"
+
+#: filewidgets/kfilewidget.cpp:2237
+#, fuzzy
+msgid "Automatically select filename e&xtension"
+msgstr "Dewis e&styniad yr enw ffeil yn awtomatig"
+
+#: filewidgets/kfilewidget.cpp:2238
+msgid "a suitable extension"
+msgstr "estyniad addas"
+
+#: filewidgets/kfilewidget.cpp:2248
+#, fuzzy, kde-format
+msgid ""
+"This option enables some convenient features for saving files with "
+"extensions:<br /><ol><li>Any extension specified in the <b>%1</b> text area "
+"will be updated if you change the file type to save in.<br /><br /></"
+"li><li>If no extension is specified in the <b>%2</b> text area when you "
+"click <b>Save</b>, %3 will be added to the end of the filename (if the "
+"filename does not already exist). This extension is based on the file type "
+"that you have chosen to save in.<br /><br />If you do not want KDE to supply "
+"an extension for the filename, you can either turn this option off or you "
+"can suppress it by adding a period (.) to the end of the filename (the "
+"period will be automatically removed).</li></ol>If unsure, keep this option "
+"enabled as it makes your files more manageable."
+msgstr ""
+"Mae'r dewisiad yma yn alluogi rhai nodweddion hwylus am gadw ffeiliau efo  "
+"estyniadau:<br><ol><li>Bydd unrhyw estyniad wedi'i benodi yn y maes testun "
+"<b>%1</b>  yn cael ei ddiweddaru os newidwch math y ffeil i'w gadw.<br><br></"
+"li><li>Os nid oes estyniad wedi ei benodi yn y maes testun <b>%2</b> pan "
+"gliciwch <b>Cadw</b>, bydd %3 yn cael ei ychwanegu i ddiwedd yr enw ffeil "
+"(os nid yw'r enw ffeil mewn bod yn barod).  Mae'r estyniad ei seilio ar y "
+"math ffeil yr ydych wedi ei benodi.  <br><br>Os nad ydych eisiau i KDE "
+"ddarparu estyniad i'r enw ffeil, gallwch un ai troi'r dewisiad yma i ffwrdd, "
+"neu ei atal gan ychwanegu atalnod llawn (.) i ddiwedd yr enw ffeil (bydd yr "
+"atalnod llawn yn cael ei waredu yn awtomatig).</li></ol>Os nad ydych yn "
+"sicr, alluogwch y dewisiad yma, oherwydd mae'n gwneud eich ffeiliau yn haws "
+"eu trefnu."
+
+#: filewidgets/kfilewidget.cpp:2558
+#, fuzzy
+msgid "Bookmarks"
+msgstr "Tudnod"
+
+#: filewidgets/kfilewidget.cpp:2562
+#, fuzzy
+#| msgid ""
+#| "<qt>This button allows you to bookmark specific locations. Click on this "
+#| "button to open the bookmark menu where you may add, edit or select a "
+#| "bookmark.<p>These bookmarks are specific to the file dialog, but "
+#| "otherwise operate like bookmarks elsewhere in KDE.</qt>"
+msgid ""
+"<qt>This button allows you to bookmark specific locations. Click on this "
+"button to open the bookmark menu where you may add, edit or select a "
+"bookmark.<br /><br />These bookmarks are specific to the file dialog, but "
+"otherwise operate like bookmarks elsewhere in KDE.</qt>"
+msgstr ""
+"<qt>Mae'r botwm yma yn gadael i chi nodi lleoliadau penodol.  Cliciwch ar y "
+"botwm yma i agor y ddewislen tudnodau lle gallwch ychwanegu, golygu, neu "
+"dewis tudnod.<p>Mae'r tudnodau yma yn benodol i'r deialog ffeil, ond ym mhob "
+"modd arall maent yn ymddwyn fel tudnodau mewn llefydd eraill yn KDE.</qt> "
+
+#: filewidgets/knewfilemenu.cpp:380 filewidgets/knewfilemenu.cpp:935
+#, fuzzy
+msgid "Sorry"
+msgstr "Stryd"
+
+#: filewidgets/knewfilemenu.cpp:389
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
+#| "does not exist.</qt>"
+msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
+msgstr ""
+"<qt>Methu rhedeg y gorchymyn penodol. Nid yw'r ffeil neu plygell <b>%1</"
+"b>mewn bod.</qt>"
+
+#: filewidgets/knewfilemenu.cpp:408
+#, fuzzy
+msgctxt "@action:button"
+msgid "Create directory"
+msgstr "Creu Plygell"
+
+#: filewidgets/knewfilemenu.cpp:410
+#, fuzzy
+#| msgid "Ru&n as a different user"
+msgctxt "@action:button"
+msgid "Enter a different name"
+msgstr "Rhede&g fel defnyddiwr gwahanol"
+
+#: filewidgets/knewfilemenu.cpp:413
+#, fuzzy
+msgid "Create hidden directory?"
+msgstr "Creu Plygell"
+
+#: filewidgets/knewfilemenu.cpp:423
+#, kde-format
+msgid ""
+"The name \"%1\" starts with a dot, so the directory will be hidden by "
+"default."
+msgstr ""
+
+#: filewidgets/knewfilemenu.cpp:425
+msgid "Do not ask again"
+msgstr ""
+
+#: filewidgets/knewfilemenu.cpp:518 filewidgets/knewfilemenu.cpp:591
+#, fuzzy
+msgid "File name:"
+msgstr "Dyfais:"
+
+#: filewidgets/knewfilemenu.cpp:521
+#, fuzzy
+#| msgid "Could Not Create Symbolic Link"
+msgid "Create Symlink"
+msgstr "Methu Creu Cyswllt Symbolaidd"
+
+#: filewidgets/knewfilemenu.cpp:595
+#, fuzzy
+msgid "Create link to URL"
+msgstr "Cyrchfan:"
+
+#: filewidgets/knewfilemenu.cpp:640 filewidgets/knewfilemenu.cpp:685
+#, fuzzy, kde-format
+#| msgid "%1 B"
+msgctxt "@item:inmenu Create New"
+msgid "%1"
+msgstr "%1 B"
+
+#: filewidgets/knewfilemenu.cpp:946
+msgid ""
+"Basic links can only point to local files or directories.\n"
+"Please use \"Link to Location\" for remote URLs."
+msgstr ""
+
+#: filewidgets/knewfilemenu.cpp:1023
+#, fuzzy
+#| msgid "C&reate"
+msgid "Create New"
+msgstr "C&reu"
+
+#: filewidgets/knewfilemenu.cpp:1036
+#, fuzzy
+msgid "Link to Device"
+msgstr "Dyfais:"
+
+#: filewidgets/knewfilemenu.cpp:1083
+#, fuzzy
+#| msgid "New Folder"
+msgctxt "Default name for a new folder"
+msgid "New Folder"
+msgstr "Plygell Newydd"
+
+#: filewidgets/knewfilemenu.cpp:1093
+#, fuzzy
+#| msgid "New Folder"
+msgctxt "@title:window"
+msgid "New Folder"
+msgstr "Plygell Newydd"
+
+#: filewidgets/knewfilemenu.cpp:1096
+#, kde-format
+msgid ""
+"Create new folder in:\n"
+"%1"
+msgstr ""
+"Creu plygell newydd yn: \n"
+"%1"
+
+#: filewidgets/kstatusbarofflineindicator.cpp:55
+msgid "The desktop is offline"
+msgstr ""
+
+#: filewidgets/kurlnavigator.cpp:424
+#, fuzzy
+#| msgid "Copying"
+msgid "Copy"
+msgstr "Copïo"
+
+#: filewidgets/kurlnavigator.cpp:428
+#, fuzzy
+#| msgid "Date"
+msgid "Paste"
+msgstr "Dyddiad"
+
+#: filewidgets/kurlnavigator.cpp:435
+#, fuzzy
+#| msgid "&Edit..."
+msgid "Edit"
+msgstr "&Golygu..."
+
+#: filewidgets/kurlnavigator.cpp:438
+msgid "Navigate"
+msgstr ""
+
+#: filewidgets/kurlnavigator.cpp:453
+msgid "Show Full Path"
+msgstr ""
+
+#: filewidgets/kurlnavigator.cpp:693
+msgid "Custom Path"
+msgstr ""
+
+#: filewidgets/kurlnavigatorbutton.cpp:696
+#, fuzzy
+msgctxt "@action:inmenu"
+msgid "More"
+msgstr "Stryd"
+
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:174
+#, fuzzy
+#| msgid "Devices"
+msgctxt "@item:inmenu"
+msgid "Devices"
+msgstr "Dyfeisiau"
+
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:178
+#, fuzzy
+#| msgid "SSL version:"
+msgctxt "@item:inmenu"
+msgid "Subversion"
+msgstr "Fersiwn SSL:"
+
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:182
+#, fuzzy
+#| msgid "Others"
+msgctxt "@item:inmenu"
+msgid "Other"
+msgstr "Eraill"
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:42
+#, fuzzy
+#| msgid "&Edit..."
+msgid "Edit mode"
+msgstr "&Golygu..."
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:97
+msgid "Click for Location Navigation"
+msgstr ""
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:99
+msgid "Click to Edit Location"
+msgstr ""
+
+#: ioslaves/file/file.cpp:228
+#, fuzzy, kde-format
+msgid "Setting ACL for %1"
+msgstr "Anfon data i %1"
+
+#: ioslaves/file/file.cpp:687 ioslaves/file/file_unix.cpp:261
+#, kde-format
+msgid ""
+"Could not change permissions for\n"
+"%1"
+msgstr ""
+"Methu newid caniatadau i \n"
+" %1"
+
+#: ioslaves/file/file.cpp:899
+#, fuzzy
+msgid "No Media inserted or Media not recognized."
+msgstr "Ni adnabyddwyd math yr argraffydd."
+
+#: ioslaves/file/file.cpp:908 ioslaves/file/file.cpp:1104
+msgid "\"vold\" is not running."
+msgstr ""
+
+#: ioslaves/file/file.cpp:941
+#, fuzzy
+msgid "Could not find program \"mount\""
+msgstr "Methu darganfod y rhaglen '%1'"
+
+#: ioslaves/file/file.cpp:1010
+#, fuzzy
+msgid "mounting is not supported by wince."
+msgstr "Ni chynhelir ysgrifennu at %1"
+
+#: ioslaves/file/file.cpp:1115
+#, fuzzy
+msgid "Could not find program \"umount\""
+msgstr "Methu darganfod y rhaglen '%1'"
+
+#: ioslaves/file/file.cpp:1130
+#, fuzzy
+msgid "unmounting is not supported by wince."
+msgstr "Ni chynhelir ysgrifennu at %1"
+
+#: ioslaves/file/file_unix.cpp:194
+#, kde-format
+msgid "Cannot copy file from %1 to %2. (Errno: %3)"
+msgstr ""
+
+#: ioslaves/file/file_unix.cpp:326
+#, fuzzy, kde-format
+msgid "No media in device for %1"
+msgstr "Dim meta-wybodaeth am %1 "
+
+#: ioslaves/file/file_unix.cpp:559
+#, fuzzy, kde-format
+msgid "Could not get user id for given user name %1"
+msgstr "Methu mynd i mewn i blygell %1"
+
+#: ioslaves/file/file_unix.cpp:572
+#, kde-format
+msgid "Could not get group id for given group name %1"
+msgstr ""
+
+#: ioslaves/ftp/ftp.cpp:349
+#, kde-format
+msgid "Opening connection to host %1"
+msgstr "Agor cysylltiad i westeiwr %1"
+
+#: ioslaves/ftp/ftp.cpp:364
+#, kde-format
+msgid "Connected to host %1"
+msgstr "Wedi cysylltu i westeiwr %1"
+
+#: ioslaves/ftp/ftp.cpp:474
+#, kde-format
+msgid ""
+"%1.\n"
+"\n"
+"Reason: %2"
+msgstr ""
+"%1.\n"
+"\n"
+"Rheswm: %2"
+
+#: ioslaves/ftp/ftp.cpp:504
+msgid "Sending login information"
+msgstr "Anfon gwybodaeth fewngofnodi"
+
+#: ioslaves/ftp/ftp.cpp:562
+#, kde-format
+msgid ""
+"Message sent:\n"
+"Login using username=%1 and password=[hidden]\n"
+"\n"
+"Server replied:\n"
+"%2\n"
+"\n"
+msgstr ""
+"Anfonwyd neges: \n"
+" Mewngofnod  gan ddefnyddio defnydd-enw: %1 a cyfrinair [cudd] \n"
+"\n"
+" Atebodd y gweinydd: \n"
+" %2 \n"
+"\n"
+
+#: ioslaves/ftp/ftp.cpp:571 ioslaves/http/http.cpp:5330
+#, fuzzy
+msgid "You need to supply a username and a password to access this site."
+msgstr "Rhaid i chi ddarparu defnydd-enw a cyfrinair i gyrchu'r wefan yma."
+
+#: ioslaves/ftp/ftp.cpp:573 ioslaves/http/http.cpp:5332
+msgid "Site:"
+msgstr "Gwefan:"
+
+#: ioslaves/ftp/ftp.cpp:574
+#, kde-format
+msgid "<b>%1</b>"
+msgstr "<b>%1</b>"
+
+#: ioslaves/ftp/ftp.cpp:657
+msgid "Login OK"
+msgstr "Mewngofnod iawn"
+
+#: ioslaves/ftp/ftp.cpp:686
+#, kde-format
+msgid "Could not login to %1."
+msgstr "Methu mewngofnodi i %1"
+
+#: ioslaves/ftp/ftp.cpp:2585 ioslaves/http/http.cpp:5216
+#: ioslaves/http/http.cpp:5342
+#, fuzzy
+msgid ""
+"You need to supply a username and a password for the proxy server listed "
+"below before you are allowed to access any sites."
+msgstr ""
+"Rhaid i chi gynnig defnydd-enw a cyfrinair am y gweinydd dirprwy a rhestrir "
+"isod cyn caniateir cyrchiad i unrhyw fan."
+
+#: ioslaves/ftp/ftp.cpp:2589 ioslaves/http/http.cpp:5220
+#: ioslaves/http/http.cpp:5345
+msgid "Proxy:"
+msgstr "Dirprwy:"
+
+#: ioslaves/ftp/ftp.cpp:2590 ioslaves/http/http.cpp:5221
+#: ioslaves/http/http.cpp:5426
+#, kde-format
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> wrth <b>%2</b>"
+
+#: ioslaves/ftp/ftp.cpp:2591 ioslaves/http/http.cpp:5223
+#: ioslaves/http/http.cpp:5362
+#, fuzzy
+msgid "Proxy Authentication Failed."
+msgstr "Methodd Dilysiant Dirprwy!"
+
+#: ioslaves/help/kio_help.cpp:124
+#, fuzzy, kde-format
+msgid "There is no documentation available for %1."
+msgstr "Dim gweithrediadau arbennig ar gael i brotocol %1"
+
+#: ioslaves/help/kio_help.cpp:178
+msgid "Looking up correct file"
+msgstr ""
+
+#: ioslaves/help/kio_help.cpp:229
+msgid "Preparing document"
+msgstr ""
+
+#: ioslaves/help/kio_help.cpp:238 ioslaves/help/kio_help.cpp:283
+#, fuzzy, kde-format
+#| msgid "The requested lock could not be granted. %1"
+msgid "The requested help file could not be parsed:<br />%1"
+msgstr "Methu rhoi'r clo penodol. %1"
+
+#: ioslaves/help/kio_help.cpp:260
+msgid "Saving to cache"
+msgstr ""
+
+#: ioslaves/help/kio_help.cpp:277
+msgid "Using cached version"
+msgstr ""
+
+#: ioslaves/help/kio_help.cpp:339
+msgid "Looking up section"
+msgstr ""
+
+#: ioslaves/help/kio_help.cpp:350
+#, fuzzy, kde-format
+msgid "Could not find filename %1 in %2."
+msgstr "Methu darllen ffeil %1"
+
+#: ioslaves/http/http.cpp:602
+#, fuzzy
+msgid "No host specified."
+msgstr "Dim gwesteiwr wedi'i benodi!"
+
+#: ioslaves/http/http.cpp:1565
+msgid "Otherwise, the request would have succeeded."
+msgstr "Fel arall, buasai'r cais wedi llwyddo."
+
+#: ioslaves/http/http.cpp:1569
+#, fuzzy
+#| msgid "retrieve property values"
+msgctxt "request type"
+msgid "retrieve property values"
+msgstr "nÃ´l gwerthoedd priodwedd"
+
+#: ioslaves/http/http.cpp:1572
+#, fuzzy
+#| msgid "set property values"
+msgctxt "request type"
+msgid "set property values"
+msgstr "gosod gwerthoedd priodwedd"
+
+#: ioslaves/http/http.cpp:1575
+#, fuzzy
+#| msgid "create the requested folder"
+msgctxt "request type"
+msgid "create the requested folder"
+msgstr "creu'r plygell penodol"
+
+#: ioslaves/http/http.cpp:1578
+#, fuzzy
+#| msgid "copy the specified file or folder"
+msgctxt "request type"
+msgid "copy the specified file or folder"
+msgstr "copïo'r ffeil neu plygell penodol"
+
+#: ioslaves/http/http.cpp:1581
+#, fuzzy
+#| msgid "move the specified file or folder"
+msgctxt "request type"
+msgid "move the specified file or folder"
+msgstr "symud y ffeil neu plygell penodol"
+
+#: ioslaves/http/http.cpp:1584
+#, fuzzy
+#| msgid "search in the specified folder"
+msgctxt "request type"
+msgid "search in the specified folder"
+msgstr "chwilio yn y plygell penodol"
+
+#: ioslaves/http/http.cpp:1587
+#, fuzzy
+#| msgid "lock the specified file or folder"
+msgctxt "request type"
+msgid "lock the specified file or folder"
+msgstr "cloi'r ffeil neu blygell penodol"
+
+#: ioslaves/http/http.cpp:1590
+#, fuzzy
+#| msgid "unlock the specified file or folder"
+msgctxt "request type"
+msgid "unlock the specified file or folder"
+msgstr "datgloi'r ffeil neu blygell penodol"
+
+#: ioslaves/http/http.cpp:1593
+#, fuzzy
+#| msgid "delete the specified file or folder"
+msgctxt "request type"
+msgid "delete the specified file or folder"
+msgstr "dileu'r ffeil neu blygell penodol"
+
+#: ioslaves/http/http.cpp:1596
+#, fuzzy
+#| msgid "query the server's capabilities"
+msgctxt "request type"
+msgid "query the server's capabilities"
+msgstr "holi gallu'r gweinydd"
+
+#: ioslaves/http/http.cpp:1599
+#, fuzzy
+#| msgid "retrieve the contents of the specified file or folder"
+msgctxt "request type"
+msgid "retrieve the contents of the specified file or folder"
+msgstr "nôl cynnwys y ffeil neu blygell penodol"
+
+#: ioslaves/http/http.cpp:1602
+#, fuzzy
+#| msgid "search in the specified folder"
+msgctxt "request type"
+msgid "run a report in the specified folder"
+msgstr "chwilio yn y plygell penodol"
+
+#: ioslaves/http/http.cpp:1613
+#, fuzzy, kde-format
+#| msgid "An unexpected error (%1) occurred while attempting to %2."
+msgctxt "%1: code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "Digwyddodd gwall annisgwyl (%1) wrth geisio cysylltu i %2"
+
+#: ioslaves/http/http.cpp:1620
+msgid "The server does not support the WebDAV protocol."
+msgstr "Nid yw'r gweinydd yn cynnal y protocol WebDAV."
+
+#: ioslaves/http/http.cpp:1662
+#, fuzzy, kde-format
+#| msgid ""
+#| "An error occurred while attempting to %1, %2. A summary of the reasons is "
+#| "below.<ul>"
+msgctxt "%1: request type, %2: url"
+msgid ""
+"An error occurred while attempting to %1, %2. A summary of the reasons is "
+"below."
+msgstr ""
+"Digwyddodd gwall wrth geisio %1, %2.  Mae crynodeb o'r rhesymau yn isod.<ul>"
+
+#: ioslaves/http/http.cpp:1677 ioslaves/http/http.cpp:1810
+#, fuzzy, kde-format
+#| msgid "Access was denied while attempting to %1."
+msgctxt "%1: request type"
+msgid "Access was denied while attempting to %1."
+msgstr "Gwrthodwyd cynhyrchiad wrth geisio %1."
+
+#: ioslaves/http/http.cpp:1690 ioslaves/http/http.cpp:1816
+msgid ""
+"A resource cannot be created at the destination until one or more "
+"intermediate collections (folders) have been created."
+msgstr ""
+"Ni ellir creu adnodd yn y cyrchfan nes bydd un neu mwy o'r gasgliadau "
+"(plygyll) canolraddol wedi'u creu."
+
+#: ioslaves/http/http.cpp:1698
+#, kde-format
+msgid ""
+"The server was unable to maintain the liveness of the properties listed in "
+"the propertybehavior XML element or you attempted to overwrite a file while "
+"requesting that files are not overwritten. %1"
+msgstr ""
+"Methodd y gweinydd i barhau bywioldeb y priodweddau a rhestrir yn elfen "
+"propertybehaviour XML, neu rydych wedi ceisio ysgrifennu dros ffeil wrth "
+"ofyn peidio ag ysgrifennu dros ffeiliau. %1"
+
+#: ioslaves/http/http.cpp:1706
+#, kde-format
+msgid "The requested lock could not be granted. %1"
+msgstr "Methu rhoi'r clo penodol. %1"
+
+#: ioslaves/http/http.cpp:1712
+msgid "The server does not support the request type of the body."
+msgstr "Nid yw'r gweinydd yn cynnal math cais y corff."
+
+#: ioslaves/http/http.cpp:1717 ioslaves/http/http.cpp:1824
+#, fuzzy, kde-format
+#| msgid "Unable to %1 because the resource is locked."
+msgctxt "%1: request type"
+msgid "Unable to %1 because the resource is locked."
+msgstr "Methu %1 o achos mae'r adnodd ar glo."
+
+#: ioslaves/http/http.cpp:1721
+msgid "This action was prevented by another error."
+msgstr "Rhwystrwyd y gweithrediad gan wall arall. "
+
+#: ioslaves/http/http.cpp:1727 ioslaves/http/http.cpp:1830
+#, fuzzy, kde-format
+#| msgid ""
+#| "Unable to %1 because the destination server refuses to accept the file or "
+#| "folder."
+msgctxt "%1: request type"
+msgid ""
+"Unable to %1 because the destination server refuses to accept the file or "
+"folder."
+msgstr ""
+"Methu %1 o achos mae'r gweinydd cyrchfan yn gwrthod derbyn y ffeil neu "
+"blygell."
+
+#: ioslaves/http/http.cpp:1734 ioslaves/http/http.cpp:1837
+msgid ""
+"The destination resource does not have sufficient space to record the state "
+"of the resource after the execution of this method."
+msgstr ""
+"Nid oes gan yr adnodd cyrchfan ddigon o le i gofnodi cyflwr yr adnodd ar Ã´l "
+"gweithrediad y dull yma.  "
+
+#: ioslaves/http/http.cpp:1788
+#, fuzzy
+#| msgid "The specified resource may not exist."
+msgid "The resource cannot be deleted."
+msgstr "Efallai nad yw'r adnodd penodol mewn bod."
+
+#: ioslaves/http/http.cpp:1801
+#, fuzzy, kde-format
+#| msgid "upload %1"
+msgctxt "request type"
+msgid "upload %1"
+msgstr "fyny-lwytho %1"
+
+#: ioslaves/http/http.cpp:1851
+#, fuzzy, kde-format
+#| msgid "An unexpected error (%1) occurred while attempting to %2."
+msgctxt "%1: response code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "Digwyddodd gwall annisgwyl (%1) wrth geisio cysylltu i %2"
+
+#: ioslaves/http/http.cpp:2677
+#, kde-format
+msgid "%1 contacted. Waiting for reply..."
+msgstr "%1 wedi'i cysylltu. Yn disgwyl am ateb..."
+
+#: ioslaves/http/http.cpp:3021
+#, kde-format
+msgctxt "@info Security check on url being accessed"
+msgid ""
+"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
+"the website does not require authentication. This may be an attempt to trick "
+"you.</p><p>Is \"%1\" the site you want to visit?</p>"
+msgstr ""
+
+#: ioslaves/http/http.cpp:3027
+msgctxt "@title:window"
+msgid "Confirm Website Access"
+msgstr ""
+
+#: ioslaves/http/http.cpp:3118
+msgid "Server processing request, please wait..."
+msgstr "Mae'r gweinydd yn prosesu'r cais, arhoswch..."
+
+#: ioslaves/http/http.cpp:3827 ioslaves/http/http.cpp:3881
+#, kde-format
+msgid "Sending data to %1"
+msgstr "Anfon data i %1"
+
+#: ioslaves/http/http.cpp:4338
+#, kde-format
+msgid "Retrieving %1 from %2..."
+msgstr "NÃ´l %1 oddiwrth %2..."
+
+#: ioslaves/http/http.cpp:5361
+msgid "Authentication Failed."
+msgstr "Methodd dilysiant."
+
+#: ioslaves/http/http.cpp:5459
+#, fuzzy
+#| msgid "Authorization Dialog"
+msgid "Authorization failed."
+msgstr "Ymgom Awdurdodi"
+
+#: ioslaves/http/http.cpp:5475
+#, fuzzy
+#| msgid "Authorization Dialog"
+msgid "Unknown Authorization method."
+msgstr "Ymgom Awdurdodi"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:66
+msgid "Cookie Alert"
+msgstr "Rhybudd Cwci"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:90
+#, fuzzy, kde-format
+#| msgid "Do you want to accept or reject?"
+msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+msgid ""
+"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject this cookie?</p>"
+msgid_plural ""
+"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject these cookies?</p>"
+msgstr[0] "Ydych eisiau derbyn neu gwrthod?"
+msgstr[1] "Ydych eisiau derbyn neu gwrthod?"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:98
+#, fuzzy
+msgctxt "@item:intext cross domain cookie"
+msgid " [Cross Domain]"
+msgstr "<b>[Dros Barth!]</b>"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:108
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:363
+msgid "See or modify the cookie information"
+msgstr "Gweld neu newid y wybodaeth fisgedi"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:112
+msgid "Accept for this &session"
+msgstr ""
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:114
+msgid "Accept cookie(s) until the end of the current session"
+msgstr ""
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:121
+msgid "&Accept"
+msgstr "&Derbyn"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:122
+msgid "&Reject"
+msgstr "&Gwrthod"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:156
+msgid "Apply Choice To"
+msgstr "Gweithredu Dewi I"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:159
+msgid "&Only this cookie"
+msgstr "&Dim ond y cwci yma"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:159
+msgid "&Only these cookies"
+msgstr "&Dim ond y cwcis yma"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:163
+#, fuzzy
+#| msgid ""
+#| "Select this option to accept/reject only this cookie. You will be "
+#| "prompted if another cookie is received. <em>(see WebBrowsing/Cookies in "
+#| "the Control Center)</em>."
+msgid ""
+"Select this option to only accept or reject this cookie. You will be "
+"prompted again if you receive another cookie."
+msgstr ""
+"Dewis yr opsiyn yma i dderbyn/wrthod dim ond y cwci yma.  Byddych yn cael "
+"eich cofweini os derbynnir cwci arall. <em> (gweler Pori'r WÃª / Cwcis yn y "
+"Canolfan Rheoli)</em>."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:166
+msgid "All cookies from this do&main"
+msgstr "Pob cookie o'r &parth yma"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:169
+#, fuzzy
+#| msgid ""
+#| "Select this option to accept/reject all cookies from this site. Choosing "
+#| "this option will add a new policy for the site this cookie originated "
+#| "from. This policy will be permanent until you manually change it from the "
+#| "Control Center <em>(see WebBrowsing/Cookies in the Control Center)</em>."
+msgid ""
+"Select this option to accept or reject all cookies from this site. Choosing "
+"this option will add a new policy for the site this cookie originated from. "
+"This policy will be permanent until you manually change it from the System "
+"Settings."
+msgstr ""
+"Dewis yr opsiyn yma i wrthod pob cwci o'r wefan yma.  Bydd dewis yr opsiyn "
+"yma yn ychwanegu polisi newydd i wefan tarddiad y cwci yma.  Bydd y polisi "
+"yma yn barhaol tan i chi ei newid o'r Canolfan Rheoli. <em> (gweler Pori'r "
+"WÃª / Cwcis yn y Canolfan Rheoli)</em>."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:174
+msgid "All &cookies"
+msgstr "Pob &cwci"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:177
+#, fuzzy
+#| msgid ""
+#| "Select this option to accept/reject all cookies from anywhere. Choosing "
+#| "this option will change the global cookie policy set in the Control "
+#| "Center for all cookies <em>(see WebBrowsing/Cookies in the Control Center)"
+#| "</em>."
+msgid ""
+"Select this option to accept/reject all cookies from anywhere. Choosing this "
+"option will change the global cookie policy for all cookies until you "
+"manually change it from the System Settings."
+msgstr ""
+"Dewis yr opsiyn yma i wrthod pob cwci o unrhyw le.  Bydd dewis yr opsiyn yma "
+"yn newid   polisi eang am gwcis a osodwyd yn y Canolfan Rheoli am bob cwci. "
+"<em> (gweler Pori'r WÃª / Cwcis yn y Canolfan Rheoli)</em>."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:245
+msgid "Cookie Details"
+msgstr "Manylion Cwci"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:250
+msgid "Name:"
+msgstr "Enw:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:258
+msgid "Value:"
+msgstr "Gwerth:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:265
+msgid "Expires:"
+msgstr "Darfod:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:272
+msgid "Path:"
+msgstr "Llwybr: "
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:279
+msgid "Domain:"
+msgstr "Parth:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:286
+msgid "Exposure:"
+msgstr "Dadleniad:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:294
+msgctxt "Next cookie"
+msgid "&Next >>"
+msgstr "&Nesaf >>"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:299
+msgid "Show details of the next cookie"
+msgstr "Dangos manylion y cwci nesaf"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:327
+msgid "Not specified"
+msgstr "Ni phenodir"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:337
+msgid "End of Session"
+msgstr "Diwedd y Sesiwn"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:342
+msgid "Secure servers only"
+msgstr " Gweinyddion diogel yn unig"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:344
+msgid "Secure servers, page scripts"
+msgstr " Gweinyddion a sgriptiau tudalen diogel"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:348
+msgid "Servers"
+msgstr "Gweinyddion"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:350
+msgid "Servers, page scripts"
+msgstr "Gweinyddion, sgriptiau tudalen"
+
+#: ioslaves/telnet/ktelnetservice.cpp:68
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Nid oes ganddoch caniatad i gyrchu'r protocol %1."
+
+#: kcms/webshortcuts/main.cpp:41
+msgid "Web Shortcuts"
+msgstr ""
+
+#: kcms/webshortcuts/main.cpp:48
+msgid ""
+"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
+"browsing features of KDE. <h2>Web Shortcuts</h2>Web Shortcuts are a quick "
+"way of using Web search engines. For example, type \"duckduckgo:frobozz\" or "
+"\"dd:frobozz\" and your web browser will do a search on DuckDuckGo for "
+"\"frobozz\". Even easier: just press Alt+F2 (if you have not changed this "
+"keyboard shortcut) and enter the shortcut in the Run Command dialog."
+msgstr ""
+
+#: kioexec/main.cpp:46
+msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
+msgstr "KIO Exec - Agor ffeiliau pell, arsylwi newidiadau, gofyn am lanlwytho."
+
+#: kioexec/main.cpp:80
+#, kde-format
+msgid ""
+"The URL %1\n"
+"is malformed"
+msgstr ""
+"Mae'r URL %1\n"
+"wedi'i gam-fformatio"
+
+#: kioexec/main.cpp:82
+#, kde-format
+msgid ""
+"Remote URL %1\n"
+"not allowed with --tempfiles switch"
+msgstr ""
+"Ni chaniateir URL pell %1\n"
+"efo'r cymal --tempfiles"
+
+#: kioexec/main.cpp:213
+#, kde-format
+msgid ""
+"The supposedly temporary file\n"
+"%1\n"
+"has been modified.\n"
+"Do you still want to delete it?"
+msgstr ""
+"Mae'r ffeil\n"
+"%1\n"
+"(oedd i fod dros dro) wedi ei newid. \n"
+"Ydych eisiau ei dileu?"
+
+#: kioexec/main.cpp:214 kioexec/main.cpp:221
+msgid "File Changed"
+msgstr "Newidwyd y ffeil."
+
+#: kioexec/main.cpp:214
+#, fuzzy
+msgid "Do Not Delete"
+msgstr "Dim byd i'w dileu."
+
+#: kioexec/main.cpp:220
+#, kde-format
+msgid ""
+"The file\n"
+"%1\n"
+"has been modified.\n"
+"Do you want to upload the changes?"
+msgstr ""
+"Mae'r ffeil\n"
+"%1\n"
+"wedi ei newid. \n"
+"Ydych eisiau lanlwytho'r newidiadau?"
+
+#: kioexec/main.cpp:221
+msgid "Upload"
+msgstr "Lanlwytho"
+
+#: kioexec/main.cpp:221
+#, fuzzy
+msgid "Do Not Upload"
+msgstr "Methu Canfod Statws yr Adnodd"
+
+#: kioexec/main.cpp:252
+msgid "KIOExec"
+msgstr "KIOExec"
+
+#: kioexec/main.cpp:254
+msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
+msgstr ""
+
+#: kioexec/main.cpp:255
+msgid "David Faure"
+msgstr ""
+
+#: kioexec/main.cpp:256
+msgid "Stephan Kulow"
+msgstr ""
+
+#: kioexec/main.cpp:257
+msgid "Bernhard Rosenkraenzer"
+msgstr ""
+
+#: kioexec/main.cpp:258
+msgid "Waldo Bastian"
+msgstr ""
+
+#: kioexec/main.cpp:259
+msgid "Oswald Buddenhagen"
+msgstr ""
+
+#: kioexec/main.cpp:264
+msgid "Treat URLs as local files and delete them afterwards"
+msgstr "Trin URLau fel ffeiliau lleol a'u dileu wedyn"
+
+#: kioexec/main.cpp:265
+#, fuzzy
+msgid "Suggested file name for the downloaded file"
+msgstr "Dewiswch enw ffeil amgen i'r ffeil newydd."
+
+#: kioexec/main.cpp:266
+msgid "Command to execute"
+msgstr "Gorchymyn i Weithredu"
+
+#: kioexec/main.cpp:267
+msgid "URL(s) or local file(s) used for 'command'"
+msgstr "URL(au) neu ffeil(iau) lleol i'w defnyddio fel 'gorchymyn'"
+
+#: kpac/discovery.cpp:112
+msgid "Could not find a usable proxy configuration script"
+msgstr "Methu canfod ysgrifen ffurfweddu'r dirpwry a gall ei defnyddio"
+
+#: kpac/downloader.cpp:92
+#, kde-format
+msgid ""
+"Could not download the proxy configuration script:\n"
+"%1"
+msgstr ""
+"Methu lawrlwytho'r ysgrifen ffurfweddu'r dirprwy:\n"
+"%1"
+
+#: kpac/downloader.cpp:95
+msgid "Could not download the proxy configuration script"
+msgstr "Methu lawrlwytho'r ysgrifen ffurfweddu'r dirprwy."
+
+#: kpac/proxyscout.cpp:236
+#, kde-format
+msgid ""
+"The proxy configuration script is invalid:\n"
+"%1"
+msgstr ""
+" Mae'r ysgrifen ffurfweddu'r dirprwy yn annilys:\n"
+"%1"
+
+#: kpac/proxyscout.cpp:345
+#, kde-format
+msgid ""
+"The proxy configuration script returned an error:\n"
+"%1"
+msgstr ""
+"Mae gwall wedi'i ddychwelyd gan yr ysgrifen ffurfweddu'r dirprwy:\n"
+"%1"
+
+#: kpac/script.cpp:752
+msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
+msgstr ""
+
+#: kpac/script.cpp:763
+#, kde-format
+msgid "Got an invalid reply when calling %1"
+msgstr ""
+
+#: kpasswdserver/kpasswdserver.cpp:556
+#, fuzzy
+#| msgid "  Do you want to retry?"
+msgid "Do you want to retry?"
+msgstr "Ydych eisiau ail-geisio?"
+
+#: kpasswdserver/kpasswdserver.cpp:561
+#, fuzzy
+#| msgid "Server Authentication"
+msgid "Retry Authentication"
+msgstr "Dilysiant Gweinydd"
+
+#: kpasswdserver/kpasswdserver.cpp:565
+#, fuzzy
+#| msgid "Retry"
+msgctxt "@action:button filter-continue"
+msgid "Retry"
+msgstr "Ail-geisio..."
+
+#: kpasswdserver/kpasswdserver.cpp:858
+#, fuzzy
+#| msgid "Authorization Dialog"
+msgid "Authentication Dialog"
+msgstr "Ymgom Awdurdodi"
+
+#: urifilters/ikws/ikwsopts.cpp:54
+#, fuzzy
+#| msgid "Name"
+msgctxt "@title:column Name label from web shortcuts column"
+msgid "Name"
+msgstr "Enw"
+
+#: urifilters/ikws/ikwsopts.cpp:56
+msgctxt "@title:column"
+msgid "Shortcuts"
+msgstr ""
+
+#: urifilters/ikws/ikwsopts.cpp:58
+msgctxt "@title:column"
+msgid "Preferred"
+msgstr ""
+
+#: urifilters/ikws/ikwsopts.cpp:200
+#, fuzzy
+#| msgid "None"
+msgctxt "@item:inlistbox No default web shortcut"
+msgid "None"
+msgstr "Dim"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:17
+msgid ""
+"<html><head/><body><p>Enable or disable web shortcuts. </p><p>Web shortcuts "
+"allow you to quickly access or search for information located online or on "
+"your hard drive. </p><p>KDE comes with many predefined Web shortcuts. One "
+"such Web shortcut is the Google (TM) search shortcut. To use it, you simply "
+"type the keyword 'gg' followed by the keyword delimiter and the search term, "
+"e.g. <span style=\" font-weight:600;\">gg:KDE</span>.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:20
+msgid "&Enable Web shortcuts"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: urifilters/ikws/ikwsopts_ui.ui:30
+msgid "&Use preferred shortcuts only"
+msgstr ""
+
+#. i18n: ectx: property (placeholderText), widget (KLineEdit, searchLineEdit)
+#: urifilters/ikws/ikwsopts_ui.ui:37
+msgid "Search for shortcut"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:71
+msgid "Add a new Web shortcut"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:74
+#, fuzzy
+#| msgid "New..."
+msgid "&New..."
+msgstr "Newydd ..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:84
+msgid "Modify the highlighted Web shortcut"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:87
+#, fuzzy
+#| msgid "Calculating..."
+msgid "Chan&ge..."
+msgstr "Cyfrifo ..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:97
+msgid "Delete the highlighted Web shortcut"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:100
+#, fuzzy
+msgid "De&lete"
+msgstr "Dileu"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:138
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:141
+msgid "Default Web &shortcut:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cmbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:166
+msgid ""
+"<html><head/><body><p>Select a default web shortcut. </p><p>This allows "
+"applications to automatically convert the typed word or phrase to web "
+"shortcut queries when they cannot be filtered into a proper URL. </p><p>To "
+"disable this functionality select <span style=\" font-weight:600;\">None</"
+"span> from the list. </p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:182
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:185
+msgid "&Keyword delimiter:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:204
+msgid "Choose a delimiter to mark the Web shortcut keyword."
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:208
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:213
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr ""
+
+#: urifilters/ikws/kuriikwsfilter.cpp:121
+msgid "No preferred search providers were found."
+msgstr ""
+
+#: urifilters/ikws/kuriikwsfilter.cpp:140
+msgid "No search providers were found."
+msgstr ""
+
+#: urifilters/ikws/kurisearchfilter.cpp:92
+msgid "Search F&ilters"
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:58
+#, fuzzy
+msgctxt "@item:inlistbox The default character set"
+msgid "Default"
+msgstr "(Rhagosodedig)"
+
+#: urifilters/ikws/searchproviderdlg.cpp:62
+msgid "Modify Web Shortcut"
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:72
+msgid "New Web Shortcut"
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:125
+#, kde-format
+msgid ""
+"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
+"one."
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:130
+#, fuzzy, kde-format
+#| msgid "%1 %"
+msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+msgid "- %1: \"%2\""
+msgstr "%1 %"
+
+#: urifilters/ikws/searchproviderdlg.cpp:134
+#, kde-format
+msgid ""
+"The following shortcuts are already assigned. Please choose different ones.\n"
+"%1"
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:146
+msgid ""
+"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
+"This means that the same page is always going to be visited, regardless of "
+"the text typed in with the shortcut."
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:149
+msgid "Keep It"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:17
+msgid "Enter the human-readable name of the search provider here."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:23
+msgid "Shortcut &name:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:42
+#: urifilters/ikws/searchproviderdlg_ui.ui:64
+#: urifilters/ikws/searchproviderdlg_ui.ui:70
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:48
+msgid "Shortcut &URL:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:83
+msgid "Select the character set that will be used to encode your search query."
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:92
+#: urifilters/ikws/searchproviderdlg_ui.ui:97
+#: urifilters/ikws/searchproviderdlg_ui.ui:116
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:104
+#: urifilters/ikws/searchproviderdlg_ui.ui:107
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:119
+msgid "&Shortcuts:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:132
+msgid "Select the character set that will be used to encode your search query"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:135
+msgid "&Charset:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: urifilters/ikws/searchproviderdlg_ui.ui:158
+msgid "Insert query placeholder"
+msgstr ""
+
+#: urifilters/shorturi/kshorturifilter.cpp:270
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
+#| "does not exist.</qt>"
+msgid "<qt><b>%1</b> does not have a home folder.</qt>"
+msgstr ""
+"<qt>Methu rhedeg y gorchymyn penodol. Nid yw'r ffeil neu plygell <b>%1</"
+"b>mewn bod.</qt>"
+
+#: urifilters/shorturi/kshorturifilter.cpp:272
+#, fuzzy, kde-format
+msgid "<qt>There is no user called <b>%1</b>.</qt>"
+msgstr "Mae'r cymhwysiad '%1' wedi gofyn am gyrchiad i'r waled agored '%2'."
+
+#: urifilters/shorturi/kshorturifilter.cpp:520
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
+#| "does not exist.</qt>"
+msgid "<qt>The file or folder <b>%1</b> does not exist.</qt>"
+msgstr ""
+"<qt>Methu rhedeg y gorchymyn penodol. Nid yw'r ffeil neu plygell <b>%1</"
+"b>mewn bod.</qt>"
+
+#: widgets/accessmanager.cpp:221
+msgid "Blocked request."
+msgstr ""
+
+#: widgets/accessmanager.cpp:285
+#, fuzzy
+#| msgid "Unknown Error"
+msgid "Unknown HTTP verb."
+msgstr "Gwall Anhysbys"
+
+#. i18n: ectx: property (text), widget (QLabel, commonNameTag)
+#: widgets/certificateparty.ui:28
+msgid "Common name:"
+msgstr "Enw Cyffredin:"
+
+#. i18n: ectx: property (text), widget (QLabel, commonName)
+#: widgets/certificateparty.ui:38
+msgid "Acme Co."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, organizationTag)
+#: widgets/certificateparty.ui:48
+msgid "Organization:"
+msgstr "Sefydliad:"
+
+#. i18n: ectx: property (text), widget (QLabel, organization)
+#: widgets/certificateparty.ui:58
+msgid "Acme Sundry Products Company"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
+#: widgets/certificateparty.ui:68
+msgid "Organizational unit:"
+msgstr "Uned trefniadaeth: "
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
+#: widgets/certificateparty.ui:78
+msgid "Fraud Department"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, countryTag)
+#: widgets/certificateparty.ui:88
+msgid "Country:"
+msgstr "Gwlad:"
+
+#. i18n: ectx: property (text), widget (QLabel, country)
+#: widgets/certificateparty.ui:98
+#, fuzzy
+#| msgid "Can Read"
+msgid "Canada"
+msgstr " Gallu Darllen"
+
+#. i18n: ectx: property (text), widget (QLabel, stateTag)
+#: widgets/certificateparty.ui:108
+#, fuzzy
+#| msgctxt "Federal State"
+#| msgid "State:"
+msgid "State:"
+msgstr "Talaith:"
+
+#. i18n: ectx: property (text), widget (QLabel, state)
+#: widgets/certificateparty.ui:118
+msgid "Quebec"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, cityTag)
+#: widgets/certificateparty.ui:128
+#, fuzzy
+#| msgid "Country:"
+msgid "City:"
+msgstr "Gwlad:"
+
+#. i18n: ectx: property (text), widget (QLabel, city)
+#: widgets/certificateparty.ui:138
+msgid "Lakeridge Meadows"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:124
+#, fuzzy
+msgid "Creating directory"
+msgstr "Creu Plygell"
+
+#: widgets/fileundomanager.cpp:129
+#, fuzzy
+#| msgid "Moving"
+msgid "Moving"
+msgstr "Symud"
+
+#: widgets/fileundomanager.cpp:135
+#, fuzzy
+msgid "Deleting"
+msgstr "(Dileu)"
+
+#: widgets/fileundomanager.cpp:299
+msgid "Und&o"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:305
+msgid "Und&o: Copy"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:307
+msgid "Und&o: Link"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:309
+msgid "Und&o: Move"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:311
+#, fuzzy
+#| msgid "&Rename"
+msgid "Und&o: Rename"
+msgstr "&Ail-enwi"
+
+#: widgets/fileundomanager.cpp:313
+#, fuzzy
+msgid "Und&o: Trash"
+msgstr "Sbwriel"
+
+#: widgets/fileundomanager.cpp:315
+#, fuzzy
+#| msgid "Could Not Create Folder"
+msgid "Und&o: Create Folder"
+msgstr "Methu Creu Plygell"
+
+#: widgets/fileundomanager.cpp:317
+#, fuzzy
+#| msgid "Could Not Create Folder"
+msgid "Und&o: Create File"
+msgstr "Methu Creu Plygell"
+
+#: widgets/fileundomanager.cpp:698
+#, kde-format
+msgid ""
+"The file %1 was copied from %2, but since then it has apparently been "
+"modified at %3.\n"
+"Undoing the copy will delete the file, and all modifications will be lost.\n"
+"Are you sure you want to delete %4?"
+msgstr ""
+
+#: widgets/fileundomanager.cpp:701
+#, fuzzy
+#| msgid "Updating System Configuration"
+msgid "Undo File Copy Confirmation"
+msgstr "Diweddaru Ffurfweddiad Cysawd"
+
+#: widgets/jobuidelegate.cpp:228
+#, fuzzy, kde-format
+msgid "Do you really want to delete this item?"
+msgid_plural "Do you really want to delete these %1 items?"
+msgstr[0] "Ydych wir eisiau dileu yr eitem yma?"
+msgstr[1] "Ydych wir eisiau dileu y %1 o eitemau yma?"
+
+#: widgets/jobuidelegate.cpp:230
+msgid "Delete Files"
+msgstr "Dileu Ffeiliau"
+
+#: widgets/jobuidelegate.cpp:238
+msgctxt "@info"
+msgid ""
+"Do you want to permanently delete all items from Trash? This action cannot "
+"be undone."
+msgstr ""
+
+#: widgets/jobuidelegate.cpp:240
+#, fuzzy
+msgctxt "@action:button"
+msgid "Empty Trash"
+msgstr "Sbwriel"
+
+#: widgets/jobuidelegate.cpp:249
+#, fuzzy, kde-format
+msgid "Do you really want to move this item to the trash?"
+msgid_plural "Do you really want to move these %1 items to the trash?"
+msgstr[0] "Ydych wir eisiau dileu yr eitem yma?"
+msgstr[1] "Ydych wir eisiau dileu y %1 o eitemau yma?"
+
+#: widgets/jobuidelegate.cpp:252
+#, fuzzy
+msgctxt "Verb"
+msgid "&Trash"
+msgstr "Sbwriel"
+
+#: widgets/jobuidelegate.cpp:345
+#, fuzzy
+#| msgid "The peer SSL certificate appears to be corrupt."
+msgid "The peer SSL certificate chain appears to be corrupt."
+msgstr "Ymddengys bod tystysgrif SSL y cymar yn llygredig."
+
+#: widgets/kacleditwidget.cpp:59 widgets/kacleditwidget.cpp:448
+msgid "Owner"
+msgstr "Perchennog"
+
+#: widgets/kacleditwidget.cpp:60 widgets/kacleditwidget.cpp:453
+#, fuzzy
+msgid "Owning Group"
+msgstr "Grwp Newydd"
+
+#: widgets/kacleditwidget.cpp:61 widgets/kacleditwidget.cpp:458
+#: widgets/kpropertiesdialog.cpp:1992
+msgid "Others"
+msgstr "Eraill"
+
+#: widgets/kacleditwidget.cpp:62 widgets/kacleditwidget.cpp:463
+msgid "Mask"
+msgstr ""
+
+#: widgets/kacleditwidget.cpp:63
+#, fuzzy
+msgid "Named User"
+msgstr "Defnyddwyr a Wrthodir"
+
+#: widgets/kacleditwidget.cpp:64
+#, fuzzy
+msgid "Named Group"
+msgstr "Grwp Newydd"
+
+#: widgets/kacleditwidget.cpp:100
+msgid "Edit Entry..."
+msgstr "Golygu cofnod ..."
+
+#: widgets/kacleditwidget.cpp:104
+#, fuzzy
+msgid "Delete Entry"
+msgstr " Dileu eitem"
+
+#: widgets/kacleditwidget.cpp:308
+msgid " (Default)"
+msgstr "(Rhagosodedig)"
+
+#: widgets/kacleditwidget.cpp:429
+#, fuzzy
+msgid "Edit ACL Entry"
+msgstr "&Golygu cofnod ..."
+
+#: widgets/kacleditwidget.cpp:433
+#, fuzzy
+msgid "Entry Type"
+msgstr "Math ye argraffydd:"
+
+#: widgets/kacleditwidget.cpp:439
+msgid "Default for new files in this folder"
+msgstr ""
+
+#: widgets/kacleditwidget.cpp:468
+#, fuzzy
+msgid "Named user"
+msgstr "Defnyddwyr a Wrthodir"
+
+#: widgets/kacleditwidget.cpp:473
+#, fuzzy
+msgid "Named group"
+msgstr "Grwp Newydd"
+
+#: widgets/kacleditwidget.cpp:493
+msgid "User: "
+msgstr "Defnyddiwr: "
+
+#: widgets/kacleditwidget.cpp:508
+msgid "Group: "
+msgstr "Gr?p: "
+
+#: widgets/kacleditwidget.cpp:645
+msgid "Type"
+msgstr "Math"
+
+#: widgets/kacleditwidget.cpp:646
+msgid "Name"
+msgstr "Enw"
+
+#: widgets/kacleditwidget.cpp:647
+msgctxt "read permission"
+msgid "r"
+msgstr "r"
+
+#: widgets/kacleditwidget.cpp:648
+msgctxt "write permission"
+msgid "w"
+msgstr "gorllewin"
+
+#: widgets/kacleditwidget.cpp:649
+msgctxt "execute permission"
+msgid "x"
+msgstr "x"
+
+#: widgets/kacleditwidget.cpp:650
+#, fuzzy
+msgid "Effective"
+msgstr "Gweithredwr"
+
+#: widgets/kbuildsycocaprogressdialog.cpp:45
+msgid "Updating System Configuration"
+msgstr "Diweddaru Ffurfweddiad Cysawd"
+
+#: widgets/kbuildsycocaprogressdialog.cpp:46
+msgid "Updating system configuration."
+msgstr "Diweddaru ffurfweddiad y cysawd."
+
+#: widgets/kdesktopfileactions.cpp:72
+#, kde-format
+msgid "The desktop entry file %1 has no Type=... entry."
+msgstr "Mae'r ffeil cofnod penbwrdd  %1 heb gofnod Type= ..."
+
+#: widgets/kdesktopfileactions.cpp:89
+#, kde-format
+msgid ""
+"The desktop entry of type\n"
+"%1\n"
+"is unknown."
+msgstr ""
+"Mae'r cofnod penbwrdd o fath\n"
+" %1\n"
+" yn anhysbys."
+
+#: widgets/kdesktopfileactions.cpp:102 widgets/kdesktopfileactions.cpp:182
+#: widgets/kdesktopfileactions.cpp:315
+#, kde-format
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is of type FSDevice but has no Dev=... entry."
+msgstr ""
+"Mae'r ffeil cofnod penbwrdd \n"
+" %1\n"
+" o fath FSDevice ond nid oes cofnod Dev= ... ganddo."
+
+#: widgets/kdesktopfileactions.cpp:135
+#, fuzzy, kde-format
+#| msgid ""
+#| "The desktop entry of type\n"
+#| "%1\n"
+#| "is unknown."
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is not valid."
+msgstr ""
+"Mae'r cofnod penbwrdd o fath\n"
+" %1\n"
+" yn anhysbys."
+
+#: widgets/kdesktopfileactions.cpp:148
+#, kde-format
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is of type Link but has no URL=... entry."
+msgstr ""
+"Mae'r ffeil cofnod penbwrdd \n"
+" %1\n"
+" o fath Link ond nid oes  cofnod URL= ... ganddo."
+
+#: widgets/kdesktopfileactions.cpp:218
+msgid "Mount"
+msgstr "Gosod"
+
+#: widgets/kdesktopfileactions.cpp:229
+msgid "Eject"
+msgstr "Allfwrw"
+
+#: widgets/kdesktopfileactions.cpp:231
+msgid "Unmount"
+msgstr "Datosod"
+
+#: widgets/kdirmodel.cpp:1072
+#, fuzzy
+#| msgid "Name"
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Enw"
+
+#: widgets/kdirmodel.cpp:1074
+#, fuzzy
+#| msgid "Size"
+msgctxt "@title:column"
+msgid "Size"
+msgstr "Maint"
+
+#: widgets/kdirmodel.cpp:1076
+#, fuzzy
+#| msgid "Date"
+msgctxt "@title:column"
+msgid "Date"
+msgstr "Dyddiad"
+
+#: widgets/kdirmodel.cpp:1078
+#, fuzzy
+#| msgid "Permissions"
+msgctxt "@title:column"
+msgid "Permissions"
+msgstr "Caniatad"
+
+#: widgets/kdirmodel.cpp:1080
+#, fuzzy
+#| msgid "Owner"
+msgctxt "@title:column"
+msgid "Owner"
+msgstr "Perchennog"
+
+#: widgets/kdirmodel.cpp:1082
+#, fuzzy
+#| msgid "Group"
+msgctxt "@title:column"
+msgid "Group"
+msgstr "Grw^p"
+
+#: widgets/kdirmodel.cpp:1084
+#, fuzzy
+#| msgid "Type"
+msgctxt "@title:column"
+msgid "Type"
+msgstr "Math"
+
+#: widgets/kfileitemactions.cpp:399
+#, fuzzy
+#| msgid "Actions"
+msgctxt "@title:menu"
+msgid "&Actions"
+msgstr "Gweithrediadau"
+
+#: widgets/kfileitemactions.cpp:525
+#, fuzzy, kde-format
+#| msgid "Open with:"
+msgid "&Open with %1"
+msgstr "Agor Efo:"
+
+#: widgets/kfileitemactions.cpp:551
+#, fuzzy
+#| msgid "Open With"
+msgctxt "@title:menu"
+msgid "&Open With"
+msgstr "Agor Efo"
+
+#: widgets/kfileitemactions.cpp:568
+#, fuzzy
+#| msgid "Others"
+msgctxt "@action:inmenu Open With"
+msgid "&Other..."
+msgstr "Eraill"
+
+#: widgets/kfileitemactions.cpp:570 widgets/kfileitemactions.cpp:579
+#, fuzzy
+#| msgid "Open With"
+msgctxt "@title:menu"
+msgid "&Open With..."
+msgstr "Agor Efo"
+
+#: widgets/kfileitemactions.cpp:683
+#, fuzzy, kde-format
+#| msgid "Open with:"
+msgid "Open &with %1"
+msgstr "Agor Efo:"
+
+#: widgets/kfileitemactions.cpp:685
+#, fuzzy, kde-format
+#| msgid "%1 B"
+msgctxt "@item:inmenu Open With, %1 is application name"
+msgid "%1"
+msgstr "%1 B"
+
+#: widgets/kfileitemdelegate.cpp:221
+#, fuzzy, kde-format
+msgctxt "Items in a folder"
+msgid "1 item"
+msgid_plural "%1 items"
+msgstr[0] "%1 ffeil"
+msgstr[1] "%1 o ffeiliau"
+
+#: widgets/kfileitemdelegate.cpp:277 widgets/kfileitemdelegate.cpp:281
+#, fuzzy
+#| msgid "Unknown"
+msgctxt "@info mimetype"
+msgid "Unknown"
+msgstr "Anhysbys"
+
+#: widgets/kopenwithdialog.cpp:272
+msgid "Known Applications"
+msgstr "Cymhwysiannau Hysbys"
+
+#: widgets/kopenwithdialog.cpp:494
+msgid "Open With"
+msgstr "Agor Efo"
+
+#: widgets/kopenwithdialog.cpp:498
+#, kde-format
+msgid ""
+"<qt>Select the program that should be used to open <b>%1</b>. If the program "
+"is not listed, enter the name or click the browse button.</qt>"
+msgstr ""
+"<qt>Dewis y rhaglen a ddylai gael ei defnyddio i agor <b>%1</b>. Os nad yw'r "
+"rhaglen wedi ei rhestru, mewnbynnwch yr enw neu clicio ar y botwm pori.</qt>"
+
+#: widgets/kopenwithdialog.cpp:504
+msgid "Choose the name of the program with which to open the selected files."
+msgstr "Dewis enw'r rhaglen i agor y ffeiliau penodol."
+
+#: widgets/kopenwithdialog.cpp:534
+#, kde-format
+msgid "Choose Application for %1"
+msgstr "Dewis Cymhwysiad i %1"
+
+#: widgets/kopenwithdialog.cpp:535
+#, kde-format
+msgid ""
+"<qt>Select the program for the file type: <b>%1</b>. If the program is not "
+"listed, enter the name or click the browse button.</qt>"
+msgstr ""
+"<qt>Dewis y rhaglen i'r math o ffeil: <b>%1</b>. Os nad yw'r rhaglen wedi ei "
+"rhestru, mewnbynnwch yr enw neu clicio ar y botwm pori</qt>"
+
+#: widgets/kopenwithdialog.cpp:550
+msgid "Choose Application"
+msgstr "Dewis Cymhwysiad"
+
+#: widgets/kopenwithdialog.cpp:551
+msgid ""
+"<qt>Select a program. If the program is not listed, enter the name or click "
+"the browse button.</qt>"
+msgstr ""
+"<qt>Dewisi rhaglen. Os nad yw'r rhaglen wedi ei rhestru, mewnbynnwch yr enw "
+"neu clicio ar y botwm pori</qt>"
+
+#: widgets/kopenwithdialog.cpp:610
+msgid ""
+"Following the command, you can have several place holders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"%f - a single file name\n"
+"%F - a list of files; use for applications that can open several local files "
+"at once\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%d - the directory of the file to open\n"
+"%D - a list of directories\n"
+"%i - the icon\n"
+"%m - the mini-icon\n"
+"%c - the comment"
+msgstr ""
+" Wedi'r gorchymyn, gallwch gael mwy nag un cadwryddion lle a fydd yn cael ei "
+"ailosod gan y gwerthoedd gwirioneddol pan rhedir y rhaglen wirioneddol:\n"
+"%f - enw ffeil sengl\n"
+"%F - rhestr ffeiliau; i'w ddefnyddio i gymhwysiadau sy'n gallu agor mwy nag "
+"un ffeil lleol ar yr un pryd\n"
+"%u - URL sengl\n"
+"%U - rhestr o URLau\n"
+"%d - cyfeiriadur y ffeil i agor\n"
+"%D - rhestr o gyfeiriaduron\n"
+"%i - yr eicon\n"
+"%m - yr eicon bach\n"
+"%c - y sylwad"
+
+#: widgets/kopenwithdialog.cpp:645
+msgid "Run in &terminal"
+msgstr "Rhedeg mewn &terfynell"
+
+#: widgets/kopenwithdialog.cpp:663
+msgid "&Do not close when command exits"
+msgstr "&Peidiwch a chau pan terfynir y gorchymyn"
+
+#: widgets/kopenwithdialog.cpp:680
+msgid "&Remember application association for this type of file"
+msgstr "&Cofio cyd-gymhwysiad i'r math yma o ffeil"
+
+#: widgets/kopenwithdialog.cpp:834
+#, kde-format
+msgid ""
+"Could not extract executable name from '%1', please type a valid program "
+"name."
+msgstr ""
+
+#: widgets/kopenwithdialog.cpp:884
+#, kde-format
+msgid "'%1' not found, please type a valid program name."
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
+#: widgets/kpropertiesdesktopadvbase.ui:11
+#, fuzzy
+#| msgid "Terminal"
+msgctxt ""
+"@title:group Title of a group that lets the user choose options about the "
+"terminal when launching a program"
+msgid "Terminal"
+msgstr "Terfynell"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:33
+msgid ""
+"Check this option if the application you want to run is a text mode "
+"application or if you want the information that is provided by the terminal "
+"emulator window."
+msgstr " "
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:36
+msgid "&Run in terminal"
+msgstr "&Rhedeg mewn terfynell"
+
+#. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:43
+msgid "&Terminal options:"
+msgstr "&Dewisiadau Terfynell"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:53
+#, fuzzy
+#| msgid ""
+#| "Check this option if the application you want to run is a text mode "
+#| "application or if you want the information that is provided by the "
+#| "terminal emulator window."
+msgid ""
+"Check this option if the text mode application offers relevant information "
+"on exit. Keeping the terminal emulator open allows you to retrieve this "
+"information."
+msgstr " "
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:56
+msgid "Do not &close when command exits"
+msgstr "Peidiwch a c&hau pan bydd y gorchymyn yn terfynu."
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
+#: widgets/kpropertiesdesktopadvbase.ui:69
+#, fuzzy
+#| msgid "User"
+msgctxt ""
+"@title:group Title of a group that lets the user choose which user to use "
+"when launching a program"
+msgid "User"
+msgstr "Defnyddiwr"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:75
+msgid ""
+"Check this option if you want to run this application with a different user "
+"id. Every process has a different user id associated with it. This id code "
+"determines file access and other permissions. The password of the user is "
+"required to use this option."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:78
+msgid "Ru&n as a different user"
+msgstr "Rhede&g fel defnyddiwr gwahanol"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:101
+msgid "Enter the user name you want to run the application as."
+msgstr "Mewnosodwch enw'r defnyddiwr yr ydych eisiau rhedeg y cymhwysiad fel."
+
+#. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:104
+msgid "&Username:"
+msgstr "&Enw Defnyddiwr:"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
+#: widgets/kpropertiesdesktopadvbase.ui:114
+msgid "Enter the user name you want to run the application as here."
+msgstr ""
+"Mewnosodwch yma enw'r defnyddiwr yr ydych eisiau rhedeg y cymhwysiad fel."
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
+#: widgets/kpropertiesdesktopadvbase.ui:124
+#, fuzzy
+#| msgid "Startup"
+msgctxt ""
+"@title:group Title of a group that lets the user choose options regargin "
+"program startup"
+msgid "Startup"
+msgstr "Ymgychwyn"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:130
+msgid ""
+"Check this option if you want to make clear that your application has "
+"started. This visual feedback may appear as a busy cursor or in the taskbar."
+msgstr ""
+"Cadarnhewch y dewisiad yma os hoffech egluro bod eich cymhwysiad wedi "
+"ymcychwyn.  Gall yr adborth gweledol ymddangos fel cyrchydd prysur neu yn y "
+"bar tasgiau."
+
+#. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:133
+msgid "Enable &launch feedback"
+msgstr "Galluogi adbor&th ymgychwyn"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, systrayCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:140
+#, fuzzy
+msgid ""
+"Check this option if you want to have a system tray handle for your "
+"application."
+msgstr ""
+"Cliciwch ar y botwm yma os ydych eisiau ychwanegu math o ffeil (math mime) y "
+"gall eich cymhwysiad ei drin."
+
+#. i18n: ectx: property (text), widget (QCheckBox, systrayCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:143
+msgid "&Place in system tray"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel12)
+#: widgets/kpropertiesdesktopadvbase.ui:150
+#, fuzzy
+msgid "&D-Bus registration:"
+msgstr "Cofrestru &DCOP"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:161
+msgid "None"
+msgstr "Dim"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:166
+msgid "Multiple Instances"
+msgstr "Enghreifftiau Lluosol"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:171
+msgid "Single Instance"
+msgstr "Enghraifft Sengl"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:176
+msgid "Run Until Finished"
+msgstr "Rhedeg tan i'w Orffen"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, nameEdit)
+#: widgets/kpropertiesdesktopbase.ui:14 widgets/kpropertiesdesktopbase.ui:27
+msgid ""
+"Type the name you want to give to this application here. This application "
+"will appear under this name in the applications menu and in the panel."
+msgstr ""
+"Teipiwch yma yr enw yr ydych eisiau roi i'r cymhwysiad yma.  Bydd y "
+"cymhwysiad yma yn ymddangos dan yr enw yma yn y ddewislen gymhwysiadau ac yn "
+"y panel."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, genNameEdit)
+#: widgets/kpropertiesdesktopbase.ui:34 widgets/kpropertiesdesktopbase.ui:47
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"a dial up application (KPPP) would be \"Dial up tool\"."
+msgstr ""
+"Teipiwch yma ddisgrifiad o'r cymhwysiad yma, wedi'i seilio ar ei ddefnydd.  "
+"Enghreifftiau: buasai cymhwysiad deialu (KPPP) yn \"Erfyn deilau\"."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: widgets/kpropertiesdesktopbase.ui:37
+msgid "&Description:"
+msgstr "&Disgrifiad:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, commentEdit)
+#: widgets/kpropertiesdesktopbase.ui:54 widgets/kpropertiesdesktopbase.ui:67
+msgid "Type any comment you think is useful here."
+msgstr "Teipiwch yma unrhyw sylwad o ddefnydd."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: widgets/kpropertiesdesktopbase.ui:57
+msgid "Comm&ent:"
+msgstr "Syl&wad:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, commandEdit)
+#: widgets/kpropertiesdesktopbase.ui:85 widgets/kpropertiesdesktopbase.ui:111
+#, no-c-format
+msgid ""
+"Type the command to start this application here.\n"
+"\n"
+"Following the command, you can have several place holders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"%f - a single file name\n"
+"%F - a list of files; use for applications that can open several local files "
+"at once\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%d - the directory of the file to open\n"
+"%D - a list of directories\n"
+"%i - the icon\n"
+"%m - the mini-icon\n"
+"%c - the caption"
+msgstr ""
+"Teipiwch y gorchymyn i gychwyn y cyhwysiad yma.\n"
+"\n"
+"Wedi'r gorchymyn, gallwch gael mwy nag un cadwrydd lle a fydd yn cael ei "
+"ailosod gan y gwerthoedd gwirioneddol pan rhedir y rhaglen wirioneddol:\n"
+"%f - enw ffeil sengl\n"
+"%F - rhestr ffeiliau; i'w ddefnyddio i gymhwysiadau sy'n gallu agor mwy nag "
+"un ffeil lleol ar yr un pryd\n"
+"%u - URL sengl\n"
+"%U - rhestr o URLau\n"
+"%d - plygell y ffeil i agor\n"
+"%D - rhestr o blygyll\n"
+"%i - yr eicon\n"
+"%m - yr eicon bach\n"
+"%c - y sylwad"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:88
+msgid "Co&mmand:"
+msgstr "G&orchymyn:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:118
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr ""
+"Cliciwch yma i bori'ch cysawd ffeil er mwyn canfod y gweithredadwyn penodol."
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:121
+msgid "&Browse..."
+msgstr "&Pori..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
+#: widgets/kpropertiesdesktopbase.ui:130 widgets/kpropertiesdesktopbase.ui:143
+#, fuzzy
+msgid "Sets the working directory for your application."
+msgstr "Dileuwch y cyfeiriadur cyfredol a ceisiwch eto."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel5)
+#: widgets/kpropertiesdesktopbase.ui:133
+msgid "&Work path:"
+msgstr "Llwybr g&waith:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:157 widgets/kpropertiesdesktopbase.ui:178
+msgid ""
+"<qt><p>This list should show the types of file that your application can "
+"handle. This list is organized by <u>mimetypes</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol for "
+"identifying the type of data based on filename extensions and correspondent "
+"<u>mimetypes</u>. Example: the \"bmp\" part that comes after the dot in "
+"flower.bmp indicates that it is a specific kind of image, <u>image/x-bmp</"
+"u>. To know which application should open each type of file, the system "
+"should be informed about the abilities of each application to handle these "
+"extensions and mimetypes.</p>\n"
+"<p>If you want to associate this application with one or more mimetypes that "
+"are not in this list, click on the button <b>Add</b> below. If there are one "
+"or more filetypes that this application cannot handle, you may want to "
+"remove them from the list clicking on the button <b>Remove</b> below.</p></"
+"qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: widgets/kpropertiesdesktopbase.ui:160
+msgid "&Supported file types:"
+msgstr "Mat&hau ffeil a gynhelir:"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:191
+msgid "Mimetype"
+msgstr "Math MIME"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:196
+msgid "Description"
+msgstr "Disgrifiad"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:206
+msgid ""
+"Click on this button if you want to add a type of file (mimetype) that your "
+"application can handle."
+msgstr ""
+"Cliciwch ar y botwm yma os ydych eisiau ychwanegu math o ffeil (math mime) y "
+"gall eich cymhwysiad ei drin."
+
+#. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:209
+msgid "Add..."
+msgstr "Ychwanegu..."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:216
+msgid ""
+"If you want to remove a type of file (mimetype) that your application cannot "
+"handle, select the mimetype in the list above and click on this button."
+msgstr ""
+"Os ydych eisiau gwaredu math ffeil (math mime) na all eich cymhwysiad ei "
+"drin, dewiswch y math mime yn y rhestr uchod a cliciwch ar y botwm yma."
+
+#. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:219
+#, fuzzy
+msgid "Remove"
+msgstr "&Diddymu Cofnod"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:242
+#, fuzzy
+msgid ""
+"Click here to modify the way this application will run, launch feedback, D-"
+"Bus options or to run it as a different user."
+msgstr ""
+"Cliciwch ym i addasu'r ffordd y rheda'r cymhwysiad yma, ymgychwyn adborth, "
+"desisiadau DCOP, neu ei redeg fel defnyddiwr arall."
+
+#. i18n: ectx: property (text), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:245
+msgid "Ad&vanced Options"
+msgstr "De&wisiadau Uwch"
+
+#: widgets/kpropertiesdialog.cpp:204 widgets/kpropertiesdialog.cpp:219
+#: widgets/kpropertiesdialog.cpp:231 widgets/kpropertiesdialog.cpp:247
+#: widgets/kpropertiesdialog.cpp:265
+#, kde-format
+msgid "Properties for %1"
+msgstr "Priodweddau i %1"
+
+#: widgets/kpropertiesdialog.cpp:229
+#, fuzzy, kde-format
+msgid "Properties for 1 item"
+msgid_plural "Properties for %1 Selected Items"
+msgstr[0] "Priodweddau i %1"
+msgstr[1] "Priodweddau i %1"
+
+#: widgets/kpropertiesdialog.cpp:785
+#, fuzzy
+#| msgid "&General"
+msgctxt "@title:tab File properties"
+msgid "&General"
+msgstr "&Cyffredin"
+
+#: widgets/kpropertiesdialog.cpp:967
+msgid "Type:"
+msgstr "Math:"
+
+#: widgets/kpropertiesdialog.cpp:986
+#, fuzzy
+#| msgid "Create new file type"
+msgid "Create New File Type"
+msgstr "Creu math ffeil newydd"
+
+#: widgets/kpropertiesdialog.cpp:988
+#, fuzzy
+#| msgid "File types:"
+msgid "File Type Options"
+msgstr "Mathau o Ffeil:"
+
+#: widgets/kpropertiesdialog.cpp:999
+msgid "Contents:"
+msgstr "Cynnwys:"
+
+#: widgets/kpropertiesdialog.cpp:1007 widgets/kurlrequesterdialog.cpp:57
+msgid "Location:"
+msgstr "Lleoliad:"
+
+#: widgets/kpropertiesdialog.cpp:1022
+msgid "Size:"
+msgstr "Maint:"
+
+#: widgets/kpropertiesdialog.cpp:1038
+msgid "Calculate"
+msgstr "Cyfrifo"
+
+#: widgets/kpropertiesdialog.cpp:1039
+#, fuzzy
+msgid "Stop"
+msgstr "Wedi aros"
+
+#: widgets/kpropertiesdialog.cpp:1048 widgets/kpropertiesdialog.cpp:1249
+msgid "Refresh"
+msgstr "Adnewyddu"
+
+#: widgets/kpropertiesdialog.cpp:1056
+msgid "Points to:"
+msgstr "Cyfeirio at:"
+
+#: widgets/kpropertiesdialog.cpp:1067
+msgid "Created:"
+msgstr "Creuwyd:"
+
+#: widgets/kpropertiesdialog.cpp:1076
+msgid "Modified:"
+msgstr "Newidwyd:"
+
+#: widgets/kpropertiesdialog.cpp:1085
+msgid "Accessed:"
+msgstr "Agorwyd:"
+
+#: widgets/kpropertiesdialog.cpp:1103
+msgid "Mounted on:"
+msgstr "Wedi'i arosod ar:"
+
+#: widgets/kpropertiesdialog.cpp:1111 widgets/kpropertiesdialog.cpp:2829
+#, fuzzy
+msgid "Device usage:"
+msgstr "Dyfais:"
+
+#: widgets/kpropertiesdialog.cpp:1212 widgets/kpropertiesdialog.cpp:2961
+#, fuzzy, kde-format
+#| msgctxt "Available space out of total partition size (percent used)"
+#| msgid "%1 out of %2 (%3% used)"
+msgctxt "Available space out of total partition size (percent used)"
+msgid "%1 free of %2 (%3% used)"
+msgstr "%1allan o %2 (defnyddir %3%)"
+
+#: widgets/kpropertiesdialog.cpp:1226
+#, fuzzy, kde-format
+msgid ""
+"Calculating... %1 (%2)\n"
+"%3, %4"
+msgstr "Cyfrifo ... %1 (%2)"
+
+#: widgets/kpropertiesdialog.cpp:1229 widgets/kpropertiesdialog.cpp:1244
+#, fuzzy, kde-format
+msgid "1 file"
+msgid_plural "%1 files"
+msgstr[0] "%1 ffeil"
+msgstr[1] "%1 o ffeiliau"
+
+#: widgets/kpropertiesdialog.cpp:1230 widgets/kpropertiesdialog.cpp:1245
+#, fuzzy, kde-format
+msgid "1 sub-folder"
+msgid_plural "%1 sub-folders"
+msgstr[0] "%1 plygell"
+msgstr[1] "%1 o blygyll"
+
+#: widgets/kpropertiesdialog.cpp:1258
+msgid "Calculating..."
+msgstr "Cyfrifo ..."
+
+#: widgets/kpropertiesdialog.cpp:1290
+#, fuzzy, kde-format
+#| msgid " Files: %1 "
+msgid "At least %1"
+msgstr "Ffeiliau : %1"
+
+#: widgets/kpropertiesdialog.cpp:1328
+#, fuzzy
+msgid "The new file name is empty."
+msgstr "Mae enw'r ffeil newydd yn wag!"
+
+#: widgets/kpropertiesdialog.cpp:1511 widgets/kpropertiesdialog.cpp:2706
+#: widgets/kpropertiesdialog.cpp:3006 widgets/kpropertiesdialog.cpp:3260
+#, kde-format
+msgid ""
+"<qt>Could not save properties. You do not have sufficient access to write to "
+"<b>%1</b>.</qt>"
+msgstr ""
+"<qt>Methu cadw priodweddau. Does ganddych ganiatadau digonol i  ysgrifennu i "
+"<b>%1</b>.</qt>"
+
+#: widgets/kpropertiesdialog.cpp:1587 widgets/kpropertiesdialog.cpp:1593
+#: widgets/kpropertiesdialog.cpp:1600
+msgid "Forbidden"
+msgstr "Gwaharddir"
+
+#: widgets/kpropertiesdialog.cpp:1588
+msgid "Can Read"
+msgstr " Gallu Darllen"
+
+#: widgets/kpropertiesdialog.cpp:1589
+msgid "Can Read & Write"
+msgstr "Gallu Darllen ac Ysgrifennu"
+
+#: widgets/kpropertiesdialog.cpp:1594
+msgid "Can View Content"
+msgstr " Gallu Edrych ar Gynnwys"
+
+#: widgets/kpropertiesdialog.cpp:1595
+msgid "Can View & Modify Content"
+msgstr "Gallu Edrych ar a Newid Cynnwys"
+
+#: widgets/kpropertiesdialog.cpp:1601
+msgid "Can View Content & Read"
+msgstr "Gallu Edrych ar Gynnwys a Darllen"
+
+#: widgets/kpropertiesdialog.cpp:1602
+msgid "Can View/Read & Modify/Write"
+msgstr " Gallu Edrych/Darllen a Newid/Ysgrifennu"
+
+#: widgets/kpropertiesdialog.cpp:1699
+msgid "&Permissions"
+msgstr "&Caniatadau"
+
+#: widgets/kpropertiesdialog.cpp:1711 widgets/kpropertiesdialog.cpp:1914
+msgid "Access Permissions"
+msgstr "Caniatadau Cyrchu"
+
+#: widgets/kpropertiesdialog.cpp:1719
+msgid "This file is a link and does not have permissions."
+msgid_plural "All files are links and do not have permissions."
+msgstr[0] "Mae'r %1 ffeil yma yn gyswllt ac nid oes ganddo ganiatadau. "
+msgstr[1] ""
+"Mae'r %1 ffeiliau i gyd yn gysylltau ac nid oes ganddynt ganiatadau."
+
+#: widgets/kpropertiesdialog.cpp:1723
+msgid "Only the owner can change permissions."
+msgstr "Neb ond y perchennog sy'n gallu newid caniatadau."
+
+#: widgets/kpropertiesdialog.cpp:1727
+msgid "O&wner:"
+msgstr "Perc&hennog:"
+
+#: widgets/kpropertiesdialog.cpp:1733
+msgid "Specifies the actions that the owner is allowed to do."
+msgstr "Penodi'r gweithrediadau y mae'r perchennog yn cael gwneud."
+
+#: widgets/kpropertiesdialog.cpp:1735
+msgid "Gro&up:"
+msgstr "Gr&w^p:"
+
+#: widgets/kpropertiesdialog.cpp:1741
+msgid "Specifies the actions that the members of the group are allowed to do."
+msgstr "Penodi'r gweithrediadau y mae aelodau'r grw^p yn cael gwneud."
+
+#: widgets/kpropertiesdialog.cpp:1743
+msgid "O&thers:"
+msgstr "E&raill:"
+
+#: widgets/kpropertiesdialog.cpp:1749
+msgid ""
+"Specifies the actions that all users, who are neither owner nor in the "
+"group, are allowed to do."
+msgstr ""
+"Penodi'r gweithrediadau y mae pob defnyddiwr, sy ddim yn berchennog neu "
+"aelod y grw^p, yn cael gwneud."
+
+#: widgets/kpropertiesdialog.cpp:1754
+msgid "Only own&er can rename and delete folder content"
+msgstr "Neb ond y per&chennog sy'n cael ail-enwi a dileu cynnwys plygell"
+
+#: widgets/kpropertiesdialog.cpp:1755
+msgid "Is &executable"
+msgstr "Gallu ei &Weithredu"
+
+#: widgets/kpropertiesdialog.cpp:1759
+msgid ""
+"Enable this option to allow only the folder's owner to delete or rename the "
+"contained files and folders. Other users can only add new files, which "
+"requires the 'Modify Content' permission."
+msgstr ""
+"Galluogi'r dewisiad yma i adael i neb ond perchennog y plygell ddileu neu "
+"ail-enwi'r ffeiliau neu plygyll sydd ynddo.  Mae defnyddwyr eraill yn gallu "
+"ychwanegu dim ond ffeiliau newydd, sy'n galw am y caniatad 'Addasu Cynnwys'."
+
+#: widgets/kpropertiesdialog.cpp:1763
+msgid ""
+"Enable this option to mark the file as executable. This only makes sense for "
+"programs and scripts. It is required when you want to execute them."
+msgstr ""
+" Galluogi'r dewisiad yma i benodi'r ffeil fel gweithredadwy.  Mae hyn yn "
+"gwneud synnwyr i ddim ond rhaglenni a sgriptiau.  Mae'n angenrheidiol os "
+"byddwch eisiau eu gweithredu."
+
+#: widgets/kpropertiesdialog.cpp:1770
+msgid "A&dvanced Permissions"
+msgstr "C&aniatadau Uwch"
+
+#: widgets/kpropertiesdialog.cpp:1778
+msgid "Ownership"
+msgstr "Perchenogaeth"
+
+#: widgets/kpropertiesdialog.cpp:1785
+msgid "User:"
+msgstr "Defnyddiwr:"
+
+#: widgets/kpropertiesdialog.cpp:1829
+msgid "Group:"
+msgstr "Grw^p:"
+
+#: widgets/kpropertiesdialog.cpp:1866
+msgid "Apply changes to all subfolders and their contents"
+msgstr "Gosod newidiadau i bob is-blygell a'i gynnwys."
+
+#: widgets/kpropertiesdialog.cpp:1905
+msgid "Advanced Permissions"
+msgstr "Caniatadau Uwch"
+
+#: widgets/kpropertiesdialog.cpp:1922
+msgid "Class"
+msgstr "Dosbarth"
+
+#: widgets/kpropertiesdialog.cpp:1927
+msgid ""
+"Show\n"
+"Entries"
+msgstr ""
+" Dangos\n"
+" Cofnodion"
+
+#: widgets/kpropertiesdialog.cpp:1929
+msgid "Read"
+msgstr "Darllen"
+
+#: widgets/kpropertiesdialog.cpp:1935
+msgid "This flag allows viewing the content of the folder."
+msgstr "Mae'r faner yma yn gadael gweld cynnwys y plygell."
+
+#: widgets/kpropertiesdialog.cpp:1937
+msgid "The Read flag allows viewing the content of the file."
+msgstr "Mae'r faner Ddarllen yn gadael gweld cynnwys y ffeil."
+
+#: widgets/kpropertiesdialog.cpp:1942
+msgid ""
+"Write\n"
+"Entries"
+msgstr ""
+" Ysgrifennu\n"
+" Cofnodion"
+
+#: widgets/kpropertiesdialog.cpp:1944
+msgid "Write"
+msgstr "Ysgrifennu"
+
+#: widgets/kpropertiesdialog.cpp:1950
+msgid ""
+"This flag allows adding, renaming and deleting of files. Note that deleting "
+"and renaming can be limited using the Sticky flag."
+msgstr ""
+" Mae'r faner yma yn gadael ychwanegu, ail-enwi a dileu ffeiliau.  Noder: "
+"gellir cyfyngu dileu ac ail-enwi gan ddefnyddio'r faner Gludiog."
+
+#: widgets/kpropertiesdialog.cpp:1953
+msgid "The Write flag allows modifying the content of the file."
+msgstr "Mae'r faner Ysgrifennu yn gadael addasu cynnwys y ffeil."
+
+#: widgets/kpropertiesdialog.cpp:1959
+msgctxt "Enter folder"
+msgid "Enter"
+msgstr "Mynd i mewn"
+
+#: widgets/kpropertiesdialog.cpp:1960
+msgid "Enable this flag to allow entering the folder."
+msgstr "Galluogi'r faner yma i adael mynd i mewn i'r plygell."
+
+#: widgets/kpropertiesdialog.cpp:1962
+msgid "Exec"
+msgstr "Gweithredu"
+
+#: widgets/kpropertiesdialog.cpp:1963
+msgid "Enable this flag to allow executing the file as a program."
+msgstr "Galluogi'r faner yma i adael gweithredu'r ffeil fel rhaglen."
+
+#: widgets/kpropertiesdialog.cpp:1973
+msgid "Special"
+msgstr "Arbennig"
+
+#: widgets/kpropertiesdialog.cpp:1977
+msgid ""
+"Special flag. Valid for the whole folder, the exact meaning of the flag can "
+"be seen in the right hand column."
+msgstr ""
+"Baner arbennig.  Dilys i'r plygell cyfan.  Gall ystyr cywir y faner gael ei "
+"weld yn y golofn dde."
+
+#: widgets/kpropertiesdialog.cpp:1980
+msgid ""
+"Special flag. The exact meaning of the flag can be seen in the right hand "
+"column."
+msgstr ""
+"Baner arbennig.  Gall ystyr cywir y faner gael ei weld yn y golofn dde."
+
+#: widgets/kpropertiesdialog.cpp:1984
+msgid "User"
+msgstr "Defnyddiwr"
+
+#: widgets/kpropertiesdialog.cpp:1988
+msgid "Group"
+msgstr "Grw^p"
+
+#: widgets/kpropertiesdialog.cpp:1996
+msgid "Set UID"
+msgstr "Gosod UID"
+
+#: widgets/kpropertiesdialog.cpp:2000
+msgid ""
+"If this flag is set, the owner of this folder will be the owner of all new "
+"files."
+msgstr ""
+"Os osodir y faner yma, bydd perchennog y plygell yma yn biau pob ffeil "
+"newydd."
+
+#: widgets/kpropertiesdialog.cpp:2003
+msgid ""
+"If this file is an executable and the flag is set, it will be executed with "
+"the permissions of the owner."
+msgstr ""
+"Os mae'r ffeil yma yn weithredadwy ac mae'r faner wedi ei gosod, bydd o'n "
+"cael ei weithredu efo caniatadau'r perchennog."
+
+#: widgets/kpropertiesdialog.cpp:2007
+msgid "Set GID"
+msgstr "Gosod GID"
+
+#: widgets/kpropertiesdialog.cpp:2011
+msgid ""
+"If this flag is set, the group of this folder will be set for all new files."
+msgstr ""
+"Os osodir y faner yma, bydd cylch y plygell yma yn cael ei osod am bob ffeil "
+"newydd."
+
+#: widgets/kpropertiesdialog.cpp:2014
+msgid ""
+"If this file is an executable and the flag is set, it will be executed with "
+"the permissions of the group."
+msgstr ""
+"Os mae'r ffeil yma yn weithredadwy ac mae'r faner wedi ei gosod, bydd o'n "
+"cael ei weithredu efo caniatadau'r grw^p."
+
+#: widgets/kpropertiesdialog.cpp:2018
+msgctxt "File permission"
+msgid "Sticky"
+msgstr "Gludiog"
+
+#: widgets/kpropertiesdialog.cpp:2022
+msgid ""
+"If the Sticky flag is set on a folder, only the owner and root can delete or "
+"rename files. Otherwise everybody with write permissions can do this."
+msgstr ""
+"Os osodir y faner Gludiog ar blygell, neb ond y perchennog a gwraidd sy'n "
+"gallu dileu neu ail-enwi ffeiliau.  Fel arall, mae pawb sydd efo caniatadau "
+"ysgrifennu yn gallu gwneud hyn."
+
+#: widgets/kpropertiesdialog.cpp:2026
+msgid ""
+"The Sticky flag on a file is ignored on Linux, but may be used on some "
+"systems"
+msgstr ""
+" Mae'r faner Gludiog ar ffeil yn cael ei anywbyddu ar Linux, ond gall ei "
+"defnyddio ar rhai cysodau"
+
+#: widgets/kpropertiesdialog.cpp:2214
+msgid "Link"
+msgstr " Cyswllt"
+
+#: widgets/kpropertiesdialog.cpp:2233
+msgid "Varying (No Change)"
+msgstr "Amrywio (Dim Newid)"
+
+#: widgets/kpropertiesdialog.cpp:2346
+msgid "This file uses advanced permissions"
+msgid_plural "These files use advanced permissions."
+msgstr[0] "Mae'r %1 ffeil yma yn defnyddio caniatadau uwch. "
+msgstr[1] "Mae'r %1 ffeiliau yma yn defnyddio caniatadau uwch."
+
+#: widgets/kpropertiesdialog.cpp:2367
+msgid "This folder uses advanced permissions."
+msgid_plural "These folders use advanced permissions."
+msgstr[0] "Mae'r %1 plygell yma yn defnyddio caniatadau uwch. "
+msgstr[1] "Mae'r %1 plygyll yma yn defnyddio caniatadau uwch."
+
+#: widgets/kpropertiesdialog.cpp:2382
+msgid "These files use advanced permissions."
+msgstr "Mae'r ffeiliau yma yn defnyddio caniatadau uwch."
+
+#: widgets/kpropertiesdialog.cpp:2617
+msgid "U&RL"
+msgstr "U&RL"
+
+#: widgets/kpropertiesdialog.cpp:2624
+msgid "URL:"
+msgstr "URL:"
+
+#: widgets/kpropertiesdialog.cpp:2764
+msgid "De&vice"
+msgstr "Dy&fais"
+
+#: widgets/kpropertiesdialog.cpp:2793
+msgid "Device (/dev/fd0):"
+msgstr "Dyfais (/dev/fd0):"
+
+#: widgets/kpropertiesdialog.cpp:2794
+msgid "Device:"
+msgstr "Dyfais:"
+
+#: widgets/kpropertiesdialog.cpp:2807
+msgid "Read only"
+msgstr "Darllen yn unig"
+
+#: widgets/kpropertiesdialog.cpp:2811
+#, fuzzy
+msgid "File system:"
+msgstr "Cysodau ffeil"
+
+#: widgets/kpropertiesdialog.cpp:2819
+msgid "Mount point (/mnt/floppy):"
+msgstr "Man gosod (/mnt/floppy):"
+
+#: widgets/kpropertiesdialog.cpp:2820
+msgid "Mount point:"
+msgstr "Man gosod:"
+
+#: widgets/kpropertiesdialog.cpp:3064
+msgid "&Application"
+msgstr "&Cymhwysiad"
+
+#: widgets/kpropertiesdialog.cpp:3190
+#, kde-format
+msgid "Add File Type for %1"
+msgstr "Ychwanegu Math Ffeil am %1"
+
+#: widgets/kpropertiesdialog.cpp:3191
+msgid "Select one or more file types to add:"
+msgstr "Dewis un neu fwy o fathau ffeil i'w ychwanegu:"
+
+#: widgets/kpropertiesdialog.cpp:3252
+#, fuzzy
+#| msgid "Only executables on local file systems are supported."
+msgid ""
+"Could not save properties. Only entries on local file systems are supported."
+msgstr "Cynhelir 'mond gweithredadweau  ar gysodau ffeil lleol."
+
+#: widgets/kpropertiesdialog.cpp:3331
+msgid "Only executables on local file systems are supported."
+msgstr "Cynhelir 'mond gweithredadweau  ar gysodau ffeil lleol."
+
+#: widgets/kpropertiesdialog.cpp:3345
+#, kde-format
+msgid "Advanced Options for %1"
+msgstr "Dewisiadau Uwch am %1"
+
+#: widgets/krun.cpp:170
+#, kde-format
+msgid ""
+"<qt>Unable to enter <b>%1</b>.\n"
+"You do not have access rights to this location.</qt>"
+msgstr ""
+"<qt> Methu mynd i mewn i  <b>%1</b>.\n"
+" Nid oes ganddoch  hawliau cyrchu'r lleoliad yma.</qt>"
+
+#: widgets/krun.cpp:200
+#, kde-format
+msgid ""
+"<qt>The file <b>%1</b> is an executable program. For safety it will not be "
+"started.</qt>"
+msgstr ""
+"<qt>Mae'r ffeil <b>%1</b> yn raglen weithredadwy. Er mwyn diogelwch, ni fydd "
+"hi'n cael ei chychwyn.</qt>"
+
+#: widgets/krun.cpp:206
+#, kde-format
+msgid "<qt>You do not have permission to run <b>%1</b>.</qt>"
+msgstr "<qt>nid oes ganddoch ganiatàd i redeg <b>%1</b>.</qt>"
+
+#: widgets/krun.cpp:236
+#, fuzzy
+msgid "You are not authorized to select an application to open this file."
+msgstr "Nid ydych wedi cael eich awdurdodi i weithredu'r ffeil yma."
+
+#: widgets/krun.cpp:247
+msgid "Open with:"
+msgstr "Agor Efo:"
+
+#: widgets/krun.cpp:297
+msgid "You are not authorized to execute this file."
+msgstr "Nid ydych wedi cael eich awdurdodi i weithredu'r ffeil yma."
+
+#: widgets/krun.cpp:320
+#, kde-format
+msgid "Launching %1"
+msgstr "Ymgychwyn %1"
+
+#: widgets/krun.cpp:425
+#, kde-format
+msgid "Error processing Exec field in %1"
+msgstr ""
+
+#: widgets/krun.cpp:602
+msgid "You are not authorized to execute this service."
+msgstr "Nid ydych wedi cael eich awdurdodi i weithredu'r gwasanaeth yma."
+
+#: widgets/krun.cpp:607
+#, fuzzy
+#| msgid "Examining"
+msgctxt "Warning about executing unknown .desktop file"
+msgid "Warning"
+msgstr "Arholi"
+
+#: widgets/krun.cpp:624
+msgctxt "program name follows in a line edit below"
+msgid "This will start the program:"
+msgstr ""
+
+#: widgets/krun.cpp:641
+msgid "If you do not trust this program, click Cancel"
+msgstr ""
+
+#: widgets/krun.cpp:684
+#, kde-format
+msgid "Unable to make the service %1 executable, aborting execution"
+msgstr ""
+
+#: widgets/krun.cpp:866
+#, kde-format
+msgid ""
+"<qt>Unable to run the command specified. The file or folder <b>%1</b> does "
+"not exist.</qt>"
+msgstr ""
+"<qt>Methu rhedeg y gorchymyn penodol. Nid yw'r ffeil neu plygell <b>%1</"
+"b>mewn bod.</qt>"
+
+#: widgets/krun.cpp:1461
+#, fuzzy, kde-format
+msgid "Could not find the program '%1'"
+msgstr "Methu darganfod y rhaglen '%1'"
+
+#: widgets/ksslinfodialog.cpp:57
+msgid "KDE SSL Information"
+msgstr "Gwybodaeth SSL KDE"
+
+#: widgets/ksslinfodialog.cpp:69
+#, fuzzy
+#| msgid "Subject line"
+msgctxt "The receiver of the SSL certificate"
+msgid "Subject"
+msgstr "Llinell pwnc"
+
+#: widgets/ksslinfodialog.cpp:70
+#, fuzzy
+#| msgid "Issuer:"
+msgctxt "The authority that issued the SSL certificate"
+msgid "Issuer"
+msgstr "Cyhoeddwr:"
+
+#: widgets/ksslinfodialog.cpp:86 widgets/ksslinfodialog.cpp:120
+msgid "Current connection is secured with SSL."
+msgstr "Diogelir y cysylltiad cyfredol gan SSL."
+
+#: widgets/ksslinfodialog.cpp:89 widgets/ksslinfodialog.cpp:133
+msgid "Current connection is not secured with SSL."
+msgstr "Ni ddiogelir y cysylltiad cyfredol gan SSL."
+
+#: widgets/ksslinfodialog.cpp:93
+msgid "SSL support is not available in this build of KDE."
+msgstr "Nid yw cynnal SSL ar gael yn yr adeiladaeth yma o KDE.  "
+
+#: widgets/ksslinfodialog.cpp:123
+msgid ""
+"The main part of this document is secured with SSL, but some parts are not."
+msgstr ""
+"Mae prif ddarn y ddogfen yma yn cael ei diogelu gan SSL, ond mae rhai "
+"ddarnau heb."
+
+#: widgets/ksslinfodialog.cpp:129
+#, fuzzy
+#| msgid "Some of this document is secured with SSL, but the main part is not."
+msgid "Some of this document is secured with SSL, but the main part is not."
+msgstr ""
+"Mae rhai darnau o'r ddogfen yma yn cael eu diogelu gan SSL, ond mae'r prif "
+"ddarn heb."
+
+#: widgets/ksslinfodialog.cpp:179
+#, fuzzy, kde-format
+msgctxt "%1, using %2 bits of a %3 bit key"
+msgid "%1, %2 %3"
+msgstr "%1(%2)"
+
+#: widgets/ksslinfodialog.cpp:181
+#, fuzzy, kde-format
+#| msgid "Mounting %1"
+msgctxt "Part of: %1, using %2 bits of a %3 bit key"
+msgid "using %1 bit"
+msgid_plural "using %1 bits"
+msgstr[0] "Gosod %1"
+msgstr[1] "Gosod %1"
+
+#: widgets/ksslinfodialog.cpp:183
+#, fuzzy, kde-format
+#| msgid "%1 bits used of a %2 bit cipher"
+msgctxt "Part of: %1, using %2 bits of a %3 bit key"
+msgid "of a %1 bit key"
+msgid_plural "of a %1 bit key"
+msgstr[0] "%1 did o cÃªl-ysgrifen %2 did wedi eu defnyddio"
+msgstr[1] "%1 did o cÃªl-ysgrifen %2 did wedi eu defnyddio"
+
+#: widgets/ksslinfodialog.cpp:199
+msgctxt "The certificate is not trusted"
+msgid "NO, there were errors:"
+msgstr ""
+
+#: widgets/ksslinfodialog.cpp:206
+#, fuzzy
+#| msgid "&Reset"
+msgctxt "The certificate is trusted"
+msgid "Yes"
+msgstr "&Ailosod"
+
+#: widgets/ksslinfodialog.cpp:210
+#, fuzzy, kde-format
+#| msgid "%1 / %2"
+msgctxt "%1 is the effective date of the certificate, %2 is the expiry date"
+msgid "%1 to %2"
+msgstr "%1 / %2"
+
+#: widgets/kurlrequester.cpp:284
+msgid "Open file dialog"
+msgstr "Agor Ymgom Ffeil"
+
+#: widgets/paste.cpp:76 widgets/paste.cpp:145
+#, fuzzy
+msgid "Filename for clipboard content:"
+msgstr "Enw ffeil i gynnwys gludfwrdd:"
+
+#: widgets/paste.cpp:137
+#, kde-format
+msgid "%1 (%2)"
+msgstr "%1(%2)"
+
+#: widgets/paste.cpp:156
+msgid ""
+"The clipboard has changed since you used 'paste': the chosen data format is "
+"no longer applicable. Please copy again what you wanted to paste."
+msgstr ""
+
+#: widgets/paste.cpp:285
+#, fuzzy, kde-format
+msgid "&Paste File"
+msgid_plural "&Paste %1 Files"
+msgstr[0] "%1 ffeil"
+msgstr[1] "%1 o ffeiliau"
+
+#: widgets/paste.cpp:287
+#, kde-format
+msgid "&Paste URL"
+msgid_plural "&Paste %1 URLs"
+msgstr[0] ""
+msgstr[1] ""
+
+#: widgets/paste.cpp:290
+#, fuzzy
+msgid "&Paste Clipboard Contents"
+msgstr "Enw ffeil i gynnwys gludfwrdd:"
+
+#: widgets/pastedialog.cpp:57
+msgid "Data format:"
+msgstr "Fformat data :"
+
+#: widgets/renamedialog.cpp:134
+msgid "Appl&y to All"
+msgstr ""
+
+#: widgets/renamedialog.cpp:135
+msgid ""
+"When this is checked the button pressed will be applied to all subsequent "
+"folder conflicts for the remainder of the current job.\n"
+"Unless you press Skip you will still be prompted in case of a conflict with "
+"an existing file in the directory."
+msgstr ""
+
+#: widgets/renamedialog.cpp:136
+msgid ""
+"When this is checked the button pressed will be applied to all subsequent "
+"conflicts for the remainder of the current job."
+msgstr ""
+
+#: widgets/renamedialog.cpp:141
+msgid "&Rename"
+msgstr "&Ail-enwi"
+
+#: widgets/renamedialog.cpp:143
+msgid "Suggest New &Name"
+msgstr "Awgrymu Enw &Newydd"
+
+#: widgets/renamedialog.cpp:149
+msgid "&Skip"
+msgstr "&Hepgor"
+
+#: widgets/renamedialog.cpp:150
+msgid "Do not copy or move this folder, skip to the next item instead"
+msgstr ""
+
+#: widgets/renamedialog.cpp:151
+msgid "Do not copy or move this file, skip to the next item instead"
+msgstr ""
+
+#: widgets/renamedialog.cpp:156
+#, fuzzy
+#| msgid "Write"
+msgctxt "Write files into an existing folder"
+msgid "&Write Into"
+msgstr "Ysgrifennu"
+
+#: widgets/renamedialog.cpp:156
+msgid "&Overwrite"
+msgstr "&Dros-ysgrifennu"
+
+#: widgets/renamedialog.cpp:158
+msgid ""
+"Files and folders will be copied into the existing directory, alongside its "
+"existing contents.\n"
+"You will be prompted again in case of a conflict with an existing file in "
+"the directory."
+msgstr ""
+
+#: widgets/renamedialog.cpp:163
+msgid "&Resume"
+msgstr "Ai&l-ddechrau"
+
+#: widgets/renamedialog.cpp:172
+#, kde-format
+msgid ""
+"This action would overwrite '%1' with itself.\n"
+"Please enter a new file name:"
+msgstr ""
+"Buasai'r gweithrediad yma yn ysgrifennu '%1' dros ei hun.\n"
+"Mewnosodwch enw ffeil newydd:"
+
+#: widgets/renamedialog.cpp:176
+msgid "C&ontinue"
+msgstr "&Mynd ymlaen"
+
+#: widgets/renamedialog.cpp:230
+#, fuzzy
+#| msgid ""
+#| "This action would overwrite '%1' with itself.\n"
+#| "Please enter a new file name:"
+msgid "This action will overwrite the destination."
+msgstr ""
+"Buasai'r gweithrediad yma yn ysgrifennu '%1' dros ei hun.\n"
+"Mewnosodwch enw ffeil newydd:"
+
+#: widgets/renamedialog.cpp:232
+#, fuzzy
+msgid "Source"
+msgstr "Tarddiad:"
+
+#: widgets/renamedialog.cpp:233
+#, fuzzy
+msgid "Destination"
+msgstr "Cyrchfan:"
+
+#: widgets/renamedialog.cpp:239
+msgid "Warning, the destination is more recent."
+msgstr ""
+
+#: widgets/renamedialog.cpp:270
+#, kde-format
+msgid "An older item named '%1' already exists."
+msgstr "Mae eitem hyn o'r enw '%1' mewn bod yn barod."
+
+#: widgets/renamedialog.cpp:272
+#, kde-format
+msgid "A similar file named '%1' already exists."
+msgstr "Mae ffeil tebyg o'r enw '%1' mewn bod yn barod."
+
+#: widgets/renamedialog.cpp:274
+#, fuzzy, kde-format
+#| msgid "An older item named '%1' already exists."
+msgid "A more recent item named '%1' already exists."
+msgstr "Mae eitem hyn o'r enw '%1' mewn bod yn barod."
+
+#: widgets/renamedialog.cpp:286
+#, fuzzy
+#| msgid "&Rename"
+msgid "Rename:"
+msgstr "&Ail-enwi"
+
+#: widgets/skipdialog.cpp:38
+#, fuzzy
+msgid "Information"
+msgstr "Gwybodaeth SSL KDE"
+
+#: widgets/skipdialog.cpp:48
+msgid "Retry"
+msgstr "Ail-geisio..."
+
+#: widgets/skipdialog.cpp:53
+msgid "Skip"
+msgstr "Hepgor"
+
+#: widgets/skipdialog.cpp:57
+#, fuzzy
+msgid "AutoSkip"
+msgstr "Awto Hepgor"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
+#: widgets/sslinfo.ui:17
+msgid "[padlock]"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, addressTag)
+#: widgets/sslinfo.ui:34
+#, fuzzy
+#| msgid "IP address:"
+msgctxt "Web page address"
+msgid "Address:"
+msgstr "Cyfeiriad IP:"
+
+#. i18n: ectx: property (text), widget (QLabel, ipTag)
+#: widgets/sslinfo.ui:54
+#, fuzzy
+#| msgid "IP address:"
+msgid "IP address:"
+msgstr "Cyfeiriad IP:"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionTag)
+#: widgets/sslinfo.ui:74
+#, fuzzy
+#| msgid "Description:"
+msgid "Encryption:"
+msgstr "Disgrifiad:"
+
+#. i18n: ectx: property (text), widget (QLabel, detailsTag)
+#: widgets/sslinfo.ui:94
+msgid "Details:"
+msgstr "Manylion:"
+
+#. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
+#: widgets/sslinfo.ui:114
+#, fuzzy
+#| msgid "SSL version:"
+msgid "SSL version:"
+msgstr "Fersiwn SSL:"
+
+#. i18n: ectx: property (text), widget (QLabel, certSelectorTag)
+#: widgets/sslinfo.ui:134
+#, fuzzy
+#| msgid "Certificate"
+msgid "Certificate chain:"
+msgstr "Tystysgrif"
+
+#. i18n: ectx: property (text), widget (QLabel, trustedTag)
+#: widgets/sslinfo.ui:163
+#, fuzzy
+#| msgid "Created:"
+msgid "Trusted:"
+msgstr "Creuwyd:"
+
+#. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
+#: widgets/sslinfo.ui:183
+#, fuzzy
+#| msgid "Valid from:"
+msgid "Validity period:"
+msgstr "Yn ddilys o:"
+
+#. i18n: ectx: property (text), widget (QLabel, serialTag)
+#: widgets/sslinfo.ui:203
+#, fuzzy
+#| msgid "Serial number:"
+msgid "Serial number:"
+msgstr "Rhif cyfres:"
+
+#. i18n: ectx: property (text), widget (QLabel, digestTag)
+#: widgets/sslinfo.ui:223
+#, fuzzy
+#| msgid "MD5 digest:"
+msgid "MD5 digest:"
+msgstr "Crynodeb MD5:"
+
+#. i18n: ectx: property (text), widget (QLabel, sha1DigestTag)
+#: widgets/sslinfo.ui:243
+#, fuzzy
+#| msgid "MD5 digest:"
+msgid "SHA1 digest:"
+msgstr "Crynodeb MD5:"
+
+#: widgets/sslui.cpp:49
+msgid ""
+"The remote host did not send any SSL certificates.\n"
+"Aborting because the identity of the host cannot be established."
+msgstr ""
