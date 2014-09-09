@@ -325,6 +325,22 @@ static bool containsProtocolSection(const QString &string)
     return false;
 }
 
+// this string-to-url conversion function handles relative paths, full paths and URLs
+// without the http-prepending that QUrl::fromUserInput does.
+static QUrl urlFromString(const QString& str)
+{
+    if (QDir::isAbsolutePath(str)) {
+        return QUrl::fromLocalFile(str);
+    }
+    QUrl url(str);
+    if (url.isRelative()) {
+        url.clear();
+        url.setPath(str);
+    }
+    return url;
+}
+
+
 KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     : QWidget(parent), d(new KFileWidgetPrivate(this))
 {
@@ -909,7 +925,7 @@ void KFileWidget::slotOk()
                  containsProtocolSection(locationEditCurrentText))) {
 
             QString fileName;
-            QUrl url = QUrl::fromUserInput(locationEditCurrentText);
+            QUrl url = urlFromString(locationEditCurrentText);
             if (d->operationMode == Opening) {
                 KIO::StatJob *statJob = KIO::stat(url, KIO::HideProgressInfo);
                 KJobWidgets::setWindow(statJob, this);
@@ -1447,7 +1463,7 @@ void KFileWidgetPrivate::_k_urlEntered(const QUrl &url)
 
     bool blocked = locationEdit->blockSignals(true);
     if (keepLocation) {
-        QUrl currentUrl = QUrl::fromUserInput(filename);
+        QUrl currentUrl = urlFromString(filename);
         locationEdit->changeUrl(0, QIcon::fromTheme(KIO::iconNameForUrl(currentUrl)), currentUrl);
         locationEdit->lineEdit()->setModified(true);
     }
@@ -1494,7 +1510,7 @@ void KFileWidgetPrivate::_k_enterUrl(const QString &url)
 {
 //     qDebug();
 
-    _k_enterUrl(QUrl::fromUserInput(KUrlCompletion::replacedPath(url, true, true)));
+    _k_enterUrl(urlFromString(KUrlCompletion::replacedPath(url, true, true)));
 }
 
 bool KFileWidgetPrivate::toOverwrite(const QUrl &url)
@@ -1677,7 +1693,7 @@ QList<QUrl> KFileWidgetPrivate::tokenize(const QString &line) const
                 urls.append(u);
             }
         } else {
-            urls << QUrl::fromUserInput(line);
+            urls << QUrl::fromLocalFile(line);
         }
 
         return urls;
