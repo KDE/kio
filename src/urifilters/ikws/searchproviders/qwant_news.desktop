@@ -1,0 +1,6 @@
+[Desktop Entry]
+Keys=qwn
+Name=Qwant News
+Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
+X-KDE-ServiceTypes=SearchProvider
+Type=Service

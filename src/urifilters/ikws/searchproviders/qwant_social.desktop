@@ -1,0 +1,6 @@
+[Desktop Entry]
+Keys=qwso
+Name=Qwant Social
+Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
+X-KDE-ServiceTypes=SearchProvider
+Type=Service

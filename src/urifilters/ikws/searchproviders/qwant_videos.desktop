@@ -1,0 +1,6 @@
+[Desktop Entry]
+Keys=qwv
+Name=Qwant Videos
+Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
+X-KDE-ServiceTypes=SearchProvider
+Type=Service

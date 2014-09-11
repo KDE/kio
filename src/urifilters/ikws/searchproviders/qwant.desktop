@@ -1,0 +1,6 @@
+[Desktop Entry]
+Keys=qw
+Name=Qwant
+Query=https://www.qwant.com/?q=\\{@}&client=kde&source=web
+X-KDE-ServiceTypes=SearchProvider
+Type=Service

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Keys=qwsh
+Name=Qwant Shopping
+Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
+X-KDE-ServiceTypes=SearchProvider
+Type=Service
