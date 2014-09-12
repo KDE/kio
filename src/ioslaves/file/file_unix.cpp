@@ -98,13 +98,13 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
     QT_STATBUF buff_dest;
     bool dest_exists = (QT_LSTAT(_dest.data(), &buff_dest) != -1);
     if (dest_exists) {
-        if ((buff_dest.st_mode & QT_STAT_MASK) == QT_STAT_DIR) {
-            error(KIO::ERR_DIR_ALREADY_EXIST, dest);
+        if (same_inode(buff_dest, buff_src)) {
+            error(KIO::ERR_IDENTICAL_FILES, dest);
             return;
         }
 
-        if (same_inode(buff_dest, buff_src)) {
-            error(KIO::ERR_IDENTICAL_FILES, dest);
+        if ((buff_dest.st_mode & QT_STAT_MASK) == QT_STAT_DIR) {
+            error(KIO::ERR_DIR_ALREADY_EXIST, dest);
             return;
         }
 
@@ -431,13 +431,13 @@ void FileProtocol::rename(const QUrl &srcUrl, const QUrl &destUrl,
     // with its target (#169547)
     bool dest_exists = (QT_LSTAT(_dest.data(), &buff_dest) != -1);
     if (dest_exists) {
-        if ((buff_dest.st_mode & QT_STAT_MASK) == QT_STAT_DIR) {
-            error(KIO::ERR_DIR_ALREADY_EXIST, dest);
+        if (same_inode(buff_dest, buff_src)) {
+            error(KIO::ERR_IDENTICAL_FILES, dest);
             return;
         }
 
-        if (same_inode(buff_dest, buff_src)) {
-            error(KIO::ERR_IDENTICAL_FILES, dest);
+        if ((buff_dest.st_mode & QT_STAT_MASK) == QT_STAT_DIR) {
+            error(KIO::ERR_DIR_ALREADY_EXIST, dest);
             return;
         }
 
