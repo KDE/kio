@@ -1,6 +1,20 @@
 [Desktop Entry]
 Keys=qwn
 Name=Qwant News
+Name[hu]=Qwant hírek
+Name[nl]=Qwant nieuws
+Name[pt]=Notícias do Qwant
+Name[sk]=Qwant Novinky 
+Name[sv]=Qwant-nyheter
+Name[uk]=Новини Qwant
+Name[x-test]=xxQwant Newsxx
 Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
+Query[hu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
+Query[nl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
+Query[pt]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
+Query[sk]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
+Query[sv]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
+Query[uk]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
+Query[x-test]=xxhttps://www.qwant.com/single?q=\\{@}&client=kde&source=newsxx
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

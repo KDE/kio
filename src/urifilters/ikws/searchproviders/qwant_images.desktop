@@ -1,6 +1,20 @@
 [Desktop Entry]
 Keys=qwi
 Name=Qwant Images
+Name[hu]=Qwant képek
+Name[nl]=Qwant afbeeldingen
+Name[pt]=Imagens do Qwant
+Name[sk]=Qwant obrázky
+Name[sv]=Qwant-bilder
+Name[uk]=Зображення Qwant
+Name[x-test]=xxQwant Imagesxx
 Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
+Query[hu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
+Query[nl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
+Query[pt]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
+Query[sk]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
+Query[sv]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
+Query[uk]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
+Query[x-test]=xxhttps://www.qwant.com/single?q=\\{@}&client=kde&source=imagesxx
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

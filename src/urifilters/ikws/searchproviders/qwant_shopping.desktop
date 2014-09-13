@@ -1,6 +1,20 @@
 [Desktop Entry]
 Keys=qwsh
 Name=Qwant Shopping
+Name[hu]=Qwant vásárlás
+Name[nl]=Qwant winkelen
+Name[pt]=Compras do Qwant
+Name[sk]=Qwant nakupovanie
+Name[sv]=Qwant-shopping
+Name[uk]=Торгівля Qwant
+Name[x-test]=xxQwant Shoppingxx
 Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
+Query[hu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
+Query[nl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
+Query[pt]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
+Query[sk]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
+Query[sv]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
+Query[uk]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
+Query[x-test]=xxhttps://www.qwant.com/single?q=\\{@}&client=kde&source=shoppingxx
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

@@ -1,6 +1,20 @@
 [Desktop Entry]
 Keys=qw
 Name=Qwant
+Name[hu]=Qwant
+Name[nl]=Qwant
+Name[pt]=Qwant
+Name[sk]=Qwant
+Name[sv]=Qwant
+Name[uk]=Qwant
+Name[x-test]=xxQwantxx
 Query=https://www.qwant.com/?q=\\{@}&client=kde&source=web
+Query[hu]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
+Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
+Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
+Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
+Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
+Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
+Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&source=webxx
 X-KDE-ServiceTypes=SearchProvider
 Type=Service
