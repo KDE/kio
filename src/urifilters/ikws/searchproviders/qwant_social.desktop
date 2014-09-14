@@ -1,20 +1,28 @@
 [Desktop Entry]
 Keys=qwso
 Name=Qwant Social
+Name[ca]=Tertúlia a Qwant
 Name[hu]=Qwant közösség
 Name[nl]=Qwant sociaal
+Name[pl]=Qwant - społeczność
 Name[pt]=Qwant Social
+Name[pt_BR]=Qwant Social
 Name[sk]=Qwant sociálne
 Name[sv]=Qwant-social
 Name[uk]=Соціальне Qwant
 Name[x-test]=xxQwant Socialxx
+Name[zh_TW]=Qwant Social
 Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
+Query[ca]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[hu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[nl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
+Query[pl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[pt]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
+Query[pt_BR]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[sk]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[sv]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[uk]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[x-test]=xxhttps://www.qwant.com/single?q=\\{@}&client=kde&source=socialxx
+Query[zh_TW]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

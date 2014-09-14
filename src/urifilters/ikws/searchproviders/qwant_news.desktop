@@ -1,20 +1,28 @@
 [Desktop Entry]
 Keys=qwn
 Name=Qwant News
+Name[ca]=Notícies a Qwant
 Name[hu]=Qwant hírek
 Name[nl]=Qwant nieuws
+Name[pl]=Qwant - aktualności
 Name[pt]=Notícias do Qwant
+Name[pt_BR]=Notícias do Qwant
 Name[sk]=Qwant Novinky 
 Name[sv]=Qwant-nyheter
 Name[uk]=Новини Qwant
 Name[x-test]=xxQwant Newsxx
+Name[zh_TW]=Qwant News
 Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
+Query[ca]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[hu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[nl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
+Query[pl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[pt]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
+Query[pt_BR]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[sk]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[sv]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[uk]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[x-test]=xxhttps://www.qwant.com/single?q=\\{@}&client=kde&source=newsxx
+Query[zh_TW]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

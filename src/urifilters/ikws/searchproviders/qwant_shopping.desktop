@@ -1,20 +1,28 @@
 [Desktop Entry]
 Keys=qwsh
 Name=Qwant Shopping
+Name[ca]=Compres de Qwant
 Name[hu]=Qwant vásárlás
 Name[nl]=Qwant winkelen
+Name[pl]=Qwant - zakupy
 Name[pt]=Compras do Qwant
+Name[pt_BR]=Compras do Qwant
 Name[sk]=Qwant nakupovanie
 Name[sv]=Qwant-shopping
 Name[uk]=Торгівля Qwant
 Name[x-test]=xxQwant Shoppingxx
+Name[zh_TW]=Qwant Shopping
 Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
+Query[ca]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[hu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[nl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
+Query[pl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[pt]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
+Query[pt_BR]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[sk]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[sv]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[uk]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[x-test]=xxhttps://www.qwant.com/single?q=\\{@}&client=kde&source=shoppingxx
+Query[zh_TW]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 X-KDE-ServiceTypes=SearchProvider
 Type=Service
