@@ -66,6 +66,7 @@ set(kiocore_SRCS
   statjob.cpp
   storedtransferjob.cpp
   transferjob.cpp
+  filesystemfreespacejob.cpp
   scheduler.cpp
   slaveconfig.cpp
   kprotocolmanager.cpp
@@ -194,6 +195,7 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   AuthInfo
   DavJob
   DesktopExecParser
+  FileSystemFreeSpaceJob
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_HEADERS

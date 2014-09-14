@@ -33,6 +33,8 @@
 #include <QDirIterator>
 #include <qplatformdefs.h>
 
+#include <KDiskFreeSpaceInfo>
+
 #include "kioglobal_p.h"
 
 #include <assert.h>
@@ -1298,3 +1300,32 @@ bool FileProtocol::deleteRecursive(const QString &path)
     return true;
 }
 
+void FileProtocol::fileSystemFreeSpace(const QUrl &url)
+{
+    if (url.isLocalFile()) {
+        const KDiskFreeSpaceInfo spaceInfo = KDiskFreeSpaceInfo::freeSpaceInfo(url.toLocalFile());
+        if (spaceInfo.isValid()) {
+            setMetaData(QString::fromLatin1("total"), QString::number(spaceInfo.size()));
+            setMetaData(QString::fromLatin1("available"), QString::number(spaceInfo.available()));
+
+            finished();
+        } else {
+            error(KIO::ERR_COULD_NOT_STAT, url.url());
+        }
+    } else {
+        error(KIO::ERR_UNSUPPORTED_PROTOCOL, url.url());
+    }
+}
+
+void FileProtocol::virtual_hook(int id, void *data)
+{
+    switch(id) {
+    case SlaveBase::GetFileSystemFreeSpace: {
+        QUrl *url = static_cast<QUrl *>(data);
+        fileSystemFreeSpace(*url);
+    } break;
+    default: {
+        SlaveBase::virtual_hook(id, data);
+    } break;
+    }
+}

@@ -932,7 +932,8 @@ protected:
     MetaData mIncomingMetaData;
 
     enum VirtualFunctionId {
-        AppConnectionMade = 0
+        AppConnectionMade = 0,
+        GetFileSystemFreeSpace = 1   // KF6 TODO: Turn into a virtual method
     };
     virtual void virtual_hook(int id, void *data);
 

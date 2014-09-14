@@ -84,6 +84,9 @@ public:
     static bool isExtendedACL(acl_t acl);
 #endif
 
+protected:
+    void virtual_hook(int id, void *data) Q_DECL_OVERRIDE;
+
 private:
     bool createUDSEntry(const QString &filename, const QByteArray &path, KIO::UDSEntry &entry,
                         short int details);
@@ -91,6 +94,8 @@ private:
     QString getUserName(KUserId uid) const;
     QString getGroupName(KGroupId gid) const;
     bool deleteRecursive(const QString &path);
+
+    void fileSystemFreeSpace(const QUrl &url);  // KF6 TODO: Turn into virtual method in SlaveBase
 
 private:
     mutable QHash<KUserId, QString> mUsercache;

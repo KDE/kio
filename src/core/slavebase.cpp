@@ -1261,6 +1261,16 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
         d->verifyState("multiGet()");
         d->m_state = d->Idle;
     } break;
+    case CMD_FILESYSTEMFREESPACE: {
+        stream >> url;
+
+        void *data = static_cast<void *>(&url);
+
+        d->m_state = d->InsideMethod;
+        virtual_hook(GetFileSystemFreeSpace, data);
+        d->verifyState("fileSystemFreeSpace()");
+        d->m_state = d->Idle;
+    } break;
     default: {
         // Some command we don't understand.
         // Just ignore it, it may come from some future version of KDE.
@@ -1387,9 +1397,15 @@ void SlaveBase::send(int cmd, const QByteArray &arr)
     }
 }
 
-void SlaveBase::virtual_hook(int, void *)
+void SlaveBase::virtual_hook(int id, void *data)
 {
-    /*BASE::virtual_hook( id, data );*/
+    Q_UNUSED(data);
+
+    switch(id) {
+    case GetFileSystemFreeSpace: {
+        error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_FILESYSTEMFREESPACE));
+    } break;
+    }
 }
 
 void SlaveBase::lookupHost(const QString &host)
