@@ -54,6 +54,7 @@ Name[mk]=Microsoft Developer Network Search
 Name[ml]=മൈക്രോസോഫ്റ്റ് ഡെവലപ്പര്‍ നെറ്റ്‌വര്‍ക്കില്‍ തെരയുക
 Name[mr]=माइक्रोसॉफ्ट डेवलपर संजाळ शोध
 Name[ms]=Carian Rangkaian Pembangun Microsoft
+Name[nb]=Microsoft Developer Network-søk
 Name[nds]=MDNS - Microsoft sien Schrieverslüüd-Nettwarksöök
 Name[ne]=माइक्रोसफ्ट विकासकर्ता सञ्जाल खोज्नुहोस्
 Name[nl]=Microsoft Developer Network Search 
@@ -117,6 +118,7 @@ Query[ja]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[kk]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[ko]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[lt]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
+Query[nb]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[nds]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[nl]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[nn]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}

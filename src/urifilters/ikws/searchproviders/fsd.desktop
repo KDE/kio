@@ -54,6 +54,7 @@ Name[mk]=Каталог на слободен софтвер на FSF/UNESCO
 Name[ml]=എഫ്എസ്എഫ്/യുനെസ്കോ സ്വതന്ത്ര സോഫ്റ്റ്‌വെയര്‍ ഡയറക്റ്ററി
 Name[mr]=FSF/UNESCO ची मोफत सॉफ्टवेअर संचयीका
 Name[ms]=Direktori Perisian Percuma FSF/UNESCO
+Name[nb]=FSF/UNESCO-katalogen over fri programvare
 Name[nds]=FSF/UNESCO-Verteken mit fre'e Programmen
 Name[ne]=FSF/UNESCO नि: शुल्क सफ्टवेयर शब्दकोश
 Name[nl]=FSF/UNESCO Free Software Directory
@@ -138,6 +139,7 @@ Query[lv]=http://directory.fsf.org/search/?query=\\{@}
 Query[mai]=http://directory.fsf.org/search/?query=\\{@}
 Query[ml]=http://directory.fsf.org/search/?query=\\{@}
 Query[mr]=http://directory.fsf.org/search/?query=\\{@}
+Query[nb]=http://directory.fsf.org/search/?query=\\{@}
 Query[nds]=http://directory.fsf.org/search/?query=\\{@}
 Query[nl]=http://directory.fsf.org/search/?query=\\{@}
 Query[nn]=http://directory.fsf.org/search/?query=\\{@}

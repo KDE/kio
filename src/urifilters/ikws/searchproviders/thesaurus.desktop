@@ -55,6 +55,7 @@ Name[mk]=Merriam-Webster Енциклопедија
 Name[ml]=മെറിയാം-വെബ്സ്റ്റര്‍ പര്യായനിഘണ്ടു
 Name[mr]=मरियम-वेबस्टर शब्दकोश
 Name[ms]=Merriam-Webster Thesaurus
+Name[nb]=Merriam-Webster Thesaurus
 Name[nds]=Merriam-Webster-Sünonümwöörbook
 Name[ne]=मेरियम-वेबस्टर पर्यायकोष
 Name[nl]=Merriam-Webster Thesaurus
@@ -144,6 +145,7 @@ Query[mai]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[ml]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[mr]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[ms]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
+Query[nb]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[nds]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[ne]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurusva=\\{@}
 Query[nl]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}

@@ -43,6 +43,7 @@ Name[lv]=Vimeo
 Name[mai]=Vimeo
 Name[ml]=വിമിയോ
 Name[mr]=विमिओ
+Name[nb]=Vimeo
 Name[nds]=Vimeo
 Name[nl]=Vimeo
 Name[nn]=Vimeo
@@ -96,6 +97,7 @@ Query[ja]=http://vimeo.com/search?q=\\{@}
 Query[kk]=http://vimeo.com/search?q=\\{@}
 Query[ko]=http://vimeo.com/search?q=\\{@}
 Query[lt]=http://vimeo.com/search?q=\\{@}
+Query[nb]=http://vimeo.com/search?q=\\{@}
 Query[nds]=http://vimeo.com/search?q=\\{@}
 Query[nl]=http://vimeo.com/search?q=\\{@}
 Query[nn]=http://vimeo.com/search?q=\\{@}

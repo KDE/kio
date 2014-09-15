@@ -55,6 +55,7 @@ Name[mk]=Google-групи
 Name[ml]=ഗൂഗിള്‍ കൂട്ടങ്ങള്‍
 Name[mr]=Google समूह
 Name[ms]=Kumpulan Google
+Name[nb]=Google-grupper
 Name[nds]=Google-Koppeln
 Name[ne]=गुगल समूह
 Name[nl]=Google Groepen
@@ -118,6 +119,7 @@ Query[ja]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[kk]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[ko]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[lt]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
+Query[nb]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[nds]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[nl]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[nn]=https://groups.google.com/groups?hl=nn&oi=djq&as_q=\\{@}

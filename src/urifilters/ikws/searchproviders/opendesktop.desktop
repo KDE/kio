@@ -42,6 +42,7 @@ Name[lt]=openDesktop.org
 Name[lv]=openDesktop.org
 Name[mai]=openDesktop.org
 Name[mr]=ओपन डेस्कटॉप.org
+Name[nb]=openDesktop.org
 Name[nds]=openDesktop.org
 Name[nl]=openDesktop.org
 Name[nn]=openDesktop.org
@@ -109,6 +110,7 @@ Query[lt]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[lv]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[mai]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[mr]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[nb]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[nds]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[nl]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[nn]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}

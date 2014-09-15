@@ -43,6 +43,7 @@ Name[lv]=Flickr
 Name[mai]=Flickr
 Name[ml]=ഫ്ലിക്കര്‍
 Name[mr]=फ्लिकर
+Name[nb]=Flickr
 Name[nds]=Flickr
 Name[nl]=Flickr
 Name[nn]=Flickr
@@ -111,6 +112,7 @@ Query[lv]=http://www.flickr.com/search/?q=\\{@}
 Query[mai]=http://www.flickr.com/search/?q=\\{@}
 Query[ml]=http://www.flickr.com/search/?q=\\{@}
 Query[mr]=http://www.flickr.com/search/?q=\\{@}
+Query[nb]=http://www.flickr.com/search/?q=\\{@}
 Query[nds]=http://www.flickr.com/search/?q=\\{@}
 Query[nl]=http://www.flickr.com/search/?q=\\{@}
 Query[nn]=http://www.flickr.com/search/?q=\\{@}

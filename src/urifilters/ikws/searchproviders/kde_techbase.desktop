@@ -43,6 +43,7 @@ Name[lv]=KDE TechBase
 Name[mai]=केडीई टेकबेस
 Name[ml]=കെഡിഇ ടെക്ക്ബേസ്
 Name[mr]=केडीई टेकबेस
+Name[nb]=KDE TechBase
 Name[nds]=KDE-TechBase
 Name[nl]=KDE TechBase
 Name[nn]=KDE TechBase
@@ -111,6 +112,7 @@ Query[lv]=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[mai]=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ml]=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[mr]=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[nb]=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[nds]=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[nl]=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[nn]=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

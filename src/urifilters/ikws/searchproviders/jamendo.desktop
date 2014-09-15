@@ -43,6 +43,7 @@ Name[lv]=Jamendo
 Name[mai]=जामिनडो
 Name[ml]=ജാമെണ്ടോ
 Name[mr]=जामेंदो
+Name[nb]=Jamendo
 Name[nds]=Jamendo
 Name[nl]=Jamendo
 Name[nn]=Jamendo
@@ -97,6 +98,7 @@ Query[ja]=http://www.jamendo.com/en/search?qs=q=\\{@}
 Query[kk]=http://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ko]=http://www.jamendo.com/en/search?qs=q=\\{@}
 Query[lt]=http://www.jamendo.com/en/search?qs=q=\\{@}
+Query[nb]=http://www.jamendo.com/en/search?qs=q=\\{@}
 Query[nds]=http://www.jamendo.com/en/search?qs=q=\\{@}
 Query[nl]=http://www.jamendo.com/en/search?qs=q=\\{@}
 Query[nn]=http://www.jamendo.com/en/search?qs=q=\\{@}

@@ -55,6 +55,7 @@ Name[mk]=База на податоци QRZ.com callsign
 Name[ml]=QRZ.com ലെ കാള്‍സൈനുകളുടെ ഡാറ്റാബേസ്
 Name[mr]=QRZ.com कॉलसाइन डेटाबेस
 Name[ms]=QRZ.com Callsign Database
+Name[nb]=QRZ.com database for kallesignal
 Name[nds]=QRZ.com Callsign-Datenbank
 Name[ne]=QRZ.com कलसाइन डेटाबेस
 Name[nl]=QRZ.com callsign database
@@ -124,6 +125,7 @@ Query[ko]=http://www.qrz.com/db/\\{@}
 Query[lt]=http://www.qrz.com/db/\\{@}
 Query[lv]=http://www.qrz.com/db/\\{@}
 Query[mr]=http://www.qrz.com/db/\\{@}
+Query[nb]=http://www.qrz.com/s?wd=\\{@}
 Query[nds]=http://www.qrz.com/db/\\{@}
 Query[nl]=http://www.qrz.com/db/\\{@}
 Query[nn]=http://www.qrz.com/db/\\{@}

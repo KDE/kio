@@ -55,6 +55,7 @@ Name[mai]=WordReference.com अनुवादः अंग्रेजी स�
 Name[mk]=WordReference.com превод: од англиски на италијански
 Name[ml]=WordReference.com പരിഭാഷ: ഇംഗ്ലീഷില്‍ നിന്നും ഇറ്റാലിയനിലേയ്ക്കു്
 Name[mr]=WordReference.com अनुवादः अंग्रेजी ते इटालीयन
+Name[nb]=WordReference.com – oversettelse fra engelsk til italiensk
 Name[nds]=WordReference.com Översetten: Engelsch na Italieensch
 Name[ne]=WordReference.com Translation: अङ्ग्रेजीलाई इटलीमा
 Name[nl]=WordReference.com-vertaling: Engels naar Italiaans
@@ -142,6 +143,7 @@ Query[mai]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ml]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[mr]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ms]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
+Query[nb]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[nds]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ne]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[nl]=http://www.wordreference.com/it/translation.asp?enit=\\{@}

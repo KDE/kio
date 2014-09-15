@@ -55,6 +55,7 @@ Name[mk]=HyperDictionary.com Енциклопедија
 Name[ml]=HyperDictionary.com പര്യായനിഘണ്ടു
 Name[mr]=हायपर-डिक्शनरी.कॉम शब्दकोश
 Name[ms]=HyperDictionary.com Thesaurus
+Name[nb]=HyperDictionary.com, synonymordbok
 Name[nds]=HyperDictionary.com-Synonümwöörbook
 Name[ne]=HyperDictionary.com Thesaurus
 Name[nl]=HyperDictionary.com Thesaurus
@@ -144,6 +145,7 @@ Query[mai]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[ml]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[mr]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[ms]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
+Query[nb]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[nds]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[ne]=http://www.hyperdictionary.com/search.aspx?Dict=Tdefine=\\{@}
 Query[nl]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}

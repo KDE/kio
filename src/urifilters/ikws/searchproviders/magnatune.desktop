@@ -43,6 +43,7 @@ Name[lv]=Magnatune
 Name[mai]=Magnatune
 Name[ml]=മാഗ്നാട്യൂണ്‍
 Name[mr]=मेग्नाट्युन
+Name[nb]=Magnatune
 Name[nds]=Magnatune
 Name[nl]=Magnatune
 Name[nn]=Magnatune
@@ -111,6 +112,7 @@ Query[lv]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[mai]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[ml]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[mr]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
+Query[nb]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[nds]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[nl]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[nn]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0

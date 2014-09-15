@@ -55,6 +55,7 @@ Name[mk]=Google
 Name[ml]=ഗൂഗിള്‍
 Name[mr]=गूगल
 Name[ms]=Google
+Name[nb]=Google
 Name[nds]=Google.de
 Name[ne]=गुगल
 Name[nl]=Google
@@ -118,6 +119,7 @@ Query[ja]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[kk]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ko]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[lt]=https://www.google.com/search?q=\\{@}&ie=UTF-8
+Query[nb]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[nds]=https://www.google.de/search?q=\\{@}&ie=UTF-8
 Query[nl]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[nn]=https://www.google.com/search?q=\\{@}&ie=UTF-8&hl=nn

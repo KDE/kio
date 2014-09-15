@@ -53,6 +53,7 @@ Name[mk]=База на податоци со бубачки од KDE, преба
 Name[ml]=കെഡിഇയുടെ പിഴവുകളുടെ ഡാറ്റാബേസിലെ പിഴവിന്റെ സംഖ്യയുപയോഗിച്ചുള്ള തെരച്ചില്‍
 Name[mr]=केडीई बग डेटाबेस बग क्रमांक शोध
 Name[ms]=Carian Bilangan Pepijat Pangkalan Data Pepijat KDE
+Name[nb]=Feilnummersøk i KDEs feildatabase
 Name[nds]=KDE Fehler-Datenbank: Fehlernummer-Söök
 Name[ne]=केडीई बग डाटाबेस बग सङ्ख्या खोजी
 Name[nl]=KDE Bug Database  - zoeken op bugnummer
@@ -131,6 +132,7 @@ Query[lv]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[mai]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[ml]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[mr]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
+Query[nb]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[nds]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[nl]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[nn]=https://bugs.kde.org/show_bug.cgi?id=\\{@}

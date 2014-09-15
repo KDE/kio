@@ -56,6 +56,7 @@ Name[mai]=वर्डरेफरेंस.काम  अंग्रेजी 
 Name[mk]=WordReference.com Англиски речник
 Name[ml]=WordReference.com ഇംഗ്ലീഷ് നിഘണ്ടു
 Name[mr]=वर्डरेफरेंस.कॉम अंग्रेजी शब्दकोश
+Name[nb]=WordReference.com, engelsk ordbok
 Name[nds]=WordReference.com Engelsch-Nakieksel
 Name[ne]=WordReference.com अङ्ग्रेजी शब्दकोश
 Name[nl]=WordReference.com Engels woordenboek
@@ -143,6 +144,7 @@ Query[mai]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ml]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[mr]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ms]=http://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[nb]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[nds]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ne]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[nl]=http://www.wordreference.com/english/definition.asp?en=\\{@}

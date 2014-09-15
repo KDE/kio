@@ -44,6 +44,7 @@ Name[mai]=वोल्फॉर्म अल्फा
 Name[mk]=Волфрам Алфа
 Name[ml]=വുള്‍ഫ്രാം ആല്‍ഫ
 Name[mr]=वोल्फ्राम अल्फा
+Name[nb]=Wolfram Alpha
 Name[nds]=Wolfram Alpha
 Name[nl]=Wolfram Alpha
 Name[nn]=Wolfram Alpha
@@ -97,6 +98,7 @@ Query[ja]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[kk]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[ko]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[lt]=https://www.wolframalpha.com/input/?i=\\{@}
+Query[nb]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[nds]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[nl]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[nn]=https://www.wolframalpha.com/input/?i=\\{@}

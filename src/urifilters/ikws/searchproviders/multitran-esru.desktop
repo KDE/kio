@@ -52,6 +52,7 @@ Name[mai]=Multitran - Translate Between Spanish and Russian
 Name[mk]=Multitran - превод меѓу шпански и руски
 Name[ml]=മള്‍ട്ടിട്രാന്‍ - സ്പാനിഷും റഷ്യനും തമ്മില്‍ പരിഭാഷപ്പെടുത്തുക
 Name[mr]=मल्टिट्रान - स्पेनिश व रशियन भाषांतर करा
+Name[nb]=Multitran – Oversett mellom spansk og russisk
 Name[nds]=Multitran - Översetten twischen Spaansch un Russ'sch
 Name[nl]=Multitran - vertaal van Spaans naar Russisch
 Name[nn]=Multitran – Omsetjing mellom spansk og russisk
@@ -135,6 +136,7 @@ Query[lv]=http://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[mai]=http://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[ml]=http://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[mr]=http://multitran.ru/c/m.exe?l1=5&s=\\{@}
+Query[nb]=http://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[nds]=http://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[nl]=http://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[nn]=http://multitran.ru/c/m.exe?l1=5&s=\\{@}

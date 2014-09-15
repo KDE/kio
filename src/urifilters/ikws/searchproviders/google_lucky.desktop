@@ -54,6 +54,7 @@ Name[mk]=Google Од прва рака
 Name[ml]=ഗൂഗിള്‍ (ഞാന്‍ ഭാഗ്യവാനാണെന്നു് തോന്നുന്നു)
 Name[mr]=Google (मी नशीबवान आहे)
 Name[ms]=Google (Saya Rasa Bertuah)
+Name[nb]=Google (prøv lykken)
 Name[nds]=Google.de op goot Glück
 Name[ne]=गुगल (म भाग्यमानी अनुभति गरिरहेछु)
 Name[nl]=Google (Ik doe een gok)
@@ -117,6 +118,7 @@ Query[ja]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-
 Query[kk]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[ko]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[lt]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
+Query[nb]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[nds]=https://www.google.de/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[nl]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[nn]=https://www.google.com/search?hl=nn&q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8

@@ -52,6 +52,7 @@ Name[mai]=Multitran - Translate Between English and Russian
 Name[mk]=Multitran - превод меѓу англиски и руски
 Name[ml]=മള്‍ട്ടിട്രാന്‍ - ഇംഗ്ലീഷും റഷ്യനും തമ്മില്‍ പരിഭാഷപ്പെടുത്തുക
 Name[mr]=मल्टिट्रान - इंग्रजी व रशियन भाषांतर करा
+Name[nb]=Multitran – Oversett mellom engelsk og russisk
 Name[nds]=Multitran - Översetten twischen Engelsch un Russ'sch
 Name[nl]=Multitran - vertaal van Engels naar Russisch
 Name[nn]=Multitran – Omsetjing mellom engelsk og russisk
@@ -135,6 +136,7 @@ Query[lv]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[mai]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[ml]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[mr]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
+Query[nb]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[nds]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[nl]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[nn]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}

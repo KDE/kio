@@ -43,6 +43,7 @@ Name[lv]=Facebook
 Name[mai]=फेसबुक
 Name[ml]=ഫേസ്ബുക്ക്
 Name[mr]=फेसबूक
+Name[nb]=Facebook
 Name[nds]=Facebook
 Name[nl]=Facebook
 Name[nn]=Facebook
@@ -96,6 +97,7 @@ Query[ja]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[kk]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[ko]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[lt]=https://www.facebook.com/search/?q=\\{@}&init=quick
+Query[nb]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[nds]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[nl]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[nn]=https://www.facebook.com/search/?q=\\{@}&init=quick

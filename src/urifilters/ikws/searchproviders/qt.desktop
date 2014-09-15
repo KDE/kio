@@ -56,6 +56,7 @@ Name[mk]=Последната Qt-документација на мрежа
 Name[ml]=ക്യട്ടിയുടെ ഓണ്‍ലൈനായുള്ള ഏറ്റവും പുതിയ സഹായക്കുറിപ്പുകള്‍
 Name[mr]=नवीनतम Qt ऑनलाइन दस्तऐवज
 Name[ms]=Dokumentasi Dalam Talian Kuantiti Terakhir
+Name[nb]=Nyeste QT-dokumentasjon på nett
 Name[nds]=Niegst Online-Dokmentatschoon vun Qt
 Name[ne]=नवीनतम Qt अनलाइन मिसिलीकरण
 Name[nl]=Nieuwste Qt Online-documentatie
@@ -116,6 +117,7 @@ Query[ja]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
 Query[kk]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
 Query[ko]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
 Query[lt]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
+Query[nb]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
 Query[nds]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
 Query[nl]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
 Query[nn]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}

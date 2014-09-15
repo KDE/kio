@@ -40,6 +40,7 @@ Name[lt]=Bing
 Name[lv]=Bing
 Name[mai]=बिंग
 Name[mr]=बिंग
+Name[nb]=Bing
 Name[nds]=Bing
 Name[nl]=Bing
 Name[nn]=Bing
@@ -109,6 +110,7 @@ Query[lt]=http://www.bing.com/search?q=\\{@}
 Query[lv]=http://www.bing.com/search?q=\\{@}
 Query[mai]=http://www.bing.com/search?q=\\{@}
 Query[mr]=http://www.bing.com/search?q=\\{@}
+Query[nb]=http://www.bing.com/search?q=\\{@}
 Query[nds]=http://www.bing.com/search?q=\\{@}
 Query[nl]=http://www.bing.com/search?q=\\{@}
 Query[nn]=http://www.bing.com/search?q=\\{@}

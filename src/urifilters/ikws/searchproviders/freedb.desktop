@@ -55,6 +55,7 @@ Name[mk]=FreeDB
 Name[ml]=FreeDB
 Name[mr]=FreeDB
 Name[ms]=FreeDB
+Name[nb]=FreeDB
 Name[nds]=FreeDB
 Name[ne]=नि: शुल्क DB
 Name[nl]=FreeDB
@@ -144,6 +145,7 @@ Query[mai]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[ml]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[mr]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[ms]=http://www.freedb.org/freedb_search.php?words=\\{@}
+Query[nb]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[nds]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[ne]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[nl]=http://www.freedb.org/freedb_search.php?words=\\{@}
