@@ -2,6 +2,7 @@
 Keys=qw
 Name=Qwant
 Name[ca]=Qwant
+Name[cs]=Qwant
 Name[hu]=Qwant
 Name[nl]=Qwant
 Name[pl]=Qwant
@@ -14,6 +15,7 @@ Name[x-test]=xxQwantxx
 Name[zh_TW]=Qwant
 Query=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
+Query[cs]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[hu]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[pl]=https://www.qwant.com/?q=\\{@}&client=kde&source=web

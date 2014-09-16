@@ -2,6 +2,7 @@
 Keys=qwn
 Name=Qwant News
 Name[ca]=Notícies a Qwant
+Name[cs]=Novinky Qwant
 Name[hu]=Qwant hírek
 Name[nl]=Qwant nieuws
 Name[pl]=Qwant - aktualności
@@ -14,6 +15,7 @@ Name[x-test]=xxQwant Newsxx
 Name[zh_TW]=Qwant News
 Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[ca]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
+Query[cs]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[hu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[nl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[pl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news

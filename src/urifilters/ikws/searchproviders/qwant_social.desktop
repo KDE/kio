@@ -2,6 +2,7 @@
 Keys=qwso
 Name=Qwant Social
 Name[ca]=Tertúlia a Qwant
+Name[cs]=Qwant Social
 Name[hu]=Qwant közösség
 Name[nl]=Qwant sociaal
 Name[pl]=Qwant - społeczność
@@ -14,6 +15,7 @@ Name[x-test]=xxQwant Socialxx
 Name[zh_TW]=Qwant Social
 Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[ca]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
+Query[cs]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[hu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[nl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[pl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
