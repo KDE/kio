@@ -33,7 +33,10 @@ void KMountPointTest::initTestCase()
 void KMountPointTest::testCurrentMountPoints()
 {
     const KMountPoint::List mountPoints = KMountPoint::currentMountPoints(KMountPoint::NeedRealDeviceName);
-    QVERIFY(!mountPoints.isEmpty());
+    if (mountPoints.isEmpty()) { // can happen in chroot jails
+        QSKIP("mtab is empty");
+        return;
+    }
     KMountPoint::Ptr mountWithDevice;
     foreach (KMountPoint::Ptr mountPoint, mountPoints) {
         qDebug() << "Mount: " << mountPoint->mountedFrom()
