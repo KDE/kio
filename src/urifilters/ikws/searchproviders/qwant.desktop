@@ -3,6 +3,9 @@ Keys=qw
 Name=Qwant
 Name[ca]=Qwant
 Name[cs]=Qwant
+Name[de]=Qwant
+Name[en_GB]=Qwant
+Name[es]=Qwant
 Name[hu]=Qwant
 Name[nl]=Qwant
 Name[pl]=Qwant
@@ -16,6 +19,9 @@ Name[zh_TW]=Qwant
 Query=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[ca]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[cs]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
+Query[de]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
+Query[en_GB]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
+Query[es]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[hu]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[pl]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
