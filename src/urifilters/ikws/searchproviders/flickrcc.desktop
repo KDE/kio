@@ -32,7 +32,6 @@ Name[ia]=Flickr Creative Commons
 Name[id]=Flickr Creative Commons
 Name[is]=Flickr Creative Commons
 Name[it]=Creative Commons su Flickr
-Name[ja]=Flickr Creative Commons
 Name[kk]=Flickr Creative Commons
 Name[km]=Flickr Creative Commons
 Name[kn]=ಫ್ಲಿಕ್ಕರ್ ಕ್ರಿಯೇಟಿವ್ ಕಾಮನ್ಸ್
@@ -91,7 +90,6 @@ Query[ia]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[id]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[is]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[it]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
-Query[ja]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[kk]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[ko]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[lt]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1

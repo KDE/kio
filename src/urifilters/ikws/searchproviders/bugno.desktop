@@ -40,7 +40,6 @@ Name[ia]=Cerca de numero de BUG de base de datos de Bug de KDE
 Name[id]=Pencarian Nomor Kutu Basis Data Kutu KDE
 Name[is]=Leit eftir númerum í KDE villugagnagrunni
 Name[it]=Ricerca per numero nella banca dati degli errori di KDE
-Name[ja]=KDE バグデータベース バグ番号検索
 Name[kk]=KDE қателер дерек қорында қате нөмірі бойынша іздеу
 Name[km]=ការ​ស្វែងរក​លេខ​កំហុស​ក្នុង​មូលដ្ឋាន​ទិន្នន័យ​កំហុស​របស់​ KDE
 Name[kn]=ಕೆಡಿಇ ದೋಷದತ್ತಸಂಚಯ ಸಂಖ್ಯೆ ಹುಡುಕಾಟ
@@ -122,7 +121,6 @@ Query[ia]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[id]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[is]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[it]=http://bugs.kde.org/show_bug.cgi?id=\\{@}
-Query[ja]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[kk]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[km]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[kn]=https://bugs.kde.org/show_bug.cgi?id=\\{@}

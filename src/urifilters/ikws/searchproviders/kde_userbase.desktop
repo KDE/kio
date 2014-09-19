@@ -33,7 +33,6 @@ Name[ia]=KDE UserBase (Base de Usator)
 Name[id]=KDE UserBase
 Name[is]=KDE Notandagrunnur
 Name[it]=KDE UserBase
-Name[ja]=KDE UserBase
 Name[kk]=KDE UserBase
 Name[km]=KDE UserBase
 Name[kn]=ಕೆಡಿಇ ಯುಸರ್ ಬೇಸ್
@@ -102,7 +101,6 @@ Query[ia]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[id]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[is]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[it]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
-Query[ja]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[kk]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[km]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[kn]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

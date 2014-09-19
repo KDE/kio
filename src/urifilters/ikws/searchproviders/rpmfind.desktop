@@ -42,7 +42,6 @@ Name[ia]=RPM-Find
 Name[id]=RPM-Find
 Name[is]=RPM-leit
 Name[it]=Trova RPM
-Name[ja]=RPM-Find
 Name[kk]=RPM-ды табу
 Name[km]=រក RPM
 Name[kn]=RPM-ಹುಡುಕಾಟ
@@ -133,7 +132,6 @@ Query[ia]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[id]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[is]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[it]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
-Query[ja]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[kk]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[km]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[kn]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

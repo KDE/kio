@@ -42,7 +42,6 @@ Name[ia]=Catalogo CTAN
 Name[id]=Katalog CTAN
 Name[is]=CTAN Catalogue
 Name[it]=Catalogo CTAN
-Name[ja]=CTAN カタログ
 Name[kk]=CTAN каталогы
 Name[km]=កាតាឡុក CTAN
 Name[kn]=CTAN ಅನುಕ್ರಮಣಿಕೆ (ಕಾಟಲಾಗ್)
@@ -128,7 +127,6 @@ Query[ia]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSea
 Query[id]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[is]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[it]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
-Query[ja]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[kk]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[km]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[kn]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search

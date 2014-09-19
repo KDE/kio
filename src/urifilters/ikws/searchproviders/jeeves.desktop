@@ -42,7 +42,6 @@ Name[ia]=Ask Jeeves
 Name[id]=Ask Jeeves
 Name[is]=Spyrja Jeeves
 Name[it]=Ask Jeeves
-Name[ja]=Ask Jeeves
 Name[kk]=Ask Jeeves
 Name[km]=សួរ Jeeves
 Name[kn]=ಜೀವಿಸ್ ನನ್ನುಕೇಳು (ಆಸ್ಕ್ ಜೀವಿಸ್)
@@ -133,7 +132,6 @@ Query[ia]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jee
 Query[id]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[is]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[it]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
-Query[ja]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[kk]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[km]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[kn]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}

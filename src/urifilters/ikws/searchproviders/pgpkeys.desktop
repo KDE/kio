@@ -40,7 +40,6 @@ Name[ia]=Cerca de clave OpenPGP
 Name[id]=Pencari Kunci OpenPGP
 Name[is]=OpenPGP lykilleit
 Name[it]=Ricerca di chiavi OpenPGP
-Name[ja]=OpenPGP キー検索
 Name[kk]=OpenPGP кілттерін табу
 Name[km]=ស្វែងរក​កូនសោ​តាម​រយៈ OpenPGP
 Name[kn]=ಮುಕ್ತ PGP ಕೀಲಿಕೈ ಹುಡುಕಾಟ
@@ -111,7 +110,6 @@ Query[ia]=http://pgp.mit.edu:11371/pks/lookup?search=\\{@}&op=vindex
 Query[id]=http://pgp.mit.edu:11371/pks/lookup?search=\\{@}&op=vindex
 Query[is]=http://pgp.mit.edu:11371/pks/lookup?search=\\{@}&op=vindex
 Query[it]=http://pgp.mit.edu:11371/pks/lookup?search=\\{@}&op=vindex
-Query[ja]=http://pgp.mit.edu:11371/pks/lookup?search=\\{@}&op=vindex
 Query[kk]=http://pgp.mit.edu:11371/pks/lookup?search=\\{@}&op=vindex
 Query[ko]=http://pgp.mit.edu:11371/pks/lookup?search=\\{@}&op=vindex
 Query[lt]=http://pgp.mit.edu:11371/pks/lookup?search=\\{@}&op=vindex

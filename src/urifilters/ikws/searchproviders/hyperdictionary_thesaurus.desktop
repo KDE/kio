@@ -42,7 +42,6 @@ Name[ia]=HyperDictionary.com Thesauro
 Name[id]=Tesaurus HyperDictionary.com
 Name[is]=HyperDictionary.com samheitaorðabók
 Name[it]=Dizionario dei sinonimi e contrari HyperDictionary.com
-Name[ja]=HyperDictionary.com シソーラス
 Name[kk]=HyperDictionary.com тезаурус
 Name[km]=កម្រង​វេវចនសព្ទ HyperDictionary.com
 Name[kn]=HyperDictionary.com ಸಮಾನ/ವಿರುದ್ಧಾರ್ಥಕ ಪದಕೋಶ (ಥಿಸಾರಸ್)
@@ -133,7 +132,6 @@ Query[ia]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[id]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[is]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[it]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
-Query[ja]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[kk]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[km]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[kn]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}

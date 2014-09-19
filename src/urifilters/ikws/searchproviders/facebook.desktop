@@ -33,7 +33,6 @@ Name[ia]=Facebook
 Name[id]=Facebook
 Name[is]=Facebook
 Name[it]=Facebook
-Name[ja]=Facebook
 Name[kk]=Facebook
 Name[km]=Facebook
 Name[kn]=ಫೇಸ್ ಬುಕ್
@@ -93,7 +92,6 @@ Query[ia]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[id]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[is]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[it]=https://www.facebook.com/search/?q=\\{@}&init=quick
-Query[ja]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[kk]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[ko]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[lt]=https://www.facebook.com/search/?q=\\{@}&init=quick

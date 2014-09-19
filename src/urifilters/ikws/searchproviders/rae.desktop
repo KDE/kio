@@ -44,7 +44,6 @@ Name[ia]=Dictionario de le Academia Espaniol (RAE)
 Name[id]=Kamus Akademi Bahasa Spanyol (RAE)
 Name[is]=Orðasafn spænsku akademíunnar (RAE)
 Name[it]=Dizionario dell'Accademia Spagnola (RAE)
-Name[ja]=スペイン大学辞書
 Name[kk]=Испан Академиясының сөздігі (RAE)
 Name[km]=វចនានុក្រម​របស់ Spanish Academy (RAE)
 Name[kn]=ಸ್ಪಾನಿಷ್ ಅಧ್ಯಯನ ಕೇಂದ್ರದ (ಅಕಾಡಮಿ) (RAE) ಶಬ್ದಕೋಶ
@@ -114,7 +113,6 @@ Query[ia]=http://www.rae.es/drae/?val=\\{@}
 Query[id]=http://www.rae.es/drae/?val=\\{@}
 Query[is]=http://www.rae.es/drae/?val=\\{@}
 Query[it]=http://www.rae.es/drae/?val=\\{@}
-Query[ja]=http://www.rae.es/drae/?val=\\{@}
 Query[kk]=http://www.rae.es/drae/?val=\\{@}
 Query[ko]=http://www.rae.es/drae/?val=\\{@}
 Query[lt]=http://www.rae.es/drae/?val=\\{@}

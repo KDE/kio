@@ -33,7 +33,6 @@ Name[ia]=CNRTL/TILF Dictionario de Francese
 Name[id]=Kamus bahasa Perancis CNRTL/TILF
 Name[is]=CNRTL/TILF frönsk orðabók
 Name[it]=Dizionario francese CNRTL/TILF
-Name[ja]=CNRTL/TILF フランス語辞書
 Name[kk]=CNRTL/TILF француз сөздігі
 Name[km]=ចនានុក្រម​ភាសា​បារាំង CNRTL/TILF
 Name[kn]=CNRTL/TILF ಫ್ರೆಂಚ್ ನಿಘಂಟು
@@ -107,7 +106,6 @@ Query[ia]=http://www.cnrtl.fr/definition/\\{@}
 Query[id]=http://www.cnrtl.fr/definition/\\{@}
 Query[is]=http://www.cnrtl.fr/definition/\\{@}
 Query[it]=http://www.cnrtl.fr/definition/\\{@}
-Query[ja]=http://www.cnrtl.fr/definition/\\{@}
 Query[kk]=http://www.cnrtl.fr/definition/\\{@}
 Query[km]=http://www.cnrtl.fr/definition/\\{@}
 Query[kn]=http://www.dict.cc/?s=\\{@}

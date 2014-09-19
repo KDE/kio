@@ -33,7 +33,6 @@ Name[ia]=GitHub
 Name[id]=GitHub
 Name[is]=GitHub
 Name[it]=GitHub
-Name[ja]=GitHub
 Name[kk]=GitHub
 Name[km]=GitHub
 Name[kn]=ಗಿಟ್ ಹಬ್
@@ -93,7 +92,6 @@ Query[ia]=http://github.com/search?q=\\{@}&x=0&y=0
 Query[id]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[is]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[it]=https://github.com/search?q=\\{@}&x=0&y=0
-Query[ja]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[kk]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[ko]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[lt]=https://github.com/search?q=\\{@}&x=0&y=0

@@ -33,7 +33,6 @@ Name[ia]=Ethicle
 Name[id]=Ethicle
 Name[is]=Ethicle
 Name[it]=Ethicle
-Name[ja]=Ethicle
 Name[kk]=Ethicle
 Name[km]=Ethicle
 Name[kn]=ಎತಿಕಲ್
@@ -106,7 +105,6 @@ Query[ia]=http://www.ethicle.com/search.php?q=\\{@}
 Query[id]=http://www.ethicle.com/search.php?q=\\{@}
 Query[is]=http://www.ethicle.com/search.php?q=\\{@}
 Query[it]=http://www.ethicle.com/search.php?q=\\{@}
-Query[ja]=http://www.ethicle.com/search.php?q=\\{@}
 Query[kk]=http://www.ethicle.com/search.php?q=\\{@}
 Query[km]=http://www.ethicle.com/search.php?q=\\{@}
 Query[kn]=http://www.ethicle.com/search.php?q=\\{@}

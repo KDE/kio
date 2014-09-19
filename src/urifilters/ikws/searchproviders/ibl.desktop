@@ -41,7 +41,6 @@ Name[ia]=Lista de libro de Internet (Internet Book List)
 Name[id]=Senarai Buku Internet
 Name[is]=Bókalisti á internetinu
 Name[it]=Internet Book List
-Name[ja]=Internet Book List
 Name[kk]=Интернет кітап тізімі
 Name[km]=បញ្ជី​សៀវភៅ​អ៊ីនធឺណិត​
 Name[kn]=ಜಾಲ ಪುಸ್ತಕ ಪಟ್ಟಿ
@@ -128,7 +127,6 @@ Query[ia]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[id]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[is]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[it]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
-Query[ja]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[kk]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[km]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[kn]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search

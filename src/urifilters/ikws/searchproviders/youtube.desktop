@@ -31,7 +31,6 @@ Name[ia]=YouTube
 Name[id]=YouTube
 Name[is]=YouTube
 Name[it]=YouTube
-Name[ja]=YouTube
 Name[kk]=YouTube
 Name[km]=YouTube
 Name[kn]=ಯೂಟ್ಯೂಬ್
@@ -91,7 +90,6 @@ Query[ia]=http://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[id]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[is]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[it]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
-Query[ja]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[kk]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[ko]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[lt]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f

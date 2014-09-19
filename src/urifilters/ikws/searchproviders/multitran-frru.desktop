@@ -40,7 +40,6 @@ Name[ia]=Multitran - Traduce inter Francese e Russo
 Name[id]=Multitran - Penerjemahan Antara Bahasa Perancis dan Rusia
 Name[is]=Multitran - Þýða á milli frönsku og rússnesku
 Name[it]=Multitran - Traduzioni tra francese e russo
-Name[ja]=Multitran - フランス語-ロシア語間の翻訳
 Name[kk]=LEO - француз және орыс тілдер арасында аудару
 Name[km]=Multitran - បកប្រែ​រវាង​ភាសា​បារាំង និង​រុស្ស៊ី
 Name[kn]=ಮಲ್ಟಿಟ್ರಾನ್ - ಫ್ರೆಂಚ್ ಮತ್ತು ರಷ್ಯನ್ ಗಳ ನಡುವೆ ಭಾಷಾಂತರಿಸು
@@ -125,7 +124,6 @@ Query[ia]=http://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[id]=http://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[is]=http://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[it]=http://multitran.ru/c/m.exe?l1=4&s=\\{@}
-Query[ja]=http://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[kk]=http://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[km]=http://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[kn]=http://multitran.ru/c/m.exe?l1=4&s=\\{@}

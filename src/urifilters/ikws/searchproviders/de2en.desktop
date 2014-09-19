@@ -42,7 +42,6 @@ Name[ia]=dict.cc Traduction: Germano a Anglese
 Name[id]=Terjemahan dict.cc: Bahasa Jerman ke Inggris
 Name[is]=dict.cc Þýðing: Þýska til ensku
 Name[it]=Traduzione dict.cc: dal tedesco all'inglese
-Name[ja]=dict.cc ドイツ語-英語翻訳
 Name[kk]=dict.cc аудармашы: неміс тілінен ағылшынға
 Name[km]=ការ​បកប្រែ dict.cc ៖ ភាសា​អាល្លឺម៉ង់​ទៅ​ជា​អង់គ្លេស
 Name[kn]=dict.cc ಭಾಷಾಂತರ: ಜರ್ಮನ್ ನಿಂದ ಇಂಗ್ಲೀಷಿಗೆ
@@ -130,7 +129,6 @@ Query[ia]=http://www.dict.cc/?s=\\{@}
 Query[id]=http://www.dict.cc/?s=\\{@}
 Query[is]=http://www.dict.cc/?s=\\{@}
 Query[it]=http://www.dict.cc/?s=\\{@}
-Query[ja]=http://www.dict.cc/?s=\\{@}
 Query[kk]=http://www.dict.cc/?s=\\{@}
 Query[km]=http://www.dict.cc/?s=\\{@}
 Query[kn]=http://www.dict.cc/?s=\\{@}

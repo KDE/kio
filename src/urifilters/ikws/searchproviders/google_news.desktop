@@ -42,7 +42,6 @@ Name[ia]=Google News - Novas de Google
 Name[id]=Google News
 Name[is]=Google fréttir
 Name[it]=Notizie di Google
-Name[ja]=Google ニュース
 Name[kk]=Google жаңалықтар
 Name[km]=ព័ត៌មាន​តាម​ហ្គូហ្គល
 Name[kn]=ಗೂಗಲ್ ವಾರ್ತೆಗಳು
@@ -114,7 +113,6 @@ Query[ia]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[id]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[is]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[it]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
-Query[ja]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[kk]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ko]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[lt]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8

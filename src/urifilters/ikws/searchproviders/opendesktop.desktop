@@ -33,7 +33,6 @@ Name[ia]=openDesktop.org
 Name[id]=openDesktop.org
 Name[is]=openDesktop.org
 Name[it]=openDesktop.org
-Name[ja]=openDesktop.org
 Name[kk]=openDesktop.org
 Name[km]=openDesktop.org
 Name[kn]=openDesktop.org
@@ -101,7 +100,6 @@ Query[ia]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[id]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[is]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[it]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
-Query[ja]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[kk]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[km]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[kn]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}

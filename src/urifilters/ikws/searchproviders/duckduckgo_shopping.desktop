@@ -33,7 +33,6 @@ Name[ia]=Duck Duck Go Shopping
 Name[id]=Belanja Duck Duck Go
 Name[is]=Duck Duck Go verslun
 Name[it]=Acquisti di Duck Duck Go
-Name[ja]=Duck Duck Go Shopping
 Name[kk]=Duck Duck Go Shopping
 Name[km]=ការ​ទិញ​ឥវ៉ាន់របស់ Duck Duck Go
 Name[kn]=ಡಕ್ ಡಕ್ ಗೊ ಖರೀದಿ
@@ -93,7 +92,6 @@ Query[ia]=http://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[id]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[is]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[it]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
-Query[ja]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[kk]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[ko]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[lt]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde

@@ -41,7 +41,6 @@ Name[ia]=Cerca de texto complete de base de datos de Bug de KDE
 Name[id]=Pencarian Teks Lengkap Basis Data Kutu KDE
 Name[is]=Leit eftir orðum í KDE villugagnagrunni
 Name[it]=Ricerca del testo completo nella banca dati degli errori di KDE
-Name[ja]=KDE バグデータベース全文検索
 Name[kk]=KDE қателер дерек қорында толық мәтінді іздеу
 Name[km]=ការ​ស្វែងរក​អត្ថបទ​ពេញលេញ​នៃ​​មូលដ្ឋាន​ទិន្នន័យ​កំហុស​របស់ KDE
 Name[kn]=ಕೆಡಿಇ ದೋಷ ದತ್ತಸಂಚಯ ಪೂರ್ಣಪಠ್ಯ ಹುಡುಕಾಟ
@@ -112,7 +111,6 @@ Query[ia]=http://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[id]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[is]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[it]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
-Query[ja]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[kk]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ko]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[lt]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

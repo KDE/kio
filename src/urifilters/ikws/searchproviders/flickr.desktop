@@ -33,7 +33,6 @@ Name[ia]=Flickr
 Name[id]=Flickr
 Name[is]=Flickr
 Name[it]=Flickr
-Name[ja]=Flickr
 Name[kk]=Flickr
 Name[km]=Flickr
 Name[kn]=ಫ್ಲಿಕ್ಕರ್ 
@@ -102,7 +101,6 @@ Query[ia]=http://www.flickr.com/search?q=\\{@}
 Query[id]=http://www.flickr.com/search/?q=\\{@}
 Query[is]=http://www.flickr.com/search/?q=\\{@}
 Query[it]=http://www.flickr.com/search/?q=\\{@}
-Query[ja]=http://www.flickr.com/search/?q=\\{@}
 Query[kk]=http://www.flickr.com/search/?q=\\{@}
 Query[km]=http://www.flickr.com/search/?q=\\{@}
 Query[kn]=http://www.flickr.com/search/?q=\\{@}

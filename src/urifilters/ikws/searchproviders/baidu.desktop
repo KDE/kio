@@ -31,7 +31,6 @@ Name[ia]=Baidu
 Name[id]=Baidu
 Name[is]=Baidu
 Name[it]=Baidu
-Name[ja]=百度
 Name[kk]=Baidu
 Name[km]=Baidu
 Name[kn]=ಬೈಡು
@@ -101,7 +100,6 @@ Query[ia]=http://www.baidu.com/s?wd=\\{@}
 Query[id]=http://www.baidu.com/s?wd=\\{@}
 Query[is]=http://www.baidu.com/s?wd=\\{@}
 Query[it]=http://www.baidu.com/s?wd=\\{@}
-Query[ja]=http://www.baidu.com/s?wd=\\{@}
 Query[kk]=http://www.baidu.com/s?wd=\\{@}
 Query[km]=http://www.baidu.com/s?wd=\\{@}
 Query[kn]=http://www.baidu.com/s?wd=\\{@}

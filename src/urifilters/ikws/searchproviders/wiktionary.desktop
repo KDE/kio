@@ -41,7 +41,6 @@ Name[ia]=Wiktionary - Le Dictionario Libere e Gratuite
 Name[id]=Wiktionary - Kamus Gratis
 Name[is]=Wiktionary - Frjálsa orðabókin
 Name[it]=Wiktionary - Il dizionario libero
-Name[ja]=Wictionary - フリーな辞書
 Name[kk]=Wiktionary - ашық сөздік
 Name[km]=Wikipedia - វចនានុក្រម​ឥត​គិត​ថ្លៃ
 Name[kn]=ವಿಕ್ಷನರಿ - ಮುಕ್ತ ಶಬ್ದಕೋಶ
@@ -112,7 +111,6 @@ Query[ia]=http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[id]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[is]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[it]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
-Query[ja]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[kk]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ko]=https://ko.wiktionary.org/wiki/특수:검색?search=\\{@}&go=Go
 Query[lt]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go

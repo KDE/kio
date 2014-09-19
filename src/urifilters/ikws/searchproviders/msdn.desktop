@@ -41,7 +41,6 @@ Name[ia]=Microsoft Developer Network Search
 Name[id]=Pencarian Jaringan Pengembang Microsoft
 Name[is]=Microsoft Developer Network leit
 Name[it]=Ricerca su Microsoft Developer Network
-Name[ja]=Microsoft Developer Network 検索
 Name[kk]=Microsoft Developer Network-те іздеу
 Name[km]=ស្វែងរក​តាម​រយៈ​បណ្ដាញ​អ្នក​អភិវឌ្ឍន៍​ម៉ៃក្រូសូហ្វ (Microsoft)
 Name[kn]=ಮೈಕ್ರೋಸಾಫ್ಟ್ ವಿಕಸನ ಜಾಲ ಹುಡುಕಾಟ
@@ -114,7 +113,6 @@ Query[ia]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[id]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[is]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[it]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
-Query[ja]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[kk]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[ko]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[lt]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
