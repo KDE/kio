@@ -130,6 +130,14 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   //QUrl url = data.uri();
   QString cmd = data.typedString();
 
+  int firstNonSlash = 0;
+  while (firstNonSlash < cmd.length() && (cmd.at(firstNonSlash) == '/')) {
+      firstNonSlash++;
+  }
+  if (firstNonSlash > 1) {
+      cmd = cmd.mid(firstNonSlash - 1);
+  }
+
   // Replicate what KUrl(cmd) did in KDE4. This could later be folded into the checks further down...
   QUrl url(cmd);
   if (QDir::isAbsolutePath(cmd)) {

@@ -235,6 +235,11 @@ void KUriFilterTest::localFiles_data()
     setupColumns();
     addRow( "/", "/", KUriFilterData::LocalDir );
     addRow( "/", "/", KUriFilterData::LocalDir, QStringList( "kshorturifilter" ) );
+    addRow( "//", "/", KUriFilterData::LocalDir );
+    addRow( "///", "/", KUriFilterData::LocalDir );
+    addRow( "////", "/", KUriFilterData::LocalDir );
+    addRow( "///tmp", "/tmp", KUriFilterData::LocalDir );
+
     if (QFile::exists(QDir::homePath() + QLatin1String("/.bashrc")))
         addRow( "~/.bashrc", QDir::homePath()+QStringLiteral("/.bashrc"), KUriFilterData::LocalFile, QStringList( "kshorturifilter" ) );
     addRow( "~", QDir::homePath().toLocal8Bit(), KUriFilterData::LocalDir, QStringList( "kshorturifilter" ), "/tmp" );
