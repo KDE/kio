@@ -35,7 +35,7 @@ private Q_SLOTS:
     void cleanupTestCase();
 
 private:
-    class FileData;
+    struct FileData;
     bool copyLocalFile(FileData* fileData);
 };
 
