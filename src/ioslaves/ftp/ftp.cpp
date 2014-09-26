@@ -160,7 +160,7 @@ int WriteToFile(int fd, const char *buf, size_t len)
 }
 }
 
-KIO::filesize_t Ftp::UnknownSize = (KIO::filesize_t) - 1;
+const KIO::filesize_t Ftp::UnknownSize = (KIO::filesize_t) - 1;
 
 using namespace KIO;
 
@@ -1782,7 +1782,7 @@ bool Ftp::ftpReadDir(FtpEntry &de)
             // NOTE : no, we don't want to use KLocale here
             // It seems all FTP servers use the English way
             //qDebug() << "Looking for month " << p_date_1;
-            static const char *const s_months[12] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+            static const char s_months[][4] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun",
                                                       "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
                                                     };
             for (int c = 0; c < 12; c ++)

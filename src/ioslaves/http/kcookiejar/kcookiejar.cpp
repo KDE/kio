@@ -96,7 +96,7 @@ static QDateTime parseDate(const QString &_value)
     QDateTime dt = QDateTime::fromString(value, Qt::RFC2822Date);
 
     if (!dt.isValid()) {
-        static const char *date_formats[] = {
+        static const char *const date_formats[] = {
             // Other formats documented in RFC 2616 sec 3.3.1
             // Note: the RFC says timezone information MUST be "GMT", hence the hardcoded timezone string
             "MMM dd HH:mm:ss yyyy",       /* ANSI C's asctime() format (#145244): Jan 01 00:00:00 1970 GMT */

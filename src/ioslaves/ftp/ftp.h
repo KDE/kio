@@ -409,7 +409,7 @@ private: // data members
     bool m_bPasv;
 
     KIO::filesize_t m_size;
-    static KIO::filesize_t UnknownSize;
+    static const KIO::filesize_t UnknownSize;
 
     enum {
         epsvUnknown = 0x01,
