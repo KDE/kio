@@ -143,6 +143,7 @@ Query[nds]=http://packages.debian.org/\\{@}
 Query[ne]=http://packages.debian.org/\\{@}
 Query[nl]=http://packages.debian.org/\\{@}
 Query[nn]=http://packages.debian.org/\\{@}
+Query[oc]=http://packages.debian.org/\\{@}
 Query[or]=http://packages.debian.org/\\{@}
 Query[pa]=http://packages.debian.org/\\{@}
 Query[pl]=http://packages.debian.org/\\{@}

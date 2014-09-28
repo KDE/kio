@@ -13,6 +13,7 @@ Name[pl]=Qwant - aktualności
 Name[pt]=Notícias do Qwant
 Name[pt_BR]=Notícias do Qwant
 Name[sk]=Qwant Novinky 
+Name[sl]=Qwant - novice
 Name[sr]=Квант-вести
 Name[sr@ijekavian]=Квант-вести
 Name[sr@ijekavianlatin]=Qwant-vesti
@@ -34,6 +35,7 @@ Query[pl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[pt]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[pt_BR]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[sk]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
+Query[sl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[sr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[sr@ijekavian]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[sr@ijekavianlatin]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news

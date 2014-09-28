@@ -145,6 +145,7 @@ Query[nds]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[ne]=http://dict.leo.org/?lp=frdesearch=\\{@}
 Query[nl]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[nn]=http://dict.leo.org/?lp=frde&search=\\{@}
+Query[oc]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[or]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[pa]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[pl]=http://dict.leo.org/?lp=frde&search=\\{@}

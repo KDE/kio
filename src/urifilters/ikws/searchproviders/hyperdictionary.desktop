@@ -59,6 +59,7 @@ Name[nds]=HyperDictionary.com
 Name[ne]=HyperDictionary.com
 Name[nl]=HyperDictionary.com
 Name[nn]=HyperDictionary.com
+Name[oc]=HyperDictionary.com
 Name[or]=HyperDictionary.com
 Name[pa]=HyperDictionary.com
 Name[pl]=HyperDictionary.com - słownik
@@ -148,6 +149,7 @@ Query[nds]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[ne]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[nl]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[nn]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
+Query[oc]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[or]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[pa]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[pl]=http://www.hyperdictionary.com/search.aspx?define=\\{@}

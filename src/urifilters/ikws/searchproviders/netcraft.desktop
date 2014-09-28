@@ -148,6 +148,7 @@ Query[nds]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ne]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[nl]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[nn]=http://uptime.netcraft.com/up/graph?site=\\{@}
+Query[oc]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[or]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[pa]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[pl]=http://uptime.netcraft.com/up/graph?site=\\{@}

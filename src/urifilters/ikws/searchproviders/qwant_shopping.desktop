@@ -13,6 +13,7 @@ Name[pl]=Qwant - zakupy
 Name[pt]=Compras do Qwant
 Name[pt_BR]=Compras do Qwant
 Name[sk]=Qwant nakupovanie
+Name[sl]=Qwant - nakupovanje
 Name[sr]=Квант-шопинг
 Name[sr@ijekavian]=Квант-шопинг
 Name[sr@ijekavianlatin]=Qwant-šoping
@@ -34,6 +35,7 @@ Query[pl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[pt]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[pt_BR]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[sk]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
+Query[sl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[sr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[sr@ijekavian]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[sr@ijekavianlatin]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping

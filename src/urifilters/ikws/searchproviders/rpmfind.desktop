@@ -147,6 +147,7 @@ Query[nds]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ne]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[nl]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[nn]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[oc]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[or]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[pa]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[pl]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

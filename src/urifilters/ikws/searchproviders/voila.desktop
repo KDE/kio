@@ -59,6 +59,7 @@ Name[nds]=Voila
 Name[ne]=भोइला
 Name[nl]=Voila
 Name[nn]=Voila
+Name[oc]=Voila
 Name[or]=Voila
 Name[pa]=ਵੋਈਲਾ
 Name[pl]=Voila
@@ -147,6 +148,7 @@ Query[nds]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[ne]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[nl]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[nn]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[oc]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[or]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[pa]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[pl]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*

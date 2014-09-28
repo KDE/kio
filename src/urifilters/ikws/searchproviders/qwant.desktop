@@ -13,6 +13,7 @@ Name[pl]=Qwant
 Name[pt]=Qwant
 Name[pt_BR]=Qwant
 Name[sk]=Qwant
+Name[sl]=Qwant
 Name[sr]=Квант
 Name[sr@ijekavian]=Квант
 Name[sr@ijekavianlatin]=Qwant
@@ -34,6 +35,7 @@ Query[pl]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[pt_BR]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
+Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[sr]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[sr@ijekavian]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[sr@ijekavianlatin]=https://www.qwant.com/?q=\\{@}&client=kde&source=web

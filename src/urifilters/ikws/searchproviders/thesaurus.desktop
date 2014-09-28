@@ -148,6 +148,7 @@ Query[nds]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[ne]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurusva=\\{@}
 Query[nl]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[nn]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
+Query[oc]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[or]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[pa]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[pl]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
