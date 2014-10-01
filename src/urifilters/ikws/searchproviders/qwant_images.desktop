@@ -6,7 +6,9 @@ Name[cs]=Obrázky Qwant
 Name[de]=Qwant-Bilder
 Name[en_GB]=Qwant Images
 Name[es]=Qwant Imágenes
+Name[fr]=Images « Qwant »
 Name[hu]=Qwant képek
+Name[nb]=Qwant-bilder
 Name[nds]=Qwant-Biller
 Name[nl]=Qwant afbeeldingen
 Name[pl]=Qwant - obrazy
@@ -28,7 +30,9 @@ Query[cs]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[de]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[en_GB]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[es]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
+Query[fr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[hu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
+Query[nb]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[nds]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[nl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[pl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images

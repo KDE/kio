@@ -6,7 +6,9 @@ Name[cs]=Novinky Qwant
 Name[de]=Qwant-Neuigkeiten
 Name[en_GB]=Qwant News
 Name[es]=Qwant Noticias
+Name[fr]=Actualités « Qwant »
 Name[hu]=Qwant hírek
+Name[nb]=Qwant nyheter
 Name[nds]=Qwant-Narichten
 Name[nl]=Qwant nieuws
 Name[pl]=Qwant - aktualności
@@ -28,7 +30,9 @@ Query[cs]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[de]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[en_GB]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[es]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
+Query[fr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[hu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
+Query[nb]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[nds]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[nl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[pl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
