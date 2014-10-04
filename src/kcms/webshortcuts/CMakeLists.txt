@@ -1,6 +1,3 @@
-remove_definitions(-DTRANSLATION_DOMAIN=\"kio5\")
-add_definitions(-DTRANSLATION_DOMAIN=\"kcm_webshortcuts\")
-
 set(kcm_webshortcuts_PART_SRCS main.cpp )
 
 add_library(kcm_webshortcuts MODULE ${kcm_webshortcuts_PART_SRCS})

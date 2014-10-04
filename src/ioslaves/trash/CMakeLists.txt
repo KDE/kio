@@ -9,8 +9,6 @@
 #     set (STRIGI_TYPE "REQUIRED")
 # endif ()
 
-add_definitions(-DTRANSLATION_DOMAIN=\"kio_trash\")
-
 add_subdirectory(tests)
 
 set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp
