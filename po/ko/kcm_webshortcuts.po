@@ -1,0 +1,47 @@
+# translation of kcmkurifilt.po to Korean
+# Copyright (C) 2001, 2007 Free Software Foundation, Inc.
+# Yu-Chan, Park <super@susekorea.net>, 2001.
+# Park Shinjo <kde@peremen.name>, 2007, 2009, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kcmkurifilt\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-14 08:12+0000\n"
+"PO-Revision-Date: 2014-08-23 22:22+0900\n"
+"Last-Translator: Park Shinjo <kde@peremen.name>\n"
+"Language-Team: Korean <kde@peremen.name>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Park Shinjo"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde@peremen.name"
+
+#: main.cpp:41
+msgid "Web Shortcuts"
+msgstr "웹 바로 가기"
+
+#: main.cpp:48
+msgid ""
+"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
+"browsing features of KDE. <h2>Web Shortcuts</h2>Web Shortcuts are a quick "
+"way of using Web search engines. For example, type \"duckduckgo:frobozz\" or "
+"\"dd:frobozz\" and your web browser will do a search on DuckDuckGo for "
+"\"frobozz\". Even easier: just press Alt+F2 (if you have not changed this "
+"keyboard shortcut) and enter the shortcut in the Run Command dialog."
+msgstr ""
+"<h1>향상된 브라우징</h1> 이 모듈에서 KDE의 향상된 브라우징 기능을 설정할 수 "
+"있습니다. <h2>웹 바로 가기</h2>웹 바로 가기는 웹 검색 엔진을 이용하는 빠른 방"
+"법입니다.예를 들어 \"duckduckgo:frobozz\" 나 \"dd:frobozz\" 를 입력하면 웹 브"
+"라우저에서 DuckDuckGo를 열어서 \"frobozz\"로 검색합니다. 더 쉬운 방법으로, 단"
+"축키를 바꾸지 않았으면 Alt+F2 키를 눌러서 나타나는 명령 실행 창에 바로 가기"
+"를 입력하셔도 됩니다."

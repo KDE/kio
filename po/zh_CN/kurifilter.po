@@ -1,0 +1,326 @@
+#
+# Funda Wang <fundawang@linux.net.cn>, 2006.
+# Lie Ex <lilith.ex@gmail.com>, 2010.
+# Ni Hui <shuizhuyuanluo@126.com>, 2010, 2012.
+# Weng Xuetian <wengxt@gmail.com>, 2011, 2012.
+# Feng Chao <chaofeng111@gmail.com>, 2013, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-08 08:33+0000\n"
+"PO-Revision-Date: 2014-08-01 21:41+0800\n"
+"Last-Translator: Feng Chao <chaofeng111@gmail.com>\n"
+"Language-Team: Chinese Simplified <kde-china@kde.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Feng Chao"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "chaofeng111@gmail.com"
+
+#: ikwsopts.cpp:54
+msgctxt "@title:column Name label from web shortcuts column"
+msgid "Name"
+msgstr "名称"
+
+#: ikwsopts.cpp:56
+msgctxt "@title:column"
+msgid "Shortcuts"
+msgstr "速搜"
+
+#: ikwsopts.cpp:58
+msgctxt "@title:column"
+msgid "Preferred"
+msgstr "设为首选"
+
+#: ikwsopts.cpp:200
+msgctxt "@item:inlistbox No default web shortcut"
+msgid "None"
+msgstr "无"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: ikwsopts_ui.ui:17
+msgid ""
+"<html><head/><body><p>Enable or disable web shortcuts. </p><p>Web shortcuts "
+"allow you to quickly access or search for information located online or on "
+"your hard drive. </p><p>KDE comes with many predefined Web shortcuts. One "
+"such Web shortcut is the Google (TM) search shortcut. To use it, you simply "
+"type the keyword 'gg' followed by the keyword delimiter and the search term, "
+"e.g. <span style=\" font-weight:600;\">gg:KDE</span>.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>启用/禁用速搜功能。</p><p>速搜允许您快速访问或者搜索在"
+"线或者您磁盘上的信息。</p><p>KDE 有许多预定义的速搜。例如 Google (TM)搜索就是"
+"一个网页速搜。输入 “gg”，关键词分隔符和搜索词来使用它，例如<span style=\" "
+"font-weight:600;\">gg:KDE</span>。</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: ikwsopts_ui.ui:20
+msgid "&Enable Web shortcuts"
+msgstr "允许速搜(&E)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: ikwsopts_ui.ui:30
+msgid "&Use preferred shortcuts only"
+msgstr "只使用选中的速搜(&U)"
+
+#. i18n: ectx: property (placeholderText), widget (KLineEdit, searchLineEdit)
+#: ikwsopts_ui.ui:37
+msgid "Search for shortcut"
+msgstr "搜索快捷键"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: ikwsopts_ui.ui:71
+msgid "Add a new Web shortcut"
+msgstr "添加新的速搜"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: ikwsopts_ui.ui:74
+msgid "&New..."
+msgstr "新建(&N)..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: ikwsopts_ui.ui:84
+msgid "Modify the highlighted Web shortcut"
+msgstr "修改高亮的网页速搜"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: ikwsopts_ui.ui:87
+msgid "Chan&ge..."
+msgstr "更改(&G)..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: ikwsopts_ui.ui:97
+msgid "Delete the highlighted Web shortcut"
+msgstr "删除高亮的网页速搜"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: ikwsopts_ui.ui:100
+msgid "De&lete"
+msgstr "删除(&L)"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: ikwsopts_ui.ui:138
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"选择一个默认的搜索引擎。当您在提供自动查阅服务的输入框中输入单词或短语而并非 "
+"URL 时，将使用该引擎进行搜索。要禁用此特性，请从列表中选择<b>无</b>。\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: ikwsopts_ui.ui:141
+msgid "Default Web &shortcut:"
+msgstr "默认速搜(&S)"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cmbDefaultEngine)
+#: ikwsopts_ui.ui:166
+msgid ""
+"<html><head/><body><p>Select a default web shortcut. </p><p>This allows "
+"applications to automatically convert the typed word or phrase to web "
+"shortcut queries when they cannot be filtered into a proper URL. </p><p>To "
+"disable this functionality select <span style=\" font-weight:600;\">None</"
+"span> from the list. </p></body></html>"
+msgstr ""
+"<html><head/><body><p>选择默认的速搜。</p><p>这允许程序自动将不是 URL 的输入"
+"的词或者词组转化为速搜查询。</p><p>禁用此功能请从列表中选择<span style=\" "
+"font-weight:600;\">无</span>。</p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: ikwsopts_ui.ui:182
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr "选择区分要搜索的关键字是单词还是短语的分隔符。"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: ikwsopts_ui.ui:185
+msgid "&Keyword delimiter:"
+msgstr "关键字分隔符(&K)："
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:204
+msgid "Choose a delimiter to mark the Web shortcut keyword."
+msgstr "选择标记网页速搜关键词的分隔符"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:208
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr "分号"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:213
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr "空格"
+
+#: kuriikwsfilter.cpp:121
+msgid "No preferred search providers were found."
+msgstr "未找到首选的搜索提供者。"
+
+#: kuriikwsfilter.cpp:140
+msgid "No search providers were found."
+msgstr "未找到搜索提供者。"
+
+#: kurisearchfilter.cpp:92
+msgid "Search F&ilters"
+msgstr "搜索过滤(&I)"
+
+#: searchproviderdlg.cpp:58
+msgctxt "@item:inlistbox The default character set"
+msgid "Default"
+msgstr "默认"
+
+#: searchproviderdlg.cpp:62
+msgid "Modify Web Shortcut"
+msgstr "编辑速搜"
+
+#: searchproviderdlg.cpp:72
+msgid "New Web Shortcut"
+msgstr "新建速搜"
+
+#: searchproviderdlg.cpp:125
+#, kde-format
+msgid ""
+"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
+"one."
+msgstr "速搜关键字“%1”已经指派给“%2”。请另选一个。"
+
+#: searchproviderdlg.cpp:130
+#, kde-format
+msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+msgid "- %1: \"%2\""
+msgstr "- %1：“%2”"
+
+#: searchproviderdlg.cpp:134
+#, kde-format
+msgid ""
+"The following shortcuts are already assigned. Please choose different ones.\n"
+"%1"
+msgstr ""
+"下列速搜关键字已经被指派过，请另选。\n"
+"%1"
+
+#: searchproviderdlg.cpp:146
+msgid ""
+"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
+"This means that the same page is always going to be visited, regardless of "
+"the text typed in with the shortcut."
+msgstr ""
+"用户查询的网址中没有出现 \\{...} 占位符。\n"
+"这意味着不管您以后输入什么样的查找字串，最后看到的都是同一个网址。"
+
+#: searchproviderdlg.cpp:149
+msgid "Keep It"
+msgstr "保留"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: searchproviderdlg_ui.ui:17
+msgid "Enter the human-readable name of the search provider here."
+msgstr "在此为搜索服务网站指定您自定义的名字，方便您记忆。"
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: searchproviderdlg_ui.ui:23
+msgid "Shortcut &name:"
+msgstr "速搜名称(&N)："
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: searchproviderdlg_ui.ui:42 searchproviderdlg_ui.ui:64
+#: searchproviderdlg_ui.ui:70
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"在此输入搜索服务网站上进行检索用的网址。<br/>要检索的文本可以写做 \\{@} 或者 "
+"\\{0}。<br/>\n"
+"推荐使用 \\{@}，因为它能从生成的检索字串中自动剔除所有查询变量 (name=value)，"
+"而 \\{0} 只是被一字不差地代换到检索字串中。\n"
+"<br/>您可以用 \\{1} …… \\{n} 来表示检索字串中的某个词，用 \\{name} 来表示在检"
+"索字串中由“name=value”给出的词。<br/>另外通过名字、序号、和字串来一次性指定多"
+"个词也是可以的，如 \\{name1,name2,……,“字串”}。<br/>左起最先被匹配的字串将被代"
+"换到检索字串中，形成最后的检索网址。<br/>如果在用户输入的字串中无法匹配到合适"
+"的，可用引号括起来的字串作为缺省值。\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: searchproviderdlg_ui.ui:48
+msgid "Shortcut &URL:"
+msgstr "速搜网址(&U)："
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cbCharset)
+#: searchproviderdlg_ui.ui:83
+msgid "Select the character set that will be used to encode your search query."
+msgstr "选择您在查找字串中使用的文字编码字符集。"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: searchproviderdlg_ui.ui:92 searchproviderdlg_ui.ui:97
+#: searchproviderdlg_ui.ui:116
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"在此输入的捷径可以在 KDE 中作为假网址来使用。 例如，捷径 <b>av</b> 的用法就"
+"是 <b>av</b>:<b>我的搜索</b>\n"
+"</qt>"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: searchproviderdlg_ui.ui:104 searchproviderdlg_ui.ui:107
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr "<html><head/><body><p>在此为速搜指定您自定义的名字。</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: searchproviderdlg_ui.ui:119
+msgid "&Shortcuts:"
+msgstr "速搜关键字(&S)："
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: searchproviderdlg_ui.ui:132
+msgid "Select the character set that will be used to encode your search query"
+msgstr "选择用于编码搜索查询的字符集"
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: searchproviderdlg_ui.ui:135
+msgid "&Charset:"
+msgstr "字符集(&C)："
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: searchproviderdlg_ui.ui:158
+msgid "Insert query placeholder"
+msgstr "插入搜索占位符"

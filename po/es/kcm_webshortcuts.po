@@ -1,0 +1,49 @@
+# Spanish translations for kcm_webshortcuts.po package.
+# Copyright (C) 2014 This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Automatically generated, 2014.
+# Eloy Cuadra <ecuadra@eloihr.net>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_webshortcuts\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-14 08:12+0000\n"
+"PO-Revision-Date: 2014-08-15 21:59+0200\n"
+"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
+"Language-Team: Spanish <kde-l10n-es@kde.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Eloy Cuadra"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ecuadra@eloihr.net"
+
+#: main.cpp:41
+msgid "Web Shortcuts"
+msgstr "Accesos rápidos web"
+
+#: main.cpp:48
+msgid ""
+"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
+"browsing features of KDE. <h2>Web Shortcuts</h2>Web Shortcuts are a quick "
+"way of using Web search engines. For example, type \"duckduckgo:frobozz\" or "
+"\"dd:frobozz\" and your web browser will do a search on DuckDuckGo for "
+"\"frobozz\". Even easier: just press Alt+F2 (if you have not changed this "
+"keyboard shortcut) and enter the shortcut in the Run Command dialog."
+msgstr ""
+"<h1>Navegación mejorada</h1> En este módulo podrá configurar algunas "
+"funcionalidades de navegación mejorada de KDE. <h2>Accesos rápidos web</h2> "
+"Los accesos rápidos web son un modo rápido de usar los motores de búsqueda "
+"de la Web. Por ejemplo, escriba «duckduckgo:kde» o «dd:kde» para que su "
+"navegador web busque «kde» en DuckDuckGo. Todavía más fácil: pulse Alt+F2 "
+"(si no ha modificado este acceso rápido de teclado) e introduzca el acceso "
+"rápido en el diálogo de ejecutar órdenes."

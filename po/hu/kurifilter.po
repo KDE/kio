@@ -1,0 +1,344 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Tamas Szanto <tszanto@interware.hu>, 2007.
+# Kristóf Kiszel <ulysses@kubuntu.org>, 2011, 2014.
+# Balázs Úr <urbalazs@gmail.com>, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: KDE 4.1\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-08 08:33+0000\n"
+"PO-Revision-Date: 2014-09-03 14:59+0200\n"
+"Last-Translator: Kristóf Kiszel <ulysses@kubuntu.org>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kiszel Kristóf"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ulysses@kubuntu.org"
+
+#: ikwsopts.cpp:54
+msgctxt "@title:column Name label from web shortcuts column"
+msgid "Name"
+msgstr "Név"
+
+#: ikwsopts.cpp:56
+msgctxt "@title:column"
+msgid "Shortcuts"
+msgstr "Gyorsbillentyűk"
+
+#: ikwsopts.cpp:58
+msgctxt "@title:column"
+msgid "Preferred"
+msgstr "Elsődleges"
+
+#: ikwsopts.cpp:200
+msgctxt "@item:inlistbox No default web shortcut"
+msgid "None"
+msgstr "Nincs"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: ikwsopts_ui.ui:17
+msgid ""
+"<html><head/><body><p>Enable or disable web shortcuts. </p><p>Web shortcuts "
+"allow you to quickly access or search for information located online or on "
+"your hard drive. </p><p>KDE comes with many predefined Web shortcuts. One "
+"such Web shortcut is the Google (TM) search shortcut. To use it, you simply "
+"type the keyword 'gg' followed by the keyword delimiter and the search term, "
+"e.g. <span style=\" font-weight:600;\">gg:KDE</span>.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Keresési azonosítók engedélyezése vagy tiltása. </"
+"p><p>A keresési azonosítók lehetővé teszik a gyors hozzáférést vagy a "
+"keresést az online vagy a merevlemezen tárolt információkhoz. </p><p>A KDE "
+"számos előre meghatározott keresési azonosítóval érkezik. Az egyik ilyen "
+"keresési azonosító a Google (TM) keresési azonosító. A használatához "
+"egyszerűen gépelje be a „gg” kulcsszót, amelyet a kulcsszó elválasztó és a "
+"keresési kifejezés kövessen. Például <span style=\" font-weight:600;\">gg:"
+"KDE</span>.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: ikwsopts_ui.ui:20
+msgid "&Enable Web shortcuts"
+msgstr "Keresőa&zonosítók engedélyezése"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: ikwsopts_ui.ui:30
+msgid "&Use preferred shortcuts only"
+msgstr "Csak az &előnyben részesített gyorsbillentyűk használata"
+
+#. i18n: ectx: property (placeholderText), widget (KLineEdit, searchLineEdit)
+#: ikwsopts_ui.ui:37
+msgid "Search for shortcut"
+msgstr "Keresőazonosítók keresése"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: ikwsopts_ui.ui:71
+msgid "Add a new Web shortcut"
+msgstr "Új keresőazonosító hozzáadása"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: ikwsopts_ui.ui:74
+msgid "&New..."
+msgstr "Ú&j…s"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: ikwsopts_ui.ui:84
+msgid "Modify the highlighted Web shortcut"
+msgstr "A kijelölt keresőazonosító módosítása"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: ikwsopts_ui.ui:87
+msgid "Chan&ge..."
+msgstr "Mó&dosítás..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: ikwsopts_ui.ui:97
+msgid "Delete the highlighted Web shortcut"
+msgstr "A kijelölt keresőazonosító törlése"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: ikwsopts_ui.ui:100
+msgid "De&lete"
+msgstr "&Törlés"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: ikwsopts_ui.ui:138
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Itt lehet kiválasztani egy olyan keresőszolgáltatót, akiknél beírt szavak "
+"alapján lehet keresést végezni. Ha egyiket sem szeretné kijelölni, válassza "
+"a <b>Nincs</b> bejegyzést.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: ikwsopts_ui.ui:141
+msgid "Default Web &shortcut:"
+msgstr "Alapértelmezett keresőa&zonosító:"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cmbDefaultEngine)
+#: ikwsopts_ui.ui:166
+msgid ""
+"<html><head/><body><p>Select a default web shortcut. </p><p>This allows "
+"applications to automatically convert the typed word or phrase to web "
+"shortcut queries when they cannot be filtered into a proper URL. </p><p>To "
+"disable this functionality select <span style=\" font-weight:600;\">None</"
+"span> from the list. </p></body></html>"
+msgstr ""
+"<html><head/><body><p>Alapértelmezett keresési azonosító kiválasztása. </"
+"p><p>Ez lehetővé teszi az alkalmazások számára a begépelt szó vagy kifejezés "
+"automatikus átalakítását keresési azonosító lekérdezésekre, amikor azok nem "
+"szűrhetők ki a megfelelő URL-ben.</p><p>Ennek a funkcionalitásnak a "
+"tiltásához válassza a <span style=\" font-weight:600;\">Nincs</span> értéket "
+"a listából. </p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: ikwsopts_ui.ui:182
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr ""
+"Az itt megadott karakterek választhatják el a kulcsszót a keresett "
+"kifejezéstől."
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: ikwsopts_ui.ui:185
+msgid "&Keyword delimiter:"
+msgstr "Kulcsszóel&választó:"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:204
+msgid "Choose a delimiter to mark the Web shortcut keyword."
+msgstr "Válasszon egy elválasztót a keresési azonosító kulcsszó jelölésére."
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:208
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr "Kettőspont"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:213
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr "Szóköz"
+
+#: kuriikwsfilter.cpp:121
+msgid "No preferred search providers were found."
+msgstr "Nem találhatók előnyben részesített keresőszolgáltatók."
+
+#: kuriikwsfilter.cpp:140
+msgid "No search providers were found."
+msgstr "Nem találhatók keresőszolgáltatók."
+
+#: kurisearchfilter.cpp:92
+msgid "Search F&ilters"
+msgstr "K&eresési szűrők"
+
+#: searchproviderdlg.cpp:58
+msgctxt "@item:inlistbox The default character set"
+msgid "Default"
+msgstr "Alapértelmezett"
+
+#: searchproviderdlg.cpp:62
+msgid "Modify Web Shortcut"
+msgstr "Keresőazonosító módosítása"
+
+#: searchproviderdlg.cpp:72
+msgid "New Web Shortcut"
+msgstr "Új keresőazonosító"
+
+#: searchproviderdlg.cpp:125
+#, kde-format
+msgid ""
+"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
+"one."
+msgstr ""
+"A(z) „%1” keresőazonosító már hozzá van rendelve ehhez: „%2”. Válasszon egy "
+"másikat."
+
+#: searchproviderdlg.cpp:130
+#, kde-format
+msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+msgid "- %1: \"%2\""
+msgstr "- %1: „%2”"
+
+#: searchproviderdlg.cpp:134
+#, kde-format
+msgid ""
+"The following shortcuts are already assigned. Please choose different ones.\n"
+"%1"
+msgstr ""
+"A következő keresőazonosítók már hozzá vannak rendelve, válasszon másokat.\n"
+"%1"
+
+#: searchproviderdlg.cpp:146
+msgid ""
+"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
+"This means that the same page is always going to be visited, regardless of "
+"the text typed in with the shortcut."
+msgstr ""
+"A keresőazonosító URL nem tartalmazza a \\{...} helykitöltőt a felhasználó "
+"lekérdezéshez.\n"
+"Ez azt jelenti, hogy mindig ugyanaz az oldal lesz meglátogatva a "
+"keresőazonosítóval beírt szövegre tekintet nélkül."
+
+#: searchproviderdlg.cpp:149
+msgid "Keep It"
+msgstr "Megtartás"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: searchproviderdlg_ui.ui:17
+msgid "Enter the human-readable name of the search provider here."
+msgstr "A keresőszolgáltató neve."
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: searchproviderdlg_ui.ui:23
+msgid "Shortcut &name:"
+msgstr "Azonosító &neve:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: searchproviderdlg_ui.ui:42 searchproviderdlg_ui.ui:64
+#: searchproviderdlg_ui.ui:70
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Ezzel a címmel (URI-val) történik a keresés.<br/>A keresési kifejezésre a "
+"\\{@} és \\{0} szimbólummal lehet hivatkozni.<br/>\n"
+"A kettő közül \\{@} az ajánlott, mert ez eltávolítja a keresési változókat "
+"(név=érték párok) a végeredményből, míg \\{0} helyére a teljes beírt sztring "
+"kerül.<br/>A \\{1} ... \\{n} szimbólumokkal lehet hivatkozni a keresési "
+"kifejezés szavaira, a \\{név} szimbólummal 'név=érték' változók értékére.<br/"
+">Egyszerre több több hivatkozás is beírható (nevek, számok és sztringek): "
+"(\\{név1,név2,...,\"sztring\"}).<br/>Az első illeszkedő érték (balról) lesz "
+"behelyettesítve a végeredményként kapott URI-ba.<br/>Megadható egy "
+"idézőjelbe tett sztring alapértelmezésnek, ha nincs illeszkedés a lista bal "
+"oldalához.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: searchproviderdlg_ui.ui:48
+msgid "Shortcut &URL:"
+msgstr "Azonosító &URL:"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cbCharset)
+#: searchproviderdlg_ui.ui:83
+msgid "Select the character set that will be used to encode your search query."
+msgstr "A keresések szövege ezzel a karakterkódolással lesz feldolgozva."
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: searchproviderdlg_ui.ui:92 searchproviderdlg_ui.ui:97
+#: searchproviderdlg_ui.ui:116
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Az itt beírt azonosító felhasználható a KDE címmezőiben URI-sémaként. "
+"Például <b>av</b> esetén: <b>av</b>:<b>keresett szöveg</b>\n"
+"</qt>"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: searchproviderdlg_ui.ui:104 searchproviderdlg_ui.ui:107
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Itt adja meg a keresőazonosító ember által olvasható "
+"nevét.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: searchproviderdlg_ui.ui:119
+msgid "&Shortcuts:"
+msgstr "&Azonosítók:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: searchproviderdlg_ui.ui:132
+msgid "Select the character set that will be used to encode your search query"
+msgstr "A kereső ilyen kódolásban várja a keresési kifejezést"
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: searchproviderdlg_ui.ui:135
+msgid "&Charset:"
+msgstr "Karakterkó&dolás:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: searchproviderdlg_ui.ui:158
+msgid "Insert query placeholder"
+msgstr "Lekérdezés helykitöltő beszúrása"

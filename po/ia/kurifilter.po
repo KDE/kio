@@ -1,0 +1,348 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# g.sora <g.sora@tiscali.it>, 2010, 2011, 2012, 2013, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-08 08:33+0000\n"
+"PO-Revision-Date: 2014-04-22 14:11+0200\n"
+"Last-Translator: G.Sora <g.sora@tiscali.it>\n"
+"Language-Team: Interlingua <kde-l10n-ia@kde.org>\n"
+"Language: ia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Giovanni Sora"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "g.sora@tiscali.it"
+
+#: ikwsopts.cpp:54
+msgctxt "@title:column Name label from web shortcuts column"
+msgid "Name"
+msgstr "Nomine"
+
+#: ikwsopts.cpp:56
+msgctxt "@title:column"
+msgid "Shortcuts"
+msgstr "Vias breve"
+
+#: ikwsopts.cpp:58
+msgctxt "@title:column"
+msgid "Preferred"
+msgstr "Preferite"
+
+#: ikwsopts.cpp:200
+msgctxt "@item:inlistbox No default web shortcut"
+msgid "None"
+msgstr "Necun"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: ikwsopts_ui.ui:17
+msgid ""
+"<html><head/><body><p>Enable or disable web shortcuts. </p><p>Web shortcuts "
+"allow you to quickly access or search for information located online or on "
+"your hard drive. </p><p>KDE comes with many predefined Web shortcuts. One "
+"such Web shortcut is the Google (TM) search shortcut. To use it, you simply "
+"type the keyword 'gg' followed by the keyword delimiter and the search term, "
+"e.g. <span style=\" font-weight:600;\">gg:KDE</span>.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Habilita o dishabilita vias breve de web. </p><p>Vias "
+"breve de web permitte te de acceder rapidemente o cercar informationes "
+"locate in linea o sur tu disco dur. </p><p>KDE ha multe vias breve "
+"predefinite. Un tal via breve de web es le via breve per le cerca Google "
+"(TM). Pro usar lo, tu typa simplemente le parola clave 'gg' sequite per le "
+"delimitator de clave e termino de cerca, p.ex. <span style=\" font-"
+"weight:600;\">gg:KDE</span>.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: ikwsopts_ui.ui:20
+msgid "&Enable Web shortcuts"
+msgstr "&Habilita vias breve de web"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: ikwsopts_ui.ui:30
+msgid "&Use preferred shortcuts only"
+msgstr "&Usa solmente vias breve preferite"
+
+#. i18n: ectx: property (placeholderText), widget (KLineEdit, searchLineEdit)
+#: ikwsopts_ui.ui:37
+msgid "Search for shortcut"
+msgstr "Cerca via breve"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: ikwsopts_ui.ui:71
+msgid "Add a new Web shortcut"
+msgstr "Adde nove via breve de web"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: ikwsopts_ui.ui:74
+msgid "&New..."
+msgstr "&Nove ..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: ikwsopts_ui.ui:84
+msgid "Modify the highlighted Web shortcut"
+msgstr "Modifica le via breve evidentiate"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: ikwsopts_ui.ui:87
+msgid "Chan&ge..."
+msgstr "Cam&bia ..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: ikwsopts_ui.ui:97
+msgid "Delete the highlighted Web shortcut"
+msgstr "Dele le via breve evidentiate"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: ikwsopts_ui.ui:100
+msgid "De&lete"
+msgstr "De&le"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: ikwsopts_ui.ui:138
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Selige le motor de cerca que tu usa pro quadros de ingresso que forni "
+"servicios automatic de cerca quando tu typa parolas normal e phrases in vice "
+"de un URL. Pro dishabilitar iste characteristica tu selige <b>Necun</b> ab "
+"le lista.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: ikwsopts_ui.ui:141
+msgid "Default Web &shortcut:"
+msgstr "&Via breve de web predefinite:"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cmbDefaultEngine)
+#: ikwsopts_ui.ui:166
+msgid ""
+"<html><head/><body><p>Select a default web shortcut. </p><p>This allows "
+"applications to automatically convert the typed word or phrase to web "
+"shortcut queries when they cannot be filtered into a proper URL. </p><p>To "
+"disable this functionality select <span style=\" font-weight:600;\">None</"
+"span> from the list. </p></body></html>"
+msgstr ""
+"<html><head/><body><p>Selige un via breve predefinite. </p><p>Isto permitte "
+"a applicationes de converter automaticamente le parola o phrase typate in "
+"requestas de via breve quando illos non pote esser filtrate in un proprie "
+"URL. </p><p>Per dishabilitar iste  function selige <span style=\"font-"
+"weight:600;\">Nulle</span> ab le lista. </p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: ikwsopts_ui.ui:182
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr ""
+"Selige le delimitator que il separa le parola clave ex le phrase o parola "
+"que on debe cercar."
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: ikwsopts_ui.ui:185
+msgid "&Keyword delimiter:"
+msgstr "&Delimitator de parola clave:"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:204
+msgid "Choose a delimiter to mark the Web shortcut keyword."
+msgstr "Selige un delimitator pro marcar le parola clave de via breve de web."
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:208
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr "Duo punctos"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:213
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr "Spatio"
+
+#: kuriikwsfilter.cpp:121
+msgid "No preferred search providers were found."
+msgstr "Nulle fornitor de cerca preferite esseva trovate."
+
+#: kuriikwsfilter.cpp:140
+msgid "No search providers were found."
+msgstr "Nulle fornitor de cerca esseva trovate."
+
+#: kurisearchfilter.cpp:92
+msgid "Search F&ilters"
+msgstr "F&iltros de cerca"
+
+#: searchproviderdlg.cpp:58
+msgctxt "@item:inlistbox The default character set"
+msgid "Default"
+msgstr "Predefinite"
+
+#: searchproviderdlg.cpp:62
+msgid "Modify Web Shortcut"
+msgstr "Modifica via breve de web"
+
+#: searchproviderdlg.cpp:72
+msgid "New Web Shortcut"
+msgstr "Nove Via breve de Web"
+
+#: searchproviderdlg.cpp:125
+#, kde-format
+msgid ""
+"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
+"one."
+msgstr ""
+"Le via breve \"%1\" jam es assignate a \"%2\". Pro favor tu selige un "
+"differente."
+
+#: searchproviderdlg.cpp:130
+#, kde-format
+msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+msgid "- %1: \"%2\""
+msgstr "- %1: \"%2\""
+
+#: searchproviderdlg.cpp:134
+#, kde-format
+msgid ""
+"The following shortcuts are already assigned. Please choose different ones.\n"
+"%1"
+msgstr ""
+"Le sequente vias breve jam es assignate. Pro favor tu selige alteres "
+"differente.\n"
+"%1"
+
+#: searchproviderdlg.cpp:146
+msgid ""
+"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
+"This means that the same page is always going to be visited, regardless of "
+"the text typed in with the shortcut."
+msgstr ""
+"Le URI non contine un substituto \\{...} pro le requesta del usator.\n"
+"Isto significa que le mesme pagina essera sempre visitate, sin reguardo de "
+"lo que le usator typa con le via breve."
+
+#: searchproviderdlg.cpp:149
+msgid "Keep It"
+msgstr "Mantene lo"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: searchproviderdlg_ui.ui:17
+msgid "Enter the human-readable name of the search provider here."
+msgstr "Inserta ci le nomine legibile pro humanes del fornitor de cerca."
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: searchproviderdlg_ui.ui:23
+msgid "Shortcut &name:"
+msgstr "&Nomine de via breve"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: searchproviderdlg_ui.ui:42 searchproviderdlg_ui.ui:64
+#: searchproviderdlg_ui.ui:70
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Inserta ci le URI que il es usate pro executar un cerca sur le motor de "
+"cerca.<br/>Le integre texto que on debe cercar pote esser specificate como "
+"\\{@} o \\{0}.<br/>\n"
+"Recommendate es \\{@}, proque il remove omne variabiles de consulta "
+"(name=value) ex le catena resultante, viste que \\{0} essera substitute con "
+"le catena de consulta sin modifica.<br/>Tu pote usar \\{1} ... \\{n} pro "
+"specificar certe parolas ex le consulta e \\{name} pro specificar un valor "
+"date per 'name=value' in le consulta de usator.<br/>In addition il es "
+"possibile specificar referentias multiple (nomines, numeros e catenas) per "
+"vice (\\{name1,name2,...,\"string\"}).<br/>Le prime valor coincidente (ex le "
+"sinistra) essera usate como valor de substitution pro le URI resultante.<br/"
+">Un catena citate pote esser usate como valor predefinite si nihil coincide "
+"ex le sinistra del lista de referentia.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: searchproviderdlg_ui.ui:48
+msgid "Shortcut &URL:"
+msgstr "&URL de via breve:"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cbCharset)
+#: searchproviderdlg_ui.ui:83
+msgid "Select the character set that will be used to encode your search query."
+msgstr ""
+"Selige le insimul de characteres que essera usate pro codificar tu demanda "
+"de cerca."
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: searchproviderdlg_ui.ui:92 searchproviderdlg_ui.ui:97
+#: searchproviderdlg_ui.ui:116
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Le vias breve insertate ci essera usate como un pseudo-URI schema in KDE. "
+"Pro exemplo, le via breve <b>av</b> pote esser usate como in <b>av</b>:<b>mi "
+"cerca</b>\n"
+"</qt>"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: searchproviderdlg_ui.ui:104 searchproviderdlg_ui.ui:107
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Inserta ci le nomine legibile pro humanes del via "
+"breve de web. </p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: searchproviderdlg_ui.ui:119
+msgid "&Shortcuts:"
+msgstr "Vias &breve:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: searchproviderdlg_ui.ui:132
+msgid "Select the character set that will be used to encode your search query"
+msgstr ""
+"Selige le insimul de character que essera usate pro codificar tu demanda de "
+"cerca"
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: searchproviderdlg_ui.ui:135
+msgid "&Charset:"
+msgstr "Insimul de &characteres:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: searchproviderdlg_ui.ui:158
+msgid "Insert query placeholder"
+msgstr "Inserta substituto de demanda (query)"

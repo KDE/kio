@@ -1,0 +1,37 @@
+# translation of kshorturifilter.po to Finnish
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Teemu Rytilahti <teemu.rytilahti@kde-fi.org>, 2008.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2014.
+#
+# KDE Finnish translation sprint participants:
+msgid ""
+msgstr ""
+"Project-Id-Version: kshorturifilter\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-09-22 07:49+0000\n"
+"PO-Revision-Date: 2014-05-17 19:06+0300\n"
+"Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
+"Language-Team: Finnish <lokalisointi@lists.coss.fi>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-POT-Import-Date: 2012-12-01 22:22:15+0000\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: kshorturifilter.cpp:278
+#, kde-format
+msgid "<qt><b>%1</b> does not have a home folder.</qt>"
+msgstr "<qt>Käyttäjällä <b>%1</b> ei ole kotikansiota.</qt>"
+
+#: kshorturifilter.cpp:280
+#, kde-format
+msgid "<qt>There is no user called <b>%1</b>.</qt>"
+msgstr "<qt>Käyttäjää <b>%1</b> ei ole olemassa.</qt>"
+
+#: kshorturifilter.cpp:528
+#, kde-format
+msgid "<qt>The file or folder <b>%1</b> does not exist.</qt>"
+msgstr "<qt>Tiedostoa tai kansiota <b>%1</b> ei ole olemassa.</qt>"

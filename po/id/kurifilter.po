@@ -1,0 +1,344 @@
+# Indonesian translations for kurifilter package.
+# Copyright (C) 2010 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kurifilter package.
+# Andhika Padmawan <andhika.padmawan@gmail.com>, 2010-2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kurifilter\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-08 08:33+0000\n"
+"PO-Revision-Date: 2014-06-23 21:28+0700\n"
+"Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
+"Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Andhika Padmawan"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "andhika.padmawan@gmail.com"
+
+#: ikwsopts.cpp:54
+msgctxt "@title:column Name label from web shortcuts column"
+msgid "Name"
+msgstr "Nama"
+
+#: ikwsopts.cpp:56
+msgctxt "@title:column"
+msgid "Shortcuts"
+msgstr "Jalan Pintas"
+
+#: ikwsopts.cpp:58
+msgctxt "@title:column"
+msgid "Preferred"
+msgstr "Kesukaan"
+
+#: ikwsopts.cpp:200
+msgctxt "@item:inlistbox No default web shortcut"
+msgid "None"
+msgstr "Tak Ada"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: ikwsopts_ui.ui:17
+msgid ""
+"<html><head/><body><p>Enable or disable web shortcuts. </p><p>Web shortcuts "
+"allow you to quickly access or search for information located online or on "
+"your hard drive. </p><p>KDE comes with many predefined Web shortcuts. One "
+"such Web shortcut is the Google (TM) search shortcut. To use it, you simply "
+"type the keyword 'gg' followed by the keyword delimiter and the search term, "
+"e.g. <span style=\" font-weight:600;\">gg:KDE</span>.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Aktifkan atau nontaktifkan jalan pintas web. </"
+"p><p>Jalan pintas web memungkinkan anda untuk secara cepat mengakses atau "
+"mencari informasi dalam jaringan atau di cakram keras anda. </p><p>KDE hadir "
+"dengan banyak jalan pintas Web yang telah ditentukan. Salah satu dari jalan "
+"pintas tersebut adalah jalan pintas pencarian Google (TM). Untuk "
+"menggunakannya, anda cukup mengetik kata 'gg' diikuti dengan pembatas kata "
+"kunci dan kata pencarian, misalnya <span style=\" font-weight:600;\">gg:KDE</"
+"span>.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: ikwsopts_ui.ui:20
+msgid "&Enable Web shortcuts"
+msgstr "&Aktifkan Jalan Pintas Web"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: ikwsopts_ui.ui:30
+msgid "&Use preferred shortcuts only"
+msgstr "&Gunakan hanya jalan pintas kesukaan"
+
+#. i18n: ectx: property (placeholderText), widget (KLineEdit, searchLineEdit)
+#: ikwsopts_ui.ui:37
+msgid "Search for shortcut"
+msgstr "Cari jalan pintas"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: ikwsopts_ui.ui:71
+msgid "Add a new Web shortcut"
+msgstr "Aktifkan jalan pintas Web baru"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: ikwsopts_ui.ui:74
+msgid "&New..."
+msgstr "&Baru..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: ikwsopts_ui.ui:84
+msgid "Modify the highlighted Web shortcut"
+msgstr "Modifikasi jalan pintas Web yang disorot"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: ikwsopts_ui.ui:87
+msgid "Chan&ge..."
+msgstr "Uba&h..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: ikwsopts_ui.ui:97
+msgid "Delete the highlighted Web shortcut"
+msgstr "Hapus jalan pintas Web yang disorot"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: ikwsopts_ui.ui:100
+msgid "De&lete"
+msgstr "Ha&pus"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: ikwsopts_ui.ui:138
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Pilih mesin pencari untuk menggunakan kotak masukan yang menyediakan layanan "
+"pencarian otomatis ketika anda mengetik kata atau frasa normal ketimbang "
+"URL. Untuk menonaktifkan fitur ini pilih <b>Tak Ada</b> dari senarai.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: ikwsopts_ui.ui:141
+msgid "Default Web &shortcut:"
+msgstr "&Jalan pintas Web standar:"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cmbDefaultEngine)
+#: ikwsopts_ui.ui:166
+msgid ""
+"<html><head/><body><p>Select a default web shortcut. </p><p>This allows "
+"applications to automatically convert the typed word or phrase to web "
+"shortcut queries when they cannot be filtered into a proper URL. </p><p>To "
+"disable this functionality select <span style=\" font-weight:600;\">None</"
+"span> from the list. </p></body></html>"
+msgstr ""
+"<html><head/><body><p>Pilih jalan pintas web standar. </p><p>Ini "
+"memungkinkan aplikasi untuk secara otomatis mengonversi kata atau frasa yang "
+"diketik ke kueri jalan pintas ketika mereka tidak dapat disaring ke URL yang "
+"benar. </p><p>Untuk menonaktifkan fungsi ini piih <span style=\" font-"
+"weight:600;\">Tak ada</span> dari senarai. </p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: ikwsopts_ui.ui:182
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr ""
+"Pilih pembatas yang memisahkan kata kunci dari frasa atau kata untuk dicari."
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: ikwsopts_ui.ui:185
+msgid "&Keyword delimiter:"
+msgstr "Pembatas &kata kunci:"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:204
+msgid "Choose a delimiter to mark the Web shortcut keyword."
+msgstr "Pilih pembatas untuk menandai kata kunci jalan pintas Web."
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:208
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr "Titik"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:213
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr "Spasi"
+
+#: kuriikwsfilter.cpp:121
+msgid "No preferred search providers were found."
+msgstr "Tak ada penyedia pencarian yang ditemukan."
+
+#: kuriikwsfilter.cpp:140
+msgid "No search providers were found."
+msgstr "Tak ada penyedia pencarian yang ditemukan."
+
+#: kurisearchfilter.cpp:92
+msgid "Search F&ilters"
+msgstr "F&ilter Pencari"
+
+#: searchproviderdlg.cpp:58
+msgctxt "@item:inlistbox The default character set"
+msgid "Default"
+msgstr "Standar"
+
+#: searchproviderdlg.cpp:62
+msgid "Modify Web Shortcut"
+msgstr "Modifikasi Jalan Pintas Web"
+
+#: searchproviderdlg.cpp:72
+msgid "New Web Shortcut"
+msgstr "Jalan Pintas Web Baru"
+
+#: searchproviderdlg.cpp:125
+#, kde-format
+msgid ""
+"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
+"one."
+msgstr ""
+"Jalan pintas \"%1\" telah ditugaskan ke \"%2\". Silakan pilih yang lain."
+
+#: searchproviderdlg.cpp:130
+#, kde-format
+msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+msgid "- %1: \"%2\""
+msgstr "- %1: \"%2\""
+
+#: searchproviderdlg.cpp:134
+#, kde-format
+msgid ""
+"The following shortcuts are already assigned. Please choose different ones.\n"
+"%1"
+msgstr ""
+"Jalan pintas berikut telah ditugaskan. Silakan pilih yang lain.\n"
+"%1"
+
+#: searchproviderdlg.cpp:146
+msgid ""
+"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
+"This means that the same page is always going to be visited, regardless of "
+"the text typed in with the shortcut."
+msgstr ""
+"URL tidak berisi penempatan \\{...} untuk pertanyaan pengguna.\n"
+"Ini berarti bahwa halaman yang sama selalu akan dikunjungi, apapun yang "
+"pengguna ketik di dalam jalan pintas."
+
+#: searchproviderdlg.cpp:149
+msgid "Keep It"
+msgstr "Simpan Itu"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: searchproviderdlg_ui.ui:17
+msgid "Enter the human-readable name of the search provider here."
+msgstr "Masukkan nama dapat dibaca manusia dari penyedia pencarian di sini."
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: searchproviderdlg_ui.ui:23
+msgid "Shortcut &name:"
+msgstr "&Nama jalan pintas"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: searchproviderdlg_ui.ui:42 searchproviderdlg_ui.ui:64
+#: searchproviderdlg_ui.ui:70
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+"<qt>/nMasukkan URI yang digunakan untuk melakukan pencarian di mesin pencari "
+"di sini.<br/>Kata teks penuh untuk dicari dapat ditentukan sebagai \\{@} "
+"atau \\{0}.<br/>\n"
+"Yang direkomendasikan adalah \\{0}, karena itu menghapus semua variabel "
+"pertanyaan (name=value) dari hasil yang keluar, dimana \\{0} akan diganti "
+"dengan benang pertanyaan yang tidak dimodifikasi.<br/>Anda dapat menggunakan "
+"\\{1} ... \\{n} untuk menentukan kata tertentu dari pertanyaan dan \\{nama} "
+"untuk menentukan nilai yang diberikan oleh 'name=value' di pertanyaan "
+"pengguna.<br/>Sebagai tambahan dimungkinkan untuk menentukan banyak "
+"referensi (nama, nomor dan pertanyaan) sekaligus (\\{nama1,nama2,...,\"benang"
+"\"}).<br/>Nilai cocok pertama (dari kiri) akan digunakan sebagai nilai "
+"substitusi untuk hasil URI.<br/>Benang yang dikutip dapat digunakan sebagai "
+"nilai standar jika tidak ada yang cocok dari kiri senarai referensi.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: searchproviderdlg_ui.ui:48
+msgid "Shortcut &URL:"
+msgstr "&URL Jalan Pintas:"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cbCharset)
+#: searchproviderdlg_ui.ui:83
+msgid "Select the character set that will be used to encode your search query."
+msgstr ""
+"Pilih perangkat karakter yang akan digunakan untuk menyandikan pertanyaan "
+"pencarian anda."
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: searchproviderdlg_ui.ui:92 searchproviderdlg_ui.ui:97
+#: searchproviderdlg_ui.ui:116
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Jalan pintas yang dimasukkan di sini dapat digunakan sebagai skema pseudo-"
+"URI di KDE. Misalnya, jalan pintas <b>av</b> dapat digunakan dalam <b>av</b>:"
+"<b>pencarian saya</b>\n"
+"</qt>"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: searchproviderdlg_ui.ui:104 searchproviderdlg_ui.ui:107
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Masukkan nama dapat dibaca manusia dari penyedia "
+"pencarian di sini.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: searchproviderdlg_ui.ui:119
+msgid "&Shortcuts:"
+msgstr "&Jalan Pintas:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: searchproviderdlg_ui.ui:132
+msgid "Select the character set that will be used to encode your search query"
+msgstr ""
+"Pilih perangkat karakter yang akan digunakan untuk menyandikan pertanyaan "
+"pencarian anda"
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: searchproviderdlg_ui.ui:135
+msgid "&Charset:"
+msgstr "&Perangkat Karakter:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: searchproviderdlg_ui.ui:158
+msgid "Insert query placeholder"
+msgstr "Masukkan penempatan pertanyaan"

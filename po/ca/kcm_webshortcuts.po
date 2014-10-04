@@ -1,0 +1,49 @@
+# Translation of kcm_webshortcuts.po to Catalan
+# Copyright (C) 2014 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Antoni Bella Pérez <antonibella5@orange.es>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_webshortcuts\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-14 08:12+0000\n"
+"PO-Revision-Date: 2014-08-14 12:10+0200\n"
+"Last-Translator: Antoni Bella Pérez <antonibella5@orange.es>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Antoni Bella Pérez"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "antonibella5@orange.es"
+
+#: main.cpp:41
+msgid "Web Shortcuts"
+msgstr "Dreceres web"
+
+#: main.cpp:48
+msgid ""
+"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
+"browsing features of KDE. <h2>Web Shortcuts</h2>Web Shortcuts are a quick "
+"way of using Web search engines. For example, type \"duckduckgo:frobozz\" or "
+"\"dd:frobozz\" and your web browser will do a search on DuckDuckGo for "
+"\"frobozz\". Even easier: just press Alt+F2 (if you have not changed this "
+"keyboard shortcut) and enter the shortcut in the Run Command dialog."
+msgstr ""
+"<h1>Navegació millorada</h1> En aquest mòdul podeu configurar algunes "
+"funcions per a la navegació millorada del KDE. <h2>Dreceres web</h2> Les "
+"dreceres web són una manera ràpida d'usar els motors de cerca web. Per "
+"exemple, escriviu «duckduckgo:frobozz» o «dd:frobozz» i el vostre navegador "
+"web farà una cerca a DuckDuckGo per a «frobozz». Encara més fàcil: "
+"simplement premeu Alt+F2 (si no heu canviat aquesta drecera de teclat) i "
+"introduïu la drecera web al diàleg per executar ordres del KDE."

@@ -1,0 +1,47 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Vít Pelčák <vit@pelcak.org>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kcmkurifilt\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-14 08:12+0000\n"
+"PO-Revision-Date: 2014-08-15 15:36+0200\n"
+"Last-Translator: Vít Pelčák <vit@pelcak.org>\n"
+"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Vít Pelčák"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "vit@pelcak.org"
+
+#: main.cpp:41
+msgid "Web Shortcuts"
+msgstr "Webové zkratky"
+
+#: main.cpp:48
+msgid ""
+"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
+"browsing features of KDE. <h2>Web Shortcuts</h2>Web Shortcuts are a quick "
+"way of using Web search engines. For example, type \"duckduckgo:frobozz\" or "
+"\"dd:frobozz\" and your web browser will do a search on DuckDuckGo for "
+"\"frobozz\". Even easier: just press Alt+F2 (if you have not changed this "
+"keyboard shortcut) and enter the shortcut in the Run Command dialog."
+msgstr ""
+"<h1>Rozšířené prohledávání</h1> V tomto modulu je možné nastavit některé "
+"speciální prohlížecí vlastnosti KDE. <h2>Webové zkratky</h2>Použití webových "
+"zkratek je rychlý způsob používání webových prohledávačů. Např. stačí pouze "
+"vložit \"duckduckgo:blábol\" nebo \"dd:blábol\" a váš webový prohlížeč "
+"vyhledá zadaný dotaz na DuckDuckGo. Nebo ještě jednodušeji: stiskněte pouze "
+"Alt-F2 (pokud jste tuto klávesovou zkratku nepředefinovali) a vložte dotaz "
+"do dialogu pro spouštění aplikací."

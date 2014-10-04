@@ -1,0 +1,50 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Frederik Schwarzer <schwarzer@kde.org>, 2014.
+# Burkhard Lück <lueck@hube-lueck.de>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-14 08:12+0000\n"
+"PO-Revision-Date: 2014-09-02 15:09+0200\n"
+"Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Burkhard Lück"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "lueck@hube-lueck.de"
+
+#: main.cpp:41
+msgid "Web Shortcuts"
+msgstr "Web-Kürzel"
+
+#: main.cpp:48
+msgid ""
+"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
+"browsing features of KDE. <h2>Web Shortcuts</h2>Web Shortcuts are a quick "
+"way of using Web search engines. For example, type \"duckduckgo:frobozz\" or "
+"\"dd:frobozz\" and your web browser will do a search on DuckDuckGo for "
+"\"frobozz\". Even easier: just press Alt+F2 (if you have not changed this "
+"keyboard shortcut) and enter the shortcut in the Run Command dialog."
+msgstr ""
+"<h1>Erweitertes Web-Browsen</h1> In diesem Modul können Sie spezielle "
+"Funktionen von KDE aktivieren. <h2>Web-Kürzel</h2>Die Verwendung von Web-"
+"Kürzeln ermöglicht den schnellen Zugriff auf Web-Suchmaschinen. Zum Beispiel "
+"können Sie „duckduckgo:frobozz“ oder „dd:frobozz“ eingeben, und Konqueror "
+"wird die entsprechende Suche für Sie auf DuckDuckGo vornehmen und alle "
+"Fundstellen angeben, welche die Suchmaschine zu dem Wort „frobozz“ geliefert "
+"hat. Noch einfacher: Drücken Sie Alt+F2 (falls Sie diesen Kurzbefehl nicht "
+"geändert haben) und geben Sie Ihre Suchanfrage in den dann erscheinenden "
+"Dialog „Befehl ausführen“."

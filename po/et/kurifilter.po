@@ -1,0 +1,351 @@
+# translation of kurifilter.po to Estonian
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Marek Laane <bald@smail.ee>, 2007-2008.
+# Marek Laane <bald@smail.ee>, 2010, 2011, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kurifilter\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-08 08:33+0000\n"
+"PO-Revision-Date: 2012-05-14 19:33+0300\n"
+"Last-Translator: Marek Laane <bald@smail.ee>\n"
+"Language-Team: Estonian <kde-et@linux.ee>\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: ikwsopts.cpp:54
+#, fuzzy
+#| msgid "Name"
+msgctxt "@title:column Name label from web shortcuts column"
+msgid "Name"
+msgstr "Nimi"
+
+#: ikwsopts.cpp:56
+#, fuzzy
+#| msgid "Shortcuts"
+msgctxt "@title:column"
+msgid "Shortcuts"
+msgstr "Kiirklahvid"
+
+#: ikwsopts.cpp:58
+#, fuzzy
+#| msgid "Preferred"
+msgctxt "@title:column"
+msgid "Preferred"
+msgstr "Eelistatud"
+
+#: ikwsopts.cpp:200
+#, fuzzy
+#| msgid "None"
+msgctxt "@item:inlistbox No default web shortcut"
+msgid "None"
+msgstr "Puudub"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: ikwsopts_ui.ui:17
+msgid ""
+"<html><head/><body><p>Enable or disable web shortcuts. </p><p>Web shortcuts "
+"allow you to quickly access or search for information located online or on "
+"your hard drive. </p><p>KDE comes with many predefined Web shortcuts. One "
+"such Web shortcut is the Google (TM) search shortcut. To use it, you simply "
+"type the keyword 'gg' followed by the keyword delimiter and the search term, "
+"e.g. <span style=\" font-weight:600;\">gg:KDE</span>.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Veebikiirkorralduste lubamine või keelamine.</"
+"p><p>Veebikiirkorraldused võimaldavad kiiresti ligi pääseda teabele või "
+"otsida teavet, mis paikneb võrgus või ka kõvakettal. </p><p>KDE pakub tervet "
+"hulka veebikiirkorraldusi. Üks selliseid on näiteks Google (TM) otsingu "
+"kiirkorraldus. Selle kasutamiseks kirjuta lihtsalt võtmesõna 'gg' ning selle "
+"järel võtmesõna piiritleja ja otsingumõiste, nt. <span style=\" font-"
+"weight:600;\">gg:KDE</span>.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: ikwsopts_ui.ui:20
+msgid "&Enable Web shortcuts"
+msgstr "V&eebi kiirkorralduste lubamine"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: ikwsopts_ui.ui:30
+msgid "&Use preferred shortcuts only"
+msgstr "Ain&ult eelistatud kiirkorralduste kasutamine"
+
+#. i18n: ectx: property (placeholderText), widget (KLineEdit, searchLineEdit)
+#: ikwsopts_ui.ui:37
+msgid "Search for shortcut"
+msgstr "Kiirkorralduse otsing"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: ikwsopts_ui.ui:71
+msgid "Add a new Web shortcut"
+msgstr "Uue veebikiirkorralduse lisamine"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: ikwsopts_ui.ui:74
+msgid "&New..."
+msgstr "&Uus..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: ikwsopts_ui.ui:84
+msgid "Modify the highlighted Web shortcut"
+msgstr "Esiletõstetud veebikiirkorralduse muutmine"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: ikwsopts_ui.ui:87
+msgid "Chan&ge..."
+msgstr "&Muuda..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: ikwsopts_ui.ui:97
+msgid "Delete the highlighted Web shortcut"
+msgstr "Esiletõstetud veebikiirkorralduse kustutamine"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: ikwsopts_ui.ui:100
+msgid "De&lete"
+msgstr "&Kustuta"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: ikwsopts_ui.ui:138
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Vali otsingumootor, mida kasutada vaikimisi automaatse otsingu "
+"sooritamiseks, kui kirjutad URL-i asemel tavalised sõnad või fraasid. Selle "
+"võimaluse väljalülitamiseks vali nimekirjast <b>Puudub</b>.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: ikwsopts_ui.ui:141
+msgid "Default Web &shortcut:"
+msgstr "Vaikimi&si veebikiirkorraldus:"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cmbDefaultEngine)
+#: ikwsopts_ui.ui:166
+msgid ""
+"<html><head/><body><p>Select a default web shortcut. </p><p>This allows "
+"applications to automatically convert the typed word or phrase to web "
+"shortcut queries when they cannot be filtered into a proper URL. </p><p>To "
+"disable this functionality select <span style=\" font-weight:600;\">None</"
+"span> from the list. </p></body></html>"
+msgstr ""
+"<html><head/><body><p>Vaikimisi veebikiirkorralduse valimine.</p><p>See "
+"võimaldab rakendustel automaatselt teisendada kirjutatud sõna või väljendi "
+"veebipäringuks, kui neid ei saa filtreerida korralikuks URL-iks. </"
+"p><p>Selle võimaluse keelamiseks vali loendist <span style=\" font-"
+"weight:600;\">Puudub</span>. </p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: ikwsopts_ui.ui:182
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr "Vali eraldaja, mis lahutab võtmesõna otsitavast sõnast või fraasist."
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: ikwsopts_ui.ui:185
+msgid "&Keyword delimiter:"
+msgstr "&Võtmesõna eraldaja:"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:204
+msgid "Choose a delimiter to mark the Web shortcut keyword."
+msgstr "Veebikiirkorralduse võtmesõna tähistava piiritleja valimine."
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:208
+#, fuzzy
+#| msgid "Colon"
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr "Koolon"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:213
+#, fuzzy
+#| msgid "Space"
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr "Tühik"
+
+#: kuriikwsfilter.cpp:121
+msgid "No preferred search providers were found."
+msgstr "Ühtegi eelistatud otsingupakkujat ei leitud."
+
+#: kuriikwsfilter.cpp:140
+msgid "No search providers were found."
+msgstr "Ühtegi otsingupakkujat ei leitud."
+
+#: kurisearchfilter.cpp:92
+msgid "Search F&ilters"
+msgstr "&Otsingufiltrid"
+
+#: searchproviderdlg.cpp:58
+#, fuzzy
+#| msgid "Default"
+msgctxt "@item:inlistbox The default character set"
+msgid "Default"
+msgstr "Vaikeväärtus"
+
+#: searchproviderdlg.cpp:62
+msgid "Modify Web Shortcut"
+msgstr "Muuda veebikiirkorraldust"
+
+#: searchproviderdlg.cpp:72
+msgid "New Web Shortcut"
+msgstr "Uus veebikiirkorraldus"
+
+#: searchproviderdlg.cpp:125
+#, kde-format
+msgid ""
+"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
+"one."
+msgstr "Kiirkorraldus \"%1\" on juba omistatud (\"%2\"), Palun vali mõni muu."
+
+#: searchproviderdlg.cpp:130
+#, kde-format
+msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+msgid "- %1: \"%2\""
+msgstr "- %1: \"%2\""
+
+#: searchproviderdlg.cpp:134
+#, kde-format
+msgid ""
+"The following shortcuts are already assigned. Please choose different ones.\n"
+"%1"
+msgstr ""
+"Järgmised kiirkorraldused on juba omistatud. Palun vali mõni muu.\n"
+"%1"
+
+#: searchproviderdlg.cpp:146
+msgid ""
+"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
+"This means that the same page is always going to be visited, regardless of "
+"the text typed in with the shortcut."
+msgstr ""
+"Kiirkorralduse URL ei sisalda \\{...} kohatäitjat kasutaja päringu jaoks.\n"
+"See tähendab, et külastatakse alati sama lehekülge sõltumata sellest, mida "
+"kasutaja sisestab."
+
+#: searchproviderdlg.cpp:149
+msgid "Keep It"
+msgstr "Hoia see alles"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: searchproviderdlg_ui.ui:17
+msgid "Enter the human-readable name of the search provider here."
+msgstr "Otsngumootori nimi inimesele mõistetaval kujul."
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: searchproviderdlg_ui.ui:23
+msgid "Shortcut &name:"
+msgstr "Kiirkkorralduse &nimi:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: searchproviderdlg_ui.ui:42 searchproviderdlg_ui.ui:64
+#: searchproviderdlg_ui.ui:70
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Sisesta URI, mida kasutada otsingu sooritamiseks otsingumootoris.<br/>Kogu "
+"otsitavat teksti võib määrata kui \\{@} või \\{0}.<br/>\n"
+"Soovitatav on \\{@}, sest see eemaldab kõik päringumuutujad (nimi=väärtus) "
+"tulemuse stringist, samas kui \\{0} asendatakse muutmata päringu stringiga."
+"<br/>Kindlate päringu sõnade määramiseks kasuta \\{1} ... \\{n} ning "
+"\\{name} väärtuse määramiseks, mille annab päringus 'nimi=väärtus'.<br/"
+">Lisaks sellele on võimalik määrata mitu viidet (nimed, numbrid ja stringid) "
+"korraga (\\{nimi1,nimi2,...,\"string\"}).<br/>Esimest sobivat väärtust "
+"(vasakult) kasutatakse tulemuse URI-s asendusväärtusena.<br/>Vaikeväärtusena "
+"saab kasutada jutumärkides stringi, kui viidete nimekirjas vasakult midagi "
+"ei sobi.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: searchproviderdlg_ui.ui:48
+msgid "Shortcut &URL:"
+msgstr "Koorkorralduse &URL:"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cbCharset)
+#: searchproviderdlg_ui.ui:83
+msgid "Select the character set that will be used to encode your search query."
+msgstr "Kodeeringu valimine, mida kasutada päringu kodeerimiseks."
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: searchproviderdlg_ui.ui:92 searchproviderdlg_ui.ui:97
+#: searchproviderdlg_ui.ui:116
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Siin antud kiirkorraldusi saab kasutada KDE-s pseudo-URI skeemina. Näiteks "
+"kiirkorraldust <b>av</b> saab kasutada kui <b>av</b>:<b>minu otsing</b>\n"
+"</qt>"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: searchproviderdlg_ui.ui:104 searchproviderdlg_ui.ui:107
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Kirjuta siia inimesele mõistetav veebikiirkorralduse "
+"nimi.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: searchproviderdlg_ui.ui:119
+msgid "&Shortcuts:"
+msgstr "Kiirkorraldu&sed:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: searchproviderdlg_ui.ui:132
+msgid "Select the character set that will be used to encode your search query"
+msgstr "Kodeering, mida otsingu sooritamisel kasutatakse."
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: searchproviderdlg_ui.ui:135
+msgid "&Charset:"
+msgstr "Ko&deering:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: searchproviderdlg_ui.ui:158
+msgid "Insert query placeholder"
+msgstr ""

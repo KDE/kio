@@ -1,0 +1,340 @@
+# translation of kurifilter_Umang.po to Gujarati
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Sweta Kothari <swkothar@redhat.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: kurifilter_Umang\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-08 08:33+0000\n"
+"PO-Revision-Date: 2010-11-26 17:35+0530\n"
+"Last-Translator: Sweta Kothari <swkothar@redhat.com>\n"
+"Language-Team: Gujarati\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: ikwsopts.cpp:54
+#, fuzzy
+#| msgid "Name"
+msgctxt "@title:column Name label from web shortcuts column"
+msgid "Name"
+msgstr "નામ"
+
+#: ikwsopts.cpp:56
+#, fuzzy
+#| msgid "Shortcuts"
+msgctxt "@title:column"
+msgid "Shortcuts"
+msgstr "ટૂંકાણો"
+
+#: ikwsopts.cpp:58
+msgctxt "@title:column"
+msgid "Preferred"
+msgstr ""
+
+#: ikwsopts.cpp:200
+#, fuzzy
+#| msgid "None"
+msgctxt "@item:inlistbox No default web shortcut"
+msgid "None"
+msgstr "કઇ નહિં"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: ikwsopts_ui.ui:17
+msgid ""
+"<html><head/><body><p>Enable or disable web shortcuts. </p><p>Web shortcuts "
+"allow you to quickly access or search for information located online or on "
+"your hard drive. </p><p>KDE comes with many predefined Web shortcuts. One "
+"such Web shortcut is the Google (TM) search shortcut. To use it, you simply "
+"type the keyword 'gg' followed by the keyword delimiter and the search term, "
+"e.g. <span style=\" font-weight:600;\">gg:KDE</span>.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: ikwsopts_ui.ui:20
+msgid "&Enable Web shortcuts"
+msgstr "વેબ ટૂંકાણોને સક્રિય કરો (&E)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: ikwsopts_ui.ui:30
+#, fuzzy
+#| msgid "&Use selected shortcuts only"
+msgid "&Use preferred shortcuts only"
+msgstr "ફક્ત પસંદ થયેલ ટુંકાણોને વાપરો (&U)"
+
+#. i18n: ectx: property (placeholderText), widget (KLineEdit, searchLineEdit)
+#: ikwsopts_ui.ui:37
+msgid "Search for shortcut"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: ikwsopts_ui.ui:71
+#, fuzzy
+#| msgid "&Enable Web shortcuts"
+msgid "Add a new Web shortcut"
+msgstr "વેબ ટૂંકાણોને સક્રિય કરો (&E)"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: ikwsopts_ui.ui:74
+msgid "&New..."
+msgstr "નવું (&N)..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: ikwsopts_ui.ui:84
+#, fuzzy
+#| msgid "&Enable Web shortcuts"
+msgid "Modify the highlighted Web shortcut"
+msgstr "વેબ ટૂંકાણોને સક્રિય કરો (&E)"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: ikwsopts_ui.ui:87
+msgid "Chan&ge..."
+msgstr "બદલો (&g)..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: ikwsopts_ui.ui:97
+#, fuzzy
+#| msgid "&Enable Web shortcuts"
+msgid "Delete the highlighted Web shortcut"
+msgstr "વેબ ટૂંકાણોને સક્રિય કરો (&E)"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: ikwsopts_ui.ui:100
+msgid "De&lete"
+msgstr "કાઢી નાંખો (&l)"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: ikwsopts_ui.ui:138
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"ઇનપુટ બોક્સો માટે વાપરવા શોધ એંજિનને પસંદ કરો જે આપમેળે સેવાઓને પૂરી પાડે છે જ્યારે તમે URL "
+"ની જગ્યાએ સામાન્ય શબ્દો અને વાક્યોમાં ટાઇપ કરો તો. આ લક્ષણને નિષ્ક્રિય કરવા યાદીમાંથી "
+"<b>કઇ નહિં</b> ને પસંદ કરો.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: ikwsopts_ui.ui:141
+#, fuzzy
+#| msgid "&Enable Web shortcuts"
+msgid "Default Web &shortcut:"
+msgstr "વેબ ટૂંકાણોને સક્રિય કરો (&E)"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cmbDefaultEngine)
+#: ikwsopts_ui.ui:166
+msgid ""
+"<html><head/><body><p>Select a default web shortcut. </p><p>This allows "
+"applications to automatically convert the typed word or phrase to web "
+"shortcut queries when they cannot be filtered into a proper URL. </p><p>To "
+"disable this functionality select <span style=\" font-weight:600;\">None</"
+"span> from the list. </p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: ikwsopts_ui.ui:182
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr "ડૅલિમીટર ને પસંદ કરો કે જે શોધવા માટે શબ્દ અથવા વાક્યમાંથી કિવર્ડને અલગ કરે છે."
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: ikwsopts_ui.ui:185
+msgid "&Keyword delimiter:"
+msgstr "કિવર્ડ ડૅલિમીટર (&K):"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:204
+msgid "Choose a delimiter to mark the Web shortcut keyword."
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:208
+#, fuzzy
+#| msgid "Colon"
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr "વિરામચિહ્ન"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:213
+#, fuzzy
+#| msgid "Space"
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr "જગ્યા (સ્થાન)"
+
+#: kuriikwsfilter.cpp:121
+msgid "No preferred search providers were found."
+msgstr "પ્રાધાન્યવાળા શોધ પ્રબંધકો મળી આવ્યા નથી."
+
+#: kuriikwsfilter.cpp:140
+msgid "No search providers were found."
+msgstr "કોઈ શોધ પ્રબંધકો મળી આવ્યા નથી."
+
+#: kurisearchfilter.cpp:92
+msgid "Search F&ilters"
+msgstr "શોધ ગાળકો (&i)"
+
+#: searchproviderdlg.cpp:58
+#, fuzzy
+#| msgid "Default"
+msgctxt "@item:inlistbox The default character set"
+msgid "Default"
+msgstr "મૂળભૂત"
+
+#: searchproviderdlg.cpp:62
+#, fuzzy
+#| msgid "&Enable Web shortcuts"
+msgid "Modify Web Shortcut"
+msgstr "વેબ ટૂંકાણોને સક્રિય કરો (&E)"
+
+#: searchproviderdlg.cpp:72
+#, fuzzy
+#| msgid "&Enable Web shortcuts"
+msgid "New Web Shortcut"
+msgstr "વેબ ટૂંકાણોને સક્રિય કરો (&E)"
+
+#: searchproviderdlg.cpp:125
+#, kde-format
+msgid ""
+"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
+"one."
+msgstr "ટુંકાણ \"%1\" પેહલેથી \"%2\" ને સોંપેલ છે. મહેરબાની કરી કોઈ અલગ પસંદ કરો."
+
+#: searchproviderdlg.cpp:130
+#, kde-format
+msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+msgid "- %1: \"%2\""
+msgstr "- %1 \"%2\""
+
+#: searchproviderdlg.cpp:134
+#, kde-format
+msgid ""
+"The following shortcuts are already assigned. Please choose different ones.\n"
+"%1"
+msgstr ""
+"નીચેના ટુંકાણો પહેલેથી સોંપેલ છે. મહેરબાની કરી કોઈ અલગને પસંદ કરો.\n"
+"%1"
+
+#: searchproviderdlg.cpp:146
+msgid ""
+"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
+"This means that the same page is always going to be visited, regardless of "
+"the text typed in with the shortcut."
+msgstr ""
+
+#: searchproviderdlg.cpp:149
+msgid "Keep It"
+msgstr "આને રાખો"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: searchproviderdlg_ui.ui:17
+msgid "Enter the human-readable name of the search provider here."
+msgstr "અહિયા માનવ વાંચી સકે તેવું શોધ પ્રબંધક નું નામ દાખલ કરો."
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: searchproviderdlg_ui.ui:23
+#, fuzzy
+#| msgid "Shortcuts"
+msgid "Shortcut &name:"
+msgstr "ટૂંકાણો"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: searchproviderdlg_ui.ui:42 searchproviderdlg_ui.ui:64
+#: searchproviderdlg_ui.ui:70
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: searchproviderdlg_ui.ui:48
+#, fuzzy
+#| msgid "Shortcuts"
+msgid "Shortcut &URL:"
+msgstr "ટૂંકાણો"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cbCharset)
+#: searchproviderdlg_ui.ui:83
+msgid "Select the character set that will be used to encode your search query."
+msgstr "અક્ષર સમૂહને પસંદ કરો જે તમારા શોધ પ્રશ્નને એનકોડ કરવા માટે વપરાશે"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: searchproviderdlg_ui.ui:92 searchproviderdlg_ui.ui:97
+#: searchproviderdlg_ui.ui:116
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"અહિંયા દાખલ થયેલ ટૂંકાણો KDE માં pseudo-URI યોજના તરીકે વાપરી શકાય છે. ઉદાહરણ માટે, "
+"ટૂંકાણ <b>av</b>:<b>મારી શોધ</b><b>av</b> માં વાપરી શકાય છે\n"
+"</qt>"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: searchproviderdlg_ui.ui:104 searchproviderdlg_ui.ui:107
+#, fuzzy
+#| msgid "Enter the human-readable name of the search provider here."
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr "અહિયા માનવ વાંચી સકે તેવું શોધ પ્રબંધક નું નામ દાખલ કરો."
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: searchproviderdlg_ui.ui:119
+#, fuzzy
+#| msgid "Shortcuts"
+msgid "&Shortcuts:"
+msgstr "ટૂંકાણો"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: searchproviderdlg_ui.ui:132
+msgid "Select the character set that will be used to encode your search query"
+msgstr "અક્ષર સમૂહને પસંદ કરો કે જે તમારા શોધ પ્રશ્નને એનકોડ કરવા માટે વપરાશે"
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: searchproviderdlg_ui.ui:135
+msgid "&Charset:"
+msgstr "અક્ષર સમૂહ (&C):"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: searchproviderdlg_ui.ui:158
+msgid "Insert query placeholder"
+msgstr ""

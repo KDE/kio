@@ -1,0 +1,113 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-10-02 07:58+0000\n"
+"PO-Revision-Date: 2014-10-02 12:20+0200\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: kcmtrash.cpp:158 kcmtrash.cpp:256
+msgid " day"
+msgid_plural " days"
+msgstr[0] " dag"
+msgstr[1] " dagen"
+
+#: kcmtrash.cpp:247
+msgid "Delete files older than:"
+msgstr "Bestanden verwijderen als ze ouder zijn dan:"
+
+#: kcmtrash.cpp:266
+msgid "Limit to maximum size"
+msgstr "Beperken tot maximumgrootte"
+
+#: kcmtrash.cpp:294
+msgid "Maximum size:"
+msgstr "Maximum grootte:"
+
+#: kcmtrash.cpp:296
+msgid "When limit reached:"
+msgstr "Wanneer limiet bereikt is:"
+
+#: kcmtrash.cpp:300
+msgid "Warn Me"
+msgstr "Mij waarschuwen"
+
+#: kcmtrash.cpp:301
+msgid "Delete Oldest Files From Trash"
+msgstr "Oudste bestanden uit de prullenbak verwijderen"
+
+#: kcmtrash.cpp:302
+msgid "Delete Biggest Files From Trash"
+msgstr "Grootste bestanden uit prullenbak verwijderen"
+
+#: kio_trash.cpp:93 kio_trash.cpp:159 kio_trash.cpp:315 kio_trash.cpp:347
+#: kio_trash.cpp:513 kio_trash.cpp:525
+#, kde-format
+msgid "Malformed URL %1"
+msgstr "Verkeerd gevormd URL-adres %1"
+
+#: kio_trash.cpp:115
+#, kde-format
+msgid ""
+"The directory %1 does not exist anymore, so it is not possible to restore "
+"this item to its original location. You can either recreate that directory "
+"and use the restore operation again, or drag the item anywhere else to "
+"restore it."
+msgstr ""
+"De map %1 bestaat niet meer. U kunt dit item niet terugzetten op de "
+"oorspronkelijke locatie. U kunt die map opnieuw aanmaken en de "
+"terugzetopdracht nogmaals uitvoeren, of het item naar een andere plek buiten "
+"de prullenbak slepen om het terug te halen."
+
+#: kio_trash.cpp:144 kio_trash_win.cpp:228
+msgid "This file is already in the trash bin."
+msgstr "Dit bestand bevindt zich al in de prullenbak."
+
+#: kio_trash.cpp:233 kio_trash_win.cpp:252
+msgid "Internal error in copyOrMove, should never happen"
+msgstr "Interne fout in copyOrMove, zou nooit moeten gebeuren"
+
+#: kio_trash_win.cpp:241
+msgid "not supported"
+msgstr "niet ondersteund"
+
+#: ktrash.cpp:38
+msgid ""
+"Helper program to handle the KDE trash can\n"
+"Note: to move files to the trash, do not use ktrash, but \"kioclient move "
+"'url' trash:/\""
+msgstr ""
+"Hulpprogramma om KDE's prullenbak af te handelen\n"
+"Opmerking, om bestanden in de prullenbak te plaatsen, gebruik geen ktrash, "
+"maar \"kioclient move 'url' trash:/\""
+
+#: ktrash.cpp:41
+msgid "Empty the contents of the trash"
+msgstr "Prullenbak legen"
+
+#: ktrash.cpp:42
+msgid "Restore a trashed file to its original location"
+msgstr "Zet een weggegooid bestand terug op zijn oorspronkelijke locatie"
+
+#: trashimpl.cpp:1123
+msgid ""
+"The trash has reached its maximum size!\n"
+"Cleanup the trash manually."
+msgstr ""
+"De prullenbak heeft zijn maximum grootte bereikt.\n"
+"Ruim de prullenbak handmatig op."
+
+#: trashimpl.cpp:1134
+msgid "The file is too large to be trashed."
+msgstr "Dit bestand is te groot voor de prullenbak."

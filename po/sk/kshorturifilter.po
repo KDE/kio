@@ -1,0 +1,32 @@
+# translation of kshorturifilter.po to Slovak
+# Richard Fric <Richard.Fric@kdemail.net>, 2007.
+# Michal Sulek <misurel@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: kshorturifilter\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-09-22 07:49+0000\n"
+"PO-Revision-Date: 2009-06-12 19:55+0200\n"
+"Last-Translator: Michal Sulek <misurel@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 0.3\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: kshorturifilter.cpp:278
+#, kde-format
+msgid "<qt><b>%1</b> does not have a home folder.</qt>"
+msgstr "<qt><b>%1</b> nemá domovský priečinok.</qt>"
+
+#: kshorturifilter.cpp:280
+#, kde-format
+msgid "<qt>There is no user called <b>%1</b>.</qt>"
+msgstr "<qt>Neexistuje užívateľ <b>%1</b>.</qt>"
+
+#: kshorturifilter.cpp:528
+#, kde-format
+msgid "<qt>The file or folder <b>%1</b> does not exist.</qt>"
+msgstr "<qt>Súbor alebo priečinok <b>%1</b> neexistuje.</qt>"

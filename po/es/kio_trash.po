@@ -1,0 +1,115 @@
+# Spanish translations for kio_trash.po package.
+# Copyright (C) 2014 This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Automatically generated, 2014.
+# Eloy Cuadra <ecuadra@eloihr.net>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: kio_trash\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-10-02 07:58+0000\n"
+"PO-Revision-Date: 2014-10-02 21:23+0200\n"
+"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
+"Language-Team: Spanish <kde-l10n-es@kde.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: kcmtrash.cpp:158 kcmtrash.cpp:256
+msgid " day"
+msgid_plural " days"
+msgstr[0] " día"
+msgstr[1] " días"
+
+#: kcmtrash.cpp:247
+msgid "Delete files older than:"
+msgstr "Borrar los archivos más antiguos de:"
+
+#: kcmtrash.cpp:266
+msgid "Limit to maximum size"
+msgstr "Limitar a un tamaño máximo"
+
+#: kcmtrash.cpp:294
+msgid "Maximum size:"
+msgstr "Tamaño máximo:"
+
+#: kcmtrash.cpp:296
+msgid "When limit reached:"
+msgstr "Cuando se alcance el límite:"
+
+#: kcmtrash.cpp:300
+msgid "Warn Me"
+msgstr "Avisarme"
+
+#: kcmtrash.cpp:301
+msgid "Delete Oldest Files From Trash"
+msgstr "Borrar los archivos más antiguos de la papelera"
+
+#: kcmtrash.cpp:302
+msgid "Delete Biggest Files From Trash"
+msgstr "Borrar los archivos más grandes de la papelera"
+
+#: kio_trash.cpp:93 kio_trash.cpp:159 kio_trash.cpp:315 kio_trash.cpp:347
+#: kio_trash.cpp:513 kio_trash.cpp:525
+#, kde-format
+msgid "Malformed URL %1"
+msgstr "URL %1 mal formada"
+
+#: kio_trash.cpp:115
+#, kde-format
+msgid ""
+"The directory %1 does not exist anymore, so it is not possible to restore "
+"this item to its original location. You can either recreate that directory "
+"and use the restore operation again, or drag the item anywhere else to "
+"restore it."
+msgstr ""
+"El directorio %1 ya no existe, por lo que no es posible restaurar este "
+"elemento a su ubicación original. Puede volver a crear dicho directorio y "
+"realizar de nuevo la operación de restauración o bien arrastrar el elemento "
+"a otro lugar para restaurarlo."
+
+#: kio_trash.cpp:144 kio_trash_win.cpp:228
+msgid "This file is already in the trash bin."
+msgstr "Este archivo ya está en la papelera de reciclaje."
+
+#: kio_trash.cpp:233 kio_trash_win.cpp:252
+msgid "Internal error in copyOrMove, should never happen"
+msgstr "Error interno en copyOrMove, algo que no debería ocurrir"
+
+#: kio_trash_win.cpp:241
+msgid "not supported"
+msgstr "no permitido"
+
+#: ktrash.cpp:38
+msgid ""
+"Helper program to handle the KDE trash can\n"
+"Note: to move files to the trash, do not use ktrash, but \"kioclient move "
+"'url' trash:/\""
+msgstr ""
+"Programa auxiliar para manejar la papelera\n"
+"Nota: para mover archivos a la papelera no debe usar ktrash, sino «kioclient "
+"move 'url' trash:/»"
+
+#: ktrash.cpp:41
+msgid "Empty the contents of the trash"
+msgstr "Vaciar el contenido de la papelera"
+
+#: ktrash.cpp:42
+msgid "Restore a trashed file to its original location"
+msgstr "Restaurar un archivo de la papelera en su ubicación original"
+
+#: trashimpl.cpp:1123
+msgid ""
+"The trash has reached its maximum size!\n"
+"Cleanup the trash manually."
+msgstr ""
+"La papelera ha alcanzado su tamaño máximo.\n"
+"Vacíe la papelera manualmente."
+
+#: trashimpl.cpp:1134
+msgid "The file is too large to be trashed."
+msgstr "El archivo es demasiado grande para ir a la papelera."

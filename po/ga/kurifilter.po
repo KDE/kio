@@ -1,0 +1,358 @@
+# Irish translation of kurifilter
+# Copyright (C) 2009 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kurifilter package.
+# Kevin Scannell <kscanne@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdebase/kurifilter.po\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-08 08:33+0000\n"
+"PO-Revision-Date: 2007-07-10 12:28-0500\n"
+"Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
+"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
+"Language: ga\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
+"3 : 4\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: ikwsopts.cpp:54
+#, fuzzy
+#| msgid "Name"
+msgctxt "@title:column Name label from web shortcuts column"
+msgid "Name"
+msgstr "Ainm"
+
+#: ikwsopts.cpp:56
+#, fuzzy
+#| msgid "Shortcuts"
+msgctxt "@title:column"
+msgid "Shortcuts"
+msgstr "Aicearraí"
+
+#: ikwsopts.cpp:58
+#, fuzzy
+#| msgid "Preferred"
+msgctxt "@title:column"
+msgid "Preferred"
+msgstr "De rogha"
+
+#: ikwsopts.cpp:200
+#, fuzzy
+#| msgid "None"
+msgctxt "@item:inlistbox No default web shortcut"
+msgid "None"
+msgstr "Gan Aicearraí"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: ikwsopts_ui.ui:17
+msgid ""
+"<html><head/><body><p>Enable or disable web shortcuts. </p><p>Web shortcuts "
+"allow you to quickly access or search for information located online or on "
+"your hard drive. </p><p>KDE comes with many predefined Web shortcuts. One "
+"such Web shortcut is the Google (TM) search shortcut. To use it, you simply "
+"type the keyword 'gg' followed by the keyword delimiter and the search term, "
+"e.g. <span style=\" font-weight:600;\">gg:KDE</span>.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Cumasaigh nó díchumasaigh aicearraí Gréasáin. </"
+"p><p>Ligeann aicearraí Gréasáin duit cuardach a dhéanamh ar fhaisnéis ar "
+"líne nó ar do dhiosca crua. </p><p>Tá go leor aicearraí réamhshocraithe ann, "
+"mar shampla, an t-aicearra cuardaigh Google. Chun é a úsáid, clóscríobh an "
+"lorgfhocal 'gg', ansin teormharcóir, ansin an téarma cuardaigh, m.sh. <span "
+"style=\" font-weight:600;\">gg:KDE</span>.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: ikwsopts_ui.ui:20
+msgid "&Enable Web shortcuts"
+msgstr "Cumasaigh aic&earraí Gréasáin"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: ikwsopts_ui.ui:30
+msgid "&Use preferred shortcuts only"
+msgstr "&Ná húsáid ach aicearraí roghnaithe"
+
+#. i18n: ectx: property (placeholderText), widget (KLineEdit, searchLineEdit)
+#: ikwsopts_ui.ui:37
+msgid "Search for shortcut"
+msgstr "Déan cuardach ar aicearra"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: ikwsopts_ui.ui:71
+msgid "Add a new Web shortcut"
+msgstr "Cuir aicearra nua Gréasáin leis"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: ikwsopts_ui.ui:74
+msgid "&New..."
+msgstr "&Nua..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: ikwsopts_ui.ui:84
+msgid "Modify the highlighted Web shortcut"
+msgstr "Athraigh an t-aicearra Gréasáin aibhsithe"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: ikwsopts_ui.ui:87
+msgid "Chan&ge..."
+msgstr "Athr&aigh..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: ikwsopts_ui.ui:97
+msgid "Delete the highlighted Web shortcut"
+msgstr "Scrios an t-aicearra Gréasáin aibhsithe"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: ikwsopts_ui.ui:100
+msgid "De&lete"
+msgstr "Sc&rios"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: ikwsopts_ui.ui:138
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Roghnaigh an t-inneall cuardaigh le húsáid le haghaidh boscaí "
+"eagarthóireachta a sholáthraíonn seirbhísí cuardaigh nuair a chuireann tú "
+"gnáthfhocail agus frásaí isteach in ionad URL.  Chun an ghné seo a "
+"dhíchumasú, roghnaigh <b>Gan Aicearraí</b> ón liosta.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: ikwsopts_ui.ui:141
+msgid "Default Web &shortcut:"
+msgstr "Aicearra réamh&shocraithe Gréasáin:"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cmbDefaultEngine)
+#: ikwsopts_ui.ui:166
+msgid ""
+"<html><head/><body><p>Select a default web shortcut. </p><p>This allows "
+"applications to automatically convert the typed word or phrase to web "
+"shortcut queries when they cannot be filtered into a proper URL. </p><p>To "
+"disable this functionality select <span style=\" font-weight:600;\">None</"
+"span> from the list. </p></body></html>"
+msgstr ""
+"<html><head/><body><p>Roghnaigh aicearra Gréasáin réamhshocraithe. </"
+"p><p>Leis seo, beidh feidhmchláir ábalta focal nó frása a thiontú go "
+"huathoibríoch go haicearra Gréasáin nuair nach féidir iad a thiontú go URL "
+"bailí. </p><p>Chun é seo a dhíchumasú, roghnaigh <span style=\" font-"
+"weight:600;\">Gan Aicearraí</span> ón liosta. </p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: ikwsopts_ui.ui:182
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr ""
+"Roghnaigh an teormharcóir a dhealaíonn an lorgfhocal ón fhrása nó fhocal le "
+"lorg."
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: ikwsopts_ui.ui:185
+msgid "&Keyword delimiter:"
+msgstr "&Teormharcóir idir lorgfhocail:"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:204
+msgid "Choose a delimiter to mark the Web shortcut keyword."
+msgstr ""
+"Roghnaigh teormharcóir chun an lorgfhocal san aicearra Gréasáin a mharcáil."
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:208
+#, fuzzy
+#| msgid "Colon"
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr "Idirstad"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: ikwsopts_ui.ui:213
+#, fuzzy
+#| msgid "Space"
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr "Spás"
+
+#: kuriikwsfilter.cpp:121
+msgid "No preferred search providers were found."
+msgstr "Níor aimsíodh aon soláthraithe cuardaigh molta."
+
+#: kuriikwsfilter.cpp:140
+msgid "No search providers were found."
+msgstr "Níor aimsíodh aon soláthraithe cuardaigh."
+
+#: kurisearchfilter.cpp:92
+msgid "Search F&ilters"
+msgstr "Scaga&irí Cuardaigh"
+
+#: searchproviderdlg.cpp:58
+#, fuzzy
+#| msgid "Default"
+msgctxt "@item:inlistbox The default character set"
+msgid "Default"
+msgstr "Réamhshocrú"
+
+#: searchproviderdlg.cpp:62
+msgid "Modify Web Shortcut"
+msgstr "Athraigh Aicearra Gréasáin"
+
+#: searchproviderdlg.cpp:72
+msgid "New Web Shortcut"
+msgstr "Aicearra Nua Gréasáin"
+
+#: searchproviderdlg.cpp:125
+#, kde-format
+msgid ""
+"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
+"one."
+msgstr "Tá aicearra \"%1\" sannta do \"%2\" cheana.  Roghnaigh ceann eile."
+
+#: searchproviderdlg.cpp:130
+#, kde-format
+msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+msgid "- %1: \"%2\""
+msgstr "- %1: \"%2\""
+
+#: searchproviderdlg.cpp:134
+#, kde-format
+msgid ""
+"The following shortcuts are already assigned. Please choose different ones.\n"
+"%1"
+msgstr ""
+"Tá na haicearraí seo a leanas sannta cheana.  Roghnaigh cinn eile.\n"
+"%1"
+
+#: searchproviderdlg.cpp:146
+msgid ""
+"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
+"This means that the same page is always going to be visited, regardless of "
+"the text typed in with the shortcut."
+msgstr ""
+"Níl aon ionadchoinneálaí \\{...} in URL an aicearra le hiarratas an "
+"úsáideora a líonadh isteach ann.\n"
+"Dá bharr seo, déanfar cuairt ar an leathanach céanna i gcónaí, is cuma cén "
+"téacs a chuirtear isteach leis an aicearra."
+
+#: searchproviderdlg.cpp:149
+msgid "Keep It"
+msgstr "Coinnigh"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: searchproviderdlg_ui.ui:17
+msgid "Enter the human-readable name of the search provider here."
+msgstr "Cuir ainm inléite an tsoláthraí cuardaigh isteach anseo."
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: searchproviderdlg_ui.ui:23
+msgid "Shortcut &name:"
+msgstr "Ai&nm an aicearra:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: searchproviderdlg_ui.ui:42 searchproviderdlg_ui.ui:64
+#: searchproviderdlg_ui.ui:70
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Cuir isteach an URI a úsáidtear chun cuardach a dhéanamh leis an inneall "
+"cuardaigh.<br/>Is féidir an téacs iomlán le lorg a shonrú mar \\{@} nó \\{0} "
+"san URI seo.<br/>\n"
+"Moltar \\{@}, toisc go scriosann sé gach athróg iarratais (ainm=luach) ón "
+"teaghrán, cé go gcuirtear teaghrán an iarratais, gan athrú, in ionad \\{0}."
+"<br/>Is féidir \\{1} ... \\{n} a úsáid chun focail áirithe as an iarratas a "
+"shonrú agus \\{ainm} chun luach den chineál 'ainm=luach' a shonrú.<br/>Mar "
+"aon leis seo, is féidir tagairtí a shonrú (ainmneacha, uimhreacha agus "
+"teaghráin) d'aon iarraidh (\\{ainm1,ainm2,...,\"teaghrán\"}).<br/>Cuirfear "
+"an chéad luach comhoiriúnach (ón taobh clé) san URI.<br/>Is féidir teaghrán "
+"athfhriotail a úsáid mar luach réamhshocraithe mura bhfuil aon rud "
+"comhoiriúnach ó thaobh clé an liosta tagairtí.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: searchproviderdlg_ui.ui:48
+msgid "Shortcut &URL:"
+msgstr "&URL an aicearraí:"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cbCharset)
+#: searchproviderdlg_ui.ui:83
+msgid "Select the character set that will be used to encode your search query."
+msgstr ""
+"Roghnaigh an tacar carachtar a úsáidfear chun d'iarratas cuardaigh a "
+"ionchódú."
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: searchproviderdlg_ui.ui:92 searchproviderdlg_ui.ui:97
+#: searchproviderdlg_ui.ui:116
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Is féidir leat aon aicearra a iontráladh anseo a úsáid mar scéim cosúil le "
+"URI i KDE.  Mar shampla, is féidir an t-aicearra <b>av</b> a úsáid mar seo: "
+"<b>av</b>:<b>mo chuardach</b>\n"
+"</qt>"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: searchproviderdlg_ui.ui:104 searchproviderdlg_ui.ui:107
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Cuir ainm inléite an aicearra Gréasáin anseo.</p></"
+"body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: searchproviderdlg_ui.ui:119
+msgid "&Shortcuts:"
+msgstr "&Aicearraí:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: searchproviderdlg_ui.ui:132
+msgid "Select the character set that will be used to encode your search query"
+msgstr ""
+"Roghnaigh an tacar carachtar a úsáidfear chun d'iarratas cuardaigh a ionchódú"
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: searchproviderdlg_ui.ui:135
+msgid "&Charset:"
+msgstr "&Tacar carachtar:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: searchproviderdlg_ui.ui:158
+msgid "Insert query placeholder"
+msgstr ""

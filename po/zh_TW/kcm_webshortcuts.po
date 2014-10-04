@@ -1,0 +1,44 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Franklin, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-14 08:12+0000\n"
+"PO-Revision-Date: 2014-08-18 14:41+0800\n"
+"Last-Translator: Franklin\n"
+"Language-Team: Chinese Traditional <kde-i18n-doc@kde.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Franklin Weng"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "franklin@goodhorse.idv.tw"
+
+#: main.cpp:41
+msgid "Web Shortcuts"
+msgstr "網頁捷徑"
+
+#: main.cpp:48
+msgid ""
+"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
+"browsing features of KDE. <h2>Web Shortcuts</h2>Web Shortcuts are a quick "
+"way of using Web search engines. For example, type \"duckduckgo:frobozz\" or "
+"\"dd:frobozz\" and your web browser will do a search on DuckDuckGo for "
+"\"frobozz\". Even easier: just press Alt+F2 (if you have not changed this "
+"keyboard shortcut) and enter the shortcut in the Run Command dialog."
+msgstr ""
+"<h1>強化瀏覽</h1>此模組中您可以設定 KDE 的強化瀏覽功能。<h2>網頁捷徑</h2>網頁"
+"捷徑是使用網頁搜尋引擎的快速方法。例如，輸入 \"duckduckgo:frobozz\" 或 \"dd:"
+"frobozz\" 就會在您的瀏覽器中進入 DuckDuckGo 來搜尋 frobozz。您也可以按下 Alt"
+"+F2 並在「執行指令」對話框中直接輸入網頁捷徑。"

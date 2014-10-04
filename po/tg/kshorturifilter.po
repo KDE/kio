@@ -1,0 +1,33 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Victor Ibragimov <victor.ibragimov@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: kshorturifilter\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-09-22 07:49+0000\n"
+"PO-Revision-Date: 2009-01-13 17:44+0000\n"
+"Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
+"Language-Team: Tajik <>\n"
+"Language: tg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 0.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: kshorturifilter.cpp:278
+#, kde-format
+msgid "<qt><b>%1</b> does not have a home folder.</qt>"
+msgstr "<qt><b>%1</b> ҷузвдони асосӣ надорад.</qt>"
+
+#: kshorturifilter.cpp:280
+#, kde-format
+msgid "<qt>There is no user called <b>%1</b>.</qt>"
+msgstr "<qt>Корбари зангзадашудаи <b>%1</b> мавҷуд нест.</qt>"
+
+#: kshorturifilter.cpp:528
+#, kde-format
+msgid "<qt>The file or folder <b>%1</b> does not exist.</qt>"
+msgstr "<qt>Файл ё ҷузвдони <b>%1</b> мавҷуд нест.</qt>"

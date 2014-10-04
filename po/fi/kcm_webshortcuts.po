@@ -1,0 +1,57 @@
+# Finnish messages for kcmkurifilt.
+# Copyright © 2003, 2004, 2005 Free Software Foundation, Inc.
+# This file is distributed under the same license as the kdebase package.
+# Tapio Kautto <eleknader@phnet.fi>, 2003, 2004.
+# Teemu Rytilahti <teemu.rytilahti@d5k.net>, 2003.
+# Kim Enkovaara <kim.enkovaara@iki.fi>, 2003.
+# Teemu Rytilahti <teemu.rytilahti@kde-fi.org>, 2003.
+# Ilpo Kantonen <ilpo@iki.fi>, 2005.
+# Jorma Karvonen <karvonen.jorma@gmail.com>, 2010.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2011, 2014.
+# Copyright © 2010 This_file_is_part_of_KDE
+#
+# KDE Finnish translation sprint participants:
+# Author: Lliehu
+msgid ""
+msgstr ""
+"Project-Id-Version: kcmkurifilt\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-14 08:12+0000\n"
+"PO-Revision-Date: 2014-08-16 19:04+0300\n"
+"Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
+"Language-Team: Finnish <lokalisointi@lists.coss.fi>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-POT-Import-Date: 2012-12-01 22:22:01+0000\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Lasse Liehu"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "lasse.liehu@gmail.com"
+
+#: main.cpp:41
+msgid "Web Shortcuts"
+msgstr "WWW-pikavalinnat"
+
+#: main.cpp:48
+msgid ""
+"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
+"browsing features of KDE. <h2>Web Shortcuts</h2>Web Shortcuts are a quick "
+"way of using Web search engines. For example, type \"duckduckgo:frobozz\" or "
+"\"dd:frobozz\" and your web browser will do a search on DuckDuckGo for "
+"\"frobozz\". Even easier: just press Alt+F2 (if you have not changed this "
+"keyboard shortcut) and enter the shortcut in the Run Command dialog."
+msgstr ""
+"<h1>Selaimen lisäasetukset</h1>Tästä voit muokata KDE:n selainlisäasetuksia. "
+"<h2>WWW-pikavalinnat</h2>WWW-pikavalintojen avulla voit käyttää hakukoneita "
+"nopeasti. Esimerkiksi ”duckduckgo:KDE” tai ”dd:KDE” etsii DuckDuckGolla "
+"tekstiä ”KDE”. Voit käyttää tätä toimintoa myös painamalla <b>Alt+F2</b> "
+"(jos et ole muuttanut tätä pikanäppäintä) ja kirjoittamalla WWW-pikavalinnan "
+"suoraan Suorita komento -ikkunaan."

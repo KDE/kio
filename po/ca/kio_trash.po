@@ -1,0 +1,187 @@
+# Translation of kio_trash.po to Catalan
+# Copyright (C) 2004-2012 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Albert Astals Cid <aacid@kde.org>, 2004, 2005.
+# Sebastià Pla i Sanz <sps@sastia.com>, 2005, 2006.
+# Josep Ma. Ferrer <txemaq@gmail.com>, 2007, 2008, 2009, 2010, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kio_trash\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-07-04 01:40+0000\n"
+"PO-Revision-Date: 2012-11-16 18:20+0100\n"
+"Last-Translator: Josep Ma. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+
+#: kcmtrash.cpp:158 kcmtrash.cpp:256
+msgid " day"
+msgid_plural " days"
+msgstr[0] " dia"
+msgstr[1] " dies"
+
+#: kcmtrash.cpp:247
+msgid "Delete files older than:"
+msgstr "Esborra els fitxers més antics de:"
+
+#: kcmtrash.cpp:249
+msgctxt "@info:whatsthis"
+msgid ""
+"<para>Check this box to allow <b>automatic deletion</b> of files that are "
+"older than the value specified. Leave this disabled to <b>not</b> "
+"automatically delete any items after a certain timespan</para>"
+msgstr ""
+"<para>Marqueu aquesta casella per a permetre l'<b>esborrat automàtic</b> de "
+"fitxers més antics que el valor indicat. Deixeu-ho desmarcat per a <b>no</b> "
+"esborrar automàticament cap element després d'un lapse de temps concret</"
+"para>"
+
+#: kcmtrash.cpp:258
+msgctxt "@info:whatsthis"
+msgid ""
+"<para>Set the number of days that files can remain in the trash. Any files "
+"older than this will be automatically deleted.</para>"
+msgstr ""
+"<para>Indica el nombre de dies que els fitxers poden romandre en la "
+"paperera. Els fitxers més antics que aquest valor s'esborraran "
+"automàticament.</para>"
+
+#: kcmtrash.cpp:266
+msgid "Limit to maximum size"
+msgstr "Limita la mida màxima"
+
+#: kcmtrash.cpp:268
+msgctxt "@info:whatsthis"
+msgid ""
+"<para>Check this box to limit the trash to the maximum amount of disk space "
+"that you specify below. Otherwise, it will be unlimited.</para>"
+msgstr ""
+"<para>Marqueu aquesta casella per limitar la paperera a la quantitat màxima "
+"d'espai en disc que indiqueu seguidament. En cas contrari, serà sense límit."
+"</para>"
+
+#: kcmtrash.cpp:286
+msgctxt "@info:whatsthis"
+msgid ""
+"<para>This is the maximum percent of disk space that will be used for the "
+"trash.</para>"
+msgstr ""
+"<para>Aquest és el percentatge màxim d'espai del disc que s'utilitzarà per a "
+"la paperera.</para>"
+
+#: kcmtrash.cpp:291
+msgctxt "@info:whatsthis"
+msgid ""
+"<para>This is the calculated amount of disk space that will be allowed for "
+"the trash, the maximum.</para>"
+msgstr ""
+"<para>Aquesta és la quantitat calculada d'espai del disc que s'acceptarà per "
+"a la paperera, el màxim.</para>"
+
+#: kcmtrash.cpp:294
+msgid "Maximum size:"
+msgstr "Mida màxima:"
+
+#: kcmtrash.cpp:296
+msgid "When limit reached:"
+msgstr "Quan s'arribi al límit:"
+
+#: kcmtrash.cpp:300
+msgid "Warn Me"
+msgstr "Avisa'm"
+
+#: kcmtrash.cpp:301
+msgid "Delete Oldest Files From Trash"
+msgstr "Esborra els fitxers més antics de la paperera"
+
+#: kcmtrash.cpp:302
+msgid "Delete Biggest Files From Trash"
+msgstr "Esborra els fitxers més grans de la paperera"
+
+#: kcmtrash.cpp:304
+msgctxt "@info:whatsthis"
+msgid ""
+"<para>When the size limit is reached, it will prefer to delete the type of "
+"files that you specify, first. If this is set to warn you, it will do so "
+"instead of automatically deleting files.</para>"
+msgstr ""
+"<para>Quan s'arribi a la mida límit, primer serà preferible esborrar els "
+"tipus de fitxers que indiqueu. Si això s'estableix per avisar-vos, es farà "
+"en lloc d'esborrar automàticament els fitxers.</para>"
+
+#: kio_trash.cpp:92 kio_trash.cpp:155 kio_trash.cpp:310 kio_trash.cpp:342
+#: kio_trash.cpp:510 kio_trash.cpp:522
+#, kde-format
+msgid "Malformed URL %1"
+msgstr "URL %1 mal format"
+
+#: kio_trash.cpp:111
+#, kde-format
+msgid ""
+"The directory %1 does not exist anymore, so it is not possible to restore "
+"this item to its original location. You can either recreate that directory "
+"and use the restore operation again, or drag the item anywhere else to "
+"restore it."
+msgstr ""
+"El directori %1 ja no existeix, per tant no és possible restaurar aquest "
+"element a la seva ubicació original. Podeu o bé recrear el directori i usar "
+"l'operació de restaurar un altre cop o arrossegar l'element a un altre lloc "
+"per a restaurar-lo."
+
+#: kio_trash.cpp:140 kio_trash_win.cpp:228
+msgid "This file is already in the trash bin."
+msgstr "Aquest fitxer ja és a la paperera."
+
+#: kio_trash.cpp:228 kio_trash_win.cpp:252
+msgid "Internal error in copyOrMove, should never happen"
+msgstr "Error intern en copiar o moure, mai hauria de succeir"
+
+#: kio_trash_win.cpp:241
+msgid "not supported"
+msgstr "no és permès"
+
+#: ktrash.cpp:32
+msgid "ktrash"
+msgstr "ktrash"
+
+#: ktrash.cpp:34
+msgid ""
+"Helper program to handle the KDE trash can\n"
+"Note: to move files to the trash, do not use ktrash, but \"kioclient move "
+"'url' trash:/\""
+msgstr ""
+"Programa d'ajuda per a gestionar la paperera KDE\n"
+"Nota: per a moure fitxers a la paperera no useu ktrash, sinó «kioclient move "
+"\"url\" trash:/»"
+
+#: ktrash.cpp:38
+msgid "Empty the contents of the trash"
+msgstr "Buida el contingut de la paperera"
+
+#: ktrash.cpp:40
+msgid "Restore a trashed file to its original location"
+msgstr "Restaura un fitxer de la paperera a la seva ubicació original"
+
+#: ktrash.cpp:42
+msgid "Ignored"
+msgstr "Ignorat"
+
+#: trashimpl.cpp:1126
+msgid ""
+"The trash has reached its maximum size!\n"
+"Cleanup the trash manually."
+msgstr ""
+"La paperera ha arribat a la seva mida màxima!\n"
+"Netegeu manualment la paperera."
+
+#: trashimpl.cpp:1137
+msgid "The file is too large to be trashed."
+msgstr "Aquest fitxer és massa gran per anar a la paperera."

@@ -1,0 +1,6144 @@
+# Translation of kio5.po to Ukrainian
+# Copyright (C) 2014 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Andriy Rysin <arysin@bcsii.com>, 2000, 2002, 2003, 2006, 2007.
+# Eugene Onischenko <oneugene@ukr.net>, 2002, 2003, 2004, 2005.
+# Ivan Petrouchtchak <fr.ivan@ukrainian-orthodox.org>, 2005, 2006, 2007, 2008.
+# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2009, 2010, 2011, 2012, 2013, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: kio5\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-10-02 07:58+0000\n"
+"PO-Revision-Date: 2014-10-02 20:14+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Євген Онищенко,Іван Петрущак"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "oneugene@ukr.net,ivanpetrouchtchak@yahoo.com"
+
+#: core/chmodjob.cpp:202
+#, kde-format
+msgid "Could not modify the ownership of file %1"
+msgstr "Не вдалося змінити власника файла %1"
+
+#: core/chmodjob.cpp:204
+#, kde-format
+msgid ""
+"<qt>Could not modify the ownership of file <b>%1</b>. You have insufficient "
+"access to the file to perform the change.</qt>"
+msgstr ""
+"<qt>Не вдалося змінити власника файла <b>%1</b>. Для цієї зміни у вас не "
+"вистачає прав доступу до файла.</qt>"
+
+#: core/connectionbackend.cpp:143
+#, kde-format
+msgid "Unable to create io-slave: %1"
+msgstr "Неможливо створити io-slave: %1"
+
+#: core/copyjob.cpp:1081 core/job_error.cpp:504
+msgid "Folder Already Exists"
+msgstr "Тека вже існує"
+
+#: core/copyjob.cpp:1350 core/copyjob.cpp:1916 core/filecopyjob.cpp:360
+#: core/job_error.cpp:494 widgets/paste.cpp:98
+msgid "File Already Exists"
+msgstr "Файл вже існує"
+
+#: core/copyjob.cpp:1350 core/copyjob.cpp:1916
+msgid "Already Exists as Folder"
+msgstr "Вже існує як тека"
+
+#: core/global.cpp:75
+#, kde-format
+msgctxt "size in bytes"
+msgid "%1 B"
+msgstr "%1 Б"
+
+#: core/global.cpp:79
+#, kde-format
+msgctxt "size in 1000 bytes"
+msgid "%1 kB"
+msgstr "%1 кБ"
+
+#: core/global.cpp:80
+#, kde-format
+msgctxt "size in 10^6 bytes"
+msgid "%1 MB"
+msgstr "%1 МБ"
+
+#: core/global.cpp:81
+#, kde-format
+msgctxt "size in 10^9 bytes"
+msgid "%1 GB"
+msgstr "%1 ГБ"
+
+#: core/global.cpp:82
+#, kde-format
+msgctxt "size in 10^12 bytes"
+msgid "%1 TB"
+msgstr "%1 ТБ"
+
+#: core/global.cpp:83
+#, kde-format
+msgctxt "size in 10^15 bytes"
+msgid "%1 PB"
+msgstr "%1 ПБ"
+
+#: core/global.cpp:84
+#, kde-format
+msgctxt "size in 10^18 bytes"
+msgid "%1 EB"
+msgstr "%1 ЕБ"
+
+#: core/global.cpp:85
+#, kde-format
+msgctxt "size in 10^21 bytes"
+msgid "%1 ZB"
+msgstr "%1 ЗБ"
+
+#: core/global.cpp:86
+#, kde-format
+msgctxt "size in 10^24 bytes"
+msgid "%1 YB"
+msgstr "%1 ЙБ"
+
+#: core/global.cpp:90
+#, kde-format
+msgctxt "memory size in 1024 bytes"
+msgid "%1 KB"
+msgstr "%1 Кбайт"
+
+#: core/global.cpp:91
+#, kde-format
+msgctxt "memory size in 2^20 bytes"
+msgid "%1 MB"
+msgstr "%1 Мбайт"
+
+#: core/global.cpp:92
+#, kde-format
+msgctxt "memory size in 2^30 bytes"
+msgid "%1 GB"
+msgstr "%1 Гбайт"
+
+#: core/global.cpp:93
+#, kde-format
+msgctxt "memory size in 2^40 bytes"
+msgid "%1 TB"
+msgstr "%1 Тбайт"
+
+#: core/global.cpp:94
+#, kde-format
+msgctxt "memory size in 2^50 bytes"
+msgid "%1 PB"
+msgstr "%1 Пбайт"
+
+#: core/global.cpp:95
+#, kde-format
+msgctxt "memory size in 2^60 bytes"
+msgid "%1 EB"
+msgstr "%1 Ебайт"
+
+#: core/global.cpp:96
+#, kde-format
+msgctxt "memory size in 2^70 bytes"
+msgid "%1 ZB"
+msgstr "%1 Збайт"
+
+#: core/global.cpp:97
+#, kde-format
+msgctxt "memory size in 2^80 bytes"
+msgid "%1 YB"
+msgstr "%1 Йбайт"
+
+#: core/global.cpp:102
+#, kde-format
+msgctxt "size in 1024 bytes"
+msgid "%1 KiB"
+msgstr "%1 КіБ"
+
+#: core/global.cpp:103
+#, kde-format
+msgctxt "size in 2^20 bytes"
+msgid "%1 MiB"
+msgstr "%1 МіБ"
+
+#: core/global.cpp:104
+#, kde-format
+msgctxt "size in 2^30 bytes"
+msgid "%1 GiB"
+msgstr "%1 ГіБ"
+
+#: core/global.cpp:105
+#, kde-format
+msgctxt "size in 2^40 bytes"
+msgid "%1 TiB"
+msgstr "%1 ТіБ"
+
+#: core/global.cpp:106
+#, kde-format
+msgctxt "size in 2^50 bytes"
+msgid "%1 PiB"
+msgstr "%1 ПіБ"
+
+#: core/global.cpp:107
+#, kde-format
+msgctxt "size in 2^60 bytes"
+msgid "%1 EiB"
+msgstr "%1 ЕіБ"
+
+#: core/global.cpp:108
+#, kde-format
+msgctxt "size in 2^70 bytes"
+msgid "%1 ZiB"
+msgstr "%1 ЗіБ"
+
+#: core/global.cpp:109
+#, kde-format
+msgctxt "size in 2^80 bytes"
+msgid "%1 YiB"
+msgstr "%1 ЙіБ"
+
+#: core/global.cpp:169
+#, kde-format
+msgid "1 day %2"
+msgid_plural "%1 days %2"
+msgstr[0] "%1 день %2"
+msgstr[1] "%1 дні %2"
+msgstr[2] "%1 днів %2"
+msgstr[3] "один день %2"
+
+#: core/global.cpp:204 core/global.cpp:221
+#, kde-format
+msgid "%1 Item"
+msgid_plural "%1 Items"
+msgstr[0] "%1 елемент"
+msgstr[1] "%1 елементи"
+msgstr[2] "%1 елементів"
+msgstr[3] "один елемент"
+
+#: core/global.cpp:208
+#, kde-format
+msgid "1 Folder"
+msgid_plural "%1 Folders"
+msgstr[0] "%1 тека"
+msgstr[1] "%1 теки"
+msgstr[2] "%1 тек"
+msgstr[3] "одна тека"
+
+#: core/global.cpp:209
+#, kde-format
+msgid "1 File"
+msgid_plural "%1 Files"
+msgstr[0] "%1 файл"
+msgstr[1] "%1 файли"
+msgstr[2] "%1 файлів"
+msgstr[3] "один файл"
+
+#: core/global.cpp:212
+#, kde-format
+msgctxt "folders, files (size)"
+msgid "%1, %2 (%3)"
+msgstr "%1, %2 (%3)"
+
+#: core/global.cpp:213
+#, kde-format
+msgctxt "folders, files"
+msgid "%1, %2"
+msgstr "%1, %2"
+
+#: core/global.cpp:215
+#, kde-format
+msgctxt "files (size)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: core/global.cpp:222
+#, kde-format
+msgctxt "items: folders, files (size)"
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: core/job.cpp:108
+msgctxt "@title job"
+msgid "Moving"
+msgstr "Пересування"
+
+#: core/job.cpp:109 core/job.cpp:116 core/job.cpp:141
+#: widgets/fileundomanager.cpp:130
+msgctxt "The source of a file operation"
+msgid "Source"
+msgstr "Джерело"
+
+#: core/job.cpp:110 core/job.cpp:117 widgets/fileundomanager.cpp:131
+msgctxt "The destination of a file operation"
+msgid "Destination"
+msgstr "Призначення"
+
+#: core/job.cpp:115
+msgctxt "@title job"
+msgid "Copying"
+msgstr "Копіювання"
+
+#: core/job.cpp:122
+msgctxt "@title job"
+msgid "Creating directory"
+msgstr "Створення теки"
+
+#: core/job.cpp:123 widgets/fileundomanager.cpp:125
+msgid "Directory"
+msgstr "Тека"
+
+#: core/job.cpp:128
+msgctxt "@title job"
+msgid "Deleting"
+msgstr "Вилучення"
+
+#: core/job.cpp:129 core/job.cpp:135 widgets/fileundomanager.cpp:136
+msgid "File"
+msgstr "Файл"
+
+#: core/job.cpp:134
+msgctxt "@title job"
+msgid "Examining"
+msgstr "Перевірка"
+
+#: core/job.cpp:140
+msgctxt "@title job"
+msgid "Transferring"
+msgstr "Перенесення"
+
+#: core/job.cpp:146
+msgctxt "@title job"
+msgid "Mounting"
+msgstr "Монтування"
+
+#: core/job.cpp:147
+msgid "Device"
+msgstr "Пристрій"
+
+#: core/job.cpp:148 core/job.cpp:154
+msgid "Mountpoint"
+msgstr "Точка монтування"
+
+#: core/job.cpp:153
+msgctxt "@title job"
+msgid "Unmounting"
+msgstr "Демонтування"
+
+#: core/job_error.cpp:38
+#, kde-format
+msgid "Could not read %1."
+msgstr "Не вдалося прочитати %1."
+
+#: core/job_error.cpp:41
+#, kde-format
+msgid "Could not write to %1."
+msgstr "Не вдалося записати в %1."
+
+#: core/job_error.cpp:44
+#, kde-format
+msgid "Could not start process %1."
+msgstr "Не вдалося запустити процес %1."
+
+#: core/job_error.cpp:47
+#, kde-format
+msgid ""
+"Internal Error\n"
+"Please send a full bug report at http://bugs.kde.org\n"
+"%1"
+msgstr ""
+"Внутрішня помилка\n"
+"Будь ласка, надішліть звіт про помилку за допомогою сайта http://bugs.kde."
+"org\n"
+"%1"
+
+#: core/job_error.cpp:50
+#, kde-format
+msgid "Malformed URL %1."
+msgstr "Неправильно сформований URL %1."
+
+#: core/job_error.cpp:53
+#, kde-format
+msgid "The protocol %1 is not supported."
+msgstr "Протокол %1 не підтримується."
+
+#: core/job_error.cpp:56
+#, kde-format
+msgid "The protocol %1 is only a filter protocol."
+msgstr "Протокол %1 належить до протоколів, призначених лише для фільтрування."
+
+#: core/job_error.cpp:63
+#, kde-format
+msgid "%1 is a folder, but a file was expected."
+msgstr "%1 є текою, проте очікувався файл."
+
+#: core/job_error.cpp:66
+#, kde-format
+msgid "%1 is a file, but a folder was expected."
+msgstr "%1 є файлом, проте очікувалася тека."
+
+#: core/job_error.cpp:69
+#, kde-format
+msgid "The file or folder %1 does not exist."
+msgstr "Файла або теки %1 не існує."
+
+#: core/job_error.cpp:72
+#, kde-format
+msgid "A file named %1 already exists."
+msgstr "Файл з назвою %1 вже існує."
+
+#: core/job_error.cpp:75
+#, kde-format
+msgid "A folder named %1 already exists."
+msgstr "Тека з назвою %1 вже існує."
+
+#: core/job_error.cpp:78
+msgid "No hostname specified."
+msgstr "Не вказано назву вузла."
+
+#: core/job_error.cpp:78
+#, kde-format
+msgid "Unknown host %1"
+msgstr "Невідомий вузол %1"
+
+#: core/job_error.cpp:81
+#, kde-format
+msgid "Access denied to %1."
+msgstr "Доступ до %1 заборонено."
+
+#: core/job_error.cpp:84
+#, kde-format
+msgid ""
+"Access denied.\n"
+"Could not write to %1."
+msgstr ""
+"Доступ заборонено\n"
+"Не вдалося виконати запис до %1."
+
+#: core/job_error.cpp:87
+#, kde-format
+msgid "Could not enter folder %1."
+msgstr "Не вдалося ввійти у теку %1."
+
+#: core/job_error.cpp:90
+#, kde-format
+msgid "The protocol %1 does not implement a folder service."
+msgstr "Протокол %1 не забезпечує службу тек."
+
+#: core/job_error.cpp:93
+#, kde-format
+msgid "Found a cyclic link in %1."
+msgstr "Знайдено циклічне посилання в %1."
+
+#: core/job_error.cpp:99
+#, kde-format
+msgid "Found a cyclic link while copying %1."
+msgstr "Знайдено циклічне посилання при копіюванні %1."
+
+#: core/job_error.cpp:102
+#, kde-format
+msgid "Could not create socket for accessing %1."
+msgstr "Не вдалося створити сокет для доступу до %1."
+
+#: core/job_error.cpp:105
+#, kde-format
+msgid "Could not connect to host %1."
+msgstr "Не вдалося приєднатися до вузла %1."
+
+#: core/job_error.cpp:108
+#, kde-format
+msgid "Connection to host %1 is broken."
+msgstr "Зв'язок з вузлом %1 втрачено."
+
+#: core/job_error.cpp:111
+#, kde-format
+msgid "The protocol %1 is not a filter protocol."
+msgstr "Протокол %1 не належить до протоколів, призначених для фільтрування."
+
+#: core/job_error.cpp:114
+#, kde-format
+msgid ""
+"Could not mount device.\n"
+"The reported error was:\n"
+"%1"
+msgstr ""
+"Не вдалось змонтувати пристрій.\n"
+"Повідомлено про помилку:\n"
+"%1"
+
+#: core/job_error.cpp:117
+#, kde-format
+msgid ""
+"Could not unmount device.\n"
+"The reported error was:\n"
+"%1"
+msgstr ""
+"Не вдалось демонтувати пристрій.\n"
+"Повідомлено про помилку:\n"
+"%1"
+
+#: core/job_error.cpp:120
+#, kde-format
+msgid "Could not read file %1."
+msgstr "Не вдалося прочитати файл %1."
+
+#: core/job_error.cpp:123
+#, kde-format
+msgid "Could not write to file %1."
+msgstr "Не вдалося записати у файл %1."
+
+#: core/job_error.cpp:126
+#, kde-format
+msgid "Could not bind %1."
+msgstr "Не вдалося прив'язатися %1."
+
+#: core/job_error.cpp:129
+#, kde-format
+msgid "Could not listen %1."
+msgstr "Не вдалося почати слухати %1."
+
+#: core/job_error.cpp:132
+#, kde-format
+msgid "Could not accept %1."
+msgstr "Не вдалося прийняти %1."
+
+#: core/job_error.cpp:138
+#, kde-format
+msgid "Could not access %1."
+msgstr "Не вдалося дістатися %1."
+
+#: core/job_error.cpp:141
+#, kde-format
+msgid "Could not terminate listing %1."
+msgstr "Не вдалося завершити список %1."
+
+#: core/job_error.cpp:144
+#, kde-format
+msgid "Could not make folder %1."
+msgstr "Не вдалося створити теку %1."
+
+#: core/job_error.cpp:147
+#, kde-format
+msgid "Could not remove folder %1."
+msgstr "Не вдалося вилучити теку %1."
+
+#: core/job_error.cpp:150
+#, kde-format
+msgid "Could not resume file %1."
+msgstr "Не вдалося відновити файл %1."
+
+#: core/job_error.cpp:153
+#, kde-format
+msgid "Could not rename file %1."
+msgstr "Не вдалося перейменувати файл %1."
+
+#: core/job_error.cpp:156
+#, kde-format
+msgid "Could not change permissions for %1."
+msgstr "Не вдалося змінити права доступу до %1."
+
+#: core/job_error.cpp:159
+#, kde-format
+msgid "Could not change ownership for %1."
+msgstr "Не вдалося змінити власника %1."
+
+#: core/job_error.cpp:162
+#, kde-format
+msgid "Could not delete file %1."
+msgstr "Не вдалося стерти файл %1."
+
+#: core/job_error.cpp:165
+#, kde-format
+msgid "The process for the %1 protocol died unexpectedly."
+msgstr "Процес протоколу %1 несподівано завершився."
+
+#: core/job_error.cpp:168
+#, kde-format
+msgid ""
+"Error. Out of memory.\n"
+"%1"
+msgstr ""
+"Помилка. Недостатньо оперативної пам'яті.\n"
+"%1"
+
+#: core/job_error.cpp:171
+#, kde-format
+msgid ""
+"Unknown proxy host\n"
+"%1"
+msgstr ""
+"Невідомий вузол проксі\n"
+"%1"
+
+#: core/job_error.cpp:174
+#, kde-format
+msgid "Authorization failed, %1 authentication not supported"
+msgstr "Авторизація завершена невдало, %1"
+
+#: core/job_error.cpp:177
+#, kde-format
+msgid ""
+"User canceled action\n"
+"%1"
+msgstr ""
+"Користувач скасував дію\n"
+"%1"
+
+#: core/job_error.cpp:180
+#, kde-format
+msgid ""
+"Internal error in server\n"
+"%1"
+msgstr ""
+"Внутрішня помилка на сервері\n"
+"%1"
+
+#: core/job_error.cpp:183
+#, kde-format
+msgid ""
+"Timeout on server\n"
+"%1"
+msgstr ""
+"Перевищено час очікування відгуку сервера\n"
+"%1"
+
+#: core/job_error.cpp:186
+#, kde-format
+msgid ""
+"Unknown error\n"
+"%1"
+msgstr ""
+"Невідома помилка\n"
+"%1"
+
+#: core/job_error.cpp:189
+#, kde-format
+msgid ""
+"Unknown interrupt\n"
+"%1"
+msgstr ""
+"Невідомій перепин\n"
+"%1"
+
+#: core/job_error.cpp:200
+#, kde-format
+msgid ""
+"Could not delete original file %1.\n"
+"Please check permissions."
+msgstr ""
+"Не вдалося стерти первісний файл %1.\n"
+"Будь ласка, перевірте права доступу."
+
+#: core/job_error.cpp:203
+#, kde-format
+msgid ""
+"Could not delete partial file %1.\n"
+"Please check permissions."
+msgstr ""
+"Не вдалося стерти частковий файл %1.\n"
+"Будь ласка, перевірте права доступу."
+
+#: core/job_error.cpp:206
+#, kde-format
+msgid ""
+"Could not rename original file %1.\n"
+"Please check permissions."
+msgstr ""
+"Не вдалося перейменувати первісний файл %1.\n"
+"Будь ласка, перевірте права доступу."
+
+#: core/job_error.cpp:209
+#, kde-format
+msgid ""
+"Could not rename partial file %1.\n"
+"Please check permissions."
+msgstr ""
+"Не вдалося перейменувати частковий файл %1.\n"
+"Будь ласка, перевірте права доступу."
+
+#: core/job_error.cpp:212
+#, kde-format
+msgid ""
+"Could not create symlink %1.\n"
+"Please check permissions."
+msgstr ""
+"Не вдалося створити символічне посилання %1.\n"
+"Будь ласка, перевірте права доступу."
+
+#: core/job_error.cpp:218
+#, kde-format
+msgid ""
+"Could not write file %1.\n"
+"Disk full."
+msgstr ""
+"Неможливо записати у файл %1.\n"
+"Диск переповнений."
+
+#: core/job_error.cpp:221
+#, kde-format
+msgid ""
+"The source and destination are the same file.\n"
+"%1"
+msgstr ""
+"Вихідний файл та файл призначення збігаються.\n"
+"%1"
+
+#: core/job_error.cpp:227
+#, kde-format
+msgid "%1 is required by the server, but is not available."
+msgstr "%1 необхідна для серверу, але вона не доступна."
+
+#: core/job_error.cpp:230
+msgid "Access to restricted port in POST denied."
+msgstr "У доступі до обмеженого порту в POST відмовлено."
+
+#: core/job_error.cpp:233
+msgid ""
+"The required content size information was not provided for a POST operation."
+msgstr "Потрібні вам дані щодо об’єму даних не було надано для дії POST."
+
+#: core/job_error.cpp:236
+#, kde-format
+msgid ""
+"Unknown error code %1\n"
+"%2\n"
+"Please send a full bug report at http://bugs.kde.org."
+msgstr ""
+"Невідомий код помилки %1\n"
+"%2\n"
+"Будь ласка, вишліть повний звіт про помилку за допомогою http://bugs.kde.org."
+
+#: core/job_error.cpp:261
+msgctxt "@info url"
+msgid "(unknown)"
+msgstr "(невідомий)"
+
+#: core/job_error.cpp:268
+#, kde-format
+msgctxt "@info %1 error name, %2 description"
+msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
+msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
+
+#: core/job_error.cpp:272
+msgid "<b>Technical reason</b>: "
+msgstr "<b>Технічна причина</b>: "
+
+#: core/job_error.cpp:274
+msgid "<b>Details of the request</b>:"
+msgstr "<b>Подробиці запиту</b>:"
+
+#: core/job_error.cpp:275
+#, kde-format
+msgid "<li>URL: %1</li>"
+msgstr "<li>URL: %1</li>"
+
+#: core/job_error.cpp:277
+#, kde-format
+msgid "<li>Protocol: %1</li>"
+msgstr "<li>Протокол: %1</li>"
+
+#: core/job_error.cpp:279
+#, kde-format
+msgid "<li>Date and time: %1</li>"
+msgstr "<li>Дата та час: %1</li>"
+
+#: core/job_error.cpp:280
+#, kde-format
+msgid "<li>Additional information: %1</li>"
+msgstr "<li>Додаткова інформація: %1</li>"
+
+#: core/job_error.cpp:283
+msgid "<b>Possible causes</b>:"
+msgstr "<b>Можливі причини</b>:"
+
+#: core/job_error.cpp:288
+msgid "<b>Possible solutions</b>:"
+msgstr "<b>Ймовірні вирішення</b>:"
+
+#: core/job_error.cpp:322
+msgctxt "@info protocol"
+msgid "(unknown)"
+msgstr "(невідомий)"
+
+#: core/job_error.cpp:331
+msgid ""
+"Contact your appropriate computer support system, whether the system "
+"administrator, or technical support group for further assistance."
+msgstr ""
+"Щодо подальшої допомоги зв'яжіться з системою підтримки комп'ютера: або "
+"системним адміністратором, або групою технічної підтримки."
+
+#: core/job_error.cpp:334
+msgid "Contact the administrator of the server for further assistance."
+msgstr "Щодо подальшої допомоги зв'яжіться з адміністратором сервера."
+
+#: core/job_error.cpp:337
+msgid "Check your access permissions on this resource."
+msgstr "Перевірте ваші привілеї щодо даного ресурсу."
+
+#: core/job_error.cpp:338
+msgid ""
+"Your access permissions may be inadequate to perform the requested operation "
+"on this resource."
+msgstr ""
+"Ваші права доступу до даного ресурсу можуть не відповідати запитаній дії."
+
+#: core/job_error.cpp:340
+msgid ""
+"The file may be in use (and thus locked) by another user or application."
+msgstr "Файл, можливо, вже використовується іншою програмою і є замкненим."
+
+#: core/job_error.cpp:342
+msgid ""
+"Check to make sure that no other application or user is using the file or "
+"has locked the file."
+msgstr ""
+"Перевірте, що інша програма або користувач не використовують даний файл."
+
+#: core/job_error.cpp:344
+msgid "Although unlikely, a hardware error may have occurred."
+msgstr "Навряд чи, але можливо, сталася помилка обладнання."
+
+#: core/job_error.cpp:346
+msgid "You may have encountered a bug in the program."
+msgstr "Можливо, ви знайшли помилку у цій програмі."
+
+#: core/job_error.cpp:347
+msgid ""
+"This is most likely to be caused by a bug in the program. Please consider "
+"submitting a full bug report as detailed below."
+msgstr ""
+"Це, скоріше за все, спричинено помилкою у програмі. Будь ласка, відправте "
+"звіт про помилку, як вказано нижче."
+
+#: core/job_error.cpp:349
+msgid ""
+"Update your software to the latest version. Your distribution should provide "
+"tools to update your software."
+msgstr ""
+"Оновіть вашу програму до останньої версії. Ваш дистрибутив повинен надавати "
+"вам засоби для оновлення програм."
+
+#: core/job_error.cpp:351
+msgid ""
+"When all else fails, please consider helping the KDE team or the third party "
+"maintainer of this software by submitting a high quality bug report. If the "
+"software is provided by a third party, please contact them directly. "
+"Otherwise, first look to see if the same bug has been submitted by someone "
+"else by searching at the <a href=\"http://bugs.kde.org/\">KDE bug reporting "
+"website</a>. If not, take note of the details given above, and include them "
+"in your bug report, along with as many other details as you think might help."
+msgstr ""
+"Якщо нічого не допомогло, будь ласка, допоможіть розробникам KDE або "
+"розробникам інших програм відіславши якісний звіт про помилку. Якщо програма "
+"постачається третьою стороною, будь ласка, зверніться до розробників цієї "
+"програми напряму. Інакше, подивіться, чи вже є звіт про цю помилку, за "
+"допомогою пошуку на <a href=\"http://bugs.kde.org/\">сайті стеження за "
+"помилками у KDE</a>. Якщо вам не вдасться знайти звіту про помилку, подібну "
+"до вашої, включіть до вашого звіту всі повідомлення, що наведені вище, разом "
+"з всіма іншими подробицями, які на вашу думку можуть допомогти виправити цю "
+"помилку."
+
+#: core/job_error.cpp:359
+msgid "There may have been a problem with your network connection."
+msgstr "Можливо, у вас проблеми з'єднання з мережею."
+
+#: core/job_error.cpp:362
+msgid ""
+"There may have been a problem with your network configuration. If you have "
+"been accessing the Internet with no problems recently, this is unlikely."
+msgstr ""
+"Можливо, у вас проблеми з налаштуванням мережі. Але це малоймовірно, якщо "
+"останнім часом у вас не було проблем з доступом до інтернету."
+
+#: core/job_error.cpp:365
+msgid ""
+"There may have been a problem at some point along the network path between "
+"the server and this computer."
+msgstr ""
+"Можливо, існують проблеми на шляху перенесення даних між сервером та вашим "
+"комп'ютером."
+
+#: core/job_error.cpp:367
+msgid "Try again, either now or at a later time."
+msgstr "Спробуйте ще раз зараз або пізніше."
+
+#: core/job_error.cpp:368
+msgid "A protocol error or incompatibility may have occurred."
+msgstr ""
+"Можливо, сталася помилка протоколу або помилка несумісності протоколів."
+
+#: core/job_error.cpp:369
+msgid "Ensure that the resource exists, and try again."
+msgstr "Переконайтеся, що ресурс існує, і повторіть спробу."
+
+#: core/job_error.cpp:370
+msgid "The specified resource may not exist."
+msgstr "Вказаний ресурс, можливо, не існує."
+
+#: core/job_error.cpp:371
+msgid "You may have incorrectly typed the location."
+msgstr "Можливо, ви неправильно набрали адресу."
+
+#: core/job_error.cpp:372
+msgid "Double-check that you have entered the correct location and try again."
+msgstr "Перевірте, чи правильно ви вказали адресу, і повторіть спробу."
+
+#: core/job_error.cpp:374
+msgid "Check your network connection status."
+msgstr "Перевірте стан з'єднання з мережею."
+
+#: core/job_error.cpp:378
+msgid "Cannot Open Resource For Reading"
+msgstr "Неможливо відкрити ресурс для зчитування"
+
+#: core/job_error.cpp:379
+#, kde-format
+msgid ""
+"This means that the contents of the requested file or folder <strong>%1</"
+"strong> could not be retrieved, as read access could not be obtained."
+msgstr ""
+"Це значить, що вміст файла або теки <strong>%1</strong> неможливо прочитати, "
+"оскільки не вдається отримати доступ на читання."
+
+#: core/job_error.cpp:382
+msgid "You may not have permissions to read the file or open the folder."
+msgstr ""
+"Можливо, у вас недостатньо прав для зчитування файла або відкриття теки."
+
+#: core/job_error.cpp:388
+msgid "Cannot Open Resource For Writing"
+msgstr "Неможливо відкрити ресурс для запису"
+
+#: core/job_error.cpp:389
+#, kde-format
+msgid ""
+"This means that the file, <strong>%1</strong>, could not be written to as "
+"requested, because access with permission to write could not be obtained."
+msgstr ""
+"Це означає, що файл <strong>%1</strong>, не може бути записано, оскільки "
+"неможливо отримати дозвіл на запис."
+
+#: core/job_error.cpp:397
+#, kde-format
+msgid "Cannot Initiate the %1 Protocol"
+msgstr "Неможливо ініціювати протокол %1"
+
+#: core/job_error.cpp:398
+msgid "Unable to Launch Process"
+msgstr "Неможливо запустити процес"
+
+#: core/job_error.cpp:399
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol could not be started. This is usually due to technical "
+"reasons."
+msgstr ""
+"Неможливо запустити програму, що надає доступ до протоколу <strong>%1</"
+"strong>. Здебільшого, таке трапляється з технічних причин."
+
+#: core/job_error.cpp:402
+msgid ""
+"The program which provides compatibility with this protocol may not have "
+"been updated with your last update of KDE. This can cause the program to be "
+"incompatible with the current version and thus not start."
+msgstr ""
+"Програму, що надає сумісність з цим протоколом, можливо не було поновлено "
+"разом з останнім поновленням KDE. Це може призвести до несумісності програми "
+"з поточною версією та зашкодити її роботі."
+
+#: core/job_error.cpp:410
+msgid "Internal Error"
+msgstr "Внутрішня помилка"
+
+#: core/job_error.cpp:411
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an internal error."
+msgstr ""
+"Неможливо запустити програму, що надає доступ до протоколу <strong>%1</"
+"strong> зазнала внутрішньої помилки."
+
+#: core/job_error.cpp:419
+msgid "Improperly Formatted URL"
+msgstr "Неправильно сформований URL"
+
+#: core/job_error.cpp:420
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered was not properly formatted. The format "
+"of a URL is generally as follows:<blockquote><strong>protocol://user:"
+"password@www.example.org:port/folder/filename.extension?query=value</"
+"strong></blockquote>"
+msgstr ""
+"Адреса (<strong>U</strong>niversal <strong>R</strong>esource <strong>L</"
+"strong>ocatior або URL) містить помилки. Загальний вигляд URL:"
+"<blockquote><strong>прокол://користувач:пароль@www.example.org:порт/тека/"
+"назва_файла.суфікс?запит=значення</strong></blockquote>"
+
+#: core/job_error.cpp:429
+#, kde-format
+msgid "Unsupported Protocol %1"
+msgstr "Протокол %1 не підтримується"
+
+#: core/job_error.cpp:430
+#, kde-format
+msgid ""
+"The protocol <strong>%1</strong> is not supported by the KDE programs "
+"currently installed on this computer."
+msgstr ""
+"Протокол <strong>%1</strong> не підтримується програмами KDE, що зараз "
+"встановлені на цьому комп'ютері."
+
+#: core/job_error.cpp:433
+msgid "The requested protocol may not be supported."
+msgstr "Запитаний протокол, можливо, не підтримується."
+
+#: core/job_error.cpp:434
+#, kde-format
+msgid ""
+"The versions of the %1 protocol supported by this computer and the server "
+"may be incompatible."
+msgstr ""
+"Версії протоколу %1, що підтримуються цим комп'ютером та сервером, можливо, "
+"несумісні."
+
+#: core/job_error.cpp:436
+msgid ""
+"You may perform a search on the Internet for a KDE program (called a "
+"kioslave or ioslave) which supports this protocol. Places to search include "
+"<a href=\"http://kde-apps.org/\">http://kde-apps.org/</a> and <a href="
+"\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+msgstr ""
+"Ви можете спробувати знайти в інтернеті програму для KDE (що зветься "
+"підлеглий В/В або kioslave чи ioslave), яка підтримує цей протокол. "
+"Спробуйте розпочати пошук на <a href=\"http://kde-apps.org/\">http://kde-"
+"apps.org/</a> та <a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+
+#: core/job_error.cpp:445
+msgid "URL Does Not Refer to a Resource."
+msgstr "URL не посилається на ресурс."
+
+#: core/job_error.cpp:446
+msgid "Protocol is a Filter Protocol"
+msgstr "Протокол є фільтрувальним"
+
+#: core/job_error.cpp:447
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered did not refer to a specific resource."
+msgstr ""
+"Адреса (URL — <strong>U</strong>niversal <strong>R</strong>esource "
+"<strong>L</strong>ocation), яку ви ввели, не вказує на відповідний ресурс."
+
+#: core/job_error.cpp:450
+msgid ""
+"KDE is able to communicate through a protocol within a protocol; the "
+"protocol specified is only for use in such situations, however this is not "
+"one of these situations. This is a rare event, and is likely to indicate a "
+"programming error."
+msgstr ""
+"KDE може спілкуватися за допомогою одного протоколу поверх іншого протоколу. "
+"Вказаний протокол призначено саме для такого спілкування, проте поточна "
+"ситуація не задовольняє цим умовам. Такий випадок є дуже рідкісним, скоріше "
+"за все, це означає помилку в програмі."
+
+#: core/job_error.cpp:458
+#, kde-format
+msgid "Unsupported Action: %1"
+msgstr "Дія не підтримується: %1"
+
+#: core/job_error.cpp:459
+#, kde-format
+msgid ""
+"The requested action is not supported by the KDE program which is "
+"implementing the <strong>%1</strong> protocol."
+msgstr ""
+"Запитана дія не підтримується програмою KDE, яка реалізує роботу з "
+"протоколом <strong>%1</strong>."
+
+#: core/job_error.cpp:462
+msgid ""
+"This error is very much dependent on the KDE program. The additional "
+"information should give you more information than is available to the KDE "
+"input/output architecture."
+msgstr ""
+"Ця помилка дуже сильно залежить від програми KDE. Ця додаткова інформація "
+"повинна надати більше даних, ніж ті дані, які можливо отримати з архітектури "
+"вводу/виводу KDE."
+
+#: core/job_error.cpp:465
+msgid "Attempt to find another way to accomplish the same outcome."
+msgstr "Спробуйте знайти інший спосіб виконати цю дію."
+
+#: core/job_error.cpp:470
+msgid "File Expected"
+msgstr "Очікувався файл"
+
+#: core/job_error.cpp:471
+#, kde-format
+msgid ""
+"The request expected a file, however the folder <strong>%1</strong> was "
+"found instead."
+msgstr ""
+"Результатом запиту мав бути файл, проте було отримано теку <strong>%1</"
+"strong> замість файла."
+
+#: core/job_error.cpp:473
+msgid "This may be an error on the server side."
+msgstr "Це, можливо, помилка на боці сервера."
+
+#: core/job_error.cpp:478
+msgid "Folder Expected"
+msgstr "Очікувалась тека"
+
+#: core/job_error.cpp:479
+#, kde-format
+msgid ""
+"The request expected a folder, however the file <strong>%1</strong> was "
+"found instead."
+msgstr ""
+"Результатом запиту мала бути тека, проте було отримано файл <strong>%1</"
+"strong> замість теки."
+
+#: core/job_error.cpp:486
+msgid "File or Folder Does Not Exist"
+msgstr "Файла або теки не існує"
+
+#: core/job_error.cpp:487
+#, kde-format
+msgid "The specified file or folder <strong>%1</strong> does not exist."
+msgstr "Вказаного файла або теки <strong>%1</strong> не існує."
+
+#: core/job_error.cpp:495
+msgid ""
+"The requested file could not be created because a file with the same name "
+"already exists."
+msgstr ""
+"Запитаний файл не може бути створено, оскільки вже існує файл з такою назвою."
+
+#: core/job_error.cpp:497
+msgid "Try moving the current file out of the way first, and then try again."
+msgstr "Спробуйте пересунути існуючий файл, і повторіть дію."
+
+#: core/job_error.cpp:499
+msgid "Delete the current file and try again."
+msgstr "Вилучіть поточний файл і повторіть спробу."
+
+#: core/job_error.cpp:500
+msgid "Choose an alternate filename for the new file."
+msgstr "Виберіть іншу назву для нового файла."
+
+#: core/job_error.cpp:505
+msgid ""
+"The requested folder could not be created because a folder with the same "
+"name already exists."
+msgstr ""
+"Запитану теку не може бути створено, оскільки вже існує тека з такою назвою."
+
+#: core/job_error.cpp:507
+msgid "Try moving the current folder out of the way first, and then try again."
+msgstr "Спробуйте пересунути існуючу теку, і повторіть дію."
+
+#: core/job_error.cpp:509
+msgid "Delete the current folder and try again."
+msgstr "Вилучіть поточну теку і повторіть спробу."
+
+#: core/job_error.cpp:510
+msgid "Choose an alternate name for the new folder."
+msgstr "Виберіть іншу назву для нової теки."
+
+#: core/job_error.cpp:514
+msgid "Unknown Host"
+msgstr "Невідомий вузол"
+
+#: core/job_error.cpp:515
+#, kde-format
+msgid ""
+"An unknown host error indicates that the server with the requested name, "
+"<strong>%1</strong>, could not be located on the Internet."
+msgstr ""
+"Помилка «Невідомий вузол» означає, що сервер з назвою <strong>%1</strong> не "
+"вдалося знайти в інтернеті."
+
+#: core/job_error.cpp:518
+#, kde-format
+msgid ""
+"The name that you typed, %1, may not exist: it may be incorrectly typed."
+msgstr ""
+"Назви, яку ви ввели (%1), не існує: ймовірно, її було введено неправильно."
+
+#: core/job_error.cpp:525
+msgid "Access Denied"
+msgstr "Доступ заборонено"
+
+#: core/job_error.cpp:526
+#, kde-format
+msgid "Access was denied to the specified resource, <strong>%1</strong>."
+msgstr "Доступ до вказаного ресурсу <strong>%1</strong> заборонено."
+
+#: core/job_error.cpp:528 core/job_error.cpp:754
+msgid "You may have supplied incorrect authentication details or none at all."
+msgstr ""
+"Можливо, ви не вказали параметри розпізнавання або вказали їх неправильно."
+
+#: core/job_error.cpp:530 core/job_error.cpp:756
+msgid "Your account may not have permission to access the specified resource."
+msgstr "Можливо, у вас не вистачає прав для доступу до вказаного ресурсу."
+
+#: core/job_error.cpp:532 core/job_error.cpp:758 core/job_error.cpp:770
+msgid ""
+"Retry the request and ensure your authentication details are entered "
+"correctly."
+msgstr ""
+"Спробуйте ще раз і переконайтеся, що параметри розпізнавання вказано "
+"правильно."
+
+#: core/job_error.cpp:540
+msgid "Write Access Denied"
+msgstr "Доступ на запис заборонено"
+
+#: core/job_error.cpp:541
+#, kde-format
+msgid ""
+"This means that an attempt to write to the file <strong>%1</strong> was "
+"rejected."
+msgstr ""
+"Це означає, що у спробі записати файл <strong>%1</strong> було відмовлено."
+
+#: core/job_error.cpp:548
+msgid "Unable to Enter Folder"
+msgstr "Неможливо ввійти у теку"
+
+#: core/job_error.cpp:549
+#, kde-format
+msgid ""
+"This means that an attempt to enter (in other words, to open) the requested "
+"folder <strong>%1</strong> was rejected."
+msgstr ""
+"Це означає, що у спробі ввійти у вказану теку <strong>%1</strong> (іншими "
+"словами, відкрити її) було відмовлено."
+
+#: core/job_error.cpp:557
+msgid "Folder Listing Unavailable"
+msgstr "Вміст теки недоступний"
+
+#: core/job_error.cpp:558
+#, kde-format
+msgid "Protocol %1 is not a Filesystem"
+msgstr "Протокол %1 не є файловою системою"
+
+#: core/job_error.cpp:559
+msgid ""
+"This means that a request was made which requires determining the contents "
+"of the folder, and the KDE program supporting this protocol is unable to do "
+"so."
+msgstr ""
+"Це значить, що зроблений запит потребує визначення вмісту теки, але програма "
+"KDE, що підтримує цей протокол, не може зробити це."
+
+#: core/job_error.cpp:567
+msgid "Cyclic Link Detected"
+msgstr "Виявлено циклічне посилання"
+
+#: core/job_error.cpp:568
+msgid ""
+"UNIX environments are commonly able to link a file or folder to a separate "
+"name and/or location. KDE detected a link or series of links that results in "
+"an infinite loop - i.e. the file was (perhaps in a roundabout way) linked to "
+"itself."
+msgstr ""
+"У UNIX-системах можна створювати посилання на файл або теку. Було знайдено "
+"посилання або серія посилань, що замикається сама на себе у нескінченній "
+"петлі, тобто, файл посилається (можливо не зовсім очевидним способом) сам на "
+"себе."
+
+#: core/job_error.cpp:572 core/job_error.cpp:594
+msgid ""
+"Delete one part of the loop in order that it does not cause an infinite "
+"loop, and try again."
+msgstr ""
+"Вилучіть одну з частин циклу, щоб розірвати коло посилань і спробуйте знову."
+
+#: core/job_error.cpp:581
+msgid "Request Aborted By User"
+msgstr "Запит перервано користувачем"
+
+#: core/job_error.cpp:582 core/job_error.cpp:897
+msgid "The request was not completed because it was aborted."
+msgstr "Запит не було завершено, оскільки його було перервано."
+
+#: core/job_error.cpp:584 core/job_error.cpp:788 core/job_error.cpp:899
+msgid "Retry the request."
+msgstr "Спробуйте запит ще раз."
+
+#: core/job_error.cpp:588
+msgid "Cyclic Link Detected During Copy"
+msgstr "Виявлено циклічне посилання при копіюванні"
+
+#: core/job_error.cpp:589
+msgid ""
+"UNIX environments are commonly able to link a file or folder to a separate "
+"name and/or location. During the requested copy operation, KDE detected a "
+"link or series of links that results in an infinite loop - i.e. the file was "
+"(perhaps in a roundabout way) linked to itself."
+msgstr ""
+"У UNIX-системах можливо робити посилання на файл або теку. Під час "
+"копіювання було знайдено посилання або серія посилань, що замикається сама "
+"на на себе у нескінченній петлі, тобто, файл посилається (можливо не зовсім "
+"очевидним способом) сам на себе."
+
+#: core/job_error.cpp:599
+msgid "Could Not Create Network Connection"
+msgstr "Неможливо створити з'єднання з мережею"
+
+#: core/job_error.cpp:600
+msgid "Could Not Create Socket"
+msgstr "Неможливо створити сокет"
+
+#: core/job_error.cpp:601
+msgid ""
+"This is a fairly technical error in which a required device for network "
+"communications (a socket) could not be created."
+msgstr ""
+"Це технічна помилка, потрібний пристрій або мережне з'єднання (сокет) "
+"неможливо створити."
+
+#: core/job_error.cpp:603 core/job_error.cpp:724 core/job_error.cpp:735
+#: core/job_error.cpp:744
+msgid ""
+"The network connection may be incorrectly configured, or the network "
+"interface may not be enabled."
+msgstr ""
+"З'єднання з мережею можливо налаштовано неправильно або мережний інтерфейс "
+"не активований."
+
+#: core/job_error.cpp:609
+msgid "Connection to Server Refused"
+msgstr "У з'єднанні до сервера відмовлено"
+
+#: core/job_error.cpp:610
+#, kde-format
+msgid ""
+"The server <strong>%1</strong> refused to allow this computer to make a "
+"connection."
+msgstr "Сервер <strong>%1</strong> відмовив у з'єднанні з цим комп'ютером."
+
+#: core/job_error.cpp:612
+msgid ""
+"The server, while currently connected to the Internet, may not be configured "
+"to allow requests."
+msgstr ""
+"Сервер, що зараз з'єднаний з інтернетом, можливо не налаштований для обробки "
+"запитів."
+
+#: core/job_error.cpp:614
+#, kde-format
+msgid ""
+"The server, while currently connected to the Internet, may not be running "
+"the requested service (%1)."
+msgstr ""
+"Можливо, запитану службу (%1) не запущено на сервері, що зараз з'єднаний з "
+"інтернетом."
+
+#: core/job_error.cpp:616
+msgid ""
+"A network firewall (a device which restricts Internet requests), either "
+"protecting your network or the network of the server, may have intervened, "
+"preventing this request."
+msgstr ""
+"Брандмауер (механізм який обмежує роботу з Інтернетом), що захищає вашу "
+"мережу або мережу, у якій перебуває сервер, можливо, заборонив цей запит."
+
+#: core/job_error.cpp:623
+msgid "Connection to Server Closed Unexpectedly"
+msgstr "З'єднання з сервером було несподівано закрито"
+
+#: core/job_error.cpp:624
+#, kde-format
+msgid ""
+"Although a connection was established to <strong>%1</strong>, the connection "
+"was closed at an unexpected point in the communication."
+msgstr ""
+"Хоча з'єднання до <strong>%1</strong> було встановлено успішно, але його "
+"було несподівано закрито."
+
+#: core/job_error.cpp:627
+msgid ""
+"A protocol error may have occurred, causing the server to close the "
+"connection as a response to the error."
+msgstr ""
+"Можливо, сталася помилка протоколу, що змусила сервер закрити з'єднання у "
+"відповідь на цю помилку."
+
+#: core/job_error.cpp:633
+msgid "URL Resource Invalid"
+msgstr "Неправильний ресурс URL"
+
+#: core/job_error.cpp:634
+#, kde-format
+msgid "Protocol %1 is not a Filter Protocol"
+msgstr "Протокол %1 не є фільтрувальним"
+
+#: core/job_error.cpp:635
+#, kde-format
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered did not refer to a valid mechanism of "
+"accessing the specific resource, <strong>%1%2</strong>."
+msgstr ""
+"Адреса (URL — <strong>U</strong>niversal <strong>R</strong>esource "
+"<strong>L</strong>ocation), що ви ввели, не вказує на правильний механізм "
+"доступу до ресурсу, <strong>%1%2</strong>."
+
+#: core/job_error.cpp:640
+msgid ""
+"KDE is able to communicate through a protocol within a protocol. This "
+"request specified a protocol be used as such, however this protocol is not "
+"capable of such an action. This is a rare event, and is likely to indicate a "
+"programming error."
+msgstr ""
+"KDE може здійснювати обмін даними за допомогою одного протоколу поверх "
+"іншого протоколу. Цей запит якраз потребує такого використання протоколу, "
+"проте вказаний протокол неможливо використати для цього. Такий випадок є "
+"дуже рідкісним, скоріше за все це означає помилку в програмі."
+
+#: core/job_error.cpp:648
+msgid "Unable to Initialize Input/Output Device"
+msgstr "Неможливо ініціалізувати пристрій вводу/виводу"
+
+#: core/job_error.cpp:649
+msgid "Could Not Mount Device"
+msgstr "Не вдалося змонтувати пристрій"
+
+#: core/job_error.cpp:650
+#, kde-format
+msgid ""
+"The requested device could not be initialized (\"mounted\"). The reported "
+"error was: <strong>%1</strong>"
+msgstr ""
+"Неможливо ініціалізувати («змонтувати») пристрій. Помилка: <strong>%1</"
+"strong>"
+
+#: core/job_error.cpp:653
+msgid ""
+"The device may not be ready, for example there may be no media in a "
+"removable media device (i.e. no CD-ROM in a CD drive), or in the case of a "
+"peripheral/portable device, the device may not be correctly connected."
+msgstr ""
+"Пристрій неготовий, може не бути носія інформації в пристрої (наприклад, "
+"немає дискети в дисководі), або, якщо це портативний пристрій, можливо, "
+"причиною помилки є неправильне з’єднання пристрою з комп’ютером."
+
+#: core/job_error.cpp:657
+msgid ""
+"You may not have permissions to initialize (\"mount\") the device. On UNIX "
+"systems, often system administrator privileges are required to initialize a "
+"device."
+msgstr ""
+"Можливо, у вас не вистачає прав для ініціалізації («монтування») пристрою. В "
+"UNIX-системах, типово, тільки адміністратор має достатні права, щоб зробити "
+"це."
+
+#: core/job_error.cpp:661
+msgid ""
+"Check that the device is ready; removable drives must contain media, and "
+"portable devices must be connected and powered on.; and try again."
+msgstr ""
+"Перевірте, чи пристрій готовий (змінні носії інформації повинні буди "
+"вставлені у пристрій, а портативні пристрої має бути з'єднано з комп'ютером "
+"та увімкнено) і повторіть спробу."
+
+#: core/job_error.cpp:667
+msgid "Unable to Uninitialize Input/Output Device"
+msgstr "Неможливо деініціалізувати пристрій вводу/виводу"
+
+#: core/job_error.cpp:668
+msgid "Could Not Unmount Device"
+msgstr "Неможливо демонтувати пристрій"
+
+#: core/job_error.cpp:669
+#, kde-format
+msgid ""
+"The requested device could not be uninitialized (\"unmounted\"). The "
+"reported error was: <strong>%1</strong>"
+msgstr ""
+"Неможливо деініціалізувати («демонтувати») пристрій. Помилка: <strong>%1</"
+"strong>"
+
+#: core/job_error.cpp:672
+msgid ""
+"The device may be busy, that is, still in use by another application or "
+"user. Even such things as having an open browser window on a location on "
+"this device may cause the device to remain in use."
+msgstr ""
+"Пристрій зайнятий. Це значить, що пристрій використовується іншою програмою "
+"або іншим користувачем. Навіть робота інструмента керування файлами з "
+"відкритим каталогом на цьому пристрої може призвести до блокування пристрою."
+
+#: core/job_error.cpp:676
+msgid ""
+"You may not have permissions to uninitialize (\"unmount\") the device. On "
+"UNIX systems, system administrator privileges are often required to "
+"uninitialize a device."
+msgstr ""
+"Можливо у вас не вистачає прав для деініціалізації («демонтування») "
+"пристрою. В UNIX-системах, типово, тільки адміністратор має достатні права, "
+"щоб зробити це."
+
+#: core/job_error.cpp:680
+msgid "Check that no applications are accessing the device, and try again."
+msgstr ""
+"Перевірте, що ніякі інші програми не використовують пристрій, і повторіть "
+"спробу."
+
+#: core/job_error.cpp:685
+msgid "Cannot Read From Resource"
+msgstr "Неможливо читати з ресурсу"
+
+#: core/job_error.cpp:686
+#, kde-format
+msgid ""
+"This means that although the resource, <strong>%1</strong>, was able to be "
+"opened, an error occurred while reading the contents of the resource."
+msgstr ""
+"Це значить, що ресурс <strong>%1</strong> було відкрито, а помилка виникла "
+"під час операції читання з ресурсу."
+
+#: core/job_error.cpp:689
+msgid "You may not have permissions to read from the resource."
+msgstr "У вас не вистачає прав для читання з цього ресурсу."
+
+#: core/job_error.cpp:702
+msgid "Cannot Write to Resource"
+msgstr "Неможливо писати до ресурсу"
+
+#: core/job_error.cpp:703
+#, kde-format
+msgid ""
+"This means that although the resource, <strong>%1</strong>, was able to be "
+"opened, an error occurred while writing to the resource."
+msgstr ""
+"Це значить, що ресурс <strong>%1</strong> було відкрито, а помилка виникла "
+"під час операції запису до ресурсу."
+
+#: core/job_error.cpp:706
+msgid "You may not have permissions to write to the resource."
+msgstr "У вас не вистачає прав для запису у цей ресурс."
+
+#: core/job_error.cpp:719 core/job_error.cpp:730
+msgid "Could Not Listen for Network Connections"
+msgstr "Неможливо почати очікування на з'єднання"
+
+#: core/job_error.cpp:720
+msgid "Could Not Bind"
+msgstr "Неможливо прив'язатись"
+
+#: core/job_error.cpp:721 core/job_error.cpp:732
+msgid ""
+"This is a fairly technical error in which a required device for network "
+"communications (a socket) could not be established to listen for incoming "
+"network connections."
+msgstr ""
+"Це технічна помилка, в результаті якої неможливо встановити в режим чекання "
+"на з'єднання логічний пристрій для обміну даними в мережі (сокет)."
+
+#: core/job_error.cpp:731
+msgid "Could Not Listen"
+msgstr "Неможливо прослуховувати"
+
+#: core/job_error.cpp:741
+msgid "Could Not Accept Network Connection"
+msgstr "Неможливо прийняти з'єднання мережі"
+
+#: core/job_error.cpp:742
+msgid ""
+"This is a fairly technical error in which an error occurred while attempting "
+"to accept an incoming network connection."
+msgstr ""
+"Це технічна помилка, в результаті якої, спроба прийняти вхідне з'єднання по "
+"мережі зазнала невдачі."
+
+#: core/job_error.cpp:746
+msgid "You may not have permissions to accept the connection."
+msgstr "У вас можливо не вистачає прав для прийняття цього з'єднання."
+
+#: core/job_error.cpp:751
+#, kde-format
+msgid "Could Not Login: %1"
+msgstr "Не вдалося увійти: %1"
+
+#: core/job_error.cpp:752
+msgid ""
+"An attempt to login to perform the requested operation was unsuccessful."
+msgstr ""
+"Спроба зареєструватися для того, щоб виконати запитану операцію, закінчилася "
+"невдачею."
+
+#: core/job_error.cpp:763
+msgid "Could Not Determine Resource Status"
+msgstr "Неможливо визначити стан ресурсу"
+
+#: core/job_error.cpp:764
+msgid "Could Not Stat Resource"
+msgstr "Неможливо отримати інформацію про стан ресурсу"
+
+#: core/job_error.cpp:765
+#, kde-format
+msgid ""
+"An attempt to determine information about the status of the resource <strong>"
+"%1</strong>, such as the resource name, type, size, etc., was unsuccessful."
+msgstr ""
+"Спроба отримати інформацію про стан ресурсу <strong>%1</strong> (його назву, "
+"тип, розмір тощо) завершилася невдало."
+
+#: core/job_error.cpp:768
+msgid "The specified resource may not have existed or may not be accessible."
+msgstr "Вказаний каталог не існує або є недоступним."
+
+#: core/job_error.cpp:776
+msgid "Could Not Cancel Listing"
+msgstr "Неможливо скасувати отримання списку"
+
+#: core/job_error.cpp:777
+msgid "FIXME: Document this"
+msgstr "Додаткова інформація відсутня"
+
+#: core/job_error.cpp:781
+msgid "Could Not Create Folder"
+msgstr "Неможливо створити теку"
+
+#: core/job_error.cpp:782
+msgid "An attempt to create the requested folder failed."
+msgstr "Спроба створити вказану теку зазнала невдачі."
+
+#: core/job_error.cpp:783
+msgid "The location where the folder was to be created may not exist."
+msgstr "Адреси, за якою мала бути створена тека, можливо не існує."
+
+#: core/job_error.cpp:792
+msgid "Could Not Remove Folder"
+msgstr "Неможливо вилучити теку"
+
+#: core/job_error.cpp:793
+#, kde-format
+msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
+msgstr "Спроба вилучити вказану теку, <strong>%1</strong>, зазнала невдачі."
+
+#: core/job_error.cpp:795
+msgid "The specified folder may not exist."
+msgstr "Вказаної теки, можливо, не існує."
+
+#: core/job_error.cpp:796
+msgid "The specified folder may not be empty."
+msgstr "Вказана тека, можливо, не є порожньою."
+
+#: core/job_error.cpp:801
+msgid "Ensure that the folder exists and is empty, and try again."
+msgstr "Переконайтеся, що тека існує та порожня, і повторіть спробу."
+
+#: core/job_error.cpp:806
+msgid "Could Not Resume File Transfer"
+msgstr "Не вдалося відновити перенесення файла"
+
+#: core/job_error.cpp:807
+#, kde-format
+msgid ""
+"The specified request asked that the transfer of file <strong>%1</strong> be "
+"resumed at a certain point of the transfer. This was not possible."
+msgstr ""
+"Цей запит вимагає відновлення перенесення файла <strong>%1</strong>з якоїсь "
+"позиції в середині файла. Але це неможливо."
+
+#: core/job_error.cpp:810
+msgid "The protocol, or the server, may not support file resuming."
+msgstr "Протокол або сервер, можливо, не підтримують відновлення перенесення."
+
+#: core/job_error.cpp:812
+msgid "Retry the request without attempting to resume transfer."
+msgstr "Повторіть запит ще раз без спроби відновлення перенесення."
+
+#: core/job_error.cpp:817
+msgid "Could Not Rename Resource"
+msgstr "Не вдалося перейменувати ресурс"
+
+#: core/job_error.cpp:818
+#, kde-format
+msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
+msgstr "Спроба перейменувати ресурс <strong>%1</strong> завершилась невдало."
+
+#: core/job_error.cpp:828
+msgid "Could Not Alter Permissions of Resource"
+msgstr "Не вдалося змінити права доступу для ресурсу"
+
+#: core/job_error.cpp:829
+#, kde-format
+msgid ""
+"An attempt to alter the permissions on the specified resource <strong>%1</"
+"strong> failed."
+msgstr ""
+"Спроба змінити права доступу для ресурсу <strong>%1</strong> завершилась "
+"невдало."
+
+#: core/job_error.cpp:836
+msgid "Could Not Change Ownership of Resource"
+msgstr "Не вдалося змінити власника ресурсу"
+
+#: core/job_error.cpp:837
+#, kde-format
+msgid ""
+"An attempt to change the ownership of the specified resource <strong>%1</"
+"strong> failed."
+msgstr ""
+"Спроба змінити власника ресурсу <strong>%1</strong> завершилась невдало."
+
+#: core/job_error.cpp:844
+msgid "Could Not Delete Resource"
+msgstr "Не вдалося вилучити ресурс"
+
+#: core/job_error.cpp:845
+#, kde-format
+msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
+msgstr "Спроба вилучити ресурс <strong>%1</strong> зазнала невдачі."
+
+#: core/job_error.cpp:852
+msgid "Unexpected Program Termination"
+msgstr "Непередбачене завершення програми"
+
+#: core/job_error.cpp:853
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has unexpectedly terminated."
+msgstr ""
+"Програма, що надає доступ до протоколу <strong>%1</strong>, непередбачено "
+"завершила роботу."
+
+#: core/job_error.cpp:861
+msgid "Out of Memory"
+msgstr "Недостатньо пам'яті"
+
+#: core/job_error.cpp:862
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol could not obtain the memory required to continue."
+msgstr ""
+"Програма, що надає доступ до протоколу <strong>%1</strong>, не може отримати "
+"достатньо оперативної пам'яті."
+
+#: core/job_error.cpp:870
+msgid "Unknown Proxy Host"
+msgstr "Невідома адреса проксі-сервера"
+
+#: core/job_error.cpp:871
+#, kde-format
+msgid ""
+"While retrieving information about the specified proxy host, <strong>%1</"
+"strong>, an Unknown Host error was encountered. An unknown host error "
+"indicates that the requested name could not be located on the Internet."
+msgstr ""
+"Сталася помилка «Невідомий вузол» під час отримання інформації про проксі-"
+"сервер <strong>%1</strong>. Ця помилка означає, що в інтернеті не вдалося "
+"знайти вузол з такою назвою."
+
+#: core/job_error.cpp:875
+msgid ""
+"There may have been a problem with your network configuration, specifically "
+"your proxy's hostname. If you have been accessing the Internet with no "
+"problems recently, this is unlikely."
+msgstr ""
+"Можливо, у вас проблеми з налаштуванням мережі, зокрема, з назвою вузла "
+"проксі. Але це малоймовірно, якщо останнім часом у вас не було проблем з "
+"доступом до інтернету."
+
+#: core/job_error.cpp:879
+msgid "Double-check your proxy settings and try again."
+msgstr "Ретельно перевірте налаштування проксі і повторіть спробу."
+
+#: core/job_error.cpp:884
+#, kde-format
+msgid "Authentication Failed: Method %1 Not Supported"
+msgstr "Спроба розпізнавання зазнала невдачі: метод %1 не підтримується"
+
+#: core/job_error.cpp:886
+#, kde-format
+msgid ""
+"Although you may have supplied the correct authentication details, the "
+"authentication failed because the method that the server is using is not "
+"supported by the KDE program implementing the protocol %1."
+msgstr ""
+"Незважаючи на те, що ви надали правильні дані, розпізнавання зазнало невдачі "
+"через те, що метод розпізнавання, який вимагає сервер, не підтримується "
+"програмою KDE, яка реалізує роботу з протоколом %1."
+
+#: core/job_error.cpp:890
+msgid ""
+"Please file a bug at <a href=\"http://bugs.kde.org/\">http://bugs.kde.org/</"
+"a> to inform the KDE team of the unsupported authentication method."
+msgstr ""
+"Створіть, будь ласка, звіт про помилку на <a href=\"http://bugs.kde.org/"
+"\">http://bugs.kde.org/</a>, щоб сповістити розробників про метод "
+"розпізнавання, який не підтримується."
+
+#: core/job_error.cpp:896
+msgid "Request Aborted"
+msgstr "Запит перервано"
+
+#: core/job_error.cpp:903
+msgid "Internal Error in Server"
+msgstr "Внутрішня помилка сервера"
+
+#: core/job_error.cpp:904
+#, kde-format
+msgid ""
+"The program on the server which provides access to the <strong>%1</strong> "
+"protocol has reported an internal error: %2."
+msgstr ""
+"Програма на сервері, що надає доступ до протоколу <strong>%1</strong>, "
+"звітувала про внутрішню помилку: %2."
+
+#: core/job_error.cpp:907
+msgid ""
+"This is most likely to be caused by a bug in the server program. Please "
+"consider submitting a full bug report as detailed below."
+msgstr ""
+"Скоріше за все, це зумовлено помилкою в програмі на сервері. Будь ласка, "
+"надішліть звіт про помилку, як вказано нижче."
+
+#: core/job_error.cpp:910
+msgid "Contact the administrator of the server to advise them of the problem."
+msgstr "З'єднайтесь з адміністратором сервера, щоб сповістити про цю проблему."
+
+#: core/job_error.cpp:912
+msgid ""
+"If you know who the authors of the server software are, submit the bug "
+"report directly to them."
+msgstr ""
+"Якщо ви знаєте, хто розробники програми сервера, надішліть звіт по помилку "
+"прямо до них."
+
+#: core/job_error.cpp:917
+msgid "Timeout Error"
+msgstr "Помилка часу відгуку"
+
+#: core/job_error.cpp:918
+#, kde-format
+msgid ""
+"Although contact was made with the server, a response was not received "
+"within the amount of time allocated for the request as follows:"
+"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+"settings in the KDE System Settings, by selecting Network Settings -> "
+"Connection Preferences."
+msgstr ""
+"Незважаючи на те, що зв'язок з сервером було встановлено, відповідь не було "
+"отримано за інтервал часу відведений на обробку запиту, який становить:"
+"<ul><li>Інтервал для встановлення зв'язку: %1 секунд</li><li>Інтервал для "
+"отримання відповіді: %2 секунд</li><li>Інтервал для зв'язку з проксі "
+"серверами: %3 секунд</li></ul> Будь ласка, зауважте, що можна змінити ці "
+"параметри у Системних параметрах KDE, на сторінці Мережні параметри -> "
+"Параметри з'єднання."
+
+#: core/job_error.cpp:929
+msgid "The server was too busy responding to other requests to respond."
+msgstr "Сервер перевантажено обробкою відповідей на інші запити."
+
+#: core/job_error.cpp:935 core/slavebase.cpp:1424
+msgid "Unknown Error"
+msgstr "Невідома помилка"
+
+#: core/job_error.cpp:936
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an unknown error: %2."
+msgstr ""
+"Програма, що надає доступ до протоколу <strong>%1</strong>, повернула "
+"невідому помилку: %2."
+
+#: core/job_error.cpp:944
+msgid "Unknown Interruption"
+msgstr "Невідомій перепин"
+
+#: core/job_error.cpp:945
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an interruption of an unknown type: %2."
+msgstr ""
+"Програма, що надає доступ до протоколу <strong>%1</strong>, повідомила про "
+"перепин невідомого типу: %2."
+
+#: core/job_error.cpp:953
+msgid "Could Not Delete Original File"
+msgstr "Неможливо вилучити початковий файл"
+
+#: core/job_error.cpp:954
+#, kde-format
+msgid ""
+"The requested operation required the deleting of the original file, most "
+"likely at the end of a file move operation. The original file <strong>%1</"
+"strong> could not be deleted."
+msgstr ""
+"Виконання дії потребує вилучення первісного файла, скоріше за все, "
+"наприкінці операції перенесення файла. Первісний файл <strong>%1</strong> не "
+"вдалося вилучити."
+
+#: core/job_error.cpp:963
+msgid "Could Not Delete Temporary File"
+msgstr "Не вдалося вилучити тимчасовий файл"
+
+#: core/job_error.cpp:964
+#, kde-format
+msgid ""
+"The requested operation required the creation of a temporary file in which "
+"to save the new file while being downloaded. This temporary file <strong>%1</"
+"strong> could not be deleted."
+msgstr ""
+"Виконання дії потребує створення тимчасового файла, у якому зберігатимуться "
+"дані файла, що звантажується. Не вдалося вилучити тимчасовий файл <strong>"
+"%1</strong>."
+
+#: core/job_error.cpp:973
+msgid "Could Not Rename Original File"
+msgstr "Не вдалося перейменувати початковий файл"
+
+#: core/job_error.cpp:974
+#, kde-format
+msgid ""
+"The requested operation required the renaming of the original file <strong>"
+"%1</strong>, however it could not be renamed."
+msgstr ""
+"Виконання дії потребує перейменування первісного файла <strong>%1</strong>, "
+"але таке перейменування виконати не вдалося."
+
+#: core/job_error.cpp:982
+msgid "Could Not Rename Temporary File"
+msgstr "Неможливо перейменувати тимчасовий файл"
+
+#: core/job_error.cpp:983
+#, kde-format
+msgid ""
+"The requested operation required the creation of a temporary file <strong>"
+"%1</strong>, however it could not be created."
+msgstr ""
+"Виконання дії потребує створення тимчасового файла <strong>%1</strong>, але "
+"його не вдається створити."
+
+#: core/job_error.cpp:991
+msgid "Could Not Create Link"
+msgstr "Не вдалося створити посилання"
+
+#: core/job_error.cpp:992
+msgid "Could Not Create Symbolic Link"
+msgstr "Не вдалося створити символічне посилання"
+
+#: core/job_error.cpp:993
+#, kde-format
+msgid "The requested symbolic link %1 could not be created."
+msgstr "Не вдалося створити символічне посилання %1."
+
+#: core/job_error.cpp:1000
+msgid "No Content"
+msgstr "Вмісту не виявлено"
+
+#: core/job_error.cpp:1005
+msgid "Disk Full"
+msgstr "Диск переповнений"
+
+#: core/job_error.cpp:1006
+#, kde-format
+msgid ""
+"The requested file <strong>%1</strong> could not be written to as there is "
+"inadequate disk space."
+msgstr ""
+"Файл <strong>%1</strong> неможливо записати, оскільки на диску недостатньо "
+"місця."
+
+#: core/job_error.cpp:1008
+msgid ""
+"Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
+"archiving files to removable media storage such as CD-Recordable discs; or "
+"3) obtain more storage capacity."
+msgstr ""
+"Місце на диску можна вивільнити: 1) вилученням непотрібних та тимчасових "
+"файлів; 2) пересуванням частини файлів на змінні носії, зокрема диски CD-R; "
+"3) збільшенням об'єму диска."
+
+#: core/job_error.cpp:1015
+msgid "Source and Destination Files Identical"
+msgstr "Вихідний файл та файл призначення збігаються"
+
+#: core/job_error.cpp:1016
+msgid ""
+"The operation could not be completed because the source and destination "
+"files are the same file."
+msgstr ""
+"Дію не може бути виконано, оскільки вихідний файл та файл призначення "
+"збігаються."
+
+#: core/job_error.cpp:1018
+msgid "Choose a different filename for the destination file."
+msgstr "Виберіть іншу назву для файла призначення."
+
+#: core/job_error.cpp:1029
+msgid "Undocumented Error"
+msgstr "Недокументована помилка"
+
+#: core/kcoredirlister.cpp:397 widgets/krun.cpp:842 widgets/paste.cpp:255
+#: widgets/renamedialog.cpp:410
+#, kde-format
+msgid ""
+"Malformed URL\n"
+"%1"
+msgstr ""
+"Помилка в URL\n"
+"%1"
+
+#: core/kcoredirlister.cpp:402
+#, kde-format
+msgid ""
+"URL cannot be listed\n"
+"%1"
+msgstr ""
+"Неможливо показати URL\n"
+"%1"
+
+#: core/kfileitem.cpp:1186
+#, kde-format
+msgid "(Symbolic Link to %1)"
+msgstr "(Символічне посилання на %1)"
+
+#: core/kfileitem.cpp:1188
+#, kde-format
+msgid "(%1, Link to %2)"
+msgstr "(%1, посилання на %2)"
+
+#: core/kfileitem.cpp:1191
+#, kde-format
+msgid " (Points to %1)"
+msgstr " (Вказує до %1)"
+
+#: core/klocalsocket_unix.cpp:192 core/klocalsocket_unix.cpp:260
+msgid "Specified socket path is invalid"
+msgstr "Вказаний шлях до сокета є некоректним"
+
+#: core/klocalsocket_unix.cpp:201 core/klocalsocket_unix.cpp:248
+#: core/klocalsocket_unix.cpp:269
+msgid "The socket operation is not supported"
+msgstr "Ця дія з сокетом не підтримується"
+
+#: core/klocalsocket_unix.cpp:214
+msgid "Connection refused"
+msgstr "У з'єднанні відмовлено"
+
+#: core/klocalsocket_unix.cpp:219 core/klocalsocket_unix.cpp:282
+msgid "Permission denied"
+msgstr "Відмовлено у доступі"
+
+#: core/klocalsocket_unix.cpp:223
+msgid "Connection timed out"
+msgstr "Перевищено інтервал очікування з'єднання"
+
+#: core/klocalsocket_unix.cpp:227 core/klocalsocket_unix.cpp:307
+msgid "Unknown error"
+msgstr "Невідома помилка"
+
+#: core/klocalsocket_unix.cpp:235 core/klocalsocket_unix.cpp:315
+msgid "Could not set non-blocking mode"
+msgstr "Не вдалося встановити режим без блокування"
+
+#: core/klocalsocket_unix.cpp:286
+msgid "Address is already in use"
+msgstr "Адреса вже використовується"
+
+#: core/klocalsocket_unix.cpp:291
+msgid "Path cannot be used"
+msgstr "Не вдалося скористатися шляхом"
+
+#: core/klocalsocket_unix.cpp:295
+msgid "No such file or directory"
+msgstr "Немає такого файла або каталогу"
+
+#: core/klocalsocket_unix.cpp:299
+msgid "Not a directory"
+msgstr "Не є каталогом"
+
+#: core/klocalsocket_unix.cpp:303
+msgid "Read-only filesystem"
+msgstr "Файлова система лише для читання"
+
+#: core/klocalsocket_unix.cpp:370 core/klocalsocket_unix.cpp:404
+msgid "Unknown socket error"
+msgstr "Невідома помилка сокета"
+
+#: core/klocalsocket_win.cpp:31 core/klocalsocket_win.cpp:36
+msgid "Operation not supported"
+msgstr "Дія не підтримується"
+
+#: core/ktcpsocket.cpp:165
+msgctxt "SSL error"
+msgid "No error"
+msgstr "Без помилок"
+
+#: core/ktcpsocket.cpp:167
+msgctxt "SSL error"
+msgid "The certificate authority's certificate is invalid"
+msgstr "Сертифікат видавця сертифікатів не є коректним"
+
+#: core/ktcpsocket.cpp:169
+msgctxt "SSL error"
+msgid "The certificate has expired"
+msgstr "Сертифікат застарів"
+
+#: core/ktcpsocket.cpp:171
+msgctxt "SSL error"
+msgid "The certificate is invalid"
+msgstr "Сертифікат є некоректним"
+
+#: core/ktcpsocket.cpp:173
+msgctxt "SSL error"
+msgid "The certificate is not signed by any trusted certificate authority"
+msgstr "Сертифікат не підписано жодною службою сертифікації"
+
+#: core/ktcpsocket.cpp:175
+msgctxt "SSL error"
+msgid "The certificate has been revoked"
+msgstr "Сертифікат було анульовано"
+
+#: core/ktcpsocket.cpp:177
+msgctxt "SSL error"
+msgid "The certificate is unsuitable for this purpose"
+msgstr "Сертифікат не може бути використано з цією метою"
+
+#: core/ktcpsocket.cpp:179
+msgctxt "SSL error"
+msgid ""
+"The root certificate authority's certificate is not trusted for this purpose"
+msgstr "Кореневий сертифікат служби сертифікації не призначено для цього"
+
+#: core/ktcpsocket.cpp:181
+msgctxt "SSL error"
+msgid ""
+"The certificate authority's certificate is marked to reject this "
+"certificate's purpose"
+msgstr "Сертифікат служби сертифікації позначено як непридатний для цієї мети"
+
+#: core/ktcpsocket.cpp:183
+msgctxt "SSL error"
+msgid "The peer did not present any certificate"
+msgstr "Вузол не надав жодного сертифіката"
+
+#: core/ktcpsocket.cpp:185
+msgctxt "SSL error"
+msgid "The certificate does not apply to the given host"
+msgstr "Сертифікат не може бути застосовано до вказаного вузла"
+
+#: core/ktcpsocket.cpp:187
+msgctxt "SSL error"
+msgid "The certificate cannot be verified for internal reasons"
+msgstr "Сертифікат не можна перевірити з внутрішніх причин"
+
+#: core/ktcpsocket.cpp:189
+msgctxt "SSL error"
+msgid "The certificate chain is too long"
+msgstr "Ланцюжок сертифікації задовгий"
+
+#: core/ktcpsocket.cpp:192
+msgctxt "SSL error"
+msgid "Unknown error"
+msgstr "Невідома помилка"
+
+#: core/slave.cpp:453
+#, kde-format
+msgid "Unknown protocol '%1'."
+msgstr "Невідомий протокол «%1»."
+
+#: core/slave.cpp:463
+#, kde-format
+msgid "Can not find io-slave for protocol '%1'."
+msgstr "Неможливо знайти підлеглий В/В для протоколу «%1»."
+
+#: core/slave.cpp:474
+msgid "Can not find 'kioslave' executable"
+msgstr "Не вдалося знайти виконуваний файл «kioslave»"
+
+#: core/slave.cpp:489
+#, kde-format
+msgid "Cannot talk to klauncher: %1"
+msgstr "Не вдалося зв'язатися з klauncher: %1"
+
+#: core/slave.cpp:496
+#, kde-format
+msgid ""
+"Unable to create io-slave:\n"
+"klauncher said: %1"
+msgstr ""
+"Неможливо створити io-slave:\n"
+"повідомлення klauncher: %1"
+
+#: core/slavebase.cpp:762
+#, kde-format
+msgid "Opening connections is not supported with the protocol %1."
+msgstr "Відкриття з'єднань не підтримується протоколом %1."
+
+#: core/slavebase.cpp:764
+#, kde-format
+msgid "Closing connections is not supported with the protocol %1."
+msgstr "Закриття з'єднань не підтримується протоколом %1."
+
+#: core/slavebase.cpp:766
+#, kde-format
+msgid "Accessing files is not supported with the protocol %1."
+msgstr "Доступ до файлів не підтримується протоколом %1."
+
+#: core/slavebase.cpp:768
+#, kde-format
+msgid "Writing to %1 is not supported."
+msgstr "Запис до %1 не підтримується."
+
+#: core/slavebase.cpp:770
+#, kde-format
+msgid "There are no special actions available for protocol %1."
+msgstr "Протокол %1 не має спеціальних дій."
+
+#: core/slavebase.cpp:772
+#, kde-format
+msgid "Listing folders is not supported for protocol %1."
+msgstr "Отримання списку тек не підтримується для протоколу %1."
+
+#: core/slavebase.cpp:774
+#, kde-format
+msgid "Retrieving data from %1 is not supported."
+msgstr "Отримання даних від %1 не підтримується."
+
+#: core/slavebase.cpp:776
+#, kde-format
+msgid "Retrieving mime type information from %1 is not supported."
+msgstr "Отримання типу MIME від %1 не підтримується."
+
+#: core/slavebase.cpp:778
+#, kde-format
+msgid "Renaming or moving files within %1 is not supported."
+msgstr "Перейменування або пересування файлів у межах %1 не підтримується."
+
+#: core/slavebase.cpp:780
+#, kde-format
+msgid "Creating symlinks is not supported with protocol %1."
+msgstr "Створення символічних посилань не підтримується протоколом %1."
+
+#: core/slavebase.cpp:782
+#, kde-format
+msgid "Copying files within %1 is not supported."
+msgstr "Копіювання файлів у межах %1 не підтримується."
+
+#: core/slavebase.cpp:784
+#, kde-format
+msgid "Deleting files from %1 is not supported."
+msgstr "Стирання файлів з %1 не підтримується."
+
+#: core/slavebase.cpp:786
+#, kde-format
+msgid "Creating folders is not supported with protocol %1."
+msgstr "Створення тек не підтримується протоколом %1."
+
+#: core/slavebase.cpp:788
+#, kde-format
+msgid "Changing the attributes of files is not supported with protocol %1."
+msgstr "Зміна атрибутів файлів не підтримується протоколом %1."
+
+#: core/slavebase.cpp:790
+#, kde-format
+msgid "Changing the ownership of files is not supported with protocol %1."
+msgstr "Зміна власників файлів не підтримується протоколом %1."
+
+#: core/slavebase.cpp:792
+#, kde-format
+msgid "Using sub-URLs with %1 is not supported."
+msgstr "Протокол %1 не підтримує додаткові адреси (URL)."
+
+#: core/slavebase.cpp:794
+#, kde-format
+msgid "Multiple get is not supported with protocol %1."
+msgstr "Метод multiple get не підтримується протоколом %1."
+
+#: core/slavebase.cpp:796
+#, kde-format
+msgid "Opening files is not supported with protocol %1."
+msgstr "Відкривання файлів не підтримується протоколом %1."
+
+#: core/slavebase.cpp:798
+#, kde-format
+msgid "Protocol %1 does not support action %2."
+msgstr "Протокол %1 не підтримує дію %2."
+
+#: core/slavebase.cpp:954
+msgid "&Yes"
+msgstr "&Так"
+
+#: core/slavebase.cpp:955
+msgid "&No"
+msgstr "&Ні"
+
+#: core/slaveinterface.cpp:409 core/tcpslavebase.cpp:822 widgets/sslui.cpp:78
+msgid "&Details"
+msgstr "&Подробиці"
+
+#: core/slaveinterface.cpp:411 core/tcpslavebase.cpp:842 widgets/sslui.cpp:114
+msgid "&Forever"
+msgstr "&Завжди"
+
+#: core/slaveinterface.cpp:415 core/tcpslavebase.cpp:822 widgets/sslui.cpp:79
+msgid "Co&ntinue"
+msgstr "Про&довжити"
+
+#: core/slaveinterface.cpp:417 core/tcpslavebase.cpp:843 widgets/sslui.cpp:115
+msgid "&Current Session only"
+msgstr "Тільки &поточний сеанс"
+
+#: core/tcpslavebase.cpp:319
+msgid ""
+"You are about to leave secure mode. Transmissions will no longer be "
+"encrypted.\n"
+"This means that a third party could observe your data in transit."
+msgstr ""
+"Зараз ви залишите безпечний режим. Всі перенесення більше не буде "
+"зашифровано.\n"
+"Це означає, що хтось крім вас з абонентом зможе переглядати дані, що "
+"переносяться."
+
+#: core/tcpslavebase.cpp:325 core/tcpslavebase.cpp:590
+msgid "Security Information"
+msgstr "Інформацію про безпеку"
+
+#: core/tcpslavebase.cpp:326
+msgid "C&ontinue Loading"
+msgstr "П&родовжити завантаження"
+
+#: core/tcpslavebase.cpp:421
+#, kde-format
+msgctxt "%1 is a host name"
+msgid "%1: SSL negotiation failed"
+msgstr "%1: помилка домовленості SSL"
+
+#: core/tcpslavebase.cpp:584
+msgid ""
+"You are about to enter secure mode. All transmissions will be encrypted "
+"unless otherwise noted.\n"
+"This means that no third party will be able to easily observe your data in "
+"transit."
+msgstr ""
+"Зараз ви увійдете до безпечного режиму. Всі перенесення буде зашифровано, "
+"якщо ви не вкажете інше.\n"
+"Це означає, що ніхто крім вас з абонентом не зможе переглянути дані, що "
+"переносяться."
+
+#: core/tcpslavebase.cpp:591
+msgid "Display SSL &Information"
+msgstr "Показати &інформацію про SSL"
+
+#: core/tcpslavebase.cpp:592
+msgid "C&onnect"
+msgstr "З'&єднатись"
+
+#: core/tcpslavebase.cpp:736
+msgid "Enter the certificate password:"
+msgstr "Пароль сертифіката:"
+
+#: core/tcpslavebase.cpp:737
+msgid "SSL Certificate Password"
+msgstr "Пароль сертифіката SSL"
+
+#: core/tcpslavebase.cpp:751
+msgid "Unable to open the certificate. Try a new password?"
+msgstr "Не вдалося відкрити сертифікат. Спробувати новий пароль?"
+
+#: core/tcpslavebase.cpp:765
+msgid "The procedure to set the client certificate for the session failed."
+msgstr "Процедура встановлення сертифіката клієнта для сеансу зазнала невдачі."
+
+#: core/tcpslavebase.cpp:767 widgets/jobuidelegate.cpp:346
+msgid "SSL"
+msgstr "SSL"
+
+#: core/tcpslavebase.cpp:811 widgets/sslui.cpp:68
+#, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr ""
+"Сервер не пройшов перевірку на достовірність (%1)\n"
+"\n"
+
+#: core/tcpslavebase.cpp:821 core/tcpslavebase.cpp:841
+#: core/tcpslavebase.cpp:945 core/tcpslavebase.cpp:957 widgets/sslui.cpp:77
+#: widgets/sslui.cpp:113
+msgid "Server Authentication"
+msgstr "Автентифікація сервера"
+
+#: core/tcpslavebase.cpp:838 widgets/sslui.cpp:110
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr "Хочете прийняти сертифікат назавжди без попереджень?"
+
+#: core/tcpslavebase.cpp:944
+msgid ""
+"You have indicated that you wish to accept this certificate, but it is not "
+"issued to the server who is presenting it. Do you wish to continue loading?"
+msgstr ""
+"Ви бажаєте прийняти цей сертифікат, але його було видано іншому серверу. "
+"Продовжити завантаження?"
+
+#: core/tcpslavebase.cpp:956
+msgid ""
+"SSL certificate is being rejected as requested. You can disable this in the "
+"KDE System Settings."
+msgstr ""
+"SSL-сертифікат було відкинуто відповідно до налаштувань. Ви можете змінити "
+"цю поведінку в Системних параметрах KDE."
+
+#: filewidgets/kdiroperator.cpp:761
+#, kde-format
+msgid "A file or folder named %1 already exists."
+msgstr "Файл або тека з назвою %1 вже існує."
+
+#: filewidgets/kdiroperator.cpp:764
+msgid "You do not have permission to create that folder."
+msgstr "У вас немає прав для створення теки."
+
+#: filewidgets/kdiroperator.cpp:779
+msgid "You did not select a file to delete."
+msgstr "Файл, якій треба стерти, не вибрано."
+
+#: filewidgets/kdiroperator.cpp:780
+msgid "Nothing to Delete"
+msgstr "Нічого стирати"
+
+#: filewidgets/kdiroperator.cpp:822
+msgid "You did not select a file to trash."
+msgstr "Ви не вибрали файл для викидання."
+
+#: filewidgets/kdiroperator.cpp:823
+msgid "Nothing to Trash"
+msgstr "Нічого викидати"
+
+#: filewidgets/kdiroperator.cpp:1020 filewidgets/kdiroperator.cpp:1158
+msgid "The specified folder does not exist or was not readable."
+msgstr "Вказана тека не існує або недостатньо прав для перегляду."
+
+#: filewidgets/kdiroperator.cpp:1825
+msgid "Menu"
+msgstr "Меню"
+
+#: filewidgets/kdiroperator.cpp:1829
+msgid "Parent Folder"
+msgstr "Батьківська тека"
+
+#: filewidgets/kdiroperator.cpp:1836
+msgid "Home Folder"
+msgstr "Домівка"
+
+#: filewidgets/kdiroperator.cpp:1839
+msgid "Reload"
+msgstr "Перезавантажити"
+
+#: filewidgets/kdiroperator.cpp:1842
+msgid "New Folder..."
+msgstr "Нова тека..."
+
+#: filewidgets/kdiroperator.cpp:1847 widgets/jobuidelegate.cpp:251
+msgid "Move to Trash"
+msgstr "Пересунути в смітник"
+
+#: filewidgets/kdiroperator.cpp:1853
+msgid "Delete"
+msgstr "Вилучити"
+
+#: filewidgets/kdiroperator.cpp:1860
+msgid "Sorting"
+msgstr "Упорядкування"
+
+#: filewidgets/kdiroperator.cpp:1863
+msgid "By Name"
+msgstr "За назвою"
+
+#: filewidgets/kdiroperator.cpp:1867
+msgid "By Size"
+msgstr "За розміром"
+
+#: filewidgets/kdiroperator.cpp:1871
+msgid "By Date"
+msgstr "За датою"
+
+#: filewidgets/kdiroperator.cpp:1875
+msgid "By Type"
+msgstr "За типом"
+
+#: filewidgets/kdiroperator.cpp:1879
+msgid "Descending"
+msgstr "За спаданням"
+
+#: filewidgets/kdiroperator.cpp:1883
+msgid "Folders First"
+msgstr "Теки спочатку"
+
+#: filewidgets/kdiroperator.cpp:1893
+msgid "Icon Position"
+msgstr "Розташування піктограм"
+
+#: filewidgets/kdiroperator.cpp:1896
+msgid "Next to File Name"
+msgstr "Поряд з назвою файла"
+
+#: filewidgets/kdiroperator.cpp:1900
+msgid "Above File Name"
+msgstr "Над назвою файла"
+
+#: filewidgets/kdiroperator.cpp:1911
+msgid "Short View"
+msgstr "Стислий вигляд"
+
+#: filewidgets/kdiroperator.cpp:1916
+msgid "Detailed View"
+msgstr "Детальний вигляд"
+
+#: filewidgets/kdiroperator.cpp:1921
+msgid "Tree View"
+msgstr "Ієрархічний вигляд"
+
+#: filewidgets/kdiroperator.cpp:1926
+msgid "Detailed Tree View"
+msgstr "Детальний ієрархічний вигляд"
+
+#: filewidgets/kdiroperator.cpp:1937
+msgid "Show Hidden Files"
+msgstr "Показувати приховані файли"
+
+#: filewidgets/kdiroperator.cpp:1941
+msgid "Show Aside Preview"
+msgstr "Показати бічний перегляд"
+
+#: filewidgets/kdiroperator.cpp:1947
+msgid "Show Preview"
+msgstr "Показати перегляд"
+
+#: filewidgets/kdiroperator.cpp:1951
+msgid "Open File Manager"
+msgstr "Відкрити менеджер файлів"
+
+#: filewidgets/kdiroperator.cpp:1956
+msgid "Properties"
+msgstr "Властивості"
+
+#: filewidgets/kdiroperator.cpp:1963
+msgid "&View"
+msgstr "П&ерегляд"
+
+#: filewidgets/kencodingfiledialog.cpp:86
+msgid "Encoding:"
+msgstr "Кодування:"
+
+#: filewidgets/kencodingfiledialog.cpp:142
+#: filewidgets/kencodingfiledialog.cpp:161
+#: filewidgets/kencodingfiledialog.cpp:179
+#: filewidgets/kencodingfiledialog.cpp:198 widgets/kurlrequesterdialog.cpp:131
+msgid "Open"
+msgstr "Відкрити"
+
+#: filewidgets/kencodingfiledialog.cpp:217
+#: filewidgets/kencodingfiledialog.cpp:240
+msgid "Save As"
+msgstr "Зберегти як"
+
+#: filewidgets/kfilefiltercombo.cpp:36 filewidgets/kfilewidget.cpp:1856
+msgid "*|All Files"
+msgstr "*|Всі файли"
+
+#: filewidgets/kfilefiltercombo.cpp:180
+msgid "All Supported Files"
+msgstr "Всі файли, що підтримуються"
+
+#: filewidgets/kfilefiltercombo.cpp:189
+msgid "All Files"
+msgstr "Всі файли"
+
+#: filewidgets/kfileplaceeditdialog.cpp:85
+msgid "Add Places Entry"
+msgstr "Додати запис на панель «Місця»"
+
+#: filewidgets/kfileplaceeditdialog.cpp:87
+msgid "Edit Places Entry"
+msgstr "Змінити запис в панелі швидкого доступу"
+
+#: filewidgets/kfileplaceeditdialog.cpp:96
+msgid ""
+"<qt>This is the text that will appear in the Places panel.<br /><br />The "
+"label should consist of one or two words that will help you remember what "
+"this entry refers to. If you do not enter a label, it will be derived from "
+"the location's URL.</qt>"
+msgstr ""
+"<qt>Це текст, що буде показано на панелі швидкого доступу.<br /><br />Мітка "
+"повинна містити одне або два слова, які допоможуть вам запам'ятати, що "
+"знаходиться за цим записом. Якщо ви не вводитимете мітку, її буде визначено "
+"за адресою URL.</qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:102
+msgid "L&abel:"
+msgstr "&Мітка:"
+
+#: filewidgets/kfileplaceeditdialog.cpp:104
+msgid "Enter descriptive label here"
+msgstr "Тут введіть описову мітку"
+
+#: filewidgets/kfileplaceeditdialog.cpp:108
+#, kde-format
+msgid ""
+"<qt>This is the location associated with the entry. Any valid URL may be "
+"used. For example:<br /><br />%1<br />http://www.kde.org<br />ftp://ftp.kde."
+"org/pub/kde/stable<br /><br />By clicking on the button next to the text "
+"edit box you can browse to an appropriate URL.</qt>"
+msgstr ""
+"<qt>Це адреса з якою буде пов'язано запис. Сюди можна ввести будь-яку чинну "
+"адресу URL. Наприклад:<br /><br />%1<br />http://www.kde.org<br />ftp://ftp."
+"kde.org/pub/kde/stable<br /><br />Натиснувши кнопку праворуч, ви зможете "
+"переглянути та вибрати URL.</qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:114
+msgid "&Location:"
+msgstr "&Адреса:"
+
+#: filewidgets/kfileplaceeditdialog.cpp:120
+msgid ""
+"<qt>This is the icon that will appear in the Places panel.<br /><br />Click "
+"on the button to select a different icon.</qt>"
+msgstr ""
+"<qt>Це піктограма, яку буде показано на панелі швидкого доступу.<br /><br /"
+">Натисніть цю кнопку, щоб вибрати іншу піктограму.</qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:123
+msgid "Choose an &icon:"
+msgstr "Виберіть &піктограму:"
+
+#: filewidgets/kfileplaceeditdialog.cpp:141
+#, kde-format
+msgid "&Only show when using this application (%1)"
+msgstr "&Тільки для цієї програми (%1)"
+
+#: filewidgets/kfileplaceeditdialog.cpp:143
+#, kde-format
+msgid ""
+"<qt>Select this setting if you want this entry to show only when using the "
+"current application (%1).<br /><br />If this setting is not selected, the "
+"entry will be available in all applications.</qt>"
+msgstr ""
+"<qt>Позначте цей пункт, якщо ви хочете зв'язати запис тільки з поточною "
+"програмою (%1).<br /><br />Якщо пункт позначено не буде, доступ до запису "
+"можна буде отримати і за допомогою інших програм.</qt>"
+
+#: filewidgets/kfileplacesmodel.cpp:118
+msgctxt "KFile System Bookmarks"
+msgid "Home"
+msgstr "Домівка"
+
+#: filewidgets/kfileplacesmodel.cpp:121
+msgctxt "KFile System Bookmarks"
+msgid "Network"
+msgstr "Мережа"
+
+#: filewidgets/kfileplacesmodel.cpp:133
+msgctxt "KFile System Bookmarks"
+msgid "Root"
+msgstr "Корінь"
+
+#: filewidgets/kfileplacesmodel.cpp:137
+msgctxt "KFile System Bookmarks"
+msgid "Trash"
+msgstr "Смітник"
+
+#: filewidgets/kfileplacesmodel.cpp:798
+#, kde-format
+msgid "&Release '%1'"
+msgstr "&Роз’єднати «%1»"
+
+#: filewidgets/kfileplacesmodel.cpp:800
+#, kde-format
+msgid "&Safely Remove '%1'"
+msgstr "&Безпечно вилучити «%1»"
+
+#: filewidgets/kfileplacesmodel.cpp:803
+#, kde-format
+msgid "&Unmount '%1'"
+msgstr "Демон&тувати «%1»"
+
+#: filewidgets/kfileplacesmodel.cpp:824
+#, kde-format
+msgid "&Eject '%1'"
+msgstr "Ви&штовхнути «%1»"
+
+#: filewidgets/kfileplacesmodel.cpp:858
+#, kde-format
+msgid "The device '%1' is not a disk and cannot be ejected."
+msgstr "Пристрій «%1» не пов’язано з дисками, з нього нічого виштовхувати."
+
+#: filewidgets/kfileplacesmodel.cpp:894
+#, kde-format
+msgid "An error occurred while accessing '%1', the system responded: %2"
+msgstr "Трапилась помилка при доступі до «%1», повідомлення системи: %2"
+
+#: filewidgets/kfileplacesmodel.cpp:898
+#, kde-format
+msgid "An error occurred while accessing '%1'"
+msgstr "Трапилась помилка під час доступу до «%1»"
+
+#: filewidgets/kfileplacesview.cpp:582
+msgctxt "@action:inmenu"
+msgid "Empty Trash"
+msgstr "Спорожнити Смітник"
+
+#: filewidgets/kfileplacesview.cpp:587 filewidgets/kfileplacesview.cpp:608
+#: filewidgets/kfileplacesview.cpp:615 widgets/kacleditwidget.cpp:96
+msgid "Add Entry..."
+msgstr "Додати запис..."
+
+#: filewidgets/kfileplacesview.cpp:589
+#, kde-format
+msgid "&Edit Entry '%1'..."
+msgstr "&Редагувати запис «%1»..."
+
+#: filewidgets/kfileplacesview.cpp:611
+#, kde-format
+msgid "&Hide Entry '%1'"
+msgstr "&Сховати запис «%1»"
+
+#: filewidgets/kfileplacesview.cpp:620
+msgid "&Show All Entries"
+msgstr "По&казати всі записи"
+
+#: filewidgets/kfileplacesview.cpp:631
+#, kde-format
+msgid "&Remove Entry '%1'"
+msgstr "&Вилучити запис «%1»"
+
+#: filewidgets/kfilewidget.cpp:295
+msgid ""
+"<qt>While typing in the text area, you may be presented with possible "
+"matches. This feature can be controlled by clicking with the right mouse "
+"button and selecting a preferred mode from the <b>Text Completion</b> menu.</"
+"qt>"
+msgstr ""
+"<qt>При вводі у цю ділянку, вам може бути запропоновано можливі завершення. "
+"Цю можливість можна наладнати, клацнувши правою кнопкою миші та вибравши "
+"потрібній режим у меню <b>Завершення тексту</b>.</qt>"
+
+#: filewidgets/kfilewidget.cpp:395
+#, kde-format
+msgid "Drive: %1"
+msgstr "Диск: %1"
+
+#: filewidgets/kfilewidget.cpp:451
+#, kde-format
+msgid ""
+"<qt>Click this button to enter the parent folder.<br /><br />For instance, "
+"if the current location is file:/home/%1 clicking this button will take you "
+"to file:/home.</qt>"
+msgstr ""
+"<qt>Натисніть цю кнопку, щоб вказати батьківську теку.<br /><br />Наприклад, "
+"якщо поточною адресою є file:/home/%1, натискання цієї кнопки перенесе вас "
+"до file:/home.</qt>"
+
+#: filewidgets/kfilewidget.cpp:455
+msgid "Click this button to move backwards one step in the browsing history."
+msgstr ""
+"Натисніть цю кнопку, щоб перейти на один крок назад у журналі перегляду."
+
+#: filewidgets/kfilewidget.cpp:456
+msgid "Click this button to move forward one step in the browsing history."
+msgstr ""
+"Натисніть цю кнопку, щоб перейти на один крок вперед у журналі перегляду."
+
+#: filewidgets/kfilewidget.cpp:458
+msgid "Click this button to reload the contents of the current location."
+msgstr "Натисніть цю кнопку, щоб перезавантажити дані за поточною адресою."
+
+#: filewidgets/kfilewidget.cpp:460
+msgid "Click this button to create a new folder."
+msgstr "Натисніть цю кнопку, щоб створити нову теку."
+
+#: filewidgets/kfilewidget.cpp:466
+msgid "Show Places Navigation Panel"
+msgstr "Показати панель швидкого доступу"
+
+#: filewidgets/kfilewidget.cpp:473
+msgid "Show Bookmarks"
+msgstr "Показати закладки"
+
+#: filewidgets/kfilewidget.cpp:478
+msgid "Options"
+msgstr "Параметри"
+
+#: filewidgets/kfilewidget.cpp:480
+msgid ""
+"<qt>This is the preferences menu for the file dialog. Various options can be "
+"accessed from this menu including: <ul><li>how files are sorted in the list</"
+"li><li>types of view, including icon and list</li><li>showing of hidden "
+"files</li><li>the Places navigation panel</li><li>file previews</"
+"li><li>separating folders from files</li></ul></qt>"
+msgstr ""
+"<qt>Це меню налаштування діалогового вікна вибору файлів. Тут можна "
+"налаштувати різні параметри:<ul><li>впорядкування файлів</li><li>показу "
+"файлів, включаючи піктограми та тип списку</li><li>показу схованих файлів</"
+"li><li>панель швидкого доступу</li><li>перегляд файлів</li><li>відокремлення "
+"тек від файлів</li></ul></qt>"
+
+#: filewidgets/kfilewidget.cpp:523
+msgid "Zoom out"
+msgstr "Зменшити"
+
+#: filewidgets/kfilewidget.cpp:525
+msgid "Zoom in"
+msgstr "Збільшити"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: filewidgets/kfilewidget.cpp:566 widgets/kpropertiesdesktopbase.ui:17
+msgid "&Name:"
+msgstr "&Назва:"
+
+#: filewidgets/kfilewidget.cpp:589
+msgid ""
+"<qt>This is the filter to apply to the file list. File names that do not "
+"match the filter will not be shown.<p>You may select from one of the preset "
+"filters in the drop down menu, or you may enter a custom filter directly "
+"into the text area.</p><p>Wildcards such as * and ? are allowed.</p></qt>"
+msgstr ""
+"<qt>Це фільтр, який застосовується до списку файлів. Назви файлів, які не "
+"відповідають фільтру, не буде показано.<p>Ви можете вибрати один з "
+"попередньо встановлених фільтрів зі спадного меню або ввести власний фільтр."
+"</p><p>Можна користуватися шаблонами * та ?.</p></qt>"
+
+#: filewidgets/kfilewidget.cpp:595
+msgid "&Filter:"
+msgstr "&Фільтр:"
+
+#: filewidgets/kfilewidget.cpp:827
+msgid "You can only select one file"
+msgstr "Можна вибирати лише один файл"
+
+#: filewidgets/kfilewidget.cpp:828
+msgid "More than one file provided"
+msgstr "Вказано більше за один файл"
+
+#: filewidgets/kfilewidget.cpp:997
+msgid "You can only select local files"
+msgstr "Можна вибирати тільки локальні файли"
+
+#: filewidgets/kfilewidget.cpp:998
+msgid "Remote files not accepted"
+msgstr "Віддалені файли не приймаються"
+
+#: filewidgets/kfilewidget.cpp:1017
+msgid ""
+"More than one folder has been selected and this dialog does not accept "
+"folders, so it is not possible to decide which one to enter. Please select "
+"only one folder to list it."
+msgstr ""
+"Було обрано декілька тек, а у цьому діалоговому вікні не можна вказувати "
+"декілька тек: програма не зможе визначити, яку з тек слід відкрити. Будь "
+"ласка, оберіть лише одну з тек, щоб побачити список для неї."
+
+#: filewidgets/kfilewidget.cpp:1017
+msgid "More than one folder provided"
+msgstr "Вказано більше за одну теку"
+
+#: filewidgets/kfilewidget.cpp:1025
+msgid ""
+"At least one folder and one file has been selected. Selected files will be "
+"ignored and the selected folder will be listed"
+msgstr ""
+"Було обрано принаймні одну теку і один файл. Вибрані файли буде пропущено, — "
+"буде показано лише список для вибраної теки"
+
+#: filewidgets/kfilewidget.cpp:1025
+msgid "Files and folders selected"
+msgstr "Було обрано файли і теки"
+
+#: filewidgets/kfilewidget.cpp:1040
+#, kde-format
+msgid "The file \"%1\" could not be found"
+msgstr "Не вдалося знайти файл «%1»"
+
+#: filewidgets/kfilewidget.cpp:1040
+msgid "Cannot open file"
+msgstr "Не вдалося відкрити файл"
+
+#: filewidgets/kfilewidget.cpp:1314
+msgid "This is the name to save the file as."
+msgstr "Це назва, з якою його буде збережено файл."
+
+#: filewidgets/kfilewidget.cpp:1317
+msgid ""
+"This is the list of files to open. More than one file can be specified by "
+"listing several files, separated by spaces."
+msgstr ""
+"Це список файлів для відкривання. Можна вибрати більше, ніж один файл "
+"відразу: для цього слід вказати список назв файлів, розділений пробілами."
+
+#: filewidgets/kfilewidget.cpp:1322
+msgid "This is the name of the file to open."
+msgstr "Це назва файла для відкривання."
+
+#: filewidgets/kfilewidget.cpp:1336
+msgctxt "@title:window"
+msgid "Places"
+msgstr "Місця"
+
+#: filewidgets/kfilewidget.cpp:1526
+#, kde-format
+msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
+msgstr "Файл з назвою «%1» вже існує. Бажаєте його перезаписати?"
+
+#: filewidgets/kfilewidget.cpp:1527
+msgid "Overwrite File?"
+msgstr "Перезаписати файл?"
+
+#: filewidgets/kfilewidget.cpp:1661
+msgid ""
+"The chosen filenames do not\n"
+"appear to be valid."
+msgstr ""
+"Вибрані назви файлів\n"
+"некоректні."
+
+#: filewidgets/kfilewidget.cpp:1663
+msgid "Invalid Filenames"
+msgstr "Хибні назви файлів"
+
+#: filewidgets/kfilewidget.cpp:1748
+msgid "You can only select local files."
+msgstr "Можна вибирати тільки локальні файли."
+
+#: filewidgets/kfilewidget.cpp:1749
+msgid "Remote Files Not Accepted"
+msgstr "Віддалені файли не приймаються"
+
+#: filewidgets/kfilewidget.cpp:1854
+msgid "*|All Folders"
+msgstr "*|Всі теки"
+
+#: filewidgets/kfilewidget.cpp:2023 widgets/kfileitemactions.cpp:536
+msgid "&Open"
+msgstr "&Відкрити"
+
+#: filewidgets/kfilewidget.cpp:2109
+#, kde-format
+msgid "Icon size: %1 pixels (standard size)"
+msgstr "Розмір піктограм: %1 пікселів (стандартний розмір)"
+
+#: filewidgets/kfilewidget.cpp:2112
+#, kde-format
+msgid "Icon size: %1 pixels"
+msgstr "Розмір піктограм: %1 пікселів"
+
+#: filewidgets/kfilewidget.cpp:2246
+#, kde-format
+msgid "Automatically select filename e&xtension (%1)"
+msgstr "Автоматично вибрати с&уфікс назви файла (%1)"
+
+#: filewidgets/kfilewidget.cpp:2247
+#, kde-format
+msgid "the extension <b>%1</b>"
+msgstr "суфікс <b>%1</b>"
+
+#: filewidgets/kfilewidget.cpp:2253
+msgid "Automatically select filename e&xtension"
+msgstr "Автоматично вибрати с&уфікс назви файла"
+
+#: filewidgets/kfilewidget.cpp:2254
+msgid "a suitable extension"
+msgstr "відповідний суфікс"
+
+#: filewidgets/kfilewidget.cpp:2264
+#, kde-format
+msgid ""
+"This option enables some convenient features for saving files with "
+"extensions:<br /><ol><li>Any extension specified in the <b>%1</b> text area "
+"will be updated if you change the file type to save in.<br /><br /></"
+"li><li>If no extension is specified in the <b>%2</b> text area when you "
+"click <b>Save</b>, %3 will be added to the end of the filename (if the "
+"filename does not already exist). This extension is based on the file type "
+"that you have chosen to save in.<br /><br />If you do not want KDE to supply "
+"an extension for the filename, you can either turn this option off or you "
+"can suppress it by adding a period (.) to the end of the filename (the "
+"period will be automatically removed).</li></ol>If unsure, keep this option "
+"enabled as it makes your files more manageable."
+msgstr ""
+"Цей параметр вмикає деякі зручні можливості для збереження файлів з "
+"суфіксами:<br /><ol><li>Будь-які суфікси, вказані в ділянці тексту <b>%1</"
+"b>, буде оновлено, якщо ви зміните тип файла для зберігання. <br /><br /></"
+"li><li>Якщо при натисканні кнопки <b>Зберегти</b>, в ділянці тексту <b>%2</"
+"b> суфікс не буде вказано, наприкінці назви файла буде додано %3 (якщо файл "
+"ще не існує). Це суфікс буде визначено за вибраним типом файла. <br /><br /"
+">Якщо ви не хочете, щоб KDE додавало суфікс до назви файла, ви можете або "
+"зняти позначку з цього пункту, або заблокувати його додавши крапку (.) в "
+"кінці назви файла (крапку буде автоматично вилучено).</li></ol>Якщо ви не "
+"впевнені щодо потрібних вам налаштувань, позначте цей пункт, оскільки це "
+"зробить назви файлів більш керованими."
+
+#: filewidgets/kfilewidget.cpp:2574
+msgid "Bookmarks"
+msgstr "Закладки"
+
+#: filewidgets/kfilewidget.cpp:2578
+msgid ""
+"<qt>This button allows you to bookmark specific locations. Click on this "
+"button to open the bookmark menu where you may add, edit or select a "
+"bookmark.<br /><br />These bookmarks are specific to the file dialog, but "
+"otherwise operate like bookmarks elsewhere in KDE.</qt>"
+msgstr ""
+"<qt>Ця кнопка надає змогу керувати закладками. Натисніть цю кнопку, щоб "
+"відкрити меню керування закладками, де ви можете додати, редагувати або "
+"вибрати закладку.<br /><br />Ці закладки використовуються лише у діалоговому "
+"вікні вибору файлів, але працюють так само і на будь-якій іншій панелі "
+"закладок KDE.</qt>"
+
+#: filewidgets/knewfilemenu.cpp:380 filewidgets/knewfilemenu.cpp:935
+msgid "Sorry"
+msgstr "Вибачте"
+
+#: filewidgets/knewfilemenu.cpp:389
+#, kde-format
+msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
+msgstr "<qt>Файла шаблону <b>%1</b> не існує.</qt>"
+
+#: filewidgets/knewfilemenu.cpp:408
+msgctxt "@action:button"
+msgid "Create directory"
+msgstr "Створити каталог"
+
+#: filewidgets/knewfilemenu.cpp:410
+msgctxt "@action:button"
+msgid "Enter a different name"
+msgstr "Ввести іншу назву"
+
+#: filewidgets/knewfilemenu.cpp:413
+msgid "Create hidden directory?"
+msgstr "Створити прихований каталог?"
+
+#: filewidgets/knewfilemenu.cpp:423
+#, kde-format
+msgid ""
+"The name \"%1\" starts with a dot, so the directory will be hidden by "
+"default."
+msgstr "Назва «%1» починається з крапки, отже типово каталог буде приховано."
+
+#: filewidgets/knewfilemenu.cpp:425
+msgid "Do not ask again"
+msgstr "Не запитувати знову"
+
+#: filewidgets/knewfilemenu.cpp:518 filewidgets/knewfilemenu.cpp:591
+msgid "File name:"
+msgstr "Назва файла:"
+
+#: filewidgets/knewfilemenu.cpp:521
+msgid "Create Symlink"
+msgstr "Створити символічне посилання"
+
+#: filewidgets/knewfilemenu.cpp:595
+msgid "Create link to URL"
+msgstr "Створити посилання на URL"
+
+#: filewidgets/knewfilemenu.cpp:640 filewidgets/knewfilemenu.cpp:685
+#, kde-format
+msgctxt "@item:inmenu Create New"
+msgid "%1"
+msgstr "%1"
+
+#: filewidgets/knewfilemenu.cpp:946
+msgid ""
+"Basic links can only point to local files or directories.\n"
+"Please use \"Link to Location\" for remote URLs."
+msgstr ""
+"Базові посилання можуть вказувати лише на локальні файли або каталоги.\n"
+"Будь ласка, використовуйте для віддалених адрес «Посилання на адресу»."
+
+#: filewidgets/knewfilemenu.cpp:1023
+msgid "Create New"
+msgstr "Створити"
+
+#: filewidgets/knewfilemenu.cpp:1036
+msgid "Link to Device"
+msgstr "Посилання на пристрій"
+
+#: filewidgets/knewfilemenu.cpp:1083
+msgctxt "Default name for a new folder"
+msgid "New Folder"
+msgstr "Нова тека"
+
+#: filewidgets/knewfilemenu.cpp:1093
+msgctxt "@title:window"
+msgid "New Folder"
+msgstr "Нова тека"
+
+#: filewidgets/knewfilemenu.cpp:1096
+#, kde-format
+msgid ""
+"Create new folder in:\n"
+"%1"
+msgstr ""
+"Створити нову теку у:\n"
+"%1"
+
+#: filewidgets/kstatusbarofflineindicator.cpp:55
+msgid "The desktop is offline"
+msgstr "Стільниця в автономному режимі"
+
+#: filewidgets/kurlnavigator.cpp:424
+msgid "Copy"
+msgstr "Копіювати"
+
+#: filewidgets/kurlnavigator.cpp:428
+msgid "Paste"
+msgstr "Вставити"
+
+#: filewidgets/kurlnavigator.cpp:435
+msgid "Edit"
+msgstr "Редагування"
+
+#: filewidgets/kurlnavigator.cpp:438
+msgid "Navigate"
+msgstr "Навігація"
+
+#: filewidgets/kurlnavigator.cpp:453
+msgid "Show Full Path"
+msgstr "Показати повний шлях"
+
+#: filewidgets/kurlnavigator.cpp:693
+msgid "Custom Path"
+msgstr "Нетиповий шлях"
+
+#: filewidgets/kurlnavigatorbutton.cpp:696
+msgctxt "@action:inmenu"
+msgid "More"
+msgstr "Більше"
+
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:174
+msgctxt "@item:inmenu"
+msgid "Devices"
+msgstr "Пристрої"
+
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:178
+msgctxt "@item:inmenu"
+msgid "Subversion"
+msgstr "Subversion"
+
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:182
+msgctxt "@item:inmenu"
+msgid "Other"
+msgstr "Інше"
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:42
+msgid "Edit mode"
+msgstr "Змінити режим"
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:97
+msgid "Click for Location Navigation"
+msgstr "Клацніть для переходу у режим послідовної навігації"
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:99
+msgid "Click to Edit Location"
+msgstr "Клацніть для переходу у режим зміни адреси"
+
+#: ioslaves/file/file.cpp:230
+#, kde-format
+msgid "Setting ACL for %1"
+msgstr "Встановлення ACL для %1"
+
+#: ioslaves/file/file.cpp:689 ioslaves/file/file_unix.cpp:261
+#, kde-format
+msgid ""
+"Could not change permissions for\n"
+"%1"
+msgstr ""
+"Не вдалося змінити права доступу до\n"
+"%1"
+
+#: ioslaves/file/file.cpp:901
+msgid "No Media inserted or Media not recognized."
+msgstr "Не вставлено або не розпізнано носій."
+
+#: ioslaves/file/file.cpp:910 ioslaves/file/file.cpp:1106
+msgid "\"vold\" is not running."
+msgstr "Не запущено «vold»."
+
+#: ioslaves/file/file.cpp:943
+msgid "Could not find program \"mount\""
+msgstr "Не вдалось знайти програму «mount»"
+
+#: ioslaves/file/file.cpp:1012
+msgid "mounting is not supported by wince."
+msgstr "монтування не підтримується WinCE."
+
+#: ioslaves/file/file.cpp:1117
+msgid "Could not find program \"umount\""
+msgstr "Не вдалось знайти програму «umount»"
+
+#: ioslaves/file/file.cpp:1132
+msgid "unmounting is not supported by wince."
+msgstr "демонтування не підтримується WinCE."
+
+#: ioslaves/file/file_unix.cpp:194
+#, kde-format
+msgid "Cannot copy file from %1 to %2. (Errno: %3)"
+msgstr "Не вдалося скопіювати з %1 у %2. (Помилка: %3)"
+
+#: ioslaves/file/file_unix.cpp:326
+#, kde-format
+msgid "No media in device for %1"
+msgstr "Немає носія інформації у пристрої, зв'язаному з %1"
+
+#: ioslaves/file/file_unix.cpp:559
+#, kde-format
+msgid "Could not get user id for given user name %1"
+msgstr "Не вдалося дістати ІД користувача для %1"
+
+#: ioslaves/file/file_unix.cpp:572
+#, kde-format
+msgid "Could not get group id for given group name %1"
+msgstr "Не вдалося дістати ІД групи для %1"
+
+#: ioslaves/ftp/ftp.cpp:349
+#, kde-format
+msgid "Opening connection to host %1"
+msgstr "Відкривається з'єднання з машиною %1"
+
+#: ioslaves/ftp/ftp.cpp:364
+#, kde-format
+msgid "Connected to host %1"
+msgstr "Приєднано до машини %1"
+
+#: ioslaves/ftp/ftp.cpp:474
+#, kde-format
+msgid ""
+"%1.\n"
+"\n"
+"Reason: %2"
+msgstr ""
+"%1.\n"
+"\n"
+"Причина: %2"
+
+#: ioslaves/ftp/ftp.cpp:504
+msgid "Sending login information"
+msgstr "Надіслати реєстраційні дані"
+
+#: ioslaves/ftp/ftp.cpp:562
+#, kde-format
+msgid ""
+"Message sent:\n"
+"Login using username=%1 and password=[hidden]\n"
+"\n"
+"Server replied:\n"
+"%2\n"
+"\n"
+msgstr ""
+"Надіслане повідомлення:\n"
+"Ім'я користувача: %1, пароль: [сховано]\n"
+"\n"
+"Сервер відповів:\n"
+"%2\n"
+"\n"
+
+#: ioslaves/ftp/ftp.cpp:571 ioslaves/http/http.cpp:5330
+msgid "You need to supply a username and a password to access this site."
+msgstr "Щоб дістатися цього сайта, потрібно надати ім'я користувача та пароль."
+
+#: ioslaves/ftp/ftp.cpp:573 ioslaves/http/http.cpp:5332
+msgid "Site:"
+msgstr "Сайт:"
+
+#: ioslaves/ftp/ftp.cpp:574
+#, kde-format
+msgid "<b>%1</b>"
+msgstr "<b>%1</b>"
+
+#: ioslaves/ftp/ftp.cpp:657
+msgid "Login OK"
+msgstr "Реєстрацію виконано"
+
+#: ioslaves/ftp/ftp.cpp:686
+#, kde-format
+msgid "Could not login to %1."
+msgstr "Помилка реєстрації в %1."
+
+#: ioslaves/ftp/ftp.cpp:2585 ioslaves/http/http.cpp:5216
+#: ioslaves/http/http.cpp:5342
+msgid ""
+"You need to supply a username and a password for the proxy server listed "
+"below before you are allowed to access any sites."
+msgstr ""
+"Ви повинні надати ім'я користувача та пароль для сервера проксі, вказаного "
+"нижче, перед тим, як отримати дозвіл на доступ до будь-яких сайтів."
+
+#: ioslaves/ftp/ftp.cpp:2589 ioslaves/http/http.cpp:5220
+#: ioslaves/http/http.cpp:5345
+msgid "Proxy:"
+msgstr "Проксі:"
+
+#: ioslaves/ftp/ftp.cpp:2590 ioslaves/http/http.cpp:5221
+#: ioslaves/http/http.cpp:5426
+#, kde-format
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> на <b>%2</b>"
+
+#: ioslaves/ftp/ftp.cpp:2591 ioslaves/http/http.cpp:5223
+#: ioslaves/http/http.cpp:5362
+msgid "Proxy Authentication Failed."
+msgstr "Помилка розпізнавання на проксі-сервері."
+
+#: ioslaves/help/kio_help.cpp:124
+#, kde-format
+msgid "There is no documentation available for %1."
+msgstr "Немає документації для %1."
+
+#: ioslaves/help/kio_help.cpp:178
+msgid "Looking up correct file"
+msgstr "Пошук правильного файла"
+
+#: ioslaves/help/kio_help.cpp:229
+msgid "Preparing document"
+msgstr "Готуємо документ"
+
+#: ioslaves/help/kio_help.cpp:238 ioslaves/help/kio_help.cpp:283
+#, kde-format
+msgid "The requested help file could not be parsed:<br />%1"
+msgstr ""
+"Не вдалося виконати синтаксичний аналіз запитаного файла довідки:<br />%1"
+
+#: ioslaves/help/kio_help.cpp:260
+msgid "Saving to cache"
+msgstr "Збереження у кеші"
+
+#: ioslaves/help/kio_help.cpp:277
+msgid "Using cached version"
+msgstr "Використання версії з кешу"
+
+#: ioslaves/help/kio_help.cpp:339
+msgid "Looking up section"
+msgstr "Пошук розділу"
+
+#: ioslaves/help/kio_help.cpp:350
+#, kde-format
+msgid "Could not find filename %1 in %2."
+msgstr "Не вдалося знайти назву файла %1 у %2."
+
+#: ioslaves/http/http.cpp:602
+msgid "No host specified."
+msgstr "Не вказано назву вузла."
+
+#: ioslaves/http/http.cpp:1565
+msgid "Otherwise, the request would have succeeded."
+msgstr "Інакше, запит завершився б вдало."
+
+#: ioslaves/http/http.cpp:1569
+msgctxt "request type"
+msgid "retrieve property values"
+msgstr "отримати значення властивостей"
+
+#: ioslaves/http/http.cpp:1572
+msgctxt "request type"
+msgid "set property values"
+msgstr "встановити значення властивостей"
+
+#: ioslaves/http/http.cpp:1575
+msgctxt "request type"
+msgid "create the requested folder"
+msgstr "створити вказану теку"
+
+#: ioslaves/http/http.cpp:1578
+msgctxt "request type"
+msgid "copy the specified file or folder"
+msgstr "скопіювати вказаний файл або теку"
+
+#: ioslaves/http/http.cpp:1581
+msgctxt "request type"
+msgid "move the specified file or folder"
+msgstr "пересунути вказаний файл або теку"
+
+#: ioslaves/http/http.cpp:1584
+msgctxt "request type"
+msgid "search in the specified folder"
+msgstr "шукати у вказаній теці"
+
+#: ioslaves/http/http.cpp:1587
+msgctxt "request type"
+msgid "lock the specified file or folder"
+msgstr "заблокувати вказаний файл або теку"
+
+#: ioslaves/http/http.cpp:1590
+msgctxt "request type"
+msgid "unlock the specified file or folder"
+msgstr "розблокувати вказаний файл або теку"
+
+#: ioslaves/http/http.cpp:1593
+msgctxt "request type"
+msgid "delete the specified file or folder"
+msgstr "вилучити вказаний файл або теку"
+
+#: ioslaves/http/http.cpp:1596
+msgctxt "request type"
+msgid "query the server's capabilities"
+msgstr "запитати можливості сервера"
+
+#: ioslaves/http/http.cpp:1599
+msgctxt "request type"
+msgid "retrieve the contents of the specified file or folder"
+msgstr "отримати вміст вказаного файла або теки"
+
+#: ioslaves/http/http.cpp:1602
+msgctxt "request type"
+msgid "run a report in the specified folder"
+msgstr "створити звіт за вказаною текою"
+
+#: ioslaves/http/http.cpp:1613
+#, kde-format
+msgctxt "%1: code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "При спробі %2 сталася непередбачена помилка (%1)."
+
+#: ioslaves/http/http.cpp:1620
+msgid "The server does not support the WebDAV protocol."
+msgstr "Сервер не підтримує протокол WebDAV."
+
+#: ioslaves/http/http.cpp:1662
+#, kde-format
+msgctxt "%1: request type, %2: url"
+msgid ""
+"An error occurred while attempting to %1, %2. A summary of the reasons is "
+"below."
+msgstr "Сталася помилка при спробі %1, %2. Резюме причин наведено нижче."
+
+#: ioslaves/http/http.cpp:1677 ioslaves/http/http.cpp:1810
+#, kde-format
+msgctxt "%1: request type"
+msgid "Access was denied while attempting to %1."
+msgstr "Було відмовлено у доступі при спробі %1."
+
+#: ioslaves/http/http.cpp:1690 ioslaves/http/http.cpp:1816
+msgid ""
+"A resource cannot be created at the destination until one or more "
+"intermediate collections (folders) have been created."
+msgstr ""
+"Ресурс неможливо створити на місці призначення, поки не буде створено одну "
+"або більше проміжних збірок (тек)."
+
+#: ioslaves/http/http.cpp:1698
+#, kde-format
+msgid ""
+"The server was unable to maintain the liveness of the properties listed in "
+"the propertybehavior XML element or you attempted to overwrite a file while "
+"requesting that files are not overwritten. %1"
+msgstr ""
+"Сервер не зміг підтримувати активними властивості, наведені в елементі XML "
+"propertybehavior, або ви спробували перезаписати файл, який не має бути "
+"перезаписаним. %1"
+
+#: ioslaves/http/http.cpp:1706
+#, kde-format
+msgid "The requested lock could not be granted. %1"
+msgstr "Не вдалося встановити блок. %1"
+
+#: ioslaves/http/http.cpp:1712
+msgid "The server does not support the request type of the body."
+msgstr "Сервер не підтримує запитаний тип тіла."
+
+#: ioslaves/http/http.cpp:1717 ioslaves/http/http.cpp:1824
+#, kde-format
+msgctxt "%1: request type"
+msgid "Unable to %1 because the resource is locked."
+msgstr "Неможливо виконати %1, оскільки ресурс заблоковано."
+
+#: ioslaves/http/http.cpp:1721
+msgid "This action was prevented by another error."
+msgstr "Ця дія не була виконана через іншу помилку."
+
+#: ioslaves/http/http.cpp:1727 ioslaves/http/http.cpp:1830
+#, kde-format
+msgctxt "%1: request type"
+msgid ""
+"Unable to %1 because the destination server refuses to accept the file or "
+"folder."
+msgstr "Неможливо %1, оскільки сервер відмовляється прийняти файл або теку."
+
+#: ioslaves/http/http.cpp:1734 ioslaves/http/http.cpp:1837
+msgid ""
+"The destination resource does not have sufficient space to record the state "
+"of the resource after the execution of this method."
+msgstr ""
+"Ресурс призначення не має достатньо місця, щоб записати стан ресурсу після "
+"виконання цього метода."
+
+#: ioslaves/http/http.cpp:1788
+msgid "The resource cannot be deleted."
+msgstr "Вказаний ресурс не можна вилучати."
+
+#: ioslaves/http/http.cpp:1801
+#, kde-format
+msgctxt "request type"
+msgid "upload %1"
+msgstr "вивантажити %1"
+
+#: ioslaves/http/http.cpp:1851
+#, kde-format
+msgctxt "%1: response code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "Сталася непередбачена помилка (%1) при спробі %2."
+
+#: ioslaves/http/http.cpp:2677
+#, kde-format
+msgid "%1 contacted. Waiting for reply..."
+msgstr "Зв'язок з %1 встановлено. Очікування на відповідь..."
+
+#: ioslaves/http/http.cpp:3021
+#, kde-format
+msgctxt "@info Security check on url being accessed"
+msgid ""
+"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
+"the website does not require authentication. This may be an attempt to trick "
+"you.</p><p>Is \"%1\" the site you want to visit?</p>"
+msgstr ""
+"<p>Ви намагаєтеся увійти до сайта «%1» від імені користувача «%2», але для "
+"входу на цей сайт не потрібно проходити розпізнавання. Можливо, хтось "
+"намагається добути у шахрайський спосіб ваші реєстраційні дані.</p><p>Ви "
+"бажаєте відвідати «%1»?</p>"
+
+#: ioslaves/http/http.cpp:3027
+msgctxt "@title:window"
+msgid "Confirm Website Access"
+msgstr "Підтвердження доступу до сайта"
+
+#: ioslaves/http/http.cpp:3118
+msgid "Server processing request, please wait..."
+msgstr "Сервер обробляє запит; зачекайте, будь ласка..."
+
+#: ioslaves/http/http.cpp:3827 ioslaves/http/http.cpp:3881
+#, kde-format
+msgid "Sending data to %1"
+msgstr "Відсилання даних до %1"
+
+#: ioslaves/http/http.cpp:4338
+#, kde-format
+msgid "Retrieving %1 from %2..."
+msgstr "Отримання %1 даних з %2..."
+
+#: ioslaves/http/http.cpp:5361
+msgid "Authentication Failed."
+msgstr "Помилка розпізнавання."
+
+#: ioslaves/http/http.cpp:5459
+msgid "Authorization failed."
+msgstr "Спроба уповноваження зазнала невдачі."
+
+#: ioslaves/http/http.cpp:5475
+msgid "Unknown Authorization method."
+msgstr "Невідомий спосіб уповноваження."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:66
+msgid "Cookie Alert"
+msgstr "Попередження куки"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:90
+#, kde-format
+msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+msgid ""
+"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject this cookie?</p>"
+msgid_plural ""
+"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject these cookies?</p>"
+msgstr[0] ""
+"<p>Отримано %1 куку від<br/><b>%2%3</b><br/>Прийняти чи відкинути цю куку?</"
+"p>"
+msgstr[1] ""
+"<p>Отримано %1 куки від<br/><b>%2%3</b><br/>Прийняти чи відкинути ці куки?</"
+"p>"
+msgstr[2] ""
+"<p>Отримано %1 кук від<br/><b>%2%3</b><br/>Прийняти чи відкинути ці куки?</p>"
+msgstr[3] ""
+"<p>Отримано куку від<br/><b>%2%3</b><br/>Прийняти чи відкинути цю куку?</p>"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:98
+msgctxt "@item:intext cross domain cookie"
+msgid " [Cross Domain]"
+msgstr " [між доменами]"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:108
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:363
+msgid "See or modify the cookie information"
+msgstr "Переглянути або правити інформацію про куки"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:112
+msgid "Accept for this &session"
+msgstr "Прийняти лише для цього с&еансу"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:114
+msgid "Accept cookie(s) until the end of the current session"
+msgstr "Прийняти куки до завершення поточного сеансу"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:121
+msgid "&Accept"
+msgstr "&Прийняти"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:122
+msgid "&Reject"
+msgstr "&Відкинути"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:156
+msgid "Apply Choice To"
+msgstr "Застосувати вибір до"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:159
+msgid "&Only this cookie"
+msgstr "&Тільки цієї куки"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:159
+msgid "&Only these cookies"
+msgstr "&Тільки ці куки"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:163
+msgid ""
+"Select this option to only accept or reject this cookie. You will be "
+"prompted again if you receive another cookie."
+msgstr ""
+"Позначте цей пункт для прийняття або відкидання лише цієї куки. Якщо буде "
+"отримано іншу, програма повторно надішле запит."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:166
+msgid "All cookies from this do&main"
+msgstr "Всі куки з цього до&мену"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:169
+msgid ""
+"Select this option to accept or reject all cookies from this site. Choosing "
+"this option will add a new policy for the site this cookie originated from. "
+"This policy will be permanent until you manually change it from the System "
+"Settings."
+msgstr ""
+"Позначте цей пункт, щоб прийняти або відкинути всі куки з цього сайта. "
+"Позначаючи пункт, ви додаєте нове правило для сайта, з якої прийшла кука. Це "
+"правило буде постійним, якщо ви не зміните його вручну у Системних "
+"параметрах."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:174
+msgid "All &cookies"
+msgstr "Всіх &кук"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:177
+msgid ""
+"Select this option to accept/reject all cookies from anywhere. Choosing this "
+"option will change the global cookie policy for all cookies until you "
+"manually change it from the System Settings."
+msgstr ""
+"Позначте цей пункт, щоб приймати/відкидати всі куки з будь-якого сайта. "
+"Вибираючи цей параметр ви змінюєте загальне правило для кук, встановлене для "
+"всіх кук за допомогою Системних параметрів."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:245
+msgid "Cookie Details"
+msgstr "Подробиці про куку"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:250
+msgid "Name:"
+msgstr "Назва:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:258
+msgid "Value:"
+msgstr "Значення:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:265
+msgid "Expires:"
+msgstr "Застаріє:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:272
+msgid "Path:"
+msgstr "Шлях:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:279
+msgid "Domain:"
+msgstr "Домен:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:286
+msgid "Exposure:"
+msgstr "Викриття:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:294
+msgctxt "Next cookie"
+msgid "&Next >>"
+msgstr "&Наступна >>"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:299
+msgid "Show details of the next cookie"
+msgstr "Показати інформацію про наступну куку"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:327
+msgid "Not specified"
+msgstr "Не вказано"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:337
+msgid "End of Session"
+msgstr "Кінець сеансу"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:342
+msgid "Secure servers only"
+msgstr "Тільки для безпечних серверів"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:344
+msgid "Secure servers, page scripts"
+msgstr "Безпечні сервери, сторінки скриптів"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:348
+msgid "Servers"
+msgstr "Сервери"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:350
+msgid "Servers, page scripts"
+msgstr "Сервери, сторінки скриптів"
+
+#: ioslaves/telnet/ktelnetservice.cpp:68
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "У вас не вистачає прав для доступу до протоколу %1."
+
+#: ioslaves/trash/kcmtrash.cpp:158 ioslaves/trash/kcmtrash.cpp:256
+msgid " day"
+msgid_plural " days"
+msgstr[0] " день"
+msgstr[1] " дні"
+msgstr[2] " днів"
+msgstr[3] " день"
+
+#: ioslaves/trash/kcmtrash.cpp:247
+msgid "Delete files older than:"
+msgstr "Вилучати файли, старіші за:"
+
+#: ioslaves/trash/kcmtrash.cpp:266
+msgid "Limit to maximum size"
+msgstr "Обмежити максимальним розміром"
+
+#: ioslaves/trash/kcmtrash.cpp:294
+msgid "Maximum size:"
+msgstr "Максимальний розмір:"
+
+#: ioslaves/trash/kcmtrash.cpp:296
+msgid "When limit reached:"
+msgstr "Коли досягнуто обмеження:"
+
+#: ioslaves/trash/kcmtrash.cpp:300
+msgid "Warn Me"
+msgstr "Попередити мене"
+
+#: ioslaves/trash/kcmtrash.cpp:301
+msgid "Delete Oldest Files From Trash"
+msgstr "Вилучати найстаріші файли зі смітника"
+
+#: ioslaves/trash/kcmtrash.cpp:302
+msgid "Delete Biggest Files From Trash"
+msgstr "Вилучати найбільші файли зі смітника"
+
+#: ioslaves/trash/kio_trash.cpp:93 ioslaves/trash/kio_trash.cpp:159
+#: ioslaves/trash/kio_trash.cpp:315 ioslaves/trash/kio_trash.cpp:347
+#: ioslaves/trash/kio_trash.cpp:513 ioslaves/trash/kio_trash.cpp:525
+#, kde-format
+msgid "Malformed URL %1"
+msgstr "Неправильний URL %1"
+
+#: ioslaves/trash/kio_trash.cpp:115
+#, kde-format
+msgid ""
+"The directory %1 does not exist anymore, so it is not possible to restore "
+"this item to its original location. You can either recreate that directory "
+"and use the restore operation again, or drag the item anywhere else to "
+"restore it."
+msgstr ""
+"Каталог %1 вже не існує, тому неможливо відновити цей елемент у його "
+"початкове місцезнаходження. Можна або створити каталог знову та спробувати "
+"відновити ще раз, або відновити елемент перетягнувши його у інше місце."
+
+#: ioslaves/trash/kio_trash.cpp:144 ioslaves/trash/kio_trash_win.cpp:228
+msgid "This file is already in the trash bin."
+msgstr "Цей файл вже знаходиться у смітнику."
+
+#: ioslaves/trash/kio_trash.cpp:233 ioslaves/trash/kio_trash_win.cpp:252
+msgid "Internal error in copyOrMove, should never happen"
+msgstr "Внутрішня помилка у copyOrMove, такої помилки не має бути"
+
+#: ioslaves/trash/kio_trash_win.cpp:241
+msgid "not supported"
+msgstr "не підтримується"
+
+#: ioslaves/trash/ktrash.cpp:38
+msgid ""
+"Helper program to handle the KDE trash can\n"
+"Note: to move files to the trash, do not use ktrash, but \"kioclient move "
+"'url' trash:/\""
+msgstr ""
+"Допоміжна програма для роботи зі смітником KDE\n"
+"Примітка: не використовуйте ktarsh для пересування файлів у смітник, замість "
+"цього скористайтеся «kioclient move «адреса» trash:/»"
+
+#: ioslaves/trash/ktrash.cpp:41
+msgid "Empty the contents of the trash"
+msgstr "Спорожнити вміст смітника"
+
+#: ioslaves/trash/ktrash.cpp:42
+msgid "Restore a trashed file to its original location"
+msgstr "Відновити файл у його початковому місці знаходження"
+
+#: ioslaves/trash/trashimpl.cpp:1123
+msgid ""
+"The trash has reached its maximum size!\n"
+"Cleanup the trash manually."
+msgstr ""
+"Смітник досяг максимального об’єму!\n"
+"Спорожніть смітник вручну."
+
+#: ioslaves/trash/trashimpl.cpp:1134
+msgid "The file is too large to be trashed."
+msgstr "Цей файл завеликий для смітника."
+
+#: kcms/webshortcuts/main.cpp:41
+msgid "Web Shortcuts"
+msgstr "Вебскорочення"
+
+#: kcms/webshortcuts/main.cpp:48
+msgid ""
+"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
+"browsing features of KDE. <h2>Web Shortcuts</h2>Web Shortcuts are a quick "
+"way of using Web search engines. For example, type \"duckduckgo:frobozz\" or "
+"\"dd:frobozz\" and your web browser will do a search on DuckDuckGo for "
+"\"frobozz\". Even easier: just press Alt+F2 (if you have not changed this "
+"keyboard shortcut) and enter the shortcut in the Run Command dialog."
+msgstr ""
+"<h1>Спецфункції навігації</h1> За допомогою цього модуля ви можете "
+"налаштувати деякі особливі функції навігації в KDE. <h2>Вебскорочення</"
+"h2>Вебскорочення надають вам можливість спрощеного використання пошукових "
+"рушіїв інтернету. Наприклад, ви можете просто ввести «duckduckgo:frobozz» "
+"або «dd:frobozz» і Konqueror сформулює запит на DuckDuckGo і поверне "
+"результати пошуку «frobozz». Навіть простіше: натисніть Alt+F2 (якщо ви не "
+"змінили цієї комбінації) і можете вводити скорочення в діалогове вікно "
+"виконання команд KDE."
+
+#: kioexec/main.cpp:46
+msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
+msgstr ""
+"KIO Exec — відкриває віддалені файли, наглядає за змінами, дає запит на "
+"вивантаження"
+
+#: kioexec/main.cpp:80
+#, kde-format
+msgid ""
+"The URL %1\n"
+"is malformed"
+msgstr ""
+"Помилка у адресі\n"
+"%1"
+
+#: kioexec/main.cpp:82
+#, kde-format
+msgid ""
+"Remote URL %1\n"
+"not allowed with --tempfiles switch"
+msgstr ""
+"Віддалену адресу (URL) %1\n"
+"не можна використовувати, якщо використано параметр --tempfiles"
+
+#: kioexec/main.cpp:213
+#, kde-format
+msgid ""
+"The supposedly temporary file\n"
+"%1\n"
+"has been modified.\n"
+"Do you still want to delete it?"
+msgstr ""
+"Ймовірно, тимчасовий файл\n"
+"%1\n"
+"було змінено.\n"
+"Вилучити попри все?"
+
+#: kioexec/main.cpp:214 kioexec/main.cpp:221
+msgid "File Changed"
+msgstr "Файл було змінено"
+
+#: kioexec/main.cpp:214
+msgid "Do Not Delete"
+msgstr "Не вилучати"
+
+#: kioexec/main.cpp:220
+#, kde-format
+msgid ""
+"The file\n"
+"%1\n"
+"has been modified.\n"
+"Do you want to upload the changes?"
+msgstr ""
+"Файл\n"
+"%1\n"
+"було змінено.\n"
+"Хочете вивантажити зміни?"
+
+#: kioexec/main.cpp:221
+msgid "Upload"
+msgstr "Вивантажити"
+
+#: kioexec/main.cpp:221
+msgid "Do Not Upload"
+msgstr "Не вивантажувати"
+
+#: kioexec/main.cpp:252
+msgid "KIOExec"
+msgstr "KIOExec"
+
+#: kioexec/main.cpp:254
+msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
+msgstr "© 1998-2000,2003 Розробники KFM/Konqueror"
+
+#: kioexec/main.cpp:255
+msgid "David Faure"
+msgstr "David Faure"
+
+#: kioexec/main.cpp:256
+msgid "Stephan Kulow"
+msgstr "Stephan Kulow"
+
+#: kioexec/main.cpp:257
+msgid "Bernhard Rosenkraenzer"
+msgstr "Bernhard Rosenkraenzer"
+
+#: kioexec/main.cpp:258
+msgid "Waldo Bastian"
+msgstr "Waldo Bastian"
+
+#: kioexec/main.cpp:259
+msgid "Oswald Buddenhagen"
+msgstr "Oswald Buddenhagen"
+
+#: kioexec/main.cpp:264
+msgid "Treat URLs as local files and delete them afterwards"
+msgstr "Розглядати адреси (URL) як локальні файли та вилучити їх пізніше"
+
+#: kioexec/main.cpp:265
+msgid "Suggested file name for the downloaded file"
+msgstr "Запропонована назва для звантаженого файла"
+
+#: kioexec/main.cpp:266
+msgid "Command to execute"
+msgstr "Команда, яку слід виконати"
+
+#: kioexec/main.cpp:267
+msgid "URL(s) or local file(s) used for 'command'"
+msgstr "адреси або локальні файли для «команди»"
+
+#: kpac/discovery.cpp:112
+msgid "Could not find a usable proxy configuration script"
+msgstr ""
+"Не вдалося знайти скрипт налаштування проксі-сервера, який можна б було "
+"використати"
+
+#: kpac/downloader.cpp:92
+#, kde-format
+msgid ""
+"Could not download the proxy configuration script:\n"
+"%1"
+msgstr ""
+"Не вдалося звантажити скрипт налаштування проксі-сервера:\n"
+"%1"
+
+#: kpac/downloader.cpp:95
+msgid "Could not download the proxy configuration script"
+msgstr "Не вдалося звантажити скрипт налаштування проксі-сервера"
+
+#: kpac/proxyscout.cpp:236
+#, kde-format
+msgid ""
+"The proxy configuration script is invalid:\n"
+"%1"
+msgstr ""
+"Скрипт налаштування проксі-сервера містить помилки:\n"
+"%1"
+
+#: kpac/proxyscout.cpp:345
+#, kde-format
+msgid ""
+"The proxy configuration script returned an error:\n"
+"%1"
+msgstr ""
+"Скрипт налаштування проксі-сервера повернув помилку:\n"
+"%1"
+
+#: kpac/script.cpp:752
+msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
+msgstr "Не вдалося знайти «FindProxyForURL» або «FindProxyForURLEx»"
+
+#: kpac/script.cpp:763
+#, kde-format
+msgid "Got an invalid reply when calling %1"
+msgstr "Отримано некоректну відповідь на виклик %1"
+
+#: kpasswdserver/kpasswdserver.cpp:556
+msgid "Do you want to retry?"
+msgstr "Повторити спробу?"
+
+#: kpasswdserver/kpasswdserver.cpp:561
+msgid "Retry Authentication"
+msgstr "Повторити спробу розпізнавання"
+
+#: kpasswdserver/kpasswdserver.cpp:565
+msgctxt "@action:button filter-continue"
+msgid "Retry"
+msgstr "Повторити"
+
+#: kpasswdserver/kpasswdserver.cpp:858
+msgid "Authentication Dialog"
+msgstr "Діалогове вікно розпізнавання"
+
+#: urifilters/ikws/ikwsopts.cpp:54
+msgctxt "@title:column Name label from web shortcuts column"
+msgid "Name"
+msgstr "Назва"
+
+#: urifilters/ikws/ikwsopts.cpp:56
+msgctxt "@title:column"
+msgid "Shortcuts"
+msgstr "Скорочення"
+
+#: urifilters/ikws/ikwsopts.cpp:58
+msgctxt "@title:column"
+msgid "Preferred"
+msgstr "Основне"
+
+#: urifilters/ikws/ikwsopts.cpp:200
+msgctxt "@item:inlistbox No default web shortcut"
+msgid "None"
+msgstr "Немає"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:17
+msgid ""
+"<html><head/><body><p>Enable or disable web shortcuts. </p><p>Web shortcuts "
+"allow you to quickly access or search for information located online or on "
+"your hard drive. </p><p>KDE comes with many predefined Web shortcuts. One "
+"such Web shortcut is the Google (TM) search shortcut. To use it, you simply "
+"type the keyword 'gg' followed by the keyword delimiter and the search term, "
+"e.g. <span style=\" font-weight:600;\">gg:KDE</span>.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Вмикання і вимикання вебскорочень. </p><p>За допомогою "
+"вебскорочень ви можете пришвидшити доступ до сторінки або пошук даних у "
+"інтернеті або на диску вашого комп’ютера. </p><p>У типовому наборі KDE вже "
+"визначено багато вебскорочень. Одним з таких вебскорочень є вебскорочення "
+"для пошуку за допомогою рушія Google™. Щоб скористатися ним, просто введіть "
+"ключове слово «gg» (без лапок), роздільник ключового слова та рядок, який "
+"слід знайти. Приклад: <span style=\" font-weight:600;\">gg:KDE</span>.</p></"
+"body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:20
+msgid "&Enable Web shortcuts"
+msgstr "У&вімкнути вебскорочення"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: urifilters/ikws/ikwsopts_ui.ui:30
+msgid "&Use preferred shortcuts only"
+msgstr "Ви&користовувати лише основні скорочення"
+
+#. i18n: ectx: property (placeholderText), widget (KLineEdit, searchLineEdit)
+#: urifilters/ikws/ikwsopts_ui.ui:37
+msgid "Search for shortcut"
+msgstr "Пошук скорочення"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:71
+msgid "Add a new Web shortcut"
+msgstr "Додати нове вебскорочення"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:74
+msgid "&New..."
+msgstr "&Створити..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:84
+msgid "Modify the highlighted Web shortcut"
+msgstr "Змінити позначене вебскорочення"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:87
+msgid "Chan&ge..."
+msgstr "З&мінити..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:97
+msgid "Delete the highlighted Web shortcut"
+msgstr "Вилучити позначене вебскорочення"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:100
+msgid "De&lete"
+msgstr "Ви&лучити"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:138
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Виберіть механізм пошуку для використання в полях вводу, що забезпечує "
+"автоматичний пошук при набиранні слів та фраз замість URL. Щоб вимкнути цю "
+"функцію, виберіть зі списку значення <b>Жодна</b>.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:141
+msgid "Default Web &shortcut:"
+msgstr "Типове &вебскорочення:"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cmbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:166
+msgid ""
+"<html><head/><body><p>Select a default web shortcut. </p><p>This allows "
+"applications to automatically convert the typed word or phrase to web "
+"shortcut queries when they cannot be filtered into a proper URL. </p><p>To "
+"disable this functionality select <span style=\" font-weight:600;\">None</"
+"span> from the list. </p></body></html>"
+msgstr ""
+"<html><head/><body><p>Виберіть типове вебскорочення. </p><p>За його "
+"допомогою програми зможуть автоматично перетворювати введене слово або фразу "
+"на запити вебскорочень, якщо користувачем буде вказано рядок, який не є "
+"належним чином форматованою адресою. </p><p>Щоб вимкнути цю функціональну "
+"можливість, виберіть у списку пункт <span style=\" font-weight:600;\">Немає</"
+"span>.</p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:182
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr ""
+"Виберіть розділювач, щоб буде відокремлювати ключові слова від фраз або слів "
+"для пошуку."
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:185
+msgid "&Keyword delimiter:"
+msgstr "Розділювач &ключових слів:"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:204
+msgid "Choose a delimiter to mark the Web shortcut keyword."
+msgstr "Виберіть роздільник для відокремлення ключового слова вебскорочення."
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:208
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr "Двокрапка"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:213
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr "Пробіл"
+
+#: urifilters/ikws/kuriikwsfilter.cpp:121
+msgid "No preferred search providers were found."
+msgstr "Не виявлено списку пріоритетних рушіїв пошуку."
+
+#: urifilters/ikws/kuriikwsfilter.cpp:140
+msgid "No search providers were found."
+msgstr "Не виявлено списку рушіїв пошуку."
+
+#: urifilters/ikws/kurisearchfilter.cpp:92
+msgid "Search F&ilters"
+msgstr "Ф&ільтри пошуку"
+
+#: urifilters/ikws/searchproviderdlg.cpp:58
+msgctxt "@item:inlistbox The default character set"
+msgid "Default"
+msgstr "Типовий"
+
+#: urifilters/ikws/searchproviderdlg.cpp:62
+msgid "Modify Web Shortcut"
+msgstr "Внесення змін до вебскорочення"
+
+#: urifilters/ikws/searchproviderdlg.cpp:72
+msgid "New Web Shortcut"
+msgstr "Нове вебскорочення"
+
+#: urifilters/ikws/searchproviderdlg.cpp:125
+#, kde-format
+msgid ""
+"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
+"one."
+msgstr ""
+"Скорочення «%1» вже пов’язано з «%2». Будь ласка, виберіть інше скорочення."
+
+#: urifilters/ikws/searchproviderdlg.cpp:130
+#, kde-format
+msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+msgid "- %1: \"%2\""
+msgstr "— %1: «%2»"
+
+#: urifilters/ikws/searchproviderdlg.cpp:134
+#, kde-format
+msgid ""
+"The following shortcuts are already assigned. Please choose different ones.\n"
+"%1"
+msgstr ""
+"Нижче наведено перелік вже призначених скорочень. Будь ласка, виберіть інші "
+"скорочення.\n"
+"%1"
+
+#: urifilters/ikws/searchproviderdlg.cpp:146
+msgid ""
+"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
+"This means that the same page is always going to be visited, regardless of "
+"the text typed in with the shortcut."
+msgstr ""
+"Адреса не містить шаблону заміни \\{...} для запиту користувача.\n"
+"Це означає, що завжди буде відвідуватись та сама сторінка, незалежно від "
+"тексту для пошуку, введеного користувачем."
+
+#: urifilters/ikws/searchproviderdlg.cpp:149
+msgid "Keep It"
+msgstr "Залишити"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:17
+msgid "Enter the human-readable name of the search provider here."
+msgstr "Введіть тут придатну для запам’ятовування назву рушія пошуку."
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:23
+msgid "Shortcut &name:"
+msgstr "&Назва скорочення:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:42
+#: urifilters/ikws/searchproviderdlg_ui.ui:64
+#: urifilters/ikws/searchproviderdlg_ui.ui:70
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Введіть URI рушія пошуку.<br/>Весь текст для пошуку може бути задано як "
+"\\{@} або \\{0}.<br/>\n"
+"Вираз \\{@} є рекомендованим, оскільки він вилучає всі змінні запиту "
+"(name=value) з рядка результату, а вираз \\{0} буде заміщено незмінним "
+"рядком запиту<br/> ви можете скористатися \\{1} ... \\{n}, щоб вказати "
+"окремі слова з запиту та \\{name}, щоб вказати значення, надане парою "
+"«name=value» в запиті користувача.<br/>Окрім цього, є можливість вказати "
+"декілька посилань (назви, числа та рядки) одразу (\\{name1,name2,...,\"string"
+"\"}).<br/>Перше відповідне значення (починаючи з лівого боку) буде "
+"використане для заміни значення для вихідного URI.<br/>Якщо відповідних "
+"значень у лівій частині списку посилань не знайдено, може бути використане "
+"типове значення — рядок у лапках.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:48
+msgid "Shortcut &URL:"
+msgstr "&Адреса скорочення:"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:83
+msgid "Select the character set that will be used to encode your search query."
+msgstr "Виберіть набір символів для закодовування вашого запиту на пошук."
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:92
+#: urifilters/ikws/searchproviderdlg_ui.ui:97
+#: urifilters/ikws/searchproviderdlg_ui.ui:116
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Скорочення, які надані тут, можуть бути використані, як схеми псевдо-URI у "
+"KDE. Наприклад, скорочення <b>av</b> може бути використане, як у <b>av</b>:"
+"<b>мій пошук</b>\n"
+"</qt>"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:104
+#: urifilters/ikws/searchproviderdlg_ui.ui:107
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Вкажіть тут зручну для запам’ятовування назву "
+"вебскорочення.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:119
+msgid "&Shortcuts:"
+msgstr "С&корочення:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:132
+msgid "Select the character set that will be used to encode your search query"
+msgstr "Виберіть набір символів для закодовування вашого запиту на пошук"
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:135
+msgid "&Charset:"
+msgstr "&Набір символів:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: urifilters/ikws/searchproviderdlg_ui.ui:158
+msgid "Insert query placeholder"
+msgstr "Вставити замінник запиту"
+
+#: urifilters/shorturi/kshorturifilter.cpp:278
+#, kde-format
+msgid "<qt><b>%1</b> does not have a home folder.</qt>"
+msgstr "<qt><b>%1</b> не має домашньої теки.</qt>"
+
+#: urifilters/shorturi/kshorturifilter.cpp:280
+#, kde-format
+msgid "<qt>There is no user called <b>%1</b>.</qt>"
+msgstr "<qt>Користувача з іменем <b>%1</b> немає.</qt>"
+
+#: urifilters/shorturi/kshorturifilter.cpp:528
+#, kde-format
+msgid "<qt>The file or folder <b>%1</b> does not exist.</qt>"
+msgstr "<qt>Файла або теки <b>%1</b> немає.</qt>"
+
+#: widgets/accessmanager.cpp:221
+msgid "Blocked request."
+msgstr "Заблокований запит."
+
+#: widgets/accessmanager.cpp:285
+msgid "Unknown HTTP verb."
+msgstr "Невідома дія HTTP."
+
+#. i18n: ectx: property (text), widget (QLabel, commonNameTag)
+#: widgets/certificateparty.ui:28
+msgid "Common name:"
+msgstr "Загальна назва:"
+
+#. i18n: ectx: property (text), widget (QLabel, commonName)
+#: widgets/certificateparty.ui:38
+msgid "Acme Co."
+msgstr "Acme Co."
+
+#. i18n: ectx: property (text), widget (QLabel, organizationTag)
+#: widgets/certificateparty.ui:48
+msgid "Organization:"
+msgstr "Організація:"
+
+#. i18n: ectx: property (text), widget (QLabel, organization)
+#: widgets/certificateparty.ui:58
+msgid "Acme Sundry Products Company"
+msgstr "Acme Sundry Products Company"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
+#: widgets/certificateparty.ui:68
+msgid "Organizational unit:"
+msgstr "Підрозділ організації:"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
+#: widgets/certificateparty.ui:78
+msgid "Fraud Department"
+msgstr "Відділ боротьби з шахрайством"
+
+#. i18n: ectx: property (text), widget (QLabel, countryTag)
+#: widgets/certificateparty.ui:88
+msgid "Country:"
+msgstr "Країна:"
+
+#. i18n: ectx: property (text), widget (QLabel, country)
+#: widgets/certificateparty.ui:98
+msgid "Canada"
+msgstr "Канада"
+
+#. i18n: ectx: property (text), widget (QLabel, stateTag)
+#: widgets/certificateparty.ui:108
+msgid "State:"
+msgstr "Штат:"
+
+#. i18n: ectx: property (text), widget (QLabel, state)
+#: widgets/certificateparty.ui:118
+msgid "Quebec"
+msgstr "Квебек"
+
+#. i18n: ectx: property (text), widget (QLabel, cityTag)
+#: widgets/certificateparty.ui:128
+msgid "City:"
+msgstr "Місто:"
+
+#. i18n: ectx: property (text), widget (QLabel, city)
+#: widgets/certificateparty.ui:138
+msgid "Lakeridge Meadows"
+msgstr "Лейкридж Медовс"
+
+#: widgets/fileundomanager.cpp:124
+msgid "Creating directory"
+msgstr "Створення теки"
+
+#: widgets/fileundomanager.cpp:129
+msgid "Moving"
+msgstr "Пересування"
+
+#: widgets/fileundomanager.cpp:135
+msgid "Deleting"
+msgstr "Вилучення"
+
+#: widgets/fileundomanager.cpp:299
+msgid "Und&o"
+msgstr "&Скасувати"
+
+#: widgets/fileundomanager.cpp:305
+msgid "Und&o: Copy"
+msgstr "&Скасувати: Копіювання"
+
+#: widgets/fileundomanager.cpp:307
+msgid "Und&o: Link"
+msgstr "&Скасувати: Створення посилання"
+
+#: widgets/fileundomanager.cpp:309
+msgid "Und&o: Move"
+msgstr "&Скасувати: Пересування"
+
+#: widgets/fileundomanager.cpp:311
+msgid "Und&o: Rename"
+msgstr "&Скасувати: Перейменування"
+
+#: widgets/fileundomanager.cpp:313
+msgid "Und&o: Trash"
+msgstr "&Скасувати: Викидання"
+
+#: widgets/fileundomanager.cpp:315
+msgid "Und&o: Create Folder"
+msgstr "&Скасувати: Створення теки"
+
+#: widgets/fileundomanager.cpp:317
+msgid "Und&o: Create File"
+msgstr "&Скасувати: Створення файла"
+
+#: widgets/fileundomanager.cpp:698
+#, kde-format
+msgid ""
+"The file %1 was copied from %2, but since then it has apparently been "
+"modified at %3.\n"
+"Undoing the copy will delete the file, and all modifications will be lost.\n"
+"Are you sure you want to delete %4?"
+msgstr ""
+"Файл %1 було скопійовано з %2, але з того часу його було змінено о %3.\n"
+"Скасування дії копіювання вилучить цей файл, отже, всі зміни буде втрачено.\n"
+"Ви справді бажаєте вилучити %4?"
+
+#: widgets/fileundomanager.cpp:701
+msgid "Undo File Copy Confirmation"
+msgstr "Підтвердження скасування копіювання файла"
+
+#: widgets/jobuidelegate.cpp:228
+#, kde-format
+msgid "Do you really want to delete this item?"
+msgid_plural "Do you really want to delete these %1 items?"
+msgstr[0] "Дійсно вилучити цей %1 об’єкт?"
+msgstr[1] "Дійсно вилучити ці %1 об’єкти?"
+msgstr[2] "Дійсно вилучити ці %1 об’єктів?"
+msgstr[3] "Дійсно вилучити цей об’єкт?"
+
+#: widgets/jobuidelegate.cpp:230
+msgid "Delete Files"
+msgstr "Стерти файли"
+
+#: widgets/jobuidelegate.cpp:238
+msgctxt "@info"
+msgid ""
+"Do you want to permanently delete all items from Trash? This action cannot "
+"be undone."
+msgstr ""
+"Бажаєте остаточно вилучити всі об’єкти з теки смітника? Відновити вилучені "
+"таким чином об’єкти буде дуже важко."
+
+#: widgets/jobuidelegate.cpp:240
+msgctxt "@action:button"
+msgid "Empty Trash"
+msgstr "Спорожнити Смітник"
+
+#: widgets/jobuidelegate.cpp:249
+#, kde-format
+msgid "Do you really want to move this item to the trash?"
+msgid_plural "Do you really want to move these %1 items to the trash?"
+msgstr[0] "Дійсно пересунути цей %1 об’єкт у смітник?"
+msgstr[1] "Дійсно пересунути ці %1 об’єкти у смітник?"
+msgstr[2] "Дійсно пересунути ці %1 об’єктів у смітник?"
+msgstr[3] "Дійсно пересунути цей об’єкт у смітник?"
+
+#: widgets/jobuidelegate.cpp:252
+msgctxt "Verb"
+msgid "&Trash"
+msgstr "&Викинути"
+
+#: widgets/jobuidelegate.cpp:345
+msgid "The peer SSL certificate chain appears to be corrupt."
+msgstr "Схоже, що SSL сертифікат вузла пошкоджений."
+
+#: widgets/kacleditwidget.cpp:59 widgets/kacleditwidget.cpp:448
+msgid "Owner"
+msgstr "Власник"
+
+#: widgets/kacleditwidget.cpp:60 widgets/kacleditwidget.cpp:453
+msgid "Owning Group"
+msgstr "Група власника"
+
+#: widgets/kacleditwidget.cpp:61 widgets/kacleditwidget.cpp:458
+#: widgets/kpropertiesdialog.cpp:1992
+msgid "Others"
+msgstr "Інші"
+
+#: widgets/kacleditwidget.cpp:62 widgets/kacleditwidget.cpp:463
+msgid "Mask"
+msgstr "Маска"
+
+#: widgets/kacleditwidget.cpp:63
+msgid "Named User"
+msgstr "Користувач з іменем"
+
+#: widgets/kacleditwidget.cpp:64
+msgid "Named Group"
+msgstr "Група з назвою"
+
+#: widgets/kacleditwidget.cpp:100
+msgid "Edit Entry..."
+msgstr "Редагувати запис..."
+
+#: widgets/kacleditwidget.cpp:104
+msgid "Delete Entry"
+msgstr "Вилучити запис"
+
+#: widgets/kacleditwidget.cpp:308
+msgid " (Default)"
+msgstr " (Типове)"
+
+#: widgets/kacleditwidget.cpp:429
+msgid "Edit ACL Entry"
+msgstr "Редагувати запис ACL"
+
+#: widgets/kacleditwidget.cpp:433
+msgid "Entry Type"
+msgstr "Тип запису"
+
+#: widgets/kacleditwidget.cpp:439
+msgid "Default for new files in this folder"
+msgstr "Типовий для нових файлів у цій теці"
+
+#: widgets/kacleditwidget.cpp:468
+msgid "Named user"
+msgstr "Користувач з іменем"
+
+#: widgets/kacleditwidget.cpp:473
+msgid "Named group"
+msgstr "Група з назвою"
+
+#: widgets/kacleditwidget.cpp:493
+msgid "User: "
+msgstr "Користувач: "
+
+#: widgets/kacleditwidget.cpp:508
+msgid "Group: "
+msgstr "Група: "
+
+#: widgets/kacleditwidget.cpp:645
+msgid "Type"
+msgstr "Тип"
+
+#: widgets/kacleditwidget.cpp:646
+msgid "Name"
+msgstr "Назва"
+
+#: widgets/kacleditwidget.cpp:647
+msgctxt "read permission"
+msgid "r"
+msgstr "r"
+
+#: widgets/kacleditwidget.cpp:648
+msgctxt "write permission"
+msgid "w"
+msgstr "w"
+
+#: widgets/kacleditwidget.cpp:649
+msgctxt "execute permission"
+msgid "x"
+msgstr "x"
+
+#: widgets/kacleditwidget.cpp:650
+msgid "Effective"
+msgstr "Ефективний"
+
+#: widgets/kbuildsycocaprogressdialog.cpp:45
+msgid "Updating System Configuration"
+msgstr "Оновлення налаштувань системи"
+
+#: widgets/kbuildsycocaprogressdialog.cpp:46
+msgid "Updating system configuration."
+msgstr "Оновлення налаштувань системи."
+
+#: widgets/kdesktopfileactions.cpp:72
+#, kde-format
+msgid "The desktop entry file %1 has no Type=... entry."
+msgstr "Файл записів стільниці %1 не містить запису Type=..."
+
+#: widgets/kdesktopfileactions.cpp:89
+#, kde-format
+msgid ""
+"The desktop entry of type\n"
+"%1\n"
+"is unknown."
+msgstr ""
+"Файл записів стільниці\n"
+"%1\n"
+"невідомий."
+
+#: widgets/kdesktopfileactions.cpp:102 widgets/kdesktopfileactions.cpp:182
+#: widgets/kdesktopfileactions.cpp:315
+#, kde-format
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is of type FSDevice but has no Dev=... entry."
+msgstr ""
+"Файл записів стільниці\n"
+"%1\n"
+"належить до типу FSDevice, але не має елемента Dev=..."
+
+#: widgets/kdesktopfileactions.cpp:135
+#, kde-format
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is not valid."
+msgstr ""
+"Файл записів стільниці (desktop)\n"
+"%1\n"
+"є некоректним."
+
+#: widgets/kdesktopfileactions.cpp:148
+#, kde-format
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is of type Link but has no URL=... entry."
+msgstr ""
+"Файл записів стільниці\n"
+"%1\n"
+"належить до типу Link, але не має елемента URL=..."
+
+#: widgets/kdesktopfileactions.cpp:218
+msgid "Mount"
+msgstr "Змонтувати"
+
+#: widgets/kdesktopfileactions.cpp:229
+msgid "Eject"
+msgstr "Виштовхнути"
+
+#: widgets/kdesktopfileactions.cpp:231
+msgid "Unmount"
+msgstr "Демонтувати"
+
+#: widgets/kdirmodel.cpp:1072
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Назва"
+
+#: widgets/kdirmodel.cpp:1074
+msgctxt "@title:column"
+msgid "Size"
+msgstr "Розмір"
+
+#: widgets/kdirmodel.cpp:1076
+msgctxt "@title:column"
+msgid "Date"
+msgstr "Дата"
+
+#: widgets/kdirmodel.cpp:1078
+msgctxt "@title:column"
+msgid "Permissions"
+msgstr "Права доступу"
+
+#: widgets/kdirmodel.cpp:1080
+msgctxt "@title:column"
+msgid "Owner"
+msgstr "Власник"
+
+#: widgets/kdirmodel.cpp:1082
+msgctxt "@title:column"
+msgid "Group"
+msgstr "Група"
+
+#: widgets/kdirmodel.cpp:1084
+msgctxt "@title:column"
+msgid "Type"
+msgstr "Тип"
+
+#: widgets/kfileitemactions.cpp:399
+msgctxt "@title:menu"
+msgid "&Actions"
+msgstr "&Дії"
+
+#: widgets/kfileitemactions.cpp:525
+#, kde-format
+msgid "&Open with %1"
+msgstr "В&ідкрити за допомогою %1"
+
+#: widgets/kfileitemactions.cpp:551
+msgctxt "@title:menu"
+msgid "&Open With"
+msgstr "В&ідкрити за допомогою"
+
+#: widgets/kfileitemactions.cpp:568
+msgctxt "@action:inmenu Open With"
+msgid "&Other..."
+msgstr "Ін&ша..."
+
+#: widgets/kfileitemactions.cpp:570 widgets/kfileitemactions.cpp:579
+msgctxt "@title:menu"
+msgid "&Open With..."
+msgstr "Від&крити за допомогою..."
+
+#: widgets/kfileitemactions.cpp:683
+#, kde-format
+msgid "Open &with %1"
+msgstr "Відкрити &за допомогою %1"
+
+#: widgets/kfileitemactions.cpp:685
+#, kde-format
+msgctxt "@item:inmenu Open With, %1 is application name"
+msgid "%1"
+msgstr "%1"
+
+#: widgets/kfileitemdelegate.cpp:221
+#, kde-format
+msgctxt "Items in a folder"
+msgid "1 item"
+msgid_plural "%1 items"
+msgstr[0] "%1 об’єкт"
+msgstr[1] "%1 об’єкти"
+msgstr[2] "%1 об’єктів"
+msgstr[3] "%1 об’єкт"
+
+#: widgets/kfileitemdelegate.cpp:277 widgets/kfileitemdelegate.cpp:281
+msgctxt "@info mimetype"
+msgid "Unknown"
+msgstr "Невідомо"
+
+#: widgets/kopenwithdialog.cpp:272
+msgid "Known Applications"
+msgstr "Відомі програми"
+
+#: widgets/kopenwithdialog.cpp:494
+msgid "Open With"
+msgstr "Відкрити за допомогою"
+
+#: widgets/kopenwithdialog.cpp:498
+#, kde-format
+msgid ""
+"<qt>Select the program that should be used to open <b>%1</b>. If the program "
+"is not listed, enter the name or click the browse button.</qt>"
+msgstr ""
+"<qt>Виберіть програму, яку буде використано для відкривання <b>%1</b>. Якщо "
+"програми немає у переліку, введіть назву або скористайтеся кнопкою навігації."
+"</qt>"
+
+#: widgets/kopenwithdialog.cpp:504
+msgid "Choose the name of the program with which to open the selected files."
+msgstr "Виберіть назву програми, якою ви хочете відкрити вибрані файли."
+
+#: widgets/kopenwithdialog.cpp:534
+#, kde-format
+msgid "Choose Application for %1"
+msgstr "Виберіть програму для %1"
+
+#: widgets/kopenwithdialog.cpp:535
+#, kde-format
+msgid ""
+"<qt>Select the program for the file type: <b>%1</b>. If the program is not "
+"listed, enter the name or click the browse button.</qt>"
+msgstr ""
+"<qt>Виберіть програму для файлів типу: <b>%1</b>. Якщо програму не наведено "
+"в списку, введіть її назву або скористайтеся кнопкою навігації.</qt>"
+
+#: widgets/kopenwithdialog.cpp:550
+msgid "Choose Application"
+msgstr "Виберіть програму"
+
+#: widgets/kopenwithdialog.cpp:551
+msgid ""
+"<qt>Select a program. If the program is not listed, enter the name or click "
+"the browse button.</qt>"
+msgstr ""
+"<qt>Виберіть програму. Якщо програму не наведено в списку, введіть її назву "
+"або скористайтеся кнопкою навігації.</qt>"
+
+#: widgets/kopenwithdialog.cpp:610
+msgid ""
+"Following the command, you can have several place holders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"%f - a single file name\n"
+"%F - a list of files; use for applications that can open several local files "
+"at once\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%d - the directory of the file to open\n"
+"%D - a list of directories\n"
+"%i - the icon\n"
+"%m - the mini-icon\n"
+"%c - the comment"
+msgstr ""
+"У рядок команди ви можете вставити підставні параметри, вказані нижче, їх "
+"буде замінено фактичними значеннями при запуску програми:\n"
+"%f — назва одного файла\n"
+"%F — список файлів; використовується для програм, які можуть відкривати "
+"декілька локальних файлів відразу\n"
+"%u — одна адреса URL\n"
+"%U — список адрес URL\n"
+"%d — каталог з файлом, який відкриваємо\n"
+"%D — список каталогів\n"
+"%i — піктограма\n"
+"%m — міні-піктограма\n"
+"%c — коментар"
+
+#: widgets/kopenwithdialog.cpp:645
+msgid "Run in &terminal"
+msgstr "Запустити у &терміналі"
+
+#: widgets/kopenwithdialog.cpp:663
+msgid "&Do not close when command exits"
+msgstr "&Не закривати після завершення виконання програми"
+
+#: widgets/kopenwithdialog.cpp:680
+msgid "&Remember application association for this type of file"
+msgstr "&Зберегти прив’язку програми до файлів цього типу"
+
+#: widgets/kopenwithdialog.cpp:834
+#, kde-format
+msgid ""
+"Could not extract executable name from '%1', please type a valid program "
+"name."
+msgstr ""
+"Неможливо отримати назву програми з «%1», будь ласка, введіть чинну назву "
+"програми."
+
+#: widgets/kopenwithdialog.cpp:884
+#, kde-format
+msgid "'%1' not found, please type a valid program name."
+msgstr "«%1» не знайдено, будь ласка, вкажіть коректну назву програми."
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
+#: widgets/kpropertiesdesktopadvbase.ui:11
+msgctxt ""
+"@title:group Title of a group that lets the user choose options about the "
+"terminal when launching a program"
+msgid "Terminal"
+msgstr "Термінал"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:33
+msgid ""
+"Check this option if the application you want to run is a text mode "
+"application or if you want the information that is provided by the terminal "
+"emulator window."
+msgstr ""
+"Позначте, якщо програма, яку ви хочете виконувати, працює у текстовому "
+"режимі або ви бажаєте мати доступ до інформації, яка виводиться у вікні "
+"емулятора термінала."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:36
+msgid "&Run in terminal"
+msgstr "Зап&устити у терміналі"
+
+#. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:43
+msgid "&Terminal options:"
+msgstr "Парам&етри термінала:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:53
+msgid ""
+"Check this option if the text mode application offers relevant information "
+"on exit. Keeping the terminal emulator open allows you to retrieve this "
+"information."
+msgstr ""
+"Позначте, якщо програма, що працює у текстовому режимі, виводить важливу "
+"інформацію при завершенні роботи. Якщо вікно емулятора термінала не буде "
+"закрито, ви зможете прочитати цю інформацію."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:56
+msgid "Do not &close when command exits"
+msgstr "&Не закривати після завершення виконання програми"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
+#: widgets/kpropertiesdesktopadvbase.ui:69
+msgctxt ""
+"@title:group Title of a group that lets the user choose which user to use "
+"when launching a program"
+msgid "User"
+msgstr "Користувач"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:75
+msgid ""
+"Check this option if you want to run this application with a different user "
+"id. Every process has a different user id associated with it. This id code "
+"determines file access and other permissions. The password of the user is "
+"required to use this option."
+msgstr ""
+"Позначте цей пункт, якщо ви хочете виконувати цю програму з іншим "
+"ідентифікатором користувача. Кожен процес має відповідний йому ідентифікатор "
+"користувача. Цей код визначає права доступу до файлів та інші дозволи. Для "
+"цього потрібно знати пароль іншого користувача."
+
+#. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:78
+msgid "Ru&n as a different user"
+msgstr "Вико&нати як інший користувач"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:101
+msgid "Enter the user name you want to run the application as."
+msgstr ""
+"Введіть ім'я користувача, від імені якого ви бажаєте виконати цю програму."
+
+#. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:104
+msgid "&Username:"
+msgstr "&Ім'я:"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
+#: widgets/kpropertiesdesktopadvbase.ui:114
+msgid "Enter the user name you want to run the application as here."
+msgstr ""
+"Введіть ім'я користувача, з правами якого ви бажаєте виконати цю програму."
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
+#: widgets/kpropertiesdesktopadvbase.ui:124
+msgctxt ""
+"@title:group Title of a group that lets the user choose options regargin "
+"program startup"
+msgid "Startup"
+msgstr "Запуск"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:130
+msgid ""
+"Check this option if you want to make clear that your application has "
+"started. This visual feedback may appear as a busy cursor or in the taskbar."
+msgstr ""
+"Позначте цей пункт, якщо вам потрібно точно знати, чи запустилась програма. "
+"Візуальне сповіщення може мати вигляд курсору «зайнятий» у смужці задач."
+
+#. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:133
+msgid "Enable &launch feedback"
+msgstr "Увімкнути с&повіщення запуску"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, systrayCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:140
+msgid ""
+"Check this option if you want to have a system tray handle for your "
+"application."
+msgstr ""
+"Позначте, якщо вам потрібен елемент керування з системного лотка для вашої "
+"програми."
+
+#. i18n: ectx: property (text), widget (QCheckBox, systrayCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:143
+msgid "&Place in system tray"
+msgstr "&Помістити у системний лоток"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel12)
+#: widgets/kpropertiesdesktopadvbase.ui:150
+msgid "&D-Bus registration:"
+msgstr "Реєстрація у &D-Bus:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:161
+msgid "None"
+msgstr "Немає"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:166
+msgid "Multiple Instances"
+msgstr "Багато зразків"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:171
+msgid "Single Instance"
+msgstr "Один зразок"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:176
+msgid "Run Until Finished"
+msgstr "Виконувати, поки не завершиться"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, nameEdit)
+#: widgets/kpropertiesdesktopbase.ui:14 widgets/kpropertiesdesktopbase.ui:27
+msgid ""
+"Type the name you want to give to this application here. This application "
+"will appear under this name in the applications menu and in the panel."
+msgstr ""
+"Введіть тут назву для цієї програми. Програма буде з'являтись під цією "
+"назвою в меню програм та на панелі."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, genNameEdit)
+#: widgets/kpropertiesdesktopbase.ui:34 widgets/kpropertiesdesktopbase.ui:47
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"a dial up application (KPPP) would be \"Dial up tool\"."
+msgstr ""
+"Введіть опис програми, виходячи з її призначення. Наприклад: програму для "
+"з'єднання через модем (KPPP) можна описати «Засіб для з'єднання через модем»."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: widgets/kpropertiesdesktopbase.ui:37
+msgid "&Description:"
+msgstr "&Опис:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, commentEdit)
+#: widgets/kpropertiesdesktopbase.ui:54 widgets/kpropertiesdesktopbase.ui:67
+msgid "Type any comment you think is useful here."
+msgstr "Введіть тут будь-який коментар, який ви вважаєте корисним."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: widgets/kpropertiesdesktopbase.ui:57
+msgid "Comm&ent:"
+msgstr "Ко&ментар:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, commandEdit)
+#: widgets/kpropertiesdesktopbase.ui:85 widgets/kpropertiesdesktopbase.ui:111
+#, no-c-format
+msgid ""
+"Type the command to start this application here.\n"
+"\n"
+"Following the command, you can have several place holders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"%f - a single file name\n"
+"%F - a list of files; use for applications that can open several local files "
+"at once\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%d - the directory of the file to open\n"
+"%D - a list of directories\n"
+"%i - the icon\n"
+"%m - the mini-icon\n"
+"%c - the caption"
+msgstr ""
+"Введіть команду для запуску програми.\n"
+"\n"
+"У рядок команди ви можете вставити вказані нижче підставні параметри, їх "
+"буде замінено фактичними значеннями при запуску програми:\n"
+"%f — назва одного файла\n"
+"%F — список файлів; використовується для програм, які можуть відкривати "
+"декілька локальних файлів відразу\n"
+"%u — одна адреса URL\n"
+"%U — список адрес URLs\n"
+"%d — тека з файлом, який відкриваємо\n"
+"%D — список тек\n"
+"%i — піктограма\n"
+"%m — міні-піктограма\n"
+"%c — заголовок"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:88
+msgid "Co&mmand:"
+msgstr "&Команда:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:118
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr "Натисніть, щоб переглянути файлову систему і знайти потрібну програму."
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:121
+msgid "&Browse..."
+msgstr "&Навігація..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
+#: widgets/kpropertiesdesktopbase.ui:130 widgets/kpropertiesdesktopbase.ui:143
+msgid "Sets the working directory for your application."
+msgstr "Встановлює робочий каталог для вашої програми."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel5)
+#: widgets/kpropertiesdesktopbase.ui:133
+msgid "&Work path:"
+msgstr "&Робочий каталог:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:157 widgets/kpropertiesdesktopbase.ui:178
+msgid ""
+"<qt><p>This list should show the types of file that your application can "
+"handle. This list is organized by <u>mimetypes</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol for "
+"identifying the type of data based on filename extensions and correspondent "
+"<u>mimetypes</u>. Example: the \"bmp\" part that comes after the dot in "
+"flower.bmp indicates that it is a specific kind of image, <u>image/x-bmp</"
+"u>. To know which application should open each type of file, the system "
+"should be informed about the abilities of each application to handle these "
+"extensions and mimetypes.</p>\n"
+"<p>If you want to associate this application with one or more mimetypes that "
+"are not in this list, click on the button <b>Add</b> below. If there are one "
+"or more filetypes that this application cannot handle, you may want to "
+"remove them from the list clicking on the button <b>Remove</b> below.</p></"
+"qt>"
+msgstr ""
+"<qt><p>У цьому списку мають міститися пункти типів файлів, які вміє "
+"обробляти ваша програма. Цей список містить <u>типи MIME</u>.</p> \n"
+"<p>MIME (Multipurpose Internet (e)Mail Extension) — це стандартний протокол "
+"для визначення типу даних на основі суфікса назви файла та відповідного "
+"<u>типу mime</u>. Наприклад: «bmp» — частина після крапки у назві файла "
+"flower.bmp — вказує, що це певний різновид зображення, <u>image/x-bmp</u>. "
+"Щоб знати яку програму запускати для роботи з кожним конкретним типом файла, "
+"системі потрібно вказати, які суфікси та типи mime обробляє кожна програма.</"
+"p>\n"
+"<p>Якщо ви бажаєте пов’язати цю програму з одним або декількома типами "
+"файлів, яких немає у цьому списку, натисніть кнопку <b>Додати</b> "
+"розташовану нижче. Якщо ж у цьому списку є один або декілька типів файлів, "
+"які програма не вміє обробляти, ви можете вилучити їх натисканням кнопки "
+"<b>Вилучити</b>, розташованої нижче.</p></qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: widgets/kpropertiesdesktopbase.ui:160
+msgid "&Supported file types:"
+msgstr "Типи файлів, що підтримуються:"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:191
+msgid "Mimetype"
+msgstr "Тип MIME"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:196
+msgid "Description"
+msgstr "Опис"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:206
+msgid ""
+"Click on this button if you want to add a type of file (mimetype) that your "
+"application can handle."
+msgstr ""
+"Натисніть цю кнопку, щоб додати тип файлів (mimetype), які ваша програма "
+"вміє обробляти."
+
+#. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:209
+msgid "Add..."
+msgstr "Додати..."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:216
+msgid ""
+"If you want to remove a type of file (mimetype) that your application cannot "
+"handle, select the mimetype in the list above and click on this button."
+msgstr ""
+"Щоб вилучити тип файлів зі списку типів файлів (mimetype), які вміє "
+"обробляти ваша програма, виберіть тип у списку, наведеному вище, і натисніть "
+"цю кнопку."
+
+#. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:219
+msgid "Remove"
+msgstr "Вилучити"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:242
+msgid ""
+"Click here to modify the way this application will run, launch feedback, D-"
+"Bus options or to run it as a different user."
+msgstr ""
+"Натисніть, щоб змінити спосіб, за допомогою якого буде запускатися програма; "
+"показу запуску, параметри D-Bus або запуск від імені іншого користувача."
+
+#. i18n: ectx: property (text), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:245
+msgid "Ad&vanced Options"
+msgstr "До&даткові параметри"
+
+#: widgets/kpropertiesdialog.cpp:204 widgets/kpropertiesdialog.cpp:219
+#: widgets/kpropertiesdialog.cpp:231 widgets/kpropertiesdialog.cpp:247
+#: widgets/kpropertiesdialog.cpp:265
+#, kde-format
+msgid "Properties for %1"
+msgstr "Властивості для %1"
+
+#: widgets/kpropertiesdialog.cpp:229
+#, kde-format
+msgid "Properties for 1 item"
+msgid_plural "Properties for %1 Selected Items"
+msgstr[0] "Властивості %1 позначеного об’єкта"
+msgstr[1] "Властивості %1 позначених об’єктів"
+msgstr[2] "Властивості %1 позначених об’єктів"
+msgstr[3] "Властивості позначеного об’єкта"
+
+#: widgets/kpropertiesdialog.cpp:785
+msgctxt "@title:tab File properties"
+msgid "&General"
+msgstr "&Загальні"
+
+#: widgets/kpropertiesdialog.cpp:967
+msgid "Type:"
+msgstr "Тип:"
+
+#: widgets/kpropertiesdialog.cpp:986
+msgid "Create New File Type"
+msgstr "Створити новий тип файлів"
+
+#: widgets/kpropertiesdialog.cpp:988
+msgid "File Type Options"
+msgstr "Параметри типу файлів"
+
+#: widgets/kpropertiesdialog.cpp:999
+msgid "Contents:"
+msgstr "Вміст:"
+
+#: widgets/kpropertiesdialog.cpp:1007 widgets/kurlrequesterdialog.cpp:57
+msgid "Location:"
+msgstr "Розташування:"
+
+#: widgets/kpropertiesdialog.cpp:1022
+msgid "Size:"
+msgstr "Розмір:"
+
+#: widgets/kpropertiesdialog.cpp:1038
+msgid "Calculate"
+msgstr "Підрахувати"
+
+#: widgets/kpropertiesdialog.cpp:1039
+msgid "Stop"
+msgstr "Зупинити"
+
+#: widgets/kpropertiesdialog.cpp:1048 widgets/kpropertiesdialog.cpp:1249
+msgid "Refresh"
+msgstr "Поновити"
+
+#: widgets/kpropertiesdialog.cpp:1056
+msgid "Points to:"
+msgstr "Вказує до:"
+
+#: widgets/kpropertiesdialog.cpp:1067
+msgid "Created:"
+msgstr "Створено:"
+
+#: widgets/kpropertiesdialog.cpp:1076
+msgid "Modified:"
+msgstr "Остання зміна:"
+
+#: widgets/kpropertiesdialog.cpp:1085
+msgid "Accessed:"
+msgstr "Останній доступ:"
+
+#: widgets/kpropertiesdialog.cpp:1103
+msgid "Mounted on:"
+msgstr "Точка монтування:"
+
+#: widgets/kpropertiesdialog.cpp:1111 widgets/kpropertiesdialog.cpp:2829
+msgid "Device usage:"
+msgstr "Використання пристрою:"
+
+#: widgets/kpropertiesdialog.cpp:1212 widgets/kpropertiesdialog.cpp:2961
+#, kde-format
+msgctxt "Available space out of total partition size (percent used)"
+msgid "%1 free of %2 (%3% used)"
+msgstr "Вільно %1 з %2 (використано %3%)"
+
+#: widgets/kpropertiesdialog.cpp:1226
+#, kde-format
+msgid ""
+"Calculating... %1 (%2)\n"
+"%3, %4"
+msgstr ""
+"Обчислення... %1 (%2)\n"
+"%3, %4"
+
+#: widgets/kpropertiesdialog.cpp:1229 widgets/kpropertiesdialog.cpp:1244
+#, kde-format
+msgid "1 file"
+msgid_plural "%1 files"
+msgstr[0] "%1 файл"
+msgstr[1] "%1 файли"
+msgstr[2] "%1 файлів"
+msgstr[3] "один файл"
+
+#: widgets/kpropertiesdialog.cpp:1230 widgets/kpropertiesdialog.cpp:1245
+#, kde-format
+msgid "1 sub-folder"
+msgid_plural "%1 sub-folders"
+msgstr[0] "%1 підтека"
+msgstr[1] "%1 підтеки"
+msgstr[2] "%1 підтек"
+msgstr[3] "одна підтека"
+
+#: widgets/kpropertiesdialog.cpp:1258
+msgid "Calculating..."
+msgstr "Обчислення…"
+
+#: widgets/kpropertiesdialog.cpp:1290
+#, kde-format
+msgid "At least %1"
+msgstr "Принаймні %1"
+
+#: widgets/kpropertiesdialog.cpp:1328
+msgid "The new file name is empty."
+msgstr "Порожня назва нового файла."
+
+#: widgets/kpropertiesdialog.cpp:1511 widgets/kpropertiesdialog.cpp:2706
+#: widgets/kpropertiesdialog.cpp:3006 widgets/kpropertiesdialog.cpp:3260
+#, kde-format
+msgid ""
+"<qt>Could not save properties. You do not have sufficient access to write to "
+"<b>%1</b>.</qt>"
+msgstr ""
+"<qt>Не вдалося зберегти властивості. У вас недостатньо прав для запису до <b>"
+"%1</b>.</qt>"
+
+#: widgets/kpropertiesdialog.cpp:1587 widgets/kpropertiesdialog.cpp:1593
+#: widgets/kpropertiesdialog.cpp:1600
+msgid "Forbidden"
+msgstr "Заборонено"
+
+#: widgets/kpropertiesdialog.cpp:1588
+msgid "Can Read"
+msgstr "Може читати"
+
+#: widgets/kpropertiesdialog.cpp:1589
+msgid "Can Read & Write"
+msgstr "Може читати та писати"
+
+#: widgets/kpropertiesdialog.cpp:1594
+msgid "Can View Content"
+msgstr "Може переглядати вміст"
+
+#: widgets/kpropertiesdialog.cpp:1595
+msgid "Can View & Modify Content"
+msgstr "Може переглядати та змінювати вміст"
+
+#: widgets/kpropertiesdialog.cpp:1601
+msgid "Can View Content & Read"
+msgstr "Може переглядати вміст та читати"
+
+#: widgets/kpropertiesdialog.cpp:1602
+msgid "Can View/Read & Modify/Write"
+msgstr "Може переглядати/читати та змінювати/писати"
+
+#: widgets/kpropertiesdialog.cpp:1699
+msgid "&Permissions"
+msgstr "&Права доступу"
+
+#: widgets/kpropertiesdialog.cpp:1711 widgets/kpropertiesdialog.cpp:1914
+msgid "Access Permissions"
+msgstr "Права доступу"
+
+#: widgets/kpropertiesdialog.cpp:1719
+msgid "This file is a link and does not have permissions."
+msgid_plural "All files are links and do not have permissions."
+msgstr[0] "Цей файл є символічним посиланням. Посилання не мають прав доступу."
+msgstr[1] ""
+"Ці файли є символічними посиланнями. Посилання не мають прав доступу."
+msgstr[2] ""
+"Ці файли є символічними посиланнями. Посилання не мають прав доступу."
+msgstr[3] "Цей файл є символічним посиланням. Посилання не мають прав доступу."
+
+#: widgets/kpropertiesdialog.cpp:1723
+msgid "Only the owner can change permissions."
+msgstr "Тільки власник може змінювати права доступу."
+
+#: widgets/kpropertiesdialog.cpp:1727
+msgid "O&wner:"
+msgstr "В&ласник:"
+
+#: widgets/kpropertiesdialog.cpp:1733
+msgid "Specifies the actions that the owner is allowed to do."
+msgstr "Тут вказано дії, які власник може виконувати."
+
+#: widgets/kpropertiesdialog.cpp:1735
+msgid "Gro&up:"
+msgstr "Гру&па:"
+
+#: widgets/kpropertiesdialog.cpp:1741
+msgid "Specifies the actions that the members of the group are allowed to do."
+msgstr "Тут вказано дії, які можуть виконувати члени групи."
+
+#: widgets/kpropertiesdialog.cpp:1743
+msgid "O&thers:"
+msgstr "І&нші:"
+
+#: widgets/kpropertiesdialog.cpp:1749
+msgid ""
+"Specifies the actions that all users, who are neither owner nor in the "
+"group, are allowed to do."
+msgstr ""
+"Тут вказано дії, які можуть виконувати всі користувачі, що не є членами "
+"групи та не є власниками."
+
+#: widgets/kpropertiesdialog.cpp:1754
+msgid "Only own&er can rename and delete folder content"
+msgstr "Тільки в&ласник може перейменовувати та стирати вміст теки"
+
+#: widgets/kpropertiesdialog.cpp:1755
+msgid "Is &executable"
+msgstr "Можна в&иконувати"
+
+#: widgets/kpropertiesdialog.cpp:1759
+msgid ""
+"Enable this option to allow only the folder's owner to delete or rename the "
+"contained files and folders. Other users can only add new files, which "
+"requires the 'Modify Content' permission."
+msgstr ""
+"Позначте, якщо ви бажаєте, щоб тільки власник теки міг перейменовувати та "
+"стирати файли та теки, які містить ця тека. Інші користувачі зможуть тільки "
+"створювати нові файли, якщо їм дозволено змінювати вміст."
+
+#: widgets/kpropertiesdialog.cpp:1763
+msgid ""
+"Enable this option to mark the file as executable. This only makes sense for "
+"programs and scripts. It is required when you want to execute them."
+msgstr ""
+"Позначте, якщо ви бажаєте позначити цей файл як файл, який можна виконувати. "
+"Позначення має сенс тільки для програм та скриптів, воно потрібне для того, "
+"щоб їх можна було запускати."
+
+#: widgets/kpropertiesdialog.cpp:1770
+msgid "A&dvanced Permissions"
+msgstr "Р&озширені права доступу"
+
+#: widgets/kpropertiesdialog.cpp:1778
+msgid "Ownership"
+msgstr "Власники"
+
+#: widgets/kpropertiesdialog.cpp:1785
+msgid "User:"
+msgstr "Користувач:"
+
+#: widgets/kpropertiesdialog.cpp:1829
+msgid "Group:"
+msgstr "Група:"
+
+#: widgets/kpropertiesdialog.cpp:1866
+msgid "Apply changes to all subfolders and their contents"
+msgstr "Застосувати зміни до всіх підтек та їхнього вмісту"
+
+#: widgets/kpropertiesdialog.cpp:1905
+msgid "Advanced Permissions"
+msgstr "Розширені права доступу"
+
+#: widgets/kpropertiesdialog.cpp:1922
+msgid "Class"
+msgstr "Клас"
+
+#: widgets/kpropertiesdialog.cpp:1927
+msgid ""
+"Show\n"
+"Entries"
+msgstr ""
+"Показати\n"
+"вміст"
+
+#: widgets/kpropertiesdialog.cpp:1929
+msgid "Read"
+msgstr "Читати"
+
+#: widgets/kpropertiesdialog.cpp:1935
+msgid "This flag allows viewing the content of the folder."
+msgstr "Цей біт надає дозвіл на перегляд вмісту теки."
+
+#: widgets/kpropertiesdialog.cpp:1937
+msgid "The Read flag allows viewing the content of the file."
+msgstr "Біт «Читати» надає дозвіл на перегляд вмісту файла."
+
+#: widgets/kpropertiesdialog.cpp:1942
+msgid ""
+"Write\n"
+"Entries"
+msgstr ""
+"Змінити\n"
+"вміст"
+
+#: widgets/kpropertiesdialog.cpp:1944
+msgid "Write"
+msgstr "Записати"
+
+#: widgets/kpropertiesdialog.cpp:1950
+msgid ""
+"This flag allows adding, renaming and deleting of files. Note that deleting "
+"and renaming can be limited using the Sticky flag."
+msgstr ""
+"Цей біт надає дозвіл на створення, перейменування та стирання файлів. "
+"Зауважте, що стирання та перейменування може бути обмежено бітом стійкості."
+
+#: widgets/kpropertiesdialog.cpp:1953
+msgid "The Write flag allows modifying the content of the file."
+msgstr "Біт «Записати» надає дозвіл на зміну вмісту файла."
+
+#: widgets/kpropertiesdialog.cpp:1959
+msgctxt "Enter folder"
+msgid "Enter"
+msgstr "Увійти"
+
+#: widgets/kpropertiesdialog.cpp:1960
+msgid "Enable this flag to allow entering the folder."
+msgstr "Вмикання цього біта надає дозвіл на вхід до теки."
+
+#: widgets/kpropertiesdialog.cpp:1962
+msgid "Exec"
+msgstr "Виконати"
+
+#: widgets/kpropertiesdialog.cpp:1963
+msgid "Enable this flag to allow executing the file as a program."
+msgstr "Вмикання цього біта надає дозвіл на запуск цього файла як програми."
+
+#: widgets/kpropertiesdialog.cpp:1973
+msgid "Special"
+msgstr "Спеціальні"
+
+#: widgets/kpropertiesdialog.cpp:1977
+msgid ""
+"Special flag. Valid for the whole folder, the exact meaning of the flag can "
+"be seen in the right hand column."
+msgstr ""
+"Спеціальні біти. Дія розповсюджується на всю теку, їхнє значення описано "
+"праворуч."
+
+#: widgets/kpropertiesdialog.cpp:1980
+msgid ""
+"Special flag. The exact meaning of the flag can be seen in the right hand "
+"column."
+msgstr "Спеціальні біти. Їхнє значення описано праворуч."
+
+#: widgets/kpropertiesdialog.cpp:1984
+msgid "User"
+msgstr "Користувач"
+
+#: widgets/kpropertiesdialog.cpp:1988
+msgid "Group"
+msgstr "Група"
+
+#: widgets/kpropertiesdialog.cpp:1996
+msgid "Set UID"
+msgstr "Встановити UID"
+
+#: widgets/kpropertiesdialog.cpp:2000
+msgid ""
+"If this flag is set, the owner of this folder will be the owner of all new "
+"files."
+msgstr "Якщо біт ввімкнено, власником всіх нових файлів буде власник теки."
+
+#: widgets/kpropertiesdialog.cpp:2003
+msgid ""
+"If this file is an executable and the flag is set, it will be executed with "
+"the permissions of the owner."
+msgstr ""
+"Якщо цей файл можна запускати і встановлено цей біт, процес буде мати права "
+"власника файла."
+
+#: widgets/kpropertiesdialog.cpp:2007
+msgid "Set GID"
+msgstr "Встановити GID"
+
+#: widgets/kpropertiesdialog.cpp:2011
+msgid ""
+"If this flag is set, the group of this folder will be set for all new files."
+msgstr ""
+"Якщо біт ввімкнено, групою всіх нових файлів буде група, яку вказано для "
+"теки."
+
+#: widgets/kpropertiesdialog.cpp:2014
+msgid ""
+"If this file is an executable and the flag is set, it will be executed with "
+"the permissions of the group."
+msgstr ""
+"Якщо цей файл можна запускати і встановлено цей біт, процес належатиме до "
+"групи, до якої належить файл."
+
+#: widgets/kpropertiesdialog.cpp:2018
+msgctxt "File permission"
+msgid "Sticky"
+msgstr "Біт стійкості"
+
+#: widgets/kpropertiesdialog.cpp:2022
+msgid ""
+"If the Sticky flag is set on a folder, only the owner and root can delete or "
+"rename files. Otherwise everybody with write permissions can do this."
+msgstr ""
+"Якщо біт стійкості встановлено для теки, лише власник або користувач root "
+"зможе перейменувати чи стерти цей файл. Інакше кожен користувач, який має "
+"права на запис, зможе зробити це."
+
+#: widgets/kpropertiesdialog.cpp:2026
+msgid ""
+"The Sticky flag on a file is ignored on Linux, but may be used on some "
+"systems"
+msgstr ""
+"Біт стійкості на файлах ігнорується у Linux, але може використовуватися "
+"іншими операційними системами"
+
+#: widgets/kpropertiesdialog.cpp:2214
+msgid "Link"
+msgstr "Посилання"
+
+#: widgets/kpropertiesdialog.cpp:2233
+msgid "Varying (No Change)"
+msgstr "Змінний (Без змін)"
+
+#: widgets/kpropertiesdialog.cpp:2346
+msgid "This file uses advanced permissions"
+msgid_plural "These files use advanced permissions."
+msgstr[0] "Цей файл використовує розширені права доступу."
+msgstr[1] "Ці файли використовують розширені права доступу."
+msgstr[2] "Ці файли використовують розширені права доступу."
+msgstr[3] "Цей файл використовує розширені права доступу."
+
+#: widgets/kpropertiesdialog.cpp:2367
+msgid "This folder uses advanced permissions."
+msgid_plural "These folders use advanced permissions."
+msgstr[0] "Ця тека використовує розширені права доступу."
+msgstr[1] "Ці теки використовують розширені права доступу."
+msgstr[2] "Ці теки використовують розширені права доступу."
+msgstr[3] "Ця тека використовує розширені права доступу."
+
+#: widgets/kpropertiesdialog.cpp:2382
+msgid "These files use advanced permissions."
+msgstr "Ці файли використовують розширені права доступу."
+
+#: widgets/kpropertiesdialog.cpp:2617
+msgid "U&RL"
+msgstr "U&RL"
+
+#: widgets/kpropertiesdialog.cpp:2624
+msgid "URL:"
+msgstr "URL:"
+
+#: widgets/kpropertiesdialog.cpp:2764
+msgid "De&vice"
+msgstr "Пр&истрій"
+
+#: widgets/kpropertiesdialog.cpp:2793
+msgid "Device (/dev/fd0):"
+msgstr "Пристрій (/dev/fd0):"
+
+#: widgets/kpropertiesdialog.cpp:2794
+msgid "Device:"
+msgstr "Пристрій:"
+
+#: widgets/kpropertiesdialog.cpp:2807
+msgid "Read only"
+msgstr "Тільки для читання"
+
+#: widgets/kpropertiesdialog.cpp:2811
+msgid "File system:"
+msgstr "Файлова система:"
+
+#: widgets/kpropertiesdialog.cpp:2819
+msgid "Mount point (/mnt/floppy):"
+msgstr "Точка монтування (/mnt/floppy):"
+
+#: widgets/kpropertiesdialog.cpp:2820
+msgid "Mount point:"
+msgstr "Точка монтування:"
+
+#: widgets/kpropertiesdialog.cpp:3064
+msgid "&Application"
+msgstr "&Програма"
+
+#: widgets/kpropertiesdialog.cpp:3190
+#, kde-format
+msgid "Add File Type for %1"
+msgstr "Додати тип файла для %1"
+
+#: widgets/kpropertiesdialog.cpp:3191
+msgid "Select one or more file types to add:"
+msgstr "Виберіть один або більше типи файлів для додавання:"
+
+#: widgets/kpropertiesdialog.cpp:3252
+msgid ""
+"Could not save properties. Only entries on local file systems are supported."
+msgstr ""
+"Не вдалося зберегти властивості. Передбачено підтримку лише записів у "
+"локальній файловій системі."
+
+#: widgets/kpropertiesdialog.cpp:3331
+msgid "Only executables on local file systems are supported."
+msgstr "Підтримуються тільки програми на локальній файловій системі."
+
+#: widgets/kpropertiesdialog.cpp:3345
+#, kde-format
+msgid "Advanced Options for %1"
+msgstr "Додаткові параметри для %1"
+
+#: widgets/krun.cpp:170
+#, kde-format
+msgid ""
+"<qt>Unable to enter <b>%1</b>.\n"
+"You do not have access rights to this location.</qt>"
+msgstr ""
+"<qt>Неможливо увійти до <b>%1</b>.\n"
+"У вас не вистачає прав доступу до цієї адреси.</qt>"
+
+#: widgets/krun.cpp:200
+#, kde-format
+msgid ""
+"<qt>The file <b>%1</b> is an executable program. For safety it will not be "
+"started.</qt>"
+msgstr ""
+"<qt>Файл <b>%1</b> є програмою. Заради безпеки його не буде запущено.</qt>"
+
+#: widgets/krun.cpp:206
+#, kde-format
+msgid "<qt>You do not have permission to run <b>%1</b>.</qt>"
+msgstr "<qt>У вас не має прав на виконання <b>%1</b>.</qt>"
+
+#: widgets/krun.cpp:236
+msgid "You are not authorized to select an application to open this file."
+msgstr "Вам не дозволено вибирати програму для відкривання цього файла."
+
+#: widgets/krun.cpp:247
+msgid "Open with:"
+msgstr "Відкрити за допомогою:"
+
+#: widgets/krun.cpp:297
+msgid "You are not authorized to execute this file."
+msgstr "Вам не дозволено запускати цей файл."
+
+#: widgets/krun.cpp:320
+#, kde-format
+msgid "Launching %1"
+msgstr "Триває запуск %1"
+
+#: widgets/krun.cpp:425
+#, kde-format
+msgid "Error processing Exec field in %1"
+msgstr "Помилка обробки поля Exec в %1"
+
+#: widgets/krun.cpp:602
+msgid "You are not authorized to execute this service."
+msgstr "Вам не дозволено запускати цю службу."
+
+#: widgets/krun.cpp:607
+msgctxt "Warning about executing unknown .desktop file"
+msgid "Warning"
+msgstr "Попередження"
+
+#: widgets/krun.cpp:624
+msgctxt "program name follows in a line edit below"
+msgid "This will start the program:"
+msgstr "Це запустить програму:"
+
+#: widgets/krun.cpp:641
+msgid "If you do not trust this program, click Cancel"
+msgstr "Якщо ви не довіряєте цій програмі, натисніть кнопку «Скасувати»."
+
+#: widgets/krun.cpp:684
+#, kde-format
+msgid "Unable to make the service %1 executable, aborting execution"
+msgstr "Не вдалося зробити службу %1 виконуваною, виконання перервано"
+
+#: widgets/krun.cpp:866
+#, kde-format
+msgid ""
+"<qt>Unable to run the command specified. The file or folder <b>%1</b> does "
+"not exist.</qt>"
+msgstr ""
+"<qt>Не вдалося виконати вказану команду. Файла або теки <b>%1</b> не існує.</"
+"qt>"
+
+#: widgets/krun.cpp:1461
+#, kde-format
+msgid "Could not find the program '%1'"
+msgstr "Не вдалося знайти програму «%1»"
+
+#: widgets/ksslinfodialog.cpp:57
+msgid "KDE SSL Information"
+msgstr "Інформація про KDE SSL"
+
+#: widgets/ksslinfodialog.cpp:69
+msgctxt "The receiver of the SSL certificate"
+msgid "Subject"
+msgstr "Отримувач"
+
+#: widgets/ksslinfodialog.cpp:70
+msgctxt "The authority that issued the SSL certificate"
+msgid "Issuer"
+msgstr "Видавець"
+
+#: widgets/ksslinfodialog.cpp:86 widgets/ksslinfodialog.cpp:120
+msgid "Current connection is secured with SSL."
+msgstr "Поточне з'єднання захищене SSL."
+
+#: widgets/ksslinfodialog.cpp:89 widgets/ksslinfodialog.cpp:133
+msgid "Current connection is not secured with SSL."
+msgstr "Поточне з'єднання не захищено SSL."
+
+#: widgets/ksslinfodialog.cpp:93
+msgid "SSL support is not available in this build of KDE."
+msgstr "Підтримка SSL не доступна у цьому комплекті KDE."
+
+#: widgets/ksslinfodialog.cpp:123
+msgid ""
+"The main part of this document is secured with SSL, but some parts are not."
+msgstr ""
+"Основна частина цього документа захищена за допомогою SSL, але деякі частини "
+"документа не захищені."
+
+#: widgets/ksslinfodialog.cpp:129
+msgid "Some of this document is secured with SSL, but the main part is not."
+msgstr ""
+"Деякі частини цього документа захищені за допомогою SSL, але основна частина "
+"не захищена."
+
+#: widgets/ksslinfodialog.cpp:179
+#, kde-format
+msgctxt "%1, using %2 bits of a %3 bit key"
+msgid "%1, %2 %3"
+msgstr "%1, %2 %3"
+
+#: widgets/ksslinfodialog.cpp:181
+#, kde-format
+msgctxt "Part of: %1, using %2 bits of a %3 bit key"
+msgid "using %1 bit"
+msgid_plural "using %1 bits"
+msgstr[0] "використано %1 біт"
+msgstr[1] "використано %1 біти"
+msgstr[2] "використано %1 бітів"
+msgstr[3] "використано один біт"
+
+#: widgets/ksslinfodialog.cpp:183
+#, kde-format
+msgctxt "Part of: %1, using %2 bits of a %3 bit key"
+msgid "of a %1 bit key"
+msgid_plural "of a %1 bit key"
+msgstr[0] "з %1-бітового ключа"
+msgstr[1] "з %1-бітового ключа"
+msgstr[2] "з %1-бітового ключа"
+msgstr[3] "з %1-бітового ключа"
+
+#: widgets/ksslinfodialog.cpp:199
+msgctxt "The certificate is not trusted"
+msgid "NO, there were errors:"
+msgstr "Ні, сталися помилки:"
+
+#: widgets/ksslinfodialog.cpp:206
+msgctxt "The certificate is trusted"
+msgid "Yes"
+msgstr "Так"
+
+#: widgets/ksslinfodialog.cpp:210
+#, kde-format
+msgctxt "%1 is the effective date of the certificate, %2 is the expiry date"
+msgid "%1 to %2"
+msgstr "%1 до %2"
+
+#: widgets/kurlrequester.cpp:284
+msgid "Open file dialog"
+msgstr "Діалогове вікно відкриття файлів"
+
+#: widgets/paste.cpp:76 widgets/paste.cpp:145
+msgid "Filename for clipboard content:"
+msgstr "Назва файла для вмісту кишені:"
+
+#: widgets/paste.cpp:137
+#, kde-format
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: widgets/paste.cpp:156
+msgid ""
+"The clipboard has changed since you used 'paste': the chosen data format is "
+"no longer applicable. Please copy again what you wanted to paste."
+msgstr ""
+"Вміст кишені змінився від того часу, як ви востаннє користувалися дією "
+"«вставити»: вибраний формат даних вже не підходить. Будь ласка, скопіюйте "
+"знов те, що ви хотіли вставити."
+
+#: widgets/paste.cpp:285
+#, kde-format
+msgid "&Paste File"
+msgid_plural "&Paste %1 Files"
+msgstr[0] "&Вставити %1 файл"
+msgstr[1] "&Вставити %1 файли"
+msgstr[2] "&Вставити %1 файлів"
+msgstr[3] "&Вставити файл"
+
+#: widgets/paste.cpp:287
+#, kde-format
+msgid "&Paste URL"
+msgid_plural "&Paste %1 URLs"
+msgstr[0] "&Вставити %1 адресу"
+msgstr[1] "&Вставити %1 адреси"
+msgstr[2] "&Вставити %1 адрес"
+msgstr[3] "&Вставити адресу"
+
+#: widgets/paste.cpp:290
+msgid "&Paste Clipboard Contents"
+msgstr "&Вставити вміст кишені"
+
+#: widgets/pastedialog.cpp:57
+msgid "Data format:"
+msgstr "Формат даних:"
+
+#: widgets/renamedialog.cpp:134
+msgid "Appl&y to All"
+msgstr "Зас&тосувати до всіх"
+
+#: widgets/renamedialog.cpp:135
+msgid ""
+"When this is checked the button pressed will be applied to all subsequent "
+"folder conflicts for the remainder of the current job.\n"
+"Unless you press Skip you will still be prompted in case of a conflict with "
+"an existing file in the directory."
+msgstr ""
+"Якщо ви позначите цей пункт, вибір варіанта розв’язання конфлікту, зроблений "
+"за допомогою натискання відповідної кнопки, буде застосовано до всіх "
+"конфліктів з теками до завершення поточного завдання.\n"
+"Якщо ви не натиснете кнопку «Пропустити», програма запитуватиме вас, якщо "
+"зустрінеться з конфліктами щодо файлів у каталозі."
+
+#: widgets/renamedialog.cpp:136
+msgid ""
+"When this is checked the button pressed will be applied to all subsequent "
+"conflicts for the remainder of the current job."
+msgstr ""
+"Якщо ви позначите цей пункт, вибір варіанта розв’язання конфлікту, зроблений "
+"за допомогою натискання відповідної кнопки, буде застосовано до всіх "
+"конфліктів до завершення поточного завдання."
+
+#: widgets/renamedialog.cpp:141
+msgid "&Rename"
+msgstr "П&ерейменувати"
+
+#: widgets/renamedialog.cpp:143
+msgid "Suggest New &Name"
+msgstr "Запропонувати нову &назву"
+
+#: widgets/renamedialog.cpp:149
+msgid "&Skip"
+msgstr "Проп&устити"
+
+#: widgets/renamedialog.cpp:150
+msgid "Do not copy or move this folder, skip to the next item instead"
+msgstr ""
+"Не копіювати або не пересувати цієї теки, замість цього перейти до "
+"наступного елемента"
+
+#: widgets/renamedialog.cpp:151
+msgid "Do not copy or move this file, skip to the next item instead"
+msgstr ""
+"Не копіювати або не пересувати цього файла, замість цього перейти до "
+"наступного елемента"
+
+#: widgets/renamedialog.cpp:156
+msgctxt "Write files into an existing folder"
+msgid "&Write Into"
+msgstr "&Записати"
+
+#: widgets/renamedialog.cpp:156
+msgid "&Overwrite"
+msgstr "П&ерезаписати"
+
+#: widgets/renamedialog.cpp:158
+msgid ""
+"Files and folders will be copied into the existing directory, alongside its "
+"existing contents.\n"
+"You will be prompted again in case of a conflict with an existing file in "
+"the directory."
+msgstr ""
+"Файли і теки буде скопійовано до каталогу, поряд з вже наявним там вмістом.\n"
+"У разі конфлікту з файлом, що вже існує у каталозі, програма знову надішле "
+"вам запит на виконання дії."
+
+#: widgets/renamedialog.cpp:163
+msgid "&Resume"
+msgstr "&Продовжити"
+
+#: widgets/renamedialog.cpp:172
+#, kde-format
+msgid ""
+"This action would overwrite '%1' with itself.\n"
+"Please enter a new file name:"
+msgstr ""
+"Ця дія призведе до перезапису «%1» самим собою.\n"
+"Будь ласка, введіть нову назву файла:"
+
+#: widgets/renamedialog.cpp:176
+msgid "C&ontinue"
+msgstr "Пр&одовжити"
+
+#: widgets/renamedialog.cpp:230
+msgid "This action will overwrite the destination."
+msgstr "Ця дія призведе до перезапису файла у теці призначення."
+
+#: widgets/renamedialog.cpp:232
+msgid "Source"
+msgstr "Джерело"
+
+#: widgets/renamedialog.cpp:233
+msgid "Destination"
+msgstr "Призначення"
+
+#: widgets/renamedialog.cpp:239
+msgid "Warning, the destination is more recent."
+msgstr "Попередження: файл у теці призначення новіший за копійований."
+
+#: widgets/renamedialog.cpp:270
+#, kde-format
+msgid "An older item named '%1' already exists."
+msgstr "Вже існує старіший варіант за назвою «%1»."
+
+#: widgets/renamedialog.cpp:272
+#, kde-format
+msgid "A similar file named '%1' already exists."
+msgstr "Схожий файл з назвою «%1» вже існує."
+
+#: widgets/renamedialog.cpp:274
+#, kde-format
+msgid "A more recent item named '%1' already exists."
+msgstr "Вже існує новіший варіант за назвою «%1»."
+
+#: widgets/renamedialog.cpp:286
+msgid "Rename:"
+msgstr "Перейменувати:"
+
+#: widgets/skipdialog.cpp:38
+msgid "Information"
+msgstr "Інформація"
+
+#: widgets/skipdialog.cpp:48
+msgid "Retry"
+msgstr "Повторити"
+
+#: widgets/skipdialog.cpp:53
+msgid "Skip"
+msgstr "Пропустити"
+
+#: widgets/skipdialog.cpp:57
+msgid "AutoSkip"
+msgstr "Автоматично пропускати"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
+#: widgets/sslinfo.ui:17
+msgid "[padlock]"
+msgstr "[колодка]"
+
+#. i18n: ectx: property (text), widget (QLabel, addressTag)
+#: widgets/sslinfo.ui:34
+msgctxt "Web page address"
+msgid "Address:"
+msgstr "Адреса:"
+
+#. i18n: ectx: property (text), widget (QLabel, ipTag)
+#: widgets/sslinfo.ui:54
+msgid "IP address:"
+msgstr "Адреса IP:"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionTag)
+#: widgets/sslinfo.ui:74
+msgid "Encryption:"
+msgstr "Шифрування:"
+
+#. i18n: ectx: property (text), widget (QLabel, detailsTag)
+#: widgets/sslinfo.ui:94
+msgid "Details:"
+msgstr "Подробиці:"
+
+#. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
+#: widgets/sslinfo.ui:114
+msgid "SSL version:"
+msgstr "Версія SSL:"
+
+#. i18n: ectx: property (text), widget (QLabel, certSelectorTag)
+#: widgets/sslinfo.ui:134
+msgid "Certificate chain:"
+msgstr "Ланцюжок сертифікатів:"
+
+#. i18n: ectx: property (text), widget (QLabel, trustedTag)
+#: widgets/sslinfo.ui:163
+msgid "Trusted:"
+msgstr "Надійність:"
+
+#. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
+#: widgets/sslinfo.ui:183
+msgid "Validity period:"
+msgstr "Період чинності:"
+
+#. i18n: ectx: property (text), widget (QLabel, serialTag)
+#: widgets/sslinfo.ui:203
+msgid "Serial number:"
+msgstr "Серійний номер:"
+
+#. i18n: ectx: property (text), widget (QLabel, digestTag)
+#: widgets/sslinfo.ui:223
+msgid "MD5 digest:"
+msgstr "Сума MD5:"
+
+#. i18n: ectx: property (text), widget (QLabel, sha1DigestTag)
+#: widgets/sslinfo.ui:243
+msgid "SHA1 digest:"
+msgstr "Сума SHA1:"
+
+#: widgets/sslui.cpp:49
+msgid ""
+"The remote host did not send any SSL certificates.\n"
+"Aborting because the identity of the host cannot be established."
+msgstr ""
+"Віддаленим вузлом не було надіслано жодних сертифікатів SSL.\n"
+"З’єднання перервано через неможливість встановити автентичність вузла."

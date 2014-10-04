@@ -1,0 +1,115 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-10-02 07:58+0000\n"
+"PO-Revision-Date: 2014-10-04 12:12+0200\n"
+"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
+"Language-Team: Polish <kde-i18n-doc@kde.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: kcmtrash.cpp:158 kcmtrash.cpp:256
+msgid " day"
+msgid_plural " days"
+msgstr[0] " dzień"
+msgstr[1] " dni"
+msgstr[2] " dni"
+
+#: kcmtrash.cpp:247
+msgid "Delete files older than:"
+msgstr "Usuń pliki starsze niż:"
+
+#: kcmtrash.cpp:266
+msgid "Limit to maximum size"
+msgstr "Ogranicz do największego rozmiaru"
+
+#: kcmtrash.cpp:294
+msgid "Maximum size:"
+msgstr "Największy rozmiar:"
+
+#: kcmtrash.cpp:296
+msgid "When limit reached:"
+msgstr "Po przekroczeniu ograniczenia:"
+
+#: kcmtrash.cpp:300
+msgid "Warn Me"
+msgstr "Ostrzeż mnie"
+
+#: kcmtrash.cpp:301
+msgid "Delete Oldest Files From Trash"
+msgstr "Usuń najstarsze pliki z kosza"
+
+#: kcmtrash.cpp:302
+msgid "Delete Biggest Files From Trash"
+msgstr "Usuń największe pliki z kosza"
+
+#: kio_trash.cpp:93 kio_trash.cpp:159 kio_trash.cpp:315 kio_trash.cpp:347
+#: kio_trash.cpp:513 kio_trash.cpp:525
+#, kde-format
+msgid "Malformed URL %1"
+msgstr "Zniekształcony adres URL %1"
+
+#: kio_trash.cpp:115
+#, kde-format
+msgid ""
+"The directory %1 does not exist anymore, so it is not possible to restore "
+"this item to its original location. You can either recreate that directory "
+"and use the restore operation again, or drag the item anywhere else to "
+"restore it."
+msgstr ""
+"Katalog %1 już nie istnieje, więc nie jest możliwe przywrócenie tego "
+"elementu do jego pierwotnej lokalizacji. Możesz jednak utworzyć ten katalog "
+"i użyć opcji przywrócenia ponownie, lub przeciągnąć ten element gdziekolwiek "
+"indziej, aby go przywrócić."
+
+#: kio_trash.cpp:144 kio_trash_win.cpp:228
+msgid "This file is already in the trash bin."
+msgstr "Ten plik znajduje się już w koszu."
+
+#: kio_trash.cpp:233 kio_trash_win.cpp:252
+msgid "Internal error in copyOrMove, should never happen"
+msgstr "Błąd wewnętrzny w copyOrMove, nigdy nie powinien się zdarzyć"
+
+#: kio_trash_win.cpp:241
+msgid "not supported"
+msgstr "nieobsługiwane"
+
+#: ktrash.cpp:38
+msgid ""
+"Helper program to handle the KDE trash can\n"
+"Note: to move files to the trash, do not use ktrash, but \"kioclient move "
+"'url' trash:/\""
+msgstr ""
+"Program pomocniczy do obsługi kosza KDE.\n"
+"Uwaga: aby przenieść pliki do kosza, nie używaj ktrash, ale polecenia "
+"\"kioclient move 'url' trash:/\""
+
+#: ktrash.cpp:41
+msgid "Empty the contents of the trash"
+msgstr "Opróżnij zawartość kosza"
+
+#: ktrash.cpp:42
+msgid "Restore a trashed file to its original location"
+msgstr "Przywróć plik z kosza do jego pierwotnej lokalizacji"
+
+#: trashimpl.cpp:1123
+msgid ""
+"The trash has reached its maximum size!\n"
+"Cleanup the trash manually."
+msgstr ""
+"Kosz osiągnął maksymalny rozmiar!\n"
+"Proszę go opróżnić."
+
+#: trashimpl.cpp:1134
+msgid "The file is too large to be trashed."
+msgstr "Ten plik jest zbyt duży, żeby go przenieść do kosza."

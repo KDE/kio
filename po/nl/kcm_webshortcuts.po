@@ -1,0 +1,48 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-14 08:12+0000\n"
+"PO-Revision-Date: 2014-08-14 16:17+0200\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Freek de Kruijf"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "freekdekruijf@kde.nl"
+
+#: main.cpp:41
+msgid "Web Shortcuts"
+msgstr "Websnelkoppelingen"
+
+#: main.cpp:48
+msgid ""
+"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
+"browsing features of KDE. <h2>Web Shortcuts</h2>Web Shortcuts are a quick "
+"way of using Web search engines. For example, type \"duckduckgo:frobozz\" or "
+"\"dd:frobozz\" and your web browser will do a search on DuckDuckGo for "
+"\"frobozz\". Even easier: just press Alt+F2 (if you have not changed this "
+"keyboard shortcut) and enter the shortcut in the Run Command dialog."
+msgstr ""
+"<h1>Verbeterd browsen</h1> In deze module kunt u een aantal verbeterde KDE "
+"functies voor browsen instellen. <h2>Internetzoektermen</"
+"h2>Internetzoektermen is een manier om vliegensvlug gebruik te maken van "
+"webzoekmachines. Bijvoorbeeld: u voert \"duckduckgo:computer\" of \"dd:"
+"computer\" in en uw webbrowser zal een zoekopdracht op DuckDuckGo voor u "
+"doen voor \"computer\". Nog makkelijker: druk gewoon op Alt-F2 (als u deze "
+"toetsenbordbinding niet gewijzigd hebt) en typ de zoekopdracht in het "
+"venster \"Commando uitvoeren\"."

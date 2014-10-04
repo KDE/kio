@@ -1,0 +1,66 @@
+# translation of kcmkurifilt.po to
+# translation of kcmkurifilt.po to Français
+# traduction de kcmkurifilt.po en Français
+# Copyright (C) 2002, 2003, 2004, 2005, 2008 Free Software Foundation, Inc.
+# Gérard Delafond <gerard@delafond.org>, 2002, 2004.
+# Matthieu Robin <kde@macolu.org>, 2003, 2004.
+# Matthieu Robin <kde@macolu.org>, 2004.
+# Nicolas Ternisien <nicolas.ternisien@gmail.com>, 2005, 2010.
+# Sébastien Renard <Sebastien.Renard@digitalfox.org>, 2008.
+# xavier <xavier.besnard@neuf.fr>, 2012, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kcmkurifilt\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-14 08:12+0000\n"
+"PO-Revision-Date: 2013-04-12 14:42+0200\n"
+"Last-Translator: xavier <ktranslator31@yahoo.fr>\n"
+"Language-Team: French <kde-i18n-doc@kde.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 1.5\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: main.cpp:41
+msgid "Web Shortcuts"
+msgstr ""
+
+#: main.cpp:48
+#, fuzzy
+#| msgid ""
+#| "<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
+#| "browsing features of KDE. <h2>Web Shortcuts</h2>Web Shortcuts are a quick "
+#| "way of using Web search engines. For example, type \"altavista:frobozz\" "
+#| "or \"av:frobozz\" and Konqueror will do a search on AltaVista for "
+#| "\"frobozz\". Even easier: just press Alt+F2 (if you have not changed this "
+#| "shortcut) and enter the shortcut in the KDE Run Command dialog."
+msgid ""
+"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
+"browsing features of KDE. <h2>Web Shortcuts</h2>Web Shortcuts are a quick "
+"way of using Web search engines. For example, type \"duckduckgo:frobozz\" or "
+"\"dd:frobozz\" and your web browser will do a search on DuckDuckGo for "
+"\"frobozz\". Even easier: just press Alt+F2 (if you have not changed this "
+"keyboard shortcut) and enter the shortcut in the Run Command dialog."
+msgstr ""
+"<h1>Navigation avancée</h1> Dans ce module, vous pouvez configurer certaines "
+"fonctionnalités supplémentaires de navigation du navigateur Konqueror. "
+"<h2>Raccourcis web</h2> Les raccourcis Web sont une façon très rapide "
+"d'accéder aux moteurs de recherche. Saisissez par exemple « altavista : "
+"KDE » ou « av : KDE » et Konqueror effectuera pour vous une recherche sur "
+"AltaVista du mot « KDE ». Encore plus simple : appuyez sur « Alt-F2 » (si "
+"vous n'avez pas modifié ce raccourci) et saisissez votre requête dans la "
+"boîte de dialogue d'exécution de commande de KDE."
