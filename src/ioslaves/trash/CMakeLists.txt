@@ -35,7 +35,8 @@ target_link_libraries(kio_trash
   KF5::ConfigCore
   KF5::ConfigGui
 )
-install(TARGETS kio_trash  DESTINATION ${PLUGIN_INSTALL_DIR} )
+set_target_properties(kio_trash PROPERTIES OUTPUT_NAME "trash")
+install(TARGETS kio_trash  DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kio )
 
 set(ktrash_SRCS ktrash.cpp )
 
