@@ -23,10 +23,7 @@
 #include "discspaceutil.h"
 #include "trashsizecache.h"
 
-#include <klocale.h>
-#include <kde_file.h>
- #include <KLocalizedString>
-#include <kio/global.h>
+#include <KLocalizedString>
 #include <kio/job.h>
 #include <kio/chmodjob.h>
 #include <kio/copyjob.h>
@@ -34,9 +31,7 @@
 #include <qdebug.h>
 #include <QUrl>
 #include <kdirnotify.h>
-#include <kglobal.h>
-#include <kstandarddirs.h>
-#include <kglobalsettings.h>
+#include <KSharedConfig>
 #include <kfileitem.h>
 #include <kconfiggroup.h>
 #include <kmountpoint.h>
@@ -70,8 +65,8 @@ TrashImpl::TrashImpl() :
     // so better have a separate one, for faster parsing by e.g. kmimetype.cpp
     m_config(QString::fromLatin1("trashrc"), KConfig::SimpleConfig)
 {
-    KDE_struct_stat buff;
-    if ( KDE_lstat( QFile::encodeName( QDir::homePath() ), &buff ) == 0 ) {
+    QT_STATBUF buff;
+    if ( QT_LSTAT( QFile::encodeName( QDir::homePath() ), &buff ) == 0 ) {
         m_homeDevice = buff.st_dev;
     } else {
         qDebug() << "Should never happen: couldn't stat $HOME " << strerror( errno ) << endl;
@@ -92,18 +87,17 @@ int TrashImpl::testDir( const QString &_name ) const
     QString name = _name;
     if (name.endsWith(QLatin1Char('/')))
       name.truncate( name.length() - 1 );
-    QByteArray path = QFile::encodeName(name);
 
-    bool ok = KDE_mkdir( path, S_IRWXU ) == 0;
-    if ( !ok && errno == EEXIST ) {
+    bool ok = QDir().mkdir(name);
+    if (!ok && QFile::exists(name)) {
 #if 0 // this would require to use SlaveBase's method to ask the question
         //int ret = KMessageBox::warningYesNo( 0, i18n("%1 is a file, but KDE needs it to be a directory. Move it to %2.orig and create directory?").arg(name).arg(name) );
         //if ( ret == KMessageBox::Yes ) {
 #endif
-            QByteArray new_path = path;
-            path.append(QByteArray(".orig"));
-            if ( KDE_rename( path, new_path) == 0 ) {
-                ok = KDE_mkdir( path, S_IRWXU ) == 0;
+            QString new_name = name;
+            name.append(QStringLiteral(".orig"));
+            if (QFile::rename(name, new_name)) {
+                ok = QDir().mkdir(name);
             } else { // foo.orig existed already. How likely is that?
                 ok = false;
             }
@@ -224,8 +218,8 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     Q_STATIC_ASSERT(sizeof(off_t) >= 8);
 #endif
 
-    KDE_struct_stat buff_src;
-    if ( KDE_lstat( origPath_c.data(), &buff_src ) == -1 ) {
+    QT_STATBUF buff_src;
+    if ( QT_LSTAT( origPath_c.data(), &buff_src ) == -1 ) {
         if ( errno == EACCES )
            error( KIO::ERR_ACCESS_DENIED, origPath );
         else
@@ -254,7 +248,7 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
     QString fileName;
     do {
         qDebug() << "trying to create " << url.path() ;
-        fd = KDE_open( QFile::encodeName( url.path() ), O_WRONLY | O_CREAT | O_EXCL, 0600 );
+        fd = ::open( QFile::encodeName( url.path() ), O_WRONLY | O_CREAT | O_EXCL, 0600 );
         if ( fd < 0 ) {
             if (errno == EEXIST ) {
                 fileName = url.fileName();
@@ -310,7 +304,9 @@ bool TrashImpl::createInfo( const QString& origPath, int& trashId, QString& file
 
 QString TrashImpl::makeRelativePath( const QString& topdir, const QString& path )
 {
-    const QString realPath = KStandardDirs::realFilePath( path );
+    QString realPath = QFileInfo(path).canonicalFilePath();
+    if (realPath.isEmpty()) // shouldn't happen
+        realPath = path;
     // topdir ends with '/'
 #ifndef Q_OS_WIN
     if ( realPath.startsWith( topdir ) ) {
@@ -485,7 +481,9 @@ bool TrashImpl::copy( const QString& src, const QString& dest )
 bool TrashImpl::directRename( const QString& src, const QString& dest )
 {
     qDebug() << src << " -> " << dest;
-    if ( KDE_rename( QFile::encodeName( src ), QFile::encodeName( dest ) ) != 0 ) {
+    // Do not use QFile::rename here, we need to be able to move broken symlinks too
+    // (and we need to make sure errno is set)
+    if (::rename( QFile::encodeName( src ), QFile::encodeName( dest ) ) != 0 ) {
         if (errno == EXDEV) {
             error( KIO::ERR_UNSUPPORTED_ACTION, QString::fromLatin1("rename") );
         } else {
@@ -532,8 +530,8 @@ bool TrashImpl::del( int trashId, const QString& fileId )
 
     QByteArray info_c = QFile::encodeName(info);
 
-    KDE_struct_stat buff;
-    if ( KDE_lstat( info_c.data(), &buff ) == -1 ) {
+    QT_STATBUF buff;
+    if ( QT_LSTAT( info_c.data(), &buff ) == -1 ) {
         if ( errno == EACCES )
             error( KIO::ERR_ACCESS_DENIED, file );
         else
@@ -758,10 +756,10 @@ bool TrashImpl::isEmpty() const
         DIR *dp = opendir( QFile::encodeName( infoPath ) );
         if ( dp )
         {
-            KDE_struct_dirent *ep;
-            ep = KDE_readdir( dp );
-            ep = KDE_readdir( dp ); // ignore '.' and '..' dirent
-            ep = KDE_readdir( dp ); // look for third file
+            struct dirent *ep;
+            ep = readdir( dp );
+            ep = readdir( dp ); // ignore '.' and '..' dirent
+            ep = readdir( dp ); // look for third file
             closedir( dp );
             if ( ep != 0 ) {
                 //qDebug() << ep->d_name << " in " << infoPath << " -> not empty";
@@ -813,8 +811,8 @@ int TrashImpl::findTrashDirectory( const QString& origPath )
 {
     qDebug() << origPath;
     // First check if same device as $HOME, then we use the home trash right away.
-    KDE_struct_stat buff;
-    if ( KDE_lstat( QFile::encodeName( origPath ), &buff ) == 0
+    QT_STATBUF buff;
+    if ( QT_LSTAT( QFile::encodeName( origPath ), &buff ) == 0
          && buff.st_dev == m_homeDevice )
         return 0;
 
@@ -916,9 +914,9 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
     const QByteArray rootTrashDir_c = QFile::encodeName( rootTrashDir );
     // Can't use QFileInfo here since we need to test for the sticky bit
     uid_t uid = getuid();
-    KDE_struct_stat buff;
+    QT_STATBUF buff;
     const unsigned int requiredBits = S_ISVTX; // Sticky bit required
-    if ( KDE_lstat( rootTrashDir_c, &buff ) == 0 ) {
+    if ( QT_LSTAT( rootTrashDir_c, &buff ) == 0 ) {
         if ( (S_ISDIR(buff.st_mode)) // must be a dir
              && (!S_ISLNK(buff.st_mode)) // not a symlink
              && ((buff.st_mode & requiredBits) == requiredBits)
@@ -926,7 +924,7 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
             ) {
             const QString trashDir = rootTrashDir + QLatin1Char('/') + QString::number( uid );
             const QByteArray trashDir_c = QFile::encodeName( trashDir );
-            if ( KDE_lstat( trashDir_c, &buff ) == 0 ) {
+            if ( QT_LSTAT( trashDir_c, &buff ) == 0 ) {
                 if ( (buff.st_uid == uid) // must be owned by user
                      && (S_ISDIR(buff.st_mode)) // must be a dir
                      && (!S_ISLNK(buff.st_mode)) // not a symlink
@@ -946,7 +944,7 @@ QString TrashImpl::trashForMountPoint( const QString& topdir, bool createIfNeede
     // (2) $topdir/.Trash-$uid
     const QString trashDir = topdir + QString::fromLatin1("/.Trash-") + QString::number( uid );
     const QByteArray trashDir_c = QFile::encodeName( trashDir );
-    if ( KDE_lstat( trashDir_c, &buff ) == 0 )
+    if ( QT_LSTAT( trashDir_c, &buff ) == 0 )
     {
         if ( (buff.st_uid == uid) // must be owned by user
              && (S_ISDIR(buff.st_mode)) // must be a dir
@@ -981,14 +979,14 @@ int TrashImpl::idForTrashDirectory( const QString& trashDir ) const
 bool TrashImpl::initTrashDirectory( const QByteArray& trashDir_c ) const
 {
     qDebug() << trashDir_c;
-    if ( KDE_mkdir( trashDir_c, 0700 ) != 0 )
+    if ( mkdir( trashDir_c, 0700 ) != 0 )
         return false;
     qDebug() ;
     // This trash dir will be useable only if the directory is owned by user.
     // In theory this is the case, but not on e.g. USB keys...
     uid_t uid = getuid();
-    KDE_struct_stat buff;
-    if ( KDE_lstat( trashDir_c, &buff ) != 0 )
+    QT_STATBUF buff;
+    if ( QT_LSTAT( trashDir_c, &buff ) != 0 )
         return false; // huh?
     if ( (buff.st_uid == uid) // must be owned by user
          && ((buff.st_mode & 0777) == 0700) ) { // rwx for user, --- for group and others

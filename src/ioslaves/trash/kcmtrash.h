@@ -28,7 +28,7 @@ class QDoubleSpinBox;
 class QFrame;
 class QLabel;
 class QListWidgetItem;
-class KIntSpinBox;
+class QSpinBox;
 class TrashImpl;
 
 /**
@@ -57,7 +57,7 @@ class TrashConfigModule : public KCModule
         void setupGui();
 
         QCheckBox *mUseTimeLimit;
-        KIntSpinBox *mDays;
+        QSpinBox *mDays;
         QCheckBox *mUseSizeLimit;
         QWidget *mSizeWidget;
         QDoubleSpinBox *mPercent;

@@ -20,7 +20,7 @@
 #ifndef TRASHIMPL_H
 #define TRASHIMPL_H
 
-#include <kio/jobclasses.h>
+#include <kio/job.h>
 #include <kconfig.h>
 
 #include <QDateTime>

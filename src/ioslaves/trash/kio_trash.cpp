@@ -22,13 +22,11 @@
 #include "kio_trash.h"
 #include <kio/job.h>
 #include <kio/jobuidelegateextension.h>
+#include <KLocalizedString>
 
-#include <qdebug.h>
-#include <klocale.h>
-#include <kde_file.h>
-#include <kcomponentdata.h>
-#include <kmimetype.h>
-
+#include <QDebug>
+#include <QMimeDatabase>
+#include <QMimeType>
 #include <QCoreApplication>
 #include <QDataStream>
 #include <QFile>
@@ -40,11 +38,11 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <stdlib.h>
+
 extern "C" {
     int Q_DECL_EXPORT kdemain( int argc, char **argv )
     {
         // necessary to use other kio slaves
-        KComponentData componentData("kio_trash" );
         QCoreApplication app(argc, argv);
 
         KIO::setDefaultJobUiDelegateExtension(0);
@@ -108,9 +106,9 @@ void TrashProtocol::restore( const QUrl& trashURL )
     
     // Check that the destination directory exists, to improve the error code in case it doesn't.
     const QString destDir = dest.adjusted(QUrl::RemoveFilename).path();
-    KDE_struct_stat buff;
+    QT_STATBUF buff;
 
-    if ( KDE_lstat( QFile::encodeName( destDir ), &buff ) == -1 ) {
+    if ( QT_LSTAT( QFile::encodeName( destDir ), &buff ) == -1 ) {
         error( KIO::ERR_SLAVE_DEFINED,
                i18n( "The directory %1 does not exist anymore, so it is not possible to restore this item to its original location. "
                      "You can either recreate that directory and use the restore operation again, or drag the item anywhere else to restore it.", destDir ) );
@@ -391,8 +389,8 @@ void TrashProtocol::listDir(const QUrl& url)
 bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& displayFileName, const QString& internalFileName, KIO::UDSEntry& entry, const TrashedFileInfo& info )
 {
     QByteArray physicalPath_c = QFile::encodeName( physicalPath );
-    KDE_struct_stat buff;
-    if ( KDE_lstat( physicalPath_c, &buff ) == -1 ) {
+    QT_STATBUF buff;
+    if ( QT_LSTAT( physicalPath_c, &buff ) == -1 ) {
         qWarning() << "couldn't stat " << physicalPath ;
         return false;
     }
@@ -428,9 +426,10 @@ bool TrashProtocol::createUDSEntry( const QString& physicalPath, const QString& 
     //if ( !url.isEmpty() )
     //    entry.insert( KIO::UDSEntry::UDS_URL, url );
 
-    KMimeType::Ptr mt = KMimeType::findByPath( physicalPath, buff.st_mode );
-    if ( mt )
-        entry.insert( KIO::UDSEntry::UDS_MIME_TYPE, mt->name() );
+    QMimeDatabase db;
+    QMimeType mt = db.mimeTypeForFile(physicalPath);
+    if (mt.isValid())
+        entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, mt.name());
     entry.insert( KIO::UDSEntry::UDS_ACCESS, access );
     entry.insert( KIO::UDSEntry::UDS_SIZE, buff.st_size );
     entry.insert( KIO::UDSEntry::UDS_USER, m_userName ); // assumption

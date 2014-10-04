@@ -14,7 +14,13 @@ add_executable(testtrash ${testtrash_SRCS})
 ecm_mark_as_test(testtrash)
 add_test(testtrash testtrash)
 
-target_link_libraries(testtrash KF5::I18n Qt5::DBus KF5::KIOCore KF5::Solid Qt5::Test KF5::KDE4Support)
+target_link_libraries(testtrash
+   KF5::I18n
+   Qt5::DBus
+   KF5::KIOCore
+   KF5::Solid
+   Qt5::Test
+)
 
 ### next target ###
 

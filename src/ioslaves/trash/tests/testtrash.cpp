@@ -22,15 +22,12 @@
 #include "kio_trash.h"
 #include "testtrash.h"
 #include <kprotocolinfo.h>
-#include <ktemporaryfile.h>
+#include <QTemporaryFile>
 
-#include <klocale.h>
-#include <kio/netaccess.h>
 #include <kio/job.h>
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
 #include <QDebug>
-#include <kcmdlineargs.h>
 #include <kconfiggroup.h>
 
 #include <QDir>
@@ -42,9 +39,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <kmimetype.h>
 #include <kfileitem.h>
-#include <kstandarddirs.h>
 #include <kio/chmodjob.h>
 #include <kio/directorysizejob.h>
 #include <QStandardPaths>
@@ -128,10 +123,10 @@ static void removeDirRecursive( const QString& dir )
         KFileItemList fileItemList;
         fileItemList.append( fileItem );
         KIO::ChmodJob* chmodJob = KIO::chmod( fileItemList, 0200, 0200, QString(), QString(), true /*recursive*/, KIO::HideProgressInfo );
-        KIO::NetAccess::synchronousRun( chmodJob, 0 );
+        chmodJob->exec();
 
         KIO::Job* delJob = KIO::del(u, KIO::HideProgressInfo);
-        if (!KIO::NetAccess::synchronousRun(delJob, 0))
+        if (!delJob->exec())
             qFatal("Couldn't delete %s", qPrintable(dir));
     }
 }
@@ -315,10 +310,9 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
 
     // test
     KIO::Job* job = KIO::move( u, QUrl("trash:/"), KIO::HideProgressInfo );
-    QMap<QString, QString> metaData;
-    bool ok = KIO::NetAccess::synchronousRun( job, 0, 0, 0, &metaData );
+    bool ok = job->exec();
     if ( !ok )
-        qCritical() << "moving " << u << " to trash failed with error " << KIO::NetAccess::lastError() << " " << KIO::NetAccess::lastErrorString() << endl;
+        qCritical() << "moving " << u << " to trash failed with error " << job->error() << " " << job->errorString() << endl;
     QVERIFY( ok );
     if (origFilePath.startsWith(QLatin1String("/tmp")) && m_tmpIsWritablePartition) {
         qDebug() << " TESTS SKIPPED";
@@ -333,6 +327,7 @@ void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
     // coolo suggests testing that the original file is actually gone, too :)
     QVERIFY( !QFile::exists( origFilePath ) );
 
+    QMap<QString, QString> metaData = job->metaData();
     QVERIFY( !metaData.isEmpty() );
     bool found = false;
     QMap<QString, QString>::ConstIterator it = metaData.constBegin();
@@ -416,9 +411,9 @@ void TestTrash::trashFileIntoOtherPartition()
 
     // test
     KIO::Job* job = KIO::move( u, QUrl("trash:/"), KIO::HideProgressInfo );
-    QMap<QString, QString> metaData;
-    bool ok = KIO::NetAccess::synchronousRun( job, 0, 0, 0, &metaData );
+    bool ok = job->exec();
     QVERIFY( ok );
+    QMap<QString, QString> metaData = job->metaData();
     // Note that the Path stored in the info file is relative, on other partitions (#95652)
     checkInfoFile(m_otherPartitionTrashDir + QString::fromLatin1("/info/") + fileId + QString::fromLatin1(".trashinfo"), fileName);
 
@@ -453,11 +448,11 @@ void TestTrash::trashFileOwnedByRoot()
 
     KIO::CopyJob* job = KIO::move( u, QUrl("trash:/"), KIO::HideProgressInfo );
     job->setUiDelegate(0); // no skip dialog, thanks
-    QMap<QString, QString> metaData;
-    bool ok = KIO::NetAccess::synchronousRun( job, 0, 0, 0, &metaData );
+    bool ok = job->exec();
     QVERIFY( !ok );
+    QMap<QString, QString> metaData = job->metaData();
 
-    QVERIFY( KIO::NetAccess::lastError() == KIO::ERR_ACCESS_DENIED );
+    QVERIFY( job->error() == KIO::ERR_ACCESS_DENIED );
     const QString infoPath(m_trashDir + QString::fromLatin1("/info/") + fileId + QString::fromLatin1(".trashinfo"));
     QVERIFY( !QFile::exists( infoPath ) );
 
@@ -627,22 +622,22 @@ void TestTrash::tryRenameInsideTrash()
 {
     qDebug() << " with file_move";
     KIO::Job* job = KIO::file_move( QUrl("trash:/0-tryRenameInsideTrash"), QUrl("trash:/foobar"), -1, KIO::HideProgressInfo );
-    bool worked = KIO::NetAccess::synchronousRun( job, 0 );
+    bool worked = job->exec();
     QVERIFY( !worked );
-    QVERIFY( KIO::NetAccess::lastError() == KIO::ERR_CANNOT_RENAME );
+    QVERIFY( job->error() == KIO::ERR_CANNOT_RENAME );
 
     qDebug() << " with move";
     job = KIO::move( QUrl("trash:/0-tryRenameInsideTrash"), QUrl("trash:/foobar"), KIO::HideProgressInfo );
-    worked = KIO::NetAccess::synchronousRun( job, 0 );
+    worked = job->exec();
     QVERIFY( !worked );
-    QVERIFY( KIO::NetAccess::lastError() == KIO::ERR_CANNOT_RENAME );
+    QVERIFY( job->error() == KIO::ERR_CANNOT_RENAME );
 }
 
 void TestTrash::delRootFile()
 {
     // test deleting a trashed file
     KIO::Job* delJob = KIO::del(QUrl("trash:/0-fileFromHome"), KIO::HideProgressInfo);
-    bool ok = KIO::NetAccess::synchronousRun(delJob, 0);
+    bool ok = delJob->exec();
     QVERIFY( ok );
 
     QFileInfo file( m_trashDir + QString::fromLatin1("/files/fileFromHome") );
@@ -659,9 +654,9 @@ void TestTrash::delFileInDirectory()
 {
     // test deleting a file inside a trashed directory -> not allowed
     KIO::Job* delJob = KIO::del(QUrl("trash:/0-trashDirFromHome/testfile"), KIO::HideProgressInfo);
-    bool ok = KIO::NetAccess::synchronousRun(delJob, 0);
+    bool ok = delJob->exec();
     QVERIFY( !ok );
-    QVERIFY( KIO::NetAccess::lastError() == KIO::ERR_ACCESS_DENIED );
+    QVERIFY( delJob->error() == KIO::ERR_ACCESS_DENIED );
 
     QFileInfo dir( m_trashDir + QString::fromLatin1("/files/trashDirFromHome") );
     QVERIFY( dir.exists() );
@@ -675,7 +670,7 @@ void TestTrash::delDirectory()
 {
     // test deleting a trashed directory
     KIO::Job* delJob = KIO::del(QUrl("trash:/0-trashDirFromHome"), KIO::HideProgressInfo);
-    bool ok = KIO::NetAccess::synchronousRun(delJob, 0);
+    bool ok = delJob->exec();
     QVERIFY( ok );
 
     QFileInfo dir( m_trashDir + QString::fromLatin1("/files/trashDirFromHome") );
@@ -690,11 +685,10 @@ void TestTrash::delDirectory()
     trashDirectory( homeTmpDir() + dirName, dirName );
 }
 
-// KIO::NetAccess::stat() doesn't set HideProgressInfo - but it's not much work to do it ourselves:
 static bool MyNetAccess_stat(const QUrl& url, KIO::UDSEntry& entry)
 {
     KIO::StatJob * statJob = KIO::stat( url, KIO::HideProgressInfo );
-    bool ok = KIO::NetAccess::synchronousRun(statJob, 0);
+    bool ok = statJob->exec();
     if (ok)
         entry = statJob->statResult();
     return ok;
@@ -793,7 +787,7 @@ void TestTrash::copyFromTrash( const QString& fileId, const QString& destPath, c
     // A dnd would use copy(), but we use copyAs to ensure the final filename
     //qDebug() << "copyAs:" << src << " -> " << dest;
     KIO::Job* job = KIO::copyAs( src, dest, KIO::HideProgressInfo );
-    bool ok = KIO::NetAccess::synchronousRun( job, 0 );
+    bool ok = job->exec();
     QVERIFY( ok );
     QString infoFile( m_trashDir + QString::fromLatin1("/info/") + fileId + QString::fromLatin1(".trashinfo") );
     QVERIFY( QFile::exists(infoFile) );
@@ -851,7 +845,7 @@ void TestTrash::moveFromTrash( const QString& fileId, const QString& destPath, c
 
     // A dnd would use move(), but we use moveAs to ensure the final filename
     KIO::Job* job = KIO::moveAs( src, dest, KIO::HideProgressInfo );
-    bool ok = KIO::NetAccess::synchronousRun( job, 0 );
+    bool ok = job->exec();
     QVERIFY( ok );
     QString infoFile( m_trashDir + "/info/" + fileId + ".trashinfo" );
     QVERIFY( !QFile::exists( infoFile ) );
@@ -908,10 +902,10 @@ void TestTrash::trashDirectoryOwnedByRoot()
 
     KIO::CopyJob* job = KIO::move( u, QUrl("trash:/"), KIO::HideProgressInfo );
     job->setUiDelegate(0); // no skip dialog, thanks
-    QMap<QString, QString> metaData;
-    bool ok = KIO::NetAccess::synchronousRun( job, 0, 0, 0, &metaData );
+    bool ok = job->exec();
     QVERIFY( !ok );
-    const int err = KIO::NetAccess::lastError();
+    QMap<QString, QString> metaData = job->metaData();
+    const int err = job->error();
     QVERIFY( err == KIO::ERR_ACCESS_DENIED
             || err == KIO::ERR_CANNOT_OPEN_FOR_READING );
 
@@ -936,12 +930,12 @@ void TestTrash::getFile()
     const QString fileId = "fileFromHome 1";
     const QUrl url = TrashImpl::makeURL( 0, fileId, QString() );
 
-    KTemporaryFile tmpFile;
+    QTemporaryFile tmpFile;
     QVERIFY(tmpFile.open());
     const QString tmpFilePath = tmpFile.fileName();
 
     KIO::Job* getJob = KIO::file_copy(url, QUrl::fromLocalFile(tmpFilePath), -1, KIO::Overwrite | KIO::HideProgressInfo);
-    bool ok = KIO::NetAccess::synchronousRun(getJob, 0);
+    bool ok = getJob->exec();
     if (!ok) {
         qDebug() << getJob->errorString();
     }
@@ -969,7 +963,7 @@ void TestTrash::restoreFile()
     QDataStream stream( &packedArgs, QIODevice::WriteOnly );
     stream << (int)3 << url;
     KIO::Job* job = KIO::special( url, packedArgs, KIO::HideProgressInfo );
-    bool ok = KIO::NetAccess::synchronousRun( job, 0 );
+    bool ok = job->exec();
     QVERIFY( ok );
 
     QVERIFY( !QFile::exists( infoFile ) );
@@ -995,10 +989,10 @@ void TestTrash::restoreFileFromSubDir()
     QDataStream stream( &packedArgs, QIODevice::WriteOnly );
     stream << (int)3 << url;
     KIO::Job* job = KIO::special( url, packedArgs, KIO::HideProgressInfo );
-    bool ok = KIO::NetAccess::synchronousRun( job, 0 );
+    bool ok = job->exec();
     QVERIFY( !ok );
     // dest dir doesn't exist -> error message
-    QVERIFY( KIO::NetAccess::lastError() == KIO::ERR_SLAVE_DEFINED );
+    QVERIFY( job->error() == KIO::ERR_SLAVE_DEFINED );
 
     // check that nothing happened
     QVERIFY( QFile::exists( infoFile ) );
@@ -1014,7 +1008,7 @@ void TestTrash::restoreFileToDeletedDirectory()
     trashFileFromHome();
     // Delete orig dir
     KIO::Job* delJob = KIO::del(QUrl::fromLocalFile(homeTmpDir()), KIO::HideProgressInfo);
-    bool delOK = KIO::NetAccess::synchronousRun(delJob, 0);
+    bool delOK = delJob->exec();
     QVERIFY( delOK );
 
     const QString fileId = "fileFromHome";
@@ -1029,10 +1023,10 @@ void TestTrash::restoreFileToDeletedDirectory()
     QDataStream stream( &packedArgs, QIODevice::WriteOnly );
     stream << (int)3 << url;
     KIO::Job* job = KIO::special( url, packedArgs, KIO::HideProgressInfo );
-    bool ok = KIO::NetAccess::synchronousRun( job, 0 );
+    bool ok = job->exec();
     QVERIFY( !ok );
     // dest dir doesn't exist -> error message
-    QVERIFY( KIO::NetAccess::lastError() == KIO::ERR_SLAVE_DEFINED );
+    QVERIFY( job->error() == KIO::ERR_SLAVE_DEFINED );
 
     // check that nothing happened
     QVERIFY( QFile::exists( infoFile ) );
@@ -1050,7 +1044,7 @@ void TestTrash::listRootDir()
     KIO::ListJob* job = KIO::listDir( QUrl("trash:/"), KIO::HideProgressInfo );
     connect( job, SIGNAL( entries( KIO::Job*, const KIO::UDSEntryList& ) ),
              SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
-    bool ok = KIO::NetAccess::synchronousRun( job, 0 );
+    bool ok = job->exec();
     QVERIFY( ok );
     qDebug() << "listDir done - m_entryCount=" << m_entryCount;
     QVERIFY( m_entryCount > 1 );
@@ -1070,7 +1064,7 @@ void TestTrash::listRecursiveRootDir()
     KIO::ListJob* job = KIO::listRecursive( QUrl("trash:/"), KIO::HideProgressInfo );
     connect( job, SIGNAL( entries( KIO::Job*, const KIO::UDSEntryList& ) ),
              SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
-    bool ok = KIO::NetAccess::synchronousRun( job, 0 );
+    bool ok = job->exec();
     QVERIFY( ok );
     qDebug() << "listDir done - m_entryCount=" << m_entryCount;
     QVERIFY( m_entryCount > 1 );
@@ -1097,7 +1091,7 @@ void TestTrash::listSubDir()
     KIO::ListJob* job = KIO::listDir( QUrl("trash:/0-trashDirFromHome"), KIO::HideProgressInfo );
     connect( job, SIGNAL( entries( KIO::Job*, const KIO::UDSEntryList& ) ),
              SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
-    bool ok = KIO::NetAccess::synchronousRun( job, 0 );
+    bool ok = job->exec();
     QVERIFY( ok );
     qDebug() << "listDir done - m_entryCount=" << m_entryCount;
     QCOMPARE(m_entryCount, 3);
@@ -1145,7 +1139,7 @@ void TestTrash::emptyTrash()
     QDataStream stream( &packedArgs, QIODevice::WriteOnly );
     stream << (int)1;
     KIO::Job* job = KIO::special( QUrl( "trash:/" ), packedArgs, KIO::HideProgressInfo );
-    bool ok = KIO::NetAccess::synchronousRun( job, 0 );
+    bool ok = job->exec();
     QVERIFY( ok );
 
     KConfig cfg( "trashrc", KConfig::SimpleConfig );

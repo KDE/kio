@@ -29,12 +29,13 @@ endif()
 add_library(kio_trash MODULE ${kio_trash_PART_SRCS})
 
 target_link_libraries(kio_trash
-	KF5::Solid
-        KF5::KDE4Support
-	KF5::KIOCore
-        Qt5::DBus
-        KF5::I18n KF5::ConfigCore KF5::ConfigGui 
-        )
+  KF5::Solid
+  KF5::KIOCore
+  Qt5::DBus
+  KF5::I18n
+  KF5::ConfigCore
+  KF5::ConfigGui
+)
 install(TARGETS kio_trash  DESTINATION ${PLUGIN_INSTALL_DIR} )
 
 set(ktrash_SRCS ktrash.cpp )
@@ -44,10 +45,11 @@ target_compile_definitions(ktrash5 PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}
 ecm_mark_nongui_executable(ktrash5)
 
 target_link_libraries(ktrash5
-        KF5::KDE4Support
-	KF5::KIOCore
-        KF5::I18n KF5::ConfigCore KF5::ConfigGui
-        )
+  KF5::KIOCore
+  KF5::I18n
+  KF5::ConfigCore
+  KF5::ConfigGui
+)
 
 install(TARGETS ktrash5 ${INSTALL_TARGETS_DEFAULT_ARGS})
 
@@ -57,8 +59,12 @@ install(TARGETS ktrash5 ${INSTALL_TARGETS_DEFAULT_ARGS})
 if(NOT WIN32)
     set(kcm_trash_PART_SRCS kcmtrash.cpp ${trashcommon_PART_SRCS})
     add_library(kcm_trash MODULE ${kcm_trash_PART_SRCS})
-    target_link_libraries(kcm_trash  Qt5::DBus  KF5::KDE4Support
-        ${KDECLARATIVE_LIBRARIES} KF5::I18n KF5::ConfigWidgets KF5::KIOCore KF5::Solid)
+    target_link_libraries(kcm_trash
+       Qt5::DBus
+       KF5::I18n
+       KF5::ConfigWidgets
+       KF5::KIOCore
+       KF5::Solid)
 
     install(TARGETS kcm_trash DESTINATION ${PLUGIN_INSTALL_DIR})
 endif()

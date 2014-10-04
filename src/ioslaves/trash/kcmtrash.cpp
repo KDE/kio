@@ -34,12 +34,11 @@
 #include <kconfiggroup.h>
  #include <KLocalizedString>
 #include <qdialog.h>
-#include <kglobal.h>
 #include <qicon.h>
-#include <klocale.h>
 #include <kpluginfactory.h>
 #include <kpluginloader.h>
-#include <KIntSpinBox>
+#include <KFormat>
+#include <QSpinBox>
 #include <QDebug>
 
 K_PLUGIN_FACTORY( KCMTrashConfigFactory, registerPlugin<TrashConfigModule>( "trash" ); )
@@ -118,7 +117,8 @@ void TrashConfigModule::percentChanged( double percent )
     qulonglong partitionSize = util.size();
     double size = ((double)(partitionSize/100))*percent;
 
-    mSizeLabel->setText("(" + KGlobal::locale()->formatByteSize(size, 2) + ")");
+    KFormat format;
+    mSizeLabel->setText("(" + format.formatByteSize(size, 2) + ")");
 }
 
 void TrashConfigModule::trashChanged( QListWidgetItem *item )
@@ -155,7 +155,7 @@ void TrashConfigModule::trashChanged( int value )
         mPercent->setValue( 10.0 );
         mLimitReachedAction->setCurrentIndex( 0 );
     }
-    mDays->setSuffix( ki18np( " day", " days" ) );
+    mDays->setSuffix( i18n( " days" ) ); // missing in Qt: plural form handling
 
     percentChanged( mPercent->value() );
 
@@ -249,7 +249,7 @@ void TrashConfigModule::setupGui()
                                      "<para>Check this box to allow <b>automatic deletion</b> of files that are older than the value specified. "
                                      "Leave this disabled to <b>not</b> automatically delete any items after a certain timespan</para>" ) );
     daysLayout->addWidget( mUseTimeLimit );
-    mDays = new KIntSpinBox( this );
+    mDays = new QSpinBox( this );
     
     mDays->setRange( 1, 365 );
     mDays->setSingleStep( 1 );
