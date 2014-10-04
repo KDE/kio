@@ -98,7 +98,7 @@ public:
         m_idleSince = QDateTime();
         slaveconnserver->listenForRemote();
         if (!slaveconnserver->isListening()) {
-            qWarning() << "Connection server not listening, could not connect";
+            qWarning() << "KIO Connection server not listening, could not connect";
         }
     }
     ~SlavePrivate()

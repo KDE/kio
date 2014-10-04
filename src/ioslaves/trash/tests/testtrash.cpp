@@ -788,7 +788,7 @@ void TestTrash::copyFromTrash( const QString& fileId, const QString& destPath, c
     //qDebug() << "copyAs:" << src << " -> " << dest;
     KIO::Job* job = KIO::copyAs( src, dest, KIO::HideProgressInfo );
     bool ok = job->exec();
-    QVERIFY( ok );
+    QVERIFY2(ok, qPrintable(job->errorString()));
     QString infoFile( m_trashDir + QString::fromLatin1("/info/") + fileId + QString::fromLatin1(".trashinfo") );
     QVERIFY( QFile::exists(infoFile) );
 
@@ -846,7 +846,7 @@ void TestTrash::moveFromTrash( const QString& fileId, const QString& destPath, c
     // A dnd would use move(), but we use moveAs to ensure the final filename
     KIO::Job* job = KIO::moveAs( src, dest, KIO::HideProgressInfo );
     bool ok = job->exec();
-    QVERIFY( ok );
+    QVERIFY2(ok, qPrintable(job->errorString()));
     QString infoFile( m_trashDir + "/info/" + fileId + ".trashinfo" );
     QVERIFY( !QFile::exists( infoFile ) );
 
@@ -936,10 +936,7 @@ void TestTrash::getFile()
 
     KIO::Job* getJob = KIO::file_copy(url, QUrl::fromLocalFile(tmpFilePath), -1, KIO::Overwrite | KIO::HideProgressInfo);
     bool ok = getJob->exec();
-    if (!ok) {
-        qDebug() << getJob->errorString();
-    }
-    QVERIFY( ok );
+    QVERIFY2(ok, qPrintable(getJob->errorString()));
     // Don't use tmpFile.close()+tmpFile.open() here, the size would still be 0 in the QTemporaryFile object
     // (due to the use of fstat on the old fd). Arguably a bug (I even have a testcase), but probably
     // not fixable without breaking the security of QTemporaryFile...
