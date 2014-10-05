@@ -24,11 +24,12 @@
 #include <kio/job.h>
 
 #include <QDebug>
-#include <kcomponentdata.h>
-#include <kconfiggroup.h>
-
 #include <QCoreApplication>
 #include <QDateTime>
+
+#include <KConfigGroup>
+#include <KLocalizedString>
+
 #include <objbase.h>
 
 extern "C" {
@@ -36,7 +37,6 @@ extern "C" {
     {
         bool bNeedsUninit = ( CoInitializeEx( NULL, COINIT_MULTITHREADED ) == S_OK );
         // necessary to use other kio slaves
-        KComponentData componentData( "kio_trash" );
         QCoreApplication app(argc, argv);
 
         // start the slave
@@ -83,7 +83,7 @@ TrashProtocol::TrashProtocol( const QByteArray& protocol, const QByteArray &pool
 {
     // create a hidden window to receive notifications thorugh window messages
     const QString className = QLatin1String("TrashProtocol_Widget") + QString::number(quintptr(trash_internal_proc));
-    HINSTANCE hi = qWinAppInst();
+    HINSTANCE hi = GetModuleHandle(nullptr);
     WNDCLASS wc;
     memset( &wc, 0, sizeof(WNDCLASS) );
     wc.lpfnWndProc = trash_internal_proc;
@@ -110,8 +110,8 @@ TrashProtocol::TrashProtocol( const QByteArray& protocol, const QByteArray &pool
     isfDesktop->Release();
     SHGetMalloc( &m_pMalloc );
 
-#if 0
     // register for recycle bin notifications, have to do it for *every* single recycle bin
+#if 0
     // TODO: this does not work for devices attached after this loop here...
     DWORD dwSize = GetLogicalDriveStrings(0, NULL);
     LPWSTR pszDrives = (LPWSTR)malloc((dwSize + 2) * sizeof (WCHAR));
@@ -136,7 +136,7 @@ TrashProtocol::~TrashProtocol()
 {
     SHChangeNotifyDeregister( m_hNotifyRBin );
     const QString className = QLatin1String( "TrashProtocol_Widget" ) + QString::number( quintptr( trash_internal_proc ) );
-    UnregisterClass( (LPCWSTR)className.utf16(), qWinAppInst() );
+    UnregisterClass( (LPCWSTR)className.utf16(), GetModuleHandle(nullptr) );
     DestroyWindow( m_notificationWindow );
 
     if( m_pMalloc )
@@ -212,8 +212,8 @@ void TrashProtocol::rename( const QUrl &oldURL, const QUrl &newURL, KIO::JobFlag
 {
     qDebug()<<"TrashProtocol::rename(): old="<<oldURL<<" new="<<newURL<<" overwrite=" << (flags & KIO::Overwrite);
 
-    if( oldURL.protocol() == QLatin1String( "trash" ) && newURL.protocol() == QLatin1String( "trash" ) ) {
-        error( KIO::ERR_CANNOT_RENAME, oldURL.prettyUrl() );
+    if( oldURL.scheme() == QLatin1String( "trash" ) && newURL.scheme() == QLatin1String( "trash" ) ) {
+        error( KIO::ERR_CANNOT_RENAME, oldURL.toDisplayString() );
         return;
     }
 
@@ -224,7 +224,7 @@ void TrashProtocol::copy( const QUrl &src, const QUrl &dest, int /*permissions*/
 {
     qDebug()<<"TrashProtocol::copy(): " << src << " " << dest;
 
-    if( src.protocol() == QLatin1String( "trash" ) && dest.protocol() == QLatin1String( "trash" ) ) {
+    if( src.scheme() == QLatin1String( "trash" ) && dest.scheme() == QLatin1String( "trash" ) ) {
         error( KIO::ERR_UNSUPPORTED_ACTION, i18n( "This file is already in the trash bin." ) );
         return;
     }
@@ -234,7 +234,7 @@ void TrashProtocol::copy( const QUrl &src, const QUrl &dest, int /*permissions*/
 
 void TrashProtocol::copyOrMove( const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action )
 {
-    if( src.protocol() == QLatin1String( "trash" ) && dest.isLocalFile() ) {
+    if( src.scheme() == QLatin1String( "trash" ) && dest.isLocalFile() ) {
         if ( action == Move ) {
             restore( src, dest );
         } else {
@@ -242,7 +242,7 @@ void TrashProtocol::copyOrMove( const QUrl &src, const QUrl &dest, bool overwrit
         }
         // Extracting (e.g. via dnd). Ignore original location stored in info file.
         return;
-    } else if( src.isLocalFile() && dest.protocol() == QLatin1String( "trash" ) ) {
+    } else if( src.isLocalFile() && dest.scheme() == QLatin1String( "trash" ) ) {
         UINT op = ( action == Move ) ? FO_DELETE : FO_COPY;
         if( !doFileOp( src, FO_DELETE, FOF_ALLOWUNDO ) )
           return;
@@ -329,11 +329,11 @@ void TrashProtocol::listRoot()
       entry.insert( KIO::UDSEntry::UDS_EXTRA,
                     QString::fromUtf16( (const unsigned short*)strret.pOleStr ) );
       entry.insert( KIO::UDSEntry::UDS_EXTRA + 1, QDateTime().toString( Qt::ISODate ) );
-      mode_t type = S_IFREG;
+      mode_t type = QT_STAT_REG;
       if ( ( attribs & SFGAO_FOLDER ) == SFGAO_FOLDER )
-          type = S_IFDIR;
+          type = QT_STAT_DIR;
       if ( ( attribs & SFGAO_LINK ) == SFGAO_LINK )
-          type = S_IFLNK;
+          type = QT_STAT_LNK;
       entry.insert( KIO::UDSEntry::UDS_FILE_TYPE, type );
       mode_t access = 0700;
       if ( ( findData.dwFileAttributes & FILE_ATTRIBUTE_READONLY ) == FILE_ATTRIBUTE_READONLY )
@@ -371,7 +371,7 @@ void TrashProtocol::special( const QByteArray & data )
         break;
     }
     default:
-        kWarning(7116) << "Unknown command in special(): " << cmd ;
+        qWarning() << "Unknown command in special(): " << cmd ;
         error( KIO::ERR_UNSUPPORTED_ACTION, QString::number(cmd) );
         break;
     }
@@ -401,7 +401,7 @@ void TrashProtocol::put( const QUrl& url, int /*permissions*/, KIO::JobFlags )
     qDebug() << "put: " << url;
     // create deleted file. We need to get the mtime and original location from metadata...
     // Maybe we can find the info file for url.fileName(), in case ::rename() was called first, and failed...
-    error( KIO::ERR_ACCESS_DENIED, url.prettyUrl() );
+    error( KIO::ERR_ACCESS_DENIED, url.toDisplayString() );
 }
 
 void TrashProtocol::get( const QUrl& url )
