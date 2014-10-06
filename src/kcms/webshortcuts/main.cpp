@@ -38,7 +38,9 @@ KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
     : KCModule(parent, args),
       m_widget(0)
 {
-    KAboutData *about = new KAboutData(QStringLiteral("kcm_webshortcuts"), QString(), i18n("Web Shortcuts"), QStringLiteral("0.1"), KAboutLicense::GPL);
+    KAboutData *about = new KAboutData(QStringLiteral("kcm_webshortcuts"), i18n("Web Shortcuts"),
+                                       QStringLiteral("0.1"), i18n("Configure enhanced browsing features"),
+                                       KAboutLicense::GPL);
     setAboutData(about);
 
     KCModule::setButtons(KCModule::Buttons(KCModule::Default | KCModule::Apply | KCModule::Help));
