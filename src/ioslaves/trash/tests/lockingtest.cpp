@@ -23,7 +23,11 @@
 
 #include "kinterprocesslock.h"
 
+#ifdef Q_OS_WIN
+#include <windows.h>
+#else
 #include <unistd.h>
+#endif
 
 int main(int argc, char **argv)
 {

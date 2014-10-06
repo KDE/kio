@@ -21,10 +21,14 @@
 #ifndef KIO_TRASH_H
 #define KIO_TRASH_H
 
+#define NOMINMAX
+
 #include <kio/slavebase.h>
 #include <windows.h>
 #include <shellapi.h>
 #include <shlobj.h>
+
+#include <KConfig>
 
 namespace KIO { class Job; }
 
