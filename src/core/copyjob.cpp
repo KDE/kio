@@ -356,17 +356,20 @@ void CopyJobPrivate::slotResultStating(KJob *job)
 
     if (destinationState == DEST_NOT_STATED) {
         if (m_dest.isLocalFile()) {   //works for dirs as well
-            QString path = m_dest.toLocalFile();
-            if (m_asMethod) {
+            QString path(m_dest.toLocalFile());
+            QFileInfo fileInfo(path);
+            if (m_asMethod || !fileInfo.exists()) {
                 // In copy-as mode, we want to check the directory to which we're
                 // copying. The target file or directory does not exist yet, which
                 // might confuse KDiskFreeSpaceInfo.
-                path = QFileInfo(path).absolutePath();
+                path = fileInfo.absolutePath();
             }
-            KFileSystemType::Type fsType = KFileSystemType::fileSystemType(path);
-            if (fsType != KFileSystemType::Nfs && fsType != KFileSystemType::Smb  && fsType != KFileSystemType::Ramfs) {
-                m_freeSpace = KDiskFreeSpaceInfo::freeSpaceInfo(path).available();
-            }
+            KDiskFreeSpaceInfo freeSpaceInfo = KDiskFreeSpaceInfo::freeSpaceInfo(path);
+            if (freeSpaceInfo.isValid()) {
+                m_freeSpace = freeSpaceInfo.available();
+            } else {
+                //qDebug() << "Couldn't determine free space information for" << path;
+             }
             //TODO actually preliminary check is even more valuable for slow NFS/SMB mounts,
             //but we need to find a way to report connection errors to user
         }
