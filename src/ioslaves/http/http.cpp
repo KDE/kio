@@ -681,6 +681,7 @@ bool HTTPProtocol::proceedUntilResponseHeader()
             // Also, if we've just loaded an error page there is nothing more to do.
             // In that case we abort to avoid loops; some webservers manage to send 401 and
             // no authentication request. Or an auth request we don't understand.
+            setMetaData(QLatin1String("responsecode"), QString::number(m_request.responseCode));
             return false;
         }
 
