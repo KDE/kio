@@ -1241,7 +1241,7 @@ void HTTPProtocol::mkdir(const QUrl &url, int)
     m_request.url.setQuery(QString());
     m_request.cacheTag.policy = CC_Reload;
 
-    proceedUntilResponseHeader();
+    proceedUntilResponseContent(true);
 
     if (m_request.responseCode == 201) {
         davFinished();
