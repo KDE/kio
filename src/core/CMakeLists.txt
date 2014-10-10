@@ -41,6 +41,7 @@ set(kiocore_SRCS
   copyjob.cpp
   filejob.cpp
   mkdirjob.cpp
+  mkpathjob.cpp
   kpasswdserverloop.cpp
   kpasswdserver.cpp
   kremoteencoding.cpp
@@ -172,6 +173,7 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   EmptyTrashJob
   FileJob
   MkdirJob
+  MkpathJob
   SlaveBase
   SlaveConfig
   HostInfo

@@ -23,6 +23,7 @@ ecm_add_tests(
  kprotocolinfotest.cpp
  ktcpsockettest.cpp
  globaltest.cpp
+ mkpathjobtest.cpp
  threadtest.cpp
  udsentrytest.cpp
  udsentry_benchmark.cpp

@@ -1,0 +1,148 @@
+/* This file is part of the KDE project
+   Copyright (C) 2014 David Faure <faure@kde.org>
+
+   This library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Library General Public
+   License as published by the Free Software Foundation; either
+   version 2 of the License, or (at your option) any later version.
+
+   This library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Library General Public License for more details.
+
+   You should have received a copy of the GNU Library General Public License
+   along with this library; see the file COPYING.LIB.  If not, write to
+   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+   Boston, MA 02110-1301, USA.
+*/
+
+#include <qtest.h>
+#include <QSignalSpy>
+#include <QDir>
+#include <QStandardPaths>
+#include <QTemporaryDir>
+
+#include <KIO/MkpathJob>
+
+class MkpathJobTest : public QObject
+{
+    Q_OBJECT
+
+private Q_SLOTS:
+    void initTestCase()
+    {
+        QStandardPaths::enableTestMode(true);
+
+        // To avoid a runtime dependency on klauncher
+        qputenv("KDE_FORK_SLAVES", "yes");
+
+        QVERIFY(m_tempDir.isValid());
+        m_dir = m_tempDir.path();
+    }
+
+    void cleanupTestCase()
+    {
+    }
+
+    void shouldDoNothingIfExists()
+    {
+        QVERIFY(QFile::exists(m_dir));
+        const QStringList oldEntries = QDir(m_dir).entryList();
+        KIO::Job *job = KIO::mkpath(QUrl::fromLocalFile(m_dir));
+        job->setUiDelegate(0);
+        QSignalSpy spy(job, SIGNAL(directoryCreated(QUrl)));
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
+        QVERIFY(QFile::exists(m_dir));
+        QCOMPARE(spy.count(), 0);
+        QCOMPARE(QDir(m_dir).entryList(), oldEntries); // nothing got created in there
+    }
+
+    void shouldCreateOneDirectory()
+    {
+        QUrl url = QUrl::fromLocalFile(m_dir);
+        url.setPath(url.path() + "/subdir1");
+        KIO::Job *job = KIO::mkpath(url);
+        job->setUiDelegate(0);
+        QSignalSpy spy(job, SIGNAL(directoryCreated(QUrl)));
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
+        QCOMPARE(spy.count(), 1);
+        QVERIFY(QFile::exists(url.toLocalFile()));
+    }
+
+    void shouldCreateTwoDirectories()
+    {
+        QUrl url = QUrl::fromLocalFile(m_dir);
+        url.setPath(url.path() + "/subdir2/subsubdir");
+        KIO::Job *job = KIO::mkpath(url);
+        job->setUiDelegate(0);
+        QSignalSpy spy(job, SIGNAL(directoryCreated(QUrl)));
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
+        QCOMPARE(spy.count(), 2);
+        QVERIFY(QFile::exists(url.toLocalFile()));
+    }
+
+    void shouldDoNothingIfExistsWithBasePath()
+    {
+        const QStringList oldEntries = QDir(m_dir).entryList();
+        QUrl url = QUrl::fromLocalFile(m_dir);
+        KIO::Job *job = KIO::mkpath(url, url);
+        job->setUiDelegate(0);
+        QSignalSpy spy(job, SIGNAL(directoryCreated(QUrl)));
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
+        QCOMPARE(job->totalAmount(KJob::Directories), 0ULL);
+        QCOMPARE(spy.count(), 0);
+        QVERIFY(QFile::exists(url.toLocalFile()));
+        QCOMPARE(QDir(m_dir).entryList(), oldEntries); // nothing got created in there
+    }
+
+    void shouldCreateOneDirectoryWithBasePath()
+    {
+        QUrl url = QUrl::fromLocalFile(m_dir);
+        const QUrl baseUrl = url;
+        url.setPath(url.path() + "/subdir3");
+        KIO::Job *job = KIO::mkpath(url, baseUrl);
+        job->setUiDelegate(0);
+        QSignalSpy spy(job, SIGNAL(directoryCreated(QUrl)));
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
+        QCOMPARE(spy.count(), 1);
+        QCOMPARE(job->totalAmount(KJob::Directories), 1ULL);
+        QVERIFY(QFile::exists(url.toLocalFile()));
+    }
+
+    void shouldCreateTwoDirectoriesWithBasePath()
+    {
+        QUrl url = QUrl::fromLocalFile(m_dir);
+        const QUrl baseUrl = url;
+        url.setPath(url.path() + "/subdir4/subsubdir");
+        KIO::Job *job = KIO::mkpath(url, baseUrl);
+        job->setUiDelegate(0);
+        QSignalSpy spy(job, SIGNAL(directoryCreated(QUrl)));
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
+        QCOMPARE(spy.count(), 2);
+        QCOMPARE(job->totalAmount(KJob::Directories), 2ULL);
+        QVERIFY(QFile::exists(url.toLocalFile()));
+    }
+
+    void shouldIgnoreUnrelatedBasePath()
+    {
+        QUrl url = QUrl::fromLocalFile(m_dir);
+        const QUrl baseUrl = url;
+        url.setPath(url.path() + "/subdir5/subsubdir");
+        KIO::Job *job = KIO::mkpath(url, QUrl::fromLocalFile("/does/not/exist"));
+        job->setUiDelegate(0);
+        QSignalSpy spy(job, SIGNAL(directoryCreated(QUrl)));
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
+        QCOMPARE(spy.count(), 2);
+        QVERIFY(QFile::exists(url.toLocalFile()));
+    }
+
+private:
+    QTemporaryDir m_tempDir;
+    QString m_dir;
+};
+
+QTEST_MAIN(MkpathJobTest)
+
+#include "mkpathjobtest.moc"
+
