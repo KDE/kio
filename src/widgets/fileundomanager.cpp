@@ -152,8 +152,7 @@ CommandRecorder::CommandRecorder(FileUndoManager::CommandType op, const QList<QU
     connect(job, SIGNAL(result(KJob*)),
             this, SLOT(slotResult(KJob*)));
 
-    // TODO whitelist, instead
-    if (op != FileUndoManager::Mkdir && op != FileUndoManager::Put) {
+    if (qobject_cast<KIO::CopyJob *>(job)) {
         connect(job, SIGNAL(copyingDone(KIO::Job*,QUrl,QUrl,QDateTime,bool,bool)),
                 this, SLOT(slotCopyingDone(KIO::Job*,QUrl,QUrl,QDateTime,bool,bool)));
         connect(job, SIGNAL(copyingLinkDone(KIO::Job*,QUrl,QString,QUrl)),
