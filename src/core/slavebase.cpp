@@ -79,6 +79,9 @@ public:
     SlaveBase *q;
     SlaveBasePrivate(SlaveBase *owner): q(owner), m_passwdServer(0)
     {
+        if (!qgetenv("KIOSLAVE_ENABLE_TESTMODE").isEmpty()) {
+            QStandardPaths::enableTestMode(true);
+        }
         pendingListEntries.reserve(KIO_MAX_ENTRIES_PER_BATCH);
     }
     ~SlaveBasePrivate()

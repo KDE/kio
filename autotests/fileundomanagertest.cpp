@@ -215,18 +215,17 @@ void FileUndoManagerTest::initTestCase()
 {
     qDebug("initTestCase");
 
-    // TODO: needs QStandardPaths::isTestModeEnabled() in ksycoca.cpp when launching kbuildsycoca
-    //QStandardPaths::enableTestMode(true);
+    QStandardPaths::enableTestMode(true);
 
     // Get kio_trash to share our environment so that it writes trashrc to the right kdehome
     qputenv("KDE_FORK_SLAVES", "yes");
+    qputenv("KIOSLAVE_ENABLE_TESTMODE", "1");
 
     // Start with a clean base dir
     cleanupTestCase();
 
-    QDir dir; // TT: why not a static method?
     if (!QFile::exists(homeTmpDir())) {
-        bool ok = dir.mkdir(homeTmpDir());
+        bool ok = QDir().mkdir(homeTmpDir());
         if (!ok) {
             qFatal("Couldn't create %s", qPrintable(homeTmpDir()));
         }
