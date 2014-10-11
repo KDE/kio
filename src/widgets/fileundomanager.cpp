@@ -27,6 +27,7 @@
 #include <kio/copyjob.h>
 #include <kio/job.h>
 #include <kio/mkdirjob.h>
+#include <kio/mkpathjob.h>
 #include <kjobwidgets.h>
 #include <klocalizedstring.h>
 #include <kmessagebox.h>
@@ -157,6 +158,9 @@ CommandRecorder::CommandRecorder(FileUndoManager::CommandType op, const QList<QU
                 this, SLOT(slotCopyingDone(KIO::Job*,QUrl,QUrl,QDateTime,bool,bool)));
         connect(job, SIGNAL(copyingLinkDone(KIO::Job*,QUrl,QString,QUrl)),
                 this, SLOT(slotCopyingLinkDone(KIO::Job*,QUrl,QString,QUrl)));
+    } else if (KIO::MkpathJob *mkpathJob = qobject_cast<KIO::MkpathJob *>(job)) {
+        connect(mkpathJob, &KIO::MkpathJob::directoryCreated,
+                this, &CommandRecorder::slotDirectoryCreated);
     }
 }
 
@@ -206,6 +210,18 @@ void CommandRecorder::slotCopyingLinkDone(KIO::Job *, const QUrl &from, const QS
     op.m_src = from;
     op.m_target = target;
     op.m_dst = to;
+    op.m_mtime = QDateTime();
+    m_cmd.m_opStack.prepend(op);
+}
+
+void CommandRecorder::slotDirectoryCreated(const QUrl &dir)
+{
+    BasicOperation op;
+    op.m_valid = true;
+    op.m_type = BasicOperation::Directory;
+    op.m_renamed = false;
+    op.m_src = QUrl();
+    op.m_dst = dir;
     op.m_mtime = QDateTime();
     m_cmd.m_opStack.prepend(op);
 }
@@ -312,6 +328,8 @@ QString FileUndoManager::undoText() const
         return i18n("Und&o: Trash");
     case FileUndoManager::Mkdir:
         return i18n("Und&o: Create Folder");
+    case FileUndoManager::Mkpath:
+        return i18n("Und&o: Create Folder(s)");
     case FileUndoManager::Put:
         return i18n("Und&o: Create File");
     }
@@ -341,6 +359,7 @@ void FileUndoManager::undo()
     UndoCommand cmd = d->m_commands.last();
     assert(cmd.m_valid);
     d->m_current = cmd;
+    const CommandType commandType = cmd.m_type;
 
     BasicOperation::Stack &opStack = d->m_current.m_opStack;
     // Note that opStack is empty for simple operations like Mkdir.
@@ -350,11 +369,13 @@ void FileUndoManager::undo()
     BasicOperation::Stack::Iterator it = opStack.begin();
     for (; it != opStack.end(); ++it) {
         BasicOperation::Type type = (*it).m_type;
-        if (type == BasicOperation::File && d->m_current.m_type == FileUndoManager::Copy) {
+        if (type == BasicOperation::File && commandType == FileUndoManager::Copy) {
+            itemsToDelete.append((*it).m_dst);
+        } else if (commandType == FileUndoManager::Mkpath) {
             itemsToDelete.append((*it).m_dst);
         }
     }
-    if (d->m_current.m_type == FileUndoManager::Mkdir || d->m_current.m_type == FileUndoManager::Put) {
+    if (commandType == FileUndoManager::Mkdir || commandType == FileUndoManager::Put) {
         itemsToDelete.append(d->m_current.m_dst);
     }
     if (!itemsToDelete.isEmpty()) {
@@ -403,7 +424,7 @@ void FileUndoManager::undo()
         }
     }
 
-    if (d->m_current.m_type == FileUndoManager::Put) {
+    if (commandType == FileUndoManager::Put) {
         d->m_fileCleanupStack.append(d->m_current.m_dst);
     }
 

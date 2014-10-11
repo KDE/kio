@@ -29,6 +29,7 @@
 
 #include <kio/copyjob.h>
 #include <kio/job.h>
+#include <kio/mkpathjob.h>
 #include <kio/deletejob.h>
 #include <kio/paste.h>
 #include <kio/restorejob.h>
@@ -477,6 +478,31 @@ void FileUndoManagerTest::testCreateDir()
     m_uiInterface->clear();
     m_uiInterface->setNextReplyToConfirmDeletion(true);
     doUndo();
+
+    QVERIFY(!QFile::exists(path));
+}
+
+void FileUndoManagerTest::testMkpath()
+{
+    const QString parent = srcSubDir() + "mkpath";
+    const QString path = parent + "/subdir";
+    QVERIFY(!QFile::exists(path));
+    const QUrl url = QUrl::fromLocalFile(path);
+
+    KIO::Job *job = KIO::mkpath(url);
+    job->setUiDelegate(0);
+    FileUndoManager::self()->recordJob(FileUndoManager::Mkpath, QList<QUrl>(), url, job);
+    QVERIFY(job->exec());
+    QVERIFY(QFileInfo(path).isDir());
+
+    m_uiInterface->clear();
+    m_uiInterface->setNextReplyToConfirmDeletion(true);
+    doUndo();
+
+    QVERIFY(!FileUndoManager::self()->undoAvailable());
+    QCOMPARE(m_uiInterface->files().count(), 2);   // confirmDeletion was called
+    QCOMPARE(m_uiInterface->files()[0].toLocalFile(), path);
+    QCOMPARE(m_uiInterface->files()[1].toLocalFile(), parent);
 
     QVERIFY(!QFile::exists(path));
 }

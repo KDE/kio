@@ -131,14 +131,15 @@ public:
      *
      * Put: @since 4.7, represents the creation of a file from data in memory.
      *                Used when pasting data from clipboard or drag-n-drop.
+     * Mkpath: @since 5.4, represents a KIO::mkpath() job.
      */
-    enum CommandType { Copy, Move, Rename, Link, Mkdir, Trash, Put };
+    enum CommandType { Copy, Move, Rename, Link, Mkdir, Trash, Put, Mkpath };
 
     /**
      * Record this job while it's happening and add a command for it so that the user can undo it.
      * The signal jobRecordingStarted() is emitted.
      * @param op the type of job - which is also the type of command that will be created for it
-     * @param src list of source urls
+     * @param src list of source urls. This is empty for Mkdir, Mkpath, Put operations.
      * @param dst destination url
      * @param job the job to record
      */
