@@ -116,8 +116,6 @@ public:
 
     void addDirToUpdate(const QUrl &url);
 
-    void undoStep();
-
     void stepMakingDirectories();
     void stepMovingFiles();
     void stepRemovingLinks();
@@ -170,6 +168,7 @@ public Q_SLOTS:
     void slotLock();
     void slotUnlock();
 
+    void undoStep();
     void slotResult(KJob *);
 };
 

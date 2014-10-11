@@ -173,6 +173,9 @@ public Q_SLOTS:
      * Undoes the last command
      * Remember to call uiInterface()->setParentWidget(parentWidget) first,
      * if you have multiple mainwindows.
+     *
+     * This operation is asynchronous.
+     * undoJobFinished will be emitted once the undo is complete.
      */
     void undo();
 
