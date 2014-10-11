@@ -346,19 +346,19 @@ void FileUndoManager::undo()
     // Note that opStack is empty for simple operations like Mkdir.
 
     // Let's first ask for confirmation if we need to delete any file (#99898)
-    QList<QUrl> fileCleanupStack;
+    QList<QUrl> itemsToDelete;
     BasicOperation::Stack::Iterator it = opStack.begin();
     for (; it != opStack.end(); ++it) {
         BasicOperation::Type type = (*it).m_type;
         if (type == BasicOperation::File && d->m_current.m_type == FileUndoManager::Copy) {
-            fileCleanupStack.append((*it).m_dst);
+            itemsToDelete.append((*it).m_dst);
         }
     }
     if (d->m_current.m_type == FileUndoManager::Mkdir || d->m_current.m_type == FileUndoManager::Put) {
-        fileCleanupStack.append(d->m_current.m_dst);
+        itemsToDelete.append(d->m_current.m_dst);
     }
-    if (!fileCleanupStack.isEmpty()) {
-        if (!d->m_uiInterface->confirmDeletion(fileCleanupStack)) {
+    if (!itemsToDelete.isEmpty()) {
+        if (!d->m_uiInterface->confirmDeletion(itemsToDelete)) {
             return;
         }
     }
