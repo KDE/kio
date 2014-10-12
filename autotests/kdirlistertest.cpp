@@ -318,6 +318,7 @@ void KDirListerTest::testNewItemsInSymlink() // #213799
         qDebug() << "Deleting" << (path + fileName);
         QTest::qWait(1000); // for timestamp difference
         QFile::remove(path + fileName);
+        int numTries = 0;
         while (dirLister2.spyItemsDeleted.count() == 0) {
             QVERIFY(++numTries < 10);
             QTest::qWait(200);
@@ -1051,7 +1052,7 @@ void KDirListerTest::testWatchingAfterCopyJob() // #331582
     KIO::Job *job = KIO::moveAs(QUrl::fromLocalFile(oldPath), QUrl::fromLocalFile(newPath), KIO::HideProgressInfo);
     job->exec();
 
-    // Now try to create a second new file in and verify that the
+    // Now try to create a second new file and verify that the
     // dir lister notices it.
     m_items.clear();
     createTestFile(path + "b");
