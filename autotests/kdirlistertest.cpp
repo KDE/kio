@@ -192,8 +192,8 @@ void KDirListerTest::testNewItems()
     int numTries = 0;
     // Give time for KDirWatch to notify us
     while (m_items.count() == 4) {
-        QVERIFY(++numTries < 10);
-        QTest::qWait(200);
+        QVERIFY(++numTries < 20);
+        QTest::qWait(100);
     }
     //qDebug() << "numTries=" << numTries;
     QCOMPARE(m_items.count(), 5);
