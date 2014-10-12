@@ -488,6 +488,7 @@ private:
     // Set of local files that we have changed recently (according to KDirWatch)
     // We temporize the notifications by keeping them 500ms in this list.
     QSet<QString /*path*/> pendingUpdates;
+    QSet<QString /*path*/> pendingDirectoryUpdates;
     // The timer for doing the delayed updates
     QTimer pendingUpdateTimer;
 

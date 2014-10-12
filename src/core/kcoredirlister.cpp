@@ -674,20 +674,13 @@ void KCoreDirListerCache::updateDirectory(const QUrl &_dir)
 
     //qDebug() << urlStr << "listers=" << listers << "holders=" << holders;
 
-    // restart the job for dir if it is running already
     bool killed = false;
     KIO::ListJob *job = jobForUrl(urlStr);
     if (job) {
-        killJob(job);
-        killed = true;
-
-        foreach (KCoreDirLister *kdl, listers) {
-            kdl->d->jobDone(job);
-        }
-
-        foreach (KCoreDirLister *kdl, holders) {
-            kdl->d->jobDone(job);
-        }
+        // the job is running already, tell it to do another update at the end
+        // (don't kill it, we would keep doing that during a long download to a slow sshfs mount)
+        job->setProperty("need_another_update", true);
+        return;
     } else {
         // Emit any cached items.
         // updateDirectory() is about the diff compared to the cached items...
@@ -1094,6 +1087,7 @@ void KCoreDirListerCache::slotFileDirty(const QString &path)
 
     if (isDir) {
         Q_FOREACH (const QUrl &dir, directoriesForCanonicalPath(url)) {
+            handleFileDirty(dir); // e.g. for permission changes
             handleDirDirty(dir);
         }
     } else {
@@ -1111,7 +1105,8 @@ void KCoreDirListerCache::handleDirDirty(const QUrl &url)
     // A dir: launch an update job if anyone cares about it
 
     // This also means we can forget about pending updates to individual files in that dir
-    QString dirPath = url.toLocalFile();
+    const QString dir = url.toLocalFile();
+    QString dirPath = dir;
     if (!dirPath.endsWith('/')) {
         dirPath += '/';
     }
@@ -1126,7 +1121,12 @@ void KCoreDirListerCache::handleDirDirty(const QUrl &url)
         }
     }
 
-    updateDirectory(url);
+    if (checkUpdate(url) && !pendingDirectoryUpdates.contains(dir)) {
+        pendingDirectoryUpdates.insert(dir);
+        if (!pendingUpdateTimer.isActive()) {
+            pendingUpdateTimer.start(200);
+        }
+    }
 }
 
 // Called by slotFileDirty
@@ -1134,21 +1134,18 @@ void KCoreDirListerCache::handleFileDirty(const QUrl &url)
 {
     // A file: do we know about it already?
     KFileItem *existingItem = findByUrl(0, url);
+    const QUrl dir = url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+    QString filePath = url.toLocalFile();
     if (!existingItem) {
         // No - update the parent dir then
-        const QUrl dir = url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
-        updateDirectory(dir);
-    } else {
-        // A known file: delay updating it, FAM is flooding us with events
-        const QString filePath = url.toLocalFile();
-        if (!pendingUpdates.contains(filePath)) {
-            const QUrl dir = url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
-            if (checkUpdate(dir)) {
-                pendingUpdates.insert(filePath);
-                if (!pendingUpdateTimer.isActive()) {
-                    pendingUpdateTimer.start(500);
-                }
-            }
+        handleDirDirty(dir);
+    }
+
+    // Delay updating the file, FAM is flooding us with events
+    if (checkUpdate(dir) && !pendingUpdates.contains(filePath)) {
+        pendingUpdates.insert(filePath);
+        if (!pendingUpdateTimer.isActive()) {
+            pendingUpdateTimer.start(200);
         }
     }
 }
@@ -1336,6 +1333,10 @@ void KCoreDirListerCache::slotResult(KJob *j)
     // TODO: hmm, if there was an error and job is a parent of one or more
     // of the pending urls we should cancel it/them as well
     processPendingUpdates();
+
+    if (job->property("need_another_update").toBool()) {
+        updateDirectory(jobUrl);
+    }
 
 #ifdef DEBUG_CACHE
     printDebug();
@@ -1839,6 +1840,10 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
     // TODO: hmm, if there was an error and job is a parent of one or more
     // of the pending urls we should cancel it/them as well
     processPendingUpdates();
+
+    if (job->property("need_another_update").toBool()) {
+        updateDirectory(jobUrl);
+    }
 }
 
 // private
@@ -1999,6 +2004,12 @@ void KCoreDirListerCache::processPendingUpdates()
     Q_FOREACH (KCoreDirLister *kdl, listers) {
         kdl->d->emitItems();
     }
+
+    // Directories in need of updating
+    foreach (const QString &dir, pendingDirectoryUpdates) {
+        updateDirectory(QUrl::fromLocalFile(dir));
+    }
+    pendingDirectoryUpdates.clear();
 }
 
 #ifndef NDEBUG
