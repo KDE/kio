@@ -1990,7 +1990,9 @@ void KCoreDirListerCache::processPendingUpdates()
             // we need to refresh the item, because e.g. the permissions can have changed.
             KFileItem oldItem = *item;
             item->refresh();
-            listers |= emitRefreshItem(oldItem, *item);
+            if (!oldItem.cmp(*item)) {
+                listers |= emitRefreshItem(oldItem, *item);
+            }
         }
     }
     pendingUpdates.clear();

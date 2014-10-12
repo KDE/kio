@@ -131,6 +131,8 @@ private:
     bool waitForRefreshedItems();
     void createSimpleFile(const QString &fileName);
     void fillDirLister2(MyDirLister &lister, const QString &path);
+    void waitUntilMTimeChange(const QString &path);
+    void waitUntilAfter(const QDateTime &ctime);
 
 private:
     int m_exitCount;

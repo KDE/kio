@@ -390,9 +390,16 @@ void KDirListerTest::testRefreshRootItem()
     MyDirLister dirLister2;
     fillDirLister2(dirLister2, path);
 
+    // Change the subdir by creating a file in it
+    waitUntilMTimeChange(path);
+    const QString foobar = path + "/.foobar";
+    createSimpleFile(foobar);
+
     connect(&m_dirLister, SIGNAL(refreshItems(QList<QPair<KFileItem,KFileItem> >)),
             this, SLOT(slotRefreshItems(QList<QPair<KFileItem,KFileItem> >)));
 
+    // Arguably, the mtime change of "subdir" should lead to a refreshItem of subdir in the root dir.
+    // So the next line shouldn't be necessary, if KDirLister did this correctly. This isn't what this test is about though.
     org::kde::KDirNotify::emitFilesChanged(QList<QUrl>() << QUrl::fromLocalFile(path));
     QVERIFY(waitForRefreshedItems());
 
@@ -419,6 +426,7 @@ void KDirListerTest::testRefreshRootItem()
     m_refreshedItems.clear();
     m_refreshedItems2.clear();
 
+    waitUntilMTimeChange(path);
     const QString directoryFile = path + "/.directory";
     createSimpleFile(directoryFile);
 
@@ -1242,6 +1250,37 @@ void KDirListerTest::fillDirLister2(MyDirLister &lister, const QString &path)
     connect(&lister, SIGNAL(completed()), this, SLOT(exitLoop()));
     enterLoop();
     QVERIFY(lister.isFinished());
+}
+
+void KDirListerTest::waitUntilMTimeChange(const QString &path)
+{
+    // Wait until the current second is more than the file's mtime
+    // otherwise this change will go unnoticed
+
+    QFileInfo fi(path);
+    QVERIFY(fi.exists());
+    const QDateTime ctime = qMax(fi.lastModified(), fi.created());
+    waitUntilAfter(ctime);
+}
+
+void KDirListerTest::waitUntilAfter(const QDateTime &ctime)
+{
+    int totalWait = 0;
+    QDateTime now;
+    Q_FOREVER {
+        now = QDateTime::currentDateTime();
+        if (now.toTime_t() == ctime.toTime_t())   // truncate milliseconds
+        {
+            totalWait += 50;
+            QTest::qWait(50);
+        } else {
+            QVERIFY(now > ctime); // can't go back in time ;)
+            QTest::qWait(50); // be safe
+            break;
+        }
+    }
+    //if (totalWait > 0)
+    qDebug() << "Waited" << totalWait << "ms so that now" << now.toString(Qt::ISODate) << "is >" << ctime.toString(Qt::ISODate);
 }
 
 #include "moc_kdirlistertest.cpp"
