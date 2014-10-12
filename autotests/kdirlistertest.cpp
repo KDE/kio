@@ -352,7 +352,7 @@ void KDirListerTest::testRefreshItems()
     file.close();
     QCOMPARE(QFileInfo(fileName).size(), 11LL /*Hello world*/ + 6 /*<html>*/);
 
-    waitForRefreshedItems();
+    QVERIFY(waitForRefreshedItems());
 
     QCOMPARE(m_dirLister.spyStarted.count(), 0); // fast path: no directory listing needed
     QCOMPARE(m_dirLister.spyCompleted.count(), 0);
@@ -394,7 +394,7 @@ void KDirListerTest::testRefreshRootItem()
             this, SLOT(slotRefreshItems(QList<QPair<KFileItem,KFileItem> >)));
 
     org::kde::KDirNotify::emitFilesChanged(QList<QUrl>() << QUrl::fromLocalFile(path));
-    waitForRefreshedItems();
+    QVERIFY(waitForRefreshedItems());
 
     QCOMPARE(m_dirLister.spyStarted.count(), 0);
     QCOMPARE(m_dirLister.spyCompleted.count(), 0);
@@ -428,7 +428,7 @@ void KDirListerTest::testRefreshRootItem()
     QCOMPARE(m_refreshedItems.count(), 0);
 
     org::kde::KDirNotify::emitFilesChanged(QList<QUrl>() << QUrl::fromLocalFile(path));
-    waitForRefreshedItems();
+    QVERIFY(waitForRefreshedItems());
     QCOMPARE(m_refreshedItems.count(), 1);
     entry = m_refreshedItems.first();
     QCOMPARE(entry.first.url().toLocalFile(), path);
@@ -533,7 +533,7 @@ void KDirListerTest::testRenameAndOverwrite() // has to be run after testRenameI
     QVERIFY(ok);
 
     if (m_refreshedItems.isEmpty()) {
-        waitForRefreshedItems(); // refreshItems could come from KDirWatch or KDirNotify.
+        QVERIFY(waitForRefreshedItems()); // refreshItems could come from KDirWatch or KDirNotify.
     }
 
     // Check that itemsDeleted was emitted -- preferably BEFORE refreshItems,
@@ -1212,14 +1212,16 @@ int KDirListerTest::fileCount() const
     return QDir(path()).entryList(QDir::AllEntries | QDir::NoDotAndDotDot).count();
 }
 
-void KDirListerTest::waitForRefreshedItems()
+bool KDirListerTest::waitForRefreshedItems()
 {
     int numTries = 0;
     // Give time for KDirWatch to notify us
     while (m_refreshedItems.isEmpty()) {
-        QVERIFY(++numTries < 10);
-        QTest::qWait(200);
+        if (++numTries == 20)
+            return false;
+        QTest::qWait(100);
     }
+    return true;
 }
 
 void KDirListerTest::createSimpleFile(const QString &fileName)

@@ -128,7 +128,7 @@ private:
     {
         return m_tempDir.path() + '/';
     }
-    void waitForRefreshedItems();
+    bool waitForRefreshedItems();
     void createSimpleFile(const QString &fileName);
     void fillDirLister2(MyDirLister &lister, const QString &path);
 
