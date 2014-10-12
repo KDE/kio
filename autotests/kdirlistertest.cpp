@@ -66,6 +66,8 @@ void KDirListerTest::initTestCase()
     createTestFile(path + "toplevelfile_3");
     createTestDirectory(path + "subdir");
     createTestDirectory(path + "subdir/subsubdir");
+
+    qRegisterMetaType<QList<QPair<KFileItem,KFileItem> > >();
 }
 
 void KDirListerTest::cleanup()
