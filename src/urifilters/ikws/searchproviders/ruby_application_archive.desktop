@@ -41,7 +41,6 @@ Name[hu]=Ruby alkalmazásarchívum
 Name[ia]=Archivo de application de Ruby
 Name[id]=Arsip Aplikasi Ruby
 Name[is]=Ruby Application Archive
-Name[it]=Archivio di applicazioni Ruby
 Name[kk]=Ruby қолданбалар архиві
 Name[km]=ប័ណ្ណសារ​កម្មវិធី​មគ្គុទ្ទេសក៍​សូរសព្ទ
 Name[kn]=ರೂಬಿ ಅನ್ವಯ ಕಡತಾಗಾರ (ಆರ್ಕೈವ್)
@@ -131,7 +130,6 @@ Query[hu]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ia]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[id]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[is]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
-Query[it]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[kk]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[km]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[kn]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

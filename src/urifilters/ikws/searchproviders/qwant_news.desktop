@@ -9,7 +9,6 @@ Name[es]=Qwant Noticias
 Name[fi]=Qwant-uutiset
 Name[fr]=Actualités « Qwant »
 Name[hu]=Qwant hírek
-Name[it]=Notizie di Qwant
 Name[nb]=Qwant nyheter
 Name[nds]=Qwant-Narichten
 Name[nl]=Qwant nieuws
@@ -35,7 +34,6 @@ Query[es]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[fi]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[fr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[hu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
-Query[it]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[nb]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[nds]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[nl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news

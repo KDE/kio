@@ -30,7 +30,6 @@ Name[hu]=Google térkép
 Name[ia]=Google Maps : Mappas de Google
 Name[id]=Google Maps
 Name[is]=Google Kort
-Name[it]=Mappe di Google
 Name[kk]=Google карталаы
 Name[km]=ផែនទី​​ហ្គូហ្គល
 Name[kn]=ಗೂಗಲ್ ನಕ್ಷೆಗಳು
@@ -90,7 +89,6 @@ Query[hu]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[ia]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[id]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[is]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
-Query[it]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[kk]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[ko]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[lt]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr

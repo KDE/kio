@@ -32,7 +32,6 @@ Name[hu]=Vimeo
 Name[ia]=Vimeo
 Name[id]=Vimeo
 Name[is]=Vimeo
-Name[it]=Vimeo
 Name[kk]=Vimeo
 Name[km]=Vimeo
 Name[kn]=ವಿಮಿಯೊ (Vimeo)
@@ -91,7 +90,6 @@ Query[hu]=http://vimeo.com/search?q=\\{@}
 Query[ia]=http://vimeo.com/search?q=\\{@}
 Query[id]=http://vimeo.com/search?q=\\{@}
 Query[is]=http://vimeo.com/search?q=\\{@}
-Query[it]=http://vimeo.com/search?q=\\{@}
 Query[kk]=http://vimeo.com/search?q=\\{@}
 Query[ko]=http://vimeo.com/search?q=\\{@}
 Query[lt]=http://vimeo.com/search?q=\\{@}

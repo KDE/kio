@@ -42,7 +42,6 @@ Name[hu]=A legfrissebb webes Qt dokumentáció
 Name[ia]=Ultime documentation in linea de Qt
 Name[id]=Dokumentasi Daring Qt Terkini
 Name[is]=Nýjustu Qt handbækurnar
-Name[it]=Ultima documentazione in rete delle Qt
 Name[kk]=Qt-ның ең жаңа желідегі құжаттамасы
 Name[km]=ឯកសារ​ថ្មី​បំផុត​លើ​បណ្ដាញ​របស់ Qt
 Name[kn]=ಇತ್ತೀಚಿನ  ಕ್ಯೂಟಿ ಜಾಲಲಭ್ಯ ದಸ್ತಾವೇಜೀಕರಣ
@@ -111,7 +110,6 @@ Query[hu]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
 Query[ia]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
 Query[id]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
 Query[is]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
-Query[it]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
 Query[kk]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
 Query[ko]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
 Query[lt]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}

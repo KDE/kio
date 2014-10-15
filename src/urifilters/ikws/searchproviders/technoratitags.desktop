@@ -40,7 +40,6 @@ Name[hu]=Technorati Tags
 Name[ia]=Technorati Etiquettas
 Name[id]=Tag Technorati
 Name[is]=Technorati tög
-Name[it]=Etichette di technorati
 Name[kk]=Technorati Tags
 Name[km]=ស្លាក Technorati
 Name[kn]=ಟೆಕ್ನೋರೆಟಿ ತಲೆಚೀಟಿಗಳು (ಟಾಗ್ಸ್)
@@ -127,7 +126,6 @@ Query[hu]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ia]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[id]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[is]=http://technorati.com/tag/\\{@}?sourceid=kde-search
-Query[it]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[kk]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[km]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[kn]=http://technorati.com/tag/\\{@}?sourceid=kde-search

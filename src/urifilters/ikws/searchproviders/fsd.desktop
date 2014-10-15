@@ -40,7 +40,6 @@ Name[hu]=FSF/UNESCO szabadszoftver-gyűjtemény
 Name[ia]=FSF/UNESCO Free Software Directory (Directorio de software libere)
 Name[id]=Direktori Peranti Lunak Gratis FSF/UNESCO
 Name[is]=FSF/UNESCO Free Software Directory
-Name[it]=Elenco di software libero di FSF e UNESCO
 Name[kk]=FSF/UNESCO ашық бағдарламалық жасау каталогы
 Name[km]=ថត​កម្មវិធី​ឥត​គិត​ថ្លៃ​របស់ FSF/UNESCO
 Name[kn]=FSF/UNESCO ಮಕ್ತ ತಂತ್ರಾಂಶ ಶಬ್ದಕೋಶ
@@ -126,7 +125,6 @@ Query[hu]=http://directory.fsf.org/search/?query=\\{@}
 Query[ia]=http://directory.fsf.org/search/?query=\\{@}
 Query[id]=http://directory.fsf.org/search/?query=\\{@}
 Query[is]=http://directory.fsf.org/search/?query=\\{@}
-Query[it]=http://directory.fsf.org/search/?query=\\{@}
 Query[kk]=http://directory.fsf.org/search/?query=\\{@}
 Query[km]=http://directory.fsf.org/search/?query=\\{@}
 Query[kn]=http://directory.fsf.org/search/?query=\\{@}

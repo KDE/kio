@@ -41,7 +41,6 @@ Name[hu]=Open Directory
 Name[ia]=Aperi directorio
 Name[id]=Buka Direktori
 Name[is]=Open Directory
-Name[it]=Open Directory
 Name[kk]=Ашық каталог
 Name[km]=បើក​ថត
 Name[kn]=ಕಡತಕೋಶವನ್ನು ತೆರೆ
@@ -132,7 +131,6 @@ Query[hu]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[ia]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[id]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[is]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
-Query[it]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[kk]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[km]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[kn]=http://search.dmoz.org/cgi-bin/search?search=\\{@}

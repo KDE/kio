@@ -32,7 +32,6 @@ Name[hu]=7Digital
 Name[ia]=7Digital
 Name[id]=7Digital
 Name[is]=7Digital
-Name[it]=7Digital
 Name[kk]=7Digital
 Name[km]=7Digital
 Name[kn]=೭ ಅಂಕೀಯ (ಡಿಜಿಟಲ್)
@@ -100,7 +99,6 @@ Query[hu]=http://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Se
 Query[ia]=http://us.7digital.com/search/search.php?item=\\{@}&searchtype=global&submit=Search
 Query[id]=http://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[is]=http://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
-Query[it]=http://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[kk]=http://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[km]=http://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[kn]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search

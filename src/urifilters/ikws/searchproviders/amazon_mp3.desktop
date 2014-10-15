@@ -32,7 +32,6 @@ Name[hu]=Amazon MP3
 Name[ia]=Amazon MP3
 Name[id]=Amazon MP3
 Name[is]=Amazon MP3
-Name[it]=Amazon MP3
 Name[kk]=Amazon MP3
 Name[km]=Amazon MP3
 Name[kn]=ಅಮೆಜೋನ್ MP3
@@ -100,7 +99,6 @@ Query[hu]=http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&
 Query[ia]=http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[id]=http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[is]=http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
-Query[it]=http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[kk]=http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[km]=http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[kn]=http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0

@@ -41,7 +41,6 @@ Name[hu]=PHP Search
 Name[ia]=Cerca PHP
 Name[id]=Pencarian PHP
 Name[is]=PHP leit
-Name[it]=Ricerca PHP
 Name[kk]=PHP іздеуі
 Name[km]=ការ​ស្វែងរក PHP
 Name[kn]=PHP ಹುಡುಕಾಟ
@@ -120,7 +119,6 @@ Query[hu]=http://www.php.net/manual-lookup.php?pattern=\\{@}
 Query[ia]=http://www.php.net/manual-lookup.php?pattern=\\{@}
 Query[id]=http://www.php.net/manual-lookup.php?pattern=\\{@}
 Query[is]=http://www.php.net/manual-lookup.php?pattern=\\{@}
-Query[it]=http://www.php.net/manual-lookup.php?pattern=\\{@}
 Query[kk]=http://www.php.net/manual-lookup.php?pattern=\\{@}
 Query[km]=http://www.php.net/manual-lookup.php?pattern=\\{@}
 Query[kn]=http://www.php.net/manual-lookup.php?pattern=\\{@}

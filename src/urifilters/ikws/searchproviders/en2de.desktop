@@ -41,7 +41,6 @@ Name[hu]=Dict.cc - Fordítás angolról németre
 Name[ia]=dict.cc Traduction: Anglese a Germano
 Name[id]=Terjemahan dict.cc: Bahasa Inggris ke Jerman
 Name[is]=dict.cc Þýðing: Enska í þýsku
-Name[it]=Traduzione dict.cc: dall'inglese al tedesco
 Name[kk]=dict.cc аудармашы: ағылшын тілінен немісшеге
 Name[km]=ការ​បកប្រែ dict.cc ៖ ភាសា​អង់គ្លេស​ទៅជា​​​អាល្លឺម៉ង់
 Name[kn]=dict.cc ಅನುವಾದ: ಇಂಗ್ಲೀಷಿನಿಂದ ಜರ್ಮನ್ ಗೆ
@@ -128,7 +127,6 @@ Query[hu]=http://www.dict.cc/?s=\\{@}
 Query[ia]=http://www.dict.cc/?s=\\{@}
 Query[id]=http://www.dict.cc/?s=\\{@}
 Query[is]=http://www.dict.cc/?s=\\{@}
-Query[it]=http://www.dict.cc/?s=\\{@}
 Query[kk]=http://www.dict.cc/?s=\\{@}
 Query[km]=http://www.dict.cc/?s=\\{@}
 Query[kn]=http://www.dict.cc/?s=\\{@}

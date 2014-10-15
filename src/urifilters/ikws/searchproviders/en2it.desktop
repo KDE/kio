@@ -42,7 +42,6 @@ Name[hu]=WordReference.com fordítás: angolról olaszra
 Name[ia]=WordReference.com Traduction: Anglese a Italiano
 Name[id]=Terjemahan WordReference.com: Bahasa Inggris ke Italia
 Name[is]=WordReference.com þýðing: Ensk/ítölsk
-Name[it]=Traduzione WordReference.com: dall'inglese all'italiano
 Name[kk]=WordReference.com ағылшын тілінен итальяншаға аудару
 Name[km]=ការ​បកប្រែ WordReference.com ៖ ភាសា​អង់គ្លេស​ទៅ​ជា​អ៊ីតាលី
 Name[kn]=WordReference.com ಅನುವಾದ: ಇಂಗ್ಲೀಷಿನಿಂದ ಇಟಾಲಿಯನ್ ಗೆ
@@ -129,7 +128,6 @@ Query[hu]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ia]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[id]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[is]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
-Query[it]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[kk]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[km]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[kn]=http://www.wordreference.com/it/translation.asp?enit=\\{@}

@@ -40,7 +40,6 @@ Name[hu]=Technorati
 Name[ia]=Technorati
 Name[id]=Technorati
 Name[is]=Technorati
-Name[it]=Technorati
 Name[kk]=Technorati
 Name[km]=Technorati
 Name[kn]=ಟೆಕ್ನೋರೆಟಿ
@@ -111,7 +110,6 @@ Query[hu]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ia]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[id]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[is]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
-Query[it]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[kk]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ko]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[lt]=http://technorati.com/search?return=sites&authority=high&q=\\{@}

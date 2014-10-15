@@ -41,7 +41,6 @@ Name[hu]=HyperDictionary.com
 Name[ia]=HyperDictionary.com
 Name[id]=HyperDictionary.com
 Name[is]=HyperDictionary.com
-Name[it]=HyperDictionary.com
 Name[kk]=HyperDictionary.com
 Name[km]=HyperDictionary.com
 Name[kn]=HyperDictionary.com
@@ -132,7 +131,6 @@ Query[hu]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[ia]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[id]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[is]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
-Query[it]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[kk]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[km]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[kn]=http://www.hyperdictionary.com/search.aspx?define=\\{@}

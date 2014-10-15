@@ -30,7 +30,6 @@ Name[hu]=Bing
 Name[ia]=Bing
 Name[id]=Bing
 Name[is]=Bing
-Name[it]=Bing
 Name[kk]=Bing
 Name[km]=Bing
 Name[kn]=ಬಿಂಗ್
@@ -99,7 +98,6 @@ Query[hu]=http://www.bing.com/search?q=\\{@}
 Query[ia]=http://www.bing.com/search?q=\\{@}
 Query[id]=http://www.bing.com/search?q=\\{@}
 Query[is]=http://www.bing.com/search?q=\\{@}
-Query[it]=http://www.bing.com/search?q=\\{@}
 Query[kk]=http://www.bing.com/search?q=\\{@}
 Query[km]=http://www.bing.com/search?q=\\{@}
 Query[kn]=http://www.bing.com/search?q=\\{@}

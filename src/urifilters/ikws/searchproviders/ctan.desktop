@@ -40,7 +40,6 @@ Name[hu]=CTAN - Comprehensive TeX Archive Network
 Name[ia]=CTAN - Comprehensive TeX Archive Network (Rete Comprehensive de Archivo de TeX)
 Name[id]=CTAN - Jaringan Arsip TeX Komprehensif
 Name[is]=CTAN - Comprehensive TeX Archive Network
-Name[it]=CTAN - Rete globale degli archivi TeX
 Name[kk]=CTAN - TeX архив желісі
 Name[km]=CTAN - Comprehensive TeX Archive Network
 Name[kn]=CTAN -ವ್ಯಾಪಕ ಟೆಕ್ ( TeX) ಕಡತಾಗಾರ (ಆರ್ಕೈವ್) ಜಾಲ
@@ -110,7 +109,6 @@ Query[hu]=http://ctan.org/search?phrase=\\{@}
 Query[ia]=http://ctan.org/search?phrase=\\{@}
 Query[id]=http://ctan.org/search?phrase=\\{@}
 Query[is]=http://ctan.org/search?phrase=\\{@}
-Query[it]=http://ctan.org/search?phrase=\\{@}
 Query[kk]=http://ctan.org/search?phrase=\\{@}
 Query[ko]=http://ctan.org/search?phrase=\\{@}
 Query[lt]=http://ctan.org/search?phrase=\\{@}

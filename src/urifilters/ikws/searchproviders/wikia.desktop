@@ -32,7 +32,6 @@ Name[hu]=Wikia
 Name[ia]=Wikia
 Name[id]=Wikia
 Name[is]=Wikia
-Name[it]=Wikia
 Name[kk]=Wikia
 Name[km]=Wikia
 Name[kn]=ವಿಕಿಯಾ
@@ -99,7 +98,6 @@ Query[hu]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=S
 Query[ia]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[id]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[is]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
-Query[it]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[kk]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[km]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[kn]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search

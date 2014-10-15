@@ -44,7 +44,6 @@ Name[hu]=A KDE API dokumentációja
 Name[ia]=Documentation de KDE API 
 Name[id]=Dokumentasi API KDE
 Name[is]=KDE forritunarviðmótsleiðbeiningar
-Name[it]=Documentazione dell'API di KDE
 Name[kk]=KDE API құжаттамасы
 Name[km]=ឯកសារ API របស់ KDE
 Name[kn]=ಕೆಡಿಇ ಎಪಿಐ ದಸ್ತಾವೇಜೀಕರಣ
@@ -130,7 +129,6 @@ Query[hu]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[ia]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[id]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[is]=http://api.kde.org/classmapper.php?class=\\{@}
-Query[it]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[kk]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[km]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[kn]=http://api.kde.org/classmapper.php?class=\\{@}
