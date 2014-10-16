@@ -455,7 +455,7 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
             text = KIO::suggestName(*it, text);
         }
 
-        const QUrl templateUrl(entry.templatePath);
+        const QUrl templateUrl(QUrl::fromLocalFile(entry.templatePath));
 
         QDialog *dlg = new KPropertiesDialog(templateUrl, *it, text, m_parentWidget);
         dlg->setModal(q->isModal());
@@ -533,29 +533,28 @@ void KNewFileMenuPrivate::executeStrategy()
     if (src.isEmpty()) {
         return;
     }
-    QUrl uSrc(src);
-    if (uSrc.isLocalFile()) {
-        // In case the templates/.source directory contains symlinks, resolve
-        // them to the target files. Fixes bug #149628.
-        KFileItem item(uSrc, QString(), KFileItem::Unknown);
-        if (item.isLink()) {
-            uSrc.setPath(item.linkDest());
-        }
+    QUrl uSrc(QUrl::fromLocalFile(src));
 
-        if (!m_copyData.m_isSymlink) {
-            // If the file is not going to be detected as a desktop file, due to a
-            // known extension (e.g. ".pl"), append ".desktop". #224142.
-            QFile srcFile(uSrc.toLocalFile());
-            if (srcFile.open(QIODevice::ReadOnly)) {
-                QMimeDatabase db;
-                QMimeType wantedMime = db.mimeTypeForUrl(uSrc);
-                QMimeType mime = db.mimeTypeForFileNameAndData(m_copyData.m_chosenFileName, srcFile.read(1024));
-                //qDebug() << "mime=" << mime->name() << "wantedMime=" << wantedMime->name();
-                if (!mime.inherits(wantedMime.name()))
-                    if (!wantedMime.preferredSuffix().isEmpty()) {
-                        chosenFileName += QLatin1Char('.') + wantedMime.preferredSuffix();
-                    }
-            }
+    // In case the templates/.source directory contains symlinks, resolve
+    // them to the target files. Fixes bug #149628.
+    KFileItem item(uSrc, QString(), KFileItem::Unknown);
+    if (item.isLink()) {
+        uSrc.setPath(item.linkDest());
+    }
+
+    if (!m_copyData.m_isSymlink) {
+        // If the file is not going to be detected as a desktop file, due to a
+        // known extension (e.g. ".pl"), append ".desktop". #224142.
+        QFile srcFile(uSrc.toLocalFile());
+        if (srcFile.open(QIODevice::ReadOnly)) {
+            QMimeDatabase db;
+            QMimeType wantedMime = db.mimeTypeForUrl(uSrc);
+            QMimeType mime = db.mimeTypeForFileNameAndData(m_copyData.m_chosenFileName, srcFile.read(1024));
+            //qDebug() << "mime=" << mime->name() << "wantedMime=" << wantedMime->name();
+            if (!mime.inherits(wantedMime.name()))
+                if (!wantedMime.preferredSuffix().isEmpty()) {
+                    chosenFileName += QLatin1Char('.') + wantedMime.preferredSuffix();
+                }
         }
     }
 
