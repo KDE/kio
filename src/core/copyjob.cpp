@@ -1346,7 +1346,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
         }
 
         if (!m_bSingleFileCopy) {
-            options = RenameDialog_Options(RenameDialog_MultipleItems | RenameDialog_Skip);
+            options = RenameDialog_Options(options | RenameDialog_MultipleItems | RenameDialog_Skip);
         }
 
         res = q->uiDelegateExtension()->askFileRename(q, !isDir ?
