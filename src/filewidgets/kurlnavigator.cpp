@@ -712,25 +712,23 @@ QUrl KUrlNavigator::Private::buttonUrl(int index) const
     // Keep scheme, hostname etc. as this is needed for e. g. browsing
     // FTP directories
     const QUrl currentUrl = q->locationUrl();
-    QUrl newUrl = currentUrl;
+    QString pathOrUrl = currentUrl.toString(QUrl::PreferLocalFile);
 
-    QString path = currentUrl.path();
-    if (!path.isEmpty()) {
+    if (!pathOrUrl.isEmpty()) {
         if (index == 0) {
             // prevent the last "/" from being stripped
             // or we end up with an empty path
 #ifdef Q_OS_WIN
-            path = path.length() > 1 ? path.left(2) : QDir::rootPath();
+            pathOrUrl = pathOrUrl.length() > 1 ? pathOrUrl.left(2) : QDir::rootPath();
 #else
-            path = QLatin1String("/");
+            pathOrUrl = QLatin1String("/");
 #endif
         } else {
-            path = path.section('/', 0, index);
+            pathOrUrl = pathOrUrl.section('/', 0, index);
         }
     }
 
-    newUrl.setPath(path);
-    return newUrl;
+    return QUrl::fromUserInput(pathOrUrl);
 }
 
 void KUrlNavigator::Private::switchToBreadcrumbMode()
