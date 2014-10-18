@@ -54,6 +54,7 @@ private Q_SLOTS:
         QTest::newRow("url desktop file no extension") << "Link to Location " << "tmp_link" << "tmp_link";
         QTest::newRow("url desktop file .pl extension") << "Link to Location " << "tmp_link.pl" << "tmp_link.pl.desktop";
         QTest::newRow("symlink") << "Basic link" << "thelink" << "thelink";
+        QTest::newRow("folder") << "Folder..." << "folder1" << "folder1";
     }
 
     void test()
@@ -84,6 +85,7 @@ private Q_SLOTS:
             const QString err = "action with text \"" + actionText + "\" not found. kde-baseapps not installed?";
             QSKIP(qPrintable(err));
         }
+        QVERIFY(textAct);
         textAct->trigger();
         QDialog *dialog = parentWidget.findChild<QDialog *>();
         QVERIFY(dialog);
@@ -97,11 +99,18 @@ private Q_SLOTS:
             lineEdit->setText(typedFilename);
         }
         dialog->accept();
+        QUrl emittedUrl;
         QSignalSpy spy(&menu, SIGNAL(fileCreated(QUrl)));
-        QVERIFY(spy.wait(1000));
-        const QUrl url = spy.at(0).at(0).value<QUrl>();
+        QSignalSpy folderSpy(&menu, SIGNAL(directoryCreated(QUrl)));
+        if (actionText == "Folder...") {
+            QVERIFY(folderSpy.wait(1000));
+            emittedUrl = folderSpy.at(0).at(0).value<QUrl>();
+        } else {
+            QVERIFY(spy.wait(1000));
+            emittedUrl = spy.at(0).at(0).value<QUrl>();
+        }
         const QString path = m_tmpDir.path() + '/' + expectedFilename;
-        QCOMPARE(url.toLocalFile(), path);
+        QCOMPARE(emittedUrl.toLocalFile(), path);
         QFile::remove(path);
         m_first = false;
     }

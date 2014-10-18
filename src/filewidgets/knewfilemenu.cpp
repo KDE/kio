@@ -48,6 +48,7 @@
 #include <kio/copyjob.h>
 #include <kio/jobuidelegate.h>
 #include <kio/fileundomanager.h>
+#include <kio/mkpathjob.h>
 #include <kurifilter.h>
 
 #include <kpropertiesdialog.h>
@@ -807,18 +808,17 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
                     return;
                 }
             }
-            name = KIO::encodeFileName(name);
             url = baseUrl;
             url.setPath(url.path() + '/' + name);
         }
     }
 
     if (!askAgain) {
-        KIO::SimpleJob *job = KIO::mkdir(url);
-        job->setProperty("isMkdirJob", true); // KDE5: cast to MkdirJob in slotResult instead
+        KIO::Job *job = KIO::mkpath(url, baseUrl);
+        job->setProperty("mkpathUrl", url);
         KJobWidgets::setWindow(job, m_parentWidget);
         job->ui()->setAutoErrorHandlingEnabled(true);
-        KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Mkdir, QList<QUrl>(), url, job);
+        KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Mkpath, QList<QUrl>(), url, job);
 
         if (job) {
             // We want the error handling to be done by slotResult so that subclasses can reimplement it
@@ -1185,12 +1185,13 @@ void KNewFileMenu::slotResult(KJob *job)
             }
             emit fileCreated(destUrl);
         } else if (KIO::SimpleJob *simpleJob = ::qobject_cast<KIO::SimpleJob *>(job)) {
+            // we just created a symlink
+            emit fileCreated(simpleJob->url());
+        } else {
             // Can be mkdir or symlink
-            if (simpleJob->property("isMkdirJob").toBool() == true) {
-                // qDebug() << "Emit directoryCreated" << simpleJob->url();
-                emit directoryCreated(simpleJob->url());
-            } else {
-                emit fileCreated(simpleJob->url());
+            QUrl mkpathUrl = job->property("mkpathUrl").value<QUrl>();
+            if (mkpathUrl.isValid()) {
+                emit directoryCreated(mkpathUrl);
             }
         }
     }
