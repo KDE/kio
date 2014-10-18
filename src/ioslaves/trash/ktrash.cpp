@@ -35,8 +35,8 @@ int main(int argc, char *argv[])
     QCommandLineParser parser;
     parser.addVersionOption();
     parser.addHelpOption();
-    parser.setApplicationDescription(i18n( "Helper program to handle the KDE trash can\n"
-                "Note: to move files to the trash, do not use ktrash, but \"kioclient move 'url' trash:/\""));
+    parser.setApplicationDescription(i18n("Helper program to handle the KDE trash can\n"
+                                          "Note: to move files to the trash, do not use ktrash, but \"kioclient move 'url' trash:/\""));
 
     parser.addOption(QCommandLineOption(QStringList() << QLatin1String("empty"), i18n("Empty the contents of the trash")));
     parser.addOption(QCommandLineOption(QStringList() << QLatin1String("restore"), i18n("Restore a trashed file to its original location"), "file"));
@@ -46,32 +46,33 @@ int main(int argc, char *argv[])
     if (parser.isSet("empty")) {
         // We use a kio job instead of linking to TrashImpl, for a smaller binary
         // (and the possibility of a central service at some point)
-        KIO::Job* job = KIO::emptyTrash();
+        KIO::Job *job = KIO::emptyTrash();
         job->exec();
         return 0;
     }
 
     QString restoreArg = parser.value("restore");
-    if ( !restoreArg.isEmpty() ) {
+    if (!restoreArg.isEmpty()) {
 
-        if (restoreArg.indexOf(QLatin1String("system:/trash"))==0) {
+        if (restoreArg.indexOf(QLatin1String("system:/trash")) == 0) {
             restoreArg.remove(0, 13);
             restoreArg.prepend(QString::fromLatin1("trash:"));
         }
 
-        QUrl trashURL( restoreArg );
-        if ( !trashURL.isValid() || trashURL.scheme() != QLatin1String("trash") ) {
+        QUrl trashURL(restoreArg);
+        if (!trashURL.isValid() || trashURL.scheme() != QLatin1String("trash")) {
             qCritical() << "Invalid URL for restoring a trashed file, trash:// URL expected:" << trashURL;
             return 1;
         }
 
         QByteArray packedArgs;
-        QDataStream stream( &packedArgs, QIODevice::WriteOnly );
+        QDataStream stream(&packedArgs, QIODevice::WriteOnly);
         stream << (int)3 << trashURL;
-        KIO::Job* job = KIO::special( trashURL, packedArgs );
+        KIO::Job *job = KIO::special(trashURL, packedArgs);
         bool ok = job->exec() ? true : false;
-        if ( !ok )
+        if (!ok) {
             qCritical() << job->errorString();
+        }
         return 0;
     }
 

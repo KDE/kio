@@ -94,14 +94,14 @@ private Q_SLOTS:
     void testEmptyTrashSize();
 
 protected Q_SLOTS:
-    void slotEntries( KIO::Job*, const KIO::UDSEntryList& );
+    void slotEntries(KIO::Job *, const KIO::UDSEntryList &);
 
 private:
-    void trashFile( const QString& origFilePath, const QString& fileId );
-    void trashSymlink( const QString& origFilePath, const QString& fileName, bool broken );
-    void trashDirectory( const QString& origPath, const QString& fileName );
-    void copyFromTrash( const QString& fileId, const QString& destPath, const QString& relativePath = QString() );
-    void moveFromTrash( const QString& fileId, const QString& destPath, const QString& relativePath = QString() );
+    void trashFile(const QString &origFilePath, const QString &fileId);
+    void trashSymlink(const QString &origFilePath, const QString &fileName, bool broken);
+    void trashDirectory(const QString &origPath, const QString &fileName);
+    void copyFromTrash(const QString &fileId, const QString &destPath, const QString &relativePath = QString());
+    void moveFromTrash(const QString &fileId, const QString &destPath, const QString &relativePath = QString());
     void checkDirCacheValidity();
 
     QString homeTmpDir() const;

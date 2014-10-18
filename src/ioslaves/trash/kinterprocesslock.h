@@ -60,59 +60,59 @@ class KInterProcessLock : public QObject
     Q_OBJECT
     Q_DECLARE_PRIVATE(KInterProcessLock)
 
-    public:
-        /**
-         * Creates a new inter process lock object.
-         *
-         * @param resource The identifier of the resource that shall be locked.
-         *                 This identifier can be any string, however it must be unique for
-         *                 the resource and every client that wants to access the resource must
-         *                 know it.
-         */
-        KInterProcessLock(const QString &resource);
+public:
+    /**
+     * Creates a new inter process lock object.
+     *
+     * @param resource The identifier of the resource that shall be locked.
+     *                 This identifier can be any string, however it must be unique for
+     *                 the resource and every client that wants to access the resource must
+     *                 know it.
+     */
+    KInterProcessLock(const QString &resource);
 
-        /**
-         * Destroys the inter process lock object.
-         */
-        ~KInterProcessLock();
+    /**
+     * Destroys the inter process lock object.
+     */
+    ~KInterProcessLock();
 
-        /**
-         * Returns the identifier of the resource the lock is set on.
-         */
-        QString resource() const;
+    /**
+     * Returns the identifier of the resource the lock is set on.
+     */
+    QString resource() const;
 
-        /**
-         * Requests the lock.
-         *
-         * The lock is granted as soon as the lockGranted() signal is emitted.
-         */
-        void lock();
+    /**
+     * Requests the lock.
+     *
+     * The lock is granted as soon as the lockGranted() signal is emitted.
+     */
+    void lock();
 
-        /**
-         * Releases the lock.
-         *
-         * @note This method should be called as soon as the critical area is left
-         *       in your code path and the lock is no longer needed.
-         */
-        void unlock();
+    /**
+     * Releases the lock.
+     *
+     * @note This method should be called as soon as the critical area is left
+     *       in your code path and the lock is no longer needed.
+     */
+    void unlock();
 
-        /**
-         * Waits for the granting of a lock by starting an internal event loop.
-         */
-        void waitForLockGranted();
+    /**
+     * Waits for the granting of a lock by starting an internal event loop.
+     */
+    void waitForLockGranted();
 
-    Q_SIGNALS:
-        /**
-         * This signal is emitted when the requested lock has been granted.
-         *
-         * @param lock The lock that has been granted.
-         */
-        void lockGranted(KInterProcessLock *lock);
+Q_SIGNALS:
+    /**
+     * This signal is emitted when the requested lock has been granted.
+     *
+     * @param lock The lock that has been granted.
+     */
+    void lockGranted(KInterProcessLock *lock);
 
-    private:
-        KInterProcessLockPrivate * const d_ptr;
+private:
+    KInterProcessLockPrivate *const d_ptr;
 
-        Q_PRIVATE_SLOT(d_func(), void _k_serviceRegistered(const QString&))
+    Q_PRIVATE_SLOT(d_func(), void _k_serviceRegistered(const QString &))
 };
 
 #endif

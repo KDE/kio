@@ -38,45 +38,45 @@ class TrashConfigModule : public KCModule
 {
     Q_OBJECT
 
-    public:
-        TrashConfigModule( QWidget* parent, const QVariantList& args );
-        virtual ~TrashConfigModule();
+public:
+    TrashConfigModule(QWidget *parent, const QVariantList &args);
+    virtual ~TrashConfigModule();
 
-        virtual void save();
-        virtual void defaults();
+    virtual void save();
+    virtual void defaults();
 
-    private Q_SLOTS:
-        void percentChanged( double );
-        void trashChanged( QListWidgetItem* );
-        void trashChanged( int );
-        void useTypeChanged();
+private Q_SLOTS:
+    void percentChanged(double);
+    void trashChanged(QListWidgetItem *);
+    void trashChanged(int);
+    void useTypeChanged();
 
-    private:
-        void readConfig();
-        void writeConfig();
-        void setupGui();
+private:
+    void readConfig();
+    void writeConfig();
+    void setupGui();
 
-        QCheckBox *mUseTimeLimit;
-        QSpinBox *mDays;
-        QCheckBox *mUseSizeLimit;
-        QWidget *mSizeWidget;
-        QDoubleSpinBox *mPercent;
-        QLabel *mSizeLabel;
-        QComboBox *mLimitReachedAction;
+    QCheckBox *mUseTimeLimit;
+    QSpinBox *mDays;
+    QCheckBox *mUseSizeLimit;
+    QWidget *mSizeWidget;
+    QDoubleSpinBox *mPercent;
+    QLabel *mSizeLabel;
+    QComboBox *mLimitReachedAction;
 
-        TrashImpl *mTrashImpl;
-        QString mCurrentTrash;
+    TrashImpl *mTrashImpl;
+    QString mCurrentTrash;
     bool trashInitialize;
-        typedef struct {
-            bool useTimeLimit;
-            int days;
-            bool useSizeLimit;
-            double percent;
-            int actionType;
-        } ConfigEntry;
+    typedef struct {
+        bool useTimeLimit;
+        int days;
+        bool useSizeLimit;
+        double percent;
+        int actionType;
+    } ConfigEntry;
 
-        typedef QMap<QString, ConfigEntry> ConfigMap;
-        ConfigMap mConfigMap;
+    typedef QMap<QString, ConfigEntry> ConfigMap;
+    ConfigMap mConfigMap;
 };
 
 #endif // KCMTRASH_H

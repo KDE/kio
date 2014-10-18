@@ -30,14 +30,14 @@
  */
 class DiscSpaceUtil
 {
-  public:
+public:
     /**
      * Creates a new disc space util.
      *
      * @param directory A directory the util shall work on.
      * @param parent The parent object.
      */
-    explicit DiscSpaceUtil( const QString &directory );
+    explicit DiscSpaceUtil(const QString &directory);
 
     /**
      * Returns the usage of the directory pass in the constructor on this
@@ -45,7 +45,7 @@ class DiscSpaceUtil
      *
      * @param size The current size of the directory.
      */
-    double usage( qulonglong size ) const;
+    double usage(qulonglong size) const;
 
     /**
      * Returns the size of the partition in bytes.
@@ -60,9 +60,9 @@ class DiscSpaceUtil
     /**
      * Returns the size of the given path in bytes.
      */
-    static qulonglong sizeOfPath( const QString &path );
+    static qulonglong sizeOfPath(const QString &path);
 
-  private:
+private:
     void calculateFullSize();
 
     QString mDirectory;

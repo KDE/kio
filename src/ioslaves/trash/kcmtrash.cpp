@@ -32,7 +32,7 @@
 
 #include <kconfig.h>
 #include <kconfiggroup.h>
- #include <KLocalizedString>
+#include <KLocalizedString>
 #include <qdialog.h>
 #include <qicon.h>
 #include <kpluginfactory.h>
@@ -41,12 +41,12 @@
 #include <QSpinBox>
 #include <QDebug>
 
-K_PLUGIN_FACTORY( KCMTrashConfigFactory, registerPlugin<TrashConfigModule>( "trash" ); )
-K_EXPORT_PLUGIN( KCMTrashConfigFactory( "kcmtrash" ) )
+K_PLUGIN_FACTORY(KCMTrashConfigFactory, registerPlugin<TrashConfigModule>("trash");)
+K_EXPORT_PLUGIN(KCMTrashConfigFactory("kcmtrash"))
 
-TrashConfigModule::TrashConfigModule( QWidget* parent, const QVariantList& )
+TrashConfigModule::TrashConfigModule(QWidget *parent, const QVariantList &)
     : KCModule( //KCMTrashConfigFactory::componentData(),
-                parent ), trashInitialize( false )
+        parent), trashInitialize(false)
 {
     mTrashImpl = new TrashImpl();
     mTrashImpl->init();
@@ -57,24 +57,24 @@ TrashConfigModule::TrashConfigModule( QWidget* parent, const QVariantList& )
 
     useTypeChanged();
 
-    connect( mUseTimeLimit, SIGNAL( toggled( bool ) ),
-             this, SLOT( changed() ) );
-    connect( mUseTimeLimit, SIGNAL( toggled( bool ) ),
-             this, SLOT( useTypeChanged() ) );
-    connect( mDays, SIGNAL( valueChanged( int ) ),
-             this, SLOT( changed() ) );
-    connect( mUseSizeLimit, SIGNAL( toggled( bool ) ),
-             this, SLOT( changed() ) );
-    connect( mUseSizeLimit, SIGNAL( toggled( bool ) ),
-             this, SLOT( useTypeChanged() ) );
-    connect( mPercent, SIGNAL( valueChanged( double ) ),
-             this, SLOT( percentChanged( double ) ) );
-    connect( mPercent, SIGNAL( valueChanged( double ) ),
-             this, SLOT( changed() ) );
-    connect( mLimitReachedAction, SIGNAL( currentIndexChanged( int ) ),
-             this, SLOT( changed() ) );
+    connect(mUseTimeLimit, SIGNAL(toggled(bool)),
+            this, SLOT(changed()));
+    connect(mUseTimeLimit, SIGNAL(toggled(bool)),
+            this, SLOT(useTypeChanged()));
+    connect(mDays, SIGNAL(valueChanged(int)),
+            this, SLOT(changed()));
+    connect(mUseSizeLimit, SIGNAL(toggled(bool)),
+            this, SLOT(changed()));
+    connect(mUseSizeLimit, SIGNAL(toggled(bool)),
+            this, SLOT(useTypeChanged()));
+    connect(mPercent, SIGNAL(valueChanged(double)),
+            this, SLOT(percentChanged(double)));
+    connect(mPercent, SIGNAL(valueChanged(double)),
+            this, SLOT(changed()));
+    connect(mLimitReachedAction, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(changed()));
 
-    trashChanged( 0 );
+    trashChanged(0);
     trashInitialize = true;
 }
 
@@ -84,14 +84,14 @@ TrashConfigModule::~TrashConfigModule()
 
 void TrashConfigModule::save()
 {
-    if ( !mCurrentTrash.isEmpty() ) {
+    if (!mCurrentTrash.isEmpty()) {
         ConfigEntry entry;
         entry.useTimeLimit = mUseTimeLimit->isChecked();
         entry.days = mDays->value();
         entry.useSizeLimit = mUseSizeLimit->isChecked();
         entry.percent = mPercent->value(),
-        entry.actionType = mLimitReachedAction->currentIndex();
-        mConfigMap.insert( mCurrentTrash, entry );
+              entry.actionType = mLimitReachedAction->currentIndex();
+        mConfigMap.insert(mCurrentTrash, entry);
     }
 
     writeConfig();
@@ -105,205 +105,206 @@ void TrashConfigModule::defaults()
     entry.useSizeLimit = true;
     entry.percent = 10.0;
     entry.actionType = 0;
-    mConfigMap.insert( mCurrentTrash, entry );
+    mConfigMap.insert(mCurrentTrash, entry);
     trashInitialize = false;
-    trashChanged( 0 );
+    trashChanged(0);
 }
 
-void TrashConfigModule::percentChanged( double percent )
+void TrashConfigModule::percentChanged(double percent)
 {
-    DiscSpaceUtil util( mCurrentTrash );
+    DiscSpaceUtil util(mCurrentTrash);
 
     qulonglong partitionSize = util.size();
-    double size = ((double)(partitionSize/100))*percent;
+    double size = ((double)(partitionSize / 100)) * percent;
 
     KFormat format;
     mSizeLabel->setText("(" + format.formatByteSize(size, 2) + ")");
 }
 
-void TrashConfigModule::trashChanged( QListWidgetItem *item )
+void TrashConfigModule::trashChanged(QListWidgetItem *item)
 {
-    trashChanged( item->data( Qt::UserRole ).toInt() );
+    trashChanged(item->data(Qt::UserRole).toInt());
 }
 
-void TrashConfigModule::trashChanged( int value )
+void TrashConfigModule::trashChanged(int value)
 {
     const TrashImpl::TrashDirMap map = mTrashImpl->trashDirectories();
 
-    if ( !mCurrentTrash.isEmpty() && trashInitialize ) {
+    if (!mCurrentTrash.isEmpty() && trashInitialize) {
         ConfigEntry entry;
         entry.useTimeLimit = mUseTimeLimit->isChecked();
         entry.days = mDays->value();
         entry.useSizeLimit = mUseSizeLimit->isChecked();
         entry.percent = mPercent->value(),
-        entry.actionType = mLimitReachedAction->currentIndex();
-        mConfigMap.insert( mCurrentTrash, entry );
+              entry.actionType = mLimitReachedAction->currentIndex();
+        mConfigMap.insert(mCurrentTrash, entry);
     }
 
     mCurrentTrash = map[ value ];
-    if ( mConfigMap.contains( mCurrentTrash ) ) {
+    if (mConfigMap.contains(mCurrentTrash)) {
         const ConfigEntry entry = mConfigMap[ mCurrentTrash ];
-        mUseTimeLimit->setChecked( entry.useTimeLimit );
-        mDays->setValue( entry.days );
-        mUseSizeLimit->setChecked( entry.useSizeLimit );
-        mPercent->setValue( entry.percent );
-        mLimitReachedAction->setCurrentIndex( entry.actionType );
+        mUseTimeLimit->setChecked(entry.useTimeLimit);
+        mDays->setValue(entry.days);
+        mUseSizeLimit->setChecked(entry.useSizeLimit);
+        mPercent->setValue(entry.percent);
+        mLimitReachedAction->setCurrentIndex(entry.actionType);
     } else {
-        mUseTimeLimit->setChecked( false );
-        mDays->setValue( 7 );
-        mUseSizeLimit->setChecked( true );
-        mPercent->setValue( 10.0 );
-        mLimitReachedAction->setCurrentIndex( 0 );
+        mUseTimeLimit->setChecked(false);
+        mDays->setValue(7);
+        mUseSizeLimit->setChecked(true);
+        mPercent->setValue(10.0);
+        mLimitReachedAction->setCurrentIndex(0);
     }
-    mDays->setSuffix( i18n( " days" ) ); // missing in Qt: plural form handling
+    mDays->setSuffix(i18n(" days"));     // missing in Qt: plural form handling
 
-    percentChanged( mPercent->value() );
+    percentChanged(mPercent->value());
 
 }
 
 void TrashConfigModule::useTypeChanged()
 {
-    mDays->setEnabled( mUseTimeLimit->isChecked() );
-    mSizeWidget->setEnabled( mUseSizeLimit->isChecked() );
+    mDays->setEnabled(mUseTimeLimit->isChecked());
+    mSizeWidget->setEnabled(mUseSizeLimit->isChecked());
 }
 
 void TrashConfigModule::readConfig()
 {
-    KConfig config( "ktrashrc" );
+    KConfig config("ktrashrc");
     mConfigMap.clear();
 
     const QStringList groups = config.groupList();
-    for ( int i = 0; i < groups.count(); ++i ) {
-        if ( groups[ i ].startsWith( '/' ) ) {
-            const KConfigGroup group = config.group( groups[ i ] );
+    for (int i = 0; i < groups.count(); ++i) {
+        if (groups[ i ].startsWith('/')) {
+            const KConfigGroup group = config.group(groups[ i ]);
 
             ConfigEntry entry;
-            entry.useTimeLimit = group.readEntry( "UseTimeLimit", false );
-            entry.days = group.readEntry( "Days", 7 );
-            entry.useSizeLimit = group.readEntry( "UseSizeLimit", true );
-            entry.percent = group.readEntry( "Percent", 10.0 );
-            entry.actionType = group.readEntry( "LimitReachedAction", 0 );
-            mConfigMap.insert( groups[ i ], entry );
+            entry.useTimeLimit = group.readEntry("UseTimeLimit", false);
+            entry.days = group.readEntry("Days", 7);
+            entry.useSizeLimit = group.readEntry("UseSizeLimit", true);
+            entry.percent = group.readEntry("Percent", 10.0);
+            entry.actionType = group.readEntry("LimitReachedAction", 0);
+            mConfigMap.insert(groups[ i ], entry);
         }
     }
 }
 
 void TrashConfigModule::writeConfig()
 {
-    KConfig config( "ktrashrc" );
+    KConfig config("ktrashrc");
 
     // first delete all existing groups
     const QStringList groups = config.groupList();
-    for ( int i = 0; i < groups.count(); ++i )
-        if ( groups[ i ].startsWith( '/' ) )
-            config.deleteGroup( groups[ i ] );
+    for (int i = 0; i < groups.count(); ++i)
+        if (groups[ i ].startsWith('/')) {
+            config.deleteGroup(groups[ i ]);
+        }
 
-    QMapIterator<QString, ConfigEntry> it( mConfigMap );
-    while ( it.hasNext() ) {
+    QMapIterator<QString, ConfigEntry> it(mConfigMap);
+    while (it.hasNext()) {
         it.next();
-        KConfigGroup group = config.group( it.key() );
+        KConfigGroup group = config.group(it.key());
 
-        group.writeEntry( "UseTimeLimit", it.value().useTimeLimit );
-        group.writeEntry( "Days", it.value().days );
-        group.writeEntry( "UseSizeLimit", it.value().useSizeLimit );
-        group.writeEntry( "Percent", it.value().percent );
-        group.writeEntry( "LimitReachedAction", it.value().actionType );
+        group.writeEntry("UseTimeLimit", it.value().useTimeLimit);
+        group.writeEntry("Days", it.value().days);
+        group.writeEntry("UseSizeLimit", it.value().useSizeLimit);
+        group.writeEntry("Percent", it.value().percent);
+        group.writeEntry("LimitReachedAction", it.value().actionType);
     }
     config.sync();
 }
 
 void TrashConfigModule::setupGui()
 {
-    QVBoxLayout *layout = new QVBoxLayout( this );
+    QVBoxLayout *layout = new QVBoxLayout(this);
 
     TrashImpl::TrashDirMap map = mTrashImpl->trashDirectories();
-    if ( map.count() != 1 ) {
+    if (map.count() != 1) {
         // If we have multiple trashes, we setup a widget to choose
         // which trash to configure
-        QListWidget *mountPoints = new QListWidget( this );
-        layout->addWidget( mountPoints );
+        QListWidget *mountPoints = new QListWidget(this);
+        layout->addWidget(mountPoints);
 
-        QMapIterator<int, QString> it( map );
-        while ( it.hasNext() ) {
+        QMapIterator<int, QString> it(map);
+        while (it.hasNext()) {
             it.next();
-            DiscSpaceUtil util( it.value() );
-            QListWidgetItem *item = new QListWidgetItem( QIcon( "folder" ), util.mountPoint() );
-            item->setData( Qt::UserRole, it.key() );
+            DiscSpaceUtil util(it.value());
+            QListWidgetItem *item = new QListWidgetItem(QIcon("folder"), util.mountPoint());
+            item->setData(Qt::UserRole, it.key());
 
-            mountPoints->addItem( item );
+            mountPoints->addItem(item);
         }
 
-        mountPoints->setCurrentRow( 0 );
+        mountPoints->setCurrentRow(0);
 
-        connect( mountPoints, SIGNAL( currentItemChanged( QListWidgetItem*, QListWidgetItem* ) ),
-                 this, SLOT( trashChanged( QListWidgetItem* ) ) );
+        connect(mountPoints, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),
+                this, SLOT(trashChanged(QListWidgetItem*)));
     } else {
-        mCurrentTrash = map.value( 0 );
+        mCurrentTrash = map.value(0);
     }
 
     QHBoxLayout *daysLayout = new QHBoxLayout();
-    layout->addLayout( daysLayout );
+    layout->addLayout(daysLayout);
 
-    mUseTimeLimit = new QCheckBox( i18n( "Delete files older than:" ), this );
-    mUseTimeLimit->setWhatsThis( xi18nc( "@info:whatsthis",
-                                     "<para>Check this box to allow <b>automatic deletion</b> of files that are older than the value specified. "
-                                     "Leave this disabled to <b>not</b> automatically delete any items after a certain timespan</para>" ) );
-    daysLayout->addWidget( mUseTimeLimit );
-    mDays = new QSpinBox( this );
-    
-    mDays->setRange( 1, 365 );
-    mDays->setSingleStep( 1 );
-    mDays->setSuffix( i18np(" day", " days", mDays->value()) );
-    mDays->setWhatsThis( xi18nc( "@info:whatsthis",
-                                     "<para>Set the number of days that files can remain in the trash. "
-                                     "Any files older than this will be automatically deleted.</para>" ) );
-    daysLayout->addWidget( mDays );
+    mUseTimeLimit = new QCheckBox(i18n("Delete files older than:"), this);
+    mUseTimeLimit->setWhatsThis(xi18nc("@info:whatsthis",
+                                       "<para>Check this box to allow <b>automatic deletion</b> of files that are older than the value specified. "
+                                       "Leave this disabled to <b>not</b> automatically delete any items after a certain timespan</para>"));
+    daysLayout->addWidget(mUseTimeLimit);
+    mDays = new QSpinBox(this);
+
+    mDays->setRange(1, 365);
+    mDays->setSingleStep(1);
+    mDays->setSuffix(i18np(" day", " days", mDays->value()));
+    mDays->setWhatsThis(xi18nc("@info:whatsthis",
+                               "<para>Set the number of days that files can remain in the trash. "
+                               "Any files older than this will be automatically deleted.</para>"));
+    daysLayout->addWidget(mDays);
     daysLayout->addStretch();
 
     QFormLayout *sizeLayout = new QFormLayout();
-    layout->addLayout( sizeLayout );
+    layout->addLayout(sizeLayout);
 
-    mUseSizeLimit = new QCheckBox( i18n( "Limit to maximum size" ), this );
-    mUseSizeLimit->setWhatsThis( xi18nc( "@info:whatsthis",
-                                     "<para>Check this box to limit the trash to the maximum amount of disk space that you specify below. "
-                                     "Otherwise, it will be unlimited.</para>" ) );
-    sizeLayout->addRow( mUseSizeLimit );
+    mUseSizeLimit = new QCheckBox(i18n("Limit to maximum size"), this);
+    mUseSizeLimit->setWhatsThis(xi18nc("@info:whatsthis",
+                                       "<para>Check this box to limit the trash to the maximum amount of disk space that you specify below. "
+                                       "Otherwise, it will be unlimited.</para>"));
+    sizeLayout->addRow(mUseSizeLimit);
 
-    mSizeWidget = new QWidget( this );
-    sizeLayout->addRow( mSizeWidget );
+    mSizeWidget = new QWidget(this);
+    sizeLayout->addRow(mSizeWidget);
 
-    QFormLayout *sizeWidgetLayout = new QFormLayout( mSizeWidget );
-    sizeWidgetLayout->setMargin( 0 );
+    QFormLayout *sizeWidgetLayout = new QFormLayout(mSizeWidget);
+    sizeWidgetLayout->setMargin(0);
 
-    QHBoxLayout *maximumSizeLayout = new QHBoxLayout( );
+    QHBoxLayout *maximumSizeLayout = new QHBoxLayout();
 
-    mPercent = new QDoubleSpinBox( mSizeWidget );
-    mPercent->setRange( 0.001, 100 );
-    mPercent->setDecimals( 3 );
-    mPercent->setSingleStep( 1 );
-    mPercent->setSuffix( " %" );
-    mPercent->setWhatsThis( xi18nc( "@info:whatsthis",
-                                     "<para>This is the maximum percent of disk space that will be used for the trash.</para>" ) );
-    maximumSizeLayout->addWidget( mPercent );
+    mPercent = new QDoubleSpinBox(mSizeWidget);
+    mPercent->setRange(0.001, 100);
+    mPercent->setDecimals(3);
+    mPercent->setSingleStep(1);
+    mPercent->setSuffix(" %");
+    mPercent->setWhatsThis(xi18nc("@info:whatsthis",
+                                  "<para>This is the maximum percent of disk space that will be used for the trash.</para>"));
+    maximumSizeLayout->addWidget(mPercent);
 
-    mSizeLabel = new QLabel( mSizeWidget );
-    mSizeLabel->setWhatsThis( xi18nc( "@info:whatsthis",
-                                     "<para>This is the calculated amount of disk space that will be allowed for the trash, the maximum.</para>" ) );
-    maximumSizeLayout->addWidget( mSizeLabel );
+    mSizeLabel = new QLabel(mSizeWidget);
+    mSizeLabel->setWhatsThis(xi18nc("@info:whatsthis",
+                                    "<para>This is the calculated amount of disk space that will be allowed for the trash, the maximum.</para>"));
+    maximumSizeLayout->addWidget(mSizeLabel);
 
-    sizeWidgetLayout->addRow( i18n( "Maximum size:" ), maximumSizeLayout );
+    sizeWidgetLayout->addRow(i18n("Maximum size:"), maximumSizeLayout);
 
-    QLabel *label = new QLabel( i18n( "When limit reached:" ) );
-    sizeWidgetLayout->addRow( label );
+    QLabel *label = new QLabel(i18n("When limit reached:"));
+    sizeWidgetLayout->addRow(label);
 
-    mLimitReachedAction = new QComboBox( mSizeWidget );
-    mLimitReachedAction->addItem( i18n( "Warn Me" ) );
-    mLimitReachedAction->addItem( i18n( "Delete Oldest Files From Trash" ) );
-    mLimitReachedAction->addItem( i18n( "Delete Biggest Files From Trash" ) );
-    mLimitReachedAction->setWhatsThis( xi18nc( "@info:whatsthis",
-                                              "<para>When the size limit is reached, it will prefer to delete the type of files that you specify, first. "
-                                              "If this is set to warn you, it will do so instead of automatically deleting files.</para>" ) );
-    sizeWidgetLayout->addRow( 0, mLimitReachedAction );
+    mLimitReachedAction = new QComboBox(mSizeWidget);
+    mLimitReachedAction->addItem(i18n("Warn Me"));
+    mLimitReachedAction->addItem(i18n("Delete Oldest Files From Trash"));
+    mLimitReachedAction->addItem(i18n("Delete Biggest Files From Trash"));
+    mLimitReachedAction->setWhatsThis(xi18nc("@info:whatsthis",
+                                      "<para>When the size limit is reached, it will prefer to delete the type of files that you specify, first. "
+                                      "If this is set to warn you, it will do so instead of automatically deleting files.</para>"));
+    sizeWidgetLayout->addRow(0, mLimitReachedAction);
 
     layout->addStretch();
 }

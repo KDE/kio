@@ -41,7 +41,7 @@ int main(int argc, char **argv)
     qDebug("retrieved lock");
     qDebug("sleeping...");
 #ifdef Q_OS_WIN
-    Sleep(10*1000);
+    Sleep(10 * 1000);
 #else
     sleep(10);
 #endif

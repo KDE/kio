@@ -22,7 +22,10 @@
 
 #include <kio/slavebase.h>
 #include "trashimpl.h"
-namespace KIO { class Job; }
+namespace KIO
+{
+class Job;
+}
 
 typedef TrashImpl::TrashedFileInfo TrashedFileInfo;
 typedef TrashImpl::TrashedFileInfoList TrashedFileInfoList;
@@ -31,40 +34,40 @@ class TrashProtocol : public QObject, public KIO::SlaveBase
 {
     Q_OBJECT
 public:
-    TrashProtocol( const QByteArray& protocol, const QByteArray &pool, const QByteArray &app);
+    TrashProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app);
     virtual ~TrashProtocol();
-    virtual void stat(const QUrl& url);
-    virtual void listDir(const QUrl& url);
-    virtual void get( const QUrl& url );
-    virtual void put( const QUrl& url, int , KIO::JobFlags flags );
-    virtual void rename( const QUrl &src, const QUrl &dest, KIO::JobFlags );
-    virtual void copy( const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags flags );
+    virtual void stat(const QUrl &url);
+    virtual void listDir(const QUrl &url);
+    virtual void get(const QUrl &url);
+    virtual void put(const QUrl &url, int, KIO::JobFlags flags);
+    virtual void rename(const QUrl &src, const QUrl &dest, KIO::JobFlags);
+    virtual void copy(const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags flags);
     // TODO (maybe) chmod( const QUrl& url, int permissions );
-    virtual void del( const QUrl &url, bool isfile );
+    virtual void del(const QUrl &url, bool isfile);
     /**
      * Special actions: (first int in the byte array)
      * 1 : empty trash
      * 2 : migrate old (pre-kde-3.4) trash contents
      * 3 : restore a file to its original location. Args: QUrl trashURL.
      */
-    virtual void special( const QByteArray & data );
+    virtual void special(const QByteArray &data);
 
 Q_SIGNALS:
     void leaveModality();
 
 private Q_SLOTS:
-    void slotData( KIO::Job*, const QByteArray& );
-    void slotMimetype( KIO::Job*, const QString& );
-    void jobFinished( KJob* job );
+    void slotData(KIO::Job *, const QByteArray &);
+    void slotMimetype(KIO::Job *, const QString &);
+    void jobFinished(KJob *job);
 
 private:
     typedef enum { Copy, Move } CopyOrMove;
-    void copyOrMove( const QUrl& src, const QUrl& dest, bool overwrite, CopyOrMove action );
-    void createTopLevelDirEntry(KIO::UDSEntry& entry);
-    bool createUDSEntry( const QString& physicalPath, const QString& displayFileName, const QString& internalFileName,
-                         KIO::UDSEntry& entry, const TrashedFileInfo& info );
+    void copyOrMove(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action);
+    void createTopLevelDirEntry(KIO::UDSEntry &entry);
+    bool createUDSEntry(const QString &physicalPath, const QString &displayFileName, const QString &internalFileName,
+                        KIO::UDSEntry &entry, const TrashedFileInfo &info);
     void listRoot();
-    void restore( const QUrl& trashURL );
+    void restore(const QUrl &trashURL);
     void enterLoop();
 
     TrashImpl impl;

@@ -32,20 +32,20 @@
 #include <QSaveFile>
 #include <QDebug>
 
-TrashSizeCache::TrashSizeCache( const QString &path )
-    : mTrashSizeCachePath( path + QString::fromLatin1( "/directorysizes" ) ),
-      mTrashPath( path )
+TrashSizeCache::TrashSizeCache(const QString &path)
+    : mTrashSizeCachePath(path + QString::fromLatin1("/directorysizes")),
+      mTrashPath(path)
 {
     //qDebug() << "CACHE:" << mTrashSizeCachePath;
 }
 
-void TrashSizeCache::add( const QString &directoryName, qulonglong directorySize )
+void TrashSizeCache::add(const QString &directoryName, qulonglong directorySize)
 {
     //qDebug() << directoryName << directorySize;
     const QByteArray encodedDir = QFile::encodeName(directoryName).toPercentEncoding();
     const QByteArray spaceAndDirAndNewline = ' ' + encodedDir + '\n';
-    QFile file( mTrashSizeCachePath );
-    QSaveFile out( mTrashSizeCachePath );
+    QFile file(mTrashSizeCachePath);
+    QSaveFile out(mTrashSizeCachePath);
     if (out.open(QIODevice::WriteOnly)) {
         if (file.open(QIODevice::ReadOnly)) {
             while (!file.atEnd()) {
@@ -69,13 +69,13 @@ void TrashSizeCache::add( const QString &directoryName, qulonglong directorySize
     //qDebug() << mTrashSizeCachePath << "exists:" << QFile::exists(mTrashSizeCachePath);
 }
 
-void TrashSizeCache::remove( const QString &directoryName )
+void TrashSizeCache::remove(const QString &directoryName)
 {
     //qDebug() << directoryName;
     const QByteArray encodedDir = QFile::encodeName(directoryName).toPercentEncoding();
     const QByteArray spaceAndDirAndNewline = ' ' + encodedDir + '\n';
-    QFile file( mTrashSizeCachePath );
-    QSaveFile out( mTrashSizeCachePath );
+    QFile file(mTrashSizeCachePath);
+    QSaveFile out(mTrashSizeCachePath);
     if (file.open(QIODevice::ReadOnly) && out.open(QIODevice::WriteOnly)) {
         while (!file.atEnd()) {
             const QByteArray line = file.readLine();
@@ -102,7 +102,7 @@ struct CacheData {
 qulonglong TrashSizeCache::calculateSize()
 {
     // First read the directorysizes cache into memory
-    QFile file( mTrashSizeCachePath );
+    QFile file(mTrashSizeCachePath);
     typedef QHash<QByteArray, CacheData> DirCacheHash;
     DirCacheHash dirCache;
     if (file.open(QIODevice::ReadOnly)) {
@@ -119,15 +119,15 @@ qulonglong TrashSizeCache::calculateSize()
     }
     // Iterate over the actual trashed files.
     // Orphan items (no .fileinfo) still take space.
-    QDirIterator it( mTrashPath + QString::fromLatin1( "/files/" ), QDirIterator::NoIteratorFlags );
+    QDirIterator it(mTrashPath + QString::fromLatin1("/files/"), QDirIterator::NoIteratorFlags);
 
     qulonglong sum = 0;
-    while ( it.hasNext() ) {
+    while (it.hasNext()) {
         const QFileInfo file = it.next();
         if (file.fileName() == QLatin1String(".") || file.fileName() == QLatin1String("..")) {
             continue;
         }
-        if ( file.isSymLink() ) {
+        if (file.isSymLink()) {
             // QFileInfo::size does not return the actual size of a symlink. #253776
             QT_STATBUF buff;
             return static_cast<qulonglong>(QT_LSTAT(QFile::encodeName(file.absoluteFilePath()), &buff) == 0 ? buff.st_size : 0);

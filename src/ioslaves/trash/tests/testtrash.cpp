@@ -54,23 +54,22 @@ int initLocale()
 {
 #ifdef UTF8TEST
     // Assume utf8 system
-    setenv( "LC_ALL", "en_US.utf-8", 1 );
-    setenv( "KDE_UTF8_FILENAMES", "true", 1 );
+    setenv("LC_ALL", "en_US.utf-8", 1);
+    setenv("KDE_UTF8_FILENAMES", "true", 1);
 #else
     // Ensure a known QFile::encodeName behavior for trashUtf8FileFromHome
     // However this assume your $HOME doesn't use characters from other locales...
-    setenv( "LC_ALL", "en_US.ISO-8859-1", 1 );
-    unsetenv( "KDE_UTF8_FILENAMES" );
+    setenv("LC_ALL", "en_US.ISO-8859-1", 1);
+    unsetenv("KDE_UTF8_FILENAMES");
 #endif
-    setenv("KDEHOME", QFile::encodeName( QDir::homePath() + QString::fromLatin1("/.kde-unit-test") ), 1);
-    setenv("XDG_DATA_HOME", QFile::encodeName( QDir::homePath() + QString::fromLatin1("/.kde-unit-test/xdg/local") ), 1);
-    setenv("XDG_CONFIG_HOME", QFile::encodeName( QDir::homePath() + QString::fromLatin1("/.kde-unit-test/xdg/config") ), 1);
+    setenv("KDEHOME", QFile::encodeName(QDir::homePath() + QString::fromLatin1("/.kde-unit-test")), 1);
+    setenv("XDG_DATA_HOME", QFile::encodeName(QDir::homePath() + QString::fromLatin1("/.kde-unit-test/xdg/local")), 1);
+    setenv("XDG_CONFIG_HOME", QFile::encodeName(QDir::homePath() + QString::fromLatin1("/.kde-unit-test/xdg/config")), 1);
     setenv("KDE_SKIP_KDERC", "1", 1);
     unsetenv("KDE_COLOR_DEBUG");
     return 0;
 }
 Q_CONSTRUCTOR_FUNCTION(initLocale)
-
 
 QString TestTrash::homeTmpDir() const
 {
@@ -90,52 +89,52 @@ QString TestTrash::otherTmpDir() const
 
 QString TestTrash::utf8FileName() const
 {
-    return QString::fromLatin1( "test" ) + QChar( 0x2153 ); // "1/3" character, not part of latin1
+    return QString::fromLatin1("test") + QChar(0x2153);     // "1/3" character, not part of latin1
 }
 
 QString TestTrash::umlautFileName() const
 {
-    return QString::fromLatin1( "umlaut" ) + QChar( 0xEB );
+    return QString::fromLatin1("umlaut") + QChar(0xEB);
 }
 
-static void removeFile( const QString& trashDir, const QString& fileName )
+static void removeFile(const QString &trashDir, const QString &fileName)
 {
     QDir dir;
-    dir.remove( trashDir + fileName );
-    QVERIFY( !QDir( trashDir + fileName ).exists() );
+    dir.remove(trashDir + fileName);
+    QVERIFY(!QDir(trashDir + fileName).exists());
 }
 
-static void removeDir( const QString& trashDir, const QString& dirName )
+static void removeDir(const QString &trashDir, const QString &dirName)
 {
     QDir dir;
-    dir.rmdir( trashDir + dirName );
-    QVERIFY( !QDir( trashDir + dirName ).exists() );
+    dir.rmdir(trashDir + dirName);
+    QVERIFY(!QDir(trashDir + dirName).exists());
 }
 
-static void removeDirRecursive( const QString& dir )
+static void removeDirRecursive(const QString &dir)
 {
-    if ( QFile::exists( dir ) ) {
+    if (QFile::exists(dir)) {
 
         // Make it work even with readonly dirs, like trashReadOnlyDirFromHome() creates
-        QUrl u = QUrl::fromLocalFile( dir );
+        QUrl u = QUrl::fromLocalFile(dir);
         //qDebug() << "chmod +0200 on" << u;
         KFileItem fileItem(u, QString::fromLatin1("inode/directory"), KFileItem::Unknown);
         KFileItemList fileItemList;
-        fileItemList.append( fileItem );
-        KIO::ChmodJob* chmodJob = KIO::chmod( fileItemList, 0200, 0200, QString(), QString(), true /*recursive*/, KIO::HideProgressInfo );
+        fileItemList.append(fileItem);
+        KIO::ChmodJob *chmodJob = KIO::chmod(fileItemList, 0200, 0200, QString(), QString(), true /*recursive*/, KIO::HideProgressInfo);
         chmodJob->exec();
 
-        KIO::Job* delJob = KIO::del(u, KIO::HideProgressInfo);
-        if (!delJob->exec())
+        KIO::Job *delJob = KIO::del(u, KIO::HideProgressInfo);
+        if (!delJob->exec()) {
             qFatal("Couldn't delete %s", qPrintable(dir));
+        }
     }
 }
 
 void TestTrash::initTestCase()
 {
     qDebug() << qgetenv("LC_ALL");
-    setenv( "KDE_FORK_SLAVES", "yes", true );
-
+    setenv("KDE_FORK_SLAVES", "yes", true);
 
     m_trashDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QString::fromLatin1("/Trash");
     qDebug() << "setup: using trash directory " << m_trashDir;
@@ -151,106 +150,108 @@ void TestTrash::initTestCase()
     m_tmpIsWritablePartition = false;
     m_tmpTrashId = -1;
     QVector<int> writableTopDirs;
-    for ( TrashImpl::TrashDirMap::ConstIterator it = trashDirs.constBegin(); it != trashDirs.constEnd() ; ++it ) {
-        if ( it.key() == 0 ) {
-            QVERIFY( it.value() == m_trashDir );
-            QVERIFY( topDirs.find( 0 ) == topDirs.end() );
+    for (TrashImpl::TrashDirMap::ConstIterator it = trashDirs.constBegin(); it != trashDirs.constEnd(); ++it) {
+        if (it.key() == 0) {
+            QVERIFY(it.value() == m_trashDir);
+            QVERIFY(topDirs.find(0) == topDirs.end());
             foundTrashDir = true;
         } else {
-            QVERIFY( topDirs.find( it.key() ) != topDirs.end() );
+            QVERIFY(topDirs.find(it.key()) != topDirs.end());
             const QString topdir = topDirs[it.key()];
-            if ( QFileInfo( topdir ).isWritable() ) {
-                writableTopDirs.append( it.key() );
+            if (QFileInfo(topdir).isWritable()) {
+                writableTopDirs.append(it.key());
                 if (topdir == QLatin1String("/tmp/")) {
                     m_tmpIsWritablePartition = true;
                     m_tmpTrashId = it.key();
                     qDebug() << "/tmp is on its own partition (trashid=" << m_tmpTrashId << "), some tests will be skipped";
-                    removeFile( it.value(), QString::fromLatin1("/info/fileFromOther.trashinfo") );
-                    removeFile( it.value(), QString::fromLatin1("/files/fileFromOther") );
-                    removeFile( it.value(), QString::fromLatin1("/info/symlinkFromOther.trashinfo") );
-                    removeFile( it.value(), QString::fromLatin1("/files/symlinkFromOther") );
-                    removeFile( it.value(), QString::fromLatin1("/info/trashDirFromOther.trashinfo") );
-                    removeFile( it.value(), QString::fromLatin1("/files/trashDirFromOther/testfile") );
-                    removeDir( it.value(), QString::fromLatin1("/files/trashDirFromOther") );
+                    removeFile(it.value(), QString::fromLatin1("/info/fileFromOther.trashinfo"));
+                    removeFile(it.value(), QString::fromLatin1("/files/fileFromOther"));
+                    removeFile(it.value(), QString::fromLatin1("/info/symlinkFromOther.trashinfo"));
+                    removeFile(it.value(), QString::fromLatin1("/files/symlinkFromOther"));
+                    removeFile(it.value(), QString::fromLatin1("/info/trashDirFromOther.trashinfo"));
+                    removeFile(it.value(), QString::fromLatin1("/files/trashDirFromOther/testfile"));
+                    removeDir(it.value(), QString::fromLatin1("/files/trashDirFromOther"));
                 }
             }
         }
     }
-    for ( QVector<int>::const_iterator it = writableTopDirs.constBegin(); it != writableTopDirs.constEnd(); ++it ) {
+    for (QVector<int>::const_iterator it = writableTopDirs.constBegin(); it != writableTopDirs.constEnd(); ++it) {
         const QString topdir = topDirs[ *it ];
         const QString trashdir = trashDirs[ *it ];
-        QVERIFY( !topdir.isEmpty() );
-        QVERIFY( !trashDirs.isEmpty() );
+        QVERIFY(!topdir.isEmpty());
+        QVERIFY(!trashDirs.isEmpty());
         if (topdir != QLatin1String("/tmp/") ||         // we'd prefer not to use /tmp here, to separate the tests
-            (writableTopDirs.count() > 1)) // but well, if we have no choice, take it
-        {
+                (writableTopDirs.count() > 1)) { // but well, if we have no choice, take it
             m_otherPartitionTopDir = topdir;
             m_otherPartitionTrashDir = trashdir;
             m_otherPartitionId = *it;
             qDebug() << "OK, found another writable partition: topDir=" << m_otherPartitionTopDir
-                      << " trashDir=" << m_otherPartitionTrashDir << " id=" << m_otherPartitionId << endl;
+                     << " trashDir=" << m_otherPartitionTrashDir << " id=" << m_otherPartitionId << endl;
             break;
         }
     }
     // Check that m_trashDir got listed
-    QVERIFY( foundTrashDir );
-    if ( m_otherPartitionTrashDir.isEmpty() )
-        qWarning() << "No writable partition other than $HOME found, some tests will be skipped" ;
+    QVERIFY(foundTrashDir);
+    if (m_otherPartitionTrashDir.isEmpty()) {
+        qWarning() << "No writable partition other than $HOME found, some tests will be skipped";
+    }
 
     // Start with a clean base dir
     qDebug() << "initial cleanup";
-    removeDirRecursive( homeTmpDir() );
-    removeDirRecursive( otherTmpDir() );
+    removeDirRecursive(homeTmpDir());
+    removeDirRecursive(otherTmpDir());
 
     QDir dir; // TT: why not a static method?
-    bool ok = dir.mkdir( homeTmpDir() );
-    if ( !ok )
+    bool ok = dir.mkdir(homeTmpDir());
+    if (!ok) {
         qFatal("Couldn't create directory: %s", qPrintable(homeTmpDir()));
-    ok = dir.mkdir( otherTmpDir() );
-    if ( !ok )
+    }
+    ok = dir.mkdir(otherTmpDir());
+    if (!ok) {
         qFatal("Couldn't create directory: %s", qPrintable(otherTmpDir()));
+    }
 
     // Start with a clean trash too
     qDebug() << "removing trash dir";
-    removeDirRecursive( m_trashDir );
+    removeDirRecursive(m_trashDir);
 }
 
 void TestTrash::cleanupTestCase()
 {
     // Clean up
-    removeDirRecursive( homeTmpDir() );
-    removeDirRecursive( otherTmpDir() );
-    removeDirRecursive( m_trashDir );
+    removeDirRecursive(homeTmpDir());
+    removeDirRecursive(otherTmpDir());
+    removeDirRecursive(m_trashDir);
 }
 
 void TestTrash::urlTestFile()
 {
     const QUrl url = TrashImpl::makeURL(1, QString::fromLatin1("fileId"), QString());
-    QCOMPARE( url.url(), QString::fromLatin1("trash:/1-fileId"));
+    QCOMPARE(url.url(), QString::fromLatin1("trash:/1-fileId"));
 
     int trashId;
     QString fileId;
     QString relativePath;
-    bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
-    QVERIFY( ok );
-    QCOMPARE( QString::number( trashId ), QString::fromLatin1( "1" ) );
-    QCOMPARE( fileId, QString::fromLatin1( "fileId" ) );
-    QCOMPARE( relativePath, QString() );
+    bool ok = TrashImpl::parseURL(url, trashId, fileId, relativePath);
+    QVERIFY(ok);
+    QCOMPARE(QString::number(trashId), QString::fromLatin1("1"));
+    QCOMPARE(fileId, QString::fromLatin1("fileId"));
+    QCOMPARE(relativePath, QString());
 }
 
 void TestTrash::urlTestDirectory()
 {
-    const QUrl url = TrashImpl::makeURL( 1, QString::fromLatin1("fileId"), QString::fromLatin1("subfile") );
-    QCOMPARE( url.url(), QString::fromLatin1( "trash:/1-fileId/subfile" ) );
+    const QUrl url = TrashImpl::makeURL(1, QString::fromLatin1("fileId"), QString::fromLatin1("subfile"));
+    QCOMPARE(url.url(), QString::fromLatin1("trash:/1-fileId/subfile"));
 
     int trashId;
     QString fileId;
     QString relativePath;
-    bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
-    QVERIFY( ok );
-    QCOMPARE( trashId, 1 );
-    QCOMPARE( fileId, QString::fromLatin1( "fileId" ) );
-    QCOMPARE( relativePath, QString::fromLatin1( "subfile" ) );
+    bool ok = TrashImpl::parseURL(url, trashId, fileId, relativePath);
+    QVERIFY(ok);
+    QCOMPARE(trashId, 1);
+    QCOMPARE(fileId, QString::fromLatin1("fileId"));
+    QCOMPARE(relativePath, QString::fromLatin1("subfile"));
 }
 
 void TestTrash::urlTestSubDirectory()
@@ -261,24 +262,25 @@ void TestTrash::urlTestSubDirectory()
     int trashId;
     QString fileId;
     QString relativePath;
-    bool ok = TrashImpl::parseURL( url, trashId, fileId, relativePath );
-    QVERIFY( ok );
-    QCOMPARE( trashId, 1 );
-    QCOMPARE( fileId, QString::fromLatin1( "fileId" ) );
-    QCOMPARE( relativePath, QString::fromLatin1( "subfile/foobar" ) );
+    bool ok = TrashImpl::parseURL(url, trashId, fileId, relativePath);
+    QVERIFY(ok);
+    QCOMPARE(trashId, 1);
+    QCOMPARE(fileId, QString::fromLatin1("fileId"));
+    QCOMPARE(relativePath, QString::fromLatin1("subfile/foobar"));
 }
 
-static void checkInfoFile( const QString& infoPath, const QString& origFilePath )
+static void checkInfoFile(const QString &infoPath, const QString &origFilePath)
 {
     qDebug() << infoPath;
-    QFileInfo info( infoPath );
-    QVERIFY( info.exists() );
-    QVERIFY( info.isFile() );
-    KConfig infoFile( info.absoluteFilePath() );
-    KConfigGroup group = infoFile.group( "Trash Info" );
-    if ( !group.exists() )
+    QFileInfo info(infoPath);
+    QVERIFY(info.exists());
+    QVERIFY(info.isFile());
+    KConfig infoFile(info.absoluteFilePath());
+    KConfigGroup group = infoFile.group("Trash Info");
+    if (!group.exists()) {
         qFatal("no Trash Info group in %s", qPrintable(info.absoluteFilePath()));
-    const QString origPath = group.readEntry( "Path" );
+    }
+    const QString origPath = group.readEntry("Path");
     QVERIFY(!origPath.isEmpty());
     QVERIFY(origPath == QString::fromLatin1(QUrl::toPercentEncoding(origFilePath, "/")));
     if (origFilePath.contains(QChar(0x2153)) || origFilePath.contains(QLatin1Char('%')) || origFilePath.contains(QString::fromLatin1("umlaut"))) {
@@ -286,72 +288,76 @@ static void checkInfoFile( const QString& infoPath, const QString& origFilePath 
     } else {
         QVERIFY(!origPath.contains(QLatin1Char('%')));
     }
-    const QString date = group.readEntry( "DeletionDate" );
+    const QString date = group.readEntry("DeletionDate");
     QVERIFY(!date.isEmpty());
     QVERIFY(date.contains(QString::fromLatin1("T")));
 }
 
-static void createTestFile( const QString& path )
+static void createTestFile(const QString &path)
 {
-    QFile f( path );
-    if ( !f.open( QIODevice::WriteOnly ) )
+    QFile f(path);
+    if (!f.open(QIODevice::WriteOnly)) {
         qFatal("Can't create %s", qPrintable(path));
-    f.write( "Hello world\n", 12 );
+    }
+    f.write("Hello world\n", 12);
     f.close();
-    QVERIFY( QFile::exists( path ) );
+    QVERIFY(QFile::exists(path));
 }
 
-void TestTrash::trashFile( const QString& origFilePath, const QString& fileId )
+void TestTrash::trashFile(const QString &origFilePath, const QString &fileId)
 {
     // setup
-    if ( !QFile::exists( origFilePath ) )
-        createTestFile( origFilePath );
-    QUrl u = QUrl::fromLocalFile( origFilePath );
+    if (!QFile::exists(origFilePath)) {
+        createTestFile(origFilePath);
+    }
+    QUrl u = QUrl::fromLocalFile(origFilePath);
 
     // test
-    KIO::Job* job = KIO::move( u, QUrl("trash:/"), KIO::HideProgressInfo );
+    KIO::Job *job = KIO::move(u, QUrl("trash:/"), KIO::HideProgressInfo);
     bool ok = job->exec();
-    if ( !ok )
+    if (!ok) {
         qCritical() << "moving " << u << " to trash failed with error " << job->error() << " " << job->errorString() << endl;
-    QVERIFY( ok );
+    }
+    QVERIFY(ok);
     if (origFilePath.startsWith(QLatin1String("/tmp")) && m_tmpIsWritablePartition) {
         qDebug() << " TESTS SKIPPED";
     } else {
         checkInfoFile(m_trashDir + QString::fromLatin1("/info/") + fileId + QString::fromLatin1(".trashinfo"), origFilePath);
 
         QFileInfo files(m_trashDir + QString::fromLatin1("/files/") + fileId);
-        QVERIFY( files.isFile() );
-        QVERIFY( files.size() == 12 );
+        QVERIFY(files.isFile());
+        QVERIFY(files.size() == 12);
     }
 
     // coolo suggests testing that the original file is actually gone, too :)
-    QVERIFY( !QFile::exists( origFilePath ) );
+    QVERIFY(!QFile::exists(origFilePath));
 
     QMap<QString, QString> metaData = job->metaData();
-    QVERIFY( !metaData.isEmpty() );
+    QVERIFY(!metaData.isEmpty());
     bool found = false;
     QMap<QString, QString>::ConstIterator it = metaData.constBegin();
-    for ( ; it != metaData.constEnd() ; ++it ) {
+    for (; it != metaData.constEnd(); ++it) {
         if (it.key().startsWith(QLatin1String("trashURL"))) {
-            const QString origPath = it.key().mid( 9 );
-            QUrl trashURL( it.value() );
+            const QString origPath = it.key().mid(9);
+            QUrl trashURL(it.value());
             qDebug() << trashURL;
             QVERIFY(!trashURL.isEmpty());
             QVERIFY(trashURL.scheme() == QLatin1String("trash"));
             int trashId = 0;
-            if (origFilePath.startsWith(QLatin1String("/tmp")) && m_tmpIsWritablePartition)
+            if (origFilePath.startsWith(QLatin1String("/tmp")) && m_tmpIsWritablePartition) {
                 trashId = m_tmpTrashId;
+            }
             QCOMPARE(trashURL.path(), QString(QString::fromLatin1("/") + QString::number(trashId) + QLatin1Char('-') + fileId));
             found = true;
         }
     }
-    QVERIFY( found );
+    QVERIFY(found);
 }
 
 void TestTrash::trashFileFromHome()
 {
     const QString fileName = QString::fromLatin1("fileFromHome");
-    trashFile( homeTmpDir() + fileName, fileName );
+    trashFile(homeTmpDir() + fileName, fileName);
 
     // Do it again, check that we got a different id
     trashFile(homeTmpDir() + fileName, fileName + QString::fromLatin1(" 1"));
@@ -360,40 +366,40 @@ void TestTrash::trashFileFromHome()
 void TestTrash::trashPercentFileFromHome()
 {
     const QString fileName = QString::fromLatin1("file%2f");
-    trashFile( homeTmpDir() + fileName, fileName );
+    trashFile(homeTmpDir() + fileName, fileName);
 }
 
 void TestTrash::trashUtf8FileFromHome()
 {
 #ifdef UTF8TEST
     const QString fileName = utf8FileName();
-    trashFile( homeTmpDir() + fileName, fileName );
+    trashFile(homeTmpDir() + fileName, fileName);
 #endif
 }
 
 void TestTrash::trashUmlautFileFromHome()
 {
     const QString fileName = umlautFileName();
-    trashFile( homeTmpDir() + fileName, fileName );
+    trashFile(homeTmpDir() + fileName, fileName);
 }
 
 void TestTrash::testTrashNotEmpty()
 {
     KConfig cfg(QString::fromLatin1("trashrc"), KConfig::SimpleConfig);
-    const KConfigGroup group = cfg.group( "Status" );
-    QVERIFY( group.exists() );
-    QVERIFY( group.readEntry( "Empty", true ) == false );
+    const KConfigGroup group = cfg.group("Status");
+    QVERIFY(group.exists());
+    QVERIFY(group.readEntry("Empty", true) == false);
 }
 
 void TestTrash::trashFileFromOther()
 {
     const QString fileName = QString::fromLatin1("fileFromOther");
-    trashFile( otherTmpDir() + fileName, fileName );
+    trashFile(otherTmpDir() + fileName, fileName);
 }
 
 void TestTrash::trashFileIntoOtherPartition()
 {
-    if ( m_otherPartitionTrashDir.isEmpty() ) {
+    if (m_otherPartitionTrashDir.isEmpty()) {
         qDebug() << " - SKIPPED";
         return;
     }
@@ -405,75 +411,76 @@ void TestTrash::trashFileIntoOtherPartition()
     QFile::remove(m_otherPartitionTrashDir + QString::fromLatin1("/files/") + fileId);
 
     // setup
-    if ( !QFile::exists( origFilePath ) )
-        createTestFile( origFilePath );
-    QUrl u = QUrl::fromLocalFile( origFilePath );
+    if (!QFile::exists(origFilePath)) {
+        createTestFile(origFilePath);
+    }
+    QUrl u = QUrl::fromLocalFile(origFilePath);
 
     // test
-    KIO::Job* job = KIO::move( u, QUrl("trash:/"), KIO::HideProgressInfo );
+    KIO::Job *job = KIO::move(u, QUrl("trash:/"), KIO::HideProgressInfo);
     bool ok = job->exec();
-    QVERIFY( ok );
+    QVERIFY(ok);
     QMap<QString, QString> metaData = job->metaData();
     // Note that the Path stored in the info file is relative, on other partitions (#95652)
     checkInfoFile(m_otherPartitionTrashDir + QString::fromLatin1("/info/") + fileId + QString::fromLatin1(".trashinfo"), fileName);
 
     QFileInfo files(m_otherPartitionTrashDir + QString::fromLatin1("/files/") + fileId);
-    QVERIFY( files.isFile() );
-    QVERIFY( files.size() == 12 );
+    QVERIFY(files.isFile());
+    QVERIFY(files.size() == 12);
 
     // coolo suggests testing that the original file is actually gone, too :)
-    QVERIFY( !QFile::exists( origFilePath ) );
+    QVERIFY(!QFile::exists(origFilePath));
 
-    QVERIFY( !metaData.isEmpty() );
+    QVERIFY(!metaData.isEmpty());
     bool found = false;
     QMap<QString, QString>::ConstIterator it = metaData.constBegin();
-    for ( ; it != metaData.constEnd() ; ++it ) {
-        if (it.key().startsWith( QLatin1String("trashURL"))) {
-            const QString origPath = it.key().mid( 9 );
-            QUrl trashURL( it.value() );
+    for (; it != metaData.constEnd(); ++it) {
+        if (it.key().startsWith(QLatin1String("trashURL"))) {
+            const QString origPath = it.key().mid(9);
+            QUrl trashURL(it.value());
             qDebug() << trashURL;
-            QVERIFY( !trashURL.isEmpty() );
+            QVERIFY(!trashURL.isEmpty());
             QVERIFY(trashURL.scheme() == QLatin1String("trash"));
-            QVERIFY(trashURL.path() == QString::fromLatin1("/%1-%2").arg( m_otherPartitionId ).arg(fileId));
+            QVERIFY(trashURL.path() == QString::fromLatin1("/%1-%2").arg(m_otherPartitionId).arg(fileId));
             found = true;
         }
     }
-    QVERIFY( found );
+    QVERIFY(found);
 }
 
 void TestTrash::trashFileOwnedByRoot()
 {
-    QUrl u( "file:///etc/passwd" );
+    QUrl u("file:///etc/passwd");
     const QString fileId = QString::fromLatin1("passwd");
 
-    KIO::CopyJob* job = KIO::move( u, QUrl("trash:/"), KIO::HideProgressInfo );
+    KIO::CopyJob *job = KIO::move(u, QUrl("trash:/"), KIO::HideProgressInfo);
     job->setUiDelegate(0); // no skip dialog, thanks
     bool ok = job->exec();
-    QVERIFY( !ok );
+    QVERIFY(!ok);
     QMap<QString, QString> metaData = job->metaData();
 
-    QVERIFY( job->error() == KIO::ERR_ACCESS_DENIED );
+    QVERIFY(job->error() == KIO::ERR_ACCESS_DENIED);
     const QString infoPath(m_trashDir + QString::fromLatin1("/info/") + fileId + QString::fromLatin1(".trashinfo"));
-    QVERIFY( !QFile::exists( infoPath ) );
+    QVERIFY(!QFile::exists(infoPath));
 
     QFileInfo files(m_trashDir + QString::fromLatin1("/files/") + fileId);
-    QVERIFY( !files.exists() );
+    QVERIFY(!files.exists());
 
-    QVERIFY( QFile::exists( u.path() ) );
+    QVERIFY(QFile::exists(u.path()));
 }
 
-void TestTrash::trashSymlink( const QString& origFilePath, const QString& fileId, bool broken )
+void TestTrash::trashSymlink(const QString &origFilePath, const QString &fileId, bool broken)
 {
     // setup
-    const char* target = broken ? "/nonexistent" : "/tmp";
-    bool ok = ::symlink( target, QFile::encodeName( origFilePath ) ) == 0;
-    QVERIFY( ok );
-    QUrl u = QUrl::fromLocalFile( origFilePath );
+    const char *target = broken ? "/nonexistent" : "/tmp";
+    bool ok = ::symlink(target, QFile::encodeName(origFilePath)) == 0;
+    QVERIFY(ok);
+    QUrl u = QUrl::fromLocalFile(origFilePath);
 
     // test
-    KIO::Job* job = KIO::move( u, QUrl("trash:/"), KIO::HideProgressInfo );
+    KIO::Job *job = KIO::move(u, QUrl("trash:/"), KIO::HideProgressInfo);
     ok = job->exec();
-    QVERIFY( ok );
+    QVERIFY(ok);
     if (origFilePath.startsWith(QLatin1String("/tmp")) && m_tmpIsWritablePartition) {
         qDebug() << " TESTS SKIPPED";
         return;
@@ -481,46 +488,46 @@ void TestTrash::trashSymlink( const QString& origFilePath, const QString& fileId
     checkInfoFile(m_trashDir + QString::fromLatin1("/info/") + fileId + QString::fromLatin1(".trashinfo"), origFilePath);
 
     QFileInfo files(m_trashDir + QString::fromLatin1("/files/") + fileId);
-    QVERIFY( files.isSymLink() );
-    QVERIFY( files.readLink() == QFile::decodeName( target ) );
-    QVERIFY( !QFile::exists( origFilePath ) );
+    QVERIFY(files.isSymLink());
+    QVERIFY(files.readLink() == QFile::decodeName(target));
+    QVERIFY(!QFile::exists(origFilePath));
 }
 
 void TestTrash::trashSymlinkFromHome()
 {
     const QString fileName = QString::fromLatin1("symlinkFromHome");
-    trashSymlink( homeTmpDir() + fileName, fileName, false );
+    trashSymlink(homeTmpDir() + fileName, fileName, false);
 }
 
 void TestTrash::trashSymlinkFromOther()
 {
     const QString fileName = QString::fromLatin1("symlinkFromOther");
-    trashSymlink( otherTmpDir() + fileName, fileName, false );
+    trashSymlink(otherTmpDir() + fileName, fileName, false);
 }
 
 void TestTrash::trashBrokenSymlinkFromHome()
 {
     const QString fileName = QString::fromLatin1("brokenSymlinkFromHome");
-    trashSymlink( homeTmpDir() + fileName, fileName, true );
+    trashSymlink(homeTmpDir() + fileName, fileName, true);
 }
 
-void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )
+void TestTrash::trashDirectory(const QString &origPath, const QString &fileId)
 {
     qDebug() << fileId;
     // setup
-    if ( !QFileInfo( origPath ).exists() ) {
+    if (!QFileInfo(origPath).exists()) {
         QDir dir;
-        bool ok = dir.mkdir( origPath );
-        QVERIFY( ok );
+        bool ok = dir.mkdir(origPath);
+        QVERIFY(ok);
     }
     createTestFile(origPath + QString::fromLatin1("/testfile"));
     QVERIFY(QDir().mkdir(origPath + QString::fromLatin1("/subdir")));
     createTestFile(origPath + QString::fromLatin1("/subdir/subfile"));
-    QUrl u = QUrl::fromLocalFile( origPath );
+    QUrl u = QUrl::fromLocalFile(origPath);
 
     // test
-    KIO::Job* job = KIO::move( u, QUrl("trash:/"), KIO::HideProgressInfo );
-    QVERIFY( job->exec() );
+    KIO::Job *job = KIO::move(u, QUrl("trash:/"), KIO::HideProgressInfo);
+    QVERIFY(job->exec());
     if (origPath.startsWith(QLatin1String("/tmp")) && m_tmpIsWritablePartition) {
         qDebug() << " TESTS SKIPPED";
         return;
@@ -528,12 +535,12 @@ void TestTrash::trashDirectory( const QString& origPath, const QString& fileId )
     checkInfoFile(m_trashDir + QString::fromLatin1("/info/") + fileId + QString::fromLatin1(".trashinfo"), origPath);
 
     QFileInfo filesDir(m_trashDir + QString::fromLatin1("/files/") + fileId);
-    QVERIFY( filesDir.isDir() );
+    QVERIFY(filesDir.isDir());
     QFileInfo files(m_trashDir + QString::fromLatin1("/files/") + fileId + QString::fromLatin1("/testfile"));
-    QVERIFY( files.exists() );
-    QVERIFY( files.isFile() );
-    QVERIFY( files.size() == 12 );
-    QVERIFY( !QFile::exists( origPath ) );
+    QVERIFY(files.exists());
+    QVERIFY(files.isFile());
+    QVERIFY(files.size() == 12);
+    QVERIFY(!QFile::exists(origPath));
     QVERIFY(QFile::exists(m_trashDir + QString::fromLatin1("/files/") + fileId + QString::fromLatin1("/subdir/subfile")));
 
     QFile dirCache(m_trashDir + QString::fromLatin1("/directorysizes"));
@@ -568,7 +575,7 @@ void TestTrash::checkDirCacheValidity()
         const QByteArray dir = QByteArray::fromPercentEncoding(line.mid(lastSpace + 1));
         QVERIFY2(!seenDirs.contains(dir), dir.constData());
         seenDirs.insert(dir);
-        const QString localDir =m_trashDir + QString::fromLatin1("/files/") + QFile::decodeName(dir);
+        const QString localDir = m_trashDir + QString::fromLatin1("/files/") + QFile::decodeName(dir);
         QVERIFY2(QFile::exists(localDir), qPrintable(localDir));
         QVERIFY(QFileInfo(localDir).isDir());
     }
@@ -577,7 +584,7 @@ void TestTrash::checkDirCacheValidity()
 void TestTrash::trashDirectoryFromHome()
 {
     QString dirName = QString::fromLatin1("trashDirFromHome");
-    trashDirectory( homeTmpDir() + dirName, dirName );
+    trashDirectory(homeTmpDir() + dirName, dirName);
     // Do it again, check that we got a different id
     trashDirectory(homeTmpDir() + dirName, dirName + QString::fromLatin1(" 1"));
 }
@@ -585,7 +592,7 @@ void TestTrash::trashDirectoryFromHome()
 void TestTrash::trashDotDirectory()
 {
     QString dirName = QString::fromLatin1(".dotTrashDirFromHome");
-    trashDirectory( homeTmpDir() + dirName, dirName );
+    trashDirectory(homeTmpDir() + dirName, dirName);
     // Do it again, check that we got a different id
     // TODO trashDirectory(homeTmpDir() + dirName, dirName + QString::fromLatin1(" 1"));
 }
@@ -594,14 +601,14 @@ void TestTrash::trashReadOnlyDirFromHome()
 {
     const QString dirName = readOnlyDirPath();
     QDir dir;
-    bool ok = dir.mkdir( dirName );
-    QVERIFY( ok );
+    bool ok = dir.mkdir(dirName);
+    QVERIFY(ok);
     // #130780
     const QString subDirPath = dirName + QString::fromLatin1("/readonly_subdir");
-    ok = dir.mkdir( subDirPath );
-    QVERIFY( ok );
+    ok = dir.mkdir(subDirPath);
+    QVERIFY(ok);
     createTestFile(subDirPath + QString::fromLatin1("/testfile_in_subdir"));
-    ::chmod( QFile::encodeName( subDirPath ), 0500 );
+    ::chmod(QFile::encodeName(subDirPath), 0500);
 
     trashDirectory(dirName, QString::fromLatin1("readonly"));
 }
@@ -609,7 +616,7 @@ void TestTrash::trashReadOnlyDirFromHome()
 void TestTrash::trashDirectoryFromOther()
 {
     QString dirName = QString::fromLatin1("trashDirFromOther");
-    trashDirectory( otherTmpDir() + dirName, dirName );
+    trashDirectory(otherTmpDir() + dirName, dirName);
 }
 
 void TestTrash::trashDirectoryWithTrailingSlash()
@@ -621,79 +628,80 @@ void TestTrash::trashDirectoryWithTrailingSlash()
 void TestTrash::tryRenameInsideTrash()
 {
     qDebug() << " with file_move";
-    KIO::Job* job = KIO::file_move( QUrl("trash:/0-tryRenameInsideTrash"), QUrl("trash:/foobar"), -1, KIO::HideProgressInfo );
+    KIO::Job *job = KIO::file_move(QUrl("trash:/0-tryRenameInsideTrash"), QUrl("trash:/foobar"), -1, KIO::HideProgressInfo);
     bool worked = job->exec();
-    QVERIFY( !worked );
-    QVERIFY( job->error() == KIO::ERR_CANNOT_RENAME );
+    QVERIFY(!worked);
+    QVERIFY(job->error() == KIO::ERR_CANNOT_RENAME);
 
     qDebug() << " with move";
-    job = KIO::move( QUrl("trash:/0-tryRenameInsideTrash"), QUrl("trash:/foobar"), KIO::HideProgressInfo );
+    job = KIO::move(QUrl("trash:/0-tryRenameInsideTrash"), QUrl("trash:/foobar"), KIO::HideProgressInfo);
     worked = job->exec();
-    QVERIFY( !worked );
-    QVERIFY( job->error() == KIO::ERR_CANNOT_RENAME );
+    QVERIFY(!worked);
+    QVERIFY(job->error() == KIO::ERR_CANNOT_RENAME);
 }
 
 void TestTrash::delRootFile()
 {
     // test deleting a trashed file
-    KIO::Job* delJob = KIO::del(QUrl("trash:/0-fileFromHome"), KIO::HideProgressInfo);
+    KIO::Job *delJob = KIO::del(QUrl("trash:/0-fileFromHome"), KIO::HideProgressInfo);
     bool ok = delJob->exec();
-    QVERIFY( ok );
+    QVERIFY(ok);
 
-    QFileInfo file( m_trashDir + QString::fromLatin1("/files/fileFromHome") );
-    QVERIFY( !file.exists() );
-    QFileInfo info( m_trashDir + QString::fromLatin1("/info/fileFromHome.trashinfo") );
-    QVERIFY( !info.exists() );
+    QFileInfo file(m_trashDir + QString::fromLatin1("/files/fileFromHome"));
+    QVERIFY(!file.exists());
+    QFileInfo info(m_trashDir + QString::fromLatin1("/info/fileFromHome.trashinfo"));
+    QVERIFY(!info.exists());
 
     // trash it again, we might need it later
     const QString fileName = QString::fromLatin1("fileFromHome");
-    trashFile( homeTmpDir() + fileName, fileName );
+    trashFile(homeTmpDir() + fileName, fileName);
 }
 
 void TestTrash::delFileInDirectory()
 {
     // test deleting a file inside a trashed directory -> not allowed
-    KIO::Job* delJob = KIO::del(QUrl("trash:/0-trashDirFromHome/testfile"), KIO::HideProgressInfo);
+    KIO::Job *delJob = KIO::del(QUrl("trash:/0-trashDirFromHome/testfile"), KIO::HideProgressInfo);
     bool ok = delJob->exec();
-    QVERIFY( !ok );
-    QVERIFY( delJob->error() == KIO::ERR_ACCESS_DENIED );
+    QVERIFY(!ok);
+    QVERIFY(delJob->error() == KIO::ERR_ACCESS_DENIED);
 
-    QFileInfo dir( m_trashDir + QString::fromLatin1("/files/trashDirFromHome") );
-    QVERIFY( dir.exists() );
-    QFileInfo file( m_trashDir + QString::fromLatin1("/files/trashDirFromHome/testfile") );
-    QVERIFY( file.exists() );
-    QFileInfo info( m_trashDir + QString::fromLatin1("/info/trashDirFromHome.trashinfo") );
-    QVERIFY( info.exists() );
+    QFileInfo dir(m_trashDir + QString::fromLatin1("/files/trashDirFromHome"));
+    QVERIFY(dir.exists());
+    QFileInfo file(m_trashDir + QString::fromLatin1("/files/trashDirFromHome/testfile"));
+    QVERIFY(file.exists());
+    QFileInfo info(m_trashDir + QString::fromLatin1("/info/trashDirFromHome.trashinfo"));
+    QVERIFY(info.exists());
 }
 
 void TestTrash::delDirectory()
 {
     // test deleting a trashed directory
-    KIO::Job* delJob = KIO::del(QUrl("trash:/0-trashDirFromHome"), KIO::HideProgressInfo);
+    KIO::Job *delJob = KIO::del(QUrl("trash:/0-trashDirFromHome"), KIO::HideProgressInfo);
     bool ok = delJob->exec();
-    QVERIFY( ok );
+    QVERIFY(ok);
 
-    QFileInfo dir( m_trashDir + QString::fromLatin1("/files/trashDirFromHome") );
-    QVERIFY( !dir.exists() );
-    QFileInfo file( m_trashDir + QString::fromLatin1("/files/trashDirFromHome/testfile") );
-    QVERIFY( !file.exists() );
-    QFileInfo info( m_trashDir + QString::fromLatin1("/info/trashDirFromHome.trashinfo") );
-    QVERIFY( !info.exists() );
+    QFileInfo dir(m_trashDir + QString::fromLatin1("/files/trashDirFromHome"));
+    QVERIFY(!dir.exists());
+    QFileInfo file(m_trashDir + QString::fromLatin1("/files/trashDirFromHome/testfile"));
+    QVERIFY(!file.exists());
+    QFileInfo info(m_trashDir + QString::fromLatin1("/info/trashDirFromHome.trashinfo"));
+    QVERIFY(!info.exists());
 
     // trash it again, we'll need it later
     QString dirName = QString::fromLatin1("trashDirFromHome");
-    trashDirectory( homeTmpDir() + dirName, dirName );
+    trashDirectory(homeTmpDir() + dirName, dirName);
 }
 
-static bool MyNetAccess_stat(const QUrl& url, KIO::UDSEntry& entry)
+static bool MyNetAccess_stat(const QUrl &url, KIO::UDSEntry &entry)
 {
-    KIO::StatJob * statJob = KIO::stat( url, KIO::HideProgressInfo );
+    KIO::StatJob *statJob = KIO::stat(url, KIO::HideProgressInfo);
     bool ok = statJob->exec();
-    if (ok)
+    if (ok) {
         entry = statJob->statResult();
+    }
     return ok;
 }
-static bool MyNetAccess_exists(const QUrl& url)
+static bool MyNetAccess_exists(const QUrl &url)
 {
     KIO::UDSEntry dummy;
     return MyNetAccess_stat(url, dummy);
@@ -701,101 +709,102 @@ static bool MyNetAccess_exists(const QUrl& url)
 
 void TestTrash::statRoot()
 {
-    QUrl url( "trash:/" );
+    QUrl url("trash:/");
     KIO::UDSEntry entry;
-    bool ok = MyNetAccess_stat( url, entry );
-    QVERIFY( ok );
-    KFileItem item( entry, url );
-    QVERIFY( item.isDir() );
-    QVERIFY( !item.isLink() );
-    QVERIFY( item.isReadable() );
-    QVERIFY( item.isWritable() );
-    QVERIFY( !item.isHidden() );
+    bool ok = MyNetAccess_stat(url, entry);
+    QVERIFY(ok);
+    KFileItem item(entry, url);
+    QVERIFY(item.isDir());
+    QVERIFY(!item.isLink());
+    QVERIFY(item.isReadable());
+    QVERIFY(item.isWritable());
+    QVERIFY(!item.isHidden());
     QCOMPARE(item.name(), QString::fromLatin1("."));
 }
 
 void TestTrash::statFileInRoot()
 {
-    QUrl url( "trash:/0-fileFromHome" );
+    QUrl url("trash:/0-fileFromHome");
     KIO::UDSEntry entry;
-    bool ok = MyNetAccess_stat( url, entry );
-    QVERIFY( ok );
-    KFileItem item( entry, url );
-    QVERIFY( item.isFile() );
-    QVERIFY( !item.isDir() );
-    QVERIFY( !item.isLink() );
-    QVERIFY( item.isReadable() );
-    QVERIFY( !item.isWritable() );
-    QVERIFY( !item.isHidden() );
+    bool ok = MyNetAccess_stat(url, entry);
+    QVERIFY(ok);
+    KFileItem item(entry, url);
+    QVERIFY(item.isFile());
+    QVERIFY(!item.isDir());
+    QVERIFY(!item.isLink());
+    QVERIFY(item.isReadable());
+    QVERIFY(!item.isWritable());
+    QVERIFY(!item.isHidden());
     QCOMPARE(item.text(), QString::fromLatin1("fileFromHome"));
 }
 
 void TestTrash::statDirectoryInRoot()
 {
-    QUrl url( "trash:/0-trashDirFromHome" );
+    QUrl url("trash:/0-trashDirFromHome");
     KIO::UDSEntry entry;
-    bool ok = MyNetAccess_stat( url, entry );
-    QVERIFY( ok );
-    KFileItem item( entry, url );
-    QVERIFY( item.isDir() );
-    QVERIFY( !item.isLink() );
-    QVERIFY( item.isReadable() );
-    QVERIFY( !item.isWritable() );
-    QVERIFY( !item.isHidden() );
+    bool ok = MyNetAccess_stat(url, entry);
+    QVERIFY(ok);
+    KFileItem item(entry, url);
+    QVERIFY(item.isDir());
+    QVERIFY(!item.isLink());
+    QVERIFY(item.isReadable());
+    QVERIFY(!item.isWritable());
+    QVERIFY(!item.isHidden());
     QCOMPARE(item.text(), QString::fromLatin1("trashDirFromHome"));
 }
 
 void TestTrash::statSymlinkInRoot()
 {
-    QUrl url( "trash:/0-symlinkFromHome" );
+    QUrl url("trash:/0-symlinkFromHome");
     KIO::UDSEntry entry;
-    bool ok = MyNetAccess_stat( url, entry );
-    QVERIFY( ok );
-    KFileItem item( entry, url );
-    QVERIFY( item.isLink() );
+    bool ok = MyNetAccess_stat(url, entry);
+    QVERIFY(ok);
+    KFileItem item(entry, url);
+    QVERIFY(item.isLink());
     QCOMPARE(item.linkDest(), QString::fromLatin1("/tmp"));
-    QVERIFY( item.isReadable() );
-    QVERIFY( !item.isWritable() );
-    QVERIFY( !item.isHidden() );
+    QVERIFY(item.isReadable());
+    QVERIFY(!item.isWritable());
+    QVERIFY(!item.isHidden());
     QCOMPARE(item.text(), QString::fromLatin1("symlinkFromHome"));
 }
 
 void TestTrash::statFileInDirectory()
 {
-    QUrl url( "trash:/0-trashDirFromHome/testfile" );
+    QUrl url("trash:/0-trashDirFromHome/testfile");
     KIO::UDSEntry entry;
-    bool ok = MyNetAccess_stat( url, entry );
-    QVERIFY( ok );
-    KFileItem item( entry, url );
-    QVERIFY( item.isFile() );
-    QVERIFY( !item.isLink() );
-    QVERIFY( item.isReadable() );
-    QVERIFY( !item.isWritable() );
-    QVERIFY( !item.isHidden() );
+    bool ok = MyNetAccess_stat(url, entry);
+    QVERIFY(ok);
+    KFileItem item(entry, url);
+    QVERIFY(item.isFile());
+    QVERIFY(!item.isLink());
+    QVERIFY(item.isReadable());
+    QVERIFY(!item.isWritable());
+    QVERIFY(!item.isHidden());
     QCOMPARE(item.text(), QString::fromLatin1("testfile"));
 }
 
-void TestTrash::copyFromTrash( const QString& fileId, const QString& destPath, const QString& relativePath )
+void TestTrash::copyFromTrash(const QString &fileId, const QString &destPath, const QString &relativePath)
 {
     QUrl src(QString::fromLatin1("trash:/0-") + fileId);
-    if ( !relativePath.isEmpty() )
+    if (!relativePath.isEmpty()) {
         src.setPath(src.path() + '/' + relativePath);
-    QUrl dest = QUrl::fromLocalFile( destPath );
+    }
+    QUrl dest = QUrl::fromLocalFile(destPath);
 
     QVERIFY(MyNetAccess_exists(src));
 
     // A dnd would use copy(), but we use copyAs to ensure the final filename
     //qDebug() << "copyAs:" << src << " -> " << dest;
-    KIO::Job* job = KIO::copyAs( src, dest, KIO::HideProgressInfo );
+    KIO::Job *job = KIO::copyAs(src, dest, KIO::HideProgressInfo);
     bool ok = job->exec();
     QVERIFY2(ok, qPrintable(job->errorString()));
-    QString infoFile( m_trashDir + QString::fromLatin1("/info/") + fileId + QString::fromLatin1(".trashinfo") );
-    QVERIFY( QFile::exists(infoFile) );
+    QString infoFile(m_trashDir + QString::fromLatin1("/info/") + fileId + QString::fromLatin1(".trashinfo"));
+    QVERIFY(QFile::exists(infoFile));
 
-    QFileInfo filesItem( m_trashDir + QString::fromLatin1("/files/") + fileId );
-    QVERIFY( filesItem.exists() );
+    QFileInfo filesItem(m_trashDir + QString::fromLatin1("/files/") + fileId);
+    QVERIFY(filesItem.exists());
 
-    QVERIFY( QFile::exists(destPath) );
+    QVERIFY(QFile::exists(destPath));
 }
 
 void TestTrash::copyFileFromTrash()
@@ -804,9 +813,9 @@ void TestTrash::copyFileFromTrash()
 // This brings up the "rename" dialog though, so it can't be fully automated
 #if 0
     const QString destPath = otherTmpDir() + QString::fromLatin1("fileFromHome_copied");
-    copyFromTrash( "fileFromHome", destPath );
-    QVERIFY( QFileInfo( destPath ).isFile() );
-    QVERIFY( QFileInfo( destPath ).size() == 12 );
+    copyFromTrash("fileFromHome", destPath);
+    QVERIFY(QFileInfo(destPath).isFile());
+    QVERIFY(QFileInfo(destPath).size() == 12);
 #endif
 }
 
@@ -814,15 +823,15 @@ void TestTrash::copyFileInDirectoryFromTrash()
 {
     const QString destPath = otherTmpDir() + QString::fromLatin1("testfile_copied");
     copyFromTrash(QString::fromLatin1("trashDirFromHome"), destPath, QString::fromLatin1("testfile"));
-    QVERIFY( QFileInfo( destPath ).isFile() );
-    QVERIFY( QFileInfo( destPath ).size() == 12 );
+    QVERIFY(QFileInfo(destPath).isFile());
+    QVERIFY(QFileInfo(destPath).size() == 12);
 }
 
 void TestTrash::copyDirectoryFromTrash()
 {
     const QString destPath = otherTmpDir() + QString::fromLatin1("trashDirFromHome_copied");
     copyFromTrash(QString::fromLatin1("trashDirFromHome"), destPath);
-    QVERIFY( QFileInfo( destPath ).isDir() );
+    QVERIFY(QFileInfo(destPath).isDir());
     QVERIFY(QFile::exists(destPath + "/testfile"));
     QVERIFY(QFile::exists(destPath + "/subdir/subfile"));
 }
@@ -831,110 +840,112 @@ void TestTrash::copySymlinkFromTrash()
 {
     const QString destPath = otherTmpDir() + QString::fromLatin1("symlinkFromHome_copied");
     copyFromTrash(QString::fromLatin1("symlinkFromHome"), destPath);
-    QVERIFY( QFileInfo( destPath ).isSymLink() );
+    QVERIFY(QFileInfo(destPath).isSymLink());
 }
 
-void TestTrash::moveFromTrash( const QString& fileId, const QString& destPath, const QString& relativePath )
+void TestTrash::moveFromTrash(const QString &fileId, const QString &destPath, const QString &relativePath)
 {
-    QUrl src( QString::fromLatin1("trash:/0-") + fileId );
-    if ( !relativePath.isEmpty() )
+    QUrl src(QString::fromLatin1("trash:/0-") + fileId);
+    if (!relativePath.isEmpty()) {
         src.setPath(src.path() + '/' + relativePath);
-    QUrl dest = QUrl::fromLocalFile( destPath );
+    }
+    QUrl dest = QUrl::fromLocalFile(destPath);
 
     QVERIFY(MyNetAccess_exists(src));
 
     // A dnd would use move(), but we use moveAs to ensure the final filename
-    KIO::Job* job = KIO::moveAs( src, dest, KIO::HideProgressInfo );
+    KIO::Job *job = KIO::moveAs(src, dest, KIO::HideProgressInfo);
     bool ok = job->exec();
     QVERIFY2(ok, qPrintable(job->errorString()));
-    QString infoFile( m_trashDir + "/info/" + fileId + ".trashinfo" );
-    QVERIFY( !QFile::exists( infoFile ) );
+    QString infoFile(m_trashDir + "/info/" + fileId + ".trashinfo");
+    QVERIFY(!QFile::exists(infoFile));
 
-    QFileInfo filesItem( m_trashDir + "/files/" + fileId );
-    QVERIFY( !filesItem.exists() );
+    QFileInfo filesItem(m_trashDir + "/files/" + fileId);
+    QVERIFY(!filesItem.exists());
 
-    QVERIFY( QFile::exists( destPath ) );
+    QVERIFY(QFile::exists(destPath));
 }
 
 void TestTrash::moveFileFromTrash()
 {
     const QString destPath = otherTmpDir() + "fileFromHome_restored";
-    moveFromTrash( "fileFromHome", destPath );
-    QVERIFY( QFileInfo( destPath ).isFile() );
-    QVERIFY( QFileInfo( destPath ).size() == 12 );
+    moveFromTrash("fileFromHome", destPath);
+    QVERIFY(QFileInfo(destPath).isFile());
+    QVERIFY(QFileInfo(destPath).size() == 12);
 
     // trash it again for later
     const QString fileName = "fileFromHome";
-    trashFile( homeTmpDir() + fileName, fileName );
+    trashFile(homeTmpDir() + fileName, fileName);
 }
 
 void TestTrash::moveFileInDirectoryFromTrash()
 {
     const QString destPath = otherTmpDir() + "testfile_restored";
-    copyFromTrash( "trashDirFromHome", destPath, "testfile" );
-    QVERIFY( QFileInfo( destPath ).isFile() );
-    QVERIFY( QFileInfo( destPath ).size() == 12 );
+    copyFromTrash("trashDirFromHome", destPath, "testfile");
+    QVERIFY(QFileInfo(destPath).isFile());
+    QVERIFY(QFileInfo(destPath).size() == 12);
 }
 
 void TestTrash::moveDirectoryFromTrash()
 {
     const QString destPath = otherTmpDir() + "trashDirFromHome_restored";
-    moveFromTrash( "trashDirFromHome", destPath );
-    QVERIFY( QFileInfo( destPath ).isDir() );
+    moveFromTrash("trashDirFromHome", destPath);
+    QVERIFY(QFileInfo(destPath).isDir());
     checkDirCacheValidity();
 
     // trash it again, we'll need it later
     QString dirName = "trashDirFromHome";
-    trashDirectory( homeTmpDir() + dirName, dirName );
+    trashDirectory(homeTmpDir() + dirName, dirName);
 }
 
 void TestTrash::trashDirectoryOwnedByRoot()
 {
     QUrl u("file:///");;
-    if ( QFile::exists( "/etc/cups" ) )
-        u.setPath( "/etc/cups" );
-    else if ( QFile::exists( "/boot" ) )
-        u.setPath( "/boot" );
-    else
-        u.setPath( "/etc" );
+    if (QFile::exists("/etc/cups")) {
+        u.setPath("/etc/cups");
+    } else if (QFile::exists("/boot")) {
+        u.setPath("/boot");
+    } else {
+        u.setPath("/etc");
+    }
     const QString fileId = u.path();
     qDebug() << "fileId=" << fileId;
 
-    KIO::CopyJob* job = KIO::move( u, QUrl("trash:/"), KIO::HideProgressInfo );
+    KIO::CopyJob *job = KIO::move(u, QUrl("trash:/"), KIO::HideProgressInfo);
     job->setUiDelegate(0); // no skip dialog, thanks
     bool ok = job->exec();
-    QVERIFY( !ok );
+    QVERIFY(!ok);
     QMap<QString, QString> metaData = job->metaData();
     const int err = job->error();
-    QVERIFY( err == KIO::ERR_ACCESS_DENIED
-            || err == KIO::ERR_CANNOT_OPEN_FOR_READING );
+    QVERIFY(err == KIO::ERR_ACCESS_DENIED
+            || err == KIO::ERR_CANNOT_OPEN_FOR_READING);
 
-    const QString infoPath( m_trashDir + "/info/" + fileId + ".trashinfo" );
-    QVERIFY( !QFile::exists( infoPath ) );
+    const QString infoPath(m_trashDir + "/info/" + fileId + ".trashinfo");
+    QVERIFY(!QFile::exists(infoPath));
 
-    QFileInfo files( m_trashDir + "/files/" + fileId );
-    QVERIFY( !files.exists() );
+    QFileInfo files(m_trashDir + "/files/" + fileId);
+    QVERIFY(!files.exists());
 
-    QVERIFY( QFile::exists( u.path() ) );
+    QVERIFY(QFile::exists(u.path()));
 }
 
 void TestTrash::moveSymlinkFromTrash()
 {
     const QString destPath = otherTmpDir() + "symlinkFromHome_restored";
-    moveFromTrash( "symlinkFromHome", destPath );
-    QVERIFY( QFileInfo( destPath ).isSymLink() );
+    moveFromTrash("symlinkFromHome", destPath);
+    QVERIFY(QFileInfo(destPath).isSymLink());
 }
 
 void TestTrash::getFile()
 {
     const QString fileId = "fileFromHome 1";
-    const QUrl url = TrashImpl::makeURL( 0, fileId, QString() );
+    const QUrl url = TrashImpl::makeURL(0, fileId, QString());
 
     QTemporaryFile tmpFile;
     QVERIFY(tmpFile.open());
     const QString tmpFilePath = tmpFile.fileName();
 
-    KIO::Job* getJob = KIO::file_copy(url, QUrl::fromLocalFile(tmpFilePath), -1, KIO::Overwrite | KIO::HideProgressInfo);
+    KIO::Job *getJob = KIO::file_copy(url, QUrl::fromLocalFile(tmpFilePath), -1, KIO::Overwrite | KIO::HideProgressInfo);
     bool ok = getJob->exec();
     QVERIFY2(ok, qPrintable(getJob->errorString()));
     // Don't use tmpFile.close()+tmpFile.open() here, the size would still be 0 in the QTemporaryFile object
@@ -949,88 +960,88 @@ void TestTrash::getFile()
 void TestTrash::restoreFile()
 {
     const QString fileId = "fileFromHome 1";
-    const QUrl url = TrashImpl::makeURL( 0, fileId, QString() );
-    const QString infoFile( m_trashDir + "/info/" + fileId + ".trashinfo" );
-    const QString filesItem( m_trashDir + "/files/" + fileId );
+    const QUrl url = TrashImpl::makeURL(0, fileId, QString());
+    const QString infoFile(m_trashDir + "/info/" + fileId + ".trashinfo");
+    const QString filesItem(m_trashDir + "/files/" + fileId);
 
-    QVERIFY( QFile::exists( infoFile ) );
-    QVERIFY( QFile::exists( filesItem ) );
+    QVERIFY(QFile::exists(infoFile));
+    QVERIFY(QFile::exists(filesItem));
 
     QByteArray packedArgs;
-    QDataStream stream( &packedArgs, QIODevice::WriteOnly );
+    QDataStream stream(&packedArgs, QIODevice::WriteOnly);
     stream << (int)3 << url;
-    KIO::Job* job = KIO::special( url, packedArgs, KIO::HideProgressInfo );
+    KIO::Job *job = KIO::special(url, packedArgs, KIO::HideProgressInfo);
     bool ok = job->exec();
-    QVERIFY( ok );
+    QVERIFY(ok);
 
-    QVERIFY( !QFile::exists( infoFile ) );
-    QVERIFY( !QFile::exists( filesItem ) );
+    QVERIFY(!QFile::exists(infoFile));
+    QVERIFY(!QFile::exists(filesItem));
 
     const QString destPath = homeTmpDir() + "fileFromHome";
-    QVERIFY( QFile::exists( destPath ) );
+    QVERIFY(QFile::exists(destPath));
 }
 
 void TestTrash::restoreFileFromSubDir()
 {
     const QString fileId = "trashDirFromHome 1/testfile";
-    QVERIFY( !QFile::exists( homeTmpDir() + "trashDirFromHome 1" ) );
+    QVERIFY(!QFile::exists(homeTmpDir() + "trashDirFromHome 1"));
 
-    const QUrl url = TrashImpl::makeURL( 0, fileId, QString() );
-    const QString infoFile( m_trashDir + "/info/trashDirFromHome 1.trashinfo" );
-    const QString filesItem( m_trashDir + "/files/trashDirFromHome 1/testfile" );
+    const QUrl url = TrashImpl::makeURL(0, fileId, QString());
+    const QString infoFile(m_trashDir + "/info/trashDirFromHome 1.trashinfo");
+    const QString filesItem(m_trashDir + "/files/trashDirFromHome 1/testfile");
 
-    QVERIFY( QFile::exists( infoFile ) );
-    QVERIFY( QFile::exists( filesItem ) );
+    QVERIFY(QFile::exists(infoFile));
+    QVERIFY(QFile::exists(filesItem));
 
     QByteArray packedArgs;
-    QDataStream stream( &packedArgs, QIODevice::WriteOnly );
+    QDataStream stream(&packedArgs, QIODevice::WriteOnly);
     stream << (int)3 << url;
-    KIO::Job* job = KIO::special( url, packedArgs, KIO::HideProgressInfo );
+    KIO::Job *job = KIO::special(url, packedArgs, KIO::HideProgressInfo);
     bool ok = job->exec();
-    QVERIFY( !ok );
+    QVERIFY(!ok);
     // dest dir doesn't exist -> error message
-    QVERIFY( job->error() == KIO::ERR_SLAVE_DEFINED );
+    QVERIFY(job->error() == KIO::ERR_SLAVE_DEFINED);
 
     // check that nothing happened
-    QVERIFY( QFile::exists( infoFile ) );
-    QVERIFY( QFile::exists( filesItem ) );
-    QVERIFY( !QFile::exists( homeTmpDir() + "trashDirFromHome 1" ) );
+    QVERIFY(QFile::exists(infoFile));
+    QVERIFY(QFile::exists(filesItem));
+    QVERIFY(!QFile::exists(homeTmpDir() + "trashDirFromHome 1"));
 }
 
 void TestTrash::restoreFileToDeletedDirectory()
 {
     // Ensure we'll get "fileFromHome" as fileId
-    removeFile( m_trashDir, "/info/fileFromHome.trashinfo" );
-    removeFile( m_trashDir, "/files/fileFromHome" );
+    removeFile(m_trashDir, "/info/fileFromHome.trashinfo");
+    removeFile(m_trashDir, "/files/fileFromHome");
     trashFileFromHome();
     // Delete orig dir
-    KIO::Job* delJob = KIO::del(QUrl::fromLocalFile(homeTmpDir()), KIO::HideProgressInfo);
+    KIO::Job *delJob = KIO::del(QUrl::fromLocalFile(homeTmpDir()), KIO::HideProgressInfo);
     bool delOK = delJob->exec();
-    QVERIFY( delOK );
+    QVERIFY(delOK);
 
     const QString fileId = "fileFromHome";
-    const QUrl url = TrashImpl::makeURL( 0, fileId, QString() );
-    const QString infoFile( m_trashDir + "/info/" + fileId + ".trashinfo" );
-    const QString filesItem( m_trashDir + "/files/" + fileId );
+    const QUrl url = TrashImpl::makeURL(0, fileId, QString());
+    const QString infoFile(m_trashDir + "/info/" + fileId + ".trashinfo");
+    const QString filesItem(m_trashDir + "/files/" + fileId);
 
-    QVERIFY( QFile::exists( infoFile ) );
-    QVERIFY( QFile::exists( filesItem ) );
+    QVERIFY(QFile::exists(infoFile));
+    QVERIFY(QFile::exists(filesItem));
 
     QByteArray packedArgs;
-    QDataStream stream( &packedArgs, QIODevice::WriteOnly );
+    QDataStream stream(&packedArgs, QIODevice::WriteOnly);
     stream << (int)3 << url;
-    KIO::Job* job = KIO::special( url, packedArgs, KIO::HideProgressInfo );
+    KIO::Job *job = KIO::special(url, packedArgs, KIO::HideProgressInfo);
     bool ok = job->exec();
-    QVERIFY( !ok );
+    QVERIFY(!ok);
     // dest dir doesn't exist -> error message
-    QVERIFY( job->error() == KIO::ERR_SLAVE_DEFINED );
+    QVERIFY(job->error() == KIO::ERR_SLAVE_DEFINED);
 
     // check that nothing happened
-    QVERIFY( QFile::exists( infoFile ) );
-    QVERIFY( QFile::exists( filesItem ) );
+    QVERIFY(QFile::exists(infoFile));
+    QVERIFY(QFile::exists(filesItem));
 
     const QString destPath = homeTmpDir() + "fileFromHome";
-    QVERIFY( !QFile::exists( destPath ) );
+    QVERIFY(!QFile::exists(destPath));
 }
 
 void TestTrash::listRootDir()
@@ -1038,19 +1049,19 @@ void TestTrash::listRootDir()
     m_entryCount = 0;
     m_listResult.clear();
     m_displayNameListResult.clear();
-    KIO::ListJob* job = KIO::listDir( QUrl("trash:/"), KIO::HideProgressInfo );
-    connect( job, SIGNAL( entries( KIO::Job*, const KIO::UDSEntryList& ) ),
-             SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
+    KIO::ListJob *job = KIO::listDir(QUrl("trash:/"), KIO::HideProgressInfo);
+    connect(job, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
+            SLOT(slotEntries(KIO::Job*,KIO::UDSEntryList)));
     bool ok = job->exec();
-    QVERIFY( ok );
+    QVERIFY(ok);
     qDebug() << "listDir done - m_entryCount=" << m_entryCount;
-    QVERIFY( m_entryCount > 1 );
+    QVERIFY(m_entryCount > 1);
 
     //qDebug() << m_listResult;
     //qDebug() << m_displayNameListResult;
-    QCOMPARE(m_listResult.count( "." ), 1); // found it, and only once
-    QCOMPARE(m_displayNameListResult.count( "fileFromHome" ), 1);
-    QCOMPARE(m_displayNameListResult.count( "fileFromHome 1" ), 1);
+    QCOMPARE(m_listResult.count("."), 1);   // found it, and only once
+    QCOMPARE(m_displayNameListResult.count("fileFromHome"), 1);
+    QCOMPARE(m_displayNameListResult.count("fileFromHome 1"), 1);
 }
 
 void TestTrash::listRecursiveRootDir()
@@ -1058,17 +1069,17 @@ void TestTrash::listRecursiveRootDir()
     m_entryCount = 0;
     m_listResult.clear();
     m_displayNameListResult.clear();
-    KIO::ListJob* job = KIO::listRecursive( QUrl("trash:/"), KIO::HideProgressInfo );
-    connect( job, SIGNAL( entries( KIO::Job*, const KIO::UDSEntryList& ) ),
-             SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
+    KIO::ListJob *job = KIO::listRecursive(QUrl("trash:/"), KIO::HideProgressInfo);
+    connect(job, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
+            SLOT(slotEntries(KIO::Job*,KIO::UDSEntryList)));
     bool ok = job->exec();
-    QVERIFY( ok );
+    QVERIFY(ok);
     qDebug() << "listDir done - m_entryCount=" << m_entryCount;
-    QVERIFY( m_entryCount > 1 );
+    QVERIFY(m_entryCount > 1);
 
     qDebug() << m_listResult;
     qDebug() << m_displayNameListResult;
-    QCOMPARE(m_listResult.count( "." ), 1); // found it, and only once
+    QCOMPARE(m_listResult.count("."), 1);   // found it, and only once
     QCOMPARE(m_listResult.count("0-fileFromHome"), 1);
     QCOMPARE(m_listResult.count("0-fileFromHome 1"), 1);
     QCOMPARE(m_listResult.count("0-trashDirFromHome/testfile"), 1);
@@ -1077,7 +1088,7 @@ void TestTrash::listRecursiveRootDir()
     QCOMPARE(m_displayNameListResult.count("fileFromHome 1"), 1);
     QCOMPARE(m_displayNameListResult.count("trashDirFromHome/testfile"), 1);
     QCOMPARE(m_displayNameListResult.count("readonly/readonly_subdir/testfile_in_subdir"), 1);
-    
+
 }
 
 void TestTrash::listSubDir()
@@ -1085,33 +1096,33 @@ void TestTrash::listSubDir()
     m_entryCount = 0;
     m_listResult.clear();
     m_displayNameListResult.clear();
-    KIO::ListJob* job = KIO::listDir( QUrl("trash:/0-trashDirFromHome"), KIO::HideProgressInfo );
-    connect( job, SIGNAL( entries( KIO::Job*, const KIO::UDSEntryList& ) ),
-             SLOT( slotEntries( KIO::Job*, const KIO::UDSEntryList& ) ) );
+    KIO::ListJob *job = KIO::listDir(QUrl("trash:/0-trashDirFromHome"), KIO::HideProgressInfo);
+    connect(job, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
+            SLOT(slotEntries(KIO::Job*,KIO::UDSEntryList)));
     bool ok = job->exec();
-    QVERIFY( ok );
+    QVERIFY(ok);
     qDebug() << "listDir done - m_entryCount=" << m_entryCount;
     QCOMPARE(m_entryCount, 3);
 
     //qDebug() << m_listResult;
     //qDebug() << m_displayNameListResult;
-    QCOMPARE(m_listResult.count( "." ), 1); // found it, and only once
-    QCOMPARE(m_listResult.count( "testfile" ), 1); // found it, and only once
+    QCOMPARE(m_listResult.count("."), 1);   // found it, and only once
+    QCOMPARE(m_listResult.count("testfile"), 1);   // found it, and only once
     QCOMPARE(m_listResult.count("subdir"), 1);
     QCOMPARE(m_displayNameListResult.count("testfile"), 1);
     QCOMPARE(m_displayNameListResult.count("subdir"), 1);
 }
 
-void TestTrash::slotEntries( KIO::Job*, const KIO::UDSEntryList& lst )
+void TestTrash::slotEntries(KIO::Job *, const KIO::UDSEntryList &lst)
 {
-    for( KIO::UDSEntryList::ConstIterator it = lst.begin(); it != lst.end(); ++it ) {
-        const KIO::UDSEntry& entry (*it);
+    for (KIO::UDSEntryList::ConstIterator it = lst.begin(); it != lst.end(); ++it) {
+        const KIO::UDSEntry &entry(*it);
         QString name = entry.stringValue(KIO::UDSEntry::UDS_NAME);
         QString displayName = entry.stringValue(KIO::UDSEntry::UDS_DISPLAY_NAME);
-        QUrl url(entry.stringValue( KIO::UDSEntry::UDS_URL ));
+        QUrl url(entry.stringValue(KIO::UDSEntry::UDS_URL));
         qDebug() << "name" << name << "displayName" << displayName << " UDS_URL=" << url;
-        if ( !url.isEmpty() ) {
-            QVERIFY( url.scheme() == "trash" );
+        if (!url.isEmpty()) {
+            QVERIFY(url.scheme() == "trash");
         }
         m_listResult << name;
         m_displayNameListResult << displayName;
@@ -1130,24 +1141,24 @@ void TestTrash::emptyTrash()
     trashFileFromHome();
 
     // #167051: orphaned files
-    createTestFile( m_trashDir + "/files/testfile_nometadata" );
+    createTestFile(m_trashDir + "/files/testfile_nometadata");
 
     QByteArray packedArgs;
-    QDataStream stream( &packedArgs, QIODevice::WriteOnly );
+    QDataStream stream(&packedArgs, QIODevice::WriteOnly);
     stream << (int)1;
-    KIO::Job* job = KIO::special( QUrl( "trash:/" ), packedArgs, KIO::HideProgressInfo );
+    KIO::Job *job = KIO::special(QUrl("trash:/"), packedArgs, KIO::HideProgressInfo);
     bool ok = job->exec();
-    QVERIFY( ok );
+    QVERIFY(ok);
 
-    KConfig cfg( "trashrc", KConfig::SimpleConfig );
-    QVERIFY( cfg.hasGroup( "Status" ) );
-    QVERIFY( cfg.group("Status").readEntry( "Empty", false ) == true );
+    KConfig cfg("trashrc", KConfig::SimpleConfig);
+    QVERIFY(cfg.hasGroup("Status"));
+    QVERIFY(cfg.group("Status").readEntry("Empty", false) == true);
 
-    QVERIFY( !QFile::exists( m_trashDir + "/files/fileFromHome" ) );
-    QVERIFY( !QFile::exists( m_trashDir + "/files/readonly" ) );
-    QVERIFY( !QFile::exists( m_trashDir + "/info/readonly.trashinfo" ) );
-    QVERIFY(QDir(m_trashDir + "/info").entryList(QDir::NoDotAndDotDot|QDir::AllEntries).isEmpty());
-    QVERIFY(QDir(m_trashDir + "/files").entryList(QDir::NoDotAndDotDot|QDir::AllEntries).isEmpty());
+    QVERIFY(!QFile::exists(m_trashDir + "/files/fileFromHome"));
+    QVERIFY(!QFile::exists(m_trashDir + "/files/readonly"));
+    QVERIFY(!QFile::exists(m_trashDir + "/info/readonly.trashinfo"));
+    QVERIFY(QDir(m_trashDir + "/info").entryList(QDir::NoDotAndDotDot | QDir::AllEntries).isEmpty());
+    QVERIFY(QDir(m_trashDir + "/files").entryList(QDir::NoDotAndDotDot | QDir::AllEntries).isEmpty());
 
 #else
     qDebug() << " : SKIPPED";
@@ -1156,22 +1167,22 @@ void TestTrash::emptyTrash()
 
 void TestTrash::testEmptyTrashSize()
 {
-    KIO::DirectorySizeJob* job = KIO::directorySize(QUrl("trash:/"));
+    KIO::DirectorySizeJob *job = KIO::directorySize(QUrl("trash:/"));
     QVERIFY(job->exec());
     QVERIFY(job->totalSize() < 1000000000 /*1GB*/); // #157023
 }
 
-static void checkIcon( const QUrl& url, const QString& expectedIcon )
+static void checkIcon(const QUrl &url, const QString &expectedIcon)
 {
-    QString icon = KIO::iconNameForUrl( url );
-    QCOMPARE( icon, expectedIcon );
+    QString icon = KIO::iconNameForUrl(url);
+    QCOMPARE(icon, expectedIcon);
 }
 
 void TestTrash::testIcons()
 {
-    QCOMPARE(KProtocolInfo::icon("trash"), QString("user-trash-full") ); // #100321
-    checkIcon( QUrl("trash:/"), "user-trash-full" ); // #100321
-    checkIcon( QUrl("trash:/foo/"), "inode-directory" );
+    QCOMPARE(KProtocolInfo::icon("trash"), QString("user-trash-full"));  // #100321
+    checkIcon(QUrl("trash:/"), "user-trash-full");   // #100321
+    checkIcon(QUrl("trash:/foo/"), "inode-directory");
 }
 
 QTEST_MAIN(TestTrash) // QT5 TODO: NOGUI

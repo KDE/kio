@@ -38,37 +38,37 @@
  */
 class TrashSizeCache
 {
-    public:
-        /**
-         * Creates a new trash size cache object for the given trash @p path.
-         */
-        TrashSizeCache( const QString &path );
+public:
+    /**
+     * Creates a new trash size cache object for the given trash @p path.
+     */
+    TrashSizeCache(const QString &path);
 
-        /**
-         * Adds a directory to the cache.
-         * @param directoryName fileId of the directory
-         * @param directorySize size in bytes
-         */
-        void add( const QString &directoryName, qulonglong directorySize );
+    /**
+     * Adds a directory to the cache.
+     * @param directoryName fileId of the directory
+     * @param directorySize size in bytes
+     */
+    void add(const QString &directoryName, qulonglong directorySize);
 
-        /**
-         * Removes a directory from the cache.
-         */
-        void remove( const QString &directoryName );
+    /**
+     * Removes a directory from the cache.
+     */
+    void remove(const QString &directoryName);
 
-        /**
-         * Sets the trash size to 0 bytes.
-         */
-        void clear();
+    /**
+     * Sets the trash size to 0 bytes.
+     */
+    void clear();
 
-        /**
-         * Calculates and returns the current trash size.
-         */
-        qulonglong calculateSize();
+    /**
+     * Calculates and returns the current trash size.
+     */
+    qulonglong calculateSize();
 
-    private:
-        QString mTrashSizeCachePath;
-        QString mTrashPath;
+private:
+    QString mTrashSizeCachePath;
+    QString mTrashPath;
 };
 
 #endif

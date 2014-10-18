@@ -28,30 +28,31 @@
 class KInterProcessLockPrivate
 {
     Q_DECLARE_PUBLIC(KInterProcessLock)
-     KInterProcessLock *q_ptr;
-    public:
-        KInterProcessLockPrivate(const QString &resource, KInterProcessLock *parent)
-            : m_resource(resource), m_parent(parent)
-        {
-            m_serviceName = QString::fromLatin1("org.kde.private.lock-%1").arg(m_resource);
+    KInterProcessLock *q_ptr;
+public:
+    KInterProcessLockPrivate(const QString &resource, KInterProcessLock *parent)
+        : m_resource(resource), m_parent(parent)
+    {
+        m_serviceName = QString::fromLatin1("org.kde.private.lock-%1").arg(m_resource);
 
-            m_parent->connect(QDBusConnection::sessionBus().interface(), SIGNAL(serviceRegistered(const QString&)),
-                              m_parent, SLOT(_k_serviceRegistered(const QString&)));
+        m_parent->connect(QDBusConnection::sessionBus().interface(), SIGNAL(serviceRegistered(QString)),
+                          m_parent, SLOT(_k_serviceRegistered(QString)));
+    }
+
+    ~KInterProcessLockPrivate()
+    {
+    }
+
+    void _k_serviceRegistered(const QString &service)
+    {
+        if (service == m_serviceName) {
+            emit m_parent->lockGranted(m_parent);
         }
+    }
 
-        ~KInterProcessLockPrivate()
-        {
-        }
-
-        void _k_serviceRegistered(const QString &service)
-        {
-            if (service == m_serviceName)
-                emit m_parent->lockGranted(m_parent);
-        }
-
-        QString m_resource;
-        QString m_serviceName;
-        KInterProcessLock *m_parent;
+    QString m_resource;
+    QString m_serviceName;
+    KInterProcessLock *m_parent;
 };
 
 KInterProcessLock::KInterProcessLock(const QString &resource)
@@ -73,8 +74,8 @@ QString KInterProcessLock::resource() const
 void KInterProcessLock::lock()
 {
     QDBusConnection::sessionBus().interface()->registerService(d_ptr->m_serviceName,
-                                                               QDBusConnectionInterface::QueueService,
-                                                               QDBusConnectionInterface::DontAllowReplacement);
+            QDBusConnectionInterface::QueueService,
+            QDBusConnectionInterface::DontAllowReplacement);
 }
 
 void KInterProcessLock::unlock()
