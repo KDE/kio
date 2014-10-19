@@ -77,29 +77,6 @@
 //string parsing helpers and HeaderTokenizer implementation
 #include "parsinghelpers.cpp"
 
-// KDE5 TODO (QT5) : use QString::htmlEscape or whatever https://qt.gitorious.org/qt/qtbase/merge_requests/56
-// ends up with.
-static QString htmlEscape(const QString &plain)
-{
-    QString rich;
-    rich.reserve(int(plain.length() * 1.1));
-    for (int i = 0; i < plain.length(); ++i) {
-        if (plain.at(i) == QLatin1Char('<')) {
-            rich += QLatin1String("&lt;");
-        } else if (plain.at(i) == QLatin1Char('>')) {
-            rich += QLatin1String("&gt;");
-        } else if (plain.at(i) == QLatin1Char('&')) {
-            rich += QLatin1String("&amp;");
-        } else if (plain.at(i) == QLatin1Char('"')) {
-            rich += QLatin1String("&quot;");
-        } else {
-            rich += plain.at(i);
-        }
-    }
-    rich.squeeze();
-    return rich;
-}
-
 static bool supportedProxyScheme(const QString &scheme)
 {
     // scheme is supposed to be lowercase
@@ -5212,7 +5189,7 @@ void HTTPProtocol::proxyAuthenticationForSocket(const QNetworkProxy &proxy, QAut
                            "to access any sites.");
         info.keepPassword = true;
         info.commentLabel = i18n("Proxy:");
-        info.comment = i18n("<b>%1</b> at <b>%2</b>", htmlEscape(info.realmValue), m_request.proxyUrl.host());
+        info.comment = i18n("<b>%1</b> at <b>%2</b>", info.realmValue.toHtmlEscaped(), m_request.proxyUrl.host());
 
         const QString errMsg((retryAuth ? i18n("Proxy Authentication Failed.") : QString()));
 
@@ -5418,7 +5395,7 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
                         authinfo.url = reqUrl;
                         authinfo.keepPassword = true;
                         authinfo.comment = i18n("<b>%1</b> at <b>%2</b>",
-                                                htmlEscape(authinfo.realmValue), authinfo.url.host());
+                                                authinfo.realmValue.toHtmlEscaped(), authinfo.url.host());
 
                         if (!openPasswordDialog(authinfo, errorMsg)) {
                             generateAuthHeader = false;
