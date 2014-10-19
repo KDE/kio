@@ -1030,7 +1030,9 @@ KNewFileMenu::KNewFileMenu(KActionCollection *collection, const QString &name, Q
     d->m_parentWidget = qobject_cast<QWidget *>(parent);
     d->m_newDirAction = 0;
 
-    d->m_actionCollection->addAction(name, this);
+    if (d->m_actionCollection) {
+        d->m_actionCollection->addAction(name, this);
+    }
 
     d->m_menuDev = new KActionMenu(QIcon::fromTheme("drive-removable-media"), i18n("Link to Device"), this);
 }
