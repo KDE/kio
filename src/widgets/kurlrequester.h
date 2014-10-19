@@ -46,7 +46,7 @@ class QString;
  * the current working directory, or the last directory where a file has been
  * selected.
  *
- * You can change this behavior by using setMode() or setFilter().
+ * You can change this behavior by using setMode(), setFilter() and setStartDir().
  *
  * The default window modality for the file dialog is Qt::ApplicationModal
  *
@@ -93,8 +93,8 @@ public:
 
     /**
      * @returns the current url in the lineedit. May be malformed, if the user
-     * entered something weird. ~user or environment variables are substituted
-     * for local files.
+     * entered something weird. For local files, ~user or environment variables
+     * are substituted, relative paths will be resolved against startDir()
      */
     QUrl url() const;
 
