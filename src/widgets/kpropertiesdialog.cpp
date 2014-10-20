@@ -108,6 +108,7 @@ extern "C" {
 #include <kio/desktopexecparser.h>
 #include <kacl.h>
 #include <kconfiggroup.h>
+#include <kmimetypeeditor.h>
 #include <kshell.h>
 #include <kcapacitybar.h>
 #include <kfileitemlistproperties.h>
@@ -1164,13 +1165,7 @@ void KFilePropsPlugin::slotEditFileType()
     }  else {
         mime = d->mimeType;
     }
-    QString keditfiletype = QString::fromLatin1("keditfiletype5");
-    KRun::runCommand(keditfiletype
-#if HAVE_X11
-                     + " --parent " + QString::number((ulong)properties->window()->winId())
-#endif
-                     + ' ' + KShell::quoteArg(mime),
-                     keditfiletype, keditfiletype /*unused*/, properties->window());
+    KMimeTypeEditor::editMimeType(mime, properties->window());
 }
 
 void KFilePropsPlugin::slotIconChanged()
