@@ -9,7 +9,11 @@
 #     set (STRIGI_TYPE "REQUIRED")
 # endif ()
 
-add_subdirectory(tests)
+if(WIN32)
+  message(AUTHOR_WARNING "kio_trash unit tests are broken on Windows, disaling them")
+else()
+  add_subdirectory(tests)
+endif()
 
 set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp
                            ${CMAKE_CURRENT_SOURCE_DIR}/discspaceutil.cpp
