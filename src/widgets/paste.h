@@ -24,6 +24,7 @@
 class QWidget;
 class QUrl;
 class QMimeData;
+class KFileItem;
 
 namespace KIO
 {
@@ -73,10 +74,24 @@ KIOWIDGETS_EXPORT bool canPasteMimeData(const QMimeData *data);
 /**
  * Returns the text to use for the Paste action, when the application supports
  * pasting files, urls, and clipboard data, using pasteClipboard().
- * @return a string suitable for KAction::setText, or an empty string if pasting
+ * @return a string suitable for QAction::setText, or an empty string if pasting
  * isn't possible right now.
+ * @deprecated since 5.4, use pasteActionText(const QMimeData *, bool*, const KFileItem &)
  */
-KIOWIDGETS_EXPORT QString pasteActionText();
+KIOWIDGETS_DEPRECATED_EXPORT QString pasteActionText();
+
+/**
+ * Returns the text to use for the Paste action, when the application supports
+ * pasting files, urls, and clipboard data, using pasteClipboard().
+ * @param mimeData the mime data, usually QApplication::clipboard()->mimeData().
+ * @param enable output parameter, to be passed to QAction::setEnabled.
+ *      The pointer must be non-null, and in return the function will always set its value.
+ * @param destItem item representing the directory into which the clipboard data
+ *        or items would be pasted. Used to find out about permissions in that directory.
+ * @return a string suitable for QAction::setText
+ * @since 5.4
+ */
+KIOWIDGETS_EXPORT QString pasteActionText(const QMimeData *mimeData, bool *enable, const KFileItem &destItem);
 
 /**
  * Add the information whether the files were cut, into the mimedata.

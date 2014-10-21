@@ -28,6 +28,8 @@ class KIOPasteTest : public QObject
 private Q_SLOTS:
     void testPopulate();
     void testCut();
+    void testPasteActionText_data();
+    void testPasteActionText();
 };
 
 #endif

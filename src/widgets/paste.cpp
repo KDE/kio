@@ -30,6 +30,8 @@
 #include <klocalizedstring.h>
 #include <kmessagebox.h>
 #include <kurlmimedata.h>
+#include <kfileitem.h>
+#include <kfileitemlistproperties.h>
 
 #include <QApplication>
 #include <QClipboard>
@@ -38,6 +40,7 @@
 #include <qmimedatabase.h>
 #include <qinputdialog.h>
 #include <QDebug>
+#include <QFileInfo>
 
 // This could be made a public method, if there's a need for pasting only urls
 // and not random data.
@@ -273,10 +276,8 @@ KIOWIDGETS_EXPORT KIO::Job *KIO::pasteClipboard(const QUrl &destUrl, QWidget *wi
     return pasteMimeDataImpl(mimeData, destUrl, QString(), widget, true /*clipboard*/);
 }
 
-// NOTE: DolphinView::pasteInfo() has a better version of this
-// (but which requires KonqFileItemCapabilities)
-// (KFileItemCapabilities exists now, but are missing the KFileItem for the dest dir)
-KIOWIDGETS_EXPORT QString KIO::pasteActionText()
+// deprecated. KF6: remove
+KIOWIDGETS_DEPRECATED_EXPORT QString KIO::pasteActionText()
 {
     const QMimeData *mimeData = QApplication::clipboard()->mimeData();
     const QList<QUrl> urls = KUrlMimeData::urlsFromMimeData(mimeData);
@@ -292,6 +293,41 @@ KIOWIDGETS_EXPORT QString KIO::pasteActionText()
         return QString();
     }
 }
+
+KIOWIDGETS_EXPORT QString KIO::pasteActionText(const QMimeData *mimeData, bool *enable, const KFileItem &destItem)
+{
+    bool canPasteData = false;
+    QList<QUrl> urls;
+
+    // mimeData can be 0 according to https://bugs.kde.org/show_bug.cgi?id=335053
+    if (mimeData) {
+        canPasteData = KIO::canPasteMimeData(mimeData);
+        urls = KUrlMimeData::urlsFromMimeData(mimeData);
+    } else {
+        qWarning() << "QApplication::clipboard()->mimeData() is 0!";
+    }
+
+    QString text;
+    if (!urls.isEmpty() || canPasteData) {
+        // disable the paste action if no writing is supported
+        *enable = KFileItemListProperties(KFileItemList() << destItem).supportsWriting();
+
+        if (urls.count() == 1 && urls.first().isLocalFile()) {
+            const bool isDir = QFileInfo(urls.first().toLocalFile()).isDir();
+            text = isDir ? i18nc("@action:inmenu", "Paste One Folder") :
+                           i18nc("@action:inmenu", "Paste One File");
+        } else if (!urls.isEmpty()) {
+            text = i18ncp("@action:inmenu", "Paste One Item", "Paste %1 Items", urls.count());
+        } else {
+            text = i18nc("@action:inmenu", "Paste Clipboard Contents...");
+        }
+    } else {
+        *enable = false;
+        text = i18nc("@action:inmenu", "Paste");
+    }
+    return text;
+}
+
 
 // The [new] main method for dropping
 KIOWIDGETS_EXPORT KIO::Job *KIO::pasteMimeData(const QMimeData *mimeData, const QUrl &destUrl,

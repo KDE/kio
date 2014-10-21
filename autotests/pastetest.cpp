@@ -19,10 +19,12 @@
 
 #include <qtest.h>
 
+#include <QDir>
 #include <QUrl>
 #include <QMimeData>
 #include <kurlmimedata.h>
 #include <kio/paste.h>
+#include <KFileItem>
 #include "pastetest.h"
 
 QTEST_MAIN(KIOPasteTest)
@@ -71,4 +73,48 @@ void KIOPasteTest::testCut()
     QVERIFY(isCut);
 
     delete mimeData;
+}
+
+void KIOPasteTest::testPasteActionText_data()
+{
+    QTest::addColumn<QList<QUrl> >("urls");
+    QTest::addColumn<bool>("data");
+    QTest::addColumn<bool>("expectedEnabled");
+    QTest::addColumn<QString>("expectedText");
+
+    QList<QUrl> urlDir = QList<QUrl>() << QUrl::fromLocalFile(QDir::tempPath());
+    QList<QUrl> urlFile = QList<QUrl>() << QUrl::fromLocalFile(QCoreApplication::applicationFilePath());
+    QList<QUrl> urlRemote = QList<QUrl>() << QUrl("http://www.kde.org");
+    QList<QUrl> urls = urlDir + urlRemote;
+    QTest::newRow("nothing") << QList<QUrl>() << false << false << "Paste";
+    QTest::newRow("one_dir") << urlDir << false << true << "Paste One Folder";
+    QTest::newRow("one_file") << urlFile << false << true << "Paste One File";
+    QTest::newRow("one_url") << urlRemote << false << true << "Paste One Item";
+    QTest::newRow("two_urls") << urls << false << true << "Paste 2 Items";
+    QTest::newRow("data") << QList<QUrl>() << true << true << "Paste Clipboard Contents...";
+}
+
+void KIOPasteTest::testPasteActionText()
+{
+    QFETCH(QList<QUrl>, urls);
+    QFETCH(bool, data);
+    QFETCH(bool, expectedEnabled);
+    QFETCH(QString, expectedText);
+
+    QMimeData mimeData;
+    if (!urls.isEmpty()) {
+        mimeData.setUrls(urls);
+    }
+    if (data) {
+        mimeData.setText("foo");
+    }
+    QCOMPARE(KIO::canPasteMimeData(&mimeData), expectedEnabled);
+    bool canPaste;
+    KFileItem destItem(QUrl::fromLocalFile(QDir::homePath()));
+    QCOMPARE(KIO::pasteActionText(&mimeData, &canPaste, destItem), expectedText);
+    QCOMPARE(canPaste, expectedEnabled);
+
+    KFileItem nonWritableDestItem(QUrl::fromLocalFile("/nonwritable"));
+    QCOMPARE(KIO::pasteActionText(&mimeData, &canPaste, nonWritableDestItem), expectedText);
+    QCOMPARE(canPaste, false);
 }
