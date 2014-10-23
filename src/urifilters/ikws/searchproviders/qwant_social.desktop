@@ -23,6 +23,7 @@ Name[sr@ijekavian]=Квант-дружење
 Name[sr@ijekavianlatin]=Qwant-druženje
 Name[sr@latin]=Qwant-druženje
 Name[sv]=Qwant-social
+Name[tr]=Qwant Sosyal
 Name[uk]=Соціальне Qwant
 Name[x-test]=xxQwant Socialxx
 Name[zh_TW]=Qwant Social
@@ -49,6 +50,7 @@ Query[sr@ijekavian]=https://www.qwant.com/single?q=\\{@}&client=kde&source=socia
 Query[sr@ijekavianlatin]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[sr@latin]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[sv]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
+Query[tr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[uk]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[x-test]=xxhttps://www.qwant.com/single?q=\\{@}&client=kde&source=socialxx
 Query[zh_TW]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social

@@ -23,6 +23,7 @@ Name[sr@ijekavian]=Квант
 Name[sr@ijekavianlatin]=Qwant
 Name[sr@latin]=Qwant
 Name[sv]=Qwant
+Name[tr]=Qwant
 Name[uk]=Qwant
 Name[x-test]=xxQwantxx
 Name[zh_TW]=Qwant
@@ -49,6 +50,7 @@ Query[sr@ijekavian]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[sr@ijekavianlatin]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[sr@latin]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
+Query[tr]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&source=webxx
 Query[zh_TW]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
