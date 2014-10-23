@@ -44,6 +44,7 @@ set(kiowidgets_SRCS
   kshellcompletion.cpp
   kurlcompletion.cpp
   kurifilter.cpp
+  pastejob.cpp
   previewjob.cpp
   renamedialog.cpp
   ksslcertificatebox.cpp
@@ -144,6 +145,7 @@ ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   SslUi
   ThumbSequenceCreator
   ThumbCreator
+  PasteJob
   PreviewJob
   RenameDialog
   SkipDialog

@@ -20,14 +20,29 @@
 #include <qtest.h>
 
 #include <QDir>
-#include <QUrl>
 #include <QMimeData>
+#include <QStandardPaths>
+#include <QUrl>
+#include <QSignalSpy>
+
 #include <kurlmimedata.h>
 #include <kio/paste.h>
+#include <kio/pastejob.h>
 #include <KFileItem>
 #include "pastetest.h"
 
 QTEST_MAIN(KIOPasteTest)
+
+void KIOPasteTest::initTestCase()
+{
+    QStandardPaths::enableTestMode(true);
+
+    // To avoid a runtime dependency on klauncher
+    qputenv("KDE_FORK_SLAVES", "yes");
+
+    QVERIFY(m_tempDir.isValid());
+    m_dir = m_tempDir.path();
+}
 
 void KIOPasteTest::testPopulate()
 {
@@ -117,4 +132,89 @@ void KIOPasteTest::testPasteActionText()
     KFileItem nonWritableDestItem(QUrl::fromLocalFile("/nonwritable"));
     QCOMPARE(KIO::pasteActionText(&mimeData, &canPaste, nonWritableDestItem), expectedText);
     QCOMPARE(canPaste, false);
+}
+
+static void createTestFile(const QString &path)
+{
+    QFile f(path);
+    if (!f.open(QIODevice::WriteOnly)) {
+        qFatal("Couldn't create %s", qPrintable(path));
+    }
+    QByteArray data("Hello world", 11);
+    QCOMPARE(data.size(), 11);
+    f.write(data);
+}
+
+void KIOPasteTest::testPasteJob_data()
+{
+    QTest::addColumn<QList<QUrl> >("urls");
+    QTest::addColumn<bool>("data");
+    QTest::addColumn<bool>("cut");
+    QTest::addColumn<QString>("expectedFileName");
+
+    const QString file = m_dir + "/file";
+    createTestFile(file);
+
+    QList<QUrl> urlFile = QList<QUrl>() << QUrl::fromLocalFile(file);
+    QList<QUrl> urlDir = QList<QUrl>() << QUrl::fromLocalFile(m_dir);
+
+    QTest::newRow("nothing") << QList<QUrl>() << false << false << QString();
+    QTest::newRow("copy_one_file") << urlFile << false << false << file.section('/', -1);
+    QTest::newRow("copy_one_dir") << urlDir << false << false << m_dir.section('/', -1);
+    QTest::newRow("cut_one_file") << urlFile << false << true << file.section('/', -1);
+    QTest::newRow("cut_one_dir") << urlDir << false << true << m_dir.section('/', -1);
+
+    // Shows a dialog!
+    //QTest::newRow("data") << QList<QUrl>() << true << "output_file";
+}
+
+void KIOPasteTest::testPasteJob()
+{
+    QFETCH(QList<QUrl>, urls);
+    QFETCH(bool, data);
+    QFETCH(bool, cut);
+    QFETCH(QString, expectedFileName);
+
+    QMimeData mimeData;
+    bool isDir = false;
+    bool isFile = false;
+    if (!urls.isEmpty()) {
+        mimeData.setUrls(urls);
+        QFileInfo fileInfo(urls.first().toLocalFile());
+        isDir = fileInfo.isDir();
+        isFile = fileInfo.isFile();
+    }
+    if (data) {
+        mimeData.setText("Hello world");
+    }
+    KIO::setClipboardDataCut(&mimeData, cut);
+
+    QTemporaryDir destTempDir;
+    QVERIFY(destTempDir.isValid());
+    const QString destDir = destTempDir.path();
+    KIO::Job *job = KIO::paste(&mimeData, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+    QSignalSpy spy(job, SIGNAL(itemCreated(QUrl)));
+    QVERIFY(spy.isValid());
+    job->setUiDelegate(0);
+    const bool expectedSuccess = !expectedFileName.isEmpty();
+    QCOMPARE(job->exec(), expectedSuccess);
+    if (expectedSuccess) {
+        const QString destFile = destDir + '/' + expectedFileName;
+        QVERIFY2(QFile::exists(destFile), qPrintable(expectedFileName));
+        if (isDir) {
+            QVERIFY(QFileInfo(destFile).isDir());
+        } else {
+            QVERIFY(QFileInfo(destFile).isFile());
+            QFile file(destFile);
+            QVERIFY(file.open(QIODevice::ReadOnly));
+            QCOMPARE(QString(file.readAll()), QString("Hello world"));
+        }
+        if (cut) {
+            QVERIFY(!QFile::exists(urls.first().toLocalFile()));
+        } else {
+            QVERIFY(QFile::exists(urls.first().toLocalFile()));
+        }
+        QCOMPARE(spy.count(), isFile || cut ? 1 : 2);
+        QCOMPARE(spy.at(0).at(0).value<QUrl>().toLocalFile(), destFile);
+    }
 }

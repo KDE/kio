@@ -21,15 +21,25 @@
 #define KIOPASTETEST_H
 
 #include <QObject>
+#include <QTemporaryDir>
+#include <QString>
 
 class KIOPasteTest : public QObject
 {
     Q_OBJECT
 private Q_SLOTS:
+    void initTestCase();
+
     void testPopulate();
     void testCut();
     void testPasteActionText_data();
     void testPasteActionText();
+    void testPasteJob_data();
+    void testPasteJob();
+
+private:
+    QTemporaryDir m_tempDir;
+    QString m_dir;
 };
 
 #endif
