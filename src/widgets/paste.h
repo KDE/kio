@@ -41,9 +41,9 @@ class CopyJob;
  * @param widget parent widget to use for dialogs
  * @param move true to move the data, false to copy -- now ignored and handled automatically
  * @return the job that handles the operation
- * @see pasteData()
+ * @deprecated since 5.4, use KIO::paste() from <KIO/PasteJob> (which takes care of undo/redo too)
  */
-KIOWIDGETS_EXPORT Job *pasteClipboard(const QUrl &destURL, QWidget *widget, bool move = false);
+KIOWIDGETS_DEPRECATED_EXPORT Job *pasteClipboard(const QUrl &destURL, QWidget *widget, bool move = false);
 
 /**
  * Save the given mime @p data to the given destination URL
@@ -56,12 +56,11 @@ KIOWIDGETS_EXPORT Job *pasteClipboard(const QUrl &destURL, QWidget *widget, bool
  * The filename to use in that directory is prompted by this method.
  * @param dialogText the text to show in the dialog
  * @param widget parent widget to use for dialogs
- * @param clipboard whether the QMimeData comes from QClipboard. If you
- * use pasteClipboard for that case, you never have to worry about this parameter.
  *
  * @see pasteClipboard()
+ * @deprecated since 5.4, use KIO::paste() from <KIO/PasteJob> (which takes care of undo/redo too)
  */
-KIOWIDGETS_EXPORT Job *pasteMimeData(const QMimeData *data, const QUrl &destUrl,
+KIOWIDGETS_DEPRECATED_EXPORT Job *pasteMimeData(const QMimeData *data, const QUrl &destUrl,
                                      const QString &dialogText, QWidget *widget);
 
 /**

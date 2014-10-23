@@ -32,6 +32,7 @@
 #include <kio/mkpathjob.h>
 #include <kio/deletejob.h>
 #include <kio/paste.h>
+#include <kio/pastejob.h>
 #include <kio/restorejob.h>
 #include <kioglobal_p.h>
 #include <kprotocolinfo.h>
@@ -637,9 +638,8 @@ void FileUndoManagerTest::testPasteClipboardUndo()
 
     // Paste the contents of the clipboard and check its status
     QUrl destDirUrl = QUrl::fromLocalFile(destDir());
-    KIO::CopyJob *job = qobject_cast<KIO::CopyJob *>(KIO::pasteClipboard(destDirUrl, 0, true));
+    KIO::Job *job = KIO::paste(mimeData, destDirUrl);
     QVERIFY(job);
-    FileUndoManager::self()->recordCopyJob(job);
     QVERIFY(job->exec());
 
     // Check if the clipboard was updated after paste operation

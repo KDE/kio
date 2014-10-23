@@ -25,6 +25,7 @@
 
 #include <kio/job.h>
 #include <kio/paste.h>
+#include <kio/pastejob.h>
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
 
@@ -74,7 +75,7 @@ void ClipboardUpdaterTest::testPasteAfterRenameFiles()
 
     const QString pasteDir = dir.path() + QLatin1String("/pastedir");
     createTestDirectory(pasteDir, NoSymlink);
-    KIO::Job *job = KIO::pasteClipboard(QUrl::fromLocalFile(pasteDir), 0);
+    KIO::Job *job = KIO::paste(clipboard->mimeData(), QUrl::fromLocalFile(pasteDir));
     QVERIFY(job->exec());
     QCOMPARE(job->error(), 0);
 }
@@ -100,7 +101,7 @@ void ClipboardUpdaterTest::testPasteAfterMoveFile()
 
     const QString pasteDir = dir.path() + QLatin1String("/pastedir");
     createTestDirectory(pasteDir, NoSymlink);
-    KIO::Job *job = KIO::pasteClipboard(QUrl::fromLocalFile(pasteDir), 0);
+    KIO::Job *job = KIO::paste(clipboard->mimeData(), QUrl::fromLocalFile(pasteDir));
     QVERIFY(job->exec());
     QCOMPARE(job->error(), 0);
 }
