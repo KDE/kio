@@ -34,6 +34,7 @@
 #include <QKeySequence>
 #include <QHBoxLayout>
 #include <QMimeData>
+#include <QtGlobal>
 
 class KUrlDragPushButton : public QPushButton
 {
@@ -230,6 +231,22 @@ public:
         return qFilters;
     }
 
+    //QFileDialog::getExistingDirectoryDirectoryUrl only works with local for any version before
+    //5.4, so we have to check our own
+    QUrl getDirFromFileDialog(const QUrl &openUrl) const
+    {
+
+#if (QT_VERSION <= QT_VERSION_CHECK(5, 4, 0))
+        QFileDialog* dialog = new QFileDialog(m_parent);
+        dialog->setDirectoryUrl(openUrl);
+        dialog->setOptions(QFileDialog::ShowDirsOnly);
+        dialog->exec();
+        return dialog->selectedUrls().first();
+#else
+        return QFileDialog::getExistingDirectoryUrl(m_parent, QString(), openUrl, QFileDialog::ShowDirsOnly);
+#endif
+    }
+
     // slots
     void _k_slotUpdateUrl();
     void _k_slotOpenDialog();
@@ -399,7 +416,7 @@ void KUrlRequester::KUrlRequesterPrivate::_k_slotOpenDialog()
         if (fileDialogMode & KFile::LocalOnly) {
             newUrl = QUrl::fromLocalFile(QFileDialog::getExistingDirectory(m_parent, QString(), openUrl.toString(), QFileDialog::ShowDirsOnly));
         } else {
-            newUrl = QFileDialog::getExistingDirectoryUrl(m_parent, QString(), openUrl, QFileDialog::ShowDirsOnly);
+            newUrl = getDirFromFileDialog(openUrl);
         }
 
         if (newUrl.isValid()) {
