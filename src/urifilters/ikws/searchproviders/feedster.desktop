@@ -41,6 +41,7 @@ Name[hu]=Feedster
 Name[ia]=Feedster
 Name[id]=Feedster
 Name[is]=Feedster
+Name[it]=Feedster
 Name[kk]=Feedster
 Name[km]=Feedster
 Name[kn]=ಫೀಡ್ಸ್ಟರ್
@@ -111,6 +112,7 @@ Query[hu]=http://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@
 Query[ia]=http://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[id]=http://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[is]=http://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
+Query[it]=http://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[kk]=http://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[ko]=http://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[lt]=http://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}

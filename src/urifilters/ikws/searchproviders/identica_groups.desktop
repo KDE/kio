@@ -32,6 +32,7 @@ Name[hu]=Identi.ca csoportok
 Name[ia]=Gruppos de Identi.ca
 Name[id]=Identi.ca Groups
 Name[is]=Identi.ca hópar
+Name[it]=Gruppi di Identi.ca
 Name[kk]=Identi.ca тобтар
 Name[km]=ក្រុម​របស់ Identi.ca
 Name[kn]=identi.ca ಗುಂಪುಗಳು
@@ -90,6 +91,7 @@ Query[hu]=https://identi.ca/search/group?q=\\{@}
 Query[ia]=https://identi.ca/search/group?q=\\{@}
 Query[id]=https://identi.ca/search/group?q=\\{@}
 Query[is]=https://identi.ca/search/group?q=\\{@}
+Query[it]=https://identi.ca/search/group?q=\\{@}
 Query[kk]=https://identi.ca/search/group?q=\\{@}
 Query[ko]=https://identi.ca/search/group?q=\\{@}
 Query[lt]=https://identi.ca/search/group?q=\\{@}

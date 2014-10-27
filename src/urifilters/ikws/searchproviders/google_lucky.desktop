@@ -40,6 +40,7 @@ Name[hu]=Google (Jó napom van)
 Name[ia]=Google (Io sente me fortunate)
 Name[id]=Google (Saya Lagi Beruntung)
 Name[is]=Google (Ég er heppin(n) í dag)
+Name[it]=Google (mi sento fortunato)
 Name[kk]=Google (Сәтті сынап көрелік)
 Name[km]=ហ្គូហ្គល (ខ្ញុំ​មាន​អារម្មណ៍​ថា​សំណាង)
 Name[kn]=ಗೂಗಲ್ (ಅದೃಷ್ಟ ಚೆನ್ನಾಗಿದ್ದಂತಿದೆ)
@@ -111,6 +112,7 @@ Query[hu]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-
 Query[ia]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[id]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[is]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
+Query[it]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[kk]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[ko]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[lt]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8

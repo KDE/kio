@@ -21,6 +21,7 @@ Name[hu]=Qt4 dokumentáció
 Name[ia]=Documentation de Qt4
 Name[id]=Dokumentasi Qt4
 Name[is]=Qt4 handbækur
+Name[it]=Documentazione di Qt4
 Name[kk]=Qt4 құжаттамасы
 Name[ko]=Qt4 문서
 Name[lt]=Qt4 dokumentacija
@@ -71,6 +72,7 @@ Query[hu]=http://qt-project.org/doc/search/qt-4.8?search=\\{@}
 Query[ia]=http://qt-project.org/doc/search/qt-4.8?search=\\{@}
 Query[id]=http://qt-project.org/doc/search/qt-4.8?search=\\{@}
 Query[is]=http://qt-project.org/doc/search/qt-4.8?search=\\{@}
+Query[it]=http://qt-project.org/doc/search/qt-4.8?search=\\{@}
 Query[kk]=http://qt-project.org/doc/search/qt-4.8?search=\\{@}
 Query[ko]=http://qt-project.org/doc/search/qt-4.8?search=\\{@}
 Query[lt]=http://qt-project.org/doc/search/qt-4.8?search=\\{@}

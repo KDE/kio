@@ -41,6 +41,7 @@ Name[hu]=TV Tome
 Name[ia]=TV Tome
 Name[id]=TV Tome
 Name[is]=TV Tome
+Name[it]=TV Tome
 Name[kk]=TV Tome
 Name[km]=TV Tome
 Name[kn]=ಟಿವಿ ಟೋಮ್
@@ -129,6 +130,7 @@ Query[hu]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[ia]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[id]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[is]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
+Query[it]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[kk]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[km]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[kn]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0

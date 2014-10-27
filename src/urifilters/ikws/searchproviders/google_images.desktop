@@ -41,6 +41,7 @@ Name[hu]=Google képkereső
 Name[ia]=Google Image Search : cerca de Imagine de Google
 Name[id]=Penelusuran Gambar Google
 Name[is]=Google - Myndaleit
+Name[it]=Ricerca di immagini di Google
 Name[kk]=Google кескіндерді табу
 Name[km]=ស្វែងរក​រូបភាព​តាម​រយៈ​ហ្គូហ្គល
 Name[kn]=ಗೂಗಲ್ ಚಿತ್ರ ಹುಡುಕಾಟ
@@ -113,6 +114,7 @@ Query[hu]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ia]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[id]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[is]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[it]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[kk]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ko]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[lt]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}

@@ -41,6 +41,7 @@ Name[hu]=Merriam-Webster szótár
 Name[ia]=Merriam-Webster Dictionario
 Name[id]=Kamus Merriam-Webster
 Name[is]=Merriam-Webster orðabókin
+Name[it]=Dizionario Merriam-Webster
 Name[kk]=Merriam-Webster сөздігі
 Name[km]=វចនានុក្រម Merriam-Webster
 Name[kn]=ಮೆರಿಯಾಮ್-ವೆಬ್ಸ್ಟರ್ ಶಬ್ದಕೋಶ
@@ -131,6 +132,7 @@ Query[hu]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[ia]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[id]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[is]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
+Query[it]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[kk]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[km]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[kn]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}

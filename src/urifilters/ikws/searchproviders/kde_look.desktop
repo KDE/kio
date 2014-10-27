@@ -32,6 +32,7 @@ Name[hu]=KDE Look
 Name[ia]=Semblante de KDE
 Name[id]=KDE Look
 Name[is]=KDE útlit
+Name[it]=Aspetto di KDE
 Name[kk]=KDE Look
 Name[km]=រូបរាង​របស់ KDE
 Name[kn]=ಕೆಡಿಇ ನೋಟ
@@ -99,6 +100,7 @@ Query[hu]=http://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[ia]=http://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[id]=http://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[is]=http://www.kde-look.org/content/search.php?search=Search&name=\\{@}
+Query[it]=http://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[kk]=http://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[km]=http://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[kn]=http://www.kde-look.org/content/search.php?search=Search&name=\\{@}

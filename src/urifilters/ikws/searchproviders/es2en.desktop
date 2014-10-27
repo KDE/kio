@@ -42,6 +42,7 @@ Name[hu]=WordReference.com fordítás: spanyolról angolra
 Name[ia]=WordReference.com Traduction: Espaniol a Anglese
 Name[id]=Terjemahan WordReference.com: Bahasa Spanyol ke Inggris
 Name[is]=WordReference.com þýðing: Spönsk/ensk
+Name[it]=Traduzione WordReference.com: dallo spagnolo all'inglese
 Name[kk]=WordReference.com испан тілінен ағылшынға аудару
 Name[km]=ការ​បកប្រែ WordReference.com ៖ ភាសា​អេស្ប៉ាញ​ទៅ​ជា​អង់គ្លេស
 Name[kn]=WordReference.com ಅನುವಾದ: ಸ್ಪಾನಿಷ್ ನಿಂದ ಇಂಗ್ಲೀಷ್ ಗೆ
@@ -128,6 +129,7 @@ Query[hu]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[ia]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[id]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[is]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
+Query[it]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[kk]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[km]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[kn]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}

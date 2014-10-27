@@ -41,6 +41,7 @@ Name[hu]=Netcraft
 Name[ia]=Netcraft
 Name[id]=Netcraft
 Name[is]=Netcraft
+Name[it]=Netcraft
 Name[kk]=Netcraft
 Name[km]=Netcraft
 Name[kn]=ನೆಟ್ ಕ್ರಾಫ್ಟ್
@@ -130,6 +131,7 @@ Query[hu]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ia]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[id]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[is]=http://uptime.netcraft.com/up/graph?site=\\{@}
+Query[it]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[kk]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[km]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[kn]=http://uptime.netcraft.com/up/graph?site=\\{@}

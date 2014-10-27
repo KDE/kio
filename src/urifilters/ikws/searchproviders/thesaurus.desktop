@@ -41,6 +41,7 @@ Name[hu]=Merriam-Webster szinonimaszótár
 Name[ia]=Merriam-Webster Thesauro
 Name[id]=Tesaurus Merriam-Webster
 Name[is]=Merriam-Webster samheitaorðabók
+Name[it]=Dizionario dei sinonimi e contrari Merriam-Webster
 Name[kk]=Merriam-Webster тезаурусы
 Name[km]=កម្រង​វេវចន​សព្ទ Merriam-Webster
 Name[kn]=ಮೆರಿಯಾಮೆ-ವೆಬ್ಸ್ಟರ್ ಸಮಾನ/ವಿರುದ್ಧಾರ್ಥ ಪದಕೋಶ
@@ -130,6 +131,7 @@ Query[hu]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[ia]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[id]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[is]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
+Query[it]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[kk]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[km]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[kn]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}

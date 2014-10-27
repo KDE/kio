@@ -32,6 +32,7 @@ Name[hu]=Identi.ca üzenetek
 Name[ia]=Novas de Identi.ca
 Name[id]=Identi.ca Notices
 Name[is]=Identi.ca tilkynningar
+Name[it]=Notifiche di Identi.ca
 Name[kk]=Identi.ca жазбалары
 Name[km]=ចំណាំ​របស់ Identi.ca
 Name[kn]=identi.ca ಸೂಚನೆ
@@ -90,6 +91,7 @@ Query[hu]=https://identi.ca/search/notice?q=\\{@}
 Query[ia]=https://identi.ca/search/notice?q=\\{@}
 Query[id]=https://identi.ca/search/notice?q=\\{@}
 Query[is]=https://identi.ca/search/notice?q=\\{@}
+Query[it]=https://identi.ca/search/notice?q=\\{@}
 Query[kk]=https://identi.ca/search/notice?q=\\{@}
 Query[ko]=https://identi.ca/search/notice?q=\\{@}
 Query[lt]=https://identi.ca/search/notice?q=\\{@}

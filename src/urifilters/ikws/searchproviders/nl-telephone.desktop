@@ -37,6 +37,7 @@ Name[hu]=Telefonkönyv (NL)
 Name[ia]=Fornitor de cerca Telephonebook
 Name[id]=Penyedia Pencarian Buku Telepon
 Name[is]=Leitarvél fyrir símaskrár
+Name[it]=Motore di ricerca dell'elenco telefonico
 Name[kk]=Телефон кітапшасын іздеу провайдері
 Name[km]=ក្រុមហ៊ុន​ផ្ដល់​​ការ​​ស្វែងរក​សៀវភៅ​លេខ​ទូរស័ព្ទ
 Name[kn]=ದೂರವಾಣಿ ಪುಸ್ತಕ ಹುಡುಕಾಟ ಪೂರೈಕೆದಾರ
@@ -107,6 +108,7 @@ Query[hu]=http://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2
 Query[ia]=http://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[id]=http://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[is]=http://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
+Query[it]=http://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[kk]=http://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[ko]=http://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[nb]=http://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}

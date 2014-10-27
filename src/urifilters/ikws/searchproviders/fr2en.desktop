@@ -42,6 +42,7 @@ Name[hu]=WordReference.com fordítás: franciáról angolra
 Name[ia]=WordReference.com Traduction: Francese a Anglese
 Name[id]=Terjemahan WordReference.com: Bahasa Perancis ke Inggris
 Name[is]=WordReference.com þýðing: Frönsk/ensk
+Name[it]=Traduzione WordReference.com: dal francese all'inglese
 Name[kk]=WordReference.com француз тілінен ағылшынға аудару
 Name[km]=ការ​បកប្រែ WordReference.com ៖ ភាសា​បារាំង​ទៅជា​​អង់គ្លេស
 Name[kn]=WordReference.com ಅನುವಾದ: ಫ್ರೆಂಚ್ ನಿಂದ ಇಂಗ್ಲೀಷಿಗೆ
@@ -128,6 +129,7 @@ Query[hu]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[ia]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[id]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[is]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
+Query[it]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[kk]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[km]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[kn]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}

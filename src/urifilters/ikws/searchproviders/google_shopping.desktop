@@ -21,6 +21,7 @@ Name[hu]=Google vásárlás
 Name[ia]=Google Shopping
 Name[id]=Yahoo Belanja
 Name[is]=Google verslun
+Name[it]=Acquisti di Google
 Name[kk]=Google Shopping
 Name[ko]=Google 쇼핑
 Name[lt]=Yahoo parduotuvė
@@ -71,6 +72,7 @@ Query[hu]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ia]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[id]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[is]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Query[it]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[kk]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ko]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[lt]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

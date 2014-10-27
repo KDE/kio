@@ -41,6 +41,7 @@ Name[hu]=Google Groups
 Name[ia]=Google Groups : Gruppos de Google
 Name[id]=Google Grup
 Name[is]=Google - Ráðstefnur
+Name[it]=Gruppi di Google
 Name[kk]=Google топтары
 Name[km]=ក្រុម​ហ្គូហ្គល
 Name[kn]=ಗೂಗಲ್ ಗುಂಪುಗಳು
@@ -113,6 +114,7 @@ Query[hu]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[ia]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[id]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[is]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
+Query[it]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[kk]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[ko]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[lt]=https://groups.google.com/groups?oi=djq&as_q=\\{@}

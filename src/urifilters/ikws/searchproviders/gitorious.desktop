@@ -32,6 +32,7 @@ Name[hu]=Gitorious
 Name[ia]=Gitorious
 Name[id]=Gitorious
 Name[is]=Gitorious
+Name[it]=Gitorious
 Name[kk]=Gitorious
 Name[km]=Gitorious
 Name[kn]=ಗಿಟೋರಿಯಸ್(Gitorious)
@@ -90,6 +91,7 @@ Query[hu]=https://gitorious.org/search?q=\\{@}&commit=Search
 Query[ia]=https://gitorious.org/search?q=\\{@}&commit=Search
 Query[id]=https://gitorious.org/search?q=\\{@}&commit=Search
 Query[is]=https://gitorious.org/search?q=\\{@}&commit=Search
+Query[it]=https://gitorious.org/search?q=\\{@}&commit=Search
 Query[kk]=https://gitorious.org/search?q=\\{@}&commit=Search
 Query[ko]=https://gitorious.org/search?q=\\{@}&commit=Search
 Query[lt]=https://gitorious.org/search?q=\\{@}&commit=Search

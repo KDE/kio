@@ -32,6 +32,7 @@ Name[hu]=Duck Duck Go Info
 Name[ia]=Duck Duck Go Info
 Name[id]=Info Duck Duck Go
 Name[is]=Duck Duck Go upplýsingar
+Name[it]=Informazioni di Duck Duck Go
 Name[kk]=Duck Duck Go Info
 Name[km]=ព័ត៌មាន​របស់ Duck Duck Go
 Name[kn]=ಡಕ್ ಡಕ್ ಗೊ ಮಾಹಿತಿ
@@ -89,6 +90,7 @@ Query[hu]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ia]=http://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[id]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[is]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
+Query[it]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[kk]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ko]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[lt]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde

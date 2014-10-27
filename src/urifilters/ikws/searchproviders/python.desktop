@@ -42,6 +42,7 @@ Name[hu]=Python referencia-kézikönyv
 Name[ia]=Manual de referentia de Python
 Name[id]=Manual Referensi Python
 Name[is]=Python handbókin
+Name[it]=Manuale di riferimento di Python
 Name[kk]=Python анықтамасы
 Name[km]=សៀវភៅ​យោង​របស់ Python
 Name[kn]=ಪೈಥಾನ್ ಪರಾಮರ್ಶನ (ರೆಫರೆಂಸ್) ಕೈಪಿಡಿ
@@ -111,6 +112,7 @@ Query[hu]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Se
 Query[ia]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[id]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[is]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
+Query[it]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[kk]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[ko]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[lt]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
