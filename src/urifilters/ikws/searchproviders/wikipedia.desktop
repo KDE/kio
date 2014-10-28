@@ -116,6 +116,7 @@ Query[it]=https://it.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[kk]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ko]=https://ko.wikipedia.org/wiki/특수:검색?search=\\{@}&go=Go
 Query[lt]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[mr]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[nb]=https://no.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[nds]=https://nds.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[nl]=https://nl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go

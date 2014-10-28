@@ -11,6 +11,7 @@ Name[fr]=Vidéos « Qwant »
 Name[hu]=Qwant videók
 Name[id]=Qwant Video
 Name[it]=Video di Qwant
+Name[mr]=क्वांट व्हिडीओ
 Name[nb]=Qwant videoer
 Name[nds]=Qwant-Videos
 Name[nl]=Qwant video's
@@ -39,6 +40,7 @@ Query[fr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[hu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[id]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[it]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
+Query[mr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[nb]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[nds]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[nl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos

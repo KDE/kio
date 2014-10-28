@@ -11,6 +11,7 @@ Name[fr]=Images « Qwant »
 Name[hu]=Qwant képek
 Name[id]=Qwant Gambar
 Name[it]=Immagini di Qwant
+Name[mr]=क्वांट प्रतिमा
 Name[nb]=Qwant-bilder
 Name[nds]=Qwant-Biller
 Name[nl]=Qwant afbeeldingen
@@ -39,6 +40,7 @@ Query[fr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[hu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[id]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[it]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
+Query[mr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[nb]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[nds]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[nl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
