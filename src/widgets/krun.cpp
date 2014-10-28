@@ -50,6 +50,7 @@
 #include "kopenwithdialog.h"
 #include "krecentdocument.h"
 #include "kdesktopfileactions.h"
+#include "executablefileopendialog_p.h"
 #include <kio/desktopexecparser.h>
 
 #include <kurlauthorized.h>
@@ -829,6 +830,7 @@ void KRun::KRunPrivate::init(const QUrl &url, QWidget *window,
     // Start the timer. This means we will return to the event
     // loop and do initialization afterwards.
     // Reason: We must complete the constructor before we do anything else.
+    m_bCheckPrompt = true;
     m_bInit = true;
     q->connect(m_timer, SIGNAL(timeout()), q, SLOT(slotTimeout()));
     startTimer();
@@ -969,6 +971,57 @@ bool KRun::KRunPrivate::runExecutable(const QString &_exec)
     return false;
 }
 
+void KRun::KRunPrivate::showPrompt()
+{
+    ExecutableFileOpenDialog *dialog = new ExecutableFileOpenDialog(q->window());
+    dialog->setAttribute(Qt::WA_DeleteOnClose);
+    connect(dialog, &ExecutableFileOpenDialog::finished, q, [this, dialog](int result){
+        onDialogFinished(result, dialog->isDontAskAgainChecked());
+        });
+    dialog->show();
+}
+
+bool KRun::KRunPrivate::isPromptNeeded()
+{
+    const QMimeDatabase db;
+    const QMimeType mime = db.mimeTypeForUrl(m_strURL);
+
+    const bool isFileExecutable = (isExecutableFile(m_strURL, mime.name()) ||
+                                   mime.inherits("application/x-desktop"));
+    const bool isTextFile = mime.inherits("text/plain");
+
+    if (isFileExecutable && isTextFile) {
+        KConfigGroup cfgGroup(KSharedConfig::openConfig("kiorc"), "Executable scripts");
+        const QString value = cfgGroup.readEntry("behaviourOnLaunch", "alwaysAsk");
+
+        if (value == "alwaysAsk") {
+            return true;
+        } else {
+            q->setRunExecutables(value == "execute");
+        }
+    }
+
+    return false;
+}
+
+void KRun::KRunPrivate::onDialogFinished(int result, bool isDontAskAgainSet)
+{
+    if (result == ExecutableFileOpenDialog::Rejected) {
+        m_bFinished = true;
+        m_bInit = false;
+        startTimer();
+        return;
+    }
+    q->setRunExecutables(result == ExecutableFileOpenDialog::ExecuteFile);
+
+    if (isDontAskAgainSet) {
+        QString output = result == ExecutableFileOpenDialog::OpenFile ? "open" : "execute";
+        KConfigGroup cfgGroup(KSharedConfig::openConfig("kiorc"), "Executable scripts");
+        cfgGroup.writeEntry("behaviourOnLaunch", output);
+    }
+    startTimer();
+}
+
 void KRun::scanFile()
 {
     //qDebug() << d->m_strURL;
@@ -1008,11 +1061,17 @@ void KRun::scanFile()
     //qDebug() << "Job" << job << "is about getting from" << d->m_strURL;
 }
 
-// When arriving in that method there are 5 possible states:
-// must_init, must_scan_file, found_dir, done+error or done+success.
+// When arriving in that method there are 6 possible states:
+// must_show_prompt, must_init, must_scan_file, found_dir, done+error or done+success.
 void KRun::slotTimeout()
 {
-    //qDebug() << this << " slotTimeout called";
+    if (d->m_bCheckPrompt) {
+        d->m_bCheckPrompt = false;
+        if (d->isPromptNeeded()) {
+            d->showPrompt();
+            return;
+        }
+    }
     if (d->m_bInit) {
         d->m_bInit = false;
         init();

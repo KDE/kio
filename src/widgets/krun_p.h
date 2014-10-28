@@ -87,9 +87,17 @@ public:
 #endif
     bool runExecutable(const QString &_exec);
 
+    void showPrompt();
+    /**
+     * Check whether we need to show a prompt(before executing a script or desktop file)
+     */
+    bool isPromptNeeded();
+    void onDialogFinished(int result, bool isDontAskAgainSet);
+
     KRun *q;
     bool m_showingDialog;
     bool m_runExecutables;
+
     // Don't exit the app while a KRun is running.
     QEventLoopLocker m_eventLoopLocker;
 
@@ -119,6 +127,13 @@ public:
      * This action is invoked from slotTimeout
      */
     bool m_bInit;
+
+    /**
+     * Used to indicate that the next action is to check whether we need to
+     * show a prompt(before executing a script or desktop file).
+     * This action is invoked from slotTimeout.
+     */
+    bool m_bCheckPrompt;
 };
 
 #endif  // KRUN_P_H

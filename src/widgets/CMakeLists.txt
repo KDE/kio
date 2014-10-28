@@ -54,6 +54,7 @@ set(kiowidgets_SRCS
   jobuidelegate.cpp
   kdirlister.cpp
   kdirmodel.cpp
+  executablefileopendialog.cpp
 )
 if (WIN32)
   list(APPEND kiowidgets_SRCS
