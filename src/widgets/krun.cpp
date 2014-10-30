@@ -1333,7 +1333,7 @@ void KRun::setSuggestedFileName(const QString &fileName)
 
 void KRun::setShowScriptExecutionPrompt(bool showPrompt)
 {
-    d->m_bCheckPrompt = b;
+    d->m_bCheckPrompt = showPrompt;
 }
 
 QString KRun::suggestedFileName() const
