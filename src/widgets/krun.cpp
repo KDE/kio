@@ -830,7 +830,7 @@ void KRun::KRunPrivate::init(const QUrl &url, QWidget *window,
     // Start the timer. This means we will return to the event
     // loop and do initialization afterwards.
     // Reason: We must complete the constructor before we do anything else.
-    m_bCheckPrompt = true;
+    m_bCheckPrompt = false;
     m_bInit = true;
     q->connect(m_timer, SIGNAL(timeout()), q, SLOT(slotTimeout()));
     startTimer();
@@ -1329,6 +1329,11 @@ void KRun::setRunExecutables(bool b)
 void KRun::setSuggestedFileName(const QString &fileName)
 {
     d->m_suggestedFileName = fileName;
+}
+
+void KRun::setShowScriptExecutionPrompt(bool showPrompt)
+{
+    d->m_bCheckPrompt = b;
 }
 
 QString KRun::suggestedFileName() const

@@ -170,6 +170,12 @@ public:
     void setSuggestedFileName(const QString &fileName);
 
     /**
+     * Sets whether a prompt should be shown before executing scripts or desktop files
+     * @since 5.4
+     */
+    void setShowScriptExecutionPrompt(bool showPrompt);
+
+    /**
      * Suggested file name given by the server (e.g. HTTP content-disposition)
      */
     QString suggestedFileName() const;
