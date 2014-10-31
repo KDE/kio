@@ -133,8 +133,8 @@ static void removeDirRecursive(const QString &dir)
 
 void TestTrash::initTestCase()
 {
-    qDebug() << qgetenv("LC_ALL");
-    setenv("KDE_FORK_SLAVES", "yes", true);
+    // To avoid a runtime dependency on klauncher
+    qputenv("KDE_FORK_SLAVES", "yes");
 
     m_trashDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QString::fromLatin1("/Trash");
     qDebug() << "setup: using trash directory " << m_trashDir;
@@ -836,7 +836,7 @@ void TestTrash::copyDirectoryFromTrash()
     QVERIFY(QFile::exists(destPath + "/subdir/subfile"));
 }
 
-void TestTrash::copySymlinkFromTrash()
+void TestTrash::copySymlinkFromTrash() // relies on trashSymlinkFromHome() being called first
 {
     const QString destPath = otherTmpDir() + QString::fromLatin1("symlinkFromHome_copied");
     copyFromTrash(QString::fromLatin1("symlinkFromHome"), destPath);
