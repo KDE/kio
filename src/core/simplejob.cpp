@@ -37,7 +37,8 @@ SimpleJob::SimpleJob(SimpleJobPrivate &dd)
 void SimpleJobPrivate::simpleJobInit()
 {
     Q_Q(SimpleJob);
-    if (!m_url.isValid()) {
+    if (!m_url.isValid() || m_url.scheme().isEmpty()) {
+        qWarning() << "Invalid URL:" << m_url;
         q->setError(ERR_MALFORMED_URL);
         q->setErrorText(m_url.toString());
         QTimer::singleShot(0, q, SLOT(slotFinished()));
