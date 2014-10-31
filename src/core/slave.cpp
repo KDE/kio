@@ -74,6 +74,34 @@ static org::kde::KSlaveLauncher *klauncher()
     return s_kslaveLauncher.localData();
 }
 
+#ifdef Q_OS_UNIX
+// In such case we start the slave via QProcess.
+// It's possible to force this by setting the env. variable
+// KDE_FORK_SLAVES, Clearcase seems to require this.
+static QBasicAtomicInt bForkSlaves = Q_BASIC_ATOMIC_INITIALIZER(-1);
+
+static bool forkSlaves()
+{
+    // In such case we start the slave via QProcess.
+    // It's possible to force this by setting the env. variable
+    // KDE_FORK_SLAVES, Clearcase seems to require this.
+    if (bForkSlaves.load() == -1) {
+        bool fork = !qgetenv("KDE_FORK_SLAVES").isEmpty();
+
+        if (!fork) {
+            // check the UID of klauncher
+            QDBusReply<uint> reply = QDBusConnection::sessionBus().interface()->serviceUid(klauncher()->service());
+            if (reply.isValid() && getuid() != reply) {
+                fork = true;
+            }
+        }
+
+        bForkSlaves.testAndSetRelaxed(-1, fork ? 1 : 0);
+    }
+    return bForkSlaves.load() == 1;
+}
+#endif
+
 namespace KIO
 {
 
@@ -428,26 +456,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
     QUrl slaveAddress = slave->d_func()->slaveconnserver->address();
 
 #ifdef Q_OS_UNIX
-    // In such case we start the slave via QProcess.
-    // It's possible to force this by setting the env. variable
-    // KDE_FORK_SLAVES, Clearcase seems to require this.
-    static QBasicAtomicInt bForkSlaves = Q_BASIC_ATOMIC_INITIALIZER(-1);
-
-    if (bForkSlaves.load() == -1) {
-        bool fork = !qgetenv("KDE_FORK_SLAVES").isEmpty();
-
-        if (!fork) {
-            // check the UID of klauncher
-            QDBusReply<uint> reply = QDBusConnection::sessionBus().interface()->serviceUid(klauncher()->service());
-            if (reply.isValid() && getuid() != reply) {
-                fork = true;
-            }
-        }
-
-        bForkSlaves.testAndSetRelaxed(-1, fork ? 1 : 0);
-    }
-
-    if (bForkSlaves.load() == 1) {
+    if (forkSlaves() == 1) {
         QString _name = KProtocolInfo::exec(protocol);
         if (_name.isEmpty()) {
             error_text = i18n("Unknown protocol '%1'.", protocol);
@@ -529,6 +538,9 @@ Slave *Slave::holdSlave(const QString &protocol, const QUrl &url)
 
 bool Slave::checkForHeldSlave(const QUrl &url)
 {
+    if (forkSlaves()) {
+        return false;
+    }
     return klauncher()->checkForHeldSlave(url.toString());
 }
 
