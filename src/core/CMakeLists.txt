@@ -203,6 +203,13 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   REQUIRED_HEADERS KIO_namespaced_HEADERS
 )
 
+# Create local forwarding header for kio/job_base.h
+set(REGULAR_HEADER_NAME ${CMAKE_CURRENT_BINARY_DIR}/kio/job_base.h)
+if (NOT EXISTS ${REGULAR_HEADER_NAME})
+   file(WRITE ${REGULAR_HEADER_NAME} "#include \"${CMAKE_CURRENT_SOURCE_DIR}/job_base.h\"\n")
+endif()
+
+
 install(TARGETS KF5KIOCore EXPORT KF5KIOTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES

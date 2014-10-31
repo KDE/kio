@@ -23,7 +23,7 @@
 #include <QUrl>
 
 #include "kiocore_export.h"
-#include "job_base.h"
+#include <kio/job_base.h>
 
 class QMimeData;
 
