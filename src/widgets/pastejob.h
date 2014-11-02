@@ -22,7 +22,7 @@
 
 #include <QUrl>
 
-#include "kiocore_export.h"
+#include "kiowidgets_export.h"
 #include <kio/job_base.h>
 
 class QMimeData;
@@ -41,7 +41,7 @@ class PasteJobPrivate;
  * @see KIO::pasteClipboard
  * @since 5.4
  */
-class KIOCORE_EXPORT PasteJob : public Job
+class KIOWIDGETS_EXPORT PasteJob : public Job
 {
     Q_OBJECT
 
