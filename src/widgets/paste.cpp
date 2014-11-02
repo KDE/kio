@@ -310,7 +310,10 @@ KIOWIDGETS_EXPORT QString KIO::pasteActionText(const QMimeData *mimeData, bool *
     QString text;
     if (!urls.isEmpty() || canPasteData) {
         // disable the paste action if no writing is supported
-        *enable = KFileItemListProperties(KFileItemList() << destItem).supportsWriting();
+        if (!destItem.isNull())
+            *enable = KFileItemListProperties(KFileItemList() << destItem).supportsWriting();
+        else
+            *enable = true;
 
         if (urls.count() == 1 && urls.first().isLocalFile()) {
             const bool isDir = QFileInfo(urls.first().toLocalFile()).isDir();
