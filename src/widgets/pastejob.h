@@ -90,4 +90,4 @@ KIOCORE_EXPORT PasteJob *paste(const QMimeData *mimeData, const QUrl &destDir, J
 
 }
 
-#endif /* MKPATHJOB_H */
+#endif
