@@ -88,27 +88,6 @@ private:
  */
 KIOCORE_EXPORT PasteJob *paste(const QMimeData *mimeData, const QUrl &destDir, JobFlags flags = DefaultFlags);
 
-/**
- * Handles dropping of URLs or any other kind of data.
- *
- * If the dropped data contains URLs, they are copied (or moved) to the destination URL,
- * using a KIO::CopyJob subjob.
- * Otherwise, the dropped data is saved into a file using KIO::storedPut,
- * after asking the user to choose a filename and the preferred data format.
- *
- * This takes care of recording the subjob in the FileUndoManager, and emits
- * itemCreated for every file or directory being created, so that the view can select
- * these items.
- *
- * @param mimeData the MIME data to paste, usually QDropEvent::mimeData
- * @param destDir The URL of the target directory
- * @param flags passed to the sub job
- *
- * @return A pointer to the job handling the operation.
- * @since 5.4
- */
-KIOCORE_EXPORT PasteJob *drop(const QMimeData *mimeData, const QUrl &destDir, JobFlags flags = DefaultFlags);
-
 }
 
 #endif /* MKPATHJOB_H */

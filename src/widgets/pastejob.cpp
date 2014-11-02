@@ -140,9 +140,12 @@ PasteJob * KIO::paste(const QMimeData *mimeData, const QUrl &destDir, JobFlags f
     return PasteJobPrivate::newJob(mimeData, destDir, flags, true);
 }
 
+/*
+   To be called from the drop job directly.
 PasteJob * KIO::drop(const QMimeData *mimeData, const QUrl &destDir, JobFlags flags)
 {
     return PasteJobPrivate::newJob(mimeData, destDir, flags, false);
 }
+*/
 
 #include "moc_pastejob.cpp"
