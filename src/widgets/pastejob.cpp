@@ -31,6 +31,7 @@
 #include <KIO/CopyJob>
 #include <KIO/FileUndoManager>
 #include <KJobWidgets>
+#include <KLocalizedString>
 #include <KUrlMimeData>
 
 using namespace KIO;
@@ -104,7 +105,8 @@ void PasteJobPrivate::slotStart()
             job = copyJob;
         }
     } else {
-        job = pasteMimeDataImpl(m_mimeData, m_destDir, QString(), KJobWidgets::window(q), m_clipboard);
+        const QString dialogText = m_clipboard ? i18n("Filename for clipboard content:") : i18n("Filename for dropped contents:");
+        job = pasteMimeDataImpl(m_mimeData, m_destDir, dialogText, KJobWidgets::window(q), m_clipboard);
         if (KIO::SimpleJob* simpleJob = qobject_cast<KIO::SimpleJob *>(job)) {
             KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Put, QList<QUrl>(), simpleJob->url(), job);
         }
