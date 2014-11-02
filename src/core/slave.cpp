@@ -538,9 +538,11 @@ Slave *Slave::holdSlave(const QString &protocol, const QUrl &url)
 
 bool Slave::checkForHeldSlave(const QUrl &url)
 {
+#ifdef Q_OS_UNIX
     if (forkSlaves()) {
         return false;
     }
+#endif
     return klauncher()->checkForHeldSlave(url.toString());
 }
 
