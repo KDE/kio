@@ -21,7 +21,8 @@
 #define QT_NO_CAST_FROM_ASCII
 
 #include "kio_trash_win.h"
-#include <kio/job.h>
+#include "kioglobal_p.h"
+#include "kio/job.h"
 
 #include <QDebug>
 #include <QCoreApplication>
