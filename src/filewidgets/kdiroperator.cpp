@@ -1336,6 +1336,19 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
                 d->preview->clearPreview();
             }
         }
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+        if (mouseEvent) {
+            switch (mouseEvent->button()) {
+            case Qt::BackButton:
+                back();
+                break;
+            case Qt::ForwardButton:
+                forward();
+                break;
+            default:
+                break;
+            }
+        }
     }
     break;
     case QEvent::Wheel: {
