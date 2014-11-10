@@ -816,39 +816,43 @@ TCPSlaveBase::SslResult TCPSlaveBase::verifyServerCertificate()
     message = message.trimmed();
 
     int msgResult;
+    QDateTime ruleExpiry = QDateTime::currentDateTime();
     do {
         msgResult = messageBox(WarningYesNoCancel, message,
                                i18n("Server Authentication"),
                                i18n("&Details"), i18n("Co&ntinue"));
-        if (msgResult == SlaveBase::Yes) {
+        switch (msgResult) {
+        case SlaveBase::Yes:
             //Details was chosen- show the certificate and error details
             messageBox(SSLMessageBox /*the SSL info dialog*/, d->host);
-        } else if (msgResult == SlaveBase::Cancel) {
+            break;
+        case SlaveBase::No: {
+                        //fall through on SlaveBase::No
+            const int result = messageBox(WarningYesNoCancel,
+                                    i18n("Would you like to accept this "
+                                        "certificate forever without "
+                                        "being prompted?"),
+                                    i18n("Server Authentication"),
+                                    i18n("&Forever"),
+                                    i18n("&Current Session only"));
+            if (result == SlaveBase::Yes) {
+                //accept forever ("for a very long time")
+                ruleExpiry = ruleExpiry.addYears(1000);
+            } else if (result == SlaveBase::No) {
+                //accept "for a short time", half an hour.
+                ruleExpiry = ruleExpiry.addSecs(30*60);
+            } else {
+                msgResult = SlaveBase::Yes;
+            }
+            break;
+        }
+        case SlaveBase::Cancel:
             return ResultFailed;
-        } else if (msgResult != SlaveBase::No) {
+        default:
             qWarning() << "Unexpected MessageBox response received:" << msgResult;
             return ResultFailed;
         }
-        //fall through on SlaveBase::No
     } while (msgResult == SlaveBase::Yes);
-
-    //Save the user's choice to ignore the SSL errors.
-
-    msgResult = messageBox(WarningYesNo,
-                           i18n("Would you like to accept this "
-                                "certificate forever without "
-                                "being prompted?"),
-                           i18n("Server Authentication"),
-                           i18n("&Forever"),
-                           i18n("&Current Session only"));
-    QDateTime ruleExpiry = QDateTime::currentDateTime();
-    if (msgResult == SlaveBase::Yes) {
-        //accept forever ("for a very long time")
-        ruleExpiry = ruleExpiry.addYears(1000);
-    } else {
-        //accept "for a short time", half an hour.
-        ruleExpiry = ruleExpiry.addSecs(30 * 60);
-    }
 
     //TODO special cases for wildcard domain name in the certificate!
     //rule = KSslCertificateRule(d->socket.peerCertificateChain().first(), whatever);
