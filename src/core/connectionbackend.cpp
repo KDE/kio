@@ -31,6 +31,8 @@
 #include <QPointer>
 #include <QTime>
 
+#include "kiocoredebug.h"
+
 using namespace KIO;
 
 ConnectionBackend::ConnectionBackend(Mode m, QObject *parent)
@@ -62,10 +64,10 @@ void ConnectionBackend::setSuspended(bool enable)
     Q_ASSERT(!localServer);     // !tcpServer as well
 
     if (enable) {
-        //qDebug() << socket << "suspending";
+        //qCDebug(KIO_CORE) << socket << "suspending";
         socket->setReadBufferSize(1);
     } else {
-        //qDebug() << socket << "resuming";
+        //qCDebug(KIO_CORE) << socket << "resuming";
         // Calling setReadBufferSize from a readyRead slot leads to a bug in Qt, fixed in 13c246ee119
 #if QT_VERSION >= QT_VERSION_CHECK(5, 3, 0)
         socket->setReadBufferSize(StandardBufferSize);
@@ -112,7 +114,7 @@ bool ConnectionBackend::connectToRemote(const QUrl &url)
 
         if (!socket->waitForConnected(1000)) {
             state = Idle;
-            qDebug() << "could not connect to" << url;
+            qCDebug(KIO_CORE) << "could not connect to" << url;
             return false;
         }
     }
@@ -223,7 +225,7 @@ bool ConnectionBackend::sendCommand(int cmd, const QByteArray &data) const
     socket->write(buffer, HeaderSize);
     socket->write(data);
 
-    //qDebug() << this << "Sending command" << hex << cmd << "of"
+    //qCDebug(KIO_CORE) << this << "Sending command" << hex << cmd << "of"
     //         << data.size() << "bytes (" << socket->bytesToWrite()
     //         << "bytes left to write )";
 
@@ -241,7 +243,7 @@ ConnectionBackend *ConnectionBackend::nextPendingConnection()
     Q_ASSERT(localServer || tcpServer);
     Q_ASSERT(!socket);
 
-    //qDebug() << "Got a new connection";
+    //qCDebug(KIO_CORE) << "Got a new connection";
 
     QTcpSocket *newSocket;
     if (mode == LocalSocketMode) {
@@ -274,7 +276,7 @@ void ConnectionBackend::socketReadyRead()
             return;
         }
 
-        //qDebug() << this << "Got" << socket->bytesAvailable() << "bytes";
+        //qCDebug(KIO_CORE) << this << "Got" << socket->bytesAvailable() << "bytes";
         if (len == -1) {
             // We have to read the header
             char buffer[HeaderSize];
@@ -299,12 +301,12 @@ void ConnectionBackend::socketReadyRead()
             }
             cmd = strtol(p, 0L, 16);
 
-            //qDebug() << this << "Beginning of command" << hex << cmd << "of size" << len;
+            //qCDebug(KIO_CORE) << this << "Beginning of command" << hex << cmd << "of size" << len;
         }
 
         QPointer<ConnectionBackend> that = this;
 
-        //qDebug() << socket << "Want to read" << len << "bytes";
+        //qCDebug(KIO_CORE) << socket << "Want to read" << len << "bytes";
         if (socket->bytesAvailable() >= len) {
             Task task;
             task.cmd = cmd;
@@ -316,7 +318,7 @@ void ConnectionBackend::socketReadyRead()
             signalEmitted = true;
             emit commandReceived(task);
         } else if (len > StandardBufferSize) {
-            qDebug() << socket << "Jumbo packet of" << len << "bytes";
+            qCDebug(KIO_CORE) << socket << "Jumbo packet of" << len << "bytes";
             // Calling setReadBufferSize from a readyRead slot leads to a bug in Qt, fixed in 13c246ee119
 #if QT_VERSION >= QT_VERSION_CHECK(5, 3, 0)
             socket->setReadBufferSize(len + 1);

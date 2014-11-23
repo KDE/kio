@@ -32,11 +32,12 @@
 
 #include <QFile>
 #include <QDir>
-#include <QDebug>
 #include <QUrl>
 #include <QStandardPaths>
 
 #include <config-kiocore.h> // CMAKE_INSTALL_FULL_LIBEXECDIR_KF5
+
+#include "kiocoredebug.h"
 
 class KRunMX1 : public KMacroExpanderBase
 {
@@ -144,7 +145,7 @@ int KRunMX2::expandEscapedMacro(const QString &str, int pos, QStringList &ret)
     case 'v':
         if (urls.isEmpty()) {
             if (!ignFile) {
-                //qDebug() << "No URLs supplied to single-URL service" << str;
+                //qCDebug(KIO_CORE) << "No URLs supplied to single-URL service" << str;
             }
         } else if (urls.count() > 1) {
             qWarning() << urls.count() << "URLs supplied to single-URL service" << str;
@@ -193,7 +194,7 @@ QStringList KIO::DesktopExecParser::supportedProtocols(const KService &service)
             }
         }
     }
-    //qDebug() << "supportedProtocols:" << supportedProtocols;
+    //qCDebug(KIO_CORE) << "supportedProtocols:" << supportedProtocols;
     return supportedProtocols;
 }
 
@@ -215,7 +216,7 @@ bool KIO::DesktopExecParser::hasSchemeHandler(const QUrl &url)
     }
     const KService::Ptr service = KMimeTypeTrader::self()->preferredService(QString::fromLatin1("x-scheme-handler/") + url.scheme());
     if (service) {
-        qDebug() << "preferred service for x-scheme-handler/" + url.scheme() << service->desktopEntryName();
+        qCDebug(KIO_CORE) << "preferred service for x-scheme-handler/" + url.scheme() << service->desktopEntryName();
     }
     return service;
 }
@@ -292,7 +293,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         Q_FOREACH (const QUrl &url, d->urls)
             if (!url.isLocalFile() && !hasSchemeHandler(url)) {
                 useKioexec = true;
-                //qDebug() << "non-local files, application does not support urls, using kioexec";
+                //qCDebug(KIO_CORE) << "non-local files, application does not support urls, using kioexec";
                 break;
             }
     } else { // app claims to support %u/%U, check which protocols
@@ -300,7 +301,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         Q_FOREACH (const QUrl &url, d->urls) {
             if (!isProtocolInSupportedList(url, appSupportedProtocols) && !hasSchemeHandler(url)) {
                 useKioexec = true;
-                //qDebug() << "application does not support url, using kioexec:" << url;
+                //qCDebug(KIO_CORE) << "application does not support url, using kioexec:" << url;
                 break;
             }
         }

@@ -27,10 +27,11 @@
 #include <QDBusInterface>
 #include <QDBusReply>
 #include <QUrl>
-#include <QDebug>
 #include <QHash>
 #include <QLocale>
 #include <QFileInfo>
+
+#include "kiocoredebug.h"
 
 enum BinaryUnitDialect {
     DefaultBinaryDialect = -1, ///< Used if no specific preference
@@ -264,7 +265,7 @@ KIO::CacheControl KIO::parseCacheControl(const QString &cacheControl)
         return KIO::CC_Reload;
     }
 
-    qDebug() << "unrecognized Cache control option:" << cacheControl;
+    qCDebug(KIO_CORE) << "unrecognized Cache control option:" << cacheControl;
     return KIO::CC_Verify;
 }
 
@@ -285,7 +286,7 @@ QString KIO::getCacheControlString(KIO::CacheControl cacheControl)
     if (cacheControl == KIO::CC_Reload) {
         return "Reload";
     }
-    qDebug() << "unrecognized Cache control enum value:" << cacheControl;
+    qCDebug(KIO_CORE) << "unrecognized Cache control enum value:" << cacheControl;
     return QString();
 }
 

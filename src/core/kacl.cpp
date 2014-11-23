@@ -34,6 +34,8 @@
 #include <QList>
 #include <QPair>
 
+#include "kiocoredebug.h"
+
 class KACL::KACLPrivate
 {
 public:
@@ -197,7 +199,7 @@ static void permissionsToEntry(acl_entry_t entry, unsigned short v)
 static void printACL(acl_t acl, const QString &comment)
 {
     const char *txt = acl_to_text(acl);
-    qDebug() << comment << txt;
+    qCDebug(KIO_CORE) << comment << txt;
     acl_free(txt);
 }
 #endif

@@ -89,6 +89,8 @@ set(kiocore_SRCS
   ksslcertificatemanager.cpp
   ktcpsocket.cpp
   kssl/ksslsettings.cpp
+
+  kiocoredebug.cpp
 )
 
 if (UNIX)
