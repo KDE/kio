@@ -238,6 +238,7 @@ public:
     bool shouldSkip(const QString &path) const;
     void skipSrc(bool isDir);
     void renameDirectory(QList<CopyInfo>::iterator it, const QUrl &newUrl);
+    QUrl finalDestUrl(const QUrl &src, const QUrl &dest) const;
 
     void slotStart();
     void slotEntries(KIO::Job *, const KIO::UDSEntryList &list);
@@ -680,6 +681,21 @@ void CopyJobPrivate::addCopyInfoFromUDSEntry(const UDSEntry &entry, const QUrl &
     }
 }
 
+// Adjust for kio_trash choosing its own dest url...
+QUrl CopyJobPrivate::finalDestUrl(const QUrl& src, const QUrl &dest) const
+{
+    Q_Q(const CopyJob);
+    if (dest.scheme() == QLatin1String("trash")) {
+        const QMap<QString, QString>& metaData = q->metaData();
+        QMap<QString, QString>::ConstIterator it = metaData.find("trashURL-" + src.path());
+        if (it != metaData.constEnd()) {
+            qDebug() << "finalDestUrl=" << it.value();
+            return QUrl(it.value());
+        }
+    }
+    return dest;
+}
+
 void CopyJobPrivate::skipSrc(bool isDir)
 {
     m_dest = m_globalDest;
@@ -994,7 +1010,7 @@ void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
                 // Did the user choose to overwrite already?
                 const QString destDir = (*it).uDest.path();
                 if (shouldOverwriteDir(destDir)) {     // overwrite => just skip
-                    emit q->copyingDone(q, (*it).uSource, (*it).uDest, (*it).mtime, true /* directory */, false /* renamed */);
+                    emit q->copyingDone(q, (*it).uSource, finalDestUrl((*it).uSource, (*it).uDest), (*it).mtime, true /* directory */, false /* renamed */);
                     dirs.erase(it);   // Move on to next dir
                 } else {
                     if (m_bAutoRenameDirs) {
@@ -1031,7 +1047,7 @@ void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
         }
     } else { // no error : remove from list, to move on to next dir
         //this is required for the undo feature
-        emit q->copyingDone(q, (*it).uSource, (*it).uDest, (*it).mtime, true, false);
+        emit q->copyingDone(q, (*it).uSource, finalDestUrl((*it).uSource, (*it).uDest), (*it).mtime, true, false);
         m_directoriesCopied.append(*it);
         dirs.erase(it);
     }
@@ -1118,14 +1134,14 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
         break;
     case Result_Overwrite:
         m_overwriteList.insert(existingDest);
-        emit q->copyingDone(q, (*it).uSource, (*it).uDest, (*it).mtime, true /* directory */, false /* renamed */);
+        emit q->copyingDone(q, (*it).uSource, finalDestUrl((*it).uSource, (*it).uDest), (*it).mtime, true /* directory */, false /* renamed */);
         // Move on to next dir
         dirs.erase(it);
         m_processedDirs++;
         break;
     case Result_OverwriteAll:
         m_bOverwriteAllDirs = true;
-        emit q->copyingDone(q, (*it).uSource, (*it).uDest, (*it).mtime, true /* directory */, false /* renamed */);
+        emit q->copyingDone(q, (*it).uSource, finalDestUrl((*it).uSource, (*it).uDest), (*it).mtime, true /* directory */, false /* renamed */);
         // Move on to next dir
         dirs.erase(it);
         m_processedDirs++;
@@ -1266,15 +1282,17 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
             return; // Don't move to next file yet !
         }
 
+        const QUrl finalUrl = finalDestUrl((*it).uSource, (*it).uDest);
+
         if (m_bCurrentOperationIsLink) {
             QString target = (m_mode == CopyJob::Link ? (*it).uSource.path() : (*it).linkDest);
             //required for the undo feature
-            emit q->copyingLinkDone(q, (*it).uSource, target, (*it).uDest);
+            emit q->copyingLinkDone(q, (*it).uSource, target, finalUrl);
         } else {
             //required for the undo feature
-            emit q->copyingDone(q, (*it).uSource, (*it).uDest, (*it).mtime, false, false);
+            emit q->copyingDone(q, (*it).uSource, finalUrl, (*it).mtime, false, false);
             if (m_mode == CopyJob::Move) {
-                org::kde::KDirNotify::emitFileMoved((*it).uSource, (*it).uDest);
+                org::kde::KDirNotify::emitFileMoved((*it).uSource, finalUrl);
             }
             m_successSrcList.append((*it).uSource);
             if (m_freeSpace != (KIO::filesize_t) - 1 && (*it).size != (KIO::filesize_t) - 1) {
@@ -2005,7 +2023,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
     } else {
         //qDebug() << "Renaming succeeded, move on";
         ++m_processedFiles;
-        emit q->copyingDone(q, *m_currentStatSrc, dest, QDateTime() /*mtime unknown, and not needed*/, true, true);
+        emit q->copyingDone(q, *m_currentStatSrc, finalDestUrl(*m_currentStatSrc, dest), QDateTime() /*mtime unknown, and not needed*/, true, true);
         m_successSrcList.append(*m_currentStatSrc);
         statNextSrc();
     }

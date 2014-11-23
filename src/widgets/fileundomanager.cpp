@@ -177,7 +177,7 @@ void CommandRecorder::slotResult(KJob *job)
     FileUndoManager::self()->d->addCommand(m_cmd);
 }
 
-void CommandRecorder::slotCopyingDone(KIO::Job *job, const QUrl &from, const QUrl &to, const QDateTime &mtime, bool directory, bool renamed)
+void CommandRecorder::slotCopyingDone(KIO::Job *, const QUrl &from, const QUrl &to, const QDateTime &mtime, bool directory, bool renamed)
 {
     BasicOperation op;
     op.m_valid = true;
@@ -186,17 +186,6 @@ void CommandRecorder::slotCopyingDone(KIO::Job *job, const QUrl &from, const QUr
     op.m_src = from;
     op.m_dst = to;
     op.m_mtime = mtime;
-
-    if (m_cmd.m_type == FileUndoManager::Trash) {
-        Q_ASSERT(to.scheme() == "trash");
-        const QMap<QString, QString> metaData = job->metaData();
-        QMap<QString, QString>::ConstIterator it = metaData.find("trashURL-" + from.path());
-        if (it != metaData.constEnd()) {
-            // Update URL
-            op.m_dst = QUrl(it.value());
-        }
-    }
-
     m_cmd.m_opStack.prepend(op);
 }
 
