@@ -42,6 +42,14 @@
 #include <QThread>
 #include <QFileInfo>
 
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 4, 0))
+#include <KStartupInfo>
+#include <config-kioexec.h>
+#if HAVE_X11
+#include <QX11Info>
+#endif
+#endif
+
 static const char description[] =
         I18N_NOOP("KIO Exec - Opens remote files, watches modifications, asks for upload");
 
@@ -183,17 +191,23 @@ void KIOExec::slotRunApp()
 
     qDebug() << "EXEC " << params.join(" ");
 
-#ifdef Q_WS_X11
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 4, 0))
     // propagate the startup identification to the started process
     KStartupInfoId id;
-    id.initId( kapp->startupId());
+    QByteArray startupId;
+#if HAVE_X11
+    if (QX11Info::isPlatformX11()) {
+        startupId = QX11Info::nextStartupId();
+    }
+#endif
+    id.initId(startupId);
     id.setupStartupEnv();
 #endif
 
     QString exe( params.takeFirst() );
     const int exit_code = QProcess::execute( exe, params );
 
-#ifdef Q_WS_X11
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 4, 0))
     KStartupInfo::resetStartupEnv();
 #endif
 
