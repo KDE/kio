@@ -50,11 +50,18 @@
 
 enum BuiltinServiceType { ST_MOUNT = 0x0E1B05B0, ST_UNMOUNT = 0x0E1B05B1 }; // random numbers
 
-static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg);
-static bool runApplication(const QUrl &_url, const QString &_serviceFile);
-static bool runLink(const QUrl &_url, const KDesktopFile &cfg);
+static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg, const QByteArray &asn);
+static bool runApplication(const QUrl &_url, const QString &_serviceFile, const QByteArray &asn);
+static bool runLink(const QUrl &_url, const KDesktopFile &cfg, const QByteArray &asn);
+
+
 
 bool KDesktopFileActions::run(const QUrl &u, bool _is_local)
+{
+    return runWithStartup(u, _is_local, QByteArray());
+}
+
+bool KDesktopFileActions::runWithStartup(const QUrl &u, bool _is_local, const QByteArray &asn)
 {
     // It might be a security problem to run external untrusted desktop
     // entry files
@@ -64,7 +71,7 @@ bool KDesktopFileActions::run(const QUrl &u, bool _is_local)
 
     if (u.fileName() == QLatin1String(".directory")) {
         // We cannot execute a .directory file. Open with a text editor instead.
-        return KRun::runUrl(u, QStringLiteral("text/plain"), 0, false /*tempFile*/, false /*runExecutables*/);
+        return KRun::runUrl(u, QStringLiteral("text/plain"), 0, false /*tempFile*/, false /*runExecutables*/, QString(), asn);
     }
 
     KDesktopFile cfg(u.toLocalFile());
@@ -78,12 +85,12 @@ bool KDesktopFileActions::run(const QUrl &u, bool _is_local)
     //qDebug() << "TYPE = " << type.data();
 
     if (cfg.hasDeviceType()) {
-        return runFSDevice(u, cfg);
+        return runFSDevice(u, cfg, asn);
     } else if (cfg.hasApplicationType()
                || (cfg.readType() == "Service" && !cfg.desktopGroup().readEntry("Exec").isEmpty())) { // for kio_settings
-        return runApplication(u, u.toLocalFile());
+        return runApplication(u, u.toLocalFile(), asn);
     } else if (cfg.hasLinkType()) {
-        return runLink(u, cfg);
+        return runLink(u, cfg, asn);
     }
 
     QString tmp = i18n("The desktop entry of type\n%1\nis unknown.",  cfg.readType());
@@ -92,7 +99,7 @@ bool KDesktopFileActions::run(const QUrl &u, bool _is_local)
     return false;
 }
 
-static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg)
+static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg, const QByteArray &asn)
 {
     bool retval = false;
 
@@ -109,7 +116,7 @@ static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg)
     if (mp) {
         const QUrl mpURL = QUrl::fromLocalFile(mp->mountPoint());
         // Open a new window
-        retval = KRun::runUrl(mpURL, QLatin1String("inode/directory"), 0 /*TODO - window*/);
+        retval = KRun::runUrl(mpURL, QLatin1String("inode/directory"), 0 /*TODO - window*/, false, true, QString(), asn);
     } else {
         KConfigGroup cg = cfg.desktopGroup();
         bool ro = cg.readEntry("ReadOnly", false);
@@ -127,7 +134,7 @@ static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg)
     return retval;
 }
 
-static bool runApplication(const QUrl &_url, const QString &_serviceFile)
+static bool runApplication(const QUrl &_url, const QString &_serviceFile, const QByteArray &asn)
 {
     KService s(_serviceFile);
     if (!s.isValid())
@@ -138,10 +145,10 @@ static bool runApplication(const QUrl &_url, const QString &_serviceFile)
     }
 
     QList<QUrl> lst;
-    return KRun::run(s, lst, 0 /*TODO - window*/);
+    return KRun::run(s, lst, 0 /*TODO - window*/, false, QString(), asn);
 }
 
-static bool runLink(const QUrl &_url, const KDesktopFile &cfg)
+static bool runLink(const QUrl &_url, const KDesktopFile &cfg, const QByteArray &asn)
 {
     QString u = cfg.readUrl();
     if (u.isEmpty()) {
@@ -151,7 +158,7 @@ static bool runLink(const QUrl &_url, const KDesktopFile &cfg)
     }
 
     QUrl url = QUrl::fromUserInput(u);
-    KRun *run = new KRun(url, (QWidget *)0);
+    KRun *run = new KRun(url, (QWidget *)0, true, asn);
 
     // X-KDE-LastOpenedWith holds the service desktop entry name that
     // was should be preferred for opening this URL if possible.

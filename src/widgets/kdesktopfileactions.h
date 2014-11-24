@@ -94,6 +94,24 @@ KIOWIDGETS_EXPORT void executeService(const QList<QUrl> &urls, const KServiceAct
  * @see KRun::runUrl
  */
 KIOWIDGETS_EXPORT bool run(const QUrl &_url, bool _is_local);
+
+/**
+ * Invokes the default action for the desktop entry. If the desktop
+ * entry is not local, then only false is returned. Otherwise we
+ * would create a security problem. Only types Link and Mimetype
+ * could be followed.
+ *
+ * Use this function if a startup notification id has already been created.
+ *
+ * @param _url the url to run
+ * @param _is_local true if the URL is local, false otherwise
+ * @param asn Application startup notification id, if available
+ * @return true on success and false on failure.
+ * @see KRun::runUrl
+ * @since 5.5
+ * @todo kf6: merge with run
+ */
+KIOWIDGETS_EXPORT bool runWithStartup(const QUrl &_url, bool _is_local, const QByteArray &asn);
 }
 
 #endif

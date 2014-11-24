@@ -172,7 +172,7 @@ bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, bool
         return false;
     } else if (_mimetype == QLatin1String("application/x-desktop")) {
         if (u.isLocalFile() && runExecutables) {
-            return KDesktopFileActions::run(u, true);
+            return KDesktopFileActions::runWithStartup(u, true, asn);
         }
     } else if (isExecutableFile(u, _mimetype)) {
         if (u.isLocalFile() && runExecutables) {
