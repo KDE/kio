@@ -113,7 +113,7 @@ public:
      */
     void itemChanged(const QModelIndex &index);
 
-    /***
+    /**
      * Useful "default" columns. Views can use a proxy to have more control over this.
      */
     enum ModelColumns {
