@@ -721,7 +721,7 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
                 return item.size();
             case ModifiedTime: {
                 QDateTime dt = item.time(KFileItem::ModificationTime);
-                return dt.toString();
+                return dt.toString(Qt::SystemLocaleShortDate);
             }
             case Permissions:
                 return item.permissionsString();
