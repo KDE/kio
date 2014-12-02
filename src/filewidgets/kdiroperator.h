@@ -442,7 +442,7 @@ public:
      */
     virtual void setViewConfig(KConfigGroup &configGroup);
 
-    /*
+    /**
      * @returns the group set by setViewConfig configuration.
      */
     KConfigGroup *viewConfigGroup() const;
