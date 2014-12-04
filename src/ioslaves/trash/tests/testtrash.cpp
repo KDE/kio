@@ -870,12 +870,16 @@ void TestTrash::moveFileFromTrash()
 {
     const QString fileName = QString::fromLatin1("moveFileFromTrash");
     const QString filePath = homeTmpDir() + fileName;
+    createTestFile(filePath);
+    const QFile::Permissions origPerms = QFileInfo(filePath).permissions();
     trashFile(filePath, fileName);
 
     const QString destPath = otherTmpDir() + "fileFromTrash_restored";
     moveFromTrash(fileName, destPath);
-    QVERIFY(QFileInfo(destPath).isFile());
-    QVERIFY(QFileInfo(destPath).size() == 12);
+    const QFileInfo destInfo(destPath);
+    QVERIFY(destInfo.isFile());
+    QCOMPARE(destInfo.size(), 12);
+    QCOMPARE(int(destInfo.permissions()), int(origPerms));
 
     QVERIFY(QFile::remove(destPath));
 }
