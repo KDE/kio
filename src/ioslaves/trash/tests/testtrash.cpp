@@ -868,14 +868,16 @@ void TestTrash::moveFromTrash(const QString &fileId, const QString &destPath, co
 
 void TestTrash::moveFileFromTrash()
 {
-    const QString destPath = otherTmpDir() + "fileFromHome_restored";
-    moveFromTrash("fileFromHome", destPath);
+    const QString fileName = QString::fromLatin1("moveFileFromTrash");
+    const QString filePath = homeTmpDir() + fileName;
+    trashFile(filePath, fileName);
+
+    const QString destPath = otherTmpDir() + "fileFromTrash_restored";
+    moveFromTrash(fileName, destPath);
     QVERIFY(QFileInfo(destPath).isFile());
     QVERIFY(QFileInfo(destPath).size() == 12);
 
-    // trash it again for later
-    const QString fileName = "fileFromHome";
-    trashFile(homeTmpDir() + fileName, fileName);
+    QVERIFY(QFile::remove(destPath));
 }
 
 void TestTrash::moveFileInDirectoryFromTrash()
