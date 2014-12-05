@@ -92,7 +92,7 @@ static void createTestSymlink(const QString &path, const QByteArray &target = "/
 }
 
 enum CreateTestDirectoryOptions { DefaultOptions = 0, NoSymlink = 1 };
-static void createTestDirectory(const QString &path, CreateTestDirectoryOptions opt = DefaultOptions)
+static inline void createTestDirectory(const QString &path, CreateTestDirectoryOptions opt = DefaultOptions)
 {
     QDir dir;
     bool ok = dir.mkdir(path);
