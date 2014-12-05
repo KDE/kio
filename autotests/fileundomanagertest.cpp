@@ -150,7 +150,7 @@ static void checkTestDirectory(const QString &path)
 static void createTestDirectory(const QString &path)
 {
     QDir dir;
-    bool ok = dir.mkdir(path);
+    bool ok = dir.mkpath(path);
     if (!ok) {
         qFatal("couldn't create %s", qPrintable(path));
     }
@@ -227,7 +227,7 @@ void FileUndoManagerTest::initTestCase()
     cleanupTestCase();
 
     if (!QFile::exists(homeTmpDir())) {
-        bool ok = QDir().mkdir(homeTmpDir());
+        bool ok = QDir().mkpath(homeTmpDir());
         if (!ok) {
             qFatal("Couldn't create %s", qPrintable(homeTmpDir()));
         }
@@ -239,7 +239,7 @@ void FileUndoManagerTest::initTestCase()
 #endif
     createTestDirectory(srcSubDir());
 
-    QDir().mkdir(destDir());
+    QDir().mkpath(destDir());
     QVERIFY(QFileInfo(destDir()).isDir());
 
     QVERIFY(!FileUndoManager::self()->undoAvailable());
@@ -555,6 +555,7 @@ void FileUndoManagerTest::testRestoreTrashedFiles()
     }
 
     // Trash it all at once: the file, the symlink, the subdir.
+    const QFile::Permissions origPerms = QFileInfo(srcFile()).permissions();
     QList<QUrl> lst = sourceList();
     lst.append(QUrl::fromLocalFile(srcSubDir()));
     KIO::Job *job = KIO::trash(lst, KIO::HideProgressInfo);
@@ -577,6 +578,7 @@ void FileUndoManagerTest::testRestoreTrashedFiles()
     QVERIFY(restoreJob->exec());
 
     QVERIFY(QFile::exists(srcFile()));
+    QCOMPARE(QFileInfo(srcFile()).permissions(), origPerms);
 #ifndef Q_OS_WIN
     QVERIFY(QFileInfo(srcLink()).isSymLink());
 #endif
