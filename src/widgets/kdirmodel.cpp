@@ -717,8 +717,7 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
             case Name:
                 return item.text();
             case Size:
-                // Filesize in bytes (type qulonglong)
-                return KIO::convertSize(item.size());
+                return KIO::convertSize(item.size()); // size formatted as QString
             case ModifiedTime: {
                 QDateTime dt = item.time(KFileItem::ModificationTime);
                 return dt.toString(Qt::SystemLocaleShortDate);

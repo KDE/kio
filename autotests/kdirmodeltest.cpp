@@ -364,9 +364,11 @@ void KDirModelTest::testIndexForItem()
 void KDirModelTest::testData()
 {
     // First file
+    QModelIndex idx1col0 = m_dirModel->index(m_fileIndex.row(), 0, QModelIndex());
+    QCOMPARE(idx1col0.data().toString(), QString("toplevelfile_1"));
     QModelIndex idx1col1 = m_dirModel->index(m_fileIndex.row(), 1, QModelIndex());
-    int size1 = m_dirModel->data(idx1col1, Qt::DisplayRole).toInt();
-    QCOMPARE(size1, 11);
+    QString size1 = m_dirModel->data(idx1col1, Qt::DisplayRole).toString();
+    QCOMPARE(size1, QString("11 B"));
 
     KFileItem item = m_dirModel->data(m_fileIndex, KDirModel::FileItemRole).value<KFileItem>();
     KFileItem fileItem = m_dirModel->itemForIndex(m_fileIndex);
