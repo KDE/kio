@@ -1,0 +1,6218 @@
+# translation of kio5.po to Slovak
+# Roman Paholik <wizzardsk@gmail.com>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: kio5\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-12-03 07:38+0000\n"
+"PO-Revision-Date: 2014-11-30 11:36+0100\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Roman Paholík"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "wizzardsk@gmail.com"
+
+#: core/chmodjob.cpp:202
+#, kde-format
+msgid "Could not modify the ownership of file %1"
+msgstr "Nemôžem zmeniť vlastníctvo súboru %1"
+
+#: core/chmodjob.cpp:204
+#, kde-format
+msgid ""
+"<qt>Could not modify the ownership of file <b>%1</b>. You have insufficient "
+"access to the file to perform the change.</qt>"
+msgstr ""
+"<qt>Nepodarilo sa zmeniť vlastníctvo súboru<b>%1</b>. Nemáte dostatočné "
+"prístupové práva k súboru na vykonanie tejto zmeny.</qt>"
+
+#: core/connectionbackend.cpp:144
+#, kde-format
+msgid "Unable to create io-slave: %1"
+msgstr "Nepodarilo sa vytvoriť io-slave: %1"
+
+#: core/copyjob.cpp:1100 core/job_error.cpp:504
+msgid "Folder Already Exists"
+msgstr "Priečinok už existuje"
+
+#: core/copyjob.cpp:1371 core/copyjob.cpp:1937 core/filecopyjob.cpp:360
+#: core/job_error.cpp:494 widgets/paste.cpp:101
+msgid "File Already Exists"
+msgstr "Súbor už existuje"
+
+#: core/copyjob.cpp:1371 core/copyjob.cpp:1937
+msgid "Already Exists as Folder"
+msgstr "Už existuje ako priečinok"
+
+#: core/global.cpp:76
+#, kde-format
+msgctxt "size in bytes"
+msgid "%1 B"
+msgstr "%1 B"
+
+#: core/global.cpp:80
+#, kde-format
+msgctxt "size in 1000 bytes"
+msgid "%1 kB"
+msgstr "%1 kB"
+
+#: core/global.cpp:81
+#, kde-format
+msgctxt "size in 10^6 bytes"
+msgid "%1 MB"
+msgstr "%1 MB"
+
+#: core/global.cpp:82
+#, kde-format
+msgctxt "size in 10^9 bytes"
+msgid "%1 GB"
+msgstr "%1 GB"
+
+#: core/global.cpp:83
+#, kde-format
+msgctxt "size in 10^12 bytes"
+msgid "%1 TB"
+msgstr "%1 TB"
+
+#: core/global.cpp:84
+#, kde-format
+msgctxt "size in 10^15 bytes"
+msgid "%1 PB"
+msgstr "%1 PB"
+
+#: core/global.cpp:85
+#, kde-format
+msgctxt "size in 10^18 bytes"
+msgid "%1 EB"
+msgstr "%1 EB"
+
+#: core/global.cpp:86
+#, kde-format
+msgctxt "size in 10^21 bytes"
+msgid "%1 ZB"
+msgstr "%1 ZB"
+
+#: core/global.cpp:87
+#, kde-format
+msgctxt "size in 10^24 bytes"
+msgid "%1 YB"
+msgstr "%1 YB"
+
+#: core/global.cpp:91
+#, kde-format
+msgctxt "memory size in 1024 bytes"
+msgid "%1 KB"
+msgstr "%1 KB"
+
+#: core/global.cpp:92
+#, kde-format
+msgctxt "memory size in 2^20 bytes"
+msgid "%1 MB"
+msgstr "%1 MB"
+
+#: core/global.cpp:93
+#, kde-format
+msgctxt "memory size in 2^30 bytes"
+msgid "%1 GB"
+msgstr "%1 GB"
+
+#: core/global.cpp:94
+#, kde-format
+msgctxt "memory size in 2^40 bytes"
+msgid "%1 TB"
+msgstr "%1 TB"
+
+#: core/global.cpp:95
+#, kde-format
+msgctxt "memory size in 2^50 bytes"
+msgid "%1 PB"
+msgstr "%1 PB"
+
+#: core/global.cpp:96
+#, kde-format
+msgctxt "memory size in 2^60 bytes"
+msgid "%1 EB"
+msgstr "%1 EB"
+
+#: core/global.cpp:97
+#, kde-format
+msgctxt "memory size in 2^70 bytes"
+msgid "%1 ZB"
+msgstr "%1 ZB"
+
+#: core/global.cpp:98
+#, kde-format
+msgctxt "memory size in 2^80 bytes"
+msgid "%1 YB"
+msgstr "%1 YB"
+
+#: core/global.cpp:103
+#, kde-format
+msgctxt "size in 1024 bytes"
+msgid "%1 KiB"
+msgstr "%1 KiB"
+
+#: core/global.cpp:104
+#, kde-format
+msgctxt "size in 2^20 bytes"
+msgid "%1 MiB"
+msgstr "%1 MiB"
+
+#: core/global.cpp:105
+#, kde-format
+msgctxt "size in 2^30 bytes"
+msgid "%1 GiB"
+msgstr "%1 GiB"
+
+#: core/global.cpp:106
+#, kde-format
+msgctxt "size in 2^40 bytes"
+msgid "%1 TiB"
+msgstr "%1 TiB"
+
+#: core/global.cpp:107
+#, kde-format
+msgctxt "size in 2^50 bytes"
+msgid "%1 PiB"
+msgstr "%1 PiB"
+
+#: core/global.cpp:108
+#, kde-format
+msgctxt "size in 2^60 bytes"
+msgid "%1 EiB"
+msgstr "%1 EiB"
+
+#: core/global.cpp:109
+#, kde-format
+msgctxt "size in 2^70 bytes"
+msgid "%1 ZiB"
+msgstr "%1 ZiB"
+
+#: core/global.cpp:110
+#, kde-format
+msgctxt "size in 2^80 bytes"
+msgid "%1 YiB"
+msgstr "%1 YiB"
+
+#: core/global.cpp:170
+#, kde-format
+msgid "1 day %2"
+msgid_plural "%1 days %2"
+msgstr[0] "1 deň %2"
+msgstr[1] "%1 dni %2"
+msgstr[2] "%1 dní %2"
+
+#: core/global.cpp:205 core/global.cpp:222
+#, kde-format
+msgid "%1 Item"
+msgid_plural "%1 Items"
+msgstr[0] "%1 položka"
+msgstr[1] "%1 položky"
+msgstr[2] "%1 položiek"
+
+#: core/global.cpp:209
+#, kde-format
+msgid "1 Folder"
+msgid_plural "%1 Folders"
+msgstr[0] "1 priečinok"
+msgstr[1] "%1 priečinky"
+msgstr[2] "%1 priečinkov"
+
+#: core/global.cpp:210
+#, kde-format
+msgid "1 File"
+msgid_plural "%1 Files"
+msgstr[0] "1 súbor"
+msgstr[1] "%1 súbory"
+msgstr[2] "%1 súborov"
+
+#: core/global.cpp:213
+#, kde-format
+msgctxt "folders, files (size)"
+msgid "%1, %2 (%3)"
+msgstr "%1, %2 (%3)"
+
+#: core/global.cpp:214
+#, kde-format
+msgctxt "folders, files"
+msgid "%1, %2"
+msgstr "%1, %2"
+
+#: core/global.cpp:216
+#, kde-format
+msgctxt "files (size)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: core/global.cpp:223
+#, kde-format
+msgctxt "items: folders, files (size)"
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: core/job.cpp:108
+msgctxt "@title job"
+msgid "Moving"
+msgstr "Presúvanie"
+
+#: core/job.cpp:109 core/job.cpp:116 core/job.cpp:141
+#: widgets/fileundomanager.cpp:131
+msgctxt "The source of a file operation"
+msgid "Source"
+msgstr "Zdroj"
+
+#: core/job.cpp:110 core/job.cpp:117 widgets/fileundomanager.cpp:132
+msgctxt "The destination of a file operation"
+msgid "Destination"
+msgstr "Cieľ"
+
+#: core/job.cpp:115
+msgctxt "@title job"
+msgid "Copying"
+msgstr "Kopírovanie"
+
+#: core/job.cpp:122
+msgctxt "@title job"
+msgid "Creating directory"
+msgstr "Vytváranie adresára"
+
+#: core/job.cpp:123 widgets/fileundomanager.cpp:126
+msgid "Directory"
+msgstr "Adresár"
+
+#: core/job.cpp:128
+msgctxt "@title job"
+msgid "Deleting"
+msgstr "Odstraňovanie"
+
+#: core/job.cpp:129 core/job.cpp:135 widgets/fileundomanager.cpp:137
+msgid "File"
+msgstr "Súbor"
+
+#: core/job.cpp:134
+msgctxt "@title job"
+msgid "Examining"
+msgstr "Skúmanie"
+
+#: core/job.cpp:140
+msgctxt "@title job"
+msgid "Transferring"
+msgstr "Prenos"
+
+#: core/job.cpp:146
+msgctxt "@title job"
+msgid "Mounting"
+msgstr "Pripájanie"
+
+#: core/job.cpp:147
+msgid "Device"
+msgstr "Zariadenie"
+
+#: core/job.cpp:148 core/job.cpp:154
+msgid "Mountpoint"
+msgstr "Bod pripojenia"
+
+#: core/job.cpp:153
+msgctxt "@title job"
+msgid "Unmounting"
+msgstr "Odpájanie"
+
+#: core/job_error.cpp:38
+#, kde-format
+msgid "Could not read %1."
+msgstr "Nepodarilo sa čítať: %1."
+
+#: core/job_error.cpp:41
+#, kde-format
+msgid "Could not write to %1."
+msgstr "Nepodarilo sa zapisovať do %1."
+
+#: core/job_error.cpp:44
+#, kde-format
+msgid "Could not start process %1."
+msgstr "Nepodarilo sa spustiť proces %1."
+
+#: core/job_error.cpp:47
+#, kde-format
+msgid ""
+"Internal Error\n"
+"Please send a full bug report at http://bugs.kde.org\n"
+"%1"
+msgstr ""
+"Interná chyba\n"
+"Pošlite úplné hlásenie o chybe na http://bugs.kde.org\n"
+"%1"
+
+#: core/job_error.cpp:50
+#, kde-format
+msgid "Malformed URL %1."
+msgstr "Neplatná adresa URL %1."
+
+#: core/job_error.cpp:53
+#, kde-format
+msgid "The protocol %1 is not supported."
+msgstr "Protokol %1 nie je podporovaný."
+
+#: core/job_error.cpp:56
+#, kde-format
+msgid "The protocol %1 is only a filter protocol."
+msgstr "Protokol %1 je iba filtrovací protokol."
+
+#: core/job_error.cpp:63
+#, kde-format
+msgid "%1 is a folder, but a file was expected."
+msgstr "%1 je priečinok, ale bol očakávaný súbor."
+
+#: core/job_error.cpp:66
+#, kde-format
+msgid "%1 is a file, but a folder was expected."
+msgstr "%1 je súbor, ale bol očakávaný priečinok."
+
+#: core/job_error.cpp:69
+#, kde-format
+msgid "The file or folder %1 does not exist."
+msgstr "Súbor alebo priečinok %1 neexistuje."
+
+#: core/job_error.cpp:72
+#, kde-format
+msgid "A file named %1 already exists."
+msgstr "Súbor s názvom %1 už existuje."
+
+#: core/job_error.cpp:75
+#, kde-format
+msgid "A folder named %1 already exists."
+msgstr "Priečinok s názvom %1 už existuje."
+
+#: core/job_error.cpp:78
+msgid "No hostname specified."
+msgstr "Nebol zadaný žiadny hostiteľ."
+
+#: core/job_error.cpp:78
+#, kde-format
+msgid "Unknown host %1"
+msgstr "Neznámy hostiteľ %1"
+
+#: core/job_error.cpp:81
+#, kde-format
+msgid "Access denied to %1."
+msgstr "Prístup zamietnutý k %1."
+
+#: core/job_error.cpp:84
+#, kde-format
+msgid ""
+"Access denied.\n"
+"Could not write to %1."
+msgstr ""
+"Prístup zamietnutý.\n"
+"Nepodarilo sa zapisovať do %1."
+
+#: core/job_error.cpp:87
+#, kde-format
+msgid "Could not enter folder %1."
+msgstr "Nepodarilo sa otvoriť priečinok %1."
+
+#: core/job_error.cpp:90
+#, kde-format
+msgid "The protocol %1 does not implement a folder service."
+msgstr "Protokol %1 neimplementuje priečinkovú službu."
+
+#: core/job_error.cpp:93
+#, kde-format
+msgid "Found a cyclic link in %1."
+msgstr "Nájdený cyklický odkaz v %1."
+
+#: core/job_error.cpp:99
+#, kde-format
+msgid "Found a cyclic link while copying %1."
+msgstr "Nájdený cyklický odkaz počas kopírovania %1."
+
+#: core/job_error.cpp:102
+#, kde-format
+msgid "Could not create socket for accessing %1."
+msgstr "Nepodarilo sa vytvoriť soket pre prístup k %1."
+
+#: core/job_error.cpp:105
+#, kde-format
+msgid "Could not connect to host %1."
+msgstr "Nepodarilo sa pripojiť k hostiteľovi %1."
+
+#: core/job_error.cpp:108
+#, kde-format
+msgid "Connection to host %1 is broken."
+msgstr "Pripojenie na hostiteľa %1 je prerušené."
+
+#: core/job_error.cpp:111
+#, kde-format
+msgid "The protocol %1 is not a filter protocol."
+msgstr "Protokol %1 nie je filtrovací protokol."
+
+#: core/job_error.cpp:114
+#, kde-format
+msgid ""
+"Could not mount device.\n"
+"The reported error was:\n"
+"%1"
+msgstr ""
+"Nepodarilo sa pripojiť zariadenie.\n"
+"Nahlásená chyba bola:\n"
+"%1"
+
+#: core/job_error.cpp:117
+#, kde-format
+msgid ""
+"Could not unmount device.\n"
+"The reported error was:\n"
+"%1"
+msgstr ""
+"Nepodarilo sa odpojiť zariadenie.\n"
+"Nahlásená chyba bola:\n"
+"%1"
+
+#: core/job_error.cpp:120
+#, kde-format
+msgid "Could not read file %1."
+msgstr "Nepodarilo sa čítať súbor %1."
+
+#: core/job_error.cpp:123
+#, kde-format
+msgid "Could not write to file %1."
+msgstr "Nepodarilo sa zapisovať do súboru %1."
+
+#: core/job_error.cpp:126
+#, kde-format
+msgid "Could not bind %1."
+msgstr "Nepodarilo sa pripojiť %1."
+
+#: core/job_error.cpp:129
+#, kde-format
+msgid "Could not listen %1."
+msgstr "Nepodarilo sa počúvať na %1."
+
+#: core/job_error.cpp:132
+#, kde-format
+msgid "Could not accept %1."
+msgstr "Nepodarilo sa prijať %1."
+
+#: core/job_error.cpp:138
+#, kde-format
+msgid "Could not access %1."
+msgstr "Nepodarilo sa vstúpiť do %1."
+
+#: core/job_error.cpp:141
+#, kde-format
+msgid "Could not terminate listing %1."
+msgstr "Nepodarilo sa zastaviť výpis %1."
+
+#: core/job_error.cpp:144
+#, kde-format
+msgid "Could not make folder %1."
+msgstr "Nepodarilo sa vytvoriť priečinok %1."
+
+#: core/job_error.cpp:147
+#, kde-format
+msgid "Could not remove folder %1."
+msgstr "Nepodarilo sa odstrániť priečinok %1."
+
+#: core/job_error.cpp:150
+#, kde-format
+msgid "Could not resume file %1."
+msgstr "Nepodarilo sa obnoviť súbor %1."
+
+#: core/job_error.cpp:153
+#, kde-format
+msgid "Could not rename file %1."
+msgstr "Nepodarilo sa premenovať súbor %1."
+
+#: core/job_error.cpp:156
+#, kde-format
+msgid "Could not change permissions for %1."
+msgstr "Nepodarilo sa zmeniť práva pre %1."
+
+#: core/job_error.cpp:159
+#, kde-format
+msgid "Could not change ownership for %1."
+msgstr "Nepodarilo sa zmeniť vlastníka pre %1."
+
+#: core/job_error.cpp:162
+#, kde-format
+msgid "Could not delete file %1."
+msgstr "Nepodarilo sa odstrániť súbor %1."
+
+#: core/job_error.cpp:165
+#, kde-format
+msgid "The process for the %1 protocol died unexpectedly."
+msgstr "Proces pre protokol %1 neočakávane skončil."
+
+#: core/job_error.cpp:168
+#, kde-format
+msgid ""
+"Error. Out of memory.\n"
+"%1"
+msgstr ""
+"Chyba. Nedostatok pamäti.\n"
+"%1"
+
+#: core/job_error.cpp:171
+#, kde-format
+msgid ""
+"Unknown proxy host\n"
+"%1"
+msgstr ""
+"Neznámy proxy hostiteľ\n"
+"%1"
+
+#: core/job_error.cpp:174
+#, kde-format
+msgid "Authorization failed, %1 authentication not supported"
+msgstr "Autorizácia zlyhala, %1 overenie nie je podporované"
+
+#: core/job_error.cpp:177
+#, kde-format
+msgid ""
+"User canceled action\n"
+"%1"
+msgstr ""
+"Užívateľ zrušil akciu\n"
+"%1"
+
+#: core/job_error.cpp:180
+#, kde-format
+msgid ""
+"Internal error in server\n"
+"%1"
+msgstr ""
+"Interná chyba na serveri\n"
+"%1"
+
+#: core/job_error.cpp:183
+#, kde-format
+msgid ""
+"Timeout on server\n"
+"%1"
+msgstr ""
+"Čas požiadavky na server vypršal\n"
+"%1"
+
+#: core/job_error.cpp:186
+#, kde-format
+msgid ""
+"Unknown error\n"
+"%1"
+msgstr ""
+"Neznáma chyba\n"
+"%1"
+
+#: core/job_error.cpp:189
+#, kde-format
+msgid ""
+"Unknown interrupt\n"
+"%1"
+msgstr ""
+"Neznáme prerušenie\n"
+"%1"
+
+#: core/job_error.cpp:200
+#, kde-format
+msgid ""
+"Could not delete original file %1.\n"
+"Please check permissions."
+msgstr ""
+"Nepodarilo sa odstrániť pôvodný súbor %1.\n"
+"Skontrolujte prístupové práva."
+
+#: core/job_error.cpp:203
+#, kde-format
+msgid ""
+"Could not delete partial file %1.\n"
+"Please check permissions."
+msgstr ""
+"Nepodarilo sa odstrániť neúplný súbor %1.\n"
+"Skontrolujte prístupové práva."
+
+#: core/job_error.cpp:206
+#, kde-format
+msgid ""
+"Could not rename original file %1.\n"
+"Please check permissions."
+msgstr ""
+"Nepodarilo sa premenovať pôvodný súbor %1.\n"
+"Skontrolujte prístupové práva."
+
+#: core/job_error.cpp:209
+#, kde-format
+msgid ""
+"Could not rename partial file %1.\n"
+"Please check permissions."
+msgstr ""
+"Nepodarilo sa premenovať neúplný súbor %1.\n"
+"Skontrolujte prístupové práva."
+
+#: core/job_error.cpp:212
+#, kde-format
+msgid ""
+"Could not create symlink %1.\n"
+"Please check permissions."
+msgstr ""
+"Nepodarilo sa vytvoriť symbolický odkaz %1.\n"
+"Skontrolujte prístupové práva."
+
+#: core/job_error.cpp:218
+#, kde-format
+msgid ""
+"Could not write file %1.\n"
+"Disk full."
+msgstr ""
+"Nepodarilo sa zapisovať do súboru %1.\n"
+"Disk je plný."
+
+#: core/job_error.cpp:221
+#, kde-format
+msgid ""
+"The source and destination are the same file.\n"
+"%1"
+msgstr ""
+"Zdrojový a cieľový súbor je rovnaký.\n"
+"%1"
+
+#: core/job_error.cpp:227
+#, kde-format
+msgid "%1 is required by the server, but is not available."
+msgstr "%1 je požadované serverom, ale nie je dostupné."
+
+#: core/job_error.cpp:230
+msgid "Access to restricted port in POST denied."
+msgstr "Prístup k obmedzenému portu metódou POST bol zamietnutý."
+
+#: core/job_error.cpp:233
+msgid ""
+"The required content size information was not provided for a POST operation."
+msgstr ""
+"Požadovaná informácia veľkosti obsahu nebola poskytnutá operáciou POST."
+
+#: core/job_error.cpp:236
+#, kde-format
+msgid ""
+"Unknown error code %1\n"
+"%2\n"
+"Please send a full bug report at http://bugs.kde.org."
+msgstr ""
+"Neznámy chybový kód %1\n"
+"%2\n"
+"Pošlite úplné hlásenie o chybe na http://bugs.kde.org."
+
+#: core/job_error.cpp:261
+msgctxt "@info url"
+msgid "(unknown)"
+msgstr "(neznáme)"
+
+#: core/job_error.cpp:268
+#, kde-format
+msgctxt "@info %1 error name, %2 description"
+msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
+msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
+
+#: core/job_error.cpp:272
+msgid "<b>Technical reason</b>: "
+msgstr "<b>Technický dôvod</b>: "
+
+#: core/job_error.cpp:274
+msgid "<b>Details of the request</b>:"
+msgstr "<b>Detaily požiadavky</b>:"
+
+#: core/job_error.cpp:275
+#, kde-format
+msgid "<li>URL: %1</li>"
+msgstr "<li>URL: %1</li>"
+
+#: core/job_error.cpp:277
+#, kde-format
+msgid "<li>Protocol: %1</li>"
+msgstr "<li>Protokol: %1</li>"
+
+#: core/job_error.cpp:279
+#, kde-format
+msgid "<li>Date and time: %1</li>"
+msgstr "<li>Dátum a čas: %1</li>"
+
+#: core/job_error.cpp:280
+#, kde-format
+msgid "<li>Additional information: %1</li>"
+msgstr "<li>Ďalšie informácie: %1</li>"
+
+#: core/job_error.cpp:283
+msgid "<b>Possible causes</b>:"
+msgstr "<b>Možné príčiny</b>:"
+
+#: core/job_error.cpp:288
+msgid "<b>Possible solutions</b>:"
+msgstr "<b>Možné riešenia</b>:"
+
+#: core/job_error.cpp:322
+msgctxt "@info protocol"
+msgid "(unknown)"
+msgstr "(neznámy)"
+
+#: core/job_error.cpp:331
+msgid ""
+"Contact your appropriate computer support system, whether the system "
+"administrator, or technical support group for further assistance."
+msgstr ""
+"Kontaktujte vašu podporu, či už je to administrátor alebo skupina technickej "
+"podpory, aby vám pomohla."
+
+#: core/job_error.cpp:334
+msgid "Contact the administrator of the server for further assistance."
+msgstr "Pre ďalšiu podporu kontaktujte administrátora servera."
+
+#: core/job_error.cpp:337
+msgid "Check your access permissions on this resource."
+msgstr "Skontrolujte prístupové práva k tomuto zdroju."
+
+#: core/job_error.cpp:338
+msgid ""
+"Your access permissions may be inadequate to perform the requested operation "
+"on this resource."
+msgstr ""
+"Vaše prístupové práva možno nie sú dostatočné na vykonanie požadovanej "
+"operácie na tomto zdroji."
+
+#: core/job_error.cpp:340
+msgid ""
+"The file may be in use (and thus locked) by another user or application."
+msgstr ""
+"Súbor možno používa (a je preto zamknutý) iná aplikácia alebo užívateľ."
+
+#: core/job_error.cpp:342
+msgid ""
+"Check to make sure that no other application or user is using the file or "
+"has locked the file."
+msgstr ""
+"Skontrolujte, že žiadna iná aplikácia ani užívateľ nepoužíva súbor ani ho "
+"nezamkol."
+
+#: core/job_error.cpp:344
+msgid "Although unlikely, a hardware error may have occurred."
+msgstr "Aj keď je to málo pravdepodobné, mohla nastať chyba hardvéru."
+
+#: core/job_error.cpp:346
+msgid "You may have encountered a bug in the program."
+msgstr "Asi ste narazili na chybu v programe."
+
+#: core/job_error.cpp:347
+msgid ""
+"This is most likely to be caused by a bug in the program. Please consider "
+"submitting a full bug report as detailed below."
+msgstr ""
+"Toto je asi spôsobené chybou v programe. Zvážte odoslanie úplného hlásenia o "
+"chybe obsahujúce detaily uvedené dole."
+
+#: core/job_error.cpp:349
+msgid ""
+"Update your software to the latest version. Your distribution should provide "
+"tools to update your software."
+msgstr ""
+"Aktualizujte svoj softvér na najnovšiu verziu. Vaša distribúcia by mala "
+"poskytovať nástroje pre aktualizáciu softvéru."
+
+#: core/job_error.cpp:351
+msgid ""
+"When all else fails, please consider helping the KDE team or the third party "
+"maintainer of this software by submitting a high quality bug report. If the "
+"software is provided by a third party, please contact them directly. "
+"Otherwise, first look to see if the same bug has been submitted by someone "
+"else by searching at the <a href=\"http://bugs.kde.org/\">KDE bug reporting "
+"website</a>. If not, take note of the details given above, and include them "
+"in your bug report, along with as many other details as you think might help."
+msgstr ""
+"Ak už všetko zlyhá, skúste pomôcť tímu KDE alebo iným vývojárom tým, že "
+"pošlete kvalitné hlásenie o chybe. Ak softvér dodáva niekto iný než KDE, "
+"kontaktujte priamo vývojárov. V opačnom prípade sa najskôr pozrite, či už "
+"túto chybu niekto nenahlásil na <a href=\"http://bugs.kde.org/\">webovej "
+"stránke hlásenia chýb KDE</a>. Ak nebola ešte nahlásená, uložte si detaily "
+"uvedené vyššie a uveďte ich vo vašom hlásení o chybe spolu s čo najviac "
+"podrobnosťami, ktoré si myslíte, že by mohli pomôcť."
+
+#: core/job_error.cpp:359
+msgid "There may have been a problem with your network connection."
+msgstr "Možno je problém s vaším sieťovým spojením."
+
+#: core/job_error.cpp:362
+msgid ""
+"There may have been a problem with your network configuration. If you have "
+"been accessing the Internet with no problems recently, this is unlikely."
+msgstr ""
+"Možno je problém s vaším nastavením siete. Ak ste predtým nemali žiadne "
+"problémy s prístupom na Internet, nie je to moc pravdepodobné."
+
+#: core/job_error.cpp:365
+msgid ""
+"There may have been a problem at some point along the network path between "
+"the server and this computer."
+msgstr ""
+"Možno je problém na nejakom mieste po ceste v sieti medzi serverom a vaším "
+"počítačom."
+
+#: core/job_error.cpp:367
+msgid "Try again, either now or at a later time."
+msgstr "Skúste to znovu, buď hneď alebo neskôr."
+
+#: core/job_error.cpp:368
+msgid "A protocol error or incompatibility may have occurred."
+msgstr "Nastala chyba protokolu alebo nekompatibilita."
+
+#: core/job_error.cpp:369
+msgid "Ensure that the resource exists, and try again."
+msgstr "Overte, že zdroj existuje a skúste to znovu."
+
+#: core/job_error.cpp:370
+msgid "The specified resource may not exist."
+msgstr "Zadaný zdroj asi neexistuje."
+
+#: core/job_error.cpp:371
+msgid "You may have incorrectly typed the location."
+msgstr "Možno ste nesprávne zadali umiestnenie."
+
+#: core/job_error.cpp:372
+msgid "Double-check that you have entered the correct location and try again."
+msgstr ""
+"Znovu skontrolujte, že ste zadali správne umiestnenie a skúste to znovu."
+
+#: core/job_error.cpp:374
+msgid "Check your network connection status."
+msgstr "Skontrolujte stav svojho sieťového spojenia."
+
+#: core/job_error.cpp:378
+msgid "Cannot Open Resource For Reading"
+msgstr "Nie je možné otvoriť zdroj na čítanie"
+
+#: core/job_error.cpp:379
+#, kde-format
+msgid ""
+"This means that the contents of the requested file or folder <strong>%1</"
+"strong> could not be retrieved, as read access could not be obtained."
+msgstr ""
+"To znamená, že obsah požadovaného súboru alebo priečinka <strong>%1</strong> "
+"sa nepodarilo získať, pretože sa nepodarilo získať práva na čítanie."
+
+#: core/job_error.cpp:382
+msgid "You may not have permissions to read the file or open the folder."
+msgstr "Asi nemáte práva na čítanie súboru alebo na otvorenie priečinka."
+
+#: core/job_error.cpp:388
+msgid "Cannot Open Resource For Writing"
+msgstr "Nie je možné otvoriť zdroj na zápis"
+
+#: core/job_error.cpp:389
+#, kde-format
+msgid ""
+"This means that the file, <strong>%1</strong>, could not be written to as "
+"requested, because access with permission to write could not be obtained."
+msgstr ""
+"To znamená, že do súboru <strong>%1</strong> sa nepodarilo zapisovať, "
+"pretože sa nepodarilo získať práva na zápis."
+
+#: core/job_error.cpp:397
+#, kde-format
+msgid "Cannot Initiate the %1 Protocol"
+msgstr "Nie je možné inicializovať protokol %1"
+
+#: core/job_error.cpp:398
+msgid "Unable to Launch Process"
+msgstr "Nepodarilo sa spustiť proces"
+
+#: core/job_error.cpp:399
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol could not be started. This is usually due to technical "
+"reasons."
+msgstr ""
+"Program na vašom počítači, ktorý poskytuje prístup k protokolu <strong>%1</"
+"strong> sa nepodarilo spustiť. To je obvykle spôsobené technickými "
+"problémami."
+
+#: core/job_error.cpp:402
+msgid ""
+"The program which provides compatibility with this protocol may not have "
+"been updated with your last update of KDE. This can cause the program to be "
+"incompatible with the current version and thus not start."
+msgstr ""
+"Program, ktorý poskytuje kompatibilitu s týmto protokolom, asi nebol "
+"aktualizovaný spolu s poslednou aktualizáciou KDE. Tým sa program mohol stať "
+"nekompatibilným s aktuálnou verziou a preto ho nie je možné spustiť."
+
+#: core/job_error.cpp:410
+msgid "Internal Error"
+msgstr "Interná chyba"
+
+#: core/job_error.cpp:411
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an internal error."
+msgstr ""
+"Program na vašom počítači, ktorý poskytuje prístup k protokolu <strong>%1</"
+"strong> oznámil internú chybu."
+
+#: core/job_error.cpp:419
+msgid "Improperly Formatted URL"
+msgstr "Nesprávne formátované URL"
+
+#: core/job_error.cpp:420
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered was not properly formatted. The format "
+"of a URL is generally as follows:<blockquote><strong>protocol://user:"
+"password@www.example.org:port/folder/filename.extension?query=value</"
+"strong></blockquote>"
+msgstr ""
+"<strong>U</strong>niversal <strong>R</strong>esource <strong>L</"
+"strong>ocation (URL), ktoré ste zadali, nemá správny formát. Formát URL je "
+"všeobecne takýto:<blockquote><strong>protokol://uzivatel:heslo@www.priklad."
+"org:port/priecinok/nazov_suboru.pripona?dotaz=hodnota</strong></blockquote>"
+
+#: core/job_error.cpp:429
+#, kde-format
+msgid "Unsupported Protocol %1"
+msgstr "Nepodporovaný protokol %1"
+
+#: core/job_error.cpp:430
+#, kde-format
+msgid ""
+"The protocol <strong>%1</strong> is not supported by the KDE programs "
+"currently installed on this computer."
+msgstr ""
+"Protokol <strong>%1</strong> nie je podporovaný programami KDE, ktoré sú "
+"momentálne nainštalované na tomto počítači."
+
+#: core/job_error.cpp:433
+msgid "The requested protocol may not be supported."
+msgstr "Požadovaný protokol asi nie je podporovaný."
+
+#: core/job_error.cpp:434
+#, kde-format
+msgid ""
+"The versions of the %1 protocol supported by this computer and the server "
+"may be incompatible."
+msgstr ""
+"Verzia protokolu %1 podporovaná týmto počítačom a serverom môže byť "
+"nekompatibilná."
+
+#: core/job_error.cpp:436
+msgid ""
+"You may perform a search on the Internet for a KDE program (called a "
+"kioslave or ioslave) which supports this protocol. Places to search include "
+"<a href=\"http://kde-apps.org/\">http://kde-apps.org/</a> and <a href="
+"\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+msgstr ""
+"Môžete skúsiť vyhľadať na Internete program KDE (kioslave alebo ioslave), "
+"ktorý tento protokol podporuje. Skúste to napríklad na <a href=\"http://kde-"
+"apps.org/\">http://kde-apps.org/</a> a <a href=\"http://freshmeat.net/"
+"\">http://freshmeat.net/</a>."
+
+#: core/job_error.cpp:445
+msgid "URL Does Not Refer to a Resource."
+msgstr "URL neodkazuje na zdroj."
+
+#: core/job_error.cpp:446
+msgid "Protocol is a Filter Protocol"
+msgstr "Protokol je filtrovací protokol"
+
+#: core/job_error.cpp:447
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered did not refer to a specific resource."
+msgstr ""
+"<strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocation "
+"(URL), ktoré ste zadali, neodkazuje na špecifický zdroj."
+
+#: core/job_error.cpp:450
+msgid ""
+"KDE is able to communicate through a protocol within a protocol; the "
+"protocol specified is only for use in such situations, however this is not "
+"one of these situations. This is a rare event, and is likely to indicate a "
+"programming error."
+msgstr ""
+"KDE dokáže komunikovať protokolom v inom protokole. Zadaný protokol sa "
+"použije iba v takejto situácii, ale toto nie je tento prípad. Toto je "
+"neobvyklá udalosť a asi znamená chybu v programe."
+
+#: core/job_error.cpp:458
+#, kde-format
+msgid "Unsupported Action: %1"
+msgstr "Nepodporovaná akcia: %1"
+
+#: core/job_error.cpp:459
+#, kde-format
+msgid ""
+"The requested action is not supported by the KDE program which is "
+"implementing the <strong>%1</strong> protocol."
+msgstr ""
+"Požadovaná akcia nie je podporovaná programom KDE, ktorý implementuje "
+"protokol <strong>%1</strong>."
+
+#: core/job_error.cpp:462
+msgid ""
+"This error is very much dependent on the KDE program. The additional "
+"information should give you more information than is available to the KDE "
+"input/output architecture."
+msgstr ""
+"Táto chyba veľmi závisí na programe KDE. Ďalšie informácie by mali dodať "
+"viac informácií, než koľko ich je dostupných vo vstupno/výstupnej "
+"architektúre KDE."
+
+#: core/job_error.cpp:465
+msgid "Attempt to find another way to accomplish the same outcome."
+msgstr "Pokúste sa nájsť iný spôsob ako dosiahnuť rovnaký výsledok."
+
+#: core/job_error.cpp:470
+msgid "File Expected"
+msgstr "Očakáva sa súbor"
+
+#: core/job_error.cpp:471
+#, kde-format
+msgid ""
+"The request expected a file, however the folder <strong>%1</strong> was "
+"found instead."
+msgstr ""
+"Požiadavka očakávala súbor, ale namiesto toho bol nájdený priečinok <strong>"
+"%1</strong>."
+
+#: core/job_error.cpp:473
+msgid "This may be an error on the server side."
+msgstr "Toto môže byť chyba na strane servera."
+
+#: core/job_error.cpp:478
+msgid "Folder Expected"
+msgstr "Očakáva sa priečinok"
+
+#: core/job_error.cpp:479
+#, kde-format
+msgid ""
+"The request expected a folder, however the file <strong>%1</strong> was "
+"found instead."
+msgstr ""
+"Požiadavka očakávala priečinok, ale namiesto toho bol nájdený súbor <strong>"
+"%1</strong>."
+
+#: core/job_error.cpp:486
+msgid "File or Folder Does Not Exist"
+msgstr "Súbor alebo priečinok neexistuje"
+
+#: core/job_error.cpp:487
+#, kde-format
+msgid "The specified file or folder <strong>%1</strong> does not exist."
+msgstr "Zadaný súbor alebo priečinok <strong>%1</strong> neexistuje."
+
+#: core/job_error.cpp:495
+msgid ""
+"The requested file could not be created because a file with the same name "
+"already exists."
+msgstr ""
+"Požadovaný súbor sa nepodarilo vytvoriť, pretože súbor s rovnakým názvom už "
+"existuje."
+
+#: core/job_error.cpp:497
+msgid "Try moving the current file out of the way first, and then try again."
+msgstr "Skúste najskôr presunúť aktuálny súbor bokom a potom to skúste znovu."
+
+#: core/job_error.cpp:499
+msgid "Delete the current file and try again."
+msgstr "Odstráňte aktuálny súbor a skúste to znovu."
+
+#: core/job_error.cpp:500
+msgid "Choose an alternate filename for the new file."
+msgstr "Vyberte iný názov pre nový súbor."
+
+#: core/job_error.cpp:505
+msgid ""
+"The requested folder could not be created because a folder with the same "
+"name already exists."
+msgstr ""
+"Požadovaný priečinok sa nepodarilo vytvoriť, pretože priečinok s rovnakým "
+"názvom už existuje."
+
+#: core/job_error.cpp:507
+msgid "Try moving the current folder out of the way first, and then try again."
+msgstr ""
+"Skúste najskôr presunúť aktuálny priečinok bokom a potom to skúste znovu."
+
+#: core/job_error.cpp:509
+msgid "Delete the current folder and try again."
+msgstr "Odstráňte aktuálny priečinok a skúste to znovu."
+
+#: core/job_error.cpp:510
+msgid "Choose an alternate name for the new folder."
+msgstr "Vyberte iný názov pre nový priečinok."
+
+#: core/job_error.cpp:514
+msgid "Unknown Host"
+msgstr "Neznámy hostiteľ"
+
+#: core/job_error.cpp:515
+#, kde-format
+msgid ""
+"An unknown host error indicates that the server with the requested name, "
+"<strong>%1</strong>, could not be located on the Internet."
+msgstr ""
+"Chyba \"neznámy hostiteľ\" znamená, že server s požadovaným názvom <strong>"
+"%1</strong> sa nepodarilo v Internete nájsť."
+
+#: core/job_error.cpp:518
+#, kde-format
+msgid ""
+"The name that you typed, %1, may not exist: it may be incorrectly typed."
+msgstr "Zadaný názov %1 neexistuje. Možno bol nesprávne zadaný."
+
+#: core/job_error.cpp:525
+msgid "Access Denied"
+msgstr "Prístup zamietnutý"
+
+#: core/job_error.cpp:526
+#, kde-format
+msgid "Access was denied to the specified resource, <strong>%1</strong>."
+msgstr "Prístup bol zamietnutý pre zadaný zdroj, <strong>%1</strong>."
+
+#: core/job_error.cpp:528 core/job_error.cpp:754
+msgid "You may have supplied incorrect authentication details or none at all."
+msgstr "Možno ste zadali nesprávne alebo neúplné údaje pre overenie."
+
+#: core/job_error.cpp:530 core/job_error.cpp:756
+msgid "Your account may not have permission to access the specified resource."
+msgstr "Váš účet asi nemá práva pre prístup k zadanému zdroju."
+
+#: core/job_error.cpp:532 core/job_error.cpp:758 core/job_error.cpp:770
+msgid ""
+"Retry the request and ensure your authentication details are entered "
+"correctly."
+msgstr "Opakujte požiadavku a overte, že sú údaje pre overenie zadané správne."
+
+#: core/job_error.cpp:540
+msgid "Write Access Denied"
+msgstr "Prístup na zápis bol zamietnutý"
+
+#: core/job_error.cpp:541
+#, kde-format
+msgid ""
+"This means that an attempt to write to the file <strong>%1</strong> was "
+"rejected."
+msgstr ""
+"To znamená, že pokus o zápis do súboru <strong>%1</strong> bol zamietnutý."
+
+#: core/job_error.cpp:548
+msgid "Unable to Enter Folder"
+msgstr "Nepodarilo sa vstúpiť do priečinka"
+
+#: core/job_error.cpp:549
+#, kde-format
+msgid ""
+"This means that an attempt to enter (in other words, to open) the requested "
+"folder <strong>%1</strong> was rejected."
+msgstr ""
+"To znamená, že pokus o vstup (inými slovami otvorenie) do požadovaného "
+"priečinka <strong>%1</strong> bol zamietnutý."
+
+#: core/job_error.cpp:557
+msgid "Folder Listing Unavailable"
+msgstr "Výpis priečinka nie je k dispozícii"
+
+#: core/job_error.cpp:558
+#, kde-format
+msgid "Protocol %1 is not a Filesystem"
+msgstr "Protokol %1 nie je systém súborov"
+
+#: core/job_error.cpp:559
+msgid ""
+"This means that a request was made which requires determining the contents "
+"of the folder, and the KDE program supporting this protocol is unable to do "
+"so."
+msgstr ""
+"To znamená, že požiadavka vyžaduje určenie obsahu priečinka a že program "
+"KDE, ktorý tento protokol podporuje, to nedokáže."
+
+#: core/job_error.cpp:567
+msgid "Cyclic Link Detected"
+msgstr "Nájdený cyklický odkaz"
+
+#: core/job_error.cpp:568
+msgid ""
+"UNIX environments are commonly able to link a file or folder to a separate "
+"name and/or location. KDE detected a link or series of links that results in "
+"an infinite loop - i.e. the file was (perhaps in a roundabout way) linked to "
+"itself."
+msgstr ""
+"Prostredia systémov UNIX sú obvykle schopné vytvoriť odkaz na súbor alebo "
+"priečinok. KDE našlo odkaz alebo sériu odkazov, ktoré vytvárajú nekonečný "
+"cyklus - t.j. súbor (asi cez viac odkazov) odkazuje sám na seba."
+
+#: core/job_error.cpp:572 core/job_error.cpp:594
+msgid ""
+"Delete one part of the loop in order that it does not cause an infinite "
+"loop, and try again."
+msgstr ""
+"Odstráňte jednu stranu cyklu, aby nemohol vzniknúť nekonečný cyklus a skúste "
+"to znovu."
+
+#: core/job_error.cpp:581
+msgid "Request Aborted By User"
+msgstr "Požiadavka prerušená užívateľom"
+
+#: core/job_error.cpp:582 core/job_error.cpp:897
+msgid "The request was not completed because it was aborted."
+msgstr "Požiadavka nebola dokončená, pretože bola prerušená."
+
+#: core/job_error.cpp:584 core/job_error.cpp:788 core/job_error.cpp:899
+msgid "Retry the request."
+msgstr "Opakujte požiadavku."
+
+#: core/job_error.cpp:588
+msgid "Cyclic Link Detected During Copy"
+msgstr "Počas kopírovania bol nájdený cyklický odkaz"
+
+#: core/job_error.cpp:589
+msgid ""
+"UNIX environments are commonly able to link a file or folder to a separate "
+"name and/or location. During the requested copy operation, KDE detected a "
+"link or series of links that results in an infinite loop - i.e. the file was "
+"(perhaps in a roundabout way) linked to itself."
+msgstr ""
+"Prostredia systémov UNIX sú obvykle schopné vytvoriť odkaz na súbor alebo "
+"priečinok. Počas vykonania operácie kopírovania KDE našlo odkaz alebo sériu "
+"odkazov, ktoré vytvárajú nekonečný cyklus - t.j. súbor (asi cez viac "
+"odkazov) odkazuje sám na seba."
+
+#: core/job_error.cpp:599
+msgid "Could Not Create Network Connection"
+msgstr "Nepodarilo sa vytvoriť sieťové pripojenie"
+
+#: core/job_error.cpp:600
+msgid "Could Not Create Socket"
+msgstr "Nepodarilo sa vytvoriť soket"
+
+#: core/job_error.cpp:601
+msgid ""
+"This is a fairly technical error in which a required device for network "
+"communications (a socket) could not be created."
+msgstr ""
+"Toto je technická chyba, pri ktorej sa požadované zariadenie pre sieťovú "
+"komunikáciu (soket) nepodarilo vytvoriť."
+
+#: core/job_error.cpp:603 core/job_error.cpp:724 core/job_error.cpp:735
+#: core/job_error.cpp:744
+msgid ""
+"The network connection may be incorrectly configured, or the network "
+"interface may not be enabled."
+msgstr ""
+"Sieťové pripojenie je možno nesprávne nastavené, alebo sieťové rozhranie nie "
+"je povolené."
+
+#: core/job_error.cpp:609
+msgid "Connection to Server Refused"
+msgstr "Pripojenie na server bolo odmietnuté"
+
+#: core/job_error.cpp:610
+#, kde-format
+msgid ""
+"The server <strong>%1</strong> refused to allow this computer to make a "
+"connection."
+msgstr ""
+"Server <strong>%1</strong> odmietol tomuto počítaču vytvoriť pripojenie."
+
+#: core/job_error.cpp:612
+msgid ""
+"The server, while currently connected to the Internet, may not be configured "
+"to allow requests."
+msgstr ""
+"Server, ktorý je momentálne pripojený na Internet, asi nie je nastavený tak, "
+"aby mohol prijímať požiadavky."
+
+#: core/job_error.cpp:614
+#, kde-format
+msgid ""
+"The server, while currently connected to the Internet, may not be running "
+"the requested service (%1)."
+msgstr ""
+"Server, ktorý je momentálne pripojený na Internet, asi nemá spustenú "
+"požadovanú službu (%1)."
+
+#: core/job_error.cpp:616
+msgid ""
+"A network firewall (a device which restricts Internet requests), either "
+"protecting your network or the network of the server, may have intervened, "
+"preventing this request."
+msgstr ""
+"Sieťový firewall (zariadenie, ktoré obmedzuje internetové požiadavky), ktorý "
+"chráni vašu sieť, alebo sieť servera, zabránil tejto požiadavke."
+
+#: core/job_error.cpp:623
+msgid "Connection to Server Closed Unexpectedly"
+msgstr "Pripojenie na server bolo neočakávane uzavreté"
+
+#: core/job_error.cpp:624
+#, kde-format
+msgid ""
+"Although a connection was established to <strong>%1</strong>, the connection "
+"was closed at an unexpected point in the communication."
+msgstr ""
+"Aj keď bolo pripojenie s <strong>%1</strong> vytvorené, pripojenie bolo "
+"uzavreté v neočakávanom bode komunikácie."
+
+#: core/job_error.cpp:627
+msgid ""
+"A protocol error may have occurred, causing the server to close the "
+"connection as a response to the error."
+msgstr ""
+"Nastala chyba protokolu, preto server uzavrel pripojenie, ako reakciu na "
+"chybu."
+
+#: core/job_error.cpp:633
+msgid "URL Resource Invalid"
+msgstr "Neplatné URL zdroja"
+
+#: core/job_error.cpp:634
+#, kde-format
+msgid "Protocol %1 is not a Filter Protocol"
+msgstr "Protokol %1 nie je filtrovací protokol"
+
+#: core/job_error.cpp:635
+#, kde-format
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered did not refer to a valid mechanism of "
+"accessing the specific resource, <strong>%1%2</strong>."
+msgstr ""
+"<strong>U</strong>niversal <strong>R</strong>esource <strong>L</"
+"strong>ocation (URL), ktoré ste zadali, neodpovedá platnému mechanizmu pre "
+"prístup ku zdroju, <strong>%1%2</strong>."
+
+#: core/job_error.cpp:640
+msgid ""
+"KDE is able to communicate through a protocol within a protocol. This "
+"request specified a protocol be used as such, however this protocol is not "
+"capable of such an action. This is a rare event, and is likely to indicate a "
+"programming error."
+msgstr ""
+"KDE dokáže komunikovať protokolom v inom protokole. Zadaná požiadavka ho "
+"takto používa, ale tento protokol to nedokáže. Toto nie je moc častá udalosť "
+"a asi znamená chybu v programe."
+
+#: core/job_error.cpp:648
+msgid "Unable to Initialize Input/Output Device"
+msgstr "Nepodarilo sa inicializovať vstupno/výstupné zariadenie"
+
+#: core/job_error.cpp:649
+msgid "Could Not Mount Device"
+msgstr "Nepodarilo sa pripojiť zariadenie"
+
+#: core/job_error.cpp:650
+#, kde-format
+msgid ""
+"The requested device could not be initialized (\"mounted\"). The reported "
+"error was: <strong>%1</strong>"
+msgstr ""
+"Požadované zariadenie sa nepodarilo inicializovať (\"pripojiť\"). Oznámená "
+"chyba bola: <strong>%1</strong>"
+
+#: core/job_error.cpp:653
+msgid ""
+"The device may not be ready, for example there may be no media in a "
+"removable media device (i.e. no CD-ROM in a CD drive), or in the case of a "
+"peripheral/portable device, the device may not be correctly connected."
+msgstr ""
+"Zariadenie asi nie je pripravené, napríklad nie je vložené médium (napríklad "
+"CD-ROM v mechanike CD), alebo ide o periférne/prenosné zariadenie, ktoré nie "
+"je správne pripojené."
+
+#: core/job_error.cpp:657
+msgid ""
+"You may not have permissions to initialize (\"mount\") the device. On UNIX "
+"systems, often system administrator privileges are required to initialize a "
+"device."
+msgstr ""
+"Nemáte práva inicializovať (\"pripojiť\") zariadenie. Na systémoch UNIX sú "
+"často nutné administrátorské práva pre inicializáciu zariadenia."
+
+#: core/job_error.cpp:661
+msgid ""
+"Check that the device is ready; removable drives must contain media, and "
+"portable devices must be connected and powered on.; and try again."
+msgstr ""
+"Skontrolujte, že zariadenie je pripravené, médium je zasunuté a prenosné "
+"zariadenia sú správne pripojené a zapnuté a skúste to znovu."
+
+#: core/job_error.cpp:667
+msgid "Unable to Uninitialize Input/Output Device"
+msgstr "Nepodarilo sa odinicializovať vstupno/výstupné zariadenie"
+
+#: core/job_error.cpp:668
+msgid "Could Not Unmount Device"
+msgstr "Nepodarilo sa odpojiť zariadenie"
+
+#: core/job_error.cpp:669
+#, kde-format
+msgid ""
+"The requested device could not be uninitialized (\"unmounted\"). The "
+"reported error was: <strong>%1</strong>"
+msgstr ""
+"Požadované zariadenie sa nepodarilo odinicializovať (\"odpojiť\"). Oznámená "
+"chyba bola: <strong>%1</strong>"
+
+#: core/job_error.cpp:672
+msgid ""
+"The device may be busy, that is, still in use by another application or "
+"user. Even such things as having an open browser window on a location on "
+"this device may cause the device to remain in use."
+msgstr ""
+"Zariadenie je možno zaneprázdnené, čiže ho používa iná aplikácia alebo "
+"užívateľ. Dokonca aj otvorené okna prehliadača s obsahom umiestneným na "
+"zariadení môže spôsobiť zaneprázdnenie zariadenia."
+
+#: core/job_error.cpp:676
+msgid ""
+"You may not have permissions to uninitialize (\"unmount\") the device. On "
+"UNIX systems, system administrator privileges are often required to "
+"uninitialize a device."
+msgstr ""
+"Možno nemáte práva pre odinicializovanie (\"odpojenie\") zariadenia. Na "
+"systémoch UNIX je obvykle nutné mať administrátorské práva pre odpojenie "
+"zariadenia."
+
+#: core/job_error.cpp:680
+msgid "Check that no applications are accessing the device, and try again."
+msgstr ""
+"Skontrolujte, že žiadne aplikácie nepoužívajú zariadenie a skúste to znovu."
+
+#: core/job_error.cpp:685
+msgid "Cannot Read From Resource"
+msgstr "Nie je možné čítať zo zdroja"
+
+#: core/job_error.cpp:686
+#, kde-format
+msgid ""
+"This means that although the resource, <strong>%1</strong>, was able to be "
+"opened, an error occurred while reading the contents of the resource."
+msgstr ""
+"To znamená, že aj keď sa zdroj <strong>%1</strong> podarilo otvoriť, nastala "
+"chyba pri čítaní jeho obsahu."
+
+#: core/job_error.cpp:689
+msgid "You may not have permissions to read from the resource."
+msgstr "Možno nemáte práva na čítanie z tohto zdroja."
+
+#: core/job_error.cpp:702
+msgid "Cannot Write to Resource"
+msgstr "Nie je možné zapísať do zdroja"
+
+#: core/job_error.cpp:703
+#, kde-format
+msgid ""
+"This means that although the resource, <strong>%1</strong>, was able to be "
+"opened, an error occurred while writing to the resource."
+msgstr ""
+"To znamená, že aj keď sa zdroj <strong>%1</strong> podarilo otvoriť, nastala "
+"chyba pri zápise do zdroja."
+
+#: core/job_error.cpp:706
+msgid "You may not have permissions to write to the resource."
+msgstr "Možno nemáte práva na zápis do tohto zdroja."
+
+#: core/job_error.cpp:719 core/job_error.cpp:730
+msgid "Could Not Listen for Network Connections"
+msgstr "Nepodarilo sa čakať na sieťové pripojenia"
+
+#: core/job_error.cpp:720
+msgid "Could Not Bind"
+msgstr "Nepodarilo sa pripojiť"
+
+#: core/job_error.cpp:721 core/job_error.cpp:732
+msgid ""
+"This is a fairly technical error in which a required device for network "
+"communications (a socket) could not be established to listen for incoming "
+"network connections."
+msgstr ""
+"Toto je technická chyba, pri ktorej sa nepodarilo vytvoriť požadovanú "
+"komunikáciu (soket), aby bolo možné čakať na sieťové pripojenia."
+
+#: core/job_error.cpp:731
+msgid "Could Not Listen"
+msgstr "Nepodarilo sa čakať na pripojenia"
+
+#: core/job_error.cpp:741
+msgid "Could Not Accept Network Connection"
+msgstr "Nepodarilo sa prijať sieťové pripojenie"
+
+#: core/job_error.cpp:742
+msgid ""
+"This is a fairly technical error in which an error occurred while attempting "
+"to accept an incoming network connection."
+msgstr ""
+"Toto je technická chyba, ktorá nastala pri pokuse o prijatie sieťového "
+"pripojenia."
+
+#: core/job_error.cpp:746
+msgid "You may not have permissions to accept the connection."
+msgstr "Možno nemáte práva na prijatie pripojenia."
+
+#: core/job_error.cpp:751
+#, kde-format
+msgid "Could Not Login: %1"
+msgstr "Nepodarilo sa prihlásiť: %1"
+
+#: core/job_error.cpp:752
+msgid ""
+"An attempt to login to perform the requested operation was unsuccessful."
+msgstr "Pokus o prihlásenie pre vykonanie požadovanej operácie bol neúspešný."
+
+#: core/job_error.cpp:763
+msgid "Could Not Determine Resource Status"
+msgstr "Nepodarilo sa určiť stav zdroja"
+
+#: core/job_error.cpp:764
+msgid "Could Not Stat Resource"
+msgstr "Nepodarilo sa zistiť informácie o zdroji"
+
+#: core/job_error.cpp:765
+#, kde-format
+msgid ""
+"An attempt to determine information about the status of the resource <strong>"
+"%1</strong>, such as the resource name, type, size, etc., was unsuccessful."
+msgstr ""
+"Pokus o určenie informácií o stave zdroja <strong>%1</strong>, ako je názov, "
+"typ, veľkosť atď, bol neúspešný."
+
+#: core/job_error.cpp:768
+msgid "The specified resource may not have existed or may not be accessible."
+msgstr "Zadaný zdroj neexistuje alebo nie je prístupný."
+
+#: core/job_error.cpp:776
+msgid "Could Not Cancel Listing"
+msgstr "Nepodarilo sa zrušiť výpis"
+
+#: core/job_error.cpp:777
+msgid "FIXME: Document this"
+msgstr "FIXME: Ešte nedokumentované"
+
+#: core/job_error.cpp:781
+msgid "Could Not Create Folder"
+msgstr "Nepodarilo sa vytvoriť priečinok"
+
+#: core/job_error.cpp:782
+msgid "An attempt to create the requested folder failed."
+msgstr "Pokus o vytvorenie požadovaného priečinka zlyhal."
+
+#: core/job_error.cpp:783
+msgid "The location where the folder was to be created may not exist."
+msgstr "Umiestnenie, kde mal byť priečinok vytvorený asi neexistuje."
+
+#: core/job_error.cpp:792
+msgid "Could Not Remove Folder"
+msgstr "Nepodarilo sa odstrániť priečinok"
+
+#: core/job_error.cpp:793
+#, kde-format
+msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
+msgstr "Pokus o odstránenie zadaného priečinka <strong>%1</strong> zlyhal."
+
+#: core/job_error.cpp:795
+msgid "The specified folder may not exist."
+msgstr "Zadaný priečinok asi neexistuje."
+
+#: core/job_error.cpp:796
+msgid "The specified folder may not be empty."
+msgstr "Zadaný priečinok asi nie je prázdny."
+
+#: core/job_error.cpp:801
+msgid "Ensure that the folder exists and is empty, and try again."
+msgstr "Overte, že priečinok existuje a je prázdny. Potom to skúste znovu."
+
+#: core/job_error.cpp:806
+msgid "Could Not Resume File Transfer"
+msgstr "Nepodarilo sa pokračovať v prenose súboru"
+
+#: core/job_error.cpp:807
+#, kde-format
+msgid ""
+"The specified request asked that the transfer of file <strong>%1</strong> be "
+"resumed at a certain point of the transfer. This was not possible."
+msgstr ""
+"Zadaná požiadavka udávala, že prenos súboru <strong>%1</strong> má v nejakom "
+"bode prenosu pokračovať. To ale nebolo možné."
+
+#: core/job_error.cpp:810
+msgid "The protocol, or the server, may not support file resuming."
+msgstr "Protokol alebo server asi nepodporuje pokračovanie v prenose súborov."
+
+#: core/job_error.cpp:812
+msgid "Retry the request without attempting to resume transfer."
+msgstr "Opakujte požiadavku bez pokusu o pokračovanie v prenose."
+
+#: core/job_error.cpp:817
+msgid "Could Not Rename Resource"
+msgstr "Nepodarilo sa premenovať zdroj"
+
+#: core/job_error.cpp:818
+#, kde-format
+msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
+msgstr "Pokus o premenovanie zadaného zdroja <strong>%1</strong> zlyhal."
+
+#: core/job_error.cpp:828
+msgid "Could Not Alter Permissions of Resource"
+msgstr "Nepodarilo sa zmeniť práva k zdroju"
+
+#: core/job_error.cpp:829
+#, kde-format
+msgid ""
+"An attempt to alter the permissions on the specified resource <strong>%1</"
+"strong> failed."
+msgstr "Pokus o zmenu práv pre zadaný zdroj <strong>%1</strong> zlyhal."
+
+#: core/job_error.cpp:836
+msgid "Could Not Change Ownership of Resource"
+msgstr "Nepodarilo sa zmeniť vlastníka zdroja"
+
+#: core/job_error.cpp:837
+#, kde-format
+msgid ""
+"An attempt to change the ownership of the specified resource <strong>%1</"
+"strong> failed."
+msgstr "Pokus o zmenu vlastníka pre zadaný zdroj <strong>%1</strong> zlyhal."
+
+#: core/job_error.cpp:844
+msgid "Could Not Delete Resource"
+msgstr "Nepodarilo sa odstrániť zdroj"
+
+#: core/job_error.cpp:845
+#, kde-format
+msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
+msgstr "Pokus o odstránenie zadaného zdroja <strong>%1</strong> zlyhal."
+
+#: core/job_error.cpp:852
+msgid "Unexpected Program Termination"
+msgstr "Neočakávaný koniec programu"
+
+#: core/job_error.cpp:853
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has unexpectedly terminated."
+msgstr ""
+"Program na vašom počítači, ktorý poskytuje prístup k protokolu <strong>%1</"
+"strong> neočakávane skončil."
+
+#: core/job_error.cpp:861
+msgid "Out of Memory"
+msgstr "Nedostatok pamäti"
+
+#: core/job_error.cpp:862
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol could not obtain the memory required to continue."
+msgstr ""
+"Program na vašom počítači, ktorý poskytuje prístup k protokolu <strong>%1</"
+"strong> nezískal dostatok pamäti pre pokračovanie v operácii."
+
+#: core/job_error.cpp:870
+msgid "Unknown Proxy Host"
+msgstr "Neznámy proxy hostiteľ"
+
+#: core/job_error.cpp:871
+#, kde-format
+msgid ""
+"While retrieving information about the specified proxy host, <strong>%1</"
+"strong>, an Unknown Host error was encountered. An unknown host error "
+"indicates that the requested name could not be located on the Internet."
+msgstr ""
+"Počas získavania informácií o zadanom hostiteľovi proxy <strong>%1</strong> "
+"nastala chyba 'Neznámy hostiteľ'. Táto chyba informuje, že požadovaný názov "
+"sa na Internete nepodarilo nájsť."
+
+#: core/job_error.cpp:875
+msgid ""
+"There may have been a problem with your network configuration, specifically "
+"your proxy's hostname. If you have been accessing the Internet with no "
+"problems recently, this is unlikely."
+msgstr ""
+"Asi nastal problém s vaším sieťovým nastavením, presnejšie s vaším proxy "
+"hostiteľom. Ak ste predtým nemali žiadne problémy s prístupom na Internet, "
+"nie je to moc pravdepodobné."
+
+#: core/job_error.cpp:879
+msgid "Double-check your proxy settings and try again."
+msgstr "Znovu skontrolujte nastavenie proxy a skúste to znovu."
+
+#: core/job_error.cpp:884
+#, kde-format
+msgid "Authentication Failed: Method %1 Not Supported"
+msgstr "Overenie zlyhalo: Metóda %1 nie je podporovaná"
+
+#: core/job_error.cpp:886
+#, kde-format
+msgid ""
+"Although you may have supplied the correct authentication details, the "
+"authentication failed because the method that the server is using is not "
+"supported by the KDE program implementing the protocol %1."
+msgstr ""
+"Aj keď ste zadali správne údaje pre overenie, overenie zlyhalo, pretože "
+"server používa metódu, ktorá nie je podporovaná programom KDE, ktorý "
+"implementuje protokol %1."
+
+#: core/job_error.cpp:890
+msgid ""
+"Please file a bug at <a href=\"http://bugs.kde.org/\">http://bugs.kde.org/</"
+"a> to inform the KDE team of the unsupported authentication method."
+msgstr ""
+"Vyplňte hlásenie o chybe na <a href=\"http://bugs.kde.org/\">http://bugs.kde."
+"org/</a>, aby ste informovali tím KDE o nepodporovanej metóde overenia."
+
+#: core/job_error.cpp:896
+msgid "Request Aborted"
+msgstr "Požiadavka bola zrušená"
+
+#: core/job_error.cpp:903
+msgid "Internal Error in Server"
+msgstr "Interná chyba na serveri"
+
+#: core/job_error.cpp:904
+#, kde-format
+msgid ""
+"The program on the server which provides access to the <strong>%1</strong> "
+"protocol has reported an internal error: %2."
+msgstr ""
+"Program na serveri, ktorý poskytuje prístup k protokolu <strong>%1</strong> "
+"oznámil vnútornú chybu: %2."
+
+#: core/job_error.cpp:907
+msgid ""
+"This is most likely to be caused by a bug in the server program. Please "
+"consider submitting a full bug report as detailed below."
+msgstr ""
+"Asi je to spôsobené chybou v programe serveru. Zvážte odoslanie úplného "
+"hlásenia o chybe obsahujúce detaily uvedené dole."
+
+#: core/job_error.cpp:910
+msgid "Contact the administrator of the server to advise them of the problem."
+msgstr "Kontaktujte administrátora servera a oznámte mu problém."
+
+#: core/job_error.cpp:912
+msgid ""
+"If you know who the authors of the server software are, submit the bug "
+"report directly to them."
+msgstr ""
+"Ak viete, kto je autorom použitého programu na serveri, pošlite hlásenie o "
+"chybe priamo jemu."
+
+#: core/job_error.cpp:917
+msgid "Timeout Error"
+msgstr "Vypršanie času"
+
+#: core/job_error.cpp:918
+#, kde-format
+msgid ""
+"Although contact was made with the server, a response was not received "
+"within the amount of time allocated for the request as follows:"
+"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+"settings in the KDE System Settings, by selecting Network Settings -> "
+"Connection Preferences."
+msgstr ""
+"Aj keď sa podarilo kontaktovať server, odpoveď neprišla v zadanej dobe: "
+"<ul><li>Čas pre vytvorenie spojenia: %1 sekúnd</li><li>Čas pre prijatie "
+"odpovede: %2 sekúnd</li><li>Čas pre prístup k proxy serverom: %3 sekúnd</"
+"li></ul>Uvedomte si, že tieto časy môžete zmeniť v Systémových nastaveniach "
+"KDE výberom Nastavenie siete -> Predvoľby pripojenia."
+
+#: core/job_error.cpp:929
+msgid "The server was too busy responding to other requests to respond."
+msgstr "Server bol príliš zaneprázdnený inými požiadavkami."
+
+#: core/job_error.cpp:935 core/slavebase.cpp:1427
+msgid "Unknown Error"
+msgstr "Neznáma chyba"
+
+#: core/job_error.cpp:936
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an unknown error: %2."
+msgstr ""
+"Program na vašom počítači, ktorý poskytuje prístup k protokolu <strong>%1</"
+"strong> oznámil neznámu chybu: %2."
+
+#: core/job_error.cpp:944
+msgid "Unknown Interruption"
+msgstr "Neznáme prerušenie"
+
+#: core/job_error.cpp:945
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an interruption of an unknown type: %2."
+msgstr ""
+"Program na vašom počítači, ktorý poskytuje prístup k protokolu <strong>%1</"
+"strong> oznámil prerušenie neznámeho typu: %2."
+
+#: core/job_error.cpp:953
+msgid "Could Not Delete Original File"
+msgstr "Nepodarilo sa odstrániť pôvodný súbor"
+
+#: core/job_error.cpp:954
+#, kde-format
+msgid ""
+"The requested operation required the deleting of the original file, most "
+"likely at the end of a file move operation. The original file <strong>%1</"
+"strong> could not be deleted."
+msgstr ""
+"Požadovaná operácia vyžaduje odstránenie pôvodného súboru, pravdepodobne na "
+"konci operácie presunu. Tento pôvodný súbor <strong>%1</strong> sa "
+"nepodarilo odstrániť."
+
+#: core/job_error.cpp:963
+msgid "Could Not Delete Temporary File"
+msgstr "Nepodarilo sa odstrániť dočasný súbor"
+
+#: core/job_error.cpp:964
+#, kde-format
+msgid ""
+"The requested operation required the creation of a temporary file in which "
+"to save the new file while being downloaded. This temporary file <strong>%1</"
+"strong> could not be deleted."
+msgstr ""
+"Požadovaná operácia vyžaduje vytvorenie dočasného súboru, do ktorého sa nový "
+"súbor uloží počas sťahovania. Tento dočasný súbor <strong>%1</strong> sa "
+"nepodarilo odstrániť."
+
+#: core/job_error.cpp:973
+msgid "Could Not Rename Original File"
+msgstr "Nepodarilo sa premenovať pôvodný súbor"
+
+#: core/job_error.cpp:974
+#, kde-format
+msgid ""
+"The requested operation required the renaming of the original file <strong>"
+"%1</strong>, however it could not be renamed."
+msgstr ""
+"Požadovaná operácie vyžaduje premenovať pôvodný súbor <strong>%1</strong>, "
+"ale to sa nepodarilo."
+
+#: core/job_error.cpp:982
+msgid "Could Not Rename Temporary File"
+msgstr "Nepodarilo sa premenovať dočasný súbor"
+
+#: core/job_error.cpp:983
+#, kde-format
+msgid ""
+"The requested operation required the creation of a temporary file <strong>"
+"%1</strong>, however it could not be created."
+msgstr ""
+"Požadovaná operácia vyžaduje vytvorenie dočasného súboru <strong>%1</"
+"strong>, ale nepodarilo sa ho vytvoriť."
+
+#: core/job_error.cpp:991
+msgid "Could Not Create Link"
+msgstr "Nepodarilo sa vytvoriť odkaz"
+
+#: core/job_error.cpp:992
+msgid "Could Not Create Symbolic Link"
+msgstr "Nepodarilo sa vytvoriť symbolický odkaz"
+
+#: core/job_error.cpp:993
+#, kde-format
+msgid "The requested symbolic link %1 could not be created."
+msgstr "Požadovaný symbolický odkaz %1 sa nepodarilo vytvoriť."
+
+#: core/job_error.cpp:1000
+msgid "No Content"
+msgstr "Žiadny obsah"
+
+#: core/job_error.cpp:1005
+msgid "Disk Full"
+msgstr "Plný disk"
+
+#: core/job_error.cpp:1006
+#, kde-format
+msgid ""
+"The requested file <strong>%1</strong> could not be written to as there is "
+"inadequate disk space."
+msgstr ""
+"Požadovaný súbor <strong>%1</strong> sa nepodarilo uložiť, pretože na disku "
+"nie je dostatok miesta."
+
+#: core/job_error.cpp:1008
+msgid ""
+"Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
+"archiving files to removable media storage such as CD-Recordable discs; or "
+"3) obtain more storage capacity."
+msgstr ""
+"Uvolnite na disku dostatok miesta 1) odstránením nepotrebných a dočasných "
+"súborov, 2) archivovaním súborov na vymeniteľné média ako sú CD-ROM disky "
+"alebo 3) obstaraním väčšej úložnej kapacity."
+
+#: core/job_error.cpp:1015
+msgid "Source and Destination Files Identical"
+msgstr "Zdrojový a cieľový súbor sú rovnaké"
+
+#: core/job_error.cpp:1016
+msgid ""
+"The operation could not be completed because the source and destination "
+"files are the same file."
+msgstr ""
+"Operáciu sa nepodarilo dokončiť, pretože zdrojový a cieľový súbor sú rovnaké."
+
+#: core/job_error.cpp:1018
+msgid "Choose a different filename for the destination file."
+msgstr "Vyberte iný názov pre cieľový súbor."
+
+#: core/job_error.cpp:1029
+msgid "Undocumented Error"
+msgstr "Nedokumentovaná chyba"
+
+#: core/kcoredirlister.cpp:397 widgets/krun.cpp:844 widgets/paste.cpp:258
+#: widgets/renamedialog.cpp:410
+#, kde-format
+msgid ""
+"Malformed URL\n"
+"%1"
+msgstr ""
+"Neplatné URL\n"
+"%1"
+
+#: core/kcoredirlister.cpp:402
+#, kde-format
+msgid ""
+"URL cannot be listed\n"
+"%1"
+msgstr ""
+"URL nie je možné zobraziť\n"
+"%1"
+
+#: core/kfileitem.cpp:1180
+#, kde-format
+msgid "(Symbolic Link to %1)"
+msgstr "(Symbolický odkaz na %1)"
+
+#: core/kfileitem.cpp:1182
+#, kde-format
+msgid "(%1, Link to %2)"
+msgstr "(%1, Odkaz na %2)"
+
+#: core/kfileitem.cpp:1185
+#, kde-format
+msgid " (Points to %1)"
+msgstr " (Ukazuje na %1)"
+
+#: core/klocalsocket_unix.cpp:192 core/klocalsocket_unix.cpp:260
+msgid "Specified socket path is invalid"
+msgstr "Zadaná cesta soketu je neplatná"
+
+#: core/klocalsocket_unix.cpp:201 core/klocalsocket_unix.cpp:248
+#: core/klocalsocket_unix.cpp:269
+msgid "The socket operation is not supported"
+msgstr "Operácia soketu nie je podporovaná"
+
+#: core/klocalsocket_unix.cpp:214
+msgid "Connection refused"
+msgstr "Spojenie odmietnuté"
+
+#: core/klocalsocket_unix.cpp:219 core/klocalsocket_unix.cpp:282
+msgid "Permission denied"
+msgstr "Prístup zamietnutý"
+
+#: core/klocalsocket_unix.cpp:223
+msgid "Connection timed out"
+msgstr "Čas spojenia vypršal"
+
+#: core/klocalsocket_unix.cpp:227 core/klocalsocket_unix.cpp:307
+msgid "Unknown error"
+msgstr "Neznáma chyba"
+
+#: core/klocalsocket_unix.cpp:235 core/klocalsocket_unix.cpp:315
+msgid "Could not set non-blocking mode"
+msgstr "Nepodarilo sa nastaviť ne-blokujúci režim"
+
+#: core/klocalsocket_unix.cpp:286
+msgid "Address is already in use"
+msgstr "Adresa sa už používa"
+
+#: core/klocalsocket_unix.cpp:291
+msgid "Path cannot be used"
+msgstr "Cestu nie je možné použiť"
+
+#: core/klocalsocket_unix.cpp:295
+msgid "No such file or directory"
+msgstr "Súbor alebo priečinok neexistuje"
+
+#: core/klocalsocket_unix.cpp:299
+msgid "Not a directory"
+msgstr "Nie je adresár"
+
+#: core/klocalsocket_unix.cpp:303
+msgid "Read-only filesystem"
+msgstr "Súborový systém iba na čítanie"
+
+#: core/klocalsocket_unix.cpp:370 core/klocalsocket_unix.cpp:404
+msgid "Unknown socket error"
+msgstr "Neznáma chyba soketu"
+
+#: core/klocalsocket_win.cpp:31 core/klocalsocket_win.cpp:36
+msgid "Operation not supported"
+msgstr "Operácia nie je podporovaná"
+
+#: core/ktcpsocket.cpp:165
+msgctxt "SSL error"
+msgid "No error"
+msgstr "Žiadna chyba"
+
+#: core/ktcpsocket.cpp:167
+msgctxt "SSL error"
+msgid "The certificate authority's certificate is invalid"
+msgstr "Certifikát certifikačnej autority je neplatný"
+
+#: core/ktcpsocket.cpp:169
+msgctxt "SSL error"
+msgid "The certificate has expired"
+msgstr "Platnosť certifikátu vypršala"
+
+#: core/ktcpsocket.cpp:171
+msgctxt "SSL error"
+msgid "The certificate is invalid"
+msgstr "Certifikát nie je platný"
+
+#: core/ktcpsocket.cpp:173
+msgctxt "SSL error"
+msgid "The certificate is not signed by any trusted certificate authority"
+msgstr ""
+"Certifikát nie je podpísaný žiadnou dôveryhodnou certifikačnou autoritou"
+
+#: core/ktcpsocket.cpp:175
+msgctxt "SSL error"
+msgid "The certificate has been revoked"
+msgstr "Platnosť certifikátu bola zrušená"
+
+#: core/ktcpsocket.cpp:177
+msgctxt "SSL error"
+msgid "The certificate is unsuitable for this purpose"
+msgstr "Certifikát je nevhodný na tento účel"
+
+#: core/ktcpsocket.cpp:179
+msgctxt "SSL error"
+msgid ""
+"The root certificate authority's certificate is not trusted for this purpose"
+msgstr ""
+"Certifikát koreňovej certifikačnej autority nie je dôveryhodný pre tento účel"
+
+#: core/ktcpsocket.cpp:181
+msgctxt "SSL error"
+msgid ""
+"The certificate authority's certificate is marked to reject this "
+"certificate's purpose"
+msgstr "Certifikát certifikačnej autority odmietol certifikát pre tohto účel"
+
+#: core/ktcpsocket.cpp:183
+msgctxt "SSL error"
+msgid "The peer did not present any certificate"
+msgstr "Druhá strana neposkytla žiadny certifikát"
+
+#: core/ktcpsocket.cpp:185
+msgctxt "SSL error"
+msgid "The certificate does not apply to the given host"
+msgstr "Certifikát sa nedá použiť pre daného hostiteľa"
+
+#: core/ktcpsocket.cpp:187
+msgctxt "SSL error"
+msgid "The certificate cannot be verified for internal reasons"
+msgstr "Nie je možné overiť certifikát pre interné dôvody"
+
+#: core/ktcpsocket.cpp:189
+msgctxt "SSL error"
+msgid "The certificate chain is too long"
+msgstr "Reťazec certifikátu je príliš dlhý"
+
+#: core/ktcpsocket.cpp:192
+msgctxt "SSL error"
+msgid "Unknown error"
+msgstr "Neznáma chyba"
+
+#: core/slave.cpp:462
+#, kde-format
+msgid "Unknown protocol '%1'."
+msgstr "Neznámy protokol '%1'."
+
+#: core/slave.cpp:472
+#, kde-format
+msgid "Can not find io-slave for protocol '%1'."
+msgstr "Nie je možné nájsť IO klienta pre protokol '%1'."
+
+#: core/slave.cpp:483
+msgid "Can not find 'kioslave' executable"
+msgstr "Nemôžem nájsť program 'kioslave'"
+
+#: core/slave.cpp:498
+#, kde-format
+msgid "Cannot talk to klauncher: %1"
+msgstr "Nie je možné komunikovať s aplikáciou klauncher: %1"
+
+#: core/slave.cpp:505
+#, kde-format
+msgid ""
+"Unable to create io-slave:\n"
+"klauncher said: %1"
+msgstr ""
+"Nepodarilo sa vytvoriť io-slave:\n"
+"klauncher hlási: %1"
+
+#: core/slavebase.cpp:765
+#, kde-format
+msgid "Opening connections is not supported with the protocol %1."
+msgstr "Otváranie spojení nie je protokolom %1 podporované."
+
+#: core/slavebase.cpp:767
+#, kde-format
+msgid "Closing connections is not supported with the protocol %1."
+msgstr "Ukončenie spojení nie je protokolom %1 podporované."
+
+#: core/slavebase.cpp:769
+#, kde-format
+msgid "Accessing files is not supported with the protocol %1."
+msgstr "Prístup k súborom nie je protokolom %1 podporovaný."
+
+#: core/slavebase.cpp:771
+#, kde-format
+msgid "Writing to %1 is not supported."
+msgstr "Zápis do %1 nie je podporovaný."
+
+#: core/slavebase.cpp:773
+#, kde-format
+msgid "There are no special actions available for protocol %1."
+msgstr "Pre protokol %1 nie sú k dispozícii žiadne špeciálne akcie."
+
+#: core/slavebase.cpp:775
+#, kde-format
+msgid "Listing folders is not supported for protocol %1."
+msgstr "Výpis priečinkov nie je protokolom %1 podporovaný."
+
+#: core/slavebase.cpp:777
+#, kde-format
+msgid "Retrieving data from %1 is not supported."
+msgstr "Získavanie dát z %1 nie je podporované."
+
+#: core/slavebase.cpp:779
+#, kde-format
+msgid "Retrieving mime type information from %1 is not supported."
+msgstr "Získavanie informácií o typoch MIME z %1 nie je podporované."
+
+#: core/slavebase.cpp:781
+#, kde-format
+msgid "Renaming or moving files within %1 is not supported."
+msgstr "Premenovanie alebo presun súborov v %1 nie je podporované."
+
+#: core/slavebase.cpp:783
+#, kde-format
+msgid "Creating symlinks is not supported with protocol %1."
+msgstr "Vytváranie symbolických odkazov nie je protokolom %1 podporované."
+
+#: core/slavebase.cpp:785
+#, kde-format
+msgid "Copying files within %1 is not supported."
+msgstr "Kopírovanie súborov v %1 nie je podporované."
+
+#: core/slavebase.cpp:787
+#, kde-format
+msgid "Deleting files from %1 is not supported."
+msgstr "Odstraňovanie súborov z %1 nie je podporované."
+
+#: core/slavebase.cpp:789
+#, kde-format
+msgid "Creating folders is not supported with protocol %1."
+msgstr "Vytváranie priečinkov nie je protokolom %1 podporované."
+
+#: core/slavebase.cpp:791
+#, kde-format
+msgid "Changing the attributes of files is not supported with protocol %1."
+msgstr "Zmena atribútov súborov nie je protokolom %1 podporovaná."
+
+#: core/slavebase.cpp:793
+#, kde-format
+msgid "Changing the ownership of files is not supported with protocol %1."
+msgstr "Zmena vlastníctva súborov nie je protokolom %1 podporovaná."
+
+#: core/slavebase.cpp:795
+#, kde-format
+msgid "Using sub-URLs with %1 is not supported."
+msgstr "Použitie sub-URL s %1 nie je podporované."
+
+#: core/slavebase.cpp:797
+#, kde-format
+msgid "Multiple get is not supported with protocol %1."
+msgstr "Viacnásobné získanie súborov nie je protokolom %1 podporované."
+
+#: core/slavebase.cpp:799
+#, kde-format
+msgid "Opening files is not supported with protocol %1."
+msgstr "Otváranie súborov nie je protokolom %1 podporované."
+
+#: core/slavebase.cpp:801
+#, kde-format
+msgid "Protocol %1 does not support action %2."
+msgstr "Protokol %1 nepodporuje akciu %2."
+
+#: core/slavebase.cpp:957
+msgid "&Yes"
+msgstr "&Áno"
+
+#: core/slavebase.cpp:958
+msgid "&No"
+msgstr "&Nie"
+
+#: core/slaveinterface.cpp:409 core/tcpslavebase.cpp:823 widgets/sslui.cpp:78
+msgid "&Details"
+msgstr "&Detaily"
+
+#: core/slaveinterface.cpp:411 core/tcpslavebase.cpp:836 widgets/sslui.cpp:114
+msgid "&Forever"
+msgstr "Na&vždy"
+
+#: core/slaveinterface.cpp:415 core/tcpslavebase.cpp:823 widgets/sslui.cpp:79
+msgid "Co&ntinue"
+msgstr "&Pokračovať"
+
+#: core/slaveinterface.cpp:417 core/tcpslavebase.cpp:837 widgets/sslui.cpp:115
+msgid "&Current Session only"
+msgstr "Iba pre &aktuálne sedenia"
+
+#: core/tcpslavebase.cpp:319
+msgid ""
+"You are about to leave secure mode. Transmissions will no longer be "
+"encrypted.\n"
+"This means that a third party could observe your data in transit."
+msgstr ""
+"Opúšťate zabezpečený mód. Všetky prenosy dát už nebudú ďalej zašifrované.\n"
+"To znamená, že ktokoľvek bude schopný počas prenosu získať prenášané dáta."
+
+#: core/tcpslavebase.cpp:325 core/tcpslavebase.cpp:590
+msgid "Security Information"
+msgstr "Informácie o zabezpečení"
+
+#: core/tcpslavebase.cpp:326
+msgid "C&ontinue Loading"
+msgstr "&Pokračovať v nahrávaní"
+
+#: core/tcpslavebase.cpp:421
+#, kde-format
+msgctxt "%1 is a host name"
+msgid "%1: SSL negotiation failed"
+msgstr "%1: SSL vyjednávanie zlyhalo"
+
+#: core/tcpslavebase.cpp:584
+msgid ""
+"You are about to enter secure mode. All transmissions will be encrypted "
+"unless otherwise noted.\n"
+"This means that no third party will be able to easily observe your data in "
+"transit."
+msgstr ""
+"Vstupujete do zabezpečeného módu. Všetky prenosy dát budú zašifrované, ak "
+"nebude povedané inak.\n"
+"To znamená, že nikto nebude schopný počas prenosu získať prenášané dáta."
+
+#: core/tcpslavebase.cpp:591
+msgid "Display SSL &Information"
+msgstr "Zobraziť &informácie o SSL"
+
+#: core/tcpslavebase.cpp:592
+msgid "C&onnect"
+msgstr "Prip&ojiť"
+
+#: core/tcpslavebase.cpp:736
+msgid "Enter the certificate password:"
+msgstr "Zadajte heslo certifikátu:"
+
+#: core/tcpslavebase.cpp:737
+msgid "SSL Certificate Password"
+msgstr "Heslo SSL certifikátu"
+
+#: core/tcpslavebase.cpp:751
+msgid "Unable to open the certificate. Try a new password?"
+msgstr "Nepodarilo sa otvoriť certifikát. Chcete skúsiť nové heslo?"
+
+#: core/tcpslavebase.cpp:765
+msgid "The procedure to set the client certificate for the session failed."
+msgstr "Procedúra pre nastavenie certifikátu klienta pre sedenie zlyhala."
+
+#: core/tcpslavebase.cpp:767 widgets/jobuidelegate.cpp:346
+msgid "SSL"
+msgstr "SSL"
+
+#: core/tcpslavebase.cpp:811 widgets/sslui.cpp:68
+#, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr ""
+"Server nesplnil overenie pravosti (%1).\n"
+"\n"
+
+#: core/tcpslavebase.cpp:822 core/tcpslavebase.cpp:835
+#: core/tcpslavebase.cpp:949 core/tcpslavebase.cpp:961 widgets/sslui.cpp:77
+#: widgets/sslui.cpp:113
+msgid "Server Authentication"
+msgstr "Overenie servera"
+
+#: core/tcpslavebase.cpp:832 widgets/sslui.cpp:110
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr "Chcete navždy akceptovať tento certifikát bez ďalšieho opýtania?"
+
+#: core/tcpslavebase.cpp:948
+msgid ""
+"You have indicated that you wish to accept this certificate, but it is not "
+"issued to the server who is presenting it. Do you wish to continue loading?"
+msgstr ""
+"Nastavili ste, že chcete akceptovať tento certifikát, ale nebol vydaný pre "
+"server, ktorý ho poslal. Chcete pokračovať v načítavaní?"
+
+#: core/tcpslavebase.cpp:960
+msgid ""
+"SSL certificate is being rejected as requested. You can disable this in the "
+"KDE System Settings."
+msgstr ""
+"Certifikát SSL bol odmietnutý tak, ako bolo požadované. Môžete to zmeniť v "
+"Systémových nastaveniach KDE."
+
+#: filewidgets/kdiroperator.cpp:761
+#, kde-format
+msgid "A file or folder named %1 already exists."
+msgstr "Súbor alebo priečinok s názvom %1 už existuje."
+
+#: filewidgets/kdiroperator.cpp:764
+msgid "You do not have permission to create that folder."
+msgstr "Nemáte práva na vytvorenie tohto priečinka."
+
+#: filewidgets/kdiroperator.cpp:779
+msgid "You did not select a file to delete."
+msgstr "Nevybrali ste súbor pre odstránenie."
+
+#: filewidgets/kdiroperator.cpp:780
+msgid "Nothing to Delete"
+msgstr "Nie je čo odstrániť"
+
+#: filewidgets/kdiroperator.cpp:822
+msgid "You did not select a file to trash."
+msgstr "Nevybrali ste súbor pre vyhodenie do koša."
+
+#: filewidgets/kdiroperator.cpp:823
+msgid "Nothing to Trash"
+msgstr "Nie je čo vyhodiť do koša"
+
+#: filewidgets/kdiroperator.cpp:1020 filewidgets/kdiroperator.cpp:1158
+msgid "The specified folder does not exist or was not readable."
+msgstr "Zadaný priečinok neexistuje alebo sa nedá prečítať."
+
+#: filewidgets/kdiroperator.cpp:1838
+msgid "Menu"
+msgstr "Ponuka"
+
+#: filewidgets/kdiroperator.cpp:1842
+msgid "Parent Folder"
+msgstr "Nadradený priečinok"
+
+#: filewidgets/kdiroperator.cpp:1849
+msgid "Home Folder"
+msgstr "Domovský priečinok"
+
+#: filewidgets/kdiroperator.cpp:1852
+msgid "Reload"
+msgstr "Znovu načítať"
+
+#: filewidgets/kdiroperator.cpp:1855
+msgid "New Folder..."
+msgstr "Nový priečinok..."
+
+#: filewidgets/kdiroperator.cpp:1860 widgets/jobuidelegate.cpp:251
+msgid "Move to Trash"
+msgstr "Presunúť do koša"
+
+#: filewidgets/kdiroperator.cpp:1866
+msgid "Delete"
+msgstr "Vymazať"
+
+#: filewidgets/kdiroperator.cpp:1873
+msgid "Sorting"
+msgstr "Triedenie"
+
+#: filewidgets/kdiroperator.cpp:1876
+msgid "By Name"
+msgstr "Podľa názvu"
+
+#: filewidgets/kdiroperator.cpp:1880
+msgid "By Size"
+msgstr "Podľa veľkosti"
+
+#: filewidgets/kdiroperator.cpp:1884
+msgid "By Date"
+msgstr "Podľa dátumu"
+
+#: filewidgets/kdiroperator.cpp:1888
+msgid "By Type"
+msgstr "Podľa typu"
+
+#: filewidgets/kdiroperator.cpp:1892
+msgid "Descending"
+msgstr "Zostupne"
+
+#: filewidgets/kdiroperator.cpp:1896
+msgid "Folders First"
+msgstr "Najskôr priečinky"
+
+#: filewidgets/kdiroperator.cpp:1906
+msgid "Icon Position"
+msgstr "Pozícia ikony"
+
+#: filewidgets/kdiroperator.cpp:1909
+msgid "Next to File Name"
+msgstr "Vedľa názvu súboru"
+
+#: filewidgets/kdiroperator.cpp:1913
+msgid "Above File Name"
+msgstr "Nad názvom súboru"
+
+#: filewidgets/kdiroperator.cpp:1924
+msgid "Short View"
+msgstr "Stručné zobrazenie"
+
+#: filewidgets/kdiroperator.cpp:1929
+msgid "Detailed View"
+msgstr "Detailné zobrazenie"
+
+#: filewidgets/kdiroperator.cpp:1934
+msgid "Tree View"
+msgstr "Stromové zobrazenie"
+
+#: filewidgets/kdiroperator.cpp:1939
+msgid "Detailed Tree View"
+msgstr "Detailné stromové zobrazenie"
+
+#: filewidgets/kdiroperator.cpp:1950
+msgid "Show Hidden Files"
+msgstr "Zobraziť skryté súbory"
+
+#: filewidgets/kdiroperator.cpp:1954
+msgid "Show Aside Preview"
+msgstr "Zobraziť bočný náhľad"
+
+#: filewidgets/kdiroperator.cpp:1960
+msgid "Show Preview"
+msgstr "Zobraziť náhľad"
+
+#: filewidgets/kdiroperator.cpp:1964
+msgid "Open File Manager"
+msgstr "Otvoriť správcu súborov"
+
+#: filewidgets/kdiroperator.cpp:1969
+msgid "Properties"
+msgstr "Vlastnosti"
+
+#: filewidgets/kdiroperator.cpp:1976
+msgid "&View"
+msgstr "&Zobraziť"
+
+#: filewidgets/kencodingfiledialog.cpp:86
+msgid "Encoding:"
+msgstr "Kódovanie:"
+
+#: filewidgets/kencodingfiledialog.cpp:142
+#: filewidgets/kencodingfiledialog.cpp:161
+#: filewidgets/kencodingfiledialog.cpp:179
+#: filewidgets/kencodingfiledialog.cpp:198 widgets/kurlrequesterdialog.cpp:131
+msgid "Open"
+msgstr "Otvoriť"
+
+#: filewidgets/kencodingfiledialog.cpp:217
+#: filewidgets/kencodingfiledialog.cpp:240
+msgid "Save As"
+msgstr "Uložiť ako"
+
+#: filewidgets/kfilefiltercombo.cpp:36 filewidgets/kfilewidget.cpp:1856
+msgid "*|All Files"
+msgstr "*|Všetky súbory"
+
+#: filewidgets/kfilefiltercombo.cpp:180
+msgid "All Supported Files"
+msgstr "Všetky podporované súbory"
+
+#: filewidgets/kfilefiltercombo.cpp:189
+msgid "All Files"
+msgstr "Všetky súbory"
+
+#: filewidgets/kfileplaceeditdialog.cpp:85
+msgid "Add Places Entry"
+msgstr "Pridať položku Miesta"
+
+#: filewidgets/kfileplaceeditdialog.cpp:87
+msgid "Edit Places Entry"
+msgstr "Upraviť položku Miesta"
+
+#: filewidgets/kfileplaceeditdialog.cpp:96
+msgid ""
+"<qt>This is the text that will appear in the Places panel.<br /><br />The "
+"label should consist of one or two words that will help you remember what "
+"this entry refers to. If you do not enter a label, it will be derived from "
+"the location's URL.</qt>"
+msgstr ""
+"<qt>Toto je text, ktorý sa zobrazí v paneli Miesta.<br /><br />Popis by mal "
+"obsahovať jedno alebo dve slová, ktoré vám pomôžu zapamätať si, kam položka "
+"odkazuje. Ak nezadáte popis, bude získaný z umiestnenia URL.</qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:102
+msgid "L&abel:"
+msgstr "&Popis:"
+
+#: filewidgets/kfileplaceeditdialog.cpp:104
+msgid "Enter descriptive label here"
+msgstr "Sem zadajte popisný text"
+
+#: filewidgets/kfileplaceeditdialog.cpp:108
+#, kde-format
+msgid ""
+"<qt>This is the location associated with the entry. Any valid URL may be "
+"used. For example:<br /><br />%1<br />http://www.kde.org<br />ftp://ftp.kde."
+"org/pub/kde/stable<br /><br />By clicking on the button next to the text "
+"edit box you can browse to an appropriate URL.</qt>"
+msgstr ""
+"<qt>Toto je umiestnenie spojené s položkou. Môže byť použitá každá platná "
+"URL. Napríklad:<br /><br />%1<br />http://www.kde.org<br />ftp://ftp.kde.org/"
+"pub/kde/stable<br /><br />Kliknutím na tlačidlo vedľa editovateľného pola "
+"môžete vybrať odpovedajúce URL.</qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:114
+msgid "&Location:"
+msgstr "U&miestnenie:"
+
+#: filewidgets/kfileplaceeditdialog.cpp:120
+msgid ""
+"<qt>This is the icon that will appear in the Places panel.<br /><br />Click "
+"on the button to select a different icon.</qt>"
+msgstr ""
+"<qt>Toto je ikona, ktorá sa zobrazí v paneli Miesta.<br /><br />Kliknutím na "
+"toto tlačidlo vyberiete inú ikonu.</qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:123
+msgid "Choose an &icon:"
+msgstr "Vyberte &ikonu:"
+
+#: filewidgets/kfileplaceeditdialog.cpp:141
+#, kde-format
+msgid "&Only show when using this application (%1)"
+msgstr "Zobraziť &len pre túto aplikáciu (%1)"
+
+#: filewidgets/kfileplaceeditdialog.cpp:143
+#, kde-format
+msgid ""
+"<qt>Select this setting if you want this entry to show only when using the "
+"current application (%1).<br /><br />If this setting is not selected, the "
+"entry will be available in all applications.</qt>"
+msgstr ""
+"<qt>Toto nastavenie vyberte, ak chcete zobraziť položku iba pre aktuálnu "
+"aplikáciu (%1).<br /><br />Ak je toto nastavenie vypnuté, položka bude "
+"dostupná vo všetkých aplikáciách.</qt>"
+
+#: filewidgets/kfileplacesmodel.cpp:118
+msgctxt "KFile System Bookmarks"
+msgid "Home"
+msgstr "Domov"
+
+#: filewidgets/kfileplacesmodel.cpp:121
+msgctxt "KFile System Bookmarks"
+msgid "Network"
+msgstr "Sieť"
+
+#: filewidgets/kfileplacesmodel.cpp:133
+msgctxt "KFile System Bookmarks"
+msgid "Root"
+msgstr "Koreň"
+
+#: filewidgets/kfileplacesmodel.cpp:137
+msgctxt "KFile System Bookmarks"
+msgid "Trash"
+msgstr "Kôš"
+
+#: filewidgets/kfileplacesmodel.cpp:798
+#, kde-format
+msgid "&Release '%1'"
+msgstr "&Odpojiť '%1'"
+
+#: filewidgets/kfileplacesmodel.cpp:800
+#, kde-format
+msgid "&Safely Remove '%1'"
+msgstr "&Bezpečne odstrániť '%1'"
+
+#: filewidgets/kfileplacesmodel.cpp:803
+#, kde-format
+msgid "&Unmount '%1'"
+msgstr "&Odpojiť '%1'"
+
+#: filewidgets/kfileplacesmodel.cpp:824
+#, kde-format
+msgid "&Eject '%1'"
+msgstr "&Vysunúť '%1'"
+
+#: filewidgets/kfileplacesmodel.cpp:858
+#, kde-format
+msgid "The device '%1' is not a disk and cannot be ejected."
+msgstr "Zariadenie '%1' nie je disk a nedá sa vysunúť."
+
+#: filewidgets/kfileplacesmodel.cpp:894
+#, kde-format
+msgid "An error occurred while accessing '%1', the system responded: %2"
+msgstr "Nastala chyba pri prístupe k '%1', systém odpovedal: %2"
+
+#: filewidgets/kfileplacesmodel.cpp:898
+#, kde-format
+msgid "An error occurred while accessing '%1'"
+msgstr "Nastala chyba pri prístupe k '%1'"
+
+#: filewidgets/kfileplacesview.cpp:582
+msgctxt "@action:inmenu"
+msgid "Empty Trash"
+msgstr "Vyprázdniť kôš"
+
+#: filewidgets/kfileplacesview.cpp:587 filewidgets/kfileplacesview.cpp:608
+#: filewidgets/kfileplacesview.cpp:615 widgets/kacleditwidget.cpp:96
+msgid "Add Entry..."
+msgstr "Pridať položku..."
+
+#: filewidgets/kfileplacesview.cpp:589
+#, kde-format
+msgid "&Edit Entry '%1'..."
+msgstr "&Upraviť položku '%1'..."
+
+#: filewidgets/kfileplacesview.cpp:611
+#, kde-format
+msgid "&Hide Entry '%1'"
+msgstr "&Skryť položku '%1'"
+
+#: filewidgets/kfileplacesview.cpp:620
+msgid "&Show All Entries"
+msgstr "&Zobraziť všetky položky"
+
+#: filewidgets/kfileplacesview.cpp:631
+#, kde-format
+msgid "&Remove Entry '%1'"
+msgstr "Odst&rániť položku '%1'"
+
+#: filewidgets/kfilewidget.cpp:295
+msgid ""
+"<qt>While typing in the text area, you may be presented with possible "
+"matches. This feature can be controlled by clicking with the right mouse "
+"button and selecting a preferred mode from the <b>Text Completion</b> menu.</"
+"qt>"
+msgstr ""
+"<qt>Pri zadávaní do textového poľa, vám môžu byť poskytnuté možné "
+"odpovedajúce údaje. Táto vlastnosť môže byť kontrolovaná kliknutím pravého "
+"tlačidla myši a vybraním preferovaného módu z menu <b>Dopĺňanie textu</b>.</"
+"qt>"
+
+#: filewidgets/kfilewidget.cpp:395
+#, kde-format
+msgid "Drive: %1"
+msgstr "Disk: %1"
+
+#: filewidgets/kfilewidget.cpp:451
+#, kde-format
+msgid ""
+"<qt>Click this button to enter the parent folder.<br /><br />For instance, "
+"if the current location is file:/home/%1 clicking this button will take you "
+"to file:/home.</qt>"
+msgstr ""
+"<qt>Kliknutím na toto tlačidlo prejdete do nadradeného priečinka.<br /><br /"
+">Napríklad, ak je aktuálne umiestnenie file:/home/%1 kliknutím na toto "
+"tlačidlo sa premiestnite do file:/home.</qt>"
+
+#: filewidgets/kfilewidget.cpp:455
+msgid "Click this button to move backwards one step in the browsing history."
+msgstr "Kliknutím na toto tlačidlo sa presuniete v histórii o jeden krok späť."
+
+#: filewidgets/kfilewidget.cpp:456
+msgid "Click this button to move forward one step in the browsing history."
+msgstr ""
+"Kliknutím na toto tlačidlo sa presuniete v histórii o jeden krok vpred."
+
+#: filewidgets/kfilewidget.cpp:458
+msgid "Click this button to reload the contents of the current location."
+msgstr "Kliknutím na toto tlačidlo obnovíte obsah aktuálneho umiestnenia."
+
+#: filewidgets/kfilewidget.cpp:460
+msgid "Click this button to create a new folder."
+msgstr "Kliknutím na toto tlačidlo vytvoríte nový priečinok."
+
+#: filewidgets/kfilewidget.cpp:466
+msgid "Show Places Navigation Panel"
+msgstr "Zobraziť navigačný panel Miesta"
+
+#: filewidgets/kfilewidget.cpp:473
+msgid "Show Bookmarks"
+msgstr "Zobraziť záložky"
+
+#: filewidgets/kfilewidget.cpp:478
+msgid "Options"
+msgstr "Možnosti"
+
+#: filewidgets/kfilewidget.cpp:480
+msgid ""
+"<qt>This is the preferences menu for the file dialog. Various options can be "
+"accessed from this menu including: <ul><li>how files are sorted in the list</"
+"li><li>types of view, including icon and list</li><li>showing of hidden "
+"files</li><li>the Places navigation panel</li><li>file previews</"
+"li><li>separating folders from files</li></ul></qt>"
+msgstr ""
+"<qt>Toto je konfiguračné menu pre dialóg súborov. Cez toto menu sú dostupné "
+"rôzne voľby vrátane: <ul><li>ako budú súbory v zozname zoradené</li><li>typy "
+"zobrazení, vrátane ikon a zoznamu</li><li>zobrazenie skrytých súborov</"
+"li><li>navigačný panel Miesta</li><li>náhľady súborov</li><li>oddelenie "
+"priečinkov od súborov</li></ul></qt>"
+
+#: filewidgets/kfilewidget.cpp:523
+msgid "Zoom out"
+msgstr "Oddialiť"
+
+#: filewidgets/kfilewidget.cpp:525
+msgid "Zoom in"
+msgstr "Priblížiť"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: filewidgets/kfilewidget.cpp:566 widgets/kpropertiesdesktopbase.ui:17
+msgid "&Name:"
+msgstr "&Názov:"
+
+#: filewidgets/kfilewidget.cpp:589
+msgid ""
+"<qt>This is the filter to apply to the file list. File names that do not "
+"match the filter will not be shown.<p>You may select from one of the preset "
+"filters in the drop down menu, or you may enter a custom filter directly "
+"into the text area.</p><p>Wildcards such as * and ? are allowed.</p></qt>"
+msgstr ""
+"<qt>Toto je filter, ktorý sa použije na zoznam súborov. Názvy súborov, ktoré "
+"neodpovedajú filtru nebudú zobrazené.<p>Môžete vybrať jeden z "
+"prednastavených filtrov z rozbaľovacieho menu, alebo zadať svoj filter "
+"priamo do textového poľa.</p><p>Sú povolené zastupiteľné znaky ako * alebo ?."
+"</p></qt>"
+
+#: filewidgets/kfilewidget.cpp:595
+msgid "&Filter:"
+msgstr "uFilter"
+
+#: filewidgets/kfilewidget.cpp:827
+msgid "You can only select one file"
+msgstr "Môžete vybrať len jeden súbor"
+
+#: filewidgets/kfilewidget.cpp:828
+msgid "More than one file provided"
+msgstr "Zadaný viac ako jeden súbor"
+
+#: filewidgets/kfilewidget.cpp:997
+msgid "You can only select local files"
+msgstr "Môžete vybrať len lokálne súbory"
+
+#: filewidgets/kfilewidget.cpp:998
+msgid "Remote files not accepted"
+msgstr "Vzdialené súbory nie sú akceptované"
+
+#: filewidgets/kfilewidget.cpp:1017
+msgid ""
+"More than one folder has been selected and this dialog does not accept "
+"folders, so it is not possible to decide which one to enter. Please select "
+"only one folder to list it."
+msgstr ""
+"Bol vybraný viac ako jeden priečinok, ale tento dialóg neakceptuje "
+"priečinky. Prosím, vyberte iba jeden priečinok, ktorý chcete zobraziť."
+
+#: filewidgets/kfilewidget.cpp:1017
+msgid "More than one folder provided"
+msgstr "Zadaný viac ako jeden priečinok"
+
+#: filewidgets/kfilewidget.cpp:1025
+msgid ""
+"At least one folder and one file has been selected. Selected files will be "
+"ignored and the selected folder will be listed"
+msgstr ""
+"Bol vybraný najmenej jeden priečinok a súbor. Vybrané súbory budú ignorované "
+"a obsah vybraného priečinka bude zobrazený"
+
+#: filewidgets/kfilewidget.cpp:1025
+msgid "Files and folders selected"
+msgstr "Vybrané súbory a priečinky"
+
+#: filewidgets/kfilewidget.cpp:1040
+#, kde-format
+msgid "The file \"%1\" could not be found"
+msgstr "Nepodarilo sa nájsť súbor \"%1\""
+
+#: filewidgets/kfilewidget.cpp:1040
+msgid "Cannot open file"
+msgstr "Nie je možné otvoriť súbor"
+
+#: filewidgets/kfilewidget.cpp:1314
+msgid "This is the name to save the file as."
+msgstr "Toto je názov, pod ktorým bude súbor uložený."
+
+#: filewidgets/kfilewidget.cpp:1317
+msgid ""
+"This is the list of files to open. More than one file can be specified by "
+"listing several files, separated by spaces."
+msgstr ""
+"Toto je zoznam súborov, ktoré budú otvorené. Viac ako jeden súbor môže byť "
+"špecifikovaný výberom súborov, oddelených medzerami."
+
+#: filewidgets/kfilewidget.cpp:1322
+msgid "This is the name of the file to open."
+msgstr "Toto je názov súboru, ktorý bude otvorený."
+
+#: filewidgets/kfilewidget.cpp:1336
+msgctxt "@title:window"
+msgid "Places"
+msgstr "Miesta"
+
+#: filewidgets/kfilewidget.cpp:1526
+#, kde-format
+msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
+msgstr "Súbor \"%1\" už existuje. Chcete ho prepísať?"
+
+#: filewidgets/kfilewidget.cpp:1527
+msgid "Overwrite File?"
+msgstr "Prepísať súbor?"
+
+#: filewidgets/kfilewidget.cpp:1661
+msgid ""
+"The chosen filenames do not\n"
+"appear to be valid."
+msgstr ""
+"Vybrané názvy súborov\n"
+"asi nie sú platné."
+
+#: filewidgets/kfilewidget.cpp:1663
+msgid "Invalid Filenames"
+msgstr "Neplatné názvy súborov"
+
+#: filewidgets/kfilewidget.cpp:1748
+msgid "You can only select local files."
+msgstr "Môžete vybrať len lokálne súbory."
+
+#: filewidgets/kfilewidget.cpp:1749
+msgid "Remote Files Not Accepted"
+msgstr "Vzdialené súbory nie sú akceptované"
+
+#: filewidgets/kfilewidget.cpp:1854
+msgid "*|All Folders"
+msgstr "*|Všetky priečinky"
+
+#: filewidgets/kfilewidget.cpp:2023 widgets/executablefileopendialog.cpp:38
+#: widgets/kfileitemactions.cpp:536
+msgid "&Open"
+msgstr "&Otvoriť"
+
+#: filewidgets/kfilewidget.cpp:2109
+#, kde-format
+msgid "Icon size: %1 pixels (standard size)"
+msgstr "Veľkosť ikony: %1 pixelov (štandardná veľkosť)"
+
+#: filewidgets/kfilewidget.cpp:2112
+#, kde-format
+msgid "Icon size: %1 pixels"
+msgstr "Veľkosť ikony: %1 pixelov"
+
+#: filewidgets/kfilewidget.cpp:2246
+#, kde-format
+msgid "Automatically select filename e&xtension (%1)"
+msgstr "Automaticky vybrať &príponu súboru (%1)"
+
+#: filewidgets/kfilewidget.cpp:2247
+#, kde-format
+msgid "the extension <b>%1</b>"
+msgstr "prípona <b>%1</b>"
+
+#: filewidgets/kfilewidget.cpp:2253
+msgid "Automatically select filename e&xtension"
+msgstr "Automaticky vybrať p&ríponu súboru"
+
+#: filewidgets/kfilewidget.cpp:2254
+msgid "a suitable extension"
+msgstr "vhodná prípona"
+
+#: filewidgets/kfilewidget.cpp:2264
+#, kde-format
+msgid ""
+"This option enables some convenient features for saving files with "
+"extensions:<br /><ol><li>Any extension specified in the <b>%1</b> text area "
+"will be updated if you change the file type to save in.<br /><br /></"
+"li><li>If no extension is specified in the <b>%2</b> text area when you "
+"click <b>Save</b>, %3 will be added to the end of the filename (if the "
+"filename does not already exist). This extension is based on the file type "
+"that you have chosen to save in.<br /><br />If you do not want KDE to supply "
+"an extension for the filename, you can either turn this option off or you "
+"can suppress it by adding a period (.) to the end of the filename (the "
+"period will be automatically removed).</li></ol>If unsure, keep this option "
+"enabled as it makes your files more manageable."
+msgstr ""
+"Táto voľba zapína niektoré funkcie pre zjednodušenie práce pri ukladaní "
+"súborov s príponami:<br /><ol><li>Každá prípona zadaná v textovom poli <b>"
+"%1</b> bude aktualizovaná, ak zmeníte typ súboru, do ktorého sa má ukladať."
+"<br /><br /></li><li>Ak prípona v poli <b>%2</b> zadaná nie je, po stlačení "
+"<b>Uložiť</b> sa pridá na koniec názvu súboru %3 (ak súbor s týmto názvom "
+"ešte neexistuje). Táto prípona je založená na vybranom type súboru.<br /> "
+"<br />Ak nechcete, aby KDE za vás dopĺňalo príponu súboru, môžete túto voľbu "
+"buď vypnúť, alebo pridať na koniec názvu súboru bodku (.) (bodka bude "
+"automaticky odstránená).</li></ol>Ak si nie ste istý, nechajte túto voľbu "
+"zapnutú, pretože zjednodušuje správu vašich súborov."
+
+#: filewidgets/kfilewidget.cpp:2574
+msgid "Bookmarks"
+msgstr "Záložky"
+
+#: filewidgets/kfilewidget.cpp:2578
+msgid ""
+"<qt>This button allows you to bookmark specific locations. Click on this "
+"button to open the bookmark menu where you may add, edit or select a "
+"bookmark.<br /><br />These bookmarks are specific to the file dialog, but "
+"otherwise operate like bookmarks elsewhere in KDE.</qt>"
+msgstr ""
+"<qt>Toto tlačidlo vám umožní si pridať medzi záložky špecifické umiestnenie. "
+"Kliknutím na toto tlačidlo otvoríte menu záložiek, kde môžete pridávať, "
+"editovať alebo vybrať záložku.<br /><br />Tieto záložky sú špecifické pre "
+"dialog súborov, ale správajú sa ako hociktoré iné v KDE.</qt>"
+
+#: filewidgets/knewfilemenu.cpp:381 filewidgets/knewfilemenu.cpp:934
+msgid "Sorry"
+msgstr "Ľutujem"
+
+#: filewidgets/knewfilemenu.cpp:390
+#, kde-format
+msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
+msgstr "<qt>Súbor so šablónou <b>%1</b> neexistuje.</qt>"
+
+#: filewidgets/knewfilemenu.cpp:409
+msgctxt "@action:button"
+msgid "Create directory"
+msgstr "Vytvoriť adresár"
+
+#: filewidgets/knewfilemenu.cpp:411
+msgctxt "@action:button"
+msgid "Enter a different name"
+msgstr "Zadať iný názov"
+
+#: filewidgets/knewfilemenu.cpp:414
+msgid "Create hidden directory?"
+msgstr "Vytvoriť skrytý adresár?"
+
+#: filewidgets/knewfilemenu.cpp:424
+#, kde-format
+msgid ""
+"The name \"%1\" starts with a dot, so the directory will be hidden by "
+"default."
+msgstr "Názov \"%1\" začína s bodkou, preto bude adresár štandardne skrytý."
+
+#: filewidgets/knewfilemenu.cpp:426 widgets/executablefileopendialog.cpp:36
+msgid "Do not ask again"
+msgstr "Znovu sa už nepýtať"
+
+#: filewidgets/knewfilemenu.cpp:519 filewidgets/knewfilemenu.cpp:591
+msgid "File name:"
+msgstr "Názov súboru:"
+
+#: filewidgets/knewfilemenu.cpp:522
+msgid "Create Symlink"
+msgstr "Vytvoriť symbolický odkaz"
+
+#: filewidgets/knewfilemenu.cpp:595
+msgid "Create link to URL"
+msgstr "Vytvoriť odkaz na URL"
+
+#: filewidgets/knewfilemenu.cpp:640 filewidgets/knewfilemenu.cpp:685
+#, kde-format
+msgctxt "@item:inmenu Create New"
+msgid "%1"
+msgstr "%1"
+
+#: filewidgets/knewfilemenu.cpp:945
+msgid ""
+"Basic links can only point to local files or directories.\n"
+"Please use \"Link to Location\" for remote URLs."
+msgstr ""
+"Základné odkazy môžu odkazovať iba na lokálne súbory alebo adresáre.\n"
+"Pre vzdialené URL použite \"Odkaz na umiestnenie\"."
+
+#: filewidgets/knewfilemenu.cpp:1022
+msgid "Create New"
+msgstr "Vytvoriť nový"
+
+#: filewidgets/knewfilemenu.cpp:1037
+msgid "Link to Device"
+msgstr "Odkaz na zariadenie"
+
+#: filewidgets/knewfilemenu.cpp:1084
+msgctxt "Default name for a new folder"
+msgid "New Folder"
+msgstr "Nový priečinok"
+
+#: filewidgets/knewfilemenu.cpp:1094
+msgctxt "@title:window"
+msgid "New Folder"
+msgstr "Nový priečinok"
+
+#: filewidgets/knewfilemenu.cpp:1097
+#, kde-format
+msgid ""
+"Create new folder in:\n"
+"%1"
+msgstr ""
+"Vytvoriť nový priečinok v:\n"
+"%1"
+
+#: filewidgets/kstatusbarofflineindicator.cpp:55
+msgid "The desktop is offline"
+msgstr "Pracovná plocha je offline"
+
+#: filewidgets/kurlnavigator.cpp:424
+msgid "Copy"
+msgstr "Kopírovať"
+
+#: filewidgets/kurlnavigator.cpp:428
+msgid "Paste"
+msgstr "Vložiť"
+
+#: filewidgets/kurlnavigator.cpp:435
+msgid "Edit"
+msgstr "Upraviť"
+
+#: filewidgets/kurlnavigator.cpp:438
+msgid "Navigate"
+msgstr "Prejsť"
+
+#: filewidgets/kurlnavigator.cpp:453
+msgid "Show Full Path"
+msgstr "Zobraziť celú cestu"
+
+#: filewidgets/kurlnavigator.cpp:693
+msgid "Custom Path"
+msgstr "Vlastná cesta"
+
+#: filewidgets/kurlnavigatorbutton.cpp:696
+msgctxt "@action:inmenu"
+msgid "More"
+msgstr "Viac"
+
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:174
+msgctxt "@item:inmenu"
+msgid "Devices"
+msgstr "Zariadenia"
+
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:178
+msgctxt "@item:inmenu"
+msgid "Subversion"
+msgstr "Subversion"
+
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:182
+msgctxt "@item:inmenu"
+msgid "Other"
+msgstr "Iný"
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:42
+msgid "Edit mode"
+msgstr "Upraviť režim"
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:97
+msgid "Click for Location Navigation"
+msgstr "Kliknite pre navigáciu k umiestneniu"
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:99
+msgid "Click to Edit Location"
+msgstr "Kliknite pre úpravu umiestnenia"
+
+#: ioslaves/file/file.cpp:230
+#, kde-format
+msgid "Setting ACL for %1"
+msgstr "Nastavenie ACL pre %1"
+
+#: ioslaves/file/file.cpp:689 ioslaves/file/file_unix.cpp:261
+#, kde-format
+msgid ""
+"Could not change permissions for\n"
+"%1"
+msgstr ""
+"Nepodarilo sa zmeniť práva pre\n"
+"%1"
+
+#: ioslaves/file/file.cpp:901
+msgid "No Media inserted or Media not recognized."
+msgstr "Nie je vložené žiadne médium alebo nebolo rozpoznané."
+
+#: ioslaves/file/file.cpp:910 ioslaves/file/file.cpp:1106
+msgid "\"vold\" is not running."
+msgstr "\"vold\" nie je spustený."
+
+#: ioslaves/file/file.cpp:943
+msgid "Could not find program \"mount\""
+msgstr "Nepodarilo sa nájsť program \"mount\""
+
+#: ioslaves/file/file.cpp:1012
+msgid "mounting is not supported by wince."
+msgstr "wince nepodporuje pripájanie."
+
+#: ioslaves/file/file.cpp:1117
+msgid "Could not find program \"umount\""
+msgstr "Nepodarilo sa nájsť program \"umount\""
+
+#: ioslaves/file/file.cpp:1132
+msgid "unmounting is not supported by wince."
+msgstr "wince nepodporuje odpájanie."
+
+#: ioslaves/file/file_unix.cpp:194
+#, kde-format
+msgid "Cannot copy file from %1 to %2. (Errno: %3)"
+msgstr "Nie je možné skopírovať súbor z %1 do %2. (Číslo chyby: %3)"
+
+#: ioslaves/file/file_unix.cpp:326
+#, kde-format
+msgid "No media in device for %1"
+msgstr "Chýba médium v zariadení pre %1"
+
+#: ioslaves/file/file_unix.cpp:559
+#, kde-format
+msgid "Could not get user id for given user name %1"
+msgstr "Nepodarilo sa získať ID užívateľa pre užívateľa %1"
+
+#: ioslaves/file/file_unix.cpp:572
+#, kde-format
+msgid "Could not get group id for given group name %1"
+msgstr "Nepodarilo sa získať ID skupiny pre skupinu %1"
+
+#: ioslaves/ftp/ftp.cpp:349
+#, kde-format
+msgid "Opening connection to host %1"
+msgstr "Otváranie pripojenia k hostiteľovi %1"
+
+#: ioslaves/ftp/ftp.cpp:364
+#, kde-format
+msgid "Connected to host %1"
+msgstr "Pripojený k hostiteľovi %1"
+
+#: ioslaves/ftp/ftp.cpp:474
+#, kde-format
+msgid ""
+"%1.\n"
+"\n"
+"Reason: %2"
+msgstr ""
+"%1.\n"
+"\n"
+"Dôvod: %2"
+
+#: ioslaves/ftp/ftp.cpp:504
+msgid "Sending login information"
+msgstr "Posielanie prihlasovacích informácií"
+
+#: ioslaves/ftp/ftp.cpp:562
+#, kde-format
+msgid ""
+"Message sent:\n"
+"Login using username=%1 and password=[hidden]\n"
+"\n"
+"Server replied:\n"
+"%2\n"
+"\n"
+msgstr ""
+"Poslaná správa:\n"
+"Prihlásenie užívateľa=%1 s heslom=[skryté]\n"
+"\n"
+"Odpoveď servera:\n"
+"%2\n"
+"\n"
+
+#: ioslaves/ftp/ftp.cpp:571 ioslaves/http/http.cpp:5301
+msgid "You need to supply a username and a password to access this site."
+msgstr "Musíte zadať užívateľské meno a heslo pre prístup k tomuto serveru."
+
+#: ioslaves/ftp/ftp.cpp:573 ioslaves/http/http.cpp:5303
+msgid "Site:"
+msgstr "Server:"
+
+#: ioslaves/ftp/ftp.cpp:574
+#, kde-format
+msgid "<b>%1</b>"
+msgstr "<b>%1</b>"
+
+#: ioslaves/ftp/ftp.cpp:657
+msgid "Login OK"
+msgstr "Prihlásenie v poriadku"
+
+#: ioslaves/ftp/ftp.cpp:686
+#, kde-format
+msgid "Could not login to %1."
+msgstr "Nepodarilo sa prihlásiť k %1."
+
+#: ioslaves/ftp/ftp.cpp:2585 ioslaves/http/http.cpp:5187
+#: ioslaves/http/http.cpp:5313
+msgid ""
+"You need to supply a username and a password for the proxy server listed "
+"below before you are allowed to access any sites."
+msgstr ""
+"Musíte zadať užívateľské meno a heslo pre proxy server predtým, ako získate "
+"prístup k akémukoľvek serveru."
+
+#: ioslaves/ftp/ftp.cpp:2589 ioslaves/http/http.cpp:5191
+#: ioslaves/http/http.cpp:5316
+msgid "Proxy:"
+msgstr "Proxy:"
+
+#: ioslaves/ftp/ftp.cpp:2590 ioslaves/http/http.cpp:5192
+#: ioslaves/http/http.cpp:5397
+#, kde-format
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> na <b>%2</b>"
+
+#: ioslaves/ftp/ftp.cpp:2591 ioslaves/http/http.cpp:5194
+#: ioslaves/http/http.cpp:5333
+msgid "Proxy Authentication Failed."
+msgstr "Overenie proxy zlyhalo."
+
+#: ioslaves/help/kio_help.cpp:124
+#, kde-format
+msgid "There is no documentation available for %1."
+msgstr "Nie je dostupná žiadna dokumentácia pre %1."
+
+#: ioslaves/help/kio_help.cpp:178
+msgid "Looking up correct file"
+msgstr "Hľadanie správneho súboru"
+
+#: ioslaves/help/kio_help.cpp:229
+msgid "Preparing document"
+msgstr "Príprava dokumentu"
+
+#: ioslaves/help/kio_help.cpp:238 ioslaves/help/kio_help.cpp:283
+#, kde-format
+msgid "The requested help file could not be parsed:<br />%1"
+msgstr "Požadovaný súbor pomocníka sa nepodarilo analyzovať:<br />%1"
+
+#: ioslaves/help/kio_help.cpp:260
+msgid "Saving to cache"
+msgstr "Ukladanie do dočasnej pamäte"
+
+#: ioslaves/help/kio_help.cpp:277
+msgid "Using cached version"
+msgstr "Používanie verzie z dočasnej pamäti"
+
+#: ioslaves/help/kio_help.cpp:339
+msgid "Looking up section"
+msgstr "Hľadanie sekcie"
+
+#: ioslaves/help/kio_help.cpp:350
+#, kde-format
+msgid "Could not find filename %1 in %2."
+msgstr "Nebolo možné nájsť súbor %1 v %2."
+
+#: ioslaves/http/http.cpp:589
+msgid "No host specified."
+msgstr "Nie je uvedený žiadny hostiteľ."
+
+#: ioslaves/http/http.cpp:1530
+msgid "Otherwise, the request would have succeeded."
+msgstr "Inak by požiadavka uspela."
+
+#: ioslaves/http/http.cpp:1534
+msgctxt "request type"
+msgid "retrieve property values"
+msgstr "získať hodnoty vlastností"
+
+#: ioslaves/http/http.cpp:1537
+msgctxt "request type"
+msgid "set property values"
+msgstr "nastaviť hodnoty vlastností"
+
+#: ioslaves/http/http.cpp:1540
+msgctxt "request type"
+msgid "create the requested folder"
+msgstr "vytvoriť požadovaný priečinok"
+
+#: ioslaves/http/http.cpp:1543
+msgctxt "request type"
+msgid "copy the specified file or folder"
+msgstr "kopírovať zadaný súbor alebo priečinok"
+
+#: ioslaves/http/http.cpp:1546
+msgctxt "request type"
+msgid "move the specified file or folder"
+msgstr "presunúť zadaný súbor alebo priečinok"
+
+#: ioslaves/http/http.cpp:1549
+msgctxt "request type"
+msgid "search in the specified folder"
+msgstr "hľadať v zadanom priečinku"
+
+#: ioslaves/http/http.cpp:1552
+msgctxt "request type"
+msgid "lock the specified file or folder"
+msgstr "zamknúť zadaný súbor alebo priečinok"
+
+#: ioslaves/http/http.cpp:1555
+msgctxt "request type"
+msgid "unlock the specified file or folder"
+msgstr "odomknúť zadaný súbor alebo priečinok"
+
+#: ioslaves/http/http.cpp:1558
+msgctxt "request type"
+msgid "delete the specified file or folder"
+msgstr "odstrániť zadaný súbor alebo priečinok"
+
+#: ioslaves/http/http.cpp:1561
+msgctxt "request type"
+msgid "query the server's capabilities"
+msgstr "zistiť možnosti servera"
+
+#: ioslaves/http/http.cpp:1564
+msgctxt "request type"
+msgid "retrieve the contents of the specified file or folder"
+msgstr "získať obsah zadaného súboru alebo priečinka"
+
+#: ioslaves/http/http.cpp:1567
+msgctxt "request type"
+msgid "run a report in the specified folder"
+msgstr "spustiť správu v zadanom priečinku"
+
+#: ioslaves/http/http.cpp:1578
+#, kde-format
+msgctxt "%1: code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "Nastala neočakávaná chyba (%1) pri pokuse o %2."
+
+#: ioslaves/http/http.cpp:1585
+msgid "The server does not support the WebDAV protocol."
+msgstr "Server nepodporuje protokol WebDAV."
+
+#: ioslaves/http/http.cpp:1627
+#, kde-format
+msgctxt "%1: request type, %2: url"
+msgid ""
+"An error occurred while attempting to %1, %2. A summary of the reasons is "
+"below."
+msgstr "Nastala chyba pri pokuse o %1, %2. Nižšie je súhrn dôvodov."
+
+#: ioslaves/http/http.cpp:1642 ioslaves/http/http.cpp:1775
+#, kde-format
+msgctxt "%1: request type"
+msgid "Access was denied while attempting to %1."
+msgstr "Prístup bol zamietnutý pri pokuse o %1."
+
+#: ioslaves/http/http.cpp:1655 ioslaves/http/http.cpp:1781
+msgid ""
+"A resource cannot be created at the destination until one or more "
+"intermediate collections (folders) have been created."
+msgstr ""
+"Zdroj nie je možné vytvoriť na cieli kým nebudú vytvorené potrebné priečinky."
+
+#: ioslaves/http/http.cpp:1663
+#, kde-format
+msgid ""
+"The server was unable to maintain the liveness of the properties listed in "
+"the propertybehavior XML element or you attempted to overwrite a file while "
+"requesting that files are not overwritten. %1"
+msgstr ""
+"Server nebol schopný udržať životnosť vlastností uvedených v XML prvku "
+"propertybehavior, alebo ste sa pokúsili prepísať súbor pričom ste "
+"požadovali, aby súbory nebolo možné prepísať. %1"
+
+#: ioslaves/http/http.cpp:1671
+#, kde-format
+msgid "The requested lock could not be granted. %1"
+msgstr "Požadovaný zámok sa nepodarilo získať. %1"
+
+#: ioslaves/http/http.cpp:1677
+msgid "The server does not support the request type of the body."
+msgstr "Server nepodporuje typ požiadavky v tele."
+
+#: ioslaves/http/http.cpp:1682 ioslaves/http/http.cpp:1789
+#, kde-format
+msgctxt "%1: request type"
+msgid "Unable to %1 because the resource is locked."
+msgstr "Nepodarilo sa %1, pretože zdroj je zamknutý."
+
+#: ioslaves/http/http.cpp:1686
+msgid "This action was prevented by another error."
+msgstr "Táto akcia bola zablokovaná inou chybou."
+
+#: ioslaves/http/http.cpp:1692 ioslaves/http/http.cpp:1795
+#, kde-format
+msgctxt "%1: request type"
+msgid ""
+"Unable to %1 because the destination server refuses to accept the file or "
+"folder."
+msgstr ""
+"Nepodarilo sa %1, pretože cieľový server odmieta akceptovať súbor alebo "
+"priečinok."
+
+#: ioslaves/http/http.cpp:1699 ioslaves/http/http.cpp:1802
+msgid ""
+"The destination resource does not have sufficient space to record the state "
+"of the resource after the execution of this method."
+msgstr ""
+"Cieľový zdroj neobsahuje dostatok miesta pre uloženie stavu zdroja po "
+"vykonaní tejto metódy."
+
+#: ioslaves/http/http.cpp:1753
+msgid "The resource cannot be deleted."
+msgstr "Zdroj nie je možné odstrániť."
+
+#: ioslaves/http/http.cpp:1766
+#, kde-format
+msgctxt "request type"
+msgid "upload %1"
+msgstr "odoslať %1"
+
+#: ioslaves/http/http.cpp:1816
+#, kde-format
+msgctxt "%1: response code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "Nastala neočakávaná chyba (%1) pri pokuse o %2."
+
+#: ioslaves/http/http.cpp:2642
+#, kde-format
+msgid "%1 contacted. Waiting for reply..."
+msgstr "%1 kontaktovaný. Čaká sa na odpoveď..."
+
+#: ioslaves/http/http.cpp:2986
+#, kde-format
+msgctxt "@info Security check on url being accessed"
+msgid ""
+"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
+"the website does not require authentication. This may be an attempt to trick "
+"you.</p><p>Is \"%1\" the site you want to visit?</p>"
+msgstr ""
+"<p>Idete sa prihlásiť na server \"%1\" s používateľským menom \"%2\", ale "
+"web server nevyžaduje autentifikáciu. Toto môže byť pokus podviesť vás.</"
+"p><p>Je \"%1\" stránka, ktorú chcete navštíviť?</p>"
+
+#: ioslaves/http/http.cpp:2992
+msgctxt "@title:window"
+msgid "Confirm Website Access"
+msgstr "Potvrdiť prístup k webserveru"
+
+#: ioslaves/http/http.cpp:3083
+msgid "Server processing request, please wait..."
+msgstr "Server spracováva požiadavku, prosím čakajte..."
+
+#: ioslaves/http/http.cpp:3792 ioslaves/http/http.cpp:3852
+#, kde-format
+msgid "Sending data to %1"
+msgstr "Posielanie dát na %1"
+
+#: ioslaves/http/http.cpp:4309
+#, kde-format
+msgid "Retrieving %1 from %2..."
+msgstr "Získavanie %1 z %2..."
+
+#: ioslaves/http/http.cpp:5332
+msgid "Authentication Failed."
+msgstr "Overenie zlyhalo."
+
+#: ioslaves/http/http.cpp:5430
+msgid "Authorization failed."
+msgstr "Overenie zlyhalo."
+
+#: ioslaves/http/http.cpp:5446
+msgid "Unknown Authorization method."
+msgstr "Neznáma metóda overenia."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:66
+msgid "Cookie Alert"
+msgstr "Cookie varovanie"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:90
+#, kde-format
+msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+msgid ""
+"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject this cookie?</p>"
+msgid_plural ""
+"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject these cookies?</p>"
+msgstr[0] ""
+"<p>Prijali ste cookie z<br/><b>%2%3</b><br/>Chcete prijať alebo odmietnuť "
+"toto cookie?</p>"
+msgstr[1] ""
+"<p>Prijali ste %1 cookie z<br/><b>%2%3</b><br/>Chcete prijať alebo odmietnuť "
+"tieto cookies?</p>"
+msgstr[2] ""
+"<p>Prijali ste %1 cookie z<br/><b>%2%3</b><br/>Chcete prijať alebo odmietnuť "
+"tieto cookies?</p>"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:98
+msgctxt "@item:intext cross domain cookie"
+msgid " [Cross Domain]"
+msgstr " [Krížová doména]"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:108
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:363
+msgid "See or modify the cookie information"
+msgstr "Prezrieť alebo upraviť informácie o cookie"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:112
+msgid "Accept for this &session"
+msgstr "Prijať pre toto sedenie"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:114
+msgid "Accept cookie(s) until the end of the current session"
+msgstr "Prijať cookies do ukončenia aktuálneho sedenia"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:121
+msgid "&Accept"
+msgstr "Prijať"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:122
+msgid "&Reject"
+msgstr "&Odmietnuť"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:156
+msgid "Apply Choice To"
+msgstr "Použiť výber na"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:159
+msgid "&Only this cookie"
+msgstr "&Len toto cookie"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:159
+msgid "&Only these cookies"
+msgstr "&Len tieto cookies"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:163
+msgid ""
+"Select this option to only accept or reject this cookie. You will be "
+"prompted again if you receive another cookie."
+msgstr ""
+"Použitím tejto možnosti akceptujete/odmietnete len toto cookie. Ak bude "
+"zaslané ďalšie cookie, budete musieť odpovedať znovu."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:166
+msgid "All cookies from this do&main"
+msgstr "Všetky cookies z tejto &domény"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:169
+msgid ""
+"Select this option to accept or reject all cookies from this site. Choosing "
+"this option will add a new policy for the site this cookie originated from. "
+"This policy will be permanent until you manually change it from the System "
+"Settings."
+msgstr ""
+"Použitím tejto možnosti akceptujete/odmietnete všetky cookies z tohto "
+"serveru. Tým pridáte nové nastavenie práce s cookie z tohto serveru. Táto "
+"zmena bude stála, až kým ju nezmeníte v Systémových nastaveniach."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:174
+msgid "All &cookies"
+msgstr "Všetky &cookies"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:177
+msgid ""
+"Select this option to accept/reject all cookies from anywhere. Choosing this "
+"option will change the global cookie policy for all cookies until you "
+"manually change it from the System Settings."
+msgstr ""
+"Použitím tejto možnosti akceptujete/odmietnete všetky cookies odkiaľkoľvek. "
+"Tým zmeníte globálne nastavenie práce s cookie nastavené v Systémových "
+"nastaveniach."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:245
+msgid "Cookie Details"
+msgstr "Detaily cookie"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:250
+msgid "Name:"
+msgstr "Názov:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:258
+msgid "Value:"
+msgstr "Hodnota:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:265
+msgid "Expires:"
+msgstr "Vyprší:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:272
+msgid "Path:"
+msgstr "Cesta:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:279
+msgid "Domain:"
+msgstr "Doména:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:286
+msgid "Exposure:"
+msgstr "Expozícia:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:294
+msgctxt "Next cookie"
+msgid "&Next >>"
+msgstr "Ďalej >>"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:299
+msgid "Show details of the next cookie"
+msgstr "Zobraziť detaily pre ďalšie cookie"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:327
+msgid "Not specified"
+msgstr "Nezadaný"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:337
+msgid "End of Session"
+msgstr "Koniec sedenia"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:342
+msgid "Secure servers only"
+msgstr "Len bezpečné servery"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:344
+msgid "Secure servers, page scripts"
+msgstr "Bezpečné servery, skripty na stránkach"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:348
+msgid "Servers"
+msgstr "Servery"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:350
+msgid "Servers, page scripts"
+msgstr "Servery, skripty na stránkach"
+
+#: ioslaves/telnet/ktelnetservice.cpp:68
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Nemáte práva pre prístup k protokolu %1."
+
+#: ioslaves/trash/kcmtrash.cpp:158
+msgid " days"
+msgstr " dní"
+
+#: ioslaves/trash/kcmtrash.cpp:248
+msgid "Delete files older than:"
+msgstr "Odstrániť súbory staršie ako:"
+
+#: ioslaves/trash/kcmtrash.cpp:250
+msgctxt "@info:whatsthis"
+msgid ""
+"<para>Check this box to allow <b>automatic deletion</b> of files that are "
+"older than the value specified. Leave this disabled to <b>not</b> "
+"automatically delete any items after a certain timespan</para>"
+msgstr ""
+"<para>Zaškrtnite, ak chcete <b>automaticky odstraňovať</b> súbory, ktoré sú "
+"staršie ako zadaná hodnota. Zakážte túto možnosť na <b>vypnutie</b> "
+"automatického odstránenia položiek po určitom čase</para>"
+
+#: ioslaves/trash/kcmtrash.cpp:257
+msgid " day"
+msgid_plural " days"
+msgstr[0] " deň"
+msgstr[1] " dni"
+msgstr[2] " dní"
+
+#: ioslaves/trash/kcmtrash.cpp:259
+msgctxt "@info:whatsthis"
+msgid ""
+"<para>Set the number of days that files can remain in the trash. Any files "
+"older than this will be automatically deleted.</para>"
+msgstr ""
+"<para>Nastavte počet dní, koľko môžu ostať súbory v koši. Všetky staršie "
+"súbory budú automaticky odstránené.</para>"
+
+#: ioslaves/trash/kcmtrash.cpp:267
+msgid "Limit to maximum size"
+msgstr "Obmedziť na maximálnu veľkosť"
+
+#: ioslaves/trash/kcmtrash.cpp:269
+msgctxt "@info:whatsthis"
+msgid ""
+"<para>Check this box to limit the trash to the maximum amount of disk space "
+"that you specify below. Otherwise, it will be unlimited.</para>"
+msgstr ""
+"<para>Zaškrtnite pre obmedzenie maximálnej veľkosti koša na disku zadanú "
+"nižšie. Inak bude priestor neobmedzený.</para>"
+
+#: ioslaves/trash/kcmtrash.cpp:287
+msgctxt "@info:whatsthis"
+msgid ""
+"<para>This is the maximum percent of disk space that will be used for the "
+"trash.</para>"
+msgstr ""
+"<para>Toto je maximálne percento priestoru na disku, ktorý bude použité pre "
+"kôš.</para>"
+
+#: ioslaves/trash/kcmtrash.cpp:292
+msgctxt "@info:whatsthis"
+msgid ""
+"<para>This is the calculated amount of disk space that will be allowed for "
+"the trash, the maximum.</para>"
+msgstr "<para>Toto je maximálna veľkosť disku určená pre kôš.</para>"
+
+#: ioslaves/trash/kcmtrash.cpp:295
+msgid "Maximum size:"
+msgstr "Maximálna veľkosť:"
+
+#: ioslaves/trash/kcmtrash.cpp:297
+msgid "When limit reached:"
+msgstr "Ak dosiahne limit:"
+
+#: ioslaves/trash/kcmtrash.cpp:301
+msgid "Warn Me"
+msgstr "Varovať ma"
+
+#: ioslaves/trash/kcmtrash.cpp:302
+msgid "Delete Oldest Files From Trash"
+msgstr "Odstrániť najstaršie súbory z koša"
+
+#: ioslaves/trash/kcmtrash.cpp:303
+msgid "Delete Biggest Files From Trash"
+msgstr "Odstrániť najväčšie súbory z koša"
+
+#: ioslaves/trash/kcmtrash.cpp:305
+msgctxt "@info:whatsthis"
+msgid ""
+"<para>When the size limit is reached, it will prefer to delete the type of "
+"files that you specify, first. If this is set to warn you, it will do so "
+"instead of automatically deleting files.</para>"
+msgstr ""
+"<para>Ak sa dosiahne limit veľkosti, bude preferované odstránenie typov "
+"súborov, ktoré ste zadali prvé. Ak je nastavené na varovať, budete varovaný "
+"namiesto odstránenia súborov.</para>"
+
+#: ioslaves/trash/kio_trash.cpp:93 ioslaves/trash/kio_trash.cpp:159
+#: ioslaves/trash/kio_trash.cpp:316 ioslaves/trash/kio_trash.cpp:348
+#: ioslaves/trash/kio_trash.cpp:517 ioslaves/trash/kio_trash.cpp:529
+#, kde-format
+msgid "Malformed URL %1"
+msgstr "Neplatné URL %1"
+
+#: ioslaves/trash/kio_trash.cpp:115
+#, kde-format
+msgid ""
+"The directory %1 does not exist anymore, so it is not possible to restore "
+"this item to its original location. You can either recreate that directory "
+"and use the restore operation again, or drag the item anywhere else to "
+"restore it."
+msgstr ""
+"Priečinok %1 už neexistuje, takže nie je možné obnoviť položku na svoje "
+"pôvodné miesto. Buď znovu vytvoríte priečinok a potom operáciu zopakujete, "
+"alebo pretiahnite myšou položku na iné miesto."
+
+#: ioslaves/trash/kio_trash.cpp:144 ioslaves/trash/kio_trash_win.cpp:238
+msgid "This file is already in the trash bin."
+msgstr "Tento súbor už je v koši."
+
+#: ioslaves/trash/kio_trash.cpp:233 ioslaves/trash/kio_trash_win.cpp:263
+msgid "Internal error in copyOrMove, should never happen"
+msgstr "Interná chyba v copyOrMove, nemala by nikdy nastať"
+
+#: ioslaves/trash/kio_trash_win.cpp:251
+msgid "not supported"
+msgstr "nepodporované"
+
+#: ioslaves/trash/ktrash.cpp:38
+msgid ""
+"Helper program to handle the KDE trash can\n"
+"Note: to move files to the trash, do not use ktrash, but \"kioclient move "
+"'url' trash:/\""
+msgstr ""
+"Pomocník na obsluhu koša v KDE\n"
+"Poznámka: na presun súborov do koša nepoužívajte ktrash, ale \"kioclient "
+"move 'url' trash:/\""
+
+#: ioslaves/trash/ktrash.cpp:41
+msgid "Empty the contents of the trash"
+msgstr "Vyprázdniť obsah koša"
+
+#: ioslaves/trash/ktrash.cpp:42
+msgid "Restore a trashed file to its original location"
+msgstr "Vrátiť súbor z koša na svoje pôvodné miesto"
+
+#: ioslaves/trash/trashimpl.cpp:1160
+msgid ""
+"The trash has reached its maximum size!\n"
+"Cleanup the trash manually."
+msgstr ""
+"Kôš dosiahol maximálnu veľkosť!\n"
+"Vyčistite kôš ručne."
+
+#: ioslaves/trash/trashimpl.cpp:1171
+msgid "The file is too large to be trashed."
+msgstr "Súbor je príliš veľký na vyhodenie do koša."
+
+#: kcms/webshortcuts/main.cpp:41
+msgid "Web Shortcuts"
+msgstr "Webové skratky"
+
+#: kcms/webshortcuts/main.cpp:42
+msgid "Configure enhanced browsing features"
+msgstr "Nastaviť rozšírené funkcie prehliadania"
+
+#: kcms/webshortcuts/main.cpp:50
+msgid ""
+"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
+"browsing features of KDE. <h2>Web Shortcuts</h2>Web Shortcuts are a quick "
+"way of using Web search engines. For example, type \"duckduckgo:frobozz\" or "
+"\"dd:frobozz\" and your web browser will do a search on DuckDuckGo for "
+"\"frobozz\". Even easier: just press Alt+F2 (if you have not changed this "
+"keyboard shortcut) and enter the shortcut in the Run Command dialog."
+msgstr ""
+"<h1>Rozšírené prehliadanie</h1> V tomto module môžete nastaviť niektoré "
+"špeciálne vlastnosti prehliadača KDE.<h2>Webové skratky</h2>Webové skratky "
+"sú rýchly spôsob použitia vyhľadávačov WWW. Napríklad, zadáte \"duckduckgo:"
+"frobozz\" a váš prehliadač vyhľadá \"frobozz\" na DuckDuckGo. Ešte "
+"jednoduchšie: stlačte Alt-F2 (ak ste nezmenili túto klávesovú skratku) a "
+"zadajte skratku do dialógu \"Spustiť príkaz\"."
+
+#: kioexec/main.cpp:54
+msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
+msgstr "KIO Exec - otvára vzdialené súbory, zisťuje zmeny a žiada o odoslanie"
+
+#: kioexec/main.cpp:88
+#, kde-format
+msgid ""
+"The URL %1\n"
+"is malformed"
+msgstr ""
+"URL %1\n"
+"je neplatné"
+
+#: kioexec/main.cpp:90
+#, kde-format
+msgid ""
+"Remote URL %1\n"
+"not allowed with --tempfiles switch"
+msgstr ""
+"Vzdialené URL %1\n"
+"nie je povolené s prepínačom --tempfiles"
+
+#: kioexec/main.cpp:227
+#, kde-format
+msgid ""
+"The supposedly temporary file\n"
+"%1\n"
+"has been modified.\n"
+"Do you still want to delete it?"
+msgstr ""
+"Pravdepodobne dočasný súbor\n"
+"%1\n"
+"bol zmenený.\n"
+"Naozaj ho chcete odstrániť?"
+
+#: kioexec/main.cpp:228 kioexec/main.cpp:235
+msgid "File Changed"
+msgstr "Súbor zmenený"
+
+#: kioexec/main.cpp:228
+msgid "Do Not Delete"
+msgstr "Nevymazať"
+
+#: kioexec/main.cpp:234
+#, kde-format
+msgid ""
+"The file\n"
+"%1\n"
+"has been modified.\n"
+"Do you want to upload the changes?"
+msgstr ""
+"Súbor\n"
+"%1\n"
+"bol zmenený.\n"
+"Chcete odoslať zmeny?"
+
+#: kioexec/main.cpp:235
+msgid "Upload"
+msgstr "Odoslať"
+
+#: kioexec/main.cpp:235
+msgid "Do Not Upload"
+msgstr "Neodosielať"
+
+#: kioexec/main.cpp:266
+msgid "KIOExec"
+msgstr "KIOExec"
+
+#: kioexec/main.cpp:268
+msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
+msgstr "(c) 1998-2000,2003 vývojári KFM/Konqueror"
+
+#: kioexec/main.cpp:269
+msgid "David Faure"
+msgstr "David Faure"
+
+#: kioexec/main.cpp:270
+msgid "Stephan Kulow"
+msgstr "Stephan Kulow"
+
+#: kioexec/main.cpp:271
+msgid "Bernhard Rosenkraenzer"
+msgstr "Bernhard Rosenkraenzer"
+
+#: kioexec/main.cpp:272
+msgid "Waldo Bastian"
+msgstr "Waldo Bastian"
+
+#: kioexec/main.cpp:273
+msgid "Oswald Buddenhagen"
+msgstr "Oswald Buddenhagen"
+
+#: kioexec/main.cpp:278
+msgid "Treat URLs as local files and delete them afterwards"
+msgstr "Považovať URL za lokálne súbory a potom ich odstrániť"
+
+#: kioexec/main.cpp:279
+msgid "Suggested file name for the downloaded file"
+msgstr "Navrhované názov pre stiahnutý súbor"
+
+#: kioexec/main.cpp:280
+msgid "Command to execute"
+msgstr "Príkaz, ktorý sa má spustiť"
+
+#: kioexec/main.cpp:281
+msgid "URL(s) or local file(s) used for 'command'"
+msgstr "URL alebo lokálne súbory pre 'príkaz'"
+
+#: kpac/discovery.cpp:112
+msgid "Could not find a usable proxy configuration script"
+msgstr "Nepodarilo sa nájsť použiteľný skript pre nastavenie proxy"
+
+#: kpac/downloader.cpp:92
+#, kde-format
+msgid ""
+"Could not download the proxy configuration script:\n"
+"%1"
+msgstr ""
+"Nepodarilo sa stiahnuť skript pre nastavenie proxy:\n"
+"%1"
+
+#: kpac/downloader.cpp:95
+msgid "Could not download the proxy configuration script"
+msgstr "Nepodarilo sa stiahnuť skript pre nastavenie proxy"
+
+#: kpac/proxyscout.cpp:236
+#, kde-format
+msgid ""
+"The proxy configuration script is invalid:\n"
+"%1"
+msgstr ""
+"Skript pre nastavenie proxy nie je platný:\n"
+"%1"
+
+#: kpac/proxyscout.cpp:345
+#, kde-format
+msgid ""
+"The proxy configuration script returned an error:\n"
+"%1"
+msgstr ""
+"Skript pre nastavenie proxy vrátil chybu:\n"
+"%1"
+
+#: kpac/script.cpp:752
+msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
+msgstr "Nemôžem nájsť 'FindProxyForURL' alebo 'FindProxyForURLEx'"
+
+#: kpac/script.cpp:763
+#, kde-format
+msgid "Got an invalid reply when calling %1"
+msgstr "Získaná neplatná odpoveď pri volaní %1"
+
+#: kpasswdserver/kpasswdserver.cpp:556
+msgid "Do you want to retry?"
+msgstr "Chcete to skúsiť znovu?"
+
+#: kpasswdserver/kpasswdserver.cpp:561
+msgid "Retry Authentication"
+msgstr "Znova autorizovať"
+
+#: kpasswdserver/kpasswdserver.cpp:565
+msgctxt "@action:button filter-continue"
+msgid "Retry"
+msgstr "Znovu"
+
+#: kpasswdserver/kpasswdserver.cpp:858
+msgid "Authentication Dialog"
+msgstr "Dialóg overenia"
+
+#: urifilters/ikws/ikwsopts.cpp:54
+msgctxt "@title:column Name label from web shortcuts column"
+msgid "Name"
+msgstr "Názov"
+
+#: urifilters/ikws/ikwsopts.cpp:56
+msgctxt "@title:column"
+msgid "Shortcuts"
+msgstr "Skratky"
+
+#: urifilters/ikws/ikwsopts.cpp:58
+msgctxt "@title:column"
+msgid "Preferred"
+msgstr "Preferované"
+
+#: urifilters/ikws/ikwsopts.cpp:107
+msgctxt "@info:tooltip"
+msgid ""
+"Check this box to select the highlighted web shortcut as preferred.<nl/"
+">Preferred web shortcuts are used in places where only a few select "
+"shortcuts can be shown at one time."
+msgstr ""
+"Zaškrtnite toto pole na výber zvýraznenej webovej skratky ako preferovanej."
+"<nl/> Preferované webové skratky sa používajú v miestach, kde sa dá zobraziť "
+"iba niekoľko skratiek súčasne."
+
+#: urifilters/ikws/ikwsopts.cpp:200
+msgctxt "@item:inlistbox No default web shortcut"
+msgid "None"
+msgstr "Žiadne"
+
+#: urifilters/ikws/ikwsopts.cpp:264
+msgctxt "@info:whatsthis"
+msgid ""
+"<para>In this module you can configure the web shortcuts feature. Web "
+"shortcuts allow you to quickly search or lookup words on the Internet. For "
+"example, to search for information about the KDE project using the Google "
+"engine, you simply type <emphasis>gg:KDE</emphasis> or <emphasis>google:KDE</"
+"emphasis>.</para><para>If you select a default search engine, then you can "
+"search for normal words or phrases by simply typing them into the input "
+"widget of applications that have built-in support for such a feature, e.g "
+"Konqueror.</para>"
+msgstr ""
+"<para>Tento modul umožňuje nastaviť funkciu webových skratiek. Webové "
+"skratky umožňujú jednoduché hľadanie slov na Internete. Napríklad, ak chcete "
+"nájsť informácie o projekte KDE pomocou vyhľadávača Google, jednoducho "
+"zadajte <b>gg:KDE</b> alebo <b>google:KDE</b>.</para><para>Ak vyberiete "
+"štandardný vyhľadávač, potom môžete hľadať normálne slová a frázy jednoducho "
+"ich vpisovaním do vstupného prvku aplikácií, ktoré majú túto funkciu "
+"zabudovanú, napr. Konqueror.</p>"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:17
+msgid ""
+"<html><head/><body><p>Enable or disable web shortcuts. </p><p>Web shortcuts "
+"allow you to quickly access or search for information located online or on "
+"your hard drive. </p><p>KDE comes with many predefined Web shortcuts. One "
+"such Web shortcut is the Google (TM) search shortcut. To use it, you simply "
+"type the keyword 'gg' followed by the keyword delimiter and the search term, "
+"e.g. <span style=\" font-weight:600;\">gg:KDE</span>.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Povoliť alebo zakázať webové skratky. </p><p>Webové "
+"skratkyvám umožnia rýchly prístup alebo hľadanie informácií online alebo na "
+"vašom disku</p><p>KDE prichádza s mnohými preddefinovanými webovými "
+"skratkami.Jedna z nich je skratka na hľadanie v Google (TM). Na jej použitie "
+"jednoduchonapíšte kľúčové slovo 'gg' nasledované oddeľovačom kľúčového slova "
+"a hľadaným textom, napr. <span style=\" font-weight:600;\">gg:KDE</span>.</"
+"p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:20
+msgid "&Enable Web shortcuts"
+msgstr "&Povoliť webové skratky"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: urifilters/ikws/ikwsopts_ui.ui:30
+msgid "&Use preferred shortcuts only"
+msgstr "Po&užiť iba preferované skratky"
+
+#. i18n: ectx: property (placeholderText), widget (KLineEdit, searchLineEdit)
+#: urifilters/ikws/ikwsopts_ui.ui:37
+msgid "Search for shortcut"
+msgstr "Hľadať odkaz"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:71
+msgid "Add a new Web shortcut"
+msgstr "Pridať novú webovú skratku"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:74
+msgid "&New..."
+msgstr "&Nový..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:84
+msgid "Modify the highlighted Web shortcut"
+msgstr "Zmeniť zvýraznenú webovú skratku"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:87
+msgid "Chan&ge..."
+msgstr "Zmeniť..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:97
+msgid "Delete the highlighted Web shortcut"
+msgstr "Vymazať zvýraznenú webovú skratku"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:100
+msgid "De&lete"
+msgstr "Vymazať"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:138
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Vyberte vyhľadávací nástroj, ktorý sa má používať pre vstupné polia, ktoré "
+"poskytujú automatické hľadanie pri zadaní normálnych slov a fráz namiesto "
+"URL. Ak chcete túto funkciu vypnúť, použite voľbu <b>Žiadny</b>.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:141
+msgid "Default Web &shortcut:"
+msgstr "Predvolená webová skratka:"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cmbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:166
+msgid ""
+"<html><head/><body><p>Select a default web shortcut. </p><p>This allows "
+"applications to automatically convert the typed word or phrase to web "
+"shortcut queries when they cannot be filtered into a proper URL. </p><p>To "
+"disable this functionality select <span style=\" font-weight:600;\">None</"
+"span> from the list. </p></body></html>"
+msgstr ""
+"<html><head/><body><p>Vyberte predvolenú webovú skratku. </p><p>Toto "
+"umožníaplikáciám automaticky konvertovať napísané slovo alebo frázu do "
+"dotazovwebových skratiek, keď sa nedajú skonvertovať na platné. </"
+"p><p>Nazakázanie tejto funkcionality vyberte <span style=\" font-weight:600;"
+"\">Žiadne</span> zo zoznamu. </p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:182
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr ""
+"Vyberte znak, ktorý oddeľuje kľúčové slová od fráz alebo slov, ktoré sa majú "
+"nájsť."
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:185
+msgid "&Keyword delimiter:"
+msgstr "O&ddeľovací znak kľúčových slov:"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:204
+msgid "Choose a delimiter to mark the Web shortcut keyword."
+msgstr "Vyberte oddeľovať na označenie kľúčového slova webovej skratky."
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:208
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr "Dvojbodka"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:213
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr "Medzera"
+
+#: urifilters/ikws/kuriikwsfilter.cpp:121
+msgid "No preferred search providers were found."
+msgstr "Neboli nájdení žiadny preferovaní poskytovatelia vyhľadávania."
+
+#: urifilters/ikws/kuriikwsfilter.cpp:140
+msgid "No search providers were found."
+msgstr "Neboli nájdení žiadny poskytovatelia."
+
+#: urifilters/ikws/kurisearchfilter.cpp:92
+msgid "Search F&ilters"
+msgstr "Vyhľadávacie &filtre"
+
+#: urifilters/ikws/searchproviderdlg.cpp:58
+msgctxt "@item:inlistbox The default character set"
+msgid "Default"
+msgstr "Predvolené"
+
+#: urifilters/ikws/searchproviderdlg.cpp:62
+msgid "Modify Web Shortcut"
+msgstr "Zmeniť webovú skratku"
+
+#: urifilters/ikws/searchproviderdlg.cpp:72
+msgid "New Web Shortcut"
+msgstr "Nová webová skratka"
+
+#: urifilters/ikws/searchproviderdlg.cpp:125
+#, kde-format
+msgid ""
+"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
+"one."
+msgstr "Skratka \"%1\" je už priradená k \"%2\". Vyberte inú skratku."
+
+#: urifilters/ikws/searchproviderdlg.cpp:130
+#, kde-format
+msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+msgid "- %1: \"%2\""
+msgstr "- %1: \"%2\""
+
+#: urifilters/ikws/searchproviderdlg.cpp:134
+#, kde-format
+msgid ""
+"The following shortcuts are already assigned. Please choose different ones.\n"
+"%1"
+msgstr ""
+"Nasledujúca skratka je už priradená. Vyberte inú skratku.\n"
+"%1"
+
+#: urifilters/ikws/searchproviderdlg.cpp:146
+msgid ""
+"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
+"This means that the same page is always going to be visited, regardless of "
+"the text typed in with the shortcut."
+msgstr ""
+"URI neobsahuje zástupný znak \\{...} pre užívateľskú žiadosť.\n"
+"To znamená, že vždy bude navštevovaná tá istá stránka bez ohľadu na to, čo "
+"užívateľ napíše."
+
+#: urifilters/ikws/searchproviderdlg.cpp:149
+msgid "Keep It"
+msgstr "Ponechať"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:17
+msgid "Enter the human-readable name of the search provider here."
+msgstr "Tu zadajte zrozumiteľný názov poskytovateľa vyhľadávania."
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:23
+msgid "Shortcut &name:"
+msgstr "Názov skratky:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:42
+#: urifilters/ikws/searchproviderdlg_ui.ui:64
+#: urifilters/ikws/searchproviderdlg_ui.ui:70
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Sem zadajte URI, ktoré sa má použiť pri hľadaní.<br/>Celý hľadaný text "
+"môžete špecifikovať pomocou  \\{@} alebo \\{0}.<br/>\n"
+"Doporučujeme používať \\{@}, pretože odstráni všetky premenné otázky "
+"(meno=hodnota) z výsledného reťazca, zatiaľčo \\{0} bude nahradené "
+"nezmeneným reťazcom otázky.<br/>Pomocou \\{1} ... \\{n} môžete určiť "
+"jednotlivé slová z otázky a pomocou \\{meno} hodnotu zadanú pomocou časti "
+"'meno=hodnota' otázky.<br/>Ďalej môžete použiť viac referencií (mená, čísla "
+"a reťazce) naraz pomocou (\\{meno1,meno2,...,\"reťazec\"}).<br/>Prvá "
+"odpovedajúca hodnota (zľava) sa použije ako hodnota nahradenia pre výsledné "
+"URI.<br/>Reťazec v úvodzovkách sa dá použiť ako štandardná hodnota v "
+"prípade, že sa nič odpovedajúce naľavo od zoznamu nenájde.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:48
+msgid "Shortcut &URL:"
+msgstr "URL skratky:"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:83
+msgid "Select the character set that will be used to encode your search query."
+msgstr "Vyberte znakovú sadu, ktorá bude použitá pre vyhľadávanie."
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:92
+#: urifilters/ikws/searchproviderdlg_ui.ui:97
+#: urifilters/ikws/searchproviderdlg_ui.ui:116
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Skratky, ktoré tu zadáte, môžete neskôr použiť ako pseudo-URI schému v KDE. "
+"Napríklad, skratka <b>av</b> môže byť použitá ako <b>av</b>:<b>moje "
+"hľadanie</b>\n"
+"</qt>"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:104
+#: urifilters/ikws/searchproviderdlg_ui.ui:107
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Tu zadajte zrozumiteľný názov poskytovateľa "
+"vyhľadávania. </p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:119
+msgid "&Shortcuts:"
+msgstr "Skratky:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:132
+msgid "Select the character set that will be used to encode your search query"
+msgstr "Vyberte znakovú sadu, ktorá bude použitá pre vyhľadávanie"
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:135
+msgid "&Charset:"
+msgstr "Z&naková sada:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: urifilters/ikws/searchproviderdlg_ui.ui:158
+msgid "Insert query placeholder"
+msgstr "Vložiť zástupný znak dotazu"
+
+#: urifilters/shorturi/kshorturifilter.cpp:278
+#, kde-format
+msgid "<qt><b>%1</b> does not have a home folder.</qt>"
+msgstr "<qt><b>%1</b> nemá domovský priečinok.</qt>"
+
+#: urifilters/shorturi/kshorturifilter.cpp:280
+#, kde-format
+msgid "<qt>There is no user called <b>%1</b>.</qt>"
+msgstr "<qt>Neexistuje užívateľ <b>%1</b>.</qt>"
+
+#: urifilters/shorturi/kshorturifilter.cpp:528
+#, kde-format
+msgid "<qt>The file or folder <b>%1</b> does not exist.</qt>"
+msgstr "<qt>Súbor alebo priečinok <b>%1</b> neexistuje.</qt>"
+
+#: widgets/accessmanager.cpp:221
+msgid "Blocked request."
+msgstr "Blokovaná požiadavka."
+
+#: widgets/accessmanager.cpp:285
+msgid "Unknown HTTP verb."
+msgstr "Neznámy HTTP príkaz."
+
+#. i18n: ectx: property (text), widget (QLabel, commonNameTag)
+#: widgets/certificateparty.ui:28
+msgid "Common name:"
+msgstr "Bežný názov:"
+
+#. i18n: ectx: property (text), widget (QLabel, commonName)
+#: widgets/certificateparty.ui:38
+msgid "Acme Co."
+msgstr "Acme Co."
+
+#. i18n: ectx: property (text), widget (QLabel, organizationTag)
+#: widgets/certificateparty.ui:48
+msgid "Organization:"
+msgstr "Organizácia:"
+
+#. i18n: ectx: property (text), widget (QLabel, organization)
+#: widgets/certificateparty.ui:58
+msgid "Acme Sundry Products Company"
+msgstr "Acme Sundry Products Company"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
+#: widgets/certificateparty.ui:68
+msgid "Organizational unit:"
+msgstr "Organizačná jednotka:"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
+#: widgets/certificateparty.ui:78
+msgid "Fraud Department"
+msgstr "Fraud Department"
+
+#. i18n: ectx: property (text), widget (QLabel, countryTag)
+#: widgets/certificateparty.ui:88
+msgid "Country:"
+msgstr "Krajina:"
+
+#. i18n: ectx: property (text), widget (QLabel, country)
+#: widgets/certificateparty.ui:98
+msgid "Canada"
+msgstr "Kanada"
+
+#. i18n: ectx: property (text), widget (QLabel, stateTag)
+#: widgets/certificateparty.ui:108
+msgid "State:"
+msgstr "Stav:"
+
+#. i18n: ectx: property (text), widget (QLabel, state)
+#: widgets/certificateparty.ui:118
+msgid "Quebec"
+msgstr "Quebec"
+
+#. i18n: ectx: property (text), widget (QLabel, cityTag)
+#: widgets/certificateparty.ui:128
+msgid "City:"
+msgstr "Mesto:"
+
+#. i18n: ectx: property (text), widget (QLabel, city)
+#: widgets/certificateparty.ui:138
+msgid "Lakeridge Meadows"
+msgstr "Lakeridge Meadows"
+
+#: widgets/executablefileopendialog.cpp:33
+msgid "What do you wish to do with this executable file?"
+msgstr "Čo chcete urobiť s týmto spustiteľným súborom?"
+
+#: widgets/executablefileopendialog.cpp:39
+msgid "&Execute"
+msgstr "S&pustiť"
+
+#: widgets/fileundomanager.cpp:125
+msgid "Creating directory"
+msgstr "Vytváranie adresára"
+
+#: widgets/fileundomanager.cpp:130
+msgid "Moving"
+msgstr "Presúvanie"
+
+#: widgets/fileundomanager.cpp:136
+msgid "Deleting"
+msgstr "Odstraňovanie"
+
+#: widgets/fileundomanager.cpp:303
+msgid "Und&o"
+msgstr "&Späť"
+
+#: widgets/fileundomanager.cpp:309
+msgid "Und&o: Copy"
+msgstr "&Späť: Kopírovať"
+
+#: widgets/fileundomanager.cpp:311
+msgid "Und&o: Link"
+msgstr "&Späť: Odkaz"
+
+#: widgets/fileundomanager.cpp:313
+msgid "Und&o: Move"
+msgstr "&Späť: Presunúť"
+
+#: widgets/fileundomanager.cpp:315
+msgid "Und&o: Rename"
+msgstr "&Späť: Premenovať"
+
+#: widgets/fileundomanager.cpp:317
+msgid "Und&o: Trash"
+msgstr "&Späť: Kôš"
+
+#: widgets/fileundomanager.cpp:319
+msgid "Und&o: Create Folder"
+msgstr "&Späť: Vytvoriť priečinok"
+
+#: widgets/fileundomanager.cpp:321
+msgid "Und&o: Create Folder(s)"
+msgstr "&Späť: Vytvoriť priečinok(y)"
+
+#: widgets/fileundomanager.cpp:323
+msgid "Und&o: Create File"
+msgstr "&Späť: Vytvoriť súbor"
+
+#: widgets/fileundomanager.cpp:707
+#, kde-format
+msgid ""
+"The file %1 was copied from %2, but since then it has apparently been "
+"modified at %3.\n"
+"Undoing the copy will delete the file, and all modifications will be lost.\n"
+"Are you sure you want to delete %4?"
+msgstr ""
+"Súbor %1 bol skopírovaný z %2, ale od vtedy bol zrejme zmenený v %3.\n"
+"Vrátenie kopírovania odstráni súbor a stratia sa všetky zmeny.\n"
+"Naozaj chcete odstrániť %4?"
+
+#: widgets/fileundomanager.cpp:710
+msgid "Undo File Copy Confirmation"
+msgstr "Potvrdenie vrátenia kópie súboru"
+
+#: widgets/jobuidelegate.cpp:228
+#, kde-format
+msgid "Do you really want to delete this item?"
+msgid_plural "Do you really want to delete these %1 items?"
+msgstr[0] "Naozaj chcete odstrániť túto položku?"
+msgstr[1] "Naozaj chcete odstrániť tieto %1 položky?"
+msgstr[2] "Naozaj chcete odstrániť týchto %1 položiek?"
+
+#: widgets/jobuidelegate.cpp:230
+msgid "Delete Files"
+msgstr "Vymazať súbory"
+
+#: widgets/jobuidelegate.cpp:238
+msgctxt "@info"
+msgid ""
+"Do you want to permanently delete all items from Trash? This action cannot "
+"be undone."
+msgstr ""
+"Naozaj chcete natrvalo odstrániť všetky položky z koša? Táto akcia sa nedá "
+"vrátiť."
+
+#: widgets/jobuidelegate.cpp:240
+msgctxt "@action:button"
+msgid "Empty Trash"
+msgstr "Vyprázdniť kôš"
+
+#: widgets/jobuidelegate.cpp:249
+#, kde-format
+msgid "Do you really want to move this item to the trash?"
+msgid_plural "Do you really want to move these %1 items to the trash?"
+msgstr[0] "Naozaj chcete presunúť túto položku do koša?"
+msgstr[1] "Naozaj chcete presunúť tieto %1 položky do koša?"
+msgstr[2] "Naozaj chcete presunúť týchto %1 položiek do koša?"
+
+#: widgets/jobuidelegate.cpp:252
+msgctxt "Verb"
+msgid "&Trash"
+msgstr "&Kôš"
+
+#: widgets/jobuidelegate.cpp:345
+msgid "The peer SSL certificate chain appears to be corrupt."
+msgstr "Reťazec SSL certifikátu druhej strany sa zdá byť poškodený."
+
+#: widgets/kacleditwidget.cpp:59 widgets/kacleditwidget.cpp:448
+msgid "Owner"
+msgstr "Vlastník"
+
+#: widgets/kacleditwidget.cpp:60 widgets/kacleditwidget.cpp:453
+msgid "Owning Group"
+msgstr "Skupina"
+
+#: widgets/kacleditwidget.cpp:61 widgets/kacleditwidget.cpp:458
+#: widgets/kpropertiesdialog.cpp:1986
+msgid "Others"
+msgstr "Ostatné"
+
+#: widgets/kacleditwidget.cpp:62 widgets/kacleditwidget.cpp:463
+msgid "Mask"
+msgstr "Maska"
+
+#: widgets/kacleditwidget.cpp:63
+msgid "Named User"
+msgstr "Pomenovaný užívateľ"
+
+#: widgets/kacleditwidget.cpp:64
+msgid "Named Group"
+msgstr "Pomenovaná skupina"
+
+#: widgets/kacleditwidget.cpp:100
+msgid "Edit Entry..."
+msgstr "Upraviť položku..."
+
+#: widgets/kacleditwidget.cpp:104
+msgid "Delete Entry"
+msgstr "Odstrániť položku"
+
+#: widgets/kacleditwidget.cpp:308
+msgid " (Default)"
+msgstr " (Predvolené)"
+
+#: widgets/kacleditwidget.cpp:429
+msgid "Edit ACL Entry"
+msgstr "Upraviť ACL položku"
+
+#: widgets/kacleditwidget.cpp:433
+msgid "Entry Type"
+msgstr "Typ položky"
+
+#: widgets/kacleditwidget.cpp:439
+msgid "Default for new files in this folder"
+msgstr "Štandardné pre nové súbory v tomto priečinku"
+
+#: widgets/kacleditwidget.cpp:468
+msgid "Named user"
+msgstr "Pomenovaný užívateľ"
+
+#: widgets/kacleditwidget.cpp:473
+msgid "Named group"
+msgstr "Pomenovaná skupina"
+
+#: widgets/kacleditwidget.cpp:493
+msgid "User: "
+msgstr "Užívateľ: "
+
+#: widgets/kacleditwidget.cpp:508
+msgid "Group: "
+msgstr "Skupina:"
+
+#: widgets/kacleditwidget.cpp:645
+msgid "Type"
+msgstr "Typ"
+
+#: widgets/kacleditwidget.cpp:646
+msgid "Name"
+msgstr "Názov"
+
+#: widgets/kacleditwidget.cpp:647
+msgctxt "read permission"
+msgid "r"
+msgstr "r"
+
+#: widgets/kacleditwidget.cpp:648
+msgctxt "write permission"
+msgid "w"
+msgstr "w"
+
+#: widgets/kacleditwidget.cpp:649
+msgctxt "execute permission"
+msgid "x"
+msgstr "x"
+
+#: widgets/kacleditwidget.cpp:650
+msgid "Effective"
+msgstr "Efektívne"
+
+#: widgets/kbuildsycocaprogressdialog.cpp:45
+msgid "Updating System Configuration"
+msgstr "Aktualizuje sa systémové nastavenie"
+
+#: widgets/kbuildsycocaprogressdialog.cpp:46
+msgid "Updating system configuration."
+msgstr "Aktualizuje sa systémové nastavenie."
+
+#: widgets/kdesktopfileactions.cpp:79
+#, kde-format
+msgid "The desktop entry file %1 has no Type=... entry."
+msgstr "Súbor položky plochy %1 nemá položku Type=..."
+
+#: widgets/kdesktopfileactions.cpp:96
+#, kde-format
+msgid ""
+"The desktop entry of type\n"
+"%1\n"
+"is unknown."
+msgstr ""
+"Typ položky plochy\n"
+"%1\n"
+"je neznámy."
+
+#: widgets/kdesktopfileactions.cpp:109 widgets/kdesktopfileactions.cpp:189
+#: widgets/kdesktopfileactions.cpp:322
+#, kde-format
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is of type FSDevice but has no Dev=... entry."
+msgstr ""
+"Súbor položky plochy\n"
+"%1\n"
+"je typu FSDevice, ale nemá položku Dev=..."
+
+#: widgets/kdesktopfileactions.cpp:142
+#, kde-format
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is not valid."
+msgstr ""
+"Súbor položky plochy\n"
+"%1\n"
+"je neznámy."
+
+#: widgets/kdesktopfileactions.cpp:155
+#, kde-format
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is of type Link but has no URL=... entry."
+msgstr ""
+"Súbor položky plochy\n"
+"%1\n"
+"je typu Odkaz, ale nemá položku URL=..."
+
+#: widgets/kdesktopfileactions.cpp:225
+msgid "Mount"
+msgstr "Pripojiť"
+
+#: widgets/kdesktopfileactions.cpp:236
+msgid "Eject"
+msgstr "Vysunúť"
+
+#: widgets/kdesktopfileactions.cpp:238
+msgid "Unmount"
+msgstr "Odpojiť"
+
+#: widgets/kdirmodel.cpp:1072
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Názov"
+
+#: widgets/kdirmodel.cpp:1074
+msgctxt "@title:column"
+msgid "Size"
+msgstr "Veľkosť"
+
+#: widgets/kdirmodel.cpp:1076
+msgctxt "@title:column"
+msgid "Date"
+msgstr "Dátum"
+
+#: widgets/kdirmodel.cpp:1078
+msgctxt "@title:column"
+msgid "Permissions"
+msgstr "Práva"
+
+#: widgets/kdirmodel.cpp:1080
+msgctxt "@title:column"
+msgid "Owner"
+msgstr "Vlastník"
+
+#: widgets/kdirmodel.cpp:1082
+msgctxt "@title:column"
+msgid "Group"
+msgstr "Skupina"
+
+#: widgets/kdirmodel.cpp:1084
+msgctxt "@title:column"
+msgid "Type"
+msgstr "Typ"
+
+#: widgets/kfileitemactions.cpp:399
+msgctxt "@title:menu"
+msgid "&Actions"
+msgstr "&Akcie"
+
+#: widgets/kfileitemactions.cpp:525
+#, kde-format
+msgid "&Open with %1"
+msgstr "&Otvoriť pomocou %1"
+
+#: widgets/kfileitemactions.cpp:551
+msgctxt "@title:menu"
+msgid "&Open With"
+msgstr "&Otvoriť pomocou"
+
+#: widgets/kfileitemactions.cpp:568
+msgctxt "@action:inmenu Open With"
+msgid "&Other..."
+msgstr "&Iný..."
+
+#: widgets/kfileitemactions.cpp:570 widgets/kfileitemactions.cpp:579
+msgctxt "@title:menu"
+msgid "&Open With..."
+msgstr "&Otvoriť pomocou..."
+
+#: widgets/kfileitemactions.cpp:683
+#, kde-format
+msgid "Open &with %1"
+msgstr "&Otvoriť pomocou %1"
+
+#: widgets/kfileitemactions.cpp:685
+#, kde-format
+msgctxt "@item:inmenu Open With, %1 is application name"
+msgid "%1"
+msgstr "%1"
+
+#: widgets/kfileitemdelegate.cpp:221
+#, kde-format
+msgctxt "Items in a folder"
+msgid "1 item"
+msgid_plural "%1 items"
+msgstr[0] "1 položka"
+msgstr[1] "%1 položky"
+msgstr[2] "%1 položiek"
+
+#: widgets/kfileitemdelegate.cpp:277 widgets/kfileitemdelegate.cpp:281
+msgctxt "@info mimetype"
+msgid "Unknown"
+msgstr "Neznámy"
+
+#: widgets/kopenwithdialog.cpp:272
+msgid "Known Applications"
+msgstr "Známe aplikácie"
+
+#: widgets/kopenwithdialog.cpp:494
+msgid "Open With"
+msgstr "Otvoriť s"
+
+#: widgets/kopenwithdialog.cpp:498
+#, kde-format
+msgid ""
+"<qt>Select the program that should be used to open <b>%1</b>. If the program "
+"is not listed, enter the name or click the browse button.</qt>"
+msgstr ""
+"<qt>Vyberte program, ktorým sa bude otvárať <b>%1</b>. Ak program nie je v "
+"zozname, zadajte názov, alebo kliknite na tlačidlo prechádzať.</qt>"
+
+#: widgets/kopenwithdialog.cpp:504
+msgid "Choose the name of the program with which to open the selected files."
+msgstr "Vyberte názov programu, ktorým chcete otvoriť vybrané súbory."
+
+#: widgets/kopenwithdialog.cpp:534
+#, kde-format
+msgid "Choose Application for %1"
+msgstr "Vyberte aplikáciu pre %1"
+
+#: widgets/kopenwithdialog.cpp:535
+#, kde-format
+msgid ""
+"<qt>Select the program for the file type: <b>%1</b>. If the program is not "
+"listed, enter the name or click the browse button.</qt>"
+msgstr ""
+"<qt>Vyberte program, ktorým sa bude otvárať typ súboru: <b>%1</b>. Ak "
+"program nie je v zozname, zadajte názov, alebo kliknite na tlačidlo "
+"prechádzať.</qt>"
+
+#: widgets/kopenwithdialog.cpp:550
+msgid "Choose Application"
+msgstr "Vyberte aplikáciu"
+
+#: widgets/kopenwithdialog.cpp:551
+msgid ""
+"<qt>Select a program. If the program is not listed, enter the name or click "
+"the browse button.</qt>"
+msgstr ""
+"<qt>Vyberte program. Ak program nie je v zozname, zadajte názov, alebo "
+"kliknite na tlačidlo prechádzať.</qt>"
+
+#: widgets/kopenwithdialog.cpp:610
+msgid ""
+"Following the command, you can have several place holders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"%f - a single file name\n"
+"%F - a list of files; use for applications that can open several local files "
+"at once\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%d - the directory of the file to open\n"
+"%D - a list of directories\n"
+"%i - the icon\n"
+"%m - the mini-icon\n"
+"%c - the comment"
+msgstr ""
+"Za príkazom je možné zadať rôzne zastupiteľné znaky, ktoré sa pri spustení "
+"programu nahradia skutočnými hodnotami:\n"
+"%f - názov súboru\n"
+"%F - zoznam súborov; použite pre aplikácie, ktoré dokážu otvoriť niekoľko "
+"lokálnych súborov naraz\n"
+"%u - jedno URL\n"
+"%U - zoznam URL\n"
+"%d - adresár súboru, ktorý sa má otvoriť\n"
+"%D - zoznam adresárov\n"
+"%i - ikona\n"
+"%m - mini ikona\n"
+"%c - komentár"
+
+#: widgets/kopenwithdialog.cpp:645
+msgid "Run in &terminal"
+msgstr "Spustiť v &termináli"
+
+#: widgets/kopenwithdialog.cpp:663
+msgid "&Do not close when command exits"
+msgstr "&Nezatvárať po ukončení príkazu"
+
+#: widgets/kopenwithdialog.cpp:680
+msgid "&Remember application association for this type of file"
+msgstr "&Zapamätať si asociáciu aplikácie pre tento typ súborov"
+
+#: widgets/kopenwithdialog.cpp:834
+#, kde-format
+msgid ""
+"Could not extract executable name from '%1', please type a valid program "
+"name."
+msgstr ""
+"Nepodarilo sa získať názov programu z '%1', zadajte platný názov programu."
+
+#: widgets/kopenwithdialog.cpp:884
+#, kde-format
+msgid "'%1' not found, please type a valid program name."
+msgstr "'%1' nebol nájdený, zadajte platný názov programu."
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
+#: widgets/kpropertiesdesktopadvbase.ui:11
+msgctxt ""
+"@title:group Title of a group that lets the user choose options about the "
+"terminal when launching a program"
+msgid "Terminal"
+msgstr "Terminál"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:33
+msgid ""
+"Check this option if the application you want to run is a text mode "
+"application or if you want the information that is provided by the terminal "
+"emulator window."
+msgstr ""
+"Začiarknite túto možnosť, ak sa má aplikácia spustiť v textovom režime, "
+"alebo ak chcete získať informácie poskytované oknom terminálu."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:36
+msgid "&Run in terminal"
+msgstr "Spustiť v &termináli"
+
+#. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:43
+msgid "&Terminal options:"
+msgstr "&Možnosti terminálu:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:53
+msgid ""
+"Check this option if the text mode application offers relevant information "
+"on exit. Keeping the terminal emulator open allows you to retrieve this "
+"information."
+msgstr ""
+"Začiarknite túto možnosť, ak aplikácia v textovom režime poskytuje dôležité "
+"informácie pri ukončení. Tým, že sa okno pri ukončení nezatvorí, bude možné "
+"zachytiť tieto informácie."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:56
+msgid "Do not &close when command exits"
+msgstr "Nezatvárať &okno po ukončení príkazu"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
+#: widgets/kpropertiesdesktopadvbase.ui:69
+msgctxt ""
+"@title:group Title of a group that lets the user choose which user to use "
+"when launching a program"
+msgid "User"
+msgstr "Užívateľ"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:75
+msgid ""
+"Check this option if you want to run this application with a different user "
+"id. Every process has a different user id associated with it. This id code "
+"determines file access and other permissions. The password of the user is "
+"required to use this option."
+msgstr ""
+"Začiarknite túto možnosť, ak chcete spustiť túto aplikáciu ako iný užívateľ. "
+"Každý proces má nastavené ID užívateľa. Toto číslo určuje práva pre prístup "
+"k súborom a iné práva. Ak je táto možnosť začiarknutá, budete musieť zadať "
+"heslo pre vybraného užívateľa."
+
+#. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:78
+msgid "Ru&n as a different user"
+msgstr "Spustiť ako i&ný užívateľ"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:101
+msgid "Enter the user name you want to run the application as."
+msgstr "Zadajte užívateľské meno, pod ktorým chcete spustiť aplikáciu."
+
+#. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:104
+msgid "&Username:"
+msgstr "&Užívateľské meno:"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
+#: widgets/kpropertiesdesktopadvbase.ui:114
+msgid "Enter the user name you want to run the application as here."
+msgstr "Tu zadajte užívateľské meno, pod ktorým chcete spustiť aplikáciu."
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
+#: widgets/kpropertiesdesktopadvbase.ui:124
+msgctxt ""
+"@title:group Title of a group that lets the user choose options regargin "
+"program startup"
+msgid "Startup"
+msgstr "Spustenie"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:130
+msgid ""
+"Check this option if you want to make clear that your application has "
+"started. This visual feedback may appear as a busy cursor or in the taskbar."
+msgstr ""
+"Začiarknite túto možnosť, ak sa chcete uistiť, že sa vaša aplikácia "
+"spustila. Táto vizuálna odozva môže vyzerať ako zaneprázdnený kurzor alebo "
+"upozornenie v paneli úloh."
+
+#. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:133
+msgid "Enable &launch feedback"
+msgstr "Povoliť &odozvu pri štarte"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, systrayCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:140
+msgid ""
+"Check this option if you want to have a system tray handle for your "
+"application."
+msgstr ""
+"Začiarknite túto možnosť, ak chcete mať túto aplikáciu v systémovej lište."
+
+#. i18n: ectx: property (text), widget (QCheckBox, systrayCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:143
+msgid "&Place in system tray"
+msgstr "&Umiestniť v systémovej lište"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel12)
+#: widgets/kpropertiesdesktopadvbase.ui:150
+msgid "&D-Bus registration:"
+msgstr "Registrácia &D-Bus:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:161
+msgid "None"
+msgstr "Žiadne"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:166
+msgid "Multiple Instances"
+msgstr "Viac inštancií"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:171
+msgid "Single Instance"
+msgstr "Jediná inštancia"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:176
+msgid "Run Until Finished"
+msgstr "Bežať až do konca"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, nameEdit)
+#: widgets/kpropertiesdesktopbase.ui:14 widgets/kpropertiesdesktopbase.ui:27
+msgid ""
+"Type the name you want to give to this application here. This application "
+"will appear under this name in the applications menu and in the panel."
+msgstr ""
+"Sem zadajte názov pre aplikáciu. Aplikácia bude pod týmto názvom zobrazená v "
+"menu a v paneli."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, genNameEdit)
+#: widgets/kpropertiesdesktopbase.ui:34 widgets/kpropertiesdesktopbase.ui:47
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"a dial up application (KPPP) would be \"Dial up tool\"."
+msgstr ""
+"Sem zadajte popis tejto aplikácie podľa jej použitia. Napríklad: pre "
+"pripojenie na internet (KPPP) to bude \"Nástroj pre pripojenie na Internet\"."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: widgets/kpropertiesdesktopbase.ui:37
+msgid "&Description:"
+msgstr "&Popis:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, commentEdit)
+#: widgets/kpropertiesdesktopbase.ui:54 widgets/kpropertiesdesktopbase.ui:67
+msgid "Type any comment you think is useful here."
+msgstr "Sem zadajte ľubovoľný komentár, ktorý si myslíte, že je užitočný."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: widgets/kpropertiesdesktopbase.ui:57
+msgid "Comm&ent:"
+msgstr "Kom&entár:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, commandEdit)
+#: widgets/kpropertiesdesktopbase.ui:85 widgets/kpropertiesdesktopbase.ui:111
+#, no-c-format
+msgid ""
+"Type the command to start this application here.\n"
+"\n"
+"Following the command, you can have several place holders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"%f - a single file name\n"
+"%F - a list of files; use for applications that can open several local files "
+"at once\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%d - the directory of the file to open\n"
+"%D - a list of directories\n"
+"%i - the icon\n"
+"%m - the mini-icon\n"
+"%c - the caption"
+msgstr ""
+"Zadajte príkaz, ktorý túto aplikáciu spustí.\n"
+"\n"
+"Za príkazom je možné zadať rôzne zastupiteľné znaky, ktoré sa pri spustení "
+"programu nahradia skutočnými hodnotami:\n"
+"%f - názov súboru\n"
+"%F - zoznam súborov, napr. pre aplikácie, ktoré dokážu otvoriť niekoľko "
+"lokálnych súborov naraz\n"
+"%u - jedno URL\n"
+"%U - zoznam URL\n"
+"%d - priečinok súboru, ktorý sa má otvoriť\n"
+"%D - zoznam priečinkov\n"
+"%i - ikona\n"
+"%m - mini ikona\n"
+"%c - komentár"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:88
+msgid "Co&mmand:"
+msgstr "&Príkaz:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:118
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr ""
+"Kliknutím na toto tlačidlo môžete prechádzať systém súborov a nájsť "
+"požadovaný program."
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:121
+msgid "&Browse..."
+msgstr "&Prechádzať..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
+#: widgets/kpropertiesdesktopbase.ui:130 widgets/kpropertiesdesktopbase.ui:143
+msgid "Sets the working directory for your application."
+msgstr "Nastaví pracovný priečinok pre vašu aplikáciu."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel5)
+#: widgets/kpropertiesdesktopbase.ui:133
+msgid "&Work path:"
+msgstr "&Pracovná cesta:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:157 widgets/kpropertiesdesktopbase.ui:178
+msgid ""
+"<qt><p>This list should show the types of file that your application can "
+"handle. This list is organized by <u>mimetypes</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol for "
+"identifying the type of data based on filename extensions and correspondent "
+"<u>mimetypes</u>. Example: the \"bmp\" part that comes after the dot in "
+"flower.bmp indicates that it is a specific kind of image, <u>image/x-bmp</"
+"u>. To know which application should open each type of file, the system "
+"should be informed about the abilities of each application to handle these "
+"extensions and mimetypes.</p>\n"
+"<p>If you want to associate this application with one or more mimetypes that "
+"are not in this list, click on the button <b>Add</b> below. If there are one "
+"or more filetypes that this application cannot handle, you may want to "
+"remove them from the list clicking on the button <b>Remove</b> below.</p></"
+"qt>"
+msgstr ""
+"<qt><p>Tento zoznam je utriedený podľa <u>typov MIME</u>.</p> \n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, je štandardný protokol pre "
+"identifikáciu typu súboru podľa jeho prípony a zodpovedajúceho <u>typu MIME</"
+"u>. Napríklad: časť \"bmp\", ktorá je za bodkou v názve súboru flower.bmp "
+"určuje, že sa jedná o špeciálny typ obrázku <u>image/x-bmp</u>. Aby bolo "
+"jasné, ktorá aplikácia dokáže ktorý typ otvoriť, je nutné možnosti aplikácie "
+"(podporované prípony a typy MIME) nastaviť.</p>\n"
+"<p>Ak chcete spojiť túto aplikáciu s jedným alebo viacerými typmi, ktoré v "
+"zozname nie sú, stlačte <b>Pridať</b>. Ak existuje jeden alebo viac typov "
+"súborov, ktoré aplikácia nepodporuje a chcete ich odstrániť zo zoznamu "
+"použite tlačidlo <b>Odstrániť</b>.</p></qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: widgets/kpropertiesdesktopbase.ui:160
+msgid "&Supported file types:"
+msgstr "&Podporované typy MIME:"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:191
+msgid "Mimetype"
+msgstr "Typ MIME"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:196
+msgid "Description"
+msgstr "Popis"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:206
+msgid ""
+"Click on this button if you want to add a type of file (mimetype) that your "
+"application can handle."
+msgstr ""
+"Kliknite na toto tlačidlo, ak chcete pridať typ súboru (typ MIME), ktorý "
+"táto aplikácia podporuje."
+
+#. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:209
+msgid "Add..."
+msgstr "Pridať..."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:216
+msgid ""
+"If you want to remove a type of file (mimetype) that your application cannot "
+"handle, select the mimetype in the list above and click on this button."
+msgstr ""
+"Ak chcete odstrániť typ súboru (typ MIME), ktorý aplikácia nepodporuje, "
+"vyberte ho v zozname a kliknite na toto tlačidlo."
+
+#. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:219
+msgid "Remove"
+msgstr "Odstrániť"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:242
+msgid ""
+"Click here to modify the way this application will run, launch feedback, D-"
+"Bus options or to run it as a different user."
+msgstr ""
+"Kliknutím sem môžete upraviť spustenie aplikácie, odozvu pri štarte, "
+"možnosti pre D-Bus alebo ju spustiť ako iný užívateľ."
+
+#. i18n: ectx: property (text), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:245
+msgid "Ad&vanced Options"
+msgstr "&Pokročilé možnosti"
+
+#: widgets/kpropertiesdialog.cpp:205 widgets/kpropertiesdialog.cpp:220
+#: widgets/kpropertiesdialog.cpp:232 widgets/kpropertiesdialog.cpp:248
+#: widgets/kpropertiesdialog.cpp:266
+#, kde-format
+msgid "Properties for %1"
+msgstr "Vlastnosti pre %1"
+
+#: widgets/kpropertiesdialog.cpp:230
+#, kde-format
+msgid "Properties for 1 item"
+msgid_plural "Properties for %1 Selected Items"
+msgstr[0] "Vlastnosti pre 1 položku"
+msgstr[1] "Vlastnosti pre %1 položky"
+msgstr[2] "Vlastnosti pre %1 položiek"
+
+#: widgets/kpropertiesdialog.cpp:786
+msgctxt "@title:tab File properties"
+msgid "&General"
+msgstr "&Všeobecné"
+
+#: widgets/kpropertiesdialog.cpp:968
+msgid "Type:"
+msgstr "Typ:"
+
+#: widgets/kpropertiesdialog.cpp:987
+msgid "Create New File Type"
+msgstr "Vytvoriť nový typ súboru"
+
+#: widgets/kpropertiesdialog.cpp:989
+msgid "File Type Options"
+msgstr "Možnosti typu súboru"
+
+#: widgets/kpropertiesdialog.cpp:1000
+msgid "Contents:"
+msgstr "Obsah:"
+
+#: widgets/kpropertiesdialog.cpp:1008 widgets/kurlrequesterdialog.cpp:57
+msgid "Location:"
+msgstr "Umiestnenie:"
+
+#: widgets/kpropertiesdialog.cpp:1023
+msgid "Size:"
+msgstr "Veľkosť:"
+
+#: widgets/kpropertiesdialog.cpp:1039
+msgid "Calculate"
+msgstr "Spočítať"
+
+#: widgets/kpropertiesdialog.cpp:1040
+msgid "Stop"
+msgstr "Zastaviť"
+
+#: widgets/kpropertiesdialog.cpp:1049 widgets/kpropertiesdialog.cpp:1243
+msgid "Refresh"
+msgstr "Obnoviť"
+
+#: widgets/kpropertiesdialog.cpp:1057
+msgid "Points to:"
+msgstr "Ukazuje na:"
+
+#: widgets/kpropertiesdialog.cpp:1068
+msgid "Created:"
+msgstr "Vytvorené:"
+
+#: widgets/kpropertiesdialog.cpp:1077
+msgid "Modified:"
+msgstr "Zmenený:"
+
+#: widgets/kpropertiesdialog.cpp:1086
+msgid "Accessed:"
+msgstr "Prístup:"
+
+#: widgets/kpropertiesdialog.cpp:1104
+msgid "Mounted on:"
+msgstr "Miesto pripojenia:"
+
+#: widgets/kpropertiesdialog.cpp:1112 widgets/kpropertiesdialog.cpp:2823
+msgid "Device usage:"
+msgstr "Využitie zariadenia:"
+
+#: widgets/kpropertiesdialog.cpp:1206 widgets/kpropertiesdialog.cpp:2955
+#, kde-format
+msgctxt "Available space out of total partition size (percent used)"
+msgid "%1 free of %2 (%3% used)"
+msgstr "%1 voľných z %2 (%3% použitých)"
+
+#: widgets/kpropertiesdialog.cpp:1220
+#, kde-format
+msgid ""
+"Calculating... %1 (%2)\n"
+"%3, %4"
+msgstr ""
+"Vypočítava sa... %1 (%2)\n"
+"%3, %4"
+
+#: widgets/kpropertiesdialog.cpp:1223 widgets/kpropertiesdialog.cpp:1238
+#, kde-format
+msgid "1 file"
+msgid_plural "%1 files"
+msgstr[0] "1 súbor"
+msgstr[1] "%1 súbory"
+msgstr[2] "%1 súborov"
+
+#: widgets/kpropertiesdialog.cpp:1224 widgets/kpropertiesdialog.cpp:1239
+#, kde-format
+msgid "1 sub-folder"
+msgid_plural "%1 sub-folders"
+msgstr[0] "1 podpriečinok"
+msgstr[1] "%1 podpriečinky"
+msgstr[2] "%1 podpriečinkov"
+
+#: widgets/kpropertiesdialog.cpp:1252
+msgid "Calculating..."
+msgstr "Vypočítava sa..."
+
+#: widgets/kpropertiesdialog.cpp:1284
+#, kde-format
+msgid "At least %1"
+msgstr "Najmenej %1"
+
+#: widgets/kpropertiesdialog.cpp:1322
+msgid "The new file name is empty."
+msgstr "Nový názov súboru je prázdny."
+
+#: widgets/kpropertiesdialog.cpp:1505 widgets/kpropertiesdialog.cpp:2700
+#: widgets/kpropertiesdialog.cpp:3000 widgets/kpropertiesdialog.cpp:3254
+#, kde-format
+msgid ""
+"<qt>Could not save properties. You do not have sufficient access to write to "
+"<b>%1</b>.</qt>"
+msgstr ""
+"<qt>Nepodarilo sa uložiť vlastnosti. Nemáte dostatočný prístup na zápis do "
+"<b>%1</b>.</qt>"
+
+#: widgets/kpropertiesdialog.cpp:1581 widgets/kpropertiesdialog.cpp:1587
+#: widgets/kpropertiesdialog.cpp:1594
+msgid "Forbidden"
+msgstr "Zakázané"
+
+#: widgets/kpropertiesdialog.cpp:1582
+msgid "Can Read"
+msgstr "Môže čítať"
+
+#: widgets/kpropertiesdialog.cpp:1583
+msgid "Can Read & Write"
+msgstr "Môže čítať a zapisovať"
+
+#: widgets/kpropertiesdialog.cpp:1588
+msgid "Can View Content"
+msgstr "Môže zobraziť obsah"
+
+#: widgets/kpropertiesdialog.cpp:1589
+msgid "Can View & Modify Content"
+msgstr "Môže zobraziť a meniť obsah"
+
+#: widgets/kpropertiesdialog.cpp:1595
+msgid "Can View Content & Read"
+msgstr "Môže zobraziť obsah a čítať"
+
+#: widgets/kpropertiesdialog.cpp:1596
+msgid "Can View/Read & Modify/Write"
+msgstr "Môže zobraziť/čítať a meniť/zapisovať"
+
+#: widgets/kpropertiesdialog.cpp:1693
+msgid "&Permissions"
+msgstr "&Práva"
+
+#: widgets/kpropertiesdialog.cpp:1705 widgets/kpropertiesdialog.cpp:1908
+msgid "Access Permissions"
+msgstr "Prístupové práva"
+
+#: widgets/kpropertiesdialog.cpp:1713
+msgid "This file is a link and does not have permissions."
+msgid_plural "All files are links and do not have permissions."
+msgstr[0] "Tento súbor je odkaz a nemá práva."
+msgstr[1] "Všetky súbory sú odkazy a nemajú práva."
+msgstr[2] "Všetky súbory sú odkazy a nemajú práva."
+
+#: widgets/kpropertiesdialog.cpp:1717
+msgid "Only the owner can change permissions."
+msgstr "Iba vlastník môže zmeniť práva."
+
+#: widgets/kpropertiesdialog.cpp:1721
+msgid "O&wner:"
+msgstr "&Vlastník:"
+
+#: widgets/kpropertiesdialog.cpp:1727
+msgid "Specifies the actions that the owner is allowed to do."
+msgstr "Určuje akcie, ktoré môže urobiť vlastník."
+
+#: widgets/kpropertiesdialog.cpp:1729
+msgid "Gro&up:"
+msgstr "Skupina:"
+
+#: widgets/kpropertiesdialog.cpp:1735
+msgid "Specifies the actions that the members of the group are allowed to do."
+msgstr "Určuje akcie, ktoré môžu urobiť členovia tejto skupiny."
+
+#: widgets/kpropertiesdialog.cpp:1737
+msgid "O&thers:"
+msgstr "&Ostatní:"
+
+#: widgets/kpropertiesdialog.cpp:1743
+msgid ""
+"Specifies the actions that all users, who are neither owner nor in the "
+"group, are allowed to do."
+msgstr ""
+"Určuje akcie, ktoré môžu urobiť všetci užívatelia, ktorí nie sú členovia "
+"skupiny ani vlastníci."
+
+#: widgets/kpropertiesdialog.cpp:1748
+msgid "Only own&er can rename and delete folder content"
+msgstr "Iba &vlastník môže premenovať a odstrániť obsah priečinka"
+
+#: widgets/kpropertiesdialog.cpp:1749
+msgid "Is &executable"
+msgstr "Je s&pustiteľný"
+
+#: widgets/kpropertiesdialog.cpp:1753
+msgid ""
+"Enable this option to allow only the folder's owner to delete or rename the "
+"contained files and folders. Other users can only add new files, which "
+"requires the 'Modify Content' permission."
+msgstr ""
+"Povolením tejto možnosti nastavíte, aby iba vlastník priečinka mohol "
+"odstraňovať alebo premenovať súbory a priečinky. Ostatní používatelia môžu "
+"iba pridávať nové súbory, na čo je požadované právo 'Meniť obsah'."
+
+#: widgets/kpropertiesdialog.cpp:1757
+msgid ""
+"Enable this option to mark the file as executable. This only makes sense for "
+"programs and scripts. It is required when you want to execute them."
+msgstr ""
+"Povolením tejto možnosti označíte súbor ako spustiteľný. Má to zmysel iba "
+"pre programy a skripty. Je to požadované, ak ich chcete spúšťať."
+
+#: widgets/kpropertiesdialog.cpp:1764
+msgid "A&dvanced Permissions"
+msgstr "P&okročilé práva"
+
+#: widgets/kpropertiesdialog.cpp:1772
+msgid "Ownership"
+msgstr "Vlastníctvo"
+
+#: widgets/kpropertiesdialog.cpp:1779
+msgid "User:"
+msgstr "Užívateľ:"
+
+#: widgets/kpropertiesdialog.cpp:1823
+msgid "Group:"
+msgstr "Skupina:"
+
+#: widgets/kpropertiesdialog.cpp:1860
+msgid "Apply changes to all subfolders and their contents"
+msgstr "Použiť zmeny na všetky podpriečinky a ich obsah"
+
+#: widgets/kpropertiesdialog.cpp:1899
+msgid "Advanced Permissions"
+msgstr "Pokročilé práva"
+
+#: widgets/kpropertiesdialog.cpp:1916
+msgid "Class"
+msgstr "Trieda"
+
+#: widgets/kpropertiesdialog.cpp:1921
+msgid ""
+"Show\n"
+"Entries"
+msgstr ""
+"Zobraziť\n"
+"položky"
+
+#: widgets/kpropertiesdialog.cpp:1923
+msgid "Read"
+msgstr "Prečítané"
+
+#: widgets/kpropertiesdialog.cpp:1929
+msgid "This flag allows viewing the content of the folder."
+msgstr "Tento príznak umožňuje zobrazenie obsahu priečinka."
+
+#: widgets/kpropertiesdialog.cpp:1931
+msgid "The Read flag allows viewing the content of the file."
+msgstr "Príznak čítania umožňuje zobrazenie obsahu súboru."
+
+#: widgets/kpropertiesdialog.cpp:1936
+msgid ""
+"Write\n"
+"Entries"
+msgstr ""
+"Zápis\n"
+"položiek"
+
+#: widgets/kpropertiesdialog.cpp:1938
+msgid "Write"
+msgstr "Zápis"
+
+#: widgets/kpropertiesdialog.cpp:1944
+msgid ""
+"This flag allows adding, renaming and deleting of files. Note that deleting "
+"and renaming can be limited using the Sticky flag."
+msgstr ""
+"Tento príznak umožňuje pridávanie, premenovanie a odstránenie súborov. "
+"Uvedomte si, že odstránenie a premenovanie môže byť obmedzené pomocou "
+"príznaku Sticky."
+
+#: widgets/kpropertiesdialog.cpp:1947
+msgid "The Write flag allows modifying the content of the file."
+msgstr "Príznak zápisu umožňuje meniť obsah súboru."
+
+#: widgets/kpropertiesdialog.cpp:1953
+msgctxt "Enter folder"
+msgid "Enter"
+msgstr "Vstup"
+
+#: widgets/kpropertiesdialog.cpp:1954
+msgid "Enable this flag to allow entering the folder."
+msgstr "Tento príznak umožňuje vstup do priečinka."
+
+#: widgets/kpropertiesdialog.cpp:1956
+msgid "Exec"
+msgstr "Spúšťanie"
+
+#: widgets/kpropertiesdialog.cpp:1957
+msgid "Enable this flag to allow executing the file as a program."
+msgstr "Tento príznak umožňuje spúšťanie súboru ako program."
+
+#: widgets/kpropertiesdialog.cpp:1967
+msgid "Special"
+msgstr "Špeciálne"
+
+#: widgets/kpropertiesdialog.cpp:1971
+msgid ""
+"Special flag. Valid for the whole folder, the exact meaning of the flag can "
+"be seen in the right hand column."
+msgstr ""
+"Špeciálny príznak. Platný pre celý priečinok, jeho presný význam je "
+"zobrazený v stĺpci vpravo."
+
+#: widgets/kpropertiesdialog.cpp:1974
+msgid ""
+"Special flag. The exact meaning of the flag can be seen in the right hand "
+"column."
+msgstr "Špeciálny príznak. Jeho presný význam je zobrazený v stĺpci vpravo."
+
+#: widgets/kpropertiesdialog.cpp:1978
+msgid "User"
+msgstr "Používateľ"
+
+#: widgets/kpropertiesdialog.cpp:1982
+msgid "Group"
+msgstr "Skupina"
+
+#: widgets/kpropertiesdialog.cpp:1990
+msgid "Set UID"
+msgstr "Nastaviť UID"
+
+#: widgets/kpropertiesdialog.cpp:1994
+msgid ""
+"If this flag is set, the owner of this folder will be the owner of all new "
+"files."
+msgstr ""
+"Ak je tento príznak nastavený, vlastník tohto priečinka bude vlastníkom "
+"všetkých nových súborov."
+
+#: widgets/kpropertiesdialog.cpp:1997
+msgid ""
+"If this file is an executable and the flag is set, it will be executed with "
+"the permissions of the owner."
+msgstr ""
+"Ak je tento súbor spustiteľný a tento príznak nastavený, súbor sa spustí s "
+"právami vlastníka."
+
+#: widgets/kpropertiesdialog.cpp:2001
+msgid "Set GID"
+msgstr "Nastaviť GID"
+
+#: widgets/kpropertiesdialog.cpp:2005
+msgid ""
+"If this flag is set, the group of this folder will be set for all new files."
+msgstr ""
+"Ak je tento príznak nastavený, bude pre všetky nové súbory nastavená skupina "
+"tohto priečinka."
+
+#: widgets/kpropertiesdialog.cpp:2008
+msgid ""
+"If this file is an executable and the flag is set, it will be executed with "
+"the permissions of the group."
+msgstr ""
+"Ak je tento súbor spustiteľný a tento príznak nastavený, súbor sa spustí s "
+"právami skupiny."
+
+#: widgets/kpropertiesdialog.cpp:2012
+msgctxt "File permission"
+msgid "Sticky"
+msgstr "Sticky"
+
+#: widgets/kpropertiesdialog.cpp:2016
+msgid ""
+"If the Sticky flag is set on a folder, only the owner and root can delete or "
+"rename files. Otherwise everybody with write permissions can do this."
+msgstr ""
+"Ak je príznak Sticky nastavený na priečinku, iba vlastník a root môžu "
+"odstrániť a premenovať súbory. Inak to môže spraviť ktokoľvek s právom "
+"zápisu."
+
+#: widgets/kpropertiesdialog.cpp:2020
+msgid ""
+"The Sticky flag on a file is ignored on Linux, but may be used on some "
+"systems"
+msgstr ""
+"Príznak Sticky na súbore je v Linuxe ignorovaný, ale iné systémy ho môžu "
+"využívať"
+
+#: widgets/kpropertiesdialog.cpp:2208
+msgid "Link"
+msgstr "Odkaz"
+
+#: widgets/kpropertiesdialog.cpp:2227
+msgid "Varying (No Change)"
+msgstr "Rôzne (bez zmeny)"
+
+#: widgets/kpropertiesdialog.cpp:2340
+msgid "This file uses advanced permissions"
+msgid_plural "These files use advanced permissions."
+msgstr[0] "Tento súbor používa pokročilé práva."
+msgstr[1] "Tieto súbory používajú pokročilé práva."
+msgstr[2] "Tieto súbory používajú pokročilé práva."
+
+#: widgets/kpropertiesdialog.cpp:2361
+msgid "This folder uses advanced permissions."
+msgid_plural "These folders use advanced permissions."
+msgstr[0] "Tento priečinok používa pokročilé práva."
+msgstr[1] "Tieto priečinky používajú pokročilé práva."
+msgstr[2] "Tieto priečinky používajú pokročilé práva."
+
+#: widgets/kpropertiesdialog.cpp:2376
+msgid "These files use advanced permissions."
+msgstr "Tieto súbory používajú pokročilé práva."
+
+#: widgets/kpropertiesdialog.cpp:2611
+msgid "U&RL"
+msgstr "U&RL"
+
+#: widgets/kpropertiesdialog.cpp:2618
+msgid "URL:"
+msgstr "URL:"
+
+#: widgets/kpropertiesdialog.cpp:2758
+msgid "De&vice"
+msgstr "Za&riadenie"
+
+#: widgets/kpropertiesdialog.cpp:2787
+msgid "Device (/dev/fd0):"
+msgstr "Zariadenie (/dev/fd0):"
+
+#: widgets/kpropertiesdialog.cpp:2788
+msgid "Device:"
+msgstr "Zariadenie:"
+
+#: widgets/kpropertiesdialog.cpp:2801
+msgid "Read only"
+msgstr "Len na čítanie"
+
+#: widgets/kpropertiesdialog.cpp:2805
+msgid "File system:"
+msgstr "Súborový systém:"
+
+#: widgets/kpropertiesdialog.cpp:2813
+msgid "Mount point (/mnt/floppy):"
+msgstr "Bod pripojenia (/mnt/floppy):"
+
+#: widgets/kpropertiesdialog.cpp:2814
+msgid "Mount point:"
+msgstr "Bod pripojenia:"
+
+#: widgets/kpropertiesdialog.cpp:3058
+msgid "&Application"
+msgstr "&Aplikácia"
+
+#: widgets/kpropertiesdialog.cpp:3184
+#, kde-format
+msgid "Add File Type for %1"
+msgstr "Pridať typ súboru pre %1"
+
+#: widgets/kpropertiesdialog.cpp:3185
+msgid "Select one or more file types to add:"
+msgstr "Vyberte jeden alebo viac typov súborov k pridaniu:"
+
+#: widgets/kpropertiesdialog.cpp:3246
+msgid ""
+"Could not save properties. Only entries on local file systems are supported."
+msgstr ""
+"Nemôžem uložiť vlastnosti. Podporované sú iba položky na miestnom súborovom "
+"systéme."
+
+#: widgets/kpropertiesdialog.cpp:3325
+msgid "Only executables on local file systems are supported."
+msgstr ""
+"Podporované sú len spustiteľné súbory na lokálnych súborových systémoch."
+
+#: widgets/kpropertiesdialog.cpp:3339
+#, kde-format
+msgid "Advanced Options for %1"
+msgstr "Pokročilé možnosti pre %1"
+
+#: widgets/krun.cpp:171
+#, kde-format
+msgid ""
+"<qt>Unable to enter <b>%1</b>.\n"
+"You do not have access rights to this location.</qt>"
+msgstr ""
+"<qt>Nepodarilo sa vstúpiť do <b>%1</b>.\n"
+"Nemáte prístupové práva k tomuto umiestneniu.</qt>"
+
+#: widgets/krun.cpp:201
+#, kde-format
+msgid ""
+"<qt>The file <b>%1</b> is an executable program. For safety it will not be "
+"started.</qt>"
+msgstr ""
+"<qt>Súbor <b>%1</b> je spustiteľný program. Kvôli bezpečnosti nebude "
+"spustený.</qt>"
+
+#: widgets/krun.cpp:207
+#, kde-format
+msgid "<qt>You do not have permission to run <b>%1</b>.</qt>"
+msgstr "<qt>Nemáte práva na spustenie <b>%1</b>.</qt>"
+
+#: widgets/krun.cpp:237
+msgid "You are not authorized to select an application to open this file."
+msgstr "Nemáte práva pre výber aplikácie na otvorenie tohto súboru."
+
+#: widgets/krun.cpp:248
+msgid "Open with:"
+msgstr "Otvoriť pomocou:"
+
+#: widgets/krun.cpp:298
+msgid "You are not authorized to execute this file."
+msgstr "Nemáte práva na spustenie tohto súboru."
+
+#: widgets/krun.cpp:321
+#, kde-format
+msgid "Launching %1"
+msgstr "Spúšťa sa %1"
+
+#: widgets/krun.cpp:426
+#, kde-format
+msgid "Error processing Exec field in %1"
+msgstr "Chyba v spracovávaní poľa Exec %1"
+
+#: widgets/krun.cpp:603
+msgid "You are not authorized to execute this service."
+msgstr "Nemáte práva na spustenie tejto služby."
+
+#: widgets/krun.cpp:608
+msgctxt "Warning about executing unknown .desktop file"
+msgid "Warning"
+msgstr "Upozornenie"
+
+#: widgets/krun.cpp:625
+msgctxt "program name follows in a line edit below"
+msgid "This will start the program:"
+msgstr "Spustí sa program:"
+
+#: widgets/krun.cpp:642
+msgid "If you do not trust this program, click Cancel"
+msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
+
+#: widgets/krun.cpp:685
+#, kde-format
+msgid "Unable to make the service %1 executable, aborting execution"
+msgstr ""
+"Nepodarilo sa nastaviť službu %1 ako spustiteľnú, prerušuje sa spustenie"
+
+#: widgets/krun.cpp:868
+#, kde-format
+msgid ""
+"<qt>Unable to run the command specified. The file or folder <b>%1</b> does "
+"not exist.</qt>"
+msgstr ""
+"<qt>Nepodarilo sa spustiť zadaný príkaz. Súbor alebo priečinok <b>%1</b> "
+"neexistuje.</qt>"
+
+#: widgets/krun.cpp:1525
+#, kde-format
+msgid "Could not find the program '%1'"
+msgstr "Nepodarilo sa nájsť program '%1'"
+
+#: widgets/ksslinfodialog.cpp:57
+msgid "KDE SSL Information"
+msgstr "Informácie KDE SSL"
+
+#: widgets/ksslinfodialog.cpp:69
+msgctxt "The receiver of the SSL certificate"
+msgid "Subject"
+msgstr "Predmet"
+
+#: widgets/ksslinfodialog.cpp:70
+msgctxt "The authority that issued the SSL certificate"
+msgid "Issuer"
+msgstr "Vydavateľ"
+
+#: widgets/ksslinfodialog.cpp:86 widgets/ksslinfodialog.cpp:120
+msgid "Current connection is secured with SSL."
+msgstr "Aktuálne spojenie je zabezpečené pomocou SSL."
+
+#: widgets/ksslinfodialog.cpp:89 widgets/ksslinfodialog.cpp:133
+msgid "Current connection is not secured with SSL."
+msgstr "Aktuálne spojenie nie je zabezpečené pomocou SSL."
+
+#: widgets/ksslinfodialog.cpp:93
+msgid "SSL support is not available in this build of KDE."
+msgstr "Podpora SSL nie je v tomto zostavení KDE k dispozícii."
+
+#: widgets/ksslinfodialog.cpp:123
+msgid ""
+"The main part of this document is secured with SSL, but some parts are not."
+msgstr ""
+"Hlavná časť tohto dokumentu je zabezpečená pomocou SSL, ale niektoré časti "
+"nie."
+
+#: widgets/ksslinfodialog.cpp:129
+msgid "Some of this document is secured with SSL, but the main part is not."
+msgstr ""
+"Niektoré časti tohto dokumentu sú zabezpečené pomocou SSL, ale hlavná časť "
+"nie."
+
+#: widgets/ksslinfodialog.cpp:179
+#, kde-format
+msgctxt "%1, using %2 bits of a %3 bit key"
+msgid "%1, %2 %3"
+msgstr "%1, %2 %3"
+
+#: widgets/ksslinfodialog.cpp:181
+#, kde-format
+msgctxt "Part of: %1, using %2 bits of a %3 bit key"
+msgid "using %1 bit"
+msgid_plural "using %1 bits"
+msgstr[0] "používa %1 bit"
+msgstr[1] "používa %1 bity"
+msgstr[2] "používa %1 bitov"
+
+#: widgets/ksslinfodialog.cpp:183
+#, kde-format
+msgctxt "Part of: %1, using %2 bits of a %3 bit key"
+msgid "of a %1 bit key"
+msgid_plural "of a %1 bit key"
+msgstr[0] "z %1 bitového kľúča"
+msgstr[1] "z %1 bitového kľúča"
+msgstr[2] "z %1 bitového kľúča"
+
+#: widgets/ksslinfodialog.cpp:199
+msgctxt "The certificate is not trusted"
+msgid "NO, there were errors:"
+msgstr "NIE, vyskytli sa chyby:"
+
+#: widgets/ksslinfodialog.cpp:206
+msgctxt "The certificate is trusted"
+msgid "Yes"
+msgstr "Áno"
+
+#: widgets/ksslinfodialog.cpp:210
+#, kde-format
+msgctxt "%1 is the effective date of the certificate, %2 is the expiry date"
+msgid "%1 to %2"
+msgstr "%1 do %2"
+
+#: widgets/kurlrequester.cpp:322
+msgid "Open file dialog"
+msgstr "Dialóg pre otvorenie súboru"
+
+#: widgets/paste.cpp:79 widgets/paste.cpp:148 widgets/pastejob.cpp:108
+msgid "Filename for clipboard content:"
+msgstr "Názov súboru pre obsah schránky:"
+
+#: widgets/paste.cpp:140
+#, kde-format
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: widgets/paste.cpp:159
+msgid ""
+"The clipboard has changed since you used 'paste': the chosen data format is "
+"no longer applicable. Please copy again what you wanted to paste."
+msgstr ""
+"Schránka sa zmenila od poslednej operácie 'vložiť': vybraný formát dát sa už "
+"nedá použiť. Skopírujte znovu to, čo ste chceli vložiť."
+
+#: widgets/paste.cpp:286
+#, kde-format
+msgid "&Paste File"
+msgid_plural "&Paste %1 Files"
+msgstr[0] "&Vložiť súbor"
+msgstr[1] "&Vložiť %1 súbory"
+msgstr[2] "&Vložiť %1 súborov"
+
+#: widgets/paste.cpp:288
+#, kde-format
+msgid "&Paste URL"
+msgid_plural "&Paste %1 URLs"
+msgstr[0] "&Vložiť URL"
+msgstr[1] "&Vložiť %1 URL"
+msgstr[2] "&Vložiť %1 URL"
+
+#: widgets/paste.cpp:291
+msgid "&Paste Clipboard Contents"
+msgstr "&Vložiť obsah schránky"
+
+#: widgets/paste.cpp:320
+msgctxt "@action:inmenu"
+msgid "Paste One Folder"
+msgstr "Vložiť jeden priečinok"
+
+#: widgets/paste.cpp:321
+msgctxt "@action:inmenu"
+msgid "Paste One File"
+msgstr "Vložiť jeden súbor"
+
+#: widgets/paste.cpp:323
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste One Item"
+msgid_plural "Paste %1 Items"
+msgstr[0] "Vložiť jednu položku"
+msgstr[1] "Vložiť %1 položky"
+msgstr[2] "Vložiť %1 položiek"
+
+#: widgets/paste.cpp:325
+msgctxt "@action:inmenu"
+msgid "Paste Clipboard Contents..."
+msgstr "Vložiť obsah schránky..."
+
+#: widgets/paste.cpp:329
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr "Vložiť"
+
+#: widgets/pastedialog.cpp:57
+msgid "Data format:"
+msgstr "Formát dát:"
+
+#: widgets/pastejob.cpp:108
+msgid "Filename for dropped contents:"
+msgstr "Názov súboru pre zahodený obsah:"
+
+#: widgets/renamedialog.cpp:134
+msgid "Appl&y to All"
+msgstr "Použiť na všetk&y"
+
+#: widgets/renamedialog.cpp:135
+msgid ""
+"When this is checked the button pressed will be applied to all subsequent "
+"folder conflicts for the remainder of the current job.\n"
+"Unless you press Skip you will still be prompted in case of a conflict with "
+"an existing file in the directory."
+msgstr ""
+"Ak je táto možnosť začiarknutá, stlačené tlačidlo bude použité na všetky "
+"ďalšie konflikty pre zvyšok aktuálnej úlohy.\n"
+"Pokiaľ nestlačíte tlačidlo Preskočiť, budete znovu vyzvaný v prípade "
+"konfliktu s existujúcim súborom v adresári."
+
+#: widgets/renamedialog.cpp:136
+msgid ""
+"When this is checked the button pressed will be applied to all subsequent "
+"conflicts for the remainder of the current job."
+msgstr ""
+"Ak je táto možnosť začiarknutá, stlačené tlačidlo bude použité na všetky "
+"ďalšie konflikty pre zvyšok aktuálnej úlohy."
+
+#: widgets/renamedialog.cpp:141
+msgid "&Rename"
+msgstr "P&remenovať"
+
+#: widgets/renamedialog.cpp:143
+msgid "Suggest New &Name"
+msgstr "Navrhnúť &nový názov"
+
+#: widgets/renamedialog.cpp:149
+msgid "&Skip"
+msgstr "&Preskočiť"
+
+#: widgets/renamedialog.cpp:150
+msgid "Do not copy or move this folder, skip to the next item instead"
+msgstr "Nekopírovať/nepresúvať tento priečinok, preskočiť na ďalšiu položku"
+
+#: widgets/renamedialog.cpp:151
+msgid "Do not copy or move this file, skip to the next item instead"
+msgstr "Nekopírovať/nepresúvať tento súbor, preskočiť na ďalšiu položku"
+
+#: widgets/renamedialog.cpp:156
+msgctxt "Write files into an existing folder"
+msgid "&Write Into"
+msgstr "&Zapísať do"
+
+#: widgets/renamedialog.cpp:156
+msgid "&Overwrite"
+msgstr "&Prepísať"
+
+#: widgets/renamedialog.cpp:158
+msgid ""
+"Files and folders will be copied into the existing directory, alongside its "
+"existing contents.\n"
+"You will be prompted again in case of a conflict with an existing file in "
+"the directory."
+msgstr ""
+"Súbory a priečinky budú skopírované do existujúceho adresára, spolu s jeho "
+"obsahom.\n"
+"Budete znovu vyzvaný v prípade konfliktu s existujúcim súborom v adresári."
+
+#: widgets/renamedialog.cpp:163
+msgid "&Resume"
+msgstr "&Obnoviť"
+
+#: widgets/renamedialog.cpp:172
+#, kde-format
+msgid ""
+"This action would overwrite '%1' with itself.\n"
+"Please enter a new file name:"
+msgstr ""
+"Táto akcia prepíše %1 sebou samým.\n"
+"Zadajte nový názov súboru:"
+
+#: widgets/renamedialog.cpp:176
+msgid "C&ontinue"
+msgstr "&Pokračovať"
+
+#: widgets/renamedialog.cpp:230
+msgid "This action will overwrite the destination."
+msgstr "Táto akcia prepíše cieľ."
+
+#: widgets/renamedialog.cpp:232
+msgid "Source"
+msgstr "Zdroj"
+
+#: widgets/renamedialog.cpp:233
+msgid "Destination"
+msgstr "Cieľ"
+
+#: widgets/renamedialog.cpp:239
+msgid "Warning, the destination is more recent."
+msgstr "Upozornenie, cieľ je novší."
+
+#: widgets/renamedialog.cpp:270
+#, kde-format
+msgid "An older item named '%1' already exists."
+msgstr "Staršia položka s názvom '%1' už existuje."
+
+#: widgets/renamedialog.cpp:272
+#, kde-format
+msgid "A similar file named '%1' already exists."
+msgstr "Podobný súbor s názvom '%1' už existuje."
+
+#: widgets/renamedialog.cpp:274
+#, kde-format
+msgid "A more recent item named '%1' already exists."
+msgstr "Novšia položka s názvom '%1' už existuje."
+
+#: widgets/renamedialog.cpp:286
+msgid "Rename:"
+msgstr "Premenovať:"
+
+#: widgets/skipdialog.cpp:38
+msgid "Information"
+msgstr "Informácia"
+
+#: widgets/skipdialog.cpp:48
+msgid "Retry"
+msgstr "Znovu"
+
+#: widgets/skipdialog.cpp:53
+msgid "Skip"
+msgstr "Preskočiť"
+
+#: widgets/skipdialog.cpp:57
+msgid "AutoSkip"
+msgstr "Automaticky preskočiť"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
+#: widgets/sslinfo.ui:17
+msgid "[padlock]"
+msgstr "[zámok]"
+
+#. i18n: ectx: property (text), widget (QLabel, addressTag)
+#: widgets/sslinfo.ui:34
+msgctxt "Web page address"
+msgid "Address:"
+msgstr "Adresa:"
+
+#. i18n: ectx: property (text), widget (QLabel, ipTag)
+#: widgets/sslinfo.ui:54
+msgid "IP address:"
+msgstr "IP adresa:"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionTag)
+#: widgets/sslinfo.ui:74
+msgid "Encryption:"
+msgstr "Šifrovanie:"
+
+#. i18n: ectx: property (text), widget (QLabel, detailsTag)
+#: widgets/sslinfo.ui:94
+msgid "Details:"
+msgstr "Podrobnosti:"
+
+#. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
+#: widgets/sslinfo.ui:114
+msgid "SSL version:"
+msgstr "Verzia SSL:"
+
+#. i18n: ectx: property (text), widget (QLabel, certSelectorTag)
+#: widgets/sslinfo.ui:134
+msgid "Certificate chain:"
+msgstr "Reťazec certifikátu:"
+
+#. i18n: ectx: property (text), widget (QLabel, trustedTag)
+#: widgets/sslinfo.ui:163
+msgid "Trusted:"
+msgstr "Dôveryhodný:"
+
+#. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
+#: widgets/sslinfo.ui:183
+msgid "Validity period:"
+msgstr "Doba platnosti:"
+
+#. i18n: ectx: property (text), widget (QLabel, serialTag)
+#: widgets/sslinfo.ui:203
+msgid "Serial number:"
+msgstr "Sériové číslo:"
+
+#. i18n: ectx: property (text), widget (QLabel, digestTag)
+#: widgets/sslinfo.ui:223
+msgid "MD5 digest:"
+msgstr "MD5 digest:"
+
+#. i18n: ectx: property (text), widget (QLabel, sha1DigestTag)
+#: widgets/sslinfo.ui:243
+msgid "SHA1 digest:"
+msgstr "SHA1 digest:"
+
+#: widgets/sslui.cpp:49
+msgid ""
+"The remote host did not send any SSL certificates.\n"
+"Aborting because the identity of the host cannot be established."
+msgstr ""
+"Vzdialený hostiteľ neposlal žiadne SSL certifikáty.\n"
+"Ruší sa, pretože sa nepodarilo zistiť identitu hostiteľa."

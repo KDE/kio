@@ -1,0 +1,6310 @@
+# translation of kio4.po to
+# translation of kio4.po to
+# translation of kio4.po to
+# translation of kio4.po to Romanian
+# Claudiu Costin <claudiuc@kde.org>, 2002, 2003, 2004, 2005, 2006.
+# Claudiu Costin <claudiuc@geocities.com>, 2002.
+# Sergiu Bivol <sergiu@ase.md>, 2008, 2009.
+# Sergiu Bivol <sergiu.bivol@jurnaltv.md>, 2010, 2012, 2013, 2014.
+# Cristian Oneț <onet.cristian@gmail.com>, 2010, 2011, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kio4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-12-03 07:38+0000\n"
+"PO-Revision-Date: 2014-03-25 01:33+0200\n"
+"Last-Translator: Sergiu Bivol <sergiu@ase.md>\n"
+"Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sergiu Bivol, Cristian Oneț"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sergiu@ase.md,onet.cristian@gmail.com"
+
+#: core/chmodjob.cpp:202
+#, kde-format
+msgid "Could not modify the ownership of file %1"
+msgstr "Nu s-a putut schimba proprietarul fișierului %1"
+
+#: core/chmodjob.cpp:204
+#, kde-format
+msgid ""
+"<qt>Could not modify the ownership of file <b>%1</b>. You have insufficient "
+"access to the file to perform the change.</qt>"
+msgstr ""
+"<qt>Nu s-a putut modifica proprietarul fișierului <b>%1</b>. Nu aveți "
+"drepturi suficiente pentru a efectua această modificare.</qt>"
+
+#: core/connectionbackend.cpp:144
+#, kde-format
+msgid "Unable to create io-slave: %1"
+msgstr "Nu pot crea io-slave: %1"
+
+#: core/copyjob.cpp:1100 core/job_error.cpp:504
+msgid "Folder Already Exists"
+msgstr "Dosarul există deja"
+
+#: core/copyjob.cpp:1371 core/copyjob.cpp:1937 core/filecopyjob.cpp:360
+#: core/job_error.cpp:494 widgets/paste.cpp:101
+msgid "File Already Exists"
+msgstr "Fișierul există deja"
+
+#: core/copyjob.cpp:1371 core/copyjob.cpp:1937
+msgid "Already Exists as Folder"
+msgstr "Deja există ca dosar"
+
+#: core/global.cpp:76
+#, kde-format
+msgctxt "size in bytes"
+msgid "%1 B"
+msgstr "%1 o"
+
+#: core/global.cpp:80
+#, kde-format
+msgctxt "size in 1000 bytes"
+msgid "%1 kB"
+msgstr "%1 ko"
+
+#: core/global.cpp:81
+#, kde-format
+msgctxt "size in 10^6 bytes"
+msgid "%1 MB"
+msgstr "%1 Mo"
+
+#: core/global.cpp:82
+#, kde-format
+msgctxt "size in 10^9 bytes"
+msgid "%1 GB"
+msgstr "%1 Go"
+
+#: core/global.cpp:83
+#, kde-format
+msgctxt "size in 10^12 bytes"
+msgid "%1 TB"
+msgstr "%1 To"
+
+#: core/global.cpp:84
+#, kde-format
+msgctxt "size in 10^15 bytes"
+msgid "%1 PB"
+msgstr "%1 Po"
+
+#: core/global.cpp:85
+#, kde-format
+msgctxt "size in 10^18 bytes"
+msgid "%1 EB"
+msgstr "%1 Eo"
+
+#: core/global.cpp:86
+#, kde-format
+msgctxt "size in 10^21 bytes"
+msgid "%1 ZB"
+msgstr "%1 Zo"
+
+#: core/global.cpp:87
+#, kde-format
+msgctxt "size in 10^24 bytes"
+msgid "%1 YB"
+msgstr "%1 Yo"
+
+#: core/global.cpp:91
+#, kde-format
+msgctxt "memory size in 1024 bytes"
+msgid "%1 KB"
+msgstr "%1 Ko"
+
+#: core/global.cpp:92
+#, kde-format
+msgctxt "memory size in 2^20 bytes"
+msgid "%1 MB"
+msgstr "%1 Mo"
+
+#: core/global.cpp:93
+#, kde-format
+msgctxt "memory size in 2^30 bytes"
+msgid "%1 GB"
+msgstr "%1 Go"
+
+#: core/global.cpp:94
+#, kde-format
+msgctxt "memory size in 2^40 bytes"
+msgid "%1 TB"
+msgstr "%1 To"
+
+#: core/global.cpp:95
+#, kde-format
+msgctxt "memory size in 2^50 bytes"
+msgid "%1 PB"
+msgstr "%1 Po"
+
+#: core/global.cpp:96
+#, kde-format
+msgctxt "memory size in 2^60 bytes"
+msgid "%1 EB"
+msgstr "%1 Eo"
+
+#: core/global.cpp:97
+#, kde-format
+msgctxt "memory size in 2^70 bytes"
+msgid "%1 ZB"
+msgstr "%1 Zo"
+
+#: core/global.cpp:98
+#, kde-format
+msgctxt "memory size in 2^80 bytes"
+msgid "%1 YB"
+msgstr "%1 Yo"
+
+#: core/global.cpp:103
+#, kde-format
+msgctxt "size in 1024 bytes"
+msgid "%1 KiB"
+msgstr "%1 Kio"
+
+#: core/global.cpp:104
+#, kde-format
+msgctxt "size in 2^20 bytes"
+msgid "%1 MiB"
+msgstr "%1 Mio"
+
+#: core/global.cpp:105
+#, kde-format
+msgctxt "size in 2^30 bytes"
+msgid "%1 GiB"
+msgstr "%1 Gio"
+
+#: core/global.cpp:106
+#, kde-format
+msgctxt "size in 2^40 bytes"
+msgid "%1 TiB"
+msgstr "%1 Tio"
+
+#: core/global.cpp:107
+#, kde-format
+msgctxt "size in 2^50 bytes"
+msgid "%1 PiB"
+msgstr "%1 Pio"
+
+#: core/global.cpp:108
+#, kde-format
+msgctxt "size in 2^60 bytes"
+msgid "%1 EiB"
+msgstr "%1 Eio"
+
+#: core/global.cpp:109
+#, kde-format
+msgctxt "size in 2^70 bytes"
+msgid "%1 ZiB"
+msgstr "%1 Zio"
+
+#: core/global.cpp:110
+#, kde-format
+msgctxt "size in 2^80 bytes"
+msgid "%1 YiB"
+msgstr "%1 Yio"
+
+#: core/global.cpp:170
+#, kde-format
+msgid "1 day %2"
+msgid_plural "%1 days %2"
+msgstr[0] "1 zi %2"
+msgstr[1] "%1 zile %2"
+msgstr[2] "%1 de zile %2"
+
+#: core/global.cpp:205 core/global.cpp:222
+#, kde-format
+msgid "%1 Item"
+msgid_plural "%1 Items"
+msgstr[0] "%1 element"
+msgstr[1] "%1 elemente"
+msgstr[2] "%1 de elemente"
+
+#: core/global.cpp:209
+#, kde-format
+msgid "1 Folder"
+msgid_plural "%1 Folders"
+msgstr[0] "1 dosar"
+msgstr[1] "%1 dosare"
+msgstr[2] "%1 de dosare"
+
+#: core/global.cpp:210
+#, kde-format
+msgid "1 File"
+msgid_plural "%1 Files"
+msgstr[0] "1 fișier"
+msgstr[1] "%1 fișiere"
+msgstr[2] "%1 de fișiere"
+
+#: core/global.cpp:213
+#, kde-format
+msgctxt "folders, files (size)"
+msgid "%1, %2 (%3)"
+msgstr "%1, %2 (%3)"
+
+#: core/global.cpp:214
+#, kde-format
+msgctxt "folders, files"
+msgid "%1, %2"
+msgstr "%1, %2"
+
+#: core/global.cpp:216
+#, kde-format
+msgctxt "files (size)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: core/global.cpp:223
+#, kde-format
+msgctxt "items: folders, files (size)"
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: core/job.cpp:108
+msgctxt "@title job"
+msgid "Moving"
+msgstr "Mutare"
+
+#: core/job.cpp:109 core/job.cpp:116 core/job.cpp:141
+#: widgets/fileundomanager.cpp:131
+msgctxt "The source of a file operation"
+msgid "Source"
+msgstr "Sursă"
+
+#: core/job.cpp:110 core/job.cpp:117 widgets/fileundomanager.cpp:132
+msgctxt "The destination of a file operation"
+msgid "Destination"
+msgstr "Destinație"
+
+#: core/job.cpp:115
+msgctxt "@title job"
+msgid "Copying"
+msgstr "Copiere"
+
+#: core/job.cpp:122
+msgctxt "@title job"
+msgid "Creating directory"
+msgstr "Creez directorul"
+
+#: core/job.cpp:123 widgets/fileundomanager.cpp:126
+msgid "Directory"
+msgstr "Director"
+
+#: core/job.cpp:128
+msgctxt "@title job"
+msgid "Deleting"
+msgstr "Ștergere"
+
+#: core/job.cpp:129 core/job.cpp:135 widgets/fileundomanager.cpp:137
+msgid "File"
+msgstr "Fișier"
+
+#: core/job.cpp:134
+msgctxt "@title job"
+msgid "Examining"
+msgstr "Examinare"
+
+#: core/job.cpp:140
+msgctxt "@title job"
+msgid "Transferring"
+msgstr "Transferare"
+
+#: core/job.cpp:146
+msgctxt "@title job"
+msgid "Mounting"
+msgstr "Montare"
+
+#: core/job.cpp:147
+msgid "Device"
+msgstr "Dispozitiv"
+
+#: core/job.cpp:148 core/job.cpp:154
+msgid "Mountpoint"
+msgstr "Punct de montare"
+
+#: core/job.cpp:153
+msgctxt "@title job"
+msgid "Unmounting"
+msgstr "Demontare"
+
+#: core/job_error.cpp:38
+#, kde-format
+msgid "Could not read %1."
+msgstr "Nu s-a putut citi %1."
+
+#: core/job_error.cpp:41
+#, kde-format
+msgid "Could not write to %1."
+msgstr "Nu s-a putut scrie în %1."
+
+#: core/job_error.cpp:44
+#, kde-format
+msgid "Could not start process %1."
+msgstr "Nu s-a putut porni procesul %1."
+
+#: core/job_error.cpp:47
+#, kde-format
+msgid ""
+"Internal Error\n"
+"Please send a full bug report at http://bugs.kde.org\n"
+"%1"
+msgstr ""
+"Eroare internă.\n"
+"Trimiteți un raport de eroare complet la http://bugs.kde.org\n"
+"%1"
+
+#: core/job_error.cpp:50
+#, kde-format
+msgid "Malformed URL %1."
+msgstr "URL eronat %1."
+
+#: core/job_error.cpp:53
+#, kde-format
+msgid "The protocol %1 is not supported."
+msgstr "Protocolul %1 nu este suportat."
+
+#: core/job_error.cpp:56
+#, kde-format
+msgid "The protocol %1 is only a filter protocol."
+msgstr "Protocolul %1 este un protocol numai de filtrare."
+
+#: core/job_error.cpp:63
+#, kde-format
+msgid "%1 is a folder, but a file was expected."
+msgstr "%1 este dosar, dar este necesar un fișier."
+
+#: core/job_error.cpp:66
+#, kde-format
+msgid "%1 is a file, but a folder was expected."
+msgstr "%1 este fișier, dar este necesar un dosar."
+
+#: core/job_error.cpp:69
+#, kde-format
+msgid "The file or folder %1 does not exist."
+msgstr "Fișierul sau dosarul %1 nu există."
+
+#: core/job_error.cpp:72
+#, kde-format
+msgid "A file named %1 already exists."
+msgstr "Există deja un fișier cu numele %1."
+
+#: core/job_error.cpp:75
+#, kde-format
+msgid "A folder named %1 already exists."
+msgstr "Există deja un dosar cu numele %1."
+
+#: core/job_error.cpp:78
+msgid "No hostname specified."
+msgstr "Nu este specificată o gazdă."
+
+#: core/job_error.cpp:78
+#, kde-format
+msgid "Unknown host %1"
+msgstr "Gazdă necunoscută %1"
+
+#: core/job_error.cpp:81
+#, kde-format
+msgid "Access denied to %1."
+msgstr "Acces refuzat la %1."
+
+#: core/job_error.cpp:84
+#, kde-format
+msgid ""
+"Access denied.\n"
+"Could not write to %1."
+msgstr ""
+"Acces refuzat.\n"
+"Nu s-a putut scrie în %1."
+
+#: core/job_error.cpp:87
+#, kde-format
+msgid "Could not enter folder %1."
+msgstr "Nu s-a putut intra în dosarul %1."
+
+#: core/job_error.cpp:90
+#, kde-format
+msgid "The protocol %1 does not implement a folder service."
+msgstr "Protocolul %1 nu implementează un serviciu de dosare."
+
+#: core/job_error.cpp:93
+#, kde-format
+msgid "Found a cyclic link in %1."
+msgstr "Am găsit o legătură recursivă în %1."
+
+#: core/job_error.cpp:99
+#, kde-format
+msgid "Found a cyclic link while copying %1."
+msgstr "Am găsit o legătură recursivă la copierea %1."
+
+#: core/job_error.cpp:102
+#, kde-format
+msgid "Could not create socket for accessing %1."
+msgstr "Nu s-a putut crea un soclu pentru a accesa %1."
+
+#: core/job_error.cpp:105
+#, kde-format
+msgid "Could not connect to host %1."
+msgstr "Imposibil de conectat la gazda %1."
+
+#: core/job_error.cpp:108
+#, kde-format
+msgid "Connection to host %1 is broken."
+msgstr "Conexiunea către gazda %1 este întreruptă."
+
+#: core/job_error.cpp:111
+#, kde-format
+msgid "The protocol %1 is not a filter protocol."
+msgstr "Protocolul %1 nu este un protocol de filtrare."
+
+#: core/job_error.cpp:114
+#, kde-format
+msgid ""
+"Could not mount device.\n"
+"The reported error was:\n"
+"%1"
+msgstr ""
+"Nu pot monta dispozitivul.\n"
+"Eroarea raportată a fost:\n"
+"%1"
+
+#: core/job_error.cpp:117
+#, kde-format
+msgid ""
+"Could not unmount device.\n"
+"The reported error was:\n"
+"%1"
+msgstr ""
+"Nu pot demonta dispozitivul.\n"
+"Eroarea raportată a fost:\n"
+"%1"
+
+#: core/job_error.cpp:120
+#, kde-format
+msgid "Could not read file %1."
+msgstr "Nu s-a putut citi fișierul %1."
+
+#: core/job_error.cpp:123
+#, kde-format
+msgid "Could not write to file %1."
+msgstr "Nu s-a putut scrie în fișierul %1."
+
+#: core/job_error.cpp:126
+#, kde-format
+msgid "Could not bind %1."
+msgstr "Nu m-am putut lega la %1."
+
+#: core/job_error.cpp:129
+#, kde-format
+msgid "Could not listen %1."
+msgstr "Nu s-a putut asculta %1."
+
+#: core/job_error.cpp:132
+#, kde-format
+msgid "Could not accept %1."
+msgstr "Nu s-a putut accepta %1."
+
+#: core/job_error.cpp:138
+#, kde-format
+msgid "Could not access %1."
+msgstr "Nu s-a putut accesa %1."
+
+#: core/job_error.cpp:141
+#, kde-format
+msgid "Could not terminate listing %1."
+msgstr "Nu s-a putut termina listarea %1."
+
+#: core/job_error.cpp:144
+#, kde-format
+msgid "Could not make folder %1."
+msgstr "Nu s-a putut crea dosarul %1."
+
+#: core/job_error.cpp:147
+#, kde-format
+msgid "Could not remove folder %1."
+msgstr "Nu s-a putut șterge dosarul %1."
+
+#: core/job_error.cpp:150
+#, kde-format
+msgid "Could not resume file %1."
+msgstr "Nu s-a putut continua transferul fișierului %1."
+
+#: core/job_error.cpp:153
+#, kde-format
+msgid "Could not rename file %1."
+msgstr "Nu s-a putut redenumi fișierul %1."
+
+#: core/job_error.cpp:156
+#, kde-format
+msgid "Could not change permissions for %1."
+msgstr "Nu s-au putut schimba permisiunile pentru %1."
+
+#: core/job_error.cpp:159
+#, kde-format
+msgid "Could not change ownership for %1."
+msgstr "Nu s-a putut schimba proprietarul pentru %1."
+
+#: core/job_error.cpp:162
+#, kde-format
+msgid "Could not delete file %1."
+msgstr "Nu s-a putut șterge fișierul %1."
+
+#: core/job_error.cpp:165
+#, kde-format
+msgid "The process for the %1 protocol died unexpectedly."
+msgstr "Procesul pentru protocolul %1 s-a terminat în mod neașteptat."
+
+#: core/job_error.cpp:168
+#, kde-format
+msgid ""
+"Error. Out of memory.\n"
+"%1"
+msgstr ""
+"Eroare. Nu mai există memorie.\n"
+"%1"
+
+#: core/job_error.cpp:171
+#, kde-format
+msgid ""
+"Unknown proxy host\n"
+"%1"
+msgstr ""
+"Gazdă proxy necunoscută\n"
+"%1"
+
+#: core/job_error.cpp:174
+#, kde-format
+msgid "Authorization failed, %1 authentication not supported"
+msgstr "Autorizare eșuată. Autentificarea %1 nu este suportată."
+
+#: core/job_error.cpp:177
+#, kde-format
+msgid ""
+"User canceled action\n"
+"%1"
+msgstr ""
+"Acțiune anulată de utilizator\n"
+"%1"
+
+#: core/job_error.cpp:180
+#, kde-format
+msgid ""
+"Internal error in server\n"
+"%1"
+msgstr ""
+"Eroare internă în server\n"
+"%1"
+
+#: core/job_error.cpp:183
+#, kde-format
+msgid ""
+"Timeout on server\n"
+"%1"
+msgstr ""
+"Temporizare expirată la server\n"
+"%1"
+
+#: core/job_error.cpp:186
+#, kde-format
+msgid ""
+"Unknown error\n"
+"%1"
+msgstr ""
+"Eroare necunoscută\n"
+"%1"
+
+#: core/job_error.cpp:189
+#, kde-format
+msgid ""
+"Unknown interrupt\n"
+"%1"
+msgstr ""
+"Întrerupere necunoscută\n"
+"%1"
+
+#: core/job_error.cpp:200
+#, kde-format
+msgid ""
+"Could not delete original file %1.\n"
+"Please check permissions."
+msgstr ""
+"Nu pot șterge fișierul original %1.\n"
+"Vă rog să verificați permisiunile."
+
+#: core/job_error.cpp:203
+#, kde-format
+msgid ""
+"Could not delete partial file %1.\n"
+"Please check permissions."
+msgstr ""
+"Nu pot șterge fișierul parțial %1.\n"
+"Vă rog să verificați permisiunile."
+
+#: core/job_error.cpp:206
+#, kde-format
+msgid ""
+"Could not rename original file %1.\n"
+"Please check permissions."
+msgstr ""
+"Nu pot redenumi fișierul original %1.\n"
+"Vă rog să verificați permisiunile."
+
+#: core/job_error.cpp:209
+#, kde-format
+msgid ""
+"Could not rename partial file %1.\n"
+"Please check permissions."
+msgstr ""
+"Nu pot redenumi fișierul parțial %1.\n"
+"Vă rog să verificați permisiunile."
+
+#: core/job_error.cpp:212
+#, kde-format
+msgid ""
+"Could not create symlink %1.\n"
+"Please check permissions."
+msgstr ""
+"Nu pot crea legătura simbolică %1.\n"
+"Vă rog să verificați permisiunile."
+
+#: core/job_error.cpp:218
+#, kde-format
+msgid ""
+"Could not write file %1.\n"
+"Disk full."
+msgstr ""
+"Nu pot scrie fișierul %1.\n"
+"Discul este plin."
+
+#: core/job_error.cpp:221
+#, kde-format
+msgid ""
+"The source and destination are the same file.\n"
+"%1"
+msgstr ""
+"Sursa și destinația reprezintă același fișier.\n"
+"%1"
+
+#: core/job_error.cpp:227
+#, kde-format
+msgid "%1 is required by the server, but is not available."
+msgstr "%1 este cerut de server, dar nu este disponibil."
+
+#: core/job_error.cpp:230
+msgid "Access to restricted port in POST denied."
+msgstr "Acces interzis la port restricționat în cererea POST."
+
+#: core/job_error.cpp:233
+msgid ""
+"The required content size information was not provided for a POST operation."
+msgstr ""
+"Mărimea conținului este necesară la o operație POST și nu a fost furnizată"
+
+#: core/job_error.cpp:236
+#, kde-format
+msgid ""
+"Unknown error code %1\n"
+"%2\n"
+"Please send a full bug report at http://bugs.kde.org."
+msgstr ""
+"Cod de eroare necunoscut %1\n"
+"%2\n"
+"Vă rog să trimiteți un raport complet de eroare la http://bugs.kde.org."
+
+#: core/job_error.cpp:261
+msgctxt "@info url"
+msgid "(unknown)"
+msgstr "(necunoscut)"
+
+#: core/job_error.cpp:268
+#, kde-format
+msgctxt "@info %1 error name, %2 description"
+msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
+msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
+
+#: core/job_error.cpp:272
+msgid "<b>Technical reason</b>: "
+msgstr "<b>Motiv tehnic</b>: "
+
+#: core/job_error.cpp:274
+msgid "<b>Details of the request</b>:"
+msgstr "<b>Detaliile cererii</b>:"
+
+#: core/job_error.cpp:275
+#, kde-format
+msgid "<li>URL: %1</li>"
+msgstr "<li>URL: %1</li>"
+
+#: core/job_error.cpp:277
+#, kde-format
+msgid "<li>Protocol: %1</li>"
+msgstr "<li>Protocol: %1</li>"
+
+#: core/job_error.cpp:279
+#, kde-format
+msgid "<li>Date and time: %1</li>"
+msgstr "<li>Data și ora: %1</li>"
+
+#: core/job_error.cpp:280
+#, kde-format
+msgid "<li>Additional information: %1</li>"
+msgstr "<li>Informații adiționale: %1</li>"
+
+#: core/job_error.cpp:283
+msgid "<b>Possible causes</b>:"
+msgstr "<b>Cauze posibile</b>:"
+
+#: core/job_error.cpp:288
+msgid "<b>Possible solutions</b>:"
+msgstr "<b>Soluții posibile</b>:"
+
+#: core/job_error.cpp:322
+msgctxt "@info protocol"
+msgid "(unknown)"
+msgstr "(necunoscut)"
+
+#: core/job_error.cpp:331
+msgid ""
+"Contact your appropriate computer support system, whether the system "
+"administrator, or technical support group for further assistance."
+msgstr ""
+"Pentru mai multă asistență contactați sistemul dumneavoastră de întreținere "
+"a calculatoarelor, adică administratorul de sistem sau grupul de suport "
+"tehnic."
+
+#: core/job_error.cpp:334
+msgid "Contact the administrator of the server for further assistance."
+msgstr "Contactați administratorul serverului pentru mai multă asistență."
+
+#: core/job_error.cpp:337
+msgid "Check your access permissions on this resource."
+msgstr "Verificați permisiunile dumneavoastră de acces la această resursă."
+
+#: core/job_error.cpp:338
+msgid ""
+"Your access permissions may be inadequate to perform the requested operation "
+"on this resource."
+msgstr ""
+"Pentru a executa operația cerută la această resursă, permisiunile "
+"dumneavoastră de acces s-ar putea să nu fie suficiente."
+
+#: core/job_error.cpp:340
+msgid ""
+"The file may be in use (and thus locked) by another user or application."
+msgstr ""
+"Se pare că fișierul este utilizat (și deci blocat) de un alt utilizator sau "
+"o altă aplicație."
+
+#: core/job_error.cpp:342
+msgid ""
+"Check to make sure that no other application or user is using the file or "
+"has locked the file."
+msgstr ""
+"Asigurați-vă că nici o altă aplicație sau utilizator nu utilizează fișierul "
+"sau că nu au blocat accesul la el."
+
+#: core/job_error.cpp:344
+msgid "Although unlikely, a hardware error may have occurred."
+msgstr ""
+"Totuși, deși puțin probabil, este posibil să fi apărut o eroare hardware."
+
+#: core/job_error.cpp:346
+msgid "You may have encountered a bug in the program."
+msgstr "Este posibil să fi dat de o eroare de programare în aplicație."
+
+#: core/job_error.cpp:347
+msgid ""
+"This is most likely to be caused by a bug in the program. Please consider "
+"submitting a full bug report as detailed below."
+msgstr ""
+"Este foarte probabil să fie cauzată de o eroare din program. Dacă se poate, "
+"vă rog să trimiteți un raport de eroare complet așa cum este descris mai jos."
+
+#: core/job_error.cpp:349
+msgid ""
+"Update your software to the latest version. Your distribution should provide "
+"tools to update your software."
+msgstr ""
+"Actualizați software-ul dumneavoastră la ultima versiune disponibilă. "
+"Distribuitorul dumneavoastră de programe ar trebui să vă fi pus la "
+"dispoziție utilitare de actualizare a software-ului."
+
+#: core/job_error.cpp:351
+msgid ""
+"When all else fails, please consider helping the KDE team or the third party "
+"maintainer of this software by submitting a high quality bug report. If the "
+"software is provided by a third party, please contact them directly. "
+"Otherwise, first look to see if the same bug has been submitted by someone "
+"else by searching at the <a href=\"http://bugs.kde.org/\">KDE bug reporting "
+"website</a>. If not, take note of the details given above, and include them "
+"in your bug report, along with as many other details as you think might help."
+msgstr ""
+"Cînd orice altceva eșuează, vă rog să vă gîndiți dacă ați putea ajuta Echipa "
+"KDE sau dezvoltatorul acestui software prin trimiterea unui raport de eroare "
+"foarte amănunțit. Dacă software-ul este de la o terță parte, contactați-o "
+"direct. În celălalt caz, uitați-vă dacă cineva a mai trimis deja un raport "
+"despre aceeași eroare, căutîndu-l la <a href=\"http://bugs.kde.org/"
+"\">Sistemul de raportare a erorilor KDE</a>. Dacă nu există, atunci luați în "
+"considerare informațiile date mai sus și includeți-le în raportul "
+"dumneavoastră, împreună cu orice alte detalii care considerați că ar ajuta."
+
+#: core/job_error.cpp:359
+msgid "There may have been a problem with your network connection."
+msgstr "Există probleme cu conexiunea dumneavoastră la rețea."
+
+#: core/job_error.cpp:362
+msgid ""
+"There may have been a problem with your network configuration. If you have "
+"been accessing the Internet with no problems recently, this is unlikely."
+msgstr ""
+"Există probleme cu configurarea rețelei dumneavoastră. Dacă ați accesat "
+"Internetul recent, fără probleme, atunci acest lucru este puțin probabil."
+
+#: core/job_error.cpp:365
+msgid ""
+"There may have been a problem at some point along the network path between "
+"the server and this computer."
+msgstr ""
+"A apărut o problemă, la un anumit punct, pe calea de rețea între server și "
+"acest calculator."
+
+#: core/job_error.cpp:367
+msgid "Try again, either now or at a later time."
+msgstr "Încercați din nou, acum sau puțin mai tîrziu."
+
+#: core/job_error.cpp:368
+msgid "A protocol error or incompatibility may have occurred."
+msgstr "A apărut o eroare protocol sau de compatibilitate."
+
+#: core/job_error.cpp:369
+msgid "Ensure that the resource exists, and try again."
+msgstr "Asigurați-vă că resursa există și încercați din nou."
+
+#: core/job_error.cpp:370
+msgid "The specified resource may not exist."
+msgstr "Este posibil ca resursa specificată să nu existe."
+
+#: core/job_error.cpp:371
+msgid "You may have incorrectly typed the location."
+msgstr "Este posibil să fi scris greșit locația."
+
+#: core/job_error.cpp:372
+msgid "Double-check that you have entered the correct location and try again."
+msgstr "Verificați că ați introdus corect locația și încercați din nou."
+
+#: core/job_error.cpp:374
+msgid "Check your network connection status."
+msgstr "Verificați starea conexiunii de rețea."
+
+#: core/job_error.cpp:378
+msgid "Cannot Open Resource For Reading"
+msgstr "Nu pot deschide resursa pentru citire"
+
+#: core/job_error.cpp:379
+#, kde-format
+msgid ""
+"This means that the contents of the requested file or folder <strong>%1</"
+"strong> could not be retrieved, as read access could not be obtained."
+msgstr ""
+"Aceasta înseamnă că deoarece conținutul fișierului sau directorului <strong>"
+"%1</strong> cerut nu poate fi transferat, deoarece nu pot obține acces "
+"pentru citire."
+
+#: core/job_error.cpp:382
+msgid "You may not have permissions to read the file or open the folder."
+msgstr ""
+"Nu aveți permisiuni pentru a citi fișierul sau de a deschide directorul."
+
+#: core/job_error.cpp:388
+msgid "Cannot Open Resource For Writing"
+msgstr "Nu pot deschide resursa pentru scriere"
+
+#: core/job_error.cpp:389
+#, kde-format
+msgid ""
+"This means that the file, <strong>%1</strong>, could not be written to as "
+"requested, because access with permission to write could not be obtained."
+msgstr ""
+"Aceasta înseamnă că fișierul, <strong>%1</strong>, nu poate fi scris așa cum "
+"s-a cerut, deoarece nu pot obține acces pentru scriere."
+
+#: core/job_error.cpp:397
+#, kde-format
+msgid "Cannot Initiate the %1 Protocol"
+msgstr "Nu pot iniția protocolul %1"
+
+#: core/job_error.cpp:398
+msgid "Unable to Launch Process"
+msgstr "Nu pot porni procesul"
+
+#: core/job_error.cpp:399
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol could not be started. This is usually due to technical "
+"reasons."
+msgstr ""
+"Nu pot porni programul care asigură acces la protocolul <strong>%1</strong>. "
+"În mod normal acest lucru se întîmplă din cauza unor probleme tehnice."
+
+#: core/job_error.cpp:402
+msgid ""
+"The program which provides compatibility with this protocol may not have "
+"been updated with your last update of KDE. This can cause the program to be "
+"incompatible with the current version and thus not start."
+msgstr ""
+"Este posibil ca programul care asigură compatibilitate cu acest protocol să "
+"nu fi fost actualizat cu ultima actualizare de KDE. Acest lucru poate cauza "
+"incompatibilitate cu versiunea curentă de KDE și astfel să nu pornească."
+
+#: core/job_error.cpp:410
+msgid "Internal Error"
+msgstr "Eroare internă"
+
+#: core/job_error.cpp:411
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an internal error."
+msgstr ""
+"Programul care asigură acces la protocolul <strong>%1</strong> a raportat o "
+"eroare internă."
+
+#: core/job_error.cpp:419
+msgid "Improperly Formatted URL"
+msgstr "URL formatat incorect"
+
+#: core/job_error.cpp:420
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered was not properly formatted. The format "
+"of a URL is generally as follows:<blockquote><strong>protocol://user:"
+"password@www.example.org:port/folder/filename.extension?query=value</"
+"strong></blockquote>"
+msgstr ""
+"URL-ul (<strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator) pe care l-ați introdus nu este formatat corespunzător. În "
+"general formatul unui URL este astfel:<blockquote><strong>protocol://"
+"utilizator:parola@www.exemplu.org:port/director/fisier.extensie?"
+"cerere=valoare</strong></blockquote>"
+
+#: core/job_error.cpp:429
+#, kde-format
+msgid "Unsupported Protocol %1"
+msgstr "Protocolul %1 nu este suportat"
+
+#: core/job_error.cpp:430
+#, kde-format
+msgid ""
+"The protocol <strong>%1</strong> is not supported by the KDE programs "
+"currently installed on this computer."
+msgstr ""
+"Protocolul <strong>%1</strong> nu este suportat de programele KDE care sînt "
+"acum instalate pe acest calculator."
+
+#: core/job_error.cpp:433
+msgid "The requested protocol may not be supported."
+msgstr "Este posibil ca protocolul cerut să nu fie suportat."
+
+#: core/job_error.cpp:434
+#, kde-format
+msgid ""
+"The versions of the %1 protocol supported by this computer and the server "
+"may be incompatible."
+msgstr ""
+"Versiunile protocolului %1 suportate de acest calculator și de server sînt "
+"incompatibile."
+
+#: core/job_error.cpp:436
+msgid ""
+"You may perform a search on the Internet for a KDE program (called a "
+"kioslave or ioslave) which supports this protocol. Places to search include "
+"<a href=\"http://kde-apps.org/\">http://kde-apps.org/</a> and <a href="
+"\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+msgstr ""
+"Puteți căuta pe Internet pentru un program KDE (numit kioslave sau ioslave) "
+"care suportă acest protocol. Adrese unde puteți căuta: <a href=\"http://kde-"
+"apps.org/\">http://kde-apps.org/</a> și <a href=\"http://freshmeat.net/"
+"\">http://freshmeat.net/</a>."
+
+#: core/job_error.cpp:445
+msgid "URL Does Not Refer to a Resource."
+msgstr "URL-ul nu face referire la o resursă."
+
+#: core/job_error.cpp:446
+msgid "Protocol is a Filter Protocol"
+msgstr "Protocolul este un protocol de filtrare"
+
+#: core/job_error.cpp:447
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered did not refer to a specific resource."
+msgstr ""
+"URL-ul (<strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator) pe care l-ați introdus nu face referire la o resursă "
+"specifică."
+
+#: core/job_error.cpp:450
+msgid ""
+"KDE is able to communicate through a protocol within a protocol; the "
+"protocol specified is only for use in such situations, however this is not "
+"one of these situations. This is a rare event, and is likely to indicate a "
+"programming error."
+msgstr ""
+"KDE este capabil să comunice printr-un protocol dintr-un alt protocol. "
+"Protocolul pe care l-ați specificat poate fi utilizat numai în astfel de "
+"situații. Totuși, aceasta nu este una din aceste situații. Acesta este un "
+"eveniment rar și este posibil să indice o eroare de programare."
+
+#: core/job_error.cpp:458
+#, kde-format
+msgid "Unsupported Action: %1"
+msgstr "Acțiune nesuportată: %1"
+
+#: core/job_error.cpp:459
+#, kde-format
+msgid ""
+"The requested action is not supported by the KDE program which is "
+"implementing the <strong>%1</strong> protocol."
+msgstr ""
+"Acțiunea cerută nu este suportată de programul KDE caer implementează "
+"protocolul <strong>%1</strong>."
+
+#: core/job_error.cpp:462
+msgid ""
+"This error is very much dependent on the KDE program. The additional "
+"information should give you more information than is available to the KDE "
+"input/output architecture."
+msgstr ""
+"Această eroare este dependentă de programul KDE. Informațiile adiționale ar "
+"trebui să vă ofere mai multe informații decît cele disponibile în "
+"arhitectura de intrare/ieșire a KDE."
+
+#: core/job_error.cpp:465
+msgid "Attempt to find another way to accomplish the same outcome."
+msgstr "Încercați să găsiți o altă cale pentru a obține același rezultat."
+
+#: core/job_error.cpp:470
+msgid "File Expected"
+msgstr "Cerere de fișier"
+
+#: core/job_error.cpp:471
+#, kde-format
+msgid ""
+"The request expected a file, however the folder <strong>%1</strong> was "
+"found instead."
+msgstr ""
+"Cererea aștepta un fișier, dar a fost primit dosarul <strong>%1</strong>."
+
+#: core/job_error.cpp:473
+msgid "This may be an error on the server side."
+msgstr "Aceasta ar putea fi o eroare la server."
+
+#: core/job_error.cpp:478
+msgid "Folder Expected"
+msgstr "Cerere de dosar"
+
+#: core/job_error.cpp:479
+#, kde-format
+msgid ""
+"The request expected a folder, however the file <strong>%1</strong> was "
+"found instead."
+msgstr ""
+"Cererea așteaptă un dosar, dar a fost primit fișierul <strong>%1</strong>."
+
+#: core/job_error.cpp:486
+msgid "File or Folder Does Not Exist"
+msgstr "Fișierul sau dosarul nu există"
+
+#: core/job_error.cpp:487
+#, kde-format
+msgid "The specified file or folder <strong>%1</strong> does not exist."
+msgstr "Fișierul sau dosarul <strong>%1</strong> nu există."
+
+#: core/job_error.cpp:495
+msgid ""
+"The requested file could not be created because a file with the same name "
+"already exists."
+msgstr ""
+"Fișierul cerut nu poate fi creat deoarece există deja un fișier cu același "
+"nume."
+
+#: core/job_error.cpp:497
+msgid "Try moving the current file out of the way first, and then try again."
+msgstr "Mutați mai întîi fișierul curent și apoi încercați din nou."
+
+#: core/job_error.cpp:499
+msgid "Delete the current file and try again."
+msgstr "Ștergeți fișierul curent și încercați din nou."
+
+#: core/job_error.cpp:500
+msgid "Choose an alternate filename for the new file."
+msgstr "Alegeți un alt nume pentru noul fișier."
+
+#: core/job_error.cpp:505
+msgid ""
+"The requested folder could not be created because a folder with the same "
+"name already exists."
+msgstr ""
+"Dosarul cerut nu poate fi creat deoarece există deja un fișier cu același "
+"nume."
+
+#: core/job_error.cpp:507
+msgid "Try moving the current folder out of the way first, and then try again."
+msgstr "Mutați mai întîi dosarul curent și apoi încercați din nou."
+
+#: core/job_error.cpp:509
+msgid "Delete the current folder and try again."
+msgstr "Ștergeți dosarul curent și încercați din nou."
+
+#: core/job_error.cpp:510
+msgid "Choose an alternate name for the new folder."
+msgstr "Alegeți un alt nume pentru noul dosar."
+
+#: core/job_error.cpp:514
+msgid "Unknown Host"
+msgstr "Gazdă necunoscută"
+
+#: core/job_error.cpp:515
+#, kde-format
+msgid ""
+"An unknown host error indicates that the server with the requested name, "
+"<strong>%1</strong>, could not be located on the Internet."
+msgstr ""
+"Eroarea de gazdă necunoscută indică faptul că serverul cu numele cerut, "
+"<strong>%1</strong>, nu poate fi localizat în Internet."
+
+#: core/job_error.cpp:518
+#, kde-format
+msgid ""
+"The name that you typed, %1, may not exist: it may be incorrectly typed."
+msgstr ""
+"Numele „%1” pe care l-ați scris nu există. Probabil ați greșit la scrierea "
+"lui."
+
+#: core/job_error.cpp:525
+msgid "Access Denied"
+msgstr "Acces refuzat"
+
+#: core/job_error.cpp:526
+#, kde-format
+msgid "Access was denied to the specified resource, <strong>%1</strong>."
+msgstr "Accesul la resursa <strong>%1</strong> vă este refuzat."
+
+#: core/job_error.cpp:528 core/job_error.cpp:754
+msgid "You may have supplied incorrect authentication details or none at all."
+msgstr ""
+"Probabil informațiile de autentificare date nu sînt corecte sau nu ați "
+"furnizat nici un fel de astfel de informații."
+
+#: core/job_error.cpp:530 core/job_error.cpp:756
+msgid "Your account may not have permission to access the specified resource."
+msgstr ""
+"Contul dumneavoastră nu are permisiuni de acces la resursa specificată."
+
+#: core/job_error.cpp:532 core/job_error.cpp:758 core/job_error.cpp:770
+msgid ""
+"Retry the request and ensure your authentication details are entered "
+"correctly."
+msgstr ""
+"Încercați din nou cererea făcută și asigurați-vă că informațiile de "
+"autentificare sînt introduse corect."
+
+#: core/job_error.cpp:540
+msgid "Write Access Denied"
+msgstr "Acces de scriere refuzat"
+
+#: core/job_error.cpp:541
+#, kde-format
+msgid ""
+"This means that an attempt to write to the file <strong>%1</strong> was "
+"rejected."
+msgstr ""
+"Acest lucru înseamnă că va fost refuzată încercarea de a scrie în fișierul "
+"<strong>%1</strong>."
+
+#: core/job_error.cpp:548
+msgid "Unable to Enter Folder"
+msgstr "Nu pot intra în dosar"
+
+#: core/job_error.cpp:549
+#, kde-format
+msgid ""
+"This means that an attempt to enter (in other words, to open) the requested "
+"folder <strong>%1</strong> was rejected."
+msgstr ""
+"Acest lucru înseamnă că va fost refuzată încercarea de a intra (cu alte "
+"cuvinte, de a deschide) în dosarul <strong>%1</strong>."
+
+#: core/job_error.cpp:557
+msgid "Folder Listing Unavailable"
+msgstr "Nu se poate lista dosarul"
+
+#: core/job_error.cpp:558
+#, kde-format
+msgid "Protocol %1 is not a Filesystem"
+msgstr "Protocolul %1 nu este un protocol de sistem de fișiere"
+
+#: core/job_error.cpp:559
+msgid ""
+"This means that a request was made which requires determining the contents "
+"of the folder, and the KDE program supporting this protocol is unable to do "
+"so."
+msgstr ""
+"Acest lucru înseamnă că cererea pe care ați făcut-o încearcă să determine "
+"conținutul dosarului. Programul KDE care implementează acest protocol nu "
+"poate face acest lucru."
+
+#: core/job_error.cpp:567
+msgid "Cyclic Link Detected"
+msgstr "Legătură ciclică detectată"
+
+#: core/job_error.cpp:568
+msgid ""
+"UNIX environments are commonly able to link a file or folder to a separate "
+"name and/or location. KDE detected a link or series of links that results in "
+"an infinite loop - i.e. the file was (perhaps in a roundabout way) linked to "
+"itself."
+msgstr ""
+"Mediile UNIX au posibilitatea să facă legături de la un fișier sau dosarul "
+"către un nume și/sau locație diferite. KDE a determinat o legătură sau o "
+"serie de legături care rezultă într-o buclă infinită (de exemplu un fișier "
+"face legătură către el însuși)."
+
+#: core/job_error.cpp:572 core/job_error.cpp:594
+msgid ""
+"Delete one part of the loop in order that it does not cause an infinite "
+"loop, and try again."
+msgstr ""
+"Ștergeți o componentă a buclei pentru a elimina bucla infinită și încercați "
+"din nou."
+
+#: core/job_error.cpp:581
+msgid "Request Aborted By User"
+msgstr "Cerere anulată de către utilizator"
+
+#: core/job_error.cpp:582 core/job_error.cpp:897
+msgid "The request was not completed because it was aborted."
+msgstr "Cererea nu a fost finalizată deoarece a fost anulată."
+
+#: core/job_error.cpp:584 core/job_error.cpp:788 core/job_error.cpp:899
+msgid "Retry the request."
+msgstr "Încercați din nou cererea."
+
+#: core/job_error.cpp:588
+msgid "Cyclic Link Detected During Copy"
+msgstr "Legătură ciclică detectată la copiere"
+
+#: core/job_error.cpp:589
+msgid ""
+"UNIX environments are commonly able to link a file or folder to a separate "
+"name and/or location. During the requested copy operation, KDE detected a "
+"link or series of links that results in an infinite loop - i.e. the file was "
+"(perhaps in a roundabout way) linked to itself."
+msgstr ""
+"Mediile UNIX au posibilitatea să facă legături de la un fișier sau dosarul "
+"către un nume și/sau locație diferite. În tipul operației de copiere KDE a "
+"determinat o legătură sau o serie de legături care rezultă într-o buclă "
+"infinită (de exemplu un fișier face legătură către el însuși)."
+
+#: core/job_error.cpp:599
+msgid "Could Not Create Network Connection"
+msgstr "Nu pot crea conexiune de rețea"
+
+#: core/job_error.cpp:600
+msgid "Could Not Create Socket"
+msgstr "Nu pot crea soclu"
+
+#: core/job_error.cpp:601
+msgid ""
+"This is a fairly technical error in which a required device for network "
+"communications (a socket) could not be created."
+msgstr ""
+"Aceasta este o eroare tehnică în care nu a putut fi creat un dizpozitiv de "
+"rețea (un soclu)."
+
+#: core/job_error.cpp:603 core/job_error.cpp:724 core/job_error.cpp:735
+#: core/job_error.cpp:744
+msgid ""
+"The network connection may be incorrectly configured, or the network "
+"interface may not be enabled."
+msgstr ""
+"Conexiunea de rețeaeste incorect configurată sau interfața de rețea nu este "
+"activă."
+
+#: core/job_error.cpp:609
+msgid "Connection to Server Refused"
+msgstr "Conexiune refuzată de către server"
+
+#: core/job_error.cpp:610
+#, kde-format
+msgid ""
+"The server <strong>%1</strong> refused to allow this computer to make a "
+"connection."
+msgstr ""
+"Serverul <strong>%1</strong> a refuzat conexiunea încercată de acest "
+"calculator."
+
+#: core/job_error.cpp:612
+msgid ""
+"The server, while currently connected to the Internet, may not be configured "
+"to allow requests."
+msgstr ""
+"Este posibil ca serverul, deși conectat la Internet, să fie configurat să nu "
+"permită cereri."
+
+#: core/job_error.cpp:614
+#, kde-format
+msgid ""
+"The server, while currently connected to the Internet, may not be running "
+"the requested service (%1)."
+msgstr ""
+"Este posibil ca serverul, deși conectat la Internet, să nu ruleze serviciul "
+"cerut (%1)."
+
+#: core/job_error.cpp:616
+msgid ""
+"A network firewall (a device which restricts Internet requests), either "
+"protecting your network or the network of the server, may have intervened, "
+"preventing this request."
+msgstr ""
+"Este posibil ca un zid de foc de rețea (dispozitiv care restricționează "
+"accesul la Internet), care protejează rețeaua dumnevoastră sau pe cea a "
+"serverului, să fi intervenit și sa fi blocat cererea."
+
+#: core/job_error.cpp:623
+msgid "Connection to Server Closed Unexpectedly"
+msgstr "Conexiunea către server a fost închisă"
+
+#: core/job_error.cpp:624
+#, kde-format
+msgid ""
+"Although a connection was established to <strong>%1</strong>, the connection "
+"was closed at an unexpected point in the communication."
+msgstr ""
+"Deși a fost stabilită o conexiune către <strong>%1</strong>, ea a fost "
+"întreruptă în mod neașteptat."
+
+#: core/job_error.cpp:627
+msgid ""
+"A protocol error may have occurred, causing the server to close the "
+"connection as a response to the error."
+msgstr ""
+"A apărut o eroare de protocol, determinînd serverul să închidă conexiunea ca "
+"răspuns la eroare."
+
+#: core/job_error.cpp:633
+msgid "URL Resource Invalid"
+msgstr "Resursă URL eronată"
+
+#: core/job_error.cpp:634
+#, kde-format
+msgid "Protocol %1 is not a Filter Protocol"
+msgstr "Protocolul %1 nu este un protocol de filtrare"
+
+#: core/job_error.cpp:635
+#, kde-format
+msgid ""
+"The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator (URL) that you entered did not refer to a valid mechanism of "
+"accessing the specific resource, <strong>%1%2</strong>."
+msgstr ""
+"URL-ul (<strong>U</strong>niform <strong>R</strong>esource <strong>L</"
+"strong>ocator) pe care l-ați introdus nu face referire la un mecanism valid "
+"de accesare a resursei specificate, <strong>%1%2</strong>."
+
+#: core/job_error.cpp:640
+msgid ""
+"KDE is able to communicate through a protocol within a protocol. This "
+"request specified a protocol be used as such, however this protocol is not "
+"capable of such an action. This is a rare event, and is likely to indicate a "
+"programming error."
+msgstr ""
+"KDE este capabil să comunice printr-un protocol dintr-un alt protocol. "
+"Această cerere a specificat ca protocolul să fie utilizat în acest fel, dar "
+"acesta nu este capabil de o asemenea acțiune. Acesta este un eveniment rar "
+"și este posibil să indice o eroare de programare."
+
+#: core/job_error.cpp:648
+msgid "Unable to Initialize Input/Output Device"
+msgstr "Nu pot inițializa dispozitivul de intrare/ieșire"
+
+#: core/job_error.cpp:649
+msgid "Could Not Mount Device"
+msgstr "Nu pot monta dispozitivul"
+
+#: core/job_error.cpp:650
+#, kde-format
+msgid ""
+"The requested device could not be initialized (\"mounted\"). The reported "
+"error was: <strong>%1</strong>"
+msgstr ""
+"Dispozitivul cerut nu poate fi inițializat (\"montat\"). Eroare raportată a "
+"fost: <strong>%1</strong>"
+
+#: core/job_error.cpp:653
+msgid ""
+"The device may not be ready, for example there may be no media in a "
+"removable media device (i.e. no CD-ROM in a CD drive), or in the case of a "
+"peripheral/portable device, the device may not be correctly connected."
+msgstr ""
+"Dispozitivul nu este pregătit pentru acces, adică nu există nici un mediu în "
+"dispozitivul cu medii temporare (precum un CDROM în unitatea de CD) sau în "
+"cazul un dispozitiv periferic/portabil, este posibil ca acesta să nu fie "
+"conectat corect."
+
+#: core/job_error.cpp:657
+msgid ""
+"You may not have permissions to initialize (\"mount\") the device. On UNIX "
+"systems, often system administrator privileges are required to initialize a "
+"device."
+msgstr ""
+"Nu aveți permisiuni să inițializați (\"montați\") dispozitivul. Pe sistemele "
+"UNIX, de cele mai multe ori, aveți nevoie de privilegii de administrator ca "
+"să inițializați dispozitivul."
+
+#: core/job_error.cpp:661
+msgid ""
+"Check that the device is ready; removable drives must contain media, and "
+"portable devices must be connected and powered on.; and try again."
+msgstr ""
+"Verificați că dispozitivul este pregătit pentru acces: dispozitivele cu "
+"medii temporare trebuie să conțină un mediu și dispozitivele portabile "
+"trebuie să fie conectate și pornite. După această operație încercați din nou."
+
+#: core/job_error.cpp:667
+msgid "Unable to Uninitialize Input/Output Device"
+msgstr "Nu pot dezactiva dispozitivul de intrare/ieșire"
+
+#: core/job_error.cpp:668
+msgid "Could Not Unmount Device"
+msgstr "Nu pot demonta dispozitivul"
+
+#: core/job_error.cpp:669
+#, kde-format
+msgid ""
+"The requested device could not be uninitialized (\"unmounted\"). The "
+"reported error was: <strong>%1</strong>"
+msgstr ""
+"Dispozitivul cerut nu poate fi dezactivat (\"demontat\"). Eroarea raportată "
+"a fost: <strong>%1</strong>"
+
+#: core/job_error.cpp:672
+msgid ""
+"The device may be busy, that is, still in use by another application or "
+"user. Even such things as having an open browser window on a location on "
+"this device may cause the device to remain in use."
+msgstr ""
+"Dispozitivul este ocupat, ceea ce înseamnă că este încă utilizat de o altă "
+"aplicație sau utilizator. Avînd deschisă o fereastră de navigare la o "
+"locație de pe acel dispozitiv poate determina ca dispozitivul să rămînă "
+"ocupat."
+
+#: core/job_error.cpp:676
+msgid ""
+"You may not have permissions to uninitialize (\"unmount\") the device. On "
+"UNIX systems, system administrator privileges are often required to "
+"uninitialize a device."
+msgstr ""
+"Nu aveți permisiuni de a dezactiva (\"demonta\") dispozitivul. Pe sistemele "
+"UNIX, de cele mai multe ori, aveți nevoie de privilegii de administrator ca "
+"să dezactivați dispozitivul."
+
+#: core/job_error.cpp:680
+msgid "Check that no applications are accessing the device, and try again."
+msgstr ""
+"Verificați că nu există aplicații care să acceseze dispozitivul și încercați "
+"din nou."
+
+#: core/job_error.cpp:685
+msgid "Cannot Read From Resource"
+msgstr "Nu pot citi din resursă"
+
+#: core/job_error.cpp:686
+#, kde-format
+msgid ""
+"This means that although the resource, <strong>%1</strong>, was able to be "
+"opened, an error occurred while reading the contents of the resource."
+msgstr ""
+"Acest lucru înseamnă că, deși s-a putut deschide cu succes resursa <strong>"
+"%1</strong>, a apărut o eroare la citirea conținutului resursei."
+
+#: core/job_error.cpp:689
+msgid "You may not have permissions to read from the resource."
+msgstr "Nu aveți permisiuni de citire din resursă."
+
+#: core/job_error.cpp:702
+msgid "Cannot Write to Resource"
+msgstr "Nu pot scrise în resursă"
+
+#: core/job_error.cpp:703
+#, kde-format
+msgid ""
+"This means that although the resource, <strong>%1</strong>, was able to be "
+"opened, an error occurred while writing to the resource."
+msgstr ""
+"Acest lucru înseamnă că, deși s-a putut deschide cu succes resursa <strong>"
+"%1</strong>, a apărut o eroare la scrierea în resursă."
+
+#: core/job_error.cpp:706
+msgid "You may not have permissions to write to the resource."
+msgstr "Nu aveți drepturi de scriere în resursă."
+
+#: core/job_error.cpp:719 core/job_error.cpp:730
+msgid "Could Not Listen for Network Connections"
+msgstr "Nu pot asculta pentru conexiuni de rețea"
+
+#: core/job_error.cpp:720
+msgid "Could Not Bind"
+msgstr "Nu pot lega"
+
+#: core/job_error.cpp:721 core/job_error.cpp:732
+msgid ""
+"This is a fairly technical error in which a required device for network "
+"communications (a socket) could not be established to listen for incoming "
+"network connections."
+msgstr ""
+"Aceasta este o eroare tehnică în care dispozitivul necesar pentru "
+"comunicația de rețea (un soclu) nu poate fi făcut să asculte pentru "
+"conexiuni de intrare."
+
+#: core/job_error.cpp:731
+msgid "Could Not Listen"
+msgstr "Nu pot asculta"
+
+#: core/job_error.cpp:741
+msgid "Could Not Accept Network Connection"
+msgstr "Nu pot accepta conexiunea de rețea"
+
+#: core/job_error.cpp:742
+msgid ""
+"This is a fairly technical error in which an error occurred while attempting "
+"to accept an incoming network connection."
+msgstr ""
+"Aceasta este o eroare tehnică la încercarea de a accepta o conexiune de "
+"rețea de intrare."
+
+#: core/job_error.cpp:746
+msgid "You may not have permissions to accept the connection."
+msgstr "Nu aveți permisiuni de a accepta conexiuni."
+
+#: core/job_error.cpp:751
+#, kde-format
+msgid "Could Not Login: %1"
+msgstr "Nu pot loga: %1"
+
+#: core/job_error.cpp:752
+msgid ""
+"An attempt to login to perform the requested operation was unsuccessful."
+msgstr "Tentativa de autentificare pentru a efectua operația cerută a eșuat."
+
+#: core/job_error.cpp:763
+msgid "Could Not Determine Resource Status"
+msgstr "Nu pot determina starea resursei"
+
+#: core/job_error.cpp:764
+msgid "Could Not Stat Resource"
+msgstr "Nu pot afla starea resursei"
+
+#: core/job_error.cpp:765
+#, kde-format
+msgid ""
+"An attempt to determine information about the status of the resource <strong>"
+"%1</strong>, such as the resource name, type, size, etc., was unsuccessful."
+msgstr ""
+"Operația de determinare informațiilor despre resursa <strong>%1</strong>, "
+"precum numele, tipul, mărimea etc., a eșuat."
+
+#: core/job_error.cpp:768
+msgid "The specified resource may not have existed or may not be accessible."
+msgstr "Resursa specificată nu există sau nu mai este accesibilă."
+
+#: core/job_error.cpp:776
+msgid "Could Not Cancel Listing"
+msgstr "Nu pot anula listarea"
+
+#: core/job_error.cpp:777
+msgid "FIXME: Document this"
+msgstr "Documentare!!!"
+
+#: core/job_error.cpp:781
+msgid "Could Not Create Folder"
+msgstr "Nu pot crea dosarul"
+
+#: core/job_error.cpp:782
+msgid "An attempt to create the requested folder failed."
+msgstr "Încercarea de a crea dosarul a eșuat."
+
+#: core/job_error.cpp:783
+msgid "The location where the folder was to be created may not exist."
+msgstr "Probabil locația unde a fost cerută crearea dosarului nu există."
+
+#: core/job_error.cpp:792
+msgid "Could Not Remove Folder"
+msgstr "Nu pot șterge dosarul"
+
+#: core/job_error.cpp:793
+#, kde-format
+msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
+msgstr "Încercarea de șterge dosarul <strong>%1</strong> a eșuat."
+
+#: core/job_error.cpp:795
+msgid "The specified folder may not exist."
+msgstr "Probabil dosarul specificat nu există."
+
+#: core/job_error.cpp:796
+msgid "The specified folder may not be empty."
+msgstr "Probabil dosarul specificat nu este gol."
+
+#: core/job_error.cpp:801
+msgid "Ensure that the folder exists and is empty, and try again."
+msgstr ""
+"După ce vă asigurați că dosarul specificat există și este gol, încercați din "
+"nou."
+
+#: core/job_error.cpp:806
+msgid "Could Not Resume File Transfer"
+msgstr "Nu pot continua transferul fișierului"
+
+#: core/job_error.cpp:807
+#, kde-format
+msgid ""
+"The specified request asked that the transfer of file <strong>%1</strong> be "
+"resumed at a certain point of the transfer. This was not possible."
+msgstr ""
+"Cererea a specificat continuarea transferului fișierului <strong>%1</strong> "
+"de la o anumită poziție. Acest lucru nu este posibil."
+
+#: core/job_error.cpp:810
+msgid "The protocol, or the server, may not support file resuming."
+msgstr ""
+"Probabil protocolul sau serverul nu suportă continuarea transferului de "
+"fișiere."
+
+#: core/job_error.cpp:812
+msgid "Retry the request without attempting to resume transfer."
+msgstr "Încercați din nou cererea fără să cereți continuarea transferului."
+
+#: core/job_error.cpp:817
+msgid "Could Not Rename Resource"
+msgstr "Nu pot redenumi resursa"
+
+#: core/job_error.cpp:818
+#, kde-format
+msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
+msgstr "Operația de redenumire a resursei <strong>%1</strong> a eșuat."
+
+#: core/job_error.cpp:828
+msgid "Could Not Alter Permissions of Resource"
+msgstr "Nu pot schimba permisiunile resursei"
+
+#: core/job_error.cpp:829
+#, kde-format
+msgid ""
+"An attempt to alter the permissions on the specified resource <strong>%1</"
+"strong> failed."
+msgstr ""
+"Operația de modificare a permisiunilor resursei <strong>%1</strong> a eșuat."
+
+#: core/job_error.cpp:836
+msgid "Could Not Change Ownership of Resource"
+msgstr "Nu pot schimba proprietarul resursei"
+
+#: core/job_error.cpp:837
+#, kde-format
+msgid ""
+"An attempt to change the ownership of the specified resource <strong>%1</"
+"strong> failed."
+msgstr ""
+"Operația de modificare a proprietarului resursei <strong>%1</strong> a eșuat."
+
+#: core/job_error.cpp:844
+msgid "Could Not Delete Resource"
+msgstr "Nu pot șterge resursa"
+
+#: core/job_error.cpp:845
+#, kde-format
+msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
+msgstr "Operația de ștergere a resursei <strong>%1</strong> a eșuat."
+
+#: core/job_error.cpp:852
+msgid "Unexpected Program Termination"
+msgstr "Terminare neașteptată a programului"
+
+#: core/job_error.cpp:853
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has unexpectedly terminated."
+msgstr ""
+"Programul care asigură acces la protocolul <strong>%1</strong> s-a terminat "
+"într-un mod neașteptat."
+
+#: core/job_error.cpp:861
+msgid "Out of Memory"
+msgstr "Nu mai există memorie"
+
+#: core/job_error.cpp:862
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol could not obtain the memory required to continue."
+msgstr ""
+"Programul care asigură acces la protocolul <strong>%1</strong> nu mai poate "
+"obține memorie pentru a continua operația."
+
+#: core/job_error.cpp:870
+msgid "Unknown Proxy Host"
+msgstr "Gazdă proxy necunoscută"
+
+#: core/job_error.cpp:871
+#, kde-format
+msgid ""
+"While retrieving information about the specified proxy host, <strong>%1</"
+"strong>, an Unknown Host error was encountered. An unknown host error "
+"indicates that the requested name could not be located on the Internet."
+msgstr ""
+"La încercarea de a obține informații despre gazda proxy<strong>%1</strong>, "
+"s-a primit mesajul de eroare \"Unknown Host\" (gazdă necunoscută). Această "
+"eroare indică că numele cerut nu poate fi localizat în Internet."
+
+#: core/job_error.cpp:875
+msgid ""
+"There may have been a problem with your network configuration, specifically "
+"your proxy's hostname. If you have been accessing the Internet with no "
+"problems recently, this is unlikely."
+msgstr ""
+"Probabil există o problemă cu configurația dumneavoastră de rețea, în mod "
+"special cu numele de proxy. Dacă ați accesat Internet-ul recent, fără "
+"probleme, atunci această eroare este puțin probabilă."
+
+#: core/job_error.cpp:879
+msgid "Double-check your proxy settings and try again."
+msgstr "Verificați din nou configurările proxy și încercați din nou."
+
+#: core/job_error.cpp:884
+#, kde-format
+msgid "Authentication Failed: Method %1 Not Supported"
+msgstr "Autentificare eșuată. Metoda %1 nu este suportată."
+
+#: core/job_error.cpp:886
+#, kde-format
+msgid ""
+"Although you may have supplied the correct authentication details, the "
+"authentication failed because the method that the server is using is not "
+"supported by the KDE program implementing the protocol %1."
+msgstr ""
+"Deși poate că ați furnizat corect detaliile de autentificare, autentificarea "
+"a eșuat deoarece metoda utilizată de server nu este suportată de programul "
+"KDE care implementează protocolul %1."
+
+#: core/job_error.cpp:890
+msgid ""
+"Please file a bug at <a href=\"http://bugs.kde.org/\">http://bugs.kde.org/</"
+"a> to inform the KDE team of the unsupported authentication method."
+msgstr ""
+"Vă rog să trimiteți un raport de eroare la <a href=\"http://bugs.kde.org/"
+"\">http://bugs.kde.org/</a> pentru a informa echipa KDE despre această "
+"metodă de autentificare nesuportată încă."
+
+#: core/job_error.cpp:896
+msgid "Request Aborted"
+msgstr "Cerere anulată"
+
+#: core/job_error.cpp:903
+msgid "Internal Error in Server"
+msgstr "Eroare internă în server"
+
+#: core/job_error.cpp:904
+#, kde-format
+msgid ""
+"The program on the server which provides access to the <strong>%1</strong> "
+"protocol has reported an internal error: %2."
+msgstr ""
+"Programul de pe server care asigură acces la protocolul <strong>%1</strong> "
+"a raportat o eroare internă: %2."
+
+#: core/job_error.cpp:907
+msgid ""
+"This is most likely to be caused by a bug in the server program. Please "
+"consider submitting a full bug report as detailed below."
+msgstr ""
+"Acest lucru este cel mai probabil cauzat de o eroare în programul server. "
+"Dacă puteți, trimiteți un raport de eroare așa cum este detaliat mai jos."
+
+#: core/job_error.cpp:910
+msgid "Contact the administrator of the server to advise them of the problem."
+msgstr ""
+"Contactați administratorul serverului pentru a-l informa de această problemă."
+
+#: core/job_error.cpp:912
+msgid ""
+"If you know who the authors of the server software are, submit the bug "
+"report directly to them."
+msgstr ""
+"Dacă știți cine sînt autorii programului de pe server, atunci trimiteți-le "
+"direct un raport de eroare."
+
+#: core/job_error.cpp:917
+msgid "Timeout Error"
+msgstr "Eroare temporizare"
+
+#: core/job_error.cpp:918
+#, kde-format
+msgid ""
+"Although contact was made with the server, a response was not received "
+"within the amount of time allocated for the request as follows:"
+"<ul><li>Timeout for establishing a connection: %1 seconds</li><li>Timeout "
+"for receiving a response: %2 seconds</li><li>Timeout for accessing proxy "
+"servers: %3 seconds</li></ul>Please note that you can alter these timeout "
+"settings in the KDE System Settings, by selecting Network Settings -> "
+"Connection Preferences."
+msgstr ""
+"Deși am făcut contactul cu serverul, nu am primit un răspuns în timpul "
+"alocat cererii:<ul><li>Temporizare la stabilirea conexiunii: %1 secunde</"
+"li><li>Temporizare la primirea unui răspuns: %2 secunde</li><li>Temporizare "
+"la accesarea serverelor proxy: %3 secunde</li></ul> Trebuie să rețineți că "
+"aceste temporizări le puteți modifica din Configurările de sistem KDE "
+"selectînd Configurări de rețea -> Preferințe conexiune."
+
+#: core/job_error.cpp:929
+msgid "The server was too busy responding to other requests to respond."
+msgstr "Serverul a fost prea încărcat ca să răspundă la alte cereri."
+
+#: core/job_error.cpp:935 core/slavebase.cpp:1427
+msgid "Unknown Error"
+msgstr "Eroare necunoscută"
+
+#: core/job_error.cpp:936
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an unknown error: %2."
+msgstr ""
+"Programul de pe calculatorul dumneavoastră care asigură acces la protocolul "
+"<strong>%1</strong> a raportat o eroare necunoscută: %2."
+
+#: core/job_error.cpp:944
+msgid "Unknown Interruption"
+msgstr "Întrerupere necunoscută"
+
+#: core/job_error.cpp:945
+#, kde-format
+msgid ""
+"The program on your computer which provides access to the <strong>%1</"
+"strong> protocol has reported an interruption of an unknown type: %2."
+msgstr ""
+"Programul de pe calculatorul dumneavoastră care asigură acces la protocolul "
+"<strong>%1</strong> a raportat o întrerupere de tip necunoscut: %2."
+
+#: core/job_error.cpp:953
+msgid "Could Not Delete Original File"
+msgstr "Nu pot șterge fișierul original"
+
+#: core/job_error.cpp:954
+#, kde-format
+msgid ""
+"The requested operation required the deleting of the original file, most "
+"likely at the end of a file move operation. The original file <strong>%1</"
+"strong> could not be deleted."
+msgstr ""
+"Operația cerută încearcă să șteargă fișierul original, cel mai probabil în "
+"urma unei operații de mutare de fișier. Fișierul original <strong>%1</"
+"strong> nu poate fi șters."
+
+#: core/job_error.cpp:963
+msgid "Could Not Delete Temporary File"
+msgstr "Nu pot șterge fișierul temporar"
+
+#: core/job_error.cpp:964
+#, kde-format
+msgid ""
+"The requested operation required the creation of a temporary file in which "
+"to save the new file while being downloaded. This temporary file <strong>%1</"
+"strong> could not be deleted."
+msgstr ""
+"Operația cerută încearcă crearea unui fișier temporar în care să salveze "
+"noul fișier de transferat. Acest fișier temporar <strong>%1</strong> nu "
+"poate fi șters."
+
+#: core/job_error.cpp:973
+msgid "Could Not Rename Original File"
+msgstr "Nu pot redenumi fișierul original"
+
+#: core/job_error.cpp:974
+#, kde-format
+msgid ""
+"The requested operation required the renaming of the original file <strong>"
+"%1</strong>, however it could not be renamed."
+msgstr ""
+"Operația cerută încearcă redenumirea  fișierului original <strong>%1</"
+"strong>, dar acesta nu poate fi redenumit."
+
+#: core/job_error.cpp:982
+msgid "Could Not Rename Temporary File"
+msgstr "Nu pot redenumi fișierul temporar"
+
+#: core/job_error.cpp:983
+#, kde-format
+msgid ""
+"The requested operation required the creation of a temporary file <strong>"
+"%1</strong>, however it could not be created."
+msgstr ""
+"Operația cerută încearcă crearea fișierului temporar<strong>%1</strong>, dar "
+"acesta nu poate fi făcut."
+
+#: core/job_error.cpp:991
+msgid "Could Not Create Link"
+msgstr "Nu se poate crea legătura"
+
+#: core/job_error.cpp:992
+msgid "Could Not Create Symbolic Link"
+msgstr "Nu se poate crea legătura simbolică"
+
+#: core/job_error.cpp:993
+#, kde-format
+msgid "The requested symbolic link %1 could not be created."
+msgstr "Nu s-a putut crea legătura simbolică %1."
+
+#: core/job_error.cpp:1000
+msgid "No Content"
+msgstr "Nu există conținut"
+
+#: core/job_error.cpp:1005
+msgid "Disk Full"
+msgstr "Disc plin"
+
+#: core/job_error.cpp:1006
+#, kde-format
+msgid ""
+"The requested file <strong>%1</strong> could not be written to as there is "
+"inadequate disk space."
+msgstr ""
+"Fișierul cerut <strong>%1</strong> nu poate fi scris pe disc deoarece nu "
+"există spațiu suficient."
+
+#: core/job_error.cpp:1008
+msgid ""
+"Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
+"archiving files to removable media storage such as CD-Recordable discs; or "
+"3) obtain more storage capacity."
+msgstr ""
+"Eliberați suficient spațiu de disc: 1) ștergînd fișiere inutile și "
+"temporare; 2) arhivînd fișiere pe medii de stocare precum CDROM-urile "
+"inscriptibile; sau 3) faceți rost de mai mult spațiu de stocare."
+
+#: core/job_error.cpp:1015
+msgid "Source and Destination Files Identical"
+msgstr "Sursa și destinația reprezintă fișiere identice"
+
+#: core/job_error.cpp:1016
+msgid ""
+"The operation could not be completed because the source and destination "
+"files are the same file."
+msgstr ""
+"Operația cerută nu poate fi efectuată deoarece fișierele sursă și destinație "
+"reprezintă același fișier."
+
+#: core/job_error.cpp:1018
+msgid "Choose a different filename for the destination file."
+msgstr "Alegeți un nume diferit pentru fișierul destinație."
+
+#: core/job_error.cpp:1029
+msgid "Undocumented Error"
+msgstr "Eroare nedocumentată"
+
+#: core/kcoredirlister.cpp:397 widgets/krun.cpp:844 widgets/paste.cpp:258
+#: widgets/renamedialog.cpp:410
+#, kde-format
+msgid ""
+"Malformed URL\n"
+"%1"
+msgstr ""
+"URL eronat\n"
+"%1"
+
+#: core/kcoredirlister.cpp:402
+#, kde-format
+msgid ""
+"URL cannot be listed\n"
+"%1"
+msgstr ""
+"URL-ul nu poate fi enumerat\n"
+"%1"
+
+#: core/kfileitem.cpp:1180
+#, kde-format
+msgid "(Symbolic Link to %1)"
+msgstr "(Legătură simbolică la %1)"
+
+#: core/kfileitem.cpp:1182
+#, kde-format
+msgid "(%1, Link to %2)"
+msgstr "(%1, legătură către %2)"
+
+#: core/kfileitem.cpp:1185
+#, kde-format
+msgid " (Points to %1)"
+msgstr "(Indică către %1)"
+
+#: core/klocalsocket_unix.cpp:192 core/klocalsocket_unix.cpp:260
+msgid "Specified socket path is invalid"
+msgstr "Calea de soclu specificată nu este validă"
+
+#: core/klocalsocket_unix.cpp:201 core/klocalsocket_unix.cpp:248
+#: core/klocalsocket_unix.cpp:269
+msgid "The socket operation is not supported"
+msgstr "Operația cu soclul nu este suportată"
+
+#: core/klocalsocket_unix.cpp:214
+msgid "Connection refused"
+msgstr "Conexiune refuzată"
+
+#: core/klocalsocket_unix.cpp:219 core/klocalsocket_unix.cpp:282
+msgid "Permission denied"
+msgstr "Permisiune refuzată"
+
+#: core/klocalsocket_unix.cpp:223
+msgid "Connection timed out"
+msgstr "Conexiunea a expirat"
+
+#: core/klocalsocket_unix.cpp:227 core/klocalsocket_unix.cpp:307
+msgid "Unknown error"
+msgstr "Eroare necunoscută"
+
+#: core/klocalsocket_unix.cpp:235 core/klocalsocket_unix.cpp:315
+msgid "Could not set non-blocking mode"
+msgstr "Nu se poate stabili regimul ne-blocant"
+
+#: core/klocalsocket_unix.cpp:286
+msgid "Address is already in use"
+msgstr "Adresa este deja utilizată"
+
+#: core/klocalsocket_unix.cpp:291
+msgid "Path cannot be used"
+msgstr "Calea nu poate fi utilizată"
+
+#: core/klocalsocket_unix.cpp:295
+msgid "No such file or directory"
+msgstr "Nu există astfel de fișier sau dosar"
+
+#: core/klocalsocket_unix.cpp:299
+msgid "Not a directory"
+msgstr "Nu este un dosar"
+
+#: core/klocalsocket_unix.cpp:303
+msgid "Read-only filesystem"
+msgstr "Sistem de fișiere numai-citire"
+
+#: core/klocalsocket_unix.cpp:370 core/klocalsocket_unix.cpp:404
+msgid "Unknown socket error"
+msgstr "Eroare de soclu necunoscută"
+
+#: core/klocalsocket_win.cpp:31 core/klocalsocket_win.cpp:36
+msgid "Operation not supported"
+msgstr "Operația nu este suportată"
+
+#: core/ktcpsocket.cpp:165
+msgctxt "SSL error"
+msgid "No error"
+msgstr "Nicio eroare"
+
+#: core/ktcpsocket.cpp:167
+msgctxt "SSL error"
+msgid "The certificate authority's certificate is invalid"
+msgstr "Certificatul autorității de certificare nu este valid"
+
+#: core/ktcpsocket.cpp:169
+msgctxt "SSL error"
+msgid "The certificate has expired"
+msgstr "Certificatul a expirat"
+
+#: core/ktcpsocket.cpp:171
+msgctxt "SSL error"
+msgid "The certificate is invalid"
+msgstr "Certificatul nu este valid"
+
+#: core/ktcpsocket.cpp:173
+msgctxt "SSL error"
+msgid "The certificate is not signed by any trusted certificate authority"
+msgstr ""
+"Certificatul nu este semnat de nicio autoritate de certificare de încredere"
+
+#: core/ktcpsocket.cpp:175
+msgctxt "SSL error"
+msgid "The certificate has been revoked"
+msgstr "Certificatul a fost revocat"
+
+#: core/ktcpsocket.cpp:177
+msgctxt "SSL error"
+msgid "The certificate is unsuitable for this purpose"
+msgstr "Certificatul nu este potrivit acestui scop"
+
+#: core/ktcpsocket.cpp:179
+msgctxt "SSL error"
+msgid ""
+"The root certificate authority's certificate is not trusted for this purpose"
+msgstr ""
+"Certificatul autorității de certificare rădăcină nu este de încredere pentru "
+"acest scop"
+
+#: core/ktcpsocket.cpp:181
+msgctxt "SSL error"
+msgid ""
+"The certificate authority's certificate is marked to reject this "
+"certificate's purpose"
+msgstr ""
+"Certificatul autorității de certificare este marcat pentru a respinge scopul "
+"acestui certificat"
+
+#: core/ktcpsocket.cpp:183
+msgctxt "SSL error"
+msgid "The peer did not present any certificate"
+msgstr "Partenerul nu a prezentat niciun certificat"
+
+#: core/ktcpsocket.cpp:185
+msgctxt "SSL error"
+msgid "The certificate does not apply to the given host"
+msgstr "Certificatul nu se aplică gazdei date"
+
+#: core/ktcpsocket.cpp:187
+msgctxt "SSL error"
+msgid "The certificate cannot be verified for internal reasons"
+msgstr "Certificatul nu poate fi verificat din motive interne"
+
+#: core/ktcpsocket.cpp:189
+msgctxt "SSL error"
+msgid "The certificate chain is too long"
+msgstr "Lanțul de certificate este prea lung"
+
+#: core/ktcpsocket.cpp:192
+msgctxt "SSL error"
+msgid "Unknown error"
+msgstr "Eroare necunoscută"
+
+#: core/slave.cpp:462
+#, kde-format
+msgid "Unknown protocol '%1'."
+msgstr "Protocol necunoscut „%1”."
+
+#: core/slave.cpp:472
+#, kde-format
+msgid "Can not find io-slave for protocol '%1'."
+msgstr "Nu am găsit dispozitivul I/E pentru protocolul „%1”."
+
+#: core/slave.cpp:483
+msgid "Can not find 'kioslave' executable"
+msgstr "Executabilul „kioslave” nu poate fi găsit"
+
+#: core/slave.cpp:498
+#, kde-format
+msgid "Cannot talk to klauncher: %1"
+msgstr "Nu s-a putut comunica cu klauncher: %1"
+
+#: core/slave.cpp:505
+#, kde-format
+msgid ""
+"Unable to create io-slave:\n"
+"klauncher said: %1"
+msgstr ""
+"Nu pot crea dispozitiv I/O:\n"
+"mesaj \"klauncher\": %1"
+
+#: core/slavebase.cpp:765
+#, kde-format
+msgid "Opening connections is not supported with the protocol %1."
+msgstr "Protocolul „%1” nu suportă deschiderea de conexiuni."
+
+#: core/slavebase.cpp:767
+#, kde-format
+msgid "Closing connections is not supported with the protocol %1."
+msgstr "Protocolul „%1” nu suportă închiderea de conexiuni."
+
+#: core/slavebase.cpp:769
+#, kde-format
+msgid "Accessing files is not supported with the protocol %1."
+msgstr "Protocolul „%1” nu suportă accesarea fișierelor."
+
+#: core/slavebase.cpp:771
+#, kde-format
+msgid "Writing to %1 is not supported."
+msgstr "Nu este suportată scrierea în %1."
+
+#: core/slavebase.cpp:773
+#, kde-format
+msgid "There are no special actions available for protocol %1."
+msgstr "Nu sînt disponibile acțiuni speciale pentru protocolul %1."
+
+#: core/slavebase.cpp:775
+#, kde-format
+msgid "Listing folders is not supported for protocol %1."
+msgstr "Protocolul „%1” nu suportă listarea de dosare."
+
+#: core/slavebase.cpp:777
+#, kde-format
+msgid "Retrieving data from %1 is not supported."
+msgstr "Nu este suportată citirea de date din %1."
+
+#: core/slavebase.cpp:779
+#, kde-format
+msgid "Retrieving mime type information from %1 is not supported."
+msgstr "Nu este suportată citirea de informații MIME din %1."
+
+#: core/slavebase.cpp:781
+#, kde-format
+msgid "Renaming or moving files within %1 is not supported."
+msgstr "Nu este suportată redenumirea sau mutarea fișierelor în %1."
+
+#: core/slavebase.cpp:783
+#, kde-format
+msgid "Creating symlinks is not supported with protocol %1."
+msgstr "Nu este suportată crearea de legături simbolice cu protocolul „%1”."
+
+#: core/slavebase.cpp:785
+#, kde-format
+msgid "Copying files within %1 is not supported."
+msgstr "Nu este suportată copierea de fișiere în %1."
+
+#: core/slavebase.cpp:787
+#, kde-format
+msgid "Deleting files from %1 is not supported."
+msgstr "Nu este suportată ștergerea de fișiere în %1."
+
+#: core/slavebase.cpp:789
+#, kde-format
+msgid "Creating folders is not supported with protocol %1."
+msgstr "Nu este suportată crearea de dosare cu protocolul „%1”."
+
+#: core/slavebase.cpp:791
+#, kde-format
+msgid "Changing the attributes of files is not supported with protocol %1."
+msgstr ""
+"Nu este suportată modificarea atributelor fișierelor cu protocolul „%1”."
+
+#: core/slavebase.cpp:793
+#, kde-format
+msgid "Changing the ownership of files is not supported with protocol %1."
+msgstr ""
+"Nu este suportată modificarea proprietarului fișierelor cu protocolul %1."
+
+#: core/slavebase.cpp:795
+#, kde-format
+msgid "Using sub-URLs with %1 is not supported."
+msgstr "Nu este suportată utilizarea sub-URL-urilor în %1."
+
+#: core/slavebase.cpp:797
+#, kde-format
+msgid "Multiple get is not supported with protocol %1."
+msgstr "Nu sînt suportate transferuri multiple cu protocolul „%1”."
+
+#: core/slavebase.cpp:799
+#, kde-format
+msgid "Opening files is not supported with protocol %1."
+msgstr "Nu este suportată deschiderea fișierelor cu protocolul %1."
+
+#: core/slavebase.cpp:801
+#, kde-format
+msgid "Protocol %1 does not support action %2."
+msgstr "Protocolul %1 nu suportă acțiunea %2."
+
+#: core/slavebase.cpp:957
+msgid "&Yes"
+msgstr "&Da"
+
+#: core/slavebase.cpp:958
+msgid "&No"
+msgstr "&Nu"
+
+#: core/slaveinterface.cpp:409 core/tcpslavebase.cpp:823 widgets/sslui.cpp:78
+msgid "&Details"
+msgstr "&Detalii"
+
+#: core/slaveinterface.cpp:411 core/tcpslavebase.cpp:836 widgets/sslui.cpp:114
+msgid "&Forever"
+msgstr "&Permanent"
+
+#: core/slaveinterface.cpp:415 core/tcpslavebase.cpp:823 widgets/sslui.cpp:79
+msgid "Co&ntinue"
+msgstr "&Continuă"
+
+#: core/slaveinterface.cpp:417 core/tcpslavebase.cpp:837 widgets/sslui.cpp:115
+msgid "&Current Session only"
+msgstr "Numai sesiunea &curentă"
+
+#: core/tcpslavebase.cpp:319
+msgid ""
+"You are about to leave secure mode. Transmissions will no longer be "
+"encrypted.\n"
+"This means that a third party could observe your data in transit."
+msgstr ""
+"Din acest moment părăsiți modul securizat. Transmisiile de date nu vor mai "
+"fi criptate.\n"
+"Aceasta înseamnă că o terță parte ar putea observa datele pe care le "
+"transferați."
+
+#: core/tcpslavebase.cpp:325 core/tcpslavebase.cpp:590
+msgid "Security Information"
+msgstr "Informații de securitate"
+
+#: core/tcpslavebase.cpp:326
+msgid "C&ontinue Loading"
+msgstr "C&ontinuă încărcarea"
+
+#: core/tcpslavebase.cpp:421
+#, kde-format
+msgctxt "%1 is a host name"
+msgid "%1: SSL negotiation failed"
+msgstr "%1: Negociere SSL eșuată"
+
+#: core/tcpslavebase.cpp:584
+msgid ""
+"You are about to enter secure mode. All transmissions will be encrypted "
+"unless otherwise noted.\n"
+"This means that no third party will be able to easily observe your data in "
+"transit."
+msgstr ""
+"Din acest moment intrați în modul securizat. Toate transmisiile vor fi "
+"criptate dacă nu este precizat altfel.\n"
+"Aceasta înseamnă că nici o terță parte nu va putea să observe cu ușurință "
+"datele pe care le transferați."
+
+#: core/tcpslavebase.cpp:591
+msgid "Display SSL &Information"
+msgstr "Afișează &informații SSL"
+
+#: core/tcpslavebase.cpp:592
+msgid "C&onnect"
+msgstr "C&onectează"
+
+#: core/tcpslavebase.cpp:736
+msgid "Enter the certificate password:"
+msgstr "Introduceți parola certificatului:"
+
+#: core/tcpslavebase.cpp:737
+msgid "SSL Certificate Password"
+msgstr "Parolă certificat SSL"
+
+#: core/tcpslavebase.cpp:751
+msgid "Unable to open the certificate. Try a new password?"
+msgstr "Nu pot deschide certificatul. Încercați o parolă nouă?"
+
+#: core/tcpslavebase.cpp:765
+msgid "The procedure to set the client certificate for the session failed."
+msgstr "Procedura de setare a certificatului client pentru sesiune a eșuat."
+
+#: core/tcpslavebase.cpp:767 widgets/jobuidelegate.cpp:346
+msgid "SSL"
+msgstr "SSL"
+
+#: core/tcpslavebase.cpp:811 widgets/sslui.cpp:68
+#, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr ""
+"Serverul nu a trecut testul de autenticitate (%1).\n"
+"\n"
+
+#: core/tcpslavebase.cpp:822 core/tcpslavebase.cpp:835
+#: core/tcpslavebase.cpp:949 core/tcpslavebase.cpp:961 widgets/sslui.cpp:77
+#: widgets/sslui.cpp:113
+msgid "Server Authentication"
+msgstr "Autentificare server"
+
+#: core/tcpslavebase.cpp:832 widgets/sslui.cpp:110
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr ""
+"Doriți să acceptați permanent acest certificat fără să mai fiți întrebat?"
+
+#: core/tcpslavebase.cpp:948
+msgid ""
+"You have indicated that you wish to accept this certificate, but it is not "
+"issued to the server who is presenting it. Do you wish to continue loading?"
+msgstr ""
+"Ați indicat că doriți să acceptați acest certificat, dar acesta nu este "
+"furnizat de serverul care îl prezintă. Doriți să continui încărcarea?"
+
+#: core/tcpslavebase.cpp:960
+msgid ""
+"SSL certificate is being rejected as requested. You can disable this in the "
+"KDE System Settings."
+msgstr ""
+"Cererea de certificat SSL este respinsă, după cum ați cerut. Puteți "
+"dezactiva aceasta în Configurări de sistem KDE."
+
+#: filewidgets/kdiroperator.cpp:761
+#, kde-format
+msgid "A file or folder named %1 already exists."
+msgstr "Există deja un fișier sau un dosar cu numele %1."
+
+#: filewidgets/kdiroperator.cpp:764
+msgid "You do not have permission to create that folder."
+msgstr "Nu aveți permisiuni pentru a crea acel dosar."
+
+#: filewidgets/kdiroperator.cpp:779
+msgid "You did not select a file to delete."
+msgstr "Nu ați selectat un fișier de șters."
+
+#: filewidgets/kdiroperator.cpp:780
+msgid "Nothing to Delete"
+msgstr "Nimic de șters"
+
+#: filewidgets/kdiroperator.cpp:822
+msgid "You did not select a file to trash."
+msgstr "Nu ați selectat un fișier de aruncat la coșul de gunoi."
+
+#: filewidgets/kdiroperator.cpp:823
+msgid "Nothing to Trash"
+msgstr "Nimic de aruncat la gunoi"
+
+#: filewidgets/kdiroperator.cpp:1020 filewidgets/kdiroperator.cpp:1158
+msgid "The specified folder does not exist or was not readable."
+msgstr "Dosarul specificat nu există sau nu este accesibil."
+
+#: filewidgets/kdiroperator.cpp:1838
+msgid "Menu"
+msgstr "Meniu"
+
+#: filewidgets/kdiroperator.cpp:1842
+msgid "Parent Folder"
+msgstr "Dosar părinte"
+
+#: filewidgets/kdiroperator.cpp:1849
+msgid "Home Folder"
+msgstr "Dosar Acasă"
+
+#: filewidgets/kdiroperator.cpp:1852
+msgid "Reload"
+msgstr "Reîncarcă"
+
+#: filewidgets/kdiroperator.cpp:1855
+msgid "New Folder..."
+msgstr "Dosar nou..."
+
+#: filewidgets/kdiroperator.cpp:1860 widgets/jobuidelegate.cpp:251
+msgid "Move to Trash"
+msgstr "Mută în coșul de gunoi"
+
+#: filewidgets/kdiroperator.cpp:1866
+msgid "Delete"
+msgstr "Șterge"
+
+#: filewidgets/kdiroperator.cpp:1873
+msgid "Sorting"
+msgstr "Sortare"
+
+#: filewidgets/kdiroperator.cpp:1876
+msgid "By Name"
+msgstr "După denumire"
+
+#: filewidgets/kdiroperator.cpp:1880
+msgid "By Size"
+msgstr "După mărime"
+
+#: filewidgets/kdiroperator.cpp:1884
+msgid "By Date"
+msgstr "După dată"
+
+#: filewidgets/kdiroperator.cpp:1888
+msgid "By Type"
+msgstr "După tip"
+
+#: filewidgets/kdiroperator.cpp:1892
+msgid "Descending"
+msgstr "Descrescător"
+
+#: filewidgets/kdiroperator.cpp:1896
+msgid "Folders First"
+msgstr "Folderele primele"
+
+#: filewidgets/kdiroperator.cpp:1906
+msgid "Icon Position"
+msgstr "Poziția pictogramei"
+
+#: filewidgets/kdiroperator.cpp:1909
+msgid "Next to File Name"
+msgstr "Alături de denumirea fișierului"
+
+#: filewidgets/kdiroperator.cpp:1913
+msgid "Above File Name"
+msgstr "Deasupra denumirii fișierului"
+
+#: filewidgets/kdiroperator.cpp:1924
+msgid "Short View"
+msgstr "Afișează pe scurt"
+
+#: filewidgets/kdiroperator.cpp:1929
+msgid "Detailed View"
+msgstr "Vizualizare detaliată"
+
+#: filewidgets/kdiroperator.cpp:1934
+msgid "Tree View"
+msgstr "Vizualizare arborescentă"
+
+#: filewidgets/kdiroperator.cpp:1939
+msgid "Detailed Tree View"
+msgstr "Vizualizare arborescentă detaliată"
+
+#: filewidgets/kdiroperator.cpp:1950
+msgid "Show Hidden Files"
+msgstr "Afișează fișiere ascunse"
+
+#: filewidgets/kdiroperator.cpp:1954
+msgid "Show Aside Preview"
+msgstr "Afișează alături de previzualizare"
+
+#: filewidgets/kdiroperator.cpp:1960
+msgid "Show Preview"
+msgstr "Arată previzualizare"
+
+#: filewidgets/kdiroperator.cpp:1964
+msgid "Open File Manager"
+msgstr "Deschide gestionarul de fișiere"
+
+#: filewidgets/kdiroperator.cpp:1969
+msgid "Properties"
+msgstr "Proprietăți"
+
+#: filewidgets/kdiroperator.cpp:1976
+msgid "&View"
+msgstr "&Vizualizare"
+
+#: filewidgets/kencodingfiledialog.cpp:86
+msgid "Encoding:"
+msgstr "Codare:"
+
+#: filewidgets/kencodingfiledialog.cpp:142
+#: filewidgets/kencodingfiledialog.cpp:161
+#: filewidgets/kencodingfiledialog.cpp:179
+#: filewidgets/kencodingfiledialog.cpp:198 widgets/kurlrequesterdialog.cpp:131
+msgid "Open"
+msgstr "Deschide"
+
+#: filewidgets/kencodingfiledialog.cpp:217
+#: filewidgets/kencodingfiledialog.cpp:240
+msgid "Save As"
+msgstr "Salvează ca"
+
+#: filewidgets/kfilefiltercombo.cpp:36 filewidgets/kfilewidget.cpp:1856
+msgid "*|All Files"
+msgstr "*|Toate fișierele"
+
+#: filewidgets/kfilefiltercombo.cpp:180
+msgid "All Supported Files"
+msgstr "Toate fișierele suportate"
+
+#: filewidgets/kfilefiltercombo.cpp:189
+msgid "All Files"
+msgstr "Toate fișierele"
+
+#: filewidgets/kfileplaceeditdialog.cpp:85
+msgid "Add Places Entry"
+msgstr "Adaugă înregistrare Locuri"
+
+#: filewidgets/kfileplaceeditdialog.cpp:87
+msgid "Edit Places Entry"
+msgstr "Editează înregistrare Locuri"
+
+#: filewidgets/kfileplaceeditdialog.cpp:96
+msgid ""
+"<qt>This is the text that will appear in the Places panel.<br /><br />The "
+"label should consist of one or two words that will help you remember what "
+"this entry refers to. If you do not enter a label, it will be derived from "
+"the location's URL.</qt>"
+msgstr ""
+"<qt>Acesta este textul care va apărea în panoul Locuri. <br /><br />Eticheta "
+"ar trebui să fie din unul sau două cuvinte care să vă ajute să țineți minte "
+"la ce se referă această înregistrare. Dacă nu introduceți o etichetă, "
+"aceasta va fi determinată din URL-ul locației.</qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:102
+msgid "L&abel:"
+msgstr "&Etichetă:"
+
+#: filewidgets/kfileplaceeditdialog.cpp:104
+msgid "Enter descriptive label here"
+msgstr "Introduceți aici o etichetă descriptivă"
+
+#: filewidgets/kfileplaceeditdialog.cpp:108
+#, kde-format
+msgid ""
+"<qt>This is the location associated with the entry. Any valid URL may be "
+"used. For example:<br /><br />%1<br />http://www.kde.org<br />ftp://ftp.kde."
+"org/pub/kde/stable<br /><br />By clicking on the button next to the text "
+"edit box you can browse to an appropriate URL.</qt>"
+msgstr ""
+"<qt>Aceasta este locația asociată cu itemul. Poate fi folosit orice URL "
+"valid. De exemplu:<br /><br />%1<br />http://www.kde.org<br />ftp://ftp.kde."
+"org/pub/kde/stable<br /><br />Dacă dați clic pe butonul din stînga liniei de "
+"editare, puteți răsfoi după un URL corespunzător.</qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:114
+msgid "&Location:"
+msgstr "&Locația:"
+
+#: filewidgets/kfileplaceeditdialog.cpp:120
+msgid ""
+"<qt>This is the icon that will appear in the Places panel.<br /><br />Click "
+"on the button to select a different icon.</qt>"
+msgstr ""
+"<qt>Aceasta este pictograma care va apărea în panoul Locuri. <br /><br /"
+">Dați clic pe buton pentru a selecta o pictogramă diferită.</qt>"
+
+#: filewidgets/kfileplaceeditdialog.cpp:123
+msgid "Choose an &icon:"
+msgstr "Alegeți o p&ictogramă:"
+
+#: filewidgets/kfileplaceeditdialog.cpp:141
+#, kde-format
+msgid "&Only show when using this application (%1)"
+msgstr "&Afișează numai la utilizarea acestei aplicații (%1)"
+
+#: filewidgets/kfileplaceeditdialog.cpp:143
+#, kde-format
+msgid ""
+"<qt>Select this setting if you want this entry to show only when using the "
+"current application (%1).<br /><br />If this setting is not selected, the "
+"entry will be available in all applications.</qt>"
+msgstr ""
+"<qt>Selectați această opțiune dacă doriți ca itemul să fie afișat numai cînd "
+"utilizați aplicația curentă (%1).<br /><br />Dacă această setare nu este "
+"selectată, atunci itemul este disponibil în toate aplicațiile.</qt>"
+
+#: filewidgets/kfileplacesmodel.cpp:118
+msgctxt "KFile System Bookmarks"
+msgid "Home"
+msgstr "Acasă"
+
+#: filewidgets/kfileplacesmodel.cpp:121
+msgctxt "KFile System Bookmarks"
+msgid "Network"
+msgstr "Rețea"
+
+#: filewidgets/kfileplacesmodel.cpp:133
+msgctxt "KFile System Bookmarks"
+msgid "Root"
+msgstr "Rădăcină"
+
+#: filewidgets/kfileplacesmodel.cpp:137
+msgctxt "KFile System Bookmarks"
+msgid "Trash"
+msgstr "Gunoi"
+
+#: filewidgets/kfileplacesmodel.cpp:798
+#, kde-format
+msgid "&Release '%1'"
+msgstr "Elibe&rează „%1”"
+
+#: filewidgets/kfileplacesmodel.cpp:800
+#, kde-format
+msgid "&Safely Remove '%1'"
+msgstr "Scoate în &siguranță „%1”"
+
+#: filewidgets/kfileplacesmodel.cpp:803
+#, kde-format
+msgid "&Unmount '%1'"
+msgstr "De&montează „%1”"
+
+#: filewidgets/kfileplacesmodel.cpp:824
+#, kde-format
+msgid "&Eject '%1'"
+msgstr "S&coate „%1”"
+
+#: filewidgets/kfileplacesmodel.cpp:858
+#, kde-format
+msgid "The device '%1' is not a disk and cannot be ejected."
+msgstr "Dispozitivul „%1” nu este un disc și nu poate fi scos."
+
+#: filewidgets/kfileplacesmodel.cpp:894
+#, kde-format
+msgid "An error occurred while accessing '%1', the system responded: %2"
+msgstr "A apărut o eroare la accesarea „%1”, sistemul a răspuns: %2"
+
+#: filewidgets/kfileplacesmodel.cpp:898
+#, kde-format
+msgid "An error occurred while accessing '%1'"
+msgstr "A apărut o eroare la accesarea „%1”"
+
+#: filewidgets/kfileplacesview.cpp:582
+msgctxt "@action:inmenu"
+msgid "Empty Trash"
+msgstr "Golește gunoiul"
+
+#: filewidgets/kfileplacesview.cpp:587 filewidgets/kfileplacesview.cpp:608
+#: filewidgets/kfileplacesview.cpp:615 widgets/kacleditwidget.cpp:96
+msgid "Add Entry..."
+msgstr "Adaugă înregistrare..."
+
+#: filewidgets/kfileplacesview.cpp:589
+#, kde-format
+msgid "&Edit Entry '%1'..."
+msgstr "&Editează înregistrarea „%1”..."
+
+#: filewidgets/kfileplacesview.cpp:611
+#, kde-format
+msgid "&Hide Entry '%1'"
+msgstr "&Ascunde înregistrarea „%1”"
+
+#: filewidgets/kfileplacesview.cpp:620
+msgid "&Show All Entries"
+msgstr "Afișează toate înregi&strările"
+
+#: filewidgets/kfileplacesview.cpp:631
+#, kde-format
+msgid "&Remove Entry '%1'"
+msgstr "&Elimină înregistrarea „%1”"
+
+#: filewidgets/kfilewidget.cpp:295
+msgid ""
+"<qt>While typing in the text area, you may be presented with possible "
+"matches. This feature can be controlled by clicking with the right mouse "
+"button and selecting a preferred mode from the <b>Text Completion</b> menu.</"
+"qt>"
+msgstr ""
+"<qt>Cînd scrieți în zona de text, vă vor fi prezentate diferite potriviri "
+"dacă există. Această caracteristică poate fi controlată dînd clic dreapta și "
+"selectînd modul preferat din meniul <b>Completare text</b>.</qt>"
+
+#: filewidgets/kfilewidget.cpp:395
+#, kde-format
+msgid "Drive: %1"
+msgstr "Unitate: %1"
+
+#: filewidgets/kfilewidget.cpp:451
+#, kde-format
+msgid ""
+"<qt>Click this button to enter the parent folder.<br /><br />For instance, "
+"if the current location is file:/home/%1 clicking this button will take you "
+"to file:/home.</qt>"
+msgstr ""
+"<qt>Dați clic pe acest buton pentru a intra în dosarul părinte.<br /><br /"
+">De exemplu, dacă locația curentă este file:/home/%1, dînd clic pe acest "
+"buton veți fi dus în file:/home.</qt>"
+
+#: filewidgets/kfilewidget.cpp:455
+msgid "Click this button to move backwards one step in the browsing history."
+msgstr ""
+"Dați clic pe acest buton pentru a merge un pas înapoi în istoricul "
+"răsfoirilor."
+
+#: filewidgets/kfilewidget.cpp:456
+msgid "Click this button to move forward one step in the browsing history."
+msgstr ""
+"Dați clic pe acest buton pentru a merge un pas înainte în istoricul "
+"răsfoirilor."
+
+#: filewidgets/kfilewidget.cpp:458
+msgid "Click this button to reload the contents of the current location."
+msgstr ""
+"Dați clic pe acest buton pentru a reîncărca conținutul locației curente."
+
+#: filewidgets/kfilewidget.cpp:460
+msgid "Click this button to create a new folder."
+msgstr "Dați clic pe acest buton pentru a crea un dosar nou."
+
+#: filewidgets/kfilewidget.cpp:466
+msgid "Show Places Navigation Panel"
+msgstr "Afișează panoul de navigare Locuri"
+
+#: filewidgets/kfilewidget.cpp:473
+msgid "Show Bookmarks"
+msgstr "Afișează semnele de carte"
+
+#: filewidgets/kfilewidget.cpp:478
+msgid "Options"
+msgstr "Opțiuni"
+
+#: filewidgets/kfilewidget.cpp:480
+msgid ""
+"<qt>This is the preferences menu for the file dialog. Various options can be "
+"accessed from this menu including: <ul><li>how files are sorted in the list</"
+"li><li>types of view, including icon and list</li><li>showing of hidden "
+"files</li><li>the Places navigation panel</li><li>file previews</"
+"li><li>separating folders from files</li></ul></qt>"
+msgstr ""
+"<qt>Acesta este meniul de configurare pentru dialogul de fișiere. În acest "
+"meniu pot fi accesate diferite opțiuni printre care:<ul><li>cum sînt sortate "
+"fișierele în listă</li><li>tipurile de vizualizări, incluzînd iconică și "
+"listă</li><li>afișarea fișierelor ascunse</li><li>panoul Locuri</"
+"li><li>previzualizarea fișierelor</li> <li>separarea fișierelor de dosare</"
+"li></ul></qt>"
+
+#: filewidgets/kfilewidget.cpp:523
+msgid "Zoom out"
+msgstr "Îndepărtează"
+
+#: filewidgets/kfilewidget.cpp:525
+msgid "Zoom in"
+msgstr "Apropie"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: filewidgets/kfilewidget.cpp:566 widgets/kpropertiesdesktopbase.ui:17
+msgid "&Name:"
+msgstr "De&numire:"
+
+#: filewidgets/kfilewidget.cpp:589
+msgid ""
+"<qt>This is the filter to apply to the file list. File names that do not "
+"match the filter will not be shown.<p>You may select from one of the preset "
+"filters in the drop down menu, or you may enter a custom filter directly "
+"into the text area.</p><p>Wildcards such as * and ? are allowed.</p></qt>"
+msgstr ""
+"<qt>Acesta este filtrul de aplicat listei de fișiere. Numele de fișiere care "
+"nu se potrivesc cu filtrul nu vor fi afișate.<p>Puteți selecta unul din "
+"filtrele prezente în meniul derulant sau puteți introduce unul personalizat "
+"direct în cîmpul de editare.</p><p>Sînt permise caractere de globalizare "
+"precum * și ?.</p></qt>"
+
+#: filewidgets/kfilewidget.cpp:595
+msgid "&Filter:"
+msgstr "&Filtru:"
+
+#: filewidgets/kfilewidget.cpp:827
+msgid "You can only select one file"
+msgstr "Puteți selecta numai un fișier"
+
+#: filewidgets/kfilewidget.cpp:828
+msgid "More than one file provided"
+msgstr "Mai mult de un fișier oferit"
+
+#: filewidgets/kfilewidget.cpp:997
+msgid "You can only select local files"
+msgstr "Puteți selecta numai fișiere locale"
+
+#: filewidgets/kfilewidget.cpp:998
+msgid "Remote files not accepted"
+msgstr "Fișierele distante nu sînt acceptate"
+
+#: filewidgets/kfilewidget.cpp:1017
+msgid ""
+"More than one folder has been selected and this dialog does not accept "
+"folders, so it is not possible to decide which one to enter. Please select "
+"only one folder to list it."
+msgstr ""
+"A fost selectat mai mult de un dosar iar acest dialog nu acceptă dosare, "
+"deci nu se poate decide în care dintre ele să se intre. Vă rugăm selectați "
+"doar un dosar pentru ai lista conținutul."
+
+#: filewidgets/kfilewidget.cpp:1017
+msgid "More than one folder provided"
+msgstr "Mai mult de un dosar oferit"
+
+#: filewidgets/kfilewidget.cpp:1025
+msgid ""
+"At least one folder and one file has been selected. Selected files will be "
+"ignored and the selected folder will be listed"
+msgstr ""
+"Au fost selectate cel puțin un dosar și un fișier. Fișierele selectate vor "
+"fi ignorate iar conținutul dosarului selectat va fi listat."
+
+#: filewidgets/kfilewidget.cpp:1025
+msgid "Files and folders selected"
+msgstr "Fișiere și dosare selectate"
+
+#: filewidgets/kfilewidget.cpp:1040
+#, kde-format
+msgid "The file \"%1\" could not be found"
+msgstr "Fișierul „%1” nu a fost găsit"
+
+#: filewidgets/kfilewidget.cpp:1040
+msgid "Cannot open file"
+msgstr "Nu pot deschide fișierul"
+
+#: filewidgets/kfilewidget.cpp:1314
+msgid "This is the name to save the file as."
+msgstr "Acesta este numele cu care va fi salvat fișierul."
+
+#: filewidgets/kfilewidget.cpp:1317
+msgid ""
+"This is the list of files to open. More than one file can be specified by "
+"listing several files, separated by spaces."
+msgstr ""
+"Aceasta este lista fișierelor de deschis. Poate fi specificat mai mult de un "
+"fișier, separîndu-le prin spații."
+
+#: filewidgets/kfilewidget.cpp:1322
+msgid "This is the name of the file to open."
+msgstr "Acesta este numele fișierului de deschis."
+
+#: filewidgets/kfilewidget.cpp:1336
+msgctxt "@title:window"
+msgid "Places"
+msgstr "Locuri"
+
+#: filewidgets/kfilewidget.cpp:1526
+#, kde-format
+msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
+msgstr "Fișierul „%1” există deja. Doriți să îl suprascrieți?"
+
+#: filewidgets/kfilewidget.cpp:1527
+msgid "Overwrite File?"
+msgstr "Suprascrieți fișierul?"
+
+#: filewidgets/kfilewidget.cpp:1661
+msgid ""
+"The chosen filenames do not\n"
+"appear to be valid."
+msgstr ""
+"Numele de fișiere alese\n"
+"nu par să fie valide."
+
+#: filewidgets/kfilewidget.cpp:1663
+msgid "Invalid Filenames"
+msgstr "Nume eronate de fișiere"
+
+#: filewidgets/kfilewidget.cpp:1748
+msgid "You can only select local files."
+msgstr "Puteți selecta numai fișiere locale."
+
+#: filewidgets/kfilewidget.cpp:1749
+msgid "Remote Files Not Accepted"
+msgstr "Fișierele distante nu sînt acceptate."
+
+#: filewidgets/kfilewidget.cpp:1854
+msgid "*|All Folders"
+msgstr "*|Toate dosarele"
+
+#: filewidgets/kfilewidget.cpp:2023 widgets/executablefileopendialog.cpp:38
+#: widgets/kfileitemactions.cpp:536
+msgid "&Open"
+msgstr "&Deschide"
+
+#: filewidgets/kfilewidget.cpp:2109
+#, kde-format
+msgid "Icon size: %1 pixels (standard size)"
+msgstr "Dimensiune pictogramă: %1 pixeli (dimensiune standard)"
+
+#: filewidgets/kfilewidget.cpp:2112
+#, kde-format
+msgid "Icon size: %1 pixels"
+msgstr "Dimensiune pictogramă: %1 pixeli"
+
+#: filewidgets/kfilewidget.cpp:2246
+#, kde-format
+msgid "Automatically select filename e&xtension (%1)"
+msgstr "Selectează automat e&xtensia fișierului (%1)"
+
+#: filewidgets/kfilewidget.cpp:2247
+#, kde-format
+msgid "the extension <b>%1</b>"
+msgstr "extensia <b>%1</b>"
+
+#: filewidgets/kfilewidget.cpp:2253
+msgid "Automatically select filename e&xtension"
+msgstr "Selectează automat e&xtensia fișierului"
+
+#: filewidgets/kfilewidget.cpp:2254
+msgid "a suitable extension"
+msgstr "o extensie corespunzătoare"
+
+#: filewidgets/kfilewidget.cpp:2264
+#, kde-format
+msgid ""
+"This option enables some convenient features for saving files with "
+"extensions:<br /><ol><li>Any extension specified in the <b>%1</b> text area "
+"will be updated if you change the file type to save in.<br /><br /></"
+"li><li>If no extension is specified in the <b>%2</b> text area when you "
+"click <b>Save</b>, %3 will be added to the end of the filename (if the "
+"filename does not already exist). This extension is based on the file type "
+"that you have chosen to save in.<br /><br />If you do not want KDE to supply "
+"an extension for the filename, you can either turn this option off or you "
+"can suppress it by adding a period (.) to the end of the filename (the "
+"period will be automatically removed).</li></ol>If unsure, keep this option "
+"enabled as it makes your files more manageable."
+msgstr ""
+"Această opțiune activează unele funcții conveniente pentru salvarea "
+"fișierelor cu extensie:<br /><ol><li>Orice extensie specificată în zona de "
+"text <b>%1</b> va fi actualizată dacă schimbați tipul de fișier pentru care "
+"executați salvarea.<br /><br /></li><li>Dacă nu este specificată o extensie "
+"în zona de text <b>%2</b>, cînd dați clic pe <b>Salvează</b>, va fi adăugat "
+"%3 la sfîrșitul numelui de fișier (dacă fișierul nu există deja). Această "
+"extensie este bazată pe tipul de fișier pe care l-ați ales pentru fișierul "
+"de salvat.<br /><br /> Dacă nu doriți să permiteți adăugarea automată a "
+"extensiei, fie dezactivați această funcționalitate, fie o blocați adăugînd "
+"un punct (.) la sfîrșitul numelui de fișier (punctul va fi eliminat automat)."
+"</li></ol> Dacă nu sînteți sigur, lăsați activată această opțiune deoarece "
+"face ca fișierele să fie mult mai ușor de administrat."
+
+#: filewidgets/kfilewidget.cpp:2574
+msgid "Bookmarks"
+msgstr "Semne de carte"
+
+#: filewidgets/kfilewidget.cpp:2578
+msgid ""
+"<qt>This button allows you to bookmark specific locations. Click on this "
+"button to open the bookmark menu where you may add, edit or select a "
+"bookmark.<br /><br />These bookmarks are specific to the file dialog, but "
+"otherwise operate like bookmarks elsewhere in KDE.</qt>"
+msgstr ""
+"<qt>Acest buton vă permite să marcați locații specifice. Dați clic pe el "
+"pentru a deschide meniul semnelor de carte unde puteți să adăugați, editați "
+"sau să selectați un semn de carte.<br /><br />Aceste semne de carte sînt "
+"specifice dialogului de fișiere, dar ele operează la fel ca și celelalte "
+"semne de carte întîlnite în alte părți ale KDE.</qt>"
+
+#: filewidgets/knewfilemenu.cpp:381 filewidgets/knewfilemenu.cpp:934
+msgid "Sorry"
+msgstr "Scuze"
+
+#: filewidgets/knewfilemenu.cpp:390
+#, kde-format
+msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
+msgstr "<qt>Fișierul-șablon <b>%1</b> nu există.</qt>"
+
+#: filewidgets/knewfilemenu.cpp:409
+msgctxt "@action:button"
+msgid "Create directory"
+msgstr "Creează dosar"
+
+#: filewidgets/knewfilemenu.cpp:411
+msgctxt "@action:button"
+msgid "Enter a different name"
+msgstr "Introdu denumire diferită"
+
+#: filewidgets/knewfilemenu.cpp:414
+msgid "Create hidden directory?"
+msgstr "Creați dosar ascuns?"
+
+#: filewidgets/knewfilemenu.cpp:424
+#, kde-format
+msgid ""
+"The name \"%1\" starts with a dot, so the directory will be hidden by "
+"default."
+msgstr ""
+"Denumirea „%1” începe cu un punct, de aceea dosarul va fi ascuns implicit."
+
+#: filewidgets/knewfilemenu.cpp:426 widgets/executablefileopendialog.cpp:36
+msgid "Do not ask again"
+msgstr "Nu întreba din nou"
+
+#: filewidgets/knewfilemenu.cpp:519 filewidgets/knewfilemenu.cpp:591
+msgid "File name:"
+msgstr "Denumire fișier:"
+
+#: filewidgets/knewfilemenu.cpp:522
+msgid "Create Symlink"
+msgstr "Creează legătură simbolică"
+
+#: filewidgets/knewfilemenu.cpp:595
+msgid "Create link to URL"
+msgstr "Creează legătură către URL"
+
+#: filewidgets/knewfilemenu.cpp:640 filewidgets/knewfilemenu.cpp:685
+#, kde-format
+msgctxt "@item:inmenu Create New"
+msgid "%1"
+msgstr "%1"
+
+#: filewidgets/knewfilemenu.cpp:945
+msgid ""
+"Basic links can only point to local files or directories.\n"
+"Please use \"Link to Location\" for remote URLs."
+msgstr ""
+"Legăturile de bază pot să indice doar către fișiere sau dosare locale.\n"
+"Vă rugăm folosiți \"Legătură la locație\" pentru URL-uri la distanță."
+
+#: filewidgets/knewfilemenu.cpp:1022
+msgid "Create New"
+msgstr "Creează nou"
+
+#: filewidgets/knewfilemenu.cpp:1037
+msgid "Link to Device"
+msgstr "Legătură la dispozitiv"
+
+#: filewidgets/knewfilemenu.cpp:1084
+msgctxt "Default name for a new folder"
+msgid "New Folder"
+msgstr "Dosar nou"
+
+#: filewidgets/knewfilemenu.cpp:1094
+msgctxt "@title:window"
+msgid "New Folder"
+msgstr "Dosar nou"
+
+#: filewidgets/knewfilemenu.cpp:1097
+#, kde-format
+msgid ""
+"Create new folder in:\n"
+"%1"
+msgstr ""
+"Creează un dosar nou în:\n"
+"%1"
+
+#: filewidgets/kstatusbarofflineindicator.cpp:55
+msgid "The desktop is offline"
+msgstr "Biroul este deconectat"
+
+#: filewidgets/kurlnavigator.cpp:424
+msgid "Copy"
+msgstr "Copiază"
+
+#: filewidgets/kurlnavigator.cpp:428
+msgid "Paste"
+msgstr "Lipește"
+
+#: filewidgets/kurlnavigator.cpp:435
+msgid "Edit"
+msgstr "Editează"
+
+#: filewidgets/kurlnavigator.cpp:438
+msgid "Navigate"
+msgstr "Navighează"
+
+#: filewidgets/kurlnavigator.cpp:453
+msgid "Show Full Path"
+msgstr "Arată calea completă"
+
+#: filewidgets/kurlnavigator.cpp:693
+msgid "Custom Path"
+msgstr "Cale personalizată"
+
+#: filewidgets/kurlnavigatorbutton.cpp:696
+msgctxt "@action:inmenu"
+msgid "More"
+msgstr "Mai mult"
+
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:174
+msgctxt "@item:inmenu"
+msgid "Devices"
+msgstr "Dispozitive"
+
+# |, no-check-spell
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:178
+msgctxt "@item:inmenu"
+msgid "Subversion"
+msgstr "Subversion"
+
+#: filewidgets/kurlnavigatorprotocolcombo.cpp:182
+msgctxt "@item:inmenu"
+msgid "Other"
+msgstr "Altele"
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:42
+msgid "Edit mode"
+msgstr "Regim de editare"
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:97
+msgid "Click for Location Navigation"
+msgstr "Apăsați pentru navigarea amplasării"
+
+#: filewidgets/kurlnavigatortogglebutton.cpp:99
+msgid "Click to Edit Location"
+msgstr "Faceți clic pentru a redacta amplasarea"
+
+#: ioslaves/file/file.cpp:230
+#, kde-format
+msgid "Setting ACL for %1"
+msgstr "Stabilire ACL pentru %1"
+
+#: ioslaves/file/file.cpp:689 ioslaves/file/file_unix.cpp:261
+#, kde-format
+msgid ""
+"Could not change permissions for\n"
+"%1"
+msgstr ""
+"Nu s-au putut schimba permisiunile pentru\n"
+"%1"
+
+#: ioslaves/file/file.cpp:901
+msgid "No Media inserted or Media not recognized."
+msgstr "Niciun mediu inserat sau mediul nu este recunoscut."
+
+#: ioslaves/file/file.cpp:910 ioslaves/file/file.cpp:1106
+msgid "\"vold\" is not running."
+msgstr "„vold” nu rulează."
+
+#: ioslaves/file/file.cpp:943
+msgid "Could not find program \"mount\""
+msgstr "Programul „mount” nu a putut fi găsit"
+
+#: ioslaves/file/file.cpp:1012
+msgid "mounting is not supported by wince."
+msgstr "Montarea nu este suportată de către wince."
+
+#: ioslaves/file/file.cpp:1117
+msgid "Could not find program \"umount\""
+msgstr "Programul „umount” nu a putut fi găsit"
+
+#: ioslaves/file/file.cpp:1132
+msgid "unmounting is not supported by wince."
+msgstr "Demontarea nu este suportată de către wince."
+
+#: ioslaves/file/file_unix.cpp:194
+#, kde-format
+msgid "Cannot copy file from %1 to %2. (Errno: %3)"
+msgstr "Nu s-a putut copia fișierul %1 în %2. (Eroarea numărul: %3)"
+
+#: ioslaves/file/file_unix.cpp:326
+#, kde-format
+msgid "No media in device for %1"
+msgstr "Niciun mediu în dispozitiv pentru %1"
+
+#: ioslaves/file/file_unix.cpp:559
+#, kde-format
+msgid "Could not get user id for given user name %1"
+msgstr "Nu s-a putut obține id. utilizatorului pentru numele de utilizator %1"
+
+#: ioslaves/file/file_unix.cpp:572
+#, kde-format
+msgid "Could not get group id for given group name %1"
+msgstr "Nu s-a putut obține id. grupului pentru denumirea de grup %1"
+
+#: ioslaves/ftp/ftp.cpp:349
+#, kde-format
+msgid "Opening connection to host %1"
+msgstr "Deschid conexiune la gazda %1"
+
+#: ioslaves/ftp/ftp.cpp:364
+#, kde-format
+msgid "Connected to host %1"
+msgstr "Conectat la gazda %1"
+
+#: ioslaves/ftp/ftp.cpp:474
+#, kde-format
+msgid ""
+"%1.\n"
+"\n"
+"Reason: %2"
+msgstr ""
+"%1.\n"
+"\n"
+"Motiv: %2"
+
+#: ioslaves/ftp/ftp.cpp:504
+msgid "Sending login information"
+msgstr "Trimitere informații de autentificare"
+
+#: ioslaves/ftp/ftp.cpp:562
+#, kde-format
+msgid ""
+"Message sent:\n"
+"Login using username=%1 and password=[hidden]\n"
+"\n"
+"Server replied:\n"
+"%2\n"
+"\n"
+msgstr ""
+"Mesaj trimis:\n"
+"Conectez utilizînd numele=%1 și parola=[ascunsă]\n"
+"\n"
+"Serverul a răspuns:\n"
+"%2\n"
+"\n"
+
+#: ioslaves/ftp/ftp.cpp:571 ioslaves/http/http.cpp:5301
+msgid "You need to supply a username and a password to access this site."
+msgstr "Trebuie să introduceți un nume și o parolă pentru a accesa acest site."
+
+#: ioslaves/ftp/ftp.cpp:573 ioslaves/http/http.cpp:5303
+msgid "Site:"
+msgstr "Site:"
+
+#: ioslaves/ftp/ftp.cpp:574
+#, kde-format
+msgid "<b>%1</b>"
+msgstr "<b>%1</b>"
+
+#: ioslaves/ftp/ftp.cpp:657
+msgid "Login OK"
+msgstr "Autentificare reușită"
+
+#: ioslaves/ftp/ftp.cpp:686
+#, kde-format
+msgid "Could not login to %1."
+msgstr "Nu m-am putut loga la %1."
+
+#: ioslaves/ftp/ftp.cpp:2585 ioslaves/http/http.cpp:5187
+#: ioslaves/http/http.cpp:5313
+msgid ""
+"You need to supply a username and a password for the proxy server listed "
+"below before you are allowed to access any sites."
+msgstr ""
+"Înainte de a putea accesa site-uri web trebuie să dați un nume și o parolă "
+"pentru serverul proxy listat mai jos."
+
+#: ioslaves/ftp/ftp.cpp:2589 ioslaves/http/http.cpp:5191
+#: ioslaves/http/http.cpp:5316
+msgid "Proxy:"
+msgstr "Proxy:"
+
+#: ioslaves/ftp/ftp.cpp:2590 ioslaves/http/http.cpp:5192
+#: ioslaves/http/http.cpp:5397
+#, kde-format
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> la <b>%2</b>"
+
+#: ioslaves/ftp/ftp.cpp:2591 ioslaves/http/http.cpp:5194
+#: ioslaves/http/http.cpp:5333
+msgid "Proxy Authentication Failed."
+msgstr "Autentificare proxy eșuată."
+
+#: ioslaves/help/kio_help.cpp:124
+#, kde-format
+msgid "There is no documentation available for %1."
+msgstr "Nu există documentație disponibilă pentru %1."
+
+#: ioslaves/help/kio_help.cpp:178
+msgid "Looking up correct file"
+msgstr "Se caută fișierul corect"
+
+#: ioslaves/help/kio_help.cpp:229
+msgid "Preparing document"
+msgstr "Se pregătește documentul"
+
+#: ioslaves/help/kio_help.cpp:238 ioslaves/help/kio_help.cpp:283
+#, kde-format
+msgid "The requested help file could not be parsed:<br />%1"
+msgstr "Fișierul de ajutor cerut nu poate fi analizat:<br />%1"
+
+#: ioslaves/help/kio_help.cpp:260
+msgid "Saving to cache"
+msgstr "Se salvează în cache"
+
+#: ioslaves/help/kio_help.cpp:277
+msgid "Using cached version"
+msgstr "Se folosește versiunea prestocată"
+
+#: ioslaves/help/kio_help.cpp:339
+msgid "Looking up section"
+msgstr "Se caută secțiunea"
+
+#: ioslaves/help/kio_help.cpp:350
+#, kde-format
+msgid "Could not find filename %1 in %2."
+msgstr "Nu s-a găsit fișierul %1 în %2."
+
+#: ioslaves/http/http.cpp:589
+msgid "No host specified."
+msgstr "Nicio gazdă specificată."
+
+#: ioslaves/http/http.cpp:1530
+msgid "Otherwise, the request would have succeeded."
+msgstr "Altfel, cererea ar fi reușit."
+
+#: ioslaves/http/http.cpp:1534
+msgctxt "request type"
+msgid "retrieve property values"
+msgstr "obține valorile proprietății"
+
+#: ioslaves/http/http.cpp:1537
+msgctxt "request type"
+msgid "set property values"
+msgstr "stabili valorile proprietății"
+
+#: ioslaves/http/http.cpp:1540
+msgctxt "request type"
+msgid "create the requested folder"
+msgstr "crea dosarul cerut"
+
+#: ioslaves/http/http.cpp:1543
+msgctxt "request type"
+msgid "copy the specified file or folder"
+msgstr "copia fișierul sau dosarul specificat"
+
+#: ioslaves/http/http.cpp:1546
+msgctxt "request type"
+msgid "move the specified file or folder"
+msgstr "muta fișierul sau dosarul specificat"
+
+#: ioslaves/http/http.cpp:1549
+msgctxt "request type"
+msgid "search in the specified folder"
+msgstr "căuta în dosarul specificat"
+
+#: ioslaves/http/http.cpp:1552
+msgctxt "request type"
+msgid "lock the specified file or folder"
+msgstr "bloca fișierul sau dosarul specificat"
+
+#: ioslaves/http/http.cpp:1555
+msgctxt "request type"
+msgid "unlock the specified file or folder"
+msgstr "debloca fișierul sau dosarul specificat"
+
+#: ioslaves/http/http.cpp:1558
+msgctxt "request type"
+msgid "delete the specified file or folder"
+msgstr "șterge fișierul sau dosarul specificat"
+
+#: ioslaves/http/http.cpp:1561
+msgctxt "request type"
+msgid "query the server's capabilities"
+msgstr "determina capabilitățile serverului"
+
+#: ioslaves/http/http.cpp:1564
+msgctxt "request type"
+msgid "retrieve the contents of the specified file or folder"
+msgstr "obține conținutul fișierului sau dosarului specificat"
+
+#: ioslaves/http/http.cpp:1567
+msgctxt "request type"
+msgid "run a report in the specified folder"
+msgstr "rulează un raport în dosarul specificat"
+
+#: ioslaves/http/http.cpp:1578
+#, kde-format
+msgctxt "%1: code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "A apărut o eroare neașteptată (%1) la încercarea de a %2."
+
+#: ioslaves/http/http.cpp:1585
+msgid "The server does not support the WebDAV protocol."
+msgstr "Serverul nu suportă protocolul WebDAV."
+
+#: ioslaves/http/http.cpp:1627
+#, kde-format
+msgctxt "%1: request type, %2: url"
+msgid ""
+"An error occurred while attempting to %1, %2. A summary of the reasons is "
+"below."
+msgstr ""
+"A apărut o eroare la %1, %2. Un sumar al motivelor posibile este dat mai jos."
+
+#: ioslaves/http/http.cpp:1642 ioslaves/http/http.cpp:1775
+#, kde-format
+msgctxt "%1: request type"
+msgid "Access was denied while attempting to %1."
+msgstr "Acces refuzat la încercarea de a %1."
+
+#: ioslaves/http/http.cpp:1655 ioslaves/http/http.cpp:1781
+msgid ""
+"A resource cannot be created at the destination until one or more "
+"intermediate collections (folders) have been created."
+msgstr ""
+"O resursă nu poate fi creată la destinație pînă cînd nu vor fi create una "
+"sau mai multe colecții (dosare) intermediare."
+
+#: ioslaves/http/http.cpp:1663
+#, kde-format
+msgid ""
+"The server was unable to maintain the liveness of the properties listed in "
+"the propertybehavior XML element or you attempted to overwrite a file while "
+"requesting that files are not overwritten. %1"
+msgstr ""
+"Serverul nu a putut menține proprietăților listate în elementul XML "
+"\"propertybehavior\" în stare actualizată sau ați încercat să suprascrieți "
+"un fișier deși ați cerut ca fișierele să nu fie suprascrise. %1"
+
+#: ioslaves/http/http.cpp:1671
+#, kde-format
+msgid "The requested lock could not be granted. %1"
+msgstr "Blocarea cerută nu poate fi onorată. %1"
+
+#: ioslaves/http/http.cpp:1677
+msgid "The server does not support the request type of the body."
+msgstr "Serverul nu suportă tipul de cerere specificat în conținut."
+
+#: ioslaves/http/http.cpp:1682 ioslaves/http/http.cpp:1789
+#, kde-format
+msgctxt "%1: request type"
+msgid "Unable to %1 because the resource is locked."
+msgstr "Nu s-a putut %1 deoarece resursa este blocată."
+
+#: ioslaves/http/http.cpp:1686
+msgid "This action was prevented by another error."
+msgstr "Această acțiune a fost oprită de altă eroare."
+
+#: ioslaves/http/http.cpp:1692 ioslaves/http/http.cpp:1795
+#, kde-format
+msgctxt "%1: request type"
+msgid ""
+"Unable to %1 because the destination server refuses to accept the file or "
+"folder."
+msgstr ""
+"Nu pot %1 deoarece serverul-destinație refuză să accepte fișierul sau "
+"dosarul."
+
+#: ioslaves/http/http.cpp:1699 ioslaves/http/http.cpp:1802
+msgid ""
+"The destination resource does not have sufficient space to record the state "
+"of the resource after the execution of this method."
+msgstr ""
+"Resursa destinație nu are suficient spațiu pentru a înregistra starea "
+"resursei după execuția metodei."
+
+#: ioslaves/http/http.cpp:1753
+msgid "The resource cannot be deleted."
+msgstr "Resursa nu poate fi ștearsă."
+
+#: ioslaves/http/http.cpp:1766
+#, kde-format
+msgctxt "request type"
+msgid "upload %1"
+msgstr "încarc %1"
+
+#: ioslaves/http/http.cpp:1816
+#, kde-format
+msgctxt "%1: response code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "A apărut o eroare neașteptată (%1) la încercarea de a %2."
+
+#: ioslaves/http/http.cpp:2642
+#, kde-format
+msgid "%1 contacted. Waiting for reply..."
+msgstr "Am contactat %1. Aștept răspunsul..."
+
+#: ioslaves/http/http.cpp:2986
+#, kde-format
+msgctxt "@info Security check on url being accessed"
+msgid ""
+"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
+"the website does not require authentication. This may be an attempt to trick "
+"you.</p><p>Is \"%1\" the site you want to visit?</p>"
+msgstr ""
+"<p>Urmează să vă autentificați pe site-ul „%1” cu numele de utilizator „%2”, "
+"dar site-ul nu necesită autentificare. Această acțiune poate fi o tentativă "
+"de a vă induce în eroare.</p><p>Doriți într-adevăr să vizitați site-ul „%1”?"
+"</p>"
+
+#: ioslaves/http/http.cpp:2992
+msgctxt "@title:window"
+msgid "Confirm Website Access"
+msgstr "Confirmați accesul la site-ul web"
+
+#: ioslaves/http/http.cpp:3083
+msgid "Server processing request, please wait..."
+msgstr "Serverul procesează cererea. Vă rog să așteptați..."
+
+#: ioslaves/http/http.cpp:3792 ioslaves/http/http.cpp:3852
+#, kde-format
+msgid "Sending data to %1"
+msgstr "Trimit date la %1"
+
+#: ioslaves/http/http.cpp:4309
+#, kde-format
+msgid "Retrieving %1 from %2..."
+msgstr "Transfer %1 de la %2..."
+
+#: ioslaves/http/http.cpp:5332
+msgid "Authentication Failed."
+msgstr "Autentificare eșuată."
+
+#: ioslaves/http/http.cpp:5430
+msgid "Authorization failed."
+msgstr "Autorizare eșuată."
+
+#: ioslaves/http/http.cpp:5446
+msgid "Unknown Authorization method."
+msgstr "Metodă de autorizare necunoscută."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:66
+msgid "Cookie Alert"
+msgstr "Alertă cookie"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:90
+#, kde-format
+msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+msgid ""
+"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject this cookie?</p>"
+msgid_plural ""
+"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject these cookies?</p>"
+msgstr[0] ""
+"<p>Ați recepționat un cookie de la <br/><b>%2%3</b><br/>Doriți să acceptați "
+"sau să respingeți acest cookie?</p>"
+msgstr[1] ""
+"<p>Ați recepționat %1 cookie-uri de la <br/><b>%2%3</b><br/>Doriți să "
+"acceptați sau să respingeți aceste cookie-uri?</p>"
+msgstr[2] ""
+"<p>Ați recepționat %1 de cookie-uri de la <br/><b>%2%3</b><br/>Doriți să "
+"acceptați sau să respingeți aceste cookie-uri?</p>"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:98
+msgctxt "@item:intext cross domain cookie"
+msgid " [Cross Domain]"
+msgstr " [Între domenii]"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:108
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:363
+msgid "See or modify the cookie information"
+msgstr "Afișează sau modifică informații cookie"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:112
+msgid "Accept for this &session"
+msgstr "Acceptă pentru această &sesiune"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:114
+msgid "Accept cookie(s) until the end of the current session"
+msgstr "Acceptă cookie-ul pînă la sfîrșitul sesiunii curente"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:121
+msgid "&Accept"
+msgstr "&Acceptă"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:122
+msgid "&Reject"
+msgstr "&Respinge"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:156
+msgid "Apply Choice To"
+msgstr "Aplică opțiunea la"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:159
+msgid "&Only this cookie"
+msgstr "&Numai la acest cookie"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:159
+msgid "&Only these cookies"
+msgstr "&Numai la aceste cookie-uri"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:163
+msgid ""
+"Select this option to only accept or reject this cookie. You will be "
+"prompted again if you receive another cookie."
+msgstr ""
+"Selectați această opțiune pentru a accepta sau elimina numai acest cookie. "
+"Veți fi întrebat din nou cînd veți recepționa un alt cookie."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:166
+msgid "All cookies from this do&main"
+msgstr "Toate cookie-urile din acest &domeniu"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:169
+msgid ""
+"Select this option to accept or reject all cookies from this site. Choosing "
+"this option will add a new policy for the site this cookie originated from. "
+"This policy will be permanent until you manually change it from the System "
+"Settings."
+msgstr ""
+"Selectați această opțiune pentru a accepta/elimina toate cookie-urile "
+"acestui site. Dacă alegeți această opțiune, va fi adăugată o nouă politică "
+"pentru site-ul de unde a fost generat acest cookie. Această politică va fi "
+"permanentă pînă cînd o modificați manual din Configurările de sistem KDE."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:174
+msgid "All &cookies"
+msgstr "Pentru &toate cookie-urile"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:177
+msgid ""
+"Select this option to accept/reject all cookies from anywhere. Choosing this "
+"option will change the global cookie policy for all cookies until you "
+"manually change it from the System Settings."
+msgstr ""
+"Selectați această opțiune pentru a accepta sau elimina toate cookie-urile de "
+"oriunde. Alegînd această opțiune se va modifica politica globală pentru "
+"toate cookie-urile pînă cînd o veți schimba manual din Configurările de "
+"sistem KDE."
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:245
+msgid "Cookie Details"
+msgstr "Detalii cookie"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:250
+msgid "Name:"
+msgstr "Nume:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:258
+msgid "Value:"
+msgstr "Valoare:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:265
+msgid "Expires:"
+msgstr "Expiră:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:272
+msgid "Path:"
+msgstr "Cale:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:279
+msgid "Domain:"
+msgstr "Domeniu:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:286
+msgid "Exposure:"
+msgstr "Expunere:"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:294
+msgctxt "Next cookie"
+msgid "&Next >>"
+msgstr "&Următor >>"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:299
+msgid "Show details of the next cookie"
+msgstr "Afișează detalii despre următorul cookie"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:327
+msgid "Not specified"
+msgstr "Nespecificat"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:337
+msgid "End of Session"
+msgstr "Sfîrșitul sesiunii"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:342
+msgid "Secure servers only"
+msgstr "Numai servere securizate"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:344
+msgid "Secure servers, page scripts"
+msgstr "Servere sigure, scripturi web"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:348
+msgid "Servers"
+msgstr "Servere"
+
+#: ioslaves/http/kcookiejar/kcookiewin.cpp:350
+msgid "Servers, page scripts"
+msgstr "Servere, scripturi web"
+
+#: ioslaves/telnet/ktelnetservice.cpp:68
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Nu aveți permisiuni să accesați protocolul %1."
+
+#: ioslaves/trash/kcmtrash.cpp:158
+#, fuzzy
+#| msgid "1 day %2"
+#| msgid_plural "%1 days %2"
+msgid " days"
+msgstr "1 zi %2"
+
+#: ioslaves/trash/kcmtrash.cpp:248
+#, fuzzy
+#| msgid "Delete Folder"
+msgid "Delete files older than:"
+msgstr "Șterge dosarul"
+
+#: ioslaves/trash/kcmtrash.cpp:250
+msgctxt "@info:whatsthis"
+msgid ""
+"<para>Check this box to allow <b>automatic deletion</b> of files that are "
+"older than the value specified. Leave this disabled to <b>not</b> "
+"automatically delete any items after a certain timespan</para>"
+msgstr ""
+
+#: ioslaves/trash/kcmtrash.cpp:257
+#, fuzzy
+#| msgid "1 day %2"
+#| msgid_plural "%1 days %2"
+msgid " day"
+msgid_plural " days"
+msgstr[0] "1 zi %2"
+msgstr[1] "%1 zile %2"
+msgstr[2] "%1 de zile %2"
+
+#: ioslaves/trash/kcmtrash.cpp:259
+msgctxt "@info:whatsthis"
+msgid ""
+"<para>Set the number of days that files can remain in the trash. Any files "
+"older than this will be automatically deleted.</para>"
+msgstr ""
+
+#: ioslaves/trash/kcmtrash.cpp:267
+msgid "Limit to maximum size"
+msgstr ""
+
+#: ioslaves/trash/kcmtrash.cpp:269
+msgctxt "@info:whatsthis"
+msgid ""
+"<para>Check this box to limit the trash to the maximum amount of disk space "
+"that you specify below. Otherwise, it will be unlimited.</para>"
+msgstr ""
+
+#: ioslaves/trash/kcmtrash.cpp:287
+msgctxt "@info:whatsthis"
+msgid ""
+"<para>This is the maximum percent of disk space that will be used for the "
+"trash.</para>"
+msgstr ""
+
+#: ioslaves/trash/kcmtrash.cpp:292
+msgctxt "@info:whatsthis"
+msgid ""
+"<para>This is the calculated amount of disk space that will be allowed for "
+"the trash, the maximum.</para>"
+msgstr ""
+
+#: ioslaves/trash/kcmtrash.cpp:295
+msgid "Maximum size:"
+msgstr ""
+
+#: ioslaves/trash/kcmtrash.cpp:297
+msgid "When limit reached:"
+msgstr ""
+
+#: ioslaves/trash/kcmtrash.cpp:301
+msgid "Warn Me"
+msgstr ""
+
+#: ioslaves/trash/kcmtrash.cpp:302
+#, fuzzy
+#| msgid "Delete File(s) Progress"
+msgid "Delete Oldest Files From Trash"
+msgstr "Progres ștergere fișier(e)"
+
+#: ioslaves/trash/kcmtrash.cpp:303
+#, fuzzy
+#| msgid "Delete File(s) Progress"
+msgid "Delete Biggest Files From Trash"
+msgstr "Progres ștergere fișier(e)"
+
+#: ioslaves/trash/kcmtrash.cpp:305
+msgctxt "@info:whatsthis"
+msgid ""
+"<para>When the size limit is reached, it will prefer to delete the type of "
+"files that you specify, first. If this is set to warn you, it will do so "
+"instead of automatically deleting files.</para>"
+msgstr ""
+
+#: ioslaves/trash/kio_trash.cpp:93 ioslaves/trash/kio_trash.cpp:159
+#: ioslaves/trash/kio_trash.cpp:316 ioslaves/trash/kio_trash.cpp:348
+#: ioslaves/trash/kio_trash.cpp:517 ioslaves/trash/kio_trash.cpp:529
+#, fuzzy, kde-format
+#| msgid "Malformed URL %1."
+msgid "Malformed URL %1"
+msgstr "URL eronat %1."
+
+#: ioslaves/trash/kio_trash.cpp:115
+#, kde-format
+msgid ""
+"The directory %1 does not exist anymore, so it is not possible to restore "
+"this item to its original location. You can either recreate that directory "
+"and use the restore operation again, or drag the item anywhere else to "
+"restore it."
+msgstr ""
+
+#: ioslaves/trash/kio_trash.cpp:144 ioslaves/trash/kio_trash_win.cpp:238
+#, fuzzy
+#| msgid "This file is a link and does not have permissions."
+#| msgid_plural "All files are links and do not have permissions."
+msgid "This file is already in the trash bin."
+msgstr "Acest fișier este o legătură și nu are permisiuni."
+
+#: ioslaves/trash/kio_trash.cpp:233 ioslaves/trash/kio_trash_win.cpp:263
+#, fuzzy
+#| msgid ""
+#| "Internal error in server\n"
+#| "%1"
+msgid "Internal error in copyOrMove, should never happen"
+msgstr ""
+"Eroare internă în server\n"
+"%1"
+
+#: ioslaves/trash/kio_trash_win.cpp:251
+#, fuzzy
+#| msgid "Operation not supported"
+msgid "not supported"
+msgstr "Operația nu este suportată"
+
+#: ioslaves/trash/ktrash.cpp:38
+msgid ""
+"Helper program to handle the KDE trash can\n"
+"Note: to move files to the trash, do not use ktrash, but \"kioclient move "
+"'url' trash:/\""
+msgstr ""
+
+#: ioslaves/trash/ktrash.cpp:41
+msgid "Empty the contents of the trash"
+msgstr ""
+
+#: ioslaves/trash/ktrash.cpp:42
+msgid "Restore a trashed file to its original location"
+msgstr ""
+
+#: ioslaves/trash/trashimpl.cpp:1160
+msgid ""
+"The trash has reached its maximum size!\n"
+"Cleanup the trash manually."
+msgstr ""
+
+#: ioslaves/trash/trashimpl.cpp:1171
+msgid "The file is too large to be trashed."
+msgstr ""
+
+#: kcms/webshortcuts/main.cpp:41
+msgid "Web Shortcuts"
+msgstr ""
+
+#: kcms/webshortcuts/main.cpp:42
+#, fuzzy
+#| msgctxt "@title:window"
+#| msgid "Configure Shown Data"
+msgid "Configure enhanced browsing features"
+msgstr "Configurează datele afișate"
+
+#: kcms/webshortcuts/main.cpp:50
+msgid ""
+"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
+"browsing features of KDE. <h2>Web Shortcuts</h2>Web Shortcuts are a quick "
+"way of using Web search engines. For example, type \"duckduckgo:frobozz\" or "
+"\"dd:frobozz\" and your web browser will do a search on DuckDuckGo for "
+"\"frobozz\". Even easier: just press Alt+F2 (if you have not changed this "
+"keyboard shortcut) and enter the shortcut in the Run Command dialog."
+msgstr ""
+
+#: kioexec/main.cpp:54
+msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
+msgstr ""
+"KIO Exec - Deschide fișiere distante, urmărește modificările răspunde la "
+"cereri de încărcare distantă"
+
+#: kioexec/main.cpp:88
+#, kde-format
+msgid ""
+"The URL %1\n"
+"is malformed"
+msgstr ""
+"URL-ul %1\n"
+"este eronat"
+
+#: kioexec/main.cpp:90
+#, kde-format
+msgid ""
+"Remote URL %1\n"
+"not allowed with --tempfiles switch"
+msgstr ""
+"URL-ul distant %1\n"
+"nu este permis cu opțiunea --tempfiles"
+
+#: kioexec/main.cpp:227
+#, kde-format
+msgid ""
+"The supposedly temporary file\n"
+"%1\n"
+"has been modified.\n"
+"Do you still want to delete it?"
+msgstr ""
+"Fișierul temporar\n"
+"%1\n"
+"a fost modificat.\n"
+"Doriți într-adevăr să îl șterg?"
+
+#: kioexec/main.cpp:228 kioexec/main.cpp:235
+msgid "File Changed"
+msgstr "Fișier modificat"
+
+#: kioexec/main.cpp:228
+msgid "Do Not Delete"
+msgstr "Nu șterge"
+
+#: kioexec/main.cpp:234
+#, kde-format
+msgid ""
+"The file\n"
+"%1\n"
+"has been modified.\n"
+"Do you want to upload the changes?"
+msgstr ""
+"Fișierul temporar\n"
+"%1\n"
+"a fost modificat.\n"
+"Doriți să încarc distant modificările?"
+
+#: kioexec/main.cpp:235
+msgid "Upload"
+msgstr "încarcă"
+
+#: kioexec/main.cpp:235
+msgid "Do Not Upload"
+msgstr "Nu încărca"
+
+#: kioexec/main.cpp:266
+msgid "KIOExec"
+msgstr "KIOExec"
+
+#: kioexec/main.cpp:268
+msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
+msgstr ""
+
+#: kioexec/main.cpp:269
+msgid "David Faure"
+msgstr ""
+
+#: kioexec/main.cpp:270
+msgid "Stephan Kulow"
+msgstr "Stephan Kulow"
+
+#: kioexec/main.cpp:271
+msgid "Bernhard Rosenkraenzer"
+msgstr ""
+
+#: kioexec/main.cpp:272
+msgid "Waldo Bastian"
+msgstr ""
+
+#: kioexec/main.cpp:273
+msgid "Oswald Buddenhagen"
+msgstr ""
+
+#: kioexec/main.cpp:278
+msgid "Treat URLs as local files and delete them afterwards"
+msgstr "Tratează URL-urile ca fișiere locale și le șterge după aceea"
+
+#: kioexec/main.cpp:279
+msgid "Suggested file name for the downloaded file"
+msgstr "Nume de fișier sugerat pentru fișierul transferat"
+
+#: kioexec/main.cpp:280
+msgid "Command to execute"
+msgstr "Comanda de executat"
+
+#: kioexec/main.cpp:281
+msgid "URL(s) or local file(s) used for 'command'"
+msgstr "URL-ul(urile) sau fișierul(le) local(e) utilizate pentru 'command'"
+
+#: kpac/discovery.cpp:112
+msgid "Could not find a usable proxy configuration script"
+msgstr "Nu am găsit un script de configurare proxy corespunzător"
+
+#: kpac/downloader.cpp:92
+#, kde-format
+msgid ""
+"Could not download the proxy configuration script:\n"
+"%1"
+msgstr ""
+"Nu pot transfera scriptul de configurare proxy:\n"
+"%1"
+
+#: kpac/downloader.cpp:95
+msgid "Could not download the proxy configuration script"
+msgstr "Nu pot transfera scriptul de configurare proxy"
+
+#: kpac/proxyscout.cpp:236
+#, kde-format
+msgid ""
+"The proxy configuration script is invalid:\n"
+"%1"
+msgstr ""
+"Scriptul de configurare proxy este eronat:\n"
+"%1"
+
+#: kpac/proxyscout.cpp:345
+#, kde-format
+msgid ""
+"The proxy configuration script returned an error:\n"
+"%1"
+msgstr ""
+"Scriptul de configurare proxy a generat o eroare:\n"
+"%1"
+
+#: kpac/script.cpp:752
+msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
+msgstr "Nu a putut fi găsit 'FindProxyForURL' sau 'FindProxyForURLEx'"
+
+#: kpac/script.cpp:763
+#, kde-format
+msgid "Got an invalid reply when calling %1"
+msgstr "S-a primit un răspuns invalid la apelul %1"
+
+#: kpasswdserver/kpasswdserver.cpp:556
+#, fuzzy
+#| msgid " Do you want to retry?"
+msgid "Do you want to retry?"
+msgstr "  Doriți să mai încerc?"
+
+#: kpasswdserver/kpasswdserver.cpp:561
+#, fuzzy
+#| msgid "Server Authentication"
+msgid "Retry Authentication"
+msgstr "Autentificare server"
+
+#: kpasswdserver/kpasswdserver.cpp:565
+#, fuzzy
+#| msgid "Retry"
+msgctxt "@action:button filter-continue"
+msgid "Retry"
+msgstr "Reîncearcă"
+
+#: kpasswdserver/kpasswdserver.cpp:858
+#, fuzzy
+#| msgid "Authorization Dialog"
+msgid "Authentication Dialog"
+msgstr "Dialog autorizare"
+
+#: urifilters/ikws/ikwsopts.cpp:54
+#, fuzzy
+#| msgid "Name"
+msgctxt "@title:column Name label from web shortcuts column"
+msgid "Name"
+msgstr "Denumire"
+
+#: urifilters/ikws/ikwsopts.cpp:56
+msgctxt "@title:column"
+msgid "Shortcuts"
+msgstr ""
+
+#: urifilters/ikws/ikwsopts.cpp:58
+msgctxt "@title:column"
+msgid "Preferred"
+msgstr ""
+
+#: urifilters/ikws/ikwsopts.cpp:107
+msgctxt "@info:tooltip"
+msgid ""
+"Check this box to select the highlighted web shortcut as preferred.<nl/"
+">Preferred web shortcuts are used in places where only a few select "
+"shortcuts can be shown at one time."
+msgstr ""
+
+#: urifilters/ikws/ikwsopts.cpp:200
+#, fuzzy
+#| msgid "None"
+msgctxt "@item:inlistbox No default web shortcut"
+msgid "None"
+msgstr "Nimic"
+
+#: urifilters/ikws/ikwsopts.cpp:264
+msgctxt "@info:whatsthis"
+msgid ""
+"<para>In this module you can configure the web shortcuts feature. Web "
+"shortcuts allow you to quickly search or lookup words on the Internet. For "
+"example, to search for information about the KDE project using the Google "
+"engine, you simply type <emphasis>gg:KDE</emphasis> or <emphasis>google:KDE</"
+"emphasis>.</para><para>If you select a default search engine, then you can "
+"search for normal words or phrases by simply typing them into the input "
+"widget of applications that have built-in support for such a feature, e.g "
+"Konqueror.</para>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:17
+msgid ""
+"<html><head/><body><p>Enable or disable web shortcuts. </p><p>Web shortcuts "
+"allow you to quickly access or search for information located online or on "
+"your hard drive. </p><p>KDE comes with many predefined Web shortcuts. One "
+"such Web shortcut is the Google (TM) search shortcut. To use it, you simply "
+"type the keyword 'gg' followed by the keyword delimiter and the search term, "
+"e.g. <span style=\" font-weight:600;\">gg:KDE</span>.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:20
+msgid "&Enable Web shortcuts"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: urifilters/ikws/ikwsopts_ui.ui:30
+msgid "&Use preferred shortcuts only"
+msgstr ""
+
+#. i18n: ectx: property (placeholderText), widget (KLineEdit, searchLineEdit)
+#: urifilters/ikws/ikwsopts_ui.ui:37
+msgid "Search for shortcut"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:71
+msgid "Add a new Web shortcut"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:74
+#, fuzzy
+#| msgid "New..."
+msgid "&New..."
+msgstr "Nou..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:84
+msgid "Modify the highlighted Web shortcut"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:87
+#, fuzzy
+#| msgctxt "@label"
+#| msgid "Change..."
+msgid "Chan&ge..."
+msgstr "Modificare..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:97
+msgid "Delete the highlighted Web shortcut"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:100
+#, fuzzy
+#| msgid "Delete"
+msgid "De&lete"
+msgstr "Șterge"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:138
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:141
+msgid "Default Web &shortcut:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cmbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:166
+msgid ""
+"<html><head/><body><p>Select a default web shortcut. </p><p>This allows "
+"applications to automatically convert the typed word or phrase to web "
+"shortcut queries when they cannot be filtered into a proper URL. </p><p>To "
+"disable this functionality select <span style=\" font-weight:600;\">None</"
+"span> from the list. </p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:182
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:185
+msgid "&Keyword delimiter:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:204
+msgid "Choose a delimiter to mark the Web shortcut keyword."
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:208
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (KComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:213
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr ""
+
+#: urifilters/ikws/kuriikwsfilter.cpp:121
+msgid "No preferred search providers were found."
+msgstr ""
+
+#: urifilters/ikws/kuriikwsfilter.cpp:140
+msgid "No search providers were found."
+msgstr ""
+
+#: urifilters/ikws/kurisearchfilter.cpp:92
+msgid "Search F&ilters"
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:58
+#, fuzzy
+#| msgid "Default"
+msgctxt "@item:inlistbox The default character set"
+msgid "Default"
+msgstr "Implicit"
+
+#: urifilters/ikws/searchproviderdlg.cpp:62
+msgid "Modify Web Shortcut"
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:72
+msgid "New Web Shortcut"
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:125
+#, kde-format
+msgid ""
+"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
+"one."
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:130
+#, fuzzy, kde-format
+#| msgctxt "items: folders, files (size)"
+#| msgid "%1: %2"
+msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+msgid "- %1: \"%2\""
+msgstr "%1: %2"
+
+#: urifilters/ikws/searchproviderdlg.cpp:134
+#, kde-format
+msgid ""
+"The following shortcuts are already assigned. Please choose different ones.\n"
+"%1"
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:146
+msgid ""
+"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
+"This means that the same page is always going to be visited, regardless of "
+"the text typed in with the shortcut."
+msgstr ""
+
+#: urifilters/ikws/searchproviderdlg.cpp:149
+msgid "Keep It"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:17
+msgid "Enter the human-readable name of the search provider here."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:23
+msgid "Shortcut &name:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:42
+#: urifilters/ikws/searchproviderdlg_ui.ui:64
+#: urifilters/ikws/searchproviderdlg_ui.ui:70
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:48
+msgid "Shortcut &URL:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, cbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:83
+msgid "Select the character set that will be used to encode your search query."
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:92
+#: urifilters/ikws/searchproviderdlg_ui.ui:97
+#: urifilters/ikws/searchproviderdlg_ui.ui:116
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:104
+#: urifilters/ikws/searchproviderdlg_ui.ui:107
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:119
+msgid "&Shortcuts:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:132
+msgid "Select the character set that will be used to encode your search query"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:135
+msgid "&Charset:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: urifilters/ikws/searchproviderdlg_ui.ui:158
+#, fuzzy
+#| msgctxt "@label"
+#| msgid "Interlace Mode"
+msgid "Insert query placeholder"
+msgstr "Regim de întrețesere"
+
+#: urifilters/shorturi/kshorturifilter.cpp:278
+#, fuzzy, kde-format
+#| msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
+msgid "<qt><b>%1</b> does not have a home folder.</qt>"
+msgstr "<qt>Fișierul-șablon <b>%1</b> nu există.</qt>"
+
+#: urifilters/shorturi/kshorturifilter.cpp:280
+#, fuzzy, kde-format
+#| msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'."
+msgid "<qt>There is no user called <b>%1</b>.</qt>"
+msgstr "<qt>KDE a cerut deschiderea portofelului <b>%1</b>."
+
+#: urifilters/shorturi/kshorturifilter.cpp:528
+#, fuzzy, kde-format
+#| msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
+msgid "<qt>The file or folder <b>%1</b> does not exist.</qt>"
+msgstr "<qt>Fișierul-șablon <b>%1</b> nu există.</qt>"
+
+#: widgets/accessmanager.cpp:221
+msgid "Blocked request."
+msgstr "Cerere blocată."
+
+#: widgets/accessmanager.cpp:285
+msgid "Unknown HTTP verb."
+msgstr "Verb HTTP necunoscut"
+
+#. i18n: ectx: property (text), widget (QLabel, commonNameTag)
+#: widgets/certificateparty.ui:28
+msgid "Common name:"
+msgstr "Nume comun:"
+
+#. i18n: ectx: property (text), widget (QLabel, commonName)
+#: widgets/certificateparty.ui:38
+msgid "Acme Co."
+msgstr "Acme Co."
+
+#. i18n: ectx: property (text), widget (QLabel, organizationTag)
+#: widgets/certificateparty.ui:48
+msgid "Organization:"
+msgstr "Organizația:"
+
+#. i18n: ectx: property (text), widget (QLabel, organization)
+#: widgets/certificateparty.ui:58
+msgid "Acme Sundry Products Company"
+msgstr "Acme Sundry Products Company"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
+#: widgets/certificateparty.ui:68
+msgid "Organizational unit:"
+msgstr "Unitatea organizațională:"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
+#: widgets/certificateparty.ui:78
+msgid "Fraud Department"
+msgstr "Departamentul Fraude"
+
+#. i18n: ectx: property (text), widget (QLabel, countryTag)
+#: widgets/certificateparty.ui:88
+msgid "Country:"
+msgstr "Țară:"
+
+#. i18n: ectx: property (text), widget (QLabel, country)
+#: widgets/certificateparty.ui:98
+msgid "Canada"
+msgstr "Canada"
+
+#. i18n: ectx: property (text), widget (QLabel, stateTag)
+#: widgets/certificateparty.ui:108
+msgid "State:"
+msgstr "Stat:"
+
+#. i18n: ectx: property (text), widget (QLabel, state)
+#: widgets/certificateparty.ui:118
+msgid "Quebec"
+msgstr "Quebec"
+
+#. i18n: ectx: property (text), widget (QLabel, cityTag)
+#: widgets/certificateparty.ui:128
+msgid "City:"
+msgstr "Oraș:"
+
+#. i18n: ectx: property (text), widget (QLabel, city)
+#: widgets/certificateparty.ui:138
+msgid "Lakeridge Meadows"
+msgstr "Lakeridge Meadows"
+
+#: widgets/executablefileopendialog.cpp:33
+#, fuzzy
+#| msgid "Do you wish to store the passphrase in your wallet file?"
+msgid "What do you wish to do with this executable file?"
+msgstr ""
+"Doriți să stocați fraza de acces în fișierul portofelului dumneavoastră?"
+
+#: widgets/executablefileopendialog.cpp:39
+#, fuzzy
+#| msgid "E&xecute"
+msgid "&Execute"
+msgstr "&Execută"
+
+#: widgets/fileundomanager.cpp:125
+msgid "Creating directory"
+msgstr "Creez dosarul"
+
+#: widgets/fileundomanager.cpp:130
+msgid "Moving"
+msgstr "Mut"
+
+#: widgets/fileundomanager.cpp:136
+msgid "Deleting"
+msgstr "Șterg"
+
+#: widgets/fileundomanager.cpp:303
+msgid "Und&o"
+msgstr "&Desfă"
+
+#: widgets/fileundomanager.cpp:309
+msgid "Und&o: Copy"
+msgstr "&Desfă: Copiere"
+
+#: widgets/fileundomanager.cpp:311
+msgid "Und&o: Link"
+msgstr "&Desfă: Legătură"
+
+#: widgets/fileundomanager.cpp:313
+msgid "Und&o: Move"
+msgstr "&Desfă: Mutare"
+
+#: widgets/fileundomanager.cpp:315
+msgid "Und&o: Rename"
+msgstr "&Desfă: Redenumire"
+
+#: widgets/fileundomanager.cpp:317
+msgid "Und&o: Trash"
+msgstr "&Desfă: Gunoi"
+
+#: widgets/fileundomanager.cpp:319
+msgid "Und&o: Create Folder"
+msgstr "&Desfă: Creare dosar"
+
+#: widgets/fileundomanager.cpp:321
+#, fuzzy
+#| msgid "Und&o: Create Folder"
+msgid "Und&o: Create Folder(s)"
+msgstr "&Desfă: Creare dosar"
+
+#: widgets/fileundomanager.cpp:323
+msgid "Und&o: Create File"
+msgstr "&Desfă: Creare fișier"
+
+#: widgets/fileundomanager.cpp:707
+#, kde-format
+msgid ""
+"The file %1 was copied from %2, but since then it has apparently been "
+"modified at %3.\n"
+"Undoing the copy will delete the file, and all modifications will be lost.\n"
+"Are you sure you want to delete %4?"
+msgstr ""
+"Fișierul %1 a fost copiat de la %2, dar de atunci pare să se fi modificat la "
+"%3.\n"
+"Desfacerea copierii va șterge fișierul, și toate modificările vor fi "
+"pierdute.\n"
+"Sigur ștergeți %4?"
+
+#: widgets/fileundomanager.cpp:710
+msgid "Undo File Copy Confirmation"
+msgstr "Desfă confirmarea de copiere a fișierului"
+
+#: widgets/jobuidelegate.cpp:228
+#, kde-format
+msgid "Do you really want to delete this item?"
+msgid_plural "Do you really want to delete these %1 items?"
+msgstr[0] "Sigur doriți să ștergeți acest element?"
+msgstr[1] "Sigur doriți să ștergeți aceste %1 elemente?"
+msgstr[2] "Sigur doriți să ștergeți aceste %1 de elemente?"
+
+#: widgets/jobuidelegate.cpp:230
+msgid "Delete Files"
+msgstr "Ștergere fișiere"
+
+#: widgets/jobuidelegate.cpp:238
+msgctxt "@info"
+msgid ""
+"Do you want to permanently delete all items from Trash? This action cannot "
+"be undone."
+msgstr ""
+"Doriți să ștergeți permanent toate elementele dun Gunoi? Această acțiune nu "
+"poate fi anulată."
+
+#: widgets/jobuidelegate.cpp:240
+msgctxt "@action:button"
+msgid "Empty Trash"
+msgstr "Golește gunoiul"
+
+#: widgets/jobuidelegate.cpp:249
+#, kde-format
+msgid "Do you really want to move this item to the trash?"
+msgid_plural "Do you really want to move these %1 items to the trash?"
+msgstr[0] "Sigur doriți să mutați acest element la gunoi?"
+msgstr[1] "Sigur doriți să mutați aceste %1 elemente la gunoi?"
+msgstr[2] "Sigur doriți să mutați aceste %1 de elemente la gunoi?"
+
+#: widgets/jobuidelegate.cpp:252
+msgctxt "Verb"
+msgid "&Trash"
+msgstr "&Gunoi"
+
+#: widgets/jobuidelegate.cpp:345
+msgid "The peer SSL certificate chain appears to be corrupt."
+msgstr "Lanțul de certificate SSL al corespondentului este corupt."
+
+#: widgets/kacleditwidget.cpp:59 widgets/kacleditwidget.cpp:448
+msgid "Owner"
+msgstr "Proprietar"
+
+#: widgets/kacleditwidget.cpp:60 widgets/kacleditwidget.cpp:453
+msgid "Owning Group"
+msgstr "Grup proprietar"
+
+#: widgets/kacleditwidget.cpp:61 widgets/kacleditwidget.cpp:458
+#: widgets/kpropertiesdialog.cpp:1986
+msgid "Others"
+msgstr "Alții"
+
+#: widgets/kacleditwidget.cpp:62 widgets/kacleditwidget.cpp:463
+msgid "Mask"
+msgstr "Masca"
+
+#: widgets/kacleditwidget.cpp:63
+msgid "Named User"
+msgstr "Utilizator denumit"
+
+#: widgets/kacleditwidget.cpp:64
+msgid "Named Group"
+msgstr "Grup denumit"
+
+#: widgets/kacleditwidget.cpp:100
+msgid "Edit Entry..."
+msgstr "Editează înregistrarea..."
+
+#: widgets/kacleditwidget.cpp:104
+msgid "Delete Entry"
+msgstr "Șterge înregistrarea"
+
+#: widgets/kacleditwidget.cpp:308
+msgid " (Default)"
+msgstr " (Implicit)"
+
+#: widgets/kacleditwidget.cpp:429
+msgid "Edit ACL Entry"
+msgstr "Editare înregistrare ACL"
+
+#: widgets/kacleditwidget.cpp:433
+msgid "Entry Type"
+msgstr "Tip înregistrare"
+
+#: widgets/kacleditwidget.cpp:439
+msgid "Default for new files in this folder"
+msgstr "Implicit pentru fișierele noi din acest dosar"
+
+#: widgets/kacleditwidget.cpp:468
+msgid "Named user"
+msgstr "Utilizator denumit"
+
+#: widgets/kacleditwidget.cpp:473
+msgid "Named group"
+msgstr "Grup denumit"
+
+#: widgets/kacleditwidget.cpp:493
+msgid "User: "
+msgstr "Utilizator: "
+
+#: widgets/kacleditwidget.cpp:508
+msgid "Group: "
+msgstr "Grup: "
+
+#: widgets/kacleditwidget.cpp:645
+msgid "Type"
+msgstr "Tip"
+
+#: widgets/kacleditwidget.cpp:646
+msgid "Name"
+msgstr "Denumire"
+
+#: widgets/kacleditwidget.cpp:647
+msgctxt "read permission"
+msgid "r"
+msgstr "r"
+
+#: widgets/kacleditwidget.cpp:648
+msgctxt "write permission"
+msgid "w"
+msgstr "w"
+
+#: widgets/kacleditwidget.cpp:649
+msgctxt "execute permission"
+msgid "x"
+msgstr "x"
+
+#: widgets/kacleditwidget.cpp:650
+msgid "Effective"
+msgstr "Efective"
+
+#: widgets/kbuildsycocaprogressdialog.cpp:45
+msgid "Updating System Configuration"
+msgstr "Se actualizează configurația sistemului"
+
+#: widgets/kbuildsycocaprogressdialog.cpp:46
+msgid "Updating system configuration."
+msgstr "Se actualizează configurația sistemului."
+
+#: widgets/kdesktopfileactions.cpp:79
+#, kde-format
+msgid "The desktop entry file %1 has no Type=... entry."
+msgstr "Fișierul de ecran %1 nu are înregistrarea \"Type=...\"."
+
+#: widgets/kdesktopfileactions.cpp:96
+#, kde-format
+msgid ""
+"The desktop entry of type\n"
+"%1\n"
+"is unknown."
+msgstr ""
+"Înregistrarea de ecran de tipul\n"
+"%1\n"
+"este necunoscută."
+
+#: widgets/kdesktopfileactions.cpp:109 widgets/kdesktopfileactions.cpp:189
+#: widgets/kdesktopfileactions.cpp:322
+#, kde-format
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is of type FSDevice but has no Dev=... entry."
+msgstr ""
+"Fișierul de ecran\n"
+"%1\n"
+"este de tipul FSDevice dar\n"
+"nu are o intrare \"Dev=...\"."
+
+#: widgets/kdesktopfileactions.cpp:142
+#, fuzzy, kde-format
+#| msgid ""
+#| "The desktop entry of type\n"
+#| "%1\n"
+#| "is unknown."
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is not valid."
+msgstr ""
+"Înregistrarea de ecran de tipul\n"
+"%1\n"
+"este necunoscută."
+
+#: widgets/kdesktopfileactions.cpp:155
+#, kde-format
+msgid ""
+"The desktop entry file\n"
+"%1\n"
+"is of type Link but has no URL=... entry."
+msgstr ""
+"Fișierul de ecran\n"
+"%1\n"
+"este de tipul Link dar\n"
+"nu are o intrare \"URL=...\"."
+
+#: widgets/kdesktopfileactions.cpp:225
+msgid "Mount"
+msgstr "Montează"
+
+#: widgets/kdesktopfileactions.cpp:236
+msgid "Eject"
+msgstr "Ejectează"
+
+#: widgets/kdesktopfileactions.cpp:238
+msgid "Unmount"
+msgstr "Demontează"
+
+#: widgets/kdirmodel.cpp:1072
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Denumire"
+
+#: widgets/kdirmodel.cpp:1074
+msgctxt "@title:column"
+msgid "Size"
+msgstr "Dimensiune"
+
+#: widgets/kdirmodel.cpp:1076
+msgctxt "@title:column"
+msgid "Date"
+msgstr "Data"
+
+#: widgets/kdirmodel.cpp:1078
+msgctxt "@title:column"
+msgid "Permissions"
+msgstr "Permisiuni"
+
+#: widgets/kdirmodel.cpp:1080
+msgctxt "@title:column"
+msgid "Owner"
+msgstr "Proprietar"
+
+#: widgets/kdirmodel.cpp:1082
+msgctxt "@title:column"
+msgid "Group"
+msgstr "Grup"
+
+#: widgets/kdirmodel.cpp:1084
+msgctxt "@title:column"
+msgid "Type"
+msgstr "Tip"
+
+#: widgets/kfileitemactions.cpp:399
+msgctxt "@title:menu"
+msgid "&Actions"
+msgstr "&Acțiuni"
+
+#: widgets/kfileitemactions.cpp:525
+#, kde-format
+msgid "&Open with %1"
+msgstr "&Deschide cu %1"
+
+#: widgets/kfileitemactions.cpp:551
+msgctxt "@title:menu"
+msgid "&Open With"
+msgstr "&Deschide cu"
+
+#: widgets/kfileitemactions.cpp:568
+msgctxt "@action:inmenu Open With"
+msgid "&Other..."
+msgstr "&Altele..."
+
+#: widgets/kfileitemactions.cpp:570 widgets/kfileitemactions.cpp:579
+msgctxt "@title:menu"
+msgid "&Open With..."
+msgstr "&Deschide cu..."
+
+#: widgets/kfileitemactions.cpp:683
+#, kde-format
+msgid "Open &with %1"
+msgstr "Deschide c&u %1"
+
+#: widgets/kfileitemactions.cpp:685
+#, kde-format
+msgctxt "@item:inmenu Open With, %1 is application name"
+msgid "%1"
+msgstr "%1"
+
+#: widgets/kfileitemdelegate.cpp:221
+#, kde-format
+msgctxt "Items in a folder"
+msgid "1 item"
+msgid_plural "%1 items"
+msgstr[0] "1 element"
+msgstr[1] "%1 elemente"
+msgstr[2] "%1 de elemente"
+
+#: widgets/kfileitemdelegate.cpp:277 widgets/kfileitemdelegate.cpp:281
+msgctxt "@info mimetype"
+msgid "Unknown"
+msgstr "Necunoscut"
+
+#: widgets/kopenwithdialog.cpp:272
+msgid "Known Applications"
+msgstr "Aplicații cunoscute"
+
+#: widgets/kopenwithdialog.cpp:494
+msgid "Open With"
+msgstr "Deschide cu"
+
+#: widgets/kopenwithdialog.cpp:498
+#, kde-format
+msgid ""
+"<qt>Select the program that should be used to open <b>%1</b>. If the program "
+"is not listed, enter the name or click the browse button.</qt>"
+msgstr ""
+"<qt>Programul selectat ce trebuie utilizat la deschiderea <b>%1</b>. Dacă "
+"programul nu este listat, introduceți numele lui sau dați clic pe butonul de "
+"răsfoire.</qt>"
+
+#: widgets/kopenwithdialog.cpp:504
+msgid "Choose the name of the program with which to open the selected files."
+msgstr "Alegeți un nume de program cu care să deschideți fișierele selectate."
+
+#: widgets/kopenwithdialog.cpp:534
+#, kde-format
+msgid "Choose Application for %1"
+msgstr "Alegere aplicație pentru %1"
+
+#: widgets/kopenwithdialog.cpp:535
+#, kde-format
+msgid ""
+"<qt>Select the program for the file type: <b>%1</b>. If the program is not "
+"listed, enter the name or click the browse button.</qt>"
+msgstr ""
+"<qt>Selectați programul ce trebuie utilizat la deschiderea tipului de "
+"fișier: <b>%1</b>. Dacă programul nu este listat, introduceți numele lui sau "
+"dați clic pe butonul de răsfoire.</qt>"
+
+#: widgets/kopenwithdialog.cpp:550
+msgid "Choose Application"
+msgstr "Alegere aplicație"
+
+#: widgets/kopenwithdialog.cpp:551
+msgid ""
+"<qt>Select a program. If the program is not listed, enter the name or click "
+"the browse button.</qt>"
+msgstr ""
+"<qt>Selectați un program. Dacă programul nu este listat, introduceți numele "
+"lui sau dați clic pe butonul de răsfoire.</qt>"
+
+#: widgets/kopenwithdialog.cpp:610
+msgid ""
+"Following the command, you can have several place holders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"%f - a single file name\n"
+"%F - a list of files; use for applications that can open several local files "
+"at once\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%d - the directory of the file to open\n"
+"%D - a list of directories\n"
+"%i - the icon\n"
+"%m - the mini-icon\n"
+"%c - the comment"
+msgstr ""
+"În continuarea comenzii puteți avea mai multe variabile care vor fi "
+"înlocuite cu valorile actuale la execuția programului:\n"
+"%f - un singur nume de fișier\n"
+"%F - o listă de fișiere; utilizați-o cu aplicații care pot deschide mai "
+"multe fișiere de odată\n"
+"%u - un singur URL\n"
+"%U - o listă de URL-uri\n"
+"%d - un dosar sau un fișier de deschis\n"
+"%D - o listă de dosare\n"
+"%i - pictograma\n"
+"%m - mini-pictograma\n"
+"%c - comentariul"
+
+#: widgets/kopenwithdialog.cpp:645
+msgid "Run in &terminal"
+msgstr "Execută în &terminal"
+
+#: widgets/kopenwithdialog.cpp:663
+msgid "&Do not close when command exits"
+msgstr "&Nu închide cînd comanda se termină"
+
+#: widgets/kopenwithdialog.cpp:680
+msgid "&Remember application association for this type of file"
+msgstr "Ține &minte aplicația asociată cu acest tip de fișier"
+
+#: widgets/kopenwithdialog.cpp:834
+#, kde-format
+msgid ""
+"Could not extract executable name from '%1', please type a valid program "
+"name."
+msgstr ""
+"Nu s-a putut extrage un nume executabil din '%1', vă rugăm introduceți o "
+"denumire de program validă."
+
+#: widgets/kopenwithdialog.cpp:884
+#, kde-format
+msgid "'%1' not found, please type a valid program name."
+msgstr "„%1” nu a fost găsit, introduceți o denumire de program validă."
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
+#: widgets/kpropertiesdesktopadvbase.ui:11
+msgctxt ""
+"@title:group Title of a group that lets the user choose options about the "
+"terminal when launching a program"
+msgid "Terminal"
+msgstr "Terminal"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:33
+msgid ""
+"Check this option if the application you want to run is a text mode "
+"application or if you want the information that is provided by the terminal "
+"emulator window."
+msgstr ""
+"Selectați această opțiune dacă aplicația pe care doriți să o executați "
+"lucrează în modul text sau dacă doriți informații care să fie afișate la o "
+"fereastră emulator de terminal."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:36
+msgid "&Run in terminal"
+msgstr "E&xecută în terminal"
+
+#. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:43
+msgid "&Terminal options:"
+msgstr "Opțiuni &terminal:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:53
+msgid ""
+"Check this option if the text mode application offers relevant information "
+"on exit. Keeping the terminal emulator open allows you to retrieve this "
+"information."
+msgstr ""
+"Selectați această opțiune dacă aplicația în mod text oferă informații "
+"relevante la terminarea ei. Dacă permiteți ca fereastra terminal să rămînă "
+"deschisă, veți putea să obțineți acele informații."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:56
+msgid "Do not &close when command exits"
+msgstr "Nu în&chide la terminarea comenzii"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
+#: widgets/kpropertiesdesktopadvbase.ui:69
+msgctxt ""
+"@title:group Title of a group that lets the user choose which user to use "
+"when launching a program"
+msgid "User"
+msgstr "Utilizator"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:75
+msgid ""
+"Check this option if you want to run this application with a different user "
+"id. Every process has a different user id associated with it. This id code "
+"determines file access and other permissions. The password of the user is "
+"required to use this option."
+msgstr ""
+"Selectați această opțiune dacă doriți să executați aplicația sub cont "
+"diferit de utilizator. Fiecare proces are un identificator de utilizator "
+"asociat. Acest cod identificator determină accesul la fișiere și alte "
+"permisiuni. Este necesară parola acelui cont utilizator pentru folosi "
+"această opțiune."
+
+#. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:78
+msgid "Ru&n as a different user"
+msgstr "Execută ca &utilizator diferit"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:101
+msgid "Enter the user name you want to run the application as."
+msgstr ""
+"Introduceți numele de utilizator sub care doriți să executați aplicația."
+
+#. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:104
+msgid "&Username:"
+msgstr "&Nume utilizator:"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
+#: widgets/kpropertiesdesktopadvbase.ui:114
+msgid "Enter the user name you want to run the application as here."
+msgstr ""
+"Introduceți aici numele de utilizator sub care doriți să executați aplicația."
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
+#: widgets/kpropertiesdesktopadvbase.ui:124
+msgctxt ""
+"@title:group Title of a group that lets the user choose options regargin "
+"program startup"
+msgid "Startup"
+msgstr "Pornire"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:130
+msgid ""
+"Check this option if you want to make clear that your application has "
+"started. This visual feedback may appear as a busy cursor or in the taskbar."
+msgstr ""
+"Selectați această opțiune dacă doriți să determinați în mod clar că "
+"aplicația a fost pornită. Acest indicator vizual poate fi sub forma unui "
+"cursor \"ocupat\" sau în bara de procese."
+
+#. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:133
+msgid "Enable &launch feedback"
+msgstr "Activează indicarea p&ornirii"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, systrayCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:140
+msgid ""
+"Check this option if you want to have a system tray handle for your "
+"application."
+msgstr ""
+"Selectați această opțiune dacă doriți să aveți un indicator în tava de "
+"sistem pentru aplicația dumneavoastră."
+
+#. i18n: ectx: property (text), widget (QCheckBox, systrayCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:143
+msgid "&Place in system tray"
+msgstr "&Plasează în tava de sistem"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel12)
+#: widgets/kpropertiesdesktopadvbase.ui:150
+msgid "&D-Bus registration:"
+msgstr "Înregistrare &D-BUS:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:161
+msgid "None"
+msgstr "Nimic"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:166
+msgid "Multiple Instances"
+msgstr "Instanțe multiple"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:171
+msgid "Single Instance"
+msgstr "O singură instanță"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, dbusCombo)
+#: widgets/kpropertiesdesktopadvbase.ui:176
+msgid "Run Until Finished"
+msgstr "Execută pînă se termină"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, nameEdit)
+#: widgets/kpropertiesdesktopbase.ui:14 widgets/kpropertiesdesktopbase.ui:27
+msgid ""
+"Type the name you want to give to this application here. This application "
+"will appear under this name in the applications menu and in the panel."
+msgstr ""
+"Introduceți aici numele pe care doriți să îl dați aplicației. Aplicația va "
+"apărea sub acest nume în meniul aplicațiilor și în panou."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, genNameEdit)
+#: widgets/kpropertiesdesktopbase.ui:34 widgets/kpropertiesdesktopbase.ui:47
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"a dial up application (KPPP) would be \"Dial up tool\"."
+msgstr ""
+"Introduceți aici descrierea pe care doriți să o dați aplicației, în funcție "
+"de scopul ei. Exemplu: pentru o aplicație de conectare la Internet prin "
+"telefon (KPPP) ar putea fi \"Utilitar de conectare la Internet prin linia "
+"telefonică\"."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: widgets/kpropertiesdesktopbase.ui:37
+msgid "&Description:"
+msgstr "&Descriere:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, commentEdit)
+#: widgets/kpropertiesdesktopbase.ui:54 widgets/kpropertiesdesktopbase.ui:67
+msgid "Type any comment you think is useful here."
+msgstr "Scrieți aici orice comentariu pe care îl considerați util."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: widgets/kpropertiesdesktopbase.ui:57
+msgid "Comm&ent:"
+msgstr "Com&entariu:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, commandEdit)
+#: widgets/kpropertiesdesktopbase.ui:85 widgets/kpropertiesdesktopbase.ui:111
+#, no-c-format
+msgid ""
+"Type the command to start this application here.\n"
+"\n"
+"Following the command, you can have several place holders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"%f - a single file name\n"
+"%F - a list of files; use for applications that can open several local files "
+"at once\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%d - the directory of the file to open\n"
+"%D - a list of directories\n"
+"%i - the icon\n"
+"%m - the mini-icon\n"
+"%c - the caption"
+msgstr ""
+"Introduceți aici comanda cu care va fi pornită aplicația.\n"
+"\n"
+"În continuarea comenzii puteți avea mai multe variabile care vor fi "
+"înlocuite cu valorile actuale la execuția programului:\n"
+"%f - un singur nume de fișier\n"
+"%F - o listă de fișiere; utilizați-o cu aplicații care pot deschide mai "
+"multe fișiere de odată\n"
+"%u - un singur URL\n"
+"%U - o listă de URL-uri\n"
+"%d - un dosar sau un fișier de deschis\n"
+"%D - o listă de dosare\n"
+"%i - pictograma\n"
+"%m - mini-pictograma\n"
+"%c - titlul"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:88
+msgid "Co&mmand:"
+msgstr "Co&mandă:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:118
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr ""
+"Dați clic aici pentru a răsfoi sistemul de fișiere astfel încît să găsiți "
+"programul executabil dorit."
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:121
+msgid "&Browse..."
+msgstr "&Răsfoiește..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
+#: widgets/kpropertiesdesktopbase.ui:130 widgets/kpropertiesdesktopbase.ui:143
+msgid "Sets the working directory for your application."
+msgstr "Setează directorul de lucru pentru aplicația dumneavoastră."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel5)
+#: widgets/kpropertiesdesktopbase.ui:133
+msgid "&Work path:"
+msgstr "Cale de &lucru:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:157 widgets/kpropertiesdesktopbase.ui:178
+msgid ""
+"<qt><p>This list should show the types of file that your application can "
+"handle. This list is organized by <u>mimetypes</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol for "
+"identifying the type of data based on filename extensions and correspondent "
+"<u>mimetypes</u>. Example: the \"bmp\" part that comes after the dot in "
+"flower.bmp indicates that it is a specific kind of image, <u>image/x-bmp</"
+"u>. To know which application should open each type of file, the system "
+"should be informed about the abilities of each application to handle these "
+"extensions and mimetypes.</p>\n"
+"<p>If you want to associate this application with one or more mimetypes that "
+"are not in this list, click on the button <b>Add</b> below. If there are one "
+"or more filetypes that this application cannot handle, you may want to "
+"remove them from the list clicking on the button <b>Remove</b> below.</p></"
+"qt>"
+msgstr ""
+"<qt><p>Această listă ar trebui să arate tipurile de fișier pe care le poate "
+"utiliza aplicația dumneavoastră. Ea este organizată după <u>tipurile MIME</"
+"u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, este un protocol standard "
+"pentru identificarea tipului de date bazat pe extensia de fișier și <u>tipul "
+"MIME</u> corespunzător. Exemplu: partea \"bmp\" care este după punctul din "
+"numele de fișier \"floare.bmp\" semnalează că este un tip specific de "
+"imagine, <u>image/x-bmp</u>. Pentru a ști ce aplicație trebuie să deschidă "
+"fiecare tip de fișier, sistemul trebuie să fie informat despre abilitățile "
+"fiecărei aplicații de a lucra cu acele extensii și tipuri MIME.</p><p>Dacă "
+"doriți să asociați această aplicație cu unul sau mai mai multe tipuri MIME "
+"care nu există în listă, dați clic pe butonul <b>Adaugă</b> de mai jos.Dacă "
+"există unul sau mai multe tipuri de fișier pe care aplicația nu le poate "
+"utiliza, ar trebui să le ștergeți din listă dînd clic pe butonul <b>Șterge</"
+"b> de mai jos.</p></qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: widgets/kpropertiesdesktopbase.ui:160
+msgid "&Supported file types:"
+msgstr "Tipuri de fișier &suportate:"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:191
+msgid "Mimetype"
+msgstr "Tip MIME"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:196
+msgid "Description"
+msgstr "Descriere"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:206
+msgid ""
+"Click on this button if you want to add a type of file (mimetype) that your "
+"application can handle."
+msgstr ""
+"Dați clic pe acest buton dacă doriți să adăugați un tip de fișier (MIME) pe "
+"care aplicația îl poate utiliza."
+
+#. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:209
+msgid "Add..."
+msgstr "Adaugă..."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:216
+msgid ""
+"If you want to remove a type of file (mimetype) that your application cannot "
+"handle, select the mimetype in the list above and click on this button."
+msgstr ""
+"Dacă doriți să ștergeți un tip de fișier (MIME) pe care aplicația "
+"dumneavoastră nu îl poate utiliza, selectați tipul MIME din lista de mai sus "
+"și dați clic pe acest buton."
+
+#. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:219
+msgid "Remove"
+msgstr "Elimină"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:242
+msgid ""
+"Click here to modify the way this application will run, launch feedback, D-"
+"Bus options or to run it as a different user."
+msgstr ""
+"Apăsați aici pentru a modifica modul în care va fi rulată aplicația, "
+"indicarea execuției ei, opțiuni D-BUS sau dacă să fie executată sub un alt "
+"cont de utilizator."
+
+#. i18n: ectx: property (text), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:245
+msgid "Ad&vanced Options"
+msgstr "Opțiuni &avansate"
+
+#: widgets/kpropertiesdialog.cpp:205 widgets/kpropertiesdialog.cpp:220
+#: widgets/kpropertiesdialog.cpp:232 widgets/kpropertiesdialog.cpp:248
+#: widgets/kpropertiesdialog.cpp:266
+#, kde-format
+msgid "Properties for %1"
+msgstr "Proprietăți pentru %1"
+
+#: widgets/kpropertiesdialog.cpp:230
+#, kde-format
+msgid "Properties for 1 item"
+msgid_plural "Properties for %1 Selected Items"
+msgstr[0] "Proprietăți pentru 1 element"
+msgstr[1] "Proprietăți pentru %1 elemente"
+msgstr[2] "Proprietăți pentru %1 de elemente"
+
+#: widgets/kpropertiesdialog.cpp:786
+msgctxt "@title:tab File properties"
+msgid "&General"
+msgstr "&General"
+
+#: widgets/kpropertiesdialog.cpp:968
+msgid "Type:"
+msgstr "Tip:"
+
+#: widgets/kpropertiesdialog.cpp:987
+msgid "Create New File Type"
+msgstr "Creează tip nou de fișier"
+
+#: widgets/kpropertiesdialog.cpp:989
+msgid "File Type Options"
+msgstr "Opțiuni tip de fișier"
+
+#: widgets/kpropertiesdialog.cpp:1000
+msgid "Contents:"
+msgstr "Conținut:"
+
+#: widgets/kpropertiesdialog.cpp:1008 widgets/kurlrequesterdialog.cpp:57
+msgid "Location:"
+msgstr "Amplasare:"
+
+#: widgets/kpropertiesdialog.cpp:1023
+msgid "Size:"
+msgstr "Mărime:"
+
+#: widgets/kpropertiesdialog.cpp:1039
+msgid "Calculate"
+msgstr "Calculează"
+
+#: widgets/kpropertiesdialog.cpp:1040
+msgid "Stop"
+msgstr "Oprește"
+
+#: widgets/kpropertiesdialog.cpp:1049 widgets/kpropertiesdialog.cpp:1243
+msgid "Refresh"
+msgstr "Actualizează"
+
+#: widgets/kpropertiesdialog.cpp:1057
+msgid "Points to:"
+msgstr "Indică către:"
+
+#: widgets/kpropertiesdialog.cpp:1068
+msgid "Created:"
+msgstr "Creat:"
+
+#: widgets/kpropertiesdialog.cpp:1077
+msgid "Modified:"
+msgstr "Modificat:"
+
+#: widgets/kpropertiesdialog.cpp:1086
+msgid "Accessed:"
+msgstr "Accesat:"
+
+#: widgets/kpropertiesdialog.cpp:1104
+msgid "Mounted on:"
+msgstr "Montat în:"
+
+#: widgets/kpropertiesdialog.cpp:1112 widgets/kpropertiesdialog.cpp:2823
+msgid "Device usage:"
+msgstr "Utilizare dispozitiv:"
+
+#: widgets/kpropertiesdialog.cpp:1206 widgets/kpropertiesdialog.cpp:2955
+#, kde-format
+msgctxt "Available space out of total partition size (percent used)"
+msgid "%1 free of %2 (%3% used)"
+msgstr "%1 liberi din %2 (%3% utilizat)"
+
+#: widgets/kpropertiesdialog.cpp:1220
+#, kde-format
+msgid ""
+"Calculating... %1 (%2)\n"
+"%3, %4"
+msgstr ""
+"Calculez... %1 (%2)\n"
+"%3, %4"
+
+#: widgets/kpropertiesdialog.cpp:1223 widgets/kpropertiesdialog.cpp:1238
+#, kde-format
+msgid "1 file"
+msgid_plural "%1 files"
+msgstr[0] "1 fișier"
+msgstr[1] "%1 fișiere"
+msgstr[2] "%1 de fișiere"
+
+#: widgets/kpropertiesdialog.cpp:1224 widgets/kpropertiesdialog.cpp:1239
+#, kde-format
+msgid "1 sub-folder"
+msgid_plural "%1 sub-folders"
+msgstr[0] "1 subdosar"
+msgstr[1] "%1 subdosare"
+msgstr[2] "%1 de subdosare"
+
+#: widgets/kpropertiesdialog.cpp:1252
+msgid "Calculating..."
+msgstr "Calculez..."
+
+#: widgets/kpropertiesdialog.cpp:1284
+#, kde-format
+msgid "At least %1"
+msgstr "Cel puțin %1"
+
+#: widgets/kpropertiesdialog.cpp:1322
+msgid "The new file name is empty."
+msgstr "Numele de fișier nou este gol."
+
+#: widgets/kpropertiesdialog.cpp:1505 widgets/kpropertiesdialog.cpp:2700
+#: widgets/kpropertiesdialog.cpp:3000 widgets/kpropertiesdialog.cpp:3254
+#, kde-format
+msgid ""
+"<qt>Could not save properties. You do not have sufficient access to write to "
+"<b>%1</b>.</qt>"
+msgstr ""
+"<qt>Nu s-au putut salva proprietățile. Probabil nu aveți permisiuni de "
+"scriere în <b>%1</b>.</qt>"
+
+#: widgets/kpropertiesdialog.cpp:1581 widgets/kpropertiesdialog.cpp:1587
+#: widgets/kpropertiesdialog.cpp:1594
+msgid "Forbidden"
+msgstr "Interzis"
+
+#: widgets/kpropertiesdialog.cpp:1582
+msgid "Can Read"
+msgstr "Poate citi"
+
+#: widgets/kpropertiesdialog.cpp:1583
+msgid "Can Read & Write"
+msgstr "Poate citi și scrie"
+
+#: widgets/kpropertiesdialog.cpp:1588
+msgid "Can View Content"
+msgstr "Poate vedea conținutul"
+
+#: widgets/kpropertiesdialog.cpp:1589
+msgid "Can View & Modify Content"
+msgstr "Poate vedea și schimba conținutul"
+
+#: widgets/kpropertiesdialog.cpp:1595
+msgid "Can View Content & Read"
+msgstr "Poate citi și vedea conținutul"
+
+#: widgets/kpropertiesdialog.cpp:1596
+msgid "Can View/Read & Modify/Write"
+msgstr "Poate vedea/citi și modifica/scrie"
+
+#: widgets/kpropertiesdialog.cpp:1693
+msgid "&Permissions"
+msgstr "&Permisiuni"
+
+#: widgets/kpropertiesdialog.cpp:1705 widgets/kpropertiesdialog.cpp:1908
+msgid "Access Permissions"
+msgstr "Permisiuni de acces"
+
+#: widgets/kpropertiesdialog.cpp:1713
+msgid "This file is a link and does not have permissions."
+msgid_plural "All files are links and do not have permissions."
+msgstr[0] "Acest fișier este o legătură și nu are permisiuni."
+msgstr[1] "Toate fișierele sînt legături și nu au permisiuni."
+msgstr[2] "Toate fișierele sînt legături și nu au permisiuni."
+
+#: widgets/kpropertiesdialog.cpp:1717
+msgid "Only the owner can change permissions."
+msgstr "Numai proprietarul poate schimba permisiunile."
+
+#: widgets/kpropertiesdialog.cpp:1721
+msgid "O&wner:"
+msgstr "&Proprietar:"
+
+#: widgets/kpropertiesdialog.cpp:1727
+msgid "Specifies the actions that the owner is allowed to do."
+msgstr "Specifică acțiunile permise proprietarului."
+
+#: widgets/kpropertiesdialog.cpp:1729
+msgid "Gro&up:"
+msgstr "&Grup:"
+
+#: widgets/kpropertiesdialog.cpp:1735
+msgid "Specifies the actions that the members of the group are allowed to do."
+msgstr "Specifică acțiunile permise membrilor grupului."
+
+#: widgets/kpropertiesdialog.cpp:1737
+msgid "O&thers:"
+msgstr "&Alții:"
+
+#: widgets/kpropertiesdialog.cpp:1743
+msgid ""
+"Specifies the actions that all users, who are neither owner nor in the "
+"group, are allowed to do."
+msgstr ""
+"Specifică acțiunile permise celorlalți utilizatori, în care nu sînt incluși "
+"nici proprietarul și nici membrii grupului."
+
+#: widgets/kpropertiesdialog.cpp:1748
+msgid "Only own&er can rename and delete folder content"
+msgstr "Numai pr&oprietarul poate redenumi și șterge conținutul dosarului"
+
+#: widgets/kpropertiesdialog.cpp:1749
+msgid "Is &executable"
+msgstr "Este &executabil"
+
+#: widgets/kpropertiesdialog.cpp:1753
+msgid ""
+"Enable this option to allow only the folder's owner to delete or rename the "
+"contained files and folders. Other users can only add new files, which "
+"requires the 'Modify Content' permission."
+msgstr ""
+"Activați această opțiune pentru a permite numai proprietarului dosarului să "
+"șteargă sau să redenumească fișierele și dosarele conținute. Alți "
+"utilizatori nu pot decît să adauge fișiere noi, care au nevoie de "
+"permisiunea \"Schimbă conținutul\"."
+
+#: widgets/kpropertiesdialog.cpp:1757
+msgid ""
+"Enable this option to mark the file as executable. This only makes sense for "
+"programs and scripts. It is required when you want to execute them."
+msgstr ""
+"Activați această opțiune pentru a marca fișierul ca executabil. Acest lucru "
+"are sens numai pentru programe și scripturi. Este necesar numai cînd doriți "
+"să le executați."
+
+#: widgets/kpropertiesdialog.cpp:1764
+msgid "A&dvanced Permissions"
+msgstr "Permisiuni a&vansate"
+
+#: widgets/kpropertiesdialog.cpp:1772
+msgid "Ownership"
+msgstr "Proprietar"
+
+#: widgets/kpropertiesdialog.cpp:1779
+msgid "User:"
+msgstr "Utilizator:"
+
+#: widgets/kpropertiesdialog.cpp:1823
+msgid "Group:"
+msgstr "Grup:"
+
+#: widgets/kpropertiesdialog.cpp:1860
+msgid "Apply changes to all subfolders and their contents"
+msgstr "Aplică modificările tuturor subdosarelor și conținutului lor"
+
+#: widgets/kpropertiesdialog.cpp:1899
+msgid "Advanced Permissions"
+msgstr "Permisiuni avansate"
+
+#: widgets/kpropertiesdialog.cpp:1916
+msgid "Class"
+msgstr "Clasa"
+
+#: widgets/kpropertiesdialog.cpp:1921
+msgid ""
+"Show\n"
+"Entries"
+msgstr ""
+"Afișare\n"
+"fișiere"
+
+#: widgets/kpropertiesdialog.cpp:1923
+msgid "Read"
+msgstr "Citire"
+
+#: widgets/kpropertiesdialog.cpp:1929
+msgid "This flag allows viewing the content of the folder."
+msgstr "Această opțiune permite vizualizarea conținutului dosarului. "
+
+#: widgets/kpropertiesdialog.cpp:1931
+msgid "The Read flag allows viewing the content of the file."
+msgstr "Opțiunea \"Citire\" permite vizualizarea conținutului fișierului."
+
+#: widgets/kpropertiesdialog.cpp:1936
+msgid ""
+"Write\n"
+"Entries"
+msgstr ""
+"Scriere\n"
+"fișiere"
+
+#: widgets/kpropertiesdialog.cpp:1938
+msgid "Write"
+msgstr "Scriere"
+
+#: widgets/kpropertiesdialog.cpp:1944
+msgid ""
+"This flag allows adding, renaming and deleting of files. Note that deleting "
+"and renaming can be limited using the Sticky flag."
+msgstr ""
+"Această opțiune permite adăugarea, redenumirea și ștergerea de fișiere. "
+"Țineți cont de faptul că ștergerea și redenumirea pot fi limitate dacă "
+"utilizați opțiunea \"sticky\"."
+
+#: widgets/kpropertiesdialog.cpp:1947
+msgid "The Write flag allows modifying the content of the file."
+msgstr "Opțiunea \"Scriere\" permite modificarea conținutului fișierului."
+
+#: widgets/kpropertiesdialog.cpp:1953
+msgctxt "Enter folder"
+msgid "Enter"
+msgstr "Intrare"
+
+#: widgets/kpropertiesdialog.cpp:1954
+msgid "Enable this flag to allow entering the folder."
+msgstr "Activați această opțiune dacă doriți să permiteți intrarea în dosar."
+
+#: widgets/kpropertiesdialog.cpp:1956
+msgid "Exec"
+msgstr "Execuție"
+
+#: widgets/kpropertiesdialog.cpp:1957
+msgid "Enable this flag to allow executing the file as a program."
+msgstr ""
+"Activați această opțiune pentru a permite executarea fișierului ca a unui "
+"program."
+
+#: widgets/kpropertiesdialog.cpp:1967
+msgid "Special"
+msgstr "Special"
+
+#: widgets/kpropertiesdialog.cpp:1971
+msgid ""
+"Special flag. Valid for the whole folder, the exact meaning of the flag can "
+"be seen in the right hand column."
+msgstr ""
+"Opțiune specială. Este validă pentru întreg dosarul, iar sensul ei exact "
+"poate fi văzut în coloana din dreapta."
+
+#: widgets/kpropertiesdialog.cpp:1974
+msgid ""
+"Special flag. The exact meaning of the flag can be seen in the right hand "
+"column."
+msgstr ""
+"Opțiune specială. Sensul ei exact poate fi văzut în coloana din dreapta."
+
+#: widgets/kpropertiesdialog.cpp:1978
+msgid "User"
+msgstr "Utilizator"
+
+#: widgets/kpropertiesdialog.cpp:1982
+msgid "Group"
+msgstr "Grup"
+
+#: widgets/kpropertiesdialog.cpp:1990
+msgid "Set UID"
+msgstr "Setat UID"
+
+#: widgets/kpropertiesdialog.cpp:1994
+msgid ""
+"If this flag is set, the owner of this folder will be the owner of all new "
+"files."
+msgstr ""
+"Dacă această opțiune este setată, proprietarul dosarului va fi proprietarul "
+"tuturor fișierelor noi."
+
+#: widgets/kpropertiesdialog.cpp:1997
+msgid ""
+"If this file is an executable and the flag is set, it will be executed with "
+"the permissions of the owner."
+msgstr ""
+"Dacă fișierul este un executabil și opțiunea este setată, va fi executat cu "
+"permisiunile proprietarului fișierului."
+
+#: widgets/kpropertiesdialog.cpp:2001
+msgid "Set GID"
+msgstr "Setat GID"
+
+#: widgets/kpropertiesdialog.cpp:2005
+msgid ""
+"If this flag is set, the group of this folder will be set for all new files."
+msgstr ""
+"Dacă această opțiune este setată, grupul acestui dosar va fi setat pentru "
+"toate fișierele noi."
+
+#: widgets/kpropertiesdialog.cpp:2008
+msgid ""
+"If this file is an executable and the flag is set, it will be executed with "
+"the permissions of the group."
+msgstr ""
+"Dacă fișierul este un executabil și opțiunea este setată, va fi executat cu "
+"permisiunile grupului atribuit fișierului."
+
+#: widgets/kpropertiesdialog.cpp:2012
+msgctxt "File permission"
+msgid "Sticky"
+msgstr "Lipicios"
+
+#: widgets/kpropertiesdialog.cpp:2016
+msgid ""
+"If the Sticky flag is set on a folder, only the owner and root can delete or "
+"rename files. Otherwise everybody with write permissions can do this."
+msgstr ""
+"Dacă bitul „lipicios” este stabilit pentru un dosar, atunci numai "
+"proprietarul și utilizatorul „root” pot șterge sau redenumi fișiere. În caz "
+"contrar, oricine are permisiuni de scriere, poate face acele operații."
+
+#: widgets/kpropertiesdialog.cpp:2020
+msgid ""
+"The Sticky flag on a file is ignored on Linux, but may be used on some "
+"systems"
+msgstr ""
+"În Linux, bitul „lipicios” este ignorat pentru fișiere, dar poate fi "
+"utilizat pe alte sisteme UNIX."
+
+#: widgets/kpropertiesdialog.cpp:2208
+msgid "Link"
+msgstr "Legătură"
+
+#: widgets/kpropertiesdialog.cpp:2227
+msgid "Varying (No Change)"
+msgstr "Variază (nicio modificare)"
+
+#: widgets/kpropertiesdialog.cpp:2340
+msgid "This file uses advanced permissions"
+msgid_plural "These files use advanced permissions."
+msgstr[0] "Acest fișier utilizează permisiuni avansate."
+msgstr[1] "Aceste fișiere utilizează permisiuni avansate."
+msgstr[2] "Aceste fișiere utilizează permisiuni avansate."
+
+#: widgets/kpropertiesdialog.cpp:2361
+msgid "This folder uses advanced permissions."
+msgid_plural "These folders use advanced permissions."
+msgstr[0] "Acest dosar utilizează permisiuni avansate."
+msgstr[1] "Aceste dosare utilizează permisiuni avansate."
+msgstr[2] "Aceste dosare utilizează permisiuni avansate."
+
+#: widgets/kpropertiesdialog.cpp:2376
+msgid "These files use advanced permissions."
+msgstr "Aceste fișiere utilizează permisiuni avansate."
+
+#: widgets/kpropertiesdialog.cpp:2611
+msgid "U&RL"
+msgstr "U&RL"
+
+#: widgets/kpropertiesdialog.cpp:2618
+msgid "URL:"
+msgstr "URL:"
+
+#: widgets/kpropertiesdialog.cpp:2758
+msgid "De&vice"
+msgstr "&Dispozitiv"
+
+#: widgets/kpropertiesdialog.cpp:2787
+msgid "Device (/dev/fd0):"
+msgstr "Dispozitiv (/dev/fd0):"
+
+#: widgets/kpropertiesdialog.cpp:2788
+msgid "Device:"
+msgstr "Dispozitiv:"
+
+#: widgets/kpropertiesdialog.cpp:2801
+msgid "Read only"
+msgstr "Numai-citire"
+
+#: widgets/kpropertiesdialog.cpp:2805
+msgid "File system:"
+msgstr "Sistem de fișiere:"
+
+#: widgets/kpropertiesdialog.cpp:2813
+msgid "Mount point (/mnt/floppy):"
+msgstr "Punct de montare (/mnt/floppy):"
+
+#: widgets/kpropertiesdialog.cpp:2814
+msgid "Mount point:"
+msgstr "Punct de montare:"
+
+#: widgets/kpropertiesdialog.cpp:3058
+msgid "&Application"
+msgstr "&Aplicație"
+
+#: widgets/kpropertiesdialog.cpp:3184
+#, kde-format
+msgid "Add File Type for %1"
+msgstr "Adaugă tip de fișier pentru %1"
+
+#: widgets/kpropertiesdialog.cpp:3185
+msgid "Select one or more file types to add:"
+msgstr "Selectați unul sau mai multe tipuri de fișier de adăugat:"
+
+#: widgets/kpropertiesdialog.cpp:3246
+msgid ""
+"Could not save properties. Only entries on local file systems are supported."
+msgstr ""
+"Proprietățile nu pot fi salvate. Sînt suportate numai înregistrări de pe "
+"sistemele de fișiere locale."
+
+#: widgets/kpropertiesdialog.cpp:3325
+msgid "Only executables on local file systems are supported."
+msgstr ""
+"Sînt suportate numai fișiere executabile de pe sistemele de fișiere locale."
+
+#: widgets/kpropertiesdialog.cpp:3339
+#, kde-format
+msgid "Advanced Options for %1"
+msgstr "Opțiuni avansate pentru %1"
+
+#: widgets/krun.cpp:171
+#, kde-format
+msgid ""
+"<qt>Unable to enter <b>%1</b>.\n"
+"You do not have access rights to this location.</qt>"
+msgstr ""
+"<qt>Nu pot să intru în <b>%1</b>. \n"
+"Nu aveți drepturi pentru această locație.</qt>"
+
+#: widgets/krun.cpp:201
+#, kde-format
+msgid ""
+"<qt>The file <b>%1</b> is an executable program. For safety it will not be "
+"started.</qt>"
+msgstr ""
+"<qt>Fișierul <b>%1</b> este un program executabil. Din motive de siguranță "
+"nu va fi pornit.</qt>"
+
+#: widgets/krun.cpp:207
+#, kde-format
+msgid "<qt>You do not have permission to run <b>%1</b>.</qt>"
+msgstr "<qt>Nu aveți permisiuni să executați <b>%1</b>.</qt>"
+
+#: widgets/krun.cpp:237
+msgid "You are not authorized to select an application to open this file."
+msgstr ""
+"Nu sînteți autorizat să alegeți o aplicație pentru a deschide acest fișier."
+
+#: widgets/krun.cpp:248
+msgid "Open with:"
+msgstr "Deschide cu:"
+
+#: widgets/krun.cpp:298
+msgid "You are not authorized to execute this file."
+msgstr "Nu sînteți autorizat să executați acest fișier."
+
+#: widgets/krun.cpp:321
+#, kde-format
+msgid "Launching %1"
+msgstr "Pornesc %1"
+
+#: widgets/krun.cpp:426
+#, kde-format
+msgid "Error processing Exec field in %1"
+msgstr "Eroare le procesarea cîmpului de execuție în %1"
+
+#: widgets/krun.cpp:603
+msgid "You are not authorized to execute this service."
+msgstr "Nu sînteți autorizat să executați acest serviciu."
+
+#: widgets/krun.cpp:608
+msgctxt "Warning about executing unknown .desktop file"
+msgid "Warning"
+msgstr "Atenție"
+
+#: widgets/krun.cpp:625
+msgctxt "program name follows in a line edit below"
+msgid "This will start the program:"
+msgstr "Aceasta va porni programul:"
+
+#: widgets/krun.cpp:642
+msgid "If you do not trust this program, click Cancel"
+msgstr "Dacă nu aveți încredere în acest program, apăsați pe Renunță"
+
+#: widgets/krun.cpp:685
+#, kde-format
+msgid "Unable to make the service %1 executable, aborting execution"
+msgstr "Serviciul %1 nu a putut fi făcut executabil, se abandonează execuția"
+
+#: widgets/krun.cpp:868
+#, kde-format
+msgid ""
+"<qt>Unable to run the command specified. The file or folder <b>%1</b> does "
+"not exist.</qt>"
+msgstr ""
+"<qt>Nu pot executa comanda specificată. Fișierul sau dosarul <b>%1</b> nu "
+"există.</qt>"
+
+#: widgets/krun.cpp:1525
+#, kde-format
+msgid "Could not find the program '%1'"
+msgstr "Nu am găsit programul „%1”"
+
+#: widgets/ksslinfodialog.cpp:57
+msgid "KDE SSL Information"
+msgstr "Informații SSL KDE"
+
+#: widgets/ksslinfodialog.cpp:69
+msgctxt "The receiver of the SSL certificate"
+msgid "Subject"
+msgstr "Subiect"
+
+#: widgets/ksslinfodialog.cpp:70
+msgctxt "The authority that issued the SSL certificate"
+msgid "Issuer"
+msgstr "Emitent"
+
+#: widgets/ksslinfodialog.cpp:86 widgets/ksslinfodialog.cpp:120
+msgid "Current connection is secured with SSL."
+msgstr "Conexiunea curentă este securizată cu SSL."
+
+#: widgets/ksslinfodialog.cpp:89 widgets/ksslinfodialog.cpp:133
+msgid "Current connection is not secured with SSL."
+msgstr "Conexiunea curentă nu este securizată cu SSL."
+
+#: widgets/ksslinfodialog.cpp:93
+msgid "SSL support is not available in this build of KDE."
+msgstr "Suportul SSL nu este disponibil în această versiune KDE."
+
+#: widgets/ksslinfodialog.cpp:123
+msgid ""
+"The main part of this document is secured with SSL, but some parts are not."
+msgstr ""
+"Partea principală a acestui document este securizată cu SSL, dar alte părți "
+"nu sînt."
+
+#: widgets/ksslinfodialog.cpp:129
+msgid "Some of this document is secured with SSL, but the main part is not."
+msgstr ""
+"O parte a acestui document este securizată cu SSL, dar partea principală nu "
+"este."
+
+#: widgets/ksslinfodialog.cpp:179
+#, kde-format
+msgctxt "%1, using %2 bits of a %3 bit key"
+msgid "%1, %2 %3"
+msgstr "%1, %2 %3"
+
+#: widgets/ksslinfodialog.cpp:181
+#, kde-format
+msgctxt "Part of: %1, using %2 bits of a %3 bit key"
+msgid "using %1 bit"
+msgid_plural "using %1 bits"
+msgstr[0] "folosind %1 bit"
+msgstr[1] "folosind %1 biți"
+msgstr[2] "folosind %1 de biți"
+
+#: widgets/ksslinfodialog.cpp:183
+#, kde-format
+msgctxt "Part of: %1, using %2 bits of a %3 bit key"
+msgid "of a %1 bit key"
+msgid_plural "of a %1 bit key"
+msgstr[0] "dintr-o cheie de %1 bit"
+msgstr[1] "dintr-o cheie de %1 biți"
+msgstr[2] "dintr-o cheie de %1 de biți"
+
+#: widgets/ksslinfodialog.cpp:199
+msgctxt "The certificate is not trusted"
+msgid "NO, there were errors:"
+msgstr "NU, au avut loc erori:"
+
+#: widgets/ksslinfodialog.cpp:206
+msgctxt "The certificate is trusted"
+msgid "Yes"
+msgstr "Da"
+
+#: widgets/ksslinfodialog.cpp:210
+#, kde-format
+msgctxt "%1 is the effective date of the certificate, %2 is the expiry date"
+msgid "%1 to %2"
+msgstr "Din %1 pînă în %2"
+
+#: widgets/kurlrequester.cpp:322
+msgid "Open file dialog"
+msgstr "Dialog deschidere fișiere"
+
+#: widgets/paste.cpp:79 widgets/paste.cpp:148 widgets/pastejob.cpp:108
+msgid "Filename for clipboard content:"
+msgstr "Numele fișierului pentru conținutul clipboard-ului:"
+
+#: widgets/paste.cpp:140
+#, kde-format
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: widgets/paste.cpp:159
+msgid ""
+"The clipboard has changed since you used 'paste': the chosen data format is "
+"no longer applicable. Please copy again what you wanted to paste."
+msgstr ""
+"Conținutul clipboard-ului sa modificat de cînd ați \"lipit\" ultima dată: "
+"formatul de dată ales nu se mai aplică. Copiați din nou ceea ce doriți să "
+"lipiți."
+
+#: widgets/paste.cpp:286
+#, kde-format
+msgid "&Paste File"
+msgid_plural "&Paste %1 Files"
+msgstr[0] "&Lipește fișierul"
+msgstr[1] "&Lipește %1 fișiere"
+msgstr[2] "&Lipește %1 de fișiere"
+
+#: widgets/paste.cpp:288
+#, kde-format
+msgid "&Paste URL"
+msgid_plural "&Paste %1 URLs"
+msgstr[0] "&Lipește URL-ul"
+msgstr[1] "&Lipește %1 URL-uri"
+msgstr[2] "&Lipește %1 de URL-uri"
+
+#: widgets/paste.cpp:291
+msgid "&Paste Clipboard Contents"
+msgstr "&Lipește conținutul clipboard-ului"
+
+#: widgets/paste.cpp:320
+#, fuzzy
+msgctxt "@action:inmenu"
+msgid "Paste One Folder"
+msgstr "Un folder"
+
+#: widgets/paste.cpp:321
+#, fuzzy
+#| msgid "&Paste File"
+#| msgid_plural "&Paste %1 Files"
+msgctxt "@action:inmenu"
+msgid "Paste One File"
+msgstr "&Lipește fișierul"
+
+#: widgets/paste.cpp:323
+#, fuzzy, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste One Item"
+msgid_plural "Paste %1 Items"
+msgstr[0] "Un item"
+msgstr[1] "%1 itemi"
+msgstr[2] "%1 de itemi"
+
+#: widgets/paste.cpp:325
+#, fuzzy
+#| msgid "&Paste Clipboard Contents"
+msgctxt "@action:inmenu"
+msgid "Paste Clipboard Contents..."
+msgstr "&Lipește conținutul clipboard-ului"
+
+#: widgets/paste.cpp:329
+#, fuzzy
+#| msgid "Paste"
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr "Lipește"
+
+#: widgets/pastedialog.cpp:57
+msgid "Data format:"
+msgstr "Format dată:"
+
+#: widgets/pastejob.cpp:108
+#, fuzzy
+#| msgid "Filename for clipboard content:"
+msgid "Filename for dropped contents:"
+msgstr "Numele fișierului pentru conținutul clipboard-ului:"
+
+#: widgets/renamedialog.cpp:134
+msgid "Appl&y to All"
+msgstr "Aplică la &toate"
+
+#: widgets/renamedialog.cpp:135
+msgid ""
+"When this is checked the button pressed will be applied to all subsequent "
+"folder conflicts for the remainder of the current job.\n"
+"Unless you press Skip you will still be prompted in case of a conflict with "
+"an existing file in the directory."
+msgstr ""
+"Cînd acesta este bifat butonul apăsat va fi aplicat tuturor conflictelor de "
+"dosare ulterioare găsite pe parcursul sarcinii curente.\n"
+"Dacă nu apăsați Sari veți fi întrebat în continuare în cazul unui conflict "
+"cu un fișier existent în dosar."
+
+#: widgets/renamedialog.cpp:136
+msgid ""
+"When this is checked the button pressed will be applied to all subsequent "
+"conflicts for the remainder of the current job."
+msgstr ""
+"Cînd acesta este bifat butonul apăsat va fi aplicat tuturor conflictelor "
+"ulterioare găsite pe parcursul sarcinii curente."
+
+#: widgets/renamedialog.cpp:141
+msgid "&Rename"
+msgstr "&Redenumește"
+
+#: widgets/renamedialog.cpp:143
+msgid "Suggest New &Name"
+msgstr "Sugerează un &nume nou"
+
+#: widgets/renamedialog.cpp:149
+msgid "&Skip"
+msgstr "&Sari"
+
+#: widgets/renamedialog.cpp:150
+msgid "Do not copy or move this folder, skip to the next item instead"
+msgstr "Nu copia sau muta acest dosar, treci la următorul element în schimb"
+
+#: widgets/renamedialog.cpp:151
+msgid "Do not copy or move this file, skip to the next item instead"
+msgstr "Nu copia sau muta acest fișier, treci la următorul element în schimb"
+
+#: widgets/renamedialog.cpp:156
+msgctxt "Write files into an existing folder"
+msgid "&Write Into"
+msgstr "&Scrie în"
+
+#: widgets/renamedialog.cpp:156
+msgid "&Overwrite"
+msgstr "S&uprascrie"
+
+#: widgets/renamedialog.cpp:158
+msgid ""
+"Files and folders will be copied into the existing directory, alongside its "
+"existing contents.\n"
+"You will be prompted again in case of a conflict with an existing file in "
+"the directory."
+msgstr ""
+"Fișierele și dosarele vor fi copiate în directorul existent, alături de "
+"conținutul existent.\n"
+"Veți fi întrebat din nou în cazul unui conflict cu un fișier existent în "
+"director."
+
+#: widgets/renamedialog.cpp:163
+msgid "&Resume"
+msgstr "&Continuă"
+
+#: widgets/renamedialog.cpp:172
+#, kde-format
+msgid ""
+"This action would overwrite '%1' with itself.\n"
+"Please enter a new file name:"
+msgstr ""
+"Această acțiune va suprascrie „%1” cu el însuși.\n"
+"Introduceți un nume nou de fișier:"
+
+#: widgets/renamedialog.cpp:176
+msgid "C&ontinue"
+msgstr "&Continuă"
+
+#: widgets/renamedialog.cpp:230
+msgid "This action will overwrite the destination."
+msgstr "Această acțiune va suprascrie destinația."
+
+#: widgets/renamedialog.cpp:232
+msgid "Source"
+msgstr "Sursă"
+
+#: widgets/renamedialog.cpp:233
+msgid "Destination"
+msgstr "Destinație"
+
+#: widgets/renamedialog.cpp:239
+msgid "Warning, the destination is more recent."
+msgstr "Atenție, destinația este mai nouă."
+
+#: widgets/renamedialog.cpp:270
+#, kde-format
+msgid "An older item named '%1' already exists."
+msgstr "Există deja un element vechi cu denumirea „%1”."
+
+#: widgets/renamedialog.cpp:272
+#, kde-format
+msgid "A similar file named '%1' already exists."
+msgstr "Există deja un fișier cu numele „%1”."
+
+#: widgets/renamedialog.cpp:274
+#, kde-format
+msgid "A more recent item named '%1' already exists."
+msgstr "Există deja un element mai nou cu denumirea „%1”."
+
+#: widgets/renamedialog.cpp:286
+msgid "Rename:"
+msgstr "Redenumește:"
+
+#: widgets/skipdialog.cpp:38
+msgid "Information"
+msgstr "Informație"
+
+#: widgets/skipdialog.cpp:48
+msgid "Retry"
+msgstr "Reîncearcă"
+
+#: widgets/skipdialog.cpp:53
+msgid "Skip"
+msgstr "Sari"
+
+#: widgets/skipdialog.cpp:57
+msgid "AutoSkip"
+msgstr "Sari automat"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
+#: widgets/sslinfo.ui:17
+msgid "[padlock]"
+msgstr "[lacăt]"
+
+#. i18n: ectx: property (text), widget (QLabel, addressTag)
+#: widgets/sslinfo.ui:34
+msgctxt "Web page address"
+msgid "Address:"
+msgstr "Adresă:"
+
+#. i18n: ectx: property (text), widget (QLabel, ipTag)
+#: widgets/sslinfo.ui:54
+msgid "IP address:"
+msgstr "Adresă IP:"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionTag)
+#: widgets/sslinfo.ui:74
+msgid "Encryption:"
+msgstr "Criptare:"
+
+#. i18n: ectx: property (text), widget (QLabel, detailsTag)
+#: widgets/sslinfo.ui:94
+msgid "Details:"
+msgstr "Detalii:"
+
+#. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
+#: widgets/sslinfo.ui:114
+msgid "SSL version:"
+msgstr "Versiune SSL:"
+
+#. i18n: ectx: property (text), widget (QLabel, certSelectorTag)
+#: widgets/sslinfo.ui:134
+msgid "Certificate chain:"
+msgstr "Lanț de certificate:"
+
+#. i18n: ectx: property (text), widget (QLabel, trustedTag)
+#: widgets/sslinfo.ui:163
+msgid "Trusted:"
+msgstr "De încredere:"
+
+#. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
+#: widgets/sslinfo.ui:183
+msgid "Validity period:"
+msgstr "Perioadă de valabilitate:"
+
+#. i18n: ectx: property (text), widget (QLabel, serialTag)
+#: widgets/sslinfo.ui:203
+msgid "Serial number:"
+msgstr "Număr de serie:"
+
+#. i18n: ectx: property (text), widget (QLabel, digestTag)
+#: widgets/sslinfo.ui:223
+msgid "MD5 digest:"
+msgstr "Sumă MD5:"
+
+#. i18n: ectx: property (text), widget (QLabel, sha1DigestTag)
+#: widgets/sslinfo.ui:243
+msgid "SHA1 digest:"
+msgstr "Sumă SHA1:"
+
+#: widgets/sslui.cpp:49
+msgid ""
+"The remote host did not send any SSL certificates.\n"
+"Aborting because the identity of the host cannot be established."
+msgstr ""
+"Gazda distantă nu a trimis niciun certificat SSL.\n"
+"Se abandonează deoarece identitatea gazdei nu a putut fi stabilită."
