@@ -479,8 +479,9 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
         //qDebug() << "kioslave" << ", " << lib_path << ", " << protocol << ", " << QString() << ", " << slaveAddress;
 
         const QString kioslave = CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kioslave";
-        if (kioslave.isEmpty()) {
-            error_text = i18n("Can not find 'kioslave' executable");
+        QFileInfo kioslaveInfo(kioslave);
+        if (!kioslaveInfo.isFile() || !kioslaveInfo.isExecutable()) {
+            error_text = i18n("Can not find 'kioslave' executable at '%1'", QLatin1String(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5));
             error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
             delete slave;
             return 0;
