@@ -227,13 +227,15 @@ void JobTest::copyLocalFile(const QString &src, const QString &dest)
     const QUrl u = QUrl::fromLocalFile(src);
     const QUrl d = QUrl::fromLocalFile(dest);
 
+    const int perms = 0666;
     // copy the file with file_copy
-    KIO::Job *job = KIO::file_copy(u, d, -1, KIO::HideProgressInfo);
+    KIO::Job *job = KIO::file_copy(u, d, perms, KIO::HideProgressInfo);
     job->setUiDelegate(0);
     bool ok = job->exec();
     QVERIFY(ok);
     QVERIFY(QFile::exists(dest));
     QVERIFY(QFile::exists(src));     // still there
+    QCOMPARE(int(QFileInfo(dest).permissions()), int(0x6666));
 
     {
         // check that the timestamp is the same (#24443)
@@ -383,12 +385,13 @@ void JobTest::moveLocalFile(const QString &src, const QString &dest)
     QUrl d = QUrl::fromLocalFile(dest);
 
     // move the file with file_move
-    KIO::Job *job = KIO::file_move(u, d, -1, KIO::HideProgressInfo);
+    KIO::Job *job = KIO::file_move(u, d, 0666, KIO::HideProgressInfo);
     job->setUiDelegate(0);
     bool ok = job->exec();
     QVERIFY(ok);
     QVERIFY(QFile::exists(dest));
     QVERIFY(!QFile::exists(src));     // not there anymore
+    QCOMPARE(int(QFileInfo(dest).permissions()), int(0x6666));
 
     // move it back with KIO::move()
     job = KIO::move(d, u, KIO::HideProgressInfo);

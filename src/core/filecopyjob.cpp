@@ -512,6 +512,7 @@ void FileCopyJob::slotResult(KJob *job)
         // If d->m_permissions == -1, keep the default permissions
         if (d->m_permissions != -1) {
             d->m_chmodJob = chmod(d->m_dest, d->m_permissions);
+            addSubjob(d->m_chmodJob);
         }
         d->m_mustChmod = false;
     }
