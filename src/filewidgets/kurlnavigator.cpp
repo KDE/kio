@@ -529,6 +529,9 @@ void KUrlNavigator::Private::updateContent()
 void KUrlNavigator::Private::updateButtons(int startIndex)
 {
     QUrl currentUrl = q->locationUrl();
+    if (!currentUrl.isValid()) { // QFileDialog::setDirectory not called yet
+        return;
+    }
 
     const QString path = currentUrl.toDisplayString(QUrl::PreferLocalFile);
 
