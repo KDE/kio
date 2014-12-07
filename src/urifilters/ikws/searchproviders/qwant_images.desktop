@@ -18,6 +18,7 @@ Name[nl]=Qwant afbeeldingen
 Name[pl]=Qwant - obrazy
 Name[pt]=Imagens do Qwant
 Name[pt_BR]=Imagens do Qwant
+Name[ru]=Qwant: Картинки
 Name[sk]=Qwant obrázky
 Name[sl]=Qwant - slike
 Name[sr]=Квант-слике
@@ -47,6 +48,7 @@ Query[nl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[pl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[pt]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[pt_BR]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
+Query[ru]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[sk]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[sl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[sr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images

@@ -18,6 +18,7 @@ Name[nl]=Qwant nieuws
 Name[pl]=Qwant - aktualności
 Name[pt]=Notícias do Qwant
 Name[pt_BR]=Notícias do Qwant
+Name[ru]=Qwant: Новости
 Name[sk]=Qwant Novinky 
 Name[sl]=Qwant - novice
 Name[sr]=Квант-вести
@@ -47,6 +48,7 @@ Query[nl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[pl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[pt]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[pt_BR]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
+Query[ru]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[sk]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[sl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[sr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
