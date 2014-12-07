@@ -1556,11 +1556,19 @@ void CopyJobPrivate::copyNextFile()
             bOverwrite = shouldOverwriteFile(destFile);
         }
 
+        // If source isn't local and target is local, we ignore the original permissions
+        // Otherwise, files downloaded from HTTP end up with -r--r--r--
+        const bool remoteSource = !KProtocolManager::supportsListing(uSource);
+        int permissions = (*it).permissions;
+        if (m_defaultPermissions || (remoteSource && uDest.isLocalFile())) {
+            permissions = -1;
+        }
+        const JobFlags flags = bOverwrite ? Overwrite : DefaultFlags;
+
         m_bCurrentOperationIsLink = false;
         KIO::Job *newjob = 0;
         if (m_mode == CopyJob::Link) {
             // User requested that a symlink be made
-            const JobFlags flags = bOverwrite ? Overwrite : DefaultFlags;
             newjob = linkNextFile(uSource, uDest, flags);
             if (!newjob) {
                 return;
@@ -1573,7 +1581,6 @@ void CopyJobPrivate::copyNextFile()
                    (uSource.password() == uDest.password()))
             // Copying a symlink - only on the same protocol/host/etc. (#5601, downloading an FTP file through its link),
         {
-            const JobFlags flags = bOverwrite ? Overwrite : DefaultFlags;
             KIO::SimpleJob *newJob = KIO::symlink((*it).linkDest, uDest, flags | HideProgressInfo /*no GUI*/);
             Scheduler::setJobPriority(newJob, 1);
             newjob = newJob;
@@ -1586,7 +1593,6 @@ void CopyJobPrivate::copyNextFile()
             m_bCurrentOperationIsLink = true;
             // NOTE: if we are moving stuff, the deletion of the source will be done in slotResultCopyingFiles
         } else if (m_mode == CopyJob::Move) { // Moving a file
-            JobFlags flags = bOverwrite ? Overwrite : DefaultFlags;
             KIO::FileCopyJob *moveJob = KIO::file_move(uSource, uDest, (*it).permissions, flags | HideProgressInfo/*no GUI*/);
             moveJob->setSourceSize((*it).size);
             moveJob->setModificationTime((*it).mtime); // #55804
@@ -1598,14 +1604,6 @@ void CopyJobPrivate::copyNextFile()
             m_bURLDirty = true;
             //Observer::self()->slotMoving( this, uSource, uDest );
         } else { // Copying a file
-            // If source isn't local and target is local, we ignore the original permissions
-            // Otherwise, files downloaded from HTTP end up with -r--r--r--
-            bool remoteSource = !KProtocolManager::supportsListing(uSource);
-            int permissions = (*it).permissions;
-            if (m_defaultPermissions || (remoteSource && uDest.isLocalFile())) {
-                permissions = -1;
-            }
-            JobFlags flags = bOverwrite ? Overwrite : DefaultFlags;
             KIO::FileCopyJob *copyJob = KIO::file_copy(uSource, uDest, permissions, flags | HideProgressInfo/*no GUI*/);
             copyJob->setParentJob(q);   // in case of rename dialog
             copyJob->setSourceSize((*it).size);
