@@ -73,6 +73,8 @@ private Q_SLOTS:
     void copySymlinkFromTrash();
 
     void moveFileFromTrash();
+    void moveFileFromTrashToDir_data();
+    void moveFileFromTrashToDir();
     void moveFileInDirectoryFromTrash();
     void moveDirectoryFromTrash();
     void moveSymlinkFromTrash();

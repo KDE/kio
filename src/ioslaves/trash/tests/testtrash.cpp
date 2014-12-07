@@ -825,6 +825,7 @@ void TestTrash::copyFileInDirectoryFromTrash()
     copyFromTrash(QString::fromLatin1("trashDirFromHome"), destPath, QString::fromLatin1("testfile"));
     QVERIFY(QFileInfo(destPath).isFile());
     QVERIFY(QFileInfo(destPath).size() == 12);
+    QVERIFY(QFileInfo(destPath).isWritable());
 }
 
 void TestTrash::copyDirectoryFromTrash()
@@ -864,6 +865,7 @@ void TestTrash::moveFromTrash(const QString &fileId, const QString &destPath, co
     QVERIFY(!filesItem.exists());
 
     QVERIFY(QFile::exists(destPath));
+    QVERIFY(QFileInfo(destPath).isWritable());
 }
 
 void TestTrash::moveFileFromTrash()
@@ -879,6 +881,45 @@ void TestTrash::moveFileFromTrash()
     const QFileInfo destInfo(destPath);
     QVERIFY(destInfo.isFile());
     QCOMPARE(destInfo.size(), 12);
+    QVERIFY(destInfo.isWritable());
+    QCOMPARE(int(destInfo.permissions()), int(origPerms));
+
+    QVERIFY(QFile::remove(destPath));
+}
+
+void TestTrash::moveFileFromTrashToDir_data()
+{
+    QTest::addColumn<QString>("destDir");
+
+    QTest::newRow("home_partition") << homeTmpDir(); // this will trigger a direct renaming
+    QTest::newRow("other_partition") << otherTmpDir(); // this will require a real move
+
+}
+
+void TestTrash::moveFileFromTrashToDir()
+{
+    // Given a file in the trash
+    const QString fileName = QString::fromLatin1("moveFileFromTrashToDir");
+    const QString filePath = homeTmpDir() + fileName;
+    createTestFile(filePath);
+    const QFile::Permissions origPerms = QFileInfo(filePath).permissions();
+    trashFile(filePath, fileName);
+    QVERIFY(!QFile::exists(filePath));
+
+    // When moving it out to a dir
+    QFETCH(QString, destDir);
+    const QString destPath = destDir + "moveFileFromTrashToDir";
+    const QUrl src(QString::fromLatin1("trash:/0-") + fileName);
+    const QUrl dest(QUrl::fromLocalFile(destDir));
+    KIO::Job *job = KIO::move(src, dest, KIO::HideProgressInfo);
+    bool ok = job->exec();
+    QVERIFY2(ok, qPrintable(job->errorString()));
+
+    // Then it should move ;)
+    const QFileInfo destInfo(destPath);
+    QVERIFY(destInfo.isFile());
+    QCOMPARE(destInfo.size(), 12);
+    QVERIFY(destInfo.isWritable());
     QCOMPARE(int(destInfo.permissions()), int(origPerms));
 
     QVERIFY(QFile::remove(destPath));

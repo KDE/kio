@@ -1558,7 +1558,7 @@ void CopyJobPrivate::copyNextFile()
 
         // If source isn't local and target is local, we ignore the original permissions
         // Otherwise, files downloaded from HTTP end up with -r--r--r--
-        const bool remoteSource = !KProtocolManager::supportsListing(uSource);
+        const bool remoteSource = !KProtocolManager::supportsListing(uSource) || uSource.scheme() == "trash";
         int permissions = (*it).permissions;
         if (m_defaultPermissions || (remoteSource && uDest.isLocalFile())) {
             permissions = -1;
@@ -1593,7 +1593,7 @@ void CopyJobPrivate::copyNextFile()
             m_bCurrentOperationIsLink = true;
             // NOTE: if we are moving stuff, the deletion of the source will be done in slotResultCopyingFiles
         } else if (m_mode == CopyJob::Move) { // Moving a file
-            KIO::FileCopyJob *moveJob = KIO::file_move(uSource, uDest, (*it).permissions, flags | HideProgressInfo/*no GUI*/);
+            KIO::FileCopyJob *moveJob = KIO::file_move(uSource, uDest, permissions, flags | HideProgressInfo/*no GUI*/);
             moveJob->setSourceSize((*it).size);
             moveJob->setModificationTime((*it).mtime); // #55804
             newjob = moveJob;
