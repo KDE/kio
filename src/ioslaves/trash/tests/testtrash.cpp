@@ -62,9 +62,7 @@ int initLocale()
     setenv("LC_ALL", "en_US.ISO-8859-1", 1);
     unsetenv("KDE_UTF8_FILENAMES");
 #endif
-    setenv("KDEHOME", QFile::encodeName(QDir::homePath() + QString::fromLatin1("/.kde-unit-test")), 1);
-    setenv("XDG_DATA_HOME", QFile::encodeName(QDir::homePath() + QString::fromLatin1("/.kde-unit-test/xdg/local")), 1);
-    setenv("XDG_CONFIG_HOME", QFile::encodeName(QDir::homePath() + QString::fromLatin1("/.kde-unit-test/xdg/config")), 1);
+    setenv("KIOSLAVE_ENABLE_TESTMODE", "1", 1); // ensure the ioslaves call QStandardPaths::setTestModeEnabled(true) too
     setenv("KDE_SKIP_KDERC", "1", 1);
     unsetenv("KDE_COLOR_DEBUG");
     return 0;
@@ -135,6 +133,8 @@ void TestTrash::initTestCase()
 {
     // To avoid a runtime dependency on klauncher
     qputenv("KDE_FORK_SLAVES", "yes");
+
+    QStandardPaths::setTestModeEnabled(true);
 
     m_trashDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QString::fromLatin1("/Trash");
     qDebug() << "setup: using trash directory " << m_trashDir;
@@ -273,7 +273,7 @@ static void checkInfoFile(const QString &infoPath, const QString &origFilePath)
 {
     qDebug() << infoPath;
     QFileInfo info(infoPath);
-    QVERIFY(info.exists());
+    QVERIFY2(info.exists(), qPrintable(infoPath));
     QVERIFY(info.isFile());
     KConfig infoFile(info.absoluteFilePath());
     KConfigGroup group = infoFile.group("Trash Info");
