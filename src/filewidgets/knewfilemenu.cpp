@@ -1081,6 +1081,13 @@ void KNewFileMenu::createDirectory()
     }
 
     QUrl baseUrl = d->m_popupFiles.first();
+
+    KIO::StatJob *job = KIO::mostLocalUrl(baseUrl);
+
+    if (job->exec()) {
+        baseUrl = job->mostLocalUrl();
+    }
+
     QString name = d->m_text.isEmpty() ? i18nc("Default name for a new folder", "New Folder") :
                    d->m_text;
 
