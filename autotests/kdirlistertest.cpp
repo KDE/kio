@@ -432,9 +432,8 @@ void KDirListerTest::testRefreshRootItem()
 
     org::kde::KDirNotify::emitFilesAdded(QUrl::fromLocalFile(path));
     QTest::qWait(200);
+    // The order of these two is not deterministic
     org::kde::KDirNotify::emitFilesChanged(QList<QUrl>() << QUrl::fromLocalFile(directoryFile));
-    QCOMPARE(m_refreshedItems.count(), 0);
-
     org::kde::KDirNotify::emitFilesChanged(QList<QUrl>() << QUrl::fromLocalFile(path));
     QVERIFY(waitForRefreshedItems());
     QCOMPARE(m_refreshedItems.count(), 1);
