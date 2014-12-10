@@ -365,8 +365,8 @@ void KUriFilterTest::executables_data()
     addRow( "/I/dont/exist", 0, KUriFilterData::Error, minicliFilters );         //krazy:exclude=spelling
     addRow( "/I/dont/exist#a", 0, KUriFilterData::Error, minicliFilters );       //krazy:exclude=spelling
     addRow( "kbuildsycoca5 --help", "kbuildsycoca5 --help", KUriFilterData::Executable, minicliFilters ); // the args are in argsAndOptions()
-    addRow( "/usr/bin/gs", "/usr/bin/gs", KUriFilterData::Executable, minicliFilters );
-    addRow( "/usr/bin/gs -q -option arg1", "/usr/bin/gs -q -option arg1", KUriFilterData::Executable, minicliFilters ); // the args are in argsAndOptions()
+    addRow( "/bin/sh", "/bin/sh", KUriFilterData::Executable, minicliFilters );
+    addRow( "/bin/sh -q -option arg1", "/bin/sh -q -option arg1", KUriFilterData::Executable, minicliFilters ); // the args are in argsAndOptions()
 
     // Typing 'cp' or any other valid unix command in konq's location bar should result in
     // a search using the default search engine
