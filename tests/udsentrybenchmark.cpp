@@ -117,16 +117,24 @@ void UDSEntryBenchmark::createSmallEntries()
     m_smallEntries.clear();
     m_smallEntries.reserve(numberOfSmallUDSEntries);
 
+    const QString user = QStringLiteral("user");
+    const QString group = QStringLiteral("group");
+
+    QVector<QString> names(numberOfSmallUDSEntries);
+    for (int i = 0; i < numberOfSmallUDSEntries; ++i) {
+        names[i] = QString::number(i);
+    }
+
     QBENCHMARK_ONCE {
         for (int i = 0; i < numberOfSmallUDSEntries; ++i) {
             KIO::UDSEntry entry;
-            entry.insert(KIO::UDSEntry::UDS_NAME, QString::number(i));
+            entry.insert(KIO::UDSEntry::UDS_NAME, names[i]);
             entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, i);
             entry.insert(KIO::UDSEntry::UDS_ACCESS, i);
             entry.insert(KIO::UDSEntry::UDS_SIZE, i);
             entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME, i);
-            entry.insert(KIO::UDSEntry::UDS_USER, QLatin1String("user"));
-            entry.insert(KIO::UDSEntry::UDS_GROUP, QLatin1String("group"));
+            entry.insert(KIO::UDSEntry::UDS_USER, user);
+            entry.insert(KIO::UDSEntry::UDS_GROUP, group);
             entry.insert(KIO::UDSEntry::UDS_ACCESS_TIME, i);
             m_smallEntries.append(entry);
         }
@@ -140,12 +148,17 @@ void UDSEntryBenchmark::createLargeEntries()
     m_largeEntries.clear();
     m_largeEntries.reserve(numberOfLargeUDSEntries);
 
+    QVector<QString> names(numberOfLargeUDSEntries);
+    for (int i = 0; i < numberOfLargeUDSEntries; ++i) {
+        names[i] = QString::number(i);
+    }
+
     QBENCHMARK_ONCE {
         for (int i = 0; i < numberOfLargeUDSEntries; ++i) {
             KIO::UDSEntry entry;
             foreach (uint field, m_fieldsForLargeEntries) {
                 if (field & KIO::UDSEntry::UDS_STRING) {
-                    entry.insert(field, QString::number(i));
+                    entry.insert(field, names[i]);
                 } else {
                     entry.insert(field, i);
                 }
@@ -164,24 +177,30 @@ void UDSEntryBenchmark::readFieldsFromSmallEntries()
         createSmallEntries();
     }
 
-    QBENCHMARK_ONCE {
+    const QString user = QStringLiteral("user");
+    const QString group = QStringLiteral("group");
+
+    QBENCHMARK {
         long long i = 0;
+        long long entrySum = 0;
 
         foreach (const KIO::UDSEntry& entry, m_smallEntries) {
-            QCOMPARE(entry.count(), 8);
-
-            QCOMPARE(QString::number(i), entry.stringValue(KIO::UDSEntry::UDS_NAME));
-            QCOMPARE(i, entry.numberValue(KIO::UDSEntry::UDS_FILE_TYPE));
-            QCOMPARE(i, entry.numberValue(KIO::UDSEntry::UDS_ACCESS));
-            QCOMPARE(i, entry.numberValue(KIO::UDSEntry::UDS_SIZE));
-            QCOMPARE(i, entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME));
-            QCOMPARE(QLatin1String("user"), entry.stringValue(KIO::UDSEntry::UDS_USER));
-            QCOMPARE(QLatin1String("group"), entry.stringValue(KIO::UDSEntry::UDS_GROUP));
-            QCOMPARE(i, entry.numberValue(KIO::UDSEntry::UDS_ACCESS_TIME));
-            ++i;
+            entrySum += entry.count();
+            if (entry.stringValue(KIO::UDSEntry::UDS_NAME).toInt() == i
+                && entry.numberValue(KIO::UDSEntry::UDS_FILE_TYPE) == i
+                && entry.numberValue(KIO::UDSEntry::UDS_ACCESS) == i
+                && entry.numberValue(KIO::UDSEntry::UDS_SIZE) == i
+                &&  entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) == i
+                && entry.stringValue(KIO::UDSEntry::UDS_USER) == user
+                && entry.stringValue(KIO::UDSEntry::UDS_GROUP) == group
+                && entry.numberValue(KIO::UDSEntry::UDS_ACCESS_TIME) == i)
+            {
+                ++i;
+            }
         }
 
         QCOMPARE(i, numberOfSmallUDSEntries);
+        QCOMPARE(entrySum, numberOfSmallUDSEntries * 8);
     }
 }
 
@@ -194,22 +213,22 @@ void UDSEntryBenchmark::readFieldsFromLargeEntries()
 
     QBENCHMARK_ONCE {
         long long i = 0;
+        long long fieldSum = 0;
 
         foreach (const KIO::UDSEntry& entry, m_largeEntries) {
-            QCOMPARE(entry.count(), m_fieldsForLargeEntries.count());
-
             foreach (uint field, m_fieldsForLargeEntries) {
                 if (field & KIO::UDSEntry::UDS_STRING) {
-                    QCOMPARE(entry.stringValue(field), QString::number(i));;
-                } else {
-                    QCOMPARE(entry.numberValue(field), i);
+                    if (entry.stringValue(field).toInt() == i) {
+                        ++fieldSum;
+                    }
+                } else if (entry.numberValue(field) == i) {
+                    ++fieldSum;
                 }
             }
-
             ++i;
         }
 
-        QCOMPARE(i, numberOfLargeUDSEntries);
+        QCOMPARE(fieldSum, m_fieldsForLargeEntries.count() * m_largeEntries.count());
     }
 }
 
