@@ -93,6 +93,7 @@ bool Job::addSubjob(KJob *jobBase)
 
         job->setProperty("window", property("window")); // see KJobWidgets
         job->setProperty("userTimestamp", property("userTimestamp")); // see KJobWidgets
+        job->setUiDelegateExtension(d->m_uiDelegateExtension);
     }
     return ok;
 }
