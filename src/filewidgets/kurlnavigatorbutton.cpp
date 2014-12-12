@@ -72,7 +72,7 @@ void KUrlNavigatorButton::setUrl(const QUrl &url)
 {
     m_url = url;
 
-    bool startTextResolving = !m_url.isLocalFile();
+    bool startTextResolving = m_url.isValid() && !m_url.isLocalFile();
     if (startTextResolving) {
         // Doing a text-resolving with KIO::stat() for all non-local
         // URLs leads to problems for protocols where a limit is given for
