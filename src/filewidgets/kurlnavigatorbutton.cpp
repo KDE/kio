@@ -72,15 +72,17 @@ void KUrlNavigatorButton::setUrl(const QUrl &url)
 {
     m_url = url;
 
-    bool startTextResolving = m_url.isValid() && !m_url.isLocalFile();
-    if (startTextResolving) {
-        // Doing a text-resolving with KIO::stat() for all non-local
-        // URLs leads to problems for protocols where a limit is given for
-        // the number of parallel connections. A black-list
-        // is given where KIO::stat() should not be used:
-        static const QSet<QString> protocols = QSet<QString>() << "fish" << "ftp" << "nfs" << "sftp" << "smb" << "webdav";
-        startTextResolving = !protocols.contains(m_url.scheme());
-    }
+    // Doing a text-resolving with KIO::stat() for all non-local
+    // URLs leads to problems for protocols where a limit is given for
+    // the number of parallel connections. A black-list
+    // is given where KIO::stat() should not be used:
+    static const QSet<QString> protocolBlacklist = QSet<QString>()
+        << QStringLiteral("nfs") << QStringLiteral("fish")
+        << QStringLiteral("ftp") << QStringLiteral("sftp")
+        << QStringLiteral("smb") << QStringLiteral("webdav");
+
+    const bool startTextResolving = m_url.isValid() && !m_url.isLocalFile()
+                                && !protocolBlacklist.contains(m_url.scheme());
 
     if (startTextResolving) {
         m_pendingTextChange = true;
