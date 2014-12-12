@@ -78,10 +78,7 @@ void KUrlNavigatorButton::setUrl(const QUrl &url)
         // URLs leads to problems for protocols where a limit is given for
         // the number of parallel connections. A black-list
         // is given where KIO::stat() should not be used:
-        static QSet<QString> protocols;
-        if (protocols.isEmpty()) {
-            protocols << "fish" << "ftp" << "nfs" << "sftp" << "smb" << "webdav";
-        }
+        static const QSet<QString> protocols = QSet<QString>() << "fish" << "ftp" << "nfs" << "sftp" << "smb" << "webdav";
         startTextResolving = !protocols.contains(m_url.scheme());
     }
 
