@@ -30,6 +30,7 @@ Name[fi]=Googlen keskusteluryhmät
 Name[fr]=Groupes « Google »
 Name[fy]=Google Diskusjegroepen
 Name[ga]=Grúpaí Google
+Name[gd]=Google Groups
 Name[gl]=Grupos de Google
 Name[gu]=ગુગલ સમૂહો
 Name[he]=קבוצות דיון ב־Google
@@ -108,6 +109,7 @@ Query[es]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[eu]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[fi]=https://groups.google.fi/groups?oi=djq&as_q=\\{@}
 Query[fr]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
+Query[gd]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[gl]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[hi]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[hu]=https://groups.google.com/groups?oi=djq&as_q=\\{@}

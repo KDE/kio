@@ -29,6 +29,7 @@ Name[fi]=CTAN – Comprehensive TeX Archive Network
 Name[fr]=CTAN (Comprehensive TeX Archive Network)
 Name[fy]=CTAN - Comprehensive TeX Archive Network
 Name[ga]=CTAN - Comprehensive TeX Archive Network
+Name[gd]=CTAN - Comprehensive TeX Archive Network
 Name[gl]=CTAN, o Comprehensive TeX Archive Network
 Name[gu]=CTAN - કોમ્પ્રેસિવ ટેક અર્કાઇવ નેટવર્ક
 Name[he]=CTAN - Comprehensive TeX Archive Network
@@ -104,6 +105,7 @@ Query[es]=http://ctan.org/search?phrase=\\{@}
 Query[eu]=http://ctan.org/search?phrase=\\{@}
 Query[fi]=http://ctan.org/search?phrase=\\{@}
 Query[fr]=http://ctan.org/search?phrase=\\{@}
+Query[gd]=http://ctan.org/search?phrase=\\{@}
 Query[gl]=http://ctan.org/search?phrase=\\{@}
 Query[hi]=http://ctan.org/search?phrase=\\{@}
 Query[hu]=http://ctan.org/search?phrase=\\{@}

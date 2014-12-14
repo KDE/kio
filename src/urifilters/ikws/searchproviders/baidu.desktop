@@ -21,6 +21,7 @@ Name[fa]=Baidu
 Name[fi]=Baidu
 Name[fr]=Baidu
 Name[ga]=Baidu
+Name[gd]=Baidu
 Name[gl]=Baidu
 Name[gu]=બૈડુ
 Name[he]=Baidu
@@ -90,6 +91,7 @@ Query[fa]=http://www.baidu.com/s?wd=\\{@}
 Query[fi]=http://www.baidu.com/s?wd=\\{@}
 Query[fr]=http://www.baidu.com/s?wd=\\{@}
 Query[ga]=http://www.baidu.com/s?wd=\\{@}
+Query[gd]=http://www.baidu.com/s?wd=\\{@}
 Query[gl]=http://www.baidu.com/s?wd=\\{@}
 Query[gu]=http://www.baidu.com/s?wd=\\{@}
 Query[he]=http://www.baidu.com/s?wd=\\{@}

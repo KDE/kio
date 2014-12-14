@@ -23,6 +23,7 @@ Name[fi]=Ethicle
 Name[fr]=Ethicle
 Name[fy]=Ethicle
 Name[ga]=Ethicle
+Name[gd]=Ethicle
 Name[gl]=Ethicle
 Name[gu]=ઇથિકલ
 Name[he]=Ethicle
@@ -95,6 +96,7 @@ Query[fi]=http://www.ethicle.com/search.php?q=\\{@}
 Query[fr]=http://www.ethicle.com/search.php?q=\\{@}
 Query[fy]=http://www.ethicle.com/search.php?q=\\{@}
 Query[ga]=http://www.ethicle.com/search.php?q=\\{@}
+Query[gd]=http://www.ethicle.com/search.php?q=\\{@}
 Query[gl]=http://www.ethicle.com/search.php?q=\\{@}
 Query[gu]=http://www.ethicle.com/search.php?q=\\{@}
 Query[he]=http://www.ethicle.com/search.php?q=\\{@}

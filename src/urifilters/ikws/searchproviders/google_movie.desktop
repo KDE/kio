@@ -29,6 +29,7 @@ Name[fi]=Googlen elokuvahaku
 Name[fr]=Vidéos « Google »
 Name[fy]=Google Films
 Name[ga]=Scannáin Google
+Name[gd]=Google Movies
 Name[gl]=Google Movies
 Name[gu]=ગુગલ ચિત્રપટો
 Name[he]=‏Google סרטים
@@ -106,6 +107,7 @@ Query[es]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[eu]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[fi]=http://www.google.fi/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[fr]=http://www.google.fr/search?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[gd]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[gl]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[hi]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[hr]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8

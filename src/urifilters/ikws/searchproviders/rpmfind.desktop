@@ -30,6 +30,7 @@ Name[fi]=RPM-haku
 Name[fr]=Recherche de paquets RPM
 Name[fy]=RPM-Find
 Name[ga]=RPM-Find
+Name[gd]=RPM-Find
 Name[gl]=RPM-Find
 Name[gu]=RPM-શોધ
 Name[he]=RPM-Find
@@ -120,6 +121,7 @@ Query[fi]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[fr]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[fy]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ga]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[gd]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[gl]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[gu]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[he]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

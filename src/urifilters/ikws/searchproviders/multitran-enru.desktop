@@ -28,6 +28,7 @@ Name[fi]=Multitran – käännä englannista venäjään
 Name[fr]=Multitran - Traduction anglais - russe
 Name[fy]=Multitran - Oersetting tusken Ingelsk en Russysk
 Name[ga]=Multitran - Aistriúchán idir Béarla agus Rúisis
+Name[gd]=Multitran - Eadar-theangachadh eadar a' Bheurla is an Ruisis
 Name[gl]=Multitran, tradución entre inglés e ruso
 Name[gu]=મલ્ટિટ્રાન - અંગ્રેજી અને રશિયન વચ્ચેનું ભાષાંતર
 Name[he]=‏Multitran - תרגום בין אנגלית ורוסית
@@ -112,6 +113,7 @@ Query[fi]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[fr]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[fy]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[ga]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
+Query[gd]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[gl]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[gu]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[he]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}

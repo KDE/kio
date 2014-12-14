@@ -30,6 +30,7 @@ Name[fi]=Ask Jeeves
 Name[fr]=Ask Jeeves
 Name[fy]=Ask Jeeves
 Name[ga]=Ask Jeeves
+Name[gd]=Ask Jeeves
 Name[gl]=Pregúntalle a Jeeves
 Name[gu]=આસ્ક જીવ્સ
 Name[he]=Ask Jeeves
@@ -120,6 +121,7 @@ Query[fi]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jee
 Query[fr]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[fy]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[ga]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
+Query[gd]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[gl]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[gu]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[he]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}

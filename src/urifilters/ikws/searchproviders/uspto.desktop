@@ -30,6 +30,7 @@ Name[fi]=Yhdysvaltojen patenttitietokanta
 Name[fr]=Base de données des brevets aux U.S.A
 Name[fy]=U.S. Patent-database
 Name[ga]=Bunachar Sonraí Paitinní S.A.M.
+Name[gd]=U.S. Patent Database
 Name[gl]=Base de datos de patentes dos EEUU
 Name[gu]=યુ.એસ. પેટન્ટ ડેટાબેઝ
 Name[he]=מאגר הפטנטים של ארה"ב
@@ -118,6 +119,7 @@ Query[fi]=http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}&Sect1=PTO1&Sect2
 Query[fr]=http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50
 Query[fy]=http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50
 Query[ga]=http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50
+Query[gd]=http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50
 Query[gl]=http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50
 Query[gu]=http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50
 Query[he]=http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50

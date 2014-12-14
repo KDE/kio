@@ -28,6 +28,7 @@ Name[fi]=Multitran – käännä ranskasta venäjään
 Name[fr]=Multitran - Traduction français - russe
 Name[fy]=Multitran - Oersetting tusken Frânsk en Russysk
 Name[ga]=Multitran - Aistriúchán idir Fraincis agus Rúisis
+Name[gd]=Multitran - Eadar-theangachadh eadar an Fhraingis is an Ruisis
 Name[gl]=Multitran, tradución entre francés e ruso
 Name[gu]=મલ્ટિટ્રાન - ફ્રેંચ અને રશિયન વચ્ચેનું ભાષાંતર
 Name[he]=‏Multitran - תרגום בין צרפתית ורוסית
@@ -112,6 +113,7 @@ Query[fi]=http://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[fr]=http://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[fy]=http://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[ga]=http://multitran.ru/c/m.exe?l1=4&s=\\{@}
+Query[gd]=http://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[gl]=http://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[gu]=http://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[he]=http://multitran.ru/c/m.exe?l1=4&s=\\{@}

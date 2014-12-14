@@ -22,6 +22,7 @@ Name[fa]=اعضای Identi.ca
 Name[fi]=Identi.ca-ihmishaku
 Name[fr]=Personne « Identi.ca »
 Name[ga]=Daoine Identi.ca
+Name[gd]=Identi.ca People
 Name[gl]=Xente de Identi.ca
 Name[gu]=આઈડેન્ટિ.કા લોકો
 Name[he]=Identi.ca People
@@ -84,6 +85,7 @@ Query[es]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[eu]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[fi]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[fr]=https://identi.ca/search/people?q=\\{@}&search=Search
+Query[gd]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[gl]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[hi]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[hu]=https://identi.ca/search/people?q=\\{@}&search=Search

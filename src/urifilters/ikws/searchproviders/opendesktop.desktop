@@ -23,6 +23,7 @@ Name[fa]=openDesktop.org
 Name[fi]=openDesktop.org
 Name[fr]=openDesktop.org
 Name[ga]=openDesktop.org
+Name[gd]=openDesktop.org
 Name[gl]=openDesktop.org
 Name[gu]=ઓપનડેસ્કટોપ.ઓર્ગ
 Name[he]=openDesktop.org
@@ -90,6 +91,7 @@ Query[fa]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[fi]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[fr]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[ga]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[gd]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[gl]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[gu]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[he]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}

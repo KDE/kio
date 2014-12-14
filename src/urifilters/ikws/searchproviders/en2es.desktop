@@ -31,6 +31,7 @@ Name[fi]=WordReference.com-käännös englannista espanjaksi
 Name[fr]=Traduction sur WordReference.com : anglais vers espagnol
 Name[fy]=WordReference.com-oersetting: Ingelsk nei Spaansk
 Name[ga]=Aistriúchán WordReference.com: Béarla go Spáinnis
+Name[gd]=WordReference.com Eadar-theangachadh: On Bheurla dhan Spàinntis
 Name[gl]=Tradución WordReference.com: inglés a español
 Name[gu]=WordReference.com ભાષાંતર: અંગ્રેજી થી સ્પેનિશ
 Name[he]=תרגום WordReference.com: אנגלית לספרדית
@@ -118,6 +119,7 @@ Query[fi]=http://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[fr]=http://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[fy]=http://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[ga]=http://www.wordreference.com/es/translation.asp?tranword=\\{@}
+Query[gd]=http://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[gl]=http://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[gu]=http://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[he]=http://www.wordreference.com/es/translation.asp?tranword=\\{@}

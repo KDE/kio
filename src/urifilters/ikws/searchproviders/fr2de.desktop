@@ -28,6 +28,7 @@ Name[fi]=LEO – käännös ranskasta saksaan
 Name[fr]=LEO - Traduction français - allemand
 Name[fy]=LEO - oersetting tusken Fransk en Dûtsk
 Name[ga]=LEO - Aistriúchán idir Fraincis agus Gearmáinis
+Name[gd]=LEO - Eadar-theangachadh eadar an Fhraingis is a' Ghearmailtis
 Name[gl]=Tradución LEO de francés a alemán
 Name[gu]=લીઓ - ફેંચ અને જર્મન વચ્ચેનું ભાષાંતર
 Name[he]=‏LEO - תרגום בין צרפתית וגרמנית
@@ -117,6 +118,7 @@ Query[fi]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[fr]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[fy]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[ga]=http://dict.leo.org/?lp=frde&search=\\{@}
+Query[gd]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[gl]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[gu]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[he]=http://dict.leo.org/?lp=frde&search=\\{@}

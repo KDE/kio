@@ -30,6 +30,7 @@ Name[fi]=Merriam–Webster-synonyymit
 Name[fr]=Thésaurus « Merriam-Webster »
 Name[fy]=Merriam-Webster Thesaurus
 Name[ga]=Teasáras Merriam-Webster
+Name[gd]=Co-fhaclair Merriam-Webster
 Name[gl]=Tesauro de Merriam-Webster
 Name[gu]=મેર્રિયમ-વેબસ્ટર થીસોરસ
 Name[he]=אגרון מילים Merriam-Webster
@@ -120,6 +121,7 @@ Query[fi]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[fr]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[fy]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[ga]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
+Query[gd]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[gl]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[gu]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[he]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}

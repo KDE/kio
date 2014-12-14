@@ -30,6 +30,7 @@ Name[fi]=Open Directory
 Name[fr]=Open Directory
 Name[fy]=Iepen Directory
 Name[ga]=Open Directory
+Name[gd]=Open Directory
 Name[gl]=Directorio aberto
 Name[gu]=ડિરેક્ટરી ખોલો
 Name[he]=המדריך הפתוח
@@ -121,6 +122,7 @@ Query[fi]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[fr]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[fy]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[ga]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
+Query[gd]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[gl]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[gu]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[he]=http://search.dmoz.org/cgi-bin/search?search=\\{@}

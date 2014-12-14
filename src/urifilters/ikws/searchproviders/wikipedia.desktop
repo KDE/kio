@@ -30,6 +30,7 @@ Name[fi]=Wikipedia, vapaa tietosanakirja
 Name[fr]=Wikipédia - L'encyclopédie libre
 Name[fy]=Wikipedia - de frije ensyklopedy
 Name[ga]=Vicipéid - An Chiclipéid Shaor
+Name[gd]=Uicipeid - An leabhar-eòlais saor
 Name[gl]=Wikipedia, a enciclopedia libre
 Name[gu]=વિકિપીડિઆ - મુક્ત એન્સાયક્લોપીડિઆ
 Name[he]=ויקיפדיה - האנציקלופדיה החופשית
@@ -106,6 +107,7 @@ Query[es]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[eu]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[fi]=https://fi.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[fr]=https://fr.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[gd]=https://gd.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[gl]=http://gl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[hi]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[hu]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go

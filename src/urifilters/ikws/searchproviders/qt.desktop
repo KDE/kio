@@ -31,6 +31,7 @@ Name[fi]=Uusin Qt-dokumentaatio
 Name[fr]=La dernière version de la documentation en ligne de Qt
 Name[fy]=Nijste Qt Online-dokumintaasje
 Name[ga]=Doiciméadú Ar Líne Is Déanaí Qt4
+Name[gd]=An docamaideadh Qt air loidhne às ùire
 Name[gl]=Última documentación en liña de Qt
 Name[gu]=તાજેતરનાં Qt ઓનલાઇન દસ્તાવેજ
 Name[he]=התיעוד המקוון העדכני ביותר של Qt
@@ -105,6 +106,7 @@ Query[es]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
 Query[eu]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
 Query[fi]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
 Query[fr]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
+Query[gd]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
 Query[gl]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
 Query[hi]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
 Query[hu]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}

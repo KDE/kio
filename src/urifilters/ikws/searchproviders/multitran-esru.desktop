@@ -28,6 +28,7 @@ Name[fi]=Multitran – käännä espanjasta venäjään
 Name[fr]=Multitran - Traduction espagnol - russe
 Name[fy]=Multitran - Oersetting tusken Spaansk en Russysk
 Name[ga]=Multitran - Aistriúchán idir Spáinnis agus Rúisis
+Name[gd]=Multitran - Eadar-theangachadh eadar an Spàinntis is an Ruisis
 Name[gl]=Multitran, tradución entre castelán e ruso
 Name[gu]=મલ્ટિટ્રાન - સ્પેનિશ અને રશિયન વચ્ચેનું ભાષાંતર
 Name[he]=‏Multitran - תרגום בין ספרדית ורוסית
@@ -112,6 +113,7 @@ Query[fi]=http://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[fr]=http://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[fy]=http://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[ga]=http://multitran.ru/c/m.exe?l1=5&s=\\{@}
+Query[gd]=http://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[gl]=http://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[gu]=http://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[he]=http://multitran.ru/c/m.exe?l1=5&s=\\{@}

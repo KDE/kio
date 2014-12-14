@@ -15,6 +15,7 @@ Name[es]=Compras de Google
 Name[eu]=Google erosketak
 Name[fi]=Google Shopping
 Name[fr]=Boutique « Google »
+Name[gd]=Google Shopping
 Name[gl]=Compras en Google
 Name[hi]=गूगल खरीदारी
 Name[hu]=Google vásárlás
@@ -67,6 +68,7 @@ Query[es]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[eu]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[fi]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[fr]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Query[gd]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[gl]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[hi]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[hu]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

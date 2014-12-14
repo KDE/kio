@@ -23,6 +23,7 @@ Name[fa]=آمازون MP3
 Name[fi]=Amazon MP3
 Name[fr]=Amazon MP3
 Name[ga]=Amazon MP3
+Name[gd]=Amazon MP3
 Name[gl]=Amazon MP3
 Name[gu]=એમેઝોન એમપી૩
 Name[he]=Amazon MP3
@@ -91,6 +92,7 @@ Query[fa]=http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&
 Query[fi]=http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[fr]=http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[ga]=http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
+Query[gd]=http://www.amazon.co.uk/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[gl]=http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[gu]=http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[he]=http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0

@@ -8,6 +8,7 @@ Name[en_GB]=Qwant
 Name[es]=Qwant
 Name[fi]=Qwant
 Name[fr]=Qwant
+Name[gd]=Qwant
 Name[hu]=Qwant
 Name[id]=Qwant
 Name[it]=Qwant
@@ -38,6 +39,7 @@ Query[en_GB]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[es]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[fi]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
+Query[gd]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[hu]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[id]=https://www.qwant.com/?q=\\{@}&client=kde&source=web
 Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&source=web

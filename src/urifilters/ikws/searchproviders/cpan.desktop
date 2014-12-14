@@ -29,6 +29,7 @@ Name[fi]=CPAN – Comprehensive Perl Archive Network
 Name[fr]=CPAN (Comprehensive Perl Archive Network)
 Name[fy]=CPAN - Comprehensive Perl Archive Network
 Name[ga]=CPAN - Comprehensive Perl Archive Network
+Name[gd]=CPAN - Comprehensive Perl Archive Network
 Name[gl]=CPAN, o Comprehensive Perl Archive Network
 Name[gu]=CPAN - કોમ્પ્રેસિવ પર્લ અર્કાઇવ નેટવર્ક
 Name[he]=CPAN - Comprehensive Perl Archive Network
@@ -110,6 +111,7 @@ Query[fa]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[fi]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[fr]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ga]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[gd]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[gl]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[gu]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[he]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}

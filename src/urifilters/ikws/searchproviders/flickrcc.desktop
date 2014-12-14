@@ -22,6 +22,7 @@ Name[fa]=فلیکر با مجوز Creative Commons
 Name[fi]=Flickr Creative Commons
 Name[fr]=Flickr Creative Commons
 Name[ga]=Flickr Creative Commons
+Name[gd]=Flickr Creative Commons
 Name[gl]=Flickr Creative Commons
 Name[gu]=ફ્લિકર ક્રિએટીવ કોમન્સ
 Name[he]=Flickr Creative Commons
@@ -83,6 +84,7 @@ Query[es]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[eu]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[fi]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[fr]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
+Query[gd]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[gl]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[hi]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[hu]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1

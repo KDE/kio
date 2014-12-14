@@ -30,6 +30,7 @@ Name[fi]=Internet Movie Database
 Name[fr]=Base de données de films sur Internet
 Name[fy]=Ynternetfilm-databank
 Name[ga]=Internet Movie Database
+Name[gd]=Internet Movie Database
 Name[gl]=Base de datos de filmes de Internet
 Name[gu]=ઇન્ટરનેટ ચિત્રપટ ડેટાબેઝ
 Name[he]=מאגר הסרטים האינטרנטי
@@ -112,6 +113,7 @@ Query[fa]=http://imdb.com/find?s=all&q=\\{@}
 Query[fi]=http://imdb.com/find?s=all&q=\\{@}
 Query[fr]=http://imdb.com/find?s=all&q=\\{@}
 Query[ga]=http://imdb.com/find?s=all&q=\\{@}
+Query[gd]=http://imdb.com/find?s=all&q=\\{@}
 Query[gl]=http://imdb.com/find?s=all&q=\\{@}
 Query[gu]=http://imdb.com/find?s=all&q=\\{@}
 Query[he]=http://imdb.com/find?s=all&q=\\{@}

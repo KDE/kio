@@ -29,6 +29,7 @@ Name[fi]=KDE App -haku
 Name[fr]=Chercher dans les applications de KDE
 Name[fy]=Programma's sykje
 Name[ga]=Cuardach Feidhmchláir KDE
+Name[gd]=Lorg aplacaidean KDE
 Name[gl]=Busca de programas de KDE
 Name[gu]=KDE કાર્યક્રમ શોધ
 Name[he]=חיפוש יישומי KDE
@@ -120,6 +121,7 @@ Query[fi]=http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[fr]=http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[fy]=http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ga]=http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
+Query[gd]=http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[gl]=http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[gu]=http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[he]=http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}

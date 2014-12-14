@@ -30,6 +30,7 @@ Name[fi]=SourceForge
 Name[fr]=Sourceforge
 Name[fy]=SourceForge
 Name[ga]=SourceForge
+Name[gd]=SourceForge
 Name[gl]=SourceForge
 Name[gu]=સોર્સફોર્જ
 Name[he]=SourceForge
@@ -118,6 +119,7 @@ Query[fi]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\
 Query[fr]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[fy]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[ga]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
+Query[gd]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[gl]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[gu]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[he]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}

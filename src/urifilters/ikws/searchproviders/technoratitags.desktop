@@ -29,6 +29,7 @@ Name[fi]=Technorati-tunnisteet
 Name[fr]=Balises « Technorati »
 Name[fy]=Technorati-markearring
 Name[ga]=Clibeanna Technorati
+Name[gd]=Tagaichean Technorati
 Name[gl]=Etiquetas de Technorati
 Name[gu]=ટેકનોરાતી ટેગ્સ
 Name[he]=תגיות Technorati
@@ -116,6 +117,7 @@ Query[fi]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[fr]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[fy]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ga]=http://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[gd]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[gl]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[gu]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[he]=http://technorati.com/tag/\\{@}?sourceid=kde-search

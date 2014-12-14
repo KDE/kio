@@ -23,6 +23,7 @@ Name[fa]=Duck Duck Go
 Name[fi]=Duck Duck Go
 Name[fr]=Duck Duck Go
 Name[ga]=Duck Duck Go
+Name[gd]=Duck Duck Go
 Name[gl]=Duck Duck Go
 Name[gu]=ડક ડક ગો
 Name[he]=Duck Duck Go
@@ -84,6 +85,7 @@ Query[es]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[eu]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[fi]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[fr]=https://duckduckgo.com/?q=\\{@}&t=kde
+Query[gd]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[gl]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[hi]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[hu]=https://duckduckgo.com/?q=\\{@}&t=kde

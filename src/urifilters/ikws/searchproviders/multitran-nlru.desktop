@@ -28,6 +28,7 @@ Name[fi]=Multitran – käännä hollannista venäjään
 Name[fr]=Multitran - Traduction néerlandais - russe
 Name[fy]=Multitran - Oersetting tusken Nederlâns en Russysk
 Name[ga]=Multitran - Aistriúchán idir Ollainnis agus Rúisis
+Name[gd]=Multitran - Eadar-theangachadh eadar an Duitsis is an Ruisis
 Name[gl]=Multitran, tradución entre holandés e ruso
 Name[gu]=મલ્ટિટ્રાન - ડચ અને રશિયન વચ્ચેનું ભાષાંતર
 Name[he]=‏Multitran - תרגום בין הולנדית ורוסית
@@ -112,6 +113,7 @@ Query[fi]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[fr]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[fy]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[ga]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
+Query[gd]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[gl]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[gu]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[he]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}

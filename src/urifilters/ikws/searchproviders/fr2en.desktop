@@ -31,6 +31,7 @@ Name[fi]=WordReference.com-käännös ranskasta englanniksi
 Name[fr]=Traduction sur WordReference.com : français vers anglais
 Name[fy]=WordReference.com-oersetting: Frânsk nei Ingelsk
 Name[ga]=Aistriúchán WordReference.com: Fraincis go Béarla
+Name[gd]=WordReference.com Eadar-theangachadh: On Fhraingis dhan Bheurla
 Name[gl]=Tradución WordReference.com: francés a inglés
 Name[gu]=WordReference.com ભાષાંતર: ફ્રેંચ થી અંગ્રેજી
 Name[he]=תרגום WordReference.com: צרפתית לאנגלית
@@ -118,6 +119,7 @@ Query[fi]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[fr]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[fy]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[ga]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
+Query[gd]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[gl]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[gu]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[he]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}

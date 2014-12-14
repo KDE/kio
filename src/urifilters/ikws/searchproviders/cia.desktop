@@ -29,6 +29,7 @@ Name[fi]=CIA World Factbook
 Name[fr]=Banque de données mondiales de la CIA
 Name[fy]=CIA Wrâld Feitboek
 Name[ga]=CIA World Fact Book
+Name[gd]=CIA World Fact Book
 Name[gl]=CIA World Fact Book
 Name[gu]=CIA દુનિયા વિશેનું પુસ્તક
 Name[he]=ספר העובדות העולמי של ה־CIA
@@ -100,6 +101,7 @@ Query[es]=https://www.cia.gov/search?q=\\{@}&site=WORLD_FACTBOOK&btnG=Search&cli
 Query[eu]=https://www.cia.gov/search?q=\\{@}&site=WORLD_FACTBOOK&btnG=Search&client=CIA&myAction=/search&proxystylesheet=CIA&submitMethod=get&oe=UTF-8&ie=UTF-8&ud=1
 Query[fi]=https://www.cia.gov/search?q=\\{@}&site=WORLD_FACTBOOK&btnG=Search&client=CIA&myAction=/search&proxystylesheet=CIA&submitMethod=get&oe=UTF-8&ie=UTF-8&ud=1
 Query[fr]=https://www.cia.gov/search?q=\\{@}&site=WORLD_FACTBOOK&btnG=Search&client=CIA&myAction=/search&proxystylesheet=CIA&submitMethod=get&oe=UTF-8&ie=UTF-8&ud=1
+Query[gd]=https://www.cia.gov/search?q=\\{@}&site=WORLD_FACTBOOK&btnG=Search&client=CIA&myAction=/search&proxystylesheet=CIA&submitMethod=get&oe=UTF-8&ie=UTF-8&ud=1
 Query[gl]=https://www.cia.gov/search?q=\\{@}&site=WORLD_FACTBOOK&btnG=Search&client=CIA&myAction=/search&proxystylesheet=CIA&submitMethod=get&oe=UTF-8&ie=UTF-8&ud=1
 Query[hi]=https://www.cia.gov/search?q=\\{@}&site=WORLD_FACTBOOK&btnG=Search&client=CIA&myAction=/search&proxystylesheet=CIA&submitMethod=get&oe=UTF-8&ie=UTF-8&ud=1
 Query[hu]=https://www.cia.gov/search?q=\\{@}&site=WORLD_FACTBOOK&btnG=Search&client=CIA&myAction=/search&proxystylesheet=CIA&submitMethod=get&oe=UTF-8&ie=UTF-8&ud=1

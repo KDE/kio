@@ -30,6 +30,7 @@ Name[fi]=FreeDB
 Name[fr]=FreeDB
 Name[fy]=FreeDB
 Name[ga]=FreeDB
+Name[gd]=FreeDB
 Name[gl]=FreeDB
 Name[gu]=ફ્રીડીબી
 Name[he]=FreeDB
@@ -120,6 +121,7 @@ Query[fi]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[fr]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[fy]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[ga]=http://www.freedb.org/freedb_search.php?words=\\{@}
+Query[gd]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[gl]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[gu]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[he]=http://www.freedb.org/freedb_search.php?words=\\{@}

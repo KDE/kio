@@ -33,6 +33,7 @@ Name[fi]=KDE:n API-dokumentaatio
 Name[fr]=Documentation de l'API de KDE
 Name[fy]=KDE API Dokumintaasje
 Name[ga]=Doiciméadú API KDE
+Name[gd]=Docamaideadh API KDE
 Name[gl]=Documentación da API de KDE
 Name[gu]=KDE API દસ્તાવેજ
 Name[he]=תיעוד ה־API של KDE
@@ -119,6 +120,7 @@ Query[fi]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[fr]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[fy]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[ga]=http://api.kde.org/classmapper.php?class=\\{@}
+Query[gd]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[gl]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[gu]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[he]=http://api.kde.org/classmapper.php?class=\\{@}

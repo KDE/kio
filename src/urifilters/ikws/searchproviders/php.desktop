@@ -30,6 +30,7 @@ Name[fi]=PHP-haku
 Name[fr]=Recherche sur PHP
 Name[fy]=PHP-sykaksje
 Name[ga]=Cuardach PHP
+Name[gd]=PHP Manual
 Name[gl]=Busca de PHP
 Name[gu]=PHP શોધ
 Name[he]=חיפוש PHP
@@ -111,6 +112,7 @@ Query[fa]=http://www.php.net/manual-lookup.php?pattern=\\{@}
 Query[fi]=http://www.php.net/manual-lookup.php?pattern=\\{@}
 Query[fr]=http://www.php.net/manual-lookup.php?pattern=\\{@}
 Query[ga]=http://www.php.net/manual-lookup.php?pattern=\\{@}
+Query[gd]=http://www.php.net/manual-lookup.php?pattern=\\{@}
 Query[gl]=http://www.php.net/manual-lookup.php?pattern=\\{@}
 Query[gu]=http://www.php.net/manual-lookup.php?pattern=\\{@}
 Query[he]=http://www.php.net/manual-lookup.php?pattern=\\{@}

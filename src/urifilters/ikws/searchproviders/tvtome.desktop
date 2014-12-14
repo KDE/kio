@@ -30,6 +30,7 @@ Name[fi]=TV Tome
 Name[fr]=TV Tome
 Name[fy]=TV Tome
 Name[ga]=TV Tome
+Name[gd]=TV Tome
 Name[gl]=TV Tome
 Name[gu]=ટીવી ટોમ
 Name[he]=TV Tome
@@ -119,6 +120,7 @@ Query[fi]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[fr]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[fy]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[ga]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
+Query[gd]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[gl]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[gu]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[he]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0

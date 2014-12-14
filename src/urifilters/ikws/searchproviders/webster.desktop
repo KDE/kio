@@ -30,6 +30,7 @@ Name[fi]=Merriam–Webster-sanakirja
 Name[fr]=Dictionnaire « Merriam-Webster »
 Name[fy]=Merriam-Webster Dictionary
 Name[ga]=Foclóir Merriam-Webster
+Name[gd]=Faclair Merriam-Webster
 Name[gl]=Dicionario Merriam-Webster
 Name[gu]=મેર્રીયમ-વેબસ્ટર શબ્દકોશ
 Name[he]=מילון Merriam-Webster
@@ -121,6 +122,7 @@ Query[fi]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[fr]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[fy]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[ga]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
+Query[gd]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[gl]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[gu]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[he]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}

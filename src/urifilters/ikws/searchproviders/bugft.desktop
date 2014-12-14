@@ -29,6 +29,7 @@ Name[fi]=KDE-vikailmoitustietokannan tekstihaku
 Name[fr]=Recherche textuelle dans la base de données de bogues de KDE
 Name[fy]=KDE Bug Databank -  folsleine-tekst-sykaksje
 Name[ga]=Cuardach Lán-Téacs i mBunachar Sonraí Fabhtanna KDE
+Name[gd]=Lorg teacsa ann an stòr-dàta nam bugaichean KDE
 Name[gl]=Busca de textos na base de datos de fallos de KDE
 Name[gu]=KDE બગ ડેટાબેઝ સંપૂર્ણલખાણ શોધ
 Name[he]=חיפוש טקסט מלא במאגר הבאגים של KDE
@@ -104,6 +105,7 @@ Query[es]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[eu]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[fi]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[fr]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Query[gd]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[gl]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[hi]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[hu]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

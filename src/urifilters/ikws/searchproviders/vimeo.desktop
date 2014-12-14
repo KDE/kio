@@ -23,6 +23,7 @@ Name[fa]=Vimeo
 Name[fi]=Vimeo
 Name[fr]=Vimeo
 Name[ga]=Vimeo
+Name[gd]=Vimeo
 Name[gl]=Vimeo
 Name[gu]=વિમિઓ
 Name[he]=Vimeo
@@ -85,6 +86,7 @@ Query[es]=http://vimeo.com/search?q=\\{@}
 Query[eu]=http://vimeo.com/search?q=\\{@}
 Query[fi]=http://vimeo.com/search?q=\\{@}
 Query[fr]=http://vimeo.com/search?q=\\{@}
+Query[gd]=http://vimeo.com/search?q=\\{@}
 Query[gl]=http://vimeo.com/search?q=\\{@}
 Query[hi]=http://vimeo.com/search?q=\\{@}
 Query[hu]=http://vimeo.com/search?q=\\{@}

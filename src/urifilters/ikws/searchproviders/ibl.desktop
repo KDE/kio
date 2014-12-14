@@ -29,6 +29,7 @@ Name[fi]=Internet Book List
 Name[fr]=Liste de livres sur Internet
 Name[fy]=Ynternet boeklist
 Name[ga]=Internet Book List
+Name[gd]=Internet Book List
 Name[gl]=Lista de libros de Internet
 Name[gu]=ઇન્ટરનેટ પુસ્તક યાદી
 Name[he]=רשימת הספרים האינטרנטית
@@ -115,6 +116,7 @@ Query[fi]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[fr]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[fy]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[ga]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
+Query[gd]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[gl]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[gu]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[he]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search

@@ -30,6 +30,7 @@ Name[fi]=Ruby-sovellusarkisto
 Name[fr]=Archive d'applications Ruby
 Name[fy]=Ruby programma-argyf
 Name[ga]=Cartlann Feidhmchlár Ruby
+Name[gd]=Ruby Application Archive
 Name[gl]=Arquivo de programas en Ruby
 Name[gu]=રૂબી કાર્યક્રમ અર્કાઇવ
 Name[he]=ארכיון יישומי Ruby
@@ -120,6 +121,7 @@ Query[fi]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[fr]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[fy]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ga]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[gd]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[gl]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[gu]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[he]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

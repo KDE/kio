@@ -30,6 +30,7 @@ Name[fi]=Voila
 Name[fr]=Voila
 Name[fy]=Voila
 Name[ga]=Voila
+Name[gd]=Voila
 Name[gl]=Voila
 Name[gu]=વોઇલા
 Name[he]=Voila
@@ -121,6 +122,7 @@ Query[fi]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[fr]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[fy]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[ga]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[gd]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[gl]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[gu]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[he]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*

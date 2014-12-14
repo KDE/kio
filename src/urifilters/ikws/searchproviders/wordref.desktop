@@ -32,6 +32,7 @@ Name[fi]=WordReference.comin englannin kielen sanasto
 Name[fr]=Dictionnaire anglais de WordReference.com
 Name[fy]=WordReference.com Ingelsk wurdboek
 Name[ga]=Foclóir Béarla WordReference.com
+Name[gd]=WordReference.com Faclaor Beurla
 Name[gl]=Dicionario de inglés de WordReference.com
 Name[gu]=WordReference.com અંગ્રેજી શબ્દકોશ
 Name[he]=‏WordReference.com - מילון אנגלי
@@ -119,6 +120,7 @@ Query[fi]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[fr]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[fy]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ga]=http://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[gd]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[gl]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[gu]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[he]=http://www.wordreference.com/english/definition.asp?en=\\{@}

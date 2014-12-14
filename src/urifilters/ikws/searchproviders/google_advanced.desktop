@@ -30,6 +30,7 @@ Name[fi]=Googlen tarkennettu haku
 Name[fr]=Recherche avancée de Google
 Name[fy]=Google Avansearre Sykje
 Name[ga]=Cuardach Casta Google
+Name[gd]=Lorg adhartach Google
 Name[gl]=Busca avanzada de Google
 Name[gu]=ગુગલ ઉચ્ચ શોધ
 Name[he]=חיפוש מתקדם ב־Google
@@ -106,6 +107,7 @@ Query[es]=https://www.google.com/search?as_q=\\{all,@}&num=\\{num,"10"}&btnG=Goo
 Query[eu]=https://www.google.com/search?as_q=\\{all,@}&num=\\{num,"10"}&btnG=Google+Search&as_epq=\\{exact,""}&as_oq=\\{any,""}&as_eq=\\{without,""}&lr=\\{lang,""}&as_ft=\\{ft,"i"}&as_filetype=\\{filetype,""}&as_qdr=\\{date,"all"}&as_occt=\\{occ,"any"}&as_dt=\\{siteop,"i"}&as_sitesearch=\\{site}&safe=\\{safe,"active"}&ie=UTF-8&oe=UTF-8
 Query[fi]=https://www.google.fi/search?as_q=\\{all,@}&num=\\{num,"10"}&btnG=Google+Search&as_epq=\\{exact,""}&as_oq=\\{any,""}&as_eq=\\{without,""}&lr=\\{lang,""}&as_ft=\\{ft,"i"}&as_filetype=\\{filetype,""}&as_qdr=\\{date,"all"}&as_occt=\\{occ,"any"}&as_dt=\\{siteop,"i"}&as_sitesearch=\\{site}&safe=\\{safe,"active"}&ie=UTF-8&oe=UTF-8
 Query[fr]=https://www.google.com/search?as_q=\\{all,@}&num=\\{num,"10"}&btnG=Google+Search&as_epq=\\{exact,""}&as_oq=\\{any,""}&as_eq=\\{without,""}&lr=\\{lang,""}&as_ft=\\{ft,"i"}&as_filetype=\\{filetype,""}&as_qdr=\\{date,"all"}&as_occt=\\{occ,"any"}&as_dt=\\{siteop,"i"}&as_sitesearch=\\{site}&safe=\\{safe,"active"}&ie=UTF-8&oe=UTF-8
+Query[gd]=https://www.google.com/search?as_q=\\{all,@}&num=\\{num,"10"}&btnG=Google+Search&as_epq=\\{exact,""}&as_oq=\\{any,""}&as_eq=\\{without,""}&lr=\\{lang,""}&as_ft=\\{ft,"i"}&as_filetype=\\{filetype,""}&as_qdr=\\{date,"all"}&as_occt=\\{occ,"any"}&as_dt=\\{siteop,"i"}&as_sitesearch=\\{site}&safe=\\{safe,"active"}&ie=UTF-8&oe=UTF-8
 Query[gl]=https://www.google.com/search?as_q=\\{all,@}&num=\\{num,"10"}&btnG=Google+Search&as_epq=\\{exact,""}&as_oq=\\{any,""}&as_eq=\\{without,""}&lr=\\{lang,""}&as_ft=\\{ft,"i"}&as_filetype=\\{filetype,""}&as_qdr=\\{date,"all"}&as_occt=\\{occ,"any"}&as_dt=\\{siteop,"i"}&as_sitesearch=\\{site}&safe=\\{safe,"active"}&ie=UTF-8&oe=UTF-8
 Query[hi]=https://www.google.com/search?as_q=\\{all,@}&num=\\{num,"10"}&btnG=Google+Search&as_epq=\\{exact,""}&as_oq=\\{any,""}&as_eq=\\{without,""}&lr=\\{lang,""}&as_ft=\\{ft,"i"}&as_filetype=\\{filetype,""}&as_qdr=\\{date,"all"}&as_occt=\\{occ,"any"}&as_dt=\\{siteop,"i"}&as_sitesearch=\\{site}&safe=\\{safe,"active"}&ie=UTF-8&oe=UTF-8
 Query[hu]=https://www.google.com/search?as_q=\\{all,@}&num=\\{num,"10"}&btnG=Google+Search&as_epq=\\{exact,""}&as_oq=\\{any,""}&as_eq=\\{without,""}&lr=\\{lang,""}&as_ft=\\{ft,"i"}&as_filetype=\\{filetype,""}&as_qdr=\\{date,"all"}&as_occt=\\{occ,"any"}&as_dt=\\{siteop,"i"}&as_sitesearch=\\{site}&safe=\\{safe,"active"}&ie=UTF-8&oe=UTF-8

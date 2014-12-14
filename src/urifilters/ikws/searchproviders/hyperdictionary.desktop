@@ -30,6 +30,7 @@ Name[fi]=HyperDictionary.com
 Name[fr]=HyperDictionary.com
 Name[fy]=HyperDictionary.com
 Name[ga]=HyperDictionary.com
+Name[gd]=HyperDictionary.com
 Name[gl]=Dicionario Digalego da lingua galega
 Name[gu]=હાયપરડિક્શનરી.કોમ
 Name[he]=HyperDictionary.com
@@ -121,6 +122,7 @@ Query[fi]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[fr]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[fy]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[ga]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
+Query[gd]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[gl]=http://digalego.com/diccionario/html/index.php?op=procesa&buscado=\{@}&opcion=entrada
 Query[gu]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[he]=http://www.hyperdictionary.com/search.aspx?define=\\{@}

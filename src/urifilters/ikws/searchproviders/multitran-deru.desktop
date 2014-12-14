@@ -28,6 +28,7 @@ Name[fi]=Multitran – käännä saksasta venäjään
 Name[fr]=Multitran - Traduction allemand - russe
 Name[fy]=Multitran - Oersetting tusken Dútsk en Russysk
 Name[ga]=Multitran - Aistriúchán idir Gearmáinis agus Rúisis
+Name[gd]=Multitran - Eadar-theangachadh eadar a' Ghearmailtis is an Ruisis
 Name[gl]=Multitran, tradución entre alemán e ruso
 Name[gu]=મલ્ટિટ્રાન - જર્મન અને રશિયન વચ્ચેનું ભાષાંતર
 Name[he]=‏Multitran - תרגום בין גרמנית ורוסית
@@ -112,6 +113,7 @@ Query[fi]=http://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[fr]=http://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[fy]=http://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[ga]=http://multitran.ru/c/m.exe?l1=3&s=\\{@}
+Query[gd]=http://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[gl]=http://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[gu]=http://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[he]=http://multitran.ru/c/m.exe?l1=3&s=\\{@}

@@ -29,6 +29,7 @@ Name[fi]=LEO-käännös
 Name[fr]=LEO-Translate
 Name[fy]=LEO-oersetting (oersetting: Dûtsk-Ingelsk-Dûtsk)
 Name[ga]=Aistriúchán LEO
+Name[gd]=LEO-Translate
 Name[gl]=Tradución con LEO
 Name[gu]=લીઓ-ટ્રાન્સલેટ
 Name[he]=תרגום LEO
@@ -120,6 +121,7 @@ Query[fi]=http://dict.leo.org/?search=\\{@}
 Query[fr]=http://dict.leo.org/?search=\\{@}
 Query[fy]=http://dict.leo.org/?search=\\{@}
 Query[ga]=http://dict.leo.org/?search=\\{@}
+Query[gd]=http://dict.leo.org/?search=\\{@}
 Query[gl]=http://dict.leo.org/?search=\\{@}
 Query[gu]=http://dict.leo.org/?search=\\{@}
 Query[he]=http://dict.leo.org/?search=\\{@}

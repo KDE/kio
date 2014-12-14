@@ -23,6 +23,7 @@ Name[fa]=Urban Dictionary
 Name[fi]=Urban Dictionary
 Name[fr]=Dictionnaire « Urban »
 Name[ga]=Urban Dictionary
+Name[gd]=Urban Dictionary
 Name[gl]=Dicionario Urbano
 Name[gu]=અર્બન ડિક્શનરી
 Name[he]=Urban Dictionary
@@ -90,6 +91,7 @@ Query[fa]=http://www.urbandictionary.com/define.php?term=\\{@}
 Query[fi]=http://www.urbandictionary.com/define.php?term=\\{@}
 Query[fr]=http://www.urbandictionary.com/define.php?term=\\{@}
 Query[ga]=http://www.urbandictionary.com/define.php?term=\\{@}
+Query[gd]=http://www.urbandictionary.com/define.php?term=\\{@}
 Query[gl]=http://www.urbandictionary.com/define.php?term=\\{@}
 Query[gu]=http://www.urbandictionary.com/define.php?term=\\{@}
 Query[he]=http://www.urbandictionary.com/define.php?term=\\{@}

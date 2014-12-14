@@ -23,6 +23,7 @@ Name[fa]=Blip.tv
 Name[fi]=Blip.tv
 Name[fr]=Blip.tv
 Name[ga]=Blip.tv
+Name[gd]=Blip.tv
 Name[gl]=Blip.tv
 Name[gu]=બ્લિપ.ટીવી
 Name[he]=Blip.tv
@@ -85,6 +86,7 @@ Query[es]=https://blip.tv/search?q=\\{@}
 Query[eu]=https://blip.tv/search?q=\\{@}
 Query[fi]=https://blip.tv/search?q=\\{@}
 Query[fr]=https://blip.tv/search?q=\\{@}
+Query[gd]=https://blip.tv/search?q=\\{@}
 Query[gl]=https://blip.tv/search?q=\\{@}
 Query[hi]=https://blip.tv/search?q=\\{@}
 Query[hu]=https://blip.tv/search?q=\\{@}

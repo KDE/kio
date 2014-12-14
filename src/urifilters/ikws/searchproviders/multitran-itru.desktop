@@ -28,6 +28,7 @@ Name[fi]=Multitran – käännä italiasta venäjään
 Name[fr]=Multitran - Traduction italien - russe
 Name[fy]=Multitran - Oersetting tusken italiaansk en Russysk
 Name[ga]=Multitran - Aistriúchán idir Iodáilis agus Rúisis
+Name[gd]=Multitran - Eadar-theangachadh eadar an Eadailtis is an Ruisis
 Name[gl]=Multitran, tradución entre italiano e ruso
 Name[gu]=મલ્ટિટ્રાન - ઇટાલિઅન અને રશિયન વચ્ચેનું ભાષાંતર
 Name[he]=‏Multitran - תרגום בין איטלקית ורוסית
@@ -112,6 +113,7 @@ Query[fi]=http://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[fr]=http://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[fy]=http://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[ga]=http://multitran.ru/c/m.exe?l1=23&s=\\{@}
+Query[gd]=http://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[gl]=http://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[gu]=http://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[he]=http://multitran.ru/c/m.exe?l1=23&s=\\{@}

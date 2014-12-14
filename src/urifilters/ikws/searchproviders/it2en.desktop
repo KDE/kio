@@ -31,6 +31,7 @@ Name[fi]=WordReference.com-käännös italiasta englanniksi
 Name[fr]=Traduction sur WordReference.com : italien vers anglais
 Name[fy]=WordReference.com-oersetting: Italiaansk nei Ingelsk
 Name[ga]=Aistriúchán WordReference.com: Iodáilis go Béarla
+Name[gd]=WordReference.com Eadar-theangachadh: On Eadailtis dhan Bheurla
 Name[gl]=Tradución WordReference.com: italiano a inglés
 Name[gu]=WordReference.com ભાષાંતર: ઇટાલિઅન થી અંગ્રેજી
 Name[he]=תרגום WordReference.com: איטלקית לאנגלית
@@ -118,6 +119,7 @@ Query[fi]=http://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[fr]=http://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[fy]=http://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[ga]=http://www.wordreference.com/it/en/translation.asp?iten=\\{@}
+Query[gd]=http://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[gl]=http://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[gu]=http://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[he]=http://www.wordreference.com/it/en/translation.asp?iten=\\{@}

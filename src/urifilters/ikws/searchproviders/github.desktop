@@ -23,6 +23,7 @@ Name[fa]=GitHub
 Name[fi]=GitHub
 Name[fr]=GitHub
 Name[ga]=GitHub
+Name[gd]=GitHub
 Name[gl]=GitHub
 Name[gu]=ગીટહબ
 Name[he]=GitHub
@@ -85,6 +86,7 @@ Query[es]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[eu]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[fi]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[fr]=https://github.com/search?q=\\{@}&x=0&y=0
+Query[gd]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[gl]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[hi]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[hu]=https://github.com/search?q=\\{@}&x=0&y=0

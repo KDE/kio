@@ -30,6 +30,7 @@ Name[fi]=HyperDictionary.com-synonyymisanakirja
 Name[fr]=Thésaurus « HyperDictionary.com »
 Name[fy]=HyperDictionary.com Thesaurus
 Name[ga]=Teasáras HyperDictionary.com
+Name[gd]=Co-fhaclair HyperDictionary.com
 Name[gl]=Tesauro de HyperDictionary.com
 Name[gu]=હાયપરડિક્શનરી.કોમ થિસોરસ
 Name[he]=אגרון מילים ‏HyperDictionary.com
@@ -120,6 +121,7 @@ Query[fi]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[fr]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[fy]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[ga]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
+Query[gd]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[gl]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[gu]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[he]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}

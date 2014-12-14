@@ -30,6 +30,7 @@ Name[fi]=Netcraft
 Name[fr]=Netcraft
 Name[fy]=Netcraft 
 Name[ga]=Netcraft
+Name[gd]=Netcraft
 Name[gl]=Netcraft
 Name[gu]=નેટક્રાફ્ટ
 Name[he]=Netcraft
@@ -120,6 +121,7 @@ Query[fi]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[fr]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[fy]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ga]=http://uptime.netcraft.com/up/graph?site=\\{@}
+Query[gd]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[gl]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[gu]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[he]=http://uptime.netcraft.com/up/graph?site=\\{@}
