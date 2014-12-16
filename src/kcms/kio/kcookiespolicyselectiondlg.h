@@ -35,13 +35,13 @@ public:
         case KCookieAdvice::Accept:
             return I18N_NOOP ("Accept");
         case KCookieAdvice::AcceptForSession:
-            return I18N_NOOP ("AcceptForSession");
+            return I18N_NOOP ("Accept For Session");
         case KCookieAdvice::Reject:
             return I18N_NOOP ("Reject");
         case KCookieAdvice::Ask:
             return I18N_NOOP ("Ask");
         default:
-            return I18N_NOOP ("Dunno");
+            return I18N_NOOP ("Do Not Know");
         }
     }
 
