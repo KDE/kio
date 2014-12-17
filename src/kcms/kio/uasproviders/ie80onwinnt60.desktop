@@ -1,5 +1,10 @@
 [Desktop Entry]
 Name=UADescription (IE 8.0 on Windows Vista)
+Name[nl]=GA-beschrijving (IE 8.0 op Windows Vista)
+Name[pt_BR]=UADescription (IE 8.0 no Windows Vista)
+Name[sk]=Popis agenta (IE 8.0 na Windows Vista)
+Name[uk]=UADescription (IE 8.0 у Windows Vista)
+Name[x-test]=xxUADescription (IE 8.0 on Windows Vista)xx
 Type=Service
 X-KDE-ServiceTypes=UserAgentStrings
 X-KDE-UA-TAG=IE

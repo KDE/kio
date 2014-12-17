@@ -1,5 +1,10 @@
 [Desktop Entry]
 Name=UADescription (Opera 11.62 on current)
+Name[nl]=GA-beschrijving (Opera 11.62 op huidige)
+Name[pt_BR]=UADescription (Opera 11.62 no sistema atual)
+Name[sk]=Popis agenta (Opera 11.62 na aktuálnom)
+Name[uk]=UADescription (Opera 11.62 на поточній)
+Name[x-test]=xxUADescription (Opera 11.62 on current)xx
 Type=Service
 X-KDE-ServiceTypes=UserAgentStrings
 X-KDE-UA-TAG=OPR
