@@ -177,7 +177,9 @@ QStringList KIO::DesktopExecParser::supportedProtocols(const KService &service)
     KRunMX1 mx1(service);
     QString exec = service.exec();
     if (mx1.expandMacrosShellQuote(exec) && !mx1.hasUrls) {
-        qWarning() << service.entryPath() << "contains a X-KDE-Protocols line but doesn't use %u or %U in its Exec line! This is inconsistent.";
+        if (!supportedProtocols.isEmpty()) {
+            qWarning() << service.entryPath() << "contains a X-KDE-Protocols line but doesn't use %u or %U in its Exec line! This is inconsistent.";
+        }
         return QStringList();
     } else {
         if (supportedProtocols.isEmpty()) {
