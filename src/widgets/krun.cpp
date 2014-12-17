@@ -40,6 +40,8 @@
 #include <QDesktopWidget>
 #include <qmimedatabase.h>
 #include <QDebug>
+#include <QDBusConnection>
+#include <QDBusConnectionInterface>
 
 #include <kiconloader.h>
 #include <kjobuidelegate.h>
@@ -709,7 +711,22 @@ bool KRun::run(const KService &_service, const QList<QUrl> &_urls, QWidget *wind
         }
     }
 
-    if (tempFiles || _service.entryPath().isEmpty() || !suggestedFileName.isEmpty()) {
+    bool useKToolInvocation = !(tempFiles || _service.entryPath().isEmpty() || !suggestedFileName.isEmpty());
+
+    if (useKToolInvocation) {
+        // Is klauncher installed? Let's try to start it, if it fails, then we won't use it.
+        static int klauncherAvailable = -1;
+        if (klauncherAvailable == -1) {
+            KToolInvocation::ensureKdeinitRunning();
+            QDBusConnectionInterface *dbusDaemon = QDBusConnection::sessionBus().interface();
+            klauncherAvailable = dbusDaemon->isServiceRegistered(QStringLiteral("org.kde.klauncher5"));
+        }
+        if (klauncherAvailable == 0) {
+            useKToolInvocation = false;
+        }
+    }
+
+    if (!useKToolInvocation) {
         return runTempService(_service, _urls, window, tempFiles, suggestedFileName, asn);
     }
 
