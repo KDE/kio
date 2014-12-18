@@ -53,6 +53,45 @@ static bool KIOSKAuthorizedAction(const KConfigGroup &cfg)
     return true;
 }
 
+static bool mimeTypeListContains(const QStringList &list, const KFileItem &item)
+{
+    const QString itemMimeType = item.mimetype();
+
+    foreach (const QString &i, list) {
+
+        if (i == itemMimeType || i == "all/all") {
+            return true;
+        }
+
+        if (item.isFile() && (i == "allfiles" ||
+            i == "all/allfiles" || i == "application/octet-stream")) {
+            return true;
+        }
+
+        if (item.currentMimeType().inherits(i)) {
+            return true;
+        }
+
+        const int iSlashPos = i.indexOf('/');
+        Q_ASSERT(i > 0);
+        const QStringRef iSubType = i.midRef(iSlashPos+1);
+
+        if (iSubType == "*") {
+            const int itemSlashPos = itemMimeType.indexOf('/');
+            Q_ASSERT(itemSlashPos > 0);
+            const QStringRef iTopLevelType = i.midRef(0, iSlashPos);
+            const QStringRef itemTopLevelType = itemMimeType.midRef(0, itemSlashPos);
+
+            if (itemTopLevelType == iTopLevelType) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+
+
 // This helper class stores the .desktop-file actions and the servicemenus
 // in order to support X-KDE-Priority and X-KDE-Submenu.
 namespace KIO
@@ -326,55 +365,24 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
         }
         if (cfg.hasKey("Actions") || cfg.hasKey("X-KDE-GetActionMenu")) {
             // Like KService, we support ServiceTypes, X-KDE-ServiceTypes, and MimeType.
-            QStringList types = cfg.readEntry("ServiceTypes", QStringList());
-            types += cfg.readEntry("X-KDE-ServiceTypes", QStringList());
-            types += cfg.readXdgListEntry("MimeType");
-            //qDebug() << file << types;
+            const QStringList types = cfg.readEntry("ServiceTypes", QStringList())
+                    << cfg.readEntry("X-KDE-ServiceTypes", QStringList())
+                    << cfg.readXdgListEntry("MimeType");
 
             if (types.isEmpty()) {
                 continue;
             }
+
             const QStringList excludeTypes = cfg.readEntry("ExcludeServiceTypes", QStringList());
-            bool ok = false;
 
-            // check for exact matches or a typeglob'd mimetype if we have a mimetype
-            for (QStringList::ConstIterator it = types.constBegin();
-                    it != types.constEnd() && !ok;
-                    ++it) {
-                // first check if we have an all mimetype
-                bool checkTheMimetypes = false;
-                if (*it == "all/all" ||
-                        *it == "allfiles" /*compat with KDE up to 3.0.3*/) {
-                    checkTheMimetypes = true;
-                }
+            const bool ok = std::all_of(items.constBegin(),
+                                        items.constEnd(),
+                                        [&types, &excludeTypes, this](const KFileItem &i)
+            {
+                const QString mimetype = i.mimetype();
+                return mimeTypeListContains(types, i) && !mimeTypeListContains(excludeTypes, i);
+            });
 
-                // next, do we match all files?
-                if (!ok &&
-                        !d->m_props.isDirectory() &&
-                        (*it == "all/allfiles" || *it == "application/octet-stream")) {
-                    checkTheMimetypes = true;
-                }
-
-                // if we have a mimetype, see if we have an exact or a type globbed match
-                if (!ok && (
-                            (mimeTypePtr.inherits(*it)) ||
-                            (!commonMimeGroup.isEmpty() &&
-                             ((*it).right(1) == "*" &&
-                              (*it).left((*it).indexOf('/')) == commonMimeGroup)))) {
-                    checkTheMimetypes = true;
-                }
-
-                if (checkTheMimetypes) {
-                    ok = true;
-                    for (QStringList::ConstIterator itex = excludeTypes.constBegin(); itex != excludeTypes.constEnd(); ++itex) {
-                        if (((*itex).endsWith('*') && (*itex).left((*itex).indexOf('/')) == commonMimeGroup) ||
-                                ((*itex) == commonMimeType)) {
-                            ok = false;
-                            break;
-                        }
-                    }
-                }
-            }
 
             if (ok) {
                 const QString priority = cfg.readEntry("X-KDE-Priority");
