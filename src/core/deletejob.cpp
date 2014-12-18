@@ -96,6 +96,7 @@ public:
     void finishedStatPhase();
     void deleteNextFile();
     void deleteNextDir();
+    void restoreDirWatch() const;
     void slotReport();
     void slotStart();
     void slotEntries(KIO::Job *, const KIO::UDSEntryList &list);
@@ -353,10 +354,7 @@ void DeleteJobPrivate::deleteNextDir()
     }
 
     // Re-enable watching on the dirs that held the deleted files
-    const QSet<QString>::const_iterator itEnd = m_parentDirs.constEnd();
-    for (QSet<QString>::const_iterator it = m_parentDirs.constBegin(); it != itEnd; ++it) {
-        KDirWatch::self()->restartDirScan(*it);
-    }
+    restoreDirWatch();
 
     // Finished - tell the world
     if (!m_srcList.isEmpty()) {
@@ -367,6 +365,14 @@ void DeleteJobPrivate::deleteNextDir()
         m_reportTimer->stop();
     }
     q->emitResult();
+}
+
+void DeleteJobPrivate::restoreDirWatch() const
+{
+    const auto itEnd = m_parentDirs.constEnd();
+    for (auto it = m_parentDirs.constBegin(); it != itEnd; ++it) {
+        KDirWatch::self()->restartDirScan(*it);
+    }
 }
 
 void DeleteJobPrivate::currentSourceStated(bool isDir, bool isLink)
@@ -421,6 +427,7 @@ void DeleteJob::slotResult(KJob *job)
             if (job->error()) {
                 // Probably : doesn't exist
                 Job::slotResult(job); // will set the error and emit result(this)
+                d->restoreDirWatch();
                 return;
             }
 
@@ -449,6 +456,7 @@ void DeleteJob::slotResult(KJob *job)
 
         if (job->error()) {
             Job::slotResult(job);   // will set the error and emit result(this)
+            d->restoreDirWatch();
             return;
         }
         removeSubjob(job);
@@ -460,6 +468,7 @@ void DeleteJob::slotResult(KJob *job)
     case DELETEJOB_STATE_DELETING_DIRS:
         if (job->error()) {
             Job::slotResult(job);   // will set the error and emit result(this)
+            d->restoreDirWatch();
             return;
         }
         removeSubjob(job);
