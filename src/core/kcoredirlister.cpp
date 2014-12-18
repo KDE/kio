@@ -1606,7 +1606,6 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
 
                 listers |= emitRefreshItem(oldItem, *kit);
             }
-            emitRedirections(oldDirUrl, newDirUrl);
         }
     }
 
@@ -1620,7 +1619,10 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
         itemsInUse.remove(i.oldUrl);
         itemsInUse.insert(i.newUrl, i.dirItem);
     }
-
+    //Now that all the caches are updated and consistent, emit the redirection.
+    foreach(const ItemInUseChange& i, itemsToChange) {
+        emitRedirections(QUrl(i.oldUrl), QUrl(i.newUrl));
+    }
     // Is oldUrl a directory in the cache?
     // Remove any child of oldUrl from the cache - even if the renamed dir itself isn't in it!
     removeDirFromCache(oldUrl);
