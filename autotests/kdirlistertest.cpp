@@ -973,7 +973,7 @@ void KDirListerTest::testRenameCurrentDir() // #294445
     QCOMPARE(secondDirLister.rootItem().url().toLocalFile(), newPath);
 
     disconnect(&secondDirLister, 0, this, 0);
-    QDir().remove(newPath);
+    QDir().rmdir(newPath);
 }
 
 void KDirListerTest::testRedirection()
