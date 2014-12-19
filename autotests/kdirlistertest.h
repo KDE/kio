@@ -105,6 +105,7 @@ private Q_SLOTS:
     void testOpenAndStop();
     void testBug211472();
     void testRenameCurrentDir();
+    void testRenameCurrentDirOpenUrl();
     void testRedirection();
     void testWatchingAfterCopyJob();
     void testRemoveWatchedDirectory();
@@ -117,6 +118,7 @@ protected Q_SLOTS: // 'more private than private slots' - i.e. not seen by qtest
     void slotNewItems2(const KFileItemList &);
     void slotRefreshItems(const QList<QPair<KFileItem, KFileItem> > &);
     void slotRefreshItems2(const QList<QPair<KFileItem, KFileItem> > &);
+    void slotOpenUrlOnRename(const QUrl &);
 
 Q_SIGNALS:
     void refreshItemsReceived();
