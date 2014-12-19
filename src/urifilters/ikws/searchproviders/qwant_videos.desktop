@@ -30,6 +30,7 @@ Name[sv]=Qwant-videor
 Name[tr]=Qwant Videoları
 Name[uk]=Відео Qwant
 Name[x-test]=xxQwant Videosxx
+Name[zh_CN]=Qwant 视频
 Name[zh_TW]=Qwant Videos
 Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[ca]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
@@ -61,6 +62,7 @@ Query[sv]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[tr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[uk]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[x-test]=xxhttps://www.qwant.com/single?q=\\{@}&client=kde&source=videosxx
+Query[zh_CN]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[zh_TW]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 X-KDE-ServiceTypes=SearchProvider
 Type=Service
