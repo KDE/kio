@@ -119,7 +119,7 @@ KFilePlacesSharedBookmarks::KFilePlacesSharedBookmarks(KBookmarkManager *mgr)
     // we check later if the directory exists
     const QString datadir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation);
     QDir().mkpath(datadir);
-    const QString file = datadir + "user-places.xbel";
+    const QString file = datadir + "/user-places.xbel";
     m_sharedBookmarkManager = KBookmarkManager::managerForExternalFile(file);
 
     connect(m_sharedBookmarkManager, SIGNAL(changed(QString,QString)),
