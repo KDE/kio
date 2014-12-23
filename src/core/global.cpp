@@ -389,24 +389,24 @@ QString KIO::suggestName(const QUrl &baseURL, const QString &oldName)
 {
     QString dotSuffix, suggestedName;
     QString basename = oldName;
-    QString spacer = QChar(' ');
+    const QString spacer = QChar(' ');
 
-    //ignore dots at the beginning, that way "..aFile.tar.gz" will become "..aFile 1.tar.gz" instead of " 1..aFile.tar.gz"
-    int start = 0;
-    while (start < basename.length()-1 && basename.at(start) == '.') {
-        ++start;
-    }
-    // find next dot
-    int index = basename.indexOf('.', start);
-    if (index == -1 && start > 0) {
-        // last chance, using one of the leading dots we skipped, if any
-        index = start - 1;
-        spacer.clear();
-    }
+    const QMimeDatabase db;
+    const QString suffix = db.suffixForFileName(oldName);
 
-    if (index != -1) {
-        dotSuffix = basename.mid(index);
-        basename.truncate(index);
+    if (!suffix.isEmpty()) {
+        dotSuffix = '.' + suffix;
+        basename.chop(dotSuffix.length());
+
+        const bool containsOnlyDots = std::all_of(basename.cbegin(),
+                                                  basename.cend(),
+                                                  [](QChar c) {return c == QLatin1Char('.');});
+
+        // ".foo" -> ".foo 1" and "..foo" -> "..foo 1"
+        if (basename.isEmpty() || containsOnlyDots) {
+            basename += dotSuffix;
+            dotSuffix.clear();
+        }
     }
 
     int pos = basename.lastIndexOf(spacer);
