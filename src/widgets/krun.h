@@ -170,7 +170,9 @@ public:
     void setSuggestedFileName(const QString &fileName);
 
     /**
-     * Sets whether a prompt should be shown before executing scripts or desktop files
+     * Sets whether a prompt should be shown before executing scripts or desktop files.
+     * If enabled, KRun uses the "kiorc" configuration file to decide whether to open the
+     * file, execute it or show a prompt.
      * @since 5.4
      */
     void setShowScriptExecutionPrompt(bool showPrompt);
