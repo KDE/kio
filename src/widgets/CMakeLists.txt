@@ -44,6 +44,7 @@ set(kiowidgets_SRCS
   kshellcompletion.cpp
   kurlcompletion.cpp
   kurifilter.cpp
+  dropjob.cpp
   pastejob.cpp
   previewjob.cpp
   renamedialog.cpp
@@ -56,6 +57,7 @@ set(kiowidgets_SRCS
   kdirlister.cpp
   kdirmodel.cpp
   executablefileopendialog.cpp
+  dndpopupmenuplugin.cpp
 )
 if (WIN32)
   list(APPEND kiowidgets_SRCS
@@ -145,6 +147,8 @@ ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   SslUi
   ThumbSequenceCreator
   ThumbCreator
+  DropJob
+  DndPopupMenuPlugin
   PasteJob
   PreviewJob
   RenameDialog
@@ -179,6 +183,7 @@ install(FILES
   kfileitemactionplugin.desktop
   kpropertiesdialogplugin.desktop
   kurifilterplugin.desktop
+  kiodndpopupmenuplugin.desktop
    DESTINATION  ${SERVICETYPES_INSTALL_DIR} )
 
 include(ECMGeneratePriFile)

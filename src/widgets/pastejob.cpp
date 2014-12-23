@@ -18,8 +18,7 @@
 */
 
 #include "pastejob.h"
-
-#include "job_p.h"
+#include "pastejob_p.h"
 
 #include "paste.h"
 
@@ -39,41 +38,6 @@ using namespace KIO;
 extern KIO::Job *pasteMimeDataImpl(const QMimeData *mimeData, const QUrl &destUrl,
                                    const QString &dialogText, QWidget *widget,
                                    bool clipboard);
-
-class KIO::PasteJobPrivate : public KIO::JobPrivate
-{
-public:
-    PasteJobPrivate(const QMimeData *mimeData, const QUrl &destDir, JobFlags flags, bool clipboard)
-        : JobPrivate(),
-        m_mimeData(mimeData),
-        m_destDir(destDir),
-        m_flags(flags),
-        m_clipboard(clipboard)
-    {
-    }
-
-    const QMimeData *m_mimeData;
-    QUrl m_destDir;
-    JobFlags m_flags;
-    bool m_clipboard;
-
-    Q_DECLARE_PUBLIC(PasteJob)
-
-    void slotStart();
-    void slotCopyingDone(KIO::Job*, const QUrl &, const QUrl &to) { emit q_func()->itemCreated(to); }
-    void slotCopyingLinkDone(KIO::Job*, const QUrl &, const QString &, const QUrl &to) { emit q_func()->itemCreated(to); }
-
-    static inline PasteJob *newJob(const QMimeData *mimeData, const QUrl &destDir, JobFlags flags, bool clipboard)
-    {
-        PasteJob *job = new PasteJob(*new PasteJobPrivate(mimeData, destDir, flags, clipboard));
-        job->setUiDelegate(KIO::createDefaultJobUiDelegate());
-        if (!(flags & HideProgressInfo)) {
-            KIO::getJobTracker()->registerJob(job);
-        }
-        return job;
-    }
-
-};
 
 PasteJob::PasteJob(PasteJobPrivate &dd)
     : Job(dd)
@@ -137,15 +101,7 @@ void PasteJob::slotResult(KJob *job)
 
 PasteJob * KIO::paste(const QMimeData *mimeData, const QUrl &destDir, JobFlags flags)
 {
-    return PasteJobPrivate::newJob(mimeData, destDir, flags, true);
+    return PasteJobPrivate::newJob(mimeData, destDir, flags, true /*clipboard*/);
 }
-
-/*
-   To be called from the drop job directly.
-PasteJob * KIO::drop(const QMimeData *mimeData, const QUrl &destDir, JobFlags flags)
-{
-    return PasteJobPrivate::newJob(mimeData, destDir, flags, false);
-}
-*/
 
 #include "moc_pastejob.cpp"

@@ -232,6 +232,9 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
     case KIO::ERR_POST_NO_SIZE:
         result = i18n("The required content size information was not provided for a POST operation.");
         break;
+    case KIO::ERR_DROP_ON_ITSELF:
+        result = i18n("A file or folder cannot be dropped onto itself");
+        break;
     default:
         result = i18n("Unknown error code %1\n%2\nPlease send a full bug report at http://bugs.kde.org.",  errorCode,  errorText);
         break;
@@ -1016,6 +1019,13 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
         description = i18n("The operation could not be completed because the "
                            "source and destination files are the same file.");
         solutions << i18n("Choose a different filename for the destination file.");
+        break;
+
+    case KIO::ERR_DROP_ON_ITSELF:
+        errorName = i18n("File or Folder dropped onto itself");
+        description = i18n("The operation could not be completed because the "
+                           "source and destination file or folder are the same.");
+        solutions << i18n("Drop the item into a different file or folder.");
         break;
 
     // We assume that the slave has all the details

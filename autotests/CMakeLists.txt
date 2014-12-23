@@ -44,6 +44,7 @@ endif()
 
 ecm_add_tests(
  clipboardupdatertest.cpp
+ dropjobtest.cpp
  krununittest.cpp
  kdirlistertest.cpp
  kdirmodeltest.cpp
