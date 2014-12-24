@@ -14,6 +14,7 @@ X-KDE-Weight=90
 
 Name=Cookies
 Name[cs]=Cookies
+Name[en_GB]=Cookies
 Name[es]=Cookies
 Name[fi]=Evästeet
 Name[fr]=Cookies
@@ -93,6 +94,7 @@ Comment[zh_CN]=配置 cookies 相关设置
 Comment[zh_TW]=設定 cookies 運作方式
 
 X-KDE-Keywords=Cookies,Browsing,Internet,WWW,Network,Policy,Domains
+X-KDE-Keywords[en_GB]=Cookies,Browsing,Internet,WWW,Network,Policy,Domains
 X-KDE-Keywords[es]=Cookies,Navegación,Internet,WWW,Red,Políticas,Dominios
 X-KDE-Keywords[fi]=Evästeet,Selaus,Selailu,Internet,WWW,Verkko,Käytäntö,Käytänne,Verkkoalueet
 X-KDE-Keywords[fr]=Cookies, navigation, Internet, WWW, réseau, politique, domaines

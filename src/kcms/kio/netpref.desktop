@@ -145,6 +145,7 @@ Comment[zh_CN]=配置通用网络首选项，例如超时值
 Comment[zh_TW]=設定一般網路喜好設定，例如逾時值
 
 X-KDE-Keywords=timeout,iopref,netpref,network preferences,ftp
+X-KDE-Keywords[en_GB]=timeout,iopref,netpref,network preferences,ftp
 X-KDE-Keywords[es]=tiempo de espera,iopref,netpref,preferencias de red,ftp
 X-KDE-Keywords[fi]=aikakatkaisu,iopref,netpref,verkkoasetukset,ftp
 X-KDE-Keywords[fr]=délai dépassé, iopref, netpref, paramètres réseau, ftp

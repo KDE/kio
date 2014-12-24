@@ -142,6 +142,7 @@ Comment[zh_CN]=配置您可以浏览的 Windows (SMB) 文件系统
 Comment[zh_TW]=設定您可以瀏覽的 Windows (SMB) 檔案系統
 
 X-KDE-Keywords=SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords
+X-KDE-Keywords[en_GB]=SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords
 X-KDE-Keywords[es]=SMB,SAMBA,Cliente SMB,Red de Windows,LAN,Red,entorno de red,Servidor,Emisión,WINS,Recurso compartido,Inicio de sesión,Contraseñas
 X-KDE-Keywords[fi]=SMB,SAMBA,SMB client,SMB-asiakas,SMB-ohjelma,Windows-verkko,LAN,Verkko,ympäristö,Palvelin,Broadcast,Yleislähetys,WINS,Jako,Kirjautuminen,Salasanat
 X-KDE-Keywords[fr]=SMB, SAMBA,client SMB, réseau Windows, LAN, réseau, voisinage,Serveur, diffusion, WINS, partages, connexion, mots de passe
