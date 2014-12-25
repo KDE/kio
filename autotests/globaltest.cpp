@@ -93,10 +93,8 @@ void GlobalTest::testSuggestName_data()
     QTest::newRow("with_space") << "foo bar" << QStringList("foo bar") << "foo bar 1";
     QTest::newRow("dot_at_beginning") << ".aFile.tar.gz" << QStringList() << ".aFile 1.tar.gz";
     QTest::newRow("dots_at_beginning") << "..aFile.tar.gz" << QStringList() << "..aFile 1.tar.gz";
-    QTest::newRow("empty_basename") << ".txt" << QStringList() << ".txt 1";
-    QTest::newRow("hidden_file") << ".foo" << QStringList() << ".foo 1";
-    QTest::newRow("empty_basename_2dots") << "..txt" << QStringList() << "..txt 1";
-    QTest::newRow("hidden_file_2dots") << "..foo" << QStringList() << "..foo 1";
+    QTest::newRow("empty_basename") << ".txt" << QStringList() << "1.txt";
+    QTest::newRow("empty_basename_2dots") << "..txt" << QStringList() << ".1.txt";
 }
 
 void GlobalTest::testSuggestName()
