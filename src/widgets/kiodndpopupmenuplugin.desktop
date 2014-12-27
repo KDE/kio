@@ -2,3 +2,9 @@
 Type=ServiceType
 X-KDE-ServiceType=KIO/DndPopupMenu/Plugin
 Comment=Plugin for the KIO Drag-and-drop Popup Menu
+Comment[ca]=Connector per al menú emergent d'arrossegar i deixar anar del KIO
+Comment[nl]=Plug-in voor voor het KIO pop-upmenu slepen-en-loslaten
+Comment[pt_BR]=Plugin do menu de contexto de arrastar e soltar do KIO
+Comment[sk]=Plugin pre KIO Drag-and-drop vyskakovacie menu
+Comment[uk]=Додаток для контекстного меню перетягування зі скиданням KIO
+Comment[x-test]=xxPlugin for the KIO Drag-and-drop Popup Menuxx

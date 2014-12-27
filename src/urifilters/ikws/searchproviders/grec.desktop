@@ -15,6 +15,10 @@ Name[pl]=Wielki słownik języka katalońskiego (GRan Enciclopèdia Catalana)
 Name[pt]=Grande Dicionário da Língua Catalã (GRan Enciclopèdia Catalana)
 Name[pt_BR]=Grande dicionário do idioma catalão (GRan Enciclopédia Catalana)
 Name[sk]=Veľký slovník katalánskeho jazyka (GRan Enciclopèdia Catalana)
+Name[sr]=Велики речник каталонског језика (GRan Enciclopèdia Catalana)
+Name[sr@ijekavian]=Велики рјечник каталонског језика (GRan Enciclopèdia Catalana)
+Name[sr@ijekavianlatin]=Veliki rječnik katalonskog jezika (GRan Enciclopèdia Catalana)
+Name[sr@latin]=Veliki rečnik katalonskog jezika (GRan Enciclopèdia Catalana)
 Name[uk]=Великий словник каталонської мови (GRan Enciclopèdia Catalana)
 Name[x-test]=xxGreat Dictionary of the Catalan Language (GRan Enciclopèdia Catalana)xx
 Query=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
