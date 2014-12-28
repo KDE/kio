@@ -760,7 +760,7 @@ bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &pat
                                   short int details)
 {
     assert(entry.count() == 0); // by contract :-)
-    // entry.reserve( 8 ); // speed up QHash insertion
+    entry.reserve(8);
 
     entry.insert(KIO::UDSEntry::UDS_NAME, filename);
 

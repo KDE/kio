@@ -94,6 +94,12 @@ public:
     bool isLink() const;
 
     /**
+     * Calling this function before inserting items into an empty UDSEntry may save time and memory.
+     * @param size number of items for which memory will be pre-allocated
+     */
+    void reserve(int size);
+
+    /**
      * insert field with numeric value
      * @param field numeric field id
      * @param value

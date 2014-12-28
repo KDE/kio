@@ -345,6 +345,10 @@ public:
     // If udsIndexes[i] == uds, then fields[i] contains the value for 'uds'.
     QVector<uint> udsIndexes;
 
+    void reserve(int size) {
+        fields.reserve(size);
+        udsIndexes.reserve(size);
+    }
     void insert(uint field, const QString &value) {
         const int index = udsIndexes.indexOf(field);
         if (index >= 0) {
@@ -386,6 +390,7 @@ public:
 
 static void fillFrankUDSEntry(FrankUDSEntry &entry, time_t now_time_t, const QString &nameStr)
 {
+    entry.reserve(8);
     entry.insert(KIO::UDSEntry::UDS_NAME, nameStr);
     entry.insert(KIO::UDSEntry::UDS_SIZE, 123456ULL);
     entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME, now_time_t);

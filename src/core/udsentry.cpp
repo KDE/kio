@@ -2,6 +2,7 @@
    Copyright (C) 2000-2005 David Faure <faure@kde.org>
    Copyright (C) 2007 Norbert Frese <nf2@scheinwelt.at>
    Copyright (C) 2007 Thiago Macieira <thiago@kde.org>
+   Copyright (C) 2013-2014 Frank Reininghaus <frank78ac@googlemail.com>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -22,7 +23,6 @@
 #include "udsentry.h"
 
 #include <QtCore/QString>
-#include <QtCore/QHash>
 #include <QtCore/QList>
 #include <QtCore/QDataStream>
 #include <QtCore/QVector>
@@ -37,12 +37,29 @@ class KIO::UDSEntryPrivate : public QSharedData
 {
 public:
     struct Field {
-        inline Field() : m_long(0) { }
+        inline Field(const QString &value) : m_str(value), m_long(0) {}
+        inline Field(long long value = 0) : m_long(value) { }
         QString m_str;
         long long m_long;
     };
-    typedef QHash<uint, Field> FieldHash;
-    FieldHash fields;
+
+    QVector<Field> fields;
+
+    // If udsIndexes[i] == uds, then fields[i] contains the value for 'uds'. Example:
+    // udsIndexes = {UDS_NAME, UDS_FILE_SIZE, ...}
+    // fields = {Field("filename"), Field(1234), ...}
+    QVector<uint> udsIndexes;
+
+    void insert(uint uds, const Field& field)
+    {
+        const int index = udsIndexes.indexOf(uds);
+        if (index >= 0) {
+            fields[index] = field;
+        } else {
+            udsIndexes.append(uds);
+            fields.append(field);
+        }
+    }
 
     static void save(QDataStream &, const UDSEntry &);
     static void load(QDataStream &, UDSEntry &);
@@ -62,6 +79,7 @@ UDSEntry::UDSEntry(const UDSEntry &other)
 UDSEntry::UDSEntry(const QT_STATBUF &buff, const QString &name)
     : d(new UDSEntryPrivate())
 {
+    reserve(9);
     insert(UDS_NAME,                name);
     insert(UDS_SIZE,                buff.st_size);
     insert(UDS_DEVICE_ID,           buff.st_dev);
@@ -87,13 +105,22 @@ UDSEntry &UDSEntry::operator=(const UDSEntry &other)
 
 QString UDSEntry::stringValue(uint field) const
 {
-    return d->fields.value(field).m_str;
+    const int index = d->udsIndexes.indexOf(field);
+    if (index >= 0) {
+        return d->fields.at(index).m_str;
+    } else {
+        return QString();
+    }
 }
 
 long long UDSEntry::numberValue(uint field, long long defaultValue) const
 {
-    UDSEntryPrivate::FieldHash::ConstIterator it = d->fields.find(field);
-    return it != d->fields.constEnd() ? it->m_long : defaultValue;
+    const int index = d->udsIndexes.indexOf(field);
+    if (index >= 0) {
+        return d->fields.at(index).m_long;
+    } else {
+        return defaultValue;
+    }
 }
 
 bool UDSEntry::isDir() const
@@ -106,38 +133,41 @@ bool UDSEntry::isLink() const
     return !stringValue(UDS_LINK_DEST).isEmpty();
 }
 
+void UDSEntry::reserve(int size)
+{
+    d->fields.reserve(size);
+    d->udsIndexes.reserve(size);
+}
+
 void UDSEntry::insert(uint field, const QString &value)
 {
-    UDSEntryPrivate::Field f;
-    f.m_str = value;
-    d->fields.insert(field, f);
+    d->insert(field, UDSEntryPrivate::Field(value));
 }
 
 void UDSEntry::insert(uint field, long long value)
 {
-    UDSEntryPrivate::Field f;
-    f.m_long = value;
-    d->fields.insert(field, f);
+    d->insert(field, UDSEntryPrivate::Field(value));
 }
 
 QList<uint> UDSEntry::listFields() const
 {
-    return d->fields.keys();
+    return d->udsIndexes.toList();
 }
 
 int UDSEntry::count() const
 {
-    return d->fields.count();
+    return d->udsIndexes.count();
 }
 
 bool UDSEntry::contains(uint field) const
 {
-    return d->fields.contains(field);
+    return d->udsIndexes.contains(field);
 }
 
 void UDSEntry::clear()
 {
     d->fields.clear();
+    d->udsIndexes.clear();
 }
 
 QDataStream &operator<<(QDataStream &s, const UDSEntry &a)
@@ -154,18 +184,20 @@ QDataStream &operator>>(QDataStream &s, UDSEntry &a)
 
 void UDSEntryPrivate::save(QDataStream &s, const UDSEntry &a)
 {
-    const FieldHash &e = a.d->fields;
+    const QVector<uint> &udsIndexes = a.d->udsIndexes;
+    const QVector<Field> &fields = a.d->fields;
+    const int size = udsIndexes.size();
 
-    s << e.size();
-    FieldHash::ConstIterator it = e.begin();
-    const FieldHash::ConstIterator end = e.end();
-    for (; it != end; ++it) {
-        const quint32 uds = it.key();
+    s << size;
+
+    for (int index = 0; index < size; ++index) {
+        uint uds = udsIndexes.at(index);
         s << uds;
+
         if (uds & KIO::UDSEntry::UDS_STRING) {
-            s << it->m_str;
+            s << fields.at(index).m_str;
         } else if (uds & KIO::UDSEntry::UDS_NUMBER) {
-            s << it->m_long;
+            s << fields.at(index).m_long;
         } else {
             Q_ASSERT_X(false, "KIO::UDSEntry", "Found a field with an invalid type");
         }
@@ -174,11 +206,15 @@ void UDSEntryPrivate::save(QDataStream &s, const UDSEntry &a)
 
 void UDSEntryPrivate::load(QDataStream &s, UDSEntry &a)
 {
-    FieldHash &e = a.d->fields;
+    a.clear();
 
-    e.clear();
+    QVector<Field> &fields = a.d->fields;
+    QVector<uint> &udsIndexes = a.d->udsIndexes;
+
     quint32 size;
     s >> size;
+    fields.reserve(size);
+    udsIndexes.reserve(size);
 
     // We cache the loaded strings. Some of them, like, e.g., the user,
     // will often be the same for many entries in a row. Caching them
@@ -191,6 +227,8 @@ void UDSEntryPrivate::load(QDataStream &s, UDSEntry &a)
     for (quint32 i = 0; i < size; ++i) {
         quint32 uds;
         s >> uds;
+        udsIndexes.append(uds);
+
         if (uds & KIO::UDSEntry::UDS_STRING) {
             // If the QString is the same like the one we read for the
             // previous UDSEntry at the i-th position, use an implicitly
@@ -202,13 +240,11 @@ void UDSEntryPrivate::load(QDataStream &s, UDSEntry &a)
                 cachedStrings[i] = buffer;
             }
 
-            Field f;
-            f.m_str = cachedStrings.at(i);
-            e.insert(uds, f);
+            fields.append(Field(cachedStrings.at(i)));
         } else if (uds & KIO::UDSEntry::UDS_NUMBER) {
-            Field f;
-            s >> f.m_long;
-            e.insert(uds, f);
+            long long value;
+            s >> value;
+            fields.append(Field(value));
         } else {
             Q_ASSERT_X(false, "KIO::UDSEntry", "Found a field with an invalid type");
         }
