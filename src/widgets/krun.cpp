@@ -400,9 +400,7 @@ bool KRun::checkStartupNotify(const QString & /*binName*/, const KService *servi
 static bool runTempService(const KService &_service, const QList<QUrl> &_urls, QWidget *window,
                            bool tempFiles, const QString &suggestedFileName, const QByteArray &asn)
 {
-    if (!_urls.isEmpty()) {
-        //qDebug() << "runTempService: first url " << _urls.first();
-    }
+    //qDebug() << "runTempService:" << _urls;
 
     QList<QUrl> urlsToRun = _urls;
     if ((_urls.count() > 1) && !_service.allowMultipleFiles()) {
@@ -730,14 +728,10 @@ bool KRun::run(const KService &_service, const QList<QUrl> &_urls, QWidget *wind
         return runTempService(_service, _urls, window, tempFiles, suggestedFileName, asn);
     }
 
-    //qDebug() << "KRun::run " << _service.entryPath();
-
-    if (!_urls.isEmpty()) {
-        //qDebug() << "First url" << _urls.first();
-    }
-
     // Resolve urls if needed, depending on what the app supports
     const QList<QUrl> urls = resolveURLs(_urls, _service);
+
+    //qDebug() << "Running" << _service.entryPath() << _urls << "using klauncher";
 
     QString error;
     int pid = 0; //TODO: change KToolInvokation to take a qint64*?
