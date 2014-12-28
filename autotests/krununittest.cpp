@@ -36,6 +36,7 @@ QTEST_GUILESS_MAIN(KRunUnitTest)
 #include <kconfiggroup.h>
 #include <ksharedconfig.h>
 #include <kprocess.h>
+#include <KDesktopFile>
 #include "kiotesthelper.h" // createTestFile etc.
 
 void KRunUnitTest::initTestCase()
@@ -51,6 +52,11 @@ void KRunUnitTest::initTestCase()
     if (m_sh.isEmpty()) {
         m_sh = "/bin/sh";
     }
+}
+
+void KRunUnitTest::cleanupTestCase()
+{
+    std::for_each(m_filesToRemove.begin(), m_filesToRemove.end(), [](const QString &f) { QFile::remove(f); });
 }
 
 void KRunUnitTest::testBinaryName_data()
@@ -179,9 +185,7 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
     }
 
     QString kioexec = CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kioexec";
-    if (!QFile::exists(kioexec)) {
-        QSKIP("kioexec not found, kdebase needed");
-    }
+    QVERIFY(QFile::exists(kioexec));
 
     QString kmailservice = QStandardPaths::findExecutable("kmailservice5");
     if (!QFile::exists(kmailservice)) {
@@ -204,6 +208,7 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
     QTest::newRow("%F l3") << "kdeinit5 %F" << l3 << false << kioexec + " 'kdeinit5 %F' file:///local/file http://remotehost.org/bar";
 
     QTest::newRow("%F l1 tempfile") << "kdeinit5 %F" << l1 << true << kioexec + " --tempfiles 'kdeinit5 %F' file:///tmp";
+    QTest::newRow("%f l1 tempfile") << "kdeinit5 %f" << l1 << true << kioexec + " --tempfiles 'kdeinit5 %f' file:///tmp";
 
     QTest::newRow("sh -c kdeinit5 %F") << "sh -c \"kdeinit5 \"'\\\"'\"%F\"'\\\"'"
                                        << l1 << false << m_sh + " -c 'kdeinit5 \\\"/tmp\\\"'";
@@ -307,4 +312,74 @@ void KRunUnitTest::testMimeTypeDoesNotExist()
     QVERIFY(krun->mimeTypeFound().isEmpty());
     QCOMPARE(spyError.count(), 1);
     QTest::qWait(100); // let auto-deletion proceed.
+}
+
+static const char s_tempServiceName[] = "krununittest_service.desktop";
+
+static void createSrcFile(const QString path)
+{
+    QFile srcFile(path);
+    QVERIFY2(srcFile.open(QFile::WriteOnly), qPrintable(srcFile.errorString()));
+    srcFile.write("Hello world\n");
+}
+
+void KRunUnitTest::KRunRun_data()
+{
+    QTest::addColumn<bool>("tempFile");
+
+    QTest::newRow("standard") << false;
+    QTest::newRow("tempfile") << true;
+}
+void KRunUnitTest::KRunRun()
+{
+    QFETCH(bool, tempFile);
+
+    // Given a service desktop file and a source file
+    const QString path = createTempService();
+    //KService::Ptr service = KService::serviceByDesktopPath(s_tempServiceName);
+    //QVERIFY(service);
+    KService service(path);
+    QTemporaryDir tempDir;
+    const QString srcDir = tempDir.path();
+    const QString srcFile = srcDir + "/srcfile";
+    createSrcFile(srcFile);
+    QVERIFY(QFile::exists(srcFile));
+    QList<QUrl> urls;
+    urls.append(QUrl::fromLocalFile(srcFile));
+
+    // When calling KRun::run
+    bool ok = KRun::run(service, urls, 0, tempFile);
+
+    // Then the service should be executed (which copies the source file to "dest")
+    QVERIFY(ok);
+    const QString dest = srcDir + "/dest";
+    QTRY_VERIFY(QFile::exists(dest));
+    QVERIFY(QFile::exists(srcFile)); // if tempfile is true, kioexec will delete it... in 3 minutes.
+
+    QVERIFY(QFile::remove(dest));
+}
+
+QString KRunUnitTest::createTempService()
+{
+    // fakeservice: deleted and recreated by testKSycocaUpdate, don't use in other tests
+    const QString fileName = s_tempServiceName;
+    //bool mustUpdateKSycoca = !KService::serviceByDesktopPath(fileName);
+    const QString fakeService = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/") + fileName;
+    if (!QFile::exists(fakeService)) {
+        //mustUpdateKSycoca = true;
+        KDesktopFile file(fakeService);
+        KConfigGroup group = file.desktopGroup();
+        group.writeEntry("Name", "KRunUnittestService");
+        group.writeEntry("Type", "Service");
+#ifdef Q_OS_WIN
+        group.writeEntry("Exec", "copy.exe %f %d/dest");
+#else
+        group.writeEntry("Exec", "cp %f %d/dest");
+#endif
+        file.sync();
+        QFile f(fakeService);
+        f.setPermissions(f.permissions() | QFile::ExeOwner | QFile::ExeUser);
+    }
+    m_filesToRemove.append(fakeService);
+    return fakeService;
 }

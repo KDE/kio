@@ -26,6 +26,7 @@
 #include <QtCore/QTimer>
 #include <QtCore/QEventLoopLocker>
 #include <QtCore/QProcess>
+class KProcess;
 
 #include "kstartupinfo.h"
 
@@ -41,7 +42,7 @@ class KProcessRunner : public QObject
 
 public:
 
-    static qint64 run(const QString &command, const QString &executable, const KStartupInfoId &id, const QString &workingDirectory = QString());
+    static qint64 run(KProcess *p, const QString &executable, const KStartupInfoId &id);
 
     virtual ~KProcessRunner();
 
@@ -52,11 +53,11 @@ protected Q_SLOTS:
     void slotProcessExited(int, QProcess::ExitStatus);
 
 private:
-    KProcessRunner(const QString &command, const QString &binName, const KStartupInfoId &id, const QString &workingDirectory);
+    KProcessRunner(KProcess *p, const QString &binName, const KStartupInfoId &id);
 
     void terminateStartupNotification();
 
-    QProcess *process;
+    KProcess *process;
     QString m_executable; // can be a full path
     KStartupInfoId id;
     qint64 m_pid;

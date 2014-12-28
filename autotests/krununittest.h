@@ -20,7 +20,8 @@
 #ifndef KRUNUNITTEST_H
 #define KRUNUNITTEST_H
 
-#include <QtCore/QObject>
+#include <QObject>
+#include <QStringList>
 
 class KRunUnitTest : public QObject
 {
@@ -28,6 +29,7 @@ class KRunUnitTest : public QObject
 
 private Q_SLOTS:
     void initTestCase();
+    void cleanupTestCase();
     void testBinaryName_data();
     void testBinaryName();
     void testProcessDesktopExec();
@@ -39,8 +41,13 @@ private Q_SLOTS:
     void testMimeTypeBrokenLink();
     void testMimeTypeDoesNotExist();
 
+    void KRunRun_data();
+    void KRunRun();
 private:
+    QString createTempService();
+
     QString m_sh;
+    QStringList m_filesToRemove;
 
 };
 

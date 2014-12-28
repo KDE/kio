@@ -287,9 +287,9 @@ QString KRun::binaryName(const QString &execLine, bool removePath)
 }
 #endif
 
-static bool runCommandInternal(const QString &command, const KService *service, const QString &executable,
+static bool runCommandInternal(KProcess *proc, const KService *service, const QString &executable,
                                const QString &userVisibleName, const QString &iconName, QWidget *window,
-                               const QByteArray &asn, QString workingDirectory = QString())
+                               const QByteArray &asn)
 {
     if (window != NULL) {
         window = window->topLevelWidget();
@@ -298,6 +298,7 @@ static bool runCommandInternal(const QString &command, const KService *service, 
             && !KDesktopFile::isAuthorizedDesktopFile(service->entryPath())) {
         qWarning() << "No authorization to execute " << service->entryPath();
         KMessageBox::sorry(window, i18n("You are not authorized to execute this file."));
+        delete proc;
         return false;
     }
 
@@ -341,7 +342,7 @@ static bool runCommandInternal(const QString &command, const KService *service, 
             }
             KStartupInfo::sendStartup(id, data);
         }
-        int pid = KProcessRunner::run(command, executable, id, workingDirectory);
+        int pid = KProcessRunner::run(proc, executable, id);
         if (startup_notify && pid) {
             KStartupInfoData data;
             data.addPid(pid);
@@ -354,7 +355,7 @@ static bool runCommandInternal(const QString &command, const KService *service, 
     Q_UNUSED(userVisibleName);
     Q_UNUSED(iconName);
 #endif
-    return KProcessRunner::run(command, bin, KStartupInfoId(), workingDirectory) != 0;
+    return KProcessRunner::run(proc, bin, KStartupInfoId()) != 0;
 }
 
 // This code is also used in klauncher.
@@ -428,13 +429,18 @@ static bool runTempService(const KService &_service, const QList<QUrl> &_urls, Q
     }
     //qDebug() << "runTempService: KProcess args=" << args;
 
+    KProcess * proc = new KProcess;
+    *proc << args;
+
     QString path(_service.path());
     if (path.isEmpty() && !_urls.isEmpty() && _urls.first().isLocalFile()) {
         path = _urls.first().adjusted(QUrl::RemoveFilename).toLocalFile();
     }
 
-    return runCommandInternal(args.join(" "), &_service, KIO::DesktopExecParser::executablePath(_service.exec()),
-                              _service.name(), _service.icon(), window, asn, path);
+    proc->setWorkingDirectory(path);
+
+    return runCommandInternal(proc, &_service, KIO::DesktopExecParser::executablePath(_service.exec()),
+                              _service.name(), _service.icon(), window, asn);
 }
 
 // WARNING: don't call this from DesktopExecParser, since klauncher uses that too...
@@ -806,10 +812,10 @@ bool KRun::runCommand(const QString &cmd, const QString &execName, const QString
     }
     QString bin = KIO::DesktopExecParser::executableName(execName);
     KService::Ptr service = KService::serviceByDesktopName(bin);
-    return runCommandInternal(cmd, service.data(),
+    return runCommandInternal(proc, service.data(),
                               execName /*executable to check for in slotProcessExited*/,
                               execName /*user-visible name*/,
-                              iconName, window, asn, workingDirectory);
+                              iconName, window, asn);
 }
 
 KRun::KRun(const QUrl &url, QWidget *window,
@@ -1457,25 +1463,21 @@ bool KRun::isLocalFile() const
 
 /****************/
 
-qint64 KProcessRunner::run(const QString &command, const QString &executable, const KStartupInfoId &id, const QString &workingDirectory)
+qint64 KProcessRunner::run(KProcess *p, const QString &executable, const KStartupInfoId &id)
 {
-    return (new KProcessRunner(command, executable, id, workingDirectory))->pid();
+    return (new KProcessRunner(p, executable, id))->pid();
 }
 
-KProcessRunner::KProcessRunner(const QString &command, const QString &executable, const KStartupInfoId &id, const QString &workingDirectory) :
+KProcessRunner::KProcessRunner(KProcess *p, const QString &executable, const KStartupInfoId &id) :
     id(id)
 {
     m_pid = 0;
-    process = new QProcess;
+    process = p;
     m_executable = executable;
     connect(process, SIGNAL(finished(int,QProcess::ExitStatus)),
             this, SLOT(slotProcessExited(int,QProcess::ExitStatus)));
 
-    if (!workingDirectory.isEmpty()) {
-        process->setWorkingDirectory(workingDirectory);
-    }
-
-    process->start(command);
+    process->start();
     if (!process->waitForStarted()) {
         //qDebug() << "wait for started failed, exitCode=" << process->exitCode()
         //         << "exitStatus=" << process->exitStatus();
