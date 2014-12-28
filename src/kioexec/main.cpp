@@ -62,14 +62,23 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
     , command(args.first())
     , jobCounter(0)
 {
-    qDebug() << "command=" << command;
+    qDebug() << "command=" << command << "args=" << args;
 
     for ( int i = 1; i < args.count(); i++ )
     {
-        KIO::StatJob* mostlocal = KIO::mostLocalUrl( QUrl::fromUserInput(args.value(i)) );
+        const QUrl urlArg = QUrl::fromUserInput(args.value(i));
+        if (!urlArg.isValid()) {
+            KMessageBox::error( 0L, i18n("Invalid URL: %1", args.value(i)) );
+            exit(1);
+        }
+        KIO::StatJob* mostlocal = KIO::mostLocalUrl( urlArg );
         bool b = mostlocal->exec();
+        if (!b) {
+            KMessageBox::error( 0L, i18n("File not found: %1", urlArg.toDisplayString()));
+            exit(1);
+        }
         Q_ASSERT(b);
-        QUrl url = mostlocal->mostLocalUrl();
+        const QUrl url = mostlocal->mostLocalUrl();
 
         //kDebug() << "url=" << url.url() << " filename=" << url.fileName();
         // A local file, not an URL ?
@@ -105,9 +114,8 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
                 fileList.append(file);
 
                 expectedCounter++;
-                QUrl dest;
-                dest.setPath( tmp );
-                qDebug() << "Copying " << url.path() << " to " << dest;
+                const QUrl dest = QUrl::fromLocalFile(tmp);
+                qDebug() << "Copying" << url << " to" << dest;
                 KIO::Job *job = KIO::file_copy( url, dest );
                 jobList.append( job );
 
@@ -181,8 +189,7 @@ void KIOExec::slotRunApp()
     {
         QFileInfo info(QFile::encodeName(it->path));
         it->time = info.lastModified();
-        QUrl url;
-        url.setPath(it->path);
+        QUrl url = QUrl::fromLocalFile(it->path);
         list << url;
     }
 
@@ -217,7 +224,7 @@ void KIOExec::slotRunApp()
     for(it = fileList.begin(); it != fileList.end(); ++it )
     {
         QString src = it->path;
-        QUrl dest = it->url;
+        const QUrl dest = it->url;
         QFileInfo info(src);
         if ( info.exists() && (it->time != info.lastModified()) )
         {
@@ -271,7 +278,6 @@ int main( int argc, char **argv )
     aboutData.addAuthor(i18n("Bernhard Rosenkraenzer"),QString(), "bero@arklinux.org");
     aboutData.addAuthor(i18n("Waldo Bastian"),QString(), "bastian@kde.org");
     aboutData.addAuthor(i18n("Oswald Buddenhagen"),QString(), "ossi@kde.org");
-    aboutData.setProgramIconName("kde");
     KAboutData::setApplicationData(aboutData);
 
     QCommandLineParser parser;
@@ -299,5 +305,3 @@ int main( int argc, char **argv )
 
     return app.exec();
 }
-
-#include "main.moc"
