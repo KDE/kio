@@ -86,7 +86,7 @@ private:
  * @return A pointer to the job handling the operation.
  * @since 5.4
  */
-KIOCORE_EXPORT PasteJob *paste(const QMimeData *mimeData, const QUrl &destDir, JobFlags flags = DefaultFlags);
+KIOWIDGETS_EXPORT PasteJob *paste(const QMimeData *mimeData, const QUrl &destDir, JobFlags flags = DefaultFlags);
 
 }
 
