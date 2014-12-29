@@ -85,7 +85,6 @@ void PasteJobPrivate::slotStart()
 
 void PasteJob::slotResult(KJob *job)
 {
-    Q_D(PasteJob);
     if (job->error()) {
         KIO::Job::slotResult(job); // will set the error and emit result(this)
         return;
