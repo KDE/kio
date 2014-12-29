@@ -86,7 +86,7 @@ private Q_SLOTS:
     void initTestCase()
     {
         QStandardPaths::setTestModeEnabled(true);
-        setenv("KIOSLAVE_ENABLE_TESTMODE", "1", 1); // ensure the ioslaves call QStandardPaths::setTestModeEnabled too
+        qputenv("KIOSLAVE_ENABLE_TESTMODE", "1"); // ensure the ioslaves call QStandardPaths::setTestModeEnabled too
 
         // To avoid a runtime dependency on klauncher
         qputenv("KDE_FORK_SLAVES", "yes");
