@@ -41,8 +41,8 @@ private Q_SLOTS:
     void testMimeTypeBrokenLink();
     void testMimeTypeDoesNotExist();
 
-    void KRunRun_data();
-    void KRunRun();
+    void KRunRunService_data();
+    void KRunRunService();
 private:
     QString createTempService();
 

@@ -38,6 +38,9 @@ QTEST_GUILESS_MAIN(KRunUnitTest)
 #include <kprocess.h>
 #include <KDesktopFile>
 #include "kiotesthelper.h" // createTestFile etc.
+#ifdef Q_OS_UNIX
+#include <signal.h> // kill
+#endif
 
 void KRunUnitTest::initTestCase()
 {
@@ -323,14 +326,14 @@ static void createSrcFile(const QString path)
     srcFile.write("Hello world\n");
 }
 
-void KRunUnitTest::KRunRun_data()
+void KRunUnitTest::KRunRunService_data()
 {
     QTest::addColumn<bool>("tempFile");
 
     QTest::newRow("standard") << false;
     QTest::newRow("tempfile") << true;
 }
-void KRunUnitTest::KRunRun()
+void KRunUnitTest::KRunRunService()
 {
     QFETCH(bool, tempFile);
 
@@ -347,16 +350,20 @@ void KRunUnitTest::KRunRun()
     QList<QUrl> urls;
     urls.append(QUrl::fromLocalFile(srcFile));
 
-    // When calling KRun::run
-    bool ok = KRun::run(service, urls, 0, tempFile);
+    // When calling KRun::runService
+    qint64 pid = KRun::runService(service, urls, 0, tempFile);
 
     // Then the service should be executed (which copies the source file to "dest")
-    QVERIFY(ok);
+    QVERIFY(pid != 0);
     const QString dest = srcDir + "/dest";
     QTRY_VERIFY(QFile::exists(dest));
     QVERIFY(QFile::exists(srcFile)); // if tempfile is true, kioexec will delete it... in 3 minutes.
 
+    // All done, clean up.
     QVERIFY(QFile::remove(dest));
+#ifdef Q_OS_UNIX
+    ::kill(pid, SIGTERM);
+#endif
 }
 
 QString KRunUnitTest::createTempService()
