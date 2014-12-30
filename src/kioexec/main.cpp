@@ -20,6 +20,7 @@
 */
 
 #include "main.h"
+#include "kio_version.h"
 
 #include <QtCore/QFile>
 #include <QtCore/Q_PID>
@@ -270,8 +271,8 @@ void KIOExec::slotRunApp()
 int main( int argc, char **argv )
 {
     QApplication app( argc, argv);
-    KAboutData aboutData( "kioexec", i18n("KIOExec"),
-         "111.111", i18n(description), KAboutLicense::GPL,
+    KAboutData aboutData( "kioexec", i18n("KIOExec"), KIO_VERSION_STRING,
+         i18n(description), KAboutLicense::GPL,
          i18n("(c) 1998-2000,2003 The KFM/Konqueror Developers"));
     aboutData.addAuthor(i18n("David Faure"),QString(), "faure@kde.org");
     aboutData.addAuthor(i18n("Stephan Kulow"),QString(), "coolo@kde.org");
@@ -281,6 +282,8 @@ int main( int argc, char **argv )
     KAboutData::setApplicationData(aboutData);
 
     QCommandLineParser parser;
+    parser.addHelpOption();
+    parser.addVersionOption();
     parser.addOption(QCommandLineOption(QStringList() << "tempfiles" , i18n("Treat URLs as local files and delete them afterwards")));
     parser.addOption(QCommandLineOption(QStringList() << "suggestedfilename <file name>" , i18n("Suggested file name for the downloaded file")));
     parser.addPositionalArgument("command", i18n("Command to execute"));
