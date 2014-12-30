@@ -200,10 +200,31 @@ public:
      * @param suggestedFileName see setSuggestedFileName
      * @param asn Application startup notification id, if any (otherwise "").
      * @return @c true on success, @c false on error
+     *
+     * @deprecated since 5.6, use runService instead. No change needed on the application side,
+     * the only difference is the return value (qint64 instead of bool).
      */
-    static bool run(const KService &service, const QList<QUrl> &urls, QWidget *window,
+    static KIOWIDGETS_DEPRECATED bool run(const KService &service, const QList<QUrl> &urls, QWidget *window,
                     bool tempFiles = false, const QString &suggestedFileName = QString(),
                     const QByteArray &asn = QByteArray());
+
+    /**
+     * Open a list of URLs with a certain service (application).
+     *
+     * @param service the service to run
+     * @param urls the list of URLs, can be empty (app launched
+     *        without argument)
+     * @param window The top-level widget of the app that invoked this object.
+     * @param tempFiles if true and urls are local files, they will be deleted
+     *        when the application exits.
+     * @param suggestedFileName see setSuggestedFileName
+     * @param asn Application startup notification id, if any (otherwise "").
+     * @return 0 on error, the process ID on success
+     * @since 5.6
+     */
+    static qint64 runService(const KService &service, const QList<QUrl> &urls, QWidget *window,
+                             bool tempFiles = false, const QString &suggestedFileName = QString(),
+                             const QByteArray &asn = QByteArray());
 
     /**
      * Open a list of URLs with an executable.

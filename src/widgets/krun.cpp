@@ -287,7 +287,7 @@ QString KRun::binaryName(const QString &execLine, bool removePath)
 }
 #endif
 
-static bool runCommandInternal(KProcess *proc, const KService *service, const QString &executable,
+static qint64 runCommandInternal(KProcess *proc, const KService *service, const QString &executable,
                                const QString &userVisibleName, const QString &iconName, QWidget *window,
                                const QByteArray &asn)
 {
@@ -299,7 +299,7 @@ static bool runCommandInternal(KProcess *proc, const KService *service, const QS
         qWarning() << "No authorization to execute " << service->entryPath();
         KMessageBox::sorry(window, i18n("You are not authorized to execute this file."));
         delete proc;
-        return false;
+        return 0;
     }
 
     QString bin = KIO::DesktopExecParser::executableName(executable);
@@ -342,20 +342,20 @@ static bool runCommandInternal(KProcess *proc, const KService *service, const QS
             }
             KStartupInfo::sendStartup(id, data);
         }
-        int pid = KProcessRunner::run(proc, executable, id);
+        qint64 pid = KProcessRunner::run(proc, executable, id);
         if (startup_notify && pid) {
             KStartupInfoData data;
             data.addPid(pid);
             KStartupInfo::sendChange(id, data);
             KStartupInfo::resetStartupEnv();
         }
-        return pid != 0;
+        return pid;
     }
 #else
     Q_UNUSED(userVisibleName);
     Q_UNUSED(iconName);
 #endif
-    return KProcessRunner::run(proc, bin, KStartupInfoId()) != 0;
+    return KProcessRunner::run(proc, bin, KStartupInfoId());
 }
 
 // This code is also used in klauncher.
@@ -398,7 +398,7 @@ bool KRun::checkStartupNotify(const QString & /*binName*/, const KService *servi
     return true;
 }
 
-static bool runTempService(const KService &_service, const QList<QUrl> &_urls, QWidget *window,
+static qint64 runTempService(const KService &_service, const QList<QUrl> &_urls, QWidget *window,
                            bool tempFiles, const QString &suggestedFileName, const QByteArray &asn)
 {
     //qDebug() << "runTempService:" << _urls;
@@ -425,7 +425,7 @@ static bool runTempService(const KService &_service, const QList<QUrl> &_urls, Q
     const QStringList args = execParser.resultingArguments();
     if (args.isEmpty()) {
         KMessageBox::sorry(window, i18n("Error processing Exec field in %1", _service.entryPath()));
-        return false;
+        return 0;
     }
     //qDebug() << "runTempService: KProcess args=" << args;
 
@@ -700,10 +700,16 @@ static bool makeServiceExecutable(const KService &service, QWidget *window)
 bool KRun::run(const KService &_service, const QList<QUrl> &_urls, QWidget *window,
                bool tempFiles, const QString &suggestedFileName, const QByteArray &asn)
 {
+    return runService(_service, _urls, window, tempFiles, suggestedFileName, asn) != 0;
+}
+
+qint64 KRun::runService(const KService &_service, const QList<QUrl> &_urls, QWidget *window,
+                      bool tempFiles, const QString &suggestedFileName, const QByteArray &asn)
+{
     if (!_service.entryPath().isEmpty() &&
             !KDesktopFile::isAuthorizedDesktopFile(_service.entryPath()) &&
             !::makeServiceExecutable(_service, window)) {
-        return false;
+        return 0;
     }
 
     if (!tempFiles) {
@@ -740,7 +746,7 @@ bool KRun::run(const KService &_service, const QList<QUrl> &_urls, QWidget *wind
     //qDebug() << "Running" << _service.entryPath() << _urls << "using klauncher";
 
     QString error;
-    int pid = 0; //TODO: change KToolInvokation to take a qint64*?
+    int pid = 0; //TODO KF6: change KToolInvokation to take a qint64*
 
     QByteArray myasn = asn;
     // startServiceByDesktopPath() doesn't take QWidget*, add it to the startup info now
@@ -764,11 +770,11 @@ bool KRun::run(const KService &_service, const QList<QUrl> &_urls, QWidget *wind
     if (i != 0) {
         //qDebug() << error;
         KMessageBox::sorry(window, error);
-        return false;
+        return 0;
     }
 
     //qDebug() << "startServiceByDesktopPath worked fine";
-    return true;
+    return pid;
 }
 
 bool KRun::run(const QString &_exec, const QList<QUrl> &_urls, QWidget *window, const QString &_name,
@@ -815,7 +821,7 @@ bool KRun::runCommand(const QString &cmd, const QString &execName, const QString
     return runCommandInternal(proc, service.data(),
                               execName /*executable to check for in slotProcessExited*/,
                               execName /*user-visible name*/,
-                              iconName, window, asn);
+                              iconName, window, asn) != 0;
 }
 
 KRun::KRun(const QUrl &url, QWidget *window,
