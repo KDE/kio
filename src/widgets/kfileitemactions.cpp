@@ -619,7 +619,7 @@ void KFileItemActionsPrivate::slotRunPreferredApplications()
             KRun::displayOpenWithDialog(serviceItems.urlList(), m_parentWidget);
             continue;
         }
-        KRun::run(*servicePtr, serviceItems.urlList(), m_parentWidget);
+        KRun::runService(*servicePtr, serviceItems.urlList(), m_parentWidget);
     }
 }
 
@@ -650,7 +650,7 @@ void KFileItemActionsPrivate::slotRunApplication(QAction *act)
     KService::Ptr app = act->data().value<KService::Ptr>();
     Q_ASSERT(app);
     if (app) {
-        KRun::run(*app, m_props.urlList(), m_parentWidget);
+        KRun::runService(*app, m_props.urlList(), m_parentWidget);
     }
 }
 

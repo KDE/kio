@@ -228,7 +228,7 @@ bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, bool
 #endif
     }
 
-    return KRun::run(*offer, lst, window, tempFile, suggestedFileName, asn);
+    return KRun::runService(*offer, lst, window, tempFile, suggestedFileName, asn);
 }
 
 bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool tempFiles,
@@ -255,7 +255,7 @@ bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool t
             //qDebug() << "No service set, running " << l.text();
             service = KService::Ptr(new KService(QString() /*name*/, l.text(), QString() /*icon*/));
         }
-        return KRun::run(*service, lst, window, tempFiles, suggestedFileName, asn);
+        return KRun::runService(*service, lst, window, tempFiles, suggestedFileName, asn);
     }
     return false;
 }
@@ -782,7 +782,7 @@ bool KRun::run(const QString &_exec, const QList<QUrl> &_urls, QWidget *window, 
 {
     KService::Ptr service(new KService(_name, _exec, _icon));
 
-    return run(*service, _urls, window, false, QString(), asn);
+    return runService(*service, _urls, window, false, QString(), asn);
 }
 
 bool KRun::runCommand(const QString &cmd, QWidget *window, const QString &workingDirectory)
@@ -985,7 +985,7 @@ bool KRun::KRunPrivate::runExecutable(const QString &_exec)
         }
     } else {
         KService::Ptr service = KService::serviceByStorageId(_exec);
-        if (service && q->run(*service, urls, m_window, false, QString(), m_asn)) {
+        if (service && q->runService(*service, urls, m_window, false, QString(), m_asn)) {
             m_bFinished = true;
             startTimer();
             return true;
@@ -1250,7 +1250,7 @@ void KRun::foundMimeType(const QString &type)
         if (serv && serv->hasMimeType(type)) {
             QList<QUrl> lst;
             lst.append(d->m_strURL);
-            if (KRun::run(*serv, lst, d->m_window, false, QString(), d->m_asn)) {
+            if (KRun::runService(*serv, lst, d->m_window, false, QString(), d->m_asn)) {
                 setFinished(true);
                 return;
             }
