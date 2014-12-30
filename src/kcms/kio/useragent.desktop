@@ -156,6 +156,7 @@ Comment[zh_TW]=設定 Konqueror 回報自身狀況的方式
 
 X-KDE-Keywords=User Agent,Browser,Internet,WWW,Network,agent,bindings,server,login
 X-KDE-Keywords[ca]=Agent d'usuari,Navegador,Internet,WWW,Xarxa,agent,lligams,servidor,connexió
+X-KDE-Keywords[da]=User agent,brugeragent,internet,www,netværk,agent,bindinger,server,login
 X-KDE-Keywords[de]=Browserkennung,Internetprogramm,Browser,Internet,WWW,Netzwerk,Server,Zuordnungen,Anmeldung
 X-KDE-Keywords[en_GB]=User Agent,Browser,Internet,WWW,Network,agent,bindings,server,login
 X-KDE-Keywords[es]=Agente de usuario,Navegador,Internet,WWW,Red,agente,enlaces,servidor,inicio de sesión
@@ -172,5 +173,6 @@ X-KDE-Keywords[sr]=User Agent,Browser,Internet,WWW,Network,agent,bindings,server
 X-KDE-Keywords[sr@ijekavian]=User Agent,Browser,Internet,WWW,Network,agent,bindings,server,login,кориснички агент,прегледач,Интернет,веб,мрежа,агент,свезе,сервер,пријава
 X-KDE-Keywords[sr@ijekavianlatin]=User Agent,Browser,Internet,WWW,Network,agent,bindings,server,login,korisnički agent,pregledač,Internet,veb,mreža,agent,sveze,server,prijava
 X-KDE-Keywords[sr@latin]=User Agent,Browser,Internet,WWW,Network,agent,bindings,server,login,korisnički agent,pregledač,Internet,veb,mreža,agent,sveze,server,prijava
+X-KDE-Keywords[sv]=Användaragent,Webbläsare,Internet,WWW,Nätverk,agent,bindning,server,inloggning
 X-KDE-Keywords[uk]=User Agent,Browser,Internet,WWW,Network,agent,bindings,server,login,агент,перегляд,переглядач,браузер,мережа,прив’язки,прив’язування,сервер,вхід,реєстрація
 X-KDE-Keywords[x-test]=xxUser Agent,Browser,Internet,WWW,Network,agent,bindings,server,loginxx

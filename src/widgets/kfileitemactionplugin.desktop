@@ -4,6 +4,7 @@ X-KDE-ServiceType=KFileItemAction/Plugin
 Comment=Plugin for the KIO file item context menu
 Comment[ca]=Connector per a l'element KIO de fitxers del menú contextual
 Comment[cs]=Zásuvný modul pro kontextovou nabídku položek KIO file
+Comment[da]=Plugin til kontekstmenuen for KIO filelement
 Comment[de]=Erweiterung für das Kontextmenü eines KIO-Datei-Elements
 Comment[en_GB]=Plugin for the KIO file item context menu
 Comment[es]=Complemento para el menú contextual del elemento de archivo KIO

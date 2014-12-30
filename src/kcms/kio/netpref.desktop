@@ -158,6 +158,7 @@ Comment[zh_TW]=設定一般網路喜好設定，例如逾時值
 
 X-KDE-Keywords=timeout,iopref,netpref,network preferences,ftp
 X-KDE-Keywords[ca]=temps d'espera,iopref,netpref,preferències de xarxa,ftp
+X-KDE-Keywords[da]=tidsudløb,timeout,iopref,netpref,netværksindstillinger,ftp
 X-KDE-Keywords[de]=Zeitlimit,Zeitüberschreitung,Netzwerkeinstellungen,Ein-/Ausgabemodul-Einstellungen,FTP
 X-KDE-Keywords[en_GB]=timeout,iopref,netpref,network preferences,ftp
 X-KDE-Keywords[es]=tiempo de espera,iopref,netpref,preferencias de red,ftp
@@ -174,5 +175,6 @@ X-KDE-Keywords[sr]=timeout,iopref,netpref,network preferences,ftp,прековр
 X-KDE-Keywords[sr@ijekavian]=timeout,iopref,netpref,network preferences,ftp,прековреме,мрежне поставке,ФТП
 X-KDE-Keywords[sr@ijekavianlatin]=timeout,iopref,netpref,network preferences,ftp,prekovreme,mrežne postavke,FTP
 X-KDE-Keywords[sr@latin]=timeout,iopref,netpref,network preferences,ftp,prekovreme,mrežne postavke,FTP
+X-KDE-Keywords[sv]=tidsgräns,iopref,netpref,nätverk,inställningar,ftp
 X-KDE-Keywords[uk]=timeout,iopref,netpref,network preferences,ftp,очікування,тайм-аут,мережа,параметри,налаштування
 X-KDE-Keywords[x-test]=xxtimeout,iopref,netpref,network preferences,ftpxx

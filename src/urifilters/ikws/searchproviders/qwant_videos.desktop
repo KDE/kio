@@ -3,6 +3,7 @@ Keys=qwv
 Name=Qwant Videos
 Name[ca]=Vídeo de Qwant
 Name[cs]=Videa Qwan
+Name[da]=Qwant Videos
 Name[de]=Qwant-Videos
 Name[en_GB]=Qwant Videos
 Name[es]=Qwant Vídeos
@@ -35,6 +36,7 @@ Name[zh_TW]=Qwant Videos
 Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[ca]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[cs]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
+Query[da]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[de]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[en_GB]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[es]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos

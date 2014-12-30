@@ -155,6 +155,7 @@ Comment[zh_TW]=設定您可以瀏覽的 Windows (SMB) 檔案系統
 
 X-KDE-Keywords=SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords
 X-KDE-Keywords[ca]=SMB,SAMBA,Client SMB,Xarxa Windows,LAN,Xarxa,veïnat,Servidor,Difusió,WINS,Compartició,Connexió,Contrasenyes
+X-KDE-Keywords[da]=SMB,SAMBA,SMB-klient,Windows netværk,LAN,netværk,nabolag,Server,Broadcast,WINS,Share,Login,adgangskoder
 X-KDE-Keywords[de]=SMB,Samba,SMB-Client,Windows-Netzwerk,LAN,Netzwerk,Netzumgebung,Netzwerkumgebung,Umgebung,Server,Broadcast,WINS,Freigabe,Anmeldung,Passwörter
 X-KDE-Keywords[en_GB]=SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords
 X-KDE-Keywords[es]=SMB,SAMBA,Cliente SMB,Red de Windows,LAN,Red,entorno de red,Servidor,Emisión,WINS,Recurso compartido,Inicio de sesión,Contraseñas
@@ -171,5 +172,6 @@ X-KDE-Keywords[sr]=SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood
 X-KDE-Keywords[sr@ijekavian]=SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords,СМБ,Самба,СМБ клијент,виндоуз мрежа,ЛАН,мрежа,суседство,сервер,емитовање,ВИНС,дељење,пријава,лозинка
 X-KDE-Keywords[sr@ijekavianlatin]=SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords,SMB,Samba,SMB klijent,windows mreža,LAN,mreža,susedstvo,server,emitovanje,WINS,deljenje,prijava,lozinka
 X-KDE-Keywords[sr@latin]=SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords,SMB,Samba,SMB klijent,windows mreža,LAN,mreža,susedstvo,server,emitovanje,WINS,deljenje,prijava,lozinka
+X-KDE-Keywords[sv]=SMB,SAMBA,SMB klient,Windows nätverk,LAN,Nätverk,grannskap,Server,Utsändning,WINS,Dela,Inloggning,Lösenord
 X-KDE-Keywords[uk]=SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords,клієнт,віндоус,віндовс,віндовз,оточення,локальна,сервер,трансляція,ресурс,спільний,пароль,вхід,реєстрація
 X-KDE-Keywords[x-test]=xxSMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwordsxx

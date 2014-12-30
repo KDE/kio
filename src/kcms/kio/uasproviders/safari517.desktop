@@ -2,6 +2,7 @@
 Name=UADescription (Safari 5.1.7 on MacOS X)
 Name[ca]=Descripció AU (Safari 5.1.7 a MacOS X)
 Name[cs]=Popis agenta (Safari 5.1.7 na MacOS X)
+Name[da]=Brugeragentbeskrivelse (Safari 5.1.7 på MacOS X)
 Name[de]=Browserkennung (Safari 5.1.7 unter MacOS X)
 Name[en_GB]=UADescription (Safari 5.1.7 on MacOS X)
 Name[es]=Descripción del agente de usuario (Safari 5.1.7 en MacOS X)
@@ -18,6 +19,7 @@ Name[sr]=УА‑опис (Сафари 5.1.7 на МекОС‑у X)
 Name[sr@ijekavian]=УА‑опис (Сафари 5.1.7 на МекОС‑у X)
 Name[sr@ijekavianlatin]=UA-opis (Safari 5.1.7 na MacOS‑u X)
 Name[sr@latin]=UA-opis (Safari 5.1.7 na MacOS‑u X)
+Name[sv]=AA-beskrivning (Safari 5.1.7 på MacOS X)
 Name[uk]=UADescription (Safari 5.1.7 на MacOS X)
 Name[x-test]=xxUADescription (Safari 5.1.7 on MacOS X)xx
 Type=Service

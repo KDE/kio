@@ -2,6 +2,7 @@
 Name=UADescription (Firefox 15 on current)
 Name[ca]=Descripció AU (Firefox 15 a l'actual)
 Name[cs]=Popis agenta (Firefox 15 na aktuálním)
+Name[da]=Brugeragentbeskrivelse (Firefox 15.0 på nuværende)
 Name[de]=Browserkennung (Firefox 15 unter aktuellem Betriebssystem)
 Name[en_GB]=UADescription (Firefox 15 on current)
 Name[es]=Descripción del agente de usuario (Firefox 15 actual)
@@ -18,6 +19,7 @@ Name[sr]=УА‑опис (Фајерфокс 15 на текућем)
 Name[sr@ijekavian]=УА‑опис (Фајерфокс 15 на текућем)
 Name[sr@ijekavianlatin]=UA-opis (Firefox 15 na tekućem)
 Name[sr@latin]=UA-opis (Firefox 15 na tekućem)
+Name[sv]=AA-beskrivning (Firefox 15 på aktuell)
 Name[uk]=UADescription (Firefox 15 на поточній)
 Name[x-test]=xxUADescription (Firefox 15 on current)xx
 Type=Service

@@ -163,6 +163,7 @@ Comment[zh_TW]=設定使用的代理伺服器
 
 X-KDE-Keywords=Proxy,Proxy server,Firewall,Squid
 X-KDE-Keywords[ca]=Intermediari,Servidor intermediari,Tallafocs,Squid
+X-KDE-Keywords[da]=Proxy,Proxy-server,Firewall,Squid
 X-KDE-Keywords[de]=Proxy,Proxy-Server,Firewall,Squid
 X-KDE-Keywords[en_GB]=Proxy,Proxy server,Firewall,Squid
 X-KDE-Keywords[es]=Proxy,Servidor proxy,Cortafuegos,Squid
@@ -179,6 +180,7 @@ X-KDE-Keywords[sr]=Proxy,Proxy server,Firewall,Squid,прокси,прокси �
 X-KDE-Keywords[sr@ijekavian]=Proxy,Proxy server,Firewall,Squid,прокси,прокси сервер,Сквид,заштитни зид
 X-KDE-Keywords[sr@ijekavianlatin]=Proxy,Proxy server,Firewall,Squid,proksi,proksi server,Squid,zaštitni zid
 X-KDE-Keywords[sr@latin]=Proxy,Proxy server,Firewall,Squid,proksi,proksi server,Squid,zaštitni zid
+X-KDE-Keywords[sv]=Proxy,Proxyserver,Brandvägg,Squid
 X-KDE-Keywords[uk]=Proxy,Proxy server,Firewall,Squid,proxy,проксі,сервер,проксі-сервер,брандмауер,файрвол
 X-KDE-Keywords[x-test]=xxProxy,Proxy server,Firewall,Squidxx
 
