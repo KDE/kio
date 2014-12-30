@@ -21,10 +21,13 @@
 
 // std
 #include <time.h>
+
 #ifndef Q_OS_WIN
 #include <sys/utsname.h>
 #else
+#if QT_VERSION >= QT_VERSION_CHECK(5, 4, 0)
 #include <QSysInfo>
+#endif
 #endif
 
 // Qt
@@ -101,12 +104,13 @@ void UserAgentInfo::parseDescription()
       tmp.replace( QFL("appSysName"), QString(utsn.sysname) );
       tmp.replace( QFL("appSysRelease"), QString(utsn.release) );
       tmp.replace( QFL("appMachineType"), QString(utsn.machine) );
-
 #else
-        // TODO: maybe we can use QSysInfo also on linux? requires Qt 5.4
-        tmp.replace( QFL("appSysName"),  QLatin1String("Windows") );
-        tmp.replace( QFL("appSysRelease"), QSysInfo::kernelVersion() );
-        tmp.replace( QFL("appMachineType"), QSysInfo::currentCpuArchitecture() );
+      tmp.replace( QFL("appSysName"),  QLatin1String("Windows") );
+#if QT_VERSION >= QT_VERSION_CHECK(5, 4, 0)
+      // TODO: maybe we can use QSysInfo also on linux? requires Qt 5.4
+      tmp.replace( QFL("appSysRelease"), QSysInfo::kernelVersion() );
+      tmp.replace( QFL("appMachineType"), QSysInfo::currentCpuArchitecture() );
+#endif
 #endif
       QStringList languageList = QLocale().uiLanguages();
       if ( languageList.count() )
