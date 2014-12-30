@@ -300,7 +300,9 @@ int main( int argc, char **argv )
         return -1;
     }
 
-    KIOExec exec(parser.positionalArguments(), parser.isSet(QStringLiteral("tempfiles")), QLatin1String("suggestedfilename"));
+    const bool tempfiles = parser.isSet(QStringLiteral("tempfiles"));
+    const QString suggestedfilename = parser.value(QStringLiteral("suggestedfilename"));
+    KIOExec exec(parser.positionalArguments(), tempfiles, suggestedfilename);
 
     // Don't go into the event loop if we already want to exit (#172197)
     if (exec.exited())
