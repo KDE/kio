@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.12)
 
 project(KIO)
 
-find_package(ECM 1.5.0 REQUIRED NO_MODULE)
+find_package(ECM 1.6.0 REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/cmake )
 
@@ -18,7 +18,7 @@ include(ECMSetupVersion)
 include(ECMGenerateHeaders)
 
 set(KF5_VERSION "5.6.0") # handled by release scripts
-set(KF5_DEP_VERSION "5.5.0") # handled by release scripts
+set(KF5_DEP_VERSION "5.6.0") # handled by release scripts
 
 ecm_setup_version(
   ${KF5_VERSION}
