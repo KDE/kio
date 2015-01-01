@@ -62,6 +62,8 @@ private Q_SLOTS:
     void testSmb();
     void testBug196695();
     void testMimeData();
+    void testDotHiddenFile_data();
+    void testDotHiddenFile();
 
     // These tests must be done last
     void testDeleteFile();

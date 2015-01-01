@@ -91,8 +91,8 @@ void KDirModelTest::recreateTestData()
      * PATH/toplevelfile_2
      * PATH/toplevelfile_3
      * PATH/specialchars%:.pdf
-     * PATH/.hidden
-     * PATH/.hidden2
+     * PATH/.hiddenfile
+     * PATH/.hiddenfile2
      * PATH/subdir
      * PATH/subdir/testfile
      * PATH/subdir/testsymlink
@@ -103,8 +103,8 @@ void KDirModelTest::recreateTestData()
     foreach (const QString &f, m_topLevelFileNames) {
         createTestFile(path + f);
     }
-    createTestFile(path + ".hidden");
-    createTestFile(path + ".hidden2");
+    createTestFile(path + ".hiddenfile");
+    createTestFile(path + ".hiddenfile2");
     createTestDirectory(path + "subdir");
     createTestDirectory(path + "subdir/subsubdir", NoSymlink);
 
@@ -1130,9 +1130,53 @@ void KDirModelTest::testMimeData()
     QCOMPARE(urls.count(), indexes.count());
 }
 
+void KDirModelTest::testDotHiddenFile_data()
+{
+    QTest::addColumn<QStringList>("fileContents");
+    QTest::addColumn<QStringList>("expectedListing");
+
+    QStringList allItems; allItems << "toplevelfile_1" << "toplevelfile_2" << "toplevelfile_3" << "specialchars%:.pdf" << "subdir";
+    QTest::newRow("empty_file") << QStringList() << allItems;
+
+    QTest::newRow("simple_name") << (QStringList() << "toplevelfile_1") << QStringList(allItems.mid(1));
+
+    QStringList allButSpecialChars = allItems; allButSpecialChars.removeAt(3);
+    QTest::newRow("special_chars") << (QStringList() << "specialchars%:.pdf") << allButSpecialChars;
+
+    QStringList allButSubdir = allItems; allButSubdir.removeAt(4);
+    QTest::newRow("subdir") << (QStringList() << "subdir") << allButSubdir;
+
+    QTest::newRow("many_lines") << (QStringList() << "subdir" << "toplevelfile_1" << "toplevelfile_3" << "toplevelfile_2")
+                                << (QStringList() << "specialchars%:.pdf");
+}
+
+void KDirModelTest::testDotHiddenFile()
+{
+    QFETCH(QStringList, fileContents);
+    QFETCH(QStringList, expectedListing);
+
+    const QString path = m_tempDir->path() + '/';
+    const QString dotHiddenFile = path + ".hidden";
+    QTest::qWait(1000); // mtime-based cache, so we need to wait for 1 second
+    QFile dh(dotHiddenFile);
+    QVERIFY(dh.open(QIODevice::WriteOnly));
+    dh.write(fileContents.join('\n').toUtf8());
+    dh.close();
+    fillModel(true, false);
+    QStringList files;
+    for (int row = 0; row < m_dirModel->rowCount(); ++row) {
+        files.append(m_dirModel->index(row, KDirModel::Name).data().toString());
+    }
+    files.sort();
+    expectedListing.sort();
+    QCOMPARE(files, expectedListing);
+
+    dh.remove();
+}
+
 void KDirModelTest::testDeleteFile()
 {
-    fillModel(false);
+    fillModel(true);
 
     QVERIFY(m_fileIndex.isValid());
     const int oldTopLevelRowCount = m_dirModel->rowCount();
