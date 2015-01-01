@@ -1116,6 +1116,13 @@ bool KFileItem::isHidden() const
     return fileName.length() > 1 && fileName[0] == '.';  // Just "." is current directory, not hidden.
 }
 
+void KFileItem::setHidden()
+{
+    if (d) {
+        d->m_hidden = KFileItemPrivate::Hidden;
+    }
+}
+
 bool KFileItem::isDir() const
 {
     if (!d) {

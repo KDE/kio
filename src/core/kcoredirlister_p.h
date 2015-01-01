@@ -359,6 +359,16 @@ private:
      */
     QList<QUrl> directoriesForCanonicalPath(const QUrl &dir) const;
 
+    /**
+     * Returns the names listed in dir's ".hidden" file, if it exists.
+     * If a file named ".hidden" exists in the @p dir directory, this method
+     * returns all the file names listed in that file. If it doesn't exist, an
+     * empty set is returned.
+     * @param dir path to the target directory.
+     * @return names listed in the directory's ".hidden" file (empty if it doesn't exist).
+     */
+    QSet<QString> filesInDotHiddenForDir(const QString& dir);
+
 #ifndef NDEBUG
     void printDebug();
 #endif
@@ -469,6 +479,14 @@ private:
         NonMovableFileItemList lstItems;
     };
 
+    // definition of the cache of ".hidden" files
+    struct CacheHiddenFile {
+        CacheHiddenFile(const QDateTime& mtime, const QSet<QString>& listedFiles)
+            : mtime(mtime), listedFiles(listedFiles) { }
+        QDateTime mtime;
+        QSet<QString> listedFiles;
+    };
+
     //static const unsigned short MAX_JOBS_PER_LISTER;
 
     QMap<KIO::ListJob *, KIO::UDSEntryList> runningListJobs;
@@ -476,6 +494,9 @@ private:
     // an item is a complete directory
     QHash<QString /*url*/, DirItem *> itemsInUse;
     QCache<QString /*url*/, DirItem> itemsCached;
+
+    // cache of ".hidden" files
+    QCache<QString /*dot hidden file*/, CacheHiddenFile> m_cacheHiddenFiles;
 
     typedef QHash<QString /*url*/, KCoreDirListerCacheDirectoryData> DirectoryDataHash;
     DirectoryDataHash directoryData;

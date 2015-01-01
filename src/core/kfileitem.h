@@ -497,11 +497,17 @@ public:
 private:
     QSharedDataPointer<KFileItemPrivate> d;
 
+    /**
+     * Hides the file.
+     */
+    void setHidden();
+
 private:
     KIOCORE_EXPORT friend QDataStream &operator<< (QDataStream &s, const KFileItem &a);
     KIOCORE_EXPORT friend QDataStream &operator>> (QDataStream &s, KFileItem &a);
 
     friend class KFileItemTest;
+    friend class KCoreDirListerCache;
 };
 
 Q_DECLARE_METATYPE(KFileItem)

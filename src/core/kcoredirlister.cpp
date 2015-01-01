@@ -32,6 +32,7 @@
 #include <QtCore/QRegExp>
 #include <QFileInfo>
 #include <QFile>
+#include <QTextStream>
 #include <QDir>
 #include <QLinkedList>
 #include <qmimedatabase.h>
@@ -47,7 +48,8 @@
 Q_GLOBAL_STATIC(KCoreDirListerCache, kDirListerCache)
 
 KCoreDirListerCache::KCoreDirListerCache()
-    : itemsCached(10)   // keep the last 10 directories around
+    : itemsCached(10),       // keep the last 10 directories around
+      m_cacheHiddenFiles(10) // keep the last 10 ".hidden" files around
 {
     //qCDebug(KIO_CORE);
 
@@ -82,6 +84,7 @@ KCoreDirListerCache::~KCoreDirListerCache()
 
     itemsCached.clear();
     directoryData.clear();
+    m_cacheHiddenFiles.clear();
 
     if (KDirWatch::exists()) {
         KDirWatch::self()->disconnect(this);
@@ -1210,6 +1213,8 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
         delayedMimeTypes &= kdl->d->delayedMimeTypes;
     }
 
+    QSet<QString> filesToHide;
+    bool dotHiddenChecked = false;
     KIO::UDSEntryList::const_iterator it = entries.begin();
     const KIO::UDSEntryList::const_iterator end = entries.end();
     for (; it != end; ++it) {
@@ -1240,6 +1245,21 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
                 }
         } else if (name != "..") {
             KFileItem item(*it, url, delayedMimeTypes, true);
+
+            // get the names of the files listed in ".hidden", if it exists and is a local file
+            if (!dotHiddenChecked) {
+                const QString localPath = item.localPath();
+                if (!localPath.isEmpty()) {
+                    const QString rootItemPath = QFileInfo(localPath).absolutePath();
+                    filesToHide = filesInDotHiddenForDir(rootItemPath);
+                }
+                dotHiddenChecked = true;
+            }
+
+            // hide file if listed in ".hidden"
+            if (filesToHide.contains(name)) {
+                item.setHidden();
+            }
 
             //qCDebug(KIO_CORE)<< "Adding item: " << item.url();
             dir->lstItems.append(item);
@@ -1754,6 +1774,8 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
         fileItems.insert((*kit).name(), &*kit);
     }
 
+    QSet<QString> filesToHide;
+    bool dotHiddenChecked = false;
     const KIO::UDSEntryList &buf = runningListJobs.value(job);
     KIO::UDSEntryList::const_iterator it = buf.constBegin();
     const KIO::UDSEntryList::const_iterator end = buf.constEnd();
@@ -1782,6 +1804,21 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
                     }
             }
             continue;
+        } else {
+            // get the names of the files listed in ".hidden", if it exists and is a local file
+            if (!dotHiddenChecked) {
+                const QString localPath = item.localPath();
+                if (!localPath.isEmpty()) {
+                    const QString rootItemPath = QFileInfo(localPath).absolutePath();
+                    filesToHide = filesInDotHiddenForDir(rootItemPath);
+                }
+                dotHiddenChecked = true;
+            }
+        }
+
+        // hide file if listed in ".hidden"
+        if (filesToHide.contains(name)) {
+            item.setHidden();
         }
 
         // Find this item
@@ -2788,6 +2825,39 @@ void KCoreDirListerCacheDirectoryData::moveListersWithoutCachedItemsJob(const QU
 KFileItem KCoreDirLister::cachedItemForUrl(const QUrl &url)
 {
     return kDirListerCache()->itemForUrl(url);
+}
+
+QSet<QString> KCoreDirListerCache::filesInDotHiddenForDir(const QString& dir)
+{
+    const QString path = dir + "/.hidden";
+    QFile dotHiddenFile(path);
+
+    if (dotHiddenFile.exists()) {
+        const QDateTime mtime = QFileInfo(dotHiddenFile).lastModified();
+        const CacheHiddenFile *cachedDotHiddenFile = m_cacheHiddenFiles.object(path);
+
+        if (cachedDotHiddenFile && mtime <= cachedDotHiddenFile->mtime) {
+            // ".hidden" is in cache and still valid (the file was not modified since then),
+            // so return it
+            return cachedDotHiddenFile->listedFiles;
+        } else {
+            // read the ".hidden" file, then cache it and return it
+            if (dotHiddenFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+                QSet<QString> filesToHide;
+                QTextStream stream(&dotHiddenFile);
+                while (!stream.atEnd()) {
+                    QString name = stream.readLine();
+                    if (!name.isEmpty()) {
+                        filesToHide.insert(name);
+                    }
+                }
+                m_cacheHiddenFiles.insert(path, new CacheHiddenFile(mtime, filesToHide));
+                return filesToHide;
+            }
+        }
+    }
+
+    return QSet<QString>();
 }
 
 #include "moc_kcoredirlister.cpp"
