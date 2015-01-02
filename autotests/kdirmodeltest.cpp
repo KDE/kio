@@ -47,9 +47,9 @@ QTEST_MAIN(KDirModelTest)
 #define connect(a,b,c,d) QVERIFY(QObject::connect(a,b,c,d))
 
 #ifndef Q_OS_WIN
-#define SPECIALCHARS "specialchars%:.pdf"
+#define SPECIALCHARS " special chars%:.pdf"
 #else
-#define SPECIALCHARS "specialchars%.pdf"
+#define SPECIALCHARS " special chars%.pdf"
 #endif
 
 Q_DECLARE_METATYPE(KFileItemList)
@@ -90,7 +90,7 @@ void KDirModelTest::recreateTestData()
      * PATH/toplevelfile_1
      * PATH/toplevelfile_2
      * PATH/toplevelfile_3
-     * PATH/specialchars%:.pdf
+     * PATH/special chars%:.pdf
      * PATH/.hiddenfile
      * PATH/.hiddenfile2
      * PATH/subdir
@@ -172,7 +172,7 @@ void KDirModelTest::collectKnownIndexes()
             m_fileIndex = idx;
         } else if (fileName == "toplevelfile_2") {
             m_secondFileIndex = idx;
-        } else if (fileName.startsWith("special")) {
+        } else if (fileName.startsWith(" special")) {
             m_specialFileIndex = idx;
         }
     }
@@ -892,11 +892,11 @@ void KDirModelTest::testFilter()
         //qDebug() << parentIdx << args[1].toInt() << args[2].toInt();
     }
     QCOMPARE(rowsRemovedPerDir.count(), 3); // once for every dir
-    QCOMPARE(rowsRemovedPerDir.value("root"), 1);      // one from toplevel ('specialchars')
+    QCOMPARE(rowsRemovedPerDir.value("root"), 1);      // one from toplevel ('special chars')
     QCOMPARE(rowsRemovedPerDir.value("subdir"), 2);    // two from subdir
     QCOMPARE(rowsRemovedPerDir.value("subsubdir"), 1); // one from subsubdir
     QCOMPARE(spyItemsDeleted.count(), 3); // once for every dir
-    QCOMPARE(spyItemsDeleted[0][0].value<KFileItemList>().count(), 1); // one from toplevel ('specialchars')
+    QCOMPARE(spyItemsDeleted[0][0].value<KFileItemList>().count(), 1); // one from toplevel ('special chars')
     QCOMPARE(spyItemsDeleted[1][0].value<KFileItemList>().count(), 2); // two from subdir
     QCOMPARE(spyItemsDeleted[2][0].value<KFileItemList>().count(), 1); // one from subsubdir
     QCOMPARE(spyItemsFilteredByMime.count(), 0);
@@ -1135,19 +1135,19 @@ void KDirModelTest::testDotHiddenFile_data()
     QTest::addColumn<QStringList>("fileContents");
     QTest::addColumn<QStringList>("expectedListing");
 
-    QStringList allItems; allItems << "toplevelfile_1" << "toplevelfile_2" << "toplevelfile_3" << "specialchars%:.pdf" << "subdir";
+    QStringList allItems; allItems << "toplevelfile_1" << "toplevelfile_2" << "toplevelfile_3" << SPECIALCHARS << "subdir";
     QTest::newRow("empty_file") << QStringList() << allItems;
 
     QTest::newRow("simple_name") << (QStringList() << "toplevelfile_1") << QStringList(allItems.mid(1));
 
     QStringList allButSpecialChars = allItems; allButSpecialChars.removeAt(3);
-    QTest::newRow("special_chars") << (QStringList() << "specialchars%:.pdf") << allButSpecialChars;
+    QTest::newRow("special_chars") << (QStringList() << SPECIALCHARS) << allButSpecialChars;
 
     QStringList allButSubdir = allItems; allButSubdir.removeAt(4);
     QTest::newRow("subdir") << (QStringList() << "subdir") << allButSubdir;
 
     QTest::newRow("many_lines") << (QStringList() << "subdir" << "toplevelfile_1" << "toplevelfile_3" << "toplevelfile_2")
-                                << (QStringList() << "specialchars%:.pdf");
+                                << (QStringList() << SPECIALCHARS);
 }
 
 void KDirModelTest::testDotHiddenFile()
