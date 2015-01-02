@@ -1162,14 +1162,18 @@ void KDirModelTest::testDotHiddenFile()
     QVERIFY(dh.open(QIODevice::WriteOnly));
     dh.write(fileContents.join('\n').toUtf8());
     dh.close();
-    fillModel(true, false);
-    QStringList files;
-    for (int row = 0; row < m_dirModel->rowCount(); ++row) {
-        files.append(m_dirModel->index(row, KDirModel::Name).data().toString());
+
+    // Do it twice: once to read from the file and once to use the cache
+    for (int i = 0; i < 2; ++i) {
+        fillModel(true, false);
+        QStringList files;
+        for (int row = 0; row < m_dirModel->rowCount(); ++row) {
+            files.append(m_dirModel->index(row, KDirModel::Name).data().toString());
+        }
+        files.sort();
+        expectedListing.sort();
+        QCOMPARE(files, expectedListing);
     }
-    files.sort();
-    expectedListing.sort();
-    QCOMPARE(files, expectedListing);
 
     dh.remove();
 }
