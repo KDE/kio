@@ -13,6 +13,7 @@ Name[gd]=Qwant Shopping
 Name[hu]=Qwant vásárlás
 Name[id]=Qwant Belanja
 Name[it]=Acquisti di Qwant
+Name[ko]=Qwant 쇼핑
 Name[mr]=क्वांटखरेदी
 Name[nb]=Qwant shopping
 Name[nds]=Qwant-Inköpen
@@ -46,6 +47,7 @@ Query[gd]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[hu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[id]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[it]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
+Query[ko]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[mr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[nb]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[nds]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
