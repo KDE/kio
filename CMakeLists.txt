@@ -63,7 +63,11 @@ set_package_properties(GSSAPI PROPERTIES DESCRIPTION "Allows KIO to make use of 
                        TYPE OPTIONAL
                        PURPOSE "A MIT or HEIMDAL flavor of GSSAPI can be used"
                       )
-find_package(X11)
+
+if (NOT APPLE)
+    find_package(X11)
+endif()
+
 set(HAVE_X11 ${X11_FOUND})
 if (HAVE_X11)
     find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED X11Extras)
