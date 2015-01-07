@@ -5,11 +5,10 @@ configure_file(config-kioexec.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kioexec
 ecm_mark_nongui_executable(kioexec)
 
 target_link_libraries(kioexec
-    KF5::WidgetsAddons
+    Qt5::Widgets
     KF5::I18n
-    KF5::ConfigGui
-    KF5::KIOWidgets
-    KF5::WindowSystem
+    KF5::KIOWidgets    # KRun
+    KF5::WidgetsAddons # KMessageBox
  )
 
 if (HAVE_X11)
