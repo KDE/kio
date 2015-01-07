@@ -1,5 +1,8 @@
 project(KIOFileWidgets)
 
+find_package(KF5Bookmarks ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5XmlGui ${KF5_DEP_VERSION} REQUIRED)
+
 configure_file(config-kiofilewidgets.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kiofilewidgets.h)
 
 set(kiofilewidgets_SRCS

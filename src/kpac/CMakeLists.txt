@@ -2,6 +2,8 @@
 kde_enable_exceptions()
 
 include(ConfigureChecks.cmake)
+find_package(KF5Notifications ${KF5_DEP_VERSION} REQUIRED) #needed for kpac
+
 configure_file(config-kpac.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kpac.h)
 
 ########### next target ###############

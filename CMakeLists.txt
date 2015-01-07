@@ -27,9 +27,6 @@ ecm_setup_version(
   PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5KIOConfigVersion.cmake"
   SOVERSION 5)
 
-find_package(KF5Archive ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5Bookmarks ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5Codecs ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5Completion ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5Config ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5ConfigWidgets ${KF5_DEP_VERSION} REQUIRED)
@@ -40,13 +37,10 @@ find_package(KF5I18n ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5IconThemes ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5ItemViews ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5JobWidgets ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5Notifications ${KF5_DEP_VERSION} REQUIRED) #needed for kpac
 find_package(KF5Service ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5Solid ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5WidgetsAddons ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5WindowSystem ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5XmlGui ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5Wallet ${KF5_DEP_VERSION} REQUIRED)
 
 # TODO: Remove these
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)

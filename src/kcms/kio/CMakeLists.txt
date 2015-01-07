@@ -1,6 +1,8 @@
 
 add_subdirectory( uasproviders )
 
+find_package(KF5TextWidgets ${KF5_DEP_VERSION} REQUIRED)
+
 ########### next target ###############
 
 set(kcm_kio_PART_SRCS
@@ -39,8 +41,8 @@ target_link_libraries(kcm_kio
     KF5::KIOCore
     KF5::KIOWidgets
     KF5::IconThemes
-    KF5::ItemViews
-    KF5::TextWidgets
+    KF5::ItemViews   # KTreeWidgetSearchLine
+    KF5::TextWidgets # KPluralHandlingSpinBox
   PRIVATE
     KF5::I18n)
 
