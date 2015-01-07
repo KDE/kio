@@ -1,3 +1,5 @@
+cmake_policy(SET CMP0028 OLD)
+
 include(ECMMarkAsTest)
 
 macro(KIOWIDGETS_EXECUTABLE_TESTS)

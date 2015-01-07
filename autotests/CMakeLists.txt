@@ -1,3 +1,4 @@
+cmake_policy(SET CMP0028 OLD)
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 
 include(ECMAddTests)
@@ -68,6 +69,6 @@ ecm_add_tests(
  knewfilemenutest.cpp
  kfileplacesmodeltest.cpp
  NAME_PREFIX "kiofilewidgets-"
- LINK_LIBRARIES KF5::KIOFileWidgets KF5::KIOWidgets Qt5::Test
+ LINK_LIBRARIES KF5::KIOFileWidgets KF5::KIOWidgets KF5::Bookmarks Qt5::Test
 )
 
