@@ -9,6 +9,7 @@ target_link_libraries(kioexec
     KF5::I18n
     KF5::KIOWidgets    # KRun
     KF5::WidgetsAddons # KMessageBox
+    KF5::WindowSystem  # KStartupInfo
  )
 
 if (HAVE_X11)
