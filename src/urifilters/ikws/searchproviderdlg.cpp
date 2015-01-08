@@ -139,7 +139,7 @@ void SearchProviderDialog::shortcutsChanged(const QString& newShorthands) {
     }
 }
 
-void SearchProviderDialog::slotAcceptClicked()
+void SearchProviderDialog::accept()
 {
     if ((m_dlg.leQuery->text().indexOf("\\{") == -1)
         && KMessageBox::warningContinueCancel(0,

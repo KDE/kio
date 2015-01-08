@@ -36,11 +36,13 @@ public:
 
     SearchProvider *provider() { return m_provider; }
 
+public Q_SLOTS:
+    void accept();
+
 protected Q_SLOTS:
     void slotChanged();
     void shortcutsChanged(const QString& newShorthands);
     void pastePlaceholder();
-    void slotAcceptClicked();
 
 private:
     SearchProvider *m_provider;
