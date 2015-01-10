@@ -42,7 +42,7 @@
 #ifdef Q_OS_WIN
 #include <sys/utime.h>
 #include <qt_windows.h>
-#include <WinSock2.h> //struct timeval
+#include <winsock2.h> //struct timeval
 #else
 #include <utime.h>
 #endif

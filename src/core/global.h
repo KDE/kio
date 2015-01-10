@@ -32,7 +32,7 @@ class QUrl;
 
 class QTime;
 
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN) && defined(Q_CC_MSVC)
 // on windows ssize_t is not defined, only SSIZE_T exists
 #include <basetsd.h>
 typedef SSIZE_T ssize_t;

@@ -21,7 +21,7 @@
 
 #ifdef Q_OS_WIN
 #include <qt_windows.h>
-#include <WinSock2.h> // struct timeval
+#include <winsock2.h> // struct timeval
 #endif
 
 #include "global.h"
