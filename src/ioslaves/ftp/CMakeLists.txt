@@ -17,12 +17,12 @@ add_library(kio_ftp MODULE ${kio_ftp_PART_SRCS})
 target_link_libraries(kio_ftp Qt5::Network KF5::KIOCore KF5::I18n)
 
 set_target_properties(kio_ftp PROPERTIES OUTPUT_NAME "ftp")
-install(TARGETS kio_ftp  DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kio)
+install(TARGETS kio_ftp  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
 
 ########### install files ###############
 
-install( FILES ftp.protocol  DESTINATION  ${SERVICES_INSTALL_DIR} )
+install( FILES ftp.protocol  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
 
 
 

@@ -16,5 +16,5 @@ if (HAVE_X11)
     target_link_libraries(kioexec Qt5::X11Extras)
 endif()
 
-install(TARGETS kioexec DESTINATION ${KF5_LIBEXEC_INSTALL_DIR} )
+install(TARGETS kioexec DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF5} )
 

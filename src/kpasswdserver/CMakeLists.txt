@@ -13,6 +13,6 @@ set_target_properties(kded_kpasswdserver PROPERTIES
 
 target_link_libraries(kded_kpasswdserver KF5::DBusAddons KF5::KIOCore KF5::Wallet KF5::WidgetsAddons KF5::I18n KF5::WindowSystem)
 
-install(TARGETS kded_kpasswdserver  DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kded )
+install(TARGETS kded_kpasswdserver  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kded )
 
-install( FILES kpasswdserver.desktop  DESTINATION  ${SERVICES_INSTALL_DIR}/kded )
+install( FILES kpasswdserver.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR}/kded )

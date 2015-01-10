@@ -2,11 +2,11 @@ add_library(kshorturifilter MODULE kshorturifilter.cpp)
 
 target_link_libraries(kshorturifilter KF5::I18n KF5::KIOWidgets Qt5::DBus)
 
-install(TARGETS kshorturifilter  DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/urifilters)
+install(TARGETS kshorturifilter  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/urifilters)
 
 
 ########### install files ###############
 
-install( FILES kshorturifilter.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
-install( FILES kshorturifilterrc  DESTINATION  ${CONFIG_INSTALL_DIR} )
+install( FILES kshorturifilter.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
+install( FILES kshorturifilterrc  DESTINATION  ${KDE_INSTALL_CONFDIR} )
 

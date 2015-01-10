@@ -8,5 +8,5 @@ install( FILES
    pnm.protocol
    rtspt.protocol
    rtspu.protocol
-   DESTINATION  ${SERVICES_INSTALL_DIR} )
+   DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
 

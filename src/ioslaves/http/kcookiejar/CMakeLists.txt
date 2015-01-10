@@ -42,11 +42,11 @@ target_link_libraries(kded_kcookiejar
    KF5::WidgetsAddons
 )
 
-install(TARGETS kded_kcookiejar  DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kded )
+install(TARGETS kded_kcookiejar  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kded )
 
 
 ########### install files ###############
 
-install( FILES domain_info  DESTINATION  ${KF5_DATA_INSTALL_DIR}/kcookiejar )
-install( FILES kcookiejar.desktop  DESTINATION  ${SERVICES_INSTALL_DIR}/kded )
-install( FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KCookieServer.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR} RENAME kf5_org.kde.KCookieServer.xml)
+install( FILES domain_info  DESTINATION  ${KDE_INSTALL_DATADIR_KF5}/kcookiejar )
+install( FILES kcookiejar.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR}/kded )
+install( FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KCookieServer.xml DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR} RENAME kf5_org.kde.KCookieServer.xml)

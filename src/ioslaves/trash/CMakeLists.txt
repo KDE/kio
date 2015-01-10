@@ -38,7 +38,7 @@ target_link_libraries(kio_trash
   KF5::ConfigGui
 )
 set_target_properties(kio_trash PROPERTIES OUTPUT_NAME "trash")
-install(TARGETS kio_trash  DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kio )
+install(TARGETS kio_trash  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio )
 
 set(ktrash_SRCS ktrash.cpp )
 
@@ -68,10 +68,10 @@ if(NOT WIN32)
        KF5::KIOCore
        KF5::Solid)
 
-    install(TARGETS kcm_trash DESTINATION ${PLUGIN_INSTALL_DIR})
+    install(TARGETS kcm_trash DESTINATION ${KDE_INSTALL_PLUGINDIR})
 endif()
 
 ########### install files ###############
 
-install( FILES trash.protocol  DESTINATION  ${SERVICES_INSTALL_DIR} )
-install( FILES kcmtrash.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+install( FILES trash.protocol  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
+install( FILES kcmtrash.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR} )

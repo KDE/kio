@@ -114,15 +114,15 @@ set_source_files_properties(org.kde.KPasswdServer.xml
 qt5_add_dbus_interface(kiocore_SRCS org.kde.KPasswdServer.xml kpasswdserver_interface)
 install(FILES
    org.kde.KDirNotify.xml
-   DESTINATION ${DBUS_INTERFACES_INSTALL_DIR}
+   DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR}
    RENAME kf5_org.kde.KDirNotify.xml)
 install(FILES
    org.kde.KPasswdServer.xml
-   DESTINATION ${DBUS_INTERFACES_INSTALL_DIR}
+   DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR}
    RENAME kf5_org.kde.KPasswdServer.xml)
 install(FILES
    org.kde.KSlaveLauncher.xml
-   DESTINATION ${DBUS_INTERFACES_INSTALL_DIR}
+   DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR}
    RENAME kf5_org.kde.KSlaveLauncher.xml)
 
 add_library(KF5KIOCore ${kiocore_SRCS})
@@ -134,7 +134,7 @@ target_include_directories(KF5KIOCore PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/kssl>"
 )
 
-target_include_directories(KF5KIOCore INTERFACE "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR}/KIOCore>")
+target_include_directories(KF5KIOCore INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KIOCore>")
 
 target_link_libraries(KF5KIOCore
 PUBLIC
@@ -221,7 +221,7 @@ install(FILES
   jobclasses.h
 
   ${KIO_namespaced_HEADERS}
-  DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KIOCore/kio COMPONENT Devel
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOCore/kio COMPONENT Devel
 )
 
 # Headers not prefixed with KIO/
@@ -255,16 +255,16 @@ ecm_generate_headers(KIOCore_HEADERS
   RELATIVE kssl
   REQUIRED_HEADERS KIOCore_HEADERS
 )
-install(FILES ${KIOCore_CamelCase_HEADERS} DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KIOCore/KIO COMPONENT Devel)
+install(FILES ${KIOCore_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOCore/KIO COMPONENT Devel)
 
 install(FILES
   ksslcertificatemanager_p.h
   ${KIOCore_HEADERS}
   ${CMAKE_CURRENT_BINARY_DIR}/kiocore_export.h
-  DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KIOCore COMPONENT Devel)
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOCore COMPONENT Devel)
 
-install(FILES accept-languages.codes DESTINATION ${CONFIG_INSTALL_DIR})
+install(FILES accept-languages.codes DESTINATION ${KDE_INSTALL_CONFDIR})
 
 include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME KIOCore LIB_NAME KF5KIOCore DEPS "KCoreAddons KService" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KF5_INCLUDE_INSTALL_DIR}/KIOCore)
+ecm_generate_pri_file(BASE_NAME KIOCore LIB_NAME KF5KIOCore DEPS "KCoreAddons KService" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOCore)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})

@@ -32,12 +32,12 @@ if(ACL_FOUND)
 endif()
 
 set_target_properties(kio_file PROPERTIES OUTPUT_NAME "file")
-install(TARGETS kio_file  DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kio)
+install(TARGETS kio_file  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
 
 ########### install files ###############
 
-install( FILES file.protocol  DESTINATION  ${SERVICES_INSTALL_DIR} )
+install( FILES file.protocol  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
 
 
 

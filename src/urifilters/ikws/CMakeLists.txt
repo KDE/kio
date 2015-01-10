@@ -13,7 +13,7 @@ target_link_libraries(kuriikwsfilter
    Qt5::DBus
 )
 
-install(TARGETS kuriikwsfilter DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/urifilters)
+install(TARGETS kuriikwsfilter DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/urifilters)
 
 set(kurisearchfilter_PART_SRCS
    kurisearchfilter.cpp
@@ -33,9 +33,9 @@ target_link_libraries(kurisearchfilter
    Qt5::DBus
 )
 
-install(TARGETS kurisearchfilter DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/urifilters)
+install(TARGETS kurisearchfilter DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/urifilters)
 
 ########### install files ###############
 
-install( FILES kuriikwsfilter.desktop kurisearchfilter.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
-install( FILES searchprovider.desktop  DESTINATION  ${SERVICETYPES_INSTALL_DIR} )
+install( FILES kuriikwsfilter.desktop kurisearchfilter.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
+install( FILES searchprovider.desktop  DESTINATION  ${KDE_INSTALL_KSERVICETYPES5DIR} )

@@ -46,10 +46,10 @@ target_link_libraries(kcm_kio
   PRIVATE
     KF5::I18n)
 
-install(TARGETS kcm_kio  DESTINATION ${PLUGIN_INSTALL_DIR} )
+install(TARGETS kcm_kio  DESTINATION ${KDE_INSTALL_PLUGINDIR} )
 
 ########### install files ###############
 
 install( FILES smb.desktop cookies.desktop useragent.desktop cache.desktop
-    netpref.desktop proxy.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
-install( FILES uasprovider.desktop  DESTINATION  ${SERVICETYPES_INSTALL_DIR} )
+    netpref.desktop proxy.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
+install( FILES uasprovider.desktop  DESTINATION  ${KDE_INSTALL_KSERVICETYPES5DIR} )

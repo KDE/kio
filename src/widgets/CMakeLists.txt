@@ -86,7 +86,7 @@ add_library(KF5KIOWidgets ${kiowidgets_SRCS})
 generate_export_header(KF5KIOWidgets BASE_NAME KIOWidgets)
 add_library(KF5::KIOWidgets ALIAS KF5KIOWidgets)
 
-target_include_directories(KF5KIOWidgets INTERFACE "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR}/KIOWidgets>")
+target_include_directories(KF5KIOWidgets INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KIOWidgets>")
 
 target_link_libraries(KF5KIOWidgets
   PUBLIC
@@ -161,31 +161,31 @@ ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_widgets_HEADERS
 )
-install(FILES ${KIOWidgets_CamelCase_HEADERS} DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KIOWidgets/KIO COMPONENT Devel)
+install(FILES ${KIOWidgets_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOWidgets/KIO COMPONENT Devel)
 
 install(TARGETS KF5KIOWidgets EXPORT KF5KIOTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES
    org.kde.kio.FileUndoManager.xml
-   DESTINATION ${DBUS_INTERFACES_INSTALL_DIR}
+   DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR}
    RENAME kf5_org.kde.kio.FileUndoManager.xml)
 
 install(FILES
   ${KIO_namespaced_widgets_HEADERS}
-  DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KIOWidgets/kio COMPONENT Devel)
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOWidgets/kio COMPONENT Devel)
 
 install(FILES
   ${KIOWidgets_HEADERS}
   ${CMAKE_CURRENT_BINARY_DIR}/kiowidgets_export.h
-  DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KIOWidgets COMPONENT Devel)
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOWidgets COMPONENT Devel)
 
 install(FILES
   kfileitemactionplugin.desktop
   kpropertiesdialogplugin.desktop
   kurifilterplugin.desktop
   kiodndpopupmenuplugin.desktop
-   DESTINATION  ${SERVICETYPES_INSTALL_DIR} )
+   DESTINATION  ${KDE_INSTALL_KSERVICETYPES5DIR} )
 
 include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME KIOWidgets LIB_NAME KF5KIOWidgets DEPS "KIOWidgets KBookmarks KXmlGui Solid" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KF5_INCLUDE_INSTALL_DIR}/KIOWidgets)
+ecm_generate_pri_file(BASE_NAME KIOWidgets LIB_NAME KF5KIOWidgets DEPS "KIOWidgets KBookmarks KXmlGui Solid" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOWidgets)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})

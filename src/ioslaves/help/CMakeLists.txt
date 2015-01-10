@@ -53,7 +53,7 @@ target_link_libraries(kio_help
 )
 
 set_target_properties(kio_help PROPERTIES OUTPUT_NAME "help")
-install(TARGETS kio_help  DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kio)
+install(TARGETS kio_help  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
 
 ########### next target ###############
@@ -79,10 +79,10 @@ if(WIN32)
     target_compile_definitions(kio_ghelp PRIVATE NOMINMAX)
 endif()
 set_target_properties(kio_ghelp PROPERTIES OUTPUT_NAME "ghelp")
-install(TARGETS kio_ghelp  DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kio)
+install(TARGETS kio_ghelp  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
 
 ########### install files ###############
 
-install( FILES help.protocol ghelp.protocol  DESTINATION  ${SERVICES_INSTALL_DIR} )
+install( FILES help.protocol ghelp.protocol  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
 

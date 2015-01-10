@@ -39,7 +39,7 @@ if (Qt5Script_FOUND)
       target_link_libraries(kded_proxyscout resolv)
     endif ()
 
-    install(TARGETS kded_proxyscout  DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kded )
+    install(TARGETS kded_proxyscout  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kded )
 endif()
 
 ########### next target ###############
@@ -56,10 +56,10 @@ if (HAVE_SOCKET_LIBRARY)
   target_link_libraries(kpac_dhcp_helper socket)
 endif ()
 
-install(TARGETS kpac_dhcp_helper DESTINATION ${KF5_LIBEXEC_INSTALL_DIR} )
+install(TARGETS kpac_dhcp_helper DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF5} )
 
 ########### install files ###############
 
-install( FILES proxyscout.notifyrc  DESTINATION  ${KNOTIFYRC_INSTALL_DIR} )
-install( FILES proxyscout.desktop  DESTINATION  ${SERVICES_INSTALL_DIR}/kded )
+install( FILES proxyscout.notifyrc  DESTINATION  ${KDE_INSTALL_KNOTIFY5RCDIR} )
+install( FILES proxyscout.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR}/kded )
 

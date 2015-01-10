@@ -45,7 +45,7 @@ target_link_libraries(kio_http_cache_cleaner
    KF5::KIOCore # KProtocolManager
    KF5::I18n)
 
-install(TARGETS kio_http_cache_cleaner DESTINATION ${KF5_LIBEXEC_INSTALL_DIR} )
+install(TARGETS kio_http_cache_cleaner DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF5} )
 
 ########### next target ###############
 
@@ -76,7 +76,7 @@ if(GSSAPI_FOUND)
 endif()
 
 set_target_properties(kio_http PROPERTIES OUTPUT_NAME "http")
-install(TARGETS kio_http  DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kio)
+install(TARGETS kio_http  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
 
 ########### install files ###############
@@ -87,6 +87,6 @@ install( FILES
     https.protocol
     webdav.protocol
     webdavs.protocol
-  DESTINATION  ${SERVICES_INSTALL_DIR} )
+  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
 
 
