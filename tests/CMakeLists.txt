@@ -1,4 +1,6 @@
-cmake_policy(SET CMP0028 OLD)
+if(POLICY CMP0028)
+  cmake_policy(SET CMP0028 OLD)
+endif()
 
 include(ECMMarkAsTest)
 
