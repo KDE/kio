@@ -40,14 +40,16 @@ static KTcpSocket::SslVersion kSslVersionFromQ(QSsl::SslProtocol protocol)
         return KTcpSocket::SslV3;
     case QSsl::TlsV1_0:
         return KTcpSocket::TlsV1;
+    case QSsl::TlsV1_1:
+        return KTcpSocket::TlsV1_1;
+    case QSsl::TlsV1_2:
+        return KTcpSocket::TlsV1_2;
     case QSsl::AnyProtocol:
         return KTcpSocket::AnySslVersion;
-#if QT_VERSION >= 0x040800
     case QSsl::TlsV1SslV3:
         return KTcpSocket::TlsV1SslV3;
     case QSsl::SecureProtocols:
         return KTcpSocket::SecureProtocols;
-#endif
     default:
         return KTcpSocket::UnknownSslVersion;
     }
@@ -61,10 +63,11 @@ static QSsl::SslProtocol qSslProtocolFromK(KTcpSocket::SslVersion sslVersion)
     }
     //does it contain any valid protocol?
     KTcpSocket::SslVersions validVersions(KTcpSocket::SslV2 | KTcpSocket::SslV3 | KTcpSocket::TlsV1);
-#if QT_VERSION >= 0x040800
+    validVersions |= KTcpSocket::TlsV1_1;
+    validVersions |= KTcpSocket::TlsV1_2;
     validVersions |= KTcpSocket::TlsV1SslV3;
     validVersions |= KTcpSocket::SecureProtocols;
-#endif
+
     if (!(sslVersion & validVersions)) {
         return QSsl::UnknownProtocol;
     }
@@ -74,18 +77,38 @@ static QSsl::SslProtocol qSslProtocolFromK(KTcpSocket::SslVersion sslVersion)
         return QSsl::SslV2;
     case KTcpSocket::SslV3:
         return QSsl::SslV3;
-    case KTcpSocket::TlsV1:
+    case KTcpSocket::TlsV1_0:
         return QSsl::TlsV1_0;
-#if QT_VERSION >= 0x040800
+    case KTcpSocket::TlsV1_1:
+        return QSsl::TlsV1_1;
+    case KTcpSocket::TlsV1_2:
+        return QSsl::TlsV1_2;
     case KTcpSocket::TlsV1SslV3:
         return QSsl::TlsV1SslV3;
     case KTcpSocket::SecureProtocols:
         return QSsl::SecureProtocols;
-#endif
 
     default:
         //QSslSocket doesn't really take arbitrary combinations. It's one or all.
         return QSsl::AnyProtocol;
+    }
+}
+
+static QString protocolString(QSsl::SslProtocol protocol)
+{
+    switch (protocol) {
+    case QSsl::SslV2:
+        return QLatin1String("SSLv2");
+    case QSsl::SslV3:
+        return QLatin1String("SSLv3");
+    case QSsl::TlsV1_0:
+        return QLatin1String("TLSv1.0");
+    case QSsl::TlsV1_1:
+        return QLatin1String("TLSv1.1");
+    case QSsl::TlsV1_2:
+        return QLatin1String("TLSv1.2");
+    default:
+        return QLatin1String("Unknown");;
     }
 }
 
@@ -702,11 +725,7 @@ void KTcpSocket::setLocalCertificate(const QString &fileName, QSsl::EncodingForm
 
 void KTcpSocket::setVerificationPeerName(const QString &hostName)
 {
-#if QT_VERSION >= 0x040800
     d->sock.setPeerVerifyName(hostName);
-#else
-    Q_UNUSED(hostName);
-#endif
 }
 
 void KTcpSocket::setPrivateKey(const KSslKey &key)
@@ -805,7 +824,12 @@ KTcpSocket::SslVersion KTcpSocket::negotiatedSslVersion() const
     if (!d->sock.isEncrypted()) {
         return UnknownSslVersion;
     }
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 4, 0)
+    return kSslVersionFromQ(d->sock.sessionProtocol());
+#else
     return kSslVersionFromQ(d->sock.protocol());
+#endif
 }
 
 QString KTcpSocket::negotiatedSslVersionName() const
@@ -813,7 +837,12 @@ QString KTcpSocket::negotiatedSslVersionName() const
     if (!d->sock.isEncrypted()) {
         return QString();
     }
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 4, 0)
+    return protocolString(d->sock.sessionProtocol());
+#else
     return d->sock.sessionCipher().protocolString();
+#endif
 }
 
 ////////////////////////////// KSslKey

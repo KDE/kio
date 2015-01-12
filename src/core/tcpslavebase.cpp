@@ -150,7 +150,6 @@ public:
     }
 
     SslResult startTLSInternal(KTcpSocket::SslVersion sslVersion,
-                               const QSslConfiguration &configuration = QSslConfiguration(),
                                int waitForEncryptedTimeout = -1);
 
     TCPSlaveBase *q;
@@ -336,23 +335,20 @@ int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *erro
     }
 
     /*
-       By default the SSL handshake attempt uses these settings in the order shown:
+       SSL handshake is attempted in the following order:
 
-       1.) Protocol: KTcpSocket::SecureProtocols   SSL compression: OFF (DEFAULT)
-       2.) Protocol: KTcpSocket::TlsV1             SSL compression: OFF
-       3.) Protocol: KTcpSocket::SslV3             SSL compression: OFF
+       1.) KTcpSocket::SecureProtocols
+       2.) KTcpSocket::TlsV1_2
+       3.) KTcpSocket::TlsV1_1
+       4.) KTcpSocket::TlsV1_0
 
-       If any combination other than the one marked DEFAULT is used to complete
-       the SSL handshake, then that combination will be cached using KIO's internal
-       meta-data mechanism in order to speed up future connections to the same host.
+       Note that we indivially attempt connection with each TLS version
+       because some sites don't support SSL negotiation. #275524
+
+       The version used to successfully make encrypted connection with the
+       remote server is cached within the process to make subsequent
+       connection requests to the same server faster.
      */
-
-    QSslConfiguration sslConfig = d->socket.sslConfiguration();
-
-#if QT_VERSION >= 0x040800
-    // NOTE: Due to 'CRIME' SSL attacks, compression is always disabled.
-    sslConfig.setSslOption(QSsl::SslOptionDisableCompression, true);
-#endif
 
     const int lastSslVerson = config()->readEntry("LastUsedSslVersion", static_cast<int>(KTcpSocket::SecureProtocols));
     KTcpSocket::SslVersion trySslVersion = static_cast<KTcpSocket::SslVersion>(lastSslVerson);
@@ -394,7 +390,7 @@ int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *erro
         d->port = d->socket.peerPort();
 
         if (d->autoSSL) {
-            SslResult res = d->startTLSInternal(trySslVersion, sslConfig, timeout);
+            SslResult res = d->startTLSInternal(trySslVersion, timeout);
             if ((res & ResultFailed) && (res & ResultFailedEarly)) {
                 if (!(alreadyTriedSslVersions & KTcpSocket::SecureProtocols)) {
                     trySslVersion = KTcpSocket::SecureProtocols;
@@ -402,14 +398,20 @@ int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *erro
                     continue;
                 }
 
-                if (!(alreadyTriedSslVersions & KTcpSocket::TlsV1)) {
+                if (!(alreadyTriedSslVersions & KTcpSocket::TlsV1_2)) {
                     trySslVersion = KTcpSocket::TlsV1;
                     alreadyTriedSslVersions |= trySslVersion;
                     continue;
                 }
 
-                if (!(alreadyTriedSslVersions & KTcpSocket::SslV3)) {
-                    trySslVersion = KTcpSocket::SslV3;
+                if (!(alreadyTriedSslVersions & KTcpSocket::TlsV1_1)) {
+                    trySslVersion = KTcpSocket::TlsV1;
+                    alreadyTriedSslVersions |= trySslVersion;
+                    continue;
+                }
+
+                if (!(alreadyTriedSslVersions & KTcpSocket::TlsV1_0)) {
+                    trySslVersion = KTcpSocket::TlsV1_0;
                     alreadyTriedSslVersions |= trySslVersion;
                     continue;
                 }
@@ -493,25 +495,16 @@ bool TCPSlaveBase::startSsl()
 }
 
 TCPSlaveBase::SslResult TCPSlaveBase::TcpSlaveBasePrivate::startTLSInternal(KTcpSocket::SslVersion version,
-        const QSslConfiguration &sslConfig,
-        int waitForEncryptedTimeout)
+                                                                            int waitForEncryptedTimeout)
 {
     q->selectClientCertificate();
 
     //setMetaData("ssl_session_id", d->kssl->session()->toString());
     //### we don't support session reuse for now...
     usingSSL = true;
-#if QT_VERSION >= 0x040800
-    /*qDebug() << "Trying SSL handshake with protocol:" << version
-      << ", SSL compression ON:" << sslConfig.testSslOption(QSsl::SslOptionDisableCompression);*/
-#endif
+
     // Set the SSL version to use...
     socket.setAdvertisedSslVersion(version);
-
-    // Set SSL configuration information
-    if (!sslConfig.isNull()) {
-        socket.setSslConfiguration(sslConfig);
-    }
 
     /* Usually ignoreSslErrors() would be called in the slot invoked by the sslErrors()
        signal but that would mess up the flow of control. We will check for errors

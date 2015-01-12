@@ -160,9 +160,13 @@ public:
         SslV3_1 = 0x08,
         TlsV1SslV3 = 0x10,
         SecureProtocols = 0x20,
+        TlsV1_0 = TlsV1,
+        TlsV1_1 = 0x40,
+        TlsV1_2 = 0x80,
         AnySslVersion = SslV2 | SslV3 | TlsV1
     };
     Q_DECLARE_FLAGS(SslVersions, SslVersion)
+
     enum Error {
         UnknownError = 0,
         ConnectionRefusedError,
