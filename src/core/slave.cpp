@@ -35,7 +35,6 @@
 #include <kpluginloader.h>
 
 #include "dataprotocol_p.h"
-#include "kservice.h"
 #include "connection_p.h"
 #include "commands_p.h"
 #include "connectionserver.h"
