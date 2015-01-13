@@ -22,7 +22,6 @@
 #include <QDebug>
 #include <QtTest>
 #include <qstandardpaths.h>
-#include <kservice.h>
 
 // Tests both KProtocolInfo and KProtocolManager
 
