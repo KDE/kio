@@ -11,7 +11,15 @@ set_target_properties(kded_kpasswdserver PROPERTIES
     OUTPUT_NAME kpasswdserver
 )
 
-target_link_libraries(kded_kpasswdserver KF5::DBusAddons KF5::KIOCore KF5::Wallet KF5::WidgetsAddons KF5::I18n KF5::WindowSystem)
+target_link_libraries(kded_kpasswdserver
+   KF5::DBusAddons    # KDED Module
+   Qt5::DBus
+   KF5::KIOCore
+   KF5::Wallet
+   KF5::WidgetsAddons # KPasswordDialog
+   KF5::I18n
+   KF5::WindowSystem
+)
 
 install(TARGETS kded_kpasswdserver  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kded )
 
