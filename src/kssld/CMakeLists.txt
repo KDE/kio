@@ -13,7 +13,7 @@ PUBLIC
    KF5::KIOCore     # ksslcertificatemanager
    KF5::DBusAddons # kdedmodule
 PRIVATE
-   KF5::Service    # kpluginfactory
+   KF5::CoreAddons  # kpluginfactory
    Qt5::Network
    Qt5::DBus
 )
