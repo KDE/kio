@@ -1,16 +1,21 @@
 add_subdirectory(core)
-add_subdirectory(widgets)
-add_subdirectory(filewidgets)
+
+# KIOCore-only libs
 add_subdirectory(kntlm)
 add_subdirectory(ioslaves)
 add_subdirectory(kssld)
 add_subdirectory(kioslave)
-add_subdirectory(kioexec)
+
+if (NOT KIOCORE_ONLY)
 add_subdirectory(kpasswdserver)
+add_subdirectory(widgets)
+add_subdirectory(filewidgets)
+add_subdirectory(kioexec)
 add_subdirectory(urifilters)
 add_subdirectory(kcms)
 
 if(NOT WIN32)
   # arpa/nameser.h
   add_subdirectory(kpac)
+endif()
 endif()

@@ -16,6 +16,7 @@ include(GenerateExportHeader)
 include(ECMMarkAsTest)
 include(ECMSetupVersion)
 include(ECMGenerateHeaders)
+include(ECMMarkNonGuiExecutable)
 
 set(KF5_VERSION "5.7.0") # handled by release scripts
 set(KF5_DEP_VERSION "5.6.0") # handled by release scripts
@@ -27,21 +28,27 @@ ecm_setup_version(
   PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5KIOConfigVersion.cmake"
   SOVERSION 5)
 
-find_package(KF5Bookmarks ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5Completion ${KF5_DEP_VERSION} REQUIRED)
+option(KIOCORE_ONLY "Only compile KIOCore, not KIOWidgets or anything that depends on it. This will disable support for cookies and passwordhandling (prompting and storing)." OFF)
+
+find_package(KF5Archive ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5Config ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5ConfigWidgets ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5CoreAddons ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5DBusAddons ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5DocTools ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5I18n ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5Service ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5DocTools ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5Solid ${KF5_DEP_VERSION} REQUIRED) # for kio_trash
+
+if (NOT KIOCORE_ONLY)
+find_package(KF5Bookmarks ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5Completion ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5ConfigWidgets ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5IconThemes ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5ItemViews ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5JobWidgets ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5Service ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5Solid ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5WidgetsAddons ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5WindowSystem ${KF5_DEP_VERSION} REQUIRED)
+endif()
 
 # TODO: Remove these
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
@@ -73,11 +80,16 @@ if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
     ki18n_install(po)
     kdoctools_install(po)
 endif()
+if (KF5DocTools_FOUND)
 add_subdirectory(docs)
+endif()
 include(CheckLibraryExists)
 add_subdirectory(src)
 add_subdirectory(autotests)
+
+if (NOT KIOCORE_ONLY)
 add_subdirectory(tests)
+endif()
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5KIO")

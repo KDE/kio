@@ -45,6 +45,7 @@ if(UNIX)
   )
 endif()
 
+if (TARGET KF5::KIOWidgets)
 ecm_add_tests(
  clipboardupdatertest.cpp
  dropjobtest.cpp
@@ -63,7 +64,9 @@ ecm_add_tests(
 )
 
 set_target_properties(krununittest PROPERTIES COMPILE_FLAGS "-DCMAKE_INSTALL_FULL_LIBEXECDIR_KF5=\\\"${CMAKE_INSTALL_FULL_LIBEXECDIR_KF5}\\\"")
+endif()
 
+if (TARGET KF5::KIOFileWidgets)
 include_directories(${CMAKE_SOURCE_DIR}/src/filewidgets ${CMAKE_BINARY_DIR}/src/filewidgets)
 ecm_add_tests(
  kurlnavigatortest.cpp
@@ -73,4 +76,5 @@ ecm_add_tests(
  NAME_PREFIX "kiofilewidgets-"
  LINK_LIBRARIES KF5::KIOFileWidgets KF5::KIOWidgets KF5::Bookmarks Qt5::Test
 )
+endif()
 

@@ -1,5 +1,3 @@
-include(ECMMarkNonGuiExecutable)
-
 ####### kcookiejar: command line tool for talking to the kded kcookiejar module #######
 qt5_generate_dbus_interface(${CMAKE_CURRENT_SOURCE_DIR}/kcookieserver.h org.kde.KCookieServer.xml)
 set(kcookieserver_xml ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KCookieServer.xml)

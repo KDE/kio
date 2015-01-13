@@ -58,7 +58,7 @@ install(TARGETS ktrash5 ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 ########### next target ###############
 
 # currently not on win32, TODO!
-if(NOT WIN32)
+if(NOT WIN32 AND NOT KIOCORE_ONLY)
     set(kcm_trash_PART_SRCS kcmtrash.cpp ${trashcommon_PART_SRCS})
     add_library(kcm_trash MODULE ${kcm_trash_PART_SRCS})
     target_link_libraries(kcm_trash
