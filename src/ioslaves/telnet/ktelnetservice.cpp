@@ -25,7 +25,7 @@
 #include <QApplication>
 #include <ktoolinvocation.h>
 #include <kauthorized.h>
-#include <kmessagebox.h>
+#include <QMessageBox>
 #include <QDebug>
 #include <klocalizedstring.h>
 #include <kconfig.h>
@@ -64,7 +64,7 @@ int main(int argc, char **argv)
     }
 
     if (!KAuthorized::authorize("shell_access")) {
-        KMessageBox::sorry(0,
+        QMessageBox::critical(0, i18n("Access denied"),
                            i18n("You do not have permission to access the %1 protocol.", url.scheme()));
         return 3;
     }
