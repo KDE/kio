@@ -49,12 +49,12 @@
 #include <QtNetwork/QTcpSocket>
 #include <QNetworkConfigurationManager>
 #include <QUrl>
+#include <QCoreApplication>
 
 #include <QDebug>
 #include <kconfig.h>
 #include <kconfiggroup.h>
 #include <klocalizedstring.h>
-#include <kservice.h>
 
 #include <QDBusInterface>
 #include <kremoteencoding.h>
