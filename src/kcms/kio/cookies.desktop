@@ -41,6 +41,7 @@ Name[sv]=Kakor
 Name[tr]=Çerezler
 Name[uk]=Куки
 Name[x-test]=xxCookiesxx
+Name[zh_CN]=Cookies
 
 Comment=Configure the way cookies work
 Comment[af]=Konfigureer die weg koekies werk
@@ -147,3 +148,4 @@ X-KDE-Keywords[sv]=Kakor,Webbläsning,Internet,WWW,Nätverk,Princip,Domäner
 X-KDE-Keywords[tr]=Çerezler,Tarama,İnternet,WWW,Ağ,Politika,Alan Adları
 X-KDE-Keywords[uk]=Cookies,Browsing,Internet,WWW,Network,Policy,Domains,кука,куки,перегляд,інтернет,мережа,правило,правила,домен,домени
 X-KDE-Keywords[x-test]=xxCookies,Browsing,Internet,WWW,Network,Policy,Domainsxx
+X-KDE-Keywords[zh_CN]=Cookies,Browsing,Internet,WWW,Network,Policy,Domains,浏览,互联网,网络,策略,域名

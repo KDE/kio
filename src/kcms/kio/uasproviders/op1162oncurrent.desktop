@@ -25,6 +25,7 @@ Name[sv]=AA-beskrivning (Opera 11.62 på aktuell)
 Name[tr]=Kullanıcı Uygulaması Tanımı (geçerli işletim sistemi üzerinde Opera 11.62)
 Name[uk]=UADescription (Opera 11.62 на поточній)
 Name[x-test]=xxUADescription (Opera 11.62 on current)xx
+Name[zh_CN]=客户端描述(运行于本机的 Opera 11.62)
 Type=Service
 X-KDE-ServiceTypes=UserAgentStrings
 X-KDE-UA-TAG=OPR
