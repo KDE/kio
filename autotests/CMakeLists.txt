@@ -72,6 +72,7 @@ ecm_add_tests(
  kurlnavigatortest.cpp
  kdiroperatortest.cpp
  knewfilemenutest.cpp
+ kfilecopytomenutest.cpp
  kfileplacesmodeltest.cpp
  NAME_PREFIX "kiofilewidgets-"
  LINK_LIBRARIES KF5::KIOFileWidgets KF5::KIOWidgets KF5::Bookmarks Qt5::Test

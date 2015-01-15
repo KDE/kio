@@ -18,6 +18,7 @@ set(kiofilewidgets_SRCS
   kdirsortfilterproxymodel.cpp #used in combination with kdirmodel.cpp
   kencodingfiledialog.cpp
   kfilebookmarkhandler.cpp
+  kfilecopytomenu.cpp
   kfilefiltercombo.cpp
   kfilewidget.cpp
   kfileplacesitem.cpp
@@ -71,6 +72,7 @@ ecm_generate_headers(KIOFileWidgets_HEADERS
   KStatusBarOfflineIndicator
   KDirOperator
   KDirSortFilterProxyModel
+  KFileCopyToMenu
   KFileFilterCombo
   KFilePlacesModel
   KFilePlacesView
