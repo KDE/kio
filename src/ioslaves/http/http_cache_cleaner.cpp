@@ -46,6 +46,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <qcommandlineoption.h>
 #include <QCryptographicHash>
 #include <QDBusError>
+#include <QDataStream>
 
 QDateTime g_currentDate;
 int g_maxCacheAge;

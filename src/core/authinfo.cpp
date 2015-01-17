@@ -24,6 +24,7 @@
 #include <QtCore/QDir>
 #include <QtCore/QFile>
 #include <QtCore/QTextStream>
+#include <QtCore/QDataStream>
 #include <QtDBus/QDBusArgument>
 #include <QtDBus/QDBusMetaType>
 

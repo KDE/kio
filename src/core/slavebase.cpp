@@ -37,6 +37,7 @@
 #include <QtCore/QDateTime>
 #include <QtCore/QElapsedTimer>
 #include <QtCore/QCoreApplication>
+#include <QtCore/QDataStream>
 
 #include <kconfig.h>
 #include <kconfiggroup.h>

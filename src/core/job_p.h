@@ -32,6 +32,7 @@
 #include <kio/jobuidelegatefactory.h>
 #include <QUrl>
 #include <QPointer>
+#include <QDataStream>
 
 #define KIO_ARGS QByteArray packedArgs; QDataStream stream( &packedArgs, QIODevice::WriteOnly ); stream
 

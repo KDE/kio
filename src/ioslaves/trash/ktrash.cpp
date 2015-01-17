@@ -22,6 +22,7 @@
 #include <QUrl>
 #include <QCommandLineParser>
 #include <QCommandLineOption>
+#include <QDataStream>
 #include <KLocalizedString>
 #include <KIO/EmptyTrashJob>
 

@@ -67,6 +67,7 @@
 #include <klocalizedstring.h>
 #include <QMimeDatabase>
 #include <QStandardPaths>
+#include <QDataStream>
 
 #if HAVE_VOLMGT
 #include <volmgt.h>

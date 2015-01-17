@@ -50,6 +50,7 @@
 #include <QNetworkConfigurationManager>
 #include <QUrl>
 #include <QCoreApplication>
+#include <QDataStream>
 
 #include <QDebug>
 #include <kconfig.h>

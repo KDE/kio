@@ -23,6 +23,8 @@
 #include "commands_p.h" // CMD_*
 #include "slaveinterface.h" // MSG_*
 
+#include <QDataStream>
+
 using namespace KIO;
 
 class KIO::IdleSlavePrivate

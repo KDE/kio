@@ -27,6 +27,7 @@
 
 #include <QtCore/QMap>
 #include <QtCore/QStringList>
+#include <QtCore/QUrl>
 
 #define DEFAULT_PREFERRED_SEARCH_PROVIDERS \
 QStringList() << "google" << "youtube" << "yahoo" << "wikipedia" << "wikit"

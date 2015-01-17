@@ -21,6 +21,7 @@
 #include "davjob.h"
 
 #include <QtXml/QDomDocument>
+#include <QtCore/QDataStream>
 
 #include "httpmethod_p.h"
 

@@ -33,6 +33,7 @@
 
 #include <QDBusConnection>
 #include <QtCore/QPointer>
+#include <QtCore/QDataStream>
 #include <QtNetwork/QSslCertificate>
 #include <QtNetwork/QSslError>
 

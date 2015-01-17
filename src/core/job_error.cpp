@@ -22,6 +22,7 @@
 #include <klocalizedstring.h>
 #include <QUrl>
 #include <QDateTime>
+#include <QDataStream>
 #include <sys/stat.h> // S_IRUSR etc
 
 QString KIO::Job::errorString() const
