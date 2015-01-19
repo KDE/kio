@@ -1234,4 +1234,3 @@ void TestTrash::testIcons()
 
 QTEST_MAIN(TestTrash) // QT5 TODO: NOGUI
 
-#include "testtrash.moc"

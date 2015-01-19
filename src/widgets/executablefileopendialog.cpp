@@ -61,4 +61,3 @@ bool ExecutableFileOpenDialog::isDontAskAgainChecked() const
     return m_dontAskAgain->isChecked();
 }
 
-#include "executablefileopendialog.moc"

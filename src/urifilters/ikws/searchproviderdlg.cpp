@@ -173,4 +173,3 @@ void SearchProviderDialog::pastePlaceholder() {
     m_dlg.leQuery->setFocus();
 }
 
-#include "searchproviderdlg.moc"

@@ -112,4 +112,3 @@ void GlobalTest::testSuggestName()
     QCOMPARE(KIO::suggestName(baseUrl, oldName), expectedOutput);
 }
 
-#include "globaltest.moc"
