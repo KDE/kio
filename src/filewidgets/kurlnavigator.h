@@ -450,7 +450,7 @@ protected:
 private:
     Q_PRIVATE_SLOT(d, void slotReturnPressed())
     Q_PRIVATE_SLOT(d, void slotProtocolChanged(const QString &protocol))
-    Q_PRIVATE_SLOT(d, void switchView())
+    Q_PRIVATE_SLOT(d, void slotToggleEditableButtonPressed())
     Q_PRIVATE_SLOT(d, void dropUrls(const QUrl &destination, QDropEvent *))
     Q_PRIVATE_SLOT(d, void slotNavigatorButtonClicked(const QUrl &url, Qt::MouseButton button))
     Q_PRIVATE_SLOT(d, void openContextMenu())

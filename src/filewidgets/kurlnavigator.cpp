@@ -69,6 +69,9 @@ public:
 
     void initialize(const QUrl &url);
 
+    /** Applies the edited URL in m_pathBox to the URL navigator */
+    void applyUncommittedUrl();
+
     void slotReturnPressed();
     void slotProtocolChanged(const QString &);
     void openPathSelectorMenu();
@@ -81,9 +84,14 @@ public:
     void appendWidget(QWidget *widget, int stretch = 0);
 
     /**
+     * This slot is connected to the clicked signal of the navigation bar button. It calls switchView().
+     * Moreover, if switching from "editable" mode to the breadcrumb view, it calls applyUncommittedUrl().
+     */
+    void slotToggleEditableButtonPressed();
+
+    /**
      * Switches the navigation bar between the breadcrumb view and the
-     * traditional view (see setUrlEditable()) and is connected to the clicked signal
-     * of the navigation bar button.
+     * traditional view (see setUrlEditable()).
      */
     void switchView();
 
@@ -254,7 +262,7 @@ KUrlNavigator::Private::Private(KUrlNavigator *q, KFilePlacesModel *placesModel)
     m_toggleEditableMode->installEventFilter(q);
     m_toggleEditableMode->setMinimumWidth(20);
     connect(m_toggleEditableMode, SIGNAL(clicked()),
-            q, SLOT(switchView()));
+            q, SLOT(slotToggleEditableButtonPressed()));
 
     if (m_placesSelector != 0) {
         m_layout->addWidget(m_placesSelector);
@@ -291,7 +299,7 @@ void KUrlNavigator::Private::appendWidget(QWidget *widget, int stretch)
     m_layout->insertWidget(m_layout->count() - 1, widget, stretch);
 }
 
-void KUrlNavigator::Private::slotReturnPressed()
+void KUrlNavigator::Private::applyUncommittedUrl()
 {
     // Parts of the following code have been taken
     // from the class KateFileSelector located in
@@ -311,6 +319,11 @@ void KUrlNavigator::Private::slotReturnPressed()
     // synchronize the result in the path box.
     const QUrl currentUrl = q->locationUrl();
     m_pathBox->setUrl(currentUrl);
+}
+
+void KUrlNavigator::Private::slotReturnPressed()
+{
+    applyUncommittedUrl();
 
     emit q->returnPressed();
 
@@ -381,6 +394,15 @@ void KUrlNavigator::Private::openPathSelectorMenu()
     if (popup) {
         popup->deleteLater();
     }
+}
+
+void KUrlNavigator::Private::slotToggleEditableButtonPressed()
+{
+    if (m_editable) {
+        applyUncommittedUrl();
+    }
+
+    switchView();
 }
 
 void KUrlNavigator::Private::switchView()
