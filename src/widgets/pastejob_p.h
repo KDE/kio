@@ -55,9 +55,8 @@ public:
     {
         PasteJob *job = new PasteJob(*new PasteJobPrivate(mimeData, destDir, flags, clipboard));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
-        if (!(flags & HideProgressInfo)) {
-            KIO::getJobTracker()->registerJob(job);
-        }
+        // Note: never KIO::getJobTracker()->registerJob here
+        // The progress information comes from the underlying job (so we don't have to forward it here).
         return job;
     }
 };
