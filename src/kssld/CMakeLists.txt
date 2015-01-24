@@ -1,14 +1,11 @@
 
-########### next target ###############
+########### kssld kiod module ###############
 
-set(kded_kssld_SRCS kssld.cpp )
+set(kssld_SRCS kssld.cpp )
 
-add_library(kded_kssld MODULE ${kded_kssld_SRCS})
-set_target_properties(kded_kssld PROPERTIES
-    OUTPUT_NAME kssld
-)
+add_library(kssld MODULE ${kssld_SRCS})
 
-target_link_libraries(kded_kssld
+target_link_libraries(kssld
 PUBLIC
    KF5::KIOCore     # ksslcertificatemanager
    KF5::DBusAddons # kdedmodule
@@ -18,12 +15,7 @@ PRIVATE
    Qt5::DBus
 )
 
-install(TARGETS kded_kssld  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kded )
+kcoreaddons_desktop_to_json(kssld kssld.desktop)
 
-########### install files ###############
-
-install( FILES kssld.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR}/kded )
-
-
-
+install(TARGETS kssld  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kiod )
 

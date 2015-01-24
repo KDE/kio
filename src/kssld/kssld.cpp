@@ -33,8 +33,7 @@
 #include <kpluginfactory.h>
 #include <kpluginloader.h>
 
-K_PLUGIN_FACTORY(KSSLDFactory, registerPlugin<KSSLD>();)
-//KDECORE_EXPORT void *__kde_do_unload; // TODO re-add support for this?
+K_PLUGIN_FACTORY_WITH_JSON(KSSLDFactory, "kssld.json", registerPlugin<KSSLD>();)
 
 class KSSLDPrivate
 {

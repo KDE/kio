@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=org.kde.kiod5
+Exec=@KDE_INSTALL_FULL_LIBEXECDIR@/kf5/kiod5
+

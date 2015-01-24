@@ -1,10 +1,8 @@
 [Desktop Entry]
 Type=Service
+X-KDE-DBus-ServiceName=org.kde.kssld5
 X-KDE-ServiceTypes=KDEDModule
-X-KDE-Library=kf5/kded/kssld
-X-KDE-DBus-ModuleName=kssld
-X-KDE-Kded-autoload=false
-X-KDE-Kded-load-on-demand=true
+X-KDE-Library=kf5/kiod/kssld
 Name=SSL Certificate Policy
 Name[ar]=سياسة شهادات SSL
 Name[ca]=Política pels certificats SSL

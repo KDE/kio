@@ -1,8 +1,9 @@
 add_subdirectory(core)
 
-# KIOCore-only libs
+# KIOCore-only executables
 add_subdirectory(kntlm)
 add_subdirectory(ioslaves)
+add_subdirectory(kiod)
 add_subdirectory(kssld)
 add_subdirectory(kioslave)
 
