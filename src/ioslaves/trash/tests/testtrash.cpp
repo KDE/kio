@@ -23,6 +23,7 @@
 #include "testtrash.h"
 #include <kprotocolinfo.h>
 #include <QTemporaryFile>
+#include <QDataStream>
 
 #include <kio/job.h>
 #include <kio/copyjob.h>

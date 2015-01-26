@@ -21,6 +21,7 @@
 
 #include <QTest>
 #include <QVector>
+#include <QDataStream>
 
 #include <udsentry.h>
 
