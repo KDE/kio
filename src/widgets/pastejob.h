@@ -62,9 +62,9 @@ protected:
 
 private:
     Q_DECLARE_PRIVATE(PasteJob)
-    Q_PRIVATE_SLOT(d_func(), void slotStart());
-    Q_PRIVATE_SLOT(d_func(), void slotCopyingDone(KIO::Job*, const QUrl &, const QUrl &to));
-    Q_PRIVATE_SLOT(d_func(), void slotCopyingLinkDone(KIO::Job*, const QUrl &, const QString &, const QUrl &to));
+    Q_PRIVATE_SLOT(d_func(), void slotStart())
+    Q_PRIVATE_SLOT(d_func(), void slotCopyingDone(KIO::Job*, const QUrl &, const QUrl &to))
+    Q_PRIVATE_SLOT(d_func(), void slotCopyingLinkDone(KIO::Job*, const QUrl &, const QString &, const QUrl &to))
 };
 
 /**

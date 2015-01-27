@@ -55,7 +55,7 @@ class HostInfoAgentPrivate : public QObject
     Q_OBJECT
 public:
     HostInfoAgentPrivate(int cacheSize = 100);
-    virtual ~HostInfoAgentPrivate() {};
+    virtual ~HostInfoAgentPrivate() {}
     void lookupHost(const QString &hostName, QObject *receiver, const char *member);
     QHostInfo lookupCachedHostInfoFor(const QString &hostName);
     void cacheLookup(const QHostInfo &);

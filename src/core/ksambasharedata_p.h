@@ -28,16 +28,16 @@ class QString;
 class KSambaShareDataPrivate : public QSharedData
 {
 public:
-    KSambaShareDataPrivate() {};
+    KSambaShareDataPrivate() {}
     KSambaShareDataPrivate(const KSambaShareDataPrivate &other)
         : QSharedData(other)
         , name(other.name)
         , path(other.path)
         , comment(other.comment)
         , acl(other.acl)
-        , guestPermission(other.guestPermission) {};
+        , guestPermission(other.guestPermission) {}
 
-    ~KSambaShareDataPrivate() {};
+    ~KSambaShareDataPrivate() {}
 
     QString name;
     QString path;
