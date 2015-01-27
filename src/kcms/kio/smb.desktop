@@ -50,6 +50,7 @@ Name[kk]=Windows ортақ ресурстары
 Name[kn]=ವಿಂಡೋಸ್ ಹಂಚಿಕೆಗಳು (ಷೇರ್)
 Name[ko]=Windows 공유
 Name[ku]=Parvekirinên Windowsê
+Name[lt]=Windows bendro naudojimo diskai
 Name[mai]=विंडोज साझेदारी
 Name[mk]=Windows заеднички
 Name[ml]=വിന്‍ഡോസില്‍ പങ്കിട്ടവ
@@ -127,6 +128,7 @@ Comment[kk]=Windows-компьютерлердің қай файл жүйеле�
 Comment[kn]=ನೀನು ವೀಕ್ಷಿಸಬಹುದಾದ ವಿಂಡೋಸ್ ಕಡತವ್ಯವಸ್ಥೆಗಳನ್ನು (SMB) ಸಂರಚಿಸಲು ಬಳಸು
 Comment[ko]=Windows (SMB) 파일 시스템 탐색 설정
 Comment[ku]=Di avakirina pergalên pelan ên Windowsê (Samba) ku dikarî bibînî de tê bikaranîn
+Comment[lt]=Naudokite tai norėdami nustatyti kurias Windows (SMB) failų sistemas Jūs galėsite naršyti
 Comment[mai]=बिन्यस्त करब क' लेल इस्तेमाल करू जे कओन सँ विंडोज फाइलसिस्टम (SMB) अहाँ ब्राउज कए सकैत छी. 
 Comment[mk]=Користете го за да конфигурирате кои windows (SMB) датотечни системи можете да ги прелистувате
 Comment[ml]=നിങ്ങള്‍ക്കു് പരതാവുന്ന ജാലക (എസ്എംബി) ഫയല്‍ സിസ്റ്റങ്ങള്‍ ഏതെല്ലാമാണെന്നു് ക്രമീകരിയ്ക്കാന്‍ ഉപയോഗിയ്ക്കുന്നു
@@ -175,6 +177,7 @@ X-KDE-Keywords[fi]=SMB,SAMBA,SMB client,SMB-asiakas,SMB-ohjelma,Windows-verkko,L
 X-KDE-Keywords[fr]=SMB, SAMBA,client SMB, réseau Windows, LAN, réseau, voisinage,Serveur, diffusion, WINS, partages, connexion, mots de passe
 X-KDE-Keywords[it]=SMB,SAMBA,client SMB,rete di Windows,LAN,Rete,vicinanza,Server,Broadcast,WINS,Share,Login,Password
 X-KDE-Keywords[ko]=SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords,삼바,윈도우,윈도우 네트워크,네트워크 환경,내 네트워크 환경,로그인,공유,암호,비밀번호
+X-KDE-Keywords[lt]=SMB,SAMBA,SMB klientas,Windows tinklas,LAN,tinklas,tinklo aplinka,Serveris,Transliavimas,WINS,Bendrinti,Registracija,Slaptažodžiai
 X-KDE-Keywords[nb]=SMB,SAMBA,SMB-klient,Windows-nettverk,LAN,Nettverk,nabolag,Tjener,Kringkasting,WINS,Ressurs,Login,Passord
 X-KDE-Keywords[nl]=SMB,SAMBA,SMB-client,Windows-netwerk,LAN,netwerk,nabije omgeving,server,broadcast,WINS,delen,aanmelden,wachtwoorden
 X-KDE-Keywords[pl]=SMB,SAMBA,Klient SMB,Sieć Windows, LAN,Sieć,otoczenie,Serwer,Broadcast,WINS,Udostępnianie,Współdzielenie,Login,Hasła

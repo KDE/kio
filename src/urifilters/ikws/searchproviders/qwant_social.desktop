@@ -14,6 +14,7 @@ Name[hu]=Qwant közösség
 Name[id]=Qwant Sosial
 Name[it]=Rete sociale di Qwant
 Name[ko]=Qwant 소셜
+Name[lt]=Qwant socialinės naujienos
 Name[mr]=क्वांट सामाजिक
 Name[nb]=Qwant sosialt
 Name[nds]=Qwant-Meenschap
@@ -48,6 +49,7 @@ Query[hu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[id]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[it]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[ko]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
+Query[lt]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[mr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[nb]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[nds]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
