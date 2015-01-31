@@ -100,15 +100,15 @@ public:
     void reserve(int size);
 
     /**
-     * insert field with numeric value
+     * insert field with string value
      * @param field numeric field id
-     * @param value
+     * @param value to set
      */
     void insert(uint field, const QString &value);
 
     /**
-     * insert field with string value
-     * @param field numeric tield id
+     * insert field with numeric value
+     * @param field numeric field id
      * @param l value to set
      */
     void insert(uint field, long long l);
