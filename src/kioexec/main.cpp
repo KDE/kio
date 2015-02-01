@@ -23,6 +23,7 @@
 #include "kio_version.h"
 
 #include <QtCore/QFile>
+#include <QtCore/QDir>
 #include <QtCore/Q_PID>
 
 #include <job.h>
@@ -109,6 +110,7 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
                 // (Some programs rely on it)
                 QString tmp = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + "/krun/"  +
                               QString("%1_%2_%3").arg(QCoreApplication::applicationPid()).arg(jobCounter++).arg(fileName);
+                QDir().mkpath(tmp); // error handling will be done by the job
                 FileInfo file;
                 file.path = tmp;
                 file.url = url;
