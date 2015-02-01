@@ -183,7 +183,8 @@ QVariant KFilePlacesItem::deviceData(int role) const
             return KDE::icon(m_iconPath, m_emblems);
         case KFilePlacesModel::UrlRole:
             if (m_access) {
-                return QUrl::fromLocalFile(m_access->filePath());
+                const QString path = m_access->filePath();
+                return path.isEmpty() ? QUrl() : QUrl::fromLocalFile(path);
             } else if (m_disc && (m_disc->availableContent() & Solid::OpticalDisc::Audio) != 0) {
                 Solid::Block *block = d.as<Solid::Block>();
                 if (block) {
