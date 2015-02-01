@@ -270,7 +270,7 @@ bool operator==(const UDSEntry &a, const UDSEntry &b)
         return false;
     }
 
-    const QList<uint> fields = a.listFields();
+    const QVector<uint> fields = a.fields();
     foreach (uint field, fields) {
         if (!b.contains(field)) {
             return false;

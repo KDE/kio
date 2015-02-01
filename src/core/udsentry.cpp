@@ -149,9 +149,16 @@ void UDSEntry::insert(uint field, long long value)
     d->insert(field, UDSEntryPrivate::Field(value));
 }
 
+#ifndef KIOCORE_NO_DEPRECATED
 QList<uint> UDSEntry::listFields() const
 {
     return d->udsIndexes.toList();
+}
+#endif
+
+QVector<uint> UDSEntry::fields() const
+{
+    return d->udsIndexes;
 }
 
 int UDSEntry::count() const

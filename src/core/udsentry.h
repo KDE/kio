@@ -126,9 +126,20 @@ public:
     bool contains(uint field) const;
 
     /**
-     * lists all fields
+     * List all fields.
+     * @return all fields.
+     * @deprecated since 5.8. Use fields() instead.
      */
-    QList<uint> listFields() const;
+#ifndef KIOCORE_NO_DEPRECATED
+    KIOCORE_DEPRECATED QList<uint> listFields() const;
+#endif
+
+    /**
+     * A vector of fields being present for the current entry.
+     * @return all fields for the current entry.
+     * @since 5.8
+     */
+    QVector<uint> fields() const;
 
     /**
      * remove all fields

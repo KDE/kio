@@ -348,8 +348,8 @@ void KioslaveTest::printUDSEntry(const KIO::UDSEntry &entry)
     // It's rather rare to iterate that way, usually you'd use numberValue/stringValue directly.
     // This is just to print out all that we got
 
-    const QList<uint> keys = entry.listFields();
-    QList<uint>::const_iterator it = keys.begin();
+    const QVector<uint> keys = entry.fields();
+    QVector<uint>::const_iterator it = keys.begin();
     for (; it != keys.end(); ++it) {
         switch (*it) {
         case KIO::UDSEntry::UDS_FILE_TYPE: {
@@ -401,8 +401,8 @@ void KioslaveTest::slotEntries(KIO::Job *job, const KIO::UDSEntryList &list)
         qDebug() << name;
 
         KProtocolInfo::ExtraFieldList::Iterator extraFieldsIt = extraFields.begin();
-        const QList<uint> fields = it->listFields();
-        QList<uint>::ConstIterator it2 = fields.begin();
+        const QVector<uint> fields = it->fields();
+        QVector<uint>::ConstIterator it2 = fields.begin();
         for (; it2 != fields.end(); it2++) {
             if (*it2 >= UDSEntry::UDS_EXTRA && *it2 <= UDSEntry::UDS_EXTRA_END) {
                 if (extraFieldsIt != extraFields.end()) {
