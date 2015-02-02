@@ -368,7 +368,9 @@ KIO::ClipboardUpdater *KIO::JobUiDelegate::createClipboardUpdater(Job *job, Clip
 
 void KIO::JobUiDelegate::updateUrlInClipboard(const QUrl &src, const QUrl &dest)
 {
-    KIO::ClipboardUpdater::update(src, dest);
+    if (qobject_cast<QGuiApplication *>(qApp) != NULL) {
+        KIO::ClipboardUpdater::update(src, dest);
+    }
 }
 
 class KIOWidgetJobUiDelegateFactory : public KIO::JobUiDelegateFactory
