@@ -928,6 +928,7 @@ static QList<QUrl> createManyFiles(const QString &baseDir, int numFiles)
         QFile f(file);
         bool ok = f.open(QIODevice::WriteOnly);
         if (ok) {
+            f.write("Hello");
             ret.append(QUrl::fromLocalFile(file));
         }
     }
@@ -1294,5 +1295,45 @@ void JobTest::moveOverSymlinkToSelf() // #169547
     QCOMPARE(job->error(), (int)KIO::ERR_FILE_ALREADY_EXIST); // and not ERR_IDENTICAL_FILES!
     QVERIFY(QFile::exists(sourceFile)); // it not moved
 #endif
+}
+
+void JobTest::multiGet()
+{
+    const int numFiles = 10;
+    const QString baseDir = homeTmpDir();
+    const QList<QUrl> urls = createManyFiles(baseDir, numFiles);
+    QCOMPARE(urls.count(), numFiles);
+
+    //qDebug() << file;
+    KIO::MultiGetJob *job = KIO::multi_get(0, urls.at(0), KIO::MetaData()); // TODO: missing KIO::HideProgressInfo
+    QSignalSpy spyData(job, SIGNAL(data(long, QByteArray)));
+    QSignalSpy spyMimeType(job, SIGNAL(mimetype(long, QString)));
+    QSignalSpy spyResultId(job, SIGNAL(result(long)));
+    QSignalSpy spyResult(job, SIGNAL(result(KJob*)));
+    job->setUiDelegate(0);
+
+    for (int i = 1; i < numFiles; ++i) {
+        const QUrl url = urls.at(i);
+        job->get(i, url, KIO::MetaData());
+    }
+    //connect(job, &KIO::MultiGetJob::result, [=] (long id) { qDebug() << "ID I got" << id;});
+    //connect(job, &KJob::result, [this](KJob* ) {qDebug() << "END";});
+
+    bool ok = job->exec();
+    QVERIFY(ok);
+
+    QCOMPARE(spyResult.count(), 1);
+    QCOMPARE(spyResultId.count(), numFiles);
+    QCOMPARE(spyMimeType.count(), numFiles);
+    QCOMPARE(spyData.count(), numFiles * 2);
+    for (int i = 0; i < numFiles; ++i) {
+        QCOMPARE(spyResultId.at(i).at(0).toInt(), i);
+        QCOMPARE(spyMimeType.at(i).at(0).toInt(), i);
+        QCOMPARE(spyMimeType.at(i).at(1).toString(), QString("text/plain"));
+        QCOMPARE(spyData.at(i * 2).at(0).toInt(), i);
+        QCOMPARE(QString(spyData.at(i * 2).at(1).toByteArray()), QString("Hello"));
+        QCOMPARE(spyData.at(i * 2 + 1).at(0).toInt(), i);
+        QCOMPARE(QString(spyData.at(i * 2 + 1).at(1).toByteArray()), QString(""));
+    }
 }
 

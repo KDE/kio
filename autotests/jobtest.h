@@ -84,6 +84,7 @@ private Q_SLOTS:
     //void copyFileToSystem();
 
     void getInvalidUrl();
+    void multiGet();
 
 Q_SIGNALS:
     void exitLoop();
