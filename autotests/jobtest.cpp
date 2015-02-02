@@ -918,13 +918,20 @@ void JobTest::deleteManyDirs()
     deleteManyDirs(false);
 }
 
-static void createManyFiles(const QString &baseDir, int numFiles)
+static QList<QUrl> createManyFiles(const QString &baseDir, int numFiles)
 {
+    QList<QUrl> ret;
+    ret.reserve(numFiles);
     for (int i = 0; i < numFiles; ++i) {
         // create empty file
-        QFile f(baseDir + QString::number(i));
-        QVERIFY(f.open(QIODevice::WriteOnly));
+        const QString file = baseDir + QString::number(i);
+        QFile f(file);
+        bool ok = f.open(QIODevice::WriteOnly);
+        if (ok) {
+            ret.append(QUrl::fromLocalFile(file));
+        }
     }
+    return ret;
 }
 
 void JobTest::deleteManyFilesIndependently()
@@ -933,13 +940,15 @@ void JobTest::deleteManyFilesIndependently()
     dt.start();
     const int numFiles = 100; // Use 1000 for performance testing
     const QString baseDir = homeTmpDir();
-    createManyFiles(baseDir, numFiles);
+    const QList<QUrl> urls = createManyFiles(baseDir, numFiles);
+    QCOMPARE(urls.count(), numFiles);
     for (int i = 0; i < numFiles; ++i) {
         // delete each file independently. lots of jobs. this stress-tests kio scheduling.
-        const QString file = baseDir + QString::number(i);
+        const QUrl url = urls.at(i);
+        const QString file = url.toLocalFile();
         QVERIFY(QFile::exists(file));
         //qDebug() << file;
-        KIO::Job *job = KIO::del(QUrl::fromLocalFile(file), KIO::HideProgressInfo);
+        KIO::Job *job = KIO::del(url, KIO::HideProgressInfo);
         job->setUiDelegate(0);
         bool ok = job->exec();
         QVERIFY(ok);
@@ -957,13 +966,8 @@ void JobTest::deleteManyFilesTogether(bool using_fast_path)
     dt.start();
     const int numFiles = 100; // Use 1000 for performance testing
     const QString baseDir = homeTmpDir();
-    createManyFiles(baseDir, numFiles);
-    QList<QUrl> urls;
-    for (int i = 0; i < numFiles; ++i) {
-        const QString file = baseDir + QString::number(i);
-        QVERIFY(QFile::exists(file));
-        urls.append(QUrl::fromLocalFile(file));
-    }
+    const QList<QUrl> urls = createManyFiles(baseDir, numFiles);
+    QCOMPARE(urls.count(), numFiles);
 
     //qDebug() << file;
     KIO::Job *job = KIO::del(urls, KIO::HideProgressInfo);
