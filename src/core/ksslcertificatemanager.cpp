@@ -428,14 +428,6 @@ Q_GLOBAL_STATIC(KSslCertificateManagerContainer, g_instance)
 KSslCertificateManager::KSslCertificateManager()
     : d(new KSslCertificateManagerPrivate())
 {
-    // Make sure kded is running
-    QDBusConnectionInterface *bus = QDBusConnection::sessionBus().interface();
-    if (!bus->isServiceRegistered(QLatin1String("org.kde.kded5"))) {
-        QDBusReply<void> reply = bus->startService(QLatin1String("org.kde.kded5"));
-        if (!reply.isValid()) {
-            qWarning() << "Couldn't start kded5 from org.kde.kded5.service:" << reply.error();
-        }
-    }
 }
 
 KSslCertificateManager::~KSslCertificateManager()
