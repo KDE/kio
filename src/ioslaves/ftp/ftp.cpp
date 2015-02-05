@@ -191,8 +191,8 @@ Ftp::Ftp(const QByteArray &pool, const QByteArray &app)
     : SlaveBase("ftp", pool, app)
 {
     // init the socket data
-    m_data = m_control = NULL;
-    m_server = NULL;
+    m_data = m_control = nullptr;
+    m_server = nullptr;
     ftpCloseControlConnection();
 
     // init other members
@@ -212,20 +212,20 @@ Ftp::~Ftp()
 void Ftp::ftpCloseDataConnection()
 {
     delete m_data;
-    m_data = NULL;
+    m_data = nullptr;
     delete m_server;
-    m_server = NULL;
+    m_server = nullptr;
 }
 
 /**
  * This closes a control connection opened by ftpOpenControlConnection() and reinits the
- * related states.  This method gets called from the constructor with m_control = NULL.
+ * related states.  This method gets called from the constructor with m_control = nullptr.
  */
 void Ftp::ftpCloseControlConnection()
 {
     m_extControl = 0;
     delete m_control;
-    m_control = NULL;
+    m_control = nullptr;
     m_cDataMode = 0;
     m_bLoggedOn = false;    // logon needs control connction
     m_bTextMode = false;
@@ -238,7 +238,7 @@ void Ftp::ftpCloseControlConnection()
  */
 const char *Ftp::ftpResponse(int iOffset)
 {
-    Q_ASSERT(m_control != NULL);    // must have control connection socket
+    Q_ASSERT(m_control);    // must have control connection socket
     const char *pTxt = m_lastControlLine.data();
 
     // read the next line ...
@@ -292,7 +292,7 @@ const char *Ftp::ftpResponse(int iOffset)
 
 void Ftp::closeConnection()
 {
-    if (m_control != NULL || m_data != NULL)
+    if (m_control || m_data)
         // qDebug() << "m_bLoggedOn=" << m_bLoggedOn << " m_bBusy=" << m_bBusy;
 
         if (m_bBusy) {           // ftpCloseCommand not called
@@ -340,7 +340,7 @@ bool Ftp::ftpOpenConnection(LoginMode loginMode)
 {
     // check for implicit login if we are already logged on ...
     if (loginMode == loginImplicit && m_bLoggedOn) {
-        Q_ASSERT(m_control != NULL);    // must have control connection socket
+        Q_ASSERT(m_control);    // must have control connection socket
         return true;
     }
 
@@ -741,7 +741,7 @@ void Ftp::ftpAutoLoginMacro()
  */
 bool Ftp::ftpSendCmd(const QByteArray &cmd, int maxretries)
 {
-    Q_ASSERT(m_control != NULL);    // must have control connection socket
+    Q_ASSERT(m_control);    // must have control connection socket
 
     if (cmd.indexOf('\r') != -1 || cmd.indexOf('\n') != -1) {
         qWarning() << "Invalid command received (contains CR or LF):"
@@ -803,7 +803,7 @@ bool Ftp::ftpSendCmd(const QByteArray &cmd, int maxretries)
                 openConnection();  // Attempt to re-establish a new connection...
 
                 if (!m_bLoggedOn) {
-                    if (m_control != NULL) { // if openConnection succeeded ...
+                    if (m_control) { // if openConnection succeeded ...
                         // qDebug() << "Login failure, aborting";
                         error(ERR_CANNOT_LOGIN, m_host);
                         closeConnection();
@@ -835,8 +835,8 @@ bool Ftp::ftpSendCmd(const QByteArray &cmd, int maxretries)
  */
 int Ftp::ftpOpenPASVDataConnection()
 {
-    Q_ASSERT(m_control != NULL);    // must have control connection socket
-    Q_ASSERT(m_data == NULL);       // ... but no data connection
+    Q_ASSERT(m_control);    // must have control connection socket
+    Q_ASSERT(!m_data);      // ... but no data connection
 
     // Check that we can do PASV
     QHostAddress address = m_control->peerAddress();
@@ -892,8 +892,8 @@ int Ftp::ftpOpenPASVDataConnection()
  */
 int Ftp::ftpOpenEPSVDataConnection()
 {
-    Q_ASSERT(m_control != NULL);    // must have control connection socket
-    Q_ASSERT(m_data == NULL);       // ... but no data connection
+    Q_ASSERT(m_control);    // must have control connection socket
+    Q_ASSERT(!m_data);      // ... but no data connection
 
     QHostAddress address = m_control->peerAddress();
     int portnum;
@@ -986,8 +986,8 @@ int Ftp::ftpOpenDataConnection()
  */
 int Ftp::ftpOpenPortDataConnection()
 {
-    Q_ASSERT(m_control != NULL);    // must have control connection socket
-    Q_ASSERT(m_data == NULL);       // ... but no data connection
+    Q_ASSERT(m_control);    // must have control connection socket
+    Q_ASSERT(!m_data);      // ... but no data connection
 
     m_bPasv = false;
     if (m_extControl & eprtUnknown) {
@@ -1001,7 +1001,7 @@ int Ftp::ftpOpenPortDataConnection()
 
     if (!m_server->isListening()) {
         delete m_server;
-        m_server = NULL;
+        m_server = nullptr;
         return ERR_CANNOT_LISTEN;
     }
 
@@ -1028,7 +1028,7 @@ int Ftp::ftpOpenPortDataConnection()
     }
 
     delete m_server;
-    m_server = NULL;
+    m_server = nullptr;
     return ERR_INTERNAL;
 }
 
@@ -1599,7 +1599,7 @@ bool Ftp::ftpOpenDir(const QString &path)
 
 bool Ftp::ftpReadDir(FtpEntry &de)
 {
-    Q_ASSERT(m_data != NULL);
+    Q_ASSERT(m_data);
 
     // get a line from the data connecetion ...
     while (true) {

@@ -82,7 +82,7 @@ TrashImpl::TrashImpl() :
 int TrashImpl::testDir(const QString &_name) const
 {
     DIR *dp = opendir(QFile::encodeName(_name));
-    if (dp == NULL) {
+    if (!dp) {
         QString name = _name;
         if (name.endsWith(QLatin1Char('/'))) {
             name.truncate(name.length() - 1);

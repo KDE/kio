@@ -360,15 +360,15 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
 
 KIO::ClipboardUpdater *KIO::JobUiDelegate::createClipboardUpdater(Job *job, ClipboardUpdaterMode mode)
 {
-    if (qobject_cast<QGuiApplication *>(qApp) != NULL) {
+    if (qobject_cast<QGuiApplication *>(qApp)) {
         return new KIO::ClipboardUpdater(job, mode);
     }
-    return NULL;
+    return nullptr;
 }
 
 void KIO::JobUiDelegate::updateUrlInClipboard(const QUrl &src, const QUrl &dest)
 {
-    if (qobject_cast<QGuiApplication *>(qApp) != NULL) {
+    if (qobject_cast<QGuiApplication *>(qApp)) {
         KIO::ClipboardUpdater::update(src, dest);
     }
 }
