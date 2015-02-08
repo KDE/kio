@@ -471,7 +471,7 @@ bool Ftp::ftpOpenControlConnection(const QString &host, int port)
         if (m_iRespType != 2) {
             // login not successful, do we have an message text?
             if (psz[0]) {
-                sErrorMsg = i18n("%1.\n\nReason: %2", host, psz);
+                sErrorMsg = i18n("%1 (Error %2)", host, remoteEncoding()->decode(psz).trimmed());
             }
             iErrorCode = ERR_CANNOT_CONNECT;
         }
