@@ -291,7 +291,7 @@ static qint64 runCommandInternal(KProcess *proc, const KService *service, const 
                                const QString &userVisibleName, const QString &iconName, QWidget *window,
                                const QByteArray &asn)
 {
-    if (window != NULL) {
+    if (window) {
         window = window->topLevelWidget();
     }
     if (service && !service->entryPath().isEmpty()
@@ -389,10 +389,10 @@ bool KRun::checkStartupNotify(const QString & /*binName*/, const KService *servi
 #endif
         }
     }
-    if (silent_arg != NULL) {
+    if (silent_arg) {
         *silent_arg = silent;
     }
-    if (wmclass_arg != NULL) {
+    if (wmclass_arg) {
         *wmclass_arg = wmclass;
     }
     return true;
@@ -750,7 +750,7 @@ qint64 KRun::runService(const KService &_service, const QList<QUrl> &_urls, QWid
 
     QByteArray myasn = asn;
     // startServiceByDesktopPath() doesn't take QWidget*, add it to the startup info now
-    if (window != NULL) {
+    if (window) {
         if (myasn.isEmpty()) {
             myasn = KStartupInfo::createNewStartupId();
         }
