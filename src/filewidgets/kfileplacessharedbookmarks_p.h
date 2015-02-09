@@ -38,6 +38,8 @@ public:
         /* delete m_sharedBookmarkManager; */
     }
 
+    void updateSharedBookmarks();
+
 private:
 
     bool integrateSharedBookmarks();
@@ -49,7 +51,6 @@ private:
 private Q_SLOTS:
 
     void slotSharedBookmarksChanged();
-    void slotBookmarksChanged();
 
 };
 

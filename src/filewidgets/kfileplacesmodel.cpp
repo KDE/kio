@@ -656,6 +656,8 @@ bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action
         return false;
     }
 
+    d->sharedBookmarks->updateSharedBookmarks();
+
     d->reloadAndSignal();
 
     return true;
@@ -682,6 +684,8 @@ void KFilePlacesModel::addPlace(const QString &text, const QUrl &url,
         KFilePlacesItem *item = static_cast<KFilePlacesItem *>(after.internalPointer());
         d->bookmarkManager->root().moveBookmark(bookmark, item->bookmark());
     }
+
+    d->sharedBookmarks->updateSharedBookmarks();
 
     d->reloadAndSignal();
 }
@@ -710,6 +714,8 @@ void KFilePlacesModel::editPlace(const QModelIndex &index, const QString &text, 
     bookmark.setIcon(iconName);
     bookmark.setMetaDataItem("OnlyInApp", appName);
 
+    d->sharedBookmarks->updateSharedBookmarks();
+
     d->reloadAndSignal();
     emit dataChanged(index, index);
 }
@@ -733,6 +739,7 @@ void KFilePlacesModel::removePlace(const QModelIndex &index) const
     }
 
     d->bookmarkManager->root().deleteBookmark(bookmark);
+    d->sharedBookmarks->updateSharedBookmarks();
     d->reloadAndSignal();
 }
 
@@ -751,6 +758,8 @@ void KFilePlacesModel::setPlaceHidden(const QModelIndex &index, bool hidden)
     }
 
     bookmark.setMetaDataItem("IsHidden", (hidden ? "true" : "false"));
+
+    d->sharedBookmarks->updateSharedBookmarks();
 
     d->reloadAndSignal();
     emit dataChanged(index, index);
