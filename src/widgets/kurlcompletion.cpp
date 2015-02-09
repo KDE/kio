@@ -39,6 +39,7 @@
 #include <QtCore/QThread>
 #include <QtCore/QUrl>
 #include <QtCore/QDebug>
+#include <QProcessEnvironment>
 #include <qplatformdefs.h> // QT_LSTAT, QT_STAT, QT_STATBUF
 
 #include <kurlauthorized.h>
@@ -830,10 +831,6 @@ bool KUrlCompletionPrivate::userCompletion(const KUrlCompletionPrivate::MyURL &u
 // Environment variables
 //
 
-#ifndef Q_OS_WIN
-extern char **environ; // Array of environment variables
-#endif
-
 bool KUrlCompletionPrivate::envCompletion(const KUrlCompletionPrivate::MyURL &url, QString *pMatch)
 {
     if (url.file().isEmpty() || url.file().at(0) != QLatin1Char('$')) {
@@ -844,26 +841,15 @@ bool KUrlCompletionPrivate::envCompletion(const KUrlCompletionPrivate::MyURL &ur
         q->stop();
         q->clear();
 
-        char **env = environ;
+        QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+        QStringList keys = env.keys();
 
         QString dollar = QLatin1String("$");
 
         QStringList l;
 
-        while (*env) {
-            QString s = QString::fromLocal8Bit(*env);
-
-            int pos = s.indexOf(QLatin1Char('='));
-
-            if (pos == -1) {
-                pos = s.length();
-            }
-
-            if (pos > 0) {
-                l.append(prepend + dollar + s.left(pos));
-            }
-
-            env++;
+        Q_FOREACH(const QString &key, keys) {
+            l.append(prepend + dollar + key);
         }
 
         addMatches(l);
