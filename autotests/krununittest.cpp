@@ -154,8 +154,8 @@ void KRunUnitTest::testProcessDesktopExec()
                 int pt = ex + te * 2 + su * 4;
                 QString exe;
                 if (pt == 4 || pt == 5) {
-                    exe = QStandardPaths::findExecutable("kdesu");
-                    if (exe.isEmpty()) {
+                    exe = QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kdesu");
+                    if (!QFile::exists(exe)) {
                         qWarning() << "kdesu not found, skipping test";
                         continue;
                     }

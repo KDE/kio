@@ -393,7 +393,17 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         if (d->service.terminal()) {
             result << "su";
         } else {
-            result << QStandardPaths::findExecutable("kdesu") << "-u";
+            QString kdesu = QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kdesu");
+            if (!QFile::exists(kdesu)) {
+                kdesu = QStandardPaths::findExecutable("kdesu");
+            }
+            if (!QFile::exists(kdesu)) {
+                // Insert kdesu as string so we show a nice warning: 'Could not launch kdesu'
+                result << QStringLiteral("kdesu");
+                return result;
+            } else {
+                result << kdesu << "-u";
+            }
         }
 
         result << d->service.username() << "-c";
