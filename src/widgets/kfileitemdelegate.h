@@ -424,7 +424,7 @@ public Q_SLOTS:
     /**
      * Reimplemented from @ref QAbstractItemDelegate.
      */
-    bool helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index);
+    bool helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index) Q_DECL_OVERRIDE;
 
     /**
      * Returns the shape of the item as a region.

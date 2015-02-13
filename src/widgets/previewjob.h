@@ -226,7 +226,7 @@ Q_SIGNALS:
     void failed(const KFileItem &item);
 
 protected Q_SLOTS:
-    virtual void slotResult(KJob *job);
+    void slotResult(KJob *job) Q_DECL_OVERRIDE;
 
 private:
     Q_PRIVATE_SLOT(d_func(), void startPreview())

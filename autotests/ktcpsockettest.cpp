@@ -48,7 +48,7 @@ public:
         wait(100);
     }
 protected:
-    virtual void run();
+    void run() Q_DECL_OVERRIDE;
 };
 
 KTcpSocketTest::KTcpSocketTest()

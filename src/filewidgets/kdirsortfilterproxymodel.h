@@ -57,13 +57,13 @@ public:
     virtual ~KDirSortFilterProxyModel();
 
     /** Reimplemented from QAbstractItemModel. Returns true for directories. */
-    virtual bool hasChildren(const QModelIndex &parent = QModelIndex()) const;
+    bool hasChildren(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
 
     /**
      * Reimplemented from QAbstractItemModel.
      * Returns true for 'empty' directories so they can be populated later.
      */
-    virtual bool canFetchMore(const QModelIndex &parent) const;
+    bool canFetchMore(const QModelIndex &parent) const Q_DECL_OVERRIDE;
 
     /**
      * Returns the permissions in "points". This is useful for sorting by
@@ -90,7 +90,7 @@ protected:
      * Reimplemented from KCategorizedSortFilterProxyModel.
      */
     virtual bool subSortLessThan(const QModelIndex &left,
-                                 const QModelIndex &right) const;
+                                 const QModelIndex &right) const Q_DECL_OVERRIDE;
 private:
     Q_PRIVATE_SLOT(d, void slotNaturalSortingChanged())
 

@@ -62,23 +62,23 @@ public:
 public Q_SLOTS:
     void setUrl(const QUrl &url);
     void setShowAll(bool showAll);
-    virtual QSize sizeHint() const;
-    virtual void setModel(QAbstractItemModel *model);
+    QSize sizeHint() const Q_DECL_OVERRIDE;
+    void setModel(QAbstractItemModel *model) Q_DECL_OVERRIDE;
 
 protected:
-    virtual void keyPressEvent(QKeyEvent *event);
-    virtual void contextMenuEvent(QContextMenuEvent *event);
-    virtual void resizeEvent(QResizeEvent *event);
-    virtual void showEvent(QShowEvent *event);
-    virtual void hideEvent(QHideEvent *event);
-    virtual void dragEnterEvent(QDragEnterEvent *event);
-    virtual void dragLeaveEvent(QDragLeaveEvent *event);
-    virtual void dragMoveEvent(QDragMoveEvent *event);
-    virtual void dropEvent(QDropEvent *event);
-    virtual void paintEvent(QPaintEvent *event);
+    void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
+    void contextMenuEvent(QContextMenuEvent *event) Q_DECL_OVERRIDE;
+    void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
+    void showEvent(QShowEvent *event) Q_DECL_OVERRIDE;
+    void hideEvent(QHideEvent *event) Q_DECL_OVERRIDE;
+    void dragEnterEvent(QDragEnterEvent *event) Q_DECL_OVERRIDE;
+    void dragLeaveEvent(QDragLeaveEvent *event) Q_DECL_OVERRIDE;
+    void dragMoveEvent(QDragMoveEvent *event) Q_DECL_OVERRIDE;
+    void dropEvent(QDropEvent *event) Q_DECL_OVERRIDE;
+    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
 protected Q_SLOTS:
-    void rowsInserted(const QModelIndex &parent, int start, int end);
+    void rowsInserted(const QModelIndex &parent, int start, int end) Q_DECL_OVERRIDE;
     void dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight,
                      const QVector<int> &roles) Q_DECL_OVERRIDE;
 

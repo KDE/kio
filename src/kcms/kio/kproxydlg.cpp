@@ -52,7 +52,7 @@ K_PLUGIN_FACTORY_DECLARATION (KioConfigFactory)
 class InputValidator : public QValidator
 {
 public:
-    State validate(QString& input, int& pos) const {
+    State validate(QString& input, int& pos) const Q_DECL_OVERRIDE {
         if (input.isEmpty())
             return Acceptable;
 

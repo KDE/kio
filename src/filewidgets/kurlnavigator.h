@@ -426,25 +426,25 @@ protected:
      * to the breadcrumb view.
      * @see QWidget::keyPressEvent()
      */
-    virtual void keyPressEvent(QKeyEvent *event);
+    void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
 
     /**
      * Reimplemented for internal purposes.
      */
-    virtual void keyReleaseEvent(QKeyEvent *event);
+    void keyReleaseEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
 
     /**
      * Paste the clipboard content as URL, if the middle mouse
      * button has been clicked.
      * @see QWidget::mouseReleaseEvent()
      */
-    virtual void mouseReleaseEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
 
-    virtual void resizeEvent(QResizeEvent *event);
+    void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
 
-    virtual void wheelEvent(QWheelEvent *event);
+    void wheelEvent(QWheelEvent *event) Q_DECL_OVERRIDE;
 
-    virtual bool eventFilter(QObject *watched, QEvent *event);
+    bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
 #endif
 
 private:

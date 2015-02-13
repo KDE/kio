@@ -41,11 +41,11 @@ public:
     virtual ~KUrlNavigatorDropDownButton();
 
     /** @see QWidget::sizeHint() */
-    virtual QSize sizeHint() const;
+    QSize sizeHint() const Q_DECL_OVERRIDE;
 
 protected:
-    virtual void keyPressEvent(QKeyEvent *event);
-    virtual void paintEvent(QPaintEvent *event);
+    void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
+    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 };
 
 } // namespace KDEPrivate

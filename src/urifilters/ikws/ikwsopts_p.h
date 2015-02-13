@@ -31,12 +31,12 @@ public:
     explicit ProvidersModel(QObject* parent = 0): QAbstractTableModel(parent){}
     ~ProvidersModel();
 
-    Qt::ItemFlags flags(const QModelIndex& index) const;
-    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
-    bool setData (const QModelIndex& index, const QVariant& value, int role = Qt::EditRole);
-    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
-    int rowCount(const QModelIndex& parent = QModelIndex()) const;
-    int columnCount(const QModelIndex& parent = QModelIndex()) const{Q_UNUSED(parent); return ColumnCount;}
+    Qt::ItemFlags flags(const QModelIndex& index) const Q_DECL_OVERRIDE;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
+    bool setData (const QModelIndex& index, const QVariant& value, int role = Qt::EditRole) Q_DECL_OVERRIDE;
+    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
+    int rowCount(const QModelIndex& parent = QModelIndex()) const Q_DECL_OVERRIDE;
+    int columnCount(const QModelIndex& parent = QModelIndex()) const Q_DECL_OVERRIDE{Q_UNUSED(parent); return ColumnCount;}
 
     void setProviders(const QList<SearchProvider*>&, const QStringList&);
     void setFavoriteProviders(const QStringList&);
@@ -72,8 +72,8 @@ private:
     explicit ProvidersListModel(QList<SearchProvider*>& providers, QObject* parent = 0) ;
 
 public:
-    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
-    int rowCount(const QModelIndex& parent = QModelIndex()) const;
+    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
+    int rowCount(const QModelIndex& parent = QModelIndex()) const Q_DECL_OVERRIDE;
 
 public Q_SLOTS:
     void emitDataChanged(const QModelIndex& start, const QModelIndex& end){emit dataChanged(index(start.row(),0),index(end.row(),0));}

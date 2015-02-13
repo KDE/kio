@@ -91,7 +91,7 @@ Q_SIGNALS:
     void deleting(KIO::Job *job, const QUrl &file);
 
 protected Q_SLOTS:
-    virtual void slotResult(KJob *job);
+    void slotResult(KJob *job) Q_DECL_OVERRIDE;
 
 protected:
     DeleteJob(DeleteJobPrivate &dd);

@@ -177,7 +177,7 @@ public:
                           const QString &iconYes = QString(),
                           const QString &iconNo = QString(),
                           const QString &dontAskAgainName = QString(),
-                          const KIO::MetaData &sslMetaData = KIO::MetaData())
+                          const KIO::MetaData &sslMetaData = KIO::MetaData()) Q_DECL_OVERRIDE
     {
         Q_UNUSED(type);
         Q_UNUSED(text);

@@ -75,10 +75,10 @@ Q_SIGNALS:
     void result(long id);
 
 protected Q_SLOTS:
-    virtual void slotRedirection(const QUrl &url);
-    virtual void slotFinished();
-    virtual void slotData(const QByteArray &data);
-    virtual void slotMimetype(const QString &mimetype);
+    void slotRedirection(const QUrl &url) Q_DECL_OVERRIDE;
+    void slotFinished() Q_DECL_OVERRIDE;
+    void slotData(const QByteArray &data) Q_DECL_OVERRIDE;
+    void slotMimetype(const QString &mimetype) Q_DECL_OVERRIDE;
 
 protected:
     MultiGetJob(MultiGetJobPrivate &dd);

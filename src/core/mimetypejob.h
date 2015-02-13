@@ -42,7 +42,7 @@ public:
     ~MimetypeJob();
 
 protected Q_SLOTS:
-    virtual void slotFinished();
+    void slotFinished() Q_DECL_OVERRIDE;
 protected:
     MimetypeJob(MimetypeJobPrivate &dd);
 private:

@@ -62,9 +62,9 @@ public:
      * @return the resulting pixmap
      * @see KIconLoader::StdSizes
      */
-    virtual QPixmap pixmapFor(const QString &url, int size = 0);
+    QPixmap pixmapFor(const QString &url, int size = 0) Q_DECL_OVERRIDE;
 protected:
-    virtual void virtual_hook(int id, void *data);
+    void virtual_hook(int id, void *data) Q_DECL_OVERRIDE;
 
 private:
     class Private;

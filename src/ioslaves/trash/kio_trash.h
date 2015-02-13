@@ -36,21 +36,21 @@ class TrashProtocol : public QObject, public KIO::SlaveBase
 public:
     TrashProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app);
     virtual ~TrashProtocol();
-    virtual void stat(const QUrl &url);
-    virtual void listDir(const QUrl &url);
-    virtual void get(const QUrl &url);
-    virtual void put(const QUrl &url, int, KIO::JobFlags flags);
-    virtual void rename(const QUrl &src, const QUrl &dest, KIO::JobFlags);
-    virtual void copy(const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags flags);
+    void stat(const QUrl &url) Q_DECL_OVERRIDE;
+    void listDir(const QUrl &url) Q_DECL_OVERRIDE;
+    void get(const QUrl &url) Q_DECL_OVERRIDE;
+    void put(const QUrl &url, int, KIO::JobFlags flags) Q_DECL_OVERRIDE;
+    void rename(const QUrl &src, const QUrl &dest, KIO::JobFlags) Q_DECL_OVERRIDE;
+    void copy(const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags flags) Q_DECL_OVERRIDE;
     // TODO (maybe) chmod( const QUrl& url, int permissions );
-    virtual void del(const QUrl &url, bool isfile);
+    void del(const QUrl &url, bool isfile) Q_DECL_OVERRIDE;
     /**
      * Special actions: (first int in the byte array)
      * 1 : empty trash
      * 2 : migrate old (pre-kde-3.4) trash contents
      * 3 : restore a file to its original location. Args: QUrl trashURL.
      */
-    virtual void special(const QByteArray &data);
+    void special(const QByteArray &data) Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     void leaveModality();

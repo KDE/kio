@@ -46,18 +46,18 @@ public:
     /**
      * Returns the size hint for this widget.
      */
-    virtual QSize sizeHint() const;
+    QSize sizeHint() const Q_DECL_OVERRIDE;
 
 public Q_SLOTS:
     /**
      * Shows a preview for the given @p url.
      */
-    virtual void showPreview(const QUrl &url);
+    void showPreview(const QUrl &url) Q_DECL_OVERRIDE;
 
     /**
      * Clears the preview.
      */
-    virtual void clearPreview();
+    void clearPreview() Q_DECL_OVERRIDE;
 
 protected Q_SLOTS:
     void showPreview();
@@ -66,7 +66,7 @@ protected Q_SLOTS:
     virtual void gotPreview(const KFileItem &, const QPixmap &);
 
 protected:
-    virtual void resizeEvent(QResizeEvent *event);
+    void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
     virtual KIO::PreviewJob *createJob(const QUrl &url, int width, int height);
 
 private:

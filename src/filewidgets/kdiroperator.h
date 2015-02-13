@@ -643,9 +643,9 @@ protected:
      */
     virtual void setDirLister(KDirLister *lister);
 
-    virtual void resizeEvent(QResizeEvent *event);
+    void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
 
-    virtual void keyPressEvent(QKeyEvent *event);
+    void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
 
     /**
      * Sets up all the actions. Called from the constructor, you usually
@@ -692,9 +692,9 @@ protected:
      */
     virtual void activatedMenu(const KFileItem &item, const QPoint &pos);
 
-    virtual void changeEvent(QEvent *event);
+    void changeEvent(QEvent *event) Q_DECL_OVERRIDE;
 
-    virtual bool eventFilter(QObject *watched, QEvent *event);
+    bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
 
 public Q_SLOTS:
     /**

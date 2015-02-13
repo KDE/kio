@@ -59,7 +59,7 @@ protected:
 
 public:
     virtual ~Job();
-    void start() {} // Since KIO autostarts its jobs
+    void start() Q_DECL_OVERRIDE {} // Since KIO autostarts its jobs
 
     /**
      * Retrieves the UI delegate of this job.
@@ -88,19 +88,19 @@ protected:
      * This kills all subjobs and deletes the job.
      *
      */
-    virtual bool doKill();
+    bool doKill() Q_DECL_OVERRIDE;
 
     /**
      * Suspend this job
      * @see resume
      */
-    virtual bool doSuspend();
+    bool doSuspend() Q_DECL_OVERRIDE;
 
     /**
      * Resume this job
      * @see suspend
      */
-    virtual bool doResume();
+    bool doResume() Q_DECL_OVERRIDE;
 
 public:
     /**
@@ -120,7 +120,7 @@ public:
      *         telling the user that the app is broken, so check with
      *         error() whether there is an error
      */
-    QString errorString() const;
+    QString errorString() const Q_DECL_OVERRIDE;
 
     /**
      * Converts an error code and a non-i18n error message into i18n
@@ -238,7 +238,7 @@ protected:
      *
      * @param job the subjob to add
      */
-    virtual bool addSubjob(KJob *job);
+    bool addSubjob(KJob *job) Q_DECL_OVERRIDE;
 
     /**
      * Mark a sub job as being done.
@@ -249,7 +249,7 @@ protected:
      *
      * @param job the subjob to remove
      */
-    virtual bool removeSubjob(KJob *job);
+    bool removeSubjob(KJob *job) Q_DECL_OVERRIDE;
 
 protected:
     JobPrivate *const d_ptr;

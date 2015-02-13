@@ -45,7 +45,7 @@ public:
         setObjectName (QLatin1String ("UserAgentSiteNameValidator"));
     }
 
-    State validate (QString& input, int&) const
+    State validate (QString& input, int&) const Q_DECL_OVERRIDE
     {
         if (input.isEmpty())
             return Intermediate;

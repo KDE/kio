@@ -16,11 +16,11 @@ public:
     KIOPreferences(QWidget *parent, const QVariantList &args);
     ~KIOPreferences();
 
-    void load();
-    void save();
-    void defaults();
+    void load() Q_DECL_OVERRIDE;
+    void save() Q_DECL_OVERRIDE;
+    void defaults() Q_DECL_OVERRIDE;
 
-    QString quickHelp() const;
+    QString quickHelp() const Q_DECL_OVERRIDE;
 
 protected Q_SLOTS:
     void configChanged() { emit changed(true); }

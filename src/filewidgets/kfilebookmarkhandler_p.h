@@ -39,9 +39,9 @@ public:
     QMenu *popupMenu();
 
     // KBookmarkOwner interface:
-    virtual QString currentTitle() const;
-    virtual QUrl currentUrl() const;
-    virtual QString currentIcon() const;
+    QString currentTitle() const Q_DECL_OVERRIDE;
+    QUrl currentUrl() const Q_DECL_OVERRIDE;
+    QString currentIcon() const Q_DECL_OVERRIDE;
 
     QMenu *menu() const
     {
@@ -49,7 +49,7 @@ public:
     }
 
 public Q_SLOTS:
-    void openBookmark(const KBookmark &bm, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers);
+    void openBookmark(const KBookmark &bm, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers) Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     void openUrl(const QString &url);

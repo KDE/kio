@@ -61,7 +61,7 @@ public:
     KIO::filesize_t totalSubdirs() const;
 
 protected Q_SLOTS:
-    virtual void slotResult(KJob *job);
+    void slotResult(KJob *job) Q_DECL_OVERRIDE;
 
 protected:
     DirectorySizeJob(DirectorySizeJobPrivate &dd);

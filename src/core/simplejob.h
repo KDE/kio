@@ -46,19 +46,19 @@ protected:
      * Suspend this job
      * @see resume
      */
-    virtual bool doSuspend();
+    bool doSuspend() Q_DECL_OVERRIDE;
 
     /**
      * Resume this job
      * @see suspend
      */
-    virtual bool doResume();
+    bool doResume() Q_DECL_OVERRIDE;
 
     /**
      * Abort job.
      * This kills all subjobs and deletes the job.
      */
-    virtual bool doKill();
+    bool doKill() Q_DECL_OVERRIDE;
 
 public:
     /**

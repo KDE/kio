@@ -69,7 +69,7 @@ public:
     QString selectedPlaceText() const;
 
     /** @see QWidget::sizeHint() */
-    virtual QSize sizeHint() const;
+    QSize sizeHint() const Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     /**
@@ -83,11 +83,11 @@ protected:
      * Draws the icon of the selected Url as content of the Url
      * selector.
      */
-    virtual void paintEvent(QPaintEvent *event);
+    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
-    virtual void dragEnterEvent(QDragEnterEvent *event);
-    virtual void dragLeaveEvent(QDragLeaveEvent *event);
-    virtual void dropEvent(QDropEvent *event);
+    void dragEnterEvent(QDragEnterEvent *event) Q_DECL_OVERRIDE;
+    void dragLeaveEvent(QDragLeaveEvent *event) Q_DECL_OVERRIDE;
+    void dropEvent(QDropEvent *event) Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     /**

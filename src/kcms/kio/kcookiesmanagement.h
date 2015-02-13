@@ -62,10 +62,10 @@ public:
     KCookiesManagement(/*const KComponentData &componentData,*/ QWidget *parent );
     ~KCookiesManagement();
 
-    virtual void load();
-    virtual void save();
-    virtual void defaults();
-    virtual QString quickHelp() const;
+    void load() Q_DECL_OVERRIDE;
+    void save() Q_DECL_OVERRIDE;
+    void defaults() Q_DECL_OVERRIDE;
+    QString quickHelp() const Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void on_deleteButton_clicked();

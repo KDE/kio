@@ -41,12 +41,12 @@ public:
     virtual ~KUrlNavigatorToggleButton();
 
     /** @see QWidget::sizeHint() */
-    virtual QSize sizeHint() const;
+    QSize sizeHint() const Q_DECL_OVERRIDE;
 
 protected:
-    virtual void enterEvent(QEvent *event);
-    virtual void leaveEvent(QEvent *event);
-    virtual void paintEvent(QPaintEvent *event);
+    void enterEvent(QEvent *event) Q_DECL_OVERRIDE;
+    void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
+    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void updateToolTip();

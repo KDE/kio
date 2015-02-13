@@ -67,7 +67,7 @@ public:
      * @param data the data to be filtered
      * @return true if the url has been filtered
      */
-    virtual bool filterUri( KUriFilterData &data ) const;
+    bool filterUri( KUriFilterData &data ) const Q_DECL_OVERRIDE;
 
     /**
      * Returns the name of the config module for
@@ -75,7 +75,7 @@ public:
      *
      * @return the name of the config module.
      */
-    virtual QString configName() const;
+    QString configName() const Q_DECL_OVERRIDE;
 
     /**
      * Returns an instance of the module used to configure
@@ -83,7 +83,7 @@ public:
          *
          * @return the config module
          */
-    virtual KCModule* configModule( QWidget*, const char* ) const;
+    KCModule* configModule( QWidget*, const char* ) const Q_DECL_OVERRIDE;
 
 public Q_SLOTS:
     void configure();

@@ -220,20 +220,20 @@ public:
 
 //---------------------- Re-implemented methods ----------------
     virtual void setHost(const QString &host, quint16 port, const QString &user,
-                         const QString &pass);
+                         const QString &pass) Q_DECL_OVERRIDE;
 
-    virtual void slave_status();
+    void slave_status() Q_DECL_OVERRIDE;
 
-    virtual void get(const QUrl &url);
-    virtual void put(const QUrl &url, int _mode, KIO::JobFlags flags);
+    void get(const QUrl &url) Q_DECL_OVERRIDE;
+    void put(const QUrl &url, int _mode, KIO::JobFlags flags) Q_DECL_OVERRIDE;
 
 //----------------- Re-implemented methods for WebDAV -----------
-    virtual void listDir(const QUrl &url);
-    virtual void mkdir(const QUrl &url, int _permissions);
+    void listDir(const QUrl &url) Q_DECL_OVERRIDE;
+    void mkdir(const QUrl &url, int _permissions) Q_DECL_OVERRIDE;
 
-    virtual void rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags);
-    virtual void copy(const QUrl &src, const QUrl &dest, int _permissions, KIO::JobFlags flags);
-    virtual void del(const QUrl &url, bool _isfile);
+    void rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags) Q_DECL_OVERRIDE;
+    void copy(const QUrl &src, const QUrl &dest, int _permissions, KIO::JobFlags flags) Q_DECL_OVERRIDE;
+    void del(const QUrl &url, bool _isfile) Q_DECL_OVERRIDE;
 
     // ask the host whether it supports WebDAV & cache this info
     bool davHostOk();
@@ -262,21 +262,21 @@ public:
      * 5 - DAV LOCK     (see
      * 6 - DAV UNLOCK     README.webdav)
      */
-    virtual void special(const QByteArray &data);
+    void special(const QByteArray &data) Q_DECL_OVERRIDE;
 
-    virtual void mimetype(const QUrl &url);
+    void mimetype(const QUrl &url) Q_DECL_OVERRIDE;
 
-    virtual void stat(const QUrl &url);
+    void stat(const QUrl &url) Q_DECL_OVERRIDE;
 
-    virtual void reparseConfiguration();
+    void reparseConfiguration() Q_DECL_OVERRIDE;
 
     /**
      * Forced close of connection
      */
-    virtual void closeConnection();
+    void closeConnection() Q_DECL_OVERRIDE;
 
     void post(const QUrl &url, qint64 size = -1);
-    void multiGet(const QByteArray &data);
+    void multiGet(const QByteArray &data) Q_DECL_OVERRIDE;
     bool maybeSetRequestUrl(const QUrl &);
 
     /**

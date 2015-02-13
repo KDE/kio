@@ -28,8 +28,8 @@ public:
     virtual void clearPreviewProviders();
 
 public Q_SLOTS:
-    virtual void showPreview(const QUrl &url);
-    virtual void clearPreview();
+    void showPreview(const QUrl &url) Q_DECL_OVERRIDE;
+    void clearPreview() Q_DECL_OVERRIDE;
 
 protected:
     virtual KPreviewWidgetBase *previewProviderFor(const QString &mimeType);

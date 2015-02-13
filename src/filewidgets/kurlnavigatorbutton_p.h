@@ -77,7 +77,7 @@ public:
     QString activeSubDirectory() const;
 
     /** @see QWidget::sizeHint() */
-    virtual QSize sizeHint() const;
+    QSize sizeHint() const Q_DECL_OVERRIDE;
 
     void setShowMnemonic(bool show);
     bool showMnemonic() const;
@@ -107,18 +107,18 @@ Q_SIGNALS:
     void finishedTextResolving();
 
 protected:
-    virtual void paintEvent(QPaintEvent *event);
-    virtual void enterEvent(QEvent *event);
-    virtual void leaveEvent(QEvent *event);
-    virtual void keyPressEvent(QKeyEvent *event);
-    virtual void dropEvent(QDropEvent *event);
-    virtual void dragEnterEvent(QDragEnterEvent *event);
-    virtual void dragMoveEvent(QDragMoveEvent *event);
-    virtual void dragLeaveEvent(QDragLeaveEvent *event);
-    virtual void mousePressEvent(QMouseEvent *event);
-    virtual void mouseReleaseEvent(QMouseEvent *event);
-    virtual void mouseMoveEvent(QMouseEvent *event);
-    virtual void wheelEvent(QWheelEvent *event);
+    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+    void enterEvent(QEvent *event) Q_DECL_OVERRIDE;
+    void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
+    void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
+    void dropEvent(QDropEvent *event) Q_DECL_OVERRIDE;
+    void dragEnterEvent(QDragEnterEvent *event) Q_DECL_OVERRIDE;
+    void dragMoveEvent(QDragMoveEvent *event) Q_DECL_OVERRIDE;
+    void dragLeaveEvent(QDragLeaveEvent *event) Q_DECL_OVERRIDE;
+    void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    void mouseMoveEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    void wheelEvent(QWheelEvent *event) Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     /**

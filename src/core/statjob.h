@@ -131,8 +131,8 @@ Q_SIGNALS:
     void permanentRedirection(KIO::Job *job, const QUrl &fromUrl, const QUrl &toUrl);
 
 protected Q_SLOTS:
-    virtual void slotFinished();
-    virtual void slotMetaData(const KIO::MetaData &_metaData);
+    void slotFinished() Q_DECL_OVERRIDE;
+    void slotMetaData(const KIO::MetaData &_metaData) Q_DECL_OVERRIDE;
 protected:
     StatJob(StatJobPrivate &dd);
 

@@ -70,8 +70,8 @@ public:
                                 QObject *parent = 0);
 
     virtual ~AccessManagerReply();
-    virtual qint64 bytesAvailable() const;
-    virtual void abort();
+    qint64 bytesAvailable() const Q_DECL_OVERRIDE;
+    void abort() Q_DECL_OVERRIDE;
 
     void setIgnoreContentDisposition(bool on);
     void putOnHold();
@@ -79,7 +79,7 @@ public:
     static bool isLocalRequest(const QUrl &url);
 
 protected:
-    virtual qint64 readData(char *data, qint64 maxSize);
+    qint64 readData(char *data, qint64 maxSize) Q_DECL_OVERRIDE;
     bool ignoreContentDisposition(const KIO::MetaData &);
     void setHeaderFromMetaData(const KIO::MetaData &);
     void readHttpResponseHeaders(KIO::Job *);

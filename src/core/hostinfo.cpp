@@ -227,7 +227,7 @@ public:
         return &m_semaphore;
     }
 
-    void run()
+    void run() Q_DECL_OVERRIDE
     {
         NameLookUpThreadWorker worker;
         m_worker = &worker;

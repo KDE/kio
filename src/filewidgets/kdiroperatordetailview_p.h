@@ -36,7 +36,7 @@ class KDirOperatorDetailView : public QTreeView
 public:
     KDirOperatorDetailView(QWidget *parent = 0);
     virtual ~KDirOperatorDetailView();
-    virtual void setModel(QAbstractItemModel *model);
+    void setModel(QAbstractItemModel *model) Q_DECL_OVERRIDE;
 
     /**
     * Displays either Detail, Tree or DetailTree modes.
@@ -44,11 +44,11 @@ public:
     virtual bool setViewMode(KFile::FileView viewMode);
 
 protected:
-    virtual bool event(QEvent *event);
-    virtual void dragEnterEvent(QDragEnterEvent *event);
-    virtual void resizeEvent(QResizeEvent *event);
-    virtual void mousePressEvent(QMouseEvent *event);
-    virtual void currentChanged(const QModelIndex &current, const QModelIndex &previous);
+    bool event(QEvent *event) Q_DECL_OVERRIDE;
+    void dragEnterEvent(QDragEnterEvent *event) Q_DECL_OVERRIDE;
+    void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
+    void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    void currentChanged(const QModelIndex &current, const QModelIndex &previous) Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void resetResizing();

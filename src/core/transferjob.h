@@ -120,12 +120,12 @@ protected:
      * Called when m_subJob finishes.
      * @param job the job that finished
      */
-    virtual void slotResult(KJob *job);
+    void slotResult(KJob *job) Q_DECL_OVERRIDE;
 
     /**
      * Reimplemented for internal reasons
      */
-    virtual bool doResume();
+    bool doResume() Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     /**
@@ -188,11 +188,11 @@ Q_SIGNALS:
 
 protected Q_SLOTS:
     virtual void slotRedirection(const QUrl &url);
-    virtual void slotFinished();
+    void slotFinished() Q_DECL_OVERRIDE;
     virtual void slotData(const QByteArray &data);
     virtual void slotDataReq();
     virtual void slotMimetype(const QString &mimetype);
-    virtual void slotMetaData(const KIO::MetaData &_metaData);
+    void slotMetaData(const KIO::MetaData &_metaData) Q_DECL_OVERRIDE;
 
 protected:
     TransferJob(TransferJobPrivate &dd);

@@ -60,7 +60,7 @@ private:
             : KDragWidgetDecoratorBase(button), m_button(button) {}
 
     protected:
-        virtual QDrag *dragObject()
+        QDrag *dragObject() Q_DECL_OVERRIDE
         {
             if (m_button->m_urls.isEmpty()) {
                 return 0;

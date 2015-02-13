@@ -35,7 +35,7 @@ Q_OBJECT
 
 public:
     FixHostUriFilter(QObject* parent, const QVariantList& args);
-    virtual bool filterUri(KUriFilterData &data) const;
+    bool filterUri(KUriFilterData &data) const Q_DECL_OVERRIDE;
 
 private:
     bool exists(const QString& host) const;

@@ -130,7 +130,7 @@ public:
     /**
      * Reimplemented for internal reasons
      */
-    virtual bool doSuspend();
+    bool doSuspend() Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
 
@@ -251,7 +251,7 @@ Q_SIGNALS:
            */
     void copyingLinkDone(KIO::Job *job, const QUrl &from, const QString &target, const QUrl &to);
 protected Q_SLOTS:
-    virtual void slotResult(KJob *job);
+    void slotResult(KJob *job) Q_DECL_OVERRIDE;
 
 protected:
     CopyJob(CopyJobPrivate &dd);

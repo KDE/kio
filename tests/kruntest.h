@@ -33,7 +33,7 @@ public:
 
     virtual ~testKRun() {}
 
-    virtual void foundMimeType(const QString &_type);
+    void foundMimeType(const QString &_type) Q_DECL_OVERRIDE;
 
 };
 

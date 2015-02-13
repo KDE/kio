@@ -33,7 +33,7 @@ public:
     Discovery(QObject *);
 
 protected Q_SLOTS:
-    virtual void failed();
+    void failed() Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void helperOutput();

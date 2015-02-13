@@ -238,7 +238,7 @@ public:
     KRunImpl(const QUrl &url)
         : KRun(url, 0, false), m_errCode(-1) {}
 
-    virtual void foundMimeType(const QString &type)
+    void foundMimeType(const QString &type) Q_DECL_OVERRIDE
     {
         m_mimeType = type;
         // don't call KRun::foundMimeType, we don't want to start an app ;-)

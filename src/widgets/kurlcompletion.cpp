@@ -272,7 +272,7 @@ public:
     {}
 
 protected:
-    virtual void run()
+    void run() Q_DECL_OVERRIDE
     {
         static const QChar tilde = '~';
 
@@ -318,7 +318,7 @@ public:
         m_appendSlashToDir(appendSlashToDir)
     {}
 
-    virtual void run();
+    void run() Q_DECL_OVERRIDE;
 
 private:
     QStringList m_dirList;

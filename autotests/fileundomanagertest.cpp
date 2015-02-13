@@ -173,11 +173,11 @@ public:
     {
         setShowProgressInfo(false);
     }
-    virtual void jobError(KIO::Job *job)
+    void jobError(KIO::Job *job) Q_DECL_OVERRIDE
     {
         qFatal("%s", qPrintable(job->errorString()));
     }
-    virtual bool copiedFileWasModified(const QUrl &src, const QUrl &dest, const QDateTime &srcTime, const QDateTime &destTime)
+    bool copiedFileWasModified(const QUrl &src, const QUrl &dest, const QDateTime &srcTime, const QDateTime &destTime) Q_DECL_OVERRIDE
     {
         Q_UNUSED(src);
         m_dest = dest;
@@ -185,7 +185,7 @@ public:
         Q_UNUSED(destTime);
         return true;
     }
-    virtual bool confirmDeletion(const QList<QUrl> &files)
+    bool confirmDeletion(const QList<QUrl> &files) Q_DECL_OVERRIDE
     {
         m_files = files;
         return m_nextReplyToConfirmDeletion;

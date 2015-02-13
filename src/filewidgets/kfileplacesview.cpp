@@ -61,10 +61,10 @@ public:
     KFilePlacesViewDelegate(KFilePlacesView *parent);
     virtual ~KFilePlacesViewDelegate();
     virtual QSize sizeHint(const QStyleOptionViewItem &option,
-                           const QModelIndex &index) const;
+                           const QModelIndex &index) const Q_DECL_OVERRIDE;
     virtual void paint(QPainter *painter,
                        const QStyleOptionViewItem &option,
-                       const QModelIndex &index) const;
+                       const QModelIndex &index) const Q_DECL_OVERRIDE;
 
     int iconSize() const;
     void setIconSize(int newSize);

@@ -60,7 +60,7 @@ Q_SIGNALS:
     void permanentRedirection(KIO::Job *job, const QUrl &fromUrl, const QUrl &toUrl);
 
 protected Q_SLOTS:
-    virtual void slotFinished();
+    void slotFinished() Q_DECL_OVERRIDE;
 
 public:
     MkdirJob(MkdirJobPrivate &dd);

@@ -78,10 +78,10 @@ public:
     virtual ~KDirOperatorIconView();
 
 protected:
-    virtual QStyleOptionViewItem viewOptions() const;
-    virtual void dragEnterEvent(QDragEnterEvent *event);
-    virtual void mousePressEvent(QMouseEvent *event);
-    virtual void wheelEvent(QWheelEvent *event);
+    QStyleOptionViewItem viewOptions() const Q_DECL_OVERRIDE;
+    void dragEnterEvent(QDragEnterEvent *event) Q_DECL_OVERRIDE;
+    void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    void wheelEvent(QWheelEvent *event) Q_DECL_OVERRIDE;
 
 private:
     KDirOperator *ops;

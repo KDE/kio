@@ -228,19 +228,19 @@ public:
 
     //from QIODevice
     //reimplemented virtuals - the ones not reimplemented are OK for us
-    virtual bool atEnd() const;
-    virtual qint64 bytesAvailable() const;
-    virtual qint64 bytesToWrite() const;
-    virtual bool canReadLine() const;
-    virtual void close();
-    virtual bool isSequential() const;
-    virtual bool open(QIODevice::OpenMode open);
-    virtual bool waitForBytesWritten(int msecs);
+    bool atEnd() const Q_DECL_OVERRIDE;
+    qint64 bytesAvailable() const Q_DECL_OVERRIDE;
+    qint64 bytesToWrite() const Q_DECL_OVERRIDE;
+    bool canReadLine() const Q_DECL_OVERRIDE;
+    void close() Q_DECL_OVERRIDE;
+    bool isSequential() const Q_DECL_OVERRIDE;
+    bool open(QIODevice::OpenMode open) Q_DECL_OVERRIDE;
+    bool waitForBytesWritten(int msecs) Q_DECL_OVERRIDE;
     //### Document that this actually tries to read *more* data
-    virtual bool waitForReadyRead(int msecs = 30000);
+    bool waitForReadyRead(int msecs = 30000) Q_DECL_OVERRIDE;
 protected:
-    virtual qint64 readData(char *data, qint64 maxSize);
-    virtual qint64 writeData(const char *data, qint64 maxSize);
+    qint64 readData(char *data, qint64 maxSize) Q_DECL_OVERRIDE;
+    qint64 writeData(const char *data, qint64 maxSize) Q_DECL_OVERRIDE;
 Q_SIGNALS:
     /// @since 4.8.1
     /// Forwarded from QSslSocket

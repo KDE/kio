@@ -83,27 +83,27 @@ public:
      *
      * @return the data for the given index and role.
      */
-    QVariant data(const QModelIndex &index, int role) const;
+    QVariant data(const QModelIndex &index, int role) const Q_DECL_OVERRIDE;
 
     /**
      * @brief Get the children model index for the given row and column.
      */
-    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const;
+    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
 
     /**
      * @brief Get the parent QModelIndex for the given model child.
      */
-    QModelIndex parent(const QModelIndex &child) const;
+    QModelIndex parent(const QModelIndex &child) const Q_DECL_OVERRIDE;
 
     /**
      * @brief Get the number of rows for a model index.
      */
-    int rowCount(const QModelIndex &parent = QModelIndex()) const;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
 
     /**
      * @brief Get the number of columns for a model index.
      */
-    int columnCount(const QModelIndex &parent = QModelIndex()) const;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
 
     /**
      * Returns the closest item for the URL \a url.
@@ -121,12 +121,12 @@ public:
      */
     QModelIndex closestItem(const QUrl &url) const;
 
-    Qt::DropActions supportedDropActions() const;
-    Qt::ItemFlags flags(const QModelIndex &index) const;
-    QStringList mimeTypes() const;
-    QMimeData *mimeData(const QModelIndexList &indexes) const;
+    Qt::DropActions supportedDropActions() const Q_DECL_OVERRIDE;
+    Qt::ItemFlags flags(const QModelIndex &index) const Q_DECL_OVERRIDE;
+    QStringList mimeTypes() const Q_DECL_OVERRIDE;
+    QMimeData *mimeData(const QModelIndexList &indexes) const Q_DECL_OVERRIDE;
     bool dropMimeData(const QMimeData *data, Qt::DropAction action,
-                      int row, int column, const QModelIndex &parent);
+                      int row, int column, const QModelIndex &parent) Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     void errorMessage(const QString &message);

@@ -56,7 +56,7 @@ public:
     void addFilter(HTTPFilterBase *filter);
 
 public Q_SLOTS:
-    void slotInput(const QByteArray &d);
+    void slotInput(const QByteArray &d) Q_DECL_OVERRIDE;
 
 private:
     HTTPFilterBase *first;
@@ -71,7 +71,7 @@ public:
     QString md5();
 
 public Q_SLOTS:
-    void slotInput(const QByteArray &d);
+    void slotInput(const QByteArray &d) Q_DECL_OVERRIDE;
 
 private:
     QCryptographicHash context;
@@ -85,7 +85,7 @@ public:
     ~HTTPFilterGZip();
 
 public Q_SLOTS:
-    void slotInput(const QByteArray &d);
+    void slotInput(const QByteArray &d) Q_DECL_OVERRIDE;
 
 private:
     bool m_deflateMode;

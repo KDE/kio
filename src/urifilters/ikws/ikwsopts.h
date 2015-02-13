@@ -39,10 +39,10 @@ class FilterOptions : public KCModule
 public:
     explicit FilterOptions(const KAboutData* about, QWidget *parent = 0);
 
-    void load();
-    void save();
-    void defaults();
-    QString quickHelp() const;
+    void load() Q_DECL_OVERRIDE;
+    void save() Q_DECL_OVERRIDE;
+    void defaults() Q_DECL_OVERRIDE;
+    QString quickHelp() const Q_DECL_OVERRIDE;
 
 
 private Q_SLOTS:

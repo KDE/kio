@@ -66,11 +66,11 @@ protected:
     void setDisplayHintEnabled(DisplayHint hint, bool enable);
     bool isDisplayHintEnabled(DisplayHint hint) const;
 
-    virtual void focusInEvent(QFocusEvent *event);
-    virtual void focusOutEvent(QFocusEvent *event);
+    void focusInEvent(QFocusEvent *event) Q_DECL_OVERRIDE;
+    void focusOutEvent(QFocusEvent *event) Q_DECL_OVERRIDE;
 
-    virtual void enterEvent(QEvent *event);
-    virtual void leaveEvent(QEvent *event);
+    void enterEvent(QEvent *event) Q_DECL_OVERRIDE;
+    void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
 
     void drawHoverBackground(QPainter *painter);
 

@@ -317,8 +317,8 @@ Q_SIGNALS:
     void urlSelected(const QUrl &);
 
 protected:
-    virtual void changeEvent(QEvent *e);
-    bool eventFilter(QObject *obj, QEvent *ev);
+    void changeEvent(QEvent *e) Q_DECL_OVERRIDE;
+    bool eventFilter(QObject *obj, QEvent *ev) Q_DECL_OVERRIDE;
 
 private:
     class KUrlRequesterPrivate;

@@ -129,7 +129,7 @@ protected Q_SLOTS:
     /**
      * Reimplemented from QDialog::accept()
      */
-    virtual void accept();
+    void accept() Q_DECL_OVERRIDE;
 
 private:
     friend class KOpenWithDialogPrivate;

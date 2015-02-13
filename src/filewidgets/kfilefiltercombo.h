@@ -101,7 +101,7 @@ public:
     bool isMimeFilter() const;
 
 protected:
-    virtual bool eventFilter(QObject *, QEvent *);
+    bool eventFilter(QObject *, QEvent *) Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     /**

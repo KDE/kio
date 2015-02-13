@@ -67,8 +67,8 @@ public:
      */
     QUrl destUrl() const;
 
-    bool doSuspend();
-    bool doResume();
+    bool doSuspend() Q_DECL_OVERRIDE;
+    bool doResume() Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     /**
@@ -88,7 +88,7 @@ protected Q_SLOTS:
      * Called whenever a subjob finishes.
      * @param job the job that emitted this signal
      */
-    virtual void slotResult(KJob *job);
+    void slotResult(KJob *job) Q_DECL_OVERRIDE;
 
 protected:
     FileCopyJob(FileCopyJobPrivate &dd);

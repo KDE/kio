@@ -270,7 +270,7 @@ public:
      * work on this job.
      * @param slave the slave that starts working on this job
      */
-    virtual void start(Slave *slave);
+    void start(Slave *slave) Q_DECL_OVERRIDE;
 
     Q_DECLARE_PUBLIC(DirectCopyJob)
 };
