@@ -40,6 +40,7 @@ Name[tr]=Çerezler
 Name[uk]=Куки
 Name[x-test]=xxCookiesxx
 Name[zh_CN]=Cookies
+Name[zh_TW]=Cookies
 
 Comment=Configure the way cookies work
 Comment[af]=Konfigureer die weg koekies werk
@@ -149,3 +150,4 @@ X-KDE-Keywords[tr]=Çerezler,Tarama,İnternet,WWW,Ağ,Politika,Alan Adları
 X-KDE-Keywords[uk]=Cookies,Browsing,Internet,WWW,Network,Policy,Domains,кука,куки,перегляд,інтернет,мережа,правило,правила,домен,домени
 X-KDE-Keywords[x-test]=xxCookiesxx,xxBrowsingxx,xxInternetxx,xxWWWxx,xxNetworkxx,xxPolicyxx,xxDomainsxx
 X-KDE-Keywords[zh_CN]=Cookies,Browsing,Internet,WWW,Network,Policy,Domains,浏览,互联网,网络,策略,域名
+X-KDE-Keywords[zh_TW]=Cookies,Browsing,Internet,WWW,Network,Policy,Domains
