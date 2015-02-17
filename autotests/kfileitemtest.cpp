@@ -422,6 +422,55 @@ void KFileItemTest::testIconNameForUrl()
     QCOMPARE(KIO::iconNameForUrl(QUrl(url)), expectedIcon);
 }
 
+void KFileItemTest::testMimetypeForRemoteFolder()
+{
+    KIO::UDSEntry entry;
+    entry.insert(KIO::UDSEntry::UDS_NAME, "foo");
+    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    QUrl url("smb://remoteFolder/foo");
+    KFileItem fileItem(entry, url);
+
+    QCOMPARE(fileItem.mimetype(), QStringLiteral("inode/directory"));
+}
+
+void KFileItemTest::testMimetypeForRemoteFolderWithFileType()
+{
+    QString udsMimeType = QStringLiteral("application/x-smb-workgroup");
+    KIO::UDSEntry entry;
+    entry.insert(KIO::UDSEntry::UDS_NAME, "foo");
+    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, udsMimeType);
+
+    QUrl url("smb://remoteFolder/foo");
+    KFileItem fileItem(entry, url);
+
+    QCOMPARE(fileItem.mimetype(), udsMimeType);
+}
+
+void KFileItemTest::testCurrentMimetypeForRemoteFolder()
+{
+    KIO::UDSEntry entry;
+    entry.insert(KIO::UDSEntry::UDS_NAME, "foo");
+    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    QUrl url("smb://remoteFolder/foo");
+    KFileItem fileItem(entry, url);
+
+    QCOMPARE(fileItem.currentMimeType().name(), QStringLiteral("inode/directory"));
+}
+
+void KFileItemTest::testCurrentMimetypeForRemoteFolderWithFileType()
+{
+    QString udsMimeType = QStringLiteral("application/x-smb-workgroup");
+    KIO::UDSEntry entry;
+    entry.insert(KIO::UDSEntry::UDS_NAME, "foo");
+    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, udsMimeType);
+
+    QUrl url("smb://remoteFolder/foo");
+    KFileItem fileItem(entry, url);
+
+    QCOMPARE(fileItem.currentMimeType().name(), udsMimeType);
+}
 
 #ifndef Q_OS_WIN // user/group/other write permissions are not handled on windows
 

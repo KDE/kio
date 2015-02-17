@@ -730,6 +730,10 @@ QMimeType KFileItem::determineMimeType() const
 
     if (!d->m_mimeType.isValid() || !d->m_bMimeTypeKnown) {
         QMimeDatabase db;
+        if (isDir()) {
+            d->m_mimeType = db.mimeTypeForName("inode/directory");
+            return d->m_mimeType;
+        }
         bool isLocalUrl;
         const QUrl url = mostLocalUrl(&isLocalUrl);
         d->m_mimeType = db.mimeTypeForUrl(url);
@@ -1453,6 +1457,10 @@ QMimeType KFileItem::currentMimeType() const
         // On-demand fast (but not always accurate) mimetype determination
         Q_ASSERT(!d->m_url.isEmpty());
         QMimeDatabase db;
+        if (isDir()) {
+            d->m_mimeType = db.mimeTypeForName("inode/directory");
+            return d->m_mimeType;
+        }
         const QUrl url = mostLocalUrl();
         if (d->m_delayedMimeTypes) {
             const QList<QMimeType> mimeTypes = db.mimeTypesForFileName(url.path());

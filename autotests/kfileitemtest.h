@@ -37,6 +37,11 @@ private Q_SLOTS:
     void testCmp();
     void testRename();
     void testDotDirectory();
+    void testMimetypeForRemoteFolder();
+    void testMimetypeForRemoteFolderWithFileType();
+    void testCurrentMimetypeForRemoteFolder();
+    void testCurrentMimetypeForRemoteFolderWithFileType();
+
 #ifndef Q_OS_WIN
     void testIsReadable_data();
     void testIsReadable();
