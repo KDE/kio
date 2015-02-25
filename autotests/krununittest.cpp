@@ -245,7 +245,7 @@ public:
         setFinished(true);
     }
 
-    virtual void handleInitError(int kioErrorCode, const QString &err) Q_DECL_OVERRIDE {
+    void handleInitError(int kioErrorCode, const QString &err) Q_DECL_OVERRIDE {
         m_errCode = kioErrorCode;
         m_errText = err;
     }

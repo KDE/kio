@@ -57,14 +57,14 @@ public:
 
     virtual void setHost(const QString &host, quint16 port,
                          const QString &user, const QString &passwd) Q_DECL_OVERRIDE;
-    virtual void setConfig(const MetaData &config) Q_DECL_OVERRIDE;
+    void setConfig(const MetaData &config) Q_DECL_OVERRIDE;
 
-    virtual void suspend() Q_DECL_OVERRIDE;
-    virtual void resume() Q_DECL_OVERRIDE;
-    virtual bool suspended() Q_DECL_OVERRIDE;
-    virtual void send(int cmd, const QByteArray &arr = QByteArray()) Q_DECL_OVERRIDE;
+    void suspend() Q_DECL_OVERRIDE;
+    void resume() Q_DECL_OVERRIDE;
+    bool suspended() Q_DECL_OVERRIDE;
+    void send(int cmd, const QByteArray &arr = QByteArray()) Q_DECL_OVERRIDE;
 
-    virtual void hold(const QUrl &url) Q_DECL_OVERRIDE;
+    void hold(const QUrl &url) Q_DECL_OVERRIDE;
 
     // pure virtual methods that are defined by the actual protocol
     virtual void get(const QUrl &url) = 0;
