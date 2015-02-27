@@ -47,7 +47,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #define QL1S(x)  QLatin1String(x)
 #define QL1C(x)  QLatin1Char(x)
 
-K_PLUGIN_FACTORY(KdedCookieServerFactory,
+K_PLUGIN_FACTORY_WITH_JSON(KdedCookieServerFactory, "kcookiejar.json",
                  registerPlugin<KCookieServer>();
                 )
 

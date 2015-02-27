@@ -31,6 +31,7 @@ add_library(kded_kcookiejar MODULE ${kded_kcookiejar_SRCS})
 set_target_properties(kded_kcookiejar PROPERTIES
     OUTPUT_NAME kcookiejar
 )
+kcoreaddons_desktop_to_json(kded_kcookiejar kcookiejar.desktop)
 
 target_link_libraries(kded_kcookiejar
    KF5::WindowSystem
@@ -46,5 +47,4 @@ install(TARGETS kded_kcookiejar  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kded )
 ########### install files ###############
 
 install( FILES domain_info  DESTINATION  ${KDE_INSTALL_DATADIR_KF5}/kcookiejar )
-install( FILES kcookiejar.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR}/kded )
 install( FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KCookieServer.xml DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR} RENAME kf5_org.kde.KCookieServer.xml)

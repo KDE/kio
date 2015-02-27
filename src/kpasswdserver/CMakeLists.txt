@@ -21,6 +21,6 @@ target_link_libraries(kded_kpasswdserver
    KF5::WindowSystem
 )
 
-install(TARGETS kded_kpasswdserver  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kded )
+kcoreaddons_desktop_to_json(kded_kpasswdserver kpasswdserver.desktop)
 
-install( FILES kpasswdserver.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR}/kded )
+install( TARGETS kded_kpasswdserver  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kded )

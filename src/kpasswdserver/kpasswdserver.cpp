@@ -44,10 +44,7 @@
 static QLoggingCategory category("org.kde.kio.kpasswdserver");
 
 
-K_PLUGIN_FACTORY(KPasswdServerFactory,
-                 registerPlugin<KPasswdServer>();
-    )
-K_EXPORT_PLUGIN(KPasswdServerFactory("kpasswdserver"))
+K_PLUGIN_FACTORY_WITH_JSON(KPasswdServerFactory, "kpasswdserver.json", registerPlugin<KPasswdServer>();)
 
 #define AUTHINFO_EXTRAFIELD_DOMAIN QLatin1String("domain")
 #define AUTHINFO_EXTRAFIELD_ANONYMOUS QLatin1String("anonymous")

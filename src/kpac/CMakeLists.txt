@@ -23,7 +23,7 @@ if (Qt5Script_FOUND)
     set_target_properties(kded_proxyscout PROPERTIES
         OUTPUT_NAME proxyscout
     )
-
+    kcoreaddons_desktop_to_json(kded_proxyscout proxyscout.desktop)
     target_link_libraries(kded_proxyscout
        Qt5::Network
        Qt5::Script
@@ -62,4 +62,3 @@ install(TARGETS kpac_dhcp_helper DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF5} )
 
 install( FILES proxyscout.notifyrc  DESTINATION  ${KDE_INSTALL_KNOTIFY5RCDIR} )
 install( FILES proxyscout.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR}/kded )
-
