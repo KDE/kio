@@ -30,6 +30,7 @@ ecm_add_tests(
  threadtest.cpp
  udsentrytest.cpp
  udsentry_benchmark.cpp
+ deletejobtest.cpp
  NAME_PREFIX "kiocore-"
  LINK_LIBRARIES KF5::KIOCore KF5::I18n Qt5::Test Qt5::Network
 )
