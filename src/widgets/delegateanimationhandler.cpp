@@ -52,9 +52,11 @@ public:
 
 // ---------------------------------------------------------------------------
 
-CachedRendering::CachedRendering(QStyle::State state, const QSize &size, QModelIndex index)
-    : state(state), regular(QPixmap(size)), hover(QPixmap(size)), valid(true), validityIndex(index)
+CachedRendering::CachedRendering(QStyle::State state, const QSize &size, QModelIndex index, qreal devicePixelRatio)
+    : state(state), regular(QPixmap(size*devicePixelRatio)), hover(QPixmap(size*devicePixelRatio)), valid(true), validityIndex(index)
 {
+    regular.setDevicePixelRatio(devicePixelRatio);
+    hover.setDevicePixelRatio(devicePixelRatio);
     regular.fill(Qt::transparent);
     hover.fill(Qt::transparent);
 

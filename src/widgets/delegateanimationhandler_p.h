@@ -41,7 +41,7 @@ class CachedRendering : public QObject
     Q_OBJECT
 public:
 
-    CachedRendering(QStyle::State state, const QSize &size, QModelIndex validityIndex);
+    CachedRendering(QStyle::State state, const QSize &size, QModelIndex validityIndex, qreal devicePixelRatio = 1.0);
     bool checkValidity(QStyle::State current) const
     {
         return state == current && valid;
