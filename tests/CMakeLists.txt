@@ -35,4 +35,5 @@ KIOWIDGETS_EXECUTABLE_TESTS(
   kionetrctest
   ksycocaupdatetest
   udsentrybenchmark
+  kurlnavigatortest_gui
 )
