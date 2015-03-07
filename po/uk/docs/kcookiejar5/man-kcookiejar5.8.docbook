@@ -1,0 +1,293 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Ukrainian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<refentry>
+
+<refentryinfo>
+<title
+>Інструкція користувача &kde;</title>
+<author
+><firstname
+>Waldo</firstname
+> <surname
+> Bastian</surname
+> <affiliation
+> <address
+><email
+>bastian@kde.org</email
+></address>
+</affiliation>
+</author>
+
+<author
+><firstname
+>Dawit</firstname
+> <surname
+>Alemayehu</surname
+> <affiliation
+> <address
+><email
+>adawit@kde.org</email
+></address>
+</affiliation>
+</author>
+
+<date
+>14 жовтня 2008 року</date>
+<releaseinfo
+>0.01.01</releaseinfo>
+
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kcookiejar5</command
+></refentrytitle>
+<manvolnum
+>8</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kcookiejar5</command
+></refname>
+<refpurpose
+>Інтерфейс командного рядка до фонової служби роботи з куками HTTP &kde;.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<title
+>Короткий опис</title>
+
+<cmdsynopsis
+><command
+>kcookiejar5</command
+> <arg choice="opt"
+>--help</arg
+> <arg choice="opt"
+>Загальні параметри</arg
+> <arg choice="opt"
+>Параметри Qt</arg
+> <arg choice="opt"
+>Параметри KDE</arg
+> <arg choice="opt"
+>--shutdown</arg
+> <arg choice="opt"
+>--remove <replaceable
+>домен</replaceable
+></arg
+> <arg choice="opt"
+>--remove-all</arg
+> <arg choice="opt"
+>--reload-config</arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Опис</title>
+
+<para
+><command
+>kcookiejar5</command
+> — інтерфейс командного рядка для керування сховищем кук HTTP, яке використовується у KDE, служба D-Bus для зберігання отримання та очищення кук. </para>
+</refsect1>
+
+<refsect1>
+<title
+>Загальні параметри</title>
+<para>
+<variablelist>
+
+<varlistentry>
+<term
+><option
+>--author</option
+></term>
+<listitem>
+<para
+>Показати інформацію щодо автора.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--help</option
+></term>
+<listitem>
+<para
+>Показати довідку щодо параметрів.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--help-all</option
+></term>
+<listitem>
+<para
+>Показати всі параметри.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--help-kde</option
+></term>
+<listitem>
+<para
+>Показати параметри, що стосуються KDE.</para>
+
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--help-qt</option
+></term>
+<listitem>
+<para
+>Показати параметри, що стосуються Qt.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--license</option
+></term>
+<listitem>
+<para
+>Показує інформацію про умови ліцензування програми.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>-v</option
+><option
+>--version</option
+></term>
+<listitem>
+<para
+>Показати інформацію про версію</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</para>
+</refsect1>
+
+<refsect1>
+<title
+>Параметри програми</title>
+<variablelist>
+
+<varlistentry>
+<term
+><option
+>--shutdown</option
+></term>
+<listitem>
+<para
+>Завершити роботу сховища кук і служби D-BUS. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--remove</option
+> <parameter
+>домен</parameter
+></term>
+<listitem>
+<para
+>Вилучити куки для <parameter
+>домену</parameter
+> зі сховища кук. </para>
+</listitem>
+</varlistentry>
+
+
+<varlistentry>
+<term
+><option
+>--remove-all</option
+></term>
+<listitem>
+<para
+>Вилучити всі куки зі сховища.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--reaload-config</option
+></term>
+<listitem>
+<para
+>Перезавантажити файл налаштувань. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Використання</title>
+<para
+><command
+>kcookiejar5</command
+> — засіб для доступу з командного рядка до модуля kded, який керує куками у <command
+>Konqueror</command
+> та інших програмах KDE.</para>
+<para
+>Якщо програму запущено без додаткових параметрів, вона завантажує модуль kded, який забезпечує роботу інтерфейсу D-Bus, призначеного для зберігання кук. </para>
+<para
+>Якщо <command
+>kcookiejar5</command
+> запущено з певними параметрами, ця програма виконує додаткові дії зі сховищем кук, яке вона надає у розпорядження програм, зокрема, може вилучати куки з певного <parameter
+>домену</parameter
+>. </para>
+
+</refsect1>
+
+<refsect1>
+<title
+>Прочитайте також</title>
+<para
+><replaceable
+>kdeoptions</replaceable
+>(7), <replaceable
+>qtoptions</replaceable
+>(7) </para>
+</refsect1>
+
+<refsect1>
+<title
+>Вади</title>
+<para
+>У програми, ймовірно, багато вад. Скористайтеся адресою <ulink url="http://bugs.kde.org"
+>bugs.kde.org</ulink
+> для повідомлень про них.</para>
+</refsect1>
+
+</refentry>
+
+
+
