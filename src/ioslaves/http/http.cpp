@@ -792,6 +792,8 @@ void HTTPProtocol::davStatList(const QUrl &url, bool stat)
                        "<D:supportedlock/>"
                        "<D:lockdiscovery/>"
                        "<D:resourcetype/>"
+                       "<D:quota-available-bytes/>"
+                       "<D:quota-used-bytes/>"
                        "</D:prop>";
         }
         request += "</D:propfind>";
@@ -931,6 +933,8 @@ void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, UDSEntry &en
     bool isDirectory = false;
     uint lockCount = 0;
     uint supportedLockCount = 0;
+    qlonglong quotaUsed = -1;
+    qlonglong quotaAvailable = -1;
 
     for (int i = 0; i < propstats.count(); i++) {
         QDomElement propstat = propstats.item(i).toElement();
@@ -1042,6 +1046,12 @@ void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, UDSEntry &en
                     // This is a collection (directory)
                     isDirectory = true;
                 }
+            } else if (property.tagName() == QLatin1String("quota-used-bytes")) {
+                // Quota-used-bytes. "Contains the amount of storage already in use."
+                quotaUsed = property.text().toLongLong();
+            } else if (property.tagName() == QLatin1String("quota-available-bytes")) {
+                // Quota-available-bytes. "Indicates the maximum amount of additional storage available."
+                quotaAvailable = property.text().toLongLong();
             } else {
                 qCDebug(KIO_HTTP) << "Found unknown webdav property:" << property.tagName();
             }
@@ -1062,6 +1072,12 @@ void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, UDSEntry &en
 
     if (!isDirectory && !mimeType.isEmpty()) {
         entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, mimeType);
+    }
+
+    if (quotaUsed >= 0 && quotaAvailable >= 0) {
+        // Only used and available storage properties exist, the total storage size has to be calculated.
+        setMetaData(QLatin1String("total"), QString::number(quotaUsed + quotaAvailable));
+        setMetaData(QLatin1String("available"), QString::number(quotaAvailable));
     }
 }
 
@@ -5540,4 +5556,28 @@ bool HTTPProtocol::davStatDestination()
     m_wwwAuth = 0;
 
     return true;
+}
+
+void HTTPProtocol::fileSystemFreeSpace(const QUrl &url)
+{
+    qCDebug(KIO_HTTP) << url;
+
+    if (!maybeSetRequestUrl(url)) {
+        return;
+    }
+    resetSessionSettings();
+
+    davStatList(url);
+}
+
+void HTTPProtocol::virtual_hook(int id, void *data)
+{
+    switch(id) {
+    case SlaveBase::GetFileSystemFreeSpace: {
+        QUrl *url = static_cast<QUrl *>(data);
+        fileSystemFreeSpace(*url);
+    }   break;
+    default:
+        SlaveBase::virtual_hook(id, data);
+    }
 }

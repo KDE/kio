@@ -510,6 +510,11 @@ protected:
       */
     bool davStatDestination();
 
+    void virtual_hook(int id, void *data) Q_DECL_OVERRIDE;
+
+private:
+    void fileSystemFreeSpace(const QUrl &url); // KF6 TODO: Once a virtual fileSystemFreeSpace method in SlaveBase exists, override it
+
 protected:
     HTTPServerState m_server;
     HTTPRequest m_request;
