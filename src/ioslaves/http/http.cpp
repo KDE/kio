@@ -843,11 +843,15 @@ void HTTPProtocol::davStatList(const QUrl &url, bool stat)
 
             const QUrl thisURL(href.text()); // href.text() is a percent-encoded url.
             if (thisURL.isValid()) {
-                QString name = thisURL.fileName();
+                const QUrl adjustedThisURL = thisURL.adjusted(QUrl::StripTrailingSlash);
+                const QUrl adjustedUrl = url.adjusted(QUrl::StripTrailingSlash);
 
                 // base dir of a listDir(): name should be "."
-                if (!stat && thisURL.adjusted(QUrl::StripTrailingSlash) == url.adjusted(QUrl::StripTrailingSlash)) { // TODO: use QUrl::matches
+                QString name;
+                if (!stat && adjustedThisURL.path() == adjustedUrl.path()) {
                     name = QLatin1Char('.');
+                } else {
+                    name = adjustedThisURL.fileName();
                 }
 
                 entry.insert(KIO::UDSEntry::UDS_NAME, name.isEmpty() ? href.text() : name);
