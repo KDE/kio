@@ -343,7 +343,7 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
             reply = new KDEPrivate::AccessManagerReply(op, req, QNetworkReply::UnknownNetworkError, kioJob->errorText(), this);
         }
     } else {
-        // Set the window on the the KIO ui delegate
+        // Set the window on the KIO ui delegate
         if (d->window) {
             KJobWidgets::setWindow(kioJob, d->window);
         }

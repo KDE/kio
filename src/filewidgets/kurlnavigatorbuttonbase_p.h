@@ -48,7 +48,7 @@ public:
      * When having several URL navigator instances, it is important
      * to provide a visual difference to indicate which URL navigator
      * is active (usecase: split view in Dolphin). The activation state
-     * is independent from the the focus or hover state.
+     * is independent from the focus or hover state.
      * Per default the URL navigator button is marked as active.
      */
     void setActive(bool active);

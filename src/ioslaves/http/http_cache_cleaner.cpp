@@ -335,7 +335,7 @@ private:
         if (const int bytesLeft = s_hashedUrlBytes % sizeof(uint)) {
             // dead code until a new url hash algorithm or architecture with sizeof(uint) != 4 appears.
             // we have the luxury of ignoring endianness because the hash is never written to disk.
-            // just merge the bits into the the hash in some way.
+            // just merge the bits into the hash in some way.
             const int offset = ints * sizeof(uint);
             for (int i = 0; i < bytesLeft; i++) {
                 hash ^= static_cast<uint>(m_index[offset + i]) << (i * 8);
