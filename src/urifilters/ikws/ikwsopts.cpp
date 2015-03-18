@@ -341,7 +341,7 @@ void FilterOptions::save()
 
   int changedProviderCount = 0;
   QList<SearchProvider*> providers = m_providersModel->providers();
-  const QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "kservices5/searchproviders/";
+  const QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/kservices5/searchproviders/";
 
   Q_FOREACH(SearchProvider* provider, providers)
   {

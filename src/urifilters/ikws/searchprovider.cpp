@@ -71,7 +71,7 @@ void SearchProvider::setKeys(const QStringList &keys)
       name = key.toLower();
   }
 
-  const QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "kservices5/searchproviders/";
+  const QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/kservices5/searchproviders/";
   bool firstRun = true;
 
   while (true)
