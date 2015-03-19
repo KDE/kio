@@ -228,8 +228,8 @@ void KFileItemPrivate::readUDSEntry(bool _urlIsDirectory)
 {
     // extract fields from the KIO::UDS Entry
 
-    m_fileMode = m_entry.numberValue(KIO::UDSEntry::UDS_FILE_TYPE);
-    m_permissions = m_entry.numberValue(KIO::UDSEntry::UDS_ACCESS);
+    m_fileMode = m_entry.numberValue(KIO::UDSEntry::UDS_FILE_TYPE, KFileItem::Unknown);
+    m_permissions = m_entry.numberValue(KIO::UDSEntry::UDS_ACCESS, KFileItem::Unknown);
     m_strName = m_entry.stringValue(KIO::UDSEntry::UDS_NAME);
 
     const QString displayName = m_entry.stringValue(KIO::UDSEntry::UDS_DISPLAY_NAME);
