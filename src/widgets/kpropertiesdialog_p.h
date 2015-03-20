@@ -78,8 +78,7 @@ protected Q_SLOTS:
     void slotFileRenamed(KIO::Job *, const QUrl &, const QUrl &);
     void slotDirSizeUpdate();
     void slotDirSizeFinished(KJob *);
-    void slotFoundMountPoint(const QString &mp, quint64 kibSize,
-                             quint64 kibUsed, quint64 kibAvail);
+    void slotFreeSpaceResult(KIO::Job *job, KIO::filesize_t size, KIO::filesize_t available);
     void slotSizeStop();
     void slotSizeDetermine();
 

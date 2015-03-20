@@ -91,6 +91,7 @@ extern "C" {
 #include <kio/copyjob.h>
 #include <kio/chmodjob.h>
 #include <kio/directorysizejob.h>
+#include <KIO/FileSystemFreeSpaceJob>
 #include <kio/renamedialog.h>
 #include <kio/jobuidelegate.h>
 #include <kjobwidgets.h>
@@ -1091,33 +1092,32 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         }
     }
 
-    if (isLocal && hasDirs) {  // only for directories
+    if (hasDirs) {  // only for directories
+        sep = new KSeparator(Qt::Horizontal, d->m_frame);
+        grid->addWidget(sep, curRow, 0, 1, 3);
+        ++curRow;
 
-        KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(url.toLocalFile());
-        if (mp) {
-            KDiskFreeSpaceInfo info = KDiskFreeSpaceInfo::freeSpaceInfo(mp->mountPoint());
-            if (info.size() != 0) {
-                sep = new KSeparator(Qt::Horizontal, d->m_frame);
-                grid->addWidget(sep, curRow, 0, 1, 3);
-                ++curRow;
-                if (mp->mountPoint() != "/") {
-                    l = new QLabel(i18n("Mounted on:"), d->m_frame);
-                    grid->addWidget(l, curRow, 0, Qt::AlignRight);
-
-                    l = new KSqueezedTextLabel(mp->mountPoint(), d->m_frame);
-                    l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
-                    grid->addWidget(l, curRow++, 2);
-                }
-
-                l = new QLabel(i18n("Device usage:"), d->m_frame);
+        if (isLocal) {
+            KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(url.toLocalFile());
+            if (mp && mp->mountPoint() != "/") {
+                l = new QLabel(i18n("Mounted on:"), d->m_frame);
                 grid->addWidget(l, curRow, 0, Qt::AlignRight);
 
-                d->m_capacityBar = new KCapacityBar(KCapacityBar::DrawTextOutline, d->m_frame);
-                grid->addWidget(d->m_capacityBar, curRow++, 2);
-
-                slotFoundMountPoint(info.mountPoint(), info.size() / 1024, info.used() / 1024, info.available() / 1024);
+                l = new KSqueezedTextLabel(mp->mountPoint(), d->m_frame);
+                l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+                grid->addWidget(l, curRow++, 2);
             }
         }
+
+        l = new QLabel(i18n("Device usage:"), d->m_frame);
+        grid->addWidget(l, curRow, 0, Qt::AlignRight);
+
+        d->m_capacityBar = new KCapacityBar(KCapacityBar::DrawTextOutline, d->m_frame);
+        d->m_capacityBar->setText(i18nc("@info:status", "Unknown size"));
+        grid->addWidget(d->m_capacityBar, curRow++, 2);
+
+        KIO::FileSystemFreeSpaceJob *job = KIO::fileSystemFreeSpace(url);
+        connect(job, &KIO::FileSystemFreeSpaceJob::result, this, &KFilePropsPlugin::slotFreeSpaceResult);
     }
 
     vbl->addStretch(1);
@@ -1197,18 +1197,23 @@ void KFilePropsPlugin::determineRelativePath(const QString &path)
     d->m_sRelativePath = relativeAppsLocation(path);
 }
 
-void KFilePropsPlugin::slotFoundMountPoint(const QString &,
-        quint64 kibSize,
-        quint64 /*kibUsed*/,
-        quint64 kibAvail)
+void KFilePropsPlugin::slotFreeSpaceResult(KIO::Job *job, KIO::filesize_t size, KIO::filesize_t available)
 {
-    d->m_capacityBar->setText(
-        i18nc("Available space out of total partition size (percent used)", "%1 free of %2 (%3% used)",
-              KIO::convertSizeFromKiB(kibAvail),
-              KIO::convertSizeFromKiB(kibSize),
-              100 - (int)(100.0 * kibAvail / kibSize)));
+    if (!job->error()) {
+        const quint64 used = size - available;
+        const int percentUsed = qRound(100.0 * qreal(used) / qreal(size));
 
-    d->m_capacityBar->setValue(100 - (int)(100.0 * kibAvail / kibSize));
+        d->m_capacityBar->setText(
+        i18nc("Available space out of total partition size (percent used)", "%1 free of %2 (%3% used)",
+              KIO::convertSize(available),
+              KIO::convertSize(size),
+              percentUsed));
+
+        d->m_capacityBar->setValue(percentUsed);
+    } else {
+        d->m_capacityBar->setText(i18nc("@info:status", "Unknown size"));
+        d->m_capacityBar->setValue(0);
+    }
 }
 
 void KFilePropsPlugin::slotDirSizeUpdate()
@@ -1264,16 +1269,9 @@ void KFilePropsPlugin::slotSizeDetermine()
 
     // also update the "Free disk space" display
     if (d->m_capacityBar) {
-        bool isLocal;
         const KFileItem item = properties->item();
-        QUrl url = item.mostLocalUrl(isLocal);
-        if (isLocal) {
-            KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(url.toLocalFile());
-            if (mp) {
-                KDiskFreeSpaceInfo info = KDiskFreeSpaceInfo::freeSpaceInfo(mp->mountPoint());
-                slotFoundMountPoint(info.mountPoint(), info.size() / 1024, info.used() / 1024, info.available() / 1024);
-            }
-        }
+        KIO::FileSystemFreeSpaceJob *job = KIO::fileSystemFreeSpace(item.url());
+        connect(job, &KIO::FileSystemFreeSpaceJob::result, this, &KFilePropsPlugin::slotFreeSpaceResult);
     }
 }
 
