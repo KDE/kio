@@ -4,6 +4,8 @@ endif()
 
 include(ECMMarkAsTest)
 
+find_package(KF5XmlGui ${KF5_DEP_VERSION} REQUIRED)
+
 macro(KIOWIDGETS_EXECUTABLE_TESTS)
   foreach(_testname ${ARGN})
     add_executable(${_testname} ${_testname}.cpp)

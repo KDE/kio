@@ -68,6 +68,7 @@ set_target_properties(krununittest PROPERTIES COMPILE_FLAGS "-DCMAKE_INSTALL_FUL
 endif()
 
 if (TARGET KF5::KIOFileWidgets)
+find_package(KF5XmlGui ${KF5_DEP_VERSION} REQUIRED)
 include_directories(${CMAKE_SOURCE_DIR}/src/filewidgets ${CMAKE_BINARY_DIR}/src/filewidgets)
 ecm_add_tests(
  kurlnavigatortest.cpp
@@ -76,7 +77,7 @@ ecm_add_tests(
  kfilecopytomenutest.cpp
  kfileplacesmodeltest.cpp
  NAME_PREFIX "kiofilewidgets-"
- LINK_LIBRARIES KF5::KIOFileWidgets KF5::KIOWidgets KF5::Bookmarks Qt5::Test
+ LINK_LIBRARIES KF5::KIOFileWidgets KF5::KIOWidgets KF5::XmlGui KF5::Bookmarks Qt5::Test
 )
 endif()
 
