@@ -93,4 +93,4 @@ Comment[x-test]=xxCleans up old entries from the HTTP cachexx
 Comment[zh_CN]=从 HTTP 缓存中清除旧条目
 Comment[zh_HK]=從 HTTP 快取中清除舊的項目
 Comment[zh_TW]=從 HTTP 快取中清除舊的項目
-X-KDE-StartupNotify=false
+StartupNotify=false
