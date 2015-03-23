@@ -72,6 +72,7 @@ find_package(KF5XmlGui ${KF5_DEP_VERSION} REQUIRED)
 include_directories(${CMAKE_SOURCE_DIR}/src/filewidgets ${CMAKE_BINARY_DIR}/src/filewidgets)
 ecm_add_tests(
  kurlnavigatortest.cpp
+ kurlcomboboxtest.cpp
  kdiroperatortest.cpp
  knewfilemenutest.cpp
  kfilecopytomenutest.cpp

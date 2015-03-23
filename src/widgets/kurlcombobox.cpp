@@ -80,8 +80,9 @@ QString KUrlComboBoxPrivate::textForItem(const KUrlComboItem *item) const
     }
     QString text;
     QUrl url = item->url;
+
     if (myMode == KUrlComboBox::Directories) {
-        if (!url.path().endsWith(QLatin1Char('/'))) {
+        if (!url.path().isEmpty() && !url.path().endsWith(QLatin1Char('/'))) {
             url.setPath(url.path() + QLatin1Char('/'));
         }
     } else {
