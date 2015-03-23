@@ -167,7 +167,7 @@ using namespace KIO;
 extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
 {
     QCoreApplication app(argc, argv);
-    app.setApplicationName(QLatin1String("kio_ftp"));
+    app.setApplicationName(QStringLiteral("kio_ftp"));
 
     // qDebug() << "Starting " << getpid();
 
@@ -188,7 +188,7 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
 //===============================================================================
 
 Ftp::Ftp(const QByteArray &pool, const QByteArray &app)
-    : SlaveBase("ftp", pool, app)
+    : SlaveBase(QByteArrayLiteral("ftp"), pool, app)
 {
     // init the socket data
     m_data = m_control = nullptr;
@@ -301,7 +301,7 @@ void Ftp::closeConnection()
         }
 
     if (m_bLoggedOn) {        // send quit
-        if (!ftpSendCmd("quit", 0) || (m_iRespType != 2)) {
+        if (!ftpSendCmd(QByteArrayLiteral("quit"), 0) || (m_iRespType != 2)) {
             qWarning() << "QUIT returned error: " << m_iRespCode;
         }
     }
@@ -658,15 +658,15 @@ bool Ftp::ftpLogin(bool *userChanged)
 
     // Okay, we're logged in. If this is IIS 4, switch dir listing style to Unix:
     // Thanks to jk@soegaard.net (Jens Kristian Sgaard) for this hint
-    if (ftpSendCmd("SYST") && (m_iRespType == 2)) {
+    if (ftpSendCmd(QByteArrayLiteral("SYST")) && (m_iRespType == 2)) {
         if (!qstrncmp(ftpResponse(0), "215 Windows_NT", 14)) {  // should do for any version
-            ftpSendCmd("site dirstyle");
+            ftpSendCmd(QByteArrayLiteral("site dirstyle"));
             // Check if it was already in Unix style
             // Patch from Keith Refson <Keith.Refson@earth.ox.ac.uk>
             if (!qstrncmp(ftpResponse(0), "200 MSDOS-like directory output is on", 37))
                 //It was in Unix style already!
             {
-                ftpSendCmd("site dirstyle");
+                ftpSendCmd(QByteArrayLiteral("site dirstyle"));
             }
             // windows won't support chmod before KDE konquers their desktop...
             m_extControl |= chmodUnknown;
@@ -681,7 +681,7 @@ bool Ftp::ftpLogin(bool *userChanged)
 
     // Get the current working directory
     // qDebug() << "Searching for pwd";
-    if (!ftpSendCmd("PWD") || (m_iRespType != 2)) {
+    if (!ftpSendCmd(QByteArrayLiteral("PWD")) || (m_iRespType != 2)) {
         // qDebug() << "Couldn't issue pwd command";
         error(ERR_CANNOT_LOGIN, i18n("Could not login to %1.", m_host));   // or anything better ?
         return false;
@@ -851,7 +851,7 @@ int Ftp::ftpOpenPASVDataConnection()
     m_bPasv = true;
 
     /* Let's PASsiVe*/
-    if (!ftpSendCmd("PASV") || (m_iRespType != 2)) {
+    if (!ftpSendCmd(QByteArrayLiteral("PASV")) || (m_iRespType != 2)) {
         // qDebug() << "PASV attempt failed";
         // unknown command?
         if (m_iRespType == 5) {
@@ -903,7 +903,7 @@ int Ftp::ftpOpenEPSVDataConnection()
     }
 
     m_bPasv = true;
-    if (!ftpSendCmd("EPSV") || (m_iRespType != 2)) {
+    if (!ftpSendCmd(QByteArrayLiteral("EPSV")) || (m_iRespType != 2)) {
         // unknown command?
         if (m_iRespType == 5) {
             // qDebug() << "disabling use of EPSV";
@@ -1133,7 +1133,7 @@ void Ftp::mkdir(const QUrl &url, int permissions)
     const QByteArray encodedPath(remoteEncoding()->encode(url));
     const QString path = QString::fromLatin1(encodedPath.constData(), encodedPath.size());
 
-    if (!ftpSendCmd((QByteArray("mkd ") + encodedPath)) || (m_iRespType != 2)) {
+    if (!ftpSendCmd((QByteArrayLiteral("mkd ") + encodedPath)) || (m_iRespType != 2)) {
         QString currentPath(m_currentPath);
 
         // Check whether or not mkdir failed because

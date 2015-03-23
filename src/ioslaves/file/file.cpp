@@ -90,7 +90,7 @@ static void appendACLAtoms(const QByteArray &path, UDSEntry &entry,
 extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
 {
     QCoreApplication app(argc, argv);   // needed for QSocketNotifier
-    app.setApplicationName(QLatin1String("kio_file"));
+    app.setApplicationName(QStringLiteral("kio_file"));
 
     if (argc != 4) {
         fprintf(stderr, "Usage: kio_file protocol domain-socket1 domain-socket2\n");
@@ -145,7 +145,7 @@ static QFile::Permissions modeToQFilePermissions(int mode)
 }
 
 FileProtocol::FileProtocol(const QByteArray &pool, const QByteArray &app)
-    : SlaveBase("file", pool, app), mFile(0)
+    : SlaveBase(QByteArrayLiteral("file"), pool, app), mFile(0)
 {
 }
 
@@ -334,6 +334,7 @@ void FileProtocol::get(const QUrl &url)
     }
 
 #if HAVE_FADVISE
+    //TODO check return code
     posix_fadvise(f.handle(), 0, 0, POSIX_FADV_SEQUENTIAL);
 #endif
 
@@ -1306,8 +1307,8 @@ void FileProtocol::fileSystemFreeSpace(const QUrl &url)
     if (url.isLocalFile()) {
         const KDiskFreeSpaceInfo spaceInfo = KDiskFreeSpaceInfo::freeSpaceInfo(url.toLocalFile());
         if (spaceInfo.isValid()) {
-            setMetaData(QString::fromLatin1("total"), QString::number(spaceInfo.size()));
-            setMetaData(QString::fromLatin1("available"), QString::number(spaceInfo.available()));
+            setMetaData(QStringLiteral("total"), QString::number(spaceInfo.size()));
+            setMetaData(QStringLiteral("available"), QString::number(spaceInfo.available()));
 
             finished();
         } else {

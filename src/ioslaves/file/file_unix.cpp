@@ -347,7 +347,7 @@ void FileProtocol::listDir(const QUrl &url)
         return;
     }
 
-    const QString sDetails = metaData(QLatin1String("details"));
+    const QString sDetails = metaData(QStringLiteral("details"));
     const int details = sDetails.isEmpty() ? 2 : sDetails.toInt();
     //qDebug() << "========= LIST " << url << "details=" << details << " =========";
     UDSEntry entry;
@@ -613,7 +613,7 @@ void FileProtocol::stat(const QUrl &url)
      */
     const QString path(url.adjusted(QUrl::StripTrailingSlash).toLocalFile());
     const QByteArray _path(QFile::encodeName(path));
-    const QString sDetails = metaData(QLatin1String("details"));
+    const QString sDetails = metaData(QStringLiteral("details"));
     const int details = sDetails.isEmpty() ? 2 : sDetails.toInt();
 
     UDSEntry entry;
