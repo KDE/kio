@@ -24,6 +24,7 @@
 #include "kioglobal_p.h"
 #include "kio/job.h"
 
+#include <QDataStream>
 #include <QDebug>
 #include <QCoreApplication>
 #include <QDateTime>
