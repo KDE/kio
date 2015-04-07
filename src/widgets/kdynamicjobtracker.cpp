@@ -30,7 +30,6 @@
 #include <QDBusInterface>
 #include <QMap>
 #include <QDebug>
-#include <QApplication>
 
 struct AllTrackers {
     KUiServerJobTracker *kuiserverTracker;
@@ -76,20 +75,17 @@ void KDynamicJobTracker::registerJob(KJob *job)
     d->trackers[job].kuiserverTracker = d->kuiserverTracker;
     d->trackers[job].kuiserverTracker->registerJob(job);
 
-    //We only want the KWidgetJobTracker if we're on a QApplication
-    if (qobject_cast<QApplication*>(QCoreApplication::instance())) {
-        QDBusInterface interface("org.kde.kuiserver", "/JobViewServer", "",
-                                QDBusConnection::sessionBus(), this);
-        QDBusReply<bool> reply = interface.call("requiresJobTracker");
+    QDBusInterface interface("org.kde.kuiserver", "/JobViewServer", "",
+                             QDBusConnection::sessionBus(), this);
+    QDBusReply<bool> reply = interface.call("requiresJobTracker");
 
-        if (reply.isValid() && reply.value()) {
-            //create a widget tracker in addition to kuiservertracker.
-            if (!d->widgetTracker) {
-                d->widgetTracker = new KWidgetJobTracker();
-            }
-            d->trackers[job].widgetTracker = d->widgetTracker;
-            d->trackers[job].widgetTracker->registerJob(job);
+    if (reply.isValid() && reply.value()) {
+        //create a widget tracker in addition to kuiservertracker.
+        if (!d->widgetTracker) {
+            d->widgetTracker = new KWidgetJobTracker();
         }
+        d->trackers[job].widgetTracker = d->widgetTracker;
+        d->trackers[job].widgetTracker->registerJob(job);
     }
 
     Q_ASSERT(d->trackers[job].kuiserverTracker || d->trackers[job].widgetTracker);

@@ -33,7 +33,7 @@
 #include <clipboardupdater_p.h>
 
 #include <QDBusInterface>
-#include <QApplication>
+#include <QGuiApplication>
 #include <QPointer>
 #include <QWidget>
 #include <QIcon>
@@ -388,9 +388,6 @@ Q_GLOBAL_STATIC(KIO::JobUiDelegate, globalUiDelegate)
 // Simply linking to this library, creates a GUI job delegate and delegate extension for all KIO jobs
 static void registerJobUiDelegate()
 {
-    if (!qobject_cast<QApplication*>(QCoreApplication::instance()))
-        return;
-
     KIO::setDefaultJobUiDelegateFactory(globalUiDelegateFactory());
     KIO::setDefaultJobUiDelegateExtension(globalUiDelegate());
 }
