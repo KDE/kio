@@ -5,7 +5,6 @@ Name=Multitran - Translate Between English and Russian
 Name[af]=Multitran - Vertaal tussen Engels en Russies
 Name[ar]=Multitran - ترجمة بين الانجليزية والروسية
 Name[as]=Multitran - ইংৰাজী আৰু ৰুচীয় ভাষাৰ মাজত অনুবাদ
-Name[ast]=Multitran - Torna ente inglés y rusu
 Name[be@latin]=Pierakład „Multitran”: anhielskaja ➙ rasiejskaja
 Name[bg]=Multitran - превод между английски и руски
 Name[bn]=মাল্টিট্র্যান - ইংরিজি থেকে রুশ বা রুশ থেকে ইংরিজিতে অনুবাদ করুন
@@ -90,7 +89,6 @@ Keys=mt,mten
 Query=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[ar]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[as]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
-Query[ast]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[be@latin]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[bg]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[bn]=http://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}

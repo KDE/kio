@@ -4,7 +4,6 @@ Name=Ruby Application Archive
 Name[af]=Ruby Toepassing Argief
 Name[ar]=أرشيف تطبيقات روبي
 Name[as]=Ruby Application Archive
-Name[ast]=Ficheru d'aplicaciones en Ruby
 Name[be]=Архіў праграмаў Ruby
 Name[be@latin]=Aplikacyi „Ruby”
 Name[bg]=Архив на Ruby
@@ -97,7 +96,6 @@ Query=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[af]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ar]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[as]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
-Query[ast]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[be]=http://raa.ruby-lang.org/search.rhtml?search=\\{@}
 Query[be@latin]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[bg]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

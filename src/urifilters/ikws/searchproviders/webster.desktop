@@ -4,7 +4,6 @@ Name=Merriam-Webster Dictionary
 Name[af]=Merriam-Webster Woordeboek
 Name[ar]=قاموس Merriam-Webster
 Name[as]=Merriam-Webster Dictionary
-Name[ast]=Diccionariu Merriam-Webster
 Name[be]=Слоўнік Merriam-Webster
 Name[be@latin]=Słoŭnik „Merriam-Webster”
 Name[bg]=Речник Merriam-Webster
@@ -97,7 +96,6 @@ Query=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[af]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[ar]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[as]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
-Query[ast]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[be]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[be@latin]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[bg]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}

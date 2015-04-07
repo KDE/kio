@@ -6,7 +6,6 @@ Name=dict.cc Translation: German to English
 Name[af]=dict.cc Translation: German to English
 Name[ar]=ترجمة dict.cc: من الألمانية إلى الانجليزية
 Name[as]=dict.cc Translation: German to English
-Name[ast]=Tornes dict.cc: alemán a inglés
 Name[be]=dict.cc Пераклад: з нямецкай на англійскую
 Name[be@latin]=Pierakład „dict.cc”: niamieckaja ➙ anhielskaja
 Name[bg]=Превод с dict.cc— от немски към английски
@@ -93,7 +92,6 @@ Query=http://www.dict.cc/?s=\\{@}
 Query[af]=http://www.dict.cc/?s=\\{@}
 Query[ar]=http://www.dict.cc/?s=\\{@}
 Query[as]=http://www.dict.cc/?s=\\{@}
-Query[ast]=http://www.dict.cc/?s=\\{@}
 Query[be]=http://www.dict.cc/?s=\\{@}
 Query[be@latin]=http://www.dict.cc/?s=\\{@}
 Query[bg]=http://www.dict.cc/?s=\\{@}

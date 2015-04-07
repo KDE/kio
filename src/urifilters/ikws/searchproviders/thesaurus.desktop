@@ -4,7 +4,6 @@ Name=Merriam-Webster Thesaurus
 Name[af]=Merriam-Webster Thesaurus
 Name[ar]=قاموس Merriam-Webster للمترادفات
 Name[as]=Merriam-Webster Thesaurus
-Name[ast]=Sinónimos Merriam-Webster
 Name[be]=Тэзаўрус Merriam-Webster
 Name[be@latin]=Tezaŭrus „Merriam-Webster”
 Name[bg]=Речник Merriam-Webster
@@ -96,7 +95,6 @@ Query=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[af]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[ar]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[as]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
-Query[ast]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[be]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[be@latin]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
 Query[bg]=http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}

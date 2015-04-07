@@ -5,7 +5,6 @@ Name=Multitran - Translate Between Dutch and Russian
 Name[af]=Multitran - Vertaal tussen Nederlands en Russies
 Name[ar]=Multitran - ترجمة بين الألمانية والروسية
 Name[as]=Multitran - ডাচ আৰু ৰুচীয় ভাষাৰ মাজত অনুবাদ
-Name[ast]=Multitran - Torna ente danés y rusu
 Name[be@latin]=Pierakład „Multitran”: halandzkaja ➙ rasiejskaja
 Name[bg]=Multitran - превод между холандски и руски
 Name[bn]=মাল্টিট্র্যান - ওলন্দাজ থেকে রুশ বা রুশ থেকে ওলন্দাজে অনুবাদ করুন
@@ -90,7 +89,6 @@ Keys=mt,mtde
 Query=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[ar]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[as]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
-Query[ast]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[be@latin]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[bg]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[bn]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
