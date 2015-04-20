@@ -60,6 +60,7 @@ ecm_add_tests(
  kurlrequestertest.cpp
  jobguitest.cpp
  pastetest.cpp
+ accessmanagertest.cpp
  NAME_PREFIX "kiowidgets-"
  LINK_LIBRARIES KF5::KIOCore KF5::KIOWidgets Qt5::Test
 )
