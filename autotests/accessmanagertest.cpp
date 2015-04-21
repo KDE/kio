@@ -53,7 +53,7 @@ private Q_SLOTS:
 
     void testPut()
     {
-        const QString aDir = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+        const QString aDir = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
         QVERIFY(QDir::temp().mkpath(aDir));
         const QString aFile = aDir + QStringLiteral("/accessmanagertest-data");
         const QByteArray content = "We love free software!";
