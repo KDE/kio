@@ -1155,25 +1155,23 @@ bool TrashImpl::adaptTrashSize(const QString &origPath, int trashId)
         TrashSizeCache trashSize(trashPath);
         DiscSpaceUtil util(trashPath + QString::fromLatin1("/files/"));
         if (util.usage(trashSize.calculateSize() + additionalSize) >= percent) {
+            // before we start to remove any files from the trash,
+            // check whether the new file will fit into the trash
+            // at all...
+            qulonglong partitionSize = util.size();
+
+            if ((((double)additionalSize / (double)partitionSize) * 100) >= percent) {
+                m_lastErrorCode = KIO::ERR_SLAVE_DEFINED;
+                m_lastErrorMessage = i18n("The file is too large to be trashed.");
+                return false;
+            }
+
             if (actionType == 0) {   // warn the user only
                 m_lastErrorCode = KIO::ERR_SLAVE_DEFINED;
                 m_lastErrorMessage = i18n("The trash has reached its maximum size!\nCleanup the trash manually.");
                 return false;
             } else {
-                // before we start to remove any files from the trash,
-                // check whether the new file will fit into the trash
-                // at all...
-
-                qulonglong partitionSize = util.size();
-
-                if ((((double)additionalSize / (double)partitionSize) * 100) >= percent) {
-                    m_lastErrorCode = KIO::ERR_SLAVE_DEFINED;
-                    m_lastErrorMessage = i18n("The file is too large to be trashed.");
-                    return false;
-                }
-
-                // the size of the to be trashed file is ok, so lets start removing
-                // some other files from the trash
+                // lets start removing some other files from the trash
 
                 QDir dir(trashPath + QString::fromLatin1("/files"));
                 QFileInfoList infoList;
