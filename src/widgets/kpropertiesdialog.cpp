@@ -1574,7 +1574,7 @@ const mode_t KFilePermissionsPropsPlugin::permissionsMasks[3] = {UniOwner, UniGr
 const mode_t KFilePermissionsPropsPlugin::standardPermissions[4] = { 0, UniRead, UniRead | UniWrite, (mode_t) - 1 };
 
 // synced with PermissionsMode and standardPermissions
-const char *KFilePermissionsPropsPlugin::permissionsTexts[4][4] = {
+const char *const KFilePermissionsPropsPlugin::permissionsTexts[4][4] = {
     {
         I18N_NOOP("Forbidden"),
         I18N_NOOP("Can Read"),
