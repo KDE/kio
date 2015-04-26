@@ -121,7 +121,8 @@ void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName)
     while (QFile::exists(ddesktop)) {
         // see if it points to the same file and application
         KDesktopFile tmp(ddesktop);
-        if (tmp.desktopGroup().readEntry("X-KDE-LastOpenedWith") == desktopEntryName) {
+        if (tmp.desktopGroup().readPathEntry("URL", QString()) == url.toDisplayString()
+            && tmp.desktopGroup().readEntry("X-KDE-LastOpenedWith") == desktopEntryName) {
             // Set access and modification time to current time
             ::utime(QFile::encodeName(ddesktop).constData(), NULL);
             return;
