@@ -157,6 +157,18 @@ StoredTransferJob *KIO::storedPut(const QByteArray &arr, const QUrl &url, int pe
     return job;
 }
 
+StoredTransferJob *KIO::storedPut(QIODevice* input, const QUrl &url, int permissions,
+                                  JobFlags flags)
+{
+    Q_ASSERT(input && input->isReadable());
+    KIO_ARGS << url << qint8((flags & Overwrite) ? 1 : 0) << qint8((flags & Resume) ? 1 : 0) << permissions;
+    StoredTransferJob *job = StoredTransferJobPrivate::newJob(url, CMD_PUT, packedArgs, input, flags);
+    if (!input->isSequential()) {
+        job->setTotalSize(input->size());
+    }
+    return job;
+}
+
 namespace KIO
 {
 class PostErrorJob : public StoredTransferJob

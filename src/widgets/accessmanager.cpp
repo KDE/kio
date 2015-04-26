@@ -252,7 +252,15 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
     case PutOperation: {
         //qDebug() << "PutOperation:" << reqUrl;
         if (outgoingData) {
-            kioJob = KIO::storedPut(outgoingData->readAll(), reqUrl, -1, KIO::HideProgressInfo);
+            Q_ASSERT(outgoingData->isReadable());
+            StoredTransferJob* storedJob = KIO::storedPut(outgoingData, reqUrl, -1, KIO::HideProgressInfo);
+
+            QVariant len = req.header(QNetworkRequest::ContentLengthHeader);
+            if (len.isValid()) {
+                storedJob->setTotalSize(len.toInt());
+            }
+
+            kioJob = storedJob;
         } else {
             kioJob = KIO::put(reqUrl, -1, KIO::HideProgressInfo);
         }

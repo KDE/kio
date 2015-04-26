@@ -86,6 +86,22 @@ private:
 KIOCORE_EXPORT StoredTransferJob *storedGet(const QUrl &url, LoadType reload = NoReload, JobFlags flags = DefaultFlags);
 
 /**
+ * Put (a.k.a. write) data from a QIODevice.
+ * @see StoredTransferJob
+ *
+ * @param input The data to write, a device to read from
+ * @param url Where to write data.
+ * @param permissions May be -1. In this case no special permission mode is set.
+ * @param flags Can be HideProgressInfo, Overwrite and Resume here. WARNING:
+ * Setting Resume means that the data will be appended to @p dest if @p dest exists.
+ * @return the job handling the operation.
+ *
+ * @since 5.10
+ */
+KIOCORE_EXPORT StoredTransferJob *storedPut(QIODevice* input, const QUrl &url, int permissions,
+        JobFlags flags = DefaultFlags);
+
+/**
  * Put (a.k.a. write) data from a single QByteArray.
  * @see StoredTransferJob
  *

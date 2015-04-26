@@ -57,10 +57,13 @@ private Q_SLOTS:
         QVERIFY(QDir::temp().mkpath(aDir));
         const QString aFile = aDir + QStringLiteral("/accessmanagertest-data");
         const QByteArray content = "We love free software!";
+        QBuffer buffer;
+        buffer.setData(content);
+        buffer.open(QIODevice::ReadOnly);
 
         QFile::remove(aFile);
 
-        QNetworkReply* reply = m_manager.put(QNetworkRequest(QUrl::fromLocalFile(aFile)), content);
+        QNetworkReply* reply = m_manager.put(QNetworkRequest(QUrl::fromLocalFile(aFile)), &buffer);
         QSignalSpy spy(reply, SIGNAL(finished()));
         QVERIFY(spy.wait());
 

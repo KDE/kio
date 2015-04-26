@@ -31,6 +31,7 @@
 #include <QtCore/QDir>
 #include <QtCore/QHash>
 #include <QtCore/QVariant>
+#include <QtCore/QBuffer>
 #include <QUrl>
 
 #include <kprotocolinfo.h>
@@ -205,6 +206,29 @@ void JobTest::storedPut()
     QUrl u = QUrl::fromLocalFile(filePath);
     QByteArray putData = "This is the put data";
     KIO::TransferJob *job = KIO::storedPut(putData, u, 0600, KIO::Overwrite | KIO::HideProgressInfo);
+    QSignalSpy spyPercent(job, SIGNAL(percent(KJob*,ulong)));
+    QVERIFY(spyPercent.isValid());
+    QDateTime mtime = QDateTime::currentDateTime().addSecs(-30);   // 30 seconds ago
+    mtime.setTime_t(mtime.toTime_t()); // hack for losing the milliseconds
+    job->setModificationTime(mtime);
+    job->setUiDelegate(0);
+    QVERIFY(job->exec());
+    QFileInfo fileInfo(filePath);
+    QVERIFY(fileInfo.exists());
+    QCOMPARE(fileInfo.size(), (long long)putData.size());
+    QCOMPARE((int)fileInfo.permissions(), (int)(QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser));
+    QCOMPARE(fileInfo.lastModified(), mtime);
+    QVERIFY(!spyPercent.isEmpty());
+}
+
+void JobTest::storedPutIODevice()
+{
+    const QString filePath = homeTmpDir() + "fileFromHome";
+    QUrl u = QUrl::fromLocalFile(filePath);
+    QBuffer putData;
+    putData.setData("This is the put data");
+    QVERIFY(putData.open(QIODevice::ReadOnly));
+    KIO::TransferJob *job = KIO::storedPut(&putData, u, 0600, KIO::Overwrite | KIO::HideProgressInfo);
     QSignalSpy spyPercent(job, SIGNAL(percent(KJob*,ulong)));
     QVERIFY(spyPercent.isValid());
     QDateTime mtime = QDateTime::currentDateTime().addSecs(-30);   // 30 seconds ago
