@@ -259,6 +259,32 @@ KPropertiesDialog::KPropertiesDialog(const QUrl &_url,
     d->init();
 }
 
+KPropertiesDialog::KPropertiesDialog(const QList<QUrl>& urls,
+                                     QWidget* parent)
+    : KPageDialog(parent), d(new KPropertiesDialogPrivate(this))
+{
+    if (urls.count() > 1) {
+        setWindowTitle(i18np("Properties for 1 item", "Properties for %1 Selected Items", urls.count()));
+    } else {
+        setWindowTitle(i18n("Properties for %1", KIO::decodeFileName(urls.first().fileName())));
+    }
+
+    Q_ASSERT(!urls.isEmpty());
+    d->m_singleUrl = urls.first();
+    Q_ASSERT(!d->m_singleUrl.isEmpty());
+
+    foreach (QUrl url, urls) {
+        KIO::StatJob *job = KIO::stat(url);
+        KJobWidgets::setWindow(job, parent);
+        job->exec();
+        KIO::UDSEntry entry = job->statResult();
+
+        d->m_items.append(KFileItem(entry, url));
+    }
+
+    d->init();
+}
+
 KPropertiesDialog::KPropertiesDialog(const QUrl &_tempUrl, const QUrl &_currentDir,
                                      const QString &_defaultName,
                                      QWidget *parent)
@@ -359,6 +385,18 @@ bool KPropertiesDialog::showDialog(const KFileItemList &_items, QWidget *parent,
         }
     }
     KPropertiesDialog *dlg = new KPropertiesDialog(_items, parent);
+    if (modal) {
+        dlg->exec();
+    } else {
+        dlg->show();
+    }
+    return true;
+}
+
+bool KPropertiesDialog::showDialog(const QList<QUrl> &urls, QWidget* parent,
+                                   bool modal)
+{
+    KPropertiesDialog *dlg = new KPropertiesDialog(urls, parent);
     if (modal) {
         dlg->exec();
     } else {

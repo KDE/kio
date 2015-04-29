@@ -123,6 +123,29 @@ public:
                                QWidget *parent = 0);
 
     /**
+     * Brings up a Properties dialog. Convenience constructor for
+     * non-file-manager applications, where you have a list of QUrls rather
+     * than a KFileItemList.
+     *
+     * @param urls list of URLs whose properties should be displayed (must
+     *             contain at least one non-empty URL)
+     * @param parent is the parent of the dialog widget.
+     * @param name is the internal name.
+     *
+     * IMPORTANT: This constructor, together with exec(), leads to a grave
+     * display bug (due to KIO::stat() being run before the dialog has all the
+     * necessary information). Do not use this combination for now.
+     * TODO: Check if the above is still true with Qt4/Qt5, and if so
+     * make the initialization asynchronous.
+     * For local files with a known mimetype, simply create a KFileItemList and
+     * pass it to the other constructor.
+     *
+     * @since 5.10
+     */
+    explicit KPropertiesDialog(const QList<QUrl> &urls,
+                               QWidget *parent = Q_NULLPTR);
+
+    /**
      * Creates a properties dialog for a new .desktop file (whose name
      * is not known yet), based on a template. Special constructor for
      * "File / New" in file-manager type applications.
@@ -189,6 +212,26 @@ public:
      * @return true on successful dialog displaying (can be false on win32).
      */
     static bool showDialog(const KFileItemList &_items, QWidget *parent = 0,
+                           bool modal = true);
+
+    /**
+     * Immediately displays a Properties dialog using constructor with
+     * the same parameters.
+     *
+     * On MS Windows, if @p _urls has one element and this element points
+     * to a local file, native (non modal) property dialog is displayed
+     * (@p parent and @p modal are ignored in this case).
+     *
+     * @param urls list of URLs whose properties should be displayed (must
+     *             contain at least one non-empty URL)
+     * @param parent is the parent of the dialog widget.
+     * @param modal tells the dialog whether it should be modal.
+     *
+     * @return true on successful dialog displaying (can be false on win32).
+     *
+     * @since 5.10
+     */
+    static bool showDialog(const QList<QUrl> &urls, QWidget *parent = Q_NULLPTR,
                            bool modal = true);
 
     /**
