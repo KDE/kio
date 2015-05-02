@@ -2489,9 +2489,9 @@ Ftp::StatusCode Ftp::ftpCopyGet(int &iError, int &iCopyFile, const QString &sCop
     if (bMarkPartial) {
         if (iRes == statusSuccess) {
             // rename ".part" on success
-            if (QFile::rename(sPart, sCopyFile)) {
+            if (!QFile::rename(sPart, sCopyFile)) {
                 // If rename fails, try removing the destination first if it exists.
-                if (!bDestExists || !(QFile::remove(sCopyFile) && QFile::rename(sPart, sCopyFile) == 0)) {
+                if (!bDestExists || !(QFile::remove(sCopyFile) && QFile::rename(sPart, sCopyFile))) {
                     // qDebug() << "cannot rename " << sPart << " to " << sCopyFile;
                     iError = ERR_CANNOT_RENAME_PARTIAL;
                     iRes = statusClientError;
