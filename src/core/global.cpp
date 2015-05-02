@@ -387,48 +387,38 @@ QUrl KIO::upUrl(const QUrl &url)
 
 QString KIO::suggestName(const QUrl &baseURL, const QString &oldName)
 {
-    QString dotSuffix, suggestedName;
-    QString basename = oldName;
-    QString spacer = QChar(' ');
+    QString basename;
 
-    //ignore dots at the beginning, that way "..aFile.tar.gz" will become "..aFile 1.tar.gz" instead of " 1..aFile.tar.gz"
-    int start = 0;
-    while (start < basename.length()-1 && basename.at(start) == '.') {
-        ++start;
-    }
-    // find next dot
-    int index = basename.indexOf('.', start);
-    if (index == -1 && start > 0) {
-        // last chance, using one of the leading dots we skipped, if any
-        index = start - 1;
-        spacer.clear();
-    }
+    // Extract the original file extension from the filename
+    QMimeDatabase db;
+    QString nameSuffix = db.suffixForFileName(oldName);
 
-    if (index != -1) {
-        dotSuffix = basename.mid(index);
-        basename.truncate(index);
+    if (oldName.lastIndexOf('.') == 0) {
+        basename = ".";
+        nameSuffix = oldName;
+    } else if (nameSuffix.isEmpty()) {
+        basename = oldName;
+    } else {
+        nameSuffix.prepend('.');
+        basename = oldName.left(oldName.length() - nameSuffix.length());
     }
 
-    int pos = basename.lastIndexOf(spacer);
-
-    if (pos != -1) {
-        QString tmp = basename.mid(pos + 1);
-        bool ok;
-        int number = tmp.toInt(&ok);
-
-        if (!ok) {  // ok there is no number
-            suggestedName = basename + spacer + '1' + dotSuffix;
-        } else {
-            // yes there's already a number behind the spacer so increment it by one
-            basename.replace(pos + 1, tmp.length(), QString::number(number + 1));
-            suggestedName = basename + dotSuffix;
-        }
-    } else { // no spacer yet
-        suggestedName = basename + spacer + "1" + dotSuffix;
+    // check if (number) exists from the end of the oldName and increment that number
+    QRegExp numSearch("\\(\\d+\\)");
+    int start = numSearch.lastIndexIn(oldName);
+    if (start != -1) {
+        QString numAsStr = numSearch.cap(0);
+        QString number = QString::number(numAsStr.mid(1, numAsStr.size() - 2).toInt() + 1);
+        basename = basename.left(start) + '(' + number + ')';
+    } else {
+        // number does not exist, so just append " (1)" to filename
+        basename += " (1)";
     }
+    const QString suggestedName = basename + nameSuffix;
 
     // Check if suggested name already exists
     bool exists = false;
+
     // TODO: network transparency. However, using NetAccess from a modal dialog
     // could be a problem, no? (given that it uses a modal widget itself....)
     if (baseURL.isLocalFile()) {
