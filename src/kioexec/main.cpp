@@ -108,9 +108,9 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
                 // Build the destination filename, in ~/.kde/cache-*/krun/
                 // Unlike KDE-1.1, we put the filename at the end so that the extension is kept
                 // (Some programs rely on it)
-                QString tmp = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + "/krun/"  +
-                              QString("%1_%2_%3").arg(QCoreApplication::applicationPid()).arg(jobCounter++).arg(fileName);
-                QDir().mkpath(tmp); // error handling will be done by the job
+                QString krun_writable = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + "/krun/";
+                QDir().mkpath(krun_writable); // error handling will be done by the job
+                QString tmp = krun_writable + QString("%1_%2_%3").arg(QCoreApplication::applicationPid()).arg(jobCounter++).arg(fileName);
                 FileInfo file;
                 file.path = tmp;
                 file.url = url;
