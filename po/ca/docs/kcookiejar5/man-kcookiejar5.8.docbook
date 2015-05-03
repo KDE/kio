@@ -1,0 +1,293 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Catalan  "INCLUDE"
+><!-- change language only here -->
+]>
+
+<refentry>
+
+<refentryinfo>
+<title
+>Manual d'usuari del &kde;</title>
+<author
+><firstname
+>Waldo</firstname
+> <surname
+> Bastian</surname
+> <affiliation
+> <address
+><email
+>bastian@kde.org</email
+></address>
+</affiliation>
+</author>
+
+<author
+><firstname
+>Dawit</firstname
+> <surname
+>Alemayehu</surname
+> <affiliation
+> <address
+><email
+>adawit@kde.org</email
+></address>
+</affiliation>
+</author>
+
+<date
+>14-10-2008</date>
+<releaseinfo
+>0.01.01</releaseinfo>
+
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kcookiejar5</command
+></refentrytitle>
+<manvolnum
+>8</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kcookiejar5</command
+></refname>
+<refpurpose
+>Interfície de línia d'ordres per al dimoni de galetes HTTP del &kde;</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<title
+>Sinopsis</title>
+
+<cmdsynopsis
+><command
+>kcookiejar5</command
+> <arg choice="opt"
+>--help</arg
+> <arg choice="opt"
+>Opcions-genèriques</arg
+> <arg choice="opt"
+>Opcions-de-Qt-</arg
+><arg choice="opt"
+>Opcions-de-KDE</arg
+> <arg choice="opt"
+>--shutdown</arg
+> <arg choice="opt"
+>--remove<replaceable
+> domini</replaceable
+></arg
+> <arg choice="opt"
+>--remove-all</arg
+> <arg choice="opt"
+>--reload-config</arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Descripció</title>
+
+<para
+><command
+>kcookiejar5</command
+> és una interfície de línia d'ordres per emmagatzemar les galetes HTTP utilitzada pel KDE, un servei de D-BUS per emmagatzemar/recuperar/netejar les galetes. </para>
+</refsect1>
+
+<refsect1>
+<title
+>Opcions genèriques</title>
+<para>
+<variablelist>
+
+<varlistentry>
+<term
+><option
+>--author</option
+></term>
+<listitem>
+<para
+>Mostra informació de l'autor.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--help</option
+></term>
+<listitem>
+<para
+>Mostra ajuda quant a les opcions.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--help-all</option
+></term>
+<listitem>
+<para
+>Mostra totes les opcions.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--help-kde</option
+></term>
+<listitem>
+<para
+>Mostra les opcions específiques de KDE.</para>
+
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--help-qt</option
+></term>
+<listitem>
+<para
+>Mostra les opcions específiques de Qt.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--license</option
+></term>
+<listitem>
+<para
+>Mostra informació de llicència.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>-v</option
+><option
+>--version</option
+></term>
+<listitem>
+<para
+>Mostra informació de la versió</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</para>
+</refsect1>
+
+<refsect1>
+<title
+>Opcions d'aplicació</title>
+<variablelist>
+
+<varlistentry>
+<term
+><option
+>--shutdown</option
+></term>
+<listitem>
+<para
+>Atura el pot de galetes i el servei D-BUS. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--remove</option
+> <parameter
+>domini</parameter
+></term>
+<listitem>
+<para
+>Esborra les galetes per al <parameter
+>domini</parameter
+> del pot de galetes. </para>
+</listitem>
+</varlistentry>
+
+
+<varlistentry>
+<term
+><option
+>--remove-all</option
+></term>
+<listitem>
+<para
+>Esborra totes les galetes del pot de galetes.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--reaload-config</option
+></term>
+<listitem>
+<para
+>Torna a carregar el fitxer de configuració. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Ús</title>
+<para
+><command
+>kcookiejar5</command
+> és una eina de línia d'ordres per accedir al mòdul kded que gestiona les galetes al <command
+>Konqueror</command
+> i altres aplicacions del KDE.</para>
+<para
+>Quan s'inicia sense paràmetres es carrega el mòdul kded per proporcionar la interfície de dbus per emmagatzemar les galetes. </para>
+<para
+>Quan s'inicia <command
+>kcookiejar5</command
+> amb paràmetres, realitza tasques addicionals proporcionades pel pot de galetes, com esborrar les galetes d'un <parameter
+>domini</parameter
+>. </para>
+
+</refsect1>
+
+<refsect1>
+<title
+>Veure també</title>
+<para
+><replaceable
+>kdeoptions</replaceable
+>(7), <replaceable
+>qtoptions</replaceable
+>(7) </para>
+</refsect1>
+
+<refsect1>
+<title
+>Errors</title>
+<para
+>Probablement hi ha un munt d'errors. Useu <ulink url="http://bugs.kde.org"
+>bugs.kde.org</ulink
+> per a informar-ne.</para>
+</refsect1>
+
+</refentry>
+
+
+
