@@ -254,6 +254,7 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
         if (outgoingData) {
             Q_ASSERT(outgoingData->isReadable());
             StoredTransferJob* storedJob = KIO::storedPut(outgoingData, reqUrl, -1, KIO::HideProgressInfo);
+            storedJob->setAsyncDataEnabled(outgoingData->isSequential());
 
             QVariant len = req.header(QNetworkRequest::ContentLengthHeader);
             if (len.isValid()) {

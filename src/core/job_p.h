@@ -277,6 +277,7 @@ public:
      * instead of a QByteArray buffer.
      */
     virtual void slotDataReqFromDevice();
+    void slotIODeviceClosed();
 
     void slotErrorPage();
     void slotCanResume(KIO::filesize_t offset);

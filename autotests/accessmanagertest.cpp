@@ -28,9 +28,6 @@
 class AccessManagerTest : public QObject
 {
 Q_OBJECT
-public:
-    AccessManagerTest() : m_manager(0) {}
-
 private Q_SLOTS:
     void initTestCase()
     {
@@ -42,7 +39,7 @@ private Q_SLOTS:
     void testGet()
     {
         const QString aFile = QFINDTESTDATA("accessmanagertest.cpp");
-        QNetworkReply* reply = m_manager.get(QNetworkRequest(QUrl::fromLocalFile(aFile)));
+        QNetworkReply* reply = manager()->get(QNetworkRequest(QUrl::fromLocalFile(aFile)));
         QSignalSpy spy(reply, SIGNAL(finished()));
         QVERIFY(spy.wait());
 
@@ -63,7 +60,7 @@ private Q_SLOTS:
 
         QFile::remove(aFile);
 
-        QNetworkReply* reply = m_manager.put(QNetworkRequest(QUrl::fromLocalFile(aFile)), &buffer);
+        QNetworkReply* reply = manager()->put(QNetworkRequest(QUrl::fromLocalFile(aFile)), &buffer);
         QSignalSpy spy(reply, SIGNAL(finished()));
         QVERIFY(spy.wait());
 
@@ -71,11 +68,54 @@ private Q_SLOTS:
         QFile f(aFile);
         QVERIFY(f.open(QIODevice::ReadOnly));
         QCOMPARE(f.readAll(), content);
+
+        QFile::remove(aFile);
+    }
+
+    void testPutSequential()
+    {
+        const QString aDir = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
+        QVERIFY(QDir::temp().mkpath(aDir));
+        const QString aFile = aDir + QStringLiteral("/accessmanagertest-data2");
+        const QString putDataContents = "We love free software! " + QString(24000, 'c');
+        QProcess process;
+        process.start("echo", QStringList() << putDataContents);
+
+        QFile::remove(aFile);
+
+        QNetworkReply* reply = manager()->put(QNetworkRequest(QUrl::fromLocalFile(aFile)), &process);
+        QSignalSpy spy(reply, SIGNAL(finished()));
+        QVERIFY(spy.wait());
+        QVERIFY(QFile::exists(aFile));
+
+        QFile f(aFile);
+        QVERIFY(f.open(QIODevice::ReadOnly));
+
+        QByteArray cts = f.readAll();
+        cts.chop(1); //we remove the eof
+        QCOMPARE(QString::fromUtf8(cts).size(), putDataContents.size());
+        QCOMPARE(QString::fromUtf8(cts), putDataContents);
+
+        QFile::remove(aFile);
     }
 
 private:
-    KIO::AccessManager m_manager;
-//     QNetworkAccessManager m_manager;
+    /**
+     * we want to run the tests both on QNAM and KIO::AccessManager
+     * to make sure they behave the same way.
+     */
+    QNetworkAccessManager* manager()
+    {
+        static QNetworkAccessManager* ret = Q_NULLPTR;
+        if (!ret) {
+#ifdef USE_QNAM
+            ret = new QNetworkAccessManager(this);
+#else
+            ret = new KIO::AccessManager(this);
+#endif
+        }
+        return ret;
+    }
 };
 
 QTEST_MAIN(AccessManagerTest)
