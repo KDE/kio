@@ -1,0 +1,6 @@
+[Desktop Entry]
+Keys=archpkg,apkg
+Name=Arch Linux Package Search
+Query=http://www.archlinux.org/packages/?q=\\{@}
+X-KDE-ServiceTypes=SearchProvider
+Type=Service
