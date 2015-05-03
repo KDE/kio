@@ -1209,10 +1209,10 @@ void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveD
 {
     const QString prefix = moveDirs ? "dir " : "file ";
     QStringList sources;
-    const QString file1 = homeTmpDir() + prefix + "1";
-    const QString file2 = homeTmpDir() + prefix + "2";
-    const QString existingDest1 = destDir + prefix + "1";
-    const QString existingDest2 = destDir + prefix + "2";
+    const QString file1 = homeTmpDir() + prefix + "(1)";
+    const QString file2 = homeTmpDir() + prefix + "(2)";
+    const QString existingDest1 = destDir + prefix + "(1)";
+    const QString existingDest2 = destDir + prefix + "(2)";
     sources << file1 << file2 << existingDest1 << existingDest2;
     Q_FOREACH (const QString &source, sources) {
         if (moveDirs) {
@@ -1238,8 +1238,8 @@ void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveD
     QVERIFY(!QFile::exists(file2)); // it was moved
     QVERIFY(QFile::exists(existingDest1));
     QVERIFY(QFile::exists(existingDest2));
-    const QString file3 = destDir + prefix + "3";
-    const QString file4 = destDir + prefix + "4";
+    const QString file3 = destDir + prefix + "(3)";
+    const QString file4 = destDir + prefix + "(4)";
     QVERIFY(QFile::exists(file3));
     QVERIFY(QFile::exists(file4));
     if (moveDirs) {
