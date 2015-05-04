@@ -23,6 +23,7 @@
 #include <kconfiggroup.h>
 #include <ksharedconfig.h>
 #include <qtreeview.h>
+#include <QSignalSpy>
 
 /**
  * Unit test for KDirOperator
@@ -93,6 +94,27 @@ private Q_SLOTS:
         dirOp.setCurrentItem(QUrl::fromLocalFile(QFINDTESTDATA("kdiroperatortest.cpp")));
         //completedSpy.wait(1000);
         QTest::qWait(1000);
+    }
+
+    void testSetUrlPathAdjustment_data()
+    {
+        QTest::addColumn<QUrl>("url");
+        QTest::addColumn<QUrl>("expectedUrl");
+
+        QTest::newRow("with_host") << QUrl("ftp://foo.com/folder") << QUrl("ftp://foo.com/folder/");
+        QTest::newRow("with_no_host") << QUrl("smb://") << QUrl("smb://");
+        QTest::newRow("with_host_without_path") << QUrl("ftp://user@example.com") << QUrl("ftp://user@example.com");
+    }
+
+    void testSetUrlPathAdjustment()
+    {
+        QFETCH(QUrl, url);
+        QFETCH(QUrl, expectedUrl);
+
+        KDirOperator dirOp;
+        QSignalSpy spy(&dirOp, SIGNAL(urlEntered(QUrl)));
+        dirOp.setUrl(url, true);
+        QCOMPARE(spy.takeFirst().at(0).toUrl(), expectedUrl);
     }
 };
 

@@ -993,7 +993,7 @@ void KDirOperator::setUrl(const QUrl &_newurl, bool clearforward)
         newurl = _newurl;
     }
 
-    if (!newurl.path().endsWith(QLatin1Char('/'))) {
+    if (!newurl.path().isEmpty() && !newurl.path().endsWith(QLatin1Char('/'))) {
         newurl.setPath(newurl.path() + QLatin1Char('/'));
     }
 
