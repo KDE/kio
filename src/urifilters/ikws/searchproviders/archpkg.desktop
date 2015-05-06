@@ -2,20 +2,24 @@
 Keys=archpkg,apkg
 Name=Arch Linux Package Search
 Name[ca]=Cerca paquets a Arch Linux
+Name[es]=Búsqueda de paquetes de Arch Linux
 Name[gl]=Busca de paquetes de Arch Linux
 Name[nl]=Arch Linux Package Search
 Name[pt]=Procura de Pacotes do Arch Linux
 Name[pt_BR]=Busca de pacotes Arch Linux
+Name[ru]=Поиск пакетов Arch Linux
 Name[sk]=Hľadanie balíčkov pre Arch Linux
 Name[sv]=Arch Linux-paketsökning
 Name[uk]=Пошук пакунків для Arch Linux
 Name[x-test]=xxArch Linux Package Searchxx
 Query=http://www.archlinux.org/packages/?q=\\{@}
 Query[ca]=http://www.archlinux.org/packages/?q=\\{@}
+Query[es]=http://www.archlinux.org/packages/?q=\\{@}
 Query[gl]=http://www.archlinux.org/packages/?q=\\{@}
 Query[nl]=http://www.archlinux.org/packages/?q=\\{@}
 Query[pt]=http://www.archlinux.org/packages/?q=\\{@}
 Query[pt_BR]=http://www.archlinux.org/packages/?q=\\{@}
+Query[ru]=http://www.archlinux.org/packages/?q=\\{@}
 Query[sk]=http://www.archlinux.org/packages/?q=\\{@}
 Query[sv]=http://www.archlinux.org/packages/?q=\\{@}
 Query[uk]=http://www.archlinux.org/packages/?q=\\{@}
