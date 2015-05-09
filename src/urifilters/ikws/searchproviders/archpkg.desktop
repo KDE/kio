@@ -5,10 +5,15 @@ Name[ca]=Cerca paquets a Arch Linux
 Name[es]=Búsqueda de paquetes de Arch Linux
 Name[gl]=Busca de paquetes de Arch Linux
 Name[nl]=Arch Linux Package Search
+Name[pl]=Wyszukiwanie pakietów Arch Linux
 Name[pt]=Procura de Pacotes do Arch Linux
 Name[pt_BR]=Busca de pacotes Arch Linux
 Name[ru]=Поиск пакетов Arch Linux
 Name[sk]=Hľadanie balíčkov pre Arch Linux
+Name[sr]=Пакети Арч линукса
+Name[sr@ijekavian]=Пакети Арч линукса
+Name[sr@ijekavianlatin]=Paketi Arch Linuxa
+Name[sr@latin]=Paketi Arch Linuxa
 Name[sv]=Arch Linux-paketsökning
 Name[uk]=Пошук пакунків для Arch Linux
 Name[x-test]=xxArch Linux Package Searchxx
@@ -17,10 +22,15 @@ Query[ca]=http://www.archlinux.org/packages/?q=\\{@}
 Query[es]=http://www.archlinux.org/packages/?q=\\{@}
 Query[gl]=http://www.archlinux.org/packages/?q=\\{@}
 Query[nl]=http://www.archlinux.org/packages/?q=\\{@}
+Query[pl]=http://www.archlinux.org/packages/?q=\\{@}
 Query[pt]=http://www.archlinux.org/packages/?q=\\{@}
 Query[pt_BR]=http://www.archlinux.org/packages/?q=\\{@}
 Query[ru]=http://www.archlinux.org/packages/?q=\\{@}
 Query[sk]=http://www.archlinux.org/packages/?q=\\{@}
+Query[sr]=http://www.archlinux.org/packages/?q=\\{@}
+Query[sr@ijekavian]=http://www.archlinux.org/packages/?q=\\{@}
+Query[sr@ijekavianlatin]=http://www.archlinux.org/packages/?q=\\{@}
+Query[sr@latin]=http://www.archlinux.org/packages/?q=\\{@}
 Query[sv]=http://www.archlinux.org/packages/?q=\\{@}
 Query[uk]=http://www.archlinux.org/packages/?q=\\{@}
 Query[x-test]=xxhttp://www.archlinux.org/packages/?q=\\{@}xx
