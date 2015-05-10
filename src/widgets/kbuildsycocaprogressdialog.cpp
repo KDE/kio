@@ -45,16 +45,25 @@ void KBuildSycocaProgressDialog::rebuildKSycoca(QWidget *parent)
                                    i18n("Updating System Configuration"),
                                    i18n("Updating system configuration."));
 
-    QDBusInterface kbuildsycoca("org.kde.kded5", "/kbuildsycoca",
-                                "org.kde.kbuildsycoca");
-    if (kbuildsycoca.isValid()) {
-        kbuildsycoca.callWithCallback("recreate", QVariantList(), &dlg, SLOT(_k_slotFinished()));
+    // FIXME HACK: kdelibs 4 doesn't evaluate mimeapps.list at query time; refresh
+    // its cache as well.
+    QDBusInterface kbuildsycoca4("org.kde.kded", "/kbuildsycoca", "org.kde.kbuildsycoca");
+    if (kbuildsycoca4.isValid()) {
+        kbuildsycoca4.call(QDBus::NoBlock, "recreate");
     } else {
-        // kded not running, e.g. when using keditfiletype out of a KDE session
+        QProcess::startDetached("kbuildsycoca4");
+    }
+
+    QDBusInterface kbuildsycoca5("org.kde.kded5", "/kbuildsycoca", "org.kde.kbuildsycoca");
+    if (kbuildsycoca5.isValid()) {
+        kbuildsycoca5.callWithCallback("recreate", QVariantList(), &dlg, SLOT(_k_slotFinished()));
+    } else {
+        // kded5 not running, e.g. when using keditfiletype out of a KDE session
         QObject::connect(KSycoca::self(), SIGNAL(databaseChanged(QStringList)), &dlg, SLOT(_k_slotFinished()));
         QProcess *proc = new QProcess(&dlg);
         proc->start(KBUILDSYCOCA_EXENAME);
     }
+
     dlg.exec();
 }
 
