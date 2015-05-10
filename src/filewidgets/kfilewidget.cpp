@@ -1029,6 +1029,9 @@ void KFileWidget::slotOk()
             d->locationEdit->lineEdit()->setText(QString());
             d->locationEdit->lineEdit()->blockSignals(signalsBlocked);
             return;
+        } else if (res && onlyDirectoryMode && !statJob->statResult().isDir()) {
+            // if we are given a file when on directory only mode, reject it
+            return;
         } else if (!(mode & KFile::ExistingOnly) || res) {
             // if we don't care about ExistingOnly flag, add the file even if
             // it doesn't exist. If we care about it, don't add it to the list
