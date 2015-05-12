@@ -96,6 +96,7 @@ void GlobalTest::testSuggestName_data()
     QTest::newRow("empty_basename") << ".txt" << QStringList() << ". (1).txt";
     QTest::newRow("empty_basename_2dots") << "..txt" << QStringList() << ". (1).txt";
     QTest::newRow("basename_with_dots") << "filename.5.3.2.tar.gz" << QStringList() << "filename.5.3.2 (1).tar.gz";
+    QTest::newRow("unknown_extension_trashinfo") << "fileFromHome.trashinfo" << QStringList() << "fileFromHome (1).trashinfo";
 }
 
 void GlobalTest::testSuggestName()

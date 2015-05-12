@@ -397,7 +397,13 @@ QString KIO::suggestName(const QUrl &baseURL, const QString &oldName)
         basename = ".";
         nameSuffix = oldName;
     } else if (nameSuffix.isEmpty()) {
-        basename = oldName;
+        const int lastDot = oldName.lastIndexOf('.');
+        if (lastDot == -1) {
+            basename = oldName;
+        } else {
+            basename = oldName.left(lastDot);
+            nameSuffix = oldName.mid(lastDot);
+        }
     } else {
         nameSuffix.prepend('.');
         basename = oldName.left(oldName.length() - nameSuffix.length());
