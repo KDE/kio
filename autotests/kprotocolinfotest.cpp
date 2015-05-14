@@ -19,6 +19,8 @@
 #include <QFile>
 #include <QUrl>
 #include <kprotocolmanager.h>
+#include <KConfig>
+#include <KConfigGroup>
 #include <QDebug>
 #include <QtTest>
 #include <qstandardpaths.h>
@@ -29,15 +31,23 @@ class KProtocolInfoTest : public QObject
 {
     Q_OBJECT
 private Q_SLOTS:
+    void initTestCase();
 
     void testBasic();
     void testExtraFields();
     void testShowFilePreview();
     void testSlaveProtocol();
+    void testProxySettings();
     void testCapabilities();
     void testProtocolForArchiveMimetype();
     void testHelperProtocols();
 };
+
+void KProtocolInfoTest::initTestCase()
+{
+    QString configFile = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + "/kioslaverc";
+    QFile::remove(configFile);
+}
 
 void KProtocolInfoTest::testBasic()
 {
@@ -77,11 +87,31 @@ void KProtocolInfoTest::testSlaveProtocol()
     QString proxy;
     QString protocol = KProtocolManager::slaveProtocol(QUrl("http://bugs.kde.org"), proxy);
     QCOMPARE(protocol, QString::fromLatin1("http"));
+    QVERIFY(!KProtocolManager::useProxy());
 
     // Just to test it doesn't deadlock
     KProtocolManager::reparseConfiguration();
     protocol = KProtocolManager::slaveProtocol(QUrl("http://bugs.kde.org"), proxy);
     QCOMPARE(protocol, QString::fromLatin1("http"));
+}
+
+void KProtocolInfoTest::testProxySettings()
+{
+    // Just to test it doesn't deadlock (bug 346214)
+    KConfig config("kioslaverc", KConfig::NoGlobals);
+    KConfigGroup cfg(&config, "Proxy Settings");
+    cfg.writeEntry("ProxyType", static_cast<int>(KProtocolManager::ManualProxy));
+    cfg.sync();
+    KProtocolManager::reparseConfiguration();
+    QString proxy;
+    QString protocol = KProtocolManager::slaveProtocol(QUrl("http://bugs.kde.org"), proxy);
+    QCOMPARE(protocol, QString::fromLatin1("http"));
+    QVERIFY(KProtocolManager::useProxy());
+
+    // restore
+    cfg.writeEntry("ProxyType", static_cast<int>(KProtocolManager::NoProxy));
+    cfg.sync();
+    KProtocolManager::reparseConfiguration();
 }
 
 void KProtocolInfoTest::testCapabilities()
