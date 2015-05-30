@@ -126,7 +126,7 @@ KIOCORE_EXPORT FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, int per
  * insert a value for permissions (-1 by default) before the JobFlags.
  * @since 4.5
  */
-FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, JobFlags flags);   // not implemented - on purpose.
+FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, JobFlags flags) Q_DECL_EQ_DELETE;   // not implemented - on purpose.
 
 /**
  * Move a single file.
@@ -148,7 +148,7 @@ KIOCORE_EXPORT FileCopyJob *file_move(const QUrl &src, const QUrl &dest, int per
  * insert a value for permissions (-1 by default) before the JobFlags.
  * @since 4.3
  */
-FileCopyJob *file_move(const QUrl &src, const QUrl &dest, JobFlags flags);   // not implemented - on purpose.
+FileCopyJob *file_move(const QUrl &src, const QUrl &dest, JobFlags flags) Q_DECL_EQ_DELETE;   // not implemented - on purpose.
 
 }
 
