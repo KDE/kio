@@ -361,7 +361,7 @@ void TestTrash::trashFileFromHome()
     trashFile(homeTmpDir() + fileName, fileName);
 
     // Do it again, check that we got a different id
-    trashFile(homeTmpDir() + fileName, fileName + QString::fromLatin1(" 1"));
+    trashFile(homeTmpDir() + fileName, fileName + QString::fromLatin1(" (1)"));
 }
 
 void TestTrash::trashPercentFileFromHome()
@@ -587,7 +587,7 @@ void TestTrash::trashDirectoryFromHome()
     QString dirName = QString::fromLatin1("trashDirFromHome");
     trashDirectory(homeTmpDir() + dirName, dirName);
     // Do it again, check that we got a different id
-    trashDirectory(homeTmpDir() + dirName, dirName + QString::fromLatin1(" 1"));
+    trashDirectory(homeTmpDir() + dirName, dirName + QString::fromLatin1(" (1)"));
 }
 
 void TestTrash::trashDotDirectory()
@@ -595,7 +595,7 @@ void TestTrash::trashDotDirectory()
     QString dirName = QString::fromLatin1(".dotTrashDirFromHome");
     trashDirectory(homeTmpDir() + dirName, dirName);
     // Do it again, check that we got a different id
-    // TODO trashDirectory(homeTmpDir() + dirName, dirName + QString::fromLatin1(" 1"));
+    // TODO trashDirectory(homeTmpDir() + dirName, dirName + QString::fromLatin1(" (1)"));
 }
 
 void TestTrash::trashReadOnlyDirFromHome()
@@ -986,7 +986,7 @@ void TestTrash::moveSymlinkFromTrash()
 
 void TestTrash::getFile()
 {
-    const QString fileId = "fileFromHome 1";
+    const QString fileId = "fileFromHome (1)";
     const QUrl url = TrashImpl::makeURL(0, fileId, QString());
 
     QTemporaryFile tmpFile;
@@ -1007,7 +1007,7 @@ void TestTrash::getFile()
 
 void TestTrash::restoreFile()
 {
-    const QString fileId = "fileFromHome 1";
+    const QString fileId = "fileFromHome (1)";
     const QUrl url = TrashImpl::makeURL(0, fileId, QString());
     const QString infoFile(m_trashDir + "/info/" + fileId + ".trashinfo");
     const QString filesItem(m_trashDir + "/files/" + fileId);
@@ -1031,12 +1031,12 @@ void TestTrash::restoreFile()
 
 void TestTrash::restoreFileFromSubDir()
 {
-    const QString fileId = "trashDirFromHome 1/testfile";
-    QVERIFY(!QFile::exists(homeTmpDir() + "trashDirFromHome 1"));
+    const QString fileId = "trashDirFromHome (1)/testfile";
+    QVERIFY(!QFile::exists(homeTmpDir() + "trashDirFromHome (1)"));
 
     const QUrl url = TrashImpl::makeURL(0, fileId, QString());
-    const QString infoFile(m_trashDir + "/info/trashDirFromHome 1.trashinfo");
-    const QString filesItem(m_trashDir + "/files/trashDirFromHome 1/testfile");
+    const QString infoFile(m_trashDir + "/info/trashDirFromHome (1).trashinfo");
+    const QString filesItem(m_trashDir + "/files/trashDirFromHome (1)/testfile");
 
     QVERIFY(QFile::exists(infoFile));
     QVERIFY(QFile::exists(filesItem));
@@ -1053,7 +1053,7 @@ void TestTrash::restoreFileFromSubDir()
     // check that nothing happened
     QVERIFY(QFile::exists(infoFile));
     QVERIFY(QFile::exists(filesItem));
-    QVERIFY(!QFile::exists(homeTmpDir() + "trashDirFromHome 1"));
+    QVERIFY(!QFile::exists(homeTmpDir() + "trashDirFromHome (1)"));
 }
 
 void TestTrash::restoreFileToDeletedDirectory()
@@ -1109,7 +1109,7 @@ void TestTrash::listRootDir()
     //qDebug() << m_displayNameListResult;
     QCOMPARE(m_listResult.count("."), 1);   // found it, and only once
     QCOMPARE(m_displayNameListResult.count("fileFromHome"), 1);
-    QCOMPARE(m_displayNameListResult.count("fileFromHome 1"), 1);
+    QCOMPARE(m_displayNameListResult.count("fileFromHome (1)"), 1);
 }
 
 void TestTrash::listRecursiveRootDir()
@@ -1129,11 +1129,11 @@ void TestTrash::listRecursiveRootDir()
     qDebug() << m_displayNameListResult;
     QCOMPARE(m_listResult.count("."), 1);   // found it, and only once
     QCOMPARE(m_listResult.count("0-fileFromHome"), 1);
-    QCOMPARE(m_listResult.count("0-fileFromHome 1"), 1);
+    QCOMPARE(m_listResult.count("0-fileFromHome (1)"), 1);
     QCOMPARE(m_listResult.count("0-trashDirFromHome/testfile"), 1);
     QCOMPARE(m_listResult.count("0-readonly/readonly_subdir/testfile_in_subdir"), 1);
     QCOMPARE(m_displayNameListResult.count("fileFromHome"), 1);
-    QCOMPARE(m_displayNameListResult.count("fileFromHome 1"), 1);
+    QCOMPARE(m_displayNameListResult.count("fileFromHome (1)"), 1);
     QCOMPARE(m_displayNameListResult.count("trashDirFromHome/testfile"), 1);
     QCOMPARE(m_displayNameListResult.count("readonly/readonly_subdir/testfile_in_subdir"), 1);
 
