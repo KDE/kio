@@ -292,9 +292,12 @@ void DropJobPrivate::addPluginActions(QMenu *popup, const KFileItemListPropertie
 
     const QVector<KPluginMetaData> plugin_offers = KPluginLoader::findPlugins("kf5/kio_dnd");
     foreach (const KPluginMetaData &service, plugin_offers) {
-        KIO::DndPopupMenuPlugin *plugin = qobject_cast<KIO::DndPopupMenuPlugin *>(service.instantiate());
-        if (plugin) {
-            m_pluginActions += plugin->setup(itemProps, m_destUrl);
+        KPluginFactory *factory = KPluginLoader(service.fileName()).factory();
+        if (factory) {
+            KIO::DndPopupMenuPlugin *plugin = factory->create<KIO::DndPopupMenuPlugin>();
+            if (plugin) {
+                m_pluginActions += plugin->setup(itemProps, m_destUrl);
+            }
         }
     }
 
