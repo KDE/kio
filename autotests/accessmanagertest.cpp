@@ -62,7 +62,7 @@ private Q_SLOTS:
 
         QNetworkReply* reply = manager()->put(QNetworkRequest(QUrl::fromLocalFile(aFile)), &buffer);
         QSignalSpy spy(reply, SIGNAL(finished()));
-        QVERIFY(spy.wait());
+        QVERIFY(spy.wait(10000));
 
         QVERIFY(QFile::exists(aFile));
         QFile f(aFile);
