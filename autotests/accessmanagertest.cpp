@@ -56,13 +56,14 @@ private Q_SLOTS:
         const QByteArray content = "We love free software!";
         QBuffer buffer;
         buffer.setData(content);
-        buffer.open(QIODevice::ReadOnly);
+        QVERIFY(buffer.open(QIODevice::ReadOnly));
 
         QFile::remove(aFile);
 
         QNetworkReply* reply = manager()->put(QNetworkRequest(QUrl::fromLocalFile(aFile)), &buffer);
         QSignalSpy spy(reply, SIGNAL(finished()));
-        QVERIFY(spy.wait(10000));
+        QVERIFY(reply->isRunning());
+        QVERIFY(spy.wait());
 
         QVERIFY(QFile::exists(aFile));
         QFile f(aFile);
