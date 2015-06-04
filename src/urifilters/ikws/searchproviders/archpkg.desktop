@@ -14,6 +14,7 @@ Name[pt]=Procura de Pacotes do Arch Linux
 Name[pt_BR]=Busca de pacotes Arch Linux
 Name[ru]=Поиск пакетов Arch Linux
 Name[sk]=Hľadanie balíčkov pre Arch Linux
+Name[sl]=Iskanje po paketih Arch Linux
 Name[sr]=Пакети Арч линукса
 Name[sr@ijekavian]=Пакети Арч линукса
 Name[sr@ijekavianlatin]=Paketi Arch Linuxa
@@ -37,6 +38,7 @@ Query[pt]=http://www.archlinux.org/packages/?q=\\{@}
 Query[pt_BR]=http://www.archlinux.org/packages/?q=\\{@}
 Query[ru]=http://www.archlinux.org/packages/?q=\\{@}
 Query[sk]=http://www.archlinux.org/packages/?q=\\{@}
+Query[sl]=http://www.archlinux.org/packages/?q=\\{@}
 Query[sr]=http://www.archlinux.org/packages/?q=\\{@}
 Query[sr@ijekavian]=http://www.archlinux.org/packages/?q=\\{@}
 Query[sr@ijekavianlatin]=http://www.archlinux.org/packages/?q=\\{@}
