@@ -44,6 +44,7 @@ public:
     void testLocalAbsolutePath();
     void testLocalURL();
     void testEmptyCwd();
+    void testBug346920();
 
 private:
     void waitForCompletion();
@@ -196,6 +197,14 @@ void KUrlCompletionTest::testEmptyCwd()
     QCOMPARE(compEmpty.count(), 0);
 }
 
+void KUrlCompletionTest::testBug346920()
+{
+    m_completionEmptyCwd->makeCompletion("~/.");
+    waitForCompletion();
+    m_completionEmptyCwd->allMatches();
+    // just don't crash
+}
+
 void KUrlCompletionTest::test()
 {
     setup();
@@ -203,6 +212,7 @@ void KUrlCompletionTest::test()
     testLocalAbsolutePath();
     testLocalURL();
     testEmptyCwd();
+    testBug346920();
     teardown();
 
     // Try again, with another QTemporaryDir (to check that the caching doesn't give us wrong results)
@@ -211,6 +221,7 @@ void KUrlCompletionTest::test()
     testLocalAbsolutePath();
     testLocalURL();
     testEmptyCwd();
+    testBug346920();
     teardown();
 }
 

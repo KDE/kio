@@ -802,7 +802,8 @@ bool KUrlCompletionPrivate::userCompletion(const KUrlCompletionPrivate::MyURL &u
 {
     if (url.scheme() != QLatin1String("file")
             || !url.dir().isEmpty()
-            || !url.file().startsWith(QLatin1Char('~'))) {
+            || !url.file().startsWith(QLatin1Char('~'))
+            || !prepend.isEmpty()) {
         return false;
     }
 
