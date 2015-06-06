@@ -19,6 +19,7 @@
 #include <QtTest/QtTest>
 #include <qapplication.h>
 #include <kurlcompletion.h>
+#include <KUser>
 #include <QDebug>
 #include <QtCore/QDir>
 #include <QtCore/QFile>
@@ -44,6 +45,8 @@ public:
     void testLocalAbsolutePath();
     void testLocalURL();
     void testEmptyCwd();
+    void testBug346920();
+    void testUser();
 
 private:
     void waitForCompletion();
@@ -196,6 +199,24 @@ void KUrlCompletionTest::testEmptyCwd()
     QCOMPARE(compEmpty.count(), 0);
 }
 
+void KUrlCompletionTest::testBug346920()
+{
+    m_completionEmptyCwd->makeCompletion("~/.");
+    waitForCompletion();
+    m_completionEmptyCwd->allMatches();
+    // just don't crash
+}
+
+void KUrlCompletionTest::testUser()
+{
+    m_completionEmptyCwd->makeCompletion("~");
+    waitForCompletion();
+    const auto matches = m_completionEmptyCwd->allMatches();
+    foreach(const auto& user, KUser::allUserNames()) {
+        QVERIFY(matches.contains(QLatin1Char('~') + user));
+    }
+}
+
 void KUrlCompletionTest::test()
 {
     setup();
@@ -203,6 +224,8 @@ void KUrlCompletionTest::test()
     testLocalAbsolutePath();
     testLocalURL();
     testEmptyCwd();
+    testBug346920();
+    testUser();
     teardown();
 
     // Try again, with another QTemporaryDir (to check that the caching doesn't give us wrong results)
@@ -211,6 +234,8 @@ void KUrlCompletionTest::test()
     testLocalAbsolutePath();
     testLocalURL();
     testEmptyCwd();
+    testBug346920();
+    testUser();
     teardown();
 }
 
