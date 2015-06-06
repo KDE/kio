@@ -50,6 +50,9 @@ private Q_SLOTS:
 
     void testPut()
     {
+#if defined(USE_QNAM) && QT_VERSION <= QT_VERSION_CHECK(5, 5, 0)
+        QSKIP("This test is broken with Qt < 5.5, the fix is 9286a8e5dd97c5d4d7e0ed07a73d4ce7240fdc1d in qtbase");
+#endif
         const QString aDir = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
         QVERIFY(QDir::temp().mkpath(aDir));
         const QString aFile = aDir + QStringLiteral("/accessmanagertest-data");
@@ -75,6 +78,9 @@ private Q_SLOTS:
 
     void testPutSequential()
     {
+#if defined(USE_QNAM) && QT_VERSION <= QT_VERSION_CHECK(5, 5, 0)
+        QSKIP("This test is broken with Qt < 5.5, the fix is 9286a8e5dd97c5d4d7e0ed07a73d4ce7240fdc1d in qtbase");
+#endif
         const QString aDir = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
         QVERIFY(QDir::temp().mkpath(aDir));
         const QString aFile = aDir + QStringLiteral("/accessmanagertest-data2");
