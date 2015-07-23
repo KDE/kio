@@ -37,8 +37,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include <kpluginfactory.h>
 #include <kpluginloader.h>
+#include <KLocalizedString>
 #include <kwindowsystem.h>
 #include <qstandardpaths.h>
+#include <QMessageBox>
 
 #include "kcookiejar.h"
 #include "kcookiewin.h"
@@ -50,6 +52,33 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 K_PLUGIN_FACTORY_WITH_JSON(KdedCookieServerFactory,
                            "kcookiejar.json",
                            registerPlugin<KCookieServer>();)
+
+static QDir getOrCreateCookieJarDir()
+{
+    const QDir dataDir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation));
+    const QString kcookiejarDirName = dataDir.absoluteFilePath("kcookiejar");
+
+    if (dataDir.exists("kcookiejar")) {
+        const QFileInfo cookiejarDirInfo(kcookiejarDirName);
+
+        if (!cookiejarDirInfo.isDir()) {
+            QFile kcookieBogusFile(kcookiejarDirName);
+
+            if (!kcookieBogusFile.remove()) {
+                QMessageBox::warning(Q_NULLPTR, i18n("Cannot Save Cookies"), i18n("Could not remove %1, check permissions").arg(cookiejarDirInfo.absoluteFilePath()));
+            }
+        }
+        else {
+            return QDir(kcookiejarDirName);
+        }
+    }
+
+    if (!dataDir.mkdir("kcookiejar")) {
+        QMessageBox::warning(Q_NULLPTR, i18n("Cannot Save Cookies"), i18n("Could not create directory %1").arg(kcookiejarDirName));
+    }
+
+    return QDir(kcookiejarDirName);
+}
 
 // Cookie field indexes
 enum CookieDetails { CF_DOMAIN = 0, CF_PATH, CF_NAME, CF_HOST,
@@ -86,9 +115,8 @@ KCookieServer::KCookieServer(QObject *parent, const QList<QVariant> &)
     connect(mTimer, SIGNAL(timeout()), SLOT(slotSave()));
     mConfig = new KConfig(QStringLiteral("kcookiejarrc"));
     mCookieJar->loadConfig(mConfig);
-
-    const QString filename = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "kcookiejar/cookies";
-    mCookieJar->loadCookies(filename);
+    mFilename = getOrCreateCookieJarDir().absoluteFilePath("cookies");
+    mCookieJar->loadCookies(mFilename);
     connect(this, SIGNAL(windowUnregistered(qlonglong)),
             this, SLOT(slotDeleteSessionCookies(qlonglong)));
 }
@@ -272,8 +300,7 @@ void KCookieServer::checkCookies(KHttpCookieList *cookieList, qlonglong windowId
 void KCookieServer::slotSave()
 {
     if (mCookieJar->changed()) {
-        QString filename = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "kcookiejar/cookies";
-        mCookieJar->saveCookies(filename);
+        mCookieJar->saveCookies(mFilename);
     }
 }
 

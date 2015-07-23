@@ -100,6 +100,7 @@ private:
     QTimer *mTimer;
     bool mAdvicePending;
     KConfig *mConfig;
+    QString mFilename;
 
 private:
     virtual int newInstance(QList<QByteArray>)
