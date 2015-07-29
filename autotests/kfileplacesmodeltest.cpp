@@ -39,7 +39,7 @@
 #endif
 
 QT_BEGIN_NAMESPACE
-// Avoid QHash randomization so that the order of the devicees is stable
+// Avoid QHash randomization so that the order of the devices is stable
 extern Q_CORE_EXPORT QBasicAtomicInt qt_qhash_seed; // from qhash.cpp
 QT_END_NAMESPACE
 
@@ -75,20 +75,20 @@ private:
     QMap<QString, QDBusInterface *> m_interfacesMap;
 };
 
+static QString bookmarksFile()
+{
+    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/user-places.xbel";
+}
+
 void KFilePlacesModelTest::initTestCase()
 {
     // Make sure we always use 0 as seed
     qt_qhash_seed.fetchAndStoreRelaxed(0);
 
     // Ensure we'll have a clean bookmark file to start
-    const QString file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/kfileplaces/bookmarks.xml";
+    const QString file = bookmarksFile();
     QFile f(file);
     f.remove();
-
-    // Erase the shared bookmarks file also
-    const QString sharedBookmarksFile = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/user-places.xbel";
-    QFile f2(sharedBookmarksFile);
-    f2.remove();
 
     qRegisterMetaType<QModelIndex>();
     const QString fakeHw = QFINDTESTDATA("fakecomputer.xml");
@@ -187,8 +187,7 @@ void KFilePlacesModelTest::testReparse()
 
     // reparse the bookmark file
 
-    const QString file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "kfileplaces/bookmarks.xml";
-    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(file, "kfilePlaces");
+    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile(), "kfilePlaces");
 
     bookmarkManager->notifyCompleteChange(QString());
 
@@ -210,8 +209,7 @@ void KFilePlacesModelTest::testReparse()
 
 void KFilePlacesModelTest::testInternalBookmarksHaveIds()
 {
-    const QString file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "kfileplaces/bookmarks.xml";
-    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(file, "kfilePlaces");
+    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile(), "kfilePlaces");
     KBookmarkGroup root = bookmarkManager->root();
 
     // Verify every entry has an id or an udi
@@ -314,8 +312,7 @@ void KFilePlacesModelTest::testMove()
     QSignalSpy spy_inserted(m_places, SIGNAL(rowsInserted(QModelIndex,int,int)));
     QSignalSpy spy_removed(m_places, SIGNAL(rowsRemoved(QModelIndex,int,int)));
 
-    const QString file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "kfileplaces/bookmarks.xml";
-    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(file, "kfilePlaces");
+    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile(), "kfilePlaces");
     KBookmarkGroup root = bookmarkManager->root();
     KBookmark trash = m_places->bookmarkForIndex(m_places->index(3, 0));
     KBookmark before_trash = m_places->bookmarkForIndex(m_places->index(2, 0));
@@ -485,8 +482,7 @@ void KFilePlacesModelTest::testPlacesLifecycle()
     QCOMPARE(args.at(2).toInt(), 9);
     QCOMPARE(spy_removed.count(), 0);
 
-    const QString file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "kfileplaces/bookmarks.xml";
-    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(file, "kfilePlaces");
+    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile(), "kfilePlaces");
     KBookmarkGroup root = bookmarkManager->root();
     KBookmark before_trash = m_places->bookmarkForIndex(m_places->index(2, 0));
     KBookmark foo = m_places->bookmarkForIndex(m_places->index(9, 0));
@@ -602,8 +598,7 @@ void KFilePlacesModelTest::testDevicePlugging()
 
     // Move the device in the list, and check that it memorizes the position across plug/unplug
 
-    const QString file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "kfileplaces/bookmarks.xml";
-    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(file, "kfilePlaces");
+    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile(), "kfilePlaces");
     KBookmarkGroup root = bookmarkManager->root();
     KBookmark before_trash = m_places->bookmarkForIndex(m_places->index(2, 0));
     KBookmark device = root.first(); // The device we'll move is the 7th bookmark
