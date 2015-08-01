@@ -41,7 +41,6 @@
 QT_BEGIN_NAMESPACE
 // Avoid QHash randomization so that the order of the devices is stable
 extern Q_CORE_EXPORT QBasicAtomicInt qt_qhash_seed; // from qhash.cpp
-// Alternative: set_test_properties(${test} PROPERTIES ENVIRONMENT QT_HASH_SEED=0)
 QT_END_NAMESPACE
 
 class KFilePlacesModelTest : public QObject
