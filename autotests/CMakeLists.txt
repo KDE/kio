@@ -12,7 +12,7 @@ find_package(Qt5Widgets REQUIRED)
 
 ########### unittests ###############
 
-find_package(Qt5Concurrent 5.2.0 REQUIRED NO_MODULE)
+find_package(Qt5Concurrent ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 
 ecm_add_tests(
  kacltest.cpp
