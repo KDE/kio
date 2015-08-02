@@ -15,9 +15,4 @@
 
 #include "kiocoredebug.h"
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 4, 0)
-// logging category for this framework, default: log stuff >= warning
-Q_LOGGING_CATEGORY(KIO_CORE, "kf5.kio.core", QtWarningMsg)
-#else
 Q_LOGGING_CATEGORY(KIO_CORE, "kf5.kio.core")
-#endif
