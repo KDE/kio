@@ -86,6 +86,7 @@ void KFilePlacesModelTest::initTestCase()
     qt_qhash_seed.fetchAndStoreRelaxed(0);
 
     qputenv("KDE_FORK_SLAVES", "yes"); // to avoid a runtime dependency on klauncher
+    QStandardPaths::setTestModeEnabled(true);
 
     // Ensure we'll have a clean bookmark file to start
     const QString file = bookmarksFile();
