@@ -52,6 +52,7 @@ private Q_SLOTS:
     void cleanupTestCase();
 
     void testInitialState();
+    void testFileCreatedExternally();
     void testReparse();
     void testInitialList();
     void testInternalBookmarksHaveIds();
@@ -89,9 +90,7 @@ void KFilePlacesModelTest::initTestCase()
     QStandardPaths::setTestModeEnabled(true);
 
     // Ensure we'll have a clean bookmark file to start
-    const QString file = bookmarksFile();
-    QFile f(file);
-    f.remove();
+    QFile::remove(bookmarksFile());
 
     qRegisterMetaType<QModelIndex>();
     const QString fakeHw = QFINDTESTDATA("fakecomputer.xml");
@@ -106,6 +105,7 @@ void KFilePlacesModelTest::cleanupTestCase()
     delete m_places;
     delete m_places2;
     qDeleteAll(m_interfacesMap);
+    QFile::remove(bookmarksFile());
 }
 
 QStringList KFilePlacesModelTest::placesUrls() const
@@ -165,12 +165,33 @@ void KFilePlacesModelTest::testInitialState()
     QCOMPARE(m_places->rowCount(), 9);
 }
 
+static const QStringList initialListOfUrls()
+{
+    return QStringList() << QDir::homePath() << "remote:/" << KDE_ROOT_PATH << "trash:/"
+                         << "/media/nfs" << "/foreign" << "/media/XO-Y4" << "/media/floppy0" << "/media/cdrom";
+}
+
 void KFilePlacesModelTest::testInitialList()
 {
-    QStringList urls;
-    urls << QDir::homePath() << "remote:/" << KDE_ROOT_PATH << "trash:/"
-         << "/media/nfs" << "/foreign" << "/media/XO-Y4" << "/media/floppy0" << "/media/cdrom";
+    const QStringList urls = initialListOfUrls();
+    CHECK_PLACES_URLS(urls);
+}
 
+void KFilePlacesModelTest::testFileCreatedExternally()
+{
+    QFile file(bookmarksFile());
+    QVERIFY(file.open(QIODevice::WriteOnly));
+    file.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?><xbel version=\"1.0\"><bookmark href=\"file:///external\"><title>external</title></bookmark></xbel>");
+    file.close();
+
+    QStringList urls = initialListOfUrls();
+    urls << "/external";
+    QTRY_COMPARE(placesUrls(), urls); // give a bit of time for the file watch to work
+    CHECK_PLACES_URLS(urls);
+
+    file.remove();
+    urls = initialListOfUrls();
+    QTRY_COMPARE(placesUrls(), urls); // give a bit of time for the file watch to work
     CHECK_PLACES_URLS(urls);
 }
 
@@ -183,9 +204,8 @@ void KFilePlacesModelTest::testReparse()
     m_places->addPlace("foo", QUrl::fromLocalFile("/foo"),
                        QString(), QString());
 
-    urls << QDir::homePath() << "remote:/" << KDE_ROOT_PATH << "trash:/"
-         << "/media/nfs" << "/foreign" << "/media/XO-Y4" << "/media/floppy0" << "/media/cdrom" << "/foo";
-
+    urls = initialListOfUrls();
+    urls << "/foo";
     CHECK_PLACES_URLS(urls);
 
     // reparse the bookmark file
@@ -202,11 +222,7 @@ void KFilePlacesModelTest::testReparse()
 
     m_places->removePlace(m_places->index(9, 0));
 
-    urls.clear();
-
-    urls << QDir::homePath() << "remote:/" << KDE_ROOT_PATH << "trash:/"
-         << "/media/nfs" << "/foreign" << "/media/XO-Y4" << "/media/floppy0" << "/media/cdrom";
-
+    urls = initialListOfUrls();
     CHECK_PLACES_URLS(urls);
 }
 
