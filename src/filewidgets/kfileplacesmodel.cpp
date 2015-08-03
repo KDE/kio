@@ -175,7 +175,7 @@ KFilePlacesModel::~KFilePlacesModel()
 
 QUrl KFilePlacesModel::url(const QModelIndex &index) const
 {
-    return QUrl(data(index, UrlRole).toUrl());
+    return data(index, UrlRole).toUrl();
 }
 
 bool KFilePlacesModel::setupNeeded(const QModelIndex &index) const

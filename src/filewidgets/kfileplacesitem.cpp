@@ -161,7 +161,7 @@ QVariant KFilePlacesItem::bookmarkData(int role) const
             return QVariant();
         }
     case KFilePlacesModel::UrlRole:
-        return QUrl(b.url());
+        return b.url();
     case KFilePlacesModel::SetupNeededRole:
         return false;
     case KFilePlacesModel::HiddenRole:
