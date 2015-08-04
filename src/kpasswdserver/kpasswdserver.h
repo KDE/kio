@@ -38,8 +38,6 @@ namespace KWallet {
     class Wallet;
 }
 
-using namespace KIO;
-
 class KPasswdServer : public KDEDModule, protected QDBusContext
 {
   Q_OBJECT

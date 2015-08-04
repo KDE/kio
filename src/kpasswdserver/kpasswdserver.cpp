@@ -436,7 +436,7 @@ KPasswdServer::addAuthInfo(const KIO::AuthInfo &info, qlonglong windowId)
         // Since storing the password in the wallet succeeded, make sure the
         // password information is stored in memory only for the duration the
         // windows associated with it are still around.
-        AuthInfo authToken (info);
+        KIO::AuthInfo authToken (info);
         authToken.keepPassword = false;
         addAuthInfoItem(key, authToken, windowId, m_seqNr, false);
         return;
