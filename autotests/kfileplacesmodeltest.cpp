@@ -52,9 +52,8 @@ private Q_SLOTS:
     void cleanupTestCase();
 
     void testInitialState();
-    void testFileCreatedExternally();
-    void testReparse();
     void testInitialList();
+    void testReparse();
     void testInternalBookmarksHaveIds();
     void testHiding();
     void testMove();
@@ -160,7 +159,7 @@ QDBusInterface *KFilePlacesModelTest::fakeDevice(const QString &udi)
 
 void KFilePlacesModelTest::testInitialState()
 {
-    QCOMPARE(m_places->rowCount(), 4);
+    QCOMPARE(m_places->rowCount(), 4); // when the xbel file is empty, KFilePlacesModel fills it with 4 default items
     QCoreApplication::processEvents(); // Devices have a delayed loading
     QCOMPARE(m_places->rowCount(), 9);
 }
@@ -174,24 +173,6 @@ static const QStringList initialListOfUrls()
 void KFilePlacesModelTest::testInitialList()
 {
     const QStringList urls = initialListOfUrls();
-    CHECK_PLACES_URLS(urls);
-}
-
-void KFilePlacesModelTest::testFileCreatedExternally()
-{
-    QFile file(bookmarksFile());
-    QVERIFY(file.open(QIODevice::WriteOnly));
-    file.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?><xbel version=\"1.0\"><bookmark href=\"file:///external\"><title>external</title></bookmark></xbel>");
-    file.close();
-
-    QStringList urls = initialListOfUrls();
-    urls << "/external";
-    QTRY_COMPARE(placesUrls(), urls); // give a bit of time for the file watch to work
-    CHECK_PLACES_URLS(urls);
-
-    file.remove();
-    urls = initialListOfUrls();
-    QTRY_COMPARE(placesUrls(), urls); // give a bit of time for the file watch to work
     CHECK_PLACES_URLS(urls);
 }
 

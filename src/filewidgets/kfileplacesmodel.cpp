@@ -92,14 +92,7 @@ KFilePlacesModel::KFilePlacesModel(QObject *parent)
     const QString file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/user-places.xbel";
     d->bookmarkManager = KBookmarkManager::managerForExternalFile(file);
 
-    // Let's put some places in there if it's empty. We have a corner case here:
-    // Given you have bookmarked some folders (which have been saved on
-    // ~/.local/share/user-places.xbel (according to freedesktop bookmarks spec), and
-    // deleted the home directory ~/.kde, the call managerForFile() will return the
-    // bookmark manager for the fallback "kfilePlaces", making root.first().isNull() being
-    // false (you have your own items bookmarked), resulting on only being added your own
-    // bookmarks, and not the default ones too. So, we also check if kfileplaces/bookmarks.xml
-    // file exists, and if it doesn't, we also add the default places. (ereslibre)
+    // Let's put some places in there if it's empty.
     KBookmarkGroup root = d->bookmarkManager->root();
     if (root.first().isNull() || !QFile::exists(file)) {
 
@@ -136,9 +129,7 @@ KFilePlacesModel::KFilePlacesModel(QObject *parent)
 
         // Force bookmarks to be saved. If on open/save dialog and the bookmarks are not saved, QFile::exists
         // will always return false, which opening/closing all the time the open/save dialog would case the
-        // bookmarks to be added once each time, having lots of times each bookmark. This forces the defaults
-        // to be saved on the bookmarks.xml file. Of course, the complete list of bookmarks (those that come from
-        // user-places.xbel will be filled later). (ereslibre)
+        // bookmarks to be added once each time, having lots of times each bookmark. (ereslibre)
         d->bookmarkManager->saveAs(file);
     }
 
