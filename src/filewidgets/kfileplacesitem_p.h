@@ -72,20 +72,17 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onAccessibilityChanged(bool);
-    void onListerCompleted();
 
 private:
     QVariant bookmarkData(int role) const;
     QVariant deviceData(int role) const;
 
-    bool hasFullIcon(const KBookmark &bookmark) const;
     QString iconNameForBookmark(const KBookmark &bookmark) const;
 
     static QString generateNewId();
 
     KBookmarkManager *m_manager;
     KBookmark m_bookmark;
-    KDirLister *m_lister;
     bool m_folderIsEmpty;
     bool m_isCdrom;
     bool m_isAccessible;
