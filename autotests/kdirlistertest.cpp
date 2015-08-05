@@ -287,15 +287,9 @@ void KDirListerTest::testNewItemsInSymlink() // #213799
 #if WORKAROUND_BROKEN_INOTIFY
     org::kde::KDirNotify::emitFilesAdded(path);
 #endif
-    int numTries = 0;
     // Give time for KDirWatch to notify us
-    while (m_items2.count() == origItemCount) {
-        QVERIFY(++numTries < 10);
-        QTest::qWait(200);
-    }
-    //qDebug() << "numTries=" << numTries;
-    QCOMPARE(m_items2.count(), origItemCount + 1);
-    QCOMPARE(m_items.count(), origItemCount + 1);
+    QTRY_COMPARE(m_items2.count(), origItemCount + 1);
+    QTRY_COMPARE(m_items.count(), origItemCount + 1);
 
     // Now create an item using the symlink-path
     const QString fileName2 = "toplevelfile_newinlink2";
