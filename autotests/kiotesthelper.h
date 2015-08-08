@@ -45,7 +45,7 @@ QString homeTmpDir()
     return dir;
 }
 
-QDateTime s_referenceTimeStamp;
+static QDateTime s_referenceTimeStamp;
 
 static void setTimeStamp(const QString &path, const QDateTime &mtime)
 {

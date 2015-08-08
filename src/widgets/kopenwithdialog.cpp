@@ -89,7 +89,7 @@ public:
     QList<AppNode *> children;
 };
 
-bool AppNodeLessThan(KDEPrivate::AppNode *n1, KDEPrivate::AppNode *n2)
+static bool AppNodeLessThan(KDEPrivate::AppNode *n1, KDEPrivate::AppNode *n2)
 {
     if (n1->isDir) {
         if (n2->isDir) {
@@ -104,7 +104,6 @@ bool AppNodeLessThan(KDEPrivate::AppNode *n1, KDEPrivate::AppNode *n2)
             return n1->text.compare(n2->text, Qt::CaseInsensitive) < 0;
         }
     }
-    return true;
 }
 
 }
@@ -222,7 +221,6 @@ QVariant KApplicationModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case Qt::DisplayRole:
         return node->text;
-        break;
     case Qt::DecorationRole:
         if (!node->icon.isEmpty()) {
             return QIcon::fromTheme(node->icon);
@@ -270,7 +268,6 @@ QVariant KApplicationModel::headerData(int section, Qt::Orientation orientation,
     switch (role) {
     case Qt::DisplayRole:
         return i18n("Known Applications");
-        break;
     default:
         return QVariant();
     }
@@ -595,7 +592,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
         int max = cg.readEntry("Maximum history", 15);
         combo->setMaxCount(max);
         int mode = cg.readEntry("CompletionMode", int(KCompletion::CompletionPopup));
-        combo->setCompletionMode((KCompletion::CompletionMode)mode);
+        combo->setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
         const QStringList list = cg.readEntry("History", QStringList());
         combo->setHistoryItems(list, true);
         edit = new KUrlRequester(combo, q);
