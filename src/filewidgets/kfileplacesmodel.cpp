@@ -68,7 +68,7 @@ public:
     KFilePlacesModel *q;
 
     QList<KFilePlacesItem *> items;
-    QSet<QString> availableDevices;
+    QVector<QString> availableDevices;
     QMap<QObject *, QPersistentModelIndex> setupInProgress;
 
     Solid::Predicate predicate;
@@ -333,8 +333,7 @@ void KFilePlacesModel::Private::_k_deviceAdded(const QString &udi)
 
 void KFilePlacesModel::Private::_k_deviceRemoved(const QString &udi)
 {
-    if (availableDevices.contains(udi)) {
-        availableDevices.remove(udi);
+    if (availableDevices.removeOne(udi)) {
         _k_reloadBookmarks();
     }
 }
@@ -427,12 +426,12 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
 
     KBookmarkGroup root = bookmarkManager->root();
     KBookmark bookmark = root.first();
-    QSet<QString> devices = availableDevices;
+    QVector<QString> devices = availableDevices;
 
     while (!bookmark.isNull()) {
         QString udi = bookmark.metaDataItem("UDI");
         QString appName = bookmark.metaDataItem("OnlyInApp");
-        bool deviceAvailable = devices.remove(udi);
+        bool deviceAvailable = devices.removeOne(udi);
 
         bool allowedHere = appName.isEmpty() || (appName == QCoreApplication::instance()->applicationName());
 
