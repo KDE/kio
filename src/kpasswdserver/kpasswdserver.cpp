@@ -222,8 +222,8 @@ bool KPasswdServer::hasPendingQuery(const QString &key, const KIO::AuthInfo &inf
     return false;
 }
 
-QByteArray
-KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong windowId, qlonglong usertime)
+// deprecated method, not used anymore. TODO KF6: REMOVE
+QByteArray KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong windowId, qlonglong usertime)
 {
     KIO::AuthInfo info;
     QDataStream stream(data);
@@ -341,9 +341,9 @@ qlonglong KPasswdServer::checkAuthInfoAsync(KIO::AuthInfo info, qlonglong window
     return 0; // ignored
 }
 
-QByteArray
-KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &errorMsg,
-                             qlonglong windowId, qlonglong seqNr, qlonglong usertime)
+// deprecated method, not used anymore. TODO KF6: REMOVE
+QByteArray KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &errorMsg,
+                                        qlonglong windowId, qlonglong seqNr, qlonglong usertime)
 {
     KIO::AuthInfo info;
     QDataStream stream(data);
@@ -445,8 +445,8 @@ KPasswdServer::addAuthInfo(const KIO::AuthInfo &info, qlonglong windowId)
     addAuthInfoItem(key, info, windowId, m_seqNr, false);
 }
 
-void
-KPasswdServer::addAuthInfo(const QByteArray &data, qlonglong windowId)
+// deprecated method, not used anymore. TODO KF6: REMOVE
+void KPasswdServer::addAuthInfo(const QByteArray &data, qlonglong windowId)
 {
     KIO::AuthInfo info;
     QDataStream stream(data);
