@@ -19,8 +19,8 @@
  *  License along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef KPASSWDSERVER_P_H
-#define KPASSWDSERVER_P_H
+#ifndef KPASSWDSERVERCLIENT_P_H
+#define KPASSWDSERVERCLIENT_P_H
 
 #include <qglobal.h>
 
@@ -37,11 +37,11 @@ class AuthInfo;
  * @remarks This is currently only supposed to be used by KIO::SlaveBase
  *          but might be reused as public API in the future.
  */
-class KPasswdServer
+class KPasswdServerClient
 {
 public:
-    KPasswdServer();
-    ~KPasswdServer();
+    KPasswdServerClient();
+    ~KPasswdServerClient();
 
     /**
      * Check if kpasswdserver has cached authentication information regarding

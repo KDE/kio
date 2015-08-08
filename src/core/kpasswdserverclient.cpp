@@ -19,7 +19,7 @@
  *  License along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "kpasswdserver_p.h"
+#include "kpasswdserverclient_p.h"
 
 #include <kio/authinfo.h>
 #include <QtCore/QByteArray>
@@ -31,19 +31,19 @@
 namespace KIO
 {
 
-KPasswdServer::KPasswdServer()
+KPasswdServerClient::KPasswdServerClient()
     : m_interface(new OrgKdeKPasswdServerInterface("org.kde.kded5",
                   "/modules/kpasswdserver",
                   QDBusConnection::sessionBus()))
 {
 }
 
-KPasswdServer::~KPasswdServer()
+KPasswdServerClient::~KPasswdServerClient()
 {
     delete m_interface;
 }
 
-bool KPasswdServer::checkAuthInfo(KIO::AuthInfo &info, qlonglong windowId,
+bool KPasswdServerClient::checkAuthInfo(KIO::AuthInfo &info, qlonglong windowId,
                                   qlonglong usertime)
 {
     //qDebug() << "window-id=" << windowId << "url=" << info.url;
@@ -87,7 +87,7 @@ bool KPasswdServer::checkAuthInfo(KIO::AuthInfo &info, qlonglong windowId,
     return false;
 }
 
-bool KPasswdServer::legacyCheckAuthInfo(KIO::AuthInfo &info, qlonglong windowId,
+bool KPasswdServerClient::legacyCheckAuthInfo(KIO::AuthInfo &info, qlonglong windowId,
                                         qlonglong usertime)
 {
     qWarning() << "Querying old kded_kpasswdserver.";
@@ -109,7 +109,7 @@ bool KPasswdServer::legacyCheckAuthInfo(KIO::AuthInfo &info, qlonglong windowId,
     return false;
 }
 
-qlonglong KPasswdServer::queryAuthInfo(KIO::AuthInfo &info, const QString &errorMsg,
+qlonglong KPasswdServerClient::queryAuthInfo(KIO::AuthInfo &info, const QString &errorMsg,
                                        qlonglong windowId, qlonglong seqNr,
                                        qlonglong usertime)
 {
@@ -156,7 +156,7 @@ qlonglong KPasswdServer::queryAuthInfo(KIO::AuthInfo &info, const QString &error
     return loop.seqNr();
 }
 
-qlonglong KPasswdServer::legacyQueryAuthInfo(KIO::AuthInfo &info, const QString &errorMsg,
+qlonglong KPasswdServerClient::legacyQueryAuthInfo(KIO::AuthInfo &info, const QString &errorMsg,
         qlonglong windowId, qlonglong seqNr,
         qlonglong usertime)
 {
@@ -181,7 +181,7 @@ qlonglong KPasswdServer::legacyQueryAuthInfo(KIO::AuthInfo &info, const QString 
     return -1;
 }
 
-void KPasswdServer::addAuthInfo(const KIO::AuthInfo &info, qlonglong windowId)
+void KPasswdServerClient::addAuthInfo(const KIO::AuthInfo &info, qlonglong windowId)
 {
     QDBusReply<void> reply = m_interface->addAuthInfo(info, windowId);
     if (!reply.isValid() && reply.error().type() == QDBusError::UnknownMethod) {
@@ -189,7 +189,7 @@ void KPasswdServer::addAuthInfo(const KIO::AuthInfo &info, qlonglong windowId)
     }
 }
 
-void KPasswdServer::legacyAddAuthInfo(const KIO::AuthInfo &info, qlonglong windowId)
+void KPasswdServerClient::legacyAddAuthInfo(const KIO::AuthInfo &info, qlonglong windowId)
 {
     qWarning() << "Querying old kded_kpasswdserver.";
 
@@ -199,7 +199,7 @@ void KPasswdServer::legacyAddAuthInfo(const KIO::AuthInfo &info, qlonglong windo
     m_interface->addAuthInfo(params, windowId);
 }
 
-void KPasswdServer::removeAuthInfo(const QString &host, const QString &protocol,
+void KPasswdServerClient::removeAuthInfo(const QString &host, const QString &protocol,
                                    const QString &user)
 {
     m_interface->removeAuthInfo(host, protocol, user);

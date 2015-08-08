@@ -43,7 +43,7 @@ set(kiocore_SRCS
   mkdirjob.cpp
   mkpathjob.cpp
   kpasswdserverloop.cpp
-  kpasswdserver.cpp
+  kpasswdserverclient.cpp
   kremoteencoding.cpp
   sessiondata.cpp
   slavebase.cpp

@@ -49,7 +49,7 @@
 #include "commands_p.h"
 #include "ioslave_defaults.h"
 #include "slaveinterface.h"
-#include "kpasswdserver_p.h"
+#include "kpasswdserverclient_p.h"
 
 #ifndef NDEBUG
 #if HAVE_BACKTRACE
@@ -116,7 +116,7 @@ public:
     enum { Idle, InsideMethod, FinishedCalled, ErrorCalled } m_state;
     QByteArray timeoutData;
 
-    KPasswdServer *m_passwdServer;
+    KPasswdServerClient *m_passwdServer;
 
     // Reconstructs configGroup from configData and mIncomingMetaData
     void rebuildConfig()
@@ -150,10 +150,10 @@ public:
         }
     }
 
-    KPasswdServer *passwdServer()
+    KPasswdServerClient *passwdServer()
     {
         if (!m_passwdServer) {
-            m_passwdServer = new KPasswdServer;
+            m_passwdServer = new KPasswdServerClient;
         }
 
         return m_passwdServer;
@@ -928,7 +928,7 @@ bool SlaveBase::openPasswordDialog(AuthInfo &info, const QString &errorMsg)
     // it to ensure it is valid.
     dlgInfo.setExtraField(QLatin1String("skip-caching-on-query"), true);
 
-    KPasswdServer *passwdServer = d->passwdServer();
+    KPasswdServerClient *passwdServer = d->passwdServer();
 
     if (passwdServer) {
         qlonglong seqNr = passwdServer->queryAuthInfo(dlgInfo, errorMessage, windowId,
@@ -1284,7 +1284,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
 
 bool SlaveBase::checkCachedAuthentication(AuthInfo &info)
 {
-    KPasswdServer *passwdServer = d->passwdServer();
+    KPasswdServerClient *passwdServer = d->passwdServer();
     return (passwdServer &&
             passwdServer->checkAuthInfo(info, metaData(QLatin1String("window-id")).toLong(),
                                         metaData(QLatin1String("user-timestamp")).toULong()));
@@ -1324,7 +1324,7 @@ void SlaveBase::dispatchOpenCommand(int command, const QByteArray &data)
 
 bool SlaveBase::cacheAuthentication(const AuthInfo &info)
 {
-    KPasswdServer *passwdServer = d->passwdServer();
+    KPasswdServerClient *passwdServer = d->passwdServer();
 
     if (!passwdServer) {
         return false;
