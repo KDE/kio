@@ -80,8 +80,6 @@ KPasswdServer::KPasswdServer(QObject* parent, const QList<QVariant>&)
     m_walletDisabled = false;
 
     KPasswdServerAdaptor *adaptor = new KPasswdServerAdaptor(this);
-    // register separately from kded
-    QDBusConnection::sessionBus().registerService("org.kde.kpasswdserver");
     // connect signals to the adaptor
     connect(this,
             SIGNAL(checkAuthInfoAsyncResult(qlonglong,qlonglong,KIO::AuthInfo)),

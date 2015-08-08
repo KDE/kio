@@ -32,7 +32,7 @@ namespace KIO
 {
 
 KPasswdServerClient::KPasswdServerClient()
-    : m_interface(new OrgKdeKPasswdServerInterface("org.kde.kded5",
+    : m_interface(new OrgKdeKPasswdServerInterface("org.kde.kiod5",
                   "/modules/kpasswdserver",
                   QDBusConnection::sessionBus()))
 {
@@ -61,13 +61,13 @@ bool KPasswdServerClient::checkAuthInfo(KIO::AuthInfo &info, qlonglong windowId,
     QDBusReply<qlonglong> reply = m_interface->checkAuthInfoAsync(info, windowId,
                                   usertime);
     if (!reply.isValid()) {
-        qWarning() << "Can't communicate with kded_kpasswdserver (for checkAuthInfo)!";
+        qWarning() << "Can't communicate with kiod_kpasswdserver (for checkAuthInfo)!";
         //qDebug() << reply.error().name() << reply.error().message();
         return false;
     }
 
     if (!loop.waitForResult(reply.value())) {
-        qWarning() << "kded_kpasswdserver died while waiting for reply!";
+        qWarning() << "kiod_kpasswdserver died while waiting for reply!";
         return false;
     }
 
@@ -100,13 +100,13 @@ qlonglong KPasswdServerClient::queryAuthInfo(KIO::AuthInfo &info, const QString 
                                   windowId, seqNr,
                                   usertime);
     if (!reply.isValid()) {
-        qWarning() << "Can't communicate with kded_kpasswdserver (for queryAuthInfo)!";
+        qWarning() << "Can't communicate with kiod_kpasswdserver (for queryAuthInfo)!";
         //qDebug() << reply.error().name() << reply.error().message();
         return -1;
     }
 
     if (!loop.waitForResult(reply.value())) {
-        qWarning() << "kded_kpasswdserver died while waiting for reply!";
+        qWarning() << "kiod_kpasswdserver died while waiting for reply!";
         return -1;
     }
 

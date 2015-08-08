@@ -8,6 +8,7 @@ target_link_libraries(kiod5
    KF5::CoreAddons  # kpluginfactory
    Qt5::Network
    Qt5::DBus
+   Qt5::Widgets     # QApplication
 )
 
 install(TARGETS kiod5 DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF5})

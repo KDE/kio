@@ -18,7 +18,7 @@
     Boston, MA 02110-1301, USA.
 */
 
-#include <QCoreApplication>
+#include <QApplication>
 #include <QHash>
 #include <QDBusMessage>
 #include <QDBusConnectionInterface>
@@ -72,7 +72,7 @@ Q_GLOBAL_STATIC(KIOD, self);
 // on-demand module loading
 // this function is called by the D-Bus message processing function before
 // calls are delivered to objects
-void messageFilter(const QDBusMessage &message)
+static void messageFilter(const QDBusMessage &message)
 {
     const QString name = KDEDModule::moduleForMessage(message);
     if (name.isEmpty()) {
@@ -90,9 +90,10 @@ extern Q_DBUS_EXPORT void qDBusAddSpyHook(void (*)(const QDBusMessage&));
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication app(argc, argv);
+    QApplication app(argc, argv); // GUI needed for kpasswdserver's dialogs
     app.setApplicationName("kiod5");
     app.setOrganizationDomain("kde.org");
+    app.setQuitOnLastWindowClosed(false);
     KDBusService service(KDBusService::Unique);
 
     QDBusConnectionInterface *bus = QDBusConnection::sessionBus().interface();
