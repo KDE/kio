@@ -253,6 +253,7 @@ QByteArray KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong window
     if (!result || result->isCanceled)
     {
         if (!result &&
+            !m_walletDisabled &&
             (info.username.isEmpty() || info.password.isEmpty()) &&
             !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(),
                                               KWallet::Wallet::PasswordFolder(),
@@ -314,6 +315,7 @@ qlonglong KPasswdServer::checkAuthInfoAsync(KIO::AuthInfo info, qlonglong window
     if (!result || result->isCanceled)
     {
         if (!result &&
+            !m_walletDisabled &&
             (info.username.isEmpty() || info.password.isEmpty()) &&
             !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(),
                                               KWallet::Wallet::PasswordFolder(),
@@ -804,6 +806,7 @@ void KPasswdServer::showPasswordDialog (KPasswdServer::Request* request)
 
     if ( !bypassCacheAndKWallet
         && ( username.isEmpty() || password.isEmpty() )
+        && !m_walletDisabled
         && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(), KWallet::Wallet::PasswordFolder(), makeWalletKey( request->key, info.realmValue )) )
     {
         // no login+pass provided, check if kwallet has one
