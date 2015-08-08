@@ -31,7 +31,7 @@
 #define QL1S(x)  QLatin1String(x)
 #define QL1C(x)  QLatin1Char(x)
 
-QLoggingCategory category("org.kde.kurlfilter-ikws");
+QLoggingCategory category("org.kde.kurifilter-ikws");
 
 /**
  * IMPORTANT: If you change anything here, make sure you run the kurifiltertest
