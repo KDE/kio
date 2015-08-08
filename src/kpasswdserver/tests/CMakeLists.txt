@@ -9,6 +9,6 @@ qt5_add_dbus_adaptor(kpasswdserver_test_SRCS ../org.kde.KPasswdServer.xml kpassw
 include(ECMAddTests)
 
 ecm_add_test(${kpasswdserver_test_SRCS}
-             TEST_NAME kpasswdserver
+             TEST_NAME kpasswdservertest
              LINK_LIBRARIES KF5::DBusAddons KF5::Wallet KF5::KIOCore KF5::WidgetsAddons KF5::WindowSystem KF5::I18n Qt5::Core Qt5::Test)
 
