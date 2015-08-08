@@ -4,7 +4,7 @@ add_subdirectory(tests)
 
 set(kded_kpasswdserver_SRCS kpasswdserver.cpp )
 
-qt5_add_dbus_adaptor(kded_kpasswdserver_SRCS org.kde.KPasswdServer.xml kpasswdserver.h KPasswdServer)
+qt5_add_dbus_adaptor(kded_kpasswdserver_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/../core/org.kde.KPasswdServer.xml kpasswdserver.h KPasswdServer)
 
 add_library(kded_kpasswdserver MODULE ${kded_kpasswdserver_SRCS})
 set_target_properties(kded_kpasswdserver PROPERTIES
