@@ -1,6 +1,6 @@
 find_package(KF5Wallet ${KF5_DEP_VERSION} REQUIRED)
 
-add_subdirectory(tests)
+add_subdirectory(autotests)
 
 set(kded_kpasswdserver_SRCS kpasswdserver.cpp )
 
