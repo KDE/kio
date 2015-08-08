@@ -47,14 +47,14 @@ private:
 int main(int argc, char **argv)
 {
     if (argc != 2) {
-        qWarning() << "Expected a path.";
+        qWarning() << "Expected a path or URL.";
         return 1;
     }
 
     QCoreApplication app(argc, argv);
     Test testObject;
 
-    QUrl url = QUrl::fromLocalFile(QString(argv[1]));
+    QUrl url = QUrl::fromUserInput(QString::fromLocal8Bit(argv[1]));
     qDebug() << "Starting listJob for the URL:" << url;
 
     QElapsedTimer timer;
