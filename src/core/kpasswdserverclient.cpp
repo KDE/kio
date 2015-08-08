@@ -48,10 +48,9 @@ bool KPasswdServerClient::checkAuthInfo(KIO::AuthInfo &info, qlonglong windowId,
 {
     //qDebug() << "window-id=" << windowId << "url=" << info.url;
 
-    // special handling for kioslaves which aren't QCoreApplications
     if (!QCoreApplication::instance()) {
-        qWarning() << "kioslave is not a QCoreApplication!";
-        return legacyCheckAuthInfo(info, windowId, usertime);
+        qWarning() << "kioslave is not a QCoreApplication! This is required for checkAuthInfo.";
+        return false;
     }
 
     // create the loop for waiting for a result before sending the request
@@ -62,12 +61,6 @@ bool KPasswdServerClient::checkAuthInfo(KIO::AuthInfo &info, qlonglong windowId,
     QDBusReply<qlonglong> reply = m_interface->checkAuthInfoAsync(info, windowId,
                                   usertime);
     if (!reply.isValid()) {
-        if (reply.error().type() == QDBusError::UnknownMethod) {
-            if (legacyCheckAuthInfo(info, windowId, usertime)) {
-                return true;
-            }
-        }
-
         qWarning() << "Can't communicate with kded_kpasswdserver (for checkAuthInfo)!";
         //qDebug() << reply.error().name() << reply.error().message();
         return false;
@@ -87,38 +80,15 @@ bool KPasswdServerClient::checkAuthInfo(KIO::AuthInfo &info, qlonglong windowId,
     return false;
 }
 
-bool KPasswdServerClient::legacyCheckAuthInfo(KIO::AuthInfo &info, qlonglong windowId,
-                                        qlonglong usertime)
-{
-    qWarning() << "Querying old kded_kpasswdserver.";
-
-    QByteArray params;
-    QDataStream stream(&params, QIODevice::WriteOnly);
-    stream << info;
-    QDBusReply<QByteArray> reply = m_interface->checkAuthInfo(params, windowId,
-                                   usertime);
-    if (reply.isValid()) {
-        AuthInfo authResult;
-        QDataStream stream2(reply.value());
-        stream2 >> authResult;
-        if (authResult.isModified()) {
-            info = authResult;
-            return true;
-        }
-    }
-    return false;
-}
-
 qlonglong KPasswdServerClient::queryAuthInfo(KIO::AuthInfo &info, const QString &errorMsg,
                                        qlonglong windowId, qlonglong seqNr,
                                        qlonglong usertime)
 {
     //qDebug() << "window-id=" << windowId;
 
-    // special handling for kioslaves which aren't QCoreApplications
     if (!QCoreApplication::instance()) {
-        qWarning() << "kioslave is not a QCoreApplication!";
-        return legacyQueryAuthInfo(info, errorMsg, windowId, seqNr, usertime);
+        qWarning() << "kioslave is not a QCoreApplication! This is required for queryAuthInfo.";
+        return false;
     }
 
     // create the loop for waiting for a result before sending the request
@@ -130,15 +100,6 @@ qlonglong KPasswdServerClient::queryAuthInfo(KIO::AuthInfo &info, const QString 
                                   windowId, seqNr,
                                   usertime);
     if (!reply.isValid()) {
-        // backwards compatibility for old kpasswdserver
-        if (reply.error().type() == QDBusError::UnknownMethod) {
-            qlonglong res = legacyQueryAuthInfo(info, errorMsg, windowId, seqNr,
-                                                usertime);
-            if (res > 0) {
-                return res;
-            }
-        }
-
         qWarning() << "Can't communicate with kded_kpasswdserver (for queryAuthInfo)!";
         //qDebug() << reply.error().name() << reply.error().message();
         return -1;
@@ -156,47 +117,9 @@ qlonglong KPasswdServerClient::queryAuthInfo(KIO::AuthInfo &info, const QString 
     return loop.seqNr();
 }
 
-qlonglong KPasswdServerClient::legacyQueryAuthInfo(KIO::AuthInfo &info, const QString &errorMsg,
-        qlonglong windowId, qlonglong seqNr,
-        qlonglong usertime)
-{
-    qWarning() << "Querying old kded_kpasswdserver.";
-
-    QByteArray params;
-    QDataStream stream(&params, QIODevice::WriteOnly);
-    stream << info;
-    QDBusPendingReply<QByteArray, qlonglong> reply = m_interface->queryAuthInfo(params, errorMsg,
-            windowId, seqNr,
-            usertime);
-    reply.waitForFinished();
-    if (reply.isValid()) {
-        AuthInfo authResult;
-        QDataStream stream2(reply.argumentAt<0>());
-        stream2 >> authResult;
-        if (authResult.isModified()) {
-            info = authResult;
-        }
-        return reply.argumentAt<1>();
-    }
-    return -1;
-}
-
 void KPasswdServerClient::addAuthInfo(const KIO::AuthInfo &info, qlonglong windowId)
 {
-    QDBusReply<void> reply = m_interface->addAuthInfo(info, windowId);
-    if (!reply.isValid() && reply.error().type() == QDBusError::UnknownMethod) {
-        legacyAddAuthInfo(info, windowId);
-    }
-}
-
-void KPasswdServerClient::legacyAddAuthInfo(const KIO::AuthInfo &info, qlonglong windowId)
-{
-    qWarning() << "Querying old kded_kpasswdserver.";
-
-    QByteArray params;
-    QDataStream stream(&params, QIODevice::WriteOnly);
-    stream << info;
-    m_interface->addAuthInfo(params, windowId);
+    m_interface->addAuthInfo(info, windowId);
 }
 
 void KPasswdServerClient::removeAuthInfo(const QString &host, const QString &protocol,

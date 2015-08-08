@@ -88,30 +88,6 @@ public:
                         const QString &user);
 
 private:
-    /**
-     * Legacy version of checkAuthInfo provided for compatibility with
-     * old kpasswdserver.
-     * @remarks automatically called by checkAuthInfo if needed
-     */
-    bool legacyCheckAuthInfo(KIO::AuthInfo &info, qlonglong windowId,
-                             qlonglong usertime);
-
-    /**
-     * Legacy version of queryAuthInfo provided for compatibility with
-     * old kpasswdserver.
-     * @remarks automatically called by queryAuthInfo if needed.
-     */
-    qlonglong legacyQueryAuthInfo(KIO::AuthInfo &info, const QString &errorMsg,
-                                  qlonglong windowId, qlonglong seqNr,
-                                  qlonglong usertime);
-
-    /**
-     * Legacy version of addAuthInfo provided for compatibility with
-     * old kpasswdserver.
-     * @remarks automatically called by removeAuthInfo if needed
-     */
-    void legacyAddAuthInfo(const KIO::AuthInfo &info, qlonglong windowId);
-
     OrgKdeKPasswdServerInterface *m_interface;
 };
 

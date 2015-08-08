@@ -13,13 +13,13 @@
       <arg type="(ysssssssssbbbba{s(siv)})" name="info" />
       <annotation name="org.qtproject.QtDBus.QtTypeName.In2" value="KIO::AuthInfo" />
     </signal>
-    <method name="checkAuthInfo" >
+    <method name="checkAuthInfo" > <!-- LEGACY METHOD, KF6: REMOVE -->
       <arg direction="out" type="ay" />
       <arg direction="in" type="ay" name="data" />
       <arg direction="in" type="x" name="windowId" />
       <arg direction="in" type="x" name="usertime" />
     </method>
-    <method name="queryAuthInfo" >
+    <method name="queryAuthInfo" > <!-- LEGACY METHOD, KF6: REMOVE -->
       <arg direction="out" type="ay" />
       <arg direction="in" type="ay" name="data" />
       <arg direction="in" type="s" name="errorMsg" />
@@ -43,7 +43,7 @@
       <arg direction="in" type="x" name="seqNr" />
       <arg direction="in" type="x" name="usertime" />
     </method>
-    <method name="addAuthInfo" >
+    <method name="addAuthInfo" > <!-- LEGACY METHOD, KF6: REMOVE -->
       <arg direction="in" type="ay" name="data" />
       <arg direction="in" type="x" name="windowId" />
     </method>
