@@ -337,7 +337,6 @@ void SlaveBase::connectSlave(const QString &address)
         /*qDebug() << "failed to connect to" << address << endl
                       << "Reason:" << d->appConnection.errorString();*/
         exit();
-        return;
     }
 
     d->inOpenLoop = false;
@@ -444,7 +443,7 @@ void SlaveBase::error(int _errid, const QString &_text)
     mIncomingMetaData.clear(); // Clear meta data
     d->rebuildConfig();
     mOutgoingMetaData.clear();
-    KIO_DATA << (qint32) _errid << _text;
+    KIO_DATA << static_cast<qint32>(_errid) << _text;
 
     send(MSG_ERROR, data);
     //reset
@@ -557,7 +556,7 @@ void SlaveBase::processedPercent(float /* percent */)
 
 void SlaveBase::speed(unsigned long _bytes_per_second)
 {
-    KIO_DATA << (quint32) _bytes_per_second;
+    KIO_DATA << static_cast<quint32>(_bytes_per_second);
     send(INF_SPEED, data);
 }
 
@@ -606,7 +605,6 @@ void SlaveBase::mimeType(const QString &_type)
             if (ret == -1) {
                 //qDebug() << "read error";
                 exit();
-                return;
             }
             //qDebug() << "got" << cmd;
             if (cmd == CMD_HOST) { // Ignore.
@@ -717,7 +715,7 @@ void SlaveBase::listEntries(const UDSEntryList &list)
     send(MSG_LIST_ENTRIES, data);
 }
 
-static void sigsegv_handler(int sig)
+Q_NORETURN static void sigsegv_handler(int sig)
 {
 #ifdef Q_OS_UNIX
     ::signal(sig, SIG_DFL); // Next one kills
@@ -958,7 +956,7 @@ int SlaveBase::messageBox(const QString &text, MessageBoxType type, const QStrin
     QString buttonYes = _buttonYes.isNull() ? i18n("&Yes") : _buttonYes;
     QString buttonNo = _buttonNo.isNull() ? i18n("&No") : _buttonNo;
     //qDebug() << "messageBox " << type << " " << text << " - " << caption << buttonYes << buttonNo;
-    KIO_DATA << (qint32)type << text << caption << buttonYes << buttonNo << dontAskAgainName;
+    KIO_DATA << static_cast<qint32>(type) << text << caption << buttonYes << buttonNo << dontAskAgainName;
     send(INF_MESSAGEBOX, data);
     if (waitForAnswer(CMD_MESSAGEBOXANSWER, 0, data) != -1) {
         QDataStream stream(data);
@@ -992,7 +990,8 @@ bool SlaveBase::canResume(KIO::filesize_t offset)
 
 int SlaveBase::waitForAnswer(int expected1, int expected2, QByteArray &data, int *pCmd)
 {
-    int cmd, result = -1;
+    int cmd = 0;
+    int result = -1;
     for (;;) {
         if (d->appConnection.hasTaskAvailable() || d->appConnection.waitForIncomingTask(-1)) {
             result = d->appConnection.read(&cmd, data);
@@ -1309,6 +1308,7 @@ void SlaveBase::dispatchOpenCommand(int command, const QByteArray &data)
         KIO::filesize_t offset;
         stream >> offset;
         seek(offset);
+        break;
     }
     case CMD_NONE:
         break;
