@@ -27,6 +27,13 @@
 static const char* sigQueryAuthInfoResult = SIGNAL(queryAuthInfoAsyncResult(qlonglong,qlonglong,KIO::AuthInfo));
 static const char* sigCheckAuthInfoResult = SIGNAL(checkAuthInfoAsyncResult(qlonglong,qlonglong,KIO::AuthInfo));
 
+// For the retry dialog (and only that one)
+static QDialogButtonBox::StandardButton s_buttonYes = QDialogButtonBox::Yes;
+static QDialogButtonBox::StandardButton s_buttonCancel = QDialogButtonBox::Cancel;
+
+Q_DECLARE_METATYPE(QDialogButtonBox::StandardButton)
+Q_DECLARE_METATYPE(QDialog::DialogCode)
+
 static QString getUserNameFrom(const KIO::AuthInfo& auth)
 {
     if (auth.username.isEmpty() && !auth.url.userName().isEmpty()) {
@@ -43,6 +50,8 @@ class KPasswdServerTest : public QObject
 private Q_SLOTS:
     void initTestCase()
     {
+        qRegisterMetaType<QDialogButtonBox::StandardButton>();
+        qRegisterMetaType<QDialog::DialogCode>();
     }
 
     void simpleTest()
@@ -184,7 +193,7 @@ private Q_SLOTS:
         // but cancel the retry dialog.
         info.password.clear();
         result = KIO::AuthInfo();
-        queryAuthWithDialog(server, info, filledInfo, result, QDialog::Rejected, QLatin1String("Invalid username or password"));
+        queryAuthWithDialog(server, info, filledInfo, result, s_buttonCancel, QDialog::Accepted /*unused*/, QLatin1String("Invalid username or password"));
     }
 
     void testAcceptRetryDialog()
@@ -208,7 +217,8 @@ private Q_SLOTS:
         // but this time continue the retry.
         info.password.clear();
         result = KIO::AuthInfo();
-        queryAuthWithDialog(server, info, filledInfo, result, QDialog::Accepted, QLatin1String("Invalid username or password"));
+
+        queryAuthWithDialog(server, info, filledInfo, result, s_buttonYes, QDialog::Accepted, QLatin1String("Invalid username or password"));
     }
 
     void testUsernameMistmatch()
@@ -256,7 +266,7 @@ private Q_SLOTS:
         info.username = info.url.userName();
 
         KIO::AuthInfo result;
-        queryAuthWithDialog(server, info, KIO::AuthInfo(), result, QDialog::Rejected);
+        queryAuthWithDialog(server, info, KIO::AuthInfo(), result, QDialogButtonBox::NoButton, QDialog::Rejected);
     }
 
     void testVerifyPath()
@@ -382,7 +392,9 @@ private:
 
     void queryAuthWithDialog(KPasswdServer& server, const KIO::AuthInfo& info,
                              const KIO::AuthInfo& filledInfo, KIO::AuthInfo& result,
-                             int code = QDialog::Accepted, const QString& errMsg = QString())
+                             QDialogButtonBox::StandardButton retryButton = s_buttonYes,
+                             QDialog::DialogCode code = QDialog::Accepted,
+                             const QString& errMsg = QString())
     {
         QSignalSpy spy(&server, sigQueryAuthInfoResult);
         const qlonglong windowId = 42;
@@ -395,19 +407,19 @@ private:
         QVERIFY(spy.isEmpty());
 
         const bool hasErrorMessage = (!errMsg.isEmpty());
-        const bool isCancelRetryDialogTest = (hasErrorMessage && code == QDialog::Rejected);
+        const bool isCancelRetryDialogTest = (hasErrorMessage && retryButton == s_buttonCancel);
 
         if (hasErrorMessage) {
             // Retry dialog only knows Yes/No
             QMetaObject::invokeMethod(this, "checkRetryDialog",
-                                      Qt::QueuedConnection, Q_ARG(int, code));
+                                      Qt::QueuedConnection, Q_ARG(QDialogButtonBox::StandardButton, retryButton));
         }
 
         if (!isCancelRetryDialogTest) {
             QMetaObject::invokeMethod(this, "checkAndFillDialog", Qt::QueuedConnection,
                                       Q_ARG(KIO::AuthInfo, info),
                                       Q_ARG(KIO::AuthInfo, filledInfo),
-                                      Q_ARG(int, code));
+                                      Q_ARG(QDialog::DialogCode, code ));
         }
         // Force KPasswdServer to process the request now, otherwise the checkAndFillDialog needs a timer too...
         server.processRequest();
@@ -419,15 +431,14 @@ private:
         result = spy[0][2].value<KIO::AuthInfo>();
         const QString username = (isCancelRetryDialogTest ? QString() : filledInfo.username);
         const QString password = (isCancelRetryDialogTest ? QString() : filledInfo.password);
-        const bool modified = (code == QDialog::Accepted ? true : false);
         QCOMPARE(result.username, username);
         QCOMPARE(result.password, password);
-        QCOMPARE(result.isModified(), modified);
+        QCOMPARE(result.isModified(), retryButton == s_buttonYes && code  == QDialog::Accepted);
     }
 
     void concurrentQueryAuthWithDialog(KPasswdServer& server, const QList<KIO::AuthInfo>& infos,
                                        const KIO::AuthInfo& filledInfo, QList<KIO::AuthInfo>& results,
-                                       int code = QDialog::Accepted)
+                                       QDialog::DialogCode code = QDialog::Accepted)
     {
         QSignalSpy spy(&server, sigQueryAuthInfoResult);
         const qlonglong windowId = 42;
@@ -447,7 +458,7 @@ private:
         QMetaObject::invokeMethod(this, "checkAndFillDialog", Qt::QueuedConnection,
                                   Q_ARG(KIO::AuthInfo, infos.first()),
                                   Q_ARG(KIO::AuthInfo,filledInfo),
-                                  Q_ARG(int, code));
+                                  Q_ARG(QDialog::DialogCode, code));
 
         // Force KPasswdServer to process the request now, otherwise the checkAndFillDialog needs a timer too...
         server.processRequest();
@@ -462,14 +473,14 @@ private:
             KIO::AuthInfo result = spy[i][2].value<KIO::AuthInfo>();
             QCOMPARE(result.username, filledInfo.username);
             QCOMPARE(result.password, filledInfo.password);
-            QCOMPARE(result.isModified(), (code == QDialog::Accepted ? true : false));
+            QCOMPARE(result.isModified(), code == QDialog::Accepted);
             results << result;
         }
     }
 
     void concurrentCheckAuthWithDialog(KPasswdServer& server, const QList<KIO::AuthInfo>& infos,
                                        const KIO::AuthInfo& filledInfo, QList<KIO::AuthInfo>& results,
-                                       int code = QDialog::Accepted)
+                                       QDialog::DialogCode code = QDialog::Accepted)
     {
         QSignalSpy spy(&server, sigQueryAuthInfoResult);
         const qlonglong windowId = 42;
@@ -496,7 +507,7 @@ private:
         QMetaObject::invokeMethod(this, "checkAndFillDialog", Qt::QueuedConnection,
                                   Q_ARG(KIO::AuthInfo, infos.first()),
                                   Q_ARG(KIO::AuthInfo,filledInfo),
-                                  Q_ARG(int, code));
+                                  Q_ARG(QDialog::DialogCode, code));
 
         // Force KPasswdServer to process the request now, otherwise the checkAndFillDialog needs a timer too...
         server.processRequest();
@@ -514,13 +525,13 @@ private:
             KIO::AuthInfo result = spy[i][2].value<KIO::AuthInfo>();
             QCOMPARE(result.username, filledInfo.username);
             QCOMPARE(result.password, filledInfo.password);
-            QCOMPARE(result.isModified(), (code == QDialog::Accepted ? true : false));
+            QCOMPARE(result.isModified(), code == QDialog::Accepted);
             results << result;
         }
     }
 
 protected Q_SLOTS:
-    void checkAndFillDialog(const KIO::AuthInfo& info, const KIO::AuthInfo& filledInfo, int code = QDialog::Accepted)
+    void checkAndFillDialog(const KIO::AuthInfo& info, const KIO::AuthInfo& filledInfo, QDialog::DialogCode code)
     {
         Q_FOREACH(QWidget *widget, QApplication::topLevelWidgets()) {
             if (KPasswordDialog* dialog = qobject_cast<KPasswordDialog *>(widget)) {
@@ -537,7 +548,7 @@ protected Q_SLOTS:
         qWarning() << "No KPasswordDialog found!";
     }
 
-    void checkRetryDialog(int code = QDialog::Accepted)
+    void checkRetryDialog(QDialogButtonBox::StandardButton code = s_buttonYes)
     {
         Q_FOREACH(QWidget *widget, QApplication::topLevelWidgets()) {
             QDialog* dialog = qobject_cast<QDialog*>(widget);
@@ -546,6 +557,7 @@ protected Q_SLOTS:
                 return;
             }
         }
+        qWarning() << "No retry dialog found";
     }
 };
 
