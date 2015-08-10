@@ -78,7 +78,7 @@ class SlaveBasePrivate
 {
 public:
     SlaveBase *q;
-    SlaveBasePrivate(SlaveBase *owner): q(owner), m_passwdServer(0)
+    SlaveBasePrivate(SlaveBase *owner): q(owner), m_passwdServerClient(0)
     {
         if (!qgetenv("KIOSLAVE_ENABLE_TESTMODE").isEmpty()) {
             QStandardPaths::enableTestMode(true);
@@ -87,7 +87,7 @@ public:
     }
     ~SlaveBasePrivate()
     {
-        delete m_passwdServer;
+        delete m_passwdServerClient;
     }
 
     UDSEntryList pendingListEntries;
@@ -116,7 +116,7 @@ public:
     enum { Idle, InsideMethod, FinishedCalled, ErrorCalled } m_state;
     QByteArray timeoutData;
 
-    KPasswdServerClient *m_passwdServer;
+    KPasswdServerClient *m_passwdServerClient;
 
     // Reconstructs configGroup from configData and mIncomingMetaData
     void rebuildConfig()
@@ -150,13 +150,13 @@ public:
         }
     }
 
-    KPasswdServerClient *passwdServer()
+    KPasswdServerClient *passwdServerClient()
     {
-        if (!m_passwdServer) {
-            m_passwdServer = new KPasswdServerClient;
+        if (!m_passwdServerClient) {
+            m_passwdServerClient = new KPasswdServerClient;
         }
 
-        return m_passwdServer;
+        return m_passwdServerClient;
     }
 };
 
@@ -926,17 +926,14 @@ bool SlaveBase::openPasswordDialog(AuthInfo &info, const QString &errorMsg)
     // it to ensure it is valid.
     dlgInfo.setExtraField(QLatin1String("skip-caching-on-query"), true);
 
-    KPasswdServerClient *passwdServer = d->passwdServer();
-
-    if (passwdServer) {
-        qlonglong seqNr = passwdServer->queryAuthInfo(dlgInfo, errorMessage, windowId,
-                          SlaveBasePrivate::s_seqNr, userTimestamp);
-        if (seqNr > 0) {
-            SlaveBasePrivate::s_seqNr = seqNr;
-            if (dlgInfo.isModified()) {
-                info = dlgInfo;
-                return true;
-            }
+    KPasswdServerClient *passwdServerClient = d->passwdServerClient();
+    qlonglong seqNr = passwdServerClient->queryAuthInfo(dlgInfo, errorMessage, windowId,
+                                                        SlaveBasePrivate::s_seqNr, userTimestamp);
+    if (seqNr > 0) {
+        SlaveBasePrivate::s_seqNr = seqNr;
+        if (dlgInfo.isModified()) {
+            info = dlgInfo;
+            return true;
         }
     }
 
@@ -1283,9 +1280,8 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
 
 bool SlaveBase::checkCachedAuthentication(AuthInfo &info)
 {
-    KPasswdServerClient *passwdServer = d->passwdServer();
-    return (passwdServer &&
-            passwdServer->checkAuthInfo(info, metaData(QLatin1String("window-id")).toLong(),
+    KPasswdServerClient *passwdServerClient = d->passwdServerClient();
+    return (passwdServerClient->checkAuthInfo(info, metaData(QLatin1String("window-id")).toLong(),
                                         metaData(QLatin1String("user-timestamp")).toULong()));
 }
 
@@ -1324,13 +1320,8 @@ void SlaveBase::dispatchOpenCommand(int command, const QByteArray &data)
 
 bool SlaveBase::cacheAuthentication(const AuthInfo &info)
 {
-    KPasswdServerClient *passwdServer = d->passwdServer();
-
-    if (!passwdServer) {
-        return false;
-    }
-
-    passwdServer->addAuthInfo(info, metaData(QLatin1String("window-id")).toLongLong());
+    KPasswdServerClient *passwdServerClient = d->passwdServerClient();
+    passwdServerClient->addAuthInfo(info, metaData(QLatin1String("window-id")).toLongLong());
     return true;
 }
 
