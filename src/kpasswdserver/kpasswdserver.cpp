@@ -562,7 +562,6 @@ KPasswdServer::processRequest()
             dlg->setObjectName("warningOKCancel");
             QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Yes|QDialogButtonBox::Cancel);
             buttonBox->button(QDialogButtonBox::Yes)->setText(i18nc("@action:button filter-continue", "Retry"));
-            connect(buttonBox, SIGNAL(accepted()), SLOT(accept()));
 
             KMessageBox::createKMessageBox(dlg, buttonBox, QMessageBox::Warning, prompt,
                                            QStringList(), QString(), 0,
@@ -954,7 +953,7 @@ void KPasswdServer::sendResponse (KPasswdServer::Request* request)
        QTimer::singleShot(0, this, SLOT(processRequest()));
 }
 
-void KPasswdServer::passwordDialogDone (int result)
+void KPasswdServer::passwordDialogDone(int result)
 {
     KPasswordDialog* dlg = qobject_cast<KPasswordDialog*>(sender());
     Q_ASSERT(dlg);
@@ -969,7 +968,6 @@ void KPasswdServer::passwordDialogDone (int result)
         qCDebug(category) << "dialog result=" << result << ", bypassCacheAndKWallet?" << bypassCacheAndKWallet;
         if (dlg && result == QDialog::Accepted) {
             Q_ASSERT(dlg);
-            const QString oldUsername (info.username);
             info.username = dlg->username();
             info.password = dlg->password();
             info.keepPassword = dlg->keepPassword();
@@ -1027,7 +1025,7 @@ void KPasswdServer::passwordDialogDone (int result)
     dlg->deleteLater();
 }
 
-void KPasswdServer::retryDialogDone (int result)
+void KPasswdServer::retryDialogDone(int result)
 {
     QDialog* dlg = qobject_cast<QDialog*>(sender());
     Q_ASSERT(dlg);
@@ -1036,7 +1034,7 @@ void KPasswdServer::retryDialogDone (int result)
     Q_ASSERT(request);
 
     if (request) {
-        if (result == QDialog::Accepted) {
+        if (result == QDialogButtonBox::Yes) {
             showPasswordDialog(request.take());
         } else {
             // NOTE: If the user simply cancels the retry dialog, we remove the
