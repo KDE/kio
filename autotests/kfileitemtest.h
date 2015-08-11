@@ -41,6 +41,7 @@ private Q_SLOTS:
     void testMimetypeForRemoteFolderWithFileType();
     void testCurrentMimetypeForRemoteFolder();
     void testCurrentMimetypeForRemoteFolderWithFileType();
+    void testIconNameForCustomFolderIcons();
 
 #ifndef Q_OS_WIN
     void testIsReadable_data();

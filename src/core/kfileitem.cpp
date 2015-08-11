@@ -732,15 +732,15 @@ QMimeType KFileItem::determineMimeType() const
         QMimeDatabase db;
         if (isDir()) {
             d->m_mimeType = db.mimeTypeForName("inode/directory");
-            return d->m_mimeType;
+        } else {
+            bool isLocalUrl;
+            const QUrl url = mostLocalUrl(&isLocalUrl);
+            d->m_mimeType = db.mimeTypeForUrl(url);
+            // was:  d->m_mimeType = KMimeType::findByUrl( url, d->m_fileMode, isLocalUrl );
+            // => we are no longer using d->m_fileMode for remote URLs.
+            Q_ASSERT(d->m_mimeType.isValid());
+            //qDebug() << d << "finding final mimetype for" << url << ":" << d->m_mimeType.name();
         }
-        bool isLocalUrl;
-        const QUrl url = mostLocalUrl(&isLocalUrl);
-        d->m_mimeType = db.mimeTypeForUrl(url);
-        // was:  d->m_mimeType = KMimeType::findByUrl( url, d->m_fileMode, isLocalUrl );
-        // => we are no longer using d->m_fileMode for remote URLs.
-        Q_ASSERT(d->m_mimeType.isValid());
-        //qDebug() << d << "finding final mimetype for" << url << ":" << d->m_mimeType.name();
         d->m_bMimeTypeKnown = true;
     }
 

@@ -25,6 +25,8 @@
 #include <qtemporarydir.h>
 #include <qtemporaryfile.h>
 #include <kuser.h>
+#include <kdesktopfile.h>
+#include <kconfiggroup.h>
 
 QTEST_MAIN(KFileItemTest)
 
@@ -470,6 +472,25 @@ void KFileItemTest::testCurrentMimetypeForRemoteFolderWithFileType()
     KFileItem fileItem(entry, url);
 
     QCOMPARE(fileItem.currentMimeType().name(), udsMimeType);
+}
+
+void KFileItemTest::testIconNameForCustomFolderIcons()
+{
+    // Custom folder icons should be displayed (bug 350612)
+
+    const QString iconName = QStringLiteral("folder-music");
+
+    QTemporaryDir tempDir;
+    const QUrl url = QUrl::fromLocalFile(tempDir.path());
+    KDesktopFile cfg(tempDir.path() + QString::fromLatin1("/.directory"));
+    cfg.desktopGroup().writeEntry("Icon", iconName);
+    cfg.sync();
+
+    KIO::UDSEntry entry;
+    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    KFileItem fileItem(entry, url);
+
+    QCOMPARE(fileItem.iconName(), iconName);
 }
 
 #ifndef Q_OS_WIN // user/group/other write permissions are not handled on windows
