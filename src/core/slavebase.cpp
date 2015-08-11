@@ -58,7 +58,7 @@
 #endif
 
 extern "C" {
-    static void sigsegv_handler(int sig);
+    Q_NORETURN static void sigsegv_handler(int sig);
     static void sigpipe_handler(int sig);
 }
 
