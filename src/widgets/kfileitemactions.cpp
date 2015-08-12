@@ -585,6 +585,7 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
         } else { // no app offers -> Open With...
             QAction *act = new QAction(this);
             act->setText(i18nc("@title:menu", "&Open With..."));
+            act->setObjectName("openwith"); // for the unittest
             QObject::connect(act, SIGNAL(triggered()), d, SLOT(slotOpenWithDialog()));
             topMenu->addAction(act);
         }
