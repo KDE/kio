@@ -333,7 +333,9 @@ void KFilePlacesModel::Private::_k_deviceAdded(const QString &udi)
 
 void KFilePlacesModel::Private::_k_deviceRemoved(const QString &udi)
 {
-    if (availableDevices.removeOne(udi)) {
+    auto it = std::find(availableDevices.begin(), availableDevices.end(), udi);
+    if (it != availableDevices.end()) {
+        availableDevices.erase(it);
         _k_reloadBookmarks();
     }
 }
@@ -431,7 +433,11 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
     while (!bookmark.isNull()) {
         QString udi = bookmark.metaDataItem("UDI");
         QString appName = bookmark.metaDataItem("OnlyInApp");
-        bool deviceAvailable = devices.removeOne(udi);
+        auto it = std::find(devices.begin(), devices.end(), udi);
+        bool deviceAvailable = (it != devices.end());
+        if (it != devices.end()) {
+            devices.erase(it);
+        }
 
         bool allowedHere = appName.isEmpty() || (appName == QCoreApplication::instance()->applicationName());
 
