@@ -494,7 +494,7 @@ Qt::ItemFlags KFilePlacesModel::flags(const QModelIndex &index) const
 
 static QString _k_internalMimetype(const KFilePlacesModel *const self)
 {
-    return QString("application/x-kfileplacesmodel-") + QString::number((qptrdiff)self);
+    return QString("application/x-kfileplacesmodel-") + QString::number(reinterpret_cast<qptrdiff>(self));
 }
 
 QStringList KFilePlacesModel::mimeTypes() const

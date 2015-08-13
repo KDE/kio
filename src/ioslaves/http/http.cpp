@@ -99,7 +99,6 @@ static bool supportedProxyScheme(const QString &scheme)
 // see filenameFromUrl(): a sha1 hash is 160 bits
 static const int s_hashedUrlBits = 160;   // this number should always be divisible by eight
 static const int s_hashedUrlNibbles = s_hashedUrlBits / 4;
-static const int s_hashedUrlBytes = s_hashedUrlBits / 8;
 static const int s_MaxInMemPostBufSize = 256 * 1024;   // Write anyting over 256 KB to file...
 
 using namespace KIO;
@@ -5187,7 +5186,6 @@ static QString protocolForProxyType(QNetworkProxy::ProxyType type)
     case QNetworkProxy::HttpProxy:
     case QNetworkProxy::HttpCachingProxy:
     case QNetworkProxy::FtpCachingProxy:
-    default:
         break;
     }
 

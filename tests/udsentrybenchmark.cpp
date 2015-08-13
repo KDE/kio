@@ -264,7 +264,7 @@ void UDSEntryBenchmark::saveLargeEntries()
     }
 }
 namespace KIO {
-bool operator==(const UDSEntry &a, const UDSEntry &b)
+static bool operator==(const UDSEntry &a, const UDSEntry &b)
 {
     if (a.count() != b.count()) {
         return false;
