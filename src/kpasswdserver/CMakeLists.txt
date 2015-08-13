@@ -2,7 +2,7 @@ find_package(KF5Wallet ${KF5_DEP_VERSION} REQUIRED)
 
 add_subdirectory(autotests)
 
-set(kiod_kpasswdserver_SRCS kpasswdserver.cpp )
+set(kiod_kpasswdserver_SRCS kpasswdserver.cpp kiod_kpasswdserver.cpp)
 
 qt5_add_dbus_adaptor(kiod_kpasswdserver_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/../core/org.kde.KPasswdServer.xml kpasswdserver.h KPasswdServer)
 

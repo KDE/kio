@@ -34,17 +34,11 @@
 #include <kusertimestamp.h>
 #include <klocalizedstring.h>
 
-#include <kpluginfactory.h>
-#include <kpluginloader.h>
-
 #include <QPushButton>
 #include <QTimer>
 #include <ctime>
 
 static QLoggingCategory category("org.kde.kio.kpasswdserver");
-
-
-K_PLUGIN_FACTORY_WITH_JSON(KPasswdServerFactory, "kpasswdserver.json", registerPlugin<KPasswdServer>();)
 
 #define AUTHINFO_EXTRAFIELD_DOMAIN QLatin1String("domain")
 #define AUTHINFO_EXTRAFIELD_ANONYMOUS QLatin1String("anonymous")
@@ -1097,5 +1091,3 @@ void KPasswdServer::updateCachedRequestKey (QList<KPasswdServer::Request*>& list
     }
 }
 
-
-#include "kpasswdserver.moc"
