@@ -82,8 +82,9 @@ static QString bookmarksFile()
 
 void KFilePlacesModelTest::initTestCase()
 {
-    // Make sure we always use 0 as seed
+    // Ensure ordering stability from QSet
     qt_qhash_seed.fetchAndStoreRelaxed(0);
+    qputenv("QT_NO_CPU_FEATURE", "1");
 
     qputenv("KDE_FORK_SLAVES", "yes"); // to avoid a runtime dependency on klauncher
     QStandardPaths::setTestModeEnabled(true);
