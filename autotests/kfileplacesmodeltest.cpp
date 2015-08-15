@@ -173,7 +173,6 @@ static const QStringList initialListOfUrls()
 void KFilePlacesModelTest::testInitialList()
 {
     const QStringList urls = initialListOfUrls();
-    qDebug() << placesUrls();
     CHECK_PLACES_URLS(urls);
 }
 

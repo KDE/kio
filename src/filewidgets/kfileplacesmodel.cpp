@@ -305,7 +305,6 @@ QModelIndex KFilePlacesModel::closestItem(const QUrl &url) const
 
 void KFilePlacesModel::Private::_k_initDeviceList()
 {
-    qDebug() << this;
     Solid::DeviceNotifier *notifier = Solid::DeviceNotifier::instance();
 
     connect(notifier, SIGNAL(deviceAdded(QString)),
@@ -316,11 +315,6 @@ void KFilePlacesModel::Private::_k_initDeviceList()
     const QList<Solid::Device> &deviceList = Solid::Device::listFromQuery(predicate);
 
     foreach (const Solid::Device &device, deviceList) {
-        QString path;
-        const Solid::StorageAccess *access = device.as<Solid::StorageAccess>();
-        if (access) { path = access->filePath(); }
-        qDebug() << device.udi() << device.description() << path;
-
         availableDevices << device.udi();
     }
 
