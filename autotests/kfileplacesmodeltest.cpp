@@ -38,10 +38,13 @@
 #define KDE_ROOT_PATH "/"
 #endif
 
-QT_BEGIN_NAMESPACE
 // Avoid QHash randomization so that the order of the devices is stable
-extern Q_CORE_EXPORT QBasicAtomicInt qt_qhash_seed; // from qhash.cpp
-QT_END_NAMESPACE
+static void seedInit()
+{
+    qputenv("QT_HASH_SEED", 0);
+    qputenv("QT_NO_CPU_FEATURE", "1");
+}
+Q_CONSTRUCTOR_FUNCTION(seedInit)
 
 class KFilePlacesModelTest : public QObject
 {
@@ -82,10 +85,6 @@ static QString bookmarksFile()
 
 void KFilePlacesModelTest::initTestCase()
 {
-    // Ensure ordering stability from QSet
-    qt_qhash_seed.fetchAndStoreRelaxed(0);
-    qputenv("QT_NO_CPU_FEATURE", "1");
-
     qputenv("KDE_FORK_SLAVES", "yes"); // to avoid a runtime dependency on klauncher
     QStandardPaths::setTestModeEnabled(true);
 
@@ -174,6 +173,7 @@ static const QStringList initialListOfUrls()
 void KFilePlacesModelTest::testInitialList()
 {
     const QStringList urls = initialListOfUrls();
+    qDebug() << placesUrls();
     CHECK_PLACES_URLS(urls);
 }
 
