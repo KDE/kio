@@ -53,12 +53,15 @@ int KDirSortFilterProxyModel::KDirSortFilterProxyModelPrivate::compare(const QSt
         const QString &b,
         Qt::CaseSensitivity caseSensitivity)
 {
+    int result;
+
     if (m_naturalSorting) {
         m_collator.setCaseSensitivity(caseSensitivity);
-        return m_collator.compare(a, b);
+        result = m_collator.compare(a, b);
+    } else {
+        result = QString::compare(a, b, caseSensitivity);
     }
 
-    const int result = QString::compare(a, b, caseSensitivity);
     if (caseSensitivity == Qt::CaseSensitive || result != 0) {
         // Only return the result, if the strings are not equal. If they are equal by a case insensitive
         // comparison, still a deterministic sort order is required. A case sensitive
