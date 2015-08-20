@@ -40,9 +40,9 @@
 #include <cstdlib>
 #include <ctime>
 
-K_PLUGIN_FACTORY_WITH_JSON(ProxyScoutFactory, "proxyscout.json",
-                 registerPlugin<KPAC::ProxyScout>();
-                )
+K_PLUGIN_FACTORY_WITH_JSON(ProxyScoutFactory,
+                           "proxyscout.json",
+                           registerPlugin<KPAC::ProxyScout>();)
 
 namespace KPAC
 {

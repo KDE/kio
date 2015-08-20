@@ -61,4 +61,3 @@ install(TARGETS kpac_dhcp_helper DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF5} )
 ########### install files ###############
 
 install( FILES proxyscout.notifyrc  DESTINATION  ${KDE_INSTALL_KNOTIFY5RCDIR} )
-install( FILES proxyscout.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR}/kded )

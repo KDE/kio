@@ -47,9 +47,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #define QL1S(x)  QLatin1String(x)
 #define QL1C(x)  QLatin1Char(x)
 
-K_PLUGIN_FACTORY_WITH_JSON(KdedCookieServerFactory, "kcookiejar.json",
-                 registerPlugin<KCookieServer>();
-                )
+K_PLUGIN_FACTORY_WITH_JSON(KdedCookieServerFactory,
+                           "kcookiejar.json",
+                           registerPlugin<KCookieServer>();)
 
 // Cookie field indexes
 enum CookieDetails { CF_DOMAIN = 0, CF_PATH, CF_NAME, CF_HOST,
