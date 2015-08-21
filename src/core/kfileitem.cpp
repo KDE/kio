@@ -27,6 +27,7 @@
 #include <QtCore/QDirIterator>
 #include <QtCore/QFile>
 #include <QtCore/QMap>
+#include <QtCore/QDataStream>
 #include <QMimeDatabase>
 #include <QDebug>
 #include <qplatformdefs.h>
