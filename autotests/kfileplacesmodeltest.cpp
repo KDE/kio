@@ -41,7 +41,7 @@
 // Avoid QHash randomization so that the order of the devices is stable
 static void seedInit()
 {
-    qputenv("QT_HASH_SEED", 0);
+    qputenv("QT_HASH_SEED", "0");
     qputenv("QT_NO_CPU_FEATURE", "sse4.2");
 }
 Q_CONSTRUCTOR_FUNCTION(seedInit)
