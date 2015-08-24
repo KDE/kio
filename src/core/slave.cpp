@@ -24,6 +24,7 @@
 #include <stdio.h>
 
 #include <QtCore/QFile>
+#include <QtCore/QStandardPaths>
 #include <QtCore/QTimer>
 #include <QtCore/QProcess>
 
@@ -73,7 +74,6 @@ static org::kde::KSlaveLauncher *klauncher()
     return s_kslaveLauncher.localData();
 }
 
-#ifdef Q_OS_UNIX
 // In such case we start the slave via QProcess.
 // It's possible to force this by setting the env. variable
 // KDE_FORK_SLAVES, Clearcase seems to require this.
@@ -87,6 +87,8 @@ static bool forkSlaves()
     if (bForkSlaves.load() == -1) {
         bool fork = !qgetenv("KDE_FORK_SLAVES").isEmpty();
 
+#ifdef Q_OS_UNIX
+        // fallback: if there's an klauncher process owned by a different user: still fork
         if (!fork) {
             // check the UID of klauncher
             QDBusReply<uint> reply = QDBusConnection::sessionBus().interface()->serviceUid(klauncher()->service());
@@ -94,12 +96,12 @@ static bool forkSlaves()
                 fork = true;
             }
         }
+#endif
 
         bForkSlaves.testAndSetRelaxed(-1, fork ? 1 : 0);
     }
     return bForkSlaves.load() == 1;
 }
-#endif
 
 namespace KIO
 {
@@ -454,7 +456,6 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
     Slave *slave = new Slave(protocol);
     QUrl slaveAddress = slave->d_func()->slaveconnserver->address();
 
-#ifdef Q_OS_UNIX
     if (forkSlaves() == 1) {
         QString _name = KProtocolInfo::exec(protocol);
         if (_name.isEmpty()) {
@@ -477,20 +478,19 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
         const QStringList args = QStringList() << lib_path << protocol << "" << slaveAddress.toString();
         //qDebug() << "kioslave" << ", " << lib_path << ", " << protocol << ", " << QString() << ", " << slaveAddress;
 
-        const QString kioslave = CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kioslave";
-        QFileInfo kioslaveInfo(kioslave);
-        if (!kioslaveInfo.isFile() || !kioslaveInfo.isExecutable()) {
-            error_text = i18n("Can not find 'kioslave' executable at '%1'", QLatin1String(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5));
+        const QLatin1String libExecDir(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5);
+        const QString kioslaveExecutable = QStandardPaths::findExecutable("kioslave", {libExecDir});
+        if (kioslaveExecutable.isEmpty()) {
+            error_text = i18n("Can not find 'kioslave' executable at '%1'", libExecDir);
             error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
             delete slave;
             return 0;
 
         }
-        QProcess::startDetached(kioslave, args);
+        QProcess::startDetached(kioslaveExecutable, args);
 
         return slave;
     }
-#endif
 
     QString errorStr;
     QDBusReply<int> reply = klauncher()->requestSlave(protocol, url.host(), slaveAddress.toString(), errorStr);
@@ -538,11 +538,10 @@ Slave *Slave::holdSlave(const QString &protocol, const QUrl &url)
 
 bool Slave::checkForHeldSlave(const QUrl &url)
 {
-#ifdef Q_OS_UNIX
     if (forkSlaves()) {
         return false;
     }
-#endif
+
     return klauncher()->checkForHeldSlave(url.toString());
 }
 
