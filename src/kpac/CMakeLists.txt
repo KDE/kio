@@ -44,8 +44,7 @@ endif()
 
 ########### next target ###############
 
-add_executable(kpac_dhcp_helper kpac_dhcp_helper.c)
-ecm_mark_nongui_executable(kpac_dhcp_helper)
+add_executable(kpac_dhcp_helper WIN32 kpac_dhcp_helper.c)
 
 if (HAVE_NSL_LIBRARY)
   # Assume Solaris

@@ -1,8 +1,6 @@
-add_executable(kioexec main.cpp)
+add_executable(kioexec WIN32 main.cpp)
 
 configure_file(config-kioexec.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kioexec.h)
-
-ecm_mark_nongui_executable(kioexec)
 
 target_link_libraries(kioexec
     Qt5::Widgets
