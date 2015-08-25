@@ -85,7 +85,7 @@ static bool forkSlaves()
     // It's possible to force this by setting the env. variable
     // KDE_FORK_SLAVES, Clearcase seems to require this.
     if (bForkSlaves.load() == -1) {
-        bool fork = !qgetenv("KDE_FORK_SLAVES").isEmpty();
+        bool fork = qEnvironmentVariableIsSet("KDE_FORK_SLAVES");
 
 #ifdef Q_OS_UNIX
         // fallback: if there's an klauncher process owned by a different user: still fork
