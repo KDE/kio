@@ -1,4 +1,5 @@
-add_executable(kioslave WIN32 kioslave.cpp)
+add_executable(kioslave kioslave.cpp)
+ecm_mark_nongui_executable(kioslave)
 
 target_link_libraries(kioslave
    KF5::KIOCore

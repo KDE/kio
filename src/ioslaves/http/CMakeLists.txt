@@ -38,7 +38,7 @@ set(kio_http_cache_cleaner_SRCS
    )
 
 
-add_executable(kio_http_cache_cleaner WIN32 ${kio_http_cache_cleaner_SRCS})
+add_executable(kio_http_cache_cleaner ${kio_http_cache_cleaner_SRCS})
 
 target_link_libraries(kio_http_cache_cleaner
    Qt5::DBus

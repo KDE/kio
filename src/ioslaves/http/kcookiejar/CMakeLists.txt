@@ -5,7 +5,8 @@ set_source_files_properties(${kcookieserver_xml} PROPERTIES INCLUDE "kcookiejar_
 qt5_add_dbus_interfaces(kcookiejar_SRCS ${kcookieserver_xml})
 
 set(kcookiejar_SRCS ${kcookiejar_SRCS} main.cpp)
-add_executable(kcookiejar5 WIN32 ${kcookiejar_SRCS})
+add_executable( kcookiejar5 ${kcookiejar_SRCS})
+ecm_mark_nongui_executable(kcookiejar5)
 
 target_link_libraries( kcookiejar5
    Qt5::DBus
