@@ -14,6 +14,7 @@ add_subdirectory(filewidgets)
 add_subdirectory(kioexec)
 add_subdirectory(urifilters)
 add_subdirectory(kcms)
+add_subdirectory(new_file_templates)
 
 if(NOT WIN32)
   # arpa/nameser.h
