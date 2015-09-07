@@ -897,16 +897,14 @@ void KFileWidget::slotOk()
             }
 
             // now recalculate all paths for them being relative in base of the top most url
+            QStringList stringList;
             for (int i = 0; i < locationEditCurrentTextList.count(); ++i) {
-                locationEditCurrentTextList[i] = QUrl(relativePathOrUrl(topMostUrl, locationEditCurrentTextList[i]));
+                Q_ASSERT(topMostUrl.isParentOf(locationEditCurrentTextList[i]));
+                stringList << relativePathOrUrl(topMostUrl, locationEditCurrentTextList[i]);
             }
 
             d->ops->setUrl(topMostUrl, true);
             const bool signalsBlocked = d->locationEdit->lineEdit()->blockSignals(true);
-            QStringList stringList;
-            foreach (const QUrl &url, locationEditCurrentTextList) {
-                stringList << url.toDisplayString();
-            }
             d->locationEdit->lineEdit()->setText(QString("\"%1\"").arg(stringList.join("\" \"")));
             d->locationEdit->lineEdit()->blockSignals(signalsBlocked);
 
