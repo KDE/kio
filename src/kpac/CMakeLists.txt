@@ -19,11 +19,10 @@ if (Qt5Script_FOUND)
       discovery.cpp
     )
 
-    add_library(kded_proxyscout MODULE ${kded_proxyscout_PART_SRCS})
+    kcoreaddons_add_plugin(kded_proxyscout INSTALL_NAMESPACE "kf5/kded" JSON proxyscout.json SOURCES ${kded_proxyscout_PART_SRCS})
     set_target_properties(kded_proxyscout PROPERTIES
         OUTPUT_NAME proxyscout
     )
-    kcoreaddons_desktop_to_json(kded_proxyscout proxyscout.desktop)
     target_link_libraries(kded_proxyscout
        Qt5::Network
        Qt5::Script
@@ -38,8 +37,6 @@ if (Qt5Script_FOUND)
     if (HAVE_RESOLV_LIBRARY)
       target_link_libraries(kded_proxyscout resolv)
     endif ()
-
-    install(TARGETS kded_proxyscout  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kded )
 endif()
 
 ########### next target ###############

@@ -6,7 +6,7 @@ set(kiod_kpasswdserver_SRCS kpasswdserver.cpp kiod_kpasswdserver.cpp)
 
 qt5_add_dbus_adaptor(kiod_kpasswdserver_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/../core/org.kde.KPasswdServer.xml kpasswdserver.h KPasswdServer)
 
-add_library(kiod_kpasswdserver MODULE ${kiod_kpasswdserver_SRCS})
+kcoreaddons_add_plugin(kiod_kpasswdserver INSTALL_NAMESPACE "kf5/kiod" JSON kpasswdserver.json SOURCES ${kiod_kpasswdserver_SRCS})
 set_target_properties(kiod_kpasswdserver PROPERTIES
     OUTPUT_NAME kpasswdserver
 )
@@ -20,7 +20,3 @@ target_link_libraries(kiod_kpasswdserver
    KF5::I18n
    KF5::WindowSystem
 )
-
-kcoreaddons_desktop_to_json(kiod_kpasswdserver kpasswdserver.desktop)
-
-install( TARGETS kiod_kpasswdserver  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kiod )

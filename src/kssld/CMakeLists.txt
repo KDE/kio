@@ -3,7 +3,7 @@
 
 set(kssld_SRCS kssld.cpp )
 
-add_library(kssld MODULE ${kssld_SRCS})
+kcoreaddons_add_plugin(kssld INSTALL_NAMESPACE "kf5/kiod" JSON kssld.json SOURCES ${kssld_SRCS})
 
 target_link_libraries(kssld
 PUBLIC
@@ -14,8 +14,3 @@ PRIVATE
    Qt5::Network
    Qt5::DBus
 )
-
-kcoreaddons_desktop_to_json(kssld kssld.desktop)
-
-install(TARGETS kssld  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kiod )
-
