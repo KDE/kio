@@ -38,4 +38,5 @@ KIOWIDGETS_EXECUTABLE_TESTS(
   ksycocaupdatetest
   udsentrybenchmark
   kurlnavigatortest_gui
+  kprotocolinfo_dumper
 )
