@@ -1,7 +1,23 @@
 {
     "KPlugin": {
         "Description": "Automatic proxy configuration", 
+        "Description[ca]": "Configuració automàtica de l'intermediari", 
+        "Description[es]": "Configuración automática del proxy", 
+        "Description[nl]": "Automatische proxy-configuratie", 
+        "Description[pt]": "Configuração automática do 'proxy'", 
+        "Description[pt_BR]": "Configuração automática do proxy", 
+        "Description[sv]": "Automatisk proxyinställning", 
+        "Description[uk]": "Автоматичне налаштовування проксі-сервера", 
+        "Description[x-test]": "xxAutomatic proxy configurationxx", 
         "Name": "Network Proxy Configuration", 
+        "Name[ca]": "Configuració del servidor intermediari de la xarxa", 
+        "Name[es]": "Configuración del proxy de la red", 
+        "Name[nl]": "Configuratie voor netwerk-proxy", 
+        "Name[pt]": "Configuração do 'Proxy' de Rede", 
+        "Name[pt_BR]": "Configuração do proxy de rede", 
+        "Name[sv]": "Inställning av nätverksproxy", 
+        "Name[uk]": "Налаштовування проксі-сервера мережі", 
+        "Name[x-test]": "xxNetwork Proxy Configurationxx", 
         "ServiceTypes": [
             "KDEDModule"
         ]

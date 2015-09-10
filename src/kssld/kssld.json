@@ -1,7 +1,23 @@
 {
     "KPlugin": {
         "Description": "Provides SSL certificate policy to applications", 
+        "Description[ca]": "Proporciona la política pels certificats SSL a les aplicacions", 
+        "Description[es]": "Proporciona una política de certificados SSL a las aplicaciones", 
+        "Description[nl]": "Levert het SSL-certificaat-beleid aan applicaties", 
+        "Description[pt]": "Oferece uma política de certificados de SSL às aplicações", 
+        "Description[pt_BR]": "Fornece uma política de certificados SSL aos aplicativos", 
+        "Description[sv]": "Tillhandahåller SSL-certifikatpolicyn till program", 
+        "Description[uk]": "Правила роботи з сертифікатами SSL для програм", 
+        "Description[x-test]": "xxProvides SSL certificate policy to applicationsxx", 
         "Name": "SSL Certificate Policy", 
+        "Name[ca]": "Política pels certificats SSL", 
+        "Name[es]": "Política de certificados SSL", 
+        "Name[nl]": "SSL-certificaat-beleid", 
+        "Name[pt]": "Política de Certificados de SSL", 
+        "Name[pt_BR]": "Política de certificados SSL", 
+        "Name[sv]": "SSL-certifikatpolicy", 
+        "Name[uk]": "Правила для сертифікатів SSL", 
+        "Name[x-test]": "xxSSL Certificate Policyxx", 
         "ServiceTypes": [
             "KDEDModule"
         ]
