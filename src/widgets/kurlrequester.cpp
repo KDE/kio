@@ -231,7 +231,7 @@ public:
         return qFilters;
     }
 
-    //QFileDialog::getExistingDirectoryDirectoryUrl only works with local for any version before
+    //QFileDialog::getExistingDirectoryUrl only works with local for any version before
     //5.4, so we have to check our own
     QUrl getDirFromFileDialog(const QUrl &openUrl) const
     {
