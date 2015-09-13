@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Stores network cookies", 
         "Description[ca]": "Emmagatzema les galetes de la xarxa", 
+        "Description[en_GB]": "Stores network cookies", 
         "Description[es]": "Guarda las cookies de la red", 
         "Description[nl]": "Slaat netwerk-cookies op", 
         "Description[pl]": "Przechowuje ciasteczka sieciowe", 
@@ -10,8 +11,10 @@
         "Description[sv]": "Lagrar nätverkskakor", 
         "Description[uk]": "Зберігання кук мережі", 
         "Description[x-test]": "xxStores network cookiesxx", 
+        "Description[zh_CN]": "存储网络 cookie", 
         "Name": "Cookie Jar", 
         "Name[ca]": "Repositori de les galetes", 
+        "Name[en_GB]": "Cookie Jar", 
         "Name[es]": "Tarro de las galletas", 
         "Name[nl]": "Cookie-depot", 
         "Name[pl]": "Słoiki z ciastkami", 
@@ -20,6 +23,7 @@
         "Name[sv]": "Kakburk", 
         "Name[uk]": "Глечик з куками", 
         "Name[x-test]": "xxCookie Jarxx", 
+        "Name[zh_CN]": "Cookie Jar", 
         "ServiceTypes": [
             "KDEDModule"
         ]

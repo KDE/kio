@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Temporary password caching", 
         "Description[ca]": "Cau temporal de les contrasenyes", 
+        "Description[en_GB]": "Temporary password caching", 
         "Description[es]": "Caché temporal de contraseñas", 
         "Description[nl]": "Tijdelijke caching van wachtwoorden", 
         "Description[pl]": "Tymczasowe zapamiętywanie haseł", 
@@ -10,8 +11,10 @@
         "Description[sv]": "Tillfällig lagring av lösenord", 
         "Description[uk]": "Тимчасове кешування паролів", 
         "Description[x-test]": "xxTemporary password cachingxx", 
+        "Description[zh_CN]": "临时性密码缓存", 
         "Name": "Password Caching", 
         "Name[ca]": "Cau de les contrasenyes", 
+        "Name[en_GB]": "Password Caching", 
         "Name[es]": "Caché de contraseñas", 
         "Name[nl]": "Caching van wachtwoorden", 
         "Name[pl]": "Zapamiętywanie haseł", 
@@ -20,6 +23,7 @@
         "Name[sv]": "Lösenordslagring", 
         "Name[uk]": "Кешування паролів", 
         "Name[x-test]": "xxPassword Cachingxx", 
+        "Name[zh_CN]": "密码缓存", 
         "ServiceTypes": [
             "KDEDModule"
         ]
