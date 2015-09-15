@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Stores network cookies", 
         "Description[ca]": "Emmagatzema les galetes de la xarxa", 
+        "Description[de]": "Speichert Netzwerk-Cookies", 
         "Description[en_GB]": "Stores network cookies", 
         "Description[es]": "Guarda las cookies de la red", 
         "Description[it]": "Memorizza i cookie di rete", 
@@ -21,6 +22,7 @@
         "Description[zh_CN]": "存储网络 cookie", 
         "Name": "Cookie Jar", 
         "Name[ca]": "Repositori de les galetes", 
+        "Name[de]": "Cookie-Behälter", 
         "Name[en_GB]": "Cookie Jar", 
         "Name[es]": "Tarro de las galletas", 
         "Name[it]": "Contenitore dei cookie", 

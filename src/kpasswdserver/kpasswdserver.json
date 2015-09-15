@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Temporary password caching", 
         "Description[ca]": "Cau temporal de les contrasenyes", 
+        "Description[de]": "Temporäre Passwort-Zwischenspeicherung", 
         "Description[en_GB]": "Temporary password caching", 
         "Description[es]": "Caché temporal de contraseñas", 
         "Description[it]": "Cache temporanea per le password", 
@@ -21,6 +22,7 @@
         "Description[zh_CN]": "临时性密码缓存", 
         "Name": "Password Caching", 
         "Name[ca]": "Cau de les contrasenyes", 
+        "Name[de]": "Passwort-Zwischenspeicherung", 
         "Name[en_GB]": "Password Caching", 
         "Name[es]": "Caché de contraseñas", 
         "Name[it]": "Cache delle password", 
