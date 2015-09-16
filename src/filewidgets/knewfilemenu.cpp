@@ -428,8 +428,8 @@ void KNewFileMenuPrivate::confirmCreatingHiddenDir(const QString &name)
                                    KMessageBox::NoExec,
                                    QString());
 
-    QObject::connect(confirmDialog, SIGNAL(accepted()), q, SLOT(_k_slotCreateHiddenDirectory()));
-    QObject::connect(confirmDialog, SIGNAL(rejected()), q, SLOT(createDirectory()));
+    QObject::connect(buttonBox, SIGNAL(accepted()), q, SLOT(_k_slotCreateHiddenDirectory()));
+    QObject::connect(buttonBox, SIGNAL(rejected()), q, SLOT(createDirectory()));
 
     m_fileDialog = confirmDialog;
     confirmDialog->show();
@@ -798,13 +798,17 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
 
     QString name = expandTilde(m_text);
 
+    qDebug() << "_k_slotCreateDirectory(" << writeHiddenDir << "); name = " << name;
+
     if (!name.isEmpty()) {
         if (QDir::isAbsolutePath(name)) {
             url = QUrl::fromLocalFile(name);
         } else {
             if (!m_viewShowsHiddenFiles && name.startsWith('.')) {
                 if (!writeHiddenDir) {
+		    qDebug() << "Showing confirm dialog...";
                     confirmCreatingHiddenDir(name);
+		    qDebug() << "done.";
                     return;
                 }
             }
@@ -833,6 +837,7 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
 
 void KNewFileMenuPrivate::_k_slotCreateHiddenDirectory()
 {
+    qDebug() << "_k_slotCreateHiddenDirectory";
     _k_slotCreateDirectory(true);
 }
 
@@ -1039,7 +1044,7 @@ KNewFileMenu::KNewFileMenu(KActionCollection *collection, const QString &name, Q
 
 KNewFileMenu::~KNewFileMenu()
 {
-    //qDebug() << this;
+  qDebug() << "deleting..." << this;
     delete d;
 }
 
