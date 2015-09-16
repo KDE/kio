@@ -27,6 +27,10 @@
 #include <QMap>
 #include <assert.h>
 
+namespace Solid {
+    class Device;
+}
+
 /**
  * Implementation of all low-level operations done by kio_trash
  * The structure of the trash directory follows the freedesktop.org standard <TODO URL>
@@ -140,6 +144,8 @@ private:
     QString infoPath(int trashId, const QString &fileId) const;
     QString filesPath(int trashId, const QString &fileId) const;
 
+    int idForDevice(const Solid::Device &device) const;
+
     /// Find the trash dir to use for a given file to delete, based on original path
     int findTrashDirectory(const QString &origPath);
 
@@ -179,7 +185,7 @@ private:
     mutable bool m_trashDirectoriesScanned;
     int m_mibEnum;
 
-    KConfig m_config;
+    mutable KConfig m_config;
 
     // We don't cache any data related to the trashed files.
     // Another kioslave could change that behind our feet.

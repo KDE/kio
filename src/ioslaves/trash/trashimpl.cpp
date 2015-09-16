@@ -53,7 +53,9 @@
 #include <solid/device.h>
 #include <solid/block.h>
 #include <solid/storageaccess.h>
+#include <solid/networkshare.h>
 #include <QStandardPaths>
+#include <QLockFile>
 
 TrashImpl::TrashImpl() :
     QObject(),
@@ -812,14 +814,42 @@ void TrashImpl::fileRemoved()
     // which will be done by the job soon after this.
 }
 
-static int idForDevice(const Solid::Device &device)
+int TrashImpl::idForDevice(const Solid::Device &device) const
 {
     const Solid::Block *block = device.as<Solid::Block>();
     if (block) {
         qDebug() << "major=" << block->deviceMajor() << "minor=" << block->deviceMinor();
         return block->deviceMajor() * 1000 + block->deviceMinor();
     } else {
-        // Not a block device. Maybe a NFS mount?
+        const Solid::NetworkShare *netshare = device.as<Solid::NetworkShare>();
+
+        if (netshare) {
+            QString url = netshare->url().url();
+
+            QLockFile configLock(QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) +
+                                 QStringLiteral("/trashrc.nextid.lock"));
+
+            if (!configLock.lock()) {
+                return -1;
+            }
+
+            m_config.reparseConfiguration();
+            KConfigGroup group = m_config.group("NetworkShares");
+            int id = group.readEntry(url, -1);
+
+            if (id == -1) {
+                id = group.readEntry("NextID", 0);
+                qDebug() << "new share=" << url << " id=" << id;
+
+                group.writeEntry(url, id);
+                group.writeEntry("NextID", id + 1);
+                group.sync();
+            }
+
+            return 6000000 + id;
+        }
+
+        // Not a block device nor a network share
         return -1;
     }
 }
