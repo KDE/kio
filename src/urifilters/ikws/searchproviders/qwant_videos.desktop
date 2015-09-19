@@ -20,6 +20,7 @@ Name[mr]=क्वांट व्हिडीओ
 Name[nb]=Qwant videoer
 Name[nds]=Qwant-Videos
 Name[nl]=Qwant video's
+Name[nn]=Qwant videoar
 Name[pl]=Qwant - wideo
 Name[pt]=Vídeos do Qwant
 Name[pt_BR]=Vídeos do Qwant
@@ -56,6 +57,7 @@ Query[mr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[nb]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[nds]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[nl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
+Query[nn]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[pl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[pt]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[pt_BR]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos

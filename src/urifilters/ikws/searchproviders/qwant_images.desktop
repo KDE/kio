@@ -20,6 +20,7 @@ Name[mr]=क्वांट प्रतिमा
 Name[nb]=Qwant-bilder
 Name[nds]=Qwant-Biller
 Name[nl]=Qwant afbeeldingen
+Name[nn]=Qwant bilete
 Name[pl]=Qwant - obrazy
 Name[pt]=Imagens do Qwant
 Name[pt_BR]=Imagens do Qwant
@@ -56,6 +57,7 @@ Query[mr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[nb]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[nds]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[nl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
+Query[nn]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[pl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[pt]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[pt_BR]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
