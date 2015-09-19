@@ -47,7 +47,6 @@ private:
 private:
     KBuildSycocaProgressDialogPrivate *const d;
 
-    Q_PRIVATE_SLOT(d, void _k_slotProgress())
     Q_PRIVATE_SLOT(d, void _k_slotFinished())
 };
 

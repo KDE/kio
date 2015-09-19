@@ -54,15 +54,9 @@ void KBuildSycocaProgressDialog::rebuildKSycoca(QWidget *parent)
         QProcess::startDetached("kbuildsycoca4");
     }
 
-    QDBusInterface kbuildsycoca5("org.kde.kded5", "/kbuildsycoca", "org.kde.kbuildsycoca");
-    if (kbuildsycoca5.isValid()) {
-        kbuildsycoca5.callWithCallback("recreate", QVariantList(), &dlg, SLOT(_k_slotFinished()));
-    } else {
-        // kded5 not running, e.g. when using keditfiletype out of a KDE session
-        QObject::connect(KSycoca::self(), SIGNAL(databaseChanged(QStringList)), &dlg, SLOT(_k_slotFinished()));
-        QProcess *proc = new QProcess(&dlg);
-        proc->start(KBUILDSYCOCA_EXENAME);
-    }
+    QProcess *proc = new QProcess(&dlg);
+    proc->start(KBUILDSYCOCA_EXENAME);
+    QObject::connect(proc, SIGNAL(finished(int)), &dlg, SLOT(_k_slotFinished()));
 
     dlg.exec();
 }
@@ -72,7 +66,7 @@ KBuildSycocaProgressDialog::KBuildSycocaProgressDialog(QWidget *_parent,
     : QProgressDialog(_parent)
     , d(new KBuildSycocaProgressDialogPrivate(this))
 {
-    connect(&d->m_timer, SIGNAL(timeout()), this, SLOT(_k_slotProgress()));
+    QObject::connect(&d->m_timer, &QTimer::timeout, this, [this]() { d->_k_slotProgress(); });
     setWindowTitle(_caption);
     setModal(true);
     setLabelText(text);
