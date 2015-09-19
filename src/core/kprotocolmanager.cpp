@@ -537,7 +537,7 @@ QStringList KProtocolManagerPrivate::getSystemProxyFor(const QUrl &url)
         }
     }
     // Add the socks proxy as an alternate proxy if it exists,
-    proxyVar = KProtocolManager::proxyFor(QL1S("socks"));
+    proxyVar = proxyFor(QL1S("socks"));
     if (!proxyVar.isEmpty()) {
         QString proxy = QString::fromLocal8Bit(qgetenv(proxyVar.toLocal8Bit())).trimmed();
         // Make sure the scheme of SOCKS proxy is always set to "socks://".

@@ -37,6 +37,7 @@ private Q_SLOTS:
     void testExtraFields();
     void testShowFilePreview();
     void testSlaveProtocol();
+    void testProxySettings_data();
     void testProxySettings();
     void testCapabilities();
     void testProtocolForArchiveMimetype();
@@ -95,12 +96,23 @@ void KProtocolInfoTest::testSlaveProtocol()
     QCOMPARE(protocol, QString::fromLatin1("http"));
 }
 
+void KProtocolInfoTest::testProxySettings_data()
+{
+    QTest::addColumn<int>("proxyType");
+
+    // Just to test it doesn't deadlock (bug 346214)
+    QTest::newRow("manual") << static_cast<int>(KProtocolManager::ManualProxy);
+    QTest::newRow("wpad") << static_cast<int>(KProtocolManager::WPADProxy);
+    // Same for bug 350890
+    QTest::newRow("envvar") << static_cast<int>(KProtocolManager::EnvVarProxy);
+}
+
 void KProtocolInfoTest::testProxySettings()
 {
-    // Just to test it doesn't deadlock (bug 346214)
+    QFETCH(int, proxyType);
     KConfig config("kioslaverc", KConfig::NoGlobals);
     KConfigGroup cfg(&config, "Proxy Settings");
-    cfg.writeEntry("ProxyType", static_cast<int>(KProtocolManager::ManualProxy));
+    cfg.writeEntry("ProxyType", proxyType);
     cfg.sync();
     KProtocolManager::reparseConfiguration();
     QString proxy;
