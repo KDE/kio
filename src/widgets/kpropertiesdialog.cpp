@@ -2181,7 +2181,7 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
             case Qt::Unchecked:
                 andPermissions &= ~fperm[row][col];
                 break;
-            default: // NoChange
+            case Qt::PartiallyChecked:
                 break;
             }
         }
@@ -2410,7 +2410,6 @@ void KFilePermissionsPropsPlugin::updateAccessControls()
         if (d->canChangePermissions)
             d->explanationLabel->setText(d->isIrregular || d->hasExtendedACL ?
                                          i18n("These files use advanced permissions.") : "");
-        break;
         if (d->partialPermissions & S_ISVTX) {
             d->extraCheckbox->setTristate();
             d->extraCheckbox->setCheckState(Qt::PartiallyChecked);
