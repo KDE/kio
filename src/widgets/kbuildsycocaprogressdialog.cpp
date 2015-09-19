@@ -31,12 +31,7 @@ public:
     {
     }
 
-    void _k_slotProgress();
-    void _k_slotFinished();
-
     KBuildSycocaProgressDialog *m_parent;
-    QTimer m_timer;
-    int m_timeStep;
 };
 
 void KBuildSycocaProgressDialog::rebuildKSycoca(QWidget *parent)
@@ -56,7 +51,7 @@ void KBuildSycocaProgressDialog::rebuildKSycoca(QWidget *parent)
 
     QProcess *proc = new QProcess(&dlg);
     proc->start(KBUILDSYCOCA_EXENAME);
-    QObject::connect(proc, SIGNAL(finished(int)), &dlg, SLOT(_k_slotFinished()));
+    QObject::connect(proc, SIGNAL(finished(int)), &dlg, SLOT(close()));
 
     dlg.exec();
 }
@@ -66,39 +61,16 @@ KBuildSycocaProgressDialog::KBuildSycocaProgressDialog(QWidget *_parent,
     : QProgressDialog(_parent)
     , d(new KBuildSycocaProgressDialogPrivate(this))
 {
-    QObject::connect(&d->m_timer, &QTimer::timeout, this, [this]() { d->_k_slotProgress(); });
     setWindowTitle(_caption);
     setModal(true);
     setLabelText(text);
-    setRange(0, 20);
-    d->m_timeStep = 700;
-    d->m_timer.start(d->m_timeStep);
+    setRange(0, 0);
     setAutoClose(false);
 }
 
 KBuildSycocaProgressDialog::~KBuildSycocaProgressDialog()
 {
     delete d;
-}
-
-void KBuildSycocaProgressDialogPrivate::_k_slotProgress()
-{
-    const int p = m_parent->value();
-    if (p == 18) {
-        m_parent->reset();
-        m_parent->setValue(1);
-        m_timeStep = m_timeStep * 2;
-        m_timer.start(m_timeStep);
-    } else {
-        m_parent->setValue(p + 1);
-    }
-}
-
-void KBuildSycocaProgressDialogPrivate::_k_slotFinished()
-{
-    m_parent->setValue(20);
-    m_timer.stop();
-    QTimer::singleShot(1000, m_parent, SLOT(close()));
 }
 
 #include "moc_kbuildsycocaprogressdialog.cpp"
