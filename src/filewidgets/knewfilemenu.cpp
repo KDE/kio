@@ -798,17 +798,13 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
 
     QString name = expandTilde(m_text);
 
-    qDebug() << "_k_slotCreateDirectory(" << writeHiddenDir << "); name = " << name;
-
     if (!name.isEmpty()) {
         if (QDir::isAbsolutePath(name)) {
             url = QUrl::fromLocalFile(name);
         } else {
             if (!m_viewShowsHiddenFiles && name.startsWith('.')) {
                 if (!writeHiddenDir) {
-		    qDebug() << "Showing confirm dialog...";
                     confirmCreatingHiddenDir(name);
-		    qDebug() << "done.";
                     return;
                 }
             }
@@ -837,7 +833,6 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
 
 void KNewFileMenuPrivate::_k_slotCreateHiddenDirectory()
 {
-    qDebug() << "_k_slotCreateHiddenDirectory";
     _k_slotCreateDirectory(true);
 }
 
@@ -1044,7 +1039,7 @@ KNewFileMenu::KNewFileMenu(KActionCollection *collection, const QString &name, Q
 
 KNewFileMenu::~KNewFileMenu()
 {
-  qDebug() << "deleting..." << this;
+    //qDebug() << this;
     delete d;
 }
 
