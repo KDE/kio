@@ -70,7 +70,7 @@ set_package_properties(GSSAPI PROPERTIES DESCRIPTION "Allows KIO to make use of 
                        PURPOSE "A MIT or HEIMDAL flavor of GSSAPI can be used"
                       )
 
-if (NOT APPLE)
+if (NOT APPLE AND NOT WIN32)
     find_package(X11)
 endif()
 
