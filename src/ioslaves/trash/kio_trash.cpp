@@ -336,7 +336,8 @@ void TrashProtocol::listDir(const QUrl &url)
 {
     INIT_IMPL;
     qDebug() << "listdir: " << url;
-    if (url.path() == QLatin1String("/")) {
+    const QString path = url.path();
+    if (path.isEmpty() || path == QLatin1String("/")) {
         listRoot();
         return;
     }
