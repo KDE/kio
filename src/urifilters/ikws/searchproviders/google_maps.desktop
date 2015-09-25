@@ -80,6 +80,7 @@ Query[da]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[de]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[el]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[en_GB]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
+Query[eo]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[es]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[eu]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[fi]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr

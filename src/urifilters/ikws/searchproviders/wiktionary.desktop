@@ -100,6 +100,7 @@ Query[da]=https://da.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[de]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[el]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[en_GB]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[eo]=https://eo.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[es]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[eu]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[fi]=https://fi.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go

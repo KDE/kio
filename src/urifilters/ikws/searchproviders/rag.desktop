@@ -10,7 +10,7 @@ Name[ca@valencia]=Diccionari de l'Acadèmia Gallega (RAG)
 Name[cs]=Slovník Galicijské akademie (RAG)
 Name[da]=Ordbog fra det galisiske akademi (RAG)
 Name[de]=Lexikon der galizischen Akademie (RAG)
-Name[el]=Λεξικό της γαλικιανής ακαδημίας (RAG)
+Name[el]=Λεξικό της Γαλικιανής Ακαδημίας (RAG)
 Name[en_GB]=Dictionary of the Galician Academy (RAG)
 Name[es]=Diccionario de la Real Academia Gallega (RAG)
 Name[eu]=RAG Galiziako Akademiaren hiztegia
@@ -61,6 +61,7 @@ Query[da]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\
 Query[de]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}
 Query[el]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}
 Query[en_GB]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}
+Query[eo]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}
 Query[es]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}
 Query[eu]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}
 Query[fi]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}

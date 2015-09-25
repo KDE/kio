@@ -20,7 +20,7 @@ Name[csb]=Słowôrz Szpańsczi Akademijë (RAE)
 Name[cy]=Geiriadur yr Academi Sbaeneg (RAE)
 Name[da]=Ordbog fra det spanske akademi (RAE)
 Name[de]=Lexikon der spanischen Akademie (RAE)
-Name[el]=Λεξικό της ισπανικής ακαδημίας (RAE)
+Name[el]=Λεξικό της Ισπανικής Ακαδημίας (RAE)
 Name[en_GB]=Dictionary of the Spanish Academy (RAE)
 Name[eo]=Vortaro de la Hispana Reĝa Akademio
 Name[es]=Diccionario de la Real Academia de la Lengua Española (RAE)
@@ -102,6 +102,7 @@ Query[da]=http://www.rae.es/drae/?val=\\{@}
 Query[de]=http://www.rae.es/drae/?val=\\{@}
 Query[el]=http://www.rae.es/drae/?val=\\{@}
 Query[en_GB]=http://www.rae.es/drae/?val=\\{@}
+Query[eo]=http://www.rae.es/drae/?val=\\{@}
 Query[es]=http://www.rae.es/drae/?val=\\{@}
 Query[eu]=http://www.rae.es/drae/?val=\\{@}
 Query[fi]=http://www.rae.es/drae/?val=\\{@}
