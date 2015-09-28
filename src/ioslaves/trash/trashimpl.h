@@ -145,6 +145,7 @@ private:
     QString filesPath(int trashId, const QString &fileId) const;
 
     int idForDevice(const Solid::Device &device) const;
+    void refreshDevices() const;
 
     /// Find the trash dir to use for a given file to delete, based on original path
     int findTrashDirectory(const QString &origPath);

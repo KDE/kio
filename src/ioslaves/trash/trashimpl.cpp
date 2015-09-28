@@ -36,6 +36,7 @@
 #include <kconfiggroup.h>
 #include <kmountpoint.h>
 
+#include <QCoreApplication>
 #include <QEventLoop>
 #include <QFile>
 #include <QDir>
@@ -854,6 +855,14 @@ int TrashImpl::idForDevice(const Solid::Device &device) const
     }
 }
 
+void TrashImpl::refreshDevices() const
+{
+    // this is needed because Solid's fstab backend uses QSocketNotifier
+    // to get notifications about changes to mtab
+    // otherwise we risk getting old device list
+    qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
+}
+
 int TrashImpl::findTrashDirectory(const QString &origPath)
 {
     qDebug() << origPath;
@@ -893,6 +902,7 @@ int TrashImpl::findTrashDirectory(const QString &origPath)
     return m_lastId;
 #endif
 
+    refreshDevices();
     const QString query = QString::fromLatin1("[StorageAccess.accessible == true AND StorageAccess.filePath == '") + mountPoint + QString::fromLatin1("']");
     //qDebug() << "doing solid query:" << query;
     const QList<Solid::Device> lst = Solid::Device::listFromQuery(query);
@@ -920,6 +930,8 @@ int TrashImpl::findTrashDirectory(const QString &origPath)
 
 void TrashImpl::scanTrashDirectories() const
 {
+    refreshDevices();
+
     const QList<Solid::Device> lst = Solid::Device::listFromQuery(QString::fromLatin1("StorageAccess.accessible == true"));
     for (QList<Solid::Device>::ConstIterator it = lst.begin(); it != lst.end(); ++it) {
         QString topdir = (*it).as<Solid::StorageAccess>()->filePath();
