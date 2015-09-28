@@ -33,6 +33,7 @@ set(kiowidgets_SRCS
   paste.cpp
   clipboardupdater.cpp
   kabstractfileitemactionplugin.cpp
+  koverlayiconplugin.cpp
   kbuildsycocaprogressdialog.cpp
   kurlrequester.cpp
   krun.cpp
@@ -126,6 +127,7 @@ ecm_generate_headers(KIOWidgets_HEADERS
   KDesktopFileActions
   KOpenWithDialog
   KAbstractFileItemActionPlugin
+  KOverlayIconPlugin
   KBuildSycocaProgressDialog
   KFile
   KUrlRequester
