@@ -211,7 +211,6 @@ public:
     {
         m_isSymlink = false;
     }
-    ~KNewFileMenuCopyData() {}
     QString chosenFileName() const
     {
         return m_chosenFileName;
