@@ -39,4 +39,5 @@ KIOWIDGETS_EXECUTABLE_TESTS(
   udsentrybenchmark
   kurlnavigatortest_gui
   kprotocolinfo_dumper
+  kfilewidgettest_gui
 )
