@@ -475,6 +475,11 @@ public:
      */
     void setViewMode(KFile::FileView mode);
 
+    /**
+     * Reimplemented
+     */
+    QSize sizeHint() const Q_DECL_OVERRIDE;
+
 public Q_SLOTS:
     /**
      * Called when clicking ok (when this widget is used in KFileDialog)

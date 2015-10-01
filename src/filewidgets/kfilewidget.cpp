@@ -795,6 +795,16 @@ QUrl KFileWidgetPrivate::getCompleteUrl(const QString &_url) const
     return u;
 }
 
+QSize KFileWidget::sizeHint() const
+{
+    int fontSize = fontMetrics().height();
+    const QSize goodSize(48 * fontSize, 30 * fontSize);
+    const QSize screenSize = QApplication::desktop()->availableGeometry(this).size();
+    const QSize minSize(screenSize / 2);
+    const QSize maxSize(screenSize * qreal(0.9));
+    return (goodSize.expandedTo(minSize).boundedTo(maxSize));
+}
+
 static QString relativePathOrUrl(const QUrl &baseUrl, const QUrl &url);
 
 // Called by KFileDialog
