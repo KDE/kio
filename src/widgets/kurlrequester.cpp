@@ -414,7 +414,7 @@ void KUrlRequester::KUrlRequesterPrivate::_k_slotOpenDialog()
 
         QUrl newUrl;
         if (fileDialogMode & KFile::LocalOnly) {
-            newUrl = QUrl::fromLocalFile(QFileDialog::getExistingDirectory(m_parent, QString(), openUrl.toString(), QFileDialog::ShowDirsOnly));
+            newUrl = QFileDialog::getExistingDirectoryUrl(m_parent, QString(), openUrl, QFileDialog::ShowDirsOnly, QStringList() << QStringLiteral("file"));
         } else {
             newUrl = getDirFromFileDialog(openUrl);
         }
