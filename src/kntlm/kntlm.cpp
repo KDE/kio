@@ -58,7 +58,7 @@ static QString UnicodeLE2QString(const QChar *data, uint len)
 
 static QByteArray getBuf(const QByteArray &buf, const KNTLM::SecBuf &secbuf)
 {
-    quint32 offset = qFromLittleEndian((quint32) secbuf.offset);
+    quint32 offset = qFromLittleEndian(secbuf.offset);
     quint16 len = qFromLittleEndian(secbuf.len);
 
     //watch for buffer overflows
@@ -222,7 +222,7 @@ bool KNTLM::getAuth(QByteArray &auth, const QByteArray &challenge,
     QByteArray rbuf(sizeof(Auth), 0);
     Challenge *ch = (Challenge *) challenge.data();
     QByteArray response;
-    uint chsize = challenge.size();
+    const uint chsize = challenge.size();
     bool unicode = false;
     QString dom;
 
@@ -242,7 +242,10 @@ bool KNTLM::getAuth(QByteArray &auth, const QByteArray &challenge,
     memcpy(rbuf.data(), NTLM_SIGNATURE, sizeof(NTLM_SIGNATURE));
     ((Auth *) rbuf.data())->msgType = qToLittleEndian((quint32) 3);
     ((Auth *) rbuf.data())->flags = ch->flags;
-    QByteArray targetInfo = getBuf(challenge, ch->targetInfo);
+    QByteArray targetInfo;
+    if (chsize >= sizeof(Challenge)) {
+        targetInfo = getBuf(challenge, ch->targetInfo);
+    }
 
     if (!(authflags & Force_V1) &&
             ((authflags & Force_V2) ||
