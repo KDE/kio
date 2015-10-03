@@ -184,6 +184,7 @@ install(FILES
   kfileitemactionplugin.desktop
   kpropertiesdialogplugin.desktop
   kurifilterplugin.desktop
+  konqpopupmenuplugin.desktop
   kiodndpopupmenuplugin.desktop
    DESTINATION  ${KDE_INSTALL_KSERVICETYPES5DIR} )
 
