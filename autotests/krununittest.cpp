@@ -125,11 +125,10 @@ static void checkDesktopExecParser(const char *exec, const char *term, const cha
 void KRunUnitTest::testProcessDesktopExec()
 {
     QList<QUrl> l0;
-    static const char
-    * const execs[] = { "Exec=date -u", "Exec=echo $PWD" },
-                      * const terms[] = { "Terminal=false", "Terminal=true\nTerminalOptions=-T \"%f - %c\"" },
-                                        * const sus[] = { "X-KDE-SubstituteUID=false", "X-KDE-SubstituteUID=true\nX-KDE-Username=sprallo" },
-    * const rslts[] = {
+    static const char* const execs[] = { "Exec=date -u", "Exec=echo $PWD" };
+    static const char* const terms[] = { "Terminal=false", "Terminal=true\nTerminalOptions=-T \"%f - %c\"" };
+    static const char* const sus[] = { "X-KDE-SubstituteUID=false", "X-KDE-SubstituteUID=true\nX-KDE-Username=sprallo" };
+    static const char* const results[] = {
         "/bin/date -u", // 0
         "/bin/sh -c 'echo $PWD '", // 1
         "x-term -T ' - just_a_test' -e /bin/date -u", // 2
@@ -160,7 +159,7 @@ void KRunUnitTest::testProcessDesktopExec()
                         continue;
                     }
                 }
-                const QString result = QString::fromLatin1(rslts[pt])
+                const QString result = QString::fromLatin1(results[pt])
                                        .replace("/bin/sh", shellPath)
                                        .replace("/bin/date", datePath);
                 checkDesktopExecParser(execs[ex], terms[te], sus[su], l0, false, exe + result);
