@@ -144,7 +144,7 @@ T * perThreadGlobalStatic()
         s_storage.setLocalData(new T);
     }
     return s_storage.localData();
-};
+}
 //Q_GLOBAL_STATIC(SlaveConfigSingleton, _self)
 SlaveConfigSingleton *_self() { return perThreadGlobalStatic<SlaveConfigSingleton>(); }
 

@@ -740,7 +740,7 @@ T * perThreadGlobalStatic()
         s_storage.setLocalData(new T);
     }
     return s_storage.localData();
-};
+}
 
 //Q_GLOBAL_STATIC(SchedulerPrivate, schedulerPrivate)
 SchedulerPrivate *schedulerPrivate() { return perThreadGlobalStatic<SchedulerPrivate>(); }

@@ -30,8 +30,8 @@
 #include <KPluginMetaData>
 
 #include <QLoggingCategory>
-Q_DECLARE_LOGGING_CATEGORY(KIOD_CATEGORY);
-Q_LOGGING_CATEGORY(KIOD_CATEGORY, "kf5.kiod");
+Q_DECLARE_LOGGING_CATEGORY(KIOD_CATEGORY)
+Q_LOGGING_CATEGORY(KIOD_CATEGORY, "kf5.kiod")
 
 class KIOD
 {
@@ -67,7 +67,7 @@ KDEDModule *KIOD::loadModule(const QString &name)
     return module;
 }
 
-Q_GLOBAL_STATIC(KIOD, self);
+Q_GLOBAL_STATIC(KIOD, self)
 
 // on-demand module loading
 // this function is called by the D-Bus message processing function before
