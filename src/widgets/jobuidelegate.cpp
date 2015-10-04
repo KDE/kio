@@ -124,7 +124,7 @@ private:
     QMap<QObject *, WId> m_windowList;
 };
 
-Q_GLOBAL_STATIC(JobUiDelegateStatic, s_static);
+Q_GLOBAL_STATIC(JobUiDelegateStatic, s_static)
 
 void KIO::JobUiDelegate::setWindow(QWidget *window)
 {
