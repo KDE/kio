@@ -176,7 +176,7 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
     QList<QUrl> l0;
     QList<QUrl> l1; l1 << QUrl("file:/tmp");
     QList<QUrl> l2; l2 << QUrl("http://localhost/foo");
-    QList<QUrl> l3; l3 << QUrl("file:/local/file") << QUrl("http://remotehost.org/bar");
+    QList<QUrl> l3; l3 << QUrl("file:/local/some file") << QUrl("http://remotehost.org/bar");
     QList<QUrl> l4; l4 << QUrl("http://login:password@www.kde.org");
 
     // A real-world use case would be kate.
@@ -197,7 +197,7 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
     QTest::newRow("%U l0") << "kdeinit5 %U" << l0 << false << kdeinit;
     QTest::newRow("%U l1") << "kdeinit5 %U" << l1 << false << kdeinit + " /tmp";
     QTest::newRow("%U l2") << "kdeinit5 %U" << l2 << false << kdeinit + " http://localhost/foo";
-    QTest::newRow("%U l3") << "kdeinit5 %U" << l3 << false << kdeinit + " /local/file http://remotehost.org/bar";
+    QTest::newRow("%U l3") << "kdeinit5 %U" << l3 << false << kdeinit + " '/local/some file' http://remotehost.org/bar";
 
     //QTest::newRow("%u l0") << "kdeinit5 %u" << l0 << false << kdeinit; // gives runtime warning
     QTest::newRow("%u l1") << "kdeinit5 %u" << l1 << false << kdeinit + " /tmp";
@@ -207,7 +207,7 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
     QTest::newRow("%F l0") << "kdeinit5 %F" << l0 << false << kdeinit;
     QTest::newRow("%F l1") << "kdeinit5 %F" << l1 << false << kdeinit + " /tmp";
     QTest::newRow("%F l2") << "kdeinit5 %F" << l2 << false << kioexec + " 'kdeinit5 %F' http://localhost/foo";
-    QTest::newRow("%F l3") << "kdeinit5 %F" << l3 << false << kioexec + " 'kdeinit5 %F' file:///local/file http://remotehost.org/bar";
+    QTest::newRow("%F l3") << "kdeinit5 %F" << l3 << false << kioexec + " 'kdeinit5 %F' 'file:///local/some file' http://remotehost.org/bar";
 
     QTest::newRow("%F l1 tempfile") << "kdeinit5 %F" << l1 << true << kioexec + " --tempfiles 'kdeinit5 %F' file:///tmp";
     QTest::newRow("%f l1 tempfile") << "kdeinit5 %f" << l1 << true << kioexec + " --tempfiles 'kdeinit5 %f' file:///tmp";
