@@ -1490,15 +1490,7 @@ KProcessRunner::KProcessRunner(KProcess *p, const QString &executable, const KSt
         // Note that exitCode is 255 here (the first time), and 0 later on (bug?).
         slotProcessExited(255, process->exitStatus());
     } else {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 3, 0)
         m_pid = process->processId();
-#pragma message("TODO: remove the other cases when we depend on Qt 5.3")
-#elif defined(Q_OS_WIN)
-        // QProcess::pid() returns a pointer to a struct on windows
-        m_pid = process->pid()->dwProcessId;
-#else
-        m_pid = process->pid();
-#endif
     }
 }
 
