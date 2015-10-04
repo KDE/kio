@@ -58,6 +58,7 @@ set(kiowidgets_SRCS
   kdirmodel.cpp
   executablefileopendialog.cpp
   dndpopupmenuplugin.cpp
+  kurifiltersearchprovideractions.cpp
 )
 if (WIN32)
   list(APPEND kiowidgets_SRCS
@@ -158,6 +159,7 @@ ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   FileUndoManager
   Paste
   PixmapLoader
+  KUriFilterSearchProviderActions
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_widgets_HEADERS

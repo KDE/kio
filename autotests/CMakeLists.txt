@@ -61,6 +61,7 @@ ecm_add_tests(
  jobguitest.cpp
  pastetest.cpp
  accessmanagertest.cpp
+ kurifiltersearchprovideractionstest.cpp
  NAME_PREFIX "kiowidgets-"
  LINK_LIBRARIES KF5::KIOCore KF5::KIOWidgets Qt5::Test
 )
