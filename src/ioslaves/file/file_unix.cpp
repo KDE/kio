@@ -478,6 +478,7 @@ void FileProtocol::symlink(const QString &target, const QUrl &destUrl, KIO::JobF
                 }
                 // Try again - this won't loop forever since unlink succeeded
                 symlink(target, destUrl, flags);
+                return;
             } else {
                 QT_STATBUF buff_dest;
                 if (QT_LSTAT(QFile::encodeName(dest).constData(), &buff_dest) == 0 && ((buff_dest.st_mode & QT_STAT_MASK) == QT_STAT_DIR)) {
