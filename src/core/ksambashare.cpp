@@ -246,7 +246,7 @@ bool KSambaSharePrivate::isDirectoryShared(const QString &path) const
 bool KSambaSharePrivate::isShareNameAvailable(const QString &name) const
 {
     // Samba does not allow to name a share with a user name registered in the system
-    return (!KUser::allUserNames().contains(name) || !data.keys().contains(name));
+    return (!KUser::allUserNames().contains(name) || !data.contains(name));
 }
 
 KSambaShareData::UserShareError KSambaSharePrivate::isPathValid(const QString &path) const
