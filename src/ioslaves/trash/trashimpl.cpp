@@ -719,6 +719,37 @@ bool TrashImpl::infoForFile(int trashId, const QString &fileId, TrashedFileInfo 
     return readInfoFile(infoPath(trashId, fileId), info, trashId);
 }
 
+bool TrashImpl::trashSpaceInfo(const QString &path, TrashSpaceInfo &info)
+{
+    const int trashId = findTrashDirectory(path);
+    if (trashId < 0) {
+        qWarning() << "No trash directory found! TrashImpl::findTrashDirectory returned" << trashId;
+        return false;
+    }
+
+    const KConfig config(QStringLiteral("ktrashrc"));
+
+    const QString trashPath = trashDirectoryPath(trashId);
+    const auto group = config.group(trashPath);
+
+    const bool useSizeLimit = group.readEntry("UseSizeLimit", true);
+    const double percent = group.readEntry("Percent", 10.0);
+
+    DiscSpaceUtil util(trashPath + QLatin1String("/files/"));
+    qulonglong total = util.size();
+    if (useSizeLimit) {
+        total *= percent / 100.0;
+    }
+
+    TrashSizeCache trashSize(trashPath);
+    const qulonglong used = trashSize.calculateSize();
+
+    info.totalSize = total;
+    info.availableSize = total - used;
+
+    return true;
+}
+
 bool TrashImpl::readInfoFile(const QString &infoPath, TrashedFileInfo &info, int trashId)
 {
     KConfig cfg(infoPath, KConfig::SimpleConfig);

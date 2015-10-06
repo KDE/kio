@@ -92,6 +92,14 @@ public:
     /// Return the info for a given trashed file
     bool infoForFile(int trashId, const QString &fileId, TrashedFileInfo &info);
 
+    struct TrashSpaceInfo {
+        qulonglong totalSize; // total trash size in bytes
+        qulonglong availableSize; // available trash space in bytes
+    };
+    /// Get the space info for a given trash path
+    /// Space information is only valid if trashSpaceInfo returns true
+    bool trashSpaceInfo(const QString &path, TrashSpaceInfo &info);
+
     /// Return the physicalPath for a given trashed file - helper method which
     /// encapsulates the call to infoForFile. Don't use if you need more info from TrashedFileInfo.
     QString physicalPath(int trashId, const QString &fileId, const QString &relativePath);

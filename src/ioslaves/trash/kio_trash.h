@@ -55,6 +55,9 @@ public:
 Q_SIGNALS:
     void leaveModality();
 
+protected:
+    void virtual_hook(int id, void *data) Q_DECL_OVERRIDE;
+
 private Q_SLOTS:
     void slotData(KIO::Job *, const QByteArray &);
     void slotMimetype(KIO::Job *, const QString &);
@@ -69,6 +72,7 @@ private:
     void listRoot();
     void restore(const QUrl &trashURL);
     void enterLoop();
+    void fileSystemFreeSpace(const QUrl &url);
 
     TrashImpl impl;
     QString m_userName;

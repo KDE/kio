@@ -600,4 +600,34 @@ void TrashProtocol::mkdir(const QUrl &url, int /*permissions*/)
 }
 #endif
 
+void TrashProtocol::virtual_hook(int id, void *data)
+{
+    switch(id) {
+        case SlaveBase::GetFileSystemFreeSpace: {
+            QUrl *url = static_cast<QUrl *>(data);
+            fileSystemFreeSpace(*url);
+        }   break;
+        default:
+            SlaveBase::virtual_hook(id, data);
+    }
+}
+
+void TrashProtocol::fileSystemFreeSpace(const QUrl &url)
+{
+    qDebug() << "fileSystemFreeSpace:" << url;
+
+    INIT_IMPL;
+
+    TrashImpl::TrashSpaceInfo spaceInfo;
+    if (!impl.trashSpaceInfo(url.path(), spaceInfo)) {
+        error(KIO::ERR_COULD_NOT_STAT, url.toDisplayString());
+        return;
+    }
+
+    setMetaData(QStringLiteral("total"), QString::number(spaceInfo.totalSize));
+    setMetaData(QStringLiteral("available"), QString::number(spaceInfo.availableSize));
+
+    finished();
+}
+
 #include "moc_kio_trash.cpp"
