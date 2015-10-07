@@ -34,6 +34,8 @@
 #include <utime.h>
 #endif
 
+#include <KoConfig.h>
+
 #include <QDebug>
 #include <kio/global.h>
 #include <kdesktopfile.h>
@@ -67,8 +69,7 @@ QStringList KRecentDocument::recentDocuments()
         QString fileName = *it;
         QString pathDesktop;
         if (fileName.startsWith(":")) {
-            // FIXME: Remove when Qt will be fixed
-            // http://bugreports.qt.nokia.com/browse/QTBUG-11223
+            // See: https://bugreports.qt.io/browse/QTBUG-11223
             pathDesktop = KRecentDocument::recentDocumentDirectory() + *it;
         } else {
             pathDesktop = d.absoluteFilePath(*it);
