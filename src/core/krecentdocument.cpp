@@ -34,8 +34,6 @@
 #include <utime.h>
 #endif
 
-#include <KoConfig.h>
-
 #include <QDebug>
 #include <kio/global.h>
 #include <kdesktopfile.h>
