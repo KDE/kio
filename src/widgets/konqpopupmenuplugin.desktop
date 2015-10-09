@@ -3,6 +3,7 @@ Type=ServiceType
 X-KDE-ServiceType=KonqPopupMenu/Plugin
 Comment=Plugin for the Konqueror Popup Menu
 Comment[ca]=Connector per al menú emergent del Konqueror
+Comment[cs]=Modul pro kontextovou nabídku Konqueroru
 Comment[es]=Complemento para el menú emergente de Konqueror
 Comment[fr]=Module externe pour le menu contextuel de Konqueror
 Comment[nb]=Programtillegg for dra-og-slipp i Konquerors sprettoppmeny.
