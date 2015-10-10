@@ -36,6 +36,7 @@ private Q_SLOTS:
     void initTestCase()
     {
         m_first = true;
+        qputenv("KDE_FORK_SLAVES", "yes"); // to avoid a runtime dependency on klauncher
     }
 
     void cleanupTestCase()
