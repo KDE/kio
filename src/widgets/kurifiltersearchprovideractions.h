@@ -17,12 +17,18 @@
     Boston, MA 02110-1301, USA.
 */
 
-#ifndef WEBSHORTCUTSMENUMANAGER_H
-#define WEBSHORTCUTSMENUMANAGER_H
+#ifndef KURIFILTERSEARCHPROVIDERACTIONS_H
+#define KURIFILTERSEARCHPROVIDERACTIONS_H
 
 #include <QObject>
 #include "kiowidgets_export.h"
 
+
+class QMenu;
+class QAction;
+namespace KIO
+{
+class WebShortcutsMenuManagerPrivate;
 /**
  * This class is a manager for web shortcuts
  *
@@ -32,13 +38,6 @@
  *
  * @since 5.16
  */
-
-
-class QMenu;
-class QAction;
-namespace KIO
-{
-class WebShortcutsMenuManagerPrivate;
 class KIOWIDGETS_EXPORT KUriFilterSearchProviderActions : public QObject
 {
     Q_OBJECT
