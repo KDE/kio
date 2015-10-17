@@ -68,24 +68,34 @@ KDynamicJobTracker::~KDynamicJobTracker()
 
 void KDynamicJobTracker::registerJob(KJob *job)
 {
-    if (!d->kuiserverTracker) {
-        d->kuiserverTracker = new KUiServerJobTracker();
-    }
-
-    d->trackers[job].kuiserverTracker = d->kuiserverTracker;
-    d->trackers[job].kuiserverTracker->registerJob(job);
-
-    QDBusInterface interface("org.kde.kuiserver", "/JobViewServer", "",
-                             QDBusConnection::sessionBus(), this);
-    QDBusReply<bool> reply = interface.call("requiresJobTracker");
-
-    if (reply.isValid() && reply.value()) {
-        //create a widget tracker in addition to kuiservertracker.
+    // do not try to query kuiserver if dbus is not available
+    if (!QDBusConnection::sessionBus().interface()) {
+        // fallback to widget tracker only!
         if (!d->widgetTracker) {
             d->widgetTracker = new KWidgetJobTracker();
         }
         d->trackers[job].widgetTracker = d->widgetTracker;
         d->trackers[job].widgetTracker->registerJob(job);
+    } else {
+        if (!d->kuiserverTracker) {
+            d->kuiserverTracker = new KUiServerJobTracker();
+        }
+
+        d->trackers[job].kuiserverTracker = d->kuiserverTracker;
+        d->trackers[job].kuiserverTracker->registerJob(job);
+
+        QDBusInterface interface("org.kde.kuiserver", "/JobViewServer", "",
+                                QDBusConnection::sessionBus(), this);
+        QDBusReply<bool> reply = interface.call("requiresJobTracker");
+
+        if (reply.isValid() && reply.value()) {
+            //create a widget tracker in addition to kuiservertracker.
+            if (!d->widgetTracker) {
+                d->widgetTracker = new KWidgetJobTracker();
+            }
+            d->trackers[job].widgetTracker = d->widgetTracker;
+            d->trackers[job].widgetTracker->registerJob(job);
+        }
     }
 
     Q_ASSERT(d->trackers[job].kuiserverTracker || d->trackers[job].widgetTracker);

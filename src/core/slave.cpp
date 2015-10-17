@@ -87,6 +87,11 @@ static bool forkSlaves()
     if (bForkSlaves.load() == -1) {
         bool fork = qEnvironmentVariableIsSet("KDE_FORK_SLAVES");
 
+        // no dbus? => fork slaves as we can't talk to klauncher
+        if (!fork) {
+            fork = !QDBusConnection::sessionBus().interface();
+        }
+
 #ifdef Q_OS_UNIX
         // fallback: if there's an klauncher process owned by a different user: still fork
         if (!fork) {
