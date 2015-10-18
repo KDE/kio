@@ -1,3 +1,6 @@
+# kio_help only buildable if doc tools around
+if (KF5DocTools_FOUND)
+
 project(kioslave-help)
 
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
@@ -86,3 +89,4 @@ install(TARGETS kio_ghelp  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
 install( FILES help.protocol ghelp.protocol  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
 
+endif()

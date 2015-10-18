@@ -110,8 +110,10 @@ private:
   void addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, qlonglong windowId, qlonglong seqNr, bool canceled);
   void copyAuthInfo(const AuthInfoContainer*, KIO::AuthInfo&);
   void updateAuthExpire(const QString &key, const AuthInfoContainer *, qlonglong windowId, bool keep);
-  int findWalletEntry( const QMap<QString,QString>& map, const QString& username );
+
+#ifdef HAVE_KF5WALLET
   bool openWallet( qlonglong windowId );
+#endif
 
   bool hasPendingQuery(const QString &key, const KIO::AuthInfo &info);
   void sendResponse (Request* request);

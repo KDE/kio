@@ -40,7 +40,7 @@ find_package(KF5CoreAddons ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5DBusAddons ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5I18n ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5Service ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5DocTools ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5DocTools ${KF5_DEP_VERSION})
 find_package(KF5Solid ${KF5_DEP_VERSION} REQUIRED) # for kio_trash
 
 if (NOT KIOCORE_ONLY)
@@ -53,6 +53,12 @@ find_package(KF5JobWidgets ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5WidgetsAddons ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5WindowSystem ${KF5_DEP_VERSION} REQUIRED)
 endif()
+
+# tell what is missing without doctools
+set_package_properties(KF5DocTools PROPERTIES DESCRIPTION "Provides tools to generate documentation in various format from DocBook files"
+                       TYPE OPTIONAL
+                       PURPOSE "Required to build help ioslave and documentation"
+                      )
 
 # TODO: Remove these
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
@@ -82,11 +88,16 @@ endif()
 add_definitions(-DTRANSLATION_DOMAIN=\"kio5\")
 if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
     ki18n_install(po)
-    kdoctools_install(po)
+
+    if (KF5DocTools_FOUND)
+        kdoctools_install(po)
+    endif()
 endif()
+
 if (KF5DocTools_FOUND)
-add_subdirectory(docs)
+    add_subdirectory(docs)
 endif()
+
 include(CheckLibraryExists)
 add_subdirectory(src)
 add_subdirectory(autotests)

@@ -1,4 +1,14 @@
-find_package(KF5Wallet ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5Wallet ${KF5_DEP_VERSION})
+
+# tell what is missing without wallet
+set_package_properties(KF5Wallet PROPERTIES DESCRIPTION "Safe desktop-wide storage for passwords"
+                       TYPE OPTIONAL
+                       PURPOSE "Required to have permanent storage of passwords for kpasswdserver"
+                      )
+
+if (KF5Wallet_FOUND)
+    add_definitions (-DHAVE_KF5WALLET)
+endif()
 
 add_subdirectory(autotests)
 
