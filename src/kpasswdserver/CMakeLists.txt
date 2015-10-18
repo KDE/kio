@@ -7,7 +7,8 @@ set_package_properties(KF5Wallet PROPERTIES DESCRIPTION "Safe desktop-wide stora
                       )
 
 if (KF5Wallet_FOUND)
-    add_definitions (-DHAVE_KF5WALLET)
+    add_definitions(-DHAVE_KF5WALLET)
+    set(WALLET_LIB KF5::Wallet)
 endif()
 
 add_subdirectory(autotests)
@@ -28,8 +29,5 @@ target_link_libraries(kiod_kpasswdserver
    KF5::WidgetsAddons # KPasswordDialog
    KF5::I18n
    KF5::WindowSystem
+   ${WALLET_LIB}
 )
-
-if (KF5Wallet_FOUND)
-    target_link_libraries(kiod_kpasswdserver KF5::Wallet)
-endif()
