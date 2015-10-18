@@ -27,10 +27,13 @@
 
 #include <QDebug>
 #include <klocalizedstring.h>
-#include <knotification.h>
 #include <kprotocolmanager.h>
 #include <kpluginfactory.h>
 #include <kpluginloader.h>
+
+#ifdef HAVE_KF5NOTIFICATIONS
+#include <knotification.h>
+#endif
 
 #include <QNetworkConfigurationManager>
 
@@ -232,17 +235,21 @@ void ProxyScout::downloadResult(bool success)
             }
         } catch (const Script::Error &e) {
             qWarning() << "Error:" << e.message();
+#ifdef HAVE_KF5NOTIFICATIONS
             KNotification *notify = new KNotification("script-error");
             notify->setText(i18n("The proxy configuration script is invalid:\n%1", e.message()));
             notify->setComponentName(m_componentName);
             notify->sendEvent();
+#endif
             success = false;
         }
     } else {
+#ifdef HAVE_KF5NOTIFICATIONS
         KNotification *notify = new KNotification("download-error");
         notify->setText(m_downloader->error());
         notify->setComponentName(m_componentName);
         notify->sendEvent();
+#endif
     }
 
     if (success) {
@@ -341,10 +348,12 @@ QStringList ProxyScout::handleRequest(const QUrl &url)
         // FIXME: blacklist
     } catch (const Script::Error &e) {
         qCritical() << e.message();
+#ifdef HAVE_KF5NOTIFICATIONS
         KNotification *n = new KNotification("evaluation-error");
         n->setText(i18n("The proxy configuration script returned an error:\n%1", e.message()));
         n->setComponentName(m_componentName);
         n->sendEvent();
+#endif
     }
 
     return QStringList(QLatin1String("DIRECT"));
