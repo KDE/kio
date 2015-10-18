@@ -25,8 +25,11 @@ target_link_libraries(kiod_kpasswdserver
    KF5::DBusAddons    # KDED Module
    Qt5::DBus
    KF5::KIOCore
-   KF5::Wallet
    KF5::WidgetsAddons # KPasswordDialog
    KF5::I18n
    KF5::WindowSystem
 )
+
+if (KF5Wallet_FOUND)
+    target_link_libraries(kiod_kpasswdserver KF5::Wallet)
+endif()
