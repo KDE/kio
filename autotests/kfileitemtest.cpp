@@ -493,6 +493,19 @@ void KFileItemTest::testIconNameForCustomFolderIcons()
     QCOMPARE(fileItem.iconName(), iconName);
 }
 
+void KFileItemTest::testIconNameForStandardPath()
+{
+    const QString iconName = QStringLiteral("folder-videos");
+    const QUrl url = QUrl::fromLocalFile(QDir::homePath() + QLatin1String("/Videos"));
+    QStandardPaths::setTestModeEnabled(true);
+
+    KIO::UDSEntry entry;
+    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    KFileItem fileItem(entry, url);
+
+    QCOMPARE(fileItem.iconName(), iconName);
+}
+
 #ifndef Q_OS_WIN // user/group/other write permissions are not handled on windows
 
 void KFileItemTest::testIsReadable_data()

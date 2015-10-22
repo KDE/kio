@@ -897,6 +897,42 @@ static QString iconFromDesktopFile(const QString &path)
     return icon;
 }
 
+static QMap<QString, QString> standardLocationsMap()
+{
+    static const
+            struct { QStandardPaths::StandardLocation location;
+                     QString name; }
+                   mapping[] = {
+            { QStandardPaths::MusicLocation, QStringLiteral("folder-music") },
+            { QStandardPaths::MoviesLocation, QStringLiteral("folder-videos") },
+            { QStandardPaths::PicturesLocation, QStringLiteral("folder-pictures") },
+            { QStandardPaths::TempLocation, QStringLiteral("folder-temp") },
+            { QStandardPaths::DownloadLocation, QStringLiteral("folder-download") },
+            // Order matters here as paths can be reused for multiple purposes
+            // We essentially want more generic choices to trump more specific
+            // ones.
+            // home > desktop > documents > *.
+            { QStandardPaths::DocumentsLocation, QStringLiteral("folder-documents") },
+            { QStandardPaths::DesktopLocation, QStringLiteral("user-desktop") },
+            { QStandardPaths::HomeLocation, QStringLiteral("user-home") } };
+    static const int count = sizeof mapping / sizeof *mapping;
+
+    QMap<QString, QString> map;
+    for (int i = 0 ; i < count; ++i) {
+        auto locations = QStandardPaths::standardLocations(mapping[i].location);
+        Q_FOREACH(const QString &location, locations) {
+            map.insert(location, mapping[i].name);
+        }
+    }
+    return map;
+}
+
+static QString iconForStandardPath(const QString &localDirectory)
+{
+    static auto map = standardLocationsMap();
+    return map.value(localDirectory, QString());
+}
+
 QString KFileItem::iconName() const
 {
     if (!d) {
@@ -935,8 +971,16 @@ QString KFileItem::iconName() const
         }
     }
 
-    if (isLocalUrl && !delaySlowOperations && isDir() && isDirectoryMounted(url)) {
-        d->m_iconName = iconFromDirectoryFile(url.toLocalFile());
+    if (isLocalUrl && !delaySlowOperations && isDir()) {
+        if (isDirectoryMounted(url)) {
+            d->m_iconName = iconFromDirectoryFile(url.toLocalFile());
+            if (!d->m_iconName.isEmpty()) {
+                d->m_useIconNameCache = d->m_bMimeTypeKnown;
+                return d->m_iconName;
+            }
+        }
+
+        d->m_iconName = iconForStandardPath(url.toLocalFile());
         if (!d->m_iconName.isEmpty()) {
             d->m_useIconNameCache = d->m_bMimeTypeKnown;
             return d->m_iconName;
