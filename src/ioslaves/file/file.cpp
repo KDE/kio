@@ -779,8 +779,19 @@ bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &pat
 
         if ((buff.st_mode & QT_STAT_MASK) == QT_STAT_LNK) {
 
+#ifdef Q_OS_WIN
             const QString linkTarget = QFile::symLinkTarget(QFile::decodeName(path));
-
+#else
+            // Use readlink on Unix because symLinkTarget turns relative targets into absolute (#352927)
+            QByteArray linkTargetBuffer;
+            linkTargetBuffer.resize(buff.st_size);
+            const int n = readlink(path.constData(), linkTargetBuffer.data(), buff.st_size);
+            if (n == -1) {
+                qWarning() << "readlink failed!" << path;
+                return false;
+            }
+            const QString linkTarget = QFile::decodeName(linkTargetBuffer);
+#endif
             entry.insert(KIO::UDSEntry::UDS_LINK_DEST, linkTarget);
 
             // A symlink -> follow it only if details>1

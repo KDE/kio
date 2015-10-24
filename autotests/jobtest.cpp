@@ -41,6 +41,9 @@
 #include <kio/deletejob.h>
 #include <kio/chmodjob.h>
 #include "kiotesthelper.h" // createTestFile etc.
+#ifndef Q_OS_WIN
+#include <unistd.h> // for readlink
+#endif
 
 QTEST_MAIN(JobTest)
 
@@ -394,6 +397,38 @@ void JobTest::copyLocalDirectory(const QString &src, const QString &_dest, int f
     QVERIFY(!ok);
 }
 
+#ifndef Q_OS_WIN
+static QString linkTarget(const QString &path)
+{
+    // Use readlink on Unix because symLinkTarget turns relative targets into absolute (#352927)
+    char linkTargetBuffer[4096];
+    const int n = readlink(QFile::encodeName(path).constData(), linkTargetBuffer, sizeof(linkTargetBuffer)-1);
+    if (n != -1) {
+        linkTargetBuffer[n] = 0;
+    }
+    return QFile::decodeName(linkTargetBuffer);
+}
+
+static void copyLocalSymlink(const QString &src, const QString &dest, const QString &expectedLinkTarget)
+{
+    QT_STATBUF buf;
+    QVERIFY(QT_LSTAT(QFile::encodeName(src).constData(), &buf) == 0);
+    QUrl u = QUrl::fromLocalFile(src);
+    QUrl d = QUrl::fromLocalFile(dest);
+
+    // copy the symlink
+    KIO::Job *job = KIO::copy(u, d, KIO::HideProgressInfo);
+    job->setUiDelegate(0);
+    job->setUiDelegateExtension(0);
+    QVERIFY2(job->exec(), qPrintable(job->error()));
+    QVERIFY(QT_LSTAT(QFile::encodeName(dest).constData(), &buf) == 0); // dest exists
+    QCOMPARE(linkTarget(dest), expectedLinkTarget);
+
+    // cleanup
+    QFile::remove(dest);
+}
+#endif
+
 void JobTest::copyFileToSamePartition()
 {
     const QString filePath = homeTmpDir() + "fileFromHome";
@@ -439,6 +474,30 @@ void JobTest::copyDirectoryToOtherPartition()
     const QString dest = otherTmpDir() + "dirFromHome_copied";
     createTestDirectory(src);
     copyLocalDirectory(src, dest);
+}
+
+void JobTest::copyRelativeSymlinkToSamePartition() // #352927
+{
+#ifdef Q_OS_WIN
+    QSKIP("Skipping symlink test on Windows");
+#endif
+    const QString filePath = homeTmpDir() + "testlink";
+    const QString dest = homeTmpDir() + "testlink_copied";
+    createTestSymlink(filePath, "relative");
+    copyLocalSymlink(filePath, dest, "relative");
+    QFile::remove(filePath);
+}
+
+void JobTest::copyAbsoluteSymlinkToOtherPartition()
+{
+#ifdef Q_OS_WIN
+    QSKIP("Skipping symlink test on Windows");
+#endif
+    const QString filePath = homeTmpDir() + "testlink";
+    const QString dest = otherTmpDir() + "testlink_copied";
+    createTestSymlink(filePath, QFile::encodeName(homeTmpDir()));
+    copyLocalSymlink(filePath, dest, homeTmpDir());
+    QFile::remove(filePath);
 }
 
 void JobTest::moveLocalFile(const QString &src, const QString &dest)
