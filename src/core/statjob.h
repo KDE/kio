@@ -95,7 +95,7 @@ public:
      * Sample usage:
      * <code>
      * KIO::StatJob* job = KIO::mostLocalUrl("desktop:/foo");
-     * job->ui()->setWindow(this);
+     * job->uiDelegate()->setWindow(this);
      * connect(job, SIGNAL(result(KJob*)), this, SLOT(slotMostLocalUrlResult(KJob*)));
      * [...]
      * // and in the slot
