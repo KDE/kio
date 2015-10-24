@@ -157,9 +157,9 @@ private Q_SLOTS:
 
     /**
      * Is called, if an action of a sub-menu has been triggered by
-     * a click with the middle mouse-button.
+     * a click.
      */
-    void slotMenuActionClicked(QAction *action);
+    void slotMenuActionClicked(QAction *action, Qt::MouseButton button);
 
     void statFinished(KJob *);
 

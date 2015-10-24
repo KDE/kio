@@ -60,11 +60,10 @@ void KUrlNavigatorMenu::dropEvent(QDropEvent *event)
 
 void KUrlNavigatorMenu::mouseReleaseEvent(QMouseEvent *event)
 {
-    if (event->button() == Qt::MidButton) {
-        QAction *action = actionAt(event->pos());
-        if (action != 0) {
-            emit middleMouseButtonClicked(action);
-        }
+    QAction *action = actionAt(event->pos());
+    if (action != 0) {
+        Qt::MouseButton btn = event->button();
+        emit mouseButtonClicked(action, btn);
     }
     QMenu::mouseReleaseEvent(event);
 }

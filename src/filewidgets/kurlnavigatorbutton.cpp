@@ -442,12 +442,12 @@ void KUrlNavigatorButton::urlsDropped(QAction *action, QDropEvent *event)
     urlsDropped(url, event);
 }
 
-void KUrlNavigatorButton::slotMenuActionClicked(QAction *action)
+void KUrlNavigatorButton::slotMenuActionClicked(QAction *action, Qt::MouseButton button)
 {
     const int result = action->data().toInt();
     QUrl url(m_url);
     url.setPath(url.path() + '/' + m_subDirs.at(result).first);
-    emit clicked(url, Qt::MidButton);
+    emit clicked(url, button);
 }
 
 void KUrlNavigatorButton::statFinished(KJob *job)
@@ -517,19 +517,12 @@ void KUrlNavigatorButton::openSubDirsMenu(KJob *job)
 
     QPointer<QObject> guard(this);
 
-    const QAction *action = m_subDirsMenu->exec(popupPos);
+    m_subDirsMenu->exec(popupPos);
 
     // If 'this' has been deleted in the menu's nested event loop, we have to return
     // immediatedely because any access to a member variable might cause a crash.
     if (!guard) {
         return;
-    }
-
-    if (action != 0) {
-        const int result = action->data().toInt();
-        QUrl url(m_url);
-        url.setPath(url.path() + '/' + m_subDirs[result].first);
-        emit clicked(url, Qt::LeftButton);
     }
 
     m_subDirs.clear();
@@ -665,8 +658,8 @@ void KUrlNavigatorButton::updateMinimumWidth()
 
 void KUrlNavigatorButton::initMenu(KUrlNavigatorMenu *menu, int startIndex)
 {
-    connect(menu, SIGNAL(middleMouseButtonClicked(QAction*)),
-            this, SLOT(slotMenuActionClicked(QAction*)));
+    connect(menu, SIGNAL(mouseButtonClicked(QAction*, Qt::MouseButton)),
+            this, SLOT(slotMenuActionClicked(QAction*, Qt::MouseButton)));
     connect(menu, SIGNAL(urlsDropped(QAction*,QDropEvent*)),
             this, SLOT(urlsDropped(QAction*,QDropEvent*)));
 
