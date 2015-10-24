@@ -500,6 +500,42 @@ void JobTest::copyAbsoluteSymlinkToOtherPartition()
     QFile::remove(filePath);
 }
 
+void JobTest::copyFolderWithUnaccessibleSubfolder()
+{
+    const QString src_dir = homeTmpDir() + "srcHome";
+    const QString dst_dir = homeTmpDir() + "dstHome";
+
+    QDir().remove(src_dir);
+    QDir().remove(dst_dir);
+
+    createTestDirectory(src_dir);
+    createTestDirectory(src_dir + "/folder1");
+    QString inaccessible = src_dir + "/folder1/inaccessible";
+    createTestDirectory(inaccessible);
+
+    QFile(inaccessible).setPermissions(QFile::Permissions()); // Make it inaccessible
+    //Copying should throw some warnings, as it cannot access some folders
+
+    KIO::CopyJob* job = KIO::copy(QUrl::fromLocalFile(src_dir), QUrl::fromLocalFile(dst_dir), KIO::HideProgressInfo);
+
+    QSignalSpy spy(job, SIGNAL(warning(KJob*,QString,QString)));
+    job->setUiDelegate( 0 ); // no skip dialog, thanks
+    QVERIFY(job->exec());
+
+    QFile(inaccessible).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner));
+
+    KIO::DeleteJob* deljob1 = KIO::del(QUrl::fromLocalFile(src_dir), KIO::HideProgressInfo);
+    deljob1->setUiDelegate(0); // no skip dialog, thanks
+    QVERIFY(deljob1->exec());
+
+    KIO::DeleteJob* deljob2 = KIO::del(QUrl::fromLocalFile(dst_dir), KIO::HideProgressInfo);
+    deljob2->setUiDelegate(0); // no skip dialog, thanks
+    QVERIFY(deljob2->exec());
+
+    QCOMPARE(spy.count(), 1); // one warning should be emitted by the copy job
+
+}
+
 void JobTest::moveLocalFile(const QString &src, const QString &dest)
 {
     QVERIFY(QFile::exists(src));

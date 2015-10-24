@@ -48,6 +48,7 @@ private Q_SLOTS:
     void copyDirectoryToOtherPartition();
     void copyRelativeSymlinkToSamePartition();
     void copyAbsoluteSymlinkToOtherPartition();
+    void copyFolderWithUnaccessibleSubfolder();
     void listRecursive();
     void listFile();
     void killJob();
