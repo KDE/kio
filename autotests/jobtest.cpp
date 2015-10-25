@@ -480,24 +480,26 @@ void JobTest::copyRelativeSymlinkToSamePartition() // #352927
 {
 #ifdef Q_OS_WIN
     QSKIP("Skipping symlink test on Windows");
-#endif
+#else
     const QString filePath = homeTmpDir() + "testlink";
     const QString dest = homeTmpDir() + "testlink_copied";
     createTestSymlink(filePath, "relative");
     copyLocalSymlink(filePath, dest, "relative");
     QFile::remove(filePath);
+#endif
 }
 
 void JobTest::copyAbsoluteSymlinkToOtherPartition()
 {
 #ifdef Q_OS_WIN
     QSKIP("Skipping symlink test on Windows");
-#endif
+#else
     const QString filePath = homeTmpDir() + "testlink";
     const QString dest = otherTmpDir() + "testlink_copied";
     createTestSymlink(filePath, QFile::encodeName(homeTmpDir()));
     copyLocalSymlink(filePath, dest, homeTmpDir());
     QFile::remove(filePath);
+#endif
 }
 
 void JobTest::copyFolderWithUnaccessibleSubfolder()
