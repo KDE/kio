@@ -1,6 +1,7 @@
 add_subdirectory(core)
 
 # KIOCore-only executables
+add_subdirectory(protocoltojson)
 add_subdirectory(kntlm)
 add_subdirectory(ioslaves)
 add_subdirectory(kiod)
