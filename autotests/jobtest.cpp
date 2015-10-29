@@ -286,28 +286,6 @@ void JobTest::storedPutIODeviceSlowDevice()
     QVERIFY(!spyPercent.isEmpty());
 }
 
-void JobTest::storedPutIODeviceCancel()
-{
-    const QString filePath = homeTmpDir() + "fileFromHome";
-    const QUrl u = QUrl::fromLocalFile(filePath);
-    QBuffer putDataBuffer;
-    QVERIFY(putDataBuffer.open(QIODevice::ReadWrite));
-
-    KIO::StoredTransferJob *job = KIO::storedPut(&putDataBuffer, u, 0600, KIO::Overwrite | KIO::HideProgressInfo);
-    job->setUiDelegate(0);
-    job->setAsyncDataEnabled(true);
-
-    QTimer t;
-    t.setSingleShot(true);
-    connect(&t, &QTimer::timeout, this, [job, &putDataBuffer]() {
-        job->kill();
-
-        putDataBuffer.write("xxx"); //we make it emit readyRead
-    });
-    t.start(200);
-    QVERIFY(!job->exec());
-}
-
 ////
 
 void JobTest::copyLocalFile(const QString &src, const QString &dest)
