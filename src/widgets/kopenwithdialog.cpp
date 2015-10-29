@@ -960,10 +960,16 @@ bool KOpenWithDialogPrivate::checkAccept()
                     cg.writeEntry("TerminalOptions", "--noclose");
                 }
             }
-            cg.writeXdgListEntry("MimeType", QStringList() << qMimeType);
+            if (!qMimeType.isEmpty()) {
+                cg.writeXdgListEntry("MimeType", QStringList() << qMimeType);
+            }
             cg.sync();
 
-            addToMimeAppsList(menuId);
+            if (!qMimeType.isEmpty()) {
+                addToMimeAppsList(menuId);
+            } else {
+                m_pService = new KService(newPath);
+            }
         }
     }
 
