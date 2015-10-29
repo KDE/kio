@@ -54,6 +54,7 @@ bool SimpleJob::doKill()
     if ((d->m_extraFlags & JobPrivate::EF_KillCalled) == 0) {
         d->m_extraFlags |= JobPrivate::EF_KillCalled;
         Scheduler::cancelJob(this); // deletes the slave if not 0
+        slotFinished();
     } else {
         qWarning() << this << "This is overkill.";
     }
