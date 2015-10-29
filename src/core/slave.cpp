@@ -483,10 +483,14 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
         const QStringList args = QStringList() << lib_path << protocol << "" << slaveAddress.toString();
         //qDebug() << "kioslave" << ", " << lib_path << ", " << protocol << ", " << QString() << ", " << slaveAddress;
 
-        const QLatin1String libExecDir(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5);
-        const QString kioslaveExecutable = QStandardPaths::findExecutable("kioslave", {libExecDir});
+        // search paths
+        const QStringList searchPaths = QStringList()
+            << QCoreApplication::applicationDirPath() // then look where our application binary is located
+            << QLibraryInfo::location(QLibraryInfo::LibraryExecutablesPath) // look where libexec path is (can be set in qt.conf)
+            << QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5); // look at our installation location
+        const QString kioslaveExecutable = QStandardPaths::findExecutable("kioslave", searchPaths);
         if (kioslaveExecutable.isEmpty()) {
-            error_text = i18n("Can not find 'kioslave' executable at '%1'", libExecDir);
+            error_text = i18n("Can not find 'kioslave' executable at '%1'", searchPaths.join(QStringLiteral(", ")));
             error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
             delete slave;
             return 0;
@@ -524,6 +528,11 @@ Slave *Slave::holdSlave(const QString &protocol, const QUrl &url)
     if (protocol == "data") {
         return 0;
     }
+
+    if (forkSlaves()) {
+        return 0;
+    }
+
     Slave *slave = new Slave(protocol);
     QUrl slaveAddress = slave->d_func()->slaveconnserver->address();
     QDBusReply<int> reply = klauncher()->requestHoldSlave(url.toString(), slaveAddress.toString());
