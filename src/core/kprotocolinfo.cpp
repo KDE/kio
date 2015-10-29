@@ -116,6 +116,107 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &path)
     m_proxyProtocol = config.readEntry("ProxiedBy");
 }
 
+KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &name, const QString &exec, const QJsonObject &json)
+    : m_name(name)
+    , m_exec(exec)
+{
+    // source has fallback true if not set
+    m_isSourceProtocol = json.value("source").toBool(true);
+
+    // other bools are fine with default false by toBool
+    m_isHelperProtocol = json.value("helper").toBool();
+    m_supportsReading = json.value("reading").toBool();
+    m_supportsWriting = json.value("writing").toBool();
+    m_supportsMakeDir = json.value("makedir").toBool();
+    m_supportsDeleting = json.value("deleting").toBool();
+    m_supportsLinking = json.value("linking").toBool();
+    m_supportsMoving = json.value("moving").toBool();
+    m_supportsOpening = json.value("opening").toBool();
+    m_canCopyFromFile = json.value("copyFromFile").toBool();
+    m_canCopyToFile = json.value("copyToFile").toBool();
+    m_canRenameFromFile = json.value("renameFromFile").toBool();
+    m_canRenameToFile = json.value("renameToFile").toBool();
+    m_canDeleteRecursive = json.value("deleteRecursive").toBool();
+
+    // default is "FromURL"
+    const QString fnu = json.value("fileNameUsedForCopying").toString();
+    m_fileNameUsedForCopying = KProtocolInfo::FromUrl;
+    if (fnu == QLatin1String("Name")) {
+        m_fileNameUsedForCopying = KProtocolInfo::Name;
+    } else if (fnu == QLatin1String("DisplayName")) {
+        m_fileNameUsedForCopying = KProtocolInfo::DisplayName;
+    }
+
+    m_listing = json.value("listing").toVariant().toStringList();
+    // Many .protocol files say "Listing=false" when they really mean "Listing=" (i.e. unsupported)
+    if (m_listing.count() == 1 && m_listing.first() == QLatin1String("false")) {
+        m_listing.clear();
+    }
+    m_supportsListing = (m_listing.count() > 0);
+
+    m_defaultMimetype = json.value("defaultMimetype").toString();
+
+    // determineMimetypeFromExtension has fallback true if not set
+    m_determineMimetypeFromExtension = json.value("determineMimetypeFromExtension").toBool(true);
+
+    m_archiveMimeTypes = json.value("archiveMimetype").toVariant().toStringList();
+
+    m_icon = json.value("Icon").toString();
+
+    // config has fallback to name if not set
+    m_config = json.value("config").toString(m_name);
+
+    // max slaves has fallback to 1 if not set
+    m_maxSlaves = json.value("maxInstances").toInt(1);
+
+    m_maxSlavesPerHost = json.value("maxInstancesPerHost").toInt();
+
+    QString tmp = json.value("input").toString();
+    if (tmp == QLatin1String("filesystem")) {
+        m_inputType = KProtocolInfo::T_FILESYSTEM;
+    } else if (tmp == QLatin1String("stream")) {
+        m_inputType = KProtocolInfo::T_STREAM;
+    } else {
+        m_inputType = KProtocolInfo::T_NONE;
+    }
+
+    tmp = json.value("output").toString();
+    if (tmp == QLatin1String("filesystem")) {
+        m_outputType = KProtocolInfo::T_FILESYSTEM;
+    } else if (tmp == QLatin1String("stream")) {
+        m_outputType = KProtocolInfo::T_STREAM;
+    } else {
+        m_outputType = KProtocolInfo::T_NONE;
+    }
+
+    m_docPath = json.value("X-DocPath").toString();
+    if (m_docPath.isEmpty()) {
+        m_docPath = json.value("DocPath").toString();
+    }
+
+    m_protClass = json.value("Class").toString().toLower();
+    if (m_protClass[0] != QLatin1Char(':')) {
+        m_protClass.prepend(QLatin1Char(':'));
+    }
+
+    const QStringList extraNames = json.value("ExtraNames").toVariant().toStringList();
+    const QStringList extraTypes = json.value("ExtraTypes").toVariant().toStringList();
+    QStringList::const_iterator it = extraNames.begin();
+    QStringList::const_iterator typeit = extraTypes.begin();
+    for (; it != extraNames.end() && typeit != extraTypes.end(); ++it, ++typeit) {
+        QVariant::Type type = QVariant::nameToType((*typeit).toLatin1());
+        // currently QVariant::Type and ExtraField::Type use the same subset of values, so we can just cast.
+        m_extraFields.append(KProtocolInfo::ExtraField(*it, static_cast<KProtocolInfo::ExtraField::Type>(type)));
+    }
+
+    // fallback based on class
+    m_showPreviews = json.value("ShowPreviews").toBool(m_protClass == QLatin1String(":local"));
+
+    m_capabilities = json.value("Capabilities").toVariant().toStringList();
+
+    m_proxyProtocol = json.value("ProxiedBy").toString();
+}
+
 //
 // Static functions:
 //

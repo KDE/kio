@@ -20,6 +20,10 @@
 
 #include "kprotocolinfofactory_p.h"
 #include "kprotocolinfo_p.h"
+
+#include <KPluginLoader>
+#include <KPluginMetaData>
+
 #include <QDirIterator>
 #include <qstandardpaths.h>
 
@@ -40,71 +44,83 @@ KProtocolInfoFactory::~KProtocolInfoFactory()
     QMutexLocker locker(&m_mutex);
     qDeleteAll(m_cache);
     m_cache.clear();
+    m_allProtocolsLoaded = false;
 }
 
-static QStringList servicesDirs()
-{
-    return QStandardPaths::locateAll(QStandardPaths::GenericDataLocation,
-                                     QLatin1String("kservices5"),
-                                     QStandardPaths::LocateDirectory);
-}
-
-QStringList KProtocolInfoFactory::protocols() const
+QStringList KProtocolInfoFactory::protocols()
 {
     QMutexLocker locker(&m_mutex);
-    if (m_allProtocolsLoaded) {
-        return m_cache.keys();
-    }
 
-    QStringList result;
-    Q_FOREACH (const QString &serviceDir, servicesDirs()) {
-        QDirIterator it(serviceDir);
-        while (it.hasNext()) {
-            const QString file = it.next();
-            if (file.endsWith(QLatin1String(".protocol"))) {
-                result.append(it.fileInfo().baseName());
-            }
-        }
-    }
-    return result;
+    // fill cache, if not already done and use it
+    fillCache();
+    return m_cache.keys();
 }
 
 QList<KProtocolInfoPrivate *> KProtocolInfoFactory::allProtocols()
 {
     QMutexLocker locker(&m_mutex);
-    if (m_allProtocolsLoaded) {
-        return m_cache.values();
-    }
 
-    QStringList result;
-    Q_FOREACH (const QString &serviceDir, servicesDirs()) {
-        QDirIterator it(serviceDir);
-        while (it.hasNext()) {
-            const QString file = it.next();
-            if (file.endsWith(QLatin1String(".protocol"))) {
-                const QString prot = it.fileInfo().baseName();
-                m_cache.insert(prot, new KProtocolInfoPrivate(file));
-            }
-        }
-    }
-    m_allProtocolsLoaded = true;
+    // fill cache, if not already done and use it
+    fillCache();
     return m_cache.values();
 }
 
 KProtocolInfoPrivate *KProtocolInfoFactory::findProtocol(const QString &protocol)
 {
     QMutexLocker locker(&m_mutex);
-    ProtocolCache::const_iterator it = m_cache.constFind(protocol);
-    if (it != m_cache.constEnd()) {
-        return *it;
+
+    // fill cache, if not already done and use it
+    fillCache();
+    return m_cache.value(protocol);
+}
+
+void KProtocolInfoFactory::fillCache()
+{
+    // mutex MUST be locked from the outside!
+    Q_ASSERT(!m_mutex.tryLock());
+
+    // no work if filled
+    if (m_allProtocolsLoaded) {
+        return;
     }
 
-    const QString file = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + protocol + QLatin1String(".protocol"));
-    if (file.isEmpty()) {
-        return 0;
+    // first: search for meta data protocol info, that might be bundled with applications
+    // we search in all library paths inside kf5/kio
+    Q_FOREACH (const KPluginMetaData &md, KPluginLoader::findPlugins("kf5/kio")) {
+        // get slave name & protocols it supports, if any
+        const QString slavePath = md.fileName();
+        const QJsonObject protocols(md.rawData().value(QStringLiteral("KDE-KIO-Protocols")).toObject());
+
+        // add all protocols, does nothing if object invalid
+        for (auto it = protocols.begin(); it != protocols.end(); ++it) {
+            // skip empty objects
+            const QJsonObject protocol(it.value().toObject());
+            if (protocol.isEmpty()) {
+                continue;
+            }
+
+            // add to cache, skip double entries
+            if (!m_cache.contains(it.key())) {
+                m_cache.insert(it.key(), new KProtocolInfoPrivate(it.key(), slavePath, protocol));
+            }
+        }
     }
 
-    KProtocolInfoPrivate *info = new KProtocolInfoPrivate(file);
-    m_cache.insert(protocol, info);
-    return info;
+    // second: fallback to .protocol files
+    Q_FOREACH (const QString &serviceDir, QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QLatin1String("kservices5"), QStandardPaths::LocateDirectory)) {
+        QDirIterator it(serviceDir);
+        while (it.hasNext()) {
+            const QString file = it.next();
+            if (file.endsWith(QLatin1String(".protocol"))) {
+                const QString prot = it.fileInfo().baseName();
+                // add to cache, skip double entries
+                if (!m_cache.contains(prot)) {
+                    m_cache.insert(prot, new KProtocolInfoPrivate(file));
+                }
+            }
+        }
+    }
+
+    // all done, don't do it again
+    m_allProtocolsLoaded = true;
 }

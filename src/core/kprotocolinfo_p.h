@@ -22,6 +22,8 @@
 
 #include "kprotocolinfo.h"
 
+#include <QJsonObject>
+
 /**
  * @internal
  */
@@ -29,6 +31,7 @@ class KProtocolInfoPrivate
 {
 public:
     KProtocolInfoPrivate(const QString &path);
+    KProtocolInfoPrivate(const QString &name, const QString &exec, const QJsonObject &json);
 
     QString m_name;
     QString m_exec;

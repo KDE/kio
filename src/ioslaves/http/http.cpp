@@ -86,8 +86,12 @@ Q_LOGGING_CATEGORY(KIO_HTTP, "kf5.kio.kio_http")
 //string parsing helpers and HeaderTokenizer implementation
 #include "parsinghelpers.cpp"
 
-
-
+// Pseudo plugin class to embedd meta data
+class KIOPluginForMetaData : public QObject
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.kde.kio.slave.http" FILE "http.json")
+};
 
 static bool supportedProxyScheme(const QString &scheme)
 {
@@ -5579,3 +5583,6 @@ void HTTPProtocol::virtual_hook(int id, void *data)
         SlaveBase::virtual_hook(id, data);
     }
 }
+
+// needed for JSON file embedding
+#include "http.moc"

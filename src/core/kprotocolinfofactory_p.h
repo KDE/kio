@@ -63,9 +63,14 @@ public:
      * Returns list of all known protocols.
      * @return a list of all protocols
      */
-    QStringList protocols() const;
+    QStringList protocols();
 
 private:
+    /**
+     * Fill the internal cache.
+     */
+    void fillCache();
+
     typedef QHash<QString, KProtocolInfoPrivate *> ProtocolCache;
     ProtocolCache m_cache;
     bool m_allProtocolsLoaded;
