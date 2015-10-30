@@ -36,6 +36,7 @@
 
 #include <QtXml/qdom.h>
 #include <QtCore/QFile>
+#include <QtCore/QLibraryInfo>
 #include <QtCore/QRegExp>
 #include <QtCore/QDateTime>
 #include <QtCore/QBuffer>
@@ -4987,11 +4988,16 @@ void HTTPProtocol::sendCacheCleanerCommand(const QByteArray &command)
     int attempts = 0;
     while (m_cacheCleanerConnection.state() != QLocalSocket::ConnectedState && attempts < 6) {
         if (attempts == 2) {
-            QString exe = QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kio_http_cache_cleaner");
-            if (QFile::exists(exe)) {
+            // search paths
+            const QStringList searchPaths = QStringList()
+                << QCoreApplication::applicationDirPath() // then look where our application binary is located
+                << QLibraryInfo::location(QLibraryInfo::LibraryExecutablesPath) // look where libexec path is (can be set in qt.conf)
+                << QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5); // look at our installation location
+            const QString exe = QStandardPaths::findExecutable(QStringLiteral("kio_http_cache_cleaner"), searchPaths);
+            if (!exe.isEmpty()) {
                 QProcess::startDetached(exe);
             } else {
-                qWarning() << exe << "not found!";
+                qWarning() << "kio_http_cache_cleaner not found in" << searchPaths;
             }
         }
         QString socketFileName = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation) + QLatin1Char('/') + QLatin1String("kio_http_cache_cleaner");

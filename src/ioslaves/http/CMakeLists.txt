@@ -1,5 +1,7 @@
 project(kioslave-http)
 
+include(ECMMarkNonGuiExecutable)
+
 include(ConfigureChecks.cmake)
 configure_file(config-kioslave-http.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kioslave-http.h )
 
@@ -39,6 +41,9 @@ set(kio_http_cache_cleaner_SRCS
 
 
 add_executable(kio_http_cache_cleaner ${kio_http_cache_cleaner_SRCS})
+
+# Mark it as non-gui so we won't create an app bundle on Mac OS X
+ecm_mark_nongui_executable(kio_http_cache_cleaner)
 
 target_link_libraries(kio_http_cache_cleaner
    Qt5::DBus
