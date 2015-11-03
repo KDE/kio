@@ -288,7 +288,7 @@ KIOCORE_EXPORT TransferJob *http_post(const QUrl &url, const QByteArray &postDat
  * uploads, in memory.
  *
  * @param url Where to write the data.
- * @param postData Encoded data to post.
+ * @param device the device to read from
  * @param size Size of the encoded post data.
  * @param flags Can be HideProgressInfo here
  * @return the job handling the operation.

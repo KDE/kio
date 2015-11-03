@@ -89,7 +89,7 @@ KIOCORE_EXPORT StoredTransferJob *storedGet(const QUrl &url, LoadType reload = N
  * Put (a.k.a. write) data from a QIODevice.
  * @see StoredTransferJob
  *
- * @param input The data to write, a device to read from
+ * @param input The data to write, a device to read from. Must be open for reading.
  * @param url Where to write data.
  * @param permissions May be -1. In this case no special permission mode is set.
  * @param flags Can be HideProgressInfo, Overwrite and Resume here. WARNING:
@@ -131,7 +131,7 @@ KIOCORE_EXPORT StoredTransferJob *storedHttpPost(const QByteArray &arr, const QU
  * HTTP POST (a.k.a. write) data from the given IO device.
  * @see StoredTransferJob
  *
- * @param device Device from which the encoded data to be posted is read.
+ * @param device Device from which the encoded data to be posted is read. Must be open for reading.
  * @param url Where to write data.
  * @param size Size of the encoded data to be posted.
  * @param flags Can be HideProgressInfo here.
