@@ -88,6 +88,8 @@ void CacheConfigModule::save()
   else if ( ui.rbCacheIfPossible->isChecked() )
       KSaveIOConfig::setCacheControl(KIO::CC_Cache);
 
+  KProtocolManager::reparseConfiguration();
+
   // Update running io-slaves...
   KSaveIOConfig::updateRunningIOSlaves (this);
 
