@@ -573,6 +573,14 @@ void KNewFileMenuPrivate::executeStrategy()
             // This doesn't work, FileUndoManager registers new links in copyingLinkDone,
             // which KIO::symlink obviously doesn't emit... Needs code in FileUndoManager.
             //KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Link, lstSrc, dest, kjob);
+        } else if (src.startsWith(":/")) {
+            QFile srcFile(src);
+            if (!srcFile.open(QIODevice::ReadOnly)) {
+                return;
+            }
+            KIO::StoredTransferJob* putJob = KIO::storedPut(&srcFile, dest, -1);
+            kjob = putJob;
+            KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Put, QList<QUrl>(), dest, putJob);
         } else {
             //qDebug() << "KIO::copyAs(" << uSrc.url() << "," << dest.url() << ")";
             KIO::CopyJob *job = KIO::copyAs(uSrc, dest);
@@ -840,7 +848,8 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
     KNewFileMenuSingleton *s = kNewMenuGlobals();
     //qDebug();
 
-    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "templates", QStandardPaths::LocateDirectory);
+    QStringList dirs = { ":/kio5/newfile-templates" };
+    dirs += QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "templates", QStandardPaths::LocateDirectory);
 
     // Ensure any changes in the templates dir will call this
     if (! s->dirWatch) {
@@ -855,7 +864,7 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
                          q, SLOT(_k_slotFillTemplates()));
         QObject::connect(s->dirWatch, SIGNAL(deleted(QString)),
                          q, SLOT(_k_slotFillTemplates()));
-        // Ok, this doesn't cope with new dirs in KDEDIRS, but that's another story
+        // Ok, this doesn't cope with new dirs in XDG_DATA_DIRS, but that's another story
     }
     ++s->templatesVersion;
     s->filesParsed = false;
@@ -870,7 +879,8 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
         dir.setPath(path);
         const QStringList &entryList(dir.entryList(QStringList() << "*.desktop", QDir::Files));
         Q_FOREACH (const QString &entry, entryList) {
-            files.append(dir.path() + dir.separator() + entry);
+            const QString file = dir.path() + QLatin1Char('/') + entry;
+            files.append(file);
         }
     }
 

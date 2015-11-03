@@ -1,0 +1,18 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource prefix="/kio5/newfile-templates">
+        <file>Directory.desktop</file>
+        <file>HTMLFile.desktop</file>
+        <file>linkPath.desktop</file>
+        <file>linkProgram.desktop</file>
+        <file>linkURL.desktop</file>
+        <file>TextFile.desktop</file>
+    </qresource>
+    <qresource prefix="/kio5/newfile-templates/.source">
+        <file>HTMLFile.html</file>
+        <file>Program.desktop</file>
+        <file>TextFile.txt</file>
+        <file>URL.desktop</file>
+    </qresource>
+</RCC>
+

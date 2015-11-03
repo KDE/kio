@@ -39,6 +39,8 @@ set(kiofilewidgets_SRCS
 
 )
 
+qt5_add_resources(kiofilewidgets_SRCS ../new_file_templates/templates.qrc)
+
 add_library(KF5KIOFileWidgets ${kiofilewidgets_SRCS})
 generate_export_header(KF5KIOFileWidgets BASE_NAME KIOFileWidgets)
 add_library(KF5::KIOFileWidgets ALIAS KF5KIOFileWidgets)
