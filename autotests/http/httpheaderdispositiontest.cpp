@@ -115,7 +115,7 @@ void HeaderDispositionTest::runAllTests_data()
     QTest::newRow("greenbytes-attwithisofnplain-x") << QStringLiteral("attachment; filename=\"foo-\xe4.html\"") <<
             QByteArray("type\tattachment\n"
                        "filename\tfoo-ä.html");
-    QTest::newRow("greenbytes-attwithisofnplain") << QStringLiteral("attachment; filename=\"foo-ä.html\"") <<
+    QTest::newRow("greenbytes-attwithisofnplain") << QString::fromLatin1("attachment; filename=\"foo-ä.html\"") <<
             QByteArray("type\tattachment\n"
                        "filename\tfoo-Ã¤.html");
     QTest::newRow("greenbytes-attwithfnrawpctenca") << "attachment; filename=\"foo-%41.html\"" <<
