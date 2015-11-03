@@ -65,9 +65,9 @@ void KDirModelTest::initTestCase()
     m_dirModel = 0;
     s_referenceTimeStamp = QDateTime::currentDateTime().addSecs(-30);   // 30 seconds ago
     m_tempDir = 0;
-    m_topLevelFileNames << "toplevelfile_1"
-                        << "toplevelfile_2"
-                        << "toplevelfile_3"
+    m_topLevelFileNames << QStringLiteral("toplevelfile_1")
+                        << QStringLiteral("toplevelfile_2")
+                        << QStringLiteral("toplevelfile_3")
                         << SPECIALCHARS
                         ;
     recreateTestData();
@@ -168,11 +168,11 @@ void KDirModelTest::collectKnownIndexes()
         QString fileName = item.url().fileName();
         if (item.isDir()) {
             m_dirIndex = idx;
-        } else if (fileName == "toplevelfile_1") {
+        } else if (fileName == QLatin1String("toplevelfile_1")) {
             m_fileIndex = idx;
-        } else if (fileName == "toplevelfile_2") {
+        } else if (fileName == QLatin1String("toplevelfile_2")) {
             m_secondFileIndex = idx;
-        } else if (fileName.startsWith(" special")) {
+        } else if (fileName.startsWith(QLatin1String(" special"))) {
             m_specialFileIndex = idx;
         }
     }
@@ -194,7 +194,7 @@ void KDirModelTest::collectKnownIndexes()
         QModelIndex idx = m_dirModel->index(row, 0, m_dirIndex);
         if (m_dirModel->itemForIndex(idx).isDir()) {
             subdirIndex = idx;
-        } else if (m_dirModel->itemForIndex(idx).name() == "testfile") {
+        } else if (m_dirModel->itemForIndex(idx).name() == QLatin1String("testfile")) {
             m_fileInDirIndex = idx;
         }
     }
@@ -485,7 +485,7 @@ void KDirModelTest::testRenameFile()
 
 void KDirModelTest::testMoveDirectory()
 {
-    testMoveDirectory("subdir");
+    testMoveDirectory(QStringLiteral("subdir"));
 }
 
 void KDirModelTest::testMoveDirectory(const QString &dir /*just a dir name, no slash*/)
@@ -583,7 +583,7 @@ void KDirModelTest::testRenameDirectory() // #172945, #174703, (and #180156)
 
     // Test moving the renamed directory; if something inside KDirModel
     // wasn't properly updated by the renaming, this would detect it and crash (#180673)
-    testMoveDirectory("subdir_renamed");
+    testMoveDirectory(QStringLiteral("subdir_renamed"));
 
     // Put things back to normal
     job = KIO::rename(newUrl, url, KIO::HideProgressInfo);
@@ -705,40 +705,40 @@ void KDirModelTest::testExpandToUrl_data()
     QTest::newRow(".")
             << int(NoFlag) << "." << (QStringList());
     QTest::newRow("subdir")
-            << int(NoFlag) << "subdir" << (QStringList() << "subdir");
+            << int(NoFlag) << "subdir" << (QStringList() << QStringLiteral("subdir"));
     QTest::newRow("subdir/.")
-            << int(NoFlag) << "subdir/." << (QStringList() << "subdir");
+            << int(NoFlag) << "subdir/." << (QStringList() << QStringLiteral("subdir"));
 
-    const QString subsubdir = "subdir/subsubdir";
+    const QString subsubdir = QStringLiteral("subdir/subsubdir");
     // Must list root, emit expand for subdir, list subdir, emit expand for subsubdir.
     QTest::newRow("subdir/subsubdir")
-            << int(NoFlag) << subsubdir << (QStringList() << "subdir" << subsubdir);
+            << int(NoFlag) << subsubdir << (QStringList() << QStringLiteral("subdir") << subsubdir);
 
     // Must list root, emit expand for subdir, list subdir, emit expand for subsubdir, list subsubdir.
     const QString subsubdirfile = subsubdir + "/testfile";
     QTest::newRow("subdir/subsubdir/testfile sync")
-            << int(NoFlag) << subsubdirfile << (QStringList() << "subdir" << subsubdir << subsubdirfile);
+            << int(NoFlag) << subsubdirfile << (QStringList() << QStringLiteral("subdir") << subsubdir << subsubdirfile);
 
 #ifndef Q_OS_WIN
     // Expand a symlink to a directory (#219547)
     const QString dirlink = m_tempDir->path() + "/dirlink";
     createTestSymlink(dirlink, "/");
     QTest::newRow("dirlink")
-            << int(NoFlag) << "dirlink/tmp" << (QStringList() << "dirlink" << "dirlink/tmp");
+            << int(NoFlag) << "dirlink/tmp" << (QStringList() << QStringLiteral("dirlink") << QStringLiteral("dirlink/tmp"));
 #endif
 
     // Do a cold-cache test too, but nowadays it doesn't change anything anymore,
     // apart from testing different code paths inside KDirLister.
     QTest::newRow("subdir/subsubdir/testfile with reload")
-            << int(NewDir) << subsubdirfile << (QStringList() << "subdir" << subsubdir << subsubdirfile);
+            << int(NewDir) << subsubdirfile << (QStringList() << QStringLiteral("subdir") << subsubdir << subsubdirfile);
 
     QTest::newRow("hold dest dir") // #193364
-            << int(NewDir | ListFinalDir) << subsubdirfile << (QStringList() << "subdir" << subsubdir << subsubdirfile);
+            << int(NewDir | ListFinalDir) << subsubdirfile << (QStringList() << QStringLiteral("subdir") << subsubdir << subsubdirfile);
 
     // Put subdir in cache too (#175035)
     QTest::newRow("hold subdir and dest dir")
             << int(NewDir | CacheSubdir | ListFinalDir | Recreate) << subsubdirfile
-            << (QStringList() << "subdir" << subsubdir << subsubdirfile);
+            << (QStringList() << QStringLiteral("subdir") << subsubdir << subsubdirfile);
 
     // Make sure the last test has the Recreate option set, for the subsequent test methods.
 }
@@ -802,7 +802,7 @@ void KDirModelTest::testExpandToUrl()
     }
 
     // Now it should exist
-    if (!expandToPath.isEmpty() && expandToPath != ".") {
+    if (!expandToPath.isEmpty() && expandToPath != QLatin1String(".")) {
         qDebug() << "Do I know" << m_urlToExpandTo << "?";
         QVERIFY(m_dirModelForExpand->indexForUrl(m_urlToExpandTo).isValid());
     }
@@ -865,7 +865,7 @@ void KDirModelTest::testFilter()
     QSignalSpy spyItemsFilteredByMime(m_dirModel->dirLister(), SIGNAL(itemsFilteredByMime(KFileItemList)));
     QSignalSpy spyItemsDeleted(m_dirModel->dirLister(), SIGNAL(itemsDeleted(KFileItemList)));
     QSignalSpy spyRowsRemoved(m_dirModel, SIGNAL(rowsRemoved(QModelIndex,int,int)));
-    m_dirModel->dirLister()->setNameFilter("toplevel*");
+    m_dirModel->dirLister()->setNameFilter(QStringLiteral("toplevel*"));
     QCOMPARE(m_dirModel->rowCount(), oldTopLevelRowCount); // no change yet
     QCOMPARE(m_dirModel->rowCount(m_dirIndex), oldSubdirRowCount); // no change yet
     m_dirModel->dirLister()->emitChanges();
@@ -886,7 +886,7 @@ void KDirModelTest::testFilter()
             const KFileItem item = m_dirModel->itemForIndex(parentIdx);
             dirName = item.name();
         } else {
-            dirName = "root";
+            dirName = QStringLiteral("root");
         }
         rowsRemovedPerDir[dirName] += args[2].toInt() - args[1].toInt() + 1;
         //qDebug() << parentIdx << args[1].toInt() << args[2].toInt();
@@ -926,7 +926,7 @@ void KDirModelTest::testMimeFilter()
     QSignalSpy spyItemsFilteredByMime(m_dirModel->dirLister(), SIGNAL(itemsFilteredByMime(KFileItemList)));
     QSignalSpy spyItemsDeleted(m_dirModel->dirLister(), SIGNAL(itemsDeleted(KFileItemList)));
     QSignalSpy spyRowsRemoved(m_dirModel, SIGNAL(rowsRemoved(QModelIndex,int,int)));
-    m_dirModel->dirLister()->setMimeFilter(QStringList() << "application/pdf");
+    m_dirModel->dirLister()->setMimeFilter(QStringList() << QStringLiteral("application/pdf"));
     QCOMPARE(m_dirModel->rowCount(), oldTopLevelRowCount); // no change yet
     QCOMPARE(m_dirModel->rowCount(m_dirIndex), oldSubdirRowCount); // no change yet
     m_dirModel->dirLister()->emitChanges();
@@ -1001,7 +1001,7 @@ void KDirModelTest::testUrlWithRef() // #171117
     const QString path = m_tempDir->path() + '/';
     KDirLister *dirLister = m_dirModel->dirLister();
     QUrl url = QUrl::fromLocalFile(path);
-    url.setFragment("ref");
+    url.setFragment(QStringLiteral("ref"));
     QVERIFY(url.url().endsWith("#ref"));
     dirLister->openUrl(url, KDirLister::NoFlags);
     checkedConnect(dirLister, SIGNAL(completed()), this, SLOT(slotListingCompleted()));
@@ -1014,10 +1014,10 @@ void KDirModelTest::testUrlWithRef() // #171117
 
 void KDirModelTest::testFontUrlWithHost() // #160057
 {
-    if (!KProtocolInfo::isKnownProtocol("fonts")) {
+    if (!KProtocolInfo::isKnownProtocol(QStringLiteral("fonts"))) {
         QSKIP("kio_fonts not installed");
     }
-    QUrl url("fonts://foo/System");
+    QUrl url(QStringLiteral("fonts://foo/System"));
     KDirLister *dirLister = m_dirModel->dirLister();
     dirLister->openUrl(url, KDirLister::NoFlags);
     checkedConnect(dirLister, SIGNAL(completed()), this, SLOT(slotListingCompleted()));
@@ -1028,10 +1028,10 @@ void KDirModelTest::testFontUrlWithHost() // #160057
 
 void KDirModelTest::testRemoteUrlWithHost() // #178416
 {
-    if (!KProtocolInfo::isKnownProtocol("remote")) {
+    if (!KProtocolInfo::isKnownProtocol(QStringLiteral("remote"))) {
         QSKIP("kio_remote not installed");
     }
-    QUrl url("remote://foo");
+    QUrl url(QStringLiteral("remote://foo"));
     KDirLister *dirLister = m_dirModel->dirLister();
     dirLister->openUrl(url, KDirLister::NoFlags);
     checkedConnect(dirLister, SIGNAL(completed()), this, SLOT(slotListingCompleted()));
@@ -1053,22 +1053,22 @@ void KDirModelTest::testZipFile() // # 171721
     zipUrl.setPath(zipUrl.path() + "/wronglocalsizes.zip"); // just a zip file lying here for other reasons
 
     QVERIFY(QFile::exists(zipUrl.toLocalFile()));
-    zipUrl.setScheme("zip");
+    zipUrl.setScheme(QStringLiteral("zip"));
     QModelIndex index = m_dirModel->indexForUrl(zipUrl);
     QVERIFY(!index.isValid()); // protocol mismatch, can't find it!
-    zipUrl.setScheme("file");
+    zipUrl.setScheme(QStringLiteral("file"));
     index = m_dirModel->indexForUrl(zipUrl);
     QVERIFY(index.isValid());
 }
 
 void KDirModelTest::testSmb()
 {
-    const QUrl smbUrl("smb:/");
+    const QUrl smbUrl(QStringLiteral("smb:/"));
     // TODO: feed a KDirModel without using a KDirLister.
     // Calling the slots directly.
     // This requires that KDirModel does not ask the KDirLister for its rootItem anymore,
     // but that KDirLister emits the root item whenever it changes.
-    if (!KProtocolInfo::isKnownProtocol("smb")) {
+    if (!KProtocolInfo::isKnownProtocol(QStringLiteral("smb"))) {
         QSKIP("kio_smb not installed");
     }
     KDirLister *dirLister = m_dirModel->dirLister();
@@ -1135,18 +1135,18 @@ void KDirModelTest::testDotHiddenFile_data()
     QTest::addColumn<QStringList>("fileContents");
     QTest::addColumn<QStringList>("expectedListing");
 
-    QStringList allItems; allItems << "toplevelfile_1" << "toplevelfile_2" << "toplevelfile_3" << SPECIALCHARS << "subdir";
+    QStringList allItems; allItems << QStringLiteral("toplevelfile_1") << QStringLiteral("toplevelfile_2") << QStringLiteral("toplevelfile_3") << SPECIALCHARS << QStringLiteral("subdir");
     QTest::newRow("empty_file") << QStringList() << allItems;
 
-    QTest::newRow("simple_name") << (QStringList() << "toplevelfile_1") << QStringList(allItems.mid(1));
+    QTest::newRow("simple_name") << (QStringList() << QStringLiteral("toplevelfile_1")) << QStringList(allItems.mid(1));
 
     QStringList allButSpecialChars = allItems; allButSpecialChars.removeAt(3);
     QTest::newRow("special_chars") << (QStringList() << SPECIALCHARS) << allButSpecialChars;
 
     QStringList allButSubdir = allItems; allButSubdir.removeAt(4);
-    QTest::newRow("subdir") << (QStringList() << "subdir") << allButSubdir;
+    QTest::newRow("subdir") << (QStringList() << QStringLiteral("subdir")) << allButSubdir;
 
-    QTest::newRow("many_lines") << (QStringList() << "subdir" << "toplevelfile_1" << "toplevelfile_3" << "toplevelfile_2")
+    QTest::newRow("many_lines") << (QStringList() << QStringLiteral("subdir") << QStringLiteral("toplevelfile_1") << QStringLiteral("toplevelfile_3") << QStringLiteral("toplevelfile_2"))
                                 << (QStringList() << SPECIALCHARS);
 }
 

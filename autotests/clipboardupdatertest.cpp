@@ -59,7 +59,7 @@ void ClipboardUpdaterTest::initTestCase()
 void ClipboardUpdaterTest::testPasteAfterRenameFiles()
 {
     QTemporaryDir dir;
-    const QList<QUrl> urls = tempFiles(dir, QLatin1String("rfile"));
+    const QList<QUrl> urls = tempFiles(dir, QStringLiteral("rfile"));
 
     QClipboard *clipboard = QApplication::clipboard();
     QMimeData *mimeData = new QMimeData();
@@ -83,7 +83,7 @@ void ClipboardUpdaterTest::testPasteAfterRenameFiles()
 void ClipboardUpdaterTest::testPasteAfterMoveFile()
 {
     QTemporaryDir dir;
-    const QList<QUrl> urls = tempFiles(dir, QLatin1String("mfile"), 1);
+    const QList<QUrl> urls = tempFiles(dir, QStringLiteral("mfile"), 1);
 
     QClipboard *clipboard = QApplication::clipboard();
     QMimeData *mimeData = new QMimeData();
@@ -109,7 +109,7 @@ void ClipboardUpdaterTest::testPasteAfterMoveFile()
 void ClipboardUpdaterTest::testPasteAfterMoveFiles()
 {
     QTemporaryDir dir;
-    const QList<QUrl> urls = tempFiles(dir, QLatin1String("mfile"));
+    const QList<QUrl> urls = tempFiles(dir, QStringLiteral("mfile"));
 
     QClipboard *clipboard = QApplication::clipboard();
     QMimeData *mimeData = new QMimeData();
@@ -131,7 +131,7 @@ void ClipboardUpdaterTest::testPasteAfterMoveFiles()
 void ClipboardUpdaterTest::testPasteAfterDeleteFile()
 {
     QTemporaryDir dir;
-    const QList<QUrl> urls = tempFiles(dir, QLatin1String("dfile"), 1);
+    const QList<QUrl> urls = tempFiles(dir, QStringLiteral("dfile"), 1);
 
     QClipboard *clipboard = QApplication::clipboard();
     QMimeData *mimeData = new QMimeData();
@@ -152,7 +152,7 @@ void ClipboardUpdaterTest::testPasteAfterDeleteFile()
 void ClipboardUpdaterTest::testPasteAfterDeleteFiles()
 {
     QTemporaryDir dir;
-    const QList<QUrl> urls = tempFiles(dir, QLatin1String("dfile"));
+    const QList<QUrl> urls = tempFiles(dir, QStringLiteral("dfile"));
 
     QClipboard *clipboard = QApplication::clipboard();
     QMimeData *mimeData = new QMimeData();

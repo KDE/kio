@@ -98,8 +98,8 @@ public:
             m_windowList.insert(obj, windowId);
             connect(window, SIGNAL(destroyed(QObject*)),
                     this, SLOT(slotUnregisterWindow(QObject*)));
-            QDBusInterface("org.kde.kded5", "/kded", "org.kde.kded5").
-            call(QDBus::NoBlock, "registerWindowId", qlonglong(windowId));
+            QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/kded"), QStringLiteral("org.kde.kded5")).
+            call(QDBus::NoBlock, QStringLiteral("registerWindowId"), qlonglong(windowId));
         }
     }
 public Q_SLOTS:
@@ -117,8 +117,8 @@ public Q_SLOTS:
         disconnect(it.key(), SIGNAL(destroyed(QObject*)),
                    this, SLOT(slotUnregisterWindow(QObject*)));
         m_windowList.erase(it);
-        QDBusInterface("org.kde.kded5", "/kded", "org.kde.kded5").
-        call(QDBus::NoBlock, "unregisterWindowId", qlonglong(windowId));
+        QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/kded"), QStringLiteral("org.kde.kded5")).
+        call(QDBus::NoBlock, QStringLiteral("unregisterWindowId"), qlonglong(windowId));
     }
 private:
     QMap<QObject *, WId> m_windowList;
@@ -185,17 +185,17 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls,
     QString keyName;
     bool ask = (confirmationType == ForceConfirmation);
     if (!ask) {
-        KSharedConfigPtr kioConfig = KSharedConfig::openConfig("kiorc", KConfig::NoGlobals);
+        KSharedConfigPtr kioConfig = KSharedConfig::openConfig(QStringLiteral("kiorc"), KConfig::NoGlobals);
 
         switch (deletionType) {
         case Delete:
-            keyName = "ConfirmDelete";
+            keyName = QStringLiteral("ConfirmDelete");
             break;
         case Trash:
-            keyName = "ConfirmTrash";
+            keyName = QStringLiteral("ConfirmTrash");
             break;
         case EmptyTrash:
-            keyName = "ConfirmEmptyTrash";
+            keyName = QStringLiteral("ConfirmEmptyTrash");
             break;
         }
 
@@ -207,11 +207,11 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls,
     if (ask) {
         QStringList prettyList;
         Q_FOREACH (const QUrl &url, urls) {
-            if (url.scheme() == "trash") {
+            if (url.scheme() == QLatin1String("trash")) {
                 QString path = url.path();
                 // HACK (#98983): remove "0-foo". Note that it works better than
                 // displaying KFileItem::name(), for files under a subdir.
-                path.remove(QRegExp("^/[0-9]*-"));
+                path.remove(QRegExp(QStringLiteral("^/[0-9]*-")));
                 prettyList.append(path);
             } else {
                 prettyList.append(url.toDisplayString(QUrl::PreferLocalFile));
@@ -238,7 +238,7 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls,
                          i18nc("@info", "Do you want to permanently delete all items from Trash? This action cannot be undone."),
                          QString(),
                          KGuiItem(i18nc("@action:button", "Empty Trash"),
-                                  QIcon::fromTheme("user-trash")),
+                                  QIcon::fromTheme(QStringLiteral("user-trash"))),
                          KStandardGuiItem::cancel(),
                          keyName, options);
             break;
@@ -249,7 +249,7 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls,
                          i18np("Do you really want to move this item to the trash?", "Do you really want to move these %1 items to the trash?", prettyList.count()),
                          prettyList,
                          i18n("Move to Trash"),
-                         KGuiItem(i18nc("Verb", "&Trash"), "user-trash"),
+                         KGuiItem(i18nc("Verb", "&Trash"), QStringLiteral("user-trash")),
                          KStandardGuiItem::cancel(),
                          keyName, options);
         }
@@ -261,7 +261,7 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls,
                 notificationGroup.writeEntry(keyName, true);
                 notificationGroup.sync();
 
-                KSharedConfigPtr kioConfig = KSharedConfig::openConfig("kiorc", KConfig::NoGlobals);
+                KSharedConfigPtr kioConfig = KSharedConfig::openConfig(QStringLiteral("kiorc"), KConfig::NoGlobals);
                 kioConfig->group("Confirmations").writeEntry(keyName, false);
             }
         }
@@ -281,7 +281,7 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
 
     //qDebug() << type << text << "caption=" << caption;
 
-    KConfig config("kioslaverc");
+    KConfig config(QStringLiteral("kioslaverc"));
     KMessageBox::setDontShowAgainConfig(&config);
 
     const KGuiItem buttonYesGui(buttonYes, iconYes);
@@ -317,7 +317,7 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
     case SSLMessageBox: {
         QPointer<KSslInfoDialog> kid(new KSslInfoDialog(window()));
         //### this is boilerplate code and appears in khtml_part.cpp almost unchanged!
-        const QStringList sl = sslMetaData.value(QLatin1String("ssl_peer_chain")).split('\x01', QString::SkipEmptyParts);
+        const QStringList sl = sslMetaData.value(QStringLiteral("ssl_peer_chain")).split('\x01', QString::SkipEmptyParts);
         QList<QSslCertificate> certChain;
         bool decodedOk = true;
         foreach (const QString &s, sl) {
@@ -331,13 +331,13 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
         if (decodedOk) {
             result = 1; // whatever
             kid->setSslInfo(certChain,
-                            sslMetaData.value(QLatin1String("ssl_peer_ip")),
+                            sslMetaData.value(QStringLiteral("ssl_peer_ip")),
                             text, // the URL
-                            sslMetaData.value(QLatin1String("ssl_protocol_version")),
-                            sslMetaData.value(QLatin1String("ssl_cipher")),
-                            sslMetaData.value(QLatin1String("ssl_cipher_used_bits")).toInt(),
-                            sslMetaData.value(QLatin1String("ssl_cipher_bits")).toInt(),
-                            KSslInfoDialog::errorsFromString(sslMetaData.value(QLatin1String("ssl_cert_errors"))));
+                            sslMetaData.value(QStringLiteral("ssl_protocol_version")),
+                            sslMetaData.value(QStringLiteral("ssl_cipher")),
+                            sslMetaData.value(QStringLiteral("ssl_cipher_used_bits")).toInt(),
+                            sslMetaData.value(QStringLiteral("ssl_cipher_bits")).toInt(),
+                            KSslInfoDialog::errorsFromString(sslMetaData.value(QStringLiteral("ssl_cert_errors"))));
             kid->exec();
         } else {
             result = -1;

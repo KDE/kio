@@ -493,14 +493,14 @@ void KUrlCompletionPrivate::MyURL::init(const QString &_url, const QUrl &cwd)
     // Special shortcuts for "man:" and "info:"
     if (url_copy.startsWith(QLatin1Char('#'))) {
         if (url_copy.length() > 1 && url_copy.at(1) == QLatin1Char('#')) {
-            url_copy.replace(0, 2, QLatin1String("info:"));
+            url_copy.replace(0, 2, QStringLiteral("info:"));
         } else {
-            url_copy.replace(0, 1, QLatin1String("man:"));
+            url_copy.replace(0, 1, QStringLiteral("man:"));
         }
     }
 
     // Look for a protocol in 'url'
-    QRegExp protocol_regex = QRegExp("^(?![A-Za-z]:)[^/\\s\\\\]*:");
+    QRegExp protocol_regex = QRegExp(QStringLiteral("^(?![A-Za-z]:)[^/\\s\\\\]*:"));
 
     // Assume "file:" or whatever is given by 'cwd' if there is
     // no protocol.  (QUrl does this only for absolute paths)
@@ -845,7 +845,7 @@ bool KUrlCompletionPrivate::envCompletion(const KUrlCompletionPrivate::MyURL &ur
         QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
         QStringList keys = env.keys();
 
-        QString dollar = QLatin1String("$");
+        QString dollar = QStringLiteral("$");
 
         QStringList l;
 
@@ -948,11 +948,11 @@ bool KUrlCompletionPrivate::fileCompletion(const KUrlCompletionPrivate::MyURL &u
     if (url.url().length() && url.url().at(0) == QLatin1Char('.')) {
         if (url.url().length() == 1) {
             *pMatch = (q->completionMode() == KCompletion::CompletionMan) ?
-                      QLatin1String(".") :
-                      QLatin1String("..");
+                      QStringLiteral(".") :
+                      QStringLiteral("..");
             return true;
         } else if (url.url().length() == 2 && url.url().at(1) == QLatin1Char('.')) {
-            *pMatch = QLatin1String("..");
+            *pMatch = QStringLiteral("..");
             return true;
         }
     }
@@ -1144,7 +1144,7 @@ QString KUrlCompletionPrivate::listDirectories(
                 it != end;
                 ++it) {
             QUrl url = QUrl::fromLocalFile(*it);
-            if (KUrlAuthorized::authorizeUrlAction(QLatin1String("list"), QUrl(), url)) {
+            if (KUrlAuthorized::authorizeUrlAction(QStringLiteral("list"), QUrl(), url)) {
                 dirs.append(*it);
             }
         }
@@ -1305,7 +1305,7 @@ void KUrlCompletionPrivate::_k_slotIOFinished(KJob *job)
 //qDebug() << "Start KIO::listDir" << kurl;
 
         list_job = KIO::listDir(kurl, KIO::HideProgressInfo);
-        list_job->addMetaData("no-auth-prompt", "true");
+        list_job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
 
         assert(list_job);
 

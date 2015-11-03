@@ -63,7 +63,7 @@ static QString localTmpDir()
     return QDir::tempPath() + "/jobremotetest/";
 #else
     // This one needs to be on another partition
-    return "/tmp/jobremotetest/";
+    return QStringLiteral("/tmp/jobremotetest/");
 #endif
 }
 

@@ -152,7 +152,7 @@ void ChmodJobPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &list)
         const KIO::UDSEntry &entry = *it;
         const bool isLink = !entry.stringValue(KIO::UDSEntry::UDS_LINK_DEST).isEmpty();
         const QString relativePath = entry.stringValue(KIO::UDSEntry::UDS_NAME);
-        if (!isLink && relativePath != "..") {
+        if (!isLink && relativePath != QLatin1String("..")) {
             const mode_t permissions = entry.numberValue(KIO::UDSEntry::UDS_ACCESS)
                                        & 0777; // get rid of "set gid" and other special flags
 
@@ -232,13 +232,13 @@ void ChmodJobPrivate::_k_chmodNextFile()
                       << "to" << QString::number(info.permissions,8);*/
         KIO::SimpleJob *job = KIO::chmod(info.url, info.permissions);
         // copy the metadata for acl and default acl
-        const QString aclString = q->queryMetaData(QLatin1String("ACL_STRING"));
-        const QString defaultAclString = q->queryMetaData(QLatin1String("DEFAULT_ACL_STRING"));
+        const QString aclString = q->queryMetaData(QStringLiteral("ACL_STRING"));
+        const QString defaultAclString = q->queryMetaData(QStringLiteral("DEFAULT_ACL_STRING"));
         if (!aclString.isEmpty()) {
-            job->addMetaData(QLatin1String("ACL_STRING"), aclString);
+            job->addMetaData(QStringLiteral("ACL_STRING"), aclString);
         }
         if (!defaultAclString.isEmpty()) {
-            job->addMetaData(QLatin1String("DEFAULT_ACL_STRING"), defaultAclString);
+            job->addMetaData(QStringLiteral("DEFAULT_ACL_STRING"), defaultAclString);
         }
         q->addSubjob(job);
     } else

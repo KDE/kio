@@ -47,7 +47,7 @@ UserAgentInfo::UserAgentInfo()
 UserAgentInfo::StatusCode UserAgentInfo::createNewUAProvider( const QString& uaStr )
 {
   QStringList split;
-  int pos = (uaStr).indexOf("::");
+  int pos = (uaStr).indexOf(QStringLiteral("::"));
 
   if ( pos == -1 )
   {
@@ -60,7 +60,7 @@ UserAgentInfo::StatusCode UserAgentInfo::createNewUAProvider( const QString& uaS
   }
   else
   {
-    split = uaStr.split( "::");
+    split = uaStr.split( QStringLiteral("::"));
   }
 
   if ( m_lstIdentity.contains(split[1]) )
@@ -81,7 +81,7 @@ UserAgentInfo::StatusCode UserAgentInfo::createNewUAProvider( const QString& uaS
 void UserAgentInfo::loadFromDesktopFiles()
 {
   m_providers.clear();
-  m_providers = KServiceTypeTrader::self()->query("UserAgentStrings");
+  m_providers = KServiceTypeTrader::self()->query(QStringLiteral("UserAgentStrings"));
 }
 
 void UserAgentInfo::parseDescription()
@@ -95,7 +95,7 @@ void UserAgentInfo::parseDescription()
   {
     tmp = UA_PTOS("X-KDE-UA-FULL");
 
-    if ( (*it)->property("X-KDE-UA-DYNAMIC-ENTRY").toBool() )
+    if ( (*it)->property(QStringLiteral("X-KDE-UA-DYNAMIC-ENTRY")).toBool() )
     {
 #ifndef Q_OS_WIN
       struct utsname utsn;
@@ -115,17 +115,17 @@ void UserAgentInfo::parseDescription()
       QStringList languageList = QLocale().uiLanguages();
       if ( languageList.count() )
       {
-        int ind = languageList.indexOf( QLatin1String("C") );
+        int ind = languageList.indexOf( QStringLiteral("C") );
         if( ind >= 0 )
         {
-          if( languageList.contains( QLatin1String("en") ) )
+          if( languageList.contains( QStringLiteral("en") ) )
             languageList.removeAt( ind );
           else
-            languageList.value(ind) = QLatin1String("en");
+            languageList.value(ind) = QStringLiteral("en");
         }
       }
 
-      tmp.replace( QFL("appLanguage"), QString("%1").arg(languageList.join(", ")) );
+      tmp.replace( QFL("appLanguage"), QStringLiteral("%1").arg(languageList.join(QStringLiteral(", "))) );
       tmp.replace( QFL("appPlatform"), QFL("X11") );
     }
 
@@ -135,12 +135,12 @@ void UserAgentInfo::parseDescription()
 
     m_lstIdentity << tmp;
 
-    tmp = QString("%1 %2").arg(UA_PTOS("X-KDE-UA-SYSNAME")).arg(UA_PTOS("X-KDE-UA-SYSRELEASE"));
+    tmp = QStringLiteral("%1 %2").arg(UA_PTOS("X-KDE-UA-SYSNAME")).arg(UA_PTOS("X-KDE-UA-SYSRELEASE"));
     if ( tmp.trimmed().isEmpty() )
-      tmp = QString("%1 %2").arg(UA_PTOS("X-KDE-UA-"
+      tmp = QStringLiteral("%1 %2").arg(UA_PTOS("X-KDE-UA-"
                     "NAME")).arg(UA_PTOS("X-KDE-UA-VERSION"));
     else
-      tmp = QString("%1 %2 on %3").arg(UA_PTOS("X-KDE-UA-"
+      tmp = QStringLiteral("%1 %2 on %3").arg(UA_PTOS("X-KDE-UA-"
                     "NAME")).arg(UA_PTOS("X-KDE-UA-VERSION")).arg(tmp);
 
     m_lstAlias << tmp;

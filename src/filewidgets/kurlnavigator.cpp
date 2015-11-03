@@ -341,7 +341,7 @@ void KUrlNavigator::Private::slotProtocolChanged(const QString &protocol)
 
     QUrl url;
     url.setScheme(protocol);
-    url.setPath((protocol == QLatin1String("file")) ? QLatin1String("/") : QLatin1String("//"));
+    url.setPath((protocol == QLatin1String("file")) ? QStringLiteral("/") : QStringLiteral("//"));
 
     m_pathBox->setEditUrl(url);
 }
@@ -443,11 +443,11 @@ void KUrlNavigator::Private::openContextMenu()
 
     // provide 'Copy' action, which copies the current URL of
     // the URL navigator into the clipboard
-    QAction *copyAction = popup->addAction(QIcon::fromTheme("edit-copy"), i18n("Copy"));
+    QAction *copyAction = popup->addAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy"));
 
     // provide 'Paste' action, which copies the current clipboard text
     // into the URL navigator
-    QAction *pasteAction = popup->addAction(QIcon::fromTheme("edit-paste"), i18n("Paste"));
+    QAction *pasteAction = popup->addAction(QIcon::fromTheme(QStringLiteral("edit-paste")), i18n("Paste"));
     QClipboard *clipboard = QApplication::clipboard();
     pasteAction->setEnabled(!clipboard->text().isEmpty());
 
@@ -694,7 +694,7 @@ void KUrlNavigator::Private::updateButtonVisibility()
     } else {
         // Check whether going upwards is possible. If this is the case, show the drop-down button.
         QUrl url(m_navButtons.front()->url());
-        const bool visible = !url.matches(KIO::upUrl(url), QUrl::StripTrailingSlash) && (url.scheme() != "nepomuksearch");
+        const bool visible = !url.matches(KIO::upUrl(url), QUrl::StripTrailingSlash) && (url.scheme() != QLatin1String("nepomuksearch"));
         m_dropDownButton->setVisible(visible);
     }
 }
@@ -715,7 +715,7 @@ QString KUrlNavigator::Private::firstButtonText() const
 #ifdef Q_OS_WIN
             text = currentUrl.path().length() > 1 ? currentUrl.path().left(2) : QDir::rootPath();
 #else
-            text = m_showFullPath ? QLatin1String("/") : i18n("Custom Path");
+            text = m_showFullPath ? QStringLiteral("/") : i18n("Custom Path");
 #endif
         } else {
             text = currentUrl.scheme() + QLatin1Char(':');
@@ -746,7 +746,7 @@ QUrl KUrlNavigator::Private::buttonUrl(int index) const
 #ifdef Q_OS_WIN
             pathOrUrl = pathOrUrl.length() > 1 ? pathOrUrl.left(2) : QDir::rootPath();
 #else
-            pathOrUrl = QLatin1String("/");
+            pathOrUrl = QStringLiteral("/");
 #endif
         } else {
             pathOrUrl = pathOrUrl.section('/', 0, index);
@@ -792,15 +792,15 @@ bool KUrlNavigator::Private::isCompressedPath(const QUrl &url) const
     QMimeDatabase db;
     const QMimeType mime = db.mimeTypeForUrl(QUrl(url.toString(QUrl::StripTrailingSlash)));
     // Note: this list of MIME types depends on the protocols implemented by kio_archive
-    return  mime.inherits("application/x-compressed-tar") ||
-            mime.inherits("application/x-bzip-compressed-tar") ||
-            mime.inherits("application/x-lzma-compressed-tar") ||
-            mime.inherits("application/x-xz-compressed-tar") ||
-            mime.inherits("application/x-tar") ||
-            mime.inherits("application/x-tarz") ||
-            mime.inherits("application/x-tzo") || // (not sure KTar supports those?)
-            mime.inherits("application/zip") ||
-            mime.inherits("application/x-archive");
+    return  mime.inherits(QStringLiteral("application/x-compressed-tar")) ||
+            mime.inherits(QStringLiteral("application/x-bzip-compressed-tar")) ||
+            mime.inherits(QStringLiteral("application/x-lzma-compressed-tar")) ||
+            mime.inherits(QStringLiteral("application/x-xz-compressed-tar")) ||
+            mime.inherits(QStringLiteral("application/x-tar")) ||
+            mime.inherits(QStringLiteral("application/x-tarz")) ||
+            mime.inherits(QStringLiteral("application/x-tzo")) || // (not sure KTar supports those?)
+            mime.inherits(QStringLiteral("application/zip")) ||
+            mime.inherits(QStringLiteral("application/x-archive"));
 }
 
 void KUrlNavigator::Private::removeTrailingSlash(QString &url) const
@@ -1000,7 +1000,7 @@ QUrl KUrlNavigator::uncommittedUrl() const
 {
     KUriFilterData filteredData(d->m_pathBox->currentText().trimmed());
     filteredData.setCheckForExecutables(false);
-    if (KUriFilter::self()->filterUri(filteredData, QStringList() << "kshorturifilter" << "kurisearchfilter")) {
+    if (KUriFilter::self()->filterUri(filteredData, QStringList() << QStringLiteral("kshorturifilter") << QStringLiteral("kurisearchfilter"))) {
         return filteredData.uri();
     } else {
         return QUrl::fromUserInput(filteredData.typedString());
@@ -1039,7 +1039,7 @@ void KUrlNavigator::setLocationUrl(const QUrl &newUrl)
         if (!insideCompressedPath) {
             // drop the tar: or zip: protocol since we are not
             // inside the compressed path
-            url.setScheme("file");
+            url.setScheme(QStringLiteral("file"));
         }
     }
 

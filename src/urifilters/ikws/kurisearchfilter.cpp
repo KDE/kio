@@ -40,11 +40,11 @@ QLoggingCategory category("org.kde.kurifilter-ikws");
 }
 
 KUriSearchFilter::KUriSearchFilter(QObject *parent, const QVariantList &)
-                 :KUriFilterPlugin( "kurisearchfilter", parent )
+                 :KUriFilterPlugin( QStringLiteral("kurisearchfilter"), parent )
 {
   KLocalizedString::insertQtDomain("kurifilter");
-  QDBusConnection::sessionBus().connect(QString(), "/", "org.kde.KUriFilterPlugin",
-                                        "configure", this, SLOT(configure()));
+  QDBusConnection::sessionBus().connect(QString(), QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"),
+                                        QStringLiteral("configure"), this, SLOT(configure()));
 }
 
 KUriSearchFilter::~KUriSearchFilter()
@@ -84,7 +84,7 @@ bool KUriSearchFilter::filterUri( KUriFilterData &data ) const
 
 KCModule *KUriSearchFilter::configModule(QWidget *parent, const char *) const
 {
-  return new FilterOptions( KAboutData::pluginData("kcmkurifilt"), parent);
+  return new FilterOptions( KAboutData::pluginData(QStringLiteral("kcmkurifilt")), parent);
 }
 
 QString KUriSearchFilter::configName() const

@@ -79,7 +79,7 @@ static bool hasErrorPage(KJob *job)
 void Downloader::result(KJob *job)
 {
     if (!job->error() && !hasErrorPage(job)) {
-        const QString charset = static_cast<KIO::Job *>(job)->queryMetaData("charset");
+        const QString charset = static_cast<KIO::Job *>(job)->queryMetaData(QStringLiteral("charset"));
         QTextCodec *codec = QTextCodec::codecForName(charset.toLatin1());
         if (!codec) {
             codec = QTextCodec::codecForUtfText(m_data);

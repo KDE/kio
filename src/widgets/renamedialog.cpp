@@ -119,7 +119,7 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
                            const QDateTime &mtimeDest)
     : QDialog(parent), d(new RenameDialogPrivate)
 {
-    setObjectName("KIO::RenameDialog");
+    setObjectName(QStringLiteral("KIO::RenameDialog"));
 
     d->src = _src;
     d->dest = _dest;

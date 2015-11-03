@@ -18,13 +18,13 @@ PreviewTest::PreviewTest()
     m_url = new QLineEdit(this);
 
     QString path;
-    KIconLoader().loadMimeTypeIcon("video-x-generic", KIconLoader::Desktop, 256,
+    KIconLoader().loadMimeTypeIcon(QStringLiteral("video-x-generic"), KIconLoader::Desktop, 256,
                                    KIconLoader::DefaultState, QStringList(),
                                    &path);
 
     m_url->setText(path);
     layout->addWidget(m_url, 0, 0);
-    QPushButton *btn = new QPushButton("Generate", this);
+    QPushButton *btn = new QPushButton(QStringLiteral("Generate"), this);
     connect(btn, SIGNAL(clicked()), SLOT(slotGenerate()));
     layout->addWidget(btn, 0, 1);
     m_preview = new QLabel(this);
@@ -57,7 +57,7 @@ void PreviewTest::slotPreview(const KFileItem &, const QPixmap &pix)
 void PreviewTest::slotFailed()
 {
     qDebug() << "PreviewTest::slotFailed()";
-    m_preview->setText("failed");
+    m_preview->setText(QStringLiteral("failed"));
 }
 
 int main(int argc, char **argv)

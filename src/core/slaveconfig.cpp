@@ -69,8 +69,8 @@ void SlaveConfigPrivate::readGlobalConfig()
 {
     global.clear();
     // Read stuff...
-    readConfig(KSharedConfig::openConfig().data(), "Socks", &global); // Socks settings.
-    global += KProtocolManager::entryMap("<default>");
+    readConfig(KSharedConfig::openConfig().data(), QStringLiteral("Socks"), &global); // Socks settings.
+    global += KProtocolManager::entryMap(QStringLiteral("<default>"));
 }
 
 SlaveConfigProtocol *SlaveConfigPrivate::readProtocolConfig(const QString &_protocol)
@@ -83,7 +83,7 @@ SlaveConfigProtocol *SlaveConfigPrivate::readProtocolConfig(const QString &_prot
         protocol.insert(_protocol, scp);
     }
     // Read global stuff...
-    readConfig(scp->configFile, "<default>", &(scp->global));
+    readConfig(scp->configFile, QStringLiteral("<default>"), &(scp->global));
     return scp;
 }
 
@@ -108,7 +108,7 @@ void SlaveConfigPrivate::readConfigProtocolHost(const QString &, SlaveConfigProt
     if (!domain.contains('.')) {
         // Host without domain.
         if (scp->configFile->hasGroup("<local>")) {
-            readConfig(scp->configFile, "<local>", &metaData);
+            readConfig(scp->configFile, QStringLiteral("<local>"), &metaData);
             scp->host.insert(host, metaData);
         }
     }

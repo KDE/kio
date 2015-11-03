@@ -81,7 +81,7 @@ ProxyScout::QueuedRequest::QueuedRequest(const QDBusMessage &reply, const QUrl &
 
 ProxyScout::ProxyScout(QObject *parent, const QList<QVariant> &)
     : KDEDModule(parent),
-      m_componentName("proxyscout"),
+      m_componentName(QStringLiteral("proxyscout")),
       m_downloader(0),
       m_script(0),
       m_suspendTime(0),
@@ -102,14 +102,14 @@ QStringList ProxyScout::proxiesForUrl(const QString &checkUrl, const QDBusMessag
 
     if (m_suspendTime) {
         if (std::time(0) - m_suspendTime < 300) {
-            return QStringList(QLatin1String("DIRECT"));
+            return QStringList(QStringLiteral("DIRECT"));
         }
         m_suspendTime = 0;
     }
 
     // Never use a proxy for the script itself
     if (m_downloader && url.matches(m_downloader->scriptUrl(), QUrl::StripTrailingSlash)) {
-        return QStringList(QLatin1String("DIRECT"));
+        return QStringList(QStringLiteral("DIRECT"));
     }
 
     if (m_script) {
@@ -122,7 +122,7 @@ QStringList ProxyScout::proxiesForUrl(const QString &checkUrl, const QDBusMessag
         return QStringList();   // return value will be ignored
     }
 
-    return QStringList(QLatin1String("DIRECT"));
+    return QStringList(QStringLiteral("DIRECT"));
 }
 
 QString ProxyScout::proxyForUrl(const QString &checkUrl, const QDBusMessage &msg)
@@ -131,14 +131,14 @@ QString ProxyScout::proxyForUrl(const QString &checkUrl, const QDBusMessage &msg
 
     if (m_suspendTime) {
         if (std::time(0) - m_suspendTime < 300) {
-            return QLatin1String("DIRECT");
+            return QStringLiteral("DIRECT");
         }
         m_suspendTime = 0;
     }
 
     // Never use a proxy for the script itself
     if (m_downloader && url.matches(m_downloader->scriptUrl(), QUrl::StripTrailingSlash)) {
-        return QLatin1String("DIRECT");
+        return QStringLiteral("DIRECT");
     }
 
     if (m_script) {
@@ -151,7 +151,7 @@ QString ProxyScout::proxyForUrl(const QString &checkUrl, const QDBusMessage &msg
         return QString();   // return value will be ignored
     }
 
-    return QLatin1String("DIRECT");
+    return QStringLiteral("DIRECT");
 }
 
 void ProxyScout::blackListProxy(const QString &proxy)
@@ -236,7 +236,7 @@ void ProxyScout::downloadResult(bool success)
         } catch (const Script::Error &e) {
             qWarning() << "Error:" << e.message();
 #ifdef HAVE_KF5NOTIFICATIONS
-            KNotification *notify = new KNotification("script-error");
+            KNotification *notify = new KNotification(QStringLiteral("script-error"));
             notify->setText(i18n("The proxy configuration script is invalid:\n%1", e.message()));
             notify->setComponentName(m_componentName);
             notify->sendEvent();
@@ -245,7 +245,7 @@ void ProxyScout::downloadResult(bool success)
         }
     } else {
 #ifdef HAVE_KF5NOTIFICATIONS
-        KNotification *notify = new KNotification("download-error");
+        KNotification *notify = new KNotification(QStringLiteral("download-error"));
         notify->setText(m_downloader->error());
         notify->setComponentName(m_componentName);
         notify->sendEvent();
@@ -264,7 +264,7 @@ void ProxyScout::downloadResult(bool success)
         }
     } else {
         for (RequestQueue::Iterator it = m_requestQueue.begin(), itEnd = m_requestQueue.end(); it != itEnd; ++it) {
-            QDBusConnection::sessionBus().send((*it).transaction.createReply(QString::fromLatin1("DIRECT")));
+            QDBusConnection::sessionBus().send((*it).transaction.createReply(QLatin1String("DIRECT")));
         }
     }
 
@@ -322,7 +322,7 @@ QStringList ProxyScout::handleRequest(const QUrl &url)
             if (type == Proxy || type == Socks) {
                 const int index = address.indexOf(QLatin1Char(':'));
                 if (index == -1 || !KProtocolInfo::isKnownProtocol(address.left(index))) {
-                    const QString protocol((type == Proxy ? QLatin1String("http://") : QLatin1String("socks://")));
+                    const QString protocol((type == Proxy ? QStringLiteral("http://") : QStringLiteral("socks://")));
                     const QUrl url(protocol + address);
                     if (url.isValid()) {
                         address = url.toString();
@@ -349,14 +349,14 @@ QStringList ProxyScout::handleRequest(const QUrl &url)
     } catch (const Script::Error &e) {
         qCritical() << e.message();
 #ifdef HAVE_KF5NOTIFICATIONS
-        KNotification *n = new KNotification("evaluation-error");
+        KNotification *n = new KNotification(QStringLiteral("evaluation-error"));
         n->setText(i18n("The proxy configuration script returned an error:\n%1", e.message()));
         n->setComponentName(m_componentName);
         n->sendEvent();
 #endif
     }
 
-    return QStringList(QLatin1String("DIRECT"));
+    return QStringList(QStringLiteral("DIRECT"));
 }
 }
 

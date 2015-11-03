@@ -37,10 +37,10 @@ KDirListerTest::KDirListerTest(QWidget *parent)
 
     QVBoxLayout *layout = new QVBoxLayout(this);
 
-    QPushButton *startH = new QPushButton("Start listing Home", this);
-    QPushButton *startR = new QPushButton("Start listing Root", this);
-    QPushButton *test = new QPushButton("Many", this);
-    QPushButton *startT = new QPushButton("tarfile", this);
+    QPushButton *startH = new QPushButton(QStringLiteral("Start listing Home"), this);
+    QPushButton *startR = new QPushButton(QStringLiteral("Start listing Root"), this);
+    QPushButton *test = new QPushButton(QStringLiteral("Many"), this);
+    QPushButton *startT = new QPushButton(QStringLiteral("tarfile"), this);
 
     layout->addWidget(startH);
     layout->addWidget(startR);
@@ -136,7 +136,7 @@ void KDirListerTest::test()
       lister->updateDirectory( QUrl::fromLocalFile("file:/usr/include") );
       lister->openUrl( QUrl::fromLocalFile("file:/usr/"), KDirLister::Keep | KDirLister::Reload );
     */
-    lister->openUrl(QUrl::fromLocalFile("file:/dev"), KDirLister::Keep | KDirLister::Reload);
+    lister->openUrl(QUrl::fromLocalFile(QStringLiteral("file:/dev")), KDirLister::Keep | KDirLister::Reload);
 #endif
 }
 
@@ -154,7 +154,7 @@ void KDirListerTest::completed()
 
 int main(int argc, char *argv[])
 {
-    QApplication::setApplicationName("kdirlistertest");
+    QApplication::setApplicationName(QStringLiteral("kdirlistertest"));
     QApplication app(argc, argv);
 
     KDirListerTest *test = new KDirListerTest(0);

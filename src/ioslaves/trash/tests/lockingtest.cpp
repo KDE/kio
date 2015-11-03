@@ -33,7 +33,7 @@ int main(int argc, char **argv)
 {
     QCoreApplication app(argc, argv);
 
-    KInterProcessLock lock("mytrash");
+    KInterProcessLock lock(QStringLiteral("mytrash"));
     qDebug("retrieve lock...");
     lock.lock();
     qDebug("waiting...");

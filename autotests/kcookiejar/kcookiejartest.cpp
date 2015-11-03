@@ -104,26 +104,26 @@ static void processCookie(QString &line)
     popArg(policy, line);
     KCookieAdvice expectedAdvice = KCookieJar::strToAdvice(policy);
     if (expectedAdvice == KCookieDunno) {
-        FAIL(QString("Unknown accept policy '%1'").arg(policy));
+        FAIL(QStringLiteral("Unknown accept policy '%1'").arg(policy));
     }
 
     QString urlStr;
     popArg(urlStr, line);
     QUrl url(urlStr);
     if (!url.isValid()) {
-        FAIL(QString("Invalid URL '%1'").arg(urlStr));
+        FAIL(QStringLiteral("Invalid URL '%1'").arg(urlStr));
     }
     if (url.isEmpty()) {
-        FAIL(QString("Missing URL"));
+        FAIL(QStringLiteral("Missing URL"));
     }
 
-    line.replace("%LASTYEAR%", *lastYear);
-    line.replace("%NEXTYEAR%", *nextYear);
+    line.replace(QLatin1String("%LASTYEAR%"), *lastYear);
+    line.replace(QLatin1String("%NEXTYEAR%"), *nextYear);
 
     KHttpCookieList list = jar->makeCookies(urlStr, line.toUtf8(), windowId);
 
     if (list.isEmpty()) {
-        FAIL(QString("Failed to make cookies from: '%1'").arg(line));
+        FAIL(QStringLiteral("Failed to make cookies from: '%1'").arg(line));
     }
 
     for (KHttpCookieList::iterator cookieIterator = list.begin();
@@ -131,7 +131,7 @@ static void processCookie(QString &line)
         KHttpCookie &cookie = *cookieIterator;
         const KCookieAdvice cookieAdvice = jar->cookieAdvice(cookie);
         if (cookieAdvice != expectedAdvice)
-            FAIL(urlStr + QString("\n'%2'\nGot advice '%3' expected '%4'").arg(line)
+            FAIL(urlStr + QStringLiteral("\n'%2'\nGot advice '%3' expected '%4'").arg(line)
                  .arg(KCookieJar::adviceToStr(cookieAdvice))
                  .arg(KCookieJar::adviceToStr(expectedAdvice)));
         jar->addCookie(cookie);
@@ -144,30 +144,30 @@ static void processCheck(QString &line)
     popArg(urlStr, line);
     QUrl url(urlStr);
     if (!url.isValid()) {
-        FAIL(QString("Invalid URL '%1'").arg(urlStr));
+        FAIL(QStringLiteral("Invalid URL '%1'").arg(urlStr));
     }
     if (url.isEmpty()) {
-        FAIL(QString("Missing URL"));
+        FAIL(QStringLiteral("Missing URL"));
     }
 
     QString expectedCookies = line;
 
     QString cookies = jar->findCookies(urlStr, false, windowId, 0).trimmed();
     if (cookies != expectedCookies)
-        FAIL(urlStr + QString("\nGot '%1' expected '%2'")
+        FAIL(urlStr + QStringLiteral("\nGot '%1' expected '%2'")
              .arg(cookies, expectedCookies));
 }
 
 static void processClear(QString &line)
 {
-    if (line == "CONFIG") {
+    if (line == QLatin1String("CONFIG")) {
         clearConfig();
-    } else if (line == "COOKIES") {
+    } else if (line == QLatin1String("COOKIES")) {
         clearCookies();
-    } else if (line == "SESSIONCOOKIES") {
+    } else if (line == QLatin1String("SESSIONCOOKIES")) {
         clearCookies(true);
     } else {
-        FAIL(QString("Unknown command 'CLEAR %1'").arg(line));
+        FAIL(QStringLiteral("Unknown command 'CLEAR %1'").arg(line));
     }
 }
 
@@ -177,7 +177,7 @@ static void processConfig(QString &line)
     popArg(key, line);
 
     if (key.isEmpty()) {
-        FAIL(QString("Missing Key"));
+        FAIL(QStringLiteral("Missing Key"));
     }
 
     KConfigGroup cg(config, "Cookie Policy");
@@ -204,20 +204,20 @@ static void processLine(QString line)
         return;
     }
 
-    if (command == "COOKIE") {
+    if (command == QLatin1String("COOKIE")) {
         processCookie(line);
-    } else if (command == "CHECK") {
+    } else if (command == QLatin1String("CHECK")) {
         processCheck(line);
-    } else if (command == "CLEAR") {
+    } else if (command == QLatin1String("CLEAR")) {
         processClear(line);
-    } else if (command == "CONFIG") {
+    } else if (command == QLatin1String("CONFIG")) {
         processConfig(line);
-    } else if (command == "SAVE") {
+    } else if (command == QLatin1String("SAVE")) {
         saveCookies();
-    } else if (command == "ENDSESSION") {
+    } else if (command == QLatin1String("ENDSESSION")) {
         endSession();
     } else {
-        FAIL(QString("Unknown command '%1'").arg(command));
+        FAIL(QStringLiteral("Unknown command '%1'").arg(command));
     }
 }
 
@@ -225,7 +225,7 @@ static void runRegression(const QString &filename)
 {
     FILE *file = QT_FOPEN(QFile::encodeName(filename).constData(), "r");
     if (!file) {
-        FAIL(QString("Can't open '%1'").arg(filename));
+        FAIL(QStringLiteral("Can't open '%1'").arg(filename));
     }
 
     char buf[4096];
@@ -298,10 +298,10 @@ private Q_SLOTS:
     {
         QTest::addColumn<QString>("fqdn");
         QTest::addColumn<QStringList>("expectedDomains");
-        QTest::newRow("empty") << "" << (QStringList() << "localhost");
-        QTest::newRow("ipv4") << "1.2.3.4" << (QStringList() << "1.2.3.4");
-        QTest::newRow("ipv6") << "[fe80::213:d3ff:fef4:8c92]" << (QStringList() << "[fe80::213:d3ff:fef4:8c92]");
-        QTest::newRow("bugs.kde.org") << "bugs.kde.org" << (QStringList() << "bugs.kde.org" << ".bugs.kde.org" << "kde.org" << ".kde.org");
+        QTest::newRow("empty") << "" << (QStringList() << QStringLiteral("localhost"));
+        QTest::newRow("ipv4") << "1.2.3.4" << (QStringList() << QStringLiteral("1.2.3.4"));
+        QTest::newRow("ipv6") << "[fe80::213:d3ff:fef4:8c92]" << (QStringList() << QStringLiteral("[fe80::213:d3ff:fef4:8c92]"));
+        QTest::newRow("bugs.kde.org") << "bugs.kde.org" << (QStringList() << QStringLiteral("bugs.kde.org") << QStringLiteral(".bugs.kde.org") << QStringLiteral("kde.org") << QStringLiteral(".kde.org"));
 
     }
     void testExtractDomains()

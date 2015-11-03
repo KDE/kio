@@ -490,15 +490,15 @@ KFilePreviewGenerator::Private::Private(KFilePreviewGenerator *parent,
 
     KConfigGroup globalConfig(KSharedConfig::openConfig(), "PreviewSettings");
     m_enabledPlugins = globalConfig.readEntry("Plugins", QStringList()
-                       << "directorythumbnail"
-                       << "imagethumbnail"
-                       << "jpegthumbnail");
+                       << QStringLiteral("directorythumbnail")
+                       << QStringLiteral("imagethumbnail")
+                       << QStringLiteral("jpegthumbnail"));
 
     // Compatibility update: in 4.7, jpegrotatedthumbnail was merged into (or
     // replaced with?) jpegthumbnail
-    if (m_enabledPlugins.contains(QLatin1String("jpegrotatedthumbnail"))) {
-        m_enabledPlugins.removeAll(QLatin1String("jpegrotatedthumbnail"));
-        m_enabledPlugins.append(QLatin1String("jpegthumbnail"));
+    if (m_enabledPlugins.contains(QStringLiteral("jpegrotatedthumbnail"))) {
+        m_enabledPlugins.removeAll(QStringLiteral("jpegrotatedthumbnail"));
+        m_enabledPlugins.append(QStringLiteral("jpegthumbnail"));
         globalConfig.writeEntry("Plugins", m_enabledPlugins);
         globalConfig.sync();
     }

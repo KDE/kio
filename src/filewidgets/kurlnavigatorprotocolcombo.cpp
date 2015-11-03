@@ -203,29 +203,29 @@ void KUrlNavigatorProtocolCombo::updateMenu()
 void KUrlNavigatorProtocolCombo::initializeCategories()
 {
     if (m_categories.isEmpty()) {
-        m_categories.insert("file", CoreCategory);
-        m_categories.insert("ftp", CoreCategory);
-        m_categories.insert("fish", CoreCategory);
-        m_categories.insert("nfs", CoreCategory);
-        m_categories.insert("sftp", CoreCategory);
-        m_categories.insert("smb", CoreCategory);
-        m_categories.insert("webdav", CoreCategory);
+        m_categories.insert(QStringLiteral("file"), CoreCategory);
+        m_categories.insert(QStringLiteral("ftp"), CoreCategory);
+        m_categories.insert(QStringLiteral("fish"), CoreCategory);
+        m_categories.insert(QStringLiteral("nfs"), CoreCategory);
+        m_categories.insert(QStringLiteral("sftp"), CoreCategory);
+        m_categories.insert(QStringLiteral("smb"), CoreCategory);
+        m_categories.insert(QStringLiteral("webdav"), CoreCategory);
 
-        m_categories.insert("desktop", PlacesCategory);
-        m_categories.insert("fonts", PlacesCategory);
-        m_categories.insert("programs", PlacesCategory);
-        m_categories.insert("settings", PlacesCategory);
-        m_categories.insert("trash", PlacesCategory);
+        m_categories.insert(QStringLiteral("desktop"), PlacesCategory);
+        m_categories.insert(QStringLiteral("fonts"), PlacesCategory);
+        m_categories.insert(QStringLiteral("programs"), PlacesCategory);
+        m_categories.insert(QStringLiteral("settings"), PlacesCategory);
+        m_categories.insert(QStringLiteral("trash"), PlacesCategory);
 
-        m_categories.insert("floppy", DevicesCategory);
-        m_categories.insert("camera", DevicesCategory);
-        m_categories.insert("remote", DevicesCategory);
+        m_categories.insert(QStringLiteral("floppy"), DevicesCategory);
+        m_categories.insert(QStringLiteral("camera"), DevicesCategory);
+        m_categories.insert(QStringLiteral("remote"), DevicesCategory);
 
-        m_categories.insert("svn", SubversionCategory);
-        m_categories.insert("svn+file", SubversionCategory);
-        m_categories.insert("svn+http", SubversionCategory);
-        m_categories.insert("svn+https", SubversionCategory);
-        m_categories.insert("svn+ssh", SubversionCategory);
+        m_categories.insert(QStringLiteral("svn"), SubversionCategory);
+        m_categories.insert(QStringLiteral("svn+file"), SubversionCategory);
+        m_categories.insert(QStringLiteral("svn+http"), SubversionCategory);
+        m_categories.insert(QStringLiteral("svn+https"), SubversionCategory);
+        m_categories.insert(QStringLiteral("svn+ssh"), SubversionCategory);
     }
 }
 

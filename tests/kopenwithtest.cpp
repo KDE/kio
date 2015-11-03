@@ -28,14 +28,14 @@
 
 int main(int argc, char **argv)
 {
-    QApplication::setApplicationName("kopenwithdialogtest");
+    QApplication::setApplicationName(QStringLiteral("kopenwithdialogtest"));
     QApplication app(argc, argv);
     QList<QUrl> list;
 
-    list += QUrl("file:///tmp/testfile.txt");
+    list += QUrl(QStringLiteral("file:///tmp/testfile.txt"));
 
     // Test with one URL
-    KOpenWithDialog *dlg = new KOpenWithDialog(list, "OpenWith_Text", "OpenWith_Value", 0);
+    KOpenWithDialog *dlg = new KOpenWithDialog(list, QStringLiteral("OpenWith_Text"), QStringLiteral("OpenWith_Value"), 0);
     if (dlg->exec()) {
         qDebug() << "Dialog ended successfully\ntext: " << dlg->text();
     } else {
@@ -44,8 +44,8 @@ int main(int argc, char **argv)
     delete dlg;
 
     // Test with two URLs
-    list += QUrl("http://www.kde.org/index.html");
-    dlg = new KOpenWithDialog(list, "OpenWith_Text", "OpenWith_Value", 0);
+    list += QUrl(QStringLiteral("http://www.kde.org/index.html"));
+    dlg = new KOpenWithDialog(list, QStringLiteral("OpenWith_Text"), QStringLiteral("OpenWith_Value"), 0);
     if (dlg->exec()) {
         qDebug() << "Dialog ended successfully\ntext: " << dlg->text();
     } else {
@@ -54,8 +54,8 @@ int main(int argc, char **argv)
     delete dlg;
 
     // Test with a mimetype
-    QString mimetype = "text/plain";
-    dlg = new KOpenWithDialog(mimetype, "kedit", 0);
+    QString mimetype = QStringLiteral("text/plain");
+    dlg = new KOpenWithDialog(mimetype, QStringLiteral("kedit"), 0);
     if (dlg->exec()) {
         qDebug() << "Dialog ended successfully\ntext: " << dlg->text();
     } else {

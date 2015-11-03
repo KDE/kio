@@ -105,11 +105,11 @@ KFilePlacesModel::KFilePlacesModel(QObject *parent)
         // (coles, 13th May 2009)
 
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              "Home", I18N_NOOP2("KFile System Bookmarks", "Home"),
-                                              QUrl::fromLocalFile(QDir::homePath()), "user-home");
+                                              QStringLiteral("Home"), I18N_NOOP2("KFile System Bookmarks", "Home"),
+                                              QUrl::fromLocalFile(QDir::homePath()), QStringLiteral("user-home"));
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              "Network", I18N_NOOP2("KFile System Bookmarks", "Network"),
-                                              QUrl("remote:/"), "network-workgroup");
+                                              QStringLiteral("Network"), I18N_NOOP2("KFile System Bookmarks", "Network"),
+                                              QUrl(QStringLiteral("remote:/")), QStringLiteral("network-workgroup"));
 #if defined(_WIN32_WCE)
         // adding drives
         foreach (const QFileInfo &info, QDir::drives()) {
@@ -120,12 +120,12 @@ KFilePlacesModel::KFilePlacesModel(QObject *parent)
         }
 #elif !defined(Q_OS_WIN)
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              "Root", I18N_NOOP2("KFile System Bookmarks", "Root"),
-                                              QUrl::fromLocalFile("/"), "folder-red");
+                                              QStringLiteral("Root"), I18N_NOOP2("KFile System Bookmarks", "Root"),
+                                              QUrl::fromLocalFile(QStringLiteral("/")), QStringLiteral("folder-red"));
 #endif
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              "Trash", I18N_NOOP2("KFile System Bookmarks", "Trash"),
-                                              QUrl("trash:/"), "user-trash");
+                                              QStringLiteral("Trash"), I18N_NOOP2("KFile System Bookmarks", "Trash"),
+                                              QUrl(QStringLiteral("trash:/")), QStringLiteral("user-trash"));
 
         // Force bookmarks to be saved. If on open/save dialog and the bookmarks are not saved, QFile::exists
         // will always return false, which opening/closing all the time the open/save dialog would case the
@@ -133,15 +133,15 @@ KFilePlacesModel::KFilePlacesModel(QObject *parent)
         d->bookmarkManager->saveAs(file);
     }
 
-    QString predicate("[[[[ StorageVolume.ignored == false AND [ StorageVolume.usage == 'FileSystem' OR StorageVolume.usage == 'Encrypted' ]]"
+    QString predicate(QStringLiteral("[[[[ StorageVolume.ignored == false AND [ StorageVolume.usage == 'FileSystem' OR StorageVolume.usage == 'Encrypted' ]]"
                       " OR "
                       "[ IS StorageAccess AND StorageDrive.driveType == 'Floppy' ]]"
                       " OR "
                       "OpticalDisc.availableContent & 'Audio' ]"
                       " OR "
-                      "StorageAccess.ignored == false ]");
+                      "StorageAccess.ignored == false ]"));
 
-    if (KProtocolInfo::isKnownProtocol("mtp")) {
+    if (KProtocolInfo::isKnownProtocol(QStringLiteral("mtp"))) {
         predicate.prepend("[");
         predicate.append(" OR PortableMediaPlayer.supportedProtocols == 'mtp']");
     }
@@ -431,8 +431,8 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
     QVector<QString> devices = availableDevices;
 
     while (!bookmark.isNull()) {
-        QString udi = bookmark.metaDataItem("UDI");
-        QString appName = bookmark.metaDataItem("OnlyInApp");
+        QString udi = bookmark.metaDataItem(QStringLiteral("UDI"));
+        QString appName = bookmark.metaDataItem(QStringLiteral("OnlyInApp"));
         auto it = std::find(devices.begin(), devices.end(), udi);
         bool deviceAvailable = (it != devices.end());
         if (it != devices.end()) {
@@ -500,14 +500,14 @@ Qt::ItemFlags KFilePlacesModel::flags(const QModelIndex &index) const
 
 static QString _k_internalMimetype(const KFilePlacesModel *const self)
 {
-    return QString("application/x-kfileplacesmodel-") + QString::number(reinterpret_cast<qptrdiff>(self));
+    return QStringLiteral("application/x-kfileplacesmodel-") + QString::number(reinterpret_cast<qptrdiff>(self));
 }
 
 QStringList KFilePlacesModel::mimeTypes() const
 {
     QStringList types;
 
-    types << _k_internalMimetype(this) << "text/uri-list";
+    types << _k_internalMimetype(this) << QStringLiteral("text/uri-list");
 
     return types;
 }
@@ -602,7 +602,7 @@ bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action
         // adjust if necessary.
         d->items.move(itemRow, itemRow < destRow ? (destRow - 1) : destRow);
         endMoveRows();
-    } else if (data->hasFormat("text/uri-list")) {
+    } else if (data->hasFormat(QStringLiteral("text/uri-list"))) {
         // The operation is an add
         const QList<QUrl> urls = KUrlMimeData::urlsFromMimeData(data);
 
@@ -614,7 +614,7 @@ bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action
 
             QString mimeString;
             if (!job->exec()) {
-                mimeString = QLatin1String("unknown");
+                mimeString = QStringLiteral("unknown");
             } else {
                 mimeString = job->mimetype();
             }
@@ -626,7 +626,7 @@ bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action
                 continue;
             }
 
-            if (!mimetype.inherits("inode/directory")) {
+            if (!mimetype.inherits(QStringLiteral("inode/directory"))) {
                 // Only directories are allowed
                 continue;
             }
@@ -665,7 +665,7 @@ void KFilePlacesModel::addPlace(const QString &text, const QUrl &url,
                          text, url, iconName);
 
     if (!appName.isEmpty()) {
-        bookmark.setMetaDataItem("OnlyInApp", appName);
+        bookmark.setMetaDataItem(QStringLiteral("OnlyInApp"), appName);
     }
 
     if (after.isValid()) {
@@ -698,7 +698,7 @@ void KFilePlacesModel::editPlace(const QModelIndex &index, const QString &text, 
     bookmark.setFullText(text);
     bookmark.setUrl(url);
     bookmark.setIcon(iconName);
-    bookmark.setMetaDataItem("OnlyInApp", appName);
+    bookmark.setMetaDataItem(QStringLiteral("OnlyInApp"), appName);
 
     d->reloadAndSignal();
     emit dataChanged(index, index);
@@ -740,7 +740,7 @@ void KFilePlacesModel::setPlaceHidden(const QModelIndex &index, bool hidden)
         return;
     }
 
-    bookmark.setMetaDataItem("IsHidden", (hidden ? "true" : "false"));
+    bookmark.setMetaDataItem(QStringLiteral("IsHidden"), (hidden ? "true" : "false"));
 
     d->reloadAndSignal();
     emit dataChanged(index, index);
@@ -782,16 +782,16 @@ QAction *KFilePlacesModel::teardownActionForIndex(const QModelIndex &index) cons
 
         QString iconName;
         QString text;
-        QString label = data(index, Qt::DisplayRole).toString().replace('&', "&&");
+        QString label = data(index, Qt::DisplayRole).toString().replace('&', QLatin1String("&&"));
 
         if (device.is<Solid::OpticalDisc>()) {
             text = i18n("&Release '%1'", label);
         } else if (removable || hotpluggable) {
             text = i18n("&Safely Remove '%1'", label);
-            iconName = "media-eject";
+            iconName = QStringLiteral("media-eject");
         } else {
             text = i18n("&Unmount '%1'", label);
-            iconName = "media-eject";
+            iconName = QStringLiteral("media-eject");
         }
 
         if (!iconName.isEmpty()) {
@@ -810,10 +810,10 @@ QAction *KFilePlacesModel::ejectActionForIndex(const QModelIndex &index) const
 
     if (device.is<Solid::OpticalDisc>()) {
 
-        QString label = data(index, Qt::DisplayRole).toString().replace('&', "&&");
+        QString label = data(index, Qt::DisplayRole).toString().replace('&', QLatin1String("&&"));
         QString text = i18n("&Eject '%1'", label);
 
-        return new QAction(QIcon::fromTheme("media-eject"), text, 0);
+        return new QAction(QIcon::fromTheme(QStringLiteral("media-eject")), text, 0);
     }
 
     return 0;
@@ -844,7 +844,7 @@ void KFilePlacesModel::requestEject(const QModelIndex &index)
 
         drive->eject();
     } else {
-        QString label = data(index, Qt::DisplayRole).toString().replace('&', "&&");
+        QString label = data(index, Qt::DisplayRole).toString().replace('&', QLatin1String("&&"));
         QString message = i18n("The device '%1' is not a disk and cannot be ejected.", label);
         emit errorMessage(message);
     }

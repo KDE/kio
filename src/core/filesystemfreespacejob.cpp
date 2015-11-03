@@ -70,8 +70,8 @@ void FileSystemFreeSpaceJob::slotFinished()
 {
     Q_D(FileSystemFreeSpaceJob);
 
-    KIO::filesize_t total = queryMetaData("total").toULongLong();
-    KIO::filesize_t available = queryMetaData("available").toULongLong();
+    KIO::filesize_t total = queryMetaData(QStringLiteral("total")).toULongLong();
+    KIO::filesize_t available = queryMetaData(QStringLiteral("available")).toULongLong();
 
     emit result(this, total, available);
 

@@ -113,7 +113,7 @@ void KDirListerTest::testOpenUrl()
     QVERIFY(m_dirLister.isFinished());
     disconnect(&m_dirLister, 0, this, 0);
 
-    const QString fileName = "toplevelfile_3";
+    const QString fileName = QStringLiteral("toplevelfile_3");
     const QUrl itemUrl = QUrl::fromLocalFile(path + fileName);
     KFileItem byName = m_dirLister.findByName(fileName);
     QVERIFY(!byName.isNull());
@@ -186,7 +186,7 @@ void KDirListerTest::testNewItems()
     QTest::qWait(1000); // We need a 1s timestamp difference on the dir, otherwise FAM won't notice anything.
 
     qDebug() << "Creating new file";
-    const QString fileName = "toplevelfile_new";
+    const QString fileName = QStringLiteral("toplevelfile_new");
     createSimpleFile(path + fileName);
 
     int numTries = 0;
@@ -224,7 +224,7 @@ void KDirListerTest::testNewItemByCopy()
 
     QTest::qWait(1000); // We need a 1s timestamp difference on the dir, otherwise FAM won't notice anything.
 
-    const QString fileName = "toplevelfile_copy";
+    const QString fileName = QStringLiteral("toplevelfile_copy");
     const QUrl itemUrl = QUrl::fromLocalFile(path + fileName);
     KIO::CopyJob *job = KIO::copyAs(QUrl::fromLocalFile(path + "toplevelfile_3"), itemUrl, KIO::HideProgressInfo);
     job->exec();
@@ -281,7 +281,7 @@ void KDirListerTest::testNewItemsInSymlink() // #213799
     QTest::qWait(1000); // We need a 1s timestamp difference on the dir, otherwise FAM won't notice anything.
 
     qDebug() << "Creating new file";
-    const QString fileName = "toplevelfile_newinlink";
+    const QString fileName = QStringLiteral("toplevelfile_newinlink");
     createSimpleFile(path + fileName);
 
 #if WORKAROUND_BROKEN_INOTIFY
@@ -292,7 +292,7 @@ void KDirListerTest::testNewItemsInSymlink() // #213799
     QTRY_COMPARE(m_items.count(), origItemCount + 1);
 
     // Now create an item using the symlink-path
-    const QString fileName2 = "toplevelfile_newinlink2";
+    const QString fileName2 = QStringLiteral("toplevelfile_newinlink2");
     {
         createSimpleFile(path + fileName2);
 
@@ -859,7 +859,7 @@ void KDirListerTest::testOpenUrlTwiceWithKeep()
 void KDirListerTest::testOpenAndStop()
 {
     m_items.clear();
-    const QString path = "/"; // better not use a directory that we already listed!
+    const QString path = QStringLiteral("/"); // better not use a directory that we already listed!
     connect(&m_dirLister, SIGNAL(newItems(KFileItemList)), this, SLOT(slotNewItems(KFileItemList)));
     m_dirLister.openUrl(QUrl::fromLocalFile(path), KDirLister::NoFlags);
     qDebug() << "Calling stop!";
@@ -1009,9 +1009,9 @@ void KDirListerTest::testRenameCurrentDirOpenUrl()
 void KDirListerTest::testRedirection()
 {
     m_items.clear();
-    const QUrl url("file://somemachine/");
+    const QUrl url(QStringLiteral("file://somemachine/"));
 
-    if (!KProtocolInfo::isKnownProtocol("smb")) {
+    if (!KProtocolInfo::isKnownProtocol(QStringLiteral("smb"))) {
         QSKIP("smb not installed");
     }
 

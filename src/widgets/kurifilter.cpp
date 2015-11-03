@@ -56,21 +56,21 @@ static QString lookupIconNameFor(const QUrl &url, KUriFilterData::UriTypes type)
         } else
             // not found, use default
         {
-            iconName = QLatin1String("system-run");
+            iconName = QStringLiteral("system-run");
         }
         break;
     }
     case KUriFilterData::Help: {
-        iconName = QLatin1String("khelpcenter");
+        iconName = QStringLiteral("khelpcenter");
         break;
     }
     case KUriFilterData::Shell: {
-        iconName = QLatin1String("konsole");
+        iconName = QStringLiteral("konsole");
         break;
     }
     case KUriFilterData::Error:
     case KUriFilterData::Blocked: {
-        iconName = QLatin1String("error");
+        iconName = QStringLiteral("error");
         break;
     }
     default:
@@ -655,11 +655,11 @@ bool KUriFilter::filterSearchUri(KUriFilterData &data, SearchFilterTypes types)
     QStringList filters;
 
     if (types & WebShortcutFilter) {
-        filters << "kurisearchfilter";
+        filters << QStringLiteral("kurisearchfilter");
     }
 
     if (types & NormalTextFilter) {
-        filters << "kuriikwsfilter";
+        filters << QStringLiteral("kuriikwsfilter");
     }
 
     return filterUri(data, filters);
@@ -672,7 +672,7 @@ QStringList KUriFilter::pluginNames() const
 
 void KUriFilter::loadPlugins()
 {
-    const KService::List offers = KServiceTypeTrader::self()->query("KUriFilter/Plugin");
+    const KService::List offers = KServiceTypeTrader::self()->query(QStringLiteral("KUriFilter/Plugin"));
 
     // NOTE: Plugin priority is determined by the InitialPreference entry in
     // the .desktop files, so the trader result is already sorted and should

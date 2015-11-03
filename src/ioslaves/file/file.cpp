@@ -169,8 +169,8 @@ int FileProtocol::setACL(const char *path, mode_t perm, bool directoryDefault)
     int ret = 0;
 #if HAVE_POSIX_ACL
 
-    const QString ACLString = metaData(QLatin1String("ACL_STRING"));
-    const QString defaultACLString = metaData(QLatin1String("DEFAULT_ACL_STRING"));
+    const QString ACLString = metaData(QStringLiteral("ACL_STRING"));
+    const QString defaultACLString = metaData(QStringLiteral("DEFAULT_ACL_STRING"));
     // Empty strings mean leave as is
     if (!ACLString.isEmpty()) {
         acl_t acl = 0;
@@ -268,7 +268,7 @@ void FileProtocol::mkdir(const QUrl &url, int permissions)
     // qDebug() << path << "permission=" << permissions;
 
     // Remove existing file or symlink, if requested (#151851)
-    if (metaData(QLatin1String("overwrite")) == QLatin1String("true")) {
+    if (metaData(QStringLiteral("overwrite")) == QLatin1String("true")) {
         QFile::remove(path);
     }
 
@@ -351,9 +351,9 @@ void FileProtocol::get(const QUrl &url)
 
     KIO::filesize_t processed_size = 0;
 
-    QString resumeOffset = metaData(QLatin1String("range-start"));
+    QString resumeOffset = metaData(QStringLiteral("range-start"));
     if (resumeOffset.isEmpty()) {
-        resumeOffset = metaData(QLatin1String("resume")); // old name
+        resumeOffset = metaData(QStringLiteral("resume")); // old name
     }
     if (!resumeOffset.isEmpty()) {
         bool ok;
@@ -694,7 +694,7 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
     }
 
     // set modification time
-    const QString mtimeStr = metaData(QLatin1String("modified"));
+    const QString mtimeStr = metaData(QStringLiteral("modified"));
     if (!mtimeStr.isEmpty()) {
         QDateTime dt = QDateTime::fromString(mtimeStr, Qt::ISODate);
         if (dt.isValid()) {
@@ -892,7 +892,7 @@ void FileProtocol::special(const QByteArray &data)
 
 static QStringList fallbackSystemPath()
 {
-    return QStringList() << QLatin1String("/sbin") << QLatin1String("/bin");
+    return QStringList() << QStringLiteral("/sbin") << QStringLiteral("/bin");
 }
 
 void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, const QString &_point)
@@ -948,9 +948,9 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
     bool fstype_empty = !_fstype || !*_fstype;
     QByteArray fstype = KShell::quoteArg(QString::fromLatin1(_fstype)).toLatin1(); // good guess
     QByteArray readonly = _ro ? "-r" : "";
-    QByteArray mountProg = QStandardPaths::findExecutable(QLatin1String("mount")).toLocal8Bit();
+    QByteArray mountProg = QStandardPaths::findExecutable(QStringLiteral("mount")).toLocal8Bit();
     if (mountProg.isEmpty()) {
-        mountProg = QStandardPaths::findExecutable(QLatin1String("mount"), fallbackSystemPath()).toLocal8Bit();
+        mountProg = QStandardPaths::findExecutable(QStringLiteral("mount"), fallbackSystemPath()).toLocal8Bit();
     }
     if (mountProg.isEmpty()) {
         error(KIO::ERR_CANNOT_MOUNT, i18n("Could not find program \"mount\""));
@@ -1122,9 +1122,9 @@ void FileProtocol::unmount(const QString &_point)
         return;
     }
 #else
-    QByteArray umountProg = QStandardPaths::findExecutable(QLatin1String("umount")).toLocal8Bit();
+    QByteArray umountProg = QStandardPaths::findExecutable(QStringLiteral("umount")).toLocal8Bit();
     if (umountProg.isEmpty()) {
-        umountProg = QStandardPaths::findExecutable(QLatin1String("umount"), fallbackSystemPath()).toLocal8Bit();
+        umountProg = QStandardPaths::findExecutable(QStringLiteral("umount"), fallbackSystemPath()).toLocal8Bit();
     }
     if (umountProg.isEmpty()) {
         error(KIO::ERR_CANNOT_UNMOUNT, i18n("Could not find program \"umount\""));
@@ -1156,9 +1156,9 @@ void FileProtocol::unmount(const QString &_point)
 bool FileProtocol::pmount(const QString &dev)
 {
 #ifndef _WIN32_WCE
-    QString pmountProg = QStandardPaths::findExecutable(QLatin1String("pmount"));
+    QString pmountProg = QStandardPaths::findExecutable(QStringLiteral("pmount"));
     if (pmountProg.isEmpty()) {
-        pmountProg = QStandardPaths::findExecutable(QLatin1String("pmount"), fallbackSystemPath());
+        pmountProg = QStandardPaths::findExecutable(QStringLiteral("pmount"), fallbackSystemPath());
     }
     if (pmountProg.isEmpty()) {
         return false;
@@ -1187,9 +1187,9 @@ bool FileProtocol::pumount(const QString &point)
         return false;
     }
 
-    QString pumountProg = QStandardPaths::findExecutable(QLatin1String("pumount"));
+    QString pumountProg = QStandardPaths::findExecutable(QStringLiteral("pumount"));
     if (pumountProg.isEmpty()) {
-        pumountProg = QStandardPaths::findExecutable(QLatin1String("pumount"), fallbackSystemPath());
+        pumountProg = QStandardPaths::findExecutable(QStringLiteral("pumount"), fallbackSystemPath());
     }
     if (pumountProg.isEmpty()) {
         return false;

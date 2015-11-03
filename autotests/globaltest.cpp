@@ -82,15 +82,15 @@ void GlobalTest::testSuggestName_data()
     QTest::addColumn<QString>("expectedOutput");
 
     QTest::newRow("non-existing") << "foobar" << QStringList() << "foobar (1)";
-    QTest::newRow("existing") << "foobar" << QStringList("foobar") << "foobar (1)";
-    QTest::newRow("existing_1") << "foobar" << (QStringList() << "foobar" << "foobar (1)") << "foobar (2)";
+    QTest::newRow("existing") << "foobar" << QStringList(QStringLiteral("foobar")) << "foobar (1)";
+    QTest::newRow("existing_1") << "foobar" << (QStringList() << QStringLiteral("foobar") << QStringLiteral("foobar (1)")) << "foobar (2)";
     QTest::newRow("extension") << "foobar.txt" << QStringList() << "foobar (1).txt";
-    QTest::newRow("extension_exists") << "foobar.txt" << (QStringList() << "foobar.txt") << "foobar (1).txt";
-    QTest::newRow("extension_exists_1") << "foobar.txt" << (QStringList() << "foobar.txt" << "foobar (1).txt") << "foobar (2).txt";
+    QTest::newRow("extension_exists") << "foobar.txt" << (QStringList() << QStringLiteral("foobar.txt")) << "foobar (1).txt";
+    QTest::newRow("extension_exists_1") << "foobar.txt" << (QStringList() << QStringLiteral("foobar.txt") << QStringLiteral("foobar (1).txt")) << "foobar (2).txt";
     QTest::newRow("two_extensions") << "foobar.tar.gz" << QStringList() << "foobar (1).tar.gz";
-    QTest::newRow("two_extensions_exists") << "foobar.tar.gz" << (QStringList() << "foobar.tar.gz") << "foobar (1).tar.gz";
-    QTest::newRow("two_extensions_exists_1") << "foobar.tar.gz" << (QStringList() << "foobar.tar.gz" << "foobar (1).tar.gz") << "foobar (2).tar.gz";
-    QTest::newRow("with_space") << "foo bar" << QStringList("foo bar") << "foo bar (1)";
+    QTest::newRow("two_extensions_exists") << "foobar.tar.gz" << (QStringList() << QStringLiteral("foobar.tar.gz")) << "foobar (1).tar.gz";
+    QTest::newRow("two_extensions_exists_1") << "foobar.tar.gz" << (QStringList() << QStringLiteral("foobar.tar.gz") << QStringLiteral("foobar (1).tar.gz")) << "foobar (2).tar.gz";
+    QTest::newRow("with_space") << "foo bar" << QStringList(QStringLiteral("foo bar")) << "foo bar (1)";
     QTest::newRow("dot_at_beginning") << ".aFile.tar.gz" << QStringList() << ".aFile (1).tar.gz";
     QTest::newRow("dots_at_beginning") << "..aFile.tar.gz" << QStringList() << "..aFile (1).tar.gz";
     QTest::newRow("empty_basename") << ".txt" << QStringList() << ". (1).txt";

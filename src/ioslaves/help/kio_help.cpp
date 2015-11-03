@@ -49,17 +49,17 @@ QString HelpProtocol::langLookup(const QString &fname)
     QStringList search;
 
     // assemble the local search paths
-    const QStringList localDoc = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "doc/HTML", QStandardPaths::LocateDirectory);
+    const QStringList localDoc = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("doc/HTML"), QStandardPaths::LocateDirectory);
 
     QStringList langs = QLocale().uiLanguages();
-    langs.append("en");
-    langs.removeAll("C");
+    langs.append(QStringLiteral("en"));
+    langs.removeAll(QStringLiteral("C"));
 
     // this is kind of compat hack as we install our docs in en/ but the
     // default language is en_US
     for (QStringList::Iterator it = langs.begin(); it != langs.end(); ++it)
-        if (*it == "en_US") {
-            *it = "en";
+        if (*it == QLatin1String("en_US")) {
+            *it = QStringLiteral("en");
         }
 
     // look up the different languages
@@ -67,7 +67,7 @@ QString HelpProtocol::langLookup(const QString &fname)
     for (int id = 0; id < ldCount; id++) {
         QStringList::ConstIterator lang;
         for (lang = langs.constBegin(); lang != langs.constEnd(); ++lang) {
-            search.append(QString("%1/%2/%3").arg(localDoc[id], *lang, fname));
+            search.append(QStringLiteral("%1/%2/%3").arg(localDoc[id], *lang, fname));
         }
     }
 
@@ -105,17 +105,17 @@ QString HelpProtocol::lookupFile(const QString &fname,
         result = langLookup(path + "/index.html");
         if (!result.isEmpty()) {
             QUrl red;
-            red.setScheme("help");
+            red.setScheme(QStringLiteral("help"));
             red.setPath(path + "/index.html");
             red.setQuery(query);
             redirection(red);
             //qDebug() << "redirect to " << red;
             redirect = true;
         } else {
-            const QString documentationNotFound = "kioslave5/help/documentationnotfound/index.html";
+            const QString documentationNotFound = QStringLiteral("kioslave5/help/documentationnotfound/index.html");
             if (!langLookup(documentationNotFound).isEmpty()) {
                 QUrl red;
-                red.setScheme("help");
+                red.setScheme(QStringLiteral("help"));
                 red.setPath(documentationNotFound);
                 red.setQuery(query);
                 redirection(red);
@@ -139,7 +139,7 @@ void HelpProtocol::unicodeError(const QString &t)
 #else
     QString encoding = QTextCodec::codecForLocale()->name();
 #endif
-    data(fromUnicode(QString(
+    data(fromUnicode(QStringLiteral(
                          "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=%1\"></head>\n"
                          "%2</html>").arg(encoding, t.toHtmlEscaped())));
 
@@ -160,7 +160,7 @@ void HelpProtocol::get(const QUrl &url)
 
     bool redirect;
     QString doc = QDir::cleanPath(url.path());
-    if (doc.contains("..")) {
+    if (doc.contains(QStringLiteral(".."))) {
         error(KIO::ERR_DOES_NOT_EXIST, url.toString());
         return;
     }
@@ -171,7 +171,7 @@ void HelpProtocol::get(const QUrl &url)
         }
 
         if (doc.endsWith('/')) {
-            doc += "index.html";
+            doc += QLatin1String("index.html");
         }
     }
 
@@ -191,7 +191,7 @@ void HelpProtocol::get(const QUrl &url)
         return;
     }
 
-    mimeType("text/html");
+    mimeType(QStringLiteral("text/html"));
     QUrl target;
     target.setPath(doc);
     if (url.hasFragment()) {
@@ -229,7 +229,7 @@ void HelpProtocol::get(const QUrl &url)
     infoMessage(i18n("Preparing document"));
 
     if (mGhelp) {
-        QString xsl = "customization/kde-nochunk.xsl";
+        QString xsl = QStringLiteral("customization/kde-nochunk.xsl");
         mParsed = transform(file, locateFileInDtdResource(xsl));
 
         //qDebug() << "parsed " << mParsed.length();
@@ -237,11 +237,11 @@ void HelpProtocol::get(const QUrl &url)
         if (mParsed.isEmpty()) {
             unicodeError(i18n("The requested help file could not be parsed:<br />%1",  file));
         } else {
-            int pos1 = mParsed.indexOf("charset=");
+            int pos1 = mParsed.indexOf(QStringLiteral("charset="));
             if (pos1 > 0) {
                 int pos2 = mParsed.indexOf('"', pos1);
                 if (pos2 > 0) {
-                    mParsed.replace(pos1, pos2 - pos1, "charset=UTF-8");
+                    mParsed.replace(pos1, pos2 - pos1, QStringLiteral("charset=UTF-8"));
                 }
             }
             data(mParsed.toUtf8());
@@ -255,7 +255,7 @@ void HelpProtocol::get(const QUrl &url)
         //qDebug() << "cached parsed " << mParsed.length();
 
         if (mParsed.isEmpty()) {
-            mParsed = transform(file, locateFileInDtdResource("customization/kde-chunk.xsl"));
+            mParsed = transform(file, locateFileInDtdResource(QStringLiteral("customization/kde-chunk.xsl")));
             if (!mParsed.isEmpty()) {
                 infoMessage(i18n("Saving to cache"));
 #ifdef Q_OS_WIN
@@ -306,15 +306,15 @@ void HelpProtocol::get(const QUrl &url)
             if (!anchor.isEmpty()) {
                 int index = 0;
                 while (true) {
-                    index = mParsed.indexOf(QRegExp("<a name="), index);
+                    index = mParsed.indexOf(QRegExp(QStringLiteral("<a name=")), index);
                     if (index == -1) {
                         //qDebug() << "no anchor\n";
                         break; // use whatever is the target, most likely index.html
                     }
 
                     if (mParsed.mid(index, 11 + anchor.length()).toLower() ==
-                            QString("<a name=\"%1\">").arg(anchor)) {
-                        index = mParsed.lastIndexOf("<FILENAME filename=", index) +
+                            QStringLiteral("<a name=\"%1\">").arg(anchor)) {
+                        index = mParsed.lastIndexOf(QLatin1String("<FILENAME filename="), index) +
                                 strlen("<FILENAME filename=\"");
                         QString filename = mParsed.mid(index, 2000);
                         filename = filename.left(filename.indexOf('\"'));
@@ -340,9 +340,9 @@ void HelpProtocol::emitFile(const QUrl &url)
 
     QString filename = url.path().mid(url.path().lastIndexOf('/') + 1);
 
-    int index = mParsed.indexOf(QString("<FILENAME filename=\"%1\"").arg(filename));
+    int index = mParsed.indexOf(QStringLiteral("<FILENAME filename=\"%1\"").arg(filename));
     if (index == -1) {
-        if (filename == "index.html") {
+        if (filename == QLatin1String("index.html")) {
             data(fromUnicode(mParsed));
             return;
         }
@@ -360,7 +360,7 @@ void HelpProtocol::emitFile(const QUrl &url)
 
 void HelpProtocol::mimetype(const QUrl &)
 {
-    mimeType("text/html");
+    mimeType(QStringLiteral("text/html"));
     finished();
 }
 

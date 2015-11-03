@@ -110,7 +110,7 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
                 // (Some programs rely on it)
                 QString krun_writable = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + "/krun/";
                 QDir().mkpath(krun_writable); // error handling will be done by the job
-                QString tmp = krun_writable + QString("%1_%2_%3").arg(QCoreApplication::applicationPid()).arg(jobCounter++).arg(fileName);
+                QString tmp = krun_writable + QStringLiteral("%1_%2_%3").arg(QCoreApplication::applicationPid()).arg(jobCounter++).arg(fileName);
                 FileInfo file;
                 file.path = tmp;
                 file.url = url;
@@ -183,7 +183,7 @@ void KIOExec::slotRunApp()
         return;
     }
 
-    KService service("dummy", command, QString());
+    KService service(QStringLiteral("dummy"), command, QString());
 
     QList<QUrl> list;
     // Store modification times
@@ -199,7 +199,7 @@ void KIOExec::slotRunApp()
     KIO::DesktopExecParser execParser(service, list);
     QStringList params = execParser.resultingArguments();
 
-    qDebug() << "EXEC " << params.join(" ");
+    qDebug() << "EXEC " << params.join(QStringLiteral(" "));
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 4, 0))
     // propagate the startup identification to the started process
@@ -273,23 +273,23 @@ void KIOExec::slotRunApp()
 int main( int argc, char **argv )
 {
     QApplication app( argc, argv);
-    KAboutData aboutData( "kioexec", i18n("KIOExec"), KIO_VERSION_STRING,
+    KAboutData aboutData( QStringLiteral("kioexec"), i18n("KIOExec"), KIO_VERSION_STRING,
          i18n(description), KAboutLicense::GPL,
          i18n("(c) 1998-2000,2003 The KFM/Konqueror Developers"));
-    aboutData.addAuthor(i18n("David Faure"),QString(), "faure@kde.org");
-    aboutData.addAuthor(i18n("Stephan Kulow"),QString(), "coolo@kde.org");
-    aboutData.addAuthor(i18n("Bernhard Rosenkraenzer"),QString(), "bero@arklinux.org");
-    aboutData.addAuthor(i18n("Waldo Bastian"),QString(), "bastian@kde.org");
-    aboutData.addAuthor(i18n("Oswald Buddenhagen"),QString(), "ossi@kde.org");
+    aboutData.addAuthor(i18n("David Faure"),QString(), QStringLiteral("faure@kde.org"));
+    aboutData.addAuthor(i18n("Stephan Kulow"),QString(), QStringLiteral("coolo@kde.org"));
+    aboutData.addAuthor(i18n("Bernhard Rosenkraenzer"),QString(), QStringLiteral("bero@arklinux.org"));
+    aboutData.addAuthor(i18n("Waldo Bastian"),QString(), QStringLiteral("bastian@kde.org"));
+    aboutData.addAuthor(i18n("Oswald Buddenhagen"),QString(), QStringLiteral("ossi@kde.org"));
     KAboutData::setApplicationData(aboutData);
 
     QCommandLineParser parser;
     parser.addHelpOption();
     parser.addVersionOption();
-    parser.addOption(QCommandLineOption(QStringList() << "tempfiles" , i18n("Treat URLs as local files and delete them afterwards")));
-    parser.addOption(QCommandLineOption(QStringList() << "suggestedfilename <file name>" , i18n("Suggested file name for the downloaded file")));
-    parser.addPositionalArgument("command", i18n("Command to execute"));
-    parser.addPositionalArgument("urls", i18n("URL(s) or local file(s) used for 'command'"));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("tempfiles") , i18n("Treat URLs as local files and delete them afterwards")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("suggestedfilename <file name>") , i18n("Suggested file name for the downloaded file")));
+    parser.addPositionalArgument(QStringLiteral("command"), i18n("Command to execute"));
+    parser.addPositionalArgument(QStringLiteral("urls"), i18n("URL(s) or local file(s) used for 'command'"));
 
     app.setQuitOnLastWindowClosed(false);
 

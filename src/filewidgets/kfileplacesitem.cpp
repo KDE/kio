@@ -48,11 +48,11 @@ KFilePlacesItem::KFilePlacesItem(KBookmarkManager *manager,
 {
     setBookmark(m_manager->findByAddress(address));
 
-    if (udi.isEmpty() && m_bookmark.metaDataItem("ID").isEmpty()) {
-        m_bookmark.setMetaDataItem("ID", generateNewId());
+    if (udi.isEmpty() && m_bookmark.metaDataItem(QStringLiteral("ID")).isEmpty()) {
+        m_bookmark.setMetaDataItem(QStringLiteral("ID"), generateNewId());
     } else if (udi.isEmpty()) {
         if (isTrash(m_bookmark)) {
-            KConfig cfg(QString::fromLatin1("trashrc"), KConfig::SimpleConfig);
+            KConfig cfg(QLatin1String("trashrc"), KConfig::SimpleConfig);
             const KConfigGroup group = cfg.group("Status");
             m_folderIsEmpty = group.readEntry("Empty", true);
         }
@@ -78,15 +78,15 @@ KFilePlacesItem::~KFilePlacesItem()
 QString KFilePlacesItem::id() const
 {
     if (isDevice()) {
-        return bookmark().metaDataItem("UDI");
+        return bookmark().metaDataItem(QStringLiteral("UDI"));
     } else {
-        return bookmark().metaDataItem("ID");
+        return bookmark().metaDataItem(QStringLiteral("ID"));
     }
 }
 
 bool KFilePlacesItem::isDevice() const
 {
-    return !bookmark().metaDataItem("UDI").isEmpty();
+    return !bookmark().metaDataItem(QStringLiteral("UDI")).isEmpty();
 }
 
 KBookmark KFilePlacesItem::bookmark() const
@@ -98,7 +98,7 @@ void KFilePlacesItem::setBookmark(const KBookmark &bookmark)
 {
     m_bookmark = bookmark;
 
-    if (bookmark.metaDataItem("isSystemItem") == "true") {
+    if (bookmark.metaDataItem(QStringLiteral("isSystemItem")) == QLatin1String("true")) {
         // This context must stay as it is - the translated system bookmark names
         // are created with 'KFile System Bookmarks' as their context, so this
         // ensures the right string is picked from the catalog.
@@ -113,7 +113,7 @@ void KFilePlacesItem::setBookmark(const KBookmark &bookmark)
 Solid::Device KFilePlacesItem::device() const
 {
     if (m_device.udi().isEmpty()) {
-        m_device = Solid::Device(bookmark().metaDataItem("UDI"));
+        m_device = Solid::Device(bookmark().metaDataItem(QStringLiteral("UDI")));
         if (m_device.isValid()) {
             m_access = m_device.as<Solid::StorageAccess>();
             m_volume = m_device.as<Solid::StorageVolume>();
@@ -156,7 +156,7 @@ QVariant KFilePlacesItem::bookmarkData(int role) const
     case Qt::DecorationRole:
         return QIcon::fromTheme(iconNameForBookmark(b));
     case Qt::BackgroundRole:
-        if (b.metaDataItem("IsHidden") == "true") {
+        if (b.metaDataItem(QStringLiteral("IsHidden")) == QLatin1String("true")) {
             return QColor(Qt::lightGray);
         } else {
             return QVariant();
@@ -166,7 +166,7 @@ QVariant KFilePlacesItem::bookmarkData(int role) const
     case KFilePlacesModel::SetupNeededRole:
         return false;
     case KFilePlacesModel::HiddenRole:
-        return b.metaDataItem("IsHidden") == "true";
+        return b.metaDataItem(QStringLiteral("IsHidden")) == QLatin1String("true");
     default:
         return QVariant();
     }
@@ -190,14 +190,14 @@ QVariant KFilePlacesItem::deviceData(int role) const
                 Solid::Block *block = d.as<Solid::Block>();
                 if (block) {
                     QString device = block->device();
-                    return QUrl(QString("audiocd:/?device=%1").arg(device));
+                    return QUrl(QStringLiteral("audiocd:/?device=%1").arg(device));
                 }
                 // We failed to get the block device. Assume audiocd:/ can
                 // figure it out, but cannot handle multiple disc drives.
                 // See https://bugs.kde.org/show_bug.cgi?id=314544#c40
-                return QUrl(QString("audiocd:/"));
+                return QUrl(QStringLiteral("audiocd:/"));
             } else if (m_mtp) {
-                return QUrl(QString("mtp:udi=%1").arg(d.udi()));
+                return QUrl(QStringLiteral("mtp:udi=%1").arg(d.udi()));
             } else {
                 return QVariant();
             }
@@ -247,11 +247,11 @@ KBookmark KFilePlacesItem::createBookmark(KBookmarkManager *manager,
         if (empty_icon.endsWith(QLatin1String("-full"))) {
             empty_icon.chop(5);
         } else if (empty_icon.isEmpty()) {
-            empty_icon = "user-trash";
+            empty_icon = QStringLiteral("user-trash");
         }
     }
     KBookmark bookmark = root.addBookmark(label, url, empty_icon);
-    bookmark.setMetaDataItem("ID", generateNewId());
+    bookmark.setMetaDataItem(QStringLiteral("ID"), generateNewId());
 
     if (after) {
         root.moveBookmark(bookmark, after->bookmark());
@@ -271,7 +271,7 @@ KBookmark KFilePlacesItem::createSystemBookmark(KBookmarkManager *manager,
 
     KBookmark bookmark = createBookmark(manager, untranslatedLabel, url, iconName);
     if (!bookmark.isNull()) {
-        bookmark.setMetaDataItem("isSystemItem", "true");
+        bookmark.setMetaDataItem(QStringLiteral("isSystemItem"), QStringLiteral("true"));
     }
     return bookmark;
 }
@@ -284,8 +284,8 @@ KBookmark KFilePlacesItem::createDeviceBookmark(KBookmarkManager *manager,
         return KBookmark();
     }
     KBookmark bookmark = root.createNewSeparator();
-    bookmark.setMetaDataItem("UDI", udi);
-    bookmark.setMetaDataItem("isSystemItem", "true");
+    bookmark.setMetaDataItem(QStringLiteral("UDI"), udi);
+    bookmark.setMetaDataItem(QStringLiteral("isSystemItem"), QStringLiteral("true"));
     return bookmark;
 }
 

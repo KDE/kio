@@ -31,14 +31,14 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 static void callKded(const QString &arg1, const QString &arg2)
 {
-    QDBusInterface iface("org.kde.kded5", "/kded", "org.kde.kded5");
+    QDBusInterface iface(QStringLiteral("org.kde.kded5"), QStringLiteral("/kded"), QStringLiteral("org.kde.kded5"));
     iface.call(arg1, arg2);
 }
 
 int main(int argc, char *argv[])
 {
     QCoreApplication app(argc, argv);
-    app.setApplicationVersion("1.0");
+    app.setApplicationVersion(QStringLiteral("1.0"));
     KLocalizedString::setApplicationDomain("kio5");
 
     QString description = QCoreApplication::translate("main", "HTTP Cookie Daemon");
@@ -47,26 +47,26 @@ int main(int argc, char *argv[])
     parser.addVersionOption();
     parser.setApplicationDescription(description);
     parser.addHelpOption();
-    parser.addOption(QCommandLineOption(QStringList() << "shutdown", QCoreApplication::translate("main", "Shut down cookie jar")));
-    parser.addOption(QCommandLineOption(QStringList() << "remove", QCoreApplication::translate("main", "Remove cookies for domain"), "domain"));
-    parser.addOption(QCommandLineOption(QStringList() << "remove-all", QCoreApplication::translate("main", "Remove all cookies")));
-    parser.addOption(QCommandLineOption(QStringList() << "reload-config", QCoreApplication::translate("main", "Reload configuration file")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("shutdown"), QCoreApplication::translate("main", "Shut down cookie jar")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("remove"), QCoreApplication::translate("main", "Remove cookies for domain"), QStringLiteral("domain")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("remove-all"), QCoreApplication::translate("main", "Remove all cookies")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("reload-config"), QCoreApplication::translate("main", "Reload configuration file")));
     parser.process(app);
 
-    org::kde::KCookieServer *kcookiejar = new org::kde::KCookieServer("org.kde.kded5", "/modules/kcookiejar", QDBusConnection::sessionBus());
-    if (parser.isSet("remove-all")) {
+    org::kde::KCookieServer *kcookiejar = new org::kde::KCookieServer(QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/kcookiejar"), QDBusConnection::sessionBus());
+    if (parser.isSet(QStringLiteral("remove-all"))) {
         kcookiejar->deleteAllCookies();
     }
-    if (parser.isSet("remove")) {
-        QString domain = parser.value("remove");
+    if (parser.isSet(QStringLiteral("remove"))) {
+        QString domain = parser.value(QStringLiteral("remove"));
         kcookiejar->deleteCookiesFromDomain(domain);
     }
-    if (parser.isSet("shutdown")) {
-        callKded("unloadModule", "kcookiejar");
-    } else if (parser.isSet("reload-config")) {
+    if (parser.isSet(QStringLiteral("shutdown"))) {
+        callKded(QStringLiteral("unloadModule"), QStringLiteral("kcookiejar"));
+    } else if (parser.isSet(QStringLiteral("reload-config"))) {
         kcookiejar->reloadPolicy();
     } else {
-        callKded("loadModule", "kcookiejar");
+        callKded(QStringLiteral("loadModule"), QStringLiteral("kcookiejar"));
     }
     delete kcookiejar;
 

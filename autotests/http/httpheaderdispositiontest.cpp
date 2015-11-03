@@ -112,10 +112,10 @@ void HeaderDispositionTest::runAllTests_data()
     QTest::newRow("greenbytes-attwithfntokensq") << "attachment; filename='foo.bar'" <<
             QByteArray("type\tattachment\n"
                        "filename\t'foo.bar'");
-    QTest::newRow("greenbytes-attwithisofnplain-x") << QString::fromLatin1("attachment; filename=\"foo-\xe4.html\"") <<
+    QTest::newRow("greenbytes-attwithisofnplain-x") << QStringLiteral("attachment; filename=\"foo-\xe4.html\"") <<
             QByteArray("type\tattachment\n"
                        "filename\tfoo-ä.html");
-    QTest::newRow("greenbytes-attwithisofnplain") << QString::fromLatin1("attachment; filename=\"foo-ä.html\"") <<
+    QTest::newRow("greenbytes-attwithisofnplain") << QStringLiteral("attachment; filename=\"foo-ä.html\"") <<
             QByteArray("type\tattachment\n"
                        "filename\tfoo-Ã¤.html");
     QTest::newRow("greenbytes-attwithfnrawpctenca") << "attachment; filename=\"foo-%41.html\"" <<
@@ -130,7 +130,7 @@ void HeaderDispositionTest::runAllTests_data()
     QTest::newRow("greenbytes-attwithnamepct") << "attachment; name=\"foo-%41.html\"" <<
             QByteArray("type\tattachment\n"
                        "name\tfoo-%41.html");
-    QTest::newRow("greenbytes-attwithfilenamepctandiso") << QString::fromLatin1("attachment; filename=\"\xe4-%41.html\"") <<
+    QTest::newRow("greenbytes-attwithfilenamepctandiso") << QStringLiteral("attachment; filename=\"\xe4-%41.html\"") <<
             QByteArray("type\tattachment\n"
                        "filename\tä-%41.html");
     QTest::newRow("greenbytes-attwithfnrawpctenclong") << "attachment; filename=\"foo-%c3%a4-%e2%82%ac.html\"" <<

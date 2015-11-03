@@ -564,7 +564,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     }
 
     QModelIndex index = indexAt(event->pos());
-    QString label = placesModel->text(index).replace('&', "&&");
+    QString label = placesModel->text(index).replace('&', QLatin1String("&&"));
 
     QMenu menu;
 
@@ -579,14 +579,14 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     if (index.isValid()) {
         if (!placesModel->isDevice(index)) {
             if (placesModel->url(index).toString() == QLatin1String("trash:/")) {
-                emptyTrash = menu.addAction(QIcon::fromTheme("trash-empty"), i18nc("@action:inmenu", "Empty Trash"));
-                KConfig trashConfig("trashrc", KConfig::SimpleConfig);
+                emptyTrash = menu.addAction(QIcon::fromTheme(QStringLiteral("trash-empty")), i18nc("@action:inmenu", "Empty Trash"));
+                KConfig trashConfig(QStringLiteral("trashrc"), KConfig::SimpleConfig);
                 emptyTrash->setEnabled(!trashConfig.group("Status").readEntry("Empty", true));
                 menu.addSeparator();
             }
-            add = menu.addAction(QIcon::fromTheme("document-new"), i18n("Add Entry..."));
+            add = menu.addAction(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Add Entry..."));
             mainSeparator = menu.addSeparator();
-            edit = menu.addAction(QIcon::fromTheme("document-properties"), i18n("&Edit Entry '%1'...", label));
+            edit = menu.addAction(QIcon::fromTheme(QStringLiteral("document-properties")), i18n("&Edit Entry '%1'...", label));
         } else {
             eject = placesModel->ejectActionForIndex(index);
             if (eject != 0) {
@@ -605,14 +605,14 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             }
         }
         if (add == 0) {
-            add = menu.addAction(QIcon::fromTheme("document-new"), i18n("Add Entry..."));
+            add = menu.addAction(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Add Entry..."));
         }
 
         hide = menu.addAction(i18n("&Hide Entry '%1'", label));
         hide->setCheckable(true);
         hide->setChecked(placesModel->isHidden(index));
     } else {
-        add = menu.addAction(QIcon::fromTheme("document-new"), i18n("Add Entry..."));
+        add = menu.addAction(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Add Entry..."));
     }
 
     QAction *showAll = 0;
@@ -628,7 +628,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
 
     QAction *remove = 0;
     if (index.isValid() && !placesModel->isDevice(index)) {
-        remove = menu.addAction(QIcon::fromTheme("edit-delete"), i18n("&Remove Entry '%1'", label));
+        remove = menu.addAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("&Remove Entry '%1'", label));
     }
 
     menu.addActions(actions());
@@ -653,7 +653,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         QUrl url = bookmark.url();
         QString label = bookmark.text();
         QString iconName = bookmark.icon();
-        bool appLocal = !bookmark.metaDataItem("OnlyInApp").isEmpty();
+        bool appLocal = !bookmark.metaDataItem(QStringLiteral("OnlyInApp")).isEmpty();
 
         if (KFilePlaceEditDialog::getInformation(true, url, label,
                 iconName, false, appLocal, 64, this)) {
@@ -688,7 +688,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     } else if (add != 0 && result == add) {
         QUrl url = d->currentUrl;
         QString label;
-        QString iconName = "folder";
+        QString iconName = QStringLiteral("folder");
         bool appLocal = true;
         if (KFilePlaceEditDialog::getInformation(true, url, label,
                 iconName, true, appLocal, 64, this)) {

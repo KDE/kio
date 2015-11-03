@@ -98,7 +98,7 @@ QVariant ProvidersModel::data(const QModelIndex& index, int role) const
       if (index.column()==Name)
         return m_providers.at(index.row())->name();
       if (index.column()==Shortcuts)
-        return m_providers.at(index.row())->keys().join(",");
+        return m_providers.at(index.row())->keys().join(QStringLiteral(","));
     }
 
     if (role == Qt::ToolTipRole || role == Qt::WhatsThisRole)
@@ -292,7 +292,7 @@ void FilterOptions::load()
   const QStringList favoriteEngines = group.readEntry("PreferredWebShortcuts", DEFAULT_PREFERRED_SEARCH_PROVIDERS);
 
   QList<SearchProvider*> providers;
-  const KService::List services = KServiceTypeTrader::self()->query("SearchProvider");
+  const KService::List services = KServiceTypeTrader::self()->query(QStringLiteral("SearchProvider"));
   int defaultProviderIndex = services.size(); //default is "None", it is last in the list
 
   Q_FOREACH(const KService::Ptr &service, services)
@@ -361,7 +361,7 @@ void FilterOptions::save()
     service.writeEntry("Hidden", false); // we might be overwriting a hidden entry
   }
  
- const QStringList servicesDirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "kservices5/searchproviders/", QStandardPaths::LocateDirectory);
+ const QStringList servicesDirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kservices5/searchproviders/"), QStandardPaths::LocateDirectory);
   Q_FOREACH(const QString& providerName, m_deletedProviders)
   {
     QStringList matches;
@@ -397,7 +397,7 @@ void FilterOptions::save()
   emit changed(false);
 
   // Update filters in running applications...
-  QDBusMessage msg = QDBusMessage::createSignal("/", "org.kde.KUriFilterPlugin", "configure");
+  QDBusMessage msg = QDBusMessage::createSignal(QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"), QStringLiteral("configure"));
   QDBusConnection::sessionBus().send(msg);
 
   // If the providers changed, tell sycoca to rebuild its database...

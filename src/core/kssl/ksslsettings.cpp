@@ -90,7 +90,7 @@ public:
 KSSLSettings::KSSLSettings(bool readConfig)
     : d(new KSSLSettingsPrivate)
 {
-    d->m_cfg = new KConfig("cryptodefaults", KConfig::NoGlobals);
+    d->m_cfg = new KConfig(QStringLiteral("cryptodefaults"), KConfig::NoGlobals);
 
     if (readConfig) {
         load();
@@ -148,7 +148,7 @@ void KSSLSettings::defaults()
     d->m_bWarnRevoked = true;
     d->m_bUseEGD = false;
     d->m_bUseEFile = false;
-    d->m_EGDPath = "";
+    d->m_EGDPath = QLatin1String("");
 }
 
 void KSSLSettings::save()

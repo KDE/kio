@@ -98,17 +98,17 @@ static QString protocolString(QSsl::SslProtocol protocol)
 {
     switch (protocol) {
     case QSsl::SslV2:
-        return QLatin1String("SSLv2");
+        return QStringLiteral("SSLv2");
     case QSsl::SslV3:
-        return QLatin1String("SSLv3");
+        return QStringLiteral("SSLv3");
     case QSsl::TlsV1_0:
-        return QLatin1String("TLSv1.0");
+        return QStringLiteral("TLSv1.0");
     case QSsl::TlsV1_1:
-        return QLatin1String("TLSv1.1");
+        return QStringLiteral("TLSv1.1");
     case QSsl::TlsV1_2:
-        return QLatin1String("TLSv1.2");
+        return QStringLiteral("TLSv1.2");
     default:
-        return QLatin1String("Unknown");;
+        return QStringLiteral("Unknown");;
     }
 }
 
@@ -1004,11 +1004,11 @@ QString KSslCipher::digestMethod() const
     //### This is not really backend neutral. It works for OpenSSL and
     //    for RFC compliant names, though.
     if (d->name.endsWith(QLatin1String("SHA"))) {
-        return QString::fromLatin1("SHA-1");
+        return QStringLiteral("SHA-1");
     } else if (d->name.endsWith(QLatin1String("MD5"))) {
-        return QString::fromLatin1("MD5");
+        return QStringLiteral("MD5");
     } else {
-        return QString::fromLatin1("");    // ## probably QString() is enough
+        return QStringLiteral("");    // ## probably QString() is enough
     }
 }
 

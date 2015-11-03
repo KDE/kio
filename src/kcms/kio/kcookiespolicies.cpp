@@ -82,10 +82,10 @@ KCookiesPolicies::KCookiesPolicies (/*const KComponentData& componentData,*/ QWi
     columns.append (0);
     mUi.kListViewSearchLine->setSearchColumns (columns);
 
-    mUi.pbNew->setIcon (QIcon::fromTheme("list-add"));
-    mUi.pbChange->setIcon (QIcon::fromTheme("edit-rename"));
-    mUi.pbDelete->setIcon (QIcon::fromTheme("list-remove"));
-    mUi.pbDeleteAll->setIcon (QIcon::fromTheme("edit-delete"));
+    mUi.pbNew->setIcon (QIcon::fromTheme(QStringLiteral("list-add")));
+    mUi.pbChange->setIcon (QIcon::fromTheme(QStringLiteral("edit-rename")));
+    mUi.pbDelete->setIcon (QIcon::fromTheme(QStringLiteral("list-remove")));
+    mUi.pbDeleteAll->setIcon (QIcon::fromTheme(QStringLiteral("edit-delete")));
 
     // Connect the main swicth :) Enable/disable cookie support
     connect (mUi.cbEnableCookies, SIGNAL (toggled (bool)),
@@ -305,7 +305,7 @@ void KCookiesPolicies::load()
 {
     mSelectedItemsCount = 0;
 
-    KConfig cfg ("kcookiejarrc");
+    KConfig cfg (QStringLiteral("kcookiejarrc"));
     KConfigGroup group = cfg.group ("Cookie Policy");
 
     bool enableCookies = group.readEntry ("Cookies", true);
@@ -345,7 +345,7 @@ void KCookiesPolicies::load()
 
 void KCookiesPolicies::save()
 {
-    KConfig cfg ("kcookiejarrc");
+    KConfig cfg (QStringLiteral("kcookiejarrc"));
     KConfigGroup group = cfg.group ("Cookie Policy");
 
     bool state = mUi.cbEnableCookies->isChecked();
@@ -382,11 +382,11 @@ void KCookiesPolicies::save()
 
     // Update the cookiejar...
     if (!mUi.cbEnableCookies->isChecked()) {
-        QDBusInterface kded ("org.kde.kded5", "/modules/kcookiejar", "org.kde.KCookieServer", QDBusConnection::sessionBus());
-        kded.call ("shutdown");
+        QDBusInterface kded (QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"), QDBusConnection::sessionBus());
+        kded.call (QStringLiteral("shutdown"));
     } else {
-        QDBusInterface kded ("org.kde.kded5", "/modules/kcookiejar", "org.kde.KCookieServer", QDBusConnection::sessionBus());
-        QDBusReply<void> reply = kded.call ("reloadPolicy");
+        QDBusInterface kded (QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"), QDBusConnection::sessionBus());
+        QDBusReply<void> reply = kded.call (QStringLiteral("reloadPolicy"));
         if (!reply.isValid())
             KMessageBox::sorry (0, i18n ("Unable to communicate with the cookie handler service.\n"
                                          "Any changes you made will not take effect until the service "

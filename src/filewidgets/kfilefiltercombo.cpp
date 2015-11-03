@@ -140,7 +140,7 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types,
 {
     clear();
     d->m_filters.clear();
-    QString delim = QLatin1String(", ");
+    QString delim = QStringLiteral(", ");
     d->hasAllSupportedFiles = false;
     bool hasAllFilesFilter = false;
     QMimeDatabase db;
@@ -187,7 +187,7 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types,
 
     if (hasAllFilesFilter) {
         addItem(i18n("All Files"));
-        d->m_filters.append(QLatin1String("application/octet-stream"));
+        d->m_filters.append(QStringLiteral("application/octet-stream"));
     }
 
     d->lastFilter = currentText();

@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
 
-    KEncodingFileDialog::Result result = KEncodingFileDialog::getOpenUrlsAndEncoding(QString(), QUrl("file:///etc/passwd"));
+    KEncodingFileDialog::Result result = KEncodingFileDialog::getOpenUrlsAndEncoding(QString(), QUrl(QStringLiteral("file:///etc/passwd")));
     qDebug() << result.fileNames << result.URLs << result.encoding;
 
     return 0;

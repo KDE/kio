@@ -53,14 +53,14 @@ KioslaveTest::KioslaveTest(QString src, QString dest, uint op, uint pr)
     grid->setColumnStretch(0, 1);
     grid->setColumnStretch(1, 100);
 
-    lb_from = new QLabel("From:", main_widget);
+    lb_from = new QLabel(QStringLiteral("From:"), main_widget);
     grid->addWidget(lb_from, 0, 0);
 
     le_source = new QLineEdit(main_widget);
     grid->addWidget(le_source, 0, 1);
     le_source->setText(src);
 
-    lb_to = new QLabel("To:", main_widget);
+    lb_to = new QLabel(QStringLiteral("To:"), main_widget);
     grid->addWidget(lb_to, 1, 0);
 
     le_dest = new QLineEdit(main_widget);
@@ -69,49 +69,49 @@ KioslaveTest::KioslaveTest(QString src, QString dest, uint op, uint pr)
 
     // Operation groupbox & buttons
     opButtons = new QButtonGroup(main_widget);
-    QGroupBox *box = new QGroupBox("Operation", main_widget);
+    QGroupBox *box = new QGroupBox(QStringLiteral("Operation"), main_widget);
     topLayout->addWidget(box, 10);
     connect(opButtons, SIGNAL(buttonClicked(QAbstractButton*)), SLOT(changeOperation(QAbstractButton*)));
 
     QBoxLayout *hbLayout = new QHBoxLayout(box);
 
-    rbList = new QRadioButton("List", box);
+    rbList = new QRadioButton(QStringLiteral("List"), box);
     opButtons->addButton(rbList);
     hbLayout->addWidget(rbList, 5);
 
-    rbListRecursive = new QRadioButton("ListRecursive", box);
+    rbListRecursive = new QRadioButton(QStringLiteral("ListRecursive"), box);
     opButtons->addButton(rbListRecursive);
     hbLayout->addWidget(rbListRecursive, 5);
 
-    rbStat = new QRadioButton("Stat", box);
+    rbStat = new QRadioButton(QStringLiteral("Stat"), box);
     opButtons->addButton(rbStat);
     hbLayout->addWidget(rbStat, 5);
 
-    rbGet = new QRadioButton("Get", box);
+    rbGet = new QRadioButton(QStringLiteral("Get"), box);
     opButtons->addButton(rbGet);
     hbLayout->addWidget(rbGet, 5);
 
-    rbPut = new QRadioButton("Put", box);
+    rbPut = new QRadioButton(QStringLiteral("Put"), box);
     opButtons->addButton(rbPut);
     hbLayout->addWidget(rbPut, 5);
 
-    rbCopy = new QRadioButton("Copy", box);
+    rbCopy = new QRadioButton(QStringLiteral("Copy"), box);
     opButtons->addButton(rbCopy);
     hbLayout->addWidget(rbCopy, 5);
 
-    rbMove = new QRadioButton("Move", box);
+    rbMove = new QRadioButton(QStringLiteral("Move"), box);
     opButtons->addButton(rbMove);
     hbLayout->addWidget(rbMove, 5);
 
-    rbDelete = new QRadioButton("Delete", box);
+    rbDelete = new QRadioButton(QStringLiteral("Delete"), box);
     opButtons->addButton(rbDelete);
     hbLayout->addWidget(rbDelete, 5);
 
-    rbMkdir = new QRadioButton("Mkdir", box);
+    rbMkdir = new QRadioButton(QStringLiteral("Mkdir"), box);
     opButtons->addButton(rbMkdir);
     hbLayout->addWidget(rbMkdir, 5);
 
-    rbMimetype = new QRadioButton("Mimetype", box);
+    rbMimetype = new QRadioButton(QStringLiteral("Mimetype"), box);
     opButtons->addButton(rbMimetype);
     hbLayout->addWidget(rbMimetype, 5);
 
@@ -121,21 +121,21 @@ KioslaveTest::KioslaveTest(QString src, QString dest, uint op, uint pr)
 
     // Progress groupbox & buttons
     progressButtons = new QButtonGroup(main_widget);
-    box = new QGroupBox("Progress dialog mode", main_widget);
+    box = new QGroupBox(QStringLiteral("Progress dialog mode"), main_widget);
     topLayout->addWidget(box, 10);
     connect(progressButtons, SIGNAL(buttonClicked(QAbstractButton*)), SLOT(changeProgressMode(QAbstractButton*)));
 
     hbLayout = new QHBoxLayout(box);
 
-    rbProgressNone = new QRadioButton("None", box);
+    rbProgressNone = new QRadioButton(QStringLiteral("None"), box);
     progressButtons->addButton(rbProgressNone);
     hbLayout->addWidget(rbProgressNone, 5);
 
-    rbProgressDefault = new QRadioButton("Default", box);
+    rbProgressDefault = new QRadioButton(QStringLiteral("Default"), box);
     progressButtons->addButton(rbProgressDefault);
     hbLayout->addWidget(rbProgressDefault, 5);
 
-    rbProgressStatus = new QRadioButton("Status", box);
+    rbProgressStatus = new QRadioButton(QStringLiteral("Status"), box);
     progressButtons->addButton(rbProgressStatus);
     hbLayout->addWidget(rbProgressStatus, 5);
 
@@ -151,19 +151,19 @@ KioslaveTest::KioslaveTest(QString src, QString dest, uint op, uint pr)
     topLayout->addLayout(hbLayout);
     hbLayout->setParent(topLayout);
 
-    pbStart = new QPushButton("&Start", main_widget);
+    pbStart = new QPushButton(QStringLiteral("&Start"), main_widget);
     pbStart->setFixedSize(pbStart->sizeHint());
     connect(pbStart, SIGNAL(clicked()), SLOT(startJob()));
     hbLayout->addWidget(pbStart, 5);
 
-    pbStop = new QPushButton("Sto&p", main_widget);
+    pbStop = new QPushButton(QStringLiteral("Sto&p"), main_widget);
     pbStop->setFixedSize(pbStop->sizeHint());
     pbStop->setEnabled(false);
     connect(pbStop, SIGNAL(clicked()), SLOT(stopJob()));
     hbLayout->addWidget(pbStop, 5);
 
     // close button
-    close = new QPushButton("&Close", main_widget);
+    close = new QPushButton(QStringLiteral("&Close"), main_widget);
     close->setFixedSize(close->sizeHint());
     connect(close, SIGNAL(clicked()), this, SLOT(slotQuit()));
 
@@ -213,7 +213,7 @@ void KioslaveTest::startJob()
     QUrl src = QUrl(sCurrent).resolved(QUrl(sSrc));
 
     if (!src.isValid()) {
-        QMessageBox::critical(this, "Kioslave Error Message", "Source URL is malformed");
+        QMessageBox::critical(this, QStringLiteral("Kioslave Error Message"), QStringLiteral("Source URL is malformed"));
         return;
     }
 
@@ -222,8 +222,8 @@ void KioslaveTest::startJob()
 
     if (!dest.isValid() &&
             (selectedOperation == Copy || selectedOperation == Move)) {
-        QMessageBox::critical(this, "Kioslave Error Message",
-                              "Destination URL is malformed");
+        QMessageBox::critical(this, QStringLiteral("Kioslave Error Message"),
+                              QStringLiteral("Destination URL is malformed"));
         return;
     }
 
@@ -480,47 +480,47 @@ int main(int argc, char **argv)
     {
         QCommandLineParser parser;
         parser.addVersionOption();
-        parser.setApplicationDescription("Test for kioslaves");
+        parser.setApplicationDescription(QStringLiteral("Test for kioslaves"));
         parser.addHelpOption();
-        parser.addOption(QCommandLineOption(QStringList() << "s" << "src", "Source URL", "url"));
-        parser.addOption(QCommandLineOption(QStringList() << "d" << "dest", "Destination URL", "url"));
-        parser.addOption(QCommandLineOption(QStringList() << "o" << "operation", "Operation (list,listrecursive,stat,get,put,copy,move,del,mkdir)", "operation"));
-        parser.addOption(QCommandLineOption(QStringList() << "p" << "progress", "Progress Type (none,default,status)", "progress", "default"));
+        parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("s") << QStringLiteral("src"), QStringLiteral("Source URL"), QStringLiteral("url")));
+        parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("d") << QStringLiteral("dest"), QStringLiteral("Destination URL"), QStringLiteral("url")));
+        parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("o") << QStringLiteral("operation"), QStringLiteral("Operation (list,listrecursive,stat,get,put,copy,move,del,mkdir)"), QStringLiteral("operation")));
+        parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("p") << QStringLiteral("progress"), QStringLiteral("Progress Type (none,default,status)"), QStringLiteral("progress"), QStringLiteral("default")));
         parser.process(app);
 
-        src = parser.value("src");
-        dest = parser.value("dest");
+        src = parser.value(QStringLiteral("src"));
+        dest = parser.value(QStringLiteral("dest"));
 
-        operation = parser.value("operation");
-        if (operation == "list") {
+        operation = parser.value(QStringLiteral("operation"));
+        if (operation == QLatin1String("list")) {
             op = KioslaveTest::List;
-        } else if (operation == "listrecursive") {
+        } else if (operation == QLatin1String("listrecursive")) {
             op = KioslaveTest::ListRecursive;
-        } else if (operation == "stat") {
+        } else if (operation == QLatin1String("stat")) {
             op = KioslaveTest::Stat;
-        } else if (operation == "get") {
+        } else if (operation == QLatin1String("get")) {
             op = KioslaveTest::Get;
-        } else if (operation == "put") {
+        } else if (operation == QLatin1String("put")) {
             op = KioslaveTest::Put;
-        } else if (operation == "copy") {
+        } else if (operation == QLatin1String("copy")) {
             op = KioslaveTest::Copy;
-        } else if (operation == "move") {
+        } else if (operation == QLatin1String("move")) {
             op = KioslaveTest::Move;
-        } else if (operation == "del") {
+        } else if (operation == QLatin1String("del")) {
             op = KioslaveTest::Delete;
-        } else if (operation == "mkdir") {
+        } else if (operation == QLatin1String("mkdir")) {
             op = KioslaveTest::Mkdir;
         } else if (!operation.isEmpty()) {
             qWarning("Unknown operation, see --help");
             return 1;
         }
 
-        QString progress = parser.value("progress");
-        if (progress == "none") {
+        QString progress = parser.value(QStringLiteral("progress"));
+        if (progress == QLatin1String("none")) {
             pr = KioslaveTest::ProgressNone;
-        } else if (progress == "default") {
+        } else if (progress == QLatin1String("default")) {
             pr = KioslaveTest::ProgressDefault;
-        } else if (progress == "status") {
+        } else if (progress == QLatin1String("status")) {
             pr = KioslaveTest::ProgressStatus;
         } else {
             qWarning("Unknown progress mode, see --help");

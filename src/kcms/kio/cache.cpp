@@ -121,7 +121,7 @@ void CacheConfigModule::on_clearCacheButton_clicked()
     QString exe = QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kio_http_cache_cleaner");
 
     if (QFile::exists(exe)) {
-        QProcess::startDetached(exe, QStringList(QLatin1String("--clear-all")));
+        QProcess::startDetached(exe, QStringList(QStringLiteral("--clear-all")));
     }
 }
 

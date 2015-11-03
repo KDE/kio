@@ -62,9 +62,9 @@ KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList,
     : QDialog(parent)
 {
     setModal(true);
-    setObjectName("cookiealert");
+    setObjectName(QStringLiteral("cookiealert"));
     setWindowTitle(i18n("Cookie Alert"));
-    setWindowIcon(QIcon::fromTheme("preferences-web-browser-cookies"));
+    setWindowIcon(QIcon::fromTheme(QStringLiteral("preferences-web-browser-cookies")));
     // all cookies in the list should have the same window at this time, so let's take the first
     if (cookieList.first().windowIds().count() > 0) {
         KWindowSystem::setMainWindow(this, cookieList.first().windowIds().first());
@@ -85,7 +85,7 @@ KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList,
         host += portNum;
     }
 
-    QString txt = QLatin1String("<html><body style=\"p {line-height: 150%}; text-align: center;\">");
+    QString txt = QStringLiteral("<html><body style=\"p {line-height: 150%}; text-align: center;\">");
     txt += i18ncp("%2 hostname, %3 optional cross domain suffix (translated below)",
                   "<p>You received a cookie from<br/>"
                   "<b>%2%3</b><br/>"
@@ -110,7 +110,7 @@ KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList,
 
     QPushButton *sessionOnlyButton = new QPushButton;
     sessionOnlyButton->setText(i18n("Accept for this &session"));
-    sessionOnlyButton->setIcon(QIcon::fromTheme("chronometer"));
+    sessionOnlyButton->setIcon(QIcon::fromTheme(QStringLiteral("chronometer")));
     sessionOnlyButton->setToolTip(i18n("Accept cookie(s) until the end of the current session"));
     connect(sessionOnlyButton, SIGNAL(clicked()), this, SLOT(slotSessionOnlyClicked()));
 
@@ -134,7 +134,7 @@ KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList,
     hBoxLayout->setMargin(0);
     QLabel *icon = new QLabel(hBox);
     hBoxLayout->addWidget(icon);
-    icon->setPixmap(QIcon::fromTheme("dialog-warning").pixmap(style()->pixelMetric(QStyle::PM_LargeIconSize)));
+    icon->setPixmap(QIcon::fromTheme(QStringLiteral("dialog-warning")).pixmap(style()->pixelMetric(QStyle::PM_LargeIconSize)));
     icon->setAlignment(Qt::AlignCenter);
     icon->setFixedSize(2 * icon->sizeHint());
 

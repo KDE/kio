@@ -170,7 +170,7 @@ static void setProxyInformation(const QString& value,
 
         if (index > 0) {
             bool ok = false;
-            portNum = value.mid(index+1).toInt(&ok);
+            portNum = value.midRef(index+1).toInt(&ok);
             if (!ok) {
                 portNum = -1;
             }

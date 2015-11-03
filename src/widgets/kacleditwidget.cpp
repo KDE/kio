@@ -95,15 +95,15 @@ KACLEditWidget::KACLEditWidget(QWidget *parent)
     hbox->addLayout(vbox);
     d->m_AddBtn = new QPushButton(i18n("Add Entry..."), this);
     vbox->addWidget(d->m_AddBtn);
-    d->m_AddBtn->setObjectName(QLatin1String("add_entry_button"));
+    d->m_AddBtn->setObjectName(QStringLiteral("add_entry_button"));
     connect(d->m_AddBtn, SIGNAL(clicked()), d->m_listView, SLOT(slotAddEntry()));
     d->m_EditBtn = new QPushButton(i18n("Edit Entry..."), this);
     vbox->addWidget(d->m_EditBtn);
-    d->m_EditBtn->setObjectName(QLatin1String("edit_entry_button"));
+    d->m_EditBtn->setObjectName(QStringLiteral("edit_entry_button"));
     connect(d->m_EditBtn, SIGNAL(clicked()), d->m_listView, SLOT(slotEditEntry()));
     d->m_DelBtn = new QPushButton(i18n("Delete Entry"), this);
     vbox->addWidget(d->m_DelBtn);
-    d->m_DelBtn->setObjectName(QLatin1String("delete_entry_button"));
+    d->m_DelBtn->setObjectName(QStringLiteral("delete_entry_button"));
     connect(d->m_DelBtn, SIGNAL(clicked()), d->m_listView, SLOT(slotRemoveEntry()));
     vbox->addItem(new QSpacerItem(10, 10, QSizePolicy::Fixed, QSizePolicy::Expanding));
     d->_k_slotUpdateButtons();
@@ -314,7 +314,7 @@ void KACLListViewItem::repaint()
 
 void KACLListViewItem::calcEffectiveRights()
 {
-    QString strEffective = QString("---");
+    QString strEffective = QStringLiteral("---");
 
     // Do we need to worry about the mask entry? It applies to named users,
     // owning group, and named groups
@@ -424,7 +424,7 @@ EditACLEntryDialog::EditACLEntryDialog(KACLListView *listView, KACLListViewItem 
       m_allowedTypes(allowedTypes), m_allowedDefaultTypes(allowedDefaultTypes),
       m_defaultCB(0)
 {
-    setObjectName("edit_entry_dialog");
+    setObjectName(QStringLiteral("edit_entry_dialog"));
     setModal(true);
     setWindowTitle(i18n("Edit ACL Entry"));
 
@@ -437,7 +437,7 @@ EditACLEntryDialog::EditACLEntryDialog(KACLListView *listView, KACLListViewItem 
 
     if (allowDefaults) {
         m_defaultCB = new QCheckBox(i18n("Default for new files in this folder"), this);
-        m_defaultCB->setObjectName(QLatin1String("defaultCB"));
+        m_defaultCB->setObjectName(QStringLiteral("defaultCB"));
         mainLayout->addWidget(m_defaultCB);
         connect(m_defaultCB, SIGNAL(toggled(bool)),
                 this, SLOT(slotUpdateAllowedUsersAndGroups()));
@@ -446,32 +446,32 @@ EditACLEntryDialog::EditACLEntryDialog(KACLListView *listView, KACLListViewItem 
     }
 
     QRadioButton *ownerType = new QRadioButton(i18n("Owner"), gb);
-    ownerType->setObjectName(QLatin1String("ownerType"));
+    ownerType->setObjectName(QStringLiteral("ownerType"));
     gbLayout->addWidget(ownerType);
     m_buttonGroup->addButton(ownerType);
     m_buttonIds.insert(ownerType, KACLListView::User);
     QRadioButton *owningGroupType = new QRadioButton(i18n("Owning Group"), gb);
-    owningGroupType->setObjectName(QLatin1String("owningGroupType"));
+    owningGroupType->setObjectName(QStringLiteral("owningGroupType"));
     gbLayout->addWidget(owningGroupType);
     m_buttonGroup->addButton(owningGroupType);
     m_buttonIds.insert(owningGroupType, KACLListView::Group);
     QRadioButton *othersType = new QRadioButton(i18n("Others"), gb);
-    othersType->setObjectName(QLatin1String("othersType"));
+    othersType->setObjectName(QStringLiteral("othersType"));
     gbLayout->addWidget(othersType);
     m_buttonGroup->addButton(othersType);
     m_buttonIds.insert(othersType, KACLListView::Others);
     QRadioButton *maskType = new QRadioButton(i18n("Mask"), gb);
-    maskType->setObjectName(QLatin1String("maskType"));
+    maskType->setObjectName(QStringLiteral("maskType"));
     gbLayout->addWidget(maskType);
     m_buttonGroup->addButton(maskType);
     m_buttonIds.insert(maskType, KACLListView::Mask);
     QRadioButton *namedUserType = new QRadioButton(i18n("Named user"), gb);
-    namedUserType->setObjectName(QLatin1String("namesUserType"));
+    namedUserType->setObjectName(QStringLiteral("namesUserType"));
     gbLayout->addWidget(namedUserType);
     m_buttonGroup->addButton(namedUserType);
     m_buttonIds.insert(namedUserType, KACLListView::NamedUser);
     QRadioButton *namedGroupType = new QRadioButton(i18n("Named group"), gb);
-    namedGroupType->setObjectName(QLatin1String("namedGroupType"));
+    namedGroupType->setObjectName(QStringLiteral("namedGroupType"));
     gbLayout->addWidget(namedGroupType);
     m_buttonGroup->addButton(namedGroupType);
     m_buttonIds.insert(namedGroupType, KACLListView::NamedGroup);
@@ -493,7 +493,7 @@ EditACLEntryDialog::EditACLEntryDialog(KACLListView *listView, KACLListViewItem 
     QLabel *usersLabel = new QLabel(i18n("User: "), usersBox);
     m_usersCombo = new KComboBox(usersBox);
     m_usersCombo->setEditable(false);
-    m_usersCombo->setObjectName(QLatin1String("users"));
+    m_usersCombo->setObjectName(QStringLiteral("users"));
     usersLabel->setBuddy(m_usersCombo);
 
     usersLayout->addWidget(usersLabel);
@@ -508,7 +508,7 @@ EditACLEntryDialog::EditACLEntryDialog(KACLListView *listView, KACLListViewItem 
     QLabel *groupsLabel = new QLabel(i18n("Group: "), groupsBox);
     m_groupsCombo = new KComboBox(groupsBox);
     m_groupsCombo->setEditable(false);
-    m_groupsCombo->setObjectName(QLatin1String("groups"));
+    m_groupsCombo->setObjectName(QStringLiteral("groups"));
     groupsLabel->setBuddy(m_groupsCombo);
 
     groupsLayout->addWidget(groupsLabel);
@@ -657,10 +657,10 @@ KACLListView::KACLListView(QWidget *parent)
 
     // Load the avatars
     for (int i = 0; i < LAST_IDX; ++i) {
-        s_itemAttributes[i].pixmap = new QPixmap(QString::fromLatin1(":/images/%1").arg(s_itemAttributes[i].pixmapName));
+        s_itemAttributes[i].pixmap = new QPixmap(QStringLiteral(":/images/%1").arg(s_itemAttributes[i].pixmapName));
     }
-    m_yesPixmap = new QPixmap(":/images/yes.png");
-    m_yesPartialPixmap = new QPixmap(":/images/yespartial.png");
+    m_yesPixmap = new QPixmap(QStringLiteral(":/images/yes.png"));
+    m_yesPartialPixmap = new QPixmap(QStringLiteral(":/images/yespartial.png"));
 
     // fill the lists of all legal users and groups
     struct passwd *user = 0;

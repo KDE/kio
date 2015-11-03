@@ -60,13 +60,13 @@ int KRunMX1::expandEscapedMacro(const QString &str, int pos, QStringList &ret)
     uint option = str[pos + 1].unicode();
     switch (option) {
     case 'c':
-        ret << service.name().replace('%', "%%");
+        ret << service.name().replace('%', QLatin1String("%%"));
         break;
     case 'k':
-        ret << service.entryPath().replace('%', "%%");
+        ret << service.entryPath().replace('%', QLatin1String("%%"));
         break;
     case 'i':
-        ret << "--icon" << service.icon().replace('%', "%%");
+        ret << QStringLiteral("--icon") << service.icon().replace('%', QLatin1String("%%"));
         break;
     case 'm':
 //       ret << "-miniicon" << service.icon().replace( '%', "%%" );
@@ -163,7 +163,7 @@ int KRunMX2::expandEscapedMacro(const QString &str, int pos, QStringList &ret)
         }
         break;
     case '%':
-        ret = QStringList(QLatin1String("%"));
+        ret = QStringList(QStringLiteral("%"));
         break;
     default:
         return -2; // subst with same and skip
@@ -173,7 +173,7 @@ int KRunMX2::expandEscapedMacro(const QString &str, int pos, QStringList &ret)
 
 QStringList KIO::DesktopExecParser::supportedProtocols(const KService &service)
 {
-    QStringList supportedProtocols = service.property("X-KDE-Protocols").toStringList();
+    QStringList supportedProtocols = service.property(QStringLiteral("X-KDE-Protocols")).toStringList();
     KRunMX1 mx1(service);
     QString exec = service.exec();
     if (mx1.expandMacrosShellQuote(exec) && !mx1.hasUrls) {
@@ -184,15 +184,15 @@ QStringList KIO::DesktopExecParser::supportedProtocols(const KService &service)
     } else {
         if (supportedProtocols.isEmpty()) {
             // compat mode: assume KIO if not set and it's a KDE app (or a KDE service)
-            const QStringList categories = service.property("Categories").toStringList();
-            if (categories.contains("KDE")
+            const QStringList categories = service.property(QStringLiteral("Categories")).toStringList();
+            if (categories.contains(QStringLiteral("KDE"))
                     || !service.isApplication()
                     || service.entryPath().isEmpty() /*temp service*/) {
-                supportedProtocols.append("KIO");
+                supportedProtocols.append(QStringLiteral("KIO"));
             } else { // if no KDE app, be a bit over-generic
-                supportedProtocols.append("http");
-                supportedProtocols.append("https"); // #253294
-                supportedProtocols.append("ftp");
+                supportedProtocols.append(QStringLiteral("http"));
+                supportedProtocols.append(QStringLiteral("https")); // #253294
+                supportedProtocols.append(QStringLiteral("ftp"));
             }
         }
     }
@@ -202,7 +202,7 @@ QStringList KIO::DesktopExecParser::supportedProtocols(const KService &service)
 
 bool KIO::DesktopExecParser::isProtocolInSupportedList(const QUrl &url, const QStringList &supportedProtocols)
 {
-    if (supportedProtocols.contains("KIO")) {
+    if (supportedProtocols.contains(QStringLiteral("KIO"))) {
         return true;
     }
     return url.isLocalFile() || supportedProtocols.contains(url.scheme().toLower());
@@ -216,7 +216,7 @@ bool KIO::DesktopExecParser::hasSchemeHandler(const QUrl &url)
     if (KProtocolInfo::isKnownProtocol(url)) {
         return false; // see schemeHandler()... this is case B, we prefer kioslaves over the competition
     }
-    const KService::Ptr service = KMimeTypeTrader::self()->preferredService(QString::fromLatin1("x-scheme-handler/") + url.scheme());
+    const KService::Ptr service = KMimeTypeTrader::self()->preferredService(QLatin1String("x-scheme-handler/") + url.scheme());
     if (service) {
         qCDebug(KIO_CORE) << "preferred service for x-scheme-handler/" + url.scheme() << service->desktopEntryName();
     }
@@ -276,13 +276,13 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     // FIXME: the current way of invoking kioexec disables term and su use
 
     // Check if we need "tempexec" (kioexec in fact)
-    appHasTempFileOption = d->tempFiles && d->service.property("X-KDE-HasTempFileOption").toBool();
+    appHasTempFileOption = d->tempFiles && d->service.property(QStringLiteral("X-KDE-HasTempFileOption")).toBool();
     if (d->tempFiles && !appHasTempFileOption && d->urls.size()) {
         const QString kioexec = QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kioexec");
         Q_ASSERT(QFile::exists(kioexec));
-        result << kioexec << "--tempfiles" << exec;
+        result << kioexec << QStringLiteral("--tempfiles") << exec;
         if (!d->suggestedFileName.isEmpty()) {
-            result << "--suggestedfilename";
+            result << QStringLiteral("--suggestedfilename");
             result << d->suggestedFileName;
         }
         result += QUrl::toStringList(d->urls);
@@ -314,10 +314,10 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         Q_ASSERT(QFile::exists(kioexec));
         result << kioexec;
         if (d->tempFiles) {
-            result << "--tempfiles";
+            result << QStringLiteral("--tempfiles");
         }
         if (!d->suggestedFileName.isEmpty()) {
-            result << "--suggestedfilename";
+            result << QStringLiteral("--suggestedfilename");
             result << d->suggestedFileName;
         }
         result << exec;
@@ -326,14 +326,14 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     }
 
     if (appHasTempFileOption) {
-        exec += " --tempfile";
+        exec += QLatin1String(" --tempfile");
     }
 
     // Did the user forget to append something like '%f'?
     // If so, then assume that '%f' is the right choice => the application
     // accepts only local files.
     if (!mx1.hasSpec) {
-        exec += " %f";
+        exec += QLatin1String(" %f");
         mx2.ignFile = true;
     }
 
@@ -358,12 +358,12 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
 
     if (d->service.terminal()) {
         KConfigGroup cg(KSharedConfig::openConfig(), "General");
-        QString terminal = cg.readPathEntry("TerminalApplication", "konsole");
-        if (terminal == "konsole") {
+        QString terminal = cg.readPathEntry("TerminalApplication", QStringLiteral("konsole"));
+        if (terminal == QLatin1String("konsole")) {
             if (!d->service.path().isEmpty()) {
                 terminal += " --workdir " + KShell::quoteArg(d->service.path());
             }
-            terminal += " -caption=%c %i %m";
+            terminal += QLatin1String(" -caption=%c %i %m");
         }
         terminal += ' ';
         terminal += d->service.terminalOptions();
@@ -373,7 +373,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         }
         mx2.expandMacrosShellQuote(terminal);
         result = KShell::splitArgs(terminal);   // assuming that the term spec never needs a shell!
-        result << "-e";
+        result << QStringLiteral("-e");
     }
 
     KShell::Errors err;
@@ -391,22 +391,22 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     }
     if (d->service.substituteUid()) {
         if (d->service.terminal()) {
-            result << "su";
+            result << QStringLiteral("su");
         } else {
             QString kdesu = QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kdesu");
             if (!QFile::exists(kdesu)) {
-                kdesu = QStandardPaths::findExecutable("kdesu");
+                kdesu = QStandardPaths::findExecutable(QStringLiteral("kdesu"));
             }
             if (!QFile::exists(kdesu)) {
                 // Insert kdesu as string so we show a nice warning: 'Could not launch kdesu'
                 result << QStringLiteral("kdesu");
                 return result;
             } else {
-                result << kdesu << "-u";
+                result << kdesu << QStringLiteral("-u");
             }
         }
 
-        result << d->service.username() << "-c";
+        result << d->service.username() << QStringLiteral("-c");
         if (err == KShell::FoundMeta) {
             exec = "/bin/sh -c " + KShell::quoteArg(exec);
         } else {
@@ -415,7 +415,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         result << exec;
     } else {
         if (err == KShell::FoundMeta) {
-            result << "/bin/sh" << "-c" << exec;
+            result << QStringLiteral("/bin/sh") << QStringLiteral("-c") << exec;
         } else {
             result += execlist;
         }

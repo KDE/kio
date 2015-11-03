@@ -34,13 +34,13 @@
 
 static KConfigGroup recentdirs_readList(QString &key, QStringList &result)
 {
-    KConfigGroup cg(KSharedConfig::openConfig(), QLatin1String("Recent Dirs"));
+    KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("Recent Dirs"));
     if ((key.length() < 2) || (key[0] != ':')) {
-        key = ":default";
+        key = QStringLiteral(":default");
     }
     if (key[1] == ':') {
         key = key.mid(2);
-        cg = KConfigGroup(KSharedConfig::openConfig(QLatin1String("krecentdirsrc")), QString());
+        cg = KConfigGroup(KSharedConfig::openConfig(QStringLiteral("krecentdirsrc")), QString());
     } else {
         key = key.mid(1);
     }

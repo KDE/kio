@@ -29,7 +29,7 @@ static void runTest()
 {
     TestHTTPProtocol protocol("http", QByteArray(), "local://");
 
-    protocol.testParseContentDisposition(QLatin1String("inline; filename=\"foo.pdf\""));
+    protocol.testParseContentDisposition(QStringLiteral("inline; filename=\"foo.pdf\""));
 }
 
 void HeaderObjectTest::runAllTests()

@@ -271,7 +271,7 @@ QStringList KIO::Job::detailedErrorStrings(const QUrl *reqUrl /*= 0*/,
     ret << i18nc("@info %1 error name, %2 description",
                  "<qt><p><b>%1</b></p><p>%2</p></qt>", errorName, description);
 
-    ret2 = QLatin1String("<qt>");
+    ret2 = QStringLiteral("<qt>");
     if (!techName.isEmpty())
         ret2 += QLatin1String("<p>") + i18n("<b>Technical reason</b>: ") +
                 techName + QLatin1String("</p>");
@@ -285,12 +285,12 @@ QStringList KIO::Job::detailedErrorStrings(const QUrl *reqUrl /*= 0*/,
             QLatin1String("</ul>");
     if (!causes.isEmpty()) {
         ret2 += QLatin1String("<p>") + i18n("<b>Possible causes</b>:") +
-                QLatin1String("</p><ul><li>") + causes.join("</li><li>") +
+                QLatin1String("</p><ul><li>") + causes.join(QStringLiteral("</li><li>")) +
                 QLatin1String("</li></ul>");
     }
     if (!solutions.isEmpty()) {
         ret2 += QLatin1String("<p>") + i18n("<b>Possible solutions</b>:") +
-                QLatin1String("</p><ul><li>") + solutions.join("</li><li>") +
+                QLatin1String("</p><ul><li>") + solutions.join(QStringLiteral("</li><li>")) +
                 QLatin1String("</li></ul>");
     }
     ret2 += QLatin1String("</qt>");
@@ -319,7 +319,7 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
         path = reqUrl->path();
 
         // detect if protocol is a network protocol...
-        isSlaveNetwork = KProtocolInfo::protocolClass(protocol) == ":internet";
+        isSlaveNetwork = KProtocolInfo::protocolClass(protocol) == QLatin1String(":internet");
     } else {
         // assume that the errorText has the location we are interested in
         url = host = domain = path = filename = errorText;

@@ -440,7 +440,7 @@ static QMap<QString, QString> contentDispositionParserInternal(const QString &di
         return parameters;
     }
 
-    parameters.insert(QLatin1String("type"), strDisposition);
+    parameters.insert(QStringLiteral("type"), strDisposition);
 
     while (pos < disposition.length()) {
         QString key = extractUntil(disposition, QLatin1Char('='), pos, attrSpecials).toLower();

@@ -58,7 +58,7 @@ KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
 
     QMap<QString, KCModule *> helper;
     // Load the plugins. This saves a public method in KUriFilter just for this.
-    const KService::List offers = KServiceTypeTrader::self()->query("KUriFilter/Plugin");
+    const KService::List offers = KServiceTypeTrader::self()->query(QStringLiteral("KUriFilter/Plugin"));
     KService::List::ConstIterator it = offers.begin();
     const KService::List::ConstIterator end = offers.end();
     for (; it != end; ++it) {

@@ -363,7 +363,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     opsWidgetLayout->setSpacing(0);
     //d->toolbar = new KToolBar(this, true);
     d->toolbar = new KToolBar(d->opsWidget, true);
-    d->toolbar->setObjectName("KFileWidget::toolbar");
+    d->toolbar->setObjectName(QStringLiteral("KFileWidget::toolbar"));
     d->toolbar->setMovable(false);
     opsWidgetLayout->addWidget(d->toolbar);
 
@@ -422,7 +422,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
                              u.toLocalFile());
 
     d->ops = new KDirOperator(QUrl(), d->opsWidget);
-    d->ops->setObjectName("KFileWidget::ops");
+    d->ops->setObjectName(QStringLiteral("KFileWidget::ops"));
     d->ops->setIsSaving(d->operationMode == Saving);
     opsWidgetLayout->addWidget(d->ops);
     connect(d->ops, SIGNAL(urlEntered(QUrl)),
@@ -448,35 +448,35 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     //
     // http://lists.kde.org/?l=kde-core-devel&m=116888382514090&w=2
 
-    coll->action("up")->setWhatsThis(i18n("<qt>Click this button to enter the parent folder.<br /><br />"
+    coll->action(QStringLiteral("up"))->setWhatsThis(i18n("<qt>Click this button to enter the parent folder.<br /><br />"
                                           "For instance, if the current location is file:/home/%1 clicking this "
                                           "button will take you to file:/home.</qt>",  KUser().loginName()));
 
-    coll->action("back")->setWhatsThis(i18n("Click this button to move backwards one step in the browsing history."));
-    coll->action("forward")->setWhatsThis(i18n("Click this button to move forward one step in the browsing history."));
+    coll->action(QStringLiteral("back"))->setWhatsThis(i18n("Click this button to move backwards one step in the browsing history."));
+    coll->action(QStringLiteral("forward"))->setWhatsThis(i18n("Click this button to move forward one step in the browsing history."));
 
-    coll->action("reload")->setWhatsThis(i18n("Click this button to reload the contents of the current location."));
-    coll->action("mkdir")->setShortcut(QKeySequence(Qt::Key_F10));
-    coll->action("mkdir")->setWhatsThis(i18n("Click this button to create a new folder."));
+    coll->action(QStringLiteral("reload"))->setWhatsThis(i18n("Click this button to reload the contents of the current location."));
+    coll->action(QStringLiteral("mkdir"))->setShortcut(QKeySequence(Qt::Key_F10));
+    coll->action(QStringLiteral("mkdir"))->setWhatsThis(i18n("Click this button to create a new folder."));
 
-    QAction *goToNavigatorAction = coll->addAction("gotonavigator", this, SLOT(_k_activateUrlNavigator()));
+    QAction *goToNavigatorAction = coll->addAction(QStringLiteral("gotonavigator"), this, SLOT(_k_activateUrlNavigator()));
     goToNavigatorAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_L));
 
     KToggleAction *showSidebarAction =
         new KToggleAction(i18n("Show Places Navigation Panel"), this);
-    coll->addAction("toggleSpeedbar", showSidebarAction);
+    coll->addAction(QStringLiteral("toggleSpeedbar"), showSidebarAction);
     showSidebarAction->setShortcut(QKeySequence(Qt::Key_F9));
     connect(showSidebarAction, SIGNAL(toggled(bool)),
             SLOT(_k_toggleSpeedbar(bool)));
 
     KToggleAction *showBookmarksAction =
         new KToggleAction(i18n("Show Bookmarks"), this);
-    coll->addAction("toggleBookmarks", showBookmarksAction);
+    coll->addAction(QStringLiteral("toggleBookmarks"), showBookmarksAction);
     connect(showBookmarksAction, SIGNAL(toggled(bool)),
             SLOT(_k_toggleBookmarks(bool)));
 
-    KActionMenu *menu = new KActionMenu(QIcon::fromTheme("configure"), i18n("Options"), this);
-    coll->addAction("extra menu", menu);
+    KActionMenu *menu = new KActionMenu(QIcon::fromTheme(QStringLiteral("configure")), i18n("Options"), this);
+    coll->addAction(QStringLiteral("extra menu"), menu);
     menu->setWhatsThis(i18n("<qt>This is the preferences menu for the file dialog. "
                             "Various options can be accessed from this menu including: <ul>"
                             "<li>how files are sorted in the list</li>"
@@ -485,12 +485,12 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
                             "<li>the Places navigation panel</li>"
                             "<li>file previews</li>"
                             "<li>separating folders from files</li></ul></qt>"));
-    menu->addAction(coll->action("sorting menu"));
-    menu->addAction(coll->action("view menu"));
+    menu->addAction(coll->action(QStringLiteral("sorting menu")));
+    menu->addAction(coll->action(QStringLiteral("view menu")));
     menu->addSeparator();
-    menu->addAction(coll->action("decoration menu"));
+    menu->addAction(coll->action(QStringLiteral("decoration menu")));
     menu->addSeparator();
-    QAction *showHidden = coll->action("show hidden");
+    QAction *showHidden = coll->action(QStringLiteral("show hidden"));
     if (showHidden) {
         showHidden->setShortcuts(
             QList<QKeySequence>() << QKeySequence(Qt::ALT + Qt::Key_Period) << QKeySequence(Qt::Key_F8));
@@ -498,8 +498,8 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     menu->addAction(showHidden);
     menu->addAction(showSidebarAction);
     menu->addAction(showBookmarksAction);
-    coll->action("inline preview")->setShortcut(QKeySequence(Qt::Key_F11));
-    menu->addAction(coll->action("preview"));
+    coll->action(QStringLiteral("inline preview"))->setShortcut(QKeySequence(Qt::Key_F11));
+    menu->addAction(coll->action(QStringLiteral("preview")));
 
     menu->setDelayed(false);
     connect(menu->menu(), SIGNAL(aboutToShow()),
@@ -520,9 +520,9 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     connect(d->ops, SIGNAL(currentIconSizeChanged(int)),
             d->iconSizeSlider, SLOT(setValue(int)));
 
-    QAction *furtherAction = new QAction(QIcon::fromTheme("file-zoom-out"), i18n("Zoom out"), this);
+    QAction *furtherAction = new QAction(QIcon::fromTheme(QStringLiteral("file-zoom-out")), i18n("Zoom out"), this);
     connect(furtherAction, SIGNAL(triggered()), SLOT(_k_zoomOutIconsSize()));
-    QAction *closerAction = new QAction(QIcon::fromTheme("file-zoom-in"), i18n("Zoom in"), this);
+    QAction *closerAction = new QAction(QIcon::fromTheme(QStringLiteral("file-zoom-in")), i18n("Zoom in"), this);
     connect(closerAction, SIGNAL(triggered()), SLOT(_k_zoomInIconsSize()));
 
     QWidget *midSpacer = new QWidget(this);
@@ -534,18 +534,18 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     QAction *separator2 = new QAction(this);
     separator2->setSeparator(true);
 
-    d->toolbar->addAction(coll->action("back"));
-    d->toolbar->addAction(coll->action("forward"));
-    d->toolbar->addAction(coll->action("up"));
-    d->toolbar->addAction(coll->action("reload"));
+    d->toolbar->addAction(coll->action(QStringLiteral("back")));
+    d->toolbar->addAction(coll->action(QStringLiteral("forward")));
+    d->toolbar->addAction(coll->action(QStringLiteral("up")));
+    d->toolbar->addAction(coll->action(QStringLiteral("reload")));
     d->toolbar->addAction(separator);
-    d->toolbar->addAction(coll->action("inline preview"));
+    d->toolbar->addAction(coll->action(QStringLiteral("inline preview")));
     d->toolbar->addWidget(midSpacer);
     d->toolbar->addAction(furtherAction);
     d->toolbar->addWidget(d->iconSizeSlider);
     d->toolbar->addAction(closerAction);
     d->toolbar->addAction(separator2);
-    d->toolbar->addAction(coll->action("mkdir"));
+    d->toolbar->addAction(coll->action(QStringLiteral("mkdir")));
     d->toolbar->addAction(menu);
 
     d->toolbar->setToolButtonStyle(Qt::ToolButtonIconOnly);
@@ -612,7 +612,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     // (the text, visibility etc. is set in updateAutoSelectExtension(), which is called by readConfig())
     d->autoSelectExtCheckBox = new QCheckBox(this);
     const int spacingHint = style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
-    d->autoSelectExtCheckBox->setStyleSheet(QString("QCheckBox { padding-top: %1px; }").arg(spacingHint));
+    d->autoSelectExtCheckBox->setStyleSheet(QStringLiteral("QCheckBox { padding-top: %1px; }").arg(spacingHint));
     connect(d->autoSelectExtCheckBox, SIGNAL(clicked()), SLOT(_k_slotAutoSelectExtClicked()));
 
     d->initGUI(); // activate GM
@@ -622,12 +622,12 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     KConfigGroup group(config, ConfigGroup);
     readConfig(group);
 
-    coll->action("inline preview")->setChecked(d->ops->isInlinePreviewShown());
+    coll->action(QStringLiteral("inline preview"))->setChecked(d->ops->isInlinePreviewShown());
     d->iconSizeSlider->setValue(d->ops->iconsZoom());
 
     KFilePreviewGenerator *pg = d->ops->previewGenerator();
     if (pg) {
-        coll->action("inline preview")->setChecked(pg->isPreviewShown());
+        coll->action(QStringLiteral("inline preview"))->setChecked(pg->isPreviewShown());
     }
 
     // getStartUrl() above will have resolved the startDir parameter into
@@ -704,7 +704,7 @@ void KFileWidget::setFilter(const QString &filter)
     // escaped '/' characters.
 
     QString copy(filter);
-    for (pos = 0; (pos = copy.indexOf("\\/", pos)) != -1; ++pos) {
+    for (pos = 0; (pos = copy.indexOf(QStringLiteral("\\/"), pos)) != -1; ++pos) {
         copy.remove(pos, 1);
     }
 
@@ -729,7 +729,7 @@ void KFileWidget::setMimeFilter(const QStringList &mimeTypes,
     d->filterWidget->setMimeFilter(mimeTypes, defaultType);
 
     QStringList types = d->filterWidget->currentFilter().split(' ', QString::SkipEmptyParts); //QStringList::split(" ", d->filterWidget->currentFilter());
-    types.append(QLatin1String("inode/directory"));
+    types.append(QStringLiteral("inode/directory"));
     d->ops->clearFilter();
     d->ops->setMimeFilter(types);
     d->hasDefaultFilter = !defaultType.isEmpty();
@@ -915,7 +915,7 @@ void KFileWidget::slotOk()
 
             d->ops->setUrl(topMostUrl, true);
             const bool signalsBlocked = d->locationEdit->lineEdit()->blockSignals(true);
-            d->locationEdit->lineEdit()->setText(QString("\"%1\"").arg(stringList.join("\" \"")));
+            d->locationEdit->lineEdit()->setText(QStringLiteral("\"%1\"").arg(stringList.join(QStringLiteral("\" \""))));
             d->locationEdit->lineEdit()->blockSignals(signalsBlocked);
 
             d->differentHierarchyLevelItemsEntered = true;
@@ -993,7 +993,7 @@ void KFileWidget::slotOk()
         KJobWidgets::setWindow(statJob, this);
         int res = statJob->exec();
 
-        if (!KUrlAuthorized::authorizeUrlAction("open", QUrl(), url)) {
+        if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("open"), QUrl(), url)) {
             QString msg = KIO::buildErrorString(KIO::ERR_ACCESS_DENIED, d->url.toDisplayString());
             KMessageBox::error(this, msg);
             return;
@@ -1300,7 +1300,7 @@ void KFileWidgetPrivate::setLocationText(const QList<QUrl> &urlList)
     if (urlList.count() > 1) {
         QString urls;
         foreach (const QUrl &url, urlList) {
-            urls += QString("\"%1\"").arg(relativePathOrUrl(currUrl, url)) + ' ';
+            urls += QStringLiteral("\"%1\"").arg(relativePathOrUrl(currUrl, url)) + ' ';
         }
         urls = urls.left(urls.size() - 1);
 
@@ -1351,7 +1351,7 @@ void KFileWidgetPrivate::initSpeedbar()
     placesView->setModel(model);
     placesView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    placesView->setObjectName(QLatin1String("url bar"));
+    placesView->setObjectName(QStringLiteral("url bar"));
     QObject::connect(placesView, SIGNAL(urlChanged(QUrl)),
                      q, SLOT(_k_enterUrl(QUrl)));
 
@@ -1438,7 +1438,7 @@ void KFileWidgetPrivate::_k_slotFilterChanged()
 
     if (filter.contains('/')) {
         QStringList types = filter.split(' ', QString::SkipEmptyParts);
-        types.prepend("inode/directory");
+        types.prepend(QStringLiteral("inode/directory"));
         ops->setMimeFilter(types);
     } else if (filter.contains('*') || filter.contains('?') || filter.contains('[')) {
         ops->setNameFilter(filter);
@@ -1839,13 +1839,13 @@ bool KFileWidget::eventFilter(QObject *watched, QEvent *event)
         if (keyEvent->modifiers() & Qt::AltModifier) {
             switch (keyEvent->key()) {
             case Qt::Key_Up:
-                d->ops->actionCollection()->action("up")->trigger();
+                d->ops->actionCollection()->action(QStringLiteral("up"))->trigger();
                 break;
             case Qt::Key_Left:
-                d->ops->actionCollection()->action("back")->trigger();
+                d->ops->actionCollection()->action(QStringLiteral("back"))->trigger();
                 break;
             case Qt::Key_Right:
-                d->ops->actionCollection()->action("forward")->trigger();
+                d->ops->actionCollection()->action(QStringLiteral("forward"))->trigger();
                 break;
             default:
                 break;
@@ -2032,9 +2032,9 @@ void KFileWidget::setOperationMode(OperationMode mode)
     if (mode == Opening) {
         // don't use KStandardGuiItem::open() here which has trailing ellipsis!
         d->okButton->setText(i18n("&Open"));
-        d->okButton->setIcon(QIcon::fromTheme("document-open"));
+        d->okButton->setIcon(QIcon::fromTheme(QStringLiteral("document-open")));
         // hide the new folder actions...usability team says they shouldn't be in open file dialog
-        actionCollection()->removeAction(actionCollection()->action("mkdir"));
+        actionCollection()->removeAction(actionCollection()->action(QStringLiteral("mkdir")));
     } else if (mode == Saving) {
         KGuiItem::assign(d->okButton, KStandardGuiItem::save());
         d->setNonExtSelection();
@@ -2408,7 +2408,7 @@ void KFileWidgetPrivate::updateFilter()
                     QRegExp rx(p);
                     rx.setPatternSyntax(QRegExp::Wildcard);
                     if (rx.exactMatch(filename)) {
-                        if (p != "*") {   // never match the catch-all filter
+                        if (p != QLatin1String("*")) {   // never match the catch-all filter
                             filterWidget->setCurrentFilter(filter);
                         }
                         return; // do not repeat, could match a later filter
@@ -2540,7 +2540,7 @@ void KFileWidgetPrivate::_k_toggleSpeedbar(bool show)
             QUrl url = model->url(index);
 
             if (homeURL.matches(url, QUrl::StripTrailingSlash)) {
-                toolbar->removeAction(ops->actionCollection()->action("home"));
+                toolbar->removeAction(ops->actionCollection()->action(QStringLiteral("home")));
                 break;
             }
         }
@@ -2555,8 +2555,8 @@ void KFileWidgetPrivate::_k_toggleSpeedbar(bool show)
             placesDock->hide();
         }
 
-        QAction *homeAction = ops->actionCollection()->action("home");
-        QAction *reloadAction = ops->actionCollection()->action("reload");
+        QAction *homeAction = ops->actionCollection()->action(QStringLiteral("home"));
+        QAction *reloadAction = ops->actionCollection()->action(QStringLiteral("reload"));
         if (!toolbar->actions().contains(homeAction)) {
             toolbar->insertAction(reloadAction, homeAction);
         }
@@ -2565,7 +2565,7 @@ void KFileWidgetPrivate::_k_toggleSpeedbar(bool show)
         lafBox->setColumnMinimumWidth(0, 0);
     }
 
-    static_cast<KToggleAction *>(q->actionCollection()->action("toggleSpeedbar"))->setChecked(show);
+    static_cast<KToggleAction *>(q->actionCollection()->action(QStringLiteral("toggleSpeedbar")))->setChecked(show);
 
     // if we don't show the places panel, at least show the places menu
     urlNavigator->setPlacesSelectorVisible(!show);
@@ -2582,9 +2582,9 @@ void KFileWidgetPrivate::_k_toggleBookmarks(bool show)
         q->connect(bookmarkHandler, SIGNAL(openUrl(QString)),
                    SLOT(_k_enterUrl(QString)));
 
-        bookmarkButton = new KActionMenu(QIcon::fromTheme("bookmarks"), i18n("Bookmarks"), q);
+        bookmarkButton = new KActionMenu(QIcon::fromTheme(QStringLiteral("bookmarks")), i18n("Bookmarks"), q);
         bookmarkButton->setDelayed(false);
-        q->actionCollection()->addAction("bookmark", bookmarkButton);
+        q->actionCollection()->addAction(QStringLiteral("bookmark"), bookmarkButton);
         bookmarkButton->setMenu(bookmarkHandler->menu());
         bookmarkButton->setWhatsThis(i18n("<qt>This button allows you to bookmark specific locations. "
                                           "Click on this button to open the bookmark menu where you may add, "
@@ -2599,7 +2599,7 @@ void KFileWidgetPrivate::_k_toggleBookmarks(bool show)
         bookmarkButton = 0;
     }
 
-    static_cast<KToggleAction *>(q->actionCollection()->action("toggleBookmarks"))->setChecked(show);
+    static_cast<KToggleAction *>(q->actionCollection()->action(QStringLiteral("toggleBookmarks")))->setChecked(show);
 }
 
 // static, overloaded
@@ -2621,7 +2621,7 @@ QUrl KFileWidget::getStartUrl(const QUrl &startDir,
 
     bool useDefaultStartDir = startDir.isEmpty();
     if (!useDefaultStartDir) {
-        if (startDir.scheme() == "kfiledialog") {
+        if (startDir.scheme() == QLatin1String("kfiledialog")) {
 
 //  The startDir URL with this protocol may be in the format:
 //                                                    directory()   fileName()
@@ -2635,7 +2635,7 @@ QUrl KFileWidget::getStartUrl(const QUrl &startDir,
             QString keyword;
             QString urlDir = startDir.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash).path();
             QString urlFile = startDir.fileName();
-            if (urlDir == "/") {         // '1'..'4' above
+            if (urlDir == QLatin1String("/")) {         // '1'..'4' above
                 keyword = urlFile;
                 fileName.clear();
             } else {                // '5' or '6' above
@@ -2643,10 +2643,10 @@ QUrl KFileWidget::getStartUrl(const QUrl &startDir,
                 fileName = urlFile;
             }
 
-            if (startDir.query() == "global") {
-                recentDirClass = QString("::%1").arg(keyword);
+            if (startDir.query() == QLatin1String("global")) {
+                recentDirClass = QStringLiteral("::%1").arg(keyword);
             } else {
-                recentDirClass = QString(":%1").arg(keyword);
+                recentDirClass = QStringLiteral(":%1").arg(keyword);
             }
 
             ret = QUrl::fromLocalFile(KRecentDirs::dir(recentDirClass));

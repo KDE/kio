@@ -67,7 +67,7 @@ void TransferJob::slotRedirection(const QUrl &url)
 {
     Q_D(TransferJob);
     //qDebug() << url;
-    if (!KUrlAuthorized::authorizeUrlAction("redirect", d->m_url, url)) {
+    if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("redirect"), d->m_url, url)) {
         qWarning() << "Redirection from" << d->m_url << "to" << url << "REJECTED!";
         return;
     }
@@ -82,11 +82,11 @@ void TransferJob::slotRedirection(const QUrl &url)
     } else {
         d->m_redirectionURL = url; // We'll remember that when the job finishes
         d->m_redirectionList.append(url);
-        QString sslInUse = queryMetaData(QLatin1String("ssl_in_use"));
+        QString sslInUse = queryMetaData(QStringLiteral("ssl_in_use"));
         if (!sslInUse.isNull()) { // the key is present
-            addMetaData(QLatin1String("ssl_was_in_use"), sslInUse);
+            addMetaData(QStringLiteral("ssl_was_in_use"), sslInUse);
         } else {
-            addMetaData(QLatin1String("ssl_was_in_use"), QLatin1String("FALSE"));
+            addMetaData(QStringLiteral("ssl_was_in_use"), QStringLiteral("FALSE"));
         }
         // Tell the user that we haven't finished yet
         emit redirection(this, d->m_redirectionURL);
@@ -101,14 +101,14 @@ void TransferJob::slotFinished()
     if (!d->m_redirectionURL.isEmpty() && d->m_redirectionURL.isValid()) {
 
         //qDebug() << "Redirection to" << m_redirectionURL;
-        if (queryMetaData("permanent-redirect") == "true") {
+        if (queryMetaData(QStringLiteral("permanent-redirect")) == QLatin1String("true")) {
             emit permanentRedirection(this, d->m_url, d->m_redirectionURL);
         }
 
-        if (queryMetaData(QLatin1String("redirect-to-get")) == QLatin1String("true")) {
+        if (queryMetaData(QStringLiteral("redirect-to-get")) == QLatin1String("true")) {
             d->m_command = CMD_GET;
-            d->m_outgoingMetaData.remove(QLatin1String("CustomHTTPMethod"));
-            d->m_outgoingMetaData.remove(QLatin1String("content-type"));
+            d->m_outgoingMetaData.remove(QStringLiteral("CustomHTTPMethod"));
+            d->m_outgoingMetaData.remove(QStringLiteral("content-type"));
         }
 
         if (d->m_redirectionHandlingEnabled) {
@@ -118,8 +118,8 @@ void TransferJob::slotFinished()
             // happens (unpacking+repacking)
             d->staticData.truncate(0);
             d->m_incomingMetaData.clear();
-            if (queryMetaData("cache") != "reload") {
-                addMetaData("cache", "refresh");
+            if (queryMetaData(QStringLiteral("cache")) != QLatin1String("reload")) {
+                addMetaData(QStringLiteral("cache"), QStringLiteral("refresh"));
             }
             d->m_internalSuspended = false;
             // The very tricky part is the packed arguments business
@@ -148,8 +148,8 @@ void TransferJob::slotFinished()
                 int specialcmd;
                 istream >> specialcmd;
                 if (specialcmd == 1) { // HTTP POST
-                    d->m_outgoingMetaData.remove(QLatin1String("content-type"));
-                    addMetaData("cache", "reload");
+                    d->m_outgoingMetaData.remove(QStringLiteral("content-type"));
+                    addMetaData(QStringLiteral("cache"), QStringLiteral("reload"));
                     d->m_packedArgs.truncate(0);
                     QDataStream stream(&d->m_packedArgs, QIODevice::WriteOnly);
                     stream << d->m_redirectionURL;
@@ -339,7 +339,7 @@ void TransferJobPrivate::start(Slave *slave)
                SLOT(slotCanResume(KIO::filesize_t)));
 
     if (slave->suspended()) {
-        m_mimetype = "unknown";
+        m_mimetype = QStringLiteral("unknown");
         // WABA: The slave was put on hold. Resume operation.
         slave->resume();
     }
@@ -466,7 +466,7 @@ void TransferJob::slotResult(KJob *job)
 
 void TransferJob::setModificationTime(const QDateTime &mtime)
 {
-    addMetaData("modified", mtime.toString(Qt::ISODate));
+    addMetaData(QStringLiteral("modified"), mtime.toString(Qt::ISODate));
 }
 
 TransferJob *KIO::get(const QUrl &url, LoadType reload, JobFlags flags)
@@ -476,7 +476,7 @@ TransferJob *KIO::get(const QUrl &url, LoadType reload, JobFlags flags)
     TransferJob *job = TransferJobPrivate::newJob(url, CMD_GET, packedArgs,
                        QByteArray(), flags);
     if (reload == Reload) {
-        job->addMetaData("cache", "reload");
+        job->addMetaData(QStringLiteral("cache"), QStringLiteral("reload"));
     }
     return job;
 }

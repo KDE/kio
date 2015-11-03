@@ -39,7 +39,7 @@ class KSSLDPrivate
 {
 public:
     KSSLDPrivate()
-        : config(QString::fromLatin1("ksslcertificatemanager"), KConfig::SimpleConfig)
+        : config(QLatin1String("ksslcertificatemanager"), KConfig::SimpleConfig)
     {
         struct strErr {
             const char *str;
@@ -97,12 +97,12 @@ void KSSLD::setRule(const KSslCertificateRule &rule)
 
     QStringList sl;
 
-    QString dtString = QString::fromLatin1("ExpireUTC ");
+    QString dtString = QStringLiteral("ExpireUTC ");
     dtString.append(rule.expiryDateTime().toString(Qt::ISODate));
     sl.append(dtString);
 
     if (rule.isRejected()) {
-        sl.append(QString::fromLatin1("Reject"));
+        sl.append(QStringLiteral("Reject"));
     } else {
         foreach (KSslError::Error e, rule.ignoredErrors()) {
             sl.append(d->sslErrorToString.value(e));

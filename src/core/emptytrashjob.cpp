@@ -29,7 +29,7 @@ class KIO::EmptyTrashJobPrivate: public SimpleJobPrivate
 {
 public:
     EmptyTrashJobPrivate(int command, const QByteArray &packedArgs)
-        : SimpleJobPrivate(QUrl("trash:/"), command, packedArgs)
+        : SimpleJobPrivate(QUrl(QStringLiteral("trash:/")), command, packedArgs)
     { }
 
     Q_DECLARE_PUBLIC(EmptyTrashJob)
@@ -54,7 +54,7 @@ EmptyTrashJob::~EmptyTrashJob()
 void EmptyTrashJob::slotFinished()
 {
     //KNotification::event("Trash: emptied", QString(), QPixmap(), 0, KNotification::DefaultEvent);
-    org::kde::KDirNotify::emitFilesAdded(QUrl("trash:/"));
+    org::kde::KDirNotify::emitFilesAdded(QUrl(QStringLiteral("trash:/")));
 }
 
 KIO::EmptyTrashJob *KIO::emptyTrash()

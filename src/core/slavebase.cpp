@@ -403,7 +403,7 @@ KRemoteEncoding *SlaveBase::remoteEncoding()
         return d->remotefile;
     }
 
-    const QByteArray charset(metaData(QLatin1String("Charset")).toLatin1());
+    const QByteArray charset(metaData(QStringLiteral("Charset")).toLatin1());
     return (d->remotefile = new KRemoteEncoding(charset));
 }
 
@@ -909,11 +909,11 @@ void SlaveBase::reparseConfiguration()
 
 bool SlaveBase::openPasswordDialog(AuthInfo &info, const QString &errorMsg)
 {
-    const long windowId = metaData(QLatin1String("window-id")).toLong();
-    const unsigned long userTimestamp = metaData(QLatin1String("user-timestamp")).toULong();
+    const long windowId = metaData(QStringLiteral("window-id")).toLong();
+    const unsigned long userTimestamp = metaData(QStringLiteral("user-timestamp")).toULong();
     QString errorMessage;
-    if (metaData(QLatin1String("no-auth-prompt")).compare(QLatin1String("true"), Qt::CaseInsensitive) == 0) {
-        errorMessage = QLatin1String("<NoAuthPrompt>");
+    if (metaData(QStringLiteral("no-auth-prompt")).compare(QLatin1String("true"), Qt::CaseInsensitive) == 0) {
+        errorMessage = QStringLiteral("<NoAuthPrompt>");
     } else {
         errorMessage = errorMsg;
     }
@@ -924,7 +924,7 @@ bool SlaveBase::openPasswordDialog(AuthInfo &info, const QString &errorMsg)
     // Prevent queryAuthInfo from caching the user supplied password since
     // we need the ioslaves to first authenticate against the server with
     // it to ensure it is valid.
-    dlgInfo.setExtraField(QLatin1String("skip-caching-on-query"), true);
+    dlgInfo.setExtraField(QStringLiteral("skip-caching-on-query"), true);
 
     KPasswdServerClient *passwdServerClient = d->passwdServerClient();
     qlonglong seqNr = passwdServerClient->queryAuthInfo(dlgInfo, errorMessage, windowId,
@@ -1281,8 +1281,8 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
 bool SlaveBase::checkCachedAuthentication(AuthInfo &info)
 {
     KPasswdServerClient *passwdServerClient = d->passwdServerClient();
-    return (passwdServerClient->checkAuthInfo(info, metaData(QLatin1String("window-id")).toLong(),
-                                        metaData(QLatin1String("user-timestamp")).toULong()));
+    return (passwdServerClient->checkAuthInfo(info, metaData(QStringLiteral("window-id")).toLong(),
+                                        metaData(QStringLiteral("user-timestamp")).toULong()));
 }
 
 void SlaveBase::dispatchOpenCommand(int command, const QByteArray &data)
@@ -1321,14 +1321,14 @@ void SlaveBase::dispatchOpenCommand(int command, const QByteArray &data)
 bool SlaveBase::cacheAuthentication(const AuthInfo &info)
 {
     KPasswdServerClient *passwdServerClient = d->passwdServerClient();
-    passwdServerClient->addAuthInfo(info, metaData(QLatin1String("window-id")).toLongLong());
+    passwdServerClient->addAuthInfo(info, metaData(QStringLiteral("window-id")).toLongLong());
     return true;
 }
 
 int SlaveBase::connectTimeout()
 {
     bool ok;
-    QString tmp = metaData(QLatin1String("ConnectTimeout"));
+    QString tmp = metaData(QStringLiteral("ConnectTimeout"));
     int result = tmp.toInt(&ok);
     if (ok) {
         return result;
@@ -1339,7 +1339,7 @@ int SlaveBase::connectTimeout()
 int SlaveBase::proxyConnectTimeout()
 {
     bool ok;
-    QString tmp = metaData(QLatin1String("ProxyConnectTimeout"));
+    QString tmp = metaData(QStringLiteral("ProxyConnectTimeout"));
     int result = tmp.toInt(&ok);
     if (ok) {
         return result;
@@ -1350,7 +1350,7 @@ int SlaveBase::proxyConnectTimeout()
 int SlaveBase::responseTimeout()
 {
     bool ok;
-    QString tmp = metaData(QLatin1String("ResponseTimeout"));
+    QString tmp = metaData(QStringLiteral("ResponseTimeout"));
     int result = tmp.toInt(&ok);
     if (ok) {
         return result;
@@ -1361,7 +1361,7 @@ int SlaveBase::responseTimeout()
 int SlaveBase::readTimeout()
 {
     bool ok;
-    QString tmp = metaData(QLatin1String("ReadTimeout"));
+    QString tmp = metaData(QStringLiteral("ReadTimeout"));
     int result = tmp.toInt(&ok);
     if (ok) {
         return result;

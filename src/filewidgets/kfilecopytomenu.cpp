@@ -79,13 +79,13 @@ void KFileCopyToMenu::addActionsTo(QMenu *menu) const
 {
     QMenu *mainCopyMenu = new KFileCopyToMainMenu(menu, d, Copy);
     mainCopyMenu->setTitle(i18nc("@title:menu", "Copy To"));
-    mainCopyMenu->menuAction()->setObjectName(QLatin1String("copyTo_submenu"));   // for the unittest
+    mainCopyMenu->menuAction()->setObjectName(QStringLiteral("copyTo_submenu"));   // for the unittest
     menu->addMenu(mainCopyMenu);
 
     if (!d->m_readOnly) {
         QMenu *mainMoveMenu = new KFileCopyToMainMenu(menu, d, Move);
         mainMoveMenu->setTitle(i18nc("@title:menu", "Move To"));
-        mainMoveMenu->menuAction()->setObjectName(QLatin1String("moveTo_submenu"));   // for the unittest
+        mainMoveMenu->menuAction()->setObjectName(QStringLiteral("moveTo_submenu"));   // for the unittest
         menu->addMenu(mainMoveMenu);
     }
 }
@@ -109,17 +109,17 @@ void KFileCopyToMainMenu::slotAboutToShow()
     // Home Folder
     subMenu = new KFileCopyToDirectoryMenu(this, this, QDir::homePath());
     subMenu->setTitle(i18nc("@title:menu", "Home Folder"));
-    subMenu->setIcon(QIcon::fromTheme("go-home"));
+    subMenu->setIcon(QIcon::fromTheme(QStringLiteral("go-home")));
     QAction *act = addMenu(subMenu);
-    act->setObjectName("home");
+    act->setObjectName(QStringLiteral("home"));
 
     // Root Folder
 #ifndef Q_OS_WIN
     subMenu = new KFileCopyToDirectoryMenu(this, this, QDir::rootPath());
     subMenu->setTitle(i18nc("@title:menu", "Root Folder"));
-    subMenu->setIcon(QIcon::fromTheme("folder-red"));
+    subMenu->setIcon(QIcon::fromTheme(QStringLiteral("folder-red")));
     act = addMenu(subMenu);
-    act->setObjectName("root");
+    act->setObjectName(QStringLiteral("root"));
 #else
     foreach (const QFileInfo &info, QDir::drives()) {
         QString driveIcon = "drive-harddisk";
@@ -152,7 +152,7 @@ void KFileCopyToMainMenu::slotAboutToShow()
 
     // Browse... action, shows a file dialog
     QAction *browseAction = new QAction(i18nc("@title:menu in Copy To or Move To submenu", "Browse..."), this);
-    browseAction->setObjectName("browse");
+    browseAction->setObjectName(QStringLiteral("browse"));
     connect(browseAction, &QAction::triggered, this, &KFileCopyToMainMenu::slotBrowse);
     addAction(browseAction);
 
@@ -248,14 +248,14 @@ void KFileCopyToDirectoryMenu::slotAboutToShow()
     QDir dir(m_path);
     const QStringList entries = dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::LocaleAware);
     const QMimeDatabase db;
-    const QMimeType dirMime = db.mimeTypeForName("inode/directory");
+    const QMimeType dirMime = db.mimeTypeForName(QStringLiteral("inode/directory"));
     Q_FOREACH (const QString &subDir, entries) {
         QString subPath = m_path + subDir;
         KFileCopyToDirectoryMenu *subMenu = new KFileCopyToDirectoryMenu(this, m_mainMenu, subPath);
         QString menuTitle(subDir);
         // Replace '&' by "&&" to make sure that '&' inside the directory name is displayed
         // correctly and not misinterpreted as an indicator for a keyboard shortcut
-        subMenu->setTitle(menuTitle.replace('&', "&&"));
+        subMenu->setTitle(menuTitle.replace('&', QLatin1String("&&")));
         const QString iconName = dirMime.iconName();
         subMenu->setIcon(QIcon::fromTheme(iconName));
         if (QFileInfo(subPath).isSymLink()) {

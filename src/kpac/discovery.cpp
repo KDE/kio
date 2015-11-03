@@ -123,7 +123,7 @@ void Discovery::failed()
 
     const int dot = m_domainName.indexOf('.');
     if (dot > -1 || firstQuery) {
-        QString address(QLatin1String("http://wpad."));
+        QString address(QStringLiteral("http://wpad."));
         address += m_domainName;
         address += QLatin1String("/wpad.dat");
         if (dot > -1) {

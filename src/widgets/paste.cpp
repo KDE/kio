@@ -217,7 +217,7 @@ KIO::Job *pasteMimeDataImpl(const QMimeData *mimeData, const QUrl &destUrl,
                             bool clipboard)
 {
     QByteArray ba;
-    const QString suggestedFilename = QString::fromUtf8(mimeData->data("application/x-kde-suggestedfilename"));
+    const QString suggestedFilename = QString::fromUtf8(mimeData->data(QStringLiteral("application/x-kde-suggestedfilename")));
 
     // Now check for plain text
     // We don't want to display a mimetype choice for a QTextDrag, those mimetypes look ugly.
@@ -342,11 +342,11 @@ KIOWIDGETS_EXPORT KIO::Job *KIO::pasteMimeData(const QMimeData *mimeData, const 
 KIOWIDGETS_EXPORT void KIO::setClipboardDataCut(QMimeData* mimeData, bool cut)
 {
     const QByteArray cutSelectionData = cut ? "1" : "0";
-    mimeData->setData("application/x-kde-cutselection", cutSelectionData);
+    mimeData->setData(QStringLiteral("application/x-kde-cutselection"), cutSelectionData);
 }
 
 KIOWIDGETS_EXPORT bool KIO::isClipboardDataCut(const QMimeData *mimeData)
 {
-    const QByteArray a = mimeData->data("application/x-kde-cutselection");
+    const QByteArray a = mimeData->data(QStringLiteral("application/x-kde-cutselection"));
     return (!a.isEmpty() && a.at(0) == '1');
 }

@@ -42,7 +42,7 @@ public:
     UserAgentSiteNameValidator (QObject* parent)
         : QValidator (parent)
     {
-        setObjectName (QLatin1String ("UserAgentSiteNameValidator"));
+        setObjectName (QStringLiteral ("UserAgentSiteNameValidator"));
     }
 
     State validate (QString& input, int&) const Q_DECL_OVERRIDE

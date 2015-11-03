@@ -37,12 +37,12 @@ public:
     DomainNameValidator (QObject* parent)
         :QValidator(parent)
     {
-        setObjectName(QLatin1String("domainValidator"));
+        setObjectName(QStringLiteral("domainValidator"));
     }
 
     State validate (QString& input, int&) const Q_DECL_OVERRIDE
     {
-        if (input.isEmpty() || (input == ".")) {
+        if (input.isEmpty() || (input == QLatin1String("."))) {
             return Intermediate;
         }
 

@@ -57,7 +57,7 @@ using namespace KIO;
     }
 
 DataSlave::DataSlave() :
-    Slave("data")
+    Slave(QStringLiteral("data"))
 {
     //qDebug() << this;
     _suspended = false;
@@ -148,7 +148,7 @@ void DataSlave::send(int cmd, const QByteArray &arr)
         break;
     default:
         error(ERR_UNSUPPORTED_ACTION,
-              unsupportedActionErrorString(QLatin1String("data"), cmd));
+              unsupportedActionErrorString(QStringLiteral("data"), cmd));
     }/*end switch*/
 }
 

@@ -35,16 +35,16 @@ KFileBookmarkHandler::KFileBookmarkHandler(KFileWidget *widget)
       KBookmarkOwner(),
       m_widget(widget)
 {
-    setObjectName("KFileBookmarkHandler");
+    setObjectName(QStringLiteral("KFileBookmarkHandler"));
     m_menu = new QMenu(widget);
-    m_menu->setObjectName("bookmark menu");
+    m_menu->setObjectName(QStringLiteral("bookmark menu"));
 
-    QString file = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kfile/bookmarks.xml");
+    QString file = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kfile/bookmarks.xml"));
     if (file.isEmpty()) {
         file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "kfile/bookmarks.xml";
     }
 
-    KBookmarkManager *manager = KBookmarkManager::managerForFile(file, "kfile");
+    KBookmarkManager *manager = KBookmarkManager::managerForFile(file, QStringLiteral("kfile"));
     manager->setUpdate(true);
 
     m_bookmarkMenu = new KBookmarkMenu(manager, this, m_menu,

@@ -163,10 +163,10 @@ void KNewFileMenuSingleton::parseFiles()
                 templ.icon = desktopFile.readIcon();
                 templ.comment = desktopFile.readComment();
                 QString type = desktopFile.readType();
-                if (type == "Link") {
+                if (type == QLatin1String("Link")) {
                     templatePath = desktopFile.desktopGroup().readPathEntry("URL", QString());
-                    if (templatePath[0] != '/' && !templatePath.startsWith("__")) {
-                        if (templatePath.startsWith("file:/")) {
+                    if (templatePath[0] != '/' && !templatePath.startsWith(QLatin1String("__"))) {
+                        if (templatePath.startsWith(QLatin1String("file:/"))) {
                             templatePath = QUrl(templatePath).toLocalFile();
                         } else {
                             // A relative path, then (that's the default in the files we ship)
@@ -188,7 +188,7 @@ void KNewFileMenuSingleton::parseFiles()
             }
             if (text.isEmpty()) {
                 text = QUrl(filePath).fileName();
-                if (text.endsWith(".desktop")) {
+                if (text.endsWith(QLatin1String(".desktop"))) {
                     text.truncate(text.length() - 8);
                 }
             }
@@ -378,7 +378,7 @@ bool KNewFileMenuPrivate::checkSourceExists(const QString &src)
 
         QDialog *dialog = new QDialog(m_parentWidget);
         dialog->setWindowTitle(i18n("Sorry"));
-        dialog->setObjectName("sorry");
+        dialog->setObjectName(QStringLiteral("sorry"));
         dialog->setModal(q->isModal());
         dialog->setAttribute(Qt::WA_DeleteOnClose);
 
@@ -399,7 +399,7 @@ bool KNewFileMenuPrivate::checkSourceExists(const QString &src)
 
 void KNewFileMenuPrivate::confirmCreatingHiddenDir(const QString &name)
 {
-    if (!KMessageBox::shouldBeShownContinue("confirm_create_hidden_dir")) {
+    if (!KMessageBox::shouldBeShownContinue(QStringLiteral("confirm_create_hidden_dir"))) {
         _k_slotCreateHiddenDirectory();
         return;
     }
@@ -444,7 +444,7 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
     QList<QUrl>::const_iterator it = m_popupFiles.constBegin();
     for (; it != m_popupFiles.constEnd(); ++it) {
         QString text = entry.text;
-        text.remove("..."); // the ... is fine for the menu item but not for the default filename
+        text.remove(QStringLiteral("...")); // the ... is fine for the menu item but not for the default filename
         text = text.trimmed(); // In some languages, there is a space in front of "...", see bug 268895
         // KDE5 TODO: remove the "..." from link*.desktop files and use i18n("%1...") when making
         // the action.
@@ -471,7 +471,7 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
     // The template is not a desktop file
     // Show the small dialog for getting the destination filename
     QString text = entry.text;
-    text.remove("..."); // the ... is fine for the menu item but not for the default filename
+    text.remove(QStringLiteral("...")); // the ... is fine for the menu item but not for the default filename
     text = text.trimmed(); // In some languages, there is a space in front of "...", see bug 268895
     m_copyData.m_src = entry.templatePath;
 
@@ -573,7 +573,7 @@ void KNewFileMenuPrivate::executeStrategy()
             // This doesn't work, FileUndoManager registers new links in copyingLinkDone,
             // which KIO::symlink obviously doesn't emit... Needs code in FileUndoManager.
             //KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Link, lstSrc, dest, kjob);
-        } else if (src.startsWith(":/")) {
+        } else if (src.startsWith(QLatin1String(":/"))) {
             QFile srcFile(src);
             if (!srcFile.open(QIODevice::ReadOnly)) {
                 return;
@@ -640,7 +640,7 @@ void KNewFileMenuPrivate::fillMenu()
 
                 const QString templatePath = entry.templatePath;
                 // The best way to identify the "Create Directory", "Link to Location", "Link to Application" was the template
-                if (templatePath.endsWith("emptydir")) {
+                if (templatePath.endsWith(QLatin1String("emptydir"))) {
                     QAction *act = new QAction(q);
                     m_newDirAction = act;
                     act->setIcon(QIcon::fromTheme(entry.icon));
@@ -657,7 +657,7 @@ void KNewFileMenuPrivate::fillMenu()
                         bool keep = false;
 
                         // We need to do mimetype filtering, for real files.
-                        const bool createSymlink = entry.templatePath == "__CREATE_SYMLINK__";
+                        const bool createSymlink = entry.templatePath == QLatin1String("__CREATE_SYMLINK__");
                         if (createSymlink) {
                             keep = true;
                         } else if (!KDesktopFile::isDesktopFile(entry.templatePath)) {
@@ -694,15 +694,15 @@ void KNewFileMenuPrivate::fillMenu()
 
                     //qDebug() << templatePath << entry.filePath;
 
-                    if (templatePath.endsWith("/URL.desktop")) {
+                    if (templatePath.endsWith(QLatin1String("/URL.desktop"))) {
                         linkURL = act;
-                    } else if (templatePath.endsWith("/Program.desktop")) {
+                    } else if (templatePath.endsWith(QLatin1String("/Program.desktop"))) {
                         linkApp = act;
-                    } else if (entry.filePath.endsWith("/linkPath.desktop")) {
+                    } else if (entry.filePath.endsWith(QLatin1String("/linkPath.desktop"))) {
                         linkPath = act;
                     } else if (KDesktopFile::isDesktopFile(templatePath)) {
                         KDesktopFile df(templatePath);
-                        if (df.readType() == "FSDevice") {
+                        if (df.readType() == QLatin1String("FSDevice")) {
                             m_menuDev->menu()->addAction(act);
                         } else {
                             menu->addAction(act);
@@ -777,7 +777,7 @@ void KNewFileMenuPrivate::_k_slotActionTriggered(QAction *action)
     KNewFileMenuSingleton *s = kNewMenuGlobals();
     const KNewFileMenuSingleton::Entry entry = s->templatesList->at(id - 1);
 
-    const bool createSymlink = entry.templatePath == "__CREATE_SYMLINK__";
+    const bool createSymlink = entry.templatePath == QLatin1String("__CREATE_SYMLINK__");
 
     m_copyData = KNewFileMenuCopyData();
 
@@ -786,7 +786,7 @@ void KNewFileMenuPrivate::_k_slotActionTriggered(QAction *action)
         executeSymLink(entry);
     } else if (KDesktopFile::isDesktopFile(entry.templatePath)) {
         KDesktopFile df(entry.templatePath);
-        if (df.readType() == "Link") {
+        if (df.readType() == QLatin1String("Link")) {
             executeUrlDesktopFile(entry);
         } else { // any other desktop file (Device, App, etc.)
             executeOtherDesktopFile(entry);
@@ -848,8 +848,8 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
     KNewFileMenuSingleton *s = kNewMenuGlobals();
     //qDebug();
 
-    QStringList dirs = { ":/kio5/newfile-templates" };
-    dirs += QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "templates", QStandardPaths::LocateDirectory);
+    QStringList dirs = { QStringLiteral(":/kio5/newfile-templates") };
+    dirs += QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("templates"), QStandardPaths::LocateDirectory);
 
     // Ensure any changes in the templates dir will call this
     if (! s->dirWatch) {
@@ -877,7 +877,7 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
 
     Q_FOREACH (const QString &path, dirs) {
         dir.setPath(path);
-        const QStringList &entryList(dir.entryList(QStringList() << "*.desktop", QDir::Files));
+        const QStringList &entryList(dir.entryList(QStringList() << QStringLiteral("*.desktop"), QDir::Files));
         Q_FOREACH (const QString &entry, entryList) {
             const QString file = dir.path() + QLatin1Char('/') + entry;
             files.append(file);
@@ -898,9 +898,9 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
             // The rest of the re-ordering is done in fillMenu.
             const KDesktopFile config(file);
             QString key = config.desktopGroup().readEntry("Name");
-            if (file.endsWith("Directory.desktop")) {
+            if (file.endsWith(QLatin1String("Directory.desktop"))) {
                 key.prepend('0');
-            } else if (file.endsWith("TextFile.desktop")) {
+            } else if (file.endsWith(QLatin1String("TextFile.desktop"))) {
                 key.prepend('1');
             } else {
                 key.prepend('2');
@@ -941,7 +941,7 @@ void KNewFileMenuPrivate::_k_slotSymLink()
     } else {
         QDialog *dialog = new QDialog(m_parentWidget);
         dialog->setWindowTitle(i18n("Sorry"));
-        dialog->setObjectName("sorry");
+        dialog->setObjectName(QStringLiteral("sorry"));
         dialog->setModal(m_modal);
         dialog->setAttribute(Qt::WA_DeleteOnClose);
 
@@ -981,7 +981,7 @@ void KNewFileMenuPrivate::_k_slotUrlDesktopFile()
     uriData.setData(linkUrl); // the url to put in the file
     uriData.setCheckForExecutables(false);
 
-    if (KUriFilter::self()->filterUri(uriData, QStringList() << QLatin1String("kshorturifilter"))) {
+    if (KUriFilter::self()->filterUri(uriData, QStringList() << QStringLiteral("kshorturifilter"))) {
         linkUrl = uriData.uri();
     }
 
@@ -1028,7 +1028,7 @@ void KNewFileMenuPrivate::_k_slotUrlDesktopFile()
 }
 
 KNewFileMenu::KNewFileMenu(KActionCollection *collection, const QString &name, QObject *parent)
-    : KActionMenu(QIcon::fromTheme("document-new"), i18n("Create New"), parent),
+    : KActionMenu(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Create New"), parent),
       d(new KNewFileMenuPrivate(this))
 {
     // Don't fill the menu yet
@@ -1043,7 +1043,7 @@ KNewFileMenu::KNewFileMenu(KActionCollection *collection, const QString &name, Q
         d->m_actionCollection->addAction(name, this);
     }
 
-    d->m_menuDev = new KActionMenu(QIcon::fromTheme("drive-removable-media"), i18n("Link to Device"), this);
+    d->m_menuDev = new KActionMenu(QIcon::fromTheme(QStringLiteral("drive-removable-media")), i18n("Link to Device"), this);
 }
 
 KNewFileMenu::~KNewFileMenu()

@@ -42,7 +42,7 @@ class UdsEntryBenchmark : public QObject
     Q_OBJECT
 public:
     UdsEntryBenchmark()
-        : nameStr("name"),
+        : nameStr(QStringLiteral("name")),
         now(QDateTime::currentDateTime()),
         now_time_t(now.toTime_t())
     {}

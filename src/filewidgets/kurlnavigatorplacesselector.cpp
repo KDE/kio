@@ -123,7 +123,7 @@ void KUrlNavigatorPlacesSelector::updateSelection(const QUrl &url)
         m_selectedItem = -1;
         // No bookmark has been found which matches to the given Url. Show
         // a generic folder icon as pixmap for indication:
-        setIcon(QIcon::fromTheme("folder"));
+        setIcon(QIcon::fromTheme(QStringLiteral("folder")));
     }
     updateTeardownAction();
 }
@@ -184,7 +184,7 @@ void KUrlNavigatorPlacesSelector::dropEvent(QDropEvent *event)
     const QList<QUrl> urlList = KUrlMimeData::urlsFromMimeData(event->mimeData());
     foreach (const QUrl &url, urlList) {
         QMimeType mimetype = db.mimeTypeForUrl(url);
-        if (mimetype.inherits("inode/directory")) {
+        if (mimetype.inherits(QStringLiteral("inode/directory"))) {
             m_placesModel->addPlace(url.fileName(), url);
         }
     }
@@ -193,7 +193,7 @@ void KUrlNavigatorPlacesSelector::dropEvent(QDropEvent *event)
 void KUrlNavigatorPlacesSelector::activatePlace(QAction *action)
 {
     Q_ASSERT(action != 0);
-    if (action->data().toString() == "teardownAction") {
+    if (action->data().toString() == QLatin1String("teardownAction")) {
         QModelIndex index = m_placesModel->index(m_selectedItem, 0);
         m_placesModel->requestTeardown(index);
         return;

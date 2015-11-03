@@ -90,7 +90,7 @@ private Q_SLOTS:
         QSignalSpy completedSpy(dirOp.dirLister(), SIGNAL(completed()));
         dirOp.setView(KFile::DetailTree);
         completedSpy.wait(1000);
-        dirOp.setCurrentItem(QUrl("file:///"));
+        dirOp.setCurrentItem(QUrl(QStringLiteral("file:///")));
         dirOp.setCurrentItem(QUrl::fromLocalFile(QFINDTESTDATA("kdiroperatortest.cpp")));
         //completedSpy.wait(1000);
         QTest::qWait(1000);
@@ -101,9 +101,9 @@ private Q_SLOTS:
         QTest::addColumn<QUrl>("url");
         QTest::addColumn<QUrl>("expectedUrl");
 
-        QTest::newRow("with_host") << QUrl("ftp://foo.com/folder") << QUrl("ftp://foo.com/folder/");
-        QTest::newRow("with_no_host") << QUrl("smb://") << QUrl("smb://");
-        QTest::newRow("with_host_without_path") << QUrl("ftp://user@example.com") << QUrl("ftp://user@example.com");
+        QTest::newRow("with_host") << QUrl(QStringLiteral("ftp://foo.com/folder")) << QUrl(QStringLiteral("ftp://foo.com/folder/"));
+        QTest::newRow("with_no_host") << QUrl(QStringLiteral("smb://")) << QUrl(QStringLiteral("smb://"));
+        QTest::newRow("with_host_without_path") << QUrl(QStringLiteral("ftp://user@example.com")) << QUrl(QStringLiteral("ftp://user@example.com"));
     }
 
     void testSetUrlPathAdjustment()

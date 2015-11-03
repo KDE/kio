@@ -127,7 +127,7 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
                     displayName = filename;
                 }
                 // skip hidden dirs when listing if requested
-                if (filename != ".." && filename != "." && (includeHidden || filename[0] != '.')) {
+                if (filename != QLatin1String("..") && filename != QLatin1String(".") && (includeHidden || filename[0] != '.')) {
                     ListJob *job = ListJobPrivate::newJobNoUi(itemURL,
                                    true /*recursive*/,
                                    m_prefix + filename + '/',
@@ -166,7 +166,7 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
             }
             // Avoid returning entries like subdir/. and subdir/.., but include . and .. for
             // the toplevel dir, and skip hidden files/dirs if that was requested
-            if ((m_prefix.isNull() || (filename != ".." && filename != "."))
+            if ((m_prefix.isNull() || (filename != QLatin1String("..") && filename != QLatin1String(".")))
                     && (includeHidden || (filename[0] != '.'))) {
                 // ## Didn't find a way to use the iterator instead of re-doing a key lookup
                 newone.insert(KIO::UDSEntry::UDS_NAME, m_prefix + filename);
@@ -211,7 +211,7 @@ void ListJob::slotResult(KJob *job)
 void ListJobPrivate::slotRedirection(const QUrl &url)
 {
     Q_Q(ListJob);
-    if (!KUrlAuthorized::authorizeUrlAction("redirect", m_url, url)) {
+    if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("redirect"), m_url, url)) {
         qWarning() << "Redirection from" << m_url << "to" << url << "REJECTED!";
         return;
     }
@@ -226,7 +226,7 @@ void ListJob::slotFinished()
     if (!d->m_redirectionURL.isEmpty() && d->m_redirectionURL.isValid() && !error()) {
 
         //qDebug() << "Redirection to " << d->m_redirectionURL;
-        if (queryMetaData("permanent-redirect") == "true") {
+        if (queryMetaData(QStringLiteral("permanent-redirect")) == QLatin1String("true")) {
             emit permanentRedirection(this, d->m_url, d->m_redirectionURL);
         }
 
@@ -274,7 +274,7 @@ void ListJob::setUnrestricted(bool unrestricted)
 void ListJobPrivate::start(Slave *slave)
 {
     Q_Q(ListJob);
-    if (!KUrlAuthorized::authorizeUrlAction("list", m_url, m_url) &&
+    if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("list"), m_url, m_url) &&
             !(m_extraFlags & EF_ListJobUnrestricted)) {
         q->setError(ERR_ACCESS_DENIED);
         q->setErrorText(m_url.toDisplayString());

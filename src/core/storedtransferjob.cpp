@@ -143,7 +143,7 @@ StoredTransferJob *KIO::storedGet(const QUrl &url, LoadType reload, JobFlags fla
     KIO_ARGS << url;
     StoredTransferJob *job = StoredTransferJobPrivate::newJob(url, CMD_GET, packedArgs, QByteArray(), flags);
     if (reload == Reload) {
-        job->addMetaData("cache", "reload");
+        job->addMetaData(QStringLiteral("cache"), QStringLiteral("reload"));
     }
     return job;
 }
@@ -272,7 +272,7 @@ static int isUrlPortBad(const QUrl &url)
         static bool override_loaded = false;
         static QList< int > *overriden_ports = NULL;
         if (!override_loaded) {
-            KConfig cfg("kio_httprc");
+            KConfig cfg(QStringLiteral("kio_httprc"));
             overriden_ports = new QList< int >;
             *overriden_ports = cfg.group(QString()).readEntry("OverriddenPorts", QList<int>());
             override_loaded = true;
@@ -287,11 +287,11 @@ static int isUrlPortBad(const QUrl &url)
     }
 
     // filter out non https? protocols
-    if ((url.scheme() != "http") && (url.scheme() != "https")) {
+    if ((url.scheme() != QLatin1String("http")) && (url.scheme() != QLatin1String("https"))) {
         _error = KIO::ERR_POST_DENIED;
     }
 
-    if (!_error && !KUrlAuthorized::authorizeUrlAction("open", QUrl(), url)) {
+    if (!_error && !KUrlAuthorized::authorizeUrlAction(QStringLiteral("open"), QUrl(), url)) {
         _error = KIO::ERR_ACCESS_DENIED;
     }
 
@@ -342,7 +342,7 @@ TransferJob *KIO::http_post(const QUrl &url, const QByteArray &postData, JobFlag
     QUrl _url(url);
     if (_url.path().isEmpty()) {
         redirection = true;
-        _url.setPath("/");
+        _url.setPath(QStringLiteral("/"));
     }
 
     TransferJob *job = precheckHttpPost(_url, postData, flags);
@@ -367,7 +367,7 @@ TransferJob *KIO::http_post(const QUrl &url, QIODevice *ioDevice, qint64 size, J
     QUrl _url(url);
     if (_url.path().isEmpty()) {
         redirection = true;
-        _url.setPath("/");
+        _url.setPath(QStringLiteral("/"));
     }
 
     TransferJob *job = precheckHttpPost(_url, ioDevice, flags);
@@ -406,7 +406,7 @@ StoredTransferJob *KIO::storedHttpPost(const QByteArray &postData, const QUrl &u
 {
     QUrl _url(url);
     if (_url.path().isEmpty()) {
-        _url.setPath("/");
+        _url.setPath(QStringLiteral("/"));
     }
 
     StoredTransferJob *job = precheckHttpPost(_url, postData, flags);
@@ -424,7 +424,7 @@ StoredTransferJob *KIO::storedHttpPost(QIODevice *ioDevice, const QUrl &url, qin
 {
     QUrl _url(url);
     if (_url.path().isEmpty()) {
-        _url.setPath("/");
+        _url.setPath(QStringLiteral("/"));
     }
 
     StoredTransferJob *job = precheckHttpPost(_url, ioDevice, flags);

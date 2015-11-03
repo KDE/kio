@@ -289,7 +289,7 @@ static KSharedConfig::Ptr config()
     PRIVATE_DATA;
     Q_ASSERT(!d->mutex.tryLock()); // the caller must have locked the mutex
     if (!d->configPtr) {
-        d->configPtr = KSharedConfig::openConfig("kioslaverc", KConfig::NoGlobals);
+        d->configPtr = KSharedConfig::openConfig(QStringLiteral("kioslaverc"), KConfig::NoGlobals);
     }
     return d->configPtr;
 }
@@ -327,7 +327,7 @@ static KConfigGroup http_config()
     PRIVATE_DATA;
     Q_ASSERT(!d->mutex.tryLock()); // the caller must have locked the mutex
     if (!d->http_config) {
-        d->http_config = KSharedConfig::openConfig("kio_httprc", KConfig::NoGlobals);
+        d->http_config = KSharedConfig::openConfig(QStringLiteral("kio_httprc"), KConfig::NoGlobals);
     }
     return KConfigGroup(d->http_config, QString());
 }
@@ -717,12 +717,12 @@ QString KProtocolManager::slaveProtocol(const QUrl &url, QStringList &proxyList)
 
 QString KProtocolManager::userAgentForHost(const QString &hostname)
 {
-    const QString sendUserAgent = KIO::SlaveConfig::self()->configData("http", hostname.toLower(), "SendUserAgent").toLower();
+    const QString sendUserAgent = KIO::SlaveConfig::self()->configData(QStringLiteral("http"), hostname.toLower(), QStringLiteral("SendUserAgent")).toLower();
     if (sendUserAgent == QL1S("false")) {
         return QString();
     }
 
-    const QString useragent = KIO::SlaveConfig::self()->configData("http", hostname.toLower(), "UserAgent");
+    const QString useragent = KIO::SlaveConfig::self()->configData(QStringLiteral("http"), hostname.toLower(), QStringLiteral("UserAgent"));
 
     // Return the default user-agent if none is specified
     // for the requested host.
@@ -735,7 +735,7 @@ QString KProtocolManager::userAgentForHost(const QString &hostname)
 
 QString KProtocolManager::defaultUserAgent()
 {
-    const QString modifiers = KIO::SlaveConfig::self()->configData("http", QString(), "UserAgentKeys");
+    const QString modifiers = KIO::SlaveConfig::self()->configData(QStringLiteral("http"), QString(), QStringLiteral("UserAgentKeys"));
     return defaultUserAgent(modifiers);
 }
 
@@ -907,9 +907,9 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
 
             // Clean up unnecessary separators that could be left over from the
             // possible keyword removal above...
-            agentStr.replace(QRegExp("[(]\\s*[;]\\s*"), QL1S("("));
-            agentStr.replace(QRegExp("[;]\\s*[;]\\s*"), QL1S("; "));
-            agentStr.replace(QRegExp("\\s*[;]\\s*[)]"), QL1S(")"));
+            agentStr.replace(QRegExp(QStringLiteral("[(]\\s*[;]\\s*")), QL1S("("));
+            agentStr.replace(QRegExp(QStringLiteral("[;]\\s*[;]\\s*")), QL1S("; "));
+            agentStr.replace(QRegExp(QStringLiteral("\\s*[;]\\s*[)]")), QL1S(")"));
         } else {
             agentStr.remove(QL1S("%osname%"));
             agentStr.remove(QL1S("%osversion%"));
@@ -998,7 +998,7 @@ QString KProtocolManager::acceptLanguagesHeader()
     // Replace possible "C" in the language list with "en", unless "en" is
     // already pressent. This is to keep user's priorities in order.
     // If afterwards "en" is still not present, append it.
-    int idx = languageList.indexOf(QString::fromLatin1("C"));
+    int idx = languageList.indexOf(QStringLiteral("C"));
     if (idx != -1) {
         if (languageList.contains(english)) {
             languageList.removeAt(idx);
@@ -1012,7 +1012,7 @@ QString KProtocolManager::acceptLanguagesHeader()
 
     // Some languages may have web codes different from locale codes,
     // read them from the config and insert in proper order.
-    KConfig acclangConf("accept-languages.codes", KConfig::NoGlobals);
+    KConfig acclangConf(QStringLiteral("accept-languages.codes"), KConfig::NoGlobals);
     KConfigGroup replacementCodes(&acclangConf, "ReplacementCodes");
     QStringList languageListFinal;
     Q_FOREACH (const QString &lang, languageList) {
@@ -1320,7 +1320,7 @@ QString KProtocolManager::protocolForArchiveMimetype(const QString &mimeType)
 
 QString KProtocolManager::charsetFor(const QUrl &url)
 {
-    return KIO::SlaveConfig::self()->configData(url.scheme(), url.host(), QLatin1String("Charset"));
+    return KIO::SlaveConfig::self()->configData(url.scheme(), url.host(), QStringLiteral("Charset"));
 }
 
 #undef PRIVATE_DATA

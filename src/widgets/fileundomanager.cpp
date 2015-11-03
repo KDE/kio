@@ -238,15 +238,15 @@ FileUndoManagerPrivate::FileUndoManagerPrivate(FileUndoManager *qq)
       m_undoJob(0), m_nextCommandIndex(1000), q(qq)
 {
     (void) new KIOFileUndoManagerAdaptor(this);
-    const QString dbusPath = "/FileUndoManager";
-    const QString dbusInterface = "org.kde.kio.FileUndoManager";
+    const QString dbusPath = QStringLiteral("/FileUndoManager");
+    const QString dbusInterface = QStringLiteral("org.kde.kio.FileUndoManager");
 
     QDBusConnection dbus = QDBusConnection::sessionBus();
     dbus.registerObject(dbusPath, this);
-    dbus.connect(QString(), dbusPath, dbusInterface, "lock", this, SLOT(slotLock()));
-    dbus.connect(QString(), dbusPath, dbusInterface, "pop", this, SLOT(slotPop()));
-    dbus.connect(QString(), dbusPath, dbusInterface, "push", this, SLOT(slotPush(QByteArray)));
-    dbus.connect(QString(), dbusPath, dbusInterface, "unlock", this, SLOT(slotUnlock()));
+    dbus.connect(QString(), dbusPath, dbusInterface, QStringLiteral("lock"), this, SLOT(slotLock()));
+    dbus.connect(QString(), dbusPath, dbusInterface, QStringLiteral("pop"), this, SLOT(slotPop()));
+    dbus.connect(QString(), dbusPath, dbusInterface, QStringLiteral("push"), this, SLOT(slotPush(QByteArray)));
+    dbus.connect(QString(), dbusPath, dbusInterface, QStringLiteral("unlock"), this, SLOT(slotUnlock()));
 }
 
 FileUndoManager::FileUndoManager()

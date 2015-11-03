@@ -114,7 +114,7 @@ static QString schemeHandler(const QString &protocol)
     //     to a webbrowser, but we want mimetype-determination-in-calling-application by default
     //     (the user can configure a BrowserApplication though)
 
-    const KService::Ptr service = KMimeTypeTrader::self()->preferredService(QString::fromLatin1("x-scheme-handler/") + protocol);
+    const KService::Ptr service = KMimeTypeTrader::self()->preferredService(QLatin1String("x-scheme-handler/") + protocol);
     if (service) {
         return service->exec(); // for helper protocols, the handler app has priority over the hardcoded one (see A above)
     }
@@ -133,11 +133,11 @@ bool KRun::isExecutableFile(const QUrl &url, const QString &mimetype)
     if (file.isExecutable()) {    // Got a prospective file to run
         QMimeDatabase db;
         QMimeType mimeType = db.mimeTypeForName(mimetype);
-        if (mimeType.inherits(QLatin1String("application/x-executable")) ||
+        if (mimeType.inherits(QStringLiteral("application/x-executable")) ||
 #ifdef Q_OS_WIN
                 mimeType.inherits(QLatin1String("application/x-ms-dos-executable")) ||
 #endif
-                mimeType.inherits(QLatin1String("application/x-executable-script"))
+                mimeType.inherits(QStringLiteral("application/x-executable-script"))
            ) {
             return true;
         }
@@ -178,7 +178,7 @@ bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, bool
         }
     } else if (isExecutableFile(u, _mimetype)) {
         if (u.isLocalFile() && runExecutables) {
-            if (KAuthorized::authorize("shell_access")) {
+            if (KAuthorized::authorize(QStringLiteral("shell_access"))) {
                 return (KRun::runCommand(KShell::quoteArg(u.toLocalFile()), QString(), QString(),
                             window, asn, u.adjusted(QUrl::RemoveFilename).toLocalFile())); // just execute the url as a command
                 // ## TODO implement deleting the file if tempFile==true
@@ -193,7 +193,7 @@ bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, bool
             noRun = true;
         }
 
-        if (!KAuthorized::authorize("shell_access")) {
+        if (!KAuthorized::authorize(QStringLiteral("shell_access"))) {
             noAuth = true;
         }
     }
@@ -234,7 +234,7 @@ bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, bool
 bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool tempFiles,
                                  const QString &suggestedFileName, const QByteArray &asn)
 {
-    if (!KAuthorized::authorizeKAction("openwith")) {
+    if (!KAuthorized::authorizeKAction(QStringLiteral("openwith"))) {
         KMessageBox::sorry(window,
                            i18n("You are not authorized to select an application to open this file."));
         return false;
@@ -268,7 +268,7 @@ void KRun::shellQuote(QString &_str)
         return;
     }
     QChar q('\'');
-    _str.replace(q, "'\\''").prepend(q).append(q);
+    _str.replace(q, QLatin1String("'\\''")).prepend(q).append(q);
 }
 #endif
 
@@ -363,12 +363,12 @@ bool KRun::checkStartupNotify(const QString & /*binName*/, const KService *servi
 {
     bool silent = false;
     QByteArray wmclass;
-    if (service && service->property("StartupNotify").isValid()) {
-        silent = !service->property("StartupNotify").toBool();
-        wmclass = service->property("StartupWMClass").toString().toLatin1();
-    } else if (service && service->property("X-KDE-StartupNotify").isValid()) {
-        silent = !service->property("X-KDE-StartupNotify").toBool();
-        wmclass = service->property("X-KDE-WMClass").toString().toLatin1();
+    if (service && service->property(QStringLiteral("StartupNotify")).isValid()) {
+        silent = !service->property(QStringLiteral("StartupNotify")).toBool();
+        wmclass = service->property(QStringLiteral("StartupWMClass")).toString().toLatin1();
+    } else if (service && service->property(QStringLiteral("X-KDE-StartupNotify")).isValid()) {
+        silent = !service->property(QStringLiteral("X-KDE-StartupNotify")).toBool();
+        wmclass = service->property(QStringLiteral("X-KDE-WMClass")).toString().toLatin1();
     } else { // non-compliant app
         if (service) {
             if (service->isApplication()) { // doesn't have .desktop entries needed, start as non-compliant
@@ -451,12 +451,12 @@ static QList<QUrl> resolveURLs(const QList<QUrl> &_urls, const KService &_servic
     // This can be a list of actual protocol names, or just KIO for KDE apps.
     QStringList appSupportedProtocols = KIO::DesktopExecParser::supportedProtocols(_service);
     QList<QUrl> urls(_urls);
-    if (!appSupportedProtocols.contains("KIO")) {
+    if (!appSupportedProtocols.contains(QStringLiteral("KIO"))) {
         for (QList<QUrl>::Iterator it = urls.begin(); it != urls.end(); ++it) {
             const QUrl url = *it;
             bool supported = KIO::DesktopExecParser::isProtocolInSupportedList(url, appSupportedProtocols);
             //qDebug() << "Looking at url=" << url << " supported=" << supported;
-            if (!supported && KProtocolInfo::protocolClass(url.scheme()) == ":local") {
+            if (!supported && KProtocolInfo::protocolClass(url.scheme()) == QLatin1String(":local")) {
                 // Maybe we can resolve to a local URL?
                 KIO::StatJob *job = KIO::mostLocalUrl(url);
                 if (job->exec()) { // ## nasty nested event loop!
@@ -604,7 +604,7 @@ static bool makeFileExecutable(const QString &fileName)
 // to make the file executable or we failed to make it executable.
 static bool makeServiceExecutable(const KService &service, QWidget *window)
 {
-    if (!KAuthorized::authorize("run_desktop_files")) {
+    if (!KAuthorized::authorize(QStringLiteral("run_desktop_files"))) {
         qWarning() << "No authorization to execute " << service.entryPath();
         KMessageBox::sorry(window, i18n("You are not authorized to execute this service."));
         return false; // Don't circumvent the Kiosk
@@ -622,7 +622,7 @@ static bool makeServiceExecutable(const KService &service, QWidget *window)
     QHBoxLayout *mainLayout = new QHBoxLayout(baseWidget);
 
     QLabel *iconLabel = new QLabel(baseWidget);
-    QPixmap warningIcon(KIconLoader::global()->loadIcon("dialog-warning", KIconLoader::NoGroup, KIconLoader::SizeHuge));
+    QPixmap warningIcon(KIconLoader::global()->loadIcon(QStringLiteral("dialog-warning"), KIconLoader::NoGroup, KIconLoader::SizeHuge));
     mainLayout->addWidget(iconLabel);
     iconLabel->setPixmap(warningIcon);
 
@@ -829,7 +829,7 @@ KRun::KRun(const QUrl &url, QWidget *window,
     : d(new KRunPrivate(this))
 {
     d->m_timer = new QTimer(this);
-    d->m_timer->setObjectName("KRun::timer");
+    d->m_timer->setObjectName(QStringLiteral("KRun::timer"));
     d->m_timer->setSingleShot(true);
     d->init(url, window, showProgressInfo, asn);
 }
@@ -871,7 +871,7 @@ void KRun::init()
         d->startTimer();
         return;
     }
-    if (!KUrlAuthorized::authorizeUrlAction("open", QUrl(), d->m_strURL)) {
+    if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("open"), QUrl(), d->m_strURL)) {
         QString msg = KIO::buildErrorString(KIO::ERR_ACCESS_DENIED, d->m_strURL.toDisplayString());
         handleInitError(KIO::ERR_ACCESS_DENIED, msg);
         d->m_bFault = true;
@@ -901,8 +901,8 @@ void KRun::init()
         QMimeType mime = db.mimeTypeForUrl(d->m_strURL);
         //qDebug() << "MIME TYPE is " << mime.name();
         if (!d->m_externalBrowser.isEmpty() && (
-                    mime.inherits(QLatin1String("text/html")) ||
-                    mime.inherits(QLatin1String("application/xhtml+xml")))) {
+                    mime.inherits(QStringLiteral("text/html")) ||
+                    mime.inherits(QStringLiteral("application/xhtml+xml")))) {
             if (d->runExecutable(d->m_externalBrowser)) {
                 return;
             }
@@ -977,7 +977,7 @@ bool KRun::KRunPrivate::runExecutable(const QString &_exec)
     urls.append(m_strURL);
     if (_exec.startsWith('!')) {
         QString exec = _exec.mid(1); // Literal command
-        exec += " %u";
+        exec += QLatin1String(" %u");
         if (q->run(exec, urls, m_window, QString(), QString(), m_asn)) {
             m_bFinished = true;
             startTimer();
@@ -1010,17 +1010,17 @@ bool KRun::KRunPrivate::isPromptNeeded()
     const QMimeType mime = db.mimeTypeForUrl(m_strURL);
 
     const bool isFileExecutable = (isExecutableFile(m_strURL, mime.name()) ||
-                                   mime.inherits("application/x-desktop"));
-    const bool isTextFile = mime.inherits("text/plain");
+                                   mime.inherits(QStringLiteral("application/x-desktop")));
+    const bool isTextFile = mime.inherits(QStringLiteral("text/plain"));
 
     if (isFileExecutable && isTextFile) {
-        KConfigGroup cfgGroup(KSharedConfig::openConfig("kiorc"), "Executable scripts");
+        KConfigGroup cfgGroup(KSharedConfig::openConfig(QStringLiteral("kiorc")), "Executable scripts");
         const QString value = cfgGroup.readEntry("behaviourOnLaunch", "alwaysAsk");
 
-        if (value == "alwaysAsk") {
+        if (value == QLatin1String("alwaysAsk")) {
             return true;
         } else {
-            q->setRunExecutables(value == "execute");
+            q->setRunExecutables(value == QLatin1String("execute"));
         }
     }
 
@@ -1039,7 +1039,7 @@ void KRun::KRunPrivate::onDialogFinished(int result, bool isDontAskAgainSet)
 
     if (isDontAskAgainSet) {
         QString output = result == ExecutableFileOpenDialog::OpenFile ? "open" : "execute";
-        KConfigGroup cfgGroup(KSharedConfig::openConfig("kiorc"), "Executable scripts");
+        KConfigGroup cfgGroup(KSharedConfig::openConfig(QStringLiteral("kiorc")), "Executable scripts");
         cfgGroup.writeEntry("behaviourOnLaunch", output);
     }
     startTimer();
@@ -1113,7 +1113,7 @@ void KRun::slotTimeout()
             return;
         } else if (d->m_bIsDirectory) {
             d->m_bIsDirectory = false;
-            mimeTypeDetermined("inode/directory");
+            mimeTypeDetermined(QStringLiteral("inode/directory"));
             return;
         }
     }
@@ -1265,7 +1265,7 @@ void KRun::foundMimeType(const QString &type)
     QMimeType mime = db.mimeTypeForName(type);
     if (!mime.isValid()) {
         qWarning() << "Unknown mimetype " << type;
-    } else if (mime.inherits("application/x-desktop") && !d->m_localPath.isEmpty()) {
+    } else if (mime.inherits(QStringLiteral("application/x-desktop")) && !d->m_localPath.isEmpty()) {
         d->m_strURL = QUrl::fromLocalFile(d->m_localPath);
     }
 
@@ -1366,10 +1366,10 @@ QString KRun::suggestedFileName() const
 
 bool KRun::isExecutable(const QString &serviceType)
 {
-    return (serviceType == "application/x-desktop" ||
-            serviceType == "application/x-executable" ||
-            serviceType == "application/x-ms-dos-executable" ||
-            serviceType == "application/x-shellscript");
+    return (serviceType == QLatin1String("application/x-desktop") ||
+            serviceType == QLatin1String("application/x-executable") ||
+            serviceType == QLatin1String("application/x-ms-dos-executable") ||
+            serviceType == QLatin1String("application/x-shellscript"));
 }
 
 void KRun::setUrl(const QUrl &url)

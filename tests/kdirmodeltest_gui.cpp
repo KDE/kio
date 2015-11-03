@@ -90,9 +90,9 @@ int main(int argc, char **argv)
 #endif
 
     if (argc <= 1) {
-        dirmodel->dirLister()->openUrl(QUrl::fromLocalFile("/"));
+        dirmodel->dirLister()->openUrl(QUrl::fromLocalFile(QStringLiteral("/")));
 
-        const QUrl url = QUrl::fromLocalFile("/usr/share/applications/kde");
+        const QUrl url = QUrl::fromLocalFile(QStringLiteral("/usr/share/applications/kde"));
         dirmodel->expandToUrl(url);
         new TreeController(treeView, dirmodel);
     }

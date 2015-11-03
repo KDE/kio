@@ -53,7 +53,7 @@ QString KRecentDocument::recentDocumentDirectory()
 
 QStringList KRecentDocument::recentDocuments()
 {
-    QDir d(recentDocumentDirectory(), "*.desktop", QDir::Time,
+    QDir d(recentDocumentDirectory(), QStringLiteral("*.desktop"), QDir::Time,
            QDir::Files | QDir::Readable | QDir::Hidden);
 
     if (!d.exists()) {
@@ -66,7 +66,7 @@ QStringList KRecentDocument::recentDocuments()
     for (QStringList::ConstIterator it = list.begin(); it != list.end(); ++it) {
         QString fileName = *it;
         QString pathDesktop;
-        if (fileName.startsWith(":")) {
+        if (fileName.startsWith(QLatin1String(":"))) {
             // See: https://bugreports.qt.io/browse/QTBUG-11223
             pathDesktop = KRecentDocument::recentDocumentDirectory() + *it;
         } else {
@@ -97,12 +97,12 @@ void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName)
     }
 
     QString openStr = url.toDisplayString();
-    openStr.replace(QRegExp("\\$"), "$$");   // Desktop files with type "Link" are $-variable expanded
+    openStr.replace(QRegExp(QStringLiteral("\\$")), QStringLiteral("$$"));   // Desktop files with type "Link" are $-variable expanded
 
     // qDebug() << "KRecentDocument::add for " << openStr;
     KConfigGroup config = KSharedConfig::openConfig()->group(QByteArray("RecentDocuments"));
-    bool useRecent = config.readEntry(QLatin1String("UseRecent"), true);
-    int maxEntries = config.readEntry(QLatin1String("MaxEntries"), 10);
+    bool useRecent = config.readEntry(QStringLiteral("UseRecent"), true);
+    int maxEntries = config.readEntry(QStringLiteral("MaxEntries"), 10);
 
     if (!useRecent || maxEntries <= 0) {
         return;
@@ -111,7 +111,7 @@ void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName)
     const QString path = recentDocumentDirectory();
     const QString fileName = url.fileName();
     // don't create a file called ".desktop", it will lead to an empty name in kio_recentdocuments
-    const QString dStr = path + (fileName.isEmpty() ? QString("unnamed") : fileName);
+    const QString dStr = path + (fileName.isEmpty() ? QStringLiteral("unnamed") : fileName);
 
     QString ddesktop = dStr + QLatin1String(".desktop");
 
@@ -131,7 +131,7 @@ void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName)
         if (i > maxEntries) {
             break;
         }
-        ddesktop = dStr + QString::fromLatin1("[%1].desktop").arg(i);
+        ddesktop = dStr + QStringLiteral("[%1].desktop").arg(i);
     }
 
     QDir dir(path);
@@ -150,7 +150,7 @@ void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName)
     // create the applnk
     KDesktopFile configFile(ddesktop);
     KConfigGroup conf = configFile.desktopGroup();
-    conf.writeEntry("Type", QString::fromLatin1("Link"));
+    conf.writeEntry("Type", QStringLiteral("Link"));
     conf.writePathEntry("URL", openStr);
     // If you change the line below, change the test in the above loop
     conf.writeEntry("X-KDE-LastOpenedWith", desktopEntryName);
@@ -169,7 +169,7 @@ void KRecentDocument::clear()
 
 int KRecentDocument::maximumItems()
 {
-    KConfigGroup cg(KSharedConfig::openConfig(), QLatin1String("RecentDocuments"));
-    return cg.readEntry(QLatin1String("MaxEntries"), 10);
+    KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("RecentDocuments"));
+    return cg.readEntry(QStringLiteral("MaxEntries"), 10);
 }
 

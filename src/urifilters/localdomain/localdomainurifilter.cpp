@@ -37,7 +37,7 @@
  * regression test (this should be included as part of "make test").
  */
 LocalDomainUriFilter::LocalDomainUriFilter( QObject *parent, const QVariantList & /*args*/ )
-                     :KUriFilterPlugin( "localdomainurifilter", parent ),
+                     :KUriFilterPlugin( QStringLiteral("localdomainurifilter"), parent ),
                       m_hostPortPattern(QL1S(HOSTPORT_PATTERN))
 {
 }

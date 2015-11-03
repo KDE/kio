@@ -33,7 +33,7 @@ static QString otherTmpDir()
     return QDir::tempPath() + "/jobtest/";
 #else
     // This one needs to be on another partition
-    return "/tmp/jobtest/";
+    return QStringLiteral("/tmp/jobtest/");
 #endif
 }
 

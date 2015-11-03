@@ -7,7 +7,7 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication::setApplicationName("getalltest");
+    QApplication::setApplicationName(QStringLiteral("getalltest"));
     QApplication k(argc, argv);
 
 //for (int i = 0 ; i < 2 ; ++i ) { // test twice to see if they got deleted

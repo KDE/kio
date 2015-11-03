@@ -63,14 +63,14 @@ void MimetypeJob::slotFinished()
         // Due to the "protocol doesn't support listing" code in KRun, we
         // assumed it was a file.
         //qDebug() << "It is in fact a directory!";
-        d->m_mimetype = QString::fromLatin1("inode/directory");
+        d->m_mimetype = QStringLiteral("inode/directory");
         emit TransferJob::mimetype(this, d->m_mimetype);
         setError(0);
     }
 
     if (!d->m_redirectionURL.isEmpty() && d->m_redirectionURL.isValid() && !error()) {
         //qDebug() << "Redirection to " << m_redirectionURL;
-        if (queryMetaData("permanent-redirect") == "true") {
+        if (queryMetaData(QStringLiteral("permanent-redirect")) == QLatin1String("true")) {
             emit permanentRedirection(this, d->m_url, d->m_redirectionURL);
         }
 

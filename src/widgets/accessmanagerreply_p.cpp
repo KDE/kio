@@ -456,7 +456,7 @@ void AccessManagerReply::slotStatResult(KJob *kJob)
 
 void AccessManagerReply::slotRedirection(KIO::Job *job, const QUrl &u)
 {
-    if (!KUrlAuthorized::authorizeUrlAction(QLatin1String("redirect"), url(), u)) {
+    if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("redirect"), url(), u)) {
         qWarning() << "Redirection from" << url() << "to" << u << "REJECTED by policy!";
         setError(QNetworkReply::ContentAccessDenied, u.toString());
         emit error(error());

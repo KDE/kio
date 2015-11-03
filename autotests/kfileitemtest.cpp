@@ -75,7 +75,7 @@ void KFileItemTest::testNull()
 {
     KFileItem null;
     QVERIFY(null.isNull());
-    KFileItem fileItem(QUrl::fromLocalFile("/"), QString(), KFileItem::Unknown);
+    KFileItem fileItem(QUrl::fromLocalFile(QStringLiteral("/")), QString(), KFileItem::Unknown);
     QVERIFY(!fileItem.isNull());
     null = fileItem; // ok, now 'null' isn't so null anymore
     QVERIFY(!null.isNull());
@@ -85,7 +85,7 @@ void KFileItemTest::testNull()
 
 void KFileItemTest::testDoesNotExist()
 {
-    KFileItem fileItem(QUrl::fromLocalFile("/doesnotexist"), QString(), KFileItem::Unknown);
+    KFileItem fileItem(QUrl::fromLocalFile(QStringLiteral("/doesnotexist")), QString(), KFileItem::Unknown);
     QVERIFY(!fileItem.isNull());
     QVERIFY(!fileItem.isReadable());
     QVERIFY(fileItem.user().isEmpty());
@@ -94,12 +94,12 @@ void KFileItemTest::testDoesNotExist()
 
 void KFileItemTest::testDetach()
 {
-    KFileItem fileItem(QUrl::fromLocalFile("/one"), QString(), KFileItem::Unknown);
+    KFileItem fileItem(QUrl::fromLocalFile(QStringLiteral("/one")), QString(), KFileItem::Unknown);
     QCOMPARE(fileItem.name(), QString("one"));
     KFileItem fileItem2(fileItem);
     QVERIFY(fileItem == fileItem2);
     QVERIFY(fileItem.d == fileItem2.d);
-    fileItem2.setName("two");
+    fileItem2.setName(QStringLiteral("two"));
     QCOMPARE(fileItem2.name(), QString("two"));
     QCOMPARE(fileItem.name(), QString("one")); // it detached
     QVERIFY(fileItem == fileItem2);
@@ -142,7 +142,7 @@ void KFileItemTest::testRootDirectory()
     const QString rootPath = QDir::rootPath();
     QUrl url = QUrl::fromLocalFile(rootPath);
     KIO::UDSEntry entry;
-    entry.insert(KIO::UDSEntry::UDS_NAME, ".");
+    entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
     entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     KFileItem fileItem(entry, url);
     QCOMPARE(fileItem.text(), QString("."));
@@ -261,13 +261,13 @@ void KFileItemTest::testCmp()
 void KFileItemTest::testRename()
 {
     KIO::UDSEntry entry;
-    const QString origName = QString::fromLatin1("foo");
+    const QString origName = QStringLiteral("foo");
     entry.insert(KIO::UDSEntry::UDS_NAME, origName);
     entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-    KFileItem fileItem(entry, QUrl::fromLocalFile("/dir/foo"));
+    KFileItem fileItem(entry, QUrl::fromLocalFile(QStringLiteral("/dir/foo")));
     QCOMPARE(fileItem.name(), origName);
     QCOMPARE(fileItem.text(), origName);
-    const QString newName = QString::fromLatin1("FiNeX_rocks");
+    const QString newName = QStringLiteral("FiNeX_rocks");
     fileItem.setName(newName);
     QCOMPARE(fileItem.name(), newName);
     QCOMPARE(fileItem.text(), newName);
@@ -301,7 +301,7 @@ void KFileItemTest::testDecodeFileName_data()
     QTest::addColumn<QString>("expectedText");
 
     QTest::newRow("simple") << "filename" << "filename";
-    QTest::newRow("/ at end") << QString(QString("foo") + QChar(0x2044)) << QString(QString("foo") + QChar(0x2044));
+    QTest::newRow("/ at end") << QString(QStringLiteral("foo") + QChar(0x2044)) << QString(QStringLiteral("foo") + QChar(0x2044));
     QTest::newRow("/ at begin") << QString(QChar(0x2044)) << QString(QChar(0x2044));
 }
 
@@ -318,7 +318,7 @@ void KFileItemTest::testEncodeFileName_data()
     QTest::addColumn<QString>("expectedFileName");
 
     QTest::newRow("simple") << "filename" << "filename";
-    QTest::newRow("/ at end") << "foo/" << QString(QString("foo") + QChar(0x2044));
+    QTest::newRow("/ at end") << "foo/" << QString(QStringLiteral("foo") + QChar(0x2044));
     QTest::newRow("/ at begin") << "/" << QString(QChar(0x2044));
 }
 
@@ -371,7 +371,7 @@ void KFileItemTest::testListProperties()
         switch (itemDescriptions[i].toLatin1()) {
         case 'f': {
             if (i == 1) { // 2nd file is html
-                fileName += ".html";
+                fileName += QLatin1String(".html");
             }
             QFile file(fileName);
             QVERIFY(file.open(QIODevice::WriteOnly));
@@ -386,10 +386,10 @@ void KFileItemTest::testListProperties()
             items << KFileItem(QUrl::fromLocalFile(fileName), QString(), KFileItem::Unknown);
             break;
         case '/':
-            items << KFileItem(QUrl::fromLocalFile("/"), QString(), KFileItem::Unknown);
+            items << KFileItem(QUrl::fromLocalFile(QStringLiteral("/")), QString(), KFileItem::Unknown);
             break;
         case 'h':
-            items << KFileItem(QUrl("http://www.kde.org"), QString(), KFileItem::Unknown);
+            items << KFileItem(QUrl(QStringLiteral("http://www.kde.org")), QString(), KFileItem::Unknown);
             break;
         default:
             QVERIFY(false);
@@ -410,7 +410,7 @@ void KFileItemTest::testIconNameForUrl_data()
     QTest::addColumn<QString>("expectedIcon");
 
     QTest::newRow("root") << "file:/" << "folder"; // the icon comes from KProtocolInfo
-    if (QFile::exists("/tmp")) {
+    if (QFile::exists(QStringLiteral("/tmp"))) {
         QTest::newRow("subdir") << "file:/tmp" << "inode-directory";
     }
     // TODO more tests
@@ -427,9 +427,9 @@ void KFileItemTest::testIconNameForUrl()
 void KFileItemTest::testMimetypeForRemoteFolder()
 {
     KIO::UDSEntry entry;
-    entry.insert(KIO::UDSEntry::UDS_NAME, "foo");
+    entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("foo"));
     entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-    QUrl url("smb://remoteFolder/foo");
+    QUrl url(QStringLiteral("smb://remoteFolder/foo"));
     KFileItem fileItem(entry, url);
 
     QCOMPARE(fileItem.mimetype(), QStringLiteral("inode/directory"));
@@ -439,11 +439,11 @@ void KFileItemTest::testMimetypeForRemoteFolderWithFileType()
 {
     QString udsMimeType = QStringLiteral("application/x-smb-workgroup");
     KIO::UDSEntry entry;
-    entry.insert(KIO::UDSEntry::UDS_NAME, "foo");
+    entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("foo"));
     entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, udsMimeType);
 
-    QUrl url("smb://remoteFolder/foo");
+    QUrl url(QStringLiteral("smb://remoteFolder/foo"));
     KFileItem fileItem(entry, url);
 
     QCOMPARE(fileItem.mimetype(), udsMimeType);
@@ -452,9 +452,9 @@ void KFileItemTest::testMimetypeForRemoteFolderWithFileType()
 void KFileItemTest::testCurrentMimetypeForRemoteFolder()
 {
     KIO::UDSEntry entry;
-    entry.insert(KIO::UDSEntry::UDS_NAME, "foo");
+    entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("foo"));
     entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-    QUrl url("smb://remoteFolder/foo");
+    QUrl url(QStringLiteral("smb://remoteFolder/foo"));
     KFileItem fileItem(entry, url);
 
     QCOMPARE(fileItem.currentMimeType().name(), QStringLiteral("inode/directory"));
@@ -464,11 +464,11 @@ void KFileItemTest::testCurrentMimetypeForRemoteFolderWithFileType()
 {
     QString udsMimeType = QStringLiteral("application/x-smb-workgroup");
     KIO::UDSEntry entry;
-    entry.insert(KIO::UDSEntry::UDS_NAME, "foo");
+    entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("foo"));
     entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, udsMimeType);
 
-    QUrl url("smb://remoteFolder/foo");
+    QUrl url(QStringLiteral("smb://remoteFolder/foo"));
     KFileItem fileItem(entry, url);
 
     QCOMPARE(fileItem.currentMimeType().name(), udsMimeType);
@@ -482,7 +482,7 @@ void KFileItemTest::testIconNameForCustomFolderIcons()
 
     QTemporaryDir tempDir;
     const QUrl url = QUrl::fromLocalFile(tempDir.path());
-    KDesktopFile cfg(tempDir.path() + QString::fromLatin1("/.directory"));
+    KDesktopFile cfg(tempDir.path() + QLatin1String("/.directory"));
     cfg.desktopGroup().writeEntry("Icon", iconName);
     cfg.sync();
 

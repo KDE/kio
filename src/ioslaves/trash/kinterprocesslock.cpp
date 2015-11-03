@@ -33,7 +33,7 @@ public:
     KInterProcessLockPrivate(const QString &resource, KInterProcessLock *parent)
         : m_resource(resource), m_parent(parent)
     {
-        m_serviceName = QString::fromLatin1("org.kde.private.lock-%1").arg(m_resource);
+        m_serviceName = QStringLiteral("org.kde.private.lock-%1").arg(m_resource);
 
         m_parent->connect(QDBusConnection::sessionBus().interface(), SIGNAL(serviceRegistered(QString)),
                           m_parent, SLOT(_k_serviceRegistered(QString)));

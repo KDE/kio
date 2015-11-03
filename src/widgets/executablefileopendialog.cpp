@@ -38,8 +38,8 @@ ExecutableFileOpenDialog::ExecutableFileOpenDialog(QWidget *parent) :
     QPushButton *openButton = new QPushButton(i18n("&Open"), this);
     QPushButton *executeButton = new QPushButton(i18n("&Execute"), this);
 
-    openButton->setIcon(QIcon::fromTheme("text-plain"));
-    executeButton->setIcon(QIcon::fromTheme("application-x-executable"));
+    openButton->setIcon(QIcon::fromTheme(QStringLiteral("text-plain")));
+    executeButton->setIcon(QIcon::fromTheme(QStringLiteral("application-x-executable")));
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel, this);
     buttonBox->addButton(openButton, QDialogButtonBox::AcceptRole);

@@ -29,9 +29,9 @@
 int main(int argc, char *argv[])
 {
     QCoreApplication app(argc, argv);
-    app.setApplicationName("ktrash");
+    app.setApplicationName(QStringLiteral("ktrash"));
     app.setApplicationVersion(PROJECT_VERSION);
-    app.setOrganizationDomain("kde.org");
+    app.setOrganizationDomain(QStringLiteral("kde.org"));
 
     QCommandLineParser parser;
     parser.addVersionOption();
@@ -39,12 +39,12 @@ int main(int argc, char *argv[])
     parser.setApplicationDescription(i18n("Helper program to handle the KDE trash can\n"
                                           "Note: to move files to the trash, do not use ktrash, but \"kioclient move 'url' trash:/\""));
 
-    parser.addOption(QCommandLineOption(QStringList() << QLatin1String("empty"), i18n("Empty the contents of the trash")));
-    parser.addOption(QCommandLineOption(QStringList() << QLatin1String("restore"), i18n("Restore a trashed file to its original location"), "file"));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("empty"), i18n("Empty the contents of the trash")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("restore"), i18n("Restore a trashed file to its original location"), QStringLiteral("file")));
 
     parser.process(app);
 
-    if (parser.isSet("empty")) {
+    if (parser.isSet(QStringLiteral("empty"))) {
         // We use a kio job instead of linking to TrashImpl, for a smaller binary
         // (and the possibility of a central service at some point)
         KIO::Job *job = KIO::emptyTrash();
@@ -52,12 +52,12 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    QString restoreArg = parser.value("restore");
+    QString restoreArg = parser.value(QStringLiteral("restore"));
     if (!restoreArg.isEmpty()) {
 
         if (restoreArg.indexOf(QLatin1String("system:/trash")) == 0) {
             restoreArg.remove(0, 13);
-            restoreArg.prepend(QString::fromLatin1("trash:"));
+            restoreArg.prepend(QStringLiteral("trash:"));
         }
 
         QUrl trashURL(restoreArg);

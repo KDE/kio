@@ -290,7 +290,7 @@ void DropJobPrivate::addPluginActions(QMenu *popup, const KFileItemListPropertie
 {
     Q_Q(DropJob);
 
-    const QVector<KPluginMetaData> plugin_offers = KPluginLoader::findPlugins("kf5/kio_dnd");
+    const QVector<KPluginMetaData> plugin_offers = KPluginLoader::findPlugins(QStringLiteral("kf5/kio_dnd"));
     foreach (const KPluginMetaData &service, plugin_offers) {
         KPluginFactory *factory = KPluginLoader(service.fileName()).factory();
         if (factory) {

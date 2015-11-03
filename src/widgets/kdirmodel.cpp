@@ -363,7 +363,7 @@ static QString debugIndex(const QModelIndex &index)
 {
     QString str;
     if (!index.isValid()) {
-        str = "[invalid index, i.e. root]";
+        str = QStringLiteral("[invalid index, i.e. root]");
     } else {
         KDirModelNode *node = static_cast<KDirModelNode *>(index.internalPointer());
         str = "[index for " + node->item().url().toString();
@@ -1125,7 +1125,7 @@ Qt::ItemFlags KDirModel::flags(const QModelIndex &index) const
                 } else if (d->m_dropsAllowed & DropOnLocalExecutable) {
                     if (!item.localPath().isEmpty()) {
                         // Desktop file?
-                        if (item.determineMimeType().inherits("application/x-desktop")) {
+                        if (item.determineMimeType().inherits(QStringLiteral("application/x-desktop"))) {
                             f |= Qt::ItemIsDropEnabled;
                         }
                         // Executable, shell script ... ?

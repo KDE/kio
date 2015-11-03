@@ -110,8 +110,8 @@ QUrl StatJob::mostLocalUrl() const
 void StatJobPrivate::start(Slave *slave)
 {
     Q_Q(StatJob);
-    m_outgoingMetaData.insert("statSide", m_bSource ? "source" : "dest");
-    m_outgoingMetaData.insert("details", QString::number(m_details));
+    m_outgoingMetaData.insert(QStringLiteral("statSide"), m_bSource ? "source" : "dest");
+    m_outgoingMetaData.insert(QStringLiteral("details"), QString::number(m_details));
 
     q->connect(slave, SIGNAL(statEntry(KIO::UDSEntry)),
                SLOT(slotStatEntry(KIO::UDSEntry)));
@@ -132,7 +132,7 @@ void StatJobPrivate::slotRedirection(const QUrl &url)
 {
     Q_Q(StatJob);
     //qDebug() << m_url << "->" << url;
-    if (!KUrlAuthorized::authorizeUrlAction("redirect", m_url, url)) {
+    if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("redirect"), m_url, url)) {
         qWarning() << "Redirection from" << m_url << "to" << url << "REJECTED!";
         q->setError(ERR_ACCESS_DENIED);
         q->setErrorText(url.toDisplayString());
@@ -149,7 +149,7 @@ void StatJob::slotFinished()
 
     if (!d->m_redirectionURL.isEmpty() && d->m_redirectionURL.isValid()) {
         //qDebug() << "StatJob: Redirection to " << m_redirectionURL;
-        if (queryMetaData("permanent-redirect") == "true") {
+        if (queryMetaData(QStringLiteral("permanent-redirect")) == QLatin1String("true")) {
             emit permanentRedirection(this, d->m_url, d->m_redirectionURL);
         }
 

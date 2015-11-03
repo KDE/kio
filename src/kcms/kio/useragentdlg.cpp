@@ -55,10 +55,10 @@ UserAgentDlg::UserAgentDlg (QWidget* parent, const QVariantList&)
       m_config (0)
 {
     ui.setupUi (this);
-    ui.newButton->setIcon (QIcon::fromTheme("list-add"));
-    ui.changeButton->setIcon (QIcon::fromTheme("edit-rename"));
-    ui.deleteButton->setIcon (QIcon::fromTheme("list-remove"));
-    ui.deleteAllButton->setIcon (QIcon::fromTheme("edit-delete"));
+    ui.newButton->setIcon (QIcon::fromTheme(QStringLiteral("list-add")));
+    ui.changeButton->setIcon (QIcon::fromTheme(QStringLiteral("edit-rename")));
+    ui.deleteButton->setIcon (QIcon::fromTheme(QStringLiteral("list-remove")));
+    ui.deleteAllButton->setIcon (QIcon::fromTheme(QStringLiteral("edit-delete")));
 }
 
 UserAgentDlg::~UserAgentDlg()
@@ -235,7 +235,7 @@ void UserAgentDlg::load()
     ui.sitePolicyTreeWidget->clear();
 
     if (!m_config)
-        m_config = new KConfig ("kio_httprc", KConfig::NoGlobals);
+        m_config = new KConfig (QStringLiteral("kio_httprc"), KConfig::NoGlobals);
     else
         m_config->reparseConfiguration();
 
@@ -247,7 +247,7 @@ void UserAgentDlg::load()
     QString agentStr;
 
     for (QStringList::ConstIterator it = list.begin(); it != endIt; ++it) {
-        if ( (*it) == "<default>")
+        if ( (*it) == QLatin1String("<default>"))
             continue;
 
         KConfigGroup cg (m_config, *it);
@@ -335,7 +335,7 @@ void UserAgentDlg::save()
     if (!deleteList.isEmpty()) {
         // Remove entries from local file.
         endIt = deleteList.constEnd();
-        KConfig cfg ("kio_httprc", KConfig::SimpleConfig);
+        KConfig cfg (QStringLiteral("kio_httprc"), KConfig::SimpleConfig);
 
         for (QStringList::ConstIterator it = deleteList.constBegin(); it != endIt; ++it) {
             KConfigGroup cg (&cfg, *it);

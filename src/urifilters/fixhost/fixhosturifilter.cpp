@@ -34,7 +34,7 @@
  */
 
 FixHostUriFilter::FixHostUriFilter(QObject *parent, const QVariantList & /*args*/)
-                 :KUriFilterPlugin("fixhosturifilter", parent)
+                 :KUriFilterPlugin(QStringLiteral("fixhosturifilter"), parent)
 {
 }
 

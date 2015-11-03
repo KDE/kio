@@ -393,15 +393,15 @@ bool NetRC::parse(const QString &fileName)
         line = d->fstream.readLine().simplified();
 
         // If line is a comment or is empty, read next line
-        if ((line.startsWith("#") || line.isEmpty())) {
+        if ((line.startsWith(QLatin1String("#")) || line.isEmpty())) {
             continue;
         }
 
         // If line refers to a machine, maybe it is spread in more lines.
         // getMachinePart() will take care of getting all the info and putting it into loginMap.
-        if ((line.startsWith("machine")
-                || line.startsWith("default")
-                || line.startsWith("preset"))) {
+        if ((line.startsWith(QLatin1String("machine"))
+                || line.startsWith(QLatin1String("default"))
+                || line.startsWith(QLatin1String("preset")))) {
             d->getMachinePart(line);
             continue;
         }
@@ -409,7 +409,7 @@ bool NetRC::parse(const QString &fileName)
         // If line refers to a macdef, it will be more than one line.
         // getMacdefPart() will take care of getting all the lines of the macro
         // and putting them into loginMap
-        if (line.startsWith("macdef")) {
+        if (line.startsWith(QLatin1String("macdef"))) {
             d->getMacdefPart(line);
             continue;
         }
@@ -431,30 +431,30 @@ QString NetRC::NetRCPrivate::extract(const QString &buf, const QString &key)
 void NetRC::NetRCPrivate::getMachinePart(const QString &line)
 {
     QString buf = line;
-    while (!(buf.contains("login")
-             && (buf.contains("password") || buf.contains("account") || buf.contains("type")))) {
+    while (!(buf.contains(QStringLiteral("login"))
+             && (buf.contains(QStringLiteral("password")) || buf.contains(QStringLiteral("account")) || buf.contains(QStringLiteral("type"))))) {
         buf += QStringLiteral(" ");
         buf += fstream.readLine().simplified();
     }
 
     // Once we've got all the info, process it.
     AutoLogin l;
-    l.machine = extract(buf, "machine");
+    l.machine = extract(buf, QStringLiteral("machine"));
     if (l.machine.isEmpty()) {
-        if (buf.contains("default")) {
+        if (buf.contains(QStringLiteral("default"))) {
             l.machine = QStringLiteral("default");
-        } else if (buf.contains("preset")) {
+        } else if (buf.contains(QStringLiteral("preset"))) {
             l.machine = QStringLiteral("preset");
         }
     }
 
-    l.login = extract(buf, "login");
-    l.password = extract(buf, "password");
+    l.login = extract(buf, QStringLiteral("login"));
+    l.password = extract(buf, QStringLiteral("password"));
     if (l.password.isEmpty()) {
-        l.password = extract(buf, "account");
+        l.password = extract(buf, QStringLiteral("account"));
     }
 
-    type = l.type = extract(buf, "type");
+    type = l.type = extract(buf, QStringLiteral("type"));
     if (l.type.isEmpty() && !l.machine.isEmpty()) {
         type = l.type = QStringLiteral("ftp");
     }
@@ -466,7 +466,7 @@ void NetRC::NetRCPrivate::getMachinePart(const QString &line)
 void NetRC::NetRCPrivate::getMacdefPart(const QString &line)
 {
     QString buf = line;
-    QString macro = extract(buf, "macdef");
+    QString macro = extract(buf, QStringLiteral("macdef"));
     QString newLine;
     while (!fstream.atEnd()) {
         newLine = fstream.readLine().simplified();

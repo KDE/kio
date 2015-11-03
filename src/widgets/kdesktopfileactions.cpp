@@ -87,7 +87,7 @@ bool KDesktopFileActions::runWithStartup(const QUrl &u, bool _is_local, const QB
     if (cfg.hasDeviceType()) {
         return runFSDevice(u, cfg, asn);
     } else if (cfg.hasApplicationType()
-               || (cfg.readType() == "Service" && !cfg.desktopGroup().readEntry("Exec").isEmpty())) { // for kio_settings
+               || (cfg.readType() == QLatin1String("Service") && !cfg.desktopGroup().readEntry("Exec").isEmpty())) { // for kio_settings
         return runApplication(u, u.toLocalFile(), asn);
     } else if (cfg.hasLinkType()) {
         return runLink(u, cfg, asn);
@@ -116,12 +116,12 @@ static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg, const QByteAr
     if (mp) {
         const QUrl mpURL = QUrl::fromLocalFile(mp->mountPoint());
         // Open a new window
-        retval = KRun::runUrl(mpURL, QLatin1String("inode/directory"), 0 /*TODO - window*/, false, true, QString(), asn);
+        retval = KRun::runUrl(mpURL, QStringLiteral("inode/directory"), 0 /*TODO - window*/, false, true, QString(), asn);
     } else {
         KConfigGroup cg = cfg.desktopGroup();
         bool ro = cg.readEntry("ReadOnly", false);
         QString fstype = cg.readEntry("FSType");
-        if (fstype == "Default") { // KDE-1 thing
+        if (fstype == QLatin1String("Default")) { // KDE-1 thing
             fstype.clear();
         }
         QString point = cg.readEntry("MountPoint");
@@ -222,7 +222,7 @@ QList<KServiceAction> KDesktopFileActions::builtinServices(const QUrl &_url)
 #endif
 
     if (offerMount) {
-        KServiceAction mount("mount", i18n("Mount"), QString(), QString(), false);
+        KServiceAction mount(QStringLiteral("mount"), i18n("Mount"), QString(), QString(), false);
         mount.setData(QVariant(ST_MOUNT));
         result.append(mount);
     }
@@ -237,7 +237,7 @@ QList<KServiceAction> KDesktopFileActions::builtinServices(const QUrl &_url)
 #else
         text = i18n("Unmount");
 #endif
-        KServiceAction unmount("unmount", text, QString(), QString(), false);
+        KServiceAction unmount(QStringLiteral("unmount"), text, QString(), QString(), false);
         unmount.setData(QVariant(ST_UNMOUNT));
         result.append(unmount);
     }
@@ -267,7 +267,7 @@ QList<KServiceAction> KDesktopFileActions::userDefinedServices(const KService &s
     }
 
     QStringList keys;
-    const QString actionMenu = service.property("X-KDE-GetActionMenu", QVariant::String).toString();
+    const QString actionMenu = service.property(QStringLiteral("X-KDE-GetActionMenu"), QVariant::String).toString();
     if (!actionMenu.isEmpty()) {
         const QStringList dbuscall = actionMenu.split(QChar(' '));
         if (dbuscall.count() >= 4) {
@@ -296,7 +296,7 @@ QList<KServiceAction> KDesktopFileActions::userDefinedServices(const KService &s
     foreach (const KServiceAction &action, service.actions()) {
         if (keys.isEmpty() || keys.contains(action.name())) {
             const QString exec = action.exec();
-            if (bLocalFiles || exec.contains("%U") || exec.contains("%u")) {
+            if (bLocalFiles || exec.contains(QStringLiteral("%U")) || exec.contains(QStringLiteral("%u"))) {
                 result.append(action);
             }
         }
@@ -335,7 +335,7 @@ void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KService
                 const KConfigGroup group = cfg.desktopGroup();
                 bool ro = group.readEntry("ReadOnly", false);
                 QString fstype = group.readEntry("FSType");
-                if (fstype == "Default") { // KDE-1 thing
+                if (fstype == QLatin1String("Default")) { // KDE-1 thing
                     fstype.clear();
                 }
                 QString point = group.readEntry("MountPoint");

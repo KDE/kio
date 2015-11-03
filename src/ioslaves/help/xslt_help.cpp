@@ -24,7 +24,7 @@ static bool readCache(const QString &filename,
     if (!compareTimeStamps(filename, cache)) {
         return false;
     }
-    if (!compareTimeStamps(locateFileInDtdResource("customization/kde-chunk.xsl"), cache)) {
+    if (!compareTimeStamps(locateFileInDtdResource(QStringLiteral("customization/kde-chunk.xsl")), cache)) {
         return false;
     }
 

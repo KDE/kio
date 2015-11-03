@@ -31,9 +31,9 @@
 
 QTEST_MAIN(KACLTest)
 
-static const QString s_testACL("user::rw-\nuser:bin:rwx\ngroup::rw-\nmask::rwx\nother::r--\n");
-static const QString s_testACL2("user::rwx\nuser:bin:rwx\ngroup::rw-\ngroup:users:r--\ngroup:audio:--x\nmask::r-x\nother::r--\n");
-static const QString s_testACLEffective("user::rwx\nuser:bin:rwx    #effective:r-x\ngroup::rw-      #effective:r--\ngroup:audio:--x\ngroup:users:r--\nmask::r-x\nother::r--\n");
+static const QString s_testACL(QStringLiteral("user::rw-\nuser:bin:rwx\ngroup::rw-\nmask::rwx\nother::r--\n"));
+static const QString s_testACL2(QStringLiteral("user::rwx\nuser:bin:rwx\ngroup::rw-\ngroup:users:r--\ngroup:audio:--x\nmask::r-x\nother::r--\n"));
+static const QString s_testACLEffective(QStringLiteral("user::rwx\nuser:bin:rwx    #effective:r-x\ngroup::rw-      #effective:r--\ngroup:audio:--x\ngroup:users:r--\nmask::r-x\nother::r--\n"));
 
 KACLTest::KACLTest()
     : m_acl(s_testACL)
@@ -124,7 +124,7 @@ void KACLTest::testIsExtended()
 {
     KACL dukeOfMonmoth(s_testACL);
     QVERIFY(dukeOfMonmoth.isExtended());
-    KACL earlOfUpnor("user::r--\ngroup::r--\nother::r--\n");
+    KACL earlOfUpnor(QStringLiteral("user::r--\ngroup::r--\nother::r--\n"));
     QVERIFY(!earlOfUpnor.isExtended());
 }
 
@@ -157,57 +157,57 @@ void KACLTest::testSettingExtended()
     bool dummy = false;
     QCOMPARE(int(CharlesII.maskPermissions(dummy)), 7);
 
-    const QString expected("user::rw-\nuser:root:rwx\nuser:bin:r--\ngroup::rw-\nmask::rwx\nother::r--\n");
+    const QString expected(QStringLiteral("user::rw-\nuser:root:rwx\nuser:bin:r--\ngroup::rw-\nmask::rwx\nother::r--\n"));
 
     ACLUserPermissionsList users;
-    ACLUserPermissions user = qMakePair(QString("root"), (unsigned short)7);
+    ACLUserPermissions user = qMakePair(QStringLiteral("root"), (unsigned short)7);
     users.append(user);
-    user = qMakePair(QString("bin"), (unsigned short)4);
+    user = qMakePair(QStringLiteral("bin"), (unsigned short)4);
     users.append(user);
     CharlesII.setAllUserPermissions(users);
     QCOMPARE(CharlesII.asString(), expected);
 
     CharlesII.setACL(s_testACL); // reset
     // it already has an entry for bin, let's change it
-    CharlesII.setNamedUserPermissions(QString("bin"), 4);
-    CharlesII.setNamedUserPermissions(QString("root"), 7);
+    CharlesII.setNamedUserPermissions(QStringLiteral("bin"), 4);
+    CharlesII.setNamedUserPermissions(QStringLiteral("root"), 7);
     QCOMPARE(CharlesII.asString(), expected);
 
     // groups, all and named
 
-    const QString expected2("user::rw-\nuser:bin:rwx\ngroup::rw-\ngroup:audio:-wx\ngroup:users:r--\nmask::rwx\nother::r--\n");
+    const QString expected2(QStringLiteral("user::rw-\nuser:bin:rwx\ngroup::rw-\ngroup:audio:-wx\ngroup:users:r--\nmask::rwx\nother::r--\n"));
     CharlesII.setACL(s_testACL); // reset
     ACLGroupPermissionsList groups;
-    ACLGroupPermissions group = qMakePair(QString("audio"), (unsigned short)3);
+    ACLGroupPermissions group = qMakePair(QStringLiteral("audio"), (unsigned short)3);
     groups.append(group);
-    group = qMakePair(QString("users"), (unsigned short)4);
+    group = qMakePair(QStringLiteral("users"), (unsigned short)4);
     groups.append(group);
     CharlesII.setAllGroupPermissions(groups);
     QCOMPARE(CharlesII.asString(), expected2);
 
     CharlesII.setACL(s_testACL); // reset
-    CharlesII.setNamedGroupPermissions(QString("audio"), 3);
-    CharlesII.setNamedGroupPermissions(QString("users"), 4);
+    CharlesII.setNamedGroupPermissions(QStringLiteral("audio"), 3);
+    CharlesII.setNamedGroupPermissions(QStringLiteral("users"), 4);
     QCOMPARE(CharlesII.asString(), expected2);
 }
 
 void KACLTest::testSettingErrorHandling()
 {
     KACL foo(s_testACL);
-    bool v = foo.setNamedGroupPermissions("audio", 7); // existing group
+    bool v = foo.setNamedGroupPermissions(QStringLiteral("audio"), 7); // existing group
     QVERIFY(v);
-    v = foo.setNamedGroupPermissions("jongel", 7); // non-existing group
+    v = foo.setNamedGroupPermissions(QStringLiteral("jongel"), 7); // non-existing group
     QVERIFY(!v);
 
-    v = foo.setNamedUserPermissions("bin", 7); // existing user
+    v = foo.setNamedUserPermissions(QStringLiteral("bin"), 7); // existing user
     QVERIFY(v);
-    v = foo.setNamedUserPermissions("jongel", 7); // non-existing user
+    v = foo.setNamedUserPermissions(QStringLiteral("jongel"), 7); // non-existing user
     QVERIFY(!v);
 }
 
 void KACLTest::testNewMask()
 {
-    KACL CharlesII("user::rw-\ngroup::rw-\nother::rw\n");
+    KACL CharlesII(QStringLiteral("user::rw-\ngroup::rw-\nother::rw\n"));
     bool dummy = false;
     CharlesII.maskPermissions(dummy);
     QVERIFY(!dummy);

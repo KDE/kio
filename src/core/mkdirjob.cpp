@@ -76,7 +76,7 @@ void MkdirJobPrivate::slotRedirection(const QUrl &url)
 {
     Q_Q(MkdirJob);
     //qDebug() << url;
-    if (!KUrlAuthorized::authorizeUrlAction("redirect", m_url, url)) {
+    if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("redirect"), m_url, url)) {
         qWarning() << "Redirection from" << m_url << "to" << url << "REJECTED!";
         q->setError(ERR_ACCESS_DENIED);
         q->setErrorText(url.toDisplayString());
@@ -93,7 +93,7 @@ void MkdirJob::slotFinished()
 
     if (!d->m_redirectionURL.isEmpty() && d->m_redirectionURL.isValid()) {
         //qDebug() << "MkdirJob: Redirection to " << m_redirectionURL;
-        if (queryMetaData("permanent-redirect") == "true") {
+        if (queryMetaData(QStringLiteral("permanent-redirect")) == QLatin1String("true")) {
             emit permanentRedirection(this, d->m_url, d->m_redirectionURL);
         }
 

@@ -95,7 +95,7 @@ KPreviewWidgetBase *KFileMetaPreview::previewProviderFor(const QString &mimeType
     //     qDebug("### looking for: %s", mimeType.toLatin1().constData());
     // often the first highlighted item, where we can be sure, there is no plugin
     // (this "folders reflect icons" is a konq-specific thing, right?)
-    if (mimeInfo.inherits("inode/directory")) {
+    if (mimeInfo.inherits(QStringLiteral("inode/directory"))) {
         return 0L;
     }
 
@@ -184,7 +184,7 @@ void KFileMetaPreview::clearPreviewProviders()
 // static
 KPreviewWidgetBase *KFileMetaPreview::createAudioPreview(QWidget *parent)
 {
-    KPluginLoader loader("kfileaudiopreview");
+    KPluginLoader loader(QStringLiteral("kfileaudiopreview"));
     KPluginFactory *factory = loader.factory();
     if (!factory) {
         qWarning() << "Couldn't load kfileaudiopreview" << loader.errorString();
@@ -193,7 +193,7 @@ KPreviewWidgetBase *KFileMetaPreview::createAudioPreview(QWidget *parent)
     }
     KPreviewWidgetBase *w = factory->create<KPreviewWidgetBase>(parent);
     if (w) {
-        w->setObjectName("kfileaudiopreview");
+        w->setObjectName(QStringLiteral("kfileaudiopreview"));
     }
     return w;
 }

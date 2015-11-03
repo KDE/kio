@@ -396,7 +396,7 @@ QString KFileItemDelegate::Private::elidedText(QTextLayout &layout, const QStyle
             // Unfortunately, if the line ends because of a line separator, elidedText() will be too
             // clever and keep adding lines until it finds one that's too wide.
             if (line.naturalTextWidth() < maxWidth && text[start + length - 1] == QChar::LineSeparator) {
-                elided += text.mid(start, length - 1);
+                elided += text.midRef(start, length - 1);
             } else {
                 elided += option.fontMetrics.elidedText(text.mid(start), option.textElideMode, maxWidth);
             }
@@ -407,7 +407,7 @@ QString KFileItemDelegate::Private::elidedText(QTextLayout &layout, const QStyle
                 elided += QChar::LineSeparator;
             }
         } else {
-            elided += text.mid(start, length);
+            elided += text.midRef(start, length);
         }
 
         height += line.height();
@@ -1056,7 +1056,7 @@ QRect KFileItemDelegate::iconRect(const QStyleOptionViewItem &option, const QMod
 
 void KFileItemDelegate::setJobTransfersVisible(bool jobTransfersVisible)
 {
-    d->downArrowIcon = QIcon::fromTheme("go-down");
+    d->downArrowIcon = QIcon::fromTheme(QStringLiteral("go-down"));
     d->jobTransfersVisible = jobTransfersVisible;
 }
 

@@ -176,7 +176,7 @@ void DeleteJobPrivate::slotEntries(KIO::Job *job, const UDSEntryList &list)
         const QString displayName = entry.stringValue(KIO::UDSEntry::UDS_NAME);
 
         Q_ASSERT(!displayName.isEmpty());
-        if (displayName != ".." && displayName != ".") {
+        if (displayName != QLatin1String("..") && displayName != QLatin1String(".")) {
             QUrl url;
             const QString urlStr = entry.stringValue(KIO::UDSEntry::UDS_URL);
             if (!urlStr.isEmpty()) {
@@ -343,7 +343,7 @@ void DeleteJobPrivate::deleteNextDir()
                 // Call rmdir - works for kioslaves with canDeleteRecursive too,
                 // CMD_DEL will trigger the recursive deletion in the slave.
                 SimpleJob *job = KIO::rmdir(*it);
-                job->addMetaData(QString::fromLatin1("recurse"), "true");
+                job->addMetaData(QStringLiteral("recurse"), QStringLiteral("true"));
                 Scheduler::setJobPriority(job, 1);
                 dirs.erase(it);
                 q->addSubjob(job);
@@ -391,7 +391,7 @@ void DeleteJobPrivate::currentSourceStated(bool isDir, bool isLink)
         if (!KProtocolManager::canDeleteRecursive(url)) {
             //qDebug() << url << "is a directory, let's list it";
             ListJob *newjob = KIO::listRecursive(url, KIO::HideProgressInfo);
-            newjob->addMetaData("details", "0");
+            newjob->addMetaData(QStringLiteral("details"), QStringLiteral("0"));
             newjob->setUnrestricted(true); // No KIOSK restrictions
             Scheduler::setJobPriority(newjob, 1);
             QObject::connect(newjob, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),

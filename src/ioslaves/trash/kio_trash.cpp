@@ -103,7 +103,7 @@ void TrashProtocol::restore(const QUrl &trashURL)
     if (!relativePath.isEmpty()) {
         dest = dest.adjusted(QUrl::StripTrailingSlash);
         // (u.path() + '/' + txt) '/' is unable to concate ?
-        dest.setPath(dest.path() + QString::fromLatin1("/") + relativePath);
+        dest.setPath(dest.path() + QLatin1String("/") + relativePath);
     }
 
     // Check that the destination directory exists, to improve the error code in case it doesn't.
@@ -218,7 +218,7 @@ void TrashProtocol::copyOrMove(const QUrl &src, const QUrl &dest, bool overwrite
                 } else {
                     // Inform caller of the final URL. Used by konq_undo.
                     const QUrl url = impl.makeURL(trashId, fileId, QString());
-                    setMetaData(QString::fromLatin1("trashURL-") + srcPath, url.url());
+                    setMetaData(QLatin1String("trashURL-") + srcPath, url.url());
                     finished();
                 }
             }
@@ -237,10 +237,10 @@ void TrashProtocol::copyOrMove(const QUrl &src, const QUrl &dest, bool overwrite
 void TrashProtocol::createTopLevelDirEntry(KIO::UDSEntry &entry)
 {
     entry.clear();
-    entry.insert(KIO::UDSEntry::UDS_NAME, QString::fromLatin1("."));
+    entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
     entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     entry.insert(KIO::UDSEntry::UDS_ACCESS, 0700);
-    entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, QString::fromLatin1("inode/directory"));
+    entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
     entry.insert(KIO::UDSEntry::UDS_USER, m_userName);
     entry.insert(KIO::UDSEntry::UDS_GROUP, m_groupName);
 }

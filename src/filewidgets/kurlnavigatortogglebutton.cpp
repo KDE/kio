@@ -37,7 +37,7 @@ KUrlNavigatorToggleButton::KUrlNavigatorToggleButton(QWidget *parent) :
             this, SLOT(updateToolTip()));
     connect(this, SIGNAL(clicked(bool)),
             this, SLOT(updateCursor()));
-    m_pixmap = QIcon::fromTheme("dialog-ok").pixmap(QSize(22, 22).expandedTo(iconSize()));
+    m_pixmap = QIcon::fromTheme(QStringLiteral("dialog-ok")).pixmap(QSize(22, 22).expandedTo(iconSize()));
 
 #ifndef QT_NO_ACCESSIBILITY
     setAccessibleName(i18n("Edit mode"));

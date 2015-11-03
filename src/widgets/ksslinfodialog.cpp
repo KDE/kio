@@ -116,20 +116,20 @@ void KSslInfoDialog::updateWhichPartsEncrypted()
 {
     if (d->isMainPartEncrypted) {
         if (d->auxPartsEncrypted) {
-            d->ui.encryptionIndicator->setPixmap(BarIcon("security-high"));
+            d->ui.encryptionIndicator->setPixmap(BarIcon(QStringLiteral("security-high")));
             d->ui.explanation->setText(i18n("Current connection is secured with SSL."));
         } else {
-            d->ui.encryptionIndicator->setPixmap(BarIcon("security-medium"));
+            d->ui.encryptionIndicator->setPixmap(BarIcon(QStringLiteral("security-medium")));
             d->ui.explanation->setText(i18n("The main part of this document is secured "
                                             "with SSL, but some parts are not."));
         }
     } else {
         if (d->auxPartsEncrypted) {
-            d->ui.encryptionIndicator->setPixmap(BarIcon("security-medium"));
+            d->ui.encryptionIndicator->setPixmap(BarIcon(QStringLiteral("security-medium")));
             d->ui.explanation->setText(i18n("Some of this document is secured with SSL, "
                                             "but the main part is not."));
         } else {
-            d->ui.encryptionIndicator->setPixmap(BarIcon("security-low"));
+            d->ui.encryptionIndicator->setPixmap(BarIcon(QStringLiteral("security-low")));
             d->ui.explanation->setText(i18n("Current connection is not secured with SSL."));
         }
     }
@@ -156,7 +156,7 @@ void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
         };
         for (int j = 0; j < 3 && name.isEmpty(); j++)
         {
-            name = cert.subjectInfo(si[j]).join(", ");
+            name = cert.subjectInfo(si[j]).join(QStringLiteral(", "));
         }
         d->ui.certSelector->addItem(name);
     }
@@ -181,12 +181,12 @@ void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
                                                "using %1 bit", "using %1 bits", usedBits),
                                         i18ncp("Part of: %1, using %2 bits of a %3 bit key",
                                                "of a %1 bit key", "of a %1 bit key", bits)));
-        d->ui.details->setText(QString("Auth = %1, Kx = %2, MAC = %3")
+        d->ui.details->setText(QStringLiteral("Auth = %1, Kx = %2, MAC = %3")
                                .arg(cipherInfo[1], cipherInfo[2],
                                     cipherInfo[3]));
     } else {
-        d->ui.encryption->setText("");
-        d->ui.details->setText("");
+        d->ui.encryption->setText(QLatin1String(""));
+        d->ui.details->setText(QLatin1String(""));
     }
 }
 

@@ -65,8 +65,8 @@ static org::kde::KSlaveLauncher *klauncher()
 {
     KDEInitInterface::ensureKdeinitRunning();
     if (!s_kslaveLauncher.hasLocalData()) {
-        org::kde::KSlaveLauncher *launcher = new org::kde::KSlaveLauncher(QString::fromLatin1("org.kde.klauncher5"),
-                QString::fromLatin1("/KLauncher"),
+        org::kde::KSlaveLauncher *launcher = new org::kde::KSlaveLauncher(QLatin1String("org.kde.klauncher5"),
+                QLatin1String("/KLauncher"),
                 QDBusConnection::sessionBus());
         s_kslaveLauncher.setLocalData(launcher);
         return launcher;
@@ -439,7 +439,7 @@ void Slave::resetHost()
 {
     Q_D(Slave);
     d->sslMetaData.clear();
-    d->m_host = "<reset>";
+    d->m_host = QStringLiteral("<reset>");
 }
 
 void Slave::setConfig(const MetaData &config)
@@ -455,7 +455,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
 {
     //qDebug() << "createSlave" << protocol << "for" << url;
     // Firstly take into account all special slaves
-    if (protocol == "data") {
+    if (protocol == QLatin1String("data")) {
         return new DataProtocol();
     }
     Slave *slave = new Slave(protocol);
@@ -480,7 +480,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
             return 0;
         }
 
-        const QStringList args = QStringList() << lib_path << protocol << "" << slaveAddress.toString();
+        const QStringList args = QStringList() << lib_path << protocol << QLatin1String("") << slaveAddress.toString();
         //qDebug() << "kioslave" << ", " << lib_path << ", " << protocol << ", " << QString() << ", " << slaveAddress;
 
         // search paths
@@ -488,7 +488,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
             << QCoreApplication::applicationDirPath() // then look where our application binary is located
             << QLibraryInfo::location(QLibraryInfo::LibraryExecutablesPath) // look where libexec path is (can be set in qt.conf)
             << QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5); // look at our installation location
-        const QString kioslaveExecutable = QStandardPaths::findExecutable("kioslave", searchPaths);
+        const QString kioslaveExecutable = QStandardPaths::findExecutable(QStringLiteral("kioslave"), searchPaths);
         if (kioslaveExecutable.isEmpty()) {
             error_text = i18n("Can not find 'kioslave' executable at '%1'", searchPaths.join(QStringLiteral(", ")));
             error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
@@ -525,7 +525,7 @@ Slave *Slave::holdSlave(const QString &protocol, const QUrl &url)
 {
     //qDebug() << "holdSlave" << protocol << "for" << url;
     // Firstly take into account all special slaves
-    if (protocol == "data") {
+    if (protocol == QLatin1String("data")) {
         return 0;
     }
 

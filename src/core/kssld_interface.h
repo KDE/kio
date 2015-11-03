@@ -61,7 +61,7 @@ public Q_SLOTS: // METHODS
     {
         QList<QVariant> argumentList;
         argumentList << qVariantFromValue(rule);
-        callWithArgumentList(QDBus::Block, QLatin1String("setRule"),
+        callWithArgumentList(QDBus::Block, QStringLiteral("setRule"),
                              argumentList);
     }
 
@@ -69,7 +69,7 @@ public Q_SLOTS: // METHODS
     {
         QList<QVariant> argumentList;
         argumentList << qVariantFromValue(rule);
-        callWithArgumentList(QDBus::Block, QLatin1String("clearRule__rule"),
+        callWithArgumentList(QDBus::Block, QStringLiteral("clearRule__rule"),
                              argumentList);
     }
 
@@ -77,7 +77,7 @@ public Q_SLOTS: // METHODS
     {
         QList<QVariant> argumentList;
         argumentList << qVariantFromValue(cert) << qVariantFromValue(hostName);
-        callWithArgumentList(QDBus::Block, QLatin1String("clearRule__certHost"),
+        callWithArgumentList(QDBus::Block, QStringLiteral("clearRule__certHost"),
                              argumentList);
     }
 
@@ -85,7 +85,7 @@ public Q_SLOTS: // METHODS
     {
         QList<QVariant> argumentList;
         argumentList << qVariantFromValue(cert) << qVariantFromValue(hostName);
-        return callWithArgumentList(QDBus::Block, QLatin1String("rule"),
+        return callWithArgumentList(QDBus::Block, QStringLiteral("rule"),
                                     argumentList);
     }
 };

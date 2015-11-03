@@ -607,7 +607,7 @@ QScriptValue DNSResolveEx(QScriptContext *context, QScriptEngine *engine)
             }
         }
         if (!addressList.isEmpty()) {
-            resolvedAddress = addressList.join(QLatin1String(";"));
+            resolvedAddress = addressList.join(QStringLiteral(";"));
         }
 
         return engine->toScriptValue(resolvedAddress);
@@ -633,7 +633,7 @@ QScriptValue MyIpAddressEx(QScriptContext *context, QScriptEngine *engine)
         }
     }
 
-    return engine->toScriptValue(ipAddressList.join(QLatin1String(";")));
+    return engine->toScriptValue(ipAddressList.join(QStringLiteral(";")));
 }
 
 // sortIpAddressList(ipAddressList)
@@ -693,7 +693,7 @@ QScriptValue GetClientVersion(QScriptContext *context, QScriptEngine *engine)
         return engine->undefinedValue();
     }
 
-    const QString version(QLatin1String("1.0"));
+    const QString version(QStringLiteral("1.0"));
     return engine->toScriptValue(version);
 }
 

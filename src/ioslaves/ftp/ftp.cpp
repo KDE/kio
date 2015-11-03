@@ -377,7 +377,7 @@ bool Ftp::ftpOpenConnection(LoginMode loginMode)
     // Redirected due to credential change...
     if (userNameChanged && m_bLoggedOn) {
         QUrl realURL;
-        realURL.setScheme("ftp");
+        realURL.setScheme(QStringLiteral("ftp"));
         if (m_user != FTP_LOGIN) {
             realURL.setUserName(m_user);
         }
@@ -480,7 +480,7 @@ bool Ftp::ftpOpenControlConnection(const QString &host, int port)
             iErrorCode = ERR_UNKNOWN_HOST;
         }
 
-        sErrorMsg = QString("%1: %2").arg(host).arg(m_control->errorString());
+        sErrorMsg = QStringLiteral("%1: %2").arg(host).arg(m_control->errorString());
     }
 
     // if there was a problem - report it ...
@@ -517,7 +517,7 @@ bool Ftp::ftpLogin(bool *userChanged)
     }
 
     AuthInfo info;
-    info.url.setScheme("ftp");
+    info.url.setScheme(QStringLiteral("ftp"));
     info.url.setHost(m_host);
     if (m_port > 0 && m_port != DEFAULT_FTP_PORT) {
         info.url.setPort(m_port);
@@ -547,7 +547,7 @@ bool Ftp::ftpLogin(bool *userChanged)
     bool promptForRetry = false;
 
     // Give the user the option to login anonymously...
-    info.setExtraField(QLatin1String("anonymous"), false);
+    info.setExtraField(QStringLiteral("anonymous"), false);
 
     do {
         // Check the cache and/or prompt user for password if 1st
@@ -581,7 +581,7 @@ bool Ftp::ftpLogin(bool *userChanged)
                 return false;
             } else {
                 // User can decide go anonymous using checkbox
-                if (info.getExtraField("anonymous").toBool()) {
+                if (info.getExtraField(QStringLiteral("anonymous")).toBool()) {
                     user = FTP_LOGIN;
                     pass = FTP_PASSWD;
                 } else {
@@ -703,7 +703,7 @@ bool Ftp::ftpLogin(bool *userChanged)
 
 void Ftp::ftpAutoLoginMacro()
 {
-    QString macro = metaData("autoLoginMacro");
+    QString macro = metaData(QStringLiteral("autoLoginMacro"));
 
     if (macro.isEmpty()) {
         return;
@@ -1020,7 +1020,7 @@ int Ftp::ftpOpenPortDataConnection()
         unsigned char *pData = reinterpret_cast<unsigned char *>(&data);
         command.sprintf("PORT %d,%d,%d,%d,%d,%d", pData[3], pData[2], pData[1], pData[0], pData[5], pData[4]);
     } else if (localAddress.protocol() == QAbstractSocket::IPv6Protocol) {
-        command = QString("EPRT |2|%2|%3|").arg(localAddress.toString()).arg(m_server->serverPort());
+        command = QStringLiteral("EPRT |2|%2|%3|").arg(localAddress.toString()).arg(m_server->serverPort());
     }
 
     if (ftpSendCmd(command.toLatin1()) && (m_iRespType == 2)) {
@@ -1243,7 +1243,7 @@ bool Ftp::ftpChmod(const QString &path, int permissions)
 
     // we need to do bit AND 777 to get permissions, in case
     // we were sent a full mode (unlikely)
-    QString cmd = QString::fromLatin1("SITE CHMOD ") + QString::number(permissions & 511, 8 /*octal*/) + ' ';
+    QString cmd = QLatin1String("SITE CHMOD ") + QString::number(permissions & 511, 8 /*octal*/) + ' ';
     cmd += path;
 
     ftpSendCmd(remoteEncoding()->encode(cmd));
@@ -1295,7 +1295,7 @@ void Ftp::ftpCreateUDSEntry(const QString &filename, const FtpEntry &ftpEnt, UDS
         // --> we do better than Netscape :-)
         if (mime.isDefault()) {
             // qDebug() << "Setting guessed mime type to inode/directory for " << filename;
-            entry.insert(KIO::UDSEntry::UDS_GUESSED_MIME_TYPE, QString::fromLatin1("inode/directory"));
+            entry.insert(KIO::UDSEntry::UDS_GUESSED_MIME_TYPE, QStringLiteral("inode/directory"));
             isDir = true;
         }
     }
@@ -1313,7 +1313,7 @@ void Ftp::ftpShortStatAnswer(const QString &filename, bool isDir)
     entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, isDir ? S_IFDIR : S_IFREG);
     entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
     if (isDir) {
-        entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, QLatin1String("inode/directory"));
+        entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
     }
     // No details about size, ownership, group, etc.
 
@@ -1326,9 +1326,9 @@ void Ftp::ftpStatAnswerNotFound(const QString &path, const QString &filename)
     // Only do the 'hack' below if we want to download an existing file (i.e. when looking at the "source")
     // When e.g. uploading a file, we still need stat() to return "not found"
     // when the file doesn't exist.
-    QString statSide = metaData("statSide");
+    QString statSide = metaData(QStringLiteral("statSide"));
     // qDebug() << "statSide=" << statSide;
-    if (statSide == "source") {
+    if (statSide == QLatin1String("source")) {
         // qDebug() << "Not found, but assuming found, because some servers don't allow listing";
         // MS Server is incapable of handling "list <blah>" in a case insensitive way
         // But "retr <blah>" works. So lie in stat(), to get going...
@@ -1354,15 +1354,15 @@ void Ftp::stat(const QUrl &url)
     // qDebug() << "cleaned path=" << path;
 
     // We can't stat root, but we know it's a dir.
-    if (path.isEmpty() || path == "/") {
+    if (path.isEmpty() || path == QLatin1String("/")) {
         UDSEntry entry;
         //entry.insert( KIO::UDSEntry::UDS_NAME, UDSField( QString() ) );
-        entry.insert(KIO::UDSEntry::UDS_NAME, QString::fromLatin1("."));
+        entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
         entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-        entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, QLatin1String("inode/directory"));
+        entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
         entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
-        entry.insert(KIO::UDSEntry::UDS_USER, QString::fromLatin1("root"));
-        entry.insert(KIO::UDSEntry::UDS_GROUP, QString::fromLatin1("root"));
+        entry.insert(KIO::UDSEntry::UDS_USER, QStringLiteral("root"));
+        entry.insert(KIO::UDSEntry::UDS_GROUP, QStringLiteral("root"));
         // no size
 
         statEntry(entry);
@@ -1383,7 +1383,7 @@ void Ftp::stat(const QUrl &url)
     bool isDir = ftpFolder(path, false);
 
     // if we're only interested in "file or directory", we should stop here
-    QString sDetails = metaData("details");
+    QString sDetails = metaData(QStringLiteral("details"));
     int details = sDetails.isEmpty() ? 2 : sDetails.toInt();
     // qDebug() << "details=" << details;
     if (details == 0) {
@@ -1498,7 +1498,7 @@ void Ftp::listDir(const QUrl &url)
     QString path = url.path();
     if (path.isEmpty()) {
         QUrl realURL;
-        realURL.setScheme("ftp");
+        realURL.setScheme(QStringLiteral("ftp"));
         realURL.setUserName(m_user);
         realURL.setPassword(m_pass);
         realURL.setHost(m_host);
@@ -1574,7 +1574,7 @@ bool Ftp::ftpOpenDir(const QString &path)
 
     // We try to change to this directory first to see whether it really is a directory.
     // (And also to follow symlinks)
-    QString tmp = path.isEmpty() ? QString("/") : path;
+    QString tmp = path.isEmpty() ? QStringLiteral("/") : path;
 
     // We get '550', whether it's a file or doesn't exist...
     if (!ftpFolder(tmp, false)) {
@@ -1867,9 +1867,9 @@ Ftp::StatusCode Ftp::ftpGet(int &iError, int iCopyFile, const QUrl &url, KIO::fi
         return statusServerError;
     }
 
-    QString resumeOffset = metaData("range-start");
+    QString resumeOffset = metaData(QStringLiteral("range-start"));
     if (resumeOffset.isEmpty()) {
-        resumeOffset = metaData("resume"); // old name
+        resumeOffset = metaData(QStringLiteral("resume")); // old name
     }
     if (!resumeOffset.isEmpty()) {
         llOffset = resumeOffset.toLongLong();
@@ -2079,7 +2079,7 @@ Ftp::StatusCode Ftp::ftpPut(int &iError, int iCopyFile, const QUrl &dest_url,
 
     QString dest_orig = dest_url.path();
     QString dest_part(dest_orig);
-    dest_part += ".part";
+    dest_part += QLatin1String(".part");
 
     if (ftpSize(dest_orig, 'I')) {
         if (m_size == 0) {
@@ -2509,7 +2509,7 @@ Ftp::StatusCode Ftp::ftpCopyGet(int &iError, int &iCopyFile, const QString &sCop
     }
 
     if (iRes == statusSuccess) {
-        const QString mtimeStr = metaData("modified");
+        const QString mtimeStr = metaData(QStringLiteral("modified"));
         if (!mtimeStr.isEmpty()) {
             QDateTime dt = QDateTime::fromString(mtimeStr, Qt::ISODate);
             if (dt.isValid()) {
@@ -2597,7 +2597,7 @@ void Ftp::proxyAuthentication(const QNetworkProxy &proxy, QAuthenticator *authen
     }
     authenticator->setUser(info.username);
     authenticator->setPassword(info.password);
-    authenticator->setOption(QLatin1String("keepalive"), info.keepPassword);
+    authenticator->setOption(QStringLiteral("keepalive"), info.keepPassword);
 
     if (m_socketProxyAuth) {
         *m_socketProxyAuth = *authenticator;
@@ -2622,7 +2622,7 @@ void Ftp::saveProxyAuthentication()
         a.realmValue = m_socketProxyAuth->realm();
         a.username = m_socketProxyAuth->user();
         a.password = m_socketProxyAuth->password();
-        a.keepPassword = m_socketProxyAuth->option(QLatin1String("keepalive")).toBool();
+        a.keepPassword = m_socketProxyAuth->option(QStringLiteral("keepalive")).toBool();
         cacheAuthentication(a);
     }
     delete m_socketProxyAuth;

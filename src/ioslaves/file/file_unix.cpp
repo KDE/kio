@@ -273,7 +273,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
     ut.actime = buff_src.st_atime;
     ut.modtime = buff_src.st_mtime;
     if (::utime(_dest.data(), &ut) != 0) {
-        qWarning() << QString::fromLatin1("Couldn't preserve access and modification time for\n%1").arg(dest);
+        qWarning() << QStringLiteral("Couldn't preserve access and modification time for\n%1").arg(dest);
     }
 
     processedSize(buff_src.st_size);
@@ -389,7 +389,7 @@ void FileProtocol::listDir(const QUrl &url)
             if (isSymLink) {
                 // for symlinks obey the UDSEntry contract and provide UDS_LINK_DEST
                 // even if we don't know the link dest (and DeleteJob doesn't care...)
-                entry.insert(KIO::UDSEntry::UDS_LINK_DEST, QLatin1String("Dummy Link Target"));
+                entry.insert(KIO::UDSEntry::UDS_LINK_DEST, QStringLiteral("Dummy Link Target"));
             }
             listEntry(entry);
 
@@ -451,7 +451,7 @@ void FileProtocol::rename(const QUrl &srcUrl, const QUrl &destUrl,
         if ((errno == EACCES) || (errno == EPERM)) {
             error(KIO::ERR_ACCESS_DENIED, dest);
         } else if (errno == EXDEV) {
-            error(KIO::ERR_UNSUPPORTED_ACTION, QLatin1String("rename"));
+            error(KIO::ERR_UNSUPPORTED_ACTION, QStringLiteral("rename"));
         } else if (errno == EROFS) { // The file is on a read-only filesystem
             error(KIO::ERR_CANNOT_DELETE, src);
         } else {
@@ -525,7 +525,7 @@ void FileProtocol::del(const QUrl &url, bool isfile)
          *****/
 
         // qDebug() << "Deleting directory " << url;
-        if (metaData(QLatin1String("recurse")) == QLatin1String("true")) {
+        if (metaData(QStringLiteral("recurse")) == QLatin1String("true")) {
             if (!deleteRecursive(path)) {
                 return;
             }

@@ -599,13 +599,13 @@ void KPropertiesDialog::KPropertiesDialogPrivate::insertPages()
         return;
     }
 
-    QString query = QString::fromLatin1(
+    QString query = QStringLiteral(
                         "((not exist [X-KDE-Protocol]) or "
                         " ([X-KDE-Protocol] == '%1'  )   )"
                     ).arg(item.url().scheme());
 
     // qDebug() << "trader query: " << query;
-    const KService::List offers = KMimeTypeTrader::self()->query(mimetype, "KPropertiesDialog/Plugin", query);
+    const KService::List offers = KMimeTypeTrader::self()->query(mimetype, QStringLiteral("KPropertiesDialog/Plugin"), query);
     foreach (const KService::Ptr &ptr, offers) {
         KPropertiesDialogPlugin *plugin = ptr->createInstance<KPropertiesDialogPlugin>(q);
         if (!plugin) {
@@ -826,7 +826,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 
     QVBoxLayout *vbl = new QVBoxLayout(d->m_frame);
     vbl->setMargin(0);
-    vbl->setObjectName(QLatin1String("vbl"));
+    vbl->setObjectName(QStringLiteral("vbl"));
     QGridLayout *grid = new QGridLayout(); // unknown rows
     grid->setColumnStretch(0, 0);
     grid->setColumnStretch(1, 0);
@@ -839,7 +839,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     if (!d->bMultiple) {
         QString path;
         if (!d->m_bFromTemplate) {
-            isTrash = (properties->url().scheme() == "trash");
+            isTrash = (properties->url().scheme() == QLatin1String("trash"));
             // Extract the full name, but without file: for local files
             path = properties->url().toDisplayString(QUrl::PreferLocalFile);
         } else {
@@ -893,7 +893,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
                 mode = (mode_t)0;
             }
             if (KIO::iconNameForUrl(url) != iconStr) {
-                iconStr = "document-multiple";
+                iconStr = QStringLiteral("document-multiple");
             }
             if (url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash).path() != directory) {
                 directory.clear();
@@ -1017,7 +1017,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 
         QPushButton *button = new QPushButton(box);
         button->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);  // Minimum still makes the button grow to the entire layout width
-        button->setIcon(QIcon::fromTheme(QString::fromLatin1("configure")));
+        button->setIcon(QIcon::fromTheme(QStringLiteral("configure")));
 
         boxLayout->addWidget(l);
         boxLayout->addWidget(button);
@@ -1030,7 +1030,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 
         connect(button, SIGNAL(clicked()), SLOT(slotEditFileType()));
 
-        if (!KAuthorized::authorizeKAction("editfiletype")) {
+        if (!KAuthorized::authorizeKAction(QStringLiteral("editfiletype"))) {
             button->hide();
         }
     }
@@ -1066,7 +1066,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     grid->addWidget(d->m_sizeLabel, curRow++, 2);
 
     if (!hasDirs) { // Only files [and symlinks]
-        d->m_sizeLabel->setText(QString::fromLatin1("%1 (%2)").arg(KIO::convertSize(totalSize))
+        d->m_sizeLabel->setText(QStringLiteral("%1 (%2)").arg(KIO::convertSize(totalSize))
                                 .arg(QLocale().toString(totalSize)));
         d->m_sizeDetermineButton = 0L;
         d->m_sizeStopButton = 0L;
@@ -1137,7 +1137,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 
         if (isLocal) {
             KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(url.toLocalFile());
-            if (mp && mp->mountPoint() != "/") {
+            if (mp && mp->mountPoint() != QLatin1String("/")) {
                 l = new QLabel(i18n("Mounted on:"), d->m_frame);
                 grid->addWidget(l, curRow, 0, Qt::AlignRight);
 
@@ -1275,7 +1275,7 @@ void KFilePropsPlugin::slotDirSizeFinished(KJob *job)
         KIO::filesize_t totalSize = d->dirSizeJob->totalSize();
         KIO::filesize_t totalFiles = d->dirSizeJob->totalFiles();
         KIO::filesize_t totalSubdirs = d->dirSizeJob->totalSubdirs();
-        d->m_sizeLabel->setText(QString::fromLatin1("%1 (%2)\n%3, %4")
+        d->m_sizeLabel->setText(QStringLiteral("%1 (%2)\n%3, %4")
                                 .arg(KIO::convertSize(totalSize))
                                 .arg(QLocale().toString(totalSize))
                                 .arg(i18np("1 file", "%1 files", totalFiles))
@@ -1370,7 +1370,7 @@ void KFilePropsPlugin::applyChanges()
             QString newFileName = KIO::encodeFileName(n);
             if (d->bDesktopFile && !newFileName.endsWith(QLatin1String(".desktop")) &&
                     !newFileName.endsWith(QLatin1String(".kdelnk"))) {
-                newFileName += ".desktop";
+                newFileName += QLatin1String(".desktop");
             }
 
             // Tell properties. Warning, this changes the result of properties->url() !
@@ -1509,7 +1509,7 @@ void KFilePropsPlugin::applyIconChanges()
         QString path;
 
         if ((properties->item().mode() & QT_STAT_MASK) == QT_STAT_DIR) {
-            path = url.toLocalFile() + QString::fromLatin1("/.directory");
+            path = url.toLocalFile() + QLatin1String("/.directory");
             // don't call updateUrl because the other tabs (i.e. permissions)
             // apply to the directory, not the .directory file.
         } else {
@@ -1643,7 +1643,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     QString path = properties->url().path();
     QString fname = properties->url().fileName();
     bool isLocal = properties->url().isLocalFile();
-    bool isTrash = (properties->url().scheme() == "trash");
+    bool isTrash = (properties->url().scheme() == QLatin1String("trash"));
     KUser myself(KUser::UseEffectiveUID);
     const bool IamRoot = myself.isSuperUser();
 
@@ -1744,7 +1744,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     gl = new QGridLayout(gb);
     gl->setColumnStretch(1, 1);
 
-    l = d->explanationLabel = new QLabel("", gb);
+    l = d->explanationLabel = new QLabel(QLatin1String(""), gb);
     if (isLink)
         d->explanationLabel->setText(i18np("This file is a link and does not have permissions.",
                                            "All files are links and do not have permissions.",
@@ -1878,7 +1878,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
                 this, SIGNAL(changed()));
     } else if ((groupList.count() > 1) && isMyFile && isLocal) {
         d->grpCombo = new KComboBox(gb);
-        d->grpCombo->setObjectName(QLatin1String("combogrouplist"));
+        d->grpCombo->setObjectName(QStringLiteral("combogrouplist"));
         d->grpCombo->addItems(groupList);
         d->grpCombo->setCurrentIndex(groupList.indexOf(d->strGroup));
         gl->addWidget(d->grpCombo, 2, 1);
@@ -2375,7 +2375,7 @@ void KFilePermissionsPropsPlugin::updateAccessControls()
             d->explanationLabel->setText(d->isIrregular || d->hasExtendedACL ?
                                          i18np("This file uses advanced permissions",
                                                "These files use advanced permissions.",
-                                               properties->items().count()) : "");
+                                               properties->items().count()) : QLatin1String(""));
         if (d->partialPermissions & UniExec) {
             d->extraCheckbox->setTristate();
             d->extraCheckbox->setCheckState(Qt::PartiallyChecked);
@@ -2396,7 +2396,7 @@ void KFilePermissionsPropsPlugin::updateAccessControls()
             d->explanationLabel->setText(d->isIrregular || d->hasExtendedACL ?
                                          i18np("This folder uses advanced permissions.",
                                                "These folders use advanced permissions.",
-                                               properties->items().count()) : "");
+                                               properties->items().count()) : QLatin1String(""));
         if (d->partialPermissions & S_ISVTX) {
             d->extraCheckbox->setTristate();
             d->extraCheckbox->setCheckState(Qt::PartiallyChecked);
@@ -2409,7 +2409,7 @@ void KFilePermissionsPropsPlugin::updateAccessControls()
         enableAccessControls(d->canChangePermissions && !d->isIrregular && !d->hasExtendedACL);
         if (d->canChangePermissions)
             d->explanationLabel->setText(d->isIrregular || d->hasExtendedACL ?
-                                         i18n("These files use advanced permissions.") : "");
+                                         i18n("These files use advanced permissions.") : QLatin1String(""));
         if (d->partialPermissions & S_ISVTX) {
             d->extraCheckbox->setTristate();
             d->extraCheckbox->setCheckState(Qt::PartiallyChecked);
@@ -2582,10 +2582,10 @@ void KFilePermissionsPropsPlugin::applyChanges()
         job = KIO::chmod(files, orFilePermissions, ~andFilePermissions,
                          owner, group, false);
         if (ACLChange && d->fileSystemSupportsACLs) {
-            job->addMetaData("ACL_STRING", d->extendedACL.isValid() ? d->extendedACL.asString() : "ACL_DELETE");
+            job->addMetaData(QStringLiteral("ACL_STRING"), d->extendedACL.isValid() ? d->extendedACL.asString() : QStringLiteral("ACL_DELETE"));
         }
         if (defaultACLChange && d->fileSystemSupportsACLs) {
-            job->addMetaData("DEFAULT_ACL_STRING", d->defaultACL.isValid() ? d->defaultACL.asString() : "ACL_DELETE");
+            job->addMetaData(QStringLiteral("DEFAULT_ACL_STRING"), d->defaultACL.isValid() ? d->defaultACL.asString() : QStringLiteral("ACL_DELETE"));
         }
 
         connect(job, SIGNAL(result(KJob*)),
@@ -2599,10 +2599,10 @@ void KFilePermissionsPropsPlugin::applyChanges()
         job = KIO::chmod(dirs, orDirPermissions, ~andDirPermissions,
                          owner, group, recursive);
         if (ACLChange && d->fileSystemSupportsACLs) {
-            job->addMetaData("ACL_STRING", d->extendedACL.isValid() ? d->extendedACL.asString() : "ACL_DELETE");
+            job->addMetaData(QStringLiteral("ACL_STRING"), d->extendedACL.isValid() ? d->extendedACL.asString() : QStringLiteral("ACL_DELETE"));
         }
         if (defaultACLChange && d->fileSystemSupportsACLs) {
-            job->addMetaData("DEFAULT_ACL_STRING", d->defaultACL.isValid() ? d->defaultACL.asString() : "ACL_DELETE");
+            job->addMetaData(QStringLiteral("DEFAULT_ACL_STRING"), d->defaultACL.isValid() ? d->defaultACL.asString() : QStringLiteral("ACL_DELETE"));
         }
 
         connect(job, SIGNAL(result(KJob*)),
@@ -2649,7 +2649,7 @@ KUrlPropsPlugin::KUrlPropsPlugin(KPropertiesDialog *_props)
 
     QLabel *l;
     l = new QLabel(d->m_frame);
-    l->setObjectName(QLatin1String("Label_1"));
+    l->setObjectName(QStringLiteral("Label_1"));
     l->setText(i18n("URL:"));
     layout->addWidget(l, Qt::AlignRight);
 
@@ -2740,7 +2740,7 @@ void KUrlPropsPlugin::applyChanges()
 
     KDesktopFile config(path);
     KConfigGroup dg = config.desktopGroup();
-    dg.writeEntry("Type", QString::fromLatin1("Link"));
+    dg.writeEntry("Type", QStringLiteral("Link"));
     dg.writePathEntry("URL", d->URLEdit->url().toString());
     // Users can't create a Link .desktop file with a Name field,
     // but distributions can. Update the Name field in that case.
@@ -2802,10 +2802,10 @@ KDevicePropsPlugin::KDevicePropsPlugin(KPropertiesDialog *_props) : KPropertiesD
         QString device = mp->mountedFrom();
         // qDebug()<<"mountPoint :"<<mountPoint<<" device :"<<device<<" mp->mountType() :"<<mp->mountType();
 
-        if ((mountPoint != "-") && (mountPoint != "none") && !mountPoint.isEmpty()
-                && device != "none") {
-            devices.append(device + QString::fromLatin1(" (")
-                           + mountPoint + QString::fromLatin1(")"));
+        if ((mountPoint != QLatin1String("-")) && (mountPoint != QLatin1String("none")) && !mountPoint.isEmpty()
+                && device != QLatin1String("none")) {
+            devices.append(device + QLatin1String(" (")
+                           + mountPoint + QLatin1String(")"));
             d->m_devicelist.append(device);
             d->mountpointlist.append(mountPoint);
         }
@@ -2824,7 +2824,7 @@ KDevicePropsPlugin::KDevicePropsPlugin(KPropertiesDialog *_props) : KPropertiesD
     layout->addWidget(label, 0, 0, Qt::AlignRight);
 
     d->device = new KComboBox(d->m_frame);
-    d->device->setObjectName(QLatin1String("ComboBox_device"));
+    d->device->setObjectName(QStringLiteral("ComboBox_device"));
     d->device->setEditable(true);
     d->device->addItems(devices);
     layout->addWidget(d->device, 0, 1);
@@ -2832,7 +2832,7 @@ KDevicePropsPlugin::KDevicePropsPlugin(KPropertiesDialog *_props) : KPropertiesD
             this, SLOT(slotActivated(int)));
 
     d->readonly = new QCheckBox(d->m_frame);
-    d->readonly->setObjectName(QLatin1String("CheckBox_readonly"));
+    d->readonly->setObjectName(QStringLiteral("CheckBox_readonly"));
     d->readonly->setText(i18n("Read only"));
     layout->addWidget(d->readonly, 1, 1);
 
@@ -2850,7 +2850,7 @@ KDevicePropsPlugin::KDevicePropsPlugin(KPropertiesDialog *_props) : KPropertiesD
     layout->addWidget(label, 3, 0, Qt::AlignRight);
 
     d->mountpoint = new QLabel(d->m_frame);
-    d->mountpoint->setObjectName(QLatin1String("LineEdit_mountpoint"));
+    d->mountpoint->setObjectName(QStringLiteral("LineEdit_mountpoint"));
 
     layout->addWidget(d->mountpoint, 3, 1);
 
@@ -2862,7 +2862,7 @@ KDevicePropsPlugin::KDevicePropsPlugin(KPropertiesDialog *_props) : KPropertiesD
     layout->addWidget(d->m_freeSpaceLabel, 4, 1);
 
     d->m_freeSpaceBar = new QProgressBar(d->m_frame);
-    d->m_freeSpaceBar->setObjectName("freeSpaceBar");
+    d->m_freeSpaceBar->setObjectName(QStringLiteral("freeSpaceBar"));
     layout->addWidget(d->m_freeSpaceBar, 5, 0, 1, 2);
 
     // we show it in the slot when we know the values
@@ -3040,7 +3040,7 @@ void KDevicePropsPlugin::applyChanges()
 
     KDesktopFile _config(path);
     KConfigGroup config = _config.desktopGroup();
-    config.writeEntry("Type", QString::fromLatin1("FSDevice"));
+    config.writeEntry("Type", QStringLiteral("FSDevice"));
 
     config.writeEntry("Dev", d->device->currentText());
     config.writeEntry("MountPoint", d->mountpoint->text());
@@ -3299,7 +3299,7 @@ void KDesktopPropsPlugin::applyChanges()
     KDesktopFile origConfig(d->m_origDesktopFile);
     QScopedPointer<KDesktopFile> _config(origConfig.copyTo(path));
     KConfigGroup config = _config->desktopGroup();
-    config.writeEntry("Type", QString::fromLatin1("Application"));
+    config.writeEntry("Type", QStringLiteral("Application"));
     config.writeEntry("Comment", d->w->commentEdit->text());
     config.writeEntry("Comment", d->w->commentEdit->text(), KConfigGroup::Persistent | KConfigGroup::Localized); // for compat
     config.writeEntry("GenericName", d->w->genNameEdit->text());
@@ -3369,7 +3369,7 @@ void KDesktopPropsPlugin::slotBrowseExec()
 void KDesktopPropsPlugin::slotAdvanced()
 {
     QDialog dlg(d->m_frame);
-    dlg.setObjectName("KPropertiesDesktopAdv");
+    dlg.setObjectName(QStringLiteral("KPropertiesDesktopAdv"));
     dlg.setModal(true);
     dlg.setWindowTitle(i18n("Advanced Options for %1", properties->url().fileName()));
 
@@ -3393,16 +3393,16 @@ void KDesktopPropsPlugin::slotAdvanced()
 
     // check to see if we use konsole if not do not add the nocloseonexit
     // because we don't know how to do this on other terminal applications
-    KConfigGroup confGroup(KSharedConfig::openConfig(), QString::fromLatin1("General"));
+    KConfigGroup confGroup(KSharedConfig::openConfig(), QLatin1String("General"));
     QString preferredTerminal = confGroup.readPathEntry("TerminalApplication",
-                                QString::fromLatin1("konsole"));
+                                QStringLiteral("konsole"));
 
     bool terminalCloseBool = false;
 
-    if (preferredTerminal == "konsole") {
-        terminalCloseBool = d->m_terminalOptionStr.contains("--noclose");
+    if (preferredTerminal == QLatin1String("konsole")) {
+        terminalCloseBool = d->m_terminalOptionStr.contains(QStringLiteral("--noclose"));
         w.terminalCloseCheck->setChecked(terminalCloseBool);
-        d->m_terminalOptionStr.remove("--noclose");
+        d->m_terminalOptionStr.remove(QStringLiteral("--noclose"));
     } else {
         w.terminalCloseCheck->hide();
     }
@@ -3421,11 +3421,11 @@ void KDesktopPropsPlugin::slotAdvanced()
     w.startupInfoCheck->setChecked(d->m_startupBool);
     w.systrayCheck->setChecked(d->m_systrayBool);
 
-    if (d->m_dbusStartupType == "unique") {
+    if (d->m_dbusStartupType == QLatin1String("unique")) {
         w.dbusCombo->setCurrentIndex(2);
-    } else if (d->m_dbusStartupType == "multi") {
+    } else if (d->m_dbusStartupType == QLatin1String("multi")) {
         w.dbusCombo->setCurrentIndex(1);
-    } else if (d->m_dbusStartupType == "wait") {
+    } else if (d->m_dbusStartupType == QLatin1String("wait")) {
         w.dbusCombo->setCurrentIndex(3);
     } else {
         w.dbusCombo->setCurrentIndex(0);
@@ -3473,10 +3473,10 @@ void KDesktopPropsPlugin::slotAdvanced()
         }
 
         switch (w.dbusCombo->currentIndex()) {
-        case 1:  d->m_dbusStartupType = "multi"; break;
-        case 2:  d->m_dbusStartupType = "unique"; break;
-        case 3:  d->m_dbusStartupType = "wait"; break;
-        default: d->m_dbusStartupType = "none"; break;
+        case 1:  d->m_dbusStartupType = QStringLiteral("multi"); break;
+        case 2:  d->m_dbusStartupType = QStringLiteral("unique"); break;
+        case 3:  d->m_dbusStartupType = QStringLiteral("wait"); break;
+        default: d->m_dbusStartupType = QStringLiteral("none"); break;
         }
     }
 }
@@ -3503,8 +3503,8 @@ bool KDesktopPropsPlugin::supports(const KFileItemList &_items)
 
     KDesktopFile config(url.toLocalFile());
     return config.hasApplicationType() &&
-           KAuthorized::authorize("run_desktop_files") &&
-           KAuthorized::authorize("shell_access");
+           KAuthorized::authorize(QStringLiteral("run_desktop_files")) &&
+           KAuthorized::authorize(QStringLiteral("shell_access"));
 }
 
 #include "moc_kpropertiesdialog.cpp"

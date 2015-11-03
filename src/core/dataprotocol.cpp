@@ -167,8 +167,8 @@ static DataHeader parseDataHeader(const QUrl &url, const bool mimeOnly)
     DataHeader header_info;
 
     // initialize header info members
-    header_info.mime_type = QLatin1String("text/plain");
-    header_info.attributes.insert(QLatin1String("charset"), QLatin1String("us-ascii"));
+    header_info.mime_type = QStringLiteral("text/plain");
+    header_info.attributes.insert(QStringLiteral("charset"), QStringLiteral("us-ascii"));
     header_info.is_base64 = false;
 
     // decode url and save it
@@ -277,7 +277,7 @@ void DataProtocol::get(const QUrl &url)
         // decode it and pass it to the receiver
         outData = QByteArray::fromBase64(url_data);
     } else {
-        QTextCodec *codec = QTextCodec::codecForName(hdr.attributes["charset"].toLatin1());
+        QTextCodec *codec = QTextCodec::codecForName(hdr.attributes[QStringLiteral("charset")].toLatin1());
         if (codec != 0) {
             outData = codec->toUnicode(url_data).toUtf8();
         } else {

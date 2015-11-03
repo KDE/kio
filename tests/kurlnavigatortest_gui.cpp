@@ -27,7 +27,7 @@
 
 int main(int argc, char **argv)
 {
-    QApplication::setApplicationName("kurlnavigatortest");
+    QApplication::setApplicationName(QStringLiteral("kurlnavigatortest"));
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
     QApplication app(argc, argv);
 

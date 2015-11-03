@@ -28,10 +28,10 @@ SearchProvider::SearchProvider(const KService::Ptr service)
 {
     setDesktopEntryName(service->desktopEntryName());
     setName(service->name());
-    setKeys(service->property("Keys").toStringList());
+    setKeys(service->property(QStringLiteral("Keys")).toStringList());
 
-    m_query = service->property("Query").toString();
-    m_charset = service->property("Charset").toString();
+    m_query = service->property(QStringLiteral("Query")).toString();
+    m_charset = service->property(QStringLiteral("Charset")).toString();
 }
 
 void SearchProvider::setName(const QString &name)
@@ -119,14 +119,14 @@ void SearchProvider::setDirty(bool dirty)
 SearchProvider *SearchProvider::findByDesktopName(const QString &name)
 {
     KService::Ptr service =
-        KService::serviceByDesktopPath(QString("searchproviders/%1.desktop").arg(name));
+        KService::serviceByDesktopPath(QStringLiteral("searchproviders/%1.desktop").arg(name));
     return service ? new SearchProvider(service) : 0;
 }
 
 SearchProvider *SearchProvider::findByKey(const QString &key)
 {
     KService::List providers =
-        KServiceTypeTrader::self()->query("SearchProvider", QString("'%1' in Keys").arg(key));
+        KServiceTypeTrader::self()->query(QStringLiteral("SearchProvider"), QStringLiteral("'%1' in Keys").arg(key));
     return providers.count() ? new SearchProvider(providers[0]) : 0;
 }
 

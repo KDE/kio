@@ -88,7 +88,7 @@ void MultiGetJob::get(long id, const QUrl &url, const MetaData &metaData)
 {
     Q_D(MultiGetJob);
     MultiGetJobPrivate::GetRequest entry(id, url, metaData);
-    entry.metaData["request-id"] = QString::number(id);
+    entry.metaData[QStringLiteral("request-id")] = QString::number(id);
     d->m_waitQueue.append(entry);
 }
 
@@ -148,7 +148,7 @@ void MultiGetJobPrivate::start(Slave *slave)
 bool MultiGetJobPrivate::findCurrentEntry()
 {
     if (b_multiGetActive) {
-        long id = m_incomingMetaData["request-id"].toLong();
+        long id = m_incomingMetaData[QStringLiteral("request-id")].toLong();
         RequestQueue::const_iterator qit = m_activeQueue.begin();
         const RequestQueue::const_iterator qend = m_activeQueue.end();
         for (; qit != qend; ++qit) {
@@ -174,7 +174,7 @@ void MultiGetJob::slotRedirection(const QUrl &url)
     if (!d->findCurrentEntry()) {
         return;    // Error
     }
-    if (!KUrlAuthorized::authorizeUrlAction("redirect", d->m_url, url)) {
+    if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("redirect"), d->m_url, url)) {
         qWarning() << "Redirection from" << d->m_currentEntry.url << "to" << url << "REJECTED!";
         return;
     }

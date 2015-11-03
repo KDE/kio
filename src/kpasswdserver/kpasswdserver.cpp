@@ -141,12 +141,12 @@ static bool storeInWallet( KWallet::Wallet* wallet, const QString& key, const KI
     qCDebug(category) << "walletKey =" << walletKey << "  reading existing map";
     if ( wallet->readMap( walletKey, map ) == 0 ) {
         Map::ConstIterator end = map.constEnd();
-        Map::ConstIterator it = map.constFind( "login" );
+        Map::ConstIterator it = map.constFind( QStringLiteral("login") );
         while ( it != end ) {
             if ( it.value() == info.username ) {
                 break; // OK, overwrite this entry
             }
-            it = map.constFind( QString( "login-" ) + QString::number( ++entryNumber ) );
+            it = map.constFind( QStringLiteral( "login-" ) + QString::number( ++entryNumber ) );
         }
         // If no entry was found, create a new entry - entryNumber is set already.
     }
@@ -173,7 +173,7 @@ static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const Q
             typedef QMap<QString,QString> Map;
             int entryNumber = 1;
             Map::ConstIterator end = map.constEnd();
-            Map::ConstIterator it = map.constFind( "login" );
+            Map::ConstIterator it = map.constFind( QStringLiteral("login") );
             while ( it != end ) {
                 //qCDebug(category) << "found " << it.key() << "=" << it.value();
                 Map::ConstIterator pwdIter = map.constFind( makeMapKey( "password", entryNumber ) );
@@ -183,7 +183,7 @@ static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const Q
                     knownLogins.insert( it.value(), pwdIter.value() );
                 }
 
-                it = map.constFind( QString( "login-" ) + QString::number( ++entryNumber ) );
+                it = map.constFind( QStringLiteral( "login-" ) + QString::number( ++entryNumber ) );
             }
             //qCDebug(category) << knownLogins.count() << " known logins";
 
@@ -379,7 +379,7 @@ QByteArray KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &e
     request->info = info;
     request->windowId = windowId;
     request->seqNr = seqNr;
-    if (errorMsg == "<NoAuthPrompt>")
+    if (errorMsg == QLatin1String("<NoAuthPrompt>"))
     {
        request->errorMsg.clear();
        request->prompt = false;
@@ -419,7 +419,7 @@ KPasswdServer::queryAuthInfoAsync(const KIO::AuthInfo &info, const QString &erro
     request->info = info;
     request->windowId = windowId;
     request->seqNr = seqNr;
-    if (errorMsg == "<NoAuthPrompt>") {
+    if (errorMsg == QLatin1String("<NoAuthPrompt>")) {
         request->errorMsg.clear();
         request->prompt = false;
     } else {
@@ -571,8 +571,8 @@ KPasswdServer::processRequest()
             connect(dlg, SIGNAL(finished(int)), this, SLOT(retryDialogDone(int)));
             connect(this, SIGNAL(destroyed(QObject*)), dlg, SLOT(deleteLater()));
             dlg->setWindowTitle(i18n("Retry Authentication"));
-            dlg->setWindowIcon(QIcon::fromTheme("dialog-password"));
-            dlg->setObjectName("warningOKCancel");
+            dlg->setWindowIcon(QIcon::fromTheme(QStringLiteral("dialog-password")));
+            dlg->setObjectName(QStringLiteral("warningOKCancel"));
             QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Yes|QDialogButtonBox::Cancel);
             buttonBox->button(QDialogButtonBox::Yes)->setText(i18nc("@action:button filter-continue", "Retry"));
 

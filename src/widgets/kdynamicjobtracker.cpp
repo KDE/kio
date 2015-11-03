@@ -84,9 +84,9 @@ void KDynamicJobTracker::registerJob(KJob *job)
         d->trackers[job].kuiserverTracker = d->kuiserverTracker;
         d->trackers[job].kuiserverTracker->registerJob(job);
 
-        QDBusInterface interface("org.kde.kuiserver", "/JobViewServer", "",
+        QDBusInterface interface(QStringLiteral("org.kde.kuiserver"), QStringLiteral("/JobViewServer"), QLatin1String(""),
                                 QDBusConnection::sessionBus(), this);
-        QDBusReply<bool> reply = interface.call("requiresJobTracker");
+        QDBusReply<bool> reply = interface.call(QStringLiteral("requiresJobTracker"));
 
         if (reply.isValid() && reply.value()) {
             //create a widget tracker in addition to kuiservertracker.

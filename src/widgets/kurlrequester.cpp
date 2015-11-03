@@ -225,7 +225,7 @@ public:
             int sep = it->indexOf('|');
             QString globs = it->left(sep);
             QString desc  = it->mid(sep + 1);
-            *it = QString("%1 (%2)").arg(desc).arg(globs);
+            *it = QStringLiteral("%1 (%2)").arg(desc).arg(globs);
         }
 
         return qFilters;
@@ -316,7 +316,7 @@ void KUrlRequester::KUrlRequesterPrivate::init()
     topLayout->addWidget(widget);
 
     myButton = new KUrlDragPushButton(m_parent);
-    myButton->setIcon(QIcon::fromTheme("document-open"));
+    myButton->setIcon(QIcon::fromTheme(QStringLiteral("document-open")));
     int buttonSize = myButton->sizeHint().expandedTo(widget->sizeHint()).height();
     myButton->setFixedSize(buttonSize, buttonSize);
     myButton->setToolTip(i18n("Open file dialog"));

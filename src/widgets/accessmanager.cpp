@@ -447,7 +447,7 @@ void AccessManager::AccessManagerPrivate::setMetaDataForRequest(QNetworkRequest 
     }
 
     if (!customHeaders.isEmpty()) {
-        metaData.insert(QL1S("customHTTPHeader"), customHeaders.join("\r\n"));
+        metaData.insert(QL1S("customHTTPHeader"), customHeaders.join(QStringLiteral("\r\n")));
     }
 
     // Append per request meta data, if any...
@@ -527,8 +527,8 @@ QList<QNetworkCookie> CookieJar::cookiesForUrl(const QUrl &url) const
     if (!d->isEnabled) {
         return cookieList;
     }
-    QDBusInterface kcookiejar("org.kde.kded5", "/modules/kcookiejar", "org.kde.KCookieServer");
-    QDBusReply<QString> reply = kcookiejar.call("findDOMCookies", url.toString(QUrl::RemoveUserInfo), (qlonglong)d->windowId);
+    QDBusInterface kcookiejar(QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"));
+    QDBusReply<QString> reply = kcookiejar.call(QStringLiteral("findDOMCookies"), url.toString(QUrl::RemoveUserInfo), (qlonglong)d->windowId);
 
     if (!reply.isValid()) {
         qWarning() << "Unable to communicate with the cookiejar!";
@@ -554,7 +554,7 @@ bool CookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const
         return false;
     }
 
-    QDBusInterface kcookiejar("org.kde.kded5", "/modules/kcookiejar", "org.kde.KCookieServer");
+    QDBusInterface kcookiejar(QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"));
     Q_FOREACH (const QNetworkCookie &cookie, cookieList) {
         QByteArray cookieHeader("Set-Cookie: ");
         if (d->isStorageDisabled && !cookie.isSessionCookie()) {
@@ -564,7 +564,7 @@ bool CookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const
         } else {
             cookieHeader += cookie.toRawForm();
         }
-        kcookiejar.call("addCookies", url.toString(QUrl::RemoveUserInfo), cookieHeader, (qlonglong)d->windowId);
+        kcookiejar.call(QStringLiteral("addCookies"), url.toString(QUrl::RemoveUserInfo), cookieHeader, (qlonglong)d->windowId);
         //qDebug() << "[" << d->windowId << "]" << cookieHeader << " from " << url;
     }
 
@@ -583,7 +583,7 @@ void CookieJar::setWindowId(WId id)
 
 void CookieJar::reparseConfiguration()
 {
-    KConfigGroup cfg = KSharedConfig::openConfig("kcookiejarrc", KConfig::NoGlobals)->group("Cookie Policy");
+    KConfigGroup cfg = KSharedConfig::openConfig(QStringLiteral("kcookiejarrc"), KConfig::NoGlobals)->group("Cookie Policy");
     d->isEnabled = cfg.readEntry("Cookies", true);
 }
 

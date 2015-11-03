@@ -169,7 +169,7 @@ void TrashConfigModule::useTypeChanged()
 
 void TrashConfigModule::readConfig()
 {
-    KConfig config("ktrashrc");
+    KConfig config(QStringLiteral("ktrashrc"));
     mConfigMap.clear();
 
     const QStringList groups = config.groupList();
@@ -190,7 +190,7 @@ void TrashConfigModule::readConfig()
 
 void TrashConfigModule::writeConfig()
 {
-    KConfig config("ktrashrc");
+    KConfig config(QStringLiteral("ktrashrc"));
 
     // first delete all existing groups
     const QStringList groups = config.groupList();
@@ -228,7 +228,7 @@ void TrashConfigModule::setupGui()
         while (it.hasNext()) {
             it.next();
             DiscSpaceUtil util(it.value());
-            QListWidgetItem *item = new QListWidgetItem(QIcon("folder"), util.mountPoint());
+            QListWidgetItem *item = new QListWidgetItem(QIcon(QStringLiteral("folder")), util.mountPoint());
             item->setData(Qt::UserRole, it.key());
 
             mountPoints->addItem(item);
@@ -282,7 +282,7 @@ void TrashConfigModule::setupGui()
     mPercent->setRange(0.001, 100);
     mPercent->setDecimals(3);
     mPercent->setSingleStep(1);
-    mPercent->setSuffix(" %");
+    mPercent->setSuffix(QStringLiteral(" %"));
     mPercent->setWhatsThis(xi18nc("@info:whatsthis",
                                   "<para>This is the maximum percent of disk space that will be used for the trash.</para>"));
     maximumSizeLayout->addWidget(mPercent);

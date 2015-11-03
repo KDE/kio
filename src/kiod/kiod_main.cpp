@@ -91,17 +91,17 @@ extern Q_DBUS_EXPORT void qDBusAddSpyHook(void (*)(const QDBusMessage&));
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv); // GUI needed for kpasswdserver's dialogs
-    app.setApplicationName("kiod5");
-    app.setOrganizationDomain("kde.org");
+    app.setApplicationName(QStringLiteral("kiod5"));
+    app.setOrganizationDomain(QStringLiteral("kde.org"));
     app.setQuitOnLastWindowClosed(false);
     KDBusService service(KDBusService::Unique);
 
     QDBusConnectionInterface *bus = QDBusConnection::sessionBus().interface();
     // Also register as all the names we should respond to (org.kde.kssld, org.kde.kcookiejar, etc.)
     // so that the calling code is independent from the physical "location" of the service.
-    const QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins("kf5/kiod");
+    const QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(QStringLiteral("kf5/kiod"));
     foreach (const KPluginMetaData &metaData, plugins) {
-        const QString serviceName = metaData.rawData().value("X-KDE-DBus-ServiceName").toString();
+        const QString serviceName = metaData.rawData().value(QStringLiteral("X-KDE-DBus-ServiceName")).toString();
         if (serviceName.isEmpty()) {
             qCWarning(KIOD_CATEGORY) << "No X-KDE-DBus-ServiceName found in" << metaData.fileName();
             continue;

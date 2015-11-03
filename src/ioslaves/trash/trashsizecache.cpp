@@ -33,7 +33,7 @@
 #include <QDebug>
 
 TrashSizeCache::TrashSizeCache(const QString &path)
-    : mTrashSizeCachePath(path + QString::fromLatin1("/directorysizes")),
+    : mTrashSizeCachePath(path + QLatin1String("/directorysizes")),
       mTrashPath(path)
 {
     //qDebug() << "CACHE:" << mTrashSizeCachePath;
@@ -119,7 +119,7 @@ qulonglong TrashSizeCache::calculateSize()
     }
     // Iterate over the actual trashed files.
     // Orphan items (no .fileinfo) still take space.
-    QDirIterator it(mTrashPath + QString::fromLatin1("/files/"), QDirIterator::NoIteratorFlags);
+    QDirIterator it(mTrashPath + QLatin1String("/files/"), QDirIterator::NoIteratorFlags);
 
     qulonglong sum = 0;
     while (it.hasNext()) {

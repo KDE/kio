@@ -64,20 +64,20 @@ static const struct {
 Receiver::Receiver()
 {
     QVBoxLayout *lay = new QVBoxLayout(this);
-    QPushButton *h = new QPushButton("Press here to terminate", this);
+    QPushButton *h = new QPushButton(QStringLiteral("Press here to terminate"), this);
     lay->addWidget(h);
     connect(h, SIGNAL(clicked()), qApp, SLOT(quit()));
 
-    start = new QPushButton("Launch KRuns", this);
+    start = new QPushButton(QStringLiteral("Launch KRuns"), this);
     lay->addWidget(start);
     connect(start, SIGNAL(clicked()), this, SLOT(slotStart()));
 
-    stop = new QPushButton("Stop those KRuns", this);
+    stop = new QPushButton(QStringLiteral("Stop those KRuns"), this);
     stop->setEnabled(false);
     lay->addWidget(stop);
     connect(stop, SIGNAL(clicked()), this, SLOT(slotStop()));
 
-    QPushButton *launchOne = new QPushButton("Launch one http KRun", this);
+    QPushButton *launchOne = new QPushButton(QStringLiteral("Launch one http KRun"), this);
     lay->addWidget(launchOne);
     connect(launchOne, SIGNAL(clicked()), this, SLOT(slotLaunchOne()));
 
@@ -131,7 +131,7 @@ void Receiver::slotStart()
 {
     for (int i = 0; i < MAXKRUNS; i++) {
         qDebug() << "creating testKRun " << i;
-        myArray[i] = new testKRun(QUrl::fromLocalFile("file:///tmp"), window());
+        myArray[i] = new testKRun(QUrl::fromLocalFile(QStringLiteral("file:///tmp")), window());
         myArray[i]->setAutoDelete(false);
     }
     start->setEnabled(false);
@@ -140,12 +140,12 @@ void Receiver::slotStart()
 
 void Receiver::slotLaunchOne()
 {
-    new testKRun(QUrl("http://www.kde.org"), window());
+    new testKRun(QUrl(QStringLiteral("http://www.kde.org")), window());
 }
 
 int main(int argc, char **argv)
 {
-    QApplication::setApplicationName("kruntest");
+    QApplication::setApplicationName(QStringLiteral("kruntest"));
     QApplication app(argc, argv);
 
     Receiver receiver;

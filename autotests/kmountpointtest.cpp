@@ -46,7 +46,7 @@ void KMountPointTest::testCurrentMountPoints()
         QVERIFY(!mountPoint->mountPoint().isEmpty());
         QVERIFY(!mountPoint->mountType().isEmpty());
         // old bug, happened because KMountPoint called KStandardDirs::realPath instead of realFilePath
-        if (mountPoint->realDeviceName().startsWith("/dev")) { // skip this check for cifs mounts for instance
+        if (mountPoint->realDeviceName().startsWith(QLatin1String("/dev"))) { // skip this check for cifs mounts for instance
             QVERIFY(!mountPoint->realDeviceName().endsWith('/'));
         }
 
@@ -64,13 +64,13 @@ void KMountPointTest::testCurrentMountPoints()
         KMountPoint::Ptr found = mountPoints.findByDevice(mountWithDevice->mountedFrom());
         QVERIFY(found);
         QCOMPARE(found->mountPoint(), mountWithDevice->mountPoint());
-        found = mountPoints.findByDevice("/I/Dont/Exist"); // krazy:exclude=spelling
+        found = mountPoints.findByDevice(QStringLiteral("/I/Dont/Exist")); // krazy:exclude=spelling
         QVERIFY(!found);
     }
 
     // Check findByPath
 #ifdef Q_OS_UNIX
-    const KMountPoint::Ptr rootMountPoint = mountPoints.findByPath("/");
+    const KMountPoint::Ptr rootMountPoint = mountPoints.findByPath(QStringLiteral("/"));
     QVERIFY(rootMountPoint);
     QCOMPARE(rootMountPoint->mountPoint(), QString("/"));
     QVERIFY(!rootMountPoint->probablySlow());
@@ -80,7 +80,7 @@ void KMountPointTest::testCurrentMountPoints()
     QT_STATBUF homeStatBuff;
     if (QT_STAT("/home", &homeStatBuff) == 0) {
         bool sameDevice = rootStatBuff.st_dev == homeStatBuff.st_dev;
-        const KMountPoint::Ptr homeMountPoint = mountPoints.findByPath("/home");
+        const KMountPoint::Ptr homeMountPoint = mountPoints.findByPath(QStringLiteral("/home"));
         QVERIFY(homeMountPoint);
         //qDebug() << "Checking the home mount point, sameDevice=" << sameDevice;
         if (sameDevice) {
@@ -123,7 +123,7 @@ void KMountPointTest::testPossibleMountPoints()
     QVERIFY(mountWithDevice);
 
 #ifdef Q_OS_UNIX
-    const KMountPoint::Ptr rootMountPoint = mountPoints.findByPath("/");
+    const KMountPoint::Ptr rootMountPoint = mountPoints.findByPath(QStringLiteral("/"));
     QVERIFY(rootMountPoint);
     QCOMPARE(rootMountPoint->mountPoint(), QString("/"));
     QVERIFY(rootMountPoint->realDeviceName().startsWith(QLatin1String("/"))); // Usually /dev, but can be /host/ubuntu/disks/root.disk...

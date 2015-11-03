@@ -280,7 +280,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
     case INF_META_DATA: {
         MetaData m;
         stream >> m;
-        if (m.contains(QLatin1String("ssl_in_use"))) {
+        if (m.contains(QStringLiteral("ssl_in_use"))) {
             const QLatin1String ssl_("ssl_");
             const MetaData constM = m;
             for (MetaData::ConstIterator it = constM.lowerBound(ssl_); it != constM.constEnd(); ++it) {

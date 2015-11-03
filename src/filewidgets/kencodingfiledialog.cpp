@@ -88,7 +88,7 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
     d->encoding->clear();
     QString sEncoding = encoding;
     QString systemEncoding = QTextCodec::codecForLocale()->name();
-    if (sEncoding.isEmpty() || sEncoding == "System") {
+    if (sEncoding.isEmpty() || sEncoding == QLatin1String("System")) {
         sEncoding = systemEncoding;
     }
 

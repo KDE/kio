@@ -67,8 +67,8 @@ KSambaSharePrivate::~KSambaSharePrivate()
 
 bool KSambaSharePrivate::isSambaInstalled()
 {
-    if (QFile::exists("/usr/sbin/smbd")
-            || QFile::exists("/usr/local/sbin/smbd")) {
+    if (QFile::exists(QStringLiteral("/usr/sbin/smbd"))
+            || QFile::exists(QStringLiteral("/usr/local/sbin/smbd"))) {
         return true;
     }
 
@@ -96,7 +96,7 @@ bool KSambaSharePrivate::findSmbConf()
 
 void KSambaSharePrivate::setUserSharePath()
 {
-    const QString rawString = testparmParamValue(QLatin1String("usershare path"));
+    const QString rawString = testparmParamValue(QStringLiteral("usershare path"));
     const QFileInfo fileInfo(rawString);
     if (fileInfo.isDir()) {
         userSharePath = rawString;
@@ -128,10 +128,10 @@ QString KSambaSharePrivate::testparmParamValue(const QString &parameterName)
     QByteArray stdErr;
     QByteArray stdOut;
 
-    args << QLatin1String("-d0") << QLatin1String("-s") << QLatin1String("--parameter-name")
+    args << QStringLiteral("-d0") << QStringLiteral("-s") << QStringLiteral("--parameter-name")
          << parameterName;
 
-    runProcess(QLatin1String("testparm"), args, stdOut, stdErr);
+    runProcess(QStringLiteral("testparm"), args, stdOut, stdErr);
 
     //TODO: parse and process error messages.
     // create a parser for the error output and
@@ -165,9 +165,9 @@ QByteArray KSambaSharePrivate::getNetUserShareInfo()
     QByteArray stdOut;
     QByteArray stdErr;
 
-    args << QLatin1String("usershare") << QLatin1String("info");
+    args << QStringLiteral("usershare") << QStringLiteral("info");
 
-    runProcess(QLatin1String("net"), args, stdOut, stdErr);
+    runProcess(QStringLiteral("net"), args, stdOut, stdErr);
 
     if (!stdErr.isEmpty()) {
         if (stdErr.contains("You do not have permission to create a usershare")) {
@@ -227,7 +227,7 @@ QList<KSambaShareData> KSambaSharePrivate::getSharesByPath(const QString &path) 
 bool KSambaSharePrivate::isShareNameValid(const QString &name) const
 {
     // Samba forbidden chars
-    const QRegExp notToMatchRx(QLatin1String("[%<>*\?|/\\+=;:\",]"));
+    const QRegExp notToMatchRx(QStringLiteral("[%<>*\?|/\\+=;:\",]"));
     return (notToMatchRx.indexIn(name) == -1);
 }
 
@@ -268,7 +268,7 @@ KSambaShareData::UserShareError KSambaSharePrivate::isPathValid(const QString &p
     }
 
     // TODO: check if the user is root
-    if (KSambaSharePrivate::testparmParamValue(QLatin1String("usershare owner only"))
+    if (KSambaSharePrivate::testparmParamValue(QStringLiteral("usershare owner only"))
             == QLatin1String("Yes")) {
         if (!pathInfo.permission(QFile::ReadUser | QFile::WriteUser)) {
             return KSambaShareData::UserSharePathNotAllowed;
@@ -280,7 +280,7 @@ KSambaShareData::UserShareError KSambaSharePrivate::isPathValid(const QString &p
 
 KSambaShareData::UserShareError KSambaSharePrivate::isAclValid(const QString &acl) const
 {
-    const QRegExp aclRx("(?:(?:(\\w+\\s*)\\\\|)(\\w+\\s*):([fFrRd]{1})(?:,|))*");
+    const QRegExp aclRx(QStringLiteral("(?:(?:(\\w+\\s*)\\\\|)(\\w+\\s*):([fFrRd]{1})(?:,|))*"));
     // TODO: check if user is a valid smb user
     return aclRx.exactMatch(acl) ? KSambaShareData::UserShareAclOk
            : KSambaShareData::UserShareAclInvalid;
@@ -290,7 +290,7 @@ KSambaShareData::UserShareError KSambaSharePrivate::guestsAllowed(const
         KSambaShareData::GuestPermission &guestok) const
 {
     if (guestok == KSambaShareData::GuestsAllowed) {
-        if (KSambaSharePrivate::testparmParamValue("usershare allow guests")
+        if (KSambaSharePrivate::testparmParamValue(QStringLiteral("usershare allow guests"))
                 == QLatin1String("No")) {
             return KSambaShareData::UserShareGuestsNotAllowed;
         }
@@ -322,14 +322,14 @@ KSambaShareData::UserShareError KSambaSharePrivate::add(const KSambaShareData &s
         data.insert(shareData.name(), shareData);
     }
 
-    QString guestok = QString("guest_ok=%1").arg(
+    QString guestok = QStringLiteral("guest_ok=%1").arg(
                           (shareData.guestPermission() == KSambaShareData::GuestsNotAllowed)
-                          ? QLatin1String("n") : QLatin1String("y"));
+                          ? QStringLiteral("n") : QStringLiteral("y"));
 
-    args << QLatin1String("usershare") << QLatin1String("add") << shareData.name()
+    args << QStringLiteral("usershare") << QStringLiteral("add") << shareData.name()
          << shareData.path() << shareData.comment() << shareData.acl() << guestok;
 
-    int ret = runProcess(QLatin1String("net"), args, stdOut, stdErr);
+    int ret = runProcess(QStringLiteral("net"), args, stdOut, stdErr);
 
     //TODO: parse and process error messages.
     if (!stdErr.isEmpty()) {
@@ -354,19 +354,19 @@ KSambaShareData::UserShareError KSambaSharePrivate::remove(const KSambaShareData
         return KSambaShareData::UserShareNameInvalid;
     }
 
-    args << QLatin1String("usershare") << QLatin1String("delete") << shareData.name();
+    args << QStringLiteral("usershare") << QStringLiteral("delete") << shareData.name();
 
-    int result = QProcess::execute(QLatin1String("net"), args);
+    int result = QProcess::execute(QStringLiteral("net"), args);
     return (result == 0) ? KSambaShareData::UserShareOk : KSambaShareData::UserShareSystemError;
 }
 
 bool KSambaSharePrivate::sync()
 {
-    const QRegExp headerRx(QLatin1String("^\\s*\\["
+    const QRegExp headerRx(QStringLiteral("^\\s*\\["
                                          "([^%<>*\?|/\\+=;:\",]+)"
                                          "\\]"));
 
-    const QRegExp OptValRx(QLatin1String("^\\s*([\\w\\d\\s]+)"
+    const QRegExp OptValRx(QStringLiteral("^\\s*([\\w\\d\\s]+)"
                                          "="
                                          "(.*)$"));
 

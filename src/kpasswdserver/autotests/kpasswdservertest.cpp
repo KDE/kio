@@ -63,7 +63,7 @@ private Q_SLOTS:
         server.processRequest();
 
         KIO::AuthInfo info;
-        info.url = QUrl("http://www.example.com");
+        info.url = QUrl(QStringLiteral("http://www.example.com"));
 
         // Make a check for that host, should say "not found"
         QVERIFY(noCheckAuth(server, info));
@@ -71,8 +71,8 @@ private Q_SLOTS:
         // Now add auth to the cache
         const qlonglong windowId = 42;
         KIO::AuthInfo realInfo = info;
-        realInfo.username = "toto"; // you can see I'm french
-        realInfo.password = "foobar";
+        realInfo.username = QStringLiteral("toto"); // you can see I'm french
+        realInfo.password = QStringLiteral("foobar");
         server.addAuthInfo(realInfo, windowId); // seqnr=2
 
         // queryAuth without the ability to prompt, will just return info unmodified
@@ -97,7 +97,7 @@ private Q_SLOTS:
         KPasswdServer server(this);
         server.setWalletDisabled(true);
         KIO::AuthInfo info;
-        info.url = QUrl("http://www.kde.org");
+        info.url = QUrl(QStringLiteral("http://www.kde.org"));
 
         // Start a query
         QSignalSpy spyQuery(&server, sigQueryAuthInfoResult);
@@ -105,7 +105,7 @@ private Q_SLOTS:
         const qlonglong seqNr = 2;
         const qlonglong id = server.queryAuthInfoAsync(
             info,
-            QString("<NoAuthPrompt>"), // magic string to avoid a dialog
+            QStringLiteral("<NoAuthPrompt>"), // magic string to avoid a dialog
             windowId, seqNr, 16 /*usertime*/);
 
         // Before it is processed, do a check, it will reply delayed.
@@ -133,13 +133,13 @@ private Q_SLOTS:
         KPasswdServer server(this);
         server.setWalletDisabled(true);
         KIO::AuthInfo info;
-        info.url = QUrl("http://www.example.com");
+        info.url = QUrl(QStringLiteral("http://www.example.com"));
 
         // Add auth to the cache
         const qlonglong windowId = 42;
         KIO::AuthInfo realInfo = info;
-        realInfo.username = "toto";
-        realInfo.password = "foobar";
+        realInfo.username = QStringLiteral("toto");
+        realInfo.password = QStringLiteral("foobar");
         server.addAuthInfo(realInfo, windowId);
 
         QVERIFY(successCheckAuth(server, info, realInfo));
@@ -161,12 +161,12 @@ private Q_SLOTS:
         server.setWalletDisabled(true);
         // What the app would ask
         KIO::AuthInfo info;
-        info.url = QUrl("http://www.example.com");
+        info.url = QUrl(QStringLiteral("http://www.example.com"));
 
         // What the user would type
         KIO::AuthInfo filledInfo(info);
-        filledInfo.username = "dfaure";
-        filledInfo.password = "toto";
+        filledInfo.username = QStringLiteral("dfaure");
+        filledInfo.password = QStringLiteral("toto");
 
         KIO::AuthInfo result;
         queryAuthWithDialog(server, info, filledInfo, result);
@@ -179,12 +179,12 @@ private Q_SLOTS:
 
        // What the app would ask
         KIO::AuthInfo info;
-        info.url = QUrl("http://www.example.com");
+        info.url = QUrl(QStringLiteral("http://www.example.com"));
 
         // What the user would type
         KIO::AuthInfo filledInfo(info);
-        filledInfo.username = "username";
-        filledInfo.password = "password";
+        filledInfo.username = QStringLiteral("username");
+        filledInfo.password = QStringLiteral("password");
 
         KIO::AuthInfo result;
         queryAuthWithDialog(server, info, filledInfo, result);
@@ -193,7 +193,7 @@ private Q_SLOTS:
         // but cancel the retry dialog.
         info.password.clear();
         result = KIO::AuthInfo();
-        queryAuthWithDialog(server, info, filledInfo, result, s_buttonCancel, QDialog::Accepted /*unused*/, QLatin1String("Invalid username or password"));
+        queryAuthWithDialog(server, info, filledInfo, result, s_buttonCancel, QDialog::Accepted /*unused*/, QStringLiteral("Invalid username or password"));
     }
 
     void testAcceptRetryDialog()
@@ -203,12 +203,12 @@ private Q_SLOTS:
 
        // What the app would ask
         KIO::AuthInfo info;
-        info.url = QUrl("http://www.example.com");
+        info.url = QUrl(QStringLiteral("http://www.example.com"));
 
         // What the user would type
         KIO::AuthInfo filledInfo(info);
-        filledInfo.username = "username";
-        filledInfo.password = "password";
+        filledInfo.username = QStringLiteral("username");
+        filledInfo.password = QStringLiteral("password");
 
         KIO::AuthInfo result;
         queryAuthWithDialog(server, info, filledInfo, result);
@@ -218,7 +218,7 @@ private Q_SLOTS:
         info.password.clear();
         result = KIO::AuthInfo();
 
-        queryAuthWithDialog(server, info, filledInfo, result, s_buttonYes, QDialog::Accepted, QLatin1String("Invalid username or password"));
+        queryAuthWithDialog(server, info, filledInfo, result, s_buttonYes, QDialog::Accepted, QStringLiteral("Invalid username or password"));
     }
 
     void testUsernameMistmatch()
@@ -228,12 +228,12 @@ private Q_SLOTS:
 
         // What the app would ask. Note the username in the URL.
         KIO::AuthInfo info;
-        info.url = QUrl("http://foo@www.example.com");
+        info.url = QUrl(QStringLiteral("http://foo@www.example.com"));
 
         // What the user would type
         KIO::AuthInfo filledInfo(info);
-        filledInfo.username = "bar";
-        filledInfo.password = "blah";
+        filledInfo.username = QStringLiteral("bar");
+        filledInfo.password = QStringLiteral("blah");
 
         KIO::AuthInfo result;
         queryAuthWithDialog(server, info, filledInfo, result);
@@ -248,7 +248,7 @@ private Q_SLOTS:
 
         // Verify there is a cached auth data if the request URL contains the
         // new user name (bar).
-        filledInfo.url = QUrl("http://bar@www.example.com");
+        filledInfo.url = QUrl(QStringLiteral("http://bar@www.example.com"));
         QVERIFY(successCheckAuth(server, filledInfo, result));
 
         // Now the URL check should be valid too.
@@ -262,7 +262,7 @@ private Q_SLOTS:
 
         // What the app would ask.
         KIO::AuthInfo info;
-        info.url = QUrl("http://www.example.com");
+        info.url = QUrl(QStringLiteral("http://www.example.com"));
         info.username = info.url.userName();
 
         KIO::AuthInfo result;
@@ -277,18 +277,18 @@ private Q_SLOTS:
         // Add auth to the cache
         const qlonglong windowId = 42;
         KIO::AuthInfo authInfo;
-        authInfo.url = QUrl("http://www.example.com/test/test.html");
-        authInfo.username = "toto";
-        authInfo.password = "foobar";
+        authInfo.url = QUrl(QStringLiteral("http://www.example.com/test/test.html"));
+        authInfo.username = QStringLiteral("toto");
+        authInfo.password = QStringLiteral("foobar");
         server.addAuthInfo(authInfo, windowId);
 
         KIO::AuthInfo queryAuthInfo;
-        queryAuthInfo.url = QUrl("http://www.example.com/test/test2/test.html");
+        queryAuthInfo.url = QUrl(QStringLiteral("http://www.example.com/test/test2/test.html"));
         queryAuthInfo.verifyPath = true;
 
         KIO::AuthInfo expectedAuthInfo;
-        expectedAuthInfo.username = "toto";
-        expectedAuthInfo.password = "foobar";
+        expectedAuthInfo.username = QStringLiteral("toto");
+        expectedAuthInfo.password = QStringLiteral("foobar");
 
         QVERIFY(successCheckAuth(server, queryAuthInfo, expectedAuthInfo));
     }
@@ -307,8 +307,8 @@ private Q_SLOTS:
 
         // What the user would type
         KIO::AuthInfo filledInfo;
-        filledInfo.username = "bar";
-        filledInfo.password = "blah";
+        filledInfo.username = QStringLiteral("bar");
+        filledInfo.password = QStringLiteral("blah");
 
         QList<KIO::AuthInfo> results;
         concurrentQueryAuthWithDialog(server, authInfos, filledInfo, results);
@@ -328,8 +328,8 @@ private Q_SLOTS:
 
         // What the user would type
         KIO::AuthInfo filledInfo;
-        filledInfo.username = "bar";
-        filledInfo.password = "blah";
+        filledInfo.username = QStringLiteral("bar");
+        filledInfo.password = QStringLiteral("blah");
 
         QList<KIO::AuthInfo> results;
         concurrentQueryAuthWithDialog(server, authInfos, filledInfo, results);
@@ -379,7 +379,7 @@ private:
         const qlonglong seqNr = 2;
         const qlonglong id = server.queryAuthInfoAsync(
             info,
-            QString("<NoAuthPrompt>"), // magic string to avoid a dialog
+            QStringLiteral("<NoAuthPrompt>"), // magic string to avoid a dialog
             windowId, seqNr, 16 /*usertime*/);
         QVERIFY(id >= 0); // requestId, ever increasing
         if (spy.isEmpty())

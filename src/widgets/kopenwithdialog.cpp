@@ -486,7 +486,7 @@ public:
 KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, QWidget *parent)
     : QDialog(parent), d(new KOpenWithDialogPrivate(this))
 {
-    setObjectName(QLatin1String("openwith"));
+    setObjectName(QStringLiteral("openwith"));
     setModal(true);
     setWindowTitle(i18n("Open With"));
 
@@ -508,14 +508,14 @@ KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, const QString &_text,
                                  const QString &_value, QWidget *parent)
     : QDialog(parent), d(new KOpenWithDialogPrivate(this))
 {
-    setObjectName(QLatin1String("openwith"));
+    setObjectName(QStringLiteral("openwith"));
     setModal(true);
     QString caption;
     if (!_urls.isEmpty() && !_urls.first().isEmpty()) {
         caption = KStringHandler::csqueeze(_urls.first().toDisplayString());
     }
     if (_urls.count() > 1) {
-        caption += QString::fromLatin1("...");
+        caption += QLatin1String("...");
     }
     setWindowTitle(caption);
     d->setMimeType(_urls);
@@ -526,7 +526,7 @@ KOpenWithDialog::KOpenWithDialog(const QString &mimeType, const QString &value,
                                  QWidget *parent)
     : QDialog(parent), d(new KOpenWithDialogPrivate(this))
 {
-    setObjectName(QLatin1String("openwith"));
+    setObjectName(QStringLiteral("openwith"));
     setModal(true);
     setWindowTitle(i18n("Choose Application for %1", mimeType));
     QString text = i18n("<qt>Select the program for the file type: <b>%1</b>. "
@@ -542,7 +542,7 @@ KOpenWithDialog::KOpenWithDialog(const QString &mimeType, const QString &value,
 KOpenWithDialog::KOpenWithDialog(QWidget *parent)
     : QDialog(parent), d(new KOpenWithDialogPrivate(this))
 {
-    setObjectName(QLatin1String("openwith"));
+    setObjectName(QStringLiteral("openwith"));
     setModal(true);
     setWindowTitle(i18n("Choose Application"));
     QString text = i18n("<qt>Select a program. "
@@ -568,7 +568,7 @@ void KOpenWithDialogPrivate::setMimeType(const QList<QUrl> &_urls)
 
 void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
 {
-    bool bReadOnly = !KAuthorized::authorize("shell_access");
+    bool bReadOnly = !KAuthorized::authorize(QStringLiteral("shell_access"));
     m_terminaldirty = false;
     view = 0;
     m_pService = 0;
@@ -588,7 +588,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
         combo->setLineEdit(lineEdit);
         combo->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLengthWithIcon);
         combo->setDuplicatesEnabled(false);
-        KConfigGroup cg(KSharedConfig::openConfig(), QString::fromLatin1("Open-with settings"));
+        KConfigGroup cg(KSharedConfig::openConfig(), QLatin1String("Open-with settings"));
         int max = cg.readEntry("Maximum history", 15);
         combo->setMaxCount(max);
         int mode = cg.readEntry("CompletionMode", int(KCompletion::CompletionPopup));
@@ -663,10 +663,10 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
 
     // check to see if we use konsole if not disable the nocloseonexit
     // because we don't know how to do this on other terminal applications
-    KConfigGroup confGroup(KSharedConfig::openConfig(), QString::fromLatin1("General"));
-    QString preferredTerminal = confGroup.readPathEntry("TerminalApplication", QString::fromLatin1("konsole"));
+    KConfigGroup confGroup(KSharedConfig::openConfig(), QLatin1String("General"));
+    QString preferredTerminal = confGroup.readPathEntry("TerminalApplication", QStringLiteral("konsole"));
 
-    if (bReadOnly || preferredTerminal != "konsole") {
+    if (bReadOnly || preferredTerminal != QLatin1String("konsole")) {
         nocloseonexit->hide();
     }
 
@@ -769,18 +769,18 @@ void KOpenWithDialog::setSaveNewApplications(bool b)
 static QString simplifiedExecLineFromService(const QString &fullExec)
 {
     QString exec = fullExec;
-    exec.remove("%u", Qt::CaseInsensitive);
-    exec.remove("%f", Qt::CaseInsensitive);
-    exec.remove("-caption %c");
-    exec.remove("-caption \"%c\"");
-    exec.remove("%i");
-    exec.remove("%m");
+    exec.remove(QStringLiteral("%u"), Qt::CaseInsensitive);
+    exec.remove(QStringLiteral("%f"), Qt::CaseInsensitive);
+    exec.remove(QStringLiteral("-caption %c"));
+    exec.remove(QStringLiteral("-caption \"%c\""));
+    exec.remove(QStringLiteral("%i"));
+    exec.remove(QStringLiteral("%m"));
     return exec.simplified();
 }
 
 void KOpenWithDialogPrivate::addToMimeAppsList(const QString &serviceId /*menu id or storage id*/)
 {
-    KSharedConfig::Ptr profile = KSharedConfig::openConfig("mimeapps.list", KConfig::NoGlobals, QStandardPaths::GenericConfigLocation);
+    KSharedConfig::Ptr profile = KSharedConfig::openConfig(QStringLiteral("mimeapps.list"), KConfig::NoGlobals, QStandardPaths::GenericConfigLocation);
 
     // Save the default application according to mime-apps-spec 1.0
     KConfigGroup defaultApp(profile, "Default Applications");
@@ -795,8 +795,8 @@ void KOpenWithDialogPrivate::addToMimeAppsList(const QString &serviceId /*menu i
     profile->sync();
 
     // Also make sure the "auto embed" setting for this mimetype is off
-    KSharedConfig::Ptr fileTypesConfig = KSharedConfig::openConfig("filetypesrc", KConfig::NoGlobals);
-    fileTypesConfig->group("EmbedSettings").writeEntry(QString("embed-") + qMimeType, false);
+    KSharedConfig::Ptr fileTypesConfig = KSharedConfig::openConfig(QStringLiteral("filetypesrc"), KConfig::NoGlobals);
+    fileTypesConfig->group("EmbedSettings").writeEntry(QStringLiteral("embed-") + qMimeType, false);
     fileTypesConfig->sync();
 
     // qDebug() << "rebuilding ksycoca...";
@@ -884,14 +884,14 @@ bool KOpenWithDialogPrivate::checkAccept()
     }
 
     if (terminal->isChecked()) {
-        KConfigGroup confGroup(KSharedConfig::openConfig(), QString::fromLatin1("General"));
-        preferredTerminal = confGroup.readPathEntry("TerminalApplication", QString::fromLatin1("konsole"));
+        KConfigGroup confGroup(KSharedConfig::openConfig(), QLatin1String("General"));
+        preferredTerminal = confGroup.readPathEntry("TerminalApplication", QStringLiteral("konsole"));
         m_command = preferredTerminal;
         // only add --noclose when we are sure it is konsole we're using
-        if (preferredTerminal == "konsole" && nocloseonexit->isChecked()) {
-            m_command += QString::fromLatin1(" --noclose");
+        if (preferredTerminal == QLatin1String("konsole") && nocloseonexit->isChecked()) {
+            m_command += QLatin1String(" --noclose");
         }
-        m_command += QString::fromLatin1(" -e ");
+        m_command += QLatin1String(" -e ");
         m_command += edit->text();
         // qDebug() << "Setting m_command to" << m_command;
     }
@@ -922,7 +922,7 @@ bool KOpenWithDialogPrivate::checkAccept()
                     }
                     if (index > -1) {
                         fullExec += QLatin1Char(' ');
-                        fullExec += serviceExec.mid(index, 2);
+                        fullExec += serviceExec.midRef(index, 2);
                     }
                 }
                 // qDebug() << "Creating service with Exec=" << fullExec;
@@ -932,8 +932,8 @@ bool KOpenWithDialogPrivate::checkAccept()
             if (terminal->isChecked()) {
                 m_pService->setTerminal(true);
                 // only add --noclose when we are sure it is konsole we're using
-                if (preferredTerminal == "konsole" && nocloseonexit->isChecked()) {
-                    m_pService->setTerminalOptions("--noclose");
+                if (preferredTerminal == QLatin1String("konsole") && nocloseonexit->isChecked()) {
+                    m_pService->setTerminalOptions(QStringLiteral("--noclose"));
                 }
             }
         } else {
@@ -956,7 +956,7 @@ bool KOpenWithDialogPrivate::checkAccept()
             if (terminal->isChecked()) {
                 cg.writeEntry("Terminal", true);
                 // only add --noclose when we are sure it is konsole we're using
-                if (preferredTerminal == "konsole" && nocloseonexit->isChecked()) {
+                if (preferredTerminal == QLatin1String("konsole") && nocloseonexit->isChecked()) {
                     cg.writeEntry("TerminalOptions", "--noclose");
                 }
             }
@@ -1017,7 +1017,7 @@ void KOpenWithDialogPrivate::saveComboboxHistory()
     if (combo) {
         combo->addToHistory(edit->text());
 
-        KConfigGroup cg(KSharedConfig::openConfig(), QString::fromLatin1("Open-with settings"));
+        KConfigGroup cg(KSharedConfig::openConfig(), QLatin1String("Open-with settings"));
         cg.writeEntry("History", combo->historyItems());
         writeEntry(cg, "CompletionMode", combo->completionMode());
         // don't store the completion-list, as it contains all of KUrlCompletion's

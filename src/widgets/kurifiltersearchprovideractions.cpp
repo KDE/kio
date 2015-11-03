@@ -103,7 +103,7 @@ void KUriFilterSearchProviderActions::addWebShortcutsToMenu(QMenu *menu)
                 actionGroup->addAction(action);
             }
 
-            if (!QStandardPaths::findExecutable("kcmshell5").isEmpty()) {
+            if (!QStandardPaths::findExecutable(QStringLiteral("kcmshell5")).isEmpty()) {
                 webShortcutsMenu->addSeparator();
                 QAction *action = new QAction(i18n("Configure Web Shortcuts..."), webShortcutsMenu);
                 action->setIcon(QIcon::fromTheme(QStringLiteral("configure")));

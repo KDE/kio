@@ -59,7 +59,7 @@ KNFSShare::KNFSSharePrivate::KNFSSharePrivate(KNFSShare *parent)
  **/
 bool KNFSShare::KNFSSharePrivate::findExportsFile()
 {
-    KConfig knfsshare("knfsshare");
+    KConfig knfsshare(QStringLiteral("knfsshare"));
     KConfigGroup config(&knfsshare, "General");
     exportsFile = config.readPathEntry("exportsFile", QString());
 
@@ -67,8 +67,8 @@ bool KNFSShare::KNFSSharePrivate::findExportsFile()
         return true;
     }
 
-    if (QFile::exists("/etc/exports")) {
-        exportsFile = "/etc/exports";
+    if (QFile::exists(QStringLiteral("/etc/exports"))) {
+        exportsFile = QStringLiteral("/etc/exports");
     } else {
         //qDebug() << "Could not find exports file! /etc/exports doesn't exist. Configure it in share/config/knfsshare, [General], exportsFile=....";
         return false;

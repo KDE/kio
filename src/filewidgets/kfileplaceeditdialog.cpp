@@ -121,7 +121,7 @@ KFilePlaceEditDialog::KFilePlaceEditDialog(bool allowGlobal, const QUrl &url,
                          "Click on the button to select a different icon.</qt>");
     m_iconButton = new KIconButton(this);
     layout->addRow(i18n("Choose an &icon:"), m_iconButton);
-    m_iconButton->setObjectName(QLatin1String("icon button"));
+    m_iconButton->setObjectName(QStringLiteral("icon button"));
     m_iconButton->setIconSize(iconSize);
     m_iconButton->setIconType(KIconLoader::NoGroup, KIconLoader::Place);
     if (icon.isEmpty()) {

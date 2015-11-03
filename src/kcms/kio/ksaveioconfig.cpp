@@ -55,7 +55,7 @@ KSaveIOConfigPrivate::~KSaveIOConfigPrivate ()
 static KConfig* config()
 {
   if (!d->config)
-     d->config = new KConfig("kioslaverc", KConfig::NoGlobals);
+     d->config = new KConfig(QStringLiteral("kioslaverc"), KConfig::NoGlobals);
 
   return d->config;
 }
@@ -63,7 +63,7 @@ static KConfig* config()
 static KConfig* http_config()
 {
   if (!d->http_config)
-     d->http_config = new KConfig("kio_httprc", KConfig::NoGlobals);
+     d->http_config = new KConfig(QStringLiteral("kio_httprc"), KConfig::NoGlobals);
 
   return d->http_config;
 }
@@ -214,7 +214,7 @@ void KSaveIOConfig::updateRunningIOSlaves (QWidget *parent)
 {
   // Inform all running io-slaves about the changes...
   // if we cannot update, ioslaves inform the end user...
-  QDBusMessage message = QDBusMessage::createSignal("/KIO/Scheduler", "org.kde.KIO.Scheduler", "reparseSlaveConfiguration");
+  QDBusMessage message = QDBusMessage::createSignal(QStringLiteral("/KIO/Scheduler"), QStringLiteral("org.kde.KIO.Scheduler"), QStringLiteral("reparseSlaveConfiguration"));
   message << QString();
   if (!QDBusConnection::sessionBus().send(message))
   {
@@ -229,8 +229,8 @@ void KSaveIOConfig::updateProxyScout(QWidget * parent)
 {
   // Inform the proxyscout kded module about changes if we cannot update,
   // ioslaves inform the end user...
-  QDBusInterface kded("org.kde.kded5", "/modules/proxyscout", "org.kde.KPAC.ProxyScout");
-  QDBusReply<void> reply = kded.call("reset");
+  QDBusInterface kded(QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/proxyscout"), QStringLiteral("org.kde.KPAC.ProxyScout"));
+  QDBusReply<void> reply = kded.call(QStringLiteral("reset"));
   if (!reply.isValid())
   {
     KMessageBox::information (parent,

@@ -34,7 +34,7 @@ private Q_SLOTS:
 void KUrlRequesterTest::testGetSet()
 {
     KUrlRequester req;
-    req.setUrl(QUrl("file:///etc"));
+    req.setUrl(QUrl(QStringLiteral("file:///etc")));
     QCOMPARE(req.url().toString(), QString("file:///etc"));
 }
 

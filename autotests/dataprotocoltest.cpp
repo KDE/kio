@@ -172,10 +172,10 @@ void DataProtocolTest::runAllTests_data()
     QTest::addColumn<QByteArray>("url");
 
     const QByteArray textplain = "text/plain";
-    const QString usascii = QLatin1String("charset=us-ascii");
-    const QString csutf8 = QLatin1String("charset=utf-8");
-    const QString cslatin1 = QLatin1String("charset=iso-8859-1");
-    const QString csiso7 = QLatin1String("charset=iso-8859-7");
+    const QString usascii = QStringLiteral("charset=us-ascii");
+    const QString csutf8 = QStringLiteral("charset=utf-8");
+    const QString cslatin1 = QStringLiteral("charset=iso-8859-1");
+    const QString csiso7 = QStringLiteral("charset=iso-8859-7");
 
     QTest::newRow("escape resolving") <<
                                       textplain <<
@@ -193,24 +193,24 @@ void DataProtocolTest::runAllTests_data()
 
     QTest::newRow("whitespace test I") <<
                                        QByteArray("text/css") <<
-                                       QString(QLatin1String("charset=iso-8859-15")) <<
+                                       QStringLiteral("charset=iso-8859-15") <<
                                        QByteArray(" body { color: yellow; background:darkblue; font-weight:bold }") <<
                                        QByteArray("data:text/css  ;  charset =  iso-8859-15 , body { color: yellow; "
                                                "background:darkblue; font-weight:bold }");
 
     QTest::newRow("out of spec argument order, base64 decoding, whitespace test II") <<
             textplain <<
-            QString(QLatin1String("charset=iso-8859-1")) <<
+            QStringLiteral("charset=iso-8859-1") <<
             QByteArray("paaaaaaaasd!!\n") <<
             QByteArray("data: ;  base64 ; charset =  \"iso-8859-1\" ,cGFhYWFhYWFhc2QhIQo=");
 
     QTest::newRow("arbitrary keys, reserved names as keys, whitespace test III") <<
             textplain <<
-            QString(QLatin1String("base64=nospace\n"
+            QStringLiteral("base64=nospace\n"
                                   "key=onespaceinner\n"
                                   "key2=onespaceouter\n"
                                   "charset=utf8\n"
-                                  "<<empty>>=")) <<
+                                  "<<empty>>=") <<
             QByteArray("Die, Allied Schweinehund (C) 1990 Wolfenstein 3D") <<
             QByteArray("data: ;base64=nospace;key = onespaceinner; key2=onespaceouter ;"
                        " charset = utf8 ; <<empty>>= ,Die, Allied Schweinehund "
@@ -218,8 +218,8 @@ void DataProtocolTest::runAllTests_data()
 
     QTest::newRow("string literal with escaped chars, testing delimiters within string") <<
             textplain <<
-            QString(QLatin1String("fortune-cookie=Master Leep say: \"Rabbit is humble, Rabbit is gentle; follow the Rabbit\"\n"
-                                  "charset=us-ascii")) <<
+            QStringLiteral("fortune-cookie=Master Leep say: \"Rabbit is humble, Rabbit is gentle; follow the Rabbit\"\n"
+                                  "charset=us-ascii") <<
             QByteArray("(C) 1997 Shadow Warrior ;-)") <<
             QByteArray("data:;fortune-cookie=\"Master Leep say: \\\"Rabbit is humble, "
                        "Rabbit is gentle; follow the Rabbit\\\"\",(C) 1997 Shadow Warrior "
@@ -227,7 +227,7 @@ void DataProtocolTest::runAllTests_data()
 
     QTest::newRow("escaped charset") <<
                                      textplain <<
-                                     QString(QLatin1String("charset=iso-8859-7")) <<
+                                     QStringLiteral("charset=iso-8859-7") <<
                                      QByteArray("test") <<
                                      QByteArray("data:text/plain;charset=%22%5cis%5co%5c-%5c8%5c8%5c5%5c9%5c-%5c7%22,test");
 
@@ -316,8 +316,8 @@ void DataProtocolTest::runAllTests_data()
 
     QTest::newRow("greenbytes-ext-simple") <<
                                            QByteArray("image/svg+xml") <<
-                                           QString(QLatin1String("foo=bar\n"
-                                                   "charset=us-ascii")) <<
+                                           QStringLiteral("foo=bar\n"
+                                                   "charset=us-ascii") <<
                                            QByteArray("<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\">\n"
                                                    "  <circle cx=\"100\" cy=\"100\" r=\"25\" stroke=\"black\" stroke-width=\"1\" fill=\"green\"/>\n"
                                                    "</svg>\n") <<
@@ -327,8 +327,8 @@ void DataProtocolTest::runAllTests_data()
 
     QTest::newRow("greenbytes-ext-simple-qs") <<
             QByteArray("image/svg+xml") <<
-            QString(QLatin1String("foo=bar,bar\n"
-                                  "charset=us-ascii")) <<
+            QStringLiteral("foo=bar,bar\n"
+                                  "charset=us-ascii") <<
             QByteArray("<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\">\n"
                        "  <circle cx=\"100\" cy=\"100\" r=\"25\" stroke=\"black\" stroke-width=\"1\" fill=\"green\"/>\n"
                        "</svg>\n") <<

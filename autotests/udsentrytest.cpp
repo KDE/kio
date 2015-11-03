@@ -58,9 +58,9 @@ void UDSEntryTest::testSaveLoad()
     // Data for 1st UDSEntry.
     testCase
             << UDSTestField(KIO::UDSEntry::UDS_SIZE, 1)
-            << UDSTestField(KIO::UDSEntry::UDS_USER, "user1")
-            << UDSTestField(KIO::UDSEntry::UDS_GROUP, "group1")
-            << UDSTestField(KIO::UDSEntry::UDS_NAME, QLatin1String("filename1"))
+            << UDSTestField(KIO::UDSEntry::UDS_USER, QStringLiteral("user1"))
+            << UDSTestField(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group1"))
+            << UDSTestField(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename1"))
             << UDSTestField(KIO::UDSEntry::UDS_MODIFICATION_TIME, 123456)
             << UDSTestField(KIO::UDSEntry::UDS_CREATION_TIME, 12345)
             << UDSTestField(KIO::UDSEntry::UDS_DEVICE_ID, 2)
@@ -71,9 +71,9 @@ void UDSEntryTest::testSaveLoad()
     testCase.clear();
     testCase
             << UDSTestField(KIO::UDSEntry::UDS_SIZE, 2)
-            << UDSTestField(KIO::UDSEntry::UDS_USER, "user2")
-            << UDSTestField(KIO::UDSEntry::UDS_GROUP, "group1")
-            << UDSTestField(KIO::UDSEntry::UDS_NAME, QLatin1String("filename2"))
+            << UDSTestField(KIO::UDSEntry::UDS_USER, QStringLiteral("user2"))
+            << UDSTestField(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group1"))
+            << UDSTestField(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename2"))
             << UDSTestField(KIO::UDSEntry::UDS_MODIFICATION_TIME, 12345)
             << UDSTestField(KIO::UDSEntry::UDS_CREATION_TIME, 1234)
             << UDSTestField(KIO::UDSEntry::UDS_DEVICE_ID, 87)
@@ -84,9 +84,9 @@ void UDSEntryTest::testSaveLoad()
     testCase.clear();
     testCase
             << UDSTestField(KIO::UDSEntry::UDS_SIZE, 2)
-            << UDSTestField(KIO::UDSEntry::UDS_GROUP, "group1")
-            << UDSTestField(KIO::UDSEntry::UDS_USER, "user2")
-            << UDSTestField(KIO::UDSEntry::UDS_NAME, QLatin1String("filename2"))
+            << UDSTestField(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group1"))
+            << UDSTestField(KIO::UDSEntry::UDS_USER, QStringLiteral("user2"))
+            << UDSTestField(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename2"))
             << UDSTestField(KIO::UDSEntry::UDS_MODIFICATION_TIME, 12345)
             << UDSTestField(KIO::UDSEntry::UDS_DEVICE_ID, 87)
             << UDSTestField(KIO::UDSEntry::UDS_INODE, 42)
@@ -97,38 +97,38 @@ void UDSEntryTest::testSaveLoad()
     testCase.clear();
     testCase
             << UDSTestField(KIO::UDSEntry::UDS_SIZE, 2)
-            << UDSTestField(KIO::UDSEntry::UDS_USER, "user4")
-            << UDSTestField(KIO::UDSEntry::UDS_GROUP, "group4")
+            << UDSTestField(KIO::UDSEntry::UDS_USER, QStringLiteral("user4"))
+            << UDSTestField(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group4"))
             << UDSTestField(KIO::UDSEntry::UDS_MODIFICATION_TIME, 12346)
             << UDSTestField(KIO::UDSEntry::UDS_DEVICE_ID, 87)
             << UDSTestField(KIO::UDSEntry::UDS_INODE, 42)
             << UDSTestField(KIO::UDSEntry::UDS_CREATION_TIME, 1235)
-            << UDSTestField(KIO::UDSEntry::UDS_NAME, QLatin1String("filename4"));
+            << UDSTestField(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename4"));
     testCases << testCase;
 
     // 5th entry: remove one field.
     testCase.clear();
     testCase
             << UDSTestField(KIO::UDSEntry::UDS_SIZE, 2)
-            << UDSTestField(KIO::UDSEntry::UDS_USER, "user4")
-            << UDSTestField(KIO::UDSEntry::UDS_GROUP, "group4")
+            << UDSTestField(KIO::UDSEntry::UDS_USER, QStringLiteral("user4"))
+            << UDSTestField(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group4"))
             << UDSTestField(KIO::UDSEntry::UDS_MODIFICATION_TIME, 12346)
             << UDSTestField(KIO::UDSEntry::UDS_INODE, 42)
             << UDSTestField(KIO::UDSEntry::UDS_CREATION_TIME, 1235)
-            << UDSTestField(KIO::UDSEntry::UDS_NAME, QLatin1String("filename4"));
+            << UDSTestField(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename4"));
     testCases << testCase;
 
     // 6th entry: add a new field, and change some others.
     testCase.clear();
     testCase
             << UDSTestField(KIO::UDSEntry::UDS_SIZE, 89)
-            << UDSTestField(KIO::UDSEntry::UDS_ICON_NAME, "icon6")
-            << UDSTestField(KIO::UDSEntry::UDS_USER, "user6")
-            << UDSTestField(KIO::UDSEntry::UDS_GROUP, "group4")
+            << UDSTestField(KIO::UDSEntry::UDS_ICON_NAME, QStringLiteral("icon6"))
+            << UDSTestField(KIO::UDSEntry::UDS_USER, QStringLiteral("user6"))
+            << UDSTestField(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group4"))
             << UDSTestField(KIO::UDSEntry::UDS_MODIFICATION_TIME, 12346)
             << UDSTestField(KIO::UDSEntry::UDS_INODE, 32)
             << UDSTestField(KIO::UDSEntry::UDS_CREATION_TIME, 1235)
-            << UDSTestField(KIO::UDSEntry::UDS_NAME, QLatin1String("filename6"));
+            << UDSTestField(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename6"));
     testCases << testCase;
 
     // Store the entries in a QByteArray.

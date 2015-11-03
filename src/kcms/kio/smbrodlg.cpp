@@ -96,7 +96,7 @@ SMBRoOptions::~SMBRoOptions()
 
 void SMBRoOptions::load()
 {
-   KConfig *cfg = new KConfig("kioslaverc");
+   KConfig *cfg = new KConfig(QStringLiteral("kioslaverc"));
 
    QString tmp;
    KConfigGroup group = cfg->group("Browser Settings/SMBro" );
@@ -110,7 +110,7 @@ void SMBRoOptions::load()
 
    // unscramble
    QString scrambled = group.readEntry( "Password" );
-   QString password = "";
+   QString password = QLatin1String("");
    for (int i=0; i<scrambled.length()/3; i++)
    {
       QChar qc1 = scrambled[i*3];
@@ -129,7 +129,7 @@ void SMBRoOptions::load()
 
 void SMBRoOptions::save()
 {
-   KConfig *cfg = new KConfig("kioslaverc");
+   KConfig *cfg = new KConfig(QStringLiteral("kioslaverc"));
 
    KConfigGroup group = cfg->group("Browser Settings/SMBro" );
    group.writeEntry( "User", m_userLe->text());
@@ -160,8 +160,8 @@ void SMBRoOptions::save()
 
 void SMBRoOptions::defaults()
 {
-   m_userLe->setText("");
-   m_passwordLe->setText("");
+   m_userLe->setText(QLatin1String(""));
+   m_passwordLe->setText(QLatin1String(""));
 //   m_workgroupLe->setText("");
 //   m_showHiddenShares->setChecked(false);
 }

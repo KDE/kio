@@ -510,7 +510,7 @@ void FileUndoManagerTest::testMkpath()
 
 void FileUndoManagerTest::testTrashFiles()
 {
-    if (!KProtocolInfo::isKnownProtocol("trash")) {
+    if (!KProtocolInfo::isKnownProtocol(QStringLiteral("trash"))) {
         QSKIP("kio_trash not installed");
     }
 
@@ -519,7 +519,7 @@ void FileUndoManagerTest::testTrashFiles()
     lst.append(QUrl::fromLocalFile(srcSubDir()));
     KIO::Job *job = KIO::trash(lst, KIO::HideProgressInfo);
     job->setUiDelegate(0);
-    FileUndoManager::self()->recordJob(FileUndoManager::Trash, lst, QUrl("trash:/"), job);
+    FileUndoManager::self()->recordJob(FileUndoManager::Trash, lst, QUrl(QStringLiteral("trash:/")), job);
 
     bool ok = job->exec();
     QVERIFY(ok);
@@ -533,7 +533,7 @@ void FileUndoManagerTest::testTrashFiles()
 
     // check trash?
     // Let's just check that it's not empty. kio_trash has its own unit tests anyway.
-    KConfig cfg("trashrc", KConfig::SimpleConfig);
+    KConfig cfg(QStringLiteral("trashrc"), KConfig::SimpleConfig);
     QVERIFY(cfg.hasGroup("Status"));
     QCOMPARE(cfg.group("Status").readEntry("Empty", true), false);
 
@@ -550,7 +550,7 @@ void FileUndoManagerTest::testTrashFiles()
 
 void FileUndoManagerTest::testRestoreTrashedFiles()
 {
-    if (!KProtocolInfo::isKnownProtocol("trash")) {
+    if (!KProtocolInfo::isKnownProtocol(QStringLiteral("trash"))) {
         QSKIP("kio_trash not installed");
     }
 

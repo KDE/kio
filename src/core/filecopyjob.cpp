@@ -218,7 +218,7 @@ void FileCopyJobPrivate::startCopyJob(const QUrl &slave_url)
     KIO_ARGS << m_src << m_dest << m_permissions << (qint8)(m_flags & Overwrite);
     m_copyJob = new DirectCopyJob(slave_url, packedArgs);
     if (m_modificationTime.isValid()) {
-        m_copyJob->addMetaData("modified", m_modificationTime.toString(Qt::ISODate));     // #55804
+        m_copyJob->addMetaData(QStringLiteral("modified"), m_modificationTime.toString(Qt::ISODate));     // #55804
     }
     q->addSubjob(m_copyJob);
     connectSubjob(m_copyJob);
@@ -233,7 +233,7 @@ void FileCopyJobPrivate::startRenameJob(const QUrl &slave_url)
     KIO_ARGS << m_src << m_dest << (qint8)(m_flags & Overwrite);
     m_moveJob = SimpleJobPrivate::newJobNoUi(slave_url, CMD_RENAME, packedArgs);
     if (m_modificationTime.isValid()) {
-        m_moveJob->addMetaData("modified", m_modificationTime.toString(Qt::ISODate));     // #55804
+        m_moveJob->addMetaData(QStringLiteral("modified"), m_modificationTime.toString(Qt::ISODate));     // #55804
     }
     q->addSubjob(m_moveJob);
     connectSubjob(m_moveJob);
@@ -387,15 +387,15 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
         if (job == m_putJob) {
             m_getJob = KIO::get(m_src, NoReload, HideProgressInfo /* no GUI */);
             //qDebug() << "m_getJob=" << m_getJob << m_src;
-            m_getJob->addMetaData("errorPage", "false");
-            m_getJob->addMetaData("AllowCompressedPage", "false");
+            m_getJob->addMetaData(QStringLiteral("errorPage"), QStringLiteral("false"));
+            m_getJob->addMetaData(QStringLiteral("AllowCompressedPage"), QStringLiteral("false"));
             // Set size in subjob. This helps if the slave doesn't emit totalSize.
             if (m_sourceSize != (KIO::filesize_t) - 1) {
                 m_getJob->setTotalAmount(KJob::Bytes, m_sourceSize);
             }
             if (offset) {
                 //qDebug() << "Setting metadata for resume to" << (unsigned long) offset;
-                m_getJob->addMetaData("range-start", KIO::number(offset));
+                m_getJob->addMetaData(QStringLiteral("range-start"), KIO::number(offset));
 
                 // Might or might not get emitted
                 q->connect(m_getJob, SIGNAL(canResume(KIO::Job*,KIO::filesize_t)),
@@ -453,7 +453,7 @@ void FileCopyJobPrivate::slotDataReq(KIO::Job *, QByteArray &data)
     if (!m_resumeAnswerSent && !m_getJob) {
         // This can't happen
         q->setError(ERR_INTERNAL);
-        q->setErrorText("'Put' job did not send canResume or 'Get' job did not send data!");
+        q->setErrorText(QStringLiteral("'Put' job did not send canResume or 'Get' job did not send data!"));
         m_putJob->kill(FileCopyJob::Quietly);
         q->removeSubjob(m_putJob);
         m_putJob = 0;

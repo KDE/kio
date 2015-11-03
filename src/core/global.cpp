@@ -165,7 +165,7 @@ KIOCORE_EXPORT QString KIO::convertSeconds(unsigned int seconds)
     seconds            = (seconds - (days * 86400) - (hours * 3600) - (mins * 60));
 
     const QTime time(hours, mins, seconds);
-    const QString timeStr(time.toString("hh:mm:ss"));
+    const QString timeStr(time.toString(QStringLiteral("hh:mm:ss")));
     if (days > 0) {
         return i18np("1 day %2", "%1 days %2", days, timeStr);
     } else {
@@ -249,19 +249,19 @@ KIO::CacheControl KIO::parseCacheControl(const QString &cacheControl)
 {
     QString tmp = cacheControl.toLower();
 
-    if (tmp == "cacheonly") {
+    if (tmp == QLatin1String("cacheonly")) {
         return KIO::CC_CacheOnly;
     }
-    if (tmp == "cache") {
+    if (tmp == QLatin1String("cache")) {
         return KIO::CC_Cache;
     }
-    if (tmp == "verify") {
+    if (tmp == QLatin1String("verify")) {
         return KIO::CC_Verify;
     }
-    if (tmp == "refresh") {
+    if (tmp == QLatin1String("refresh")) {
         return KIO::CC_Refresh;
     }
-    if (tmp == "reload") {
+    if (tmp == QLatin1String("reload")) {
         return KIO::CC_Reload;
     }
 
@@ -272,19 +272,19 @@ KIO::CacheControl KIO::parseCacheControl(const QString &cacheControl)
 QString KIO::getCacheControlString(KIO::CacheControl cacheControl)
 {
     if (cacheControl == KIO::CC_CacheOnly) {
-        return "CacheOnly";
+        return QStringLiteral("CacheOnly");
     }
     if (cacheControl == KIO::CC_Cache) {
-        return "Cache";
+        return QStringLiteral("Cache");
     }
     if (cacheControl == KIO::CC_Verify) {
-        return "Verify";
+        return QStringLiteral("Verify");
     }
     if (cacheControl == KIO::CC_Refresh) {
-        return "Refresh";
+        return QStringLiteral("Refresh");
     }
     if (cacheControl == KIO::CC_Reload) {
-        return "Reload";
+        return QStringLiteral("Reload");
     }
     qCDebug(KIO_CORE) << "unrecognized Cache control enum value:" << cacheControl;
     return QString();
@@ -315,7 +315,7 @@ QString KIO::favIconForUrl(const QUrl &url)
      */
     static QHash<QUrl, QString> iconNameCache;
     static int autoClearCache = 0;
-    const QString notFound = QLatin1String("NOTFOUND");
+    const QString notFound = QStringLiteral("NOTFOUND");
 
     if (url.isLocalFile()
             || !url.scheme().startsWith(QLatin1String("http"))
@@ -333,10 +333,10 @@ QString KIO::favIconForUrl(const QUrl &url)
         }
     }
 
-    QDBusInterface kded(QString::fromLatin1("org.kde.kded5"),
-                        QString::fromLatin1("/modules/favicons"),
-                        QString::fromLatin1("org.kde.FavIcon"));
-    QDBusReply<QString> result = kded.call(QString::fromLatin1("iconForUrl"), url.toString());
+    QDBusInterface kded(QLatin1String("org.kde.kded5"),
+                        QLatin1String("/modules/favicons"),
+                        QLatin1String("org.kde.FavIcon"));
+    QDBusReply<QString> result = kded.call(QStringLiteral("iconForUrl"), url.toString());
     iconNameCache.insert(url, result.value());
     return result;              // default is QString()
 }
@@ -394,7 +394,7 @@ QString KIO::suggestName(const QUrl &baseURL, const QString &oldName)
     QString nameSuffix = db.suffixForFileName(oldName);
 
     if (oldName.lastIndexOf('.') == 0) {
-        basename = ".";
+        basename = QStringLiteral(".");
         nameSuffix = oldName;
     } else if (nameSuffix.isEmpty()) {
         const int lastDot = oldName.lastIndexOf('.');
@@ -410,15 +410,15 @@ QString KIO::suggestName(const QUrl &baseURL, const QString &oldName)
     }
 
     // check if (number) exists from the end of the oldName and increment that number
-    QRegExp numSearch("\\(\\d+\\)");
+    QRegExp numSearch(QStringLiteral("\\(\\d+\\)"));
     int start = numSearch.lastIndexIn(oldName);
     if (start != -1) {
         QString numAsStr = numSearch.cap(0);
-        QString number = QString::number(numAsStr.mid(1, numAsStr.size() - 2).toInt() + 1);
+        QString number = QString::number(numAsStr.midRef(1, numAsStr.size() - 2).toInt() + 1);
         basename = basename.left(start) + '(' + number + ')';
     } else {
         // number does not exist, so just append " (1)" to filename
-        basename += " (1)";
+        basename += QLatin1String(" (1)");
     }
     const QString suggestedName = basename + nameSuffix;
 

@@ -395,7 +395,7 @@ public:
     Scoreboard()
     {
         // read in the scoreboard...
-        QFile sboard(filePath(QLatin1String("scoreboard")));
+        QFile sboard(filePath(QStringLiteral("scoreboard")));
         sboard.open(QIODevice::ReadOnly);
         while (true) {
             QByteArray baIndex = sboard.read(ScoreboardEntry::indexSize);
@@ -415,7 +415,7 @@ public:
     void writeOut()
     {
         // write out the scoreboard
-        QFile sboard(filePath(QLatin1String("scoreboard")));
+        QFile sboard(filePath(QStringLiteral("scoreboard")));
         if (!sboard.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
             return;
         }
@@ -596,7 +596,7 @@ static void removeOldFiles()
         // delete the (now hopefully empty!) directory itself
         cacheRootDir.rmdir(dirName);
     }
-    QFile::remove(filePath(QLatin1String("cleaned")));
+    QFile::remove(filePath(QStringLiteral("cleaned")));
 }
 
 class CacheCleaner
@@ -705,7 +705,7 @@ private:
 int main(int argc, char **argv)
 {
     QCoreApplication app(argc, argv);
-    app.setApplicationVersion("5.0");
+    app.setApplicationVersion(QStringLiteral("5.0"));
 
     KLocalizedString::setApplicationDomain("kio5");
 
@@ -713,21 +713,21 @@ int main(int argc, char **argv)
     parser.addVersionOption();
     parser.setApplicationDescription(QCoreApplication::translate("main", "KDE HTTP cache maintenance tool"));
     parser.addHelpOption();
-    parser.addOption(QCommandLineOption(QStringList() << "clear-all", QCoreApplication::translate("main", "Empty the cache")));
-    parser.addOption(QCommandLineOption(QStringList() << "file-info", QCoreApplication::translate("main", "Display information about cache file"), "filename"));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("clear-all"), QCoreApplication::translate("main", "Empty the cache")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("file-info"), QCoreApplication::translate("main", "Display information about cache file"), QStringLiteral("filename")));
     parser.process(app);
 
     OperationMode mode = CleanCache;
-    if (parser.isSet("clear-all")) {
+    if (parser.isSet(QStringLiteral("clear-all"))) {
         mode = DeleteCache;
-    } else if (parser.isSet("file-info")) {
+    } else if (parser.isSet(QStringLiteral("file-info"))) {
         mode = FileInfo;
     }
 
     // file info mode: no scanning of directories, just output info and exit.
     if (mode == FileInfo) {
         CacheFileInfo fi;
-        if (!readCacheFile(parser.value("file-info"), &fi, mode)) {
+        if (!readCacheFile(parser.value(QStringLiteral("file-info")), &fi, mode)) {
             return 1;
         }
         fi.prettyPrint();

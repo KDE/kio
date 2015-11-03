@@ -334,7 +334,7 @@ void ConnectedSlaveQueue::startRunnableJobs()
         // no port is -1 in QUrl, but in kde3 we used 0 and the kioslaves assume that.
         const int port = url.port() == -1 ? 0 : url.port();
 
-        if (slave->host() == "<reset>") {
+        if (slave->host() == QLatin1String("<reset>")) {
             MetaData configData = SlaveConfig::self()->configData(url.scheme(), url.host());
             slave->setConfig(configData);
             slave->setProtocol(url.scheme());
@@ -714,7 +714,7 @@ public:
             int maxSlavesPerHost = -1;
             if (!host.isEmpty()) {
                 bool ok = false;
-                const int value = SlaveConfig::self()->configData(protocol, host, QLatin1String("MaxConnections")).toInt(&ok);
+                const int value = SlaveConfig::self()->configData(protocol, host, QStringLiteral("MaxConnections")).toInt(&ok);
                 if (ok) {
                     maxSlavesPerHost = value;
                 }
@@ -769,17 +769,17 @@ Slave *heldSlaveForJob(SimpleJob *job)
 
 Scheduler::Scheduler()
 {
-    setObjectName("scheduler");
+    setObjectName(QStringLiteral("scheduler"));
 
-    const QString dbusPath = "/KIO/Scheduler";
-    const QString dbusInterface = "org.kde.KIO.Scheduler";
+    const QString dbusPath = QStringLiteral("/KIO/Scheduler");
+    const QString dbusInterface = QStringLiteral("org.kde.KIO.Scheduler");
     QDBusConnection dbus = QDBusConnection::sessionBus();
     // Not needed, right? We just want to emit two signals.
     //dbus.registerObject("/KIO/Scheduler", this, QDBusConnection::ExportScriptableSlots |
     //                    QDBusConnection::ExportScriptableSignals);
-    dbus.connect(QString(), dbusPath, dbusInterface, "reparseSlaveConfiguration",
+    dbus.connect(QString(), dbusPath, dbusInterface, QStringLiteral("reparseSlaveConfiguration"),
                  this, SLOT(slotReparseSlaveConfiguration(QString,QDBusMessage)));
-    dbus.connect(QString(), dbusPath, dbusInterface, "slaveOnHoldListChanged",
+    dbus.connect(QString(), dbusPath, dbusInterface, QStringLiteral("slaveOnHoldListChanged"),
                  this, SLOT(slotSlaveOnHoldListChanged()));
 }
 
@@ -1048,28 +1048,28 @@ MetaData SchedulerPrivate::metaDataFor(const QString &protocol, const QStringLis
     MetaData configData = SlaveConfig::self()->configData(protocol, host);
     sessionData.configDataFor(configData, protocol, host);
     if (proxyList.isEmpty()) {
-        configData.remove(QLatin1String("UseProxy"));
-        configData.remove(QLatin1String("ProxyUrls"));
+        configData.remove(QStringLiteral("UseProxy"));
+        configData.remove(QStringLiteral("ProxyUrls"));
     } else {
-        configData[QLatin1String("UseProxy")] = proxyList.first();
-        configData[QLatin1String("ProxyUrls")] = proxyList.join(QLatin1String(","));
+        configData[QStringLiteral("UseProxy")] = proxyList.first();
+        configData[QStringLiteral("ProxyUrls")] = proxyList.join(QStringLiteral(","));
     }
 
-    if (configData.contains("EnableAutoLogin") &&
-            configData.value("EnableAutoLogin").compare("true", Qt::CaseInsensitive) == 0) {
+    if (configData.contains(QStringLiteral("EnableAutoLogin")) &&
+            configData.value(QStringLiteral("EnableAutoLogin")).compare(QLatin1String("true"), Qt::CaseInsensitive) == 0) {
         NetRC::AutoLogin l;
         l.login = url.userName();
-        bool usern = (protocol == "ftp");
+        bool usern = (protocol == QLatin1String("ftp"));
         if (NetRC::self()->lookup(url, l, usern)) {
-            configData["autoLoginUser"] = l.login;
-            configData["autoLoginPass"] = l.password;
+            configData[QStringLiteral("autoLoginUser")] = l.login;
+            configData[QStringLiteral("autoLoginPass")] = l.password;
             if (usern) {
                 QString macdef;
                 QMap<QString, QStringList>::ConstIterator it = l.macdef.constBegin();
                 for (; it != l.macdef.constEnd(); ++it) {
-                    macdef += it.key() + '\\' + it.value().join("\\") + '\n';
+                    macdef += it.key() + '\\' + it.value().join(QStringLiteral("\\")) + '\n';
                 }
-                configData["autoLoginMacro"] = macdef;
+                configData[QStringLiteral("autoLoginMacro")] = macdef;
             }
         }
     }
@@ -1182,10 +1182,10 @@ Slave *SchedulerPrivate::heldSlaveForJob(SimpleJob *job)
             canJobReuse = (canJobReuse || cmd == CMD_SPECIAL);
             if (canJobReuse) {
                 KIO::MetaData outgoing = tJob->outgoingMetaData();
-                const QString resume = outgoing.value("resume");
-                const QString rangeStart = outgoing.value("range-start");
+                const QString resume = outgoing.value(QStringLiteral("resume"));
+                const QString rangeStart = outgoing.value(QStringLiteral("range-start"));
                 //qDebug() << "Resume metadata is" << resume;
-                canJobReuse = (resume.isEmpty() || resume == "0") && (rangeStart.isEmpty() || rangeStart == "0");
+                canJobReuse = (resume.isEmpty() || resume == QLatin1String("0")) && (rangeStart.isEmpty() || rangeStart == QLatin1String("0"));
             }
         }
 

@@ -79,7 +79,7 @@ Server::Server(quint16 _port)
       port(_port)
 {
     listener = new QTcpServer();
-    listener->listen(QHostAddress("127.0.0.1"), testPort);
+    listener->listen(QHostAddress(QStringLiteral("127.0.0.1")), testPort);
 }
 
 void Server::cleanupSocket()
@@ -109,7 +109,7 @@ void KTcpSocketTest::connectDisconnect()
     QCOMPARE(s->openMode(), QIODevice::NotOpen);
     QCOMPARE(s->error(), KTcpSocket::UnknownError);
 
-    s->connectToHost("127.0.0.1", testPort);
+    s->connectToHost(QStringLiteral("127.0.0.1"), testPort);
     QCOMPARE(s->state(), KTcpSocket::ConnectingState);
     QVERIFY(s->openMode() & QIODevice::ReadWrite);
     const bool connected = s->waitForConnected(150);
@@ -138,7 +138,7 @@ void KTcpSocketTest::read()
     invokeOnServer("read");
 
     KTcpSocket *s = new KTcpSocket(this);
-    s->connectToHost("127.0.0.1", testPort);
+    s->connectToHost(QStringLiteral("127.0.0.1"), testPort);
     s->waitForConnected(40);
     s->waitForReadyRead(40);
     QCOMPARE((int)s->bytesAvailable(), TESTDATA.size());
@@ -161,7 +161,7 @@ void KTcpSocketTest::write()
     invokeOnServer("write");
 
     KTcpSocket *s = new KTcpSocket(this);
-    s->connectToHost("127.0.0.1", testPort);
+    s->connectToHost(QStringLiteral("127.0.0.1"), testPort);
     s->waitForConnected(40);
     s->write(TESTDATA);
     QCOMPARE((int)s->bytesToWrite(), TESTDATA.size());
@@ -198,21 +198,21 @@ static QString stateToString(KTcpSocket::State state)
 {
     switch (state) {
     case KTcpSocket::UnconnectedState:
-        return "UnconnectedState";
+        return QStringLiteral("UnconnectedState");
     case KTcpSocket::HostLookupState:
-        return "HostLookupState";
+        return QStringLiteral("HostLookupState");
     case KTcpSocket::ConnectingState:
-        return "ConnectingState";
+        return QStringLiteral("ConnectingState");
     case KTcpSocket::ConnectedState:
-        return "ConnectedState";
+        return QStringLiteral("ConnectedState");
     case KTcpSocket::BoundState:
-        return "BoundState";
+        return QStringLiteral("BoundState");
     case KTcpSocket::ListeningState:
-        return "ListeningState";
+        return QStringLiteral("ListeningState");
     case KTcpSocket::ClosingState:
-        return "ClosingState";
+        return QStringLiteral("ClosingState");
     }
-    return "ERROR";
+    return QStringLiteral("ERROR");
 }
 
 #define HTTPREQUEST QByteArray("GET / HTTP/1.1\nHost: www.example.com\n\n")
@@ -227,7 +227,7 @@ void KTcpSocketTest::statesIana()
     KTcpSocket *s = new KTcpSocket(this);
     connect(s, SIGNAL(hostFound()), this, SLOT(states_hostFound()));
     QCOMPARE(s->state(), KTcpSocket::UnconnectedState);
-    s->connectToHost("www.iana.org", 80);
+    s->connectToHost(QStringLiteral("www.iana.org"), 80);
     QCOMPARE(s->state(), KTcpSocket::HostLookupState);
     s->write(HTTPREQUEST);
     QCOMPARE(s->state(), KTcpSocket::HostLookupState);
@@ -270,7 +270,7 @@ void KTcpSocketTest::statesLocalHost()
 
     KTcpSocket *s = new KTcpSocket(this);
     connect(s, SIGNAL(hostFound()), this, SLOT(states_hostFound()));
-    s->connectToHost("127.0.0.1", testPort);
+    s->connectToHost(QStringLiteral("127.0.0.1"), testPort);
     QCOMPARE(s->state(), KTcpSocket::ConnectingState);
     s->waitForConnected(40);
     QCOMPARE(s->state(), KTcpSocket::ConnectedState);

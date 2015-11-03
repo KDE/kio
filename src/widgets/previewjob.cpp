@@ -180,9 +180,9 @@ PreviewJob::PreviewJob(const KFileItemList &items,
     } else {
         const KConfigGroup globalConfig(KSharedConfig::openConfig(), "PreviewSettings");
         d->enabledPlugins = globalConfig.readEntry("Plugins", QStringList()
-                            << "directorythumbnail"
-                            << "imagethumbnail"
-                            << "jpegthumbnail");
+                            << QStringLiteral("directorythumbnail")
+                            << QStringLiteral("imagethumbnail")
+                            << QStringLiteral("jpegthumbnail"));
     }
 
     // Return to event loop first, determineNextFile() might delete this;
@@ -258,12 +258,12 @@ void PreviewJobPrivate::startPreview()
 {
     Q_Q(PreviewJob);
     // Load the list of plugins to determine which mimetypes are supported
-    const KService::List plugins = KServiceTypeTrader::self()->query("ThumbCreator");
+    const KService::List plugins = KServiceTypeTrader::self()->query(QStringLiteral("ThumbCreator"));
     QMap<QString, KService::Ptr> mimeMap;
     QHash<QString, QHash<QString, KService::Ptr> > protocolMap;
     for (KService::List::ConstIterator it = plugins.constBegin(); it != plugins.constEnd(); ++it) {
-        QStringList protocols = (*it)->property("X-KDE-Protocols").toStringList();
-        const QString p = (*it)->property("X-KDE-Protocol").toString();
+        QStringList protocols = (*it)->property(QStringLiteral("X-KDE-Protocols")).toStringList();
+        const QString p = (*it)->property(QStringLiteral("X-KDE-Protocol")).toString();
         if (!p.isEmpty()) {
             protocols.append(p);
         }
@@ -311,7 +311,7 @@ void PreviewJobPrivate::startPreview()
             QMap<QString, KService::Ptr>::ConstIterator pluginIt = mimeMap.constFind(mimeType);
             if (pluginIt == mimeMap.constEnd()) {
                 QString groupMimeType = mimeType;
-                groupMimeType.replace(QRegExp("/.*"), "/*");
+                groupMimeType.replace(QRegExp(QStringLiteral("/.*")), QStringLiteral("/*"));
                 pluginIt = mimeMap.constFind(groupMimeType);
 
                 if (pluginIt == mimeMap.constEnd()) {
@@ -338,7 +338,7 @@ void PreviewJobPrivate::startPreview()
         if (plugin) {
             item.plugin = plugin;
             items.append(item);
-            if (!bNeedCache && bSave && plugin->property("CacheThumbnail").toBool()) {
+            if (!bNeedCache && bSave && plugin->property(QStringLiteral("CacheThumbnail")).toBool()) {
                 const QUrl url = (*kit).url();
                 if (!url.isLocalFile() ||
                         !url.adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot)) {
@@ -426,7 +426,7 @@ void PreviewJobPrivate::determineNextFile()
         succeeded = false;
         items.removeFirst();
         KIO::Job *job = KIO::stat(currentItem.item.url(), KIO::HideProgressInfo);
-        job->addMetaData("no-auth-prompt", "true");
+        job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
         q->addSubjob(job);
     }
 }
@@ -453,7 +453,7 @@ void PreviewJob::slotResult(KJob *job)
 
         if (itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) {
             skipCurrentItem = !d->ignoreMaximumSize && size > d->maximumLocalSize
-                              && !d->currentItem.plugin->property("IgnoreMaximumSize").toBool();
+                              && !d->currentItem.plugin->property(QStringLiteral("IgnoreMaximumSize")).toBool();
         } else {
             // For remote items the "IgnoreMaximumSize" plugin property is not respected
             skipCurrentItem = !d->ignoreMaximumSize && size > d->maximumRemoteSize;
@@ -472,8 +472,8 @@ void PreviewJob::slotResult(KJob *job)
             return;
         }
 
-        bool pluginHandlesSequences = d->currentItem.plugin->property("HandleSequences", QVariant::Bool).toBool();
-        if (!d->currentItem.plugin->property("CacheThumbnail").toBool()  || (d->sequenceIndex && pluginHandlesSequences)) {
+        bool pluginHandlesSequences = d->currentItem.plugin->property(QStringLiteral("HandleSequences"), QVariant::Bool).toBool();
+        if (!d->currentItem.plugin->property(QStringLiteral("CacheThumbnail")).toBool()  || (d->sequenceIndex && pluginHandlesSequences)) {
             // This preview will not be cached, no need to look for a saved thumbnail
             // Just create it, and be done
             d->getOrCreateThumbnail();
@@ -532,17 +532,17 @@ bool PreviewJobPrivate::statResultThumbnail()
         return false;
     }
 
-    QString thumbnailerVersion = currentItem.plugin->property("ThumbnailerVersion", QVariant::String).toString();
+    QString thumbnailerVersion = currentItem.plugin->property(QStringLiteral("ThumbnailerVersion"), QVariant::String).toString();
 
-    if (!thumbnailerVersion.isEmpty() && thumb.text(QStringLiteral("Software")).startsWith("KDE Thumbnail Generator")) {
+    if (!thumbnailerVersion.isEmpty() && thumb.text(QStringLiteral("Software")).startsWith(QStringLiteral("KDE Thumbnail Generator"))) {
         //Check if the version matches
         //The software string should read "KDE Thumbnail Generator pluginName (vX)"
-        QString softwareString = thumb.text(QStringLiteral("Software")).remove("KDE Thumbnail Generator").trimmed();
+        QString softwareString = thumb.text(QStringLiteral("Software")).remove(QStringLiteral("KDE Thumbnail Generator")).trimmed();
         if (softwareString.isEmpty()) {
             // The thumbnail has been created with an older version, recreating
             return false;
         }
-        int versionIndex = softwareString.lastIndexOf("(v");
+        int versionIndex = softwareString.lastIndexOf(QLatin1String("(v"));
         if (versionIndex < 0) {
             return false;
         }
@@ -578,7 +578,7 @@ void PreviewJobPrivate::getOrCreateThumbnail()
         if (m_remoteProtocolPlugins.value(fileUrl.scheme()).contains(item.mimetype())) {
             // There's a plugin supporting this protocol and mimetype
             supportsProtocol = true;
-        } else if (m_remoteProtocolPlugins.value("KIO").contains(item.mimetype())) {
+        } else if (m_remoteProtocolPlugins.value(QStringLiteral("KIO")).contains(item.mimetype())) {
             // Assume KIO understands any URL, ThumbCreator slaves who have
             // X-KDE-Protocols=KIO will get fed the remote URL directly.
             supportsProtocol = true;
@@ -597,7 +597,7 @@ void PreviewJobPrivate::getOrCreateThumbnail()
         tempName = localFile.fileName();
         const QUrl currentURL = item.mostLocalUrl();
         KIO::Job *job = KIO::file_copy(currentURL, QUrl::fromLocalFile(tempName), -1, KIO::Overwrite | KIO::HideProgressInfo /* No GUI */);
-        job->addMetaData("thumbnail", "1");
+        job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
         q->addSubjob(job);
     }
 }
@@ -607,20 +607,20 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
     Q_Q(PreviewJob);
     state = PreviewJobPrivate::STATE_CREATETHUMB;
     QUrl thumbURL;
-    thumbURL.setScheme("thumbnail");
+    thumbURL.setScheme(QStringLiteral("thumbnail"));
     thumbURL.setPath(pixPath);
     KIO::TransferJob *job = KIO::get(thumbURL, NoReload, HideProgressInfo);
     q->addSubjob(job);
     q->connect(job, SIGNAL(data(KIO::Job*,QByteArray)), SLOT(slotThumbData(KIO::Job*,QByteArray)));
-    bool save = bSave && currentItem.plugin->property("CacheThumbnail").toBool() && !sequenceIndex;
-    job->addMetaData("mimeType", currentItem.item.mimetype());
-    job->addMetaData("width", QString().setNum(save ? cacheWidth : width));
-    job->addMetaData("height", QString().setNum(save ? cacheHeight : height));
-    job->addMetaData("iconSize", QString().setNum(save ? 64 : iconSize));
-    job->addMetaData("iconAlpha", QString().setNum(iconAlpha));
-    job->addMetaData("plugin", currentItem.plugin->library());
+    bool save = bSave && currentItem.plugin->property(QStringLiteral("CacheThumbnail")).toBool() && !sequenceIndex;
+    job->addMetaData(QStringLiteral("mimeType"), currentItem.item.mimetype());
+    job->addMetaData(QStringLiteral("width"), QString().setNum(save ? cacheWidth : width));
+    job->addMetaData(QStringLiteral("height"), QString().setNum(save ? cacheHeight : height));
+    job->addMetaData(QStringLiteral("iconSize"), QString().setNum(save ? 64 : iconSize));
+    job->addMetaData(QStringLiteral("iconAlpha"), QString().setNum(iconAlpha));
+    job->addMetaData(QStringLiteral("plugin"), currentItem.plugin->library());
     if (sequenceIndex) {
-        job->addMetaData("sequence-index", QString().setNum(sequenceIndex));
+        job->addMetaData(QStringLiteral("sequence-index"), QString().setNum(sequenceIndex));
     }
 
 #ifdef Q_OS_UNIX
@@ -642,7 +642,7 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
         }
     }
     if (shmid != -1) {
-        job->addMetaData("shmid", QString().setNum(shmid));
+        job->addMetaData(QStringLiteral("shmid"), QString().setNum(shmid));
     }
 #endif
 }
@@ -650,7 +650,7 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 void PreviewJobPrivate::slotThumbData(KIO::Job *, const QByteArray &data)
 {
     bool save = bSave &&
-                currentItem.plugin->property("CacheThumbnail").toBool() &&
+                currentItem.plugin->property(QStringLiteral("CacheThumbnail")).toBool() &&
                 (!currentItem.item.url().isLocalFile() ||
                  !currentItem.item.url().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot))
                 && !sequenceIndex;
@@ -674,16 +674,16 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *, const QByteArray &data)
     }
 
     if (save) {
-        thumb.setText("Thumb::URI", origName);
-        thumb.setText("Thumb::MTime", QString::number(tOrig.toTime_t()));
-        thumb.setText("Thumb::Size", number(currentItem.item.size()));
-        thumb.setText("Thumb::Mimetype", currentItem.item.mimetype());
-        QString thumbnailerVersion = currentItem.plugin->property("ThumbnailerVersion", QVariant::String).toString();
+        thumb.setText(QStringLiteral("Thumb::URI"), origName);
+        thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(tOrig.toTime_t()));
+        thumb.setText(QStringLiteral("Thumb::Size"), number(currentItem.item.size()));
+        thumb.setText(QStringLiteral("Thumb::Mimetype"), currentItem.item.mimetype());
+        QString thumbnailerVersion = currentItem.plugin->property(QStringLiteral("ThumbnailerVersion"), QVariant::String).toString();
         QString signature = QString("KDE Thumbnail Generator " + currentItem.plugin->name());
         if (!thumbnailerVersion.isEmpty()) {
             signature.append(" (v" + thumbnailerVersion + ')');
         }
-        thumb.setText("Software", signature);
+        thumb.setText(QStringLiteral("Software"), signature);
         QSaveFile saveFile(thumbPath + thumbName);
         if (saveFile.open(QIODevice::WriteOnly)) {
             if (thumb.save(&saveFile, "PNG")) {
@@ -710,7 +710,7 @@ void PreviewJobPrivate::emitPreview(const QImage &thumb)
 QStringList PreviewJob::availablePlugins()
 {
     QStringList result;
-    const KService::List plugins = KServiceTypeTrader::self()->query("ThumbCreator");
+    const KService::List plugins = KServiceTypeTrader::self()->query(QStringLiteral("ThumbCreator"));
     for (KService::List::ConstIterator it = plugins.begin(); it != plugins.end(); ++it)
         if (!result.contains((*it)->desktopEntryName())) {
             result.append((*it)->desktopEntryName());
@@ -721,7 +721,7 @@ QStringList PreviewJob::availablePlugins()
 QStringList PreviewJob::supportedMimeTypes()
 {
     QStringList result;
-    const KService::List plugins = KServiceTypeTrader::self()->query("ThumbCreator");
+    const KService::List plugins = KServiceTypeTrader::self()->query(QStringLiteral("ThumbCreator"));
     for (KService::List::ConstIterator it = plugins.begin(); it != plugins.end(); ++it) {
         result += (*it)->mimeTypes();
     }

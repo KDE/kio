@@ -51,9 +51,9 @@ void KRunUnitTest::initTestCase()
 
     // Determine the full path of sh - this is needed to make testProcessDesktopExecNoFile()
     // pass on systems where QStandardPaths::findExecutable("sh") is not "/bin/sh".
-    m_sh = QStandardPaths::findExecutable("sh");
+    m_sh = QStandardPaths::findExecutable(QStringLiteral("sh"));
     if (m_sh.isEmpty()) {
-        m_sh = "/bin/sh";
+        m_sh = QStringLiteral("/bin/sh");
     }
 }
 
@@ -93,7 +93,7 @@ void KRunUnitTest::testBinaryName()
 static void checkDesktopExecParser(const char *exec, const char *term, const char *sus,
                                    const QList<QUrl> &urls, bool tf, const QString &b)
 {
-    QFile out("kruntest.desktop");
+    QFile out(QStringLiteral("kruntest.desktop"));
     if (!out.open(QIODevice::WriteOnly)) {
         abort();
     }
@@ -119,7 +119,7 @@ static void checkDesktopExecParser(const char *exec, const char *term, const cha
     parser.setUrlsAreTempFiles(tf);
     QCOMPARE(KShell::joinArgs(parser.resultingArguments()), b);
 
-    QFile::remove("kruntest.desktop");
+    QFile::remove(QStringLiteral("kruntest.desktop"));
 }
 
 void KRunUnitTest::testProcessDesktopExec()
@@ -141,11 +141,11 @@ void KRunUnitTest::testProcessDesktopExec()
 
     // Find out the full path of the shell which will be used to execute shell commands
     KProcess process;
-    process.setShellCommand("");
+    process.setShellCommand(QLatin1String(""));
     const QString shellPath = process.program().at(0);
 
     // Arch moved /bin/date to /usr/bin/date...
-    const QString datePath = QStandardPaths::findExecutable("date");
+    const QString datePath = QStandardPaths::findExecutable(QStringLiteral("date"));
 
     for (int su = 0; su < 2; su++)
         for (int te = 0; te < 2; te++)
@@ -160,8 +160,8 @@ void KRunUnitTest::testProcessDesktopExec()
                     }
                 }
                 const QString result = QString::fromLatin1(results[pt])
-                                       .replace("/bin/sh", shellPath)
-                                       .replace("/bin/date", datePath);
+                                       .replace(QLatin1String("/bin/sh"), shellPath)
+                                       .replace(QLatin1String("/bin/date"), datePath);
                 checkDesktopExecParser(execs[ex], terms[te], sus[su], l0, false, exe + result);
             }
 }
@@ -174,24 +174,24 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
     QTest::addColumn<QString>("expected");
 
     QList<QUrl> l0;
-    QList<QUrl> l1; l1 << QUrl("file:/tmp");
-    QList<QUrl> l2; l2 << QUrl("http://localhost/foo");
-    QList<QUrl> l3; l3 << QUrl("file:/local/some file") << QUrl("http://remotehost.org/bar");
-    QList<QUrl> l4; l4 << QUrl("http://login:password@www.kde.org");
+    QList<QUrl> l1; l1 << QUrl(QStringLiteral("file:/tmp"));
+    QList<QUrl> l2; l2 << QUrl(QStringLiteral("http://localhost/foo"));
+    QList<QUrl> l3; l3 << QUrl(QStringLiteral("file:/local/some file")) << QUrl(QStringLiteral("http://remotehost.org/bar"));
+    QList<QUrl> l4; l4 << QUrl(QStringLiteral("http://login:password@www.kde.org"));
 
     // A real-world use case would be kate.
     // But I picked kdeinit5 since it's installed by kdelibs
-    QString kdeinit = QStandardPaths::findExecutable("kdeinit5");
+    QString kdeinit = QStandardPaths::findExecutable(QStringLiteral("kdeinit5"));
     if (kdeinit.isEmpty()) {
-        kdeinit = "kdeinit5";
+        kdeinit = QStringLiteral("kdeinit5");
     }
 
     QString kioexec = CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kioexec";
     QVERIFY(QFile::exists(kioexec));
 
-    QString kmailservice = QStandardPaths::findExecutable("kmailservice5");
+    QString kmailservice = QStandardPaths::findExecutable(QStringLiteral("kmailservice5"));
     if (!QFile::exists(kmailservice)) {
-        kmailservice = "kmailservice5";
+        kmailservice = QStringLiteral("kmailservice5");
     }
 
     QTest::newRow("%U l0") << "kdeinit5 %U" << l0 << false << kdeinit;
@@ -222,7 +222,7 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
 void KRunUnitTest::testProcessDesktopExecNoFile()
 {
     QFETCH(QString, execLine);
-    KService service("dummy", execLine, "app");
+    KService service(QStringLiteral("dummy"), execLine, QStringLiteral("app"));
     QFETCH(QList<QUrl>, urls);
     QFETCH(bool, tempfiles);
     QFETCH(QString, expected);
@@ -307,7 +307,7 @@ void KRunUnitTest::testMimeTypeBrokenLink()
 
 void KRunUnitTest::testMimeTypeDoesNotExist()
 {
-    KRunImpl *krun = new KRunImpl(QUrl::fromLocalFile("/does/not/exist"));
+    KRunImpl *krun = new KRunImpl(QUrl::fromLocalFile(QStringLiteral("/does/not/exist")));
     QSignalSpy spyError(krun, SIGNAL(error()));
     QSignalSpy spyFinished(krun, SIGNAL(finished()));
     QVERIFY(spyFinished.wait(1000));

@@ -133,7 +133,7 @@ void DirectorySizeJobPrivate::startNextJob(const QUrl &url)
     Q_Q(DirectorySizeJob);
     //qDebug() << url;
     KIO::ListJob *listJob = KIO::listRecursive(url, KIO::HideProgressInfo);
-    listJob->addMetaData("details", "3");
+    listJob->addMetaData(QStringLiteral("details"), QStringLiteral("3"));
     q->connect(listJob, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
                SLOT(slotEntries(KIO::Job*,KIO::UDSEntryList)));
     q->addSubjob(listJob);
@@ -158,10 +158,10 @@ void DirectorySizeJobPrivate::slotEntries(KIO::Job *, const KIO::UDSEntryList &l
         }
         const KIO::filesize_t size = entry.numberValue(KIO::UDSEntry::UDS_SIZE, 0);
         const QString name = entry.stringValue(KIO::UDSEntry::UDS_NAME);
-        if (name == ".") {
+        if (name == QLatin1String(".")) {
             m_totalSize += size;
             //qDebug() << "'.': added" << size << "->" << m_totalSize;
-        } else if (name != "..") {
+        } else if (name != QLatin1String("..")) {
             if (!entry.isLink()) {
                 m_totalSize += size;
             }

@@ -1178,7 +1178,7 @@ void CopyJobPrivate::createNextDir()
         KIO::SimpleJob *newjob = KIO::mkdir(udir, -1);
         Scheduler::setJobPriority(newjob, 1);
         if (shouldOverwriteFile(udir.path())) { // if we are overwriting an existing file or symlink
-            newjob->addMetaData("overwrite", "true");
+            newjob->addMetaData(QStringLiteral("overwrite"), QStringLiteral("true"));
         }
 
         m_currentDestURL = udir;
@@ -1480,18 +1480,18 @@ KIO::Job *CopyJobPrivate::linkNextFile(const QUrl &uSource, const QUrl &uDest, J
                 url.setPassword(QString());
                 config.writePathEntry("URL", url.toString());
                 config.writeEntry("Name", url.toString());
-                config.writeEntry("Type", QString::fromLatin1("Link"));
+                config.writeEntry("Type", QStringLiteral("Link"));
                 QString protocol = uSource.scheme();
                 if (protocol == QLatin1String("ftp")) {
-                    config.writeEntry("Icon", QString::fromLatin1("folder-remote"));
+                    config.writeEntry("Icon", QStringLiteral("folder-remote"));
                 } else if (protocol == QLatin1String("http")) {
-                    config.writeEntry("Icon", QString::fromLatin1("text-html"));
+                    config.writeEntry("Icon", QStringLiteral("text-html"));
                 } else if (protocol == QLatin1String("info")) {
-                    config.writeEntry("Icon", QString::fromLatin1("text-x-texinfo"));
+                    config.writeEntry("Icon", QStringLiteral("text-x-texinfo"));
                 } else if (protocol == QLatin1String("mailto")) { // sven:
-                    config.writeEntry("Icon", QString::fromLatin1("internet-mail"));    // added mailto: support
+                    config.writeEntry("Icon", QStringLiteral("internet-mail"));    // added mailto: support
                 } else {
-                    config.writeEntry("Icon", QString::fromLatin1("unknown"));
+                    config.writeEntry("Icon", QStringLiteral("unknown"));
                 }
                 config.sync();
                 files.erase(files.begin());   // done with this one, move on
@@ -1558,7 +1558,7 @@ void CopyJobPrivate::copyNextFile()
 
         // If source isn't local and target is local, we ignore the original permissions
         // Otherwise, files downloaded from HTTP end up with -r--r--r--
-        const bool remoteSource = !KProtocolManager::supportsListing(uSource) || uSource.scheme() == "trash";
+        const bool remoteSource = !KProtocolManager::supportsListing(uSource) || uSource.scheme() == QLatin1String("trash");
         int permissions = (*it).permissions;
         if (m_defaultPermissions || (remoteSource && uDest.isLocalFile())) {
             permissions = -1;
@@ -2186,12 +2186,12 @@ CopyJob *KIO::trash(const QUrl &src, JobFlags flags)
 {
     QList<QUrl> srcList;
     srcList.append(src);
-    return CopyJobPrivate::newJob(srcList, QUrl("trash:/"), CopyJob::Move, false, flags);
+    return CopyJobPrivate::newJob(srcList, QUrl(QStringLiteral("trash:/")), CopyJob::Move, false, flags);
 }
 
 CopyJob *KIO::trash(const QList<QUrl> &srcList, JobFlags flags)
 {
-    return CopyJobPrivate::newJob(srcList, QUrl("trash:/"), CopyJob::Move, false, flags);
+    return CopyJobPrivate::newJob(srcList, QUrl(QStringLiteral("trash:/")), CopyJob::Move, false, flags);
 }
 
 #include "moc_copyjob.cpp"

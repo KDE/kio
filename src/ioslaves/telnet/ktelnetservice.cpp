@@ -41,36 +41,36 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    KConfig config("kdeglobals");
+    KConfig config(QStringLiteral("kdeglobals"));
     KConfigGroup cg(&config, "General");
-    QString terminal = cg.readPathEntry("TerminalApplication", "konsole");
+    QString terminal = cg.readPathEntry("TerminalApplication", QStringLiteral("konsole"));
 
     QUrl url(argv[1]);
     QStringList cmd;
-    if (terminal == "konsole") {
-        cmd << "--noclose";
+    if (terminal == QLatin1String("konsole")) {
+        cmd << QStringLiteral("--noclose");
     }
 
-    cmd << "-e";
-    if (url.scheme() == "telnet") {
-        cmd << "telnet";
-    } else if (url.scheme() == "ssh") {
-        cmd << "ssh";
-    } else if (url.scheme() == "rlogin") {
-        cmd << "rlogin";
+    cmd << QStringLiteral("-e");
+    if (url.scheme() == QLatin1String("telnet")) {
+        cmd << QStringLiteral("telnet");
+    } else if (url.scheme() == QLatin1String("ssh")) {
+        cmd << QStringLiteral("ssh");
+    } else if (url.scheme() == QLatin1String("rlogin")) {
+        cmd << QStringLiteral("rlogin");
     } else {
         qCritical() << "Invalid protocol " << url.scheme() << endl;
         return 2;
     }
 
-    if (!KAuthorized::authorize("shell_access")) {
+    if (!KAuthorized::authorize(QStringLiteral("shell_access"))) {
         QMessageBox::critical(0, i18n("Access denied"),
                            i18n("You do not have permission to access the %1 protocol.", url.scheme()));
         return 3;
     }
 
     if (!url.userName().isEmpty()) {
-        cmd << "-l";
+        cmd << QStringLiteral("-l");
         cmd << url.userName();
     }
 
@@ -90,7 +90,7 @@ int main(int argc, char **argv)
 
     if (url.port() > 0) {
         if (url.scheme() == QLatin1String("ssh")) {
-            cmd << "-p" << QString::number(url.port());
+            cmd << QStringLiteral("-p") << QString::number(url.port());
         } else {
             cmd << QString::number(url.port());
         }

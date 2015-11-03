@@ -302,7 +302,7 @@ KCookieJar::KCookieJar()
     m_configChanged = false;
     m_cookiesChanged = false;
 
-    KConfig cfg("kf5/kcookiejar/domain_info", KConfig::NoGlobals, QStandardPaths::GenericDataLocation);
+    KConfig cfg(QStringLiteral("kf5/kcookiejar/domain_info"), KConfig::NoGlobals, QStandardPaths::GenericDataLocation);
     KConfigGroup group(&cfg, QString());
     m_gTLDs = QSet<QString>::fromList(group.readEntry("gTLDs", QStringList()));
     m_twoLevelTLD = QSet<QString>::fromList(group.readEntry("twoLevelTLD", QStringList()));
@@ -506,7 +506,7 @@ static const char *parseNameValue(const char *header,
     for (; (*s == ' ') || (*s == '\t'); s++) {
         if ((*s == '\0') || (*s == ';') || (*s == '\n')) {
             // End of Name
-            Value = "";
+            Value = QLatin1String("");
             return s;
         }
     }
@@ -778,7 +778,7 @@ KHttpCookieList KCookieJar::makeCookies(const QString &_url,
                     dom = dom.left(dom.length() - 1);
                 }
 
-                if (dom.count(QL1C('.')) > 1 || dom == ".local") {
+                if (dom.count(QL1C('.')) > 1 || dom == QLatin1String(".local")) {
                     lastCookie.mDomain = dom;
                 }
             } else if (Name.compare(QL1S("max-age"), Qt::CaseInsensitive) == 0) {
@@ -1485,7 +1485,7 @@ bool KCookieJar::loadCookies(const QString &_filename)
                 httpOnly = i & 2;
                 explicitPath = i & 4;
                 if (i & 8) {
-                    name = "";
+                    name = QLatin1String("");
                 }
                 line[strlen(line) - 1] = '\0'; // Strip LF.
                 value = line;

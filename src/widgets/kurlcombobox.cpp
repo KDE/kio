@@ -34,7 +34,7 @@ class KUrlComboBoxPrivate
 public:
     KUrlComboBoxPrivate(KUrlComboBox *parent)
         : m_parent(parent),
-          dirIcon(QLatin1String("folder"))
+          dirIcon(QStringLiteral("folder"))
     {}
 
     ~KUrlComboBoxPrivate()
@@ -125,7 +125,7 @@ void KUrlComboBoxPrivate::init(KUrlComboBox::Mode mode)
         m_parent->completionObject()->setOrder(KCompletion::Sorted);
     }
 
-    opendirIcon = QIcon::fromTheme(QLatin1String("folder-open"));
+    opendirIcon = QIcon::fromTheme(QStringLiteral("folder-open"));
 
     m_parent->connect(m_parent, SIGNAL(activated(int)), SLOT(_k_slotActivated(int)));
 }

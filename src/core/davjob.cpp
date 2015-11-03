@@ -115,10 +115,10 @@ void DavJob::slotFinished()
         }
     } else if (! d->m_response.setContent(d->str_response, true)) {
         // An error occurred parsing the XML response
-        QDomElement root = d->m_response.createElementNS("DAV:", "error-report");
+        QDomElement root = d->m_response.createElementNS(QStringLiteral("DAV:"), QStringLiteral("error-report"));
         d->m_response.appendChild(root);
 
-        QDomElement el = d->m_response.createElementNS("DAV:", "offending-response");
+        QDomElement el = d->m_response.createElementNS(QStringLiteral("DAV:"), QStringLiteral("offending-response"));
         QDomText textnode = d->m_response.createTextNode(d->str_response);
         el.appendChild(textnode);
         root.appendChild(el);
@@ -133,7 +133,7 @@ void DavJob::slotFinished()
 DavJob *KIO::davPropFind(const QUrl &url, const QDomDocument &properties, const QString &depth, JobFlags flags)
 {
     DavJob *job = DavJobPrivate::newJob(url, (int) KIO::DAV_PROPFIND, properties.toString(), flags);
-    job->addMetaData("davDepth", depth);
+    job->addMetaData(QStringLiteral("davDepth"), depth);
     return job;
 }
 
@@ -146,7 +146,7 @@ DavJob *KIO::davPropPatch(const QUrl &url, const QDomDocument &properties, JobFl
 DavJob *KIO::davSearch(const QUrl &url, const QString &nsURI, const QString &qName, const QString &query, JobFlags flags)
 {
     QDomDocument doc;
-    QDomElement searchrequest = doc.createElementNS("DAV:", "searchrequest");
+    QDomElement searchrequest = doc.createElementNS(QStringLiteral("DAV:"), QStringLiteral("searchrequest"));
     QDomElement searchelement = doc.createElementNS(nsURI, qName);
     QDomText text = doc.createTextNode(query);
     searchelement.appendChild(text);
@@ -158,7 +158,7 @@ DavJob *KIO::davSearch(const QUrl &url, const QString &nsURI, const QString &qNa
 DavJob *KIO::davReport(const QUrl &url, const QString &report, const QString &depth, JobFlags flags)
 {
     DavJob *job = DavJobPrivate::newJob(url, (int) KIO::DAV_REPORT, report, flags);
-    job->addMetaData("davDepth", depth);
+    job->addMetaData(QStringLiteral("davDepth"), depth);
     return job;
 }
 

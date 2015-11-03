@@ -65,15 +65,15 @@ private Q_SLOTS:
         QFETCH(QString, expectedFilename);
 
         QWidget parentWidget;
-        KActionCollection coll(this, "foo");
-        KNewFileMenu menu(&coll, "the_action", this);
+        KActionCollection coll(this, QStringLiteral("foo"));
+        KNewFileMenu menu(&coll, QStringLiteral("the_action"), this);
         menu.setModal(false);
         menu.setParentWidget(&parentWidget);
         QList<QUrl> lst;
         lst << QUrl::fromLocalFile(m_tmpDir.path());;
         menu.setPopupFiles(lst);
         menu.checkUpToDate();
-        QAction *action = coll.action("the_action");
+        QAction *action = coll.action(QStringLiteral("the_action"));
         QVERIFY(action);
         QAction *textAct = 0;
         Q_FOREACH (QAction *act, action->menu()->actions()) {
@@ -93,7 +93,7 @@ private Q_SLOTS:
         KNameAndUrlInputDialog *nauiDialog = qobject_cast<KNameAndUrlInputDialog *>(dialog);
         if (nauiDialog) {
             nauiDialog->setSuggestedName(typedFilename);
-            nauiDialog->setSuggestedUrl(QUrl("file:///etc"));
+            nauiDialog->setSuggestedUrl(QUrl(QStringLiteral("file:///etc")));
         } else {
             QLineEdit *lineEdit = dialog->findChild<QLineEdit *>();
             QVERIFY(lineEdit);
@@ -103,7 +103,7 @@ private Q_SLOTS:
         QUrl emittedUrl;
         QSignalSpy spy(&menu, SIGNAL(fileCreated(QUrl)));
         QSignalSpy folderSpy(&menu, SIGNAL(directoryCreated(QUrl)));
-        if (actionText == "Folder...") {
+        if (actionText == QLatin1String("Folder...")) {
             QVERIFY(folderSpy.wait(1000));
             emittedUrl = folderSpy.at(0).at(0).value<QUrl>();
         } else {

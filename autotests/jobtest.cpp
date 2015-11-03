@@ -55,7 +55,7 @@ static QString otherTmpDir()
     return QDir::tempPath() + "/jobtest/";
 #else
     // This one needs to be on another partition
-    return "/tmp/jobtest/";
+    return QStringLiteral("/tmp/jobtest/");
 #endif
 }
 
@@ -484,7 +484,7 @@ void JobTest::copyRelativeSymlinkToSamePartition() // #352927
     const QString filePath = homeTmpDir() + "testlink";
     const QString dest = homeTmpDir() + "testlink_copied";
     createTestSymlink(filePath, "relative");
-    copyLocalSymlink(filePath, dest, "relative");
+    copyLocalSymlink(filePath, dest, QStringLiteral("relative"));
     QFile::remove(filePath);
 #endif
 }
@@ -673,7 +673,7 @@ void JobTest::moveFileNoPermissions()
 #ifdef Q_OS_WIN
     qDebug() << "port to win32";
 #else
-    const QString src = "/etc/passwd";
+    const QString src = QStringLiteral("/etc/passwd");
     const QString dest = homeTmpDir() + "passwd";
     QVERIFY(QFile::exists(src));
     QVERIFY(QFileInfo(src).isFile());
@@ -703,9 +703,9 @@ void JobTest::moveDirectoryNoPermissions()
 #else
 
     // All of /etc is a bit much, so try to find something smaller:
-    QString src = "/etc/fonts";
+    QString src = QStringLiteral("/etc/fonts");
     if (!QFile::exists(src)) {
-        src = "/etc";
+        src = QStringLiteral("/etc");
     }
 
     const QString dest = homeTmpDir() + "mdnp";
@@ -758,7 +758,7 @@ void JobTest::listRecursive()
 #endif
                                       "fileFromHome,fileFromHome_copied");
 
-    const QString joinedNames = m_names.join(",");
+    const QString joinedNames = m_names.join(QStringLiteral(","));
     if (joinedNames.toLatin1() != ref_names) {
         qDebug("%s", qPrintable(joinedNames));
         qDebug("%s", ref_names.data());
@@ -847,7 +847,7 @@ void JobTest::directorySize()
 
 void JobTest::directorySizeError()
 {
-    KIO::DirectorySizeJob *job = KIO::directorySize(QUrl::fromLocalFile("/I/Dont/Exist"));
+    KIO::DirectorySizeJob *job = KIO::directorySize(QUrl::fromLocalFile(QStringLiteral("/I/Dont/Exist")));
     job->setUiDelegate(0);
     bool ok = job->exec();
     QVERIFY(!ok);
@@ -954,7 +954,7 @@ void JobTest::copyFileToSystem(bool resolve_local_urls)
 
 void JobTest::getInvalidUrl()
 {
-    QUrl url("http://strange<hostname>/");
+    QUrl url(QStringLiteral("http://strange<hostname>/"));
     QVERIFY(!url.isValid());
 
     KIO::SimpleJob *job = KIO::get(url, KIO::NoReload, KIO::HideProgressInfo);
@@ -1233,7 +1233,7 @@ void JobTest::chmodFileError()
     mode_t newPerm = origPerm ^ S_IWGRP;
     QVERIFY(newPerm != origPerm);
     KFileItemList items; items << item;
-    KIO::Job *job = KIO::chmod(items, newPerm, S_IWGRP /*TODO: QFile::WriteGroup*/, QString("root"), QString(), false, KIO::HideProgressInfo);
+    KIO::Job *job = KIO::chmod(items, newPerm, S_IWGRP /*TODO: QFile::WriteGroup*/, QStringLiteral("root"), QString(), false, KIO::HideProgressInfo);
     // Simulate the user pressing "Skip" in the dialog.
     PredefinedAnswerJobUiDelegate extension;
     extension.m_skipResult = KIO::S_SKIP;
@@ -1493,7 +1493,7 @@ void JobTest::multiGet()
         QCOMPARE(spyData.at(i * 2).at(0).toInt(), i);
         QCOMPARE(QString(spyData.at(i * 2).at(1).toByteArray()), QString("Hello"));
         QCOMPARE(spyData.at(i * 2 + 1).at(0).toInt(), i);
-        QCOMPARE(QString(spyData.at(i * 2 + 1).at(1).toByteArray()), QString(""));
+        QCOMPARE(QString(spyData.at(i * 2 + 1).at(1).toByteArray()), QLatin1String(""));
     }
 }
 

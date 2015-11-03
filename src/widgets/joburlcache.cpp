@@ -36,7 +36,7 @@ JobUrlCache &JobUrlCache::instance()
 JobUrlCache::JobUrlCache() : QObject(0)
 {
     org::kde::kuiserver *interface = new
-    org::kde::kuiserver("org.kde.kuiserver", "/JobViewServer", QDBusConnection::sessionBus(), this);
+    org::kde::kuiserver(QStringLiteral("org.kde.kuiserver"), QStringLiteral("/JobViewServer"), QDBusConnection::sessionBus(), this);
 
     //connect to receive updates about the job urls
     connect(interface, SIGNAL(jobUrlsChanged(QStringList)),

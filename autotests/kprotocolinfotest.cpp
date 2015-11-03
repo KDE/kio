@@ -61,7 +61,7 @@ void KProtocolInfoTest::testBasic()
 
     QVERIFY(KProtocolManager::supportsListing(QUrl("ftp://10.1.1.10")));
 
-    const QUrl url = QUrl::fromLocalFile("/tmp");
+    const QUrl url = QUrl::fromLocalFile(QStringLiteral("/tmp"));
     QCOMPARE(KProtocolManager::inputType(url), KProtocolInfo::T_NONE);
     QCOMPARE(KProtocolManager::outputType(url), KProtocolInfo::T_FILESYSTEM);
     QVERIFY(KProtocolManager::supportsReading(url));
@@ -69,7 +69,7 @@ void KProtocolInfoTest::testBasic()
 
 void KProtocolInfoTest::testExtraFields()
 {
-    KProtocolInfo::ExtraFieldList extraFields = KProtocolInfo::extraFields(QUrl("trash:/"));
+    KProtocolInfo::ExtraFieldList extraFields = KProtocolInfo::extraFields(QUrl(QStringLiteral("trash:/")));
     KProtocolInfo::ExtraFieldList::Iterator extraFieldsIt = extraFields.begin();
     for (; extraFieldsIt != extraFields.end(); ++extraFieldsIt) {
         qDebug() << (*extraFieldsIt).name << " " << (*extraFieldsIt).type;
@@ -86,13 +86,13 @@ void KProtocolInfoTest::testShowFilePreview()
 void KProtocolInfoTest::testSlaveProtocol()
 {
     QString proxy;
-    QString protocol = KProtocolManager::slaveProtocol(QUrl("http://bugs.kde.org"), proxy);
+    QString protocol = KProtocolManager::slaveProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
     QCOMPARE(protocol, QString::fromLatin1("http"));
     QVERIFY(!KProtocolManager::useProxy());
 
     // Just to test it doesn't deadlock
     KProtocolManager::reparseConfiguration();
-    protocol = KProtocolManager::slaveProtocol(QUrl("http://bugs.kde.org"), proxy);
+    protocol = KProtocolManager::slaveProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
     QCOMPARE(protocol, QString::fromLatin1("http"));
 }
 
@@ -110,13 +110,13 @@ void KProtocolInfoTest::testProxySettings_data()
 void KProtocolInfoTest::testProxySettings()
 {
     QFETCH(int, proxyType);
-    KConfig config("kioslaverc", KConfig::NoGlobals);
+    KConfig config(QStringLiteral("kioslaverc"), KConfig::NoGlobals);
     KConfigGroup cfg(&config, "Proxy Settings");
     cfg.writeEntry("ProxyType", proxyType);
     cfg.sync();
     KProtocolManager::reparseConfiguration();
     QString proxy;
-    QString protocol = KProtocolManager::slaveProtocol(QUrl("http://bugs.kde.org"), proxy);
+    QString protocol = KProtocolManager::slaveProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
     QCOMPARE(protocol, QString::fromLatin1("http"));
     QVERIFY(KProtocolManager::useProxy());
 
@@ -128,7 +128,7 @@ void KProtocolInfoTest::testProxySettings()
 
 void KProtocolInfoTest::testCapabilities()
 {
-    QStringList capabilities = KProtocolInfo::capabilities("imap");
+    QStringList capabilities = KProtocolInfo::capabilities(QStringLiteral("imap"));
     qDebug() << "kio_imap capabilities: " << capabilities;
     //QVERIFY(capabilities.contains("ACL"));
 }
@@ -138,7 +138,7 @@ void KProtocolInfoTest::testProtocolForArchiveMimetype()
     if (!QFile::exists(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + "zip.protocol"))) {
         QSKIP("kdebase not installed");
     } else {
-        const QString zip = KProtocolManager::protocolForArchiveMimetype("application/zip");
+        const QString zip = KProtocolManager::protocolForArchiveMimetype(QStringLiteral("application/zip"));
         QCOMPARE(zip, QString("zip"));
     }
 }
@@ -154,7 +154,7 @@ void KProtocolInfoTest::testHelperProtocols()
     //QVERIFY(KProtocolInfo::isHelperProtocol("telnet"));
 
     // To test that compat still works
-    if (KProtocolInfo::isKnownProtocol("tel")) {
+    if (KProtocolInfo::isKnownProtocol(QStringLiteral("tel"))) {
         QVERIFY(KProtocolInfo::isHelperProtocol("tel"));
     }
 

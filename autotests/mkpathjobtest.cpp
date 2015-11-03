@@ -129,7 +129,7 @@ private Q_SLOTS:
         QUrl url = QUrl::fromLocalFile(m_dir);
         const QUrl baseUrl = url;
         url.setPath(url.path() + "/subdir5/subsubdir");
-        KIO::Job *job = KIO::mkpath(url, QUrl::fromLocalFile("/does/not/exist"));
+        KIO::Job *job = KIO::mkpath(url, QUrl::fromLocalFile(QStringLiteral("/does/not/exist")));
         job->setUiDelegate(0);
         QSignalSpy spy(job, SIGNAL(directoryCreated(QUrl)));
         QVERIFY2(job->exec(), qPrintable(job->errorString()));

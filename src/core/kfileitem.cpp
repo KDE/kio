@@ -732,7 +732,7 @@ QMimeType KFileItem::determineMimeType() const
     if (!d->m_mimeType.isValid() || !d->m_bMimeTypeKnown) {
         QMimeDatabase db;
         if (isDir()) {
-            d->m_mimeType = db.mimeTypeForName("inode/directory");
+            d->m_mimeType = db.mimeTypeForName(QStringLiteral("inode/directory"));
         } else {
             bool isLocalUrl;
             const QUrl url = mostLocalUrl(&isLocalUrl);
@@ -810,7 +810,7 @@ QString KFileItem::mimeComment() const
     QMimeType mime = currentMimeType();
     // This cannot move to kio_file (with UDS_DISPLAY_TYPE) because it needs
     // the mimetype to be determined, which is done here, and possibly delayed...
-    if (isLocalUrl && !d->isSlow() && mime.inherits("application/x-desktop")) {
+    if (isLocalUrl && !d->isSlow() && mime.inherits(QStringLiteral("application/x-desktop"))) {
         KDesktopFile cfg(url.toLocalFile());
         QString comment = cfg.desktopGroup().readEntry("Comment");
         if (!comment.isEmpty()) {
@@ -821,7 +821,7 @@ QString KFileItem::mimeComment() const
     // Support for .directory file in directories
     if (isLocalUrl && isDir() && isDirectoryMounted(url)) {
         QUrl u(url);
-        u.setPath(u.path() + QString::fromLatin1("/.directory"));
+        u.setPath(u.path() + QLatin1String("/.directory"));
         const KDesktopFile cfg(u.toLocalFile());
         const QString comment = cfg.readComment();
         if (!comment.isEmpty()) {
@@ -840,7 +840,7 @@ QString KFileItem::mimeComment() const
 
 static QString iconFromDirectoryFile(const QString &path)
 {
-    const QString filePath = path + QString::fromLatin1("/.directory");
+    const QString filePath = path + QLatin1String("/.directory");
     if (!QFileInfo(filePath).isFile()) { // exists -and- is a file
         return QString();
     }
@@ -887,7 +887,7 @@ static QString iconFromDesktopFile(const QString &path)
             if (url.scheme() == QLatin1String("trash")) {
                 // We need to find if the trash is empty, preferably without using a KIO job.
                 // So instead kio_trash leaves an entry in its config file for us.
-                KConfig trashConfig("trashrc", KConfig::SimpleConfig);
+                KConfig trashConfig(QStringLiteral("trashrc"), KConfig::SimpleConfig);
                 if (trashConfig.group("Status").readEntry("Empty", true)) {
                     return emptyIcon;
                 }
@@ -963,7 +963,7 @@ QString KFileItem::iconName() const
 
     const bool delaySlowOperations = d->m_delayedMimeTypes;
 
-    if (isLocalUrl && !delaySlowOperations && mime.inherits("application/x-desktop")) {
+    if (isLocalUrl && !delaySlowOperations && mime.inherits(QStringLiteral("application/x-desktop"))) {
         d->m_iconName = iconFromDesktopFile(url.toLocalFile());
         if (!d->m_iconName.isEmpty()) {
             d->m_useIconNameCache = d->m_bMimeTypeKnown;
@@ -1017,7 +1017,7 @@ static bool checkDesktopFile(const KFileItem &item, bool _determineMimeType)
 
     // return true if desktop file
     QMimeType mime = _determineMimeType ? item.determineMimeType() : item.currentMimeType();
-    return mime.inherits("application/x-desktop");
+    return mime.inherits(QStringLiteral("application/x-desktop"));
 }
 
 QStringList KFileItem::overlays() const
@@ -1028,11 +1028,11 @@ QStringList KFileItem::overlays() const
 
     QStringList names = d->m_entry.stringValue(KIO::UDSEntry::UDS_ICON_OVERLAY_NAMES).split(',');
     if (d->m_bLink) {
-        names.append("emblem-symbolic-link");
+        names.append(QStringLiteral("emblem-symbolic-link"));
     }
 
     if (!isReadable()) {
-        names.append("object-locked");
+        names.append(QStringLiteral("object-locked"));
     }
 
     if (checkDesktopFile(*this, false)) {
@@ -1042,7 +1042,7 @@ QStringList KFileItem::overlays() const
         // Add a warning emblem if this is an executable desktop file
         // which is untrusted.
         if (group.hasKey("Exec") && !KDesktopFile::isAuthorizedDesktopFile(localPath())) {
-            names.append("emblem-important");
+            names.append(QStringLiteral("emblem-important"));
         }
 
         if (cfg.hasDeviceType()) {
@@ -1050,14 +1050,14 @@ QStringList KFileItem::overlays() const
             if (!dev.isEmpty()) {
                 KMountPoint::Ptr mountPoint = KMountPoint::currentMountPoints().findByDevice(dev);
                 if (mountPoint) { // mounted?
-                    names.append("emblem-mounted");
+                    names.append(QStringLiteral("emblem-mounted"));
                 }
             }
         }
     }
 
     if (isHidden()) {
-        names.append("hidden");
+        names.append(QStringLiteral("hidden"));
     }
 
 #ifndef Q_OS_WIN
@@ -1065,7 +1065,7 @@ QStringList KFileItem::overlays() const
         if (KSambaShare::instance()->isDirectoryShared(d->m_url.toLocalFile()) ||
                 KNFSShare::instance()->isDirectoryShared(d->m_url.toLocalFile())) {
             //qDebug() << d->m_url.path();
-            names.append("network-workgroup");
+            names.append(QStringLiteral("network-workgroup"));
         }
     }
 #endif  // Q_OS_WIN
@@ -1208,7 +1208,7 @@ bool KFileItem::acceptsDrops() const
         return false;
     }
 
-    if (mimetype() == "application/x-desktop") {
+    if (mimetype() == QLatin1String("application/x-desktop")) {
         return true;
     }
 
@@ -1240,9 +1240,9 @@ QString KFileItem::getStatusBarInfo() const
     } else if (targetUrl() != url()) {
         text += i18n(" (Points to %1)", targetUrl().toDisplayString());
     } else if ((d->m_fileMode & QT_STAT_MASK) == QT_STAT_REG) {
-        text += QString(" (%1, %2)").arg(comment, KIO::convertSize(size()));
+        text += QStringLiteral(" (%1, %2)").arg(comment, KIO::convertSize(size()));
     } else {
-        text += QString(" (%1)").arg(comment);
+        text += QStringLiteral(" (%1)").arg(comment);
     }
     return text;
 }
@@ -1503,14 +1503,14 @@ QMimeType KFileItem::currentMimeType() const
         Q_ASSERT(!d->m_url.isEmpty());
         QMimeDatabase db;
         if (isDir()) {
-            d->m_mimeType = db.mimeTypeForName("inode/directory");
+            d->m_mimeType = db.mimeTypeForName(QStringLiteral("inode/directory"));
             return d->m_mimeType;
         }
         const QUrl url = mostLocalUrl();
         if (d->m_delayedMimeTypes) {
             const QList<QMimeType> mimeTypes = db.mimeTypesForFileName(url.path());
             if (mimeTypes.isEmpty()) {
-                d->m_mimeType = db.mimeTypeForName("application/octet-stream");
+                d->m_mimeType = db.mimeTypeForName(QStringLiteral("application/octet-stream"));
                 d->m_bMimeTypeKnown = false;
             } else {
                 d->m_mimeType = mimeTypes.first();

@@ -160,16 +160,16 @@ void SimpleJobPrivate::start(Slave *slave)
 
     const QVariant windowIdProp = q->property("window-id"); // see KJobWidgets::setWindow
     if (windowIdProp.isValid()) {
-        m_outgoingMetaData.insert("window-id", QString::number(windowIdProp.toULongLong()));
+        m_outgoingMetaData.insert(QStringLiteral("window-id"), QString::number(windowIdProp.toULongLong()));
     }
 
     const QVariant userTimestampProp = q->property("userTimestamp"); // see KJobWidgets::updateUserTimestamp
     if (userTimestampProp.isValid()) {
-        m_outgoingMetaData.insert("user-timestamp", QString::number(userTimestampProp.toULongLong()));
+        m_outgoingMetaData.insert(QStringLiteral("user-timestamp"), QString::number(userTimestampProp.toULongLong()));
     }
 
     if (q->uiDelegate() == 0) {            // not interactive
-        m_outgoingMetaData.insert("no-auth-prompt", "true");
+        m_outgoingMetaData.insert(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
     }
 
     if (!m_outgoingMetaData.isEmpty()) {
@@ -384,7 +384,7 @@ SimpleJob *KIO::mount(bool ro, const QByteArray &fstype, const QString &dev, con
 {
     KIO_ARGS << int(1) << qint8(ro ? 1 : 0)
              << QString::fromLatin1(fstype) << dev << point;
-    SimpleJob *job = special(QUrl("file:///"), packedArgs, flags);
+    SimpleJob *job = special(QUrl(QStringLiteral("file:///")), packedArgs, flags);
     if (!(flags & HideProgressInfo)) {
         KIO::JobPrivate::emitMounting(job, dev, point);
     }
@@ -394,7 +394,7 @@ SimpleJob *KIO::mount(bool ro, const QByteArray &fstype, const QString &dev, con
 SimpleJob *KIO::unmount(const QString &point, JobFlags flags)
 {
     KIO_ARGS << int(2) << point;
-    SimpleJob *job = special(QUrl("file:///"), packedArgs, flags);
+    SimpleJob *job = special(QUrl(QStringLiteral("file:///")), packedArgs, flags);
     if (!(flags & HideProgressInfo)) {
         KIO::JobPrivate::emitUnmounting(job, point);
     }

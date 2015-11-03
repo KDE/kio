@@ -329,7 +329,7 @@ QString KAbstractHttpAuthentication::realm() const
 {
     const QByteArray realm = valueForKey(m_challenge, "realm");
     // TODO: Find out what this is supposed to address. The site mentioned below does not exist.
-    if (QLocale().uiLanguages().contains(QLatin1String("ru"))) {
+    if (QLocale().uiLanguages().contains(QStringLiteral("ru"))) {
         //for sites like lib.homelinux.org
         return QTextCodec::codecForName("CP1251")->toUnicode(realm);
     }
@@ -709,7 +709,7 @@ void KHttpNtlmAuthentication::fillKioAuthInfo(KIO::AuthInfo *ai) const
     // Every auth scheme is supposed to supply a realm according to the RFCs. Of course this doesn't
     // prevent Microsoft from not doing it... Dummy value!
     // we don't have the username yet which may (may!) contain a domain, so we really have no choice
-    ai->realmValue = QLatin1String("NTLM");
+    ai->realmValue = QStringLiteral("NTLM");
 }
 
 void KHttpNtlmAuthentication::generateResponse(const QString &_user, const QString &password)
@@ -748,7 +748,7 @@ void KHttpNtlmAuthentication::generateResponse(const QString &_user, const QStri
             flags |= KNTLM::Force_V1;
         }
 
-        if (!KNTLM::getAuth(buf, challenge, user, m_password, domain, QLatin1String("WORKSTATION"), flags)) {
+        if (!KNTLM::getAuth(buf, challenge, user, m_password, domain, QStringLiteral("WORKSTATION"), flags)) {
             qWarning() << "Error while constructing Type 3 NTLM authentication request";
             m_isError = true;
             return;

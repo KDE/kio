@@ -100,15 +100,15 @@ static bool isKnownProtocol(const QString &protocol)
     if (KProtocolInfo::isKnownProtocol(protocol)) {
         return true;
     }
-    const KService::Ptr service = KMimeTypeTrader::self()->preferredService(QString::fromLatin1("x-scheme-handler/") + protocol);
+    const KService::Ptr service = KMimeTypeTrader::self()->preferredService(QLatin1String("x-scheme-handler/") + protocol);
     return service;
 }
 
 KShortUriFilter::KShortUriFilter( QObject *parent, const QVariantList & /*args*/ )
-                :KUriFilterPlugin( "kshorturifilter", parent )
+                :KUriFilterPlugin( QStringLiteral("kshorturifilter"), parent )
 {
-    QDBusConnection::sessionBus().connect(QString(), "/", "org.kde.KUriFilterPlugin",
-                                "configure", this, SLOT(configure()));
+    QDBusConnection::sessionBus().connect(QString(), QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"),
+                                QStringLiteral("configure"), this, SLOT(configure()));
     configure();
 }
 
@@ -151,7 +151,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
     const int lastIndex = cmd.lastIndexOf(QLatin1Char('@'));
     // Percent encode all but the last '@'.
     QString encodedCmd = QUrl::toPercentEncoding(cmd.left(lastIndex), ":/");
-    encodedCmd += cmd.mid(lastIndex);
+    encodedCmd += cmd.midRef(lastIndex);
     cmd = encodedCmd;
     url = QUrl(encodedCmd);
   }
@@ -178,7 +178,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   const QString starthere_proto = QL1S("start-here:");
   if (cmd.indexOf(starthere_proto) == 0 )
   {
-    setFilteredUri( data, QUrl("system:/") );
+    setFilteredUri( data, QUrl(QStringLiteral("system:/")) );
     setUriType( data, KUriFilterData::LocalDir );
     return true;
   }
@@ -245,7 +245,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
       }
       else
       {
-        if (cmd.startsWith("file://")) {
+        if (cmd.startsWith(QLatin1String("file://"))) {
           path = cmd.mid(strlen("file://"));
         } else {
           path = cmd;
@@ -384,7 +384,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
     u.setFragment(ref);
     u.setQuery(query);
 
-    if (!KUrlAuthorized::authorizeUrlAction( QLatin1String("open"), QUrl(), u))
+    if (!KUrlAuthorized::authorizeUrlAction( QStringLiteral("open"), QUrl(), u))
     {
       // No authorization, we pretend it's a file will get
       // an access denied error later on.
@@ -551,7 +551,7 @@ void KShortUriFilter::configure()
   KConfig config( objectName() + QL1S( "rc"), KConfig::NoGlobals );
   KConfigGroup cg( config.group("") );
 
-  m_strDefaultUrlScheme = cg.readEntry( "DefaultProtocol", QString("http://") );
+  m_strDefaultUrlScheme = cg.readEntry( "DefaultProtocol", QStringLiteral("http://") );
   const EntryMap patterns = config.entryMap( QL1S("Pattern") );
   const EntryMap protocols = config.entryMap( QL1S("Protocol") );
   KConfigGroup typeGroup(&config, "Type");

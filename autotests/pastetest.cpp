@@ -49,8 +49,8 @@ void KIOPasteTest::testPopulate()
     QMimeData* mimeData = new QMimeData;
 
     // Those URLs don't have to exist.
-    QUrl mediaURL("media:/hda1/tmp/Mat%C3%A9riel");
-    QUrl localURL("file:///tmp/Mat%C3%A9riel");
+    QUrl mediaURL(QStringLiteral("media:/hda1/tmp/Mat%C3%A9riel"));
+    QUrl localURL(QStringLiteral("file:///tmp/Mat%C3%A9riel"));
     QList<QUrl> kdeURLs; kdeURLs << mediaURL;
     QList<QUrl> mostLocalURLs; mostLocalURLs << localURL;
 
@@ -71,8 +71,8 @@ void KIOPasteTest::testCut()
 {
     QMimeData* mimeData = new QMimeData;
 
-    QUrl localURL1("file:///tmp/Mat%C3%A9riel");
-    QUrl localURL2("file:///tmp");
+    QUrl localURL1(QStringLiteral("file:///tmp/Mat%C3%A9riel"));
+    QUrl localURL2(QStringLiteral("file:///tmp"));
     QList<QUrl> localURLs; localURLs << localURL1 << localURL2;
 
     KUrlMimeData::setUrls(QList<QUrl>(), localURLs, mimeData);
@@ -99,7 +99,7 @@ void KIOPasteTest::testPasteActionText_data()
 
     QList<QUrl> urlDir = QList<QUrl>() << QUrl::fromLocalFile(QDir::tempPath());
     QList<QUrl> urlFile = QList<QUrl>() << QUrl::fromLocalFile(QCoreApplication::applicationFilePath());
-    QList<QUrl> urlRemote = QList<QUrl>() << QUrl("http://www.kde.org");
+    QList<QUrl> urlRemote = QList<QUrl>() << QUrl(QStringLiteral("http://www.kde.org"));
     QList<QUrl> urls = urlDir + urlRemote;
     QTest::newRow("nothing") << QList<QUrl>() << false << false << "Paste";
     QTest::newRow("one_dir") << urlDir << false << true << "Paste One Folder";
@@ -121,7 +121,7 @@ void KIOPasteTest::testPasteActionText()
         mimeData.setUrls(urls);
     }
     if (data) {
-        mimeData.setText("foo");
+        mimeData.setText(QStringLiteral("foo"));
     }
     QCOMPARE(KIO::canPasteMimeData(&mimeData), expectedEnabled);
     bool canPaste;
@@ -129,7 +129,7 @@ void KIOPasteTest::testPasteActionText()
     QCOMPARE(KIO::pasteActionText(&mimeData, &canPaste, destItem), expectedText);
     QCOMPARE(canPaste, expectedEnabled);
 
-    KFileItem nonWritableDestItem(QUrl::fromLocalFile("/nonwritable"));
+    KFileItem nonWritableDestItem(QUrl::fromLocalFile(QStringLiteral("/nonwritable")));
     QCOMPARE(KIO::pasteActionText(&mimeData, &canPaste, nonWritableDestItem), expectedText);
     QCOMPARE(canPaste, false);
 }
@@ -185,7 +185,7 @@ void KIOPasteTest::testPasteJob()
         isFile = fileInfo.isFile();
     }
     if (data) {
-        mimeData.setText("Hello world");
+        mimeData.setText(QStringLiteral("Hello world"));
     }
     KIO::setClipboardDataCut(&mimeData, cut);
 

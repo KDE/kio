@@ -86,18 +86,18 @@ public:
 
     void setSslMetaData()
     {
-        sslMetaData.insert("ssl_in_use", "TRUE");
+        sslMetaData.insert(QStringLiteral("ssl_in_use"), QStringLiteral("TRUE"));
         KSslCipher cipher = socket.sessionCipher();
-        sslMetaData.insert("ssl_protocol_version", socket.negotiatedSslVersionName());
+        sslMetaData.insert(QStringLiteral("ssl_protocol_version"), socket.negotiatedSslVersionName());
         QString sslCipher = cipher.encryptionMethod() + '\n';
         sslCipher += cipher.authenticationMethod() + '\n';
         sslCipher += cipher.keyExchangeMethod() + '\n';
         sslCipher += cipher.digestMethod();
-        sslMetaData.insert("ssl_cipher", sslCipher);
-        sslMetaData.insert("ssl_cipher_name", cipher.name());
-        sslMetaData.insert("ssl_cipher_used_bits", QString::number(cipher.usedBits()));
-        sslMetaData.insert("ssl_cipher_bits", QString::number(cipher.supportedBits()));
-        sslMetaData.insert("ssl_peer_ip", ip);
+        sslMetaData.insert(QStringLiteral("ssl_cipher"), sslCipher);
+        sslMetaData.insert(QStringLiteral("ssl_cipher_name"), cipher.name());
+        sslMetaData.insert(QStringLiteral("ssl_cipher_used_bits"), QString::number(cipher.usedBits()));
+        sslMetaData.insert(QStringLiteral("ssl_cipher_bits"), QString::number(cipher.supportedBits()));
+        sslMetaData.insert(QStringLiteral("ssl_peer_ip"), ip);
 
         // try to fill in the blanks, i.e. missing certificates, and just assume that
         // those belong to the peer (==website or similar) certificate.
@@ -122,7 +122,7 @@ public:
             errorStr += '\n';
         }
         errorStr.chop(1);
-        sslMetaData.insert("ssl_cert_errors", errorStr);
+        sslMetaData.insert(QStringLiteral("ssl_cert_errors"), errorStr);
 
         QString peerCertChain;
         Q_FOREACH (const QSslCertificate &cert, socket.peerCertificateChain()) {
@@ -130,14 +130,14 @@ public:
             peerCertChain.append('\x01');
         }
         peerCertChain.chop(1);
-        sslMetaData.insert("ssl_peer_chain", peerCertChain);
+        sslMetaData.insert(QStringLiteral("ssl_peer_chain"), peerCertChain);
         sendSslMetaData();
     }
 
     void clearSslMetaData()
     {
         sslMetaData.clear();
-        sslMetaData.insert("ssl_in_use", "FALSE");
+        sslMetaData.insert(QStringLiteral("ssl_in_use"), QStringLiteral("FALSE"));
         sendSslMetaData();
     }
 
@@ -310,9 +310,9 @@ int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *erro
     //  - leaving SSL - warn before we even connect
     //### see if it makes sense to move this into the HTTP ioslave which is the only
     //    user.
-    if (metaData("main_frame_request") == "TRUE"  //### this looks *really* unreliable
-            && metaData("ssl_activate_warnings") == "TRUE"
-            && metaData("ssl_was_in_use") == "TRUE"
+    if (metaData(QStringLiteral("main_frame_request")) == QLatin1String("TRUE")  //### this looks *really* unreliable
+            && metaData(QStringLiteral("ssl_activate_warnings")) == QLatin1String("TRUE")
+            && metaData(QStringLiteral("ssl_was_in_use")) == QLatin1String("TRUE")
             && !d->autoSSL) {
         if (d->sslSettings.warnOnLeave()) {
             int result = messageBox(i18n("You are about to leave secure "
@@ -323,7 +323,7 @@ int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *erro
                                     WarningContinueCancel,
                                     i18n("Security Information"),
                                     i18n("C&ontinue Loading"), QString(),
-                                    "WarnOnLeaveSSLMode");
+                                    QStringLiteral("WarnOnLeaveSSLMode"));
 
             if (result == SlaveBase::Cancel) {
                 if (errorString) {
@@ -428,7 +428,7 @@ int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *erro
         // If the SSL handshake was done with anything protocol other than the default,
         // save that information so that any subsequent requests do not have to do thesame thing.
         if (trySslVersion != KTcpSocket::SecureProtocols && lastSslVerson == KTcpSocket::SecureProtocols) {
-            setMetaData(QLatin1String("{internal~currenthost}LastUsedSslVersion"),
+            setMetaData(QStringLiteral("{internal~currenthost}LastUsedSslVersion"),
                         QString::number(trySslVersion));
         }
         return 0;
@@ -570,8 +570,8 @@ TCPSlaveBase::SslResult TCPSlaveBase::TcpSlaveBasePrivate::startTLSInternal(KTcp
     }
 
     //"warn" when starting SSL/TLS
-    if (q->metaData("ssl_activate_warnings") == "TRUE"
-            && q->metaData("ssl_was_in_use") == "FALSE"
+    if (q->metaData(QStringLiteral("ssl_activate_warnings")) == QLatin1String("TRUE")
+            && q->metaData(QStringLiteral("ssl_was_in_use")) == QLatin1String("FALSE")
             && sslSettings.warnOnEnter()) {
 
         int msgResult = q->messageBox(i18n("You are about to enter secure mode. "
@@ -583,7 +583,7 @@ TCPSlaveBase::SslResult TCPSlaveBase::TcpSlaveBasePrivate::startTLSInternal(KTcp
                                       i18n("Security Information"),
                                       i18n("Display SSL &Information"),
                                       i18n("C&onnect"),
-                                      "WarnOnEnterSSLMode");
+                                      QStringLiteral("WarnOnEnterSSLMode"));
         if (msgResult == SlaveBase::Yes) {
             q->messageBox(SSLMessageBox /*==the SSL info dialog*/, host);
         }
@@ -775,7 +775,7 @@ void TCPSlaveBase::selectClientCertificate()
 
 TCPSlaveBase::SslResult TCPSlaveBase::verifyServerCertificate()
 {
-    d->sslNoUi = hasMetaData("ssl_no_ui") && (metaData("ssl_no_ui") != "FALSE");
+    d->sslNoUi = hasMetaData(QStringLiteral("ssl_no_ui")) && (metaData(QStringLiteral("ssl_no_ui")) != QLatin1String("FALSE"));
 
     if (d->sslErrors.isEmpty()) {
         return ResultOk;

@@ -41,11 +41,11 @@ QLoggingCategory category("org.kde.kurifilter-ikws");
 K_PLUGIN_FACTORY(KAutoWebSearchFactory, registerPlugin<KAutoWebSearch>();)
 
 KAutoWebSearch::KAutoWebSearch(QObject *parent, const QVariantList&)
-               :KUriFilterPlugin( "kuriikwsfilter", parent )
+               :KUriFilterPlugin( QStringLiteral("kuriikwsfilter"), parent )
 {
   KLocalizedString::insertQtDomain("kurifilter");
-  QDBusConnection::sessionBus().connect(QString(), "/", "org.kde.KUriFilterPlugin",
-                                        "configure", this, SLOT(configure()));
+  QDBusConnection::sessionBus().connect(QString(), QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"),
+                                        QStringLiteral("configure"), this, SLOT(configure()));
 }
 
 KAutoWebSearch::~KAutoWebSearch()

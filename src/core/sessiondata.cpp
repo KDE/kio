@@ -105,20 +105,20 @@ void SessionData::configDataFor(MetaData &configData, const QString &proto,
         // These might have already been set so check first
         // to make sure that we do not trumpt settings sent
         // by apps or end-user.
-        if (configData["Cookies"].isEmpty()) {
-            configData["Cookies"] = d->useCookie ? "true" : "false";
+        if (configData[QStringLiteral("Cookies")].isEmpty()) {
+            configData[QStringLiteral("Cookies")] = d->useCookie ? "true" : "false";
         }
-        if (configData["Languages"].isEmpty()) {
-            configData["Languages"] = d->language;
+        if (configData[QStringLiteral("Languages")].isEmpty()) {
+            configData[QStringLiteral("Languages")] = d->language;
         }
-        if (configData["Charsets"].isEmpty()) {
-            configData["Charsets"] = d->charsets;
+        if (configData[QStringLiteral("Charsets")].isEmpty()) {
+            configData[QStringLiteral("Charsets")] = d->charsets;
         }
-        if (configData["CacheDir"].isEmpty()) {
-            configData["CacheDir"] = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + '/' + "http";
+        if (configData[QStringLiteral("CacheDir")].isEmpty()) {
+            configData[QStringLiteral("CacheDir")] = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + '/' + "http";
         }
-        if (configData["UserAgent"].isEmpty()) {
-            configData["UserAgent"] = KProtocolManager::defaultUserAgent();
+        if (configData[QStringLiteral("UserAgent")].isEmpty()) {
+            configData[QStringLiteral("UserAgent")] = KProtocolManager::defaultUserAgent();
         }
     }
 }
@@ -127,7 +127,7 @@ void SessionData::reset()
 {
     d->initDone = true;
     // Get Cookie settings...
-    d->useCookie = KSharedConfig::openConfig("kcookiejarrc", KConfig::NoGlobals)->
+    d->useCookie = KSharedConfig::openConfig(QStringLiteral("kcookiejarrc"), KConfig::NoGlobals)->
                    group("Cookie Policy").
                    readEntry("Cookies", true);
 

@@ -91,7 +91,7 @@ private Q_SLOTS:
         // To avoid a runtime dependency on klauncher
         qputenv("KDE_FORK_SLAVES", "yes");
 
-        const QString trashDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QString::fromLatin1("/Trash");
+        const QString trashDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/Trash");
         QDir(trashDir).removeRecursively();
 
         QVERIFY(m_tempDir.isValid());
@@ -256,7 +256,7 @@ private Q_SLOTS:
         // When dropping it into the trash, with <modifiers> pressed
         m_mimeData.setUrls(QList<QUrl>() << QUrl::fromLocalFile(srcFile));
         QDropEvent dropEvent(QPoint(10, 10), dropAction, &m_mimeData, Qt::LeftButton, modifiers);
-        KIO::DropJob *job = KIO::drop(&dropEvent, QUrl("trash:/"), KIO::HideProgressInfo);
+        KIO::DropJob *job = KIO::drop(&dropEvent, QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
         job->setUiDelegate(0);
         QSignalSpy spy(job, SIGNAL(itemCreated(QUrl)));
 
@@ -287,7 +287,7 @@ private Q_SLOTS:
         // Given a file in the trash
         const QFile::Permissions origPerms = QFileInfo(m_srcFile).permissions();
         QVERIFY(QFileInfo(m_srcFile).isWritable());
-        KIO::CopyJob *copyJob = KIO::move(QUrl::fromLocalFile(m_srcFile), QUrl("trash:/"));
+        KIO::CopyJob *copyJob = KIO::move(QUrl::fromLocalFile(m_srcFile), QUrl(QStringLiteral("trash:/")));
         QSignalSpy copyingDoneSpy(copyJob, SIGNAL(copyingDone(KIO::Job*, QUrl, QUrl, QDateTime, bool, bool)));
         QVERIFY(copyJob->exec());
         const QUrl trashUrl = copyingDoneSpy.at(0).at(2).value<QUrl>();
@@ -316,7 +316,7 @@ private Q_SLOTS:
     void shouldDropTrashRootWithoutMovingAllTrashedFiles() // #319660
     {
         // Given some stuff in the trash
-        const QUrl trashUrl("trash:/");
+        const QUrl trashUrl(QStringLiteral("trash:/"));
         KIO::CopyJob *copyJob = KIO::move(QUrl::fromLocalFile(m_srcFile), trashUrl);
         QVERIFY(copyJob->exec());
         // and an empty destination directory
@@ -420,8 +420,8 @@ private Q_SLOTS:
         // When dropping the source file onto the directory
         QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction /*unused*/, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo);
-        QAction appAction1("action1", this);
-        QAction appAction2("action2", this);
+        QAction appAction1(QStringLiteral("action1"), this);
+        QAction appAction2(QStringLiteral("action2"), this);
         QList<QAction *> appActions; appActions << &appAction1 << &appAction2;
         job->setUiDelegate(0);
         job->setApplicationActions(appActions);

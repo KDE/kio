@@ -99,8 +99,8 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &_u,
     QUrl _url(_u);
     _url.setPath(QDir::cleanPath(_url.path())); // kill consecutive slashes
 
-    if (!_url.host().isEmpty() && KProtocolInfo::protocolClass(_url.scheme()) == ":local"
-            && _url.scheme() != "file") {
+    if (!_url.host().isEmpty() && KProtocolInfo::protocolClass(_url.scheme()) == QLatin1String(":local")
+            && _url.scheme() != QLatin1String("file")) {
         // ":local" protocols ignore the hostname, so strip it out preventively - #160057
         // kio_file is special cased since it does honor the hostname (by redirecting to e.g. smb)
         _url.setHost(QString());
@@ -538,12 +538,12 @@ static bool manually_mounted(const QString &path, const KMountPoint::List &possi
         }
         return true;
     }
-    const bool supermount = mp->mountType() == "supermount";
+    const bool supermount = mp->mountType() == QLatin1String("supermount");
     if (supermount) {
         return true;
     }
     // noauto -> manually mounted. Otherwise, mounted at boot time, won't be unmounted any time soon hopefully.
-    return mp->mountOptions().contains("noauto");
+    return mp->mountOptions().contains(QStringLiteral("noauto"));
 }
 
 void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, bool notify)
@@ -1225,7 +1225,7 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
             continue;
         }
 
-        if (name == ".") {
+        if (name == QLatin1String(".")) {
             Q_ASSERT(dir->rootItem.isNull());
             // Try to reuse an existing KFileItem (if we listed the parent dir)
             // rather than creating a new one. There are many reasons:
@@ -1243,7 +1243,7 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
                 if (kdl->d->rootFileItem.isNull() && kdl->d->url == url) {
                     kdl->d->rootFileItem = dir->rootItem;
                 }
-        } else if (name != "..") {
+        } else if (name != QLatin1String("..")) {
             KFileItem item(*it, url, delayedMimeTypes, true);
 
             // get the names of the files listed in ".hidden", if it exists and is a local file
@@ -1790,11 +1790,11 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
 
         // we duplicate the check for dotdot here, to avoid iterating over
         // all items again and checking in matchesFilter() that way.
-        if (name.isEmpty() || name == "..") {
+        if (name.isEmpty() || name == QLatin1String("..")) {
             continue;
         }
 
-        if (name == ".") {
+        if (name == QLatin1String(".")) {
             // if the update was started before finishing the original listing
             // there is no root item yet
             if (dir->rootItem.isNull()) {
@@ -2062,7 +2062,7 @@ void KCoreDirListerCache::printDebug()
                  << "rootItem:" << (!itu.value()->rootItem.isNull() ? itu.value()->rootItem.url() : QUrl())
                  << "autoUpdates refcount:" << itu.value()->autoUpdates
                  << "complete:" << itu.value()->complete
-                 << QString("with %1 items.").arg(itu.value()->lstItems.count());
+                 << QStringLiteral("with %1 items.").arg(itu.value()->lstItems.count());
     }
 
     QList<KCoreDirLister *> listersWithoutJob;
@@ -2102,7 +2102,7 @@ void KCoreDirListerCache::printDebug()
     foreach (const QString &cachedDir, cachedDirs) {
         DirItem *dirItem = itemsCached.object(cachedDir);
         qCDebug(KIO_CORE) << "   " << cachedDir << "rootItem:"
-                 << (!dirItem->rootItem.isNull() ? dirItem->rootItem.url().toString() : QString("NULL"))
+                 << (!dirItem->rootItem.isNull() ? dirItem->rootItem.url().toString() : QStringLiteral("NULL"))
                  << "with" << dirItem->lstItems.count() << "items.";
     }
 
@@ -2264,7 +2264,7 @@ void KCoreDirLister::Private::emitChanges()
         for (; kit != kend; ++kit) {
             KFileItem &item = *kit;
             const QString text = item.text();
-            if (text == "." || text == "..") {
+            if (text == QLatin1String(".") || text == QLatin1String("..")) {
                 continue;
             }
             const bool wasVisible = oldVisibleItems.contains(item.name());
@@ -2344,7 +2344,7 @@ void KCoreDirLister::setMimeFilter(const QStringList &mimeFilter)
     }
 
     d->prepareForSettingsChange();
-    if (mimeFilter.contains(QLatin1String("application/octet-stream")) || mimeFilter.contains(QLatin1String("all/allfiles"))) { // all files
+    if (mimeFilter.contains(QStringLiteral("application/octet-stream")) || mimeFilter.contains(QStringLiteral("all/allfiles"))) { // all files
         d->settings.mimeFilter.clear();
     } else {
         d->settings.mimeFilter = mimeFilter;
@@ -2390,7 +2390,7 @@ bool KCoreDirLister::matchesFilter(const KFileItem &item) const
 {
     Q_ASSERT(!item.isNull());
 
-    if (item.text() == "..") {
+    if (item.text() == QLatin1String("..")) {
         return false;
     }
 
