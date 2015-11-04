@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Provides SSL certificate policy to applications", 
+        "Description[ca@valencia]": "Proporciona la política pels certificats SSL a les aplicacions", 
         "Description[ca]": "Proporciona la política pels certificats SSL a les aplicacions", 
         "Description[cs]": "Poskytuje politiky certifikátů SSL pro aplikace", 
         "Description[de]": "SSL-Zertifikat-Regel den Anwendungen zur Verfügung stellen", 
@@ -25,6 +26,7 @@
         "Description[x-test]": "xxProvides SSL certificate policy to applicationsxx", 
         "Description[zh_CN]": "向应用程序提供 SSL 证书策略", 
         "Name": "SSL Certificate Policy", 
+        "Name[ca@valencia]": "Política pels certificats SSL", 
         "Name[ca]": "Política pels certificats SSL", 
         "Name[cs]": "Chování certifikátů SSL", 
         "Name[de]": "SSL-Zertifikat-Regel", 

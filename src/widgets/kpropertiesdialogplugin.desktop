@@ -4,6 +4,7 @@ X-KDE-ServiceType=KPropertiesDialog/Plugin
 Comment=Plugin for the Properties Dialog
 Comment[ar]=ملحقة لحواري الخصائص
 Comment[ca]=Connector pel diàleg de les propietats
+Comment[ca@valencia]=Connector pel diàleg de les propietats
 Comment[cs]=Modul pro dialog vlastností
 Comment[da]=Plugin til egenskaber-dialogen
 Comment[de]=Erweiterung für den Dialog „Eigenschaften“

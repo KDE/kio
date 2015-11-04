@@ -9,6 +9,7 @@ NoDisplay=true
 
 Name=KTelnetService
 Name[ca]=KTelnetService
+Name[ca@valencia]=KTelnetService
 Name[cs]=KTelnetService
 Name[da]=KTelnetService
 Name[de]=KTelnetService

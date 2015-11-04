@@ -2,6 +2,7 @@
 Keys=archpkg,apkg
 Name=Arch Linux Package Search
 Name[ca]=Cerca paquets a Arch Linux
+Name[ca@valencia]=Cerca paquets a Arch Linux
 Name[cs]=Hledání balíčků pro Arch Linux
 Name[da]=Arch Linux pakkesøgning
 Name[de]=Arch-Linux-Paketsuche
@@ -9,6 +10,7 @@ Name[el]=Αναζήτηση πακέτων Arch Linux
 Name[en_GB]=Arch Linux Package Search
 Name[es]=Búsqueda de paquetes de Arch Linux
 Name[fi]=Arch Linuxin pakettihaku
+Name[gd]=Lorg pacaidean Arch Linux
 Name[gl]=Busca de paquetes de Arch Linux
 Name[it]=Ricerca di pacchetti Arch Linux
 Name[ko]=Arch Linux 패키지 검색
@@ -33,6 +35,7 @@ Name[zh_CN]=Arch Linux 软件包搜索
 Name[zh_TW]=Arch Linux 套件搜尋
 Query=http://www.archlinux.org/packages/?q=\\{@}
 Query[ca]=http://www.archlinux.org/packages/?q=\\{@}
+Query[ca@valencia]=http://www.archlinux.org/packages/?q=\\{@}
 Query[cs]=http://www.archlinux.org/packages/?q=\\{@}
 Query[da]=http://www.archlinux.org/packages/?q=\\{@}
 Query[de]=http://www.archlinux.org/packages/?q=\\{@}
@@ -40,6 +43,7 @@ Query[el]=http://www.archlinux.org/packages/?q=\\{@}
 Query[en_GB]=http://www.archlinux.org/packages/?q=\\{@}
 Query[es]=http://www.archlinux.org/packages/?q=\\{@}
 Query[fi]=http://www.archlinux.org/packages/?q=\\{@}
+Query[gd]=http://www.archlinux.org/packages/?q=\\{@}
 Query[gl]=http://www.archlinux.org/packages/?q=\\{@}
 Query[it]=http://www.archlinux.org/packages/?q=\\{@}
 Query[ko]=http://www.archlinux.org/packages/?q=\\{@}

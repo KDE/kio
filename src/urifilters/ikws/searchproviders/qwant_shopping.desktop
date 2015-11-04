@@ -2,6 +2,7 @@
 Keys=qwsh
 Name=Qwant Shopping
 Name[ca]=Compres de Qwant
+Name[ca@valencia]=Compres de Qwant
 Name[cs]=Qwant Shopping
 Name[da]=Qwant Shopping
 Name[de]=Qwant-Shopping
@@ -40,6 +41,7 @@ Name[zh_CN]=Qwant 购物
 Name[zh_TW]=Qwant Shopping
 Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[ca]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
+Query[ca@valencia]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[cs]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[da]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[de]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping

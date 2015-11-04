@@ -2,6 +2,7 @@
 Keys=qwv
 Name=Qwant Videos
 Name[ca]=Vídeo de Qwant
+Name[ca@valencia]=Vídeo de Qwant
 Name[cs]=Videa Qwan
 Name[da]=Qwant Videos
 Name[de]=Qwant-Videos
@@ -41,6 +42,7 @@ Name[zh_CN]=Qwant 视频
 Name[zh_TW]=Qwant Videos
 Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[ca]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
+Query[ca@valencia]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[cs]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[da]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[de]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos

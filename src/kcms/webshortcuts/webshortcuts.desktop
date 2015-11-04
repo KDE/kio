@@ -21,6 +21,7 @@ Name[bn]=ওয়েব শর্টকাট
 Name[bn_IN]=ওয়েব শর্ট-কাট
 Name[br]=Berradennoù ar gwiad
 Name[ca]=Dreceres web
+Name[ca@valencia]=Dreceres web
 Name[cs]=Webové zkratky
 Name[csb]=Sécowé skrodzënë
 Name[cy]=Byr-lwybrau Gwe
@@ -97,6 +98,7 @@ Name[zh_TW]=網頁捷徑
 
 Comment=Configure web shortcuts
 Comment[ca]=Configura les dreceres web
+Comment[ca@valencia]=Configura les dreceres web
 Comment[cs]=Nastavit webové zkratky
 Comment[da]=Indstil webgenveje
 Comment[de]=Web-Kürzel einrichten
@@ -136,6 +138,7 @@ Comment[zh_TW]=設定網頁捷徑
 
 X-KDE-Keywords=Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts
 X-KDE-Keywords[ca]=Dreceres web,Navegació,WWW,Internet,Filtres d'internet,Xarxa,Motors de cerca,Dreceres
+X-KDE-Keywords[ca@valencia]=Dreceres web,Navegació,WWW,Internet,Filtres d'internet,Xarxa,Motors de cerca,Dreceres
 X-KDE-Keywords[cs]=Webové zkratky, Prohlížení,WWW,Internet,Internetové filtry,Síť,Vyhledávací nástroje,Zkratky
 X-KDE-Keywords[da]=Webgenveje,browsing,www,internet,internetfiltre,netværk,søgemaskiner,genveje
 X-KDE-Keywords[de]=Web-Kürzel, Browsen,WWW,Internet,Stichwörter,Filter,Netz,Internetfilter,Suchmaschinen,Kurzbefehle,Netzwerk
