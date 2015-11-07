@@ -732,18 +732,14 @@ private:
     QHash<QString, ProtoQueue *> m_protocols;
 };
 
-template <typename T>
-T * perThreadGlobalStatic()
+static QThreadStorage<SchedulerPrivate *> s_storage;
+static SchedulerPrivate *schedulerPrivate()
 {
-    static QThreadStorage<T *> s_storage;
     if (!s_storage.hasLocalData()) {
-        s_storage.setLocalData(new T);
+        s_storage.setLocalData(new SchedulerPrivate);
     }
     return s_storage.localData();
 }
-
-//Q_GLOBAL_STATIC(SchedulerPrivate, schedulerPrivate)
-SchedulerPrivate *schedulerPrivate() { return perThreadGlobalStatic<SchedulerPrivate>(); }
 
 Scheduler *Scheduler::self()
 {
