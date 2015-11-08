@@ -81,6 +81,16 @@ bool KIOThreadTest::copyLocalFile(FileData* fileData)
     return ret;
 }
 
+static bool allFinished(const QList<QFuture<bool> > &futures)
+{
+    for (int i = 0; i < futures.count(); ++i) {
+        if (!futures.at(i).isFinished()) {
+            return false;
+        }
+    }
+    return true;
+}
+
 void KIOThreadTest::concurrentCopying()
 {
     const int numThreads = 20;
@@ -95,7 +105,9 @@ void KIOThreadTest::concurrentCopying()
     for (int i = 0; i < numThreads; ++i) {
         sync.addFuture(QtConcurrent::run(this, &KIOThreadTest::copyLocalFile, &data[i]));
     }
-    sync.waitForFinished();
+    // same as sync.waitForFinished() but with a timeout
+    QTRY_VERIFY(allFinished(sync.futures()));
+
     for (int i = 0; i < numThreads; ++i) {
         QVERIFY(QFile::exists(data[i].dest));
         QVERIFY(sync.futures().at(i).result());
