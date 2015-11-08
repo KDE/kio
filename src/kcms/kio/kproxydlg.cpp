@@ -103,6 +103,7 @@ static void showSystemProxyUrl(QLineEdit* edit, QString* value)
 
 static QString proxyUrlFromInput(KProxyDialog::DisplayUrlFlags* flags,
                                  const QLineEdit* edit, const QSpinBox* spinBox,
+                                 const QString& defaultScheme = QString(),
                                  KProxyDialog::DisplayUrlFlag flag = KProxyDialog::HideNone)
 {
     Q_ASSERT(edit);
@@ -120,6 +121,9 @@ static QString proxyUrlFromInput(KProxyDialog::DisplayUrlFlags* flags,
     KUriFilterData data;
     data.setData(edit->text());
     data.setCheckForExecutables(false);
+    if (!defaultScheme.isEmpty()) {
+        data.setDefaultUrlScheme(defaultScheme);
+    }
 
     if (KUriFilter::self()->filterUri(data, QStringList() << QL1S("kshorturifilter"))) {
         QUrl url = data.uri();
@@ -147,6 +151,7 @@ static void setProxyInformation(const QString& value,
                                 QLineEdit* manEdit,
                                 QLineEdit* sysEdit,
                                 QSpinBox* spinBox ,
+                                const QString& defaultScheme,
                                 KProxyDialog::DisplayUrlFlag flag)
 {
     const bool isSysProxy = (!value.contains(QL1C(' ')) &&
@@ -182,6 +187,9 @@ static void setProxyInformation(const QString& value,
         KUriFilterData data;
         data.setData(urlStr);
         data.setCheckForExecutables(false);
+        if (!defaultScheme.isEmpty()) {
+            data.setDefaultUrlScheme(defaultScheme);
+        }
 
         if (KUriFilter::self()->filterUri(data, QStringList() << QL1S("kshorturifilter"))) {
             QUrl url (data.uri());
@@ -196,7 +204,8 @@ static void setProxyInformation(const QString& value,
 
             manEdit->setText(((KSaveIOConfig::proxyDisplayUrlFlags() & flag) ? url.host(): url.url()));
         } else {
-            manEdit->setText(urlStr);
+            QUrl url(urlStr);
+            manEdit->setText((KSaveIOConfig::proxyDisplayUrlFlags() & flag) ? url.host() : urlStr);
         }
 
         if (spinBox && portNum > -1) {
@@ -282,11 +291,11 @@ void KProxyDialog::load()
     // Make sure showEnvValueCheckBox is unchecked before setting proxy env var names
     mUi.showEnvValueCheckBox->setChecked(false);
 
-    setProxyInformation(mProxyMap.value(QL1S("HttpProxy")), proxyType, mUi.manualProxyHttpEdit, mUi.systemProxyHttpEdit, mUi.manualProxyHttpSpinBox, HideHttpUrlScheme);
-    setProxyInformation(mProxyMap.value(QL1S("HttpsProxy")), proxyType, mUi.manualProxyHttpsEdit, mUi.systemProxyHttpsEdit, mUi.manualProxyHttpsSpinBox, HideHttpsUrlScheme);
-    setProxyInformation(mProxyMap.value(QL1S("FtpProxy")), proxyType, mUi.manualProxyFtpEdit, mUi.systemProxyFtpEdit, mUi.manualProxyFtpSpinBox, HideFtpUrlScheme);
-    setProxyInformation(mProxyMap.value(QL1S("SocksProxy")), proxyType, mUi.manualProxySocksEdit, mUi.systemProxySocksEdit, mUi.manualProxySocksSpinBox, HideSocksUrlScheme);
-    setProxyInformation(mProxyMap.value(QL1S("NoProxy")), proxyType, mUi.manualNoProxyEdit, mUi.systemNoProxyEdit, 0, HideNone);
+    setProxyInformation(mProxyMap.value(QL1S("HttpProxy")), proxyType, mUi.manualProxyHttpEdit, mUi.systemProxyHttpEdit, mUi.manualProxyHttpSpinBox, QStringLiteral("http"), HideHttpUrlScheme);
+    setProxyInformation(mProxyMap.value(QL1S("HttpsProxy")), proxyType, mUi.manualProxyHttpsEdit, mUi.systemProxyHttpsEdit, mUi.manualProxyHttpsSpinBox, QStringLiteral("http"), HideHttpsUrlScheme);
+    setProxyInformation(mProxyMap.value(QL1S("FtpProxy")), proxyType, mUi.manualProxyFtpEdit, mUi.systemProxyFtpEdit, mUi.manualProxyFtpSpinBox, QStringLiteral("ftp"), HideFtpUrlScheme);
+    setProxyInformation(mProxyMap.value(QL1S("SocksProxy")), proxyType, mUi.manualProxySocksEdit, mUi.systemProxySocksEdit, mUi.manualProxySocksSpinBox, QStringLiteral("socks"), HideSocksUrlScheme);
+    setProxyInformation(mProxyMap.value(QL1S("NoProxy")), proxyType, mUi.manualNoProxyEdit, mUi.systemNoProxyEdit, 0, QString(), HideNone);
 
     // Check the "Use this proxy server for all protocols" if all the proxy URLs are the same...
     const QString httpProxy(mUi.manualProxyHttpEdit->text());
@@ -346,10 +355,10 @@ void KProxyDialog::save()
     if (mUi.manualProxyRadioButton->isChecked()) {
         DisplayUrlFlags flags = HideNone;
         proxyType = KProtocolManager::ManualProxy;
-        mProxyMap[QL1S("HttpProxy")] = proxyUrlFromInput(&flags, mUi.manualProxyHttpEdit, mUi.manualProxyHttpSpinBox, HideHttpUrlScheme);
-        mProxyMap[QL1S("HttpsProxy")] = proxyUrlFromInput(&flags, mUi.manualProxyHttpsEdit, mUi.manualProxyHttpsSpinBox, HideHttpsUrlScheme);
-        mProxyMap[QL1S("FtpProxy")] = proxyUrlFromInput(&flags, mUi.manualProxyFtpEdit, mUi.manualProxyFtpSpinBox, HideFtpUrlScheme);
-        mProxyMap[QL1S("SocksProxy")] = proxyUrlFromInput(&flags, mUi.manualProxySocksEdit, mUi.manualProxySocksSpinBox, HideSocksUrlScheme);
+        mProxyMap[QL1S("HttpProxy")] = proxyUrlFromInput(&flags, mUi.manualProxyHttpEdit, mUi.manualProxyHttpSpinBox, QStringLiteral("http"), HideHttpUrlScheme);
+        mProxyMap[QL1S("HttpsProxy")] = proxyUrlFromInput(&flags, mUi.manualProxyHttpsEdit, mUi.manualProxyHttpsSpinBox, QStringLiteral("http"), HideHttpsUrlScheme);
+        mProxyMap[QL1S("FtpProxy")] = proxyUrlFromInput(&flags, mUi.manualProxyFtpEdit, mUi.manualProxyFtpSpinBox, QStringLiteral("ftp"), HideFtpUrlScheme);
+        mProxyMap[QL1S("SocksProxy")] = proxyUrlFromInput(&flags, mUi.manualProxySocksEdit, mUi.manualProxySocksSpinBox, QStringLiteral("socks"), HideSocksUrlScheme);
         mProxyMap[QL1S("NoProxy")] = mUi.manualNoProxyEdit->text();
         displayUrlFlags = flags;
     } else if (mUi.systemProxyRadioButton->isChecked()) {
