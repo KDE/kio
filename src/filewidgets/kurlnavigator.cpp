@@ -736,8 +736,8 @@ QUrl KUrlNavigator::Private::buttonUrl(int index) const
 
     // Keep scheme, hostname etc. as this is needed for e. g. browsing
     // FTP directories
-    const QUrl currentUrl = q->locationUrl();
-    QString pathOrUrl = currentUrl.toString(QUrl::PreferLocalFile);
+    QUrl url = q->locationUrl();
+    QString pathOrUrl = url.path();
 
     if (!pathOrUrl.isEmpty()) {
         if (index == 0) {
@@ -753,7 +753,8 @@ QUrl KUrlNavigator::Private::buttonUrl(int index) const
         }
     }
 
-    return QUrl::fromUserInput(pathOrUrl);
+    url.setPath(pathOrUrl);
+    return url;
 }
 
 void KUrlNavigator::Private::switchToBreadcrumbMode()

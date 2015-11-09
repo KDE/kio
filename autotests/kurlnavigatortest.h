@@ -41,6 +41,9 @@ private Q_SLOTS:
     void testUrlParsing_data();
     void testUrlParsing();
 
+    void testButtonUrl_data();
+    void testButtonUrl();
+
 private:
     KUrlNavigator *m_navigator;
 };
