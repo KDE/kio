@@ -89,6 +89,7 @@ Query=http://bugs.debian.org/\\{@}
 Query[af]=http://bugs.debian.org/\\{@}
 Query[ar]=http://bugs.debian.org/\\{@}
 Query[as]=http://bugs.debian.org/\\{@}
+Query[ast]=http://bugs.debian.org/\\{@}
 Query[be]=http://bugs.debian.org/\\{@}
 Query[be@latin]=http://bugs.debian.org/\\{@}
 Query[bg]=http://bugs.debian.org/\\{@}

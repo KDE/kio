@@ -74,6 +74,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=et,ethicle
 Query=http://www.ethicle.com/search.php?q=\\{@}
 Query[ar]=http://www.ethicle.com/search.php?q=\\{@}
+Query[ast]=http://www.ethicle.com/search.php?q=\\{@}
 Query[bg]=http://www.ethicle.com/search.php?q=\\{@}
 Query[bn]=http://www.ethicle.com/search.php?q=\\{@}
 Query[bs]=http://www.ethicle.com/search.php?q=\\{@}

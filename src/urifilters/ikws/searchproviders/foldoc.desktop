@@ -92,6 +92,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=fd,foldoc
 Query=http://foldoc.org/\\{@}
 Query[ar]=http://foldoc.org/\\{@}
+Query[ast]=http://foldoc.org/\\{@}
 Query[bg]=http://foldoc.org/\\{@}
 Query[bs]=http://foldoc.org/\\{@}
 Query[ca]=http://foldoc.org/\\{@}

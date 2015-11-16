@@ -90,6 +90,7 @@ Name[zh_CN]=KDE Bug 数据库按 Bug 编号搜索
 Name[zh_TW]=KDE 臭蟲資料庫按錯誤編號搜索
 Query=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[ar]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
+Query[ast]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[bg]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[bn]=https://bugs.kde.org/show_bug.cgi?id=\\{@}
 Query[bs]=https://bugs.kde.org/show_bug.cgi?id=\\{@}

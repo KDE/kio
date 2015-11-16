@@ -4,6 +4,7 @@ Hidden=false
 Keys=duckduckgo,dd,dukgo
 Name=Duck Duck Go
 Name[ar]=دك دك جو
+Name[ast]=Duck Duck Go 
 Name[bg]=Duck Duck Go
 Name[bn]=ডাক ডাক গো
 Name[bs]=Dak dak go
@@ -71,6 +72,7 @@ Name[zh_CN]=Duck Duck Go
 Name[zh_TW]=Duck Duck Go
 Query=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[ar]=https://duckduckgo.com/?q=\\{@}&t=kde
+Query[ast]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[bg]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[bs]=httpa://duckduckgo.com/?q=\\{@}&t=kde
 Query[ca]=https://duckduckgo.com/?q=\\{@}&t=kde

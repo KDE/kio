@@ -99,6 +99,7 @@ Name[zh_CN]=缓存
 Name[zh_TW]=快取
 
 Comment=Configure web cache settings
+Comment[ast]=Configura los axustes de la caché web
 Comment[ca]=Configura les opcions per a la memòria cau del web
 Comment[ca@valencia]=Configura les opcions per a la memòria cau del web
 Comment[cs]=Nastavení mezipaměti pro webové stránky

@@ -92,6 +92,7 @@ Query=http://packages.debian.org/\\{@}
 Query[af]=http://packages.debian.org/\\{@}
 Query[ar]=http://packages.debian.org/\\{@}
 Query[as]=http://packages.debian.org/\\{@}
+Query[ast]=http://packages.debian.org/\\{@}
 Query[be]=http://packages.debian.org/\\{@}
 Query[be@latin]=http://packages.debian.org/\\{@}
 Query[bg]=http://packages.debian.org/\\{@}

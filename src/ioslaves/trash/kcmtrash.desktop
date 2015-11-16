@@ -1,4 +1,5 @@
 Name=Trash
+Name[ast]=Papelera
 Name[be@latin]=Śmietnica
 Name[bg]=Кошче
 Name[bn]=আবর্জনা
@@ -78,6 +79,7 @@ Name[x-test]=xxTrashxx
 Name[zh_CN]=回收站
 Name[zh_TW]=資源回收筒
 Comment=This service allows configuration of the trash.
+Comment[ast]=Esti serviciu permite la configuración de la papelera.
 Comment[be@latin]=Hetaja słužba dazvalaje naładzić śmietnicu.
 Comment[bg]=Това ви позволява да праите настройка на кошчето.
 Comment[bn]=এই পরিসেবাটি আবর্জনা কনফিগার করতে দেয়।
@@ -166,6 +168,7 @@ X-KDE-PluginKeyword=trash
 X-KDE-ParentApp=kcontrol
 
 Name=Trash
+Name[ast]=Papelera
 Name[be@latin]=Śmietnica
 Name[bg]=Кошче
 Name[bn]=আবর্জনা

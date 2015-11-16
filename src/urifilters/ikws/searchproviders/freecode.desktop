@@ -55,6 +55,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=fc,freecode
 Query=http://freecode.com/search?q=\\{@}
 Query[ar]=http://freecode.com/search?q=\\{@}
+Query[ast]=http://freecode.com/search?q=\\{@}
 Query[bg]=http://freecode.com/search?q=\\{@}
 Query[bs]=http://freecode.com/search?q=\\{@}
 Query[ca]=http://freecode.com/search?q=\\{@}

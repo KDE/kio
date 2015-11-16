@@ -92,6 +92,7 @@ Query=http://directory.fsf.org/search/?query=\\{@}
 Query[af]=http://directory.fsf.org/search/?query=\\{@}
 Query[ar]=http://directory.fsf.org/search/?query=\\{@}
 Query[as]=http://directory.fsf.org/search/?query=\\{@}
+Query[ast]=http://directory.fsf.org/search/fsd-search.py?q=\\{@} 
 Query[be@latin]=http://directory.fsf.org/search/?query=\\{@}
 Query[bg]=http://directory.fsf.org/search/?query=\\{@}
 Query[bn]=http://directory.fsf.org/search/?query=\\{@}

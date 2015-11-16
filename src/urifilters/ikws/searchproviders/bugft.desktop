@@ -91,6 +91,7 @@ Name[zh_CN]=KDE Bug 数据库全文检索
 Name[zh_TW]=KDE 臭蟲資料庫全文檢索
 Query=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ar]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Query[ast]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[bg]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[bs]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ca]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

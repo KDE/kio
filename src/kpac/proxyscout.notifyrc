@@ -287,6 +287,7 @@ Name[zh_CN]=脚本执行错误
 Name[zh_TW]=文稿執行錯誤
 Comment=There was an error executing the proxy configuration script
 Comment[ar]=خطأ في تنفيذ سكرِبت تضبيط الوسيط
+Comment[ast]=Hebo un fallu executando'l script de configuración del proxy
 Comment[ca]=S'ha produït un error en executar l'script de configuració de l'intermediari
 Comment[ca@valencia]=S'ha produït un error en executar l'script de configuració de l'intermediari
 Comment[cs]=Nastala chyba při spouštění konfiguračního skriptu proxy
