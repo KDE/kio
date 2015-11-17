@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Automatic proxy configuration", 
+        "Description[ast]": "Configuración de proxy automática", 
         "Description[ca@valencia]": "Configuració automàtica de l'intermediari", 
         "Description[ca]": "Configuració automàtica de l'intermediari", 
         "Description[cs]": "Automatické nastavení proxy", 
