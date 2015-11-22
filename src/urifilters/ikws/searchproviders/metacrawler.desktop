@@ -94,6 +94,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=mc,meta,metacrawler
 Query=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ar]=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
+Query[ast]=http://www.ethicle.com/search.php?q=\\{@}
 Query[bg]=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[bs]=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ca]=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}

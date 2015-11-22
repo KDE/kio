@@ -40,6 +40,7 @@ Name[x-test]=xxQwant Imagesxx
 Name[zh_CN]=Qwant 图像
 Name[zh_TW]=Qwant Images
 Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
+Query[ast]=http://www.facebook.com/search/?q=\\{@}&init=quick
 Query[ca]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[ca@valencia]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[cs]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images

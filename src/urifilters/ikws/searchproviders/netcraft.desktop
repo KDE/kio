@@ -4,6 +4,7 @@ Name=Netcraft
 Name[af]=Netcraft
 Name[ar]=Netcraft
 Name[as]=Netcraft
+Name[ast]=Netcraft
 Name[be]=Netcraft
 Name[be@latin]=Netcraft
 Name[bg]=Netcraft
@@ -95,6 +96,7 @@ Query=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[af]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ar]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[as]=http://uptime.netcraft.com/up/graph?site=\\{@}
+Query[ast]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[be]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[be@latin]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[bg]=http://uptime.netcraft.com/up/graph?site=\\{@}

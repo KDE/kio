@@ -94,6 +94,7 @@ Query=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[af]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ar]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[as]=http://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[ast]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[be]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[be@latin]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[bg]=http://www.wordreference.com/english/definition.asp?en=\\{@}

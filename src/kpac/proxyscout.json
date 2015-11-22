@@ -31,6 +31,7 @@
         "Description[x-test]": "xxAutomatic proxy configurationxx", 
         "Description[zh_CN]": "自动代理配置", 
         "Name": "Network Proxy Configuration", 
+        "Name[ast]": "Configuración de proxy de rede", 
         "Name[ca@valencia]": "Configuració del servidor intermediari de la xarxa", 
         "Name[ca]": "Configuració del servidor intermediari de la xarxa", 
         "Name[cs]": "Nastavení proxy sítě", 

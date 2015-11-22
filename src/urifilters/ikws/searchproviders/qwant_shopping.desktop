@@ -40,6 +40,7 @@ Name[x-test]=xxQwant Shoppingxx
 Name[zh_CN]=Qwant 购物
 Name[zh_TW]=Qwant Shopping
 Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
+Query[ast]=http://www.facebook.com/search/?q=\\{@}&init=quick
 Query[ca]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[ca@valencia]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
 Query[cs]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping

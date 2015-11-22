@@ -96,6 +96,7 @@ Query=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[af]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ar]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[as]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[ast]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[be]=http://raa.ruby-lang.org/search.rhtml?search=\\{@}
 Query[be@latin]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[bg]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

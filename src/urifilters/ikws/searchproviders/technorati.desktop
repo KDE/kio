@@ -93,6 +93,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=tr,technorati
 Query=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ar]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[ast]=http://technorati.com/cosmos/search.html?sourceid=kde-search&url=\\{@}
 Query[bg]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[bs]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ca]=http://technorati.com/search?return=sites&authority=high&q=\\{@}

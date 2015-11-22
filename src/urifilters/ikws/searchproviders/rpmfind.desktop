@@ -96,6 +96,7 @@ Query=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[af]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ar]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[as]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[ast]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[be]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[be@latin]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[bg]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
