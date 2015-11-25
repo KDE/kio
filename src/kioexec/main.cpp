@@ -37,6 +37,7 @@
 #include <KService>
 #include <KLocalizedString>
 #include <KAboutData>
+#include <KDBusService>
 
 #include <QCommandLineParser>
 #include <QCommandLineOption>
@@ -282,6 +283,7 @@ int main( int argc, char **argv )
     aboutData.addAuthor(i18n("Waldo Bastian"),QString(), QStringLiteral("bastian@kde.org"));
     aboutData.addAuthor(i18n("Oswald Buddenhagen"),QString(), QStringLiteral("ossi@kde.org"));
     KAboutData::setApplicationData(aboutData);
+    KDBusService service(KDBusService::Multiple);
 
     QCommandLineParser parser;
     parser.addHelpOption();
