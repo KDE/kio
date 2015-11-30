@@ -21,7 +21,7 @@
 #include "httpfilter.h"
 #include <kcompressiondevice.h>
 #include <kfilterbase.h>
-
+#include <KLocalizedString>
 #include <QDebug>
 
 #include <stdio.h>
@@ -191,7 +191,7 @@ HTTPFilterGZip::slotInput(const QByteArray &d)
         }
         case KFilterBase::Error:
             qDebug() << "Error from KGZipFilter";
-            emit error(tr("Receiving corrupt data."));
+            emit error(i18n("Receiving corrupt data."));
             m_finished = true; // exit this while loop
             break;
         }

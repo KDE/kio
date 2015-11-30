@@ -1,7 +1,6 @@
 find_package(Qt5Test REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 find_package(KF5Archive ${KF5_DEP_VERSION} REQUIRED)
-
 find_package(ZLIB)
 set_package_properties(ZLIB PROPERTIES DESCRIPTION "Support for gzip compressed files and data streams"
                        URL "http://www.zlib.net"
@@ -64,6 +63,6 @@ endif()
 
 ecm_add_test(httpfiltertest.cpp ${kioslave-http_SOURCE_DIR}/httpfilter.cpp
              TEST_NAME httpfiltertest
-             LINK_LIBRARIES Qt5::Test KF5::Archive ${ZLIB_LIBRARY})
+             LINK_LIBRARIES Qt5::Test KF5::I18n KF5::Archive ${ZLIB_LIBRARY})
 target_include_directories(httpfiltertest PRIVATE ${ZLIB_INCLUDE_DIRS})
 
