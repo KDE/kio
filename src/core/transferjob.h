@@ -212,7 +212,7 @@ private:
 };
 
 /**
- * Get (a.k.a. read).
+ * Get (means: read).
  * This is the job to use in order to "download" a file into memory.
  * The slave emits the data through the data() signal.
  *
@@ -236,7 +236,7 @@ private:
 KIOCORE_EXPORT TransferJob *get(const QUrl &url, LoadType reload = NoReload, JobFlags flags = DefaultFlags);
 
 /**
- * Put (a.k.a. write)
+ * Put (means: write)
  *
  * @param url Where to write data.
  * @param permissions May be -1. In this case no special permission mode is set.

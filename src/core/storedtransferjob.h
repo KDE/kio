@@ -75,7 +75,7 @@ private:
 };
 
 /**
- * Get (a.k.a. read), into a single QByteArray.
+ * Get (means: read), into a single QByteArray.
  * @see StoredTransferJob
  *
  * @param url the URL of the file
@@ -86,7 +86,7 @@ private:
 KIOCORE_EXPORT StoredTransferJob *storedGet(const QUrl &url, LoadType reload = NoReload, JobFlags flags = DefaultFlags);
 
 /**
- * Put (a.k.a. write) data from a QIODevice.
+ * Put (means: write) data from a QIODevice.
  * @see StoredTransferJob
  *
  * @param input The data to write, a device to read from. Must be open for reading.
@@ -102,7 +102,7 @@ KIOCORE_EXPORT StoredTransferJob *storedPut(QIODevice* input, const QUrl &url, i
         JobFlags flags = DefaultFlags);
 
 /**
- * Put (a.k.a. write) data from a single QByteArray.
+ * Put (means: write) data from a single QByteArray.
  * @see StoredTransferJob
  *
  * @param arr The data to write
@@ -116,7 +116,7 @@ KIOCORE_EXPORT StoredTransferJob *storedPut(const QByteArray &arr, const QUrl &u
         JobFlags flags = DefaultFlags);
 
 /**
- * HTTP POST (a.k.a. write) data from a single QByteArray.
+ * HTTP POST (means: write) data from a single QByteArray.
  * @see StoredTransferJob
  *
  * @param arr The data to write
@@ -128,7 +128,7 @@ KIOCORE_EXPORT StoredTransferJob *storedPut(const QByteArray &arr, const QUrl &u
 KIOCORE_EXPORT StoredTransferJob *storedHttpPost(const QByteArray &arr, const QUrl &url,
         JobFlags flags = DefaultFlags);
 /**
- * HTTP POST (a.k.a. write) data from the given IO device.
+ * HTTP POST (means: write) data from the given IO device.
  * @see StoredTransferJob
  *
  * @param device Device from which the encoded data to be posted is read. Must be open for reading.
