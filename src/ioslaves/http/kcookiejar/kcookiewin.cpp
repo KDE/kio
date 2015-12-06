@@ -99,27 +99,42 @@ KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList,
     txt += QLatin1String("</body></html>");
 
     QVBoxLayout *topLayout = new QVBoxLayout;
+    // This may look wrong, but it makes the dialogue automatically
+    // shrink when the details are shown and then hidden again.
+    topLayout->setSizeConstraint(QLayout::SetFixedSize);
     setLayout(topLayout);
 
     QFrame *vBox1 = new QFrame(this);
     topLayout->addWidget(vBox1);
 
     m_detailsButton = new QPushButton;
-    m_detailsButton->setText(i18n("See or modify the cookie information") + " >>");
+    m_detailsButton->setText(i18n("Details") + " >>");
+    m_detailsButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-information")));
+#ifndef QT_NO_TOOLTIP
+    m_detailsButton->setToolTip(i18n("See or modify the cookie information"));
+#endif
     connect(m_detailsButton, SIGNAL(clicked()), this, SLOT(slotToggleDetails()));
 
     QPushButton *sessionOnlyButton = new QPushButton;
     sessionOnlyButton->setText(i18n("Accept for this &session"));
     sessionOnlyButton->setIcon(QIcon::fromTheme(QStringLiteral("chronometer")));
+#ifndef QT_NO_TOOLTIP
     sessionOnlyButton->setToolTip(i18n("Accept cookie(s) until the end of the current session"));
+#endif
     connect(sessionOnlyButton, SIGNAL(clicked()), this, SLOT(slotSessionOnlyClicked()));
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(this);
     buttonBox->addButton(m_detailsButton, QDialogButtonBox::ActionRole);
     buttonBox->addButton(sessionOnlyButton, QDialogButtonBox::ActionRole);
+
     buttonBox->setStandardButtons(QDialogButtonBox::Yes | QDialogButtonBox::No);
-    buttonBox->button(QDialogButtonBox::Yes)->setText(i18n("&Accept"));
-    buttonBox->button(QDialogButtonBox::Yes)->setText(i18n("&Reject"));
+    QPushButton *but = buttonBox->button(QDialogButtonBox::Yes);
+    but->setText(i18n("&Accept"));
+    connect(but, SIGNAL(clicked(bool)), SLOT(accept()));
+    but = buttonBox->button(QDialogButtonBox::No);
+    but->setText(i18n("&Reject"));
+    connect(but, SIGNAL(clicked(bool)), SLOT(reject()));
+
     topLayout->addWidget(buttonBox);
 
     QVBoxLayout *vBox1Layout = new QVBoxLayout(vBox1);
@@ -209,7 +224,7 @@ KCookieAdvice KCookieWin::advice(KCookieJar *cookiejar, const KHttpCookie &cooki
 {
     const int result = exec();
 
-    cookiejar->setShowCookieDetails(m_detailView->isVisible());
+    cookiejar->setShowCookieDetails(!m_detailView->isHidden());
 
     KCookieAdvice advice;
 
@@ -360,9 +375,9 @@ void KCookieWin::slotSessionOnlyClicked()
 
 void KCookieWin::slotToggleDetails()
 {
-    const QString baseText = i18n("See or modify the cookie information");
+    const QString baseText = i18n("Details");
 
-    if (m_detailView->isVisible()) {
+    if (!m_detailView->isHidden()) {
         m_detailsButton->setText(baseText + " >>");
         m_detailView->hide();
     } else {
