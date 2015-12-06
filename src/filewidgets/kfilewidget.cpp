@@ -1446,9 +1446,9 @@ void KFileWidgetPrivate::_k_slotFilterChanged()
         ops->setNameFilter('*' + filter.replace(' ', '*') + '*');
     }
 
-    ops->updateDir();
-
     updateAutoSelectExtension();
+
+    ops->updateDir();
 
     emit q->filterChanged(filter);
 }
