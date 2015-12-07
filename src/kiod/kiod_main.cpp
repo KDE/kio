@@ -33,23 +33,24 @@
 Q_DECLARE_LOGGING_CATEGORY(KIOD_CATEGORY)
 Q_LOGGING_CATEGORY(KIOD_CATEGORY, "kf5.kiod")
 
-class KIOD
+class KIOD : public QObject
 {
-public:
-    KDEDModule *loadModule(const QString &name);
+    Q_OBJECT
+public Q_SLOTS:
+    void loadModule(const QString &name);
 
 private:
     QHash<QString, KDEDModule *> m_modules;
 };
 
-KDEDModule *KIOD::loadModule(const QString &name)
+void KIOD::loadModule(const QString &name)
 {
     // Make sure this method is only called with valid module names.
     Q_ASSERT(name.indexOf('/') == -1);
 
     KDEDModule *module = m_modules.value(name, 0);
     if (module) {
-        return module;
+        return;
     }
 
     KPluginLoader loader("kf5/kiod/" + name);
@@ -59,12 +60,10 @@ KDEDModule *KIOD::loadModule(const QString &name)
     }
     if (!module) {
         qCWarning(KIOD_CATEGORY) << "Error loading plugin:" << loader.errorString();
-        return module;
+        return;
     }
     module->setModuleName(name); // makes it register to DBus
     m_modules.insert(name, module);
-
-    return module;
 }
 
 Q_GLOBAL_STATIC(KIOD, self)
@@ -79,11 +78,9 @@ static void messageFilter(const QDBusMessage &message)
         return;
     }
 
-    KDEDModule *module = self()->loadModule(name);
-    if (!module) {
-        qCWarning(KIOD_CATEGORY) << "Failed to load module for" << name;
-    }
-    Q_UNUSED(module);
+    // messageFilter runs in a secondary thread since Qt 5.6, so we use invokeMethod
+    // to load the module in the main thread
+    QMetaObject::invokeMethod(self(), "loadModule", Qt::QueuedConnection, Q_ARG(QString, name));
 }
 
 extern Q_DBUS_EXPORT void qDBusAddSpyHook(void (*)(const QDBusMessage&));
@@ -111,8 +108,10 @@ int main(int argc, char *argv[])
         }
     }
 
+    self(); // create it in this thread
     qDBusAddSpyHook(messageFilter);
 
     return app.exec();
 }
 
+#include "kiod_main.moc"
