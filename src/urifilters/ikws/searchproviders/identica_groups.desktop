@@ -72,6 +72,7 @@ Name[zh_CN]=Identi.ca 群组
 Name[zh_TW]=Identi.ca Groups
 Query=https://identi.ca/search/group?q=\\{@}
 Query[ar]=https://identi.ca/search/group?q=\\{@}
+Query[ast]=http://identi.ca/search/group?q=\\{@}
 Query[bg]=https://identi.ca/search/group?q=\\{@}
 Query[bs]=https://identi.ca/search/group?q=\\{@}
 Query[ca]=https://identi.ca/search/group?q=\\{@}

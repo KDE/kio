@@ -95,6 +95,7 @@ Query=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[af]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[ar]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[as]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
+Query[ast]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[be]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[be@latin]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[bg]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}

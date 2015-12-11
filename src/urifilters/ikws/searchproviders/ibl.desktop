@@ -91,6 +91,7 @@ Query=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[af]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[ar]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[as]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
+Query[ast]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[be]=http://www.feedster.com/search.php?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[be@latin]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[bg]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
