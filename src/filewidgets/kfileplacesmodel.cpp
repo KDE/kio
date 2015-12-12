@@ -133,7 +133,7 @@ KFilePlacesModel::KFilePlacesModel(QObject *parent)
         d->bookmarkManager->saveAs(file);
     }
 
-    QString predicate(QStringLiteral("[[[[ StorageVolume.ignored == false AND [ StorageVolume.usage == 'FileSystem' OR StorageVolume.usage == 'Encrypted' ]]"
+    QString predicate(QString::fromLatin1("[[[[ StorageVolume.ignored == false AND [ StorageVolume.usage == 'FileSystem' OR StorageVolume.usage == 'Encrypted' ]]"
                       " OR "
                       "[ IS StorageAccess AND StorageDrive.driveType == 'Floppy' ]]"
                       " OR "
