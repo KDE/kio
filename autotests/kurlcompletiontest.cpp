@@ -79,7 +79,14 @@ void KUrlCompletionTest::setup()
     QVERIFY(ok);
     f2.close();
 
+    QFile f3(m_dir + "/file.");
+    ok = f3.open(QIODevice::WriteOnly);
+    QVERIFY(ok);
+    f3.close();
+
     QDir().mkdir(m_dir + "/file_subdir");
+    QDir().mkdir(m_dir + "/.1_hidden_file_subdir");
+    QDir().mkdir(m_dir + "/.2_hidden_file_subdir");
 
     m_completionEmptyCwd = new KUrlCompletion;
     m_completionEmptyCwd->setDir(QUrl());
@@ -110,9 +117,10 @@ void KUrlCompletionTest::testLocalRelativePath()
     waitForCompletion();
     QStringList comp1all = m_completion->allMatches();
     qDebug() << comp1all;
-    QCOMPARE(comp1all.count(), 3);
+    QCOMPARE(comp1all.count(), 4);
     QVERIFY(comp1all.contains("file1"));
     QVERIFY(comp1all.contains("file#a"));
+    QVERIFY(comp1all.contains("file."));
     QVERIFY(comp1all.contains("file_subdir/"));
     QString comp1 = m_completion->replacedPath(QStringLiteral("file1")); // like KUrlRequester does
     QCOMPARE(comp1, QString("file1"));
@@ -134,6 +142,32 @@ void KUrlCompletionTest::testLocalRelativePath()
     waitForCompletion();
     QStringList compEmpty = m_completion->allMatches();
     QCOMPARE(compEmpty.count(), 0);
+
+    // Completion with '.', should find all hidden folders
+    // This is broken in Qt 5.2 to 5.5 due to aba336c2b4a in qtbase,
+    // fixed in https://codereview.qt-project.org/143134.
+#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 1)
+    m_completion->makeCompletion(".");
+    waitForCompletion();
+    const auto compAllHidden = m_completion->allMatches();
+    QCOMPARE(compAllHidden.count(), 2);
+    QVERIFY(compAllHidden.contains(".1_hidden_file_subdir/"));
+    QVERIFY(compAllHidden.contains(".2_hidden_file_subdir/"));
+#endif
+
+    // Completion with '.2', should find only hidden folders starting with '2'
+    m_completion->makeCompletion(".2");
+    waitForCompletion();
+    const auto compHiddenStartingWith2 = m_completion->allMatches();
+    QCOMPARE(compHiddenStartingWith2.count(), 1);
+    QVERIFY(compHiddenStartingWith2.contains(".2_hidden_file_subdir/"));
+
+    // Completion with 'file.', should only find one file
+    m_completion->makeCompletion("file.");
+    waitForCompletion();
+    const auto compFileEndingWithDot = m_completion->allMatches();
+    QCOMPARE(compFileEndingWithDot.count(), 1);
+    QVERIFY(compFileEndingWithDot.contains("file."));
 }
 
 void KUrlCompletionTest::testLocalAbsolutePath()
@@ -149,6 +183,30 @@ void KUrlCompletionTest::testLocalAbsolutePath()
     QCOMPARE(comp, QString(m_dir + "file#a"));
     comp = m_completion->replacedPath(comp); // like KUrlRequester does
     QCOMPARE(comp, QString(m_dir + "file#a"));
+
+    // Completion with '.', should find all hidden folders
+#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 1)
+    m_completion->makeCompletion(m_dir + ".");
+    waitForCompletion();
+    const auto compAllHidden = m_completion->allMatches();
+    QCOMPARE(compAllHidden.count(), 2);
+    QVERIFY(compAllHidden.contains(m_dir + ".1_hidden_file_subdir/"));
+    QVERIFY(compAllHidden.contains(m_dir + ".2_hidden_file_subdir/"));
+#endif
+
+    // Completion with '.2', should find only hidden folders starting with '2'
+    m_completion->makeCompletion(m_dir + ".2");
+    waitForCompletion();
+    const auto compHiddenStartingWith2 = m_completion->allMatches();
+    QCOMPARE(compHiddenStartingWith2.count(), 1);
+    QVERIFY(compHiddenStartingWith2.contains(m_dir + ".2_hidden_file_subdir/"));
+
+    // Completion with 'file.', should only find one file
+    m_completion->makeCompletion(m_dir + "file.");
+    waitForCompletion();
+    const auto compFileEndingWithDot = m_completion->allMatches();
+    QCOMPARE(compFileEndingWithDot.count(), 1);
+    QVERIFY(compFileEndingWithDot.contains(m_dir + "file."));
 }
 
 void KUrlCompletionTest::testLocalURL()
@@ -160,9 +218,11 @@ void KUrlCompletionTest::testLocalURL()
     waitForCompletion();
     QStringList comp1all = m_completion->allMatches();
     qDebug() << comp1all;
-    QCOMPARE(comp1all.count(), 3);
+    QCOMPARE(comp1all.count(), 4);
     qDebug() << "Looking for" << m_dirURL.toString() + "file1";
     QVERIFY(comp1all.contains(m_dirURL.toString() + "file1"));
+    qDebug() << "Looking for" << m_dirURL.toString() + "file.";
+    QVERIFY(comp1all.contains(m_dirURL.toString() + "file."));
     QVERIFY(comp1all.contains(m_dirURL.toString() + "file_subdir/"));
     QString filehash = m_dirURL.toString() + "file%23a";
     qDebug() << "Looking for" << filehash;
@@ -186,6 +246,35 @@ void KUrlCompletionTest::testLocalURL()
     m_completion->makeCompletion(url.toString());
     waitForCompletion();
     QVERIFY(m_completion->allMatches().isEmpty());
+
+    // Completion with '.', should find all hidden folders
+#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 1)
+    qDebug() << "makeCompletion(" << (m_dirURL.toString() + ".") << ")";
+    m_completion->makeCompletion(m_dirURL.toString() + ".");
+    waitForCompletion();
+    const auto compAllHidden = m_completion->allMatches();
+    QCOMPARE(compAllHidden.count(), 2);
+    QVERIFY(compAllHidden.contains(m_dirURL.toString() + ".1_hidden_file_subdir/"));
+    QVERIFY(compAllHidden.contains(m_dirURL.toString() + ".2_hidden_file_subdir/"));
+#endif
+
+    // Completion with '.2', should find only hidden folders starting with '2'
+    url = QUrl::fromLocalFile(m_dirURL.toLocalFile() + ".2");
+    qDebug() << "makeCompletion(" << url << ")";
+    m_completion->makeCompletion(url.toString());
+    waitForCompletion();
+    const auto compHiddenStartingWith2 = m_completion->allMatches();
+    QCOMPARE(compHiddenStartingWith2.count(), 1);
+    QVERIFY(compHiddenStartingWith2.contains(m_dirURL.toString() + ".2_hidden_file_subdir/"));
+
+    // Completion with 'file.', should only find one file
+    url = QUrl::fromLocalFile(m_dirURL.toLocalFile() + "file.");
+    qDebug() << "makeCompletion(" << url << ")";
+    m_completion->makeCompletion(url.toString());
+    waitForCompletion();
+    const auto compFileEndingWithDot = m_completion->allMatches();
+    QCOMPARE(compFileEndingWithDot.count(), 1);
+    QVERIFY(compFileEndingWithDot.contains(m_dirURL.toString() + "file."));
 }
 
 void KUrlCompletionTest::testEmptyCwd()

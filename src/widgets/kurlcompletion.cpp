@@ -945,16 +945,9 @@ bool KUrlCompletionPrivate::fileCompletion(const KUrlCompletionPrivate::MyURL &u
 
     QString directory = unescape(url.dir());
 
-    if (url.url().length() && url.url().at(0) == QLatin1Char('.')) {
-        if (url.url().length() == 1) {
-            *pMatch = (q->completionMode() == KCompletion::CompletionMan) ?
-                      QStringLiteral(".") :
-                      QStringLiteral("..");
-            return true;
-        } else if (url.url().length() == 2 && url.url().at(1) == QLatin1Char('.')) {
-            *pMatch = QStringLiteral("..");
-            return true;
-        }
+    if (url.url() == QLatin1String("..")) {
+        *pMatch = QStringLiteral("..");
+        return true;
     }
 
     //qDebug() << "fileCompletion" << url << "dir=" << dir;
