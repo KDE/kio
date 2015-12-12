@@ -133,16 +133,15 @@ void KUrlComboBoxPrivate::init(KUrlComboBox::Mode mode)
 QStringList KUrlComboBox::urls() const
 {
     // qDebug() << "::urls()";
-    //const QLatin1Sting fileProt("file:");
     QStringList list;
     QString url;
     for (int i = d->defaultList.count(); i < count(); i++) {
         url = itemText(i);
         if (!url.isEmpty()) {
-            //if ( url.at(0) == '/' )
-            //    list.append( url.prepend( fileProt ) );
-            //else
-            list.append(url);
+            if (QDir::isAbsolutePath(url))
+                list.append(QUrl::fromLocalFile(url).toString());
+            else
+                list.append(url);
         }
     }
 
