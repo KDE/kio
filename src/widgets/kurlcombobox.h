@@ -185,8 +185,7 @@ public:
 Q_SIGNALS:
     /**
      * Emitted when an item was clicked at.
-     * @param url is the url of the now current item. If it is a local url,
-     * it won't have a protocol (file:/), otherwise it will.
+     * @param url is the url of the now current item.
      */
     void urlActivated(const QUrl &url);
 
