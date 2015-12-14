@@ -147,13 +147,13 @@ public:
     void deleteButtons();
 
     /**
-     * Retrieves the place path for the current path.
+     * Retrieves the place url for the current url.
      * E. g. for the path "fish://root@192.168.0.2/var/lib" the string
      * "fish://root@192.168.0.2" will be returned, which leads to the
      * navigation indication 'Custom Path > var > lib". For e. g.
      * "settings:///System/" the path "settings://" will be returned.
      */
-    QString retrievePlacePath() const;
+    QUrl retrievePlaceUrl() const;
 
     /**
      * Returns true, if the MIME type of the path represents a
@@ -358,14 +358,18 @@ void KUrlNavigator::Private::openPathSelectorMenu()
     QPointer<QMenu> popup = new QMenu(q);
     popup->setLayoutDirection(Qt::LeftToRight);
 
-    const QString placePath = retrievePlacePath();
-    int idx = placePath.count(QLatin1Char('/')); // idx points to the first directory
+    const QUrl placeUrl = retrievePlaceUrl();
+    int idx = placeUrl.path().count(QLatin1Char('/')); // idx points to the first directory
     // after the place path
 
-    const QString path = m_history[m_historyIndex].url.toDisplayString(QUrl::PreferLocalFile);
+    const QString path = m_history[m_historyIndex].url.path();
     QString dirName = path.section(QLatin1Char('/'), idx, idx);
     if (dirName.isEmpty()) {
-        dirName = QLatin1Char('/');
+        if (placeUrl.isLocalFile()) {
+            dirName = QLatin1String("/");
+        } else {
+            dirName = placeUrl.toDisplayString();
+        }
     }
     do {
         const QString text = spacer + dirName;
@@ -540,7 +544,10 @@ void KUrlNavigator::Private::updateContent()
             placeUrl = m_placesSelector->selectedPlaceUrl();
         }
 
-        QString placePath = placeUrl.isValid() ? placeUrl.toDisplayString(QUrl::PreferLocalFile) : retrievePlacePath();
+        if (!placeUrl.isValid()) {
+            placeUrl = retrievePlaceUrl();
+        }
+        QString placePath = placeUrl.path();
         removeTrailingSlash(placePath);
 
         const int startIndex = placePath.count('/');
@@ -555,7 +562,7 @@ void KUrlNavigator::Private::updateButtons(int startIndex)
         return;
     }
 
-    const QString path = currentUrl.toDisplayString(QUrl::PreferLocalFile);
+    const QString path = currentUrl.path();
 
     bool createButton = false;
     const int oldButtonCount = m_navButtons.count();
@@ -771,21 +778,11 @@ void KUrlNavigator::Private::deleteButtons()
     m_navButtons.clear();
 }
 
-QString KUrlNavigator::Private::retrievePlacePath() const
+QUrl KUrlNavigator::Private::retrievePlaceUrl() const
 {
-    const QUrl currentUrl = q->locationUrl();
-    const QString path = currentUrl.toDisplayString(QUrl::PreferLocalFile);
-    int idx = path.indexOf(QLatin1String("///"));
-    if (idx >= 0) {
-        idx += 3;
-    } else {
-        idx = path.indexOf(QLatin1String("//"));
-        idx = path.indexOf(QLatin1Char('/'), (idx < 0) ? 0 : idx + 2);
-    }
-
-    QString placePath = (idx < 0) ? path : path.left(idx);
-    removeTrailingSlash(placePath);
-    return placePath;
+    QUrl currentUrl = q->locationUrl();
+    currentUrl.setPath(QString());
+    return currentUrl;
 }
 
 bool KUrlNavigator::Private::isCompressedPath(const QUrl &url) const
