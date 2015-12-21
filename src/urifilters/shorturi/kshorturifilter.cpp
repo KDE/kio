@@ -25,6 +25,7 @@
 
 #include <QtCore/QDir>
 #include <QtDBus/QtDBus>
+#include <QRegularExpression>
 #include <qplatformdefs.h>
 
 #include <klocalizedstring.h>
@@ -54,7 +55,7 @@ QLoggingCategory category("org.kde.kurifilter-shorturi");
 
 typedef QMap<QString,QString> EntryMap;
 
-static QRegExp sEnvVarExp (QL1S("\\$[a-zA-Z_][a-zA-Z0-9_]*"));
+static QRegularExpression sEnvVarExp (QL1S("\\$[a-zA-Z_][a-zA-Z0-9_]*"));
 
 static bool isPotentialShortURL(const QString& cmd)
 {
@@ -291,11 +292,12 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   }
   else if ( path[0] == '$' ) {
     // Environment variable expansion.
-    if ( sEnvVarExp.indexIn( path ) == 0 )
+    auto match = sEnvVarExp.match(path);
+    if ( match.hasMatch() )
     {
-      QByteArray exp = qgetenv( path.mid( 1, sEnvVarExp.matchedLength() - 1 ).toLocal8Bit().data() );
+      QByteArray exp = qgetenv( path.mid( 1, match.capturedLength() - 1 ).toLocal8Bit().data() );
       if (!exp.isEmpty()) {
-        path.replace( 0, sEnvVarExp.matchedLength(), QFile::decodeName(exp) );
+        path.replace( 0, match.capturedLength(), QFile::decodeName(exp) );
         expanded = true;
       }
     }
