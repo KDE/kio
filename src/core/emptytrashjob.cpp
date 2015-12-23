@@ -55,6 +55,7 @@ void EmptyTrashJob::slotFinished()
 {
     //KNotification::event("Trash: emptied", QString(), QPixmap(), 0, KNotification::DefaultEvent);
     org::kde::KDirNotify::emitFilesAdded(QUrl(QStringLiteral("trash:/")));
+    SimpleJob::slotFinished();
 }
 
 KIO::EmptyTrashJob *KIO::emptyTrash()
