@@ -140,8 +140,7 @@ void HelpProtocol::unicodeError(const QString &t)
     QString encoding = QTextCodec::codecForLocale()->name();
 #endif
     data(fromUnicode(QStringLiteral(
-                         "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=%1\"></head>\n"
-                         "%2</html>").arg(encoding, t.toHtmlEscaped())));
+                         "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=%1\"></head>\n%2</html>").arg(encoding, t.toHtmlEscaped())));
 
 }
 

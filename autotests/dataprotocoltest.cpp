@@ -206,7 +206,7 @@ void DataProtocolTest::runAllTests_data()
 
     QTest::newRow("arbitrary keys, reserved names as keys, whitespace test III") <<
             textplain <<
-            QStringLiteral("base64=nospace\n"
+            QString::fromLatin1("base64=nospace\n"
                                   "key=onespaceinner\n"
                                   "key2=onespaceouter\n"
                                   "charset=utf8\n"
@@ -218,8 +218,7 @@ void DataProtocolTest::runAllTests_data()
 
     QTest::newRow("string literal with escaped chars, testing delimiters within string") <<
             textplain <<
-            QStringLiteral("fortune-cookie=Master Leep say: \"Rabbit is humble, Rabbit is gentle; follow the Rabbit\"\n"
-                                  "charset=us-ascii") <<
+            QStringLiteral("fortune-cookie=Master Leep say: \"Rabbit is humble, Rabbit is gentle; follow the Rabbit\"\ncharset=us-ascii") <<
             QByteArray("(C) 1997 Shadow Warrior ;-)") <<
             QByteArray("data:;fortune-cookie=\"Master Leep say: \\\"Rabbit is humble, "
                        "Rabbit is gentle; follow the Rabbit\\\"\",(C) 1997 Shadow Warrior "
@@ -316,8 +315,7 @@ void DataProtocolTest::runAllTests_data()
 
     QTest::newRow("greenbytes-ext-simple") <<
                                            QByteArray("image/svg+xml") <<
-                                           QStringLiteral("foo=bar\n"
-                                                   "charset=us-ascii") <<
+                                           QStringLiteral("foo=bar\ncharset=us-ascii") <<
                                            QByteArray("<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\">\n"
                                                    "  <circle cx=\"100\" cy=\"100\" r=\"25\" stroke=\"black\" stroke-width=\"1\" fill=\"green\"/>\n"
                                                    "</svg>\n") <<
@@ -327,8 +325,7 @@ void DataProtocolTest::runAllTests_data()
 
     QTest::newRow("greenbytes-ext-simple-qs") <<
             QByteArray("image/svg+xml") <<
-            QStringLiteral("foo=bar,bar\n"
-                                  "charset=us-ascii") <<
+            QStringLiteral("foo=bar,bar\ncharset=us-ascii") <<
             QByteArray("<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\">\n"
                        "  <circle cx=\"100\" cy=\"100\" r=\"25\" stroke=\"black\" stroke-width=\"1\" fill=\"green\"/>\n"
                        "</svg>\n") <<

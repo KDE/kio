@@ -362,11 +362,11 @@ KSambaShareData::UserShareError KSambaSharePrivate::remove(const KSambaShareData
 
 bool KSambaSharePrivate::sync()
 {
-    const QRegExp headerRx(QStringLiteral("^\\s*\\["
+    const QRegExp headerRx(QString::fromLatin1("^\\s*\\["
                                          "([^%<>*\?|/\\+=;:\",]+)"
                                          "\\]"));
 
-    const QRegExp OptValRx(QStringLiteral("^\\s*([\\w\\d\\s]+)"
+    const QRegExp OptValRx(QString::fromLatin1("^\\s*([\\w\\d\\s]+)"
                                          "="
                                          "(.*)$"));
 

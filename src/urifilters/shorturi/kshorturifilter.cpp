@@ -139,9 +139,11 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   }
 
   // Replicate what KUrl(cmd) did in KDE4. This could later be folded into the checks further down...
-  QUrl url(cmd);
+  QUrl url;
   if (QDir::isAbsolutePath(cmd)) {
     url = QUrl::fromLocalFile(cmd);
+  } else {
+    url.setUrl(cmd);
   }
 
   // WORKAROUND: Allow the use of '@' in the username component of a URL since
@@ -153,7 +155,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
     QString encodedCmd = QUrl::toPercentEncoding(cmd.left(lastIndex), ":/");
     encodedCmd += cmd.midRef(lastIndex);
     cmd = encodedCmd;
-    url = QUrl(encodedCmd);
+    url.setUrl(encodedCmd);
   }
 
   const bool isMalformed = !url.isValid();
@@ -222,7 +224,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   QString query;
   QString nameFilter;
 
-  if (QUrl(cmd).isRelative() && QDir::isRelativePath(cmd)) {
+  if (QDir::isRelativePath(cmd) && QUrl(cmd).isRelative()) {
      path = cmd;
      //qCDebug(category) << "path=cmd=" << path;
   } else {

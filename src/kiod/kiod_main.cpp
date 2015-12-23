@@ -87,6 +87,8 @@ extern Q_DBUS_EXPORT void qDBusAddSpyHook(void (*)(const QDBusMessage&));
 
 int main(int argc, char *argv[])
 {
+    qunsetenv("SESSION_MANAGER"); // disable session management
+
     QApplication app(argc, argv); // GUI needed for kpasswdserver's dialogs
     app.setApplicationName(QStringLiteral("kiod5"));
     app.setOrganizationDomain(QStringLiteral("kde.org"));

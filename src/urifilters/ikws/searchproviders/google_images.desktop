@@ -4,6 +4,7 @@ Name=Google Image Search
 Name[af]=Google Beeld Soektog
 Name[ar]=بحث الصور عبر جوجل
 Name[as]=Google ছবিৰৰ অনুনসন্ধান
+Name[ast]=Gueta d'imáxenes de Google
 Name[be]=Пошук відарысаў Google
 Name[be@latin]=Pošuk vyjavaŭ „Google”
 Name[bg]=Търсене на изображения в Google
@@ -95,6 +96,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=ggi,images
 Query=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ar]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[ast]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[bg]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[bs]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ca]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
