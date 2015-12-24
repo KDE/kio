@@ -66,6 +66,10 @@ public:
         m_preview()
     {
     }
+    virtual ~KDirModelNode()
+    {
+        // Required, code will delete ptrs to this or a subclass.
+    }
     // m_item is KFileItem() for the root item
     const KFileItem &item() const
     {
@@ -111,7 +115,7 @@ public:
           m_childCount(KDirModel::ChildCountUnknown),
           m_populated(false)
     {}
-    ~KDirModelDirNode()
+    virtual ~KDirModelDirNode() Q_DECL_OVERRIDE
     {
         qDeleteAll(m_childNodes);
     }
