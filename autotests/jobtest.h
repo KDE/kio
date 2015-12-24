@@ -58,6 +58,7 @@ private Q_SLOTS:
     void directorySizeError();
     void moveFileToSamePartition();
     void moveDirectoryToSamePartition();
+    void moveDirectoryIntoItself();
     void moveFileToOtherPartition();
     void moveSymlinkToOtherPartition();
     void moveDirectoryToOtherPartition();

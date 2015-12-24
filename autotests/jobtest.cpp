@@ -636,6 +636,21 @@ void JobTest::moveDirectoryToSamePartition()
     moveLocalDirectory(src, dest);
 }
 
+void JobTest::moveDirectoryIntoItself()
+{
+    qDebug();
+    const QString src = homeTmpDir() + "dirFromHome";
+    const QString dest = src + "/foo";
+    createTestDirectory(src);
+    QVERIFY(QFile::exists(src));
+    QUrl u = QUrl::fromLocalFile(src);
+    QUrl d = QUrl::fromLocalFile(dest);
+    KIO::CopyJob *job = KIO::move(u, d);
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), (int)KIO::ERR_CANNOT_MOVE_INTO_ITSELF);
+    QCOMPARE(job->errorString(), i18n("A folder cannot be moved into itself"));
+}
+
 void JobTest::moveFileToOtherPartition()
 {
     qDebug();

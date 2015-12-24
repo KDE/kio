@@ -236,6 +236,9 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
     case KIO::ERR_DROP_ON_ITSELF:
         result = i18n("A file or folder cannot be dropped onto itself");
         break;
+    case KIO::ERR_CANNOT_MOVE_INTO_ITSELF:
+        result = i18n("A folder cannot be moved into itself");
+        break;
     default:
         result = i18n("Unknown error code %1\n%2\nPlease send a full bug report at http://bugs.kde.org.",  errorCode,  errorText);
         break;
@@ -1033,6 +1036,13 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
     case KIO::ERR_SLAVE_DEFINED:
         errorName.clear();
         description = errorText;
+        break;
+
+    case KIO::ERR_CANNOT_MOVE_INTO_ITSELF:
+        errorName = i18n("Folder moved into itself");
+        description = i18n("The operation could not be completed because the "
+                           "source can not be moved into itself.");
+        solutions << i18n("Move the item into a different folder.");
         break;
 
     default:

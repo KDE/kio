@@ -299,6 +299,16 @@ QUrl CopyJob::destUrl() const
 void CopyJobPrivate::slotStart()
 {
     Q_Q(CopyJob);
+    if (m_mode == CopyJob::CopyMode::Move) {
+        Q_FOREACH (const QUrl &url, m_srcList) {
+            if (m_dest.scheme() == url.scheme() && m_dest.host() == url.host() &&
+                m_dest.path().startsWith(url.path())) {
+                q->setError(KIO::ERR_CANNOT_MOVE_INTO_ITSELF);
+                q->emitResult();
+                return;
+            }
+        }
+    }
     /**
        We call the functions directly instead of using signals.
        Calling a function via a signal takes approx. 65 times the time
