@@ -8,7 +8,6 @@
         "Description[da]": "Gemmer netværks-cookies", 
         "Description[de]": "Speichert Netzwerk-Cookies", 
         "Description[el]": "Αποθηκεύει δικτυακά cookies", 
-        "Description[en_GB]": "Stores network cookies", 
         "Description[es]": "Guarda las cookies de la red", 
         "Description[fi]": "Säilyttää verkkoevästeitä", 
         "Description[gd]": "Glèidhidh seo briosgaidean lìonraidh", 
@@ -35,11 +34,8 @@
         "Name[ast]": "Tarru de cookies", 
         "Name[ca@valencia]": "Repositori de les galetes", 
         "Name[ca]": "Repositori de les galetes", 
-        "Name[cs]": "Cookie Jar", 
         "Name[da]": "Cookie jar", 
         "Name[de]": "Cookie-Behälter", 
-        "Name[el]": "Cookie Jar", 
-        "Name[en_GB]": "Cookie Jar", 
         "Name[es]": "Tarro de las galletas", 
         "Name[fi]": "Evästeiden säilytys", 
         "Name[gd]": "Crogan bhriosgaidean", 
@@ -61,7 +57,6 @@
         "Name[sv]": "Kakburk", 
         "Name[uk]": "Глечик з куками", 
         "Name[x-test]": "xxCookie Jarxx", 
-        "Name[zh_CN]": "Cookie Jar", 
         "ServiceTypes": [
             "KDEDModule"
         ]
