@@ -593,7 +593,6 @@ QStringList KProtocolManager::proxiesForUrl(const QUrl &url)
         }
         break;
         case NoProxy:
-        default:
             break;
         }
     }
