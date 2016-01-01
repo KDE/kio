@@ -301,11 +301,15 @@ void CopyJobPrivate::slotStart()
     Q_Q(CopyJob);
     if (m_mode == CopyJob::CopyMode::Move) {
         Q_FOREACH (const QUrl &url, m_srcList) {
-            if (m_dest.scheme() == url.scheme() && m_dest.host() == url.host() &&
-                m_dest.path().startsWith(url.path())) {
-                q->setError(KIO::ERR_CANNOT_MOVE_INTO_ITSELF);
-                q->emitResult();
-                return;
+            if (m_dest.scheme() == url.scheme() && m_dest.host() == url.host()) {
+                QString srcPath = url.path();
+                if (!srcPath.endsWith(QLatin1Char('/')))
+                    srcPath += QLatin1Char('/');
+                if (m_dest.path().startsWith(srcPath)) {
+                    q->setError(KIO::ERR_CANNOT_MOVE_INTO_ITSELF);
+                    q->emitResult();
+                    return;
+                }
             }
         }
     }

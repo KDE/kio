@@ -608,7 +608,7 @@ void JobTest::moveLocalDirectory(const QString &src, const QString &dest)
     job->setUiDelegate(0);
     job->setUiDelegateExtension(0);
     bool ok = job->exec();
-    QVERIFY(ok);
+    QVERIFY2(ok, qPrintable(job->errorString()));
     QVERIFY(QFile::exists(dest));
     QVERIFY(QFileInfo(dest).isDir());
     QVERIFY(QFileInfo(dest + "/testfile").isFile());
@@ -649,6 +649,7 @@ void JobTest::moveDirectoryIntoItself()
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), (int)KIO::ERR_CANNOT_MOVE_INTO_ITSELF);
     QCOMPARE(job->errorString(), i18n("A folder cannot be moved into itself"));
+    QDir(dest).removeRecursively();
 }
 
 void JobTest::moveFileToOtherPartition()
