@@ -1763,18 +1763,16 @@ bool Ftp::ftpReadDir(FtpEntry &de)
             // Parsing the date is somewhat tricky
             // Examples : "Oct  6 22:49", "May 13  1999"
 
-            // First get current time - we need the current month and year
-            QDateTime currentTime(QDateTime::currentDateTime());
-            int currentMonth = currentTime.date().month();
+            // First get current date - we need the current month and year
+            QDate currentDate(QDate::currentDate());
+            int currentMonth = currentDate.month();
             //qDebug() << "Current time :" << asctime( tmptr );
-            // Reset time fields
-            currentTime.setTime(QTime(0, 0, 0));
-            // Get day number (always second field)
-            int day = 0;
-            int month = 0;
-            int year = 0;
+            int day = currentDate.day();
+            int month = currentDate.month();
+            int year = currentDate.year();
             int minute = 0;
             int hour = 0;
+            // Get day number (always second field)
             if (p_date_2) {
                 day = atoi(p_date_2);
             }
@@ -1794,7 +1792,7 @@ bool Ftp::ftpReadDir(FtpEntry &de)
 
             // Parse third field
             if (qstrlen(p_date_3) == 4) { // 4 digits, looks like a year
-                year = atoi(p_date_3) - 1900;
+                year = atoi(p_date_3);
             } else {
                 // otherwise, the year is implicit
                 // according to man ls, this happens when it is between than 6 months
