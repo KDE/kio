@@ -196,7 +196,7 @@ static QList<QSslCertificate> deduplicate(const QList<QSslCertificate> &certs)
 
 KSslCertificateManagerPrivate::KSslCertificateManagerPrivate()
     : config(QLatin1String("ksslcertificatemanager"), KConfig::SimpleConfig),
-      iface(new org::kde::KSSLDInterface(QLatin1String("org.kde.kiod5"),
+      iface(new org::kde::KSSLDInterface(QLatin1String("org.kde.kssld5"),
                                          QLatin1String("/modules/kssld"),
                                          QDBusConnection::sessionBus())),
       isCertListLoaded(false),

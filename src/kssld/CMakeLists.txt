@@ -14,3 +14,6 @@ PRIVATE
    Qt5::Network
    Qt5::DBus
 )
+
+configure_file(org.kde.kssld5.service.in ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kssld5.service)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kssld5.service DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
