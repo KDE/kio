@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=org.kde.kcookiejar5
+Exec=@CMAKE_INSTALL_PREFIX@/bin/kded5
+

@@ -44,3 +44,6 @@ target_link_libraries(kded_kcookiejar
 
 install( FILES domain_info  DESTINATION  ${KDE_INSTALL_DATADIR_KF5}/kcookiejar )
 install( FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KCookieServer.xml DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR} RENAME kf5_org.kde.KCookieServer.xml)
+
+configure_file(org.kde.kcookiejar5.service.in ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kcookiejar5.service)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kcookiejar5.service DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})

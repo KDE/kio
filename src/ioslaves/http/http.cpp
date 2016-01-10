@@ -4571,7 +4571,7 @@ void HTTPProtocol::error(int _err, const QString &_text)
 void HTTPProtocol::addCookies(const QString &url, const QByteArray &cookieHeader)
 {
     qlonglong windowId = m_request.windowId.toLongLong();
-    QDBusInterface kcookiejar(QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"));
+    QDBusInterface kcookiejar(QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"));
     (void)kcookiejar.call(QDBus::NoBlock, QStringLiteral("addCookies"), url,
                           cookieHeader, windowId);
 }
@@ -4579,7 +4579,7 @@ void HTTPProtocol::addCookies(const QString &url, const QByteArray &cookieHeader
 QString HTTPProtocol::findCookies(const QString &url)
 {
     qlonglong windowId = m_request.windowId.toLongLong();
-    QDBusInterface kcookiejar(QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"));
+    QDBusInterface kcookiejar(QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"));
     QDBusReply<QString> reply = kcookiejar.call(QStringLiteral("findCookies"), url, windowId);
 
     if (!reply.isValid()) {

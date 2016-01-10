@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
     parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("reload-config"), QCoreApplication::translate("main", "Reload configuration file")));
     parser.process(app);
 
-    org::kde::KCookieServer *kcookiejar = new org::kde::KCookieServer(QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/kcookiejar"), QDBusConnection::sessionBus());
+    org::kde::KCookieServer *kcookiejar = new org::kde::KCookieServer(QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/modules/kcookiejar"), QDBusConnection::sessionBus());
     if (parser.isSet(QStringLiteral("remove-all"))) {
         kcookiejar->deleteAllCookies();
     }

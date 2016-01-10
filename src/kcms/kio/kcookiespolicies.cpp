@@ -382,10 +382,10 @@ void KCookiesPolicies::save()
 
     // Update the cookiejar...
     if (!mUi.cbEnableCookies->isChecked()) {
-        QDBusInterface kded (QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"), QDBusConnection::sessionBus());
+        QDBusInterface kded (QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"), QDBusConnection::sessionBus());
         kded.call (QStringLiteral("shutdown"));
     } else {
-        QDBusInterface kded (QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"), QDBusConnection::sessionBus());
+        QDBusInterface kded (QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"), QDBusConnection::sessionBus());
         QDBusReply<void> reply = kded.call (QStringLiteral("reloadPolicy"));
         if (!reply.isValid())
             KMessageBox::sorry (0, i18n ("Unable to communicate with the cookie handler service.\n"
