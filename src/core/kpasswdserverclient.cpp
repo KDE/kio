@@ -32,7 +32,7 @@ namespace KIO
 {
 
 KPasswdServerClient::KPasswdServerClient()
-    : m_interface(new OrgKdeKPasswdServerInterface(QStringLiteral("org.kde.kiod5"),
+    : m_interface(new OrgKdeKPasswdServerInterface(QStringLiteral("org.kde.kpasswdserver"),
                   QStringLiteral("/modules/kpasswdserver"),
                   QDBusConnection::sessionBus()))
 {

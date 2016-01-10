@@ -31,3 +31,6 @@ target_link_libraries(kiod_kpasswdserver
    KF5::WindowSystem
    ${WALLET_LIB}
 )
+
+configure_file(org.kde.kpasswdserver.service.in ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kpasswdserver.service)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kpasswdserver.service DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
