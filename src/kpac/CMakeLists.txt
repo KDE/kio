@@ -50,6 +50,11 @@ if (Qt5Script_FOUND)
     endif ()
 endif()
 
+set_package_properties(Qt5Script PROPERTIES DESCRIPTION "QtScript, one of the Qt5 modules"
+   TYPE OPTIONAL
+   PURPOSE "Required to build support for auto-configuration of network proxies"
+   )
+
 ########### next target ###############
 
 add_executable(kpac_dhcp_helper kpac_dhcp_helper.c)
