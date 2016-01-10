@@ -38,19 +38,11 @@ struct KSslCaCertificate {
           certHash(c.digest().toHex()),
           store(s),
           isBlacklisted(_isBlacklisted) { }
-    const QSslCertificate cert;
-    const QByteArray certHash;
-    const Store store;
+
+    QSslCertificate cert;
+    QByteArray certHash;
+    Store store;
     bool isBlacklisted;
-    // the synthesized version without the const_casts doesn't compile
-    const KSslCaCertificate &operator=(const KSslCaCertificate &other)
-    {
-        const_cast<QSslCertificate &>(cert) = other.cert;
-        const_cast<QByteArray &>(certHash) = other.certHash;
-        const_cast<Store &>(store) = other.store;
-        isBlacklisted = other.isBlacklisted;
-        return *this;
-    }
 };
 
 class OrgKdeKSSLDInterface; // aka org::kde::KSSLDInterface
