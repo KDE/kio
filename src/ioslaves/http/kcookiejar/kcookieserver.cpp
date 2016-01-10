@@ -46,9 +46,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "kcookiewin.h"
 #include "kcookieserveradaptor.h"
 
-#define QL1S(x)  QLatin1String(x)
-#define QL1C(x)  QLatin1Char(x)
-
 K_PLUGIN_FACTORY_WITH_JSON(KdedCookieServerFactory,
                            "kcookiejar.json",
                            registerPlugin<KCookieServer>();)
@@ -209,7 +206,8 @@ void KCookieServer::checkCookies(KHttpCookieList *cookieList, qlonglong windowId
         case KCookieReject:
             cookieIterator.remove();
             break;
-        default:
+        case KCookieDunno:
+        case KCookieAsk:
             break;
         }
     }
@@ -275,7 +273,8 @@ void KCookieServer::checkCookies(KHttpCookieList *cookieList, qlonglong windowId
             cookieIterator2.remove();
             break;
 
-        default:
+        case KCookieDunno:
+        case KCookieAsk:
             qWarning() << "userAdvice not accept or reject, this should never happen!";
             break;
         }
