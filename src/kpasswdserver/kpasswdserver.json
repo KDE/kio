@@ -65,7 +65,5 @@
         ]
     }, 
     "X-KDE-DBus-ModuleName": "kpasswdserver", 
-    "X-KDE-DBus-ServiceName": "org.kde.kpasswdserver", 
-    "X-KDE-Kded-autoload": true, 
-    "X-KDE-Kded-load-on-demand": false
+    "X-KDE-DBus-ServiceName": "org.kde.kpasswdserver" 
 }
