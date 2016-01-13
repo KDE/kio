@@ -74,6 +74,7 @@
 
 #if HAVE_POSIX_ACL
 extern "C" {
+#  include <errno.h>
 #  include <sys/xattr.h>
 }
 #endif
