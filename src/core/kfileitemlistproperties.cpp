@@ -95,8 +95,9 @@ void KFileItemListPropertiesPrivate::setItems(const KFileItemList &items)
 
         // For local files we can do better: check if we have write permission in parent directory
         // TODO: if we knew about the parent KFileItem, we could even do that for remote protocols too
+#ifndef Q_OS_WIN
         if (m_isLocal && (m_supportsDeleting || m_supportsMoving)) {
-            const QString directory = url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash).path();
+            const QString directory = url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash).toLocalFile();
             if (parentDirInfo.filePath() != directory) {
                 parentDirInfo.setFile(directory);
             }
@@ -105,6 +106,12 @@ void KFileItemListPropertiesPrivate::setItems(const KFileItemList &items)
                 m_supportsMoving = false;
             }
         }
+#else
+        if (m_isLocal && m_supportsDeleting) {
+            if (!QFileInfo(url.toLocalFile()).isWritable())
+                m_supportsDeleting = false;
+        }
+#endif
         if (m_isDirectory && !item.isDir()) {
             m_isDirectory = false;
         }
