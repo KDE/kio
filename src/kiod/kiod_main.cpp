@@ -78,14 +78,8 @@ static void messageFilter(const QDBusMessage &message)
         return;
     }
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
-    // messageFilter runs in a secondary thread since Qt 5.6, so we use invokeMethod
-    // to load the module in the main thread. But we need to block so that the object
-    // can then process the message.
-    QMetaObject::invokeMethod(self(), "loadModule", Qt::BlockingQueuedConnection, Q_ARG(QString, name));
-#else
+    qCDebug(KIOD_CATEGORY) << "loadModule" << name;
     self()->loadModule(name);
-#endif
 }
 
 extern Q_DBUS_EXPORT void qDBusAddSpyHook(void (*)(const QDBusMessage&));
