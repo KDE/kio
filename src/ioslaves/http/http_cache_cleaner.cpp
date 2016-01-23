@@ -52,7 +52,7 @@ QDateTime g_currentDate;
 int g_maxCacheAge;
 qint64 g_maxCacheSize;
 
-static const char appFullName[] = "org.kde.kio_http_cache_cleaner";
+static const char appFullName[] = "org.kio5.kio_http_cache_cleaner";
 static const char appName[] = "kio_http_cache_cleaner";
 
 // !START OF SYNC!
