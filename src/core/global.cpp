@@ -51,7 +51,7 @@ BinaryUnitDialect _k_loadBinaryDialect()
     KConfigGroup mainGroup(KSharedConfig::openConfig(), "Locale");
 
     BinaryUnitDialect dialect(BinaryUnitDialect(mainGroup.readEntry("BinaryUnitDialect", int(DefaultBinaryDialect))));
-    dialect = (BinaryUnitDialect) mainGroup.readEntry("BinaryUnitDialect", int(dialect));
+    dialect = static_cast<BinaryUnitDialect>(mainGroup.readEntry("BinaryUnitDialect", int(dialect)));
 
     // Error checking
     if (dialect <= DefaultBinaryDialect || dialect > LastBinaryDialect) {
