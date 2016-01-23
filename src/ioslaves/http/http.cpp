@@ -3796,7 +3796,7 @@ void HTTPProtocol::cacheParseResponseHeader(const HeaderTokenizer &tokenizer)
         // aka validation
         m_request.cacheTag.ioMode = WriteToCache;
         if (!cacheFileOpenWrite()) {
-            qCDebug(KIO_HTTP) << "Error creating cache entry for" << m_request.url << "!\n";
+            qCDebug(KIO_HTTP) << "Error creating cache entry for" << m_request.url << "!";
         }
         m_maxCacheSize = config()->readEntry("MaxCacheSize", DEFAULT_MAX_CACHE_SIZE);
     } else if (m_request.responseCode == 304 && m_request.cacheTag.file) {
@@ -4664,9 +4664,9 @@ QByteArray HTTPProtocol::CacheTag::serialize() const
 
     stream << fileUseCount;
 
-    stream << servedDate;
-    stream << lastModifiedDate;
-    stream << expireDate;
+    stream << servedDate.toMSecsSinceEpoch() / 1000;
+    stream << lastModifiedDate.toMSecsSinceEpoch() / 1000;
+    stream << expireDate.toMSecsSinceEpoch() / 1000;
 
     stream << bytesCached;
     Q_ASSERT(ret.size() == BinaryCacheFileHeader::size);
@@ -4703,9 +4703,17 @@ bool HTTPProtocol::CacheTag::deserialize(const QByteArray &d)
 
     stream >> fileUseCount;
 
-    stream >> servedDate;
-    stream >> lastModifiedDate;
-    stream >> expireDate;
+    qint64 servedDateMs;
+    stream >> servedDateMs;
+    servedDate = QDateTime::fromMSecsSinceEpoch(servedDateMs * 1000);
+
+    qint64 lastModifiedDateMs;
+    stream >> lastModifiedDateMs;
+    lastModifiedDate = QDateTime::fromMSecsSinceEpoch(lastModifiedDateMs * 1000);
+
+    qint64 expireDateMs;
+    stream >> expireDateMs;
+    expireDate = QDateTime::fromMSecsSinceEpoch(expireDateMs * 1000);
 
     stream >> bytesCached;
 
@@ -4893,7 +4901,7 @@ bool HTTPProtocol::cacheFileOpenWrite()
     m_request.cacheTag.bytesCached = 0;
 
     if ((file->openMode() & QIODevice::WriteOnly) == 0) {
-        qCDebug(KIO_HTTP) << "Could not open file for writing:" << file->fileName()
+        qCDebug(KIO_HTTP) << "Could not open file for writing: QTemporaryFile(" << filename << ")"
                           << "due to error" << file->error();
         cacheFileClose();
         return false;

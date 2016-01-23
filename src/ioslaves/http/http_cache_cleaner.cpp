@@ -187,9 +187,14 @@ static QString filenameFromUrl(const QByteArray &url)
     return QString::fromLatin1(hash.result().toHex());
 }
 
+static QString cacheDir()
+{
+    return QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + "/kio_http";
+}
+
 static QString filePath(const QString &baseName)
 {
-    QString cacheDirName = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + '/' + "http";
+    QString cacheDirName = cacheDir();
     if (!cacheDirName.endsWith('/')) {
         cacheDirName.append('/');
     }
@@ -753,7 +758,7 @@ int main(int argc, char **argv)
     g_maxCacheAge = KProtocolManager::maxCacheAge();
     g_maxCacheSize = mode == DeleteCache ? -1 : KProtocolManager::maxCacheSize() * 1024;
 
-    QString cacheDirName = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + '/' + "http";
+    QString cacheDirName = cacheDir();
     QDir cacheDir(cacheDirName);
     if (!cacheDir.exists()) {
         fprintf(stderr, "%s: '%s' does not exist.\n", appName, qPrintable(cacheDirName));

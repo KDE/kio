@@ -20,8 +20,10 @@
 
 #include "sessiondata_p.h"
 
-#include <QtCore/QList>
-#include <QtCore/QTextCodec>
+#include <QDir>
+#include <QList>
+#include <QStandardPaths>
+#include <QTextCodec>
 
 #include <kconfiggroup.h>
 #include <klocalizedstring.h>
@@ -30,7 +32,6 @@
 
 #include <kio/slaveconfig.h>
 #include "http_slave_defaults.h"
-#include <qstandardpaths.h>
 
 namespace KIO
 {
@@ -115,7 +116,9 @@ void SessionData::configDataFor(MetaData &configData, const QString &proto,
             configData[QStringLiteral("Charsets")] = d->charsets;
         }
         if (configData[QStringLiteral("CacheDir")].isEmpty()) {
-            configData[QStringLiteral("CacheDir")] = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + '/' + "http";
+            const QString httpCacheDir = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + "/kio_http";
+            QDir().mkpath(httpCacheDir);
+            configData[QStringLiteral("CacheDir")] = httpCacheDir;
         }
         if (configData[QStringLiteral("UserAgent")].isEmpty()) {
             configData[QStringLiteral("UserAgent")] = KProtocolManager::defaultUserAgent();

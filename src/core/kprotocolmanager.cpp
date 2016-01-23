@@ -423,7 +423,7 @@ QString KProtocolManager::cacheDir()
 {
     PRIVATE_DATA;
     QMutexLocker lock(&d->mutex);
-    return http_config().readPathEntry("CacheDir", QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + '/' + "http");
+    return http_config().readPathEntry("CacheDir", QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + "/kio_http");
 }
 
 int KProtocolManager::maxCacheAge()
