@@ -401,18 +401,19 @@ public:
     {
         // read in the scoreboard...
         QFile sboard(filePath(QStringLiteral("scoreboard")));
-        sboard.open(QIODevice::ReadOnly);
-        while (true) {
-            QByteArray baIndex = sboard.read(ScoreboardEntry::indexSize);
-            QByteArray baRest = sboard.read(ScoreboardEntry::size - ScoreboardEntry::indexSize);
-            if (baIndex.size() + baRest.size() != ScoreboardEntry::size) {
-                break;
-            }
+        if (sboard.open(QIODevice::ReadOnly)) {
+            while (true) {
+                QByteArray baIndex = sboard.read(ScoreboardEntry::indexSize);
+                QByteArray baRest = sboard.read(ScoreboardEntry::size - ScoreboardEntry::indexSize);
+                if (baIndex.size() + baRest.size() != ScoreboardEntry::size) {
+                    break;
+                }
 
-            const QString entryBasename = QString::fromLatin1(baIndex.toHex());
-            MiniCacheFileInfo mcfi;
-            if (readAndValidateMcfi(baRest, entryBasename, &mcfi)) {
-                m_scoreboard.insert(CacheIndex(baIndex), mcfi);
+                const QString entryBasename = QString::fromLatin1(baIndex.toHex());
+                MiniCacheFileInfo mcfi;
+                if (readAndValidateMcfi(baRest, entryBasename, &mcfi)) {
+                    m_scoreboard.insert(CacheIndex(baIndex), mcfi);
+                }
             }
         }
     }
