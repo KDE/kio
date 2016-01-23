@@ -55,13 +55,16 @@ class JobSpy : public QObject
 public:
     JobSpy(KIO::Job *job)
         : QObject(0),
-          m_spy(job, SIGNAL(result(KJob *))),
+          m_spy(job, SIGNAL(result(KJob*))),
           m_error(0)
     {
-        connect(job, &KJob::result, this, [this](KJob* job) { m_error = job->error(); });
+        connect(job, &KJob::result, this, [this](KJob * job) {
+            m_error = job->error();
+        });
     }
     // like job->exec(), but with a timeout (to avoid being stuck with a popup grabbing mouse and keyboard...)
-    bool waitForResult() {
+    bool waitForResult()
+    {
         // implementation taken from QTRY_COMPARE, to move the QVERIFY to the caller
         if (m_spy.isEmpty()) {
             QTest::qWait(0);
@@ -71,7 +74,10 @@ public:
         }
         return !m_spy.isEmpty();
     }
-    int error() const { return m_error; }
+    int error() const
+    {
+        return m_error;
+    }
 
 private:
     QSignalSpy m_spy;
@@ -96,7 +102,7 @@ private Q_SLOTS:
 
         QVERIFY(m_tempDir.isValid());
         QVERIFY(m_nonWritableTempDir.isValid());
-        QVERIFY(QFile(m_nonWritableTempDir.path()).setPermissions(QFile::ReadOwner|QFile::ReadUser|QFile::ExeOwner|QFile::ExeUser));
+        QVERIFY(QFile(m_nonWritableTempDir.path()).setPermissions(QFile::ReadOwner | QFile::ReadUser | QFile::ExeOwner | QFile::ExeUser));
         m_srcDir = m_tempDir.path();
 
         m_srcFile = m_srcDir + "/srcfile";
@@ -105,7 +111,7 @@ private Q_SLOTS:
 
     void cleanupTestCase()
     {
-        QVERIFY(QFile(m_nonWritableTempDir.path()).setPermissions(QFile::ReadOwner|QFile::ReadUser|QFile::WriteOwner|QFile::WriteUser|QFile::ExeOwner|QFile::ExeUser));
+        QVERIFY(QFile(m_nonWritableTempDir.path()).setPermissions(QFile::ReadOwner | QFile::ReadUser | QFile::WriteOwner | QFile::WriteUser | QFile::ExeOwner | QFile::ExeUser));
     }
 
     // Before every test method, ensure the test file m_srcFile exists
@@ -173,17 +179,17 @@ private Q_SLOTS:
         QTest::addColumn<bool>("shouldSourceStillExist");
 
         QTest::newRow("Ctrl") << Qt::KeyboardModifiers(Qt::ControlModifier) << Qt::CopyAction << m_srcFile << QString()
-            << 0 << true;
+                              << 0 << true;
         QTest::newRow("Shift") << Qt::KeyboardModifiers(Qt::ShiftModifier) << Qt::MoveAction << m_srcFile << QString()
-            << 0 << false;
+                               << 0 << false;
         QTest::newRow("Ctrl_Shift") << Qt::KeyboardModifiers(Qt::ControlModifier | Qt::ShiftModifier) << Qt::LinkAction << m_srcFile << QString()
-            << 0 << true;
+                                    << 0 << true;
         QTest::newRow("DropOnItself") << Qt::KeyboardModifiers() << Qt::CopyAction << m_srcDir << m_srcDir
-            << int(KIO::ERR_DROP_ON_ITSELF) << true;
+                                      << int(KIO::ERR_DROP_ON_ITSELF) << true;
         QTest::newRow("DropDirOnFile") << Qt::KeyboardModifiers(Qt::ControlModifier) << Qt::CopyAction << m_srcDir << m_srcFile
-            << int(KIO::ERR_ACCESS_DENIED) << true;
+                                       << int(KIO::ERR_ACCESS_DENIED) << true;
         QTest::newRow("NonWritableDest") << Qt::KeyboardModifiers() << Qt::CopyAction << m_srcFile << m_nonWritableTempDir.path()
-            << int(KIO::ERR_WRITE_ACCESS_DENIED) << true;
+                                         << int(KIO::ERR_WRITE_ACCESS_DENIED) << true;
     }
 
     void shouldDropToDirectory()
@@ -288,7 +294,7 @@ private Q_SLOTS:
         const QFile::Permissions origPerms = QFileInfo(m_srcFile).permissions();
         QVERIFY(QFileInfo(m_srcFile).isWritable());
         KIO::CopyJob *copyJob = KIO::move(QUrl::fromLocalFile(m_srcFile), QUrl(QStringLiteral("trash:/")));
-        QSignalSpy copyingDoneSpy(copyJob, SIGNAL(copyingDone(KIO::Job*, QUrl, QUrl, QDateTime, bool, bool)));
+        QSignalSpy copyingDoneSpy(copyJob, SIGNAL(copyingDone(KIO::Job*,QUrl,QUrl,QDateTime,bool,bool)));
         QVERIFY(copyJob->exec());
         const QUrl trashUrl = copyingDoneSpy.at(0).at(2).value<QUrl>();
         QVERIFY(trashUrl.isValid());
@@ -448,15 +454,17 @@ private Q_SLOTS:
     }
 
 private:
-    static QMenu *findPopup() {
+    static QMenu *findPopup()
+    {
         Q_FOREACH (QWidget *widget, qApp->topLevelWidgets()) {
-            if (QMenu* menu = qobject_cast<QMenu*>(widget)) {
+            if (QMenu *menu = qobject_cast<QMenu *>(widget)) {
                 return menu;
             }
         }
         return Q_NULLPTR;
     }
-    static Qt::DropActions popupDropActions(QMenu *menu) {
+    static Qt::DropActions popupDropActions(QMenu *menu)
+    {
         Qt::DropActions actions;
         Q_FOREACH (QAction *action, menu->actions()) {
             const QVariant userData = action->data();

@@ -55,8 +55,7 @@ public:
         wait(1000);
     }
 
-    void run() Q_DECL_OVERRIDE
-    {
+    void run() Q_DECL_OVERRIDE {
         QThread::usleep(100000);
         socket->write("Hello, World!", 13);
         socket->waitForBytesWritten();

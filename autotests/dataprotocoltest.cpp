@@ -207,10 +207,10 @@ void DataProtocolTest::runAllTests_data()
     QTest::newRow("arbitrary keys, reserved names as keys, whitespace test III") <<
             textplain <<
             QString::fromLatin1("base64=nospace\n"
-                                  "key=onespaceinner\n"
-                                  "key2=onespaceouter\n"
-                                  "charset=utf8\n"
-                                  "<<empty>>=") <<
+                                "key=onespaceinner\n"
+                                "key2=onespaceouter\n"
+                                "charset=utf8\n"
+                                "<<empty>>=") <<
             QByteArray("Die, Allied Schweinehund (C) 1990 Wolfenstein 3D") <<
             QByteArray("data: ;base64=nospace;key = onespaceinner; key2=onespaceouter ;"
                        " charset = utf8 ; <<empty>>= ,Die, Allied Schweinehund "

@@ -59,7 +59,9 @@ void KRunUnitTest::initTestCase()
 
 void KRunUnitTest::cleanupTestCase()
 {
-    std::for_each(m_filesToRemove.begin(), m_filesToRemove.end(), [](const QString &f) { QFile::remove(f); });
+    std::for_each(m_filesToRemove.begin(), m_filesToRemove.end(), [](const QString & f) {
+        QFile::remove(f);
+    });
 }
 
 void KRunUnitTest::testBinaryName_data()
@@ -125,10 +127,10 @@ static void checkDesktopExecParser(const char *exec, const char *term, const cha
 void KRunUnitTest::testProcessDesktopExec()
 {
     QList<QUrl> l0;
-    static const char* const execs[] = { "Exec=date -u", "Exec=echo $PWD" };
-    static const char* const terms[] = { "Terminal=false", "Terminal=true\nTerminalOptions=-T \"%f - %c\"" };
-    static const char* const sus[] = { "X-KDE-SubstituteUID=false", "X-KDE-SubstituteUID=true\nX-KDE-Username=sprallo" };
-    static const char* const results[] = {
+    static const char *const execs[] = { "Exec=date -u", "Exec=echo $PWD" };
+    static const char *const terms[] = { "Terminal=false", "Terminal=true\nTerminalOptions=-T \"%f - %c\"" };
+    static const char *const sus[] = { "X-KDE-SubstituteUID=false", "X-KDE-SubstituteUID=true\nX-KDE-Username=sprallo" };
+    static const char *const results[] = {
         "/bin/date -u", // 0
         "/bin/sh -c 'echo $PWD '", // 1
         "x-term -T ' - just_a_test' -e /bin/date -u", // 2
@@ -237,8 +239,7 @@ public:
     KRunImpl(const QUrl &url)
         : KRun(url, 0, false), m_errCode(-1) {}
 
-    void foundMimeType(const QString &type) Q_DECL_OVERRIDE
-    {
+    void foundMimeType(const QString &type) Q_DECL_OVERRIDE {
         m_mimeType = type;
         // don't call KRun::foundMimeType, we don't want to start an app ;-)
         setFinished(true);

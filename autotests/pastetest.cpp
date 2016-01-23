@@ -46,7 +46,7 @@ void KIOPasteTest::initTestCase()
 
 void KIOPasteTest::testPopulate()
 {
-    QMimeData* mimeData = new QMimeData;
+    QMimeData *mimeData = new QMimeData;
 
     // Those URLs don't have to exist.
     QUrl mediaURL(QStringLiteral("media:/hda1/tmp/Mat%C3%A9riel"));
@@ -69,7 +69,7 @@ void KIOPasteTest::testPopulate()
 
 void KIOPasteTest::testCut()
 {
-    QMimeData* mimeData = new QMimeData;
+    QMimeData *mimeData = new QMimeData;
 
     QUrl localURL1(QStringLiteral("file:///tmp/Mat%C3%A9riel"));
     QUrl localURL2(QStringLiteral("file:///tmp"));

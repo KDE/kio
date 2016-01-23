@@ -48,8 +48,7 @@ public:
         wait();
     }
 protected:
-    void run() Q_DECL_OVERRIDE
-    {
+    void run() Q_DECL_OVERRIDE {
         KLocalSocket socket;
         QThread::usleep(200);
         socket.connectToPath(asocket);

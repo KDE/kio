@@ -27,7 +27,7 @@
  */
 class AccessManagerTest : public QObject
 {
-Q_OBJECT
+    Q_OBJECT
 private Q_SLOTS:
     void initTestCase()
     {
@@ -39,7 +39,7 @@ private Q_SLOTS:
     void testGet()
     {
         const QString aFile = QFINDTESTDATA("accessmanagertest.cpp");
-        QNetworkReply* reply = manager()->get(QNetworkRequest(QUrl::fromLocalFile(aFile)));
+        QNetworkReply *reply = manager()->get(QNetworkRequest(QUrl::fromLocalFile(aFile)));
         QSignalSpy spy(reply, SIGNAL(finished()));
         QVERIFY(spy.wait());
 
@@ -63,7 +63,7 @@ private Q_SLOTS:
 
         QFile::remove(aFile);
 
-        QNetworkReply* reply = manager()->put(QNetworkRequest(QUrl::fromLocalFile(aFile)), &buffer);
+        QNetworkReply *reply = manager()->put(QNetworkRequest(QUrl::fromLocalFile(aFile)), &buffer);
         QSignalSpy spy(reply, SIGNAL(finished()));
         QVERIFY(reply->isRunning());
         QVERIFY(spy.wait());
@@ -90,7 +90,7 @@ private Q_SLOTS:
 
         QFile::remove(aFile);
 
-        QNetworkReply* reply = manager()->put(QNetworkRequest(QUrl::fromLocalFile(aFile)), &process);
+        QNetworkReply *reply = manager()->put(QNetworkRequest(QUrl::fromLocalFile(aFile)), &process);
         QSignalSpy spy(reply, SIGNAL(finished()));
         QVERIFY(spy.wait());
         QVERIFY(QFile::exists(aFile));
@@ -111,9 +111,9 @@ private:
      * we want to run the tests both on QNAM and KIO::AccessManager
      * to make sure they behave the same way.
      */
-    QNetworkAccessManager* manager()
+    QNetworkAccessManager *manager()
     {
-        static QNetworkAccessManager* ret = Q_NULLPTR;
+        static QNetworkAccessManager *ret = Q_NULLPTR;
         if (!ret) {
 #ifdef USE_QNAM
             ret = new QNetworkAccessManager(this);

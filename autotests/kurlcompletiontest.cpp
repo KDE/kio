@@ -301,7 +301,7 @@ void KUrlCompletionTest::testUser()
     m_completionEmptyCwd->makeCompletion(QStringLiteral("~"));
     waitForCompletion();
     const auto matches = m_completionEmptyCwd->allMatches();
-    foreach(const auto& user, KUser::allUserNames()) {
+    foreach (const auto &user, KUser::allUserNames()) {
         QVERIFY(matches.contains(QLatin1Char('~') + user));
     }
 }

@@ -36,7 +36,7 @@ private Q_SLOTS:
 
 private:
     struct FileData;
-    bool copyLocalFile(FileData* fileData);
+    bool copyLocalFile(FileData *fileData);
 };
 
 void KIOThreadTest::initTestCase()
@@ -59,13 +59,12 @@ void KIOThreadTest::cleanupTestCase()
     QDir(homeTmpDir()).removeRecursively();
 }
 
-struct KIOThreadTest::FileData
-{
+struct KIOThreadTest::FileData {
     QString src;
     QString dest;
 };
 
-bool KIOThreadTest::copyLocalFile(FileData* fileData)
+bool KIOThreadTest::copyLocalFile(FileData *fileData)
 {
     // to verify the test harness: return QFile::copy(fileData->src, fileData->dest);
 

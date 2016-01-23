@@ -413,7 +413,7 @@ void KDirModelTest::testModifyFile()
     ModelSpy modelSpy(m_dirModel);
 #endif
     checkedConnect(m_dirModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-            &m_eventLoop, SLOT(exitLoop()));
+                   &m_eventLoop, SLOT(exitLoop()));
 
     // "Touch" the file
     setTimeStamp(file, s_referenceTimeStamp.addSecs(20));
@@ -449,7 +449,7 @@ void KDirModelTest::testRenameFile()
 
     QSignalSpy spyDataChanged(m_dirModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)));
     checkedConnect(m_dirModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-            &m_eventLoop, SLOT(exitLoop()));
+                   &m_eventLoop, SLOT(exitLoop()));
 
     KIO::SimpleJob *job = KIO::rename(url, newUrl, KIO::HideProgressInfo);
     QVERIFY(job->exec());
@@ -498,7 +498,7 @@ void KDirModelTest::testMoveDirectory(const QString &dir /*just a dir name, no s
     QVERIFY(QDir(dest).exists());
 
     checkedConnect(m_dirModel, SIGNAL(rowsRemoved(QModelIndex,int,int)),
-            &m_eventLoop, SLOT(exitLoop()));
+                   &m_eventLoop, SLOT(exitLoop()));
 
     // Move
     qDebug() << "Moving" << srcdir << "to" << dest;
@@ -517,7 +517,7 @@ void KDirModelTest::testMoveDirectory(const QString &dir /*just a dir name, no s
     QVERIFY(!m_dirModel->indexForUrl(QUrl::fromLocalFile(path + "subdir_renamed")).isValid());
 
     checkedConnect(m_dirModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
-            &m_eventLoop, SLOT(exitLoop()));
+                   &m_eventLoop, SLOT(exitLoop()));
 
     // Move back
     qDebug() << "Moving" << dest + dir << "back to" << srcdir;
@@ -554,7 +554,7 @@ void KDirModelTest::testRenameDirectory() // #172945, #174703, (and #180156)
     // Now do the renaming
     QSignalSpy spyDataChanged(m_dirModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)));
     checkedConnect(m_dirModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-            &m_eventLoop, SLOT(exitLoop()));
+                   &m_eventLoop, SLOT(exitLoop()));
     KIO::SimpleJob *job = KIO::rename(url, newUrl, KIO::HideProgressInfo);
     QVERIFY(job->exec());
 
@@ -652,7 +652,7 @@ void KDirModelTest::testChmodDirectory() // #53397
 {
     QSignalSpy spyDataChanged(m_dirModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)));
     checkedConnect(m_dirModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-            &m_eventLoop, SLOT(exitLoop()));
+                   &m_eventLoop, SLOT(exitLoop()));
     const QString path = m_tempDir->path() + '/';
     KFileItem rootItem = m_dirModel->itemForIndex(QModelIndex());
     const mode_t origPerm = rootItem.permissions();
@@ -773,9 +773,9 @@ void KDirModelTest::testExpandToUrl()
         delete m_dirModelForExpand;
         m_dirModelForExpand = new KDirModel;
         checkedConnect(m_dirModelForExpand, SIGNAL(expand(QModelIndex)),
-                this, SLOT(slotExpand(QModelIndex)));
+                       this, SLOT(slotExpand(QModelIndex)));
         checkedConnect(m_dirModelForExpand, SIGNAL(rowsInserted(QModelIndex,int,int)),
-                this, SLOT(slotRowsInserted(QModelIndex,int,int)));
+                       this, SLOT(slotRowsInserted(QModelIndex,int,int)));
         KDirLister *dirListerForExpand = m_dirModelForExpand->dirLister();
         dirListerForExpand->openUrl(QUrl::fromLocalFile(path), KDirLister::NoFlags); // async
     }
@@ -1190,7 +1190,7 @@ void KDirModelTest::testDeleteFile()
 
     QSignalSpy spyRowsRemoved(m_dirModel, SIGNAL(rowsRemoved(QModelIndex,int,int)));
     checkedConnect(m_dirModel, SIGNAL(rowsRemoved(QModelIndex,int,int)),
-            &m_eventLoop, SLOT(exitLoop()));
+                   &m_eventLoop, SLOT(exitLoop()));
 
     KIO::DeleteJob *job = KIO::del(url, KIO::HideProgressInfo);
     QVERIFY(job->exec());
@@ -1273,7 +1273,7 @@ void KDirModelTest::testOverwriteFileWithDir() // #151851 c4
 
     QSignalSpy spyRowsRemoved(m_dirModel, SIGNAL(rowsRemoved(QModelIndex,int,int)));
     checkedConnect(m_dirModel, SIGNAL(rowsRemoved(QModelIndex,int,int)),
-            &m_eventLoop, SLOT(exitLoop()));
+                   &m_eventLoop, SLOT(exitLoop()));
     QSignalSpy spyDataChanged(m_dirModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)));
 
     KIO::Job *job = KIO::move(QUrl::fromLocalFile(dir), QUrl::fromLocalFile(file), KIO::HideProgressInfo);
@@ -1370,7 +1370,7 @@ void KDirModelTest::testRenameFileToHidden() // #174721
     QSignalSpy spyRowsRemoved(m_dirModel, SIGNAL(rowsRemoved(QModelIndex,int,int)));
     QSignalSpy spyRowsInserted(m_dirModel, SIGNAL(rowsInserted(QModelIndex,int,int)));
     checkedConnect(m_dirModel, SIGNAL(rowsRemoved(QModelIndex,int,int)),
-            &m_eventLoop, SLOT(exitLoop()));
+                   &m_eventLoop, SLOT(exitLoop()));
 
     KIO::SimpleJob *job = KIO::rename(url, newUrl, KIO::HideProgressInfo);
     QVERIFY(job->exec());
@@ -1392,7 +1392,7 @@ void KDirModelTest::testRenameFileToHidden() // #174721
 
     // Put things back to normal, should make the file reappear
     checkedConnect(m_dirModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
-            &m_eventLoop, SLOT(exitLoop()));
+                   &m_eventLoop, SLOT(exitLoop()));
     job = KIO::rename(newUrl, url, KIO::HideProgressInfo);
     QVERIFY(job->exec());
     // Wait for the DBUS signal from KDirNotify, it's the one the triggers KDirLister
@@ -1413,7 +1413,7 @@ void KDirModelTest::testDeleteDirectory()
 
     QSignalSpy spyRowsRemoved(m_dirModel, SIGNAL(rowsRemoved(QModelIndex,int,int)));
     checkedConnect(m_dirModel, SIGNAL(rowsRemoved(QModelIndex,int,int)),
-            &m_eventLoop, SLOT(exitLoop()));
+                   &m_eventLoop, SLOT(exitLoop()));
 
     QSignalSpy spyDirWatchDeleted(KDirWatch::self(), SIGNAL(deleted(QString)));
 
@@ -1445,7 +1445,7 @@ void KDirModelTest::testDeleteCurrentDirectory()
 
     QSignalSpy spyRowsRemoved(m_dirModel, SIGNAL(rowsRemoved(QModelIndex,int,int)));
     checkedConnect(m_dirModel, SIGNAL(rowsRemoved(QModelIndex,int,int)),
-            &m_eventLoop, SLOT(exitLoop()));
+                   &m_eventLoop, SLOT(exitLoop()));
 
     KDirWatch::self()->statistics();
 

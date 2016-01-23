@@ -167,7 +167,7 @@ void KFilePlacesModelTest::testInitialState()
 static const QStringList initialListOfUrls()
 {
     return QStringList() << QDir::homePath() << QStringLiteral("remote:/") << KDE_ROOT_PATH << QStringLiteral("trash:/")
-                         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign") << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/cdrom");
+           << QStringLiteral("/media/nfs") << QStringLiteral("/foreign") << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/cdrom");
 }
 
 void KFilePlacesModelTest::testInitialList()

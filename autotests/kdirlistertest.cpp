@@ -67,7 +67,7 @@ void KDirListerTest::initTestCase()
     createTestDirectory(path + "subdir");
     createTestDirectory(path + "subdir/subsubdir");
 
-    qRegisterMetaType<QList<QPair<KFileItem,KFileItem> > >();
+    qRegisterMetaType<QList<QPair<KFileItem, KFileItem> > >();
 }
 
 void KDirListerTest::cleanup()
@@ -970,10 +970,9 @@ void KDirListerTest::testRenameCurrentDir() // #294445
     QDir().rmdir(newPath);
 }
 
-
-void KDirListerTest::slotOpenUrlOnRename(const QUrl & newUrl)
+void KDirListerTest::slotOpenUrlOnRename(const QUrl &newUrl)
 {
-  QVERIFY(m_dirLister.openUrl(newUrl));
+    QVERIFY(m_dirLister.openUrl(newUrl));
 }
 
 //This tests for a crash if you connect redirects to openUrl, due
@@ -1254,8 +1253,9 @@ bool KDirListerTest::waitForRefreshedItems()
     int numTries = 0;
     // Give time for KDirWatch to notify us
     while (m_refreshedItems.isEmpty()) {
-        if (++numTries == 20)
+        if (++numTries == 20) {
             return false;
+        }
         QTest::qWait(100);
     }
     return true;
@@ -1298,8 +1298,7 @@ void KDirListerTest::waitUntilAfter(const QDateTime &ctime)
     QDateTime now;
     Q_FOREVER {
         now = QDateTime::currentDateTime();
-        if (now.toTime_t() == ctime.toTime_t())   // truncate milliseconds
-        {
+        if (now.toTime_t() == ctime.toTime_t()) { // truncate milliseconds
             totalWait += 50;
             QTest::qWait(50);
         } else {

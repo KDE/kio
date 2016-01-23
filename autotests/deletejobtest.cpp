@@ -100,8 +100,7 @@ void DeleteJobTest::deleteDirectoryTestCase()
 void DeleteJobTest::createEmptyTestFiles(const QStringList &fileNames, const QString &path) const
 {
     QStringListIterator iterator(fileNames);
-    while (iterator.hasNext())
-    {
+    while (iterator.hasNext()) {
         const QString filename = path + QDir::separator() + iterator.next();
         QFile file(filename);
         QVERIFY(file.open(QIODevice::WriteOnly));

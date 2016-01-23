@@ -57,9 +57,9 @@ private Q_SLOTS:
         // Set a recent dir
         KConfigGroup recentDirsGroup(KSharedConfig::openConfig(), "kuick-copy");
         m_recentDirs
-            << m_destDir + QStringLiteral("/nonexistentsubdir") // will be action number count-3
-            << m_nonWritableTempDir.path() // will be action number count-2
-            << m_destDir; // will be action number count-1
+                << m_destDir + QStringLiteral("/nonexistentsubdir") // will be action number count-3
+                << m_nonWritableTempDir.path() // will be action number count-2
+                << m_destDir; // will be action number count-1
         recentDirsGroup.writeEntry("Paths", m_recentDirs);
 
         m_lastActionCount = 0;

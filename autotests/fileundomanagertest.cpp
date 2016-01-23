@@ -51,7 +51,6 @@
 #include <sys/time.h>
 #endif
 
-
 #include <QClipboard>
 #include <QApplication>
 #include <QMimeData>
@@ -173,20 +172,17 @@ public:
     {
         setShowProgressInfo(false);
     }
-    void jobError(KIO::Job *job) Q_DECL_OVERRIDE
-    {
+    void jobError(KIO::Job *job) Q_DECL_OVERRIDE {
         qFatal("%s", qPrintable(job->errorString()));
     }
-    bool copiedFileWasModified(const QUrl &src, const QUrl &dest, const QDateTime &srcTime, const QDateTime &destTime) Q_DECL_OVERRIDE
-    {
+    bool copiedFileWasModified(const QUrl &src, const QUrl &dest, const QDateTime &srcTime, const QDateTime &destTime) Q_DECL_OVERRIDE {
         Q_UNUSED(src);
         m_dest = dest;
         Q_UNUSED(srcTime);
         Q_UNUSED(destTime);
         return true;
     }
-    bool confirmDeletion(const QList<QUrl> &files) Q_DECL_OVERRIDE
-    {
+    bool confirmDeletion(const QList<QUrl> &files) Q_DECL_OVERRIDE {
         m_files = files;
         return m_nextReplyToConfirmDeletion;
     }
@@ -564,7 +560,7 @@ void FileUndoManagerTest::testRestoreTrashedFiles()
 
     const QMap<QString, QString> metaData = job->metaData();
     QList<QUrl> trashUrls;
-    foreach(const QUrl &src, lst) {
+    foreach (const QUrl &src, lst) {
         QMap<QString, QString>::ConstIterator it = metaData.find("trashURL-" + src.path());
         QVERIFY(it != metaData.constEnd());
         trashUrls.append(QUrl(it.value()));

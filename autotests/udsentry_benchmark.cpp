@@ -43,8 +43,8 @@ class UdsEntryBenchmark : public QObject
 public:
     UdsEntryBenchmark()
         : nameStr(QStringLiteral("name")),
-        now(QDateTime::currentDateTime()),
-        now_time_t(now.toTime_t())
+          now(QDateTime::currentDateTime()),
+          now_time_t(now.toTime_t())
     {}
 private Q_SLOTS:
     void testKDE3Slave();
@@ -101,7 +101,6 @@ static void fillOldUDSEntry(OldUDSEntry &entry, time_t now_time_t, const QString
     entry.append(atom);
 }
 
-
 void UdsEntryBenchmark::testKDE3Slave()
 {
     QBENCHMARK {
@@ -122,17 +121,18 @@ void UdsEntryBenchmark::testKDE3App()
 
     QBENCHMARK {
         OldUDSEntry::ConstIterator it2 = entry.constBegin();
-        for (; it2 != entry.constEnd(); it2++) {
+        for (; it2 != entry.constEnd(); it2++)
+        {
             switch ((*it2).m_uds) {
-                case KIO::UDSEntry::UDS_NAME:
-                    displayName = (*it2).m_str;
-                    break;
-                case KIO::UDSEntry::UDS_URL:
-                    url = (*it2).m_str;
-                    break;
-                case KIO::UDSEntry::UDS_SIZE:
-                    size = (*it2).m_long;
-                    break;
+            case KIO::UDSEntry::UDS_NAME:
+                displayName = (*it2).m_str;
+                break;
+            case KIO::UDSEntry::UDS_URL:
+                url = (*it2).m_str;
+                break;
+            case KIO::UDSEntry::UDS_SIZE:
+                size = (*it2).m_long;
+                break;
             }
         }
         QCOMPARE(size, 123456ULL);
@@ -140,7 +140,6 @@ void UdsEntryBenchmark::testKDE3App()
         QVERIFY(url.isEmpty());
     }
 }
-
 
 // QHash or QMap? doesn't seem to make much difference.
 typedef QHash<uint, QVariant> UDSEntryHV;
@@ -191,12 +190,14 @@ void UdsEntryBenchmark::testHashVariantApp()
         // For a field that might not be there
         UDSEntryHV::const_iterator it = entry.constFind(KIO::UDSEntry::UDS_URL);
         const UDSEntryHV::const_iterator end = entry.constEnd();
-        if (it != end) {
+        if (it != end)
+        {
             url = it.value().toString();
         }
 
         it = entry.constFind(KIO::UDSEntry::UDS_SIZE);
-        if (it != end) {
+        if (it != end)
+        {
             size = it.value().toULongLong();
         }
 
@@ -258,12 +259,14 @@ void UdsEntryBenchmark::testHashStructApp()
         // For a field that might not be there
         UDSEntryHS::const_iterator it = entry.constFind(KIO::UDSEntry::UDS_URL);
         const UDSEntryHS::const_iterator end = entry.constEnd();
-        if (it != end) {
+        if (it != end)
+        {
             url = it.value().m_str;
         }
 
         it = entry.constFind(KIO::UDSEntry::UDS_SIZE);
-        if (it != end) {
+        if (it != end)
+        {
             size = it.value().m_long;
         }
         QCOMPARE(size, 123456ULL);
@@ -271,7 +274,6 @@ void UdsEntryBenchmark::testHashStructApp()
         QVERIFY(url.isEmpty());
     }
 }
-
 
 // Let's see if QMap makes any difference
 typedef QMap<uint, UDSAtom4> UDSEntryMS; // map+struct
@@ -314,12 +316,14 @@ void UdsEntryBenchmark::testMapStructApp()
         // For a field that might not be there
         UDSEntryMS::const_iterator it = entry.constFind(KIO::UDSEntry::UDS_URL);
         const UDSEntryMS::const_iterator end = entry.constEnd();
-        if (it != end) {
+        if (it != end)
+        {
             url = it.value().m_str;
         }
 
         it = entry.constFind(KIO::UDSEntry::UDS_SIZE);
-        if (it != end) {
+        if (it != end)
+        {
             size = it.value().m_long;
         }
 
@@ -345,11 +349,13 @@ public:
     // If udsIndexes[i] == uds, then fields[i] contains the value for 'uds'.
     QVector<uint> udsIndexes;
 
-    void reserve(int size) {
+    void reserve(int size)
+    {
         fields.reserve(size);
         udsIndexes.reserve(size);
     }
-    void insert(uint field, const QString &value) {
+    void insert(uint field, const QString &value)
+    {
         const int index = udsIndexes.indexOf(field);
         if (index >= 0) {
             fields[index] = Field(value);
@@ -358,7 +364,8 @@ public:
             fields.append(Field(value));
         }
     }
-    void insert(uint field, long long value) {
+    void insert(uint field, long long value)
+    {
         const int index = udsIndexes.indexOf(field);
         if (index >= 0) {
             fields[index] = Field(value);
@@ -367,24 +374,27 @@ public:
             fields.append(Field(value));
         }
     }
-    int count() const { return udsIndexes.count(); }
+    int count() const
+    {
+        return udsIndexes.count();
+    }
     QString stringValue(uint field) const
     {
-         const int index = udsIndexes.indexOf(field);
-         if (index >= 0) {
-             return fields.at(index).m_str;
-         } else {
-             return QString();
-         }
+        const int index = udsIndexes.indexOf(field);
+        if (index >= 0) {
+            return fields.at(index).m_str;
+        } else {
+            return QString();
+        }
     }
     long long numberValue(uint field, long long defaultValue = -1) const
     {
         const int index = udsIndexes.indexOf(field);
-         if (index >= 0) {
-             return fields.at(index).m_long;
-         } else {
-             return defaultValue;
-         }
+        if (index >= 0) {
+            return fields.at(index).m_long;
+        } else {
+            return defaultValue;
+        }
     }
 };
 

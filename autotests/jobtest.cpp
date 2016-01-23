@@ -402,7 +402,7 @@ static QString linkTarget(const QString &path)
 {
     // Use readlink on Unix because symLinkTarget turns relative targets into absolute (#352927)
     char linkTargetBuffer[4096];
-    const int n = readlink(QFile::encodeName(path).constData(), linkTargetBuffer, sizeof(linkTargetBuffer)-1);
+    const int n = readlink(QFile::encodeName(path).constData(), linkTargetBuffer, sizeof(linkTargetBuffer) - 1);
     if (n != -1) {
         linkTargetBuffer[n] = 0;
     }
@@ -518,19 +518,19 @@ void JobTest::copyFolderWithUnaccessibleSubfolder()
     QFile(inaccessible).setPermissions(QFile::Permissions()); // Make it inaccessible
     //Copying should throw some warnings, as it cannot access some folders
 
-    KIO::CopyJob* job = KIO::copy(QUrl::fromLocalFile(src_dir), QUrl::fromLocalFile(dst_dir), KIO::HideProgressInfo);
+    KIO::CopyJob *job = KIO::copy(QUrl::fromLocalFile(src_dir), QUrl::fromLocalFile(dst_dir), KIO::HideProgressInfo);
 
     QSignalSpy spy(job, SIGNAL(warning(KJob*,QString,QString)));
-    job->setUiDelegate( 0 ); // no skip dialog, thanks
+    job->setUiDelegate(0);   // no skip dialog, thanks
     QVERIFY(job->exec());
 
     QFile(inaccessible).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner));
 
-    KIO::DeleteJob* deljob1 = KIO::del(QUrl::fromLocalFile(src_dir), KIO::HideProgressInfo);
+    KIO::DeleteJob *deljob1 = KIO::del(QUrl::fromLocalFile(src_dir), KIO::HideProgressInfo);
     deljob1->setUiDelegate(0); // no skip dialog, thanks
     QVERIFY(deljob1->exec());
 
-    KIO::DeleteJob* deljob2 = KIO::del(QUrl::fromLocalFile(dst_dir), KIO::HideProgressInfo);
+    KIO::DeleteJob *deljob2 = KIO::del(QUrl::fromLocalFile(dst_dir), KIO::HideProgressInfo);
     deljob2->setUiDelegate(0); // no skip dialog, thanks
     QVERIFY(deljob2->exec());
 
@@ -1482,8 +1482,8 @@ void JobTest::multiGet()
 
     //qDebug() << file;
     KIO::MultiGetJob *job = KIO::multi_get(0, urls.at(0), KIO::MetaData()); // TODO: missing KIO::HideProgressInfo
-    QSignalSpy spyData(job, SIGNAL(data(long, QByteArray)));
-    QSignalSpy spyMimeType(job, SIGNAL(mimetype(long, QString)));
+    QSignalSpy spyData(job, SIGNAL(data(long,QByteArray)));
+    QSignalSpy spyMimeType(job, SIGNAL(mimetype(long,QString)));
     QSignalSpy spyResultId(job, SIGNAL(result(long)));
     QSignalSpy spyResult(job, SIGNAL(result(KJob*)));
     job->setUiDelegate(0);
