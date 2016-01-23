@@ -52,6 +52,7 @@
 #include <QUrl>
 #include <QCoreApplication>
 #include <QDataStream>
+#include <QThread>
 
 #include <QDebug>
 #include <kconfig.h>
@@ -4993,34 +4994,48 @@ void HTTPProtocol::sendCacheCleanerCommand(const QByteArray &command)
 {
     qCDebug(KIO_HTTP);
     Q_ASSERT(command.size() == BinaryCacheFileHeader::size + s_hashedUrlNibbles + sizeof(quint32));
-    int attempts = 0;
-    while (m_cacheCleanerConnection.state() != QLocalSocket::ConnectedState && attempts < 6) {
-        if (attempts == 2) {
+    if (m_cacheCleanerConnection.state() != QLocalSocket::ConnectedState) {
+        QString socketFileName = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation) + QLatin1Char('/') + QLatin1String("kio_http_cache_cleaner");
+        m_cacheCleanerConnection.connectToServer(socketFileName, QIODevice::WriteOnly);
+
+        if (m_cacheCleanerConnection.state() == QLocalSocket::UnconnectedState) {
+            // An error happened.
+            // Most likely the cache cleaner is not running, let's start it.
+
             // search paths
             const QStringList searchPaths = QStringList()
                 << QCoreApplication::applicationDirPath() // then look where our application binary is located
                 << QLibraryInfo::location(QLibraryInfo::LibraryExecutablesPath) // look where libexec path is (can be set in qt.conf)
                 << QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5); // look at our installation location
             const QString exe = QStandardPaths::findExecutable(QStringLiteral("kio_http_cache_cleaner"), searchPaths);
-            if (!exe.isEmpty()) {
-                QProcess::startDetached(exe);
-            } else {
-                qWarning() << "kio_http_cache_cleaner not found in" << searchPaths;
+            if (exe.isEmpty()) {
+                qCWarning(KIO_HTTP) << "kio_http_cache_cleaner not found in" << searchPaths;
+                return;
+            }
+            qCDebug(KIO_HTTP) << "starting" << exe;
+            QProcess::startDetached(exe);
+
+            for (int i = 0 ; i < 30 && m_cacheCleanerConnection.state() == QLocalSocket::UnconnectedState; ++i) {
+                // Server is not listening yet; let's hope it does so under 3 seconds
+                QThread::msleep(100);
+                m_cacheCleanerConnection.connectToServer(socketFileName, QIODevice::WriteOnly);
+                if (m_cacheCleanerConnection.state() != QLocalSocket::UnconnectedState) {
+                    break; // connecting or connected, sounds good
+                }
             }
         }
-        QString socketFileName = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation) + QLatin1Char('/') + QLatin1String("kio_http_cache_cleaner");
-        m_cacheCleanerConnection.connectToServer(socketFileName, QIODevice::WriteOnly);
-        m_cacheCleanerConnection.waitForConnected(1500);
-        attempts++;
+
+        if (!m_cacheCleanerConnection.waitForConnected(1500)) {
+            // updating the stats is not vital, so we just give up.
+            qCDebug(KIO_HTTP) << "Could not connect to cache cleaner, not updating stats of this cache file.";
+            return;
+        }
+        qCDebug(KIO_HTTP) << "Successfully connected to cache cleaner.";
     }
 
-    if (m_cacheCleanerConnection.state() == QLocalSocket::ConnectedState) {
-        m_cacheCleanerConnection.write(command);
-        m_cacheCleanerConnection.flush();
-    } else {
-        // updating the stats is not vital, so we just give up.
-        qCDebug(KIO_HTTP) << "Could not connect to cache cleaner, not updating stats of this cache file.";
-    }
+    Q_ASSERT(m_cacheCleanerConnection.state() == QLocalSocket::ConnectedState);
+    m_cacheCleanerConnection.write(command);
+    m_cacheCleanerConnection.flush();
 }
 
 QByteArray HTTPProtocol::cacheFileReadPayload(int maxLength)
