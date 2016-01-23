@@ -760,6 +760,7 @@ int main(int argc, char **argv)
     g_maxCacheSize = mode == DeleteCache ? -1 : KProtocolManager::maxCacheSize() * 1024;
 
     QString cacheDirName = cacheDir();
+    QDir().mkpath(cacheDirName);
     QDir cacheDir(cacheDirName);
     if (!cacheDir.exists()) {
         fprintf(stderr, "%s: '%s' does not exist.\n", appName, qPrintable(cacheDirName));
@@ -782,7 +783,9 @@ int main(int argc, char **argv)
     QString socketFileName = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation) + QLatin1Char('/') + "kio_http_cache_cleaner";
     // we need to create the file by opening the socket, otherwise it won't work
     QFile::remove(socketFileName);
-    lServer.listen(socketFileName);
+    if (!lServer.listen(socketFileName)) {
+        qWarning() << "Error listening on" << socketFileName;
+    }
     QList<QLocalSocket *> sockets;
     qint64 newBytesCounter = LLONG_MAX;  // force cleaner run on startup
 
