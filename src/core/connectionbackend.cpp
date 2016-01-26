@@ -30,6 +30,7 @@
 #include <QTemporaryFile>
 #include <QPointer>
 #include <QTime>
+#include <QElapsedTimer>
 
 #include "kiocoredebug.h"
 
@@ -196,7 +197,7 @@ bool ConnectionBackend::waitForIncomingTask(int ms)
     }
 
     // not enough data in the socket, so wait for more
-    QTime timer;
+    QElapsedTimer timer;
     timer.start();
 
     while (socket->state() == QAbstractSocket::ConnectedState && !signalEmitted &&
