@@ -360,7 +360,15 @@ void FileProtocol::stat(const QUrl &url)
     int details = sDetails.isEmpty() ? 2 : sDetails.toInt();
     // qDebug() << "FileProtocol::stat details=" << details;
 
-    UDSEntry entry = createUDSEntryWin(QFileInfo(url.toLocalFile()));
+    const QString localFile = url.toLocalFile();
+    QFileInfo fileInfo(localFile);
+    if (!fileInfo.exists())
+    {
+        error(KIO::ERR_DOES_NOT_EXIST, localFile);
+        return;
+    }
+
+    UDSEntry entry = createUDSEntryWin(fileInfo);
 
     statEntry(entry);
 
