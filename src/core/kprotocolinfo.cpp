@@ -26,6 +26,7 @@
 #include <ksharedconfig.h>
 #include <kconfiggroup.h>
 #include <QUrl>
+#include <KPluginMetaData>
 
 //
 // Internal functions:
@@ -199,7 +200,9 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &name, const QString &e
         m_protClass.prepend(QLatin1Char(':'));
     }
 
-    const QStringList extraNames = json.value(QStringLiteral("ExtraNames")).toVariant().toStringList();
+    // ExtraNames is a translated value, use the KCoreAddons helper to read it
+    const QStringList extraNames = KPluginMetaData::readTranslatedValue(json, QStringLiteral("ExtraNames")).toVariant().toStringList();
+
     const QStringList extraTypes = json.value(QStringLiteral("ExtraTypes")).toVariant().toStringList();
     QStringList::const_iterator it = extraNames.begin();
     QStringList::const_iterator typeit = extraTypes.begin();

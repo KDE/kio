@@ -25,6 +25,7 @@
 #include <QFileInfo>
 #include <QJsonDocument>
 #include <QVariant>
+#include <QRegularExpression>
 
 #include <KConfig>
 #include <KConfigGroup>
@@ -72,8 +73,7 @@ int main (int argc, char *argv[])
 
     QStringList stringListAttributes;
     stringListAttributes << QStringLiteral("listing") << QStringLiteral("archiveMimetype")
-        << QStringLiteral("ExtraNames") << QStringLiteral("ExtraTypes")
-        << QStringLiteral("Capabilities");
+        << QStringLiteral("ExtraTypes") << QStringLiteral("Capabilities");
 
     QStringList boolAttributes;
     boolAttributes << QStringLiteral("source") << QStringLiteral("helper")
@@ -88,14 +88,19 @@ int main (int argc, char *argv[])
     QStringList intAttributes;
     intAttributes << QStringLiteral("maxInstances") << QStringLiteral("maxInstancesPerHost");
 
+    QStringList translatedStringListAttributes;
+    translatedStringListAttributes << QStringLiteral("ExtraNames");
+
     // constructed the json data by parsing all .protocol files
     QVariantMap protocolsData;
+    const QRegularExpression localeRegex("^\\w+\\[(.*)\\]=");
     Q_FOREACH(const QString &file, parser.positionalArguments()) {
         // get full path
         const QString fullFilePath(QDir::current().absoluteFilePath(file));
 
         // construct kconfig for protocol file
         KConfig sconfig(fullFilePath);
+        sconfig.setLocale(QString());
         KConfigGroup config(&sconfig, "Protocol");
 
         // name must be set, sanity check that file got read
@@ -108,36 +113,62 @@ int main (int argc, char *argv[])
         QVariantMap protocolData;
 
         // convert the different types
-        Q_FOREACH(const QString key, stringAttributes) {
+        Q_FOREACH(const QString &key, stringAttributes) {
             if (config.hasKey(key)) {
-                protocolData[key] = config.readEntry(key, QString());
+                protocolData.insert(key, config.readEntry(key, QString()));
             }
         }
-        Q_FOREACH(const QString key, stringListAttributes) {
+        Q_FOREACH(const QString &key, stringListAttributes) {
             if (config.hasKey(key)) {
-                protocolData[key] = config.readEntry(key, QStringList());
+                protocolData.insert(key, config.readEntry(key, QStringList()));
             }
         }
-        Q_FOREACH(const QString key, boolAttributes) {
+        Q_FOREACH(const QString &key, boolAttributes) {
             if (config.hasKey(key)) {
-                protocolData[key] = config.readEntry(key, bool(false));
+                protocolData.insert(key, config.readEntry(key, bool(false)));
             }
         }
-        Q_FOREACH(const QString key, intAttributes) {
+        Q_FOREACH(const QString &key, intAttributes) {
             if (config.hasKey(key)) {
-                protocolData[key] = config.readEntry(key, int(0));
+                protocolData.insert(key, config.readEntry(key, int(0)));
+            }
+        }
+
+        // handle translated keys
+        Q_FOREACH(const QString &key, translatedStringListAttributes) {
+            // read untranslated entry first in any case!
+            sconfig.setLocale(QString());
+            protocolData.insert(key, config.readEntry(key, QStringList()));
+
+            // collect all locales for this key
+            QFile f(fullFilePath);
+            QStringList foundLocalesForKey;
+            if (!f.open(QIODevice::ReadOnly | QIODevice::Text)) {
+                qFatal("Failed to open file %s.", qPrintable(fullFilePath));
+            }
+            while (!f.atEnd()) {
+                const QString line = QString::fromUtf8(f.readLine());
+                const QRegularExpressionMatch match = localeRegex.match(line);
+                if (match.hasMatch()) {
+                    foundLocalesForKey.append(match.captured(1));
+                }
+            }
+
+            // insert all entries for all found locales, reparse config for this
+            Q_FOREACH(const QString &locale, foundLocalesForKey) {
+                sconfig.setLocale(locale);
+                protocolData.insert(QString("%1[%2]").arg(key).arg(locale), config.readEntry(key, QStringList()));
             }
         }
 
         // use basename of protocol for toplevel map in json, like it is done for .protocol files
         const QString baseName(QFileInfo (fullFilePath).baseName());
-        protocolsData[baseName] = protocolData;
-
+        protocolsData.insert(baseName, protocolData);
     }
 
     // pack in our namespace
     QVariantMap jsonData;
-    jsonData[QStringLiteral("KDE-KIO-Protocols")] = protocolsData;
+    jsonData.insert(QStringLiteral("KDE-KIO-Protocols"), protocolsData);
 
     // create outfile, after all has worked!
     QFile outFile(output);
