@@ -267,12 +267,12 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &_u,
 
         // List existing items in a delayed manner, just like things would happen
         // if we were not using the cache.
-        if (!itemU->lstItems.isEmpty()) {
-            //qCDebug(KIO_CORE) << "Listing" << itemU->lstItems.count() << "cached items soon";
-            new KCoreDirLister::Private::CachedItemsJob(lister, _url, _reload);
-        } else {
-            // The other lister hasn't emitted anything yet. Good, we'll just listen to it.
-            // One problem could be if we have _reload=true and the existing job doesn't, though.
+        //qCDebug(KIO_CORE) << "Listing" << itemU->lstItems.count() << "cached items soon";
+        KCoreDirLister::Private::CachedItemsJob* cachedItemsJob = new KCoreDirLister::Private::CachedItemsJob(lister, _url, _reload);
+        if (job) {
+            // The ListJob will take care of emitting completed.
+            // ### If it finishes before the CachedItemsJob, then we'll emit cached items after completed(), not sure how bad this is.
+            cachedItemsJob->setEmitCompleted(false);
         }
 
 #ifdef DEBUG_CACHE

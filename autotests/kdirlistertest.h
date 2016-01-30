@@ -107,6 +107,7 @@ private Q_SLOTS:
     void testRenameCurrentDir();
     void testRenameCurrentDirOpenUrl();
     void testRedirection();
+    void testListEmptyDirFromCache();
     void testWatchingAfterCopyJob();
     void testRemoveWatchedDirectory();
     void testDirPermissionChange();
