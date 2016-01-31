@@ -155,7 +155,7 @@ class ProtoQueue : public QObject
 {
     Q_OBJECT
 public:
-    ProtoQueue(KIO::SchedulerPrivate *sp, int maxSlaves, int maxSlavesPerHost);
+    ProtoQueue(int maxSlaves, int maxSlavesPerHost);
     ~ProtoQueue();
 
     void queueJob(KIO::SimpleJob *job);
@@ -175,7 +175,6 @@ private:
     QTimer m_startJobTimer;
     QMap<int, HostQueue *> m_queuesBySerial;
     QHash<QString, HostQueue> m_queuesByHostname;
-    KIO::SchedulerPrivate *m_schedPrivate;
     SlaveKeeper m_slaveKeeper;
     int m_maxConnectionsPerHost;
     int m_maxConnectionsTotal;
