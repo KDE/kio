@@ -92,6 +92,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=wt,wikt
 Query=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ar]=https://ar.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[ast]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[bg]=https://bg.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[bs]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ca]=https://ca.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go

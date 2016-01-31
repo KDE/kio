@@ -95,6 +95,7 @@ Query=http://dict.leo.org/?search=\\{@}
 Query[af]=http://dict.leo.org/?search=\\{@}
 Query[ar]=http://dict.leo.org/?search=\\{@}
 Query[as]=http://dict.leo.org/?search=\\{@}
+Query[ast]=http://dict.leo.org/?search=\\{@}
 Query[be]=http://dict.leo.org/?search=\\{@}
 Query[be@latin]=http://dict.leo.org/?search=\\{@}
 Query[bg]=http://dict.leo.org/?search=\\{@}

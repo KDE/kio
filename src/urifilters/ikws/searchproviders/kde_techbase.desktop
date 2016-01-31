@@ -71,6 +71,7 @@ Name[zh_CN]=KDE 技术信息库
 Name[zh_TW]=KDE TechBase
 Query=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ar]=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[ast]=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[bg]=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[bn]=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[bs]=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

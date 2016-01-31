@@ -57,6 +57,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=kp,kdeprojects
 Query=https://projects.kde.org/search?projects=1&q=\\{@}
 Query[ar]=https://projects.kde.org/search?projects=1&q=\\{@}
+Query[ast]=https://projects.kde.org/search?projects=1&q=\\{@}
 Query[bg]=https://projects.kde.org/search?projects=1&q=\\{@}
 Query[bs]=https://projects.kde.org/search?projects=1&q=\\{@}
 Query[ca]=https://projects.kde.org/search?projects=1&q=\\{@}

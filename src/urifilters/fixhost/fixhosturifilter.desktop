@@ -2,6 +2,7 @@
 Type=Service
 Name=FixHostFilter
 Name[af]=FixHostFilter
+Name[ast]=FixHostFilter
 Name[be]=FixHostFilter
 Name[be@latin]=FixHostFilter
 Name[bg]=FixHostFilter

@@ -74,6 +74,7 @@ Name[zh_CN]=Jamendo
 Name[zh_TW]=Jamendo
 Query=http://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ar]=http://www.jamendo.com/en/search?qs=q=\\{@}
+Query[ast]=http://www.jamendo.com/en/search?qs=q=\\{@}
 Query[bg]=http://www.jamendo.com/en/search?qs=q=\\{@}
 Query[bs]=http://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ca]=http://www.jamendo.com/en/search?qs=q=\\{@}

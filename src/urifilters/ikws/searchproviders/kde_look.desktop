@@ -72,6 +72,7 @@ Name[zh_CN]=KDE 美化资源站
 Name[zh_TW]=KDE Look
 Query=http://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[ar]=http://www.kde-look.org/content/search.php?search=Search&name=\\{@}
+Query[ast]=http://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[bg]=http://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[bn]=http://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[bs]=http://www.kde-look.org/content/search.php?search=Search&name=\\{@}
