@@ -383,11 +383,10 @@ void HelpProtocol::get_file(const QString &path)
     int processed_size = 0;
     totalSize(f.size());
 
-    QByteArray array;
-    array.resize(MAX_IPC_SIZE);
+    char array[MAX_IPC_SIZE];
 
     Q_FOREVER {
-    const qint64 n = f.read(array.data(), array.size());
+        const qint64 n = f.read(array, sizeof(array));
         if (n == -1)
         {
             error(KIO::ERR_CANNOT_READ, path);
@@ -398,7 +397,7 @@ void HelpProtocol::get_file(const QString &path)
             break;    // Finished
         }
 
-        data(array);
+        data(QByteArray::fromRawData(array, n));
 
         processed_size += n;
         processedSize(processed_size);
