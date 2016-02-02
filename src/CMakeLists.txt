@@ -10,6 +10,7 @@ add_subdirectory(kioslave)
 
 if (NOT KIOCORE_ONLY)
 add_subdirectory(kpasswdserver)
+add_subdirectory(gui)
 add_subdirectory(widgets)
 add_subdirectory(filewidgets)
 add_subdirectory(kioexec)

@@ -17,6 +17,7 @@
 */
 
 #include "global.h"
+#include "faviconscache_p.h"
 
 #include <kprotocolinfo.h>
 #include <kconfig.h>
@@ -24,10 +25,7 @@
 #include <klocalizedstring.h>
 #include <ksharedconfig.h>
 #include <qmimedatabase.h>
-#include <QDBusInterface>
-#include <QDBusReply>
 #include <QUrl>
-#include <QHash>
 #include <QLocale>
 #include <QFileInfo>
 
@@ -290,55 +288,14 @@ QString KIO::getCacheControlString(KIO::CacheControl cacheControl)
     return QString();
 }
 
-static bool useFavIcons()
-{
-    // this method will be called quite often, so better not read the config
-    // again and again.
-    static bool s_useFavIconsChecked = false;
-    static bool s_useFavIcons = false;
-    if (!s_useFavIconsChecked) {
-        s_useFavIconsChecked = true;
-        KConfigGroup cg(KSharedConfig::openConfig(), "HTML Settings");
-        s_useFavIcons = cg.readEntry("EnableFavicon", true);
-    }
-    return s_useFavIcons;
-}
-
 QString KIO::favIconForUrl(const QUrl &url)
 {
-    /* The kded module also caches favicons, for one week, without any way
-     * to clean up the cache meanwhile.
-     * On the other hand, this QHash will get cleaned up after 5000 request
-     * (a selection in konsole of 80 chars generates around 500 requests)
-     * or by simply restarting the application (or the whole desktop,
-     * more likely, for the case of konqueror or konsole).
-     */
-    static QHash<QUrl, QString> iconNameCache;
-    static int autoClearCache = 0;
-    const QString notFound = QStringLiteral("NOTFOUND");
-
     if (url.isLocalFile()
-            || !url.scheme().startsWith(QLatin1String("http"))
-            || !useFavIcons()) {
+        || !url.scheme().startsWith(QLatin1String("http"))) {
         return QString();
     }
 
-    QString iconNameFromCache = iconNameCache.value(url, notFound);
-    if (iconNameFromCache != notFound) {
-        if ((++autoClearCache) < 5000) {
-            return iconNameFromCache;
-        } else {
-            iconNameCache.clear();
-            autoClearCache = 0;
-        }
-    }
-
-    QDBusInterface kded(QLatin1String("org.kde.kded5"),
-                        QLatin1String("/modules/favicons"),
-                        QLatin1String("org.kde.FavIcon"));
-    QDBusReply<QString> result = kded.call(QStringLiteral("iconForUrl"), url.toString());
-    iconNameCache.insert(url, result.value());
-    return result;              // default is QString()
+    return FavIconsCache::instance()->iconForUrl(url);
 }
 
 QString KIO::iconNameForUrl(const QUrl &url)

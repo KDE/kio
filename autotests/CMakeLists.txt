@@ -46,6 +46,16 @@ if(UNIX)
   )
 endif()
 
+if (TARGET KF5::KIOGui)
+  ecm_add_tests(
+    favicontest.cpp
+    NAME_PREFIX "kiogui-"
+    LINK_LIBRARIES KF5::KIOCore KF5::KIOGui Qt5::Test
+  )
+
+  target_link_libraries(favicontest Qt5::Concurrent)
+endif()
+
 if (TARGET KF5::KIOWidgets)
 ecm_add_tests(
  clipboardupdatertest.cpp

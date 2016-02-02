@@ -49,7 +49,6 @@ set(kiocore_SRCS
   slavebase.cpp
   dataslave.cpp
   dataprotocol.cpp
-  dataprotocol.cpp
   desktopexecparser.cpp
   emptytrashjob.cpp
   authinfo.cpp
@@ -85,6 +84,7 @@ set(kiocore_SRCS
   jobuidelegatefactory.cpp
   kmountpoint.cpp
   kcoredirlister.cpp
+  faviconscache.cpp
 
   ksslcertificatemanager.cpp
   ktcpsocket.cpp

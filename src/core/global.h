@@ -283,8 +283,11 @@ KIOCORE_EXPORT QString getCacheControlString(KIO::CacheControl cacheControl);
  * one that is already available.
  *
  * If unavailable, returns QString().
+ * Use KIO::FavIconRequestJob instead of this method if you can wait
+ * for the favicon to be downloaded.
+ *
  * @param url the URL of the favicon
- * @return the name of the favicon, or QString()
+ * @return the path to the icon (to be passed to QIcon()), or QString()
  *
  * @since 5.0
  */
@@ -307,6 +310,8 @@ KIOCORE_EXPORT QFile::Permissions convertPermissions(int permissions);
  * Return the icon name for a URL.
  * Most of the time this returns the mimetype icon,
  * but also has fallback to favicon and protocol-specific icon.
+ *
+ * Pass this to QIcon::fromTheme().
  *
  * @since 5.0
  */
