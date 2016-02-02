@@ -113,6 +113,7 @@ Comment[fi]=Välimuistin asetukset
 Comment[fr]=Configuration des paramètres du cache Web
 Comment[gd]=Rèitich roghainnean an tasgadain-lìn
 Comment[gl]=Configurar as opcións da caché web
+Comment[ia]=Configura le preferentias del cache del web
 Comment[it]=Configura le impostazioni della cache del Web
 Comment[ja]=ウェブキャッシュの設定
 Comment[ko]=웹 캐시 설정
@@ -138,6 +139,7 @@ Comment[zh_CN]=配置网页缓存设置
 Comment[zh_TW]=設定網頁快取設定
 
 X-KDE-Keywords=Cache,History,Browsing History,Ports,Size
+X-KDE-Keywords[ast]=Caché,Historia,Historia de navegación,Puertos,Tamañu
 X-KDE-Keywords[ca]=Memòria cau,Historial,Historial del navegador,Ports,Mida
 X-KDE-Keywords[ca@valencia]=Memòria cau,Historial,Historial del navegador,Ports,Mida
 X-KDE-Keywords[da]=Cache,historik,browserhistorik,porte,størrelse

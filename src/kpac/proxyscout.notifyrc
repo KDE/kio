@@ -2,6 +2,7 @@
 IconName=preferences-system-network-proxy
 Comment=Network Proxy Configuration
 Comment[ar]=تضبيط وسيط الشبكة
+Comment[ast]=Configuración del proxy de rede
 Comment[ca]=Configuració del servidor intermediari de la xarxa
 Comment[ca@valencia]=Configuració del servidor intermediari de la xarxa
 Comment[cs]=Nastavení proxy sítě
@@ -246,6 +247,7 @@ Action=Popup
 
 [Event/evaluation-error]
 Name=Script Evaluation Error
+Name[ast]=Fallu del script d'evaluación
 Name[ca]=Error en avaluar l'script
 Name[ca@valencia]=Error en avaluar l'script
 Name[cs]=Chyba v analýze skriptu

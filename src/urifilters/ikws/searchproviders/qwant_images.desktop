@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=qwi
 Name=Qwant Images
+Name[ast]=Qwant Images
 Name[ca]=Imatges a Qwant
 Name[ca@valencia]=Imatges a Qwant
 Name[cs]=Obrázky Qwant
@@ -14,6 +15,7 @@ Name[fr]=Images « Qwant »
 Name[gd]=Qwant Images
 Name[gl]=Imaxes en Qwant
 Name[hu]=Qwant képek
+Name[ia]=Qwant Images
 Name[id]=Qwant Gambar
 Name[it]=Immagini di Qwant
 Name[ko]=Qwant 그림
@@ -55,6 +57,7 @@ Query[fr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[gd]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[gl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[hu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
+Query[ia]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[id]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[it]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images
 Query[ko]=https://www.qwant.com/single?q=\\{@}&client=kde&source=images

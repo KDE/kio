@@ -179,6 +179,7 @@ Comment[zh_CN]=配置 Konqueror 报告自己的方式
 Comment[zh_TW]=設定 Konqueror 回報自身狀況的方式
 
 X-KDE-Keywords=User Agent,Browser,Internet,WWW,Network,agent,bindings,server,login
+X-KDE-Keywords[ast]=Axente d'usuariu,Restolador,Internet,WWW,Rede,axente,arreyos,sirvidor aniciar sesión,aniciu de sesión
 X-KDE-Keywords[ca]=Agent d'usuari,Navegador,Internet,WWW,Xarxa,agent,lligams,servidor,connexió
 X-KDE-Keywords[ca@valencia]=Agent d'usuari,Navegador,Internet,WWW,Xarxa,agent,lligams,servidor,connexió
 X-KDE-Keywords[da]=User agent,brugeragent,internet,www,netværk,agent,bindinger,server,login

@@ -112,6 +112,7 @@ Comment[fr]=Configurer les raccourcis web
 Comment[gd]=Rèitich na h-ath-ghoiridean lìn
 Comment[gl]=Configurar os atallos web
 Comment[hu]=Keresőazonosítók beállítása
+Comment[ia]=Configura vias breve de Web
 Comment[id]=Atur jalan pintas web
 Comment[it]=Configura le scorciatoie del Web...
 Comment[ko]=웹 바로 가기 설정...
@@ -139,6 +140,7 @@ Comment[zh_CN]=配置网页快捷键
 Comment[zh_TW]=設定網頁捷徑
 
 X-KDE-Keywords=Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts
+X-KDE-Keywords[ast]=Atayos web,Navegación,WWW,Internet,Peñeres d'internet,Rede,Motores de gueta, Atayos
 X-KDE-Keywords[ca]=Dreceres web,Navegació,WWW,Internet,Filtres d'internet,Xarxa,Motors de cerca,Dreceres
 X-KDE-Keywords[ca@valencia]=Dreceres web,Navegació,WWW,Internet,Filtres d'internet,Xarxa,Motors de cerca,Dreceres
 X-KDE-Keywords[cs]=Webové zkratky, Prohlížení,WWW,Internet,Internetové filtry,Síť,Vyhledávací nástroje,Zkratky

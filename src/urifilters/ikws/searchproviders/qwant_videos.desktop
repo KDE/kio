@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=qwv
 Name=Qwant Videos
+Name[ast]=Qwant Videos
 Name[ca]=Vídeo de Qwant
 Name[ca@valencia]=Vídeo de Qwant
 Name[cs]=Videa Qwan
@@ -15,6 +16,7 @@ Name[fr]=Vidéos « Qwant »
 Name[gd]=Qwant Videos
 Name[gl]=Vídeos en Qwant
 Name[hu]=Qwant videók
+Name[ia]=Qwant Videos
 Name[id]=Qwant Video
 Name[it]=Video di Qwant
 Name[ko]=Qwant 동영상
@@ -56,6 +58,7 @@ Query[fr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[gd]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[gl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[hu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
+Query[ia]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[id]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[it]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[ko]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos

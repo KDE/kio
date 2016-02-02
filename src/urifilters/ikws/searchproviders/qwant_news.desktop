@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=qwn
 Name=Qwant News
+Name[ast]=Qwant News
 Name[ca]=Notícies a Qwant
 Name[ca@valencia]=Notícies a Qwant
 Name[cs]=Novinky Qwant
@@ -55,6 +56,7 @@ Query[fr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[gd]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[gl]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[hu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
+Query[ia]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[id]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[it]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[ko]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
