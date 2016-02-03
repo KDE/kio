@@ -34,6 +34,8 @@
 
 static const char NTLM_SIGNATURE[] = "NTLMSSP";
 
+static Q_CONSTEXPR int NTLM_BLOB_SIZE = 28;
+
 static QByteArray QString2UnicodeLE(const QString &target)
 {
     QByteArray unicode(target.length() * 2, 0);
@@ -66,7 +68,7 @@ static QByteArray getBuf(const QByteArray &buf, const KNTLM::SecBuf &secbuf)
         return QByteArray();
     }
 
-    return QByteArray(buf.data() + offset, buf.size());
+    return QByteArray(buf.data() + offset, len);
 }
 
 static void addBuf(QByteArray &buf, KNTLM::SecBuf &secbuf, const QByteArray &data)
@@ -145,7 +147,7 @@ static void convertKey(unsigned char *key_56, void *ks)
 
 static QByteArray createBlob(const QByteArray &targetinfo)
 {
-    QByteArray blob(sizeof(KNTLM::Blob) + 4 + targetinfo.size(), 0);
+    QByteArray blob(NTLM_BLOB_SIZE + 4 + targetinfo.size(), 0);
 
     KNTLM::Blob *bl = (KNTLM::Blob *) blob.data();
     bl->signature = qToBigEndian((quint32) 0x01010000);
@@ -158,7 +160,7 @@ static QByteArray createBlob(const QByteArray &targetinfo)
         bl->challenge[i] = KRandom::random() % 0xff;
     }
 
-    memcpy(blob.data() + sizeof(KNTLM::Blob), targetinfo.data(), targetinfo.size());
+    memcpy(blob.data() + NTLM_BLOB_SIZE, targetinfo.data(), targetinfo.size());
     return blob;
 }
 
