@@ -516,6 +516,20 @@ private:
     void fileSystemFreeSpace(const QUrl &url); // KF6 TODO: Once a virtual fileSystemFreeSpace method in SlaveBase exists, override it
 
 protected:
+    /* This stores information about the credentials already tried
+     * during the authentication stage (in case the auth method uses
+     * a username and password). Initially the job-provided credentials
+     * are used (if any). In case of failure the credential cache is
+     * queried and if this fails the user is asked to provide credentials
+     * interactively (unless forbidden by metadata) */
+    enum TriedCredentials
+    {
+        NoCredentials = 0,
+        JobCredentials,
+        CachedCredentials,
+        UserInputCredentials
+    };
+
     HTTPServerState m_server;
     HTTPRequest m_request;
     QList<HTTPRequest> m_requestQueue;
@@ -571,7 +585,11 @@ protected:
     QByteArray m_protocol;
 
     KAbstractHttpAuthentication *m_wwwAuth;
+    QList<QByteArray> m_blacklistedWwwAuthMethods;
+    TriedCredentials m_triedWwwCredentials;
     KAbstractHttpAuthentication *m_proxyAuth;
+    QList<QByteArray> m_blacklistedProxyAuthMethods;
+    TriedCredentials m_triedProxyCredentials;
     // For proxy auth when it's handled by the Qt/KDE socket classes
     QAuthenticator *m_socketProxyAuth;
 

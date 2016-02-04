@@ -392,7 +392,9 @@ HTTPProtocol::HTTPProtocol(const QByteArray &protocol, const QByteArray &pool,
     , m_maxCacheSize(DEFAULT_MAX_CACHE_SIZE)
     , m_protocol(protocol)
     , m_wwwAuth(0)
+    , m_triedWwwCredentials(NoCredentials)
     , m_proxyAuth(0)
+    , m_triedProxyCredentials(NoCredentials)
     , m_socketProxyAuth(0)
     , m_networkConfig(0)
     , m_kioError(0)
@@ -552,6 +554,10 @@ void HTTPProtocol::resetSessionSettings()
     m_wwwAuth = 0;
     delete m_socketProxyAuth;
     m_socketProxyAuth = 0;
+    m_blacklistedWwwAuthMethods.clear();
+    m_triedWwwCredentials = NoCredentials;
+    m_blacklistedProxyAuthMethods.clear();
+    m_triedProxyCredentials = NoCredentials;
 
     // Obtain timeout values
     m_remoteRespTimeout = responseTimeout();
@@ -5361,9 +5367,13 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
     KIO::AuthInfo authinfo;
     QList<QByteArray> authTokens;
     KAbstractHttpAuthentication **auth;
+    QList<QByteArray> *blacklistedAuthTokens;
+    TriedCredentials *triedCredentials;
 
     if (m_request.responseCode == 401) {
         auth = &m_wwwAuth;
+        blacklistedAuthTokens = &m_blacklistedWwwAuthMethods;
+        triedCredentials = &m_triedWwwCredentials;
         authTokens = tokenizer->iterator("www-authenticate").all();
         authinfo.url = m_request.url;
         authinfo.username = m_server.url.userName();
@@ -5376,6 +5386,8 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
         // rare to nonexistent in the wild.
         Q_ASSERT(QNetworkProxy::applicationProxy().type() == QNetworkProxy::NoProxy);
         auth = &m_proxyAuth;
+        blacklistedAuthTokens = &m_blacklistedProxyAuthMethods;
+        triedCredentials = &m_triedProxyCredentials;
         authTokens = tokenizer->iterator("proxy-authenticate").all();
         authinfo.url = m_request.proxyUrl;
         authinfo.username = m_request.proxyUrl.userName();
@@ -5400,6 +5412,14 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
                 errorMsg = (m_request.responseCode == 401 ?
                             i18n("Authentication Failed.") :
                             i18n("Proxy Authentication Failed."));
+                // The authentication failed in its final stage. If the chosen method didn't use a password or
+                // if it failed with both the supplied and prompted password then blacklist this method and try
+                // again with another one if possible.
+                if (!(*auth)->needCredentials() || *triedCredentials > JobCredentials) {
+                    QByteArray scheme((*auth)->scheme().trimmed());
+                    qCDebug(KIO_HTTP) << "Blacklisting auth" << scheme;
+                    blacklistedAuthTokens->append(scheme);
+                }
                 delete *auth;
                 *auth = 0;
             } else {     // Create authentication header
@@ -5414,6 +5434,22 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
                         it.remove();
                     }
                 }
+            }
+        }
+
+        QList<QByteArray>::iterator it = authTokens.begin();
+        while (it != authTokens.end()) {
+            QByteArray scheme = *it;
+            // Separate the method name from any additional parameters (for ex. nonce or realm).
+            int index = it->indexOf(' ');
+            if (index > 0) {
+                scheme.truncate(index);
+            }
+
+            if (blacklistedAuthTokens->contains(scheme)) {
+                it = authTokens.erase(it);
+            } else {
+                it++;
             }
         }
 
@@ -5442,11 +5478,12 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
             bool generateAuthHeader = true;
             if ((*auth)->needCredentials()) {
                 // use credentials supplied by the application if available
-                if (!m_request.url.userName().isEmpty() && !m_request.url.password().isEmpty()) {
+                if (!m_request.url.userName().isEmpty() && !m_request.url.password().isEmpty() &&
+                    *triedCredentials == NoCredentials) {
                     username = m_request.url.userName();
                     password = m_request.url.password();
                     // don't try this password any more
-                    m_request.url.setPassword(QString());
+                    *triedCredentials = JobCredentials;
                 } else {
                     // try to get credentials from kpasswdserver's cache, then try asking the user.
                     authinfo.verifyPath = false; // we have realm, no path based checking please!
@@ -5476,6 +5513,9 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
                             delete *auth;
                             *auth = 0;
                         }
+                        *triedCredentials = UserInputCredentials;
+                    } else {
+                        *triedCredentials = CachedCredentials;
                     }
                     username = authinfo.username;
                     password = authinfo.password;
@@ -5492,7 +5532,10 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
                                   << "forceDisconnect=" << (*auth)->forceDisconnect();
 
                 if ((*auth)->isError()) {
-                    authTokens.removeOne(bestOffer);
+                    QByteArray scheme((*auth)->scheme().trimmed());
+                    qCDebug(KIO_HTTP) << "Blacklisting auth" << scheme;
+                    authTokens.removeOne(scheme);
+                    blacklistedAuthTokens->append(scheme);
                     if (!authTokens.isEmpty()) {
                         goto try_next_auth_scheme;
                     } else {
