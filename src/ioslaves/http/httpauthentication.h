@@ -265,7 +265,13 @@ public:
 private:
     friend class KAbstractHttpAuthentication;
     KHttpNtlmAuthentication(KConfigGroup *config = 0)
-        : KAbstractHttpAuthentication(config) {}
+        : KAbstractHttpAuthentication(config), m_stage1State(Init) {}
+    enum Stage1State {
+        Init = 0,
+        SentNTLMv1,
+        SentNTLMv2
+    };
+    Stage1State m_stage1State;
 };
 
 #if HAVE_LIBGSSAPI

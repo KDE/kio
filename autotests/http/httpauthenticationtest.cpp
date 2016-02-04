@@ -24,6 +24,8 @@
 #include <QtCore/QList>
 #include <QtCore/QByteArray>
 #include <QtNetwork/QHostInfo>
+#include <QtCore/QtEndian>
+#include <KConfigCore/KConfig>
 
 #define ENABLE_HTTP_AUTH_NONCE_SETTER
 #include "httpauthentication.cpp"
@@ -57,6 +59,42 @@ static void parseAuthHeader(const QByteArray &header,
     if (result) {
         *result = parseResult;
     }
+}
+
+static QByteArray hmacMD5(const QByteArray &data, const QByteArray &key)
+{
+    QByteArray ret;
+    QByteArray ipad(64, 0x36);
+    QByteArray opad(64, 0x5c);
+
+    Q_ASSERT(key.size() <= 64);
+
+    for (int i = qMin(key.size(), 64) - 1; i >= 0; i--) {
+        ipad.data()[i] ^= key[i];
+        opad.data()[i] ^= key[i];
+    }
+
+    QByteArray content(ipad + data);
+
+    QCryptographicHash md5(QCryptographicHash::Md5);
+    md5.addData(content);
+    content = opad + md5.result();
+
+    md5.reset();
+    md5.addData(content);
+
+    return md5.result();
+}
+
+static QByteArray QString2UnicodeLE(const QString &target)
+{
+    QByteArray unicode(target.length() * 2, 0);
+
+    for (int i = 0; i < target.length(); i++) {
+        ((quint16 *) unicode.data()) [ i ] = qToLittleEndian(target[i].unicode());
+    }
+
+    return unicode;
 }
 
 void HTTPAuthenticationTest::testHeaderParsing_data()
@@ -196,7 +234,7 @@ void HTTPAuthenticationTest::testAuthentication_data()
             << QByteArray();
     QTest::newRow("ntlm-challenge-type2")
             << QByteArray("NTLM TlRMTVNTUAACAAAAAAAAACgAAAABggAAU3J2Tm9uY2UAAAAAAAAAAA==")
-            << QByteArray("NTLM TlRMTVNTUAADAAAAGAAYAFgAAAAYABgAQAAAAAAAAAAAAAAAAAAAAHAAAAAWABYAcAAAAAAAAAAAAAAAAYIAAJSg10BK9h+dU9d6Ijn04m4iDZHzFECXU3sG2ZrxJPWBGnO3BnTKK13Ku1qYqpcE6VcATwBSAEsAUwBUAEEAVABJAE8ATgA=")
+            << QByteArray("NTLM TlRMTVNTUAADAAAAGAAYAFgAAAAYABgAQAAAABQAFABwAAAADAAMAIQAAAAWABYAkAAAAAAAAAAAAAAAAYIAAODgDeMQShvyBT8Hx92oLTxImumJ4bAA062Hym3v40aFucQ8R3qMQtYAZn1okufol1UAcgBzAGEALQBNAGkAbgBvAHIAWgBhAHAAaABvAGQAVwBPAFIASwBTAFQAQQBUAEkATwBOAA==")
             << QByteArray("Ursa-Minor\\Zaphod")
             << QByteArray("Beeblebrox")
             << QByteArray()
@@ -222,5 +260,71 @@ void HTTPAuthenticationTest::testAuthentication()
     authObj->setChallenge(bestOffer, QUrl(url), "GET");
     authObj->generateResponse(QString(user), QString(pass));
     QCOMPARE(authObj->headerFragment().trimmed().constData(), expectedResponse.constData());
+    delete authObj;
+}
+
+void HTTPAuthenticationTest::testAuthenticationNTLMv2()
+{
+    QByteArray input("NTLM TlRMTVNTUAACAAAABgAGADgAAAAFAokCT0wyUnb4OSQAAAAAAAAAAMYAxgA+AAAABgGxHQAAAA9UAFMAVAACAAYAVABTAFQAAQASAEQAVgBHAFIASwBWAFEAUABEAAQAKgB0AHMAdAAuAGQAagBrAGgAcQBjAGkAaABtAGMAbwBmAGoALgBvAHIAZwADAD4ARABWAEcAUgBLAFYAUQBQAEQALgB0AHMAdAAuAGQAagBrAGgAcQBjAGkAaABtAGMAbwBmAGoALgBvAHIAZwAFACIAZABqAGsAaABxAGMAaQBoAG0AYwBvAGYAagAuAG8AcgBnAAcACABvb9jXZl7RAQAAAAA=");
+    QByteArray expectedResponse("TlRMTVNTUAADAAAAGAAYADYBAAD2APYAQAAAAAYABgBOAQAABgAGAFQBAAAWABYAWgEAAAAAAAAAAAAABQKJArXyhsxZPveKcfcV21viIsUBAQAAAAAAAAC8GQxfX9EBTHOi1kJbHbQAAAAAAgAGAFQAUwBUAAEAEgBEAFYARwBSAEsAVgBRAFAARAAEACoAdABzAHQALgBkAGoAawBoAHEAYwBpAGgAbQBjAG8AZgBqAC4AbwByAGcAAwA+AEQAVgBHAFIASwBWAFEAUABEAC4AdABzAHQALgBkAGoAawBoAHEAYwBpAGgAbQBjAG8AZgBqAC4AbwByAGcABQAiAGQAagBrAGgAcQBjAGkAaABtAGMAbwBmAGoALgBvAHIAZwAHAAgAb2/Y12Ze0QEAAAAAAAAAAOInN0N/15GHBtz3WXvvV159KG/2MbYk0FQAUwBUAGIAbwBiAFcATwBSAEsAUwBUAEEAVABJAE8ATgA=");
+    QString user("TST\\bob");
+    QString pass("cacamas");
+    QString target("TST");
+
+    QByteArray bestOffer;
+    parseAuthHeader(input, &bestOffer, 0, 0);
+    KConfig conf;
+    KConfigGroup confGroup = conf.group("test");
+    confGroup.writeEntry("EnableNTLMv2Auth", true);
+    KAbstractHttpAuthentication *authObj = KAbstractHttpAuthentication::newAuth(bestOffer, &confGroup);
+    QVERIFY(authObj);
+
+    authObj->setChallenge(bestOffer, QUrl(), "GET");
+    authObj->generateResponse(QString(user), QString(pass));
+
+    QByteArray resp(QByteArray::fromBase64(authObj->headerFragment().trimmed().mid(5)));
+    QByteArray expResp(QByteArray::fromBase64(expectedResponse));
+
+    /* Prepare responses stripped from any data that is variable. */
+    QByteArray strippedResp(resp);
+    memset(strippedResp.data() + 0x40, 0, 0x10); // NTLMv2 MAC
+    memset(strippedResp.data() + 0x58, 0, 0x10); // timestamp + client nonce
+    memset(strippedResp.data() + 0x136, 0, 0x18); // LMv2 MAC
+    QByteArray strippedExpResp(expResp);
+    memset(strippedExpResp.data() + 0x40, 0, 0x10); // NTLMv2 MAC
+    memset(strippedExpResp.data() + 0x58, 0, 0x10); // timestamp + client nonce
+    memset(strippedExpResp.data() + 0x136, 0, 0x18); // LMv2 MAC
+
+    /* Compare the stripped responses. */
+    QCOMPARE(strippedResp.toBase64(), strippedExpResp.toBase64());
+
+    /* Verify the NTLMv2 response MAC. */
+    QByteArray challenge(QByteArray::fromBase64(input.mid(5)));
+    QByteArray serverNonce(challenge.mid(0x18, 8));
+
+    QByteArray uniPass(QString2UnicodeLE(pass));
+    QByteArray ntlmHash(QCryptographicHash::hash(uniPass, QCryptographicHash::Md4));
+    int i = user.indexOf('\\');
+    QString username;
+    if (i >= 0) {
+        username = user.mid(i + 1);
+    }
+    else {
+        username = user;
+    }
+
+    QByteArray userTarget(QString2UnicodeLE(username.toUpper() + target));
+    QByteArray ntlm2Hash(hmacMD5(userTarget, ntlmHash));
+    QByteArray hashData(serverNonce + resp.mid(0x50, 230));
+    QByteArray mac(hmacMD5(hashData, ntlm2Hash));
+
+    QCOMPARE(mac.toHex(), resp.mid(0x40, 16).toHex());
+
+    /* Verify the LMv2 response MAC. */
+    QByteArray lmHashData(serverNonce + resp.mid(0x146, 8));
+    QByteArray lmHash(hmacMD5(lmHashData, ntlm2Hash));
+
+    QCOMPARE(lmHash.toHex(), resp.mid(0x136, 16).toHex());
+
     delete authObj;
 }

@@ -700,7 +700,7 @@ void KHttpNtlmAuthentication::setChallenge(const QByteArray &c, const QUrl &reso
     }
     // The type 1 message we're going to send needs no credentials;
     // they come later in the type 3 message.
-    m_needCredentials = m_challenge.isEmpty();
+    m_needCredentials = !m_challenge.isEmpty();
 }
 
 void KHttpNtlmAuthentication::fillKioAuthInfo(KIO::AuthInfo *ai) const
@@ -724,8 +724,27 @@ void KHttpNtlmAuthentication::generateResponse(const QString &_user, const QStri
     if (m_challenge.isEmpty()) {
         m_finalAuthStage = false;
         // first, send type 1 message (with empty domain, workstation..., but it still works)
-        if (!KNTLM::getNegotiate(buf)) {
-            qWarning() << "Error while constructing Type 1 NTLM authentication request";
+        switch (m_stage1State) {
+        case Init:
+            if (!KNTLM::getNegotiate(buf)) {
+                qWarning() << "Error while constructing Type 1 NTLMv1 authentication request";
+                m_isError = true;
+                return;
+            }
+            m_stage1State = SentNTLMv1;
+            break;
+        case SentNTLMv1:
+            if (!KNTLM::getNegotiate(buf, QString(), QString(), KNTLM::Negotiate_NTLM2_Key
+                                     | KNTLM::Negotiate_Always_Sign | KNTLM::Negotiate_Unicode
+                                     | KNTLM::Request_Target | KNTLM::Negotiate_NTLM)) {
+                qWarning() << "Error while constructing Type 1 NTLMv2 authentication request";
+                m_isError = true;
+                return;
+            }
+            m_stage1State = SentNTLMv2;
+            break;
+        default:
+            qWarning() << "Error - Type 1 NTLM already sent - no Type 2 response received.";
             m_isError = true;
             return;
         }
@@ -744,7 +763,7 @@ void KHttpNtlmAuthentication::generateResponse(const QString &_user, const QStri
         const QByteArray challenge = QByteArray::fromBase64(m_challenge[0]);
 
         KNTLM::AuthFlags flags = KNTLM::Add_LM;
-        if (!m_config || !m_config->readEntry("EnableNTLMv2Auth", false)) {
+        if ((!m_config || !m_config->readEntry("EnableNTLMv2Auth", false)) && (m_stage1State != SentNTLMv2)) {
             flags |= KNTLM::Force_V1;
         }
 
