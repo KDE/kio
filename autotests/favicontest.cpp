@@ -116,7 +116,8 @@ void FavIconTest::hostJobShouldDownloadIconThenUseCache()
     QVERIFY(iconFile.endsWith(QLatin1String("favicons/www.google.com.png")));
     QVERIFY2(QFile::exists(iconFile), qPrintable(iconFile));
     QVERIFY(!QIcon(iconFile).isNull()); // pass full path to QIcon
-    QVERIFY(!QIcon::fromTheme(iconFile).isNull()); // old code ported from kdelibs4 might do that, should work too
+    // This requires https://codereview.qt-project.org/148444
+    //QVERIFY(!QIcon::fromTheme(iconFile).isNull()); // old code ported from kdelibs4 might do that, should work too
 
     // Lookup should give the same result
     QCOMPARE(KIO::favIconForUrl(url), iconFile);
