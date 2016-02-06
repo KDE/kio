@@ -1,0 +1,293 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Italian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<refentry>
+
+<refentryinfo>
+<title
+>Manuale dell'utente di &kde;</title>
+<author
+><firstname
+>Waldo</firstname
+> <surname
+> Bastian</surname
+> <affiliation
+> <address
+><email
+>bastian@kde.org</email
+></address>
+</affiliation>
+</author>
+
+<author
+><firstname
+>Dawit</firstname
+> <surname
+>Alemayehu</surname
+> <affiliation
+> <address
+><email
+>adawit@kde.org</email
+></address>
+</affiliation>
+</author>
+
+<date
+>2008-10-14</date>
+<releaseinfo
+>0.01.01</releaseinfo>
+
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kcookiejar5</command
+></refentrytitle>
+<manvolnum
+>8</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kcookiejar5</command
+></refname>
+<refpurpose
+>Interfaccia da riga di comando al demone dei cookie HTTP di &kde;</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<title
+>Sintassi</title>
+
+<cmdsynopsis
+><command
+>kcookiejar5</command
+> <arg choice="opt"
+>--help</arg
+> <arg choice="opt"
+>opzini generiche</arg
+> <arg choice="opt"
+>opzioni di Qt</arg
+> <arg choice="opt"
+>opzioni di KDE</arg
+> <arg choice="opt"
+>--shutdown</arg
+> <arg choice="opt"
+>--remove <replaceable
+>dominio</replaceable
+></arg
+> <arg choice="opt"
+>--remove-all</arg
+> <arg choice="opt"
+>--reload-config</arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Descrizione</title>
+
+<para
+><command
+>kcookiejar5</command
+> è un'interfaccia da riga di comando al cookie HTTP memorizzati da KDE, un servizio D-BUS per memorizzarli, recuperarli e pulirli. </para>
+</refsect1>
+
+<refsect1>
+<title
+>Opzioni generiche</title>
+<para>
+<variablelist>
+
+<varlistentry>
+<term
+><option
+>--author</option
+></term>
+<listitem>
+<para
+>Mostra le informazioni sull'autore.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--help</option
+></term>
+<listitem>
+<para
+>Mostra la guida sulle opzioni.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--help-all</option
+></term>
+<listitem>
+<para
+>Mostra tutte le opzioni.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--help-kde</option
+></term>
+<listitem>
+<para
+>Mostra le opzioni specifiche per &kde;.</para>
+
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--help-qt</option
+></term>
+<listitem>
+<para
+>Mostra le opzioni specifiche per Qt.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--license</option
+></term>
+<listitem>
+<para
+>Mostra le informazioni sulla licenza.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>-v</option
+><option
+>--version</option
+></term>
+<listitem>
+<para
+>Mostra le informazioni sulla versione</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</para>
+</refsect1>
+
+<refsect1>
+<title
+>Opzioni dell'applicazione</title>
+<variablelist>
+
+<varlistentry>
+<term
+><option
+>--shutdown</option
+></term>
+<listitem>
+<para
+>Chiudi la raccolta dei cookie e il servizio D-BUS. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--remove</option
+> <parameter
+>dominio</parameter
+></term>
+<listitem>
+<para
+>Rimuove i cookie del <parameter
+>dominio</parameter
+> dalla raccolta. </para>
+</listitem>
+</varlistentry>
+
+
+<varlistentry>
+<term
+><option
+>--remove-all</option
+></term>
+<listitem>
+<para
+>Rimuove tutti i cookie dalla raccolta.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--reload-config</option
+></term>
+<listitem>
+<para
+>Ricarica il file di configurazione. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Uso</title>
+<para
+><command
+>kcookiejar5</command
+> è uno strumento da riga di comando per accedere al modulo kded, che gestisce i cookie in <command
+>Konqueror</command
+> e altre applicazioni di KDE.</para>
+<para
+>Quando avviato senza parametri carica il modulo kded per fornire l'interfaccia D-BUS per memorizzare i cookie. </para>
+<para
+>Quando <command
+>kcookiejar5</command
+> viene avviato con qualche parametro, esegue delle azioni aggiuntive alla raccolta di cookie fornita, come rimuovere i cookie da un <parameter
+>dominio</parameter
+>. </para>
+
+</refsect1>
+
+<refsect1>
+<title
+>Vedi anche</title>
+<para
+><replaceable
+>kdeoptions</replaceable
+>(7), <replaceable
+>qtoptions</replaceable
+>(7) </para>
+</refsect1>
+
+<refsect1>
+<title
+>Errori</title>
+<para
+>	Probabilmente ce ne sono a bizzeffe. Usa <ulink url="http://bugs.kde.org"
+>bugs.kde.org</ulink
+> per segnalarli.</para>
+</refsect1>
+
+</refentry>
+
+
+
