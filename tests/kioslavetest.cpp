@@ -314,7 +314,7 @@ void KioslaveTest::startJob()
 void KioslaveTest::slotResult(KJob *_job)
 {
     if (_job->error()) {
-        job->uiDelegate()->showErrorMessage();
+        _job->uiDelegate()->showErrorMessage();
     } else if (selectedOperation == Stat) {
         UDSEntry entry = ((KIO::StatJob *)_job)->statResult();
         printUDSEntry(entry);
