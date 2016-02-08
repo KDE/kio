@@ -79,6 +79,8 @@ void FavIconTest::initTestCase()
 
     // To avoid a runtime dependency on klauncher
     qputenv("KDE_FORK_SLAVES", "yes");
+    // To let ctest exist, we shouldn't start kio_http_cache_cleaner
+    qputenv("KIO_DISABLE_CACHE_CLEANER", "yes");
 
     if (!checkNetworkAccess()) {
         QSKIP("no network access", SkipAll);

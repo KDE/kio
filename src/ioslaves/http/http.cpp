@@ -4993,6 +4993,8 @@ void HTTPProtocol::cacheFileClose()
 void HTTPProtocol::sendCacheCleanerCommand(const QByteArray &command)
 {
     qCDebug(KIO_HTTP);
+    if (!qEnvironmentVariableIsEmpty("KIO_DISABLE_CACHE_CLEANER")) // for autotests
+        return;
     Q_ASSERT(command.size() == BinaryCacheFileHeader::size + s_hashedUrlNibbles + sizeof(quint32));
     if (m_cacheCleanerConnection.state() != QLocalSocket::ConnectedState) {
         QString socketFileName = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation) + QLatin1Char('/') + QLatin1String("kio_http_cache_cleaner");
