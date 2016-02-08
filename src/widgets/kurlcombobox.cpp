@@ -224,7 +224,12 @@ void KUrlComboBox::setUrls(const QStringList &_urls, OverLoadResolving remove)
             ++it;
             continue;
         }
-        QUrl u(*it);
+        QUrl u;
+        if (QDir::isAbsolutePath(*it)) {
+            u = QUrl::fromLocalFile(*it);
+        } else {
+            u.setUrl(*it);
+        }
 
         // Don't restore if file doesn't exist anymore
         if (u.isLocalFile() && !QFile::exists(u.toLocalFile())) {
