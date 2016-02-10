@@ -4,7 +4,7 @@ set(kiogui_SRCS
    faviconrequestjob.cpp
 )
 
-ecm_qt_declare_logging_category(kiogui_SRCS HEADER favicons_debug.h IDENTIFIER FAVICONS_LOG CATEGORY_NAME kde.kio.favicons)
+ecm_qt_declare_logging_category(kiogui_SRCS HEADER favicons_debug.h IDENTIFIER FAVICONS_LOG CATEGORY_NAME kf5.kio.favicons)
 
 add_library(KF5KIOGui ${kiogui_SRCS})
 generate_export_header(KF5KIOGui BASE_NAME KIOGui)
