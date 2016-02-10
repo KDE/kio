@@ -1594,7 +1594,8 @@ void KFileWidgetPrivate::_k_fileCompletion(const QString &match)
         return;
     }
 
-    const QPixmap pix = KIconLoader::global()->loadMimeTypeIcon(KIO::iconNameForUrl(QUrl(match)), KIconLoader::Small);
+    const QUrl url = urlFromString(match);
+    const QPixmap pix = KIconLoader::global()->loadMimeTypeIcon(KIO::iconNameForUrl(url), KIconLoader::Small);
     setDummyHistoryEntry(locationEdit->currentText(), pix, !locationEdit->currentText().isEmpty());
 }
 
