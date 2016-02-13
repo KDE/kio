@@ -255,12 +255,12 @@ static QString getAltIconUrl()
     return job->iconFile();
 }
 
-/*static bool allFinished(const QList<QFuture<QString> > &futures)
+static bool allFinished(const QList<QFuture<QString> > &futures)
 {
     return std::find_if(futures.constBegin(), futures.constEnd(),
-                        [](const QFuture<QString> &future) { return future.isFinished(); })
+                        [](const QFuture<QString> &future) { return !future.isFinished(); })
             == futures.constEnd();
-}*/
+}
 
 void FavIconTest::concurrentRequestsShouldWork()
 {
@@ -270,10 +270,9 @@ void FavIconTest::concurrentRequestsShouldWork()
     for (int i = 0; i < numThreads; ++i) {
         sync.addFuture(QtConcurrent::run(getAltIconUrl));
     }
+    //sync.waitForFinished();
     // same as sync.waitForFinished() but with a timeout
-    // ### sometimes fails, must be the races in QtConcurrent itself, currently being fixed (5.6)
-    //QTRY_VERIFY(allFinished(sync.futures()));
-    sync.waitForFinished();
+    QTRY_VERIFY(allFinished(sync.futures()));
 
     const QString firstResult = sync.futures().at(0).result();
     for (int i = 1; i < numThreads; ++i) {
