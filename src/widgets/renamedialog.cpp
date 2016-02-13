@@ -54,6 +54,42 @@
 
 using namespace KIO;
 
+static QLabel *createLabel(QWidget *parent, const QString &text, bool containerTitle = false)
+{
+    QLabel *label = new QLabel(parent);
+
+    if (containerTitle) {
+        QFont font = label->font();
+        font.setBold(true);
+        label->setFont(font);
+    }
+
+    label->setAlignment(Qt::AlignHCenter);
+    label->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
+    label->setText(text);
+    return label;
+}
+
+static QLabel *createDateLabel(QWidget *parent, const KFileItem &item)
+{
+    const QString text = i18n("Date: %1", item.timeString(KFileItem::ModificationTime));
+    return createLabel(parent, text);
+}
+
+static QLabel *createSizeLabel(QWidget *parent, const KFileItem &item)
+{
+    const QString text = i18n("Size: %1", KIO::convertSize(item.size()));
+    return createLabel(parent, text);
+}
+
+static KSqueezedTextLabel *createSqueezedLabel(QWidget *parent, const QString &text)
+{
+    KSqueezedTextLabel *label = new KSqueezedTextLabel(text, parent);
+    label->setAlignment(Qt::AlignHCenter);
+    label->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Fixed);
+    return label;
+}
+
 /** @internal */
 class RenameDialog::RenameDialogPrivate
 {
@@ -200,8 +236,8 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
             d->destItem = KFileItem(destUds, d->dest);
         }
 
-        d->m_srcPreview = createLabel(parent, QString(), false);
-        d->m_destPreview = createLabel(parent, QString(), false);
+        d->m_srcPreview = createLabel(parent, QString());
+        d->m_destPreview = createLabel(parent, QString());
 
         d->m_srcPreview->setMinimumHeight(KIconLoader::SizeEnormous);
         d->m_destPreview->setMinimumHeight(KIconLoader::SizeEnormous);
@@ -225,15 +261,8 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
         QGridLayout *gridLayout = new QGridLayout();
         pLayout->addLayout(gridLayout);
 
-        QLabel *titleLabel = new QLabel(i18n("This action will overwrite the destination."), this);
-
-        QLabel *srcTitle = createLabel(parent, i18n("Source"), true);
-        QLabel *destTitle = createLabel(parent, i18n("Destination"), true);
-
-        QLabel *srcInfo = createSqueezedLabel(parent, d->src.toDisplayString(QUrl::PreferLocalFile));
-        QLabel *destInfo = createSqueezedLabel(parent, d->dest.toDisplayString(QUrl::PreferLocalFile));
-
         int gridRow = 0;
+        QLabel *titleLabel = new QLabel(i18n("This action will overwrite the destination."), this);
         gridLayout->addWidget(titleLabel, gridRow, 0, 1, 2);    // takes the complete first line
 
         if (mtimeDest > mtimeSrc) {
@@ -243,12 +272,30 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
         }
         gridLayout->setRowMinimumHeight(++gridRow, 15);    // spacer
 
+        QLabel *srcTitle = createLabel(parent, i18n("Source"), true);
         gridLayout->addWidget(srcTitle, ++gridRow, 0);
+        QLabel *destTitle = createLabel(parent, i18n("Destination"), true);
         gridLayout->addWidget(destTitle, gridRow, 1);
-        gridLayout->addWidget(srcInfo, ++gridRow, 0);
-        gridLayout->addWidget(destInfo, gridRow, 1);
+
+        QLabel *srcUrlLabel = createSqueezedLabel(parent, d->src.toDisplayString(QUrl::PreferLocalFile));
+        gridLayout->addWidget(srcUrlLabel, ++gridRow, 0);
+        QLabel *destUrlLabel = createSqueezedLabel(parent, d->dest.toDisplayString(QUrl::PreferLocalFile));
+        gridLayout->addWidget(destUrlLabel, gridRow, 1);
+
+        // The labels containing previews or icons
         gridLayout->addWidget(d->m_srcArea, ++gridRow, 0);
         gridLayout->addWidget(d->m_destArea, gridRow, 1);
+
+        QLabel *srcDateLabel = createDateLabel(parent, d->srcItem);
+        gridLayout->addWidget(srcDateLabel, ++gridRow, 0);
+        QLabel *destDateLabel = createDateLabel(parent, d->destItem);
+        gridLayout->addWidget(destDateLabel, gridRow, 1);
+
+        QLabel *srcSizeLabel = createSizeLabel(parent, d->srcItem);
+        gridLayout->addWidget(srcSizeLabel, ++gridRow, 0);
+        QLabel *destSizeLabel = createSizeLabel(parent, d->destItem);
+        gridLayout->addWidget(destSizeLabel, gridRow, 1);
+
     } else {
         // This is the case where we don't want to allow overwriting, the existing
         // file must be preserved (e.g. when renaming).
@@ -335,6 +382,11 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
     layout->addWidget(d->bCancel);
 
     resize(sizeHint());
+
+#if 1 // without kfilemetadata
+    // don't wait for kfilemetadata, but wait until the layouting is done
+    QMetaObject::invokeMethod(this, "resizePanels", Qt::QueuedConnection);
+#endif
 }
 
 RenameDialog::~RenameDialog()
@@ -604,32 +656,5 @@ QScrollArea *RenameDialog::createContainerLayout(QWidget *parent, const KFileIte
     metaDataArea->setFrameShape(QFrame::NoFrame);
 
     return metaDataArea;
-}
-
-QLabel *RenameDialog::createLabel(QWidget *parent, const QString &text, bool containerTitle)
-{
-    QLabel *label = new QLabel(parent);
-
-    if (containerTitle) {
-        QFont font = label->font();
-        font.setBold(true);
-        label->setFont(font);
-    }
-
-    label->setAlignment(Qt::AlignHCenter);
-    label->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
-    label->setText(text);
-
-    return label;
-}
-
-KSqueezedTextLabel *RenameDialog::createSqueezedLabel(QWidget *parent, const QString &text)
-{
-    KSqueezedTextLabel *label = new KSqueezedTextLabel(text, parent);
-
-    label->setAlignment(Qt::AlignHCenter);
-    label->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Fixed);
-
-    return label;
 }
 

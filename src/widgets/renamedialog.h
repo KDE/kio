@@ -122,8 +122,6 @@ private Q_SLOTS:
 
 private:
     QScrollArea *createContainerLayout(QWidget *parent, const KFileItem &item, QLabel *preview);
-    QLabel *createLabel(QWidget *parent, const QString &text, const bool containerTitle);
-    KSqueezedTextLabel *createSqueezedLabel(QWidget *parent, const QString &text);
     class RenameDialogPrivate;
     RenameDialogPrivate *const d;
 };
