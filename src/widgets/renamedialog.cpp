@@ -623,9 +623,9 @@ QScrollArea *RenameDialog::createContainerLayout(QWidget *parent, const KFileIte
     KFileItemList itemList;
     itemList << item;
 
-#pragma message("TODO: use KFileMetaDataWidget in RenameDialog via a plugin")
 #if 0 // PENDING
-    // widget
+    // KFileMetaDataWidget was deprecated for a Nepomuk widget, which is itself deprecated...
+    // If we still want metadata shown, we need a plugin that fetches data from KFileMetaData::ExtractorCollection
     KFileMetaDataWidget *metaWidget =  new KFileMetaDataWidget(this);
 
     metaWidget->setReadOnly(true);
