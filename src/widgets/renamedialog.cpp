@@ -233,32 +233,22 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
         QLabel *srcInfo = createSqueezedLabel(parent, d->src.toDisplayString(QUrl::PreferLocalFile));
         QLabel *destInfo = createSqueezedLabel(parent, d->dest.toDisplayString(QUrl::PreferLocalFile));
 
+        int gridRow = 0;
+        gridLayout->addWidget(titleLabel, gridRow, 0, 1, 2);    // takes the complete first line
+
         if (mtimeDest > mtimeSrc) {
             QLabel *warningLabel = new QLabel(i18n("Warning, the destination is more recent."), this);
 
-            gridLayout->addWidget(titleLabel, 0, 0, 1, 2);    // takes the complete first line
-            gridLayout->addWidget(warningLabel, 1, 0, 1, 2);
-            gridLayout->setRowMinimumHeight(2, 15);    // spacer
-
-            gridLayout->addWidget(srcTitle, 3, 0);
-            gridLayout->addWidget(srcInfo, 4, 0);
-            gridLayout->addWidget(d->m_srcArea, 5, 0);
-
-            gridLayout->addWidget(destTitle, 3, 1);
-            gridLayout->addWidget(destInfo, 4, 1);
-            gridLayout->addWidget(d->m_destArea, 5, 1);
-        } else {
-            gridLayout->addWidget(titleLabel, 0, 0, 1, 2);
-            gridLayout->setRowMinimumHeight(1, 15);
-
-            gridLayout->addWidget(srcTitle, 2, 0);
-            gridLayout->addWidget(srcInfo, 3, 0);
-            gridLayout->addWidget(d->m_srcArea, 4, 0);
-
-            gridLayout->addWidget(destTitle, 2, 1);
-            gridLayout->addWidget(destInfo, 3, 1);
-            gridLayout->addWidget(d->m_destArea, 4, 1);
+            gridLayout->addWidget(warningLabel, ++gridRow, 0, 1, 2);
         }
+        gridLayout->setRowMinimumHeight(++gridRow, 15);    // spacer
+
+        gridLayout->addWidget(srcTitle, ++gridRow, 0);
+        gridLayout->addWidget(destTitle, gridRow, 1);
+        gridLayout->addWidget(srcInfo, ++gridRow, 0);
+        gridLayout->addWidget(destInfo, gridRow, 1);
+        gridLayout->addWidget(d->m_srcArea, ++gridRow, 0);
+        gridLayout->addWidget(d->m_destArea, gridRow, 1);
     } else {
         // This is the case where we don't want to allow overwriting, the existing
         // file must be preserved (e.g. when renaming).
