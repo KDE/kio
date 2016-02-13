@@ -20,23 +20,21 @@
 */
 
 #include "kio/renamedialog.h"
-#include <stdio.h>
-#include <assert.h>
 
-#include <QtCore/QDate>
+#include <QApplication>
 #include <QCheckBox>
+#include <QDate>
+#include <QDebug>
+#include <QDesktopWidget>
+#include <QDir>
 #include <QLabel>
 #include <QLayout>
+#include <QLineEdit>
+#include <QMimeDatabase>
 #include <QPixmap>
+#include <QPushButton>
 #include <QScrollArea>
 #include <QScrollBar>
-#include <QApplication>
-#include <QLineEdit>
-#include <QDesktopWidget>
-#include <QPushButton>
-#include <QtCore/QDir>
-#include <qmimedatabase.h>
-#include <QDebug>
 
 #include <kiconloader.h>
 #include <kmessagebox.h>
@@ -352,7 +350,6 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
 RenameDialog::~RenameDialog()
 {
     delete d;
-    // no need to delete Pushbuttons,... qt will do this
 }
 
 void RenameDialog::enableRenameButton(const QString &newDest)
@@ -433,8 +430,6 @@ void RenameDialog::suggestNewNamePressed()
 
     QUrl destDirectory = d->dest.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
     d->setRenameBoxText(KIO::suggestName(destDirectory, d->m_pLineEdit->text()));
-
-    return;
 }
 
 void RenameDialog::skipPressed()
@@ -548,10 +543,10 @@ void RenameDialog::showDestPreview(const KFileItem &fileitem, const QPixmap &pix
 void RenameDialog::resizePanels()
 {
     // using QDesktopWidget geometry as Kephal isn't accessible here in kdelibs
-    QSize screenSize = QApplication::desktop()->availableGeometry(this).size();
+    const QSize screenSize = QApplication::desktop()->availableGeometry(this).size();
     QSize halfSize = d->m_srcArea->widget()->sizeHint().expandedTo(d->m_destArea->widget()->sizeHint());
-    QSize currentSize = d->m_srcArea->size().expandedTo(d->m_destArea->size());
-    int maxHeightPossible = screenSize.height() - (size().height() - currentSize.height());
+    const QSize currentSize = d->m_srcArea->size().expandedTo(d->m_destArea->size());
+    const int maxHeightPossible = screenSize.height() - (size().height() - currentSize.height());
     QSize maxHalfSize = QSize(screenSize.width() / qreal(2.1), maxHeightPossible * qreal(0.9));
 
     if (halfSize.height() > maxHalfSize.height() &&
@@ -593,6 +588,7 @@ QScrollArea *RenameDialog::createContainerLayout(QWidget *parent, const KFileIte
 
     metaWidget->setReadOnly(true);
     metaWidget->setItems(itemList);
+    // ### This is going to call resizePanels twice! Need to split it up to do preview job only once on each side
     connect(metaWidget, SIGNAL(metaDataRequestFinished(KFileItemList)), this, SLOT(resizePanels()));
 #endif
 
