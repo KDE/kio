@@ -176,11 +176,11 @@ void FavIconRequestJob::slotResult(KJob *job)
         setErrorText(i18n("Icon file too big, download aborted"));
     } else {
         setError(job->error());
-        setErrorText(job->errorText());
+        setErrorText(job->errorString()); // not errorText(), because "this" is a KJob, with no errorString building logic
     }
     d->m_iconData.clear(); // release memory
     if (d->m_iconFile.isEmpty()) {
-        qCDebug(FAVICONS_LOG) << "adding" << iconUrl << "to failed downloads due to error:" << errorText();
+        qCDebug(FAVICONS_LOG) << "adding" << iconUrl << "to failed downloads due to error:" << errorString();
         cache->addFailedDownload(iconUrl);
     } else {
         cache->removeFailedDownload(iconUrl);

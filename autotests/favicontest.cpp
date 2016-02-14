@@ -211,12 +211,16 @@ void FavIconTest::failedDownloadShouldBeRemembered()
     QVERIFY(willDownload(job));
     QVERIFY(!job->exec());
     QVERIFY(job->iconFile().isEmpty());
+    QCOMPARE(job->error(), int(KIO::ERR_DOES_NOT_EXIST));
+    QCOMPARE(job->errorString(), QStringLiteral("The file or folder http://www.kde.org/favicon.ico does not exist."));
 
     // Second job should use the cache and not do anything
     KIO::FavIconRequestJob *secondJob = new KIO::FavIconRequestJob(url);
     QVERIFY(!willDownload(secondJob));
     QVERIFY(!secondJob->exec());
     QVERIFY(secondJob->iconFile().isEmpty());
+    QCOMPARE(job->error(), int(KIO::ERR_DOES_NOT_EXIST));
+    QCOMPARE(job->errorString(), QStringLiteral("The file or folder http://www.kde.org/favicon.ico does not exist."));
 }
 
 void FavIconTest::simultaneousRequestsShouldWork()
