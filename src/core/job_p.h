@@ -40,7 +40,8 @@ namespace KIO
 {
 class Slave;
 
-class JobPrivate
+// Exported for KIOWidgets jobs
+class KIOCORE_EXPORT JobPrivate
 {
 public:
     JobPrivate()
@@ -49,8 +50,7 @@ public:
     {
     }
 
-    virtual ~JobPrivate()
-    {}
+    virtual ~JobPrivate();
 
     /**
      * Some extra storage space for jobs that don't have their own

@@ -104,6 +104,10 @@ bool Job::removeSubjob(KJob *jobBase)
     return KCompositeJob::removeSubjob(jobBase);
 }
 
+KIO::JobPrivate::~JobPrivate()
+{
+}
+
 void JobPrivate::emitMoving(KIO::Job *job, const QUrl &src, const QUrl &dest)
 {
     emit job->description(job, i18nc("@title job", "Moving"),
