@@ -37,6 +37,14 @@ ecm_add_tests(
 
 target_link_libraries(threadtest Qt5::Concurrent)
 
+ecm_add_test(
+    http_jobtest.cpp
+    httpserver_p.cpp
+    TEST_NAME http_jobtest
+    NAME_PREFIX "kiocore-"
+    LINK_LIBRARIES KF5::KIOCore KF5::I18n Qt5::Test Qt5::Network
+)
+
 if(UNIX)
   ecm_add_tests(
     klocalsockettest.cpp

@@ -4267,7 +4267,7 @@ void HTTPProtocol::slotData(const QByteArray &_d)
             qCDebug(KIO_HTTP) << "Mimetype buffer size:" << m_mimeTypeBuffer.size();
 
             QMimeDatabase db;
-            QMimeType mime = db.mimeTypeForFileNameAndData(m_request.url.path(), m_mimeTypeBuffer);
+            QMimeType mime = db.mimeTypeForFileNameAndData(m_request.url.adjusted(QUrl::StripTrailingSlash).path(), m_mimeTypeBuffer);
             if (mime.isValid() && !mime.isDefault()) {
                 m_mimeType = mime.name();
                 qCDebug(KIO_HTTP) << "Mimetype from content:" << m_mimeType;
