@@ -50,6 +50,7 @@ void HTTPJobTest::testErrorPage()
 {
     static const char response[] = "<html>This is a response\nFile not found</html>";
     HttpServerThread server(response, HttpServerThread::Error404);
+    server.setContentType("text/html");
 
     // First we get an error page
     KIO::StoredTransferJob *job = KIO::storedGet(QUrl(server.endPoint()));
@@ -66,6 +67,18 @@ void HTTPJobTest::testErrorPage()
     QVERIFY(!job->exec());
     QVERIFY(!job->isErrorPage());
     QCOMPARE(job->error(), int(KIO::ERR_DOES_NOT_EXIST));
+
+    // To check that kio_http did read and discard the body correctly, do another working download.
+    server.setResponseData("<html>Some HTML page here</html>");
+    server.setFeatures(HttpServerThread::Public);
+    server.setContentType("");
+    job = KIO::storedGet(QUrl(server.endPoint()));
+    job->setUiDelegate(0);
+    QSignalSpy mimeTypeSpy(job, SIGNAL(mimetype(KIO::Job*,QString)));
+    QVERIFY(job->exec());
+    QCOMPARE(job->error(), 0);
+    QCOMPARE(mimeTypeSpy.count(), 1);
+    QCOMPARE(mimeTypeSpy.at(0).at(1).toString(), QStringLiteral("text/html"));
 }
 
 void HTTPJobTest::testMimeTypeDetermination()

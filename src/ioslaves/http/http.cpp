@@ -627,7 +627,8 @@ void HTTPProtocol::proceedUntilResponseContent(bool dataInternal /* = false */)
 {
     qCDebug(KIO_HTTP);
 
-    const bool status = (proceedUntilResponseHeader() && readBody(dataInternal));
+    const bool status = proceedUntilResponseHeader() &&
+                        readBody(dataInternal || m_iError);
 
     // If not an error condition or internal request, close
     // the connection based on the keep alive settings...
@@ -3068,7 +3069,6 @@ try_again:
                 } else {
                     error(ERR_DOES_NOT_EXIST, m_request.url.toDisplayString());
                 }
-                return false;
             }
         } else if (m_request.responseCode >= 301 && m_request.responseCode <= 308) {
             // NOTE: According to RFC 2616 (section 10.3.[2-4,8]), 301 and 302
@@ -3571,6 +3571,7 @@ endParsing:
     // the mime-type string is not empty.
     if (!m_isRedirection && m_request.responseCode != 204 &&
             (!m_mimeType.isEmpty() || m_request.method == HTTP_HEAD) &&
+            !m_iError &&
             (m_isLoadingErrorPage || !authRequiresAnotherRoundtrip)) {
         qCDebug(KIO_HTTP) << "Emitting mimetype " << m_mimeType;
         mimeType(m_mimeType);
