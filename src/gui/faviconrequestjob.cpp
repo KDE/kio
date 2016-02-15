@@ -92,6 +92,11 @@ QString FavIconRequestJob::iconFile() const
     return d->m_iconFile;
 }
 
+QUrl FavIconRequestJob::hostUrl() const
+{
+    return d->m_hostUrl;
+}
+
 void FavIconRequestJob::doStart()
 {
     KIO::FavIconsCache *cache = KIO::FavIconsCache::instance();

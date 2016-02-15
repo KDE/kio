@@ -103,6 +103,12 @@ public:
     QString iconFile() const;
 
     /**
+     * Returns the URL passed to the constructor
+     * @since 5.20
+     */
+    QUrl hostUrl() const;
+
+    /**
      * @internal
      * Do not call start(), KIO jobs are autostarted
      */
