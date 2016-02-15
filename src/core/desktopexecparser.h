@@ -36,7 +36,7 @@ class DesktopExecParserPrivate;
 
 /**
  * Parses the Exec= line from a .desktop file,
- * and process all the '%' placeholders, e.g. handling URLs vs local files.
+ * and process all the '\%' placeholders, e.g. handling URLs vs local files.
  *
  * The processing actually happens when calling resultingArguments(), after
  * setting everything up.
