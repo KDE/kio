@@ -195,11 +195,12 @@ void FavIconRequestJobPrivate::slotData(Job *job, const QByteArray &data)
     unsigned int oldSize = m_iconData.size();
     // Size limit. Stop downloading if the file is huge.
     // Testcase (as of june 2008, at least): http://planet-soc.com/favicon.ico, 136K and strange format.
-    if (oldSize > 0x10000) {
+    // Another case: sites which redirect from "/favicon.ico" to "/" and return the main page.
+    if (oldSize > 0x10000) { // 65K
         qCDebug(FAVICONS_LOG) << "Favicon too big, aborting download of" << tjob->url();
-        QMetaObject::invokeMethod(tjob, "kill", Qt::QueuedConnection);
         const QUrl iconUrl = tjob->url();
         KIO::FavIconsCache::instance()->addFailedDownload(iconUrl);
+        tjob->kill(KJob::EmitResult);
     } else {
         m_iconData.resize(oldSize + data.size());
         memcpy(m_iconData.data() + oldSize, data.data(), data.size());

@@ -67,6 +67,7 @@ private Q_SLOTS:
     void iconUrlJobShouldDownloadIconThenUseCache();
     void reloadShouldReload();
     void failedDownloadShouldBeRemembered();
+    void tooBigFaviconShouldAbort();
     void simultaneousRequestsShouldWork();
     void concurrentRequestsShouldWork();
 
@@ -221,6 +222,19 @@ void FavIconTest::failedDownloadShouldBeRemembered()
     QVERIFY(secondJob->iconFile().isEmpty());
     QCOMPARE(job->error(), int(KIO::ERR_DOES_NOT_EXIST));
     QCOMPARE(job->errorString(), QStringLiteral("The file or folder http://www.kde.org/favicon.ico does not exist."));
+}
+
+void FavIconTest::tooBigFaviconShouldAbort()
+{
+    const QUrl url(s_pageUrl);
+
+    // Set icon URL to a >65KB file
+    KIO::FavIconRequestJob *job = new KIO::FavIconRequestJob(url);
+    job->setIconUrl(QUrl("http://download.kde.org/Attic/4.13.2/src/kcalc-4.13.2.tar.xz"));
+    QVERIFY(willDownload(job));
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), int(KIO::ERR_SLAVE_DEFINED));
+    QCOMPARE(job->errorString(), QStringLiteral("Icon file too big, download aborted"));
 }
 
 void FavIconTest::simultaneousRequestsShouldWork()
