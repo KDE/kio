@@ -395,7 +395,7 @@ HTTPProtocol::HTTPProtocol(const QByteArray &protocol, const QByteArray &pool,
     , m_proxyAuth(0)
     , m_socketProxyAuth(0)
     , m_networkConfig(0)
-    , m_iError(0)
+    , m_kioError(0)
     , m_isLoadingErrorPage(false)
     , m_remoteRespTimeout(DEFAULT_RESPONSE_TIMEOUT)
     , m_iEOFRetryCount(0)
@@ -428,7 +428,7 @@ void HTTPProtocol::reparseConfiguration()
 void HTTPProtocol::resetConnectionSettings()
 {
     m_isEOF = false;
-    m_iError = 0;
+    m_kioError = 0;
     m_isLoadingErrorPage = false;
 }
 
@@ -628,11 +628,11 @@ void HTTPProtocol::proceedUntilResponseContent(bool dataInternal /* = false */)
     qCDebug(KIO_HTTP);
 
     const bool status = proceedUntilResponseHeader() &&
-                        readBody(dataInternal || m_iError);
+                        readBody(dataInternal || m_kioError);
 
     // If not an error condition or internal request, close
     // the connection based on the keep alive settings...
-    if (!m_iError && !dataInternal) {
+    if (!m_kioError && !dataInternal) {
         httpClose(m_request.isKeepAlive);
     }
 
@@ -676,7 +676,7 @@ bool HTTPProtocol::proceedUntilResponseHeader()
         // no success, close the cache file so the cache state is reset - that way most other code
         // doesn't have to deal with the cache being in various states.
         cacheFileClose();
-        if (m_iError || m_isLoadingErrorPage) {
+        if (m_kioError || m_isLoadingErrorPage) {
             // Unrecoverable error, abort everything.
             // Also, if we've just loaded an error page there is nothing more to do.
             // In that case we abort to avoid loops; some webservers manage to send 401 and
@@ -822,7 +822,7 @@ void HTTPProtocol::davStatList(const QUrl &url, bool stat)
     infoMessage(QLatin1String(""));
 
     // Has a redirection already been called? If so, we're done.
-    if (m_isRedirection || m_iError) {
+    if (m_isRedirection || m_kioError) {
         if (m_isRedirection) {
             davFinished();
         }
@@ -1634,8 +1634,7 @@ QString HTTPProtocol::davError(int code /* = -1 */, const QString &_url)
         // retrieve the XML document
 
         // there was an error retrieving the XML document.
-        // ironic, eh?
-        if (!readBody(true) && m_iError) {
+        if (!readBody(true) && m_kioError) {
             return QString();
         }
 
@@ -3109,7 +3108,6 @@ try_again:
 
             // The original handling here was wrong, this is not an error: eg. in the
             // example of a 204 No Content response to a PUT completing.
-            // m_iError = true;
             // return false;
         } else if (m_request.responseCode == 206) {
             if (m_request.offset) {
@@ -3452,7 +3450,7 @@ endParsing:
         if ((!m_request.doNotWWWAuthenticate && m_request.responseCode == 401) ||
                 (!m_request.doNotProxyAuthenticate && m_request.responseCode == 407)) {
             authRequiresAnotherRoundtrip = handleAuthenticationHeader(&tokenizer);
-            if (m_iError) {
+            if (m_kioError) {
                 // If error is set, then handleAuthenticationHeader failed.
                 return false;
             }
@@ -3571,7 +3569,7 @@ endParsing:
     // the mime-type string is not empty.
     if (!m_isRedirection && m_request.responseCode != 204 &&
             (!m_mimeType.isEmpty() || m_request.method == HTTP_HEAD) &&
-            !m_iError &&
+            !m_kioError &&
             (m_isLoadingErrorPage || !authRequiresAnotherRoundtrip)) {
         qCDebug(KIO_HTTP) << "Emitting mimetype " << m_mimeType;
         mimeType(m_mimeType);
@@ -4488,7 +4486,7 @@ bool HTTPProtocol::readBody(bool dataInternal /* = false */)
 
             chain.slotInput(m_receiveBuf);
 
-            if (m_iError) {
+            if (m_kioError) {
                 return false;
             }
 
@@ -4567,7 +4565,7 @@ void HTTPProtocol::error(int _err, const QString &_text)
     clearPostDataBuffer();
 
     SlaveBase::error(_err, _text);
-    m_iError = _err;
+    m_kioError = _err;
 }
 
 void HTTPProtocol::addCookies(const QString &url, const QByteArray &cookieHeader)
@@ -4949,7 +4947,7 @@ void HTTPProtocol::cacheFileClose()
     if (file->openMode() & QIODevice::WriteOnly) {
         Q_ASSERT(tempFile);
 
-        if (m_request.cacheTag.bytesCached && !m_iError) {
+        if (m_request.cacheTag.bytesCached && !m_kioError) {
             QByteArray header = m_request.cacheTag.serialize();
             tempFile->seek(0);
             tempFile->write(header);

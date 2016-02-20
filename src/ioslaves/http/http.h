@@ -577,9 +577,9 @@ protected:
 
     // To know if we are online or not
     QNetworkConfigurationManager *m_networkConfig;
-    // Indicates whether there was some error.
-    int m_iError;
-    // Whether we are loading an error page (we should close the connection afterwards)
+    // The current KIO error on this request / response pair - zero / KJob::NoError if no error
+    int m_kioError;
+    // Whether we are loading an error page (body of a reply with error response code)
     bool m_isLoadingErrorPage;
 
     // Values that determine the remote connection timeouts.
