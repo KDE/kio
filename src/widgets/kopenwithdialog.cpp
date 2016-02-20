@@ -476,6 +476,7 @@ public:
     QString m_command;
     QLabel *label;
     QString qMimeType;
+    QString qMimeTypeComment;
     QCheckBox *terminal;
     QCheckBox *remember;
     QCheckBox *nocloseonexit;
@@ -533,6 +534,8 @@ KOpenWithDialog::KOpenWithDialog(const QString &mimeType, const QString &value,
                         "If the program is not listed, enter the name or click "
                         "the browse button.</qt>", mimeType);
     d->qMimeType = mimeType;
+    QMimeDatabase db;
+    d->qMimeTypeComment = db.mimeTypeForName(mimeType).comment();
     d->init(text, value);
     if (d->remember) {
         d->remember->hide();
@@ -560,6 +563,8 @@ void KOpenWithDialogPrivate::setMimeType(const QList<QUrl> &_urls)
         qMimeType = mime.name();
         if (mime.isDefault()) {
             qMimeType.clear();
+        } else {
+            qMimeTypeComment = mime.comment();
         }
     } else {
         qMimeType.clear();
@@ -674,7 +679,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     topLayout->addLayout(nocloseonexitLayout);
 
     if (!qMimeType.isNull()) {
-        remember = new QCheckBox(i18n("&Remember application association for this type of file"), q);
+        remember = new QCheckBox(i18n("&Remember application association for all files of type\n\"%1\" (%2)", qMimeTypeComment, qMimeType));
         //    remember->setChecked(true);
         topLayout->addWidget(remember);
     } else {
