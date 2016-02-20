@@ -23,6 +23,7 @@
 #include <QDebug>
 #include <QTest>
 #include <QSignalSpy>
+#include <QStandardPaths>
 
 #include "httpserver_p.h"
 
@@ -31,10 +32,21 @@ class HTTPJobTest : public QObject
     Q_OBJECT
 
 private Q_SLOTS:
+    void initTestCase();
     void testBasicGet();
     void testErrorPage();
     void testMimeTypeDetermination();
 };
+
+void HTTPJobTest::initTestCase()
+{
+    QStandardPaths::setTestModeEnabled(true);
+
+    // To avoid a runtime dependency on klauncher
+    qputenv("KDE_FORK_SLAVES", "yes");
+    // To let ctest exist, we shouldn't start kio_http_cache_cleaner
+    qputenv("KIO_DISABLE_CACHE_CLEANER", "yes");
+}
 
 void HTTPJobTest::testBasicGet()
 {
