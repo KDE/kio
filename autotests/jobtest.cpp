@@ -1195,7 +1195,7 @@ void JobTest::stat()
     const KIO::UDSEntry &entry = job->statResult();
     QVERIFY(!entry.isDir());
     QVERIFY(!entry.isLink());
-    QCOMPARE(entry.stringValue(KIO::UDSEntry::UDS_NAME), QString("fileFromHome"));
+    QCOMPARE(entry.stringValue(KIO::UDSEntry::UDS_NAME), QStringLiteral("fileFromHome"));
 #else
     // Testing stat over HTTP
     KIO::StatJob *job = KIO::stat(QUrl("http://www.kde.org"), KIO::HideProgressInfo);
@@ -1276,7 +1276,7 @@ void JobTest::mimeType()
     QVERIFY(ok);
     QCOMPARE(spyMimeType.count(), 1);
     QCOMPARE(spyMimeType[0][0], QVariant::fromValue(static_cast<KIO::Job *>(job)));
-    QCOMPARE(spyMimeType[0][1].toString(), QString("application/octet-stream"));
+    QCOMPARE(spyMimeType[0][1].toString(), QStringLiteral("application/octet-stream"));
 #else
     // Testing mimetype over HTTP
     KIO::MimetypeJob *job = KIO::mimetype(QUrl("http://www.kde.org"), KIO::HideProgressInfo);
@@ -1359,7 +1359,7 @@ void JobTest::moveDestAlreadyExistsAutoRename()
 
 void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveDirs) // #256650
 {
-    const QString prefix = moveDirs ? "dir " : "file ";
+    const QString prefix = moveDirs ? QStringLiteral("dir ") : QStringLiteral("file ");
     QStringList sources;
     const QString file1 = homeTmpDir() + prefix + "(1)";
     const QString file2 = homeTmpDir() + prefix + "(2)";
@@ -1505,9 +1505,9 @@ void JobTest::multiGet()
     for (int i = 0; i < numFiles; ++i) {
         QCOMPARE(spyResultId.at(i).at(0).toInt(), i);
         QCOMPARE(spyMimeType.at(i).at(0).toInt(), i);
-        QCOMPARE(spyMimeType.at(i).at(1).toString(), QString("text/plain"));
+        QCOMPARE(spyMimeType.at(i).at(1).toString(), QStringLiteral("text/plain"));
         QCOMPARE(spyData.at(i * 2).at(0).toInt(), i);
-        QCOMPARE(QString(spyData.at(i * 2).at(1).toByteArray()), QString("Hello"));
+        QCOMPARE(QString(spyData.at(i * 2).at(1).toByteArray()), QStringLiteral("Hello"));
         QCOMPARE(spyData.at(i * 2 + 1).at(0).toInt(), i);
         QCOMPARE(QString(spyData.at(i * 2 + 1).at(1).toByteArray()), QLatin1String(""));
     }

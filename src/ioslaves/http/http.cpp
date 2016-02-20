@@ -2628,7 +2628,7 @@ bool HTTPProtocol::sendQuery()
 
             // Set content type of webdav data
             if (hasDavData) {
-                davHeader += QLatin1String("Content-Type: text/xml; charset=utf-8\r\n");
+                davHeader += QStringLiteral("Content-Type: text/xml; charset=utf-8\r\n");
             }
 
             // add extra header elements for WebDAV
@@ -2644,7 +2644,7 @@ bool HTTPProtocol::sendQuery()
     // End the header iff there is no payload data. If we do have payload data
     // sendBody() will add another field to the header, Content-Length.
     if (!hasBodyData && !hasDavData) {
-        header += QLatin1String("\r\n");
+        header += QStringLiteral("\r\n");
     }
 
     // Now that we have our formatted header, let's send it!

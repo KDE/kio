@@ -42,6 +42,7 @@ tst_KLocalSocketServer::~tst_KLocalSocketServer()
 
 class TimedConnection: public QThread
 {
+    Q_OBJECT
 public:
     ~TimedConnection()
     {
@@ -304,3 +305,4 @@ void tst_KLocalSocketServer::abstractUnixSocket()
 
 QTEST_MAIN(tst_KLocalSocketServer)
 
+#include "klocalsocketservertest.moc"

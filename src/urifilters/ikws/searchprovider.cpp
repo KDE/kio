@@ -133,7 +133,7 @@ SearchProvider *SearchProvider::findByKey(const QString &key)
 QList<SearchProvider *> SearchProvider::findAll()
 {
     QList<SearchProvider *> ret;
-    Q_FOREACH (const KService::Ptr &provider, KServiceTypeTrader::self()->query("SearchProvider")) {
+    Q_FOREACH (const KService::Ptr &provider, KServiceTypeTrader::self()->query(QLatin1String("SearchProvider"))) {
         ret.append(new SearchProvider(provider));
     }
     return ret;

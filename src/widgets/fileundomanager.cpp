@@ -105,6 +105,7 @@ static QDataStream &operator>>(QDataStream &stream, UndoCommand &cmd)
 
 class KIO::UndoJob : public KIO::Job
 {
+    Q_OBJECT
 public:
     UndoJob(bool showProgressInfo) : KIO::Job()
     {
@@ -748,3 +749,4 @@ void FileUndoManager::UiInterface::virtual_hook(int, void *)
 
 #include "moc_fileundomanager_p.cpp"
 #include "moc_fileundomanager.cpp"
+#include "fileundomanager.moc"

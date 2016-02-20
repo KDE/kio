@@ -65,6 +65,7 @@ class DataProtocol : public TestSlave
 #else
 class DataProtocol : public DataSlave
 {
+    Q_OBJECT
 #endif
 
 public:

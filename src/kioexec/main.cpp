@@ -274,7 +274,7 @@ void KIOExec::slotRunApp()
 int main( int argc, char **argv )
 {
     QApplication app( argc, argv);
-    KAboutData aboutData( QStringLiteral("kioexec"), i18n("KIOExec"), KIO_VERSION_STRING,
+    KAboutData aboutData( QStringLiteral("kioexec"), i18n("KIOExec"), QStringLiteral(KIO_VERSION_STRING),
          i18n(description), KAboutLicense::GPL,
          i18n("(c) 1998-2000,2003 The KFM/Konqueror Developers"));
     aboutData.addAuthor(i18n("David Faure"),QString(), QStringLiteral("faure@kde.org"));

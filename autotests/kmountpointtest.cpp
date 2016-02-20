@@ -72,7 +72,7 @@ void KMountPointTest::testCurrentMountPoints()
 #ifdef Q_OS_UNIX
     const KMountPoint::Ptr rootMountPoint = mountPoints.findByPath(QStringLiteral("/"));
     QVERIFY(rootMountPoint);
-    QCOMPARE(rootMountPoint->mountPoint(), QString("/"));
+    QCOMPARE(rootMountPoint->mountPoint(), QStringLiteral("/"));
     QVERIFY(!rootMountPoint->probablySlow());
 
     QT_STATBUF rootStatBuff;
@@ -84,9 +84,9 @@ void KMountPointTest::testCurrentMountPoints()
         QVERIFY(homeMountPoint);
         //qDebug() << "Checking the home mount point, sameDevice=" << sameDevice;
         if (sameDevice) {
-            QCOMPARE(homeMountPoint->mountPoint(), QString("/"));
+            QCOMPARE(homeMountPoint->mountPoint(), QStringLiteral("/"));
         } else {
-            QCOMPARE(homeMountPoint->mountPoint(), QString("/home"));
+            QCOMPARE(homeMountPoint->mountPoint(), QStringLiteral("/home"));
         }
     } else {
         qDebug() << "/home doesn't seem to exist, skipping test";
@@ -125,9 +125,9 @@ void KMountPointTest::testPossibleMountPoints()
 #ifdef Q_OS_UNIX
     const KMountPoint::Ptr rootMountPoint = mountPoints.findByPath(QStringLiteral("/"));
     QVERIFY(rootMountPoint);
-    QCOMPARE(rootMountPoint->mountPoint(), QString("/"));
+    QCOMPARE(rootMountPoint->mountPoint(), QStringLiteral("/"));
     QVERIFY(rootMountPoint->realDeviceName().startsWith(QLatin1String("/"))); // Usually /dev, but can be /host/ubuntu/disks/root.disk...
-    QVERIFY(!rootMountPoint->mountOptions().contains("noauto")); // how would this work?
+    QVERIFY(!rootMountPoint->mountOptions().contains(QStringLiteral("noauto"))); // how would this work?
     QVERIFY(!rootMountPoint->probablySlow());
 #endif
 }

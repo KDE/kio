@@ -131,7 +131,7 @@ void SearchProviderDialog::shortcutsChanged(const QString& newShorthands) {
                 ++i;
             }
 
-            m_dlg.noteLabel->setText(i18n("The following shortcuts are already assigned. Please choose different ones.\n%1", contenderList.join("\n")));
+            m_dlg.noteLabel->setText(i18n("The following shortcuts are already assigned. Please choose different ones.\n%1", contenderList.join(QLatin1Char('\n'))));
         }
         m_buttons->button(QDialogButtonBox::Ok)->setEnabled(false);
     } else {

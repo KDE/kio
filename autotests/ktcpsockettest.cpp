@@ -39,6 +39,7 @@ static const quint16 testPort = 22342;
 
 class ServerThread : public QThread
 {
+    Q_OBJECT
 public:
     Server *volatile server;
     ServerThread()
@@ -400,4 +401,6 @@ void Server::errors()
 }
 
 QTEST_MAIN(KTcpSocketTest)
+
+#include "ktcpsockettest.moc"
 

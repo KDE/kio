@@ -588,7 +588,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
         combo->setLineEdit(lineEdit);
         combo->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLengthWithIcon);
         combo->setDuplicatesEnabled(false);
-        KConfigGroup cg(KSharedConfig::openConfig(), QLatin1String("Open-with settings"));
+        KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("Open-with settings"));
         int max = cg.readEntry("Maximum history", 15);
         combo->setMaxCount(max);
         int mode = cg.readEntry("CompletionMode", int(KCompletion::CompletionPopup));
@@ -663,10 +663,10 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
 
     // check to see if we use konsole if not disable the nocloseonexit
     // because we don't know how to do this on other terminal applications
-    KConfigGroup confGroup(KSharedConfig::openConfig(), QLatin1String("General"));
+    KConfigGroup confGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
     QString preferredTerminal = confGroup.readPathEntry("TerminalApplication", QStringLiteral("konsole"));
 
-    if (bReadOnly || preferredTerminal != QLatin1String("konsole")) {
+    if (bReadOnly || preferredTerminal != QStringLiteral("konsole")) {
         nocloseonexit->hide();
     }
 
@@ -884,14 +884,14 @@ bool KOpenWithDialogPrivate::checkAccept()
     }
 
     if (terminal->isChecked()) {
-        KConfigGroup confGroup(KSharedConfig::openConfig(), QLatin1String("General"));
+        KConfigGroup confGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
         preferredTerminal = confGroup.readPathEntry("TerminalApplication", QStringLiteral("konsole"));
         m_command = preferredTerminal;
         // only add --noclose when we are sure it is konsole we're using
-        if (preferredTerminal == QLatin1String("konsole") && nocloseonexit->isChecked()) {
-            m_command += QLatin1String(" --noclose");
+        if (preferredTerminal == QStringLiteral("konsole") && nocloseonexit->isChecked()) {
+            m_command += QStringLiteral(" --noclose");
         }
-        m_command += QLatin1String(" -e ");
+        m_command += QStringLiteral(" -e ");
         m_command += edit->text();
         // qDebug() << "Setting m_command to" << m_command;
     }
@@ -1017,7 +1017,7 @@ void KOpenWithDialogPrivate::saveComboboxHistory()
     if (combo) {
         combo->addToHistory(edit->text());
 
-        KConfigGroup cg(KSharedConfig::openConfig(), QLatin1String("Open-with settings"));
+        KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("Open-with settings"));
         cg.writeEntry("History", combo->historyItems());
         writeEntry(cg, "CompletionMode", combo->completionMode());
         // don't store the completion-list, as it contains all of KUrlCompletion's

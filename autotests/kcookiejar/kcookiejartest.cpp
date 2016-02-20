@@ -131,9 +131,9 @@ static void processCookie(QString &line)
         KHttpCookie &cookie = *cookieIterator;
         const KCookieAdvice cookieAdvice = jar->cookieAdvice(cookie);
         if (cookieAdvice != expectedAdvice)
-            FAIL(urlStr + QStringLiteral("\n'%2'\nGot advice '%3' expected '%4'").arg(line)
-                 .arg(KCookieJar::adviceToStr(cookieAdvice))
-                 .arg(KCookieJar::adviceToStr(expectedAdvice)));
+            FAIL(urlStr + QStringLiteral("\n'%2'\nGot advice '%3' expected '%4'")
+                 .arg(line, KCookieJar::adviceToStr(cookieAdvice), KCookieJar::adviceToStr(expectedAdvice))
+                );
         jar->addCookie(cookie);
     }
 }

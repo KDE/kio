@@ -378,10 +378,10 @@ bool Ftp::ftpOpenConnection(LoginMode loginMode)
     if (userNameChanged && m_bLoggedOn) {
         QUrl realURL;
         realURL.setScheme(QStringLiteral("ftp"));
-        if (m_user != FTP_LOGIN) {
+        if (m_user != QLatin1String(FTP_LOGIN)) {
             realURL.setUserName(m_user);
         }
-        if (m_pass != FTP_PASSWD) {
+        if (m_pass != QLatin1String(FTP_PASSWD)) {
             realURL.setPassword(m_pass);
         }
         realURL.setHost(m_host);
@@ -480,7 +480,7 @@ bool Ftp::ftpOpenControlConnection(const QString &host, int port)
             iErrorCode = ERR_UNKNOWN_HOST;
         }
 
-        sErrorMsg = QStringLiteral("%1: %2").arg(host).arg(m_control->errorString());
+        sErrorMsg = QStringLiteral("%1: %2").arg(host, m_control->errorString());
     }
 
     // if there was a problem - report it ...
@@ -537,8 +537,8 @@ bool Ftp::ftpLogin(bool *userChanged)
     // Try anonymous login if both username/password
     // information is blank.
     if (user.isEmpty() && pass.isEmpty()) {
-        user = FTP_LOGIN;
-        pass = FTP_PASSWD;
+        user = QStringLiteral(FTP_LOGIN);
+        pass = QStringLiteral(FTP_PASSWD);
     }
 
     QByteArray tempbuf;
@@ -564,7 +564,7 @@ bool Ftp::ftpLogin(bool *userChanged)
                                 , user, lastServerResponse);
             }
 
-            if (user != FTP_LOGIN) {
+            if (user != QStringLiteral(FTP_LOGIN)) {
                 info.username = user;
             }
 
@@ -582,8 +582,8 @@ bool Ftp::ftpLogin(bool *userChanged)
             } else {
                 // User can decide go anonymous using checkbox
                 if (info.getExtraField(QStringLiteral("anonymous")).toBool()) {
-                    user = FTP_LOGIN;
-                    pass = FTP_PASSWD;
+                    user = QStringLiteral(FTP_LOGIN);
+                    pass = QStringLiteral(FTP_PASSWD);
                 } else {
                     user = info.username;
                     pass = info.password;
@@ -630,7 +630,7 @@ bool Ftp::ftpLogin(bool *userChanged)
             }
 
             // Do not cache the default login!!
-            if (user != FTP_LOGIN && pass != FTP_PASSWD) {
+            if (user != QLatin1String(FTP_LOGIN) && pass != QLatin1String(FTP_PASSWD)) {
                 // Update the username in case it was changed during login.
                 if (!m_user.isEmpty()) {
                     info.url.setUserName(user);
@@ -1427,7 +1427,7 @@ void Ftp::stat(const QUrl &url)
     }
     // qDebug() << "Starting of list was ok";
 
-    Q_ASSERT(!search.isEmpty() && search != "/");
+    Q_ASSERT(!search.isEmpty() && search != QLatin1String("/"));
 
     bool bFound = false;
     QUrl linkURL;
@@ -2069,7 +2069,7 @@ Ftp::StatusCode Ftp::ftpPut(int &iError, int iCopyFile, const QUrl &dest_url,
     // Don't use mark partial over anonymous FTP.
     // My incoming dir allows put but not rename...
     bool bMarkPartial;
-    if (m_user.isEmpty() || m_user == FTP_LOGIN) {
+    if (m_user.isEmpty() || m_user == QLatin1String(FTP_LOGIN)) {
         bMarkPartial = false;
     } else {
         bMarkPartial = config()->readEntry("MarkPartial", true);
@@ -2212,7 +2212,7 @@ Ftp::StatusCode Ftp::ftpPut(int &iError, int iCopyFile, const QUrl &dest_url,
 
     // set final permissions
     if (permissions != -1) {
-        if (m_user == FTP_LOGIN)
+        if (m_user == QLatin1String(FTP_LOGIN))
             // qDebug() << "Trying to chmod over anonymous FTP ???";
             // chmod the file we just put
             if (! ftpChmod(dest_orig, permissions)) {

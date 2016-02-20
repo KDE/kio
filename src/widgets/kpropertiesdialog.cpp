@@ -274,7 +274,7 @@ KPropertiesDialog::KPropertiesDialog(const QList<QUrl>& urls,
     d->m_singleUrl = urls.first();
     Q_ASSERT(!d->m_singleUrl.isEmpty());
 
-    foreach (QUrl url, urls) {
+    foreach (const QUrl& url, urls) {
         KIO::StatJob *job = KIO::stat(url);
         KJobWidgets::setWindow(job, parent);
         job->exec();
@@ -1066,8 +1066,8 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     grid->addWidget(d->m_sizeLabel, curRow++, 2);
 
     if (!hasDirs) { // Only files [and symlinks]
-        d->m_sizeLabel->setText(QStringLiteral("%1 (%2)").arg(KIO::convertSize(totalSize))
-                                .arg(QLocale().toString(totalSize)));
+        d->m_sizeLabel->setText(QStringLiteral("%1 (%2)").arg(KIO::convertSize(totalSize), 
+           QLocale().toString(totalSize)));
         d->m_sizeDetermineButton = 0L;
         d->m_sizeStopButton = 0L;
     } else { // Directory
@@ -1276,10 +1276,10 @@ void KFilePropsPlugin::slotDirSizeFinished(KJob *job)
         KIO::filesize_t totalFiles = d->dirSizeJob->totalFiles();
         KIO::filesize_t totalSubdirs = d->dirSizeJob->totalSubdirs();
         d->m_sizeLabel->setText(QStringLiteral("%1 (%2)\n%3, %4")
-                                .arg(KIO::convertSize(totalSize))
-                                .arg(QLocale().toString(totalSize))
-                                .arg(i18np("1 file", "%1 files", totalFiles))
-                                .arg(i18np("1 sub-folder", "%1 sub-folders", totalSubdirs)));
+                                .arg(KIO::convertSize(totalSize),
+                                QLocale().toString(totalSize),
+                                i18np("1 file", "%1 files", totalFiles),
+                                i18np("1 sub-folder", "%1 sub-folders", totalSubdirs)));
     }
     d->m_sizeStopButton->setEnabled(false);
     // just in case you change something and try again :)
@@ -3393,7 +3393,7 @@ void KDesktopPropsPlugin::slotAdvanced()
 
     // check to see if we use konsole if not do not add the nocloseonexit
     // because we don't know how to do this on other terminal applications
-    KConfigGroup confGroup(KSharedConfig::openConfig(), QLatin1String("General"));
+    KConfigGroup confGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
     QString preferredTerminal = confGroup.readPathEntry("TerminalApplication",
                                 QStringLiteral("konsole"));
 

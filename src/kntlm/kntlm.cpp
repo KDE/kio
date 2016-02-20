@@ -151,7 +151,7 @@ static QByteArray createBlob(const QByteArray &targetinfo)
 
     KNTLM::Blob *bl = (KNTLM::Blob *) blob.data();
     bl->signature = qToBigEndian((quint32) 0x01010000);
-    quint64 now = QDateTime::currentDateTime().toTime_t();
+    quint64 now = QDateTime::currentDateTimeUtc().toTime_t();
     now += (quint64) 3600 * (quint64) 24 * (quint64) 134774;
     now *= (quint64) 10000000;
     bl->timestamp = qToLittleEndian(now);

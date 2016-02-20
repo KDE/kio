@@ -476,6 +476,7 @@ static QList<QUrl> resolveURLs(const QList<QUrl> &_urls, const KService &_servic
 // or less fit the enclosed text.
 class SecureMessageDialog : public QDialog
 {
+    Q_OBJECT
 public:
     SecureMessageDialog(QWidget *parent) : QDialog(parent), m_textEdit(0)
     {
@@ -1038,7 +1039,7 @@ void KRun::KRunPrivate::onDialogFinished(int result, bool isDontAskAgainSet)
     q->setRunExecutables(result == ExecutableFileOpenDialog::ExecuteFile);
 
     if (isDontAskAgainSet) {
-        QString output = result == ExecutableFileOpenDialog::OpenFile ? "open" : "execute";
+        QString output = result == ExecutableFileOpenDialog::OpenFile ? QStringLiteral("open") : QStringLiteral("execute");
         KConfigGroup cfgGroup(KSharedConfig::openConfig(QStringLiteral("kiorc")), "Executable scripts");
         cfgGroup.writeEntry("behaviourOnLaunch", output);
     }
@@ -1543,3 +1544,4 @@ KProcessRunner::slotProcessExited(int exitCode, QProcess::ExitStatus exitStatus)
 
 #include "moc_krun.cpp"
 #include "moc_krun_p.cpp"
+#include "krun.moc"

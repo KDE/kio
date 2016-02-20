@@ -93,7 +93,7 @@ void UserAgentInfo::parseDescription()
 
   for ( ; it != lastItem; ++it )
   {
-    tmp = UA_PTOS("X-KDE-UA-FULL");
+    tmp = UA_PTOS(QStringLiteral("X-KDE-UA-FULL"));
 
     if ( (*it)->property(QStringLiteral("X-KDE-UA-DYNAMIC-ENTRY")).toBool() )
     {
@@ -135,13 +135,13 @@ void UserAgentInfo::parseDescription()
 
     m_lstIdentity << tmp;
 
-    tmp = QStringLiteral("%1 %2").arg(UA_PTOS("X-KDE-UA-SYSNAME")).arg(UA_PTOS("X-KDE-UA-SYSRELEASE"));
+    tmp = QStringLiteral("%1 %2").arg(UA_PTOS(QStringLiteral("X-KDE-UA-SYSNAME")), UA_PTOS(QStringLiteral("X-KDE-UA-SYSRELEASE")));
     if ( tmp.trimmed().isEmpty() )
       tmp = QStringLiteral("%1 %2").arg(UA_PTOS("X-KDE-UA-"
-                    "NAME")).arg(UA_PTOS("X-KDE-UA-VERSION"));
+                    "NAME"), UA_PTOS(QStringLiteral("X-KDE-UA-VERSION")));
     else
       tmp = QStringLiteral("%1 %2 on %3").arg(UA_PTOS("X-KDE-UA-"
-                    "NAME")).arg(UA_PTOS("X-KDE-UA-VERSION")).arg(tmp);
+                    "NAME"), UA_PTOS(QStringLiteral("X-KDE-UA-VERSION")), tmp);
 
     m_lstAlias << tmp;
   }

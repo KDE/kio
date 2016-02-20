@@ -39,7 +39,7 @@ class KSSLDPrivate
 {
 public:
     KSSLDPrivate()
-        : config(QLatin1String("ksslcertificatemanager"), KConfig::SimpleConfig)
+        : config(QStringLiteral("ksslcertificatemanager"), KConfig::SimpleConfig)
     {
         struct strErr {
             const char *str;

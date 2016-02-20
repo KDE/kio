@@ -1207,7 +1207,7 @@ void KNewFileMenu::slotResult(KJob *job)
             emit fileCreated(simpleJob->url());
         } else {
             // Can be mkdir or symlink
-            QUrl mkpathUrl = job->property("mkpathUrl").value<QUrl>();
+            QUrl mkpathUrl = job->property("mkpathUrl").toUrl();
             if (mkpathUrl.isValid()) {
                 emit directoryCreated(mkpathUrl);
             }

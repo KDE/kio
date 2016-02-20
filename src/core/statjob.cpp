@@ -110,7 +110,7 @@ QUrl StatJob::mostLocalUrl() const
 void StatJobPrivate::start(Slave *slave)
 {
     Q_Q(StatJob);
-    m_outgoingMetaData.insert(QStringLiteral("statSide"), m_bSource ? "source" : "dest");
+    m_outgoingMetaData.insert(QStringLiteral("statSide"), m_bSource ? QStringLiteral("source") : QStringLiteral("dest"));
     m_outgoingMetaData.insert(QStringLiteral("details"), QString::number(m_details));
 
     q->connect(slave, SIGNAL(statEntry(KIO::UDSEntry)),

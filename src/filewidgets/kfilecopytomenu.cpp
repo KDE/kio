@@ -181,7 +181,7 @@ void KFileCopyToMainMenu::slotBrowse()
 
 void KFileCopyToMainMenu::slotTriggered(QAction *action)
 {
-    const QUrl url = action->data().value<QUrl>();
+    const QUrl url = action->data().toUrl();
     Q_ASSERT(!url.isEmpty());
     copyOrMoveTo(url);
 }

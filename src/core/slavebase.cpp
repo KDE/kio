@@ -80,7 +80,7 @@ public:
     SlaveBase *q;
     SlaveBasePrivate(SlaveBase *owner): q(owner), m_passwdServerClient(0)
     {
-        if (!qgetenv("KIOSLAVE_ENABLE_TESTMODE").isEmpty()) {
+        if (!qEnvironmentVariableIsEmpty("KIOSLAVE_ENABLE_TESTMODE")) {
             QStandardPaths::enableTestMode(true);
         }
         pendingListEntries.reserve(KIO_MAX_ENTRIES_PER_BATCH);
@@ -200,7 +200,7 @@ SlaveBase::SlaveBase(const QByteArray &protocol,
     d->poolSocket = QFile::decodeName(pool_socket);
     s_protocol = protocol.data();
 #ifdef Q_OS_UNIX
-    if (qgetenv("KDE_DEBUG").isEmpty()) {
+    if (qEnvironmentVariableIsEmpty("KDE_DEBUG")) {
         ::signal(SIGSEGV, &sigsegv_handler);
         ::signal(SIGILL, &sigsegv_handler);
         ::signal(SIGTRAP, &sigsegv_handler);

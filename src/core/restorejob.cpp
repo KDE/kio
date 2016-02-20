@@ -77,7 +77,7 @@ void RestoreJobPrivate::slotStart()
 
     if (m_urlsIterator != m_urls.constEnd()) {
         const QUrl& url = *m_urlsIterator;
-        Q_ASSERT(url.scheme() == "trash");
+        Q_ASSERT(url.scheme() == QLatin1String("trash"));
         QByteArray packedArgs;
         QDataStream stream(&packedArgs, QIODevice::WriteOnly);
         stream << int(3) << url;

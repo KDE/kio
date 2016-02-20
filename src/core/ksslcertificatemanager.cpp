@@ -195,12 +195,12 @@ static QList<QSslCertificate> deduplicate(const QList<QSslCertificate> &certs)
 }
 
 KSslCertificateManagerPrivate::KSslCertificateManagerPrivate()
-    : config(QLatin1String("ksslcertificatemanager"), KConfig::SimpleConfig),
-      iface(new org::kde::KSSLDInterface(QLatin1String("org.kde.kssld5"),
-                                         QLatin1String("/modules/kssld"),
+    : config(QStringLiteral("ksslcertificatemanager"), KConfig::SimpleConfig),
+      iface(new org::kde::KSSLDInterface(QStringLiteral("org.kde.kssld5"),
+                                         QStringLiteral("/modules/kssld"),
                                          QDBusConnection::sessionBus())),
       isCertListLoaded(false),
-      userCertDir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kssl/userCaCertificates/"))
+      userCertDir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/kssl/userCaCertificates/"))
 {
     // set Qt's set to empty; this is protected by the lock in K_GLOBAL_STATIC.
     QSslSocket::setDefaultCaCertificates(QList<QSslCertificate>());
@@ -218,10 +218,10 @@ void KSslCertificateManagerPrivate::loadDefaultCaCertificates()
 
     QList<QSslCertificate> certs = deduplicate(QSslSocket::systemCaCertificates());
 
-    KConfig config(QLatin1String("ksslcablacklist"), KConfig::SimpleConfig);
+    KConfig config(QStringLiteral("ksslcablacklist"), KConfig::SimpleConfig);
     KConfigGroup group = config.group("Blacklist of CA Certificates");
 
-    certs.append(QSslCertificate::fromPath(userCertDir + QLatin1String("*"), QSsl::Pem,
+    certs.append(QSslCertificate::fromPath(userCertDir + QStringLiteral("*"), QSsl::Pem,
                                            QRegExp::Wildcard));
     foreach (const QSslCertificate &cert, certs) {
         const QByteArray digest = cert.digest().toHex();
@@ -376,12 +376,12 @@ QList<KSslCaCertificate> KSslCertificateManagerPrivate::allCertificates() const
         ret += KSslCaCertificate(cert, KSslCaCertificate::SystemStore, false);
     }
 
-    foreach (const QSslCertificate &cert, QSslCertificate::fromPath(userCertDir + QLatin1String("*"),
+    foreach (const QSslCertificate &cert, QSslCertificate::fromPath(userCertDir + "*",
              QSsl::Pem, QRegExp::Wildcard)) {
         ret += KSslCaCertificate(cert, KSslCaCertificate::UserStore, false);
     }
 
-    KConfig config(QLatin1String("ksslcablacklist"), KConfig::SimpleConfig);
+    KConfig config(QStringLiteral("ksslcablacklist"), KConfig::SimpleConfig);
     KConfigGroup group = config.group("Blacklist of CA Certificates");
     for (int i = 0; i < ret.size(); i++) {
         if (group.hasKey(ret[i].certHash.constData())) {
@@ -402,7 +402,7 @@ bool KSslCertificateManagerPrivate::setCertificateBlacklisted(const QByteArray &
         bool isBlacklisted)
 {
     //qDebug() << Q_FUNC_INFO << isBlacklisted;
-    KConfig config(QLatin1String("ksslcablacklist"), KConfig::SimpleConfig);
+    KConfig config(QStringLiteral("ksslcablacklist"), KConfig::SimpleConfig);
     KConfigGroup group = config.group("Blacklist of CA Certificates");
     if (isBlacklisted) {
         // TODO check against certificate list ?

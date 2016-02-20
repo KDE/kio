@@ -133,11 +133,11 @@ static qint64 epoch()
 QString KCookieJar::adviceToStr(KCookieAdvice _advice)
 {
     switch (_advice) {
-    case KCookieAccept: return QL1S("Accept");
-    case KCookieAcceptForSession: return QL1S("AcceptForSession");
-    case KCookieReject: return QL1S("Reject");
-    case KCookieAsk: return QL1S("Ask");
-    default: return QL1S("Dunno");
+    case KCookieAccept: return QStringLiteral("Accept");
+    case KCookieAcceptForSession: return QStringLiteral("AcceptForSession");
+    case KCookieReject: return QStringLiteral("Reject");
+    case KCookieAsk: return QStringLiteral("Ask");
+    default: return QStringLiteral("Dunno");
     }
 }
 
@@ -448,15 +448,15 @@ QString KCookieJar::findCookies(const QString &_url, bool useDOMFormat, WId wind
 
     if (!allCookies.isEmpty()) {
         if (!useDOMFormat) {
-            cookieStr = QL1S("Cookie: ");
+            cookieStr = QStringLiteral("Cookie: ");
         }
 
         if (protVersion > 0) {
-            cookieStr = cookieStr + QL1S("$Version=") + QString::number(protVersion) + QL1S("; ");
+            cookieStr = cookieStr + QStringLiteral("$Version=") + QString::number(protVersion) + QStringLiteral("; ");
         }
 
         Q_FOREACH (const KHttpCookie &cookie, allCookies) {
-            cookieStr = cookieStr + cookie.cookieStr(useDOMFormat) + QL1S("; ");
+            cookieStr = cookieStr + cookie.cookieStr(useDOMFormat) + QStringLiteral("; ");
         }
 
         cookieStr.truncate(cookieStr.length() - 2); // Remove the trailing ';'
@@ -601,7 +601,7 @@ bool KCookieJar::parseUrl(const QString &_url, QString &_fqdn, QString &_path, i
 
     _path = kurl.path();
     if (_path.isEmpty()) {
-        _path = QL1S("/");
+        _path = QStringLiteral("/");
     }
 
     return true;
@@ -612,7 +612,7 @@ void KCookieJar::extractDomains(const QString &_fqdn,
                                 QStringList &_domains) const
 {
     if (_fqdn.isEmpty()) {
-        _domains.append(QL1S("localhost"));
+        _domains.append(QStringLiteral("localhost"));
         return;
     }
 
@@ -663,7 +663,7 @@ void KCookieJar::extractDomains(const QString &_fqdn,
             }
         }
 
-        QString domain = partList.join(QL1S("."));
+        QString domain = partList.join(QLatin1Char('.'));
         _domains.append(domain);
         _domains.append(QL1C('.') + domain);
         partList.erase(partList.begin()); // Remove part
@@ -1280,7 +1280,7 @@ static QString hostWithPort(const KHttpCookie *cookie)
         portList << QString::number(port);
     }
 
-    return (cookie->host() + QL1C(':') + portList.join(QL1S(",")));
+    return (cookie->host() + QL1C(':') + portList.join(QLatin1Char(',')));
 }
 
 //
@@ -1567,7 +1567,7 @@ void KCookieJar::loadConfig(KConfig *_config, bool reparse)
     // Warning: those default values are duplicated in the kcm (kio/kcookiespolicies.cpp)
     m_rejectCrossDomainCookies = policyGroup.readEntry("RejectCrossDomainCookies", true);
     m_autoAcceptSessionCookies = policyGroup.readEntry("AcceptSessionCookies", true);
-    m_globalAdvice = strToAdvice(policyGroup.readEntry("CookieGlobalAdvice", QString(QL1S("Accept"))));
+    m_globalAdvice = strToAdvice(policyGroup.readEntry("CookieGlobalAdvice", QStringLiteral("Accept")));
 
     // Reset current domain settings first.
     Q_FOREACH (const QString &domain, m_domainList) {

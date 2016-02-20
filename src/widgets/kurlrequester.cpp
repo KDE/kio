@@ -38,6 +38,7 @@
 
 class KUrlDragPushButton : public QPushButton
 {
+    Q_OBJECT
 public:
     KUrlDragPushButton(QWidget *parent)
         : QPushButton(parent)
@@ -225,7 +226,7 @@ public:
             int sep = it->indexOf('|');
             QString globs = it->left(sep);
             QString desc  = it->mid(sep + 1);
-            *it = QStringLiteral("%1 (%2)").arg(desc).arg(globs);
+            *it = QStringLiteral("%1 (%2)").arg(desc, globs);
         }
 
         return qFilters;
@@ -634,3 +635,4 @@ KUrlComboRequester::KUrlComboRequester(QWidget *parent)
 }
 
 #include "moc_kurlrequester.cpp"
+#include "kurlrequester.moc"

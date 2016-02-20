@@ -123,7 +123,7 @@ void HeaderTokenizeTest::testMessyHeader()
         nValues += values.count();
 
         QList<QByteArray> comparisonValues;
-        foreach (const intPair &be, tokenizer.value(key).beginEnd) {
+        foreach (intPair be, tokenizer.value(key).beginEnd) {
             comparisonValues.append(QByteArray(buffer + be.first, be.second - be.first));
         }
 
@@ -147,7 +147,7 @@ void HeaderTokenizeTest::testMessyHeader()
         if (!it.value().beginEnd.isEmpty()) {
             qDebug() << it.key() << ":";
         }
-        foreach (const intPair &be, it.value().beginEnd) {
+        foreach (intPair be, it.value().beginEnd) {
             qDebug() << "  " << QByteArray(buffer + be.first, be.second - be.first);
         }
     }
@@ -174,7 +174,7 @@ void HeaderTokenizeTest::testRedirectHeader()
         nValues += values.count();
 
         QList<QByteArray> comparisonValues;
-        foreach (const intPair &be, tokenizer.value(key).beginEnd) {
+        foreach (intPair be, tokenizer.value(key).beginEnd) {
             comparisonValues.append(QByteArray(buffer + be.first, be.second - be.first));
         }
 

@@ -73,6 +73,7 @@ static const int QDirSortMask = QDir::SortByMask | QDir::Type;
  */
 class KDirOperatorIconView : public QListView
 {
+    Q_OBJECT
 public:
     KDirOperatorIconView(KDirOperator *dirOperator, QWidget *parent = 0);
     virtual ~KDirOperatorIconView();
@@ -2638,3 +2639,4 @@ void KDirOperator::Private::_k_slotDirectoryCreated(const QUrl &url)
 }
 
 #include "moc_kdiroperator.cpp"
+#include "kdiroperator.moc"

@@ -45,6 +45,7 @@ tst_KLocalSocket::~tst_KLocalSocket()
 
 class TimedTest: public QThread
 {
+    Q_OBJECT
 public:
     KLocalSocket *socket;
     TimedTest(KLocalSocket *s)
@@ -245,3 +246,4 @@ void tst_KLocalSocket::connected()
 
 QTEST_MAIN(tst_KLocalSocket)
 
+#include "klocalsockettest.moc"

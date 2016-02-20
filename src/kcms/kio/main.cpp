@@ -35,12 +35,12 @@
 #include "cache.h"
 
 K_PLUGIN_FACTORY(KioConfigFactory,
-        registerPlugin<UserAgentDlg>("useragent");
-        registerPlugin<SMBRoOptions>("smb");
-        registerPlugin<KIOPreferences>("netpref");
-        registerPlugin<KProxyDialog>("proxy");
-        registerPlugin<KCookiesMain>("cookie");
-        registerPlugin<CacheConfigModule>("cache");
+        registerPlugin<UserAgentDlg>(QStringLiteral("useragent"));
+        registerPlugin<SMBRoOptions>(QStringLiteral("smb"));
+        registerPlugin<KIOPreferences>(QStringLiteral("netpref"));
+        registerPlugin<KProxyDialog>(QStringLiteral("proxy"));
+        registerPlugin<KCookiesMain>(QStringLiteral("cookie"));
+        registerPlugin<CacheConfigModule>(QStringLiteral("cache"));
 	)
 
 #include "main.moc"

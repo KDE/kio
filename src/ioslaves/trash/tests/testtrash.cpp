@@ -117,7 +117,7 @@ static void removeDirRecursive(const QString &dir)
         // Make it work even with readonly dirs, like trashReadOnlyDirFromHome() creates
         QUrl u = QUrl::fromLocalFile(dir);
         //qDebug() << "chmod +0200 on" << u;
-        KFileItem fileItem(u, QLatin1String("inode/directory"), KFileItem::Unknown);
+        KFileItem fileItem(u, QStringLiteral("inode/directory"), KFileItem::Unknown);
         KFileItemList fileItemList;
         fileItemList.append(fileItem);
         KIO::ChmodJob *chmodJob = KIO::chmod(fileItemList, 0200, 0200, QString(), QString(), true /*recursive*/, KIO::HideProgressInfo);
@@ -137,7 +137,7 @@ void TestTrash::initTestCase()
 
     QStandardPaths::setTestModeEnabled(true);
 
-    m_trashDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/Trash");
+    m_trashDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/Trash");
     qDebug() << "setup: using trash directory " << m_trashDir;
 
     // Look for another writable partition than $HOME (not mandatory)
@@ -228,22 +228,22 @@ void TestTrash::cleanupTestCase()
 void TestTrash::urlTestFile()
 {
     const QUrl url = TrashImpl::makeURL(1, QStringLiteral("fileId"), QString());
-    QCOMPARE(url.url(), QString::fromLatin1("trash:/1-fileId"));
+    QCOMPARE(url.url(), QStringLiteral("trash:/1-fileId"));
 
     int trashId;
     QString fileId;
     QString relativePath;
     bool ok = TrashImpl::parseURL(url, trashId, fileId, relativePath);
     QVERIFY(ok);
-    QCOMPARE(QString::number(trashId), QString::fromLatin1("1"));
-    QCOMPARE(fileId, QString::fromLatin1("fileId"));
+    QCOMPARE(QString::number(trashId), QStringLiteral("1"));
+    QCOMPARE(fileId, QStringLiteral("fileId"));
     QCOMPARE(relativePath, QString());
 }
 
 void TestTrash::urlTestDirectory()
 {
     const QUrl url = TrashImpl::makeURL(1, QStringLiteral("fileId"), QStringLiteral("subfile"));
-    QCOMPARE(url.url(), QString::fromLatin1("trash:/1-fileId/subfile"));
+    QCOMPARE(url.url(), QStringLiteral("trash:/1-fileId/subfile"));
 
     int trashId;
     QString fileId;
@@ -251,14 +251,14 @@ void TestTrash::urlTestDirectory()
     bool ok = TrashImpl::parseURL(url, trashId, fileId, relativePath);
     QVERIFY(ok);
     QCOMPARE(trashId, 1);
-    QCOMPARE(fileId, QString::fromLatin1("fileId"));
-    QCOMPARE(relativePath, QString::fromLatin1("subfile"));
+    QCOMPARE(fileId, QStringLiteral("fileId"));
+    QCOMPARE(relativePath, QStringLiteral("subfile"));
 }
 
 void TestTrash::urlTestSubDirectory()
 {
     const QUrl url = TrashImpl::makeURL(1, QStringLiteral("fileId"), QStringLiteral("subfile/foobar"));
-    QCOMPARE(url.url(), QString::fromLatin1("trash:/1-fileId/subfile/foobar"));
+    QCOMPARE(url.url(), QStringLiteral("trash:/1-fileId/subfile/foobar"));
 
     int trashId;
     QString fileId;
@@ -266,8 +266,8 @@ void TestTrash::urlTestSubDirectory()
     bool ok = TrashImpl::parseURL(url, trashId, fileId, relativePath);
     QVERIFY(ok);
     QCOMPARE(trashId, 1);
-    QCOMPARE(fileId, QString::fromLatin1("fileId"));
-    QCOMPARE(relativePath, QString::fromLatin1("subfile/foobar"));
+    QCOMPARE(fileId, QStringLiteral("fileId"));
+    QCOMPARE(relativePath, QStringLiteral("subfile/foobar"));
 }
 
 static void checkInfoFile(const QString &infoPath, const QString &origFilePath)
@@ -283,7 +283,7 @@ static void checkInfoFile(const QString &infoPath, const QString &origFilePath)
     }
     const QString origPath = group.readEntry("Path");
     QVERIFY(!origPath.isEmpty());
-    QVERIFY(origPath == QString::fromLatin1(QUrl::toPercentEncoding(origFilePath, "/")));
+    QCOMPARE(origPath.toUtf8(), QUrl::toPercentEncoding(origFilePath, "/"));
     if (origFilePath.contains(QChar(0x2153)) || origFilePath.contains(QLatin1Char('%')) || origFilePath.contains(QStringLiteral("umlaut"))) {
         QVERIFY(origPath.contains(QLatin1Char('%')));
     } else {
@@ -291,7 +291,7 @@ static void checkInfoFile(const QString &infoPath, const QString &origFilePath)
     }
     const QString date = group.readEntry("DeletionDate");
     QVERIFY(!date.isEmpty());
-    QVERIFY(date.contains(QString::fromLatin1("T")));
+    QVERIFY(date.contains(QStringLiteral("T")));
 }
 
 static void createTestFile(const QString &path)
@@ -348,7 +348,7 @@ void TestTrash::trashFile(const QString &origFilePath, const QString &fileId)
             if (origFilePath.startsWith(QLatin1String("/tmp")) && m_tmpIsWritablePartition) {
                 trashId = m_tmpTrashId;
             }
-            QCOMPARE(trashURL.path(), QString(QString::fromLatin1("/") + QString::number(trashId) + QLatin1Char('-') + fileId));
+            QCOMPARE(trashURL.path(), QString(QStringLiteral("/") + QString::number(trashId) + QLatin1Char('-') + fileId));
             found = true;
         }
     }
@@ -386,7 +386,7 @@ void TestTrash::trashUmlautFileFromHome()
 
 void TestTrash::testTrashNotEmpty()
 {
-    KConfig cfg(QLatin1String("trashrc"), KConfig::SimpleConfig);
+    KConfig cfg(QStringLiteral("trashrc"), KConfig::SimpleConfig);
     const KConfigGroup group = cfg.group("Status");
     QVERIFY(group.exists());
     QVERIFY(group.readEntry("Empty", true) == false);
@@ -442,7 +442,7 @@ void TestTrash::trashFileIntoOtherPartition()
             qDebug() << trashURL;
             QVERIFY(!trashURL.isEmpty());
             QVERIFY(trashURL.scheme() == QLatin1String("trash"));
-            QVERIFY(trashURL.path() == QString::fromLatin1("/%1-%2").arg(m_otherPartitionId).arg(fileId));
+            QVERIFY(trashURL.path() == QStringLiteral("/%1-%2").arg(m_otherPartitionId).arg(fileId));
             found = true;
         }
     }
@@ -522,7 +522,7 @@ void TestTrash::trashDirectory(const QString &origPath, const QString &fileId)
         QVERIFY(ok);
     }
     createTestFile(origPath + QLatin1String("/testfile"));
-    QVERIFY(QDir().mkdir(origPath + QString::fromLatin1("/subdir")));
+    QVERIFY(QDir().mkdir(origPath + QStringLiteral("/subdir")));
     createTestFile(origPath + QLatin1String("/subdir/subfile"));
     QUrl u = QUrl::fromLocalFile(origPath);
 
@@ -542,7 +542,7 @@ void TestTrash::trashDirectory(const QString &origPath, const QString &fileId)
     QVERIFY(files.isFile());
     QVERIFY(files.size() == 12);
     QVERIFY(!QFile::exists(origPath));
-    QVERIFY(QFile::exists(m_trashDir + QString::fromLatin1("/files/") + fileId + QString::fromLatin1("/subdir/subfile")));
+    QVERIFY(QFile::exists(m_trashDir + QStringLiteral("/files/") + fileId + QStringLiteral("/subdir/subfile")));
 
     QFile dirCache(m_trashDir + QLatin1String("/directorysizes"));
     QVERIFY2(dirCache.open(QIODevice::ReadOnly), qPrintable(dirCache.fileName()));
@@ -720,7 +720,7 @@ void TestTrash::statRoot()
     QVERIFY(item.isReadable());
     QVERIFY(item.isWritable());
     QVERIFY(!item.isHidden());
-    QCOMPARE(item.name(), QString::fromLatin1("."));
+    QCOMPARE(item.name(), QStringLiteral("."));
 }
 
 void TestTrash::statFileInRoot()
@@ -736,7 +736,7 @@ void TestTrash::statFileInRoot()
     QVERIFY(item.isReadable());
     QVERIFY(!item.isWritable());
     QVERIFY(!item.isHidden());
-    QCOMPARE(item.text(), QString::fromLatin1("fileFromHome"));
+    QCOMPARE(item.text(), QStringLiteral("fileFromHome"));
 }
 
 void TestTrash::statDirectoryInRoot()
@@ -751,7 +751,7 @@ void TestTrash::statDirectoryInRoot()
     QVERIFY(item.isReadable());
     QVERIFY(!item.isWritable());
     QVERIFY(!item.isHidden());
-    QCOMPARE(item.text(), QString::fromLatin1("trashDirFromHome"));
+    QCOMPARE(item.text(), QStringLiteral("trashDirFromHome"));
 }
 
 void TestTrash::statSymlinkInRoot()
@@ -762,11 +762,11 @@ void TestTrash::statSymlinkInRoot()
     QVERIFY(ok);
     KFileItem item(entry, url);
     QVERIFY(item.isLink());
-    QCOMPARE(item.linkDest(), QString::fromLatin1("/tmp"));
+    QCOMPARE(item.linkDest(), QStringLiteral("/tmp"));
     QVERIFY(item.isReadable());
     QVERIFY(!item.isWritable());
     QVERIFY(!item.isHidden());
-    QCOMPARE(item.text(), QString::fromLatin1("symlinkFromHome"));
+    QCOMPARE(item.text(), QStringLiteral("symlinkFromHome"));
 }
 
 void TestTrash::statFileInDirectory()
@@ -781,7 +781,7 @@ void TestTrash::statFileInDirectory()
     QVERIFY(item.isReadable());
     QVERIFY(!item.isWritable());
     QVERIFY(!item.isHidden());
-    QCOMPARE(item.text(), QString::fromLatin1("testfile"));
+    QCOMPARE(item.text(), QStringLiteral("testfile"));
 }
 
 void TestTrash::copyFromTrash(const QString &fileId, const QString &destPath, const QString &relativePath)
@@ -1107,9 +1107,9 @@ void TestTrash::listRootDir()
 
     //qDebug() << m_listResult;
     //qDebug() << m_displayNameListResult;
-    QCOMPARE(m_listResult.count("."), 1);   // found it, and only once
-    QCOMPARE(m_displayNameListResult.count("fileFromHome"), 1);
-    QCOMPARE(m_displayNameListResult.count("fileFromHome (1)"), 1);
+    QCOMPARE(m_listResult.count(QStringLiteral(".")), 1);   // found it, and only once
+    QCOMPARE(m_displayNameListResult.count(QStringLiteral("fileFromHome")), 1);
+    QCOMPARE(m_displayNameListResult.count(QStringLiteral("fileFromHome (1)")), 1);
 }
 
 void TestTrash::listRecursiveRootDir()
@@ -1127,15 +1127,15 @@ void TestTrash::listRecursiveRootDir()
 
     qDebug() << m_listResult;
     qDebug() << m_displayNameListResult;
-    QCOMPARE(m_listResult.count("."), 1);   // found it, and only once
-    QCOMPARE(m_listResult.count("0-fileFromHome"), 1);
-    QCOMPARE(m_listResult.count("0-fileFromHome (1)"), 1);
-    QCOMPARE(m_listResult.count("0-trashDirFromHome/testfile"), 1);
-    QCOMPARE(m_listResult.count("0-readonly/readonly_subdir/testfile_in_subdir"), 1);
-    QCOMPARE(m_displayNameListResult.count("fileFromHome"), 1);
-    QCOMPARE(m_displayNameListResult.count("fileFromHome (1)"), 1);
-    QCOMPARE(m_displayNameListResult.count("trashDirFromHome/testfile"), 1);
-    QCOMPARE(m_displayNameListResult.count("readonly/readonly_subdir/testfile_in_subdir"), 1);
+    QCOMPARE(m_listResult.count(QStringLiteral(".")), 1);   // found it, and only once
+    QCOMPARE(m_listResult.count(QStringLiteral("0-fileFromHome")), 1);
+    QCOMPARE(m_listResult.count(QStringLiteral("0-fileFromHome (1)")), 1);
+    QCOMPARE(m_listResult.count(QStringLiteral("0-trashDirFromHome/testfile")), 1);
+    QCOMPARE(m_listResult.count(QStringLiteral("0-readonly/readonly_subdir/testfile_in_subdir")), 1);
+    QCOMPARE(m_displayNameListResult.count(QStringLiteral("fileFromHome")), 1);
+    QCOMPARE(m_displayNameListResult.count(QStringLiteral("fileFromHome (1)")), 1);
+    QCOMPARE(m_displayNameListResult.count(QStringLiteral("trashDirFromHome/testfile")), 1);
+    QCOMPARE(m_displayNameListResult.count(QStringLiteral("readonly/readonly_subdir/testfile_in_subdir")), 1);
 
 }
 
@@ -1154,11 +1154,11 @@ void TestTrash::listSubDir()
 
     //qDebug() << m_listResult;
     //qDebug() << m_displayNameListResult;
-    QCOMPARE(m_listResult.count("."), 1);   // found it, and only once
-    QCOMPARE(m_listResult.count("testfile"), 1);   // found it, and only once
-    QCOMPARE(m_listResult.count("subdir"), 1);
-    QCOMPARE(m_displayNameListResult.count("testfile"), 1);
-    QCOMPARE(m_displayNameListResult.count("subdir"), 1);
+    QCOMPARE(m_listResult.count(QStringLiteral(".")), 1);   // found it, and only once
+    QCOMPARE(m_listResult.count(QStringLiteral("testfile")), 1);   // found it, and only once
+    QCOMPARE(m_listResult.count(QStringLiteral("subdir")), 1);
+    QCOMPARE(m_displayNameListResult.count(QStringLiteral("testfile")), 1);
+    QCOMPARE(m_displayNameListResult.count(QStringLiteral("subdir")), 1);
 }
 
 void TestTrash::slotEntries(KIO::Job *, const KIO::UDSEntryList &lst)
@@ -1170,7 +1170,7 @@ void TestTrash::slotEntries(KIO::Job *, const KIO::UDSEntryList &lst)
         QUrl url(entry.stringValue(KIO::UDSEntry::UDS_URL));
         qDebug() << "name" << name << "displayName" << displayName << " UDS_URL=" << url;
         if (!url.isEmpty()) {
-            QVERIFY(url.scheme() == "trash");
+            QVERIFY(url.scheme() == QStringLiteral("trash"));
         }
         m_listResult << name;
         m_displayNameListResult << displayName;
@@ -1228,7 +1228,7 @@ static void checkIcon(const QUrl &url, const QString &expectedIcon)
 
 void TestTrash::testIcons()
 {
-    QCOMPARE(KProtocolInfo::icon("trash"), QString("user-trash-full"));  // #100321
+    QCOMPARE(KProtocolInfo::icon(QStringLiteral("trash")), QStringLiteral("user-trash-full"));  // #100321
     checkIcon(QUrl(QStringLiteral("trash:/")), QStringLiteral("user-trash-full"));   // #100321
     checkIcon(QUrl(QStringLiteral("trash:/foo/")), QStringLiteral("inode-directory"));
 }

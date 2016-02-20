@@ -55,7 +55,7 @@ QLoggingCategory category("org.kde.kurifilter-shorturi");
 
 typedef QMap<QString,QString> EntryMap;
 
-static QRegularExpression sEnvVarExp (QL1S("\\$[a-zA-Z_][a-zA-Z0-9_]*"));
+static QRegularExpression sEnvVarExp (QStringLiteral("\\$[a-zA-Z_][a-zA-Z0-9_]*"));
 
 static bool isPotentialShortURL(const QString& cmd)
 {
@@ -178,7 +178,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   // executable and only the argument part, if any, changed! (Dawit)
   // You mean caching the last filtering, to try and reuse it, to save stat()s? (David)
 
-  const QString starthere_proto = QL1S("start-here:");
+  const QString starthere_proto = QStringLiteral("start-here:");
   if (cmd.indexOf(starthere_proto) == 0 )
   {
     setFilteredUri( data, QUrl(QStringLiteral("system:/")) );
@@ -187,16 +187,16 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   }
 
   // Handle MAN & INFO pages shortcuts...
-  const QString man_proto = QL1S("man:");
-  const QString info_proto = QL1S("info:");
+  const QString man_proto = QStringLiteral("man:");
+  const QString info_proto = QStringLiteral("info:");
   if( cmd[0] == '#' ||
       cmd.indexOf( man_proto ) == 0 ||
       cmd.indexOf( info_proto ) == 0 )
   {
-    if( cmd.left(2) == QL1S("##") )
-      cmd = QL1S("info:/") + cmd.mid(2);
+    if( cmd.leftRef(2) == QLatin1String("##") )
+      cmd = QStringLiteral("info:/") + cmd.mid(2);
     else if ( cmd[0] == '#' )
-      cmd = QL1S("man:/") + cmd.mid(1);
+      cmd = QStringLiteral("man:/") + cmd.mid(1);
 
     else if ((cmd==info_proto) || (cmd==man_proto))
       cmd+='/';
@@ -236,7 +236,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
       // but not for "/tmp/a#b", if "a#b" is an existing file,
       // or for "/tmp/a?b" (#58990)
       if( ( url.hasFragment() || !url.query().isEmpty() )
-           && !url.path().endsWith(QL1S("/")) ) // /tmp/?foo is a namefilter, not a query
+           && !url.path().endsWith(QLatin1Char('/')) ) // /tmp/?foo is a namefilter, not a query
       {
         path = url.path();
         ref = url.fragment();
@@ -452,7 +452,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
     if (isKnownProtocol(protocol))
     {
       setFilteredUri( data, url );
-      if ( protocol == QL1S("man") || protocol == QL1S("help") )
+      if ( protocol == QLatin1String("man") || protocol == QLatin1String("help") )
         setUriType( data, KUriFilterData::Help );
       else
         setUriType( data, KUriFilterData::NetProtocol );
@@ -495,7 +495,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
 
       const int index = urlStr.indexOf(QL1C(':'));
       if (index == -1 || !isKnownProtocol(urlStr.left(index)))
-        urlStr += QL1S("://");
+        urlStr += QStringLiteral("://");
       urlStr += cmd;
 
       QUrl url (urlStr);
@@ -520,7 +520,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
     QUrl u = QUrl::fromLocalFile(path);
     u.setFragment(ref);
 
-    if (!KUrlAuthorized::authorizeUrlAction( QL1S("open"), QUrl(), u))
+    if (!KUrlAuthorized::authorizeUrlAction( QStringLiteral("open"), QUrl(), u))
     {
       // No authorization, we pretend it exists and will get
       // an access denied error later on.
@@ -552,12 +552,12 @@ QString KShortUriFilter::configName() const
 
 void KShortUriFilter::configure()
 {
-  KConfig config( objectName() + QL1S( "rc"), KConfig::NoGlobals );
+  KConfig config( objectName() + QStringLiteral( "rc"), KConfig::NoGlobals );
   KConfigGroup cg( config.group("") );
 
   m_strDefaultUrlScheme = cg.readEntry( "DefaultProtocol", QStringLiteral("http://") );
-  const EntryMap patterns = config.entryMap( QL1S("Pattern") );
-  const EntryMap protocols = config.entryMap( QL1S("Protocol") );
+  const EntryMap patterns = config.entryMap( QStringLiteral("Pattern") );
+  const EntryMap protocols = config.entryMap( QStringLiteral("Protocol") );
   KConfigGroup typeGroup(&config, "Type");
 
   for( EntryMap::ConstIterator it = patterns.begin(); it != patterns.end(); ++it )

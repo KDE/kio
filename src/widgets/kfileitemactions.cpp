@@ -600,7 +600,7 @@ void KFileItemActionsPrivate::slotRunPreferredApplications()
     const QStringList mimeTypeList = listMimeTypes(fileItems);
     const QStringList serviceIdList = listPreferredServiceIds(mimeTypeList, m_traderConstraint);
 
-    foreach (const QString serviceId, serviceIdList) {
+    foreach (const QString& serviceId, serviceIdList) {
         KFileItemList serviceItems;
         foreach (const KFileItem &item, fileItems) {
             const KService::Ptr serv = preferredService(item.mimetype(), m_traderConstraint);
@@ -634,7 +634,7 @@ void KFileItemActions::runPreferredApplications(const KFileItemList &fileOpenLis
 void KFileItemActionsPrivate::openWithByMime(const KFileItemList &fileItems)
 {
     const QStringList mimeTypeList = listMimeTypes(fileItems);
-    foreach (const QString mimeType, mimeTypeList) {
+    foreach (const QString& mimeType, mimeTypeList) {
         KFileItemList mimeItems;
         foreach (const KFileItem &item, fileItems) {
             if (item.mimetype() == mimeType) {

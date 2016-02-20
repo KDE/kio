@@ -213,6 +213,7 @@ private:
 
 class CompletionThread : public QThread
 {
+    Q_OBJECT
 protected:
     CompletionThread(KUrlCompletionPrivate *receiver) :
         QThread(),
@@ -266,6 +267,7 @@ private:
 
 class UserListThread : public CompletionThread
 {
+    Q_OBJECT
 public:
     UserListThread(KUrlCompletionPrivate *receiver) :
         CompletionThread(receiver)
@@ -301,6 +303,7 @@ protected:
 
 class DirectoryListThread : public CompletionThread
 {
+    Q_OBJECT
 public:
     DirectoryListThread(KUrlCompletionPrivate *receiver,
                         const QStringList &dirList,
@@ -1120,7 +1123,7 @@ QString KUrlCompletionPrivate::listDirectories(
 {
     assert(!q->isRunning());
 
-    if (qgetenv("KURLCOMPLETION_LOCAL_KIO").isEmpty()) {
+    if (qEnvironmentVariableIsEmpty("KURLCOMPLETION_LOCAL_KIO")) {
 
         //qDebug() << "Listing (listDirectories):" << dirList << "filter=" << filter << "without KIO";
 
@@ -1557,3 +1560,4 @@ static QString unescape(const QString &text)
 }
 
 #include "moc_kurlcompletion.cpp"
+#include "kurlcompletion.moc"

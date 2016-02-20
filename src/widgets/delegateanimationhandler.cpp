@@ -39,6 +39,7 @@ namespace KIO
 // Needed because state() is a protected method
 class ProtectedAccessor : public QAbstractItemView
 {
+    Q_OBJECT
 public:
     bool draggingState() const
     {
@@ -438,3 +439,4 @@ void DelegateAnimationHandler::timerEvent(QTimerEvent *)
 
 }
 
+#include "delegateanimationhandler.moc"

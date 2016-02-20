@@ -322,7 +322,7 @@ QScriptValue MyIpAddress(QScriptContext *context, QScriptEngine *engine)
 
     QString ipAddress;
     const QList<QHostAddress> addresses = QNetworkInterface::allAddresses();
-    Q_FOREACH (const QHostAddress address, addresses) {
+    Q_FOREACH (const QHostAddress& address, addresses) {
         if (isIPv4Address(address) && !isSpecialAddress(address) && !isLocalHostAddress(address)) {
             ipAddress = address.toString();
             break;
@@ -627,7 +627,7 @@ QScriptValue MyIpAddressEx(QScriptContext *context, QScriptEngine *engine)
 
     QStringList ipAddressList;
     const QList<QHostAddress> addresses = QNetworkInterface::allAddresses();
-    Q_FOREACH (const QHostAddress address, addresses) {
+    Q_FOREACH (const QHostAddress& address, addresses) {
         if (!isSpecialAddress(address) && !isLocalHostAddress(address)) {
             ipAddressList << address.toString();
         }
@@ -700,26 +700,26 @@ QScriptValue GetClientVersion(QScriptContext *context, QScriptEngine *engine)
 void registerFunctions(QScriptEngine *engine)
 {
     QScriptValue value = engine->globalObject();
-    value.setProperty(QL1S("isPlainHostName"), engine->newFunction(IsPlainHostName));
-    value.setProperty(QL1S("dnsDomainIs"), engine->newFunction(DNSDomainIs));
-    value.setProperty(QL1S("localHostOrDomainIs"), engine->newFunction(LocalHostOrDomainIs));
-    value.setProperty(QL1S("isResolvable"), engine->newFunction(IsResolvable));
-    value.setProperty(QL1S("isInNet"), engine->newFunction(IsInNet));
-    value.setProperty(QL1S("dnsResolve"), engine->newFunction(DNSResolve));
-    value.setProperty(QL1S("myIpAddress"), engine->newFunction(MyIpAddress));
-    value.setProperty(QL1S("dnsDomainLevels"), engine->newFunction(DNSDomainLevels));
-    value.setProperty(QL1S("shExpMatch"), engine->newFunction(ShExpMatch));
-    value.setProperty(QL1S("weekdayRange"), engine->newFunction(WeekdayRange));
-    value.setProperty(QL1S("dateRange"), engine->newFunction(DateRange));
-    value.setProperty(QL1S("timeRange"), engine->newFunction(TimeRange));
+    value.setProperty(QStringLiteral("isPlainHostName"), engine->newFunction(IsPlainHostName));
+    value.setProperty(QStringLiteral("dnsDomainIs"), engine->newFunction(DNSDomainIs));
+    value.setProperty(QStringLiteral("localHostOrDomainIs"), engine->newFunction(LocalHostOrDomainIs));
+    value.setProperty(QStringLiteral("isResolvable"), engine->newFunction(IsResolvable));
+    value.setProperty(QStringLiteral("isInNet"), engine->newFunction(IsInNet));
+    value.setProperty(QStringLiteral("dnsResolve"), engine->newFunction(DNSResolve));
+    value.setProperty(QStringLiteral("myIpAddress"), engine->newFunction(MyIpAddress));
+    value.setProperty(QStringLiteral("dnsDomainLevels"), engine->newFunction(DNSDomainLevels));
+    value.setProperty(QStringLiteral("shExpMatch"), engine->newFunction(ShExpMatch));
+    value.setProperty(QStringLiteral("weekdayRange"), engine->newFunction(WeekdayRange));
+    value.setProperty(QStringLiteral("dateRange"), engine->newFunction(DateRange));
+    value.setProperty(QStringLiteral("timeRange"), engine->newFunction(TimeRange));
 
     // Microsoft's IPv6 PAC Extensions...
-    value.setProperty(QL1S("isResolvableEx"), engine->newFunction(IsResolvableEx));
-    value.setProperty(QL1S("isInNetEx"), engine->newFunction(IsInNetEx));
-    value.setProperty(QL1S("dnsResolveEx"), engine->newFunction(DNSResolveEx));
-    value.setProperty(QL1S("myIpAddressEx"), engine->newFunction(MyIpAddressEx));
-    value.setProperty(QL1S("sortIpAddressList"), engine->newFunction(SortIpAddressList));
-    value.setProperty(QL1S("getClientVersion"), engine->newFunction(GetClientVersion));
+    value.setProperty(QStringLiteral("isResolvableEx"), engine->newFunction(IsResolvableEx));
+    value.setProperty(QStringLiteral("isInNetEx"), engine->newFunction(IsInNetEx));
+    value.setProperty(QStringLiteral("dnsResolveEx"), engine->newFunction(DNSResolveEx));
+    value.setProperty(QStringLiteral("myIpAddressEx"), engine->newFunction(MyIpAddressEx));
+    value.setProperty(QStringLiteral("sortIpAddressList"), engine->newFunction(SortIpAddressList));
+    value.setProperty(QStringLiteral("getClientVersion"), engine->newFunction(GetClientVersion));
 }
 }
 
@@ -744,10 +744,10 @@ Script::~Script()
 
 QString Script::evaluate(const QUrl &url)
 {
-    QScriptValue func = m_engine->globalObject().property(QL1S("FindProxyForURL"));
+    QScriptValue func = m_engine->globalObject().property(QStringLiteral("FindProxyForURL"));
 
     if (!func.isValid()) {
-        func = m_engine->globalObject().property(QL1S("FindProxyForURLEx"));
+        func = m_engine->globalObject().property(QStringLiteral("FindProxyForURLEx"));
         if (!func.isValid()) {
             throw Error(i18n("Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"));
             return QString();

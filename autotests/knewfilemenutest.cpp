@@ -105,10 +105,10 @@ private Q_SLOTS:
         QSignalSpy folderSpy(&menu, SIGNAL(directoryCreated(QUrl)));
         if (actionText == QLatin1String("Folder...")) {
             QVERIFY(folderSpy.wait(1000));
-            emittedUrl = folderSpy.at(0).at(0).value<QUrl>();
+            emittedUrl = folderSpy.at(0).at(0).toUrl();
         } else {
             QVERIFY(spy.wait(1000));
-            emittedUrl = spy.at(0).at(0).value<QUrl>();
+            emittedUrl = spy.at(0).at(0).toUrl();
         }
         const QString path = m_tmpDir.path() + '/' + expectedFilename;
         QCOMPARE(emittedUrl.toLocalFile(), path);

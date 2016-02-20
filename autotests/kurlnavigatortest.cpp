@@ -224,19 +224,19 @@ void KUrlNavigatorTest::testButtonUrl_data()
     QTest::addColumn<int>("buttonIndex");
     QTest::addColumn<QUrl>("expectedButtonUrl");
 
-    QTest::newRow("localPathButtonIndex3") << QUrl::fromLocalFile("/home/foo") << 3 << QUrl::fromLocalFile("/home/foo"); // out of range
-    QTest::newRow("localPathButtonIndex2") << QUrl::fromLocalFile("/home/foo") << 2 << QUrl::fromLocalFile("/home/foo");
-    QTest::newRow("localPathButtonIndex1") << QUrl::fromLocalFile("/home/foo") << 1 << QUrl::fromLocalFile("/home");
-    QTest::newRow("localPathButtonIndex0") << QUrl::fromLocalFile("/home/foo") << 0 << QUrl::fromLocalFile("/");
+    QTest::newRow("localPathButtonIndex3") << QUrl::fromLocalFile(QStringLiteral("/home/foo")) << 3 << QUrl::fromLocalFile(QStringLiteral("/home/foo")); // out of range
+    QTest::newRow("localPathButtonIndex2") << QUrl::fromLocalFile(QStringLiteral("/home/foo")) << 2 << QUrl::fromLocalFile(QStringLiteral("/home/foo"));
+    QTest::newRow("localPathButtonIndex1") << QUrl::fromLocalFile(QStringLiteral("/home/foo")) << 1 << QUrl::fromLocalFile(QStringLiteral("/home"));
+    QTest::newRow("localPathButtonIndex0") << QUrl::fromLocalFile(QStringLiteral("/home/foo")) << 0 << QUrl::fromLocalFile(QStringLiteral("/"));
 
-    QTest::newRow("networkPathButtonIndex1") << QUrl::fromUserInput("network:/konqi.local/share") << 1 << QUrl::fromUserInput("network:/konqi.local");
-    QTest::newRow("networkPathButtonIndex0") << QUrl::fromUserInput("network:/konqi.local/share") << 0 << QUrl::fromUserInput("network:/");
+    QTest::newRow("networkPathButtonIndex1") << QUrl::fromUserInput(QStringLiteral("network:/konqi.local/share")) << 1 << QUrl::fromUserInput(QStringLiteral("network:/konqi.local"));
+    QTest::newRow("networkPathButtonIndex0") << QUrl::fromUserInput(QStringLiteral("network:/konqi.local/share")) << 0 << QUrl::fromUserInput(QStringLiteral("network:/"));
 
-    QTest::newRow("ftpPathButtonIndex1") << QUrl::fromUserInput("ftp://kde.org/home/foo") << 1 << QUrl::fromUserInput("ftp://kde.org/home");
-    QTest::newRow("ftpPathButtonIndex0") << QUrl::fromUserInput("ftp://kde.org/home/foo") << 0 << QUrl::fromUserInput("ftp://kde.org/");
+    QTest::newRow("ftpPathButtonIndex1") << QUrl::fromUserInput(QStringLiteral("ftp://kde.org/home/foo")) << 1 << QUrl::fromUserInput(QStringLiteral("ftp://kde.org/home"));
+    QTest::newRow("ftpPathButtonIndex0") << QUrl::fromUserInput(QStringLiteral("ftp://kde.org/home/foo")) << 0 << QUrl::fromUserInput(QStringLiteral("ftp://kde.org/"));
 
     // bug 354678
-    QTest::newRow("localPathWithPercentage") << QUrl::fromLocalFile("/home/foo %/test") << 2 << QUrl::fromLocalFile("/home/foo %");
+    QTest::newRow("localPathWithPercentage") << QUrl::fromLocalFile(QStringLiteral("/home/foo %/test")) << 2 << QUrl::fromLocalFile(QStringLiteral("/home/foo %"));
 }
 
 void KUrlNavigatorTest::testButtonUrl()

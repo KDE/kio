@@ -103,8 +103,9 @@ public:
         // those belong to the peer (==website or similar) certificate.
         for (int i = 0; i < sslErrors.count(); i++) {
             if (sslErrors[i].certificate().isNull()) {
+				const QList<QSslCertificate> peerCertificateChain = socket.peerCertificateChain();
                 sslErrors[i] = KSslError(sslErrors[i].error(),
-                                         socket.peerCertificateChain()[0]);
+                                         peerCertificateChain[0]);
             }
         }
 
@@ -788,9 +789,9 @@ TCPSlaveBase::SslResult TCPSlaveBase::verifyServerCertificate()
         //TODO message "sorry, fatal error, you can't override it"
         return ResultFailed;
     }
-
+    QList<QSslCertificate> peerCertificationChain = d->socket.peerCertificateChain();
     KSslCertificateManager *const cm = KSslCertificateManager::self();
-    KSslCertificateRule rule = cm->rule(d->socket.peerCertificateChain().first(), d->host);
+    KSslCertificateRule rule = cm->rule(peerCertificationChain.first(), d->host);
 
     // remove previously seen and acknowledged errors
     QList<KSslError> remainingErrors = rule.filterErrors(d->sslErrors);

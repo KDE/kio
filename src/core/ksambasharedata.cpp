@@ -125,7 +125,7 @@ KSambaShareData::UserShareError KSambaShareData::setGuestPermission(const GuestP
 {
     UserShareError result = KSambaShare::instance()->d_func()->guestsAllowed(permission);
     if (result == UserShareGuestsOk) {
-        dd->guestPermission = (permission == GuestsNotAllowed) ? "n" : "y";
+        dd->guestPermission = (permission == GuestsNotAllowed) ? QStringLiteral("n") : QStringLiteral("y");
     }
 
     return result;

@@ -103,7 +103,7 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
         result = i18n("Could not create socket for accessing %1.",  errorText);
         break;
     case  KIO::ERR_CANNOT_CONNECT:
-        result = i18n("Could not connect to host %1.",  errorText.isEmpty() ? QLatin1String("localhost") : errorText);
+        result = i18n("Could not connect to host %1.",  errorText.isEmpty() ? QStringLiteral("localhost") : errorText);
         break;
     case  KIO::ERR_CONNECTION_BROKEN:
         result = i18n("Connection to host %1 is broken.",  errorText);

@@ -52,14 +52,14 @@ void KProtocolInfoTest::initTestCase()
 
 void KProtocolInfoTest::testBasic()
 {
-    QVERIFY(KProtocolInfo::isKnownProtocol(QUrl("http:/")));
-    QVERIFY(KProtocolInfo::isKnownProtocol(QUrl("file:/")));
-    QCOMPARE(KProtocolInfo::exec("file"), QString::fromLatin1("kf5/kio/file"));
-    QCOMPARE(KProtocolInfo::protocolClass("file"), QString::fromLatin1(":local"));
+    QVERIFY(KProtocolInfo::isKnownProtocol(QUrl(QStringLiteral("http:/"))));
+    QVERIFY(KProtocolInfo::isKnownProtocol(QUrl(QStringLiteral("file:/"))));
+    QCOMPARE(KProtocolInfo::exec(QStringLiteral("file")), QStringLiteral("kf5/kio/file"));
+    QCOMPARE(KProtocolInfo::protocolClass(QStringLiteral("file")), QStringLiteral(":local"));
 
-    QCOMPARE(KProtocolInfo::protocolClass("http"), QString::fromLatin1(":internet"));
+    QCOMPARE(KProtocolInfo::protocolClass(QStringLiteral("http")), QStringLiteral(":internet"));
 
-    QVERIFY(KProtocolManager::supportsListing(QUrl("ftp://10.1.1.10")));
+    QVERIFY(KProtocolManager::supportsListing(QUrl(QStringLiteral("ftp://10.1.1.10"))));
 
     const QUrl url = QUrl::fromLocalFile(QStringLiteral("/tmp"));
     QCOMPARE(KProtocolManager::inputType(url), KProtocolInfo::T_NONE);
@@ -79,21 +79,21 @@ void KProtocolInfoTest::testExtraFields()
 
 void KProtocolInfoTest::testShowFilePreview()
 {
-    QVERIFY(KProtocolInfo::showFilePreview("file"));
-    QVERIFY(!KProtocolInfo::showFilePreview("audiocd"));
+    QVERIFY(KProtocolInfo::showFilePreview(QStringLiteral("file")));
+    QVERIFY(!KProtocolInfo::showFilePreview(QStringLiteral("audiocd")));
 }
 
 void KProtocolInfoTest::testSlaveProtocol()
 {
     QString proxy;
     QString protocol = KProtocolManager::slaveProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
-    QCOMPARE(protocol, QString::fromLatin1("http"));
+    QCOMPARE(protocol, QStringLiteral("http"));
     QVERIFY(!KProtocolManager::useProxy());
 
     // Just to test it doesn't deadlock
     KProtocolManager::reparseConfiguration();
     protocol = KProtocolManager::slaveProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
-    QCOMPARE(protocol, QString::fromLatin1("http"));
+    QCOMPARE(protocol, QStringLiteral("http"));
 }
 
 void KProtocolInfoTest::testProxySettings_data()
@@ -117,7 +117,7 @@ void KProtocolInfoTest::testProxySettings()
     KProtocolManager::reparseConfiguration();
     QString proxy;
     QString protocol = KProtocolManager::slaveProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
-    QCOMPARE(protocol, QString::fromLatin1("http"));
+    QCOMPARE(protocol, QStringLiteral("http"));
     QVERIFY(KProtocolManager::useProxy());
 
     // restore
@@ -139,23 +139,23 @@ void KProtocolInfoTest::testProtocolForArchiveMimetype()
         QSKIP("kdebase not installed");
     } else {
         const QString zip = KProtocolManager::protocolForArchiveMimetype(QStringLiteral("application/zip"));
-        QCOMPARE(zip, QString("zip"));
+        QCOMPARE(zip, QStringLiteral("zip"));
     }
 }
 
 void KProtocolInfoTest::testHelperProtocols()
 {
-    QVERIFY(!KProtocolInfo::isHelperProtocol("http"));
-    QVERIFY(!KProtocolInfo::isHelperProtocol("ftp"));
-    QVERIFY(!KProtocolInfo::isHelperProtocol("file"));
-    QVERIFY(!KProtocolInfo::isHelperProtocol("unknown"));
+    QVERIFY(!KProtocolInfo::isHelperProtocol(QStringLiteral("http")));
+    QVERIFY(!KProtocolInfo::isHelperProtocol(QStringLiteral("ftp")));
+    QVERIFY(!KProtocolInfo::isHelperProtocol(QStringLiteral("file")));
+    QVERIFY(!KProtocolInfo::isHelperProtocol(QStringLiteral("unknown")));
     // Comes from ktelnetservice.desktop:MimeType=x-scheme-handler/telnet;x-scheme-handler/rlogin;x-scheme-handler/ssh;
     // TODO: this logic has moved to KRun. Should it be public API, so we can unittest it?
     //QVERIFY(KProtocolInfo::isHelperProtocol("telnet"));
 
     // To test that compat still works
     if (KProtocolInfo::isKnownProtocol(QStringLiteral("tel"))) {
-        QVERIFY(KProtocolInfo::isHelperProtocol("tel"));
+        QVERIFY(KProtocolInfo::isHelperProtocol(QStringLiteral("tel")));
     }
 
     // TODO: this logic has moved to KRun. Should it be public API, so we can unittest it?

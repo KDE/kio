@@ -38,6 +38,7 @@
 
 class UserAgentSiteNameValidator : public QValidator
 {
+    Q_OBJECT
 public:
     UserAgentSiteNameValidator (QObject* parent)
         : QValidator (parent)
@@ -157,3 +158,4 @@ QString UserAgentSelectorDlg::alias()
     return mUi.identityLineEdit->text();
 }
 
+#include "useragentselectordlg.moc"

@@ -128,7 +128,7 @@ int main (int argc, char *argv[])
                 protocolData.insert(key, config.readEntry(key, bool(false)));
             }
         }
-        Q_FOREACH(const QString &key, intAttributes) {
+        Q_FOREACH(const QString& key, intAttributes) {
             if (config.hasKey(key)) {
                 protocolData.insert(key, config.readEntry(key, int(0)));
             }

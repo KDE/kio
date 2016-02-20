@@ -33,6 +33,7 @@ namespace KIO
  */
 class KIOFILEWIDGETS_EXPORT DefaultViewAdapter : public KAbstractViewAdapter
 {
+    Q_OBJECT
 public:
     DefaultViewAdapter(QAbstractItemView *view, QObject *parent);
     QAbstractItemModel *model() const Q_DECL_OVERRIDE;

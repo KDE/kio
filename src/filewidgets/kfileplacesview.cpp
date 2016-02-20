@@ -57,6 +57,7 @@
 
 class KFilePlacesViewDelegate : public QAbstractItemDelegate
 {
+    Q_OBJECT
 public:
     KFilePlacesViewDelegate(KFilePlacesView *parent);
     virtual ~KFilePlacesViewDelegate();
@@ -1202,3 +1203,4 @@ void KFilePlacesView::dataChanged(const QModelIndex &topLeft, const QModelIndex 
 
 #include "moc_kfileplacesview.cpp"
 #include "moc_kfileplacesview_p.cpp"
+#include "kfileplacesview.moc"

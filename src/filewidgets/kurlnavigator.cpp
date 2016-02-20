@@ -366,7 +366,7 @@ void KUrlNavigator::Private::openPathSelectorMenu()
     QString dirName = path.section(QLatin1Char('/'), idx, idx);
     if (dirName.isEmpty()) {
         if (placeUrl.isLocalFile()) {
-            dirName = QLatin1String("/");
+            dirName = QStringLiteral("/");
         } else {
             dirName = placeUrl.toDisplayString();
         }

@@ -66,7 +66,7 @@ TrashImpl::TrashImpl() :
     m_trashDirectoriesScanned(false),
     // not using kio_trashrc since KIO uses that one already for kio_trash
     // so better have a separate one, for faster parsing by e.g. kmimetype.cpp
-    m_config(QLatin1String("trashrc"), KConfig::SimpleConfig)
+    m_config(QStringLiteral("trashrc"), KConfig::SimpleConfig)
 {
     QT_STATBUF buff;
     if (QT_LSTAT(QFile::encodeName(QDir::homePath()), &buff) == 0) {
@@ -578,7 +578,7 @@ bool TrashImpl::synchronousDel(const QString &path, bool setLastErrorCode, bool 
     // otherwise we won't be able to delete files in them (#130780).
     if (isDir) {
         qDebug() << "chmod'ing" << url;
-        KFileItem fileItem(url, QLatin1String("inode/directory"), KFileItem::Unknown);
+        KFileItem fileItem(url, QStringLiteral("inode/directory"), KFileItem::Unknown);
         KFileItemList fileItemList;
         fileItemList.append(fileItem);
         KIO::ChmodJob *chmodJob = KIO::chmod(fileItemList, 0200, 0200, QString(), QString(), true /*recursive*/, KIO::HideProgressInfo);
@@ -1193,7 +1193,7 @@ bool TrashImpl::parseURL(const QUrl &url, int &trashId, QString &fileId, QString
 
 bool TrashImpl::adaptTrashSize(const QString &origPath, int trashId)
 {
-    KConfig config(QLatin1String("ktrashrc"));
+    KConfig config(QStringLiteral("ktrashrc"));
 
     const QString trashPath = trashDirectoryPath(trashId);
     KConfigGroup group = config.group(trashPath);

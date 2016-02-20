@@ -53,9 +53,9 @@ K_PLUGIN_FACTORY_WITH_JSON(KdedCookieServerFactory,
 static QDir getOrCreateCookieJarDir()
 {
     const QDir dataDir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation));
-    const QString kcookiejarDirName = dataDir.absoluteFilePath("kcookiejar");
+    const QString kcookiejarDirName = dataDir.absoluteFilePath(QStringLiteral("kcookiejar"));
 
-    if (dataDir.exists("kcookiejar")) {
+    if (dataDir.exists(QStringLiteral("kcookiejar"))) {
         const QFileInfo cookiejarDirInfo(kcookiejarDirName);
 
         if (!cookiejarDirInfo.isDir()) {
@@ -70,7 +70,7 @@ static QDir getOrCreateCookieJarDir()
         }
     }
 
-    if (!dataDir.mkdir("kcookiejar")) {
+    if (!dataDir.mkdir(QStringLiteral("kcookiejar"))) {
         QMessageBox::warning(Q_NULLPTR, i18n("Cannot Save Cookies"), i18n("Could not create directory %1").arg(kcookiejarDirName));
     }
 
@@ -112,7 +112,7 @@ KCookieServer::KCookieServer(QObject *parent, const QList<QVariant> &)
     connect(mTimer, SIGNAL(timeout()), SLOT(slotSave()));
     mConfig = new KConfig(QStringLiteral("kcookiejarrc"));
     mCookieJar->loadConfig(mConfig);
-    mFilename = getOrCreateCookieJarDir().absoluteFilePath("cookies");
+    mFilename = getOrCreateCookieJarDir().absoluteFilePath(QStringLiteral("cookies"));
     mCookieJar->loadCookies(mFilename);
     connect(this, SIGNAL(windowUnregistered(qlonglong)),
             this, SLOT(slotDeleteSessionCookies(qlonglong)));

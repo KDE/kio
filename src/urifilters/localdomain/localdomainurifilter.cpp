@@ -60,7 +60,7 @@ bool LocalDomainUriFilter::filterUri(KUriFilterData& data) const
         if (exists(host)) {
             QString scheme (data.defaultUrlScheme());
             if (scheme.isEmpty())
-                scheme = QL1S("http://");
+                scheme = QStringLiteral("http://");
             setFilteredUri(data, QUrl(scheme + data.typedString()));
             setUriType(data, KUriFilterData::NetProtocol);
             return true;

@@ -92,7 +92,7 @@ void KACLTest::testGetAllUserPermissions()
         ++count;
     }
     QCOMPARE(count, 1);
-    QCOMPARE(name, QString("bin"));
+    QCOMPARE(name, QStringLiteral("bin"));
     QCOMPARE(permissions, 7);
 }
 
@@ -108,10 +108,10 @@ void KACLTest::testGetAllGroupsPermissions()
         permissions = (*it).second;
         // setACL sorts them alphabetically ...
         if (count == 0) {
-            QCOMPARE(name, QString("audio"));
+            QCOMPARE(name, QStringLiteral("audio"));
             QCOMPARE(permissions, 1);
         } else if (count == 1) {
-            QCOMPARE(name, QString("users"));
+            QCOMPARE(name, QStringLiteral("users"));
             QCOMPARE(permissions, 4);
         }
         ++it;

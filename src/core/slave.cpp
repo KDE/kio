@@ -65,8 +65,8 @@ static org::kde::KSlaveLauncher *klauncher()
 {
     KDEInitInterface::ensureKdeinitRunning();
     if (!s_kslaveLauncher.hasLocalData()) {
-        org::kde::KSlaveLauncher *launcher = new org::kde::KSlaveLauncher(QLatin1String("org.kde.klauncher5"),
-                QLatin1String("/KLauncher"),
+        org::kde::KSlaveLauncher *launcher = new org::kde::KSlaveLauncher(QStringLiteral("org.kde.klauncher5"),
+                QStringLiteral("/KLauncher"),
                 QDBusConnection::sessionBus());
         s_kslaveLauncher.setLocalData(launcher);
         return launcher;

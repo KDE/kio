@@ -107,7 +107,7 @@ void SessionData::configDataFor(MetaData &configData, const QString &proto,
         // to make sure that we do not trumpt settings sent
         // by apps or end-user.
         if (configData[QStringLiteral("Cookies")].isEmpty()) {
-            configData[QStringLiteral("Cookies")] = d->useCookie ? "true" : "false";
+            configData[QStringLiteral("Cookies")] = d->useCookie ? QStringLiteral("true") : QStringLiteral("false");
         }
         if (configData[QStringLiteral("Languages")].isEmpty()) {
             configData[QStringLiteral("Languages")] = d->language;

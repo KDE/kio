@@ -136,7 +136,7 @@ void UdsEntryBenchmark::testKDE3App()
             }
         }
         QCOMPARE(size, 123456ULL);
-        QCOMPARE(displayName, QString::fromLatin1("name"));
+        QCOMPARE(displayName, QStringLiteral("name"));
         QVERIFY(url.isEmpty());
     }
 }
@@ -202,7 +202,7 @@ void UdsEntryBenchmark::testHashVariantApp()
         }
 
         QCOMPARE(size, 123456ULL);
-        QCOMPARE(displayName, QString::fromLatin1("name"));
+        QCOMPARE(displayName, QStringLiteral("name"));
         QVERIFY(url.isEmpty());
     }
 }
@@ -270,7 +270,7 @@ void UdsEntryBenchmark::testHashStructApp()
             size = it.value().m_long;
         }
         QCOMPARE(size, 123456ULL);
-        QCOMPARE(displayName, QString::fromLatin1("name"));
+        QCOMPARE(displayName, QStringLiteral("name"));
         QVERIFY(url.isEmpty());
     }
 }
@@ -328,7 +328,7 @@ void UdsEntryBenchmark::testMapStructApp()
         }
 
         QCOMPARE(size, 123456ULL);
-        QCOMPARE(displayName, QString::fromLatin1("name"));
+        QCOMPARE(displayName, QStringLiteral("name"));
         QVERIFY(url.isEmpty());
     }
 }
@@ -434,7 +434,7 @@ void UdsEntryBenchmark::testTwoVectorsApp()
         url = entry.stringValue(KIO::UDSEntry::UDS_URL);
         size = entry.numberValue(KIO::UDSEntry::UDS_SIZE);
         QCOMPARE(size, 123456ULL);
-        QCOMPARE(displayName, QString::fromLatin1("name"));
+        QCOMPARE(displayName, QStringLiteral("name"));
         QVERIFY(url.isEmpty());
     }
 }

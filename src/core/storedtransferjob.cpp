@@ -173,6 +173,7 @@ namespace KIO
 {
 class PostErrorJob : public StoredTransferJob
 {
+    Q_OBJECT
 public:
 
     PostErrorJob(int _error, const QString &url, const QByteArray &packedArgs, const QByteArray &postData)
@@ -463,3 +464,4 @@ TransferJob *KIO::put(const QUrl &url, int permissions, JobFlags flags)
 }
 
 #include "moc_storedtransferjob.cpp"
+#include "storedtransferjob.moc"

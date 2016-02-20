@@ -33,6 +33,7 @@
 
 class DomainNameValidator : public QValidator
 {
+    Q_OBJECT
 public:
     DomainNameValidator (QObject* parent)
         :QValidator(parent)
@@ -135,4 +136,5 @@ void KCookiesPolicySelectionDlg::slotPolicyChanged(const QString& policyText)
     }
 }
 
+#include "kcookiespolicyselectiondlg.moc"
 

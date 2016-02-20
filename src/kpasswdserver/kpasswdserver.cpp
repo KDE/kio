@@ -43,11 +43,11 @@
 
 static QLoggingCategory category("org.kde.kio.kpasswdserver");
 
-#define AUTHINFO_EXTRAFIELD_DOMAIN QLatin1String("domain")
-#define AUTHINFO_EXTRAFIELD_ANONYMOUS QLatin1String("anonymous")
-#define AUTHINFO_EXTRAFIELD_BYPASS_CACHE_AND_KWALLET QLatin1String("bypass-cache-and-kwallet")
-#define AUTHINFO_EXTRAFIELD_SKIP_CACHING_ON_QUERY QLatin1String("skip-caching-on-query")
-#define AUTHINFO_EXTRAFIELD_HIDE_USERNAME_INPUT QLatin1String("hide-username-line")
+#define AUTHINFO_EXTRAFIELD_DOMAIN QStringLiteral("domain")
+#define AUTHINFO_EXTRAFIELD_ANONYMOUS QStringLiteral("anonymous")
+#define AUTHINFO_EXTRAFIELD_BYPASS_CACHE_AND_KWALLET QStringLiteral("bypass-cache-and-kwallet")
+#define AUTHINFO_EXTRAFIELD_SKIP_CACHING_ON_QUERY QStringLiteral("skip-caching-on-query")
+#define AUTHINFO_EXTRAFIELD_HIDE_USERNAME_INPUT QStringLiteral("hide-username-line")
 
 static qlonglong getRequestId()
 {

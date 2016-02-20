@@ -40,7 +40,7 @@ void KFileItemTest::testPermissionsString()
     QTemporaryDir tempDir;
     KFileItem dirItem(QUrl::fromLocalFile(tempDir.path() + '/'));
     QCOMPARE((uint)dirItem.permissions(), (uint)0700);
-    QCOMPARE(dirItem.permissionsString(), QString("drwx------"));
+    QCOMPARE(dirItem.permissionsString(), QStringLiteral("drwx------"));
     QVERIFY(dirItem.isReadable());
 
     // File
@@ -49,7 +49,7 @@ void KFileItemTest::testPermissionsString()
     file.setPermissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ReadOther); // 0604
     KFileItem fileItem(QUrl::fromLocalFile(file.fileName()), QString(), KFileItem::Unknown);
     QCOMPARE((uint)fileItem.permissions(), (uint)0604);
-    QCOMPARE(fileItem.permissionsString(), QString("-rw----r--"));
+    QCOMPARE(fileItem.permissionsString(), QStringLiteral("-rw----r--"));
     QVERIFY(fileItem.isReadable());
 
     // Symlink to file
@@ -60,7 +60,7 @@ void KFileItemTest::testPermissionsString()
     QCOMPARE((uint)symlinkItem.permissions(), (uint)0604);
     // This is a bit different from "ls -l": we get the 'l' but we see the permissions of the target.
     // This is actually useful though; the user sees it's a link, and can check if he can read the [target] file.
-    QCOMPARE(symlinkItem.permissionsString(), QString("lrw----r--"));
+    QCOMPARE(symlinkItem.permissionsString(), QStringLiteral("lrw----r--"));
     QVERIFY(symlinkItem.isReadable());
 
     // Symlink to directory (#162544)
@@ -68,7 +68,7 @@ void KFileItemTest::testPermissionsString()
     QVERIFY(QFile(tempDir.path() + '/').link(symlink));
     KFileItem symlinkToDirItem(symlinkUrl, QString(), KFileItem::Unknown);
     QCOMPARE((uint)symlinkToDirItem.permissions(), (uint)0700);
-    QCOMPARE(symlinkToDirItem.permissionsString(), QString("lrwx------"));
+    QCOMPARE(symlinkToDirItem.permissionsString(), QStringLiteral("lrwx------"));
 }
 
 void KFileItemTest::testNull()
@@ -95,18 +95,18 @@ void KFileItemTest::testDoesNotExist()
 void KFileItemTest::testDetach()
 {
     KFileItem fileItem(QUrl::fromLocalFile(QStringLiteral("/one")), QString(), KFileItem::Unknown);
-    QCOMPARE(fileItem.name(), QString("one"));
+    QCOMPARE(fileItem.name(), QStringLiteral("one"));
     KFileItem fileItem2(fileItem);
     QVERIFY(fileItem == fileItem2);
     QVERIFY(fileItem.d == fileItem2.d);
     fileItem2.setName(QStringLiteral("two"));
-    QCOMPARE(fileItem2.name(), QString("two"));
-    QCOMPARE(fileItem.name(), QString("one")); // it detached
+    QCOMPARE(fileItem2.name(), QStringLiteral("two"));
+    QCOMPARE(fileItem.name(), QStringLiteral("one")); // it detached
     QVERIFY(fileItem == fileItem2);
     QVERIFY(fileItem.d != fileItem2.d);
 
     fileItem = fileItem2;
-    QCOMPARE(fileItem.name(), QString("two"));
+    QCOMPARE(fileItem.name(), QStringLiteral("two"));
     QVERIFY(fileItem == fileItem2);
     QVERIFY(fileItem.d == fileItem2.d);
     QVERIFY(!(fileItem != fileItem2));
@@ -145,7 +145,7 @@ void KFileItemTest::testRootDirectory()
     entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
     entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     KFileItem fileItem(entry, url);
-    QCOMPARE(fileItem.text(), QString("."));
+    QCOMPARE(fileItem.text(), QStringLiteral("."));
     QVERIFY(fileItem.isLocalFile());
     QCOMPARE(fileItem.localPath(), url.path());
     QVERIFY(fileItem.linkDest().isEmpty());
@@ -161,7 +161,7 @@ void KFileItemTest::testHiddenFile()
     QFile file(tempDir.path() + "/.hiddenfile");
     QVERIFY(file.open(QIODevice::WriteOnly));
     KFileItem fileItem(QUrl::fromLocalFile(file.fileName()), QString(), KFileItem::Unknown);
-    QCOMPARE(fileItem.text(), QString(".hiddenfile"));
+    QCOMPARE(fileItem.text(), QStringLiteral(".hiddenfile"));
     QVERIFY(fileItem.isLocalFile());
     QVERIFY(fileItem.isHidden());
 }
@@ -178,8 +178,8 @@ void KFileItemTest::testMimeTypeOnDemand()
         QVERIFY(!fileItem.isMimeTypeKnown());
         QVERIFY(!fileItem.isFinalIconKnown());
         //qDebug() << fileItem.determineMimeType().name();
-        QCOMPARE(fileItem.determineMimeType().name(), QString("application/x-zerosize"));
-        QCOMPARE(fileItem.mimetype(), QString("application/x-zerosize"));
+        QCOMPARE(fileItem.determineMimeType().name(), QStringLiteral("application/x-zerosize"));
+        QCOMPARE(fileItem.mimetype(), QStringLiteral("application/x-zerosize"));
         QVERIFY(fileItem.isMimeTypeKnown());
         QVERIFY(fileItem.isFinalIconKnown());
     }
@@ -189,7 +189,7 @@ void KFileItemTest::testMimeTypeOnDemand()
         KFileItem fileItem(QUrl::fromLocalFile(file.fileName()));
         fileItem.setDelayedMimeTypes(true);
         QVERIFY(!fileItem.isMimeTypeKnown());
-        QCOMPARE(fileItem.mimetype(), QString("application/x-zerosize"));
+        QCOMPARE(fileItem.mimetype(), QStringLiteral("application/x-zerosize"));
         QVERIFY(fileItem.isMimeTypeKnown());
     }
 
@@ -217,8 +217,8 @@ void KFileItemTest::testMimeTypeOnDemand()
         QVERIFY(fileItem.currentMimeType().isValid());
         QVERIFY(fileItem.currentMimeType().isDefault());
         QVERIFY(!fileItem.isMimeTypeKnown());
-        QCOMPARE(fileItem.determineMimeType().name(), QString("application/pdf"));
-        QCOMPARE(fileItem.mimetype(), QString("application/pdf"));
+        QCOMPARE(fileItem.determineMimeType().name(), QStringLiteral("application/pdf"));
+        QCOMPARE(fileItem.mimetype(), QStringLiteral("application/pdf"));
     }
 
     {
@@ -232,14 +232,14 @@ void KFileItemTest::testMimeTypeOnDemand()
         file.close();
         KFileItem fileItem(QUrl::fromLocalFile(fileName));
         fileItem.setDelayedMimeTypes(true);
-        QCOMPARE(fileItem.currentMimeType().name(), QString("text/plain"));
+        QCOMPARE(fileItem.currentMimeType().name(), QStringLiteral("text/plain"));
         QVERIFY(fileItem.isMimeTypeKnown());
-        QCOMPARE(fileItem.determineMimeType().name(), QString("text/plain"));
-        QCOMPARE(fileItem.mimetype(), QString("text/plain"));
+        QCOMPARE(fileItem.determineMimeType().name(), QStringLiteral("text/plain"));
+        QCOMPARE(fileItem.mimetype(), QStringLiteral("text/plain"));
 
         // And if the mimetype is not on demand?
         KFileItem fileItem2(QUrl::fromLocalFile(fileName));
-        QCOMPARE(fileItem2.currentMimeType().name(), QString("text/plain")); // XDG says: application/smil; but can't sniff all files so this can't work
+        QCOMPARE(fileItem2.currentMimeType().name(), QStringLiteral("text/plain")); // XDG says: application/smil; but can't sniff all files so this can't work
         QVERIFY(fileItem2.isMimeTypeKnown());
     }
 }
@@ -284,14 +284,14 @@ void KFileItemTest::testDotDirectory()
     {
         KFileItem fileItem(QUrl::fromLocalFile(tempDir.path() + '/'), QString(), KFileItem::Unknown);
         QVERIFY(fileItem.isLocalFile());
-        QCOMPARE(fileItem.mimeComment(), QString::fromLatin1("com"));
-        QCOMPARE(fileItem.iconName(), QString::fromLatin1("foo"));
+        QCOMPARE(fileItem.mimeComment(), QStringLiteral("com"));
+        QCOMPARE(fileItem.iconName(), QStringLiteral("foo"));
     }
     // Test for calling iconName first, to trigger mimetype resolution
     {
         KFileItem fileItem(QUrl::fromLocalFile(tempDir.path()), QString(), KFileItem::Unknown);
         QVERIFY(fileItem.isLocalFile());
-        QCOMPARE(fileItem.iconName(), QString::fromLatin1("foo"));
+        QCOMPARE(fileItem.iconName(), QStringLiteral("foo"));
     }
 }
 

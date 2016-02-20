@@ -52,7 +52,7 @@ KFilePlacesItem::KFilePlacesItem(KBookmarkManager *manager,
         m_bookmark.setMetaDataItem(QStringLiteral("ID"), generateNewId());
     } else if (udi.isEmpty()) {
         if (isTrash(m_bookmark)) {
-            KConfig cfg(QLatin1String("trashrc"), KConfig::SimpleConfig);
+            KConfig cfg(QStringLiteral("trashrc"), KConfig::SimpleConfig);
             const KConfigGroup group = cfg.group("Status");
             m_folderIsEmpty = group.readEntry("Empty", true);
         }
@@ -295,7 +295,7 @@ QString KFilePlacesItem::generateNewId()
 
 //    return QString::number(count++);
 
-    return QString::number(QDateTime::currentDateTime().toTime_t())
+    return QString::number(QDateTime::currentDateTimeUtc().toTime_t())
            + '/' + QString::number(count++);
 
 //    return QString::number(QDateTime::currentDateTime().toTime_t())
