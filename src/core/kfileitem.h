@@ -160,6 +160,15 @@ public:
     void setUrl(const QUrl &url);
 
     /**
+     * Sets the item's local path (UDS_LOCAL_PATH). Do not call unless you know what you are doing!
+     * This won't change the item's name or URL.
+     * (used for example when an item got renamed).
+     * @param path the item's local path
+     * @since 5.20
+     */
+    void setLocalPath(const QString &path);
+
+    /**
      * Sets the item's name (i.e. the filename).
      * This is automatically done by setUrl, to set the name from the URL's fileName().
      * This method is provided for some special cases like relative paths as names (KFindPart)

@@ -543,6 +543,16 @@ void KFileItem::setUrl(const QUrl &url)
     setName(url.fileName());
 }
 
+void KFileItem::setLocalPath(const QString &path)
+{
+    if (!d) {
+        qWarning() << "null item";
+        return;
+    }
+
+    d->m_entry.insert(KIO::UDSEntry::UDS_LOCAL_PATH, path);
+}
+
 void KFileItem::setName(const QString &name)
 {
     if (!d) {

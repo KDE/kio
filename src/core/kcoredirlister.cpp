@@ -64,7 +64,7 @@ KCoreDirListerCache::KCoreDirListerCache()
             this, SLOT(slotFileDeleted(QString)));
 
     kdirnotify = new org::kde::KDirNotify(QString(), QString(), QDBusConnection::sessionBus(), this);
-    connect(kdirnotify, SIGNAL(FileRenamed(QString,QString)), SLOT(slotFileRenamed(QString,QString)));
+    connect(kdirnotify, &org::kde::KDirNotify::FileRenamedWithLocalPath, this, &KCoreDirListerCache::slotFileRenamed);
     connect(kdirnotify, SIGNAL(FilesAdded(QString)), SLOT(slotFilesAdded(QString)));
     connect(kdirnotify, SIGNAL(FilesChanged(QStringList)), SLOT(slotFilesChanged(QStringList)));
     connect(kdirnotify, SIGNAL(FilesRemoved(QStringList)), SLOT(slotFilesRemoved(QStringList)));
@@ -950,7 +950,7 @@ void KCoreDirListerCache::slotFilesChanged(const QStringList &fileList)   // fro
     processPendingUpdates();
 }
 
-void KCoreDirListerCache::slotFileRenamed(const QString &_src, const QString &_dst)   // from KDirNotify signals
+void KCoreDirListerCache::slotFileRenamed(const QString &_src, const QString &_dst, const QString &dstPath)   // from KDirNotify signals
 {
     QUrl src(_src);
     QUrl dst(_dst);
@@ -996,7 +996,7 @@ void KCoreDirListerCache::slotFileRenamed(const QString &_src, const QString &_d
     }
 
     // Now update the KFileItem representing that file or dir (not exclusive with the above!)
-    if (!oldItem.isLocalFile() && !oldItem.localPath().isEmpty()) { // it uses UDS_LOCAL_PATH? ouch, needs an update then
+    if (!oldItem.isLocalFile() && !oldItem.localPath().isEmpty() && dstPath.isEmpty()) { // it uses UDS_LOCAL_PATH and we don't know the new path? needs an update then
         slotFilesChanged(QStringList() << src.toString());
     } else {
         if (nameOnly) {
@@ -1004,6 +1004,11 @@ void KCoreDirListerCache::slotFileRenamed(const QString &_src, const QString &_d
         } else {
             fileitem->setUrl(dst);
         }
+
+        if (!dstPath.isEmpty()) {
+            fileitem->setLocalPath(dstPath);
+        }
+
         fileitem->refreshMimeType();
         fileitem->determineMimeType();
         QSet<KCoreDirLister *> listers = emitRefreshItem(oldItem, *fileitem);

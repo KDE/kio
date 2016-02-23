@@ -22,6 +22,7 @@
 #include "job_p.h"
 #include "scheduler.h"
 #include "slave.h"
+#include "kprotocolinfo.h"
 #include <kdirnotify.h>
 #include <QTimer>
 #include <QDebug>
@@ -215,7 +216,8 @@ void SimpleJob::slotFinished()
                 QUrl src, dst;
                 QDataStream str(d->m_packedArgs);
                 str >> src >> dst;
-                if (src.adjusted(QUrl::RemoveFilename) == dst.adjusted(QUrl::RemoveFilename)) { // For the user, moving isn't renaming. Only renaming is.
+                if (src.adjusted(QUrl::RemoveFilename) == dst.adjusted(QUrl::RemoveFilename) // For the user, moving isn't renaming. Only renaming is.
+                    && !KProtocolInfo::slaveHandlesNotify(dst.scheme()).contains(QLatin1String("Rename"))) {
                     org::kde::KDirNotify::emitFileRenamed(src, dst);
                 }
 

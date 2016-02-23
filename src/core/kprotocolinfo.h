@@ -289,6 +289,19 @@ public:
     static QStringList capabilities(const QString &protocol);
 
     /**
+     * Returns the list of notification types the kioslave implementing this
+     * protocol will produce on its own, making it unnecessary for job
+     * implementations to do so. An example would be returning "Rename"
+     * if the kioslave's rename() method takes care of calling
+     * KDirNotify::emitFileRenameWithLocalPath on its own.
+     *
+     * This corresponds to "slaveHandlesNotify=" in the protocol description file.
+     *
+     * @since 5.20
+     */
+    static QStringList slaveHandlesNotify(const QString &protocol);
+
+    /**
      * Returns the name of the protocol through which the request
      * will be routed if proxy support is enabled.
      *

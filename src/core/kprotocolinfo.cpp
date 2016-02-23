@@ -114,6 +114,9 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &path)
     m_showPreviews = config.readEntry("ShowPreviews", m_protClass == QLatin1String(":local"));
 
     m_capabilities = config.readEntry("Capabilities", QStringList());
+
+    m_slaveHandlesNotify = config.readEntry("slaveHandlesNotify", QStringList());
+
     m_proxyProtocol = config.readEntry("ProxiedBy");
 }
 
@@ -216,6 +219,8 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &name, const QString &e
     m_showPreviews = json.value(QStringLiteral("ShowPreviews")).toBool(m_protClass == QLatin1String(":local"));
 
     m_capabilities = json.value(QStringLiteral("Capabilities")).toVariant().toStringList();
+
+    m_slaveHandlesNotify = json.value(QStringLiteral("slaveHandlesNotify")).toVariant().toStringList();
 
     m_proxyProtocol = json.value(QStringLiteral("ProxiedBy")).toString();
 }
@@ -348,6 +353,16 @@ QStringList KProtocolInfo::capabilities(const QString &_protocol)
     }
 
     return prot->m_capabilities;
+}
+
+QStringList KProtocolInfo::slaveHandlesNotify(const QString &_protocol)
+{
+    KProtocolInfoPrivate *prot = KProtocolInfoFactory::self()->findProtocol(_protocol);
+    if (!prot) {
+        return QStringList();
+    }
+
+    return prot->m_slaveHandlesNotify;
 }
 
 QString KProtocolInfo::proxiedBy(const QString &_protocol)

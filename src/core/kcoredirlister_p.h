@@ -290,7 +290,7 @@ public Q_SLOTS:
      * Connected to the DBus signal from the KDirNotify interface.
      */
     void slotFilesChanged(const QStringList &fileList);
-    void slotFileRenamed(const QString &srcUrl, const QString &dstUrl);
+    void slotFileRenamed(const QString &srcUrl, const QString &dstUrl, const QString &dstPath);
 
 private Q_SLOTS:
     void slotFileDirty(const QString &_file);

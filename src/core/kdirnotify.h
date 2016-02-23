@@ -45,7 +45,7 @@ class QDBusConnection;
  *
  * \code
  * kdirnotify = new org::kde::KDirNotify(QString(), QString(), QDBusConnection::sessionBus(), this);
- * connect(kdirnotify, SIGNAL(FileRenamed(QString,QString)), SLOT(slotFileRenamed(QString,QString)));
+ * connect(kdirnotify, SIGNAL(FileRenamedWithLocalPath(QString,QString,QString)), SLOT(slotFileRenamed(QString,QString,QString)));
  * connect(kdirnotify, SIGNAL(FilesAdded(QString)), SLOT(slotFilesAdded(QString)));
  * connect(kdirnotify, SIGNAL(FilesChanged(QStringList)), SLOT(slotFilesChanged(QStringList)));
  * connect(kdirnotify, SIGNAL(FilesRemoved(QStringList)), SLOT(slotFilesRemoved(QStringList)));
@@ -87,6 +87,7 @@ public:
 public Q_SLOTS: // METHODS
 Q_SIGNALS: // SIGNALS
     void FileRenamed(const QString &src, const QString &dst);
+    void FileRenamedWithLocalPath(const QString &src, const QString &dst, const QString &dstPath);
     void FileMoved(const QString &src, const QString &dst);
     void FilesAdded(const QString &directory);
     void FilesChanged(const QStringList &fileList);
@@ -96,6 +97,14 @@ Q_SIGNALS: // SIGNALS
 
 public:
     static void emitFileRenamed(const QUrl &src, const QUrl &dst);
+    /**
+     * \param src The old URL of the file that has been renamed.
+     * \param dst The new URL of the file after it was renamed.
+     * \param dstPath The local path of the file after it was renamed. This may be empty
+     * and should otherwise be used to update UDS_LOCAL_PATH.
+     * @since 5.20
+     */
+    static void emitFileRenamedWithLocalPath(const QUrl &src, const QUrl &dst, const QString &dstPath);
     static void emitFileMoved(const QUrl &src, const QUrl &dst);
     static void emitFilesAdded(const QUrl &directory);
     static void emitFilesChanged(const QList<QUrl> &fileList);

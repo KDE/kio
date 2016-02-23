@@ -66,6 +66,7 @@ public:
     KProtocolInfo::ExtraFieldList m_extraFields;
     KProtocolInfo::FileNameUsedForCopying m_fileNameUsedForCopying;
     QStringList m_capabilities;
+    QStringList m_slaveHandlesNotify;
     QString m_proxyProtocol;
     int m_maxSlavesPerHost;
 };

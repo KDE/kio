@@ -47,6 +47,13 @@ static void emitSignal(const QString &signalName, const QVariantList &args)
 void OrgKdeKDirNotifyInterface::emitFileRenamed(const QUrl &src, const QUrl &dst)
 {
     emitSignal(QStringLiteral("FileRenamed"), QVariantList() << src.toString() << dst.toString());
+    emitSignal(QStringLiteral("FileRenamedWithLocalPath"), QVariantList() << src.toString() << dst.toString() << QString());
+}
+
+void OrgKdeKDirNotifyInterface::emitFileRenamedWithLocalPath(const QUrl &src, const QUrl &dst, const QString &dstPath)
+{
+    emitSignal(QStringLiteral("FileRenamed"), QVariantList() << src.toString() << dst.toString());
+    emitSignal(QStringLiteral("FileRenamedWithLocalPath"), QVariantList() << src.toString() << dst.toString() << dstPath);
 }
 
 void OrgKdeKDirNotifyInterface::emitFileMoved(const QUrl &src, const QUrl &dst)
