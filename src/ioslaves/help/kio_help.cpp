@@ -33,6 +33,7 @@
 #include <QtCore/QFileInfo>
 #include <QtCore/QFile>
 #include <QtCore/QLocale>
+#include <QMimeDatabase>
 #include <QtCore/QRegExp>
 #include <QtCore/QTextCodec>
 #include <QStandardPaths>
@@ -190,7 +191,6 @@ void HelpProtocol::get(const QUrl &url)
         return;
     }
 
-    mimeType(QStringLiteral("text/html"));
     QUrl target;
     target.setPath(doc);
     if (url.hasFragment()) {
@@ -226,6 +226,7 @@ void HelpProtocol::get(const QUrl &url)
     }
 
     infoMessage(i18n("Preparing document"));
+    mimeType(QStringLiteral("text/html"));
 
     if (mGhelp) {
         QString xsl = QStringLiteral("customization/kde-nochunk.xsl");
@@ -380,6 +381,7 @@ void HelpProtocol::get_file(const QString &path)
         error(KIO::ERR_CANNOT_OPEN_FOR_READING, path);
         return;
     }
+    mimeType(QMimeDatabase().mimeTypeForFile(path).name());
     int processed_size = 0;
     totalSize(f.size());
 
