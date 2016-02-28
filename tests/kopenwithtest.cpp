@@ -35,7 +35,7 @@ int main(int argc, char **argv)
     list += QUrl(QStringLiteral("file:///tmp/testfile.txt"));
 
     // Test with one URL
-    KOpenWithDialog *dlg = new KOpenWithDialog(list, QStringLiteral("OpenWith_Text"), QStringLiteral("OpenWith_Value"), 0);
+    KOpenWithDialog *dlg = new KOpenWithDialog(list, QString(), QString());
     if (dlg->exec()) {
         qDebug() << "Dialog ended successfully\ntext: " << dlg->text();
     } else {
@@ -45,7 +45,7 @@ int main(int argc, char **argv)
 
     // Test with two URLs
     list += QUrl(QStringLiteral("http://www.kde.org/index.html"));
-    dlg = new KOpenWithDialog(list, QStringLiteral("OpenWith_Text"), QStringLiteral("OpenWith_Value"), 0);
+    dlg = new KOpenWithDialog(list, QString(), QString(), 0);
     if (dlg->exec()) {
         qDebug() << "Dialog ended successfully\ntext: " << dlg->text();
     } else {
