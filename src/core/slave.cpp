@@ -460,6 +460,12 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
     }
     Slave *slave = new Slave(protocol);
     QUrl slaveAddress = slave->d_func()->slaveconnserver->address();
+    if (slaveAddress.isEmpty()) {
+        error_text = i18n("Can not create socket for launching io-slave for protocol '%1'.", protocol);
+        error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
+        delete slave;
+        return 0;
+    }
 
     if (forkSlaves() == 1) {
         QString _name = KProtocolInfo::exec(protocol);

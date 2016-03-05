@@ -197,6 +197,7 @@ SlaveBase::SlaveBase(const QByteArray &protocol,
       d(new SlaveBasePrivate(this))
 
 {
+    Q_ASSERT(!app_socket.isEmpty());
     d->poolSocket = QFile::decodeName(pool_socket);
     s_protocol = protocol.data();
 #ifdef Q_OS_UNIX

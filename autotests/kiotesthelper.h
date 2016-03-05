@@ -66,6 +66,7 @@ static void setTimeStamp(const QString &path, const QDateTime &mtime)
 
 static void createTestFile(const QString &path, bool plainText = false)
 {
+    QDir().mkpath(QFileInfo(path).absolutePath());
     QFile f(path);
     if (!f.open(QIODevice::WriteOnly)) {
         qFatal("Couldn't create %s", qPrintable(path));

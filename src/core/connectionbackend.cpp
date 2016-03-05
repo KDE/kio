@@ -139,7 +139,9 @@ bool ConnectionBackend::listenForRemote()
     if (mode == LocalSocketMode) {
         const QString prefix = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation);
         static QBasicAtomicInt s_socketCounter = Q_BASIC_ATOMIC_INITIALIZER(1);
-        QTemporaryFile socketfile(prefix + QLatin1Char('/') + QCoreApplication::instance()->applicationName() + QStringLiteral("XXXXXX.%1.slave-socket").arg(s_socketCounter.fetchAndAddAcquire(1)));
+        QString appName = QCoreApplication::instance()->applicationName();
+        appName.replace('/', '_'); // #357499
+        QTemporaryFile socketfile(prefix + QLatin1Char('/') + appName + QStringLiteral("XXXXXX.%1.slave-socket").arg(s_socketCounter.fetchAndAddAcquire(1)));
         if (!socketfile.open()) {
             errorString = i18n("Unable to create io-slave: %1", strerror(errno));
             return false;
