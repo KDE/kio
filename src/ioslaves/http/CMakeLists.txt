@@ -89,10 +89,6 @@ install(TARGETS kio_http  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
 install( FILES
     http_cache_cleaner.desktop
-    http.protocol
-    https.protocol
-    webdav.protocol
-    webdavs.protocol
   DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
 
 

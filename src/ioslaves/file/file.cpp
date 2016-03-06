@@ -77,6 +77,13 @@
 #include <kdirnotify.h>
 #include <ioslave_defaults.h>
 
+// Pseudo plugin class to embed meta data
+class KIOPluginForMetaData : public QObject
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.kde.kio.slave.file" FILE "file.json")
+};
+
 using namespace KIO;
 
 #define MAX_IPC_SIZE (1024*32)
@@ -1342,3 +1349,6 @@ void FileProtocol::virtual_hook(int id, void *data)
     } break;
     }
 }
+
+// needed for JSON file embedding
+#include "file.moc"
