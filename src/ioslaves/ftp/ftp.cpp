@@ -73,13 +73,6 @@
 //#undef  kDebug
 #define ENABLE_CAN_RESUME
 
-// Pseudo plugin class to embed meta data
-class KIOPluginForMetaData : public QObject
-{
-    Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kde.kio.slave.ftp" FILE "ftp.json")
-};
-
 static QString ftpCleanPath(const QString &path)
 {
     if (path.endsWith(QLatin1String(";type=A"), Qt::CaseInsensitive) ||
@@ -2685,6 +2678,3 @@ QTcpSocket *Ftp::synchronousConnectToHost(const QString &host, quint16 port)
     socket->waitForConnected(connectTimeout() * 1000);
     return socket;
 }
-
-// needed for JSON file embedding
-#include "ftp.moc"

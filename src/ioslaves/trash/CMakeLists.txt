@@ -73,4 +73,5 @@ endif()
 
 ########### install files ###############
 
+install( FILES trash.protocol  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
 install( FILES kcmtrash.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR} )

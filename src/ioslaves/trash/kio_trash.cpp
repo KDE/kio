@@ -39,13 +39,6 @@
 #include <sys/stat.h>
 #include <stdlib.h>
 
-// Pseudo plugin class to embed meta data
-class KIOPluginForMetaData : public QObject
-{
-    Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kde.kio.slave.trash" FILE "trash.json")
-};
-
 extern "C" {
     int Q_DECL_EXPORT kdemain(int argc, char **argv)
     {
@@ -637,4 +630,4 @@ void TrashProtocol::fileSystemFreeSpace(const QUrl &url)
     finished();
 }
 
-#include "kio_trash.moc"
+#include "moc_kio_trash.cpp"
