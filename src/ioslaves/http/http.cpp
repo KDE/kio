@@ -88,7 +88,7 @@ Q_LOGGING_CATEGORY(KIO_HTTP, "kf5.kio.kio_http")
 //string parsing helpers and HeaderTokenizer implementation
 #include "parsinghelpers.cpp"
 
-// Pseudo plugin class to embedd meta data
+// Pseudo plugin class to embed meta data
 class KIOPluginForMetaData : public QObject
 {
     Q_OBJECT

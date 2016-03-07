@@ -1,9 +1,0 @@
-[Protocol]
-exec=kf5/kio/ghelp
-protocol=ghelp
-input=none
-output=filesystem
-reading=true
-defaultMimetype=text/html
-Icon=help
-Class=:local

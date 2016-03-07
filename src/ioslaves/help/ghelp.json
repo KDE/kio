@@ -1,0 +1,14 @@
+{
+    "KDE-KIO-Protocols": {
+        "ghelp": {
+            "Class": ":local",
+            "Icon": "help",
+            "defaultMimetype": "text/html",
+            "exec": "kf5/kio/ghelp",
+            "input": "none",
+            "output": "filesystem",
+            "protocol": "ghelp",
+            "reading": true
+        }
+    }
+}

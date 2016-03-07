@@ -84,9 +84,4 @@ endif()
 set_target_properties(kio_ghelp PROPERTIES OUTPUT_NAME "ghelp")
 install(TARGETS kio_ghelp  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
-
-########### install files ###############
-
-install( FILES help.protocol ghelp.protocol  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
-
 endif()

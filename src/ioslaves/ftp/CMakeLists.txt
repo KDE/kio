@@ -18,12 +18,3 @@ target_link_libraries(kio_ftp Qt5::Network KF5::KIOCore KF5::I18n)
 
 set_target_properties(kio_ftp PROPERTIES OUTPUT_NAME "ftp")
 install(TARGETS kio_ftp  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
-
-
-########### install files ###############
-
-install( FILES ftp.protocol  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
-
-
-
-
