@@ -52,7 +52,7 @@ QString HelpProtocol::langLookup(const QString &fname)
     // assemble the local search paths
     const QStringList localDoc = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("doc/HTML"), QStandardPaths::LocateDirectory);
 
-    QStringList langs = QLocale().uiLanguages();
+    QStringList langs = KLocalizedString::languages();
     langs.append(QStringLiteral("en"));
     langs.removeAll(QStringLiteral("C"));
 
