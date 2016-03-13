@@ -119,21 +119,19 @@ public:
         }
     }
 
-    void connectSignals(QObject *receiver)
+    void connectSignals(KUrlRequester *receiver)
     {
-        QObject *sender;
+        QLineEdit *sender;
         if (combo) {
-            sender = combo;
+            sender = combo->lineEdit();
         } else {
             sender = edit;
         }
 
-        if (combo)
-            connect(sender, SIGNAL(editTextChanged(QString)),
-                    receiver, SIGNAL(textChanged(QString)));
-        else
-            connect(sender, SIGNAL(textChanged(QString)),
-                    receiver, SIGNAL(textChanged(QString)));
+        connect(sender, &QLineEdit::textChanged,
+                receiver, &KUrlRequester::textChanged);
+        connect(sender, &QLineEdit::textEdited,
+                receiver, &KUrlRequester::textEdited);
 
         connect(sender, SIGNAL(returnPressed()),
                 receiver, SIGNAL(returnPressed()));

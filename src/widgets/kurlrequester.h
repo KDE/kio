@@ -287,6 +287,13 @@ Q_SIGNALS:
     void textChanged(const QString &);
 
     /**
+     * Emitted when the text in the lineedit was modified by the user.
+     * Unlike textChanged(), this signal is not emitted when the text is changed programmatically, for example, by calling setText().
+     * @since 5.21
+     */
+    void textEdited(const QString &);
+
+    /**
      * Emitted when return or enter was pressed in the lineedit.
      */
     void returnPressed();
