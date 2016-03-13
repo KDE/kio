@@ -309,7 +309,7 @@ void KUrlRequester::KUrlRequesterPrivate::init()
         edit->setClearButtonShown(true);
     }
 
-    QWidget *widget = combo ? (QWidget *) combo : (QWidget *) edit;
+    QWidget *widget = combo ? static_cast<QWidget *>(combo) : static_cast<QWidget *>(edit);
 
     QHBoxLayout *topLayout = new QHBoxLayout(m_parent);
     topLayout->setMargin(0);
