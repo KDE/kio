@@ -1953,47 +1953,36 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
     gl->addWidget(l, 1, 0);
     theNotSpecials.append(l);
 
-    if (isDir) {
-        l = new QLabel(i18n("Show\nEntries"), gb);
-    } else {
-        l = new QLabel(i18n("Read"), gb);
-    }
-    gl->addWidget(l, 1, 1);
-    theNotSpecials.append(l);
     QString readWhatsThis;
+    QString readLabel;
     if (isDir) {
+        readLabel = i18n("Show\nEntries");
         readWhatsThis = i18n("This flag allows viewing the content of the folder.");
     } else {
+        readLabel = i18n("Read");
         readWhatsThis = i18n("The Read flag allows viewing the content of the file.");
     }
-    l->setWhatsThis(readWhatsThis);
 
-    if (isDir) {
-        l = new QLabel(i18n("Write\nEntries"), gb);
-    } else {
-        l = new QLabel(i18n("Write"), gb);
-    }
-    gl->addWidget(l, 1, 2);
-    theNotSpecials.append(l);
     QString writeWhatsThis;
-    if (isDir)
+    QString writeLabel;
+    if (isDir) {
+        writeLabel = i18n("Write\nEntries");
         writeWhatsThis = i18n("This flag allows adding, renaming and deleting of files. "
                               "Note that deleting and renaming can be limited using the Sticky flag.");
-    else {
+    } else {
+        writeLabel = i18n("Write");
         writeWhatsThis = i18n("The Write flag allows modifying the content of the file.");
     }
-    l->setWhatsThis(writeWhatsThis);
 
+    QString execLabel;
     QString execWhatsThis;
     if (isDir) {
-        l = new QLabel(i18nc("Enter folder", "Enter"), gb);
+        execLabel = i18nc("Enter folder", "Enter");
         execWhatsThis = i18n("Enable this flag to allow entering the folder.");
     } else {
-        l = new QLabel(i18n("Exec"), gb);
+        execLabel = i18n("Exec");
         execWhatsThis = i18n("Enable this flag to allow executing the file as a program.");
     }
-    l->setWhatsThis(execWhatsThis);
-    theNotSpecials.append(l);
     // GJ: Add space between normal and special modes
     QSize size = l->sizeHint();
     size.setWidth(size.width() + 15);
@@ -2001,7 +1990,7 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
     gl->addWidget(l, 1, 3);
 
     l = new QLabel(i18n("Special"), gb);
-    gl->addWidget(l, 1, 4, 1, 2);
+    gl->addWidget(l, 1, 4, 1, 1);
     QString specialWhatsThis;
     if (isDir)
         specialWhatsThis = i18n("Special flag. Valid for the whole folder, the exact "
@@ -2023,8 +2012,6 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
     gl->addWidget(cl[2], 4, 0);
     theNotSpecials.append(cl[2]);
 
-    l = new QLabel(i18n("Set UID"), gb);
-    gl->addWidget(l, 2, 5);
     QString setUidWhatsThis;
     if (isDir)
         setUidWhatsThis = i18n("If this flag is set, the owner of this folder will be "
@@ -2032,10 +2019,7 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
     else
         setUidWhatsThis = i18n("If this file is an executable and the flag is set, it will "
                                "be executed with the permissions of the owner.");
-    l->setWhatsThis(setUidWhatsThis);
 
-    l = new QLabel(i18n("Set GID"), gb);
-    gl->addWidget(l, 3, 5);
     QString setGidWhatsThis;
     if (isDir)
         setGidWhatsThis = i18n("If this flag is set, the group of this folder will be "
@@ -2043,10 +2027,7 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
     else
         setGidWhatsThis = i18n("If this file is an executable and the flag is set, it will "
                                "be executed with the permissions of the group.");
-    l->setWhatsThis(setGidWhatsThis);
 
-    l = new QLabel(i18nc("File permission", "Sticky"), gb);
-    gl->addWidget(l, 4, 5);
     QString stickyWhatsThis;
     if (isDir)
         stickyWhatsThis = i18n("If the Sticky flag is set on a folder, only the owner "
@@ -2055,8 +2036,6 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
     else
         stickyWhatsThis = i18n("The Sticky flag on a file is ignored on Linux, but may "
                                "be used on some systems");
-    l->setWhatsThis(stickyWhatsThis);
-
     mode_t aPermissions, aPartialPermissions;
     mode_t dummy1, dummy2;
 
@@ -2106,23 +2085,29 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
             gl->addWidget(cb, row + 2, col + 1);
             switch (col) {
             case 0:
+                cb->setText(readLabel);
                 cb->setWhatsThis(readWhatsThis);
                 break;
             case 1:
+                cb->setText(writeLabel);
                 cb->setWhatsThis(writeWhatsThis);
                 break;
             case 2:
+                cb->setText(execLabel);
                 cb->setWhatsThis(execWhatsThis);
                 break;
             case 3:
                 switch (row) {
                 case 0:
+                    cb->setText(i18n("Set UID"));
                     cb->setWhatsThis(setUidWhatsThis);
                     break;
                 case 1:
+                    cb->setText(i18n("Set GID"));
                     cb->setWhatsThis(setGidWhatsThis);
                     break;
                 case 2:
+                    cb->setText(i18nc("File permission", "Sticky"));
                     cb->setWhatsThis(stickyWhatsThis);
                     break;
                 }
