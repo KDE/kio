@@ -60,7 +60,7 @@ public:
      * URL(s) with.
      *
      * @param urls   is the URL that should be opened
-     * @param text   appears as a label on top of the entry box.
+     * @param text   appears as a label on top of the entry box. Leave empty for default text (since 5.20).
      * @param value  is the initial value of the line
      * @param parent parent widget
      */

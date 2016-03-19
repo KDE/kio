@@ -511,16 +511,19 @@ KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, const QString &_text,
 {
     setObjectName(QStringLiteral("openwith"));
     setModal(true);
-    QString caption;
-    if (!_urls.isEmpty() && !_urls.first().isEmpty()) {
-        caption = KStringHandler::csqueeze(_urls.first().toDisplayString());
+    QString text = _text;
+    if (text.isEmpty() && !_urls.isEmpty()) {
+        if (_urls.count() == 1) {
+            const QString fileName = KStringHandler::csqueeze(_urls.first().fileName());
+            text = i18n("<qt>Select the program you want to use to open the file<br/>%1</qt>", fileName);
+        } else {
+            text = i18np("<qt>Select the program you want to use to open the file.</qt>",
+                         "<qt>Select the program you want to use to open the %1 files.</qt>", _urls.count());
+        }
     }
-    if (_urls.count() > 1) {
-        caption += QLatin1String("...");
-    }
-    setWindowTitle(caption);
+    setWindowTitle(i18n("Choose Application"));
     d->setMimeType(_urls);
-    d->init(_text, _value);
+    d->init(text, _value);
 }
 
 KOpenWithDialog::KOpenWithDialog(const QString &mimeType, const QString &value,

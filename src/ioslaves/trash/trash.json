@@ -6,6 +6,79 @@
                 "Original Path", 
                 "Deletion Date"
             ], 
+            "ExtraNames[ca@valencia]": [
+                "Camí original", 
+                "Data d'esborrat"
+            ], 
+            "ExtraNames[ca]": [
+                "Camí original", 
+                "Data d'esborrat"
+            ], 
+            "ExtraNames[de]": [
+                "Ursprünglicher Pfad", 
+                "Löschzeitpunkt"
+            ], 
+            "ExtraNames[es]": [
+                "Ruta original", 
+                "Fecha de borrado"
+            ], 
+            "ExtraNames[fi]": [
+                "Alkuperäinen polku", 
+                "Alkuperäinen sijainti", 
+                "Poistopäivä", 
+                "Poistoaika", 
+                "Poistopäivämäärä"
+            ], 
+            "ExtraNames[nl]": [
+                "Oorspronkelijk pad", 
+                "Datum verwijdering"
+            ], 
+            "ExtraNames[pl]": [
+                "Ścieżka pierwotna,Data usunięcia"
+            ], 
+            "ExtraNames[pt]": [
+                "Localização Original", 
+                "Data de Remoção"
+            ], 
+            "ExtraNames[pt_BR]": [
+                "Caminho original", 
+                "Data da exclusão"
+            ], 
+            "ExtraNames[sk]": [
+                "Pôvodné umiestnenie", 
+                "Dátum vymazania"
+            ], 
+            "ExtraNames[sl]": [
+                "Prvotna pot", 
+                "Datum izbrisa"
+            ], 
+            "ExtraNames[sr@ijekavian]": [
+                "изворна путања", 
+                "датум брисања"
+            ], 
+            "ExtraNames[sr@ijekavianlatin]": [
+                "izvorna putanja", 
+                "datum brisanja"
+            ], 
+            "ExtraNames[sr@latin]": [
+                "izvorna putanja", 
+                "datum brisanja"
+            ], 
+            "ExtraNames[sr]": [
+                "изворна путања", 
+                "датум брисања"
+            ], 
+            "ExtraNames[sv]": [
+                "Ursprunglig sökväg,Borttagsdatum"
+            ], 
+            "ExtraNames[uk]": [
+                "Шлях", 
+                "Дата вилучення"
+            ], 
+            "ExtraNames[x-test]": [
+                "xxOriginal Path", 
+                "Deletion Datexx"
+            ], 
             "ExtraTypes": [
                 "QString", 
                 "QDateTime"

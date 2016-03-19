@@ -247,13 +247,13 @@ bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool t
                 suggestedFileName, asn);
     }
 #endif
-    KOpenWithDialog l(lst, i18n("Open with:"), QString(), window);
-    l.setWindowModality(Qt::WindowModal);
-    if (l.exec()) {
-        KService::Ptr service = l.service();
+    KOpenWithDialog dialog(lst, QString(), QString(), window);
+    dialog.setWindowModality(Qt::WindowModal);
+    if (dialog.exec()) {
+        KService::Ptr service = dialog.service();
         if (!service) {
-            //qDebug() << "No service set, running " << l.text();
-            service = KService::Ptr(new KService(QString() /*name*/, l.text(), QString() /*icon*/));
+            //qDebug() << "No service set, running " << dialog.text();
+            service = KService::Ptr(new KService(QString() /*name*/, dialog.text(), QString() /*icon*/));
         }
         return KRun::runService(*service, lst, window, tempFiles, suggestedFileName, asn);
     }
