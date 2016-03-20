@@ -29,6 +29,10 @@
                 "Poistoaika", 
                 "Poistopäivämäärä"
             ], 
+            "ExtraNames[it]": [
+                "Percorso originale", 
+                "Data di eliminazione"
+            ], 
             "ExtraNames[nl]": [
                 "Oorspronkelijk pad", 
                 "Datum verwijdering"
