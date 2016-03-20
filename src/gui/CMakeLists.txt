@@ -1,5 +1,3 @@
-include(ECMQtDeclareLoggingCategory)
-
 set(kiogui_SRCS
    faviconrequestjob.cpp
 )
