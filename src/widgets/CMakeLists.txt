@@ -71,6 +71,8 @@ else()
   )
 endif()
 
+ecm_qt_declare_logging_category(kiowidgets_SRCS HEADER kio_widgets_debug.h IDENTIFIER KIO_WIDGETS CATEGORY_NAME kf5.kio.widgets)
+
 qt5_add_dbus_adaptor(kiowidgets_SRCS org.kde.kio.FileUndoManager.xml fileundomanager_p.h KIO::FileUndoManagerPrivate fileundomanager_adaptor KIOFileUndoManagerAdaptor)
 
 qt5_add_dbus_interface(kiowidgets_SRCS org.kde.kuiserver.xml kuiserver_interface)

@@ -29,7 +29,7 @@
 #include <limits.h>
 
 #include <QtCore/QCoreApplication>
-#include <QtCore/QMutableStringListIterator>
+#include <QtCore/QMutex>
 #include <QtCore/QRegExp>
 #include <QtCore/QTimer>
 #include <QtCore/QDir>
@@ -50,6 +50,7 @@
 #include <kcompletion.h>
 #include <kioglobal_p.h>
 #include <KUser>
+#include <kio_widgets_debug.h>
 
 #include <qplatformdefs.h>
 #include <time.h>
@@ -88,6 +89,22 @@ static QUrl addPathToUrl(const QUrl &url, const QString &relPath)
     return u;
 }
 
+
+static QBasicAtomicInt s_waitDuration = Q_BASIC_ATOMIC_INITIALIZER(-1);
+
+static int initialWaitDuration()
+{
+    if (s_waitDuration.load() == -1) {
+        const QByteArray envVar = qgetenv("KURLCOMPLETION_WAIT");
+        if (envVar.isEmpty()) {
+            s_waitDuration = 200; // default: 200 ms
+        } else {
+            s_waitDuration = envVar.toInt();
+        }
+    }
+    return s_waitDuration;
+}
+
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
 // KUrlCompletionPrivate
@@ -107,6 +124,7 @@ public:
 
     void _k_slotEntries(KIO::Job *, const KIO::UDSEntryList &);
     void _k_slotIOFinished(KJob *);
+    void slotCompletionThreadDone(QThread *thread, const QStringList &matches);
 
     class MyURL;
     bool userCompletion(const MyURL &url, QString *match);
@@ -135,12 +153,12 @@ public:
 
     void init();
 
-    void setListedUrl(int compl_type /* enum ComplType */,
+    void setListedUrl(ComplType compl_type,
                       const QString &dir = QString(),
                       const QString &filter = QString(),
                       bool no_hidden = false);
 
-    bool isListedUrl(int compl_type /* enum ComplType */,
+    bool isListedUrl(ComplType compl_type,
                      const QString &dir = QString(),
                      const QString &filter = QString(),
                      bool no_hidden = false);
@@ -158,11 +176,11 @@ public:
     bool popup_append_slash;
 
     // Keep track of currently listed files to avoid reading them again
+    bool last_no_hidden;
     QString last_path_listed;
     QString last_file_listed;
     QString last_prepend;
-    int last_compl_type;
-    int last_no_hidden;
+    ComplType last_compl_type;
 
     QUrl cwd; // "current directory" = base dir for completion
 
@@ -185,32 +203,6 @@ public:
     CompletionThread *dirListThread;
 };
 
-/**
- * A custom event type that is used to return a list of completion
- * matches from an asynchronous lookup.
- */
-
-class CompletionMatchEvent : public QEvent
-{
-public:
-    CompletionMatchEvent(CompletionThread *thread) :
-        QEvent(uniqueType()),
-        m_completionThread(thread)
-    {}
-
-    CompletionThread *completionThread() const
-    {
-        return m_completionThread;
-    }
-    static Type uniqueType()
-    {
-        return Type(User + 61080);
-    }
-
-private:
-    CompletionThread *m_completionThread;
-};
-
 class CompletionThread : public QThread
 {
     Q_OBJECT
@@ -219,35 +211,43 @@ protected:
         QThread(),
         m_prepend(receiver->prepend),
         m_complete_url(receiver->complete_url),
-        m_receiver(receiver),
         m_terminationRequested(false)
     {}
 
 public:
     void requestTermination()
     {
-        m_terminationRequested = true;
+        if (!isFinished()) {
+            qCDebug(KIO_WIDGETS) << "stopping thread" << this;
+        }
+        m_terminationRequested.store(true);
+        wait();
     }
+
     QStringList matches() const
     {
+        QMutexLocker locker(&m_mutex);
         return m_matches;
     }
+
+Q_SIGNALS:
+    void completionThreadDone(QThread *thread, const QStringList &matches);
 
 protected:
     void addMatch(const QString &match)
     {
+        QMutexLocker locker(&m_mutex);
         m_matches.append(match);
     }
     bool terminationRequested() const
     {
-        return m_terminationRequested;
+        return m_terminationRequested.load();
     }
     void done()
     {
-        if (!m_terminationRequested) {
-            qApp->postEvent(m_receiver->q, new CompletionMatchEvent(this));
-        } else {
-            deleteLater();
+        if (!terminationRequested()) {
+            qCDebug(KIO_WIDGETS) << "done, emitting signal with" << m_matches.count() << "matches";
+            emit completionThreadDone(this, m_matches);
         }
     }
 
@@ -255,14 +255,14 @@ protected:
     const bool m_complete_url; // if true completing a URL (i.e. 'm_prepend' is a URL), otherwise a path
 
 private:
-    KUrlCompletionPrivate *m_receiver;
-    QStringList m_matches;
-    bool m_terminationRequested;
+    mutable QMutex m_mutex; // protects m_matches
+    QStringList m_matches; // written by secondary thread, read by the matches() method
+    QAtomicInt m_terminationRequested; // used as a bool
 };
 
 /**
  * A simple thread that fetches a list of tilde-completions and returns this
- * to the caller via a CompletionMatchEvent.
+ * to the caller via the completionThreadDone signal.
  */
 
 class UserListThread : public CompletionThread
@@ -334,46 +334,26 @@ private:
 
 void DirectoryListThread::run()
 {
-    // Thread safety notes:
-    //
-    // There very possibly may be thread safety issues here, but I've done a check
-    // of all of the things that would seem to be problematic.  Here are a few
-    // things that I have checked to be safe here (some used indirectly):
-    //
-    // QDir::currentPath(), QDir::setCurrent(), QFile::decodeName(), QFile::encodeName()
-    // QString::fromLocal8Bit(), QString::toLocal8Bit(), QTextCodec::codecForLocale()
-    //
-    // Also see (for POSIX functions):
-    // http://www.opengroup.org/onlinepubs/009695399/functions/xsh_chap02_09.html
-
     //qDebug() << "Entered DirectoryListThread::run(), m_filter=" << m_filter << ", m_onlyExe=" << m_onlyExe << ", m_onlyDir=" << m_onlyDir << ", m_appendSlashToDir=" << m_appendSlashToDir << ", m_dirList.size()=" << m_dirList.size();
 
-    QStringList::ConstIterator end = m_dirList.constEnd();
-    for (QStringList::ConstIterator it = m_dirList.constBegin();
+    QDir::Filters iterator_filter = (m_noHidden ? QDir::Filter(0) : QDir::Hidden) | QDir::Readable | QDir::NoDotAndDotDot;
+    if (m_onlyExe) {
+        iterator_filter |= (QDir::Dirs | QDir::Files | QDir::Executable);
+    } else if (m_onlyDir) {
+        iterator_filter |= QDir::Dirs;
+    } else {
+        iterator_filter |= (QDir::Dirs | QDir::Files);
+    }
+
+    const QStringList::const_iterator end = m_dirList.constEnd();
+    for (QStringList::const_iterator it = m_dirList.constBegin();
             it != end && !terminationRequested();
             ++it) {
         //qDebug() << "Scanning directory" << *it;
 
-        // A trick from KIO that helps performance by a little bit:
-        // chdir to the directory so we won't have to deal with full paths
-        // with stat()
-
-        QString path = QDir::currentPath();
-        QDir::setCurrent(*it);
-
-        QDir::Filters iterator_filter = (m_noHidden ? QDir::Filter(0) : QDir::Hidden) | QDir::Readable | QDir::NoDotAndDotDot;
-
-        if (m_onlyExe) {
-            iterator_filter |= (QDir::Dirs | QDir::Files | QDir::Executable);
-        } else if (m_onlyDir) {
-            iterator_filter |= QDir::Dirs;
-        } else {
-            iterator_filter |= (QDir::Dirs | QDir::Files);
-        }
-
         QDirIterator current_dir_iterator(*it, iterator_filter);
 
-        while (current_dir_iterator.hasNext()) {
+        while (current_dir_iterator.hasNext() && !terminationRequested()) {
             current_dir_iterator.next();
 
             QFileInfo file_info = current_dir_iterator.fileInfo();
@@ -398,9 +378,6 @@ void DirectoryListThread::run()
                 }
             }
         }
-
-        // chdir to the original directory
-        QDir::setCurrent(path);
     }
 
     done();
@@ -408,12 +385,6 @@ void DirectoryListThread::run()
 
 KUrlCompletionPrivate::~KUrlCompletionPrivate()
 {
-    if (userListThread) {
-        userListThread->requestTermination();
-    }
-    if (dirListThread) {
-        dirListThread->requestTermination();
-    }
 }
 
 ///////////////////////////////////////////////////////
@@ -575,7 +546,7 @@ void KUrlCompletionPrivate::init()
     replace_home = true;
     replace_env = true;
     last_no_hidden = false;
-    last_compl_type = 0;
+    last_compl_type = CTNone;
     list_job = 0L;
     mode = KUrlCompletion::FileCompletion;
 
@@ -636,7 +607,7 @@ void KUrlCompletion::setReplaceHome(bool replace)
  */
 QString KUrlCompletion::makeCompletion(const QString &text)
 {
-    //qDebug() << text << "d->cwd=" << d->cwd;
+    qCDebug(KIO_WIDGETS) << text << "d->cwd=" << d->cwd;
 
     KUrlCompletionPrivate::MyURL url(text, d->cwd);
 
@@ -729,12 +700,11 @@ QString KUrlCompletionPrivate::finished()
 /*
  * isRunning
  *
- * Return true if either a KIO job or the DirLister
- * is running
+ * Return true if either a KIO job or a thread is running
  */
 bool KUrlCompletion::isRunning() const
 {
-    return d->list_job || (d->dirListThread && !d->dirListThread->isFinished());
+    return d->list_job || (d->dirListThread && !d->dirListThread->isFinished()) || (d->userListThread && !d->userListThread->isFinished());
 }
 
 /*
@@ -751,14 +721,21 @@ void KUrlCompletion::stop()
 
     if (d->dirListThread) {
         d->dirListThread->requestTermination();
+        delete d->dirListThread;
         d->dirListThread = 0;
+    }
+
+    if (d->userListThread) {
+        d->userListThread->requestTermination();
+        delete d->userListThread;
+        d->userListThread = 0;
     }
 }
 
 /*
  * Keep track of the last listed directory
  */
-void KUrlCompletionPrivate::setListedUrl(int complType,
+void KUrlCompletionPrivate::setListedUrl(ComplType complType,
         const QString &directory,
         const QString &filter,
         bool no_hidden)
@@ -766,11 +743,11 @@ void KUrlCompletionPrivate::setListedUrl(int complType,
     last_compl_type = complType;
     last_path_listed = directory;
     last_file_listed = filter;
-    last_no_hidden = (int) no_hidden;
+    last_no_hidden = no_hidden;
     last_prepend = prepend;
 }
 
-bool KUrlCompletionPrivate::isListedUrl(int complType,
+bool KUrlCompletionPrivate::isListedUrl(ComplType complType,
                                         const QString &directory,
                                         const QString &filter,
                                         bool no_hidden)
@@ -780,7 +757,7 @@ bool KUrlCompletionPrivate::isListedUrl(int complType,
                 || (directory.isEmpty() && last_path_listed.isEmpty()))
             && (filter.startsWith(last_file_listed)
                 || (filter.isEmpty() && last_file_listed.isEmpty()))
-            && last_no_hidden == (int) no_hidden
+            && last_no_hidden == no_hidden
             && last_prepend == prepend; // e.g. relative path vs absolute
 }
 
@@ -813,18 +790,20 @@ bool KUrlCompletionPrivate::userCompletion(const KUrlCompletionPrivate::MyURL &u
     if (!isListedUrl(CTUser)) {
         q->stop();
         q->clear();
+        setListedUrl(CTUser);
 
-        if (!userListThread) {
-            userListThread = new UserListThread(this);
-            userListThread->start();
+        Q_ASSERT(!userListThread); // caller called stop()
+        userListThread = new UserListThread(this);
+        QObject::connect(userListThread, &CompletionThread::completionThreadDone,
+                q, [this](QThread *thread, const QStringList &matches){ slotCompletionThreadDone(thread, matches); });
+        userListThread->start();
 
-            // If the thread finishes quickly make sure that the results
-            // are added to the first matching case.
+        // If the thread finishes quickly make sure that the results
+        // are added to the first matching case.
 
-            userListThread->wait(200);
-            const QStringList l = userListThread->matches();
-            addMatches(l);
-        }
+        userListThread->wait(initialWaitDuration());
+        const QStringList l = userListThread->matches();
+        addMatches(l);
     }
     *pMatch = finished();
     return true;
@@ -923,13 +902,8 @@ bool KUrlCompletionPrivate::exeCompletion(const KUrlCompletionPrivate::MyURL &ur
         setListedUrl(CTExe, directory, url.file(), no_hidden_files);
 
         *pMatch = listDirectories(dirList, url.file(), true, false, no_hidden_files);
-    } else if (!q->isRunning()) {
-        *pMatch = finished();
     } else {
-        if (dirListThread) {
-            setListedUrl(CTExe, directory, url.file(), no_hidden_files);
-        }
-        pMatch->clear();
+        *pMatch = finished();
     }
 
     return true;
@@ -998,10 +972,8 @@ bool KUrlCompletionPrivate::fileCompletion(const KUrlCompletionPrivate::MyURL &u
 
         *pMatch = listDirectories(dirList, QString(), false, only_dir, no_hidden_files,
                                   append_slash);
-    } else if (!q->isRunning()) {
-        *pMatch = finished();
     } else {
-        pMatch->clear();
+        *pMatch = finished();
     }
 
     return true;
@@ -1125,13 +1097,9 @@ QString KUrlCompletionPrivate::listDirectories(
 
     if (qEnvironmentVariableIsEmpty("KURLCOMPLETION_LOCAL_KIO")) {
 
-        //qDebug() << "Listing (listDirectories):" << dirList << "filter=" << filter << "without KIO";
+        qCDebug(KIO_WIDGETS) << "Listing directories:" << dirList << "with filter=" << filter << "using thread";
 
         // Don't use KIO
-
-        if (dirListThread) {
-            dirListThread->requestTermination();
-        }
 
         QStringList dirs;
 
@@ -1145,10 +1113,14 @@ QString KUrlCompletionPrivate::listDirectories(
             }
         }
 
+        Q_ASSERT(!dirListThread); // caller called stop()
         dirListThread = new DirectoryListThread(this, dirs, filter, only_exe, only_dir,
                                                 no_hidden, append_slash_to_dir);
+        QObject::connect(dirListThread, &CompletionThread::completionThreadDone,
+                q, [this](QThread *thread, const QStringList &matches){ slotCompletionThreadDone(thread, matches); });
         dirListThread->start();
-        dirListThread->wait(200);
+        dirListThread->wait(initialWaitDuration());
+        qCDebug(KIO_WIDGETS) << "Adding initial matches:" << dirListThread->matches();
         addMatches(dirListThread->matches());
 
         return finished();
@@ -1373,32 +1345,34 @@ void KUrlCompletion::postProcessMatches(KCompletionMatches * /*matches*/) const
     // when there are a lot of matches...
 }
 
+// no longer used, KF6 TODO: remove this method
 void KUrlCompletion::customEvent(QEvent *e)
 {
-    if (e->type() == CompletionMatchEvent::uniqueType()) {
+    KCompletion::customEvent(e);
+}
 
-        CompletionMatchEvent *matchEvent = static_cast<CompletionMatchEvent *>(e);
-
-        matchEvent->completionThread()->wait();
-
-        if (!d->isListedUrl(CTUser)) {
-            stop();
-            clear();
-            d->addMatches(matchEvent->completionThread()->matches());
-        } else {
-            d->setListedUrl(CTUser);
-        }
-
-        if (d->userListThread == matchEvent->completionThread()) {
-            d->userListThread = 0;
-        }
-
-        if (d->dirListThread == matchEvent->completionThread()) {
-            d->dirListThread = 0;
-        }
-
-        delete matchEvent->completionThread();
+void KUrlCompletionPrivate::slotCompletionThreadDone(QThread *thread, const QStringList &matches)
+{
+    if (thread != userListThread && thread != dirListThread) {
+        qCDebug(KIO_WIDGETS) << "got" << matches.count() << "outdated matches";
+        return;
     }
+
+    qCDebug(KIO_WIDGETS) << "got" << matches.count() << "matches at end of thread";
+    q->setItems(matches);
+
+    if (userListThread == thread) {
+        thread->wait();
+        delete thread;
+        userListThread = 0;
+    }
+
+    if (dirListThread == thread) {
+        thread->wait();
+        delete thread;
+        dirListThread = 0;
+    }
+    finished(); // will call KCompletion::makeCompletion()
 }
 
 // static

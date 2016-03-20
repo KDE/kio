@@ -95,6 +95,16 @@ ecm_add_test(
 )
 set_target_properties(accessmanagertest-qnam PROPERTIES COMPILE_FLAGS "-DUSE_QNAM")
 
+# Same as kurlcompletiontest, but with immediate return, and results posted by thread later
+ecm_add_test(
+ kurlcompletiontest.cpp
+ TEST_NAME kurlcompletiontest-nowait
+ NAME_PREFIX "kiowidgets-"
+ LINK_LIBRARIES KF5::KIOCore KF5::KIOWidgets Qt5::Test
+ )
+set_target_properties(kurlcompletiontest-nowait PROPERTIES COMPILE_FLAGS "-DNO_WAIT")
+
+
 endif()
 
 if (TARGET KF5::KIOFileWidgets)

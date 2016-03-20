@@ -173,7 +173,7 @@ protected:
     void postProcessMatches(QStringList *matches) const Q_DECL_OVERRIDE;
     void postProcessMatches(KCompletionMatches *matches) const Q_DECL_OVERRIDE;
 
-    void customEvent(QEvent *e) Q_DECL_OVERRIDE;
+    void customEvent(QEvent *e) Q_DECL_OVERRIDE; // KF6 TODO: remove
 
 private:
     KUrlCompletionPrivate *const d;

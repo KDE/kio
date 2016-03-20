@@ -34,11 +34,16 @@ private Q_SLOTS:
     void test();
 
 public:
-    KUrlCompletionTest() {}
+    KUrlCompletionTest() {
+#ifdef NO_WAIT // kurlcompletiontest-nowait sets this, to test what happens on slower systems (or systems with many dirs or users)
+        qputenv("KURLCOMPLETION_WAIT", "1"); // 1ms, too short for a full listing of /usr/bin, but at least give a chance for a few items in the result
+#endif
+    }
     ~KUrlCompletionTest()
     {
         teardown();
     }
+    void runAllTests();
     void setup();
     void teardown();
     void testLocalRelativePath();
@@ -47,6 +52,9 @@ public:
     void testEmptyCwd();
     void testBug346920();
     void testUser();
+    void testCancel();
+
+    // remember to register new test methods in runAllTests
 
 private:
     void waitForCompletion(KUrlCompletion *completion);
@@ -106,8 +114,10 @@ void KUrlCompletionTest::waitForCompletion(KUrlCompletion *completion)
 {
     while (completion->isRunning()) {
         qDebug() << "waiting for thread...";
-        QThread::usleep(10);
+        QTest::qWait(5);
     }
+    // The thread emitted a signal, process it.
+    qApp->sendPostedEvents(0, QEvent::MetaCall);
 }
 
 void KUrlCompletionTest::testLocalRelativePath()
@@ -129,7 +139,7 @@ void KUrlCompletionTest::testLocalRelativePath()
     // Completion from relative path
     qDebug() << endl << "now completing on 'file#'";
     m_completion->makeCompletion(QStringLiteral("file#"));
-    waitForCompletion(m_completion);
+    QVERIFY(!m_completion->isRunning()); // last listing reused
     QStringList compall = m_completion->allMatches();
     qDebug() << compall;
     QCOMPARE(compall.count(), 1);
@@ -302,12 +312,65 @@ void KUrlCompletionTest::testUser()
     m_completionEmptyCwd->makeCompletion(QStringLiteral("~"));
     waitForCompletion(m_completionEmptyCwd);
     const auto matches = m_completionEmptyCwd->allMatches();
+    if (!KUser::allUserNames().isEmpty()) {
+        Q_ASSERT(!matches.isEmpty());
+    }
     foreach (const auto &user, KUser::allUserNames()) {
-        QVERIFY(matches.contains(QLatin1Char('~') + user));
+        QVERIFY2(matches.contains(QLatin1Char('~') + user), qPrintable(matches.join(' ')));
+    }
+
+    // Check that the same query doesn't re-list
+    m_completionEmptyCwd->makeCompletion(QStringLiteral("~"));
+    QVERIFY(!m_completionEmptyCwd->isRunning());
+    QCOMPARE(m_completionEmptyCwd->allMatches(), matches);
+}
+
+// Test cancelling a running thread
+// In a normal run (./kurlcompletiontest) and a reasonable amount of files, we have few chances of making this happen
+// But in a "nowait" run (./kurlcompletiontest-nowait), this will cancel the thread before it even starts listing the dir.
+void KUrlCompletionTest::testCancel()
+{
+    KUrlCompletion comp;
+    comp.setDir(QUrl::fromLocalFile("/usr/bin"));
+    comp.makeCompletion(QStringLiteral("g"));
+    const QStringList matchesG = comp.allMatches();
+    // We get many matches in a normal run, and usually 0 matches when testing "no wait" (thread is sleeping) -> this is where this method can test cancelling
+    //qDebug() << "got" << matchesG.count() << "matches";
+    bool done = !comp.isRunning();
+
+    // Doing the same search again, should hopefully not restart everything from scratch
+    comp.makeCompletion(QStringLiteral("g"));
+    const QStringList matchesG2 = comp.allMatches();
+    QVERIFY(matchesG2.count() >= matchesG.count());
+    if (done) {
+        QVERIFY(!comp.isRunning()); // it had no reason to restart
+    }
+    done = !comp.isRunning();
+
+    // Search for something else, should reuse dir listing but not mix up results
+    comp.makeCompletion(QStringLiteral("a"));
+    if (done) {
+        QVERIFY(!comp.isRunning()); // it had no reason to restart
+    }
+    const QStringList matchesA = comp.allMatches();
+    //qDebug() << "got" << matchesA.count() << "matches";
+    foreach (const QString &match, matchesA) {
+        QVERIFY2(!match.startsWith('g'), qPrintable(match));
+    }
+    waitForCompletion(&comp);
+    foreach (const QString &match, comp.allMatches()) {
+        QVERIFY2(!match.startsWith('g'), qPrintable(match));
     }
 }
 
 void KUrlCompletionTest::test()
+{
+    runAllTests();
+    // Try again, with another QTemporaryDir (to check that the caching doesn't give us wrong results)
+    runAllTests();
+}
+
+void KUrlCompletionTest::runAllTests()
 {
     setup();
     testLocalRelativePath();
@@ -316,16 +379,7 @@ void KUrlCompletionTest::test()
     testEmptyCwd();
     testBug346920();
     testUser();
-    teardown();
-
-    // Try again, with another QTemporaryDir (to check that the caching doesn't give us wrong results)
-    setup();
-    testLocalRelativePath();
-    testLocalAbsolutePath();
-    testLocalURL();
-    testEmptyCwd();
-    testBug346920();
-    testUser();
+    testCancel();
     teardown();
 }
 
