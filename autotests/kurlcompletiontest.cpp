@@ -49,7 +49,7 @@ public:
     void testUser();
 
 private:
-    void waitForCompletion();
+    void waitForCompletion(KUrlCompletion *completion);
     KUrlCompletion *m_completion;
     QTemporaryDir *m_tempDir;
     QUrl m_dirURL;
@@ -101,9 +101,10 @@ void KUrlCompletionTest::teardown()
     delete m_completionEmptyCwd;
     m_completionEmptyCwd = 0;
 }
-void KUrlCompletionTest::waitForCompletion()
+
+void KUrlCompletionTest::waitForCompletion(KUrlCompletion *completion)
 {
-    while (m_completion->isRunning()) {
+    while (completion->isRunning()) {
         qDebug() << "waiting for thread...";
         QThread::usleep(10);
     }
@@ -114,7 +115,7 @@ void KUrlCompletionTest::testLocalRelativePath()
     qDebug();
     // Completion from relative path, with two matches
     m_completion->makeCompletion(QStringLiteral("f"));
-    waitForCompletion();
+    waitForCompletion(m_completion);
     QStringList comp1all = m_completion->allMatches();
     qDebug() << comp1all;
     QCOMPARE(comp1all.count(), 4);
@@ -128,7 +129,7 @@ void KUrlCompletionTest::testLocalRelativePath()
     // Completion from relative path
     qDebug() << endl << "now completing on 'file#'";
     m_completion->makeCompletion(QStringLiteral("file#"));
-    waitForCompletion();
+    waitForCompletion(m_completion);
     QStringList compall = m_completion->allMatches();
     qDebug() << compall;
     QCOMPARE(compall.count(), 1);
@@ -139,7 +140,7 @@ void KUrlCompletionTest::testLocalRelativePath()
     // Completion with empty string
     qDebug() << endl << "now completing on ''";
     m_completion->makeCompletion(QLatin1String(""));
-    waitForCompletion();
+    waitForCompletion(m_completion);
     QStringList compEmpty = m_completion->allMatches();
     QCOMPARE(compEmpty.count(), 0);
 
@@ -148,7 +149,7 @@ void KUrlCompletionTest::testLocalRelativePath()
     // fixed in https://codereview.qt-project.org/143134.
 #if QT_VERSION >= QT_VERSION_CHECK(5, 6, 1)
     m_completion->makeCompletion(".");
-    waitForCompletion();
+    waitForCompletion(m_completion);
     const auto compAllHidden = m_completion->allMatches();
     QCOMPARE(compAllHidden.count(), 2);
     QVERIFY(compAllHidden.contains(".1_hidden_file_subdir/"));
@@ -157,14 +158,14 @@ void KUrlCompletionTest::testLocalRelativePath()
 
     // Completion with '.2', should find only hidden folders starting with '2'
     m_completion->makeCompletion(".2");
-    waitForCompletion();
+    waitForCompletion(m_completion);
     const auto compHiddenStartingWith2 = m_completion->allMatches();
     QCOMPARE(compHiddenStartingWith2.count(), 1);
     QVERIFY(compHiddenStartingWith2.contains(".2_hidden_file_subdir/"));
 
     // Completion with 'file.', should only find one file
     m_completion->makeCompletion("file.");
-    waitForCompletion();
+    waitForCompletion(m_completion);
     const auto compFileEndingWithDot = m_completion->allMatches();
     QCOMPARE(compFileEndingWithDot.count(), 1);
     QVERIFY(compFileEndingWithDot.contains("file."));
@@ -175,7 +176,7 @@ void KUrlCompletionTest::testLocalAbsolutePath()
     // Completion from absolute path
     qDebug() << m_dir + "file#";
     m_completion->makeCompletion(m_dir + "file#");
-    waitForCompletion();
+    waitForCompletion(m_completion);
     QStringList compall = m_completion->allMatches();
     qDebug() << compall;
     QCOMPARE(compall.count(), 1);
@@ -187,7 +188,7 @@ void KUrlCompletionTest::testLocalAbsolutePath()
     // Completion with '.', should find all hidden folders
 #if QT_VERSION >= QT_VERSION_CHECK(5, 6, 1)
     m_completion->makeCompletion(m_dir + ".");
-    waitForCompletion();
+    waitForCompletion(m_completion);
     const auto compAllHidden = m_completion->allMatches();
     QCOMPARE(compAllHidden.count(), 2);
     QVERIFY(compAllHidden.contains(m_dir + ".1_hidden_file_subdir/"));
@@ -196,14 +197,14 @@ void KUrlCompletionTest::testLocalAbsolutePath()
 
     // Completion with '.2', should find only hidden folders starting with '2'
     m_completion->makeCompletion(m_dir + ".2");
-    waitForCompletion();
+    waitForCompletion(m_completion);
     const auto compHiddenStartingWith2 = m_completion->allMatches();
     QCOMPARE(compHiddenStartingWith2.count(), 1);
     QVERIFY(compHiddenStartingWith2.contains(m_dir + ".2_hidden_file_subdir/"));
 
     // Completion with 'file.', should only find one file
     m_completion->makeCompletion(m_dir + "file.");
-    waitForCompletion();
+    waitForCompletion(m_completion);
     const auto compFileEndingWithDot = m_completion->allMatches();
     QCOMPARE(compFileEndingWithDot.count(), 1);
     QVERIFY(compFileEndingWithDot.contains(m_dir + "file."));
@@ -215,7 +216,7 @@ void KUrlCompletionTest::testLocalURL()
     qDebug();
     QUrl url = QUrl::fromLocalFile(m_dirURL.toLocalFile() + "file");
     m_completion->makeCompletion(url.toString());
-    waitForCompletion();
+    waitForCompletion(m_completion);
     QStringList comp1all = m_completion->allMatches();
     qDebug() << comp1all;
     QCOMPARE(comp1all.count(), 4);
@@ -236,7 +237,7 @@ void KUrlCompletionTest::testLocalURL()
     qDebug() << "makeCompletion(" << url << ")";
     QString comp2 = m_completion->makeCompletion(url.toString());
     QVERIFY(comp2.isEmpty());
-    waitForCompletion();
+    waitForCompletion(m_completion);
     QVERIFY(m_completion->allMatches().isEmpty());
 
     // Completion from URL with a ref -> no match
@@ -244,14 +245,14 @@ void KUrlCompletionTest::testLocalURL()
     url.setFragment(QStringLiteral("ref"));
     qDebug() << "makeCompletion(" << url << ")";
     m_completion->makeCompletion(url.toString());
-    waitForCompletion();
+    waitForCompletion(m_completion);
     QVERIFY(m_completion->allMatches().isEmpty());
 
     // Completion with '.', should find all hidden folders
 #if QT_VERSION >= QT_VERSION_CHECK(5, 6, 1)
     qDebug() << "makeCompletion(" << (m_dirURL.toString() + ".") << ")";
     m_completion->makeCompletion(m_dirURL.toString() + ".");
-    waitForCompletion();
+    waitForCompletion(m_completion);
     const auto compAllHidden = m_completion->allMatches();
     QCOMPARE(compAllHidden.count(), 2);
     QVERIFY(compAllHidden.contains(m_dirURL.toString() + ".1_hidden_file_subdir/"));
@@ -262,7 +263,7 @@ void KUrlCompletionTest::testLocalURL()
     url = QUrl::fromLocalFile(m_dirURL.toLocalFile() + ".2");
     qDebug() << "makeCompletion(" << url << ")";
     m_completion->makeCompletion(url.toString());
-    waitForCompletion();
+    waitForCompletion(m_completion);
     const auto compHiddenStartingWith2 = m_completion->allMatches();
     QCOMPARE(compHiddenStartingWith2.count(), 1);
     QVERIFY(compHiddenStartingWith2.contains(m_dirURL.toString() + ".2_hidden_file_subdir/"));
@@ -271,7 +272,7 @@ void KUrlCompletionTest::testLocalURL()
     url = QUrl::fromLocalFile(m_dirURL.toLocalFile() + "file.");
     qDebug() << "makeCompletion(" << url << ")";
     m_completion->makeCompletion(url.toString());
-    waitForCompletion();
+    waitForCompletion(m_completion);
     const auto compFileEndingWithDot = m_completion->allMatches();
     QCOMPARE(compFileEndingWithDot.count(), 1);
     QVERIFY(compFileEndingWithDot.contains(m_dirURL.toString() + "file."));
@@ -283,7 +284,7 @@ void KUrlCompletionTest::testEmptyCwd()
     // Completion with empty string (with a KUrlCompletion whose cwd is "")
     qDebug() << endl << "now completing on '' with empty cwd";
     m_completionEmptyCwd->makeCompletion(QLatin1String(""));
-    waitForCompletion();
+    waitForCompletion(m_completionEmptyCwd);
     QStringList compEmpty = m_completionEmptyCwd->allMatches();
     QCOMPARE(compEmpty.count(), 0);
 }
@@ -291,7 +292,7 @@ void KUrlCompletionTest::testEmptyCwd()
 void KUrlCompletionTest::testBug346920()
 {
     m_completionEmptyCwd->makeCompletion(QStringLiteral("~/."));
-    waitForCompletion();
+    waitForCompletion(m_completionEmptyCwd);
     m_completionEmptyCwd->allMatches();
     // just don't crash
 }
@@ -299,7 +300,7 @@ void KUrlCompletionTest::testBug346920()
 void KUrlCompletionTest::testUser()
 {
     m_completionEmptyCwd->makeCompletion(QStringLiteral("~"));
-    waitForCompletion();
+    waitForCompletion(m_completionEmptyCwd);
     const auto matches = m_completionEmptyCwd->allMatches();
     foreach (const auto &user, KUser::allUserNames()) {
         QVERIFY(matches.contains(QLatin1Char('~') + user));
