@@ -63,34 +63,34 @@ public:
 };
 Q_DECLARE_METATYPE(ExtraField)
 
-QDataStream &operator<< (QDataStream &s, const ExtraField &extraField)
+static QDataStream &operator<< (QDataStream &s, const ExtraField &extraField)
 {
     s << extraField.customTitle;
-    s << (int)extraField.flags;
+    s << static_cast<int>(extraField.flags);
     s << extraField.value;
     return s;
 }
 
-QDataStream &operator>> (QDataStream &s, ExtraField &extraField)
+static QDataStream &operator>> (QDataStream &s, ExtraField &extraField)
 {
     s >> extraField.customTitle;
     int i;
     s >> i;
-    extraField.flags = (AuthInfo::FieldFlags)i;
+    extraField.flags = AuthInfo::FieldFlags(i);
     s >> extraField.value;
     return s;
 }
 
-QDBusArgument &operator<<(QDBusArgument &argument, const ExtraField &extraField)
+static QDBusArgument &operator<<(QDBusArgument &argument, const ExtraField &extraField)
 {
     argument.beginStructure();
-    argument << extraField.customTitle << (int)extraField.flags
+    argument << extraField.customTitle << static_cast<int>(extraField.flags)
              << QDBusVariant(extraField.value);
     argument.endStructure();
     return argument;
 }
 
-const QDBusArgument &operator>>(const QDBusArgument &argument, ExtraField &extraField)
+static const QDBusArgument &operator>>(const QDBusArgument &argument, ExtraField &extraField)
 {
     QDBusVariant value;
     int flag;
@@ -100,7 +100,7 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, ExtraField &extra
     argument.endStructure();
 
     extraField.value = value.variant();
-    extraField.flags = (KIO::AuthInfo::FieldFlags)flag;
+    extraField.flags = KIO::AuthInfo::FieldFlags(flag);
     return argument;
 }
 
@@ -201,7 +201,7 @@ void AuthInfo::registerMetaTypes()
 
 QDataStream &KIO::operator<< (QDataStream &s, const AuthInfo &a)
 {
-    s << (quint8)1
+    s << quint8(1)
       << a.url << a.username << a.password << a.prompt << a.caption
       << a.comment << a.commentLabel << a.realmValue << a.digestInfo
       << a.verifyPath << a.readOnly << a.keepPassword << a.modified
@@ -223,7 +223,7 @@ QDataStream &KIO::operator>> (QDataStream &s, AuthInfo &a)
 QDBusArgument &KIO::operator<<(QDBusArgument &argument, const AuthInfo &a)
 {
     argument.beginStructure();
-    argument << (quint8)1
+    argument << quint8(1)
              << a.url.toString() << a.username << a.password << a.prompt << a.caption
              << a.comment << a.commentLabel << a.realmValue << a.digestInfo
              << a.verifyPath << a.readOnly << a.keepPassword << a.modified
