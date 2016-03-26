@@ -160,6 +160,7 @@ void FavIconsCache::setIconForUrl(const QUrl& url, const QUrl& iconUrl)
     const QString iconUrlStr = iconUrl.url();
     d->faviconsCache.insert(simplifiedUrl, new QString(iconUrlStr));
     d->config.group(QString()).writeEntry(simplifiedUrl, iconUrlStr);
+    d->config.sync();
 }
 
 QString FavIconsCache::cachePathForIconUrl(const QUrl &iconUrl) const
