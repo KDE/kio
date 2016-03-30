@@ -28,6 +28,8 @@
 #include <kdesktopfile.h>
 #include <kconfiggroup.h>
 
+#include <QMimeDatabase>
+
 QTEST_MAIN(KFileItemTest)
 
 void KFileItemTest::initTestCase()
@@ -438,6 +440,8 @@ void KFileItemTest::testMimetypeForRemoteFolder()
 void KFileItemTest::testMimetypeForRemoteFolderWithFileType()
 {
     QString udsMimeType = QStringLiteral("application/x-smb-workgroup");
+    QVERIFY2(QMimeDatabase().mimeTypeForName(udsMimeType).isValid(),
+             qPrintable(QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation).join(':'))); // kcoreaddons installed? XDG_DATA_DIRS set?
     KIO::UDSEntry entry;
     entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("foo"));
     entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
