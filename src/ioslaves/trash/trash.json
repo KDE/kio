@@ -48,6 +48,10 @@
                 "Caminho original", 
                 "Data da exclusão"
             ], 
+            "ExtraNames[ru]": [
+                "Исходный путь", 
+                "Дата удаления"
+            ], 
             "ExtraNames[sk]": [
                 "Pôvodné umiestnenie", 
                 "Dátum vymazania"
