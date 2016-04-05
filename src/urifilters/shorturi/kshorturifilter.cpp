@@ -368,7 +368,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
       if ( lastSlash > -1 && path.indexOf( ' ', lastSlash ) == -1 ) // no space after last slash, otherwise it's more likely command-line arguments
       {
         QString fileName = path.mid( lastSlash + 1 );
-        QString testPath = path.left( lastSlash + 1 );
+        QString testPath = path.left(lastSlash);
         if ((fileName.indexOf('*') != -1 || fileName.indexOf('[') != -1 || fileName.indexOf( '?' ) != -1)
                 && QT_STAT(QFile::encodeName(testPath), &buff) == 0) {
           nameFilter = fileName;
