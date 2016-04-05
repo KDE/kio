@@ -237,8 +237,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
       {
         path = url.path();
         ref = url.fragment();
-        //qCDebug(category) << "isLocalFile set path to " << stringDetails( path );
-        //qCDebug(category) << "isLocalFile set ref to " << stringDetails( ref );
+        //qCDebug(category) << "isLocalFile set path to" << path << "and ref to" << ref;
         query = url.query();
         if (path.isEmpty() && !url.host().isEmpty())
           path = '/';
@@ -369,7 +368,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
         if ((fileName.indexOf('*') != -1 || fileName.indexOf('[') != -1 || fileName.indexOf( '?' ) != -1)
                 && QT_STAT(QFile::encodeName(testPath), &buff) == 0) {
           nameFilter = fileName;
-          //qCDebug(category) << "Setting nameFilter to " << nameFilter;
+          //qCDebug(category) << "Setting nameFilter to" << nameFilter << "and path to" << testPath;
           path = testPath;
           exists = true;
         }
@@ -381,7 +380,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   if( exists )
   {
     QUrl u = QUrl::fromLocalFile(path);
-    //qCDebug(category) << "ref=" << stringDetails(ref) << " query=" << stringDetails(query);
+    //qCDebug(category) << "ref=" << ref << "query=" << query;
     u.setFragment(ref);
     u.setQuery(query);
 
@@ -467,7 +466,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
     {
       if (hint.regexp.indexIn(cmd) == 0)
       {
-        //qCDebug(category) << "match - prepending" << (*it).prepend;
+        //qCDebug(category) << "match - prepending" << hint.prepend;
         const QString cmdStr = hint.prepend + cmd;
         QUrl url(cmdStr);
         //qCDebug(category) << "match - prepending" << hint.prepend << "->" << cmdStr << "->" << url;
