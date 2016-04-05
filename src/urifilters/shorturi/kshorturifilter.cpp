@@ -38,9 +38,6 @@
 #include <kurlauthorized.h>
 #include <kuser.h>
 
-#define QL1S(x) QLatin1String(x)
-#define QL1C(x) QLatin1Char(x)
-
 namespace {
 QLoggingCategory category("org.kde.kurifilter-shorturi");
 }
@@ -493,7 +490,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
       if (urlStr.isEmpty())
           urlStr = m_strDefaultUrlScheme;
 
-      const int index = urlStr.indexOf(QL1C(':'));
+      const int index = urlStr.indexOf(QLatin1Char(':'));
       if (index == -1 || !isKnownProtocol(urlStr.left(index)))
         urlStr += QStringLiteral("://");
       urlStr += cmd;
