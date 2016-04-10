@@ -328,6 +328,8 @@ void KDirListerTest::testNewItemsInSymlink() // #213799
 
     // TODO: test file update.
     disconnect(&m_dirLister, 0, this, 0);
+
+    QFile::remove(symPath);
 }
 
 // This test assumes testOpenUrl was run before. So m_dirLister is holding the items already.
