@@ -264,8 +264,12 @@ void KDirListerTest::testNewItemsInSymlink() // #213799
     QVERIFY(tempFile.open());
     const QString symPath = tempFile.fileName() + "_link";
     tempFile.close();
-    bool symlinkOk = KIOPrivate::createSymlink(path, symPath);
-    QVERIFY(symlinkOk);
+    const bool symlinkOk = KIOPrivate::createSymlink(path, symPath);
+    if (!symlinkOk) {
+        const QString error = QString::fromLatin1("Failed to create symlink '%1' pointing to '%2': %3")
+            .arg(symPath, path, QString::fromLocal8Bit(strerror(errno)));
+        QVERIFY2(symlinkOk, qPrintable(error));
+    }
     MyDirLister dirLister2;
     m_items2.clear();
     connect(&dirLister2, SIGNAL(newItems(KFileItemList)), this, SLOT(slotNewItems2(KFileItemList)));
