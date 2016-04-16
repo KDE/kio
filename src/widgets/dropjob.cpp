@@ -54,7 +54,7 @@
 
 using namespace KIO;
 
-Q_DECLARE_METATYPE(Qt::DropAction);
+Q_DECLARE_METATYPE(Qt::DropAction)
 
 class KIO::DropJobPrivate : public KIO::JobPrivate
 {
