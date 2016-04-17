@@ -1259,6 +1259,31 @@ void KDirListerTest::slotRefreshItems2(const QList<QPair<KFileItem, KFileItem> >
     m_refreshedItems2 += lst;
 }
 
+void KDirListerTest::testCopyAfterListingAndMove() // #353195
+{
+    const QString dirA = m_tempDir.path() + "/a";
+    QVERIFY(QDir().mkdir(dirA));
+    const QString dirB = m_tempDir.path() + "/b";
+    QVERIFY(QDir().mkdir(dirB));
+
+    // ensure m_dirLister holds the items.
+    m_dirLister.openUrl(QUrl::fromLocalFile(path()), KDirLister::NoFlags);
+    QSignalSpy compSpy(&m_dirLister, SIGNAL(completed()));
+    QVERIFY(compSpy.wait());
+
+    // Move b into a
+    KIO::Job *moveJob = KIO::move(QUrl::fromLocalFile(dirB), QUrl::fromLocalFile(dirA));
+    moveJob->setUiDelegate(0);
+    QVERIFY(moveJob->exec());
+    QVERIFY(QFileInfo(m_tempDir.path() + "/a/b").isDir());
+
+    // Copy folder a elsewhere
+    const QString dest = m_tempDir.path() + "/subdir";
+    KIO::Job *copyJob = KIO::copy(QUrl::fromLocalFile(dirA), QUrl::fromLocalFile(dest));
+    copyJob->setUiDelegate(0);
+    QVERIFY(copyJob->exec());
+}
+
 void KDirListerTest::testDeleteCurrentDir()
 {
     // ensure m_dirLister holds the items.
