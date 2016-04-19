@@ -101,16 +101,7 @@ public:
     QStringList allowedUsers(bool defaults, KACLListViewItem *allowedItem = 0);
     QStringList allowedGroups(bool defaults, KACLListViewItem *allowedItem = 0);
 
-    const KACL getACL() const
-    {
-        return getACL();
-    }
     KACL getACL();
-
-    const KACL getDefaultACL() const
-    {
-        return getDefaultACL();
-    }
     KACL getDefaultACL();
 
     QPixmap getYesPixmap() const
