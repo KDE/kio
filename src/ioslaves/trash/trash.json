@@ -29,6 +29,10 @@
                 "Poistoaika", 
                 "Poistopäivämäärä"
             ], 
+            "ExtraNames[gl]": [
+                "Ruta orixinal", 
+                "Data de eliminación"
+            ], 
             "ExtraNames[it]": [
                 "Percorso originale", 
                 "Data di eliminazione"
