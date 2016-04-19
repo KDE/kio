@@ -46,6 +46,8 @@ void KDirListerTest::initTestCase()
     // To avoid a runtime dependency on klauncher
     qputenv("KDE_FORK_SLAVES", "yes");
 
+    KIO::setDefaultJobUiDelegateExtension(0); // no "skip" dialogs
+
     m_exitCount = 1;
 
     s_referenceTimeStamp = QDateTime::currentDateTime().addSecs(-120);   // 2 minutes ago
@@ -1268,8 +1270,8 @@ void KDirListerTest::testCopyAfterListingAndMove() // #353195
 
     // ensure m_dirLister holds the items.
     m_dirLister.openUrl(QUrl::fromLocalFile(path()), KDirLister::NoFlags);
-    QSignalSpy compSpy(&m_dirLister, SIGNAL(completed()));
-    QVERIFY(compSpy.wait());
+    QSignalSpy spyCompleted(&m_dirLister, SIGNAL(completed()));
+    QVERIFY(spyCompleted.wait());
 
     // Move b into a
     KIO::Job *moveJob = KIO::move(QUrl::fromLocalFile(dirB), QUrl::fromLocalFile(dirA));
@@ -1277,11 +1279,15 @@ void KDirListerTest::testCopyAfterListingAndMove() // #353195
     QVERIFY(moveJob->exec());
     QVERIFY(QFileInfo(m_tempDir.path() + "/a/b").isDir());
 
+    // Give some time to processPendingUpdates
+    QTest::qWait(1000);
+
     // Copy folder a elsewhere
     const QString dest = m_tempDir.path() + "/subdir";
     KIO::Job *copyJob = KIO::copy(QUrl::fromLocalFile(dirA), QUrl::fromLocalFile(dest));
     copyJob->setUiDelegate(0);
     QVERIFY(copyJob->exec());
+    QVERIFY(QFileInfo(m_tempDir.path() + "/subdir/a/b").isDir());
 }
 
 void KDirListerTest::testDeleteCurrentDir()

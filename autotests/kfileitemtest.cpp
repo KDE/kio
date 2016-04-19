@@ -276,6 +276,17 @@ void KFileItemTest::testRename()
     QCOMPARE(fileItem.entry().stringValue(KIO::UDSEntry::UDS_NAME), newName); // #195385
 }
 
+void KFileItemTest::testRefresh()
+{
+    // Refresh on a dir
+    KFileItem fileItem(QUrl::fromLocalFile(QDir::currentPath()));
+    QVERIFY(fileItem.isDir());
+    QVERIFY(fileItem.entry().isDir());
+    fileItem.refresh();
+    QVERIFY(fileItem.isDir());
+    QVERIFY(fileItem.entry().isDir());
+}
+
 void KFileItemTest::testDotDirectory()
 {
     QTemporaryDir tempDir;

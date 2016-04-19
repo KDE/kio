@@ -77,6 +77,7 @@ UDSEntry::UDSEntry(const UDSEntry &other)
 {
 }
 
+// BUG: this API doesn't allow to handle symlinks correctly (we need buff from QT_LSTAT for most things, but buff from QT_STAT for st_mode and st_size)
 UDSEntry::UDSEntry(const QT_STATBUF &buff, const QString &name)
     : d(new UDSEntryPrivate())
 {
@@ -85,7 +86,8 @@ UDSEntry::UDSEntry(const QT_STATBUF &buff, const QString &name)
     insert(UDS_SIZE,                buff.st_size);
     insert(UDS_DEVICE_ID,           buff.st_dev);
     insert(UDS_INODE,               buff.st_ino);
-    insert(UDS_ACCESS,              buff.st_mode);
+    insert(UDS_FILE_TYPE,           buff.st_mode & QT_STAT_MASK); // extract file type
+    insert(UDS_ACCESS,              buff.st_mode & 07777); // extract permissions
     insert(UDS_MODIFICATION_TIME,   buff.st_mtime);
     insert(UDS_ACCESS_TIME,         buff.st_atime);
 #ifndef Q_OS_WIN
