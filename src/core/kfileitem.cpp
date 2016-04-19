@@ -1627,10 +1627,12 @@ bool KFileItem::isRegularFile() const
 
 QDebug operator<<(QDebug stream, const KFileItem &item)
 {
+    QDebugStateSaver saver(stream);
+    stream.nospace();
     if (item.isNull()) {
         stream << "[null KFileItem]";
     } else {
-        stream << "[KFileItem for" << item.url() << "]";
+        stream << "[KFileItem for " << item.url() << "]";
     }
     return stream;
 }
