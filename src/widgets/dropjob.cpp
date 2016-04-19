@@ -288,8 +288,6 @@ void DropJobPrivate::fillPopupMenu(QMenu *popup)
 
 void DropJobPrivate::addPluginActions(QMenu *popup, const KFileItemListProperties &itemProps)
 {
-    Q_Q(DropJob);
-
     const QVector<KPluginMetaData> plugin_offers = KPluginLoader::findPlugins(QStringLiteral("kf5/kio_dnd"));
     foreach (const KPluginMetaData &service, plugin_offers) {
         KPluginFactory *factory = KPluginLoader(service.fileName()).factory();
@@ -372,7 +370,7 @@ void DropJobPrivate::doCopyToDirectory()
         KIO::FileUndoManager::self()->recordCopyJob(job);
         break;
     default:
-        qWarning() << "Unknown drop action" << (int)m_dropAction;
+        qWarning() << "Unknown drop action" << int(m_dropAction);
         q->setError(KIO::ERR_UNSUPPORTED_ACTION);
         q->emitResult();
         return;
@@ -431,7 +429,6 @@ void DropJobPrivate::handleDropToExecutable()
 
 void DropJob::slotResult(KJob *job)
 {
-    Q_D(DropJob);
     if (job->error()) {
         KIO::Job::slotResult(job); // will set the error and emit result(this)
         return;
