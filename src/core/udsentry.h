@@ -32,6 +32,13 @@
 
 namespace KIO
 {
+class UDSEntry;
+}
+
+void debugUDSEntry(QDebug stream, const KIO::UDSEntry &entry);
+
+namespace KIO
+{
 class UDSEntryPrivate;
 /**
  * Universal Directory Service
@@ -276,6 +283,7 @@ public:
 
 private:
     friend class UDSEntryPrivate;
+    friend void ::debugUDSEntry(QDebug stream, const KIO::UDSEntry &entry);
     QSharedDataPointer<UDSEntryPrivate> d;
 };
 
@@ -307,6 +315,12 @@ typedef QList<UDSEntry> UDSEntryList;
 
 KIOCORE_EXPORT QDataStream &operator<< (QDataStream &s, const KIO::UDSEntry &a);
 KIOCORE_EXPORT QDataStream &operator>> (QDataStream &s, KIO::UDSEntry &a);
+
+/**
+ * Support for qDebug() << aUDSEntry
+ * \since 5.22
+ */
+KIOCORE_EXPORT QDebug operator<<(QDebug stream, const KIO::UDSEntry &entry);
 
 Q_DECLARE_METATYPE(KIO::UDSEntry)
 

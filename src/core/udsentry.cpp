@@ -22,10 +22,11 @@
 
 #include "udsentry.h"
 
-#include <QtCore/QString>
-#include <QtCore/QList>
-#include <QtCore/QDataStream>
-#include <QtCore/QVector>
+#include <QString>
+#include <QList>
+#include <QDataStream>
+#include <QVector>
+#include <QDebug>
 
 #include <KUser>
 
@@ -211,6 +212,12 @@ void UDSEntryPrivate::save(QDataStream &s, const UDSEntry &a)
     }
 }
 
+KIOCORE_EXPORT QDebug operator<<(QDebug stream, const KIO::UDSEntry &entry)
+{
+    debugUDSEntry(stream, entry);
+    return stream;
+}
+
 void UDSEntryPrivate::load(QDataStream &s, UDSEntry &a)
 {
     a.clear();
@@ -258,3 +265,23 @@ void UDSEntryPrivate::load(QDataStream &s, UDSEntry &a)
     }
 }
 
+void debugUDSEntry(QDebug stream, const KIO::UDSEntry &entry)
+{
+    const QVector<uint> &udsIndexes = entry.d->udsIndexes;
+    const QVector<KIO::UDSEntryPrivate::Field> &fields = entry.d->fields;
+    const int size = udsIndexes.size();
+    QDebugStateSaver saver(stream);
+    stream.nospace() << "[";
+    for (int index = 0; index < size; ++index) {
+        const uint uds = udsIndexes.at(index);
+        stream << " " << (uds & 0xffff) << "="; // we could use a switch statement for readability :-)
+        if (uds & KIO::UDSEntry::UDS_STRING) {
+            stream << fields.at(index).m_str;
+        } else if (uds & KIO::UDSEntry::UDS_NUMBER) {
+            stream << fields.at(index).m_long;
+        } else {
+            Q_ASSERT_X(false, "KIO::UDSEntry", "Found a field with an invalid type");
+        }
+    }
+    stream << " ]";
+}
