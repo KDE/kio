@@ -92,7 +92,6 @@ public:
     void setTime(KFileItem::FileTimes which, const QDateTime &val) const;
     bool cmp(const KFileItemPrivate &item) const;
     bool isSlow() const;
-    void stat();
 
     /**
      * Extracts the data from the UDSEntry member and updates the KFileItem
@@ -183,10 +182,9 @@ void KFileItemPrivate::init()
     m_access.clear();
     //  metaInfo = KFileMetaInfo();
 
-    // determine mode and/or permissions if unknown
+    // stat() local files if needed
     // TODO: delay this until requested
-    if (m_fileMode == KFileItem::Unknown || m_permissions == KFileItem::Unknown) {
-        mode_t mode = 0;
+    if (m_fileMode == KFileItem::Unknown || m_permissions == KFileItem::Unknown || m_entry.count() == 0) {
         if (m_url.isLocalFile()) {
             /* directories may not have a slash at the end if
              * we want to stat() them; it requires that we
@@ -199,18 +197,34 @@ void KFileItemPrivate::init()
             const QString path = m_url.adjusted(QUrl::StripTrailingSlash).toLocalFile();
             const QByteArray pathBA = QFile::encodeName(path);
             if (QT_LSTAT(pathBA.constData(), &buf) == 0) {
-                mode = buf.st_mode;
+                m_entry.insert(KIO::UDSEntry::UDS_DEVICE_ID,           buf.st_dev);
+                m_entry.insert(KIO::UDSEntry::UDS_INODE,               buf.st_ino);
+                m_entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME,   buf.st_mtime);
+                m_entry.insert(KIO::UDSEntry::UDS_ACCESS_TIME,         buf.st_atime);
+#ifndef Q_OS_WIN
+                m_entry.insert(KIO::UDSEntry::UDS_USER,                KUser(buf.st_uid).loginName());
+                m_entry.insert(KIO::UDSEntry::UDS_GROUP,               KUserGroup(buf.st_gid).name());
+#endif
+
+                mode_t mode = buf.st_mode;
                 if ((buf.st_mode & QT_STAT_MASK) == QT_STAT_LNK) {
                     m_bLink = true;
                     if (QT_STAT(pathBA, &buf) == 0) {
                         mode = buf.st_mode;
-                    } else {// link pointing to nowhere (see FileProtocol::createUDSEntry() in kioslave/file/file.cpp)
+                    } else {// link pointing to nowhere (see FileProtocol::createUDSEntry() in ioslaves/file/file.cpp)
                         mode = (QT_STAT_MASK - 1) | S_IRWXU | S_IRWXG | S_IRWXO;
                     }
                 }
+                m_entry.insert(KIO::UDSEntry::UDS_SIZE,      buf.st_size);
+                m_entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, buf.st_mode & QT_STAT_MASK); // extract file type
+                m_entry.insert(KIO::UDSEntry::UDS_ACCESS,    buf.st_mode & 07777); // extract permissions
+
                 // While we're at it, store the times
+                // TODO: the array of times can be removed, we can use UDS_*_TIME everywhere
                 setTime(KFileItem::ModificationTime, buf.st_mtime);
                 setTime(KFileItem::AccessTime, buf.st_atime);
+
+                // TODO: these can be removed, we can use UDS_FILE_TYPE and UDS_ACCESS everywhere
                 if (m_fileMode == KFileItem::Unknown) {
                     m_fileMode = mode & QT_STAT_MASK; // extract file type
                 }
@@ -464,14 +478,12 @@ KFileItem::KFileItem(mode_t mode, mode_t permissions, const QUrl &url, bool dela
     : d(new KFileItemPrivate(KIO::UDSEntry(), mode, permissions,
                              url, false, delayedMimeTypes))
 {
-    d->stat();
 }
 
 KFileItem::KFileItem(const QUrl &url, const QString &mimeType, mode_t mode)
     : d(new KFileItemPrivate(KIO::UDSEntry(), mode, KFileItem::Unknown,
                              url, false, false))
 {
-    d->stat();
     d->m_bMimeTypeKnown = !mimeType.isEmpty();
     if (d->m_bMimeTypeKnown) {
         QMimeDatabase db;
@@ -505,8 +517,7 @@ void KFileItem::refresh()
     // Clearing m_entry makes it possible to detect changes in the size of the file,
     // the time information, etc.
     d->m_entry.clear();
-    d->stat(); // re-populates d->m_entry
-    d->init();
+    d->init(); // re-populates d->m_entry
 }
 
 void KFileItem::refreshMimeType()
@@ -692,22 +703,6 @@ bool KFileItemPrivate::isSlow() const
         }
     }
     return m_slow == Slow;
-}
-
-// This function should only be called when:
-// - KFileItem is called with a QUrl object directly!
-// - refresh is called.
-// This is done to re-populate the UDSEntry object.
-void KFileItemPrivate::stat()
-{
-    if(m_url.isLocalFile()) {
-        QT_STATBUF buf;
-        const QString path = m_url.adjusted(QUrl::StripTrailingSlash).toLocalFile();
-        const QByteArray pathBA = QFile::encodeName(path);
-        if (QT_LSTAT(pathBA.constData(), &buf) == 0) {
-            m_entry = KIO::UDSEntry(buf, m_url.fileName());
-        }
-    }
 }
 
 bool KFileItem::isSlow() const

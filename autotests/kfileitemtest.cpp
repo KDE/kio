@@ -278,13 +278,55 @@ void KFileItemTest::testRename()
 
 void KFileItemTest::testRefresh()
 {
+    QTemporaryDir tempDir;
     // Refresh on a dir
-    KFileItem fileItem(QUrl::fromLocalFile(QDir::currentPath()));
-    QVERIFY(fileItem.isDir());
-    QVERIFY(fileItem.entry().isDir());
+    KFileItem dirItem(QUrl::fromLocalFile(tempDir.path()));
+    QVERIFY(dirItem.isDir());
+    QVERIFY(dirItem.entry().isDir());
+    dirItem.refresh();
+    QVERIFY(dirItem.isDir());
+    QVERIFY(dirItem.entry().isDir());
+
+    // Refresh on a file
+    QFile file(tempDir.path() + "/afile");
+    QVERIFY(file.open(QIODevice::WriteOnly));
+    file.write("Hello world\n");
+    file.close();
+    const KIO::filesize_t expectedSize = 12;
+    file.setPermissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ReadOther); // 0604
+    KFileItem fileItem(QUrl::fromLocalFile(file.fileName()));
+    QVERIFY(fileItem.isFile());
+    QVERIFY(!fileItem.isLink());
+    QCOMPARE(fileItem.size(), expectedSize);
+    QCOMPARE(fileItem.user(), KUser().loginName());
     fileItem.refresh();
-    QVERIFY(fileItem.isDir());
-    QVERIFY(fileItem.entry().isDir());
+    QVERIFY(fileItem.isFile());
+    QVERIFY(!fileItem.isLink());
+    QCOMPARE(fileItem.size(), expectedSize);
+    QCOMPARE(fileItem.user(), KUser().loginName());
+
+    // Refresh on a symlink to a file
+    QString symlink = tempDir.path() + "/asymlink";
+    QVERIFY(file.link(symlink));
+    QUrl symlinkUrl = QUrl::fromLocalFile(symlink);
+    KFileItem symlinkItem(symlinkUrl);
+    QVERIFY(symlinkItem.isFile());
+    QVERIFY(symlinkItem.isLink());
+    QCOMPARE(symlinkItem.size(), expectedSize);
+    symlinkItem.refresh();
+    QVERIFY(symlinkItem.isFile());
+    QVERIFY(symlinkItem.isLink());
+    QCOMPARE(symlinkItem.size(), expectedSize);
+
+    // Symlink to directory (#162544)
+    QVERIFY(QFile::remove(symlink));
+    QVERIFY(QFile(tempDir.path() + '/').link(symlink));
+    KFileItem symlinkToDirItem(symlinkUrl);
+    QVERIFY(symlinkToDirItem.isDir());
+    QVERIFY(symlinkToDirItem.isLink());
+    symlinkToDirItem.refresh();
+    QVERIFY(symlinkToDirItem.isDir());
+    QVERIFY(symlinkToDirItem.isLink());
 }
 
 void KFileItemTest::testDotDirectory()
