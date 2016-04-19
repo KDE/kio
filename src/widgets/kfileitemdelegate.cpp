@@ -125,7 +125,6 @@ public:
     QIcon downArrowIcon;
 
 private:
-    KFileItemDelegate *const q;
     KIO::DelegateAnimationHandler *animationHandler;
     Margin verticalMargin[NMargins];
     Margin horizontalMargin[NMargins];
@@ -135,7 +134,7 @@ private:
 KFileItemDelegate::Private::Private(KFileItemDelegate *parent)
     : shadowColor(Qt::transparent), shadowOffset(1, 1), shadowBlur(2), maximumSize(0, 0),
       showToolTipWhenElided(true), wrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere), jobTransfersVisible(false),
-      q(parent), animationHandler(new KIO::DelegateAnimationHandler(parent)), activeMargins(0)
+      animationHandler(new KIO::DelegateAnimationHandler(parent)), activeMargins(0)
 {
 }
 
