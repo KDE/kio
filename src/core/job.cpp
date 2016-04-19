@@ -36,9 +36,6 @@
 
 using namespace KIO;
 
-//this will update the report dialog with 5 Hz, I think this is fast enough, aleXXX
-#define REPORT_TIMEOUT 200
-
 Job::Job() : KCompositeJob(0)
     , d_ptr(new JobPrivate)
 {
