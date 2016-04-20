@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 
     const QStringList args = a.arguments();
 
-    if (args.count() != 2) {
+    if (args.count() != 2 || args.contains("--help")) {
         fprintf(stderr, "Usage: kmailservice5 <url>\n");
         return 1;
     }
