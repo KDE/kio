@@ -32,16 +32,6 @@ KCookiesMain::KCookiesMain (QWidget* parent, const QVariantList&)
     management = 0;
     bool managerOK = true;
 
-    QDBusInterface kded (QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/kded"), QStringLiteral("org.kde.kcookiejar5"));
-    QDBusReply<bool> reply = kded.call (QStringLiteral("loadModule"), QStringLiteral ("kcookiejar"));
-
-    if (!reply.isValid()) {
-        managerOK = false;
-        KMessageBox::sorry (0, i18n ("Unable to start the cookie handler service.\n"
-                                     "You will not be able to manage the cookies that "
-                                     "are stored on your computer."));
-    }
-
     QVBoxLayout* layout = new QVBoxLayout (this);
     tab = new QTabWidget (this);
     layout->addWidget (tab);
