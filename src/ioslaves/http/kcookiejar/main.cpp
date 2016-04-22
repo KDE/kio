@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     app.setApplicationVersion(QStringLiteral("1.0"));
     KLocalizedString::setApplicationDomain("kio5");
 
-    QString description = QCoreApplication::translate("main", "HTTP Cookie Daemon");
+    QString description = QCoreApplication::translate("main", "Command-line client for the HTTP Cookie Daemon");
 
     QCommandLineParser parser;
     parser.addVersionOption();
