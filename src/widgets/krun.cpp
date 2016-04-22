@@ -945,8 +945,16 @@ void KRun::init()
     // Let's see whether it is a directory
 
     if (!KProtocolManager::supportsListing(d->m_strURL)) {
-        //qDebug() << "Protocol has no support for listing";
         // No support for listing => it can't be a directory (example: http)
+
+        if (!KProtocolManager::supportsReading(d->m_strURL)) {
+            // No support for reading files either => we can't do anything (example: mailto URL, with no associated app)
+            handleInitError(KIO::ERR_UNSUPPORTED_ACTION, i18n("Could not find any application or handler for %1", d->m_strURL.toDisplayString()));
+            d->m_bFault = true;
+            d->m_bFinished = true;
+            d->startTimer();
+            return;
+        }
         scanFile();
         return;
     }
