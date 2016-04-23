@@ -2080,7 +2080,7 @@ void KCoreDirListerCache::printDebug()
     for (; dit != directoryData.constEnd(); ++dit) {
         QString list;
         foreach (KCoreDirLister *listit, (*dit).listersCurrentlyListing) {
-            list += " 0x" + QString::number((qlonglong)listit, 16);
+            list += " 0x" + QString::number(reinterpret_cast<qlonglong>(listit), 16);
         }
         qCDebug(KIO_CORE_DIRLISTER) << "  " << dit.key() << (*dit).listersCurrentlyListing.count() << "listers:" << list;
         foreach (KCoreDirLister *listit, (*dit).listersCurrentlyListing) {
@@ -2095,7 +2095,7 @@ void KCoreDirListerCache::printDebug()
 
         list.clear();
         foreach (KCoreDirLister *listit, (*dit).listersCurrentlyHolding) {
-            list += " 0x" + QString::number((qlonglong)listit, 16);
+            list += " 0x" + QString::number(reinterpret_cast<qlonglong>(listit), 16);
         }
         qCDebug(KIO_CORE_DIRLISTER) << "  " << dit.key() << (*dit).listersCurrentlyHolding.count() << "holders:" << list;
     }
