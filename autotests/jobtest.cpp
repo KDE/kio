@@ -1188,7 +1188,8 @@ void JobTest::stat()
 #if 1
     const QString filePath = homeTmpDir() + "fileFromHome";
     createTestFile(filePath);
-    KIO::StatJob *job = KIO::stat(QUrl::fromLocalFile(filePath), KIO::HideProgressInfo);
+    const QUrl url(QUrl::fromLocalFile(filePath));
+    KIO::StatJob *job = KIO::stat(url, KIO::HideProgressInfo);
     QVERIFY(job);
     bool ok = job->exec();
     QVERIFY(ok);
@@ -1197,6 +1198,20 @@ void JobTest::stat()
     QVERIFY(!entry.isDir());
     QVERIFY(!entry.isLink());
     QCOMPARE(entry.stringValue(KIO::UDSEntry::UDS_NAME), QStringLiteral("fileFromHome"));
+
+    // Compare what we get via kio_file and what we get when KFileItem stat()s directly
+    const KFileItem kioItem(entry, url);
+    const KFileItem fileItem(url);
+    QCOMPARE(kioItem.name(), fileItem.name());
+    QCOMPARE(kioItem.url(), fileItem.url());
+    QCOMPARE(kioItem.size(), fileItem.size());
+    QCOMPARE(kioItem.user(), fileItem.user());
+    QCOMPARE(kioItem.group(), fileItem.group());
+    QCOMPARE(kioItem.mimetype(), fileItem.mimetype());
+    QCOMPARE(kioItem.permissions(), fileItem.permissions());
+    QCOMPARE(kioItem.time(KFileItem::ModificationTime), fileItem.time(KFileItem::ModificationTime));
+    QCOMPARE(kioItem.time(KFileItem::AccessTime), fileItem.time(KFileItem::AccessTime));
+
 #else
     // Testing stat over HTTP
     KIO::StatJob *job = KIO::stat(QUrl("http://www.kde.org"), KIO::HideProgressInfo);
@@ -1210,6 +1225,45 @@ void JobTest::stat()
     QCOMPARE(entry.stringValue(KIO::UDSEntry::UDS_NAME), QString());
 #endif
 }
+
+#ifndef Q_OS_WIN
+void JobTest::statSymlink()
+{
+    const QString filePath = homeTmpDir() + "fileFromHome";
+    createTestFile(filePath);
+    const QString symlink = otherTmpDir() + "link";
+    QVERIFY(QFile(filePath).link(symlink));
+    QVERIFY(QFile::exists(symlink));
+    setTimeStamp(symlink, QDateTime::currentDateTime().addSecs(-20)); // differenciate link time and source file time
+
+    const QUrl url(QUrl::fromLocalFile(symlink));
+    KIO::StatJob *job = KIO::stat(url, KIO::HideProgressInfo);
+    QVERIFY(job);
+    bool ok = job->exec();
+    QVERIFY(ok);
+    // TODO set setSide, setDetails
+    const KIO::UDSEntry &entry = job->statResult();
+    QVERIFY(!entry.isDir());
+    QVERIFY(entry.isLink());
+    QCOMPARE(entry.stringValue(KIO::UDSEntry::UDS_NAME), QStringLiteral("link"));
+
+    // Compare what we get via kio_file and what we get when KFileItem stat()s directly
+    const KFileItem kioItem(entry, url);
+    const KFileItem fileItem(url);
+    QCOMPARE(kioItem.name(), fileItem.name());
+    QCOMPARE(kioItem.url(), fileItem.url());
+    QVERIFY(kioItem.isLink());
+    QVERIFY(fileItem.isLink());
+    QCOMPARE(kioItem.linkDest(), fileItem.linkDest());
+    QCOMPARE(kioItem.size(), fileItem.size());
+    QCOMPARE(kioItem.user(), fileItem.user());
+    QCOMPARE(kioItem.group(), fileItem.group());
+    QCOMPARE(kioItem.mimetype(), fileItem.mimetype());
+    QCOMPARE(kioItem.permissions(), fileItem.permissions());
+    QCOMPARE(kioItem.time(KFileItem::ModificationTime), fileItem.time(KFileItem::ModificationTime));
+    QCOMPARE(kioItem.time(KFileItem::AccessTime), fileItem.time(KFileItem::AccessTime));
+}
+#endif
 
 void JobTest::mostLocalUrl()
 {

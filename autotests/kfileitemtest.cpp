@@ -27,6 +27,7 @@
 #include <kuser.h>
 #include <kdesktopfile.h>
 #include <kconfiggroup.h>
+#include "kiotesthelper.h"
 
 #include <QMimeDatabase>
 
@@ -279,44 +280,57 @@ void KFileItemTest::testRename()
 void KFileItemTest::testRefresh()
 {
     QTemporaryDir tempDir;
+    QFileInfo dirInfo(tempDir.path());
     // Refresh on a dir
     KFileItem dirItem(QUrl::fromLocalFile(tempDir.path()));
     QVERIFY(dirItem.isDir());
     QVERIFY(dirItem.entry().isDir());
+    QCOMPARE(dirItem.time(KFileItem::ModificationTime), dirInfo.lastModified());
     dirItem.refresh();
     QVERIFY(dirItem.isDir());
     QVERIFY(dirItem.entry().isDir());
+    QCOMPARE(dirItem.time(KFileItem::ModificationTime), dirInfo.lastModified());
 
     // Refresh on a file
     QFile file(tempDir.path() + "/afile");
     QVERIFY(file.open(QIODevice::WriteOnly));
     file.write("Hello world\n");
     file.close();
+    QFileInfo fileInfo(file.fileName());
     const KIO::filesize_t expectedSize = 12;
+    QCOMPARE(KIO::filesize_t(fileInfo.size()), expectedSize);
     file.setPermissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ReadOther); // 0604
     KFileItem fileItem(QUrl::fromLocalFile(file.fileName()));
     QVERIFY(fileItem.isFile());
     QVERIFY(!fileItem.isLink());
     QCOMPARE(fileItem.size(), expectedSize);
     QCOMPARE(fileItem.user(), KUser().loginName());
+    QCOMPARE(fileItem.time(KFileItem::ModificationTime), fileInfo.lastModified());
     fileItem.refresh();
     QVERIFY(fileItem.isFile());
     QVERIFY(!fileItem.isLink());
     QCOMPARE(fileItem.size(), expectedSize);
     QCOMPARE(fileItem.user(), KUser().loginName());
+    QCOMPARE(fileItem.time(KFileItem::ModificationTime), fileInfo.lastModified());
 
     // Refresh on a symlink to a file
-    QString symlink = tempDir.path() + "/asymlink";
+    const QString symlink = tempDir.path() + "/asymlink";
     QVERIFY(file.link(symlink));
-    QUrl symlinkUrl = QUrl::fromLocalFile(symlink);
+    QDateTime symlinkTime = QDateTime::currentDateTime().addSecs(-20);
+    // we currently lose milliseconds....
+    symlinkTime = symlinkTime.addMSecs(-symlinkTime.time().msec());
+    setTimeStamp(symlink, symlinkTime); // differenciate link time and source file time
+    const QUrl symlinkUrl = QUrl::fromLocalFile(symlink);
     KFileItem symlinkItem(symlinkUrl);
     QVERIFY(symlinkItem.isFile());
     QVERIFY(symlinkItem.isLink());
     QCOMPARE(symlinkItem.size(), expectedSize);
+    QCOMPARE(symlinkItem.time(KFileItem::ModificationTime), symlinkTime);
     symlinkItem.refresh();
     QVERIFY(symlinkItem.isFile());
     QVERIFY(symlinkItem.isLink());
     QCOMPARE(symlinkItem.size(), expectedSize);
+    QCOMPARE(symlinkItem.time(KFileItem::ModificationTime), symlinkTime);
 
     // Symlink to directory (#162544)
     QVERIFY(QFile::remove(symlink));

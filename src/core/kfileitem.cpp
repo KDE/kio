@@ -172,9 +172,6 @@ public:
     // For special case like link to dirs over FTP
     QString m_guessedMimeType;
     mutable QString m_access;
-
-    enum { NumFlags = KFileItem::CreationTime + 1 };
-    mutable QDateTime m_time[3];
 };
 
 void KFileItemPrivate::init()
@@ -199,12 +196,6 @@ void KFileItemPrivate::init()
             if (QT_LSTAT(pathBA.constData(), &buf) == 0) {
                 m_entry.insert(KIO::UDSEntry::UDS_DEVICE_ID,           buf.st_dev);
                 m_entry.insert(KIO::UDSEntry::UDS_INODE,               buf.st_ino);
-                m_entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME,   buf.st_mtime);
-                m_entry.insert(KIO::UDSEntry::UDS_ACCESS_TIME,         buf.st_atime);
-#ifndef Q_OS_WIN
-                m_entry.insert(KIO::UDSEntry::UDS_USER,                KUser(buf.st_uid).loginName());
-                m_entry.insert(KIO::UDSEntry::UDS_GROUP,               KUserGroup(buf.st_gid).name());
-#endif
 
                 mode_t mode = buf.st_mode;
                 if ((buf.st_mode & QT_STAT_MASK) == QT_STAT_LNK) {
@@ -218,11 +209,12 @@ void KFileItemPrivate::init()
                 m_entry.insert(KIO::UDSEntry::UDS_SIZE,      buf.st_size);
                 m_entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, buf.st_mode & QT_STAT_MASK); // extract file type
                 m_entry.insert(KIO::UDSEntry::UDS_ACCESS,    buf.st_mode & 07777); // extract permissions
-
-                // While we're at it, store the times
-                // TODO: the array of times can be removed, we can use UDS_*_TIME everywhere
-                setTime(KFileItem::ModificationTime, buf.st_mtime);
-                setTime(KFileItem::AccessTime, buf.st_atime);
+                m_entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME,   buf.st_mtime); // TODO: we could use msecs too...
+                m_entry.insert(KIO::UDSEntry::UDS_ACCESS_TIME,         buf.st_atime);
+#ifndef Q_OS_WIN
+                m_entry.insert(KIO::UDSEntry::UDS_USER,                KUser(buf.st_uid).loginName());
+                m_entry.insert(KIO::UDSEntry::UDS_GROUP,               KUserGroup(buf.st_gid).name());
+#endif
 
                 // TODO: these can be removed, we can use UDS_FILE_TYPE and UDS_ACCESS everywhere
                 if (m_fileMode == KFileItem::Unknown) {
@@ -297,48 +289,41 @@ KIO::filesize_t KFileItemPrivate::size() const
     return 0;
 }
 
+static uint udsFieldForTime(KFileItem::FileTimes mappedWhich)
+{
+    switch (mappedWhich) {
+    case KFileItem::ModificationTime:
+        return KIO::UDSEntry::UDS_MODIFICATION_TIME;
+    case KFileItem::AccessTime:
+        return KIO::UDSEntry::UDS_ACCESS_TIME;
+    case KFileItem::CreationTime:
+        return KIO::UDSEntry::UDS_CREATION_TIME;
+    }
+    return 0;
+}
+
 void KFileItemPrivate::setTime(KFileItem::FileTimes mappedWhich, uint time_t_val) const
 {
-    setTime(mappedWhich, QDateTime::fromTime_t(time_t_val));
+    m_entry.insert(udsFieldForTime(mappedWhich), time_t_val);
 }
 
 void KFileItemPrivate::setTime(KFileItem::FileTimes mappedWhich, const QDateTime &val) const
 {
-    m_time[mappedWhich] = val.toLocalTime(); // #160979
+    const QDateTime dt = val.toLocalTime(); // #160979
+    setTime(mappedWhich, dt.toTime_t());
 }
 
 QDateTime KFileItemPrivate::time(KFileItem::FileTimes mappedWhich) const
 {
-    if (!m_time[mappedWhich].isNull()) {
-        return m_time[mappedWhich];
-    }
-
     // Extract it from the KIO::UDSEntry
-    long long fieldVal = -1;
-    switch (mappedWhich) {
-    case KFileItem::ModificationTime:
-        fieldVal = m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1);
-        break;
-    case KFileItem::AccessTime:
-        fieldVal = m_entry.numberValue(KIO::UDSEntry::UDS_ACCESS_TIME, -1);
-        break;
-    case KFileItem::CreationTime:
-        fieldVal = m_entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1);
-        break;
-    }
-    if (fieldVal != -1) {
-        setTime(mappedWhich, QDateTime::fromMSecsSinceEpoch(1000 * fieldVal));
-        return m_time[mappedWhich];
+    const uint uds = udsFieldForTime(mappedWhich);
+    if (uds > 0) {
+        const long long fieldVal = m_entry.numberValue(uds, -1);
+        if (fieldVal != -1) {
+            return QDateTime::fromMSecsSinceEpoch(1000 * fieldVal);
+        }
     }
 
-    // If not in the KIO::UDSEntry, or if UDSEntry empty, use stat() [if local URL]
-    if (m_bIsLocalUrl) {
-        QFileInfo info(localPath());
-        setTime(KFileItem::ModificationTime, info.lastModified());
-        setTime(KFileItem::AccessTime, info.lastRead());
-        setTime(KFileItem::CreationTime, info.created());
-        return m_time[mappedWhich];
-    }
     return QDateTime();
 }
 
@@ -357,7 +342,7 @@ bool KFileItemPrivate::cmp(const KFileItemPrivate &item) const
     //qDebug() << " m_bLink" << (m_bLink == item.m_bLink);
     //qDebug() << " m_hidden" << (m_hidden == item.m_hidden);
     //qDebug() << " size" << (size() == item.size());
-    //qDebug() << " ModificationTime" << (time(KFileItem::ModificationTime) == item.time(KFileItem::ModificationTime));
+    //qDebug() << " ModificationTime" << m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) << item.m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME);
     //qDebug() << " UDS_ICON_NAME" << (m_entry.stringValue( KIO::UDSEntry::UDS_ICON_NAME ) == item.m_entry.stringValue( KIO::UDSEntry::UDS_ICON_NAME ));
 #endif
     return (m_strName == item.m_strName
@@ -370,7 +355,7 @@ bool KFileItemPrivate::cmp(const KFileItemPrivate &item) const
             && m_bLink == item.m_bLink
             && m_hidden == item.m_hidden
             && size() == item.size()
-            && time(KFileItem::ModificationTime) == item.time(KFileItem::ModificationTime) // TODO only if already known!
+            && m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) == item.m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME)
             && m_entry.stringValue(KIO::UDSEntry::UDS_ICON_NAME) == item.m_entry.stringValue(KIO::UDSEntry::UDS_ICON_NAME)
            );
 
