@@ -70,7 +70,7 @@ static QDir getOrCreateCookieJarDir()
         }
     }
 
-    if (!dataDir.mkdir(QStringLiteral("kcookiejar"))) {
+    if (!dataDir.mkpath(QStringLiteral("kcookiejar"))) {
         QMessageBox::warning(Q_NULLPTR, i18n("Cannot Save Cookies"), i18n("Could not create directory %1").arg(kcookiejarDirName));
     }
 
