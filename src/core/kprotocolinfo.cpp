@@ -33,7 +33,7 @@
 //
 KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &path)
 {
-    KConfig sconfig(path);
+    KConfig sconfig(path, KConfig::SimpleConfig);
     KConfigGroup config(&sconfig, "Protocol");
 
     m_name = config.readEntry("protocol");
