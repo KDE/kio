@@ -843,6 +843,11 @@ void KNewFileMenuPrivate::_k_slotCreateHiddenDirectory()
     _k_slotCreateDirectory(true);
 }
 
+struct EntryWithName {
+    QString key;
+    KNewFileMenuSingleton::Entry entry;
+};
+
 void KNewFileMenuPrivate::_k_slotFillTemplates()
 {
     KNewFileMenuSingleton *s = kNewMenuGlobals();
@@ -885,6 +890,7 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
     }
 
     QMap<QString, KNewFileMenuSingleton::Entry> slist; // used for sorting
+    QMap<QString, EntryWithName> ulist; // entries with unique URLs
     Q_FOREACH (const QString &file, files) {
         //qDebug() << file;
         if (file[0] != '.') {
@@ -897,6 +903,7 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
             // This also sorts by user-visible name.
             // The rest of the re-ordering is done in fillMenu.
             const KDesktopFile config(file);
+            QString url = config.desktopGroup().readEntry("URL");
             QString key = config.desktopGroup().readEntry("Name");
             if (file.endsWith(QLatin1String("Directory.desktop"))) {
                 key.prepend('0');
@@ -905,8 +912,17 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
             } else {
                 key.prepend('2');
             }
-            slist.insert(key, e);
+            EntryWithName en = { key, e };
+            if (ulist.contains(url)) {
+                ulist.remove(url);
+            }
+            ulist.insert(url, en);
         }
+    }
+    QMap<QString, EntryWithName>::iterator it = ulist.begin();
+    for (; it != ulist.end(); ++it) {
+        EntryWithName ewn = *it;
+        slist.insert(ewn.key, ewn.entry);
     }
     (*s->templatesList) += slist.values();
 }
