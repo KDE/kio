@@ -534,13 +534,10 @@ KMountPoint::Ptr KMountPoint::List::findByDevice(const QString &device) const
 
 bool KMountPoint::probablySlow() const
 {
-    bool nfs = d->mountType == QLatin1String("nfs");
-    bool cifs = d->mountType == QLatin1String("cifs");
-    bool autofs = d->mountType == QLatin1String("autofs") || d->mountType == QLatin1String("subfs");
-    if (nfs || autofs || cifs) {
-        return true;
-    }
-    return false;
+    return d->mountType == QLatin1String("nfs")
+        || d->mountType == QLatin1String("cifs")
+        || d->mountType == QLatin1String("autofs")
+        || d->mountType == QLatin1String("subfs");
 }
 
 bool KMountPoint::testFileSystemFlag(FileSystemFlag flag) const
