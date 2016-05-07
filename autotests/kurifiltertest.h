@@ -27,10 +27,9 @@ class KUriFilterTest : public QObject
 {
     Q_OBJECT
 public:
-    KUriFilterTest();
 
 private Q_SLOTS:
-    void init();
+    void initTestCase();
     void noFiltering_data();
     void noFiltering();
     void localFiles_data();

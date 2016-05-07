@@ -166,7 +166,7 @@ static void testLocalFile(const QString &filename)
 
 static char s_delimiter = ':'; // the alternative is ' '
 
-KUriFilterTest::KUriFilterTest()
+void KUriFilterTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
     minicliFilters << QStringLiteral("kshorturifilter") << QStringLiteral("kurisearchfilter") << QStringLiteral("localdomainurifilter");
@@ -175,11 +175,7 @@ KUriFilterTest::KUriFilterTest()
     qputenv("DATAHOME", QFile::encodeName(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)));
     datahome = qgetenv("DATAHOME");
     qDebug() << "libpaths" << QCoreApplication::libraryPaths();
-}
 
-void KUriFilterTest::init()
-{
-    qDebug();
     qputenv("KDE_FORK_SLAVES", "yes");   // simpler, for the final cleanup
 
     // Allow testing of the search engine using both delimiters...
