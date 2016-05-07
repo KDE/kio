@@ -85,7 +85,7 @@ void KUrlNavigatorToggleButton::paintEvent(QPaintEvent *event)
 
         const int verticalGap = 4;
         const int caretWidth = 2;
-        const int x = (layoutDirection() == Qt::LeftToRight) ? 0 : width() - caretWidth;
+        const int x = (layoutDirection() == Qt::LeftToRight) ? 0 : buttonWidth - caretWidth;
         painter.drawRect(x, verticalGap, caretWidth, buttonHeight - 2 * verticalGap);
     }
 }
