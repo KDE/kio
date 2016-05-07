@@ -199,8 +199,14 @@ void KUriFilterTest::init()
         cfg.sync();
     }
 
-    // Enable verbosity for debugging
+    // Copy kshorturifilterrc from the src dir so we don't depend on make install / env vars.
     {
+        const QString rcFile = QFINDTESTDATA("../src/urifilters/shorturi/kshorturifilterrc");
+        QVERIFY(!rcFile.isEmpty());
+        const QString localFile = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + "/kshorturifilterrc";
+        QFile::remove(localFile);
+        QVERIFY(QFile(rcFile).copy(localFile));
+        // Enable verbosity for debugging
         KSharedConfig::openConfig(QStringLiteral("kshorturifilterrc"), KConfig::SimpleConfig)->group(QString()).writeEntry("Verbose", true);
     }
 
