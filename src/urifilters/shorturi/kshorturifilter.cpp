@@ -39,7 +39,7 @@
 #include <kuser.h>
 
 namespace {
-QLoggingCategory category("org.kde.kurifilter-shorturi");
+QLoggingCategory category("org.kde.kurifilter-shorturi", QtWarningMsg);
 }
 
 /**
@@ -86,7 +86,7 @@ static QString removeArgs( const QString& _cmd )
     if( spacePos > 0 )
     {
       cmd = cmd.left( spacePos );
-      //qCDebug(category) << "spacePos=" << spacePos << " returning " << cmd;
+      qCDebug(category) << "spacePos=" << spacePos << " returning " << cmd;
     }
   }
 
@@ -168,7 +168,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
     protocol.clear();
   }
 
-  //qCDebug(category) << "url=" << url << "cmd=" << cmd << "isMalformed=" << isMalformed;
+  qCDebug(category) << "url=" << url << "cmd=" << cmd << "isMalformed=" << isMalformed;
 
   // TODO: Make this a bit more intelligent for Minicli! There
   // is no need to make comparisons if the supplied data is a local
@@ -224,11 +224,11 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
 
   if (QDir::isRelativePath(cmd) && QUrl(cmd).isRelative()) {
      path = cmd;
-     //qCDebug(category) << "path=cmd=" << path;
+     qCDebug(category) << "path=cmd=" << path;
   } else {
     if (url.isLocalFile())
     {
-      //qCDebug(category) << "hasRef=" << url.hasFragment();
+      qCDebug(category) << "hasRef=" << url.hasFragment();
       // Split path from ref/query
       // but not for "/tmp/a#b", if "a#b" is an existing file,
       // or for "/tmp/a?b" (#58990)
@@ -237,7 +237,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
       {
         path = url.path();
         ref = url.fragment();
-        //qCDebug(category) << "isLocalFile set path to" << path << "and ref to" << ref;
+        qCDebug(category) << "isLocalFile set path to" << path << "and ref to" << ref;
         query = url.query();
         if (path.isEmpty() && !url.host().isEmpty())
           path = '/';
@@ -311,7 +311,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
       {
         ref = path.mid( pos + 1 );
         path = newPath;
-        //qCDebug(category) << "Extracted ref: path=" << path << " ref=" << ref;
+        qCDebug(category) << "Extracted ref: path=" << path << " ref=" << ref;
       }
     }
   }
@@ -343,9 +343,9 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
     int len = path.length();
     if( (len==1 && path[0]=='.') || (len==2 && path[0]=='.' && path[1]=='.') )
         path += '/';
-    //qCDebug(category) << "adding " << abs << " and " << path;
+    qCDebug(category) << "adding " << abs << " and " << path;
     abs = QDir::cleanPath(abs + '/' + path);
-    //qCDebug(category) << "checking whether " << abs << " exists.";
+    qCDebug(category) << "checking whether " << abs << " exists.";
     // Check if it exists
     if(QT_STAT(QFile::encodeName(abs), &buff) == 0) {
       path = abs; // yes -> store as the new cmd
@@ -368,7 +368,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
         if ((fileName.indexOf('*') != -1 || fileName.indexOf('[') != -1 || fileName.indexOf( '?' ) != -1)
                 && QT_STAT(QFile::encodeName(testPath), &buff) == 0) {
           nameFilter = fileName;
-          //qCDebug(category) << "Setting nameFilter to" << nameFilter << "and path to" << testPath;
+          qCDebug(category) << "Setting nameFilter to" << nameFilter << "and path to" << testPath;
           path = testPath;
           exists = true;
         }
@@ -380,7 +380,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   if( exists )
   {
     QUrl u = QUrl::fromLocalFile(path);
-    //qCDebug(category) << "ref=" << ref << "query=" << query;
+    qCDebug(category) << "ref=" << ref << "query=" << query;
     u.setFragment(ref);
     u.setQuery(query);
 
@@ -397,7 +397,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
     bool isDir = ((buff.st_mode & QT_STAT_MASK) == QT_STAT_DIR);
     if( !isDir && access ( QFile::encodeName(path).data(), X_OK) == 0 )
     {
-      //qCDebug(category) << "Abs path to EXECUTABLE";
+      qCDebug(category) << "Abs path to EXECUTABLE";
       setFilteredUri( data, u );
       setUriType( data, KUriFilterData::Executable );
       return true;
@@ -406,7 +406,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
     // Open "uri" as file:/xxx if it is a non-executable local resource.
     if( isDir || (( buff.st_mode & QT_STAT_MASK ) == QT_STAT_REG) )
     {
-      //qCDebug(category) << "Abs path as local file or directory";
+      qCDebug(category) << "Abs path as local file or directory";
       if ( !nameFilter.isEmpty() )
         u.setPath( u.path() + '/' + nameFilter );
       setFilteredUri( data, u );
@@ -425,11 +425,11 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
     // We try hard to avoid parsing any possible command
     // line arguments or options that might have been supplied.
     QString exe = removeArgs( cmd );
-    //qCDebug(category) << "findExe with" << exe;
+    qCDebug(category) << "findExe with" << exe;
 
     if (!QStandardPaths::findExecutable( exe ).isNull() )
     {
-      //qCDebug(category) << "EXECUTABLE  exe=" << exe;
+      qCDebug(category) << "EXECUTABLE  exe=" << exe;
       setFilteredUri( data, QUrl::fromLocalFile( exe ));
       // check if we have command line arguments
       if( exe != cmd )
@@ -444,7 +444,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   // slow things down...
   if ( !isMalformed && !isLocalFullPath && !protocol.isEmpty() )
   {
-    //qCDebug(category) << "looking for protocol " << protocol;
+    qCDebug(category) << "looking for protocol " << protocol;
     if (isKnownProtocol(protocol))
     {
       setFilteredUri( data, url );
@@ -464,12 +464,12 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
     // TODO: Make configurable at some point...
     Q_FOREACH(const URLHint& hint, m_urlHints)
     {
+      qCDebug(category) << "testing regexp for" << hint.prepend;
       if (hint.regexp.indexIn(cmd) == 0)
       {
-        //qCDebug(category) << "match - prepending" << hint.prepend;
         const QString cmdStr = hint.prepend + cmd;
         QUrl url(cmdStr);
-        //qCDebug(category) << "match - prepending" << hint.prepend << "->" << cmdStr << "->" << url;
+        qCDebug(category) << "match - prepending" << hint.prepend << "->" << cmdStr << "->" << url;
         if (isKnownProtocol(url.scheme())) {
           setFilteredUri( data, url );
           setUriType( data, hint.type );
@@ -524,7 +524,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
       setUriType( data, KUriFilterData::LocalFile );
       return true;
     }
-    //qCDebug(category) << "fileNotFound -> ERROR";
+    qCDebug(category) << "fileNotFound -> ERROR";
     setErrorMsg( data, i18n( "<qt>The file or folder <b>%1</b> does not exist.</qt>", data.uri().toDisplayString() ) );
     setUriType( data, KUriFilterData::Error );
     return true;
@@ -554,6 +554,9 @@ void KShortUriFilter::configure()
   m_strDefaultUrlScheme = cg.readEntry( "DefaultProtocol", QStringLiteral("http://") );
   const EntryMap patterns = config.entryMap( QStringLiteral("Pattern") );
   const EntryMap protocols = config.entryMap( QStringLiteral("Protocol") );
+  if (cg.readEntry("Verbose", false)) {
+      category.setEnabled(QtDebugMsg, true);
+  }
   KConfigGroup typeGroup(&config, "Type");
 
   for( EntryMap::ConstIterator it = patterns.begin(); it != patterns.end(); ++it )
