@@ -82,6 +82,8 @@ void FavIconTest::initTestCase()
     qputenv("KDE_FORK_SLAVES", "yes");
     // To let ctest exist, we shouldn't start kio_http_cache_cleaner
     qputenv("KIO_DISABLE_CACHE_CLEANER", "yes");
+    // To get KJob::errorString() in English
+    qputenv("LC_ALL", "en_US.UTF-8");
 
     if (!checkNetworkAccess()) {
         QSKIP("no network access", SkipAll);
