@@ -288,9 +288,7 @@ void KUriFilterTest::shortUris_data()
     addRow("ftp://ftp.kde.org", QStringLiteral("ftp://ftp.kde.org"), KUriFilterData::NetProtocol);
     addRow("ftp://username@ftp.kde.org:500", QStringLiteral("ftp://username@ftp.kde.org:500"), KUriFilterData::NetProtocol);
 
-    // ShortURI/LocalDomain filter tests. NOTE: any of these tests can fail
-    // if you have specified your own patterns in kshorturifilterrc. For
-    // examples, see $KDEDIR/share/config/kshorturifilterrc .
+    // ShortURI/LocalDomain filter tests.
     addRow("linuxtoday.com", QStringLiteral("http://linuxtoday.com"), KUriFilterData::NetProtocol);
     addRow("LINUXTODAY.COM", QStringLiteral("http://linuxtoday.com"), KUriFilterData::NetProtocol);
     addRow("kde.org", QStringLiteral("http://kde.org"), KUriFilterData::NetProtocol);
@@ -298,7 +296,8 @@ void KUriFilterTest::shortUris_data()
     addRow("ftp.kde.org:21", QStringLiteral("ftp://ftp.kde.org:21"), KUriFilterData::NetProtocol);
     addRow("cr.yp.to", QStringLiteral("http://cr.yp.to"), KUriFilterData::NetProtocol);
     addRow("www.kde.org:21", QStringLiteral("http://www.kde.org:21"), KUriFilterData::NetProtocol);
-    addRow("foobar.local:8000", QStringLiteral("http://foobar.local:8000"), KUriFilterData::NetProtocol);
+    // This one passes but the DNS lookup takes 5 seconds to fail
+    //addRow("foobar.local:8000", QStringLiteral("http://foobar.local:8000"), KUriFilterData::NetProtocol);
     addRow("foo@bar.com", QStringLiteral("mailto:foo@bar.com"), KUriFilterData::NetProtocol);
     addRow("firstname.lastname@x.foo.bar", QStringLiteral("mailto:firstname.lastname@x.foo.bar"), KUriFilterData::NetProtocol);
     addRow("www.123.foo", QStringLiteral("http://www.123.foo"), KUriFilterData::NetProtocol);
