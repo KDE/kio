@@ -56,6 +56,7 @@ Q_DECLARE_METATYPE(KFileItemList)
 
 void KDirModelTest::initTestCase()
 {
+    qputenv("LC_ALL", "en_US.UTF-8");
     // To avoid a runtime dependency on klauncher
     qputenv("KDE_FORK_SLAVES", "yes");
 
