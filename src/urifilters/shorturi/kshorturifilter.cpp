@@ -470,11 +470,9 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
         const QString cmdStr = hint.prepend + cmd;
         QUrl url(cmdStr);
         qCDebug(category) << "match - prepending" << hint.prepend << "->" << cmdStr << "->" << url;
-        if (isKnownProtocol(url.scheme())) {
-          setFilteredUri( data, url );
-          setUriType( data, hint.type );
-          return true;
-        }
+        setFilteredUri( data, url );
+        setUriType( data, hint.type );
+        return true;
       }
     }
 
