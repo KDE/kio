@@ -254,7 +254,9 @@ void FavIconTest::simultaneousRequestsShouldWork()
 
     // This is a case we could maybe optimize: not downloading twice in parallel
     KIO::FavIconRequestJob *job1 = new KIO::FavIconRequestJob(url);
+    job1->setAutoDelete(false);
     KIO::FavIconRequestJob *job2 = new KIO::FavIconRequestJob(url);
+    job2->setAutoDelete(false);
     QVERIFY(willDownload(job1));
     QVERIFY(willDownload(job2));
 
@@ -263,6 +265,9 @@ void FavIconTest::simultaneousRequestsShouldWork()
 
     QVERIFY(job2->exec());
     QCOMPARE(job2->iconFile(), iconFile);
+
+    delete job1;
+    delete job2;
 }
 
 static QString getAltIconUrl()
