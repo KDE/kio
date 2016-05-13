@@ -1215,7 +1215,16 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     qreal progress = ((opt.state & QStyle::State_MouseOver) &&
                       index.column() == KDirModel::Name) ? 1.0 : 0.0;
     const QPoint iconPos   = d->iconPosition(opt);
-    QIcon::Mode iconMode   = option.state & QStyle::State_Enabled ? QIcon::Normal : QIcon::Disabled;
+    QIcon::Mode iconMode;
+
+    if (!(option.state & QStyle::State_Enabled)) {
+        iconMode = QIcon::Disabled;
+    } else if ((option.state & QStyle::State_Selected) && (option.state & QStyle::State_Active)) {
+        iconMode = QIcon::Selected;
+    } else {
+        iconMode = QIcon::Normal;
+    }
+
     QIcon::State iconState = option.state & QStyle::State_Open ? QIcon::On : QIcon::Off;
     QPixmap icon           = opt.icon.pixmap(opt.decorationSize, iconMode, iconState);
 

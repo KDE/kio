@@ -154,7 +154,7 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     bool isLTR = option.direction == Qt::LeftToRight;
 
     QIcon icon = index.model()->data(index, Qt::DecorationRole).value<QIcon>();
-    QPixmap pm = icon.pixmap(m_iconSize, m_iconSize);
+    QPixmap pm = icon.pixmap(m_iconSize, m_iconSize, (option.state & QStyle::State_Selected) && (option.state & QStyle::State_Active) ? QIcon::Selected : QIcon::Normal);
     QPoint point(isLTR ? option.rect.left() + LATERAL_MARGIN
                  : option.rect.right() - LATERAL_MARGIN - m_iconSize, option.rect.top() + (option.rect.height() - m_iconSize) / 2);
     painter->drawPixmap(point, pm);
