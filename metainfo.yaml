@@ -22,3 +22,7 @@ libraries:
  - qmake: KNTLM
    cmake: "KF5::KIONTLM"
 cmakename: KF5KIO
+
+public_lib: true
+group: Frameworks
+subgroup: Tier 3
