@@ -355,6 +355,16 @@ QStringList KProtocolInfo::capabilities(const QString &_protocol)
     return prot->m_capabilities;
 }
 
+QStringList KProtocolInfo::archiveMimetypes(const QString &protocol)
+{
+    KProtocolInfoPrivate *prot = KProtocolInfoFactory::self()->findProtocol(protocol);
+    if (!prot) {
+        return QStringList();
+    }
+
+    return prot->m_archiveMimeTypes;
+}
+
 QStringList KProtocolInfo::slaveHandlesNotify(const QString &_protocol)
 {
     KProtocolInfoPrivate *prot = KProtocolInfoFactory::self()->findProtocol(_protocol);

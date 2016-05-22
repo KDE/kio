@@ -289,6 +289,18 @@ public:
     static QStringList capabilities(const QString &protocol);
 
     /**
+     * Returns the list of archive mimetypes handled by the kioslave implementing
+     * this protocol.
+     *
+     * This corresponds to the "archiveMimetype=" field in the protocol description file.
+     *
+     * @param protocol the protocol to check
+     * @return the list of archive mimetypes (e.g. application/x-zip) handled.
+     * @since 5.23
+     */
+    static QStringList archiveMimetypes(const QString &protocol);
+
+    /**
      * Returns the list of notification types the kioslave implementing this
      * protocol will produce on its own, making it unnecessary for job
      * implementations to do so. An example would be returning "Rename"
