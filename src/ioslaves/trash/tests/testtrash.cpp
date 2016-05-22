@@ -82,8 +82,8 @@ QString TestTrash::readOnlyDirPath() const
 
 QString TestTrash::otherTmpDir() const
 {
-    // This one needs to be on another partition
-    return QStringLiteral("/tmp/testtrash/");
+    // This one needs to be on another partition for the test to be meaningful
+    return m_tempDir.path() + QLatin1Char('/');
 }
 
 QString TestTrash::utf8FileName() const
@@ -136,6 +136,8 @@ void TestTrash::initTestCase()
     qputenv("KDE_FORK_SLAVES", "yes");
 
     QStandardPaths::setTestModeEnabled(true);
+
+    QVERIFY(m_tempDir.isValid());
 
     m_trashDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/Trash");
     qDebug() << "setup: using trash directory " << m_trashDir;
@@ -200,17 +202,13 @@ void TestTrash::initTestCase()
     // Start with a clean base dir
     qDebug() << "initial cleanup";
     removeDirRecursive(homeTmpDir());
-    removeDirRecursive(otherTmpDir());
 
     QDir dir; // TT: why not a static method?
     bool ok = dir.mkdir(homeTmpDir());
     if (!ok) {
         qFatal("Couldn't create directory: %s", qPrintable(homeTmpDir()));
     }
-    ok = dir.mkdir(otherTmpDir());
-    if (!ok) {
-        qFatal("Couldn't create directory: %s", qPrintable(otherTmpDir()));
-    }
+    QVERIFY(QFileInfo(otherTmpDir()).isDir());
 
     // Start with a clean trash too
     qDebug() << "removing trash dir";

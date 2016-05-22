@@ -21,6 +21,7 @@
 #define TESTTRASH_H
 
 #include <QObject>
+#include <QTemporaryDir>
 
 #include <KIO/Job>
 
@@ -123,6 +124,8 @@ private:
     int m_entryCount;
     QStringList m_listResult;
     QStringList m_displayNameListResult;
+
+    QTemporaryDir m_tempDir;
 };
 
 #endif
