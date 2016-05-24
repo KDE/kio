@@ -864,9 +864,10 @@ void KRun::KRunPrivate::init(const QUrl &url, QWidget *window,
 void KRun::init()
 {
     //qDebug() << "INIT called";
-    if (!d->m_strURL.isValid()) {
-        handleInitError(KIO::ERR_MALFORMED_URL, i18n("Malformed URL\n%1", d->m_strURL.errorString()));
-        qWarning() << d->m_strURL.errorString();
+    if (!d->m_strURL.isValid() || d->m_strURL.scheme().isEmpty()) {
+        const QString error = !d->m_strURL.isValid() ? d->m_strURL.errorString() : d->m_strURL.toString();
+        handleInitError(KIO::ERR_MALFORMED_URL, i18n("Malformed URL\n%1", error));
+        qWarning() << "Malformed URL:" << error;
         d->m_bFault = true;
         d->m_bFinished = true;
         d->startTimer();
