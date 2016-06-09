@@ -39,6 +39,7 @@ KUrlNavigatorButtonBase::KUrlNavigatorButtonBase(QWidget *parent) :
     setFocusPolicy(Qt::TabFocus);
     setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
     setMinimumHeight(parent->minimumHeight());
+    setAttribute(Qt::WA_LayoutUsesWidgetRect);
 
     connect(this, SIGNAL(pressed()), parent, SLOT(requestActivation()));
 }
