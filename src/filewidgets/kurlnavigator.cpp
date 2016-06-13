@@ -744,23 +744,23 @@ QUrl KUrlNavigator::Private::buttonUrl(int index) const
     // Keep scheme, hostname etc. as this is needed for e. g. browsing
     // FTP directories
     QUrl url = q->locationUrl();
-    QString pathOrUrl = url.path();
+    QString path = url.path();
 
-    if (!pathOrUrl.isEmpty()) {
+    if (!path.isEmpty()) {
         if (index == 0) {
             // prevent the last "/" from being stripped
             // or we end up with an empty path
 #ifdef Q_OS_WIN
-            pathOrUrl = pathOrUrl.length() > 1 ? pathOrUrl.left(2) : QDir::rootPath();
+            path = path.length() > 1 ? path.left(2) : QDir::rootPath();
 #else
-            pathOrUrl = QStringLiteral("/");
+            path = QStringLiteral("/");
 #endif
         } else {
-            pathOrUrl = pathOrUrl.section('/', 0, index);
+            path = path.section('/', 0, index);
         }
     }
 
-    url.setPath(pathOrUrl);
+    url.setPath(path);
     return url;
 }
 
