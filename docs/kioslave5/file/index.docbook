@@ -15,11 +15,11 @@
 </articleinfo>
 
 <para>
-The <emphasis>file</emphasis> protocol is used by all &kde; applications to 
+The <emphasis>file</emphasis> protocol is used by all &kde; applications to
 display locally available files.
 </para>
 <para>
-Entering 
+Entering
 <userinput><command>file:/directoryname</command></userinput> in &konqueror; 
  lists the files of this folder.
 </para>
