@@ -105,10 +105,10 @@ KFilePlacesModel::KFilePlacesModel(QObject *parent)
         // (coles, 13th May 2009)
 
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              QStringLiteral("Home"), I18N_NOOP2("KFile System Bookmarks", QStringLiteral("Home")),
+                                              QStringLiteral("Home"), I18N_NOOP2("KFile System Bookmarks", "Home"),
                                               QUrl::fromLocalFile(QDir::homePath()), QStringLiteral("user-home"));
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              QStringLiteral("Network"), I18N_NOOP2("KFile System Bookmarks", QStringLiteral("Network")),
+                                              QStringLiteral("Network"), I18N_NOOP2("KFile System Bookmarks", "Network"),
                                               QUrl(QStringLiteral("remote:/")), QStringLiteral("network-workgroup"));
 #if defined(_WIN32_WCE)
         // adding drives
@@ -120,11 +120,11 @@ KFilePlacesModel::KFilePlacesModel(QObject *parent)
         }
 #elif !defined(Q_OS_WIN)
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              QStringLiteral("Root"), I18N_NOOP2("KFile System Bookmarks", QStringLiteral("Root")),
+                                              QStringLiteral("Root"), I18N_NOOP2("KFile System Bookmarks", "Root"),
                                               QUrl::fromLocalFile(QStringLiteral("/")), QStringLiteral("folder-red"));
 #endif
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              QStringLiteral("Trash"), I18N_NOOP2("KFile System Bookmarks", QStringLiteral("Trash")),
+                                              QStringLiteral("Trash"), I18N_NOOP2("KFile System Bookmarks", "Trash"),
                                               QUrl(QStringLiteral("trash:/")), QStringLiteral("user-trash"));
 
         // Force bookmarks to be saved. If on open/save dialog and the bookmarks are not saved, QFile::exists
