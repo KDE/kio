@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<title>#827305 - kio: extra web shortcuts - Debian Bug report logs</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<link rel="stylesheet" href="/css/bugs.css" type="text/css">
+
+<script type="text/javascript">
+<!--
+function toggle_infmessages()
+{
+        allDivs=document.getElementsByTagName("div");
+        for (var i = 0 ; i < allDivs.length ; i++ )
+        {
+                if (allDivs[i].className == "infmessage")
+                {
+                        allDivs[i].style.display=(allDivs[i].style.display == 'none' | allDivs[i].style.display == '') ? 'block' : 'none';
+                }
+        }
+}
+-->
+</script>
+</head>
+<body>
+<h1>Debian Bug report logs - 
+<a href="mailto:827305@bugs.debian.org">#827305</a><br/>
+kio: extra web shortcuts</h1>
+<div class="versiongraph"><a href="version.cgi?collapse=1;found=kio%2F5.22.0-1;absolute=0;info=1;package=kio"><img alt="version graph" src="version.cgi?found=kio%2F5.22.0-1;collapse=1;height=2;width=2;package=kio;absolute=0"></a></div>
+<div class="pkginfo">
+  <p>Package:
+     <a class="submitter" href="pkgreport.cgi?package=kio">kio</a>;
+Maintainer for <a href="pkgreport.cgi?package=kio">kio</a> is <a href="pkgreport.cgi?maint=debian-qt-kde%40lists.debian.org">Debian/Kubuntu Qt/KDE Maintainers &lt;debian-qt-kde@lists.debian.org&gt;</a>; Source for <a href="pkgreport.cgi?package=kio">kio</a> is <a href="pkgreport.cgi?src=kio">src:kio</a>. </p>
+
+</div>
+
+<div class="buginfo">
+  <p>Reported by: <a href="pkgreport.cgi?submitter=tiposchi%40tiscali.it">Salvatore Tomaselli &lt;tiposchi@tiscali.it&gt;</a></p>
+  <p>Date: Tue, 14 Jun 2016 19:24:13 UTC</p>
+
+<p>Severity: wishlist</p>
+<p></p>
+
+<p>Found in version kio/5.22.0-1</p>
+
+
+
+</div>
+
+<p><a href="mailto:827305@bugs.debian.org">Reply</a> or <a href="mailto:827305-subscribe@bugs.debian.org">subscribe</a> to this bug.</p>
+<p><a href="javascript:toggle_infmessages();">Toggle useless messages</a></p><div class="msgreceived"><p>View this report as an <a href="bugreport.cgi?bug=827305;mbox=yes">mbox folder</a>, <a href="bugreport.cgi?bug=827305;mbox=yes;mboxstatus=yes">status mbox</a>, <a href="bugreport.cgi?bug=827305;mbox=yes;mboxmaint=yes">maintainer mbox</a></p></div>
+
+<div class="infmessage"><hr>
+<a name="1"></a>
+<!-- request_addr: debian-bugs-dist@lists.debian.org, Debian/Kubuntu Qt/KDE Maintainers &lt;debian-qt-kde@lists.debian.org&gt; -->
+<!-- time:1465932256 -->
+<strong>Report forwarded</strong>
+to <code>debian-bugs-dist@lists.debian.org, Debian/Kubuntu Qt/KDE Maintainers &lt;debian-qt-kde@lists.debian.org&gt;</code>:<br>
+<code>Bug#827305</code>; Package <code>kio</code>.
+ (Tue, 14 Jun 2016 19:24:16 GMT) <a href="bugreport.cgi?bug=827305;msg=2">Full text</a> and <a href="bugreport.cgi?bug=827305;mbox=yes;msg=2">rfc822 format</a> available.</div>
+
+<div class="infmessage"><hr>
+<a name="3"></a>
+<!-- request_addr: Salvatore Tomaselli &lt;tiposchi@tiscali.it&gt; -->
+<!-- time:1465932256 -->
+<strong>Acknowledgement sent</strong>
+to <code>Salvatore Tomaselli &lt;tiposchi@tiscali.it&gt;</code>:<br>
+New Bug report received and forwarded.  Copy sent to <code>Debian/Kubuntu Qt/KDE Maintainers &lt;debian-qt-kde@lists.debian.org&gt;</code>.
+ (Tue, 14 Jun 2016 19:24:16 GMT) <a href="bugreport.cgi?bug=827305;msg=4">Full text</a> and <a href="bugreport.cgi?bug=827305;mbox=yes;msg=4">rfc822 format</a> available.</div>
+
+<hr><p class="msgreceived"><a name="5"></a><a name="msg5"></a><a href="#5">Message #5</a> received at submit@bugs.debian.org (<a href="bugreport.cgi?bug=827305;msg=5">full text</a>, <a href="bugreport.cgi?bug=827305;mbox=yes;msg=5">mbox</a>, <a href="mailto:827305@bugs.debian.org?In-Reply-To=%3C146593217445.23976.10508479037352969607.reportbug%40hal9000%3E&amp;References=%3C146593217445.23976.10508479037352969607.reportbug%40hal9000%3E&amp;body=On%20Tue%2C%2014%20Jun%202016%2021%3A22%3A54%20%2B0200%20Salvatore%20Tomaselli%20%3Ctiposchi%40tiscali.it%3E%20wrote%3A%0A%3E%20Package%3A%20kio%0A%3E%20Version%3A%205.22.0-1%0A%3E%20Severity%3A%20wishlist%0A%3E%20%0A%3E%20Dear%20Maintainer%2C%0A%3E%20I%20am%20attaching%20two%20extra%20search%20shortcuts%20that%20I%20made.%20Feel%20free%20to%20improve%0A%3E%20them.%0A%3E%20%0A%3E%20I%20would%20be%20glad%20if%20they%20could%20be%20included%20in%20future%20releases.%0A%3E%20%0A%3E%20Best%0A%3E%20%0A%3E%20--%20System%20Information%3A%0A%3E%20Debian%20Release%3A%20stretch%2Fsid%0A%3E%20%20%20APT%20prefers%20unstable%0A%3E%20%20%20APT%20policy%3A%20%28500%2C%20%27unstable%27%29%0A%3E%20Architecture%3A%20amd64%20%28x86_64%29%0A%3E%20Foreign%20Architectures%3A%20i386%0A%3E%20%0A%3E%20Kernel%3A%20Linux%204.6.1a%20%28SMP%20w%2F4%20CPU%20cores%3B%20PREEMPT%29%0A%3E%20Locale%3A%20LANG%3Dit_IT.UTF-8%2C%20LC_CTYPE%3Dit_IT.UTF-8%20%28charmap%3DUTF-8%29%0A%3E%20Shell%3A%20%2Fbin%2Fsh%20linked%20to%20%2Fbin%2Fdash%0A%3E%20Init%3A%20systemd%20%28via%20%2Frun%2Fsystemd%2Fsystem%29%0A%3E%20%0A%3E%20Versions%20of%20packages%20kio%20depends%20on%3A%0A%3E%20ii%20%20libacl1%20%20%20%20%20%20%20%20%20%20%20%20%20%20%202.2.52-3%0A%3E%20ii%20%20libc6%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%202.22-11%0A%3E%20ii%20%20libgcc1%20%20%20%20%20%20%20%20%20%20%20%20%20%20%201%3A6.1.1-6%0A%3E%20ii%20%20libgssapi-krb5-2%20%20%20%20%20%201.14.2%2Bdfsg-1%0A%3E%20ii%20%20libkf5archive5%20%20%20%20%20%20%20%205.22.0-1%0A%3E%20ii%20%20libkf5codecs5%20%20%20%20%20%20%20%20%205.22.0-1%0A%3E%20ii%20%20libkf5completion5%20%20%20%20%205.22.0-1%0A%3E%20ii%20%20libkf5configcore5%20%20%20%20%205.22.0-1%0A%3E%20ii%20%20libkf5configwidgets5%20%205.22.0-1%0A%3E%20ii%20%20libkf5coreaddons5%20%20%20%20%205.22.0-1%0A%3E%20ii%20%20libkf5dbusaddons5%20%20%20%20%205.22.0-1%0A%3E%20ii%20%20libkf5i18n5%20%20%20%20%20%20%20%20%20%20%205.22.1-1%0A%3E%20ii%20%20libkf5itemviews5%20%20%20%20%20%205.22.0-1%0A%3E%20ii%20%20libkf5kiocore5%20%20%20%20%20%20%20%205.22.0-1%0A%3E%20ii%20%20libkf5kiontlm5%20%20%20%20%20%20%20%205.22.0-1%0A%3E%20ii%20%20libkf5kiowidgets5%20%20%20%20%205.22.0-1%0A%3E%20ii%20%20libkf5notifications5%20%205.22.0-1%0A%3E%20ii%20%20libkf5service-bin%20%20%20%20%205.22.0-1%0A%3E%20ii%20%20libkf5service5%20%20%20%20%20%20%20%205.22.0-1%0A%3E%20ii%20%20libkf5solid5%20%20%20%20%20%20%20%20%20%205.22.0-1%0A%3E%20ii%20%20libkf5textwidgets5%20%20%20%205.22.0-1%0A%3E%20ii%20%20libkf5wallet-bin%20%20%20%20%20%205.22.0-1%0A%3E%20ii%20%20libkf5wallet5%20%20%20%20%20%20%20%20%205.22.0-1%0A%3E%20ii%20%20libkf5widgetsaddons5%20%205.22.0-1%0A%3E%20ii%20%20libkf5windowsystem5%20%20%205.22.0-1%0A%3E%20ii%20%20libqt5core5a%20%20%20%20%20%20%20%20%20%205.5.1%2Bdfsg-17%0A%3E%20ii%20%20libqt5dbus5%20%20%20%20%20%20%20%20%20%20%205.5.1%2Bdfsg-17%0A%3E%20ii%20%20libqt5gui5%20%20%20%20%20%20%20%20%20%20%20%205.5.1%2Bdfsg-17%0A%3E%20ii%20%20libqt5network5%20%20%20%20%20%20%20%205.5.1%2Bdfsg-17%0A%3E%20ii%20%20libqt5script5%20%20%20%20%20%20%20%20%205.5.1%2Bdfsg-2%0A%3E%20ii%20%20libqt5widgets5%20%20%20%20%20%20%20%205.5.1%2Bdfsg-17%0A%3E%20ii%20%20libqt5x11extras5%20%20%20%20%20%205.5.1-3%0A%3E%20ii%20%20libqt5xml5%20%20%20%20%20%20%20%20%20%20%20%205.5.1%2Bdfsg-17%0A%3E%20ii%20%20libstdc%2B%2B6%20%20%20%20%20%20%20%20%20%20%20%206.1.1-6%0A%3E%20ii%20%20libxml2%20%20%20%20%20%20%20%20%20%20%20%20%20%20%202.9.3%2Bdfsg1-1.2%0A&amp;subject=Re%3A%20kio%3A%20extra%20web%20shortcuts">reply</a>):</p>
+<div class="headers">
+<img src="/cgi-bin/libravatar.cgi?email=tiposchi%40tiscali.it" alt="">
+<div class="header"><span class="headerfield">From:</span> Salvatore Tomaselli &lt;tiposchi@tiscali.it&gt;</div>
+<div class="header"><span class="headerfield">To:</span> Debian Bug Tracking System &lt;submit@bugs.debian.org&gt;</div>
+<div class="header"><span class="headerfield">Subject:</span> kio: extra web shortcuts</div>
+<div class="header"><span class="headerfield">Date:</span> Tue, 14 Jun 2016 21:22:54 +0200</div>
+</div>
+<pre class="mime">[<a href="bugreport.cgi?att=0;bug=827305;msg=5">Message part 1</a> (text/plain, inline)]</pre>
+<pre class="message">Package: kio
+Version: 5.22.0-1
+Severity: wishlist
+
+Dear Maintainer,
+I am attaching two extra search shortcuts that I made. Feel free to improve
+them.
+
+I would be glad if they could be included in future releases.
+
+Best
+
+-- System Information:
+Debian Release: stretch/sid
+  APT prefers unstable
+  APT policy: (500, &#39;unstable&#39;)
+Architecture: amd64 (x86_64)
+Foreign Architectures: i386
+
+Kernel: Linux 4.6.1a (SMP w/4 CPU cores; PREEMPT)
+Locale: LANG=it_IT.UTF-8, LC_CTYPE=it_IT.UTF-8 (charmap=UTF-8)
+Shell: /bin/sh linked to /bin/dash
+Init: systemd (via /run/systemd/system)
+
+Versions of packages kio depends on:
+ii  libacl1               2.2.52-3
+ii  libc6                 2.22-11
+ii  libgcc1               1:6.1.1-6
+ii  libgssapi-krb5-2      1.14.2+dfsg-1
+ii  libkf5archive5        5.22.0-1
+ii  libkf5codecs5         5.22.0-1
+ii  libkf5completion5     5.22.0-1
+ii  libkf5configcore5     5.22.0-1
+ii  libkf5configwidgets5  5.22.0-1
+ii  libkf5coreaddons5     5.22.0-1
+ii  libkf5dbusaddons5     5.22.0-1
+ii  libkf5i18n5           5.22.1-1
+ii  libkf5itemviews5      5.22.0-1
+ii  libkf5kiocore5        5.22.0-1
+ii  libkf5kiontlm5        5.22.0-1
+ii  libkf5kiowidgets5     5.22.0-1
+ii  libkf5notifications5  5.22.0-1
+ii  libkf5service-bin     5.22.0-1
+ii  libkf5service5        5.22.0-1
+ii  libkf5solid5          5.22.0-1
+ii  libkf5textwidgets5    5.22.0-1
+ii  libkf5wallet-bin      5.22.0-1
+ii  libkf5wallet5         5.22.0-1
+ii  libkf5widgetsaddons5  5.22.0-1
+ii  libkf5windowsystem5   5.22.0-1
+ii  libqt5core5a          5.5.1+dfsg-17
+ii  libqt5dbus5           5.5.1+dfsg-17
+ii  libqt5gui5            5.5.1+dfsg-17
+ii  libqt5network5        5.5.1+dfsg-17
+ii  libqt5script5         5.5.1+dfsg-2
+ii  libqt5widgets5        5.5.1+dfsg-17
+ii  libqt5x11extras5      5.5.1-3
+ii  libqt5xml5            5.5.1+dfsg-17
+ii  libstdc++6            6.1.1-6
+ii  libxml2               2.9.3+dfsg1-1.2
+ii  libxslt1.1            1.1.28-4
+
+kio recommends no packages.
+
+kio suggests no packages.
+
+-- no debconf information
+</pre>
+<pre class="mime">[<a href="bugreport.cgi?att=1;bug=827305;filename=soundcloud.desktop;msg=5">soundcloud.desktop</a> (text/plain, attachment)]</pre>
+<pre class="mime">[<a href="bugreport.cgi?att=2;bug=827305;filename=torrentz.desktop;msg=5">torrentz.desktop</a> (text/plain, attachment)]</pre>
+
+<hr>
+<p class="msgreceived">Send a report that <a href="https://bugs.debian.org/cgi-bin/bugspam.cgi?bug=827305">this bug log contains spam</a>.</p>
+<hr>
+<ADDRESS>Debian bug tracking system administrator &lt;<A HREF="mailto:owner@bugs.debian.org">owner@bugs.debian.org</A>&gt;.
+Last modified:
+<!--timestamp-->Tue Jun 14 19:34:11 2016<!--end timestamp-->; 
+Machine Name:
+<!--machinename-->buxtehude<!--machinename-->
+<P>
+<A HREF="http://www.debian.org/Bugs/">Debian Bug tracking system</A><BR>
+Copyright (C) 1999 Darren O. Benham,
+1997,2003 nCipher Corporation Ltd,
+1994-97 Ian Jackson.
+</ADDRESS>
+
+</body>
+</html>
