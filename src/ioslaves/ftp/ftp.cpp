@@ -179,7 +179,7 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
     QCoreApplication app(argc, argv);
     app.setApplicationName(QStringLiteral("kio_ftp"));
 
-    qCDebug(KIO_FTP) << "Starting " << getpid();
+    qCDebug(KIO_FTP) << "Starting";
 
     if (argc != 4) {
         fprintf(stderr, "Usage: kio_ftp protocol domain-socket1 domain-socket2\n");
