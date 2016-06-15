@@ -21,7 +21,7 @@ function toggle_infmessages()
 </script>
 </head>
 <body>
-<h1>Debian Bug report logs - 
+<h1>Debian Bug report logs -
 <a href="mailto:827305@bugs.debian.org">#827305</a><br/>
 kio: extra web shortcuts</h1>
 <div class="versiongraph"><a href="version.cgi?collapse=1;found=kio%2F5.22.0-1;absolute=0;info=1;package=kio"><img alt="version graph" src="version.cgi?found=kio%2F5.22.0-1;collapse=1;height=2;width=2;package=kio;absolute=0"></a></div>
@@ -151,7 +151,7 @@ kio suggests no packages.
 <hr>
 <ADDRESS>Debian bug tracking system administrator &lt;<A HREF="mailto:owner@bugs.debian.org">owner@bugs.debian.org</A>&gt;.
 Last modified:
-<!--timestamp-->Tue Jun 14 19:34:11 2016<!--end timestamp-->; 
+<!--timestamp-->Tue Jun 14 19:34:11 2016<!--end timestamp-->;
 Machine Name:
 <!--machinename-->buxtehude<!--machinename-->
 <P>
