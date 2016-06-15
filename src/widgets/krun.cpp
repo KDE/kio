@@ -398,11 +398,9 @@ bool KRun::checkStartupNotify(const QString & /*binName*/, const KService *servi
     return true;
 }
 
-static qint64 runTempService(const KService &_service, const QList<QUrl> &_urls, QWidget *window,
-                           bool tempFiles, const QString &suggestedFileName, const QByteArray &asn)
+static qint64 runApplicationImpl(const KService &_service, const QList<QUrl> &_urls, QWidget *window,
+                                 KRun::RunFlags flags, const QString &suggestedFileName, const QByteArray &asn)
 {
-    //qDebug() << "runTempService:" << _urls;
-
     QList<QUrl> urlsToRun = _urls;
     if ((_urls.count() > 1) && !_service.allowMultipleFiles()) {
         // We need to launch the application N times. That sucks.
@@ -414,13 +412,13 @@ static qint64 runTempService(const KService &_service, const QList<QUrl> &_urls,
         while (++it != _urls.end()) {
             QList<QUrl> singleUrl;
             singleUrl.append(*it);
-            runTempService(_service, singleUrl, window, tempFiles, suggestedFileName, QByteArray());
+            runApplicationImpl(_service, singleUrl, window, flags, suggestedFileName, QByteArray());
         }
         urlsToRun.clear();
         urlsToRun.append(_urls.first());
     }
     KIO::DesktopExecParser execParser(_service, urlsToRun);
-    execParser.setUrlsAreTempFiles(tempFiles);
+    execParser.setUrlsAreTempFiles(flags & KRun::DeleteTemporaryFiles);
     execParser.setSuggestedFileName(suggestedFileName);
     const QStringList args = execParser.resultingArguments();
     if (args.isEmpty()) {
@@ -704,6 +702,27 @@ bool KRun::run(const KService &_service, const QList<QUrl> &_urls, QWidget *wind
     return runService(_service, _urls, window, tempFiles, suggestedFileName, asn) != 0;
 }
 
+qint64 KRun::runApplication(const KService &service, const QList<QUrl> &urls, QWidget *window,
+                            RunFlags flags, const QString &suggestedFileName,
+                            const QByteArray &asn)
+{
+    if (!service.entryPath().isEmpty() &&
+            !KDesktopFile::isAuthorizedDesktopFile(service.entryPath()) &&
+            !::makeServiceExecutable(service, window)) {
+        return 0;
+    }
+
+
+    if ((flags & DeleteTemporaryFiles) == 0) {
+        // Remember we opened those urls, for the "recent documents" menu in kicker
+        for (const QUrl &url : urls) {
+            KRecentDocument::add(url, service.desktopEntryName());
+        }
+    }
+
+    return runApplicationImpl(service, urls, window, flags, suggestedFileName, asn);
+}
+
 qint64 KRun::runService(const KService &_service, const QList<QUrl> &_urls, QWidget *window,
                       bool tempFiles, const QString &suggestedFileName, const QByteArray &asn)
 {
@@ -715,10 +734,8 @@ qint64 KRun::runService(const KService &_service, const QList<QUrl> &_urls, QWid
 
     if (!tempFiles) {
         // Remember we opened those urls, for the "recent documents" menu in kicker
-        QList<QUrl>::ConstIterator it = _urls.begin();
-        for (; it != _urls.end(); ++it) {
-            //qDebug() << "KRecentDocument::adding " << (*it).url();
-            KRecentDocument::add(*it, _service.desktopEntryName());
+        for (const QUrl &url : _urls) {
+            KRecentDocument::add(url, _service.desktopEntryName());
         }
     }
 
@@ -738,7 +755,7 @@ qint64 KRun::runService(const KService &_service, const QList<QUrl> &_urls, QWid
     }
 
     if (!useKToolInvocation) {
-        return runTempService(_service, _urls, window, tempFiles, suggestedFileName, asn);
+        return runApplicationImpl(_service, _urls, window, tempFiles ? RunFlags(DeleteTemporaryFiles) : RunFlags(), suggestedFileName, asn);
     }
 
     // Resolve urls if needed, depending on what the app supports

@@ -211,6 +211,10 @@ public:
     /**
      * Open a list of URLs with a certain service (application).
      *
+     * Prefer runApplication(), unless you need to wait for the application
+     * to register to DBus before this method returns (but that should rather
+     * be done with DBus activation).
+     *
      * @param service the service to run
      * @param urls the list of URLs, can be empty (app launched
      *        without argument)
@@ -224,7 +228,32 @@ public:
      */
     static qint64 runService(const KService &service, const QList<QUrl> &urls, QWidget *window,
                              bool tempFiles = false, const QString &suggestedFileName = QString(),
-                             const QByteArray &asn = QByteArray());
+                             const QByteArray &asn = QByteArray()); // TODO KF6: deprecate/remove
+
+    enum RunFlag {
+        DeleteTemporaryFiles = 0x1 /// < the URLs passed to the service will be deleted when it exits (if the URLs are local files)
+    };
+    Q_DECLARE_FLAGS(RunFlags, RunFlag)
+
+    /**
+     * Run an application (known from its .desktop file, i.e. as a KService)
+     *
+     * Unlike runService, this does not wait for the application to register to DBus
+     * before returning. Such behavior is better done with DBus activation anyway.
+     *
+     * @param service the service to run
+     * @param urls the list of URLs, can be empty (app launched
+     *        without argument)
+     * @param window The top-level widget of the app that invoked this object.
+     * @param runFlags various flags
+     * @param suggestedFileName see setSuggestedFileName
+     * @param asn Application startup notification id, if any (otherwise "").
+     * @return 0 on error, the process ID on success
+     * @since 5.24
+     */
+    static qint64 runApplication(const KService &service, const QList<QUrl> &urls, QWidget *window,
+                                 RunFlags flags = RunFlags(), const QString &suggestedFileName = QString(),
+                                 const QByteArray &asn = QByteArray());
 
     /**
      * Open a list of URLs with an executable.

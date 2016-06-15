@@ -329,13 +329,17 @@ static void createSrcFile(const QString path)
 void KRunUnitTest::KRunRunService_data()
 {
     QTest::addColumn<bool>("tempFile");
+    QTest::addColumn<bool>("useRunApplication");
 
-    QTest::newRow("standard") << false;
-    QTest::newRow("tempfile") << true;
+    QTest::newRow("standard") << false << false;
+    QTest::newRow("tempfile") << true << false;
+    QTest::newRow("runApp") << false << true;
+    QTest::newRow("runApp_tempfile") << true << true;
 }
 void KRunUnitTest::KRunRunService()
 {
     QFETCH(bool, tempFile);
+    QFETCH(bool, useRunApplication);
 
     // Given a service desktop file and a source file
     const QString path = createTempService();
@@ -350,8 +354,10 @@ void KRunUnitTest::KRunRunService()
     QList<QUrl> urls;
     urls.append(QUrl::fromLocalFile(srcFile));
 
-    // When calling KRun::runService
-    qint64 pid = KRun::runService(service, urls, 0, tempFile);
+    // When calling KRun::runService or KRun::runApplication
+    qint64 pid = useRunApplication
+        ? KRun::runApplication(service, urls, 0, tempFile ? KRun::RunFlags(KRun::DeleteTemporaryFiles) : KRun::RunFlags())
+        : KRun::runService(service, urls, 0, tempFile);
 
     // Then the service should be executed (which copies the source file to "dest")
     QVERIFY(pid != 0);
