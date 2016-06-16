@@ -144,7 +144,7 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         painter->setOpacity(m_disappearingOpacity);
     }
 
-    QStyleOptionViewItemV4 opt = option;
+    QStyleOptionViewItem opt = option;
     if (!m_showHoverIndication) {
         opt.state &= ~QStyle::State_MouseOver;
     }
@@ -826,7 +826,7 @@ void KFilePlacesView::paintEvent(QPaintEvent *event)
             }
         } else {
             // draw indicator for copying/moving/linking to items
-            QStyleOptionViewItemV4 opt;
+            QStyleOptionViewItem opt;
             opt.initFrom(this);
             opt.rect = itemRect;
             opt.state = QStyle::State_Enabled | QStyle::State_MouseOver;
