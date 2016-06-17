@@ -46,6 +46,7 @@ set(kiowidgets_SRCS
   kurlcompletion.cpp
   kurifilter.cpp
   dropjob.cpp
+  openfilemanagerwindowjob.cpp
   pastejob.cpp
   previewjob.cpp
   renamedialog.cpp
@@ -155,6 +156,7 @@ ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   ThumbCreator
   DropJob
   DndPopupMenuPlugin
+  OpenFileManagerWindowJob
   PasteJob
   PreviewJob
   RenameDialog
