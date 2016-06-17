@@ -46,7 +46,7 @@ class KFileItemListProperties;
  * actions() to return the actions to want to add to the context menu.  Then
  * create a plugin in the usual KPluginFactory based way:
  * \code
- * K_PLUGIN_FACTORY(MyActionPluginFactory, myactionplugin.json, registerPlugin<MyActionPlugin>();)
+ * K_PLUGIN_FACTORY_WITH_JSON(MyActionPluginFactory, myactionplugin.json, registerPlugin<MyActionPlugin>();)
  * #include <thisfile.moc>
  * \endcode
  *
@@ -71,13 +71,14 @@ class KFileItemListProperties;
  * The following CMake code builds and installs the plugin:
  * \code
  * set(myactionplugin_SRCS myactionplugin.cpp)
- * desktop_to_json(myactionplugin myactionplugin.desktop) # generate the json file
- * add_library(myactionplugin MODULE ${myactionplugin_SRCS})
+ *
+ * kcoreaddons_add_plugin(myactionplugin SOURCES ${myactionplugin_SRCS} INSTALL_NAMESPACE "kf5/kfileitemaction")
+ * kcoreaddons_desktop_to_json(myactionplugin myactionplugin.desktop) # generate the json file
  *
  * target_link_libraries(myactionplugin KF5::KIOWidgets)
- * install(TARGETS myactionplugin DESTINATION ${PLUGIN_INSTALL_DIR})
- * install(FILES myactionplugin.desktop DESTINATION ${SERVICES_INSTALL_DIR})
  * \endcode
+ *
+ * @note the plugin should be installed in the "kf5/kfileitemaction" subfolder of $QT_PLUGIN_PATH.
  *
  * @author Sebastian Trueg <trueg@kde.org>
  *
