@@ -77,7 +77,12 @@ static org::kde::KSlaveLauncher *klauncher()
 // In such case we start the slave via QProcess.
 // It's possible to force this by setting the env. variable
 // KDE_FORK_SLAVES, Clearcase seems to require this.
-static QBasicAtomicInt bForkSlaves = Q_BASIC_ATOMIC_INITIALIZER(-1);
+static QBasicAtomicInt bForkSlaves =
+#if KIO_FORK_SLAVES
+    Q_BASIC_ATOMIC_INITIALIZER(1);
+#else
+    Q_BASIC_ATOMIC_INITIALIZER(-1);
+#endif
 
 static bool forkSlaves()
 {

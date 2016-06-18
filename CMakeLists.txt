@@ -34,6 +34,7 @@ ecm_setup_version(
   SOVERSION 5)
 
 option(KIOCORE_ONLY "Only compile KIOCore, not KIOWidgets or anything that depends on it. This will disable support for cookies and passwordhandling (prompting and storing)." OFF)
+option(KIO_FORK_SLAVES "If set we start the slaves via QProcess. It's also possible to change this by setting the environment variable KDE_FORK_SLAVES." OFF)
 
 find_package(KF5Archive ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5Config ${KF5_DEP_VERSION} REQUIRED)
