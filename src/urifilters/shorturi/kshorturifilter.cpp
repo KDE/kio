@@ -164,7 +164,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   // Fix misparsing of "foo:80", QUrl thinks "foo" is the protocol and "80" is the path.
   // However, be careful not to do that for valid hostless URLs, e.g. file:///foo!
   if (!protocol.isEmpty() && url.host().isEmpty() && !url.path().isEmpty()
-      && cmd.contains(':') && !KProtocolInfo::protocols().contains(protocol)) {
+      && cmd.contains(':') && !isKnownProtocol(protocol)) {
     protocol.clear();
   }
 
@@ -444,7 +444,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   // slow things down...
   if ( !isMalformed && !isLocalFullPath && !protocol.isEmpty() )
   {
-    qCDebug(category) << "looking for protocol " << protocol;
+    qCDebug(category) << "looking for protocol" << protocol;
     if (isKnownProtocol(protocol))
     {
       setFilteredUri( data, url );

@@ -300,6 +300,7 @@ void KUriFilterTest::shortUris_data()
     //addRow("foobar.local:8000", QStringLiteral("http://foobar.local:8000"), KUriFilterData::NetProtocol);
     addRow("foo@bar.com", QStringLiteral("mailto:foo@bar.com"), KUriFilterData::NetProtocol);
     addRow("firstname.lastname@x.foo.bar", QStringLiteral("mailto:firstname.lastname@x.foo.bar"), KUriFilterData::NetProtocol);
+    addRow("mailto:foo@bar.com", QStringLiteral("mailto:foo@bar.com"), KUriFilterData::NetProtocol);
     addRow("www.123.foo", QStringLiteral("http://www.123.foo"), KUriFilterData::NetProtocol);
     addRow("user@www.123.foo:3128", QStringLiteral("http://user@www.123.foo:3128"), KUriFilterData::NetProtocol);
     addRow("ftp://user@user@www.123.foo:3128", QStringLiteral("ftp://user%40user@www.123.foo:3128"), KUriFilterData::NetProtocol);
