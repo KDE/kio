@@ -1,7 +1,17 @@
 [Desktop Entry]
 Type=Service
 Name=Soundcloud
+Name[ca]=Soundcloud
+Name[es]=Soundcloud
+Name[nl]=Soundcloud
+Name[uk]=Soundcloud
+Name[x-test]=xxSoundcloudxx
 X-KDE-ServiceTypes=SearchProvider
 Keys=sc
 Query=https://soundcloud.com/search?q=\\{@}
+Query[ca]=https://soundcloud.com/search?q=\\{@}
+Query[es]=https://soundcloud.com/search?q=\\{@}
+Query[nl]=https://soundcloud.com/search?q=\\{@}
+Query[uk]=https://soundcloud.com/search?q=\\{@}
+Query[x-test]=xxhttps://soundcloud.com/search?q=\\{@}xx
 Charset=utf8
