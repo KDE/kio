@@ -910,6 +910,12 @@ void SlaveBase::reparseConfiguration()
 
 bool SlaveBase::openPasswordDialog(AuthInfo &info, const QString &errorMsg)
 {
+    const int errorCode = openPasswordDialogV2(info, errorMsg);
+    return errorCode == KJob::NoError;
+}
+
+int SlaveBase::openPasswordDialogV2(AuthInfo &info, const QString &errorMsg)
+{
     const long windowId = metaData(QStringLiteral("window-id")).toLong();
     const unsigned long userTimestamp = metaData(QStringLiteral("user-timestamp")).toULong();
     QString errorMessage;
@@ -934,11 +940,12 @@ bool SlaveBase::openPasswordDialog(AuthInfo &info, const QString &errorMsg)
         SlaveBasePrivate::s_seqNr = seqNr;
         if (dlgInfo.isModified()) {
             info = dlgInfo;
-            return true;
+            return KJob::NoError;
         }
+    } else if (seqNr < 0) {
+        return ERR_PASSWD_SERVER;
     }
-
-    return false;
+    return ERR_USER_CANCELED;
 }
 
 int SlaveBase::messageBox(MessageBoxType type, const QString &text, const QString &caption,

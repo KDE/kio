@@ -726,12 +726,12 @@ public:
      *
      * \code
      * KIO::AuthInfo authInfo;
-     * if ( openPasswordDialog( authInfo ) )
-     * {
-     *    qDebug() << QLatin1String("User: ")
-     *              << authInfo.username << endl;
-     *    qDebug() << QLatin1String("Password: ")
-     *              << QLatin1String("Not displayed here!") << endl;
+     * int errorCode = openPasswordDialogV2(authInfo);
+     * if (!errorCode) {
+     *    qDebug() << QLatin1String("User: ") << authInfo.username;
+     *    qDebug() << QLatin1String("Password: not displayed here!");
+     * } else {
+     *    error(errorCode, QString());
      * }
      * \endcode
      *
@@ -740,16 +740,11 @@ public:
      *
      * \code
      * KIO::AuthInfo authInfo;
-     * authInfo.caption= "Acme Password Dialog";
-     * authInfo.username= "Wile E. Coyote";
-     * QString errorMsg = "You entered an incorrect password.";
-     * if ( openPasswordDialog( authInfo, errorMsg ) )
-     * {
-     *    qDebug() << QLatin1String("User: ")
-     *              << authInfo.username << endl;
-     *    qDebug() << QLatin1String("Password: ")
-     *              << QLatin1String("Not displayed here!") << endl;
-     * }
+     * authInfo.caption = i18n("Acme Password Dialog");
+     * authInfo.username = "Wile E. Coyote";
+     * QString errorMsg = i18n("You entered an incorrect password.");
+     * int errorCode = openPasswordDialogV2(authInfo, errorMsg);
+     * [...]
      * \endcode
      *
      * \note You should consider using checkCachedAuthentication() to
@@ -757,7 +752,7 @@ public:
      * this function.
      *
      * \note A call to this function can fail and return @p false,
-     * if the UIServer could not be started for whatever reason.
+     * if the password server could not be started for whatever reason.
      *
      * \note This function does not store the password information
      * automatically (and has not since kdelibs 4.7). If you want to
@@ -767,9 +762,19 @@ public:
      * @see checkCachedAuthentication
      * @param info  See AuthInfo.
      * @param errorMsg Error message to show
-     * @return      @p true if user clicks on "OK", @p false otherwsie.
+     * @return a KIO error code: NoError (0), KIO::USER_CANCELED, or other error codes.
      */
-    bool openPasswordDialog(KIO::AuthInfo &info, const QString &errorMsg = QString());
+    int openPasswordDialogV2(KIO::AuthInfo &info, const QString &errorMsg = QString());
+
+    /**
+     * @deprecated since KF 5.24, use openPasswordDialogV2.
+     * The return value works differently:
+     *  instead of
+     *        if (!openPasswordDialog()) { error(USER_CANCELED); }
+     *  store and pass the return value to error(), when NOT zero,
+     *  as shown documentation for openPasswordDialogV2().
+     */
+    KIOCORE_DEPRECATED bool openPasswordDialog(KIO::AuthInfo &info, const QString &errorMsg = QString());
 
     /**
      * Checks for cached authentication based on parameters
@@ -790,7 +795,7 @@ public:
      * info.verifyPath = true;
      * if ( !checkCachedAuthentication( info ) )
      * {
-     *    if ( !openPasswordDialog(info) )
+     *    int errorCode = openPasswordDialogV2(info);
      *     ....
      * }
      * \endcode
@@ -803,7 +808,7 @@ public:
     /**
      * Caches @p info in a persistent storage like KWallet.
      *
-     * Note that calling openPasswordDialog does not store passwords
+     * Note that calling openPasswordDialogV2 does not store passwords
      * automatically for you (and has not since kdelibs 4.7).
      *
      * Here is a simple example of how to use cacheAuthentication:
@@ -814,7 +819,8 @@ public:
      * info.username = "somename";
      * info.verifyPath = true;
      * if ( !checkCachedAuthentication( info ) ) {
-     *    if ( openPasswordDialog(info) ) {
+     *    int errorCode = openPasswordDialogV2(info);
+     *    if (!errorCode) {
      *        if (info.keepPassword)  {  // user asked password be save/remembered
      *             cacheAuthentication(info);
      *        }

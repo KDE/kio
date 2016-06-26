@@ -5268,9 +5268,10 @@ void HTTPProtocol::proxyAuthenticationForSocket(const QNetworkProxy &proxy, QAut
 
         const QString errMsg((retryAuth ? i18n("Proxy Authentication Failed.") : QString()));
 
-        if (!openPasswordDialog(info, errMsg)) {
-            qCDebug(KIO_HTTP) << "looks like the user canceled proxy authentication.";
-            error(ERR_USER_CANCELED, m_request.proxyUrl.host());
+        const int errorCode = openPasswordDialogV2(info, errMsg);
+        if (errorCode) {
+            qCDebug(KIO_HTTP) << "proxy auth cancelled by user, or communication error";
+            error(errorCode, QString());
             delete m_proxyAuth;
             m_proxyAuth = 0;
             return;
@@ -5503,7 +5504,8 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
                         authinfo.comment = i18n("<b>%1</b> at <b>%2</b>",
                                                 authinfo.realmValue.toHtmlEscaped(), authinfo.url.host());
 
-                        if (!openPasswordDialog(authinfo, errorMsg)) {
+                        const int errorCode = openPasswordDialogV2(authinfo, errorMsg);
+                        if (errorCode) {
                             generateAuthHeader = false;
                             authRequiresAnotherRoundtrip = false;
                             if (!sendErrorPageNotification()) {

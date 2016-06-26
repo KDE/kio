@@ -585,9 +585,14 @@ bool Ftp::ftpLogin(bool *userChanged)
             info.keepPassword = true; // Prompt the user for persistence as well.
             info.setModified(false);  // Default the modified flag since we reuse authinfo.
 
-            bool disablePassDlg = config()->readEntry("DisablePassDlg", false);
-            if (disablePassDlg || !openPasswordDialog(info, errorMsg)) {
+            const bool disablePassDlg = config()->readEntry("DisablePassDlg", false);
+            if (disablePassDlg) {
                 error(ERR_USER_CANCELED, m_host);
+                return false;
+            }
+            const int errorCode = openPasswordDialogV2(info, errorMsg);
+            if (errorCode) {
+                error(errorCode, QString());
                 return false;
             } else {
                 // User can decide go anonymous using checkbox
@@ -2595,10 +2600,10 @@ void Ftp::proxyAuthentication(const QNetworkProxy &proxy, QAuthenticator *authen
         info.keepPassword = true;
         info.commentLabel = i18n("Proxy:");
         info.comment = i18n("<b>%1</b> at <b>%2</b>", info.realmValue, m_proxyURL.host());
-        const bool dataEntered = openPasswordDialog(info, i18n("Proxy Authentication Failed."));
-        if (!dataEntered) {
-            qCDebug(KIO_FTP) << "looks like the user canceled proxy authentication.";
-            error(ERR_USER_CANCELED, m_proxyURL.host());
+        const int errorCode = openPasswordDialogV2(info, i18n("Proxy Authentication Failed."));
+        if (errorCode) {
+            qCDebug(KIO_FTP) << "user canceled proxy authentication, or communication error.";
+            error(errorCode, m_proxyURL.host());
             return;
         }
     }

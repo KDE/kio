@@ -239,6 +239,9 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
     case KIO::ERR_CANNOT_MOVE_INTO_ITSELF:
         result = i18n("A folder cannot be moved into itself");
         break;
+    case KIO::ERR_PASSWD_SERVER:
+        result = i18n("Communication with the local password server failed");
+        break;
     default:
         result = i18n("Unknown error code %1\n%2\nPlease send a full bug report at http://bugs.kde.org.",  errorCode,  errorText);
         break;
@@ -1043,6 +1046,13 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
         description = i18n("The operation could not be completed because the "
                            "source can not be moved into itself.");
         solutions << i18n("Move the item into a different folder.");
+        break;
+
+    case KIO::ERR_PASSWD_SERVER:
+        errorName = i18n("Could not communicate with password server");
+        description = i18n("The operation could not be completed because the "
+                           "service for requesting passwords (kpasswdserver) couldn't be contacted");
+        solutions << i18n("Try restarting your session, or look in the logs for errors from kiod.");
         break;
 
     default:
