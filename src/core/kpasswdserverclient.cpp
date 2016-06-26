@@ -88,7 +88,7 @@ qlonglong KPasswdServerClient::queryAuthInfo(KIO::AuthInfo &info, const QString 
 
     if (!QCoreApplication::instance()) {
         qWarning() << "kioslave is not a QCoreApplication! This is required for queryAuthInfo.";
-        return false;
+        return -1;
     }
 
     // create the loop for waiting for a result before sending the request
