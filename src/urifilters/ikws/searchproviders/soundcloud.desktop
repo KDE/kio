@@ -3,6 +3,7 @@ Type=Service
 Name=Soundcloud
 Name[ca]=Soundcloud
 Name[ca@valencia]=Soundcloud
+Name[da]=Soundcloud
 Name[es]=Soundcloud
 Name[fi]=Soundcloud
 Name[it]=Soundcloud
@@ -14,11 +15,13 @@ Name[sv]=Soundcloud
 Name[uk]=Soundcloud
 Name[x-test]=xxSoundcloudxx
 Name[zh_CN]=Soundcloud
+Name[zh_TW]=Soundcloud
 X-KDE-ServiceTypes=SearchProvider
 Keys=sc
 Query=https://soundcloud.com/search?q=\\{@}
 Query[ca]=https://soundcloud.com/search?q=\\{@}
 Query[ca@valencia]=https://soundcloud.com/search?q=\\{@}
+Query[da]=https://soundcloud.com/search?q=\\{@}
 Query[es]=https://soundcloud.com/search?q=\\{@}
 Query[fi]=https://soundcloud.com/search?q=\\{@}
 Query[it]=https://soundcloud.com/search?q=\\{@}
@@ -30,4 +33,5 @@ Query[sv]=https://soundcloud.com/search?q=\\{@}
 Query[uk]=https://soundcloud.com/search?q=\\{@}
 Query[x-test]=xxhttps://soundcloud.com/search?q=\\{@}xx
 Query[zh_CN]=https://soundcloud.com/search?q=\\{@}
+Query[zh_TW]=https://soundcloud.com/search?q=\\{@}
 Charset=utf8
