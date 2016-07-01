@@ -287,6 +287,15 @@ void KDirModelTest::testIndex()
 
     // Invalid sibling call
     QVERIFY(!m_dirModel->sibling(1, 0, m_fileInSubdirIndex).isValid());
+
+    // Test index() with a valid parent (dir).
+    QModelIndex index2 = m_dirModel->index(m_fileInSubdirIndex.row(), m_fileInSubdirIndex.column(), subsubdirIndex);
+    QVERIFY(index2.isValid());
+    QVERIFY(index2 == m_fileInSubdirIndex);
+
+    // Test index() with a non-parent (file).
+    QModelIndex index3 = m_dirModel->index(m_fileInSubdirIndex.row(), m_fileInSubdirIndex.column(), m_fileIndex);
+    QVERIFY(!index3.isValid());
 }
 
 void KDirModelTest::testNames()

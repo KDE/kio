@@ -1056,13 +1056,13 @@ QModelIndex KDirModel::index(int row, int column, const QModelIndex &parent) con
 {
     KDirModelNode *parentNode = d->nodeForIndex(parent); // O(1)
     Q_ASSERT(parentNode);
-    Q_ASSERT(d->isDir(parentNode));
-    KDirModelNode *childNode = static_cast<KDirModelDirNode *>(parentNode)->m_childNodes.value(row); // O(1)
-    if (childNode) {
-        return createIndex(row, column, childNode);
-    } else {
-        return QModelIndex();
+    if (d->isDir(parentNode)) {
+        KDirModelNode *childNode = static_cast<KDirModelDirNode *>(parentNode)->m_childNodes.value(row); // O(1)
+        if (childNode) {
+            return createIndex(row, column, childNode);
+        }
     }
+    return QModelIndex();
 }
 
 QVariant KDirModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -1172,7 +1172,9 @@ void KDirModel::fetchMore(const QModelIndex &parent)
 
     KFileItem parentItem = parentNode->item();
     Q_ASSERT(!parentItem.isNull());
-    Q_ASSERT(parentItem.isDir());
+    if (!parentItem.isDir()) {
+        return;
+    }
     KDirModelDirNode *dirNode = static_cast<KDirModelDirNode *>(parentNode);
     if (dirNode->isPopulated()) {
         return;
