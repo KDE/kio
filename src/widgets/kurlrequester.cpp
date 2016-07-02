@@ -432,6 +432,7 @@ void KUrlRequester::KUrlRequesterPrivate::_k_slotOpenDialog()
             QUrl u(url());
             // If we won't be able to list it (e.g. http), then don't try :)
             if (KProtocolManager::supportsListing(u)) {
+                dlg->setDirectoryUrl(u);
                 dlg->selectUrl(u);
             }
         } else {
