@@ -95,7 +95,7 @@ static QString removeArgs( const QString& _cmd )
 
 static bool isKnownProtocol(const QString &protocol)
 {
-    if (KProtocolInfo::isKnownProtocol(protocol)) {
+    if (KProtocolInfo::isKnownProtocol(protocol) || protocol == QLatin1String("mailto")) {
         return true;
     }
     const KService::Ptr service = KMimeTypeTrader::self()->preferredService(QLatin1String("x-scheme-handler/") + protocol);
