@@ -280,7 +280,7 @@ KUrlNavigator::Private::Private(KUrlNavigator *q, KFilePlacesModel *placesModel)
 void KUrlNavigator::Private::initialize(const QUrl &url)
 {
     LocationData data;
-    data.url = url;
+    data.url = url.adjusted(QUrl::NormalizePathSegments);
     m_history.prepend(data);
 
     q->setLayoutDirection(Qt::LeftToRight);
@@ -1011,11 +1011,7 @@ void KUrlNavigator::setLocationUrl(const QUrl &newUrl)
         return;
     }
 
-    QUrl url = newUrl;
-    url.setPath(QDir::cleanPath(url.path()));
-    if (newUrl.path().endsWith('/')) {
-        url.setPath(url.path() + '/');
-    }
+    QUrl url = newUrl.adjusted(QUrl::NormalizePathSegments);
 
     if ((url.scheme() == QLatin1String("tar")) || (url.scheme() == QLatin1String("zip"))) {
         // The URL represents a tar- or zip-file. Check whether

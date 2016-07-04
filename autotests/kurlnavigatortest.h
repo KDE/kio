@@ -44,6 +44,9 @@ private Q_SLOTS:
     void testButtonUrl_data();
     void testButtonUrl();
 
+    void testInitWithRedundantPathSeparators();
+
+
 private:
     KUrlNavigator *m_navigator;
 };

@@ -254,3 +254,12 @@ void KUrlNavigatorTest::testButtonUrl()
     // THEN
     QCOMPARE(buttonUrl, expectedButtonUrl);
 }
+
+void KUrlNavigatorTest::testInitWithRedundantPathSeparators()
+{
+    KUrlNavigator temp_nav(0, QUrl::fromLocalFile(QStringLiteral("/home/foo///test")), 0);
+
+    const QUrl buttonUrl = temp_nav.url(3);
+
+    QCOMPARE(buttonUrl, QUrl::fromLocalFile(QStringLiteral("/home/foo/test")));
+}
