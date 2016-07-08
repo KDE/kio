@@ -30,10 +30,10 @@
 
 #include "kpropertiesdialog.h"
 
-class KComboBox;
-class QComboBox;
+#include <QCryptographicHash>
 
-class Ui_KPropertiesDesktopBase;
+class QComboBox;
+class QLabel;
 
 namespace KDEPrivate
 {
@@ -160,6 +160,42 @@ private:
 
     class KFilePermissionsPropsPluginPrivate;
     KFilePermissionsPropsPluginPrivate *const d;
+};
+
+class KChecksumsPlugin : public KPropertiesDialogPlugin
+{
+    Q_OBJECT
+public:
+    KChecksumsPlugin(KPropertiesDialog *dialog);
+    virtual ~KChecksumsPlugin();
+
+    static bool supports(const KFileItemList &items);
+
+private Q_SLOTS:
+    void slotInvalidateCache();
+    void slotShowMd5();
+    void slotShowSha1();
+    void slotShowSha256();
+    void slotVerifyChecksum(const QString &input);
+
+private:
+    static bool isMd5(const QString &input);
+    static bool isSha1(const QString &input);
+    static bool isSha256(const QString &input);
+    static QString computeChecksum(QCryptographicHash::Algorithm algorithm, const QString &path);
+    static QCryptographicHash::Algorithm detectAlgorithm(const QString &input);
+
+    void setDefaultState();
+    void setInvalidChecksumState();
+    void setMatchState();
+    void setMismatchState();
+    void showChecksum(QCryptographicHash::Algorithm algorithm, QLabel *label);
+
+    QString cachedChecksum(QCryptographicHash::Algorithm algorithm) const;
+    void cacheChecksum(const QString &checksum, QCryptographicHash::Algorithm algorithm);
+
+    class KChecksumsPluginPrivate;
+    KChecksumsPluginPrivate *const d;
 };
 
 /**

@@ -79,6 +79,7 @@ qt5_add_dbus_adaptor(kiowidgets_SRCS org.kde.kio.FileUndoManager.xml fileundoman
 qt5_add_dbus_interface(kiowidgets_SRCS org.kde.kuiserver.xml kuiserver_interface)
 
 ki18n_wrap_ui(kiowidgets_SRCS
+  checksumswidget.ui
   certificateparty.ui
   sslinfo.ui
   kpropertiesdesktopadvbase.ui
@@ -102,6 +103,7 @@ target_link_libraries(KF5KIOWidgets
     KF5::Completion    # KUrlCompletion uses KCompletion
     KF5::WidgetsAddons # keditlistwidget
   PRIVATE
+    Qt5::Concurrent
     Qt5::DBus
     KF5::I18n
     KF5::IconThemes   # KIconLoader

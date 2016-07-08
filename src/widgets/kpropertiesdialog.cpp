@@ -57,6 +57,8 @@
 #include <QFile>
 #include <QFileDialog>
 #include <QFileInfo>
+#include <QFileSystemWatcher>
+#include <QFutureWatcher>
 #include <QLabel>
 #include <QLayout>
 #include <QLocale>
@@ -65,8 +67,10 @@
 #include <QPainter>
 #include <QProgressBar>
 #include <QPushButton>
+#include <QRegularExpression>
 #include <QStandardPaths>
 #include <QStyle>
+#include <QtConcurrentRun>
 #include <QTextStream>
 #include <QUrl>
 #include <QVector>
@@ -80,6 +84,7 @@ extern "C" {
 #endif
 
 #include <kauthorized.h>
+#include <KColorScheme>
 #include <kdirnotify.h>
 #include <kdiskfreespaceinfo.h>
 #include <kdesktopfile.h>
@@ -117,6 +122,7 @@ extern "C" {
 #include <kwindowconfig.h>
 #include <kioglobal_p.h>
 
+#include "ui_checksumswidget.h"
 #include "ui_kpropertiesdesktopbase.h"
 #include "ui_kpropertiesdesktopadvbase.h"
 #if HAVE_POSIX_ACL
@@ -564,6 +570,11 @@ void KPropertiesDialog::KPropertiesDialogPrivate::insertPages()
 
     if (KFilePermissionsPropsPlugin::supports(m_items)) {
         KPropertiesDialogPlugin *p = new KFilePermissionsPropsPlugin(q);
+        q->insertPlugin(p);
+    }
+
+    if (KChecksumsPlugin::supports(m_items)) {
+        KPropertiesDialogPlugin *p = new KChecksumsPlugin(q);
         q->insertPlugin(p);
     }
 
@@ -2608,6 +2619,323 @@ void KFilePermissionsPropsPlugin::slotChmodResult(KJob *job)
     }
     // allow apply() to return
     emit leaveModality();
+}
+
+class KChecksumsPlugin::KChecksumsPluginPrivate
+{
+public:
+    KChecksumsPluginPrivate()
+    {
+    }
+
+    ~KChecksumsPluginPrivate()
+    {
+    }
+
+    QWidget m_widget;
+    Ui::ChecksumsWidget m_ui;
+
+    QFileSystemWatcher fileWatcher;
+    QString m_md5;
+    QString m_sha1;
+    QString m_sha256;
+};
+
+KChecksumsPlugin::KChecksumsPlugin(KPropertiesDialog *dialog)
+    : KPropertiesDialogPlugin(dialog), d(new KChecksumsPluginPrivate)
+{
+    d->m_ui.setupUi(&d->m_widget);
+    properties->addPage(&d->m_widget, i18nc("@title:tab", "&Checksums"));
+
+    connect(d->m_ui.lineEdit, &QLineEdit::textChanged, this, &KChecksumsPlugin::slotVerifyChecksum);
+    connect(d->m_ui.md5Button, &QPushButton::clicked, this, &KChecksumsPlugin::slotShowMd5);
+    connect(d->m_ui.sha1Button, &QPushButton::clicked, this, &KChecksumsPlugin::slotShowSha1);
+    connect(d->m_ui.sha256Button, &QPushButton::clicked, this, &KChecksumsPlugin::slotShowSha256);
+
+    d->fileWatcher.addPath(properties->item().localPath());
+    connect(&d->fileWatcher, &QFileSystemWatcher::fileChanged, this, &KChecksumsPlugin::slotInvalidateCache);
+
+    setDefaultState();
+}
+
+KChecksumsPlugin::~KChecksumsPlugin()
+{
+    delete d;
+}
+
+bool KChecksumsPlugin::supports(const KFileItemList &items)
+{
+    if (items.count() != 1) {
+        return false;
+    }
+
+    const KFileItem item = items.first();
+    return item.isFile() && item.isLocalFile() && item.isReadable() && !item.isDesktopFile() && !item.isLink();
+}
+
+void KChecksumsPlugin::slotInvalidateCache()
+{
+    d->m_md5 = QString();
+    d->m_sha1 = QString();
+    d->m_sha256 = QString();
+}
+
+void KChecksumsPlugin::slotShowMd5()
+{
+    auto label = new QLabel(i18nc("@action:button", "Calculating..."), &d->m_widget);
+    label->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+
+    d->m_ui.groupBox->layout()->replaceWidget(d->m_ui.md5Button, label);
+    d->m_ui.md5Button->hide();
+
+    showChecksum(QCryptographicHash::Md5, label);
+}
+
+void KChecksumsPlugin::slotShowSha1()
+{
+    auto label = new QLabel(i18nc("@action:button", "Calculating..."), &d->m_widget);
+    label->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+
+    d->m_ui.groupBox->layout()->replaceWidget(d->m_ui.sha1Button, label);
+    d->m_ui.sha1Button->hide();
+
+    showChecksum(QCryptographicHash::Sha1, label);
+}
+
+void KChecksumsPlugin::slotShowSha256()
+{
+    auto label = new QLabel(i18nc("@action:button", "Calculating..."), &d->m_widget);
+    label->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+
+    d->m_ui.groupBox->layout()->replaceWidget(d->m_ui.sha256Button, label);
+    d->m_ui.sha256Button->hide();
+
+    showChecksum(QCryptographicHash::Sha256, label);
+}
+
+void KChecksumsPlugin::slotVerifyChecksum(const QString &input)
+{
+    auto algorithm = detectAlgorithm(input);
+
+    // Input is not a supported hash algorithm.
+    if (algorithm == QCryptographicHash::Md4) {
+        if (input.isEmpty()) {
+            setDefaultState();
+        } else {
+            setInvalidChecksumState();
+        }
+        return;
+    }
+
+    const QString checksum = cachedChecksum(algorithm);
+
+    // Checksum alread in cache.
+    if (!checksum.isEmpty()) {
+        const bool isMatch = (checksum == input);
+        if (isMatch) {
+            setMatchState();
+        } else {
+            setMismatchState();
+        }
+
+        return;
+    }
+
+    // Calculate checksum in another thread.
+    auto futureWatcher = new QFutureWatcher<QString>(this);
+    connect(futureWatcher, &QFutureWatcher<QString>::finished, this, [=]() {
+
+        const QString checksum = futureWatcher->result();
+        futureWatcher->deleteLater();
+
+        cacheChecksum(checksum, algorithm);
+
+        switch (algorithm) {
+        case QCryptographicHash::Md5:
+            slotShowMd5();
+            break;
+        case QCryptographicHash::Sha1:
+            slotShowSha1();
+            break;
+        case QCryptographicHash::Sha256:
+            slotShowSha256();
+            break;
+        default:
+            break;
+        }
+
+        const bool isMatch = (checksum == input);
+        if (isMatch) {
+            setMatchState();
+        } else {
+            setMismatchState();
+        }
+    });
+
+    auto future = QtConcurrent::run(&KChecksumsPlugin::computeChecksum, algorithm, properties->item().localPath());
+    futureWatcher->setFuture(future);
+}
+
+bool KChecksumsPlugin::isMd5(const QString &input)
+{
+    QRegularExpression regex(QStringLiteral("^[a-fA-F0-9]{32}$"));
+    return regex.match(input).hasMatch();
+}
+
+bool KChecksumsPlugin::isSha1(const QString &input)
+{
+    QRegularExpression regex(QStringLiteral("^[a-fA-F0-9]{40}$"));
+    return regex.match(input).hasMatch();
+}
+
+bool KChecksumsPlugin::isSha256(const QString &input)
+{
+    QRegularExpression regex(QStringLiteral("^[a-fA-F0-9]{64}$"));
+    return regex.match(input).hasMatch();
+}
+
+QString KChecksumsPlugin::computeChecksum(QCryptographicHash::Algorithm algorithm, const QString &path)
+{
+    QFile file(path);
+    if (!file.open(QIODevice::ReadOnly)) {
+        return QString();
+    }
+
+    QCryptographicHash hash(algorithm);
+    hash.addData(&file);
+
+    return QString::fromLatin1(hash.result().toHex());
+}
+
+QCryptographicHash::Algorithm KChecksumsPlugin::detectAlgorithm(const QString &input)
+{
+    if (isMd5(input)) {
+        return QCryptographicHash::Md5;
+    }
+
+    if (isSha1(input)) {
+        return QCryptographicHash::Sha1;
+    }
+
+    if (isSha256(input)) {
+        return QCryptographicHash::Sha256;
+    }
+
+    // Md4 used as negative error code.
+    return QCryptographicHash::Md4;
+}
+
+void KChecksumsPlugin::setDefaultState()
+{
+    QColor defaultColor = d->m_widget.palette().color(QPalette::Base);
+
+    QPalette palette = d->m_widget.palette();
+    palette.setColor(QPalette::Base, defaultColor);
+
+    d->m_ui.feedbackLabel->hide();
+    d->m_ui.lineEdit->setPalette(palette);
+    d->m_ui.lineEdit->setToolTip(QString());
+}
+
+void KChecksumsPlugin::setInvalidChecksumState()
+{
+    KColorScheme colorScheme(QPalette::Active, KColorScheme::View);
+    QColor warningColor = colorScheme.background(KColorScheme::NegativeBackground).color();
+
+    QPalette palette = d->m_widget.palette();
+    palette.setColor(QPalette::Base, warningColor);
+
+    d->m_ui.feedbackLabel->setText(i18n("Invalid checksum."));
+    d->m_ui.feedbackLabel->show();
+    d->m_ui.lineEdit->setPalette(palette);
+    d->m_ui.lineEdit->setToolTip(i18nc("@info:tooltip", "The given input is not a valid MD5, SHA1 or SHA256 checksum."));
+}
+
+void KChecksumsPlugin::setMatchState()
+{
+    KColorScheme colorScheme(QPalette::Active, KColorScheme::View);
+    QColor positiveColor = colorScheme.background(KColorScheme::PositiveBackground).color();
+
+    QPalette palette = d->m_widget.palette();
+    palette.setColor(QPalette::Base, positiveColor);
+
+    d->m_ui.feedbackLabel->setText(i18n("Checksums match."));
+    d->m_ui.feedbackLabel->show();
+    d->m_ui.lineEdit->setPalette(palette);
+    d->m_ui.lineEdit->setToolTip(i18nc("@info:tooltip", "The computed checksum and the expected checksum match."));
+}
+
+void KChecksumsPlugin::setMismatchState()
+{
+    KColorScheme colorScheme(QPalette::Active, KColorScheme::View);
+    QColor warningColor = colorScheme.background(KColorScheme::NegativeBackground).color();
+
+    QPalette palette = d->m_widget.palette();
+    palette.setColor(QPalette::Base, warningColor);
+
+    d->m_ui.feedbackLabel->setText(i18n("<p>Checksums do not match.</p>"
+                                        "This may be due to a faulty download. Try re-downloading the file.<br/>"
+                                        "If the verification still fails, contact the source of the file."));
+    d->m_ui.feedbackLabel->show();
+    d->m_ui.lineEdit->setPalette(palette);
+    d->m_ui.lineEdit->setToolTip(i18nc("@info:tooltip", "The computed checksum and the expected checksum differ."));
+}
+
+void KChecksumsPlugin::showChecksum(QCryptographicHash::Algorithm algorithm, QLabel *label)
+{
+    const QString checksum = cachedChecksum(algorithm);
+
+    // Checksum in cache, nothing else to do.
+    if (!checksum.isEmpty()) {
+        label->setText(checksum);
+        return;
+    }
+
+    // Calculate checksum in another thread.
+    auto futureWatcher = new QFutureWatcher<QString>(this);
+    connect(futureWatcher, &QFutureWatcher<QString>::finished, this, [=]() {
+        const QString checksum = futureWatcher->result();
+        futureWatcher->deleteLater();
+
+        label->setText(checksum);
+        cacheChecksum(checksum, algorithm);
+    });
+
+    auto future = QtConcurrent::run(&KChecksumsPlugin::computeChecksum, algorithm, properties->item().localPath());
+    futureWatcher->setFuture(future);
+}
+
+QString KChecksumsPlugin::cachedChecksum(QCryptographicHash::Algorithm algorithm) const
+{
+    switch (algorithm) {
+    case QCryptographicHash::Md5:
+        return d->m_md5;
+    case QCryptographicHash::Sha1:
+        return d->m_sha1;
+    case QCryptographicHash::Sha256:
+        return d->m_sha256;
+    default:
+        break;
+    }
+
+    return QString();
+}
+
+void KChecksumsPlugin::cacheChecksum(const QString &checksum, QCryptographicHash::Algorithm algorithm)
+{
+    switch (algorithm) {
+    case QCryptographicHash::Md5:
+        d->m_md5 = checksum;
+        break;
+    case QCryptographicHash::Sha1:
+        d->m_sha1 = checksum;
+        break;
+    case QCryptographicHash::Sha256:
+        d->m_sha256 = checksum;
+        break;
+    default:
+        return;
+    }
 }
 
 class KUrlPropsPlugin::KUrlPropsPluginPrivate
