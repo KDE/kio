@@ -70,6 +70,13 @@ public:
      * Empty if the dialog was cancelled.
      */
     QUrl url() const;
+    /**
+     * @return the URL the user entered, as plain text.
+     * This is only useful for creating relative symlinks.
+     * Empty if the dialog was cancelled.
+     * @since 5.25
+     */
+    QString urlText() const;
 
 private:
     Q_PRIVATE_SLOT(d, void _k_slotNameTextChanged(const QString &))

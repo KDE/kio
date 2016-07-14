@@ -108,6 +108,15 @@ QUrl KNameAndUrlInputDialog::url() const
     }
 }
 
+QString KNameAndUrlInputDialog::urlText() const
+{
+    if (result() == QDialog::Accepted) {
+        return d->m_urlRequester->text();
+    } else {
+        return QString();
+    }
+}
+
 QString KNameAndUrlInputDialog::name() const
 {
     if (result() == QDialog::Accepted) {

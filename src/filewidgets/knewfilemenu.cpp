@@ -944,36 +944,13 @@ void KNewFileMenuPrivate::_k_slotSymLink()
     KNameAndUrlInputDialog *dlg = static_cast<KNameAndUrlInputDialog *>(m_fileDialog);
 
     m_copyData.m_chosenFileName = dlg->name(); // no path
-    QUrl linkUrl = dlg->url(); // the url to put in the file
+    const QString linkTarget = dlg->urlText();
 
-    if (m_copyData.m_chosenFileName.isEmpty() || linkUrl.isEmpty()) {
+    if (m_copyData.m_chosenFileName.isEmpty() || linkTarget.isEmpty()) {
         return;
     }
 
-    if (linkUrl.isRelative()) {
-        m_copyData.m_src = linkUrl.url();
-    } else if (linkUrl.isLocalFile()) {
-        m_copyData.m_src = linkUrl.toLocalFile();
-    } else {
-        QDialog *dialog = new QDialog(m_parentWidget);
-        dialog->setWindowTitle(i18n("Sorry"));
-        dialog->setObjectName(QStringLiteral("sorry"));
-        dialog->setModal(m_modal);
-        dialog->setAttribute(Qt::WA_DeleteOnClose);
-
-        QDialogButtonBox *buttonBox = new QDialogButtonBox(dialog);
-        buttonBox->setStandardButtons(QDialogButtonBox::Ok);
-
-        m_fileDialog = dialog;
-
-        KMessageBox::createKMessageBox(dialog, buttonBox, QMessageBox::Warning,
-                                       i18n("Basic links can only point to local files or directories.\nPlease use \"Link to Location\" for remote URLs."),
-                                       QStringList(), QString(), 0, KMessageBox::NoExec,
-                                       QString());
-
-        dialog->show();
-        return;
-    }
+    m_copyData.m_src = linkTarget;
     executeStrategy();
 }
 
