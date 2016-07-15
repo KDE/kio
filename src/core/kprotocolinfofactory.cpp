@@ -27,6 +27,8 @@
 #include <QDirIterator>
 #include <qstandardpaths.h>
 
+#include "kiocoredebug.h"
+
 Q_GLOBAL_STATIC(KProtocolInfoFactory, kProtocolInfoFactoryInstance)
 
 KProtocolInfoFactory *KProtocolInfoFactory::self()
@@ -71,7 +73,17 @@ KProtocolInfoPrivate *KProtocolInfoFactory::findProtocol(const QString &protocol
 
     // fill cache, if not already done and use it
     fillCache();
-    return m_cache.value(protocol);
+    KProtocolInfoPrivate *info = m_cache.value(protocol);
+    if (!info) {
+        // Unknown protocol! Maybe it just got installed and our cache is out of date?
+        qCDebug(KIO_CORE) << "Refilling KProtocolInfoFactory cache in the hope to find" << protocol;
+        m_allProtocolsLoaded = false;
+        qDeleteAll(m_cache);
+        m_cache.clear();
+        fillCache();
+        info = m_cache.value(protocol);
+    }
+    return info;
 }
 
 void KProtocolInfoFactory::fillCache()
