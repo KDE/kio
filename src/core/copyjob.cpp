@@ -61,6 +61,11 @@
 #include <kdiskfreespaceinfo.h>
 #include <kfilesystemtype.h>
 
+
+#include <QLoggingCategory>
+Q_DECLARE_LOGGING_CATEGORY(KIO_COPYJOB_DEBUG)
+Q_LOGGING_CATEGORY(KIO_COPYJOB_DEBUG, "kf5.kio.core.copyjob", QtWarningMsg)
+
 using namespace KIO;
 
 //this will update the report dialog with 5 Hz, I think this is fast enough, aleXXX
@@ -325,7 +330,7 @@ void CopyJobPrivate::slotStart()
 
     // Stat the dest
     KIO::Job *job = KIO::stat(m_dest, StatJob::DestinationSide, 2, KIO::HideProgressInfo);
-    //qDebug() << "CopyJob:stating the dest " << m_dest;
+    qCDebug(KIO_COPYJOB_DEBUG) << "CopyJob: stating the dest" << m_dest;
     q->addSubjob(job);
 }
 
@@ -335,7 +340,7 @@ KIOCORE_EXPORT bool kio_resolve_local_urls = true;
 void CopyJobPrivate::slotResultStating(KJob *job)
 {
     Q_Q(CopyJob);
-    //qDebug();
+    qCDebug(KIO_COPYJOB_DEBUG);
     // Was there an error while stating the src ?
     if (job->error() && destinationState != DEST_NOT_STATED) {
         const QUrl srcurl = static_cast<SimpleJob *>(job)->url();
@@ -343,7 +348,7 @@ void CopyJobPrivate::slotResultStating(KJob *job)
             // Probably : src doesn't exist. Well, over some protocols (e.g. FTP)
             // this info isn't really reliable (thanks to MS FTP servers).
             // We'll assume a file, and try to download anyway.
-            //qDebug() << "Error while stating source. Activating hack";
+            qCDebug(KIO_COPYJOB_DEBUG) << "Error while stating source. Activating hack";
             q->removeSubjob(job);
             assert(!q->hasSubjobs());    // We should have only one job at a time ...
             struct CopyInfo info;
@@ -383,7 +388,7 @@ void CopyJobPrivate::slotResultStating(KJob *job)
             if (freeSpaceInfo.isValid()) {
                 m_freeSpace = freeSpaceInfo.available();
             } else {
-                //qDebug() << "Couldn't determine free space information for" << path;
+                qCDebug(KIO_COPYJOB_DEBUG) << "Couldn't determine free space information for" << path;
              }
             //TODO actually preliminary check is even more valuable for slow NFS/SMB mounts,
             //but we need to find a way to report connection errors to user
@@ -394,15 +399,16 @@ void CopyJobPrivate::slotResultStating(KJob *job)
         // we were stating the dest
         if (job->error()) {
             destinationState = DEST_DOESNT_EXIST;
-            //qDebug() << "dest does not exist";
+            qCDebug(KIO_COPYJOB_DEBUG) << "dest does not exist";
         } else {
             // Treat symlinks to dirs as dirs here, so no test on isLink
             destinationState = isDir ? DEST_IS_DIR : DEST_IS_FILE;
-            //qDebug() << "dest is dir:" << isDir;
+            qCDebug(KIO_COPYJOB_DEBUG) << "dest is dir:" << isDir;
 
             const QString sLocalPath = entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH);
             if (!sLocalPath.isEmpty() && kio_resolve_local_urls && destinationState != DEST_DOESNT_EXIST) {
                 m_dest = QUrl::fromLocalFile(sLocalPath);
+                qCDebug(KIO_COPYJOB_DEBUG) << "Setting m_dest to the local path:" << sLocalPath;
                 if (isGlobalDest) {
                     m_globalDest = m_dest;
                 }
@@ -445,7 +451,7 @@ void CopyJobPrivate::sourceStated(const UDSEntry &entry, const QUrl &sourceUrl)
 
     QUrl srcurl;
     if (!sLocalPath.isEmpty() && destinationState != DEST_DOESNT_EXIST) {
-        //qDebug() << "Using sLocalPath. destinationState=" << destinationState;
+        qCDebug(KIO_COPYJOB_DEBUG) << "Using sLocalPath. destinationState=" << destinationState;
         // Prefer the local path -- but only if we were able to stat() the dest.
         // Otherwise, renaming a desktop:/ url would copy from src=file to dest=desktop (#218719)
         srcurl = QUrl::fromLocalFile(sLocalPath);
@@ -461,7 +467,7 @@ void CopyJobPrivate::sourceStated(const UDSEntry &entry, const QUrl &sourceUrl)
             // treat symlinks as files (no recursion)
             && !entry.isLink()
             && m_mode != CopyJob::Link) { // No recursion in Link mode either.
-        //qDebug() << "Source is a directory";
+        qCDebug(KIO_COPYJOB_DEBUG) << "Source is a directory";
 
         if (srcurl.isLocalFile()) {
             const QString parentDir = srcurl.adjusted(QUrl::StripTrailingSlash).toLocalFile();
@@ -502,7 +508,7 @@ void CopyJobPrivate::sourceStated(const UDSEntry &entry, const QUrl &sourceUrl)
 
         startListing(srcurl);
     } else {
-        //qDebug() << "Source is a file (or a symlink), or we are linking -> no recursive listing";
+        qCDebug(KIO_COPYJOB_DEBUG) << "Source is a file (or a symlink), or we are linking -> no recursive listing";
 
         if (srcurl.isLocalFile()) {
             const QString parentDir = srcurl.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash).path();
@@ -628,18 +634,18 @@ void CopyJobPrivate::addCopyInfoFromUDSEntry(const UDSEntry &entry, const QUrl &
             // Make URL from displayName
             url = srcUrl;
             if (srcIsDir) { // Only if src is a directory. Otherwise uSource is fine as is
-                //qDebug() << "adding path" << displayName;
+                qCDebug(KIO_COPYJOB_DEBUG) << "adding path" << fileName;
                 url = addPathToUrl(url, fileName);
             }
         }
-        //qDebug() << "displayName=" << displayName << "url=" << url;
+        qCDebug(KIO_COPYJOB_DEBUG) << "fileName=" << fileName << "url=" << url;
         if (!localPath.isEmpty() && kio_resolve_local_urls && destinationState != DEST_DOESNT_EXIST) {
             url = QUrl::fromLocalFile(localPath);
         }
 
         info.uSource = url;
         info.uDest = currentDest;
-        //qDebug() << "uSource=" << info.uSource << "uDest(1)=" << info.uDest;
+        qCDebug(KIO_COPYJOB_DEBUG) << "uSource=" << info.uSource << "uDest(1)=" << info.uDest;
         // Append filename or dirname to destination URL, if allowed
         if (destinationState == DEST_IS_DIR &&
                 // "copy/move as <foo>" means 'foo' is the dest for the base srcurl
@@ -679,11 +685,11 @@ void CopyJobPrivate::addCopyInfoFromUDSEntry(const UDSEntry &entry, const QUrl &
                 destFileName = KIO::encodeFileName(info.uSource.toDisplayString());
             }
 
-            //qDebug() << " adding destFileName=" << destFileName;
+            qCDebug(KIO_COPYJOB_DEBUG) << " adding destFileName=" << destFileName;
             info.uDest = addPathToUrl(info.uDest, destFileName);
         }
-        //qDebug() << " uDest(2)=" << info.uDest;
-        //qDebug() << " " << info.uSource << "->" << info.uDest;
+        qCDebug(KIO_COPYJOB_DEBUG) << " uDest(2)=" << info.uDest;
+        qCDebug(KIO_COPYJOB_DEBUG) << " " << info.uSource << "->" << info.uDest;
         if (info.linkDest.isEmpty() && isDir && m_mode != CopyJob::Link) { // Dir
             dirs.append(info); // Directories
             if (m_mode == CopyJob::Move) {
@@ -703,7 +709,7 @@ QUrl CopyJobPrivate::finalDestUrl(const QUrl& src, const QUrl &dest) const
         const QMap<QString, QString>& metaData = q->metaData();
         QMap<QString, QString>::ConstIterator it = metaData.find("trashURL-" + src.path());
         if (it != metaData.constEnd()) {
-            qDebug() << "finalDestUrl=" << it.value();
+            qCDebug(KIO_COPYJOB_DEBUG) << "finalDestUrl=" << it.value();
             return QUrl(it.value());
         }
     }
@@ -726,6 +732,7 @@ void CopyJobPrivate::statNextSrc()
      * d->m_dest is /foo/b for b, but we have to revert to /d for item c and following.
      */
     m_dest = m_globalDest;
+    qCDebug(KIO_COPYJOB_DEBUG) << "Setting m_dest to" << m_dest;
     destinationState = m_globalDestinationState;
     ++m_currentStatSrc;
     statCurrentSrc();
@@ -816,7 +823,7 @@ void CopyJobPrivate::statCurrentSrc()
         // Testing for entry.count()>0 here is not good enough; KFileItem inserts
         // entries for UDS_USER and UDS_GROUP even on initially empty UDSEntries (#192185)
         if (entry.contains(KIO::UDSEntry::UDS_NAME)) {
-            //qDebug() << "fast path! found info about" << m_currentSrcURL << "in KCoreDirLister";
+            qCDebug(KIO_COPYJOB_DEBUG) << "fast path! found info about" << m_currentSrcURL << "in KCoreDirLister";
             // sourceStated(entry, m_currentSrcURL); // don't recurse, see #319747, use queued invokeMethod instead
             QMetaObject::invokeMethod(q, "sourceStated", Qt::QueuedConnection, Q_ARG(KIO::UDSEntry, entry), Q_ARG(QUrl, m_currentSrcURL));
             return;
@@ -824,7 +831,7 @@ void CopyJobPrivate::statCurrentSrc()
 
         // Stat the next src url
         Job *job = KIO::stat(m_currentSrcURL, StatJob::SourceSide, 2, KIO::HideProgressInfo);
-        //qDebug() << "KIO::stat on" << m_currentSrcURL;
+        qCDebug(KIO_COPYJOB_DEBUG) << "KIO::stat on" << m_currentSrcURL;
         state = STATE_STATING;
         q->addSubjob(job);
         m_currentDestURL = m_dest;
@@ -836,7 +843,7 @@ void CopyJobPrivate::statCurrentSrc()
         m_bURLDirty = true;
         slotReport();
 
-        //qDebug()<<"Stating finished. To copy:"<<m_totalSize<<", available:"<<m_freeSpace;
+        qCDebug(KIO_COPYJOB_DEBUG)<<"Stating finished. To copy:"<<m_totalSize<<", available:"<<m_freeSpace;
         //TODO warn user beforehand if space is not enough
 
         if (!dirs.isEmpty()) {
@@ -872,7 +879,7 @@ void CopyJobPrivate::startRenameJob(const QUrl &slave_url)
         dest = addPathToUrl(dest, m_currentSrcURL.fileName());
     }
     m_currentDestURL = dest;
-    //qDebug() << m_currentSrcURL << "->" << dest << "trying direct rename first";
+    qCDebug(KIO_COPYJOB_DEBUG) << m_currentSrcURL << "->" << dest << "trying direct rename first";
     state = STATE_RENAMING;
 
     struct CopyInfo info;
@@ -1047,7 +1054,7 @@ void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
                         QUrl existingDest((*it).uDest);
                         SimpleJob *newJob = KIO::stat(existingDest, StatJob::DestinationSide, 2, KIO::HideProgressInfo);
                         Scheduler::setJobPriority(newJob, 1);
-                        //qDebug() << "KIO::stat for resolving conflict on" << existingDest;
+                        qCDebug(KIO_COPYJOB_DEBUG) << "KIO::stat for resolving conflict on" << existingDest;
                         state = STATE_CONFLICT_CREATING_DIRS;
                         q->addSubjob(newJob);
                         return; // Don't move to next dir yet !
@@ -1259,7 +1266,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
                     QUrl existingFile((*it).uDest);
                     SimpleJob *newJob = KIO::stat(existingFile, StatJob::DestinationSide, 2, KIO::HideProgressInfo);
                     Scheduler::setJobPriority(newJob, 1);
-                    //qDebug() << "KIO::stat for resolving conflict on" << existingFile;
+                    qCDebug(KIO_COPYJOB_DEBUG) << "KIO::stat for resolving conflict on" << existingFile;
                     state = STATE_CONFLICT_COPYING_FILES;
                     q->addSubjob(newJob);
                     return; // Don't move to next file yet !
@@ -1323,7 +1330,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
     m_processedSize += m_fileProcessedSize;
     m_fileProcessedSize = 0;
 
-    //qDebug() << files.count() << "files remaining";
+    qCDebug(KIO_COPYJOB_DEBUG) << files.count() << "files remaining";
 
     // Merge metadata from subjob
     KIO::Job *kiojob = dynamic_cast<KIO::Job *>(job);
@@ -1459,7 +1466,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
 
 KIO::Job *CopyJobPrivate::linkNextFile(const QUrl &uSource, const QUrl &uDest, JobFlags flags)
 {
-    //qDebug() << "Linking";
+    qCDebug(KIO_COPYJOB_DEBUG) << "Linking";
     if (
         (uSource.scheme() == uDest.scheme()) &&
         (uSource.host() == uDest.host()) &&
@@ -1469,7 +1476,7 @@ KIO::Job *CopyJobPrivate::linkNextFile(const QUrl &uSource, const QUrl &uDest, J
         // This is the case of creating a real symlink
         KIO::SimpleJob *newJob = KIO::symlink(uSource.path(), uDest, flags | HideProgressInfo /*no GUI*/);
         Scheduler::setJobPriority(newJob, 1);
-        //qDebug() << "Linking target=" << uSource.path() << "link=" << uDest;
+        qCDebug(KIO_COPYJOB_DEBUG) << "Linking target=" << uSource.path() << "link=" << uDest;
         //emit linking( this, uSource.path(), uDest );
         m_bCurrentOperationIsLink = true;
         m_currentSrcURL = uSource;
@@ -1479,12 +1486,12 @@ KIO::Job *CopyJobPrivate::linkNextFile(const QUrl &uSource, const QUrl &uDest, J
         return newJob;
     } else {
         Q_Q(CopyJob);
-        //qDebug() << "Linking URL=" << uSource << "link=" << uDest;
+        qCDebug(KIO_COPYJOB_DEBUG) << "Linking URL=" << uSource << "link=" << uDest;
         if (uDest.isLocalFile()) {
             // if the source is a devices url, handle it a littlebit special
 
             QString path = uDest.toLocalFile();
-            //qDebug() << "path=" << path;
+            qCDebug(KIO_COPYJOB_DEBUG) << "path=" << path;
             QFile f(path);
             if (f.open(QIODevice::ReadWrite)) {
                 f.close();
@@ -1514,7 +1521,7 @@ KIO::Job *CopyJobPrivate::linkNextFile(const QUrl &uSource, const QUrl &uDest, J
                 copyNextFile();
                 return 0;
             } else {
-                //qDebug() << "ERR_CANNOT_OPEN_FOR_WRITING";
+                qCDebug(KIO_COPYJOB_DEBUG) << "ERR_CANNOT_OPEN_FOR_WRITING";
                 q->setError(ERR_CANNOT_OPEN_FOR_WRITING);
                 q->setErrorText(uDest.toLocalFile());
                 q->emitResult();
@@ -1534,7 +1541,7 @@ void CopyJobPrivate::copyNextFile()
 {
     Q_Q(CopyJob);
     bool bCopyFile = false;
-    //qDebug();
+    qCDebug(KIO_COPYJOB_DEBUG);
     // Take the first file in the list
     QList<CopyInfo>::Iterator it = files.begin();
     // Is this URL on the skip list ?
@@ -1548,7 +1555,7 @@ void CopyJobPrivate::copyNextFile()
     }
 
     if (bCopyFile) { // any file to create, finally ?
-        //qDebug()<<"preparing to copy"<<(*it).uSource<<(*it).size<<m_freeSpace;
+        qCDebug(KIO_COPYJOB_DEBUG)<<"preparing to copy"<<(*it).uSource<<(*it).size<<m_freeSpace;
         if (m_freeSpace != (KIO::filesize_t) - 1 && (*it).size != (KIO::filesize_t) - 1) {
             if (m_freeSpace < (*it).size) {
                 q->setError(ERR_DISK_FULL);
@@ -1563,7 +1570,7 @@ void CopyJobPrivate::copyNextFile()
         // Do we set overwrite ?
         bool bOverwrite;
         const QString destFile = uDest.path();
-        //qDebug() << "copying" << destFile;
+        qCDebug(KIO_COPYJOB_DEBUG) << "copying" << destFile;
         if (uDest == uSource) {
             bOverwrite = false;
         } else {
@@ -1598,7 +1605,7 @@ void CopyJobPrivate::copyNextFile()
             KIO::SimpleJob *newJob = KIO::symlink((*it).linkDest, uDest, flags | HideProgressInfo /*no GUI*/);
             Scheduler::setJobPriority(newJob, 1);
             newjob = newJob;
-            //qDebug() << "Linking target=" << (*it).linkDest << "link=" << uDest;
+            qCDebug(KIO_COPYJOB_DEBUG) << "Linking target=" << (*it).linkDest << "link=" << uDest;
             m_currentSrcURL = QUrl::fromUserInput((*it).linkDest);
             m_currentDestURL = uDest;
             m_bURLDirty = true;
@@ -1611,7 +1618,7 @@ void CopyJobPrivate::copyNextFile()
             moveJob->setSourceSize((*it).size);
             moveJob->setModificationTime((*it).mtime); // #55804
             newjob = moveJob;
-            //qDebug() << "Moving" << uSource << "to" << uDest;
+            qCDebug(KIO_COPYJOB_DEBUG) << "Moving" << uSource << "to" << uDest;
             //emit moving( this, uSource, uDest );
             m_currentSrcURL = uSource;
             m_currentDestURL = uDest;
@@ -1623,7 +1630,7 @@ void CopyJobPrivate::copyNextFile()
             copyJob->setSourceSize((*it).size);
             copyJob->setModificationTime((*it).mtime);
             newjob = copyJob;
-            //qDebug() << "Copying" << uSource << "to" << uDest;
+            qCDebug(KIO_COPYJOB_DEBUG) << "Copying" << uSource << "to" << uDest;
             m_currentSrcURL = uSource;
             m_currentDestURL = uDest;
             m_bURLDirty = true;
@@ -1635,7 +1642,7 @@ void CopyJobPrivate::copyNextFile()
                    SLOT(slotTotalSize(KJob*,qulonglong)));
     } else {
         // We're done
-        //qDebug() << "copyNextFile finished";
+        qCDebug(KIO_COPYJOB_DEBUG) << "copyNextFile finished";
         deleteNextDir();
     }
 }
@@ -1720,11 +1727,11 @@ void CopyJob::emitResult()
         if (d->m_globalDestinationState != DEST_IS_DIR || d->m_asMethod) {
             url = url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
         }
-        //qDebug() << "KDirNotify'ing FilesAdded" << url;
+        qCDebug(KIO_COPYJOB_DEBUG) << "KDirNotify'ing FilesAdded" << url;
         org::kde::KDirNotify::emitFilesAdded(url);
 
         if (d->m_mode == CopyJob::Move && !d->m_successSrcList.isEmpty()) {
-            //qDebug() << "KDirNotify'ing FilesRemoved" << d->m_successSrcList;
+            qCDebug(KIO_COPYJOB_DEBUG) << "KDirNotify'ing FilesRemoved" << d->m_successSrcList;
             org::kde::KDirNotify::emitFilesRemoved(d->m_successSrcList);
         }
     }
@@ -1741,30 +1748,30 @@ void CopyJob::emitResult()
 void CopyJobPrivate::slotProcessedSize(KJob *, qulonglong data_size)
 {
     Q_Q(CopyJob);
-    //qDebug() << data_size;
+    qCDebug(KIO_COPYJOB_DEBUG) << data_size;
     m_fileProcessedSize = data_size;
     q->setProcessedAmount(KJob::Bytes, m_processedSize + m_fileProcessedSize);
 
     if (m_processedSize + m_fileProcessedSize > m_totalSize) {
         // Example: download any attachment from bugs.kde.org
         m_totalSize = m_processedSize + m_fileProcessedSize;
-        //qDebug() << "Adjusting m_totalSize to" << m_totalSize;
+        qCDebug(KIO_COPYJOB_DEBUG) << "Adjusting m_totalSize to" << m_totalSize;
         q->setTotalAmount(KJob::Bytes, m_totalSize); // safety
     }
-    //qDebug() << "emit processedSize" << (unsigned long) (m_processedSize + m_fileProcessedSize);
+    qCDebug(KIO_COPYJOB_DEBUG) << "emit processedSize" << (unsigned long) (m_processedSize + m_fileProcessedSize);
     q->setProcessedAmount(KJob::Bytes, m_processedSize + m_fileProcessedSize);
 }
 
 void CopyJobPrivate::slotTotalSize(KJob *, qulonglong size)
 {
     Q_Q(CopyJob);
-    //qDebug() << size;
+    qCDebug(KIO_COPYJOB_DEBUG) << size;
     // Special case for copying a single file
     // This is because some protocols don't implement stat properly
     // (e.g. HTTP), and don't give us a size in some cases (redirection)
     // so we'd rather rely on the size given for the transfer
     if (m_bSingleFileCopy && size != m_totalSize) {
-        //qDebug() << "slotTotalSize: updating totalsize to" << size;
+        qCDebug(KIO_COPYJOB_DEBUG) << "slotTotalSize: updating totalsize to" << size;
         m_totalSize = size;
         q->setTotalAmount(KJob::Bytes, size);
     }
@@ -1826,7 +1833,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
             const QString _src(m_currentSrcURL.adjusted(QUrl::StripTrailingSlash).toLocalFile());
             const QString _dest(dest.adjusted(QUrl::StripTrailingSlash).toLocalFile());
             if (_src != _dest && QString::compare(_src, _dest, Qt::CaseInsensitive) == 0) {
-                //qDebug() << "Couldn't rename directly, dest already exists. Detected special case of lower/uppercase renaming in same dir, try with 2 rename calls";
+                qCDebug(KIO_COPYJOB_DEBUG) << "Couldn't rename directly, dest already exists. Detected special case of lower/uppercase renaming in same dir, try with 2 rename calls";
                 const QString srcDir = QFileInfo(_src).absolutePath();
                 QTemporaryFile tmpFile(srcDir + "kio_XXXXXX");
                 const bool openOk = tmpFile.open();
@@ -1836,14 +1843,14 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                     const QString _tmp(tmpFile.fileName());
                     tmpFile.close();
                     tmpFile.remove();
-                    //qDebug() << "QTemporaryFile using" << _tmp << "as intermediary";
+                    qCDebug(KIO_COPYJOB_DEBUG) << "QTemporaryFile using" << _tmp << "as intermediary";
                     if (QFile::rename(_src, _tmp)) {
-                        //qDebug() << "Renaming" << _src << "to" << _tmp << "succeeded";
+                        qCDebug(KIO_COPYJOB_DEBUG) << "Renaming" << _src << "to" << _tmp << "succeeded";
                         if (!QFile::exists(_dest) && QFile::rename(_tmp, _dest)) {
                             err = 0;
                             org::kde::KDirNotify::emitFileRenamed(m_currentSrcURL, dest);
                         } else {
-                            //qDebug() << "Didn't manage to rename" << _tmp << "to" << _dest << ", reverting";
+                            qCDebug(KIO_COPYJOB_DEBUG) << "Didn't manage to rename" << _tmp << "to" << _dest << ", reverting";
                             // Revert back to original name!
                             if (!QFile::rename(_tmp, _src)) {
                                 qWarning() << "Couldn't rename" << _tmp << "back to" << _src << '!';
@@ -1853,7 +1860,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                             }
                         }
                     } else {
-                        //qDebug() << "mv" << _src << _tmp << "failed:" << strerror(errno);
+                        qCDebug(KIO_COPYJOB_DEBUG) << "mv" << _src << _tmp << "failed:" << strerror(errno);
                     }
                 }
             }
@@ -2005,7 +2012,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                     // This ensures that when moving several urls into a dir (m_dest),
                     // we only overwrite for the current one, not for all.
                     // When renaming a single file (m_asMethod), it makes no difference.
-                    //qDebug() << "adding to overwrite list: " << dest.path();
+                    qCDebug(KIO_COPYJOB_DEBUG) << "adding to overwrite list: " << dest.path();
                     m_overwriteList.insert(dest.path());
                     break;
                 default:
@@ -2020,20 +2027,20 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                 return;
             }
         } else if (err != KIO::ERR_UNSUPPORTED_ACTION) {
-            //qDebug() << "Couldn't rename" << m_currentSrcURL << "to" << dest << ", aborting";
+            qCDebug(KIO_COPYJOB_DEBUG) << "Couldn't rename" << m_currentSrcURL << "to" << dest << ", aborting";
             q->setError(err);
             q->setErrorText(errText);
             q->emitResult();
             return;
         }
-        //qDebug() << "Couldn't rename" << m_currentSrcURL << "to" << dest << ", reverting to normal way, starting with stat";
-        //qDebug() << "KIO::stat on" << m_currentSrcURL;
+        qCDebug(KIO_COPYJOB_DEBUG) << "Couldn't rename" << m_currentSrcURL << "to" << dest << ", reverting to normal way, starting with stat";
+        qCDebug(KIO_COPYJOB_DEBUG) << "KIO::stat on" << m_currentSrcURL;
         KIO::Job *job = KIO::stat(m_currentSrcURL, StatJob::SourceSide, 2, KIO::HideProgressInfo);
         state = STATE_STATING;
         q->addSubjob(job);
         m_bOnlyRenames = false;
     } else {
-        //qDebug() << "Renaming succeeded, move on";
+        qCDebug(KIO_COPYJOB_DEBUG) << "Renaming succeeded, move on";
         ++m_processedFiles;
         emit q->copyingDone(q, *m_currentStatSrc, finalDestUrl(*m_currentStatSrc, dest), QDateTime() /*mtime unknown, and not needed*/, true, true);
         m_successSrcList.append(*m_currentStatSrc);
@@ -2044,7 +2051,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
 void CopyJob::slotResult(KJob *job)
 {
     Q_D(CopyJob);
-    //qDebug() << "d->state=" << (int) d->state;
+    qCDebug(KIO_COPYJOB_DEBUG) << "d->state=" << (int) d->state;
     // In each case, what we have to do is :
     // 1 - check for errors and treat them
     // 2 - removeSubjob(job);
@@ -2059,7 +2066,7 @@ void CopyJob::slotResult(KJob *job)
         break;
     }
     case STATE_LISTING: // recursive listing finished
-        //qDebug() << "totalSize:" << (unsigned int) d->m_totalSize << "files:" << d->files.count() << "d->dirs:" << d->dirs.count();
+        qCDebug(KIO_COPYJOB_DEBUG) << "totalSize:" << (unsigned int) d->m_totalSize << "files:" << d->files.count() << "d->dirs:" << d->dirs.count();
         // Was there an error ?
         if (job->error()) {
             Job::slotResult(job);   // will set the error and emit result(this)
@@ -2123,7 +2130,7 @@ void KIO::CopyJob::setWriteIntoExistingDirectories(bool overwriteAll) // #65926
 
 CopyJob *KIO::copy(const QUrl &src, const QUrl &dest, JobFlags flags)
 {
-    //qDebug() << "src=" << src << "dest=" << dest;
+    qCDebug(KIO_COPYJOB_DEBUG) << "src=" << src << "dest=" << dest;
     QList<QUrl> srcList;
     srcList.append(src);
     return CopyJobPrivate::newJob(srcList, dest, CopyJob::Copy, false, flags);
@@ -2131,7 +2138,7 @@ CopyJob *KIO::copy(const QUrl &src, const QUrl &dest, JobFlags flags)
 
 CopyJob *KIO::copyAs(const QUrl &src, const QUrl &dest, JobFlags flags)
 {
-    //qDebug() << "src=" << src << "dest=" << dest;
+    qCDebug(KIO_COPYJOB_DEBUG) << "src=" << src << "dest=" << dest;
     QList<QUrl> srcList;
     srcList.append(src);
     return CopyJobPrivate::newJob(srcList, dest, CopyJob::Copy, true, flags);
@@ -2139,13 +2146,13 @@ CopyJob *KIO::copyAs(const QUrl &src, const QUrl &dest, JobFlags flags)
 
 CopyJob *KIO::copy(const QList<QUrl> &src, const QUrl &dest, JobFlags flags)
 {
-    //qDebug() << src << dest;
+    qCDebug(KIO_COPYJOB_DEBUG) << src << dest;
     return CopyJobPrivate::newJob(src, dest, CopyJob::Copy, false, flags);
 }
 
 CopyJob *KIO::move(const QUrl &src, const QUrl &dest, JobFlags flags)
 {
-    //qDebug() << src << dest;
+    qCDebug(KIO_COPYJOB_DEBUG) << src << dest;
     QList<QUrl> srcList;
     srcList.append(src);
     CopyJob *job = CopyJobPrivate::newJob(srcList, dest, CopyJob::Move, false, flags);
@@ -2157,7 +2164,7 @@ CopyJob *KIO::move(const QUrl &src, const QUrl &dest, JobFlags flags)
 
 CopyJob *KIO::moveAs(const QUrl &src, const QUrl &dest, JobFlags flags)
 {
-    //qDebug() << src << dest;
+    qCDebug(KIO_COPYJOB_DEBUG) << src << dest;
     QList<QUrl> srcList;
     srcList.append(src);
     CopyJob *job = CopyJobPrivate::newJob(srcList, dest, CopyJob::Move, true, flags);
@@ -2169,7 +2176,7 @@ CopyJob *KIO::moveAs(const QUrl &src, const QUrl &dest, JobFlags flags)
 
 CopyJob *KIO::move(const QList<QUrl> &src, const QUrl &dest, JobFlags flags)
 {
-    //qDebug() << src << dest;
+    qCDebug(KIO_COPYJOB_DEBUG) << src << dest;
     CopyJob *job = CopyJobPrivate::newJob(src, dest, CopyJob::Move, false, flags);
     if (job->uiDelegateExtension()) {
         job->uiDelegateExtension()->createClipboardUpdater(job, JobUiDelegateExtension::UpdateContent);
