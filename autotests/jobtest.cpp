@@ -691,6 +691,9 @@ void JobTest::moveFileNoPermissions()
     qDebug() << "port to win32";
 #else
     const QString src = QStringLiteral("/etc/passwd");
+    if (geteuid() == 0 || QFileInfo(src).isWritable()) {
+        QSKIP("Test must not be run by root.");
+    }
     const QString dest = homeTmpDir() + "passwd";
     QVERIFY(QFile::exists(src));
     QVERIFY(QFileInfo(src).isFile());
@@ -724,7 +727,9 @@ void JobTest::moveDirectoryNoPermissions()
     if (!QFile::exists(src)) {
         src = QStringLiteral("/etc");
     }
-
+    if (geteuid() == 0 || QFileInfo(src).isWritable()) {
+        QSKIP("Test must not be run by root.");
+    }
     const QString dest = homeTmpDir() + "mdnp";
     QVERIFY(QFile::exists(src));
     QVERIFY(QFileInfo(src).isDir());

@@ -452,6 +452,10 @@ void TestTrash::trashFileOwnedByRoot()
     QUrl u(QStringLiteral("file:///etc/passwd"));
     const QString fileId = QStringLiteral("passwd");
 
+    if (geteuid() == 0 || QFileInfo(u.toLocalFile()).isWritable()) {
+        QSKIP("Test must not be run by root.");
+    }
+
     KIO::CopyJob *job = KIO::move(u, QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
     job->setUiDelegate(0); // no skip dialog, thanks
     bool ok = job->exec();
@@ -956,6 +960,10 @@ void TestTrash::trashDirectoryOwnedByRoot()
     }
     const QString fileId = u.path();
     qDebug() << "fileId=" << fileId;
+
+    if (geteuid() == 0 || QFileInfo(u.toLocalFile()).isWritable()) {
+        QSKIP("Test must not be run by root.");
+    }
 
     KIO::CopyJob *job = KIO::move(u, QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
     job->setUiDelegate(0); // no skip dialog, thanks
