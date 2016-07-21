@@ -416,12 +416,6 @@ void KPropertiesDialog::KPropertiesDialogPrivate::init()
 {
     q->setFaceType(KPageDialog::Tabbed);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(q);
-    buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    q->connect(buttonBox, SIGNAL(accepted()), q, SLOT(slotOk()));
-    q->connect(buttonBox, SIGNAL(rejected()), q, SLOT(slotCancel()));
-    q->setButtonBox(buttonBox);
-
     insertPages();
 
     KConfigGroup group(KSharedConfig::openConfig(), "KPropertiesDialog");
@@ -505,7 +499,7 @@ bool KPropertiesDialog::canDisplay(const KFileItemList &_items)
             KPreviewPropsPlugin::supports( _items )*/;
 }
 
-void KPropertiesDialog::slotOk()
+void KPropertiesDialog::accept()
 {
     QList<KPropertiesDialogPlugin *>::const_iterator pageListIt;
     d->m_aborted = false;
@@ -544,17 +538,17 @@ void KPropertiesDialog::slotOk()
         emit applied();
         emit propertiesClosed();
         deleteLater(); // somewhat like Qt::WA_DeleteOnClose would do.
-        accept();
+        KPageDialog::accept();
     } // else, keep dialog open for user to fix the problem.
 }
 
-void KPropertiesDialog::slotCancel()
+void KPropertiesDialog::reject()
 {
     emit canceled();
     emit propertiesClosed();
 
     deleteLater();
-    done(Rejected);
+    KPageDialog::reject();
 }
 
 void KPropertiesDialog::KPropertiesDialogPrivate::insertPages()

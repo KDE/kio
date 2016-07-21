@@ -349,12 +349,25 @@ public:
 public Q_SLOTS:
     /**
      * Called when the user presses 'Ok'.
+     * @deprecated since 5.25, use accept()
      */
-    virtual void slotOk();      // Deletes the PropertiesDialog instance
+    KIOWIDGETS_DEPRECATED virtual void slotOk() { accept(); }
     /**
      * Called when the user presses 'Cancel'.
+     * @deprecated since 5.25, use reject()
      */
-    virtual void slotCancel();     // Deletes the PropertiesDialog instance
+    KIOWIDGETS_DEPRECATED virtual void slotCancel() { reject(); }
+
+    /**
+     * Called when the user presses 'Ok'.
+     * @since 5.25
+     */
+    void accept() Q_DECL_OVERRIDE;
+    /**
+     * Called when the user presses 'Cancel' or Esc.
+     * @since 5.25
+     */
+    void reject() Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     /**

@@ -18,6 +18,8 @@ int main(int argc, char **argv)
     // (A non-modal, URL-only dialog is the one kicker uses for app buttons, no problem there)
     {
         KPropertiesDialog dlg(u, 0);
+        QObject::connect(&dlg, &KPropertiesDialog::applied, [](){ qDebug() << "applied"; });
+        QObject::connect(&dlg, &KPropertiesDialog::canceled, [](){ qDebug() << "canceled"; });
         dlg.exec();
     }
 
