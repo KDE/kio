@@ -538,7 +538,7 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
     QString dest_part(dest_orig + QLatin1String(".part"));
 
     QT_STATBUF buff_orig;
-    const bool bOrigExists = (QT_LSTAT(QFile::encodeName(dest_part).constData(), &buff_orig) != -1);
+    const bool bOrigExists = (QT_LSTAT(QFile::encodeName(dest_orig).constData(), &buff_orig) != -1);
     bool bPartExists = false;
     const bool bMarkPartial = config()->readEntry("MarkPartial", true);
 
