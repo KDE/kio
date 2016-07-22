@@ -312,10 +312,14 @@ public:
     void _k_slotFillTemplates();
 
     /**
-      * Callback in KNewFileMenu for the OtherDesktopFile Dialog. Handles dialog input and gives over
-      * to executeStrategy()
+      * Called when accepting the KPropertiesDialog (for "other desktop files")
       */
     void _k_slotOtherDesktopFile();
+
+    /**
+     * Called when closing the KPropertiesDialog is closed (whichever way, accepted and rejected)
+     */
+    void _k_slotOtherDesktopFileClosed();
 
     /**
       * Callback in KNewFileMenu for the RealFile Dialog. Handles dialog input and gives over
@@ -448,6 +452,8 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
         text = text.trimmed(); // In some languages, there is a space in front of "...", see bug 268895
         // KDE5 TODO: remove the "..." from link*.desktop files and use i18n("%1...") when making
         // the action.
+        QString name = text;
+        text.append(QStringLiteral(".desktop"));
 
         const QUrl directory = mostLocalUrl(*it);
         const QUrl defaultFile = QUrl::fromLocalFile(directory.toLocalFile() + '/' + KIO::encodeFileName(text));
@@ -455,12 +461,30 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
             text = KIO::suggestName(directory, text);
         }
 
-        const QUrl templateUrl(QUrl::fromLocalFile(entry.templatePath));
+        QUrl templateUrl;
+        bool usingTemplate = false;
+        if (entry.templatePath.startsWith(QLatin1String(":/"))) {
+            QTemporaryFile *tmpFile = QTemporaryFile::createNativeFile(entry.templatePath);
+            tmpFile->setAutoRemove(false);
+            QString tempFileName = tmpFile->fileName();
+            tmpFile->close();
 
+            KDesktopFile df(tempFileName);
+            KConfigGroup group = df.desktopGroup();
+            group.writeEntry("Name", name);
+            templateUrl = QUrl::fromLocalFile(tempFileName);
+            m_tempFileToDelete = tempFileName;
+            usingTemplate = true;
+        } else {
+            templateUrl = QUrl::fromLocalFile(entry.templatePath);
+        }
         QDialog *dlg = new KPropertiesDialog(templateUrl, directory, text, m_parentWidget);
         dlg->setModal(q->isModal());
         dlg->setAttribute(Qt::WA_DeleteOnClose);
         QObject::connect(dlg, SIGNAL(applied()), q, SLOT(_k_slotOtherDesktopFile()));
+        if (usingTemplate) {
+            QObject::connect(dlg, SIGNAL(propertiesClosed()), q, SLOT(_k_slotOtherDesktopFileClosed()));
+        }
         dlg->show();
     }
     // We don't set m_src here -> there will be no copy, we are done.
@@ -932,6 +956,11 @@ void KNewFileMenuPrivate::_k_slotOtherDesktopFile()
     // The properties dialog took care of the copying, so we're done
     KPropertiesDialog *dialog = qobject_cast<KPropertiesDialog *>(q->sender());
     emit q->fileCreated(dialog->url());
+}
+
+void KNewFileMenuPrivate::_k_slotOtherDesktopFileClosed()
+{
+    QFile::remove(m_tempFileToDelete);
 }
 
 void KNewFileMenuPrivate::_k_slotRealFileOrDir()
