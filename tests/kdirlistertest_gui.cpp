@@ -41,17 +41,20 @@ KDirListerTest::KDirListerTest(QWidget *parent)
     QPushButton *startR = new QPushButton(QStringLiteral("Start listing Root"), this);
     QPushButton *test = new QPushButton(QStringLiteral("Many"), this);
     QPushButton *startT = new QPushButton(QStringLiteral("tarfile"), this);
+    QPushButton *searchI = new QPushButton(QStringLiteral("Search listing Image"), this);
 
     layout->addWidget(startH);
     layout->addWidget(startR);
     layout->addWidget(startT);
     layout->addWidget(test);
+    layout->addWidget(searchI);
     resize(layout->sizeHint());
 
     connect(startR, SIGNAL(clicked()), SLOT(startRoot()));
     connect(startH, SIGNAL(clicked()), SLOT(startHome()));
     connect(startT, SIGNAL(clicked()), SLOT(startTar()));
     connect(test, SIGNAL(clicked()), SLOT(test()));
+    connect(searchI, SIGNAL(clicked()), SLOT(searchImage()));
 
     connect(lister, SIGNAL(started(QUrl)),
             debug,  SLOT(started(QUrl)));
@@ -138,6 +141,11 @@ void KDirListerTest::test()
     */
     lister->openUrl(QUrl::fromLocalFile(QStringLiteral("file:/dev")), KDirLister::Keep | KDirLister::Reload);
 #endif
+}
+
+void KDirListerTest::searchImage()
+{
+    lister->openUrl(QUrl("baloosearch:?json={\"dayFilter\": 0,\"monthFilter\": 0,\"type\": [\"Image\"],\"yearFilter\": 0}"));
 }
 
 void KDirListerTest::completed()

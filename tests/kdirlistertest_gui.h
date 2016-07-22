@@ -133,6 +133,7 @@ public Q_SLOTS:
     void startTar();
     void test();
     void completed();
+    void searchImage();
 
 private:
     KDirLister *lister;
