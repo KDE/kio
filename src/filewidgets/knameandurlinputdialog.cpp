@@ -101,29 +101,17 @@ KNameAndUrlInputDialog::~KNameAndUrlInputDialog()
 
 QUrl KNameAndUrlInputDialog::url() const
 {
-    if (result() == QDialog::Accepted) {
-        return d->m_urlRequester->url();
-    } else {
-        return QUrl();
-    }
+    return d->m_urlRequester->url();
 }
 
 QString KNameAndUrlInputDialog::urlText() const
 {
-    if (result() == QDialog::Accepted) {
-        return d->m_urlRequester->text();
-    } else {
-        return QString();
-    }
+    return d->m_urlRequester->text();
 }
 
 QString KNameAndUrlInputDialog::name() const
 {
-    if (result() == QDialog::Accepted) {
-        return d->m_leName->text();
-    } else {
-        return QString();
-    }
+    return d->m_leName->text();
 }
 
 void KNameAndUrlInputDialogPrivate::_k_slotNameTextChanged(const QString &)

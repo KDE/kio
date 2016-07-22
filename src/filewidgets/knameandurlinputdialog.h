@@ -62,18 +62,15 @@ public:
 
     /**
      * @return the name the user entered
-     * Empty if the dialog was cancelled.
      */
     QString name() const;
     /**
      * @return the URL the user entered
-     * Empty if the dialog was cancelled.
      */
     QUrl url() const;
     /**
      * @return the URL the user entered, as plain text.
      * This is only useful for creating relative symlinks.
-     * Empty if the dialog was cancelled.
      * @since 5.25
      */
     QString urlText() const;
