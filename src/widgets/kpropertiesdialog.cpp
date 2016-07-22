@@ -2680,7 +2680,7 @@ void KChecksumsPlugin::slotShowMd5()
     auto label = new QLabel(i18nc("@action:button", "Calculating..."), &d->m_widget);
     label->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
 
-    d->m_ui.groupBox->layout()->replaceWidget(d->m_ui.md5Button, label);
+    d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.md5Button, label);
     d->m_ui.md5Button->hide();
 
     showChecksum(QCryptographicHash::Md5, label);
@@ -2691,7 +2691,7 @@ void KChecksumsPlugin::slotShowSha1()
     auto label = new QLabel(i18nc("@action:button", "Calculating..."), &d->m_widget);
     label->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
 
-    d->m_ui.groupBox->layout()->replaceWidget(d->m_ui.sha1Button, label);
+    d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.sha1Button, label);
     d->m_ui.sha1Button->hide();
 
     showChecksum(QCryptographicHash::Sha1, label);
@@ -2702,7 +2702,7 @@ void KChecksumsPlugin::slotShowSha256()
     auto label = new QLabel(i18nc("@action:button", "Calculating..."), &d->m_widget);
     label->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
 
-    d->m_ui.groupBox->layout()->replaceWidget(d->m_ui.sha256Button, label);
+    d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.sha256Button, label);
     d->m_ui.sha256Button->hide();
 
     showChecksum(QCryptographicHash::Sha256, label);

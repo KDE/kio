@@ -37,10 +37,10 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox">
-     <property name="title">
-      <string extracomment="Title of the groupbox where the user can copy the checksums to the clipboard.">Share</string>
-     </property>
+    <widget class="KSeparator" name="kseparator"/>
+   </item>
+   <item>
+    <widget class="QWidget" name="calculateWidget" native="true">
      <layout class="QFormLayout" name="formLayout_2">
       <item row="0" column="0">
        <widget class="QLabel" name="label_2">
@@ -102,6 +102,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KSeparator</class>
+   <extends>QFrame</extends>
+   <header>kseparator.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
