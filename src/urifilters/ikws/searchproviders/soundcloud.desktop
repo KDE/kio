@@ -3,6 +3,7 @@ Type=Service
 Name=Soundcloud
 Name[ca]=Soundcloud
 Name[ca@valencia]=Soundcloud
+Name[cs]=Soundcloud
 Name[da]=Soundcloud
 Name[de]=Soundcloud
 Name[es]=Soundcloud
@@ -24,6 +25,7 @@ Keys=sc
 Query=https://soundcloud.com/search?q=\\{@}
 Query[ca]=https://soundcloud.com/search?q=\\{@}
 Query[ca@valencia]=https://soundcloud.com/search?q=\\{@}
+Query[cs]=https://soundcloud.com/search?q=\\{@}
 Query[da]=https://soundcloud.com/search?q=\\{@}
 Query[de]=https://soundcloud.com/search?q=\\{@}
 Query[es]=https://soundcloud.com/search?q=\\{@}
