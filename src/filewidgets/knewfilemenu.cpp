@@ -449,15 +449,15 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
         // KDE5 TODO: remove the "..." from link*.desktop files and use i18n("%1...") when making
         // the action.
 
-        QUrl defaultFile(*it);
-        defaultFile.setPath(defaultFile.path() + '/' + KIO::encodeFileName(text));
+        const QUrl directory = mostLocalUrl(*it);
+        const QUrl defaultFile = QUrl::fromLocalFile(directory.toLocalFile() + '/' + KIO::encodeFileName(text));
         if (defaultFile.isLocalFile() && QFile::exists(defaultFile.toLocalFile())) {
-            text = KIO::suggestName(*it, text);
+            text = KIO::suggestName(directory, text);
         }
 
         const QUrl templateUrl(QUrl::fromLocalFile(entry.templatePath));
 
-        QDialog *dlg = new KPropertiesDialog(templateUrl, *it, text, m_parentWidget);
+        QDialog *dlg = new KPropertiesDialog(templateUrl, directory, text, m_parentWidget);
         dlg->setModal(q->isModal());
         dlg->setAttribute(Qt::WA_DeleteOnClose);
         QObject::connect(dlg, SIGNAL(applied()), q, SLOT(_k_slotOtherDesktopFile()));
@@ -475,10 +475,10 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
     text = text.trimmed(); // In some languages, there is a space in front of "...", see bug 268895
     m_copyData.m_src = entry.templatePath;
 
-    QUrl defaultFile(m_popupFiles.first());
-    defaultFile.setPath(defaultFile.path() + '/' + KIO::encodeFileName(text));
+    const QUrl directory = mostLocalUrl(m_popupFiles.first());
+    const QUrl defaultFile = QUrl::fromLocalFile(directory.toLocalFile() + '/' + KIO::encodeFileName(text));
     if (defaultFile.isLocalFile() && QFile::exists(defaultFile.toLocalFile())) {
-        text = KIO::suggestName(m_popupFiles.first(), text);
+        text = KIO::suggestName(directory, text);
     }
 
     QDialog *fileDialog = new QDialog(m_parentWidget);
