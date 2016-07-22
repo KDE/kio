@@ -929,7 +929,9 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
 
 void KNewFileMenuPrivate::_k_slotOtherDesktopFile()
 {
-    executeStrategy();
+    // The properties dialog took care of the copying, so we're done
+    KPropertiesDialog *dialog = qobject_cast<KPropertiesDialog *>(q->sender());
+    emit q->fileCreated(dialog->url());
 }
 
 void KNewFileMenuPrivate::_k_slotRealFileOrDir()

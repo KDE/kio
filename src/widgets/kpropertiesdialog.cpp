@@ -978,6 +978,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         d->nameArea = lab;
     } else {
         d->m_lined = new KLineEdit(d->m_frame);
+        d->m_lined->setObjectName("KFilePropsPlugin::nameLineEdit");
         d->m_lined->setText(filename);
         d->nameArea = d->m_lined;
         d->m_lined->setFocus();

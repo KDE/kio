@@ -24,6 +24,7 @@
 #include <QLineEdit>
 #include <QMenu>
 #include <knameandurlinputdialog.h>
+#include <kpropertiesdialog.h>
 #include <kactioncollection.h>
 #include <knewfilemenu.h>
 
@@ -56,6 +57,7 @@ private Q_SLOTS:
         QTest::newRow("url desktop file .pl extension") << "Link to Location " << "tmp_link.pl" << "tmp_link.pl.desktop";
         QTest::newRow("symlink") << "Basic link" << "thelink" << "thelink";
         QTest::newRow("folder") << "Folder..." << "folder1" << "folder1";
+        QTest::newRow("application") << "Link to Application..." << "app1" << "app1.desktop";
     }
 
     void test()
@@ -70,14 +72,16 @@ private Q_SLOTS:
         menu.setModal(false);
         menu.setParentWidget(&parentWidget);
         QList<QUrl> lst;
-        lst << QUrl::fromLocalFile(m_tmpDir.path());;
+        lst << QUrl::fromLocalFile(m_tmpDir.path());
         menu.setPopupFiles(lst);
         menu.checkUpToDate();
         QAction *action = coll.action(QStringLiteral("the_action"));
         QVERIFY(action);
         QAction *textAct = 0;
         Q_FOREACH (QAction *act, action->menu()->actions()) {
-            qDebug() << act << act->text() << act->data();
+            if (m_first) {
+                qDebug() << act << act->text() << act->data();
+            }
             if (act->text().contains(actionText)) {
                 textAct = act;
             }
@@ -90,28 +94,34 @@ private Q_SLOTS:
         textAct->trigger();
         QDialog *dialog = parentWidget.findChild<QDialog *>();
         QVERIFY(dialog);
-        KNameAndUrlInputDialog *nauiDialog = qobject_cast<KNameAndUrlInputDialog *>(dialog);
-        if (nauiDialog) {
+        if (KNameAndUrlInputDialog *nauiDialog = qobject_cast<KNameAndUrlInputDialog *>(dialog)) {
             nauiDialog->setSuggestedName(typedFilename);
             nauiDialog->setSuggestedUrl(QUrl(QStringLiteral("file:///etc")));
+        } else if (KPropertiesDialog *propsDialog = qobject_cast<KPropertiesDialog *>(dialog)) {
+            QLineEdit *lineEdit = propsDialog->findChild<QLineEdit *>("KFilePropsPlugin::nameLineEdit");
+            QVERIFY(lineEdit);
+            lineEdit->setText(typedFilename);
         } else {
             QLineEdit *lineEdit = dialog->findChild<QLineEdit *>();
             QVERIFY(lineEdit);
             lineEdit->setText(typedFilename);
         }
-        dialog->accept();
         QUrl emittedUrl;
         QSignalSpy spy(&menu, SIGNAL(fileCreated(QUrl)));
         QSignalSpy folderSpy(&menu, SIGNAL(directoryCreated(QUrl)));
+        dialog->accept();
         if (actionText == QLatin1String("Folder...")) {
             QVERIFY(folderSpy.wait(1000));
             emittedUrl = folderSpy.at(0).at(0).toUrl();
         } else {
-            QVERIFY(spy.wait(1000));
+            if (spy.isEmpty()) {
+                QVERIFY(spy.wait(1000));
+            }
             emittedUrl = spy.at(0).at(0).toUrl();
         }
         const QString path = m_tmpDir.path() + '/' + expectedFilename;
         QCOMPARE(emittedUrl.toLocalFile(), path);
+        QVERIFY(QFile::exists(path));
         QFile::remove(path);
         m_first = false;
     }

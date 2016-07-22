@@ -175,6 +175,7 @@ private:
     Q_PRIVATE_SLOT(d, void _k_slotSymLink())
     Q_PRIVATE_SLOT(d, void _k_slotUrlDesktopFile())
 
+    friend class KNewFileMenuPrivate;
     KNewFileMenuPrivate *const d;
 
 };
