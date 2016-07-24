@@ -730,6 +730,8 @@ void JobTest::moveFileNoPermissions()
     // destination file remains.
     // In this test it's the same partition, so no dest created.
     QVERIFY(!QFile::exists(dest));
+
+    // Cleanup
     QVERIFY(QFile(subdir).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner)));
     QVERIFY(QFile::exists(src));
     QVERIFY(QDir(subdir).removeRecursively());
@@ -737,34 +739,29 @@ void JobTest::moveFileNoPermissions()
 
 void JobTest::moveDirectoryNoPermissions()
 {
-    qDebug();
-#ifdef Q_OS_WIN
-    qDebug() << "port to win32";
-#else
-
-    // All of /etc is a bit much, so try to find something smaller:
-    QString src = QStringLiteral("/etc/fonts");
-    if (!QFile::exists(src)) {
-        src = QStringLiteral("/etc");
-    }
-    if (geteuid() == 0 || QFileInfo(src).isWritable()) {
-        QSKIP("Test must not be run by root.");
-    }
-    const QString dest = homeTmpDir() + "mdnp";
-    QVERIFY(QFile::exists(src));
+    // Given a dir that cannot be moved (parent dir has no permissions)
+    const QString subdir = homeTmpDir() + "subdir";
+    const QString src = subdir + "/thedir";
+    QVERIFY(QDir().mkpath(src));
     QVERIFY(QFileInfo(src).isDir());
-    QUrl u = QUrl::fromLocalFile(src);
-    QUrl d = QUrl::fromLocalFile(dest);
+    QVERIFY(QFile(subdir).setPermissions(QFile::Permissions())); // Make it inaccessible
 
-    KIO::CopyJob *job = KIO::move(u, d, KIO::HideProgressInfo);
+    // When trying to move it
+    const QString dest = homeTmpDir() + "mdnp";
+    KIO::CopyJob *job = KIO::move(QUrl::fromLocalFile(src), QUrl::fromLocalFile(dest), KIO::HideProgressInfo);
     job->setUiDelegate(0);
     job->setUiDelegateExtension(0); // no skip dialog, thanks
-    bool ok = job->exec();
-    QVERIFY(!ok);
+
+    // The job should fail with "access denied"
+    QVERIFY(!job->exec());
     QCOMPARE(job->error(), (int)KIO::ERR_ACCESS_DENIED);
-    //QVERIFY( QFile::exists( dest ) ); // see moveFileNoPermissions
+
+    QVERIFY(!QFile::exists(dest));
+
+    // Cleanup
+    QVERIFY(QFile(subdir).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner)));
     QVERIFY(QFile::exists(src));
-#endif
+    QVERIFY(QDir(subdir).removeRecursively());
 }
 
 void JobTest::listRecursive()
