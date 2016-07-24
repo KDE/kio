@@ -51,6 +51,7 @@
 #include <functional>
 
 #include <QCheckBox>
+#include <QClipboard>
 #include <QDebug>
 #include <QDir>
 #include <QDialogButtonBox>
@@ -2642,6 +2643,10 @@ KChecksumsPlugin::KChecksumsPlugin(KPropertiesDialog *dialog)
     d->m_ui.setupUi(&d->m_widget);
     properties->addPage(&d->m_widget, i18nc("@title:tab", "&Checksums"));
 
+    d->m_ui.md5CopyButton->hide();
+    d->m_ui.sha1CopyButton->hide();
+    d->m_ui.sha256CopyButton->hide();
+
     connect(d->m_ui.lineEdit, &QLineEdit::textChanged, this, &KChecksumsPlugin::slotVerifyChecksum);
     connect(d->m_ui.md5Button, &QPushButton::clicked, this, &KChecksumsPlugin::slotShowMd5);
     connect(d->m_ui.sha1Button, &QPushButton::clicked, this, &KChecksumsPlugin::slotShowSha1);
@@ -2649,6 +2654,23 @@ KChecksumsPlugin::KChecksumsPlugin(KPropertiesDialog *dialog)
 
     d->fileWatcher.addPath(properties->item().localPath());
     connect(&d->fileWatcher, &QFileSystemWatcher::fileChanged, this, &KChecksumsPlugin::slotInvalidateCache);
+
+    auto clipboard = QApplication::clipboard();
+    connect(d->m_ui.md5CopyButton, &QPushButton::clicked, this, [=]() {
+        clipboard->setText(d->m_md5);
+    });
+
+    connect(d->m_ui.sha1CopyButton, &QPushButton::clicked, this, [=]() {
+        clipboard->setText(d->m_sha1);
+    });
+
+    connect(d->m_ui.sha256CopyButton, &QPushButton::clicked, this, [=]() {
+        clipboard->setText(d->m_sha256);
+    });
+
+    connect(d->m_ui.pasteButton, &QPushButton::clicked, this, [=]() {
+        d->m_ui.lineEdit->setText(clipboard->text());
+    });
 
     setDefaultState();
 }
@@ -2682,6 +2704,7 @@ void KChecksumsPlugin::slotShowMd5()
 
     d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.md5Button, label);
     d->m_ui.md5Button->hide();
+    d->m_ui.md5CopyButton->show();
 
     showChecksum(QCryptographicHash::Md5, label);
 }
@@ -2693,6 +2716,7 @@ void KChecksumsPlugin::slotShowSha1()
 
     d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.sha1Button, label);
     d->m_ui.sha1Button->hide();
+    d->m_ui.sha1CopyButton->show();
 
     showChecksum(QCryptographicHash::Sha1, label);
 }
@@ -2704,6 +2728,7 @@ void KChecksumsPlugin::slotShowSha256()
 
     d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.sha256Button, label);
     d->m_ui.sha256Button->hide();
+    d->m_ui.sha256CopyButton->show();
 
     showChecksum(QCryptographicHash::Sha256, label);
 }
