@@ -27,6 +27,7 @@
 #include <kpropertiesdialog.h>
 #include <kactioncollection.h>
 #include <knewfilemenu.h>
+#include <KIO/StoredTransferJob>
 
 #include <qtemporarydir.h>
 
@@ -42,6 +43,30 @@ private Q_SLOTS:
 
     void cleanupTestCase()
     {
+    }
+
+    // Ensure that we can use storedPut() with a qrc file as input
+    // similar to JobTest::storedPutIODeviceFile, but with a qrc file as input
+    // (and here because jobtest doesn't link to KIO::FileWidgets, which has the qrc)
+    void storedPutIODeviceQrcFile()
+    {
+        // Given a source (in a Qt resource file) and a destination file
+        const QString src = ":/kio5/newfile-templates/.source/HTMLFile.html";
+        QVERIFY(QFile::exists(src));
+        QFile srcFile(src);
+        QVERIFY(srcFile.open(QIODevice::ReadOnly));
+        const QString dest = m_tmpDir.path() + "/dest";
+        QFile::remove(dest);
+        const QUrl destUrl = QUrl::fromLocalFile(dest);
+
+        // When using storedPut with the QFile as argument
+        KIO::StoredTransferJob *job = KIO::storedPut(&srcFile, destUrl, 0600, KIO::Overwrite | KIO::HideProgressInfo);
+
+        // Then the copy should succeed and the dest file exist
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
+        QVERIFY(QFile::exists(dest));
+        QCOMPARE(QFileInfo(src).size(), QFileInfo(dest).size());
+        QFile::remove(dest);
     }
 
     void test_data()

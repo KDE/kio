@@ -247,6 +247,27 @@ void JobTest::storedPutIODevice()
     QVERIFY(!spyPercent.isEmpty());
 }
 
+void JobTest::storedPutIODeviceFile()
+{
+    // Given a source file and a destination file
+    const QString src = homeTmpDir() + "fileFromHome";
+    createTestFile(src);
+    QVERIFY(QFile::exists(src));
+    QFile srcFile(src);
+    QVERIFY(srcFile.open(QIODevice::ReadOnly));
+    const QString dest = homeTmpDir() + "fileFromHome_copied";
+    QFile::remove(dest);
+    const QUrl destUrl = QUrl::fromLocalFile(dest);
+
+    // When using storedPut with the QFile as argument
+    KIO::StoredTransferJob *job = KIO::storedPut(&srcFile, destUrl, 0600, KIO::Overwrite | KIO::HideProgressInfo);
+
+    // Then the copy should succeed and the dest file exist
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QVERIFY(QFile::exists(dest));
+    QCOMPARE(QFileInfo(src).size(), QFileInfo(dest).size());
+}
+
 void JobTest::storedPutIODeviceSlowDevice()
 {
     const QString filePath = homeTmpDir() + "fileFromHome";
