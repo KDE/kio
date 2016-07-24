@@ -266,6 +266,7 @@ void JobTest::storedPutIODeviceFile()
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(dest));
     QCOMPARE(QFileInfo(src).size(), QFileInfo(dest).size());
+    QFile::remove(dest);
 }
 
 void JobTest::storedPutIODeviceSlowDevice()
