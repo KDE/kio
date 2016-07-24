@@ -708,33 +708,31 @@ void JobTest::moveDirectoryToOtherPartition()
 
 void JobTest::moveFileNoPermissions()
 {
-    qDebug();
-#ifdef Q_OS_WIN
-    qDebug() << "port to win32";
-#else
-    const QString src = QStringLiteral("/etc/passwd");
-    if (geteuid() == 0 || QFileInfo(src).isWritable()) {
-        QSKIP("Test must not be run by root.");
-    }
-    const QString dest = homeTmpDir() + "passwd";
-    QVERIFY(QFile::exists(src));
-    QVERIFY(QFileInfo(src).isFile());
-    QUrl u = QUrl::fromLocalFile(src);
-    QUrl d = QUrl::fromLocalFile(dest);
+    // Given a file that cannot be moved (subdir has no permissions)
+    const QString subdir = homeTmpDir() + "subdir";
+    QVERIFY(QDir().mkpath(subdir));
+    const QString src = subdir + "/thefile";
+    createTestFile(src);
+    QVERIFY(QFile(subdir).setPermissions(QFile::Permissions())); // Make it inaccessible
 
-    KIO::CopyJob *job = KIO::move(u, d, KIO::HideProgressInfo);
+    // When trying to move it
+    const QString dest = homeTmpDir() + "dest";
+    KIO::CopyJob *job = KIO::move(QUrl::fromLocalFile(src), QUrl::fromLocalFile(dest), KIO::HideProgressInfo);
     job->setUiDelegate(0);
     job->setUiDelegateExtension(0); // no skip dialog, thanks
-    bool ok = job->exec();
-    QVERIFY(!ok);
+
+    // The job should fail with "access denied"
+    QVERIFY(!job->exec());
     QCOMPARE(job->error(), (int)KIO::ERR_ACCESS_DENIED);
-    // OK this is fishy. Just like mv(1), KIO's behavior depends on whether
+    // Note that, just like mv(1), KIO's behavior depends on whether
     // a direct rename(2) was used, or a full copy+del. In the first case
     // there is no destination file created, but in the second case the
     // destination file remains.
-    //QVERIFY( QFile::exists( dest ) );
+    // In this test it's the same partition, so no dest created.
+    QVERIFY(!QFile::exists(dest));
+    QVERIFY(QFile(subdir).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner)));
     QVERIFY(QFile::exists(src));
-#endif
+    QVERIFY(QDir(subdir).removeRecursively());
 }
 
 void JobTest::moveDirectoryNoPermissions()
