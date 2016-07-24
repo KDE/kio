@@ -602,7 +602,9 @@ void KNewFileMenuPrivate::executeStrategy()
             if (!srcFile.open(QIODevice::ReadOnly)) {
                 return;
             }
-            KIO::StoredTransferJob* putJob = KIO::storedPut(&srcFile, dest, -1);
+            // The QFile won't live long enough for the job, so let's buffer the contents
+            const QByteArray srcBuf(srcFile.readAll());
+            KIO::StoredTransferJob* putJob = KIO::storedPut(srcBuf, dest, -1);
             kjob = putJob;
             KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Put, QList<QUrl>(), dest, putJob);
         } else {

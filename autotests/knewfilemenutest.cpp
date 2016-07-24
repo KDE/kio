@@ -78,6 +78,7 @@ private Q_SLOTS:
 
         QTest::newRow("text file") << "Text File" << "Text File" << "tmp_knewfilemenutest.txt" << "tmp_knewfilemenutest.txt";
         QTest::newRow("text file with jpeg extension") << "Text File" << "Text File" << "foo.jpg" << "foo.jpg.txt";
+        QTest::newRow("html file") << "HTML File" << "HTML File" << "foo.html" << "foo.html";
         QTest::newRow("url desktop file") << "Link to Location " << "" << "tmp_link.desktop" << "tmp_link.desktop";
         QTest::newRow("url desktop file no extension") << "Link to Location " << "" << "tmp_link" << "tmp_link";
         QTest::newRow("url desktop file .pl extension") << "Link to Location " << "" << "tmp_link.pl" << "tmp_link.pl.desktop";
@@ -142,18 +143,27 @@ private Q_SLOTS:
         QSignalSpy spy(&menu, SIGNAL(fileCreated(QUrl)));
         QSignalSpy folderSpy(&menu, SIGNAL(directoryCreated(QUrl)));
         dialog->accept();
+        const QString path = m_tmpDir.path() + '/' + expectedFilename;
         if (actionText == QLatin1String("Folder...")) {
             QVERIFY(folderSpy.wait(1000));
             emittedUrl = folderSpy.at(0).at(0).toUrl();
+            QVERIFY(QFileInfo(path).isDir());
         } else {
             if (spy.isEmpty()) {
                 QVERIFY(spy.wait(1000));
             }
             emittedUrl = spy.at(0).at(0).toUrl();
+            QVERIFY(QFile::exists(path));
+            if (actionText != QLatin1String("Basic link")) {
+                QFile file(path);
+                QVERIFY(file.open(QIODevice::ReadOnly));
+                const QByteArray contents = file.readAll();
+                if (actionText.startsWith("HTML")) {
+                    QCOMPARE(QString::fromLatin1(contents.left(6)), QStringLiteral("<html>"));
+                }
+            }
         }
-        const QString path = m_tmpDir.path() + '/' + expectedFilename;
         QCOMPARE(emittedUrl.toLocalFile(), path);
-        QVERIFY(QFile::exists(path));
         m_first = false;
     }
 private:
