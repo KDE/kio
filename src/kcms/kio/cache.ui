@@ -97,6 +97,9 @@
      <property name="enabled">
       <bool>false</bool>
      </property>
+     <property name="maximum">
+      <number>999999</number>
+     </property>
      <property name="suffix">
       <string> KiB</string>
      </property>
