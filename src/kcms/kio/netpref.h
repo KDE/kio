@@ -28,6 +28,7 @@ protected Q_SLOTS:
 private:
     QGroupBox* gb_Ftp;
     QGroupBox* gb_Timeout;
+    QCheckBox* cb_globalMarkPartial;
     QCheckBox* cb_ftpEnablePasv;
     QCheckBox* cb_ftpMarkPartial;
 

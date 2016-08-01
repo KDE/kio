@@ -29,6 +29,13 @@
      <max>3600</max>
    </entry>
  </group>
+ <group name="Global Options">
+   <entry name="MarkPartial" type="Bool">
+     <label>Mark partially uploaded files</label>
+     <whatsthis>While a file is being uploaded its extension is ".part". When fully uploaded it is renamed to its real name.</whatsthis>
+     <default>true</default>
+   </entry>
+ </group>
  <group name="Proxy Settings" >
    <entry name="AuthMode" type="String" >
    </entry>

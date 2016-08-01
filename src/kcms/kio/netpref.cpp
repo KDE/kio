@@ -64,6 +64,21 @@ KIOPreferences::KIOPreferences(QWidget *parent, const QVariantList &)
     connect(sb_serverResponse, SIGNAL(valueChanged(int)), SLOT(configChanged()));
     timeoutLayout->addRow(i18n("&Server response:"), sb_serverResponse);
 
+    QGroupBox* gb_Global = new QGroupBox( i18n( "Global Options" ), this );
+    mainLayout->addWidget( gb_Global );
+    QVBoxLayout* globalLayout = new QVBoxLayout(gb_Global);
+
+    cb_globalMarkPartial = new QCheckBox( i18n( "Mark &partially uploaded files" ), this );
+    cb_globalMarkPartial->setWhatsThis( i18n( "<p>Marks partially uploaded files "
+                                           "through SMB, SFTP and other protocols."
+                                           "</p><p>When this option is "
+                                           "enabled, partially uploaded files "
+                                           "will have a \".part\" extension. "
+                                           "This extension will be removed "
+                                           "once the transfer is complete.</p>") );
+    connect(cb_globalMarkPartial, SIGNAL(toggled(bool)), SLOT(configChanged()));
+    globalLayout->addWidget(cb_globalMarkPartial);
+
     gb_Ftp = new QGroupBox( i18n( "FTP Options" ), this );
     mainLayout->addWidget( gb_Ftp );
     QVBoxLayout* ftpLayout = new QVBoxLayout(gb_Ftp);
@@ -106,6 +121,8 @@ void KIOPreferences::load()
   sb_serverConnect->setValue( proto.connectTimeout() );
   sb_proxyConnect->setValue( proto.proxyConnectTimeout() );
 
+  cb_globalMarkPartial->setChecked( proto.markPartial() );
+
   KConfig config( QStringLiteral("kio_ftprc"), KConfig::NoGlobals );
   cb_ftpEnablePasv->setChecked( !config.group("").readEntry( "DisablePassiveMode", false ) );
   cb_ftpMarkPartial->setChecked( config.group("").readEntry( "MarkPartial", true ) );
@@ -118,6 +135,8 @@ void KIOPreferences::save()
   KSaveIOConfig::setResponseTimeout( sb_serverResponse->value() );
   KSaveIOConfig::setConnectTimeout( sb_serverConnect->value() );
   KSaveIOConfig::setProxyConnectTimeout( sb_proxyConnect->value() );
+
+  KSaveIOConfig::setMarkPartial( cb_globalMarkPartial->isChecked() );
 
   KConfig config(QStringLiteral("kio_ftprc"), KConfig::NoGlobals);
   config.group("").writeEntry( "DisablePassiveMode", !cb_ftpEnablePasv->isChecked() );
@@ -135,6 +154,8 @@ void KIOPreferences::defaults()
   sb_serverResponse->setValue( DEFAULT_RESPONSE_TIMEOUT );
   sb_serverConnect->setValue( DEFAULT_CONNECT_TIMEOUT );
   sb_proxyConnect->setValue( DEFAULT_PROXY_CONNECT_TIMEOUT );
+
+  cb_globalMarkPartial->setChecked( true );
 
   cb_ftpEnablePasv->setChecked( true );
   cb_ftpMarkPartial->setChecked( true );
