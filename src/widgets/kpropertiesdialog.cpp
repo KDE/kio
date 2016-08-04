@@ -1037,7 +1037,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 
         connect(button, SIGNAL(clicked()), SLOT(slotEditFileType()));
 
-        if (!KAuthorized::authorizeKAction(QStringLiteral("editfiletype"))) {
+        if (!KAuthorized::authorizeAction(QStringLiteral("editfiletype"))) {
             button->hide();
         }
     }

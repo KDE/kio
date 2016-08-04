@@ -234,7 +234,7 @@ bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, bool
 bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool tempFiles,
                                  const QString &suggestedFileName, const QByteArray &asn)
 {
-    if (!KAuthorized::authorizeKAction(QStringLiteral("openwith"))) {
+    if (!KAuthorized::authorizeAction(QStringLiteral("openwith"))) {
         KMessageBox::sorry(window,
                            i18n("You are not authorized to select an application to open this file."));
         return false;

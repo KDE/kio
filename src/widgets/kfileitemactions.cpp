@@ -206,7 +206,7 @@ int KFileItemActionsPrivate::insertServices(const ServiceList &list,
 void KFileItemActionsPrivate::slotExecuteService(QAction *act)
 {
     KServiceAction serviceAction = act->data().value<KServiceAction>();
-    if (KAuthorized::authorizeKAction(serviceAction.name())) {
+    if (KAuthorized::authorizeAction(serviceAction.name())) {
         KDesktopFileActions::executeService(m_props.urlList(), serviceAction);
     }
 }
@@ -431,7 +431,7 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
 // static
 KService::List KFileItemActions::associatedApplications(const QStringList &mimeTypeList, const QString &traderConstraint)
 {
-    if (!KAuthorized::authorizeKAction(QStringLiteral("openwith")) || mimeTypeList.isEmpty()) {
+    if (!KAuthorized::authorizeAction(QStringLiteral("openwith")) || mimeTypeList.isEmpty()) {
         return KService::List();
     }
 
@@ -497,7 +497,7 @@ static KService::Ptr preferredService(const QString &mimeType, const QString &co
 
 void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &traderConstraint)
 {
-    if (!KAuthorized::authorizeKAction(QStringLiteral("openwith"))) {
+    if (!KAuthorized::authorizeAction(QStringLiteral("openwith"))) {
         return;
     }
 
