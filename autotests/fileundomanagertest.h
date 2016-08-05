@@ -39,6 +39,7 @@ private Q_SLOTS:
     void testTrashFiles();
     void testRestoreTrashedFiles();
     void testModifyFileBeforeUndo(); // #20532
+    void testCreateSymlink();
     void testCreateDir();
     void testMkpath();
     void testPasteClipboardUndo(); // #318757

@@ -450,6 +450,34 @@ void FileUndoManagerTest::testRenameDir()
     QVERIFY(!QFileInfo(newUrl.toLocalFile()).isDir());
 }
 
+void FileUndoManagerTest::testCreateSymlink()
+{
+#ifdef Q_OS_WIN
+    QSKIP("Test skipped on Windows for lack of proper symlink support");
+#endif
+    const QUrl link = QUrl::fromLocalFile(homeTmpDir() + "newlink");
+    const QString path = link.toLocalFile();
+    QVERIFY(!QFile::exists(path));
+
+    const QUrl target = QUrl::fromLocalFile(homeTmpDir() + "linktarget");
+    const QString targetPath = target.toLocalFile();
+    createTestFile(targetPath, "Link's Target");
+    QVERIFY(QFile::exists(targetPath));
+
+    KIO::CopyJob *job = KIO::link(target, link);
+    job->setUiDelegate(0);
+    FileUndoManager::self()->recordCopyJob(job);
+    bool ok = job->exec();
+    QVERIFY(ok);
+    QVERIFY(QFile::exists(path));
+    QVERIFY(QFileInfo(path).isSymLink());
+
+    // For undoing symlinks no confirmation is required. We delete it straight away.
+    doUndo();
+
+    QVERIFY(!QFile::exists(path));
+}
+
 void FileUndoManagerTest::testCreateDir()
 {
     const QUrl url = QUrl::fromLocalFile(srcSubDir() + ".mkdir");

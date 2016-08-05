@@ -593,10 +593,9 @@ void KNewFileMenuPrivate::executeStrategy()
         lstSrc.append(uSrc);
         KIO::Job *kjob;
         if (m_copyData.m_isSymlink) {
-            kjob = KIO::symlink(src, dest);
-            // This doesn't work, FileUndoManager registers new links in copyingLinkDone,
-            // which KIO::symlink obviously doesn't emit... Needs code in FileUndoManager.
-            //KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Link, lstSrc, dest, kjob);
+            KIO::CopyJob *linkJob = KIO::link(uSrc, dest);
+            kjob = linkJob;
+            KIO::FileUndoManager::self()->recordCopyJob(linkJob);
         } else if (src.startsWith(QLatin1String(":/"))) {
             QFile srcFile(src);
             if (!srcFile.open(QIODevice::ReadOnly)) {
@@ -612,7 +611,7 @@ void KNewFileMenuPrivate::executeStrategy()
             KIO::CopyJob *job = KIO::copyAs(uSrc, dest);
             job->setDefaultPermissions(true);
             kjob = job;
-            KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Copy, lstSrc, dest, job);
+            KIO::FileUndoManager::self()->recordCopyJob(job);
         }
         KJobWidgets::setWindow(kjob, m_parentWidget);
         QObject::connect(kjob, SIGNAL(result(KJob*)), q, SLOT(slotResult(KJob*)));
@@ -1228,11 +1227,8 @@ void KNewFileMenu::slotResult(KJob *job)
                 (void) ::utime(QFile::encodeName(localUrl.toLocalFile()).constData(), 0);
             }
             emit fileCreated(destUrl);
-        } else if (KIO::SimpleJob *simpleJob = ::qobject_cast<KIO::SimpleJob *>(job)) {
-            // we just created a symlink
-            emit fileCreated(simpleJob->url());
-        } else {
-            // Can be mkdir or symlink
+        }  else {
+            // Can be mkdir
             QUrl mkpathUrl = job->property("mkpathUrl").toUrl();
             if (mkpathUrl.isValid()) {
                 emit directoryCreated(mkpathUrl);
