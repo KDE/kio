@@ -132,6 +132,14 @@ void KIOPasteTest::testPasteActionText()
     KFileItem nonWritableDestItem(QUrl::fromLocalFile(QStringLiteral("/nonwritable")));
     QCOMPARE(KIO::pasteActionText(&mimeData, &canPaste, nonWritableDestItem), expectedText);
     QCOMPARE(canPaste, false);
+
+    KFileItem emptyUrlDestItem = KFileItem(QUrl());
+    QCOMPARE(KIO::pasteActionText(&mimeData, &canPaste, emptyUrlDestItem), expectedText);
+    QCOMPARE(canPaste, false);
+
+    KFileItem nullDestItem;
+    QCOMPARE(KIO::pasteActionText(&mimeData, &canPaste, nullDestItem), expectedText);
+    QCOMPARE(canPaste, false);
 }
 
 static void createTestFile(const QString &path)
