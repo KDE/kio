@@ -602,17 +602,13 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
                 if ((_flags & KIO::Resume)) {
                     f.open(QIODevice::ReadWrite | QIODevice::Append);
                 } else {
-                    // WABA: Make sure that we keep writing permissions ourselves,
-                    // otherwise we can be in for a surprise on NFS.
-                    mode_t initialMode;
-                    if (_mode != -1) {
-                        initialMode = _mode | S_IWUSR | S_IRUSR;
-                    } else {
-                        initialMode = 0666;
-                    }
-
                     f.open(QIODevice::Truncate | QIODevice::WriteOnly);
-                    f.setPermissions(modeToQFilePermissions(initialMode));
+                    if (_mode != -1) {
+                        // WABA: Make sure that we keep writing permissions ourselves,
+                        // otherwise we can be in for a surprise on NFS.
+                        mode_t initialMode = _mode | S_IWUSR | S_IRUSR;
+                        f.setPermissions(modeToQFilePermissions(initialMode));
+                    }
                 }
 
                 if (!f.isOpen()) {

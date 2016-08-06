@@ -31,6 +31,11 @@
 
 #include <qtemporarydir.h>
 
+#ifdef Q_OS_UNIX
+#include <sys/types.h>
+#include <sys/stat.h>
+#endif
+
 class KNewFileMenuTest : public QObject
 {
     Q_OBJECT
@@ -38,6 +43,11 @@ private Q_SLOTS:
     void initTestCase()
     {
         qputenv("KDE_FORK_SLAVES", "yes"); // to avoid a runtime dependency on klauncher
+#ifdef Q_OS_UNIX
+        m_umask = ::umask(0);
+        ::umask(m_umask);
+#endif
+        QVERIFY(m_tmpDir.isValid());
     }
 
     void cleanupTestCase()
@@ -59,12 +69,21 @@ private Q_SLOTS:
         const QUrl destUrl = QUrl::fromLocalFile(dest);
 
         // When using storedPut with the QFile as argument
-        KIO::StoredTransferJob *job = KIO::storedPut(&srcFile, destUrl, 0600, KIO::Overwrite | KIO::HideProgressInfo);
+        KIO::StoredTransferJob *job = KIO::storedPut(&srcFile, destUrl, -1, KIO::Overwrite | KIO::HideProgressInfo);
 
         // Then the copy should succeed and the dest file exist
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
         QVERIFY(QFile::exists(dest));
         QCOMPARE(QFileInfo(src).size(), QFileInfo(dest).size());
+        // And the permissions should respect the umask (#359581)
+#ifdef Q_OS_UNIX
+        if (m_umask & S_IWOTH) {
+            QVERIFY2(!(QFileInfo(dest).permissions() & QFileDevice::WriteOther), qPrintable(dest));
+        }
+        if (m_umask & S_IWGRP) {
+            QVERIFY(!(QFileInfo(dest).permissions() & QFileDevice::WriteGroup));
+        }
+#endif
         QFile::remove(dest);
     }
 
@@ -165,6 +184,9 @@ private Q_SLOTS:
     }
 private:
     QTemporaryDir m_tmpDir;
+#ifdef Q_OS_UNIX
+    mode_t m_umask;
+#endif
 };
 
 QTEST_MAIN(KNewFileMenuTest)
