@@ -36,8 +36,8 @@ namespace KUrlAuthorized
 
 bool authorizeUrlAction(const QString &action, const QUrl &baseURL, const QUrl &destURL)
 {
-    QString baseClass = KProtocolInfo::protocolClass(baseURL.scheme());
-    QString destClass = KProtocolInfo::protocolClass(destURL.scheme());
+    const QString baseClass = baseURL.isEmpty() ? QString() : KProtocolInfo::protocolClass(baseURL.scheme());
+    const QString destClass = destURL.isEmpty() ? QString() : KProtocolInfo::protocolClass(destURL.scheme());
     return KAuthorized::authorizeUrlActionInternal(action, baseURL, destURL, baseClass, destClass);
 }
 
