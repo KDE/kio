@@ -37,7 +37,6 @@ class KNewFileMenuTest : public QObject
 private Q_SLOTS:
     void initTestCase()
     {
-        m_first = true;
         qputenv("KDE_FORK_SLAVES", "yes"); // to avoid a runtime dependency on klauncher
     }
 
@@ -109,18 +108,17 @@ private Q_SLOTS:
         QVERIFY(action);
         QAction *textAct = 0;
         Q_FOREACH (QAction *act, action->menu()->actions()) {
-            if (m_first) {
-                qDebug() << act << act->text() << act->data();
-            }
             if (act->text().contains(actionText)) {
                 textAct = act;
             }
         }
-        if (!textAct && m_first) {
+        if (!textAct) {
+            Q_FOREACH (QAction *act, action->menu()->actions()) {
+                qDebug() << act << act->text() << act->data();
+            }
             const QString err = "action with text \"" + actionText + "\" not found.";
-            QVERIFY2(false, qPrintable(err));
+            QVERIFY2(textAct, qPrintable(err));
         }
-        QVERIFY(textAct);
         textAct->trigger();
         QDialog *dialog = parentWidget.findChild<QDialog *>();
         QVERIFY(dialog);
@@ -164,11 +162,9 @@ private Q_SLOTS:
             }
         }
         QCOMPARE(emittedUrl.toLocalFile(), path);
-        m_first = false;
     }
 private:
     QTemporaryDir m_tmpDir;
-    bool m_first;
 };
 
 QTEST_MAIN(KNewFileMenuTest)
