@@ -1227,11 +1227,16 @@ void KNewFileMenu::slotResult(KJob *job)
                 (void) ::utime(QFile::encodeName(localUrl.toLocalFile()).constData(), 0);
             }
             emit fileCreated(destUrl);
+        } else if (KIO::SimpleJob *simpleJob = ::qobject_cast<KIO::SimpleJob *>(job)) {
+            // Called in the storedPut() case
+            emit fileCreated(simpleJob->url());
         }  else {
             // Can be mkdir
             QUrl mkpathUrl = job->property("mkpathUrl").toUrl();
             if (mkpathUrl.isValid()) {
                 emit directoryCreated(mkpathUrl);
+            } else {
+                qWarning() << "Neither copy, put nor mkdir, internal error";
             }
         }
     }
