@@ -89,6 +89,9 @@ private Q_SLOTS:
 
     void moveAndOverwrite();
     void moveOverSymlinkToSelf();
+    void createSymlink();
+    void createSymlinkAsShouldSucceed();
+    void createSymlinkAsShouldFail();
 
     // Remote tests
     //void copyFileToSystem();

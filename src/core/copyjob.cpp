@@ -2200,7 +2200,7 @@ CopyJob *KIO::linkAs(const QUrl &src, const QUrl &destDir, JobFlags flags)
 {
     QList<QUrl> srcList;
     srcList.append(src);
-    return CopyJobPrivate::newJob(srcList, destDir, CopyJob::Link, false, flags);
+    return CopyJobPrivate::newJob(srcList, destDir, CopyJob::Link, true, flags);
 }
 
 CopyJob *KIO::trash(const QUrl &src, JobFlags flags)

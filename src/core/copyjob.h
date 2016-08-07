@@ -388,13 +388,13 @@ KIOCORE_EXPORT CopyJob *link(const QUrl &src, const QUrl &destDir, JobFlags flag
 KIOCORE_EXPORT CopyJob *link(const QList<QUrl> &src, const QUrl &destDir, JobFlags flags = DefaultFlags);
 
 /**
- * Create a link. Unlike link() this operation will fail when the directory already
- * exists.
+ * Create a link. Unlike link() this operation will fail when @p dest is an existing
+ * directory rather than the final name for the link.
  * If the protocols and hosts are the same, a Unix symlink will be created.
  * Otherwise, a .desktop file of Type Link and pointing to the src URL will be created.
  *
  * @param src The existing file or directory, 'target' of the link.
- * @param dest Destination directory where the link will be created.
+ * @param dest Destination (i.e. the final symlink)
  * @param flags: linkAs() supports HideProgressInfo only
  * @return the job handling the operation
  * @see link ()
