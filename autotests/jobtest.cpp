@@ -364,6 +364,15 @@ void JobTest::copyLocalFile(const QString &src, const QString &dest)
 #endif
     }
     QCOMPARE(spyCopyingDone.count(), 1);
+
+    // cleanup and retry with KIO::copyAs()
+    QFile::remove(dest);
+    job = KIO::copyAs(u, d, KIO::HideProgressInfo);
+    job->setUiDelegate(0);
+    job->setUiDelegateExtension(0);
+    QVERIFY(job->exec());
+    QVERIFY(QFile::exists(dest));
+    QVERIFY(QFile::exists(src));     // still there
 }
 
 void JobTest::copyLocalDirectory(const QString &src, const QString &_dest, int flags)
