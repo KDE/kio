@@ -127,16 +127,17 @@ public:
         } else {
             sender = edit;
         }
+        if (sender) {
+            connect(sender, &QLineEdit::textChanged,
+                    receiver, &KUrlRequester::textChanged);
+            connect(sender, &QLineEdit::textEdited,
+                    receiver, &KUrlRequester::textEdited);
 
-        connect(sender, &QLineEdit::textChanged,
-                receiver, &KUrlRequester::textChanged);
-        connect(sender, &QLineEdit::textEdited,
-                receiver, &KUrlRequester::textEdited);
-
-        connect(sender, SIGNAL(returnPressed()),
-                receiver, SIGNAL(returnPressed()));
-        connect(sender, SIGNAL(returnPressed(QString)),
-                receiver, SIGNAL(returnPressed(QString)));
+            connect(sender, SIGNAL(returnPressed()),
+                    receiver, SIGNAL(returnPressed()));
+            connect(sender, SIGNAL(returnPressed(QString)),
+                    receiver, SIGNAL(returnPressed(QString)));
+        }
     }
 
     void setCompletionObject(KCompletion *comp)
