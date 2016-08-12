@@ -90,6 +90,7 @@ private Q_SLOTS:
     void moveAndOverwrite();
     void moveOverSymlinkToSelf();
     void createSymlink();
+    void createSymlinkTargetDirDoesntExist();
     void createSymlinkAsShouldSucceed();
     void createSymlinkAsShouldFail();
 

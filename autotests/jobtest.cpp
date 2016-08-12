@@ -1577,6 +1577,20 @@ void JobTest::createSymlink()
     QVERIFY(QDir(destDir).removeRecursively());
 }
 
+void JobTest::createSymlinkTargetDirDoesntExist()
+{
+#ifdef Q_OS_WIN
+    QSKIP("Test skipped on Windows");
+#endif
+    const QString sourceFile = homeTmpDir() + "fileFromHome";
+    createTestFile(sourceFile);
+    const QString destDir = homeTmpDir() + "dest/does/not/exist";
+
+    KIO::CopyJob *job = KIO::link(QUrl::fromLocalFile(sourceFile), QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), static_cast<int>(KIO::ERR_CANNOT_SYMLINK));
+}
+
 void JobTest::createSymlinkAsShouldSucceed()
 {
 #ifdef Q_OS_WIN
