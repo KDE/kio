@@ -373,6 +373,20 @@ void JobTest::copyLocalFile(const QString &src, const QString &dest)
     QVERIFY(job->exec());
     QVERIFY(QFile::exists(dest));
     QVERIFY(QFile::exists(src));     // still there
+
+    // Do it again, with Overwrite.
+    job = KIO::copyAs(u, d, KIO::Overwrite | KIO::HideProgressInfo);
+    job->setUiDelegate(0);
+    job->setUiDelegateExtension(0);
+    QVERIFY(job->exec());
+    QVERIFY(QFile::exists(dest));
+    QVERIFY(QFile::exists(src));     // still there
+
+    // Do it again, without Overwrite (should fail).
+    job = KIO::copyAs(u, d, KIO::HideProgressInfo);
+    job->setUiDelegate(0);
+    job->setUiDelegateExtension(0);
+    QVERIFY(!job->exec());
 }
 
 void JobTest::copyLocalDirectory(const QString &src, const QString &_dest, int flags)
