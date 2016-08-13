@@ -783,7 +783,11 @@ QUrl KFileWidgetPrivate::getCompleteUrl(const QString &_url) const
         u = QUrl::fromLocalFile(url);
     } else {
         QUrl relativeUrlTest(ops->url());
-        relativeUrlTest.setPath(relativeUrlTest.path() + '/' + url);
+        QString path = relativeUrlTest.path();
+        if (!path.endsWith('/')) {
+            path += '/';
+        }
+        relativeUrlTest.setPath(path + url);
         if (!ops->dirLister()->findByUrl(relativeUrlTest).isNull() ||
                 !KProtocolInfo::isKnownProtocol(relativeUrlTest)) {
             u = relativeUrlTest;
