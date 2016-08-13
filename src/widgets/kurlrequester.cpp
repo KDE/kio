@@ -321,7 +321,7 @@ void KUrlRequester::KUrlRequesterPrivate::init()
     myButton->setFixedSize(buttonSize, buttonSize);
     myButton->setToolTip(i18n("Open file dialog"));
 
-    m_parent->connect(myButton, SIGNAL(pressed()), SLOT(_k_slotUpdateUrl()));
+    connect(myButton, SIGNAL(pressed()), m_parent, SLOT(_k_slotUpdateUrl()));
 
     widget->installEventFilter(m_parent);
     m_parent->setFocusProxy(widget);
@@ -329,7 +329,7 @@ void KUrlRequester::KUrlRequesterPrivate::init()
     topLayout->addWidget(myButton);
 
     connectSignals(m_parent);
-    m_parent->connect(myButton, SIGNAL(clicked()), m_parent, SLOT(_k_slotOpenDialog()));
+    connect(myButton, SIGNAL(clicked()), m_parent, SLOT(_k_slotOpenDialog()));
 
     m_startDir = QUrl::fromLocalFile(QDir::currentPath());
     m_startDirCustomized = false;
