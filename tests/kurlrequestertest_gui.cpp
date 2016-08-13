@@ -29,5 +29,9 @@ int main(int argc, char **argv)
     req1->setWindowTitle(QStringLiteral("AAAAAAAAAAAA"));
     req1->show();
 
+    KUrlComboRequester *comboReq = new KUrlComboRequester();
+    comboReq->setWindowTitle(QStringLiteral("KUrlComboRequester"));
+    comboReq->show();
+
     return app.exec();
 }

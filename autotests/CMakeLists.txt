@@ -75,7 +75,6 @@ ecm_add_tests(
  fileundomanagertest.cpp
  kurifiltertest.cpp
  kurlcompletiontest.cpp
- kurlrequestertest.cpp
  jobguitest.cpp
  pastetest.cpp
  accessmanagertest.cpp
@@ -117,6 +116,7 @@ ecm_add_tests(
  knewfilemenutest.cpp
  kfilecopytomenutest.cpp
  kfileplacesmodeltest.cpp
+ kurlrequestertest.cpp
  NAME_PREFIX "kiofilewidgets-"
  LINK_LIBRARIES KF5::KIOFileWidgets KF5::KIOWidgets KF5::XmlGui KF5::Bookmarks Qt5::Test
 )
