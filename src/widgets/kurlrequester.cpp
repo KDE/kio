@@ -507,8 +507,7 @@ QString KUrlRequester::filter() const
 QFileDialog *KUrlRequester::fileDialog() const
 {
     if (!d->myFileDialog) {
-        QWidget *p = parentWidget();
-        d->myFileDialog = new QFileDialog(p, windowTitle());
+        d->myFileDialog = new QFileDialog(window(), windowTitle());
         d->myFileDialog->setNameFilters(d->kToQFilters(d->fileDialogFilter));
 
         d->applyFileMode(d->myFileDialog, d->fileDialogMode);
