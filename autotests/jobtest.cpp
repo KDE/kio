@@ -1622,7 +1622,7 @@ void JobTest::createSymlinkAsShouldSucceed()
     QVERIFY(QFile::remove(dest));
 }
 
-void JobTest::createSymlinkAsShouldFail()
+void JobTest::createSymlinkAsShouldFailDirectoryExists()
 {
 #ifdef Q_OS_WIN
     QSKIP("Test skipped on Windows");
@@ -1638,6 +1638,47 @@ void JobTest::createSymlinkAsShouldFail()
     QVERIFY(QFileInfo::exists(sourceFile));
     QVERIFY(!QFileInfo::exists(dest + "/fileFromHome"));
     QVERIFY(QDir().rmdir(dest));
+}
+
+void JobTest::createSymlinkAsShouldFailFileExists()
+{
+#ifdef Q_OS_WIN
+    QSKIP("Test skipped on Windows");
+#endif
+    const QString sourceFile = homeTmpDir() + "fileFromHome";
+    createTestFile(sourceFile);
+    const QString dest = homeTmpDir() + "testlink";
+    QFile::remove(dest); // just in case
+
+    // First time works
+    KIO::CopyJob *job = KIO::linkAs(QUrl::fromLocalFile(sourceFile), QUrl::fromLocalFile(dest), KIO::HideProgressInfo);
+    QVERIFY(job->exec());
+    QVERIFY(QFileInfo(dest).isSymLink());
+
+    // Second time fails (already exists)
+    job = KIO::linkAs(QUrl::fromLocalFile(sourceFile), QUrl::fromLocalFile(dest), KIO::HideProgressInfo);
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), (int)KIO::ERR_FILE_ALREADY_EXIST);
+    QVERIFY(QFile::remove(dest));
+}
+
+void JobTest::createBrokenSymlink()
+{
+#ifdef Q_OS_WIN
+    QSKIP("Test skipped on Windows");
+#endif
+    const QString sourceFile = "/does/not/exist";
+    const QString dest = homeTmpDir() + "testlink";
+    QFile::remove(dest); // just in case
+    KIO::CopyJob *job = KIO::linkAs(QUrl::fromLocalFile(sourceFile), QUrl::fromLocalFile(dest), KIO::HideProgressInfo);
+    QVERIFY(job->exec());
+    QVERIFY(QFileInfo(dest).isSymLink());
+
+    // Second time fails (already exists)
+    job = KIO::linkAs(QUrl::fromLocalFile(sourceFile), QUrl::fromLocalFile(dest), KIO::HideProgressInfo);
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), (int)KIO::ERR_FILE_ALREADY_EXIST);
+    QVERIFY(QFile::remove(dest));
 }
 
 void JobTest::multiGet()

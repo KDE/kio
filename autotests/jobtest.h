@@ -92,7 +92,9 @@ private Q_SLOTS:
     void createSymlink();
     void createSymlinkTargetDirDoesntExist();
     void createSymlinkAsShouldSucceed();
-    void createSymlinkAsShouldFail();
+    void createSymlinkAsShouldFailDirectoryExists();
+    void createSymlinkAsShouldFailFileExists();
+    void createBrokenSymlink();
 
     // Remote tests
     //void copyFileToSystem();
