@@ -593,7 +593,7 @@ void KNewFileMenuPrivate::executeStrategy()
         lstSrc.append(uSrc);
         KIO::Job *kjob;
         if (m_copyData.m_isSymlink) {
-            KIO::CopyJob *linkJob = KIO::link(uSrc, dest);
+            KIO::CopyJob *linkJob = KIO::linkAs(uSrc, dest);
             kjob = linkJob;
             KIO::FileUndoManager::self()->recordCopyJob(linkJob);
         } else if (src.startsWith(QLatin1String(":/"))) {
