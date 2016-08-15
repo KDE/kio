@@ -329,7 +329,8 @@ void CopyJobPrivate::slotStart()
     m_reportTimer->start(REPORT_TIMEOUT);
 
     // Stat the dest
-    KIO::Job *job = KIO::stat(m_dest, StatJob::DestinationSide, 2, KIO::HideProgressInfo);
+    const QUrl dest = m_asMethod ? m_dest.adjusted(QUrl::RemoveFilename) : m_dest;
+    KIO::Job *job = KIO::stat(dest, StatJob::DestinationSide, 2, KIO::HideProgressInfo);
     qCDebug(KIO_COPYJOB_DEBUG) << "CopyJob: stating the dest" << m_dest;
     q->addSubjob(job);
 }
@@ -407,7 +408,11 @@ void CopyJobPrivate::slotResultStating(KJob *job)
 
             const QString sLocalPath = entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH);
             if (!sLocalPath.isEmpty() && kio_resolve_local_urls && destinationState != DEST_DOESNT_EXIST) {
+                const QString fileName = m_dest.fileName();
                 m_dest = QUrl::fromLocalFile(sLocalPath);
+                if (m_asMethod) {
+                    m_dest = addPathToUrl(m_dest, fileName);
+                }
                 qCDebug(KIO_COPYJOB_DEBUG) << "Setting m_dest to the local path:" << sLocalPath;
                 if (isGlobalDest) {
                     m_globalDest = m_dest;
