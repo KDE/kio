@@ -13,6 +13,7 @@ Name[it]=Soundcloud
 Name[nl]=Soundcloud
 Name[pl]=Soundcloud
 Name[pt]=Soundcloud
+Name[pt_BR]=Soundcloud
 Name[ru]=Soundcloud
 Name[sk]=Soundcloud
 Name[sl]=Soundcloud
@@ -40,6 +41,7 @@ Query[it]=https://soundcloud.com/search?q=\\{@}
 Query[nl]=https://soundcloud.com/search?q=\\{@}
 Query[pl]=https://soundcloud.com/search?q=\\{@}
 Query[pt]=https://soundcloud.com/search?q=\\{@}
+Query[pt_BR]=https://soundcloud.com/search?q=\\{@}
 Query[ru]=https://soundcloud.com/search?q=\\{@}
 Query[sk]=https://soundcloud.com/search?q=\\{@}
 Query[sl]=https://soundcloud.com/search?q=\\{@}
