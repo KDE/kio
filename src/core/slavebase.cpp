@@ -117,6 +117,7 @@ public:
     QByteArray timeoutData;
 
     KPasswdServerClient *m_passwdServerClient;
+    bool m_rootEntryListed = false;
 
     // Reconstructs configGroup from configData and mIncomingMetaData
     void rebuildConfig()
@@ -460,6 +461,16 @@ void SlaveBase::connected()
 void SlaveBase::finished()
 {
     if (!d->pendingListEntries.isEmpty()) {
+        if (!d->m_rootEntryListed) {
+            qWarning() << "UDSEntry for '.' not found, creating a default one. Please fix the" << QCoreApplication::applicationName() << "KIO slave";
+            KIO::UDSEntry entry;
+            entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
+            entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+            entry.insert(KIO::UDSEntry::UDS_SIZE, 0);
+            entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IXGRP | S_IROTH | S_IXOTH);
+            d->pendingListEntries.append(entry);
+        }
+
         listEntries(d->pendingListEntries);
         d->pendingListEntries.clear();
     }
@@ -481,6 +492,7 @@ void SlaveBase::finished()
     // reset
     d->totalSize = 0;
     d->inOpenLoop = false;
+    d->m_rootEntryListed = false;
 }
 
 void SlaveBase::needSubUrlData()
@@ -676,6 +688,11 @@ void SlaveBase::statEntry(const UDSEntry &entry)
 void SlaveBase::listEntry(const UDSEntry &entry, bool _ready)
 {
     if (_ready) {
+        // #366795: many slaves don't create an entry for ".", so we keep track if they do
+        // and we provide a fallback in finished() otherwise.
+        if (entry.stringValue(KIO::UDSEntry::UDS_NAME) == QLatin1String(".")) {
+            d->m_rootEntryListed = true;
+        }
         listEntries(d->pendingListEntries);
         d->pendingListEntries.clear();
     } else {
@@ -686,6 +703,12 @@ void SlaveBase::listEntry(const UDSEntry &entry, bool _ready)
 
 void SlaveBase::listEntry(const UDSEntry &entry)
 {
+    // #366795: many slaves don't create an entry for ".", so we keep track if they do
+    // and we provide a fallback in finished() otherwise.
+    if (entry.stringValue(KIO::UDSEntry::UDS_NAME) == QLatin1String(".")) {
+        d->m_rootEntryListed = true;
+    }
+
     // We start measuring the time from the point we start filling the list
     if (d->pendingListEntries.isEmpty()) {
         d->m_timeSinceLastBatch.restart();
