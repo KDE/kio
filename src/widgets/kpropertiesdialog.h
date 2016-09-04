@@ -111,13 +111,8 @@ public:
      * @param parent is the parent of the dialog widget.
      * @param name is the internal name.
      *
-     * IMPORTANT: This constructor, together with exec(), leads to a grave
-     * display bug (due to KIO::stat() being run before the dialog has all the
-     * necessary information). Do not use this combination for now.
-     * TODO: Check if the above is still true with Qt4/Qt5, and if so
-     * make the initialization asynchronous.
-     * For local files with a known mimetype, simply create a KFileItem and pass
-     * it to the other constructor.
+     * For local files with a known mimetype, simply create a KFileItem
+     * and pass it to the other constructor.
      */
     explicit KPropertiesDialog(const QUrl &url,
                                QWidget *parent = 0);
@@ -132,13 +127,8 @@ public:
      * @param parent is the parent of the dialog widget.
      * @param name is the internal name.
      *
-     * IMPORTANT: This constructor, together with exec(), leads to a grave
-     * display bug (due to KIO::stat() being run before the dialog has all the
-     * necessary information). Do not use this combination for now.
-     * TODO: Check if the above is still true with Qt4/Qt5, and if so
-     * make the initialization asynchronous.
-     * For local files with a known mimetype, simply create a KFileItemList and
-     * pass it to the other constructor.
+     * For local files with a known mimetype, simply create a KFileItemList
+     * and pass it to the other constructor.
      *
      * @since 5.10
      */

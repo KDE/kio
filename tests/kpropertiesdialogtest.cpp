@@ -13,12 +13,8 @@ int main(int argc, char **argv)
     }
     const QUrl u = QUrl::fromUserInput(argv[1], QDir::currentPath());
 
-    // This is the test for the KPropertiesDialog constructor that is now
-    // documented to NOT work. Passing only a URL means a KIO::NetAccess::stat will happen,
-    // and asking for the dialog to be modal too creates problems.
-    // (A non-modal, URL-only dialog is the one kicker uses for app buttons, no problem there)
     {
-        KPropertiesDialog dlg(u, 0);
+        KPropertiesDialog dlg(u);
         QObject::connect(&dlg, &KPropertiesDialog::applied, [](){ qDebug() << "applied"; });
         QObject::connect(&dlg, &KPropertiesDialog::canceled, [](){ qDebug() << "canceled"; });
         dlg.exec();
