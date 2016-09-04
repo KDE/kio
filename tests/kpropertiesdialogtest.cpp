@@ -1,5 +1,6 @@
 #include <QApplication>
 #include <QDebug>
+#include <QDir>
 #include <kpropertiesdialog.h>
 
 int main(int argc, char **argv)
@@ -10,7 +11,7 @@ int main(int argc, char **argv)
         qWarning() << "Expected argument: [url], the path or url to the file/dir for which to show properties";
         return 1;
     }
-    QUrl u = QUrl::fromLocalFile(argv[1]);
+    const QUrl u = QUrl::fromUserInput(argv[1], QDir::currentPath());
 
     // This is the test for the KPropertiesDialog constructor that is now
     // documented to NOT work. Passing only a URL means a KIO::NetAccess::stat will happen,
