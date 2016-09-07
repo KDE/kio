@@ -671,6 +671,19 @@ void KNewFileMenuPrivate::fillMenu()
                     act->setIcon(QIcon::fromTheme(entry.icon));
                     act->setText(i18nc("@item:inmenu Create New", "%1", entry.text));
                     act->setActionGroup(m_newMenuGroup);
+
+                    // If there is a shortcut available in the action collection, use it.
+                    QAction *act2 = m_actionCollection->action(QStringLiteral("create_dir"));
+                    if (act2) {
+                        act->setShortcuts(act2->shortcuts());
+                        // Both actions have now the same shortcut, so this will prevent the "Ambiguous shortcut detected" dialog.
+                        act->setShortcutContext(Qt::WidgetShortcut);
+                        // We also need to react to shortcut changes.
+                        QObject::connect(act2, &QAction::changed, act, [=]() {
+                            act->setShortcuts(act2->shortcuts());
+                        });
+                    }
+
                     menu->addAction(act);
 
                     QAction *sep = new QAction(q);

@@ -62,6 +62,9 @@ public:
      * @param parent the parent object, for ownership.
      * If the parent object is a widget, it will also used as parent widget
      * for any dialogs that this class might show. Otherwise, call setParentWidget.
+     * @note If you want the "Create directory..." action shortcut to show up next to its text,
+     *       make sure to have an action with name "create_dir" (and shortcut set) in @p collection.
+     *       This will only work with KIO >= 5.27.
      */
     KNewFileMenu(KActionCollection *collection, const QString &name, QObject *parent);
 
