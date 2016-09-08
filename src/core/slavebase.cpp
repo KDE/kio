@@ -45,6 +45,7 @@
 
 #include "kremoteencoding.h"
 
+#include "kioglobal_p.h"
 #include "connection_p.h"
 #include "commands_p.h"
 #include "ioslave_defaults.h"
