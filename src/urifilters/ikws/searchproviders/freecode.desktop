@@ -13,6 +13,7 @@ Name[de]=Freecode
 Name[el]=Freecode
 Name[en_GB]=Freecode
 Name[es]=Freecode
+Name[et]=Freecode
 Name[eu]=Freecode
 Name[fi]=Freecode
 Name[fr]=Freecode
@@ -68,6 +69,7 @@ Query[el]=http://freecode.com/search?q=\\{@}
 Query[en_GB]=http://freecode.com/search?q=\\{@}
 Query[eo]=http://freecode.com/search?q=\\{@}
 Query[es]=http://freecode.com/search?q=\\{@}
+Query[et]=http://freecode.com/search?q=\\{@}
 Query[eu]=http://freecode.com/search?q=\\{@}
 Query[fi]=http://freecode.com/search?q=\\{@}
 Query[fr]=http://freecode.com/search?q=\\{@}

@@ -84,6 +84,7 @@ Query[el]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[en_GB]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[eo]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[es]=https://identi.ca/search/people?q=\\{@}&search=Search
+Query[et]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[eu]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[fi]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[fr]=https://identi.ca/search/people?q=\\{@}&search=Search

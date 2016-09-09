@@ -103,6 +103,7 @@ Query[de]=http://ctan.org/search?phrase=\\{@}
 Query[el]=http://ctan.org/search?phrase=\\{@}
 Query[en_GB]=http://ctan.org/search?phrase=\\{@}
 Query[es]=http://ctan.org/search?phrase=\\{@}
+Query[et]=http://ctan.org/search?phrase=\\{@}
 Query[eu]=http://ctan.org/search?phrase=\\{@}
 Query[fi]=http://ctan.org/search?phrase=\\{@}
 Query[fr]=http://ctan.org/search?phrase=\\{@}

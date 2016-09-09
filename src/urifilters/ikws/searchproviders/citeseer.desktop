@@ -104,6 +104,7 @@ Query[el]=http://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=do
 Query[en_GB]=http://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[eo]=http://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[es]=http://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[et]=http://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[eu]=http://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[fi]=http://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[fr]=http://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc

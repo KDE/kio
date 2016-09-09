@@ -14,6 +14,7 @@ Name[el]=Τεκμηρίωση Qt
 Name[en_GB]=Qt4 Documentation
 Name[eo]=Dokumentado por Qt4
 Name[es]=Documentación de Qt4
+Name[et]=Qt4 dokumentatsioon
 Name[eu]=Qt4 dokumentazioa
 Name[fi]=Qt4-dokumentaatio
 Name[fr]=Documentation de Qt4
@@ -69,6 +70,7 @@ Query[el]=http://qt-project.org/doc/search/qt-4.8?search=\\{@}
 Query[en_GB]=http://qt-project.org/doc/search/qt-4.8?search=\\{@}
 Query[eo]=http://qt-project.org/doc/search/qt-4.8?search=\\{@}
 Query[es]=http://qt-project.org/doc/search/qt-4.8?search=\\{@}
+Query[et]=http://qt-project.org/doc/search/qt-4.8?search=\\{@}
 Query[eu]=http://qt-project.org/doc/search/qt-4.8?search=\\{@}
 Query[fi]=http://qt-project.org/doc/search/qt-4.8?search=\\{@}
 Query[fr]=http://qt-project.org/doc/search/qt-4.8?search=\\{@}
