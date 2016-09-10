@@ -363,7 +363,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
             if (!d->service.path().isEmpty()) {
                 terminal += " --workdir " + KShell::quoteArg(d->service.path());
             }
-            terminal += QLatin1String(" -caption=%c %i %m");
+            terminal += QLatin1String(" -qwindowtitle '%c' %i");
         }
         terminal += ' ';
         terminal += d->service.terminalOptions();
