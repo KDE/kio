@@ -333,14 +333,6 @@ public:
     /**
      * Returns a pointer to the toolbar.
      *
-     * You can use this to insert custom
-     * items into it, e.g.:
-     * \code
-     *      yourAction = new KAction( i18n("Your Action"), 0,
-     *                                this, SLOT( yourSlot() ),
-     *                                this, "action name" );
-     *      yourAction->plug( kfileDialog->toolBar() );
-     * \endcode
      */
     KToolBar *toolBar() const;
 
