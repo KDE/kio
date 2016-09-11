@@ -1012,7 +1012,8 @@ QStringList KFileItem::overlays() const
         return QStringList();
     }
 
-    QStringList names = d->m_entry.stringValue(KIO::UDSEntry::UDS_ICON_OVERLAY_NAMES).split(',');
+    QStringList names = d->m_entry.stringValue(KIO::UDSEntry::UDS_ICON_OVERLAY_NAMES).split(',',QString::SkipEmptyParts);
+
     if (d->m_bLink) {
         names.append(QStringLiteral("emblem-symbolic-link"));
     }
@@ -1045,7 +1046,6 @@ QStringList KFileItem::overlays() const
     if (isHidden()) {
         names.append(QStringLiteral("hidden"));
     }
-
 #ifndef Q_OS_WIN
     if (((d->m_fileMode & QT_STAT_MASK) == QT_STAT_DIR) && d->m_bIsLocalUrl) {
         if (KSambaShare::instance()->isDirectoryShared(d->m_url.toLocalFile()) ||
