@@ -189,6 +189,7 @@ private:
     void setInvalidChecksumState();
     void setMatchState();
     void setMismatchState();
+    void setVerifyState();
     void showChecksum(QCryptographicHash::Algorithm algorithm, QLabel *label);
 
     QString cachedChecksum(QCryptographicHash::Algorithm algorithm) const;

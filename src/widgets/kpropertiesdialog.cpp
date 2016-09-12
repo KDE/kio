@@ -2792,6 +2792,9 @@ void KChecksumsPlugin::slotVerifyChecksum(const QString &input)
         }
     });
 
+    // Notify the user about the background computation.
+    setVerifyState();
+
     auto future = QtConcurrent::run(&KChecksumsPlugin::computeChecksum, algorithm, properties->item().localPath());
     futureWatcher->setFuture(future);
 }
@@ -2899,6 +2902,15 @@ void KChecksumsPlugin::setMismatchState()
     d->m_ui.feedbackLabel->show();
     d->m_ui.lineEdit->setPalette(palette);
     d->m_ui.lineEdit->setToolTip(i18nc("@info:tooltip", "The computed checksum and the expected checksum differ."));
+}
+
+void KChecksumsPlugin::setVerifyState()
+{
+    // Users can paste a checksum at any time, so reset to default.
+    setDefaultState();
+
+    d->m_ui.feedbackLabel->setText(i18nc("notify the user about a computation in the background",  "Verifying checksum..."));
+    d->m_ui.feedbackLabel->show();
 }
 
 void KChecksumsPlugin::showChecksum(QCryptographicHash::Algorithm algorithm, QLabel *label)
