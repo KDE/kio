@@ -190,7 +190,7 @@ private:
     void setMatchState();
     void setMismatchState();
     void setVerifyState();
-    void showChecksum(QCryptographicHash::Algorithm algorithm, QLabel *label);
+    void showChecksum(QCryptographicHash::Algorithm algorithm, QLabel *label, QPushButton *copyButton);
 
     QString cachedChecksum(QCryptographicHash::Algorithm algorithm) const;
     void cacheChecksum(const QString &checksum, QCryptographicHash::Algorithm algorithm);

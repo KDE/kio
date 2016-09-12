@@ -2704,9 +2704,8 @@ void KChecksumsPlugin::slotShowMd5()
 
     d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.md5Button, label);
     d->m_ui.md5Button->hide();
-    d->m_ui.md5CopyButton->show();
 
-    showChecksum(QCryptographicHash::Md5, label);
+    showChecksum(QCryptographicHash::Md5, label, d->m_ui.md5CopyButton);
 }
 
 void KChecksumsPlugin::slotShowSha1()
@@ -2716,9 +2715,8 @@ void KChecksumsPlugin::slotShowSha1()
 
     d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.sha1Button, label);
     d->m_ui.sha1Button->hide();
-    d->m_ui.sha1CopyButton->show();
 
-    showChecksum(QCryptographicHash::Sha1, label);
+    showChecksum(QCryptographicHash::Sha1, label, d->m_ui.sha1CopyButton);
 }
 
 void KChecksumsPlugin::slotShowSha256()
@@ -2728,9 +2726,8 @@ void KChecksumsPlugin::slotShowSha256()
 
     d->m_ui.calculateWidget->layout()->replaceWidget(d->m_ui.sha256Button, label);
     d->m_ui.sha256Button->hide();
-    d->m_ui.sha256CopyButton->show();
 
-    showChecksum(QCryptographicHash::Sha256, label);
+    showChecksum(QCryptographicHash::Sha256, label, d->m_ui.sha256CopyButton);
 }
 
 void KChecksumsPlugin::slotVerifyChecksum(const QString &input)
@@ -2913,7 +2910,7 @@ void KChecksumsPlugin::setVerifyState()
     d->m_ui.feedbackLabel->show();
 }
 
-void KChecksumsPlugin::showChecksum(QCryptographicHash::Algorithm algorithm, QLabel *label)
+void KChecksumsPlugin::showChecksum(QCryptographicHash::Algorithm algorithm, QLabel *label, QPushButton *copyButton)
 {
     const QString checksum = cachedChecksum(algorithm);
 
@@ -2931,6 +2928,8 @@ void KChecksumsPlugin::showChecksum(QCryptographicHash::Algorithm algorithm, QLa
 
         label->setText(checksum);
         cacheChecksum(checksum, algorithm);
+
+        copyButton->show();
     });
 
     auto future = QtConcurrent::run(&KChecksumsPlugin::computeChecksum, algorithm, properties->item().localPath());
