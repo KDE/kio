@@ -280,28 +280,20 @@ static QString getAltIconUrl()
     return job->iconFile();
 }
 
-static bool allFinished(const QList<QFuture<QString> > &futures)
-{
-    return std::find_if(futures.constBegin(), futures.constEnd(),
-                        [](const QFuture<QString> &future) { return !future.isFinished(); })
-            == futures.constEnd();
-}
-
 void FavIconTest::concurrentRequestsShouldWork()
 {
     const int numThreads = 3;
-    QThreadPool::globalInstance()->setMaxThreadCount(numThreads);
-    QFutureSynchronizer<QString> sync;
+    QThreadPool tp;
+    tp.setMaxThreadCount(numThreads);
+    QVector<QFuture<QString>> futures(numThreads);
     for (int i = 0; i < numThreads; ++i) {
-        sync.addFuture(QtConcurrent::run(getAltIconUrl));
+        futures[i] = QtConcurrent::run(&tp, getAltIconUrl);
     }
-    //sync.waitForFinished();
-    // same as sync.waitForFinished() but with a timeout
-    QTRY_VERIFY(allFinished(sync.futures()));
+    QVERIFY(tp.waitForDone(60000));
 
-    const QString firstResult = sync.futures().at(0).result();
+    const QString firstResult = futures.at(0).result();
     for (int i = 1; i < numThreads; ++i) {
-        QCOMPARE(sync.futures().at(i).result(), firstResult);
+        QCOMPARE(futures.at(i).result(), firstResult);
     }
     QVERIFY(!QPixmap(firstResult).isNull());
 }
