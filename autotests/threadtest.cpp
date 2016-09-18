@@ -20,7 +20,6 @@
 #include <qtest.h>
 
 #include <QThreadPool>
-#include <QFutureSynchronizer>
 #include <QtConcurrentRun>
 
 #include <kio/job.h>
@@ -80,16 +79,6 @@ bool KIOThreadTest::copyLocalFile(FileData *fileData)
     return ret;
 }
 
-static bool allFinished(const QList<QFuture<bool> > &futures)
-{
-    for (int i = 0; i < futures.count(); ++i) {
-        if (!futures.at(i).isFinished()) {
-            return false;
-        }
-    }
-    return true;
-}
-
 void KIOThreadTest::concurrentCopying()
 {
     const int numThreads = 20;
@@ -99,17 +88,17 @@ void KIOThreadTest::concurrentCopying()
         data[i].dest = homeTmpDir() + "file" + QString::number(i) + "_copied";
         createTestFile(data[i].src);
     }
-    QThreadPool::globalInstance()->setMaxThreadCount(numThreads);
-    QFutureSynchronizer<bool> sync;
+    QThreadPool tp;
+    tp.setMaxThreadCount(numThreads);
+    QVector<QFuture<bool>> futures(numThreads);
     for (int i = 0; i < numThreads; ++i) {
-        sync.addFuture(QtConcurrent::run(this, &KIOThreadTest::copyLocalFile, &data[i]));
+        futures[i] = QtConcurrent::run(&tp, this, &KIOThreadTest::copyLocalFile, &data[i]);
     }
-    // same as sync.waitForFinished() but with a timeout
-    QTRY_VERIFY(allFinished(sync.futures()));
+    QVERIFY(tp.waitForDone(60000));
 
     for (int i = 0; i < numThreads; ++i) {
         QVERIFY(QFile::exists(data[i].dest));
-        QVERIFY(sync.futures().at(i).result());
+        QVERIFY(futures.at(i).result());
     }
 }
 
