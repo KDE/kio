@@ -53,6 +53,7 @@ void KIOD::loadModule(const QString &name)
         return;
     }
 
+    qCDebug(KIOD_CATEGORY) << "loadModule" << name;
     KPluginLoader loader("kf5/kiod/" + name);
     KPluginFactory *factory = loader.factory();
     if (factory) {
@@ -78,7 +79,6 @@ static void messageFilter(const QDBusMessage &message)
         return;
     }
 
-    qCDebug(KIOD_CATEGORY) << "loadModule" << name;
     self()->loadModule(name);
 }
 
