@@ -32,6 +32,7 @@
         "Description[uk]": "Зберігання кук мережі", 
         "Description[x-test]": "xxStores network cookiesxx", 
         "Description[zh_CN]": "存储网络 cookie", 
+        "Description[zh_TW]": "儲存網路 cookies", 
         "Name": "Cookie Jar", 
         "Name[ast]": "Tarru de cookies", 
         "Name[ca@valencia]": "Repositori de les galetes", 

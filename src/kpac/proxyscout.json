@@ -32,6 +32,7 @@
         "Description[uk]": "Автоматичне налаштовування проксі-сервера", 
         "Description[x-test]": "xxAutomatic proxy configurationxx", 
         "Description[zh_CN]": "自动代理配置", 
+        "Description[zh_TW]": "自動代理伺服器組態", 
         "Name": "Network Proxy Configuration", 
         "Name[ast]": "Configuración de proxy de rede", 
         "Name[ca@valencia]": "Configuració del servidor intermediari de la xarxa", 
@@ -64,6 +65,7 @@
         "Name[uk]": "Налаштовування проксі-сервера мережі", 
         "Name[x-test]": "xxNetwork Proxy Configurationxx", 
         "Name[zh_CN]": "网络代理配置", 
+        "Name[zh_TW]": "網路代理組態", 
         "ServiceTypes": [
             "KDEDModule"
         ]

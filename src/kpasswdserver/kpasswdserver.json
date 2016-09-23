@@ -32,6 +32,7 @@
         "Description[uk]": "Тимчасове кешування паролів", 
         "Description[x-test]": "xxTemporary password cachingxx", 
         "Description[zh_CN]": "临时性密码缓存", 
+        "Description[zh_TW]": "暫時密碼快取", 
         "Name": "Password Caching", 
         "Name[ast]": "Cachéu de contraseñes", 
         "Name[ca@valencia]": "Cau de les contrasenyes", 
@@ -64,6 +65,7 @@
         "Name[uk]": "Кешування паролів", 
         "Name[x-test]": "xxPassword Cachingxx", 
         "Name[zh_CN]": "密码缓存", 
+        "Name[zh_TW]": "密碼快取", 
         "ServiceTypes": [
             "KDEDModule"
         ]
