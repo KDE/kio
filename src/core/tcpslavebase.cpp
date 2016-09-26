@@ -492,7 +492,7 @@ bool TCPSlaveBase::startSsl()
     if (d->usingSSL) {
         return false;
     }
-    return d->startTLSInternal(KTcpSocket::TlsV1) & ResultOk;
+    return d->startTLSInternal(KTcpSocket::SecureProtocols) & ResultOk;
 }
 
 TCPSlaveBase::SslResult TCPSlaveBase::TcpSlaveBasePrivate::startTLSInternal(KTcpSocket::SslVersion version,
