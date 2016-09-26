@@ -25,6 +25,8 @@
 #include <kfileitem.h>
 #include <kserviceaction.h>
 #include <kservice.h>
+#include <KConfig>
+
 #include <QActionGroup>
 #include <QObject>
 
@@ -82,6 +84,7 @@ public:
     QActionGroup m_executeServiceActionGroup;
     QActionGroup m_runApplicationActionGroup;
     QWidget *m_parentWidget;
+    KConfig m_config;
 };
 
 Q_DECLARE_METATYPE(KService::Ptr)

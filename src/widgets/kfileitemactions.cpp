@@ -28,6 +28,9 @@
 #include <kconfiggroup.h>
 #include <kdesktopfile.h>
 #include <kservicetypetrader.h>
+#include <KAbstractFileItemActionPlugin>
+#include <KPluginMetaData>
+
 #include <QFile>
 #include <QMenu>
 #include <qmimedatabase.h>
@@ -134,7 +137,8 @@ KFileItemActionsPrivate::KFileItemActionsPrivate(KFileItemActions *qq)
       q(qq),
       m_executeServiceActionGroup(static_cast<QWidget *>(0)),
       m_runApplicationActionGroup(static_cast<QWidget *>(0)),
-      m_parentWidget(0)
+      m_parentWidget(0),
+      m_config(QStringLiteral("kservicemenurc"), KConfig::NoGlobals)
 {
     QObject::connect(&m_executeServiceActionGroup, SIGNAL(triggered(QAction*)),
                      this, SLOT(slotExecuteService(QAction*)));
@@ -288,8 +292,7 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
         }
     }
 
-    const KConfig config(QStringLiteral("kservicemenurc"), KConfig::NoGlobals);
-    const KConfigGroup showGroup = config.group("Show");
+    const KConfigGroup showGroup = d->m_config.group("Show");
 
     const QString commonMimeType = d->m_props.mimeType();
     const QString commonMimeGroup = d->m_props.mimeGroup();
@@ -425,7 +428,76 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
     userItemCount += d->insertServices(s.builtin, mainMenu, true);
     userItemCount += d->insertServicesSubmenus(s.userToplevelSubmenus, mainMenu, false);
     userItemCount += d->insertServices(s.userToplevel, mainMenu, false);
+
     return userItemCount;
+}
+
+int KFileItemActions::addPluginActionsTo(QMenu *mainMenu)
+{
+    QStringList addedPlugins;
+    const QString commonMimeType = d->m_props.mimeType();
+    const QString commonMimeGroup = d->m_props.mimeGroup();
+    const QMimeDatabase db;
+    int itemCount = 0;
+
+    const KConfigGroup showGroup = d->m_config.group("Show");
+    const KService::List fileItemPlugins = KMimeTypeTrader::self()->query(commonMimeType, QStringLiteral("KFileItemAction/Plugin"), QStringLiteral("exist Library"));
+    for(const auto &service : fileItemPlugins) {
+        if (!showGroup.readEntry(service->desktopEntryName(), true)) {
+            // The plugin has been disabled
+            continue;
+        }
+
+        KAbstractFileItemActionPlugin *abstractPlugin = service->createInstance<KAbstractFileItemActionPlugin>();
+        if (abstractPlugin) {
+            abstractPlugin->setParent(mainMenu);
+            auto actions = abstractPlugin->actions(d->m_props, d->m_parentWidget);
+            itemCount += actions.count();
+            mainMenu->addActions(actions);
+            addedPlugins.append(service->desktopEntryName());
+        }
+    }
+    const auto jsonPlugins = KPluginLoader::findPlugins(QStringLiteral("kf5/kfileitemaction"), [&db, commonMimeType](const KPluginMetaData& metaData) {
+        if (!metaData.serviceTypes().contains(QStringLiteral("KFileItemAction/Plugin"))) {
+            return false;
+        }
+
+        auto mimeType = db.mimeTypeForName(commonMimeType);
+        foreach (const auto& supportedMimeType, metaData.mimeTypes()) {
+            if (mimeType.inherits(supportedMimeType)) {
+                return true;
+            }
+        }
+
+        return false;
+    });
+
+    foreach (const auto& jsonMetadata, jsonPlugins) {
+        // The plugin has been disabled
+        if (!showGroup.readEntry(jsonMetadata.pluginId(), true)) {
+            continue;
+        }
+
+        // The plugin also has a .desktop file and has already been added.
+        if (addedPlugins.contains(jsonMetadata.pluginId())) {
+            continue;
+        }
+
+        KPluginFactory *factory = KPluginLoader(jsonMetadata.fileName()).factory();
+        if (!factory) {
+            continue;
+        }
+        KAbstractFileItemActionPlugin* abstractPlugin = factory->create<KAbstractFileItemActionPlugin>();
+        if (abstractPlugin) {
+            abstractPlugin->setParent(this);
+            auto actions = abstractPlugin->actions(d->m_props, d->m_parentWidget);
+            itemCount += actions.count();
+            mainMenu->addActions(actions);
+            addedPlugins.append(jsonMetadata.pluginId());
+        }
+    }
+
+    return itemCount;
 }
 
 // static

@@ -155,6 +155,18 @@ public:
      */
     int addServiceActionsTo(QMenu *menu);
 
+    /**
+     * Add actions implemented by plugins.
+     * These are defined in .desktop files or JSON in plugins using the KFileItemAction/Plugin service type,
+     * and the KAbstractFileItemActionPlugin base class.
+     *
+     * All actions are created as children of the menu.
+     * @return the number of actions added
+     *
+     * @since 5.27
+     */
+    int addPluginActionsTo(QMenu *menu);
+
 Q_SIGNALS:
     /**
      * Emitted before the "Open With" dialog is shown
