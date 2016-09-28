@@ -500,6 +500,11 @@ bool KPropertiesDialog::canDisplay(const KFileItemList &_items)
             KPreviewPropsPlugin::supports( _items )*/;
 }
 
+void KPropertiesDialog::slotOk()
+{
+    accept();
+}
+
 void KPropertiesDialog::accept()
 {
     QList<KPropertiesDialogPlugin *>::const_iterator pageListIt;
@@ -541,6 +546,11 @@ void KPropertiesDialog::accept()
         deleteLater(); // somewhat like Qt::WA_DeleteOnClose would do.
         KPageDialog::accept();
     } // else, keep dialog open for user to fix the problem.
+}
+
+void KPropertiesDialog::slotCancel()
+{
+    reject();
 }
 
 void KPropertiesDialog::reject()

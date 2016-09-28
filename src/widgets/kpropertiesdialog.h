@@ -341,12 +341,12 @@ public Q_SLOTS:
      * Called when the user presses 'Ok'.
      * @deprecated since 5.25, use accept()
      */
-    KIOWIDGETS_DEPRECATED virtual void slotOk() { accept(); }
+    KIOWIDGETS_DEPRECATED virtual void slotOk();
     /**
      * Called when the user presses 'Cancel'.
      * @deprecated since 5.25, use reject()
      */
-    KIOWIDGETS_DEPRECATED virtual void slotCancel() { reject(); }
+    KIOWIDGETS_DEPRECATED virtual void slotCancel();
 
     /**
      * Called when the user presses 'Ok'.
