@@ -285,11 +285,14 @@ void KFileItemTest::testRefresh()
     KFileItem dirItem(QUrl::fromLocalFile(tempDir.path()));
     QVERIFY(dirItem.isDir());
     QVERIFY(dirItem.entry().isDir());
-    QCOMPARE(dirItem.time(KFileItem::ModificationTime), dirInfo.lastModified());
+    QDateTime lastModified = dirInfo.lastModified();
+    // Qt 5.8 adds milliseconds (but UDSEntry has no support for that)
+    lastModified = lastModified.addMSecs(-lastModified.time().msec());
+    QCOMPARE(dirItem.time(KFileItem::ModificationTime), lastModified);
     dirItem.refresh();
     QVERIFY(dirItem.isDir());
     QVERIFY(dirItem.entry().isDir());
-    QCOMPARE(dirItem.time(KFileItem::ModificationTime), dirInfo.lastModified());
+    QCOMPARE(dirItem.time(KFileItem::ModificationTime), lastModified);
 
     // Refresh on a file
     QFile file(tempDir.path() + "/afile");
@@ -305,13 +308,16 @@ void KFileItemTest::testRefresh()
     QVERIFY(!fileItem.isLink());
     QCOMPARE(fileItem.size(), expectedSize);
     QCOMPARE(fileItem.user(), KUser().loginName());
-    QCOMPARE(fileItem.time(KFileItem::ModificationTime), fileInfo.lastModified());
+    // Qt 5.8 adds milliseconds (but UDSEntry has no support for that)
+    lastModified = dirInfo.lastModified();
+    lastModified = lastModified.addMSecs(-lastModified.time().msec());
+    QCOMPARE(fileItem.time(KFileItem::ModificationTime), lastModified);
     fileItem.refresh();
     QVERIFY(fileItem.isFile());
     QVERIFY(!fileItem.isLink());
     QCOMPARE(fileItem.size(), expectedSize);
     QCOMPARE(fileItem.user(), KUser().loginName());
-    QCOMPARE(fileItem.time(KFileItem::ModificationTime), fileInfo.lastModified());
+    QCOMPARE(fileItem.time(KFileItem::ModificationTime), lastModified);
 
     // Refresh on a symlink to a file
     const QString symlink = tempDir.path() + "/asymlink";
