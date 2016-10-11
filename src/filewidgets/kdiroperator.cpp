@@ -651,16 +651,6 @@ void KDirOperator::Private::_k_toggleInlinePreviews(bool show)
     }
 
     previewGenerator->setPreviewShown(show);
-
-    if (!show) {
-        // remove all generated previews
-        QAbstractItemModel *model = dirModel;
-        for (int i = 0; i < model->rowCount(); ++i) {
-            QModelIndex index = model->index(i, 0);
-            const KFileItem item = dirModel->itemForIndex(index);
-            const_cast<QAbstractItemModel *>(index.model())->setData(index, QIcon::fromTheme(item.iconName()), Qt::DecorationRole);
-        }
-    }
 }
 
 void KDirOperator::Private::_k_slotOpenFileManager()

@@ -225,6 +225,7 @@ public:
         return url;
     }
     void removeFromNodeHash(KDirModelNode *node, const QUrl &url);
+    void clearAllPreviews(KDirModelDirNode *node);
 #ifndef NDEBUG
     void dump();
 #endif
@@ -689,9 +690,34 @@ void KDirModelPrivate::_k_slotJobUrlsChanged(const QStringList &urlList)
     m_allCurrentDestUrls = urlList;
 }
 
+void KDirModelPrivate::clearAllPreviews(KDirModelDirNode *dirNode)
+{
+    const int numRows = dirNode->m_childNodes.count();
+    if (numRows > 0) {
+        KDirModelNode *lastNode = 0;
+        for (KDirModelNode *node : dirNode->m_childNodes) {
+            node->setPreview(QIcon());
+            //node->setPreview(QIcon::fromTheme(node->item().iconName()));
+            if (isDir(node)) {
+                // recurse into child dirs
+                clearAllPreviews(static_cast<KDirModelDirNode *>(node));
+            }
+            lastNode = node;
+        }
+        emit q->dataChanged(indexForNode(dirNode->m_childNodes.at(0), 0),  // O(1)
+                            indexForNode(lastNode, numRows - 1));          // O(1)
+    }
+
+}
+
+void KDirModel::clearAllPreviews()
+{
+    d->clearAllPreviews(d->m_rootNode);
+}
+
 void KDirModel::itemChanged(const QModelIndex &index)
 {
-    // This method is really a itemMimeTypeChanged(), it's mostly called by KMimeTypeResolver.
+    // This method is really a itemMimeTypeChanged(), it's mostly called by KFilePreviewGenerator.
     // When the mimetype is determined, clear the old "preview" (could be
     // mimetype dependent like when cutting files, #164185)
     KDirModelNode *node = d->nodeForIndex(index);

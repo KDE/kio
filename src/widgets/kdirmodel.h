@@ -114,6 +114,13 @@ public:
     void itemChanged(const QModelIndex &index);
 
     /**
+     * Forget all previews (optimization for turning previews off).
+     * The items will again have their default appearance (not controlled by the model).
+     * @since 5.28
+     */
+    void clearAllPreviews();
+
+    /**
      * Useful "default" columns. Views can use a proxy to have more control over this.
      */
     enum ModelColumns {
