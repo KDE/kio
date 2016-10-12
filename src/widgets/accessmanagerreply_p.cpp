@@ -482,11 +482,7 @@ void AccessManagerReply::slotPercent(KJob *job, unsigned long percent)
 
 void AccessManagerReply::emitFinished(bool state, Qt::ConnectionType type)
 {
-#if QT_VERSION >= 0x040800
     setFinished(state);
-#else
-    Q_UNUSED(state);
-#endif
     emit QMetaObject::invokeMethod(this, "finished", type);
 }
 

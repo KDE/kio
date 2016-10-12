@@ -77,11 +77,7 @@
 
 #include <QLoggingCategory>
 Q_DECLARE_LOGGING_CATEGORY(KIO_HTTP)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 4, 0)
 Q_LOGGING_CATEGORY(KIO_HTTP, "kf5.kio.kio_http", QtWarningMsg) // disable debug by default
-#else
-Q_LOGGING_CATEGORY(KIO_HTTP, "kf5.kio.kio_http")
-#endif
 
 // HeaderTokenizer declarations
 #include "parsinghelpers.h"
@@ -118,11 +114,6 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
         fprintf(stderr, "Usage: kio_http protocol domain-socket1 domain-socket2\n");
         exit(-1);
     }
-
-#if QT_VERSION < QT_VERSION_CHECK(5, 4, 0)
-    // Disable debug output by default - Qt 5.4 offers a better way of doing it, see above.
-    QLoggingCategory::setFilterRules(QStringLiteral("kf5.kio.kio_http=false"));
-#endif
 
     HTTPProtocol slave(argv[1], argv[2], argv[3]);
     slave.dispatchLoop();

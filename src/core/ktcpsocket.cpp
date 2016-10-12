@@ -825,11 +825,7 @@ KTcpSocket::SslVersion KTcpSocket::negotiatedSslVersion() const
         return UnknownSslVersion;
     }
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 4, 0)
     return kSslVersionFromQ(d->sock.sessionProtocol());
-#else
-    return kSslVersionFromQ(d->sock.protocol());
-#endif
 }
 
 QString KTcpSocket::negotiatedSslVersionName() const
@@ -838,11 +834,7 @@ QString KTcpSocket::negotiatedSslVersionName() const
         return QString();
     }
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 4, 0)
     return protocolString(d->sock.sessionProtocol());
-#else
-    return d->sock.sessionCipher().protocolString();
-#endif
 }
 
 ////////////////////////////// KSslKey

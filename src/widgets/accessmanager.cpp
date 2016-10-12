@@ -50,11 +50,7 @@
 #define QL1S(x)   QLatin1String(x)
 #define QL1C(x)   QLatin1Char(x)
 
-#if QT_VERSION >= 0x040800
 static const QNetworkRequest::Attribute gSynchronousNetworkRequestAttribute = QNetworkRequest::SynchronousRequestAttribute;
-#else // QtWebkit hack to use the internal attribute
-static const QNetworkRequest::Attribute gSynchronousNetworkRequestAttribute = static_cast<QNetworkRequest::Attribute>(QNetworkRequest::HttpPipeliningWasUsedAttribute + 7);
-#endif
 
 static qint64 sizeFromRequest(const QNetworkRequest &req)
 {
