@@ -1516,7 +1516,12 @@ void KFileWidgetPrivate::_k_enterUrl(const QUrl &url)
         u.setPath(u.path() + '/');
     }
     q->setUrl(u);
-    if (!locationEdit->hasFocus()) {
+
+    // We need to check window()->focusWidget() instead of locationEdit->hasFocus
+    // because when the window is showing up locationEdit
+    // may still not have focus but it'll be the one that will have focus when the window
+    // gets it and we don't want to steal its focus either
+    if (q->window()->focusWidget() != locationEdit) {
         ops->setFocus();
     }
 }

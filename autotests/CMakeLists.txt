@@ -113,12 +113,13 @@ ecm_add_tests(
  kurlnavigatortest.cpp
  kurlcomboboxtest.cpp
  kdiroperatortest.cpp
+ kfilewidgettest.cpp
  knewfilemenutest.cpp
  kfilecopytomenutest.cpp
  kfileplacesmodeltest.cpp
  kurlrequestertest.cpp
  NAME_PREFIX "kiofilewidgets-"
- LINK_LIBRARIES KF5::KIOFileWidgets KF5::KIOWidgets KF5::XmlGui KF5::Bookmarks Qt5::Test
+ LINK_LIBRARIES KF5::KIOFileWidgets KF5::KIOWidgets KF5::XmlGui KF5::Bookmarks Qt5::Test KF5::I18n
 )
 endif()
 
