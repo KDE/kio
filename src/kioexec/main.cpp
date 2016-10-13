@@ -68,13 +68,13 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
     for (int i = 1; i < args.count(); i++) {
         const QUrl urlArg = QUrl::fromUserInput(args.value(i));
         if (!urlArg.isValid()) {
-            KMessageBox::error(0L, i18n("Invalid URL: %1", args.value(i)));
+            KMessageBox::error(nullptr, i18n("Invalid URL: %1", args.value(i)));
             exit(1);
         }
         KIO::StatJob* mostlocal = KIO::mostLocalUrl(urlArg);
         bool b = mostlocal->exec();
         if (!b) {
-            KMessageBox::error(0L, i18n("File not found: %1", urlArg.toDisplayString()));
+            KMessageBox::error(nullptr, i18n("File not found: %1", urlArg.toDisplayString()));
             exit(1);
         }
         Q_ASSERT(b);
@@ -91,9 +91,9 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
         } else {
             // It is an URL
             if (!url.isValid()) {
-                KMessageBox::error(0L, i18n("The URL %1\nis malformed" ,  url.url()));
+                KMessageBox::error(nullptr, i18n("The URL %1\nis malformed" ,  url.url()));
             } else if (mTempFiles) {
-                KMessageBox::error(0L, i18n("Remote URL %1\nnot allowed with --tempfiles switch" ,  url.toDisplayString()));
+                KMessageBox::error(nullptr, i18n("Remote URL %1\nnot allowed with --tempfiles switch" ,  url.toDisplayString()));
             } else {
                 // We must fetch the file
                 QString fileName = KIO::encodeFileName(url.fileName());
@@ -128,7 +128,7 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
 
     counter = 0;
     if (counter == expectedCounter) {
-        slotResult(0L);
+        slotResult(nullptr);
     }
 }
 
@@ -138,7 +138,7 @@ void KIOExec::slotResult(KJob *job)
         // That error dialog would be queued, i.e. not immediate...
         //job->showErrorDialog();
         if ((job->error() != KIO::ERR_USER_CANCELED))
-            KMessageBox::error(0L, job->errorString());
+            KMessageBox::error(nullptr, job->errorString());
 
         QString path = static_cast<KIO::FileCopyJob*>(job)->destUrl().path();
 
@@ -220,19 +220,19 @@ void KIOExec::slotRunApp()
         QFileInfo info(src);
         if (info.exists() && (it->time != info.lastModified())) {
             if (mTempFiles) {
-                if (KMessageBox::questionYesNo(0L,
+                if (KMessageBox::questionYesNo(nullptr,
                                                i18n("The supposedly temporary file\n%1\nhas been modified.\nDo you still want to delete it?", dest.toDisplayString(QUrl::PreferLocalFile)),
                                                i18n("File Changed"), KStandardGuiItem::del(), KGuiItem(i18n("Do Not Delete"))) != KMessageBox::Yes)
                     continue; // don't delete the temp file
             } else if (!dest.isLocalFile()) { // no upload when it's already a local file
-                if (KMessageBox::questionYesNo(0L,
+                if (KMessageBox::questionYesNo(nullptr,
                                                i18n("The file\n%1\nhas been modified.\nDo you want to upload the changes?" , dest.toDisplayString()),
                                                i18n("File Changed"), KGuiItem(i18n("Upload")), KGuiItem(i18n("Do Not Upload"))) == KMessageBox::Yes) {
                     qDebug() << "src='" << src << "'  dest='" << dest << "'";
                     // Do it the synchronous way.
                     KIO::CopyJob* job = KIO::copy(QUrl::fromLocalFile(src), dest);
                     if (!job->exec()) {
-                        KMessageBox::error(0L, job->errorText());
+                        KMessageBox::error(nullptr, job->errorText());
                         continue; // don't delete the temp file
                     }
                 }
