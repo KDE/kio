@@ -31,7 +31,10 @@
 #include <QUrl>
 #include <QDateTime>
 
-namespace KIO { class Job; }
+namespace KIO
+{
+class Job;
+}
 
 class KJob;
 class QCommandLineParser;
@@ -42,10 +45,13 @@ class KIOExec : public QObject
 public:
     KIOExec(const QStringList &args, bool tempFiles, const QString &suggestedFileName);
 
-    bool exited() const { return mExited; }
+    bool exited() const
+    {
+        return mExited;
+    }
 
 public Q_SLOTS:
-    void slotResult( KJob * );
+    void slotResult(KJob *);
     void slotRunApp();
 
 protected:
@@ -56,9 +62,9 @@ protected:
     int expectedCounter;
     QString command;
     struct FileInfo {
-       QString path;
-       QUrl url;
-       QDateTime time;
+        QString path;
+        QUrl url;
+        QDateTime time;
     };
     QList<FileInfo> fileList;
     int jobCounter;
