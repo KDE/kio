@@ -116,7 +116,7 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
                 KIO::Job *job = KIO::file_copy(url, dest);
                 jobList.append(job);
 
-                connect(job, SIGNAL(result(KJob *)), SLOT(slotResult(KJob *)));
+                connect(job, &KJob::result, this, &KIOExec::slotResult);
             }
         }
     }
@@ -164,7 +164,7 @@ void KIOExec::slotResult(KJob *job)
 
     qDebug() << "All files downloaded, will call slotRunApp shortly";
     // We know we can run the app now - but let's finish the job properly first.
-    QTimer::singleShot(0, this, SLOT(slotRunApp()));
+    QTimer::singleShot(0, this, &KIOExec::slotRunApp);
 
     jobList.clear();
 }
