@@ -99,12 +99,12 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
                 QString fileName = KIO::encodeFileName(url.fileName());
                 if (!suggestedFileName.isEmpty())
                     fileName = suggestedFileName;
-                // Build the destination filename, in ~/.kde/cache-*/krun/
+                // Build the destination filename, in ~/.cache/kioexec/krun/
                 // Unlike KDE-1.1, we put the filename at the end so that the extension is kept
                 // (Some programs rely on it)
-                QString krun_writable = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + "/krun/";
+                QString krun_writable = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QStringLiteral("/krun/%1_%2/").arg(QCoreApplication::applicationPid()).arg(jobCounter++);
                 QDir().mkpath(krun_writable); // error handling will be done by the job
-                QString tmp = krun_writable + QStringLiteral("%1_%2_%3").arg(QCoreApplication::applicationPid()).arg(jobCounter++).arg(fileName);
+                QString tmp = krun_writable + fileName;
                 FileInfo file;
                 file.path = tmp;
                 file.url = url;
@@ -244,8 +244,10 @@ void KIOExec::slotRunApp()
             // it will have time to start up and read the file before it gets deleted. #130709.
             qDebug() << "sleeping...";
             QThread::currentThread()->sleep(180); // 3 mn
-            qDebug() << "about to delete " << src;
+            const QString parentDir = info.path();
+            qDebug() << "about to delete" << parentDir << "containing" << info.fileName();
             QFile(QFile::encodeName(src)).remove();
+            QDir().rmdir(parentDir);
         }
     }
 
