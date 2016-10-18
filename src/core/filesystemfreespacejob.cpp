@@ -62,14 +62,11 @@ FileSystemFreeSpaceJob::~FileSystemFreeSpaceJob()
 
 void FileSystemFreeSpaceJobPrivate::start(Slave *slave)
 {
-    Q_Q(FileSystemFreeSpaceJob);
     SimpleJobPrivate::start(slave);
 }
 
 void FileSystemFreeSpaceJob::slotFinished()
 {
-    Q_D(FileSystemFreeSpaceJob);
-
     KIO::filesize_t total = queryMetaData(QStringLiteral("total")).toULongLong();
     KIO::filesize_t available = queryMetaData(QStringLiteral("available")).toULongLong();
 
