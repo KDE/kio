@@ -151,8 +151,8 @@ public:
      * @param challenge - the Type 2 message returned by the server.
      * @param user - user's name.
      * @param password - user's password.
-     * @param domain - the target domain. If left empty, it will be extracted
-     * from the challenge.
+     * @param domain - the target domain. If left NULL (i.e. QString()), it will be extracted
+     * from the challenge. If set to an empty string (QString("")) an empty domain will be used.
      * @param workstation - the user's workstation.
      * @param authflags - AuthFlags flags that changes the response generation behavior.
      * Force_V1 or Force_V2 forces (NT)LMv1 or (NT)LMv2 responses generation, otherwise it's

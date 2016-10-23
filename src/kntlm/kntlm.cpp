@@ -231,7 +231,9 @@ bool KNTLM::getAuth(QByteArray &auth, const QByteArray &challenge,
 
     unicode = qFromLittleEndian(ch->flags) & Negotiate_Unicode;
 
-    if (domain.isEmpty()) {
+    // If the domain is NULL (i.e. QString()) use the target domain. If the domain is empty
+    // (i.e. QString("")) use an empty domain.
+    if (domain.isNull()) {
         dom = getString(challenge, ch->targetName, unicode);
     } else {
         dom = domain;
