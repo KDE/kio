@@ -1298,7 +1298,13 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     // know yet if a hover out animation will be run.
     // ========================================================================
     if (state && (state->hoverProgress() < 1 || state->fadeProgress() < 1)) {
-        cache = new KIO::CachedRendering(opt.state, option.rect.size(), index, painter->device()->devicePixelRatio());
+#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
+        const qreal dpr = painter->device()->devicePixelRatioF();
+#else
+        const qreal dpr = painter->device()->devicePixelRatio();
+#endif
+
+        cache = new KIO::CachedRendering(opt.state, option.rect.size(), index, dpr);
 
         QPainter p;
         p.begin(&cache->regular);
