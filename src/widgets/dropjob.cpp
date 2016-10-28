@@ -69,7 +69,8 @@ public:
           m_keyboardModifiers(dropEvent->keyboardModifiers()),
           m_destUrl(destUrl),
           m_destItem(KCoreDirLister::cachedItemForUrl(destUrl)),
-          m_flags(flags)
+          m_flags(flags),
+          m_triggered(false)
     {
         // Check for the drop of a bookmark -> we want a Link action
         if (m_mimeData->hasFormat(QStringLiteral("application/x-xbel"))) {
@@ -109,11 +110,13 @@ public:
     const JobFlags m_flags;
     QList<QAction *> m_appActions;
     QList<QAction *> m_pluginActions;
+    bool m_triggered;  // Tracks whether an action has been triggered in the popup menu.
 
     Q_DECLARE_PUBLIC(DropJob)
 
     void slotStart();
     void slotTriggered(QAction *);
+    void slotAboutToHide();
 
     static inline DropJob *newJob(const QDropEvent *dropEvent, const QUrl &destUrl, JobFlags flags)
     {
@@ -330,6 +333,20 @@ void DropJobPrivate::slotTriggered(QAction *action)
     doCopyToDirectory();
 }
 
+void DropJobPrivate::slotAboutToHide()
+{
+    Q_Q(DropJob);
+    // QMenu emits aboutToHide before triggered.
+    // So we need to give the menu time in case it needs to emit triggered.
+    // If it does, the cleanup will be done by slotTriggered.
+    QTimer::singleShot(0, q, [=]() {
+        if (!m_triggered) {
+            q->setError(KIO::ERR_USER_CANCELED);
+            q->emitResult();
+        }
+    });
+}
+
 void DropJobPrivate::handleCopyToDirectory()
 {
     Q_Q(DropJob);
@@ -338,8 +355,15 @@ void DropJobPrivate::handleCopyToDirectory()
         if (error == KIO::ERR_UNKNOWN) {
             QMenu *menu = new QMenu(KJobWidgets::window(q));
             QObject::connect(menu, &QMenu::aboutToHide, menu, &QObject::deleteLater);
+
+            // If the user clicks outside the menu, it will be destroyed without emitting the triggered signal.
+            QObject::connect(menu, &QMenu::aboutToHide, q, [this]() { slotAboutToHide(); });
+
             fillPopupMenu(menu);
-            QObject::connect(menu, &QMenu::triggered, q, [this](QAction* action) { slotTriggered(action); });
+            QObject::connect(menu, &QMenu::triggered, q, [this](QAction* action) {
+                m_triggered = true;
+                slotTriggered(action);
+            });
             menu->popup(m_globalPos);
         } else {
             q->setError(error);
