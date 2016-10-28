@@ -157,7 +157,8 @@ void ClipboardUpdater::setMode(JobUiDelegateExtension::ClipboardUpdaterMode mode
 void ClipboardUpdater::update(const QUrl &srcUrl, const QUrl &destUrl)
 {
     QClipboard *clipboard = QGuiApplication::clipboard();
-    if (clipboard->mimeData()->hasUrls()) {
+    auto mimeData = clipboard->mimeData();
+    if (mimeData && mimeData->hasUrls()) {
         QList<QUrl> clipboardUrls = KUrlMimeData::urlsFromMimeData(clipboard->mimeData());
         const int index = clipboardUrls.indexOf(srcUrl);
         if (index > -1) {
