@@ -65,7 +65,12 @@ static void updateUrlsInClipboard(KJob *job)
     }
 
     QClipboard *clipboard = QGuiApplication::clipboard();
-    QList<QUrl> clipboardUrls = KUrlMimeData::urlsFromMimeData(clipboard->mimeData());
+    auto mimeData = clipboard->mimeData();
+    if (!mimeData) {
+        return;
+    }
+
+    QList<QUrl> clipboardUrls = KUrlMimeData::urlsFromMimeData(mimeData);
     bool update = false;
 
     if (copyJob) {
@@ -114,7 +119,12 @@ static void removeUrlsFromClipboard(KJob *job)
     }
 
     QClipboard *clipboard = QGuiApplication::clipboard();
-    QList<QUrl> clipboardUrls = KUrlMimeData::urlsFromMimeData(clipboard->mimeData());
+    auto mimeData = clipboard->mimeData();
+    if (!mimeData) {
+        return;
+    }
+
+    QList<QUrl> clipboardUrls = KUrlMimeData::urlsFromMimeData(mimeData);
     quint32 removedCount = 0;
 
     Q_FOREACH (const QUrl &url, deletedUrls) {
