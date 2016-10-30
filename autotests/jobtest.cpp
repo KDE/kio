@@ -32,6 +32,7 @@
 #include <QtCore/QHash>
 #include <QtCore/QVariant>
 #include <QtCore/QBuffer>
+#include <QTemporaryFile>
 #include <QUrl>
 
 #include <kprotocolinfo.h>
@@ -267,6 +268,33 @@ void JobTest::storedPutIODeviceFile()
     QVERIFY(QFile::exists(dest));
     QCOMPARE(QFileInfo(src).size(), QFileInfo(dest).size());
     QFile::remove(dest);
+}
+
+void JobTest::storedPutIODeviceTempFile()
+{
+    // Create a temp file in the current dir.
+    QTemporaryFile tempFile(QStringLiteral("jobtest-tmp"));
+    QVERIFY(tempFile.open());
+
+    // Write something into the file.
+    QTextStream stream(&tempFile);
+    stream << QStringLiteral("This is the put data");
+    stream.flush();
+    QVERIFY(QFileInfo(tempFile).size() > 0);
+
+    const QString dest = homeTmpDir() + QLatin1String("tmpfile-dest");
+    const QUrl destUrl = QUrl::fromLocalFile(dest);
+
+    // QTemporaryFiles are open in ReadWrite mode,
+    // so we don't need to close and reopen,
+    // but we need to rewind to the beginning.
+    tempFile.seek(0);
+    auto job = KIO::storedPut(&tempFile, destUrl, -1);
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QVERIFY(QFileInfo::exists(dest));
+    QCOMPARE(QFileInfo(dest).size(), QFileInfo(tempFile).size());
+    QVERIFY(QFile::remove(dest));
 }
 
 void JobTest::storedPutIODeviceSlowDevice()

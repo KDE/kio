@@ -89,7 +89,7 @@ KIOCORE_EXPORT StoredTransferJob *storedGet(const QUrl &url, LoadType reload = N
  * Put (means: write) data from a QIODevice.
  * @see StoredTransferJob
  *
- * @param input The data to write, a device to read from. Must be open for reading.
+ * @param input The data to write, a device to read from. Must be open for reading (data will be read from the current position).
  * @param url Where to write data.
  * @param permissions May be -1. In this case no special permission mode is set.
  * @param flags Can be HideProgressInfo, Overwrite and Resume here. WARNING:
