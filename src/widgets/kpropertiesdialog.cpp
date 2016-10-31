@@ -1239,7 +1239,8 @@ static QString relativeAppsLocation(const QString &file)
 {
     const QString canonical = QFileInfo(file).canonicalFilePath();
     Q_FOREACH (const QString &base, QStandardPaths::standardLocations(QStandardPaths::ApplicationsLocation)) {
-        if (canonical.startsWith(QFileInfo(base).canonicalFilePath())) {
+        QDir base_dir = QDir(base);
+        if (base_dir.exists() && canonical.startsWith(base_dir.canonicalPath())) {
             return canonical.mid(base.length() + 1);
         }
     }
