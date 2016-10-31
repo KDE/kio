@@ -43,12 +43,10 @@ public:
     void initDialog(const QString &text, const QUrl &url);
 
     // slots
-    void _k_slotClear();
     void _k_slotTextChanged(const QString &);
 
     KUrlRequester *urlRequester;
     QDialogButtonBox *buttonBox;
-    QPushButton *clearButton;
 };
 
 KUrlRequesterDialog::KUrlRequesterDialog(const QUrl &urlName, QWidget *parent)
@@ -88,12 +86,7 @@ void KUrlRequesterDialogPrivate::initDialog(const QString &text, const QUrl &url
     urlRequester_->setMode( mode );
     */
 
-    clearButton = new QPushButton;
-    KGuiItem::assign(clearButton, KStandardGuiItem::clear());
-    QObject::connect(clearButton, SIGNAL(clicked()), q, SLOT(_k_slotClear()));
-
     buttonBox = new QDialogButtonBox(q);
-    buttonBox->addButton(clearButton, QDialogButtonBox::ActionRole);
     buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
     QObject::connect(buttonBox, SIGNAL(accepted()), q, SLOT(accept()));
     QObject::connect(buttonBox, SIGNAL(rejected()), q, SLOT(reject()));
@@ -106,12 +99,6 @@ void KUrlRequesterDialogPrivate::_k_slotTextChanged(const QString &text)
 {
     bool state = !text.trimmed().isEmpty();
     buttonBox->button(QDialogButtonBox::Ok)->setEnabled(state);
-    clearButton->setEnabled(state);
-}
-
-void KUrlRequesterDialogPrivate::_k_slotClear()
-{
-    urlRequester->clear();
 }
 
 QUrl KUrlRequesterDialog::selectedUrl() const

@@ -100,7 +100,6 @@ private:
 
     Q_DISABLE_COPY(KUrlRequesterDialog)
 
-    Q_PRIVATE_SLOT(d, void _k_slotClear())
     Q_PRIVATE_SLOT(d, void _k_slotTextChanged(const QString &))
 };
 
