@@ -365,6 +365,7 @@ public:
 KApplicationView::KApplicationView(QWidget *parent)
     : QTreeView(parent), d(new KApplicationViewPrivate)
 {
+    setHeaderHidden(true);
 }
 
 KApplicationView::~KApplicationView()
