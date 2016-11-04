@@ -41,6 +41,8 @@ private Q_SLOTS:
         // To avoid a runtime dependency on klauncher
         qputenv("KDE_FORK_SLAVES", "yes");
 
+        QStandardPaths::setTestModeEnabled(true);
+
         QVERIFY(QDir::homePath() != QDir::tempPath());
     }
 
@@ -104,6 +106,21 @@ private Q_SLOTS:
         const QList<KDirOperator*> ops = fw.findChildren<KDirOperator*>();
         QCOMPARE(ops.count(), 1);
         QVERIFY(ops[0]->hasFocus());
+    }
+
+    void testGetStartUrl()
+    {
+        QString recentDirClass;
+        QString outFileName;
+        QUrl localUrl = KFileWidget::getStartUrl(QUrl(QStringLiteral("kfiledialog:///attachmentDir")), recentDirClass, outFileName);
+        QCOMPARE(recentDirClass, QStringLiteral(":attachmentDir"));
+        QCOMPARE(localUrl.path(), QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
+        QVERIFY(outFileName.isEmpty());
+
+        localUrl = KFileWidget::getStartUrl(QUrl(QStringLiteral("kfiledialog:///attachments/foo.txt?global")), recentDirClass, outFileName);
+        QCOMPARE(recentDirClass, QStringLiteral("::attachments"));
+        QCOMPARE(localUrl.path(), QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
+        QCOMPARE(outFileName, QStringLiteral("foo.txt"));
     }
 };
 
