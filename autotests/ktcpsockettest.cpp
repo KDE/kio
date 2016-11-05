@@ -339,7 +339,10 @@ void KTcpSocketTest::statesManyHosts()
 
         s->waitForBytesWritten(-1);
         QCOMPARE(s->state(), KTcpSocket::ConnectedState);
-        s->waitForReadyRead(-1);
+        int tries = 0;
+        while (s->bytesAvailable() <= 100 && ++tries < 10) {
+            s->waitForReadyRead(-1);
+        }
         QVERIFY(s->bytesAvailable() > 100);
         if (i % (numHosts + 1)) {
             s->readAll();
@@ -355,8 +358,8 @@ void KTcpSocketTest::statesManyHosts()
         }
         if (i % 2) {
             s->close();    //close() is not very well defined for sockets so just check that it
+                           //does no harm
         }
-        //does no harm
     }
 
     s->deleteLater();
