@@ -337,14 +337,7 @@ QByteArray HTTPProtocol::HTTPRequest::methodString() const
 
 static QString formatHttpDate(const QDateTime &date)
 {
-    QString ret = date.toString(QStringLiteral("ddd, ")) + date.toString(Qt::RFC2822Date);
-    ret.chop(6);    // remove " +0000"
-    // RFCDate[Day] omits the second if zero, but HTTP requires it; see bug 240585.
-    if (!date.time().second()) {
-        ret.append(QLatin1String(":00"));
-    }
-    ret.append(QLatin1String(" GMT"));
-    return ret;
+    return QLocale::c().toString(date, QStringLiteral("ddd, dd MMM yyyy hh:mm:ss 'GMT'"));
 }
 
 static bool isAuthenticationRequired(int responseCode)
