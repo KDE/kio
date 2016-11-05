@@ -34,6 +34,8 @@
 #include <QList>
 #include <QPair>
 
+#include <memory>
+
 #include "kiocoredebug.h"
 
 class KACL::KACLPrivate
@@ -357,6 +359,10 @@ bool KACL::setMaskPermissions(unsigned short v)
 #endif
 }
 
+#if HAVE_POSIX_ACL
+using unique_ptr_acl_free = std::unique_ptr<void, int(*)(void*)>;
+#endif
+
 /**************************
  * Deal with named users  *
  **************************/
@@ -364,14 +370,14 @@ unsigned short KACL::namedUserPermissions(const QString &name, bool *exists) con
 {
 #if HAVE_POSIX_ACL
     acl_entry_t entry;
-    uid_t id;
     *exists = false;
     int ret = acl_get_entry(d->m_acl, ACL_FIRST_ENTRY, &entry);
     while (ret == 1) {
         acl_tag_t currentTag;
         acl_get_tag_type(entry, &currentTag);
         if (currentTag ==  ACL_USER) {
-            id = *((uid_t *) acl_get_qualifier(entry));
+            const unique_ptr_acl_free idptr(acl_get_qualifier(entry), acl_free);
+            const uid_t id = *(static_cast<uid_t *>(idptr.get()));
             if (d->getUserName(id) == name) {
                 *exists = true;
                 return entryToPermissions(entry);
@@ -399,7 +405,8 @@ bool KACL::KACLPrivate::setNamedUserOrGroupPermissions(const QString &name, unsi
         acl_tag_t currentTag;
         acl_get_tag_type(entry, &currentTag);
         if (currentTag == type) {
-            int id = * (int *)acl_get_qualifier(entry);
+            const unique_ptr_acl_free idptr(acl_get_qualifier(entry), acl_free);
+            const int id = * (static_cast<int *>(idptr.get()));  // We assume that sizeof(uid_t) == sizeof(gid_t)
             const QString entryName = type == ACL_USER ? getUserName(id) : getGroupName(id);
             if (entryName == name) {
                 // found him, update
@@ -458,13 +465,13 @@ ACLUserPermissionsList KACL::allUserPermissions() const
     ACLUserPermissionsList list;
 #if HAVE_POSIX_ACL
     acl_entry_t entry;
-    uid_t id;
     int ret = acl_get_entry(d->m_acl, ACL_FIRST_ENTRY, &entry);
     while (ret == 1) {
         acl_tag_t currentTag;
         acl_get_tag_type(entry, &currentTag);
         if (currentTag ==  ACL_USER) {
-            id = *((uid_t *) acl_get_qualifier(entry));
+            const unique_ptr_acl_free idptr(acl_get_qualifier(entry), acl_free);
+            const uid_t id = *(static_cast<uid_t *>(idptr.get()));
             QString name = d->getUserName(id);
             unsigned short permissions = entryToPermissions(entry);
             ACLUserPermissions pair = qMakePair(name, permissions);
@@ -558,13 +565,13 @@ unsigned short KACL::namedGroupPermissions(const QString &name, bool *exists) co
     *exists = false;
 #if HAVE_POSIX_ACL
     acl_entry_t entry;
-    gid_t id;
     int ret = acl_get_entry(d->m_acl, ACL_FIRST_ENTRY, &entry);
     while (ret == 1) {
         acl_tag_t currentTag;
         acl_get_tag_type(entry, &currentTag);
         if (currentTag ==  ACL_GROUP) {
-            id = *((gid_t *) acl_get_qualifier(entry));
+            const unique_ptr_acl_free idptr(acl_get_qualifier(entry), acl_free);
+            const gid_t id = *(static_cast<gid_t *>(idptr.get()));
             if (d->getGroupName(id) == name) {
                 *exists = true;
                 return entryToPermissions(entry);
@@ -594,13 +601,13 @@ ACLGroupPermissionsList KACL::allGroupPermissions() const
     ACLGroupPermissionsList list;
 #if HAVE_POSIX_ACL
     acl_entry_t entry;
-    gid_t id;
     int ret = acl_get_entry(d->m_acl, ACL_FIRST_ENTRY, &entry);
     while (ret == 1) {
         acl_tag_t currentTag;
         acl_get_tag_type(entry, &currentTag);
         if (currentTag ==  ACL_GROUP) {
-            id = *((gid_t *) acl_get_qualifier(entry));
+            const unique_ptr_acl_free idptr(acl_get_qualifier(entry), acl_free);
+            const gid_t id = *(static_cast<gid_t *>(idptr.get()));
             QString name = d->getGroupName(id);
             unsigned short permissions = entryToPermissions(entry);
             ACLGroupPermissions pair = qMakePair(name, permissions);
