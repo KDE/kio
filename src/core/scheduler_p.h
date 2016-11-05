@@ -30,6 +30,7 @@ class SlaveKeeper : public QObject
     Q_OBJECT
 public:
     SlaveKeeper();
+    ~SlaveKeeper();
     void returnSlave(KIO::Slave *slave);
     // pick suitable slave for job and return it, return null if no slave found.
     // the slave is removed from the keeper.

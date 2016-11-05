@@ -82,6 +82,11 @@ SlaveKeeper::SlaveKeeper()
     connect(&m_grimTimer, SIGNAL(timeout()), SLOT(grimReaper()));
 }
 
+SlaveKeeper::~SlaveKeeper()
+{
+    grimReaper();
+}
+
 void SlaveKeeper::returnSlave(Slave *slave)
 {
     Q_ASSERT(slave);
@@ -659,8 +664,8 @@ public:
             Q_FOREACH (Slave *slave, p->allSlaves()) {
                 slave->kill();
             }
-            p->deleteLater();
         }
+        qDeleteAll(m_protocols);
     }
     Scheduler *q;
 
