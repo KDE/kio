@@ -46,6 +46,15 @@ class SlaveBasePrivate;
  * Slave implementations should simply inherit SlaveBase
  *
  * A call to foo() results in a call to slotFoo() on the other end.
+ *
+ * Note that a kioslave doesn't have a Qt event loop. When idle, it's waiting for a command
+ * on the socket that connects it to the application. So don't expect a kioslave to react
+ * to DBus signals for instance. KIOSlaves are short-lived anyway, so any kind of watching
+ * or listening for notifications should be done elsewhere, for instance in a kded module
+ * (see kio_desktop's desktopnotifier.cpp for an example).
+ *
+ * If a kioslave needs a Qt event loop within the implementation of one method, e.g. to
+ * wait for an asynchronous operation to finish, that is possible, using QEventLoop.
  */
 class KIOCORE_EXPORT SlaveBase
 {
