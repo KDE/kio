@@ -139,14 +139,22 @@ void TestTrash::initTestCase()
 
     QVERIFY(m_tempDir.isValid());
 
+#ifndef Q_OS_OSX
     m_trashDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/Trash");
     qDebug() << "setup: using trash directory " << m_trashDir;
+#endif
 
     // Look for another writable partition than $HOME (not mandatory)
     TrashImpl impl;
     impl.init();
 
     TrashImpl::TrashDirMap trashDirs = impl.trashDirectories();
+#ifdef Q_OS_OSX
+    QVERIFY(trashDirs.contains(0));
+    m_trashDir = trashDirs.value(0);
+    qDebug() << "setup: using trash directory " << m_trashDir;
+#endif
+
     TrashImpl::TrashDirMap topDirs = impl.topDirectories();
     bool foundTrashDir = false;
     m_otherPartitionId = 0;

@@ -217,6 +217,16 @@ void TrashConfigModule::setupGui()
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
 
+#ifdef Q_OS_OSX
+    QLabel *infoText = new QLabel( i18n( "<para>KDE's wastebin is configured to use the <b>Finder</b>'s Trash.<br></para>" ) );
+    infoText->setWhatsThis( i18nc( "@info:whatsthis",
+                                        "<para>Emptying KDE's wastebin will remove only KDE's trash items, while<br>"
+                                        "emptying the Trash through the Finder will delete everything.</para>"
+                                        "<para>KDE's trash items will show up in a folder called KDE.trash, in the Trash can.</para>"
+                                        ) );
+    layout->addWidget( infoText );
+#endif
+
     TrashImpl::TrashDirMap map = mTrashImpl->trashDirectories();
     if (map.count() != 1) {
         // If we have multiple trashes, we setup a widget to choose

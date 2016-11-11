@@ -21,6 +21,10 @@ target_link_libraries(testtrash
    KF5::Solid
    Qt5::Test
 )
+if(APPLE)
+    target_link_libraries(testtrash "-framework DiskArbitration -framework CoreFoundation")
+endif(APPLE)
+ecm_mark_nongui_executable(testtrash)
 
 ### next target ###
 

@@ -37,6 +37,9 @@ target_link_libraries(kio_trash
   KF5::ConfigCore
   KF5::ConfigGui
 )
+if(APPLE)
+    target_link_libraries(kio_trash "-framework DiskArbitration -framework CoreFoundation")
+endif(APPLE)
 set_target_properties(kio_trash PROPERTIES OUTPUT_NAME "trash")
 install(TARGETS kio_trash  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio )
 
@@ -67,6 +70,9 @@ if(NOT WIN32 AND NOT KIOCORE_ONLY)
        KF5::ConfigWidgets
        KF5::KIOCore
        KF5::Solid)
+    if(APPLE)
+        target_link_libraries(kcm_trash "-framework DiskArbitration -framework CoreFoundation")
+    endif(APPLE)
 
     install(TARGETS kcm_trash DESTINATION ${KDE_INSTALL_PLUGINDIR})
 endif()

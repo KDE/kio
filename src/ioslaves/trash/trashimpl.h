@@ -152,7 +152,11 @@ private:
     QString infoPath(int trashId, const QString &fileId) const;
     QString filesPath(int trashId, const QString &fileId) const;
 
+#ifdef Q_OS_OSX
+    int idForMountPoint(const QString &mountPoint) const;
+#else
     int idForDevice(const Solid::Device &device) const;
+#endif
     void refreshDevices() const;
 
     /// Find the trash dir to use for a given file to delete, based on original path
@@ -177,6 +181,14 @@ private Q_SLOTS:
     void jobFinished(KJob *job);
 
 private:
+    // delete the files and info subdirectories from all known trash directories
+    // (supposed to be empty!) to make sure OS X sees the trash as empty too.
+    // Stub except on OS X.
+    void deleteEmptyTrashInfrastructure();
+    // create the trash infrastructure; also called
+    // to recreate it on OS X.
+    bool createTrashInfrastructure(int trashId, const QString &path = QString());
+
     /// Last error code stored in class to simplify API.
     /// Note that this means almost no method can be const.
     int m_lastErrorCode;
