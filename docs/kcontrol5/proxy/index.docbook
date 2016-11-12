@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
-<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN"
-"dtd/kdex.dtd" [
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
 <!ENTITY % addindex "IGNORE">
 <!ENTITY % English "INCLUDE" > <!-- change language only here -->
 ]>
@@ -13,8 +13,8 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2013-12-05</date>
-<releaseinfo>&kde; 4.12</releaseinfo>
+<date>2016-11-10</date>
+<releaseinfo>Frameworks 5.29</releaseinfo>
 
 <keywordset>
 <keyword>KDE</keyword>
@@ -173,37 +173,7 @@ script.</para>
 </variablelist>
 
 </sect2>
-<!-- not in 4.8 anymore
 
-What if authorization is needed?
-
-<sect2 id="authorization">
-<title><guilabel>Authorization</guilabel></title>
-
-<para>Here you can choose between two types of authentication, if your
-proxy requires it.  You can have <guilabel>Prompt as
-needed</guilabel>, the default, in which case &konqueror; will only
-ask for a username or password if it needs to.</para>
-
-<para>The other option is to use automatic login.
-Select this option and enter <guilabel>Username</guilabel> and <guilabel>Password</guilabel>.
-</para>
-
-</sect2>
-
-<sect2 id="options">
-<title><guilabel>Options</guilabel></title>
-<variablelist>
-<varlistentry>
-<term><guilabel>Use persistent connections to proxy</guilabel></term>
-<listitem>
-<para>Use persistent connection to your proxy server. Keeps connection to proxy open, helps lower bandwidth/speed up connection. Enabling this option will require the proxy server's cooperation, if the proxy server does not support this, it will bring your internet to a stop. </para>
-</listitem>
-</varlistentry>
-</variablelist>
-
-</sect2>
--->
 </sect1>
 
 </article>

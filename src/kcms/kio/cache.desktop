@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Service
 X-KDE-ServiceTypes=KCModule
-X-DocPath=kcontrol/cache/index.html
+X-DocPath=kcontrol5/cache/index.html
 Icon=preferences-web-browser-cache
 Exec=kcmshell5 cache
 

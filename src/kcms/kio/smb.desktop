@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Service
 X-KDE-ServiceTypes=KCModule
-X-DocPath=kcontrol/smb/index.html
+X-DocPath=kcontrol5/smb/index.html
 Icon=preferences-system-network-share-windows
 Exec=kcmshell5 smb
 

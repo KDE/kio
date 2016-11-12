@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
-<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN"
-"dtd/kdex.dtd" [
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
 <!ENTITY % addindex "IGNORE">
 <!ENTITY % English "INCLUDE" > <!-- change language only here -->
 ]>
@@ -14,8 +14,8 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2013-12-05</date>
-<releaseinfo>&kde; 4.12</releaseinfo>
+<date>2016-11-10</date>
+<releaseinfo>Frameworks 5.29</releaseinfo>
 
 <keywordset>
 <keyword>KDE</keyword>
@@ -87,16 +87,6 @@ conscious environment, you should not store your password here but
 rather enter it anew every time you need to access an
 <acronym>SMB</acronym> host.</para></important>
 
-<!-- not in kde 4
-<para>In the <guilabel>Workgroup</guilabel> field, you can enter your
-workgroup name.  If you don't know it, ask your system administrator
-or have a look at other already configured machines in your network.
-However, in most cases providing the workgroup name is not required,
-so you probably can also leave this empty.</para>
-
-<para>If the option <guilabel>Show hidden shares</guilabel> is
-checked, shares ending with a <quote>$</quote> will be shown.</para>
--->
 </sect2>
 
 </sect1>

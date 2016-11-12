@@ -3,7 +3,7 @@ Exec=kcmshell5 netpref
 Icon=preferences-system-network-connection
 Type=Service
 X-KDE-ServiceTypes=KCModule
-X-DocPath=kcontrol/netpref/index.html
+X-DocPath=kcontrol5/netpref/index.html
 
 X-KDE-Library=kcm_kio
 X-KDE-PluginKeyword=netpref

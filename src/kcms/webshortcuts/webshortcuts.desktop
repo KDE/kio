@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Service
 X-KDE-ServiceTypes=KCModule
-X-DocPath=kcontrol/webshortcuts/index.html
+X-DocPath=kcontrol5/webshortcuts/index.html
 Icon=preferences-web-browser-shortcuts
 Exec=kcmshell5 webshortcuts
 

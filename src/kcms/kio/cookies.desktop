@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Service
 X-KDE-ServiceTypes=KCModule
-X-DocPath=kcontrol/cookies/index.html
+X-DocPath=kcontrol5/cookies/index.html
 Icon=preferences-web-browser-cookies
 Exec=kcmshell5 cookies
 

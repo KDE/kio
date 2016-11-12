@@ -1,0 +1,8 @@
+add_subdirectory(cache)
+add_subdirectory(cookies)
+add_subdirectory(netpref)
+add_subdirectory(proxy)
+add_subdirectory(smb)
+add_subdirectory(trash)
+add_subdirectory(useragent)
+add_subdirectory(webshortcuts)

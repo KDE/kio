@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
-<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN"
-"dtd/kdex.dtd" [
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
 <!ENTITY % addindex "IGNORE">
 <!ENTITY % English "INCLUDE" > <!-- change language only here -->
 ]>
@@ -13,8 +13,8 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2009-11-24</date>
-<releaseinfo>&kde; 4.4</releaseinfo>
+<date>2016-11-10</date>
+<releaseinfo>Frameworks 5.29</releaseinfo>
 
 <keywordset>
 <keyword>KDE</keyword>
@@ -79,12 +79,10 @@ character <token>*</token> in this text box. However, the string
 <userinput>kde.org</userinput> will match all hosts in the domain
 <systemitem>kde.org</systemitem></para>
 
-<para>After typing the name of the server, type in the identifying
+<para>After typing the name of the server, select the identifying
 string in the next combo box, which is labeled <guilabel>Use the
-following identification:</guilabel>, or choose a string from the list. If
-you don't choose a string from the list, you will need to know what a
-valid string from the browser looks like. For example, you could type
-<userinput>Mozilla/4.0 (compatible; MSIE 4.0)</userinput>. </para>
+following identification:</guilabel>. The <guilabel>Real identification</guilabel>
+&ie; the strings sent to the server, is displayed in the field.</para>
 
 <para>You can click on an existing entry in the list, and then modify the contents of the
 text boxes, followed by clicking <guibutton>Change...</guibutton>.</para>
