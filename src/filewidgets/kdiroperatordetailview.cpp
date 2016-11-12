@@ -91,7 +91,6 @@ bool KDirOperatorDetailView::setViewMode(KFile::FileView viewMode)
     // using KDirOperator in horizontally limited parts of an app.
     if (tree && m_hideDetailColumns) {
         header()->setSectionResizeMode(QHeaderView::ResizeToContents);
-        header()->setStretchLastSection(false);
     }
 
     return true;
@@ -102,7 +101,7 @@ bool KDirOperatorDetailView::event(QEvent *event)
     if (event->type() == QEvent::Polish) {
         QHeaderView *headerView = header();
         headerView->setSectionResizeMode(QHeaderView::Interactive);
-        headerView->setStretchLastSection(true);
+        headerView->setStretchLastSection(false);
         headerView->setSectionsMovable(false);
 
         setColumnHidden(KDirModel::Size, m_hideDetailColumns);
