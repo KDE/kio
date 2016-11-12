@@ -132,7 +132,7 @@ void KDirOperatorDetailView::dragEnterEvent(QDragEnterEvent *event)
 void KDirOperatorDetailView::resizeEvent(QResizeEvent *event)
 {
     QTreeView::resizeEvent(event);
-    slotLayoutChanged();
+    expandNameColumn();
 }
 
 void KDirOperatorDetailView::mousePressEvent(QMouseEvent *event)
