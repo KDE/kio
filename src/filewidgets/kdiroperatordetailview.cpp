@@ -91,6 +91,8 @@ bool KDirOperatorDetailView::setViewMode(KFile::FileView viewMode)
     // using KDirOperator in horizontally limited parts of an app.
     if (tree && m_hideDetailColumns) {
         header()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    } else {
+        header()->setSectionResizeMode(QHeaderView::Interactive);
     }
 
     return true;
