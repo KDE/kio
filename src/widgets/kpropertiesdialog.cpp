@@ -2658,7 +2658,10 @@ KChecksumsPlugin::KChecksumsPlugin(KPropertiesDialog *dialog)
     d->m_ui.sha1CopyButton->hide();
     d->m_ui.sha256CopyButton->hide();
 
-    connect(d->m_ui.lineEdit, &QLineEdit::textChanged, this, &KChecksumsPlugin::slotVerifyChecksum);
+    connect(d->m_ui.lineEdit, &QLineEdit::textChanged, this, [=](const QString &text) {
+        slotVerifyChecksum(text.toLower());
+    });
+
     connect(d->m_ui.md5Button, &QPushButton::clicked, this, &KChecksumsPlugin::slotShowMd5);
     connect(d->m_ui.sha1Button, &QPushButton::clicked, this, &KChecksumsPlugin::slotShowSha1);
     connect(d->m_ui.sha256Button, &QPushButton::clicked, this, &KChecksumsPlugin::slotShowSha256);
@@ -2809,19 +2812,19 @@ void KChecksumsPlugin::slotVerifyChecksum(const QString &input)
 
 bool KChecksumsPlugin::isMd5(const QString &input)
 {
-    QRegularExpression regex(QStringLiteral("^[a-fA-F0-9]{32}$"));
+    QRegularExpression regex(QStringLiteral("^[a-f0-9]{32}$"));
     return regex.match(input).hasMatch();
 }
 
 bool KChecksumsPlugin::isSha1(const QString &input)
 {
-    QRegularExpression regex(QStringLiteral("^[a-fA-F0-9]{40}$"));
+    QRegularExpression regex(QStringLiteral("^[a-f0-9]{40}$"));
     return regex.match(input).hasMatch();
 }
 
 bool KChecksumsPlugin::isSha256(const QString &input)
 {
-    QRegularExpression regex(QStringLiteral("^[a-fA-F0-9]{64}$"));
+    QRegularExpression regex(QStringLiteral("^[a-f0-9]{64}$"));
     return regex.match(input).hasMatch();
 }
 

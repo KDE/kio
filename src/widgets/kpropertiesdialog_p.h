@@ -176,6 +176,9 @@ private Q_SLOTS:
     void slotShowMd5();
     void slotShowSha1();
     void slotShowSha256();
+    /**
+     * Compare @p input (required to be lowercase) with the checksum in cache.
+     */
     void slotVerifyChecksum(const QString &input);
 
 private:
