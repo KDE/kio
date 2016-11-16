@@ -59,6 +59,7 @@ KIOCORE_EXPORT void KIOPrivate::sendTerminateSignal(qint64 pid)
 
 KIOCORE_EXPORT bool KIOPrivate::createSymlink(const QString &source, const QString &destination, KIOPrivate::SymlinkType type)
 {
+#if _WIN32_WINNT >= 0x600
     DWORD flag;
     if (type == KIOPrivate::DirectorySymlink) {
         flag = SYMBOLIC_LINK_FLAG_DIRECTORY;
@@ -82,6 +83,10 @@ KIOCORE_EXPORT bool KIOPrivate::createSymlink(const QString &source, const QStri
         ok = QFile::link(source, destination);
     }
     return ok;
+#else
+    qWarning("KIOPrivate::createSymlink: not implemented");
+    return false;
+#endif
 }
 
 KIOCORE_EXPORT int kio_windows_lstat(const char* path, QT_STATBUF* buffer)
