@@ -216,15 +216,17 @@ private Q_SLOTS:
         job->setUiDelegate(0);
         job->setUiDelegateExtension(0);
         JobSpy jobSpy(job);
-        QSignalSpy spy(job, SIGNAL(itemCreated(QUrl)));
+        QSignalSpy copyJobSpy(job, SIGNAL(copyJobStarted(KIO::CopyJob*)));
+        QSignalSpy itemCreatedSpy(job, SIGNAL(itemCreated(QUrl)));
 
         // Then the file is copied
         QVERIFY(jobSpy.waitForResult());
         QCOMPARE(jobSpy.error(), expectedError);
         if (expectedError == 0) {
+            QCOMPARE(copyJobSpy.count(), 1);
             const QString destFile = dest + "/srcfile";
-            QCOMPARE(spy.count(), 1);
-            QCOMPARE(spy.at(0).at(0).value<QUrl>(), QUrl::fromLocalFile(destFile));
+            QCOMPARE(itemCreatedSpy.count(), 1);
+            QCOMPARE(itemCreatedSpy.at(0).at(0).value<QUrl>(), QUrl::fromLocalFile(destFile));
             QVERIFY(QFile::exists(destFile));
             QCOMPARE(QFile::exists(m_srcFile), shouldSourceStillExist);
             if (dropAction == Qt::LinkAction) {
@@ -264,7 +266,8 @@ private Q_SLOTS:
         QDropEvent dropEvent(QPoint(10, 10), dropAction, &m_mimeData, Qt::LeftButton, modifiers);
         KIO::DropJob *job = KIO::drop(&dropEvent, QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
         job->setUiDelegate(0);
-        QSignalSpy spy(job, SIGNAL(itemCreated(QUrl)));
+        QSignalSpy copyJobSpy(job, SIGNAL(copyJobStarted(KIO::CopyJob*)));
+        QSignalSpy itemCreatedSpy(job, SIGNAL(itemCreated(QUrl)));
 
         // Then a confirmation dialog should appear
         PredefinedAnswerJobUiDelegate extension;
@@ -274,8 +277,9 @@ private Q_SLOTS:
         // and the file should be moved to the trash, no matter what the modifiers are
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
         QCOMPARE(extension.m_askDeleteCalled, 1);
-        QCOMPARE(spy.count(), 1);
-        const QUrl trashUrl = spy.at(0).at(0).value<QUrl>();
+        QCOMPARE(copyJobSpy.count(), 1);
+        QCOMPARE(itemCreatedSpy.count(), 1);
+        const QUrl trashUrl = itemCreatedSpy.at(0).at(0).value<QUrl>();
         QCOMPARE(trashUrl.scheme(), QString("trash"));
         KIO::StatJob *statJob = KIO::stat(trashUrl, KIO::HideProgressInfo);
         QVERIFY(statJob->exec());
@@ -305,10 +309,12 @@ private Q_SLOTS:
         QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, QUrl::fromLocalFile(m_srcDir), KIO::HideProgressInfo);
         job->setUiDelegate(0);
+        QSignalSpy copyJobSpy(job, SIGNAL(copyJobStarted(KIO::CopyJob*)));
         QSignalSpy spy(job, SIGNAL(itemCreated(QUrl)));
 
         // Then the file should be moved, without a popup. No point in copying out of the trash, or linking to it.
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
+        QCOMPARE(copyJobSpy.count(), 1);
         QCOMPARE(spy.count(), 1);
         QCOMPARE(spy.at(0).at(0).value<QUrl>(), QUrl::fromLocalFile(m_srcFile));
         QVERIFY(QFile::exists(m_srcFile));
@@ -335,9 +341,11 @@ private Q_SLOTS:
         QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo);
         job->setUiDelegate(0);
+        QSignalSpy copyJobSpy(job, SIGNAL(copyJobStarted(KIO::CopyJob*)));
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
         // Then a full move shouldn't happen, just a link
+        QCOMPARE(copyJobSpy.count(), 1);
         const QStringList items = QDir(tempDestDir.path()).entryList();
         QVERIFY2(!items.contains("srcfile"), qPrintable(items.join(',')));
         QVERIFY2(items.contains("trash:" + QChar(0x2044) + ".desktop"), qPrintable(items.join(',')));
@@ -387,6 +395,7 @@ private Q_SLOTS:
         JobSpy jobSpy(job);
         qRegisterMetaType<KFileItemListProperties>();
         QSignalSpy spyShow(job, SIGNAL(popupMenuAboutToShow(KFileItemListProperties)));
+        QSignalSpy copyJobSpy(job, SIGNAL(copyJobStarted(KIO::CopyJob*)));
         QVERIFY(spyShow.isValid());
 
         // Then a popup should appear, with the expected available actions
@@ -406,6 +415,7 @@ private Q_SLOTS:
         QVERIFY(jobSpy.waitForResult());
         QCOMPARE(jobSpy.error(), expectedError);
         if (expectedError == 0) {
+            QCOMPARE(copyJobSpy.count(), 1);
             const QString destFile = dest + "/srcfile";
             QVERIFY(QFile::exists(destFile));
             QCOMPARE(QFile::exists(m_srcFile), shouldSourceStillExist);

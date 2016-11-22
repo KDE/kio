@@ -409,6 +409,8 @@ void DropJobPrivate::doCopyToDirectory()
             emit q->itemCreated(to);
     });
     q->addSubjob(job);
+
+    emit q->copyJobStarted(job);
 }
 
 void DropJobPrivate::handleDropToDesktopFile()

@@ -33,6 +33,7 @@ class KFileItemListProperties;
 namespace KIO
 {
 
+class CopyJob;
 class DropJobPrivate;
 
 /**
@@ -64,6 +65,18 @@ Q_SIGNALS:
      * Signals that a file or directory was created.
      */
     void itemCreated(const QUrl &url);
+
+    /**
+    * Emitted when a copy job was started as subjob after user selection.
+    *
+    * You can use @p job to monitor the progress of the copy/move/link operation. Note that a
+    * CopyJob isn't always started by DropJob. For instance dropping files onto an executable will
+    * simply launch the executable.
+    *
+    * @param job the job started for moving, copying or symlinking files
+    * @since 5.30
+    */
+    void copyJobStarted(KIO::CopyJob *job);
 
     /**
      * Signals that the popup menu is about to be shown.
