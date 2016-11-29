@@ -43,6 +43,8 @@
 #include <QDebug>
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
+#include <QDBusInterface>
+#include <QDBusReply>
 
 #include <kiconloader.h>
 #include <kjobuidelegate.h>
@@ -430,6 +432,30 @@ static qint64 runApplicationImpl(const KService &_service, const QList<QUrl> &_u
 
     KProcess * proc = new KProcess;
     *proc << args;
+
+    enum DiscreteGpuCheck { NotChecked, Present, Absent };
+    static DiscreteGpuCheck s_gpuCheck = NotChecked;
+
+    if (_service.runOnDiscreteGpu() && s_gpuCheck == NotChecked) {
+        // Check whether we have a discrete gpu
+        bool hasDiscreteGpu = false;
+        QDBusInterface iface(QLatin1String("org.kde.Solid.PowerManagement"),
+                             QLatin1String("/org/kde/Solid/PowerManagement"),
+                             QLatin1String("org.kde.Solid.PowerManagement"),
+                             QDBusConnection::sessionBus());
+        if (iface.isValid()) {
+            QDBusReply<bool> reply = iface.call(QLatin1String("hasDualGpu"));
+            if (reply.isValid()) {
+                hasDiscreteGpu = reply.value();
+            }
+        }
+
+        s_gpuCheck = hasDiscreteGpu ? Present : Absent;
+    }
+
+    if (_service.runOnDiscreteGpu() && s_gpuCheck == Present) {
+        proc->setEnv(QLatin1String("DRI_PRIME"), QLatin1String("1"));
+    }
 
     QString path(_service.path());
     if (path.isEmpty() && !_urls.isEmpty() && _urls.first().isLocalFile()) {
