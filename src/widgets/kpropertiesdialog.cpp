@@ -54,6 +54,9 @@
 #include <QCheckBox>
 #include <QClipboard>
 #include <QDebug>
+#include <QDBusConnection>
+#include <QDBusInterface>
+#include <QDBusReply>
 #include <QDir>
 #include <QDialogButtonBox>
 #include <QFile>
@@ -1084,7 +1087,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     grid->addWidget(d->m_sizeLabel, curRow++, 2);
 
     if (!hasDirs) { // Only files [and symlinks]
-        d->m_sizeLabel->setText(QStringLiteral("%1 (%2)").arg(KIO::convertSize(totalSize), 
+        d->m_sizeLabel->setText(QStringLiteral("%1 (%2)").arg(KIO::convertSize(totalSize),
            QLocale().toString(totalSize)));
         d->m_sizeDetermineButton = 0L;
         d->m_sizeStopButton = 0L;
@@ -3439,6 +3442,8 @@ public:
     QString m_origDesktopFile;
     bool m_terminalBool;
     bool m_suidBool;
+    bool m_hasDiscreteGpuBool;
+    bool m_runOnDiscreteGpuBool;
     bool m_startupBool;
     bool m_systrayBool;
 };
@@ -3474,6 +3479,28 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
     connect(d->w->addFiletypeButton, SIGNAL(clicked()), this, SLOT(slotAddFiletype()));
     connect(d->w->delFiletypeButton, SIGNAL(clicked()), this, SLOT(slotDelFiletype()));
     connect(d->w->advancedButton, SIGNAL(clicked()), this, SLOT(slotAdvanced()));
+
+    enum DiscreteGpuCheck { NotChecked, Present, Absent };
+    static DiscreteGpuCheck s_gpuCheck = NotChecked;
+
+    if (s_gpuCheck == NotChecked) {
+        // Check whether we have a discrete gpu
+        bool hasDiscreteGpu = false;
+        QDBusInterface iface(QLatin1String("org.kde.Solid.PowerManagement"),
+                             QLatin1String("/org/kde/Solid/PowerManagement"),
+                             QLatin1String("org.kde.Solid.PowerManagement"),
+                             QDBusConnection::sessionBus());
+        if (iface.isValid()) {
+            QDBusReply<bool> reply = iface.call(QLatin1String("hasDualGpu"));
+            if (reply.isValid()) {
+                hasDiscreteGpu = reply.value();
+            }
+        }
+
+        s_gpuCheck = hasDiscreteGpu ? Present : Absent;
+    }
+
+    d->m_hasDiscreteGpuBool = s_gpuCheck == Present;
 
     // now populate the page
 
@@ -3513,6 +3540,9 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
     d->m_terminalOptionStr = config.readEntry("TerminalOptions");
     d->m_suidBool = config.readEntry("X-KDE-SubstituteUID", false);
     d->m_suidUserStr = config.readEntry("X-KDE-Username");
+    if (d->m_hasDiscreteGpuBool) {
+        d->m_runOnDiscreteGpuBool = config.readEntry("X-KDE-RunOnDiscreteGpu", false);
+    }
     if (config.hasKey("StartupNotify")) {
         d->m_startupBool = config.readEntry("StartupNotify", true);
     } else {
@@ -3697,6 +3727,9 @@ void KDesktopPropsPlugin::applyChanges()
     config.writeEntry("TerminalOptions", d->m_terminalOptionStr);
     config.writeEntry("X-KDE-SubstituteUID", d->m_suidBool);
     config.writeEntry("X-KDE-Username", d->m_suidUserStr);
+    if (d->m_hasDiscreteGpuBool) {
+        config.writeEntry("X-KDE-RunOnDiscreteGpu", d->m_runOnDiscreteGpuBool);
+    }
     config.writeEntry("StartupNotify", d->m_startupBool);
     config.writeEntry("X-DBUS-StartupType", d->m_dbusStartupType);
     config.writeEntry("X-DBUS-ServiceName", d->m_dbusServiceName);
@@ -3778,6 +3811,12 @@ void KDesktopPropsPlugin::slotAdvanced()
     w.suidEdit->setEnabled(d->m_suidBool);
     w.suidEditLabel->setEnabled(d->m_suidBool);
 
+    if (d->m_hasDiscreteGpuBool) {
+        w.discreteGpuCheck->setChecked(d->m_runOnDiscreteGpuBool);
+    } else {
+        w.discreteGpuGroupBox->hide();
+    }
+
     w.startupInfoCheck->setChecked(d->m_startupBool);
     w.systrayCheck->setChecked(d->m_systrayBool);
 
@@ -3813,6 +3852,8 @@ void KDesktopPropsPlugin::slotAdvanced()
             this, SIGNAL(changed()));
     connect(w.suidEdit, SIGNAL(textChanged(QString)),
             this, SIGNAL(changed()));
+    connect(w.discreteGpuCheck, SIGNAL(toggled(bool)),
+            this, SIGNAL(changed()));
     connect(w.startupInfoCheck, SIGNAL(toggled(bool)),
             this, SIGNAL(changed()));
     connect(w.systrayCheck, SIGNAL(toggled(bool)),
@@ -3825,6 +3866,9 @@ void KDesktopPropsPlugin::slotAdvanced()
         d->m_terminalBool = w.terminalCheck->isChecked();
         d->m_suidBool = w.suidCheck->isChecked();
         d->m_suidUserStr = w.suidEdit->text().trimmed();
+        if (d->m_hasDiscreteGpuBool) {
+            d->m_runOnDiscreteGpuBool = w.discreteGpuCheck->isChecked();
+        }
         d->m_startupBool = w.startupInfoCheck->isChecked();
         d->m_systrayBool = w.systrayCheck->isChecked();
 
