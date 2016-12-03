@@ -1,0 +1,210 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Spanish "INCLUDE">
+]>
+<article id="kcm_ssl" lang="&language;">
+<title
+>Versiones y certificados SSL</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Subhashish</firstname
+> <surname
+>Pradhan</surname
+></author>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+> <firstname
+>Rocío</firstname
+> <surname
+>Gallego</surname
+> <affiliation
+><address
+><email
+>traducciones@rociogallego.com</email
+></address
+></affiliation
+> <contrib
+>Traducción</contrib
+> </othercredit
+><othercredit role="translator"
+><firstname
+>Eloy</firstname
+><surname
+>Cuadra</surname
+><affiliation
+><address
+><email
+>ecuadra@eloihr.net</email
+></address
+></affiliation
+><contrib
+>Traducción</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2015-04-09</date>
+<releaseinfo
+>Frameworks 5.9</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Preferencias del sistema</keyword>
+<keyword
+>SSL</keyword>
+<keyword
+>certificados</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1 id="intro">
+<title
+>Introducción</title>
+<para
+>&kde; proporciona una lista de todos los certificados X.509 usados por el sistema. Puede acceder a ellos en el módulo de las <guilabel
+>Preferencias de SSL</guilabel
+> de &systemsettings;.</para>
+
+<para
+>Este módulo proporciona una lista por categorías de todas las versiones de SSL y sus certificados. Puede ver los detalles de cada certificado y añadir, borrar, desactivar o activar certificados.</para>
+
+<para
+>Los certificados están divididos en <guilabel
+>Certificados del sistema</guilabel
+> y <guilabel
+>Certificados añadidos por el usuario</guilabel
+>. Los <guilabel
+>Certificados del sistema</guilabel
+> disponen de más categorías según la organización que los emitió.</para>
+
+<screenshot id="screenshot-module">
+<screeninfo
+>El módulo de versiones y certificados SSL</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="module.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>El módulo de versiones y certificados SSL.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<sect2 id="details">
+<title
+>Ver los detalles de un certificado</title>
+
+<para
+>Seleccione un certificado perteneciente a una organización listada y pulse el botón <guibutton
+>Mostrar</guibutton
+> que hay bajo la lista para ver los detalles del certificado.</para>
+
+<screenshot id="screenshot-details">
+<screeninfo
+>Ver los detalles de un certificado</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="details.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>La ventana de detalles del certificado</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+</sect2>
+
+<sect2 id="enable-disable">
+<title
+>Activar y desactivar un certificado</title>
+
+<para
+>Seleccione en primer lugar un certificado listado bajo una organización. Luego, pulse el botón <guibutton
+>Activar</guibutton
+> para activarlo, o bien el botón <guibutton
+>Desactivar</guibutton
+> para desactivar un certificado activo.</para>
+
+<para
+>De forma alternativa, puede activar o desactivar un certificado poniendo o quitando la marca en el cuadro de verificación que hay delante del mismo.</para>
+
+<tip>
+<para
+>Puede activar o desactivar múltiples certificados seleccionándolos mientras mantiene apretada la tecla &Ctrl; y pulsando a continuación uno de los botones <guibutton
+>Activar</guibutton
+> o <guibutton
+>Desactivar</guibutton
+> que hay debajo de la lista.</para>
+</tip>
+
+</sect2>
+
+<sect2 id="add">
+<title
+>Añadir un certificado</title>
+
+<!--link file selector dialog to buildingblocks when its done-->
+<para
+>En primer lugar, pulse el botón <guibutton
+>Añadir</guibutton
+> que hay debajo de la lista de certificados. Se abrirá el diálogo de selección de archivos, que le permitirá localizar los archivos del certificado. Una vez localizado el archivo, selecciónelo y pulse el botón <guibutton
+>Abrir</guibutton
+> para añadirlo.</para>
+
+<note>
+<para
+>El certificado debe estar en uno de los siguientes formatos: <acronym
+>DER</acronym
+>, <acronym
+>PEM</acronym
+> o certificado X.509 codificado por &Netscape;.</para>
+</note>
+
+</sect2>
+
+<sect2 id="remove">
+<title
+>Eliminar un certificado</title>
+
+<para
+>Seleccione en la lista el certificado que desea eliminar y pulse el botón <guibutton
+>Eliminar</guibutton
+> para eliminarlo.</para>
+
+<important>
+<para
+>Los certificados del sistema no se pueden eliminar.</para>
+</important>
+
+</sect2>
+
+<sect2 id="ack">
+<title
+>Agradecimientos y reconocimientos</title>
+
+<para
+>Agradecemos especialmente al participante de Google Code-In 2011 Subhashish Pradhan por escribir este artículo.</para>
+
+</sect2>
+
+</sect1>
+
+</article>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:;
+-->

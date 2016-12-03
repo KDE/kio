@@ -1,0 +1,182 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Catalan  "INCLUDE">
+]>
+<article id="kcm_ssl" lang="&language;">
+<title
+>Versions i certificats SSL</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Subhashish</firstname
+> <surname
+>Pradhan</surname
+></author>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<date
+>9 d'abril de 2015</date>
+<releaseinfo
+>Frameworks 5.9</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Arranjament del sistema</keyword>
+<keyword
+>SSL</keyword>
+<keyword
+>certificats</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1 id="intro">
+<title
+>Introducció</title>
+<para
+>El &kde; proporciona una llista de tots els certificats X.509 utilitzats pel sistema. Als quals es pot accedir mitjançant el mòdul <guilabel
+>Preferències SSL</guilabel
+> a &systemsettings;.</para>
+
+<para
+>Aquest mòdul proporciona un llistat per categories de totes les versions i certificats SSL. Podeu visualitzar els detalls de cadascun dels certificats i realitzar les accions afegir, eliminar, desactivar o activar.</para>
+
+<para
+>Els certificats es classifiquen en <guilabel
+>Certificats del sistema</guilabel
+> i <guilabel
+>Certificats afegits per l'usuari</guilabel
+>. Els <guilabel
+>Certificats del sistema</guilabel
+> es classifiquen a més per l'organització que els va emetre.</para>
+
+<screenshot id="screenshot-module">
+<screeninfo
+>El mòdul Versions i certificats SSL</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="module.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>El mòdul Versions i certificats SSL.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<sect2 id="details">
+<title
+>Visualitzar els detalls d'un certificat</title>
+
+<para
+>Seleccioneu un certificat sota una organització a la llista, i feu clic a <guibutton
+>Visualitza</guibutton
+> a sota de la llista per veure els detalls del certificat.</para>
+
+<screenshot id="screenshot-details">
+<screeninfo
+>Visualitzar els detalls d'un certificat</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="details.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>La finestra detalls del certificat.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+</sect2>
+
+<sect2 id="enable-disable">
+<title
+>Activar o desactivar un certificat</title>
+
+<para
+>Primer, seleccioneu un certificat sota una organització a la llista. Després, feu clic al botó <guibutton
+>Activa</guibutton
+> per activar el certificat o a <guibutton
+>Desactiva</guibutton
+> per a desactivar-lo.</para>
+
+<para
+>Alternativament, podeu activar o desactivar un certificat seleccionant o netejant la casella de selecció al davant del certificat.</para>
+
+<tip>
+<para
+>Podeu activar o desactivar múltiples certificats seleccionant-los mentre manteniu premuda la tecla &Ctrl; i fent clic al botó <guibutton
+>Activa</guibutton
+> o <guibutton
+>Desactiva</guibutton
+> a sota de la llista.</para>
+</tip>
+
+</sect2>
+
+<sect2 id="add">
+<title
+>Afegir un certificat</title>
+
+<!--link file selector dialog to buildingblocks when its done-->
+<para
+>En primer lloc, feu clic al botó <guibutton
+>Afegeix</guibutton
+> a sota de la llista de certificats. S'obrirà el diàleg selector de fitxers que us permetrà ubicar el lloc on s'emmagatzemen els fitxers de certificats. Una vegada trobeu el fitxer del certificat, seleccioneu-lo i feu clic al botó <guibutton
+>Obre</guibutton
+> per afegir-lo.</para>
+
+<note>
+<para
+>Els certificats han d'estar en un dels següents formats: certificat <acronym
+>DER</acronym
+>, <acronym
+>PEM</acronym
+> o X.509 codificat pel &Netscape;.</para>
+</note>
+
+</sect2>
+
+<sect2 id="remove">
+<title
+>Eliminar un certificat</title>
+
+<para
+>Seleccioneu el certificat que voleu eliminar de la llista i feu clic al botó <guibutton
+>Elimina</guibutton
+> per eliminar-lo.</para>
+
+<important>
+<para
+>Els certificats del sistema no es poden eliminar.</para>
+</important>
+
+</sect2>
+
+<sect2 id="ack">
+<title
+>Agraïments i reconeixements</title>
+
+<para
+>Un agraïment especial a Google Code-In 2011, al participant Subhashish Pradhan per escriure aquest article.</para>
+
+</sect2>
+
+</sect1>
+
+</article>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:;
+-->

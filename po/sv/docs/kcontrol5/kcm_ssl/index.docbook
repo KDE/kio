@@ -1,0 +1,196 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Swedish "INCLUDE">
+]>
+<article id="kcm_ssl" lang="&language;">
+<title
+>SSL-versioner och -certifikat</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Subhashish</firstname
+> <surname
+>Pradhan</surname
+></author>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2015-04-09</date>
+<releaseinfo
+>Frameworks 5.9</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systeminställningar</keyword>
+<keyword
+>SSL</keyword>
+<keyword
+>certifikat</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1 id="intro">
+<title
+>Inledning</title>
+<para
+>&kde; tillhandahåller en lista över alla X.509-certifikat som används av systemet. De kan kommas åt via modulen <guilabel
+>SSL-inställningar</guilabel
+> i systeminställningarna.</para>
+
+<para
+>Modulen tillhandahåller en kategoriserad lista över alla SSL-versioner och certifikat. Man kan se information om varje certifikat och lägga till, ta bort, inaktivera eller aktivera dem.</para>
+
+<para
+>Certifikaten är kategoriserade i <guilabel
+>Systemcertifikat</guilabel
+> och <guilabel
+>Användartillagda certifikat</guilabel
+>. <guilabel
+>Systemcertifikat</guilabel
+> är ytterligare kategoriserade enligt organisationen som utfärdade dem.</para>
+
+<screenshot id="screenshot-module">
+<screeninfo
+>Modulen SSL-versioner och -certifikat</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="module.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Modulen SSL-versioner och -certifikat.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<sect2 id="details">
+<title
+>Visa information om ett certifikat</title>
+
+<para
+>Markera ett certifikat under en listad organisation och klicka på <guibutton
+>Visning</guibutton
+> under listan för att visa certifikatets information.</para>
+
+<screenshot id="screenshot-details">
+<screeninfo
+>Visa information om ett certifikat</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="details.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Fönstret med certifikatinformation.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+</sect2>
+
+<sect2 id="enable-disable">
+<title
+>Aktivera eller inaktivera ett certifikat</title>
+
+<para
+>Markera först ett certifikat listat under en organisation. Klicka därefter på knappen <guibutton
+>Aktivera</guibutton
+> för att aktivera certifikatet, eller klicka på <guibutton
+>Inaktivera</guibutton
+> för att inaktivera ett aktiverat certifikat.</para>
+
+<para
+>Alternativt går det att aktivera eller inaktivera ett certifikat genom att markera eller avmarkera kryssrutan framför certifikatet.</para>
+
+<tip>
+<para
+>Det går att aktivera eller inaktivera flera certifikat genom att markera dem medan &Ctrl;-tangenten hålls nere, och därefter klicka på knappen <guibutton
+>Aktivera</guibutton
+> eller <guibutton
+>Inaktivera</guibutton
+> under listan.</para>
+</tip>
+
+</sect2>
+
+<sect2 id="add">
+<title
+>Lägga till ett certifikat</title>
+
+<!--link file selector dialog to buildingblocks when its done-->
+<para
+>Klicka först på knappen <guibutton
+>Lägg till</guibutton
+> under certifikatlistan. Det visar en filvalsdialogruta som låter dig lokalisera var certifikatfilen är lagrad. Efter att ha hittat certifikatfilen, markera den och klicka på knappen <guibutton
+>Öppna</guibutton
+> för att lägga till den.</para>
+
+<note>
+<para
+>Certifikaten måste ha ett av följande format:  <acronym
+>DER</acronym
+>, <acronym
+>PEM</acronym
+>, eller &Netscape;-kodat X.509-certifikat.</para>
+</note>
+
+</sect2>
+
+<sect2 id="remove">
+<title
+>Ta bort ett certifikat</title>
+
+<para
+>Markera det listade certifikatet som du vill ta bort, och klicka på knappen <guibutton
+>Ta bort</guibutton
+> för att ta bort certifikatet.</para>
+
+<important>
+<para
+>Systemcertifikat kan inte tas bort.</para>
+</important>
+
+</sect2>
+
+<sect2 id="ack">
+<title
+>Tack och erkännanden</title>
+
+<para
+>Särskilt tack till deltagaren i Google Code-In 2011,  Subhashish Pradhan, för att ha skrivit den här artikeln.</para>
+
+</sect2>
+
+</sect1>
+
+</article>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:;
+-->

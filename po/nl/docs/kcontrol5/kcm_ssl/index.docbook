@@ -1,0 +1,182 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Dutch "INCLUDE">
+]>
+<article id="kcm_ssl" lang="&language;">
+<title
+>SSL-versies en certificaten</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Subhashish</firstname
+> <surname
+>Pradhan</surname
+></author>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+&Freek.de.Kruijf; 
+</authorgroup>
+
+<date
+>2015-04-09</date>
+<releaseinfo
+>Frameworks 5.9</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systeeminstellingen</keyword>
+<keyword
+>SSL</keyword>
+<keyword
+>certificaten</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1 id="intro">
+<title
+>Inleiding</title>
+<para
+>&kde; levert een lijst met alle X.509 certificaten in gebruik bij het systeem. Hier kan toegang toe worden verkregen in de module <guilabel
+>SSL voorkeuren</guilabel
+> in &systemsettings;.</para>
+
+<para
+>Deze module biedt een in categorieën ingedeelde lijst met alle SSL-versies en certificaten. U kunt de details van elk van de certificaten zien en ze toevoegen, verwijderen, uitschakelen of inschakelen.</para>
+
+<para
+>De certificaten hebben de categorieën <guilabel
+>Systeemcertificaten</guilabel
+> en <guilabel
+>Gebruiker-toegevoegde certificaten</guilabel
+>. De <guilabel
+>Systeemcertificaten</guilabel
+> zijn verder opgedeeld in categorieën per organisatie die ze heeft uitgegeven.</para>
+
+<screenshot id="screenshot-module">
+<screeninfo
+>De module SSL-versies en certificaten</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="module.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>De module SSL-versies en certificaten.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<sect2 id="details">
+<title
+>Bekijken van de details van een certificaat</title>
+
+<para
+>Selecteer een certificaat onder een organisatie uit de lijst en klik op de knop <guibutton
+>Weergeven</guibutton
+> onder de lijst om de details van het certificaat te zien.</para>
+
+<screenshot id="screenshot-details">
+<screeninfo
+>Bekijken van de details van een certificaat</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="details.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Het venster voor certificaatdetails.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+</sect2>
+
+<sect2 id="enable-disable">
+<title
+>Een certificaat in- of uitschakelen</title>
+
+<para
+>Selecteer eerst een certificaat uit de lijst onder een organisatie. Klik daarna op de knop <guibutton
+>Inschakelen</guibutton
+> om het certificaat in te schakelen of klik op de knop <guibutton
+>Uitschakelen</guibutton
+> om een ingeschakeld certificaat uit te schakelen.</para>
+
+<para
+>U kunt ook een certificaat in- of uitschakelen door het keuzevakje voor het certificaat te activeren of the wissen.</para>
+
+<tip>
+<para
+>U kunt meerdere certificaten in- en uitschakelen door ze te selecteren met de &Ctrl;-toets ingedrukt en daarna op de knop <guibutton
+>Inschakelen</guibutton
+> of <guibutton
+>Uitschakelen</guibutton
+> onder de lijst te drukken.</para>
+</tip>
+
+</sect2>
+
+<sect2 id="add">
+<title
+>Een certificaat toevoegen</title>
+
+<!--link file selector dialog to buildingblocks when its done-->
+<para
+>Klik eerst op de knop <guibutton
+>Toevoegen</guibutton
+> onder de lijst met certificaten. Het opent de dialoog voor bestandsselectie waarmee u kunt lokaliseren waar de certificaatbestanden zijn opgeslagen. Na het lokaliseren van het certificaatbestand, selecteert u het en klikt u op de knop <guibutton
+>Openen</guibutton
+> om het toe te voegen.</para>
+
+<note>
+<para
+>De certificaten moeten in een van de volgende formaten zijn: <acronym
+>DER</acronym
+>, <acronym
+>PEM</acronym
+> of &Netscape;-encoded X.509 certificaat.</para>
+</note>
+
+</sect2>
+
+<sect2 id="remove">
+<title
+>Een certificaat verwijderen</title>
+
+<para
+>Selecteer het certificaat uit de lijst dat u wilt verwijderen en klik op de knop <guibutton
+>Verwijderen</guibutton
+> om het certificaat te verwijderen.</para>
+
+<important>
+<para
+>Systeemcertificaten kunnen niet worden verwijderd.</para>
+</important>
+
+</sect2>
+
+<sect2 id="ack">
+<title
+>Dankbetuigingen en licentie</title>
+
+<para
+>Speciale dank gaat naar de deelnemer van Google Code-In 2011 Subhashish Pradhan voor het schrijven dit artikel.</para>
+
+</sect2>
+
+</sect1>
+
+</article>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:;
+-->

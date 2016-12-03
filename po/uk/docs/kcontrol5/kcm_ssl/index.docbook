@@ -1,0 +1,196 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Ukrainian "INCLUDE">
+]>
+<article id="kcm_ssl" lang="&language;">
+<title
+>Версія і сертифікати SSL</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Subhashish</firstname
+> <surname
+>Pradhan</surname
+></author>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>9 квітня 2015 року</date>
+<releaseinfo
+>Frameworks 5.9</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Системні параметри</keyword>
+<keyword
+>SSL</keyword>
+<keyword
+>сертифікати</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1 id="intro">
+<title
+>Вступ</title>
+<para
+>&kde; надає список всіх сертифікатів X.509, які використовуються у системі. Доступ до них можна отримати за допомогою модуля <guilabel
+>Параметри SSL</guilabel
+> програми «Системні параметри».</para>
+
+<para
+>На сторінці цього модуля буде показано поділений за категоріями список всіх версій та сертифікатів SSL. За допомогою цієї сторінки ви можете переглянути параметри кожного з сертифікатів, додати, вилучити, вимкнути чи увімкнути сертифікати.</para>
+
+<para
+>Сертифікати розподілено за категоріями: <guilabel
+>Сертифікати, встановлені автоматично</guilabel
+> та <guilabel
+>Сертифікати, додані користувачами</guilabel
+>. <guilabel
+>Сертифікати, встановлені автоматично</guilabel
+> поділено за розділами на основі установ, якими було випущено ці сертифікати.</para>
+
+<screenshot id="screenshot-module">
+<screeninfo
+>Модуль версій і сертифікатів SSL</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="module.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Модуль версій і сертифікатів SSL.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<sect2 id="details">
+<title
+>Перегляд параметрів сертифіката</title>
+
+<para
+>Виберіть сертифікат у списку установ і натисніть кнопку <guibutton
+>Показати</guibutton
+>, розташовану під списком, щоб переглянути параметри сертифіката.</para>
+
+<screenshot id="screenshot-details">
+<screeninfo
+>Перегляд параметрів сертифіката</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="details.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Вікно параметрів сертифіката.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+</sect2>
+
+<sect2 id="enable-disable">
+<title
+>Вмикання і вимикання сертифікатів</title>
+
+<para
+>Спочатку позначте сертифікат у списку установи. Потім натисніть кнопку <guibutton
+>Увімкнути</guibutton
+>, щоб увімкнути сертифікат. Натисніть кнопку <guibutton
+>Вимкнути</guibutton
+>, щоб вимкнути увімкнений сертифікат.</para>
+
+<para
+>Крім того, ви можете увімкнути або вимкнути сертифікат позначенням або зняттям позначки поряд з пунктом сертифіката.</para>
+
+<tip>
+<para
+>Ви можете вмикати або вимикати декілька сертифікатів одночасно: позначте сертифікати, утримуючи натисненою клавішу &Ctrl;, потім натисніть кнопку <guibutton
+>Увімкнути</guibutton
+> або <guibutton
+>Вимкнути</guibutton
+>, розташовану під списком.</para>
+</tip>
+
+</sect2>
+
+<sect2 id="add">
+<title
+>Додавання сертифіката</title>
+
+<!--link file selector dialog to buildingblocks when its done-->
+<para
+>Спочатку натисніть кнопку <guibutton
+>Додати</guibutton
+>, розташовану під списком сертифікатів. Буде відкрито діалогове вікно вибору файла, за допомогою якого ви зможете вказати, де зберігаються файли сертифікатів. Щойно сертифікат буде вибрано, позначте його пункт і натисніть кнопку <guibutton
+>Відкрити</guibutton
+>, щоб відкрити його.</para>
+
+<note>
+<para
+>Сертифікат має зберігатися у одному з таких форматів: <acronym
+>DER</acronym
+>, <acronym
+>PEM</acronym
+> або закодований у форматі &Netscape; X.509 сертифікат.</para>
+</note>
+
+</sect2>
+
+<sect2 id="remove">
+<title
+>Вилучення сертифіката</title>
+
+<para
+>Позначте пункт сертифіката, який ви хочете вилучити і натисніть кнопку <guibutton
+>Вилучити</guibutton
+>, щоб вилучити сертифікат.</para>
+
+<important>
+<para
+>Загальносистемні сертифікати вилучати не можна.</para>
+</important>
+
+</sect2>
+
+<sect2 id="ack">
+<title
+>Подяки</title>
+
+<para
+>Особливі подяки на написання цієї статті учасникові Google Code-In 2011 Subhashish Pradhan.</para>
+
+</sect2>
+
+</sect1>
+
+</article>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:;
+-->

@@ -1,0 +1,190 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % German "INCLUDE">
+]>
+<article id="kcm_ssl" lang="&language;">
+<title
+>SSL-Versionen und -Zertifikate</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Subhashish</firstname
+> <surname
+>Pradhan</surname
+></author>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>Burkhard</firstname
+><surname
+>Lück</surname
+><affiliation
+><address
+><email
+>lueck@hube-lueck.de</email
+></address
+></affiliation
+><contrib
+>Übersetzung</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2015-04-09</date>
+<releaseinfo
+>Frameworks 5.9</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systemeinstellungen</keyword>
+<keyword
+>SSL</keyword>
+<keyword
+>Zertifikate</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1 id="intro">
+<title
+>Einführung</title>
+<para
+>&kde; stellt eine Liste aller vom System benutzten X.509-Zertifikate bereit. Der Zugriff auf diese Zertifikate ist im Modul <guilabel
+>SSL-Einstellungen</guilabel
+> der &systemsettings; möglich.</para>
+
+<para
+>In diesem Modul wird eine Liste aller SSL-Versionen und -Zertifikate mit mehreren Kategorien angezeigt. Sie können die Details der Zertifikate betrachten und Zertifikate hinzufügen, entfernen, deaktivieren oder aktivieren.</para>
+
+<para
+>Die Zertifikate werden in den beiden Kategorien <guilabel
+>Systemzertifikate</guilabel
+> und <guilabel
+>Benutzerzertifikate</guilabel
+> angezeigt. Die Systemzertifikate werden nach der Aussteller-Organisation gruppiert.</para>
+
+<screenshot id="screenshot-module">
+<screeninfo
+>Das Modul „SSL-Versionen und -Zertifikate“</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="module.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Das Modul „SSL-Versionen und -Zertifikate“.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<sect2 id="details">
+<title
+>Anzeige der Details eines Zertifikats</title>
+
+<para
+>Wählen Sie ein Zertifikat von einer hier aufgeführten Organisation und klicken Sie auf den Knopf <guibutton
+>Anzeigen</guibutton
+> under der Liste, um ein Fenster mit allen Details des Zertifikats zu öffnen.</para>
+
+<screenshot id="screenshot-details">
+<screeninfo
+>Anzeige der Details eines Zertifikats</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="details.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Das Fenster Zertifikatsdetails</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+</sect2>
+
+<sect2 id="enable-disable">
+<title
+>Aktivieren oder Deaktivieren eines Zertifikats</title>
+
+<para
+>Wählen Sie zuerst ein Zertifikat einer in der Liste aufgeführten Organisation. Mit Klicken auf die beiden zugehörigen Knöpfe können Sie das Zertifikat dann aktivieren oder deaktivieren.</para>
+
+<para
+>Außerdem kann ein Zertifikat auch mit dem Ankreuzfeld davor aktiviert oder deaktiviert werden. </para>
+
+<tip>
+<para
+>Sie können auch mehrere Zertifikate auf einmal aktivieren oder deaktivieren, indem Sie bei der Auswahl die &Ctrl;-Taste gedrückt halten und dann auf <guibutton
+>Aktivieren</guibutton
+> oder <guibutton
+>Deaktivieren</guibutton
+> unter der Liste klicken.</para>
+</tip>
+
+</sect2>
+
+<sect2 id="add">
+<title
+>Ein Zertifikat hinzufügen</title>
+
+<!--link file selector dialog to buildingblocks when its done-->
+<para
+>Klicken Sie zuerst auf den Knopf <guibutton
+>Hinzufügen</guibutton
+> unter der Zertifikatsliste. Damit öffnen Sie den Dateidialog, um lokal gespeicherte Zertifikate zu finden. Wenn Sie ein Zertifikat ausgewählt haben, klicken Sie auf <guibutton
+>Öffnen</guibutton
+>, um es hinzuzufügen.</para>
+
+<note>
+<para
+>Die Zertifikate müssen in einem der folgenden Formate vorliegen: <acronym
+>DER</acronym
+>, <acronym
+>PEM</acronym
+>, oder als &Netscape;-kodiertes X.509-Zertifikat.</para>
+</note>
+
+</sect2>
+
+<sect2 id="remove">
+<title
+>Ein Zertifikat entfernen</title>
+
+<para
+>Wählen Sie ein Zertifikat aus der Liste und klicken Sie auf <guibutton
+>Entfernen</guibutton
+>, um es aus der Liste zu löschen.</para>
+
+<important>
+<para
+>Systemzertifikate können nicht entfernt werden.</para>
+</important>
+
+</sect2>
+
+<sect2 id="ack">
+<title
+>Danksagungen</title>
+
+<para
+>Besonderer Dank geht an den „Google Code-In 2011“-Teilnehmer Subhashish Pradhan, der diesen Artikel geschrieben hat.</para>
+
+</sect2>
+
+</sect1>
+
+</article>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:;
+-->
