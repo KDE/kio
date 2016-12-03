@@ -18,6 +18,7 @@
 
 #include "paste.h"
 #include "pastedialog_p.h"
+#include "kio_widgets_debug.h"
 
 #include "kio/job.h"
 #include "kio/copyjob.h"
@@ -256,7 +257,7 @@ KIOWIDGETS_EXPORT KIO::Job *KIO::pasteClipboard(const QUrl &destUrl, QWidget *wi
 
     if (!destUrl.isValid()) {
         KMessageBox::error(widget, i18n("Malformed URL\n%1", destUrl.errorString()));
-        qWarning() << destUrl.errorString();
+        qCWarning(KIO_WIDGETS) << destUrl.errorString();
         return 0;
     }
 
@@ -304,7 +305,7 @@ KIOWIDGETS_EXPORT QString KIO::pasteActionText(const QMimeData *mimeData, bool *
         canPasteData = KIO::canPasteMimeData(mimeData);
         urls = KUrlMimeData::urlsFromMimeData(mimeData);
     } else {
-        qWarning() << "QApplication::clipboard()->mimeData() is 0!";
+        qCWarning(KIO_WIDGETS) << "QApplication::clipboard()->mimeData() is 0!";
     }
 
     QString text;

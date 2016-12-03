@@ -43,6 +43,7 @@
 
 #include "kpropertiesdialog.h"
 #include "kpropertiesdialog_p.h"
+#include "kio_widgets_debug.h"
 
 #include <config-kiowidgets.h>
 
@@ -731,7 +732,7 @@ bool KPropertiesDialogPlugin::isDirty() const
 
 void KPropertiesDialogPlugin::applyChanges()
 {
-    qWarning() << "applyChanges() not implemented in page !";
+    qCWarning(KIO_WIDGETS) << "applyChanges() not implemented in page !";
 }
 
 int KPropertiesDialogPlugin::fontHeight() const
@@ -1730,7 +1731,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
         if (myself.isValid()) {
             isMyFile = (d->strOwner == myself.loginName());
         } else {
-            qWarning() << "I don't exist ?! geteuid=" << KUserId::currentEffectiveUserId().toString();
+            qCWarning(KIO_WIDGETS) << "I don't exist ?! geteuid=" << KUserId::currentEffectiveUserId().toString();
         }
     } else {
         //We don't know, for remote files, if they are ours or not.

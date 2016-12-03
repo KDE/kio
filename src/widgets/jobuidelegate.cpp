@@ -22,6 +22,7 @@
 
 #include "jobuidelegate.h"
 #include <kio/jobuidelegatefactory.h>
+#include "kio_widgets_debug.h"
 
 #include <kconfiggroup.h>
 #include <kjob.h>
@@ -350,7 +351,7 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
         break;
     }
     default:
-        qWarning() << "Unknown type" << type;
+        qCWarning(KIO_WIDGETS) << "Unknown type" << type;
         result = 0;
         break;
     }

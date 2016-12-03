@@ -23,6 +23,7 @@
 
 #include "kopenwithdialog.h"
 #include "kopenwithdialog_p.h"
+#include "kio_widgets_debug.h"
 
 #include <QDialogButtonBox>
 #include <QtCore/QtAlgorithms>
@@ -167,7 +168,7 @@ void KApplicationModelPrivate::fillNode(const QString &_entryPath, KDEPrivate::A
             entryPath = serviceGroup->entryPath();
             isDir = true;
         } else {
-            qWarning() << "KServiceGroup: Unexpected object in list!";
+            qCWarning(KIO_WIDGETS) << "KServiceGroup: Unexpected object in list!";
             continue;
         }
 

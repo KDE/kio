@@ -19,6 +19,7 @@
  */
 
 #include "kdynamicjobtracker_p.h"
+#include "kio_widgets_debug.h"
 
 #include <kuiserverjobtracker.h>
 #include <kwidgetjobtracker.h>
@@ -107,7 +108,7 @@ void KDynamicJobTracker::unregisterJob(KJob *job)
     KWidgetJobTracker *widgetTracker = d->trackers[job].widgetTracker;
 
     if (!(widgetTracker || kuiserverTracker)) {
-        qWarning() << "Tried to unregister a kio job that hasn't been registered.";
+        qCWarning(KIO_WIDGETS) << "Tried to unregister a kio job that hasn't been registered.";
         return;
     }
 

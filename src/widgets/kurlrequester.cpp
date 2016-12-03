@@ -18,6 +18,7 @@
 */
 
 #include "kurlrequester.h"
+#include "kio_widgets_debug.h"
 
 #include <kcombobox.h>
 #include <kdragwidgetdecorator.h>
@@ -607,7 +608,7 @@ const KEditListWidget::CustomEditor &KUrlRequester::customEditor()
 
 #ifndef NDEBUG
     if (!edit) {
-        qWarning() << "KUrlRequester's lineedit is not a KLineEdit!??\n";
+        qCWarning(KIO_WIDGETS) << "KUrlRequester's lineedit is not a KLineEdit!??\n";
     }
 #endif
 

@@ -26,6 +26,7 @@
 #include "accessmanager.h"
 #include "job.h"
 #include "scheduler.h"
+#include "kio_widgets_debug.h"
 
 #include <kurlauthorized.h>
 #include <kprotocolinfo.h>
@@ -457,7 +458,7 @@ void AccessManagerReply::slotStatResult(KJob *kJob)
 void AccessManagerReply::slotRedirection(KIO::Job *job, const QUrl &u)
 {
     if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("redirect"), url(), u)) {
-        qWarning() << "Redirection from" << url() << "to" << u << "REJECTED by policy!";
+        qCWarning(KIO_WIDGETS) << "Redirection from" << url() << "to" << u << "REJECTED by policy!";
         setError(QNetworkReply::ContentAccessDenied, u.toString());
         emit error(error());
         return;

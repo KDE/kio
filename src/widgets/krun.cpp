@@ -22,6 +22,7 @@
 #include "krun.h"
 #include "krun_p.h"
 #include <config-kiowidgets.h> // HAVE_X11
+#include "kio_widgets_debug.h"
 
 #include <assert.h>
 #include <string.h>
@@ -296,7 +297,7 @@ static qint64 runCommandInternal(KProcess *proc, const KService *service, const 
     }
     if (service && !service->entryPath().isEmpty()
             && !KDesktopFile::isAuthorizedDesktopFile(service->entryPath())) {
-        qWarning() << "No authorization to execute " << service->entryPath();
+        qCWarning(KIO_WIDGETS) << "No authorization to execute " << service->entryPath();
         KMessageBox::sorry(window, i18n("You are not authorized to execute this file."));
         delete proc;
         return 0;
@@ -535,13 +536,13 @@ static bool makeFileExecutable(const QString &fileName)
     // over.
     QFile desktopFile(fileName);
     if (!desktopFile.open(QFile::ReadOnly)) {
-        qWarning() << "Error opening service" << fileName << desktopFile.errorString();
+        qCWarning(KIO_WIDGETS) << "Error opening service" << fileName << desktopFile.errorString();
         return false;
     }
 
     QByteArray header = desktopFile.peek(2);   // First two chars of file
     if (header.size() == 0) {
-        qWarning() << "Error inspecting service" << fileName << desktopFile.errorString();
+        qCWarning(KIO_WIDGETS) << "Error inspecting service" << fileName << desktopFile.errorString();
         return false; // Some kind of error
     }
 
@@ -550,13 +551,13 @@ static bool makeFileExecutable(const QString &fileName)
         QSaveFile saveFile;
         saveFile.setFileName(fileName);
         if (!saveFile.open(QIODevice::WriteOnly)) {
-            qWarning() << "Unable to open replacement file for" << fileName << saveFile.errorString();
+            qCWarning(KIO_WIDGETS) << "Unable to open replacement file for" << fileName << saveFile.errorString();
             return false;
         }
 
         QByteArray shebang("#!/usr/bin/env xdg-open\n");
         if (saveFile.write(shebang) != shebang.size()) {
-            qWarning() << "Error occurred adding header for" << fileName << saveFile.errorString();
+            qCWarning(KIO_WIDGETS) << "Error occurred adding header for" << fileName << saveFile.errorString();
             saveFile.cancelWriting();
             return false;
         }
@@ -564,25 +565,25 @@ static bool makeFileExecutable(const QString &fileName)
         // Now copy the one into the other and then close and reopen desktopFile
         QByteArray desktopData(desktopFile.readAll());
         if (desktopData.isEmpty()) {
-            qWarning() << "Unable to read service" << fileName << desktopFile.errorString();
+            qCWarning(KIO_WIDGETS) << "Unable to read service" << fileName << desktopFile.errorString();
             saveFile.cancelWriting();
             return false;
         }
 
         if (saveFile.write(desktopData) != desktopData.size()) {
-            qWarning() << "Error copying service" << fileName << saveFile.errorString();
+            qCWarning(KIO_WIDGETS) << "Error copying service" << fileName << saveFile.errorString();
             saveFile.cancelWriting();
             return false;
         }
 
         desktopFile.close();
         if (!saveFile.commit()) { // Figures....
-            qWarning() << "Error committing changes to service" << fileName << saveFile.errorString();
+            qCWarning(KIO_WIDGETS) << "Error committing changes to service" << fileName << saveFile.errorString();
             return false;
         }
 
         if (!desktopFile.open(QFile::ReadOnly)) {
-            qWarning() << "Error re-opening service" << fileName << desktopFile.errorString();
+            qCWarning(KIO_WIDGETS) << "Error re-opening service" << fileName << desktopFile.errorString();
             return false;
         }
     } // Add header
@@ -590,7 +591,7 @@ static bool makeFileExecutable(const QString &fileName)
     // corresponds to owner on unix, which will have to do since if the user
     // isn't the owner we can't change perms anyways.
     if (!desktopFile.setPermissions(QFile::ExeUser | desktopFile.permissions())) {
-        qWarning() << "Unable to change permissions for" << fileName << desktopFile.errorString();
+        qCWarning(KIO_WIDGETS) << "Unable to change permissions for" << fileName << desktopFile.errorString();
         return false;
     }
 
@@ -604,7 +605,7 @@ static bool makeFileExecutable(const QString &fileName)
 static bool makeServiceExecutable(const KService &service, QWidget *window)
 {
     if (!KAuthorized::authorize(QStringLiteral("run_desktop_files"))) {
-        qWarning() << "No authorization to execute " << service.entryPath();
+        qCWarning(KIO_WIDGETS) << "No authorization to execute " << service.entryPath();
         KMessageBox::sorry(window, i18n("You are not authorized to execute this service."));
         return false; // Don't circumvent the Kiosk
     }
@@ -806,13 +807,13 @@ bool KRun::run(const QString &_exec, const QList<QUrl> &_urls, QWidget *window, 
 bool KRun::runCommand(const QString &cmd, QWidget *window, const QString &workingDirectory)
 {
     if (cmd.isEmpty()) {
-        qWarning() << "Command was empty, nothing to run";
+        qCWarning(KIO_WIDGETS) << "Command was empty, nothing to run";
         return false;
     }
 
     const QStringList args = KShell::splitArgs(cmd);
     if (args.isEmpty()) {
-        qWarning() << "Command could not be parsed.";
+        qCWarning(KIO_WIDGETS) << "Command could not be parsed.";
         return false;
     }
 
@@ -884,7 +885,7 @@ void KRun::init()
     if (!d->m_strURL.isValid() || d->m_strURL.scheme().isEmpty()) {
         const QString error = !d->m_strURL.isValid() ? d->m_strURL.errorString() : d->m_strURL.toString();
         handleInitError(KIO::ERR_MALFORMED_URL, i18n("Malformed URL\n%1", error));
-        qWarning() << "Malformed URL:" << error;
+        qCWarning(KIO_WIDGETS) << "Malformed URL:" << error;
         d->m_bFault = true;
         d->m_bFinished = true;
         d->startTimer();
@@ -1092,7 +1093,7 @@ void KRun::scanFile()
     // getting some data out of the file, to know what mimetype it is.
 
     if (!KProtocolManager::supportsReading(d->m_strURL)) {
-        qWarning() << "#### NO SUPPORT FOR READING!";
+        qCWarning(KIO_WIDGETS) << "#### NO SUPPORT FOR READING!";
         d->m_bFault = true;
         d->m_bFinished = true;
         d->startTimer();
@@ -1159,7 +1160,7 @@ void KRun::slotStatResult(KJob *job)
         // ERR_NO_CONTENT is not an error, but an indication no further
         // actions needs to be taken.
         if (errCode != KIO::ERR_NO_CONTENT) {
-            qWarning() << this << "ERROR" << job->error() << job->errorString();
+            qCWarning(KIO_WIDGETS) << this << "ERROR" << job->error() << job->errorString();
             handleError(job);
             //qDebug() << this << " KRun returning from showErrorDialog, starting timer to delete us";
             d->m_bFault = true;
@@ -1211,7 +1212,7 @@ void KRun::slotStatResult(KJob *job)
 void KRun::slotScanMimeType(KIO::Job *, const QString &mimetype)
 {
     if (mimetype.isEmpty()) {
-        qWarning() << "get() didn't emit a mimetype! Probably a kioslave bug, please check the implementation of" << url().scheme();
+        qCWarning(KIO_WIDGETS) << "get() didn't emit a mimetype! Probably a kioslave bug, please check the implementation of" << url().scheme();
     }
     mimeTypeDetermined(mimetype);
     d->m_job = 0;
@@ -1225,7 +1226,7 @@ void KRun::slotScanFinished(KJob *job)
         // ERR_NO_CONTENT is not an error, but an indication no further
         // actions needs to be taken.
         if (errCode != KIO::ERR_NO_CONTENT) {
-            qWarning() << this << "ERROR (stat):" << job->error() << ' ' << job->errorString();
+            qCWarning(KIO_WIDGETS) << this << "ERROR (stat):" << job->error() << ' ' << job->errorString();
             handleError(job);
 
             d->m_bFault = true;
@@ -1291,7 +1292,7 @@ void KRun::foundMimeType(const QString &type)
     // Resolve .desktop files from media:/, remote:/, applications:/ etc.
     QMimeType mime = db.mimeTypeForName(type);
     if (!mime.isValid()) {
-        qWarning() << "Unknown mimetype " << type;
+        qCWarning(KIO_WIDGETS) << "Unknown mimetype " << type;
     } else if (mime.inherits(QStringLiteral("application/x-desktop")) && !d->m_localPath.isEmpty()) {
         d->m_strURL = QUrl::fromLocalFile(d->m_localPath);
     }

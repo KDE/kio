@@ -292,7 +292,7 @@ KDirModelNode *KDirModelPrivate::expandAllParentsUntil(const QUrl &_url) const /
             nodePath += '/';
         }
         if (!pathStr.startsWith(nodePath)) {
-            qWarning() << "The kioslave for" << url.scheme() << "violates the hierarchy structure:"
+            qCWarning(KIO_WIDGETS) << "The kioslave for" << url.scheme() << "violates the hierarchy structure:"
                        << "I arrived at node" << nodePath << ", but" << pathStr << "does not start with that path.";
             return 0;
         }
@@ -427,7 +427,7 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
     // If the directory containing the items wasn't found, then we have a big problem.
     // Are you calling KDirLister::openUrl(url,true,false)? Please use expandToUrl() instead.
     if (!result) {
-        qWarning() << "Items emitted in directory" << directoryUrl
+        qCWarning(KIO_WIDGETS) << "Items emitted in directory" << directoryUrl
                    << "but that directory isn't in KDirModel!"
                    << "Root directory:" << urlForNode(m_rootNode);
         Q_FOREACH (const KFileItem &item, items) {
@@ -470,7 +470,7 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
         // not sure if/how it ever happened.
         //if (dirNode->m_childNodes.count() &&
         //    dirNode->m_childNodes.last()->item().name() == (*it).name()) {
-        //    qWarning() << "Already having" << (*it).name() << "in" << directoryUrl
+        //    qCWarning(KIO_WIDGETS) << "Already having" << (*it).name() << "in" << directoryUrl
         //             << "url=" << dirNode->m_childNodes.last()->item().url();
         //    abort();
         //}
@@ -519,7 +519,7 @@ void KDirModelPrivate::_k_slotDeleteItems(const KFileItemList &items)
     QUrl url = item.url();
     KDirModelNode *node = nodeForUrl(url); // O(depth)
     if (!node) {
-        qWarning() << "No node found for item that was just removed:" << url;
+        qCWarning(KIO_WIDGETS) << "No node found for item that was just removed:" << url;
         return;
     }
 
@@ -549,7 +549,7 @@ void KDirModelPrivate::_k_slotDeleteItems(const KFileItemList &items)
             url = item.url();
             node = nodeForUrl(url);
             if (!node) {
-                qWarning() << "No node found for item that was just removed:" << url;
+                qCWarning(KIO_WIDGETS) << "No node found for item that was just removed:" << url;
                 continue;
             }
             if (!node->parent()) {
@@ -1145,7 +1145,7 @@ Qt::ItemFlags KDirModel::flags(const QModelIndex &index) const
         } else {
             KFileItem item = itemForIndex(index);
             if (item.isNull()) {
-                qWarning() << "Invalid item returned for index";
+                qCWarning(KIO_WIDGETS) << "Invalid item returned for index";
             } else if (item.isDir()) {
                 if (d->m_dropsAllowed & DropOnDirectory) {
                     f |= Qt::ItemIsDropEnabled;

@@ -20,6 +20,7 @@
 #include "krun.h"
 #include "kdirwatch.h"
 #include "kio/job.h"
+#include "kio_widgets_debug.h"
 #include <kdirnotify.h>
 #include <kjobuidelegate.h>
 #include <kmountpoint.h>
@@ -80,7 +81,7 @@ void KAutoMountPrivate::slotResult(KJob *job)
         }
 
         if (!mp) {
-            qWarning() << m_strDevice << "was correctly mounted, but findByDevice() didn't find it."
+            qCWarning(KIO_WIDGETS) << m_strDevice << "was correctly mounted, but findByDevice() didn't find it."
                        << "This looks like a bug, please report it on http://bugs.kde.org, together with your /etc/fstab and /etc/mtab lines for this device";
         } else {
             const QUrl url = QUrl::fromLocalFile(mp->mountPoint());

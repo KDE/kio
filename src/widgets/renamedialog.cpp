@@ -20,6 +20,7 @@
 */
 
 #include "kio/renamedialog.h"
+#include "kio_widgets_debug.h"
 
 #include <QApplication>
 #include <QCheckBox>
@@ -451,7 +452,7 @@ void RenameDialog::renamePressed()
         const QUrl u = newDestUrl();
         if (!u.isValid()) {
             KMessageBox::error(this, i18n("Malformed URL\n%1", u.errorString()));
-            qWarning() << u.errorString();
+            qCWarning(KIO_WIDGETS) << u.errorString();
             return;
         }
 

@@ -21,6 +21,7 @@
 
 #include "config-kiowidgets.h" // KIO_NO_SOLID
 #include "../core/config-kmountpoint.h" // for HAVE_VOLMGT (yes I cheat a bit)
+#include "kio_widgets_debug.h"
 
 #include "krun.h"
 #include "kautomount.h"
@@ -285,7 +286,7 @@ QList<KServiceAction> KDesktopFileActions::userDefinedServices(const KService &s
                 return result;
             }
         } else {
-            qWarning() << "The desktop file" << service.entryPath()
+            qCWarning(KIO_WIDGETS) << "The desktop file" << service.entryPath()
                        << "has an invalid X-KDE-GetActionMenu entry."
                        << "Syntax is: app object interface function";
         }

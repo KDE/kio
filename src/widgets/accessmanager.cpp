@@ -28,7 +28,7 @@
 #include "job.h"
 #include "kjobwidgets.h"
 #include "scheduler.h"
-
+#include "kio_widgets_debug.h"
 #include <kconfiggroup.h>
 #include <ksharedconfig.h>
 #include <kprotocolinfo.h>
@@ -301,7 +301,7 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
         break;
     }
     default: {
-        qWarning() << "Unsupported KIO operation requested! Defering to QNetworkAccessManager...";
+        qCWarning(KIO_WIDGETS) << "Unsupported KIO operation requested! Defering to QNetworkAccessManager...";
         return QNetworkAccessManager::createRequest(op, req, outgoingData);
     }
     }
@@ -343,8 +343,8 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
             reply = new KDEPrivate::AccessManagerReply(op, req, data, kioJob->url(), kioJob->metaData(), this);
             //qDebug() << "Synchronous XHR:" << reply << reqUrl;
         } else {
-            qWarning() << "Failed to create a synchronous XHR for" << reqUrl;
-            qWarning() << "REASON:" << kioJob->errorString();
+            qCWarning(KIO_WIDGETS) << "Failed to create a synchronous XHR for" << reqUrl;
+            qCWarning(KIO_WIDGETS) << "REASON:" << kioJob->errorString();
             reply = new KDEPrivate::AccessManagerReply(op, req, QNetworkReply::UnknownNetworkError, kioJob->errorText(), this);
         }
     } else {
@@ -527,7 +527,7 @@ QList<QNetworkCookie> CookieJar::cookiesForUrl(const QUrl &url) const
     QDBusReply<QString> reply = kcookiejar.call(QStringLiteral("findDOMCookies"), url.toString(QUrl::RemoveUserInfo), (qlonglong)d->windowId);
 
     if (!reply.isValid()) {
-        qWarning() << "Unable to communicate with the cookiejar!";
+        qCWarning(KIO_WIDGETS) << "Unable to communicate with the cookiejar!";
         return cookieList;
     }
 

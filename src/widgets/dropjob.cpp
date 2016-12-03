@@ -25,6 +25,7 @@
 #include "pastejob_p.h"
 #include "jobuidelegate.h"
 #include "jobuidelegateextension.h"
+#include "kio_widgets_debug.h"
 
 #include <KConfigGroup>
 #include <KCoreDirLister>
@@ -394,7 +395,7 @@ void DropJobPrivate::doCopyToDirectory()
         KIO::FileUndoManager::self()->recordCopyJob(job);
         break;
     default:
-        qWarning() << "Unknown drop action" << int(m_dropAction);
+        qCWarning(KIO_WIDGETS) << "Unknown drop action" << int(m_dropAction);
         q->setError(KIO::ERR_UNSUPPORTED_ACTION);
         q->emitResult();
         return;
@@ -431,7 +432,7 @@ void DropJobPrivate::handleDropToDesktopFile()
         handleCopyToDirectory();
     } else {
         if (desktopFile.hasDeviceType()) {
-            qWarning() << "Not re-implemented; please email kde-frameworks-devel@kde.org if you need this.";
+            qCWarning(KIO_WIDGETS) << "Not re-implemented; please email kde-frameworks-devel@kde.org if you need this.";
             // take code from libkonq's old konq_operations.cpp
             // for now, fallback
         }

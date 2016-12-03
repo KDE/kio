@@ -20,6 +20,7 @@
 
 #include "kacleditwidget.h"
 #include "kacleditwidget_p.h"
+#include "kio_widgets_debug.h"
 
 #if HAVE_POSIX_ACL
 
@@ -589,7 +590,7 @@ void EditACLEntryDialog::slotOk()
 {
     KACLListView::EntryType type = static_cast<KACLListView::EntryType>(m_buttonIds[m_buttonGroup->checkedButton()]);
 
-    qWarning() << "Type 2: " << type;
+    qCWarning(KIO_WIDGETS) << "Type 2: " << type;
 
     QString qualifier;
     if (type == KACLListView::NamedUser) {
