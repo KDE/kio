@@ -1890,7 +1890,7 @@ bool HTTPProtocol::sendErrorPageNotification()
     }
 
     if (m_isLoadingErrorPage) {
-        qWarning() << "called twice during one request, something is probably wrong.";
+        qCWarning(KIO_HTTP) << "called twice during one request, something is probably wrong.";
     }
 
     m_isLoadingErrorPage = true;
@@ -4504,7 +4504,7 @@ bool HTTPProtocol::readBody(bool dataInternal /* = false */)
         QString calculatedMD5 = md5Filter->md5();
 
         if (m_contentMD5 != calculatedMD5)
-            qWarning() << "MD5 checksum MISMATCH! Expected:"
+            qCWarning(KIO_HTTP) << "MD5 checksum MISMATCH! Expected:"
                        << calculatedMD5 << ", Got:" << m_contentMD5;
     }
 
@@ -4573,7 +4573,7 @@ QString HTTPProtocol::findCookies(const QString &url)
     QDBusReply<QString> reply = kcookiejar.call(QStringLiteral("findCookies"), url, windowId);
 
     if (!reply.isValid()) {
-        qWarning() << "Can't communicate with kded_kcookiejar!";
+        qCWarning(KIO_HTTP) << "Can't communicate with kded_kcookiejar!";
         return QString();
     }
     return reply;

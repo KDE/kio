@@ -43,6 +43,8 @@
 #include <QtCore/QTextCodec>
 #include <QtCore/QCryptographicHash>
 
+Q_LOGGING_CATEGORY(KIO_HTTP_AUTH, "kf5.kio.kio_http.auth")
+
 static bool isWhiteSpace(char ch)
 {
     return (ch == ' ' || ch == '\t' || ch == '\v' || ch == '\f');
@@ -564,11 +566,11 @@ void KHttpDigestAuthentication::generateResponse(const QString &user, const QStr
         if (info.qop.contains("auth")) {
             info.qop = "auth";
         } else {
-            qWarning() << "Unsupported digest authentication qop parameters:" << values;
+            qCWarning(KIO_HTTP_AUTH) << "Unsupported digest authentication qop parameters:" << values;
             info.qop.clear();
         }
     } else if (info.qop == "auth-int") {
-        qWarning() << "Unsupported digest authentication qop parameter:" << info.qop;
+        qCWarning(KIO_HTTP_AUTH) << "Unsupported digest authentication qop parameter:" << info.qop;
         info.qop.clear();
     }
 
@@ -727,7 +729,7 @@ void KHttpNtlmAuthentication::generateResponse(const QString &_user, const QStri
         switch (m_stage1State) {
         case Init:
             if (!KNTLM::getNegotiate(buf)) {
-                qWarning() << "Error while constructing Type 1 NTLMv1 authentication request";
+                qCWarning(KIO_HTTP_AUTH) << "Error while constructing Type 1 NTLMv1 authentication request";
                 m_isError = true;
                 return;
             }
@@ -737,14 +739,14 @@ void KHttpNtlmAuthentication::generateResponse(const QString &_user, const QStri
             if (!KNTLM::getNegotiate(buf, QString(), QString(), KNTLM::Negotiate_NTLM2_Key
                                      | KNTLM::Negotiate_Always_Sign | KNTLM::Negotiate_Unicode
                                      | KNTLM::Request_Target | KNTLM::Negotiate_NTLM)) {
-                qWarning() << "Error while constructing Type 1 NTLMv2 authentication request";
+                qCWarning(KIO_HTTP_AUTH) << "Error while constructing Type 1 NTLMv2 authentication request";
                 m_isError = true;
                 return;
             }
             m_stage1State = SentNTLMv2;
             break;
         default:
-            qWarning() << "Error - Type 1 NTLM already sent - no Type 2 response received.";
+            qCWarning(KIO_HTTP_AUTH) << "Error - Type 1 NTLM already sent - no Type 2 response received.";
             m_isError = true;
             return;
         }
@@ -768,7 +770,7 @@ void KHttpNtlmAuthentication::generateResponse(const QString &_user, const QStri
         }
 
         if (!KNTLM::getAuth(buf, challenge, user, m_password, domain, QStringLiteral("WORKSTATION"), flags)) {
-            qWarning() << "Error while constructing Type 3 NTLM authentication request";
+            qCWarning(KIO_HTTP_AUTH) << "Error while constructing Type 3 NTLM authentication request";
             m_isError = true;
             return;
         }
@@ -850,7 +852,7 @@ void KHttpNegotiateAuthentication::generateResponse(const QString &user, const Q
     // see whether we can use the SPNEGO mechanism
     major_status = gss_indicate_mechs(&minor_status, &mech_set);
     if (GSS_ERROR(major_status)) {
-        qDebug() << "gss_indicate_mechs failed:" << gssError(major_status, minor_status);
+        qCDebug(KIO_HTTP_AUTH) << "gss_indicate_mechs failed:" << gssError(major_status, minor_status);
     } else {
         for (uint i = 0; i < mech_set->count; i++) {
             tmp_oid = &mech_set->elements[i];
@@ -878,7 +880,7 @@ void KHttpNegotiateAuthentication::generateResponse(const QString &user, const Q
     input_token.length = 0;
 
     if (GSS_ERROR(major_status)) {
-        qDebug() << "gss_import_name failed:" << gssError(major_status, minor_status);
+        qCDebug(KIO_HTTP_AUTH) << "gss_import_name failed:" << gssError(major_status, minor_status);
         m_isError = true;
         return;
     }
@@ -899,7 +901,7 @@ void KHttpNegotiateAuthentication::generateResponse(const QString &user, const Q
                                         NULL, NULL);
 
     if (GSS_ERROR(major_status) || (output_token.length == 0)) {
-        qDebug() << "gss_init_sec_context failed:" << gssError(major_status, minor_status);
+        qCDebug(KIO_HTTP_AUTH) << "gss_init_sec_context failed:" << gssError(major_status, minor_status);
         gss_release_name(&minor_status, &server);
         if (ctx != GSS_C_NO_CONTEXT) {
             gss_delete_sec_context(&minor_status, &ctx, GSS_C_NO_BUFFER);

@@ -26,6 +26,8 @@
 
 #include <stdio.h>
 
+Q_LOGGING_CATEGORY(KIO_HTTP_FILTER, "kf5.kio.kio_http.filter")
+
 /*
 Testcases:
  - http://david.fullrecall.com/browser-http-compression-test?compression=deflate-http (bug 160289)
@@ -190,7 +192,7 @@ HTTPFilterGZip::slotInput(const QByteArray &d)
             break;
         }
         case KFilterBase::Error:
-            qDebug() << "Error from KGZipFilter";
+            qCDebug(KIO_HTTP_FILTER) << "Error from KGZipFilter";
             emit error(i18n("Receiving corrupt data."));
             m_finished = true; // exit this while loop
             break;

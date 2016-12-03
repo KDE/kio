@@ -27,6 +27,9 @@ class KFilterBase;
 #include <QObject>
 #include <QCryptographicHash>
 
+#include <QLoggingCategory>
+Q_DECLARE_LOGGING_CATEGORY(KIO_HTTP_FILTER)
+
 class HTTPFilterBase : public QObject
 {
     Q_OBJECT

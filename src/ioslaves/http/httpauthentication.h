@@ -27,6 +27,9 @@
 #include <QtCore/QList>
 #include <QUrl>
 
+#include <QLoggingCategory>
+Q_DECLARE_LOGGING_CATEGORY(KIO_HTTP_AUTH)
+
 namespace KIO
 {
 class AuthInfo;
