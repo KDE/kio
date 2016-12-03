@@ -68,15 +68,17 @@ SearchProvider* KURISearchFilterEngine::webShortcutQuery(const QString& typedStr
     else if ( !typedString.isEmpty()  && m_cKeywordDelimiter == ' ')
       key = typedString;
 
+    qCDebug(category) << "m_cKeywordDelimiter=" << QString(QChar(m_cKeywordDelimiter)) << "pos=" << pos << "key=" << key;
+
     if (!key.isEmpty() && !KProtocolInfo::isKnownProtocol(key))
     {
       provider = SearchProvider::findByKey(key);
       if (provider)
       {
-        if (!m_bUseOnlyPreferredWebShortcuts || m_preferredWebShortcuts.contains(provider->desktopEntryName()))
+        if (!m_bUseOnlyPreferredWebShortcuts || m_preferredWebShortcuts.contains(provider->desktopEntryName())) {
             searchTerm = typedString.mid(pos+1);
-        else
-        {
+            qCDebug(category) << "found provider" << provider->desktopEntryName() << "searchTerm=" << searchTerm;
+        } else {
           delete provider;
           provider = 0;
         }
