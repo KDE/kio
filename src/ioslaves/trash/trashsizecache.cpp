@@ -36,12 +36,12 @@ TrashSizeCache::TrashSizeCache(const QString &path)
     : mTrashSizeCachePath(path + QLatin1String("/directorysizes")),
       mTrashPath(path)
 {
-    //qDebug() << "CACHE:" << mTrashSizeCachePath;
+    //qCDebug(KIO_TRASH) << "CACHE:" << mTrashSizeCachePath;
 }
 
 void TrashSizeCache::add(const QString &directoryName, qulonglong directorySize)
 {
-    //qDebug() << directoryName << directorySize;
+    //qCDebug(KIO_TRASH) << directoryName << directorySize;
     const QByteArray encodedDir = QFile::encodeName(directoryName).toPercentEncoding();
     const QByteArray spaceAndDirAndNewline = ' ' + encodedDir + '\n';
     QFile file(mTrashSizeCachePath);
@@ -53,7 +53,7 @@ void TrashSizeCache::add(const QString &directoryName, qulonglong directorySize)
                 if (line.endsWith(spaceAndDirAndNewline)) {
                     // Already there!
                     out.cancelWriting();
-                    //qDebug() << "already there!";
+                    //qCDebug(KIO_TRASH) << "already there!";
                     return;
                 }
                 out.write(line);
@@ -66,12 +66,12 @@ void TrashSizeCache::add(const QString &directoryName, qulonglong directorySize)
         out.write(newLine);
         out.commit();
     }
-    //qDebug() << mTrashSizeCachePath << "exists:" << QFile::exists(mTrashSizeCachePath);
+    //qCDebug(KIO_TRASH) << mTrashSizeCachePath << "exists:" << QFile::exists(mTrashSizeCachePath);
 }
 
 void TrashSizeCache::remove(const QString &directoryName)
 {
-    //qDebug() << directoryName;
+    //qCDebug(KIO_TRASH) << directoryName;
     const QByteArray encodedDir = QFile::encodeName(directoryName).toPercentEncoding();
     const QByteArray spaceAndDirAndNewline = ' ' + encodedDir + '\n';
     QFile file(mTrashSizeCachePath);

@@ -221,7 +221,7 @@ void TrashProtocol::clearTrash()
 
 void TrashProtocol::rename(const QUrl &oldURL, const QUrl &newURL, KIO::JobFlags flags)
 {
-    qDebug() << "TrashProtocol::rename(): old=" << oldURL << " new=" << newURL << " overwrite=" << (flags & KIO::Overwrite);
+    qCDebug(KIO_TRASH) << "TrashProtocol::rename(): old=" << oldURL << " new=" << newURL << " overwrite=" << (flags & KIO::Overwrite);
 
     if (oldURL.scheme() == QLatin1String("trash") && newURL.scheme() == QLatin1String("trash")) {
         error(KIO::ERR_CANNOT_RENAME, oldURL.toDisplayString());
@@ -233,7 +233,7 @@ void TrashProtocol::rename(const QUrl &oldURL, const QUrl &newURL, KIO::JobFlags
 
 void TrashProtocol::copy(const QUrl &src, const QUrl &dest, int /*permissions*/, KIO::JobFlags flags)
 {
-    qDebug() << "TrashProtocol::copy(): " << src << " " << dest;
+    qCDebug(KIO_TRASH) << "TrashProtocol::copy(): " << src << " " << dest;
 
     if (src.scheme() == QLatin1String("trash") && dest.scheme() == QLatin1String("trash")) {
         error(KIO::ERR_UNSUPPORTED_ACTION, i18n("This file is already in the trash bin."));
@@ -303,7 +303,7 @@ void TrashProtocol::del(const QUrl &url, bool /*isfile*/)
 
 void TrashProtocol::listDir(const QUrl &url)
 {
-    qDebug() << "TrashProtocol::listDir(): " << url;
+    qCDebug(KIO_TRASH) << "TrashProtocol::listDir(): " << url;
     // There are no subfolders in Windows Trash
     listRoot();
 }
@@ -387,7 +387,7 @@ void TrashProtocol::special(const QByteArray &data)
         break;
     }
     default:
-        qWarning() << "Unknown command in special(): " << cmd;
+        qCWarning(KIO_TRASH) << "Unknown command in special(): " << cmd;
         error(KIO::ERR_UNSUPPORTED_ACTION, QString::number(cmd));
         break;
     }
@@ -415,7 +415,7 @@ void TrashProtocol::updateRecycleBin()
 
 void TrashProtocol::put(const QUrl &url, int /*permissions*/, KIO::JobFlags)
 {
-    qDebug() << "put: " << url;
+    qCDebug(KIO_TRASH) << "put: " << url;
     // create deleted file. We need to get the mtime and original location from metadata...
     // Maybe we can find the info file for url.fileName(), in case ::rename() was called first, and failed...
     error(KIO::ERR_ACCESS_DENIED, url.toDisplayString());

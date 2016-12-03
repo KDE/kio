@@ -22,6 +22,7 @@
 
 #include <kio/slavebase.h>
 #include "trashimpl.h"
+
 namespace KIO
 {
 class Job;

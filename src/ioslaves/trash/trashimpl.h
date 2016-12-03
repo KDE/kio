@@ -27,6 +27,9 @@
 #include <QMap>
 #include <assert.h>
 
+#include <QLoggingCategory>
+Q_DECLARE_LOGGING_CATEGORY(KIO_TRASH)
+
 namespace Solid {
     class Device;
 }
