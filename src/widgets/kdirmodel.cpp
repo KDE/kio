@@ -20,6 +20,7 @@
 #include "kdirmodel.h"
 #include "kdirlister.h"
 #include "kfileitem.h"
+#include "kio_widgets_debug.h"
 #include <kiconloader.h>
 #include <klocalizedstring.h>
 #include <kjobuidelegate.h>
@@ -326,11 +327,11 @@ KDirModelNode *KDirModelPrivate::expandAllParentsUntil(const QUrl &_url) const /
 #ifndef NDEBUG
 void KDirModelPrivate::dump()
 {
-    qDebug() << "Dumping contents of KDirModel" << q << "dirLister url:" << m_dirLister->url();
+    qCDebug(KIO_WIDGETS) << "Dumping contents of KDirModel" << q << "dirLister url:" << m_dirLister->url();
     QHashIterator<QUrl, KDirModelNode *> it(m_nodeHash);
     while (it.hasNext()) {
         it.next();
-        qDebug() << it.key() << it.value();
+        qDebug(KIO_WIDGETS) << it.key() << it.value();
     }
 }
 #endif
