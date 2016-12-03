@@ -34,6 +34,7 @@
 #include <QCheckBox>
 #include <QPushButton>
 #include <QTreeWidget>
+#include <QLoggingCategory>
 
 // KDE
 #include <kconfig.h>
@@ -43,6 +44,8 @@
 #include <http_slave_defaults.h>
 #include <kpluginfactory.h>
 
+Q_DECLARE_LOGGING_CATEGORY(KIO_USERAGENTDLG)
+Q_LOGGING_CATEGORY(KIO_USERAGENTDLG, "kf5.kio.useragentdlg")
 
 K_PLUGIN_FACTORY_DECLARATION (KioConfigFactory)
 
@@ -320,7 +323,7 @@ void UserAgentDlg::save()
         KConfigGroup cg (m_config, domain);
         cg.writeEntry ("UserAgent", item->text (2));
         deleteList.removeAll (domain);
-        qDebug ("UserAgentDlg::save: Removed [%s] from delete list", domain.toLatin1().constData());
+        qCDebug (KIO_USERAGENTDLG, "UserAgentDlg::save: Removed [%s] from delete list", domain.toLatin1().constData());
     }
 
     // Write the global configuration information...
@@ -340,7 +343,7 @@ void UserAgentDlg::save()
         for (QStringList::ConstIterator it = deleteList.constBegin(); it != endIt; ++it) {
             KConfigGroup cg (&cfg, *it);
             cg.deleteEntry ("UserAgent");
-            qDebug ("UserAgentDlg::save: Deleting UserAgent of group [%s]", (*it).toLatin1().constData());
+            qCDebug (KIO_USERAGENTDLG, "UserAgentDlg::save: Deleting UserAgent of group [%s]", (*it).toLatin1().constData());
             if (cg.keyList().count() < 1)
                 cg.deleteGroup();
         }
