@@ -48,6 +48,8 @@
 #include <QtCore/QTextStream>
 #include <QUrl>
 
+Q_LOGGING_CATEGORY(KIO_COOKIEJAR, "kf5.kio.cookiejar")
+
 // BR87227
 // Waba: Should the number of cookies be limited?
 // I am not convinced of the need of such limit
@@ -1253,9 +1255,9 @@ void KCookieJar::eatSessionCookies(const QString &fqdn, WId windowId,
 #ifndef NDEBUG
             if (ids.contains(windowId)) {
                 if (ids.count() > 1) {
-                    qDebug() << "removing window id" << windowId << "from session cookie";
+                    qCDebug(KIO_COOKIEJAR) << "removing window id" << windowId << "from session cookie";
                 } else {
-                    qDebug() << "deleting session cookie";
+                    qCDebug(KIO_COOKIEJAR) << "deleting session cookie";
                 }
             }
 #endif

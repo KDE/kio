@@ -42,6 +42,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <qstandardpaths.h>
 #include <QMessageBox>
 
+#include <QLoggingCategory>
+Q_DECLARE_LOGGING_CATEGORY(KIO_COOKIEJAR)
+
 #include "kcookiejar.h"
 #include "kcookiewin.h"
 #include "kcookieserveradaptor.h"
@@ -275,7 +278,7 @@ void KCookieServer::checkCookies(KHttpCookieList *cookieList, qlonglong windowId
 
         case KCookieDunno:
         case KCookieAsk:
-            qWarning() << "userAdvice not accept or reject, this should never happen!";
+            qCWarning(KIO_COOKIEJAR) << "userAdvice not accept or reject, this should never happen!";
             break;
         }
     }

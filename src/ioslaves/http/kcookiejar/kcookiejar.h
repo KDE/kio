@@ -31,6 +31,9 @@
 #include <QtCore/QSet>
 #include <qwindowdefs.h> //WId
 
+#include <QLoggingCategory>
+Q_DECLARE_LOGGING_CATEGORY(KIO_COOKIEJAR)
+
 class KConfig;
 class KCookieJar;
 class KHttpCookie;
