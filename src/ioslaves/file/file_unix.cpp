@@ -217,7 +217,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
                     error(KIO::ERR_DISK_FULL, dest);
                     remove(_dest.data());
                 } else {
-                    qWarning() << "Couldn't write[2]. Error:" << dest_file.errorString();
+                    qCWarning(KIO_FILE) << "Couldn't write[2]. Error:" << dest_file.errorString();
                     error(KIO::ERR_CANNOT_WRITE, dest);
                 }
 #if HAVE_POSIX_ACL
@@ -238,7 +238,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
     dest_file.close();
 
     if (dest_file.error() != QFile::NoError) {
-        qWarning() << "Error when closing file descriptor[2]:" << dest_file.errorString();
+        qCWarning(KIO_FILE) << "Error when closing file descriptor[2]:" << dest_file.errorString();
         error(KIO::ERR_CANNOT_WRITE, dest);
 #if HAVE_POSIX_ACL
         if (acl) {
@@ -273,7 +273,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
     ut.actime = buff_src.st_atime;
     ut.modtime = buff_src.st_mtime;
     if (::utime(_dest.data(), &ut) != 0) {
-        qWarning() << QStringLiteral("Couldn't preserve access and modification time for\n%1").arg(dest);
+        qCWarning(KIO_FILE) << QStringLiteral("Couldn't preserve access and modification time for\n%1").arg(dest);
     }
 
     processedSize(buff_src.st_size);

@@ -279,7 +279,7 @@ void FileProtocol::rename(const QUrl &src, const QUrl &dest,
             error(KIO::ERR_ACCESS_DENIED, _dest.filePath());
         } else {
             error(KIO::ERR_CANNOT_RENAME, _src.filePath());
-            qDebug() <<  "Renaming file "
+            qCDebug(KIO_FILE) <<  "Renaming file "
                     << _src.filePath()
                     << " failed ("
                     << dwLastErr << ")";

@@ -77,6 +77,8 @@
 #include <kdirnotify.h>
 #include <ioslave_defaults.h>
 
+Q_LOGGING_CATEGORY(KIO_FILE, "kf5.kio.kio_file")
+
 // Pseudo plugin class to embed meta data
 class KIOPluginForMetaData : public QObject
 {
@@ -496,7 +498,7 @@ void FileProtocol::write(const QByteArray &data)
             error(KIO::ERR_DISK_FULL, mFile->fileName());
             close();
         } else {
-            qWarning() << "Couldn't write. Error:" << mFile->errorString();
+            qCWarning(KIO_FILE) << "Couldn't write. Error:" << mFile->errorString();
             error(KIO::ERR_CANNOT_WRITE, mFile->fileName());
             close();
         }
@@ -629,7 +631,7 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
                     error(KIO::ERR_DISK_FULL, dest_orig);
                     result = -2; // means: remove dest file
                 } else {
-                    qWarning() << "Couldn't write. Error:" << f.errorString();
+                    qCWarning(KIO_FILE) << "Couldn't write. Error:" << f.errorString();
                     error(KIO::ERR_CANNOT_WRITE, dest_orig);
                     result = -1;
                 }
@@ -664,7 +666,7 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
     f.close();
 
     if (f.error() != QFile::NoError) {
-        qWarning() << "Error when closing file descriptor:" << f.errorString();
+        qCWarning(KIO_FILE) << "Error when closing file descriptor:" << f.errorString();
         error(KIO::ERR_CANNOT_WRITE, dest_orig);
         return;
     }
@@ -678,7 +680,7 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
         }
 
         if (!QFile::rename(dest, dest_orig)) {
-            qWarning() << " Couldn't rename " << dest << " to " << dest_orig;
+            qCWarning(KIO_FILE) << " Couldn't rename " << dest << " to " << dest_orig;
             error(KIO::ERR_CANNOT_RENAME_PARTIAL, dest_orig);
             return;
         }
@@ -794,7 +796,7 @@ bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &pat
             while (true) {
                 ssize_t n = readlink(path.constData(), linkTargetBuffer.data(), bufferSize);
                 if (n < 0 && errno != ERANGE) {
-                    qWarning() << "readlink failed!" << path;
+                    qCWarning(KIO_FILE) << "readlink failed!" << path;
                     return false;
                 } else if (n > 0 && static_cast<size_t>(n) != bufferSize) {
                     linkTargetBuffer.truncate(n);
@@ -821,7 +823,7 @@ bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &pat
             }
         }
     } else {
-        // qWarning() << "lstat didn't work on " << path.data();
+        // qCWarning(KIO_FILE) << "lstat didn't work on " << path.data();
         return false;
     }
 

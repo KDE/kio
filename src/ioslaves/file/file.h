@@ -39,6 +39,9 @@
 #include <acl/libacl.h>
 #endif
 
+#include <QLoggingCategory>
+Q_DECLARE_LOGGING_CATEGORY(KIO_FILE)
+
 class FileProtocol : public QObject, public KIO::SlaveBase
 {
     Q_OBJECT
