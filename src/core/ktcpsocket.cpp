@@ -19,6 +19,7 @@
 
 #include "ktcpsocket.h"
 #include "ktcpsocket_p.h"
+#include "kiocoredebug.h"
 
 #include <ksslcertificatemanager.h>
 #include <klocalizedstring.h>
@@ -805,7 +806,7 @@ void KTcpSocket::startClientEncryption()
 void KTcpSocket::showSslErrors()
 {
     foreach (const QSslError &e, d->sock.sslErrors()) {
-        qDebug() << e.errorString();
+        qCDebug(KIO_CORE) << e.errorString();
     }
 }
 

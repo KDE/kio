@@ -19,6 +19,7 @@
 
 #include "restorejob.h"
 
+#include "kiocoredebug.h"
 #include "job_p.h"
 #include <kdirnotify.h>
 
@@ -95,7 +96,7 @@ void RestoreJob::slotResult(KJob *job)
 {
     Q_D(RestoreJob);
     if (job->error()) {
-        qDebug() << job->errorString();
+        qCDebug(KIO_CORE) << job->errorString();
         KIO::Job::slotResult(job); // will set the error and emit result(this)
         return;
     }
