@@ -422,7 +422,7 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
 
         jobSlave(m_getJob)->setOffset(jobSlave(m_putJob)->offset());
     } else {
-        qWarning() << "unknown job=" << job << "m_getJob=" << m_getJob << "m_putJob=" << m_putJob;
+        qCWarning(KIO_CORE) << "unknown job=" << job << "m_getJob=" << m_getJob << "m_putJob=" << m_putJob;
     }
 }
 

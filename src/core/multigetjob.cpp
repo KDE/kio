@@ -175,7 +175,7 @@ void MultiGetJob::slotRedirection(const QUrl &url)
         return;    // Error
     }
     if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("redirect"), d->m_url, url)) {
-        qWarning() << "Redirection from" << d->m_currentEntry.url << "to" << url << "REJECTED!";
+        qCWarning(KIO_CORE) << "Redirection from" << d->m_currentEntry.url << "to" << url << "REJECTED!";
         return;
     }
     d->m_redirectionURL = url;

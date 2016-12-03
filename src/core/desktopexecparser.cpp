@@ -70,7 +70,7 @@ int KRunMX1::expandEscapedMacro(const QString &str, int pos, QStringList &ret)
         break;
     case 'm':
 //       ret << "-miniicon" << service.icon().replace( '%', "%%" );
-        qWarning() << "-miniicon isn't supported anymore (service"
+        qCWarning(KIO_CORE) << "-miniicon isn't supported anymore (service"
                    << service.name() << ')';
         break;
     case 'u':
@@ -148,7 +148,7 @@ int KRunMX2::expandEscapedMacro(const QString &str, int pos, QStringList &ret)
                 //qCDebug(KIO_CORE) << "No URLs supplied to single-URL service" << str;
             }
         } else if (urls.count() > 1) {
-            qWarning() << urls.count() << "URLs supplied to single-URL service" << str;
+            qCWarning(KIO_CORE) << urls.count() << "URLs supplied to single-URL service" << str;
         } else {
             subst(option, urls.first(), ret);
         }
@@ -178,7 +178,7 @@ QStringList KIO::DesktopExecParser::supportedProtocols(const KService &service)
     QString exec = service.exec();
     if (mx1.expandMacrosShellQuote(exec) && !mx1.hasUrls) {
         if (!supportedProtocols.isEmpty()) {
-            qWarning() << service.entryPath() << "contains a X-KDE-Protocols line but doesn't use %u or %U in its Exec line! This is inconsistent.";
+            qCWarning(KIO_CORE) << service.entryPath() << "contains a X-KDE-Protocols line but doesn't use %u or %U in its Exec line! This is inconsistent.";
         }
         return QStringList();
     } else {
@@ -258,7 +258,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
 {
     QString exec = d->service.exec();
     if (exec.isEmpty()) {
-        qWarning() << "KRun: no Exec field in `" << d->service.entryPath() << "' !";
+        qCWarning(KIO_CORE) << "KRun: no Exec field in `" << d->service.entryPath() << "' !";
         return QStringList();
     }
 
@@ -269,7 +269,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     KRunMX2 mx2(d->urls);
 
     if (!mx1.expandMacrosShellQuote(exec)) {    // Error in shell syntax
-        qWarning() << "KRun: syntax error in command" << d->service.exec() << ", service" << d->service.name();
+        qCWarning(KIO_CORE) << "KRun: syntax error in command" << d->service.exec() << ", service" << d->service.name();
         return QStringList();
     }
 
@@ -368,7 +368,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         terminal += ' ';
         terminal += d->service.terminalOptions();
         if (!mx1.expandMacrosShellQuote(terminal)) {
-            qWarning() << "KRun: syntax error in command" << terminal << ", service" << d->service.name();
+            qCWarning(KIO_CORE) << "KRun: syntax error in command" << terminal << ", service" << d->service.name();
             return QStringList();
         }
         mx2.expandMacrosShellQuote(terminal);

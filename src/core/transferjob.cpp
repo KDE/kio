@@ -46,7 +46,7 @@ void TransferJob::slotData(const QByteArray &_data)
 {
     Q_D(TransferJob);
     if (d->m_command == CMD_GET && !d->m_isMimetypeEmitted) {
-        qWarning() << "mimeType() not emitted when sending first data!; job URL ="
+        qCWarning(KIO_CORE) << "mimeType() not emitted when sending first data!; job URL ="
                    << d->m_url << "data size =" << _data.size();
     }
     // shut up the warning, HACK: downside is that it changes the meaning of the variable
@@ -68,7 +68,7 @@ void TransferJob::slotRedirection(const QUrl &url)
     Q_D(TransferJob);
     //qDebug() << url;
     if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("redirect"), d->m_url, url)) {
-        qWarning() << "Redirection from" << d->m_url << "to" << url << "REJECTED!";
+        qCWarning(KIO_CORE) << "Redirection from" << d->m_url << "to" << url << "REJECTED!";
         return;
     }
 
@@ -259,7 +259,7 @@ void TransferJob::slotMimetype(const QString &type)
     Q_D(TransferJob);
     d->m_mimetype = type;
     if (d->m_command == CMD_GET && d->m_isMimetypeEmitted) {
-        qWarning() << "mimetype() emitted again, or after sending first data!; job URL =" << d->m_url;
+        qCWarning(KIO_CORE) << "mimetype() emitted again, or after sending first data!; job URL =" << d->m_url;
     }
     d->m_isMimetypeEmitted = true;
     emit mimetype(this, type);

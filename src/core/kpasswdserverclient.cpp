@@ -20,6 +20,7 @@
  */
 
 #include "kpasswdserverclient_p.h"
+#include "kiocoredebug.h"
 
 #include <kio/authinfo.h>
 #include <QtCore/QByteArray>
@@ -49,7 +50,7 @@ bool KPasswdServerClient::checkAuthInfo(KIO::AuthInfo &info, qlonglong windowId,
     //qDebug() << "window-id=" << windowId << "url=" << info.url;
 
     if (!QCoreApplication::instance()) {
-        qWarning() << "kioslave is not a QCoreApplication! This is required for checkAuthInfo.";
+        qCWarning(KIO_CORE) << "kioslave is not a QCoreApplication! This is required for checkAuthInfo.";
         return false;
     }
 
@@ -61,13 +62,13 @@ bool KPasswdServerClient::checkAuthInfo(KIO::AuthInfo &info, qlonglong windowId,
     QDBusReply<qlonglong> reply = m_interface->checkAuthInfoAsync(info, windowId,
                                   usertime);
     if (!reply.isValid()) {
-        qWarning() << "Can't communicate with kiod_kpasswdserver (for checkAuthInfo)!";
+        qCWarning(KIO_CORE) << "Can't communicate with kiod_kpasswdserver (for checkAuthInfo)!";
         //qDebug() << reply.error().name() << reply.error().message();
         return false;
     }
 
     if (!loop.waitForResult(reply.value())) {
-        qWarning() << "kiod_kpasswdserver died while waiting for reply!";
+        qCWarning(KIO_CORE) << "kiod_kpasswdserver died while waiting for reply!";
         return false;
     }
 
@@ -87,7 +88,7 @@ qlonglong KPasswdServerClient::queryAuthInfo(KIO::AuthInfo &info, const QString 
     //qDebug() << "window-id=" << windowId;
 
     if (!QCoreApplication::instance()) {
-        qWarning() << "kioslave is not a QCoreApplication! This is required for queryAuthInfo.";
+        qCWarning(KIO_CORE) << "kioslave is not a QCoreApplication! This is required for queryAuthInfo.";
         return -1;
     }
 
@@ -100,13 +101,13 @@ qlonglong KPasswdServerClient::queryAuthInfo(KIO::AuthInfo &info, const QString 
                                   windowId, seqNr,
                                   usertime);
     if (!reply.isValid()) {
-        qWarning() << "Can't communicate with kiod_kpasswdserver (for queryAuthInfo)!";
+        qCWarning(KIO_CORE) << "Can't communicate with kiod_kpasswdserver (for queryAuthInfo)!";
         //qDebug() << reply.error().name() << reply.error().message();
         return -1;
     }
 
     if (!loop.waitForResult(reply.value())) {
-        qWarning() << "kiod_kpasswdserver died while waiting for reply!";
+        qCWarning(KIO_CORE) << "kiod_kpasswdserver died while waiting for reply!";
         return -1;
     }
 

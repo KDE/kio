@@ -27,6 +27,7 @@
 #include <kdirwatch.h>
 #include <kconfig.h>
 #include <kconfiggroup.h>
+#include "kiocoredebug.h"
 
 class KNFSShare::KNFSSharePrivate
 {
@@ -89,7 +90,7 @@ bool KNFSShare::KNFSSharePrivate::readExportsFile()
     //qDebug() << exportsFile;
 
     if (!f.open(QIODevice::ReadOnly)) {
-        qWarning() << "KNFSShare: Could not open" << exportsFile;
+        qCWarning(KIO_CORE) << "KNFSShare: Could not open" << exportsFile;
         return false;
     }
 
@@ -129,7 +130,7 @@ bool KNFSShare::KNFSSharePrivate::readExportsFile()
         if (completeLine[0] == QLatin1Char('\"')) {
             int i = completeLine.indexOf(QLatin1Char('"'), 1);
             if (i == -1) {
-                qWarning() << "KNFSShare: Parse error: Missing quotation mark:" << completeLine;
+                qCWarning(KIO_CORE) << "KNFSShare: Parse error: Missing quotation mark:" << completeLine;
                 continue;
             }
             path = completeLine.mid(1, i - 1);

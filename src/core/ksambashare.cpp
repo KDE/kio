@@ -21,6 +21,7 @@
 #include "ksambashare_p.h"
 #include "ksambasharedata.h"
 #include "ksambasharedata_p.h"
+#include "kiocoredebug.h"
 
 #include <QtCore/QMap>
 #include <QtCore/QMutableMapIterator>
@@ -89,7 +90,7 @@ bool KSambaSharePrivate::findSmbConf()
         }
     }
 
-    qWarning() << "KSambaShare: Could not find smb.conf!";
+    qCWarning(KIO_CORE) << "KSambaShare: Could not find smb.conf!";
 
     return false;
 }
@@ -144,7 +145,7 @@ QString KSambaSharePrivate::testparmParamValue(const QString &parameterName)
                 && err.at(1).startsWith("Loaded services file OK.")) {
             //qDebug() << "Running testparm" << args;
         } else {
-            qWarning() << "We got some errors while running testparm" << stdErr;
+            qCWarning(KIO_CORE) << "We got some errors while running testparm" << stdErr;
         }
     }
 
@@ -178,8 +179,8 @@ QByteArray KSambaSharePrivate::getNetUserShareInfo()
             //TODO: parse and process other error messages.
             // create a parser for the error output and
             // send error message somewhere
-            qWarning() << "We got some errors while running 'net usershare info'";
-            qWarning() << stdErr;
+            qCWarning(KIO_CORE) << "We got some errors while running 'net usershare info'";
+            qCWarning(KIO_CORE) << stdErr;
         }
     }
 
@@ -335,8 +336,8 @@ KSambaShareData::UserShareError KSambaSharePrivate::add(const KSambaShareData &s
     if (!stdErr.isEmpty()) {
         // create a parser for the error output and
         // send error message somewhere
-        qWarning() << "We got some errors while running 'net usershare add'" << args;
-        qWarning() << stdErr;
+        qCWarning(KIO_CORE) << "We got some errors while running 'net usershare add'" << args;
+        qCWarning(KIO_CORE) << stdErr;
     }
 
     return (ret == 0) ? KSambaShareData::UserShareOk : KSambaShareData::UserShareSystemError;
@@ -400,7 +401,7 @@ bool KSambaSharePrivate::sync()
             } else if (key == QLatin1String("guest_ok")) {
                 shareData.dd->guestPermission = value;
             } else {
-                qWarning() << "Something nasty happen while parsing 'net usershare info'"
+                qCWarning(KIO_CORE) << "Something nasty happen while parsing 'net usershare info'"
                            << "share:" << currentShare << "key:" << key;
             }
         } else if (line.trimmed().isEmpty()) {

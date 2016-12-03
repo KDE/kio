@@ -39,7 +39,7 @@ void SimpleJobPrivate::simpleJobInit()
 {
     Q_Q(SimpleJob);
     if (!m_url.isValid() || m_url.scheme().isEmpty()) {
-        qWarning() << "Invalid URL:" << m_url;
+        qCWarning(KIO_CORE) << "Invalid URL:" << m_url;
         q->setError(ERR_MALFORMED_URL);
         q->setErrorText(m_url.toString());
         QTimer::singleShot(0, q, SLOT(slotFinished()));
@@ -56,7 +56,7 @@ bool SimpleJob::doKill()
         d->m_extraFlags |= JobPrivate::EF_KillCalled;
         Scheduler::cancelJob(this); // deletes the slave if not 0
     } else {
-        qWarning() << this << "This is overkill.";
+        qCWarning(KIO_CORE) << this << "This is overkill.";
     }
     return Job::doKill();
 }
@@ -304,7 +304,7 @@ int SimpleJobPrivate::requestMessageBox(int _type, const QString &text, const QS
         return m_uiDelegateExtension->requestMessageBox(type, text, caption, buttonYes, buttonNo,
                 iconYes, iconNo, dontAskAgainName, sslMetaData);
     }
-    qWarning() << "JobUiDelegate not set! Returing -1";
+    qCWarning(KIO_CORE) << "JobUiDelegate not set! Returing -1";
     return -1;
 }
 

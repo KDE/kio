@@ -22,6 +22,7 @@
 #include "connection_p.h"
 #include <QDebug>
 #include "connectionbackend_p.h"
+#include "kiocoredebug.h"
 
 #include <errno.h>
 
@@ -141,7 +142,7 @@ void Connection::connectToRemote(const QUrl &address)
     } else if (scheme == QLatin1String("tcp")) {
         d->setBackend(new ConnectionBackend(ConnectionBackend::TcpSocketMode, this));
     } else {
-        qWarning() << "Unknown protocol requested:" << scheme << "(" << address << ")";
+        qCWarning(KIO_CORE) << "Unknown protocol requested:" << scheme << "(" << address << ")";
         Q_ASSERT(0);
         return;
     }

@@ -33,6 +33,7 @@
 #include <QUrl>
 #include <QPointer>
 #include <QDataStream>
+#include "kiocoredebug.h"
 
 #define KIO_ARGS QByteArray packedArgs; QDataStream stream( &packedArgs, QIODevice::WriteOnly ); stream
 

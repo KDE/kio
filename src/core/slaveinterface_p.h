@@ -30,6 +30,8 @@
 #include <QtCore/QPointer>
 #include <QtNetwork/QHostInfo>
 
+#include "kiocoredebug.h"
+
 static const unsigned int max_nums = 8;
 
 class KIO::SlaveInterfacePrivate

@@ -212,7 +212,7 @@ void ListJobPrivate::slotRedirection(const QUrl &url)
 {
     Q_Q(ListJob);
     if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("redirect"), m_url, url)) {
-        qWarning() << "Redirection from" << m_url << "to" << url << "REJECTED!";
+        qCWarning(KIO_CORE) << "Redirection from" << m_url << "to" << url << "REJECTED!";
         return;
     }
     m_redirectionURL = url; // We'll remember that when the job finishes

@@ -20,6 +20,7 @@
 
 #include "klocalsocket.h"
 #include "klocalsocket_p.h"
+#include "kiocoredebug.h"
 
 #include <QtCore/QSocketNotifier>
 
@@ -159,7 +160,7 @@ void KLocalSocketServer::setMaxPendingConnections(int numConnections)
         d->maxPendingConnections = numConnections;
         d->readNotifier->setEnabled(d->pendingConnections.size() < d->maxPendingConnections);
     } else {
-        qWarning("KLocalSocketServer::setMaxPendingConnections: cannot set to a negative number");
+        qCWarning(KIO_CORE, "KLocalSocketServer::setMaxPendingConnections: cannot set to a negative number");
     }
 }
 

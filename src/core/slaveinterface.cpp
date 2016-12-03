@@ -320,7 +320,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         break;
     }
     default:
-        qWarning() << "Slave sends unknown command (" << _cmd << "), dropping slave";
+        qCWarning(KIO_CORE) << "Slave sends unknown command (" << _cmd << "), dropping slave";
         return false;
     }
     return true;

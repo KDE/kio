@@ -21,6 +21,7 @@
 #include "kfileitem.h"
 
 #include "kioglobal_p.h"
+#include "kiocoredebug.h"
 
 #include <QtCore/QDate>
 #include <QtCore/QDir>
@@ -488,7 +489,7 @@ KFileItem::~KFileItem()
 void KFileItem::refresh()
 {
     if (!d) {
-        qWarning() << "null item";
+        qCWarning(KIO_CORE) << "null item";
         return;
     }
 
@@ -527,7 +528,7 @@ void KFileItem::setDelayedMimeTypes(bool b)
 void KFileItem::setUrl(const QUrl &url)
 {
     if (!d) {
-        qWarning() << "null item";
+        qCWarning(KIO_CORE) << "null item";
         return;
     }
 
@@ -538,7 +539,7 @@ void KFileItem::setUrl(const QUrl &url)
 void KFileItem::setLocalPath(const QString &path)
 {
     if (!d) {
-        qWarning() << "null item";
+        qCWarning(KIO_CORE) << "null item";
         return;
     }
 
@@ -548,7 +549,7 @@ void KFileItem::setLocalPath(const QString &path)
 void KFileItem::setName(const QString &name)
 {
     if (!d) {
-        qWarning() << "null item";
+        qCWarning(KIO_CORE) << "null item";
         return;
     }
 
@@ -1365,7 +1366,7 @@ QDataStream &operator>> (QDataStream &s, KFileItem &a)
     s >> strText;
 
     if (!a.d) {
-        qWarning() << "null item";
+        qCWarning(KIO_CORE) << "null item";
         return s;
     }
 

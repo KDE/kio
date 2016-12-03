@@ -44,6 +44,7 @@
 #include <config-kiocore.h> // CMAKE_INSTALL_FULL_LIBEXECDIR_KF5
 
 #include "slaveinterface_p.h"
+#include "kiocoredebug.h"
 
 using namespace KIO;
 
@@ -137,7 +138,7 @@ public:
         m_idleSince = QDateTime();
         slaveconnserver->listenForRemote();
         if (!slaveconnserver->isListening()) {
-            qWarning() << "KIO Connection server not listening, could not connect";
+            qCWarning(KIO_CORE) << "KIO Connection server not listening, could not connect";
         }
     }
     ~SlavePrivate()

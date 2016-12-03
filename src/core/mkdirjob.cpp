@@ -23,6 +23,7 @@
 #include "job_p.h"
 #include <slave.h>
 #include <kurlauthorized.h>
+#include "kiocoredebug.h"
 
 using namespace KIO;
 
@@ -77,7 +78,7 @@ void MkdirJobPrivate::slotRedirection(const QUrl &url)
     Q_Q(MkdirJob);
     //qDebug() << url;
     if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("redirect"), m_url, url)) {
-        qWarning() << "Redirection from" << m_url << "to" << url << "REJECTED!";
+        qCWarning(KIO_CORE) << "Redirection from" << m_url << "to" << url << "REJECTED!";
         q->setError(ERR_ACCESS_DENIED);
         q->setErrorText(url.toDisplayString());
         return;

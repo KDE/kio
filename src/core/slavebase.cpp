@@ -51,6 +51,7 @@
 #include "ioslave_defaults.h"
 #include "slaveinterface.h"
 #include "kpasswdserverclient_p.h"
+#include "kiocoredebug.h"
 
 #ifndef NDEBUG
 #if HAVE_BACKTRACE
@@ -141,14 +142,14 @@ public:
     void verifyState(const char *cmdName)
     {
         if ((m_state != FinishedCalled) && (m_state != ErrorCalled)) {
-            qWarning() << cmdName << "did not call finished() or error()! Please fix the KIO slave.";
+            qCWarning(KIO_CORE) << cmdName << "did not call finished() or error()! Please fix the KIO slave.";
         }
     }
 
     void verifyErrorFinishedNotCalled(const char *cmdName)
     {
         if (m_state == FinishedCalled || m_state == ErrorCalled) {
-            qWarning() << cmdName << "called finished() or error(), but it's not supposed to! Please fix the KIO slave.";
+            qCWarning(KIO_CORE) << cmdName << "called finished() or error(), but it's not supposed to! Please fix the KIO slave.";
         }
     }
 
@@ -435,10 +436,10 @@ void SlaveBase::opened()
 void SlaveBase::error(int _errid, const QString &_text)
 {
     if (d->m_state == d->ErrorCalled) {
-        qWarning() << "error() called twice! Please fix the KIO slave.";
+        qCWarning(KIO_CORE) << "error() called twice! Please fix the KIO slave.";
         return;
     } else if (d->m_state == d->FinishedCalled) {
-        qWarning() << "error() called after finished()! Please fix the KIO slave.";
+        qCWarning(KIO_CORE) << "error() called after finished()! Please fix the KIO slave.";
         return;
     }
 
@@ -463,7 +464,7 @@ void SlaveBase::finished()
 {
     if (!d->pendingListEntries.isEmpty()) {
         if (!d->m_rootEntryListed) {
-            qWarning() << "UDSEntry for '.' not found, creating a default one. Please fix the" << QCoreApplication::applicationName() << "KIO slave";
+            qCWarning(KIO_CORE) << "UDSEntry for '.' not found, creating a default one. Please fix the" << QCoreApplication::applicationName() << "KIO slave";
             KIO::UDSEntry entry;
             entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
             entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
@@ -477,10 +478,10 @@ void SlaveBase::finished()
     }
 
     if (d->m_state == d->FinishedCalled) {
-        qWarning() << "finished() called twice! Please fix the KIO slave.";
+        qCWarning(KIO_CORE) << "finished() called twice! Please fix the KIO slave.";
         return;
     } else if (d->m_state == d->ErrorCalled) {
-        qWarning() << "finished() called after error()! Please fix the KIO slave.";
+        qCWarning(KIO_CORE) << "finished() called after error()! Please fix the KIO slave.";
         return;
     }
 
@@ -1285,7 +1286,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
         d->m_state = d->Idle;
     } break;
     case CMD_NONE: {
-        qWarning() << "Got unexpected CMD_NONE!";
+        qCWarning(KIO_CORE) << "Got unexpected CMD_NONE!";
     } break;
     case CMD_MULTI_GET: {
         d->m_state = d->InsideMethod;

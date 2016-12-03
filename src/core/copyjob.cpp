@@ -20,6 +20,7 @@
 */
 
 #include "copyjob.h"
+#include "kiocoredebug.h"
 #include <errno.h>
 #include "kcoredirlister.h"
 #include "kfileitem.h"
@@ -603,7 +604,7 @@ void CopyJobPrivate::slotEntries(KIO::Job *job, const UDSEntryList &list)
 void CopyJobPrivate::slotSubError(ListJob *job, ListJob *subJob)
 {
     const QUrl url = subJob->url();
-    qWarning() << url << subJob->errorString();
+    qCWarning(KIO_CORE) << url << subJob->errorString();
 
     Q_Q(CopyJob);
 
@@ -668,7 +669,7 @@ void CopyJobPrivate::addCopyInfoFromUDSEntry(const UDSEntry &entry, const QUrl &
                 for (int n = 0; n < numberOfSlashes + 1; ++n) {
                     pos = path.lastIndexOf('/', pos - 1);
                     if (pos == -1) { // error
-                        qWarning() << "kioslave bug: not enough slashes in UDS_URL" << path << "- looking for" << numberOfSlashes << "slashes";
+                        qCWarning(KIO_CORE) << "kioslave bug: not enough slashes in UDS_URL" << path << "- looking for" << numberOfSlashes << "slashes";
                         break;
                     }
                 }
@@ -1843,7 +1844,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                 QTemporaryFile tmpFile(srcDir + "kio_XXXXXX");
                 const bool openOk = tmpFile.open();
                 if (!openOk) {
-                    qWarning() << "Couldn't open temp file in" << srcDir;
+                    qCWarning(KIO_CORE) << "Couldn't open temp file in" << srcDir;
                 } else {
                     const QString _tmp(tmpFile.fileName());
                     tmpFile.close();
@@ -1858,7 +1859,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                             qCDebug(KIO_COPYJOB_DEBUG) << "Didn't manage to rename" << _tmp << "to" << _dest << ", reverting";
                             // Revert back to original name!
                             if (!QFile::rename(_tmp, _src)) {
-                                qWarning() << "Couldn't rename" << _tmp << "back to" << _src << '!';
+                                qCWarning(KIO_CORE) << "Couldn't rename" << _tmp << "back to" << _src << '!';
                                 // Severe error, abort
                                 q->Job::slotResult(job); // will set the error and emit result(this)
                                 return;

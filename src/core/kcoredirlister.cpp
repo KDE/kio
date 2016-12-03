@@ -304,7 +304,7 @@ KCoreDirLister::Private::CachedItemsJob::CachedItemsJob(KCoreDirLister *lister, 
 {
     qCDebug(KIO_CORE_DIRLISTER) << "Creating CachedItemsJob" << this << "for lister" << lister << url;
     if (lister->d->cachedItemsJobForUrl(url)) {
-        qWarning() << "Lister" << lister << "has a cached items job already for" << url;
+        qCWarning(KIO_CORE) << "Lister" << lister << "has a cached items job already for" << url;
     }
     lister->d->m_cachedItemsJobs.append(this);
     setAutoDelete(true);
@@ -341,7 +341,7 @@ void KCoreDirListerCache::emitItemsFromCache(KCoreDirLister::Private::CachedItem
 
     DirItem *itemU = kDirListerCache()->itemsInUse.value(urlStr);
     if (!itemU) {
-        qWarning() << "Can't find item for directory" << urlStr << "anymore";
+        qCWarning(KIO_CORE) << "Can't find item for directory" << urlStr << "anymore";
     } else {
         const NonMovableFileItemList items = itemU->lstItems;
         const KFileItem rootItem = itemU->rootItem;
@@ -400,7 +400,7 @@ void KCoreDirListerCache::forgetCachedItemsJob(KCoreDirLister::Private::CachedIt
 bool KCoreDirListerCache::validUrl(KCoreDirLister *lister, const QUrl &url) const
 {
     if (!url.isValid()) {
-        qWarning() << url.errorString();
+        qCWarning(KIO_CORE) << url.errorString();
         lister->handleErrorMessage(i18n("Malformed URL\n%1", url.errorString()));
         return false;
     }
@@ -707,9 +707,9 @@ void KCoreDirListerCache::updateDirectory(const QUrl &_dir)
     // the listing is continuing.
 
     if (!(listers.isEmpty() || killed)) {
-        qWarning() << "The unexpected happened.";
-        qWarning() << "listers for" << dir << "=" << listers;
-        qWarning() << "job=" << job;
+        qCWarning(KIO_CORE) << "The unexpected happened.";
+        qCWarning(KIO_CORE) << "listers for" << dir << "=" << listers;
+        qCWarning(KIO_CORE) << "job=" << job;
         Q_FOREACH(KCoreDirLister *kdl, listers) {
             qCDebug(KIO_CORE_DIRLISTER) << "lister" << kdl << "m_cachedItemsJobs=" << kdl->d->m_cachedItemsJobs;
         }
@@ -1195,20 +1195,20 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
 
     DirItem *dir = itemsInUse.value(urlStr);
     if (!dir) {
-        qWarning() << "Internal error: job is listing" << url << "but itemsInUse only knows about" << itemsInUse.keys();
+        qCWarning(KIO_CORE) << "Internal error: job is listing" << url << "but itemsInUse only knows about" << itemsInUse.keys();
         Q_ASSERT(dir);
         return;
     }
 
     DirectoryDataHash::iterator dit = directoryData.find(urlStr);
     if (dit == directoryData.end()) {
-        qWarning() << "Internal error: job is listing" << url << "but directoryData doesn't know about that url, only about:" << directoryData.keys();
+        qCWarning(KIO_CORE) << "Internal error: job is listing" << url << "but directoryData doesn't know about that url, only about:" << directoryData.keys();
         Q_ASSERT(dit != directoryData.end());
         return;
     }
     KCoreDirListerCacheDirectoryData &dirData = *dit;
     if (dirData.listersCurrentlyListing.isEmpty()) {
-        qWarning() << "Internal error: job is listing" << url << "but directoryData says no listers are currently listing " << urlStr;
+        qCWarning(KIO_CORE) << "Internal error: job is listing" << url << "but directoryData says no listers are currently listing " << urlStr;
 #ifndef NDEBUG
         printDebug();
 #endif
@@ -1302,7 +1302,7 @@ void KCoreDirListerCache::slotResult(KJob *j)
 
     DirectoryDataHash::iterator dit = directoryData.find(jobUrlStr);
     if (dit == directoryData.end()) {
-        qWarning() << "Nothing found in directoryData for URL" << jobUrlStr;
+        qCWarning(KIO_CORE) << "Nothing found in directoryData for URL" << jobUrlStr;
 #ifndef NDEBUG
         printDebug();
 #endif
@@ -1311,7 +1311,7 @@ void KCoreDirListerCache::slotResult(KJob *j)
     }
     KCoreDirListerCacheDirectoryData &dirData = *dit;
     if (dirData.listersCurrentlyListing.isEmpty()) {
-        qWarning() << "OOOOPS, nothing in directoryData.listersCurrentlyListing for" << jobUrlStr;
+        qCWarning(KIO_CORE) << "OOOOPS, nothing in directoryData.listersCurrentlyListing for" << jobUrlStr;
         // We're about to assert; dump the current state...
 #ifndef NDEBUG
         printDebug();
@@ -1761,7 +1761,7 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
 
     DirItem *dir = itemsInUse.value(jobUrlStr, 0);
     if (!dir) {
-        qWarning() << "Internal error: itemsInUse did not contain" << jobUrlStr;
+        qCWarning(KIO_CORE) << "Internal error: itemsInUse did not contain" << jobUrlStr;
 #ifndef NDEBUG
         printDebug();
 #endif
@@ -2117,7 +2117,7 @@ void KCoreDirListerCache::printDebug()
 
     // Abort on listers without jobs -after- showing the full dump. Easier debugging.
     Q_FOREACH (KCoreDirLister *listit, listersWithoutJob) {
-        qWarning() << "Fatal Error: HUH? Lister" << listit << "is supposed to be listing, but has no job!";
+        qCWarning(KIO_CORE) << "Fatal Error: HUH? Lister" << listit << "is supposed to be listing, but has no job!";
         abort();
     }
 }
@@ -2474,12 +2474,12 @@ bool KCoreDirLister::Private::doMimeExcludeFilter(const QString &mime, const QSt
 
 void KCoreDirLister::handleError(KIO::Job *job)
 {
-    qWarning() << job->errorString();
+    qCWarning(KIO_CORE) << job->errorString();
 }
 
 void KCoreDirLister::handleErrorMessage(const QString &message)
 {
-    qWarning() << message;
+    qCWarning(KIO_CORE) << message;
 }
 
 // ================= private methods ================= //
@@ -2789,7 +2789,7 @@ void KCoreDirLister::Private::redirect(const QUrl &oldUrl, const QUrl &newUrl, b
 
     const int idx = lstDirs.indexOf(oldUrl);
     if (idx == -1) {
-        qWarning() << "Unexpected redirection from" << oldUrl << "to" << newUrl
+        qCWarning(KIO_CORE) << "Unexpected redirection from" << oldUrl << "to" << newUrl
                    << "but this dirlister is currently listing/holding" << lstDirs;
     } else {
         lstDirs[ idx ] = newUrl;

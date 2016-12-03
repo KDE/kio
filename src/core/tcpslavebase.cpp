@@ -25,6 +25,7 @@
  */
 
 #include "tcpslavebase.h"
+#include "kiocoredebug.h"
 
 #include <kconfiggroup.h>
 #include <ksslcertificatemanager.h>
@@ -843,7 +844,7 @@ TCPSlaveBase::SslResult TCPSlaveBase::verifyServerCertificate()
         case SlaveBase::Cancel:
             return ResultFailed;
         default:
-            qWarning() << "Unexpected MessageBox response received:" << msgResult;
+            qCWarning(KIO_CORE) << "Unexpected MessageBox response received:" << msgResult;
             return ResultFailed;
         }
     } while (msgResult == SlaveBase::Yes);
@@ -984,7 +985,7 @@ bool TCPSlaveBase::waitForResponse(int t)
 void TCPSlaveBase::setBlocking(bool b)
 {
     if (!b) {
-        qWarning() << "Caller requested non-blocking mode, but that doesn't work";
+        qCWarning(KIO_CORE) << "Caller requested non-blocking mode, but that doesn't work";
         return;
     }
     d->isBlocking = b;

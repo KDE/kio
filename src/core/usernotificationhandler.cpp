@@ -20,6 +20,7 @@
 
 #include "slave.h"
 #include "job_p.h"
+#include "kiocoredebug.h"
 
 #include <QDebug>
 
@@ -98,7 +99,7 @@ void UserNotificationHandler::processRequest()
             m_cachedResults.insert(key, new int(result));
         }
     } else {
-        qWarning() << "Cannot prompt user because the requesting ioslave died!" << r->slave;
+        qCWarning(KIO_CORE) << "Cannot prompt user because the requesting ioslave died!" << r->slave;
     }
 
     r->slave->sendMessageBoxAnswer(result);
