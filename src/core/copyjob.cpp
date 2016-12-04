@@ -81,6 +81,7 @@ enum DestinationState {
 
 /**
  * States:
+ *     STATE_INITIAL the constructor was called
  *     STATE_STATING for the dest
  *     statCurrentSrc then does, for each src url:
  *      STATE_RENAMING if direct rename looks possible
@@ -96,6 +97,7 @@ enum DestinationState {
  *     done.
  */
 enum CopyJobState {
+    STATE_INITIAL,
     STATE_STATING,
     STATE_RENAMING,
     STATE_LISTING,
@@ -132,7 +134,7 @@ public:
         , m_mode(mode)
         , m_asMethod(asMethod)
         , destinationState(DEST_NOT_STATED)
-        , state(STATE_STATING)
+        , state(STATE_INITIAL)
         , m_freeSpace(-1)
         , m_totalSize(0)
         , m_processedSize(0)
@@ -305,6 +307,9 @@ QUrl CopyJob::destUrl() const
 void CopyJobPrivate::slotStart()
 {
     Q_Q(CopyJob);
+    if (q->isSuspended()) {
+        return;
+    }
     if (m_mode == CopyJob::CopyMode::Move) {
         Q_FOREACH (const QUrl &url, m_srcList) {
             if (m_dest.scheme() == url.scheme() && m_dest.host() == url.host()) {
@@ -330,6 +335,7 @@ void CopyJobPrivate::slotStart()
     m_reportTimer->start(REPORT_TIMEOUT);
 
     // Stat the dest
+    state = STATE_STATING;
     const QUrl dest = m_asMethod ? m_dest.adjusted(QUrl::RemoveFilename) : m_dest;
     KIO::Job *job = KIO::stat(dest, StatJob::DestinationSide, 2, KIO::HideProgressInfo);
     qCDebug(KIO_COPYJOB_DEBUG) << "CopyJob: stating the dest" << m_dest;
@@ -530,6 +536,20 @@ bool CopyJob::doSuspend()
     Q_D(CopyJob);
     d->slotReport();
     return Job::doSuspend();
+}
+
+bool CopyJob::doResume()
+{
+    Q_D(CopyJob);
+    switch (d->state) {
+        case STATE_INITIAL:
+            QTimer::singleShot(0, this, SLOT(slotStart()));
+            break;
+        default:
+            // not implemented
+            break;
+    }
+    return Job::doResume();
 }
 
 void CopyJobPrivate::slotReport()

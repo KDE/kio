@@ -132,6 +132,11 @@ public:
      */
     bool doSuspend() Q_DECL_OVERRIDE;
 
+    /**
+     * Reimplemented for internal reasons
+     */
+    bool doResume() Q_DECL_OVERRIDE;
+
 Q_SIGNALS:
 
     /**

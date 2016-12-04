@@ -415,6 +415,9 @@ void JobTest::copyLocalFile(const QString &src, const QString &dest)
     job->setUiDelegate(0);
     job->setUiDelegateExtension(0);
     QVERIFY(!job->exec());
+
+    // Clean up
+    QFile::remove(dest);
 }
 
 void JobTest::copyLocalDirectory(const QString &src, const QString &_dest, int flags)
@@ -611,7 +614,7 @@ void JobTest::copyFolderWithUnaccessibleSubfolder()
     QCOMPARE(spy.count(), 1); // one warning should be emitted by the copy job
 }
 
-void JobTest::suspendCopyFile()
+void JobTest::suspendFileCopy()
 {
     const QString filePath = homeTmpDir() + "fileFromHome";
     const QString dest = homeTmpDir() + "fileFromHome_copied";
@@ -620,6 +623,26 @@ void JobTest::suspendCopyFile()
     const QUrl u = QUrl::fromLocalFile(filePath);
     const QUrl d = QUrl::fromLocalFile(dest);
     KIO::Job *job = KIO::file_copy(u, d, KIO::HideProgressInfo);
+    QSignalSpy spyResult(job, SIGNAL(result(KJob*)));
+    job->setUiDelegate(0);
+    job->setUiDelegateExtension(0);
+    QVERIFY(job->suspend());
+    QVERIFY(!spyResult.wait(300));
+    QVERIFY(job->resume());
+    QVERIFY(job->exec());
+    QVERIFY(QFile::exists(dest));
+    QFile::remove(dest);
+}
+
+void JobTest::suspendCopy()
+{
+    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString dest = homeTmpDir() + "fileFromHome_copied";
+    createTestFile(filePath);
+
+    const QUrl u = QUrl::fromLocalFile(filePath);
+    const QUrl d = QUrl::fromLocalFile(dest);
+    KIO::Job *job = KIO::copy(u, d, KIO::HideProgressInfo);
     QSignalSpy spyResult(job, SIGNAL(result(KJob*)));
     job->setUiDelegate(0);
     job->setUiDelegateExtension(0);
@@ -865,7 +888,7 @@ void JobTest::listRecursive()
 #ifndef Q_OS_WIN
                                       "dirFromHome_copied/testlink,dirFromHome_link,"
 #endif
-                                      "fileFromHome,fileFromHome_copied");
+                                      "fileFromHome");
 
     const QString joinedNames = m_names.join(QStringLiteral(","));
     if (joinedNames.toLatin1() != ref_names) {
@@ -946,7 +969,7 @@ void JobTest::directorySize()
     QCOMPARE(job->totalSubdirs(), 3ULL); // see expected result in listRecursive() above
     QVERIFY(job->totalSize() > 54);
 #else
-    QCOMPARE(job->totalFiles(), 8ULL); // see expected result in listRecursive() above
+    QCOMPARE(job->totalFiles(), 7ULL); // see expected result in listRecursive() above
     QCOMPARE(job->totalSubdirs(), 4ULL); // see expected result in listRecursive() above
     QVERIFY(job->totalSize() >= 325);
 #endif
@@ -1085,7 +1108,7 @@ void JobTest::slotMimetype(KIO::Job *job, const QString &type)
 void JobTest::deleteFile()
 {
     const QString dest = otherTmpDir() + "fileFromHome_copied";
-    QVERIFY(QFile::exists(dest));
+    createTestFile(dest);
     KIO::Job *job = KIO::del(QUrl::fromLocalFile(dest), KIO::HideProgressInfo);
     job->setUiDelegate(0);
     bool ok = job->exec();
