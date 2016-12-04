@@ -552,9 +552,6 @@ void KShortUriFilter::configure()
   m_strDefaultUrlScheme = cg.readEntry( "DefaultProtocol", QStringLiteral("http://") );
   const EntryMap patterns = config.entryMap( QStringLiteral("Pattern") );
   const EntryMap protocols = config.entryMap( QStringLiteral("Protocol") );
-  if (cg.readEntry("Verbose", false)) {
-      category.setEnabled(QtDebugMsg, true);
-  }
   KConfigGroup typeGroup(&config, "Type");
 
   for( EntryMap::ConstIterator it = patterns.begin(); it != patterns.end(); ++it )

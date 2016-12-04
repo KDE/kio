@@ -26,11 +26,16 @@
 
 #include <QtCore/QStringBuilder>
 #include <QtNetwork/QHostInfo>
+#include <QLoggingCategory>
 
 #define QL1C(x)   QLatin1Char(x)
 #define QL1S(x)   QLatin1String(x)
 
 #define HOSTPORT_PATTERN "[a-zA-Z0-9][a-zA-Z0-9+-]*(?:\\:[0-9]{1,5})?(?:/[\\w:@&=+$,-.!~*'()]*)*"
+
+namespace {
+QLoggingCategory category("org.kde.kurifilter-localdomain", QtWarningMsg);
+}
 
 /**
  * IMPORTANT: If you change anything here, make sure you run the kurifiltertest
@@ -58,6 +63,7 @@ bool LocalDomainUriFilter::filterUri(KUriFilterData& data) const
             host.truncate(pos); // Remove port number
 
         if (exists(host)) {
+            qCDebug(category) << "QHostInfo found a host called" << host;
             QString scheme (data.defaultUrlScheme());
             if (scheme.isEmpty())
                 scheme = QStringLiteral("http://");
@@ -72,6 +78,7 @@ bool LocalDomainUriFilter::filterUri(KUriFilterData& data) const
 
 bool LocalDomainUriFilter::exists(const QString& host) const
 {
+    qCDebug(category) << "Checking if a host called" << host << "exists";
     QHostInfo hostInfo = resolveName (host, 1500);
     return (hostInfo.error() == QHostInfo::NoError);
 }

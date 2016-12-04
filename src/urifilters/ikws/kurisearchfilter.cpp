@@ -36,7 +36,7 @@
 K_PLUGIN_FACTORY(KUriSearchFilterFactory, registerPlugin<KUriSearchFilter>();)
 
 namespace {
-QLoggingCategory category("org.kde.kurifilter-ikws");
+QLoggingCategory category("org.kde.kurifilter-ikws", QtWarningMsg);
 }
 
 KUriSearchFilter::KUriSearchFilter(QObject *parent, const QVariantList &)

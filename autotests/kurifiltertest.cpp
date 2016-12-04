@@ -21,6 +21,7 @@
 #include <KUriFilter>
 #include <KSharedConfig>
 #include <KConfigGroup>
+#include <QLoggingCategory>
 
 #include <QtTestWidgets>
 #include <QDir>
@@ -177,6 +178,7 @@ void KUriFilterTest::initTestCase()
     qDebug() << "libpaths" << QCoreApplication::libraryPaths();
 
     qputenv("KDE_FORK_SLAVES", "yes");   // simpler, for the final cleanup
+    QLoggingCategory::setFilterRules(QStringLiteral("org.kde.kurifilter-*=true"));
 
     // Allow testing of the search engine using both delimiters...
     const char *envDelimiter = ::getenv("KURIFILTERTEST_DELIMITER");
@@ -190,7 +192,6 @@ void KUriFilterTest::initTestCase()
     {
         KConfigGroup cfg(KSharedConfig::openConfig(QStringLiteral("kuriikwsfilterrc"), KConfig::SimpleConfig), "General");
         cfg.writeEntry("DefaultWebShortcut", "google");
-        cfg.writeEntry("Verbose", true);
         cfg.writeEntry("KeywordDelimiter", QString(s_delimiter));
         cfg.sync();
     }
@@ -202,8 +203,6 @@ void KUriFilterTest::initTestCase()
         const QString localFile = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + "/kshorturifilterrc";
         QFile::remove(localFile);
         QVERIFY(QFile(rcFile).copy(localFile));
-        // Enable verbosity for debugging
-        KSharedConfig::openConfig(QStringLiteral("kshorturifilterrc"), KConfig::SimpleConfig)->group(QString()).writeEntry("Verbose", true);
     }
 
     QDir().mkpath(datahome + QStringLiteral("/urifilter"));
