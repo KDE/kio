@@ -184,6 +184,9 @@ void SimpleJobPrivate::start(Slave *slave)
     }
 
     slave->send(m_command, m_packedArgs);
+    if (q->isSuspended()) {
+       slave->suspend();
+    }
 }
 
 void SimpleJobPrivate::slaveDone()

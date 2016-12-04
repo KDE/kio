@@ -250,7 +250,9 @@ void FileCopyJobPrivate::connectSubjob(SimpleJob *job)
 
     q->connect(job, SIGNAL(percent(KJob*,ulong)),
                SLOT(slotPercent(KJob*,ulong)));
-
+    if (q->isSuspended()) {
+        job->suspend();
+    }
 }
 
 bool FileCopyJob::doSuspend()

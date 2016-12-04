@@ -609,7 +609,26 @@ void JobTest::copyFolderWithUnaccessibleSubfolder()
     QVERIFY(deljob2->exec());
 
     QCOMPARE(spy.count(), 1); // one warning should be emitted by the copy job
+}
 
+void JobTest::suspendCopyFile()
+{
+    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QString dest = homeTmpDir() + "fileFromHome_copied";
+    createTestFile(filePath);
+
+    const QUrl u = QUrl::fromLocalFile(filePath);
+    const QUrl d = QUrl::fromLocalFile(dest);
+    KIO::Job *job = KIO::file_copy(u, d, KIO::HideProgressInfo);
+    QSignalSpy spyResult(job, SIGNAL(result(KJob*)));
+    job->setUiDelegate(0);
+    job->setUiDelegateExtension(0);
+    QVERIFY(job->suspend());
+    QVERIFY(!spyResult.wait(300));
+    QVERIFY(job->resume());
+    QVERIFY(job->exec());
+    QVERIFY(QFile::exists(dest));
+    QFile::remove(dest);
 }
 
 void JobTest::moveLocalFile(const QString &src, const QString &dest)
