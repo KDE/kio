@@ -140,13 +140,13 @@ public:
 Q_SIGNALS:
 
     /**
-    * Emitted when the total number of files is known.
+     * Emitted when the total number of files is known.
      * @param job the job that emitted this signal
      * @param files the total number of files
      */
     void totalFiles(KJob *job, unsigned long files);
     /**
-    * Emitted when the toal number of direcotries is known.
+     * Emitted when the toal number of direcotries is known.
      * @param job the job that emitted this signal
      * @param dirs the total number of directories
      */
@@ -163,13 +163,13 @@ Q_SIGNALS:
     QT_MOC_COMPAT void aboutToCreate(KIO::Job *job, const QList<KIO::CopyInfo> &files);
 
     /**
-    * Sends the number of processed files.
+     * Sends the number of processed files.
      * @param job the job that emitted this signal
      * @param files the number of processed files
      */
     void processedFiles(KIO::Job *job, unsigned long files);
     /**
-    * Sends the number of processed directories.
+     * Sends the number of processed directories.
      * @param job the job that emitted this signal
      * @param dirs the number of processed dirs
      */
@@ -181,11 +181,11 @@ Q_SIGNALS:
      * Note: This signal is used for progress dialogs, it's not emitted for
      * every file or directory (this would be too slow), but every 200ms.
      *
-    * @param job the job that emitted this signal
+     * @param job the job that emitted this signal
      * @param src the URL of the file or directory that is currently
      *             being copied
      * @param dest the destination of the current operation
-           */
+     */
     void copying(KIO::Job *job, const QUrl &src, const QUrl &dest);
     /**
      * The job is creating a symbolic link.
@@ -193,11 +193,11 @@ Q_SIGNALS:
      * Note: This signal is used for progress dialogs, it's not emitted for
      * every file or directory (this would be too slow), but every 200ms.
      *
-    * @param job the job that emitted this signal
+     * @param job the job that emitted this signal
      * @param target the URL of the file or directory that is currently
      *             being linked
      * @param to the destination of the current operation
-           */
+     */
     void linking(KIO::Job *job, const QString &target, const QUrl &to);
     /**
      * The job is moving a file or directory.
@@ -205,55 +205,55 @@ Q_SIGNALS:
      * Note: This signal is used for progress dialogs, it's not emitted for
      * every file or directory (this would be too slow), but every 200ms.
      *
-    * @param job the job that emitted this signal
+     * @param job the job that emitted this signal
      * @param from the URL of the file or directory that is currently
      *             being moved
      * @param to the destination of the current operation
-           */
+     */
     void moving(KIO::Job *job, const QUrl &from, const QUrl &to);
     /**
      * The job is creating the directory @p dir.
      *
      * This signal is emitted for every directory being created.
      *
-    * @param job the job that emitted this signal
+     * @param job the job that emitted this signal
      * @param dir the directory that is currently being created
-           */
+     */
     void creatingDir(KIO::Job *job, const QUrl &dir);
     /**
      * The user chose to rename @p from to @p to.
      *
-    * @param job the job that emitted this signal
+     * @param job the job that emitted this signal
      * @param from the original name
      * @param to the new name
-           */
+     */
     void renamed(KIO::Job *job, const QUrl &from, const QUrl &to);
 
     /**
      * The job emits this signal when copying or moving a file or directory successfully finished.
      * This signal is mainly for the Undo feature.
      * If you simply want to know when a copy job is done, use result().
-    *
+     *
      * @param job the job that emitted this signal
-           * @param from the source URL
-           * @param to the destination URL
-           * @param mtime the modification time of the source file, hopefully set on the destination file
-           * too (when the kioslave supports it).
-           * @param directory indicates whether a file or directory was successfully copied/moved.
+     * @param from the source URL
+     * @param to the destination URL
+     * @param mtime the modification time of the source file, hopefully set on the destination file
+     * too (when the kioslave supports it).
+     * @param directory indicates whether a file or directory was successfully copied/moved.
      *                  true for a directory, false for file
-           * @param renamed indicates that the destination URL was created using a
-           * rename operation (i.e. fast directory moving). true if is has been renamed
-           */
+     * @param renamed indicates that the destination URL was created using a
+     * rename operation (i.e. fast directory moving). true if is has been renamed
+     */
     void copyingDone(KIO::Job *job, const QUrl &from, const QUrl &to, const QDateTime &mtime, bool directory, bool renamed);
     /**
      * The job is copying or moving a symbolic link, that points to target.
      * The new link is created in @p to. The existing one is/was in @p from.
      * This signal is mainly for the Undo feature.
-    * @param job the job that emitted this signal
-           * @param from the source URL
+     * @param job the job that emitted this signal
+     * @param from the source URL
      * @param target the target
-           * @param to the destination URL
-           */
+     * @param to the destination URL
+     */
     void copyingLinkDone(KIO::Job *job, const QUrl &from, const QString &target, const QUrl &to);
 protected Q_SLOTS:
     void slotResult(KJob *job) Q_DECL_OVERRIDE;
