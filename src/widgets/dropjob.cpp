@@ -446,12 +446,14 @@ void DropJobPrivate::handleDropToDesktopFile()
 
 void DropJobPrivate::handleDropToExecutable()
 {
+    Q_Q(DropJob);
     // Launch executable for each of the files
     QStringList args;
     Q_FOREACH(const QUrl &url, m_urls) {
         args << url.toLocalFile(); // assume local files
     }
     QProcess::startDetached(m_destUrl.toLocalFile(), args);
+    q->emitResult();
 }
 
 void DropJob::slotResult(KJob *job)
