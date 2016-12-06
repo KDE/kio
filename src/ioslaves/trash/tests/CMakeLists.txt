@@ -8,6 +8,7 @@ set(testtrash_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/../trashsizecache.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../discspaceutil.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../kinterprocesslock.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../kiotrashdebug.cpp
 )
 
 add_executable(testtrash ${testtrash_SRCS})

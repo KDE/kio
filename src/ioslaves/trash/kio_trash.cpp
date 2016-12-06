@@ -20,6 +20,7 @@
 #define QT_NO_CAST_FROM_ASCII
 
 #include "kio_trash.h"
+#include "kiotrashdebug.h"
 #include <kio/job.h>
 #include <kio/jobuidelegateextension.h>
 #include <KLocalizedString>
