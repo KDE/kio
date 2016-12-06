@@ -21,11 +21,12 @@
 #define QT_NO_CAST_FROM_ASCII
 
 #include "kio_trash_win.h"
+#include "kiotrashdebug.h"
 #include "kioglobal_p.h"
 #include "kio/job.h"
 
+
 #include <QDataStream>
-#include <QDebug>
 #include <QCoreApplication>
 #include <QDateTime>
 

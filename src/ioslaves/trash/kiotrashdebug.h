@@ -1,0 +1,7 @@
+#ifndef KIOTRASHDEBUG_H
+#define KIOTRASHDEBUG_H
+
+#include <QLoggingCategory>
+Q_DECLARE_LOGGING_CATEGORY(KIO_TRASH)
+
+#endif // KIOTRASHDEBUG_H

@@ -19,11 +19,12 @@ set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp
                            ${CMAKE_CURRENT_SOURCE_DIR}/discspaceutil.cpp
                            ${CMAKE_CURRENT_SOURCE_DIR}/trashsizecache.cpp
                            ${CMAKE_CURRENT_SOURCE_DIR}/kinterprocesslock.cpp
+                           ${CMAKE_CURRENT_SOURCE_DIR}/kiotrashdebug.cpp
     )
 
 ########### next target ###############
 if(WIN32)
-  set(kio_trash_PART_SRCS kio_trash_win.cpp kio_trash_win.h)
+  set(kio_trash_PART_SRCS kio_trash_win.cpp kiotrashdebug.cpp)
 else()
   set(kio_trash_PART_SRCS kio_trash.cpp ${trashcommon_PART_SRCS})
 endif()

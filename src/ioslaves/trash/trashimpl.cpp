@@ -22,6 +22,7 @@
 #include "trashimpl.h"
 #include "discspaceutil.h"
 #include "trashsizecache.h"
+#include "kiotrashdebug.h"
 
 #include <KLocalizedString>
 #include <kio/job.h>
@@ -57,8 +58,6 @@
 #include <solid/networkshare.h>
 #include <QStandardPaths>
 #include <QLockFile>
-
-Q_LOGGING_CATEGORY(KIO_TRASH, "kf5.kio.trash")
 
 TrashImpl::TrashImpl() :
     QObject(),

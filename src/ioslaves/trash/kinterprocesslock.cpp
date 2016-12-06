@@ -19,6 +19,7 @@
 */
 
 #include "kinterprocesslock.h"
+#include "kiotrashdebug.h"
 
 #include <QtCore/QEventLoop>
 #include <QtDBus/QDBusConnectionInterface>

@@ -23,6 +23,7 @@
 #include "trashsizecache.h"
 
 #include "discspaceutil.h"
+#include "kiotrashdebug.h"
 
 #include <qplatformdefs.h> // QT_LSTAT, QT_STAT, QT_STATBUF
 #include <QDir>

@@ -20,6 +20,7 @@
 */
 
 #include "discspaceutil.h"
+#include "kiotrashdebug.h"
 
 #include <QtCore/QDirIterator>
 #include <QtCore/QFileInfo>
