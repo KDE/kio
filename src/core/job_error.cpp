@@ -242,6 +242,9 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
     case KIO::ERR_PASSWD_SERVER:
         result = i18n("Communication with the local password server failed");
         break;
+    case KIO::ERR_CANNOT_CREATE_SLAVE:
+        result = i18n("Unable to create io-slave. %1", errorText);
+        break;
     default:
         result = i18n("Unknown error code %1\n%2\nPlease send a full bug report at http://bugs.kde.org.",  errorCode,  errorText);
         break;
@@ -404,10 +407,10 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
         break;
 
     case  KIO::ERR_CANNOT_LAUNCH_PROCESS:
-        errorName = i18n("Cannot Initiate the %1 Protocol",  protocol);
+        errorName = i18n("Cannot Launch Process required by the %1 Protocol",  protocol);
         techName = i18n("Unable to Launch Process");
         description = i18n("The program on your computer which provides access "
-                           "to the <strong>%1</strong> protocol could not be started. This is "
+                           "to the <strong>%1</strong> protocol could not be found or started. This is "
                            "usually due to technical reasons.",  protocol);
         causes << i18n("The program which provides compatibility with this "
                        "protocol may not have been updated with your last update of KDE. "
@@ -1053,6 +1056,16 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
         description = i18n("The operation could not be completed because the "
                            "service for requesting passwords (kpasswdserver) couldn't be contacted");
         solutions << i18n("Try restarting your session, or look in the logs for errors from kiod.");
+        break;
+    case  KIO::ERR_CANNOT_CREATE_SLAVE:
+        errorName = i18n("Cannot Initiate the %1 Protocol",  protocol);
+        techName = i18n("Unable to Create io-slave");
+        description = i18n("The io-slave which provides access "
+                           "to the <strong>%1</strong> protocol could not be started. This is "
+                           "usually due to technical reasons.",  protocol);
+        causes << i18n("klauncher could not find or start the plugin which provides the protocol."
+                       "This means you may have an outdated version of the plugin.");
+        solutions << sUpdate << sSysadmin;
         break;
 
     default:

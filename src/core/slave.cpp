@@ -468,7 +468,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
     QUrl slaveAddress = slave->d_func()->slaveconnserver->address();
     if (slaveAddress.isEmpty()) {
         error_text = i18n("Can not create socket for launching io-slave for protocol '%1'.", protocol);
-        error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
+        error = KIO::ERR_CANNOT_CREATE_SLAVE;
         delete slave;
         return 0;
     }
@@ -477,7 +477,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
         QString _name = KProtocolInfo::exec(protocol);
         if (_name.isEmpty()) {
             error_text = i18n("Unknown protocol '%1'.", protocol);
-            error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
+            error = KIO::ERR_CANNOT_CREATE_SLAVE;
             delete slave;
             return 0;
         }
@@ -487,7 +487,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
         QString lib_path = KPluginLoader::findPlugin(_name);
         if (lib_path.isEmpty()) {
             error_text = i18n("Can not find io-slave for protocol '%1'.", protocol);
-            error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
+            error = KIO::ERR_CANNOT_CREATE_SLAVE;
             delete slave;
             return 0;
         }
@@ -503,7 +503,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
         const QString kioslaveExecutable = QStandardPaths::findExecutable(QStringLiteral("kioslave"), searchPaths);
         if (kioslaveExecutable.isEmpty()) {
             error_text = i18n("Can not find 'kioslave' executable at '%1'", searchPaths.join(QStringLiteral(", ")));
-            error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
+            error = KIO::ERR_CANNOT_CREATE_SLAVE;
             delete slave;
             return 0;
 
@@ -517,14 +517,14 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
     QDBusReply<int> reply = klauncher()->requestSlave(protocol, url.host(), slaveAddress.toString(), errorStr);
     if (!reply.isValid()) {
         error_text = i18n("Cannot talk to klauncher: %1", klauncher()->lastError().message());
-        error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
+        error = KIO::ERR_CANNOT_CREATE_SLAVE;
         delete slave;
         return 0;
     }
     qint64 pid = reply;
     if (!pid) {
-        error_text = i18n("Unable to create io-slave:\nklauncher said: %1", errorStr);
-        error = KIO::ERR_CANNOT_LAUNCH_PROCESS;
+        error_text = i18n("klauncher said: %1", errorStr);
+        error = KIO::ERR_CANNOT_CREATE_SLAVE;
         delete slave;
         return 0;
     }

@@ -245,6 +245,7 @@ enum Error {
     ERR_DROP_ON_ITSELF = KJob::UserDefinedError + 70, //< from KIO::DropJob, @since 5.6
     ERR_CANNOT_MOVE_INTO_ITSELF = KJob::UserDefinedError + 71, //< emitted by KIO::move, @since 5.18
     ERR_PASSWD_SERVER = KJob::UserDefinedError + 72, //< returned by SlaveBase::openPasswordDialogV2, @since 5.24
+    ERR_CANNOT_CREATE_SLAVE = KJob::UserDefinedError + 73 //< used by Slave::createSlave, @since 5.30
 };
 
 /**
