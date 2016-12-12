@@ -23,7 +23,7 @@ include(ECMGenerateHeaders)
 include(ECMMarkNonGuiExecutable)
 include(ECMQtDeclareLoggingCategory)
 
-set(KF5_VERSION "5.29.0") # handled by release scripts
+set(KF5_VERSION "5.30.0") # handled by release scripts
 set(KF5_DEP_VERSION "5.29.0") # handled by release scripts
 
 ecm_setup_version(
