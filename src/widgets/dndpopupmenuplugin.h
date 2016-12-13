@@ -55,6 +55,7 @@ public:
     /**
      * Implement the setup method in the plugin in order to create actions
      * in the given actionCollection and add it to the menu using menu->addAction().
+     * The popup menu will be set as parent of the actions.
      *
      * @param popupMenuInfo all the information about the source URLs being dropped
      * @param destination the URL to where the file(s) were dropped

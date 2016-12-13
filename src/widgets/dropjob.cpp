@@ -298,7 +298,11 @@ void DropJobPrivate::addPluginActions(QMenu *popup, const KFileItemListPropertie
         if (factory) {
             KIO::DndPopupMenuPlugin *plugin = factory->create<KIO::DndPopupMenuPlugin>();
             if (plugin) {
-                m_pluginActions += plugin->setup(itemProps, m_destUrl);
+                auto actions = plugin->setup(itemProps, m_destUrl);
+                foreach (auto action, actions) {
+                    action->setParent(popup);
+                }
+                m_pluginActions += actions;
             }
         }
     }
