@@ -4,7 +4,6 @@ Name=Voila
 Name[af]=Voila
 Name[ar]=Voila
 Name[as]=Voila
-Name[ast]=Voila
 Name[be]=Voila
 Name[be@latin]=Voila
 Name[bg]=Voila
@@ -98,7 +97,6 @@ Query=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[af]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[ar]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[as]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
-Query[ast]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[be]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[be@latin]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[bg]=http://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*

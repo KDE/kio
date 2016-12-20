@@ -1,7 +1,6 @@
 [Desktop Entry]
 Keys=qwv
 Name=Qwant Videos
-Name[ast]=Qwant Videos
 Name[ca]=Vídeo de Qwant
 Name[ca@valencia]=Vídeo de Qwant
 Name[cs]=Videa Qwan
@@ -44,7 +43,6 @@ Name[x-test]=xxQwant Videosxx
 Name[zh_CN]=Qwant 视频
 Name[zh_TW]=Qwant Videos
 Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
-Query[ast]=http://www.facebook.com/search/?q=\\{@}&init=quick
 Query[ca]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[ca@valencia]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[cs]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos

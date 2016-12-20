@@ -3,7 +3,6 @@ Charset=
 Hidden=false
 Keys=rag
 Name=Dictionary of the Galician Academy (RAG)
-Name[ast]=Diccionariu de la Real Academia Gallega (RAG)
 Name[bg]=Речник на галисийската академия (RAG)
 Name[bs]=Riječnik Galicijske akademije (RAG)
 Name[ca]=Diccionari de l'Acadèmia Gallega (RAG)
@@ -54,7 +53,6 @@ Name[zh_CN]=西班牙皇家学院字典(RAG)
 Name[zh_TW]=西班牙加里西亞學院字典 (RAG)
 Query=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}
 Query[ar]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}
-Query[ast]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}
 Query[bg]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}
 Query[bs]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}
 Query[ca]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}

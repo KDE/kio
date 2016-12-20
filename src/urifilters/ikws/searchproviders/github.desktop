@@ -4,7 +4,6 @@ Hidden=false
 Keys=github,gh
 Name=GitHub
 Name[ar]=جِت هاب
-Name[ast]=GitHub
 Name[bg]=GitHub
 Name[bn]=গিট-হাব
 Name[bs]=Githab
@@ -73,7 +72,6 @@ Name[zh_CN]=GitHub
 Name[zh_TW]=GitHub
 Query=https://github.com/search?q=\\{@}&x=0&y=0
 Query[ar]=https://github.com/search?q=\\{@}&x=0&y=0
-Query[ast]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[bg]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[bs]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[ca]=https://github.com/search?q=\\{@}&x=0&y=0

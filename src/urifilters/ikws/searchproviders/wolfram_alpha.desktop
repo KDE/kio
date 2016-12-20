@@ -2,7 +2,6 @@
 Keys=wa,wolfram
 Name=Wolfram Alpha
 Name[ar]=Wolfram Alpha
-Name[ast]=Wolfram Alpha
 Name[bg]=Wolfram Alpha
 Name[bn]=উলফ্র্যাম আলফা
 Name[bs]=Volframova alfa
@@ -74,7 +73,6 @@ Name[zh_CN]=Wolfram Alpha
 Name[zh_TW]=Wolfram Alpha
 Query=https://www.wolframalpha.com/input/?i=\\{@}
 Query[ar]=https://www.wolframalpha.com/input/?i=\\{@}
-Query[ast]=http://www.wolframalpha.com/input/?i=\\{@}
 Query[bg]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[bs]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[ca]=https://www.wolframalpha.com/input/?i=\\{@}

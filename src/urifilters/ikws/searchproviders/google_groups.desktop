@@ -4,7 +4,6 @@ Name=Google Groups
 Name[af]=Google Groepe
 Name[ar]=مجموعات جوجل
 Name[as]=Google Groups
-Name[ast]=Google Groups
 Name[be]=Групы Google
 Name[be@latin]=Hrupy „Google”
 Name[bg]=Групи в Google
@@ -96,7 +95,6 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=ggg,groups,dj,deja
 Query=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[ar]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
-Query[ast]=http://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[bg]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[bs]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[ca]=https://groups.google.com/groups?oi=djq&as_q=\\{@}

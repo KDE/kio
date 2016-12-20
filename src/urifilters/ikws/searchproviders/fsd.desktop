@@ -4,7 +4,6 @@ Name=FSF/UNESCO Free Software Directory
 Name[af]=FSF/UNESCO Gratis Sagteware Gids
 Name[ar]=دليل FSF/UNESCO للبرمجيات الحرّة
 Name[as]=FSF/UNESCO Free Software Directory
-Name[ast]=Direutoriu de software llibre de FSF/UNESCO
 Name[be]=Каталог свабоднага праграмнага забеспячэння FSF/UNESCO
 Name[be@latin]=Kataloh svabodnych prahramaŭ „FSF/UNESCO”
 Name[bg]=Директория със свободен софтуер на FSF/UNESCO
@@ -93,7 +92,6 @@ Query=http://directory.fsf.org/search/?query=\\{@}
 Query[af]=http://directory.fsf.org/search/?query=\\{@}
 Query[ar]=http://directory.fsf.org/search/?query=\\{@}
 Query[as]=http://directory.fsf.org/search/?query=\\{@}
-Query[ast]=http://directory.fsf.org/search/fsd-search.py?q=\\{@} 
 Query[be@latin]=http://directory.fsf.org/search/?query=\\{@}
 Query[bg]=http://directory.fsf.org/search/?query=\\{@}
 Query[bn]=http://directory.fsf.org/search/?query=\\{@}

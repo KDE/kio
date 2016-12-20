@@ -4,7 +4,6 @@ Name=LEO - Translate Between German and French
 Name[af]=LEO - Vertaal tussn Duits en Frans
 Name[ar]=LEO - ترجمة بين الألمانية والفرنسية
 Name[as]=LEO - Translate Between German and French
-Name[ast]=LEO - Torna ente alemán y francés
 Name[be]=LEO - Пераклад з нямецкай на французскую і наадварот
 Name[be@latin]=Pierakład „LEO”: niamieckaja ➙ francuskaja
 Name[bg]=LEO - превод между немски и френски
@@ -93,7 +92,6 @@ Query=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[af]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[ar]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[as]=http://dict.leo.org/?lp=frde&search=\\{@}
-Query[ast]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[be]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[be@latin]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[bg]=http://dict.leo.org/?lp=frde&search=\\{@}

@@ -4,7 +4,6 @@ Name=KDE Bug Database Fulltext Search
 Name[af]=KDE Fout Databasis voltext Soektog
 Name[ar]=بحث قاعدة بيانات علل كدي عبر النص كاملًا
 Name[as]=KDE Bug Database Fulltext Search
-Name[ast]=Gueta testual na base de datos de fallos de KDE
 Name[be]=Паўнатэкставы пошук па базе памылак KDE
 Name[be@latin]=Paŭnatekstavy pošuk u bazie viadomych chibaŭ KDE
 Name[bg]=Пълнотекстово търсене в базата от данни с бъгове в KDE
@@ -92,7 +91,6 @@ Name[zh_CN]=KDE Bug 数据库全文检索
 Name[zh_TW]=KDE 臭蟲資料庫全文檢索
 Query=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ar]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
-Query[ast]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[bg]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[bs]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ca]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

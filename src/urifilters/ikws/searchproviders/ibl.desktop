@@ -5,7 +5,6 @@ Name=Internet Book List
 Name[af]=Internet boeklys
 Name[ar]=لائحة Internet Book
 Name[as]=ইন্টাৰ্নে'ট কিতাপৰ তালিকা
-Name[ast]=Llistáu de llibros d'Internet
 Name[be]=Спіс інтэрнет-кніг
 Name[be@latin]=Internet Book List
 Name[bg]=Internet Book List
@@ -92,7 +91,6 @@ Query=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[af]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[ar]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[as]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
-Query[ast]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[be]=http://www.feedster.com/search.php?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[be@latin]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[bg]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search

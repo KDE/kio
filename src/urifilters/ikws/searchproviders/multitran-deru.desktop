@@ -5,7 +5,6 @@ Name=Multitran - Translate Between German and Russian
 Name[af]=Multitran - Vertaal tussen Duits en Russies
 Name[ar]=Multitran - ترجمة بين الألمانية والروسية
 Name[as]=Multitran - জাৰ্মান আৰু ৰুচীয় ভাষাৰ মাজত অনুবাদ
-Name[ast]=Multitran - Torna ente alemán y rusu
 Name[be@latin]=Pierakład „Multitran”: niamieckaja ➙ rasiejskaja
 Name[bg]=Multitran - превод между немски и руски
 Name[bn]=মাল্টিট্র্যান - জার্মান থেকে রুশ বা রুশ থেকে জার্মান-এ অনুবাদ করুন
@@ -90,7 +89,6 @@ Keys=mt,mtde
 Query=http://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[ar]=http://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[as]=http://multitran.ru/c/m.exe?l1=3&s=\\{@}
-Query[ast]=http://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[be@latin]=http://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[bg]=http://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[bn]=http://multitran.ru/c/m.exe?l1=3&s=\\{@}

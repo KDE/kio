@@ -2,7 +2,6 @@
 Type=Service
 Name=Qt4 Documentation
 Name[ar]=توثيق كيوت 4
-Name[ast]=Documentación de Qt4
 Name[bg]=Документация за Qt4
 Name[bs]=Dokumentacija QT4
 Name[ca]=Documentació de les Qt4
@@ -58,7 +57,6 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=qt4
 Query=http://qt-project.org/doc/search/qt-4.8?search=\\{@}
 Query[ar]=http://qt-project.org/doc/search/qt-4.8?search=\\{@}
-Query[ast]=http://qt-project.org/doc/\\{@}.html
 Query[bg]=http://qt-project.org/doc/search/qt-4.8?search=\\{@}
 Query[bs]=http://qt-project.org/doc/search/qt-4.8?search=\\{@}
 Query[ca]=http://qt-project.org/doc/search/qt-4.8?search=\\{@}

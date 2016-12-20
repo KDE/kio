@@ -14,7 +14,6 @@ X-KDE-Weight=70
 Name=Web Shortcuts
 Name[af]=Web Kortpaaie
 Name[as]=ৱেবৰ চমু পথ
-Name[ast]=Atayos web
 Name[be]=Скароты Сеціва
 Name[be@latin]=Skaroty dla sieciva
 Name[bg]=Уеб съкращения
@@ -98,7 +97,6 @@ Name[zh_CN]=网页快捷方式
 Name[zh_TW]=網頁捷徑
 
 Comment=Configure web shortcuts
-Comment[ast]=Configura los atayos web
 Comment[ca]=Configura les dreceres web
 Comment[ca@valencia]=Configura les dreceres web
 Comment[cs]=Nastavit webové zkratky
@@ -141,7 +139,6 @@ Comment[zh_CN]=配置网页快捷键
 Comment[zh_TW]=設定網頁捷徑
 
 X-KDE-Keywords=Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts
-X-KDE-Keywords[ast]=Atayos web,Navegación,WWW,Internet,Peñeres d'internet,Rede,Motores de gueta, Atayos
 X-KDE-Keywords[ca]=Dreceres web,Navegació,WWW,Internet,Filtres d'internet,Xarxa,Motors de cerca,Dreceres
 X-KDE-Keywords[ca@valencia]=Dreceres web,Navegació,WWW,Internet,Filtres d'internet,Xarxa,Motors de cerca,Dreceres
 X-KDE-Keywords[cs]=Webové zkratky, Prohlížení,WWW,Internet,Internetové filtry,Síť,Vyhledávací nástroje,Zkratky

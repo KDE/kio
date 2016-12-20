@@ -4,7 +4,6 @@ Name=Internet Movie Database
 Name[af]=Internet Film Databasis
 Name[ar]=قاعدة بيانات الإنترنت للأفلام
 Name[as]=ইন্টাৰ্নে'ট বোলছবিৰ তথ্যভঁৰাল
-Name[ast]=Internet Movie Database
 Name[be]=База звестак пра фільмы
 Name[be@latin]=Sieciŭnaja baza filmaŭ
 Name[bg]=Internet Movie Database
@@ -94,7 +93,6 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=imdb
 Query=http://imdb.com/find?s=all&q=\\{@}
 Query[ar]=http://imdb.com/find?s=all&q=\\{@}
-Query[ast]=http://imdb.com/find?s=all&q=\\{@}
 Query[bg]=http://imdb.com/find?s=all&q=\\{@}
 Query[bn]=http://imdb.com/find?s=all&q=\\{@}
 Query[bs]=http://imdb.com/find?s=all&q=\\{@}

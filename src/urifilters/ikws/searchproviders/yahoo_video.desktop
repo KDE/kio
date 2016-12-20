@@ -4,7 +4,6 @@ Hidden=false
 Keys=yahoovideo,yhv
 Name=Yahoo Video
 Name[ar]=فيديوهات ياهو
-Name[ast]=Yahoo Video
 Name[bg]=Видео в Yahoo
 Name[bn]=ইয়াহু ভিডিও
 Name[bs]=Jahu‑video
@@ -72,7 +71,6 @@ Name[zh_CN]=Yahoo 视频
 Name[zh_TW]=Yahoo Video
 Query=http://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?ei=UTF-8&p=\\{@}&y=0&fr2=tab-img&fr=yfp-t-701
 Query[ar]=http://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?ei=UTF-8&p=\\{@}&y=0&fr2=tab-img&fr=yfp-t-701
-Query[ast]=http://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?ei=UTF-8&p=\\{@}&y=0&fr2=tab-img&fr=yfp-t-701
 Query[bg]=http://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?ei=UTF-8&p=\\{@}&y=0&fr2=tab-img&fr=yfp-t-701
 Query[bn]=http://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?ei=UTF-8&p=\\{@}&y=0&fr2=tab-img&fr=yfp-t-701
 Query[bs]=http://video.search.yahoo.com/search/video;_ylt=A0WTb_3a6JZLSHwAK7.JzbkF?ei=UTF-8&p=\\{@}&y=0&fr2=tab-img&fr=yfp-t-701

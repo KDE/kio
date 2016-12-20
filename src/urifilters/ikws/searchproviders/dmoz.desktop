@@ -4,7 +4,6 @@ Name=Open Directory
 Name[af]=Open Directory
 Name[ar]=افتح دليلًا
 Name[as]=মুক্ত পঞ্জিকা
-Name[ast]=Open Directory
 Name[be]=Open Directory
 Name[be@latin]=Open Directory
 Name[bg]=Open Directory
@@ -97,7 +96,6 @@ Query=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[af]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[ar]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[as]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
-Query[ast]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[be]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[be@latin]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[bg]=http://search.dmoz.org/cgi-bin/search?search=\\{@}

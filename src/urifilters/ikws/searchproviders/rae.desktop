@@ -6,7 +6,6 @@ Name=Dictionary of the Spanish Academy (RAE)
 Name[af]=Woordeboek van die Spaanse Akademie (RAE)
 Name[ar]=قاموس الأكاديمية الإسبانية (RAE)
 Name[as]=Spanish Academy (RAE) ৰ অভিধান
-Name[ast]=Diccionariu de la Real Academia de la Lengua Española (RAE)
 Name[be]=Слоўнік Іспанскай акадэміі (RAE)
 Name[be@latin]=Słoŭnik Hišpanskaj Akademii (RAE)
 Name[bg]=Речник на испанската академия (RAE)
@@ -94,7 +93,6 @@ Name[zh_CN]=西班牙学院的字典(RAE)
 Name[zh_TW]=西班牙金像獎字典 (RAE)
 Query=http://www.rae.es/drae/?val=\\{@}
 Query[ar]=http://www.rae.es/drae/?val=\\{@}
-Query[ast]=http://www.qrz.com/db/\\{@}
 Query[bg]=http://www.rae.es/drae/?val=\\{@}
 Query[bs]=http://www.rae.es/drae/?val=\\{@}
 Query[ca]=http://www.rae.es/drae/?val=\\{@}

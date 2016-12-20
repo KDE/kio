@@ -1,7 +1,6 @@
 [Desktop Entry]
 Keys=qwn
 Name=Qwant News
-Name[ast]=Qwant News
 Name[ca]=Notícies a Qwant
 Name[ca@valencia]=Notícies a Qwant
 Name[cs]=Novinky Qwant
@@ -43,7 +42,6 @@ Name[x-test]=xxQwant Newsxx
 Name[zh_CN]=Qwant 新闻
 Name[zh_TW]=Qwant News
 Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
-Query[ast]=http://www.facebook.com/search/?q=\\{@}&init=quick
 Query[ca]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[ca@valencia]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news
 Query[cs]=https://www.qwant.com/single?q=\\{@}&client=kde&source=news

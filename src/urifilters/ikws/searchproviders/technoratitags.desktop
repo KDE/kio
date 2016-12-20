@@ -4,7 +4,6 @@ Name=Technorati Tags
 Name[af]=Technorati Tags
 Name[ar]=وسوم Technorati
 Name[as]=Technorati Tags
-Name[ast]=Etiquetes de Technorati
 Name[be]=Тэгі Technorati
 Name[be@latin]=Technorati Tags
 Name[bg]=Етикети в Technorati
@@ -92,7 +91,6 @@ Query=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[af]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ar]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[as]=http://technorati.com/tag/\\{@}?sourceid=kde-search
-Query[ast]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[be]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[be@latin]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[bg]=http://technorati.com/tag/\\{@}?sourceid=kde-search

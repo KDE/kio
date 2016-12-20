@@ -1,7 +1,6 @@
 [Desktop Entry]
 Keys=archpkg,apkg
 Name=Arch Linux Package Search
-Name[ast]=Gueta de paquetes d'Arch Linux
 Name[ca]=Cerca paquets a Arch Linux
 Name[ca@valencia]=Cerca paquets a Arch Linux
 Name[cs]=Hledání balíčků pro Arch Linux
@@ -39,7 +38,6 @@ Name[x-test]=xxArch Linux Package Searchxx
 Name[zh_CN]=Arch Linux 软件包搜索
 Name[zh_TW]=Arch Linux 套件搜尋
 Query=http://www.archlinux.org/packages/?q=\\{@}
-Query[ast]=http://www.archlinux.org/packages/?q=\\{@}
 Query[ca]=http://www.archlinux.org/packages/?q=\\{@}
 Query[ca@valencia]=http://www.archlinux.org/packages/?q=\\{@}
 Query[cs]=http://www.archlinux.org/packages/?q=\\{@}

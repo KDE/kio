@@ -15,7 +15,6 @@ X-KDE-Weight=50
 Name=Connection Preferences
 Name[af]=Koppeling Voorkeure
 Name[as]=সংযোগৰ পছন্দ
-Name[ast]=Preferencies de conexón
 Name[be]=Настаўленні злучэння
 Name[be@latin]=Ułasnyja nałady spałučeńnia
 Name[bg]=Настройване на връзката
@@ -97,7 +96,6 @@ Name[zh_TW]=連線偏好設定
 
 Comment=Configure generic network preferences, like timeout values
 Comment[af]=Konfigureer generies netwerk voorkeure, hou van tydverstreke waardes
-Comment[ast]=Configura les preferencies de rede xenériques como los valores de tiempu escosao
 Comment[be]=Настаўленні агульных уласцівасцяў сеткі, напр., тэрмінаў чакання
 Comment[be@latin]=Hałoŭnyja sietkavyja nałady, naprykład, terminy čakańnia vynikaŭ ad aperacyjaŭ.
 Comment[bg]=Настройване на общите мрежови параметри
@@ -180,7 +178,6 @@ Comment[zh_CN]=配置通用网络首选项，例如超时值
 Comment[zh_TW]=設定一般網路喜好設定，例如逾時值
 
 X-KDE-Keywords=timeout,iopref,netpref,network preferences,ftp
-X-KDE-Keywords[ast]=tiempu escosao,iopref,netpref,preferencies de rede,ftp
 X-KDE-Keywords[ca]=temps d'espera,iopref,netpref,preferències de xarxa,ftp
 X-KDE-Keywords[ca@valencia]=temps d'espera,iopref,netpref,preferències de xarxa,ftp
 X-KDE-Keywords[da]=tidsudløb,timeout,iopref,netpref,netværksindstillinger,ftp

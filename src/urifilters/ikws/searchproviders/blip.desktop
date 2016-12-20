@@ -4,7 +4,6 @@ Hidden=false
 Keys=blip,bl
 Name=Blip.tv
 Name[ar]=Blip.tv
-Name[ast]=Blip.tv
 Name[bg]=Blip.tv
 Name[bn]=Blip.tv
 Name[bs]=Blip.tv
@@ -73,7 +72,6 @@ Name[zh_CN]=Blip.tv
 Name[zh_TW]=Blip.tv
 Query=https://blip.tv/search?q=\\{@}
 Query[ar]=https://blip.tv/search?q=\\{@}
-Query[ast]=https://blip.tv/search?q=\\{@}
 Query[bg]=https://blip.tv/search?q=\\{@}
 Query[bs]=https://blip.tv/search?q=\\{@}
 Query[ca]=https://blip.tv/search?q=\\{@}
