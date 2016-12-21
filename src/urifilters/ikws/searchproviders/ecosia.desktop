@@ -72,6 +72,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=ec
 Query=http://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ar]=http://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[ast]=http://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[bg]=http://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[bn]=http://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[bs]=http://ecosia.org/search.php?q=\\{@}&meta=normal

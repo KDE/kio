@@ -4,6 +4,7 @@ Name=SourceForge
 Name[af]=Sourceforge
 Name[ar]=سورس فورج
 Name[as]=SourceForge
+Name[ast]=SourceForge
 Name[be]=SourceForge
 Name[be@latin]=SourceForge
 Name[bg]=SourceForge
@@ -94,6 +95,7 @@ Query=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exa
 Query[af]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[ar]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[as]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
+Query[ast]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[be]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[be@latin]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[bg]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}

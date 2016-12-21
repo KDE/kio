@@ -4,6 +4,7 @@ Name=LEO-Translate
 Name[af]=LEO-Vertaal
 Name[ar]=ترجمة LEO
 Name[as]=LEO-Translate
+Name[ast]=LEO-Translate
 Name[be]=LEO-Translate
 Name[be@latin]=Pierakład „LEO”
 Name[bg]=LEO-превод
@@ -95,6 +96,7 @@ Query=http://dict.leo.org/?search=\\{@}
 Query[af]=http://dict.leo.org/?search=\\{@}
 Query[ar]=http://dict.leo.org/?search=\\{@}
 Query[as]=http://dict.leo.org/?search=\\{@}
+Query[ast]=http://dict.leo.org/?search=\\{@}
 Query[be]=http://dict.leo.org/?search=\\{@}
 Query[be@latin]=http://dict.leo.org/?search=\\{@}
 Query[bg]=http://dict.leo.org/?search=\\{@}

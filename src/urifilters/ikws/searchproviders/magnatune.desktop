@@ -4,6 +4,7 @@ Hidden=false
 Keys=magnatune,mt
 Name=Magnatune
 Name[ar]=Magnatune
+Name[ast]=Magnatune
 Name[bg]=Magnatune
 Name[bn]=ম্যাগনা-টিউন
 Name[bs]=Magnatjun
@@ -72,6 +73,7 @@ Name[zh_CN]=Magnatune
 Name[zh_TW]=Magnatune
 Query=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[ar]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
+Query[ast]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[bg]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[bn]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[bs]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0

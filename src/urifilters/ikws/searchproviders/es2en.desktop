@@ -93,6 +93,7 @@ Query=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[af]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[ar]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[as]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
+Query[ast]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[be]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[be@latin]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[bg]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}

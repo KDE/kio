@@ -92,6 +92,7 @@ Name[zh_TW]=CTAN 目錄
 Query=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[ar]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[as]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
+Query[ast]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[be@latin]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[bg]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[bn]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search

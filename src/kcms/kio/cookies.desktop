@@ -13,6 +13,7 @@ X-KDE-System-Settings-Parent-Category=networksettings
 X-KDE-Weight=90
 
 Name=Cookies
+Name[ast]=Cookies
 Name[ca]=Galetes
 Name[ca@valencia]=Galetes
 Name[cs]=Cookies

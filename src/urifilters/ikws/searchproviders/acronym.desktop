@@ -91,6 +91,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=ad,acro,acronym
 Query=http://www.abbreviations.com/\\{@}
 Query[ar]=http://www.abbreviations.com/\\{@}
+Query[ast]=http://www.abbreviations.com/\\{@}
 Query[bg]=http://www.abbreviations.com/\\{@}
 Query[bs]=http://www.abbreviations.com/\\{@}
 Query[ca]=http://www.abbreviations.com/\\{@}

@@ -71,6 +71,7 @@ Name[zh_CN]=Identi.ca 人物
 Name[zh_TW]=Identi.ca People
 Query=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[ar]=https://identi.ca/search/people?q=\\{@}&search=Search
+Query[ast]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[bg]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[bs]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[ca]=https://identi.ca/search/people?q=\\{@}&search=Search

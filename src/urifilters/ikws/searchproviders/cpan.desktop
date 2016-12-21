@@ -91,6 +91,7 @@ Name[zh_CN]=CPAN - 综合性 Perl 档案网络
 Name[zh_TW]=CPAN - 全面的 Perl 收集網路
 Query=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ar]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[ast]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[bg]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[bn]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[bs]=http://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}

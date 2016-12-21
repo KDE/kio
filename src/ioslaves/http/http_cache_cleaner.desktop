@@ -2,6 +2,7 @@
 Type=Service
 Name=HTTP Cache Cleaner
 Name[ar]=منظّف خبيئة HTTP
+Name[ast]=HTTP Cache Cleaner
 Name[ca]=Netejador de la memòria cau HTTP
 Name[ca@valencia]=Netejador de la memòria cau HTTP
 Name[cs]=Nástroj pro vyprázdnění cache protokolu HTTP

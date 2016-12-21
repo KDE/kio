@@ -53,6 +53,7 @@ Name[zh_CN]=西班牙皇家学院字典(RAG)
 Name[zh_TW]=西班牙加里西亞學院字典 (RAG)
 Query=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}
 Query[ar]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}
+Query[ast]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}
 Query[bg]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}
 Query[bs]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}
 Query[ca]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}

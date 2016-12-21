@@ -4,6 +4,7 @@ Name=MetaCrawler
 Name[af]=Metacrawler
 Name[ar]=MetaCrawler
 Name[as]=MetaCrawler
+Name[ast]=MetaCrawler
 Name[be]=MetaCrawler
 Name[be@latin]=MetaCrawler
 Name[bg]=MetaCrawler
@@ -94,6 +95,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=mc,meta,metacrawler
 Query=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ar]=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
+Query[ast]=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[bg]=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[bs]=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ca]=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}

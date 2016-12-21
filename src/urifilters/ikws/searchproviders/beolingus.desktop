@@ -71,6 +71,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=beo,beolingus
 Query=http://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[ar]=http://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
+Query[ast]=http://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[bg]=http://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[bn]=http://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[bs]=http://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email

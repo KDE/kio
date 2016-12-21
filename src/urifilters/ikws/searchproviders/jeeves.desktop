@@ -4,6 +4,7 @@ Name=Ask Jeeves
 Name[af]=Vra Jeeves
 Name[ar]=Ask Jeeves
 Name[as]=Ask Jeeves
+Name[ast]=Ask Jeeves
 Name[be]=Ask Jeeves
 Name[be@latin]=Ask Jeeves
 Name[bg]=Ask Jeeves
@@ -95,6 +96,7 @@ Query=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&
 Query[af]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[ar]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[as]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
+Query[ast]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[be]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[be@latin]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}
 Query[bg]=http://www.ask.com/main/askJeeves.asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}

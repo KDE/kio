@@ -1,4 +1,5 @@
 Name=Trash
+Name[ast]=Trash
 Name[be@latin]=Śmietnica
 Name[bg]=Кошче
 Name[bn]=আবর্জনা
@@ -166,6 +167,7 @@ X-KDE-PluginKeyword=trash
 X-KDE-ParentApp=kcontrol
 
 Name=Trash
+Name[ast]=Trash
 Name[be@latin]=Śmietnica
 Name[bg]=Кошче
 Name[bn]=আবর্জনা

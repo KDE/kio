@@ -87,6 +87,7 @@ Name[zh_CN]=IETF 评论请求
 Name[zh_TW]=IETF RFC 文件
 Query=http://tools.ietf.org/id/\\{@}
 Query[ar]=http://tools.ietf.org/id/\\{@}
+Query[ast]=http://tools.ietf.org/id/\\{@}
 Query[bg]=http://tools.ietf.org/id/\\{@}
 Query[bs]=http://tools.ietf.org/id/\\{@}
 Query[ca]=http://tools.ietf.org/id/\\{@}
