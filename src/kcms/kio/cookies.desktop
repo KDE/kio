@@ -56,6 +56,7 @@ Name[zh_TW]=Cookies
 Comment=Configure the way cookies work
 Comment[af]=Konfigureer die weg koekies werk
 Comment[as]=কুকিৰ কাম কৰা প্ৰক্ৰিয়া বিন্যাস কৰক
+Comment[ast]=Configura'l mou nel que furrulen les cookies
 Comment[be]=Наставіць cookies
 Comment[bg]=Настройване на бисквитките
 Comment[bn]=কুকি কনফিগার করুন
@@ -138,6 +139,7 @@ Comment[zh_CN]=配置 cookies 相关设置
 Comment[zh_TW]=設定 cookies 運作方式
 
 X-KDE-Keywords=Cookies,Browsing,Internet,WWW,Network,Policy,Domains
+X-KDE-Keywords[ast]=Cookies;Restolar;Internet;WWW;Rede;Política;Dominios
 X-KDE-Keywords[ca]=Galetes,Navegació,Internet,WWW,Xarxa,Polítiques,Dominis
 X-KDE-Keywords[ca@valencia]=Galetes,Navegació,Internet,WWW,Xarxa,Polítiques,Dominis
 X-KDE-Keywords[da]=Cookies,browsing,internet,www,netværk,politik,domæner

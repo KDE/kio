@@ -2,6 +2,7 @@
 Type=Service
 Name=SearchKeywordsFilter
 Name[af]=Soektogsleutelwoordfilter
+Name[ast]=SearchKeywordsFilter
 Name[be]=Фільтр пошуку ключавых словаў
 Name[be@latin]=SearchKeywordsFilter
 Name[bg]=SearchKeywordsFilter

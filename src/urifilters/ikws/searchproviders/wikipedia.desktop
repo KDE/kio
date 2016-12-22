@@ -4,6 +4,7 @@ Name=Wikipedia - The Free Encyclopedia
 Name[af]=Wikipedia - Die gratis ensiklopidie
 Name[ar]=ويكيبيديا - الموسوعة الحرّة
 Name[as]=Wikipedia - The Free Encyclopedia
+Name[ast]=Wikipedia - La enciclopedia llibre
 Name[be]=Wikipedia - Свабодная Энцыклапедыя
 Name[be@latin]=Wikipedia: svabodnaja encyklapedyja
 Name[bg]=Уикипедия - свободната енциклопедия
@@ -93,7 +94,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=wp
 Query=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ar]=https://ar.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
-Query[ast]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[ast]=https://ast.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[bg]=https://bg.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[bs]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ca]=https://ca.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go

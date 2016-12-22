@@ -2,6 +2,7 @@
 Type=Service
 Name=InternetKeywordsFilter
 Name[af]=Internetsleutelwoordefilter
+Name[ast]=InternetKeywordsFilter
 Name[be]=Фільтр ключавых словаў
 Name[be@latin]=InternetKeywordsFilter
 Name[bg]=InternetKeywordsFilter
