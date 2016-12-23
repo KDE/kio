@@ -1576,7 +1576,7 @@ void KFileWidget::setSelection(const QString &url)
         return;
     }
 
-    d->setLocationText(QUrl(url));
+    d->setLocationText(urlFromString(url));
 }
 
 void KFileWidgetPrivate::_k_slotLoadingFinished()

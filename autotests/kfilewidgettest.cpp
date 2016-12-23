@@ -122,6 +122,16 @@ private Q_SLOTS:
         QCOMPARE(localUrl.path(), QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
         QCOMPARE(outFileName, QStringLiteral("foo.txt"));
     }
+
+    void testBug369216()
+    {
+        KFileWidget fw(QUrl::fromLocalFile(QStringLiteral("/")));
+        fw.show();
+        QTest::qWaitForWindowActive(&fw);
+
+        fw.setSelection(QDir::homePath() + QLatin1String("/somefile"));
+        QCOMPARE(fw.baseUrl().adjusted(QUrl::StripTrailingSlash), QUrl::fromLocalFile(QDir::homePath()));
+    }
 };
 
 QTEST_MAIN(KFileWidgetTest)
