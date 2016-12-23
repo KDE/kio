@@ -443,10 +443,10 @@ void KPropertiesDialog::setFileSharingPage(QWidget *page)
 void KPropertiesDialog::setFileNameReadOnly(bool ro)
 {
     foreach (KPropertiesDialogPlugin *it, d->m_pageList) {
-        KFilePropsPlugin *plugin = dynamic_cast<KFilePropsPlugin *>(it);
-        if (plugin) {
-            plugin->setFileNameReadOnly(ro);
-            break;
+        if (auto *filePropsPlugin = qobject_cast<KFilePropsPlugin *>(it)) {
+            filePropsPlugin->setFileNameReadOnly(ro);
+        } else if (auto *urlPropsPlugin = qobject_cast<KUrlPropsPlugin *>(it)) {
+            urlPropsPlugin->setFileNameReadOnly(ro);
         }
     }
 }
@@ -3000,6 +3000,7 @@ public:
     QFrame *m_frame;
     KUrlRequester *URLEdit;
     QString URLStr;
+    bool fileNameReadOnly = false;
 };
 
 KUrlPropsPlugin::KUrlPropsPlugin(KPropertiesDialog *_props)
@@ -3051,6 +3052,11 @@ KUrlPropsPlugin::KUrlPropsPlugin(KPropertiesDialog *_props)
 KUrlPropsPlugin::~KUrlPropsPlugin()
 {
     delete d;
+}
+
+void KUrlPropsPlugin::setFileNameReadOnly(bool ro)
+{
+    d->fileNameReadOnly = ro;
 }
 
 // QString KUrlPropsPlugin::tabName () const
@@ -3106,8 +3112,9 @@ void KUrlPropsPlugin::applyChanges()
     dg.writeEntry("Type", QStringLiteral("Link"));
     dg.writePathEntry("URL", d->URLEdit->url().toString());
     // Users can't create a Link .desktop file with a Name field,
-    // but distributions can. Update the Name field in that case.
-    if (dg.hasKey("Name")) {
+    // but distributions can. Update the Name field in that case,
+    // if the file name could have been changed.
+    if (!d->fileNameReadOnly && dg.hasKey("Name")) {
         const QString nameStr = nameFromFileName(properties->url().fileName());
         dg.writeEntry("Name", nameStr);
         dg.writeEntry("Name", nameStr, KConfigBase::Persistent | KConfigBase::Localized);

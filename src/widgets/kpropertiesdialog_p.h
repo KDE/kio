@@ -222,6 +222,8 @@ public:
 
     virtual void applyChanges();
 
+    void setFileNameReadOnly(bool ro);
+
     static bool supports(const KFileItemList &_items);
 
 private:
