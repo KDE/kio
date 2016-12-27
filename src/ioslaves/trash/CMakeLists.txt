@@ -24,7 +24,7 @@ set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp
 
 ########### next target ###############
 if(WIN32)
-  set(kio_trash_PART_SRCS kio_trash_win.cpp kiotrashdebug.cpp)
+  set(kio_trash_PART_SRCS kio_trash_win.cpp ${trashcommon_PART_SRCS})
 else()
   set(kio_trash_PART_SRCS kio_trash.cpp ${trashcommon_PART_SRCS})
 endif()
