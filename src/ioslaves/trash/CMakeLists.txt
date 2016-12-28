@@ -15,18 +15,18 @@ else()
   add_subdirectory(tests)
 endif()
 
-set (trashcommon_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp
-                           ${CMAKE_CURRENT_SOURCE_DIR}/discspaceutil.cpp
-                           ${CMAKE_CURRENT_SOURCE_DIR}/trashsizecache.cpp
-                           ${CMAKE_CURRENT_SOURCE_DIR}/kinterprocesslock.cpp
-                           ${CMAKE_CURRENT_SOURCE_DIR}/kiotrashdebug.cpp
-    )
-
 ########### next target ###############
 if(WIN32)
-  set(kio_trash_PART_SRCS kio_trash_win.cpp ${trashcommon_PART_SRCS})
+  set(kio_trash_PART_SRCS kio_trash_win.cpp kiotrashdebug.cpp)
 else()
-  set(kio_trash_PART_SRCS kio_trash.cpp ${trashcommon_PART_SRCS})
+  # Files that are shared with the KCM. Unix specific.
+  set (trashcommon_unix_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/trashimpl.cpp
+                             ${CMAKE_CURRENT_SOURCE_DIR}/discspaceutil.cpp
+                             ${CMAKE_CURRENT_SOURCE_DIR}/trashsizecache.cpp
+                             ${CMAKE_CURRENT_SOURCE_DIR}/kinterprocesslock.cpp
+                             ${CMAKE_CURRENT_SOURCE_DIR}/kiotrashdebug.cpp
+    )
+  set(kio_trash_PART_SRCS kio_trash.cpp ${trashcommon_unix_SRCS})
 endif()
 add_library(kio_trash MODULE ${kio_trash_PART_SRCS})
 
@@ -63,7 +63,7 @@ install(TARGETS ktrash5 ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
 # currently not on win32, TODO!
 if(NOT WIN32 AND NOT KIOCORE_ONLY)
-    set(kcm_trash_PART_SRCS kcmtrash.cpp ${trashcommon_PART_SRCS})
+    set(kcm_trash_PART_SRCS kcmtrash.cpp ${trashcommon_unix_SRCS})
     add_library(kcm_trash MODULE ${kcm_trash_PART_SRCS})
     target_link_libraries(kcm_trash
        Qt5::DBus
