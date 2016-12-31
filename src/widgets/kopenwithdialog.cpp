@@ -731,7 +731,7 @@ void KOpenWithDialog::slotHighlighted(const QString &entryPath, const QString &)
         // ### indicate that default value was restored
         d->terminal->setChecked(d->curService->terminal());
         QString terminalOptions = d->curService->terminalOptions();
-        d->nocloseonexit->setChecked((terminalOptions.contains(QLatin1String("--noclose")) > 0));
+        d->nocloseonexit->setChecked((terminalOptions.contains(QLatin1String("--noclose"))));
         d->m_terminaldirty = false; // slotTerminalToggled changed it
     }
 }
