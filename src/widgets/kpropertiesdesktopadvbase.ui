@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>363</width>
-    <height>411</height>
+    <width>371</width>
+    <height>539</height>
    </rect>
   </property>
   <layout class="QVBoxLayout">
@@ -168,27 +168,23 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="0" colspan="3">
-       <widget class="QCheckBox" name="systrayCheck">
-        <property name="whatsThis">
-         <string>Check this option if you want to have a system tray handle for your application.</string>
+      <item row="1" column="2">
+       <spacer>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
-        <property name="text">
-         <string>Place in system tray</string>
+        <property name="sizeType">
+         <enum>QSizePolicy::Expanding</enum>
         </property>
-       </widget>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>50</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
       </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="textLabel12">
-        <property name="text">
-         <string>D-Bus registration:</string>
-        </property>
-        <property name="buddy">
-         <cstring>dbusCombo</cstring>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
+      <item row="1" column="1">
        <widget class="KComboBox" name="dbusCombo">
         <item>
          <property name="text">
@@ -212,21 +208,15 @@
         </item>
        </widget>
       </item>
-      <item row="2" column="2">
-       <spacer>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+      <item row="1" column="0">
+       <widget class="QLabel" name="textLabel12">
+        <property name="text">
+         <string>D-Bus registration:</string>
         </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Expanding</enum>
+        <property name="buddy">
+         <cstring>dbusCombo</cstring>
         </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>50</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
+       </widget>
       </item>
      </layout>
     </widget>

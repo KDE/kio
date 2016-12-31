@@ -3452,7 +3452,6 @@ public:
     bool m_hasDiscreteGpuBool;
     bool m_runOnDiscreteGpuBool;
     bool m_startupBool;
-    bool m_systrayBool;
 };
 
 KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
@@ -3534,12 +3533,6 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
     QString genNameStr = _config.readGenericName();
     QString commentStr = _config.readComment();
     QString commandStr = config.readEntry("Exec", QString());
-    if (commandStr.startsWith(QLatin1String("ksystraycmd "))) {
-        commandStr.remove(0, 12);
-        d->m_systrayBool = true;
-    } else {
-        d->m_systrayBool = false;
-    }
 
     d->m_origCommandStr = commandStr;
     QString pathStr = config.readEntry("Path", QString());   // not readPathEntry, see kservice.cpp
@@ -3701,12 +3694,7 @@ void KDesktopPropsPlugin::applyChanges()
     config.writeEntry("Comment", d->w->commentEdit->text(), KConfigGroup::Persistent | KConfigGroup::Localized); // for compat
     config.writeEntry("GenericName", d->w->genNameEdit->text());
     config.writeEntry("GenericName", d->w->genNameEdit->text(), KConfigGroup::Persistent | KConfigGroup::Localized); // for compat
-
-    if (d->m_systrayBool) {
-        config.writeEntry("Exec", d->w->commandEdit->text().prepend("ksystraycmd "));
-    } else {
-        config.writeEntry("Exec", d->w->commandEdit->text());
-    }
+    config.writeEntry("Exec", d->w->commandEdit->text());
     config.writeEntry("Path", d->w->pathEdit->lineEdit()->text());   // not writePathEntry, see kservice.cpp
 
     // Write mimeTypes
@@ -3825,7 +3813,6 @@ void KDesktopPropsPlugin::slotAdvanced()
     }
 
     w.startupInfoCheck->setChecked(d->m_startupBool);
-    w.systrayCheck->setChecked(d->m_systrayBool);
 
     if (d->m_dbusStartupType == QLatin1String("unique")) {
         w.dbusCombo->setCurrentIndex(2);
@@ -3863,8 +3850,6 @@ void KDesktopPropsPlugin::slotAdvanced()
             this, SIGNAL(changed()));
     connect(w.startupInfoCheck, SIGNAL(toggled(bool)),
             this, SIGNAL(changed()));
-    connect(w.systrayCheck, SIGNAL(toggled(bool)),
-            this, SIGNAL(changed()));
     connect(w.dbusCombo, SIGNAL(activated(int)),
             this, SIGNAL(changed()));
 
@@ -3877,7 +3862,6 @@ void KDesktopPropsPlugin::slotAdvanced()
             d->m_runOnDiscreteGpuBool = w.discreteGpuCheck->isChecked();
         }
         d->m_startupBool = w.startupInfoCheck->isChecked();
-        d->m_systrayBool = w.systrayCheck->isChecked();
 
         if (w.terminalCloseCheck->isChecked()) {
             d->m_terminalOptionStr.append(" --noclose");
