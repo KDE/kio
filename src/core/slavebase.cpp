@@ -50,7 +50,7 @@
 #include "commands_p.h"
 #include "ioslave_defaults.h"
 #include "slaveinterface.h"
-#include "kpasswdserverclient_p.h"
+#include "kpasswdserverclient.h"
 #include "kiocoredebug.h"
 
 #ifndef NDEBUG
@@ -97,7 +97,6 @@ public:
     Connection appConnection;
     QString poolSocket;
     bool isConnectedToApp;
-    static qlonglong s_seqNr;
 
     QString slaveid;
     bool resume: 1;
@@ -166,7 +165,6 @@ public:
 }
 
 static SlaveBase *globalSlave;
-qlonglong SlaveBasePrivate::s_seqNr;
 
 static volatile bool slaveWriteError = false;
 
@@ -959,18 +957,11 @@ int SlaveBase::openPasswordDialogV2(AuthInfo &info, const QString &errorMsg)
     dlgInfo.setExtraField(QStringLiteral("skip-caching-on-query"), true);
 
     KPasswdServerClient *passwdServerClient = d->passwdServerClient();
-    qlonglong seqNr = passwdServerClient->queryAuthInfo(dlgInfo, errorMessage, windowId,
-                                                        SlaveBasePrivate::s_seqNr, userTimestamp);
-    if (seqNr > 0) {
-        SlaveBasePrivate::s_seqNr = seqNr;
-        if (dlgInfo.isModified()) {
-            info = dlgInfo;
-            return KJob::NoError;
-        }
-    } else if (seqNr < 0) {
-        return ERR_PASSWD_SERVER;
+    const int errCode = passwdServerClient->queryAuthInfo(&dlgInfo, errorMessage, windowId, userTimestamp);
+    if (errCode == KJob::NoError) {
+        info = dlgInfo;
     }
-    return ERR_USER_CANCELED;
+    return errCode;
 }
 
 int SlaveBase::messageBox(MessageBoxType type, const QString &text, const QString &caption,
@@ -1074,8 +1065,6 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
 
     switch (command) {
     case CMD_HOST: {
-        // Reset s_seqNr, see kpasswdserver/DESIGN
-        SlaveBasePrivate::s_seqNr = 0;
         QString passwd;
         QString host, user;
         quint16 port;
@@ -1314,7 +1303,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
 bool SlaveBase::checkCachedAuthentication(AuthInfo &info)
 {
     KPasswdServerClient *passwdServerClient = d->passwdServerClient();
-    return (passwdServerClient->checkAuthInfo(info, metaData(QStringLiteral("window-id")).toLong(),
+    return (passwdServerClient->checkAuthInfo(&info, metaData(QStringLiteral("window-id")).toLong(),
                                         metaData(QStringLiteral("user-timestamp")).toULong()));
 }
 

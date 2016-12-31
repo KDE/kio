@@ -239,6 +239,7 @@ ecm_generate_headers(KIOCore_HEADERS
   KNFSShare
   KSambaShare
   KSambaShareData
+  KPasswdServerClient
   KProtocolInfo
   KProtocolManager
   KRecentDocument

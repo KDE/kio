@@ -19,62 +19,74 @@
  *  License along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef KPASSWDSERVERCLIENT_P_H
-#define KPASSWDSERVERCLIENT_P_H
+#ifndef KPASSWDSERVERCLIENT_H
+#define KPASSWDSERVERCLIENT_H
 
 #include <qglobal.h>
+#include <kiocore_export.h>
 
 class QString;
 class OrgKdeKPasswdServerInterface;
 
 namespace KIO
 {
-class AuthInfo;
+    class AuthInfo;
+}
+
+class KPasswdServerClientPrivate;
 
 /**
  * Interface class for kpasswdserver.
- * @internal
- * @remarks This is currently only supposed to be used by KIO::SlaveBase
- *          but might be reused as public API in the future.
+ * KIOSlaves should not use this directly but via the SlaveBase API.
+ * @since 5.30
  */
-class KPasswdServerClient
+class KIOCORE_EXPORT KPasswdServerClient
 {
 public:
+    /**
+     * Creates a client instance for kpasswdserver.
+     * The instance should be kept for the lifetime of the process, not created for each request.
+     */
     KPasswdServerClient();
+    /**
+     * Destructor.
+     */
     ~KPasswdServerClient();
 
     /**
      * Check if kpasswdserver has cached authentication information regarding
      * an AuthInfo object.
      * @param info information to check cache for
-     * @param windowId used as parent for dialogs
-     * @param usertime FIXME: I'd like to know as well :)
+     * @param windowId used as parent for dialogs, comes from QWidget::winId() on the toplevel widget
+     * @param usertime the X11 user time from the calling application, so that any dialog
+     *                 (e.g. wallet password) respects focus-prevention rules.
+     *                 Use KUserTimestamp::userTimestamp in the GUI application from which the request originates.
      * @return true if kpasswdserver provided cached information, false if not
      * @remarks info will contain the results of the check. To see if
      *          information was retrieved, check info.isModified().
      */
-    bool checkAuthInfo(KIO::AuthInfo &info, qlonglong windowId,
+    bool checkAuthInfo(KIO::AuthInfo *info, qlonglong windowId,
                        qlonglong usertime);
 
     /**
      * Let kpasswdserver ask the user for authentication information.
      * @param info information to query the user for
      * @param errorMsg error message that will be displayed to the user
-     * @param seqNr sequence number to assign to this request
-     * @param windowId used as parent for dialogs
-     * @param usertime FIXME: I'd like to know as well :)
-     * @return kpasswdserver's sequence number or -1 on error
-     * @remarks info will contain the results of the check. To see if
-     *          information was retrieved, check info.isModified().
+     * @param windowId used as parent for dialogs, comes from QWidget::winId() on the toplevel widget
+     * @param usertime the X11 user time from the calling application, so that the dialog
+     *                 (e.g. wallet password) respects focus-prevention rules.
+     *                 Use KUserTimestamp::userTimestamp in the GUI application from which the request originates.
+     * @return a KIO error code: KJob::NoError (0) on success, otherwise ERR_USER_CANCELED if the user canceled,
+     *  or ERR_PASSWD_SERVER if we couldn't communicate with kpasswdserver.
+     * @remarks If NoError is returned, then @p info will contain the authentication information that was retrieved.
      */
-    qlonglong queryAuthInfo(KIO::AuthInfo &info, const QString &errorMsg,
-                            qlonglong windowId, qlonglong seqNr,
-                            qlonglong usertime);
+    int queryAuthInfo(KIO::AuthInfo *info, const QString &errorMsg,
+                      qlonglong windowId, qlonglong usertime);
 
     /**
      * Manually add authentication information to kpasswdserver's cache.
      * @param info information to add
-     * @param windowId used as parent window for dialogs
+     * @param windowId used as parent window for dialogs, comes from QWidget::winId() on the toplevel widget
      */
     void addAuthInfo(const KIO::AuthInfo &info, qlonglong windowId);
 
@@ -89,8 +101,7 @@ public:
 
 private:
     OrgKdeKPasswdServerInterface *m_interface;
+    KPasswdServerClientPrivate *d;
 };
-
-}
 
 #endif

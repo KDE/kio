@@ -26,9 +26,6 @@
 #include <QtCore/QByteArray>
 #include <QtCore/QEventLoop>
 
-namespace KIO
-{
-
 // Wait for the result of an asynchronous D-Bus request to KPasswdServer.
 // Objects of this class are one-way ie. as soon as they have received
 // a result you can't call waitForResult() again.
@@ -42,7 +39,7 @@ public:
     bool waitForResult(qlonglong requestId);
 
     qlonglong seqNr() const;
-    const AuthInfo &authInfo() const;
+    const KIO::AuthInfo &authInfo() const;
 
 public Q_SLOTS:
     void slotQueryResult(qlonglong requestId, qlonglong seqNr, const KIO::AuthInfo &authInfo);
@@ -53,9 +50,7 @@ private Q_SLOTS:
 private:
     qlonglong m_requestId;
     qlonglong m_seqNr;
-    AuthInfo m_authInfo;
+    KIO::AuthInfo m_authInfo;
 };
-
-}
 
 #endif

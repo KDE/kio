@@ -24,9 +24,6 @@
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusServiceWatcher>
 
-namespace KIO
-{
-
 KPasswdServerLoop::KPasswdServerLoop() : m_seqNr(-1)
 {
     QDBusServiceWatcher *watcher = new QDBusServiceWatcher(QStringLiteral("org.kde.kpasswdserver"), QDBusConnection::sessionBus(),
@@ -43,7 +40,7 @@ bool KPasswdServerLoop::waitForResult(qlonglong requestId)
 {
     m_requestId = requestId;
     m_seqNr = -1;
-    m_authInfo = AuthInfo();
+    m_authInfo = KIO::AuthInfo();
     return (exec() == 0);
 }
 
@@ -52,7 +49,7 @@ qlonglong KPasswdServerLoop::seqNr() const
     return m_seqNr;
 }
 
-const AuthInfo &KPasswdServerLoop::authInfo() const
+const KIO::AuthInfo &KPasswdServerLoop::authInfo() const
 {
     return m_authInfo;
 }
@@ -70,8 +67,6 @@ void KPasswdServerLoop::slotQueryResult(qlonglong requestId, qlonglong seqNr,
 void KPasswdServerLoop::kdedServiceUnregistered()
 {
     exit(-1);
-}
-
 }
 
 #include "moc_kpasswdserverloop_p.cpp"
