@@ -321,9 +321,7 @@ void ForwardingSlaveBase::copy(const QUrl &src, const QUrl &dest,
     if (!d->internalRewriteUrl(src, new_src)) {
         error(KIO::ERR_DOES_NOT_EXIST, src.toDisplayString());
     } else if (d->internalRewriteUrl(dest, new_dest)) {
-        // Are you sure you want to display here a ProgressInfo ???
-        KIO::Job *job = KIO::file_copy(new_src, new_dest, permissions,
-                                       (flags & (~Overwrite) & (~HideProgressInfo)));
+        KIO::Job *job = KIO::file_copy(new_src, new_dest, permissions, flags | HideProgressInfo);
         d->connectJob(job);
 
         d->eventLoop.exec();
