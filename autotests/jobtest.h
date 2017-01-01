@@ -97,6 +97,7 @@ private Q_SLOTS:
     void createSymlinkAsShouldSucceed();
     void createSymlinkAsShouldFailDirectoryExists();
     void createSymlinkAsShouldFailFileExists();
+    void createSymlinkWithOverwriteShouldWork();
     void createBrokenSymlink();
 
     // Remote tests
