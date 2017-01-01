@@ -273,7 +273,7 @@ void ForwardingSlaveBase::symlink(const QString &target, const QUrl &dest,
 
     QUrl new_dest;
     if (d->internalRewriteUrl(dest, new_dest)) {
-        KIO::SimpleJob *job = KIO::symlink(target, new_dest, flags & HideProgressInfo);
+        KIO::SimpleJob *job = KIO::symlink(target, new_dest, flags | HideProgressInfo);
         d->connectSimpleJob(job);
 
         d->eventLoop.exec();
