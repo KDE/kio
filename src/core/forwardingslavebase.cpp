@@ -384,8 +384,10 @@ void ForwardingSlaveBasePrivate::connectJob(KIO::Job *job)
 void ForwardingSlaveBasePrivate::connectSimpleJob(KIO::SimpleJob *job)
 {
     connectJob(job);
-    q->connect(job, SIGNAL(redirection(KIO::Job*,QUrl)),
-               SLOT(_k_slotRedirection(KIO::Job*,QUrl)));
+    if (job->metaObject()->indexOfSignal("redirection(KIO::Job*,QUrl)") > -1) {
+        q->connect(job, SIGNAL(redirection(KIO::Job*,QUrl)),
+                SLOT(_k_slotRedirection(KIO::Job*,QUrl)));
+    }
 }
 
 void ForwardingSlaveBasePrivate::connectListJob(KIO::ListJob *job)
