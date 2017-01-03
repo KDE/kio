@@ -114,7 +114,7 @@ public:
     }
 
 protected:
-    /* \reimp */ void run();
+    /* \reimp */ void run() Q_DECL_OVERRIDE;
 
 private:
     QByteArray makeHttpResponse(const QByteArray &responseData) const;

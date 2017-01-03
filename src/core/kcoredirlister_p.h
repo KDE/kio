@@ -554,7 +554,7 @@ class KCoreDirLister::Private::CachedItemsJob : public KJob
 public:
     CachedItemsJob(KCoreDirLister *lister, const QUrl &url, bool reload);
 
-    /*reimp*/ void start()
+    /*reimp*/ void start() Q_DECL_OVERRIDE
     {
         QMetaObject::invokeMethod(this, "done", Qt::QueuedConnection);
     }
@@ -571,7 +571,7 @@ public:
     }
 
 protected:
-    virtual bool doKill();
+    bool doKill() Q_DECL_OVERRIDE;
 
 public Q_SLOTS:
     void done();

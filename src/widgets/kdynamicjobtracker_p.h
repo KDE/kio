@@ -52,14 +52,14 @@ public Q_SLOTS:
      *
      * @param job the job to register
      */
-    virtual void registerJob(KJob *job);
+    void registerJob(KJob *job) Q_DECL_OVERRIDE;
 
     /**
      * Unregister a job from the tracker it was registered to.
      *
      * @param job the job to unregister
      */
-    virtual void unregisterJob(KJob *job);
+    void unregisterJob(KJob *job) Q_DECL_OVERRIDE;
 
 private:
     class Private;

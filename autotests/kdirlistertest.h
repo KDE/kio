@@ -77,7 +77,7 @@ public:
     QSignalSpy spyRedirection;
     QSignalSpy spyItemsDeleted;
 protected:
-    virtual void handleError(KIO::Job *job);
+    void handleError(KIO::Job *job) Q_DECL_OVERRIDE;
 };
 
 class KDirListerTest : public QObject
