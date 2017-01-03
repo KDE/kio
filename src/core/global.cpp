@@ -17,6 +17,7 @@
 */
 
 #include "global.h"
+#include "kioglobal_p.h"
 #include "faviconscache_p.h"
 
 #include <kprotocolinfo.h>
@@ -305,6 +306,11 @@ QString KIO::iconNameForUrl(const QUrl &url)
     const QLatin1String unknown("unknown");
     const QString mimeTypeIcon = mt.iconName();
     QString i = mimeTypeIcon;
+
+    // check whether it's a xdg location (e.g. Pictures folder)
+    if (url.isLocalFile() && mt.inherits(QLatin1String("inode/directory"))) {
+        i = KIOPrivate::iconForStandardPath(url.toLocalFile());
+    }
 
     // if we don't find an icon, maybe we can use the one for the protocol
     if (i == unknown || i.isEmpty() || mt.isDefault()

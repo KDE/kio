@@ -481,22 +481,26 @@ void KFileItemTest::testListProperties()
 
 void KFileItemTest::testIconNameForUrl_data()
 {
-    QTest::addColumn<QString>("url");
+    QTest::addColumn<QUrl>("url");
     QTest::addColumn<QString>("expectedIcon");
 
-    QTest::newRow("root") << "file:/" << "folder"; // the icon comes from KProtocolInfo
+    QTest::newRow("root") << QUrl("file:/") << "folder"; // the icon comes from KProtocolInfo
     if (QFile::exists(QStringLiteral("/tmp"))) {
-        QTest::newRow("subdir") << "file:/tmp" << "inode-directory";
+        QTest::newRow("subdir") << QUrl::fromLocalFile("/tmp") << "folder-temp";
     }
+
+    QTest::newRow("home") << QUrl::fromLocalFile(QDir::homePath()) << "user-home";
+    QTest::newRow("videos") << QUrl::fromLocalFile(QStandardPaths::standardLocations(QStandardPaths::MoviesLocation).first()) << "folder-videos";
+
     // TODO more tests
 }
 
 void KFileItemTest::testIconNameForUrl()
 {
-    QFETCH(QString, url);
+    QFETCH(QUrl, url);
     QFETCH(QString, expectedIcon);
 
-    QCOMPARE(KIO::iconNameForUrl(QUrl(url)), expectedIcon);
+    QCOMPARE(KIO::iconNameForUrl(url), expectedIcon);
 }
 
 void KFileItemTest::testMimetypeForRemoteFolder()

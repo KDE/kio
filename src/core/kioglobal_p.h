@@ -125,6 +125,10 @@ namespace KIOPrivate {
 
     /** Changes the ownership of @p file (like chown()) */
     KIOCORE_EXPORT bool changeOwnership(const QString& file, KUserId newOwner, KGroupId newGroup);
+
+    /** Returns an icon name for a standard path,
+     * e.g. folder-pictures for any path in QStandardPaths::PicturesLocation */
+    QString iconForStandardPath(const QString &localDirectory);
 }
 
 #endif // KIO_KIOGLOBAL_P_H

@@ -91,6 +91,8 @@ set(kiocore_SRCS
   kssl/ksslsettings.cpp
 
   kiocoredebug.cpp
+
+  kioglobal_p.cpp
 )
 
 if (UNIX)
