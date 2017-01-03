@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(KIO)
+set(KF5_VERSION "5.30.0") # handled by release scripts
+set(KF5_DEP_VERSION "5.29.0") # handled by release scripts
+
+project(KIO VERSION ${KF5_VERSION})
 
 include(FeatureSummary)
 find_package(ECM 5.29.0  NO_MODULE)
@@ -23,11 +26,8 @@ include(ECMGenerateHeaders)
 include(ECMMarkNonGuiExecutable)
 include(ECMQtDeclareLoggingCategory)
 
-set(KF5_VERSION "5.30.0") # handled by release scripts
-set(KF5_DEP_VERSION "5.29.0") # handled by release scripts
-
 ecm_setup_version(
-  ${KF5_VERSION}
+  PROJECT
   VARIABLE_PREFIX KIO
   VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/src/kio_version.h"
   PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5KIOConfigVersion.cmake"
