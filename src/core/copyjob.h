@@ -283,7 +283,7 @@ private:
  *
  * @param src the file or directory to copy
  * @param dest the destination
- * @param flags: copy() supports HideProgressInfo and Overwrite.
+ * @param flags copy() supports HideProgressInfo and Overwrite.
  * Note: Overwrite has the meaning of both "write into existing directories" and
  * "overwrite existing files". However if "dest" exists, then src is copied
  * into a subdir of dest, just like "cp" does. Use copyAs if you don't want that.
@@ -304,7 +304,7 @@ KIOCORE_EXPORT CopyJob *copy(const QUrl &src, const QUrl &dest, JobFlags flags =
  *
  * @param src the file or directory to copy
  * @param dest the destination
- * @param flags: copyAs() supports HideProgressInfo and Overwrite.
+ * @param flags copyAs() supports HideProgressInfo and Overwrite.
  * Note: Overwrite has the meaning of both "write into existing directories" and
  * "overwrite existing files".
  *
@@ -317,7 +317,7 @@ KIOCORE_EXPORT CopyJob *copyAs(const QUrl &src, const QUrl &dest, JobFlags flags
  *
  * @param src the list of files and/or directories
  * @param dest the destination
- * @param flags: copy() supports HideProgressInfo and Overwrite.
+ * @param flags copy() supports HideProgressInfo and Overwrite.
  * Note: Overwrite has the meaning of both "write into existing directories" and
  * "overwrite existing files". However if "dest" exists, then src is copied
  * into a subdir of dest, just like "cp" does.
@@ -330,7 +330,7 @@ KIOCORE_EXPORT CopyJob *copy(const QList<QUrl> &src, const QUrl &dest, JobFlags 
  *
  * @param src the file or directory to copy
  * @param dest the destination
- * @param flags: move() supports HideProgressInfo and Overwrite.
+ * @param flags move() supports HideProgressInfo and Overwrite.
  * Note: Overwrite has the meaning of both "write into existing directories" and
  * "overwrite existing files". However if "dest" exists, then src is copied
  * into a subdir of dest, just like "cp" does.
@@ -346,7 +346,7 @@ KIOCORE_EXPORT CopyJob *move(const QUrl &src, const QUrl &dest, JobFlags flags =
  *
  * @param src the file or directory to copy
  * @param dest the destination
- * @param flags: moveAs() supports HideProgressInfo and Overwrite.
+ * @param flags moveAs() supports HideProgressInfo and Overwrite.
  * Note: Overwrite has the meaning of both "write into existing directories" and
  * "overwrite existing files".
  * @return the job handling the operation
@@ -358,7 +358,7 @@ KIOCORE_EXPORT CopyJob *moveAs(const QUrl &src, const QUrl &dest, JobFlags flags
  *
  * @param src the list of files or directories to copy
  * @param dest the destination
- * @param flags: move() supports HideProgressInfo and Overwrite.
+ * @param flags move() supports HideProgressInfo and Overwrite.
  * Note: Overwrite has the meaning of both "write into existing directories" and
  * "overwrite existing files". However if "dest" exists, then src is copied
  * into a subdir of dest, just like "cp" does.
@@ -374,7 +374,7 @@ KIOCORE_EXPORT CopyJob *move(const QList<QUrl> &src, const QUrl &dest, JobFlags 
  *
  * @param src The existing file or directory, 'target' of the link.
  * @param destDir Destination directory where the link will be created.
- * @param flags: link() supports HideProgressInfo only
+ * @param flags link() supports HideProgressInfo only
  * @return the job handling the operation
  */
 KIOCORE_EXPORT CopyJob *link(const QUrl &src, const QUrl &destDir, JobFlags flags = DefaultFlags);
@@ -386,7 +386,7 @@ KIOCORE_EXPORT CopyJob *link(const QUrl &src, const QUrl &destDir, JobFlags flag
  *
  * @param src The existing files or directories, 'targets' of the link.
  * @param destDir Destination directory where the links will be created.
- * @param flags: link() supports HideProgressInfo only
+ * @param flags link() supports HideProgressInfo only
  * @return the job handling the operation
  * @see link()
  */
@@ -400,7 +400,7 @@ KIOCORE_EXPORT CopyJob *link(const QList<QUrl> &src, const QUrl &destDir, JobFla
  *
  * @param src The existing file or directory, 'target' of the link.
  * @param dest Destination (i.e. the final symlink)
- * @param flags: linkAs() supports HideProgressInfo only
+ * @param flags linkAs() supports HideProgressInfo only
  * @return the job handling the operation
  * @see link ()
  * @see copyAs()
@@ -413,7 +413,7 @@ KIOCORE_EXPORT CopyJob *linkAs(const QUrl &src, const QUrl &dest, JobFlags flags
  * Use QUrl::fromLocalFile to create a URL from a local file path.
  *
  * @param src file to delete
- * @param flags: trash() supports HideProgressInfo only
+ * @param flags trash() supports HideProgressInfo only
  * @return the job handling the operation
  */
 KIOCORE_EXPORT CopyJob *trash(const QUrl &src, JobFlags flags = DefaultFlags);
@@ -423,7 +423,7 @@ KIOCORE_EXPORT CopyJob *trash(const QUrl &src, JobFlags flags = DefaultFlags);
  * This is currently only supported for local files and directories.
  *
  * @param src the files to delete
- * @param flags: trash() supports HideProgressInfo only
+ * @param flags trash() supports HideProgressInfo only
  * @return the job handling the operation
  */
 KIOCORE_EXPORT CopyJob *trash(const QList<QUrl> &src, JobFlags flags = DefaultFlags);

@@ -75,7 +75,7 @@ private:
  * @param newOwner If non-empty, the new owner for the files
  * @param newGroup If non-empty, the new group for the files
  * @param recursive whether to open directories recursively
- * @param flags: We support HideProgressInfo here
+ * @param flags We support HideProgressInfo here
  * @return The job handling the operation.
  */
 KIOCORE_EXPORT ChmodJob *chmod(const KFileItemList &lstItems, int permissions, int mask,

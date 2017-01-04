@@ -79,7 +79,7 @@ private:
  * @see StoredTransferJob
  *
  * @param url the URL of the file
- * @param reload: Reload to reload the file, NoReload if it can be taken from the cache
+ * @param reload Reload to reload the file, NoReload if it can be taken from the cache
  * @param flags Can be HideProgressInfo here
  * @return the job handling the operation.
  */

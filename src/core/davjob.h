@@ -77,7 +77,7 @@ private:
  * @param properties a propfind document that describes the properties that
  *        should be retrieved
  * @param depth the depth of the request. Can be "0", "1" or "infinity"
- * @param flags: We support HideProgressInfo here
+ * @param flags We support HideProgressInfo here
  * @return the new DavJob
  */
 KIOCORE_EXPORT DavJob *davPropFind(const QUrl &url, const QDomDocument &properties, const QString &depth, JobFlags flags = DefaultFlags);
@@ -89,7 +89,7 @@ KIOCORE_EXPORT DavJob *davPropFind(const QUrl &url, const QDomDocument &properti
  * @param url the URL of the resource
  * @param properties a PROPPACTCH document that describes the properties that
  *        should be modified and its new values
- * @param flags: We support HideProgressInfo here
+ * @param flags We support HideProgressInfo here
  * @return the new DavJob
  */
 KIOCORE_EXPORT DavJob *davPropPatch(const QUrl &url, const QDomDocument &properties, JobFlags flags = DefaultFlags);
@@ -101,7 +101,7 @@ KIOCORE_EXPORT DavJob *davPropPatch(const QUrl &url, const QDomDocument &propert
  * @param nsURI the URI of the search method's qualified name
  * @param qName the local part of the search method's qualified name
  * @param query the search string
- * @param flags: We support HideProgressInfo here
+ * @param flags We support HideProgressInfo here
  * @return the new DavJob
  */
 KIOCORE_EXPORT DavJob *davSearch(const QUrl &url, const QString &nsURI, const QString &qName, const QString &query, JobFlags flags = DefaultFlags);
@@ -112,7 +112,7 @@ KIOCORE_EXPORT DavJob *davSearch(const QUrl &url, const QString &nsURI, const QS
  * @param url the URL of the resource
  * @param report a REPORT document that describes the request to make
  * @param depth the depth of the request. Can be "0", "1" or "infinity"
- * @param flags: We support HideProgressInfo here
+ * @param flags We support HideProgressInfo here
  * @return the new DavJob
  * @since 4.4
  */

@@ -107,7 +107,7 @@ private:
  * Delete a file or directory.
  *
  * @param src file to delete
- * @param flags: We support HideProgressInfo here
+ * @param flags We support HideProgressInfo here
  * @return the job handling the operation
  */
 KIOCORE_EXPORT DeleteJob *del(const QUrl &src, JobFlags flags = DefaultFlags);
@@ -116,7 +116,7 @@ KIOCORE_EXPORT DeleteJob *del(const QUrl &src, JobFlags flags = DefaultFlags);
  * Deletes a list of files or directories.
  *
  * @param src the files to delete
- * @param flags: We support HideProgressInfo here
+ * @param flags We support HideProgressInfo here
  * @return the job handling the operation
  */
 KIOCORE_EXPORT DeleteJob *del(const QList<QUrl> &src, JobFlags flags = DefaultFlags);

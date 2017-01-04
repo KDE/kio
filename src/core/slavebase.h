@@ -430,7 +430,7 @@ public:
      *
      * @param url where to write the file
      * @param permissions may be -1. In this case no special permission mode is set.
-     * @param flags: We support Overwrite here. Hopefully, we're going to
+     * @param flags We support Overwrite here. Hopefully, we're going to
      * support Resume in the future, too.
      * If the file indeed already exists, the slave should NOT apply the
      * permissions change to it.
@@ -517,7 +517,7 @@ public:
      *
      * @param src where to move the file from
      * @param dest where to move the file to
-     * @param flags: We support Overwrite here
+     * @param flags We support Overwrite here
      */
     virtual void rename(const QUrl &src, const QUrl &dest, JobFlags flags);
 
@@ -526,7 +526,7 @@ public:
      * may be a relative or an absolute path.
      * @param target The string that will become the "target" of the link (can be relative)
      * @param dest The symlink to create.
-     * @param flags: We support Overwrite here
+     * @param flags We support Overwrite here
      */
     virtual void symlink(const QString &target, const QUrl &dest, JobFlags flags);
 
@@ -571,7 +571,7 @@ public:
      * @param src where to copy the file from (decoded)
      * @param dest where to copy the file to (decoded)
      * @param permissions may be -1. In this case no special permission mode is set.
-     * @param flags: We support Overwrite here
+     * @param flags We support Overwrite here
      *
      * Don't forget to set the modification time of @p dest to be the modification time of @p src.
      */
