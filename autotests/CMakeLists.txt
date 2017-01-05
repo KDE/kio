@@ -68,6 +68,7 @@ if (TARGET KF5::KIOWidgets)
 ecm_add_tests(
  clipboardupdatertest.cpp
  dropjobtest.cpp
+ kdynamicjobtrackernowidgetstest.cpp
  krununittest.cpp
  kdirlistertest.cpp
  kdirmodeltest.cpp
