@@ -490,7 +490,10 @@ void KFileItemTest::testIconNameForUrl_data()
     }
 
     QTest::newRow("home") << QUrl::fromLocalFile(QDir::homePath()) << "user-home";
-    QTest::newRow("videos") << QUrl::fromLocalFile(QStandardPaths::standardLocations(QStandardPaths::MoviesLocation).first()) << "folder-videos";
+    const QString moviesPath = QStandardPaths::standardLocations(QStandardPaths::MoviesLocation).first();
+    if (QFileInfo::exists(moviesPath)) {
+        QTest::newRow("videos") << QUrl::fromLocalFile(moviesPath) << (moviesPath == QDir::homePath() ? "user-home" : "folder-videos");
+    }
 
     // TODO more tests
 }
@@ -500,7 +503,10 @@ void KFileItemTest::testIconNameForUrl()
     QFETCH(QUrl, url);
     QFETCH(QString, expectedIcon);
 
-    QCOMPARE(KIO::iconNameForUrl(url), expectedIcon);
+    if (KIO::iconNameForUrl(url) != expectedIcon) {
+        qDebug() << url;
+        QCOMPARE(KIO::iconNameForUrl(url), expectedIcon);
+    }
 }
 
 void KFileItemTest::testMimetypeForRemoteFolder()
