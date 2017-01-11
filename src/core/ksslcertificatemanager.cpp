@@ -247,9 +247,9 @@ bool KSslCertificateManagerPrivate::addCertificate(const KSslCaCertificate &in)
     }
 
     QString certFilename = userCertDir + QString::fromLatin1(in.certHash);
-    //qDebug() << certFilename;
+
     QFile certFile(certFilename);
-    if (certFile.open(QIODevice::ReadOnly)) {
+    if (!QDir().mkpath(userCertDir) || certFile.open(QIODevice::ReadOnly)) {
         return false;
     }
     if (!certFile.open(QIODevice::WriteOnly)) {
