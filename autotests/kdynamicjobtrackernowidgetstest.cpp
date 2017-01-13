@@ -20,6 +20,7 @@
 #include <KIO/JobTracker>
 #include <KJobTrackerInterface>
 #include <KJob>
+#include <KFile>
 
 #include <QtTest>
 #include <QEventLoop>
@@ -48,6 +49,9 @@ private Q_SLOTS:
 
 void KDynamicJobTrackerTest::testNoCrashWithoutQWidgetsPossible()
 {
+    // dummy call: need to use some symbol from KIOWidgets so linkers do not drop linking to it
+    KFile::isDefaultView(KFile::Default);
+
     // simply linking to KIOWidgets results in KDynamicJobTracker installing itself as KIO's jobtracker
     KJobTrackerInterface* jobtracker = KIO::getJobTracker();
     QCOMPARE(jobtracker->metaObject()->className(), "KDynamicJobTracker");
