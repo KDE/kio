@@ -231,7 +231,7 @@ public:
                              const QByteArray &asn = QByteArray()); // TODO KF6: deprecate/remove
 
     enum RunFlag {
-        DeleteTemporaryFiles = 0x1 /// < the URLs passed to the service will be deleted when it exits (if the URLs are local files)
+        DeleteTemporaryFiles = 0x1 ///< the URLs passed to the service will be deleted when it exits (if the URLs are local files)
     };
     Q_DECLARE_FLAGS(RunFlags, RunFlag)
 
