@@ -132,8 +132,6 @@ class KIOWIDGETS_EXPORT KFileItemDelegate : public QAbstractItemDelegate
      */
     Q_PROPERTY(bool jobTransfersVisible READ jobTransfersVisible WRITE setJobTransfersVisible)
 
-    Q_ENUMS(Information)
-
 public:
     /**
      * This enum defines the additional information that can be displayed below item
@@ -172,6 +170,7 @@ public:
         LocalPathOrUrl,    ///< The local path to the file or the URL in case it is not a local file. @since 4.5
         Comment            ///< A simple comment that can be displayed to the user as is. @since 4.6
     };
+    Q_ENUM(Information)
 
     typedef QList<Information> InformationList;
 

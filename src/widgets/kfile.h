@@ -31,7 +31,6 @@
 class KIOWIDGETS_EXPORT KFile
 {
     Q_GADGET
-    Q_FLAGS(Modes)
 public:
     /**
      * Modes of operation for the dialog.
@@ -50,6 +49,7 @@ public:
         ModeMax      = 65536
     };
     Q_DECLARE_FLAGS(Modes, Mode)
+    Q_FLAG(Modes)
 
     enum FileView {
         Default         = 0,
