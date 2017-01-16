@@ -106,8 +106,8 @@ public:
         m_destPendingPreview = false;
         m_srcPreview = nullptr;
         m_destPreview = nullptr;
-        m_srcArea = Q_NULLPTR;
-        m_destArea = Q_NULLPTR;
+        m_srcArea = nullptr;
+        m_destArea = nullptr;
     }
 
     void setRenameBoxText(const QString &fileName)
@@ -589,10 +589,10 @@ void RenameDialog::showDestPreview(const KFileItem &fileitem, const QPixmap &pix
 
 void RenameDialog::resizePanels()
 {
-    Q_ASSERT(d->m_srcArea != Q_NULLPTR);
-    Q_ASSERT(d->m_destArea != Q_NULLPTR);
-    Q_ASSERT(d->m_srcPreview != Q_NULLPTR);
-    Q_ASSERT(d->m_destPreview != Q_NULLPTR);
+    Q_ASSERT(d->m_srcArea != nullptr);
+    Q_ASSERT(d->m_destArea != nullptr);
+    Q_ASSERT(d->m_srcPreview != nullptr);
+    Q_ASSERT(d->m_destPreview != nullptr);
 
     // using QDesktopWidget geometry as Kephal isn't accessible here in kdelibs
     const QSize screenSize = QApplication::desktop()->availableGeometry(this).size();

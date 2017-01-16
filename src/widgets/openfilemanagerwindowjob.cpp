@@ -37,7 +37,7 @@ class OpenFileManagerWindowJobPrivate
 {
 public:
     OpenFileManagerWindowJobPrivate()
-        : strategy(Q_NULLPTR)
+        : strategy(nullptr)
     {
 
     }

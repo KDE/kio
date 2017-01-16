@@ -133,7 +133,7 @@ public:
      * @since 5.10
      */
     explicit KPropertiesDialog(const QList<QUrl> &urls,
-                               QWidget *parent = Q_NULLPTR);
+                               QWidget *parent = nullptr);
 
     /**
      * Creates a properties dialog for a new .desktop file (whose name
@@ -221,7 +221,7 @@ public:
      *
      * @since 5.10
      */
-    static bool showDialog(const QList<QUrl> &urls, QWidget *parent = Q_NULLPTR,
+    static bool showDialog(const QList<QUrl> &urls, QWidget *parent = nullptr,
                            bool modal = true);
 
     /**

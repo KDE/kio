@@ -471,7 +471,7 @@ private:
                 return menu;
             }
         }
-        return Q_NULLPTR;
+        return nullptr;
     }
     static Qt::DropActions popupDropActions(QMenu *menu)
     {

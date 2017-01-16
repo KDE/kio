@@ -65,7 +65,7 @@ static QDir getOrCreateCookieJarDir()
             QFile kcookieBogusFile(kcookiejarDirName);
 
             if (!kcookieBogusFile.remove()) {
-                QMessageBox::warning(Q_NULLPTR, i18n("Cannot Save Cookies"), i18n("Could not remove %1, check permissions").arg(cookiejarDirInfo.absoluteFilePath()));
+                QMessageBox::warning(nullptr, i18n("Cannot Save Cookies"), i18n("Could not remove %1, check permissions").arg(cookiejarDirInfo.absoluteFilePath()));
             }
         }
         else {
@@ -74,7 +74,7 @@ static QDir getOrCreateCookieJarDir()
     }
 
     if (!dataDir.mkpath(QStringLiteral("kcookiejar"))) {
-        QMessageBox::warning(Q_NULLPTR, i18n("Cannot Save Cookies"), i18n("Could not create directory %1").arg(kcookiejarDirName));
+        QMessageBox::warning(nullptr, i18n("Cannot Save Cookies"), i18n("Could not create directory %1").arg(kcookiejarDirName));
     }
 
     return QDir(kcookiejarDirName);

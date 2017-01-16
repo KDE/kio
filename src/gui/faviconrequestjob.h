@@ -75,7 +75,7 @@ public:
      * @param reload set this to reload to skip the cache and force a refresh of the favicon.
      * @param parent parent object
      */
-    explicit FavIconRequestJob(const QUrl &hostUrl, KIO::LoadType reload = KIO::NoReload, QObject *parent = Q_NULLPTR);
+    explicit FavIconRequestJob(const QUrl &hostUrl, KIO::LoadType reload = KIO::NoReload, QObject *parent = nullptr);
 
     /**
      * Destructor. You do not need to delete the job, it will delete automatically,

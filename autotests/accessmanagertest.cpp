@@ -113,7 +113,7 @@ private:
      */
     QNetworkAccessManager *manager()
     {
-        static QNetworkAccessManager *ret = Q_NULLPTR;
+        static QNetworkAccessManager *ret = nullptr;
         if (!ret) {
 #ifdef USE_QNAM
             ret = new QNetworkAccessManager(this);

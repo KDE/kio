@@ -63,7 +63,7 @@ static KFileWidget *findFileWidget()
             widgets.append(fw);
         }
     }
-    return (widgets.count() == 1) ? widgets.first() : Q_NULLPTR;
+    return (widgets.count() == 1) ? widgets.first() : nullptr;
 }
 
 

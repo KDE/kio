@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
 
-    KFileWidget* fileWidget = new KFileWidget(QUrl(QStringLiteral("kfiledialog:///OpenDialog")), Q_NULLPTR);
+    KFileWidget* fileWidget = new KFileWidget(QUrl(QStringLiteral("kfiledialog:///OpenDialog")), nullptr);
     fileWidget->setMode(KFile::Files | KFile::ExistingOnly);
     fileWidget->setAttribute(Qt::WA_DeleteOnClose);
     fileWidget->show();

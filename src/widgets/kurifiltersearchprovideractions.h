@@ -48,7 +48,7 @@ public:
      * @param parent The QObject parent.
      */
 
-    explicit KUriFilterSearchProviderActions(QObject *parent = Q_NULLPTR);
+    explicit KUriFilterSearchProviderActions(QObject *parent = nullptr);
     ~KUriFilterSearchProviderActions();
 
     /**

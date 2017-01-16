@@ -61,7 +61,7 @@ public:
     /**
      * Creates an OpenFileManagerWindowJob
      */
-    explicit OpenFileManagerWindowJob(QObject *parent = Q_NULLPTR);
+    explicit OpenFileManagerWindowJob(QObject *parent = nullptr);
 
     /**
      * Destroys the OpenFileManagerWindowJob
