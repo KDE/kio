@@ -299,8 +299,7 @@ public:
      *                  The default is i18n("&No").
      * Note: for ContinueCancel, buttonYes is the continue button and buttonNo is unused.
      *       and for Information, none is used.
-     * @param dontAskAgain A checkbox is added with which further confirmation can be turned off.
-     *        If the checkbox was ticked @p dontAskAgain will be set to true, otherwise false.
+     * @param dontAskAgainName the name used to store result from 'Do not ask again' checkbox.
      * @return a button code, as defined in ButtonCode, or 0 on communication error.
      */
     int messageBox(const QString &text, MessageBoxType type,
@@ -354,10 +353,7 @@ public:
 
     /**
      * Set the host
-     * @param host
-     * @param port
-     * @param user
-     * @param pass
+     *
      * Called directly by createSlave, this is why there is no equivalent in
      * SlaveInterface, unlike the other methods.
      *

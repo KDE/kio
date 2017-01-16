@@ -220,10 +220,12 @@ private:
  * and then read it with the appropriate component, you can still use
  * a KIO::get() directly. When that job emits the mimeType signal, (which is
  * guaranteed to happen before it emits any data), put the job on hold:
- * <code>
+ *
+ * @code
  *   job->putOnHold();
  *   KIO::Scheduler::publishSlaveOnHold();
- * </code>
+ * @endcode
+ *
  * and forget about the job. The next time someone does a KIO::get() on the
  * same URL (even in another process) this job will be resumed. This saves KIO
  * from doing two requests to the server.
@@ -304,7 +306,7 @@ KIOCORE_EXPORT TransferJob *http_post(const QUrl &url, QIODevice *device,
  * Though this function servers the same purpose as KIO::file_delete, unlike
  * file_delete it accommodates HTTP sepecific actions such as redirections.
  *
- * @param src url resource to delete.
+ * @param url url resource to delete.
  * @param flags Can be HideProgressInfo here
  * @return the job handling the operation.
  *

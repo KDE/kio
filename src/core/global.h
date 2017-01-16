@@ -156,8 +156,8 @@ enum Error {
     ERR_UNSUPPORTED_PROTOCOL = KJob::UserDefinedError + 6,
     ERR_NO_SOURCE_PROTOCOL = KJob::UserDefinedError + 7,
     ERR_UNSUPPORTED_ACTION = KJob::UserDefinedError + 8,
-    ERR_IS_DIRECTORY = KJob::UserDefinedError + 9, // ... where a file was expected
-    ERR_IS_FILE = KJob::UserDefinedError + 10, // ... where a directory was expected (e.g. listing)
+    ERR_IS_DIRECTORY = KJob::UserDefinedError + 9, ///< ... where a file was expected
+    ERR_IS_FILE = KJob::UserDefinedError + 10, ///< ... where a directory was expected (e.g. listing)
     ERR_DOES_NOT_EXIST = KJob::UserDefinedError + 11,
     ERR_FILE_ALREADY_EXIST = KJob::UserDefinedError + 12,
     ERR_DIR_ALREADY_EXIST = KJob::UserDefinedError + 13,
@@ -169,35 +169,35 @@ enum Error {
     ERR_CYCLIC_LINK = KJob::UserDefinedError + 19,
     ERR_USER_CANCELED = KJob::KilledJobError,
     ERR_CYCLIC_COPY = KJob::UserDefinedError + 21,
-    ERR_COULD_NOT_CREATE_SOCKET = KJob::UserDefinedError + 22, //< @deprecated
+    ERR_COULD_NOT_CREATE_SOCKET = KJob::UserDefinedError + 22, ///< @deprecated
     ERR_CANNOT_CREATE_SOCKET = KJob::UserDefinedError + 22,
-    ERR_COULD_NOT_CONNECT = KJob::UserDefinedError + 23, //< @deprecated
+    ERR_COULD_NOT_CONNECT = KJob::UserDefinedError + 23, ///< @deprecated
     ERR_CANNOT_CONNECT = KJob::UserDefinedError + 23,
     ERR_CONNECTION_BROKEN = KJob::UserDefinedError + 24,
     ERR_NOT_FILTER_PROTOCOL = KJob::UserDefinedError + 25,
-    ERR_COULD_NOT_MOUNT = KJob::UserDefinedError + 26, //< @deprecated
+    ERR_COULD_NOT_MOUNT = KJob::UserDefinedError + 26, ///< @deprecated
     ERR_CANNOT_MOUNT = KJob::UserDefinedError + 26,
-    ERR_COULD_NOT_UNMOUNT = KJob::UserDefinedError + 27, //< @deprecated
+    ERR_COULD_NOT_UNMOUNT = KJob::UserDefinedError + 27, ///< @deprecated
     ERR_CANNOT_UNMOUNT = KJob::UserDefinedError + 27,
-    ERR_COULD_NOT_READ = KJob::UserDefinedError + 28, //< @deprecated
+    ERR_COULD_NOT_READ = KJob::UserDefinedError + 28, ///< @deprecated
     ERR_CANNOT_READ = KJob::UserDefinedError + 28,
-    ERR_COULD_NOT_WRITE = KJob::UserDefinedError + 29, //< @deprecated
+    ERR_COULD_NOT_WRITE = KJob::UserDefinedError + 29, ///< @deprecated
     ERR_CANNOT_WRITE = KJob::UserDefinedError + 29,
-    ERR_COULD_NOT_BIND = KJob::UserDefinedError + 30, //< @deprecated
+    ERR_COULD_NOT_BIND = KJob::UserDefinedError + 30, ///< @deprecated
     ERR_CANNOT_BIND = KJob::UserDefinedError + 30,
-    ERR_COULD_NOT_LISTEN = KJob::UserDefinedError + 31, //< @deprecated
+    ERR_COULD_NOT_LISTEN = KJob::UserDefinedError + 31, ///< @deprecated
     ERR_CANNOT_LISTEN = KJob::UserDefinedError + 31,
-    ERR_COULD_NOT_ACCEPT = KJob::UserDefinedError + 32, //< @deprecated
+    ERR_COULD_NOT_ACCEPT = KJob::UserDefinedError + 32, ///< @deprecated
     ERR_CANNOT_ACCEPT = KJob::UserDefinedError + 32,
-    ERR_COULD_NOT_LOGIN = KJob::UserDefinedError + 33, //< @deprecated
+    ERR_COULD_NOT_LOGIN = KJob::UserDefinedError + 33, ///< @deprecated
     ERR_CANNOT_LOGIN = KJob::UserDefinedError + 33,
-    ERR_COULD_NOT_STAT = KJob::UserDefinedError + 34, //< @deprecated
+    ERR_COULD_NOT_STAT = KJob::UserDefinedError + 34, ///< @deprecated
     ERR_CANNOT_STAT = KJob::UserDefinedError + 34,
-    ERR_COULD_NOT_CLOSEDIR = KJob::UserDefinedError + 35, //< @deprecated
+    ERR_COULD_NOT_CLOSEDIR = KJob::UserDefinedError + 35, ///< @deprecated
     ERR_CANNOT_CLOSEDIR = KJob::UserDefinedError + 35,
-    ERR_COULD_NOT_MKDIR = KJob::UserDefinedError + 37, //< @deprecated
+    ERR_COULD_NOT_MKDIR = KJob::UserDefinedError + 37, ///< @deprecated
     ERR_CANNOT_MKDIR = KJob::UserDefinedError + 37,
-    ERR_COULD_NOT_RMDIR = KJob::UserDefinedError + 38, //< @deprecated
+    ERR_COULD_NOT_RMDIR = KJob::UserDefinedError + 38, ///< @deprecated
     ERR_CANNOT_RMDIR = KJob::UserDefinedError + 38,
     ERR_CANNOT_RESUME = KJob::UserDefinedError + 39,
     ERR_CANNOT_RENAME = KJob::UserDefinedError + 40,
@@ -208,7 +208,7 @@ enum Error {
     ERR_SLAVE_DIED = KJob::UserDefinedError + 43,
     ERR_OUT_OF_MEMORY = KJob::UserDefinedError + 44,
     ERR_UNKNOWN_PROXY_HOST = KJob::UserDefinedError + 45,
-    ERR_COULD_NOT_AUTHENTICATE = KJob::UserDefinedError + 46, //< @deprecated
+    ERR_COULD_NOT_AUTHENTICATE = KJob::UserDefinedError + 46, ///< @deprecated
     ERR_CANNOT_AUTHENTICATE = KJob::UserDefinedError + 46,
     ERR_ABORTED = KJob::UserDefinedError + 47, // Action got aborted from application side
     ERR_INTERNAL_SERVER = KJob::UserDefinedError + 48,
@@ -236,16 +236,16 @@ enum Error {
     // object.  For instance, TLS is demanded by
     // the server in order to continue.
     ERR_POST_DENIED = KJob::UserDefinedError + 65, // Issued when trying to POST data to a certain Ports
-    ERR_COULD_NOT_SEEK = KJob::UserDefinedError + 66, //< @deprecated
+    ERR_COULD_NOT_SEEK = KJob::UserDefinedError + 66, ///< @deprecated
     // see job.cpp
     ERR_CANNOT_SEEK = KJob::UserDefinedError + 66,
     ERR_CANNOT_SETTIME = KJob::UserDefinedError + 67, // Emitted by setModificationTime
     ERR_CANNOT_CHOWN = KJob::UserDefinedError + 68,
     ERR_POST_NO_SIZE = KJob::UserDefinedError + 69,
-    ERR_DROP_ON_ITSELF = KJob::UserDefinedError + 70, //< from KIO::DropJob, @since 5.6
-    ERR_CANNOT_MOVE_INTO_ITSELF = KJob::UserDefinedError + 71, //< emitted by KIO::move, @since 5.18
-    ERR_PASSWD_SERVER = KJob::UserDefinedError + 72, //< returned by SlaveBase::openPasswordDialogV2, @since 5.24
-    ERR_CANNOT_CREATE_SLAVE = KJob::UserDefinedError + 73 //< used by Slave::createSlave, @since 5.30
+    ERR_DROP_ON_ITSELF = KJob::UserDefinedError + 70, ///< from KIO::DropJob, @since 5.6
+    ERR_CANNOT_MOVE_INTO_ITSELF = KJob::UserDefinedError + 71, ///< emitted by KIO::move, @since 5.18
+    ERR_PASSWD_SERVER = KJob::UserDefinedError + 72, ///< returned by SlaveBase::openPasswordDialogV2, @since 5.24
+    ERR_CANNOT_CREATE_SLAVE = KJob::UserDefinedError + 73 ///< used by Slave::createSlave, @since 5.30
 };
 
 /**

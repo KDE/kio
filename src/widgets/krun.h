@@ -245,7 +245,7 @@ public:
      * @param urls the list of URLs, can be empty (app launched
      *        without argument)
      * @param window The top-level widget of the app that invoked this object.
-     * @param runFlags various flags
+     * @param flags various flags
      * @param suggestedFileName see setSuggestedFileName
      * @param asn Application startup notification id, if any (otherwise "").
      * @return 0 on error, the process ID on success

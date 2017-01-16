@@ -82,7 +82,6 @@ public:
      *
      * @param item file item whose properties should be displayed.
      * @param parent is the parent of the dialog widget.
-     * @param name is the internal name.
      */
     explicit KPropertiesDialog(const KFileItem &item,
                                QWidget *parent = nullptr);
@@ -97,7 +96,6 @@ public:
      *
      * @param _items list of file items whose properties should be displayed.
      * @param parent is the parent of the dialog widget.
-     * @param name is the internal name.
      */
     explicit KPropertiesDialog(const KFileItemList &_items,
                                QWidget *parent = nullptr);
@@ -109,7 +107,6 @@ public:
      *
      * @param url the URL whose properties should be displayed
      * @param parent is the parent of the dialog widget.
-     * @param name is the internal name.
      *
      * For local files with a known mimetype, simply create a KFileItem
      * and pass it to the other constructor.
@@ -125,7 +122,6 @@ public:
      * @param urls list of URLs whose properties should be displayed (must
      *             contain at least one non-empty URL)
      * @param parent is the parent of the dialog widget.
-     * @param name is the internal name.
      *
      * For local files with a known mimetype, simply create a KFileItemList
      * and pass it to the other constructor.
@@ -145,7 +141,6 @@ public:
      * @param _defaultName something to put in the name field,
      * like mimetype.desktop
      * @param parent is the parent of the dialog widget.
-     * @param name is the internal name.
      */
     KPropertiesDialog(const QUrl &_tempUrl, const QUrl &_currentDir,
                       const QString &_defaultName,
@@ -157,8 +152,6 @@ public:
      *
      * @param title is the string display as the "filename" in the caption of the dialog.
      * @param parent is the parent of the dialog widget.
-     * @param name is the internal name.
-     * @param modal tells the dialog whether it should be modal.
      */
     explicit KPropertiesDialog(const QString &title,
                                QWidget *parent = nullptr);

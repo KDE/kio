@@ -128,7 +128,7 @@ public:
 
     /**
      * check existence of a field
-     * @param field
+     * @param field numeric field id
      */
     bool contains(uint field) const;
 

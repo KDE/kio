@@ -621,7 +621,7 @@ public:
      * This is defined in the protocol description file using an entry like
      * "archiveMimetype=application/x-zip"
      *
-     * @param mimetype the mimetype to check
+     * @param mimeType the mimetype to check
      * @return the protocol that can handle this archive mimetype, for instance "zip".
      * @since 4.1
      */

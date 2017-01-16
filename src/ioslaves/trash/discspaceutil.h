@@ -35,7 +35,6 @@ public:
      * Creates a new disc space util.
      *
      * @param directory A directory the util shall work on.
-     * @param parent The parent object.
      */
     explicit DiscSpaceUtil(const QString &directory);
 

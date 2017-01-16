@@ -68,7 +68,9 @@ public:
      *
      * @return the delegate used by the job to communicate with the UI
      */
-    KJobUiDelegate *ui() const;
+#ifndef KIOCORE_NO_DEPRECATED
+    KIOCORE_DEPRECATED KJobUiDelegate *ui() const;
+#endif
 
     /**
      * Retrieves the UI delegate extension used by this job.
@@ -220,7 +222,9 @@ Q_SIGNALS:
      * in this case, ERR_USER_CANCELED.
      * @param job the job that emitted this signal
      */
-    void canceled(KJob *job);
+#ifndef KIOCORE_NO_DEPRECATED
+    KIOCORE_DEPRECATED void canceled(KJob *job);
+#endif
 
     /**
      * Emitted when the slave successfully connected to the host.

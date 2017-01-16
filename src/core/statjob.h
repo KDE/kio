@@ -93,7 +93,8 @@ public:
      * @return the most local URL for the URL we were stat'ing.
      *
      * Sample usage:
-     * <code>
+     *
+     * @code
      * KIO::StatJob* job = KIO::mostLocalUrl("desktop:/foo");
      * job->uiDelegate()->setWindow(this);
      * connect(job, SIGNAL(result(KJob*)), this, SLOT(slotMostLocalUrlResult(KJob*)));
@@ -106,6 +107,7 @@ public:
      *    // localUrl = file:///$HOME/Desktop/foo
      *    [...]
      * }
+     * @endcode
      *
      * \since 4.4
      */

@@ -185,7 +185,7 @@ KIOCORE_EXPORT SimpleJob *chown(const QUrl &url, const QString &owner, const QSt
  * Changes the modification time on a file or directory.
  *
  * @param url The URL of file or directory.
- * @param permissions The permissions to set.
+ * @param mtime The modification time to set.
  * @return the job handling the operation.
  */
 KIOCORE_EXPORT SimpleJob *setModificationTime(const QUrl &url, const QDateTime &mtime);

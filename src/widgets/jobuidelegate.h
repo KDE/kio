@@ -118,7 +118,7 @@ public:
      * responsibility to ask the user for confirmation before calling KIO::del() or KIO::trash().
      *
      * @param urls the urls about to be deleted/trashed
-     * @param method the type of deletion (Delete for real deletion, Trash otherwise)
+     * @param deletionType the type of deletion (Delete for real deletion, Trash otherwise)
      * @param confirmation see ConfirmationType. Normally set to DefaultConfirmation.
      * Note: the window passed to setWindow is used as the parent for the message box.
      * @return true if confirmed

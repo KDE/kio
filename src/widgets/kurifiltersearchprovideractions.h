@@ -34,7 +34,7 @@ class WebShortcutsMenuManagerPrivate;
  *
  * It will provide a list of web shortcuts against a selected text
  *
- * You can set the selected text with setSelected() function
+ * You can set the selected text with setSelectedText() function
  *
  * @since 5.16
  */
@@ -63,7 +63,7 @@ public:
 
     /**
      * @brief addWebShortcutsToMenu Manage to add web shortcut actions to existing menu.
-     * @param menu
+     * @param menu menu to add shortcuts to
      */
     void addWebShortcutsToMenu(QMenu *menu);
 

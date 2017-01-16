@@ -72,7 +72,9 @@ enum {
 /**
  * @deprecated since 5.0, use RenameDialog_Options
  */
-typedef RenameDialog_Options RenameDialog_Mode;
+#ifndef KIOCORE_NO_DEPRECATED
+KIOCORE_DEPRECATED typedef RenameDialog_Options RenameDialog_Mode;
+#endif
 #endif
 
 /**
@@ -152,7 +154,7 @@ public:
      * @param src the URL of the file/dir we're trying to copy, as it's part of the text message
      * @param dest the URL of the destination file/dir, i.e. the one that already exists
      * @param options parameters for the dialog (which buttons to show...)
-     * @param newDestPath the new destination path, valid if R_RENAME was returned.
+     * @param newDest the new destination path, valid if R_RENAME was returned.
      * @param sizeSrc size of source file
      * @param sizeDest size of destination file
      * @param ctimeSrc creation time of source file
@@ -202,8 +204,8 @@ public:
      * responsibility to ask the user for confirmation before calling KIO::del() or KIO::trash().
      *
      * @param urls the urls about to be deleted/trashed
-     * @param method the type of deletion (Delete for real deletion, Trash otherwise)
-     * @param confirmation see ConfirmationType. Normally set to DefaultConfirmation.
+     * @param deletionType the type of deletion (Delete for real deletion, Trash otherwise)
+     * @param confirmationType see ConfirmationType. Normally set to DefaultConfirmation.
      * Note: the window passed to setWindow is used as the parent for the message box.
      * @return true if confirmed
      */
