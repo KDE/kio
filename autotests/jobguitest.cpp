@@ -73,8 +73,8 @@ public Q_SLOTS:
         mimeData->setUrls(QList<QUrl>() << fileUrl);
         QApplication::clipboard()->setMimeData(mimeData);
 
-        KIO::Job *job = KIO::pasteClipboard(QUrl::fromLocalFile(otherTmpDir()), static_cast<QWidget *>(0));
-        job->setUiDelegate(0);
+        KIO::Job *job = KIO::pasteClipboard(QUrl::fromLocalFile(otherTmpDir()), static_cast<QWidget *>(nullptr));
+        job->setUiDelegate(nullptr);
         bool ok = job->exec();
         QVERIFY(ok);
 
@@ -86,7 +86,7 @@ private:
     static void delDir(const QString &pathOrUrl)
     {
         KIO::Job *job = KIO::del(QUrl::fromLocalFile(pathOrUrl), KIO::HideProgressInfo);
-        job->setUiDelegate(0);
+        job->setUiDelegate(nullptr);
         job->exec();
     }
 

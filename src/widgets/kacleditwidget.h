@@ -33,7 +33,7 @@ class KACLEditWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit KACLEditWidget(QWidget *parent = 0);
+    explicit KACLEditWidget(QWidget *parent = nullptr);
     ~KACLEditWidget();
     KACL getACL() const;
     KACL getDefaultACL() const;

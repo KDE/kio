@@ -157,7 +157,7 @@ int main(int argc, char *argv[])
     QApplication::setApplicationName(QStringLiteral("kdirlistertest"));
     QApplication app(argc, argv);
 
-    KDirListerTest *test = new KDirListerTest(0);
+    KDirListerTest *test = new KDirListerTest(nullptr);
     test->show();
     return app.exec();
 }

@@ -54,7 +54,7 @@ class KIO_SLAVE_EXPORT Slave : public KIO::SlaveInterface
 {
     Q_OBJECT
 public:
-    explicit Slave(const QString &protocol, QObject *parent = 0);
+    explicit Slave(const QString &protocol, QObject *parent = nullptr);
 
     virtual ~Slave();
 

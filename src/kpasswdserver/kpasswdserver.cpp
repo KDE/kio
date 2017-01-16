@@ -73,7 +73,7 @@ KPasswdServer::KPasswdServer(QObject* parent, const QList<QVariant>&)
     KIO::AuthInfo::registerMetaTypes();
 
     m_seqNr = 0;
-    m_wallet = 0;
+    m_wallet = nullptr;
     m_walletDisabled = false;
 
     KPasswdServerAdaptor *adaptor = new KPasswdServerAdaptor(this);
@@ -503,12 +503,12 @@ KPasswdServer::openWallet( qlonglong windowId )
 {
     if ( m_wallet && !m_wallet->isOpen() ) { // forced closed
         delete m_wallet;
-        m_wallet = 0;
+        m_wallet = nullptr;
     }
     if ( !m_wallet )
         m_wallet = KWallet::Wallet::openWallet(
             KWallet::Wallet::NetworkWallet(), (WId)(windowId));
-    return m_wallet != 0;
+    return m_wallet != nullptr;
 }
 #endif
 
@@ -577,7 +577,7 @@ KPasswdServer::processRequest()
             buttonBox->button(QDialogButtonBox::Yes)->setText(i18nc("@action:button filter-continue", "Retry"));
 
             KMessageBox::createKMessageBox(dlg, buttonBox, QMessageBox::Warning, prompt,
-                                           QStringList(), QString(), 0,
+                                           QStringList(), QString(), nullptr,
                                            (KMessageBox::Notify | KMessageBox::NoExec));
 
         #ifndef Q_WS_WIN
@@ -655,7 +655,7 @@ KPasswdServer::findAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
       Q_FOREACH(AuthInfoContainer *current, *authList)
       {
           if (current->expire == AuthInfoContainer::expTime &&
-              static_cast<qulonglong>(time(0)) > current->expireTime)
+              static_cast<qulonglong>(time(nullptr)) > current->expireTime)
           {
               authList->removeOne(current);
               delete current;
@@ -677,7 +677,7 @@ KPasswdServer::findAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
           }
       }
    }
-   return 0;
+   return nullptr;
 }
 
 void
@@ -718,7 +718,7 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, ql
       authList = new AuthInfoContainerList;
       m_authDict.insert(key, authList);
    }
-   AuthInfoContainer *authItem = 0;
+   AuthInfoContainer *authItem = nullptr;
    Q_FOREACH(AuthInfoContainer* current, *authList)
    {
        if (current->info.realmValue == info.realmValue)
@@ -768,7 +768,7 @@ KPasswdServer::updateAuthExpire(const QString &key, const AuthInfoContainer *aut
    }
    else if (current->expire == AuthInfoContainer::expTime)
    {
-      current->expireTime = time(0) + 10;
+      current->expireTime = time(nullptr) + 10;
    }
 
    // Update mWindowIdList
@@ -863,7 +863,7 @@ void KPasswdServer::showPasswordDialog (KPasswdServer::Request* request)
     qCDebug(category) << "Widget for" << request->windowId << QWidget::find((HWND)request->windowId);
 #endif
 
-    KPasswordDialog* dlg = new KPasswordDialog(0, dialogFlags);
+    KPasswordDialog* dlg = new KPasswordDialog(nullptr, dialogFlags);
     connect(dlg, SIGNAL(finished(int)), this, SLOT(passwordDialogDone(int)));
     connect(this, SIGNAL(destroyed(QObject*)), dlg, SLOT(deleteLater()));
 

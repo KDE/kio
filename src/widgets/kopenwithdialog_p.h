@@ -34,7 +34,7 @@ class KApplicationModel : public QAbstractItemModel
     Q_OBJECT
 
 public:
-    KApplicationModel(QObject *parent = 0);
+    KApplicationModel(QObject *parent = nullptr);
     virtual ~KApplicationModel();
     bool canFetchMore(const QModelIndex &parent) const Q_DECL_OVERRIDE;
     int columnCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
@@ -68,7 +68,7 @@ class KApplicationView : public QTreeView
     Q_OBJECT
 
 public:
-    KApplicationView(QWidget *parent = 0);
+    KApplicationView(QWidget *parent = nullptr);
     ~KApplicationView();
 
     void setModel(QAbstractItemModel *model) Q_DECL_OVERRIDE;

@@ -122,7 +122,7 @@ public:
      * This constructor doesn't start loading the url, setView will do it.
      */
     explicit KDirOperator(const QUrl &urlName  = QUrl(),
-                          QWidget *parent = 0);
+                          QWidget *parent = nullptr);
     /**
      * Destroys the KDirOperator.
      */
@@ -506,7 +506,7 @@ public:
      * @param ask specifies whether a confirmation dialog should be shown
      * @param showProgress passed to the DeleteJob to show a progress dialog
      */
-    virtual KIO::DeleteJob *del(const KFileItemList &items, QWidget *parent = 0,
+    virtual KIO::DeleteJob *del(const KFileItemList &items, QWidget *parent = nullptr,
                                 bool ask = true, bool showProgress = true);
 
     /**

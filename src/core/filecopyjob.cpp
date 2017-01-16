@@ -39,8 +39,8 @@ class KIO::FileCopyJobPrivate: public KIO::JobPrivate
 public:
     FileCopyJobPrivate(const QUrl &src, const QUrl &dest, int permissions,
                        bool move, JobFlags flags)
-        : m_sourceSize(filesize_t(-1)), m_src(src), m_dest(dest), m_moveJob(0), m_copyJob(0), m_delJob(0),
-          m_chmodJob(0), m_getJob(0), m_putJob(0), m_permissions(permissions),
+        : m_sourceSize(filesize_t(-1)), m_src(src), m_dest(dest), m_moveJob(nullptr), m_copyJob(nullptr), m_delJob(nullptr),
+          m_chmodJob(nullptr), m_getJob(nullptr), m_putJob(nullptr), m_permissions(permissions),
           m_move(move), m_mustChmod(0), m_flags(flags)
     {
     }
@@ -330,7 +330,7 @@ void FileCopyJobPrivate::startDataPump()
 
     m_canResume = false;
     m_resumeAnswerSent = false;
-    m_getJob = 0L; // for now
+    m_getJob = nullptr; // for now
     m_putJob = put(m_dest, m_permissions, (m_flags | HideProgressInfo) /* no GUI */);
     //qDebug() << "m_putJob=" << m_putJob << "m_dest=" << m_dest;
     if (m_modificationTime.isValid()) {
@@ -372,11 +372,11 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
                 if (job == m_putJob) {
                     m_putJob->kill(FileCopyJob::Quietly);
                     q->removeSubjob(m_putJob);
-                    m_putJob = 0;
+                    m_putJob = nullptr;
                 } else {
                     m_copyJob->kill(FileCopyJob::Quietly);
                     q->removeSubjob(m_copyJob);
-                    m_copyJob = 0;
+                    m_copyJob = nullptr;
                 }
                 q->setError(ERR_USER_CANCELED);
                 q->emitResult();
@@ -458,7 +458,7 @@ void FileCopyJobPrivate::slotDataReq(KIO::Job *, QByteArray &data)
         q->setErrorText(QStringLiteral("'Put' job did not send canResume or 'Get' job did not send data!"));
         m_putJob->kill(FileCopyJob::Quietly);
         q->removeSubjob(m_putJob);
-        m_putJob = 0;
+        m_putJob = nullptr;
         q->emitResult();
         return;
     }
@@ -484,21 +484,21 @@ void FileCopyJob::slotResult(KJob *job)
     // Did job have an error ?
     if (job->error()) {
         if ((job == d->m_moveJob) && (job->error() == ERR_UNSUPPORTED_ACTION)) {
-            d->m_moveJob = 0;
+            d->m_moveJob = nullptr;
             d->startBestCopyMethod();
             return;
         } else if ((job == d->m_copyJob) && (job->error() == ERR_UNSUPPORTED_ACTION)) {
-            d->m_copyJob = 0;
+            d->m_copyJob = nullptr;
             d->startDataPump();
             return;
         } else if (job == d->m_getJob) {
-            d->m_getJob = 0L;
+            d->m_getJob = nullptr;
             if (d->m_putJob) {
                 d->m_putJob->kill(Quietly);
                 removeSubjob(d->m_putJob);
             }
         } else if (job == d->m_putJob) {
-            d->m_putJob = 0L;
+            d->m_putJob = nullptr;
             if (d->m_getJob) {
                 d->m_getJob->kill(Quietly);
                 removeSubjob(d->m_getJob);
@@ -520,11 +520,11 @@ void FileCopyJob::slotResult(KJob *job)
     }
 
     if (job == d->m_moveJob) {
-        d->m_moveJob = 0; // Finished
+        d->m_moveJob = nullptr; // Finished
     }
 
     if (job == d->m_copyJob) {
-        d->m_copyJob = 0;
+        d->m_copyJob = nullptr;
         if (d->m_move) {
             d->m_delJob = file_delete(d->m_src, HideProgressInfo/*no GUI*/);   // Delete source
             addSubjob(d->m_delJob);
@@ -533,7 +533,7 @@ void FileCopyJob::slotResult(KJob *job)
 
     if (job == d->m_getJob) {
         //qDebug() << "m_getJob finished";
-        d->m_getJob = 0; // No action required
+        d->m_getJob = nullptr; // No action required
         if (d->m_putJob) {
             d->m_putJob->d_func()->internalResume();
         }
@@ -541,7 +541,7 @@ void FileCopyJob::slotResult(KJob *job)
 
     if (job == d->m_putJob) {
         //qDebug() << "m_putJob finished";
-        d->m_putJob = 0;
+        d->m_putJob = nullptr;
         if (d->m_getJob) {
             // The get job is still running, probably after emitting data(QByteArray())
             // and before we receive its finished().
@@ -554,11 +554,11 @@ void FileCopyJob::slotResult(KJob *job)
     }
 
     if (job == d->m_delJob) {
-        d->m_delJob = 0; // Finished
+        d->m_delJob = nullptr; // Finished
     }
 
     if (job == d->m_chmodJob) {
-        d->m_chmodJob = 0; // Finished
+        d->m_chmodJob = nullptr; // Finished
     }
 
     if (!hasSubjobs()) {

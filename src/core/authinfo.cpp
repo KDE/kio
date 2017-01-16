@@ -270,7 +270,7 @@ public:
     int index;
 };
 
-NetRC *NetRC::instance = 0L;
+NetRC *NetRC::instance = nullptr;
 
 NetRC::NetRC()
     : d(new NetRCPrivate)
@@ -280,7 +280,7 @@ NetRC::NetRC()
 NetRC::~NetRC()
 {
     delete instance;
-    instance = 0L;
+    instance = nullptr;
     delete d;
 }
 

@@ -278,7 +278,7 @@ void DataProtocol::get(const QUrl &url)
         outData = QByteArray::fromBase64(url_data);
     } else {
         QTextCodec *codec = QTextCodec::codecForName(hdr.attributes[QStringLiteral("charset")].toLatin1());
-        if (codec != 0) {
+        if (codec != nullptr) {
             outData = codec->toUnicode(url_data).toUtf8();
         } else {
             outData = url_data;

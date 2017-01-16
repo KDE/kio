@@ -38,7 +38,7 @@ public:
      *
      * @param parent the parent of this object.
      */
-    KDynamicJobTracker(QObject *parent = 0);
+    KDynamicJobTracker(QObject *parent = nullptr);
 
     /**
      * Destroys this KDynamicJobTracker

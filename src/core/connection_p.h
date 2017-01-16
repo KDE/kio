@@ -37,7 +37,7 @@ class ConnectionPrivate
 {
 public:
     inline ConnectionPrivate()
-        : backend(0), q(0), suspended(false)
+        : backend(nullptr), q(nullptr), suspended(false)
     { }
 
     void dequeue();
@@ -70,7 +70,7 @@ public:
      * Creates a new connection.
      * @see connectToRemote, listenForRemote
      */
-    explicit Connection(QObject *parent = 0);
+    explicit Connection(QObject *parent = nullptr);
     virtual ~Connection();
 
     /**

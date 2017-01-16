@@ -175,8 +175,8 @@ class KDirModelPrivate
 {
 public:
     KDirModelPrivate(KDirModel *model)
-        : q(model), m_dirLister(0),
-          m_rootNode(new KDirModelDirNode(0, KFileItem())),
+        : q(model), m_dirLister(nullptr),
+          m_rootNode(new KDirModelDirNode(nullptr, KFileItem())),
           m_dropsAllowed(KDirModel::NoDrops), m_jobTransfersVisible(false)
     {
     }
@@ -195,7 +195,7 @@ public:
     void clear()
     {
         delete m_rootNode;
-        m_rootNode = new KDirModelDirNode(0, KFileItem());
+        m_rootNode = new KDirModelDirNode(nullptr, KFileItem());
     }
     // Emit expand for each parent and then return the
     // last known parent if there is no node for this url
@@ -276,14 +276,14 @@ KDirModelNode *KDirModelPrivate::expandAllParentsUntil(const QUrl &_url) const /
 
     // Protocol mismatch? Don't even start comparing paths then. #171721
     if (url.scheme() != nodeUrl.scheme()) {
-        return 0;
+        return nullptr;
     }
 
     const QString pathStr = url.path(); // no trailing slash
     KDirModelDirNode *dirNode = m_rootNode;
 
     if (!pathStr.startsWith(nodeUrl.path())) {
-        return 0;
+        return nullptr;
     }
 
     for (;;) {
@@ -294,7 +294,7 @@ KDirModelNode *KDirModelPrivate::expandAllParentsUntil(const QUrl &_url) const /
         if (!pathStr.startsWith(nodePath)) {
             qCWarning(KIO_WIDGETS) << "The kioslave for" << url.scheme() << "violates the hierarchy structure:"
                        << "I arrived at node" << nodePath << ", but" << pathStr << "does not start with that path.";
-            return 0;
+            return nullptr;
         }
 
         // E.g. pathStr is /a/b/c and nodePath is /a/. We want to find the node with url /a/b
@@ -560,7 +560,7 @@ void KDirModelPrivate::_k_slotDeleteItems(const KFileItemList &items)
         }
         rowNumbers.setBit(node->rowNumber(), 1); // O(n)
         removeFromNodeHash(node, url);
-        node = 0;
+        node = nullptr;
     }
 
     int start = -1;
@@ -695,7 +695,7 @@ void KDirModelPrivate::clearAllPreviews(KDirModelDirNode *dirNode)
 {
     const int numRows = dirNode->m_childNodes.count();
     if (numRows > 0) {
-        KDirModelNode *lastNode = 0;
+        KDirModelNode *lastNode = nullptr;
         for (KDirModelNode *node : dirNode->m_childNodes) {
             node->setPreview(QIcon());
             //node->setPreview(QIcon::fromTheme(node->item().iconName()));
@@ -825,7 +825,7 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
                         DIR *dir = QT_OPENDIR(QFile::encodeName(path));
                         if (dir) {
                             count = 0;
-                            QT_DIRENT *dirEntry = 0;
+                            QT_DIRENT *dirEntry = nullptr;
                             while ((dirEntry = QT_READDIR(dir))) {
                                 if (dirEntry->d_name[0] == '.') {
                                     if (dirEntry->d_name[1] == '\0') { // skip "."

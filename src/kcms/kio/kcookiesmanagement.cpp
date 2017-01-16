@@ -59,7 +59,7 @@ struct CookieProp
 CookieListViewItem::CookieListViewItem(QTreeWidget *parent, const QString &dom)
                    :QTreeWidgetItem(parent)
 {
-    init( 0, dom );
+    init( nullptr, dom );
 }
 
 CookieListViewItem::CookieListViewItem(QTreeWidgetItem *parent, CookieProp *cookie)
@@ -102,7 +102,7 @@ void CookieListViewItem::init( CookieProp* cookie, const QString &domain,
 CookieProp* CookieListViewItem::leaveCookie()
 {
     CookieProp *ret = mCookie;
-    mCookie = 0;
+    mCookie = nullptr;
     return ret;
 }
 
@@ -342,7 +342,7 @@ void KCookiesManagement::on_cookiesTreeWidget_currentItemChanged(QTreeWidgetItem
 {
   if (item) {
     CookieListViewItem* cookieItem = static_cast<CookieListViewItem*>(item);
-    CookieProp *cookie = (cookieItem ? cookieItem->cookie() : 0);
+    CookieProp *cookie = (cookieItem ? cookieItem->cookie() : nullptr);
 
     if (cookie) {
       if (cookie->allLoaded || cookieDetails(cookie)) {

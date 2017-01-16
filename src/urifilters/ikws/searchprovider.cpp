@@ -120,14 +120,14 @@ SearchProvider *SearchProvider::findByDesktopName(const QString &name)
 {
     KService::Ptr service =
         KService::serviceByDesktopPath(QStringLiteral("searchproviders/%1.desktop").arg(name));
-    return service ? new SearchProvider(service) : 0;
+    return service ? new SearchProvider(service) : nullptr;
 }
 
 SearchProvider *SearchProvider::findByKey(const QString &key)
 {
     KService::List providers =
         KServiceTypeTrader::self()->query(QStringLiteral("SearchProvider"), QStringLiteral("'%1' in Keys").arg(key));
-    return providers.count() ? new SearchProvider(providers[0]) : 0;
+    return providers.count() ? new SearchProvider(providers[0]) : nullptr;
 }
 
 QList<SearchProvider *> SearchProvider::findAll()

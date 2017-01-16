@@ -217,7 +217,7 @@ void KUrlComboBox::setUrls(const QStringList &_urls, OverLoadResolving remove)
 
     it = urls.constBegin();
 
-    KUrlComboBoxPrivate::KUrlComboItem *item = 0L;
+    KUrlComboBoxPrivate::KUrlComboItem *item = nullptr;
 
     while (it != urls.constEnd()) {
         if ((*it).isEmpty()) {

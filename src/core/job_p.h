@@ -46,7 +46,7 @@ class KIOCORE_EXPORT JobPrivate
 {
 public:
     JobPrivate()
-        : m_parentJob(0L), m_extraFlags(0),
+        : m_parentJob(nullptr), m_extraFlags(0),
           m_uiDelegateExtension(KIO::defaultJobUiDelegateExtension())
     {
     }
@@ -98,7 +98,7 @@ public:
      * @param packedArgs the arguments
      */
     SimpleJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs)
-        : m_slave(0), m_packedArgs(packedArgs), m_url(url), m_command(command),
+        : m_slave(nullptr), m_packedArgs(packedArgs), m_url(url), m_command(command),
           m_checkOnHold(false), m_schedSerial(0), m_redirectionHandlingEnabled(true)
     {
 #if 0
@@ -235,14 +235,14 @@ public:
                               const QByteArray &_staticData)
         : SimpleJobPrivate(url, command, packedArgs),
           m_internalSuspended(false), m_errorPage(false),
-          staticData(_staticData), m_isMimetypeEmitted(false), m_subJob(0)
+          staticData(_staticData), m_isMimetypeEmitted(false), m_subJob(nullptr)
     { }
 
     inline TransferJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs,
                               QIODevice *ioDevice)
         : SimpleJobPrivate(url, command, packedArgs),
           m_internalSuspended(false), m_errorPage(false),
-          m_isMimetypeEmitted(false), m_subJob(0),
+          m_isMimetypeEmitted(false), m_subJob(nullptr),
           m_outgoingDataSource(QPointer<QIODevice>(ioDevice))
     { }
 

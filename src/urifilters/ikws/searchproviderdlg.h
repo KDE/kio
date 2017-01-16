@@ -32,7 +32,7 @@ class SearchProviderDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit SearchProviderDialog(SearchProvider *provider, QList<SearchProvider*> &providers, QWidget *parent = 0);
+    explicit SearchProviderDialog(SearchProvider *provider, QList<SearchProvider*> &providers, QWidget *parent = nullptr);
 
     SearchProvider *provider() { return m_provider; }
 

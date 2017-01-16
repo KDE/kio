@@ -474,14 +474,14 @@ KUriFilterData &KUriFilterData::operator=(const QString &url)
 /*************************  KUriFilterPlugin ******************************/
 
 KUriFilterPlugin::KUriFilterPlugin(const QString &name, QObject *parent)
-    : QObject(parent), d(0)
+    : QObject(parent), d(nullptr)
 {
     setObjectName(name);
 }
 
 KCModule *KUriFilterPlugin::configModule(QWidget *, const char *) const
 {
-    return 0;
+    return nullptr;
 }
 
 QString KUriFilterPlugin::configName() const

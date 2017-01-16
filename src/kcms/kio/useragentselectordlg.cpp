@@ -69,7 +69,7 @@ public:
 UserAgentSelectorDlg::UserAgentSelectorDlg (UserAgentInfo* info, QWidget* parent, Qt::WindowFlags f)
     : QDialog (parent, f),
       mUserAgentInfo (info),
-      mButtonBox(0)
+      mButtonBox(nullptr)
 {
     QWidget *mainWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;

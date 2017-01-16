@@ -48,7 +48,7 @@ void KIOD::loadModule(const QString &name)
     // Make sure this method is only called with valid module names.
     Q_ASSERT(name.indexOf('/') == -1);
 
-    KDEDModule *module = m_modules.value(name, 0);
+    KDEDModule *module = m_modules.value(name, nullptr);
     if (module) {
         return;
     }

@@ -58,7 +58,7 @@ public:
                                     const QString &label,
                                     const QUrl &url,
                                     const QString &iconName,
-                                    KFilePlacesItem *after = 0);
+                                    KFilePlacesItem *after = nullptr);
     static KBookmark createSystemBookmark(KBookmarkManager *manager,
                                           const QString &untranslatedLabel,
                                           const QString &translatedLabel,

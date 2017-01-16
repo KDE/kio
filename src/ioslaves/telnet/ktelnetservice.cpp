@@ -64,7 +64,7 @@ int main(int argc, char **argv)
     }
 
     if (!KAuthorized::authorize(QStringLiteral("shell_access"))) {
-        QMessageBox::critical(0, i18n("Access denied"),
+        QMessageBox::critical(nullptr, i18n("Access denied"),
                            i18n("You do not have permission to access the %1 protocol.", url.scheme()));
         return 3;
     }

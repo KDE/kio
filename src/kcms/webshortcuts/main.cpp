@@ -36,7 +36,7 @@ K_PLUGIN_FACTORY(KURIFilterModuleFactory, registerPlugin<KURIFilterModule>();)
 
 KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
     : KCModule(parent, args),
-      m_widget(0)
+      m_widget(nullptr)
 {
     KAboutData *about = new KAboutData(QStringLiteral("kcm_webshortcuts"), i18n("Web Shortcuts"),
                                        QStringLiteral("0.1"), i18n("Configure enhanced browsing features"),
@@ -64,7 +64,7 @@ KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
     for (; it != end; ++it) {
         KUriFilterPlugin *plugin = (*it)->createInstance<KUriFilterPlugin>(this);
         if (plugin) {
-            KCModule *module = plugin->configModule(this, 0);
+            KCModule *module = plugin->configModule(this, nullptr);
             if (module) {
                 modules.append(module);
                 helper.insert(plugin->configName(), module);

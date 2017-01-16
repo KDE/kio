@@ -36,7 +36,7 @@ public:
      *
      * @param parent The parent widget.
      */
-    explicit KImageFilePreview(QWidget *parent = 0);
+    explicit KImageFilePreview(QWidget *parent = nullptr);
 
     /**
      * Destroys the image file preview.

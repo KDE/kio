@@ -48,7 +48,7 @@ public:
         CapacityBarRecommendedRole = 0x1548C5C4
     };
 
-    KFilePlacesModel(QObject *parent = 0);
+    KFilePlacesModel(QObject *parent = nullptr);
     ~KFilePlacesModel();
 
     QUrl url(const QModelIndex &index) const;

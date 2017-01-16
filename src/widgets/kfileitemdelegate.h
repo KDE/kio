@@ -179,7 +179,7 @@ public:
      *
      * @param parent The parent object for the delegate.
      */
-    explicit KFileItemDelegate(QObject *parent = 0);
+    explicit KFileItemDelegate(QObject *parent = nullptr);
 
     /**
      * Destroys the item delegate.

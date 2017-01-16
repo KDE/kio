@@ -62,10 +62,10 @@ void KDirModelTest::initTestCase()
 
     qRegisterMetaType<KFileItemList>("KFileItemList");
 
-    m_dirModelForExpand = 0;
-    m_dirModel = 0;
+    m_dirModelForExpand = nullptr;
+    m_dirModel = nullptr;
     s_referenceTimeStamp = QDateTime::currentDateTime().addSecs(-30);   // 30 seconds ago
-    m_tempDir = 0;
+    m_tempDir = nullptr;
     m_topLevelFileNames << QStringLiteral("toplevelfile_1")
                         << QStringLiteral("toplevelfile_2")
                         << QStringLiteral("toplevelfile_3")
@@ -117,9 +117,9 @@ void KDirModelTest::recreateTestData()
 void KDirModelTest::cleanupTestCase()
 {
     delete m_tempDir;
-    m_tempDir = 0;
+    m_tempDir = nullptr;
     delete m_dirModel;
-    m_dirModel = 0;
+    m_dirModel = nullptr;
 }
 
 void KDirModelTest::fillModel(bool reload, bool expectAllIndexes)
@@ -127,7 +127,7 @@ void KDirModelTest::fillModel(bool reload, bool expectAllIndexes)
     if (!m_dirModel) {
         m_dirModel = new KDirModel;
     }
-    m_dirModel->dirLister()->setAutoErrorHandlingEnabled(false, 0);
+    m_dirModel->dirLister()->setAutoErrorHandlingEnabled(false, nullptr);
     const QString path = m_tempDir->path() + '/';
     KDirLister *dirLister = m_dirModel->dirLister();
     qDebug() << "Calling openUrl";
@@ -146,8 +146,8 @@ void KDirModelTest::fillModel(bool reload, bool expectAllIndexes)
 void KDirModelTest::cleanup()
 {
     if (m_dirModel) {
-        disconnect(m_dirModel, 0, &m_eventLoop, 0);
-        disconnect(m_dirModel->dirLister(), 0, this, 0);
+        disconnect(m_dirModel, nullptr, &m_eventLoop, nullptr);
+        disconnect(m_dirModel->dirLister(), nullptr, this, nullptr);
         m_dirModel->dirLister()->setNameFilter(QString());
         m_dirModel->dirLister()->setMimeFilter(QStringList());
         m_dirModel->dirLister()->emitChanges();
@@ -513,8 +513,8 @@ void KDirModelTest::testMoveDirectory(const QString &dir /*just a dir name, no s
     // Move
     qDebug() << "Moving" << srcdir << "to" << dest;
     KIO::CopyJob *job = KIO::move(QUrl::fromLocalFile(srcdir), QUrl::fromLocalFile(dest), KIO::HideProgressInfo);
-    job->setUiDelegate(0);
-    job->setUiDelegateExtension(0);
+    job->setUiDelegate(nullptr);
+    job->setUiDelegateExtension(nullptr);
     QVERIFY(job->exec());
 
     // wait for kdirnotify
@@ -532,8 +532,8 @@ void KDirModelTest::testMoveDirectory(const QString &dir /*just a dir name, no s
     // Move back
     qDebug() << "Moving" << dest + dir << "back to" << srcdir;
     job = KIO::move(QUrl::fromLocalFile(dest + dir), QUrl::fromLocalFile(srcdir), KIO::HideProgressInfo);
-    job->setUiDelegate(0);
-    job->setUiDelegateExtension(0);
+    job->setUiDelegate(nullptr);
+    job->setUiDelegateExtension(nullptr);
     QVERIFY(job->exec());
 
     enterLoop();
@@ -620,7 +620,7 @@ void KDirModelTest::testRenameDirectory() // #172945, #174703, (and #180156)
     // QCOMPARE(dirListerForExpand->url().toLocalFile(), path+"subdir");
 
     delete m_dirModelForExpand;
-    m_dirModelForExpand = 0;
+    m_dirModelForExpand = nullptr;
 }
 
 void KDirModelTest::testRenameDirectoryInCache() // #188807
@@ -632,7 +632,7 @@ void KDirModelTest::testRenameDirectoryInCache() // #188807
 
     // No more dirmodel nor dirlister.
     delete m_dirModel;
-    m_dirModel = 0;
+    m_dirModel = nullptr;
 
     // Now let's rename a directory that is in KCoreDirListerCache
     const QUrl url = QUrl::fromLocalFile(path);
@@ -673,7 +673,7 @@ void KDirModelTest::testChmodDirectory() // #53397
     QVERIFY(newPerm != origPerm);
     KFileItemList items; items << rootItem;
     KIO::Job *job = KIO::chmod(items, newPerm, S_IWGRP /*TODO: QFile::WriteGroup*/, QString(), QString(), false, KIO::HideProgressInfo);
-    job->setUiDelegate(0);
+    job->setUiDelegate(nullptr);
     QVERIFY(job->exec());
     // ChmodJob doesn't talk to KDirNotify, kpropertiesdialog does.
     // [this allows to group notifications after all the changes one can make in the dialog]
@@ -1287,7 +1287,7 @@ void KDirModelTest::testOverwriteFileWithDir() // #151851 c4
     QSignalSpy spyDataChanged(m_dirModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)));
 
     KIO::Job *job = KIO::move(QUrl::fromLocalFile(dir), QUrl::fromLocalFile(file), KIO::HideProgressInfo);
-    job->setUiDelegate(0);
+    job->setUiDelegate(nullptr);
     PredefinedAnswerJobUiDelegate extension;
     extension.m_renameResult = KIO::R_OVERWRITE;
     job->setUiDelegateExtension(&extension);

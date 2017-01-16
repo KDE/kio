@@ -33,7 +33,7 @@ class KImageFilePreview::KImageFilePreviewPrivate
 {
 public:
     KImageFilePreviewPrivate()
-        : m_job(0)
+        : m_job(nullptr)
         , clear(true)
     {
         m_timeLine = new QTimeLine(150);
@@ -173,14 +173,14 @@ KIO::PreviewJob *KImageFilePreview::createJob(const QUrl &url, int w, int h)
         previewJob->setScaleType(KIO::PreviewJob::Scaled);
         return previewJob;
     } else {
-        return 0;
+        return nullptr;
     }
 }
 
 void KImageFilePreview::gotPreview(const KFileItem &item, const QPixmap &pm)
 {
     if (item.url() == d->currentURL) {  // should always be the case
-        if (style()->styleHint(QStyle::SH_Widget_Animate, 0, this)) {
+        if (style()->styleHint(QStyle::SH_Widget_Animate, nullptr, this)) {
             if (d->m_timeLine->state() == QTimeLine::Running) {
                 d->m_timeLine->setCurrentTime(0);
             }
@@ -208,7 +208,7 @@ void KImageFilePreview::KImageFilePreviewPrivate::_k_slotFailed(const KFileItem 
 void KImageFilePreview::KImageFilePreviewPrivate::_k_slotResult(KJob *job)
 {
     if (job == m_job) {
-        m_job = 0L;
+        m_job = nullptr;
     }
 }
 
@@ -256,14 +256,14 @@ void KImageFilePreview::clearPreview()
 {
     if (d->m_job) {
         d->m_job->kill();
-        d->m_job = 0L;
+        d->m_job = nullptr;
     }
 
     if (d->clear || d->m_timeLine->state() == QTimeLine::Running) {
         return;
     }
 
-    if (style()->styleHint(QStyle::SH_Widget_Animate, 0, this)) {
+    if (style()->styleHint(QStyle::SH_Widget_Animate, nullptr, this)) {
         d->m_pmTransition = QPixmap();
         //If we add a previous preview then we run the animation
         if (!d->m_pmCurrent.isNull()) {

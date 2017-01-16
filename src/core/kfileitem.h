@@ -489,7 +489,7 @@ public:
      * The given boolean indicates if the returned url is local or not.
      * \since 4.6
      */
-    QUrl mostLocalUrl(bool *local = 0) const;
+    QUrl mostLocalUrl(bool *local = nullptr) const;
 
     /**
      * @deprecated since 5.0 add '&' in front of your boolean argument

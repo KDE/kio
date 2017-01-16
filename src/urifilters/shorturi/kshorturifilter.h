@@ -49,7 +49,7 @@ public:
      * @param parent the parent of this class.
      * @param name the internal name for this object.
      */
-    explicit KShortUriFilter( QObject *parent = 0, const QVariantList &args = QVariantList() );
+    explicit KShortUriFilter( QObject *parent = nullptr, const QVariantList &args = QVariantList() );
 
     /**
      * Destructor

@@ -70,14 +70,14 @@ static QString localTmpDir()
 static bool myExists(const QUrl &url)
 {
     KIO::Job *job = KIO::stat(url, KIO::StatJob::DestinationSide, 0, KIO::HideProgressInfo);
-    job->setUiDelegate(0);
+    job->setUiDelegate(nullptr);
     return job->exec();
 }
 
 static bool myMkdir(const QUrl &url)
 {
     KIO::Job *job = KIO::mkdir(url, -1);
-    job->setUiDelegate(0);
+    job->setUiDelegate(nullptr);
     return job->exec();
 }
 
@@ -108,7 +108,7 @@ void JobRemoteTest::initTestCase()
 static void delDir(const QUrl &pathOrUrl)
 {
     KIO::Job *job = KIO::del(pathOrUrl, KIO::HideProgressInfo);
-    job->setUiDelegate(0);
+    job->setUiDelegate(nullptr);
     job->exec();
 }
 
@@ -136,7 +136,7 @@ void JobRemoteTest::putAndGet()
     QDateTime mtime = QDateTime::currentDateTime().addSecs(-30);   // 30 seconds ago
     mtime.setTime_t(mtime.toTime_t()); // hack for losing the milliseconds
     job->setModificationTime(mtime);
-    job->setUiDelegate(0);
+    job->setUiDelegate(nullptr);
     connect(job, SIGNAL(result(KJob*)),
             this, SLOT(slotResult(KJob*)));
     connect(job, SIGNAL(dataReq(KIO::Job*,QByteArray&)),
@@ -149,7 +149,7 @@ void JobRemoteTest::putAndGet()
     m_result = -1;
 
     KIO::StoredTransferJob *getJob = KIO::storedGet(u, KIO::NoReload, KIO::HideProgressInfo);
-    getJob->setUiDelegate(0);
+    getJob->setUiDelegate(nullptr);
     connect(getJob, SIGNAL(result(KJob*)),
             this, SLOT(slotGetResult(KJob*)));
     enterLoop();
@@ -197,7 +197,7 @@ void JobRemoteTest::openFileWriting()
     u.setPath(u.path() + "openFileWriting");
     fileJob = KIO::open(u, QIODevice::WriteOnly);
 
-    fileJob->setUiDelegate(0);
+    fileJob->setUiDelegate(nullptr);
     connect(fileJob, SIGNAL(result(KJob*)),
             this, SLOT(slotResult(KJob*)));
     connect(fileJob, SIGNAL(data(KIO::Job*,QByteArray)),
@@ -217,7 +217,7 @@ void JobRemoteTest::openFileWriting()
     QVERIFY(m_result == 0);   // no error
 
     KIO::StoredTransferJob *getJob = KIO::storedGet(u, KIO::NoReload, KIO::HideProgressInfo);
-    getJob->setUiDelegate(0);
+    getJob->setUiDelegate(nullptr);
     connect(getJob, SIGNAL(result(KJob*)),
             this, SLOT(slotGetResult(KJob*)));
     enterLoop();
@@ -295,7 +295,7 @@ void JobRemoteTest::openFileReading()
     QDateTime mtime = QDateTime::currentDateTime().addSecs(-30);   // 30 seconds ago
     mtime.setTime_t(mtime.toTime_t()); // hack for losing the milliseconds
     putJob->setModificationTime(mtime);
-    putJob->setUiDelegate(0);
+    putJob->setUiDelegate(nullptr);
     connect(putJob, SIGNAL(result(KJob*)),
             this, SLOT(slotResult(KJob*)));
     m_result = -1;
@@ -307,7 +307,7 @@ void JobRemoteTest::openFileReading()
 
     fileJob = KIO::open(u, QIODevice::ReadOnly);
 
-    fileJob->setUiDelegate(0);
+    fileJob->setUiDelegate(nullptr);
     connect(fileJob, SIGNAL(result(KJob*)),
             this, SLOT(slotResult(KJob*)));
     connect(fileJob, SIGNAL(data(KIO::Job*,QByteArray)),
@@ -383,7 +383,7 @@ void JobRemoteTest::slotFileJob2Close(KIO::Job *job)
 
 void JobRemoteTest::slotMimetype(KIO::Job *job, const QString &type)
 {
-    QVERIFY(job != 0);
+    QVERIFY(job != nullptr);
     m_mimetype = type;
 }
 

@@ -84,7 +84,7 @@ KPreviewWidgetBase *KFileMetaPreview::findExistingProvider(const QString &mimeTy
         }
     }
 
-    return 0;
+    return nullptr;
 }
 
 KPreviewWidgetBase *KFileMetaPreview::previewProviderFor(const QString &mimeType)
@@ -96,7 +96,7 @@ KPreviewWidgetBase *KFileMetaPreview::previewProviderFor(const QString &mimeType
     // often the first highlighted item, where we can be sure, there is no plugin
     // (this "folders reflect icons" is a konq-specific thing, right?)
     if (mimeInfo.inherits(QStringLiteral("inode/directory"))) {
-        return 0L;
+        return nullptr;
     }
 
     KPreviewWidgetBase *provider = findExistingProvider(mimeType, mimeInfo);
@@ -135,7 +135,7 @@ KPreviewWidgetBase *KFileMetaPreview::previewProviderFor(const QString &mimeType
     // The logic in this code duplicates the logic in PreviewJob.
     // But why do we need multiple KPreviewWidgetBase instances anyway?
 
-    return 0L;
+    return nullptr;
 }
 
 void KFileMetaPreview::showPreview(const QUrl &url)
@@ -189,7 +189,7 @@ KPreviewWidgetBase *KFileMetaPreview::createAudioPreview(QWidget *parent)
     if (!factory) {
         qWarning() << "Couldn't load kfileaudiopreview" << loader.errorString();
         s_tryAudioPreview = false;
-        return 0L;
+        return nullptr;
     }
     KPreviewWidgetBase *w = factory->create<KPreviewWidgetBase>(parent);
     if (w) {

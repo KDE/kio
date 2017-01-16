@@ -203,7 +203,7 @@ void KIOPasteTest::testPasteJob()
     KIO::Job *job = KIO::paste(&mimeData, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
     QSignalSpy spy(job, SIGNAL(itemCreated(QUrl)));
     QVERIFY(spy.isValid());
-    job->setUiDelegate(0);
+    job->setUiDelegate(nullptr);
     const bool expectedSuccess = !expectedFileName.isEmpty();
     QCOMPARE(job->exec(), expectedSuccess);
     if (expectedSuccess) {

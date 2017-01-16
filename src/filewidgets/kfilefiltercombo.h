@@ -36,7 +36,7 @@ public:
      *
      * @param parent The parent widget.
      */
-    KFileFilterCombo(QWidget *parent = 0);
+    KFileFilterCombo(QWidget *parent = nullptr);
 
     /**
      * Destroys the filter combo box.

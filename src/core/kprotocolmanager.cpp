@@ -76,7 +76,7 @@ typedef QPair<QHostAddress, int> SubnetPair;
 */
 static bool revmatch(const char *host, const char *nplist)
 {
-    if (host == 0) {
+    if (host == nullptr) {
         return false;
     }
 
@@ -218,7 +218,7 @@ bool KProtocolManagerPrivate::shouldIgnoreProxyFor(const QUrl &url)
 
         // If the hostname does not contain a dot, check if
         // <local> is part of noProxy.
-        if (!isMatch && !host.isEmpty() && (strchr(host, '.') == NULL)) {
+        if (!isMatch && !host.isEmpty() && (strchr(host, '.') == nullptr)) {
             isMatch = revmatch("<local>", no_proxy);
         }
     }

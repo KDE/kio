@@ -111,7 +111,7 @@ void Connection::close()
     if (d->backend) {
         d->backend->disconnect(this);
         d->backend->deleteLater();
-        d->backend = 0;
+        d->backend = nullptr;
     }
     d->outgoingTasks.clear();
     d->incomingTasks.clear();
@@ -151,7 +151,7 @@ void Connection::connectToRemote(const QUrl &address)
     if (!d->backend->connectToRemote(address)) {
         //kWarning(7017) << "could not connect to" << address << "using scheme" << scheme ;
         delete d->backend;
-        d->backend = 0;
+        d->backend = nullptr;
         return;
     }
 

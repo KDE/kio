@@ -90,7 +90,7 @@ public:
     /**
      * Create a directory lister.
      */
-    KCoreDirLister(QObject *parent = 0);
+    KCoreDirLister(QObject *parent = nullptr);
 
     /**
      * Destroy the directory lister.

@@ -45,7 +45,7 @@ int main(int argc, char **argv)
 
     // Test with two URLs
     list += QUrl(QStringLiteral("http://www.kde.org/index.html"));
-    dlg = new KOpenWithDialog(list, QString(), QString(), 0);
+    dlg = new KOpenWithDialog(list, QString(), QString(), nullptr);
     if (dlg->exec()) {
         qDebug() << "Dialog ended successfully\ntext: " << dlg->text();
     } else {
@@ -55,7 +55,7 @@ int main(int argc, char **argv)
 
     // Test with a mimetype
     QString mimetype = QStringLiteral("text/plain");
-    dlg = new KOpenWithDialog(mimetype, QStringLiteral("kedit"), 0);
+    dlg = new KOpenWithDialog(mimetype, QStringLiteral("kedit"), nullptr);
     if (dlg->exec()) {
         qDebug() << "Dialog ended successfully\ntext: " << dlg->text();
     } else {

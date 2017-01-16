@@ -356,7 +356,7 @@ void ForwardingSlaveBasePrivate::connectJob(KIO::Job *job)
 {
     // We will forward the warning message, no need to let the job
     // display it itself
-    job->setUiDelegate(0);
+    job->setUiDelegate(nullptr);
 
     // Forward metadata (e.g. modification time for put())
     job->setMetaData(q->allMetaData());
@@ -418,7 +418,7 @@ void ForwardingSlaveBasePrivate::_k_slotResult(KJob *job)
         q->error(job->error(), job->errorText());
     } else {
         KIO::StatJob *stat_job = qobject_cast<KIO::StatJob *>(job);
-        if (stat_job != 0L) {
+        if (stat_job != nullptr) {
             KIO::UDSEntry entry = stat_job->statResult();
             q->prepareUDSEntry(entry);
             q->statEntry(entry);

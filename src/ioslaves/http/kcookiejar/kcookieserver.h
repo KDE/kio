@@ -81,7 +81,7 @@ public Q_SLOTS:
     void shutdown();
 
 public:
-    bool cookiesPending(const QString &url, KHttpCookieList *cookieList = 0);
+    bool cookiesPending(const QString &url, KHttpCookieList *cookieList = nullptr);
     void addCookies(const QString &url, const QByteArray &cookieHeader,
                     qlonglong windowId, bool useDOMFormat);
     void checkCookies(KHttpCookieList *cookieList);

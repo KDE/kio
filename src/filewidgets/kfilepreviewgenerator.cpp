@@ -82,7 +82,7 @@ public:
         m_uniformSizes(false),
         m_view(qobject_cast<QListView *>(view))
     {
-        if (m_view != 0) {
+        if (m_view != nullptr) {
             m_uniformSizes = m_view->uniformItemSizes();
             m_view->setUniformItemSizes(true);
         }
@@ -90,7 +90,7 @@ public:
 
     ~LayoutBlocker()
     {
-        if (m_view != 0) {
+        if (m_view != nullptr) {
             m_view->setUniformItemSizes(m_uniformSizes);
         }
     }
@@ -419,21 +419,21 @@ KFilePreviewGenerator::Private::Private(KFilePreviewGenerator *parent,
     m_internalDataChange(0),
     m_pendingVisibleIconUpdates(0),
     m_viewAdapter(viewAdapter),
-    m_itemView(0),
-    m_iconUpdateTimer(0),
-    m_scrollAreaTimer(0),
+    m_itemView(nullptr),
+    m_iconUpdateTimer(nullptr),
+    m_scrollAreaTimer(nullptr),
     m_previewJobs(),
-    m_proxyModel(0),
+    m_proxyModel(nullptr),
     m_cutItemsCache(),
     m_previews(),
     m_sequenceIndices(),
     m_changedItems(),
-    m_changedItemsTimer(0),
+    m_changedItemsTimer(nullptr),
     m_pendingItems(),
     m_dispatchedItems(),
     m_resolvedMimeTypes(),
     m_enabledPlugins(),
-    m_tileSet(0),
+    m_tileSet(nullptr),
     q(parent)
 {
     if (!m_viewAdapter->iconSize().isValid()) {
@@ -441,7 +441,7 @@ KFilePreviewGenerator::Private::Private(KFilePreviewGenerator *parent,
     }
 
     m_proxyModel = qobject_cast<QAbstractProxyModel *>(model);
-    m_dirModel = (m_proxyModel == 0) ?
+    m_dirModel = (m_proxyModel == nullptr) ?
                  qobject_cast<KDirModel *>(model) :
                  qobject_cast<KDirModel *>(m_proxyModel->sourceModel());
     if (!m_dirModel) {
@@ -606,8 +606,8 @@ void KFilePreviewGenerator::Private::updateIcons(const QModelIndex &topLeft,
 void KFilePreviewGenerator::Private::addToPreviewQueue(const KFileItem &item, const QPixmap &pixmap)
 {
     KIO::PreviewJob *senderJob = qobject_cast<KIO::PreviewJob *>(q->sender());
-    Q_ASSERT(senderJob != 0);
-    if (senderJob != 0) {
+    Q_ASSERT(senderJob != nullptr);
+    if (senderJob != nullptr) {
         QMap<QUrl, int>::iterator it = m_sequenceIndices.find(item.url());
         if (senderJob->sequenceIndex() && (it == m_sequenceIndices.end() || *it != senderJob->sequenceIndex())) {
             return; // the sequence index does not match the one we want
@@ -794,7 +794,7 @@ void KFilePreviewGenerator::Private::pauseIconUpdates()
 {
     m_iconUpdatesPaused = true;
     foreach (KJob *job, m_previewJobs) {
-        Q_ASSERT(job != 0);
+        Q_ASSERT(job != nullptr);
         job->suspend();
     }
     m_scrollAreaTimer->start();
@@ -958,7 +958,7 @@ bool KFilePreviewGenerator::Private::applyImageFrame(QPixmap &icon)
                      maxSize.height() - TileSet::TopMargin - TileSet::BottomMargin);
     limitToSize(icon, size);
 
-    if (m_tileSet == 0) {
+    if (m_tileSet == nullptr) {
         m_tileSet = new TileSet();
     }
 
@@ -1082,7 +1082,7 @@ void KFilePreviewGenerator::Private::startPreviewJob(const KFileItemList &items,
 void KFilePreviewGenerator::Private::killPreviewJobs()
 {
     foreach (KJob *job, m_previewJobs) {
-        Q_ASSERT(job != 0);
+        Q_ASSERT(job != nullptr);
         job->kill();
     }
     m_previewJobs.clear();
@@ -1102,7 +1102,7 @@ void KFilePreviewGenerator::Private::orderItems(KFileItemList &items)
 
     // Order the items in a way that the preview for the visible items
     // is generated first, as this improves the feeled performance a lot.
-    const bool hasProxy = (m_proxyModel != 0);
+    const bool hasProxy = (m_proxyModel != nullptr);
     const int itemCount = items.count();
     const QRect visibleArea = m_viewAdapter->visibleArea();
 

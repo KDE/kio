@@ -38,7 +38,7 @@ public:
     /**
      * Create a directory lister.
      */
-    KDirLister(QObject *parent = 0);
+    KDirLister(QObject *parent = nullptr);
 
     /**
      * Destroy the directory lister.

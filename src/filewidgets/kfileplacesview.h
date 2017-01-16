@@ -35,7 +35,7 @@ class KIOFILEWIDGETS_EXPORT KFilePlacesView : public QListView
 {
     Q_OBJECT
 public:
-    KFilePlacesView(QWidget *parent = 0);
+    KFilePlacesView(QWidget *parent = nullptr);
     ~KFilePlacesView();
 
     /**

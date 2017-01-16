@@ -53,7 +53,7 @@ extern "C" {
         // necessary to use other kio slaves
         QCoreApplication app(argc, argv);
 
-        KIO::setDefaultJobUiDelegateExtension(0);
+        KIO::setDefaultJobUiDelegateExtension(nullptr);
         // start the slave
         TrashProtocol slave(argv[1], argv[2], argv[3]);
         slave.dispatchLoop();

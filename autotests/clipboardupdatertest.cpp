@@ -123,7 +123,7 @@ void ClipboardUpdaterTest::testPasteAfterMoveFiles()
 
     const QString pasteDir = dir.path() + QLatin1String("/pastedir");
     createTestDirectory(pasteDir, NoSymlink);
-    KIO::Job *job = KIO::pasteClipboard(QUrl::fromLocalFile(pasteDir), 0);
+    KIO::Job *job = KIO::pasteClipboard(QUrl::fromLocalFile(pasteDir), nullptr);
     QVERIFY(job->exec());
     QCOMPARE(job->error(), 0);
 }
@@ -145,7 +145,7 @@ void ClipboardUpdaterTest::testPasteAfterDeleteFile()
 
     const QString pasteDir = dir.path() + QLatin1String("/pastedir");
     createTestDirectory(pasteDir, NoSymlink);
-    KIO::Job *job = KIO::pasteClipboard(QUrl::fromLocalFile(pasteDir), 0);
+    KIO::Job *job = KIO::pasteClipboard(QUrl::fromLocalFile(pasteDir), nullptr);
     QVERIFY(!job);
 }
 
@@ -166,7 +166,7 @@ void ClipboardUpdaterTest::testPasteAfterDeleteFiles()
 
     const QString pasteDir = dir.path() + QLatin1String("/pastedir");
     createTestDirectory(pasteDir, NoSymlink);
-    KIO::Job *job = KIO::pasteClipboard(QUrl::fromLocalFile(pasteDir), 0);
+    KIO::Job *job = KIO::pasteClipboard(QUrl::fromLocalFile(pasteDir), nullptr);
     QVERIFY(!job);
 }
 

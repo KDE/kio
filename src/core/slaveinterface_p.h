@@ -38,7 +38,7 @@ class KIO::SlaveInterfacePrivate
 {
 public:
     SlaveInterfacePrivate()
-        : connection(0), filesize(0), offset(0), last_time(0), start_time(0),
+        : connection(nullptr), filesize(0), offset(0), last_time(0), start_time(0),
           nums(0), slave_calcs_speed(false)
     {
     }

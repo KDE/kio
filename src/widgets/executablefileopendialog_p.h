@@ -36,7 +36,7 @@ public:
         OpenFile = 42, ExecuteFile
     };
 
-    explicit ExecutableFileOpenDialog(QWidget* parent = 0);
+    explicit ExecutableFileOpenDialog(QWidget* parent = nullptr);
 
     bool isDontAskAgainChecked() const;
 

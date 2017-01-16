@@ -80,7 +80,7 @@ class SlaveBasePrivate
 {
 public:
     SlaveBase *q;
-    SlaveBasePrivate(SlaveBase *owner): q(owner), m_passwdServerClient(0)
+    SlaveBasePrivate(SlaveBase *owner): q(owner), m_passwdServerClient(nullptr)
     {
         if (!qEnvironmentVariableIsEmpty("KIOSLAVE_ENABLE_TESTMODE")) {
             QStandardPaths::enableTestMode(true);
@@ -180,7 +180,7 @@ extern "C" {
         //qDebug()<<"kioslave : exiting due to signal "<<sigNumber;
         //set the flag which will be checked in dispatchLoop() and which *should* be checked
         //in lengthy operations in the various slaves
-        if (globalSlave != 0) {
+        if (globalSlave != nullptr) {
             globalSlave->setKillFlag();
         }
         ::signal(SIGALRM, SIG_DFL);
@@ -231,7 +231,7 @@ SlaveBase::SlaveBase(const QByteArray &protocol,
     act.sa_handler = sigpipe_handler;
     sigemptyset(&act.sa_mask);
     act.sa_flags = 0;
-    sigaction(SIGPIPE, &act, 0);
+    sigaction(SIGPIPE, &act, nullptr);
 
     ::signal(SIGINT, &genericsig_handler);
     ::signal(SIGQUIT, &genericsig_handler);
@@ -256,7 +256,7 @@ SlaveBase::SlaveBase(const QByteArray &protocol,
     d->totalSize = 0;
     connectSlave(QFile::decodeName(app_socket));
 
-    d->remotefile = 0;
+    d->remotefile = nullptr;
     d->inOpenLoop = false;
     d->exit_loop = false;
 }
@@ -324,11 +324,11 @@ void SlaveBase::dispatchLoop()
         }
 
         // execute deferred deletes
-        QCoreApplication::sendPostedEvents(NULL, QEvent::DeferredDelete);
+        QCoreApplication::sendPostedEvents(nullptr, QEvent::DeferredDelete);
     }
 
     // execute deferred deletes
-    QCoreApplication::sendPostedEvents(NULL, QEvent::DeferredDelete);
+    QCoreApplication::sendPostedEvents(nullptr, QEvent::DeferredDelete);
 }
 
 void SlaveBase::connectSlave(const QString &address)
@@ -928,7 +928,7 @@ void SlaveBase::slave_status()
 void SlaveBase::reparseConfiguration()
 {
     delete d->remotefile;
-    d->remotefile = 0;
+    d->remotefile = nullptr;
 }
 
 bool SlaveBase::openPasswordDialog(AuthInfo &info, const QString &errorMsg)
@@ -1096,7 +1096,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
         disconnectSlave();
         d->isConnectedToApp = true;
         connectSlave(app_socket);
-        virtual_hook(AppConnectionMade, 0);
+        virtual_hook(AppConnectionMade, nullptr);
     } break;
     case CMD_SLAVE_HOLD: {
         QUrl url;
@@ -1119,7 +1119,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
         stream >> d->configData;
         d->rebuildConfig();
         delete d->remotefile;
-        d->remotefile = 0;
+        d->remotefile = nullptr;
     } break;
     case CMD_GET: {
         stream >> url;

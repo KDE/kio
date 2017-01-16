@@ -147,7 +147,7 @@ KFilePlaceEditDialog::KFilePlaceEditDialog(bool allowGlobal, const QUrl &url,
                                       appName));
         box->addWidget(m_appLocal);
     } else {
-        m_appLocal = 0L;
+        m_appLocal = nullptr;
     }
     connect(m_urlEdit->lineEdit(), SIGNAL(textChanged(QString)), this, SLOT(urlChanged(QString)));
     if (!label.isEmpty()) {

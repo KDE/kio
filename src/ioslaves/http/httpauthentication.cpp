@@ -75,7 +75,7 @@ static bool containsScheme(const char input[], int start, int end)
 // keys on even indexes, values on odd indexes. Reduces code expansion for the templated
 // alternatives.
 // If "ba" starts with empty content it will be removed from ba to simplify later calls
-static QList<QByteArray> parseChallenge(QByteArray &ba, QByteArray *scheme, QByteArray *nextAuth = 0)
+static QList<QByteArray> parseChallenge(QByteArray &ba, QByteArray *scheme, QByteArray *nextAuth = nullptr)
 {
     QList<QByteArray> values;
     const char *b = ba.constData();
@@ -275,7 +275,7 @@ KAbstractHttpAuthentication *KAbstractHttpAuthentication::newAuth(const QByteArr
         } else if (scheme == "basic") { // krazy:exclude=strings
             return new KHttpBasicAuthentication();
         }
-    return 0;
+    return nullptr;
 }
 
 QList< QByteArray > KAbstractHttpAuthentication::splitOffers(const QList< QByteArray > &offers)
@@ -876,7 +876,7 @@ void KHttpNegotiateAuthentication::generateResponse(const QString &user, const Q
     major_status = gss_import_name(&minor_status, &input_token,
                                    GSS_C_NT_HOSTBASED_SERVICE, &server);
 
-    input_token.value = NULL;
+    input_token.value = nullptr;
     input_token.length = 0;
 
     if (GSS_ERROR(major_status)) {
@@ -897,8 +897,8 @@ void KHttpNegotiateAuthentication::generateResponse(const QString &user, const Q
                                         &ctx, server, mech_oid,
                                         req_flags, GSS_C_INDEFINITE,
                                         GSS_C_NO_CHANNEL_BINDINGS,
-                                        GSS_C_NO_BUFFER, NULL, &output_token,
-                                        NULL, NULL);
+                                        GSS_C_NO_BUFFER, nullptr, &output_token,
+                                        nullptr, nullptr);
 
     if (GSS_ERROR(major_status) || (output_token.length == 0)) {
         qCDebug(KIO_HTTP_AUTH) << "gss_init_sec_context failed:" << gssError(major_status, minor_status);

@@ -29,7 +29,7 @@ K_PLUGIN_FACTORY_DECLARATION (KioConfigFactory)
 KCookiesMain::KCookiesMain (QWidget* parent, const QVariantList&)
     : KCModule (/*KioConfigFactory::componentData(),*/ parent)
 {
-    management = 0;
+    management = nullptr;
     bool managerOK = true;
 
     QVBoxLayout* layout = new QVBoxLayout (this);

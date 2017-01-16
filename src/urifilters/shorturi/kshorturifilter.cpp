@@ -535,7 +535,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
 
 KCModule* KShortUriFilter::configModule( QWidget*, const char* ) const
 {
-    return 0; //new KShortUriOptions( parent, name );
+    return nullptr; //new KShortUriOptions( parent, name );
 }
 
 QString KShortUriFilter::configName() const

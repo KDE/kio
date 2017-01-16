@@ -38,13 +38,13 @@ using namespace KIO;
 ConnectionBackend::ConnectionBackend(Mode m, QObject *parent)
     : QObject(parent),
       state(Idle),
-      socket(0),
+      socket(nullptr),
       len(-1),
       cmd(0),
       signalEmitted(false),
       mode(m)
 {
-    localServer = 0;
+    localServer = nullptr;
 }
 
 ConnectionBackend::~ConnectionBackend()
@@ -155,7 +155,7 @@ bool ConnectionBackend::listenForRemote()
         if (!localServer->listen(sockname, KLocalSocket::UnixSocket)) {
             errorString = localServer->errorString();
             delete localServer;
-            localServer = 0;
+            localServer = nullptr;
             return false;
         }
 
@@ -166,7 +166,7 @@ bool ConnectionBackend::listenForRemote()
         if (!tcpServer->isListening()) {
             errorString = tcpServer->errorString();
             delete tcpServer;
-            tcpServer = 0;
+            tcpServer = nullptr;
             return false;
         }
 
@@ -252,7 +252,7 @@ ConnectionBackend *ConnectionBackend::nextPendingConnection()
     }
 
     if (!newSocket) {
-        return 0;    // there was no connection...
+        return nullptr;    // there was no connection...
     }
 
     ConnectionBackend *result = new ConnectionBackend(Mode(mode));
@@ -292,13 +292,13 @@ void ConnectionBackend::socketReadyRead()
             while (*p == ' ') {
                 p++;
             }
-            len = strtol(p, 0L, 16);
+            len = strtol(p, nullptr, 16);
 
             p = buffer + 7;
             while (*p == ' ') {
                 p++;
             }
-            cmd = strtol(p, 0L, 16);
+            cmd = strtol(p, nullptr, 16);
 
             //qCDebug(KIO_CORE) << this << "Beginning of command" << hex << cmd << "of size" << len;
         }

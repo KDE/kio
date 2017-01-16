@@ -86,7 +86,7 @@ public:
       * @param parent The parent widget of this widget
       *
       */
-    explicit KFileWidget(const QUrl &startDir, QWidget *parent = 0);
+    explicit KFileWidget(const QUrl &startDir, QWidget *parent = nullptr);
 
     /**
      * Destructor

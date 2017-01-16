@@ -207,7 +207,7 @@ Ftp::Ftp(const QByteArray &pool, const QByteArray &app)
 
     // init other members
     m_port = 0;
-    m_socketProxyAuth = 0;
+    m_socketProxyAuth = nullptr;
 }
 
 Ftp::~Ftp()
@@ -257,7 +257,7 @@ const char *Ftp::ftpResponse(int iOffset)
         m_iRespCode = 0;
 
         if (!pTxt) {
-            return 0;    // avoid using a NULL when calling atoi.
+            return nullptr;    // avoid using a NULL when calling atoi.
         }
 
         // If the server sends a multiline response starting with
@@ -1634,19 +1634,19 @@ bool Ftp::ftpReadDir(FtpEntry &de)
 
         // we should always get the following 5 fields ...
         const char *p_access, *p_junk, *p_owner, *p_group, *p_size;
-        if ((p_access = strtok((char *)buffer, " ")) == 0) {
+        if ((p_access = strtok((char *)buffer, " ")) == nullptr) {
             continue;
         }
-        if ((p_junk  = strtok(NULL, " ")) == 0) {
+        if ((p_junk  = strtok(nullptr, " ")) == nullptr) {
             continue;
         }
-        if ((p_owner = strtok(NULL, " ")) == 0) {
+        if ((p_owner = strtok(nullptr, " ")) == nullptr) {
             continue;
         }
-        if ((p_group = strtok(NULL, " ")) == 0) {
+        if ((p_group = strtok(nullptr, " ")) == nullptr) {
             continue;
         }
-        if ((p_size  = strtok(NULL, " ")) == 0) {
+        if ((p_size  = strtok(nullptr, " ")) == nullptr) {
             continue;
         }
 
@@ -1662,9 +1662,9 @@ bool Ftp::ftpReadDir(FtpEntry &de)
         // A special hack for "/dev". A listing may look like this:
         // crw-rw-rw-   1 root     root       1,   5 Jun 29  1997 zero
         // So we just ignore the number in front of the ",". Ok, it is a hack :-)
-        if (strchr(p_size, ',') != 0L) {
+        if (strchr(p_size, ',') != nullptr) {
             qCDebug(KIO_FTP) << "Size contains a ',' -> reading size again (/dev hack)";
-            if ((p_size = strtok(NULL, " ")) == 0) {
+            if ((p_size = strtok(nullptr, " ")) == nullptr) {
                 continue;
             }
         }
@@ -1676,17 +1676,17 @@ bool Ftp::ftpReadDir(FtpEntry &de)
         if (!isdigit(*p_size)) {
             p_date_1 = p_size;
             p_size = p_group;
-            p_group = 0;
+            p_group = nullptr;
             qCDebug(KIO_FTP) << "Size didn't have a digit -> size=" << p_size << " date_1=" << p_date_1;
         } else {
-            p_date_1 = strtok(NULL, " ");
+            p_date_1 = strtok(nullptr, " ");
             qCDebug(KIO_FTP) << "Size has a digit -> ok. p_date_1=" << p_date_1;
         }
 
-        if (p_date_1 != 0 &&
-                (p_date_2 = strtok(NULL, " ")) != 0 &&
-                (p_date_3 = strtok(NULL, " ")) != 0 &&
-                (p_name = strtok(NULL, "\r\n")) != 0) {
+        if (p_date_1 != nullptr &&
+                (p_date_2 = strtok(nullptr, " ")) != nullptr &&
+                (p_date_3 = strtok(nullptr, " ")) != nullptr &&
+                (p_name = strtok(nullptr, "\r\n")) != nullptr) {
             {
                 QByteArray tmp(p_name);
                 if (p_access[0] == 'l') {
@@ -2279,7 +2279,7 @@ bool Ftp::ftpFileExists(const QString &path)
 
     // skip leading "213 " (response code)
     const char *psz = ftpResponse(4);
-    return psz != 0;
+    return psz != nullptr;
 }
 
 // Today the differences between ASCII and BINARY are limited to
@@ -2638,7 +2638,7 @@ void Ftp::saveProxyAuthentication()
         cacheAuthentication(a);
     }
     delete m_socketProxyAuth;
-    m_socketProxyAuth = 0;
+    m_socketProxyAuth = nullptr;
 }
 
 void Ftp::fixupEntryName(FtpEntry *e)

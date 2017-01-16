@@ -33,7 +33,7 @@ JobUrlCache &JobUrlCache::instance()
     return s_jobUrlCache()->instance;
 }
 
-JobUrlCache::JobUrlCache() : QObject(0)
+JobUrlCache::JobUrlCache() : QObject(nullptr)
 {
     org::kde::kuiserver *interface = new
     org::kde::kuiserver(QStringLiteral("org.kde.kuiserver"), QStringLiteral("/JobViewServer"), QDBusConnection::sessionBus(), this);

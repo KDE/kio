@@ -32,8 +32,8 @@ class KDirLister::Private
 {
 public:
     Private()
-        : errorParent(NULL),
-          window(NULL),
+        : errorParent(nullptr),
+          window(nullptr),
           autoErrorHandling(false)
     {}
 
@@ -46,7 +46,7 @@ public:
 KDirLister::KDirLister(QObject *parent)
     : KCoreDirLister(parent), d(new Private)
 {
-    setAutoErrorHandlingEnabled(true, 0);
+    setAutoErrorHandlingEnabled(true, nullptr);
 }
 
 KDirLister::~KDirLister()

@@ -103,11 +103,11 @@ void KUrlCompletionTest::setup()
 void KUrlCompletionTest::teardown()
 {
     delete m_completion;
-    m_completion = 0;
+    m_completion = nullptr;
     delete m_tempDir;
-    m_tempDir = 0;
+    m_tempDir = nullptr;
     delete m_completionEmptyCwd;
-    m_completionEmptyCwd = 0;
+    m_completionEmptyCwd = nullptr;
 }
 
 void KUrlCompletionTest::waitForCompletion(KUrlCompletion *completion)
@@ -117,7 +117,7 @@ void KUrlCompletionTest::waitForCompletion(KUrlCompletion *completion)
         QTest::qWait(5);
     }
     // The thread emitted a signal, process it.
-    qApp->sendPostedEvents(0, QEvent::MetaCall);
+    qApp->sendPostedEvents(nullptr, QEvent::MetaCall);
 }
 
 void KUrlCompletionTest::testLocalRelativePath()

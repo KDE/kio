@@ -76,7 +76,7 @@ static QWidget *topLevelWindow(QWidget *widget)
     while (w && w->parentWidget()) {
         w = w->parentWidget();
     }
-    return (w ? w->window() : 0);
+    return (w ? w->window() : nullptr);
 }
 
 class JobUiDelegateStatic : public QObject
@@ -355,7 +355,7 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
         result = 0;
         break;
     }
-    KMessageBox::setDontShowAgainConfig(0);
+    KMessageBox::setDontShowAgainConfig(nullptr);
     return result;
 }
 

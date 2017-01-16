@@ -216,7 +216,7 @@ void KCookiesPolicies::addPressed(const QString& domain, bool state)
 bool KCookiesPolicies::handleDuplicate (const QString& domain, int advice)
 {
     QTreeWidgetItem* item = mUi.policyTreeWidget->topLevelItem (0);
-    while (item != 0) {
+    while (item != nullptr) {
         if (item->text (0) == domain) {
             const int res = KMessageBox::warningContinueCancel (this,
                             i18n ("<qt>A policy already exists for"
@@ -240,7 +240,7 @@ bool KCookiesPolicies::handleDuplicate (const QString& domain, int advice)
 
 void KCookiesPolicies::deletePressed()
 {
-    QTreeWidgetItem* nextItem = 0L;
+    QTreeWidgetItem* nextItem = nullptr;
 
     Q_FOREACH (QTreeWidgetItem * item, mUi.policyTreeWidget->selectedItems()) {
         nextItem = mUi.policyTreeWidget->itemBelow (item);
@@ -388,7 +388,7 @@ void KCookiesPolicies::save()
         QDBusInterface kded (QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"), QDBusConnection::sessionBus());
         QDBusReply<void> reply = kded.call (QStringLiteral("reloadPolicy"));
         if (!reply.isValid())
-            KMessageBox::sorry (0, i18n ("Unable to communicate with the cookie handler service.\n"
+            KMessageBox::sorry (nullptr, i18n ("Unable to communicate with the cookie handler service.\n"
                                          "Any changes you made will not take effect until the service "
                                          "is restarted."));
     }

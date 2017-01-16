@@ -112,10 +112,10 @@ public:
 
         rootFileItem = KFileItem();
 
-        lstNewItems = 0;
-        lstRefreshItems = 0;
-        lstMimeFilteredItems = 0;
-        lstRemoveItems = 0;
+        lstNewItems = nullptr;
+        lstRefreshItems = nullptr;
+        lstMimeFilteredItems = nullptr;
+        lstRemoveItems = nullptr;
 
         hasPendingChanges = false;
     }
@@ -315,7 +315,7 @@ private:
 
     void stopListJob(const QString &url, bool silent);
 
-    KIO::ListJob *jobForUrl(const QString &url, KIO::ListJob *not_job = 0);
+    KIO::ListJob *jobForUrl(const QString &url, KIO::ListJob *not_job = nullptr);
     const QUrl &joburl(KIO::ListJob *job);
 
     void killJob(KIO::ListJob *job);

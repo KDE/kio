@@ -73,10 +73,10 @@ void setMinimumKeepSize (int);
 void setAutoResume (bool);
 
 /** Update all running io-slaves */
-void updateRunningIOSlaves (QWidget* parent = 0L);
+void updateRunningIOSlaves (QWidget* parent = nullptr);
 
 /** Update proxy scout */
-void updateProxyScout (QWidget* parent = 0L);
+void updateProxyScout (QWidget* parent = nullptr);
 }
 
 #endif

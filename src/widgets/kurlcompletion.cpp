@@ -115,8 +115,8 @@ public:
     KUrlCompletionPrivate(KUrlCompletion *parent)
         : q(parent),
           url_auto_completion(true),
-          userListThread(0),
-          dirListThread(0)
+          userListThread(nullptr),
+          dirListThread(nullptr)
     {
     }
 
@@ -547,7 +547,7 @@ void KUrlCompletionPrivate::init()
     replace_env = true;
     last_no_hidden = false;
     last_compl_type = CTNone;
-    list_job = 0L;
+    list_job = nullptr;
     mode = KUrlCompletion::FileCompletion;
 
     // Read settings
@@ -716,19 +716,19 @@ void KUrlCompletion::stop()
 {
     if (d->list_job) {
         d->list_job->kill();
-        d->list_job = 0L;
+        d->list_job = nullptr;
     }
 
     if (d->dirListThread) {
         d->dirListThread->requestTermination();
         delete d->dirListThread;
-        d->dirListThread = 0;
+        d->dirListThread = nullptr;
     }
 
     if (d->userListThread) {
         d->userListThread->requestTermination();
         delete d->userListThread;
-        d->userListThread = 0;
+        d->userListThread = nullptr;
     }
 }
 
@@ -1159,7 +1159,7 @@ void KUrlCompletionPrivate::listUrls(
     bool no_hidden)
 {
     assert(list_urls.isEmpty());
-    assert(list_job == 0L);
+    assert(list_job == nullptr);
 
     list_urls = urls;
     list_urls_filter = filter;
@@ -1173,7 +1173,7 @@ void KUrlCompletionPrivate::listUrls(
     // This will start a new list job as long as there
     // are urls in d->list_urls
     //
-    _k_slotIOFinished(0);
+    _k_slotIOFinished(nullptr);
 }
 
 /*
@@ -1260,7 +1260,7 @@ void KUrlCompletionPrivate::_k_slotIOFinished(KJob *job)
 
     if (list_urls.isEmpty()) {
 
-        list_job = 0L;
+        list_job = nullptr;
 
         finished(); // will call KCompletion::makeCompletion()
 
@@ -1364,13 +1364,13 @@ void KUrlCompletionPrivate::slotCompletionThreadDone(QThread *thread, const QStr
     if (userListThread == thread) {
         thread->wait();
         delete thread;
-        userListThread = 0;
+        userListThread = nullptr;
     }
 
     if (dirListThread == thread) {
         thread->wait();
         delete thread;
-        dirListThread = 0;
+        dirListThread = nullptr;
     }
     finished(); // will call KCompletion::makeCompletion()
 }

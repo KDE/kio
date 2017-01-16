@@ -28,11 +28,11 @@ class KUriSearchFilter : public KUriFilterPlugin
 {
     Q_OBJECT
 public:
-    explicit KUriSearchFilter(QObject *parent = 0, const QVariantList &args = QVariantList() );
+    explicit KUriSearchFilter(QObject *parent = nullptr, const QVariantList &args = QVariantList() );
     ~KUriSearchFilter();
 
     bool filterUri( KUriFilterData& ) const Q_DECL_OVERRIDE;
-    KCModule *configModule(QWidget *parent = 0, const char *name = 0) const Q_DECL_OVERRIDE;
+    KCModule *configModule(QWidget *parent = nullptr, const char *name = nullptr) const Q_DECL_OVERRIDE;
     QString configName() const Q_DECL_OVERRIDE;
 
 public Q_SLOTS:

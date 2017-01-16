@@ -174,7 +174,7 @@ public:
     {
         q = qq;
         m_aborted = false;
-        fileSharePage = 0;
+        fileSharePage = nullptr;
     }
     ~KPropertiesDialogPrivate()
     {
@@ -750,11 +750,11 @@ class KFilePropsPlugin::KFilePropsPluginPrivate
 public:
     KFilePropsPluginPrivate()
     {
-        dirSizeJob = 0L;
-        dirSizeUpdateTimer = 0L;
-        m_lined = 0;
-        m_capacityBar = 0;
-        m_linkTargetLineEdit = 0;
+        dirSizeJob = nullptr;
+        dirSizeUpdateTimer = nullptr;
+        m_lined = nullptr;
+        m_capacityBar = nullptr;
+        m_linkTargetLineEdit = nullptr;
     }
     ~KFilePropsPluginPrivate()
     {
@@ -1089,8 +1089,8 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     if (!hasDirs) { // Only files [and symlinks]
         d->m_sizeLabel->setText(QStringLiteral("%1 (%2)").arg(KIO::convertSize(totalSize),
            QLocale().toString(totalSize)));
-        d->m_sizeDetermineButton = 0L;
-        d->m_sizeStopButton = 0L;
+        d->m_sizeDetermineButton = nullptr;
+        d->m_sizeStopButton = nullptr;
     } else { // Directory
         QHBoxLayout *sizelay = new QHBoxLayout();
         grid->addLayout(sizelay, curRow++, 2);
@@ -1307,9 +1307,9 @@ void KFilePropsPlugin::slotDirSizeFinished(KJob *job)
     // just in case you change something and try again :)
     d->m_sizeDetermineButton->setText(i18n("Refresh"));
     d->m_sizeDetermineButton->setEnabled(true);
-    d->dirSizeJob = 0;
+    d->dirSizeJob = nullptr;
     delete d->dirSizeUpdateTimer;
-    d->dirSizeUpdateTimer = 0;
+    d->dirSizeUpdateTimer = nullptr;
 }
 
 void KFilePropsPlugin::slotSizeDetermine()
@@ -1342,7 +1342,7 @@ void KFilePropsPlugin::slotSizeStop()
         d->m_sizeLabel->setText(i18n("At least %1",
                                      KIO::convertSize(totalSize)));
         d->dirSizeJob->kill();
-        d->dirSizeJob = 0;
+        d->dirSizeJob = nullptr;
     }
     if (d->dirSizeUpdateTimer) {
         d->dirSizeUpdateTimer->stop();
@@ -1386,7 +1386,7 @@ void KFilePropsPlugin::applyChanges()
         // qDebug() << "oldname = " << d->oldName;
         // qDebug() << "newname = " << n;
         if (d->oldName != n || d->m_bFromTemplate) {   // true for any from-template file
-            KIO::Job *job = 0L;
+            KIO::Job *job = nullptr;
             QUrl oldurl = properties->url();
 
             QString newFileName = KIO::encodeFileName(n);
@@ -1432,7 +1432,7 @@ void KFilePropsPlugin::applyChanges()
     }
 
     // No job, keep going
-    slotCopyFinished(0L);
+    slotCopyFinished(nullptr);
 }
 
 void KFilePropsPlugin::slotCopyFinished(KJob *job)
@@ -1560,7 +1560,7 @@ void KFilePropsPlugin::applyIconChanges()
 
             cfg.reparseConfiguration();
             if (cfg.desktopGroup().readEntry("Icon") != sIcon) {
-                KMessageBox::sorry(0, i18n("<qt>Could not save properties. You do not "
+                KMessageBox::sorry(nullptr, i18n("<qt>Could not save properties. You do not "
                                            "have sufficient access to write to <b>%1</b>.</qt>", path));
             }
         }
@@ -1639,29 +1639,29 @@ const char *const KFilePermissionsPropsPlugin::permissionsTexts[4][4] = {
         I18N_NOOP("Forbidden"),
         I18N_NOOP("Can Read"),
         I18N_NOOP("Can Read & Write"),
-        0
+        nullptr
     },
     {
         I18N_NOOP("Forbidden"),
         I18N_NOOP("Can View Content"),
         I18N_NOOP("Can View & Modify Content"),
-        0
+        nullptr
     },
-    { 0, 0, 0, 0}, // no texts for links
+    { nullptr, nullptr, nullptr, nullptr}, // no texts for links
     {
         I18N_NOOP("Forbidden"),
         I18N_NOOP("Can View Content & Read"),
         I18N_NOOP("Can View/Read & Modify/Write"),
-        0
+        nullptr
     }
 };
 
 KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_props)
     : KPropertiesDialogPlugin(_props), d(new KFilePermissionsPropsPluginPrivate)
 {
-    d->cbRecursive = 0L;
-    d->grpCombo = 0L; d->grpEdit = 0;
-    d->usrEdit = 0L;
+    d->cbRecursive = nullptr;
+    d->grpCombo = nullptr; d->grpEdit = nullptr;
+    d->usrEdit = nullptr;
     QString path = properties->url().path();
     QString fname = properties->url().fileName();
     bool isLocal = properties->url().isLocalFile();
@@ -1757,7 +1757,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     QLabel *lbl;
     QGroupBox *gb;
     QGridLayout *gl;
-    QPushButton *pbAdvancedPerm = 0;
+    QPushButton *pbAdvancedPerm = nullptr;
 
     /* Group: Access Permissions */
     gb = new QGroupBox(i18n("Access Permissions"), d->m_frame);
@@ -1823,7 +1823,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
         gl->addWidget(pbAdvancedPerm, 6, 0, 1, 2, Qt::AlignRight);
         connect(pbAdvancedPerm, SIGNAL(clicked()), this, SLOT(slotShowAdvancedPermissions()));
     } else {
-        d->extraCheckbox = 0;
+        d->extraCheckbox = nullptr;
     }
 
     /**** Group: Ownership ****/
@@ -1942,7 +1942,7 @@ static bool fileSystemSupportsACL(const QByteArray &path)
     fileSystemSupportsACLs = (statfs(path.data(), &buf) == 0) && (buf.f_flags & MNT_ACLS);
 #else
     fileSystemSupportsACLs =
-        getxattr(path.data(), "system.posix_acl_access", NULL, 0) >= 0 || errno == ENODATA;
+        getxattr(path.data(), "system.posix_acl_access", nullptr, 0) >= 0 || errno == ENODATA;
 #endif
     return fileSystemSupportsACLs;
 }
@@ -2140,7 +2140,7 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
     gl->setColumnStretch(6, 10);
 
 #if HAVE_POSIX_ACL
-    KACLEditWidget *extendedACLs = 0;
+    KACLEditWidget *extendedACLs = nullptr;
 
     // FIXME make it work with partial entries
     if (properties->items().count() == 1) {
@@ -3101,7 +3101,7 @@ void KUrlPropsPlugin::applyChanges()
     QString path = url.toLocalFile();
     QFile f(path);
     if (!f.open(QIODevice::ReadWrite)) {
-        KMessageBox::sorry(0, i18n("<qt>Could not save properties. You do not have "
+        KMessageBox::sorry(nullptr, i18n("<qt>Could not save properties. You do not have "
                                    "sufficient access to write to <b>%1</b>.</qt>", path));
         return;
     }
@@ -3402,7 +3402,7 @@ void KDevicePropsPlugin::applyChanges()
     const QString path = url.toLocalFile();
     QFile f(path);
     if (!f.open(QIODevice::ReadWrite)) {
-        KMessageBox::sorry(0, i18n("<qt>Could not save properties. You do not have sufficient "
+        KMessageBox::sorry(nullptr, i18n("<qt>Could not save properties. You do not have sufficient "
                                    "access to write to <b>%1</b>.</qt>", path));
         return;
     }
@@ -3668,7 +3668,7 @@ void KDesktopPropsPlugin::applyChanges()
     const QUrl url = job->mostLocalUrl();
 
     if (!url.isLocalFile()) {
-        KMessageBox::sorry(0, i18n("Could not save properties. Only entries on local file systems are supported."));
+        KMessageBox::sorry(nullptr, i18n("Could not save properties. Only entries on local file systems are supported."));
         return;
     }
 
@@ -3676,7 +3676,7 @@ void KDesktopPropsPlugin::applyChanges()
 
     QFile f(path);
     if (!f.open(QIODevice::ReadWrite)) {
-        KMessageBox::sorry(0, i18n("<qt>Could not save properties. You do not have "
+        KMessageBox::sorry(nullptr, i18n("<qt>Could not save properties. You do not have "
                                    "sufficient access to write to <b>%1</b>.</qt>", path));
         return;
     }

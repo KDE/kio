@@ -65,7 +65,7 @@ private:
         QDrag *dragObject() Q_DECL_OVERRIDE
         {
             if (m_button->m_urls.isEmpty()) {
-                return 0;
+                return nullptr;
             }
 
             QDrag *drag = new QDrag(m_button);
@@ -87,8 +87,8 @@ class KUrlRequester::KUrlRequesterPrivate
 public:
     KUrlRequesterPrivate(KUrlRequester *parent)
         : m_parent(parent),
-          edit(0),
-          combo(0),
+          edit(nullptr),
+          combo(nullptr),
           fileDialogMode(KFile::File | KFile::ExistingOnly | KFile::LocalOnly)
     {
     }
@@ -290,7 +290,7 @@ KUrlRequester::~KUrlRequester()
 
 void KUrlRequester::KUrlRequesterPrivate::init()
 {
-    myFileDialog = 0L;
+    myFileDialog = nullptr;
     fileDialogModality = Qt::ApplicationModal;
 
     if (!combo && !edit) {
@@ -618,7 +618,7 @@ const KEditListWidget::CustomEditor &KUrlRequester::customEditor()
 }
 
 KUrlComboRequester::KUrlComboRequester(QWidget *parent)
-    : KUrlRequester(new KComboBox(false), parent), d(0)
+    : KUrlRequester(new KComboBox(false), parent), d(nullptr)
 {
 }
 

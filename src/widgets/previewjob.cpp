@@ -80,7 +80,7 @@ public:
           iconSize(0),
           iconAlpha(70),
           shmid(-1),
-          shmaddr(0)
+          shmaddr(nullptr)
     {
         // http://specifications.freedesktop.org/thumbnail-spec/thumbnail-spec-latest.html#DIRECTORY
         thumbRoot = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/thumbnails/");
@@ -195,7 +195,7 @@ PreviewJob::~PreviewJob()
     Q_D(PreviewJob);
     if (d->shmaddr) {
         shmdt((char *)d->shmaddr);
-        shmctl(d->shmid, IPC_RMID, 0);
+        shmctl(d->shmid, IPC_RMID, nullptr);
     }
 #endif
 }
@@ -299,7 +299,7 @@ void PreviewJobPrivate::startPreview()
         PreviewItem item;
         item.item = *kit;
         const QString mimeType = item.item.mimetype();
-        KService::Ptr plugin(0);
+        KService::Ptr plugin(nullptr);
 
         // look for protocol-specific thumbnail plugins first
         QHash<QString, QHash<QString, KService::Ptr> >::const_iterator it = protocolMap.constFind(item.item.url().scheme());
@@ -627,18 +627,18 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
     if (shmid == -1) {
         if (shmaddr) {
             shmdt((char *)shmaddr);
-            shmctl(shmid, IPC_RMID, 0);
+            shmctl(shmid, IPC_RMID, nullptr);
         }
         shmid = shmget(IPC_PRIVATE, cacheWidth * cacheHeight * 4, IPC_CREAT | 0600);
         if (shmid != -1) {
-            shmaddr = (uchar *)(shmat(shmid, 0, SHM_RDONLY));
+            shmaddr = (uchar *)(shmat(shmid, nullptr, SHM_RDONLY));
             if (shmaddr == (uchar *) - 1) {
-                shmctl(shmid, IPC_RMID, 0);
-                shmaddr = 0;
+                shmctl(shmid, IPC_RMID, nullptr);
+                shmaddr = nullptr;
                 shmid = -1;
             }
         } else {
-            shmaddr = 0;
+            shmaddr = nullptr;
         }
     }
     if (shmid != -1) {

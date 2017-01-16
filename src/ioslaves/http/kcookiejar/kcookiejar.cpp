@@ -108,7 +108,7 @@ static QDateTime parseDate(const QString &_value)
             "dd-MMM-yyyy HH:mm:ss 'GMT'", /* cookies.test: Y2K38 problem: 06-Dec-2039 00:30:42 GMT */
             "MMM dd HH:mm:ss yyyy 'GMT'", /* cookies.test: Non-standard expiration dates: Sep 12 07:00:00 2020 GMT */
             "MMM dd yyyy HH:mm:ss 'GMT'", /* cookies.test: Non-standard expiration dates: Sep 12 2020 07:00:00 GMT */
-            0
+            nullptr
         };
 
         for (int i = 0; date_formats[i]; ++i) {
@@ -377,10 +377,10 @@ QString KCookieJar::findCookies(const QString &_url, bool useDOMFormat, WId wind
 
     KHttpCookieList allCookies;
     for (QStringList::ConstIterator it = domains.constBegin(), itEnd = domains.constEnd();; ++it) {
-        KHttpCookieList *cookieList = 0;
+        KHttpCookieList *cookieList = nullptr;
         if (it == itEnd) {
             cookieList = pendingCookies; // Add pending cookies
-            pendingCookies = 0;
+            pendingCookies = nullptr;
             if (!cookieList) {
                 break;
             }
@@ -1389,7 +1389,7 @@ static const char *parseField(char *&buffer, bool keepQuotes = false)
     return result;
 }
 
-static QString extractHostAndPorts(const QString &str, QList<int> *ports = 0)
+static QString extractHostAndPorts(const QString &str, QList<int> *ports = nullptr)
 {
     if (str.isEmpty()) {
         return str;
@@ -1477,7 +1477,7 @@ bool KCookieJar::loadCookies(const QString &_filename)
             bool secure = false;
             bool httpOnly = false;
             bool explicitPath = false;
-            const char *value = 0;
+            const char *value = nullptr;
             if ((version == 2) || (protVer >= 200)) {
                 if (protVer >= 200) {
                     protVer -= 200;

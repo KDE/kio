@@ -72,7 +72,7 @@ public:
     AccessManagerPrivate()
         : externalContentAllowed(true),
           emitReadyReadOnMetaDataChange(false),
-          window(0)
+          window(nullptr)
     {}
 
     void setMetaDataForRequest(QNetworkRequest request, KIO::MetaData &metaData);
@@ -224,7 +224,7 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
     KIO::MetaData metaData;
     d->setMetaDataForRequest(req, metaData);
 
-    KIO::SimpleJob *kioJob = 0;
+    KIO::SimpleJob *kioJob = nullptr;
 
     switch (op) {
     case HeadOperation: {

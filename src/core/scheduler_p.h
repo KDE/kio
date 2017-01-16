@@ -89,7 +89,7 @@ private:
 };
 
 struct PerSlaveQueue {
-    PerSlaveQueue() : runningJob(0) {}
+    PerSlaveQueue() : runningJob(nullptr) {}
     QList <SimpleJob *> waitingList;
     SimpleJob *runningJob;
 };

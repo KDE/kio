@@ -61,7 +61,7 @@ public:
      * Note that this instance must stay alive for at least as long as the popupmenu;
      * it has the slots for the actions created by addOpenWithActionsTo/addServiceActionsTo.
      */
-    KFileItemActions(QObject *parent = 0);
+    KFileItemActions(QObject *parent = nullptr);
 
     /**
      * Destructor

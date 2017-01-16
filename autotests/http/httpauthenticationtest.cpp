@@ -196,7 +196,7 @@ void HTTPAuthenticationTest::testAuthenticationSelection()
     QFETCH(QByteArray, expectedOffer);
 
     QByteArray scheme, offer;
-    parseAuthHeader(input, &offer, &scheme, 0);
+    parseAuthHeader(input, &offer, &scheme, nullptr);
     QCOMPARE(scheme, expectedScheme);
     QCOMPARE(offer, expectedOffer);
 }
@@ -265,7 +265,7 @@ void HTTPAuthenticationTest::testAuthentication()
     QFETCH(QByteArray, cnonce);
 
     QByteArray bestOffer;
-    parseAuthHeader(input, &bestOffer, 0, 0);
+    parseAuthHeader(input, &bestOffer, nullptr, nullptr);
     KAbstractHttpAuthentication *authObj = KAbstractHttpAuthentication::newAuth(bestOffer);
     QVERIFY(authObj);
     if (!cnonce.isEmpty()) {
@@ -286,7 +286,7 @@ void HTTPAuthenticationTest::testAuthenticationNTLMv2()
     QString target("TST");
 
     QByteArray bestOffer;
-    parseAuthHeader(input, &bestOffer, 0, 0);
+    parseAuthHeader(input, &bestOffer, nullptr, nullptr);
     KConfig conf;
     KConfigGroup confGroup = conf.group("test");
     confGroup.writeEntry("EnableNTLMv2Auth", true);

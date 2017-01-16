@@ -24,7 +24,7 @@
 #include <pixmaploader.h>
 
 KUrlPixmapProvider::KUrlPixmapProvider()
-    : d(0)
+    : d(nullptr)
 {
 }
 

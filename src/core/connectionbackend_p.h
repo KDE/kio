@@ -66,7 +66,7 @@ Q_SIGNALS:
     void newConnection();
 
 public:
-    explicit ConnectionBackend(Mode m, QObject *parent = 0);
+    explicit ConnectionBackend(Mode m, QObject *parent = nullptr);
     ~ConnectionBackend();
 
     void setSuspended(bool enable);

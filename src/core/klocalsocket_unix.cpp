@@ -337,7 +337,7 @@ void KLocalSocketServerPrivate::close()
     descriptor = -1;
 
     delete readNotifier;
-    readNotifier = 0;
+    readNotifier = nullptr;
 
     if (type == KLocalSocket::UnixSocket) {
         QFile::remove(localPath);
@@ -361,7 +361,7 @@ bool KLocalSocketServerPrivate::waitForNewConnection(int msec, bool *timedOut)
     FD_SET(descriptor, &readset);
 
     while (descriptor != -1) {
-        int code = ::select(descriptor + 1, &readset, 0, 0, &tv);
+        int code = ::select(descriptor + 1, &readset, nullptr, nullptr, &tv);
         if (code == -1 && errno == EINTR) {
             // interrupted
             continue;

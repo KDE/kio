@@ -53,7 +53,7 @@ void HTTPJobTest::testBasicGet()
     static const char response[] = "Hello world";
     HttpServerThread server(response, HttpServerThread::Public);
     KIO::StoredTransferJob *job = KIO::storedGet(QUrl(server.endPoint()));
-    job->setUiDelegate(0);
+    job->setUiDelegate(nullptr);
     QVERIFY(job->exec());
     QCOMPARE(QString::fromLatin1(job->data()), QString::fromLatin1(response));
 }
@@ -66,7 +66,7 @@ void HTTPJobTest::testErrorPage()
 
     // First we get an error page
     KIO::StoredTransferJob *job = KIO::storedGet(QUrl(server.endPoint()));
-    job->setUiDelegate(0);
+    job->setUiDelegate(nullptr);
     QVERIFY(job->exec());
     QCOMPARE(QString::fromLatin1(job->data()), QString::fromLatin1(response));
     QVERIFY(job->isErrorPage());
@@ -74,7 +74,7 @@ void HTTPJobTest::testErrorPage()
 
     // Second we disable error page, and get the actual job error
     job = KIO::storedGet(QUrl(server.endPoint()));
-    job->setUiDelegate(0);
+    job->setUiDelegate(nullptr);
     job->addMetaData(QStringLiteral("errorPage"), QStringLiteral("false")); // maybe this should be a proper setter...
     QVERIFY(!job->exec());
     QVERIFY(!job->isErrorPage());
@@ -85,7 +85,7 @@ void HTTPJobTest::testErrorPage()
     server.setFeatures(HttpServerThread::Public);
     server.setContentType("");
     job = KIO::storedGet(QUrl(server.endPoint()));
-    job->setUiDelegate(0);
+    job->setUiDelegate(nullptr);
     QSignalSpy mimeTypeSpy(job, SIGNAL(mimetype(KIO::Job*,QString)));
     QVERIFY(job->exec());
     QCOMPARE(job->error(), 0);
@@ -99,7 +99,7 @@ void HTTPJobTest::testMimeTypeDetermination()
     HttpServerThread server(response, HttpServerThread::Public);
     // Add a trailing slash to ensure kio_http doesn't confuse QMimeDatabase with it.
     KIO::StoredTransferJob *job = KIO::storedGet(QUrl(server.endPoint() + '/'));
-    job->setUiDelegate(0);
+    job->setUiDelegate(nullptr);
     QSignalSpy mimeTypeSpy(job, SIGNAL(mimetype(KIO::Job*,QString)));
     QVERIFY(job->exec());
     QCOMPARE(job->error(), 0);

@@ -49,7 +49,7 @@ public:
      * Constructs this object to use the given encoding name.
      * If @p name is a null pointer, the standard encoding will be used.
      */
-    explicit KRemoteEncoding(const char *name = 0);
+    explicit KRemoteEncoding(const char *name = nullptr);
 
     /**
      * Destructor

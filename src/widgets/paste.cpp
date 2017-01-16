@@ -61,7 +61,7 @@ static KIO::Job *pasteClipboardUrls(const QMimeData *mimeData, const QUrl &destD
     const QList<QUrl> urls = KUrlMimeData::urlsFromMimeData(mimeData, KUrlMimeData::PreferLocalUrls);
     if (!urls.isEmpty()) {
         const bool move = KIO::isClipboardDataCut(mimeData);
-        KIO::Job *job = 0;
+        KIO::Job *job = nullptr;
         if (move) {
             job = KIO::move(urls, destDir, flags);
         } else {
@@ -69,7 +69,7 @@ static KIO::Job *pasteClipboardUrls(const QMimeData *mimeData, const QUrl &destD
         }
         return job;
     }
-    return 0;
+    return nullptr;
 }
 
 static QUrl getNewFileName(const QUrl &u, const QString &text, const QString &suggestedFileName, QWidget *widget)
@@ -227,24 +227,24 @@ KIO::Job *pasteMimeDataImpl(const QMimeData *mimeData, const QUrl &destUrl,
     } else {
         const QStringList formats = extractFormats(mimeData);
         if (formats.isEmpty()) {
-            return 0;
+            return nullptr;
         } else if (formats.size() > 1) {
             QUrl newUrl;
             ba = chooseFormatAndUrl(destUrl, mimeData, formats, dialogText, suggestedFilename, widget, clipboard, &newUrl);
             if (ba.isEmpty()) {
-                return 0;
+                return nullptr;
             }
             return putDataAsyncTo(newUrl, ba, widget, KIO::Overwrite);
         }
         ba = mimeData->data(formats.first());
     }
     if (ba.isEmpty()) {
-        return 0;
+        return nullptr;
     }
 
     const QUrl newUrl = getNewFileName(destUrl, dialogText, suggestedFilename, widget);
     if (newUrl.isEmpty()) {
-        return 0;
+        return nullptr;
     }
 
     return putDataAsyncTo(newUrl, ba, widget, KIO::Overwrite);
@@ -258,7 +258,7 @@ KIOWIDGETS_EXPORT KIO::Job *KIO::pasteClipboard(const QUrl &destUrl, QWidget *wi
     if (!destUrl.isValid()) {
         KMessageBox::error(widget, i18n("Malformed URL\n%1", destUrl.errorString()));
         qCWarning(KIO_WIDGETS) << destUrl.errorString();
-        return 0;
+        return nullptr;
     }
 
     // TODO: if we passed mimeData as argument, we could write unittests that don't

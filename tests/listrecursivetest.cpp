@@ -47,7 +47,7 @@ private Q_SLOTS:
 using namespace KIO;
 
 SpeedTest::SpeedTest(const QUrl &url)
-    : QObject(0)
+    : QObject(nullptr)
 {
     Job *job = listRecursive(url);
     connect(job, SIGNAL(result(KJob*)),

@@ -69,7 +69,7 @@ class KCookiesPolicySelectionDlg : public QDialog
     Q_OBJECT
 
 public:
-    explicit KCookiesPolicySelectionDlg (QWidget* parent = 0, Qt::WindowFlags f = 0);
+    explicit KCookiesPolicySelectionDlg (QWidget* parent = nullptr, Qt::WindowFlags f = nullptr);
     ~KCookiesPolicySelectionDlg () {}
 
     int advice() const;

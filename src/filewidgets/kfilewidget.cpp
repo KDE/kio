@@ -81,20 +81,20 @@ class KFileWidgetPrivate
 public:
     KFileWidgetPrivate(KFileWidget *widget)
         : q(widget),
-          boxLayout(0),
-          placesDock(0),
-          placesView(0),
-          placesViewSplitter(0),
+          boxLayout(nullptr),
+          placesDock(nullptr),
+          placesView(nullptr),
+          placesViewSplitter(nullptr),
           placesViewWidth(-1),
-          labeledCustomWidget(0),
-          bottomCustomWidget(0),
-          autoSelectExtCheckBox(0),
+          labeledCustomWidget(nullptr),
+          bottomCustomWidget(nullptr),
+          autoSelectExtCheckBox(nullptr),
           operationMode(KFileWidget::Opening),
-          bookmarkHandler(0),
-          toolbar(0),
-          locationEdit(0),
-          ops(0),
-          filterWidget(0),
+          bookmarkHandler(nullptr),
+          toolbar(nullptr),
+          locationEdit(nullptr),
+          ops(nullptr),
+          filterWidget(nullptr),
           autoSelectExtChecked(false),
           keepLocation(false),
           hasView(false),
@@ -103,7 +103,7 @@ public:
           dummyAdded(false),
           confirmOverwrite(false),
           differentHierarchyLevelItemsEntered(false),
-          iconSizeSlider(0)
+          iconSizeSlider(nullptr)
     {
     }
 
@@ -867,7 +867,7 @@ void KFileWidget::slotOk()
             QList<QUrl> urlList;                            // one time is always enough.
             int start = 0;
             QUrl topMostUrl;
-            KIO::StatJob *statJob = 0;
+            KIO::StatJob *statJob = nullptr;
             bool res = false;
 
             // we need to check for a valid first url, so in theory we only iterate one time over
@@ -1955,7 +1955,7 @@ void KFileWidgetPrivate::writeViewConfig()
         tmpGroup.writeEntry(SpeedbarWidth, sizes[0]);
     }
 
-    tmpGroup.writeEntry(ShowBookmarks, bookmarkHandler != 0);
+    tmpGroup.writeEntry(ShowBookmarks, bookmarkHandler != nullptr);
     tmpGroup.writeEntry(AutoSelectExtChecked, autoSelectExtChecked);
     tmpGroup.writeEntry(BreadcrumbNavigation, !urlNavigator->isUrlEditable());
     tmpGroup.writeEntry(ShowFullPath, urlNavigator->showFullPath());
@@ -2605,9 +2605,9 @@ void KFileWidgetPrivate::_k_toggleBookmarks(bool show)
         toolbar->addAction(bookmarkButton);
     } else if (bookmarkHandler) {
         delete bookmarkHandler;
-        bookmarkHandler = 0;
+        bookmarkHandler = nullptr;
         delete bookmarkButton;
-        bookmarkButton = 0;
+        bookmarkButton = nullptr;
     }
 
     static_cast<KToggleAction *>(q->actionCollection()->action(QStringLiteral("toggleBookmarks")))->setChecked(show);

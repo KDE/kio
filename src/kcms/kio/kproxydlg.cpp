@@ -296,7 +296,7 @@ void KProxyDialog::load()
     setProxyInformation(mProxyMap.value(QStringLiteral("HttpsProxy")), proxyType, mUi.manualProxyHttpsEdit, mUi.systemProxyHttpsEdit, mUi.manualProxyHttpsSpinBox, QStringLiteral("http"), HideHttpsUrlScheme);
     setProxyInformation(mProxyMap.value(QStringLiteral("FtpProxy")), proxyType, mUi.manualProxyFtpEdit, mUi.systemProxyFtpEdit, mUi.manualProxyFtpSpinBox, QStringLiteral("ftp"), HideFtpUrlScheme);
     setProxyInformation(mProxyMap.value(QStringLiteral("SocksProxy")), proxyType, mUi.manualProxySocksEdit, mUi.systemProxySocksEdit, mUi.manualProxySocksSpinBox, QStringLiteral("socks"), HideSocksUrlScheme);
-    setProxyInformation(mProxyMap.value(QStringLiteral("NoProxy")), proxyType, mUi.manualNoProxyEdit, mUi.systemNoProxyEdit, 0, QString(), HideNone);
+    setProxyInformation(mProxyMap.value(QStringLiteral("NoProxy")), proxyType, mUi.manualNoProxyEdit, mUi.systemNoProxyEdit, nullptr, QString(), HideNone);
 
     // Check the "Use this proxy server for all protocols" if all the proxy URLs are the same...
     const QString httpProxy(mUi.manualProxyHttpEdit->text());

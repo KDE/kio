@@ -94,7 +94,7 @@ void KFileCopyToMenu::addActionsTo(QMenu *menu) const
 
 KFileCopyToMainMenu::KFileCopyToMainMenu(QMenu *parent, KFileCopyToMenuPrivate *_d, MenuType menuType)
     : QMenu(parent), m_menuType(menuType),
-      m_actionGroup(static_cast<QWidget *>(0)),
+      m_actionGroup(static_cast<QWidget *>(nullptr)),
       d(_d),
       m_recentDirsGroup(KSharedConfig::openConfig(), m_menuType == Copy ? "kuick-copy" : "kuick-move")
 {

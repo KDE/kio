@@ -78,7 +78,7 @@ class KIOFILEWIDGETS_EXPORT KUrlNavigator : public QWidget
 
 public:
     /** @since 4.5 */
-    KUrlNavigator(QWidget *parent = 0);
+    KUrlNavigator(QWidget *parent = nullptr);
 
     /**
      * @param placesModel    Model for the places which are selectable inside a

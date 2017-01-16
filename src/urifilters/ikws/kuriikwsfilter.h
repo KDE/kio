@@ -29,7 +29,7 @@ class KAutoWebSearch : public KUriFilterPlugin
 {
     Q_OBJECT
 public:
-    explicit KAutoWebSearch(QObject *parent = 0, const QVariantList &args = QVariantList() );
+    explicit KAutoWebSearch(QObject *parent = nullptr, const QVariantList &args = QVariantList() );
     ~KAutoWebSearch();
     bool filterUri( KUriFilterData& ) const Q_DECL_OVERRIDE;
 

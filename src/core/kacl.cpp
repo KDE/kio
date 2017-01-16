@@ -41,7 +41,7 @@
 class KACL::KACLPrivate
 {
 public:
-    KACLPrivate() : m_acl(0) {}
+    KACLPrivate() : m_acl(nullptr) {}
 #if HAVE_POSIX_ACL
     KACLPrivate(acl_t acl)
         : m_acl(acl) {}
@@ -139,7 +139,7 @@ bool KACL::isValid() const
 bool KACL::isExtended() const
 {
 #if HAVE_POSIX_ACL
-    return (acl_equiv_mode(d->m_acl, NULL) != 0);
+    return (acl_equiv_mode(d->m_acl, nullptr) != 0);
 #else
     return false;
 #endif
@@ -158,12 +158,12 @@ static acl_entry_t entryForTag(acl_t acl, acl_tag_t tag)
         }
         ret = acl_get_entry(acl, ACL_NEXT_ENTRY, &entry);
     }
-    return 0;
+    return nullptr;
 }
 
 static unsigned short entryToPermissions(acl_entry_t entry)
 {
-    if (entry == 0) {
+    if (entry == nullptr) {
         return 0;
     }
     acl_permset_t permset;
@@ -177,7 +177,7 @@ static unsigned short entryToPermissions(acl_entry_t entry)
 
 static void permissionsToEntry(acl_entry_t entry, unsigned short v)
 {
-    if (entry == 0) {
+    if (entry == nullptr) {
         return;
     }
     acl_permset_t permset;
@@ -326,7 +326,7 @@ unsigned short KACL::maskPermissions(bool &exists) const
     exists = true;
 #if HAVE_POSIX_ACL
     acl_entry_t entry = entryForTag(d->m_acl, ACL_MASK);
-    if (entry == 0) {
+    if (entry == nullptr) {
         exists = false;
         return 0;
     }
@@ -340,7 +340,7 @@ unsigned short KACL::maskPermissions(bool &exists) const
 bool KACL::KACLPrivate::setMaskPermissions(unsigned short v)
 {
     acl_entry_t entry = entryForTag(m_acl, ACL_MASK);
-    if (entry == 0) {
+    if (entry == nullptr) {
         acl_create_entry(&m_acl, &entry);
         acl_set_tag_type(entry, ACL_MASK);
     }
@@ -433,7 +433,7 @@ bool KACL::KACLPrivate::setNamedUserOrGroupPermissions(const QString &name, unsi
         // 23.1.1 of 1003.1e states that as soon as there is a named user or
         // named group entry, there needs to be a mask entry as well, so add
         // one, if the user hasn't explicitly set one.
-        if (entryForTag(newACL, ACL_MASK) == 0) {
+        if (entryForTag(newACL, ACL_MASK) == nullptr) {
             acl_calc_mask(&newACL);
         }
     }
@@ -532,7 +532,7 @@ bool KACL::KACLPrivate::setAllUsersOrGroups(const QList< QPair<QString, unsigned
         // 23.1.1 of 1003.1e states that as soon as there is a named user or
         // named group entry, there needs to be a mask entry as well, so add
         // one, if the user hasn't explicitly set one.
-        if (entryForTag(newACL, ACL_MASK) == 0) {
+        if (entryForTag(newACL, ACL_MASK) == nullptr) {
             acl_calc_mask(&newACL);
         }
     }

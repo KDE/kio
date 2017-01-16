@@ -124,7 +124,7 @@ class KDirListerTest : public QWidget
 {
     Q_OBJECT
 public:
-    KDirListerTest(QWidget *parent = 0);
+    KDirListerTest(QWidget *parent = nullptr);
     ~KDirListerTest();
 
 public Q_SLOTS:

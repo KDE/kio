@@ -145,7 +145,7 @@ void HelpProtocol::unicodeError(const QString &t)
 
 }
 
-HelpProtocol *slave = 0;
+HelpProtocol *slave = nullptr;
 
 HelpProtocol::HelpProtocol(bool ghelp, const QByteArray &pool, const QByteArray &app)
     : SlaveBase(ghelp ? "ghelp" : "help", pool, app), mGhelp(ghelp)

@@ -100,7 +100,7 @@ class KIOCORE_EXPORT SlaveInterface : public QObject
     Q_OBJECT
 
 protected:
-    SlaveInterface(SlaveInterfacePrivate &dd, QObject *parent = 0);
+    SlaveInterface(SlaveInterfacePrivate &dd, QObject *parent = nullptr);
 public:
 
     virtual ~SlaveInterface();

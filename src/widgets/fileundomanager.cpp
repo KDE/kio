@@ -236,7 +236,7 @@ FileUndoManager *FileUndoManager::self()
 // order of the undo items.
 FileUndoManagerPrivate::FileUndoManagerPrivate(FileUndoManager *qq)
     : m_uiInterface(new FileUndoManager::UiInterface()),
-      m_undoJob(0), m_nextCommandIndex(1000), q(qq)
+      m_undoJob(nullptr), m_nextCommandIndex(1000), q(qq)
 {
     (void) new KIOFileUndoManagerAdaptor(this);
     const QString dbusPath = QStringLiteral("/FileUndoManager");
@@ -254,7 +254,7 @@ FileUndoManager::FileUndoManager()
 {
     d = new FileUndoManagerPrivate(this);
     d->m_lock = false;
-    d->m_currentJob = 0;
+    d->m_currentJob = nullptr;
 }
 
 FileUndoManager::~FileUndoManager()
@@ -429,13 +429,13 @@ void FileUndoManagerPrivate::stopUndo(bool step)
     m_dirCleanupStack.clear();
     m_fileCleanupStack.clear();
     m_undoState = REMOVINGDIRS;
-    m_undoJob = 0;
+    m_undoJob = nullptr;
 
     if (m_currentJob) {
         m_currentJob->kill();
     }
 
-    m_currentJob = 0;
+    m_currentJob = nullptr;
 
     if (step) {
         undoStep();
@@ -444,7 +444,7 @@ void FileUndoManagerPrivate::stopUndo(bool step)
 
 void FileUndoManagerPrivate::slotResult(KJob *job)
 {
-    m_currentJob = 0;
+    m_currentJob = nullptr;
     if (job->error()) {
         m_uiInterface->jobError(static_cast<KIO::Job *>(job));
         delete m_undoJob;
@@ -476,7 +476,7 @@ void FileUndoManagerPrivate::addDirToUpdate(const QUrl &url)
 
 void FileUndoManagerPrivate::undoStep()
 {
-    m_currentJob = 0;
+    m_currentJob = nullptr;
 
     if (m_undoState == MAKINGDIRS) {
         stepMakingDirectories();
@@ -599,11 +599,11 @@ void FileUndoManagerPrivate::stepRemovingDirectories()
         addDirToUpdate(dir);
     } else {
         m_current.m_valid = false;
-        m_currentJob = 0;
+        m_currentJob = nullptr;
         if (m_undoJob) {
             //qDebug() << "deleting undojob";
             m_undoJob->emitResult();
-            m_undoJob = 0;
+            m_undoJob = nullptr;
         }
         QList<QUrl>::ConstIterator it = m_dirsToUpdate.constBegin();
         for (; it != m_dirsToUpdate.constEnd(); ++it) {
@@ -677,7 +677,7 @@ class FileUndoManager::UiInterface::UiInterfacePrivate
 {
 public:
     UiInterfacePrivate()
-        : m_parentWidget(0), m_showProgressInfo(true)
+        : m_parentWidget(nullptr), m_showProgressInfo(true)
     {}
     QWidget *m_parentWidget;
     bool m_showProgressInfo;

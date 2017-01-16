@@ -382,7 +382,7 @@ void DropJobPrivate::handleCopyToDirectory()
 void DropJobPrivate::doCopyToDirectory()
 {
     Q_Q(DropJob);
-    KIO::CopyJob * job = 0;
+    KIO::CopyJob * job = nullptr;
     switch (m_dropAction) {
     case Qt::MoveAction:
         job = KIO::move(m_urls, m_destUrl, m_flags);

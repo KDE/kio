@@ -465,7 +465,7 @@ void TestTrash::trashFileOwnedByRoot()
     }
 
     KIO::CopyJob *job = KIO::move(u, QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
-    job->setUiDelegate(0); // no skip dialog, thanks
+    job->setUiDelegate(nullptr); // no skip dialog, thanks
     bool ok = job->exec();
     QVERIFY(!ok);
     QMap<QString, QString> metaData = job->metaData();
@@ -974,7 +974,7 @@ void TestTrash::trashDirectoryOwnedByRoot()
     }
 
     KIO::CopyJob *job = KIO::move(u, QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
-    job->setUiDelegate(0); // no skip dialog, thanks
+    job->setUiDelegate(nullptr); // no skip dialog, thanks
     bool ok = job->exec();
     QVERIFY(!ok);
     QMap<QString, QString> metaData = job->metaData();

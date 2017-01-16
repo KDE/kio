@@ -72,14 +72,14 @@ bool KDesktopFileActions::runWithStartup(const QUrl &u, bool _is_local, const QB
 
     if (u.fileName() == QLatin1String(".directory")) {
         // We cannot execute a .directory file. Open with a text editor instead.
-        return KRun::runUrl(u, QStringLiteral("text/plain"), 0, false /*tempFile*/, false /*runExecutables*/, QString(), asn);
+        return KRun::runUrl(u, QStringLiteral("text/plain"), nullptr, false /*tempFile*/, false /*runExecutables*/, QString(), asn);
     }
 
     KDesktopFile cfg(u.toLocalFile());
     if (!cfg.desktopGroup().hasKey("Type")) {
         QString tmp = i18n("The desktop entry file %1 "
                            "has no Type=... entry.", u.toLocalFile());
-        KMessageBox::error(0, tmp);
+        KMessageBox::error(nullptr, tmp);
         return false;
     }
 
@@ -95,7 +95,7 @@ bool KDesktopFileActions::runWithStartup(const QUrl &u, bool _is_local, const QB
     }
 
     QString tmp = i18n("The desktop entry of type\n%1\nis unknown.",  cfg.readType());
-    KMessageBox::error(0, tmp);
+    KMessageBox::error(nullptr, tmp);
 
     return false;
 }
@@ -108,7 +108,7 @@ static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg, const QByteAr
 
     if (dev.isEmpty()) {
         QString tmp = i18n("The desktop entry file\n%1\nis of type FSDevice but has no Dev=... entry.",  _url.toLocalFile());
-        KMessageBox::error(0, tmp);
+        KMessageBox::error(nullptr, tmp);
         return retval;
     }
 
@@ -117,7 +117,7 @@ static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg, const QByteAr
     if (mp) {
         const QUrl mpURL = QUrl::fromLocalFile(mp->mountPoint());
         // Open a new window
-        retval = KRun::runUrl(mpURL, QStringLiteral("inode/directory"), 0 /*TODO - window*/, false, true, QString(), asn);
+        retval = KRun::runUrl(mpURL, QStringLiteral("inode/directory"), nullptr /*TODO - window*/, false, true, QString(), asn);
     } else {
         KConfigGroup cg = cfg.desktopGroup();
         bool ro = cg.readEntry("ReadOnly", false);
@@ -141,12 +141,12 @@ static bool runApplication(const QUrl &_url, const QString &_serviceFile, const 
     if (!s.isValid())
     {
         QString tmp = i18n("The desktop entry file\n%1\nis not valid.", _url.toString());
-        KMessageBox::error(0, tmp);
+        KMessageBox::error(nullptr, tmp);
         return false;
     }
 
     QList<QUrl> lst;
-    return KRun::runService(s, lst, 0 /*TODO - window*/, false, QString(), asn);
+    return KRun::runService(s, lst, nullptr /*TODO - window*/, false, QString(), asn);
 }
 
 static bool runLink(const QUrl &_url, const KDesktopFile &cfg, const QByteArray &asn)
@@ -154,12 +154,12 @@ static bool runLink(const QUrl &_url, const KDesktopFile &cfg, const QByteArray 
     QString u = cfg.readUrl();
     if (u.isEmpty()) {
         QString tmp = i18n("The desktop entry file\n%1\nis of type Link but has no URL=... entry.",  _url.toString());
-        KMessageBox::error(0, tmp);
+        KMessageBox::error(nullptr, tmp);
         return false;
     }
 
     QUrl url = QUrl::fromUserInput(u);
-    KRun *run = new KRun(url, (QWidget *)0, true, asn);
+    KRun *run = new KRun(url, (QWidget *)nullptr, true, asn);
 
     // X-KDE-LastOpenedWith holds the service desktop entry name that
     // was should be preferred for opening this URL if possible.
@@ -188,7 +188,7 @@ QList<KServiceAction> KDesktopFileActions::builtinServices(const QUrl &_url)
         const QString dev = cfg.readDevice();
         if (dev.isEmpty()) {
             QString tmp = i18n("The desktop entry file\n%1\nis of type FSDevice but has no Dev=... entry.",  _url.toLocalFile());
-            KMessageBox::error(0, tmp);
+            KMessageBox::error(nullptr, tmp);
             return result;
         }
 
@@ -321,7 +321,7 @@ void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KService
             const QString dev = cfg.readDevice();
             if (dev.isEmpty()) {
                 QString tmp = i18n("The desktop entry file\n%1\nis of type FSDevice but has no Dev=... entry.",  path);
-                KMessageBox::error(0, tmp);
+                KMessageBox::error(nullptr, tmp);
                 return;
             }
             KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByDevice(dev);
@@ -387,7 +387,7 @@ void KDesktopFileActions::executeService(const QList<QUrl> &urls, const KService
 #endif
     } else {
         //qDebug() << action.name() << "first url's path=" << urls.first().toLocalFile() << "exec=" << action.exec();
-        KRun::run(action.exec(), urls, 0, action.text(), action.icon());
+        KRun::run(action.exec(), urls, nullptr, action.text(), action.icon());
         // The action may update the desktop file. Example: eject unmounts (#5129).
         org::kde::KDirNotify::emitFilesChanged(urls);
     }

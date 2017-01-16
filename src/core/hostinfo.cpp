@@ -205,7 +205,7 @@ class NameLookUpThread : public QThread
 {
     Q_OBJECT
 public:
-    NameLookUpThread() : m_worker(0)
+    NameLookUpThread() : m_worker(nullptr)
     {
         qRegisterMetaType< QSharedPointer<NameLookupThreadRequest> > ();
         start();
@@ -300,7 +300,7 @@ void HostInfo::cacheLookup(const QHostInfo &info)
 
 void HostInfo::prefetchHost(const QString &hostName)
 {
-    hostInfoAgentPrivate()->lookupHost(hostName, 0, 0);
+    hostInfoAgentPrivate()->lookupHost(hostName, nullptr, nullptr);
 }
 
 void HostInfo::setCacheSize(int s)

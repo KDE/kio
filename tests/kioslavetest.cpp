@@ -36,10 +36,10 @@
 using namespace KIO;
 
 KioslaveTest::KioslaveTest(QString src, QString dest, uint op, uint pr)
-    : KMainWindow(0)
+    : KMainWindow(nullptr)
 {
 
-    job = 0L;
+    job = nullptr;
 
     main_widget = new QWidget(this);
     QBoxLayout *topLayout = new QVBoxLayout(main_widget);
@@ -172,7 +172,7 @@ KioslaveTest::KioslaveTest(QString src, QString dest, uint op, uint pr)
     main_widget->setMinimumSize(main_widget->sizeHint());
     setCentralWidget(main_widget);
 
-    slave = 0;
+    slave = nullptr;
 //  slave = KIO::Scheduler::getConnectedSlave(QUrl("ftp://ftp.kde.org"));
     KIO::Scheduler::connect(SIGNAL(slaveConnected(KIO::Slave*)),
                             this, SLOT(slotSlaveConnected()));
@@ -234,7 +234,7 @@ void KioslaveTest::startJob()
         observe = HideProgressInfo;
     }
 
-    SimpleJob *myJob = 0;
+    SimpleJob *myJob = nullptr;
 
     switch (selectedOperation) {
     case List:
@@ -323,7 +323,7 @@ void KioslaveTest::slotResult(KJob *_job)
     }
 
     if (job == _job) {
-        job = 0L;
+        job = nullptr;
     }
 
     pbStart->setEnabled(true);
@@ -340,7 +340,7 @@ void KioslaveTest::slotSlaveConnected()
 void KioslaveTest::slotSlaveError()
 {
     qDebug() << "Error connected.";
-    slave = 0;
+    slave = nullptr;
 }
 
 void KioslaveTest::printUDSEntry(const KIO::UDSEntry &entry)
@@ -439,7 +439,7 @@ void KioslaveTest::slotDataReq(KIO::Job *, QByteArray &data)
         "BIG3\n",
         "BIG4\n",
         "BIG5\n",
-        0
+        nullptr
     };
     const char *fileData = fileDataArray[putBuffer++];
 
@@ -460,7 +460,7 @@ void KioslaveTest::stopJob()
 {
     qDebug() << "KioslaveTest::stopJob()";
     job->kill();
-    job = 0L;
+    job = nullptr;
 
     pbStop->setEnabled(false);
     pbStart->setEnabled(true);

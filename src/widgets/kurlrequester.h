@@ -72,12 +72,12 @@ public:
     /**
      * Constructs a KUrlRequester widget.
      */
-    explicit KUrlRequester(QWidget *parent = 0);
+    explicit KUrlRequester(QWidget *parent = nullptr);
 
     /**
      * Constructs a KUrlRequester widget with the initial URL @p url.
      */
-    explicit KUrlRequester(const QUrl &url, QWidget *parent = 0);
+    explicit KUrlRequester(const QUrl &url, QWidget *parent = nullptr);
 
     /**
      * Special constructor, which creates a KUrlRequester widget with a custom
@@ -346,7 +346,7 @@ public:
     /**
      * Constructs a KUrlRequester widget with a combobox.
      */
-    explicit KUrlComboRequester(QWidget *parent = 0);
+    explicit KUrlComboRequester(QWidget *parent = nullptr);
 
 private:
     class Private;

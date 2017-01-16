@@ -58,7 +58,7 @@ private Q_SLOTS:
                 return label->buddy();
         }
         Q_ASSERT(false);
-        return 0;
+        return nullptr;
     }
 
     void testFocusOnLocationEdit()

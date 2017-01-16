@@ -655,7 +655,7 @@ public:
      * @param parent the parent object, or 0 for no parent
      * @param name the name of the plugin, mandatory
      */
-    explicit KUriFilterPlugin(const QString &name, QObject *parent = 0);
+    explicit KUriFilterPlugin(const QString &name, QObject *parent = nullptr);
 
     /**
      * Filters a URI.

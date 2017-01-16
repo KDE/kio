@@ -123,7 +123,7 @@ void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName)
         if (tmp.desktopGroup().readPathEntry("URL", QString()) == url.toDisplayString()
             && tmp.desktopGroup().readEntry("X-KDE-LastOpenedWith") == desktopEntryName) {
             // Set access and modification time to current time
-            ::utime(QFile::encodeName(ddesktop).constData(), NULL);
+            ::utime(QFile::encodeName(ddesktop).constData(), nullptr);
             return;
         }
         // if not append a (num) to it

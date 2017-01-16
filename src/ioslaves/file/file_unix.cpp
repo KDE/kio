@@ -153,7 +153,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
     if (acl && !isExtendedACL(acl)) {
         // qDebug() << _dest.data() << " doesn't have extended ACL";
         acl_free(acl);
-        acl = NULL;
+        acl = nullptr;
     }
 #endif
     totalSize(buff_src.st_size);
@@ -312,7 +312,7 @@ void FileProtocol::listDir(const QUrl &url)
     const QString path(url.toLocalFile());
     const QByteArray _path(QFile::encodeName(path));
     DIR *dp = opendir(_path.data());
-    if (dp == 0) {
+    if (dp == nullptr) {
         switch (errno) {
         case ENOENT:
             error(KIO::ERR_DOES_NOT_EXIST, path);
@@ -356,7 +356,7 @@ void FileProtocol::listDir(const QUrl &url)
     QT_STATBUF st;
 #endif
     QT_DIRENT *ep;
-    while ((ep = QT_READDIR(dp)) != 0) {
+    while ((ep = QT_READDIR(dp)) != nullptr) {
         entry.clear();
 
         const QString filename = QFile::decodeName(ep->d_name);

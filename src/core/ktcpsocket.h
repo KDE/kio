@@ -223,7 +223,7 @@ public:
         ManualProxy
     };
 
-    KTcpSocket(QObject *parent = 0);
+    KTcpSocket(QObject *parent = nullptr);
     ~KTcpSocket();
 
     //from QIODevice

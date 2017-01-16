@@ -68,7 +68,7 @@ public:
                      AllTypes = 63
                    };
 
-    KACLListView(QWidget *parent = 0);
+    KACLListView(QWidget *parent = nullptr);
     ~KACLListView();
 
     bool hasMaskEntry() const
@@ -98,8 +98,8 @@ public:
     unsigned short calculateMaskValue(bool defaults) const;
     void calculateEffectiveRights();
 
-    QStringList allowedUsers(bool defaults, KACLListViewItem *allowedItem = 0);
-    QStringList allowedGroups(bool defaults, KACLListViewItem *allowedItem = 0);
+    QStringList allowedUsers(bool defaults, KACLListViewItem *allowedItem = nullptr);
+    QStringList allowedGroups(bool defaults, KACLListViewItem *allowedItem = nullptr);
 
     KACL getACL();
     KACL getDefaultACL();

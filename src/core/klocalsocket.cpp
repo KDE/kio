@@ -114,7 +114,7 @@ KLocalSocketServerPrivate::KLocalSocketServerPrivate(KLocalSocketServer *qq)
       state(QAbstractSocket::UnconnectedState),
       error(QAbstractSocket::UnknownSocketError),
       type(KLocalSocket::UnknownLocalSocketType),
-      readNotifier(0)
+      readNotifier(nullptr)
 {
 }
 
@@ -199,7 +199,7 @@ KLocalSocket *KLocalSocketServer::nextPendingConnection()
         d->readNotifier->setEnabled((d->pendingConnections.size() - 1) < d->maxPendingConnections);
         return d->pendingConnections.dequeue();
     }
-    return 0;
+    return nullptr;
 }
 
 void KLocalSocketServer::incomingConnection(int descriptor)

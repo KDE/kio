@@ -54,20 +54,20 @@ public:
                                 const QNetworkRequest &request,
                                 KIO::SimpleJob *kioJob,
                                 bool emitReadyReadOnMetaDataChange = false,
-                                QObject *parent = 0);
+                                QObject *parent = nullptr);
 
     explicit AccessManagerReply(const QNetworkAccessManager::Operation op,
                                 const QNetworkRequest &request,
                                 const QByteArray &data,
                                 const QUrl &url,
                                 const KIO::MetaData &metaData,
-                                QObject *parent = 0);
+                                QObject *parent = nullptr);
 
     explicit AccessManagerReply(const QNetworkAccessManager::Operation op,
                                 const QNetworkRequest &request,
                                 QNetworkReply::NetworkError errorCode,
                                 const QString &errorMessage,
-                                QObject *parent = 0);
+                                QObject *parent = nullptr);
 
     virtual ~AccessManagerReply();
     qint64 bytesAvailable() const Q_DECL_OVERRIDE;

@@ -278,7 +278,7 @@ static QIODevice *createPostBufferDeviceFor(KIO::filesize_t size)
     }
 
     if (!device->open(QIODevice::ReadWrite)) {
-        return 0;
+        return nullptr;
     }
 
     return device;
@@ -371,16 +371,16 @@ HTTPProtocol::HTTPProtocol(const QByteArray &protocol, const QByteArray &pool,
     , m_iSize(NO_SIZE)
     , m_iPostDataSize(NO_SIZE)
     , m_isBusy(false)
-    , m_POSTbuf(0)
+    , m_POSTbuf(nullptr)
     , m_maxCacheAge(DEFAULT_MAX_CACHE_AGE)
     , m_maxCacheSize(DEFAULT_MAX_CACHE_SIZE)
     , m_protocol(protocol)
-    , m_wwwAuth(0)
+    , m_wwwAuth(nullptr)
     , m_triedWwwCredentials(NoCredentials)
-    , m_proxyAuth(0)
+    , m_proxyAuth(nullptr)
     , m_triedProxyCredentials(NoCredentials)
-    , m_socketProxyAuth(0)
-    , m_networkConfig(0)
+    , m_socketProxyAuth(nullptr)
+    , m_networkConfig(nullptr)
     , m_kioError(0)
     , m_isLoadingErrorPage(false)
     , m_remoteRespTimeout(DEFAULT_RESPONSE_TIMEOUT)
@@ -403,8 +403,8 @@ void HTTPProtocol::reparseConfiguration()
 
     delete m_proxyAuth;
     delete m_wwwAuth;
-    m_proxyAuth = 0;
-    m_wwwAuth = 0;
+    m_proxyAuth = nullptr;
+    m_wwwAuth = nullptr;
     m_request.proxyUrl.clear(); //TODO revisit
     m_request.proxyUrls.clear();
 
@@ -535,9 +535,9 @@ void HTTPProtocol::resetSessionSettings()
     m_request.prevResponseCode = 0;
 
     delete m_wwwAuth;
-    m_wwwAuth = 0;
+    m_wwwAuth = nullptr;
     delete m_socketProxyAuth;
-    m_socketProxyAuth = 0;
+    m_socketProxyAuth = nullptr;
     m_blacklistedWwwAuthMethods.clear();
     m_triedWwwCredentials = NoCredentials;
     m_blacklistedProxyAuthMethods.clear();
@@ -1308,7 +1308,7 @@ void HTTPProtocol::put(const QUrl &url, int, KIO::JobFlags flags)
 
             // force re-authentication...
             delete m_wwwAuth;
-            m_wwwAuth = 0;
+            m_wwwAuth = nullptr;
         }
     }
 
@@ -1388,7 +1388,7 @@ void HTTPProtocol::rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags
         m_request.cacheTag.policy = CC_Reload;
         // force re-authentication...
         delete m_wwwAuth;
-        m_wwwAuth = 0;
+        m_wwwAuth = nullptr;
         proceedUntilResponseHeader();
     }
 
@@ -3178,7 +3178,7 @@ endParsing:
         // get the size of our data
         tIt = tokenizer.iterator("content-length");
         if (tIt.hasNext()) {
-            m_iSize = STRTOLL(tIt.next().constData(), 0, 10);
+            m_iSize = STRTOLL(tIt.next().constData(), nullptr, 10);
         }
 
         tIt = tokenizer.iterator("content-location");
@@ -4131,7 +4131,7 @@ int HTTPProtocol::readChunked()
         }
         Q_ASSERT(bufPos > 2);
 
-        long long nextChunkSize = STRTOLL(m_receiveBuf.data(), 0, 16);
+        long long nextChunkSize = STRTOLL(m_receiveBuf.data(), nullptr, 16);
         if (nextChunkSize < 0) {
             qCDebug(KIO_HTTP) << "Negative chunk size";
             return -1;
@@ -4416,7 +4416,7 @@ bool HTTPProtocol::readBody(bool dataInternal /* = false */)
     // any transfer-encoding applied to the message-body. If the message is
     // received with a transfer-encoding, that encoding MUST be removed
     // prior to checking the Content-MD5 value against the received entity.
-    HTTPFilterMD5 *md5Filter = 0;
+    HTTPFilterMD5 *md5Filter = nullptr;
     if (useMD5) {
         md5Filter = new HTTPFilterMD5;
         chain.addFilter(md5Filter);
@@ -4879,7 +4879,7 @@ bool HTTPProtocol::cacheFileOpenWrite()
         qCDebug(KIO_HTTP) << "deleting expired cache entry and recreating.";
         file->remove();
         delete file;
-        file = 0;
+        file = nullptr;
     }
 
     // note that QTemporaryFile will automatically append random chars to filename
@@ -4954,7 +4954,7 @@ void HTTPProtocol::cacheFileClose()
             // on windows open files can't be renamed
             tempFile->setAutoRemove(false);
             delete tempFile;
-            file = 0;
+            file = nullptr;
 
             if (!QFile::rename(oldName, newName)) {
                 // ### currently this hides a minor bug when force-reloading a resource. We
@@ -4972,7 +4972,7 @@ void HTTPProtocol::cacheFileClose()
         ccCommand = makeCacheCleanerCommand(m_request.cacheTag, UpdateFileCommand);
     }
     delete file;
-    file = 0;
+    file = nullptr;
 
     if (!ccCommand.isEmpty()) {
         sendCacheCleanerCommand(ccCommand);
@@ -5092,7 +5092,7 @@ void HTTPProtocol::clearPostDataBuffer()
     }
 
     delete m_POSTbuf;
-    m_POSTbuf = 0;
+    m_POSTbuf = nullptr;
 }
 
 bool HTTPProtocol::retrieveAllData()
@@ -5233,7 +5233,7 @@ void HTTPProtocol::proxyAuthenticationForSocket(const QNetworkProxy &proxy, QAut
     info.verifyPath = info.realmValue.isEmpty();
 
     const bool haveCachedCredentials = checkCachedAuthentication(info);
-    const bool retryAuth = (m_socketProxyAuth != 0);
+    const bool retryAuth = (m_socketProxyAuth != nullptr);
 
     // if m_socketProxyAuth is a valid pointer then authentication has been attempted before,
     // and it was not successful. see below and saveProxyAuthenticationForSocket().
@@ -5257,7 +5257,7 @@ void HTTPProtocol::proxyAuthenticationForSocket(const QNetworkProxy &proxy, QAut
             qCDebug(KIO_HTTP) << "proxy auth cancelled by user, or communication error";
             error(errorCode, QString());
             delete m_proxyAuth;
-            m_proxyAuth = 0;
+            m_proxyAuth = nullptr;
             return;
         }
     }
@@ -5294,14 +5294,14 @@ void HTTPProtocol::saveProxyAuthenticationForSocket()
         cacheAuthentication(a);
     }
     delete m_socketProxyAuth;
-    m_socketProxyAuth = 0;
+    m_socketProxyAuth = nullptr;
 }
 
 void HTTPProtocol::saveAuthenticationData()
 {
     KIO::AuthInfo authinfo;
     bool alreadyCached = false;
-    KAbstractHttpAuthentication *auth = 0;
+    KAbstractHttpAuthentication *auth = nullptr;
     switch (m_request.prevResponseCode) {
     case 401:
         auth = m_wwwAuth;
@@ -5406,7 +5406,7 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
                     blacklistedAuthTokens->append(scheme);
                 }
                 delete *auth;
-                *auth = 0;
+                *auth = nullptr;
             } else {     // Create authentication header
                 //  WORKAROUND: The following piece of code prevents brain dead IIS
                 // servers that send back multiple "WWW-Authenticate" headers from
@@ -5445,7 +5445,7 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
             if (qstrnicmp(authScheme.constData(), bestOffer.constData(), authScheme.length()) != 0) {
                 // huh, the strongest authentication scheme offered has changed.
                 delete *auth;
-                *auth = 0;
+                *auth = nullptr;
             }
         }
 
@@ -5497,7 +5497,7 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
                             }
                             qCDebug(KIO_HTTP) << "looks like the user canceled the authentication dialog";
                             delete *auth;
-                            *auth = 0;
+                            *auth = nullptr;
                         }
                         *triedCredentials = UserInputCredentials;
                     } else {
@@ -5614,7 +5614,7 @@ bool HTTPProtocol::davStatDestination()
 
     // force re-authentication...
     delete m_wwwAuth;
-    m_wwwAuth = 0;
+    m_wwwAuth = nullptr;
 
     return true;
 }

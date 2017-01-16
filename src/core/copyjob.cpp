@@ -154,7 +154,7 @@ public:
         , m_bOverwriteAllFiles(false)
         , m_bOverwriteAllDirs(false)
         , m_conflictError(0)
-        , m_reportTimer(0)
+        , m_reportTimer(nullptr)
     {
     }
 
@@ -1545,20 +1545,20 @@ KIO::Job *CopyJobPrivate::linkNextFile(const QUrl &uSource, const QUrl &uDest, J
                 m_processedFiles++;
                 //emit processedAmount( this, KJob::Files, m_processedFiles );
                 copyNextFile();
-                return 0;
+                return nullptr;
             } else {
                 qCDebug(KIO_COPYJOB_DEBUG) << "ERR_CANNOT_OPEN_FOR_WRITING";
                 q->setError(ERR_CANNOT_OPEN_FOR_WRITING);
                 q->setErrorText(uDest.toLocalFile());
                 q->emitResult();
-                return 0;
+                return nullptr;
             }
         } else {
             // Todo: not show "link" on remote dirs if the src urls are not from the same protocol+host+...
             q->setError(ERR_CANNOT_SYMLINK);
             q->setErrorText(uDest.toDisplayString());
             q->emitResult();
-            return 0;
+            return nullptr;
         }
     }
 }
@@ -1613,7 +1613,7 @@ void CopyJobPrivate::copyNextFile()
         const JobFlags flags = bOverwrite ? Overwrite : DefaultFlags;
 
         m_bCurrentOperationIsLink = false;
-        KIO::Job *newjob = 0;
+        KIO::Job *newjob = nullptr;
         if (m_mode == CopyJob::Link) {
             // User requested that a symlink be made
             newjob = linkNextFile(uSource, uDest, flags);

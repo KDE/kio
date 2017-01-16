@@ -53,7 +53,7 @@ void ListDirTest::numFilesTestCase()
     /*QBENCHMARK*/ {
         m_receivedEntryCount = -2; // We start at -2 for . and .. slotResult will just increment this value
         KIO::ListJob *job = KIO::listDir(QUrl::fromLocalFile(tempDir.path()), KIO::HideProgressInfo);
-        job->setUiDelegate(0);
+        job->setUiDelegate(nullptr);
         connect(job, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)), this, SLOT(slotEntries(KIO::Job*,KIO::UDSEntryList)));
 
         QSignalSpy spy(job, SIGNAL(result(KJob*)));

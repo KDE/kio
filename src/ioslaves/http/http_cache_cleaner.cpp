@@ -617,7 +617,7 @@ public:
 
     // Delete some of the files that need to be deleted. Return true when done, false otherwise.
     // This makes interleaved cleaning / serving ioslaves possible.
-    bool processSlice(Scoreboard *scoreboard = 0)
+    bool processSlice(Scoreboard *scoreboard = nullptr)
     {
         QTime t;
         t.start();
@@ -790,7 +790,7 @@ int main(int argc, char **argv)
     qint64 newBytesCounter = LLONG_MAX;  // force cleaner run on startup
 
     Scoreboard scoreboard;
-    CacheCleaner *cleaner = 0;
+    CacheCleaner *cleaner = nullptr;
     while (true) {
         g_currentDate = QDateTime::currentDateTime();
         if (cleaner) {
@@ -838,7 +838,7 @@ int main(int argc, char **argv)
             if (cleaner->processSlice(&scoreboard)) {
                 // that was the last slice, done
                 delete cleaner;
-                cleaner = 0;
+                cleaner = nullptr;
             }
         } else if (newBytesCounter > (g_maxCacheSize / 8)) {
             cacheDir.refresh();

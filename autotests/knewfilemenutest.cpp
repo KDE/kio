@@ -125,7 +125,7 @@ private Q_SLOTS:
         menu.checkUpToDate();
         QAction *action = coll.action(QStringLiteral("the_action"));
         QVERIFY(action);
-        QAction *textAct = 0;
+        QAction *textAct = nullptr;
         Q_FOREACH (QAction *act, action->menu()->actions()) {
             if (act->text().contains(actionText)) {
                 textAct = act;

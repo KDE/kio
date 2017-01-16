@@ -142,13 +142,13 @@ class BlockingHttpServer : public QTcpServer
 {
     Q_OBJECT
 public:
-    BlockingHttpServer(bool ssl) : doSsl(ssl), sslSocket(0) {}
+    BlockingHttpServer(bool ssl) : doSsl(ssl), sslSocket(nullptr) {}
     ~BlockingHttpServer() {}
 
     QTcpSocket *waitForNextConnectionSocket()
     {
         if (!waitForNewConnection(20000)) { // 2000 would be enough, except in valgrind
-            return 0;
+            return nullptr;
         }
         if (doSsl) {
             Q_ASSERT(sslSocket);

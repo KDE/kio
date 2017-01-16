@@ -242,7 +242,7 @@ public:
      * approved yet by the user but that will be included in the result
      * none the less.
      */
-    QString findCookies(const QString &_url, bool useDOMFormat, WId windowId, KHttpCookieList *pendingCookies = 0);
+    QString findCookies(const QString &_url, bool useDOMFormat, WId windowId, KHttpCookieList *pendingCookies = nullptr);
 
     /**
      * This function parses cookie_headers and returns a linked list of
@@ -406,7 +406,7 @@ public:
     /**
      * Parses _url and returns the FQDN (_fqdn) and path (_path).
      */
-    static bool parseUrl(const QString &_url, QString &_fqdn, QString &_path, int *port = 0);
+    static bool parseUrl(const QString &_url, QString &_fqdn, QString &_path, int *port = nullptr);
 
     /**
      * Returns a list of domains in @p _domainList relevant for this host.

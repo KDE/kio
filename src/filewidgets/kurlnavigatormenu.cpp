@@ -53,7 +53,7 @@ void KUrlNavigatorMenu::dragMoveEvent(QDragMoveEvent *event)
 void KUrlNavigatorMenu::dropEvent(QDropEvent *event)
 {
     QAction *action = actionAt(event->pos());
-    if (action != 0) {
+    if (action != nullptr) {
         emit urlsDropped(action, event);
     }
 }
@@ -61,7 +61,7 @@ void KUrlNavigatorMenu::dropEvent(QDropEvent *event)
 void KUrlNavigatorMenu::mouseReleaseEvent(QMouseEvent *event)
 {
     QAction *action = actionAt(event->pos());
-    if (action != 0) {
+    if (action != nullptr) {
         Qt::MouseButton btn = event->button();
         emit mouseButtonClicked(action, btn);
     }

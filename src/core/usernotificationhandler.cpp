@@ -79,7 +79,7 @@ void UserNotificationHandler::processRequest()
         if (m_cachedResults.contains(key)) {
             result = *(m_cachedResults[key]);
         } else {
-            JobUiDelegateExtension *delegateExtension = 0;
+            JobUiDelegateExtension *delegateExtension = nullptr;
             if (r->slave->job())
                 delegateExtension = SimpleJobPrivate::get(r->slave->job())->m_uiDelegateExtension;
             if (!delegateExtension)

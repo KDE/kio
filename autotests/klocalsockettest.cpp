@@ -31,7 +31,7 @@ static const char socketpath[] = "/tmp/testsocket";
 
 tst_KLocalSocket::tst_KLocalSocket()
 {
-    server = 0;
+    server = nullptr;
     QFile::remove(QFile::decodeName(socketpath));
 }
 
@@ -112,7 +112,7 @@ void tst_KLocalSocket::waitFor()
 
     // start thread:
     TimedTest thr(socket2);
-    socket2->setParent(0);
+    socket2->setParent(nullptr);
     socket2->moveToThread(&thr);
     thr.start();
 

@@ -82,10 +82,10 @@ ProxyScout::QueuedRequest::QueuedRequest(const QDBusMessage &reply, const QUrl &
 ProxyScout::ProxyScout(QObject *parent, const QList<QVariant> &)
     : KDEDModule(parent),
       m_componentName(QStringLiteral("proxyscout")),
-      m_downloader(0),
-      m_script(0),
+      m_downloader(nullptr),
+      m_script(nullptr),
       m_suspendTime(0),
-      m_watcher(0),
+      m_watcher(nullptr),
       m_networkConfig(new QNetworkConfigurationManager(this))
 {
     connect(m_networkConfig, SIGNAL(configurationChanged(QNetworkConfiguration)), SLOT(disconnectNetwork(QNetworkConfiguration)));
@@ -101,7 +101,7 @@ QStringList ProxyScout::proxiesForUrl(const QString &checkUrl, const QDBusMessag
     QUrl url(checkUrl);
 
     if (m_suspendTime) {
-        if (std::time(0) - m_suspendTime < 300) {
+        if (std::time(nullptr) - m_suspendTime < 300) {
             return QStringList(QStringLiteral("DIRECT"));
         }
         m_suspendTime = 0;
@@ -130,7 +130,7 @@ QString ProxyScout::proxyForUrl(const QString &checkUrl, const QDBusMessage &msg
     QUrl url(checkUrl);
 
     if (m_suspendTime) {
-        if (std::time(0) - m_suspendTime < 300) {
+        if (std::time(nullptr) - m_suspendTime < 300) {
             return QStringLiteral("DIRECT");
         }
         m_suspendTime = 0;
@@ -156,17 +156,17 @@ QString ProxyScout::proxyForUrl(const QString &checkUrl, const QDBusMessage &msg
 
 void ProxyScout::blackListProxy(const QString &proxy)
 {
-    m_blackList[ proxy ] = std::time(0);
+    m_blackList[ proxy ] = std::time(nullptr);
 }
 
 void ProxyScout::reset()
 {
     delete m_script;
-    m_script = 0;
+    m_script = nullptr;
     delete m_downloader;
-    m_downloader = 0;
+    m_downloader = nullptr;
     delete m_watcher;
-    m_watcher = 0;
+    m_watcher = nullptr;
     m_blackList.clear();
     m_suspendTime = 0;
     KProtocolManager::reparseConfiguration();
@@ -178,7 +178,7 @@ bool ProxyScout::startDownload()
     case KProtocolManager::WPADProxy:
         if (m_downloader && !qobject_cast<Discovery *>(m_downloader)) {
             delete m_downloader;
-            m_downloader = 0;
+            m_downloader = nullptr;
         }
         if (!m_downloader) {
             m_downloader = new Discovery(this);
@@ -188,7 +188,7 @@ bool ProxyScout::startDownload()
     case KProtocolManager::PACProxy: {
         if (m_downloader && !qobject_cast<Downloader *>(m_downloader)) {
             delete m_downloader;
-            m_downloader = 0;
+            m_downloader = nullptr;
         }
         if (!m_downloader) {
             m_downloader = new Downloader(this);
@@ -204,7 +204,7 @@ bool ProxyScout::startDownload()
             proxyScriptFileChanged(url.path());
         } else {
             delete m_watcher;
-            m_watcher = 0;
+            m_watcher = nullptr;
             m_downloader->download(url);
         }
         break;
@@ -272,7 +272,7 @@ void ProxyScout::downloadResult(bool success)
 
     // Suppress further attempts for 5 minutes
     if (!success) {
-        m_suspendTime = std::time(0);
+        m_suspendTime = std::time(nullptr);
     }
 }
 
@@ -334,7 +334,7 @@ QStringList ProxyScout::handleRequest(const QUrl &url)
 
             if (type == Direct || !m_blackList.contains(address)) {
                 proxyList << address;
-            } else if (std::time(0) - m_blackList[address] > 1800) { // 30 minutes
+            } else if (std::time(nullptr) - m_blackList[address] > 1800) { // 30 minutes
                 // black listing expired
                 m_blackList.remove(address);
                 proxyList << address;

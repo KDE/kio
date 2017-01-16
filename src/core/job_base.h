@@ -132,7 +132,7 @@ public:
      * @return the following strings: caption, error + description,
      *         causes+solutions
      */
-    QStringList detailedErrorStrings(const QUrl *reqUrl = 0L,
+    QStringList detailedErrorStrings(const QUrl *reqUrl = nullptr,
                                      int method = -1) const;
 
     /**

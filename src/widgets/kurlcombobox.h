@@ -79,8 +79,8 @@ public:
      * @li Both  Don't mess with anything, just show the url as given.
      * @param parent The parent object of this widget.
      */
-    explicit KUrlComboBox(Mode mode, QWidget *parent = 0);
-    KUrlComboBox(Mode mode, bool rw, QWidget *parent = 0);
+    explicit KUrlComboBox(Mode mode, QWidget *parent = nullptr);
+    KUrlComboBox(Mode mode, bool rw, QWidget *parent = nullptr);
     /**
      * Destructs the combo box.
      */

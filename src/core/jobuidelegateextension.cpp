@@ -22,7 +22,7 @@
 using namespace KIO;
 
 JobUiDelegateExtension::JobUiDelegateExtension()
-    : d(0)
+    : d(nullptr)
 {
 }
 
@@ -32,14 +32,14 @@ JobUiDelegateExtension::~JobUiDelegateExtension()
 
 ClipboardUpdater *KIO::JobUiDelegateExtension::createClipboardUpdater(Job *, ClipboardUpdaterMode)
 {
-    return NULL;
+    return nullptr;
 }
 
 void KIO::JobUiDelegateExtension::updateUrlInClipboard(const QUrl &, const QUrl &)
 {
 }
 
-static JobUiDelegateExtension *s_extension = 0;
+static JobUiDelegateExtension *s_extension = nullptr;
 
 JobUiDelegateExtension *KIO::defaultJobUiDelegateExtension()
 {

@@ -57,12 +57,12 @@ static struct {
     const char *pixmapName;
     QPixmap *pixmap;
 } s_itemAttributes[] = {
-    { I18N_NOOP("Owner"), "user-grey", 0 },
-    { I18N_NOOP("Owning Group"), "group-grey", 0 },
-    { I18N_NOOP("Others"), "others-grey", 0 },
-    { I18N_NOOP("Mask"), "mask", 0 },
-    { I18N_NOOP("Named User"), "user", 0 },
-    { I18N_NOOP("Named Group"), "group", 0 },
+    { I18N_NOOP("Owner"), "user-grey", nullptr },
+    { I18N_NOOP("Owning Group"), "group-grey", nullptr },
+    { I18N_NOOP("Others"), "others-grey", nullptr },
+    { I18N_NOOP("Mask"), "mask", nullptr },
+    { I18N_NOOP("Named User"), "user", nullptr },
+    { I18N_NOOP("Named Group"), "group", nullptr },
 };
 
 class KACLEditWidget::KACLEditWidgetPrivate
@@ -423,7 +423,7 @@ EditACLEntryDialog::EditACLEntryDialog(KACLListView *listView, KACLListViewItem 
       m_listView(listView), m_item(item), m_users(users), m_groups(groups),
       m_defaultUsers(defaultUsers), m_defaultGroups(defaultGroups),
       m_allowedTypes(allowedTypes), m_allowedDefaultTypes(allowedDefaultTypes),
-      m_defaultCB(0)
+      m_defaultCB(nullptr)
 {
     setObjectName(QStringLiteral("edit_entry_dialog"));
     setModal(true);
@@ -664,16 +664,16 @@ KACLListView::KACLListView(QWidget *parent)
     m_yesPartialPixmap = new QPixmap(QStringLiteral(":/images/yespartial.png"));
 
     // fill the lists of all legal users and groups
-    struct passwd *user = 0;
+    struct passwd *user = nullptr;
     setpwent();
-    while ((user = getpwent()) != 0) {
+    while ((user = getpwent()) != nullptr) {
         m_allUsers << QString::fromLatin1(user->pw_name);
     }
     endpwent();
 
-    struct group *gr = 0;
+    struct group *gr = nullptr;
     setgrent();
-    while ((gr = getgrent()) != 0) {
+    while ((gr = getgrent()) != nullptr) {
         m_allGroups << QString::fromLatin1(gr->gr_name);
     }
     endgrent();
@@ -943,7 +943,7 @@ void KACLListView::calculateEffectiveRights()
 {
     QTreeWidgetItemIterator it(this);
     KACLListViewItem *pItem;
-    while ((pItem = dynamic_cast<KACLListViewItem *>(*it)) != 0) {
+    while ((pItem = dynamic_cast<KACLListViewItem *>(*it)) != nullptr) {
         ++it;
         pItem->calcEffectiveRights();
     }
@@ -1000,7 +1000,7 @@ const KACLListViewItem *KACLListView::findItemByType(EntryType type, bool defaul
             return item;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 unsigned short KACLListView::calculateMaskValue(bool defaults) const
@@ -1023,7 +1023,7 @@ void KACLListView::slotAddEntry()
     if (!hasDefaultEntries()) {
         allowedDefaultTypes |= User | Group;
     }
-    EditACLEntryDialog dlg(this, 0,
+    EditACLEntryDialog dlg(this, nullptr,
                            allowedUsers(false), allowedGroups(false),
                            allowedUsers(true), allowedGroups(true),
                            allowedTypes, allowedDefaultTypes, m_allowDefaults);

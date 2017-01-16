@@ -57,7 +57,7 @@ void DeleteJobTest::deleteFileTestCase()
 
     /*QBENCHMARK*/ {
         KIO::DeleteJob *job = KIO::del(QUrl::fromLocalFile(tempFile.fileName()), KIO::HideProgressInfo);
-        job->setUiDelegate(0);
+        job->setUiDelegate(nullptr);
 
         QSignalSpy spy(job, SIGNAL(result(KJob*)));
         QVERIFY(spy.isValid());
@@ -87,7 +87,7 @@ void DeleteJobTest::deleteDirectoryTestCase()
 
     /*QBENCHMARK*/ {
         KIO::DeleteJob *job = KIO::del(QUrl::fromLocalFile(tempDir.path()), KIO::HideProgressInfo);
-        job->setUiDelegate(0);
+        job->setUiDelegate(nullptr);
 
         QSignalSpy spy(job, SIGNAL(result(KJob*)));
         QVERIFY(spy.isValid());

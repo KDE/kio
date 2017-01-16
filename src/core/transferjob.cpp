@@ -459,7 +459,7 @@ void TransferJob::slotResult(KJob *job)
     SimpleJob::slotResult(job);
 
     if (!error() && job == d->m_subJob) {
-        d->m_subJob = 0; // No action required
+        d->m_subJob = nullptr; // No action required
         d->internalResume(); // Make sure we get the remaining data.
     }
 }

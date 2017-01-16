@@ -478,7 +478,7 @@ bool TrashImpl::move(const QString &src, const QString &dest)
 
     //qCDebug(KIO_TRASH) << urlSrc << "->" << urlDest;
     KIO::CopyJob *job = KIO::moveAs(urlSrc, urlDest, KIO::HideProgressInfo);
-    job->setUiDelegate(0);
+    job->setUiDelegate(nullptr);
     connect(job, SIGNAL(result(KJob*)),
             this, SLOT(jobFinished(KJob*)));
     enterLoop();
@@ -538,7 +538,7 @@ bool TrashImpl::copy(const QString &src, const QString &dest)
     QUrl urlDest = QUrl::fromLocalFile(dest);
     //qCDebug(KIO_TRASH) << "copying" << src << "to" << dest;
     KIO::CopyJob *job = KIO::copyAs(urlSrc, urlDest, KIO::HideProgressInfo);
-    job->setUiDelegate(0);
+    job->setUiDelegate(nullptr);
     connect(job, SIGNAL(result(KJob*)),
             this, SLOT(jobFinished(KJob*)));
     enterLoop();
@@ -871,7 +871,7 @@ bool TrashImpl::isEmpty() const
             ep = readdir(dp);   // ignore '.' and '..' dirent
             ep = readdir(dp);   // look for third file
             closedir(dp);
-            if (ep != 0) {
+            if (ep != nullptr) {
                 //qCDebug(KIO_TRASH) << ep->d_name << "in" << infoPath << "-> not empty";
                 return false; // not empty
             }

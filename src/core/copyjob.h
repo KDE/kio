@@ -160,6 +160,7 @@ Q_SIGNALS:
      * @param files a list of items that are about to be created.
      * @deprecated since 5.2 -- this signal is unused since kde 3...
      */
+
     QT_MOC_COMPAT void aboutToCreate(KIO::Job *job, const QList<KIO::CopyInfo> &files);
 
     /**

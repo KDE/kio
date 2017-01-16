@@ -50,7 +50,7 @@ static void addRow(const char *input, const QString &expectedResult = QString(),
     QTest::newRow(input) << input << expectedResult << expectedUriType << list << absPath << checkForExecutables;
 }
 
-static void runFilterTest(const QString &a, const QString &expectedResult = 0, int expectedUriType = -1, const QStringList &list = QStringList(), const QString &absPath = 0, bool checkForExecutables = true)
+static void runFilterTest(const QString &a, const QString &expectedResult = nullptr, int expectedUriType = -1, const QStringList &list = QStringList(), const QString &absPath = nullptr, bool checkForExecutables = true)
 {
     KUriFilterData *filterData = new KUriFilterData;
     filterData->setData(a);
@@ -238,8 +238,8 @@ void KUriFilterTest::localFiles_data()
         addRow("~/.bashrc", QDir::homePath() + QStringLiteral("/.bashrc"), KUriFilterData::LocalFile, QStringList(QStringLiteral("kshorturifilter")));
     }
     addRow("~", QDir::homePath().toLocal8Bit(), KUriFilterData::LocalDir, QStringList(QStringLiteral("kshorturifilter")), QStringLiteral("/tmp"));
-    addRow("~bin", 0, KUriFilterData::LocalDir, QStringList(QStringLiteral("kshorturifilter")));
-    addRow("~does_not_exist", 0, KUriFilterData::Error, QStringList(QStringLiteral("kshorturifilter")));
+    addRow("~bin", nullptr, KUriFilterData::LocalDir, QStringList(QStringLiteral("kshorturifilter")));
+    addRow("~does_not_exist", nullptr, KUriFilterData::Error, QStringList(QStringLiteral("kshorturifilter")));
 
     // Absolute Path tests for kshorturifilter
     const QStringList kshorturifilter(QStringLiteral("kshorturifilter"));
@@ -357,8 +357,8 @@ void KUriFilterTest::executables_data()
     addRow("kbuildsycoca5", QStringLiteral("kbuildsycoca5"), KUriFilterData::Executable, minicliFilters);
     addRow("KDE", QStringLiteral("KDE"), NO_FILTERING, minicliFilters);
     addRow("I/dont/exist", QStringLiteral("I/dont/exist"), NO_FILTERING, minicliFilters);        //krazy:exclude=spelling
-    addRow("/I/dont/exist", 0, KUriFilterData::Error, minicliFilters);           //krazy:exclude=spelling
-    addRow("/I/dont/exist#a", 0, KUriFilterData::Error, minicliFilters);         //krazy:exclude=spelling
+    addRow("/I/dont/exist", nullptr, KUriFilterData::Error, minicliFilters);           //krazy:exclude=spelling
+    addRow("/I/dont/exist#a", nullptr, KUriFilterData::Error, minicliFilters);         //krazy:exclude=spelling
     addRow("kbuildsycoca5 --help", QStringLiteral("kbuildsycoca5 --help"), KUriFilterData::Executable, minicliFilters);   // the args are in argsAndOptions()
     addRow("/bin/sh", QStringLiteral("/bin/sh"), KUriFilterData::Executable, minicliFilters);
     addRow("/bin/sh -q -option arg1", QStringLiteral("/bin/sh -q -option arg1"), KUriFilterData::Executable, minicliFilters);   // the args are in argsAndOptions()
@@ -367,7 +367,7 @@ void KUriFilterTest::executables_data()
     // a search using the default search engine
     // 'ls' is a bit of a special case though, due to the toplevel domain called 'ls'
     addRow("cp", QStringLiteral("https://www.google.com/search?q=cp&ie=UTF-8"), KUriFilterData::NetProtocol,
-           QStringList(), 0, false /* don't check for executables, see konq_misc.cc */);
+           QStringList(), nullptr, false /* don't check for executables, see konq_misc.cc */);
 }
 
 void KUriFilterTest::executables()
@@ -382,7 +382,7 @@ void KUriFilterTest::environmentVariables_data()
     qputenv("SOMEVAR", "/somevar");
     qputenv("ETC", "/etc");
 
-    addRow("$SOMEVAR/kdelibs/kio", 0, KUriFilterData::Error);   // note: this dir doesn't exist...
+    addRow("$SOMEVAR/kdelibs/kio", nullptr, KUriFilterData::Error);   // note: this dir doesn't exist...
     addRow("$ETC/passwd", QStringLiteral("/etc/passwd"), KUriFilterData::LocalFile);
     QString qtdocPath = qtdir + QStringLiteral("/doc/html/functions.html");
     if (QFile::exists(qtdocPath)) {
@@ -412,7 +412,7 @@ void KUriFilterTest::environmentVariables_data()
     QDir().mkpath(datahome + QStringLiteral("/Dir[Bracket"));
     addRow("$DATAHOME/Dir[Bracket", datahome + QStringLiteral("/Dir[Bracket"), KUriFilterData::LocalDir);
 
-    addRow("$HOME/$KDEDIR/kdebase/kcontrol/ebrowsing", 0, KUriFilterData::Error);
+    addRow("$HOME/$KDEDIR/kdebase/kcontrol/ebrowsing", nullptr, KUriFilterData::Error);
     addRow("$1/$2/$3", QStringLiteral("https://www.google.com/search?q=%241%2F%242%2F%243&ie=UTF-8"), KUriFilterData::NetProtocol);    // can be used as bogus or valid test. Currently triggers default search, i.e. google
     addRow("$$$$", QStringLiteral("https://www.google.com/search?q=%24%24%24%24&ie=UTF-8"), KUriFilterData::NetProtocol);   // worst case scenarios.
 
@@ -436,7 +436,7 @@ void KUriFilterTest::internetKeywords_data()
 
     addRow(sc.sprintf("gg%cC++", s_delimiter).toUtf8(), QStringLiteral("https://www.google.com/search?q=C%2B%2B&ie=UTF-8"), KUriFilterData::NetProtocol);
     addRow(sc.sprintf("gg%cC#", s_delimiter).toUtf8(), QStringLiteral("https://www.google.com/search?q=C%23&ie=UTF-8"), KUriFilterData::NetProtocol);
-    addRow(sc.sprintf("ya%cfoo bar was here", s_delimiter).toUtf8(), 0, -1);   // this triggers default search, i.e. google
+    addRow(sc.sprintf("ya%cfoo bar was here", s_delimiter).toUtf8(), nullptr, -1);   // this triggers default search, i.e. google
     addRow(sc.sprintf("gg%cwww.kde.org", s_delimiter).toUtf8(), QStringLiteral("https://www.google.com/search?q=www.kde.org&ie=UTF-8"), KUriFilterData::NetProtocol);
     addRow(QStringLiteral("gg%1é").arg(s_delimiter).toUtf8() /*eaccent in utf8*/, QStringLiteral("https://www.google.com/search?q=%C3%A9&ie=UTF-8"), KUriFilterData::NetProtocol);
     addRow(QStringLiteral("gg%1прйвет").arg(s_delimiter).toUtf8() /* greetings in russian utf-8*/, QStringLiteral("https://www.google.com/search?q=%D0%BF%D1%80%D0%B9%D0%B2%D0%B5%D1%82&ie=UTF-8"), KUriFilterData::NetProtocol);
@@ -452,7 +452,7 @@ void KUriFilterTest::localdomain()
     const QString host = QHostInfo::localHostName();
     if (host.isEmpty()) {
         const QString expected = QLatin1String("http://") + host;
-        runFilterTest(host, expected, KUriFilterData::NetProtocol, QStringList() << QStringLiteral("localdomainurifilter"), 0, false);
+        runFilterTest(host, expected, KUriFilterData::NetProtocol, QStringList() << QStringLiteral("localdomainurifilter"), nullptr, false);
     }
 }
 

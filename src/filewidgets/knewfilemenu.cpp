@@ -78,9 +78,9 @@ class KNewFileMenuSingleton
 {
 public:
     KNewFileMenuSingleton()
-        : dirWatch(0),
+        : dirWatch(nullptr),
           filesParsed(false),
-          templatesList(0),
+          templatesList(nullptr),
           templatesVersion(0)
     {
     }
@@ -391,7 +391,7 @@ bool KNewFileMenuPrivate::checkSourceExists(const QString &src)
 
         KMessageBox::createKMessageBox(dialog, buttonBox, QMessageBox::Warning,
                                        i18n("<qt>The template file <b>%1</b> does not exist.</qt>", src),
-                                       QStringList(), QString(), 0, KMessageBox::NoExec,
+                                       QStringList(), QString(), nullptr, KMessageBox::NoExec,
                                        QString());
 
         dialog->show();
@@ -427,7 +427,7 @@ void KNewFileMenuPrivate::confirmCreatingHiddenDir(const QString &name)
                                    i18n("The name \"%1\" starts with a dot, so the directory will be hidden by default.", name),
                                    QStringList(),
                                    i18n("Do not ask again"),
-                                   0,
+                                   nullptr,
                                    KMessageBox::NoExec,
                                    QString());
 
@@ -635,13 +635,13 @@ void KNewFileMenuPrivate::fillMenu()
     QMenu *menu = q->menu();
     menu->clear();
     m_menuDev->menu()->clear();
-    m_newDirAction = 0;
+    m_newDirAction = nullptr;
 
     QSet<QString> seenTexts;
     // these shall be put at special positions
-    QAction *linkURL = 0;
-    QAction *linkApp = 0;
-    QAction *linkPath = 0;
+    QAction *linkURL = nullptr;
+    QAction *linkApp = nullptr;
+    QAction *linkPath = nullptr;
 
     KNewFileMenuSingleton *s = kNewMenuGlobals();
     int i = 1;
@@ -1075,7 +1075,7 @@ KNewFileMenu::KNewFileMenu(KActionCollection *collection, const QString &name, Q
     connect(d->m_newMenuGroup, SIGNAL(triggered(QAction*)), this, SLOT(_k_slotActionTriggered(QAction*)));
     d->m_actionCollection = collection;
     d->m_parentWidget = qobject_cast<QWidget *>(parent);
-    d->m_newDirAction = 0;
+    d->m_newDirAction = nullptr;
 
     if (d->m_actionCollection) {
         d->m_actionCollection->addAction(name, this);
@@ -1237,7 +1237,7 @@ void KNewFileMenu::slotResult(KJob *job)
             const QUrl localUrl = d->mostLocalUrl(destUrl);
             if (localUrl.isLocalFile()) {
                 // Normal (local) file. Need to "touch" it, kio_file copied the mtime.
-                (void) ::utime(QFile::encodeName(localUrl.toLocalFile()).constData(), 0);
+                (void) ::utime(QFile::encodeName(localUrl.toLocalFile()).constData(), nullptr);
             }
             emit fileCreated(destUrl);
         } else if (KIO::SimpleJob *simpleJob = ::qobject_cast<KIO::SimpleJob *>(job)) {

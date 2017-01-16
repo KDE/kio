@@ -39,7 +39,7 @@ class KCookieDetail : public QGroupBox
     Q_OBJECT
 
 public:
-    KCookieDetail(KHttpCookieList cookieList, int cookieCount, QWidget *parent = 0);
+    KCookieDetail(KHttpCookieList cookieList, int cookieCount, QWidget *parent = nullptr);
     ~KCookieDetail();
 
 private Q_SLOTS:

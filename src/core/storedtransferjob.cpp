@@ -271,7 +271,7 @@ static int isUrlPortBad(const QUrl &url)
 
     if (_error) {
         static bool override_loaded = false;
-        static QList< int > *overriden_ports = NULL;
+        static QList< int > *overriden_ports = nullptr;
         if (!override_loaded) {
             KConfig cfg(QStringLiteral("kio_httprc"));
             overriden_ports = new QList< int >;
@@ -315,7 +315,7 @@ static KIO::PostErrorJob *precheckHttpPost(const QUrl &url, QIODevice *ioDevice,
     }
 
     // all is ok, return 0
-    return 0;
+    return nullptr;
 }
 
 static KIO::PostErrorJob *precheckHttpPost(const QUrl &url, const QByteArray &postData, JobFlags flags)
@@ -334,7 +334,7 @@ static KIO::PostErrorJob *precheckHttpPost(const QUrl &url, const QByteArray &po
     }
 
     // all is ok, return 0
-    return 0;
+    return nullptr;
 }
 
 TransferJob *KIO::http_post(const QUrl &url, const QByteArray &postData, JobFlags flags)

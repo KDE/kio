@@ -49,7 +49,7 @@ public:
      *
      *  @param parent the parent widget
      */
-    explicit KSslInfoDialog(QWidget *parent = 0);
+    explicit KSslInfoDialog(QWidget *parent = nullptr);
 
     /**
      *  Destroy this dialog

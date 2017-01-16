@@ -53,7 +53,7 @@ void PasteJobPrivate::slotStart()
 {
     Q_Q(PasteJob);
     const bool move = KIO::isClipboardDataCut(m_mimeData);
-    KIO::Job *job = 0;
+    KIO::Job *job = nullptr;
     if (m_mimeData->hasUrls()) {
         const QList<QUrl> urls = KUrlMimeData::urlsFromMimeData(m_mimeData, KUrlMimeData::PreferLocalUrls);
         if (!urls.isEmpty()) {

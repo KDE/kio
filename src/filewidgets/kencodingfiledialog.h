@@ -78,7 +78,7 @@ public:
     static KIOFILEWIDGETS_EXPORT Result getOpenFileNameAndEncoding(const QString &encoding = QString(),
             const QUrl &startDir = QUrl(),
             const QString &filter = QString(),
-            QWidget *parent = 0,
+            QWidget *parent = nullptr,
             const QString &caption = QString());
 
     /**
@@ -110,7 +110,7 @@ public:
     static KIOFILEWIDGETS_EXPORT Result getOpenFileNamesAndEncoding(const QString &encoding = QString(),
             const QUrl &startDir = QUrl(),
             const QString &filter = QString(),
-            QWidget *parent = 0,
+            QWidget *parent = nullptr,
             const QString &caption = QString());
 
     /**
@@ -142,7 +142,7 @@ public:
     static KIOFILEWIDGETS_EXPORT Result getOpenUrlAndEncoding(const QString &encoding = QString(),
             const QUrl &startDir = QUrl(),
             const QString &filter = QString(),
-            QWidget *parent = 0,
+            QWidget *parent = nullptr,
             const QString &caption = QString());
 
     /**
@@ -174,7 +174,7 @@ public:
     static KIOFILEWIDGETS_EXPORT Result getOpenUrlsAndEncoding(const QString &encoding = QString(),
             const QUrl &startDir = QUrl(),
             const QString &filter = QString(),
-            QWidget *parent = 0,
+            QWidget *parent = nullptr,
             const QString &caption = QString());
 
     /**
@@ -208,7 +208,7 @@ public:
     static KIOFILEWIDGETS_EXPORT Result getSaveFileNameAndEncoding(const QString &encoding = QString(),
             const QUrl &startDir = QUrl(),
             const QString &filter = QString(),
-            QWidget *parent = 0,
+            QWidget *parent = nullptr,
             const QString &caption = QString());
 
     /**
@@ -242,7 +242,7 @@ public:
     static KIOFILEWIDGETS_EXPORT Result getSaveUrlAndEncoding(const QString &encoding = QString(),
             const QUrl &startDir = QUrl(),
             const QString &filter = QString(),
-            QWidget *parent = 0,
+            QWidget *parent = nullptr,
             const QString &caption = QString());
 
     QSize sizeHint() const Q_DECL_OVERRIDE;
@@ -292,7 +292,7 @@ private:
                         const QString &filter = QString(),
                         const QString &caption = QString(),
                         QFileDialog::AcceptMode type = QFileDialog::AcceptOpen,
-                        QWidget *parent = 0);
+                        QWidget *parent = nullptr);
     /**
      * Destructs the file dialog.
      */

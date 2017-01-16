@@ -370,7 +370,7 @@ QScriptValue WeekdayRange(QScriptContext *context, QScriptEngine *engine)
         return engine->undefinedValue();
     }
 
-    static const char *const days[] = { "sun", "mon", "tue", "wed", "thu", "fri", "sat", 0 };
+    static const char *const days[] = { "sun", "mon", "tue", "wed", "thu", "fri", "sat", nullptr };
 
     const int d1 = findString(context->argument(0).toString(), days);
     if (d1 == -1) {
@@ -409,7 +409,7 @@ QScriptValue DateRange(QScriptContext *context, QScriptEngine *engine)
     }
 
     static const char *const months[] = { "jan", "feb", "mar", "apr", "may", "jun",
-                                          "jul", "aug", "sep", "oct", "nov", "dec", 0
+                                          "jul", "aug", "sep", "oct", "nov", "dec", nullptr
                                         };
 
     QVector<int> values;

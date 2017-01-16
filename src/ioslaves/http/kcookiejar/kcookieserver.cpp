@@ -175,7 +175,7 @@ void KCookieServer::addCookies(const QString &url, const QByteArray &cookieHeade
     if (!mAdvicePending) {
         mAdvicePending = true;
         while (!mPendingCookies->isEmpty()) {
-            checkCookies(0, windowId);
+            checkCookies(nullptr, windowId);
         }
         mAdvicePending = false;
     }
@@ -234,7 +234,7 @@ void KCookieServer::checkCookies(KHttpCookieList *cookieList, qlonglong windowId
     }
     //qDebug() << shownCookies;
 
-    KCookieWin *kw = new KCookieWin(0L, currentList,
+    KCookieWin *kw = new KCookieWin(nullptr, currentList,
                                     mCookieJar->preferredDefaultPolicy(),
                                     mCookieJar->showCookieDetails());
     if (windowId > 0) {

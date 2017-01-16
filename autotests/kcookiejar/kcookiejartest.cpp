@@ -32,7 +32,7 @@
 static KCookieJar *jar;
 static QString *lastYear;
 static QString *nextYear;
-static KConfig *config = 0;
+static KConfig *config = nullptr;
 static int windowId = 1234; // random number to be used as windowId for test cookies
 
 static void FAIL(const QString &msg)
@@ -152,7 +152,7 @@ static void processCheck(QString &line)
 
     QString expectedCookies = line;
 
-    QString cookies = jar->findCookies(urlStr, false, windowId, 0).trimmed();
+    QString cookies = jar->findCookies(urlStr, false, windowId, nullptr).trimmed();
     if (cookies != expectedCookies)
         FAIL(urlStr + QStringLiteral("\nGot '%1' expected '%2'")
              .arg(cookies, expectedCookies));

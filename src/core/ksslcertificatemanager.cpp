@@ -209,7 +209,7 @@ KSslCertificateManagerPrivate::KSslCertificateManagerPrivate()
 KSslCertificateManagerPrivate::~KSslCertificateManagerPrivate()
 {
     delete iface;
-    iface = 0;
+    iface = nullptr;
 }
 
 void KSslCertificateManagerPrivate::loadDefaultCaCertificates()

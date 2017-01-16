@@ -314,7 +314,7 @@ void TrashConfigModule::setupGui()
     mLimitReachedAction->setWhatsThis(xi18nc("@info:whatsthis",
                                       "<para>When the size limit is reached, it will prefer to delete the type of files that you specify, first. "
                                       "If this is set to warn you, it will do so instead of automatically deleting files.</para>"));
-    sizeWidgetLayout->addRow(0, mLimitReachedAction);
+    sizeWidgetLayout->addRow(nullptr, mLimitReachedAction);
 
     layout->addStretch();
 }

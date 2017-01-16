@@ -53,7 +53,7 @@ class KIOFILEWIDGETS_EXPORT KDirSortFilterProxyModel
     Q_OBJECT
 
 public:
-    KDirSortFilterProxyModel(QObject *parent = 0);
+    KDirSortFilterProxyModel(QObject *parent = nullptr);
     virtual ~KDirSortFilterProxyModel();
 
     /** Reimplemented from QAbstractItemModel. Returns true for directories. */

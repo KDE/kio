@@ -891,7 +891,7 @@ public:
      * Wait for an answer to our request, until we get @p expected1 or @p expected2
      * @return the result from readData, as well as the cmd in *pCmd if set, and the data in @p data
      */
-    int waitForAnswer(int expected1, int expected2, QByteArray &data, int *pCmd = 0);
+    int waitForAnswer(int expected1, int expected2, QByteArray &data, int *pCmd = nullptr);
 
     /**
      * Internal function to transmit meta data to the application.

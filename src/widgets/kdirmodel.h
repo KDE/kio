@@ -53,7 +53,7 @@ public:
     /**
      * @param parent parent qobject
      */
-    explicit KDirModel(QObject *parent = 0);
+    explicit KDirModel(QObject *parent = nullptr);
     ~KDirModel();
 
     /**

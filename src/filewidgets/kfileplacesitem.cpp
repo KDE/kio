@@ -120,10 +120,10 @@ Solid::Device KFilePlacesItem::device() const
             m_disc = m_device.as<Solid::OpticalDisc>();
             m_mtp = m_device.as<Solid::PortableMediaPlayer>();
         } else {
-            m_access = 0;
-            m_volume = 0;
-            m_disc = 0;
-            m_mtp = 0;
+            m_access = nullptr;
+            m_volume = nullptr;
+            m_disc = nullptr;
+            m_mtp = nullptr;
         }
     }
     return m_device;
@@ -209,13 +209,13 @@ QVariant KFilePlacesItem::deviceData(int role) const
             }
 
         case KFilePlacesModel::FixedDeviceRole: {
-            Solid::StorageDrive *drive = 0;
+            Solid::StorageDrive *drive = nullptr;
             Solid::Device parentDevice = m_device;
             while (parentDevice.isValid() && !drive) {
                 drive = parentDevice.as<Solid::StorageDrive>();
                 parentDevice = parentDevice.parent();
             }
-            if (drive != 0) {
+            if (drive != nullptr) {
                 return !drive->isHotpluggable() && !drive->isRemovable();
             }
             return true;

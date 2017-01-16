@@ -1082,7 +1082,7 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
 
 QFile::Permissions KIO::convertPermissions(int permissions)
 {
-    QFile::Permissions qPermissions(0);
+    QFile::Permissions qPermissions(nullptr);
 
     if (permissions > 0) {
         if (permissions & S_IRUSR) {

@@ -63,7 +63,7 @@ public:
 KCookiesPolicySelectionDlg::KCookiesPolicySelectionDlg (QWidget* parent, Qt::WindowFlags flags)
     : QDialog (parent, flags)
       , mOldPolicy(-1)
-      , mButtonBox(0)
+      , mButtonBox(nullptr)
 {
     QWidget *mainWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;

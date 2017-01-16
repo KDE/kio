@@ -54,7 +54,7 @@ class JobSpy : public QObject
     Q_OBJECT
 public:
     JobSpy(KIO::Job *job)
-        : QObject(0),
+        : QObject(nullptr),
           m_spy(job, SIGNAL(result(KJob*))),
           m_error(0)
     {
@@ -155,7 +155,7 @@ private Q_SLOTS:
         QUrl destUrl = QUrl::fromLocalFile(desktopPath);
         QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo);
-        job->setUiDelegate(0);
+        job->setUiDelegate(nullptr);
         QSignalSpy spy(job, SIGNAL(itemCreated(QUrl)));
 
         // Then the application is run with the source file as argument
@@ -213,8 +213,8 @@ private Q_SLOTS:
         m_mimeData.setUrls(QList<QUrl>() << QUrl::fromLocalFile(srcFile));
         QDropEvent dropEvent(QPoint(10, 10), dropAction, &m_mimeData, Qt::LeftButton, modifiers);
         KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo);
-        job->setUiDelegate(0);
-        job->setUiDelegateExtension(0);
+        job->setUiDelegate(nullptr);
+        job->setUiDelegateExtension(nullptr);
         JobSpy jobSpy(job);
         QSignalSpy copyJobSpy(job, SIGNAL(copyJobStarted(KIO::CopyJob*)));
         QSignalSpy itemCreatedSpy(job, SIGNAL(itemCreated(QUrl)));
@@ -265,7 +265,7 @@ private Q_SLOTS:
         m_mimeData.setUrls(QList<QUrl>() << QUrl::fromLocalFile(srcFile));
         QDropEvent dropEvent(QPoint(10, 10), dropAction, &m_mimeData, Qt::LeftButton, modifiers);
         KIO::DropJob *job = KIO::drop(&dropEvent, QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
-        job->setUiDelegate(0);
+        job->setUiDelegate(nullptr);
         QSignalSpy copyJobSpy(job, SIGNAL(copyJobStarted(KIO::CopyJob*)));
         QSignalSpy itemCreatedSpy(job, SIGNAL(itemCreated(QUrl)));
 
@@ -308,7 +308,7 @@ private Q_SLOTS:
         m_mimeData.setUrls(QList<QUrl>() << trashUrl);
         QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, QUrl::fromLocalFile(m_srcDir), KIO::HideProgressInfo);
-        job->setUiDelegate(0);
+        job->setUiDelegate(nullptr);
         QSignalSpy copyJobSpy(job, SIGNAL(copyJobStarted(KIO::CopyJob*)));
         QSignalSpy spy(job, SIGNAL(itemCreated(QUrl)));
 
@@ -340,7 +340,7 @@ private Q_SLOTS:
         m_mimeData.setUrls(QList<QUrl>() << trashUrl);
         QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo);
-        job->setUiDelegate(0);
+        job->setUiDelegate(nullptr);
         QSignalSpy copyJobSpy(job, SIGNAL(copyJobStarted(KIO::CopyJob*)));
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
@@ -390,8 +390,8 @@ private Q_SLOTS:
         QUrl destUrl = QUrl::fromLocalFile(dest);
         QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction /*unused*/, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo);
-        job->setUiDelegate(0);
-        job->setUiDelegateExtension(0); // no rename dialog
+        job->setUiDelegate(nullptr);
+        job->setUiDelegateExtension(nullptr); // no rename dialog
         JobSpy jobSpy(job);
         qRegisterMetaType<KFileItemListProperties>();
         QSignalSpy spyShow(job, SIGNAL(popupMenuAboutToShow(KFileItemListProperties)));
@@ -439,7 +439,7 @@ private Q_SLOTS:
         QAction appAction1(QStringLiteral("action1"), this);
         QAction appAction2(QStringLiteral("action2"), this);
         QList<QAction *> appActions; appActions << &appAction1 << &appAction2;
-        job->setUiDelegate(0);
+        job->setUiDelegate(nullptr);
         job->setApplicationActions(appActions);
         JobSpy jobSpy(job);
 

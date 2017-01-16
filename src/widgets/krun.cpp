@@ -503,7 +503,7 @@ class SecureMessageDialog : public QDialog
 {
     Q_OBJECT
 public:
-    SecureMessageDialog(QWidget *parent) : QDialog(parent), m_textEdit(0)
+    SecureMessageDialog(QWidget *parent) : QDialog(parent), m_textEdit(nullptr)
     {
     }
 
@@ -809,7 +809,7 @@ qint64 KRun::runService(const KService &_service, const QList<QUrl> &_urls, QWid
     }
 
     int i = KToolInvocation::startServiceByDesktopPath(
-                _service.entryPath(), QUrl::toStringList(urls), &error, 0L, &pid, myasn
+                _service.entryPath(), QUrl::toStringList(urls), &error, nullptr, &pid, myasn
             );
 
     if (i != 0) {
@@ -886,7 +886,7 @@ void KRun::KRunPrivate::init(const QUrl &url, QWidget *window,
     m_bAutoDelete = true;
     m_bProgressInfo = showProgressInfo;
     m_bFinished = false;
-    m_job = 0L;
+    m_job = nullptr;
     m_strURL = url;
     m_bScanFile = false;
     m_bIsDirectory = false;
@@ -1180,7 +1180,7 @@ void KRun::slotTimeout()
 
 void KRun::slotStatResult(KJob *job)
 {
-    d->m_job = 0L;
+    d->m_job = nullptr;
     const int errCode = job->error();
     if (errCode) {
         // ERR_NO_CONTENT is not an error, but an indication no further
@@ -1241,12 +1241,12 @@ void KRun::slotScanMimeType(KIO::Job *, const QString &mimetype)
         qCWarning(KIO_WIDGETS) << "get() didn't emit a mimetype! Probably a kioslave bug, please check the implementation of" << url().scheme();
     }
     mimeTypeDetermined(mimetype);
-    d->m_job = 0;
+    d->m_job = nullptr;
 }
 
 void KRun::slotScanFinished(KJob *job)
 {
-    d->m_job = 0;
+    d->m_job = nullptr;
     const int errCode = job->error();
     if (errCode) {
         // ERR_NO_CONTENT is not an error, but an indication no further
@@ -1292,7 +1292,7 @@ void KRun::foundMimeType(const QString &type)
 
         job->putOnHold();
         KIO::Scheduler::publishSlaveOnHold();
-        d->m_job = 0;
+        d->m_job = nullptr;
     }
 
     Q_ASSERT(!d->m_bFinished);
@@ -1334,7 +1334,7 @@ void KRun::killJob()
     if (d->m_job) {
         //qDebug() << this << "m_job=" << d->m_job;
         d->m_job->kill();
-        d->m_job = 0L;
+        d->m_job = nullptr;
     }
 }
 
@@ -1587,7 +1587,7 @@ KProcessRunner::slotProcessExited(int exitCode, QProcess::ExitStatus exitStatus)
         // (or with a full path, if m_executable is absolute), and then in the PATH.
         if (!QFile(m_executable).exists() && QStandardPaths::findExecutable(m_executable).isEmpty()) {
             QEventLoopLocker locker;
-            KMessageBox::sorry(0L, i18n("Could not find the program '%1'", m_executable));
+            KMessageBox::sorry(nullptr, i18n("Could not find the program '%1'", m_executable));
         } else {
             //qDebug() << process->readAllStandardError();
         }

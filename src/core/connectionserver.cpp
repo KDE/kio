@@ -28,7 +28,7 @@ class KIO::ConnectionServerPrivate
 {
 public:
     inline ConnectionServerPrivate()
-        : backend(0)
+        : backend(nullptr)
     { }
 
     ConnectionServer *q;
@@ -55,7 +55,7 @@ void ConnectionServer::listenForRemote()
 #endif
     if (!d->backend->listenForRemote()) {
         delete d->backend;
-        d->backend = 0;
+        d->backend = nullptr;
         return;
     }
 
@@ -79,18 +79,18 @@ bool ConnectionServer::isListening() const
 void ConnectionServer::close()
 {
     delete d->backend;
-    d->backend = 0;
+    d->backend = nullptr;
 }
 
 Connection *ConnectionServer::nextPendingConnection()
 {
     if (!isListening()) {
-        return 0;
+        return nullptr;
     }
 
     ConnectionBackend *newBackend = d->backend->nextPendingConnection();
     if (!newBackend) {
-        return 0;    // no new backend...
+        return nullptr;    // no new backend...
     }
 
     Connection *result = new Connection;

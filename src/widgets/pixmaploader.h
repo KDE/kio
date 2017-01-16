@@ -45,7 +45,7 @@ namespace KIO
  * @return the pixmap of the URL, can be a default icon if not found
  */
 KIOWIDGETS_EXPORT QPixmap pixmapForUrl(const QUrl &url, int dummy = 0, KIconLoader::Group group = KIconLoader::Desktop,
-                                       int force_size = 0, int state = 0, QString *path = 0);
+                                       int force_size = 0, int state = 0, QString *path = nullptr);
 
 }
 

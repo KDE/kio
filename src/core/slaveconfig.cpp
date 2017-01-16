@@ -75,7 +75,7 @@ void SlaveConfigPrivate::readGlobalConfig()
 
 SlaveConfigProtocol *SlaveConfigPrivate::readProtocolConfig(const QString &_protocol)
 {
-    SlaveConfigProtocol *scp = protocol.value(_protocol, 0);
+    SlaveConfigProtocol *scp = protocol.value(_protocol, nullptr);
     if (!scp) {
         QString filename = KProtocolInfo::config(_protocol);
         scp = new SlaveConfigProtocol;
@@ -89,7 +89,7 @@ SlaveConfigProtocol *SlaveConfigPrivate::readProtocolConfig(const QString &_prot
 
 SlaveConfigProtocol *SlaveConfigPrivate::findProtocolConfig(const QString &_protocol)
 {
-    SlaveConfigProtocol *scp = protocol.value(_protocol, 0);
+    SlaveConfigProtocol *scp = protocol.value(_protocol, nullptr);
     if (!scp) {
         scp = readProtocolConfig(_protocol);
     }

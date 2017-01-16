@@ -26,7 +26,7 @@ class KRemoteEncodingPrivate
 {
 public:
     KRemoteEncodingPrivate()
-        : m_codec(0)
+        : m_codec(nullptr)
     {
     }
 
@@ -110,11 +110,11 @@ void KRemoteEncoding::setEncoding(const char *name)
         d->m_codec = QTextCodec::codecForName(name);
     }
 
-    if (d->m_codec == 0) {
+    if (d->m_codec == nullptr) {
         d->m_codec = QTextCodec::codecForMib(106);    // fallback to UTF-8
     }
 
-    if (d->m_codec == 0) {
+    if (d->m_codec == nullptr) {
         d->m_codec = QTextCodec::codecForMib(4 /* latin-1 */);
     }
 

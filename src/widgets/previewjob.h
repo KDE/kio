@@ -100,7 +100,7 @@ public:
      */
     PreviewJob(const KFileItemList &items,
                const QSize &size,
-               const QStringList *enabledPlugins = 0);
+               const QStringList *enabledPlugins = nullptr);
 
     virtual ~PreviewJob();
 
@@ -258,7 +258,7 @@ private:
  *             with the setter-methods instead. Note that the semantics of
  *             \p enabledPlugins has been slightly changed.
  */
-KIOWIDGETS_DEPRECATED_EXPORT PreviewJob *filePreview(const KFileItemList &items, int width, int height = 0, int iconSize = 0, int iconAlpha = 70, bool scale = true, bool save = true, const QStringList *enabledPlugins = 0);   // KDE5: use enums instead of bool scale + bool save
+KIOWIDGETS_DEPRECATED_EXPORT PreviewJob *filePreview(const KFileItemList &items, int width, int height = 0, int iconSize = 0, int iconAlpha = 70, bool scale = true, bool save = true, const QStringList *enabledPlugins = nullptr);   // KDE5: use enums instead of bool scale + bool save
 
 /**
  * Creates a PreviewJob to generate or retrieve a preview image
@@ -283,7 +283,7 @@ KIOWIDGETS_DEPRECATED_EXPORT PreviewJob *filePreview(const KFileItemList &items,
  *             with the setter-methods instead. Note that the semantics of
  *             \p enabledPlugins has been slightly changed.
  */
-KIOWIDGETS_DEPRECATED_EXPORT PreviewJob *filePreview(const QList<QUrl> &items, int width, int height = 0, int iconSize = 0, int iconAlpha = 70, bool scale = true, bool save = true, const QStringList *enabledPlugins = 0);
+KIOWIDGETS_DEPRECATED_EXPORT PreviewJob *filePreview(const QList<QUrl> &items, int width, int height = 0, int iconSize = 0, int iconAlpha = 70, bool scale = true, bool save = true, const QStringList *enabledPlugins = nullptr);
 #endif
 
 /**
@@ -296,7 +296,7 @@ KIOWIDGETS_DEPRECATED_EXPORT PreviewJob *filePreview(const QList<QUrl> &items, i
  *                       KConfigGroup "PreviewSettings" are used.
  * @since 4.7
  */
-KIOWIDGETS_EXPORT PreviewJob *filePreview(const KFileItemList &items, const QSize &size, const QStringList *enabledPlugins = 0);
+KIOWIDGETS_EXPORT PreviewJob *filePreview(const KFileItemList &items, const QSize &size, const QStringList *enabledPlugins = nullptr);
 }
 
 #endif

@@ -41,7 +41,7 @@ namespace KDEPrivate
 
 KUrlNavigatorProtocolCombo::KUrlNavigatorProtocolCombo(const QString &protocol, QWidget *parent) :
     KUrlNavigatorButtonBase(parent),
-    m_menu(0),
+    m_menu(nullptr),
     m_protocols(),
     m_categories()
 {

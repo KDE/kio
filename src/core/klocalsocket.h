@@ -69,7 +69,7 @@ public:
      *
      * @param parent    the parent object
      */
-    explicit KLocalSocket(QObject *parent = 0);
+    explicit KLocalSocket(QObject *parent = nullptr);
     /**
      * Destroys the KLocalSocket object and frees up any resources
      * associated. If the socket is open, it will be closed.
@@ -183,7 +183,7 @@ public:
      *
      * @param parent     the parent object
      */
-    explicit KLocalSocketServer(QObject *parent = 0);
+    explicit KLocalSocketServer(QObject *parent = nullptr);
     /**
      * Destroys the KLocalSocketServer object and frees up any
      * resource associated. If the socket is still listening, it's
@@ -286,7 +286,7 @@ public:
      * @returns true if a new connection has been accepted or false if
      * an error occurred or if the operation timed out.
      */
-    bool waitForNewConnection(int msec = 0, bool *timedOut = 0);
+    bool waitForNewConnection(int msec = 0, bool *timedOut = nullptr);
 
     /**
      * Returns true if a new socket can be received with

@@ -43,7 +43,7 @@ class KUrlNavigatorProtocolCombo : public KUrlNavigatorButtonBase
     Q_OBJECT
 
 public:
-    explicit KUrlNavigatorProtocolCombo(const QString &protocol, QWidget *parent = 0);
+    explicit KUrlNavigatorProtocolCombo(const QString &protocol, QWidget *parent = nullptr);
 
     QString currentProtocol() const;
 

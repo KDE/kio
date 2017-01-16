@@ -40,7 +40,7 @@ class KConfigGroup;
 class KAbstractHttpAuthentication
 {
 public:
-    KAbstractHttpAuthentication(KConfigGroup *config = 0);
+    KAbstractHttpAuthentication(KConfigGroup *config = nullptr);
     virtual ~KAbstractHttpAuthentication();
 
     /**
@@ -57,7 +57,7 @@ public:
      * @param offer   the header from which an authentication object is created.
      * @param config  the config object to read stored authentication information.
      */
-    static KAbstractHttpAuthentication *newAuth(const QByteArray &offer, KConfigGroup *config = 0);
+    static KAbstractHttpAuthentication *newAuth(const QByteArray &offer, KConfigGroup *config = nullptr);
 
     /**
      * Split all headers containing multiple authentication offers.
@@ -225,7 +225,7 @@ protected:
     }
 private:
     friend class KAbstractHttpAuthentication;
-    KHttpBasicAuthentication(KConfigGroup *config = 0)
+    KHttpBasicAuthentication(KConfigGroup *config = nullptr)
         : KAbstractHttpAuthentication(config) {}
 };
 
@@ -251,7 +251,7 @@ protected:
     }
 private:
     friend class KAbstractHttpAuthentication;
-    KHttpDigestAuthentication(KConfigGroup *config = 0)
+    KHttpDigestAuthentication(KConfigGroup *config = nullptr)
         : KAbstractHttpAuthentication(config) {}
 #ifdef ENABLE_HTTP_AUTH_NONCE_SETTER
     QByteArray m_nonce;
@@ -267,7 +267,7 @@ public:
     void generateResponse(const QString &user, const QString &password) Q_DECL_OVERRIDE;
 private:
     friend class KAbstractHttpAuthentication;
-    KHttpNtlmAuthentication(KConfigGroup *config = 0)
+    KHttpNtlmAuthentication(KConfigGroup *config = nullptr)
         : KAbstractHttpAuthentication(config), m_stage1State(Init) {}
     enum Stage1State {
         Init = 0,
@@ -287,7 +287,7 @@ public:
     void generateResponse(const QString &user, const QString &password) Q_DECL_OVERRIDE;
 private:
     friend class KAbstractHttpAuthentication;
-    KHttpNegotiateAuthentication(KConfigGroup *config = 0)
+    KHttpNegotiateAuthentication(KConfigGroup *config = nullptr)
         : KAbstractHttpAuthentication(config) {}
 };
 #endif // HAVE_LIBGSSAPI

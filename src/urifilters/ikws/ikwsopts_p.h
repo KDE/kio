@@ -28,7 +28,7 @@ class ProvidersModel: public QAbstractTableModel
     Q_OBJECT
 public:
     enum {Name,Shortcuts,Preferred,ColumnCount};
-    explicit ProvidersModel(QObject* parent = 0): QAbstractTableModel(parent){}
+    explicit ProvidersModel(QObject* parent = nullptr): QAbstractTableModel(parent){}
     ~ProvidersModel();
 
     Qt::ItemFlags flags(const QModelIndex& index) const Q_DECL_OVERRIDE;
@@ -69,7 +69,7 @@ public:
     enum{ShortNameRole = Qt::UserRole};
 
 private:
-    explicit ProvidersListModel(QList<SearchProvider*>& providers, QObject* parent = 0) ;
+    explicit ProvidersListModel(QList<SearchProvider*>& providers, QObject* parent = nullptr) ;
 
 public:
     QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;

@@ -76,7 +76,7 @@ static bool mimeTypeListContains(const QStringList &list, const KFileItem &item)
         }
 
         const int iSlashPos = i.indexOf('/');
-        Q_ASSERT(i > 0);
+        Q_ASSERT(i > nullptr);
         const QStringRef iSubType = i.midRef(iSlashPos+1);
 
         if (iSubType == "*") {
@@ -135,9 +135,9 @@ ServiceList &PopupServices::selectList(const QString &priority, const QString &s
 KFileItemActionsPrivate::KFileItemActionsPrivate(KFileItemActions *qq)
     : QObject(),
       q(qq),
-      m_executeServiceActionGroup(static_cast<QWidget *>(0)),
-      m_runApplicationActionGroup(static_cast<QWidget *>(0)),
-      m_parentWidget(0),
+      m_executeServiceActionGroup(static_cast<QWidget *>(nullptr)),
+      m_runApplicationActionGroup(static_cast<QWidget *>(nullptr)),
+      m_parentWidget(nullptr),
       m_config(QStringLiteral("kservicemenurc"), KConfig::NoGlobals)
 {
     QObject::connect(&m_executeServiceActionGroup, SIGNAL(triggered(QAction*)),
@@ -779,7 +779,7 @@ QAction *KFileItemActions::preferredOpenWithAction(const QString &traderConstrai
 {
     const KService::List offers = associatedApplications(d->m_mimeTypeList, traderConstraint);
     if (offers.isEmpty()) {
-        return 0;
+        return nullptr;
     }
     return d->createAppAction(offers.first(), true);
 }

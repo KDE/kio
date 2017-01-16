@@ -53,7 +53,7 @@ public:
      * if the dialog is used to choose an application but not for some particular URLs.
      * @param parent parent widget
      */
-    explicit KOpenWithDialog(const QList<QUrl> &urls, QWidget *parent = 0);
+    explicit KOpenWithDialog(const QList<QUrl> &urls, QWidget *parent = nullptr);
 
     /**
      * Create a dialog that asks for a application to open a given
@@ -65,7 +65,7 @@ public:
      * @param parent parent widget
      */
     KOpenWithDialog(const QList<QUrl> &urls, const QString &text, const QString &value,
-                    QWidget *parent = 0);
+                    QWidget *parent = nullptr);
 
     /**
      * Create a dialog to select a service for a given mimetype.
@@ -76,7 +76,7 @@ public:
      * @param parent parent widget
      */
     KOpenWithDialog(const QString &mimeType, const QString &value,
-                    QWidget *parent = 0);
+                    QWidget *parent = nullptr);
 
     /**
      * Create a dialog to select an application
@@ -84,7 +84,7 @@ public:
      *
      * @param parent parent widget
      */
-    KOpenWithDialog(QWidget *parent = 0);
+    KOpenWithDialog(QWidget *parent = nullptr);
 
     /**
      * Destructor

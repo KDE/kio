@@ -42,7 +42,7 @@ public:
 Q_GLOBAL_STATIC(KSaveIOConfigPrivate, d)
 
 KSaveIOConfigPrivate::KSaveIOConfigPrivate ()
-                     : config(0), http_config(0)
+                     : config(nullptr), http_config(nullptr)
 {
 }
 
@@ -84,9 +84,9 @@ void KSaveIOConfig::setProxyDisplayUrlFlags (int flags)
 void KSaveIOConfig::reparseConfiguration ()
 {
   delete d->config;
-  d->config = 0;
+  d->config = nullptr;
   delete d->http_config;
-  d->http_config = 0;
+  d->http_config = nullptr;
 }
 
 void KSaveIOConfig::setReadTimeout( int _timeout )

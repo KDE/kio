@@ -40,7 +40,7 @@ void KUriFilterSearchProviderActionsTest::shouldAssignSelectedText()
 void KUriFilterSearchProviderActionsTest::shouldAddActionToMenu()
 {
     KIO::KUriFilterSearchProviderActions shortcutManager;
-    QMenu *menu = new QMenu(0);
+    QMenu *menu = new QMenu(nullptr);
     shortcutManager.addWebShortcutsToMenu(menu);
     //Empty when we don't have selected text
     QVERIFY(menu->actions().isEmpty());

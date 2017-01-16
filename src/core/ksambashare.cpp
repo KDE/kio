@@ -431,7 +431,7 @@ void KSambaSharePrivate::_k_slotFileChange(const QString &/*path*/)
 }
 
 KSambaShare::KSambaShare()
-    : QObject(0)
+    : QObject(nullptr)
     , d_ptr(new KSambaSharePrivate(this))
 {
     Q_D(const KSambaShare);

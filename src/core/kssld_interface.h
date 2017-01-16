@@ -48,7 +48,7 @@ public:
 public:
     OrgKdeKSSLDInterface(const QString &service, const QString &path,
                          const QDBusConnection &connection,
-                         QObject *parent = 0)
+                         QObject *parent = nullptr)
         : QDBusAbstractInterface(service, path, staticInterfaceName(), connection, parent)
     {
         registerMetaTypesForKSSLD();

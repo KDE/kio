@@ -87,7 +87,7 @@ void KAutoMountPrivate::slotResult(KJob *job)
             const QUrl url = QUrl::fromLocalFile(mp->mountPoint());
             //qDebug() << "KAutoMount: m_strDevice=" << m_strDevice << " -> mountpoint=" << mountpoint;
             if (m_bShowFilemanagerWindow) {
-                KRun::runUrl(url, QStringLiteral("inode/directory"), 0 /*TODO - window*/);
+                KRun::runUrl(url, QStringLiteral("inode/directory"), nullptr /*TODO - window*/);
             }
             // Notify about the new stuff in that dir, in case of opened windows showing it
             org::kde::KDirNotify::emitFilesAdded(url);

@@ -59,7 +59,7 @@
 class KFilePlacesModel::Private
 {
 public:
-    Private(KFilePlacesModel *self) : q(self), bookmarkManager(0) {}
+    Private(KFilePlacesModel *self) : q(self), bookmarkManager(nullptr) {}
     ~Private()
     {
         qDeleteAll(items);
@@ -768,14 +768,14 @@ QAction *KFilePlacesModel::teardownActionForIndex(const QModelIndex &index) cons
 
         Solid::StorageDrive *drive = device.as<Solid::StorageDrive>();
 
-        if (drive == 0) {
+        if (drive == nullptr) {
             drive = device.parent().as<Solid::StorageDrive>();
         }
 
         bool hotpluggable = false;
         bool removable = false;
 
-        if (drive != 0) {
+        if (drive != nullptr) {
             hotpluggable = drive->isHotpluggable();
             removable = drive->isRemovable();
         }
@@ -795,13 +795,13 @@ QAction *KFilePlacesModel::teardownActionForIndex(const QModelIndex &index) cons
         }
 
         if (!iconName.isEmpty()) {
-            return new QAction(QIcon::fromTheme(iconName), text, 0);
+            return new QAction(QIcon::fromTheme(iconName), text, nullptr);
         } else {
-            return new QAction(text, 0);
+            return new QAction(text, nullptr);
         }
     }
 
-    return 0;
+    return nullptr;
 }
 
 QAction *KFilePlacesModel::ejectActionForIndex(const QModelIndex &index) const
@@ -813,10 +813,10 @@ QAction *KFilePlacesModel::ejectActionForIndex(const QModelIndex &index) const
         QString label = data(index, Qt::DisplayRole).toString().replace('&', QLatin1String("&&"));
         QString text = i18n("&Eject '%1'", label);
 
-        return new QAction(QIcon::fromTheme(QStringLiteral("media-eject")), text, 0);
+        return new QAction(QIcon::fromTheme(QStringLiteral("media-eject")), text, nullptr);
     }
 
-    return 0;
+    return nullptr;
 }
 
 void KFilePlacesModel::requestTeardown(const QModelIndex &index)
@@ -824,7 +824,7 @@ void KFilePlacesModel::requestTeardown(const QModelIndex &index)
     Solid::Device device = deviceForIndex(index);
     Solid::StorageAccess *access = device.as<Solid::StorageAccess>();
 
-    if (access != 0) {
+    if (access != nullptr) {
         connect(access, SIGNAL(teardownDone(Solid::ErrorType,QVariant,QString)),
                 this, SLOT(_k_storageTeardownDone(Solid::ErrorType,QVariant)));
 
@@ -838,7 +838,7 @@ void KFilePlacesModel::requestEject(const QModelIndex &index)
 
     Solid::OpticalDrive *drive = device.parent().as<Solid::OpticalDrive>();
 
-    if (drive != 0) {
+    if (drive != nullptr) {
         connect(drive, SIGNAL(ejectDone(Solid::ErrorType,QVariant,QString)),
                 this, SLOT(_k_storageTeardownDone(Solid::ErrorType,QVariant)));
 

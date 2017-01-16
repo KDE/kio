@@ -141,7 +141,7 @@ private:
      *                    was changed during login.
      * @return true on success.
      */
-    bool ftpLogin(bool *userChanged = 0);
+    bool ftpLogin(bool *userChanged = nullptr);
 
     /**
      * ftpSendCmd - send a command (@p cmd) and read response

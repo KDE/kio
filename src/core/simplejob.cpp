@@ -169,7 +169,7 @@ void SimpleJobPrivate::start(Slave *slave)
         m_outgoingMetaData.insert(QStringLiteral("user-timestamp"), QString::number(userTimestampProp.toULongLong()));
     }
 
-    if (q->uiDelegate() == 0) {            // not interactive
+    if (q->uiDelegate() == nullptr) {            // not interactive
         m_outgoingMetaData.insert(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
     }
 

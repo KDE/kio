@@ -44,7 +44,7 @@ class KIOCORE_EXPORT ConnectionServer : public QObject
 {
     Q_OBJECT
 public:
-    ConnectionServer(QObject *parent = 0);
+    ConnectionServer(QObject *parent = nullptr);
     ~ConnectionServer();
 
     /**

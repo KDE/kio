@@ -29,13 +29,13 @@ QTEST_MAIN(KUrlNavigatorTest)
 
 void KUrlNavigatorTest::initTestCase()
 {
-    m_navigator = new KUrlNavigator(0, QUrl(QStringLiteral("A")), 0);
+    m_navigator = new KUrlNavigator(nullptr, QUrl(QStringLiteral("A")), nullptr);
 }
 
 void KUrlNavigatorTest::cleanupTestCase()
 {
     delete m_navigator;
-    m_navigator = 0;
+    m_navigator = nullptr;
 }
 
 void KUrlNavigatorTest::testHistorySizeAndIndex()
@@ -257,7 +257,7 @@ void KUrlNavigatorTest::testButtonUrl()
 
 void KUrlNavigatorTest::testInitWithRedundantPathSeparators()
 {
-    KUrlNavigator temp_nav(0, QUrl::fromLocalFile(QStringLiteral("/home/foo///test")), 0);
+    KUrlNavigator temp_nav(nullptr, QUrl::fromLocalFile(QStringLiteral("/home/foo///test")), nullptr);
 
     const QUrl buttonUrl = temp_nav.url(3);
 

@@ -185,7 +185,7 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &_u,
 
         dirData.listersCurrentlyListing.append(lister);
 
-        DirItem *itemFromCache = 0;
+        DirItem *itemFromCache = nullptr;
         if (itemU || (!_reload && (itemFromCache = itemsCached.take(urlStr)))) {
             if (itemU) {
                 qCDebug(KIO_CORE_DIRLISTER) << "Entry already in use:" << _url;
@@ -294,7 +294,7 @@ KCoreDirLister::Private::CachedItemsJob *KCoreDirLister::Private::cachedItemsJob
             return job;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 KCoreDirLister::Private::CachedItemsJob::CachedItemsJob(KCoreDirLister *lister, const QUrl &url, bool reload)
@@ -329,7 +329,7 @@ bool KCoreDirLister::Private::CachedItemsJob::doKill()
         emit m_lister->canceled(m_url);
         emit m_lister->canceled();
     }
-    m_lister = 0;
+    m_lister = nullptr;
     return true;
 }
 
@@ -639,7 +639,7 @@ void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, b
             }
         } else {
             delete item;
-            item = 0;
+            item = nullptr;
         }
     }
 
@@ -660,7 +660,7 @@ void KCoreDirListerCache::updateDirectory(const QUrl &_dir)
 
     const QUrl dir = _dir.adjusted(QUrl::StripTrailingSlash);
     if (!checkUpdate(dir)) {
-        if (dir.isLocalFile() && findByUrl(0, dir)) {
+        if (dir.isLocalFile() && findByUrl(nullptr, dir)) {
             pendingUpdates.insert(dir.toLocalFile());
             if (!pendingUpdateTimer.isActive()) {
                 pendingUpdateTimer.start(500);
@@ -769,7 +769,7 @@ bool KCoreDirListerCache::checkUpdate(const QUrl &_dir)
 
 KFileItem KCoreDirListerCache::itemForUrl(const QUrl &url) const
 {
-    KFileItem *item = findByUrl(0, url);
+    KFileItem *item = findByUrl(nullptr, url);
     if (item) {
         return *item;
     } else {
@@ -790,7 +790,7 @@ KCoreDirListerCache::DirItem *KCoreDirListerCache::dirItemForUrl(const QUrl &dir
 NonMovableFileItemList *KCoreDirListerCache::itemsForDir(const QUrl &dir) const
 {
     DirItem *item = dirItemForUrl(dir);
-    return item ? &item->lstItems : 0;
+    return item ? &item->lstItems : nullptr;
 }
 
 KFileItem KCoreDirListerCache::findByName(const KCoreDirLister *lister, const QString &_name) const
@@ -841,7 +841,7 @@ KFileItem *KCoreDirListerCache::findByUrl(const KCoreDirLister *lister, const QU
         }
     }
 
-    return 0;
+    return nullptr;
 }
 
 void KCoreDirListerCache::slotFilesAdded(const QString &dir /*url*/)   // from KDirNotify signals
@@ -926,7 +926,7 @@ void KCoreDirListerCache::slotFilesChanged(const QStringList &fileList)   // fro
     QStringList::const_iterator it = fileList.begin();
     for (; it != fileList.end(); ++it) {
         QUrl url(*it);
-        KFileItem *fileitem = findByUrl(0, url);
+        KFileItem *fileitem = findByUrl(nullptr, url);
         if (!fileitem) {
             qCDebug(KIO_CORE_DIRLISTER) << "item not found for" << url;
             continue;
@@ -964,7 +964,7 @@ void KCoreDirListerCache::slotFileRenamed(const QString &_src, const QString &_d
 #endif
 
     QUrl oldurl = src.adjusted(QUrl::StripTrailingSlash);
-    KFileItem *fileitem = findByUrl(0, oldurl);
+    KFileItem *fileitem = findByUrl(nullptr, oldurl);
     if (!fileitem) {
         qCDebug(KIO_CORE_DIRLISTER) << "Item not found:" << oldurl;
         return;
@@ -976,7 +976,7 @@ void KCoreDirListerCache::slotFileRenamed(const QString &_src, const QString &_d
     // We better emit it as deleted -before- doing the renaming, otherwise
     // the "update" mechanism will emit the old one as deleted and
     // kdirmodel will delete the new (renamed) one!
-    KFileItem *existingDestItem = findByUrl(0, dst);
+    KFileItem *existingDestItem = findByUrl(nullptr, dst);
     if (existingDestItem) {
         qCDebug(KIO_CORE_DIRLISTER) << dst << "already existed, let's delete it";
         slotFilesRemoved(QList<QUrl>() << dst);
@@ -993,7 +993,7 @@ void KCoreDirListerCache::slotFileRenamed(const QString &_src, const QString &_d
         renameDir(oldurl, dst);
         // #172945 - if the fileitem was the root item of a DirItem that was just removed from the cache,
         // then it's a dangling pointer now...
-        fileitem = findByUrl(0, oldurl);
+        fileitem = findByUrl(nullptr, oldurl);
         if (!fileitem) { //deleted from cache altogether, #188807
             return;
         }
@@ -1145,7 +1145,7 @@ void KCoreDirListerCache::handleDirDirty(const QUrl &url)
 void KCoreDirListerCache::handleFileDirty(const QUrl &url)
 {
     // A file: do we know about it already?
-    KFileItem *existingItem = findByUrl(0, url);
+    KFileItem *existingItem = findByUrl(nullptr, url);
     const QUrl dir = url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
     QString filePath = url.toLocalFile();
     if (!existingItem) {
@@ -1759,7 +1759,7 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
         return;
     }
 
-    DirItem *dir = itemsInUse.value(jobUrlStr, 0);
+    DirItem *dir = itemsInUse.value(jobUrlStr, nullptr);
     if (!dir) {
         qCWarning(KIO_CORE) << "Internal error: itemsInUse did not contain" << jobUrlStr;
 #ifndef NDEBUG
@@ -1908,7 +1908,7 @@ KIO::ListJob *KCoreDirListerCache::jobForUrl(const QString &url, KIO::ListJob *n
         }
         ++it;
     }
-    return 0;
+    return nullptr;
 }
 
 const QUrl &KCoreDirListerCache::joburl(KIO::ListJob *job)
@@ -2038,7 +2038,7 @@ void KCoreDirListerCache::processPendingUpdates()
     foreach (const QString &file, pendingUpdates) { // always a local path
         qCDebug(KIO_CORE_DIRLISTER) << file;
         QUrl u = QUrl::fromLocalFile(file);
-        KFileItem *item = findByUrl(0, u);   // search all items
+        KFileItem *item = findByUrl(nullptr, u);   // search all items
         if (item) {
             // we need to refresh the item, because e.g. the permissions can have changed.
             KFileItem oldItem = *item;
@@ -2557,16 +2557,16 @@ void KCoreDirLister::Private::addRefreshItem(const QUrl &directoryUrl, const KFi
 void KCoreDirLister::Private::emitItems()
 {
     NewItemsHash *tmpNew = lstNewItems;
-    lstNewItems = 0;
+    lstNewItems = nullptr;
 
     KFileItemList *tmpMime = lstMimeFilteredItems;
-    lstMimeFilteredItems = 0;
+    lstMimeFilteredItems = nullptr;
 
     QList<QPair<KFileItem, KFileItem> > *tmpRefresh = lstRefreshItems;
-    lstRefreshItems = 0;
+    lstRefreshItems = nullptr;
 
     KFileItemList *tmpRemove = lstRemoveItems;
-    lstRemoveItems = 0;
+    lstRemoveItems = nullptr;
 
     if (tmpNew) {
         QHashIterator<QUrl, KFileItemList> it(*tmpNew);

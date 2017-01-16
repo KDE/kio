@@ -52,7 +52,7 @@ private Q_SLOTS:
 
         m_srcFile = m_srcDir + "/srcfile";
 
-        KIO::setDefaultJobUiDelegateExtension(0); // no "skip" dialogs
+        KIO::setDefaultJobUiDelegateExtension(nullptr); // no "skip" dialogs
 
         // Set a recent dir
         KConfigGroup recentDirsGroup(KSharedConfig::openConfig(), "kuick-copy");

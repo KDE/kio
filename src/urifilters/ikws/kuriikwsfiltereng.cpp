@@ -56,7 +56,7 @@ KURISearchFilterEngine::~KURISearchFilterEngine()
 
 SearchProvider* KURISearchFilterEngine::webShortcutQuery(const QString& typedString, QString &searchTerm) const
 {
-  SearchProvider *provider = 0;
+  SearchProvider *provider = nullptr;
 
   if (m_bWebShortcutsEnabled)
   {
@@ -80,7 +80,7 @@ SearchProvider* KURISearchFilterEngine::webShortcutQuery(const QString& typedStr
             qCDebug(category) << "found provider" << provider->desktopEntryName() << "searchTerm=" << searchTerm;
         } else {
           delete provider;
-          provider = 0;
+          provider = nullptr;
         }
       }
     }
@@ -92,7 +92,7 @@ SearchProvider* KURISearchFilterEngine::webShortcutQuery(const QString& typedStr
 
 SearchProvider* KURISearchFilterEngine::autoWebSearchQuery(const QString& typedString, const QString &defaultShortcut) const
 {
-  SearchProvider *provider = 0;
+  SearchProvider *provider = nullptr;
   const QString defaultSearchProvider = (m_defaultWebShortcut.isEmpty() ? defaultShortcut : m_defaultWebShortcut);
 
   if (m_bWebShortcutsEnabled && !defaultSearchProvider.isEmpty())
@@ -435,7 +435,7 @@ void KURISearchFilterEngine::loadConfig()
   m_preferredWebShortcuts = group.readEntry("PreferredWebShortcuts", defaultPreferredShortcuts);
 
   // Use either a white space or a : as the keyword delimiter...
-  if (strchr (" :", m_cKeywordDelimiter) == 0)
+  if (strchr (" :", m_cKeywordDelimiter) == nullptr)
     m_cKeywordDelimiter = ':';
 
   qCDebug(category) << "Web Shortcuts Enabled: " << m_bWebShortcutsEnabled;

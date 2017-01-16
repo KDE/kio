@@ -283,7 +283,7 @@ void KFilePlacesViewDelegate::addFadeAnimation(const QModelIndex &index, QTimeLi
 
 void KFilePlacesViewDelegate::removeFadeAnimation(const QModelIndex &index)
 {
-    QTimeLine *timeLine = m_timeLineMap.value(index, 0);
+    QTimeLine *timeLine = m_timeLineMap.value(index, nullptr);
     m_timeLineMap.remove(index);
     m_timeLineInverseMap.remove(timeLine);
 }
@@ -295,7 +295,7 @@ QModelIndex KFilePlacesViewDelegate::indexForFadeAnimation(QTimeLine *timeLine) 
 
 QTimeLine *KFilePlacesViewDelegate::fadeAnimationForIndex(const QModelIndex &index) const
 {
-    return m_timeLineMap.value(index, 0);
+    return m_timeLineMap.value(index, nullptr);
 }
 
 qreal KFilePlacesViewDelegate::contentsOpacity(const QModelIndex &index) const
@@ -369,7 +369,7 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
     d->dropOnPlace = false;
     d->autoResizeItems = true;
     d->dragging = false;
-    d->lastClickedStorage = 0;
+    d->lastClickedStorage = nullptr;
     d->pollingRequestCount = 0;
     d->delegate = new KFilePlacesViewDelegate(this);
 
@@ -461,7 +461,7 @@ void KFilePlacesView::setUrl(const QUrl &url)
     QUrl oldUrl = d->currentUrl;
     KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(model());
 
-    if (placesModel == 0) {
+    if (placesModel == nullptr) {
         return;
     }
 
@@ -507,7 +507,7 @@ void KFilePlacesView::setShowAll(bool showAll)
 {
     KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(model());
 
-    if (placesModel == 0) {
+    if (placesModel == nullptr) {
         return;
     }
 
@@ -560,7 +560,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(model());
     KFilePlacesViewDelegate *delegate = dynamic_cast<KFilePlacesViewDelegate *>(itemDelegate());
 
-    if (placesModel == 0) {
+    if (placesModel == nullptr) {
         return;
     }
 
@@ -569,13 +569,13 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
 
     QMenu menu;
 
-    QAction *edit = 0;
-    QAction *hide = 0;
-    QAction *emptyTrash = 0;
-    QAction *eject = 0;
-    QAction *teardown = 0;
-    QAction *add = 0;
-    QAction *mainSeparator = 0;
+    QAction *edit = nullptr;
+    QAction *hide = nullptr;
+    QAction *emptyTrash = nullptr;
+    QAction *eject = nullptr;
+    QAction *teardown = nullptr;
+    QAction *add = nullptr;
+    QAction *mainSeparator = nullptr;
 
     if (index.isValid()) {
         if (!placesModel->isDevice(index)) {
@@ -590,22 +590,22 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             edit = menu.addAction(QIcon::fromTheme(QStringLiteral("document-properties")), i18n("&Edit Entry '%1'...", label));
         } else {
             eject = placesModel->ejectActionForIndex(index);
-            if (eject != 0) {
+            if (eject != nullptr) {
                 eject->setParent(&menu);
                 menu.addAction(eject);
             }
 
             teardown = placesModel->teardownActionForIndex(index);
-            if (teardown != 0) {
+            if (teardown != nullptr) {
                 teardown->setParent(&menu);
                 menu.addAction(teardown);
             }
 
-            if (teardown != 0 || eject != 0) {
+            if (teardown != nullptr || eject != nullptr) {
                 mainSeparator = menu.addSeparator();
             }
         }
-        if (add == 0) {
+        if (add == nullptr) {
             add = menu.addAction(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Add Entry..."));
         }
 
@@ -616,18 +616,18 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         add = menu.addAction(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Add Entry..."));
     }
 
-    QAction *showAll = 0;
+    QAction *showAll = nullptr;
     if (placesModel->hiddenCount() > 0) {
         showAll = new QAction(i18n("&Show All Entries"), &menu);
         showAll->setCheckable(true);
         showAll->setChecked(d->showAll);
-        if (mainSeparator == 0) {
+        if (mainSeparator == nullptr) {
             mainSeparator = menu.addSeparator();
         }
         menu.insertAction(mainSeparator, showAll);
     }
 
-    QAction *remove = 0;
+    QAction *remove = nullptr;
     if (index.isValid() && !placesModel->isDevice(index)) {
         remove = menu.addAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("&Remove Entry '%1'", label));
     }
@@ -640,7 +640,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
 
     QAction *result = menu.exec(event->globalPos());
 
-    if (emptyTrash != 0 && result == emptyTrash) {
+    if (emptyTrash != nullptr && result == emptyTrash) {
 
         KIO::JobUiDelegate uiDelegate;
         uiDelegate.setWindow(window());
@@ -649,7 +649,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             KJobWidgets::setWindow(job, window());
             job->ui()->setAutoErrorHandlingEnabled(true);
         }
-    } else if (edit != 0 && result == edit) {
+    } else if (edit != nullptr && result == edit) {
         KBookmark bookmark = placesModel->bookmarkForIndex(index);
         QUrl url = bookmark.url();
         QString label = bookmark.text();
@@ -666,9 +666,9 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             placesModel->editPlace(index, label, url, iconName, appName);
         }
 
-    } else if (remove != 0 && result == remove) {
+    } else if (remove != nullptr && result == remove) {
         placesModel->removePlace(index);
-    } else if (hide != 0 && result == hide) {
+    } else if (hide != nullptr && result == hide) {
         placesModel->setPlaceHidden(index, hide->isChecked());
         QModelIndex current = placesModel->closestItem(d->currentUrl);
 
@@ -680,13 +680,13 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
                 d->itemDisappearTimeline.start();
             }
         }
-    } else if (showAll != 0 && result == showAll) {
+    } else if (showAll != nullptr && result == showAll) {
         setShowAll(showAll->isChecked());
-    } else if (teardown != 0 && result == teardown) {
+    } else if (teardown != nullptr && result == teardown) {
         placesModel->requestTeardown(index);
-    } else if (eject != 0 && result == eject) {
+    } else if (eject != nullptr && result == eject) {
         placesModel->requestEject(index);
-    } else if (add != 0 && result == add) {
+    } else if (add != nullptr && result == add) {
         QUrl url = d->currentUrl;
         QString label;
         QString iconName = QStringLiteral("folder");
@@ -782,7 +782,7 @@ void KFilePlacesView::dropEvent(QDropEvent *event)
         const QRect rect = visualRect(index);
         if (!d->insertAbove(rect, pos) && !d->insertBelow(rect, pos)) {
             KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(model());
-            Q_ASSERT(placesModel != 0);
+            Q_ASSERT(placesModel != nullptr);
             emit urlsDropped(placesModel->url(index), event, this);
             event->acceptProposedAction();
         }
@@ -899,7 +899,7 @@ void KFilePlacesView::Private::setCurrentIndex(const QModelIndex &index)
 {
     KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(q->model());
 
-    if (placesModel == 0) {
+    if (placesModel == nullptr) {
         return;
     }
 
@@ -933,7 +933,7 @@ void KFilePlacesView::Private::adaptItemSize()
 
     KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(q->model());
 
-    if (placesModel == 0) {
+    if (placesModel == nullptr) {
         return;
     }
 
@@ -966,7 +966,7 @@ void KFilePlacesView::Private::adaptItemSize()
         }
     }
 
-    const int margin = q->style()->pixelMetric(QStyle::PM_FocusFrameHMargin, 0, q) + 1;
+    const int margin = q->style()->pixelMetric(QStyle::PM_FocusFrameHMargin, nullptr, q) + 1;
     const int maxWidth = q->viewport()->width() - textWidth - 4 * margin - 1;
     const int maxHeight = ((q->height() - (fm.height() / 2) * rowCount) / rowCount) - 1;
 
@@ -1001,7 +1001,7 @@ void KFilePlacesView::Private::updateHiddenRows()
 {
     KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(q->model());
 
-    if (placesModel == 0) {
+    if (placesModel == nullptr) {
         return;
     }
 
@@ -1074,7 +1074,7 @@ void KFilePlacesView::Private::_k_placeClicked(const QModelIndex &index)
 {
     KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(q->model());
 
-    if (placesModel == 0) {
+    if (placesModel == nullptr) {
         return;
     }
 

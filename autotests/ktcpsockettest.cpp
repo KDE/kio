@@ -43,7 +43,7 @@ class ServerThread : public QThread
 public:
     Server *volatile server;
     ServerThread()
-        : server(0) {}
+        : server(nullptr) {}
     ~ServerThread()
     {
         wait(100);
@@ -54,7 +54,7 @@ protected:
 
 KTcpSocketTest::KTcpSocketTest()
 {
-    server = 0;
+    server = nullptr;
 }
 
 KTcpSocketTest::~KTcpSocketTest()
@@ -75,8 +75,8 @@ void ServerThread::run()
 }
 
 Server::Server(quint16 _port)
-    : listener(0),
-      socket(0),
+    : listener(nullptr),
+      socket(nullptr),
       port(_port)
 {
     listener = new QTcpServer();
@@ -88,7 +88,7 @@ void Server::cleanupSocket()
     Q_ASSERT(socket);
     socket->close();
     socket->deleteLater();
-    socket = 0;
+    socket = nullptr;
 }
 
 void KTcpSocketTest::initTestCase()
@@ -126,7 +126,7 @@ void KTcpSocketTest::connectDisconnect()
 
 void Server::connectDisconnect()
 {
-    listener->waitForNewConnection(10000, 0);
+    listener->waitForNewConnection(10000, nullptr);
     socket = listener->nextPendingConnection();
 
     cleanupSocket();
@@ -149,7 +149,7 @@ void KTcpSocketTest::read()
 
 void Server::read()
 {
-    listener->waitForNewConnection(10000, 0);
+    listener->waitForNewConnection(10000, nullptr);
     socket = listener->nextPendingConnection();
 
     socket->write(TESTDATA);
@@ -183,7 +183,7 @@ void KTcpSocketTest::write()
 
 void Server::write()
 {
-    listener->waitForNewConnection(10000, 0);
+    listener->waitForNewConnection(10000, nullptr);
     socket = listener->nextPendingConnection();
 
     socket->waitForReadyRead(40);
@@ -372,7 +372,7 @@ void KTcpSocketTest::states_hostFound()
 
 void Server::states()
 {
-    listener->waitForNewConnection(10000, 0);
+    listener->waitForNewConnection(10000, nullptr);
     socket = listener->nextPendingConnection();
 
     socket->waitForReadyRead(40);
@@ -389,7 +389,7 @@ void KTcpSocketTest::errors()
 
 void Server::errors()
 {
-    listener->waitForNewConnection(10000, 0);
+    listener->waitForNewConnection(10000, nullptr);
     socket = listener->nextPendingConnection();
 
     cleanupSocket();

@@ -195,16 +195,16 @@ public:
 KUrlNavigator::Private::Private(KUrlNavigator *q, KFilePlacesModel *placesModel) :
     m_editable(false),
     m_active(true),
-    m_showPlacesSelector(placesModel != 0),
+    m_showPlacesSelector(placesModel != nullptr),
     m_showFullPath(false),
     m_historyIndex(0),
     m_layout(new QHBoxLayout),
-    m_placesSelector(0),
-    m_pathBox(0),
-    m_protocols(0),
-    m_dropDownButton(0),
+    m_placesSelector(nullptr),
+    m_pathBox(nullptr),
+    m_protocols(nullptr),
+    m_dropDownButton(nullptr),
     m_navButtons(),
-    m_toggleEditableMode(0),
+    m_toggleEditableMode(nullptr),
     m_homeUrl(),
     m_customProtocols(QStringList()),
     q(q)
@@ -215,7 +215,7 @@ KUrlNavigator::Private::Private(KUrlNavigator *q, KFilePlacesModel *placesModel)
     // initialize the places selector
     q->setAutoFillBackground(false);
 
-    if (placesModel != 0) {
+    if (placesModel != nullptr) {
         m_placesSelector = new KUrlNavigatorPlacesSelector(q, placesModel);
         connect(m_placesSelector, SIGNAL(placeActivated(QUrl)),
                 q, SLOT(setLocationUrl(QUrl)));
@@ -264,7 +264,7 @@ KUrlNavigator::Private::Private(KUrlNavigator *q, KFilePlacesModel *placesModel)
     connect(m_toggleEditableMode, SIGNAL(clicked()),
             q, SLOT(slotToggleEditableButtonPressed()));
 
-    if (m_placesSelector != 0) {
+    if (m_placesSelector != nullptr) {
         m_layout->addWidget(m_placesSelector);
     }
     m_layout->addWidget(m_protocols);
@@ -389,7 +389,7 @@ void KUrlNavigator::Private::openPathSelectorMenu()
 
     const QPoint pos = q->mapToGlobal(m_dropDownButton->geometry().bottomRight());
     const QAction *activatedAction = popup->exec(pos);
-    if (activatedAction != 0) {
+    if (activatedAction != nullptr) {
         const QUrl url(activatedAction->data().toString());
         q->setLocationUrl(url);
     }
@@ -515,7 +515,7 @@ void KUrlNavigator::Private::slotPathBoxChanged(const QString &text)
 void KUrlNavigator::Private::updateContent()
 {
     const QUrl currentUrl = q->locationUrl();
-    if (m_placesSelector != 0) {
+    if (m_placesSelector != nullptr) {
         m_placesSelector->updateSelection(currentUrl);
     }
 
@@ -540,7 +540,7 @@ void KUrlNavigator::Private::updateContent()
         // Calculate the start index for the directories that should be shown as buttons
         // and create the buttons
         QUrl placeUrl;
-        if ((m_placesSelector != 0) && !m_showFullPath) {
+        if ((m_placesSelector != nullptr) && !m_showFullPath) {
             placeUrl = m_placesSelector->selectedPlaceUrl();
         }
 
@@ -575,7 +575,7 @@ void KUrlNavigator::Private::updateButtons(int startIndex)
         const QString dirName = path.section(QLatin1Char('/'), idx, idx);
         hasNext = isFirstButton || !dirName.isEmpty();
         if (hasNext) {
-            KUrlNavigatorButton *button = 0;
+            KUrlNavigatorButton *button = nullptr;
             if (createButton) {
                 button = new KUrlNavigatorButton(buttonUrl(idx), q);
                 button->installEventFilter(q);
@@ -644,11 +644,11 @@ void KUrlNavigator::Private::updateButtonVisibility()
     // Subtract all widgets from the available width, that must be shown anyway
     int availableWidth = q->width() - m_toggleEditableMode->minimumWidth();
 
-    if ((m_placesSelector != 0) && m_placesSelector->isVisible()) {
+    if ((m_placesSelector != nullptr) && m_placesSelector->isVisible()) {
         availableWidth -= m_placesSelector->width();
     }
 
-    if ((m_protocols != 0) && m_protocols->isVisible()) {
+    if ((m_protocols != nullptr) && m_protocols->isVisible()) {
         availableWidth -= m_protocols->width();
     }
 
@@ -712,7 +712,7 @@ QString KUrlNavigator::Private::firstButtonText() const
 
     // The first URL navigator button should get the name of the
     // place instead of the directory name
-    if ((m_placesSelector != 0) && !m_showFullPath) {
+    if ((m_placesSelector != nullptr) && !m_showFullPath) {
         text = m_placesSelector->selectedPlaceText();
     }
 
@@ -824,7 +824,7 @@ int KUrlNavigator::Private::adjustedHistoryIndex(int historyIndex) const
 
 KUrlNavigator::KUrlNavigator(QWidget *parent) :
     QWidget(parent),
-    d(new Private(this, 0))
+    d(new Private(this, nullptr))
 {
     d->initialize(QUrl());
 }
@@ -979,7 +979,7 @@ void KUrlNavigator::setPlacesSelectorVisible(bool visible)
         return;
     }
 
-    if (visible  && (d->m_placesSelector == 0)) {
+    if (visible  && (d->m_placesSelector == nullptr)) {
         // the places selector cannot get visible as no
         // places model is available
         return;

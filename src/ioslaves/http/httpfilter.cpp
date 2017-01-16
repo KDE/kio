@@ -41,7 +41,7 @@ Testcases:
 */
 
 HTTPFilterBase::HTTPFilterBase()
-    : last(0)
+    : last(nullptr)
 {
 }
 
@@ -59,7 +59,7 @@ HTTPFilterBase::chain(HTTPFilterBase *previous)
 }
 
 HTTPFilterChain::HTTPFilterChain()
-    : first(0)
+    : first(nullptr)
 {
 }
 
@@ -69,7 +69,7 @@ HTTPFilterChain::addFilter(HTTPFilterBase *filter)
     if (!last) {
         first = filter;
     } else {
-        disconnect(last, SIGNAL(output(QByteArray)), 0, 0);
+        disconnect(last, SIGNAL(output(QByteArray)), nullptr, nullptr);
         filter->chain(last);
     }
     last = filter;

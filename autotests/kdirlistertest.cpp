@@ -46,7 +46,7 @@ void KDirListerTest::initTestCase()
     // To avoid a runtime dependency on klauncher
     qputenv("KDE_FORK_SLAVES", "yes");
 
-    KIO::setDefaultJobUiDelegateExtension(0); // no "skip" dialogs
+    KIO::setDefaultJobUiDelegateExtension(nullptr); // no "skip" dialogs
 
     m_exitCount = 1;
 
@@ -75,7 +75,7 @@ void KDirListerTest::initTestCase()
 void KDirListerTest::cleanup()
 {
     m_dirLister.clearSpies();
-    disconnect(&m_dirLister, 0, this, 0);
+    disconnect(&m_dirLister, nullptr, this, nullptr);
 }
 
 void KDirListerTest::testOpenUrl()
@@ -113,7 +113,7 @@ void KDirListerTest::testOpenUrl()
     //qDebug() << "In dir" << QDir(path).entryList( QDir::AllEntries | QDir::NoDotAndDotDot);
     QCOMPARE(m_items.count(), fileCount());
     QVERIFY(m_dirLister.isFinished());
-    disconnect(&m_dirLister, 0, this, 0);
+    disconnect(&m_dirLister, nullptr, this, nullptr);
 
     const QString fileName = QStringLiteral("toplevelfile_3");
     const QUrl itemUrl = QUrl::fromLocalFile(path + fileName);
@@ -175,7 +175,7 @@ void KDirListerTest::testOpenUrlFromCache()
         QVERIFY(secondDirLister.isFinished());
     }
 
-    disconnect(&m_dirLister, 0, this, 0);
+    disconnect(&m_dirLister, nullptr, this, nullptr);
 }
 
 // This test assumes testOpenUrl was run before. So m_dirLister is holding the items already.
@@ -329,7 +329,7 @@ void KDirListerTest::testNewItemsInSymlink() // #213799
     }
 
     // TODO: test file update.
-    disconnect(&m_dirLister, 0, this, 0);
+    disconnect(&m_dirLister, nullptr, this, nullptr);
 
     QFile::remove(symPath);
 }
@@ -480,7 +480,7 @@ void KDirListerTest::testDeleteItem()
     QVERIFY(m_dirLister.isFinished());
     QCOMPARE(m_items.count(), origItemCount - 1);
 
-    disconnect(&m_dirLister, 0, this, 0);
+    disconnect(&m_dirLister, nullptr, this, nullptr);
     QCOMPARE(fileCount(), m_items.count());
 }
 
@@ -505,7 +505,7 @@ void KDirListerTest::testRenameItem()
     QCOMPARE(entry.first.mimetype(), QString("application/octet-stream"));
     QCOMPARE(entry.second.url().toLocalFile(), newPath);
     QCOMPARE(entry.second.mimetype(), QString("text/html"));
-    disconnect(&m_dirLister, 0, this, 0);
+    disconnect(&m_dirLister, nullptr, this, nullptr);
 
     // Let's see what KDirLister has in cache now
     KFileItem cachedItem = m_dirLister.findByUrl(QUrl::fromLocalFile(newPath));
@@ -553,7 +553,7 @@ void KDirListerTest::testRenameAndOverwrite() // has to be run after testRenameI
     QPair<KFileItem, KFileItem> entry = m_refreshedItems.first();
     QCOMPARE(entry.first.url().toLocalFile(), newPath);
     QCOMPARE(entry.second.url().toLocalFile(), path);
-    disconnect(&m_dirLister, 0, this, 0);
+    disconnect(&m_dirLister, nullptr, this, nullptr);
 
     // Let's see what KDirLister has in cache now
     KFileItem cachedItem = m_dirLister.findByUrl(QUrl::fromLocalFile(path));
@@ -633,8 +633,8 @@ void KDirListerTest::testConcurrentListing()
         QTest::qWait(1000);
     }
 
-    disconnect(&m_dirLister, 0, this, 0);
-    disconnect(&dirLister2, 0, this, 0);
+    disconnect(&m_dirLister, nullptr, this, nullptr);
+    disconnect(&dirLister2, nullptr, this, nullptr);
 }
 
 void KDirListerTest::testConcurrentHoldingListing()
@@ -693,7 +693,7 @@ void KDirListerTest::testConcurrentHoldingListing()
     QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
     QVERIFY(dirLister2.isFinished());
     QVERIFY(m_dirLister.isFinished());
-    disconnect(&m_dirLister, 0, this, 0);
+    disconnect(&m_dirLister, nullptr, this, nullptr);
     QCOMPARE(m_items.count(), origItemCount);
 }
 
@@ -766,7 +766,7 @@ void KDirListerTest::testConcurrentListingAndStop()
     QCOMPARE(m_dirLister.spyClear.count(), 1);
     QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
 
-    disconnect(&m_dirLister, 0, this, 0);
+    disconnect(&m_dirLister, nullptr, this, nullptr);
 }
 
 void KDirListerTest::testDeleteListerEarly()
@@ -821,7 +821,7 @@ void KDirListerTest::testOpenUrlTwice()
         QCOMPARE(m_items.count(), origItemCount);
     }
     QVERIFY(secondDirLister.isFinished());
-    disconnect(&secondDirLister, 0, this, 0);
+    disconnect(&secondDirLister, nullptr, this, nullptr);
 }
 
 void KDirListerTest::testOpenUrlTwiceWithKeep()
@@ -859,7 +859,7 @@ void KDirListerTest::testOpenUrlTwiceWithKeep()
     QCOMPARE(secondDirLister.spyClearQUrl.count(), 1);
     QCOMPARE(m_items.count(), 0);
     QVERIFY(secondDirLister.isFinished());
-    disconnect(&secondDirLister, 0, this, 0);
+    disconnect(&secondDirLister, nullptr, this, nullptr);
 
     QDir().remove(path);
 }
@@ -882,7 +882,7 @@ void KDirListerTest::testOpenAndStop()
     QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
     QCOMPARE(m_items.count(), 0); // we had time to stop before the job even started
     QVERIFY(m_dirLister.isFinished());
-    disconnect(&m_dirLister, 0, this, 0);
+    disconnect(&m_dirLister, nullptr, this, nullptr);
 }
 
 // A bug in the decAutoUpdate/incAutoUpdate logic made KDirLister stop watching a directory for changes,
@@ -974,7 +974,7 @@ void KDirListerTest::testRenameCurrentDir() // #294445
     // Check that the URL of the root item got updated
     QCOMPARE(secondDirLister.rootItem().url().toLocalFile(), newPath);
 
-    disconnect(&secondDirLister, 0, this, 0);
+    disconnect(&secondDirLister, nullptr, this, nullptr);
     QDir().rmdir(newPath);
 }
 
@@ -1009,7 +1009,7 @@ void KDirListerTest::testRenameCurrentDirOpenUrl()
     connect(&m_dirLister, SIGNAL(redirection(QUrl)), this, SLOT(exitLoop()));
     //Enter loop to get the redirection signal.
     enterLoop();
-    disconnect(&m_dirLister, 0, this, 0);
+    disconnect(&m_dirLister, nullptr, this, nullptr);
     QDir().rmdir(newPath);
 }
 
@@ -1054,7 +1054,7 @@ void KDirListerTest::testRedirection()
 
     m_dirLister.stop(url);
     QVERIFY(!m_dirLister.isFinished());
-    disconnect(&m_dirLister, 0, this, 0);
+    disconnect(&m_dirLister, nullptr, this, nullptr);
 }
 
 void KDirListerTest::testListEmptyDirFromCache() // #278431
@@ -1275,7 +1275,7 @@ void KDirListerTest::testCopyAfterListingAndMove() // #353195
 
     // Move b into a
     KIO::Job *moveJob = KIO::move(QUrl::fromLocalFile(dirB), QUrl::fromLocalFile(dirA));
-    moveJob->setUiDelegate(0);
+    moveJob->setUiDelegate(nullptr);
     QVERIFY(moveJob->exec());
     QVERIFY(QFileInfo(m_tempDir.path() + "/a/b").isDir());
 
@@ -1285,7 +1285,7 @@ void KDirListerTest::testCopyAfterListingAndMove() // #353195
     // Copy folder a elsewhere
     const QString dest = m_tempDir.path() + "/subdir";
     KIO::Job *copyJob = KIO::copy(QUrl::fromLocalFile(dirA), QUrl::fromLocalFile(dest));
-    copyJob->setUiDelegate(0);
+    copyJob->setUiDelegate(nullptr);
     QVERIFY(copyJob->exec());
     QVERIFY(QFileInfo(m_tempDir.path() + "/subdir/a/b").isDir());
 }

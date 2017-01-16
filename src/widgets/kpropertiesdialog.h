@@ -85,7 +85,7 @@ public:
      * @param name is the internal name.
      */
     explicit KPropertiesDialog(const KFileItem &item,
-                               QWidget *parent = 0);
+                               QWidget *parent = nullptr);
 
     /**
      * \overload
@@ -100,7 +100,7 @@ public:
      * @param name is the internal name.
      */
     explicit KPropertiesDialog(const KFileItemList &_items,
-                               QWidget *parent = 0);
+                               QWidget *parent = nullptr);
 
     /**
      * Brings up a Properties dialog. Convenience constructor for
@@ -115,7 +115,7 @@ public:
      * and pass it to the other constructor.
      */
     explicit KPropertiesDialog(const QUrl &url,
-                               QWidget *parent = 0);
+                               QWidget *parent = nullptr);
 
     /**
      * Brings up a Properties dialog. Convenience constructor for
@@ -149,7 +149,7 @@ public:
      */
     KPropertiesDialog(const QUrl &_tempUrl, const QUrl &_currentDir,
                       const QString &_defaultName,
-                      QWidget *parent = 0);
+                      QWidget *parent = nullptr);
 
     /**
      * Creates an empty properties dialog (for applications that want use
@@ -161,7 +161,7 @@ public:
      * @param modal tells the dialog whether it should be modal.
      */
     explicit KPropertiesDialog(const QString &title,
-                               QWidget *parent = 0);
+                               QWidget *parent = nullptr);
 
     /**
      * Cleans up the properties dialog and frees any associated resources,
@@ -178,7 +178,7 @@ public:
      *
      * @return true on successful dialog displaying (can be false on win32).
      */
-    static bool showDialog(const KFileItem &item, QWidget *parent = 0,
+    static bool showDialog(const KFileItem &item, QWidget *parent = nullptr,
                            bool modal = true);
 
     /**
@@ -189,7 +189,7 @@ public:
      *
      * @return true on successful dialog displaying (can be false on win32).
      */
-    static bool showDialog(const QUrl &_url, QWidget *parent = 0,
+    static bool showDialog(const QUrl &_url, QWidget *parent = nullptr,
                            bool modal = true);
 
     /**
@@ -201,7 +201,7 @@ public:
      *
      * @return true on successful dialog displaying (can be false on win32).
      */
-    static bool showDialog(const KFileItemList &_items, QWidget *parent = 0,
+    static bool showDialog(const KFileItemList &_items, QWidget *parent = nullptr,
                            bool modal = true);
 
     /**

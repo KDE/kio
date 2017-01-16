@@ -60,11 +60,11 @@ int main(int argc, char **argv)
 
     QApplication a(argc, argv);
 
-    KDirModel *dirmodel = new KDirModel(0);
+    KDirModel *dirmodel = new KDirModel(nullptr);
     dirmodel->dirLister()->setDelayedMimeTypes(true);
 
 #if 1
-    QTreeView *treeView = new QTreeView(0);
+    QTreeView *treeView = new QTreeView(nullptr);
     treeView->setModel(dirmodel);
     treeView->setUniformRowHeights(true); // makes visualRect() much faster
     treeView->resize(500, 500);
@@ -81,7 +81,7 @@ int main(int argc, char **argv)
 #endif
 
 #if 1
-    QListView *iconView = new QListView(0);
+    QListView *iconView = new QListView(nullptr);
     iconView->setModel(dirmodel);
     iconView->setSelectionMode(QListView::ExtendedSelection);
     iconView->setViewMode(QListView::IconMode);

@@ -49,8 +49,8 @@ KUrlNavigatorButton::KUrlNavigatorButton(const QUrl &url, QWidget *parent) :
     m_wheelSteps(0),
     m_url(url),
     m_subDir(),
-    m_openSubDirsTimer(0),
-    m_subDirsJob(0)
+    m_openSubDirsTimer(nullptr),
+    m_subDirsJob(nullptr)
 {
     setAcceptDrops(true);
     setUrl(url);
@@ -317,12 +317,12 @@ void KUrlNavigatorButton::dragMoveEvent(QDragMoveEvent *event)
         m_hoverArrow = true;
         update();
 
-        if (m_subDirsMenu == 0) {
+        if (m_subDirsMenu == nullptr) {
             requestSubDirs();
         } else if (m_subDirsMenu->parent() != this) {
             m_subDirsMenu->close();
             m_subDirsMenu->deleteLater();
-            m_subDirsMenu = 0;
+            m_subDirsMenu = nullptr;
 
             requestSubDirs();
         }
@@ -331,7 +331,7 @@ void KUrlNavigatorButton::dragMoveEvent(QDragMoveEvent *event)
             cancelSubDirsRequest();
         }
         delete m_subDirsMenu;
-        m_subDirsMenu = 0;
+        m_subDirsMenu = nullptr;
         m_hoverArrow = false;
         update();
     }
@@ -390,14 +390,14 @@ void KUrlNavigatorButton::wheelEvent(QWheelEvent *event)
 
 void KUrlNavigatorButton::requestSubDirs()
 {
-    if (!m_openSubDirsTimer->isActive() && (m_subDirsJob == 0)) {
+    if (!m_openSubDirsTimer->isActive() && (m_subDirsJob == nullptr)) {
         m_openSubDirsTimer->start();
     }
 }
 
 void KUrlNavigatorButton::startSubDirsJob()
 {
-    if (m_subDirsJob != 0) {
+    if (m_subDirsJob != nullptr) {
         return;
     }
 
@@ -490,7 +490,7 @@ private:
 void KUrlNavigatorButton::openSubDirsMenu(KJob *job)
 {
     Q_ASSERT(job == m_subDirsJob);
-    m_subDirsJob = 0;
+    m_subDirsJob = nullptr;
 
     if (job->error() || m_subDirs.isEmpty()) {
         // clear listing
@@ -502,10 +502,10 @@ void KUrlNavigatorButton::openSubDirsMenu(KJob *job)
     setDisplayHintEnabled(PopupActiveHint, true);
     update(); // ensure the button is drawn highlighted
 
-    if (m_subDirsMenu != 0) {
+    if (m_subDirsMenu != nullptr) {
         m_subDirsMenu->close();
         m_subDirsMenu->deleteLater();
-        m_subDirsMenu = 0;
+        m_subDirsMenu = nullptr;
     }
 
     m_subDirsMenu = new KUrlNavigatorMenu(this);
@@ -527,7 +527,7 @@ void KUrlNavigatorButton::openSubDirsMenu(KJob *job)
 
     m_subDirs.clear();
     delete m_subDirsMenu;
-    m_subDirsMenu = 0;
+    m_subDirsMenu = nullptr;
 
     setDisplayHintEnabled(PopupActiveHint, false);
 }
@@ -535,7 +535,7 @@ void KUrlNavigatorButton::openSubDirsMenu(KJob *job)
 void KUrlNavigatorButton::replaceButton(KJob *job)
 {
     Q_ASSERT(job == m_subDirsJob);
-    m_subDirsJob = 0;
+    m_subDirsJob = nullptr;
     m_replaceButton = false;
 
     if (job->error() || m_subDirs.isEmpty()) {
@@ -575,9 +575,9 @@ void KUrlNavigatorButton::replaceButton(KJob *job)
 void KUrlNavigatorButton::cancelSubDirsRequest()
 {
     m_openSubDirsTimer->stop();
-    if (m_subDirsJob != 0) {
+    if (m_subDirsJob != nullptr) {
         m_subDirsJob->kill();
-        m_subDirsJob = 0;
+        m_subDirsJob = nullptr;
     }
 }
 

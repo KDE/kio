@@ -68,7 +68,7 @@ public:
                                QString &label, QString &icon,
                                bool isAddingNewPlace,
                                bool &appLocal, int iconSize,
-                               QWidget *parent = 0);
+                               QWidget *parent = nullptr);
 
     /**
      * Constructs a KFilePlaceEditDialog.
@@ -92,7 +92,7 @@ public:
                          bool isAddingNewPlace,
                          bool appLocal = true,
                          int iconSize = KIconLoader::SizeMedium,
-                         QWidget *parent = 0);
+                         QWidget *parent = nullptr);
     /**
      * Destroys the dialog.
      */

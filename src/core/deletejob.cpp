@@ -75,7 +75,7 @@ public:
         , m_totalFilesDirs(0)
         , m_srcList(src)
         , m_currentStat(m_srcList.begin())
-        , m_reportTimer(0)
+        , m_reportTimer(nullptr)
     {
     }
     DeleteJobState state;
@@ -292,7 +292,7 @@ void DeleteJobPrivate::deleteNextFile()
             // If local file, try do it directly
             if ((*it).isLocalFile() && QFile::remove((*it).toLocalFile())) {
                 //kdDebug(7007) << "DeleteJob deleted" << (*it).toLocalFile();
-                job = 0;
+                job = nullptr;
                 m_processedFiles++;
                 if (m_processedFiles % 300 == 1 || m_totalFilesDirs < 300) {  // update progress info every 300 files
                     m_currentURL = *it;
@@ -361,7 +361,7 @@ void DeleteJobPrivate::deleteNextDir()
         //qDebug() << "KDirNotify'ing FilesRemoved" << m_srcList;
         org::kde::KDirNotify::emitFilesRemoved(m_srcList);
     }
-    if (m_reportTimer != 0) {
+    if (m_reportTimer != nullptr) {
         m_reportTimer->stop();
     }
     q->emitResult();

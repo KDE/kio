@@ -77,7 +77,7 @@ public:
      * \param connection Typically QDBusConnection::sessionBus().
      * \param parent The parent QObject.
      */
-    OrgKdeKDirNotifyInterface(const QString &service, const QString &path, const QDBusConnection &connection = QDBusConnection::sessionBus(), QObject *parent = 0);
+    OrgKdeKDirNotifyInterface(const QString &service, const QString &path, const QDBusConnection &connection = QDBusConnection::sessionBus(), QObject *parent = nullptr);
 
     /**
      * Destructor.

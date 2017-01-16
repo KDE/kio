@@ -38,7 +38,7 @@ public:
         Issuer
     };
 
-    explicit KSslCertificateBox(QWidget *parent = 0);
+    explicit KSslCertificateBox(QWidget *parent = nullptr);
     ~KSslCertificateBox();
 
     void setCertificate(const QSslCertificate &cert, CertificateParty party);

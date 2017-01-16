@@ -450,7 +450,7 @@ QString KFileItemPrivate::parsePermissions(mode_t perm) const
 ///////
 
 KFileItem::KFileItem()
-    : d(0)
+    : d(nullptr)
 {
 }
 
@@ -1335,7 +1335,7 @@ QDataStream &operator>> (QDataStream &s, KFileItem &a)
     }
 
     if (url.isEmpty()) {
-        a.d = 0;
+        a.d = nullptr;
         return s;
     }
 
@@ -1494,7 +1494,7 @@ KFileItem &KFileItem::operator=(const KFileItem &other)
 
 bool KFileItem::isNull() const
 {
-    return d == 0;
+    return d == nullptr;
 }
 
 KFileItemList::KFileItemList()

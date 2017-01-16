@@ -46,7 +46,7 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
     }
     if (ud->certificateChain.isEmpty()) {
         // SSL without certificates is quite useless and should never happen
-        KMessageBox::sorry(0, i18n("The remote host did not send any SSL certificates.\n"
+        KMessageBox::sorry(nullptr, i18n("The remote host did not send any SSL certificates.\n"
                                    "Aborting because the identity of the host cannot be established."));
         return false;
     }
@@ -74,7 +74,7 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
 
     int msgResult;
     do {
-        msgResult = KMessageBox::warningYesNoCancel(0, message, i18n("Server Authentication"),
+        msgResult = KMessageBox::warningYesNoCancel(nullptr, message, i18n("Server Authentication"),
                     KGuiItem(i18n("&Details"), QStringLiteral("help-about")),
                     KGuiItem(i18n("Co&ntinue"), QStringLiteral("arrow-right")));
         if (msgResult == KMessageBox::Yes) {
@@ -106,7 +106,7 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
     if (storedRules & StoreRules) {
         //Save the user's choice to ignore the SSL errors.
 
-        msgResult = KMessageBox::warningYesNo(0,
+        msgResult = KMessageBox::warningYesNo(nullptr,
                                               i18n("Would you like to accept this "
                                                       "certificate forever without "
                                                       "being prompted?"),

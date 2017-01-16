@@ -86,7 +86,7 @@ void CachedRendering::modelReset()
 AnimationState::AnimationState(const QModelIndex &index)
     : index(index), direction(QTimeLine::Forward),
       animating(false), jobAnimation(false), progress(0.0), m_fadeProgress(1.0),
-      m_jobAnimationAngle(0.0), renderCache(NULL), fadeFromRenderCache(NULL)
+      m_jobAnimationAngle(0.0), renderCache(nullptr), fadeFromRenderCache(nullptr)
 {
     creationTime.start();
 }
@@ -116,7 +116,7 @@ bool AnimationState::update()
         m_fadeProgress = qMin(qreal(1.0), m_fadeProgress + delta);
         animating |= (m_fadeProgress < 1.0);
         if (m_fadeProgress == 1) {
-            setCachedRenderingFadeFrom(0);
+            setCachedRenderingFadeFrom(nullptr);
         }
     }
 
@@ -262,7 +262,7 @@ AnimationState *DelegateAnimationHandler::animationState(const QStyleOption &opt
     // item will be drawn in two locations at the same time and hovered in one and
     // not the other. We can't tell them apart because they both have the same index.
     if (!view || static_cast<const ProtectedAccessor *>(view)->draggingState()) {
-        return NULL;
+        return nullptr;
     }
 
     AnimationState *state = findAnimationState(view, index);
@@ -337,7 +337,7 @@ AnimationState *DelegateAnimationHandler::findAnimationState(const QAbstractItem
             }
     }
 
-    return NULL;
+    return nullptr;
 }
 
 void DelegateAnimationHandler::addAnimationState(AnimationState *state, const QAbstractItemView *view)

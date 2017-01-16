@@ -128,7 +128,7 @@ protected:
      *
      * @since 4.7.2
      */
-    int connectToHost(const QString &host, quint16 port, QString *errorString = 0);
+    int connectToHost(const QString &host, quint16 port, QString *errorString = nullptr);
 
     /**
      * the current port for this service

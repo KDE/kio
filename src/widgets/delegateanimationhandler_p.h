@@ -88,7 +88,7 @@ public:
     CachedRendering *takeCachedRendering()
     {
         CachedRendering *ret = renderCache;
-        renderCache = 0;
+        renderCache = nullptr;
         return ret;
     }
 
@@ -136,7 +136,7 @@ class DelegateAnimationHandler : public QObject
     typedef QMutableMapIterator<const QAbstractItemView *, AnimationList *> MutableAnimationListsIterator;
 
 public:
-    DelegateAnimationHandler(QObject *parent = 0);
+    DelegateAnimationHandler(QObject *parent = nullptr);
     ~DelegateAnimationHandler();
 
     AnimationState *animationState(const QStyleOption &option, const QModelIndex &index, const QAbstractItemView *view);

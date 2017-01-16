@@ -70,7 +70,7 @@ class AppNode
 {
 public:
     AppNode()
-        : isDir(false), parent(0), fetched(false)
+        : isDir(false), parent(nullptr), fetched(false)
     {
     }
     ~AppNode()
@@ -356,7 +356,7 @@ class KApplicationViewPrivate
 {
 public:
     KApplicationViewPrivate()
-        : appModel(0)
+        : appModel(nullptr)
     {
     }
 
@@ -580,9 +580,9 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
 {
     bool bReadOnly = !KAuthorized::authorize(QStringLiteral("shell_access"));
     m_terminaldirty = false;
-    view = 0;
-    m_pService = 0;
-    curService = 0;
+    view = nullptr;
+    m_pService = nullptr;
+    curService = nullptr;
 
     QBoxLayout *topLayout = new QVBoxLayout;
     q->setLayout(topLayout);
@@ -688,7 +688,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
         //    remember->setChecked(true);
         topLayout->addWidget(remember);
     } else {
-        remember = 0L;
+        remember = nullptr;
     }
 
     buttonBox = new QDialogButtonBox(q);
@@ -741,7 +741,7 @@ void KOpenWithDialog::slotHighlighted(const QString &entryPath, const QString &)
 void KOpenWithDialog::slotTextChanged()
 {
     // Forget about the service
-    d->curService = 0L;
+    d->curService = nullptr;
     d->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(!d->edit->text().isEmpty());
 }
 
@@ -906,7 +906,7 @@ bool KOpenWithDialogPrivate::checkAccept()
         // qDebug() << "Setting m_command to" << m_command;
     }
     if (m_pService && terminal->isChecked() != m_pService->terminal()) {
-        m_pService = 0;    // It's not exactly this service we're running
+        m_pService = nullptr;    // It's not exactly this service we're running
     }
 
     const bool bRemember = remember && remember->isChecked();

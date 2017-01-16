@@ -214,7 +214,7 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
 
 #if HAVE_SETMNTENT
     STRUCT_SETMNTENT fstab;
-    if ((fstab = SETMNTENT(FSTAB, "r")) == 0) {
+    if ((fstab = SETMNTENT(FSTAB, "r")) == nullptr) {
         return result;
     }
 
@@ -416,7 +416,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
 
 #else
     STRUCT_SETMNTENT mnttab;
-    if ((mnttab = SETMNTENT(MNTTAB, "r")) == 0) {
+    if ((mnttab = SETMNTENT(MNTTAB, "r")) == nullptr) {
         return result;
     }
 

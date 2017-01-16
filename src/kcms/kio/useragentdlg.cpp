@@ -54,8 +54,8 @@ typedef SiteList::iterator SiteListIterator;
 
 UserAgentDlg::UserAgentDlg (QWidget* parent, const QVariantList&)
     : KCModule (/*ioConfigFactory::componentData(),*/ parent),
-      m_userAgentInfo (0),
-      m_config (0)
+      m_userAgentInfo (nullptr),
+      m_config (nullptr)
 {
     ui.setupUi (this);
     ui.newButton->setIcon (QIcon::fromTheme(QStringLiteral("list-add")));

@@ -228,7 +228,7 @@ protected:
      * @see QNetworkAccessManager::createRequest
      * @internal
      */
-    QNetworkReply *createRequest(Operation op, const QNetworkRequest &req, QIODevice *outgoingData = 0) Q_DECL_OVERRIDE;
+    QNetworkReply *createRequest(Operation op, const QNetworkRequest &req, QIODevice *outgoingData = nullptr) Q_DECL_OVERRIDE;
 
 private:
     class AccessManagerPrivate;
@@ -286,7 +286,7 @@ public:
     /**
      * Constructs a KNetworkCookieJar with parent @p parent.
      */
-    explicit CookieJar(QObject *parent = 0);
+    explicit CookieJar(QObject *parent = nullptr);
 
     /**
      * Destroys the KNetworkCookieJar.

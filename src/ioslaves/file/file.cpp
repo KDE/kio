@@ -154,7 +154,7 @@ static QFile::Permissions modeToQFilePermissions(int mode)
 }
 
 FileProtocol::FileProtocol(const QByteArray &pool, const QByteArray &app)
-    : SlaveBase(QByteArrayLiteral("file"), pool, app), mFile(0)
+    : SlaveBase(QByteArrayLiteral("file"), pool, app), mFile(nullptr)
 {
 }
 
@@ -182,7 +182,7 @@ int FileProtocol::setACL(const char *path, mode_t perm, bool directoryDefault)
     const QString defaultACLString = metaData(QStringLiteral("DEFAULT_ACL_STRING"));
     // Empty strings mean leave as is
     if (!ACLString.isEmpty()) {
-        acl_t acl = 0;
+        acl_t acl = nullptr;
         if (ACLString == QLatin1String("ACL_DELETE")) {
             // user told us to delete the extended ACL, so let's write only
             // the minimal (UNIX permission bits) part
@@ -526,7 +526,7 @@ void FileProtocol::close()
     Q_ASSERT(mFile);
 
     delete mFile;
-    mFile = 0;
+    mFile = nullptr;
 
     finished();
 }
@@ -1248,7 +1248,7 @@ static QString readLogFile(const QByteArray &_filename)
 
 bool FileProtocol::isExtendedACL(acl_t acl)
 {
-    return (acl_equiv_mode(acl, 0) != 0);
+    return (acl_equiv_mode(acl, nullptr) != 0);
 }
 
 static void appendACLAtoms(const QByteArray &path, UDSEntry &entry, mode_t type)
@@ -1258,8 +1258,8 @@ static void appendACLAtoms(const QByteArray &path, UDSEntry &entry, mode_t type)
         return;
     }
 
-    acl_t acl = 0;
-    acl_t defaultAcl = 0;
+    acl_t acl = nullptr;
+    acl_t defaultAcl = nullptr;
     bool isDir = (type & QT_STAT_MASK) == QT_STAT_DIR;
     // do we have an acl for the file, and/or a default acl for the dir, if it is one?
     acl = acl_get_file(path.data(), ACL_TYPE_ACCESS);
@@ -1269,7 +1269,7 @@ static void appendACLAtoms(const QByteArray &path, UDSEntry &entry, mode_t type)
         if (acl) {
             if (!FileProtocol::isExtendedACL(acl)) {
                 acl_free(acl);
-                acl = 0;
+                acl = nullptr;
             }
         }
         defaultAcl = acl_get_file(path.data(), ACL_TYPE_DEFAULT);

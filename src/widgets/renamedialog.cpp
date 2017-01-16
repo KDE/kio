@@ -97,15 +97,15 @@ class RenameDialog::RenameDialogPrivate
 public:
     RenameDialogPrivate()
     {
-        bCancel = 0;
-        bRename = bSkip = bOverwrite = 0;
-        bResume = bSuggestNewName = 0;
-        bApplyAll = 0;
-        m_pLineEdit = 0;
+        bCancel = nullptr;
+        bRename = bSkip = bOverwrite = nullptr;
+        bResume = bSuggestNewName = nullptr;
+        bApplyAll = nullptr;
+        m_pLineEdit = nullptr;
         m_srcPendingPreview = false;
         m_destPendingPreview = false;
-        m_srcPreview = 0;
-        m_destPreview = 0;
+        m_srcPreview = nullptr;
+        m_destPreview = nullptr;
         m_srcArea = Q_NULLPTR;
         m_destArea = Q_NULLPTR;
     }

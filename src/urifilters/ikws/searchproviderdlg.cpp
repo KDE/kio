@@ -142,7 +142,7 @@ void SearchProviderDialog::shortcutsChanged(const QString& newShorthands) {
 void SearchProviderDialog::accept()
 {
     if ((m_dlg.leQuery->text().indexOf(QStringLiteral("\\{")) == -1)
-        && KMessageBox::warningContinueCancel(0,
+        && KMessageBox::warningContinueCancel(nullptr,
             i18n("The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
                     "This means that the same page is always going to be visited, "
                     "regardless of the text typed in with the shortcut."),

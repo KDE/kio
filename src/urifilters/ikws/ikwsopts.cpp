@@ -417,7 +417,7 @@ void FilterOptions::defaults()
 void FilterOptions::addSearchProvider()
 {
   QList<SearchProvider*> providers = m_providersModel->providers();
-  QPointer<SearchProviderDialog> dlg = new SearchProviderDialog(0, providers, this);
+  QPointer<SearchProviderDialog> dlg = new SearchProviderDialog(nullptr, providers, this);
 
   if (dlg->exec()) {
     m_providersModel->addProvider(dlg->provider());

@@ -41,8 +41,8 @@ struct AllTrackers {
 class KDynamicJobTracker::Private
 {
 public:
-    Private() : kuiserverTracker(0),
-        widgetTracker(0)
+    Private() : kuiserverTracker(nullptr),
+        widgetTracker(nullptr)
     {
     }
 

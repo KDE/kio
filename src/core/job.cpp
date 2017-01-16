@@ -36,14 +36,14 @@
 
 using namespace KIO;
 
-Job::Job() : KCompositeJob(0)
+Job::Job() : KCompositeJob(nullptr)
     , d_ptr(new JobPrivate)
 {
     d_ptr->q_ptr = this;
     setCapabilities(KJob::Killable | KJob::Suspendable);
 }
 
-Job::Job(JobPrivate &dd) : KCompositeJob(0)
+Job::Job(JobPrivate &dd) : KCompositeJob(nullptr)
     , d_ptr(&dd)
 {
     d_ptr->q_ptr = this;
@@ -200,7 +200,7 @@ void JobPrivate::slotSpeed(KJob *, unsigned long speed)
 void Job::setParentJob(Job *job)
 {
     Q_D(Job);
-    Q_ASSERT(d->m_parentJob == 0L);
+    Q_ASSERT(d->m_parentJob == nullptr);
     Q_ASSERT(job);
     d->m_parentJob = job;
 }

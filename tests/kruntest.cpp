@@ -48,13 +48,13 @@ static const struct {
     const char *exec;
     const char *url;
 } s_tests[] = {
-    { "run(kwrite, no url)", "should work normally", "kwrite", 0 },
+    { "run(kwrite, no url)", "should work normally", "kwrite", nullptr },
     { "run(kwrite, file url)", "should work normally", "kwrite", testFile },
     { "run(kwrite, remote url)", "should work normally", "kwrite", "http://www.kde.org" },
-    { "run(doesnotexit, no url)", "should show error message", "doesnotexist", 0 },
+    { "run(doesnotexit, no url)", "should show error message", "doesnotexist", nullptr },
     { "run(doesnotexit, file url)", "should show error message", "doesnotexist", testFile },
     { "run(doesnotexit, remote url)", "should use kioexec and show error message", "doesnotexist", "http://www.kde.org" },
-    { "run(missing lib, no url)", "should show error message (remove libqca.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)", "qcatool", 0 },
+    { "run(missing lib, no url)", "should show error message (remove libqca.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)", "qcatool", nullptr },
     { "run(missing lib, file url)", "should show error message (remove libqca.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)", "qcatool", testFile },
     { "run(missing lib, remote url)", "should show error message (remove libqca.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)", "qcatool", "http://www.kde.org" },
     { "runCommand(empty)", "should error", "", "" }, // #186036

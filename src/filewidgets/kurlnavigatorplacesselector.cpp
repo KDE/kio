@@ -103,7 +103,7 @@ void KUrlNavigatorPlacesSelector::updateTeardownAction()
 
     const QModelIndex index = m_placesModel->index(m_selectedItem, 0);
     QAction *teardown = m_placesModel->teardownActionForIndex(index);
-    if (teardown != 0) {
+    if (teardown != nullptr) {
         teardown->setParent(m_placesMenu);
         teardown->setData("teardownAction");
 
@@ -192,7 +192,7 @@ void KUrlNavigatorPlacesSelector::dropEvent(QDropEvent *event)
 
 void KUrlNavigatorPlacesSelector::activatePlace(QAction *action)
 {
-    Q_ASSERT(action != 0);
+    Q_ASSERT(action != nullptr);
     if (action->data().toString() == QLatin1String("teardownAction")) {
         QModelIndex index = m_placesModel->index(m_selectedItem, 0);
         m_placesModel->requestTeardown(index);

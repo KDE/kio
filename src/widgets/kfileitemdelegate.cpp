@@ -134,7 +134,7 @@ private:
 KFileItemDelegate::Private::Private(KFileItemDelegate *parent)
     : shadowColor(Qt::transparent), shadowOffset(1, 1), shadowBlur(2), maximumSize(0, 0),
       showToolTipWhenElided(true), wrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere), jobTransfersVisible(false),
-      animationHandler(new KIO::DelegateAnimationHandler(parent)), activeMargins(0)
+      animationHandler(new KIO::DelegateAnimationHandler(parent)), activeMargins(nullptr)
 {
 }
 
@@ -172,28 +172,28 @@ void KFileItemDelegate::Private::setHorizontalMargin(MarginType type, int horizo
 
 QRect KFileItemDelegate::Private::addMargin(const QRect &rect, MarginType type) const
 {
-    Q_ASSERT(activeMargins != 0);
+    Q_ASSERT(activeMargins != nullptr);
     const Margin &m = activeMargins[type];
     return rect.adjusted(-m.left, -m.top, m.right, m.bottom);
 }
 
 QRect KFileItemDelegate::Private::subtractMargin(const QRect &rect, MarginType type) const
 {
-    Q_ASSERT(activeMargins != 0);
+    Q_ASSERT(activeMargins != nullptr);
     const Margin &m = activeMargins[type];
     return rect.adjusted(m.left, m.top, -m.right, -m.bottom);
 }
 
 QSize KFileItemDelegate::Private::addMargin(const QSize &size, MarginType type) const
 {
-    Q_ASSERT(activeMargins != 0);
+    Q_ASSERT(activeMargins != nullptr);
     const Margin &m = activeMargins[type];
     return QSize(size.width() + m.left + m.right, size.height() + m.top + m.bottom);
 }
 
 QSize KFileItemDelegate::Private::subtractMargin(const QSize &size, MarginType type) const
 {
-    Q_ASSERT(activeMargins != 0);
+    Q_ASSERT(activeMargins != nullptr);
     const Margin &m = activeMargins[type];
     return QSize(size.width() - m.left - m.right, size.height() - m.top - m.bottom);
 }
@@ -568,15 +568,15 @@ KIO::AnimationState *KFileItemDelegate::Private::animationState(const QStyleOpti
         const QModelIndex &index,
         const QAbstractItemView *view) const
 {
-    if (!option.widget->style()->styleHint(QStyle::SH_Widget_Animate, 0, option.widget)) {
-        return NULL;
+    if (!option.widget->style()->styleHint(QStyle::SH_Widget_Animate, nullptr, option.widget)) {
+        return nullptr;
     }
 
     if (index.column() == KDirModel::Name) {
         return animationHandler->animationState(option, index, view);
     }
 
-    return NULL;
+    return nullptr;
 }
 
 QPixmap KFileItemDelegate::Private::transition(const QPixmap &from, const QPixmap &to, qreal amount) const
@@ -1211,7 +1211,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     // Check if the item is being animated
     // ========================================================================
     KIO::AnimationState *state = d->animationState(opt, index, view);
-    KIO::CachedRendering *cache = 0;
+    KIO::CachedRendering *cache = nullptr;
     qreal progress = ((opt.state & QStyle::State_MouseOver) &&
                       index.column() == KDirModel::Name) ? 1.0 : 0.0;
     const QPoint iconPos   = d->iconPosition(opt);
@@ -1256,7 +1256,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
             }
 
             if (!cache->checkValidity(opt.state)) {
-                if (opt.widget->style()->styleHint(QStyle::SH_Widget_Animate, 0, opt.widget)) {
+                if (opt.widget->style()->styleHint(QStyle::SH_Widget_Animate, nullptr, opt.widget)) {
                     // Fade over from the old icon to the new one
                     // Only start a new fade if the previous one is ready
                     // Else we may start racing when checkValidity() always returns false
@@ -1267,7 +1267,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
                 d->gotNewIcon(index);
             }
             // If it wasn't valid, delete it
-            state->setCachedRendering(0);
+            state->setCachedRendering(nullptr);
         } else {
             // The cache may have been discarded, but the animation handler still needs to know about new icons
             d->gotNewIcon(index);
@@ -1408,7 +1408,7 @@ bool KFileItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, co
 void KFileItemDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
 {
     QTextEdit *textedit = qobject_cast<QTextEdit *>(editor);
-    Q_ASSERT(textedit != 0);
+    Q_ASSERT(textedit != nullptr);
 
     //Do not update existing text that the user may already have edited.
     //The models will call setEditorData(..) whenever the icon has changed,
@@ -1439,7 +1439,7 @@ void KFileItemDelegate::setEditorData(QWidget *editor, const QModelIndex &index)
 void KFileItemDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
 {
     QTextEdit *textedit = qobject_cast<QTextEdit *>(editor);
-    Q_ASSERT(textedit != 0);
+    Q_ASSERT(textedit != nullptr);
 
     model->setData(index, textedit->toPlainText(), Qt::EditRole);
 }
@@ -1473,7 +1473,7 @@ void KFileItemDelegate::updateEditorGeometry(QWidget *editor, const QStyleOption
     }
 
     QTextEdit *textedit = qobject_cast<QTextEdit *>(editor);
-    Q_ASSERT(textedit != 0);
+    Q_ASSERT(textedit != nullptr);
     const int frame = textedit->frameWidth();
     r.adjust(-frame, -frame, frame, frame);
 

@@ -22,7 +22,7 @@
 using namespace KIO;
 
 JobUiDelegateFactory::JobUiDelegateFactory()
-    : d(0)
+    : d(nullptr)
 {
 }
 
@@ -30,11 +30,11 @@ JobUiDelegateFactory::~JobUiDelegateFactory()
 {
 }
 
-static JobUiDelegateFactory *s_factory = 0;
+static JobUiDelegateFactory *s_factory = nullptr;
 
 KJobUiDelegate *KIO::createDefaultJobUiDelegate()
 {
-    return s_factory ? s_factory->createDelegate() : NULL;
+    return s_factory ? s_factory->createDelegate() : nullptr;
 }
 
 JobUiDelegateFactory *KIO::defaultJobUiDelegateFactory()

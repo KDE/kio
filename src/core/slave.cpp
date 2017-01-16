@@ -127,7 +127,7 @@ public:
         m_protocol(protocol),
         m_slaveProtocol(protocol),
         slaveconnserver(new KIO::ConnectionServer),
-        m_job(0),
+        m_job(nullptr),
         m_pid(0),
         m_port(0),
         contacted(false),
@@ -168,7 +168,7 @@ void Slave::accept()
     Q_D(Slave);
     d->slaveconnserver->setNextPendingConnection(d->connection);
     d->slaveconnserver->deleteLater();
-    d->slaveconnserver = 0;
+    d->slaveconnserver = nullptr;
 
     connect(d->connection, SIGNAL(readyRead()), SLOT(gotInput()));
 }
@@ -470,7 +470,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
         error_text = i18n("Can not create socket for launching io-slave for protocol '%1'.", protocol);
         error = KIO::ERR_CANNOT_CREATE_SLAVE;
         delete slave;
-        return 0;
+        return nullptr;
     }
 
     if (forkSlaves() == 1) {
@@ -479,7 +479,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
             error_text = i18n("Unknown protocol '%1'.", protocol);
             error = KIO::ERR_CANNOT_CREATE_SLAVE;
             delete slave;
-            return 0;
+            return nullptr;
         }
         // find the kioslave using KPluginLoader; kioslave would do this
         // anyway, but if it doesn't exist, we want to be able to return
@@ -489,7 +489,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
             error_text = i18n("Can not find io-slave for protocol '%1'.", protocol);
             error = KIO::ERR_CANNOT_CREATE_SLAVE;
             delete slave;
-            return 0;
+            return nullptr;
         }
 
         const QStringList args = QStringList() << lib_path << protocol << QLatin1String("") << slaveAddress.toString();
@@ -505,7 +505,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
             error_text = i18n("Can not find 'kioslave' executable at '%1'", searchPaths.join(QStringLiteral(", ")));
             error = KIO::ERR_CANNOT_CREATE_SLAVE;
             delete slave;
-            return 0;
+            return nullptr;
 
         }
         QProcess::startDetached(kioslaveExecutable, args);
@@ -519,14 +519,14 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
         error_text = i18n("Cannot talk to klauncher: %1", klauncher()->lastError().message());
         error = KIO::ERR_CANNOT_CREATE_SLAVE;
         delete slave;
-        return 0;
+        return nullptr;
     }
     qint64 pid = reply;
     if (!pid) {
         error_text = i18n("klauncher said: %1", errorStr);
         error = KIO::ERR_CANNOT_CREATE_SLAVE;
         delete slave;
-        return 0;
+        return nullptr;
     }
     slave->setPID(pid);
     QTimer::singleShot(1000 * SLAVE_CONNECTION_TIMEOUT_MIN, slave, SLOT(timeout()));
@@ -538,11 +538,11 @@ Slave *Slave::holdSlave(const QString &protocol, const QUrl &url)
     //qDebug() << "holdSlave" << protocol << "for" << url;
     // Firstly take into account all special slaves
     if (protocol == QLatin1String("data")) {
-        return 0;
+        return nullptr;
     }
 
     if (forkSlaves()) {
-        return 0;
+        return nullptr;
     }
 
     Slave *slave = new Slave(protocol);
@@ -550,12 +550,12 @@ Slave *Slave::holdSlave(const QString &protocol, const QUrl &url)
     QDBusReply<int> reply = klauncher()->requestHoldSlave(url.toString(), slaveAddress.toString());
     if (!reply.isValid()) {
         delete slave;
-        return 0;
+        return nullptr;
     }
     qint64 pid = reply;
     if (!pid) {
         delete slave;
-        return 0;
+        return nullptr;
     }
     slave->setPID(pid);
     QTimer::singleShot(1000 * SLAVE_CONNECTION_TIMEOUT_MIN, slave, SLOT(timeout()));

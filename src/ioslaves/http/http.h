@@ -85,7 +85,7 @@ public:
             useCache = false;
             ioMode = NoCache;
             bytesCached = 0;
-            file = 0;
+            file = nullptr;
         }
 
         enum CachePlan {
