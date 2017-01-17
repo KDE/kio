@@ -166,9 +166,23 @@ void KRun::handleError(KJob *job)
     }
 }
 
-// This is called by foundMimeType, since it knows the mimetype of the URL
-bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, bool tempFile, bool runExecutables, const QString &suggestedFileName, const QByteArray &asn)
+#ifndef KIOWIDGETS_NO_DEPRECATED
+bool KRun::runUrl(const QUrl &url, const QString &mimetype, QWidget *window, bool tempFile, bool runExecutables, const QString &suggestedFileName, const QByteArray &asn)
 {
+    RunFlags flags = tempFile ? KRun::DeleteTemporaryFiles : RunFlags();
+    if (runExecutables) {
+        flags |= KRun::RunExecutables;
+    }
+
+    return runUrl(url, mimetype, window, flags, suggestedFileName, asn);
+}
+#endif
+
+// This is called by foundMimeType, since it knows the mimetype of the URL
+bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, RunFlags flags, const QString &suggestedFileName, const QByteArray &asn)
+{
+    const bool runExecutables = flags.testFlag(KRun::RunExecutables);
+    const bool tempFile = flags.testFlag(KRun::DeleteTemporaryFiles);
     bool noRun = false;
     bool noAuth = false;
     if (_mimetype == QLatin1String("inode/directory-locked")) {

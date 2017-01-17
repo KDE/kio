@@ -231,7 +231,8 @@ public:
                              const QByteArray &asn = QByteArray()); // TODO KF6: deprecate/remove
 
     enum RunFlag {
-        DeleteTemporaryFiles = 0x1 ///< the URLs passed to the service will be deleted when it exits (if the URLs are local files)
+        DeleteTemporaryFiles = 0x1, ///< the URLs passed to the service will be deleted when it exits (if the URLs are local files)
+        RunExecutables = 0x2,       ///< Whether to run URLs that are executable scripts or binaries @see isExecutableFile() @since 5.31
     };
     Q_DECLARE_FLAGS(RunFlags, RunFlag)
 
@@ -293,9 +294,30 @@ public:
      * @param suggestedFileName see setSuggestedFileName
      * @param asn Application startup notification id, if any (otherwise "").
      * @return @c true on success, @c false on error
+     * @deprecated since 5.31, use runUrl() with RunFlags instead.
      */
-    static bool runUrl(const QUrl &url, const QString &mimetype, QWidget *window,
-                       bool tempFile = false, bool runExecutables = true,
+#ifndef KIOWIDGETS_NO_DEPRECATED
+    static bool KIOWIDGETS_DEPRECATED_EXPORT runUrl(const QUrl &url, const QString &mimetype, QWidget *window,
+                                                    bool tempFile = false, bool runExecutables = true,
+                                                    const QString &suggestedFileName = QString(), const QByteArray &asn = QByteArray());
+#endif
+
+    /**
+     * Open the given URL.
+     *
+     * This function can be used after the mime type has been found out.
+     * It will search for all services which can handle the mime type and call run() afterwards.
+     *
+     * @param url The URL to open.
+     * @param mimetype The mime type of the resource.
+     * @param window The top-level widget of the app that invoked this object.
+     * @param flags Various run flags.
+     * @param suggestedFileName See setSuggestedFileName()
+     * @param asn Application startup notification id, if any (otherwise "").
+     * @return @c true on success, @c false on error
+     * @since 5.31
+     */
+    static bool runUrl(const QUrl &url, const QString &mimetype, QWidget *window, RunFlags flags,
                        const QString &suggestedFileName = QString(), const QByteArray &asn = QByteArray());
 
     /**
