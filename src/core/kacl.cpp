@@ -41,10 +41,16 @@
 class KACL::KACLPrivate
 {
 public:
-    KACLPrivate() : m_acl(nullptr) {}
+    KACLPrivate()
+#if HAVE_POSIX_ACL
+        : m_acl(nullptr)
+#endif
+    {}
 #if HAVE_POSIX_ACL
     KACLPrivate(acl_t acl)
         : m_acl(acl) {}
+#endif
+#if HAVE_POSIX_ACL
     ~KACLPrivate()
     {
         if (m_acl) {
@@ -63,8 +69,6 @@ public:
     acl_t m_acl;
     mutable QHash<uid_t, QString> m_usercache;
     mutable QHash<gid_t, QString> m_groupcache;
-#else
-    int m_acl;
 #endif
 };
 
