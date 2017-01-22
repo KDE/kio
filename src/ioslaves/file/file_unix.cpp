@@ -144,6 +144,9 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
         return;
     }
 
+    // nobody shall be allowed to peek into the file during creation
+    dest_file.setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner);
+
 #if HAVE_FADVISE
     posix_fadvise(dest_file.handle(), 0, 0, POSIX_FADV_SEQUENTIAL);
 #endif
@@ -188,7 +191,6 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
                 // qDebug() << "sendfile() error:" << strerror(errno);
                 if (errno == ENOSPC) { // disk full
                     error(KIO::ERR_DISK_FULL, dest);
-                    remove(_dest.data());
                 } else {
                     error(KIO::ERR_SLAVE_DEFINED,
                           i18n("Cannot copy file from %1 to %2. (Errno: %3)",
@@ -204,6 +206,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
                 acl_free(acl);
             }
 #endif
+            dest_file.remove();  // don't keep partly copied file
             return;
         }
         if (n == 0) {
@@ -215,7 +218,6 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
             if (dest_file.write(buffer, n) != n) {
                 if (dest_file.error() == QFileDevice::ResourceError) {  // disk full
                     error(KIO::ERR_DISK_FULL, dest);
-                    remove(_dest.data());
                 } else {
                     qCWarning(KIO_FILE) << "Couldn't write[2]. Error:" << dest_file.errorString();
                     error(KIO::ERR_CANNOT_WRITE, dest);
@@ -225,6 +227,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
                     acl_free(acl);
                 }
 #endif
+                dest_file.remove();  // don't keep partly copied file
                 return;
             }
             processed_size += n;
@@ -245,21 +248,25 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
             acl_free(acl);
         }
 #endif
+        dest_file.remove();  // don't keep partly copied file
         return;
     }
 
     // set final permissions
-    if (_mode != -1) {
-        if ((::chmod(_dest.data(), _mode) != 0)
+    // if no special mode given, preserve the mode from the sourcefile
+    if (_mode == -1) {
+        _mode = buff_src.st_mode;
+    }
+
+    if ((::chmod(_dest.data(), _mode) != 0)
 #if HAVE_POSIX_ACL
-                || (acl && acl_set_file(_dest.data(), ACL_TYPE_ACCESS, acl) != 0)
+        || (acl && acl_set_file(_dest.data(), ACL_TYPE_ACCESS, acl) != 0)
 #endif
-           ) {
-            KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(dest);
-            // Eat the error if the filesystem apparently doesn't support chmod.
-            if (mp && mp->testFileSystemFlag(KMountPoint::SupportsChmod)) {
-                warning(i18n("Could not change permissions for\n%1", dest));
-            }
+       ) {
+        KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(dest);
+        // Eat the error if the filesystem apparently doesn't support chmod.
+        if (mp && mp->testFileSystemFlag(KMountPoint::SupportsChmod)) {
+            warning(i18n("Could not change permissions for '%1'", dest));
         }
     }
 #if HAVE_POSIX_ACL
@@ -268,12 +275,21 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
     }
 #endif
 
+    // preserve ownership
+    if (::chown(_dest.data(), -1 /*keep user*/, buff_src.st_gid) == 0) {
+        // as we are the owner of the new file, we can always change the group, but
+        // we might not be allowed to change the owner
+        (void)::chown(_dest.data(), buff_src.st_uid, -1 /*keep group*/);
+    } else {
+        qCWarning(KIO_FILE) << QStringLiteral("Couldn't preserve group for '%1'").arg(dest);
+    }
+
     // copy access and modification time
     struct utimbuf ut;
     ut.actime = buff_src.st_atime;
     ut.modtime = buff_src.st_mtime;
     if (::utime(_dest.data(), &ut) != 0) {
-        qCWarning(KIO_FILE) << QStringLiteral("Couldn't preserve access and modification time for\n%1").arg(dest);
+        qCWarning(KIO_FILE) << QStringLiteral("Couldn't preserve access and modification time for '%1'").arg(dest);
     }
 
     processedSize(buff_src.st_size);
