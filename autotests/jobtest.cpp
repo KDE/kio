@@ -971,7 +971,7 @@ void JobTest::directorySize()
 #else
     QCOMPARE(job->totalFiles(), 7ULL); // see expected result in listRecursive() above
     QCOMPARE(job->totalSubdirs(), 4ULL); // see expected result in listRecursive() above
-    QVERIFY(job->totalSize() >= 325);
+    QVERIFY(job->totalSize() >= 270); // size of subdir entries is filesystem dependent. E.g. this is 16428 with ext4 but only 272 with xfs.
 #endif
 
     qApp->sendPostedEvents(nullptr, QEvent::DeferredDelete);
