@@ -1669,22 +1669,33 @@ bool Ftp::ftpReadDir(FtpEntry &de)
             }
         }
 
+        // This is needed for ftp servers with a directory listing like this (#375610):
+        // drwxr-xr-x               folder        0 Mar 15 15:50 directory_name
+        if (strcmp(p_junk, "folder") == 0) {
+            p_date_1 = p_group;
+            p_date_2 = p_size;
+            p_size = p_owner;
+            p_group = nullptr;
+            p_owner = nullptr;
+        }
         // Check whether the size we just read was really the size
         // or a month (this happens when the server lists no group)
         // Used to be the case on sunsite.uio.no, but not anymore
         // This is needed for the Netware case, too.
-        if (!isdigit(*p_size)) {
+        else if (!isdigit(*p_size)) {
             p_date_1 = p_size;
+            p_date_2 = strtok(nullptr, " ");
             p_size = p_group;
             p_group = nullptr;
             qCDebug(KIO_FTP) << "Size didn't have a digit -> size=" << p_size << " date_1=" << p_date_1;
         } else {
             p_date_1 = strtok(nullptr, " ");
+            p_date_2 = strtok(nullptr, " ");
             qCDebug(KIO_FTP) << "Size has a digit -> ok. p_date_1=" << p_date_1;
         }
 
         if (p_date_1 != nullptr &&
-                (p_date_2 = strtok(nullptr, " ")) != nullptr &&
+                p_date_2 != nullptr &&
                 (p_date_3 = strtok(nullptr, " ")) != nullptr &&
                 (p_name = strtok(nullptr, "\r\n")) != nullptr) {
             {
