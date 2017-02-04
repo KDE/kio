@@ -249,6 +249,7 @@ public:
     KComboBox *combo;
     KFile::Modes fileDialogMode;
     QString fileDialogFilter;
+    QStringList mimeTypeFilters;
     KEditListWidget::CustomEditor editor;
     KUrlDragPushButton *myButton;
     QFileDialog *myFileDialog;
@@ -492,12 +493,30 @@ QString KUrlRequester::filter() const
     return d->fileDialogFilter;
 }
 
+void KUrlRequester::setMimeTypeFilters(const QStringList &mimeTypes)
+{
+    d->mimeTypeFilters = mimeTypes;
+
+    if (d->myFileDialog) {
+        d->myFileDialog->setMimeTypeFilters(d->mimeTypeFilters);
+    }
+}
+
+QStringList KUrlRequester::mimeTypeFilters() const
+{
+    return d->mimeTypeFilters;
+}
+
 #ifndef KIOWIDGETS_NO_DEPRECATED
 QFileDialog *KUrlRequester::fileDialog() const
 {
     if (!d->myFileDialog) {
         d->myFileDialog = new QFileDialog(window(), windowTitle());
-        d->myFileDialog->setNameFilters(d->kToQFilters(d->fileDialogFilter));
+        if (!d->mimeTypeFilters.isEmpty()) {
+            d->myFileDialog->setMimeTypeFilters(d->mimeTypeFilters);
+        } else {
+            d->myFileDialog->setNameFilters(d->kToQFilters(d->fileDialogFilter));
+        }
 
         d->applyFileMode(d->myFileDialog, d->fileDialogMode);
 
