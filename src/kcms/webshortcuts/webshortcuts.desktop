@@ -13,6 +13,7 @@ X-KDE-Weight=70
 
 Name=Web Shortcuts
 Name[af]=Web Kortpaaie
+Name[ar]=اختصارات الوبّ
 Name[as]=ৱেবৰ চমু পথ
 Name[ast]=Atayos web
 Name[be]=Скароты Сеціва
@@ -98,6 +99,7 @@ Name[zh_CN]=网页快捷方式
 Name[zh_TW]=網頁捷徑
 
 Comment=Configure web shortcuts
+Comment[ar]=اضبط اختصارات الوبّ
 Comment[ast]=Configura los atayos web
 Comment[ca]=Configura les dreceres web
 Comment[ca@valencia]=Configura les dreceres web

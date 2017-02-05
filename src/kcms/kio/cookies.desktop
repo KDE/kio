@@ -13,6 +13,7 @@ X-KDE-System-Settings-Parent-Category=networksettings
 X-KDE-Weight=90
 
 Name=Cookies
+Name[ar]=الكعكات
 Name[ast]=Cookies
 Name[ca]=Galetes
 Name[ca@valencia]=Galetes
@@ -55,6 +56,7 @@ Name[zh_TW]=Cookies
 
 Comment=Configure the way cookies work
 Comment[af]=Konfigureer die weg koekies werk
+Comment[ar]=اضبط طريقة عمل الكعكات
 Comment[as]=কুকিৰ কাম কৰা প্ৰক্ৰিয়া বিন্যাস কৰক
 Comment[ast]=Configura'l mou nel que furrulen les cookies
 Comment[be]=Наставіць cookies

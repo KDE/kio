@@ -13,6 +13,7 @@ X-KDE-Weight=100
 
 Name=Browser Identification
 Name[af]=Stelsel identifisering
+Name[ar]=تعريف المتصفّح
 Name[as]=চৰকৰ চিনাক্তকৰণ
 Name[ast]=Identificación del restolador
 Name[be]=Ідэнтыфікацыя вандроўніка
@@ -97,6 +98,7 @@ Name[zh_TW]=瀏覽器識別
 
 Comment=Configure the way Konqueror reports itself
 Comment[af]=Stel die manier waarop Konqueror homself raporteer op
+Comment[ar]=اضبط كيف يُخبر «كنكر» عن نفسه
 Comment[as]=Konqueror নিজৰ বিষয়ে প্ৰতিবেদন কৰাৰ ব্যৱহাৰ বিন্যাস কৰক
 Comment[ast]=Configura'l mou nel que Konqueror informa de sigo mesmu
 Comment[be]=Настаўленні спосабу прадстаўлення Konqueror у Сеціве

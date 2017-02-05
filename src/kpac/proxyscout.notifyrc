@@ -1,7 +1,7 @@
 [Global]
 IconName=preferences-system-network-proxy
 Comment=Network Proxy Configuration
-Comment[ar]=تضبيط وسيط الشبكة
+Comment[ar]=ضبط وسيط الشّبكة
 Comment[ast]=Configura'l proxy de rede
 Comment[ca]=Configuració del servidor intermediari de la xarxa
 Comment[ca@valencia]=Configuració del servidor intermediari de la xarxa
@@ -99,7 +99,7 @@ Name[x-test]=xxInvalid Proxy Scriptxx
 Name[zh_CN]=无效的代理脚本
 Name[zh_TW]=不合法的代理文稿
 Comment=The downloaded proxy configuration script is invalid
-Comment[ar]=سكرِبت تضبيط الوسيط الذي نُزِّل غير صالح
+Comment[ar]=سكرِبت ضبط الوسيط المُنزّل غير صالح
 Comment[ast]=El script baxáu de configuración del proxy nun ye válidu
 Comment[ca]=L'script de configuració baixat de l'intermediari no és vàlid
 Comment[ca@valencia]=L'script de configuració baixat de l'intermediari no és vàlid

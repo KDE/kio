@@ -12,6 +12,7 @@ X-KDE-ParentApp=kcontrol
 
 Name=Windows Shares
 Name[af]=Vensters Gedeelde bronne
+Name[ar]=مشاركات وندوز
 Name[as]=Windows Shares
 Name[ast]=Comparticiones de Windows
 Name[be]=Агульныя тэчкі Windows
@@ -96,6 +97,7 @@ Name[zh_TW]=Windows 資源共享
 
 Comment=Use to configure which windows (SMB) filesystems you can browse
 Comment[af]=Gebruik om te konfigureer watter Windows (SMB) lêerstelsels jy kan blaai
+Comment[ar]=استخدمها لضبط أيّة أنظمة وندوز (SMB) يمكنك تصفّحها
 Comment[ast]=Úsalo pa configurar qué sistemes de ficheros de Windows (SMB) pues restolar
 Comment[be]=Настаўленні файлавых сістэмаў SMB
 Comment[be@latin]=Naładź, jakija fajłavyja systemy „Windows” (SMB) možna prahladać
