@@ -141,13 +141,13 @@ public:
     QString filter() const;
 
     /**
-     * Returns the mimetype filters for the file dialog.
+     * Sets the mimetype filters for the file dialog.
      * @see QFileDialog::setMimeTypeFilters()
      * @since 5.31
      */
     void setMimeTypeFilters(const QStringList &mimeTypes);
     /**
-     * Sets the mimetype filters for the file dialog.
+     * Returns the mimetype filters for the file dialog.
      * @see QFileDialog::mimeTypeFilters()
      * @since 5.31
      */
