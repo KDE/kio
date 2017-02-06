@@ -103,7 +103,7 @@ public:
      */
     enum Flags {
         None = 0,      /**< No hints. */
-        DrawFrame = 1, /**< A frame should be painted around the preview. */
+        DrawFrame = 1, /**< \deprecated since 5.32. Used to paint a frame around the preview, but applications take care of that nowadays. */
         BlendIcon = 2  /**< The mimetype icon should be blended over the preview. */
     };
 
