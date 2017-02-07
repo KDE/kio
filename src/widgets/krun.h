@@ -297,9 +297,9 @@ public:
      * @deprecated since 5.31, use runUrl() with RunFlags instead.
      */
 #ifndef KIOWIDGETS_NO_DEPRECATED
-    static bool KIOWIDGETS_DEPRECATED_EXPORT runUrl(const QUrl &url, const QString &mimetype, QWidget *window,
-                                                    bool tempFile = false, bool runExecutables = true,
-                                                    const QString &suggestedFileName = QString(), const QByteArray &asn = QByteArray());
+    static bool KIOWIDGETS_DEPRECATED runUrl(const QUrl &url, const QString &mimetype, QWidget *window,
+                                             bool tempFile = false, bool runExecutables = true,
+                                             const QString &suggestedFileName = QString(), const QByteArray &asn = QByteArray());
 #endif
 
     /**
