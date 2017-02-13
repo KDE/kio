@@ -136,7 +136,6 @@ public:
         m_refCount(1)
     {
         contact_started.start();
-        m_idleSince = QDateTime();
         slaveconnserver->listenForRemote();
         if (!slaveconnserver->isListening()) {
             qCWarning(KIO_CORE) << "KIO Connection server not listening, could not connect";
@@ -159,7 +158,7 @@ public:
     bool contacted;
     bool dead;
     QElapsedTimer contact_started;
-    QDateTime m_idleSince;
+    QElapsedTimer m_idleSince;
     int m_refCount;
 };
 }
@@ -272,7 +271,7 @@ QString Slave::passwd()
 void Slave::setIdle()
 {
     Q_D(Slave);
-    d->m_idleSince = QDateTime::currentDateTime();
+    d->m_idleSince.start();
 }
 
 bool Slave::isConnected()
@@ -307,10 +306,10 @@ void Slave::deref()
 int Slave::idleTime()
 {
     Q_D(Slave);
-    if (d->m_idleSince.isNull()) {
+    if (!d->m_idleSince.isValid()) {
         return 0;
     }
-    return d->m_idleSince.secsTo(QDateTime::currentDateTime());
+    return d->m_idleSince.elapsed() / 1000;
 }
 
 void Slave::setPID(qint64 pid)
