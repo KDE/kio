@@ -35,6 +35,7 @@ private:
     void invokeOnServer(const char *);
 private Q_SLOTS:
     void initTestCase();
+    void cleanupTestCase();
     void connectDisconnect();
     void read();
     void write();
@@ -44,6 +45,8 @@ private Q_SLOTS:
     void errors();
 public Q_SLOTS: //auxiliary slots to check signal emission from the socket
     void states_hostFound();
+private:
+    QThread *m_thread;
 };
 
 class QTcpServer;
@@ -57,6 +60,7 @@ public:
     QTcpSocket *socket;
     quint16 port;
     Server(quint16 _port);
+    ~Server();
 private:
     void cleanupSocket();
 

@@ -37,21 +37,6 @@
 
 static const quint16 testPort = 22342;
 
-class ServerThread : public QThread
-{
-    Q_OBJECT
-public:
-    Server *volatile server;
-    ServerThread()
-        : server(nullptr) {}
-    ~ServerThread()
-    {
-        wait(100);
-    }
-protected:
-    void run() Q_DECL_OVERRIDE;
-};
-
 KTcpSocketTest::KTcpSocketTest()
 {
     server = nullptr;
@@ -59,7 +44,6 @@ KTcpSocketTest::KTcpSocketTest()
 
 KTcpSocketTest::~KTcpSocketTest()
 {
-    delete server;
 }
 
 void KTcpSocketTest::invokeOnServer(const char *method)
@@ -68,19 +52,16 @@ void KTcpSocketTest::invokeOnServer(const char *method)
     QTest::qWait(1); //Enter the event loop
 }
 
-void ServerThread::run()
-{
-    server = new Server(testPort);
-    exec(); //Start the event loop; this won't return.
-}
-
 Server::Server(quint16 _port)
-    : listener(nullptr),
+    : listener(new QTcpServer(this)),
       socket(nullptr),
       port(_port)
 {
-    listener = new QTcpServer();
     listener->listen(QHostAddress(QStringLiteral("127.0.0.1")), testPort);
+}
+
+Server::~Server()
+{
 }
 
 void Server::cleanupSocket()
@@ -93,13 +74,18 @@ void Server::cleanupSocket()
 
 void KTcpSocketTest::initTestCase()
 {
-    ServerThread *st = new ServerThread();
-    st->start();
-    while (!st->server)
-        ;
-    //Let the other thread initialize its event loop or whatever; there were problems...
-    QTest::qWait(200);
-    server = st->server;
+    m_thread = new QThread();
+    server = new Server(testPort);
+    server->moveToThread(m_thread);
+    connect(m_thread, &QThread::finished, server, &QObject::deleteLater);
+    m_thread->start();
+}
+
+void KTcpSocketTest::cleanupTestCase()
+{
+    m_thread->quit();
+    m_thread->wait();
+    delete m_thread;
 }
 
 void KTcpSocketTest::connectDisconnect()
