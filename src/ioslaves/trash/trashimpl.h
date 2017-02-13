@@ -204,7 +204,6 @@ private:
     mutable TrashDirMap m_topDirectories; // id -> $topdir of partition
     dev_t m_homeDevice;
     mutable bool m_trashDirectoriesScanned;
-    int m_mibEnum;
 
     mutable KConfig m_config;
 
