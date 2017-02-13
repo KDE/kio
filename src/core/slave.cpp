@@ -187,7 +187,7 @@ void Slave::timeout()
     /*qDebug() << "slave failed to connect to application pid=" << d->m_pid
                  << " protocol=" << d->m_protocol;*/
     if (d->m_pid && KIOPrivate::isProcessAlive(d->m_pid)) {
-        int delta_t = d->contact_started.elapsed();
+        int delta_t = d->contact_started.elapsed() / 1000;
         //qDebug() << "slave is slow... pid=" << d->m_pid << " t=" << delta_t;
         if (delta_t < SLAVE_CONNECTION_TIMEOUT_MAX) {
             QTimer::singleShot(1000 * SLAVE_CONNECTION_TIMEOUT_MIN, this, SLOT(timeout()));
