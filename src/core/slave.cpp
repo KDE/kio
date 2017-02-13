@@ -27,6 +27,7 @@
 #include <QtCore/QStandardPaths>
 #include <QtCore/QTimer>
 #include <QtCore/QProcess>
+#include <QElapsedTimer>
 
 #include <QDBusConnection>
 #include <klocalizedstring.h>
@@ -134,7 +135,7 @@ public:
         dead(false),
         m_refCount(1)
     {
-        contact_started = QDateTime::currentDateTime();
+        contact_started.start();
         m_idleSince = QDateTime();
         slaveconnserver->listenForRemote();
         if (!slaveconnserver->isListening()) {
@@ -157,7 +158,7 @@ public:
     quint16 m_port;
     bool contacted;
     bool dead;
-    QDateTime contact_started;
+    QElapsedTimer contact_started;
     QDateTime m_idleSince;
     int m_refCount;
 };
@@ -186,7 +187,7 @@ void Slave::timeout()
     /*qDebug() << "slave failed to connect to application pid=" << d->m_pid
                  << " protocol=" << d->m_protocol;*/
     if (d->m_pid && KIOPrivate::isProcessAlive(d->m_pid)) {
-        int delta_t = d->contact_started.secsTo(QDateTime::currentDateTime());
+        int delta_t = d->contact_started.elapsed();
         //qDebug() << "slave is slow... pid=" << d->m_pid << " t=" << delta_t;
         if (delta_t < SLAVE_CONNECTION_TIMEOUT_MAX) {
             QTimer::singleShot(1000 * SLAVE_CONNECTION_TIMEOUT_MIN, this, SLOT(timeout()));
