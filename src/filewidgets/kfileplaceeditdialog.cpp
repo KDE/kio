@@ -17,7 +17,7 @@
     Boston, MA 02110-1301, USA.
 */
 
-#include "kfileplaceeditdialog_p.h"
+#include "kfileplaceeditdialog.h"
 
 #include <kaboutdata.h>
 #include <kconfig.h>

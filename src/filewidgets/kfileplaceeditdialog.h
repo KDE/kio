@@ -17,11 +17,10 @@
     Boston, MA 02110-1301, USA.
 */
 
-#ifndef KFILEPLACEEDITDIALOG_P_H
-#define KFILEPLACEEDITDIALOG_P_H
+#ifndef KFILEPLACEEDITDIALOG_H
+#define KFILEPLACEEDITDIALOG_H
 
-// Not exported anymore, only used internally.
-//#include "kiofilewidgets_export.h"
+#include "kiofilewidgets_export.h"
 
 #include <QDialog>
 #include <QUrl>
@@ -36,13 +35,14 @@ class KUrlRequester;
 /**
  * @class KFilePlaceEditDialog kfileplaceeditdialog.h <KFilePlaceEditDialog>
  *
- * A dialog that allows editing entries of a KUrlBar ( KUrlBarItem).
+ * A dialog that allows editing entries of a KFilePlacesModel.
  * The dialog offers to configure a given url, label and icon.
  * See the class-method getInformation() for easy usage.
  *
  * @author Carsten Pfeiffer <pfeiffer@kde.org>
+ * @since 5.53
  */
-class KFilePlaceEditDialog : public QDialog
+class KIOFILEWIDGETS_EXPORT KFilePlaceEditDialog : public QDialog
 {
     Q_OBJECT
 
@@ -153,4 +153,4 @@ private:
     QDialogButtonBox *m_buttonBox;
 };
 
-#endif // KFILEPLACEEDITDIALOG_P_H
+#endif // KFILEPLACEEDITDIALOG_H

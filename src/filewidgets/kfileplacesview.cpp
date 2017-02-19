@@ -52,7 +52,7 @@
 #include <solid/opticaldrive.h>
 #include <solid/opticaldisc.h>
 
-#include "kfileplaceeditdialog_p.h"
+#include "kfileplaceeditdialog.h"
 #include "kfileplacesmodel.h"
 
 #define LATERAL_MARGIN 4
