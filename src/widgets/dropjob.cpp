@@ -112,6 +112,7 @@ public:
     QList<QAction *> m_appActions;
     QList<QAction *> m_pluginActions;
     bool m_triggered;  // Tracks whether an action has been triggered in the popup menu.
+    QSet<QMenu *> m_menus;
 
     Q_DECLARE_PUBLIC(DropJob)
 
@@ -318,7 +319,25 @@ void DropJobPrivate::addPluginActions(QMenu *popup, const KFileItemListPropertie
 void DropJob::setApplicationActions(const QList<QAction *> &actions)
 {
     Q_D(DropJob);
+
+    for (QMenu *menu : d->m_menus) {
+        for (QAction *action : d->m_appActions) {
+            menu->removeAction(action);
+        }
+        for (QAction *action : d->m_pluginActions) {
+            menu->removeAction(action);
+        }
+    }
+
     d->m_appActions = actions;
+
+    for (QMenu *menu : d->m_menus) {
+        if (!d->m_appActions.isEmpty() || !d->m_pluginActions.isEmpty()) {
+            menu->addSeparator();
+            menu->addActions(d->m_appActions);
+            menu->addActions(d->m_pluginActions);
+        }
+    }
 }
 
 void DropJobPrivate::slotTriggered(QAction *action)
@@ -370,6 +389,10 @@ void DropJobPrivate::handleCopyToDirectory()
                 slotTriggered(action);
             });
             menu->popup(m_globalPos);
+            m_menus.insert(menu);
+            QObject::connect(menu, &QObject::destroyed, q, [this, menu]() {
+                m_menus.remove(menu);
+            });
         } else {
             q->setError(error);
             q->emitResult();
