@@ -1,5 +1,3 @@
-add_definitions(-DTRANSLATION_DOMAIN=\"kio_remote\") 
-
 add_subdirectory( kdedmodule ) 
 
 set(kio_remote_SRCS
