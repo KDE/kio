@@ -30,7 +30,7 @@ class RemoteDirNotify : public QObject
 public:
     RemoteDirNotify();
 
-private slots:
+private Q_SLOTS:
     void slotRemoteChanged();
 
 private:
