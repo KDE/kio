@@ -7,7 +7,7 @@ set(kio_remote_SRCS
 
 ecm_qt_declare_logging_category(kio_remote_SRCS HEADER debug.h
                                                IDENTIFIER KIOREMOTE_LOG
-                                               CATEGORY_NAME log_kioremote
+                                               CATEGORY_NAME kf5.kio.kio_remote
                                                DEFAULT_SEVERITY Info)
 
 kcoreaddons_add_plugin(kio_remote
