@@ -10,8 +10,10 @@ ecm_qt_declare_logging_category(kio_remote_SRCS HEADER debug.h
                                                CATEGORY_NAME log_kioremote
                                                DEFAULT_SEVERITY Info)
 
-add_library(kio_remote MODULE ${kio_remote_SRCS})
+kcoreaddons_add_plugin(kio_remote
+    SOURCES ${kio_remote_SRCS}
+    INSTALL_NAMESPACE kf5/kio)
+
 target_link_libraries(kio_remote KF5::KIOCore KF5::I18n)
 
-install(TARGETS kio_remote  DESTINATION ${KDE_INSTALL_PLUGINDIR} )
-install( FILES remote.protocol  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
+set_target_properties(kio_remote PROPERTIES OUTPUT_NAME "remote")

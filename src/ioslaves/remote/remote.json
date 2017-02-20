@@ -1,0 +1,32 @@
+{
+    "KDE-KIO-Protocols": {
+        "remote": {
+            "Class": ":local",
+            "ExtraNames": [],
+            "Icon": "folder-remote",
+            "deleteRecursive": true,
+            "deleting": true,
+            "exec": "kf5/kio/remote",
+            "input": "none",
+            "linking": true,
+            "listing": [
+                "Name",
+                "Type",
+                "Size",
+                "Date",
+                "AccessDate",
+                "Access",
+                "Owner",
+                "Group",
+                "Link"
+            ],
+            "makedir": false,
+            "maxInstances": 4,
+            "moving": true,
+            "output": "filesystem",
+            "protocol": "remote",
+            "reading": true,
+            "writing": false
+        }
+    }
+}

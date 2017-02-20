@@ -23,6 +23,13 @@
 
 #include <QCoreApplication>
 
+// Pseudo plugin class to embed meta data
+class KIOPluginForMetaData : public QObject
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.kde.kio.slave.remote" FILE "remote.json")
+};
+
 extern "C" {
 int Q_DECL_EXPORT kdemain(int argc, char **argv)
 {
@@ -214,3 +221,5 @@ void RemoteProtocol::symlink(const QString &target, const QUrl &dest, KIO::JobFl
 
     error(KIO::ERR_CANNOT_SYMLINK, dest.toDisplayString());
 }
+
+#include "kio_remote.moc"
