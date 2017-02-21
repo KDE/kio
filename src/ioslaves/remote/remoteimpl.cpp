@@ -88,16 +88,9 @@ bool RemoteImpl::findDirectory(const QString &filename, QString &directory) cons
             continue;
         }
 
-        QStringList filenames = dir.entryList(QDir::Files | QDir::Readable);
-
-        QStringList::ConstIterator name = filenames.constBegin();
-        QStringList::ConstIterator endf = filenames.constEnd();
-
-        for (; name != endf; ++name) {
-            if (*name == filename) {
-                directory = *dirpath + QLatin1Char('/');
-                return true;
-            }
+        if (QFileInfo::exists(*dirpath + QLatin1Char('/') + filename)) {
+            directory = *dirpath + QLatin1Char('/');
+            return true;
         }
     }
 
