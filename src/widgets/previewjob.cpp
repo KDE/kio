@@ -27,6 +27,8 @@
 #include <sys/shm.h>
 #endif
 
+#include <limits>
+
 #include <QtCore/QDir>
 #include <QtCore/QFile>
 #include <QImage>
@@ -351,7 +353,7 @@ void PreviewJobPrivate::startPreview()
     }
 
     KConfigGroup cg(KSharedConfig::openConfig(), "PreviewSettings");
-    maximumLocalSize = cg.readEntry("MaximumSize", 5 * 1024 * 1024LL /* 5MB */);
+    maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
     maximumRemoteSize = cg.readEntry("MaximumRemoteSize", 0);
 
     if (bNeedCache) {
