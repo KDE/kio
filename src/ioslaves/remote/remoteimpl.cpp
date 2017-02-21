@@ -140,8 +140,8 @@ static QUrl findWizardRealURL()
     KService::Ptr service = KService::serviceByDesktopName(WIZARD_SERVICE);
 
     if (service && service->isValid()) {
-        url.setPath(QStandardPaths::locate(QStandardPaths::ApplicationsLocation,
-                                           QStringLiteral("%1.desktop").arg(WIZARD_SERVICE)));
+        url = QUrl::fromLocalFile(QStandardPaths::locate(QStandardPaths::ApplicationsLocation,
+                                                         QStringLiteral("%1.desktop").arg(WIZARD_SERVICE)));
     }
 
     return url;
