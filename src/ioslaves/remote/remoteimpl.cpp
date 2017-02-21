@@ -36,12 +36,7 @@
 RemoteImpl::RemoteImpl()
 {
     const QString path = QStringLiteral("%1/remoteview").arg(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation));
-
-    QDir dir = path;
-    if (!dir.exists()) {
-        dir.cdUp();
-        dir.mkdir(QStringLiteral("remoteview"));
-    }
+    QDir().mkpath(path);
 }
 
 void RemoteImpl::listRoot(KIO::UDSEntryList &list) const
