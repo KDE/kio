@@ -18,8 +18,7 @@
 
 #include "remotedirnotifymodule.h"
 
-#include <kpluginfactory.h>
-//#include <kpluginloader.h>
+#include <KPluginFactory>
 
 K_PLUGIN_FACTORY_WITH_JSON(RemoteDirNotifyFactory,
                            "remotedirnotify.json",

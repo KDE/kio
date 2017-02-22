@@ -28,8 +28,6 @@
 #include <QDir>
 #include <QFile>
 
-#include <sys/stat.h>
-
 #define WIZARD_URL "remote:/x-wizard_service.desktop"
 #define WIZARD_SERVICE "org.kde.knetattach"
 
