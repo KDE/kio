@@ -24,6 +24,7 @@
 #include <kio/job.h>
 #include <kio/jobuidelegateextension.h>
 #include <KLocalizedString>
+#include <KDirNotify>
 
 #include <QDebug>
 #include <QMimeDatabase>
@@ -59,6 +60,12 @@ extern "C" {
         slave.dispatchLoop();
         return 0;
     }
+}
+
+static bool isTopLevelEntry(const QUrl &url)
+{
+    const QString dir = url.adjusted(QUrl::RemoveFilename).path();
+    return dir.length() <= 1;
 }
 
 #define INIT_IMPL \
@@ -135,7 +142,33 @@ void TrashProtocol::rename(const QUrl &oldURL, const QUrl &newURL, KIO::JobFlags
     qCDebug(KIO_TRASH) << "TrashProtocol::rename(): old=" << oldURL << " new=" << newURL << " overwrite=" << (flags & KIO::Overwrite);
 
     if (oldURL.scheme() == QLatin1String("trash") && newURL.scheme() == QLatin1String("trash")) {
-        error(KIO::ERR_CANNOT_RENAME, oldURL.toString());
+        if (!isTopLevelEntry(oldURL) || !isTopLevelEntry(newURL)) {
+            error(KIO::ERR_CANNOT_RENAME, oldURL.toString());
+            return;
+        }
+        int oldTrashId, newTrashId;
+        QString oldFileId, oldRelativePath, newFileId, newRelativePath;
+        bool oldOk = TrashImpl::parseURL(oldURL, oldTrashId, oldFileId, oldRelativePath);
+        if (!oldOk) {
+            error(KIO::ERR_SLAVE_DEFINED, i18n("Malformed URL %1", oldURL.toString()));
+            return;
+        }
+        bool newOk = TrashImpl::parseURL(newURL, newTrashId, newFileId, newRelativePath);
+        if (!newOk) {
+            error(KIO::ERR_SLAVE_DEFINED, i18n("Malformed URL %1", newURL.toString()));
+            return;
+        }
+        if (oldTrashId != newTrashId || !oldRelativePath.isEmpty() || !newRelativePath.isEmpty()) {
+            error(KIO::ERR_CANNOT_RENAME, oldURL.toString());
+            return;
+        }
+        bool ok = impl.moveInTrash(oldTrashId, oldFileId, newFileId);
+        if (!ok) {
+            error(impl.lastErrorCode(), impl.lastErrorMessage());
+            return;
+        }
+        org::kde::KDirNotify::emitFileRenamed(oldURL, newURL);
+        finished();
         return;
     }
 
@@ -195,13 +228,12 @@ void TrashProtocol::copyOrMove(const QUrl &src, const QUrl &dest, bool overwrite
         }
         return;
     } else if (src.isLocalFile() && dest.scheme() == QLatin1String("trash")) {
-        QString dir = dest.adjusted(QUrl::RemoveFilename).path();
-        qCDebug(KIO_TRASH) << "trashing a file to " << dir << src << dest;
+        qCDebug(KIO_TRASH) << "trashing a file" << src << dest;
 
         // Trashing a file
         // We detect the case where this isn't normal trashing, but
         // e.g. if kwrite tries to save (moving tempfile over destination)
-        if (dir.length() <= 1 && src.fileName() == dest.fileName()) { // new toplevel entry
+        if (isTopLevelEntry(dest) && src.fileName() == dest.fileName()) { // new toplevel entry
             const QString srcPath = src.path();
             // In theory we should use TrashImpl::parseURL to give the right filename to createInfo,
             // in case the trash URL didn't contain the same filename as srcPath.

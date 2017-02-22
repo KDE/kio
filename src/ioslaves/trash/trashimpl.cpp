@@ -568,8 +568,29 @@ bool TrashImpl::directRename(const QString &src, const QString &dest)
     return true;
 }
 
+bool TrashImpl::moveInTrash(int trashId, const QString &oldFileId, const QString &newFileId)
+{
+    m_lastErrorCode = 0;
+
+    const QString oldInfo = infoPath(trashId, oldFileId);
+    const QString oldFile = filesPath(trashId, oldFileId);
+    const QString newInfo = infoPath(trashId, newFileId);
+    const QString newFile = filesPath(trashId, newFileId);
+
+    if (directRename(oldInfo, newInfo)) {
+        if (directRename(oldFile, newFile)) {
+            // success
+            return true;
+        } else {
+            // rollback
+            directRename(newInfo, oldInfo);
+        }
+    }
+    return false;
+}
+
 #if 0
-bool TrashImplKDE_mkdir(int trashId, const QString &fileId, int permissions)
+bool TrashImpl::mkdir(int trashId, const QString &fileId, int permissions)
 {
     const QString path = filesPath(trashId, fileId);
     if (KDE_mkdir(QFile::encodeName(path), permissions) != 0) {

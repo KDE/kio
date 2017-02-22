@@ -66,6 +66,9 @@ public:
     /// Copying a file or directory out of the trash. The ids come from createInfo.
     bool copyFromTrash(const QString &origPath, int trashId, const QString &fileId, const QString &relativePath);
 
+    /// Renaming a file or directory in the trash.
+    bool moveInTrash(int trashId, const QString &oldFileId, const QString &newFileId);
+
     /// Create a top-level trashed directory
     //bool mkdir( int trashId, const QString& fileId, int permissions );
 

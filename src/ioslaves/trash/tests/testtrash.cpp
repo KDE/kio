@@ -636,21 +636,6 @@ void TestTrash::trashDirectoryWithTrailingSlash()
     trashDirectory(homeTmpDir() + dirName, QStringLiteral("dirwithslash"));
 }
 
-void TestTrash::tryRenameInsideTrash()
-{
-    qDebug() << " with file_move";
-    KIO::Job *job = KIO::file_move(QUrl(QStringLiteral("trash:/0-tryRenameInsideTrash")), QUrl(QStringLiteral("trash:/foobar")), -1, KIO::HideProgressInfo);
-    bool worked = job->exec();
-    QVERIFY(!worked);
-    QVERIFY(job->error() == KIO::ERR_CANNOT_RENAME);
-
-    qDebug() << " with move";
-    job = KIO::move(QUrl(QStringLiteral("trash:/0-tryRenameInsideTrash")), QUrl(QStringLiteral("trash:/foobar")), KIO::HideProgressInfo);
-    worked = job->exec();
-    QVERIFY(!worked);
-    QVERIFY(job->error() == KIO::ERR_CANNOT_RENAME);
-}
-
 void TestTrash::delRootFile()
 {
     // test deleting a trashed file
@@ -853,6 +838,56 @@ void TestTrash::copySymlinkFromTrash() // relies on trashSymlinkFromHome() being
     const QString destPath = otherTmpDir() + QLatin1String("symlinkFromHome_copied");
     copyFromTrash(QStringLiteral("symlinkFromHome"), destPath);
     QVERIFY(QFileInfo(destPath).isSymLink());
+}
+
+void TestTrash::moveInTrash(const QString &fileId, const QString &destFileId)
+{
+    const QUrl src(QLatin1String("trash:/0-") + fileId);
+    const QUrl dest(QLatin1String("trash:/0-") + destFileId);
+
+    QVERIFY(MyNetAccess_exists(src));
+    QVERIFY(!MyNetAccess_exists(dest));
+
+    KIO::Job *job = KIO::moveAs(src, dest, KIO::HideProgressInfo);
+    bool ok = job->exec();
+    QVERIFY2(ok, qPrintable(job->errorString()));
+
+    // Check old doesn't exist anymore
+    QString infoFile(m_trashDir + "/info/" + fileId + ".trashinfo");
+    QVERIFY(!QFile::exists(infoFile));
+    QFileInfo filesItem(m_trashDir + "/files/" + fileId);
+    QVERIFY(!filesItem.exists());
+
+    // Check new exists now
+    QString newInfoFile(m_trashDir + "/info/" + destFileId + ".trashinfo");
+    QVERIFY(QFile::exists(newInfoFile));
+    QFileInfo newFilesItem(m_trashDir + "/files/" + destFileId);
+    QVERIFY(newFilesItem.exists());
+
+}
+
+void TestTrash::renameFileInTrash()
+{
+    const QString fileName = QStringLiteral("renameFileInTrash");
+    const QString filePath = homeTmpDir() + fileName;
+    createTestFile(filePath);
+    trashFile(filePath, fileName);
+
+    const QString destFileName = QStringLiteral("fileRenamed");
+    moveInTrash(fileName, destFileName);
+
+    // cleanup
+    KIO::Job *delJob = KIO::del(QUrl(QStringLiteral("trash:/0-fileRenamed")), KIO::HideProgressInfo);
+    bool ok = delJob->exec();
+    QVERIFY2(ok, qPrintable(delJob->errorString()));
+}
+
+void TestTrash::renameDirInTrash()
+{
+    const QString dirName = QStringLiteral("trashDirFromHome");
+    const QString destDirName = QStringLiteral("dirRenamed");
+    moveInTrash(dirName, destDirName);
+    moveInTrash(destDirName, dirName);
 }
 
 void TestTrash::moveFromTrash(const QString &fileId, const QString &destPath, const QString &relativePath)

@@ -60,8 +60,6 @@ private Q_SLOTS:
     void trashDirectoryOwnedByRoot();
     void trashDirectoryWithTrailingSlash();
 
-    void tryRenameInsideTrash();
-
     void statRoot();
     void statFileInRoot();
     void statDirectoryInRoot();
@@ -73,6 +71,8 @@ private Q_SLOTS:
     void copyDirectoryFromTrash();
     void copySymlinkFromTrash();
 
+    void renameFileInTrash();
+    void renameDirInTrash();
     void moveFileFromTrash();
     void moveFileFromTrashToDir_data();
     void moveFileFromTrashToDir();
@@ -104,6 +104,7 @@ private:
     void trashSymlink(const QString &origFilePath, const QString &fileName, bool broken);
     void trashDirectory(const QString &origPath, const QString &fileName);
     void copyFromTrash(const QString &fileId, const QString &destPath, const QString &relativePath = QString());
+    void moveInTrash(const QString &fileId, const QString &destFileId);
     void moveFromTrash(const QString &fileId, const QString &destPath, const QString &relativePath = QString());
     void checkDirCacheValidity();
 
