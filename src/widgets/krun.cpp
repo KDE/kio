@@ -85,8 +85,6 @@
 #include <kwindowsystem.h>
 #elif defined(Q_OS_WIN)
 #include <QDesktopServices>
-#include <qt_windows.h> // PPROCESS_INFORMATION
-#pragma message("TODO: remove #include <qt_windows.h> once we depend on Qt 5.3")
 #endif
 #include <qplatformdefs.h>
 #include <qstandardpaths.h>
