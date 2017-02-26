@@ -122,7 +122,7 @@ QString HelpProtocol::lookupFile(const QString &fname,
                 redirection(red);
                 redirect = true;
             } else {
-                unicodeError(i18n("There is no documentation available for %1.", path.toHtmlEscaped()));
+                sendError(i18n("There is no documentation available for %1.", path.toHtmlEscaped()));
                 return QString();
             }
         }
@@ -133,15 +133,10 @@ QString HelpProtocol::lookupFile(const QString &fname,
     return result;
 }
 
-void HelpProtocol::unicodeError(const QString &t)
+void HelpProtocol::sendError(const QString &t)
 {
-#ifdef Q_OS_WIN
-    QString encoding = "UTF-8";
-#else
-    QString encoding = QTextCodec::codecForLocale()->name();
-#endif
-    data(fromUnicode(QStringLiteral(
-                         "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=%1\"></head>\n%2</html>").arg(encoding, t.toHtmlEscaped())));
+    data(QStringLiteral(
+         "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"></head>\n%1</html>").arg(t.toHtmlEscaped()).toUtf8());
 
 }
 
@@ -235,7 +230,7 @@ void HelpProtocol::get(const QUrl &url)
         //qDebug() << "parsed " << mParsed.length();
 
         if (mParsed.isEmpty()) {
-            unicodeError(i18n("The requested help file could not be parsed:<br />%1",  file));
+            sendError(i18n("The requested help file could not be parsed:<br />%1",  file));
         } else {
             int pos1 = mParsed.indexOf(QStringLiteral("charset="));
             if (pos1 > 0) {
@@ -280,7 +275,7 @@ void HelpProtocol::get(const QUrl &url)
         //qDebug() << "parsed " << mParsed.length();
 
         if (mParsed.isEmpty()) {
-            unicodeError(i18n("The requested help file could not be parsed:<br />%1",  file));
+            sendError(i18n("The requested help file could not be parsed:<br />%1",  file));
         } else {
             QString anchor;
             QString query = url.query();
@@ -340,21 +335,13 @@ void HelpProtocol::emitFile(const QUrl &url)
 
     QString filename = url.path().mid(url.path().lastIndexOf('/') + 1);
 
-    int index = mParsed.indexOf(QStringLiteral("<FILENAME filename=\"%1\"").arg(filename));
-    if (index == -1) {
-        if (filename == QLatin1String("index.html")) {
-            data(fromUnicode(mParsed));
-            return;
-        }
+    QByteArray result = extractFileToBuffer(mParsed, filename);
 
-        unicodeError(i18n("Could not find filename %1 in %2.", filename, url.toString()));
-        return;
+    if (result.isNull()) {
+        sendError(i18n("Could not find filename %1 in %2.", filename, url.toString()));
+    } else {
+        data(result);
     }
-
-    QString filedata = splitOut(mParsed, index);
-    replaceCharsetHeader(filedata);
-
-    data(fromUnicode(filedata));
     data(QByteArray());
 }
 

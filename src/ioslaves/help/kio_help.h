@@ -50,7 +50,7 @@ private:
     QString lookupFile(const QString &fname, const QString &query,
                        bool &redirect);
 
-    void unicodeError(const QString &t);
+    void sendError(const QString &t);
 
     QString mParsed;
     bool mGhelp;
