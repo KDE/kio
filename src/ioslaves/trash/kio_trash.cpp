@@ -169,7 +169,8 @@ void TrashProtocol::rename(const QUrl &oldURL, const QUrl &newURL, KIO::JobFlags
             error(impl.lastErrorCode(), impl.lastErrorMessage());
             return;
         }
-        org::kde::KDirNotify::emitFileRenamed(oldURL, newURL);
+        const QUrl finalUrl = TrashImpl::makeURL(oldTrashId, newFileId, QString());
+        org::kde::KDirNotify::emitFileRenamed(oldURL, finalUrl);
         finished();
         return;
     }
