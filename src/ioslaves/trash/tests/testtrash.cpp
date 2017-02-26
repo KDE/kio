@@ -843,7 +843,7 @@ void TestTrash::copySymlinkFromTrash() // relies on trashSymlinkFromHome() being
 void TestTrash::moveInTrash(const QString &fileId, const QString &destFileId)
 {
     const QUrl src(QLatin1String("trash:/0-") + fileId);
-    const QUrl dest(QLatin1String("trash:/0-") + destFileId);
+    const QUrl dest(QLatin1String("trash:/") + destFileId);
 
     QVERIFY(MyNetAccess_exists(src));
     QVERIFY(!MyNetAccess_exists(dest));

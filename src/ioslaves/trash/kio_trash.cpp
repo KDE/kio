@@ -146,19 +146,21 @@ void TrashProtocol::rename(const QUrl &oldURL, const QUrl &newURL, KIO::JobFlags
             error(KIO::ERR_CANNOT_RENAME, oldURL.toString());
             return;
         }
-        int oldTrashId, newTrashId;
-        QString oldFileId, oldRelativePath, newFileId, newRelativePath;
+        int oldTrashId;
+        QString oldFileId, oldRelativePath;
         bool oldOk = TrashImpl::parseURL(oldURL, oldTrashId, oldFileId, oldRelativePath);
         if (!oldOk) {
             error(KIO::ERR_SLAVE_DEFINED, i18n("Malformed URL %1", oldURL.toString()));
             return;
         }
-        bool newOk = TrashImpl::parseURL(newURL, newTrashId, newFileId, newRelativePath);
-        if (!newOk) {
-            error(KIO::ERR_SLAVE_DEFINED, i18n("Malformed URL %1", newURL.toString()));
+        if (!oldRelativePath.isEmpty()) {
+            error(KIO::ERR_CANNOT_RENAME, oldURL.toString());
             return;
         }
-        if (oldTrashId != newTrashId || !oldRelativePath.isEmpty() || !newRelativePath.isEmpty()) {
+        // Dolphin/KIO can't specify a trashid in the new URL so here path == filename
+        //bool newOk = TrashImpl::parseURL(newURL, newTrashId, newFileId, newRelativePath);
+        const QString newFileId = newURL.path().mid(1);
+        if (newFileId.contains(QLatin1Char('/'))) {
             error(KIO::ERR_CANNOT_RENAME, oldURL.toString());
             return;
         }
