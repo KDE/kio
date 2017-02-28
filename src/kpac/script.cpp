@@ -754,9 +754,16 @@ QString Script::evaluate(const QUrl &url)
         }
     }
 
+    QUrl cleanUrl = url;
+    cleanUrl.setUserInfo(QString());
+    if (cleanUrl.scheme() == QLatin1String("https")) {
+        cleanUrl.setPath(QString());
+        cleanUrl.setQuery(QString());
+    }
+
     QScriptValueList args;
-    args << url.url();
-    args << url.host();
+    args << cleanUrl.url();
+    args << cleanUrl.host();
 
     QScriptValue result = func.call(QScriptValue(), args);
     if (result.isError()) {
