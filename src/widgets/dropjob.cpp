@@ -57,6 +57,27 @@ using namespace KIO;
 
 Q_DECLARE_METATYPE(Qt::DropAction)
 
+namespace KIO {
+class DropMenu;
+}
+
+class KIO::DropMenu : public QMenu
+{
+public:
+    DropMenu(QWidget *parent = nullptr);
+    ~DropMenu();
+
+    void addCancelAction();
+    void addExtraActions(const QList<QAction *> &appActions, const QList<QAction *> &pluginActions);
+
+private:
+    QList<QAction *> m_appActions;
+    QList<QAction *> m_pluginActions;
+    QAction *m_lastSeparator;
+    QAction *m_extraActionsSeparator;
+    QAction *m_cancelAction;
+};
+
 class KIO::DropJobPrivate : public KIO::JobPrivate
 {
 public:
@@ -96,8 +117,8 @@ public:
     void handleDropToDesktopFile();
     void handleDropToExecutable();
     int determineDropAction();
-    void fillPopupMenu(QMenu *popup);
-    void addPluginActions(QMenu *popup, const KFileItemListProperties &itemProps);
+    void fillPopupMenu(KIO::DropMenu *popup);
+    void addPluginActions(KIO::DropMenu *popup, const KFileItemListProperties &itemProps);
     void doCopyToDirectory();
 
     const QMimeData *m_mimeData;
@@ -112,7 +133,7 @@ public:
     QList<QAction *> m_appActions;
     QList<QAction *> m_pluginActions;
     bool m_triggered;  // Tracks whether an action has been triggered in the popup menu.
-    QSet<QMenu *> m_menus;
+    QSet<KIO::DropMenu *> m_menus;
 
     Q_DECLARE_PUBLIC(DropJob)
 
@@ -131,6 +152,50 @@ public:
     }
 
 };
+
+DropMenu::DropMenu(QWidget *parent)
+    : QMenu(parent),
+      m_extraActionsSeparator(nullptr)
+{
+    m_cancelAction = new QAction(i18n("C&ancel") + '\t' + QKeySequence(Qt::Key_Escape).toString(), this);
+    m_cancelAction->setIcon(QIcon::fromTheme(QStringLiteral("process-stop")));
+
+    m_lastSeparator = new QAction(this);
+    m_lastSeparator->setSeparator(true);
+}
+
+DropMenu::~DropMenu()
+{
+}
+
+void DropMenu::addExtraActions(const QList<QAction *> &appActions, const QList<QAction *> &pluginActions)
+{
+    removeAction(m_lastSeparator);
+    removeAction(m_cancelAction);
+
+    removeAction(m_extraActionsSeparator);
+    for (QAction *action : m_appActions) {
+        removeAction(action);
+    }
+    for (QAction *action : m_pluginActions) {
+        removeAction(action);
+    }
+
+    m_appActions = appActions;
+    m_pluginActions = pluginActions;
+    if (!m_appActions.isEmpty() || !m_pluginActions.isEmpty()) {
+        if (!m_extraActionsSeparator) {
+            m_extraActionsSeparator = new QAction(this);
+            m_extraActionsSeparator->setSeparator(true);
+        }
+        addAction(m_extraActionsSeparator);
+        addActions(appActions);
+        addActions(pluginActions);
+    }
+
+    addAction(m_lastSeparator);
+    addAction(m_cancelAction);
+}
 
 DropJob::DropJob(DropJobPrivate &dd)
     : Job(dd)
@@ -225,7 +290,7 @@ int DropJobPrivate::determineDropAction()
     return KIO::ERR_UNKNOWN;
 }
 
-void DropJobPrivate::fillPopupMenu(QMenu *popup)
+void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
 {
     Q_Q(DropJob);
 
@@ -262,8 +327,6 @@ void DropJobPrivate::fillPopupMenu(QMenu *popup)
     QAction* popupLinkAction = new QAction(i18n("&Link Here") + '\t' + seq, popup);
     popupLinkAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-link")));
     popupLinkAction->setData(QVariant::fromValue(Qt::LinkAction));
-    QAction* popupCancelAction = new QAction(i18n("C&ancel") + '\t' + QKeySequence(Qt::Key_Escape).toString(), popup);
-    popupCancelAction->setIcon(QIcon::fromTheme(QStringLiteral("process-stop")));
 
     if (sMoving || (sReading && sDeleting)) {
         bool equalDestination = true;
@@ -288,10 +351,9 @@ void DropJobPrivate::fillPopupMenu(QMenu *popup)
     addPluginActions(popup, itemProps);
 
     popup->addSeparator();
-    popup->addAction(popupCancelAction);
 }
 
-void DropJobPrivate::addPluginActions(QMenu *popup, const KFileItemListProperties &itemProps)
+void DropJobPrivate::addPluginActions(KIO::DropMenu *popup, const KFileItemListProperties &itemProps)
 {
     const QVector<KPluginMetaData> plugin_offers = KPluginLoader::findPlugins(QStringLiteral("kf5/kio_dnd"));
     foreach (const KPluginMetaData &service, plugin_offers) {
@@ -308,35 +370,17 @@ void DropJobPrivate::addPluginActions(QMenu *popup, const KFileItemListPropertie
         }
     }
 
-    if (!m_appActions.isEmpty() || !m_pluginActions.isEmpty()) {
-        popup->addSeparator();
-        popup->addActions(m_appActions);
-        popup->addActions(m_pluginActions);
-    }
-
+    popup->addExtraActions(m_appActions, m_pluginActions);
 }
 
 void DropJob::setApplicationActions(const QList<QAction *> &actions)
 {
     Q_D(DropJob);
 
-    for (QMenu *menu : d->m_menus) {
-        for (QAction *action : d->m_appActions) {
-            menu->removeAction(action);
-        }
-        for (QAction *action : d->m_pluginActions) {
-            menu->removeAction(action);
-        }
-    }
-
     d->m_appActions = actions;
 
-    for (QMenu *menu : d->m_menus) {
-        if (!d->m_appActions.isEmpty() || !d->m_pluginActions.isEmpty()) {
-            menu->addSeparator();
-            menu->addActions(d->m_appActions);
-            menu->addActions(d->m_pluginActions);
-        }
+    for (KIO::DropMenu *menu : d->m_menus) {
+        menu->addExtraActions(d->m_appActions, d->m_pluginActions);
     }
 }
 
@@ -377,7 +421,7 @@ void DropJobPrivate::handleCopyToDirectory()
 
     if (int error = determineDropAction()) {
         if (error == KIO::ERR_UNKNOWN) {
-            QMenu *menu = new QMenu(KJobWidgets::window(q));
+            KIO::DropMenu *menu = new KIO::DropMenu(KJobWidgets::window(q));
             QObject::connect(menu, &QMenu::aboutToHide, menu, &QObject::deleteLater);
 
             // If the user clicks outside the menu, it will be destroyed without emitting the triggered signal.
