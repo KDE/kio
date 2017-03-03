@@ -5,7 +5,8 @@ extern "C" int xmlLoadExtDtdDefaultValue;
 #endif
 
 #include "kio_help.h"
-#include "xslt.h"
+
+#include <docbookxslt.h>
 
 #include <QDebug>
 
@@ -39,7 +40,7 @@ extern "C"
 {
     Q_DECL_EXPORT int kdemain(int argc, char **argv)
     {
-        setupStandardDirs();
+        KDocTools::setupStandardDirs();
 
         //qDebug() << "Starting " << getpid();
 

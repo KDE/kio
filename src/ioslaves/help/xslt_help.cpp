@@ -1,5 +1,6 @@
 #include "xslt_help.h"
-#include "xslt.h"
+
+#include <docbookxslt.h>
 
 #include <libxslt/xsltconfig.h>
 #include <libxslt/xsltInternals.h>
@@ -24,7 +25,7 @@ static bool readCache(const QString &filename,
     if (!compareTimeStamps(filename, cache)) {
         return false;
     }
-    if (!compareTimeStamps(locateFileInDtdResource(QStringLiteral("customization/kde-chunk.xsl")), cache)) {
+    if (!compareTimeStamps(KDocTools::locateFileInDtdResource(QStringLiteral("customization/kde-chunk.xsl")), cache)) {
         return false;
     }
 

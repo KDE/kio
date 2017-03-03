@@ -22,8 +22,9 @@
 #include <config-help.h>
 
 #include "kio_help.h"
-#include "xslt.h"
 #include "xslt_help.h"
+
+#include <docbookxslt.h>
 
 #include <KLocalizedString>
 
@@ -225,7 +226,7 @@ void HelpProtocol::get(const QUrl &url)
 
     if (mGhelp) {
         QString xsl = QStringLiteral("customization/kde-nochunk.xsl");
-        mParsed = transform(file, locateFileInDtdResource(xsl));
+        mParsed = KDocTools::transform(file, KDocTools::locateFileInDtdResource(xsl));
 
         //qDebug() << "parsed " << mParsed.length();
 
@@ -250,7 +251,7 @@ void HelpProtocol::get(const QUrl &url)
         //qDebug() << "cached parsed " << mParsed.length();
 
         if (mParsed.isEmpty()) {
-            mParsed = transform(file, locateFileInDtdResource(QStringLiteral("customization/kde-chunk.xsl")));
+            mParsed = KDocTools::transform(file, KDocTools::locateFileInDtdResource(QStringLiteral("customization/kde-chunk.xsl")));
             if (!mParsed.isEmpty()) {
                 infoMessage(i18n("Saving to cache"));
 #ifdef Q_OS_WIN
@@ -265,8 +266,8 @@ void HelpProtocol::get(const QUrl &url)
 #else
                 QString cache = file.left(file.length() - 7);
 #endif
-                saveToCache(mParsed, QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation)
-                            + "/kio_help" + cache + "cache.bz2");
+                KDocTools::saveToCache(mParsed, QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation)
+                                       + "/kio_help" + cache + "cache.bz2");
             }
         } else {
             infoMessage(i18n("Using cached version"));
@@ -335,7 +336,7 @@ void HelpProtocol::emitFile(const QUrl &url)
 
     QString filename = url.path().mid(url.path().lastIndexOf('/') + 1);
 
-    QByteArray result = extractFileToBuffer(mParsed, filename);
+    QByteArray result = KDocTools::extractFileToBuffer(mParsed, filename);
 
     if (result.isNull()) {
         sendError(i18n("Could not find filename %1 in %2.", filename, url.toString()));
