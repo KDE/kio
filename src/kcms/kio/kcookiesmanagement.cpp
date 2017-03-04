@@ -342,7 +342,7 @@ void KCookiesManagement::on_cookiesTreeWidget_currentItemChanged(QTreeWidgetItem
 {
   if (item) {
     CookieListViewItem* cookieItem = static_cast<CookieListViewItem*>(item);
-    CookieProp *cookie = (cookieItem ? cookieItem->cookie() : nullptr);
+    CookieProp *cookie = cookieItem->cookie();
 
     if (cookie) {
       if (cookie->allLoaded || cookieDetails(cookie)) {
@@ -359,15 +359,17 @@ void KCookiesManagement::on_cookiesTreeWidget_currentItemChanged(QTreeWidgetItem
       clearCookieDetails();
       mUi.configPolicyButton->setEnabled(true);
     }
-
-    mUi.deleteButton->setEnabled(true);
+  } else {
+      mUi.configPolicyButton->setEnabled(false);
   }
+  mUi.deleteButton->setEnabled(item != nullptr);
 }
 
 void KCookiesManagement::on_configPolicyButton_clicked()
 {
   // Get current item
   CookieListViewItem *item = static_cast<CookieListViewItem*>(mUi.cookiesTreeWidget->currentItem());
+  Q_ASSERT(item); // the button is disabled otherwise
 
   if (item)
   {
@@ -387,9 +389,9 @@ void KCookiesManagement::on_configPolicyButton_clicked()
 void KCookiesManagement::on_deleteButton_clicked()
 {
   QTreeWidgetItem* currentItem = mUi.cookiesTreeWidget->currentItem();
+  Q_ASSERT(currentItem); // the button is disabled otherwise
   CookieListViewItem *item = static_cast<CookieListViewItem*>( currentItem );
-  if (item && item->cookie())
-  {
+  if (item->cookie()) {
     CookieListViewItem *parent = static_cast<CookieListViewItem*>(item->parent());
     CookiePropList list = mDeletedCookies.value(parent->domain());
     list.append(item->leaveCookie());
@@ -408,12 +410,10 @@ void KCookiesManagement::on_deleteButton_clicked()
   if (currentItem)
   {
     mUi.cookiesTreeWidget->setCurrentItem( currentItem );
-    //on_cookiesTreeWidget_currentItemChanged( currentItem );
   }
   else
     clearCookieDetails();
 
-  mUi.deleteButton->setEnabled(mUi.cookiesTreeWidget->currentItem());
   mUi.deleteAllButton->setEnabled(mUi.cookiesTreeWidget->topLevelItemCount() > 0);
 
   emit changed( true );
