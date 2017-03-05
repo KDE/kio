@@ -186,7 +186,6 @@ public:
 
     ~KUriFilterDataPrivate()
     {
-        qDeleteAll(searchProviderMap.begin(), searchProviderMap.end());
     }
 
     void setData(const QUrl &u, const QString &typedUrl)

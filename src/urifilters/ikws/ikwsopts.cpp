@@ -25,7 +25,6 @@
 #include "searchprovider.h"
 #include "searchproviderdlg.h"
 
-#include <KServiceTypeTrader>
 #include <KBuildSycocaProgressDialog>
 #include <klocalizedstring.h>
 #include <kconfiggroup.h>
@@ -291,16 +290,13 @@ void FilterOptions::load()
   const QString defaultSearchEngine = group.readEntry("DefaultWebShortcut");
   const QStringList favoriteEngines = group.readEntry("PreferredWebShortcuts", DEFAULT_PREFERRED_SEARCH_PROVIDERS);
 
-  QList<SearchProvider*> providers;
-  const KService::List services = KServiceTypeTrader::self()->query(QStringLiteral("SearchProvider"));
-  int defaultProviderIndex = services.size(); //default is "None", it is last in the list
+  const QList<SearchProvider*> providers = m_registry.findAll();
+  int defaultProviderIndex = providers.size(); //default is "None", it is last in the list
 
-  Q_FOREACH(const KService::Ptr &service, services)
+  for (SearchProvider *provider : providers)
   {
-    SearchProvider* provider = new SearchProvider(service);
     if (defaultSearchEngine == provider->desktopEntryName())
       defaultProviderIndex = providers.size();
-    providers.append(provider);
   }
 
   m_providersModel->setProviders(providers, favoriteEngines);

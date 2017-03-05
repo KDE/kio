@@ -25,9 +25,9 @@
 #include <QTabWidget>
 
 #include <kcmodule.h>
-#include <kservice.h>
 
 #include "ui_ikwsopts_ui.h"
+#include "searchproviderregistry.h"
 
 class SearchProvider;
 class ProvidersModel;
@@ -61,6 +61,7 @@ private:
     // on save if a global service file exists for it.
     QStringList m_deletedProviders;
     ProvidersModel* m_providersModel;
+    SearchProviderRegistry m_registry;
 
     Ui::FilterOptionsUI m_dlg;
 };

@@ -20,14 +20,14 @@
 #ifndef SEARCHPROVIDER_H
 #define SEARCHPROVIDER_H
 
-#include <kservice.h>
 #include <KUriFilter>
 
 class SearchProvider : public KUriFilterSearchProvider
 {
 public:
     SearchProvider() : m_dirty(false) {}
-    explicit SearchProvider(const KService::Ptr service);
+    explicit SearchProvider(const QString &servicePath);
+    ~SearchProvider();
 
     const QString& charset() const { return m_charset; }
     const QString& query() const { return m_query; }
@@ -41,9 +41,6 @@ public:
 
     QString iconName() const Q_DECL_OVERRIDE;
 
-    static SearchProvider *findByDesktopName(const QString &);
-    static SearchProvider *findByKey(const QString &);
-    static QList<SearchProvider *> findAll();
 private:
     QString m_query;
     QString m_charset;

@@ -2,7 +2,12 @@ add_subdirectory(searchproviders)
 
 ####
 
-set(kuriikwsfilter_SRCS kuriikwsfiltereng.cpp kuriikwsfilter.cpp searchprovider.cpp)
+set(kuriikwsfilter_SRCS
+   kuriikwsfiltereng.cpp
+   kuriikwsfilter.cpp
+   searchprovider.cpp
+   searchproviderregistry.cpp
+)
 
 ki18n_wrap_ui(kuriikwsfilter_SRCS ikwsopts_ui.ui searchproviderdlg_ui.ui)
 
@@ -22,7 +27,9 @@ set(kurisearchfilter_SRCS
    kuriikwsfiltereng.cpp
    ikwsopts.cpp
    searchproviderdlg.cpp
-   searchprovider.cpp )
+   searchprovider.cpp
+   searchproviderregistry.cpp
+)
 
 ki18n_wrap_ui(kurisearchfilter_SRCS ikwsopts_ui.ui searchproviderdlg_ui.ui)
 

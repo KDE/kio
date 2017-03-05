@@ -180,6 +180,10 @@ void KUriFilterTest::initTestCase()
     qputenv("KDE_FORK_SLAVES", "yes");   // simpler, for the final cleanup
     QLoggingCategory::setFilterRules(QStringLiteral("org.kde.kurifilter-*=true"));
 
+    QString searchProvidersDir = QFINDTESTDATA("../src/urifilters/ikws/searchproviders/google.desktop").section('/', 0, -2);
+    QVERIFY(!searchProvidersDir.isEmpty());
+    qputenv("KIO_SEARCHPROVIDERS_DIR", QFile::encodeName(searchProvidersDir));
+
     // Allow testing of the search engine using both delimiters...
     const char *envDelimiter = ::getenv("KURIFILTERTEST_DELIMITER");
     if (envDelimiter) {

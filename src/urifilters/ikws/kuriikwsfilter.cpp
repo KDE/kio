@@ -68,7 +68,7 @@ void KAutoWebSearch::populateProvidersList(QList<KUriFilterSearchProvider*>& sea
   const QString searchTerm = filter->keywordDelimiter() + data.typedString();
 
   if (allproviders)
-    providers = SearchProvider::findAll();
+    providers = filter->registry()->findAll();
   else
   {
     // Start with the search engines marked as preferred...
@@ -92,7 +92,7 @@ void KAutoWebSearch::populateProvidersList(QList<KUriFilterSearchProvider*>& sea
     QStringListIterator it (favEngines);
     while (it.hasNext())
     {
-      SearchProvider *favProvider = SearchProvider::findByDesktopName(it.next());
+      SearchProvider *favProvider = filter->registry()->findByDesktopName(it.next());
       if (favProvider)
           providers << favProvider;
     }
@@ -163,7 +163,6 @@ bool KAutoWebSearch::filterUri( KUriFilterData &data ) const
       QList<KUriFilterSearchProvider*> searchProviders;
       populateProvidersList(searchProviders, data);
       setSearchProviders(data, searchProviders);
-      delete provider;
       return true;
     }
   }

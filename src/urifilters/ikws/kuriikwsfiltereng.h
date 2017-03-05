@@ -28,6 +28,7 @@
 #include <QtCore/QMap>
 #include <QtCore/QStringList>
 #include <QtCore/QUrl>
+#include "searchproviderregistry.h"
 
 #define DEFAULT_PREFERRED_SEARCH_PROVIDERS \
 QStringList() << QStringLiteral("google") << QStringLiteral("youtube") << QStringLiteral("yahoo") << QStringLiteral("wikipedia") << QStringLiteral("wikit")
@@ -51,6 +52,8 @@ public:
   QUrl formatResult (const QString& url, const QString& cset1, const QString& cset2,
                         const QString& query, bool isMalformed) const;
 
+  SearchProviderRegistry *registry();
+
   static KURISearchFilterEngine *self();
   void loadConfig();
   
@@ -59,13 +62,14 @@ protected:
                         const QString& query, bool isMalformed, SubstMap& map) const;
 
 private:
-  KURISearchFilterEngine(const KURISearchFilterEngine&);
-  KURISearchFilterEngine& operator= (const KURISearchFilterEngine&);
+  KURISearchFilterEngine(const KURISearchFilterEngine&) = delete;
+  KURISearchFilterEngine& operator= (const KURISearchFilterEngine&) = delete;
   
   QStringList modifySubstitutionMap (SubstMap& map, const QString& query) const;
   QString substituteQuery (const QString& url, SubstMap &map,
                            const QString& userquery, QTextCodec *codec) const;
 
+  SearchProviderRegistry m_registry;
   QString m_defaultWebShortcut;
   QStringList m_preferredWebShortcuts;
   bool m_bWebShortcutsEnabled;

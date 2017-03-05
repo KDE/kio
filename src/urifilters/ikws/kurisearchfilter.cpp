@@ -25,6 +25,7 @@
 #include "ikwsopts.h"
 
 #include <QtDBus/QtDBus>
+#include <KPluginFactory>
 #include <klocalizedstring.h>
 #include <kaboutdata.h>
 
@@ -70,7 +71,7 @@ bool KUriSearchFilter::filterUri( KUriFilterData &data ) const
 
   QString searchTerm;
   KURISearchFilterEngine *filter = KURISearchFilterEngine::self();
-  QScopedPointer<SearchProvider> provider(filter->webShortcutQuery(data.typedString(), searchTerm));
+  SearchProvider* provider(filter->webShortcutQuery(data.typedString(), searchTerm));
   if (!provider) {
     return false;
   }

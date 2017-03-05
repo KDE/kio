@@ -72,14 +72,13 @@ SearchProvider* KURISearchFilterEngine::webShortcutQuery(const QString& typedStr
 
     if (!key.isEmpty() && !KProtocolInfo::isKnownProtocol(key))
     {
-      provider = SearchProvider::findByKey(key);
+      provider = m_registry.findByKey(key);
       if (provider)
       {
         if (!m_bUseOnlyPreferredWebShortcuts || m_preferredWebShortcuts.contains(provider->desktopEntryName())) {
             searchTerm = typedString.mid(pos+1);
             qCDebug(category) << "found provider" << provider->desktopEntryName() << "searchTerm=" << searchTerm;
         } else {
-          delete provider;
           provider = nullptr;
         }
       }
@@ -100,8 +99,9 @@ SearchProvider* KURISearchFilterEngine::autoWebSearchQuery(const QString& typedS
     // Make sure we ignore supported protocols, e.g. "smb:", "http:"
     const int pos = typedString.indexOf(':');
 
-    if (pos == -1 || !KProtocolInfo::isKnownProtocol(typedString.left(pos)))
-      provider = SearchProvider::findByDesktopName(defaultSearchProvider);
+    if (pos == -1 || !KProtocolInfo::isKnownProtocol(typedString.left(pos))) {
+      provider = m_registry.findByDesktopName(defaultSearchProvider);
+    }
   }
 
   return provider;
@@ -441,4 +441,9 @@ void KURISearchFilterEngine::loadConfig()
   qCDebug(category) << "Web Shortcuts Enabled: " << m_bWebShortcutsEnabled;
   qCDebug(category) << "Default Shortcut: " << m_defaultWebShortcut;
   qCDebug(category) << "Keyword Delimiter: " << m_cKeywordDelimiter;
+}
+
+SearchProviderRegistry * KURISearchFilterEngine::registry()
+{
+     return &m_registry;
 }

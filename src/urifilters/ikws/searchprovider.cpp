@@ -22,16 +22,26 @@
 #include <kservicetypetrader.h>
 #include <QStandardPaths>
 #include <KIO/Global> // KIO::iconNameForUrl
+#include <QFileInfo>
+#include <QDebug>
+#include <KDesktopFile>
+#include <KConfigGroup>
 
-SearchProvider::SearchProvider(const KService::Ptr service)
+SearchProvider::SearchProvider(const QString &servicePath)
                : m_dirty(false)
 {
-    setDesktopEntryName(service->desktopEntryName());
-    setName(service->name());
-    setKeys(service->property(QStringLiteral("Keys")).toStringList());
+    setDesktopEntryName(QFileInfo(servicePath).baseName());
+    KDesktopFile parser(servicePath);
+    setName(parser.name());
+    KConfigGroup group(parser.desktopGroup());
+    setKeys(group.readEntry(QStringLiteral("Keys"), QStringList()));
 
-    m_query = service->property(QStringLiteral("Query")).toString();
-    m_charset = service->property(QStringLiteral("Charset")).toString();
+    m_query = group.readEntry(QStringLiteral("Query"));
+    m_charset = group.readEntry(QStringLiteral("Charset"));
+}
+
+SearchProvider::~SearchProvider()
+{
 }
 
 void SearchProvider::setName(const QString &name)
@@ -115,27 +125,4 @@ QString SearchProvider::iconName() const
 void SearchProvider::setDirty(bool dirty)
 {
     m_dirty = dirty;
-}
-
-SearchProvider *SearchProvider::findByDesktopName(const QString &name)
-{
-    KService::Ptr service =
-        KService::serviceByDesktopPath(QStringLiteral("searchproviders/%1.desktop").arg(name));
-    return service ? new SearchProvider(service) : nullptr;
-}
-
-SearchProvider *SearchProvider::findByKey(const QString &key)
-{
-    KService::List providers =
-        KServiceTypeTrader::self()->query(QStringLiteral("SearchProvider"), QStringLiteral("'%1' in Keys").arg(key));
-    return providers.count() ? new SearchProvider(providers[0]) : nullptr;
-}
-
-QList<SearchProvider *> SearchProvider::findAll()
-{
-    QList<SearchProvider *> ret;
-    Q_FOREACH (const KService::Ptr &provider, KServiceTypeTrader::self()->query(QLatin1String("SearchProvider"))) {
-        ret.append(new SearchProvider(provider));
-    }
-    return ret;
 }
