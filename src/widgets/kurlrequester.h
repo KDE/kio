@@ -61,6 +61,7 @@ class KIOWIDGETS_EXPORT KUrlRequester : public QWidget
     Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY textChanged USER true)
     Q_PROPERTY(QString filter READ filter WRITE setFilter)
     Q_PROPERTY(KFile::Modes mode READ mode WRITE setMode)
+    Q_PROPERTY(QFileDialog::AcceptMode acceptMode READ acceptMode WRITE setAcceptMode)
 #ifndef KIOWIDGETS_NO_DEPRECATED
     Q_PROPERTY(QString clickMessage READ clickMessage WRITE setClickMessage)
 #endif
@@ -127,6 +128,20 @@ public:
     * @see QFileDialog::fileMode()
     */
     KFile::Modes mode() const;
+
+    /**
+     * Sets the open / save mode of the file dialog.
+     * @see QFileDialog::setAcceptMode()
+     * @since 5.33
+     */
+    void setAcceptMode(QFileDialog::AcceptMode m);
+
+    /**
+    * Returns the current open / save mode
+    * @see QFileDialog::acceptMode()
+    * @since 5.33
+    */
+    QFileDialog::AcceptMode acceptMode() const;
 
     /**
      * Sets the filters for the file dialog, separated by \n.

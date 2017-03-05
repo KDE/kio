@@ -89,7 +89,8 @@ public:
         : m_parent(parent),
           edit(nullptr),
           combo(nullptr),
-          fileDialogMode(KFile::File | KFile::ExistingOnly | KFile::LocalOnly)
+          fileDialogMode(KFile::File | KFile::ExistingOnly | KFile::LocalOnly),
+          fileDialogAcceptMode(QFileDialog::AcceptOpen)
     {
     }
 
@@ -195,7 +196,7 @@ public:
         }
     }
 
-    void applyFileMode(QFileDialog *dlg, KFile::Modes m)
+    static void applyFileMode(QFileDialog *dlg, KFile::Modes m, QFileDialog::AcceptMode acceptMode)
     {
         QFileDialog::FileMode fileMode;
         if (m & KFile::Directory) {
@@ -215,6 +216,7 @@ public:
         }
 
         dlg->setFileMode(fileMode);
+        dlg->setAcceptMode(acceptMode);
     }
 
     // Converts from "*.foo *.bar|Comment" to "Comment (*.foo *.bar)"
@@ -248,6 +250,7 @@ public:
     KLineEdit *edit;
     KComboBox *combo;
     KFile::Modes fileDialogMode;
+    QFileDialog::AcceptMode fileDialogAcceptMode;
     QString fileDialogFilter;
     QStringList mimeTypeFilters;
     KEditListWidget::CustomEditor editor;
@@ -430,6 +433,8 @@ void KUrlRequester::KUrlRequesterPrivate::_k_slotOpenDialog()
             dlg->setDirectoryUrl(m_startDir);
         }
 
+        dlg->setAcceptMode(fileDialogAcceptMode);
+
         //Update the file dialog window modality
         if (dlg->windowModality() != fileDialogModality) {
             dlg->setWindowModality(fileDialogModality);
@@ -470,13 +475,27 @@ void KUrlRequester::setMode(KFile::Modes mode)
     }
 
     if (d->myFileDialog) {
-        d->applyFileMode(d->myFileDialog, mode);
+        d->applyFileMode(d->myFileDialog, mode, d->fileDialogAcceptMode);
     }
 }
 
 KFile::Modes KUrlRequester::mode() const
 {
     return d->fileDialogMode;
+}
+
+void KUrlRequester::setAcceptMode(QFileDialog::AcceptMode mode)
+{
+    d->fileDialogAcceptMode = mode;
+
+    if (d->myFileDialog) {
+        d->applyFileMode(d->myFileDialog, d->fileDialogMode, mode);
+    }
+}
+
+QFileDialog::AcceptMode KUrlRequester::acceptMode() const
+{
+    return d->fileDialogAcceptMode;
 }
 
 void KUrlRequester::setFilter(const QString &filter)
@@ -518,7 +537,7 @@ QFileDialog *KUrlRequester::fileDialog() const
             d->myFileDialog->setNameFilters(d->kToQFilters(d->fileDialogFilter));
         }
 
-        d->applyFileMode(d->myFileDialog, d->fileDialogMode);
+        d->applyFileMode(d->myFileDialog, d->fileDialogMode, d->fileDialogAcceptMode);
 
         d->myFileDialog->setWindowModality(d->fileDialogModality);
         connect(d->myFileDialog, SIGNAL(accepted()), SLOT(_k_slotFileDialogAccepted()));
