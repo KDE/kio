@@ -15,6 +15,7 @@ Name[fi]=Arch Linuxin pakettihaku
 Name[fr]=Recherche de paquets Arch Linux
 Name[gd]=Lorg pacaidean Arch Linux
 Name[gl]=Busca de paquetes de Arch Linux
+Name[hu]=Arch Linux csomagkereső
 Name[ia]=Cerca de Pacchetto de Arch Linux
 Name[it]=Ricerca di pacchetti Arch Linux
 Name[ko]=Arch Linux 패키지 검색
@@ -53,6 +54,7 @@ Query[fi]=http://www.archlinux.org/packages/?q=\\{@}
 Query[fr]=http://www.archlinux.org/packages/?q=\\{@}
 Query[gd]=http://www.archlinux.org/packages/?q=\\{@}
 Query[gl]=http://www.archlinux.org/packages/?q=\\{@}
+Query[hu]=http://www.archlinux.org/packages/?q=\\{@}
 Query[ia]=http://www.archlinux.org/packages/?q=\\{@}
 Query[it]=http://www.archlinux.org/packages/?q=\\{@}
 Query[ko]=http://www.archlinux.org/packages/?q=\\{@}
