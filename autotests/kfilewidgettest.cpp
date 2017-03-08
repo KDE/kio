@@ -19,15 +19,16 @@
     Boston, MA 02110-1301, USA.
 */
 
-#include <QtTest/QtTest>
-
 #include "kfilewidget.h"
 
 #include <QLabel>
+#include <QTest>
+#include <QStandardPaths>
 
 #include <kdiroperator.h>
 #include <klocalizedstring.h>
 #include <kurlnavigator.h>
+#include <KUrlComboBox>
 
 /**
  * Unit test for KFileWidget
@@ -123,14 +124,92 @@ private Q_SLOTS:
         QCOMPARE(outFileName, QStringLiteral("foo.txt"));
     }
 
-    void testBug369216()
+    void testSetSelection_data()
     {
-        KFileWidget fw(QUrl::fromLocalFile(QStringLiteral("/")));
+        QTest::addColumn<QString>("baseDir");
+        QTest::addColumn<QString>("selection");
+        QTest::addColumn<QString>("expectedBaseDir");
+        QTest::addColumn<QString>("expectedCurrentText");
+
+        const QString baseDir = QDir::homePath();
+        // A nice filename to detect URL encoding issues
+        const QString fileName = QStringLiteral("some:fi#le");
+
+        // Bug 369216, kdialog calls setSelection(path)
+        QTest::newRow("path") << baseDir << baseDir + QLatin1Char('/') + fileName << baseDir << fileName;
+        QTest::newRow("differentPath") << QDir::rootPath() << baseDir + QLatin1Char('/') + fileName << baseDir << fileName;
+        // kdeplatformfiledialoghelper.cpp calls setSelection(URL as string)
+        QTest::newRow("url") << baseDir << QUrl::fromLocalFile(baseDir + QLatin1Char('/') + fileName).toString() << baseDir << fileName;
+        // What if someone calls setSelection(fileName)? That breaks, hence e70f8134a2b in plasma-integration.git
+        QTest::newRow("filename") << baseDir << fileName << baseDir << fileName;
+    }
+
+    void testSetSelection()
+    {
+        // GIVEN
+        QFETCH(QString, baseDir);
+        QFETCH(QString, selection);
+        QFETCH(QString, expectedBaseDir);
+        QFETCH(QString, expectedCurrentText);
+        const QUrl baseUrl = QUrl::fromLocalFile(baseDir).adjusted(QUrl::StripTrailingSlash);
+        const QUrl expectedBaseUrl = QUrl::fromLocalFile(expectedBaseDir);
+
+        KFileWidget fw(baseUrl);
         fw.show();
         QTest::qWaitForWindowActive(&fw);
 
-        fw.setSelection(QDir::homePath() + QLatin1String("/somefile"));
-        QCOMPARE(fw.baseUrl().adjusted(QUrl::StripTrailingSlash), QUrl::fromLocalFile(QDir::homePath()));
+        // WHEN
+        fw.setSelection(selection); // now deprecated, this test shows why ;)
+
+        // THEN
+        QCOMPARE(fw.baseUrl().adjusted(QUrl::StripTrailingSlash), expectedBaseUrl);
+        //if (QByteArray(QTest::currentDataTag()) == "filename") {
+            QEXPECT_FAIL("filename", "setSelection cannot work with filenames, bad API", Continue);
+        //}
+        QCOMPARE(fw.locationEdit()->currentText(), expectedCurrentText);
+    }
+
+    void testSetSelectedUrl_data()
+    {
+        QTest::addColumn<QString>("baseDir");
+        QTest::addColumn<QUrl>("selectionUrl");
+        QTest::addColumn<QString>("expectedBaseDir");
+        QTest::addColumn<QString>("expectedCurrentText");
+
+        const QString baseDir = QDir::homePath();
+        // A nice filename to detect URL encoding issues
+        const QString fileName = QStringLiteral("some:fi#le");
+        const QUrl fileUrl = QUrl::fromLocalFile(baseDir + QLatin1Char('/') + fileName);
+
+        QTest::newRow("path") << baseDir << fileUrl << baseDir << fileName;
+        QTest::newRow("differentPath") << QDir::rootPath() << fileUrl << baseDir << fileName;
+        QTest::newRow("url") << baseDir << QUrl::fromLocalFile(baseDir + QLatin1Char('/') + fileName) << baseDir << fileName;
+
+        QUrl relativeUrl;
+        relativeUrl.setPath(fileName);
+        QTest::newRow("filename") << baseDir << relativeUrl << baseDir << fileName;
+    }
+
+    void testSetSelectedUrl()
+    {
+        // GIVEN
+        QFETCH(QString, baseDir);
+        QFETCH(QUrl, selectionUrl);
+        QFETCH(QString, expectedBaseDir);
+        QFETCH(QString, expectedCurrentText);
+
+        const QUrl baseUrl = QUrl::fromLocalFile(baseDir).adjusted(QUrl::StripTrailingSlash);
+        const QUrl expectedBaseUrl = QUrl::fromLocalFile(expectedBaseDir);
+        KFileWidget fw(baseUrl);
+        fw.show();
+        QTest::qWaitForWindowActive(&fw);
+
+        // WHEN
+        fw.setSelectedUrl(selectionUrl);
+
+        // THEN
+        QCOMPARE(fw.baseUrl().adjusted(QUrl::StripTrailingSlash), expectedBaseUrl);
+        QCOMPARE(fw.locationEdit()->currentText(), expectedCurrentText);
     }
 };
 

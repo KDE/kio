@@ -1557,6 +1557,7 @@ bool KFileWidgetPrivate::toOverwrite(const QUrl &url)
     return true;
 }
 
+#ifndef KIOFILEWIDGETS_NO_DEPRECATED
 void KFileWidget::setSelection(const QString &url)
 {
 //     qDebug() << "setSelection " << url;
@@ -1571,12 +1572,17 @@ void KFileWidget::setSelection(const QString &url)
         return;
     }
 
+    setSelectedUrl(urlFromString(url));
+}
+#endif
+
+void KFileWidget::setSelectedUrl(const QUrl &url)
+{
     // Honor protocols that do not support directory listing
-    if (!u.isRelative() && !KProtocolManager::supportsListing(u)) {
+    if (!url.isRelative() && !KProtocolManager::supportsListing(url)) {
         return;
     }
-
-    d->setLocationText(urlFromString(url));
+    d->setLocationText(url);
 }
 
 void KFileWidgetPrivate::_k_slotLoadingFinished()

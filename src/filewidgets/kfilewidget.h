@@ -141,12 +141,32 @@ public:
      */
     void setUrl(const QUrl &url, bool clearforward = true);
 
+#if !defined(KIOFILEWIDGETS_NO_DEPRECATED) && !defined(DOXYGEN_SHOULD_SKIP_THIS)
     /**
-     * Sets the file name to preselect to @p name
+     * Sets the file to preselect to @p pathOrUrl
      *
-     * This takes absolute URLs and relative file names.
+     * This method handles absolute paths (on Unix, but probably not correctly on Windows)
+     * and absolute URLs as strings (but for those you should use setSelectedUrl instead).
+     *
+     * This method does not work with relative paths (filenames)
+     * (it would misinterpret a ':' or a '#' in the filename).
+     *
+     * @deprecated since 5.33, use setSelectedUrl instead, after ensuring that
+     * construct the QUrl correctly (e.g. use fromLocalFile for local paths).
      */
-    void setSelection(const QString &name);
+    KIOFILEWIDGETS_DEPRECATED void setSelection(const QString &pathOrUrl);
+#endif
+
+    /**
+     * Sets the URL to preselect to @p url
+     *
+     * This method handles absolute URLs (remember to use fromLocalFile for local paths).
+     * It also handles relative URLs, which you should construct like this:
+     * QUrl relativeUrl; relativeUrl.setPath(fileName);
+     *
+     * @since 5.33
+     */
+    void setSelectedUrl(const QUrl &url);
 
     /**
      * Sets the operational mode of the filedialog to @p Saving, @p Opening
