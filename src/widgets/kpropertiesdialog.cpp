@@ -2656,7 +2656,7 @@ KChecksumsPlugin::KChecksumsPlugin(KPropertiesDialog *dialog)
     : KPropertiesDialogPlugin(dialog), d(new KChecksumsPluginPrivate)
 {
     d->m_ui.setupUi(&d->m_widget);
-    properties->addPage(&d->m_widget, i18nc("@title:tab", "&Checksums"));
+    properties->addPage(&d->m_widget, i18nc("@title:tab", "C&hecksums"));
 
     d->m_ui.md5CopyButton->hide();
     d->m_ui.sha1CopyButton->hide();
