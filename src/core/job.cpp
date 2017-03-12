@@ -29,6 +29,7 @@
 #include <QLinkedList>
 
 #include <klocalizedstring.h>
+#include <kstringhandler.h>
 
 #include <kio/jobuidelegateextension.h>
 #include "slave.h"
@@ -101,6 +102,12 @@ bool Job::removeSubjob(KJob *jobBase)
     return KCompositeJob::removeSubjob(jobBase);
 }
 
+static QString url_description_string(const QUrl& url)
+{
+    return url.scheme() == "data" ? QStringLiteral("data:[...]") :
+                                    KStringHandler::csqueeze(url.toDisplayString(QUrl::PreferLocalFile), 100);
+}
+
 KIO::JobPrivate::~JobPrivate()
 {
 }
@@ -108,39 +115,39 @@ KIO::JobPrivate::~JobPrivate()
 void JobPrivate::emitMoving(KIO::Job *job, const QUrl &src, const QUrl &dest)
 {
     emit job->description(job, i18nc("@title job", "Moving"),
-                          qMakePair(i18nc("The source of a file operation", "Source"), src.toDisplayString(QUrl::PreferLocalFile)),
-                          qMakePair(i18nc("The destination of a file operation", "Destination"), dest.toDisplayString(QUrl::PreferLocalFile)));
+                          qMakePair(i18nc("The source of a file operation", "Source"), url_description_string(src)),
+                          qMakePair(i18nc("The destination of a file operation", "Destination"), url_description_string(dest)));
 }
 
 void JobPrivate::emitCopying(KIO::Job *job, const QUrl &src, const QUrl &dest)
 {
     emit job->description(job, i18nc("@title job", "Copying"),
-                          qMakePair(i18nc("The source of a file operation", "Source"), src.toDisplayString(QUrl::PreferLocalFile)),
-                          qMakePair(i18nc("The destination of a file operation", "Destination"), dest.toDisplayString(QUrl::PreferLocalFile)));
+                          qMakePair(i18nc("The source of a file operation", "Source"), url_description_string(src)),
+                          qMakePair(i18nc("The destination of a file operation", "Destination"), url_description_string(dest)));
 }
 
 void JobPrivate::emitCreatingDir(KIO::Job *job, const QUrl &dir)
 {
     emit job->description(job, i18nc("@title job", "Creating directory"),
-                          qMakePair(i18n("Directory"), dir.toDisplayString(QUrl::PreferLocalFile)));
+                          qMakePair(i18n("Directory"), url_description_string(dir)));
 }
 
 void JobPrivate::emitDeleting(KIO::Job *job, const QUrl &url)
 {
     emit job->description(job, i18nc("@title job", "Deleting"),
-                          qMakePair(i18n("File"), url.toDisplayString(QUrl::PreferLocalFile)));
+                          qMakePair(i18n("File"), url_description_string(url)));
 }
 
 void JobPrivate::emitStating(KIO::Job *job, const QUrl &url)
 {
     emit job->description(job, i18nc("@title job", "Examining"),
-                          qMakePair(i18n("File"), url.toDisplayString(QUrl::PreferLocalFile)));
+                          qMakePair(i18n("File"), url_description_string(url)));
 }
 
 void JobPrivate::emitTransferring(KIO::Job *job, const QUrl &url)
 {
     emit job->description(job, i18nc("@title job", "Transferring"),
-                          qMakePair(i18nc("The source of a file operation", "Source"), url.toDisplayString(QUrl::PreferLocalFile)));
+                          qMakePair(i18nc("The source of a file operation", "Source"), url_description_string(url)));
 }
 
 void JobPrivate::emitMounting(KIO::Job *job, const QString &dev, const QString &point)
