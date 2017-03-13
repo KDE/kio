@@ -42,6 +42,8 @@
 static void seedInit()
 {
     qputenv("QT_HASH_SEED", "0");
+    // This env var has no effect because this comes too late. qCpuFeatures() was already called by
+    // a Q_CONSTRUCTOR_FUNCTION inside QtGui (see image/qimage_conversions.cpp). Argh. QTBUG-47566.
     qputenv("QT_NO_CPU_FEATURE", "sse4.2");
 }
 Q_CONSTRUCTOR_FUNCTION(seedInit)
