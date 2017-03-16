@@ -328,29 +328,33 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
     popupLinkAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-link")));
     popupLinkAction->setData(QVariant::fromValue(Qt::LinkAction));
 
-    if (sMoving || (sReading && sDeleting)) {
-        bool equalDestination = true;
-        foreach (const QUrl &src, m_urls) {
-            if (!m_destUrl.matches(src.adjusted(QUrl::RemoveFilename), QUrl::StripTrailingSlash)) {
-                equalDestination = false;
-                break;
+    if (m_destUrl.scheme() == "stash") {
+        popup->addAction(popupCopyAction);
+    } else {
+        if (sMoving || (sReading && sDeleting)) {
+            bool equalDestination = true;
+            foreach (const QUrl &src, m_urls) {
+                if (!m_destUrl.matches(src.adjusted(QUrl::RemoveFilename), QUrl::StripTrailingSlash)) {
+                    equalDestination = false;
+                    break;
+                }
+            }
+
+            if (!equalDestination) {
+                popup->addAction(popupMoveAction);
             }
         }
 
-        if (!equalDestination) {
-            popup->addAction(popupMoveAction);
+        if (sReading) {
+            popup->addAction(popupCopyAction);
         }
+
+        popup->addAction(popupLinkAction);
+
+        addPluginActions(popup, itemProps);
+
+        popup->addSeparator();
     }
-
-    if (sReading) {
-        popup->addAction(popupCopyAction);
-    }
-
-    popup->addAction(popupLinkAction);
-
-    addPluginActions(popup, itemProps);
-
-    popup->addSeparator();
 }
 
 void DropJobPrivate::addPluginActions(KIO::DropMenu *popup, const KFileItemListProperties &itemProps)
