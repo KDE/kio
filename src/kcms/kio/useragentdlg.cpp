@@ -370,10 +370,11 @@ void UserAgentDlg::save()
 
 QString UserAgentDlg::quickHelp() const
 {
-    return i18n ("<p><h1>Browser Identification</h1> "
-                 "The browser-identification module allows you to have full "
-                 "control over how Konqueror will identify itself to web "
-                 "sites you browse.</p>"
+    return i18n ("<h1>Browser Identification</h1>"
+                 "<p>The browser-identification module allows you to have full "
+                 "full control over how KDE applications using the HTTP "
+                 "protocol (like Konqueror) will identify itself to web sites "
+                 "you browse.</p>"
                  "<p>This ability to fake identification is necessary because "
                  "some web sites do not display properly when they detect that "
                  "they are not talking to current versions of either Netscape "

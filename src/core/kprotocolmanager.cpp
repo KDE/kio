@@ -843,6 +843,8 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
         d->useragent += QString::number(KIO_VERSION_PATCH);
         d->useragent += QStringLiteral(" (like Gecko) Konqueror/");
         d->useragent += QString::number(KIO_VERSION_MAJOR);
+        d->useragent += QStringLiteral(" KIO/");
+        d->useragent += QString::number(KIO_VERSION_MAJOR);
         d->useragent += QL1C('.');
         d->useragent += QString::number(KIO_VERSION_MINOR);
     } else {

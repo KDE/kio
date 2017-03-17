@@ -96,7 +96,7 @@ Name[x-test]=xxBrowser Identificationxx
 Name[zh_CN]=浏览器识别
 Name[zh_TW]=瀏覽器識別
 
-Comment=Configure the way Konqueror reports itself
+Comment=Configure the User Agent exposed by the HTTP kioslave
 Comment[af]=Stel die manier waarop Konqueror homself raporteer op
 Comment[ar]=اضبط كيف يُخبر «كنكر» عن نفسه
 Comment[as]=Konqueror নিজৰ বিষয়ে প্ৰতিবেদন কৰাৰ ব্যৱহাৰ বিন্যাস কৰক

@@ -430,8 +430,8 @@ void KCookiesPolicies::splitDomainAdvice (const QString& cfg, QString& domain,
 
 QString KCookiesPolicies::quickHelp() const
 {
-    return i18n ("<p><h1>Cookies</h1> Cookies contain information that Konqueror"
-                 " (or any other KDE application using the HTTP protocol) stores"
+    return i18n ("<h1>Cookies</h1><p>Cookies contain information that KDE"
+                 " application using the HTTP protocol (like Konqueror) stores"
                  " on your computer from a remote Internet server. This means"
                  " that a web server can store information about you and your"
                  " browsing activities on your machine for later use. You might"

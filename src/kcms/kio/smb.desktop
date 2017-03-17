@@ -95,7 +95,7 @@ Name[x-test]=xxWindows Sharesxx
 Name[zh_CN]=Windows 共享
 Name[zh_TW]=Windows 資源共享
 
-Comment=Use to configure which windows (SMB) filesystems you can browse
+Comment=Credentials used to access SMB shares
 Comment[af]=Gebruik om te konfigureer watter Windows (SMB) lêerstelsels jy kan blaai
 Comment[ar]=استخدمها لضبط أيّة أنظمة وندوز (SMB) يمكنك تصفّحها
 Comment[ast]=Úsalo pa configurar qué sistemes de ficheros de Windows (SMB) pues restolar

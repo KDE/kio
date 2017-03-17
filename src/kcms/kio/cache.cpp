@@ -106,7 +106,7 @@ void CacheConfigModule::defaults()
 QString CacheConfigModule::quickHelp() const
 {
   return i18n( "<h1>Cache</h1><p>This module lets you configure your cache settings.</p>"
-                "<p>The cache is an internal memory in Konqueror where recently "
+                "<p>This specific cache is an area on the disk where recently "
                 "read web pages are stored. If you want to retrieve a web "
                 "page again that you have recently read, it will not be "
                 "downloaded from the Internet, but rather retrieved from the "
