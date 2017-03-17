@@ -330,6 +330,7 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
 
     if (m_destUrl.scheme() == "stash") {
         popup->addAction(popupCopyAction);
+        addPluginActions(popup, itemProps);
     } else {
         if (sMoving || (sReading && sDeleting)) {
             bool equalDestination = true;
