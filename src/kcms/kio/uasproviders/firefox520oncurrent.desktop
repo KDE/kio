@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=UADescription (Firefox 52.0 on current)
+Type=Service
+X-KDE-ServiceTypes=UserAgentStrings
+X-KDE-UA-TAG=FF
+X-KDE-UA-FULL=Mozilla/5.0 (appPlatform; appSysName appMachineType; rv:52.0) Gecko/20100101 Firefox/52.0
+X-KDE-UA-NAME=Firefox
+X-KDE-UA-VERSION=52.0
+X-KDE-UA-DYNAMIC-ENTRY=1
