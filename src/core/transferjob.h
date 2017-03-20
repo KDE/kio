@@ -72,7 +72,7 @@ public:
 
     /**
      * When enabled, the job reports the amount of data that has been sent,
-     * instead of the amount of data that that has been received.
+     * instead of the amount of data that has been received.
      * @see slotProcessedSize
      * @see slotSpeed
      * @deprecated since 4.2.1, this is unnecessary (it is always false for

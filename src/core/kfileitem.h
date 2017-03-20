@@ -238,7 +238,7 @@ public:
     bool isDir() const;
 
     /**
-     * Returns true if this item represents a file (and not a a directory)
+     * Returns true if this item represents a file (and not a directory)
      * @return true if the item is a file
      */
     bool isFile() const;

@@ -271,7 +271,7 @@ KIOWIDGETS_EXPORT bool sslConfigFromMetaData(const KIO::MetaData &metadata, QSsl
  * @endcode
  *
  * <b>IMPORTANT</b>This class is not a replacement for the standard KDE API.
- * It should ONLY be used to to provide KDE integration in applications that
+ * It should ONLY be used to provide KDE integration in applications that
  * cannot use the standard KDE API directly.
  *
  * @see QNetworkAccessManager::setCookieJar for details.

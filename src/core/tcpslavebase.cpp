@@ -857,7 +857,7 @@ TCPSlaveBase::SslResult TCPSlaveBase::verifyServerCertificate()
     cm->setRule(rule);
 
     return ResultOk | ResultOverridden;
-#if 0 //### need to to do something like the old code about the main and subframe stuff
+#if 0 //### need to do something like the old code about the main and subframe stuff
     //qDebug() << "SSL HTTP frame the parent? " << metaData("main_frame_request");
     if (!hasMetaData("main_frame_request") || metaData("main_frame_request") == "TRUE") {
         // Since we're the parent, we need to teach the child.

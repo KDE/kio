@@ -182,7 +182,7 @@ QString KLocalSocketServer::localPath() const
 bool KLocalSocketServer::waitForNewConnection(int msec, bool *timedOut)
 {
     if (!isListening()) {
-        return false;    // can't wait if we're not not listening
+        return false;    // can't wait if we're not listening
     }
 
     return d->waitForNewConnection(msec, timedOut);

@@ -84,7 +84,7 @@ Contents:
 
  Although the current HTML 4.01 [HTML4] says to use the object element
  many browsers out on the market today still look for the embed element.
- Below find a little snipbit that will work work in many browsers.
+ Below find a little snipbit that will work in many browsers.
 
   <object type="audio/x-midi" data="../media/sound.mid" width="200" height="26">
     <param name="src" value="../media/sound.mid">

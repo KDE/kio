@@ -176,7 +176,7 @@ QString SMBRoOptions::quickHelp() const
    return i18n("<h1>Windows Shares</h1><p>Applications using the "
         "SMB kioslave (like Konqueror) are able to access shared Microsoft "
         "Windows file systems, if properly configured.</p><p>You can specify "
-        "here the credentils used to access the shared resources. "
+        "here the credentials used to access the shared resources. "
         "Passwords will be stored locally, and scrambled so as to render them "
         "unreadable to the human eye. For security reasons, you may not want to "
         "do that, as entries with passwords are clearly indicated as such.</p>");

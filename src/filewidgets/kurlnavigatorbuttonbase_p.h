@@ -33,7 +33,7 @@ namespace KDEPrivate
 /**
  * @brief Base class for buttons of the URL navigator.
  *
- * Buttons of the URL navigator offer an an active/inactive
+ * Buttons of the URL navigator offer an active/inactive
  * state and custom display hints.
  */
 class KUrlNavigatorButtonBase : public QPushButton
