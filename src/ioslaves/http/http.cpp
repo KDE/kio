@@ -2322,7 +2322,7 @@ QString HTTPProtocol::formatRequestUri() const
         u.setPort(m_request.url.port());
         u.setPath(m_request.url.path(QUrl::FullyEncoded));
         u.setQuery(m_request.url.query(QUrl::FullyEncoded));
-        return u.toString();
+        return u.toString(QUrl::FullyEncoded);
     } else {
         QString result = m_request.url.path(QUrl::FullyEncoded);
         if (m_request.url.hasQuery()) {
