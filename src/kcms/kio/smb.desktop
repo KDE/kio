@@ -97,6 +97,7 @@ Name[zh_TW]=Windows 資源共享
 
 Comment=Credentials used to access SMB shares
 Comment[ca]=Credencials usades per accedir a les comparticions SMB
+Comment[da]=Akkreditiver som bruges til at tilgå delte SMB-ressourcer
 Comment[es]=Credenciales usadas para acceder a los recursos compartidos de SMB
 Comment[nl]=Gebruikte credentials voor toegang tot SMB shares
 Comment[pt]=Credenciais usadas para aceder às partilhas de SMB

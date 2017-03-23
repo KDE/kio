@@ -99,6 +99,7 @@ Name[zh_TW]=瀏覽器識別
 Comment=Configure the User Agent exposed by the HTTP kioslave
 Comment[ca]=Configura l'agent d'usuari exposat pel «kioslave» HTTP
 Comment[cs]=Nastavit agenta pro HTTP kioslave
+Comment[da]=Indstil den brugeragent der angives af HTTP-kioslaven
 Comment[es]=Configurar el agente de usuario mostrado por el kioslave HTTP
 Comment[nl]=De gebruikersagent (GA) configureren getoond door de HTTP-kioslave
 Comment[pt]=Configurar o Agente de Utilizador exposto pelo 'kioslave' de HTTP
