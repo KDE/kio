@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=UADescription (Google Chrome 57.0)
 Name[ca]=Descripció AU (Google Chrome 57.0)
+Name[ca@valencia]=Descripció AU (Google Chrome 57.0)
 Name[cs]=Popis agenta (Google Chrome 57.0)
 Name[da]=Brugeragentbeskrivelse (Google Chrome 57.0)
 Name[es]=UADescription (Google Chrome 57.0)
@@ -9,6 +10,7 @@ Name[pt]=UADescription (Google Chrome 57.0)
 Name[sv]=AA-beskrivning (Google Chrome 57.0)
 Name[uk]=UADescription (Google Chrome 57.0)
 Name[x-test]=xxUADescription (Google Chrome 57.0)xx
+Name[zh_TW]=使用者代理描述 (Google Chrome 57.0)
 Type=Service
 X-KDE-ServiceTypes=UserAgentStrings
 X-KDE-UA-TAG=CHR

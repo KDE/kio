@@ -97,6 +97,7 @@ Name[zh_TW]=Windows 資源共享
 
 Comment=Credentials used to access SMB shares
 Comment[ca]=Credencials usades per accedir a les comparticions SMB
+Comment[ca@valencia]=Credencials usades per accedir a les comparticions SMB
 Comment[da]=Akkreditiver som bruges til at tilgå delte SMB-ressourcer
 Comment[es]=Credenciales usadas para acceder a los recursos compartidos de SMB
 Comment[nl]=Gebruikte credentials voor toegang tot SMB shares
@@ -104,6 +105,7 @@ Comment[pt]=Credenciais usadas para aceder às partilhas de SMB
 Comment[sv]=Inloggningsinformation använd för att komma åt delade SMB-resurser
 Comment[uk]=Реєстраційні дані для доступу до спільних ресурсів SMB
 Comment[x-test]=xxCredentials used to access SMB sharesxx
+Comment[zh_TW]=用於存取 SMB 分享的憑證
 
 X-KDE-Keywords=SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords
 X-KDE-Keywords[ast]=SMB,SAMBA,Veceru SMB,Rede de Windows,LAN,Rede,vecinderu,Sirvidor,Broadcast,WINS,Compartir,Compartición,Aniciu de sesión,Contraseñes
