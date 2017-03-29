@@ -109,6 +109,7 @@ Comment[pt]=Configurar o Agente de Utilizador exposto pelo 'kioslave' de HTTP
 Comment[sv]=Anpassa användaragenten exponerad av HTTP I/O-slaven
 Comment[uk]=Налаштувати дані агента користувача, які надаватиме допоміжний засіб HTTP
 Comment[x-test]=xxConfigure the User Agent exposed by the HTTP kioslavexx
+Comment[zh_CN]=配置 HTTP kioslave 的对外客户端
 Comment[zh_TW]=設定要由 HTTP kioslave 使用的使用者代理
 
 X-KDE-Keywords=User Agent,Browser,Internet,WWW,Network,agent,bindings,server,login

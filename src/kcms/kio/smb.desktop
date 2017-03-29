@@ -107,6 +107,7 @@ Comment[pt]=Credenciais usadas para aceder às partilhas de SMB
 Comment[sv]=Inloggningsinformation använd för att komma åt delade SMB-resurser
 Comment[uk]=Реєстраційні дані для доступу до спільних ресурсів SMB
 Comment[x-test]=xxCredentials used to access SMB sharesxx
+Comment[zh_CN]=访问 SMB 共享的凭证
 Comment[zh_TW]=用於存取 SMB 分享的憑證
 
 X-KDE-Keywords=SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords
