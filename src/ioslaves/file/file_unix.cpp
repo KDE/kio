@@ -612,7 +612,7 @@ void FileProtocol::chown(const QUrl &url, const QString &owner, const QString &g
 
 void FileProtocol::stat(const QUrl &url)
 {
-    if (!url.isLocalFile()) {
+    if (!isLocalFileSameHost(url)) {
         QUrl redir(url);
         redir.setScheme(config()->readEntry("DefaultRemoteProtocol", "smb"));
         redirection(redir);

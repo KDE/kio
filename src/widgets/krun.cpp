@@ -45,6 +45,7 @@
 #include <QDBusConnectionInterface>
 #include <QDBusInterface>
 #include <QDBusReply>
+#include <QHostInfo>
 
 #include <kiconloader.h>
 #include <kjobuidelegate.h>
@@ -942,7 +943,10 @@ void KRun::init()
         if (d->runExecutable(d->m_externalBrowser)) {
             return;
         }
-    } else if (d->m_strURL.isLocalFile()) {
+    } else if (d->m_strURL.isLocalFile() &&
+               (d->m_strURL.host().isEmpty() ||
+                (d->m_strURL.host() == QLatin1String("localhost")) ||
+                (d->m_strURL.host().compare(QHostInfo::localHostName(), Qt::CaseInsensitive) == 0))) {
         const QString localPath = d->m_strURL.toLocalFile();
         if (!QFile::exists(localPath)) {
             handleInitError(KIO::ERR_DOES_NOT_EXIST,
