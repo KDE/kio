@@ -1,0 +1,103 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Italian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="cache" lang="&language;">
+<title
+>Cache</title>
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+><surname
+>Watts</surname
+></author>
+
+<othercredit role="translator"
+><firstname
+>Luciano</firstname
+><surname
+>Montanaro</surname
+><affiliation
+><address
+><email
+>mikelima@cirulla.net</email
+></address
+></affiliation
+><contrib
+>Traduzione</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Paolo</firstname
+><surname
+>Zamponi</surname
+><affiliation
+><address
+><email
+>zapaolo@email.it</email
+></address
+></affiliation
+><contrib
+>Manutenzione del documento</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>10/11/2016</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systemsettings</keyword>
+<keyword
+>Konqueror</keyword>
+<keyword
+>Cache</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Questo modulo ti permette di controllare la dimensione della cartella usata da &konqueror;. Nota che ogni utente sul tuo computer usa una cartella separata, e questa non è condivisa con altri browser web come &firefox;.</para>
+
+<para
+>Conservare copie locali delle pagine web visitate premette a &konqueror; di caricarne velocemente il contenuto in caso di visite successive allo stesso sito. Sarà necessario recuperare i contenuti dal sito originale solo se sono cambiati dall'ultima visita o se è stato premuto il pulsante "ricarica" di &konqueror;.</para>
+
+<para
+>Se vuoi che non siano conservate copie delle pagine visitate sul computer puoi disabilitare la cache su disco di &konqueror; disabilitando la casella <guilabel
+>Usa la cache</guilabel
+>.</para>
+
+<para
+>Puoi scegliere quanto &konqueror; debba essere aggressivo nell'aggiornamento della cache: <guilabel
+>Tieni la cache aggiornata</guilabel
+> indica che &konqueror; userà la cache per tutti gli oggetti, li scaricherà se non ci sono, e poi li mostrerà dalla cache; <guilabel
+>Usa la cache quando possibile</guilabel
+> indica che &konqueror; cercherà di usare la cache, e se l'oggetto non è presente lo scaricherà direttamente per mostrarlo, mentre <guilabel
+>Navigazione non in linea</guilabel
+> indica che &konqueror; proverà ad usare la cache, e, se l'oggetto non è presente, non proverà a scaricarlo da Internet.</para>
+
+<para
+>Puoi variare la dimensione della cache scrivendone la dimensione nella casella di testo <guilabel
+>Dimensione cache su disco</guilabel
+>. Questa è la dimensione media in kilobyte che la cache può usare. Se questa cresce troppo, &konqueror; cancellerà i file più vecchi per ridurre la dimensione della sua cartella.</para>
+
+<para
+>Questo, comunque, avviene solo nella media, ma durante una sessione di navigazione su Internet la cache può crescere in modo sostanziale.</para>
+
+<para
+>Puoi premere il pulsante <guibutton
+>Svuota la cache</guibutton
+> per vuotare la cache in qualunque momento.</para>
+
+</article>
