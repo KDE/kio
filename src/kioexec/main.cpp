@@ -273,7 +273,7 @@ int main(int argc, char **argv)
     parser.addHelpOption();
     parser.addVersionOption();
     parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("tempfiles") , i18n("Treat URLs as local files and delete them afterwards")));
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("suggestedfilename <file name>") , i18n("Suggested file name for the downloaded file")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("suggestedfilename"), i18n("Suggested file name for the downloaded file"), "filename"));
     parser.addPositionalArgument(QStringLiteral("command"), i18n("Command to execute"));
     parser.addPositionalArgument(QStringLiteral("urls"), i18n("URL(s) or local file(s) used for 'command'"));
 
