@@ -136,7 +136,7 @@ void KDirListerTest::test()
       lister->updateDirectory( QUrl::fromLocalFile("file:/usr/include") );
       lister->openUrl( QUrl::fromLocalFile("file:/usr/"), KDirLister::Keep | KDirLister::Reload );
     */
-    lister->openUrl(QUrl::fromLocalFile(QStringLiteral("file:/dev")), KDirLister::Keep | KDirLister::Reload);
+    lister->openUrl(QUrl::fromLocalFile(QStringLiteral("/dev")), KDirLister::Keep | KDirLister::Reload);
 #endif
 }
 
