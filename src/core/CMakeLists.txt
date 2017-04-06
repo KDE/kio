@@ -160,6 +160,16 @@ set_target_properties(KF5KIOCore PROPERTIES VERSION ${KIO_VERSION_STRING}
                                             EXPORT_NAME KIOCore
 )
 
+# this should be done by cmake, see bug 371721
+if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    add_custom_command(
+        OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/moc_predefs.h
+        COMMAND "${CMAKE_CXX_COMPILER}" "-dM" "-E" "-c" "${CMAKE_ROOT}/Modules/CMakeCXXCompilerABI.cpp" > ${CMAKE_CURRENT_BINARY_DIR}/moc_predefs.h
+    )
+    set_property(TARGET KF5KIOCore APPEND PROPERTY AUTOMOC_MOC_OPTIONS --include ${CMAKE_CURRENT_BINARY_DIR}/moc_predefs.h)
+    set_property(TARGET KF5KIOCore APPEND PROPERTY AUTOGEN_TARGET_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/moc_predefs.h)
+endif()
+
 # Headers prefixed with KIO/
 ecm_generate_headers(KIOCore_CamelCase_HEADERS
   HEADER_NAMES
