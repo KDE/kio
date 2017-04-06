@@ -161,7 +161,7 @@ set_target_properties(KF5KIOCore PROPERTIES VERSION ${KIO_VERSION_STRING}
 )
 
 # this should be done by cmake, see bug 371721
-if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND Qt5Core_VERSION VERSION_GREATER 5.8.0)
     add_custom_command(
         OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/moc_predefs.h
         COMMAND "${CMAKE_CXX_COMPILER}" "-dM" "-E" "-c" "${CMAKE_ROOT}/Modules/CMakeCXXCompilerABI.cpp" > ${CMAKE_CURRENT_BINARY_DIR}/moc_predefs.h

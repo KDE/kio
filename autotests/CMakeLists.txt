@@ -125,6 +125,6 @@ ecm_add_tests(
 endif()
 
 # this should be done by cmake, see bug 371721
-if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND Qt5Core_VERSION VERSION_GREATER 5.8.0)
     set_property(TARGET jobtest APPEND PROPERTY AUTOMOC_MOC_OPTIONS --include ${CMAKE_BINARY_DIR}/src/core/moc_predefs.h)
 endif()
