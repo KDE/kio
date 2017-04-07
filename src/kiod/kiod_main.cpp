@@ -36,6 +36,9 @@ Q_LOGGING_CATEGORY(KIOD_CATEGORY, "kf5.kiod")
 class KIOD : public QObject
 {
     Q_OBJECT
+public:
+    ~KIOD();
+
 public Q_SLOTS:
     void loadModule(const QString &name);
 
@@ -65,6 +68,11 @@ void KIOD::loadModule(const QString &name)
     }
     module->setModuleName(name); // makes it register to DBus
     m_modules.insert(name, module);
+}
+
+KIOD::~KIOD()
+{
+    qDeleteAll(m_modules);
 }
 
 Q_GLOBAL_STATIC(KIOD, self)
