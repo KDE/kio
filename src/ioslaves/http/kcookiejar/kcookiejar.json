@@ -30,6 +30,7 @@
         "Description[sr@latin]": "Skladišti mrežne kolačiće",
         "Description[sr]": "Складишти мрежне колачиће",
         "Description[sv]": "Lagrar nätverkskakor",
+        "Description[tr]": "Ağ çerezlerini saklar",
         "Description[uk]": "Зберігання кук мережі",
         "Description[x-test]": "xxStores network cookiesxx",
         "Description[zh_CN]": "存储网络 cookie",
@@ -61,6 +62,7 @@
         "Name[sr@latin]": "Tegla kolačića",
         "Name[sr]": "Тегла колачића",
         "Name[sv]": "Kakburk",
+        "Name[tr]": "Kurabiye Kavanozu",
         "Name[uk]": "Глечик з куками",
         "Name[x-test]": "xxCookie Jarxx",
         "ServiceTypes": [

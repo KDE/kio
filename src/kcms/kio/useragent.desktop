@@ -112,6 +112,7 @@ Comment[sr@ijekavian]=Подесите кориснички агент који 
 Comment[sr@ijekavianlatin]=Podesite korisnički agent koji izdaje HTTP U/I zahvat
 Comment[sr@latin]=Podesite korisnički agent koji izdaje HTTP U/I zahvat
 Comment[sv]=Anpassa användaragenten exponerad av HTTP I/O-slaven
+Comment[tr]=HTTP kioslave tarafından sunulan Kullanıcı Aracısı'nı yapılandır
 Comment[uk]=Налаштувати дані агента користувача, які надаватиме допоміжний засіб HTTP
 Comment[x-test]=xxConfigure the User Agent exposed by the HTTP kioslavexx
 Comment[zh_CN]=配置 HTTP kioslave 的对外客户端
