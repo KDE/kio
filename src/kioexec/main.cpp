@@ -21,6 +21,7 @@
 
 #include "main.h"
 #include "kio_version.h"
+#include "kioexecdinterface.h"
 
 #include <QtCore/QFile>
 #include <QtCore/QDir>
@@ -58,6 +59,7 @@ static const char description[] =
 KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggestedFileName)
     : mExited(false)
     , mTempFiles(tempFiles)
+    , mUseDaemon(false)
     , mSuggestedFileName(suggestedFileName)
     , expectedCounter(0)
     , command(args.first())
@@ -115,6 +117,11 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
                 qDebug() << "Copying" << url << " to" << dest;
                 KIO::Job *job = KIO::file_copy(url, dest);
                 jobList.append(job);
+
+                // Tell kioexecd to watch the file for changes.
+                OrgKdeKIOExecdInterface kioexecd(QStringLiteral("org.kde.kioexecd"), QStringLiteral("/modules/kioexecd"), QDBusConnection::sessionBus());
+                kioexecd.watch(file.path, file.url.toString());
+                mUseDaemon = !kioexecd.lastError().isValid();
 
                 connect(job, &KJob::result, this, &KIOExec::slotResult);
             }
@@ -218,13 +225,14 @@ void KIOExec::slotRunApp()
         QString src = it->path;
         const QUrl dest = it->url;
         QFileInfo info(src);
+        const bool uploadChanges = !mUseDaemon && !dest.isLocalFile();
         if (info.exists() && (it->time != info.lastModified())) {
             if (mTempFiles) {
                 if (KMessageBox::questionYesNo(nullptr,
                                                i18n("The supposedly temporary file\n%1\nhas been modified.\nDo you still want to delete it?", dest.toDisplayString(QUrl::PreferLocalFile)),
                                                i18n("File Changed"), KStandardGuiItem::del(), KGuiItem(i18n("Do Not Delete"))) != KMessageBox::Yes)
                     continue; // don't delete the temp file
-            } else if (!dest.isLocalFile()) { // no upload when it's already a local file
+            } else if (uploadChanges) { // no upload when it's already a local file or kioexecd already did it.
                 if (KMessageBox::questionYesNo(nullptr,
                                                i18n("The file\n%1\nhas been modified.\nDo you want to upload the changes?" , dest.toDisplayString()),
                                                i18n("File Changed"), KGuiItem(i18n("Upload")), KGuiItem(i18n("Do Not Upload"))) == KMessageBox::Yes) {
@@ -239,8 +247,7 @@ void KIOExec::slotRunApp()
             }
         }
 
-        if ((!dest.isLocalFile() || mTempFiles) && exit_code == 0) {
-            // Wait for a reasonable time so that even if the application forks on startup (like OOo or amarok)
+        if ((uploadChanges || mTempFiles) && exit_code == 0) {            // Wait for a reasonable time so that even if the application forks on startup (like OOo or amarok)
             // it will have time to start up and read the file before it gets deleted. #130709.
             qDebug() << "sleeping...";
             QThread::currentThread()->sleep(180); // 3 mn

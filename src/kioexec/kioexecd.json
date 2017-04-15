@@ -1,0 +1,11 @@
+{
+    "KPlugin": {
+        "Description": "Monitors cached remote files for changes",
+        "Name": "KIOExec Daemon",
+        "ServiceTypes": [
+            "KDEDModule"
+        ]
+    },
+    "X-KDE-DBus-ModuleName": "kioexecd",
+    "X-KDE-DBus-ServiceName": "org.kde.kioexecd"
+}

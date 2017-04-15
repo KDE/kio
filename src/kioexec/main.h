@@ -57,6 +57,7 @@ public Q_SLOTS:
 protected:
     bool mExited;
     bool mTempFiles;
+    bool mUseDaemon;
     QString mSuggestedFileName;
     int counter;
     int expectedCounter;

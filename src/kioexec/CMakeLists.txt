@@ -1,4 +1,30 @@
-add_executable(kioexec main.cpp)
+set(kioexecd_SRCS kioexecd.cpp)
+
+qt5_generate_dbus_interface(${CMAKE_CURRENT_SOURCE_DIR}/kioexecd.h org.kde.KIOExecd.xml)
+qt5_add_dbus_adaptor(kioexecd_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KIOExecd.xml kioexecd.h KIOExecd)
+
+
+ecm_qt_declare_logging_category(kioexecd_SRCS
+    HEADER kioexecdebug.h
+    IDENTIFIER KIOEXEC
+    CATEGORY_NAME kf5.kio.execd)
+
+kcoreaddons_add_plugin(kioexecd
+    SOURCES ${kioexecd_SRCS}
+    JSON kioexecd.json
+    INSTALL_NAMESPACE "kf5/kiod")
+
+target_link_libraries(kioexecd KF5::I18n KF5::DBusAddons KF5::WidgetsAddons KF5::KIOCore)
+
+configure_file(org.kde.kioexecd.service.in ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kioexecd.service)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kioexecd.service DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
+
+# next target
+
+set(kioexec_SRCS main.cpp)
+qt5_add_dbus_interface(kioexec_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KIOExecd.xml kioexecdinterface)
+
+add_executable(kioexec ${kioexec_SRCS})
 
 configure_file(config-kioexec.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kioexec.h)
 
