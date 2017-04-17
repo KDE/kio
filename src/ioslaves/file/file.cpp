@@ -854,11 +854,29 @@ notype:
 #pragma message("TODO: st_uid and st_gid are always zero, use GetSecurityInfo to find the owner")
 #endif
         entry.insert(KIO::UDSEntry::UDS_ACCESS_TIME, buff.st_atime);
+#ifdef st_birthtime
+        /* For example FreeBSD's and NetBSD's stat contains a field for
+         * the inode birth time: st_birthtime
+         * This however only works on UFS and ZFS, and not, on say, NFS.
+         * Instead of setting a bogus fallback like st_mtime, only use
+         * it if it is greater than 0. */
+        if (buff.st_birthtime > 0) {
+            entry.insert(KIO::UDSEntry::UDS_CREATION_TIME, buff.st_birthtime);
+        }
+#endif
+#ifdef __st_birthtime
+        /* As above, but OpenBSD calls it slightly differently. */
+        if (buff.__st_birthtime > 0) {
+            entry.insert(KIO::UDSEntry::UDS_CREATION_TIME, buff.__st_birthtime);
+        }
+#endif
     }
 
     // Note: buff.st_ctime isn't the creation time !
     // We made that mistake for KDE 2.0, but it's in fact the
     // "file status" change time, which we don't care about.
+    // For FreeBSD and NetBSD, use st_birthtime. For OpenBSD,
+    // use __st_birthtime.
 
     return true;
 }
