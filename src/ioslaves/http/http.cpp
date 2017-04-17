@@ -5525,7 +5525,9 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
                     if (!authTokens.isEmpty()) {
                         goto try_next_auth_scheme;
                     } else {
-                        error(ERR_UNSUPPORTED_ACTION, i18n("Authorization failed."));
+                        if (!sendErrorPageNotification()) {
+                            error(ERR_UNSUPPORTED_ACTION, i18n("Authorization failed."));
+                        }
                         authRequiresAnotherRoundtrip = false;
                     }
                     //### return false; ?
