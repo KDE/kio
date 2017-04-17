@@ -1,7 +1,26 @@
 {
     "KPlugin": {
         "Description": "Monitors cached remote files for changes",
+        "Description[ca@valencia]": "Controla els canvis als fitxers remots en la memòria cau",
+        "Description[ca]": "Controla els canvis als fitxers remots en la memòria cau",
+        "Description[es]": "Monitoriza archivos remotos en caché en busca de cambios",
+        "Description[ia]": "Monitora files remote ponite in cache per modificationes",
+        "Description[it]": "Sorveglia i cambiamenti nei file remoti in cache",
+        "Description[nl]": "Bewaakt in de cache opgeslagen bestanden op afstand op wijzigingen",
+        "Description[pt]": "Vigia as modificações dos ficheiros remotos em 'cache'",
+        "Description[sv]": "Övervakar om fjärrfiler i cache ändras",
+        "Description[uk]": "Стежить за змінами у кешованих віддалених файлах",
+        "Description[x-test]": "xxMonitors cached remote files for changesxx",
         "Name": "KIOExec Daemon",
+        "Name[ca@valencia]": "Dimoni KIOExec",
+        "Name[ca]": "Dimoni KIOExec",
+        "Name[es]": "Demonio KIOExec",
+        "Name[ia]": "Demon de KIOExec",
+        "Name[it]": "Demone KIOExec",
+        "Name[pt]": "Servidor do KIOExec",
+        "Name[sv]": "Kio-kördemon",
+        "Name[uk]": "Фонова служба KIOExec",
+        "Name[x-test]": "xxKIOExec Daemonxx",
         "ServiceTypes": [
             "KDEDModule"
         ]
