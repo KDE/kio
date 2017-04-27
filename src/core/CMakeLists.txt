@@ -226,12 +226,13 @@ endif()
 
 install(TARGETS KF5KIOCore EXPORT KF5KIOTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
-install(FILES
+list(APPEND KIO_namespaced_HEADERS
   http_slave_defaults.h
   ioslave_defaults.h
   job_base.h
   jobclasses.h
-
+)
+install(FILES
   ${KIO_namespaced_HEADERS}
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOCore/kio COMPONENT Devel
 )
@@ -277,6 +278,9 @@ install(FILES
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOCore COMPONENT Devel)
 
 install(FILES accept-languages.codes DESTINATION ${KDE_INSTALL_CONFDIR})
+
+# make available to ecm_add_qch in parent folder
+set(KIOCore_QCH_SOURCES ${KIOCore_HEADERS} ${KIO_namespaced_HEADERS} PARENT_SCOPE)
 
 include(ECMGeneratePriFile)
 ecm_generate_pri_file(BASE_NAME KIOCore LIB_NAME KF5KIOCore DEPS "KCoreAddons KService" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF5}/KIOCore)
