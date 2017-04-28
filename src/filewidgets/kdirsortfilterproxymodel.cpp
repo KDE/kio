@@ -76,6 +76,7 @@ void KDirSortFilterProxyModel::KDirSortFilterProxyModelPrivate::slotNaturalSorti
 {
     KConfigGroup g(KSharedConfig::openConfig(), "KDE");
     m_naturalSorting = g.readEntry("NaturalSorting", true);
+    m_collator.setNumericMode(m_naturalSorting);
 }
 
 KDirSortFilterProxyModel::KDirSortFilterProxyModel(QObject *parent)
