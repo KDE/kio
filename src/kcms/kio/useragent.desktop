@@ -105,6 +105,7 @@ Comment[es]=Configurar el agente de usuario mostrado por el kioslave HTTP
 Comment[ia]=Configura le Agente Udstor exponite per le kioslave de HTTP
 Comment[it]=Configura l'User Agent esposta dal kioslave HTTP
 Comment[nl]=De gebruikersagent (GA) configureren getoond door de HTTP-kioslave
+Comment[nn]=Set opp brukaragenten som HTTP-kioslaven skal oppgje
 Comment[pl]=Ustawienia User Agent pokazywanego przez HTTP kioslave
 Comment[pt]=Configurar o Agente de Utilizador exposto pelo 'kioslave' de HTTP
 Comment[sl]=Nastavi uporabniškega posrednika, ki je izpostavljen s strani kioslave-a HTTP
