@@ -83,7 +83,7 @@ ecm_add_tests(
  NAME_PREFIX "kiowidgets-"
  LINK_LIBRARIES KF5::KIOCore KF5::KIOWidgets Qt5::Test
 )
-set_target_properties(krununittest PROPERTIES COMPILE_FLAGS "-DCMAKE_INSTALL_FULL_LIBEXECDIR_KF5=\\\"${CMAKE_INSTALL_FULL_LIBEXECDIR_KF5}\\\"")
+set_target_properties(krununittest PROPERTIES COMPILE_FLAGS "-DCMAKE_INSTALL_FULL_LIBEXECDIR_KF5=\"\\\"${CMAKE_INSTALL_FULL_LIBEXECDIR_KF5}\\\"\"")
 
 # Same as accessmanagertest, but using QNetworkAccessManager, to make sure we
 # behave the same
