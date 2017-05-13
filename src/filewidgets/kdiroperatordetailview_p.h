@@ -52,7 +52,6 @@ protected:
 
 private Q_SLOTS:
     void resetResizing();
-    void disableColumnResizing();
     void expandNameColumn();
 
 private:

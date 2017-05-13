@@ -63,8 +63,6 @@ void KDirOperatorDetailView::setModel(QAbstractItemModel *model)
         resetResizing();
     }
 
-    connect(model, SIGNAL(layoutChanged()), this, SLOT(expandNameColumn()));
-
     QTreeView::setModel(model);
 }
 
@@ -155,11 +153,10 @@ void KDirOperatorDetailView::currentChanged(const QModelIndex &current, const QM
 
 void KDirOperatorDetailView::resetResizing()
 {
-    QTimer::singleShot(300, this, SLOT(disableColumnResizing()));
-}
+    connect(model(), &QAbstractItemModel::layoutChanged, this, &KDirOperatorDetailView::expandNameColumn,
+            Qt::UniqueConnection);
 
-void KDirOperatorDetailView::disableColumnResizing()
-{
+    expandNameColumn();
     m_resizeColumns = false;
 }
 
