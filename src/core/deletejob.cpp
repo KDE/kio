@@ -268,7 +268,7 @@ void DeleteJobPrivate::finishedStatPhase()
     // used by e.g. kdirlister).
     const QSet<QString>::const_iterator itEnd = m_parentDirs.constEnd();
     for (QSet<QString>::const_iterator it = m_parentDirs.constBegin(); it != itEnd; ++it) {
-        KDirWatch::self()->stopDirScan(*it);
+        KDirWatch::self()->removeDir(*it);
     }
     state = DELETEJOB_STATE_DELETING_FILES;
     deleteNextFile();
@@ -371,7 +371,7 @@ void DeleteJobPrivate::restoreDirWatch() const
 {
     const auto itEnd = m_parentDirs.constEnd();
     for (auto it = m_parentDirs.constBegin(); it != itEnd; ++it) {
-        KDirWatch::self()->restartDirScan(*it);
+        KDirWatch::self()->addDir(*it);
     }
 }
 
@@ -386,7 +386,7 @@ void DeleteJobPrivate::currentSourceStated(bool isDir, bool isLink)
             // We are about to delete this dir, no need to watch it
             // Maybe we should ask kdirwatch to remove all watches recursively?
             // But then there would be no feedback (things disappearing progressively) during huge deletions
-            KDirWatch::self()->stopDirScan(url.adjusted(QUrl::StripTrailingSlash).toLocalFile());
+            KDirWatch::self()->removeDir(url.adjusted(QUrl::StripTrailingSlash).toLocalFile());
         }
         if (!KProtocolManager::canDeleteRecursive(url)) {
             //qDebug() << url << "is a directory, let's list it";
