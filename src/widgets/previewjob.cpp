@@ -143,6 +143,7 @@ public:
     void getOrCreateThumbnail();
     bool statResultThumbnail();
     void createThumbnail(const QString &);
+    void cleanupTempFile();
     void determineNextFile();
     void emitPreview(const QImage &thumb);
 
@@ -409,6 +410,16 @@ void PreviewJob::setIgnoreMaximumSize(bool ignoreSize)
     d_func()->ignoreMaximumSize = ignoreSize;
 }
 
+void PreviewJobPrivate::cleanupTempFile()
+{
+    if (!tempName.isEmpty()) {
+        Q_ASSERT(!QFileInfo(tempName).isDir());
+        Q_ASSERT(QFileInfo(tempName).isFile());
+        QFile::remove(tempName);
+        tempName.clear();
+    }
+}
+
 void PreviewJobPrivate::determineNextFile()
 {
     Q_Q(PreviewJob);
@@ -491,6 +502,7 @@ void PreviewJob::slotResult(KJob *job)
     }
     case PreviewJobPrivate::STATE_GETORIG: {
         if (job->error()) {
+            d->cleanupTempFile();
             d->determineNextFile();
             return;
         }
@@ -499,10 +511,7 @@ void PreviewJob::slotResult(KJob *job)
         return;
     }
     case PreviewJobPrivate::STATE_CREATETHUMB: {
-        if (!d->tempName.isEmpty()) {
-            QFile::remove(d->tempName);
-            d->tempName.clear();
-        }
+        d->cleanupTempFile();
         d->determineNextFile();
         return;
     }
