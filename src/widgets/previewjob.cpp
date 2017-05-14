@@ -599,6 +599,12 @@ void PreviewJobPrivate::getOrCreateThumbnail()
             createThumbnail(fileUrl.toString());
             return;
         }
+        if (item.isDir()) {
+            // Skip remote dirs (bug 208625)
+            cleanupTempFile();
+            determineNextFile();
+            return;
+        }
         // No plugin support access to this remote content, copy the file
         // to the local machine, then create the thumbnail
         state = PreviewJobPrivate::STATE_GETORIG;
