@@ -108,6 +108,7 @@ Comment[nl]=De gebruikersagent (GA) configureren getoond door de HTTP-kioslave
 Comment[nn]=Set opp brukaragenten som HTTP-kioslaven skal oppgje
 Comment[pl]=Ustawienia User Agent pokazywanego przez HTTP kioslave
 Comment[pt]=Configurar o Agente de Utilizador exposto pelo 'kioslave' de HTTP
+Comment[ru]=Отправка версии браузера при использовании kioslave для HTTP
 Comment[sl]=Nastavi uporabniškega posrednika, ki je izpostavljen s strani kioslave-a HTTP
 Comment[sr]=Подесите кориснички агент који издаје ХТТП У/И захват
 Comment[sr@ijekavian]=Подесите кориснички агент који издаје ХТТП У/И захват
