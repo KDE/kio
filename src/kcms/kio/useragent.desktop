@@ -103,6 +103,7 @@ Comment[cs]=Nastavit agenta pro HTTP kioslave
 Comment[da]=Indstil den brugeragent der angives af HTTP-kioslaven
 Comment[en_GB]=Configure the User Agent exposed by the HTTP kioslave
 Comment[es]=Configurar el agente de usuario mostrado por el kioslave HTTP
+Comment[fr]=Configurer l'agent utilisateur montré par le module d'entrées / sorties HTTP
 Comment[ia]=Configura le Agente Udstor exponite per le kioslave de HTTP
 Comment[it]=Configura l'User Agent esposta dal kioslave HTTP
 Comment[nl]=De gebruikersagent (GA) configureren getoond door de HTTP-kioslave
