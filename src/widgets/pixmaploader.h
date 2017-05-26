@@ -41,7 +41,7 @@ namespace KIO
  * @param state The icon state, one of: KIconLoader::DefaultState,
  * KIconLoader::ActiveState or KIconLoader::DisabledState.
  * @param path Output parameter to get the full path. Seldom needed.
- *              Ignored if 0
+ *              Ignored if null pointer.
  * @return the pixmap of the URL, can be a default icon if not found
  */
 KIOWIDGETS_EXPORT QPixmap pixmapForUrl(const QUrl &url, int dummy = 0, KIconLoader::Group group = KIconLoader::Desktop,
