@@ -167,7 +167,7 @@ ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   FileUndoManager
   Paste
   PixmapLoader
-  KUriFilterSearchProviderActions
+  KUriFilterSearchProviderActions # KF6: fix and move to non-KIO prefixed install folder
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_widgets_HEADERS
