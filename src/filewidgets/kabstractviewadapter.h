@@ -30,12 +30,7 @@ class QRect;
 class QSize;
 
 /*
- * Interface used by KFilePreviewGenerator to generate previews
- * for files. The interface allows KFilePreviewGenerator to be
- * independent from the view implementation.
- */
-
-/* TODO KF6 Q_PROPERTY(QSize iconSize READ iconSize WRITE setIconSize NOTIFY iconSizeChanged)
+ * TODO KF6 Q_PROPERTY(QSize iconSize READ iconSize WRITE setIconSize NOTIFY iconSizeChanged)
  * TODO KF6 virtual void setIconSize(const QSize &size);
  * TODO KF6 iconSizeChanged();
  *
@@ -66,6 +61,13 @@ class QSize;
  * to do anything except call setIconSize on its QAbstractItemView).
  */
 
+/**
+ * @class KAbstractViewAdapter kabstractviewadapter.h <KAbstractViewAdapter>
+ *
+ * Interface used by KFilePreviewGenerator to generate previews
+ * for files. The interface allows KFilePreviewGenerator to be
+ * independent from the view implementation.
+ */
 class KIOFILEWIDGETS_EXPORT KAbstractViewAdapter : public QObject
 {
 public:
