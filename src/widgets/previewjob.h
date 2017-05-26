@@ -33,6 +33,8 @@ namespace KIO
 {
 class PreviewJobPrivate;
 /*!
+ * @class KIO::PreviewJob previewjob.h <KIO/PreviewJob>
+ *
  * This class catches a preview (thumbnail) for files.
  * @short KIO Job to get a thumbnail picture
  */

@@ -122,6 +122,8 @@ enum RenameDialog_Result {
 typedef RenameDialog_Result SkipDialog_Result;
 
 /**
+ * @class KIO::JobUiDelegateExtension jobuidelegateextension.h <KIO/JobUiDelegateExtension>
+ *
  * An abstract class defining interaction with users from KIO jobs:
  * \li asking what to do in case of a conflict while copying/moving files or directories
  * \li asking what to do in case of an error while copying/moving files or directories

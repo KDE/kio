@@ -36,6 +36,8 @@ namespace KIO
 
 class DeleteJobPrivate;
 /**
+ * @class KIO::DeleteJob deletejob.h <KIO/DeleteJob>
+ *
  * A more complex Job to delete files and directories.
  * Don't create the job directly, but use KIO::del() instead.
  *

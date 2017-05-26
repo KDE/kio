@@ -26,6 +26,8 @@
 class QWidget;
 
 /**
+ * @class KDirLister kdirlister.h <KDirLister>
+ *
  * Subclass of KCoreDirLister which uses QWidgets to show error messages
  * and to associate jobs with windows.
  */

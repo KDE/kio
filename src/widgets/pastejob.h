@@ -32,6 +32,8 @@ namespace KIO
 
 class PasteJobPrivate;
 /**
+ * @class KIO::PasteJob pastejob.h <KIO/PasteJob>
+ *
  * A KIO job that handles pasting the clipboard contents.
  *
  * If the clipboard contains URLs, they are copied to the destination URL.

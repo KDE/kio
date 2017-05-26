@@ -31,6 +31,8 @@ class QUrl;
 class KUrlComboBoxPrivate;
 
 /**
+ * @class KUrlComboBox kurlcombobox.h <KUrlComboBox>
+ *
  * This combobox shows a number of recent URLs/directories, as well as some
  * default directories.
  * It will manage the default dirs root-directory, home-directory and

@@ -31,6 +31,8 @@ namespace KIO
 
 class RestoreJobPrivate;
 /**
+ * @class KIO::RestoreJob restorejob.h <KIO/RestoreJob>
+ *
  * RestoreJob is used to restore files from the trash.
  * Don't create the job directly, but use KIO::restoreFromTrash().
  *

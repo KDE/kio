@@ -28,6 +28,8 @@
 
 class KStatusBarOfflineIndicatorPrivate;
 /**
+ * @class KStatusBarOfflineIndicator kstatusbarofflineindicator.h <KStatusBarOfflineIndicator>
+ *
  * Widget indicating network connection status using an icon and tooltip.  This widget uses
  * QNetworkConfigurationMAnager internally to automatically show and hide itself as required.
  *

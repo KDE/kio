@@ -31,6 +31,8 @@ namespace KIO
 
 class MkpathJobPrivate;
 /**
+ * @class KIO::MkpathJob mkpathjob.h <KIO/MkpathJob>
+ *
  * A KIO job that creates a directory, after creating all parent
  * directories necessary for this.
  *

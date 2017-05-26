@@ -25,6 +25,8 @@
 #include <qglobal.h>
 
 /**
+ * @class ThumbSequenceCreator thumbsequencecreator.h <KIO/ThumbSequenceCreator>
+ *
  * @see ThumbCreator
  *
  * This is an extension of ThumbCreator that allows creating a thumbnail sequence for
@@ -39,6 +41,7 @@
  *
  * @since 4.3
  */
+// KF6 TODO: put this in the KIO namespace
 class KIOWIDGETS_EXPORT ThumbSequenceCreator : public ThumbCreator
 {
 public:

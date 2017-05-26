@@ -30,6 +30,8 @@ namespace KIO
 {
 
 /**
+ * @class KIO::JobUiDelegateFactory jobuidelegatefactory.h <KIO/JobUiDelegateFactory>
+ *
  * A factory for creating job ui delegates.
  * Every KIO job will get a delegate from this factory.
  * \since 5.0

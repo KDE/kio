@@ -29,6 +29,8 @@ namespace KIO
 
 class MkdirJobPrivate;
 /**
+ * @class KIO::MkdirJob mkdirjob.h <KIO/MkdirJob>
+ *
  * A KIO job that creates a directory
  * @see KIO::mkdir()
  */

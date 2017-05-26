@@ -37,6 +37,8 @@ class CopyJob;
 class DropJobPrivate;
 
 /**
+ * @class KIO::DropJob dropjob.h <KIO/DropJob>
+ *
  * A KIO job that handles dropping into a file-manager-like view.
  * @see KIO::drop
  *

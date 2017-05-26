@@ -35,6 +35,8 @@ namespace KIO
 class DesktopExecParserPrivate;
 
 /**
+ * @class KIO::DesktopExecParser desktopexecparser.h <KIO/DesktopExecParser>
+ *
  * Parses the Exec= line from a .desktop file,
  * and process all the '\%' placeholders, e.g. handling URLs vs local files.
  *

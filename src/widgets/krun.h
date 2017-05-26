@@ -37,6 +37,8 @@ class Job;
 }
 
 /**
+ * @class KRun krun.h <KRun>
+ *
  * To open files with their associated applications in KDE, use KRun.
  *
  * It can execute any desktop entry, as well as any file, using

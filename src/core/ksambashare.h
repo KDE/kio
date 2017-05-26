@@ -27,6 +27,8 @@ class KSambaShareData;
 class KSambaSharePrivate;
 
 /**
+ * @class KSambaShare ksambashare.h <KSambaShare>
+ *
  * This class lists Samba user shares and monitors them for addition, update and removal.
  * Singleton class, call instance() to get an instance.
  */

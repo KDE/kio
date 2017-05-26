@@ -37,6 +37,8 @@ class SlaveConfigPrivate;
 } // namespace KIO
 
 /**
+ * @class KProtocolManager kprotocolmanager.h <KProtocolManager>
+ *
  * Provides information about I/O (Internet, etc.) settings chosen/set
  * by the end user.
  *

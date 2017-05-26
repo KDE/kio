@@ -31,6 +31,8 @@ class QMenu;
 class KFileItemActionsPrivate;
 
 /**
+ * @class KFileItemActions kfileitemactions.h <KFileItemActions>
+ *
  * This class creates and handles the actions for a url (or urls) in a popupmenu.
  *
  * This includes:

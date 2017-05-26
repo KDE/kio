@@ -37,6 +37,8 @@ namespace KIO
 {
 
 /**
+ * @class KIO::TCPSlaveBase tcpslavebase.h <KIO/TCPSlaveBase>
+ *
  * There are two classes that specifies the protocol between application (job)
  * and kioslave. SlaveInterface is the class to use on the application end,
  * SlaveBase is the one to use on the slave end.

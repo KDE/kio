@@ -37,6 +37,8 @@ namespace KIO
 class AuthInfoPrivate;
 
 /**
+ * @class KIO::AuthInfo authinfo.h <KIO/AuthInfo>
+ *
  * This class is intended to make it easier to prompt for, cache
  * and retrieve authorization information.
  *

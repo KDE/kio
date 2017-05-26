@@ -50,6 +50,8 @@ class DeleteJob;
 }
 
 /**
+ * @class KDirOperator kdiroperator.h <KDirOperator>
+ *
  * This widget works as a network transparent filebrowser. You specify a URL
  * to display and this url will be loaded via KDirLister. The user can
  * browse through directories, highlight and select files, delete or rename

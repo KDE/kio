@@ -25,6 +25,8 @@
 #include <kpixmapprovider.h>
 
 /**
+ * @class KUrlPixmapProvider kurlpixmapprovider.h <KUrlPixmapProvider>
+ *
  * Implementation of KPixmapProvider.
  *
  * Uses KMimeType::pixmapForURL() to resolve icons.

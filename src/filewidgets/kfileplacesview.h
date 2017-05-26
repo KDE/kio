@@ -29,6 +29,8 @@ class QResizeEvent;
 class QContextMenuEvent;
 
 /**
+ * @class KFilePlacesView kfileplacesview.h <KFilePlacesView>
+ *
  * This class allows to display a KFilePlacesModel.
  */
 class KIOFILEWIDGETS_EXPORT KFilePlacesView : public QListView

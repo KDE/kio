@@ -27,6 +27,8 @@
 #include <QtCore/QStringList>
 
 /**
+ * @class KMountPoint kmountpoint.h <KMountPoint>
+ *
  * The KMountPoint class provides information about mounted and unmounted disks.
  * It provides a system independent interface to fstab.
  *

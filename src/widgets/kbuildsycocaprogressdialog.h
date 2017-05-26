@@ -25,6 +25,8 @@
 
 class KBuildSycocaProgressDialogPrivate;
 /**
+ * @class KBuildSycocaProgressDialog kbuildsycocaprogressdialog.h <KBuildSycocaProgressDialog>
+ *
  * Progress dialog while ksycoca is being rebuilt (by kbuildsycoca).
  * Usage: KBuildSycocaProgressDialog::rebuildKSycoca(parentWidget)
  */

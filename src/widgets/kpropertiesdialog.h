@@ -39,6 +39,8 @@ class Job;
 }
 
 /**
+ * @class KPropertiesDialog kpropertiesdialog.h <KPropertiesDialog>
+ *
  * The main properties dialog class.
  * A Properties Dialog is a dialog which displays various information
  * about a particular file or URL, or several files or URLs.

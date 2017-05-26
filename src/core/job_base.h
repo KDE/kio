@@ -31,6 +31,8 @@ class JobUiDelegateExtension;
 
 class JobPrivate;
 /**
+ * @class KIO::Job job_base.h <KIO/Job>
+ *
  * The base class for all jobs.
  * For all jobs created in an application, the code looks like
  *

@@ -30,6 +30,8 @@ namespace KIO
 
 class FileSystemFreeSpaceJobPrivate;
 /**
+ * @class KIO::FileSystemFreeSpaceJob filesystemfreespacejob.h <KIO/FileSystemFreeSpaceJob>
+ *
  * A KIO job that retrieves the total and available size of a filesystem.
  * @since 5.3
  */

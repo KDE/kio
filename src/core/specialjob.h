@@ -29,6 +29,8 @@ namespace KIO
 class SpecialJobPrivate;
 
 /**
+ * @class KIO::SpecialJob specialjob.h <KIO/SpecialJob>
+ *
  * A class that sends a special command to an ioslave.
  * This allows you to send a binary blob to an ioslave and handle
  * its responses. The ioslave will receive the binary data as an

@@ -30,6 +30,8 @@ namespace KIO
 
 class FavIconRequestJobPrivate;
 /**
+ * @class FavIconRequestJob faviconrequestjob.h <KIO/FavIconRequestJob>
+ *
  * FavIconRequestJob handles the retrieval of a favicon (either from the local cache or from the internet)
  *
  * For instance, the icon for http://www.google.com exists at http://www.google.com/favicon.ico

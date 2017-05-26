@@ -37,6 +37,8 @@ typedef QList<ACLGroupPermissions>::iterator ACLGroupPermissionsIterator;
 typedef QList<ACLGroupPermissions>::const_iterator ACLGroupPermissionsConstIterator;
 
 /**
+ * @class KACL kacl.h <KACL>
+ *
  * The KACL class encapsulates a POSIX Access Control List. It follows the
  * little standard that couldn't, 1003.1e/1003.2c, which died in draft status.
  * @short a POSIX ACL encapsulation

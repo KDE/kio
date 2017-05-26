@@ -31,6 +31,8 @@ namespace KIO
 
 class ChmodJobPrivate;
 /**
+ * @class KIO::ChmodJob chmodjob.h <KIO/ChmodJob>
+ *
  * This job changes permissions on a list of files or directories,
  * optionally in a recursive manner.
  * @see KIO::chmod()

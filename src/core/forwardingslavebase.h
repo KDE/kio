@@ -33,6 +33,8 @@ namespace KIO
 class ForwardingSlaveBasePrivate;
 
 /**
+ * @class KIO::ForwardingSlaveBase forwardingslavebase.h <KIO/ForwardingSlaveBase>
+ *
  * This class should be used as a base for ioslaves acting as a
  * forwarder to other ioslaves. It has been designed to support only
  * local filesystem like ioslaves.

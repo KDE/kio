@@ -28,6 +28,8 @@
 class QUrl;
 
 /**
+ * @class KPreviewWidgetBase kpreviewwidgetbase.h <KPreviewWidgetBase>
+ *
  * Abstract baseclass for all preview widgets which shall be used via
  * KFileDialog::setPreviewWidget(const KPreviewWidgetBase *).
  * Ownership will be transferred to KFileDialog, so you have to create

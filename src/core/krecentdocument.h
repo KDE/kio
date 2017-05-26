@@ -34,6 +34,8 @@
 #include <QUrl>
 
 /**
+ * @class KRecentDocument krecentdocument.h <KRecentDocument>
+ *
  * Manage the "Recent Document Menu" entries displayed by
  * applications such as Kicker and Konqueror.
  *

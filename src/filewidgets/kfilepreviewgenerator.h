@@ -30,6 +30,8 @@ class QAbstractItemView;
 class QAbstractProxyModel;
 
 /**
+ * @class KFilePreviewGenerator kfilepreviewgenerator.h <KFilePreviewGenerator>
+ *
  * @brief Generates previews for files of an item view.
  *
  * Per default a preview is generated for each item.

@@ -31,6 +31,8 @@ class KActionCollection;
 class KNewFileMenuPrivate;
 
 /**
+ * @class KNewFileMenu knewfilemenu.h <KNewFileMenu>
+ *
  * The 'Create New' submenu, for creating files using templates
  * (e.g. "new HTML file") and directories.
  *

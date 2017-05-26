@@ -33,6 +33,8 @@ class KFileItemListPropertiesPrivate;
 class KFileItemList;
 
 /**
+ * @class KFileItemListProperties kfileitemlistproperties.h <KFileItemListProperties>
+ *
  * @brief Provides information about the common properties of a group of
  *        KFileItem objects.
  *

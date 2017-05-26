@@ -35,6 +35,8 @@
 class KFileItemPrivate;
 
 /**
+ * @class KFileItem kfileitem.h <KFileItem>
+ *
  * A KFileItem is a generic class to handle a file, local or remote.
  * In particular, it makes it easier to handle the result of KIO::listDir
  * (UDSEntry isn't very friendly to use).
@@ -528,6 +530,8 @@ inline uint qHash(const KFileItem &item)
 }
 
 /**
+ * @class KFileItemList kfileitem.h <KFileItem>
+ *
  * List of KFileItems, which adds a few helper
  * methods to QList<KFileItem>.
  */

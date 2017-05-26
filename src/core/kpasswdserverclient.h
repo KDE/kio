@@ -36,6 +36,8 @@ namespace KIO
 class KPasswdServerClientPrivate;
 
 /**
+ * @class KPasswdServerClient kpasswdserverclient.h <KPasswdServerClient>
+ *
  * Interface class for kpasswdserver.
  * KIOSlaves should not use this directly but via the SlaveBase API.
  * @since 5.30

@@ -29,6 +29,8 @@ namespace KIO
 
 class MimetypeJobPrivate;
 /**
+ * @class KIO::MimetypeJob mimetypejob.h <KIO/MimetypeJob>
+ *
  * A MimetypeJob is a TransferJob that  allows you to get
  * the mime type of an URL. Don't create directly,
  * but use KIO::mimetype() instead.

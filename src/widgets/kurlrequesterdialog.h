@@ -29,6 +29,8 @@ class QFileDialog;
 class KUrlRequesterDialogPrivate;
 
 /**
+ * @class KUrlRequesterDialog kurlrequesterdialog.h <KUrlRequesterDialog>
+ *
  * Dialog in which a user can enter a filename or url. It is a dialog
  * encapsulating KUrlRequester.
  *

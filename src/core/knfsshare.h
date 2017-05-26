@@ -24,6 +24,8 @@
 #include "kiocore_export.h"
 
 /**
+ * @class KNFSShare knfsshare.h <KNFSShare>
+ *
  * Similar functionality like KFileShare,
  * but works only for NFS and do not need
  * any suid script.

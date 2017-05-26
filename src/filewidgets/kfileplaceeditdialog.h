@@ -34,6 +34,8 @@ class KIconButton;
 class KUrlRequester;
 
 /**
+ * @class KFilePlaceEditDialog kfileplaceeditdialog.h <KFilePlaceEditDialog>
+ *
  * A dialog that allows editing entries of a KUrlBar ( KUrlBarItem).
  * The dialog offers to configure a given url, label and icon.
  * See the class-method getInformation() for easy usage.

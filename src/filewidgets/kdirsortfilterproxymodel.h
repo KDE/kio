@@ -30,6 +30,8 @@
 #include "kiofilewidgets_export.h"
 
 /**
+ * @class KDirSortFilterProxyModel kdirsortfilterproxymodel.h <KDirSortFilterProxyModel>
+ *
  * @brief Acts as proxy model for KDirModel to sort and filter
  *        KFileItems.
  *

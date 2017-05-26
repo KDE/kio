@@ -27,6 +27,8 @@
 class QUrl;
 
 /**
+ * @class KOverlayIconPlugin koverlayiconplugin.h <KOverlayIconPlugin>
+ *
  * @brief Base class for overlay icon plugins.
  *
  * Enables the file manager to show custom overlay icons on files.

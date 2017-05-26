@@ -24,6 +24,8 @@ class PreviewJob;
 }
 
 /**
+ * @class KImageFilePreview kimagefilepreview.h <KImageFilePreview>
+ *
  * Image preview widget for the file dialog.
  */
 class KIOFILEWIDGETS_EXPORT KImageFilePreview : public KPreviewWidgetBase

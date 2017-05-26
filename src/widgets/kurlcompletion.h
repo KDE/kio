@@ -34,6 +34,8 @@ class QStringList;
 class KUrlCompletionPrivate;
 
 /**
+ * @class KUrlCompletion kurlcompletion.h <KUrlCompletion>
+ *
  * This class does completion of URLs including user directories (~user)
  * and environment variables.  Remote URLs are passed to KIO.
  *

@@ -27,6 +27,8 @@ class QImage;
 class QWidget;
 
 /**
+ * @class ThumbCreator thumbcreator.h <KIO/ThumbCreator>
+ *
  * Base class for thumbnail generator plugins.
  *
  * KIO::PreviewJob, via the "thumbnail" kioslave, uses instances of this class
@@ -168,6 +170,7 @@ public:
 };
 
 /**
+ * @class ThumbCreatorV2 thumbcreator.h <KIO/ThumbCreator>
  * @since 4.7
  * @deprecated since 5.0, use ThumbCreator
  */

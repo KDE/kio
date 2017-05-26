@@ -34,6 +34,8 @@ class SlaveConfig;
 
 class SchedulerPrivate;
 /**
+ * @class KIO::Scheduler scheduler.h <KIO/Scheduler>
+ *
  * The KIO::Scheduler manages io-slaves for the application.
  * It also queues jobs and assigns the job to a slave when one
  * becomes available.

@@ -29,6 +29,8 @@ class QMenu;
 class KFileCopyToMenuPrivate;
 
 /**
+ * @class KFileCopyToMenu kfilecopytomenu.h <KFileCopyToMenu>
+ *
  * This class adds "Copy To" and "Move To" submenus to a popupmenu.
  */
 class KIOFILEWIDGETS_EXPORT KFileCopyToMenu : public QObject

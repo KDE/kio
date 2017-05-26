@@ -89,6 +89,8 @@ enum Message {
 };
 
 /**
+ * @class KIO::SlaveInterface slaveinterface.h <KIO/SlaveInterface>
+ *
  * There are two classes that specifies the protocol between application
  * ( KIO::Job) and kioslave. SlaveInterface is the class to use on the application
  * end, SlaveBase is the one to use on the slave end.

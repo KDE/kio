@@ -33,6 +33,8 @@ class QModelIndex;
 class QPainter;
 
 /**
+ * @class KFileItemDelegate kfileitemdelegate.h <KFileItemDelegate>
+ *
  * KFileItemDelegate is intended to be used to provide a KDE file system
  * view, when using one of the standard item views in Qt with KDirModel.
  *

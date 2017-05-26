@@ -40,6 +40,8 @@ namespace KIO
 {
 
 /**
+ * @class KIO::RenameDialog renamedialog.h <KIO/RenameDialog>
+ *
  * The dialog shown when a CopyJob realizes that a destination file already exists,
  * and wants to offer the user with the choice to either Rename, Overwrite, Skip;
  * this dialog is also used when a .part file exists and the user can choose to

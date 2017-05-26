@@ -28,6 +28,8 @@
 class KShellCompletionPrivate;
 
 /**
+ * @class KShellCompletion kshellcompletion.h <KShellCompletion>
+ *
  * This class does shell-like completion of file names.
  * A string passed to makeCompletion() will be interpreted as a shell
  * command line. Completion will be done on the last argument on the line.

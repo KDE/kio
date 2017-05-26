@@ -33,6 +33,8 @@ namespace KIO
 class OpenFileManagerWindowJobPrivate;
 
 /**
+ * @class KIO::OpenFileManagerWindowJob openfilemanagerwindowjob.h <KIO/OpenFileManagerWindowJob>
+ *
  * @brief Open a File Manager Window
  *
  * Using this job you can open a file manager window and highlight specific

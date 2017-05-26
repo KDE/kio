@@ -28,6 +28,8 @@ namespace KIO
 
 class TransferJobPrivate;
 /**
+ * @class KIO::TransferJob transferjob.h <KIO/TransferJob>
+ *
  * The transfer job pumps data into and/or out of a Slave.
  * Data is sent to the slave on request of the slave ( dataReq).
  * If data coming from the slave can not be handled, the

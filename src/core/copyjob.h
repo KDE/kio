@@ -50,6 +50,8 @@ struct CopyInfo {
 
 class CopyJobPrivate;
 /**
+ * @class KIO::CopyJob copyjob.h <KIO/CopyJob>
+ *
  * CopyJob is used to move, copy or symlink files and directories.
  * Don't create the job directly, but use KIO::copy(),
  * KIO::move(), KIO::link() and friends.

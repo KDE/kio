@@ -30,6 +30,8 @@ namespace KIO
 {
 class WebShortcutsMenuManagerPrivate;
 /**
+ * @class KUriFilterSearchProviderActions kurifiltersearchprovideractions.h <KIO/KUriFilterSearchProviderActions>
+ *
  * This class is a manager for web shortcuts
  *
  * It will provide a list of web shortcuts against a selected text

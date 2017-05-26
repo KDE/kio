@@ -38,6 +38,8 @@ class QPushButton;
 class QString;
 
 /**
+ * @class KUrlRequester kurlrequester.h <KUrlRequester>
+ *
  * This class is a widget showing a lineedit and a button, which invokes a
  * filedialog. File name completion is available in the lineedit.
  *

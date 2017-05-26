@@ -34,6 +34,8 @@ class KUrlComboBox;
 class QMouseEvent;
 
 /**
+ * @class KUrlNavigator kurlnavigator.h <KUrlNavigator>
+ *
  * @brief Widget that allows to navigate through the paths of an URL.
  *
  * The URL navigator offers two modes:

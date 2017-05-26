@@ -28,6 +28,8 @@ namespace KIO
 
 class EmptyTrashJobPrivate;
 /**
+ * @class KIO::EmptyTrashJob emptytrashjob.h <KIO/EmptyTrashJob>
+ *
  * A KIO job for emptying the trash
  * @see KIO::trash()
  * @see KIO::restoreFromTrash()

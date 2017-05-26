@@ -32,6 +32,8 @@ class QMimeData;
 class QAction;
 
 /**
+ * @class KFilePlacesModel kfileplacesmodel.h <KFilePlacesModel>
+ *
  * This class is a list view model. Each entry represents a "place"
  * where user can access files. Only revelant when
  * used with QListView or QTableView.

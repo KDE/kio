@@ -35,6 +35,8 @@ namespace KIO
 class Job;
 
 /**
+ * @class KIO::JobUiDelegate jobuidelegate.h <KIO/JobUiDelegate>
+ *
  * A UI delegate tuned to be used with KIO Jobs.
  */
 class KIOWIDGETS_EXPORT JobUiDelegate : public KDialogJobUiDelegate, public JobUiDelegateExtension

@@ -38,6 +38,8 @@ class UndoCommand;
 class UndoJob;
 
 /**
+ * @class KIO::FileUndoManager fileundomanager.h <KIO/FileUndoManager>
+ *
  * FileUndoManager: makes it possible to undo kio jobs.
  * This class is a singleton, use self() to access its only instance.
  */

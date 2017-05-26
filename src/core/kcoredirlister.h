@@ -36,6 +36,8 @@ class ListJob;
 }
 
 /**
+ * @class KCoreDirLister kcoredirlister.h <KCoreDirLister>
+ *
  * @short Helper class for the kiojob used to list and update a directory.
  *
  * The dir lister deals with the kiojob used to list and update a directory

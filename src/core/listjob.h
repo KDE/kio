@@ -29,6 +29,8 @@ namespace KIO
 
 class ListJobPrivate;
 /**
+ * @class KIO::ListJob listjob.h <KIO/ListJob>
+ *
  * A ListJob is allows you to get the get the content of a directory.
  * Don't create the job directly, but use KIO::listRecursive() or
  * KIO::listDir() instead.

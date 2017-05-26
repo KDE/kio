@@ -38,6 +38,8 @@ namespace KIO
 {
 
 /**
+ * @class KIO::AccessManager accessmanager.h <KIO/AccessManager>
+ *
  * @short A KDE implementation of QNetworkAccessManager.
  *
  * Use this class instead of QNetworkAccessManager if you want to integrate
@@ -249,6 +251,8 @@ typedef KIO::AccessManager AccessManager;
 KIOWIDGETS_EXPORT bool sslConfigFromMetaData(const KIO::MetaData &metadata, QSslConfiguration &sslconfig);
 
 /**
+ * @class KIO::CookieJar accessmanager.h <KIO/AccessManager>
+ *
  * @short A KDE implementation of QNetworkCookieJar.
  *
  * Use this class in place of QNetworkCookieJar if you want to integrate with

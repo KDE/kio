@@ -26,6 +26,8 @@ class QUrl;
 
 class KRemoteEncodingPrivate;
 /**
+ * @class KRemoteEncoding kremoteencoding.h <KRemoteEncoding>
+ *
  * Allows encoding and decoding properly remote filenames into Unicode.
  *
  * Certain protocols do not specify an appropriate encoding for decoding

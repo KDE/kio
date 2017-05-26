@@ -28,6 +28,8 @@ namespace KIO
 
 class MultiGetJobPrivate;
 /**
+ * @class KIO::MultiGetJob multigetjob.h <KIO/MultiGetJob>
+ *
  * The MultiGetJob is a TransferJob that allows you to get
  * several files from a single server. Don't create directly,
  * but use KIO::multi_get() instead.

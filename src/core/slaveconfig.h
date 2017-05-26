@@ -30,6 +30,8 @@ namespace KIO
 
 class SlaveConfigPrivate;
 /**
+ * @class KIO::SlaveConfig slaveconfig.h <KIO/SlaveConfig>
+ *
  * SlaveConfig
  *
  * This class manages the configuration for io-slaves based on protocol

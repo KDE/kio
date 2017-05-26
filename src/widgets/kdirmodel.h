@@ -28,6 +28,8 @@ class KDirModelPrivate;
 class JobUrlCache;
 
 /**
+ * @class KDirModel kdirmodel.h <KDirModel>
+ *
  * @short A model for a KIO-based directory tree.
  *
  * KDirModel implements the QAbstractItemModel interface (for use with Qt's model/view widgets)

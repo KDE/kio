@@ -31,6 +31,8 @@ class QWidget;
 class KFileItemListProperties;
 
 /**
+ * @class KAbstractFileItemActionPlugin kabstractfileitemactionplugin.h <KAbstractFileItemActionPlugin>
+ *
  * @brief Base class for KFileItemAction plugins.
  *
  * KFileItemAction plugins allow dynamic features to be added to the context

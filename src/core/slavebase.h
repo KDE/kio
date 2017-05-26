@@ -39,6 +39,8 @@ class Connection;
 class SlaveBasePrivate;
 
 /**
+ * @class KIO::SlaveBase slavebase.h <KIO/SlaveBase>
+ *
  * There are two classes that specifies the protocol between application (job)
  * and kioslave. SlaveInterface is the class to use on the application end,
  * SlaveBase is the one to use on the slave end.

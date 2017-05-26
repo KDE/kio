@@ -30,6 +30,8 @@
 struct KEncodingFileDialogPrivate;
 
 /**
+ * @class KEncodingFileDialog kencodingfiledialog.h <KEncodingFileDialog>
+ *
  * Provides a user (and developer) friendly way to select files with support for
  * choosing encoding.
  * This class comes with a private constructor, the only way to show a file dialog

@@ -27,6 +27,8 @@ namespace KIO
 {
 
 /**
+ * @class KIO::MetaData metadata.h <KIO/MetaData>
+ *
  * MetaData is a simple map of key/value strings.
  */
 class MetaData : public QMap<QString, QString>

@@ -29,6 +29,8 @@
 class KOpenWithDialogPrivate;
 
 /**
+ * @class KOpenWithDialog kopenwithdialog.h <KOpenWithDialog>
+ *
  * "Open With" dialog box.
  *
  * @note To let the user choose an application and run it immediately,

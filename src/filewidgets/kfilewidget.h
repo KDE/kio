@@ -47,6 +47,8 @@ class KFileItem;
 class KDirOperator;
 
 /**
+ * @class KFileWidget kfilewidget.h <KFileWidget>
+ *
  * File selector widget.
  *
  * This is the contents of the KDE file dialog, without the actual QDialog around it.

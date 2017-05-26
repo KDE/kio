@@ -41,6 +41,8 @@ namespace KIO
 {
 class UDSEntryPrivate;
 /**
+ * @class KIO::UDSEntry udsentry.h <KIO/UDSEntry>
+ *
  * Universal Directory Service
  *
  * UDS entry is the data structure representing all the fields about a given URL

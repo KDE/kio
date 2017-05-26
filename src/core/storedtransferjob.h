@@ -28,6 +28,8 @@ namespace KIO
 
 class StoredTransferJobPrivate;
 /**
+ * @class KIO::StoredTransferJob storedtransferjob.h <KIO/StoredTransferJob>
+ *
  * StoredTransferJob is a TransferJob (for downloading or uploading data) that
  * also stores a QByteArray with the data, making it simpler to use than the
  * standard TransferJob.

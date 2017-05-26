@@ -30,6 +30,8 @@ class KSambaSharePrivate;
 class KSambaShareDataPrivate;
 
 /**
+ * @class KSambaShareData ksambasharedata.h <KSambaShareData>
+ *
  * This class represents a Samba user share. It is possible to share a directory with one or more
  * different names, update the share details or remove.
  *

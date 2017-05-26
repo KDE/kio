@@ -29,6 +29,8 @@ namespace KIO
 
 class SimpleJobPrivate;
 /**
+ * @class KIO::SimpleJob simplejob.h <KIO/SimpleJob>
+ *
  * A simple job (one url and one command).
  * This is the base class for all jobs that are scheduled.
  * Other jobs are high-level jobs (CopyJob, DeleteJob, FileCopyJob...)

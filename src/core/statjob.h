@@ -29,6 +29,8 @@ namespace KIO
 
 class StatJobPrivate;
 /**
+ * @class KIO::StatJob statjob.h <KIO/StatJob>
+ *
  * A KIO job that retrieves information about a file or directory.
  * @see KIO::stat()
  */

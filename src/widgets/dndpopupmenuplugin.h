@@ -29,6 +29,8 @@ class QAction;
 namespace KIO
 {
 /**
+ * @class KIO::DndPopupMenuPlugin dndpopupmenuplugin.h <KIO/DndPopupMenuPlugin>
+ *
  * Base class for drag and drop popup menus
  *
  * This can be used for adding dynamic menu items to the normal copy/move/link

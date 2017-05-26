@@ -43,6 +43,8 @@ class KCModule;
 class QHostInfo;
 
 /**
+ * @class KUriFilterSearchProvider kurifilter.h <KUriFilter>
+ *
  * Class that holds information about a search provider.
  *
  * @since 4.6
@@ -121,6 +123,8 @@ private:
 };
 
 /**
+* @class KUriFilterData kurifilter.h <KUriFilter>
+*
 * This class is a basic messaging class used to exchange filtering information
 * between the filter plugins and the application requesting the filtering
 * service.
@@ -622,6 +626,8 @@ private:
 };
 
 /**
+ * @class KUriFilterPlugin kurifilter.h <KUriFilter>
+ *
  * Base class for URI filter plugins.
  *
  * This class applies a single filter to a URI. All plugins designed to provide
@@ -750,6 +756,8 @@ private:
 };
 
 /**
+ * @class KUriFilter kurifilter.h <KUriFilter>
+ *
  * KUriFilter applies a number of filters to a URI and returns a filtered version if any
  * filter matches.
  * A simple example is "kde.org" to "http://www.kde.org", which is commonplace in web browsers.
