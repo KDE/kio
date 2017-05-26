@@ -124,7 +124,7 @@ protected Q_SLOTS:
     virtual void slotMetaData(const KIO::MetaData &_metaData);
 
 protected:
-    /*
+    /**
      * Allow jobs that inherit SimpleJob and are aware
      * of redirections to store the SSL session used.
      * Retrieval is handled by SimpleJob::start

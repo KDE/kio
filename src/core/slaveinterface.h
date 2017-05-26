@@ -51,8 +51,8 @@ enum Info {
     INF_MIME_TYPE = 21,
     INF_ERROR_PAGE = 22,
     INF_WARNING = 23,
-    INF_GETTING_FILE, // Deprecated
-    INF_UNUSED = 25, // now unused
+    INF_GETTING_FILE, ///< @deprecated
+    INF_UNUSED = 25, ///< now unused
     INF_INFOMESSAGE,
     INF_META_DATA,
     INF_NETWORK_STATUS,
@@ -72,7 +72,7 @@ enum Message {
     MSG_FINISHED,
     MSG_STAT_ENTRY, // 105
     MSG_LIST_ENTRIES,
-    MSG_RENAMED, // unused
+    MSG_RENAMED, ///< unused
     MSG_RESUME,
     MSG_SLAVE_STATUS,
     MSG_SLAVE_ACK, // 110
@@ -80,8 +80,8 @@ enum Message {
     MSG_NET_DROP,
     MSG_NEED_SUBURL_DATA,
     MSG_CANRESUME,
-    MSG_AUTH_KEY, // 115 // deprecated.
-    MSG_DEL_AUTH_KEY, // deprecated.
+    MSG_AUTH_KEY, ///< @deprecated
+    MSG_DEL_AUTH_KEY, ///< @deprecated
     MSG_OPENED,
     MSG_WRITTEN,
     MSG_HOST_INFO_REQ

@@ -210,7 +210,7 @@ enum Error {
     ERR_UNKNOWN_PROXY_HOST = KJob::UserDefinedError + 45,
     ERR_COULD_NOT_AUTHENTICATE = KJob::UserDefinedError + 46, ///< @deprecated
     ERR_CANNOT_AUTHENTICATE = KJob::UserDefinedError + 46,
-    ERR_ABORTED = KJob::UserDefinedError + 47, // Action got aborted from application side
+    ERR_ABORTED = KJob::UserDefinedError + 47, ///< Action got aborted from application side
     ERR_INTERNAL_SERVER = KJob::UserDefinedError + 48,
     ERR_SERVER_TIMEOUT = KJob::UserDefinedError + 49,
     ERR_SERVICE_NOT_AVAILABLE = KJob::UserDefinedError + 50,
@@ -223,23 +223,23 @@ enum Error {
     ERR_CANNOT_RENAME_PARTIAL = KJob::UserDefinedError + 57,
     ERR_NEED_PASSWD = KJob::UserDefinedError + 58,
     ERR_CANNOT_SYMLINK = KJob::UserDefinedError + 59,
-    ERR_NO_CONTENT = KJob::UserDefinedError + 60, // Action succeeded but no content will follow.
+    ERR_NO_CONTENT = KJob::UserDefinedError + 60, ///< Action succeeded but no content will follow.
     ERR_DISK_FULL = KJob::UserDefinedError + 61,
-    ERR_IDENTICAL_FILES = KJob::UserDefinedError + 62, // src==dest when moving/copying
-    ERR_SLAVE_DEFINED = KJob::UserDefinedError + 63, // for slave specified errors that can be
-    // rich text.  Email links will be handled
-    // by the standard email app and all hrefs
-    // will be handled by the standard browser.
-    // <a href="exec:/khelpcenter ?" will be
-    // forked.
-    ERR_UPGRADE_REQUIRED = KJob::UserDefinedError + 64, // A transport upgrade is required to access this
-    // object.  For instance, TLS is demanded by
-    // the server in order to continue.
-    ERR_POST_DENIED = KJob::UserDefinedError + 65, // Issued when trying to POST data to a certain Ports
+    ERR_IDENTICAL_FILES = KJob::UserDefinedError + 62, ///< src==dest when moving/copying
+    ERR_SLAVE_DEFINED = KJob::UserDefinedError + 63, ///< for slave specified errors that can be
+    ///< rich text.  Email links will be handled
+    ///< by the standard email app and all hrefs
+    ///< will be handled by the standard browser.
+    ///< <a href="exec:/khelpcenter ?" will be
+    ///< forked.
+    ERR_UPGRADE_REQUIRED = KJob::UserDefinedError + 64, ///< A transport upgrade is required to access this
+    ///< object.  For instance, TLS is demanded by
+    ///< the server in order to continue.
+    ERR_POST_DENIED = KJob::UserDefinedError + 65, ///< Issued when trying to POST data to a certain Ports
     ERR_COULD_NOT_SEEK = KJob::UserDefinedError + 66, ///< @deprecated
     // see job.cpp
     ERR_CANNOT_SEEK = KJob::UserDefinedError + 66,
-    ERR_CANNOT_SETTIME = KJob::UserDefinedError + 67, // Emitted by setModificationTime
+    ERR_CANNOT_SETTIME = KJob::UserDefinedError + 67, ///< Emitted by setModificationTime
     ERR_CANNOT_CHOWN = KJob::UserDefinedError + 68,
     ERR_POST_NO_SIZE = KJob::UserDefinedError + 69,
     ERR_DROP_ON_ITSELF = KJob::UserDefinedError + 70, ///< from KIO::DropJob, @since 5.6

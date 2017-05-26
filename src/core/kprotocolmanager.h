@@ -114,7 +114,7 @@ public:
      */
     static QString userAgentForHost(const QString &hostname);
 
-    /*
+    /**
      * Returns system name, version and machine type, for example "Windows", "5.1", "i686".
      * This information can be used for constructing custom user-agent strings.
      *

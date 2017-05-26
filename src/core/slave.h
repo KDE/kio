@@ -220,7 +220,7 @@ private:
      */
     void setIdle();
 
-    /*
+    /**
      * @returns Whether the slave is connected
      * (Connection oriented slaves only)
      */
