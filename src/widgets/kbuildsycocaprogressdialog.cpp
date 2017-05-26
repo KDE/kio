@@ -46,11 +46,11 @@ void KBuildSycocaProgressDialog::rebuildKSycoca(QWidget *parent)
     if (kbuildsycoca4.isValid()) {
         kbuildsycoca4.call(QDBus::NoBlock, QStringLiteral("recreate"));
     } else {
-        QProcess::startDetached(QStringLiteral("kbuildsycoca4"));
+        QProcess::startDetached(QStringLiteral("kbuildsycoca4"), QStringList());
     }
 
     QProcess *proc = new QProcess(&dlg);
-    proc->start(QStringLiteral(KBUILDSYCOCA_EXENAME));
+    proc->start(QStringLiteral(KBUILDSYCOCA_EXENAME), QStringList());
     QObject::connect(proc, SIGNAL(finished(int)), &dlg, SLOT(close()));
 
     dlg.exec();

@@ -5004,7 +5004,7 @@ void HTTPProtocol::sendCacheCleanerCommand(const QByteArray &command)
                 return;
             }
             qCDebug(KIO_HTTP) << "starting" << exe;
-            QProcess::startDetached(exe);
+            QProcess::startDetached(exe, QStringList());
 
             for (int i = 0 ; i < 30 && m_cacheCleanerConnection.state() == QLocalSocket::UnconnectedState; ++i) {
                 // Server is not listening yet; let's hope it does so under 3 seconds
