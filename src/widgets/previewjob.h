@@ -80,7 +80,7 @@ public:
      * the names of the plugins that may be used. If enabledPlugins is zero
      * all available plugins are used.
      *
-     * @deprecated Use PreviewJob(KFileItemList, QSize, QStringList) in combination
+     * @deprecated Use PreviewJob(const KFileItemList&, const QSize&, const QStringList*) in combination
      *             with the setter-methods instead. Note that the semantics of
      *             \p enabledPlugins has been slightly changed.
      */
@@ -254,7 +254,7 @@ private:
  * the names of the plugins that may be used.
  * @return the new PreviewJob
  * @see PreviewJob::availablePlugins()
- * @deprecated Use KIO::filePreview(KFileItemList, QSize, QStringList) in combination
+ * @deprecated Use KIO::filePreview(const KFileItemList&, const QSize&, const QStringList*) in combination
  *             with the setter-methods instead. Note that the semantics of
  *             \p enabledPlugins has been slightly changed.
  */
@@ -279,7 +279,7 @@ KIOWIDGETS_DEPRECATED_EXPORT PreviewJob *filePreview(const KFileItemList &items,
  * the names of the plugins that may be used.
  * @return the new PreviewJob
  * @see PreviewJob::availablePlugins()
- * @deprecated Use KIO::filePreview(KFileItemList, QSize, QStringList) in combination
+ * @deprecated Use KIO::filePreview(const KFileItemList&, const QSize&, const QStringList*) in combination
  *             with the setter-methods instead. Note that the semantics of
  *             \p enabledPlugins has been slightly changed.
  */
