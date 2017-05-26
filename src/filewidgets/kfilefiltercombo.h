@@ -26,6 +26,11 @@
 
 #include <kcombobox.h>
 
+/**
+ * @class KFileFilterCombo kfilefiltercombo.h <KFileFilterCombo>
+ *
+ * File filter combo box.
+ */
 class KIOFILEWIDGETS_EXPORT KFileFilterCombo : public KComboBox
 {
     Q_OBJECT
