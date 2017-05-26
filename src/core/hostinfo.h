@@ -30,6 +30,7 @@ class QHostInfo;
 namespace KIO
 {
 /**
+ * @internal
  * WARNING: this could disappear at some point in time.
  * DO NOT USE outside KDE Frameworks
  */
