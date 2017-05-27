@@ -245,6 +245,9 @@ void tst_KLocalSocketServer::setMaxPendingConnections()
 
 void tst_KLocalSocketServer::abstractUnixSocket_data()
 {
+#ifndef Q_OS_LINUX
+    QSKIP("Abstract UNIX sockets are specific for Linux");
+#endif
     QTest::addColumn<QString>("path");
     QTest::addColumn<bool>("success");
 
