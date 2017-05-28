@@ -436,7 +436,7 @@ public:
      * To be executable the file must pass the following rules:
      * -# Must reside on the local filesystem.
      * -# Must be marked as executable for the user by the filesystem.
-     * -# The mime type must inherit application/x-executable or application/x-executable-script.
+     * -# The mime type must inherit application/x-executable, application/x-executable-script or application/x-sharedlib.
      * To allow a script to run when the above rules are satisfied add the entry
      * @code
      * X-KDE-IsAlso=application/x-executable-script

@@ -139,7 +139,8 @@ bool KRun::isExecutableFile(const QUrl &url, const QString &mimetype)
 #ifdef Q_OS_WIN
                 mimeType.inherits(QLatin1String("application/x-ms-dos-executable")) ||
 #endif
-                mimeType.inherits(QStringLiteral("application/x-executable-script"))
+                mimeType.inherits(QStringLiteral("application/x-executable-script")) ||
+                mimeType.inherits(QStringLiteral("application/x-sharedlib"))
            ) {
             return true;
         }
@@ -1438,6 +1439,8 @@ bool KRun::isExecutable(const QString &serviceType)
 {
     return (serviceType == QLatin1String("application/x-desktop") ||
             serviceType == QLatin1String("application/x-executable") ||
+            /* See https://bugs.freedesktop.org/show_bug.cgi?id=97226 */
+            serviceType == QLatin1String("application/x-sharedlib") ||
             serviceType == QLatin1String("application/x-ms-dos-executable") ||
             serviceType == QLatin1String("application/x-shellscript"));
 }
