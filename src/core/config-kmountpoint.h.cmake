@@ -8,3 +8,4 @@
 #cmakedefine01 HAVE_FSTAB_H
 #cmakedefine01 HAVE_SYS_PARAM_H
 #cmakedefine01 HAVE_VOLMGT
+#cmakedefine01 GETMNTINFO_USES_STATVFS
