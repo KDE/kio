@@ -209,6 +209,7 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
         QLabel *lb = new QLabel(i18n("This action would overwrite '%1' with itself.\n"
                                      "Please enter a new file name:",
                                      KStringHandler::csqueeze(d->src.toDisplayString(QUrl::PreferLocalFile), 100)), this);
+        lb->setTextFormat(Qt::PlainText);
 
         d->bRename->setText(i18n("C&ontinue"));
         pLayout->addWidget(lb);
@@ -281,8 +282,10 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
         gridLayout->addWidget(destTitle, gridRow, 1);
 
         QLabel *srcUrlLabel = createSqueezedLabel(parent, d->src.toDisplayString(QUrl::PreferLocalFile));
+        srcUrlLabel->setTextFormat(Qt::PlainText);
         gridLayout->addWidget(srcUrlLabel, ++gridRow, 0);
         QLabel *destUrlLabel = createSqueezedLabel(parent, d->dest.toDisplayString(QUrl::PreferLocalFile));
+        destUrlLabel->setTextFormat(Qt::PlainText);
         gridLayout->addWidget(destUrlLabel, gridRow, 1);
 
         // The labels containing previews or icons
@@ -313,6 +316,7 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
         }
 
         QLabel *lb = new KSqueezedTextLabel(sentence1, this);
+        lb->setTextFormat(Qt::PlainText);
         pLayout->addWidget(lb);
     }
 
