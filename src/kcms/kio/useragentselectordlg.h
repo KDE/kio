@@ -33,7 +33,7 @@ class UserAgentSelectorDlg : public QDialog
     Q_OBJECT
 
 public:
-    explicit UserAgentSelectorDlg (UserAgentInfo* info, QWidget* parent = nullptr, Qt::WindowFlags f = nullptr);
+    explicit UserAgentSelectorDlg(UserAgentInfo* info, QWidget* parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
     ~UserAgentSelectorDlg();
 
     void setSiteName (const QString&);
