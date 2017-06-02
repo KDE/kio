@@ -75,8 +75,8 @@ public:
     DataProtocol();
 #endif
     virtual ~DataProtocol();
-    void mimetype(const QUrl &url) Q_DECL_OVERRIDE;
-    void get(const QUrl &url) Q_DECL_OVERRIDE;
+    void mimetype(const QUrl &url);
+    void get(const QUrl &url);
 };
 
 }/*end namespace*/
