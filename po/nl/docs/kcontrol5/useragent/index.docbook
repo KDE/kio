@@ -1,0 +1,126 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Dutch "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="useragent" lang="&language;">
+<title
+>Browseridentificatie</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+&Niels.Reedijk; 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systeeminstellingen</keyword>
+<keyword
+>user agent</keyword>
+<keyword
+>browser</keyword>
+<keyword
+>identificatie</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="user-agent">
+<title
+>Browseridentificatie</title>
+
+
+<sect2 id="user-agent-intro">
+<title
+>Inleiding</title>
+
+<para
+>Wanneer &konqueror; verbinding maakt met het web om informatie op te halen, wordt er wat identificerende informatie naar de website gestuurd in de vorm van een <quote
+>User Agent</quote
+>-header.</para>
+
+<para
+>Omdat er minimale verschillen zijn in de manier waarop de verschillende browsers functioneren, zijn er bepaalde websites die te veel op één browser leunen, en waarvan daarom de inhoud in de andere browsers niet goed wordt weergegeven. Sommige websites zijn slim genoeg om de user agent headers te onderzoeken en deze informatie in de &HTML;-code te verwerken zodat de inhoud goed wordt weergegeven, ongeacht welke browser er wordt gebruikt.</para>
+
+<para
+>U zult echter misschien merken dat sommige websites weigeren om fatsoenlijk te werken als u niet een browser hebt die door die site als <quote
+>afdoende</quote
+> wordt herkend. In die gevallen is het misschien nodig om de website voor de gek te houden door &konqueror; zichzelf voor te laten doen als een andere browser door de user agent header aan te passen.</para>
+
+</sect2>
+
+<sect2 id="user-agent-use">
+<title
+>Gebruik</title>
+
+<para
+>In deze module kunt u het type browser instellen waarvoor &konqueror; zich zal uitgeven. U kunt deze informatie per website instellen. Normaal gesproken is de lijst met de naam <guilabel
+>Website-specifieke identificatie</guilabel
+> leeg zodat &konqueror; altijd de standaard identificatie stuurt.</para>
+
+<para
+>U kunt het verzenden van identificatie geheel uitschakelen door het keuzeveld <guilabel
+>Identificatie verzenden</guilabel
+> uit te schakelen. Dit kan vreemd gedrag op sommige websites tot gevolg hebben, en sommige websites kunnen u de toegang weigeren. Wees dus voorzichtig met het uitschakelen van deze optie.</para>
+
+<para
+>Om een nieuwe agentverbinding te maken klikt u op de knop <guibutton
+>Nieuw...</guibutton
+>. Typ de naam van de server of het domein in in het tekstveld met de naam <guilabel
+>Wanneer met de volgende site verbonden wordt</guilabel
+> aan de bovenkant van het verschenen dialoogvenster.</para>
+
+<para
+>Merk op dat u <emphasis
+>geen</emphasis
+> gebruik kunt maken van de joker <token
+>*</token
+> in dit tekstveld. De tekenreeks <userinput
+>kde.org</userinput
+> zal echter wel met alle hosts in het domein <systemitem
+>kde.org</systemitem
+> overeenkomen.</para>
+
+<para
+>Nadat u de naam van de server hebt ingevoerd, selecteert u de identificatie-tekenreeks in de volgende keuzelijst met het label <guilabel
+>Gebruik de volgende identificatie:</guilabel
+>. De <guilabel
+>Echte identificatie</guilabel
+> &ie; de tekenreeks verzonden naar de server, wordt getoond in het veld.</para>
+
+<para
+>U kunt op een bestaand item in de lijst klikken en vervolgens de inhoud van de tekstvelden wijzigen gevolgd door een klik op de knop <guibutton
+>Wijzigen...</guibutton
+>.</para>
+
+<para
+>De knop <guibutton
+>Verwijderen</guibutton
+> kan worden gebruikt om de geselecteerde ingang te verwijderen. De knop <guibutton
+>Herstellen</guibutton
+> zal de bovenste tekstvelden leegmaken maar niet de al ingestelde bindingen beïnvloeden. Klik op <guibutton
+>Toepassen</guibutton
+> om uw wijzigingen te effectueren.</para>
+
+<para
+>U kunt de selectievakken aan de bovenkant van de module gebruiken om een identificatie-tekenreeks te maken die uniek is voor u, door een combinatie van besturingssysteem naam en versie, platform, processortype en taal te kiezen.</para>
+
+<para
+>In alle gevallen wordt de identificatie-tekenreeks die standaard wordt gestuurd getoond in vet aan de bovenkant van het tabblad.</para>
+
+</sect2>
+
+</sect1>
+
+</article>
