@@ -2835,7 +2835,11 @@ void KCoreDirListerCacheDirectoryData::moveListersWithoutCachedItemsJob(const QU
 
 KFileItem KCoreDirLister::cachedItemForUrl(const QUrl &url)
 {
-    return kDirListerCache()->itemForUrl(url);
+    if (kDirListerCache.exists()) {
+        return kDirListerCache()->itemForUrl(url);
+    } else {
+        return {};
+    }
 }
 
 QSet<QString> KCoreDirListerCache::filesInDotHiddenForDir(const QString& dir)
