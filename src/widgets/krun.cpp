@@ -351,8 +351,11 @@ static qint64 runCommandInternal(KProcess *proc, const KService *service, const 
                 data.setSilent(KStartupInfoData::Yes);
             }
             data.setDesktop(KWindowSystem::currentDesktop());
-            if (window) {
-                data.setLaunchedBy(window->winId());
+            // QTBUG-59017 Calling winId() on an embedded widget will break interaction
+            // with it on high-dpi multi-screen setups (cf. also Bug 363548), hence using
+            // its parent window instead
+            if (window && window->window()) {
+                data.setLaunchedBy(window->window()->winId());
             }
             if (service && !service->entryPath().isEmpty()) {
                 data.setApplicationId(service->entryPath());
@@ -817,7 +820,12 @@ qint64 KRun::runService(const KService &_service, const QList<QUrl> &_urls, QWid
             KStartupInfoId id;
             id.initId(myasn);
             KStartupInfoData data;
-            data.setLaunchedBy(window->winId());
+            // QTBUG-59017 Calling winId() on an embedded widget will break interaction
+            // with it on high-dpi multi-screen setups (cf. also Bug 363548), hence using
+            // its parent window instead
+            if (window->window()) {
+                data.setLaunchedBy(window->window()->winId());
+            }
             KStartupInfo::sendChange(id, data);
         }
     }
