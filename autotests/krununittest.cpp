@@ -190,6 +190,7 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
 
     QString kioexec = CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kioexec";
     QVERIFY(QFile::exists(kioexec));
+    QString kioexecQuoted = KShell::quoteArg(kioexec);
 
     QString kmailservice = QStandardPaths::findExecutable(QStringLiteral("kmailservice5"));
     if (!QFile::exists(kmailservice)) {
@@ -208,11 +209,11 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
 
     QTest::newRow("%F l0") << "kdeinit5 %F" << l0 << false << kdeinit;
     QTest::newRow("%F l1") << "kdeinit5 %F" << l1 << false << kdeinit + " /tmp";
-    QTest::newRow("%F l2") << "kdeinit5 %F" << l2 << false << kioexec + " 'kdeinit5 %F' http://localhost/foo";
-    QTest::newRow("%F l3") << "kdeinit5 %F" << l3 << false << kioexec + " 'kdeinit5 %F' 'file:///local/some file' http://remotehost.org/bar";
+    QTest::newRow("%F l2") << "kdeinit5 %F" << l2 << false << kioexecQuoted + " 'kdeinit5 %F' http://localhost/foo";
+    QTest::newRow("%F l3") << "kdeinit5 %F" << l3 << false << kioexecQuoted + " 'kdeinit5 %F' 'file:///local/some file' http://remotehost.org/bar";
 
-    QTest::newRow("%F l1 tempfile") << "kdeinit5 %F" << l1 << true << kioexec + " --tempfiles 'kdeinit5 %F' file:///tmp";
-    QTest::newRow("%f l1 tempfile") << "kdeinit5 %f" << l1 << true << kioexec + " --tempfiles 'kdeinit5 %f' file:///tmp";
+    QTest::newRow("%F l1 tempfile") << "kdeinit5 %F" << l1 << true << kioexecQuoted + " --tempfiles 'kdeinit5 %F' file:///tmp";
+    QTest::newRow("%f l1 tempfile") << "kdeinit5 %f" << l1 << true << kioexecQuoted + " --tempfiles 'kdeinit5 %f' file:///tmp";
 
     QTest::newRow("sh -c kdeinit5 %F") << "sh -c \"kdeinit5 \"'\\\"'\"%F\"'\\\"'"
                                        << l1 << false << m_sh + " -c 'kdeinit5 \\\"/tmp\\\"'";
