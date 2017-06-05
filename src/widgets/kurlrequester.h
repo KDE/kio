@@ -68,7 +68,7 @@ class KIOWIDGETS_EXPORT KUrlRequester : public QWidget
     Q_PROPERTY(QString clickMessage READ clickMessage WRITE setClickMessage)
 #endif
     Q_PROPERTY(QString placeholderText READ placeholderText WRITE setPlaceholderText)
-    Q_PROPERTY(QString text READ text WRITE setText)
+    Q_PROPERTY(QString text READ text WRITE setText NOTIFY textChanged)
     Q_PROPERTY(Qt::WindowModality fileDialogModality READ fileDialogModality WRITE setFileDialogModality)
 
 public:
