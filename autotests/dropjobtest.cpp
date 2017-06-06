@@ -107,6 +107,8 @@ private Q_SLOTS:
 
         m_srcFile = m_srcDir + "/srcfile";
         m_srcLink = m_srcDir + "/link";
+
+        qRegisterMetaType<KIO::CopyJob*>();
     }
 
     void cleanupTestCase()
