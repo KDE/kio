@@ -87,7 +87,7 @@ public:
           m_mimeData(dropEvent->mimeData()),
           m_urls(KUrlMimeData::urlsFromMimeData(m_mimeData, KUrlMimeData::PreferLocalUrls, &m_metaData)),
           m_dropAction(dropEvent->dropAction()),
-          m_globalPos(QCursor::pos()), // record mouse pos at time of drop
+          m_relativePos(dropEvent->pos()),
           m_keyboardModifiers(dropEvent->keyboardModifiers()),
           m_destUrl(destUrl),
           m_destItem(KCoreDirLister::cachedItemForUrl(destUrl)),
@@ -125,7 +125,7 @@ public:
     const QList<QUrl> m_urls;
     QMap<QString, QString> m_metaData;
     Qt::DropAction m_dropAction;
-    QPoint m_globalPos;
+    QPoint m_relativePos;
     Qt::KeyboardModifiers m_keyboardModifiers;
     QUrl m_destUrl;
     KFileItem m_destItem; // null for remote URLs not found in the dirlister cache
@@ -426,7 +426,8 @@ void DropJobPrivate::handleCopyToDirectory()
 
     if (int error = determineDropAction()) {
         if (error == KIO::ERR_UNKNOWN) {
-            KIO::DropMenu *menu = new KIO::DropMenu(KJobWidgets::window(q));
+            auto window = KJobWidgets::window(q);
+            KIO::DropMenu *menu = new KIO::DropMenu(window);
             QObject::connect(menu, &QMenu::aboutToHide, menu, &QObject::deleteLater);
 
             // If the user clicks outside the menu, it will be destroyed without emitting the triggered signal.
@@ -437,7 +438,7 @@ void DropJobPrivate::handleCopyToDirectory()
                 m_triggered = true;
                 slotTriggered(action);
             });
-            menu->popup(m_globalPos);
+            menu->popup(window ? window->mapToGlobal(m_relativePos) : QCursor::pos());
             m_menus.insert(menu);
             QObject::connect(menu, &QObject::destroyed, q, [this, menu]() {
                 m_menus.remove(menu);

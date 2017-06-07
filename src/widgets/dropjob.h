@@ -120,6 +120,8 @@ private:
  * @param flags passed to the sub job
  *
  * @return A pointer to the job handling the operation.
+ * @warning Don't forget to call KJobWidgets::setWindow() on this job, otherwise the popup
+ *          menu won't be properly positioned with Wayland compositors.
  * @since 5.4
  */
 KIOWIDGETS_EXPORT DropJob *drop(const QDropEvent *dropEvent, const QUrl &destUrl, JobFlags flags = DefaultFlags);
