@@ -497,7 +497,7 @@ KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, QWidget *parent)
     if (_urls.count() == 1) {
         text = i18n("<qt>Select the program that should be used to open <b>%1</b>. "
                     "If the program is not listed, enter the name or click "
-                    "the browse button.</qt>",  _urls.first().fileName());
+                    "the browse button.</qt>",  _urls.first().fileName().toHtmlEscaped());
     } else
         // Should never happen ??
     {
@@ -517,7 +517,7 @@ KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, const QString &_text,
     if (text.isEmpty() && !_urls.isEmpty()) {
         if (_urls.count() == 1) {
             const QString fileName = KStringHandler::csqueeze(_urls.first().fileName());
-            text = i18n("<qt>Select the program you want to use to open the file<br/>%1</qt>", fileName);
+            text = i18n("<qt>Select the program you want to use to open the file<br/>%1</qt>", fileName.toHtmlEscaped());
         } else {
             text = i18np("<qt>Select the program you want to use to open the file.</qt>",
                          "<qt>Select the program you want to use to open the %1 files.</qt>", _urls.count());
