@@ -101,6 +101,7 @@ Comment[ca]=Configura l'agent d'usuari exposat pel «kioslave» HTTP
 Comment[ca@valencia]=Configura l'agent d'usuari exposat pel «kioslave» HTTP
 Comment[cs]=Nastavit agenta pro HTTP kioslave
 Comment[da]=Indstil den brugeragent der angives af HTTP-kioslaven
+Comment[de]=Browserkennung für das HTTP-Ein-/Ausgabemodul einrichten
 Comment[en_GB]=Configure the User Agent exposed by the HTTP kioslave
 Comment[es]=Configurar el agente de usuario mostrado por el kioslave HTTP
 Comment[fi]=Aseta HTTP-KIO-palvelun käyttäjäagentti
