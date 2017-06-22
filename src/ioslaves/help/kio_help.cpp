@@ -51,7 +51,7 @@ QString HelpProtocol::langLookup(const QString &fname)
     QStringList search;
 
     // assemble the local search paths
-    const QStringList localDoc = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("doc/HTML"), QStandardPaths::LocateDirectory);
+    const QStringList localDoc = KDocTools::documentationDirs();
 
     QStringList langs = KLocalizedString::languages();
     langs.append(QStringLiteral("en"));
@@ -260,7 +260,7 @@ void HelpProtocol::get(const QUrl &url)
                 // accessing user data from another location invalids cached files
                 // Accessing user data under a different path is possible
                 // when using usb sticks - this may affect unix/mac systems also
-                const QString installPath = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "doc/HTML", QStandardPaths::LocateDirectory).last();
+                const QString installPath = KDocTools::documentationDirs().last();
 
                 QString cache = '/' + fi.absolutePath().remove(installPath, Qt::CaseInsensitive).replace('/', '_') + '_' + fi.baseName() + '.';
 #else
