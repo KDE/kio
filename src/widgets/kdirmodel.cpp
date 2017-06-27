@@ -24,7 +24,7 @@
 #include <kiconloader.h>
 #include <klocalizedstring.h>
 #include <kjobuidelegate.h>
-#include <kio/copyjob.h>
+#include <kio/simplejob.h>
 #include <kio/fileundomanager.h>
 #include "joburlcache_p.h"
 #include <kurlmimedata.h>
@@ -878,7 +878,7 @@ bool KDirModel::setData(const QModelIndex &index, const QVariant &value, int rol
             }
             QUrl newUrl = item.url().adjusted(QUrl::RemoveFilename);
             newUrl.setPath(newUrl.path() + KIO::encodeFileName(newName));
-            KIO::Job *job = KIO::moveAs(item.url(), newUrl, item.url().isLocalFile() ? KIO::HideProgressInfo : KIO::DefaultFlags);
+            KIO::Job *job = KIO::rename(item.url(), newUrl, item.url().isLocalFile() ? KIO::HideProgressInfo : KIO::DefaultFlags);
             job->ui()->setAutoErrorHandlingEnabled(true);
             // undo handling
             KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Rename, QList<QUrl>() << item.url(), newUrl, job);
