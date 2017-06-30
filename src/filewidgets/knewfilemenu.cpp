@@ -773,7 +773,9 @@ void KNewFileMenuPrivate::fillMenu()
             menu->addAction(linkApp);
         }
         Q_ASSERT(m_menuDev);
-        menu->addAction(m_menuDev);
+        if (!m_menuDev->menu()->isEmpty()) {
+            menu->addAction(m_menuDev);
+        }
     }
 }
 
