@@ -864,12 +864,12 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
         KIO::Job *job = KIO::mkpath(url, baseUrl);
         job->setProperty("mkpathUrl", url);
         KJobWidgets::setWindow(job, m_parentWidget);
-        job->ui()->setAutoErrorHandlingEnabled(true);
+        job->uiDelegate()->setAutoErrorHandlingEnabled(true);
         KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Mkpath, QList<QUrl>(), url, job);
 
         if (job) {
             // We want the error handling to be done by slotResult so that subclasses can reimplement it
-            job->ui()->setAutoErrorHandlingEnabled(false);
+            job->uiDelegate()->setAutoErrorHandlingEnabled(false);
             QObject::connect(job, SIGNAL(result(KJob*)), q, SLOT(slotResult(KJob*)));
         }
     } else {
@@ -1230,7 +1230,7 @@ void KNewFileMenu::setViewShowsHiddenFiles(bool b)
 void KNewFileMenu::slotResult(KJob *job)
 {
     if (job->error()) {
-        static_cast<KIO::Job *>(job)->ui()->showErrorMessage();
+        static_cast<KIO::Job *>(job)->uiDelegate()->showErrorMessage();
     } else {
         // Was this a copy or a mkdir?
         KIO::CopyJob *copyJob = ::qobject_cast<KIO::CopyJob *>(job);

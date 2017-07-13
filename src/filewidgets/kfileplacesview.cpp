@@ -647,7 +647,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         if (uiDelegate.askDeleteConfirmation(QList<QUrl>(), KIO::JobUiDelegate::EmptyTrash, KIO::JobUiDelegate::DefaultConfirmation)) {
             KIO::Job* job = KIO::emptyTrash();
             KJobWidgets::setWindow(job, window());
-            job->ui()->setAutoErrorHandlingEnabled(true);
+            job->uiDelegate()->setAutoErrorHandlingEnabled(true);
         }
     } else if (edit != nullptr && result == edit) {
         KBookmark bookmark = placesModel->bookmarkForIndex(index);

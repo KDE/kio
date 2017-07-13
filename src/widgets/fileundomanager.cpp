@@ -695,7 +695,7 @@ FileUndoManager::UiInterface::~UiInterface()
 
 void FileUndoManager::UiInterface::jobError(KIO::Job *job)
 {
-    job->ui()->showErrorMessage();
+    job->uiDelegate()->showErrorMessage();
 }
 
 bool FileUndoManager::UiInterface::copiedFileWasModified(const QUrl &src, const QUrl &dest, const QDateTime &srcTime, const QDateTime &destTime)

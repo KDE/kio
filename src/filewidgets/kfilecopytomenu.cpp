@@ -211,7 +211,7 @@ void KFileCopyToMainMenu::copyOrMoveTo(const QUrl &dest)
     KIO::CopyJob *job = m_menuType == Copy ? KIO::copy(d->m_urls, dirDest) : KIO::move(d->m_urls, dirDest);
     KIO::FileUndoManager::self()->recordCopyJob(job);
     KJobWidgets::setWindow(job, d->m_parentWidget ? d->m_parentWidget : this);
-    job->ui()->setAutoErrorHandlingEnabled(d->m_autoErrorHandling);
+    job->uiDelegate()->setAutoErrorHandlingEnabled(d->m_autoErrorHandling);
     connect(job, &KIO::CopyJob::result, this, [this](KJob * job) {
         emit d->q->error(job->error(), job->errorString());
     });

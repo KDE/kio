@@ -78,7 +78,7 @@ QWidget *KDirLister::mainWindow()
 void KDirLister::handleError(KIO::Job *job)
 {
     if (d->autoErrorHandling) {
-        job->ui()->showErrorMessage();
+        job->uiDelegate()->showErrorMessage();
     } else {
         KCoreDirLister::handleError(job);
     }

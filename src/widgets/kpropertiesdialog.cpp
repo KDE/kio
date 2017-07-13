@@ -1486,7 +1486,7 @@ void KFilePropsPlugin::slotCopyFinished(KJob *job)
         if (newTarget != item.linkDest()) {
             // qDebug() << "Updating target of symlink to" << newTarget;
             KIO::Job *job = KIO::symlink(newTarget, item.url(), KIO::Overwrite);
-            job->ui()->setAutoErrorHandlingEnabled(true);
+            job->uiDelegate()->setAutoErrorHandlingEnabled(true);
             job->exec();
         }
     }
