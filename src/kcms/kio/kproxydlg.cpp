@@ -206,7 +206,11 @@ static void setProxyInformation(const QString& value,
             manEdit->setText(((KSaveIOConfig::proxyDisplayUrlFlags() & flag) ? url.host(): url.url()));
         } else {
             QUrl url(urlStr);
-            manEdit->setText((KSaveIOConfig::proxyDisplayUrlFlags() & flag) ? url.host() : urlStr);
+            if (KSaveIOConfig::proxyDisplayUrlFlags() & flag) {
+                manEdit->setText((url.scheme().isEmpty()) ? url.path() : url.host());
+            } else {
+                manEdit->setText(urlStr);
+            }
         }
 
         if (spinBox && portNum > -1) {
