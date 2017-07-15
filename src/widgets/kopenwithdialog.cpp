@@ -25,6 +25,8 @@
 #include "kopenwithdialog_p.h"
 #include "kio_widgets_debug.h"
 
+#include <QApplication>
+#include <QDesktopWidget>
 #include <QDialogButtonBox>
 #include <QtCore/QtAlgorithms>
 #include <QtCore/QList>
@@ -49,6 +51,7 @@
 #include <kurlcompletion.h>
 #include <kurlrequester.h>
 #include <kservicegroup.h>
+#include <kcollapsiblegroupbox.h>
 #include <QDebug>
 
 #include <assert.h>
@@ -649,13 +652,28 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     QObject::connect(view, SIGNAL(doubleClicked(QModelIndex)),
                      q, SLOT(_k_slotDbClick()));
 
+    if (!qMimeType.isNull()) {
+        remember = new QCheckBox(i18n("&Remember application association for all files of type\n\"%1\" (%2)", qMimeTypeComment, qMimeType));
+        //    remember->setChecked(true);
+        topLayout->addWidget(remember);
+    } else {
+        remember = nullptr;
+    }
+
+    //Advanced options
+    KCollapsibleGroupBox *dialogExtension = new KCollapsibleGroupBox(q);
+    dialogExtension->setTitle("Advanced options");
+
+    QVBoxLayout *dialogExtensionLayout = new QVBoxLayout;
+    dialogExtensionLayout->setMargin(0);
+
     terminal = new QCheckBox(i18n("Run in &terminal"), q);
     if (bReadOnly) {
         terminal->hide();
     }
     QObject::connect(terminal, SIGNAL(toggled(bool)), q, SLOT(slotTerminalToggled(bool)));
 
-    topLayout->addWidget(terminal);
+    dialogExtensionLayout->addWidget(terminal);
 
     QStyleOptionButton checkBoxOption;
     checkBoxOption.initFrom(terminal);
@@ -681,15 +699,10 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     }
 
     nocloseonexitLayout->addWidget(nocloseonexit);
-    topLayout->addLayout(nocloseonexitLayout);
+    dialogExtensionLayout->addLayout(nocloseonexitLayout);
 
-    if (!qMimeType.isNull()) {
-        remember = new QCheckBox(i18n("&Remember application association for all files of type\n\"%1\" (%2)", qMimeTypeComment, qMimeType));
-        //    remember->setChecked(true);
-        topLayout->addWidget(remember);
-    } else {
-        remember = nullptr;
-    }
+    dialogExtension->setLayout(dialogExtensionLayout);
+    topLayout->addWidget(dialogExtension);
 
     buttonBox = new QDialogButtonBox(q);
     buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
@@ -699,9 +712,9 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
 
     q->setMinimumSize(q->minimumSizeHint());
     //edit->setText( _value );
-    // This is what caused "can't click on items before clicking on Name header".
+    // The resize is what caused "can't click on items before clicking on Name header" in previous versions.
     // Probably due to the resizeEvent handler using width().
-    //resize( minimumWidth(), sizeHint().height() );
+    q->resize( q->minimumWidth(), 0.6*QApplication::desktop()->availableGeometry().height());
     edit->setFocus();
     q->slotTextChanged();
 }
