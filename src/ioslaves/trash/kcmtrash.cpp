@@ -257,8 +257,8 @@ void TrashConfigModule::setupGui()
 
     mUseTimeLimit = new QCheckBox(i18n("Delete files older than:"), this);
     mUseTimeLimit->setWhatsThis(xi18nc("@info:whatsthis",
-                                       "<para>Check this box to allow <b>automatic deletion</b> of files that are older than the value specified. "
-                                       "Leave this disabled to <b>not</b> automatically delete any items after a certain timespan</para>"));
+                                       "<para>Check this box to allow <emphasis strong='true'>automatic deletion</emphasis> of files that are older than the value specified. "
+                                       "Leave this disabled to <emphasis strong='true'>not</emphasis> automatically delete any items after a certain timespan</para>"));
     daysLayout->addWidget(mUseTimeLimit);
     mDays = new QSpinBox(this);
 
