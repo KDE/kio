@@ -893,15 +893,15 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
     KNewFileMenuSingleton *s = kNewMenuGlobals();
     //qDebug();
 
-    QStringList dirs = { QStringLiteral(":/kio5/newfile-templates") };
-    dirs += QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("templates"), QStandardPaths::LocateDirectory);
+    const QStringList qrcTemplates = { QStringLiteral(":/kio5/newfile-templates") };
+    const QStringList installedTemplates = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("templates"), QStandardPaths::LocateDirectory);
+    const QStringList templates = qrcTemplates + installedTemplates;
 
     // Ensure any changes in the templates dir will call this
     if (! s->dirWatch) {
         s->dirWatch = new KDirWatch;
-        for (QStringList::const_iterator it = dirs.constBegin(); it != dirs.constEnd(); ++it) {
-            //qDebug() << "Templates resource dir:" << *it;
-            s->dirWatch->addDir(*it);
+        for (const QString &dir : installedTemplates) {
+            s->dirWatch->addDir(dir);
         }
         QObject::connect(s->dirWatch, SIGNAL(dirty(QString)),
                          q, SLOT(_k_slotFillTemplates()));
@@ -920,7 +920,7 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
     QStringList files;
     QDir dir;
 
-    Q_FOREACH (const QString &path, dirs) {
+    for (const QString &path : templates) {
         dir.setPath(path);
         const QStringList &entryList(dir.entryList(QStringList() << QStringLiteral("*.desktop"), QDir::Files));
         Q_FOREACH (const QString &entry, entryList) {
