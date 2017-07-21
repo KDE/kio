@@ -277,7 +277,7 @@ public:
 
     /**
      * Register the meta-types for AuthInfo. This is called from
-     * AuthInfo's constructor but needed by daemons on the DBus such
+     * AuthInfo's constructor but needed by daemons on the D-Bus such
      * as kpasswdserver.
      * @since 4.3
      */

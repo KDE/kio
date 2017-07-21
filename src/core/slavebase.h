@@ -51,7 +51,7 @@ class SlaveBasePrivate;
  *
  * Note that a kioslave doesn't have a Qt event loop. When idle, it's waiting for a command
  * on the socket that connects it to the application. So don't expect a kioslave to react
- * to DBus signals for instance. KIOSlaves are short-lived anyway, so any kind of watching
+ * to D-Bus signals for instance. KIOSlaves are short-lived anyway, so any kind of watching
  * or listening for notifications should be done elsewhere, for instance in a kded module
  * (see kio_desktop's desktopnotifier.cpp for an example).
  *

@@ -214,8 +214,8 @@ public:
      * Open a list of URLs with a certain service (application).
      *
      * Prefer runApplication(), unless you need to wait for the application
-     * to register to DBus before this method returns (but that should rather
-     * be done with DBus activation).
+     * to register to D-Bus before this method returns (but that should rather
+     * be done with D-Bus activation).
      *
      * @param service the service to run
      * @param urls the list of URLs, can be empty (app launched
@@ -241,8 +241,8 @@ public:
     /**
      * Run an application (known from its .desktop file, i.e. as a KService)
      *
-     * Unlike runService, this does not wait for the application to register to DBus
-     * before returning. Such behavior is better done with DBus activation anyway.
+     * Unlike runService, this does not wait for the application to register to D-Bus
+     * before returning. Such behavior is better done with D-Bus activation anyway.
      *
      * @param service the service to run
      * @param urls the list of URLs, can be empty (app launched
