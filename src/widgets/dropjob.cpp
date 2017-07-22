@@ -271,6 +271,11 @@ int DropJobPrivate::determineDropAction()
         }
         return KJob::NoError; // ok
     }
+    const bool implicitCopy = m_destUrl.scheme() == QLatin1String("stash");
+    if (implicitCopy) {
+        m_dropAction = Qt::CopyAction;
+        return KJob::NoError; // ok
+    }
     if (containsTrashRoot) {
         // Dropping a link to the trash: don't move the full contents, just make a link (#319660)
         m_dropAction = Qt::LinkAction;
@@ -328,34 +333,29 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
     popupLinkAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-link")));
     popupLinkAction->setData(QVariant::fromValue(Qt::LinkAction));
 
-    if (m_destUrl.scheme() == "stash") {
-        popup->addAction(popupCopyAction);
-        addPluginActions(popup, itemProps);
-    } else {
-        if (sMoving || (sReading && sDeleting)) {
-            bool equalDestination = true;
-            foreach (const QUrl &src, m_urls) {
-                if (!m_destUrl.matches(src.adjusted(QUrl::RemoveFilename), QUrl::StripTrailingSlash)) {
-                    equalDestination = false;
-                    break;
-                }
-            }
-
-            if (!equalDestination) {
-                popup->addAction(popupMoveAction);
+    if (sMoving || (sReading && sDeleting)) {
+        bool equalDestination = true;
+        foreach (const QUrl &src, m_urls) {
+            if (!m_destUrl.matches(src.adjusted(QUrl::RemoveFilename), QUrl::StripTrailingSlash)) {
+                equalDestination = false;
+                break;
             }
         }
 
-        if (sReading) {
-            popup->addAction(popupCopyAction);
+        if (!equalDestination) {
+            popup->addAction(popupMoveAction);
         }
-
-        popup->addAction(popupLinkAction);
-
-        addPluginActions(popup, itemProps);
-
-        popup->addSeparator();
     }
+
+    if (sReading) {
+        popup->addAction(popupCopyAction);
+    }
+
+    popup->addAction(popupLinkAction);
+
+    addPluginActions(popup, itemProps);
+
+    popup->addSeparator();
 }
 
 void DropJobPrivate::addPluginActions(KIO::DropMenu *popup, const KFileItemListProperties &itemProps)
