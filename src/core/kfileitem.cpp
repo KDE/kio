@@ -358,6 +358,8 @@ bool KFileItemPrivate::cmp(const KFileItemPrivate &item) const
             && size() == item.size()
             && m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) == item.m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME)
             && m_entry.stringValue(KIO::UDSEntry::UDS_ICON_NAME) == item.m_entry.stringValue(KIO::UDSEntry::UDS_ICON_NAME)
+            && m_entry.stringValue(KIO::UDSEntry::UDS_TARGET_URL) == item.m_entry.stringValue(KIO::UDSEntry::UDS_TARGET_URL)
+            && m_entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH) == item.m_entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH)
            );
 
     // Don't compare the mimetypes here. They might not be known, and we don't want to
