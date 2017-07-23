@@ -123,7 +123,7 @@ void StatJobPrivate::start(Slave *slave)
 
 void StatJobPrivate::slotStatEntry(const KIO::UDSEntry &entry)
 {
-    //qDebug();
+    //qCDebug(KIO_CORE);
     m_statResult = entry;
 }
 
@@ -131,7 +131,7 @@ void StatJobPrivate::slotStatEntry(const KIO::UDSEntry &entry)
 void StatJobPrivate::slotRedirection(const QUrl &url)
 {
     Q_Q(StatJob);
-    //qDebug() << m_url << "->" << url;
+    //qCDebug(KIO_CORE) << m_url << "->" << url;
     if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("redirect"), m_url, url)) {
         qCWarning(KIO_CORE) << "Redirection from" << m_url << "to" << url << "REJECTED!";
         q->setError(ERR_ACCESS_DENIED);
@@ -148,7 +148,7 @@ void StatJob::slotFinished()
     Q_D(StatJob);
 
     if (!d->m_redirectionURL.isEmpty() && d->m_redirectionURL.isValid()) {
-        //qDebug() << "StatJob: Redirection to " << m_redirectionURL;
+        //qCDebug(KIO_CORE) << "StatJob: Redirection to " << m_redirectionURL;
         if (queryMetaData(QStringLiteral("permanent-redirect")) == QLatin1String("true")) {
             emit permanentRedirection(this, d->m_url, d->m_redirectionURL);
         }
@@ -193,7 +193,7 @@ StatJob *KIO::mostLocalUrl(const QUrl &url, JobFlags flags)
 #ifndef KIOCORE_NO_DEPRECATED
 StatJob *KIO::stat(const QUrl &url, bool sideIsSource, short int details, JobFlags flags)
 {
-    //qDebug() << "stat" << url;
+    //qCDebug(KIO_CORE) << "stat" << url;
     KIO_ARGS << url;
     StatJob *job = StatJobPrivate::newJob(url, CMD_STAT, packedArgs, flags);
     job->setSide(sideIsSource ? StatJob::SourceSide : StatJob::DestinationSide);
@@ -204,7 +204,7 @@ StatJob *KIO::stat(const QUrl &url, bool sideIsSource, short int details, JobFla
 
 StatJob *KIO::stat(const QUrl &url, KIO::StatJob::StatSide side, short int details, JobFlags flags)
 {
-    //qDebug() << "stat" << url;
+    //qCDebug(KIO_CORE) << "stat" << url;
     KIO_ARGS << url;
     StatJob *job = StatJobPrivate::newJob(url, CMD_STAT, packedArgs, flags);
     job->setSide(side);
