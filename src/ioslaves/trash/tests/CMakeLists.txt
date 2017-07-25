@@ -13,7 +13,7 @@ set(testtrash_SRCS
 
 add_executable(testtrash ${testtrash_SRCS})
 ecm_mark_as_test(testtrash)
-add_test(testtrash testtrash)
+add_test(NAME testtrash COMMAND testtrash)
 
 target_link_libraries(testtrash
    KF5::I18n
