@@ -17,6 +17,9 @@
    Boston, MA 02110-1301, USA.
 */
 
+#define _BSD_SOURCE /* setgroups */
+#define _DEFAULT_SOURCE /* stop glibc whining about the previous line */
+
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <sys/types.h>
