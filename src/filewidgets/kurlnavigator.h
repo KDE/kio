@@ -279,6 +279,17 @@ public:
      */
     QStringList customProtocols() const;
 
+    /**
+     * The child widget that received the QDropEvent when dropping on the URL
+     * navigator. You can pass this widget to KJobWidgets::setWindow()
+     * if you need to show a drop menu with KIO::drop().
+     * @return Child widget that has received the last drop event, or nullptr if
+     *         nothing has been dropped yet on the URL navigator.
+     * @since 5.37
+     * @see KIO::drop()
+     */
+    QWidget *dropWidget() const;
+
 #if !defined(KIOFILEWIDGETS_NO_DEPRECATED) && !defined(DOXYGEN_SHOULD_SKIP_THIS)
     /**
      * @return     The current URL of the location.

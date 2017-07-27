@@ -189,6 +189,7 @@ public:
     KUrlNavigatorButtonBase *m_toggleEditableMode;
     QUrl m_homeUrl;
     QStringList m_customProtocols;
+    QWidget *m_dropWidget;
     KUrlNavigator *q;
 };
 
@@ -207,6 +208,7 @@ KUrlNavigator::Private::Private(KUrlNavigator *q, KFilePlacesModel *placesModel)
     m_toggleEditableMode(nullptr),
     m_homeUrl(),
     m_customProtocols(QStringList()),
+    m_dropWidget(nullptr),
     q(q)
 {
     m_layout->setSpacing(0);
@@ -426,6 +428,7 @@ void KUrlNavigator::Private::switchView()
 void KUrlNavigator::Private::dropUrls(const QUrl &destination, QDropEvent *event)
 {
     if (event->mimeData()->hasUrls()) {
+        m_dropWidget = qobject_cast<QWidget*>(q->sender());
         emit q->urlsDropped(destination, event);
     }
 }
@@ -1213,6 +1216,11 @@ void KUrlNavigator::setCustomProtocols(const QStringList &protocols)
 QStringList KUrlNavigator::customProtocols() const
 {
     return d->m_customProtocols;
+}
+
+QWidget *KUrlNavigator::dropWidget() const
+{
+    return d->m_dropWidget;
 }
 
 #ifndef KIOFILEWIDGETS_NO_DEPRECATED
