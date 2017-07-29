@@ -460,17 +460,17 @@ void SlaveBase::connected()
 
 void SlaveBase::finished()
 {
-    if (!d->m_rootEntryListed) {
-        qCWarning(KIO_CORE) << "UDSEntry for '.' not found, creating a default one. Please fix the" << QCoreApplication::applicationName() << "KIO slave";
-        KIO::UDSEntry entry;
-        entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
-        entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-        entry.insert(KIO::UDSEntry::UDS_SIZE, 0);
-        entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IXGRP | S_IROTH | S_IXOTH);
-        d->pendingListEntries.append(entry);
-    }
-
     if (!d->pendingListEntries.isEmpty()) {
+        if (!d->m_rootEntryListed) {
+            qCWarning(KIO_CORE) << "UDSEntry for '.' not found, creating a default one. Please fix the" << QCoreApplication::applicationName() << "KIO slave";
+            KIO::UDSEntry entry;
+            entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
+            entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+            entry.insert(KIO::UDSEntry::UDS_SIZE, 0);
+            entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IXGRP | S_IROTH | S_IXOTH);
+            d->pendingListEntries.append(entry);
+        }
+
         listEntries(d->pendingListEntries);
         d->pendingListEntries.clear();
     }
