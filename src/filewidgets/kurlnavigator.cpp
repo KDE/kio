@@ -27,6 +27,7 @@
 #include "kurlnavigatordropdownbutton_p.h"
 #include "kurlnavigatorbutton_p.h"
 #include "kurlnavigatortogglebutton_p.h"
+#include "urlutil_p.h"
 
 #include <kfileitem.h>
 #include <kfileplacesmodel.h>
@@ -1016,6 +1017,10 @@ void KUrlNavigator::setLocationUrl(const QUrl &newUrl)
 
     QUrl url = newUrl.adjusted(QUrl::NormalizePathSegments);
 
+    // This will be used below; we define it here because in the lower part of the
+    // code locationUrl() and url become the same URLs
+    const QUrl firstChildUrl = KIO::UrlUtil::firstChildUrl(locationUrl(), url);
+
     if ((url.scheme() == QLatin1String("tar")) || (url.scheme() == QLatin1String("zip"))) {
         // The URL represents a tar- or zip-file. Check whether
         // the URL is really part of the tar- or zip-file, otherwise
@@ -1077,6 +1082,10 @@ void KUrlNavigator::setLocationUrl(const QUrl &newUrl)
 
     emit historyChanged();
     emit urlChanged(url);
+
+    if (firstChildUrl.isValid()) {
+        emit urlSelectionRequested(firstChildUrl);
+    }
 
     d->updateContent();
 
