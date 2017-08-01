@@ -315,16 +315,61 @@ void JobTest::storedPutIODeviceSlowDevice()
     job->setUiDelegate(nullptr);
     job->setAsyncDataEnabled(true);
 
-    QTimer t;
-    t.setSingleShot(true);
-    int size = -1;
-    connect(&t, &QTimer::timeout, this, [&putDataBuffer, &size, putDataContents]() {
-        putDataBuffer.write(putDataContents);
-        putDataBuffer.seek(0);
-//         qDebug() << "written" << putDataBuffer.size();
-        size = putDataBuffer.bytesAvailable();
-    });
-    t.start(200);
+    int size = 0;
+    const auto writeOnce = [&putDataBuffer, &size, putDataContents]() {
+        const auto pos = putDataBuffer.pos();
+        size += putDataBuffer.write(putDataContents);
+        putDataBuffer.seek(pos);
+//         qDebug() << "written" << size;
+    };
+
+    QTimer::singleShot(200, this, writeOnce);
+    QTimer::singleShot(400, this, writeOnce);
+    // Simulate the transfer is done
+    QTimer::singleShot(450, this, [&putDataBuffer](){ putDataBuffer.readChannelFinished(); });
+
+    QVERIFY(job->exec());
+    QCOMPARE(size, putDataContents.size() * 2);
+    QCOMPARE(putDataBuffer.bytesAvailable(), 0);
+
+    QFileInfo fileInfo(filePath);
+    QVERIFY(fileInfo.exists());
+    QCOMPARE(fileInfo.size(), (long long)putDataContents.size() * 2);
+    QCOMPARE((int)fileInfo.permissions(), (int)(QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser));
+    QCOMPARE(fileInfo.lastModified(), mtime);
+    QVERIFY(!spyPercent.isEmpty());
+}
+
+void JobTest::storedPutIODeviceSlowDeviceBigChunk()
+{
+    const QString filePath = homeTmpDir() + "fileFromHome";
+    const QUrl u = QUrl::fromLocalFile(filePath);
+    const QByteArray putDataContents(300000, 'K'); // Make sure the 300000 is bigger than MAX_READ_BUF_SIZE
+    QBuffer putDataBuffer;
+    QVERIFY(putDataBuffer.open(QIODevice::ReadWrite));
+
+    KIO::StoredTransferJob *job = KIO::storedPut(&putDataBuffer, u, 0600, KIO::Overwrite | KIO::HideProgressInfo);
+    QSignalSpy spyPercent(job, SIGNAL(percent(KJob*,ulong)));
+    QVERIFY(spyPercent.isValid());
+    QDateTime mtime = QDateTime::currentDateTime().addSecs(-30);   // 30 seconds ago
+    mtime.setTime_t(mtime.toTime_t()); // hack for losing the milliseconds
+    job->setModificationTime(mtime);
+    job->setTotalSize(putDataContents.size());
+    job->setUiDelegate(nullptr);
+    job->setAsyncDataEnabled(true);
+
+    int size = 0;
+    const auto writeOnce = [&putDataBuffer, &size, putDataContents]() {
+        const auto pos = putDataBuffer.pos();
+        size += putDataBuffer.write(putDataContents);
+        putDataBuffer.seek(pos);
+//         qDebug() << "written" << size;
+    };
+
+    QTimer::singleShot(200, this, writeOnce);
+    // Simulate the transfer is done
+    QTimer::singleShot(450, this, [&putDataBuffer](){ putDataBuffer.readChannelFinished(); });
+
     QVERIFY(job->exec());
     QCOMPARE(size, putDataContents.size());
     QCOMPARE(putDataBuffer.bytesAvailable(), 0);

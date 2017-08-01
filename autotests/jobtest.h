@@ -43,6 +43,7 @@ private Q_SLOTS:
     void storedPutIODeviceFile();
     void storedPutIODeviceTempFile();
     void storedPutIODeviceSlowDevice();
+    void storedPutIODeviceSlowDeviceBigChunk();
     void copyFileToSamePartition();
     void copyDirectoryToSamePartition();
     void copyDirectoryToExistingDirectory();

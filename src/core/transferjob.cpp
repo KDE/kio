@@ -407,10 +407,6 @@ void TransferJobPrivate::slotDataReqFromDevice()
             dataForSlave.clear();
         }
         done = ((bytesRead == -1) || (bytesRead == 0 && m_outgoingDataSource->atEnd() && !m_outgoingDataSource->isSequential()));
-
-        if (!done) {
-            QMetaObject::invokeMethod(q, "slotDataReqFromDevice", Qt::QueuedConnection);
-        }
     }
 
     if (dataForSlave.isEmpty()) {
