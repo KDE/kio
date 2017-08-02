@@ -38,6 +38,7 @@ void UrlUtilTest::testFirstChildUrl()
     QCOMPARE(KIO::UrlUtil::firstChildUrl(lUrl("/home/test/data/documents/muh/"), lUrl("/home/test")), lUrl("/home/test/data"));
     QCOMPARE(KIO::UrlUtil::firstChildUrl(lUrl("/home/test/data/documents/muh"), lUrl("/home/test/")), lUrl("/home/test/data"));
     QCOMPARE(KIO::UrlUtil::firstChildUrl(lUrl("/home/test/data"), lUrl("/home/test/data/")), QUrl());
+    QCOMPARE(KIO::UrlUtil::firstChildUrl(lUrl("/home/test/data/"), lUrl("/home/test/data")), QUrl());
     QCOMPARE(KIO::UrlUtil::firstChildUrl(lUrl("/home/test/"), lUrl("/home/test/")), QUrl());
     QCOMPARE(KIO::UrlUtil::firstChildUrl(lUrl("/home/aaa/"), lUrl("/home/bbb/")), QUrl());
     QCOMPARE(KIO::UrlUtil::firstChildUrl(lUrl("/home/aaa/"), lUrl("/home/bbb/ccc")), QUrl());

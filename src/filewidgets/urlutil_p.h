@@ -58,12 +58,12 @@ namespace UrlUtil {
      */
     static QUrl firstChildUrl(const QUrl& lastUrl, const QUrl& currentUrl)
     {
-        if (!currentUrl.isParentOf(lastUrl)) {
+        const QUrl adjustedLastUrl = lastUrl.adjusted(QUrl::StripTrailingSlash);
+        const QUrl adjustedCurrentUrl = currentUrl.adjusted(QUrl::StripTrailingSlash);
+        if (!adjustedCurrentUrl.isParentOf(adjustedLastUrl)) {
             return QUrl();
         }
 
-        const QUrl adjustedLastUrl = lastUrl.adjusted(QUrl::StripTrailingSlash);
-        const QUrl adjustedCurrentUrl = currentUrl.adjusted(QUrl::StripTrailingSlash);
         const QString childPath = adjustedLastUrl.path();
         const QString parentPath = adjustedCurrentUrl.path();
 
