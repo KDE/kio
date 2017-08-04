@@ -31,10 +31,10 @@
 #include <KLocalizedString>
 #include <kmessagebox.h>
 #include <kurifilter.h>
-#include <QUrl>
 
 // Qt
 #include <QSpinBox>
+#include <QUrl>
 
 
 #define QL1C(x)         QLatin1Char(x)
@@ -132,8 +132,8 @@ static QString proxyUrlFromInput(KProxyDialog::DisplayUrlFlags* flags,
         url.setPort(-1);
 
         proxyStr = url.url();
-        proxyStr += QL1C(' ');
         if (portNum > -1) {
+            proxyStr += QL1C(' ');
             proxyStr += QString::number(portNum);
         }
     } else {
@@ -171,8 +171,6 @@ static void setProxyInformation(const QString& value,
         QString urlStr;
         int portNum = -1;
         int index = value.lastIndexOf(QL1C(' '));
-        if (index == -1)
-            index = value.lastIndexOf(QL1C(':'));
 
         if (index > 0) {
             bool ok = false;
@@ -206,6 +204,10 @@ static void setProxyInformation(const QString& value,
             manEdit->setText(((KSaveIOConfig::proxyDisplayUrlFlags() & flag) ? url.host(): url.url()));
         } else {
             QUrl url(urlStr);
+            if (portNum == -1 && url.port() > -1) {
+                portNum = url.port();
+            }
+            url.setPort(-1);
             manEdit->setText((KSaveIOConfig::proxyDisplayUrlFlags() & flag) ? url.host() : urlStr);
         }
 
