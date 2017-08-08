@@ -11,21 +11,16 @@ set(testtrash_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/../kiotrashdebug.cpp
 )
 
-add_executable(testtrash ${testtrash_SRCS})
-ecm_mark_as_test(testtrash)
-add_test(NAME testtrash COMMAND testtrash)
-
-target_link_libraries(testtrash
-   KF5::I18n
-   Qt5::DBus
-   KF5::KIOCore
-   KF5::Solid
-   Qt5::Test
-)
 if(APPLE)
-    target_link_libraries(testtrash "-framework DiskArbitration -framework CoreFoundation")
+    set(testtrash_APPLE_LIBS "-framework DiskArbitration -framework CoreFoundation")
 endif(APPLE)
-ecm_mark_nongui_executable(testtrash)
+
+include(ECMAddTests)
+
+ecm_add_test(${testtrash_SRCS}
+    TEST_NAME testtrash
+    LINK_LIBRARIES KF5::I18n Qt5::DBus KF5::KIOCore KF5::Solid Qt5::Test ${testtrash_APPLE_LIBS}
+)
 
 ### next target ###
 
