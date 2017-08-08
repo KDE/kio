@@ -11,6 +11,7 @@ Name[en_GB]=Qwant Videos
 Name[eo]=Videoj de Qwant
 Name[es]=Qwant Vídeos
 Name[et]=Qwant Videos
+Name[eu]=Qwant Bideoak
 Name[fi]=Qwant-videohaku
 Name[fr]=Vidéos « Qwant »
 Name[gd]=Qwant Videos
@@ -54,6 +55,7 @@ Query[en_GB]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[eo]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[es]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[et]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
+Query[eu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[fi]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[fr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[gd]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
