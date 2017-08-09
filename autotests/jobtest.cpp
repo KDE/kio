@@ -581,6 +581,9 @@ void JobTest::copyAbsoluteSymlinkToOtherPartition()
 
 void JobTest::copyFolderWithUnaccessibleSubfolder()
 {
+#ifdef Q_OS_WIN
+    QSKIP("Skipping unaccessible folder test on Windows, cannot remove all permissions from a folder");
+#endif
     const QString src_dir = homeTmpDir() + "srcHome";
     const QString dst_dir = homeTmpDir() + "dstHome";
 
@@ -814,6 +817,9 @@ void JobTest::moveDirectoryToOtherPartition()
 
 void JobTest::moveFileNoPermissions()
 {
+#ifdef Q_OS_WIN
+    QSKIP("Skipping unaccessible folder test on Windows, cannot remove all permissions from a folder");
+#endif
     // Given a file that cannot be moved (subdir has no permissions)
     const QString subdir = homeTmpDir() + "subdir";
     QVERIFY(QDir().mkpath(subdir));
@@ -845,6 +851,9 @@ void JobTest::moveFileNoPermissions()
 
 void JobTest::moveDirectoryNoPermissions()
 {
+#ifdef Q_OS_WIN
+    QSKIP("Skipping unaccessible folder test on Windows, cannot remove all permissions from a folder");
+#endif
     // Given a dir that cannot be moved (parent dir has no permissions)
     const QString subdir = homeTmpDir() + "subdir";
     const QString src = subdir + "/thedir";
@@ -889,17 +898,14 @@ void JobTest::listRecursive()
     m_names.sort();
     QByteArray ref_names = QByteArray(".,..,"
                                       "dirFromHome,dirFromHome/testfile,"
-#ifndef Q_OS_WIN
-                                      "dirFromHome/testlink,"
-#endif
+                                      "dirFromHome/testlink," // exists on Windows too, see createTestDirectory
                                       "dirFromHome_copied,"
                                       "dirFromHome_copied/dirFromHome,dirFromHome_copied/dirFromHome/testfile,"
-#ifndef Q_OS_WIN
                                       "dirFromHome_copied/dirFromHome/testlink,"
-#endif
                                       "dirFromHome_copied/testfile,"
+                                      "dirFromHome_copied/testlink,"
 #ifndef Q_OS_WIN
-                                      "dirFromHome_copied/testlink,dirFromHome_link,"
+                                      "dirFromHome_link,"
 #endif
                                       "fileFromHome");
 

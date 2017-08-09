@@ -198,18 +198,25 @@ void FileProtocol::listDir(const QUrl &url)
         return;
     }
 
-    QDir dir(url.toLocalFile());
+    const QString path = url.toLocalFile();
+    const QFileInfo info(path);
+    if (info.isFile()) {
+        error(KIO::ERR_IS_FILE, path);
+        return;
+    }
+
+    QDir dir(path);
     dir.setFilter(QDir::AllEntries | QDir::Hidden);
 
     if (!dir.exists()) {
         // qDebug() << "========= ERR_DOES_NOT_EXIST  =========";
-        error(KIO::ERR_DOES_NOT_EXIST, url.toLocalFile());
+        error(KIO::ERR_DOES_NOT_EXIST, path);
         return;
     }
 
     if (!dir.isReadable()) {
         // qDebug() << "========= ERR_CANNOT_ENTER_DIRECTORY =========";
-        error(KIO::ERR_CANNOT_ENTER_DIRECTORY, url.toLocalFile());
+        error(KIO::ERR_CANNOT_ENTER_DIRECTORY, path);
         return;
     }
     QDirIterator it(dir);
