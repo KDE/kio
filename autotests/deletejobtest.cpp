@@ -54,9 +54,12 @@ void DeleteJobTest::deleteFileTestCase()
     tempFile.setFileTemplate(fileName + QStringLiteral("XXXXXX"));
 
     QVERIFY(tempFile.open());
+    const QString path = tempFile.fileName();
+    tempFile.close();
+    QVERIFY(QFile::exists(path));
 
     /*QBENCHMARK*/ {
-        KIO::DeleteJob *job = KIO::del(QUrl::fromLocalFile(tempFile.fileName()), KIO::HideProgressInfo);
+        KIO::DeleteJob *job = KIO::del(QUrl::fromLocalFile(path), KIO::HideProgressInfo);
         job->setUiDelegate(nullptr);
 
         QSignalSpy spy(job, SIGNAL(result(KJob*)));

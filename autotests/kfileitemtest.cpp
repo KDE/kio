@@ -128,7 +128,7 @@ void KFileItemTest::testBasic()
     KFileItem fileItem(url, QString(), KFileItem::Unknown);
     QCOMPARE(fileItem.text(), url.fileName());
     QVERIFY(fileItem.isLocalFile());
-    QCOMPARE(fileItem.localPath(), url.path());
+    QCOMPARE(fileItem.localPath(), url.toLocalFile());
     QCOMPARE(fileItem.size(), KIO::filesize_t(5));
     QVERIFY(fileItem.linkDest().isEmpty());
     QVERIFY(!fileItem.isHidden());
@@ -137,7 +137,9 @@ void KFileItemTest::testBasic()
     QVERIFY(fileItem.isFile());
     QVERIFY(!fileItem.isDir());
     QVERIFY(!fileItem.isDesktopFile());
+#ifndef Q_OS_WIN
     QCOMPARE(fileItem.user(), KUser().loginName());
+#endif
 }
 
 void KFileItemTest::testRootDirectory()
@@ -150,7 +152,7 @@ void KFileItemTest::testRootDirectory()
     KFileItem fileItem(entry, url);
     QCOMPARE(fileItem.text(), QStringLiteral("."));
     QVERIFY(fileItem.isLocalFile());
-    QCOMPARE(fileItem.localPath(), url.path());
+    QCOMPARE(fileItem.localPath(), url.toLocalFile());
     QVERIFY(fileItem.linkDest().isEmpty());
     QVERIFY(!fileItem.isHidden());
     QVERIFY(!fileItem.isFile());
@@ -307,7 +309,9 @@ void KFileItemTest::testRefresh()
     QVERIFY(fileItem.isFile());
     QVERIFY(!fileItem.isLink());
     QCOMPARE(fileItem.size(), expectedSize);
+#ifndef Q_OS_WIN
     QCOMPARE(fileItem.user(), KUser().loginName());
+#endif
     // Qt 5.8 adds milliseconds (but UDSEntry has no support for that)
     lastModified = dirInfo.lastModified();
     lastModified = lastModified.addMSecs(-lastModified.time().msec());
@@ -316,7 +320,9 @@ void KFileItemTest::testRefresh()
     QVERIFY(fileItem.isFile());
     QVERIFY(!fileItem.isLink());
     QCOMPARE(fileItem.size(), expectedSize);
+#ifndef Q_OS_WIN
     QCOMPARE(fileItem.user(), KUser().loginName());
+#endif
     QCOMPARE(fileItem.time(KFileItem::ModificationTime), lastModified);
 
     // Refresh on a symlink to a file
