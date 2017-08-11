@@ -2,8 +2,8 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/.. )
 
 ########### next target ###############
 
-set(testtrash_SRCS 
-    testtrash.cpp 
+set(testtrash_SRCS
+    testtrash.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../trashimpl.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../trashsizecache.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../discspaceutil.cpp
@@ -21,6 +21,9 @@ ecm_add_test(${testtrash_SRCS}
     TEST_NAME testtrash
     LINK_LIBRARIES KF5::I18n Qt5::DBus KF5::KIOCore KF5::Solid Qt5::Test ${testtrash_APPLE_LIBS}
 )
+
+# other tests like dropjob and fileundomanager use the trash in ~/.qttest, which this test cleans up
+set_tests_properties(testtrash PROPERTIES RUN_SERIAL TRUE)
 
 ### next target ###
 
