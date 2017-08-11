@@ -39,6 +39,7 @@ class KUrlRequesterTest : public QObject
 {
     Q_OBJECT
 private Q_SLOTS:
+    void initTestCase();
     void testUrlRequester();
     void testComboRequester();
 
@@ -66,6 +67,11 @@ static KFileWidget *findFileWidget()
     return (widgets.count() == 1) ? widgets.first() : nullptr;
 }
 
+
+void KUrlRequesterTest::initTestCase()
+{
+    qputenv("KDE_FORK_SLAVES", "yes");
+}
 
 void KUrlRequesterTest::testUrlRequester()
 {

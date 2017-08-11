@@ -254,6 +254,15 @@ void KIO::DesktopExecParser::setSuggestedFileName(const QString &suggestedFileNa
     d->suggestedFileName = suggestedFileName;
 }
 
+static const QString kioexecPath()
+{
+    QString kioexec = QCoreApplication::applicationDirPath() + "/kioexec";
+    if (!QFileInfo::exists(kioexec))
+        kioexec = CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kioexec";
+    Q_ASSERT(QFileInfo::exists(kioexec));
+    return kioexec;
+}
+
 QStringList KIO::DesktopExecParser::resultingArguments() const
 {
     QString exec = d->service.exec();
@@ -278,9 +287,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     // Check if we need "tempexec" (kioexec in fact)
     appHasTempFileOption = d->tempFiles && d->service.property(QStringLiteral("X-KDE-HasTempFileOption")).toBool();
     if (d->tempFiles && !appHasTempFileOption && d->urls.size()) {
-        const QString kioexec = QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kioexec");
-        Q_ASSERT(QFile::exists(kioexec));
-        result << kioexec << QStringLiteral("--tempfiles") << exec;
+        result << kioexecPath() << QStringLiteral("--tempfiles") << exec;
         if (!d->suggestedFileName.isEmpty()) {
             result << QStringLiteral("--suggestedfilename");
             result << d->suggestedFileName;
@@ -310,9 +317,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     }
     if (useKioexec) {
         // We need to run the app through kioexec
-        const QString kioexec = CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kioexec";
-        Q_ASSERT(QFile::exists(kioexec));
-        result << kioexec;
+        result << kioexecPath();
         if (d->tempFiles) {
             result << QStringLiteral("--tempfiles");
         }

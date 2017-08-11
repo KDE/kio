@@ -56,6 +56,7 @@ target_link_libraries(kio_help
 )
 
 set_target_properties(kio_help PROPERTIES OUTPUT_NAME "help")
+set_target_properties(kio_help PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio")
 install(TARGETS kio_help  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
 
@@ -82,6 +83,7 @@ if(WIN32)
     target_compile_definitions(kio_ghelp PRIVATE NOMINMAX)
 endif()
 set_target_properties(kio_ghelp PROPERTIES OUTPUT_NAME "ghelp")
+set_target_properties(kio_ghelp PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio")
 install(TARGETS kio_ghelp  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
 endif()

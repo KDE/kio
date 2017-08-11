@@ -82,6 +82,7 @@ if(GSSAPI_FOUND)
 endif()
 
 set_target_properties(kio_http PROPERTIES OUTPUT_NAME "http")
+set_target_properties(kio_http PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio")
 install(TARGETS kio_http  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
 
 

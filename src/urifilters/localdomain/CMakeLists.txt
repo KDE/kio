@@ -4,6 +4,7 @@ add_library(localdomainurifilter MODULE ${localdomainurifilter_PART_SRCS})
 
 target_link_libraries(localdomainurifilter KF5::KIOWidgets)
 
+set_target_properties(localdomainurifilter PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/urifilters")
 install(TARGETS localdomainurifilter DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/urifilters)
 
 ########### install files ###############

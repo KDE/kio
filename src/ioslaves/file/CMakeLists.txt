@@ -32,4 +32,5 @@ if(ACL_FOUND)
 endif()
 
 set_target_properties(kio_file PROPERTIES OUTPUT_NAME "file")
+set_target_properties(kio_file PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio")
 install(TARGETS kio_file  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)

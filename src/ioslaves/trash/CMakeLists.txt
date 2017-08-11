@@ -42,6 +42,7 @@ if(APPLE)
     target_link_libraries(kio_trash "-framework DiskArbitration -framework CoreFoundation")
 endif(APPLE)
 set_target_properties(kio_trash PROPERTIES OUTPUT_NAME "trash")
+set_target_properties(kio_trash PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio")
 install(TARGETS kio_trash  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio )
 
 set(ktrash_SRCS ktrash.cpp )

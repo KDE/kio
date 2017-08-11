@@ -188,8 +188,11 @@ void KRunUnitTest::testProcessDesktopExecNoFile_data()
         kdeinit = QStringLiteral("kdeinit5");
     }
 
-    QString kioexec = CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kioexec";
-    QVERIFY(QFile::exists(kioexec));
+    QString kioexec = QCoreApplication::applicationDirPath() + "/kioexec";
+    if (!QFileInfo::exists(kioexec)) {
+        kioexec = CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kioexec";
+    }
+    QVERIFY(QFileInfo::exists(kioexec));
     QString kioexecQuoted = KShell::quoteArg(kioexec);
 
     QString kmailservice = QStandardPaths::findExecutable(QStringLiteral("kmailservice5"));

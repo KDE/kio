@@ -13,6 +13,7 @@ target_link_libraries(kuriikwsfilter
    Qt5::DBus
 )
 
+set_target_properties(kuriikwsfilter PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/urifilters")
 install(TARGETS kuriikwsfilter DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/urifilters)
 
 set(kurisearchfilter_PART_SRCS
@@ -33,6 +34,7 @@ target_link_libraries(kurisearchfilter
    Qt5::DBus
 )
 
+set_target_properties(kurisearchfilter PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/urifilters")
 install(TARGETS kurisearchfilter DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/urifilters)
 
 ########### install files ###############
