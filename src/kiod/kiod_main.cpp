@@ -94,6 +94,12 @@ extern Q_DBUS_EXPORT void qDBusAddSpyHook(void (*)(const QDBusMessage&));
 
 int main(int argc, char *argv[])
 {
+#ifdef Q_OS_MACOS
+    // do the "early" step to make this an "agent" application:
+    // set the LSUIElement InfoDict key programmatically.
+    extern void makeAgentApplication();
+    makeAgentApplication();
+#endif
     qunsetenv("SESSION_MANAGER"); // disable session management
 
     QApplication app(argc, argv); // GUI needed for kpasswdserver's dialogs
@@ -120,6 +126,14 @@ int main(int argc, char *argv[])
     self(); // create it in this thread
     qDBusAddSpyHook(messageFilter);
 
+#ifdef Q_OS_MACOS
+    // In the case of kiod5 we need to confirm the agent nature,
+    // possibly because of how things have been set up after creating
+    // the QApplication instance. Failure to do this will disable
+    // text input into dialogs we may post.
+    extern void setAgentActivationPolicy();
+    setAgentActivationPolicy();
+#endif
     return app.exec();
 }
 

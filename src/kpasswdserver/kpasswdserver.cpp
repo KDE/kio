@@ -894,10 +894,14 @@ void KPasswdServer::showPasswordDialog (KPasswdServer::Request* request)
     if (info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).isValid () && password.isEmpty() && username.isEmpty())
         dlg->setAnonymousMode(info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).toBool());
 
+#ifndef Q_OS_MACOS
 #ifndef Q_WS_WIN
     KWindowSystem::setMainWindow(dlg, request->windowId);
 #else
     KWindowSystem::setMainWindow(dlg, (HWND)request->windowId);
+#endif
+#else
+    KWindowSystem::forceActiveWindow(dlg->winId(), 0);
 #endif
 
     qCDebug(category) << "Showing password dialog" << dlg << ", window-id=" << request->windowId;
