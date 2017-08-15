@@ -66,7 +66,7 @@ static qint64 sizeFromRequest(const QNetworkRequest &req)
 namespace KIO
 {
 
-class AccessManager::AccessManagerPrivate
+class Q_DECL_HIDDEN AccessManager::AccessManagerPrivate
 {
 public:
     AccessManagerPrivate()
@@ -87,7 +87,7 @@ public:
 namespace Integration
 {
 
-class CookieJar::CookieJarPrivate
+class Q_DECL_HIDDEN CookieJar::CookieJarPrivate
 {
 public:
     CookieJarPrivate()

@@ -673,7 +673,7 @@ FileUndoManager::UiInterface *FileUndoManager::uiInterface() const
 
 ////
 
-class FileUndoManager::UiInterface::UiInterfacePrivate
+class Q_DECL_HIDDEN FileUndoManager::UiInterface::UiInterfacePrivate
 {
 public:
     UiInterfacePrivate()

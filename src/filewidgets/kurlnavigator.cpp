@@ -63,7 +63,7 @@ struct LocationData {
     QByteArray state;
 };
 
-class KUrlNavigator::Private
+class Q_DECL_HIDDEN KUrlNavigator::Private
 {
 public:
     Private(KUrlNavigator *q, KFilePlacesModel *placesModel);

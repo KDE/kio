@@ -165,7 +165,7 @@ void KDirOperator::keyPressEvent(QKeyEvent *e)
     }
 }
 
-class KDirOperator::Private
+class Q_DECL_HIDDEN KDirOperator::Private
 {
 public:
     Private(KDirOperator *parent);

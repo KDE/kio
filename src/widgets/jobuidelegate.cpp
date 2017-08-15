@@ -42,7 +42,7 @@
 
 #include "kio/scheduler.h"
 
-class KIO::JobUiDelegate::Private
+class Q_DECL_HIDDEN KIO::JobUiDelegate::Private
 {
 public:
 };

@@ -80,7 +80,7 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(TCPSlaveBase::SslResult)
  */
 
 /** @internal */
-class TCPSlaveBase::TcpSlaveBasePrivate
+class Q_DECL_HIDDEN TCPSlaveBase::TcpSlaveBasePrivate
 {
 public:
     TcpSlaveBasePrivate(TCPSlaveBase *qq) : q(qq) {}

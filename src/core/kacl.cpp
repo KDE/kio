@@ -38,7 +38,7 @@
 
 #include "kiocoredebug.h"
 
-class KACL::KACLPrivate
+class Q_DECL_HIDDEN KACL::KACLPrivate
 {
 public:
     KACLPrivate()

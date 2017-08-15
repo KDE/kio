@@ -160,7 +160,7 @@ private:
     QPixmap m_tiles[NumTiles];
 };
 
-class KFilePreviewGenerator::Private
+class Q_DECL_HIDDEN KFilePreviewGenerator::Private
 {
 public:
     Private(KFilePreviewGenerator *parent,

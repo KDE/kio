@@ -28,7 +28,7 @@
 #include <kmessagebox.h>
 #include <QWidget>
 
-class KDirLister::Private
+class Q_DECL_HIDDEN KDirLister::Private
 {
 public:
     Private()

@@ -92,7 +92,7 @@ static KSqueezedTextLabel *createSqueezedLabel(QWidget *parent, const QString &t
 }
 
 /** @internal */
-class RenameDialog::RenameDialogPrivate
+class Q_DECL_HIDDEN RenameDialog::RenameDialogPrivate
 {
 public:
     RenameDialogPrivate()

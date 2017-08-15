@@ -19,7 +19,7 @@
 
 #include "thumbsequencecreator.h"
 
-class ThumbSequenceCreator::Private
+class Q_DECL_HIDDEN ThumbSequenceCreator::Private
 {
 public:
     Private() : sequenceIndex(0)

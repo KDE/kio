@@ -68,7 +68,7 @@ private:
 /**
  * @internal
  */
-class KRun::KRunPrivate
+class Q_DECL_HIDDEN KRun::KRunPrivate
 {
 public:
     KRunPrivate(KRun *parent);

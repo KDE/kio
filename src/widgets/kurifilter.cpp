@@ -82,7 +82,7 @@ static QString lookupIconNameFor(const QUrl &url, KUriFilterData::UriTypes type)
     return iconName;
 }
 
-class KUriFilterSearchProvider::KUriFilterSearchProviderPrivate
+class Q_DECL_HIDDEN KUriFilterSearchProvider::KUriFilterSearchProviderPrivate
 {
 public:
     KUriFilterSearchProviderPrivate() {}

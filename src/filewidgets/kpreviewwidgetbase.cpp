@@ -8,7 +8,7 @@
 
 #include "kpreviewwidgetbase.h"
 
-class KPreviewWidgetBase::KPreviewWidgetBasePrivate
+class Q_DECL_HIDDEN KPreviewWidgetBase::KPreviewWidgetBasePrivate
 {
 public:
     QStringList supportedMimeTypes;

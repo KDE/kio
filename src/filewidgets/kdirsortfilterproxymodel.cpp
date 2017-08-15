@@ -30,7 +30,7 @@
 
 #include <QCollator>
 
-class KDirSortFilterProxyModel::KDirSortFilterProxyModelPrivate
+class Q_DECL_HIDDEN KDirSortFilterProxyModel::KDirSortFilterProxyModelPrivate
 {
 public:
     KDirSortFilterProxyModelPrivate();

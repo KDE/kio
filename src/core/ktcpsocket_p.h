@@ -20,7 +20,7 @@
 #ifndef KTCPSOCKET_P_H
 #define KTCPSOCKET_P_H
 
-class KSslErrorUiData::Private
+class Q_DECL_HIDDEN KSslErrorUiData::Private
 {
 public:
     static const KSslErrorUiData::Private *get(const KSslErrorUiData *uiData)

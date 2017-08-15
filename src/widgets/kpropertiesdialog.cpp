@@ -167,7 +167,7 @@ const mode_t KFilePermissionsPropsPlugin::fperm[3][4] = {
     {S_IROTH, S_IWOTH, S_IXOTH, S_ISVTX}
 };
 
-class KPropertiesDialog::KPropertiesDialogPrivate
+class Q_DECL_HIDDEN KPropertiesDialog::KPropertiesDialogPrivate
 {
 public:
     KPropertiesDialogPrivate(KPropertiesDialog *qq)
@@ -684,7 +684,7 @@ void KPropertiesDialog::abortApplying()
     d->m_aborted = true;
 }
 
-class KPropertiesDialogPlugin::KPropertiesDialogPluginPrivate
+class Q_DECL_HIDDEN KPropertiesDialogPlugin::KPropertiesDialogPluginPrivate
 {
 public:
     KPropertiesDialogPluginPrivate()

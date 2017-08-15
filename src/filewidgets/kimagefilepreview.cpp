@@ -29,7 +29,7 @@
 
 /**** KImageFilePreview ****/
 
-class KImageFilePreview::KImageFilePreviewPrivate
+class Q_DECL_HIDDEN KImageFilePreview::KImageFilePreviewPrivate
 {
 public:
     KImageFilePreviewPrivate()

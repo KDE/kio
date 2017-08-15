@@ -98,7 +98,7 @@ class ListJob;
 class OrgKdeKDirNotifyInterface;
 struct KCoreDirListerCacheDirectoryData;
 
-class KCoreDirLister::Private
+class Q_DECL_HIDDEN KCoreDirLister::Private
 {
 public:
     Private(KCoreDirLister *parent)

@@ -61,7 +61,7 @@ struct Margin {
     int left, right, top, bottom;
 };
 
-class KFileItemDelegate::Private
+class Q_DECL_HIDDEN KFileItemDelegate::Private
 {
 public:
     enum MarginType { ItemMargin = 0, TextMargin, IconMargin, NMargins };

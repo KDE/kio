@@ -463,7 +463,7 @@ int KFilePlacesViewDelegate::sectionHeaderHeight() const
 }
 
 
-class KFilePlacesView::Private
+class Q_DECL_HIDDEN KFilePlacesView::Private
 {
 public:
     Private(KFilePlacesView *parent) : q(parent), watcher(new KFilePlacesEventWatcher(q)) { }

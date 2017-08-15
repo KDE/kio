@@ -56,7 +56,7 @@
 #include <solid/predicate.h>
 #include <qstandardpaths.h>
 
-class KFilePlacesModel::Private
+class Q_DECL_HIDDEN KFilePlacesModel::Private
 {
 public:
     Private(KFilePlacesModel *self) : q(self), bookmarkManager(nullptr) {}

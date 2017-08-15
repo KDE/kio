@@ -26,7 +26,7 @@
 #include <QtCore/QEvent>
 #include <QLineEdit>
 
-class KFileFilterCombo::Private
+class Q_DECL_HIDDEN KFileFilterCombo::Private
 {
 public:
     Private(KFileFilterCombo *_parent)

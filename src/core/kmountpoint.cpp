@@ -99,7 +99,7 @@ extern "C" void endvfsent();
 #define FSTAB "/etc/fstab"
 #endif
 
-class KMountPoint::Private
+class Q_DECL_HIDDEN KMountPoint::Private
 {
 public:
     void finalizePossibleMountPoint(DetailsNeededFlags infoNeeded);

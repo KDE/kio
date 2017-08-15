@@ -38,7 +38,7 @@ struct AllTrackers {
     KWidgetJobTracker *widgetTracker;
 };
 
-class KDynamicJobTracker::Private
+class Q_DECL_HIDDEN KDynamicJobTracker::Private
 {
 public:
     Private() : kuiserverTracker(nullptr),

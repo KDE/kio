@@ -36,7 +36,7 @@
 #include <sys/statvfs.h>
 #endif
 
-class KDiskFreeSpaceInfo::Private : public QSharedData
+class Q_DECL_HIDDEN KDiskFreeSpaceInfo::Private : public QSharedData
 {
 public:
     Private()

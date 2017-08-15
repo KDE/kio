@@ -36,7 +36,7 @@
 
 #include "ktcpsocket.h"
 
-class KSslInfoDialog::KSslInfoDialogPrivate
+class Q_DECL_HIDDEN KSslInfoDialog::KSslInfoDialogPrivate
 {
 public:
     QList<QSslCertificate> certificateChain;

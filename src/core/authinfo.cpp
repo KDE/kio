@@ -252,7 +252,7 @@ const QDBusArgument &KIO::operator>>(const QDBusArgument &argument, AuthInfo &a)
 typedef QList<NetRC::AutoLogin> LoginList;
 typedef QMap<QString, LoginList> LoginMap;
 
-class NetRC::NetRCPrivate
+class Q_DECL_HIDDEN NetRC::NetRCPrivate
 {
 public:
     NetRCPrivate()

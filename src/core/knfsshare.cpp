@@ -29,7 +29,7 @@
 #include <kconfiggroup.h>
 #include "kiocoredebug.h"
 
-class KNFSShare::KNFSSharePrivate
+class Q_DECL_HIDDEN KNFSShare::KNFSSharePrivate
 {
 public:
     KNFSSharePrivate(KNFSShare *parent);

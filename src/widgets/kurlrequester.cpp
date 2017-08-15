@@ -82,7 +82,7 @@ private:
     QList<QUrl> m_urls;
 };
 
-class KUrlRequester::KUrlRequesterPrivate
+class Q_DECL_HIDDEN KUrlRequester::KUrlRequesterPrivate
 {
 public:
     KUrlRequesterPrivate(KUrlRequester *parent)
