@@ -11,16 +11,16 @@ set(testtrash_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/../kiotrashdebug.cpp
 )
 
-if(APPLE)
-    set(testtrash_APPLE_LIBS "-framework DiskArbitration -framework CoreFoundation")
-endif(APPLE)
-
 include(ECMAddTests)
 
 ecm_add_test(${testtrash_SRCS}
     TEST_NAME testtrash
-    LINK_LIBRARIES KF5::I18n Qt5::DBus KF5::KIOCore KF5::Solid Qt5::Test ${testtrash_APPLE_LIBS}
+    LINK_LIBRARIES KF5::I18n Qt5::DBus KF5::KIOCore KF5::Solid Qt5::Test
 )
+
+if(APPLE)
+    target_link_libraries(testtrash "-framework DiskArbitration -framework CoreFoundation")
+endif(APPLE)
 
 # other tests like dropjob and fileundomanager use the trash in ~/.qttest, which this test cleans up
 set_tests_properties(testtrash PROPERTIES RUN_SERIAL TRUE)
