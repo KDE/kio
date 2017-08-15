@@ -84,6 +84,9 @@ private Q_SLOTS:
 #endif
     void mostLocalUrl();
     void chmodFile();
+#ifdef Q_OS_UNIX
+    void chmodSticky();
+#endif
     void chmodFileError();
     void mimeType();
     void mimeTypeError();

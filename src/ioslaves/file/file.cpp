@@ -225,7 +225,12 @@ void FileProtocol::chmod(const QUrl &url, int permissions)
     const QString path(url.toLocalFile());
     const QByteArray _path(QFile::encodeName(path));
     /* FIXME: Should be atomic */
+#ifdef Q_OS_UNIX
+    // QFile::Permissions does not support special attributes like sticky
+    if (::chmod(QFile::encodeName(path).constData(), permissions) == -1 ||
+#else
     if (!QFile::setPermissions(path, modeToQFilePermissions(permissions)) ||
+#endif
             (setACL(_path.data(), permissions, false) == -1) ||
             /* if not a directory, cannot set default ACLs */
             (setACL(_path.data(), permissions, true) == -1 && errno != ENOTDIR)) {

@@ -1473,6 +1473,26 @@ void JobTest::chmodFile()
     QFile::remove(filePath);
 }
 
+#ifdef Q_OS_UNIX
+void JobTest::chmodSticky()
+{
+    const QString filePath = homeTmpDir() + "fileForChmodSticky";
+    createTestFile(filePath);
+    KFileItem item(QUrl::fromLocalFile(filePath));
+    const mode_t origPerm = item.permissions();
+    mode_t newPerm = origPerm ^ S_ISVTX;
+    QVERIFY(newPerm != origPerm);
+    KFileItemList items({item});
+    KIO::Job *job = KIO::chmod(items, newPerm, S_ISVTX, QString(), QString(), false, KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    QVERIFY(job->exec());
+
+    KFileItem newItem(QUrl::fromLocalFile(filePath));
+    QCOMPARE(QString::number(newItem.permissions(), 8), QString::number(newPerm, 8));
+    QFile::remove(filePath);
+}
+#endif
+
 void JobTest::chmodFileError()
 {
     // chown(root) should fail
