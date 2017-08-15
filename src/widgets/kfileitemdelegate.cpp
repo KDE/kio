@@ -832,6 +832,7 @@ void KFileItemDelegate::Private::initStyleOption(QStyleOptionViewItem *option,
     }
 
     option->icon = decoration(*option, index);
+    // Note that even null icons are still drawn for alignment
     if (!option->icon.isNull()) {
         option->features |= QStyleOptionViewItem::HasDecoration;
     }
@@ -1094,10 +1095,6 @@ QIcon KFileItemDelegate::Private::decoration(const QStyleOptionViewItem &option,
 
 QRect KFileItemDelegate::Private::labelRectangle(const QStyleOptionViewItem &option) const
 {
-    if (option.icon.isNull()) {
-        return subtractMargin(option.rect, Private::ItemMargin);
-    }
-
     const QSize decoSize = addMargin(option.decorationSize, Private::IconMargin);
     const QRect itemRect = subtractMargin(option.rect, Private::ItemMargin);
     QRect textArea(QPoint(0, 0), itemRect.size());
