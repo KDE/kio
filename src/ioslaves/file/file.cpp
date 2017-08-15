@@ -227,7 +227,7 @@ void FileProtocol::chmod(const QUrl &url, int permissions)
     /* FIXME: Should be atomic */
 #ifdef Q_OS_UNIX
     // QFile::Permissions does not support special attributes like sticky
-    if (::chmod(QFile::encodeName(path).constData(), permissions) == -1 ||
+    if (::chmod(_path.constData(), permissions) == -1 ||
 #else
     if (!QFile::setPermissions(path, modeToQFilePermissions(permissions)) ||
 #endif
