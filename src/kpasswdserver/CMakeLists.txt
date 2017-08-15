@@ -11,7 +11,9 @@ if (KF5Wallet_FOUND)
     set(WALLET_LIB KF5::Wallet)
 endif()
 
-add_subdirectory(autotests)
+if(BUILD_TESTING)
+    add_subdirectory(autotests)
+endif()
 
 set(kiod_kpasswdserver_SRCS kpasswdserver.cpp kiod_kpasswdserver.cpp)
 

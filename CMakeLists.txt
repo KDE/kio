@@ -106,10 +106,12 @@ endif()
 
 include(CheckLibraryExists)
 add_subdirectory(src)
-add_subdirectory(autotests)
 
-if (NOT KIOCORE_ONLY)
-add_subdirectory(tests)
+if(BUILD_TESTING)
+    add_subdirectory(autotests)
+    if (NOT KIOCORE_ONLY)
+        add_subdirectory(tests)
+    endif()
 endif()
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them

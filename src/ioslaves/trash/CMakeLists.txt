@@ -9,10 +9,12 @@
 #     set (STRIGI_TYPE "REQUIRED")
 # endif ()
 
-if(WIN32)
-  message(AUTHOR_WARNING "kio_trash unit tests are broken on Windows, disaling them")
-else()
-  add_subdirectory(tests)
+if(BUILD_TESTING)
+  if(WIN32)
+    message(AUTHOR_WARNING "kio_trash unit tests are broken on Windows, disabling them")
+  else()
+    add_subdirectory(tests)
+  endif()
 endif()
 
 ########### next target ###############
