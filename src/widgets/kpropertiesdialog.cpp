@@ -3674,6 +3674,8 @@ void KDesktopPropsPlugin::applyChanges()
 
     const QString path(url.toLocalFile());
 
+    // make sure the directory exists
+    QDir().mkpath(QFileInfo(path).absolutePath());
     QFile f(path);
     if (!f.open(QIODevice::ReadWrite)) {
         KMessageBox::sorry(nullptr, i18n("<qt>Could not save properties. You do not have "
