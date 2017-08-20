@@ -202,8 +202,6 @@ KSslCertificateManagerPrivate::KSslCertificateManagerPrivate()
       isCertListLoaded(false),
       userCertDir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/kssl/userCaCertificates/"))
 {
-    // set Qt's set to empty; this is protected by the lock in K_GLOBAL_STATIC.
-    QSslSocket::setDefaultCaCertificates(QList<QSslCertificate>());
 }
 
 KSslCertificateManagerPrivate::~KSslCertificateManagerPrivate()
