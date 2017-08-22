@@ -100,11 +100,12 @@ static bool forkSlaves()
         }
 
 #ifdef Q_OS_UNIX
-        // fallback: if there's an klauncher process owned by a different user: still fork
         if (!fork) {
             // check the UID of klauncher
             QDBusReply<uint> reply = QDBusConnection::sessionBus().interface()->serviceUid(klauncher()->service());
-            if (reply.isValid() && getuid() != reply) {
+            // if reply is not valid, fork, most likely klauncher can not be run or is not installed
+            // fallback: if there's an klauncher process owned by a different user: still fork
+            if (!reply.isValid() && getuid() != reply) {
                 fork = true;
             }
         }
