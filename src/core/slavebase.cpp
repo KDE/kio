@@ -535,7 +535,7 @@ void SlaveBase::processedSize(KIO::filesize_t _bytes)
         emitSignal = true;
     } else {
         if (d->lastTimeout.isValid()) {
-            emitSignal = d->lastTimeout.msecsTo(now);    // emit size 10 times a second
+            emitSignal = d->lastTimeout.msecsTo(now) >= 100; // emit size 10 times a second
         } else {
             emitSignal = true;
         }
