@@ -86,21 +86,21 @@ public:
      * standard unix file permissions. Setting them will never make a valid
      * ACL invalid. */
 
-    /** @return the owner's premissions entry */
+    /** @return the owner's permissions entry */
     unsigned short ownerPermissions() const;
 
     /** Set the owner's permissions entry.
      * @return success or failure */
     bool setOwnerPermissions(unsigned short);
 
-    /** @return the owning group's premissions entry */
+    /** @return the owning group's permissions entry */
     unsigned short owningGroupPermissions() const;
 
     /** Set the owning group's permissions entry.
      * @return success or failure */
     bool setOwningGroupPermissions(unsigned short);
 
-    /** @return the premissions entry for others */
+    /** @return the permissions entry for others */
     unsigned short othersPermissions() const;
 
     /** Set the permissions entry for others.
