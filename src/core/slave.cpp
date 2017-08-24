@@ -105,7 +105,7 @@ static bool forkSlaves()
             QDBusReply<uint> reply = QDBusConnection::sessionBus().interface()->serviceUid(klauncher()->service());
             // if reply is not valid, fork, most likely klauncher can not be run or is not installed
             // fallback: if there's an klauncher process owned by a different user: still fork
-            if (!reply.isValid() && getuid() != reply) {
+            if (!reply.isValid() || getuid() != reply) {
                 fork = true;
             }
         }
