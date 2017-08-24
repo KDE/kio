@@ -229,6 +229,7 @@ private:
 
     void ref();
     void deref();
+    void aboutToDelete();
 
 public Q_SLOTS:
     void accept();

@@ -129,6 +129,11 @@ bool SlaveKeeper::removeSlave(Slave *slave)
     return false;
 }
 
+void SlaveKeeper::clear()
+{
+    m_idleSlaves.clear();
+}
+
 QList<Slave *> SlaveKeeper::allSlaves() const
 {
     return m_idleSlaves.values();
@@ -404,7 +409,11 @@ ProtoQueue::ProtoQueue(int maxSlaves, int maxSlavesPerHost)
 
 ProtoQueue::~ProtoQueue()
 {
-    Q_FOREACH (Slave *slave, allSlaves()) {
+    // Gather list of all slaves first
+    const QList<Slave *> slaves = allSlaves();
+    // Clear the idle slaves in the keeper to avoid dangling pointers
+    m_slaveKeeper.clear();
+    for (Slave *slave : slaves) {
         // kill the slave process, then remove the interface in our process
         slave->kill();
         slave->deref();
@@ -1123,7 +1132,9 @@ void SchedulerPrivate::slotSlaveDied(KIO::Slave *slave)
         m_slaveOnHold = nullptr;
         m_urlOnHold.clear();
     }
-    slave->deref(); // Delete slave
+    // can't use slave->deref() here because we need to use deleteLater
+    slave->aboutToDelete();
+    slave->deleteLater();
 }
 
 void SchedulerPrivate::putSlaveOnHold(KIO::SimpleJob *job, const QUrl &url)

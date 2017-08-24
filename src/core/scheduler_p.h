@@ -25,6 +25,7 @@
 namespace KIO
 {
 
+// The slave keeper manages the list of idle slaves that can be reused
 class SlaveKeeper : public QObject
 {
     Q_OBJECT
@@ -37,6 +38,8 @@ public:
     KIO::Slave *takeSlaveForJob(KIO::SimpleJob *job);
     // remove slave from keeper
     bool removeSlave(KIO::Slave *slave);
+    // remove all slaves from keeper
+    void clear();
     QList<KIO::Slave *> allSlaves() const;
 
 private:

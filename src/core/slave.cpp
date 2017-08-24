@@ -298,10 +298,16 @@ void Slave::deref()
     Q_D(Slave);
     d->m_refCount--;
     if (!d->m_refCount) {
-        d->connection->disconnect(this);
-        this->disconnect();
-        deleteLater();
+        aboutToDelete();
+        delete this; // yes it reads funny, but it's too late for a deleteLater() here, no event loop anymore
     }
+}
+
+void Slave::aboutToDelete()
+{
+    Q_D(Slave);
+    d->connection->disconnect(this);
+    this->disconnect();
 }
 
 int Slave::idleTime()
