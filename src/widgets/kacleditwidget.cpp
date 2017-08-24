@@ -682,6 +682,9 @@ KACLListView::KACLListView(QWidget *parent)
 
     connect(this, SIGNAL(itemClicked(QTreeWidgetItem*,int)),
             this, SLOT(slotItemClicked(QTreeWidgetItem*,int)));
+
+    connect(this, &KACLListView::itemDoubleClicked,
+            this, &KACLListView::slotItemDoubleClicked);
 }
 
 KACLListView::~KACLListView()
@@ -937,6 +940,26 @@ void KACLListView::slotItemClicked(QTreeWidgetItem *pItem,  int col)
     update();
     }
      */
+}
+
+void KACLListView::slotItemDoubleClicked(QTreeWidgetItem *item, int column)
+{
+    if (!item) {
+        return;
+    }
+
+    // avoid conflict with clicking to toggle permission
+    if (column >= 2 && column <= 4) {
+        return;
+    }
+
+    KACLListViewItem *aclListItem = static_cast<KACLListViewItem *>(item);
+    if (!aclListItem->isAllowedToChangeType()) {
+        return;
+    }
+
+    setCurrentItem(item);
+    slotEditEntry();
 }
 
 void KACLListView::calculateEffectiveRights()

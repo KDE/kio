@@ -122,6 +122,7 @@ public Q_SLOTS:
 
 protected Q_SLOTS:
     void slotItemClicked(QTreeWidgetItem *pItem, int col);
+    void slotItemDoubleClicked(QTreeWidgetItem *item, int col);
 protected:
     void contentsMousePressEvent(QMouseEvent *e);
 
