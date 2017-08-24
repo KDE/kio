@@ -169,6 +169,20 @@ public:
     static QString replacedPath(const QString &text,
                                 bool replaceHome, bool replaceEnv = true);
 
+    /**
+     * Sets the mimetype filters for the file dialog.
+     * @see QFileDialog::setMimeTypeFilters()
+     * @since 5.38
+     */
+    void setMimeTypeFilters(const QStringList &mimeTypes);
+
+    /**
+     * Returns the mimetype filters for the file dialog.
+     * @see QFileDialog::mimeTypeFilters()
+     * @since 5.38
+     */
+    QStringList mimeTypeFilters() const;
+
 protected:
     // Called by KCompletion, adds '/' to directories
     void postProcessMatch(QString *match) const Q_DECL_OVERRIDE;

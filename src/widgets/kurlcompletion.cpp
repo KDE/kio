@@ -39,6 +39,7 @@
 #include <QtCore/QThread>
 #include <QtCore/QUrl>
 #include <QtCore/QDebug>
+#include <QMimeDatabase>
 #include <QProcessEnvironment>
 #include <qplatformdefs.h> // QT_LSTAT, QT_STAT, QT_STATBUF
 
@@ -201,6 +202,8 @@ public:
 
     CompletionThread *userListThread;
     CompletionThread *dirListThread;
+
+    QStringList mimeTypeFilters;
 };
 
 class CompletionThread : public QThread
@@ -308,6 +311,7 @@ public:
     DirectoryListThread(KUrlCompletionPrivate *receiver,
                         const QStringList &dirList,
                         const QString &filter,
+                        const QStringList &mimeTypeFilters,
                         bool onlyExe,
                         bool onlyDir,
                         bool noHidden,
@@ -315,6 +319,7 @@ public:
         CompletionThread(receiver),
         m_dirList(dirList),
         m_filter(filter),
+        m_mimeTypeFilters(mimeTypeFilters),
         m_onlyExe(onlyExe),
         m_onlyDir(onlyDir),
         m_noHidden(noHidden),
@@ -326,6 +331,7 @@ public:
 private:
     QStringList m_dirList;
     QString m_filter;
+    QStringList m_mimeTypeFilters;
     bool m_onlyExe;
     bool m_onlyDir;
     bool m_noHidden;
@@ -345,6 +351,8 @@ void DirectoryListThread::run()
         iterator_filter |= (QDir::Dirs | QDir::Files);
     }
 
+    QMimeDatabase mimeTypes;
+
     const QStringList::const_iterator end = m_dirList.constEnd();
     for (QStringList::const_iterator it = m_dirList.constBegin();
             it != end && !terminationRequested();
@@ -361,21 +369,29 @@ void DirectoryListThread::run()
 
             //qDebug() << "Found" << file_name;
 
-            if (m_filter.isEmpty() || file_name.startsWith(m_filter)) {
+            if (!m_filter.isEmpty() && !file_name.startsWith(m_filter)) {
+                continue;
+            }
 
-                QString toAppend = file_name;
-                // Add '/' to directories
-                if (m_appendSlashToDir && file_info.isDir()) {
-                    toAppend.append(QLatin1Char('/'));
+            if (!m_mimeTypeFilters.isEmpty() && !file_info.isDir()) {
+                auto mimeType = mimeTypes.mimeTypeForFile(file_info);
+                if (!m_mimeTypeFilters.contains(mimeType.name())) {
+                    continue;
                 }
+            }
 
-                if (m_complete_url) {
-                    QUrl info(m_prepend);
-                    info = addPathToUrl(info, toAppend);
-                    addMatch(info.toDisplayString());
-                } else {
-                    addMatch(m_prepend + toAppend);
-                }
+            QString toAppend = file_name;
+            // Add '/' to directories
+            if (m_appendSlashToDir && file_info.isDir()) {
+                toAppend.append(QLatin1Char('/'));
+            }
+
+            if (m_complete_url) {
+                QUrl info(m_prepend);
+                info = addPathToUrl(info, toAppend);
+                addMatch(info.toDisplayString());
+            } else {
+                addMatch(m_prepend + toAppend);
             }
         }
     }
@@ -1114,8 +1130,9 @@ QString KUrlCompletionPrivate::listDirectories(
         }
 
         Q_ASSERT(!dirListThread); // caller called stop()
-        dirListThread = new DirectoryListThread(this, dirs, filter, only_exe, only_dir,
-                                                no_hidden, append_slash_to_dir);
+        dirListThread = new DirectoryListThread(this, dirs, filter, mimeTypeFilters,
+                                                only_exe, only_dir, no_hidden,
+                                                append_slash_to_dir);
         QObject::connect(dirListThread, &CompletionThread::completionThreadDone,
                 q, [this](QThread *thread, const QStringList &matches){ slotCompletionThreadDone(thread, matches); });
         dirListThread->start();
@@ -1221,26 +1238,33 @@ void KUrlCompletionPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &
             continue;
         }
 
-        if (filter_len == 0 || entry_name.left(filter_len) == filter) {
+        if (filter_len != 0 && entry_name.left(filter_len) != filter) {
+            continue;
+        }
 
-            QString toAppend = entry_name;
+        if (!mimeTypeFilters.isEmpty() && !isDir &&
+            !mimeTypeFilters.contains(entry.stringValue(KIO::UDSEntry::UDS_MIME_TYPE))) {
+            continue;
+        }
 
-            if (isDir) {
-                toAppend.append(QLatin1Char('/'));
-            }
+        QString toAppend = entry_name;
 
-            if (!list_urls_only_exe ||
-                    (entry.numberValue(KIO::UDSEntry::UDS_ACCESS) & MODE_EXE)  // true if executable
-               ) {
-                if (complete_url) {
-                    QUrl url(prepend);
-                    url = addPathToUrl(url, toAppend);
-                    matchList.append(url.toDisplayString());
-                } else {
-                    matchList.append(prepend + toAppend);
-                }
+        if (isDir) {
+            toAppend.append(QLatin1Char('/'));
+        }
+
+        if (!list_urls_only_exe ||
+                (entry.numberValue(KIO::UDSEntry::UDS_ACCESS) & MODE_EXE)  // true if executable
+            ) {
+            if (complete_url) {
+                QUrl url(prepend);
+                url = addPathToUrl(url, toAppend);
+                matchList.append(url.toDisplayString());
+            } else {
+                matchList.append(prepend + toAppend);
             }
         }
+
     }
 
     addMatches(matchList);
@@ -1394,6 +1418,16 @@ QString KUrlCompletion::replacedPath(const QString &text, bool replaceHome, bool
 QString KUrlCompletion::replacedPath(const QString &text) const
 {
     return replacedPath(text, d->replace_home, d->replace_env);
+}
+
+void KUrlCompletion::setMimeTypeFilters(const QStringList &mimeTypeFilters)
+{
+    d->mimeTypeFilters = mimeTypeFilters;
+}
+
+QStringList KUrlCompletion::mimeTypeFilters() const
+{
+    return d->mimeTypeFilters;
 }
 
 /////////////////////////////////////////////////////////

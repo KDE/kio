@@ -519,6 +519,7 @@ void KUrlRequester::setMimeTypeFilters(const QStringList &mimeTypes)
     if (d->myFileDialog) {
         d->myFileDialog->setMimeTypeFilters(d->mimeTypeFilters);
     }
+    d->myCompletion->setMimeTypeFilters(d->mimeTypeFilters);
 }
 
 QStringList KUrlRequester::mimeTypeFilters() const

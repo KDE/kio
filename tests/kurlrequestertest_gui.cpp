@@ -33,5 +33,10 @@ int main(int argc, char **argv)
     comboReq->setWindowTitle(QStringLiteral("KUrlComboRequester"));
     comboReq->show();
 
+    auto *mimeFilterReq = new KUrlRequester();
+    mimeFilterReq->setMimeTypeFilters({QStringLiteral("text/x-c++src")});
+    mimeFilterReq->setWindowTitle(QStringLiteral("MimeFilter"));
+    mimeFilterReq->show();
+
     return app.exec();
 }

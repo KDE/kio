@@ -59,6 +59,7 @@ public:
 private:
     void waitForCompletion(KUrlCompletion *completion);
     KUrlCompletion *m_completion;
+    KUrlCompletion *m_completionWithMimeFilter;
     QTemporaryDir *m_tempDir;
     QUrl m_dirURL;
     QString m_dir;
@@ -69,12 +70,15 @@ void KUrlCompletionTest::setup()
 {
     qDebug();
     m_completion = new KUrlCompletion;
+    m_completionWithMimeFilter = new KUrlCompletion;
+    m_completionWithMimeFilter->setMimeTypeFilters({QStringLiteral("text/x-c++src")});
     m_tempDir = new QTemporaryDir;
     m_dir = m_tempDir->path();
     m_dir += QLatin1String("/Dir With#Spaces/");
     QDir().mkdir(m_dir);
     qDebug() << "m_dir=" << m_dir;
     m_completion->setDir(QUrl::fromLocalFile(m_dir));
+    m_completionWithMimeFilter->setDir(m_completion->dir());
     m_dirURL = QUrl::fromLocalFile(m_dir);
 
     QFile f1(m_dir + "/file1");
@@ -92,6 +96,16 @@ void KUrlCompletionTest::setup()
     QVERIFY(ok);
     f3.close();
 
+    QFile f4(m_dir + "/source.cpp");
+    ok = f4.open(QIODevice::WriteOnly);
+    QVERIFY(ok);
+    f4.close();
+
+    QFile f5(m_dir + "/source.php");
+    ok = f5.open(QIODevice::WriteOnly);
+    QVERIFY(ok);
+    f5.close();
+
     QDir().mkdir(m_dir + "/file_subdir");
     QDir().mkdir(m_dir + "/.1_hidden_file_subdir");
     QDir().mkdir(m_dir + "/.2_hidden_file_subdir");
@@ -104,6 +118,8 @@ void KUrlCompletionTest::teardown()
 {
     delete m_completion;
     m_completion = nullptr;
+    delete m_completionWithMimeFilter;
+    m_completionWithMimeFilter = nullptr;
     delete m_tempDir;
     m_tempDir = nullptr;
     delete m_completionEmptyCwd;
@@ -179,6 +195,20 @@ void KUrlCompletionTest::testLocalRelativePath()
     const auto compFileEndingWithDot = m_completion->allMatches();
     QCOMPARE(compFileEndingWithDot.count(), 1);
     QVERIFY(compFileEndingWithDot.contains("file."));
+
+    // Completion with 'source' should only find the C++ file
+    m_completionWithMimeFilter->makeCompletion("source");
+    waitForCompletion(m_completionWithMimeFilter);
+    const auto compSourceFile = m_completionWithMimeFilter->allMatches();
+    QCOMPARE(compSourceFile.count(), 1);
+    QVERIFY(compSourceFile.contains("source.cpp"));
+
+    // But it should also be able to find folders
+    m_completionWithMimeFilter->makeCompletion("file_subdir");
+    waitForCompletion(m_completionWithMimeFilter);
+    const auto compMimeFolder = m_completionWithMimeFilter->allMatches();
+    QCOMPARE(compMimeFolder.count(), 1);
+    QVERIFY(compMimeFolder.contains("file_subdir/"));
 }
 
 void KUrlCompletionTest::testLocalAbsolutePath()
@@ -218,6 +248,20 @@ void KUrlCompletionTest::testLocalAbsolutePath()
     const auto compFileEndingWithDot = m_completion->allMatches();
     QCOMPARE(compFileEndingWithDot.count(), 1);
     QVERIFY(compFileEndingWithDot.contains(m_dir + "file."));
+
+    // Completion with 'source' should only find the C++ file
+    m_completionWithMimeFilter->makeCompletion(m_dir + "source");
+    waitForCompletion(m_completionWithMimeFilter);
+    const auto compSourceFile = m_completionWithMimeFilter->allMatches();
+    QCOMPARE(compSourceFile.count(), 1);
+    QVERIFY(compSourceFile.contains(m_dir + "source.cpp"));
+
+    // But it should also be able to find folders
+    m_completionWithMimeFilter->makeCompletion(m_dir + "file_subdir");
+    waitForCompletion(m_completionWithMimeFilter);
+    const auto compMimeFolder = m_completionWithMimeFilter->allMatches();
+    QCOMPARE(compMimeFolder.count(), 1);
+    QVERIFY(compMimeFolder.contains(m_dir + "file_subdir/"));
 }
 
 void KUrlCompletionTest::testLocalURL()
@@ -286,6 +330,20 @@ void KUrlCompletionTest::testLocalURL()
     const auto compFileEndingWithDot = m_completion->allMatches();
     QCOMPARE(compFileEndingWithDot.count(), 1);
     QVERIFY(compFileEndingWithDot.contains(m_dirURL.toString() + "file."));
+
+    // Completion with 'source' should only find the C++ file
+    m_completionWithMimeFilter->makeCompletion(m_dirURL.toString() + "source");
+    waitForCompletion(m_completionWithMimeFilter);
+    const auto compSourceFile = m_completionWithMimeFilter->allMatches();
+    QCOMPARE(compSourceFile.count(), 1);
+    QVERIFY(compSourceFile.contains(m_dirURL.toString() + "source.cpp"));
+
+    // But it should also be able to find folders
+    m_completionWithMimeFilter->makeCompletion(m_dirURL.toString() + "file_subdir");
+    waitForCompletion(m_completionWithMimeFilter);
+    const auto compMimeFolder = m_completionWithMimeFilter->allMatches();
+    QCOMPARE(compMimeFolder.count(), 1);
+    QVERIFY(compMimeFolder.contains(m_dirURL.toString() + "file_subdir/"));
 }
 
 void KUrlCompletionTest::testEmptyCwd()
