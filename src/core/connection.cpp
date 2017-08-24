@@ -53,7 +53,7 @@ void ConnectionPrivate::commandReceived(const Task &task)
     if (!suspended && incomingTasks.isEmpty()) {
         QMetaObject::invokeMethod(q, "dequeue", Qt::QueuedConnection);
     }
-    incomingTasks.enqueue(task);
+    incomingTasks.append(task);
 }
 
 void ConnectionPrivate::disconnected()
@@ -172,7 +172,7 @@ bool Connection::send(int cmd, const QByteArray &data)
         Task task;
         task.cmd = cmd;
         task.data = data;
-        d->outgoingTasks.append(task);
+        d->outgoingTasks.append(std::move(task));
         return true;
     } else {
         return sendnow(cmd, data);
@@ -213,11 +213,13 @@ int Connection::read(int *_cmd, QByteArray &data)
         //kWarning() << this << "Task list is empty!";
         return -1;
     }
-    const Task task = d->incomingTasks.dequeue();
+    const Task& task = d->incomingTasks.constFirst();
     //qDebug() << this << "Command " << task.cmd << " removed from the queue (size "
     //         << task.data.size() << ")";
     *_cmd = task.cmd;
     data = task.data;
+
+    d->incomingTasks.removeFirst();
 
     // if we didn't empty our reading queue, emit again
     if (!d->suspended && !d->incomingTasks.isEmpty()) {

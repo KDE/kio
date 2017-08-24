@@ -24,7 +24,7 @@
 #include <QUrl>
 #include <QObject>
 #include <QString>
-#include <QQueue>
+#include <QVector>
 #include "connectionbackend_p.h"
 
 namespace KIO
@@ -45,8 +45,8 @@ public:
     void disconnected();
     void setBackend(ConnectionBackend *b);
 
-    QList<Task> outgoingTasks;
-    QQueue<Task> incomingTasks;
+    QVector<Task> outgoingTasks;
+    QVector<Task> incomingTasks;
     ConnectionBackend *backend;
     Connection *q;
     bool suspended;
