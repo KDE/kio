@@ -28,6 +28,7 @@
 #include <QDragLeaveEvent>
 #include <QDropEvent>
 #include <QMenu>
+#include <QMouseEvent>
 #include <QPainter>
 #include <QPixmap>
 #include <QStyle>
@@ -44,6 +45,7 @@ KUrlNavigatorPlacesSelector::KUrlNavigatorPlacesSelector(QWidget *parent, KFileP
     setFocusPolicy(Qt::NoFocus);
 
     m_placesMenu = new QMenu(this);
+    m_placesMenu->installEventFilter(this);
 
     updateMenu();
 
@@ -240,6 +242,26 @@ void KUrlNavigatorPlacesSelector::onStorageSetupDone(const QModelIndex &index, b
         }
         m_lastClickedIndex = QPersistentModelIndex();
     }
+}
+
+bool KUrlNavigatorPlacesSelector::eventFilter(QObject *watched, QEvent *event)
+{
+    if (watched == m_placesMenu) {
+        if (event->type() == QEvent::MouseButtonRelease) {
+            QMouseEvent *me = static_cast<QMouseEvent *>(event);
+            if (me->button() == Qt::MiddleButton) {
+                if (QAction *action = m_placesMenu->activeAction()) {
+                    m_placesMenu->close();
+
+                    QModelIndex index = m_placesModel->index(action->data().toInt(), 0);
+                    emit tabRequested(m_placesModel->url(index));
+                    return true;
+                }
+            }
+        }
+    }
+
+    return KUrlNavigatorButtonBase::eventFilter(watched, event);
 }
 
 } // namespace KDEPrivate

@@ -96,6 +96,8 @@ protected:
     void dropEvent(QDropEvent *event) Q_DECL_OVERRIDE;
     void mouseReleaseEvent(QMouseEvent *event) override;
 
+    bool eventFilter(QObject *watched, QEvent *event) override;
+
 private Q_SLOTS:
     /**
      * Updates the selected index and the icon to the bookmark
