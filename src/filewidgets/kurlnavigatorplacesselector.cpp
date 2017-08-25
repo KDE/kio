@@ -190,6 +190,17 @@ void KUrlNavigatorPlacesSelector::dropEvent(QDropEvent *event)
     }
 }
 
+void KUrlNavigatorPlacesSelector::mouseReleaseEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::MiddleButton && geometry().contains(event->pos())) {
+        emit tabRequested(m_placesModel->url(m_placesModel->index(m_selectedItem, 0)));
+        event->accept();
+        return;
+    }
+
+    KUrlNavigatorButtonBase::mouseReleaseEvent(event);
+}
+
 void KUrlNavigatorPlacesSelector::activatePlace(QAction *action)
 {
     Q_ASSERT(action != nullptr);

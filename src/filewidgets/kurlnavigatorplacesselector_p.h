@@ -78,6 +78,12 @@ Q_SIGNALS:
      */
     void placeActivated(const QUrl &url);
 
+    /**
+     * Is sent when a bookmark was middle clicked by the user
+     * and thus should be opened in a new tab.
+     */
+    void tabRequested(const QUrl &url);
+
 protected:
     /**
      * Draws the icon of the selected Url as content of the Url
@@ -88,6 +94,7 @@ protected:
     void dragEnterEvent(QDragEnterEvent *event) Q_DECL_OVERRIDE;
     void dragLeaveEvent(QDragLeaveEvent *event) Q_DECL_OVERRIDE;
     void dropEvent(QDropEvent *event) Q_DECL_OVERRIDE;
+    void mouseReleaseEvent(QMouseEvent *event) override;
 
 private Q_SLOTS:
     /**

@@ -222,6 +222,8 @@ KUrlNavigator::Private::Private(KUrlNavigator *q, KFilePlacesModel *placesModel)
         m_placesSelector = new KUrlNavigatorPlacesSelector(q, placesModel);
         connect(m_placesSelector, SIGNAL(placeActivated(QUrl)),
                 q, SLOT(setLocationUrl(QUrl)));
+        connect(m_placesSelector, &KUrlNavigatorPlacesSelector::tabRequested,
+                q, &KUrlNavigator::tabRequested);
 
         connect(placesModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
                 q, SLOT(updateContent()));
