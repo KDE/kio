@@ -1,10 +1,12 @@
 add_subdirectory(searchproviders)
 
-set(kuriikwsfilter_PART_SRCS kuriikwsfiltereng.cpp kuriikwsfilter.cpp searchprovider.cpp)
+####
 
-ki18n_wrap_ui(kuriikwsfilter_PART_SRCS ikwsopts_ui.ui searchproviderdlg_ui.ui)
+set(kuriikwsfilter_SRCS kuriikwsfiltereng.cpp kuriikwsfilter.cpp searchprovider.cpp)
 
-add_library(kuriikwsfilter MODULE ${kuriikwsfilter_PART_SRCS})
+ki18n_wrap_ui(kuriikwsfilter_SRCS ikwsopts_ui.ui searchproviderdlg_ui.ui)
+
+kcoreaddons_add_plugin(kuriikwsfilter INSTALL_NAMESPACE "kf5/urifilters" JSON kuriikwsfilter.json SOURCES ${kuriikwsfilter_SRCS})
 
 target_link_libraries(kuriikwsfilter
    KF5::ConfigWidgets  # KCModule
@@ -13,19 +15,18 @@ target_link_libraries(kuriikwsfilter
    Qt5::DBus
 )
 
-set_target_properties(kuriikwsfilter PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/urifilters")
-install(TARGETS kuriikwsfilter DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/urifilters)
+#####
 
-set(kurisearchfilter_PART_SRCS
+set(kurisearchfilter_SRCS
    kurisearchfilter.cpp
    kuriikwsfiltereng.cpp
    ikwsopts.cpp
    searchproviderdlg.cpp
    searchprovider.cpp )
 
-ki18n_wrap_ui(kurisearchfilter_PART_SRCS ikwsopts_ui.ui searchproviderdlg_ui.ui)
+ki18n_wrap_ui(kurisearchfilter_SRCS ikwsopts_ui.ui searchproviderdlg_ui.ui)
 
-add_library(kurisearchfilter MODULE ${kurisearchfilter_PART_SRCS})
+kcoreaddons_add_plugin(kurisearchfilter INSTALL_NAMESPACE "kf5/urifilters" JSON kurisearchfilter.json SOURCES ${kurisearchfilter_SRCS})
 
 target_link_libraries(kurisearchfilter
    KF5::ConfigWidgets  # KCModule
@@ -34,10 +35,6 @@ target_link_libraries(kurisearchfilter
    Qt5::DBus
 )
 
-set_target_properties(kurisearchfilter PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/urifilters")
-install(TARGETS kurisearchfilter DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/urifilters)
-
 ########### install files ###############
 
-install( FILES kuriikwsfilter.desktop kurisearchfilter.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
 install( FILES searchprovider.desktop  DESTINATION  ${KDE_INSTALL_KSERVICETYPES5DIR} )

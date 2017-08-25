@@ -23,8 +23,10 @@
 #include "hostinfo.h"
 
 #include <kiconloader.h>
-#include <kservicetypetrader.h>
+#include <kservice.h>
 #include <kio/global.h>
+
+#include <KPluginMetaData>
 
 #include <QtCore/QHashIterator>
 #include <QtCore/QStringBuilder>
@@ -672,21 +674,25 @@ QStringList KUriFilter::pluginNames() const
 
 void KUriFilter::loadPlugins()
 {
-    const KService::List offers = KServiceTypeTrader::self()->query(QStringLiteral("KUriFilter/Plugin"));
+    QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins("kf5/urifilters");
+    // Sort the plugins by order of priority
+    std::sort(plugins.begin(), plugins.end(), [](const KPluginMetaData &a, const KPluginMetaData &b) {
+            return a.rawData().value("X-KDE-InitialPreference").toInt() > b.rawData().value("X-KDE-InitialPreference").toInt();
+    });
 
-    // NOTE: Plugin priority is determined by the InitialPreference entry in
-    // the .desktop files, so the trader result is already sorted and should
-    // not be manually sorted.
-    Q_FOREACH (const KService::Ptr &ptr, offers) {
-        KUriFilterPlugin *plugin = ptr->createInstance<KUriFilterPlugin>();
-        if (plugin) {
-            const QString &pluginName = plugin->objectName();
-            Q_ASSERT(!pluginName.isEmpty());
-            d->plugins.insert(pluginName, plugin);
-            // Needed to ensure the order of filtering is honored since
-            // items are ordered arbitrarily in a QHash and QMap always
-            // sorts by keys. Both undesired behavior.
-            d->pluginNames << pluginName;
+    for (const KPluginMetaData &pluginMetaData : plugins) {
+        KPluginFactory *factory = qobject_cast<KPluginFactory *>(pluginMetaData.instantiate());
+        if (factory) {
+            KUriFilterPlugin *plugin = factory->create<KUriFilterPlugin>(nullptr);
+            if (plugin) {
+                const QString &pluginName = plugin->objectName();
+                Q_ASSERT(!pluginName.isEmpty());
+                d->plugins.insert(pluginName, plugin);
+                // Needed to ensure the order of filtering is honored since
+                // items are ordered arbitrarily in a QHash and QMap always
+                // sorts by keys. Both undesired behavior.
+                d->pluginNames << pluginName;
+            }
         }
     }
 }

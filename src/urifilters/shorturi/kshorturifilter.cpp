@@ -568,6 +568,6 @@ void KShortUriFilter::configure()
   }
 }
 
-K_PLUGIN_FACTORY(KShortUriFilterFactory, registerPlugin<KShortUriFilter>();)
+K_PLUGIN_FACTORY_WITH_JSON(KShortUriFilterFactory, "kshorturifilter.json", registerPlugin<KShortUriFilter>();)
 
 #include "kshorturifilter.moc"

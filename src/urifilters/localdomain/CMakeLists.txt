@@ -1,12 +1,6 @@
-set(localdomainurifilter_PART_SRCS localdomainurifilter.cpp )
+set(localdomainurifilter_SRCS localdomainurifilter.cpp )
 
-add_library(localdomainurifilter MODULE ${localdomainurifilter_PART_SRCS})
+kcoreaddons_add_plugin(localdomainurifilter INSTALL_NAMESPACE "kf5/urifilters" JSON localdomainurifilter.json SOURCES ${localdomainurifilter_SRCS})
 
 target_link_libraries(localdomainurifilter KF5::KIOWidgets)
 
-set_target_properties(localdomainurifilter PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/urifilters")
-install(TARGETS localdomainurifilter DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/urifilters)
-
-########### install files ###############
-
-install(FILES localdomainurifilter.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})

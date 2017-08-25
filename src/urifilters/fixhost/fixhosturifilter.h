@@ -31,7 +31,7 @@ class QEventLoop;
 */
 class FixHostUriFilter : public KUriFilterPlugin
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
     FixHostUriFilter(QObject* parent, const QVariantList& args);
