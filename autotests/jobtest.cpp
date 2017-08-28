@@ -1476,9 +1476,9 @@ void JobTest::chmodFile()
 #ifdef Q_OS_UNIX
 void JobTest::chmodSticky()
 {
-    const QString filePath = homeTmpDir() + "fileForChmodSticky";
-    createTestFile(filePath);
-    KFileItem item(QUrl::fromLocalFile(filePath));
+    const QString dirPath = homeTmpDir() + "dirForChmodSticky";
+    QDir().mkpath(dirPath);
+    KFileItem item(QUrl::fromLocalFile(dirPath));
     const mode_t origPerm = item.permissions();
     mode_t newPerm = origPerm ^ S_ISVTX;
     QVERIFY(newPerm != origPerm);
@@ -1487,9 +1487,9 @@ void JobTest::chmodSticky()
     job->setUiDelegate(nullptr);
     QVERIFY(job->exec());
 
-    KFileItem newItem(QUrl::fromLocalFile(filePath));
+    KFileItem newItem(QUrl::fromLocalFile(dirPath));
     QCOMPARE(QString::number(newItem.permissions(), 8), QString::number(newPerm, 8));
-    QFile::remove(filePath);
+    QVERIFY(QDir().rmdir(dirPath));
 }
 #endif
 
