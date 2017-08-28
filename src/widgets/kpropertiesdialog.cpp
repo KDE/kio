@@ -1284,7 +1284,7 @@ void KFilePropsPlugin::slotDirSizeUpdate()
     d->m_sizeLabel->setText(
         i18n("Calculating... %1 (%2)\n%3, %4",
              KIO::convertSize(totalSize),
-             totalSize,
+             QLocale().toString(totalSize),
              i18np("1 file", "%1 files", totalFiles),
              i18np("1 sub-folder", "%1 sub-folders", totalSubdirs)));
 }
