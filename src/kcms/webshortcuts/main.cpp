@@ -27,8 +27,7 @@
 #include <kurifilter.h>
 #include <KAboutData>
 #include <KLocalizedString>
-#include <KService>
-#include <KServiceTypeTrader>
+#include <KPluginMetaData>
 #include <KPluginFactory>
 #include <KPluginLoader>
 
@@ -58,17 +57,19 @@ KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
 
     QMap<QString, KCModule *> helper;
     // Load the plugins. This saves a public method in KUriFilter just for this.
-    const KService::List offers = KServiceTypeTrader::self()->query(QStringLiteral("KUriFilter/Plugin"));
-    KService::List::ConstIterator it = offers.begin();
-    const KService::List::ConstIterator end = offers.end();
-    for (; it != end; ++it) {
-        KUriFilterPlugin *plugin = (*it)->createInstance<KUriFilterPlugin>(this);
-        if (plugin) {
-            KCModule *module = plugin->configModule(this, nullptr);
-            if (module) {
-                modules.append(module);
-                helper.insert(plugin->configName(), module);
-                connect(module, SIGNAL(changed(bool)), SIGNAL(changed(bool)));
+
+    QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins("kf5/urifilters");
+    for (const KPluginMetaData &pluginMetaData : plugins) {
+        KPluginFactory *factory = qobject_cast<KPluginFactory *>(pluginMetaData.instantiate());
+        if (factory) {
+            KUriFilterPlugin *plugin = factory->create<KUriFilterPlugin>(nullptr);
+            if (plugin) {
+                KCModule *module = plugin->configModule(this, nullptr);
+                if (module) {
+                    modules.append(module);
+                    helper.insert(plugin->configName(), module);
+                    connect(module, SIGNAL(changed(bool)), SIGNAL(changed(bool)));
+                }
             }
         }
     }
