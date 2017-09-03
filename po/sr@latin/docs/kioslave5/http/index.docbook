@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian-Latin "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="http">
+<title
+>HTTP i HTTPS</title>
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Lori</firstname
+> <surname
+>Vots</surname
+></personname
+> &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Dragan</firstname
+><surname
+>Pantelić</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>prevod</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>HTTP je protokol za prenos hiperteksta.</para>
+
+<para
+>U/I zahvat HTTP‑a koriste svi KDE programi za obradu veza sa HTTP serverima, tj. veb serverima. Najčešća upotreba je za pregledanje veb stranica u veb pregledaču <application
+>K‑osvajaču</application
+>.</para>
+
+<para
+>HTTP U/I zahvat koristite u <application
+>K‑osvajaču</application
+> kad god unesete URL veb stranice: <userinput
+>http://<replaceable
+>www.kde.org</replaceable
+></userinput
+>.</para>
+
+<para
+>HTTPS je HTTP zavijen u SSL/TLS tok.</para>
+<para
+>SSL je protokol „sloja bezbednih soketa“, bezbednosni protokol koji pruža privatnost komunikacije preko Interneta. Omogućava programima tipa klijent-server da saobraćaju na način koji sprečava prisluškivanje i falsifikovanje poruka. </para>
+<para
+>TLS je akronim za „bezbednost transportnog sloja“.</para>
+
+</article>
