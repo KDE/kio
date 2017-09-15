@@ -141,14 +141,14 @@ public:
     void verifyState(const char *cmdName)
     {
         if ((m_state != FinishedCalled) && (m_state != ErrorCalled)) {
-            qCWarning(KIO_CORE) << cmdName << "did not call finished() or error()! Please fix the KIO slave.";
+            qCWarning(KIO_CORE) << cmdName << "did not call finished() or error()! Please fix the" << QCoreApplication::applicationName() << "KIO slave";
         }
     }
 
     void verifyErrorFinishedNotCalled(const char *cmdName)
     {
         if (m_state == FinishedCalled || m_state == ErrorCalled) {
-            qCWarning(KIO_CORE) << cmdName << "called finished() or error(), but it's not supposed to! Please fix the KIO slave.";
+            qCWarning(KIO_CORE) << cmdName << "called finished() or error(), but it's not supposed to! Please fix the" << QCoreApplication::applicationName() << "KIO slave";
         }
     }
 
@@ -434,10 +434,10 @@ void SlaveBase::opened()
 void SlaveBase::error(int _errid, const QString &_text)
 {
     if (d->m_state == d->ErrorCalled) {
-        qCWarning(KIO_CORE) << "error() called twice! Please fix the KIO slave.";
+        qCWarning(KIO_CORE) << "error() called twice! Please fix the" << QCoreApplication::applicationName() << "KIO slave";
         return;
     } else if (d->m_state == d->FinishedCalled) {
-        qCWarning(KIO_CORE) << "error() called after finished()! Please fix the KIO slave.";
+        qCWarning(KIO_CORE) << "error() called after finished()! Please fix the" << QCoreApplication::applicationName() << "KIO slave";
         return;
     }
 
@@ -476,10 +476,10 @@ void SlaveBase::finished()
     }
 
     if (d->m_state == d->FinishedCalled) {
-        qCWarning(KIO_CORE) << "finished() called twice! Please fix the KIO slave.";
+        qCWarning(KIO_CORE) << "finished() called twice! Please fix the" << QCoreApplication::applicationName() << "KIO slave";
         return;
     } else if (d->m_state == d->ErrorCalled) {
-        qCWarning(KIO_CORE) << "finished() called after error()! Please fix the KIO slave.";
+        qCWarning(KIO_CORE) << "finished() called after error()! Please fix the" << QCoreApplication::applicationName() << "KIO slave";
         return;
     }
 
