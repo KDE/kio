@@ -118,11 +118,6 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
                 KIO::Job *job = KIO::file_copy(url, dest);
                 jobList.append(job);
 
-                // Tell kioexecd to watch the file for changes.
-                OrgKdeKIOExecdInterface kioexecd(QStringLiteral("org.kde.kioexecd"), QStringLiteral("/modules/kioexecd"), QDBusConnection::sessionBus());
-                kioexecd.watch(file.path, file.url.toString());
-                mUseDaemon = !kioexecd.lastError().isValid();
-
                 connect(job, &KJob::result, this, &KIOExec::slotResult);
             }
         }
@@ -141,25 +136,35 @@ KIOExec::KIOExec(const QStringList &args, bool tempFiles, const QString &suggest
 
 void KIOExec::slotResult(KJob *job)
 {
-    if (job && job->error()) {
-        // That error dialog would be queued, i.e. not immediate...
-        //job->showErrorDialog();
-        if ((job->error() != KIO::ERR_USER_CANCELED))
-            KMessageBox::error(nullptr, job->errorString());
+    if (job) {
+        KIO::FileCopyJob *copyJob = static_cast<KIO::FileCopyJob *>(job);
+        const QString path = copyJob->destUrl().path();
 
-        QString path = static_cast<KIO::FileCopyJob*>(job)->destUrl().path();
+        if (job->error()) {
+            // That error dialog would be queued, i.e. not immediate...
+            //job->showErrorDialog();
+            if ((job->error() != KIO::ERR_USER_CANCELED))
+                KMessageBox::error(nullptr, job->errorString());
 
-        QList<FileInfo>::Iterator it = fileList.begin();
-        for (; it != fileList.end(); ++it) {
-            if (it->path == path) {
-                break;
+            auto it = std::find_if(fileList.begin(), fileList.end(),
+                                   [&path](const FileInfo &i) { return (i.path == path); });
+            if (it != fileList.end()) {
+                fileList.erase(it);
+            } else {
+                qDebug() <<  path << " not found in list";
             }
         }
-
-        if (it != fileList.end()) {
-            fileList.erase(it);
-        } else {
-            qDebug() <<  path << " not found in list";
+        else
+        {
+            // Tell kioexecd to watch the file for changes.
+            const QString dest = copyJob->srcUrl().toString();
+            qDebug() << "Telling kioexecd to watch path" << path << "dest" << dest;
+            OrgKdeKIOExecdInterface kioexecd(QStringLiteral("org.kde.kioexecd"), QStringLiteral("/modules/kioexecd"), QDBusConnection::sessionBus());
+            kioexecd.watch(path, dest);
+            mUseDaemon = !kioexecd.lastError().isValid();
+            if (!mUseDaemon) {
+                qDebug() << "Not using kioexecd";
+            }
         }
     }
 
