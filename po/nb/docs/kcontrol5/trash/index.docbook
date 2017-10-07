@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Norwegian-Bokmal "INCLUDE">
+]>
+<article id="trash" lang="&language;">
+<title
+>Papirkurv</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Burkhard.Lueck;</author>
+<othercredit role="translator"
+><firstname
+>Bjørn</firstname
+><surname
+>Steensrud</surname
+><affiliation
+><address
+><email
+>bjornst@skogkatt.homelinux.org</email
+></address
+></affiliation
+><contrib
+>Oversettelse</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2009-11-24</date>
+<releaseinfo
+>&kde; 4.4</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systeminnstillinger</keyword>
+<keyword
+>papirkurv</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Med denne modulen kan du sette opp innstillinger for papirkurven. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Slett filer eldre enn </guilabel
+></term>
+<listitem
+><para
+>Kryss av her for å tillate automatisk sletting av filer som er eldre enn den tiden som er oppgitt. La det være slått av for å <emphasis
+>ikke</emphasis
+> slette noen filer automatisk etter en viss tid. Oppgi antall dagersom filer kan bli liggende i papirkurven. Filer eldre enn det blir automatisk slettet. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Begrens til maksimal størrelse</guilabel
+></term>
+<listitem
+><para
+>Kryss av her for å begrense papirkurven til så mye diskplass som du oppgir nedenfor. Ellers blir den ubegrenset. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Maksimal størrelse</guilabel
+></term>
+<listitem
+><para
+>Dette er høyeste prosent av diskplassen som kan brukes til papirkurven. Den beregnede maksimalstørrelsen for papirkurven blir vist ved siden av telleboksen. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Når grensen er nådd</guilabel
+></term>
+<listitem
+><para
+>Når størrelsesgrensen er nådd blir den valgte handlingen utført, enten blir den eldste eller største fila fjernet, eller du blir advart- </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</article>

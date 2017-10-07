@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Ukrainian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="http">
+<title
+>http / https</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Андрій</firstname
+><surname
+>Рисін</surname
+><affiliation
+><address
+><email
+>rysin@kde.org</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+><acronym
+>http</acronym
+> - це абревіатура від <emphasis
+>H</emphasis
+>yper<emphasis
+>T</emphasis
+>ext <emphasis
+>T</emphasis
+>ransfer <emphasis
+>P</emphasis
+>rotocol (Протокол перенесення гіпертекстових документів).</para>
+
+<para
+>Підлеглий http використовується будь-якою &kde; програмою для з'єднань з http серверами, які також відомі як сервера Тенет. Найчастіше цей підлеглий використовується для перегляду сторінок Тенет у &konqueror;.</para>
+
+<para
+>Ви можете скористатися підлеглим http у &konqueror; ввівши в поле <acronym
+>Адресу URL</acronym
+>. <userinput
+>http://<replaceable
+>www.kde.org</replaceable
+></userinput
+>.</para>
+
+<para
+>https — це http, переданий у потоці SSL/TLS.</para>
+<para
+>SSL — це протокол шару безпеки сокетів (Secure Sockets Layer), протокол безпеки, який забезпечує конфіденційність обміну інформацією у мережі Інтернет. Цей протокол надає змогу клієнт-серверним програмам обмінюватися інформацією у спосіб, розроблений для запобігання перехопленням, підробкам уповноважень і підробці повідомлень. </para>
+<para
+>TLS — це скорочення Transport Layer Security (безпека шару передавання).</para>
+
+</article>
