@@ -84,7 +84,8 @@ enum Message {
     MSG_DEL_AUTH_KEY, ///< @deprecated
     MSG_OPENED,
     MSG_WRITTEN,
-    MSG_HOST_INFO_REQ
+    MSG_HOST_INFO_REQ,
+    MSG_PRIVILEGE_EXEC
     // add new ones here once a release is done, to avoid breaking binary compatibility
 };
 
@@ -143,6 +144,8 @@ Q_SIGNALS:
 
     void open();
     void written(KIO::filesize_t);
+
+    void privilegeOperationRequested();
 
     ///////////
     // Info sent by the slave
