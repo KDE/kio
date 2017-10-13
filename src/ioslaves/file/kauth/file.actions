@@ -1,5 +1,19 @@
 [org.kde.kio.file.exec]
 Name=Execute action as root.
+Name[ca]=Executa l'acció com a administrador.
+Name[es]=Ejecutar acción como administrador.
+Name[nl]=Actie uitvoeren als root.
+Name[pt]=Executa a acção como 'root'.
+Name[sv]=Utför åtgärd som systemadministratör.
+Name[uk]=Виконання дії від імені root.
+Name[x-test]=xxExecute action as root.xx
 Description=Root privileges are required to complete the action.
+Description[ca]=Es requereixen privilegis d'administrador per completar l'acció.
+Description[es]=Se necesitan permisos de administrador para completar la acción.
+Description[nl]=Root-rechten zijn vereist om de actie te voltooien.
+Description[pt]=São necessários privilégios de 'root' para completar a acção.
+Description[sv]=Systemadministratörsprivilegier krävs för att slutföra åtgärden.
+Description[uk]=Для виконання цієї дії потрібні права доступу користувача root (адміністратора).
+Description[x-test]=xxRoot privileges are required to complete the action.xx
 Policy=auth_admin
 Persistence=session
