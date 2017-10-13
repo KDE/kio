@@ -24,7 +24,7 @@ add_library(kio_file MODULE ${kio_file_PART_SRCS})
 target_link_libraries(kio_file KF5::KIOCore KF5::I18n)
 
 if(UNIX)
-  target_link_libraries(kio_file Qt5::Network KF5::Auth)
+  target_link_libraries(kio_file Qt5::Network)
 endif()
 
 if (HAVE_VOLMGT AND CMAKE_SYSTEM_NAME MATCHES SunOS)
@@ -38,7 +38,3 @@ endif()
 set_target_properties(kio_file PROPERTIES OUTPUT_NAME "file")
 set_target_properties(kio_file PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio")
 install(TARGETS kio_file  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
-
-if (UNIX)
-  add_subdirectory(kauth)
-endif()
