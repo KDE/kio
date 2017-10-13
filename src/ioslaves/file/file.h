@@ -39,8 +39,6 @@
 #include <acl/libacl.h>
 #endif
 
-#include "file_p.h"
-
 #include <QLoggingCategory>
 Q_DECLARE_LOGGING_CATEGORY(KIO_FILE)
 
@@ -102,9 +100,6 @@ private:
 
     void fileSystemFreeSpace(const QUrl &url);  // KF6 TODO: Turn into virtual method in SlaveBase
 
-    PrivilegeOperationReturnValue execWithElevatedPrivilege(ActionType action, const QVariant &arg1,
-                                                            const QVariant &arg2 = QVariant(),
-                                                            const QVariant &arg3 = QVariant());
 private:
     mutable QHash<KUserId, QString> mUsercache;
     mutable QHash<KGroupId, QString> mGroupcache;

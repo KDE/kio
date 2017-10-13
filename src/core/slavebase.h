@@ -935,14 +935,6 @@ public:
     */
     int waitForHostInfo(QHostInfo &info);
 
-    /**
-     * Checks with job if privilege operation is allowed.
-     * @return privilege operation status.
-     * @see PrivilegeOperationStatus
-     * @since 5.40
-     */
-    PrivilegeOperationStatus requestPrivilegeOperation();
-
 protected:
     /**
      * Name of the protocol supported by this slave

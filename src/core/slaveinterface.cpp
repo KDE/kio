@@ -319,9 +319,6 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         HostInfo::lookupHost(hostName, this, SLOT(slotHostInfo(QHostInfo)));
         break;
     }
-    case MSG_PRIVILEGE_EXEC:
-        emit privilegeOperationRequested();
-        break;
     default:
         qCWarning(KIO_CORE) << "Slave sends unknown command (" << _cmd << "), dropping slave";
         return false;

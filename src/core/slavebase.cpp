@@ -1457,11 +1457,3 @@ int SlaveBase::waitForHostInfo(QHostInfo &info)
 
     return result;
 }
-
-PrivilegeOperationStatus SlaveBase::requestPrivilegeOperation()
-{
-    QByteArray buffer;
-    send(MSG_PRIVILEGE_EXEC);
-    waitForAnswer(MSG_PRIVILEGE_EXEC, 0, buffer);
-    return KIO::PrivilegeOperationStatus(buffer.toInt());
-}

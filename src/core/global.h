@@ -262,16 +262,6 @@ enum CacheControl {
 };
 
 /**
- * Specifies privilege file operation status.
- * @since 5.40
- */
-enum  PrivilegeOperationStatus {
-    OperationAllowed = 1,
-    OperationCanceled,
-    OperationNotAllowed
-};
-
-/**
  * Parses the string representation of the cache control option.
  *
  * @param cacheControl the string representation

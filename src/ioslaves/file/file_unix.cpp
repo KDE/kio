@@ -39,8 +39,6 @@
 #include <errno.h>
 #include <utime.h>
 
-#include <KAuth>
-
 //sendfile has different semantics in different platforms
 #if defined HAVE_SENDFILE && defined Q_OS_LINUX
 #define USE_SENDFILE 1
@@ -63,11 +61,6 @@ same_inode(const QT_STATBUF &src, const QT_STATBUF &dest)
     }
 
     return false;
-}
-
-const QString socketPath()
-{
-    return QStringLiteral("org_kde_kio_file_helper_%1").arg(getpid());
 }
 
 void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
@@ -656,61 +649,4 @@ void FileProtocol::stat(const QUrl &url)
     statEntry(entry);
 
     finished();
-}
-
-PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType action, const QVariant &arg1,
-                                                                      const QVariant &arg2, const QVariant &arg3)
-{
-    if (!(errno == EACCES || errno == EPERM)) {
-        return PrivilegeOperationReturnValue::failure();
-    }
-
-    KIO::PrivilegeOperationStatus opStatus = requestPrivilegeOperation();
-    if (opStatus != KIO::OperationAllowed) {
-        if (opStatus == KIO::OperationCanceled) {
-            error(KIO::ERR_USER_CANCELED, QString());
-            return PrivilegeOperationReturnValue::canceled();
-        }
-        return PrivilegeOperationReturnValue::failure();
-    }
-
-    KAuth::Action execAction(QStringLiteral("org.kde.kio.file.exec"));
-    execAction.setHelperId(QStringLiteral("org.kde.kio.file"));
-
-    // If we are unit testing let's pretend to execute the action.
-    if (metaData(QStringLiteral("UnitTesting")) == QLatin1String("true")) {
-        const QString metaData = execAction.name() + ','
-                               + (execAction.isValid() ? "true" : "false") + ','
-                               + execAction.helperId() + ','
-                               + (execAction.status() == KAuth::Action::AuthRequiredStatus ? "true" : "false");
-        setMetaData(QStringLiteral("TestData"), metaData);
-        return PrivilegeOperationReturnValue::success();
-    }
-
-    if (action == CHMOD || action == CHOWN || action == UTIME) {
-        KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(arg1.toString());
-        // Test for chmod and utime will return the same result as test for chown.
-        if (mp && !mp->testFileSystemFlag(KMountPoint::SupportsChown)) {
-            return PrivilegeOperationReturnValue::failure();
-        }
-    }
-
-    QByteArray helperArgs;
-    QDataStream out(&helperArgs, QIODevice::WriteOnly);
-    out << action << arg1 << arg2 << arg3;
-
-    if (action == OPEN || action == OPENDIR) {
-        out << socketPath();
-    }
-
-    QVariantMap argv;
-    argv.insert(QStringLiteral("arguments"), helperArgs);
-    execAction.setArguments(argv);
-
-    auto reply = execAction.execute();
-    if (reply->exec()) {
-        return PrivilegeOperationReturnValue::success();
-    }
-
-    return PrivilegeOperationReturnValue::failure();
 }

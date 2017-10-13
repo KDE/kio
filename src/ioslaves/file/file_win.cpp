@@ -381,9 +381,3 @@ void FileProtocol::stat(const QUrl &url)
 
     finished();
 }
-
-PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(int, ActionType, const QVariant &,
-                                                                      const QVariant &, const QVariant &)
-{
-    return PrivilegeOperationReturnValue::failure();
-}
