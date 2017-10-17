@@ -189,9 +189,17 @@ public:
      * Returns a list of all available preview plugins. The list
      * contains the basenames of the plugins' .desktop files (no path,
      * no .desktop).
-     * @return the list of plugins
+     * @return the list of all available plugins
      */
     static QStringList availablePlugins();
+
+    /**
+     * Returns a list of plugins that should be enabled by default, which is all plugins
+     * Minus the plugins specified in an internal blacklist
+     * @return the list of plugins that should be enabled by default
+     * @since 5.40
+     */
+    static QStringList defaultPlugins();
 
     /**
      * Returns a list of all supported MIME types. The list can

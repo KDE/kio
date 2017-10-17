@@ -735,6 +735,19 @@ QStringList PreviewJob::availablePlugins()
     return result;
 }
 
+QStringList PreviewJob::defaultPlugins()
+{
+    QStringList blacklist = QStringList()
+                            << QStringLiteral("textthumbnail");
+
+    QStringList defaultPlugins = availablePlugins();
+    foreach (const QString plugin, blacklist) {
+        defaultPlugins.removeAll(plugin);
+    }
+
+    return defaultPlugins;
+}
+
 QStringList PreviewJob::supportedMimeTypes()
 {
     QStringList result;
