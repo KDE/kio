@@ -93,6 +93,7 @@ void SearchProvider::setKeys(const QStringList &keys)
       if (KService(located).isDeleted())
         break;
     }
+    firstRun = false;
   }
 
   setDesktopEntryName(name);
