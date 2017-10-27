@@ -841,7 +841,6 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
 {
     QUrl url;
     QUrl baseUrl = m_popupFiles.first();
-    bool askAgain = false;
 
     QString name = expandTilde(m_text);
 
@@ -860,20 +859,18 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
         }
     }
 
-    if (!askAgain) {
-        KIO::Job *job = KIO::mkpath(url, baseUrl);
-        job->setProperty("mkpathUrl", url);
-        KJobWidgets::setWindow(job, m_parentWidget);
-        job->uiDelegate()->setAutoErrorHandlingEnabled(true);
-        KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Mkpath, QList<QUrl>(), url, job);
+    // Note that we use mkpath so that a/b/c works.
+    // On the other hand it means that passing the name of a directory that already exists will do nothing.
+    KIO::Job *job = KIO::mkpath(url, baseUrl);
+    job->setProperty("mkpathUrl", url);
+    KJobWidgets::setWindow(job, m_parentWidget);
+    job->uiDelegate()->setAutoErrorHandlingEnabled(true);
+    KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Mkpath, QList<QUrl>(), url, job);
 
-        if (job) {
-            // We want the error handling to be done by slotResult so that subclasses can reimplement it
-            job->uiDelegate()->setAutoErrorHandlingEnabled(false);
-            QObject::connect(job, SIGNAL(result(KJob*)), q, SLOT(slotResult(KJob*)));
-        }
-    } else {
-        q->createDirectory(); // ask again for the name
+    if (job) {
+        // We want the error handling to be done by slotResult so that subclasses can reimplement it
+        job->uiDelegate()->setAutoErrorHandlingEnabled(false);
+        QObject::connect(job, SIGNAL(result(KJob*)), q, SLOT(slotResult(KJob*)));
     }
     _k_slotAbortDialog();
 }
