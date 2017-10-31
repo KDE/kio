@@ -78,6 +78,8 @@ protected:
     void dragMoveEvent(QDragMoveEvent *event) Q_DECL_OVERRIDE;
     void dropEvent(QDropEvent *event) Q_DECL_OVERRIDE;
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+    void startDrag(Qt::DropActions supportedActions) Q_DECL_OVERRIDE;
+    void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
 
 protected Q_SLOTS:
     void rowsInserted(const QModelIndex &parent, int start, int end) Q_DECL_OVERRIDE;

@@ -84,7 +84,24 @@ public:
 
     qreal contentsOpacity(const QModelIndex &index) const;
 
+    bool pointIsHeaderArea(const QPoint &pos);
+
+    void startDrag();
+
+    int sectionHeaderHeight() const;
+
 private:
+    QString groupNameFromIndex(const QModelIndex &index) const;
+    QModelIndex previousVisibleIndex(const QModelIndex &index) const;
+    bool indexIsSectionHeader(const QModelIndex &index) const;
+    void drawSectionHeader(QPainter *painter,
+                           const QStyleOptionViewItem &option,
+                           const QModelIndex &index) const;
+
+    QColor textColor(const QStyleOption &option) const;
+    QColor baseColor(const QStyleOption &option) const;
+    QColor mixedColor(const QColor &c1, const QColor &c2, int c1Percent) const;
+
     KFilePlacesView *m_view;
     int m_iconSize;
 
@@ -97,6 +114,7 @@ private:
     qreal m_disappearingOpacity;
 
     bool m_showHoverIndication;
+    mutable bool m_dragStarted;
 
     QMap<QPersistentModelIndex, QTimeLine *> m_timeLineMap;
     QMap<QTimeLine *, QPersistentModelIndex> m_timeLineInverseMap;
@@ -110,7 +128,8 @@ KFilePlacesViewDelegate::KFilePlacesViewDelegate(KFilePlacesView *parent) :
     m_appearingOpacity(0.0),
     m_disappearingIconSize(0),
     m_disappearingOpacity(0.0),
-    m_showHoverIndication(true)
+    m_showHoverIndication(true),
+    m_dragStarted(false)
 {
 }
 
@@ -128,26 +147,48 @@ QSize KFilePlacesViewDelegate::sizeHint(const QStyleOptionViewItem &option,
         iconSize = m_disappearingIconSize;
     }
 
-    const KFilePlacesModel *filePlacesModel = static_cast<const KFilePlacesModel *>(index.model());
-    Solid::Device device = filePlacesModel->deviceForIndex(index);
+    int height = option.fontMetrics.height() / 2 + qMax(iconSize, option.fontMetrics.height());
 
-    return QSize(option.rect.width(), option.fontMetrics.height() / 2 + qMax(iconSize, option.fontMetrics.height()));
+    if (indexIsSectionHeader(index)) {
+        height += sectionHeaderHeight();
+    }
+
+    return QSize(option.rect.width(), height);
 }
 
 void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();
 
+    QStyleOptionViewItem opt = option;
+
+    // draw header when necessary
+    if (indexIsSectionHeader(index)) {
+        // If we are drawing the floating element used by drag/drop, do not draw the header
+        if (!m_dragStarted) {
+            drawSectionHeader(painter, opt, index);
+        }
+
+        const int headerHeight = sectionHeaderHeight();
+        const int headerSpace =  (headerHeight / 2) + qMax(2, m_view->spacing());
+        painter->translate(0, headerSpace);
+        opt.rect.translate(0, headerSpace);
+        opt.rect.setHeight(opt.rect.height() - headerHeight);
+    }
+
+    m_dragStarted = false;
+
+    // draw item
     if (m_appearingItems.contains(index)) {
         painter->setOpacity(m_appearingOpacity);
     } else if (m_disappearingItems.contains(index)) {
         painter->setOpacity(m_disappearingOpacity);
     }
 
-    QStyleOptionViewItem opt = option;
     if (!m_showHoverIndication) {
         opt.state &= ~QStyle::State_MouseOver;
     }
+
     QApplication::style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter);
     const KFilePlacesModel *placesModel = static_cast<const KFilePlacesModel *>(index.model());
 
@@ -307,6 +348,121 @@ qreal KFilePlacesViewDelegate::contentsOpacity(const QModelIndex &index) const
     return 0;
 }
 
+bool KFilePlacesViewDelegate::pointIsHeaderArea(const QPoint &pos)
+{
+    // we only accept drag events starting from item body, ignore drag request from header
+    QModelIndex index = m_view->indexAt(pos);
+    if (!index.isValid()) {
+        return false;
+    }
+
+    if (indexIsSectionHeader(index)) {
+        const QRect vRect = m_view->visualRect(index);
+        const int delegateY = pos.y() - vRect.y();
+        if (delegateY <= sectionHeaderHeight()) {
+            return true;
+        }
+    }
+    return false;
+}
+
+void KFilePlacesViewDelegate::startDrag()
+{
+    m_dragStarted = true;
+}
+
+QString KFilePlacesViewDelegate::groupNameFromIndex(const QModelIndex &index) const
+{
+    if (index.isValid()) {
+        return index.data(KFilePlacesModel::GroupRole).toString();
+    } else {
+        return QString();
+    }
+}
+
+QModelIndex KFilePlacesViewDelegate::previousVisibleIndex(const QModelIndex &index) const
+{
+    if (index.row() == 0) {
+        return QModelIndex();
+    }
+
+    const QAbstractItemModel *model = index.model();
+    QModelIndex prevIndex = model->index(index.row() - 1, index.column(), index.parent());
+
+    while (m_view->isRowHidden(prevIndex.row())) {
+        if (prevIndex.row() == 0) {
+            return QModelIndex();
+        }
+        prevIndex = model->index(prevIndex.row() - 1, index.column(), index.parent());
+    }
+
+    return prevIndex;
+}
+
+bool KFilePlacesViewDelegate::indexIsSectionHeader(const QModelIndex &index) const
+{
+    if (m_view->isRowHidden(index.row())) {
+        return false;
+    }
+
+    if (index.row() == 0) {
+        return true;
+    }
+
+    const auto groupName = groupNameFromIndex(index);
+    const auto previousGroupName = groupNameFromIndex(previousVisibleIndex(index));
+    return groupName != previousGroupName;
+}
+
+void KFilePlacesViewDelegate::drawSectionHeader(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    const QString category = index.data(KFilePlacesModel::GroupRole).toString();
+    QRect textRect(option.rect);
+    textRect.setLeft(textRect.left() + 3);
+    textRect.setY(textRect.y() + qMax(2, m_view->spacing()));
+    textRect.setHeight(sectionHeaderHeight());
+
+    painter->save();
+
+    // based on dolphoin colors
+    const QColor c1 = textColor(option);
+    const QColor c2 = baseColor(option);
+    QColor penColor = mixedColor(c1, c2, 60);
+
+    painter->setPen(penColor);
+    painter->drawText(textRect, Qt::AlignLeft | Qt::AlignBottom, category);
+    painter->restore();
+}
+
+QColor KFilePlacesViewDelegate::textColor(const QStyleOption &option) const
+{
+    const QPalette::ColorGroup group = m_view->isActiveWindow() ? QPalette::Active : QPalette::Inactive;
+    return option.palette.color(group, QPalette::WindowText);
+}
+
+QColor KFilePlacesViewDelegate::baseColor(const QStyleOption &option) const
+{
+    const QPalette::ColorGroup group = m_view->isActiveWindow() ? QPalette::Active : QPalette::Inactive;
+    return option.palette.color(group,  QPalette::Window);
+}
+
+QColor KFilePlacesViewDelegate::mixedColor(const QColor& c1, const QColor& c2, int c1Percent) const
+{
+    Q_ASSERT(c1Percent >= 0 && c1Percent <= 100);
+
+    const int c2Percent = 100 - c1Percent;
+    return QColor((c1.red()   * c1Percent + c2.red()   * c2Percent) / 100,
+                  (c1.green() * c1Percent + c2.green() * c2Percent) / 100,
+                  (c1.blue()  * c1Percent + c2.blue()  * c2Percent) / 100);
+}
+
+int KFilePlacesViewDelegate::sectionHeaderHeight() const
+{
+    return QApplication::fontMetrics().height() +
+            (qMax(2, m_view->spacing()) * 2);
+}
+
+
 class KFilePlacesView::Private
 {
 public:
@@ -337,6 +493,7 @@ public:
     bool insertBelow(const QRect &itemRect, const QPoint &pos) const;
     int insertIndicatorHeight(int itemHeight) const;
     void fadeCapacityBar(const QModelIndex &index, FadeType fadeType);
+    int sectionsCount() const;
 
     void _k_placeClicked(const QModelIndex &index);
     void _k_placeEntered(const QModelIndex &index);
@@ -577,7 +734,8 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     QAction *add = nullptr;
     QAction *mainSeparator = nullptr;
 
-    if (index.isValid()) {
+    const bool clickOverHeader = delegate->pointIsHeaderArea(event->pos());
+    if (!clickOverHeader && index.isValid()) {
         if (!placesModel->isDevice(index)) {
             if (placesModel->url(index).toString() == QLatin1String("trash:/")) {
                 emptyTrash = menu.addAction(QIcon::fromTheme(QStringLiteral("trash-empty")), i18nc("@action:inmenu", "Empty Trash"));
@@ -628,7 +786,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     }
 
     QAction *remove = nullptr;
-    if (index.isValid() && !placesModel->isDevice(index)) {
+    if (!clickOverHeader && index.isValid() && !placesModel->isDevice(index)) {
         remove = menu.addAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("&Remove Entry '%1'", label));
     }
 
@@ -835,6 +993,26 @@ void KFilePlacesView::paintEvent(QPaintEvent *event)
     }
 }
 
+void KFilePlacesView::startDrag(Qt::DropActions supportedActions)
+{
+    KFilePlacesViewDelegate *delegate = static_cast<KFilePlacesViewDelegate *>(itemDelegate());
+
+    delegate->startDrag();
+    QListView::startDrag(supportedActions);
+}
+
+void KFilePlacesView::mousePressEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton) {
+        KFilePlacesViewDelegate *delegate = static_cast<KFilePlacesViewDelegate *>(itemDelegate());
+        // does not accept drags from section header area
+        if (delegate->pointIsHeaderArea(event->pos())) {
+            return;
+        }
+    }
+    QListView::mousePressEvent(event);
+}
+
 void KFilePlacesView::setModel(QAbstractItemModel *model)
 {
     QListView::setModel(model);
@@ -968,7 +1146,10 @@ void KFilePlacesView::Private::adaptItemSize()
 
     const int margin = q->style()->pixelMetric(QStyle::PM_FocusFrameHMargin, nullptr, q) + 1;
     const int maxWidth = q->viewport()->width() - textWidth - 4 * margin - 1;
-    const int maxHeight = ((q->height() - (fm.height() / 2) * rowCount) / rowCount) - 1;
+
+    const int totalItemsHeight = (fm.height() / 2) * rowCount;
+    const int totalSectionsHeight = delegate->sectionHeaderHeight() * sectionsCount();
+    const int maxHeight = ((q->height() - totalSectionsHeight - totalItemsHeight) / rowCount) - 1;
 
     int size = qMin(maxHeight, maxWidth);
 
@@ -1068,6 +1249,26 @@ void KFilePlacesView::Private::fadeCapacityBar(const QModelIndex &index, FadeTyp
     }
     delegate->addFadeAnimation(index, timeLine);
     timeLine->start();
+}
+
+int KFilePlacesView::Private::sectionsCount() const
+{
+    int count = 0;
+    QString prevSection;
+    const int rowCount = q->model()->rowCount();
+
+    for(int i = 0; i < rowCount; i++) {
+        if (!q->isRowHidden(i)) {
+            const QModelIndex index = q->model()->index(i, 0);
+            const QString sectionName = index.data(KFilePlacesModel::GroupRole).toString();
+            if (prevSection != sectionName) {
+                prevSection = sectionName;
+                count++;
+            }
+        }
+    }
+
+    return count;
 }
 
 void KFilePlacesView::Private::_k_placeClicked(const QModelIndex &index)

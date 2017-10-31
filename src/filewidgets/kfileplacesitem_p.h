@@ -41,6 +41,14 @@ class KFilePlacesItem : public QObject
 {
     Q_OBJECT
 public:
+    enum GroupType
+    {
+        PlacesType = 0,
+        RecentlySavedType = 1,
+        SearchForType = 2,
+        DevicesType = 3
+    };
+
     KFilePlacesItem(KBookmarkManager *manager,
                     const QString &address,
                     const QString &udi = QString());
@@ -53,6 +61,7 @@ public:
     void setBookmark(const KBookmark &bookmark);
     Solid::Device device() const;
     QVariant data(int role) const;
+    GroupType groupType() const;
 
     static KBookmark createBookmark(KBookmarkManager *manager,
                                     const QString &label,
@@ -94,6 +103,7 @@ private:
     mutable QPointer<Solid::PortableMediaPlayer> m_mtp;
     QString m_iconPath;
     QStringList m_emblems;
+    QString m_groupName;
 };
 
 #endif

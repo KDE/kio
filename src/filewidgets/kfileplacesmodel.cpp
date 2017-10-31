@@ -470,6 +470,12 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
         }
     }
 
+    // return a sorted list based on groups
+    qStableSort(items.begin(), items.end(),
+                [](KFilePlacesItem *itemA, KFilePlacesItem *itemB) {
+       return (itemA->groupType() < itemB->groupType());
+    });
+
     return items;
 }
 

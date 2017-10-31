@@ -47,7 +47,8 @@ public:
         HiddenRole = 0x0741CAAC,
         SetupNeededRole = 0x059A935D,
         FixedDeviceRole = 0x332896C1,
-        CapacityBarRecommendedRole = 0x1548C5C4
+        CapacityBarRecommendedRole = 0x1548C5C4,
+        GroupRole = 0x0a5b64ee
     };
 
     KFilePlacesModel(QObject *parent = nullptr);
