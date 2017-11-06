@@ -556,7 +556,7 @@ void KFileItem::setName(const QString &name)
     }
 
     d->m_strName = name;
-    if (!d->m_entry.contains(KIO::UDSEntry::UDS_DISPLAY_NAME)) {
+    if (!d->m_strName.isEmpty()) {
         d->m_strText = KIO::decodeFileName(d->m_strName);
     }
     if (d->m_entry.contains(KIO::UDSEntry::UDS_NAME)) {
