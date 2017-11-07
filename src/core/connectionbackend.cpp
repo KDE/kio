@@ -150,6 +150,7 @@ bool ConnectionBackend::listenForRemote()
         address.clear();
         address.setScheme(QStringLiteral("local"));
         address.setPath(sockname);
+        socketfile.setAutoRemove(false);
         socketfile.remove(); // can't bind if there is such a file
 
         localServer = new KLocalSocketServer(this);
