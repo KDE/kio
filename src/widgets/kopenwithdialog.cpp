@@ -662,7 +662,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
 
     //Advanced options
     KCollapsibleGroupBox *dialogExtension = new KCollapsibleGroupBox(q);
-    dialogExtension->setTitle(i18n("Advanced options"));
+    dialogExtension->setTitle(i18n("Terminal options"));
 
     QVBoxLayout *dialogExtensionLayout = new QVBoxLayout;
     dialogExtensionLayout->setMargin(0);
