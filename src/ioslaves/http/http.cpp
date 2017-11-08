@@ -3943,7 +3943,6 @@ bool HTTPProtocol::sendBody()
             continue;
         }
 
-        qDebug() << QByteArray::fromRawData(buffer.data(), bytesRead).constData();
         if (write(buffer.data(), bytesRead) == static_cast<ssize_t>(bytesRead)) {
             bytesSent += bytesRead;
             processedSize(bytesSent);  // Send update status...
