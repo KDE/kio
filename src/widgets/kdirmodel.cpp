@@ -39,6 +39,8 @@
 #include <QLocale>
 #include <qplatformdefs.h>
 
+#include <algorithm>
+
 #ifdef Q_OS_WIN
 #include <qt_windows.h>
 #endif
@@ -688,7 +690,20 @@ void KDirModelPrivate::_k_slotClear()
 
 void KDirModelPrivate::_k_slotJobUrlsChanged(const QStringList &urlList)
 {
+    QStringList dirtyUrls;
+
+    std::set_symmetric_difference(urlList.begin(), urlList.end(),
+                                  m_allCurrentDestUrls.constBegin(), m_allCurrentDestUrls.constEnd(),
+                                  std::back_inserter(dirtyUrls));
+
     m_allCurrentDestUrls = urlList;
+
+    for (const QString &dirtyUrl : dirtyUrls) {
+        if (KDirModelNode *node = nodeForUrl(QUrl(dirtyUrl))) {
+            const QModelIndex idx = indexForNode(node);
+            emit q->dataChanged(idx, idx, {KDirModel::HasJobRole});
+        }
+    }
 }
 
 void KDirModelPrivate::clearAllPreviews(KDirModelDirNode *dirNode)
