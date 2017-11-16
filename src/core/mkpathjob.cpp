@@ -43,8 +43,13 @@ public:
         m_url.setPath(QStringLiteral("/"));
         int i = 0;
         for (; i < basePathComponents.count() && i < m_pathComponents.count(); ++i) {
-            if (m_pathComponents.at(i) == basePathComponents.at(i)) {
-                m_url.setPath(m_url.path() + '/' + m_pathComponents.at(i));
+            const QString pathComponent = m_pathComponents.at(i);
+            if (pathComponent == basePathComponents.at(i)) {
+                if (m_url.path() == QLatin1Char('/')) {
+                    m_url.setPath(m_url.path() + pathComponent);
+                } else {
+                    m_url.setPath(m_url.path() + '/' + pathComponent);
+                }
             } else {
                 break;
             }
@@ -57,7 +62,13 @@ public:
         if (m_url.isLocalFile()) {
             i = 0;
             for (; i < m_pathComponents.count(); ++i) {
-                QString testDir = m_url.toLocalFile() + '/' + m_pathComponents.at(i);
+                const QString localFile = m_url.toLocalFile();
+                QString testDir;
+                if (localFile == QLatin1Char('/')) {
+                    testDir = localFile + m_pathComponents.at(i);
+                } else {
+                    testDir = localFile + '/' + m_pathComponents.at(i);
+                }
                 if (QFileInfo(testDir).isDir()) {
                     m_url.setPath(testDir);
                 } else {
