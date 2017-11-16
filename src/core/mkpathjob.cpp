@@ -45,7 +45,7 @@ public:
         for (; i < basePathComponents.count() && i < m_pathComponents.count(); ++i) {
             const QString pathComponent = m_pathComponents.at(i);
             if (pathComponent == basePathComponents.at(i)) {
-                if (m_url.path() == QLatin1Char('/')) {
+                if (m_url.path() == QLatin1String("/")) {
                     m_url.setPath(m_url.path() + pathComponent);
                 } else {
                     m_url.setPath(m_url.path() + '/' + pathComponent);
@@ -64,7 +64,7 @@ public:
             for (; i < m_pathComponents.count(); ++i) {
                 const QString localFile = m_url.toLocalFile();
                 QString testDir;
-                if (localFile == QLatin1Char('/')) {
+                if (localFile == QLatin1String("/")) {
                     testDir = localFile + m_pathComponents.at(i);
                 } else {
                     testDir = localFile + '/' + m_pathComponents.at(i);
