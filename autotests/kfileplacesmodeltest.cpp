@@ -71,6 +71,8 @@ private Q_SLOTS:
     void testEnableBaloo();
     void testRemoteUrls_data();
     void testRemoteUrls();
+    void testConvertedUrl_data();
+    void testConvertedUrl();
 
 private:
     QStringList placesUrls() const;
@@ -821,6 +823,51 @@ void KFilePlacesModelTest::testRemoteUrls()
     QCOMPARE(index.data(KFilePlacesModel::GroupRole).toString(), expectedGroup);
 
     m_places->removePlace(index);
+}
+
+void KFilePlacesModelTest::testConvertedUrl_data()
+{
+    QTest::addColumn<QUrl>("url");
+    QTest::addColumn<QUrl>("expectedUrl");
+
+    // places
+    QTest::newRow("Places - Home") << QUrl::fromLocalFile(QDir::homePath())
+                                   << QUrl::fromLocalFile(QDir::homePath());
+
+    // baloo -search
+    const QString jsonQuery(QStringLiteral("{\"dayFilter\": 0,\
+                                             \"monthFilter\": 0, \
+                                             \"yearFilter\": 0, \
+                                             \"type\": [ \"Document\"]}"));
+    QUrl url;
+    url.setScheme(QStringLiteral("baloosearch"));
+    QUrlQuery urlQuery;
+    urlQuery.addQueryItem(QStringLiteral("json"), jsonQuery.simplified());
+    url.setQuery(urlQuery);
+
+    QTest::newRow("Baloo - Documents") << QUrl("search:/documents")
+                                       << url;
+
+    // baloo - timeline
+    const QDate lasMonthDate = QDate::currentDate().addMonths(-1);
+    QTest::newRow("Baloo - Last Month") << QUrl("timeline:/lastmonth")
+                                        << QUrl(QString("timeline:/%1-%2").arg(lasMonthDate.year()).arg(lasMonthDate.month()));
+
+    // devices
+    QTest::newRow("Devices - Floppy") << QUrl("file:///media/floppy0")
+                                      << QUrl("file:///media/floppy0");
+}
+
+void KFilePlacesModelTest::testConvertedUrl()
+{
+    QFETCH(QUrl, url);
+    QFETCH(QUrl, expectedUrl);
+
+    const QUrl convertedUrl = KFilePlacesModel::convertedUrl(url);
+
+    QCOMPARE(expectedUrl.scheme(), convertedUrl.scheme());
+    QCOMPARE(expectedUrl.path(), convertedUrl.path());
+    QCOMPARE(expectedUrl, convertedUrl);
 }
 
 QTEST_MAIN(KFilePlacesModelTest)

@@ -131,6 +131,18 @@ public:
     bool dropMimeData(const QMimeData *data, Qt::DropAction action,
                       int row, int column, const QModelIndex &parent) Q_DECL_OVERRIDE;
 
+    /**
+     * @brief  Converts the URL, which contains "virtual" URLs for system-items like
+     *         "timeline:/lastmonth" into a Query-URL "timeline:/2017-10"
+     *         that will be handled by the corresponding IO-slave.
+     *         Virtual URLs for bookmarks are used to be independent from
+     *         internal format changes.
+     * @param an url
+     * @return the converted URL, which can be handled by an ioslave
+     * @since 5.41
+     */
+    static QUrl convertedUrl(const QUrl &url);
+
 Q_SIGNALS:
     void errorMessage(const QString &message);
     void setupDone(const QModelIndex &index, bool success);

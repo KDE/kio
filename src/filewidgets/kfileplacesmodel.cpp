@@ -32,6 +32,7 @@
 #include <QtCore/QFile>
 #include <QColor>
 #include <QAction>
+#include <QUrlQuery>
 #include <qmimedatabase.h>
 
 #include <kfileitem.h>
@@ -65,6 +66,84 @@ namespace {
         KConfig config(QStringLiteral("baloofilerc"));
         KConfigGroup basicSettings = config.group("Basic Settings");
         return basicSettings.readEntry("Indexing-Enabled", true);
+    }
+
+    static QString timelineDateString(int year, int month, int day = 0)
+    {
+        const QString dateFormat("%1-%2");
+
+        QString date = dateFormat.arg(year).arg(month, 2, 10, QChar('0'));
+        if (day > 0) {
+            date += QString("-%1").arg(day, 2, 10, QChar('0'));
+        }
+        return date;
+    }
+
+    static QUrl createTimelineUrl(const QUrl &url)
+    {
+        // based on dolphin urls
+        const QString timelinePrefix = QStringLiteral("timeline:") + QLatin1Char('/');
+        QUrl timelineUrl;
+
+        const QString path = url.toDisplayString(QUrl::PreferLocalFile);
+        if (path.endsWith(QLatin1String("/yesterday"))) {
+            const QDate date = QDate::currentDate().addDays(-1);
+            const int year = date.year();
+            const int month = date.month();
+            const int day = date.day();
+
+            timelineUrl = QUrl(timelinePrefix + timelineDateString(year, month) +
+                  '/' + timelineDateString(year, month, day));
+        } else if (path.endsWith(QLatin1String("/thismonth"))) {
+            const QDate date = QDate::currentDate();
+            timelineUrl = QUrl(timelinePrefix + timelineDateString(date.year(), date.month()));
+        } else if (path.endsWith(QLatin1String("/lastmonth"))) {
+            const QDate date = QDate::currentDate().addMonths(-1);
+            timelineUrl = QUrl(timelinePrefix + timelineDateString(date.year(), date.month()));
+        } else {
+            Q_ASSERT(path.endsWith(QLatin1String("/today")));
+            timelineUrl = url;
+        }
+
+        return timelineUrl;
+    }
+
+    static QUrl searchUrlForType(const QString &type)
+    {
+        const QString jsonQuery(QStringLiteral("{\"dayFilter\": 0,\
+                                                 \"monthFilter\": 0, \
+                                                 \"yearFilter\": 0, \
+                                                 \"type\": [ \"%1\"]}"));
+        QUrl url;
+        url.setScheme(QStringLiteral("baloosearch"));
+
+        QUrlQuery urlQuery;
+        urlQuery.addQueryItem(QStringLiteral("json"), jsonQuery.arg(type).simplified());
+        url.setQuery(urlQuery);
+
+        return url;
+    }
+
+    static QUrl createSearchUrl(const QUrl &url)
+    {
+        QUrl searchUrl;
+
+        const QString path = url.toDisplayString(QUrl::PreferLocalFile);
+
+        if (path.endsWith(QLatin1String("/documents"))) {
+            searchUrl = searchUrlForType(QStringLiteral("Document"));
+        } else if (path.endsWith(QLatin1String("/images"))) {
+            searchUrl = searchUrlForType(QStringLiteral("Image"));
+        } else if (path.endsWith(QLatin1String("/audio"))) {
+            searchUrl = searchUrlForType(QStringLiteral("Audio"));
+        } else if (path.endsWith(QLatin1String("/videos"))) {
+            searchUrl = searchUrlForType(QStringLiteral("Video"));
+        } else {
+            qWarning() << "Invalid search url:" << url;
+            searchUrl = url;
+        }
+
+        return searchUrl;
     }
 }
 
@@ -721,6 +800,18 @@ bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action
     d->reloadAndSignal();
 
     return true;
+}
+
+QUrl KFilePlacesModel::convertedUrl(const QUrl &url)
+{
+    QUrl newUrl = url;
+    if (url.scheme() == QLatin1String("timeline")) {
+        newUrl = createTimelineUrl(url);
+    } else if (url.scheme() == QLatin1String("search")) {
+        newUrl = createSearchUrl(url);
+    }
+
+    return newUrl;
 }
 
 void KFilePlacesModel::addPlace(const QString &text, const QUrl &url,
