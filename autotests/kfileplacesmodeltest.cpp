@@ -82,6 +82,7 @@ private Q_SLOTS:
     void testPlaceGroupHidden();
     void testPlaceGroupHiddenVsPlaceChildShown();
     void testPlaceGroupHiddenAndShownWithHiddenChild();
+    void testPlaceGroupHiddenGroupIndexesIntegrity();
 
 private:
     QStringList placesUrls() const;
@@ -1171,6 +1172,31 @@ void KFilePlacesModelTest::testPlaceGroupHiddenAndShownWithHiddenChild()
 
     // leaving in a clean state
     m_places->setPlaceHidden(firstIndexHidden, false);
+}
+
+void KFilePlacesModelTest::testPlaceGroupHiddenGroupIndexesIntegrity()
+{
+    // GIVEN
+    m_places->setGroupHidden(KFilePlacesModel::PlacesType, true);
+    QVERIFY(m_places->groupIndexes(KFilePlacesModel::UnknownType).isEmpty());
+    QVERIFY(m_places->isGroupHidden(KFilePlacesModel::PlacesType));
+    QCOMPARE(m_places->groupIndexes(KFilePlacesModel::PlacesType).count(), initialListOfPlaces().count());
+    QCOMPARE(m_places->groupIndexes(KFilePlacesModel::RecentlySavedType).count(), 0);
+    QCOMPARE(m_places->groupIndexes(KFilePlacesModel::SearchForType).count(), 0);
+    QCOMPARE(m_places->groupIndexes(KFilePlacesModel::DevicesType).count(), initialListOfDevices().count());
+    QCOMPARE(m_places->groupIndexes(KFilePlacesModel::RemovableDevicesType).count(), initialListOfRemovableDevices().count());
+
+    //WHEN
+    m_places->setGroupHidden(KFilePlacesModel::PlacesType, false);
+
+    // THEN
+    // Make sure that hidden place group doesn't change model
+    QVERIFY(!m_places->isGroupHidden(KFilePlacesModel::PlacesType));
+    QCOMPARE(m_places->groupIndexes(KFilePlacesModel::PlacesType).count(), initialListOfPlaces().count());
+    QCOMPARE(m_places->groupIndexes(KFilePlacesModel::RecentlySavedType).count(), 0);
+    QCOMPARE(m_places->groupIndexes(KFilePlacesModel::SearchForType).count(), 0);
+    QCOMPARE(m_places->groupIndexes(KFilePlacesModel::DevicesType).count(), initialListOfDevices().count());
+    QCOMPARE(m_places->groupIndexes(KFilePlacesModel::RemovableDevicesType).count(), initialListOfRemovableDevices().count());
 }
 
 QTEST_MAIN(KFilePlacesModelTest)

@@ -421,6 +421,24 @@ KFilePlacesModel::GroupType KFilePlacesModel::groupType(const QModelIndex &index
     return item->groupType();
 }
 
+QModelIndexList KFilePlacesModel::groupIndexes(const KFilePlacesModel::GroupType type) const
+{
+    if (type == UnknownType) {
+        return QModelIndexList();
+    }
+
+    QModelIndexList indexes;
+    const int rows = rowCount();
+    for (int row = 0; row < rows ; ++row) {
+        const QModelIndex current = index(row, 0);
+        if (groupType(current) == type) {
+            indexes << current;
+        }
+    }
+
+    return indexes;
+}
+
 QVariant KFilePlacesModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid()) {

@@ -77,6 +77,7 @@ public:
     Solid::Device deviceForIndex(const QModelIndex &index) const;
     KBookmark bookmarkForIndex(const QModelIndex &index) const;
     GroupType groupType(const QModelIndex &index) const;
+    QModelIndexList groupIndexes(const GroupType type) const;
 
     QAction *teardownActionForIndex(const QModelIndex &index) const;
     QAction *ejectActionForIndex(const QModelIndex &index) const;

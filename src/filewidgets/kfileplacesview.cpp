@@ -73,6 +73,7 @@ public:
     void addAppearingItem(const QModelIndex &index);
     void setAppearingItemProgress(qreal value);
     void addDisappearingItem(const QModelIndex &index);
+    void addDisappearingItemGroup(const QModelIndex &index);
     void setDisappearingItemProgress(qreal value);
 
     void setShowHoverIndication(bool show);
@@ -290,6 +291,16 @@ void KFilePlacesViewDelegate::addDisappearingItem(const QModelIndex &index)
     m_disappearingItems << index;
 }
 
+void KFilePlacesViewDelegate::addDisappearingItemGroup(const QModelIndex &index)
+{
+    const KFilePlacesModel *placesModel = static_cast<const KFilePlacesModel *>(index.model());
+    const QModelIndexList indexesGroup = placesModel->groupIndexes(placesModel->groupType(index));
+
+    m_disappearingItems.reserve(m_disappearingItems.count() + indexesGroup.count());
+    std::transform(indexesGroup.begin(), indexesGroup.end(), std::back_inserter(m_disappearingItems),
+                   [](const QModelIndex &idx){ return QPersistentModelIndex(idx); });
+}
+
 void KFilePlacesViewDelegate::setDisappearingItemProgress(qreal value)
 {
     value = 1.0 - value;
@@ -416,7 +427,11 @@ bool KFilePlacesViewDelegate::indexIsSectionHeader(const QModelIndex &index) con
 
 void KFilePlacesViewDelegate::drawSectionHeader(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    const QString category = index.data(KFilePlacesModel::GroupRole).toString();
+    const KFilePlacesModel *placesModel = static_cast<const KFilePlacesModel *>(index.model());
+
+    const QString groupLabel = index.data(KFilePlacesModel::GroupRole).toString();
+    const QString category = placesModel->isGroupHidden(index) ? i18n("%1 (hidden)", groupLabel) : groupLabel;
+
     QRect textRect(option.rect);
     textRect.setLeft(textRect.left() + 3);
     textRect.setY(textRect.y() + qMax(2, m_view->spacing()));
@@ -733,9 +748,16 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     QAction *teardown = nullptr;
     QAction *add = nullptr;
     QAction *mainSeparator = nullptr;
+    QAction *hideSection = nullptr;
 
     const bool clickOverHeader = delegate->pointIsHeaderArea(event->pos());
-    if (!clickOverHeader && index.isValid()) {
+    if (clickOverHeader) {
+        const KFilePlacesModel::GroupType type = placesModel->groupType(index);
+        hideSection = menu.addAction(i18n("Hide Section"));
+        hideSection->setCheckable(true);
+        hideSection->setChecked(placesModel->isGroupHidden(type));
+    }
+    else if (index.isValid()) {
         if (!placesModel->isDevice(index)) {
             if (placesModel->url(index).toString() == QLatin1String("trash:/")) {
                 emptyTrash = menu.addAction(QIcon::fromTheme(QStringLiteral("trash-empty")), i18nc("@action:inmenu", "Empty Trash"));
@@ -770,6 +792,9 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         hide = menu.addAction(i18n("&Hide Entry '%1'", label));
         hide->setCheckable(true);
         hide->setChecked(placesModel->isHidden(index));
+        // if a parent is hidden no interaction should be possible with children, show it first to do so
+        hide->setEnabled(!placesModel->isGroupHidden(placesModel->groupType(index)));
+
     } else {
         add = menu.addAction(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Add Entry..."));
     }
@@ -824,9 +849,20 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             placesModel->editPlace(index, label, url, iconName, appName);
         }
 
-    } else if (remove != nullptr && result == remove) {
+    } else if (remove && (result == remove)) {
         placesModel->removePlace(index);
-    } else if (hide != nullptr && result == hide) {
+    } else if (hideSection && (result == hideSection)) {
+        const KFilePlacesModel::GroupType type = placesModel->groupType(index);
+        placesModel->setGroupHidden(type, hideSection->isChecked());
+
+        if (!d->showAll && hideSection->isChecked()) {
+            delegate->addDisappearingItemGroup(index);
+            if (d->itemDisappearTimeline.state() != QTimeLine::Running) {
+                delegate->setDisappearingItemProgress(0.0);
+                d->itemDisappearTimeline.start();
+            }
+        }
+    } else if (hide && (result == hide)) {
         placesModel->setPlaceHidden(index, hide->isChecked());
         QModelIndex current = placesModel->closestItem(d->currentUrl);
 
