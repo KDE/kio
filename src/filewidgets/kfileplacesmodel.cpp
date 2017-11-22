@@ -175,6 +175,7 @@ public:
 
     void reloadAndSignal();
     QList<KFilePlacesItem *> loadBookmarkList();
+    int findNearestPosition(int source, int target);
 
     void _k_initDeviceList();
     void _k_deviceAdded(const QString &udi);
@@ -619,6 +620,41 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
     return items;
 }
 
+int KFilePlacesModel::Private::findNearestPosition(int source, int target)
+{
+    const KFilePlacesItem *item = items.at(source);
+    const KFilePlacesItem::GroupType groupType = item->groupType();
+    int newTarget = qMin(target, items.count() - 1);
+
+    // moving inside the same group is ok
+    if ((items.at(newTarget)->groupType() == groupType)) {
+        return target;
+    }
+
+    if (target > source) { // moving down, move it to the end of the group
+        int groupFooter = source;
+        while (items.at(groupFooter)->groupType() == groupType) {
+            groupFooter++;
+            // end of the list move it there
+            if (groupFooter == items.count()) {
+                break;
+            }
+        }
+        target = groupFooter;
+    } else { // moving up, move it to beginning of the group
+        int groupHead = source;
+        while (items.at(groupHead)->groupType() == groupType) {
+            groupHead--;
+            // beginning of the list move it there
+            if (groupHead == 0) {
+                break;
+            }
+        }
+        target = groupHead;
+    }
+    return target;
+}
+
 void KFilePlacesModel::Private::reloadAndSignal()
 {
     bookmarkManager->emitChanged(bookmarkManager->root()); // ... we'll get relisted anyway
@@ -702,24 +738,6 @@ bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action
         // let's do it in the views to get the good old drop menu
     }
 
-    QMimeDatabase db;
-    KBookmark afterBookmark;
-
-    if (row == -1) {
-        // The dropped item is moved or added to the last position
-
-        KFilePlacesItem *lastItem = d->items.last();
-        afterBookmark = lastItem->bookmark();
-
-    } else {
-        // The dropped item is moved or added before position 'row', ie after position 'row-1'
-
-        if (row > 0) {
-            KFilePlacesItem *afterItem = d->items[row - 1];
-            afterBookmark = afterItem->bookmark();
-        }
-    }
-
     if (data->hasFormat(_k_internalMimetype(this))) {
         // The operation is an internal move
         QByteArray itemData = data->data(_k_internalMimetype(this));
@@ -728,28 +746,31 @@ bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action
 
         stream >> itemRow;
 
-        KFilePlacesItem *item = d->items[itemRow];
-        KBookmark bookmark = item->bookmark();
-
-        int destRow = row == -1 ? d->items.count() : row;
-        // The item is not moved when the drop indicator is on either item edge
-        if (itemRow == destRow || itemRow + 1 == destRow) {
+        if (!movePlace(itemRow, row)) {
             return false;
         }
 
-        beginMoveRows(QModelIndex(), itemRow, itemRow, QModelIndex(), destRow);
-        d->bookmarkManager->root().moveBookmark(bookmark, afterBookmark);
-        // Move item ourselves so that _k_reloadBookmarks() does not consider
-        // the move as a remove + insert.
-        //
-        // 2nd argument of QList::move() expects the final destination index,
-        // but 'row' is the value of the destination index before the moved
-        // item has been removed from its original position. That is why we
-        // adjust if necessary.
-        d->items.move(itemRow, itemRow < destRow ? (destRow - 1) : destRow);
-        endMoveRows();
     } else if (data->hasFormat(QStringLiteral("text/uri-list"))) {
         // The operation is an add
+
+        QMimeDatabase db;
+        KBookmark afterBookmark;
+
+        if (row == -1) {
+            // The dropped item is moved or added to the last position
+
+            KFilePlacesItem *lastItem = d->items.last();
+            afterBookmark = lastItem->bookmark();
+
+        } else {
+            // The dropped item is moved or added before position 'row', ie after position 'row-1'
+
+            if (row > 0) {
+                KFilePlacesItem *afterItem = d->items[row - 1];
+                afterBookmark = afterItem->bookmark();
+            }
+        }
+
         const QList<QUrl> urls = KUrlMimeData::urlsFromMimeData(data);
 
         KBookmarkGroup group = d->bookmarkManager->root();
@@ -926,6 +947,61 @@ void KFilePlacesModel::setPlaceHidden(const QModelIndex &index, bool hidden)
 
     refresh();
     emit dataChanged(index, index);
+}
+
+bool KFilePlacesModel::movePlace(int itemRow, int row)
+{
+    KBookmark afterBookmark;
+
+    if ((itemRow < 0) || (itemRow >= d->items.count())) {
+        return false;
+    }
+
+    if (row >= d->items.count()) {
+        row = -1;
+    }
+
+    if (row == -1) {
+        // The dropped item is moved or added to the last position
+
+        KFilePlacesItem *lastItem = d->items.last();
+        afterBookmark = lastItem->bookmark();
+
+    } else {
+        // The dropped item is moved or added before position 'row', ie after position 'row-1'
+
+        if (row > 0) {
+            KFilePlacesItem *afterItem = d->items[row - 1];
+            afterBookmark = afterItem->bookmark();
+        }
+    }
+
+    KFilePlacesItem *item = d->items[itemRow];
+    KBookmark bookmark = item->bookmark();
+
+    int destRow = row == -1 ? d->items.count() : row;
+
+    // avoid move item away from its group
+    destRow = d->findNearestPosition(itemRow, destRow);
+
+    // The item is not moved when the drop indicator is on either item edge
+    if (itemRow == destRow || itemRow + 1 == destRow) {
+        return false;
+    }
+
+    beginMoveRows(QModelIndex(), itemRow, itemRow, QModelIndex(), destRow);
+    d->bookmarkManager->root().moveBookmark(bookmark, afterBookmark);
+    // Move item ourselves so that _k_reloadBookmarks() does not consider
+    // the move as a remove + insert.
+    //
+    // 2nd argument of QList::move() expects the final destination index,
+    // but 'row' is the value of the destination index before the moved
+    // item has been removed from its original position. That is why we
+    // adjust if necessary.
+    d->items.move(itemRow, itemRow < destRow ? (destRow - 1) : destRow);
+    endMoveRows();
+
+    return true;
 }
 
 int KFilePlacesModel::hiddenCount() const

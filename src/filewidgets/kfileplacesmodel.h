@@ -76,6 +76,11 @@ public:
     void editPlace(const QModelIndex &index, const QString &text, const QUrl &url, const QString &iconName = QString(), const QString &appName = QString());
     void removePlace(const QModelIndex &index) const;
     void setPlaceHidden(const QModelIndex &index, bool hidden);
+    /**
+     * @brief Move place at @p itemRow to a position before @p row
+     * @since 5.41
+     */
+    bool movePlace(int itemRow, int row);
 
     int hiddenCount() const;
 

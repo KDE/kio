@@ -78,6 +78,7 @@ private Q_SLOTS:
     void testDataChangedSignal();
     void testIconRole_data();
     void testIconRole();
+    void testMoveFunction();
 
 private:
     QStringList placesUrls() const;
@@ -961,6 +962,87 @@ void KFilePlacesModelTest::testIconRole()
     QFETCH(QString, expectedIconName);
 
     QCOMPARE(index.data(KFilePlacesModel::IconNameRole).toString(), expectedIconName);
+}
+
+void KFilePlacesModelTest::testMoveFunction()
+{
+    QList<QVariant> args;
+    QStringList urls = initialListOfUrls();
+    QSignalSpy rowsMoved(m_places, &KFilePlacesModel::rowsMoved);
+
+    // move item 0 to pos 2
+    QVERIFY(m_places->movePlace(0, 3));
+    urls.move(0, 2);
+    QTRY_COMPARE(rowsMoved.count(), 1);
+    args = rowsMoved.takeFirst();
+    QCOMPARE(args.at(1).toInt(), 0); // start
+    QCOMPARE(args.at(2).toInt(), 0); // end
+    QCOMPARE(args.at(4).toInt(), 3); // row (destination)
+    QCOMPARE(placesUrls(), urls);
+    rowsMoved.clear();
+
+    // move it back
+    QVERIFY(m_places->movePlace(2, 0));
+    urls.move(2, 0);
+    QTRY_COMPARE(rowsMoved.count(), 1);
+    args = rowsMoved.takeFirst();
+    QCOMPARE(args.at(1).toInt(), 2); // start
+    QCOMPARE(args.at(2).toInt(), 2); // end
+    QCOMPARE(args.at(4).toInt(), 0); // row (destination)
+    QCOMPARE(placesUrls(), urls);
+    rowsMoved.clear();
+
+    // target position is greater than model rows
+    // will move to the end of the first group
+    QVERIFY(m_places->movePlace(0, 20));
+    urls.move(0, 2);
+    QTRY_COMPARE(rowsMoved.count(), 1);
+    args = rowsMoved.takeFirst();
+    QCOMPARE(args.at(1).toInt(), 0); // start
+    QCOMPARE(args.at(2).toInt(), 0); // end
+    QCOMPARE(args.at(4).toInt(), 3); // row (destination)
+    QCOMPARE(placesUrls(), urls);
+    rowsMoved.clear();
+
+    // move it back
+    QVERIFY(m_places->movePlace(2, 0));
+    urls.move(2, 0);
+    QTRY_COMPARE(rowsMoved.count(), 1);
+    args = rowsMoved.takeFirst();
+    QCOMPARE(args.at(1).toInt(), 2); // start
+    QCOMPARE(args.at(2).toInt(), 2); // end
+    QCOMPARE(args.at(4).toInt(), 0); // row (destination)
+    QCOMPARE(placesUrls(), urls);
+    rowsMoved.clear();
+
+    QVERIFY(m_places->movePlace(8, 6));
+    urls.move(8, 6);
+    QTRY_COMPARE(rowsMoved.count(), 1);
+    args = rowsMoved.takeFirst();
+    QCOMPARE(args.at(1).toInt(), 8); // start
+    QCOMPARE(args.at(2).toInt(), 8); // end
+    QCOMPARE(args.at(4).toInt(), 6); // row (destination)
+    QCOMPARE(placesUrls(), urls);
+    rowsMoved.clear();
+
+    // move it back
+    QVERIFY(m_places->movePlace(6, 9));
+    urls.move(6, 8);
+    QTRY_COMPARE(rowsMoved.count(), 1);
+    args = rowsMoved.takeFirst();
+    QCOMPARE(args.at(1).toInt(), 6); // start
+    QCOMPARE(args.at(2).toInt(), 6); // end
+    QCOMPARE(args.at(4).toInt(), 9); // row (destination)
+    QCOMPARE(placesUrls(), urls);
+    rowsMoved.clear();
+
+    //use a invalid start position
+    QVERIFY(!m_places->movePlace(100, 20));
+    QCOMPARE(rowsMoved.count(), 0);
+
+    //use same start and target position
+    QVERIFY(!m_places->movePlace(1, 1));
+    QCOMPARE(rowsMoved.count(), 0);
 }
 
 QTEST_MAIN(KFilePlacesModelTest)
