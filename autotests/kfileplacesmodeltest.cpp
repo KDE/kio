@@ -76,6 +76,8 @@ private Q_SLOTS:
     void testConvertedUrl();
     void testBookmarkObject();
     void testDataChangedSignal();
+    void testIconRole_data();
+    void testIconRole();
 
 private:
     QStringList placesUrls() const;
@@ -927,6 +929,38 @@ void KFilePlacesModelTest::testDataChangedSignal()
     dataChangedSpy.clear();
     m_places->editPlace(index, originalText, bookmark.url(), bookmark.icon(), bookmark.metaDataItem(QStringLiteral("OnlyInApp")));
     QCOMPARE(dataChangedSpy.count(), 1);
+}
+
+void KFilePlacesModelTest::testIconRole_data()
+{
+    QTest::addColumn<QModelIndex>("index");
+    QTest::addColumn<QString>("expectedIconName");
+
+    // places
+    QTest::newRow("Places - Home") << m_places->index(0, 0)
+                                   << QStringLiteral("user-home");
+    QTest::newRow("Places - Root") << m_places->index(1, 0)
+                                   << QStringLiteral("folder-red");
+    QTest::newRow("Places - Trash") << m_places->index(2, 0)
+                                   << QStringLiteral("user-trash-full");
+    QTest::newRow("Remote - Network") << m_places->index(3, 0)
+                                    << QStringLiteral("network-workgroup");
+    QTest::newRow("Devices - Nfs") << m_places->index(4, 0)
+                                    << QStringLiteral("hwinfo");
+    QTest::newRow("Devices - foreign") << m_places->index(5, 0)
+                                    << QStringLiteral("blockdevice");
+    QTest::newRow("Devices - Floppy") << m_places->index(6, 0)
+                                    << QStringLiteral("blockdevice");
+    QTest::newRow("Devices - cdrom") << m_places->index(7, 0)
+                                    << QStringLiteral("blockdevice");
+}
+
+void KFilePlacesModelTest::testIconRole()
+{
+    QFETCH(QModelIndex, index);
+    QFETCH(QString, expectedIconName);
+
+    QCOMPARE(index.data(KFilePlacesModel::IconNameRole).toString(), expectedIconName);
 }
 
 QTEST_MAIN(KFilePlacesModelTest)

@@ -202,6 +202,8 @@ QVariant KFilePlacesItem::bookmarkData(int role) const
         return false;
     case KFilePlacesModel::HiddenRole:
         return b.metaDataItem(QStringLiteral("IsHidden")) == QLatin1String("true");
+    case KFilePlacesModel::IconNameRole:
+        return iconNameForBookmark(b);
     default:
         return QVariant();
     }
@@ -252,6 +254,9 @@ QVariant KFilePlacesItem::deviceData(int role) const
 
         case KFilePlacesModel::CapacityBarRecommendedRole:
             return m_isAccessible && !m_isCdrom;
+
+        case KFilePlacesModel::IconNameRole:
+            return m_iconPath;
 
         default:
             return QVariant();
