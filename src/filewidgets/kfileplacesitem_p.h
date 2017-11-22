@@ -27,6 +27,7 @@
 #include <QUrl>
 #include <kbookmark.h>
 #include <solid/device.h>
+#include "kfileplacesmodel.h"
 
 class KDirLister;
 namespace Solid
@@ -64,7 +65,9 @@ public:
     void setBookmark(const KBookmark &bookmark);
     Solid::Device device() const;
     QVariant data(int role) const;
-    GroupType groupType() const;
+    KFilePlacesModel::GroupType groupType() const;
+    bool isHidden() const;
+    void setHidden(bool hide);
 
     static KBookmark createBookmark(KBookmarkManager *manager,
                                     const QString &label,

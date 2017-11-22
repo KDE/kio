@@ -61,6 +61,26 @@
 #include <qstandardpaths.h>
 
 namespace {
+    QString stateNameForGroupType(KFilePlacesModel::GroupType type)
+    {
+        switch (type) {
+        case KFilePlacesModel::PlacesType:
+                return QStringLiteral("GroupState-Places-IsHidden");
+        case KFilePlacesModel::RemoteType:
+                return QStringLiteral("GroupState-Remote-IsHidden");
+        case KFilePlacesModel::RecentlySavedType:
+                return QStringLiteral("GroupState-RecentlySaved-IsHidden");
+        case KFilePlacesModel::SearchForType:
+                return QStringLiteral("GroupState-SearchFor-IsHidden");
+        case KFilePlacesModel::DevicesType:
+                return QStringLiteral("GroupState-Devices-IsHidden");
+        case KFilePlacesModel::RemovableDevicesType:
+                return QStringLiteral("GroupState-RemovableDevices-IsHidden");
+        default:
+            Q_UNREACHABLE();
+        }
+    }
+
     static bool isFileIndexingEnabled()
     {
         KConfig config(QStringLiteral("baloofilerc"));
@@ -197,6 +217,11 @@ KFilePlacesModel::KFilePlacesModel(QObject *parent)
 
     // Let's put some places in there if it's empty.
     KBookmarkGroup root = d->bookmarkManager->root();
+
+    const auto setDefaultMetadataItemForGroup = [&root](KFilePlacesModel::GroupType type) {
+        root.setMetaDataItem(stateNameForGroupType(type), QStringLiteral("false"));
+    };
+
     if (root.first().isNull() || !QFile::exists(file)) {
 
         // NOTE: The context for these I18N_NOOP2 calls has to be "KFile System Bookmarks".
@@ -229,6 +254,11 @@ KFilePlacesModel::KFilePlacesModel(QObject *parent)
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                               QStringLiteral("Trash"), I18N_NOOP2("KFile System Bookmarks", "Trash"),
                                               QUrl(QStringLiteral("trash:/")), QStringLiteral("user-trash"));
+
+        setDefaultMetadataItemForGroup(PlacesType);
+        setDefaultMetadataItemForGroup(RemoteType);
+        setDefaultMetadataItemForGroup(DevicesType);
+        setDefaultMetadataItemForGroup(RemovableDevicesType);
 
         // Force bookmarks to be saved. If on open/save dialog and the bookmarks are not saved, QFile::exists
         // will always return false, which opening/closing all the time the open/save dialog would case the
@@ -265,6 +295,9 @@ KFilePlacesModel::KFilePlacesModel(QObject *parent)
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                               QStringLiteral("Videos"), I18N_NOOP2("KFile System Bookmarks", "Videos"),
                                               QUrl(QStringLiteral("search:/videos")),  QStringLiteral("folder-videos"));
+
+        setDefaultMetadataItemForGroup(SearchForType);
+        setDefaultMetadataItemForGroup(RecentlySavedType);
 
         d->bookmarkManager->save();
     }
@@ -322,7 +355,24 @@ QString KFilePlacesModel::text(const QModelIndex &index) const
 
 bool KFilePlacesModel::isHidden(const QModelIndex &index) const
 {
-    return data(index, HiddenRole).toBool();
+    //Note: we do not want to show an index if its parent is hidden
+    return data(index, HiddenRole).toBool() || isGroupHidden(index);
+}
+
+bool KFilePlacesModel::isGroupHidden(const GroupType type) const
+{
+    const QString hidden = d->bookmarkManager->root().metaDataItem(stateNameForGroupType(type));
+    return hidden == QStringLiteral("true") ? true : false;
+}
+
+bool KFilePlacesModel::isGroupHidden(const QModelIndex &index) const
+{
+    if (!index.isValid()) {
+        return false;
+    }
+
+    KFilePlacesItem *item = static_cast<KFilePlacesItem *>(index.internalPointer());
+    return isGroupHidden(item->groupType());
 }
 
 bool KFilePlacesModel::isDevice(const QModelIndex &index) const
@@ -359,6 +409,16 @@ KBookmark KFilePlacesModel::bookmarkForIndex(const QModelIndex &index) const
 
     KFilePlacesItem *item = static_cast<KFilePlacesItem *>(index.internalPointer());
     return item->bookmark();
+}
+
+KFilePlacesModel::GroupType KFilePlacesModel::groupType(const QModelIndex &index) const
+{
+    if (!index.isValid()) {
+        return UnknownType;
+    }
+
+    KFilePlacesItem *item = static_cast<KFilePlacesItem *>(index.internalPointer());
+    return item->groupType();
 }
 
 QVariant KFilePlacesModel::data(const QModelIndex &index, int role) const
@@ -623,7 +683,7 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
 int KFilePlacesModel::Private::findNearestPosition(int source, int target)
 {
     const KFilePlacesItem *item = items.at(source);
-    const KFilePlacesItem::GroupType groupType = item->groupType();
+    const KFilePlacesModel::GroupType groupType = item->groupType();
     int newTarget = qMin(target, items.count() - 1);
 
     // moving inside the same group is ok
@@ -937,16 +997,29 @@ void KFilePlacesModel::setPlaceHidden(const QModelIndex &index, bool hidden)
 
     KFilePlacesItem *item = static_cast<KFilePlacesItem *>(index.internalPointer());
 
-    KBookmark bookmark = item->bookmark();
-
-    if (bookmark.isNull()) {
+    if (item->bookmark().isNull() || item->isHidden() == hidden) {
         return;
     }
 
-    bookmark.setMetaDataItem(QStringLiteral("IsHidden"), (hidden ? QStringLiteral("true") : QStringLiteral("false")));
+    const bool groupHidden = isGroupHidden(item->groupType());
+    const bool hidingChildOnShownParent = hidden && !groupHidden;
+    const bool showingChildOnShownParent = !hidden && !groupHidden;
 
-    refresh();
-    emit dataChanged(index, index);
+    if (hidingChildOnShownParent || showingChildOnShownParent) {
+        item->setHidden(hidden);
+
+        d->reloadAndSignal();
+        emit dataChanged(index, index);
+    }
+}
+
+void KFilePlacesModel::setGroupHidden(const GroupType type, bool hidden)
+{
+    if (isGroupHidden(type) == hidden)
+        return;
+
+    d->bookmarkManager->root().setMetaDataItem(stateNameForGroupType(type), (hidden ? QStringLiteral("true") : QStringLiteral("false")));
+    d->reloadAndSignal();
 }
 
 bool KFilePlacesModel::movePlace(int itemRow, int row)

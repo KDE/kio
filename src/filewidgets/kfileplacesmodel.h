@@ -53,6 +53,16 @@ public:
         IconNameRole = 0x00a45c00
     };
 
+    enum GroupType {
+        PlacesType,
+        RemoteType,
+        RecentlySavedType,
+        SearchForType,
+        DevicesType,
+        RemovableDevicesType,
+        UnknownType
+    };
+
     KFilePlacesModel(QObject *parent = nullptr);
     ~KFilePlacesModel();
 
@@ -61,9 +71,12 @@ public:
     QIcon icon(const QModelIndex &index) const;
     QString text(const QModelIndex &index) const;
     bool isHidden(const QModelIndex &index) const;
+    bool isGroupHidden(const GroupType type) const;
+    bool isGroupHidden(const QModelIndex &index) const;
     bool isDevice(const QModelIndex &index) const;
     Solid::Device deviceForIndex(const QModelIndex &index) const;
     KBookmark bookmarkForIndex(const QModelIndex &index) const;
+    GroupType groupType(const QModelIndex &index) const;
 
     QAction *teardownActionForIndex(const QModelIndex &index) const;
     QAction *ejectActionForIndex(const QModelIndex &index) const;
@@ -76,6 +89,8 @@ public:
     void editPlace(const QModelIndex &index, const QString &text, const QUrl &url, const QString &iconName = QString(), const QString &appName = QString());
     void removePlace(const QModelIndex &index) const;
     void setPlaceHidden(const QModelIndex &index, bool hidden);
+    void setGroupHidden(const GroupType type, bool hidden);
+
     /**
      * @brief Move place at @p itemRow to a position before @p row
      * @since 5.41

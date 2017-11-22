@@ -79,6 +79,9 @@ private Q_SLOTS:
     void testIconRole_data();
     void testIconRole();
     void testMoveFunction();
+    void testPlaceGroupHidden();
+    void testPlaceGroupHiddenVsPlaceChildShown();
+    void testPlaceGroupHiddenAndShownWithHiddenChild();
 
 private:
     QStringList placesUrls() const;
@@ -95,7 +98,7 @@ private:
 
 static QString bookmarksFile()
 {
-    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/user-places.xbel";
+    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/user-places.xbel");
 }
 
 void KFilePlacesModelTest::initTestCase()
@@ -168,8 +171,9 @@ QDBusInterface *KFilePlacesModelTest::fakeManager()
 
 QDBusInterface *KFilePlacesModelTest::fakeDevice(const QString &udi)
 {
-    if (m_interfacesMap.contains(udi)) {
-        return m_interfacesMap[udi];
+    QDBusInterface *interface = m_interfacesMap[udi];
+    if (interface) {
+        return interface;
     }
 
     QDBusInterface *iface = new QDBusInterface(QDBusConnection::sessionBus().baseService(), udi);
@@ -1063,6 +1067,110 @@ void KFilePlacesModelTest::testMoveFunction()
     //use same start and target position
     QVERIFY(!m_places->movePlace(1, 1));
     QCOMPARE(rowsMoved.count(), 0);
+}
+
+void KFilePlacesModelTest::testPlaceGroupHidden()
+{
+    // GIVEN
+    QCOMPARE(m_places->hiddenCount(), 0);
+
+    QStringList urls;
+    urls << initialListOfPlaces() << initialListOfShared() << initialListOfDevices() << initialListOfRemovableDevices();
+    CHECK_PLACES_URLS(urls);
+    QVector<QModelIndex> indexesHidden;
+
+    // WHEN
+    m_places->setGroupHidden(KFilePlacesModel::PlacesType, true);
+
+    // THEN
+    for (int row = 0; row < m_places->rowCount(); ++row) {
+        QModelIndex index = m_places->index(row, 0);
+        if (m_places->groupType(index) == KFilePlacesModel::PlacesType) {
+            QVERIFY(m_places->isHidden(index));
+            indexesHidden << index;
+        }
+    }
+    QCOMPARE(indexesHidden.count(), initialListOfPlaces().size());
+    QCOMPARE(m_places->hiddenCount(), indexesHidden.size());
+
+    // and GIVEN
+    QVector<QModelIndex> indexesShown;
+
+    // WHEN
+    m_places->setGroupHidden(KFilePlacesModel::PlacesType, false);
+
+    // THEN
+    for (int row = 0; row < m_places->rowCount(); ++row) {
+        QModelIndex index = m_places->index(row, 0);
+        if (m_places->groupType(index) == KFilePlacesModel::PlacesType) {
+            QVERIFY(!m_places->isHidden(index));
+            indexesShown << index;
+        }
+    }
+    QCOMPARE(m_places->hiddenCount(), 0);
+    QCOMPARE(indexesShown.count(), initialListOfPlaces().size());
+}
+
+void KFilePlacesModelTest::testPlaceGroupHiddenVsPlaceChildShown()
+{
+    // GIVEN
+    for (int row = 0; row < m_places->rowCount(); ++row) {
+        QModelIndex index = m_places->index(row, 0);
+        QVERIFY(!m_places->isHidden(index));
+    }
+    m_places->setGroupHidden(KFilePlacesModel::PlacesType, true);
+
+    QModelIndex firstIndex = m_places->index(0,0);
+    const int amountOfPlaces = initialListOfPlaces().size();
+    for (int row = 0; row < amountOfPlaces; ++row) {
+        QModelIndex index = m_places->index(row, 0);
+        QVERIFY(m_places->isHidden(index));
+    }
+    // WHEN
+    m_places->setPlaceHidden(firstIndex, false);
+
+    // THEN
+    QVERIFY(m_places->isHidden(firstIndex)); // a child cannot show against its parent state
+
+    // leaving in a clean state
+    m_places->setGroupHidden(KFilePlacesModel::PlacesType, false);
+}
+
+void KFilePlacesModelTest::testPlaceGroupHiddenAndShownWithHiddenChild()
+{
+    // GIVEN
+    QCOMPARE(m_places->hiddenCount(), 0);
+
+    QStringList urls;
+    urls << initialListOfPlaces() << initialListOfShared() << initialListOfDevices() << initialListOfRemovableDevices();
+    CHECK_PLACES_URLS(urls);
+
+    QModelIndex firstIndexHidden = m_places->index(0,0);
+    m_places->setPlaceHidden(firstIndexHidden, true); // first place index is hidden within an hidden parent
+    m_places->setGroupHidden(KFilePlacesModel::PlacesType, true);
+    QCOMPARE(m_places->hiddenCount(), initialListOfPlaces().size());
+
+    // WHEN
+    m_places->setGroupHidden(KFilePlacesModel::PlacesType, false);
+
+    // THEN
+    QVector<QModelIndex> indexesShown;
+    for (int row = 0; row < m_places->rowCount(); ++row) {
+        QModelIndex index = m_places->index(row, 0);
+        if (index == firstIndexHidden) {
+            QVERIFY(m_places->isHidden(firstIndexHidden));
+            continue;
+        }
+        if (m_places->groupType(index) == KFilePlacesModel::PlacesType) {
+            QVERIFY(!m_places->isHidden(index));
+            indexesShown << index;
+        }
+    }
+    QCOMPARE(m_places->hiddenCount(), 1);
+    QCOMPARE(indexesShown.count(), initialListOfPlaces().size() - 1 /*first child remains hidden*/);
+
+    // leaving in a clean state
+    m_places->setPlaceHidden(firstIndexHidden, false);
 }
 
 QTEST_MAIN(KFilePlacesModelTest)

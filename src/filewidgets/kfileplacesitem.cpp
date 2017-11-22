@@ -18,7 +18,6 @@
 */
 
 #include "kfileplacesitem_p.h"
-#include "kfileplacesmodel.h"
 
 #include <QtCore/QDateTime>
 #include <QIcon>
@@ -101,24 +100,24 @@ void KFilePlacesItem::setBookmark(const KBookmark &bookmark)
         m_text = bookmark.text();
     }
 
-    const GroupType type = groupType();
+    const KFilePlacesModel::GroupType type = groupType();
     switch (type) {
-    case PlacesType:
+    case KFilePlacesModel::PlacesType:
         m_groupName = i18nc("@item", "Places");
         break;
-    case RemoteType:
+    case KFilePlacesModel::RemoteType:
         m_groupName = i18nc("@item", "Remote");
         break;
-    case RecentlySavedType:
+    case KFilePlacesModel::RecentlySavedType:
         m_groupName = i18nc("@item", "Recently Saved");
         break;
-    case SearchForType:
+    case KFilePlacesModel::SearchForType:
         m_groupName = i18nc("@item", "Search For");
         break;
-    case DevicesType:
+    case KFilePlacesModel::DevicesType:
         m_groupName = i18nc("@item", "Devices");
         break;
-    case RemovableDevicesType:
+    case KFilePlacesModel::RemovableDevicesType:
         m_groupName = i18nc("@item", "Removable Devices");
         break;
     default:
@@ -144,37 +143,50 @@ QVariant KFilePlacesItem::data(int role) const
     }
 }
 
-KFilePlacesItem::GroupType KFilePlacesItem::groupType() const
+KFilePlacesModel::GroupType KFilePlacesItem::groupType() const
 {
     if (!isDevice()) {
         const QString protocol = bookmark().url().scheme();
         if (protocol == QLatin1String("timeline")) {
-            return RecentlySavedType;
+            return KFilePlacesModel::RecentlySavedType;
         }
 
         if (protocol.contains(QLatin1String("search"))) {
-            return SearchForType;
+            return KFilePlacesModel::SearchForType;
         }
 
         if (protocol == QLatin1String("bluetooth") ||
             protocol == QLatin1String("obexftp") ||
             protocol == QLatin1String("kdeconnect")) {
-            return DevicesType;
+            return KFilePlacesModel::DevicesType;
         }
 
         if (protocol == QLatin1String("remote") ||
             KProtocolInfo::protocolClass(protocol) != QLatin1String(":local")) {
-            return RemoteType;
+            return KFilePlacesModel::RemoteType;
         } else {
-            return PlacesType;
+            return KFilePlacesModel::PlacesType;
         }
     }
 
     if (m_drive && (m_drive->isHotpluggable() || m_drive->isRemovable())) {
-        return RemovableDevicesType;
+        return KFilePlacesModel::RemovableDevicesType;
     } else {
-        return DevicesType;
+        return KFilePlacesModel::DevicesType;
     }
+}
+
+bool KFilePlacesItem::isHidden() const
+{
+    return m_bookmark.metaDataItem(QStringLiteral("IsHidden")) == QLatin1String("true");
+}
+
+void KFilePlacesItem::setHidden(bool hide)
+{
+    if (m_bookmark.isNull() || isHidden() == hide) {
+        return;
+    }
+    m_bookmark.setMetaDataItem(QStringLiteral("IsHidden"), hide ? QStringLiteral("true") : QStringLiteral("false"));
 }
 
 QVariant KFilePlacesItem::bookmarkData(int role) const
@@ -191,7 +203,7 @@ QVariant KFilePlacesItem::bookmarkData(int role) const
     case Qt::DecorationRole:
         return QIcon::fromTheme(iconNameForBookmark(b));
     case Qt::BackgroundRole:
-        if (b.metaDataItem(QStringLiteral("IsHidden")) == QLatin1String("true")) {
+        if (isHidden()) {
             return QColor(Qt::lightGray);
         } else {
             return QVariant();
@@ -201,7 +213,7 @@ QVariant KFilePlacesItem::bookmarkData(int role) const
     case KFilePlacesModel::SetupNeededRole:
         return false;
     case KFilePlacesModel::HiddenRole:
-        return b.metaDataItem(QStringLiteral("IsHidden")) == QLatin1String("true");
+        return isHidden();
     case KFilePlacesModel::IconNameRole:
         return iconNameForBookmark(b);
     default:
