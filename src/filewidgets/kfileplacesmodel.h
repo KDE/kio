@@ -132,6 +132,12 @@ public:
                       int row, int column, const QModelIndex &parent) Q_DECL_OVERRIDE;
 
     /**
+     * @brief Reload bookmark information
+     * @since 5.41
+     */
+    void refresh() const;
+
+    /**
      * @brief  Converts the URL, which contains "virtual" URLs for system-items like
      *         "timeline:/lastmonth" into a Query-URL "timeline:/2017-10"
      *         that will be handled by the corresponding IO-slave.

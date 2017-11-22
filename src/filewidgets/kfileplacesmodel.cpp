@@ -797,9 +797,14 @@ bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action
         return false;
     }
 
-    d->reloadAndSignal();
+    refresh();
 
     return true;
+}
+
+void KFilePlacesModel::refresh() const
+{
+    d->reloadAndSignal();
 }
 
 QUrl KFilePlacesModel::convertedUrl(const QUrl &url)
@@ -836,7 +841,7 @@ void KFilePlacesModel::addPlace(const QString &text, const QUrl &url,
         d->bookmarkManager->root().moveBookmark(bookmark, item->bookmark());
     }
 
-    d->reloadAndSignal();
+    refresh();
 }
 
 void KFilePlacesModel::editPlace(const QModelIndex &index, const QString &text, const QUrl &url,
@@ -863,7 +868,7 @@ void KFilePlacesModel::editPlace(const QModelIndex &index, const QString &text, 
     bookmark.setIcon(iconName);
     bookmark.setMetaDataItem(QStringLiteral("OnlyInApp"), appName);
 
-    d->reloadAndSignal();
+    refresh();
     emit dataChanged(index, index);
 }
 
@@ -886,7 +891,7 @@ void KFilePlacesModel::removePlace(const QModelIndex &index) const
     }
 
     d->bookmarkManager->root().deleteBookmark(bookmark);
-    d->reloadAndSignal();
+    refresh();
 }
 
 void KFilePlacesModel::setPlaceHidden(const QModelIndex &index, bool hidden)
@@ -905,7 +910,7 @@ void KFilePlacesModel::setPlaceHidden(const QModelIndex &index, bool hidden)
 
     bookmark.setMetaDataItem(QStringLiteral("IsHidden"), (hidden ? QStringLiteral("true") : QStringLiteral("false")));
 
-    d->reloadAndSignal();
+    refresh();
     emit dataChanged(index, index);
 }
 

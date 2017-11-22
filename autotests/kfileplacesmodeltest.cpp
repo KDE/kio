@@ -71,6 +71,7 @@ private Q_SLOTS:
     void testEnableBaloo();
     void testRemoteUrls_data();
     void testRemoteUrls();
+    void testRefresh();
     void testConvertedUrl_data();
     void testConvertedUrl();
 
@@ -823,6 +824,24 @@ void KFilePlacesModelTest::testRemoteUrls()
     QCOMPARE(index.data(KFilePlacesModel::GroupRole).toString(), expectedGroup);
 
     m_places->removePlace(index);
+}
+
+void KFilePlacesModelTest::testRefresh()
+{
+    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile(), QStringLiteral("kfilePlaces"));
+    KBookmarkGroup root = bookmarkManager->root();
+    KBookmark homePlace = root.first();
+    const QModelIndex homePlaceIndex = m_places->index(0, 0);
+
+    QCOMPARE(m_places->text(homePlaceIndex), homePlace.fullText());
+
+    // modify bookmark
+    homePlace.setFullText("Test change the text");
+    QVERIFY(m_places->text(homePlaceIndex) != homePlace.fullText());
+
+    // reload bookmark data
+    m_places->refresh();
+    QCOMPARE(m_places->text(homePlaceIndex), homePlace.fullText());
 }
 
 void KFilePlacesModelTest::testConvertedUrl_data()
