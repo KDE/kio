@@ -74,6 +74,7 @@ private Q_SLOTS:
     void testRefresh();
     void testConvertedUrl_data();
     void testConvertedUrl();
+    void testBookmarkObject();
 
 private:
     QStringList placesUrls() const;
@@ -887,6 +888,16 @@ void KFilePlacesModelTest::testConvertedUrl()
     QCOMPARE(expectedUrl.scheme(), convertedUrl.scheme());
     QCOMPARE(expectedUrl.path(), convertedUrl.path());
     QCOMPARE(expectedUrl, convertedUrl);
+}
+
+void KFilePlacesModelTest::testBookmarkObject()
+{
+    //make sure that all items return a valid bookmark
+    for (int row = 0; row < m_places->rowCount(); row++) {
+        const QModelIndex index = m_places->index(row, 0);
+        const KBookmark bookmark = m_places->bookmarkForIndex(index);
+        QVERIFY(!bookmark.isNull());
+    }
 }
 
 QTEST_MAIN(KFilePlacesModelTest)

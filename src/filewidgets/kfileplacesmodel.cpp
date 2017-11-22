@@ -357,12 +357,7 @@ KBookmark KFilePlacesModel::bookmarkForIndex(const QModelIndex &index) const
     }
 
     KFilePlacesItem *item = static_cast<KFilePlacesItem *>(index.internalPointer());
-
-    if (!item->isDevice()) {
-        return item->bookmark();
-    } else {
-        return KBookmark();
-    }
+    return item->bookmark();
 }
 
 QVariant KFilePlacesModel::data(const QModelIndex &index, int role) const
