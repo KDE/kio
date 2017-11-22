@@ -858,13 +858,32 @@ void KFilePlacesModel::editPlace(const QModelIndex &index, const QString &text, 
         return;
     }
 
-    bookmark.setFullText(text);
-    bookmark.setUrl(url);
-    bookmark.setIcon(iconName);
-    bookmark.setMetaDataItem(QStringLiteral("OnlyInApp"), appName);
+    bool changed = false;
+    if (text != bookmark.fullText()) {
+        bookmark.setFullText(text);
+        changed = true;
+    }
 
-    refresh();
-    emit dataChanged(index, index);
+    if (url != bookmark.url()) {
+        bookmark.setUrl(url);
+        changed = true;
+    }
+
+    if (iconName != bookmark.icon()) {
+        bookmark.setIcon(iconName);
+        changed = true;
+    }
+
+    const QString onlyInApp = bookmark.metaDataItem(QStringLiteral("OnlyInApp"));
+    if (appName != onlyInApp) {
+        bookmark.setMetaDataItem(QStringLiteral("OnlyInApp"), appName);
+        changed = true;
+    }
+
+    if (changed) {
+        refresh();
+        emit dataChanged(index, index);
+    }
 }
 
 void KFilePlacesModel::removePlace(const QModelIndex &index) const

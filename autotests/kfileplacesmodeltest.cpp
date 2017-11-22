@@ -75,6 +75,7 @@ private Q_SLOTS:
     void testConvertedUrl_data();
     void testConvertedUrl();
     void testBookmarkObject();
+    void testDataChangedSignal();
 
 private:
     QStringList placesUrls() const;
@@ -898,6 +899,34 @@ void KFilePlacesModelTest::testBookmarkObject()
         const KBookmark bookmark = m_places->bookmarkForIndex(index);
         QVERIFY(!bookmark.isNull());
     }
+}
+
+void KFilePlacesModelTest::testDataChangedSignal()
+{
+    QSignalSpy dataChangedSpy(m_places, &KFilePlacesModel::dataChanged);
+
+    const QModelIndex index = m_places->index(1, 0);
+    const KBookmark bookmark = m_places->bookmarkForIndex(index);
+
+    // call function with the same data
+    m_places->editPlace(index, bookmark.fullText(), bookmark.url(), bookmark.icon(), bookmark.metaDataItem(QStringLiteral("OnlyInApp")));
+    QCOMPARE(dataChangedSpy.count(), 0);
+
+    // call function with different data
+    const QString originalText = bookmark.fullText();
+    m_places->editPlace(index, QStringLiteral("My text"), bookmark.url(), bookmark.icon(), bookmark.metaDataItem(QStringLiteral("OnlyInApp")));
+    QCOMPARE(dataChangedSpy.count(), 1);
+    QList<QVariant> args = dataChangedSpy.takeFirst();
+    QCOMPARE(args.at(0).toModelIndex().row(), 1);
+    QCOMPARE(args.at(0).toModelIndex().column(), 0);
+    QCOMPARE(args.at(1).toModelIndex().row(), 1);
+    QCOMPARE(args.at(1).toModelIndex().column(), 0);
+    QCOMPARE(m_places->text(index), QStringLiteral("My text"));
+
+    // restore original value
+    dataChangedSpy.clear();
+    m_places->editPlace(index, originalText, bookmark.url(), bookmark.icon(), bookmark.metaDataItem(QStringLiteral("OnlyInApp")));
+    QCOMPARE(dataChangedSpy.count(), 1);
 }
 
 QTEST_MAIN(KFilePlacesModelTest)
