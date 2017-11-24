@@ -20,6 +20,7 @@
 
 #include "kurlnavigatormenu_p.h"
 
+#include <QApplication>
 #include <QKeyEvent>
 #include <QMimeData>
 
@@ -27,9 +28,12 @@ namespace KDEPrivate
 {
 
 KUrlNavigatorMenu::KUrlNavigatorMenu(QWidget *parent) :
-    QMenu(parent)
+    QMenu(parent),
+    m_initialMousePosition(QCursor::pos()),
+    m_mouseMoved(false)
 {
     setAcceptDrops(true);
+    setMouseTracking(true);
 }
 
 KUrlNavigatorMenu::~KUrlNavigatorMenu()
@@ -58,14 +62,34 @@ void KUrlNavigatorMenu::dropEvent(QDropEvent *event)
     }
 }
 
+void KUrlNavigatorMenu::mouseMoveEvent(QMouseEvent *event)
+{
+    if (!m_mouseMoved) {
+        QPoint moveDistance = mapToGlobal(event->pos()) - m_initialMousePosition;
+        m_mouseMoved = (moveDistance.manhattanLength() >= QApplication::startDragDistance());
+    }
+    // Don't pass the event to the base class until we consider
+    // that the mouse has moved. This prevents menu items from
+    // being highlighted too early.
+    if (m_mouseMoved) {
+        QMenu::mouseMoveEvent(event);
+    }
+}
+
 void KUrlNavigatorMenu::mouseReleaseEvent(QMouseEvent *event)
 {
-    QAction *action = actionAt(event->pos());
-    if (action != nullptr) {
-        Qt::MouseButton btn = event->button();
-        emit mouseButtonClicked(action, btn);
+    Qt::MouseButton btn = event->button();
+    // Since menu is opened on mouse press, we may receive
+    // the corresponding mouse release event. Let's ignore
+    // it unless mouse was moved.
+    if (m_mouseMoved || (btn != Qt::LeftButton)) {
+        QAction *action = actionAt(event->pos());
+        if (action != nullptr) {
+            emit mouseButtonClicked(action, btn);
+        }
+        QMenu::mouseReleaseEvent(event);
     }
-    QMenu::mouseReleaseEvent(event);
+    m_mouseMoved = true;
 }
 
 } // namespace KDEPrivate
