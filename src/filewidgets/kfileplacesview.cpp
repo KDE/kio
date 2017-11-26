@@ -29,6 +29,7 @@
 #include <QApplication>
 #include <QMenu>
 #include <QScrollBar>
+#include <QUrlQuery>
 
 #include <QDebug>
 
@@ -494,6 +495,13 @@ public:
     int insertIndicatorHeight(int itemHeight) const;
     void fadeCapacityBar(const QModelIndex &index, FadeType fadeType);
     int sectionsCount() const;
+
+    // based on dolphin urls
+    QUrl convertUrl(const QUrl &url) const;
+    QUrl createTimelineUrl(const QUrl &url) const;
+    QUrl createSearchUrl(const QUrl &url) const;
+    QString timelineDateString(int year, int month, int day = 0) const;
+    QUrl searchUrlForType(const QString &type) const;
 
     void _k_placeClicked(const QModelIndex &index);
     void _k_placeEntered(const QModelIndex &index);
@@ -1086,7 +1094,7 @@ void KFilePlacesView::Private::setCurrentIndex(const QModelIndex &index)
     if (url.isValid()) {
         currentUrl = url;
         updateHiddenRows();
-        emit q->urlChanged(url);
+        emit q->urlChanged(convertUrl(url));
         if (showAll) {
             q->setShowAll(false);
         }
@@ -1270,6 +1278,98 @@ int KFilePlacesView::Private::sectionsCount() const
 
     return count;
 }
+
+QUrl KFilePlacesView::Private::convertUrl(const QUrl &url) const
+{
+    QUrl newUrl = url;
+    if (url.scheme() == QLatin1String("timeline")) {
+        newUrl = createTimelineUrl(url);
+    } else if (url.scheme() == QLatin1String("search")) {
+        newUrl = createSearchUrl(url);
+    }
+
+    return newUrl;
+}
+
+QUrl KFilePlacesView::Private::createTimelineUrl(const QUrl &url) const
+{
+    // based on dolphin urls
+    const QString timelinePrefix = QStringLiteral("timeline:") + QLatin1Char('/');
+    QUrl timelineUrl;
+
+    const QString path = url.toDisplayString(QUrl::PreferLocalFile);
+    if (path.endsWith(QLatin1String("/yesterday"))) {
+        const QDate date = QDate::currentDate().addDays(-1);
+        const int year = date.year();
+        const int month = date.month();
+        const int day = date.day();
+
+        timelineUrl = QUrl(timelinePrefix + timelineDateString(year, month) +
+              '/' + timelineDateString(year, month, day));
+    } else if (path.endsWith(QLatin1String("/thismonth"))) {
+        const QDate date = QDate::currentDate();
+        timelineUrl = QUrl(timelinePrefix + timelineDateString(date.year(), date.month()));
+    } else if (path.endsWith(QLatin1String("/lastmonth"))) {
+        const QDate date = QDate::currentDate().addMonths(-1);
+        timelineUrl = QUrl(timelinePrefix + timelineDateString(date.year(), date.month()));
+    } else {
+        Q_ASSERT(path.endsWith(QLatin1String("/today")));
+        timelineUrl = url;
+    }
+
+    return timelineUrl;
+}
+
+QString KFilePlacesView::Private::timelineDateString(int year, int month, int day) const
+{
+    const QString dateFormat("%1-%2");
+
+    QString date = dateFormat.arg(year).arg(month, 2, 10, QChar('0'));
+    if (day > 0) {
+        date += QString("-%1").arg(day, 2, 10, QChar('0'));
+    }
+    return date;
+}
+
+QUrl KFilePlacesView::Private::createSearchUrl(const QUrl &url) const
+{
+    QUrl searchUrl;
+
+    const QString path = url.toDisplayString(QUrl::PreferLocalFile);
+
+    if (path.endsWith(QLatin1String("/documents"))) {
+        searchUrl = searchUrlForType(QStringLiteral("Document"));
+    } else if (path.endsWith(QLatin1String("/images"))) {
+        searchUrl = searchUrlForType(QStringLiteral("Image"));
+    } else if (path.endsWith(QLatin1String("/audio"))) {
+        searchUrl = searchUrlForType(QStringLiteral("Audio"));
+    } else if (path.endsWith(QLatin1String("/videos"))) {
+        searchUrl = searchUrlForType(QStringLiteral("Video"));
+    } else {
+        qWarning() << "Invalid search url:" << url;
+        searchUrl = url;
+    }
+
+    return searchUrl;
+}
+
+
+QUrl KFilePlacesView::Private::searchUrlForType(const QString& type) const
+{
+    const QString jsonQuery(QStringLiteral("{\"dayFilter\": 0,\
+                                             \"monthFilter\": 0, \
+                                             \"yearFilter\": 0, \
+                                             \"type\": [ \"%1\"]}"));
+    QUrl url;
+    url.setScheme(QStringLiteral("baloosearch"));
+
+    QUrlQuery urlQuery;
+    urlQuery.addQueryItem(QStringLiteral("json"), jsonQuery.arg(type).simplified());
+    url.setQuery(urlQuery);
+
+    return url;
+}
+
 
 void KFilePlacesView::Private::_k_placeClicked(const QModelIndex &index)
 {

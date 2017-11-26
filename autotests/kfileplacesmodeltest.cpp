@@ -25,6 +25,8 @@
 #include <QDebug>
 #include <kfileplacesmodel.h>
 #include <solid/device.h>
+#include <kconfig.h>
+#include <kconfiggroup.h>
 
 #include <QtTest/QtTest>
 
@@ -66,6 +68,7 @@ private Q_SLOTS:
     void testDevicePlugging();
     void testDragAndDrop();
     void testDeviceSetupTeardown();
+    void testEnableBaloo();
 
 private:
     QStringList placesUrls() const;
@@ -92,6 +95,12 @@ void KFilePlacesModelTest::initTestCase()
 
     // Ensure we'll have a clean bookmark file to start
     QFile::remove(bookmarksFile());
+
+    // disable baloo by default
+    KConfig config(QStringLiteral("baloofilerc"));
+    KConfigGroup basicSettings = config.group("Basic Settings");
+    basicSettings.writeEntry("Indexing-Enabled", false);
+    config.sync();
 
     qRegisterMetaType<QModelIndex>();
     const QString fakeHw = QFINDTESTDATA("fakecomputer.xml");
@@ -694,6 +703,31 @@ void KFilePlacesModelTest::testDeviceSetupTeardown()
     args = spy_changed.takeFirst();
     QCOMPARE(args.at(0).toModelIndex().row(), 6);
     QCOMPARE(args.at(1).toModelIndex().row(), 6);
+}
+
+void KFilePlacesModelTest::testEnableBaloo()
+{
+    KConfig config(QStringLiteral("baloofilerc"));
+    KConfigGroup basicSettings = config.group("Basic Settings");
+    basicSettings.writeEntry("Indexing-Enabled", true);
+    config.sync();
+
+    KFilePlacesModel places_with_baloo;
+    QStringList urls;
+     for (int row = 0; row < places_with_baloo.rowCount(); ++row) {
+         QModelIndex index = places_with_baloo.index(row, 0);
+         urls << places_with_baloo.url(index).toDisplayString(QUrl::PreferLocalFile);
+    }
+
+    QVERIFY(urls.contains("timeline:/today"));
+    QVERIFY(urls.contains("timeline:/yesterday"));
+    QVERIFY(urls.contains("timeline:/thismonth"));
+    QVERIFY(urls.contains("timeline:/lastmonth"));
+
+    QVERIFY(urls.contains("search:/documents"));
+    QVERIFY(urls.contains("search:/images"));
+    QVERIFY(urls.contains("search:/audio"));
+    QVERIFY(urls.contains("search:/videos"));
 }
 
 QTEST_MAIN(KFilePlacesModelTest)

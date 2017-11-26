@@ -46,6 +46,9 @@
 #include <kio/job.h>
 #include <kprotocolinfo.h>
 
+#include <kconfig.h>
+#include <kconfiggroup.h>
+
 #include <solid/devicenotifier.h>
 #include <solid/storageaccess.h>
 #include <solid/storagedrive.h>
@@ -56,10 +59,25 @@
 #include <solid/predicate.h>
 #include <qstandardpaths.h>
 
+namespace {
+    static bool isFileIndexingEnabled()
+    {
+        KConfig config(QStringLiteral("baloofilerc"));
+        KConfigGroup basicSettings = config.group("Basic Settings");
+        return basicSettings.readEntry("Indexing-Enabled", true);
+    }
+}
+
 class Q_DECL_HIDDEN KFilePlacesModel::Private
 {
 public:
-    Private(KFilePlacesModel *self) : q(self), bookmarkManager(nullptr) {}
+    Private(KFilePlacesModel *self)
+        : q(self),
+          bookmarkManager(nullptr),
+          fileIndexingEnabled(isFileIndexingEnabled())
+    {
+    }
+
     ~Private()
     {
         qDeleteAll(items);
@@ -74,6 +92,8 @@ public:
     Solid::Predicate predicate;
     KBookmarkManager *bookmarkManager;
 
+    const bool fileIndexingEnabled;
+
     void reloadAndSignal();
     QList<KFilePlacesItem *> loadBookmarkList();
 
@@ -84,6 +104,9 @@ public:
     void _k_reloadBookmarks();
     void _k_storageSetupDone(Solid::ErrorType error, QVariant errorData);
     void _k_storageTeardownDone(Solid::ErrorType error, QVariant errorData);
+
+private:
+    bool isBalooUrl(const QUrl &url) const;
 };
 
 KFilePlacesModel::KFilePlacesModel(QObject *parent)
@@ -131,6 +154,39 @@ KFilePlacesModel::KFilePlacesModel(QObject *parent)
         // will always return false, which opening/closing all the time the open/save dialog would case the
         // bookmarks to be added once each time, having lots of times each bookmark. (ereslibre)
         d->bookmarkManager->saveAs(file);
+    }
+
+    // if baloo is enabled, add new urls even if the bookmark file is not empty
+    if (d->fileIndexingEnabled &&
+        root.metaDataItem(QStringLiteral("withBaloo")) != QLatin1String("true")) {
+
+        root.setMetaDataItem(QStringLiteral("withBaloo"), QStringLiteral("true"));
+        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
+                                              QStringLiteral("Today"), I18N_NOOP2("KFile System Bookmarks", "Today"),
+                                              QUrl(QStringLiteral("timeline:/today")),  QStringLiteral("go-jump-today"));
+        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
+                                              QStringLiteral("Yesterday"), I18N_NOOP2("KFile System Bookmarks", "Yesterday"),
+                                              QUrl(QStringLiteral("timeline:/yesterday")),  QStringLiteral("view-calendar-day"));
+        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
+                                              QStringLiteral("This Month"), I18N_NOOP2("KFile System Bookmarks", "This Month"),
+                                              QUrl(QStringLiteral("timeline:/thismonth")),  QStringLiteral("view-calendar-month"));
+        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
+                                              QStringLiteral("Last Month"), I18N_NOOP2("KFile System Bookmarks", "Last Month"),
+                                              QUrl(QStringLiteral("timeline:/lastmonth")),  QStringLiteral("view-calendar-month"));
+        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
+                                              QStringLiteral("Documents"), I18N_NOOP2("KFile System Bookmarks", "Documents"),
+                                             QUrl(QStringLiteral("search:/documents")),  QStringLiteral("folder-text"));
+        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
+                                              QStringLiteral("Images"), I18N_NOOP2("KFile System Bookmarks", "Images"),
+                                              QUrl(QStringLiteral("search:/images")),  QStringLiteral("folder-images"));
+        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
+                                              QStringLiteral("Audio Files"), I18N_NOOP2("KFile System Bookmarks", "Audio Files"),
+                                              QUrl(QStringLiteral("search:/audio")),  QStringLiteral("folder-sound"));
+        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
+                                              QStringLiteral("Videos"), I18N_NOOP2("KFile System Bookmarks", "Videos"),
+                                              QUrl(QStringLiteral("search:/videos")),  QStringLiteral("folder-videos"));
+
+        d->bookmarkManager->save();
     }
 
     QString predicate(QString::fromLatin1("[[[[ StorageVolume.ignored == false AND [ StorageVolume.usage == 'FileSystem' OR StorageVolume.usage == 'Encrypted' ]]"
@@ -422,6 +478,13 @@ void KFilePlacesModel::Private::_k_reloadBookmarks()
     currentItems.clear();
 }
 
+bool KFilePlacesModel::Private::isBalooUrl(const QUrl &url) const
+{
+    const QString scheme = url.scheme();
+    return ((scheme == QLatin1String("timeline")) ||
+            (scheme == QLatin1String("search")));
+}
+
 QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
 {
     QList<KFilePlacesItem *> items;
@@ -433,15 +496,18 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
     while (!bookmark.isNull()) {
         QString udi = bookmark.metaDataItem(QStringLiteral("UDI"));
         QString appName = bookmark.metaDataItem(QStringLiteral("OnlyInApp"));
+        QUrl url = bookmark.url();
         auto it = std::find(devices.begin(), devices.end(), udi);
         bool deviceAvailable = (it != devices.end());
         if (it != devices.end()) {
             devices.erase(it);
         }
 
-        bool allowedHere = appName.isEmpty() || (appName == QCoreApplication::instance()->applicationName());
+        bool allowedHere = appName.isEmpty() || (appName == QCoreApplication::instance()->applicationName());        
+        bool isSupportedUrl = isBalooUrl(url) ? fileIndexingEnabled : true;
 
-        if ((udi.isEmpty() && allowedHere) || deviceAvailable) {
+        if ((isSupportedUrl && udi.isEmpty() && allowedHere) || deviceAvailable) {
+
             KFilePlacesItem *item;
             if (deviceAvailable) {
                 item = new KFilePlacesItem(bookmarkManager, bookmark.address(), udi);
