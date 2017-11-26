@@ -28,6 +28,7 @@
 #include <klocalizedstring.h>
 #include <KConfig>
 #include <KConfigGroup>
+#include <kprotocolinfo.h>
 #include <solid/block.h>
 #include <solid/opticaldisc.h>
 #include <solid/opticaldrive.h>
@@ -105,6 +106,9 @@ void KFilePlacesItem::setBookmark(const KBookmark &bookmark)
     case PlacesType:
         m_groupName = i18nc("@item", "Places");
         break;
+    case RemoteType:
+        m_groupName = i18nc("@item", "Remote");
+        break;
     case RecentlySavedType:
         m_groupName = i18nc("@item", "Recently Saved");
         break;
@@ -158,7 +162,12 @@ KFilePlacesItem::GroupType KFilePlacesItem::groupType() const
             return DevicesType;
         }
 
-        return PlacesType;
+        if (protocol == QLatin1String("remote") ||
+            KProtocolInfo::protocolClass(protocol) != QLatin1String(":local")) {
+            return RemoteType;
+        } else {
+            return PlacesType;
+        }
     }
 
     if (m_drive && (m_drive->isHotpluggable() || m_drive->isRemovable())) {

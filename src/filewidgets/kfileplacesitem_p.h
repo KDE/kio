@@ -44,11 +44,12 @@ class KFilePlacesItem : public QObject
 public:
     enum GroupType
     {
-        PlacesType = 0,
-        RecentlySavedType = 1,
-        SearchForType = 2,
-        DevicesType = 3,
-        RemovableDevicesType = 4
+        PlacesType,
+        RemoteType,
+        RecentlySavedType,
+        SearchForType,
+        DevicesType,
+        RemovableDevicesType
     };
 
     KFilePlacesItem(KBookmarkManager *manager,
