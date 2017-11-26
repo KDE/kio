@@ -44,8 +44,9 @@ KFilePlacesItem::KFilePlacesItem(KBookmarkManager *manager,
                                  const QString &address,
                                  const QString &udi)
     : m_manager(manager), m_folderIsEmpty(true), m_isCdrom(false),
-      m_isAccessible(false), m_device(udi)
+      m_isAccessible(false)
 {
+    updateDeviceInfo(udi);
     setBookmark(m_manager->findByAddress(address));
 
     if (udi.isEmpty() && m_bookmark.metaDataItem(QStringLiteral("ID")).isEmpty()) {
@@ -56,18 +57,6 @@ KFilePlacesItem::KFilePlacesItem(KBookmarkManager *manager,
             const KConfigGroup group = cfg.group("Status");
             m_folderIsEmpty = group.readEntry("Empty", true);
         }
-    } else if (!udi.isEmpty() && m_device.isValid()) {
-        m_access = m_device.as<Solid::StorageAccess>();
-        m_volume = m_device.as<Solid::StorageVolume>();
-        m_disc = m_device.as<Solid::OpticalDisc>();
-        m_mtp = m_device.as<Solid::PortableMediaPlayer>();
-        if (m_access) {
-            connect(m_access, SIGNAL(accessibilityChanged(bool,QString)),
-                    this, SLOT(onAccessibilityChanged(bool)));
-            onAccessibilityChanged(m_access->isAccessible());
-        }
-        m_iconPath = m_device.icon();
-        m_emblems = m_device.emblems();
     }
 }
 
@@ -98,6 +87,8 @@ void KFilePlacesItem::setBookmark(const KBookmark &bookmark)
 {
     m_bookmark = bookmark;
 
+    updateDeviceInfo(m_bookmark.metaDataItem(QStringLiteral("UDI")));
+
     if (bookmark.metaDataItem(QStringLiteral("isSystemItem")) == QLatin1String("true")) {
         // This context must stay as it is - the translated system bookmark names
         // are created with 'KFile System Bookmarks' as their context, so this
@@ -123,6 +114,9 @@ void KFilePlacesItem::setBookmark(const KBookmark &bookmark)
     case DevicesType:
         m_groupName = i18nc("@item", "Devices");
         break;
+    case RemovableDevicesType:
+        m_groupName = i18nc("@item", "Removable Devices");
+        break;
     default:
         Q_UNREACHABLE();
         break;
@@ -131,20 +125,6 @@ void KFilePlacesItem::setBookmark(const KBookmark &bookmark)
 
 Solid::Device KFilePlacesItem::device() const
 {
-    if (m_device.udi().isEmpty()) {
-        m_device = Solid::Device(bookmark().metaDataItem(QStringLiteral("UDI")));
-        if (m_device.isValid()) {
-            m_access = m_device.as<Solid::StorageAccess>();
-            m_volume = m_device.as<Solid::StorageVolume>();
-            m_disc = m_device.as<Solid::OpticalDisc>();
-            m_mtp = m_device.as<Solid::PortableMediaPlayer>();
-        } else {
-            m_access = nullptr;
-            m_volume = nullptr;
-            m_disc = nullptr;
-            m_mtp = nullptr;
-        }
-    }
     return m_device;
 }
 
@@ -181,7 +161,11 @@ KFilePlacesItem::GroupType KFilePlacesItem::groupType() const
         return PlacesType;
     }
 
-    return DevicesType;
+    if (m_drive && (m_drive->isHotpluggable() || m_drive->isRemovable())) {
+        return RemovableDevicesType;
+    } else {
+        return DevicesType;
+    }
 }
 
 QVariant KFilePlacesItem::bookmarkData(int role) const
@@ -251,14 +235,8 @@ QVariant KFilePlacesItem::deviceData(int role) const
             }
 
         case KFilePlacesModel::FixedDeviceRole: {
-            Solid::StorageDrive *drive = nullptr;
-            Solid::Device parentDevice = m_device;
-            while (parentDevice.isValid() && !drive) {
-                drive = parentDevice.as<Solid::StorageDrive>();
-                parentDevice = parentDevice.parent();
-            }
-            if (drive != nullptr) {
-                return !drive->isHotpluggable() && !drive->isRemovable();
+            if (m_drive != nullptr) {
+                return !m_drive->isHotpluggable() && !m_drive->isRemovable();
             }
             return true;
         }
@@ -342,6 +320,50 @@ QString KFilePlacesItem::generateNewId()
 
 //    return QString::number(QDateTime::currentDateTime().toTime_t())
 //         + '/' + QString::number(qrand());
+}
+
+bool KFilePlacesItem::updateDeviceInfo(const QString &udi)
+{
+    if (m_device.udi() == udi) {
+        return false;
+    }
+
+    if (m_access) {
+        m_access->disconnect(this);
+    }
+
+    m_device = Solid::Device(udi);
+    if (m_device.isValid()) {
+        m_access = m_device.as<Solid::StorageAccess>();
+        m_volume = m_device.as<Solid::StorageVolume>();
+        m_disc = m_device.as<Solid::OpticalDisc>();
+        m_mtp = m_device.as<Solid::PortableMediaPlayer>();
+        m_iconPath = m_device.icon();
+        m_emblems = m_device.emblems();
+
+        m_drive = nullptr;
+        Solid::Device parentDevice = m_device;
+        while (parentDevice.isValid() && !m_drive) {
+            m_drive = parentDevice.as<Solid::StorageDrive>();
+            parentDevice = parentDevice.parent();
+        }
+
+        if (m_access) {
+            connect(m_access, &Solid::StorageAccess::accessibilityChanged,
+                    this, &KFilePlacesItem::onAccessibilityChanged);
+            onAccessibilityChanged(m_access->isAccessible());
+        }
+    } else {
+        m_access = nullptr;
+        m_volume = nullptr;
+        m_disc = nullptr;
+        m_mtp = nullptr;
+        m_drive = nullptr;
+        m_iconPath.clear();
+        m_emblems.clear();
+    }
+
+    return true;
 }
 
 void KFilePlacesItem::onAccessibilityChanged(bool isAccessible)

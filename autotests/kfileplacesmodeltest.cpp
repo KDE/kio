@@ -178,7 +178,8 @@ void KFilePlacesModelTest::testInitialState()
 static const QStringList initialListOfUrls()
 {
     return QStringList() << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/")
-                         << QStringLiteral("/media/nfs") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom") << QStringLiteral("/foreign");
+                         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign")
+                         << QStringLiteral("/media/floppy0")  << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom");
 }
 
 void KFilePlacesModelTest::testInitialList()
@@ -339,7 +340,8 @@ void KFilePlacesModelTest::testMove()
 
     QStringList urls;
     urls << QDir::homePath() << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/") << QStringLiteral("remote:/")
-         << QStringLiteral("/media/nfs") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom") << QStringLiteral("/foreign");
+         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign")
+         << QStringLiteral("/media/floppy0")  << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom");
 
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 1);
@@ -359,7 +361,8 @@ void KFilePlacesModelTest::testMove()
 
     urls.clear();
     urls << QStringLiteral("remote:/") << QDir::homePath() << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/")
-         << QStringLiteral("/media/nfs") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom") << QStringLiteral("/foreign");
+         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign")
+         << QStringLiteral("/media/floppy0")  << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom");
 
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 1);
@@ -378,7 +381,8 @@ void KFilePlacesModelTest::testMove()
     bookmarkManager->emitChanged(root);
     urls.clear();
     urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/")
-         << QStringLiteral("/media/nfs") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom") << QStringLiteral("/foreign");
+         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign")
+         << QStringLiteral("/media/floppy0")  << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom");
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 1);
     args = spy_inserted.takeFirst();
@@ -410,7 +414,8 @@ void KFilePlacesModelTest::testDragAndDrop()
 
     QStringList urls;
     urls << QDir::homePath() << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/") << QStringLiteral("remote:/")
-         << QStringLiteral("/media/nfs") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom") << QStringLiteral("/foreign");
+         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign")
+         << QStringLiteral("/media/floppy0")  << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom");
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 0);
     QCOMPARE(spy_removed.count(), 0);
@@ -430,7 +435,8 @@ void KFilePlacesModelTest::testDragAndDrop()
 
     urls.clear();
     urls << QStringLiteral("remote:/") << QDir::homePath() << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/")
-         << QStringLiteral("/media/nfs") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom") << QStringLiteral("/foreign");
+         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign")
+         << QStringLiteral("/media/floppy0")  << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom");
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 0);
     QCOMPARE(spy_removed.count(), 0);
@@ -450,7 +456,8 @@ void KFilePlacesModelTest::testDragAndDrop()
 
     urls.clear();
     urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/")
-         << QStringLiteral("/media/nfs") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom") << QStringLiteral("/foreign");
+         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign")
+         << QStringLiteral("/media/floppy0")  << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom");
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 0);
     QCOMPARE(spy_removed.count(), 0);
@@ -484,7 +491,8 @@ void KFilePlacesModelTest::testPlacesLifecycle()
 
     QStringList urls;
     urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/") <<  QStringLiteral("/home/foo")
-         << QStringLiteral("/media/nfs") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom") << QStringLiteral("/foreign");
+         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign")
+         << QStringLiteral("/media/floppy0")  << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom");
 
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 1);
@@ -503,8 +511,9 @@ void KFilePlacesModelTest::testPlacesLifecycle()
     bookmarkManager->emitChanged(root);
 
     urls.clear();
-    urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("/home/foo")
-         << QStringLiteral("trash:/") << QStringLiteral("/media/nfs") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom") << QStringLiteral("/foreign");
+    urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("/home/foo") << QStringLiteral("trash:/")
+         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign")
+         << QStringLiteral("/media/floppy0")  << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom");
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 1);
     args = spy_inserted.takeFirst();
@@ -520,8 +529,9 @@ void KFilePlacesModelTest::testPlacesLifecycle()
     m_places->editPlace(m_places->index(3, 0), QStringLiteral("Foo"), QUrl::fromLocalFile(QStringLiteral("/mnt/foo")));
 
     urls.clear();
-    urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("/mnt/foo")
-         << QStringLiteral("trash:/") << QStringLiteral("/media/nfs") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom") << QStringLiteral("/foreign");
+    urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("/mnt/foo") << QStringLiteral("trash:/")
+         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign")
+         << QStringLiteral("/media/floppy0")  << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom");
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 0);
     QCOMPARE(spy_removed.count(), 0);
@@ -535,8 +545,9 @@ void KFilePlacesModelTest::testPlacesLifecycle()
     bookmarkManager->notifyCompleteChange(QString());
 
     urls.clear();
-    urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("/mnt/foo")
-         << QStringLiteral("trash:/") << QStringLiteral("/media/nfs") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom") << QStringLiteral("/foreign");
+    urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("/mnt/foo") << QStringLiteral("trash:/")
+         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign")
+         << QStringLiteral("/media/floppy0")  << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom");
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 0);
     QCOMPARE(spy_removed.count(), 0);
@@ -550,7 +561,8 @@ void KFilePlacesModelTest::testPlacesLifecycle()
 
     urls.clear();
     urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/")
-         << QStringLiteral("/media/nfs") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom") << QStringLiteral("/foreign");
+         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign")
+         << QStringLiteral("/media/floppy0")  << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom");
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 0);
     QCOMPARE(spy_removed.count(), 1);
@@ -562,9 +574,9 @@ void KFilePlacesModelTest::testPlacesLifecycle()
     m_places->addPlace(QStringLiteral("Foo"), QUrl::fromLocalFile(QStringLiteral("/home/foo")), QString(), QString(), m_places->index(1, 0));
 
     urls.clear();
-    urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral("/home/foo") << QStringLiteral(KDE_ROOT_PATH)
-         << QStringLiteral("trash:/") << QStringLiteral("/media/nfs") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom") << QStringLiteral("/foreign");
-
+    urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral("/home/foo") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/")
+         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign")
+         << QStringLiteral("/media/floppy0")  << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom");
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 1);
     args = spy_inserted.takeFirst();
@@ -586,80 +598,91 @@ void KFilePlacesModelTest::testDevicePlugging()
 
     QStringList urls;
     urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/")
-         << QStringLiteral("/media/nfs") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/cdrom") << QStringLiteral("/foreign");
+         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign")
+         << QStringLiteral("/media/floppy0")  << QStringLiteral("/media/cdrom");
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 0);
-    QCOMPARE(spy_removed.count(), 1);
-    args = spy_removed.takeFirst();
-    QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 6);
-    QCOMPARE(args.at(2).toInt(), 6);
-
-    fakeManager()->call(QStringLiteral("plug"), "/org/kde/solid/fakehw/volume_part1_size_993284096");
-
-    urls.clear();
-    urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/")
-         << QStringLiteral("/media/nfs") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom") << QStringLiteral("/foreign");
-    CHECK_PLACES_URLS(urls);
-    QCOMPARE(spy_inserted.count(), 1);
-    args = spy_inserted.takeFirst();
-    QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 6);
-    QCOMPARE(args.at(2).toInt(), 6);
-    QCOMPARE(spy_removed.count(), 0);
-
-    // Move the device in the list, and check that it memorizes the position across plug/unplug
-
-    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile(), QStringLiteral("kfilePlaces"));
-    KBookmarkGroup root = bookmarkManager->root();
-    KBookmark before_nfs = m_places->bookmarkForIndex(m_places->index(3, 0));
-    KBookmark device = root.first(); // The device we'll move is the 7th bookmark
-    for (int i = 0; i < 6; i++) {
-        device = root.next(device);
-    }
-
-    root.moveBookmark(device, before_nfs);
-    bookmarkManager->emitChanged(root);
-
-    urls.clear();
-    urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/")
-         << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/nfs") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/cdrom") << QStringLiteral("/foreign");
-    CHECK_PLACES_URLS(urls);
-    QCOMPARE(spy_inserted.count(), 1);
-    args = spy_inserted.takeFirst();
-    QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 4);
-    QCOMPARE(args.at(2).toInt(), 4);
     QCOMPARE(spy_removed.count(), 1);
     args = spy_removed.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
     QCOMPARE(args.at(1).toInt(), 7);
     QCOMPARE(args.at(2).toInt(), 7);
 
+    fakeManager()->call(QStringLiteral("plug"), "/org/kde/solid/fakehw/volume_part1_size_993284096");
+
+    urls.clear();
+    urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/")
+         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign")
+         << QStringLiteral("/media/floppy0") << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom");
+    CHECK_PLACES_URLS(urls);
+    QCOMPARE(spy_inserted.count(), 1);
+    args = spy_inserted.takeFirst();
+    QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
+    QCOMPARE(args.at(1).toInt(), 7);
+    QCOMPARE(args.at(2).toInt(), 7);
+    QCOMPARE(spy_removed.count(), 0);
+
+    // Move the device in the list, and check that it memorizes the position across plug/unplug
+
+    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile(), QStringLiteral("kfilePlaces"));
+    KBookmarkGroup root = bookmarkManager->root();
+    KBookmark before_floppy;
+
+    KBookmark device = root.first(); // The device we'll move is the 7th bookmark
+    for (int i = 0; i < 6; i++) {
+        if (i == 3) {
+            // store item before to be able to move it back to original position
+            device = before_floppy = root.next(device);
+        } else {
+            device = root.next(device);
+        }
+    }
+
+    root.moveBookmark(device, before_floppy);
+    bookmarkManager->emitChanged(root);
+
+    urls.clear();
+    urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/")
+         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign")
+         << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/cdrom");
+    CHECK_PLACES_URLS(urls);
+    QCOMPARE(spy_inserted.count(), 1);
+    args = spy_inserted.takeFirst();
+    QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
+    QCOMPARE(args.at(1).toInt(), 7);
+    QCOMPARE(args.at(2).toInt(), 7);
+    QCOMPARE(spy_removed.count(), 1);
+    args = spy_removed.takeFirst();
+    QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
+    QCOMPARE(args.at(1).toInt(), 6);
+    QCOMPARE(args.at(2).toInt(), 6);
+
     fakeManager()->call(QStringLiteral("unplug"), "/org/kde/solid/fakehw/volume_part1_size_993284096");
 
     urls.clear();
-    urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral(KDE_ROOT_PATH)
-         << QStringLiteral("trash:/") << QStringLiteral("/media/nfs") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/cdrom") << QStringLiteral("/foreign");
+    urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/")
+         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign")
+         << QStringLiteral("/media/floppy0") << QStringLiteral("/media/cdrom");
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 0);
     QCOMPARE(spy_removed.count(), 1);
     args = spy_removed.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 4);
-    QCOMPARE(args.at(2).toInt(), 4);
+    QCOMPARE(args.at(1).toInt(), 6);
+    QCOMPARE(args.at(2).toInt(), 6);
 
     fakeManager()->call(QStringLiteral("plug"), "/org/kde/solid/fakehw/volume_part1_size_993284096");
 
     urls.clear();
     urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/")
-         << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/nfs") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/cdrom") << QStringLiteral("/foreign");
+         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign") << QStringLiteral("/media/XO-Y4")
+         << QStringLiteral("/media/floppy0") << QStringLiteral("/media/cdrom");
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 1);
     args = spy_inserted.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 4);
-    QCOMPARE(args.at(2).toInt(), 4);
+    QCOMPARE(args.at(1).toInt(), 6);
+    QCOMPARE(args.at(2).toInt(), 6);
     QCOMPARE(spy_removed.count(), 0);
 
     KBookmark seventh = root.first();
@@ -671,18 +694,19 @@ void KFilePlacesModelTest::testDevicePlugging()
 
     urls.clear();
     urls << QDir::homePath() << QStringLiteral("remote:/") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/")
-         << QStringLiteral("/media/nfs") << QStringLiteral("/media/floppy0") << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom") << QStringLiteral("/foreign");
+         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign")
+         << QStringLiteral("/media/floppy0") << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom");
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 1);
     args = spy_inserted.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 6);
-    QCOMPARE(args.at(2).toInt(), 6);
+    QCOMPARE(args.at(1).toInt(), 7);
+    QCOMPARE(args.at(2).toInt(), 7);
     QCOMPARE(spy_removed.count(), 1);
     args = spy_removed.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 4);
-    QCOMPARE(args.at(2).toInt(), 4);
+    QCOMPARE(args.at(1).toInt(), 6);
+    QCOMPARE(args.at(2).toInt(), 6);
 }
 
 void KFilePlacesModelTest::testDeviceSetupTeardown()
@@ -694,15 +718,15 @@ void KFilePlacesModelTest::testDeviceSetupTeardown()
 
     QCOMPARE(spy_changed.count(), 1);
     args = spy_changed.takeFirst();
-    QCOMPARE(args.at(0).toModelIndex().row(), 6);
-    QCOMPARE(args.at(1).toModelIndex().row(), 6);
+    QCOMPARE(args.at(0).toModelIndex().row(), 7);
+    QCOMPARE(args.at(1).toModelIndex().row(), 7);
 
     fakeDevice(QStringLiteral("/org/kde/solid/fakehw/volume_part1_size_993284096/StorageAccess"))->call(QStringLiteral("setup"));
 
     QCOMPARE(spy_changed.count(), 1);
     args = spy_changed.takeFirst();
-    QCOMPARE(args.at(0).toModelIndex().row(), 6);
-    QCOMPARE(args.at(1).toModelIndex().row(), 6);
+    QCOMPARE(args.at(0).toModelIndex().row(), 7);
+    QCOMPARE(args.at(1).toModelIndex().row(), 7);
 }
 
 void KFilePlacesModelTest::testEnableBaloo()

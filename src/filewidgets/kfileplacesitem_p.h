@@ -33,6 +33,7 @@ namespace Solid
 {
 class StorageAccess;
 class StorageVolume;
+class StorageDrive;
 class OpticalDisc;
 class PortableMediaPlayer;
 }
@@ -46,7 +47,8 @@ public:
         PlacesType = 0,
         RecentlySavedType = 1,
         SearchForType = 2,
-        DevicesType = 3
+        DevicesType = 3,
+        RemovableDevicesType = 4
     };
 
     KFilePlacesItem(KBookmarkManager *manager,
@@ -89,6 +91,7 @@ private:
     QString iconNameForBookmark(const KBookmark &bookmark) const;
 
     static QString generateNewId();
+    bool updateDeviceInfo(const QString &udi);
 
     KBookmarkManager *m_manager;
     KBookmark m_bookmark;
@@ -96,11 +99,12 @@ private:
     bool m_isCdrom;
     bool m_isAccessible;
     QString m_text;
-    mutable Solid::Device m_device;
-    mutable QPointer<Solid::StorageAccess> m_access;
-    mutable QPointer<Solid::StorageVolume> m_volume;
-    mutable QPointer<Solid::OpticalDisc> m_disc;
-    mutable QPointer<Solid::PortableMediaPlayer> m_mtp;
+    Solid::Device m_device;
+    QPointer<Solid::StorageAccess> m_access;
+    QPointer<Solid::StorageVolume> m_volume;
+    QPointer<Solid::StorageDrive> m_drive;
+    QPointer<Solid::OpticalDisc> m_disc;
+    QPointer<Solid::PortableMediaPlayer> m_mtp;
     QString m_iconPath;
     QStringList m_emblems;
     QString m_groupName;
