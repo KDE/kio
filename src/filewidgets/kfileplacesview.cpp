@@ -509,6 +509,8 @@ public:
     int insertIndicatorHeight(int itemHeight) const;
     void fadeCapacityBar(const QModelIndex &index, FadeType fadeType);
     int sectionsCount() const;
+    void triggerItemAppearingAnimation();
+    void triggerItemDisappearingAnimation();
 
     void _k_placeClicked(const QModelIndex &index);
     void _k_placeEntered(const QModelIndex &index);
@@ -644,22 +646,13 @@ void KFilePlacesView::setUrl(const QUrl &url)
         if (current != index && placesModel->isHidden(current) && !d->showAll) {
             KFilePlacesViewDelegate *delegate = static_cast<KFilePlacesViewDelegate *>(itemDelegate());
             delegate->addDisappearingItem(current);
-
-            if (d->itemDisappearTimeline.state() != QTimeLine::Running) {
-                delegate->setDisappearingItemProgress(0.0);
-                d->itemDisappearTimeline.start();
-            }
+            d->triggerItemDisappearingAnimation();
         }
 
         if (current != index && placesModel->isHidden(index) && !d->showAll) {
             KFilePlacesViewDelegate *delegate = static_cast<KFilePlacesViewDelegate *>(itemDelegate());
             delegate->addAppearingItem(index);
-
-            if (d->itemAppearTimeline.state() != QTimeLine::Running) {
-                delegate->setAppearingItemProgress(0.0);
-                d->itemAppearTimeline.start();
-            }
-
+            d->triggerItemAppearingAnimation();
             setRowHidden(index.row(), false);
         }
 
@@ -699,11 +692,7 @@ void KFilePlacesView::setShowAll(bool showAll)
                 delegate->addAppearingItem(index);
             }
         }
-
-        if (d->itemAppearTimeline.state() != QTimeLine::Running) {
-            delegate->setAppearingItemProgress(0.0);
-            d->itemAppearTimeline.start();
-        }
+        d->triggerItemAppearingAnimation();
     } else {
         for (int i = 0; i < rowCount; ++i) {
             QModelIndex index = placesModel->index(i, 0);
@@ -711,11 +700,7 @@ void KFilePlacesView::setShowAll(bool showAll)
                 delegate->addDisappearingItem(index);
             }
         }
-
-        if (d->itemDisappearTimeline.state() != QTimeLine::Running) {
-            delegate->setDisappearingItemProgress(0.0);
-            d->itemDisappearTimeline.start();
-        }
+        d->triggerItemDisappearingAnimation();
     }
 }
 
@@ -857,10 +842,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
 
         if (!d->showAll && hideSection->isChecked()) {
             delegate->addDisappearingItemGroup(index);
-            if (d->itemDisappearTimeline.state() != QTimeLine::Running) {
-                delegate->setDisappearingItemProgress(0.0);
-                d->itemDisappearTimeline.start();
-            }
+            d->triggerItemDisappearingAnimation();
         }
     } else if (hide && (result == hide)) {
         placesModel->setPlaceHidden(index, hide->isChecked());
@@ -868,11 +850,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
 
         if (index != current && !d->showAll && hide->isChecked()) {
             delegate->addDisappearingItem(index);
-
-            if (d->itemDisappearTimeline.state() != QTimeLine::Running) {
-                delegate->setDisappearingItemProgress(0.0);
-                d->itemDisappearTimeline.start();
-            }
+            d->triggerItemDisappearingAnimation();
         }
     } else if (showAll != nullptr && result == showAll) {
         setShowAll(showAll->isChecked());
@@ -1075,15 +1053,13 @@ void KFilePlacesView::rowsInserted(const QModelIndex &parent, int start, int end
         QModelIndex index = placesModel->index(i, 0, parent);
         if (d->showAll || !placesModel->isHidden(index)) {
             delegate->addAppearingItem(index);
+            d->triggerItemAppearingAnimation();
         } else {
             setRowHidden(i, true);
         }
     }
 
-    if (d->itemAppearTimeline.state() != QTimeLine::Running) {
-        delegate->setAppearingItemProgress(0.0);
-        d->itemAppearTimeline.start();
-    }
+    d->triggerItemAppearingAnimation();
 
     d->adaptItemSize();
 }
@@ -1305,6 +1281,22 @@ int KFilePlacesView::Private::sectionsCount() const
     }
 
     return count;
+}
+
+void KFilePlacesView::Private::triggerItemAppearingAnimation()
+{
+    if (itemAppearTimeline.state() != QTimeLine::Running) {
+        delegate->setAppearingItemProgress(0.0);
+        itemAppearTimeline.start();
+    }
+}
+
+void KFilePlacesView::Private::triggerItemDisappearingAnimation()
+{
+    if (itemDisappearTimeline.state() != QTimeLine::Running) {
+        delegate->setDisappearingItemProgress(0.0);
+        itemDisappearTimeline.start();
+    }
 }
 
 void KFilePlacesView::Private::_k_placeClicked(const QModelIndex &index)
