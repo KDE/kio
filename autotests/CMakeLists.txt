@@ -124,6 +124,9 @@ ecm_add_tests(
  NAME_PREFIX "kiofilewidgets-"
  LINK_LIBRARIES KF5::KIOFileWidgets KF5::KIOWidgets KF5::XmlGui KF5::Bookmarks Qt5::Test KF5::I18n
 )
+
+set_tests_properties(kiofilewidgets-kfileplacesmodeltest PROPERTIES RUN_SERIAL TRUE)
+set_tests_properties(kiofilewidgets-kfileplacesviewtest PROPERTIES RUN_SERIAL TRUE)
 endif()
 
 # this should be done by cmake, see bug 371721
