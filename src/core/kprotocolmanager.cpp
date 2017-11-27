@@ -431,14 +431,14 @@ int KProtocolManager::maxCacheAge()
 {
     PRIVATE_DATA;
     QMutexLocker lock(&d->mutex);
-    return http_config().readEntry("MaxCacheAge", DEFAULT_MAX_CACHE_AGE);   // 14 days
+    return http_config().readEntry("MaxCacheAge", DEFAULT_MAX_CACHE_AGE);
 }
 
 int KProtocolManager::maxCacheSize()
 {
     PRIVATE_DATA;
     QMutexLocker lock(&d->mutex);
-    return http_config().readEntry("MaxCacheSize", DEFAULT_MAX_CACHE_SIZE);   // 5 MB
+    return http_config().readEntry("MaxCacheSize", DEFAULT_MAX_CACHE_SIZE);
 }
 
 QString KProtocolManager::noProxyFor()
