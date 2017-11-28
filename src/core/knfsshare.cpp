@@ -18,6 +18,7 @@
 
 #include "knfsshare.h"
 
+#include <QFileInfo>
 #include <QSet>
 #include <QtCore/QFile>
 #include <QtCore/QMutableStringListIterator>
@@ -64,7 +65,7 @@ bool KNFSShare::KNFSSharePrivate::findExportsFile()
     KConfigGroup config(&knfsshare, "General");
     exportsFile = config.readPathEntry("exportsFile", QString());
 
-    if (QFile::exists(exportsFile)) {
+    if (!exportsFile.isEmpty() && QFileInfo::exists(exportsFile)) {
         return true;
     }
 
@@ -167,7 +168,7 @@ bool KNFSShare::KNFSSharePrivate::readExportsFile()
 KNFSShare::KNFSShare()
     : d(new KNFSSharePrivate(this))
 {
-    if (QFile::exists(d->exportsFile)) {
+    if (!d->exportsFile.isEmpty() && QFileInfo::exists(d->exportsFile)) {
         KDirWatch::self()->addFile(d->exportsFile);
         connect(KDirWatch::self(), SIGNAL(dirty(QString)), this,
                 SLOT(_k_slotFileChange(QString)));
