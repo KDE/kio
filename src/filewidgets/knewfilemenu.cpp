@@ -855,7 +855,7 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
                 }
             }
             url = baseUrl;
-            url.setPath(url.path() + '/' + name);
+            url.setPath(QDir::cleanPath(url.path() + '/' + name));
         }
     }
 

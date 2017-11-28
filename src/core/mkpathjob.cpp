@@ -25,6 +25,7 @@
 #include "mkdirjob.h"
 #include <QTimer>
 #include <QDebug>
+#include <QDir>
 #include <QFileInfo>
 
 using namespace KIO;
@@ -123,7 +124,7 @@ void MkpathJobPrivate::slotStart()
     }
 
     if (m_pathIterator != m_pathComponents.constEnd()) {
-        m_url.setPath(m_url.path() + '/' + *m_pathIterator);
+        m_url.setPath(QDir::cleanPath(m_url.path() + '/' + *m_pathIterator));
         KIO::Job* job = KIO::mkdir(m_url);
         q->addSubjob(job);
         q->setProcessedAmount(KJob::Directories, q->processedAmount(KJob::Directories) + 1);
