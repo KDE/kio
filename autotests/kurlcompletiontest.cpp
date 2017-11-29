@@ -170,17 +170,12 @@ void KUrlCompletionTest::testLocalRelativePath()
     QStringList compEmpty = m_completion->allMatches();
     QCOMPARE(compEmpty.count(), 0);
 
-    // Completion with '.', should find all hidden folders
-    // This is broken in Qt 5.2 to 5.5 due to aba336c2b4a in qtbase,
-    // fixed in https://codereview.qt-project.org/143134.
-#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 1)
     m_completion->makeCompletion(".");
     waitForCompletion(m_completion);
     const auto compAllHidden = m_completion->allMatches();
     QCOMPARE(compAllHidden.count(), 2);
     QVERIFY(compAllHidden.contains(".1_hidden_file_subdir/"));
     QVERIFY(compAllHidden.contains(".2_hidden_file_subdir/"));
-#endif
 
     // Completion with '.2', should find only hidden folders starting with '2'
     m_completion->makeCompletion(".2");
@@ -226,14 +221,12 @@ void KUrlCompletionTest::testLocalAbsolutePath()
     QCOMPARE(comp, QString(m_dir + "file#a"));
 
     // Completion with '.', should find all hidden folders
-#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 1)
     m_completion->makeCompletion(m_dir + ".");
     waitForCompletion(m_completion);
     const auto compAllHidden = m_completion->allMatches();
     QCOMPARE(compAllHidden.count(), 2);
     QVERIFY(compAllHidden.contains(m_dir + ".1_hidden_file_subdir/"));
     QVERIFY(compAllHidden.contains(m_dir + ".2_hidden_file_subdir/"));
-#endif
 
     // Completion with '.2', should find only hidden folders starting with '2'
     m_completion->makeCompletion(m_dir + ".2");
@@ -303,7 +296,6 @@ void KUrlCompletionTest::testLocalURL()
     QVERIFY(m_completion->allMatches().isEmpty());
 
     // Completion with '.', should find all hidden folders
-#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 1)
     qDebug() << "makeCompletion(" << (m_dirURL.toString() + ".") << ")";
     m_completion->makeCompletion(m_dirURL.toString() + ".");
     waitForCompletion(m_completion);
@@ -311,7 +303,6 @@ void KUrlCompletionTest::testLocalURL()
     QCOMPARE(compAllHidden.count(), 2);
     QVERIFY(compAllHidden.contains(m_dirURL.toString() + ".1_hidden_file_subdir/"));
     QVERIFY(compAllHidden.contains(m_dirURL.toString() + ".2_hidden_file_subdir/"));
-#endif
 
     // Completion with '.2', should find only hidden folders starting with '2'
     url = QUrl::fromLocalFile(m_dirURL.toLocalFile() + ".2");
