@@ -435,7 +435,7 @@ KSambaShare::KSambaShare()
     , d_ptr(new KSambaSharePrivate(this))
 {
     Q_D(const KSambaShare);
-    if (QFile::exists(d->userSharePath)) {
+    if (!d->userSharePath.isEmpty() && QFileInfo::exists(d->userSharePath)) {
         KDirWatch::self()->addDir(d->userSharePath, KDirWatch::WatchFiles);
         connect(KDirWatch::self(), SIGNAL(dirty(QString)), this,
                 SLOT(_k_slotFileChange(QString)));
