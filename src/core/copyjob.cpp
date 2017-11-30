@@ -1216,8 +1216,7 @@ void CopyJobPrivate::createNextDir()
         while (it != dirs.end() && udir.isEmpty()) {
             const QString dir = (*it).uDest.path();
             if (shouldSkip(dir)) {
-                dirs.erase(it);
-                it = dirs.begin();
+                it = dirs.erase(it);
             } else {
                 udir = (*it).uDest;
             }
@@ -1579,8 +1578,7 @@ void CopyJobPrivate::copyNextFile()
         const QString destFile = (*it).uDest.path();
         bCopyFile = !shouldSkip(destFile);
         if (!bCopyFile) {
-            files.erase(it);
-            it = files.begin();
+            it = files.erase(it);
         }
     }
 
