@@ -211,6 +211,7 @@ void KUriFilterTest::initTestCase()
 void KUriFilterTest::pluginNames()
 {
     const QStringList plugins = KUriFilter::self()->pluginNames();
+    qDebug() << plugins;
     const QByteArray debugString = plugins.join(',').toLatin1();
     // Because of possible duplicates in the list (on developer setups)
     // and to make it possible to have external plugins (if there's any...)
