@@ -481,6 +481,11 @@ KUriFilterPlugin::KUriFilterPlugin(const QString &name, QObject *parent)
     setObjectName(name);
 }
 
+// KF6 TODO
+//KUriFilterPlugin::~KUriFilterPlugin()
+//{
+//}
+
 KCModule *KUriFilterPlugin::configModule(QWidget *, const char *) const
 {
     return nullptr;
@@ -551,13 +556,10 @@ public:
     KUriFilterPrivate() {}
     ~KUriFilterPrivate()
     {
-        qDeleteAll(plugins);
-        plugins.clear();
+        qDeleteAll(pluginList);
+        pluginList.clear();
     }
-    QHash<QString, KUriFilterPlugin *> plugins;
-    // NOTE: DO NOT REMOVE this variable! Read the
-    // comments in KUriFilter::loadPlugins to understand why...
-    QStringList pluginNames;
+    QVector<KUriFilterPlugin *> pluginList;
 };
 
 class KUriFilterSingleton
@@ -588,21 +590,11 @@ bool KUriFilter::filterUri(KUriFilterData &data, const QStringList &filters)
 {
     bool filtered = false;
 
-    // If no specific filters were requested, iterate through all the plugins.
-    // Otherwise, only use available filters.
-    if (filters.isEmpty()) {
-        QStringListIterator it(d->pluginNames);
-        while (it.hasNext()) {
-            KUriFilterPlugin *plugin = d->plugins.value(it.next());
-            if (plugin &&  plugin->filterUri(data)) {
-                filtered = true;
-            }
-        }
-    } else {
-        QStringListIterator it(filters);
-        while (it.hasNext()) {
-            KUriFilterPlugin *plugin = d->plugins.value(it.next());
-            if (plugin &&  plugin->filterUri(data)) {
+    for (KUriFilterPlugin *plugin : d->pluginList) {
+        // If no specific filters were requested, iterate through all the plugins.
+        // Otherwise, only use available filters.
+        if (filters.isEmpty() || filters.contains(plugin->objectName())) {
+            if (plugin->filterUri(data)) {
                 filtered = true;
             }
         }
@@ -669,7 +661,10 @@ bool KUriFilter::filterSearchUri(KUriFilterData &data, SearchFilterTypes types)
 
 QStringList KUriFilter::pluginNames() const
 {
-    return d->pluginNames;
+    QStringList res;
+    res.reserve(d->pluginList.size());
+    std::transform(d->pluginList.constBegin(), d->pluginList.constEnd(), std::back_inserter(res), [](const KUriFilterPlugin *plugin) { return plugin->objectName(); });
+    return res;
 }
 
 void KUriFilter::loadPlugins()
@@ -685,13 +680,7 @@ void KUriFilter::loadPlugins()
         if (factory) {
             KUriFilterPlugin *plugin = factory->create<KUriFilterPlugin>(nullptr);
             if (plugin) {
-                const QString &pluginName = plugin->objectName();
-                Q_ASSERT(!pluginName.isEmpty());
-                d->plugins.insert(pluginName, plugin);
-                // Needed to ensure the order of filtering is honored since
-                // items are ordered arbitrarily in a QHash and QMap always
-                // sorts by keys. Both undesired behavior.
-                d->pluginNames << pluginName;
+                d->pluginList << plugin;
             }
         }
     }

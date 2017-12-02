@@ -663,6 +663,8 @@ public:
      */
     explicit KUriFilterPlugin(const QString &name, QObject *parent = nullptr);
 
+    // KF6 TODO ~KUriFilterPlugin();
+
     /**
      * Filters a URI.
      *

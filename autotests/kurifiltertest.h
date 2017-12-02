@@ -30,6 +30,7 @@ public:
 
 private Q_SLOTS:
     void initTestCase();
+    void pluginNames();
     void noFiltering_data();
     void noFiltering();
     void localFiles_data();
