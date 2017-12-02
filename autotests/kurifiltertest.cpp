@@ -213,14 +213,15 @@ void KUriFilterTest::pluginNames()
     const QStringList plugins = KUriFilter::self()->pluginNames();
     qDebug() << plugins;
     const QByteArray debugString = plugins.join(',').toLatin1();
-    // Because of possible duplicates in the list (on developer setups)
-    // and to make it possible to have external plugins (if there's any...)
+    // To make it possible to have external plugins (if there's any...)
     // we don't just have an expected result list, we just probe it for specific entries.
     QVERIFY2(plugins.contains("kshorturifilter"), debugString.constData());
     QVERIFY2(plugins.contains("kurisearchfilter"), debugString.constData());
     QVERIFY2(plugins.contains("localdomainurifilter"), debugString.constData());
     QVERIFY2(plugins.contains("fixhosturifilter"), debugString.constData());
     QVERIFY2(plugins.contains("kuriikwsfilter"), debugString.constData());
+    // No duplicates
+    QCOMPARE(plugins.count("kshorturifilter"), 1);
 }
 
 void KUriFilterTest::noFiltering_data()

@@ -675,12 +675,19 @@ void KUriFilter::loadPlugins()
             return a.rawData().value("X-KDE-InitialPreference").toInt() > b.rawData().value("X-KDE-InitialPreference").toInt();
     });
 
+    QStringList pluginNames;
+    pluginNames.reserve(plugins.count());
+
     for (const KPluginMetaData &pluginMetaData : plugins) {
-        KPluginFactory *factory = qobject_cast<KPluginFactory *>(pluginMetaData.instantiate());
-        if (factory) {
-            KUriFilterPlugin *plugin = factory->create<KUriFilterPlugin>(nullptr);
-            if (plugin) {
-                d->pluginList << plugin;
+        const QString fileName = pluginMetaData.fileName().section(QLatin1Char('/'), -1);
+        if (!pluginNames.contains(fileName)) {
+            pluginNames << fileName;
+            KPluginFactory *factory = qobject_cast<KPluginFactory *>(pluginMetaData.instantiate());
+            if (factory) {
+                KUriFilterPlugin *plugin = factory->create<KUriFilterPlugin>(nullptr);
+                if (plugin) {
+                    d->pluginList << plugin;
+                }
             }
         }
     }
