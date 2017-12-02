@@ -24,7 +24,6 @@
 
 #include <time.h>
 
-#include <QtCore/QTimer>
 #include <QtCore/QFile>
 #include <QLinkedList>
 
