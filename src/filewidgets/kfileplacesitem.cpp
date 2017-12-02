@@ -363,7 +363,7 @@ bool KFilePlacesItem::updateDeviceInfo(const QString &udi)
         }
 
         if (m_access) {
-            connect(m_access, &Solid::StorageAccess::accessibilityChanged,
+            connect(m_access.data(), &Solid::StorageAccess::accessibilityChanged,
                     this, &KFilePlacesItem::onAccessibilityChanged);
             onAccessibilityChanged(m_access->isAccessible());
         }
