@@ -93,6 +93,7 @@ set(kiocore_SRCS
   kiocoredebug.cpp
 
   kioglobal_p.cpp
+  batchrenamejob.cpp
 )
 
 if (UNIX)
@@ -212,6 +213,7 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   DavJob
   DesktopExecParser
   FileSystemFreeSpaceJob
+  BatchRenameJob
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_HEADERS
