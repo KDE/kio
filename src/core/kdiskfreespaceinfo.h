@@ -43,7 +43,7 @@
  * KDiskFreeSpaceInfo info = KDiskFreeSpaceInfo::freeSpaceInfo( path );
  * if( info.isValid() )
  *    doSomething( info.available() );
- * \code
+ * \endcode
  *
  * \author Sebastian Trueg <trueg@kde.org>
  *
