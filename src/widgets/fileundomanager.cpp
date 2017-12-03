@@ -28,6 +28,7 @@
 #include <kio/job.h>
 #include <kio/mkdirjob.h>
 #include <kio/mkpathjob.h>
+#include <kio/batchrenamejob.h>
 #include <kjobwidgets.h>
 #include <klocalizedstring.h>
 #include <kmessagebox.h>
@@ -153,7 +154,6 @@ CommandRecorder::CommandRecorder(FileUndoManager::CommandType op, const QList<QU
     m_cmd.m_dst = dst;
     connect(job, SIGNAL(result(KJob*)),
             this, SLOT(slotResult(KJob*)));
-
     if (qobject_cast<KIO::CopyJob *>(job)) {
         connect(job, SIGNAL(copyingDone(KIO::Job*,QUrl,QUrl,QDateTime,bool,bool)),
                 this, SLOT(slotCopyingDone(KIO::Job*,QUrl,QUrl,QDateTime,bool,bool)));
@@ -162,6 +162,9 @@ CommandRecorder::CommandRecorder(FileUndoManager::CommandType op, const QList<QU
     } else if (KIO::MkpathJob *mkpathJob = qobject_cast<KIO::MkpathJob *>(job)) {
         connect(mkpathJob, &KIO::MkpathJob::directoryCreated,
                 this, &CommandRecorder::slotDirectoryCreated);
+    } else if (KIO::BatchRenameJob *batchRenameJob = qobject_cast<KIO::BatchRenameJob *>(job)) {
+        connect(batchRenameJob, &KIO::BatchRenameJob::fileRenamed,
+                this, &CommandRecorder::slotBatchRenamingDone);
     }
 }
 
@@ -212,6 +215,18 @@ void CommandRecorder::slotDirectoryCreated(const QUrl &dir)
     op.m_renamed = false;
     op.m_src = QUrl();
     op.m_dst = dir;
+    op.m_mtime = QDateTime();
+    m_cmd.m_opStack.prepend(op);
+}
+
+void CommandRecorder::slotBatchRenamingDone(const QUrl &from, const QUrl &to)
+{
+    BasicOperation op;
+    op.m_valid = true;
+    op.m_type = BasicOperation::Directory;
+    op.m_renamed = true;
+    op.m_src = from;
+    op.m_dst = to;
     op.m_mtime = QDateTime();
     m_cmd.m_opStack.prepend(op);
 }
@@ -322,6 +337,8 @@ QString FileUndoManager::undoText() const
         return i18n("Und&o: Create Folder(s)");
     case FileUndoManager::Put:
         return i18n("Und&o: Create File");
+    case FileUndoManager::BatchRename:
+        return i18n("Und&o: Batch Rename");
     }
     /* NOTREACHED */
     return QString();

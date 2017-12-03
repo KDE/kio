@@ -34,6 +34,7 @@
 #include <kio/paste.h>
 #include <kio/pastejob.h>
 #include <kio/restorejob.h>
+#include <kio/batchrenamejob.h>
 #include <kioglobal_p.h>
 #include <kprotocolinfo.h>
 #include <kurlmimedata.h>
@@ -682,6 +683,41 @@ void FileUndoManagerTest::testPasteClipboardUndo()
     doUndo();
     clipboardUrls = KUrlMimeData::urlsFromMimeData(clipboard->mimeData());
     QCOMPARE(clipboardUrls, urls);
+}
+
+void FileUndoManagerTest::testBatchRename()
+{
+    auto createUrl = [](const QString &path) -> QUrl {
+        return QUrl::fromLocalFile(homeTmpDir() + path);
+    };
+
+    QList<QUrl> srcList;
+    srcList << createUrl("textfile.txt") << createUrl("mediafile.mkv") << createUrl("sourcefile.cpp");
+
+    createTestFile(srcList.at(0).path(), "foo");
+    createTestFile(srcList.at(1).path(), "foo");
+    createTestFile(srcList.at(2).path(), "foo");
+
+    KIO::Job *job = KIO::batchRename(srcList, QLatin1String("newfile###"), 1, QLatin1Char('#'));
+    job->setUiDelegate(nullptr);
+    FileUndoManager::self()->recordJob(FileUndoManager::BatchRename, srcList, QUrl(), job);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QVERIFY(QFile::exists(createUrl("newfile001.txt").path()));
+    QVERIFY(QFile::exists(createUrl("newfile002.mkv").path()));
+    QVERIFY(QFile::exists(createUrl("newfile003.cpp").path()));
+    QVERIFY(!QFile::exists(srcList.at(0).path()));
+    QVERIFY(!QFile::exists(srcList.at(1).path()));
+    QVERIFY(!QFile::exists(srcList.at(2).path()));
+
+    doUndo();
+
+    QVERIFY(!QFile::exists(createUrl("newfile###.txt").path()));
+    QVERIFY(!QFile::exists(createUrl("newfile###.mkv").path()));
+    QVERIFY(!QFile::exists(createUrl("newfile###.cpp").path()));
+    QVERIFY(QFile::exists(srcList.at(0).path()));
+    QVERIFY(QFile::exists(srcList.at(1).path()));
+    QVERIFY(QFile::exists(srcList.at(2).path()));
 }
 
 // TODO: add test (and fix bug) for  DND of remote urls / "Link here" (creates .desktop files) // Undo (doesn't do anything)

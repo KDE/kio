@@ -43,6 +43,7 @@ private Q_SLOTS:
     void testCreateDir();
     void testMkpath();
     void testPasteClipboardUndo(); // #318757
+    void testBatchRename();
 
     // TODO find tests that would lead to kio job errors
 

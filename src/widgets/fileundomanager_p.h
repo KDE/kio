@@ -93,6 +93,7 @@ private Q_SLOTS:
     void slotCopyingDone(KIO::Job *, const QUrl &from, const QUrl &to, const QDateTime &, bool directory, bool renamed);
     void slotCopyingLinkDone(KIO::Job *, const QUrl &from, const QString &target, const QUrl &to);
     void slotDirectoryCreated(const QUrl &url);
+    void slotBatchRenamingDone(const QUrl &from, const QUrl &to);
 
 private:
     UndoCommand m_cmd;
