@@ -509,23 +509,16 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   }
 
   // If we previously determined that the URL might be a file,
-  // and if it doesn't exist, then error
+  // and if it doesn't exist... we'll pretend it exists.
+  // This allows to use it for completion purposes.
+  // (If you change this logic again, look at the commit that was testing
+  //  for KUrlAuthorized::authorizeUrlAction("open"))
   if( isLocalFullPath && !exists )
   {
     QUrl u = QUrl::fromLocalFile(path);
     u.setFragment(ref);
-
-    if (!KUrlAuthorized::authorizeUrlAction( QStringLiteral("open"), QUrl(), u))
-    {
-      // No authorization, we pretend it exists and will get
-      // an access denied error later on.
-      setFilteredUri( data, u );
-      setUriType( data, KUriFilterData::LocalFile );
-      return true;
-    }
-    qCDebug(category) << "fileNotFound -> ERROR";
-    setErrorMsg( data, i18n( "<qt>The file or folder <b>%1</b> does not exist.</qt>", data.uri().toDisplayString() ) );
-    setUriType( data, KUriFilterData::Error );
+    setFilteredUri(data, u);
+    setUriType(data, KUriFilterData::LocalFile);
     return true;
   }
 

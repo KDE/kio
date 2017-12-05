@@ -257,9 +257,10 @@ void KUriFilterTest::localFiles_data()
     if (QFile::exists(QDir::homePath() + QLatin1String("/.bashrc"))) {
         addRow("~/.bashrc", QDir::homePath() + QStringLiteral("/.bashrc"), KUriFilterData::LocalFile, QStringList(QStringLiteral("kshorturifilter")));
     }
-    addRow("~", QDir::homePath().toLocal8Bit(), KUriFilterData::LocalDir, QStringList(QStringLiteral("kshorturifilter")), QStringLiteral("/tmp"));
+    addRow("~", QDir::homePath(), KUriFilterData::LocalDir, QStringList(QStringLiteral("kshorturifilter")), QStringLiteral("/tmp"));
     addRow("~bin", nullptr, KUriFilterData::LocalDir, QStringList(QStringLiteral("kshorturifilter")));
     addRow("~does_not_exist", nullptr, KUriFilterData::Error, QStringList(QStringLiteral("kshorturifilter")));
+    addRow("~/does_not_exist", QDir::homePath() + "/does_not_exist", KUriFilterData::LocalFile, QStringList(QStringLiteral("kshorturifilter")));
 
     // Absolute Path tests for kshorturifilter
     const QStringList kshorturifilter(QStringLiteral("kshorturifilter"));
@@ -376,9 +377,9 @@ void KUriFilterTest::executables_data()
     addRow("cp", QStringLiteral("cp"), KUriFilterData::Executable, minicliFilters);
     addRow("kbuildsycoca5", QStringLiteral("kbuildsycoca5"), KUriFilterData::Executable, minicliFilters);
     addRow("KDE", QStringLiteral("KDE"), NO_FILTERING, minicliFilters);
-    addRow("I/dont/exist", QStringLiteral("I/dont/exist"), NO_FILTERING, minicliFilters);        //krazy:exclude=spelling
-    addRow("/I/dont/exist", nullptr, KUriFilterData::Error, minicliFilters);           //krazy:exclude=spelling
-    addRow("/I/dont/exist#a", nullptr, KUriFilterData::Error, minicliFilters);         //krazy:exclude=spelling
+    addRow("does/not/exist", QStringLiteral("does/not/exist"), NO_FILTERING, minicliFilters);
+    addRow("/does/not/exist", QStringLiteral("/does/not/exist"), KUriFilterData::LocalFile, minicliFilters);
+    addRow("/does/not/exist#a", QStringLiteral("/does/not/exist#a"), KUriFilterData::LocalFile, minicliFilters);
     addRow("kbuildsycoca5 --help", QStringLiteral("kbuildsycoca5 --help"), KUriFilterData::Executable, minicliFilters);   // the args are in argsAndOptions()
     addRow("/bin/sh", QStringLiteral("/bin/sh"), KUriFilterData::Executable, minicliFilters);
     addRow("/bin/sh -q -option arg1", QStringLiteral("/bin/sh -q -option arg1"), KUriFilterData::Executable, minicliFilters);   // the args are in argsAndOptions()
@@ -402,7 +403,7 @@ void KUriFilterTest::environmentVariables_data()
     qputenv("SOMEVAR", "/somevar");
     qputenv("ETC", "/etc");
 
-    addRow("$SOMEVAR/kdelibs/kio", nullptr, KUriFilterData::Error);   // note: this dir doesn't exist...
+    addRow("$SOMEVAR/kdelibs/kio", "/somevar/kdelibs/kio", KUriFilterData::LocalFile);   // note: this dir doesn't exist...
     addRow("$ETC/passwd", QStringLiteral("/etc/passwd"), KUriFilterData::LocalFile);
     QString qtdocPath = qtdir + QStringLiteral("/doc/html/functions.html");
     if (QFile::exists(qtdocPath)) {
@@ -432,7 +433,7 @@ void KUriFilterTest::environmentVariables_data()
     QDir().mkpath(datahome + QStringLiteral("/Dir[Bracket"));
     addRow("$DATAHOME/Dir[Bracket", datahome + QStringLiteral("/Dir[Bracket"), KUriFilterData::LocalDir);
 
-    addRow("$HOME/$KDEDIR/kdebase/kcontrol/ebrowsing", nullptr, KUriFilterData::Error);
+    addRow("$HOME/$KDEDIR/kdebase/kcontrol/ebrowsing", "", KUriFilterData::LocalFile);
     addRow("$1/$2/$3", QStringLiteral("https://www.google.com/search?q=%241%2F%242%2F%243&ie=UTF-8"), KUriFilterData::NetProtocol);    // can be used as bogus or valid test. Currently triggers default search, i.e. google
     addRow("$$$$", QStringLiteral("https://www.google.com/search?q=%24%24%24%24&ie=UTF-8"), KUriFilterData::NetProtocol);   // worst case scenarios.
 
