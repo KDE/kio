@@ -66,7 +66,7 @@ private Q_SLOTS:
     {
         KFileWidget fw(QUrl::fromLocalFile(QDir::homePath()));
         fw.show();
-        QTest::qWaitForWindowActive(&fw);
+        QVERIFY(QTest::qWaitForWindowActive(&fw));
 
         QVERIFY(findLocationLabel(&fw)->hasFocus());
     }
@@ -76,7 +76,7 @@ private Q_SLOTS:
         KFileWidget fw(QUrl::fromLocalFile(QDir::homePath()));
         fw.setUrl(QUrl::fromLocalFile(QDir::tempPath()));
         fw.show();
-        QTest::qWaitForWindowActive(&fw);
+        QVERIFY(QTest::qWaitForWindowActive(&fw));
 
         QVERIFY(findLocationLabel(&fw)->hasFocus());
     }
@@ -85,7 +85,7 @@ private Q_SLOTS:
     {
         KFileWidget fw(QUrl::fromLocalFile(QDir::homePath()));
         fw.show();
-        QTest::qWaitForWindowActive(&fw);
+        QVERIFY(QTest::qWaitForWindowActive(&fw));
 
         fw.setUrl(QUrl::fromLocalFile(QDir::tempPath()));
 
@@ -96,7 +96,7 @@ private Q_SLOTS:
     {
         KFileWidget fw(QUrl::fromLocalFile(QDir::homePath()));
         fw.show();
-        QTest::qWaitForWindowActive(&fw);
+        QVERIFY(QTest::qWaitForWindowActive(&fw));
 
         const QList<KUrlNavigator*> nav = fw.findChildren<KUrlNavigator*>();
         QCOMPARE(nav.count(), 1);
@@ -156,7 +156,7 @@ private Q_SLOTS:
 
         KFileWidget fw(baseUrl);
         fw.show();
-        QTest::qWaitForWindowActive(&fw);
+        QVERIFY(QTest::qWaitForWindowActive(&fw));
 
         // WHEN
         fw.setSelection(selection); // now deprecated, this test shows why ;)
@@ -202,7 +202,7 @@ private Q_SLOTS:
         const QUrl expectedBaseUrl = QUrl::fromLocalFile(expectedBaseDir);
         KFileWidget fw(baseUrl);
         fw.show();
-        QTest::qWaitForWindowActive(&fw);
+        QVERIFY(QTest::qWaitForWindowActive(&fw));
 
         // WHEN
         fw.setSelectedUrl(selectionUrl);
