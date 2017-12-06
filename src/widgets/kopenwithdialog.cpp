@@ -596,9 +596,6 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     if (!bReadOnly) {
         // init the history combo and insert it into the URL-Requester
         KHistoryComboBox *combo = new KHistoryComboBox();
-        KLineEdit *lineEdit = new KLineEdit(q);
-        lineEdit->setClearButtonShown(true);
-        combo->setLineEdit(lineEdit);
         combo->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLengthWithIcon);
         combo->setDuplicatesEnabled(false);
         KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("Open-with settings"));
