@@ -1036,8 +1036,9 @@ void KFilePlacesModel::setGroupHidden(const GroupType type, bool hidden)
     if (isGroupHidden(type) == hidden)
         return;
 
-    d->bookmarkManager->root().setMetaDataItem(stateNameForGroupType(type), (hidden ? QStringLiteral("true") : QStringLiteral("false")));
+    d->bookmarkManager->root().setMetaDataItem(stateNameForGroupType(type), (hidden ? QStringLiteral("true") : QStringLiteral("false")));    
     d->reloadAndSignal();
+    emit groupHiddenChanged(type, hidden);
 }
 
 bool KFilePlacesModel::movePlace(int itemRow, int row)

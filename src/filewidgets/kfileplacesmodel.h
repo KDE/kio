@@ -175,6 +175,7 @@ public:
 Q_SIGNALS:
     void errorMessage(const QString &message);
     void setupDone(const QModelIndex &index, bool success);
+    void groupHiddenChanged(KFilePlacesModel::GroupType group, bool hidden);
 
 private:
     Q_PRIVATE_SLOT(d, void _k_initDeviceList())

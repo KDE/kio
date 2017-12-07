@@ -33,6 +33,8 @@
 #include <stdlib.h>
 #include <qstandardpaths.h>
 
+Q_DECLARE_METATYPE(KFilePlacesModel::GroupType)
+
 #ifdef Q_OS_WIN
 //c:\ as root for windows
 #define KDE_ROOT_PATH "C:\\"
@@ -83,6 +85,7 @@ private Q_SLOTS:
     void testPlaceGroupHiddenVsPlaceChildShown();
     void testPlaceGroupHiddenAndShownWithHiddenChild();
     void testPlaceGroupHiddenGroupIndexesIntegrity();
+    void testPlaceGroupHiddenSignal();
 
 private:
     QStringList placesUrls() const;
@@ -117,6 +120,8 @@ void KFilePlacesModelTest::initTestCase()
     config.sync();
 
     qRegisterMetaType<QModelIndex>();
+    qRegisterMetaType<KFilePlacesModel::GroupType>();
+
     const QString fakeHw = QFINDTESTDATA("fakecomputer.xml");
     QVERIFY(!fakeHw.isEmpty());
     qputenv("SOLID_FAKEHW", QFile::encodeName(fakeHw));
@@ -1197,6 +1202,30 @@ void KFilePlacesModelTest::testPlaceGroupHiddenGroupIndexesIntegrity()
     QCOMPARE(m_places->groupIndexes(KFilePlacesModel::SearchForType).count(), 0);
     QCOMPARE(m_places->groupIndexes(KFilePlacesModel::DevicesType).count(), initialListOfDevices().count());
     QCOMPARE(m_places->groupIndexes(KFilePlacesModel::RemovableDevicesType).count(), initialListOfRemovableDevices().count());
+}
+
+void KFilePlacesModelTest::testPlaceGroupHiddenSignal()
+{
+    QSignalSpy groupHiddenSignal(m_places, &KFilePlacesModel::groupHiddenChanged);
+    m_places->setGroupHidden(KFilePlacesModel::SearchForType, true);
+
+    // hide SearchForType group
+    QTRY_COMPARE(groupHiddenSignal.count(), 1);
+    QList<QVariant> args = groupHiddenSignal.takeFirst();
+    QCOMPARE(args.at(0).toInt(), static_cast<int>(KFilePlacesModel::SearchForType));
+    QCOMPARE(args.at(1).toBool(), true);
+    groupHiddenSignal.clear();
+
+    // try hide SearchForType which is already hidden
+    m_places->setGroupHidden(KFilePlacesModel::SearchForType, true);
+    QCOMPARE(groupHiddenSignal.count(), 0);
+
+    // show SearchForType group
+    m_places->setGroupHidden(KFilePlacesModel::SearchForType, false);
+    QTRY_COMPARE(groupHiddenSignal.count(), 1);
+    args = groupHiddenSignal.takeFirst();
+    QCOMPARE(args.at(0).toInt(), static_cast<int>(KFilePlacesModel::SearchForType));
+    QCOMPARE(args.at(1).toBool(), false);
 }
 
 QTEST_MAIN(KFilePlacesModelTest)
