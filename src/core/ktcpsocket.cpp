@@ -349,11 +349,13 @@ public:
     //private slots
     void reemitSocketError(QAbstractSocket::SocketError e)
     {
+        q->setErrorString(sock.errorString());
         emit q->error(errorFromAbsSocket(e));
     }
 
     void reemitSslErrors(const QList<QSslError> &errors)
     {
+        q->setErrorString(sock.errorString());
         q->showSslErrors(); //H4X
         QList<KSslError> kErrors;
         foreach (const QSslError &e, errors) {
