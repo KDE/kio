@@ -446,7 +446,11 @@ QVariant KFilePlacesModel::data(const QModelIndex &index, int role) const
     }
 
     KFilePlacesItem *item = static_cast<KFilePlacesItem *>(index.internalPointer());
-    return item->data(role);
+    if (role == KFilePlacesModel::GroupHiddenRole) {
+        return isGroupHidden(item->groupType());
+    } else {
+        return item->data(role);
+    }
 }
 
 QModelIndex KFilePlacesModel::index(int row, int column, const QModelIndex &parent) const

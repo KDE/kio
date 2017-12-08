@@ -86,6 +86,7 @@ private Q_SLOTS:
     void testPlaceGroupHiddenAndShownWithHiddenChild();
     void testPlaceGroupHiddenGroupIndexesIntegrity();
     void testPlaceGroupHiddenSignal();
+    void testPlaceGroupHiddenRole();
 
 private:
     QStringList placesUrls() const;
@@ -1226,6 +1227,36 @@ void KFilePlacesModelTest::testPlaceGroupHiddenSignal()
     args = groupHiddenSignal.takeFirst();
     QCOMPARE(args.at(0).toInt(), static_cast<int>(KFilePlacesModel::SearchForType));
     QCOMPARE(args.at(1).toBool(), false);
+}
+
+void KFilePlacesModelTest::testPlaceGroupHiddenRole()
+{
+    // on startup all groups are visible
+    for (int r = 0, rMax = m_places->rowCount(); r < rMax; r++) {
+        const QModelIndex index = m_places->index(r, 0);
+        QCOMPARE(index.data(KFilePlacesModel::GroupHiddenRole).toBool(), false);
+    }
+
+    // set SearchFor group hidden
+    m_places->setGroupHidden(KFilePlacesModel::SearchForType, true);
+    for (auto groupType : {KFilePlacesModel::PlacesType,
+                           KFilePlacesModel::RemoteType,
+                           KFilePlacesModel::RecentlySavedType,
+                           KFilePlacesModel::SearchForType,
+                           KFilePlacesModel::DevicesType,
+                           KFilePlacesModel::RemovableDevicesType}) {
+        const bool groupShouldBeHidden = (groupType == KFilePlacesModel::SearchForType);
+        for (auto index : m_places->groupIndexes(groupType)) {
+            QCOMPARE(index.data(KFilePlacesModel::GroupHiddenRole).toBool(), groupShouldBeHidden);
+        }
+    }
+
+    // set SearchFor group visible again
+    m_places->setGroupHidden(KFilePlacesModel::SearchForType, false);
+    for (int r = 0, rMax = m_places->rowCount(); r < rMax; r++) {
+        const QModelIndex index = m_places->index(r, 0);
+        QCOMPARE(index.data(KFilePlacesModel::GroupHiddenRole).toBool(), false);
+    }
 }
 
 QTEST_MAIN(KFilePlacesModelTest)

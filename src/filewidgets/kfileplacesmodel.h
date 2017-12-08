@@ -50,7 +50,8 @@ public:
         CapacityBarRecommendedRole = 0x1548C5C4,
         GroupRole = 0x0a5b64ee,
         /// @since 5.41
-        IconNameRole = 0x00a45c00
+        IconNameRole = 0x00a45c00,
+        GroupHiddenRole = 0x21a4b936
     };
 
     enum GroupType {
