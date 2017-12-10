@@ -49,7 +49,7 @@ public:
         if (_str.isEmpty())
             return KCookieAdvice::Dunno;
 
-        QString advice = _str.toLower();
+        QString advice = _str.toLower().remove(' ');
 
         if (advice == QLatin1String ("accept"))
             return KCookieAdvice::Accept;
