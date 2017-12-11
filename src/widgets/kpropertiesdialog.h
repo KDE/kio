@@ -49,7 +49,7 @@ class Job;
  * The various tabs themselves will let the user view, and sometimes change,
  * information about the file or URL.
  *
- * \image html kpropertiesdialog.png "Typical KProperties Dialog"
+ * \image html kpropertiesdialog.png "Example of KPropertiesDialog"
  *
  * The best way to display the properties dialog is to use showDialog().
  * Otherwise, you should use (void)new KPropertiesDialog(...)

@@ -52,7 +52,7 @@ class QString;
  *
  * The default window modality for the file dialog is Qt::ApplicationModal
  *
- * \image html kurlrequester.png "KDE URL Requester"
+ * \image html kurlrequester.png "KUrlRequester"
  *
  * @short A widget to request a filename/url from the user
  * @author Carsten Pfeiffer <pfeiffer@kde.org>
