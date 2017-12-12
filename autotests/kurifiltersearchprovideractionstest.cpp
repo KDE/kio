@@ -23,6 +23,13 @@
 #include <QMenu>
 #include <qtest.h>
 
+void KUriFilterSearchProviderActionsTest::initTestCase()
+{
+    QString searchProvidersDir = QFINDTESTDATA("../src/urifilters/ikws/searchproviders/google.desktop").section('/', 0, -2);
+    QVERIFY(!searchProvidersDir.isEmpty());
+    qputenv("KIO_SEARCHPROVIDERS_DIR", QFile::encodeName(searchProvidersDir));
+}
+
 void KUriFilterSearchProviderActionsTest::shouldHaveDefaultValue()
 {
     KIO::KUriFilterSearchProviderActions shortcutManager;
