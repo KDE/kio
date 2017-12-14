@@ -29,6 +29,7 @@
 #include "kdirwatch.h"
 #include "kprotocolmanager.h"
 #include <kdirnotify.h>
+#include "../pathhelpers_p.h"
 
 #include <klocalizedstring.h>
 #include <kio/jobuidelegatefactory.h>
@@ -183,7 +184,7 @@ void DeleteJobPrivate::slotEntries(KIO::Job *job, const UDSEntryList &list)
                 url = QUrl(urlStr);
             } else {
                 url = static_cast<SimpleJob *>(job)->url(); // assumed to be a dir
-                url.setPath(url.path() + '/' + displayName);
+                url.setPath(concatPaths(url.path(), displayName));
             }
 
             //qDebug() << displayName << "(" << url << ")";

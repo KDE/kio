@@ -22,6 +22,7 @@
 */
 
 #include "kshorturifilter.h"
+#include "../../pathhelpers_p.h"
 
 #include <QtCore/QDir>
 #include <QtDBus/QtDBus>
@@ -408,7 +409,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
     {
       qCDebug(category) << "Abs path as local file or directory";
       if ( !nameFilter.isEmpty() )
-        u.setPath( u.path() + '/' + nameFilter );
+        u.setPath(concatPaths(u.path(), nameFilter));
       setFilteredUri( data, u );
       setUriType( data, ( isDir ) ? KUriFilterData::LocalDir : KUriFilterData::LocalFile );
       return true;

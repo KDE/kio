@@ -22,6 +22,7 @@
 #include "copyjob.h"
 #include "deletejob.h"
 #include <kurlmimedata.h>
+#include "../pathhelpers_p.h"
 
 #include <QGuiApplication>
 #include <QMimeData>
@@ -43,7 +44,7 @@ static void overwriteUrlsInClipboard(KJob *job)
     if (copyJob) {
         Q_FOREACH (const QUrl &url, copyJob->srcUrls()) {
             QUrl dUrl = copyJob->destUrl().adjusted(QUrl::StripTrailingSlash);
-            dUrl.setPath(dUrl.path() + '/' + url.fileName());
+            dUrl.setPath(concatPaths(dUrl.path(), url.fileName()));
             newUrls.append(dUrl);
         }
     } else if (fileCopyJob) {
@@ -78,7 +79,7 @@ static void updateUrlsInClipboard(KJob *job)
             const int index = clipboardUrls.indexOf(url);
             if (index > -1) {
                 QUrl dUrl = copyJob->destUrl().adjusted(QUrl::StripTrailingSlash);
-                dUrl.setPath(dUrl.path() + '/' + url.fileName());
+                dUrl.setPath(concatPaths(dUrl.path(), url.fileName()));
                 clipboardUrls.replace(index, dUrl);
                 update = true;
             }

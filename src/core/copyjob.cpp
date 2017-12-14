@@ -30,6 +30,7 @@
 #include "statjob.h"
 #include "deletejob.h"
 #include "filecopyjob.h"
+#include "../pathhelpers_p.h"
 
 #include <kconfiggroup.h>
 #include <klocalizedstring.h>
@@ -111,13 +112,8 @@ enum CopyJobState {
 
 static QUrl addPathToUrl(const QUrl &url, const QString &relPath)
 {
-    QString path = url.path();
-    if (!path.endsWith('/')) {
-        path += '/';
-    }
-    path += relPath;
     QUrl u(url);
-    u.setPath(path);
+    u.setPath(concatPaths(url.path(), relPath));
     return u;
 }
 
@@ -1068,7 +1064,7 @@ void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
                         const QUrl destDirectory = (*it).uDest.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
                         const QString newName = KIO::suggestName(destDirectory, (*it).uDest.fileName());
                         QUrl newUrl(destDirectory);
-                        newUrl.setPath(newUrl.path() + QLatin1Char('/') + newName);
+                        newUrl.setPath(concatPaths(newUrl.path(), newName));
                         renameDirectory(it, newUrl);
                     } else {
                         if (!q->uiDelegateExtension()) {
@@ -1276,7 +1272,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
                     QUrl destDirectory = (*it).uDest.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
                     const QString newName = KIO::suggestName(destDirectory, (*it).uDest.fileName());
                     QUrl newDest(destDirectory);
-                    newDest.setPath(newDest.path() + QLatin1Char('/') + newName);
+                    newDest.setPath(concatPaths(newDest.path(), newName));
                     emit q->renamed(q, (*it).uDest, newDest); // for e.g. kpropsdlg
                     (*it).uDest = newDest;
 
@@ -1919,7 +1915,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                 const QString newName = KIO::suggestName(destDirectory, m_currentDestURL.fileName());
 
                 m_dest = destDirectory;
-                m_dest.setPath(m_dest.path() + QLatin1Char('/') + newName);
+                m_dest.setPath(concatPaths(m_dest.path(), newName));
                 KIO::Job *job = KIO::stat(m_dest, StatJob::DestinationSide, 2, KIO::HideProgressInfo);
                 state = STATE_STATING;
                 destinationState = DEST_NOT_STATED;

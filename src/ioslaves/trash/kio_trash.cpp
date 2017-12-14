@@ -21,6 +21,8 @@
 
 #include "kio_trash.h"
 #include "kiotrashdebug.h"
+#include "../../pathhelpers_p.h"
+
 #include <kio/job.h>
 #include <kio/jobuidelegateextension.h>
 #include <KLocalizedString>
@@ -116,9 +118,7 @@ void TrashProtocol::restore(const QUrl &trashURL)
     }
     QUrl dest = QUrl::fromLocalFile(info.origPath);
     if (!relativePath.isEmpty()) {
-        dest = dest.adjusted(QUrl::StripTrailingSlash);
-        // (u.path() + '/' + txt) '/' is unable to concate ?
-        dest.setPath(dest.path() + QLatin1String("/") + relativePath);
+        dest.setPath(concatPaths(dest.path(), relativePath));
     }
 
     // Check that the destination directory exists, to improve the error code in case it doesn't.

@@ -26,6 +26,7 @@
 #include "kio/global.h"
 #include "kio/renamedialog.h"
 #include "kprotocolmanager.h"
+#include "../pathhelpers_p.h"
 
 #include <kjobwidgets.h>
 #include <klocalizedstring.h>
@@ -85,7 +86,7 @@ static QUrl getNewFileName(const QUrl &u, const QString &text, const QString &su
     }
 
     QUrl myurl(u);
-    myurl.setPath(myurl.path() + '/' + file);
+    myurl.setPath(concatPaths(myurl.path(), file));
 
     KIO::StatJob *job = KIO::stat(myurl, myurl.isLocalFile() ? KIO::HideProgressInfo : KIO::DefaultFlags);
     job->setDetails(0);
@@ -168,7 +169,7 @@ static QByteArray chooseFormatAndUrl(const QUrl &u, const QMimeData *mimeData,
 
     //qDebug() << " result=" << result << " chosenFormat=" << chosenFormat;
     *newUrl = u;
-    newUrl->setPath(newUrl->path() + '/' + result);
+    newUrl->setPath(concatPaths(newUrl->path(), result));
     // In Qt3, the result of clipboard()->mimeData() only existed until the next
     // event loop run (see dlg.exec() above), so we re-fetched it.
     // TODO: This should not be necessary with Qt5; remove this conditional

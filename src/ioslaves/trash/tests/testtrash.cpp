@@ -21,6 +21,8 @@
 
 #include "kio_trash.h"
 #include "testtrash.h"
+#include "../../../pathhelpers_p.h"
+
 #include <kprotocolinfo.h>
 #include <QTemporaryFile>
 #include <QDataStream>
@@ -83,7 +85,11 @@ QString TestTrash::readOnlyDirPath() const
 QString TestTrash::otherTmpDir() const
 {
     // This one needs to be on another partition for the test to be meaningful
-    return m_tempDir.path() + QLatin1Char('/');
+    QString tempDir = m_tempDir.path();
+    if (!tempDir.endsWith('/')) {
+        tempDir.append('/');
+    }
+    return tempDir;
 }
 
 QString TestTrash::utf8FileName() const
@@ -783,7 +789,7 @@ void TestTrash::copyFromTrash(const QString &fileId, const QString &destPath, co
 {
     QUrl src(QLatin1String("trash:/0-") + fileId);
     if (!relativePath.isEmpty()) {
-        src.setPath(src.path() + '/' + relativePath);
+        src.setPath(concatPaths(src.path(), relativePath));
     }
     QUrl dest = QUrl::fromLocalFile(destPath);
 
@@ -894,7 +900,7 @@ void TestTrash::moveFromTrash(const QString &fileId, const QString &destPath, co
 {
     QUrl src(QLatin1String("trash:/0-") + fileId);
     if (!relativePath.isEmpty()) {
-        src.setPath(src.path() + '/' + relativePath);
+        src.setPath(concatPaths(src.path(), relativePath));
     }
     QUrl dest = QUrl::fromLocalFile(destPath);
 

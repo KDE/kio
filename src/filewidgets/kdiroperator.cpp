@@ -28,6 +28,7 @@
 #include "kfilemetapreview_p.h"
 #include "kpreviewwidgetbase.h"
 #include "knewfilemenu.h"
+#include "../pathhelpers_p.h"
 
 #include <config-kiofilewidgets.h>
 #include <defaults-kfile.h> // ConfigGroup, DefaultShowHidden, DefaultDirsFirst, DefaultSortReversed
@@ -372,7 +373,11 @@ KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent) :
             d->currUrl.setScheme(QStringLiteral("file"));
         }
 
-        d->currUrl.setPath(d->currUrl.path() + "/"); // make sure we have a trailing slash!
+        QString path = d->currUrl.path();
+        if (!path.endsWith('/')) {
+            path.append('/'); // make sure we have a trailing slash!
+        }
+        d->currUrl.setPath(path);
     }
 
     // We set the direction of this widget to LTR, since even on RTL desktops
@@ -730,7 +735,7 @@ bool KDirOperator::mkdir(const QString &directory, bool enterDirectory)
     QStringList::ConstIterator it = dirs.begin();
 
     for (; it != dirs.end(); ++it) {
-        folderurl.setPath(folderurl.path() + '/' + *it);
+        folderurl.setPath(concatPaths(folderurl.path(), *it));
         if (folderurl.isLocalFile()) {
             exists = QFile::exists(folderurl.toLocalFile());
         } else {

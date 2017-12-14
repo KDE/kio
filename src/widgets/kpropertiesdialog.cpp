@@ -44,6 +44,7 @@
 #include "kpropertiesdialog.h"
 #include "kpropertiesdialog_p.h"
 #include "kio_widgets_debug.h"
+#include "../pathhelpers_p.h"
 
 #include <config-kiowidgets.h>
 
@@ -668,13 +669,13 @@ void KPropertiesDialog::rename(const QString &_name)
     // if we're creating from a template : use currentdir
     if (!d->m_currentDir.isEmpty()) {
         newUrl = d->m_currentDir;
-        newUrl.setPath(newUrl.path() + '/' + _name);
+        newUrl.setPath(concatPaths(newUrl.path(), _name));
     } else {
         // It's a directory, so strip the trailing slash first
         newUrl = d->m_singleUrl.adjusted(QUrl::StripTrailingSlash);
         // Now change the filename
         newUrl = newUrl.adjusted(QUrl::RemoveFilename); // keep trailing slash
-        newUrl.setPath(newUrl.path() + _name);
+        newUrl.setPath(concatPaths(newUrl.path(), _name));
     }
     updateUrl(newUrl);
 }
@@ -863,7 +864,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             // Extract the full name, but without file: for local files
             path = properties->url().toDisplayString(QUrl::PreferLocalFile);
         } else {
-            path = properties->currentDir().path() + '/' + properties->defaultName();
+            path = concatPaths(properties->currentDir().path(), properties->defaultName());
             directory = properties->currentDir().toDisplayString(QUrl::PreferLocalFile);
         }
 

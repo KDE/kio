@@ -19,6 +19,7 @@
 
 #include "kurlrequester.h"
 #include "kio_widgets_debug.h"
+#include "../pathhelpers_p.h"
 
 #include <kcombobox.h>
 #include <kdragwidgetdecorator.h>
@@ -189,7 +190,7 @@ public:
         const QUrl enteredUrl = QUrl(enteredPath); // absolute or relative
         if (enteredUrl.isRelative() && !txt.isEmpty()) {
             QUrl finalUrl(m_startDir);
-            finalUrl.setPath(finalUrl.path() + '/' + enteredPath);
+            finalUrl.setPath(concatPaths(finalUrl.path(), enteredPath));
             return finalUrl;
         } else {
             return enteredUrl;

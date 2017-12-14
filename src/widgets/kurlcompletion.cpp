@@ -23,6 +23,7 @@
 */
 
 #include "kurlcompletion.h"
+#include "../pathhelpers_p.h"
 
 #include <stdlib.h>
 #include <assert.h>
@@ -80,13 +81,8 @@ class CompletionThread;
 // Ensure that we don't end up with "//".
 static QUrl addPathToUrl(const QUrl &url, const QString &relPath)
 {
-    QString path = url.path();
-    if (!path.endsWith('/')) {
-        path += '/';
-    }
-    path += relPath;
     QUrl u(url);
-    u.setPath(path);
+    u.setPath(concatPaths(url.path(), relPath));
     return u;
 }
 
@@ -509,7 +505,7 @@ void KUrlCompletionPrivate::MyURL::init(const QString &_url, const QUrl &cwd)
                 m_kurl = QUrl(url_copy);
             } else {
                 m_kurl = cwd;
-                m_kurl.setPath(m_kurl.path() + '/' + url_copy);
+                m_kurl.setPath(concatPaths(m_kurl.path(), url_copy));
             }
         }
     }

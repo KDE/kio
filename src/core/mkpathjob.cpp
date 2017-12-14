@@ -19,10 +19,10 @@
 */
 
 #include "mkpathjob.h"
-
 #include "job_p.h"
-
 #include "mkdirjob.h"
+#include "../pathhelpers_p.h"
+
 #include <QTimer>
 #include <QDebug>
 #include <QDir>
@@ -46,11 +46,7 @@ public:
         for (; i < basePathComponents.count() && i < m_pathComponents.count(); ++i) {
             const QString pathComponent = m_pathComponents.at(i);
             if (pathComponent == basePathComponents.at(i)) {
-                if (m_url.path() == QLatin1String("/")) {
-                    m_url.setPath(m_url.path() + pathComponent);
-                } else {
-                    m_url.setPath(m_url.path() + '/' + pathComponent);
-                }
+                m_url.setPath(concatPaths(m_url.path(), pathComponent));
             } else {
                 break;
             }
@@ -124,7 +120,7 @@ void MkpathJobPrivate::slotStart()
     }
 
     if (m_pathIterator != m_pathComponents.constEnd()) {
-        m_url.setPath(QDir::cleanPath(m_url.path() + '/' + *m_pathIterator));
+        m_url.setPath(concatPaths(m_url.path(), *m_pathIterator));
         KIO::Job* job = KIO::mkdir(m_url);
         q->addSubjob(job);
         q->setProcessedAmount(KJob::Directories, q->processedAmount(KJob::Directories) + 1);

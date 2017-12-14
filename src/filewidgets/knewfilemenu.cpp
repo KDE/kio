@@ -19,6 +19,7 @@
 */
 
 #include "knewfilemenu.h"
+#include "../pathhelpers_p.h"
 #include "knameandurlinputdialog.h"
 
 #include <QDialog>
@@ -587,7 +588,7 @@ void KNewFileMenuPrivate::executeStrategy()
     QList<QUrl>::const_iterator it = m_popupFiles.constBegin();
     for (; it != m_popupFiles.constEnd(); ++it) {
         QUrl dest = *it;
-        dest.setPath(dest.path() + '/' + KIO::encodeFileName(chosenFileName));
+        dest.setPath(concatPaths(dest.path(), KIO::encodeFileName(chosenFileName)));
 
         QList<QUrl> lstSrc;
         lstSrc.append(uSrc);
@@ -855,7 +856,7 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
                 }
             }
             url = baseUrl;
-            url.setPath(QDir::cleanPath(url.path() + '/' + name));
+            url.setPath(concatPaths(url.path(), name));
         }
     }
 
@@ -921,7 +922,7 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
         dir.setPath(path);
         const QStringList &entryList(dir.entryList(QStringList() << QStringLiteral("*.desktop"), QDir::Files));
         Q_FOREACH (const QString &entry, entryList) {
-            const QString file = dir.path() + QLatin1Char('/') + entry;
+            const QString file = concatPaths(dir.path(), entry);
             files.append(file);
         }
     }

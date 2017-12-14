@@ -25,6 +25,7 @@
 */
 
 #include "kfilewidget.h"
+#include "../pathhelpers_p.h"
 
 #include "kfileplacesview.h"
 #include "kfileplacesmodel.h"
@@ -783,11 +784,7 @@ QUrl KFileWidgetPrivate::getCompleteUrl(const QString &_url) const
         u = QUrl::fromLocalFile(url);
     } else {
         QUrl relativeUrlTest(ops->url());
-        QString path = relativeUrlTest.path();
-        if (!path.endsWith('/')) {
-            path += '/';
-        }
-        relativeUrlTest.setPath(path + url);
+        relativeUrlTest.setPath(concatPaths(relativeUrlTest.path(), url));
         if (!ops->dirLister()->findByUrl(relativeUrlTest).isNull() ||
                 !KProtocolInfo::isKnownProtocol(relativeUrlTest)) {
             u = relativeUrlTest;
@@ -1590,11 +1587,7 @@ void KFileWidgetPrivate::_k_slotLoadingFinished()
 
     ops->blockSignals(true);
     QUrl u(ops->url());
-    QString path = ops->url().path();
-    if (!path.endsWith('/')) {
-        path += '/';
-    }
-    u.setPath(path + locationEdit->currentText());
+    u.setPath(concatPaths(ops->url().path(), locationEdit->currentText()));
     ops->setCurrentItem(u);
     ops->blockSignals(false);
 }

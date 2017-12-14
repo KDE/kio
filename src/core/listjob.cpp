@@ -23,6 +23,8 @@
 #include "scheduler.h"
 #include <kurlauthorized.h>
 #include "slave.h"
+#include "../pathhelpers_p.h"
+
 #include <QDebug>
 
 using namespace KIO;
@@ -117,11 +119,7 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
                 itemURL = q->url();
                 filename = entry.stringValue(KIO::UDSEntry::UDS_NAME);
                 Q_ASSERT(!filename.isEmpty()); // we'll recurse forever otherwise :)
-                if (itemURL.path() == QLatin1String("/")) {
-                    itemURL.setPath(itemURL.path() + filename);
-                } else {
-                    itemURL.setPath(itemURL.path() + '/' + filename);
-                }
+                itemURL.setPath(concatPaths(itemURL.path(), filename));
             }
 
             if (entry.isDir() && !entry.isLink()) {
