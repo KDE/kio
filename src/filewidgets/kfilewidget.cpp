@@ -1427,9 +1427,6 @@ void KFileWidgetPrivate::initGUI()
     q->setTabOrder(okButton, cancelButton);
     q->setTabOrder(cancelButton, urlNavigator);
     q->setTabOrder(urlNavigator, ops);
-    q->setTabOrder(cancelButton, urlNavigator);
-    q->setTabOrder(urlNavigator, ops);
-
 }
 
 void KFileWidgetPrivate::_k_slotFilterChanged()
