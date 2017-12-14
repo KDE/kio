@@ -117,6 +117,7 @@ ecm_add_tests(
  kurlcomboboxtest.cpp
  kdiroperatortest.cpp
  kfilewidgettest.cpp
+ kfilecustomdialogtest.cpp
  knewfilemenutest.cpp
  kfilecopytomenutest.cpp
  kfileplacesmodeltest.cpp

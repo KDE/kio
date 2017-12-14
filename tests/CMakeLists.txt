@@ -28,6 +28,7 @@ KIOWIDGETS_EXECUTABLE_TESTS(
   kencodingfiledialogtest_gui
   kdirmodeltest_gui
   kdirlistertest_gui
+  kfilecustomdialogtest_gui
   previewtest
   kurlrequestertest_gui
   kpropertiesdialogtest

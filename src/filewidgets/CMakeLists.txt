@@ -19,6 +19,7 @@ set(kiofilewidgets_SRCS
   kencodingfiledialog.cpp
   kfilebookmarkhandler.cpp
   kfilecopytomenu.cpp
+  kfilecustomdialog.cpp
   kfilefiltercombo.cpp
   kfilewidget.cpp
   kfileplacesitem.cpp
@@ -36,6 +37,7 @@ set(kiofilewidgets_SRCS
   kurlnavigatortogglebutton.cpp
   kurlnavigator.cpp
   kurlnavigatormenu.cpp
+
 
 )
 
