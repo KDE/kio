@@ -193,6 +193,8 @@ public:
 
     const bool fileIndexingEnabled;
 
+    QString alternativeApplicationName;
+
     void reloadAndSignal();
     QList<KFilePlacesItem *> loadBookmarkList();
     int findNearestPosition(int source, int target);
@@ -209,11 +211,12 @@ private:
     bool isBalooUrl(const QUrl &url) const;
 };
 
-KFilePlacesModel::KFilePlacesModel(QObject *parent)
+KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QObject *parent)
     : QAbstractItemModel(parent), d(new Private(this))
 {
     const QString file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/user-places.xbel";
     d->bookmarkManager = KBookmarkManager::managerForExternalFile(file);
+    d->alternativeApplicationName = alternativeApplicationName;
 
     // Let's put some places in there if it's empty.
     KBookmarkGroup root = d->bookmarkManager->root();
@@ -326,6 +329,11 @@ KFilePlacesModel::KFilePlacesModel(QObject *parent)
 
     d->_k_reloadBookmarks();
     QTimer::singleShot(0, this, SLOT(_k_initDeviceList()));
+}
+
+KFilePlacesModel::KFilePlacesModel(QObject *parent)
+    : KFilePlacesModel({}, parent)
+{
 }
 
 KFilePlacesModel::~KFilePlacesModel()
@@ -660,7 +668,9 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
             devices.erase(it);
         }
 
-        bool allowedHere = appName.isEmpty() || (appName == QCoreApplication::instance()->applicationName());        
+        bool allowedHere = appName.isEmpty() ||
+                ((appName == QCoreApplication::instance()->applicationName()) ||
+                 (appName == alternativeApplicationName));
         bool isSupportedUrl = isBalooUrl(url) ? fileIndexingEnabled : true;
 
         if ((isSupportedUrl && udi.isEmpty() && allowedHere) || deviceAvailable) {

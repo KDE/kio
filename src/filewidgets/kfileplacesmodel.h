@@ -66,6 +66,14 @@ public:
     };
 
     KFilePlacesModel(QObject *parent = nullptr);
+    /**
+    * @brief Construct a new KFilePlacesModel with an alternativeApplicationName
+    * @param alternativeApplicationName This value will be used to filter bookmarks in addition to the actual application name
+    * @param parent Parent object
+    * @since 5.43
+    * @todo kf6: merge contstructors
+    */
+    KFilePlacesModel(const QString &alternativeApplicationName, QObject *parent = nullptr);
     ~KFilePlacesModel();
 
     QUrl url(const QModelIndex &index) const;

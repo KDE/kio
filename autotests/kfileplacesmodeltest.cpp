@@ -87,9 +87,10 @@ private Q_SLOTS:
     void testPlaceGroupHiddenGroupIndexesIntegrity();
     void testPlaceGroupHiddenSignal();
     void testPlaceGroupHiddenRole();
+    void testFilterWithAlternativeApplicationName();
 
 private:
-    QStringList placesUrls() const;
+    QStringList placesUrls(KFilePlacesModel *model = nullptr) const;
     QDBusInterface *fakeManager();
     QDBusInterface *fakeDevice(const QString &udi);
 
@@ -138,12 +139,16 @@ void KFilePlacesModelTest::cleanupTestCase()
     QFile::remove(bookmarksFile());
 }
 
-QStringList KFilePlacesModelTest::placesUrls() const
+QStringList KFilePlacesModelTest::placesUrls(KFilePlacesModel *model) const
 {
+    KFilePlacesModel *currentModel = model;
+    if (!currentModel) {
+        currentModel = m_places;
+    }
     QStringList urls;
-    for (int row = 0; row < m_places->rowCount(); ++row) {
-        QModelIndex index = m_places->index(row, 0);
-        urls << m_places->url(index).toDisplayString(QUrl::PreferLocalFile);
+    for (int row = 0; row < currentModel->rowCount(); ++row) {
+        QModelIndex index = currentModel->index(row, 0);
+        urls << currentModel->url(index).toDisplayString(QUrl::PreferLocalFile);
     }
     return urls;
  }
@@ -1257,6 +1262,30 @@ void KFilePlacesModelTest::testPlaceGroupHiddenRole()
         const QModelIndex index = m_places->index(r, 0);
         QCOMPARE(index.data(KFilePlacesModel::GroupHiddenRole).toBool(), false);
     }
+}
+
+void KFilePlacesModelTest::testFilterWithAlternativeApplicationName()
+{
+    const QStringList urls = initialListOfUrls();
+    const QString alternativeApplicationName = QStringLiteral("kfile_places_model_test");
+
+    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile(), QStringLiteral("kfilePlaces"));
+    KBookmarkGroup root = bookmarkManager->root();
+
+    // create a new entry with alternative application name
+    KBookmark bookmark = root.addBookmark(QStringLiteral("Extra entry"), QUrl(QStringLiteral("search:/videos-alternative")), {});
+    const QString id = QUuid::createUuid().toString();
+    bookmark.setMetaDataItem(QStringLiteral("ID"), id);
+    bookmark.setMetaDataItem(QStringLiteral("OnlyInApp"), alternativeApplicationName);
+    bookmarkManager->emitChanged(bookmarkManager->root());
+
+    // make sure that the entry is not visible on the original model
+    CHECK_PLACES_URLS(urls);
+
+    // create a new model with alternativeApplicationName
+    KFilePlacesModel *newModel = new KFilePlacesModel(alternativeApplicationName);
+    QTRY_COMPARE(placesUrls(newModel).count(QStringLiteral("search:/videos-alternative")), 1);
+    delete newModel;
 }
 
 QTEST_MAIN(KFilePlacesModelTest)
