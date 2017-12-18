@@ -4904,7 +4904,7 @@ static QByteArray makeCacheCleanerCommand(const HTTPProtocol::CacheTag &cacheTag
         CacheCleanerCommandCode cmd)
 {
     QByteArray ret = cacheTag.serialize();
-    QDataStream stream(&ret, QIODevice::WriteOnly);
+    QDataStream stream(&ret, QIODevice::ReadWrite);
     stream.setVersion(QDataStream::Qt_4_5);
 
     stream.skipRawData(BinaryCacheFileHeader::size);
