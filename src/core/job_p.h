@@ -235,14 +235,15 @@ public:
                               const QByteArray &_staticData)
         : SimpleJobPrivate(url, command, packedArgs),
           m_internalSuspended(false), m_errorPage(false),
-          staticData(_staticData), m_isMimetypeEmitted(false), m_subJob(nullptr)
+          staticData(_staticData), m_isMimetypeEmitted(false),
+          m_closedBeforeStart(false), m_subJob(nullptr)
     { }
 
     inline TransferJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs,
                               QIODevice *ioDevice)
         : SimpleJobPrivate(url, command, packedArgs),
           m_internalSuspended(false), m_errorPage(false),
-          m_isMimetypeEmitted(false), m_subJob(nullptr),
+          m_isMimetypeEmitted(false), m_closedBeforeStart(false), m_subJob(nullptr),
           m_outgoingDataSource(QPointer<QIODevice>(ioDevice))
     { }
 
@@ -253,6 +254,7 @@ public:
     QList<QUrl> m_redirectionList;
     QString m_mimetype;
     bool m_isMimetypeEmitted;
+    bool m_closedBeforeStart;
     TransferJob *m_subJob;
     QPointer<QIODevice> m_outgoingDataSource;
 
@@ -279,6 +281,7 @@ public:
      */
     virtual void slotDataReqFromDevice();
     void slotIODeviceClosed();
+    void slotIODeviceClosedBeforeStart();
 
     void slotErrorPage();
     void slotCanResume(KIO::filesize_t offset);

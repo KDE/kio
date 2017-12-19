@@ -35,6 +35,12 @@ TransferJob::TransferJob(TransferJobPrivate &dd)
     if (d->m_command == CMD_PUT) {
         d->m_extraFlags |= JobPrivate::EF_TransferJobDataSent;
     }
+
+    if (d->m_outgoingDataSource) {
+        connect(d->m_outgoingDataSource, SIGNAL(readChannelFinished()),
+                SLOT(slotIODeviceClosedBeforeStart()));
+    }
+
 }
 
 TransferJob::~TransferJob()
@@ -312,7 +318,13 @@ void TransferJobPrivate::start(Slave *slave)
                     SLOT(slotDataReqFromDevice()));
             q->connect(m_outgoingDataSource, SIGNAL(readChannelFinished()),
                     SLOT(slotIODeviceClosed()));
-            if (m_outgoingDataSource->bytesAvailable() > 0) {
+            // We don't really need to disconnect since we're never checking
+            // m_closedBeforeStart again but it's the proper thing to do logically
+            QObject::disconnect(m_outgoingDataSource, SIGNAL(readChannelFinished()),
+                                q, SLOT(slotIODeviceClosedBeforeStart()));
+            if (m_closedBeforeStart) {
+                QMetaObject::invokeMethod(q, "slotIODeviceClosed", Qt::QueuedConnection);
+            } else if (m_outgoingDataSource->bytesAvailable() > 0) {
                 QMetaObject::invokeMethod(q, "slotDataReqFromDevice", Qt::QueuedConnection);
             }
         } else {
@@ -423,6 +435,11 @@ void TransferJobPrivate::slotDataReqFromDevice()
         internalSuspend(); // Wait for more data from subJob.
         m_subJob->d_func()->internalResume(); // Ask for more!
     }
+}
+
+void TransferJobPrivate::slotIODeviceClosedBeforeStart()
+{
+    m_closedBeforeStart = true;
 }
 
 void TransferJobPrivate::slotIODeviceClosed()
