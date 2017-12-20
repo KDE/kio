@@ -32,7 +32,7 @@ SearchProvider::SearchProvider(const QString &servicePath)
 {
     setDesktopEntryName(QFileInfo(servicePath).baseName());
     KDesktopFile parser(servicePath);
-    setName(parser.name());
+    setName(parser.readName());
     KConfigGroup group(parser.desktopGroup());
     setKeys(group.readEntry(QStringLiteral("Keys"), QStringList()));
 
