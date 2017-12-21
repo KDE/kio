@@ -90,7 +90,7 @@ Name[wa]=Documintåcion di Qt so les fyis
 Name[x-test]=xxLatest Qt Online Documentationxx
 Name[zh_CN]=最新的 Qt 在线文档
 Name[zh_TW]=最新的 Qt 線上文件
-Query=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
+Query=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[ar]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
 Query[ast]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
 Query[bg]=http://qt-project.org/doc/search/qt-5.0?search=\\{@}
