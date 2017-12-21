@@ -318,6 +318,16 @@ QString KIO::iconNameForUrl(const QUrl &url)
             || url.path().length() <= 1) {
         i = favIconForUrl(url); // maybe there is a favicon?
 
+        // reflect actual fill state of trash can
+        if (url.scheme() == QLatin1String("trash") && url.path().length() <= 1) {
+            KConfig trashConfig(QStringLiteral("trashrc"), KConfig::SimpleConfig);
+            if (trashConfig.group("Status").readEntry("Empty", true)) {
+                i = QStringLiteral("user-trash");
+            } else {
+                i = QStringLiteral("user-trash-full");
+            }
+        }
+
         if (i.isEmpty()) {
             i = KProtocolInfo::icon(url.scheme());
         }
