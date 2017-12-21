@@ -1587,7 +1587,7 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
         // Check if this dir is oldUrl, or a subfolder of it
         if (oldDirUrl == oldUrl || oldUrl.isParentOf(oldDirUrl)) {
             // TODO should use KUrl::cleanpath like isParentOf does
-            QString relPath = oldDirUrl.path().mid(oldUrl.path().length());
+            QString relPath = oldDirUrl.path().mid(oldUrl.path().length()+1);
 
             QUrl newDirUrl(newUrl); // take new base
             if (!relPath.isEmpty()) {
