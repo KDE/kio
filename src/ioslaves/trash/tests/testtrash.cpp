@@ -1288,5 +1288,5 @@ void TestTrash::testIcons()
     checkIcon(QUrl(QStringLiteral("trash:/foo/")), QStringLiteral("inode-directory"));
 }
 
-QTEST_MAIN(TestTrash) // QT5 TODO: NOGUI
+QTEST_GUILESS_MAIN(TestTrash)
 
