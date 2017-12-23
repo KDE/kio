@@ -56,3 +56,10 @@ Name[zh_TW]=Qt4 文件
 X-KDE-ServiceTypes=SearchProvider
 Keys=qt4
 Query=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
+Query[ca]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
+Query[en_GB]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
+Query[nl]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
+Query[pt]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
+Query[sv]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
+Query[uk]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
+Query[x-test]=xxhttps://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}xx
