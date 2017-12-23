@@ -27,5 +27,3 @@ KOverlayIconPlugin::KOverlayIconPlugin(QObject *parent)
 KOverlayIconPlugin::~KOverlayIconPlugin()
 {
 }
-
-#include "koverlayiconplugin.moc"
