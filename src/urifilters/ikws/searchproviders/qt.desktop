@@ -98,5 +98,6 @@ Query[pt]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[sv]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[uk]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[x-test]=xxhttps://doc.qt.io/qt-5/search-results.html?q=\\{@}xx
+Query[zh_CN]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service
