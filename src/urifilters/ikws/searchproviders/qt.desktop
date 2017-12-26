@@ -92,8 +92,10 @@ Name[zh_CN]=最新的 Qt 在线文档
 Name[zh_TW]=最新的 Qt 線上文件
 Query=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[ca]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
+Query[ca@valencia]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[en_GB]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[nl]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
+Query[pl]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[pt]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[sr]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[sr@ijekavian]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
