@@ -34,4 +34,33 @@ enum ActionType {
     UTIME,
 };
 
+/**
+ * PrivilegeOperationReturnValue encapsulates the return value from execWithElevatedPrivilege() in a convenient way.
+ * Warning, this class will cast to a bool that is false on success and true on failure. This unusual solution allows
+ * to write kioslave code like this:
+
+if (!dir.rmdir(itemPath)) {
+    if (auto ret = execWithElevatedPrivilege(RMDIR, itemPath)) {
+        if (!ret.wasCanceled()) {
+            error(KIO::ERR_CANNOT_DELETE, itemPath);
+        }
+        return false;
+    }
+}
+// directory successfully removed, continue with the next operation
+*/
+class PrivilegeOperationReturnValue
+{
+public:
+    static PrivilegeOperationReturnValue success() { return PrivilegeOperationReturnValue{false, false}; }
+    static PrivilegeOperationReturnValue failure() { return PrivilegeOperationReturnValue{true, false}; }
+    static PrivilegeOperationReturnValue canceled() { return PrivilegeOperationReturnValue{true, true}; }
+    operator bool() const { return m_failed; }
+    bool wasCanceled() const { return m_canceled; }
+private:
+    PrivilegeOperationReturnValue(bool failed, bool canceled) : m_failed(failed), m_canceled(canceled) {}
+    const bool m_failed;
+    const bool m_canceled;
+};
+
 #endif
