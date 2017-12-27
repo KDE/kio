@@ -8,7 +8,7 @@ include(ConfigureChecks.cmake)
 if(WIN32)
   set(kio_file_PART_SRCS file.cpp file_win.cpp )
 else()
-  set(kio_file_PART_SRCS file.cpp file_unix.cpp )
+  set(kio_file_PART_SRCS file.cpp file_unix.cpp fdreceiver.cpp )
 endif()
 
 find_package(ACL)
@@ -22,6 +22,10 @@ configure_file(config-kioslave-file.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-k
 
 add_library(kio_file MODULE ${kio_file_PART_SRCS})
 target_link_libraries(kio_file KF5::KIOCore KF5::I18n)
+
+if(UNIX)
+  target_link_libraries(kio_file Qt5::Network)
+endif()
 
 if (HAVE_VOLMGT AND CMAKE_SYSTEM_NAME MATCHES SunOS)
     target_link_libraries(kio_file -lvolmgt)
