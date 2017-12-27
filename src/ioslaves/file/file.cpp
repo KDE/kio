@@ -77,6 +77,8 @@
 #include <kdirnotify.h>
 #include <ioslave_defaults.h>
 
+#include "fdreceiver.h"
+
 Q_LOGGING_CATEGORY(KIO_FILE, "kf5.kio.kio_file")
 
 // Pseudo plugin class to embed meta data
@@ -234,26 +236,30 @@ void FileProtocol::chmod(const QUrl &url, int permissions)
             (setACL(_path.data(), permissions, false) == -1) ||
             /* if not a directory, cannot set default ACLs */
             (setACL(_path.data(), permissions, true) == -1 && errno != ENOTDIR)) {
-
-        switch (errno) {
-        case EPERM:
-        case EACCES:
-            error(KIO::ERR_ACCESS_DENIED, path);
-            break;
-#if defined(ENOTSUP)
-        case ENOTSUP: // from setACL since chmod can't return ENOTSUP
-            error(KIO::ERR_UNSUPPORTED_ACTION, i18n("Setting ACL for %1", path));
-            break;
-#endif
-        case ENOSPC:
-            error(KIO::ERR_DISK_FULL, path);
-            break;
-        default:
-            error(KIO::ERR_CANNOT_CHMOD, path);
+        if (auto err = execWithElevatedPrivilege(CHMOD, _path, permissions)) {
+            if (!err.wasCanceled()) {
+                switch (errno) {
+                case EPERM:
+                case EACCES:
+                    error(KIO::ERR_ACCESS_DENIED, path);
+                    break;
+        #if defined(ENOTSUP)
+                case ENOTSUP: // from setACL since chmod can't return ENOTSUP
+                    error(KIO::ERR_UNSUPPORTED_ACTION, i18n("Setting ACL for %1", path));
+                    break;
+        #endif
+                case ENOSPC:
+                    error(KIO::ERR_DISK_FULL, path);
+                    break;
+                default:
+                    error(KIO::ERR_CANNOT_CHMOD, path);
+                }
+                return;
+            }
         }
-    } else {
-        finished();
     }
+
+    finished();
 }
 
 void FileProtocol::setModificationTime(const QUrl &url, const QDateTime &mtime)
@@ -265,8 +271,12 @@ void FileProtocol::setModificationTime(const QUrl &url, const QDateTime &mtime)
         utbuf.actime = statbuf.st_atime; // access time, unchanged
         utbuf.modtime = mtime.toTime_t(); // modification time
         if (::utime(QFile::encodeName(path).constData(), &utbuf) != 0) {
-            // TODO: errno could be EACCES, EPERM, EROFS
-            error(KIO::ERR_CANNOT_SETTIME, path);
+            if (auto err = execWithElevatedPrivilege(UTIME, path, qint64(utbuf.actime), qint64(utbuf.modtime))) {
+                if (!err.wasCanceled()) {
+                    // TODO: errno could be EACCES, EPERM, EROFS
+                    error(KIO::ERR_CANNOT_SETTIME, path);
+                }
+            }
         } else {
             finished();
         }
@@ -283,16 +293,26 @@ void FileProtocol::mkdir(const QUrl &url, int permissions)
 
     // Remove existing file or symlink, if requested (#151851)
     if (metaData(QStringLiteral("overwrite")) == QLatin1String("true")) {
-        QFile::remove(path);
+        if (!QFile::remove(path)) {
+            execWithElevatedPrivilege(DEL, path);
+        }
     }
 
     QT_STATBUF buff;
     if (QT_LSTAT(QFile::encodeName(path).constData(), &buff) == -1) {
-        if (!QDir().mkdir(path)) {
-            //TODO: add access denied & disk full (or another reasons) handling (into Qt, possibly)
-            error(KIO::ERR_CANNOT_MKDIR, path);
-            return;
-        } else {
+        bool dirCreated;
+        if (!(dirCreated = QDir().mkdir(path))) {
+            if (auto err = execWithElevatedPrivilege(MKDIR, path)) {
+                if (!err.wasCanceled()) {
+                    //TODO: add access denied & disk full (or another reasons) handling (into Qt, possibly)
+                    error(KIO::ERR_CANNOT_MKDIR, path);
+                }
+                return;
+            }
+            dirCreated = true;
+        }
+
+        if (dirCreated) {
             if (permissions != -1) {
                 chmod(url, permissions);
             } else {
@@ -343,8 +363,12 @@ void FileProtocol::get(const QUrl &url)
 
     QFile f(path);
     if (!f.open(QIODevice::ReadOnly)) {
-        error(KIO::ERR_CANNOT_OPEN_FOR_READING, path);
-        return;
+        if (auto err = tryOpen(f, QFile::encodeName(path), O_RDONLY, S_IRUSR)) {
+            if (!err.wasCanceled()) {
+                error(KIO::ERR_CANNOT_OPEN_FOR_READING, path);
+            }
+            return;
+        }
     }
 
 #if HAVE_FADVISE
@@ -538,6 +562,11 @@ void FileProtocol::close()
 
 void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
 {
+    if (privilegeOperationUnitTestMode()) {
+        finished();
+        return;
+    }
+
     const QString dest_orig = url.toLocalFile();
 
     // qDebug() << dest_orig << "mode=" << _mode;
@@ -619,15 +648,36 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
                 }
 
                 if (!f.isOpen()) {
-                    // qDebug() << "####################### COULD NOT WRITE" << dest << "_mode=" << _mode;
-                    // qDebug() << "QFile error==" << f.error() << "(" << f.errorString() << ")";
+                    int oflags = 0;
+                    int filemode = _mode;
 
-                    if (f.error() == QFileDevice::PermissionsError) {
-                        error(KIO::ERR_WRITE_ACCESS_DENIED, dest);
+                    if ((_flags & KIO::Resume)) {
+                        oflags = O_RDWR | O_APPEND;
                     } else {
-                        error(KIO::ERR_CANNOT_OPEN_FOR_WRITING, dest);
+                        oflags = O_WRONLY | O_TRUNC | O_CREAT;
+                        if (_mode != -1) {
+                            filemode = _mode | S_IWUSR | S_IRUSR;
+                        }
                     }
-                    return;
+
+                    if (auto err = tryOpen(f, QFile::encodeName(dest), oflags, filemode)) {
+                        if (!err.wasCanceled()) {
+                            // qDebug() << "####################### COULD NOT WRITE" << dest << "_mode=" << _mode;
+                            // qDebug() << "QFile error==" << f.error() << "(" << f.errorString() << ")";
+
+                            if (f.error() == QFileDevice::PermissionsError) {
+                                error(KIO::ERR_WRITE_ACCESS_DENIED, dest);
+                            } else {
+                                error(KIO::ERR_CANNOT_OPEN_FOR_WRITING, dest);
+                            }
+                        }
+                        return;
+                    } else {
+                        if ((_flags & KIO::Resume)) {
+                            execWithElevatedPrivilege(CHOWN, dest, getuid(), getgid());
+                            QFile::setPermissions(dest, modeToQFilePermissions(filemode));
+                        }
+                    }
                 }
             }
 
@@ -681,13 +731,19 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
         //QFile::rename() never overwrites the destination file unlike ::remove,
         //so we must remove it manually first
         if (_flags & KIO::Overwrite) {
-            QFile::remove(dest_orig);
+            if (!QFile::remove(dest_orig)) {
+                execWithElevatedPrivilege(DEL, dest_orig);
+            }
         }
 
         if (!QFile::rename(dest, dest_orig)) {
-            qCWarning(KIO_FILE) << " Couldn't rename " << dest << " to " << dest_orig;
-            error(KIO::ERR_CANNOT_RENAME_PARTIAL, dest_orig);
-            return;
+            if (auto err = execWithElevatedPrivilege(RENAME, dest, dest_orig)) {
+                if (!err.wasCanceled()) {
+                    qCWarning(KIO_FILE) << " Couldn't rename " << dest << " to " << dest_orig;
+                    error(KIO::ERR_CANNOT_RENAME_PARTIAL, dest_orig);
+                }
+                return;
+            }
         }
         org::kde::KDirNotify::emitFileRenamed(QUrl::fromLocalFile(dest), QUrl::fromLocalFile(dest_orig));
     }
@@ -696,8 +752,7 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
     if (_mode != -1 && !(_flags & KIO::Resume)) {
         if (!QFile::setPermissions(dest_orig, modeToQFilePermissions(_mode))) {
             // couldn't chmod. Eat the error if the filesystem apparently doesn't support it.
-            KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(dest_orig);
-            if (mp && mp->testFileSystemFlag(KMountPoint::SupportsChmod)) {
+            if (tryChangeFileAttr(CHMOD, dest_orig, _mode)) {
                 warning(i18n("Could not change permissions for\n%1",  dest_orig));
             }
         }
@@ -723,7 +778,9 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
                 struct utimbuf utbuf;
                 utbuf.actime = dest_statbuf.st_atime;
                 utbuf.modtime = dt.toTime_t();
-                utime(QFile::encodeName(dest_orig).constData(), &utbuf);
+                if (utime(QFile::encodeName(dest_orig).constData(), &utbuf) != 0) {
+                    tryChangeFileAttr(UTIME, dest_orig, qint64(utbuf.actime), qint64(utbuf.modtime));
+                }
 #endif
             }
         }
@@ -1335,8 +1392,12 @@ bool FileProtocol::deleteRecursive(const QString &path)
         } else {
             //qDebug() << "QFile::remove" << itemPath;
             if (!QFile::remove(itemPath)) {
-                error(KIO::ERR_CANNOT_DELETE, itemPath);
-                return false;
+                if (auto err = execWithElevatedPrivilege(DEL, itemPath)) {
+                    if (!err.wasCanceled()) {
+                        error(KIO::ERR_CANNOT_DELETE, itemPath);
+                    }
+                    return false;
+                }
             }
         }
     }
@@ -1344,8 +1405,12 @@ bool FileProtocol::deleteRecursive(const QString &path)
     Q_FOREACH (const QString &itemPath, dirsToDelete) {
         //qDebug() << "QDir::rmdir" << itemPath;
         if (!dir.rmdir(itemPath)) {
-            error(KIO::ERR_CANNOT_DELETE, itemPath);
-            return false;
+            if (auto err = execWithElevatedPrivilege(RMDIR, itemPath)) {
+                if (!err.wasCanceled()) {
+                    error(KIO::ERR_CANNOT_DELETE, itemPath);
+                }
+                return false;
+            }
         }
     }
     return true;

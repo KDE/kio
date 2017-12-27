@@ -23,6 +23,7 @@
 #include <unistd.h>
 #include <dirent.h>
 #include <sys/stat.h>
+#include <errno.h>
 
 #include "filehelper.h"
 #include "fdsender.h"

@@ -392,3 +392,12 @@ PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType
 {
     return PrivilegeOperationReturnValue::failure();
 }
+PrivilegeOperationReturnValue tryOpen(QFile &f, const QByteArray &, int , int)
+{
+    return PrivilegeOperationReturnValue::failure();
+}
+
+PrivilegeOperationReturnValue tryChangeFileAttr(ActionType , const QVariant &, const QVariant &, const QVariant &)
+{
+    return PrivilegeOperationReturnValue::failure();
+}
