@@ -34,6 +34,7 @@
 #include <kmessagebox.h>
 #include <kjobtrackerinterface.h>
 #include <kio/jobuidelegate.h>
+#include <job_p.h>
 
 #include <QDateTime>
 #include <QDBusConnection>
@@ -113,6 +114,11 @@ public:
         if (showProgressInfo) {
             KIO::getJobTracker()->registerJob(this);
         }
+
+        d_ptr->m_privilegeExecutionEnabled = true;
+        d_ptr->m_operationType = d_ptr->Other;
+        d_ptr->m_caption = i18n("Undo Changes");
+        d_ptr->m_message = i18n("Undoing this operation requires root privileges. Do you want to continue?");
     }
     virtual ~UndoJob() {}
 
@@ -526,6 +532,7 @@ void FileUndoManagerPrivate::stepMakingDirectories()
         QUrl dir = m_dirStack.pop();
         //qDebug() << "creatingDir" << dir;
         m_currentJob = KIO::mkdir(dir);
+        m_currentJob->setParentJob(m_undoJob);
         m_undoJob->emitCreatingDir(dir);
     } else {
         m_undoState = MOVINGFILES;
@@ -573,6 +580,10 @@ void FileUndoManagerPrivate::stepMovingFiles()
             m_undoJob->emitMoving(op.m_dst, op.m_src);
         }
 
+        if (m_currentJob) {
+            m_currentJob->setParentJob(m_undoJob);
+        }
+
         m_current.m_opStack.removeLast();
         // The above KIO jobs are lowlevel, they don't trigger KDirNotify notification
         // So we need to do it ourselves (but schedule it to the end of the undo, to compress them)
@@ -593,6 +604,7 @@ void FileUndoManagerPrivate::stepRemovingLinks()
         QUrl file = m_fileCleanupStack.pop();
         //qDebug() << "file_delete" << file;
         m_currentJob = KIO::file_delete(file, KIO::HideProgressInfo);
+        m_currentJob->setParentJob(m_undoJob);
         m_undoJob->emitDeleting(file);
 
         QUrl url = file.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
@@ -612,6 +624,7 @@ void FileUndoManagerPrivate::stepRemovingDirectories()
         QUrl dir = m_dirCleanupStack.pop();
         //qDebug() << "rmdir" << dir;
         m_currentJob = KIO::rmdir(dir);
+        m_currentJob->setParentJob(m_undoJob);
         m_undoJob->emitDeleting(dir);
         addDirToUpdate(dir);
     } else {
