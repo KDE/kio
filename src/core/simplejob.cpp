@@ -377,7 +377,7 @@ SimpleJob *KIO::rename(const QUrl &src, const QUrl &dest, JobFlags flags)
 {
     //qDebug() << "rename " << src << " " << dest;
     KIO_ARGS << src << dest << (qint8)(flags & Overwrite);
-    return SimpleJobPrivate::newJob(src, CMD_RENAME, packedArgs);
+    return SimpleJobPrivate::newJob(src, CMD_RENAME, packedArgs, flags);
 }
 
 SimpleJob *KIO::symlink(const QString &target, const QUrl &dest, JobFlags flags)

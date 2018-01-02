@@ -274,6 +274,22 @@ public:
             job->d_func()->m_bOverwriteAllDirs = true;
             job->d_func()->m_bOverwriteAllFiles = true;
         }
+        if (!(flags & KIO::NoPrivilegeExecution)) {
+            job->d_func()->m_privilegeExecutionEnabled = true;
+            FileOperationType copyType;
+            switch (mode) {
+            case CopyJob::Copy:
+                copyType = Copy;
+                break;
+            case CopyJob::Move:
+                copyType = Move;
+                break;
+            case CopyJob::Link:
+                copyType = Symlink;
+                break;
+            }
+            job->d_func()->m_operationType = copyType;
+        }
         return job;
     }
 };
@@ -919,6 +935,7 @@ void CopyJobPrivate::startRenameJob(const QUrl &slave_url)
 
     KIO_ARGS << m_currentSrcURL << dest << (qint8) false /*no overwrite*/;
     SimpleJob *newJob = SimpleJobPrivate::newJobNoUi(slave_url, CMD_RENAME, packedArgs);
+    newJob->setParentJob(q);
     Scheduler::setJobPriority(newJob, 1);
     q->addSubjob(newJob);
     if (m_currentSrcURL.adjusted(QUrl::RemoveFilename) != dest.adjusted(QUrl::RemoveFilename)) { // For the user, moving isn't renaming. Only renaming is.
@@ -1222,6 +1239,7 @@ void CopyJobPrivate::createNextDir()
         // Create the directory - with default permissions so that we can put files into it
         // TODO : change permissions once all is finished; but for stuff coming from CDROM it sucks...
         KIO::SimpleJob *newjob = KIO::mkdir(udir, -1);
+        newjob->setParentJob(q);
         Scheduler::setJobPriority(newjob, 1);
         if (shouldOverwriteFile(udir.path())) { // if we are overwriting an existing file or symlink
             newjob->addMetaData(QStringLiteral("overwrite"), QStringLiteral("true"));
@@ -1324,6 +1342,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
             // The only problem with this trick is that the error handling for this del operation
             // is not going to be right... see 'Very special case' above.
             KIO::Job *newjob = KIO::del((*it).uSource, HideProgressInfo);
+            newjob->setParentJob(q);
             q->addSubjob(newjob);
             return; // Don't move to next file yet !
         }
@@ -1500,6 +1519,7 @@ KIO::Job *CopyJobPrivate::linkNextFile(const QUrl &uSource, const QUrl &uDest, J
         (uSource.password() == uDest.password())) {
         // This is the case of creating a real symlink
         KIO::SimpleJob *newJob = KIO::symlink(uSource.path(), uDest, flags | HideProgressInfo /*no GUI*/);
+        newJob->setParentJob(q_func());
         Scheduler::setJobPriority(newJob, 1);
         qCDebug(KIO_COPYJOB_DEBUG) << "Linking target=" << uSource.path() << "link=" << uDest;
         //emit linking( this, uSource.path(), uDest );
@@ -1627,6 +1647,7 @@ void CopyJobPrivate::copyNextFile()
             // Copying a symlink - only on the same protocol/host/etc. (#5601, downloading an FTP file through its link),
         {
             KIO::SimpleJob *newJob = KIO::symlink((*it).linkDest, uDest, flags | HideProgressInfo /*no GUI*/);
+            newJob->setParentJob(q);
             Scheduler::setJobPriority(newJob, 1);
             newjob = newJob;
             qCDebug(KIO_COPYJOB_DEBUG) << "Linking target=" << (*it).linkDest << "link=" << uDest;
@@ -1639,6 +1660,7 @@ void CopyJobPrivate::copyNextFile()
             // NOTE: if we are moving stuff, the deletion of the source will be done in slotResultCopyingFiles
         } else if (m_mode == CopyJob::Move) { // Moving a file
             KIO::FileCopyJob *moveJob = KIO::file_move(uSource, uDest, permissions, flags | HideProgressInfo/*no GUI*/);
+            moveJob->setParentJob(q);
             moveJob->setSourceSize((*it).size);
             moveJob->setModificationTime((*it).mtime); // #55804
             newjob = moveJob;
@@ -1680,6 +1702,7 @@ void CopyJobPrivate::deleteNextDir()
         // Take first dir to delete out of list - last ones first !
         QList<QUrl>::Iterator it = --dirsToRemove.end();
         SimpleJob *job = KIO::rmdir(*it);
+        job->setParentJob(q);
         Scheduler::setJobPriority(job, 1);
         dirsToRemove.erase(it);
         q->addSubjob(job);
@@ -1704,6 +1727,7 @@ void CopyJobPrivate::setNextDirAttribute()
         ++m_directoriesCopiedIterator;
 
         KIO::SimpleJob *job = KIO::setModificationTime(url, dt);
+        job->setParentJob(q);
         Scheduler::setJobPriority(job, 1);
         q->addSubjob(job);
 

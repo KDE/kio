@@ -249,6 +249,23 @@ public:
         if (!(flags & HideProgressInfo)) {
             KIO::getJobTracker()->registerJob(job);
         }
+        if (!(flags & NoPrivilegeExecution)) {
+            job->d_func()->m_privilegeExecutionEnabled = true;
+            // Only delete, rename and symlink operation accept JobFlags.
+            FileOperationType opType;
+            switch (command) {
+            case CMD_DEL:
+                opType = Delete;
+                break;
+            case CMD_RENAME:
+                opType = Rename;
+                break;
+            case CMD_SYMLINK:
+                opType = Symlink;
+                break;
+            }
+            job->d_func()->m_operationType = opType;
+        }
         return job;
     }
 };
@@ -325,6 +342,10 @@ public:
         if (!(flags & HideProgressInfo)) {
             KIO::getJobTracker()->registerJob(job);
         }
+        if (!(flags & NoPrivilegeExecution)) {
+            job->d_func()->m_privilegeExecutionEnabled = true;
+            job->d_func()->m_operationType = Transfer;
+        }
         return job;
     }
 
@@ -337,6 +358,10 @@ public:
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
         if (!(flags & HideProgressInfo)) {
             KIO::getJobTracker()->registerJob(job);
+        }
+        if (!(flags & NoPrivilegeExecution)) {
+            job->d_func()->m_privilegeExecutionEnabled = true;
+            job->d_func()->m_operationType = Transfer;
         }
         return job;
     }

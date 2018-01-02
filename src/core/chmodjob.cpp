@@ -88,6 +88,10 @@ public:
         if (!(flags & HideProgressInfo)) {
             KIO::getJobTracker()->registerJob(job);
         }
+        if (!(flags & NoPrivilegeExecution)) {
+            job->d_func()->m_privilegeExecutionEnabled = true;
+            job->d_func()->m_operationType = ChangeAttr;
+        }
         return job;
     }
 };
@@ -232,6 +236,7 @@ void ChmodJobPrivate::_k_chmodNextFile()
         /*qDebug() << "chmod'ing" << info.url
                       << "to" << QString::number(info.permissions,8);*/
         KIO::SimpleJob *job = KIO::chmod(info.url, info.permissions);
+        job->setParentJob(q);
         // copy the metadata for acl and default acl
         const QString aclString = q->queryMetaData(QStringLiteral("ACL_STRING"));
         const QString defaultAclString = q->queryMetaData(QStringLiteral("DEFAULT_ACL_STRING"));

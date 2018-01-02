@@ -111,6 +111,10 @@ public:
         if (!(flags & HideProgressInfo)) {
             KIO::getJobTracker()->registerJob(job);
         }
+        if (!(flags & NoPrivilegeExecution)) {
+            job->d_func()->m_privilegeExecutionEnabled = true;
+            job->d_func()->m_operationType = Delete;
+        }
         return job;
     }
 };
@@ -306,6 +310,7 @@ void DeleteJobPrivate::deleteNextFile()
                     job = KIO::http_delete(*it, KIO::HideProgressInfo);
                 } else {
                     job = KIO::file_delete(*it, KIO::HideProgressInfo);
+                    job->setParentJob(q);
                 }
                 Scheduler::setJobPriority(job, 1);
                 m_currentURL = (*it);
@@ -344,6 +349,7 @@ void DeleteJobPrivate::deleteNextDir()
                 // Call rmdir - works for kioslaves with canDeleteRecursive too,
                 // CMD_DEL will trigger the recursive deletion in the slave.
                 SimpleJob *job = KIO::rmdir(*it);
+                job->setParentJob(q);
                 job->addMetaData(QStringLiteral("recurse"), QStringLiteral("true"));
                 Scheduler::setJobPriority(job, 1);
                 dirs.erase(it);

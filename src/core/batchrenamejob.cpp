@@ -113,6 +113,10 @@ public:
         if (!(flags & HideProgressInfo)) {
             KIO::getJobTracker()->registerJob(job);
         }
+        if (!(flags & NoPrivilegeExecution)) {
+            job->d_func()->m_privilegeExecutionEnabled = true;
+            job->d_func()->m_operationType = Rename;
+        }
         return job;
     }
 
@@ -175,6 +179,7 @@ void BatchRenameJobPrivate::slotStart()
         m_newUrl.setPath(m_newUrl.path() + KIO::encodeFileName(newName));
 
         KIO::Job * job = KIO::moveAs(oldUrl, m_newUrl, KIO::HideProgressInfo);
+        job->setParentJob(q);
         q->addSubjob(job);
         q->setProcessedAmount(KJob::Files, q->processedAmount(KJob::Files) + 1);
     } else {

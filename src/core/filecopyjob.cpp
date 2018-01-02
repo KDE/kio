@@ -111,6 +111,10 @@ public:
         if (!(flags & HideProgressInfo)) {
             KIO::getJobTracker()->registerJob(job);
         }
+        if (!(flags & NoPrivilegeExecution)) {
+            job->d_func()->m_privilegeExecutionEnabled = true;
+            job->d_func()->m_operationType = move ? Move : Copy;
+        }
         return job;
     }
 };
@@ -217,6 +221,7 @@ void FileCopyJobPrivate::startCopyJob(const QUrl &slave_url)
     //qDebug();
     KIO_ARGS << m_src << m_dest << m_permissions << (qint8)(m_flags & Overwrite);
     m_copyJob = new DirectCopyJob(slave_url, packedArgs);
+    m_copyJob->setParentJob(q);
     if (m_modificationTime.isValid()) {
         m_copyJob->addMetaData(QStringLiteral("modified"), m_modificationTime.toString(Qt::ISODate));     // #55804
     }
@@ -232,6 +237,7 @@ void FileCopyJobPrivate::startRenameJob(const QUrl &slave_url)
     m_mustChmod = true;  // CMD_RENAME by itself doesn't change permissions
     KIO_ARGS << m_src << m_dest << (qint8)(m_flags & Overwrite);
     m_moveJob = SimpleJobPrivate::newJobNoUi(slave_url, CMD_RENAME, packedArgs);
+    m_moveJob->setParentJob(q);
     if (m_modificationTime.isValid()) {
         m_moveJob->addMetaData(QStringLiteral("modified"), m_modificationTime.toString(Qt::ISODate));     // #55804
     }
@@ -332,6 +338,7 @@ void FileCopyJobPrivate::startDataPump()
     m_resumeAnswerSent = false;
     m_getJob = nullptr; // for now
     m_putJob = put(m_dest, m_permissions, (m_flags | HideProgressInfo) /* no GUI */);
+    m_putJob->setParentJob(q);
     //qDebug() << "m_putJob=" << m_putJob << "m_dest=" << m_dest;
     if (m_modificationTime.isValid()) {
         m_putJob->setModificationTime(m_modificationTime);
@@ -388,6 +395,7 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
 
         if (job == m_putJob) {
             m_getJob = KIO::get(m_src, NoReload, HideProgressInfo /* no GUI */);
+            m_getJob->setParentJob(q);
             //qDebug() << "m_getJob=" << m_getJob << m_src;
             m_getJob->addMetaData(QStringLiteral("errorPage"), QStringLiteral("false"));
             m_getJob->addMetaData(QStringLiteral("AllowCompressedPage"), QStringLiteral("false"));

@@ -96,6 +96,10 @@ public:
         if (!(flags & HideProgressInfo)) {
             KIO::getJobTracker()->registerJob(job);
         }
+        if (!(flags & NoPrivilegeExecution)) {
+            job->d_func()->m_privilegeExecutionEnabled = true;
+            job->d_func()->m_operationType = MkDir;
+        }
         return job;
     }
 
@@ -122,6 +126,7 @@ void MkpathJobPrivate::slotStart()
     if (m_pathIterator != m_pathComponents.constEnd()) {
         m_url.setPath(concatPaths(m_url.path(), *m_pathIterator));
         KIO::Job* job = KIO::mkdir(m_url);
+        job->setParentJob(q);
         q->addSubjob(job);
         q->setProcessedAmount(KJob::Directories, q->processedAmount(KJob::Directories) + 1);
     } else {
