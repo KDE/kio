@@ -102,6 +102,24 @@ public:
         if (m_destItem.isNull() && m_destUrl.isLocalFile()) {
             m_destItem = KFileItem(m_destUrl);
         }
+
+        if (!(m_flags & KIO::NoPrivilegeExecution)) {
+            m_privilegeExecutionEnabled = true;
+            switch (m_dropAction) {
+            case Qt::CopyAction:
+                m_operationType = Copy;
+                break;
+            case Qt::MoveAction:
+                m_operationType = Move;
+                break;
+            case Qt::LinkAction:
+                m_operationType = Symlink;
+                break;
+            default:
+                m_operationType = Other;
+                break;
+            }
+        }
     }
 
     bool destIsDirectory() const
@@ -243,8 +261,9 @@ int DropJobPrivate::determineDropAction()
     if (!KProtocolManager::supportsWriting(m_destUrl)) {
         return KIO::ERR_CANNOT_WRITE;
     }
-    if (!m_destItem.isNull() && !m_destItem.isWritable()) {
-        return KIO::ERR_WRITE_ACCESS_DENIED;
+
+    if (!m_destItem.isNull() && !m_destItem.isWritable() && (m_flags & KIO::NoPrivilegeExecution)) {
+            return KIO::ERR_WRITE_ACCESS_DENIED;
     }
 
     bool allItemsAreFromTrash = true;
@@ -478,6 +497,7 @@ void DropJobPrivate::doCopyToDirectory()
         return;
     }
     Q_ASSERT(job);
+    job->setParentJob(q);
     job->setMetaData(m_metaData);
     QObject::connect(job, &KIO::CopyJob::copyingDone, q, [q](KIO::Job*, const QUrl &, const QUrl &to) {
             emit q->itemCreated(to);
