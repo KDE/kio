@@ -148,6 +148,9 @@ void SimpleJobPrivate::start(Slave *slave)
     q->connect(slave, SIGNAL(finished()),
                SLOT(slotFinished()));
 
+    q->connect(slave, SIGNAL(privilegeOperationRequested()),
+               SLOT(slotPrivilegeOperationRequested()));
+
     if ((m_extraFlags & EF_TransferJobDataSent) == 0) { // this is a "get" job
         q->connect(slave, SIGNAL(totalSize(KIO::filesize_t)),
                    SLOT(slotTotalSize(KIO::filesize_t)));
@@ -335,6 +338,11 @@ void SimpleJob::slotMetaData(const KIO::MetaData &_metaData)
 void SimpleJob::storeSSLSessionFromJob(const QUrl &redirectionURL)
 {
     Q_UNUSED(redirectionURL);
+}
+
+void SimpleJobPrivate::slotPrivilegeOperationRequested()
+{
+    m_slave->send(MSG_PRIVILEGE_EXEC, QByteArray::number(tryAskPrivilegeOpConfirmation()));
 }
 
 //////////

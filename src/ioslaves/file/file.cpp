@@ -77,8 +77,6 @@
 #include <kdirnotify.h>
 #include <ioslave_defaults.h>
 
-#include "fdreceiver.h"
-
 Q_LOGGING_CATEGORY(KIO_FILE, "kf5.kio.kio_file")
 
 // Pseudo plugin class to embed meta data
@@ -300,8 +298,8 @@ void FileProtocol::mkdir(const QUrl &url, int permissions)
 
     QT_STATBUF buff;
     if (QT_LSTAT(QFile::encodeName(path).constData(), &buff) == -1) {
-        bool dirCreated;
-        if (!(dirCreated = QDir().mkdir(path))) {
+        bool dirCreated = QDir().mkdir(path);
+        if (!dirCreated) {
             if (auto err = execWithElevatedPrivilege(MKDIR, path)) {
                 if (!err.wasCanceled()) {
                     //TODO: add access denied & disk full (or another reasons) handling (into Qt, possibly)
@@ -673,10 +671,12 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
                         }
                         return;
                     } else {
+#ifndef Q_OS_WIN
                         if ((_flags & KIO::Resume)) {
                             execWithElevatedPrivilege(CHOWN, dest, getuid(), getgid());
                             QFile::setPermissions(dest, modeToQFilePermissions(filemode));
                         }
+#endif
                     }
                 }
             }

@@ -301,7 +301,26 @@ enum JobFlag {
      * This is used by KIO::rename(), KIO::put(), KIO::file_copy(), KIO::file_move(), KIO::symlink().
      * Otherwise the operation will fail with ERR_FILE_ALREADY_EXIST or ERR_DIR_ALREADY_EXIST.
      */
-    Overwrite = 4
+    Overwrite = 4,
+
+    //TODO: Only one of these flags is required. Remove the one less stable.
+    /**
+     * When set, notifies the slave that application/job does not want privilege execution.
+     * So in case of failure due to insufficient privileges show an error without attempting
+     * to run the operation as root first.
+     *
+     * @since 5.43
+     */
+    NoPrivilegeExecution = 8,
+
+    /**
+     * When set, notifies the slave that the application(job) wants the file operation to be
+     * performed as root user if there occurs a failure due to insufficient privilege.
+     *
+     * @since 5.43
+     */
+    PrivilegeExecution = 16
+
 };
 Q_DECLARE_FLAGS(JobFlags, JobFlag)
 Q_DECLARE_OPERATORS_FOR_FLAGS(JobFlags)

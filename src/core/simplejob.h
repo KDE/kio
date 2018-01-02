@@ -146,6 +146,7 @@ private:
     Q_PRIVATE_SLOT(d_func(), void slotSpeed(unsigned long speed))
     Q_PRIVATE_SLOT(d_func(), void slotTotalSize(KIO::filesize_t data_size))
     Q_PRIVATE_SLOT(d_func(), void _k_slotSlaveInfoMessage(const QString &))
+    Q_PRIVATE_SLOT(d_func(), void slotPrivilegeOperationRequested())
 
     Q_DECLARE_PRIVATE(SimpleJob)
 };

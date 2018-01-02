@@ -34,6 +34,7 @@
 #include <QPointer>
 #include <QDataStream>
 #include "kiocoredebug.h"
+#include "global.h"
 
 #define KIO_ARGS QByteArray packedArgs; QDataStream stream( &packedArgs, QIODevice::WriteOnly ); stream
 
@@ -47,7 +48,8 @@ class KIOCORE_EXPORT JobPrivate
 public:
     JobPrivate()
         : m_parentJob(nullptr), m_extraFlags(0),
-          m_uiDelegateExtension(KIO::defaultJobUiDelegateExtension())
+          m_uiDelegateExtension(KIO::defaultJobUiDelegateExtension()),
+          m_privilegeExecutionEnabled(false), m_confirmationAsked(false)
     {
     }
 
@@ -64,6 +66,18 @@ public:
            EF_KillCalled          = (1 << 4)
          };
 
+    enum FileOperationType {
+        ChangeAttr, // chmod(), chown(), setModificationTime()
+        Copy,
+        Delete,
+        MkDir,
+        Move,
+        Rename,
+        Symlink,
+        Transfer, // put() and get()
+        Other // if other file operation set message, caption inside the job.
+    };
+
     // Maybe we could use the QObject parent/child mechanism instead
     // (requires a new ctor, and moving the ctor code to some init()).
     Job *m_parentJob;
@@ -73,7 +87,13 @@ public:
     MetaData m_outgoingMetaData;
     JobUiDelegateExtension *m_uiDelegateExtension;
     Job *q_ptr;
+    // For privilege operation
+    bool m_privilegeExecutionEnabled;
+    bool m_confirmationAsked;
+    QString m_caption, m_message;
+    FileOperationType m_operationType;
 
+    PrivilegeOperationStatus tryAskPrivilegeOpConfirmation();
     void slotSpeed(KJob *job, unsigned long speed);
 
     static void emitMoving(KIO::Job *, const QUrl &src, const QUrl &dest);
@@ -171,6 +191,11 @@ public:
      * @see infoMessage()
      */
     void _k_slotSlaveInfoMessage(const QString &s);
+
+    /**
+     * Called when privilegeOperationRequested() is emitted by slave.
+     */
+    void slotPrivilegeOperationRequested();
 
     /**
      * @internal
