@@ -46,6 +46,7 @@
 #include <QtCore/QDir>
 #include <QtCore/QRegExp>
 #include <QtCore/QTextStream>
+#include <QtCore/QLocale>
 #include <QUrl>
 
 Q_LOGGING_CATEGORY(KIO_COOKIEJAR, "kf5.kio.cookiejar")
@@ -74,9 +75,11 @@ static QString removeWeekday(const QString &value)
     if (index > -1) {
         int pos = 0;
         const QString weekday = value.left(index);
+        const QLocale cLocale = QLocale::c();
         for (int i = 1; i < 8; ++i) {
-            if (weekday.startsWith(QDate::shortDayName(i), Qt::CaseInsensitive) ||
-                    weekday.startsWith(QDate::longDayName(i), Qt::CaseInsensitive)) {
+            // No need to check for long names since the short names are
+            // prefixes of the long names
+            if (weekday.startsWith(cLocale.dayName(i, QLocale::ShortFormat), Qt::CaseInsensitive)) {
                 pos = index + 1;
                 break;
             }
@@ -111,8 +114,10 @@ static QDateTime parseDate(const QString &_value)
             nullptr
         };
 
+        // Only English month names are allowed, thus use the C locale.
+        const QLocale cLocale = QLocale::c();
         for (int i = 0; date_formats[i]; ++i) {
-            dt = QDateTime::fromString(value, QL1S(date_formats[i]));
+            dt = cLocale.toDateTime(value, QL1S(date_formats[i]));
             if (dt.isValid()) {
                 break;
             }
