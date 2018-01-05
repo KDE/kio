@@ -1268,23 +1268,41 @@ void TestTrash::emptyTrash()
 #endif
 }
 
+static bool isTrashEmpty()
+{
+    KConfig cfg(QStringLiteral("trashrc"), KConfig::SimpleConfig);
+    const KConfigGroup group = cfg.group("Status");
+    return group.readEntry("Empty", true);
+}
+
 void TestTrash::testEmptyTrashSize()
 {
     KIO::DirectorySizeJob *job = KIO::directorySize(QUrl(QStringLiteral("trash:/")));
     QVERIFY(job->exec());
-    QVERIFY(job->totalSize() < 1000000000 /*1GB*/); // #157023
+    if (isTrashEmpty()) {
+        QCOMPARE(job->totalSize(), 0ULL);
+    } else {
+        QVERIFY(job->totalSize() < 1000000000 /*1GB*/); // #157023
+    }
 }
 
 static void checkIcon(const QUrl &url, const QString &expectedIcon)
 {
-    QString icon = KIO::iconNameForUrl(url);
+    QString icon = KIO::iconNameForUrl(url); // #100321
     QCOMPARE(icon, expectedIcon);
 }
 
 void TestTrash::testIcons()
 {
+    // The JSON file says "user-trash-full" in all cases, whether the trash is full or not
     QCOMPARE(KProtocolInfo::icon(QStringLiteral("trash")), QStringLiteral("user-trash-full"));  // #100321
-    checkIcon(QUrl(QStringLiteral("trash:/")), QStringLiteral("user-trash-full"));   // #100321
+
+    if (isTrashEmpty()) {
+        checkIcon(QUrl(QStringLiteral("trash:/")), QStringLiteral("user-trash"));
+    } else {
+        checkIcon(QUrl(QStringLiteral("trash:/")), QStringLiteral("user-trash-full"));
+    }
+
     checkIcon(QUrl(QStringLiteral("trash:/foo/")), QStringLiteral("inode-directory"));
 }
 
