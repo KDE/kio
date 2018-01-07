@@ -72,8 +72,7 @@ UserAgentSelectorDlg::UserAgentSelectorDlg (UserAgentInfo* info, QWidget* parent
       mButtonBox(nullptr)
 {
     QWidget *mainWidget = new QWidget(this);
-    QVBoxLayout *mainLayout = new QVBoxLayout;
-    setLayout(mainLayout);
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(mainWidget);
     mUi.setupUi (mainWidget);
 
