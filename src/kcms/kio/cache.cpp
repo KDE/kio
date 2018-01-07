@@ -40,7 +40,7 @@
 K_PLUGIN_FACTORY_DECLARATION(KioConfigFactory)
 
 CacheConfigModule::CacheConfigModule(QWidget *parent, const QVariantList &)
-                  :KCModule(/*KioConfigFactory::componentData(),*/ parent)
+                  :KCModule(parent)
 {
   ui.setupUi(this);
 }
@@ -120,7 +120,7 @@ void CacheConfigModule::configChanged()
 
 void CacheConfigModule::on_clearCacheButton_clicked()
 {
-    QString exe = QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kio_http_cache_cleaner");
+    const QString exe = QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kio_http_cache_cleaner");
 
     if (QFile::exists(exe)) {
         QProcess::startDetached(exe, QStringList(QStringLiteral("--clear-all")));

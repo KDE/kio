@@ -27,7 +27,7 @@
 K_PLUGIN_FACTORY_DECLARATION (KioConfigFactory)
 
 KCookiesMain::KCookiesMain (QWidget* parent, const QVariantList&)
-    : KCModule (/*KioConfigFactory::componentData(),*/ parent)
+    : KCModule (parent)
 {
     management = nullptr;
     bool managerOK = true;
@@ -36,12 +36,12 @@ KCookiesMain::KCookiesMain (QWidget* parent, const QVariantList&)
     tab = new QTabWidget (this);
     layout->addWidget (tab);
 
-    policies = new KCookiesPolicies (/*componentData(),*/ this);
+    policies = new KCookiesPolicies (this);
     tab->addTab (policies, i18n ("&Policy"));
     connect (policies, SIGNAL (changed (bool)), SIGNAL (changed (bool)));
 
     if (managerOK) {
-        management = new KCookiesManagement (/*componentData(),*/ this);
+        management = new KCookiesManagement (this);
         tab->addTab (management, i18n ("&Management"));
         connect (management, SIGNAL (changed (bool)), SIGNAL (changed (bool)));
     }

@@ -35,14 +35,13 @@ public:
   KSaveIOConfigPrivate ();
   ~KSaveIOConfigPrivate ();
 
-  KConfig* config;
-  KConfig* http_config;
+  KConfig* config = nullptr;
+  KConfig* http_config = nullptr;
 };
 
 Q_GLOBAL_STATIC(KSaveIOConfigPrivate, d)
 
 KSaveIOConfigPrivate::KSaveIOConfigPrivate ()
-                     : config(nullptr), http_config(nullptr)
 {
 }
 

@@ -106,8 +106,8 @@ CookieProp* CookieListViewItem::leaveCookie()
     return ret;
 }
 
-KCookiesManagement::KCookiesManagement(/*const KComponentData &componentData,*/ QWidget *parent)
-                   : KCModule(/*componentData,*/ parent),
+KCookiesManagement::KCookiesManagement(QWidget *parent)
+                   : KCModule(parent),
                      mDeleteAllFlag(false),
                      mMainWidget(parent)
 {
@@ -135,8 +135,8 @@ void KCookiesManagement::save()
     QDBusReply<void> reply = kded.call( QStringLiteral("deleteAllCookies") );
     if (!reply.isValid())
     {
-      QString caption = i18n ("D-Bus Communication Error");
-      QString message = i18n ("Unable to delete all the cookies as requested.");
+      const QString caption = i18n ("D-Bus Communication Error");
+      const QString message = i18n ("Unable to delete all the cookies as requested.");
       KMessageBox::sorry (this, message, caption);
       return;
     }
@@ -151,8 +151,8 @@ void KCookiesManagement::save()
     QDBusReply<void> reply = kded.call( QStringLiteral("deleteCookiesFromDomain"),( it.next() ) );
     if (!reply.isValid())
     {
-      QString caption = i18n ("D-Bus Communication Error");
-      QString message = i18n ("Unable to delete cookies as requested.");
+      const QString caption = i18n ("D-Bus Communication Error");
+      const QString message = i18n ("Unable to delete cookies as requested.");
       KMessageBox::sorry (this, message, caption);
       return;
     }
@@ -233,8 +233,8 @@ void KCookiesManagement::on_reloadButton_clicked()
 
   if (!reply.isValid())
   {
-    QString caption = i18n ("Information Lookup Failure");
-    QString message = i18n ("Unable to retrieve information about the "
+    const QString caption = i18n ("Information Lookup Failure");
+    const QString message = i18n ("Unable to retrieve information about the "
                             "cookies stored on your computer.");
     KMessageBox::sorry (this, message, caption);
     return;

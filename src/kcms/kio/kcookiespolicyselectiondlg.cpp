@@ -66,8 +66,7 @@ KCookiesPolicySelectionDlg::KCookiesPolicySelectionDlg (QWidget* parent, Qt::Win
       , mButtonBox(nullptr)
 {
     QWidget *mainWidget = new QWidget(this);
-    QVBoxLayout *mainLayout = new QVBoxLayout;
-    setLayout(mainLayout);
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(mainWidget);
     mUi.setupUi(mainWidget);
     mUi.leDomain->setValidator(new DomainNameValidator (mUi.leDomain));
@@ -76,8 +75,8 @@ KCookiesPolicySelectionDlg::KCookiesPolicySelectionDlg (QWidget* parent, Qt::Win
     mButtonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     mainLayout->addWidget(mButtonBox);
 
-    connect(mButtonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(mButtonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(mButtonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(mButtonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 
     mButtonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     connect(mUi.leDomain, SIGNAL(textEdited(QString)),

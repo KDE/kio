@@ -53,7 +53,7 @@ typedef QList<QTreeWidgetItem*> SiteList;
 typedef SiteList::iterator SiteListIterator;
 
 UserAgentDlg::UserAgentDlg (QWidget* parent, const QVariantList&)
-    : KCModule (/*ioConfigFactory::componentData(),*/ parent),
+    : KCModule (parent),
       m_userAgentInfo (nullptr),
       m_config (nullptr)
 {
@@ -163,19 +163,19 @@ void UserAgentDlg::on_sitePolicyTreeWidget_itemDoubleClicked (QTreeWidgetItem* i
 
 void UserAgentDlg::changeDefaultUAModifiers()
 {
-    m_ua_keys = ':'; // Make sure it's not empty
+    m_ua_keys = QLatin1Char(':'); // Make sure it's not empty
 
     if (ui.osNameCheckBox->isChecked())
-        m_ua_keys += 'o';
+        m_ua_keys += QLatin1Char('o');
 
     if (ui.osVersionCheckBox->isChecked())
-        m_ua_keys += 'v';
+        m_ua_keys += QLatin1Char('v');
 
     if (ui.processorTypeCheckBox->isChecked())
-        m_ua_keys += 'm';
+        m_ua_keys += QLatin1Char('m');
 
     if (ui.languageCheckBox->isChecked())
-        m_ua_keys += 'l';
+        m_ua_keys += QLatin1Char('l');
 
     ui.osVersionCheckBox->setEnabled (m_ua_keys.contains ('o'));
 

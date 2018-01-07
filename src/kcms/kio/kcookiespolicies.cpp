@@ -73,8 +73,8 @@ static QByteArray tolerantToAce (const QString& _domain)
 }
 
 
-KCookiesPolicies::KCookiesPolicies (/*const KComponentData& componentData,*/ QWidget* parent)
-    : KCModule (/*componentData,*/ parent), mSelectedItemsCount(0)
+KCookiesPolicies::KCookiesPolicies (QWidget* parent)
+    : KCModule (parent), mSelectedItemsCount(0)
 {
     mUi.setupUi (this);
     mUi.kListViewSearchLine->setTreeWidget (mUi.policyTreeWidget);

@@ -38,8 +38,8 @@
 
 K_PLUGIN_FACTORY_DECLARATION(KioConfigFactory)
 
-SMBRoOptions::SMBRoOptions(QWidget *parent, const QVariantList &/*, const KComponentData &componentData*/)
-  : KCModule(/*componentData.isValid() ? componentData : KioConfigFactory::componentData(),*/ parent)
+SMBRoOptions::SMBRoOptions(QWidget *parent, const QVariantList &)
+  : KCModule(parent)
 {
    QGridLayout *layout = new QGridLayout(this );
    QLabel *label=new QLabel(i18n("These settings apply to network browsing only."),this);
