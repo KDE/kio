@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Russian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="file">
+<title
+>file</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Ferdinand.Gassauer; &Ferdinand.Gassauer.mail;</author>
+<othercredit role="translator"
+><firstname
+></firstname
+><surname
+></surname
+><affiliation
+><address
+><email
+></email
+></address
+></affiliation
+><contrib
+></contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>Протокол <emphasis
+>file</emphasis
+> используется всеми приложениями &kde; для отображения локальных файлов. </para>
+<para
+>Если в строке адреса &konqueror; вы введёте <userinput
+><command
+>file:/directoryname</command
+></userinput
+>, то увидите список всех файлов каталога <quote
+>/directoryname</quote
+>. </para>
+
+</article>
