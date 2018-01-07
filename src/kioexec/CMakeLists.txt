@@ -16,8 +16,7 @@ kcoreaddons_add_plugin(kioexecd
 
 target_link_libraries(kioexecd KF5::I18n KF5::DBusAddons KF5::WidgetsAddons KF5::KIOCore)
 
-configure_file(org.kde.kioexecd.service.in ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kioexecd.service)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kioexecd.service DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
+kdbusaddons_generate_dbus_service_file(kiod5 org.kde.kioexecd ${KDE_INSTALL_FULL_LIBEXECDIR_KF5})
 
 # next target
 

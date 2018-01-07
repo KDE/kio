@@ -15,5 +15,4 @@ PRIVATE
    Qt5::DBus
 )
 
-configure_file(org.kde.kssld5.service.in ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kssld5.service)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kssld5.service DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
+kdbusaddons_generate_dbus_service_file(kiod5 org.kde.kssld5 ${KDE_INSTALL_FULL_LIBEXECDIR_KF5})

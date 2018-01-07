@@ -25,8 +25,5 @@ endif ()
 
 install(TARGETS kiod5 DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF5})
 
-configure_file(org.kde.kiod5.service.in
-   ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kiod5.service)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kiod5.service
-   DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
+kdbusaddons_generate_dbus_service_file(kiod5 org.kde.kiod5 ${KDE_INSTALL_FULL_LIBEXECDIR_KF5})
 
