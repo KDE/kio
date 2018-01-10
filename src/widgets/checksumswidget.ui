@@ -16,6 +16,9 @@
      <property name="text">
       <string>Copy and paste a checksum in the field below.&lt;br/&gt;A checksum is usually provided by the website you downloaded this file from.</string>
      </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
     </widget>
    </item>
    <item>
