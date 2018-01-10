@@ -54,6 +54,7 @@ public:
         GroupHiddenRole = 0x21a4b936
     };
 
+    /// @since 5.42
     enum GroupType {
         PlacesType,
         RemoteType,
@@ -72,11 +73,14 @@ public:
     QIcon icon(const QModelIndex &index) const;
     QString text(const QModelIndex &index) const;
     bool isHidden(const QModelIndex &index) const;
+    /// @since 5.42
     bool isGroupHidden(const GroupType type) const;
+    /// @since 5.42
     bool isGroupHidden(const QModelIndex &index) const;
     bool isDevice(const QModelIndex &index) const;
     Solid::Device deviceForIndex(const QModelIndex &index) const;
     KBookmark bookmarkForIndex(const QModelIndex &index) const;
+    /// @since 5.42
     GroupType groupType(const QModelIndex &index) const;
     QModelIndexList groupIndexes(const GroupType type) const;
 
@@ -91,6 +95,7 @@ public:
     void editPlace(const QModelIndex &index, const QString &text, const QUrl &url, const QString &iconName = QString(), const QString &appName = QString());
     void removePlace(const QModelIndex &index) const;
     void setPlaceHidden(const QModelIndex &index, bool hidden);
+    /// @since 5.42
     void setGroupHidden(const GroupType type, bool hidden);
 
     /**
