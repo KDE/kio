@@ -366,6 +366,29 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
                 continue;
             }
         }
+
+        if (cfg.hasKey("X-KDE-RequiredNumberOfUrls")) {
+            const QStringList requiredNumberOfUrls = cfg.readEntry("X-KDE-RequiredNumberOfUrls", QStringList());
+
+            bool matchesAtLeastOneCriterion = false;
+
+            for (const QString &criterion : requiredNumberOfUrls) {
+                const int number = criterion.toInt();
+                if (number < 1) {
+                    continue;
+                }
+
+                if (urlList.count() == number) {
+                    matchesAtLeastOneCriterion = true;
+                    break;
+                }
+            }
+
+            if (!matchesAtLeastOneCriterion) {
+                continue;
+            }
+        }
+
         if (cfg.hasKey("Actions") || cfg.hasKey("X-KDE-GetActionMenu")) {
             // Like KService, we support ServiceTypes, X-KDE-ServiceTypes, and MimeType.
             const QStringList types = cfg.readEntry("ServiceTypes", QStringList())
