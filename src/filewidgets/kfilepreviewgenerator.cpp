@@ -70,10 +70,7 @@
  *
  * QListView does not invoke QItemDelegate::sizeHint() when the
  * uniformItemSize property has been set to true, so this property is
- * set before exchanging a block of icons. It is important to reset
- * it again before the event loop is entered, otherwise QListView
- * would not get the correct size hints after dispatching the layoutChanged()
- * signal.
+ * set before exchanging a block of icons.
  */
 class KFilePreviewGenerator::LayoutBlocker
 {
@@ -92,6 +89,11 @@ public:
     {
         if (m_view != nullptr) {
             m_view->setUniformItemSizes(m_uniformSizes);
+            /* The QListView did the layout with uniform item
+             * sizes, so trigger a relayout with the expected sizes. */
+            if (!m_uniformSizes) {
+                m_view->setGridSize(m_view->gridSize());
+            }
         }
     }
 
