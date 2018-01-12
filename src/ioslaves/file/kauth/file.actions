@@ -2,4 +2,3 @@
 Name=Execute action as root.
 Description=Root privileges are required to complete the action.
 Policy=auth_admin
-Persistence=
