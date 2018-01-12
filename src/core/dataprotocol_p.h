@@ -74,9 +74,14 @@ public:
 #else
     DataProtocol();
 #endif
-    virtual ~DataProtocol();
+#if defined(TESTKIO)
     void mimetype(const QUrl &url);
     void get(const QUrl &url);
+#else
+    void mimetype(const QUrl &url) override;
+    void get(const QUrl &url) override;
+#endif
+    virtual ~DataProtocol();
 };
 
 }/*end namespace*/
