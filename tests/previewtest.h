@@ -22,6 +22,7 @@ private Q_SLOTS:
 
 private:
     QLineEdit *m_url;
+    QLineEdit *m_plugins;
     QLabel *m_preview;
 };
 

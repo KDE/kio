@@ -8,7 +8,9 @@
 #include <QPushButton>
 
 #include <QDebug>
+#include <kconfiggroup.h>
 #include <kiconloader.h>
+#include <ksharedconfig.h>
 #include <kio/previewjob.h>
 
 PreviewTest::PreviewTest()
@@ -27,9 +29,20 @@ PreviewTest::PreviewTest()
     QPushButton *btn = new QPushButton(QStringLiteral("Generate"), this);
     connect(btn, SIGNAL(clicked()), SLOT(slotGenerate()));
     layout->addWidget(btn, 0, 1);
+
+    const KConfigGroup globalConfig(KSharedConfig::openConfig(), "PreviewSettings");
+    const QStringList enabledPlugins = globalConfig.readEntry("Plugins", QStringList()
+                            << QStringLiteral("directorythumbnail")
+                            << QStringLiteral("imagethumbnail")
+                            << QStringLiteral("jpegthumbnail"));
+
+    m_plugins = new QLineEdit(this);
+    layout->addWidget(m_plugins, 1, 0, 1, 2);
+    m_plugins->setText(enabledPlugins.join("; "));
+
     m_preview = new QLabel(this);
     m_preview->setMinimumSize(400, 300);
-    layout->addWidget(m_preview, 1, 0, 1, 2);
+    layout->addWidget(m_preview, 2, 0, 1, 2);
 }
 
 void PreviewTest::slotGenerate()
@@ -37,7 +50,11 @@ void PreviewTest::slotGenerate()
     KFileItemList items;
     items.append(KFileItem(QUrl::fromUserInput(m_url->text())));
 
-    KIO::PreviewJob *job = KIO::filePreview(items, QSize(m_preview->width(), m_preview->height()));
+    QStringList enabledPlugins;
+    for (auto plugin : m_plugins->text().split(";"))
+        enabledPlugins << plugin.trimmed();
+
+    KIO::PreviewJob *job = KIO::filePreview(items, QSize(m_preview->width(), m_preview->height()), &enabledPlugins);
     connect(job, SIGNAL(result(KJob*)), SLOT(slotResult(KJob*)));
     connect(job, SIGNAL(gotPreview(KFileItem,QPixmap)), SLOT(slotPreview(KFileItem,QPixmap)));
     connect(job, SIGNAL(failed(KFileItem)), SLOT(slotFailed()));
