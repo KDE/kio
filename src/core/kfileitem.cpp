@@ -1018,7 +1018,7 @@ QStringList KFileItem::overlays() const
         if (KSambaShare::instance()->isDirectoryShared(d->m_url.toLocalFile()) ||
                 KNFSShare::instance()->isDirectoryShared(d->m_url.toLocalFile())) {
             //qDebug() << d->m_url.path();
-            names.append(QStringLiteral("network-workgroup"));
+            names.append(QStringLiteral("emblem-shared"));
         }
     }
 #endif  // Q_OS_WIN
