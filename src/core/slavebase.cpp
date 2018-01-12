@@ -86,6 +86,8 @@ public:
             QStandardPaths::enableTestMode(true);
         }
         pendingListEntries.reserve(KIO_MAX_ENTRIES_PER_BATCH);
+        lastTimeout.start();
+        nextTimeout.start();
     }
     ~SlaveBasePrivate()
     {
@@ -110,8 +112,9 @@ public:
     KConfigGroup *configGroup;
     QUrl onHoldUrl;
 
-    QDateTime lastTimeout;
-    QDateTime nextTimeout;
+    QElapsedTimer lastTimeout;
+    QElapsedTimer nextTimeout;
+    qint64 nextTimeoutMsecs;
     KIO::filesize_t totalSize;
     KRemoteEncoding *remotefile;
     enum { Idle, InsideMethod, FinishedCalled, ErrorCalled } m_state;
@@ -273,9 +276,9 @@ SlaveBase::~SlaveBase()
 void SlaveBase::dispatchLoop()
 {
     while (!d->exit_loop) {
-        if (d->nextTimeout.isValid() && (d->nextTimeout < QDateTime::currentDateTime())) {
+        if (d->nextTimeout.isValid() && (d->nextTimeout.hasExpired(d->nextTimeoutMsecs))) {
             QByteArray data = d->timeoutData;
-            d->nextTimeout = QDateTime();
+            d->nextTimeout.restart();
             d->timeoutData = QByteArray();
             special(data);
         }
@@ -284,7 +287,7 @@ void SlaveBase::dispatchLoop()
 
         int ms = -1;
         if (d->nextTimeout.isValid()) {
-            ms = qMax<int>(QDateTime::currentDateTime().msecsTo(d->nextTimeout), 1);
+            ms = qMax<int>(d->nextTimeout.elapsed() - d->nextTimeoutMsecs, 1);
         }
 
         int ret = -1;
@@ -529,13 +532,11 @@ void SlaveBase::processedSize(KIO::filesize_t _bytes)
 {
     bool emitSignal = false;
 
-    QDateTime now = QDateTime::currentDateTime();
-
     if (_bytes == d->totalSize) {
         emitSignal = true;
     } else {
         if (d->lastTimeout.isValid()) {
-            emitSignal = d->lastTimeout.msecsTo(now) >= 100; // emit size 10 times a second
+            emitSignal = d->lastTimeout.hasExpired(100); // emit size 10 times a second
         } else {
             emitSignal = true;
         }
@@ -544,7 +545,7 @@ void SlaveBase::processedSize(KIO::filesize_t _bytes)
     if (emitSignal) {
         KIO_DATA << KIO_FILESIZE_T(_bytes);
         send(INF_PROCESSED_SIZE, data);
-        d->lastTimeout = now;
+        d->lastTimeout.restart();
     }
 
     //    d->processed_size = _bytes;
@@ -1046,11 +1047,11 @@ int SlaveBase::readData(QByteArray &buffer)
 void SlaveBase::setTimeoutSpecialCommand(int timeout, const QByteArray &data)
 {
     if (timeout > 0) {
-        d->nextTimeout = QDateTime::currentDateTime().addSecs(timeout);
+        d->nextTimeoutMsecs = timeout*1000; // from seconds to miliseconds
     } else if (timeout == 0) {
-        d->nextTimeout = QDateTime::currentDateTime().addSecs(1);    // Immediate timeout
+        d->nextTimeoutMsecs = 1000;
     } else {
-        d->nextTimeout = QDateTime();    // Canceled
+        d->nextTimeoutMsecs = 1;
     }
 
     d->timeoutData = data;
