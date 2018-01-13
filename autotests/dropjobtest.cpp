@@ -214,7 +214,7 @@ private Q_SLOTS:
         const QUrl destUrl = QUrl::fromLocalFile(dest);
         m_mimeData.setUrls(QList<QUrl>() << QUrl::fromLocalFile(srcFile));
         QDropEvent dropEvent(QPoint(10, 10), dropAction, &m_mimeData, Qt::LeftButton, modifiers);
-        KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo);
+        KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo | KIO::NoPrivilegeExecution);
         job->setUiDelegate(nullptr);
         job->setUiDelegateExtension(nullptr);
         JobSpy jobSpy(job);
