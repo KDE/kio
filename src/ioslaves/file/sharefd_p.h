@@ -20,6 +20,14 @@
 
 #include <sys/un.h>
 #include <iostream>
+#include <unistd.h>
+#include <sys/socket.h>
+
+// fix SOCK_NONBLOCK for e.g. macOS
+#ifndef SOCK_NONBLOCK
+#include <fcntl.h>
+#define SOCK_NONBLOCK O_NONBLOCK
+#endif
 
 class SocketAddress
 {

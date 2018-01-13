@@ -18,9 +18,6 @@
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 ***/
 
-#include <unistd.h>
-#include <sys/socket.h>
-
 #include <QSocketNotifier>
 
 #include "sharefd_p.h"
