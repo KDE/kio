@@ -170,10 +170,9 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
             drawSectionHeader(painter, opt, index);
         }
 
+        // Move the target rect to the actual item rect
         const int headerHeight = sectionHeaderHeight();
-        const int headerSpace =  (headerHeight / 2) + qMax(2, m_view->spacing());
-        painter->translate(0, headerSpace);
-        opt.rect.translate(0, headerSpace);
+        opt.rect.translate(0, headerHeight);
         opt.rect.setHeight(opt.rect.height() - headerHeight);
     }
 
@@ -193,22 +192,22 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     QApplication::style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter);
     const KFilePlacesModel *placesModel = static_cast<const KFilePlacesModel *>(index.model());
 
-    bool isLTR = option.direction == Qt::LeftToRight;
+    bool isLTR = opt.direction == Qt::LeftToRight;
 
     QIcon icon = index.model()->data(index, Qt::DecorationRole).value<QIcon>();
-    QPixmap pm = icon.pixmap(m_iconSize, m_iconSize, (option.state & QStyle::State_Selected) && (option.state & QStyle::State_Active) ? QIcon::Selected : QIcon::Normal);
-    QPoint point(isLTR ? option.rect.left() + LATERAL_MARGIN
-                 : option.rect.right() - LATERAL_MARGIN - m_iconSize, option.rect.top() + (option.rect.height() - m_iconSize) / 2);
+    QPixmap pm = icon.pixmap(m_iconSize, m_iconSize, (opt.state & QStyle::State_Selected) && (opt.state & QStyle::State_Active) ? QIcon::Selected : QIcon::Normal);
+    QPoint point(isLTR ? opt.rect.left() + LATERAL_MARGIN
+                 : opt.rect.right() - LATERAL_MARGIN - m_iconSize, opt.rect.top() + (opt.rect.height() - m_iconSize) / 2);
     painter->drawPixmap(point, pm);
 
-    if (option.state & QStyle::State_Selected) {
+    if (opt.state & QStyle::State_Selected) {
         QPalette::ColorGroup cg = QPalette::Active;
-        if (!(option.state & QStyle::State_Enabled)) {
+        if (!(opt.state & QStyle::State_Enabled)) {
             cg = QPalette::Disabled;
-        } else if (!(option.state & QStyle::State_Active)) {
+        } else if (!(opt.state & QStyle::State_Active)) {
             cg = QPalette::Inactive;
         }
-        painter->setPen(option.palette.color(cg, QPalette::HighlightedText));
+        painter->setPen(opt.palette.color(cg, QPalette::HighlightedText));
     }
 
     QRect rectText;
@@ -225,10 +224,10 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
             painter->save();
             painter->setOpacity(painter->opacity() * contentsOpacity(index));
 
-            int height = option.fontMetrics.height() + CAPACITYBAR_HEIGHT;
-            rectText = QRect(isLTR ? m_iconSize + LATERAL_MARGIN * 2 + option.rect.left()
-                             : 0, option.rect.top() + (option.rect.height() / 2 - height / 2), option.rect.width() - m_iconSize - LATERAL_MARGIN * 2, option.fontMetrics.height());
-            painter->drawText(rectText, Qt::AlignLeft | Qt::AlignTop, option.fontMetrics.elidedText(index.model()->data(index).toString(), Qt::ElideRight, rectText.width()));
+            int height = opt.fontMetrics.height() + CAPACITYBAR_HEIGHT;
+            rectText = QRect(isLTR ? m_iconSize + LATERAL_MARGIN * 2 + opt.rect.left()
+                             : 0, opt.rect.top() + (opt.rect.height() / 2 - height / 2), opt.rect.width() - m_iconSize - LATERAL_MARGIN * 2, opt.fontMetrics.height());
+            painter->drawText(rectText, Qt::AlignLeft | Qt::AlignTop, opt.fontMetrics.elidedText(index.model()->data(index).toString(), Qt::ElideRight, rectText.width()));
             QRect capacityRect(isLTR ? rectText.x() : LATERAL_MARGIN, rectText.bottom() - 1, rectText.width() - LATERAL_MARGIN, CAPACITYBAR_HEIGHT);
             KCapacityBar capacityBar(KCapacityBar::DrawTextInline);
             capacityBar.setValue((info.used() * 100) / info.size());
@@ -241,9 +240,9 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         }
     }
 
-    rectText = QRect(isLTR ? m_iconSize + LATERAL_MARGIN * 2 + option.rect.left()
-                     : 0, option.rect.top(), option.rect.width() - m_iconSize - LATERAL_MARGIN * 2, option.rect.height());
-    painter->drawText(rectText, Qt::AlignLeft | Qt::AlignVCenter, option.fontMetrics.elidedText(index.model()->data(index).toString(), Qt::ElideRight, rectText.width()));
+    rectText = QRect(isLTR ? m_iconSize + LATERAL_MARGIN * 2 + opt.rect.left()
+                     : 0, opt.rect.top(), opt.rect.width() - m_iconSize - LATERAL_MARGIN * 2, opt.rect.height());
+    painter->drawText(rectText, Qt::AlignLeft | Qt::AlignVCenter, opt.fontMetrics.elidedText(index.model()->data(index).toString(), Qt::ElideRight, rectText.width()));
 
     if (drawCapacityBar && contentsOpacity(index) > 0) {
         painter->restore();
@@ -434,12 +433,14 @@ void KFilePlacesViewDelegate::drawSectionHeader(QPainter *painter, const QStyleO
 
     QRect textRect(option.rect);
     textRect.setLeft(textRect.left() + 3);
-    textRect.setY(textRect.y() + qMax(2, m_view->spacing()));
+    /* Take spacing into account:
+       The spacing to the previous section compensates for the spacing to the first item.*/
+    textRect.setY(textRect.y() /* + qMax(2, m_view->spacing()) - qMax(2, m_view->spacing())*/);
     textRect.setHeight(sectionHeaderHeight());
 
     painter->save();
 
-    // based on dolphoin colors
+    // based on dolphin colors
     const QColor c1 = textColor(option);
     const QColor c2 = baseColor(option);
     QColor penColor = mixedColor(c1, c2, 60);
@@ -473,8 +474,8 @@ QColor KFilePlacesViewDelegate::mixedColor(const QColor& c1, const QColor& c2, i
 
 int KFilePlacesViewDelegate::sectionHeaderHeight() const
 {
-    return QApplication::fontMetrics().height() +
-            (qMax(2, m_view->spacing()) * 2);
+    // Account for the spacing between header and item
+    return QApplication::fontMetrics().height() + qMax(2, m_view->spacing());
 }
 
 
