@@ -305,7 +305,7 @@ PrivilegeOperationStatus JobPrivate::tryAskPrivilegeOpConfirmation()
         break;
     case Delete:
         m_caption = i18n("Delete Files");
-        m_message = i18n("Root privileges are required to complete the delete operation."
+        m_message = i18n("Root privileges are required to complete the delete operation. "
                          "However, doing so may damage your system. Do you want to continue?");
         break;
     case MkDir:
