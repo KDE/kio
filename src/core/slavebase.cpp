@@ -80,7 +80,7 @@ class SlaveBasePrivate
 {
 public:
     SlaveBase *q;
-    SlaveBasePrivate(SlaveBase *owner): q(owner), m_passwdServerClient(nullptr)
+    SlaveBasePrivate(SlaveBase *owner): q(owner), nextTimeoutMsecs(0), m_passwdServerClient(nullptr)
     {
         if (!qEnvironmentVariableIsEmpty("KIOSLAVE_ENABLE_TESTMODE")) {
             QStandardPaths::enableTestMode(true);
