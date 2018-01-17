@@ -40,7 +40,7 @@
 
 ProvidersModel::~ProvidersModel()
 {
-  qDeleteAll(m_providers);
+
 }
 
 QVariant ProvidersModel::headerData(int section, Qt::Orientation orientation, int role ) const
