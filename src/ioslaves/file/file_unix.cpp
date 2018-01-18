@@ -30,6 +30,7 @@
 #include <QtCore/QFile>
 #include <QtCore/QDir>
 #include <qplatformdefs.h>
+#include <QStandardPaths>
 
 #include <QDebug>
 #include <kconfiggroup.h>
@@ -40,6 +41,7 @@
 #include <utime.h>
 
 #include <KAuth>
+#include <KRandom>
 
 #include "fdreceiver.h"
 
@@ -69,7 +71,8 @@ same_inode(const QT_STATBUF &src, const QT_STATBUF &dest)
 
 static const QString socketPath()
 {
-    return QStringLiteral("org_kde_kio_file_helper_%1").arg(getpid());
+    const QString runtimeDir = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation);
+    return QStringLiteral("%1/filehelper%2%3").arg(runtimeDir).arg(KRandom::randomString(10)).arg(getpid());
 }
 
 bool FileProtocol::privilegeOperationUnitTestMode()
@@ -78,11 +81,13 @@ bool FileProtocol::privilegeOperationUnitTestMode()
             && (requestPrivilegeOperation() == KIO::OperationAllowed);
 }
 
-PrivilegeOperationReturnValue FileProtocol::tryOpen(QFile &f, const QByteArray &path, int flags, int mode)
+PrivilegeOperationReturnValue FileProtocol::tryOpen(QFile &f, const QByteArray &path, int flags, int mode, int errcode)
 {
-    FdReceiver fdRecv(socketPath());
+    const QString sockPath = socketPath();
+    QFile::remove(sockPath);
+    FdReceiver fdRecv(sockPath);
     if (!fdRecv.isListening()) {
-        return PrivilegeOperationReturnValue::failure();
+        return PrivilegeOperationReturnValue::failure(errcode);
     }
 
     QIODevice::OpenMode openMode;
@@ -102,26 +107,25 @@ PrivilegeOperationReturnValue FileProtocol::tryOpen(QFile &f, const QByteArray &
         openMode |= QIODevice::Append;
     }
 
-    if (auto err = execWithElevatedPrivilege(OPEN, path, flags, mode)) {
+    if (auto err = execWithElevatedPrivilege(OPEN, {path, flags, mode, sockPath}, errcode)) {
         return err;
     } else {
         int fd = fdRecv.fileDescriptor();
         if (fd < 3 || !f.open(fd, openMode, QFileDevice::AutoCloseHandle)) {
-            return PrivilegeOperationReturnValue::failure();
+            return PrivilegeOperationReturnValue::failure(errcode);
         }
     }
     return PrivilegeOperationReturnValue::success();
 }
 
-PrivilegeOperationReturnValue FileProtocol::tryChangeFileAttr(ActionType action, const QVariant &arg1,
-                                                              const QVariant &arg2, const QVariant &arg3)
+PrivilegeOperationReturnValue FileProtocol::tryChangeFileAttr(ActionType action, const QVariantList &args, int errcode)
 {
     KAuth::Action execAction(QStringLiteral("org.kde.kio.file.exec"));
     execAction.setHelperId(QStringLiteral("org.kde.kio.file"));
     if (execAction.status() == KAuth::Action::AuthorizedStatus) {
-        return execWithElevatedPrivilege(action, arg1, arg2, arg3);
+        return execWithElevatedPrivilege(action, args, errcode);
     }
-    return PrivilegeOperationReturnValue::failure();
+    return PrivilegeOperationReturnValue::failure(errcode);
 }
 
 void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
@@ -185,7 +189,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
         if ((_flags & KIO::Overwrite) && ((buff_dest.st_mode & QT_STAT_MASK) == QT_STAT_LNK)) {
             //qDebug() << "copy(): LINK DESTINATION";
             if (!QFile::remove(dest)) {
-                if (auto err = execWithElevatedPrivilege(DEL, _dest)) {
+                if (auto err = execWithElevatedPrivilege(DEL, {_dest}, errno)) {
                     if (!err.wasCanceled()) {
                         error(KIO::ERR_CANNOT_DELETE_ORIGINAL, dest);
                     }
@@ -197,7 +201,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
 
     QFile src_file(src);
     if (!src_file.open(QIODevice::ReadOnly)) {
-        if (auto err = tryOpen(src_file, _src, O_RDONLY, S_IRUSR)) {
+        if (auto err = tryOpen(src_file, _src, O_RDONLY, S_IRUSR, errno)) {
             if (!err.wasCanceled()) {
                 error(KIO::ERR_CANNOT_OPEN_FOR_READING, src);
             }
@@ -211,10 +215,10 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
 
     QFile dest_file(dest);
     if (!dest_file.open(QIODevice::Truncate | QIODevice::WriteOnly)) {
-        if (auto err = tryOpen(dest_file, _dest, O_WRONLY | O_TRUNC | O_CREAT, S_IRUSR | S_IWUSR)) {
+        if (auto err = tryOpen(dest_file, _dest, O_WRONLY | O_TRUNC | O_CREAT, S_IRUSR | S_IWUSR, errno)) {
             if (!err.wasCanceled()) {
                 // qDebug() << "###### COULD NOT WRITE " << dest;
-                if (errno == EACCES) {
+                if (err == EACCES) {
                     error(KIO::ERR_WRITE_ACCESS_DENIED, dest);
                 } else {
                     error(KIO::ERR_CANNOT_OPEN_FOR_WRITING, dest);
@@ -227,9 +231,9 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
 
     // nobody shall be allowed to peek into the file during creation
     if (!QFile::setPermissions(dest, QFileDevice::ReadOwner | QFileDevice::WriteOwner)) {
-        if (auto err = execWithElevatedPrivilege(CHOWN, _dest, getuid(), getgid())) {
+        if (auto err = execWithElevatedPrivilege(CHOWN, {_dest, getuid(), getgid()}, errno)) {
             dest_file.close();
-            execWithElevatedPrivilege(DEL, _dest);
+            execWithElevatedPrivilege(DEL, {_dest}, errno);
             if (!err.wasCanceled()) {
                 error(KIO::ERR_CANNOT_CHOWN, dest);
             }
@@ -299,7 +303,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
             }
 #endif
             if (!QFile::remove(dest)) {  // don't keep partly copied file
-                execWithElevatedPrivilege(DEL, _dest);
+                execWithElevatedPrivilege(DEL, {_dest}, errno);
             }
             return;
         }
@@ -322,7 +326,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
                 }
 #endif
                 if (!QFile::remove(dest)) {  // don't keep partly copied file
-                    execWithElevatedPrivilege(DEL, _dest);
+                    execWithElevatedPrivilege(DEL, {_dest}, errno);
                 }
                 return;
             }
@@ -345,7 +349,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
         }
 #endif
         if (!QFile::remove(dest)) {  // don't keep partly copied file
-            execWithElevatedPrivilege(DEL, _dest);
+            execWithElevatedPrivilege(DEL, {_dest}, errno);
         }
         return;
     }
@@ -361,7 +365,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
         || (acl && acl_set_file(_dest.data(), ACL_TYPE_ACCESS, acl) != 0)
 #endif
        ) {
-        if (tryChangeFileAttr(CHMOD, _dest, _mode)) {
+        if (tryChangeFileAttr(CHMOD, {_dest, _mode}, errno)) {
             warning(i18n("Could not change permissions for '%1'", dest));
         }
     }
@@ -377,7 +381,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
         // we might not be allowed to change the owner
         (void)::chown(_dest.data(), buff_src.st_uid, -1 /*keep group*/);
     } else {
-        if (tryChangeFileAttr(CHOWN, _dest, buff_src.st_uid, buff_src.st_gid)) {
+        if (tryChangeFileAttr(CHOWN, {_dest, buff_src.st_uid, buff_src.st_gid}, errno)) {
             qCWarning(KIO_FILE) << QStringLiteral("Couldn't preserve group for '%1'").arg(dest);
         }
     }
@@ -387,7 +391,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
     ut.actime = buff_src.st_atime;
     ut.modtime = buff_src.st_mtime;
     if (::utime(_dest.data(), &ut) != 0) {
-        if (tryChangeFileAttr(UTIME, _dest, qint64(ut.actime), qint64(ut.modtime))) {
+        if (tryChangeFileAttr(UTIME, {_dest, qint64(ut.actime), qint64(ut.modtime)}, errno)) {
             qCWarning(KIO_FILE) << QStringLiteral("Couldn't preserve access and modification time for '%1'").arg(dest);
         }
     }
@@ -564,13 +568,13 @@ void FileProtocol::rename(const QUrl &srcUrl, const QUrl &destUrl,
     }
 
     if (::rename(_src.data(), _dest.data())) {
-        if (auto err = execWithElevatedPrivilege(RENAME, _src, _dest)) {
+        if (auto err = execWithElevatedPrivilege(RENAME, {_src, _dest}, errno)) {
             if (!err.wasCanceled()) {
-                if ((errno == EACCES) || (errno == EPERM)) {
+                if ((err == EACCES) || (err == EPERM)) {
                     error(KIO::ERR_ACCESS_DENIED, dest);
-                } else if (errno == EXDEV) {
+                } else if (err == EXDEV) {
                     error(KIO::ERR_UNSUPPORTED_ACTION, QStringLiteral("rename"));
-                } else if (errno == EROFS) { // The file is on a read-only filesystem
+                } else if (err == EROFS) { // The file is on a read-only filesystem
                     error(KIO::ERR_CANNOT_DELETE, src);
                 } else {
                     error(KIO::ERR_CANNOT_RENAME, src);
@@ -593,7 +597,7 @@ void FileProtocol::symlink(const QString &target, const QUrl &destUrl, KIO::JobF
             if ((flags & KIO::Overwrite)) {
                 // Try to delete the destination
                 if (unlink(QFile::encodeName(dest).constData()) != 0) {
-                    if (auto err = execWithElevatedPrivilege(DEL, dest)) {
+                    if (auto err = execWithElevatedPrivilege(DEL, {dest}, errno)) {
                         if (!err.wasCanceled()) {
                             error(KIO::ERR_CANNOT_DELETE, dest);
                         }
@@ -613,7 +617,7 @@ void FileProtocol::symlink(const QString &target, const QUrl &destUrl, KIO::JobF
                 return;
             }
         } else {
-            if (auto err = execWithElevatedPrivilege(SYMLINK, dest, target)) {
+            if (auto err = execWithElevatedPrivilege(SYMLINK, {dest, target}, errno)) {
                 if (!err.wasCanceled()) {
                     // Some error occurred while we tried to symlink
                     error(KIO::ERR_CANNOT_SYMLINK, dest);
@@ -637,11 +641,11 @@ void FileProtocol::del(const QUrl &url, bool isfile)
         // qDebug() << "Deleting file "<< url;
 
         if (unlink(_path.data()) == -1) {
-            if (auto err = execWithElevatedPrivilege(DEL, _path)) {
+            if (auto err = execWithElevatedPrivilege(DEL, {_path}, errno)) {
                 if (!err.wasCanceled()) {
-                    if ((errno == EACCES) || (errno == EPERM)) {
+                    if ((err == EACCES) || (err == EPERM)) {
                         error(KIO::ERR_ACCESS_DENIED, path);
-                    } else if (errno == EISDIR) {
+                    } else if (err == EISDIR) {
                         error(KIO::ERR_IS_DIRECTORY, path);
                     } else {
                         error(KIO::ERR_CANNOT_DELETE, path);
@@ -663,9 +667,9 @@ void FileProtocol::del(const QUrl &url, bool isfile)
             }
         }
         if (QT_RMDIR(_path.data()) == -1) {
-            if (auto err = execWithElevatedPrivilege(RMDIR, _path)) {
+            if (auto err = execWithElevatedPrivilege(RMDIR, {_path}, errno)) {
                 if (!err.wasCanceled()) {
-                    if ((errno == EACCES) || (errno == EPERM)) {
+                    if ((err == EACCES) || (err == EPERM)) {
                         error(KIO::ERR_ACCESS_DENIED, path);
                     } else {
                         // qDebug() << "could not rmdir " << perror;
@@ -714,9 +718,9 @@ void FileProtocol::chown(const QUrl &url, const QString &owner, const QString &g
     }
 
     if (::chown(_path.constData(), uid, gid) == -1) {
-        if (auto err = execWithElevatedPrivilege(CHOWN, _path, uid, gid)) {
+        if (auto err = execWithElevatedPrivilege(CHOWN, {_path, uid, gid}, errno)) {
             if (!err.wasCanceled()) {
-                switch (errno) {
+                switch (err) {
                 case EPERM:
                 case EACCES:
                     error(KIO::ERR_ACCESS_DENIED, path);
@@ -775,20 +779,18 @@ void FileProtocol::stat(const QUrl &url)
     finished();
 }
 
-PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType action, const QVariant &arg1,
-                                                                      const QVariant &arg2, const QVariant &arg3)
+PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType action, const QVariantList &args, int errcode)
 {
     if (privilegeOperationUnitTestMode()) {
         return PrivilegeOperationReturnValue::success();
     }
-
     // temporarily disable privilege execution
     if (true) {
-        return PrivilegeOperationReturnValue::failure();
+        return PrivilegeOperationReturnValue::failure(errcode);
     }
 
-    if (!(errno == EACCES || errno == EPERM)) {
-        return PrivilegeOperationReturnValue::failure();
+    if (!(errcode == EACCES || errcode == EPERM)) {
+        return PrivilegeOperationReturnValue::failure(errcode);
     }
 
     KIO::PrivilegeOperationStatus opStatus = requestPrivilegeOperation();
@@ -797,23 +799,22 @@ PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType
             error(KIO::ERR_USER_CANCELED, QString());
             return PrivilegeOperationReturnValue::canceled();
         }
-        return PrivilegeOperationReturnValue::failure();
+        return PrivilegeOperationReturnValue::failure(errcode);
     }
 
     if (action == CHMOD || action == CHOWN || action == UTIME) {
-        KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(arg1.toString());
+        KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(args.first().toString());
         // Test for chmod and utime will return the same result as test for chown.
         if (mp && !mp->testFileSystemFlag(KMountPoint::SupportsChown)) {
-            return PrivilegeOperationReturnValue::failure();
+            return PrivilegeOperationReturnValue::failure(errcode);
         }
     }
 
     QByteArray helperArgs;
     QDataStream out(&helperArgs, QIODevice::WriteOnly);
-    out << action << arg1 << arg2 << arg3;
-
-    if (action == OPEN || action == OPENDIR) {
-        out << QVariant::fromValue(socketPath());
+    out << action;
+    foreach (const QVariant &arg, args) {
+        out << arg;
     }
 
     KAuth::Action execAction(QStringLiteral("org.kde.kio.file.exec"));
@@ -828,5 +829,5 @@ PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType
         return PrivilegeOperationReturnValue::success();
     }
 
-    return PrivilegeOperationReturnValue::failure();
+    return PrivilegeOperationReturnValue::failure(errcode);
 }

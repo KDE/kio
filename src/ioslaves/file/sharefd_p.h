@@ -22,6 +22,9 @@
 #include <iostream>
 #include <unistd.h>
 #include <sys/socket.h>
+#include <sys/types.h>
+#include <string.h>
+#include <stddef.h>
 
 // fix SOCK_NONBLOCK for e.g. macOS
 #ifndef SOCK_NONBLOCK
@@ -41,24 +44,22 @@ public:
 
     int length() const
     {
-        return sizeof addr;
+        return offsetof(struct sockaddr_un, sun_path) + strlen(addr.sun_path) + 1;
     }
     const sockaddr *address() const
     {
-        return reinterpret_cast<const sockaddr*>(&addr);
+        return addr.sun_path[0] ? reinterpret_cast<const sockaddr*>(&addr) : nullptr;
     }
 
 private:
     static sockaddr_un make_address(const std::string& path)
     {
-        sockaddr_un a{ AF_UNIX, {0}};
-        std::string finalPath = "/tmp/" + path;
-#ifdef __linux__
-        ::strcpy(&a.sun_path[1], finalPath.c_str());
-#else
-        ::strcpy(a.sun_path, finalPath.c_str());
-        ::unlink(finalPath.c_str());
-#endif
+        sockaddr_un a;
+        memset(&a, 0, sizeof(a));
+        a.sun_family = AF_UNIX;
+        if (path.length() > 0 && path.length() < sizeof(a.sun_path)-1) {
+            ::strncpy(a.sun_path, path.c_str(), sizeof(a.sun_path)-1);
+        }
         return a;
     }
 };

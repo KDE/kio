@@ -36,7 +36,7 @@ enum ActionType {
 
 /**
  * PrivilegeOperationReturnValue encapsulates the return value from execWithElevatedPrivilege() in a convenient way.
- * Warning, this class will cast to a bool that is false on success and true on failure. This unusual solution allows
+ * Warning, this class will cast to an int that is zero on success and non-zero on failure. This unusual solution allows
  * to write kioslave code like this:
 
 if (!dir.rmdir(itemPath)) {
@@ -52,15 +52,16 @@ if (!dir.rmdir(itemPath)) {
 class PrivilegeOperationReturnValue
 {
 public:
-    static PrivilegeOperationReturnValue success() { return PrivilegeOperationReturnValue{false, false}; }
-    static PrivilegeOperationReturnValue failure() { return PrivilegeOperationReturnValue{true, false}; }
-    static PrivilegeOperationReturnValue canceled() { return PrivilegeOperationReturnValue{true, true}; }
-    operator bool() const { return m_failed; }
+    static PrivilegeOperationReturnValue success() { return PrivilegeOperationReturnValue{false, 0}; }
+    static PrivilegeOperationReturnValue canceled() { return PrivilegeOperationReturnValue{true, 0}; }
+    static PrivilegeOperationReturnValue failure(int error) { return PrivilegeOperationReturnValue{false, error}; }
+    operator int() const { return m_error; }
+    bool operator==(int error) const { return m_error == error; }
     bool wasCanceled() const { return m_canceled; }
 private:
-    PrivilegeOperationReturnValue(bool failed, bool canceled) : m_failed(failed), m_canceled(canceled) {}
-    const bool m_failed;
+    PrivilegeOperationReturnValue(bool canceled, int error) : m_canceled(canceled), m_error(error) {}
     const bool m_canceled;
+    const int m_error;
 };
 
 #endif
