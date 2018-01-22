@@ -186,6 +186,26 @@ public:
      */
     static QUrl convertedUrl(const QUrl &url);
 
+    /**
+     * Set the URL schemes that the file widget should allow navigating to.
+     *
+     * If the returned list is empty, all schemes are supported.
+     *
+     * @sa QFileDialog::setSupportedSchemes
+     * @since 5.43
+     */
+    void setSupportedSchemes(const QStringList &schemes);
+
+    /**
+     * Returns the URL schemes that the file widget should allow navigating to.
+     *
+     * If the returned list is empty, all schemes are supported.
+     *
+     * @sa QFileDialog::supportedSchemes
+     * @since 5.43
+     */
+    QStringList supportedSchemes() const;
+
 Q_SIGNALS:
     void errorMessage(const QString &message);
     void setupDone(const QModelIndex &index, bool success);

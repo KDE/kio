@@ -187,6 +187,7 @@ public:
     QList<KFilePlacesItem *> items;
     QVector<QString> availableDevices;
     QMap<QObject *, QPersistentModelIndex> setupInProgress;
+    QStringList supportedSchemes;
 
     Solid::Predicate predicate;
     KBookmarkManager *bookmarkManager;
@@ -672,8 +673,9 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
                 ((appName == QCoreApplication::instance()->applicationName()) ||
                  (appName == alternativeApplicationName));
         bool isSupportedUrl = isBalooUrl(url) ? fileIndexingEnabled : true;
+        bool isSupportedScheme = supportedSchemes.isEmpty() || supportedSchemes.contains(url.scheme());
 
-        if ((isSupportedUrl && udi.isEmpty() && allowedHere) || deviceAvailable) {
+        if (isSupportedScheme && ((isSupportedUrl && udi.isEmpty() && allowedHere) || deviceAvailable)) {
 
             KFilePlacesItem *item;
             if (deviceAvailable) {
@@ -1262,6 +1264,17 @@ void KFilePlacesModel::Private::_k_storageTeardownDone(Solid::ErrorType error, Q
     if (error && errorData.isValid()) {
         emit q->errorMessage(errorData.toString());
     }
+}
+
+void KFilePlacesModel::setSupportedSchemes(const QStringList &schemes)
+{
+    d->supportedSchemes = schemes;
+    d->_k_reloadBookmarks();
+}
+
+QStringList KFilePlacesModel::supportedSchemes() const
+{
+    return d->supportedSchemes;
 }
 
 #include "moc_kfileplacesmodel.cpp"

@@ -24,6 +24,7 @@
 #include <ksharedconfig.h>
 #include <qtreeview.h>
 #include <QSignalSpy>
+#include <QDir>
 
 /**
  * Unit test for KDirOperator
@@ -115,6 +116,21 @@ private Q_SLOTS:
         QSignalSpy spy(&dirOp, SIGNAL(urlEntered(QUrl)));
         dirOp.setUrl(url, true);
         QCOMPARE(spy.takeFirst().at(0).toUrl(), expectedUrl);
+    }
+
+    void testSupportedSchemes()
+    {
+        KDirOperator dirOp;
+        QSignalSpy spy(&dirOp, &KDirOperator::urlEntered);
+        QCOMPARE(dirOp.supportedSchemes(), QStringList());
+        dirOp.setSupportedSchemes({"file"});
+        QCOMPARE(dirOp.supportedSchemes(), QStringList("file"));
+        dirOp.setUrl(QUrl("smb://foo/bar"), true);
+        QCOMPARE(spy.count(), 0);
+        const auto fileUrl = QUrl::fromLocalFile(QDir::homePath() + QLatin1Char('/'));
+        dirOp.setUrl(fileUrl, true);
+        QCOMPARE(spy.count(), 1);
+        QCOMPARE(spy.first().at(0).toUrl(), fileUrl);
     }
 };
 

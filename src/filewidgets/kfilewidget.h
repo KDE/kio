@@ -494,6 +494,26 @@ public:
      */
     QSize sizeHint() const Q_DECL_OVERRIDE;
 
+    /**
+     * Set the URL schemes that the file widget should allow navigating to.
+     *
+     * If the returned list is empty, all schemes are supported.
+     *
+     * @sa QFileDialog::setSupportedSchemes
+     * @since 5.43
+     */
+    void setSupportedSchemes(const QStringList &schemes);
+
+    /**
+     * Returns the URL schemes that the file widget should allow navigating to.
+     *
+     * If the returned list is empty, all schemes are supported.
+     *
+     * @sa QFileDialog::supportedSchemes
+     * @since 5.43
+     */
+    QStringList supportedSchemes() const;
+
 public Q_SLOTS:
     /**
      * Called when clicking ok (when this widget is used in KFileDialog)

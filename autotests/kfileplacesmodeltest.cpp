@@ -88,6 +88,7 @@ private Q_SLOTS:
     void testPlaceGroupHiddenSignal();
     void testPlaceGroupHiddenRole();
     void testFilterWithAlternativeApplicationName();
+    void testSupportedSchemes();
 
 private:
     QStringList placesUrls(KFilePlacesModel *model = nullptr) const;
@@ -1286,6 +1287,20 @@ void KFilePlacesModelTest::testFilterWithAlternativeApplicationName()
     KFilePlacesModel *newModel = new KFilePlacesModel(alternativeApplicationName);
     QTRY_COMPARE(placesUrls(newModel).count(QStringLiteral("search:/videos-alternative")), 1);
     delete newModel;
+}
+
+void KFilePlacesModelTest::testSupportedSchemes()
+{
+    QCoreApplication::processEvents(); // support running this test on its own
+
+    QCOMPARE(m_places->supportedSchemes(), QStringList());
+    QCOMPARE(placesUrls(), initialListOfUrls());
+    m_places->setSupportedSchemes({"trash"});
+    QCOMPARE(m_places->supportedSchemes(), QStringList("trash"));
+    QCOMPARE(placesUrls(), QStringList("trash:/"));
+    m_places->setSupportedSchemes({});
+    QCOMPARE(m_places->supportedSchemes(), QStringList());
+    QCOMPARE(placesUrls(), initialListOfUrls());
 }
 
 QTEST_MAIN(KFilePlacesModelTest)

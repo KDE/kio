@@ -627,6 +627,16 @@ public:
      */
     bool isSaving() const;
 
+    /**
+     * Returns the URL schemes that the file widget should allow navigating to.
+     *
+     * If the returned list is empty, all schemes are supported.
+     *
+     * @sa QFileDialog::supportedSchemes
+     * @since 5.43
+     */
+    QStringList supportedSchemes() const;
+
 protected:
     /**
      * A view factory for creating predefined fileviews. Called internally by setView,
@@ -773,6 +783,16 @@ public Q_SLOTS:
      * @since 4.2
      */
     void setIconsZoom(int value);
+
+    /**
+     * Set the URL schemes that the file widget should allow navigating to.
+     *
+     * If the returned list is empty, all schemes are supported.
+     *
+     * @sa QFileDialog::setSupportedSchemes
+     * @since 5.43
+     */
+    void setSupportedSchemes(const QStringList &schemes);
 
 protected Q_SLOTS:
     /**

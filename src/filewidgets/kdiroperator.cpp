@@ -187,6 +187,7 @@ public:
     void updateSorting(QDir::SortFlags sort);
 
     static bool isReadable(const QUrl &url);
+    bool isSchemeSupported(const QString &scheme) const;
 
     KFile::FileView allViews();
 
@@ -289,6 +290,7 @@ public:
     QList<QUrl> itemsToBeSetAsCurrent;
     bool shouldFetchForItems;
     InlinePreviewState inlinePreviewState;
+    QStringList supportedSchemes;
 };
 
 KDirOperator::Private::Private(KDirOperator *_parent) :
@@ -998,6 +1000,9 @@ void KDirOperator::setUrl(const QUrl &_newurl, bool clearforward)
         return;
     }
 
+    if (!d->isSchemeSupported(newurl.scheme()))
+        return;
+
     if (!Private::isReadable(newurl)) {
         // maybe newurl is a file? check its parent directory
         newurl = newurl.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
@@ -1060,9 +1065,16 @@ void KDirOperator::rereadDir()
     d->openUrl(d->currUrl, KDirLister::Reload);
 }
 
+bool KDirOperator::Private::isSchemeSupported(const QString &scheme) const
+{
+    return supportedSchemes.isEmpty() || supportedSchemes.contains(scheme);
+}
+
 bool KDirOperator::Private::openUrl(const QUrl &url, KDirLister::OpenUrlFlags flags)
 {
-    const bool result = KProtocolManager::supportsListing(url) && dirLister->openUrl(url, flags);
+    const bool result = KProtocolManager::supportsListing(url)
+                        && isSchemeSupported(url.scheme())
+                        && dirLister->openUrl(url, flags);
     if (!result) { // in that case, neither completed() nor canceled() will be emitted by KDL
         _k_slotCanceled();
     }
@@ -2632,6 +2644,17 @@ bool KDirOperator::Private::isReadable(const QUrl &url)
 void KDirOperator::Private::_k_slotDirectoryCreated(const QUrl &url)
 {
     parent->setUrl(url, true);
+}
+
+void KDirOperator::setSupportedSchemes(const QStringList &schemes)
+{
+    d->supportedSchemes = schemes;
+    rereadDir();
+}
+
+QStringList KDirOperator::supportedSchemes() const
+{
+    return d->supportedSchemes;
 }
 
 #include "moc_kdiroperator.cpp"

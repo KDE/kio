@@ -1008,6 +1008,19 @@ void KFileWidget::slotOk()
             return;
         }
 
+        const auto &supportedSchemes = d->model->supportedSchemes();
+        if (!supportedSchemes.isEmpty() && !supportedSchemes.contains(d->url.scheme())) {
+            KMessageBox::sorry(this,
+                               i18np("The selected URL uses an unsupported scheme. "
+                                     "Please use the following scheme: %2",
+                                     "The selected URL uses an unsupported scheme. "
+                                     "Please use one of the following schemes: %2",
+                                     supportedSchemes.size(),
+                                     supportedSchemes.join(QLatin1String(", "))),
+                               i18n("Unsupported URL scheme"));
+            return;
+        }
+
         // if we are given a folder when not on directory mode, let's get into it
         if (res && !directoryMode && statJob->statResult().isDir()) {
             // check if we were given more than one folder, in that case we don't know to which one
@@ -2834,6 +2847,17 @@ void KFileWidget::setViewMode(KFile::FileView mode)
 {
     d->ops->setView(mode);
     d->hasView = true;
+}
+
+void KFileWidget::setSupportedSchemes(const QStringList &schemes)
+{
+    d->model->setSupportedSchemes(schemes);
+    d->ops->setSupportedSchemes(schemes);
+}
+
+QStringList KFileWidget::supportedSchemes() const
+{
+    return d->model->supportedSchemes();
 }
 
 #include "moc_kfilewidget.cpp"
