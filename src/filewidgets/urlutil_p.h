@@ -66,13 +66,21 @@ namespace UrlUtil {
 
         const QString childPath = adjustedLastUrl.path();
         const QString parentPath = adjustedCurrentUrl.path();
+        // if the parent path is root "/"
+        // one char more is a valid path, otherwise "/" and another char are needed.
+        const int minIndex = (parentPath == QLatin1String("/")) ? 1 : 2;
 
         // e.g. this would just be ok:
+        // childPath  = /a        len=2
+        // parentPath = /         len=1
         // childPath  = /home/a   len=7
         // parentPath = /home     len=5
-        Q_ASSERT(childPath.length() >= (parentPath.length() + 2));
 
-        const int idx2 = childPath.indexOf(QLatin1Char('/'), parentPath.length() + 2);
+        if (childPath.length() < (parentPath.length() + minIndex) ) {
+            return QUrl();
+        }
+
+        const int idx2 = childPath.indexOf(QLatin1Char('/'), parentPath.length() + minIndex);
         // parentPath = /home
         // childPath  = /home/a
         //                 idx  = -1
