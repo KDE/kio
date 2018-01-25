@@ -90,7 +90,7 @@ bool KSambaSharePrivate::findSmbConf()
         }
     }
 
-    qCWarning(KIO_CORE) << "KSambaShare: Could not find smb.conf!";
+    qCDebug(KIO_CORE) << "KSambaShare: Could not find smb.conf!";
 
     return false;
 }
