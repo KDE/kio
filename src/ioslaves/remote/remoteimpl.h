@@ -44,7 +44,7 @@ public:
 
 private:
     bool findDirectory(const QString &filename, QString &directory) const;
-    void createEntry(KIO::UDSEntry &entry, const QString &directory, const QString &file) const;
+    bool createEntry(KIO::UDSEntry &entry, const QString &directory, const QString &file) const;
 };
 
 #endif

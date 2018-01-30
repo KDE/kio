@@ -53,7 +53,8 @@ void RemoteImpl::listRoot(KIO::UDSEntryList &list) const
             continue;
         }
 
-        const QStringList filenames = dir.entryList(QDir::Files | QDir::Readable);
+        const QStringList filenames = dir.entryList({QStringLiteral("*.desktop")},
+                                                    QDir::Files | QDir::Readable);
 
         KIO::UDSEntry entry;
 
@@ -61,9 +62,7 @@ void RemoteImpl::listRoot(KIO::UDSEntryList &list) const
         QStringList::ConstIterator endf = filenames.constEnd();
 
         for (; name != endf; ++name) {
-            if (!names_found.contains(*name)) {
-                entry.clear();
-                createEntry(entry, *dirpath, *name);
+            if (!names_found.contains(*name) && createEntry(entry, *dirpath, *name)) {
                 list.append(entry);
                 names_found.append(*name);
             }
@@ -166,7 +165,7 @@ bool RemoteImpl::isWizardURL(const QUrl &url) const
     return url == QUrl(WIZARD_URL);
 }
 
-void RemoteImpl::createEntry(KIO::UDSEntry &entry, const QString &directory,
+bool RemoteImpl::createEntry(KIO::UDSEntry &entry, const QString &directory,
                              const QString &file) const
 {
     qCDebug(KIOREMOTE_LOG) << "RemoteImpl::createEntry";
@@ -175,11 +174,15 @@ void RemoteImpl::createEntry(KIO::UDSEntry &entry, const QString &directory,
     if (!dir.endsWith(QLatin1Char('/'))) {
         dir += QLatin1Char('/');
     }
+
     KDesktopFile desktop(dir + file);
 
-    qCDebug(KIOREMOTE_LOG) << "path = " << directory << file;
+    qCDebug(KIOREMOTE_LOG) << "path = " << directory << file << desktop.readName();
 
     entry.clear();
+
+    if (desktop.readName().isEmpty())
+        return false;
 
     QString new_filename = file;
     new_filename.truncate(file.length()-8);
@@ -195,6 +198,7 @@ void RemoteImpl::createEntry(KIO::UDSEntry &entry, const QString &directory,
     entry.insert(KIO::UDSEntry::UDS_ICON_NAME, icon);
     entry.insert(KIO::UDSEntry::UDS_LINK_DEST, desktop.readUrl());
     entry.insert(KIO::UDSEntry::UDS_TARGET_URL, desktop.readUrl());
+    return true;
 }
 
 bool RemoteImpl::statNetworkFolder(KIO::UDSEntry &entry, const QString &filename) const
@@ -202,12 +206,8 @@ bool RemoteImpl::statNetworkFolder(KIO::UDSEntry &entry, const QString &filename
     qCDebug(KIOREMOTE_LOG) << "RemoteImpl::statNetworkFolder: " << filename;
 
     QString directory;
-    if (findDirectory(filename+".desktop", directory)) {
-        createEntry(entry, directory, filename+".desktop");
-        return true;
-    }
-
-    return false;
+    return findDirectory(filename+".desktop", directory)
+        && createEntry(entry, directory, filename+".desktop");
 }
 
 bool RemoteImpl::deleteNetworkFolder(const QString &filename) const
