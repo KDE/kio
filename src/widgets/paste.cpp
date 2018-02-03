@@ -316,7 +316,7 @@ KIOWIDGETS_EXPORT QString KIO::pasteActionText(const QMimeData *mimeData, bool *
             if (destItem.url().isEmpty()) {
                 *enable = false;
             } else {
-                *enable = KFileItemListProperties(KFileItemList() << destItem).supportsWriting();
+                *enable = destItem.isWritable();
             }
         } else {
             *enable = false;
