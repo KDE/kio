@@ -909,9 +909,9 @@ void KFilePlacesModelTest::testConvertedUrl_data()
                                        << url;
 
     // baloo - timeline
-    const QDate lasMonthDate = QDate::currentDate().addMonths(-1);
+    const QDate lastMonthDate = QDate::currentDate().addMonths(-1);
     QTest::newRow("Baloo - Last Month") << QUrl("timeline:/lastmonth")
-                                        << QUrl(QString("timeline:/%1-%2").arg(lasMonthDate.year()).arg(lasMonthDate.month()));
+                                        << QUrl(QString("timeline:/%1-%2").arg(lastMonthDate.year()).arg(lastMonthDate.month(), 2, 10, QLatin1Char('0')));
 
     // devices
     QTest::newRow("Devices - Floppy") << QUrl("file:///media/floppy0")
@@ -925,9 +925,9 @@ void KFilePlacesModelTest::testConvertedUrl()
 
     const QUrl convertedUrl = KFilePlacesModel::convertedUrl(url);
 
-    QCOMPARE(expectedUrl.scheme(), convertedUrl.scheme());
-    QCOMPARE(expectedUrl.path(), convertedUrl.path());
-    QCOMPARE(expectedUrl, convertedUrl);
+    QCOMPARE(convertedUrl.scheme(), expectedUrl.scheme());
+    QCOMPARE(convertedUrl.path(), expectedUrl.path());
+    QCOMPARE(convertedUrl, expectedUrl);
 }
 
 void KFilePlacesModelTest::testBookmarkObject()
