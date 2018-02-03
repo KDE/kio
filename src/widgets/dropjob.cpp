@@ -327,7 +327,7 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
     }
     const KFileItemListProperties itemProps(fileItems);
 
-    emit q->popupMenuAboutToShow(fileItems);
+    emit q->popupMenuAboutToShow(itemProps);
 
     const bool sReading = itemProps.supportsReading();
     const bool sDeleting = itemProps.supportsDeleting();
