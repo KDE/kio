@@ -19,7 +19,6 @@
 ***/
 
 #include <QSocketNotifier>
-#include <QFile>
 
 #include "sharefd_p.h"
 #include "fdreceiver.h"
@@ -29,20 +28,14 @@ FdReceiver::FdReceiver(const QString &path, QObject *parent)
           , m_readNotifier(nullptr)
           , m_socketDes(-1)
           , m_fileDes(-1)
-          , m_path(path)
 {
-    SocketAddress addr(m_path.toStdString());
-    if (!addr.address()) {
-        std::cerr << "Invalid socket address" << std::endl;
-        return;
-    }
-
     m_socketDes = ::socket(AF_LOCAL, SOCK_STREAM|SOCK_NONBLOCK, 0);
     if (m_socketDes == -1) {
         std::cerr << "socket error:" << strerror(errno) << std::endl;
         return;
     }
 
+    const SocketAddress addr(path.toStdString());
     if (bind(m_socketDes, addr.address(), addr.length()) != 0 || listen(m_socketDes, 5) != 0) {
         std::cerr << "bind/listen error:" << strerror(errno) << std::endl;
         ::close(m_socketDes);
@@ -59,7 +52,6 @@ FdReceiver::~FdReceiver()
     if (m_socketDes >= 0) {
         ::close(m_socketDes);
     }
-    ::unlink(QFile::encodeName(m_path).constData());
 }
 
 bool FdReceiver::isListening() const
@@ -71,30 +63,11 @@ void FdReceiver::receiveFileDescriptor()
 {
     int client = ::accept(m_socketDes, NULL, NULL);
     if (client > 0) {
-        // Receive fd only if socket owner is root
-        bool acceptConnection = false;
-#if defined(__linux__)
-        ucred cred;
-        socklen_t len = sizeof(cred);
-        if (getsockopt(client, SOL_SOCKET, SO_PEERCRED, &cred, &len) == 0 && cred.uid == 0) {
-            acceptConnection = true;
+        FDMessageHeader msg;
+        if (::recvmsg(client, msg.message(), 0) == 2) {
+            ::memcpy(&m_fileDes, CMSG_DATA(msg.cmsgHeader()), sizeof m_fileDes);
         }
-#elif defined(__FreeBSD__) || defined(__APPLE__)
-        uid_t uid;
-        gid_t gid;
-        if (getpeereid(m_socketDes, &uid, &gid) == 0 && uid == 0) {
-            acceptConnection = true;
-        }
-#else
-#error Cannot get socket credentials!
-#endif
-        if (acceptConnection) {
-            FDMessageHeader msg;
-            if (::recvmsg(client, msg.message(), 0) == 2) {
-                ::memcpy(&m_fileDes, CMSG_DATA(msg.cmsgHeader()), sizeof m_fileDes);
-            }
-            ::close(client);
-        }
+        ::close(client);
     }
 }
 

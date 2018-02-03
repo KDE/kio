@@ -387,16 +387,17 @@ bool FileProtocol::privilegeOperationUnitTestMode()
     return false;
 }
 
-PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType, const QVariantList &, int)
+PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType, const QVariant &,
+                                                                      const QVariant &, const QVariant &)
 {
     return PrivilegeOperationReturnValue::failure();
 }
-PrivilegeOperationReturnValue FileProtocol::tryOpen(QFile &, const QByteArray &, int , int, int)
+PrivilegeOperationReturnValue FileProtocol::tryOpen(QFile &f, const QByteArray &, int , int)
 {
     return PrivilegeOperationReturnValue::failure();
 }
 
-PrivilegeOperationReturnValue FileProtocol::tryChangeFileAttr(ActionType , const QVariantList &, int)
+PrivilegeOperationReturnValue FileProtocol::tryChangeFileAttr(ActionType , const QVariant &, const QVariant &, const QVariant &)
 {
     return PrivilegeOperationReturnValue::failure();
 }

@@ -42,7 +42,6 @@ private:
     QSocketNotifier *m_readNotifier;
     int m_socketDes;
     int m_fileDes;
-    QString m_path;
 };
 
 #endif

@@ -103,13 +103,16 @@ private:
     void fileSystemFreeSpace(const QUrl &url);  // KF6 TODO: Turn into virtual method in SlaveBase
 
     bool privilegeOperationUnitTestMode();
-    PrivilegeOperationReturnValue execWithElevatedPrivilege(ActionType action, const QVariantList &args, int errcode);
-    PrivilegeOperationReturnValue tryOpen(QFile &f, const QByteArray &path, int flags, int mode, int errcode);
+    PrivilegeOperationReturnValue execWithElevatedPrivilege(ActionType action, const QVariant &arg1,
+                                                            const QVariant &arg2 = QVariant(),
+                                                            const QVariant &arg3 = QVariant());
+    PrivilegeOperationReturnValue tryOpen(QFile &f, const QByteArray &path, int flags, int mode);
 
     // We want to execute chmod/chown/utime with elevated privileges (in copy & put)
     // only during the brief period privileges are elevated. If it's not the case show
     // a warning and continue.
-    PrivilegeOperationReturnValue tryChangeFileAttr(ActionType action, const QVariantList &args, int errcode);
+    PrivilegeOperationReturnValue tryChangeFileAttr(ActionType action, const QVariant &arg1,
+                                                    const QVariant &arg2, const QVariant &arg3 = QVariant());
 private:
     mutable QHash<KUserId, QString> mUsercache;
     mutable QHash<KGroupId, QString> mGroupcache;
