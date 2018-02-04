@@ -1115,7 +1115,9 @@ bool Ftp::ftpOpenCommand(const char *_command, const QString &_path, char _mode,
         return false;
     }
 
-    error(errorcode, errormessage);
+    if (errorcode != KJob::NoError) {
+        error(errorcode, errormessage);
+    }
     return false;
 }
 
@@ -1602,7 +1604,9 @@ bool Ftp::ftpOpenDir(const QString &path)
     // The only way to really know would be to have a metadata flag for this...
     // Since some windows ftp server seems not to support the -a argument, we use a fallback here.
     // In fact we have to use -la otherwise -a removes the default -l (e.g. ftp.trolltech.com)
-    if (!ftpOpenCommand("list -la", QString(), 'I', ERR_CANNOT_ENTER_DIRECTORY)) {
+    // Pass KJob::NoError first because we don't want to emit error before we
+    // have tried all commands.
+    if (!ftpOpenCommand("list -la", QString(), 'I', KJob::NoError)) {
         if (!ftpOpenCommand("list", QString(), 'I', ERR_CANNOT_ENTER_DIRECTORY)) {
             qCWarning(KIO_FTP) << "Can't open for listing";
             return false;
