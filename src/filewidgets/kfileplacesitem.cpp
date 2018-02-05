@@ -29,6 +29,7 @@
 #include <KConfigGroup>
 #include <kprotocolinfo.h>
 #include <solid/block.h>
+#include <solid/networkshare.h>
 #include <solid/opticaldisc.h>
 #include <solid/opticaldrive.h>
 #include <solid/storageaccess.h>
@@ -171,6 +172,8 @@ KFilePlacesModel::GroupType KFilePlacesItem::groupType() const
 
     if (m_drive && (m_drive->isHotpluggable() || m_drive->isRemovable())) {
         return KFilePlacesModel::RemovableDevicesType;
+    } else if (m_networkShare) {
+        return KFilePlacesModel::RemoteType;
     } else {
         return KFilePlacesModel::DevicesType;
     }
@@ -364,6 +367,7 @@ bool KFilePlacesItem::updateDeviceInfo(const QString &udi)
         m_volume = m_device.as<Solid::StorageVolume>();
         m_disc = m_device.as<Solid::OpticalDisc>();
         m_mtp = m_device.as<Solid::PortableMediaPlayer>();
+        m_networkShare = m_device.as<Solid::NetworkShare>();
         m_iconPath = m_device.icon();
         m_emblems = m_device.emblems();
 
@@ -385,6 +389,7 @@ bool KFilePlacesItem::updateDeviceInfo(const QString &udi)
         m_disc = nullptr;
         m_mtp = nullptr;
         m_drive = nullptr;
+        m_networkShare = nullptr;
         m_iconPath.clear();
         m_emblems.clear();
     }

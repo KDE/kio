@@ -35,6 +35,7 @@ namespace Solid
 class StorageAccess;
 class StorageVolume;
 class StorageDrive;
+class NetworkShare;
 class OpticalDisc;
 class PortableMediaPlayer;
 }
@@ -109,6 +110,7 @@ private:
     QPointer<Solid::StorageDrive> m_drive;
     QPointer<Solid::OpticalDisc> m_disc;
     QPointer<Solid::PortableMediaPlayer> m_mtp;
+    QPointer<Solid::NetworkShare> m_networkShare;
     QString m_iconPath;
     QStringList m_emblems;
     QString m_groupName;
