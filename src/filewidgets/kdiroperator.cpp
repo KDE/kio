@@ -1949,6 +1949,7 @@ void KDirOperator::setupActions()
 
     KToggleAction *previewAction = new KToggleAction(i18n("Show Aside Preview"), this);
     d->actionCollection->addAction(QStringLiteral("preview"), previewAction);
+    previewAction->setShortcut(Qt::Key_F11);
     connect(previewAction, SIGNAL(toggled(bool)),
             SLOT(_k_togglePreview(bool)));
 
