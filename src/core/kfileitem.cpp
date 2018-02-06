@@ -477,14 +477,18 @@ KFileItem::KFileItem(const QUrl &url, const QString &mimeType, mode_t mode)
     }
 }
 
-KFileItem::KFileItem(const KFileItem &other)
-    : d(other.d)
-{
-}
-
-KFileItem::~KFileItem()
-{
-}
+// Default implementations for:
+// - Copy constructor
+// - Move constructor
+// - Copy assignment
+// - Move assignment
+// - Destructor
+// The compiler will now generate the content of those.
+KFileItem::KFileItem(const KFileItem&) = default;
+KFileItem::~KFileItem() = default;
+KFileItem::KFileItem(KFileItem&&) = default;
+KFileItem& KFileItem::operator=(const KFileItem&) = default;
+KFileItem& KFileItem::operator=(KFileItem&&) = default;
 
 void KFileItem::refresh()
 {
@@ -1486,12 +1490,6 @@ KIO::UDSEntry KFileItem::entry() const
     }
 
     return d->m_entry;
-}
-
-KFileItem &KFileItem::operator=(const KFileItem &other)
-{
-    d = other.d;
-    return *this;
 }
 
 bool KFileItem::isNull() const

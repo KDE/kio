@@ -118,16 +118,27 @@ public:
     /**
      * Copy constructor
      */
-    KFileItem(const KFileItem &other);
-    /**
-     * Assignment operator
-     */
-    KFileItem &operator=(const KFileItem &other);
+    KFileItem(const KFileItem&);
 
     /**
-     * Destructs the KFileItem.
+     * Destructor
      */
     ~KFileItem();
+
+    /**
+     * Move constructor
+     */
+    KFileItem(KFileItem&&);
+
+    /**
+     * Copy assignment
+     */
+    KFileItem& operator=(const KFileItem&);
+
+    /**
+     * Move assignment
+     */
+    KFileItem& operator=(KFileItem&&);
 
     /**
      * Throw away and re-read (for local files) all information about the file.

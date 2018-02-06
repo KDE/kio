@@ -115,6 +115,37 @@ void KFileItemTest::testDetach()
     QVERIFY(!(fileItem != fileItem2));
 }
 
+void KFileItemTest::testMove()
+{
+    // Test move constructor
+    {
+        KFileItem fileItem(QUrl::fromLocalFile(QStringLiteral("/one")), QString(), KFileItem::Unknown);
+        QCOMPARE(fileItem.name(), QStringLiteral("one"));
+        KFileItem fileItem2(std::move(fileItem));
+        QCOMPARE(fileItem2.name(), QStringLiteral("one"));
+    }
+
+    // Test move assignment
+    {
+        KFileItem fileItem(QUrl::fromLocalFile(QStringLiteral("/one")), QString(), KFileItem::Unknown);
+        QCOMPARE(fileItem.name(), QStringLiteral("one"));
+        KFileItem fileItem2(QUrl::fromLocalFile(QStringLiteral("/two")), QString(), KFileItem::Unknown);
+        fileItem2 = std::move(fileItem);
+        QCOMPARE(fileItem2.name(), QStringLiteral("one"));
+    }
+
+    // Now to test some value changes to make sure moving works as intended.
+    KFileItem fileItem(QUrl::fromLocalFile(QStringLiteral("/one")), QString(), KFileItem::Unknown);
+    QCOMPARE(fileItem.name(), QStringLiteral("one"));
+    fileItem.setUrl(QUrl::fromLocalFile(QStringLiteral("/two")));
+    QCOMPARE(fileItem.name(), QStringLiteral("two"));
+
+    // Move fileitem to fileItem2, it should now contain everything fileItem had.
+    // Just testing a property to make sure it does.
+    KFileItem fileItem2(std::move(fileItem));
+    QCOMPARE(fileItem2.name(), QStringLiteral("two"));
+}
+
 void KFileItemTest::testBasic()
 {
     QTemporaryFile file;
