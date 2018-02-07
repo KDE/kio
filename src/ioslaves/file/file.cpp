@@ -752,8 +752,11 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
     if (_mode != -1 && !(_flags & KIO::Resume)) {
         if (!QFile::setPermissions(dest_orig, modeToQFilePermissions(_mode))) {
             // couldn't chmod. Eat the error if the filesystem apparently doesn't support it.
-            if (tryChangeFileAttr(CHMOD, {dest_orig, _mode}, errno)) {
-                warning(i18n("Could not change permissions for\n%1",  dest_orig));
+            KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(dest_orig);
+            if (mp && mp->testFileSystemFlag(KMountPoint::SupportsChmod)) {
+                if (tryChangeFileAttr(CHMOD, {dest_orig, _mode}, errno)) {
+                    warning(i18n("Could not change permissions for\n%1",  dest_orig));
+                }
             }
         }
     }
