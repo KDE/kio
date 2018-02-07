@@ -226,18 +226,8 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
     }
 
     // nobody shall be allowed to peek into the file during creation
-    if (!QFile::setPermissions(dest, QFileDevice::ReadOwner | QFileDevice::WriteOwner)) {
-        if (auto err = execWithElevatedPrivilege(CHOWN, {_dest, getuid(), getgid()}, errno)) {
-            dest_file.close();
-            execWithElevatedPrivilege(DEL, {_dest}, errno);
-            if (!err.wasCanceled()) {
-                error(KIO::ERR_CANNOT_CHOWN, dest);
-            }
-            return;
-        } else {
-            QFile::setPermissions(dest, QFileDevice::ReadOwner | QFileDevice::WriteOwner);
-        }
-    }
+    // Note that error handling is omitted for this call, we don't want to error on e.g. VFAT
+    dest_file.setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner);
 
 #if HAVE_FADVISE
     posix_fadvise(dest_file.handle(), 0, 0, POSIX_FADV_SEQUENTIAL);
