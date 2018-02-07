@@ -351,8 +351,13 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
         || (acl && acl_set_file(_dest.data(), ACL_TYPE_ACCESS, acl) != 0)
 #endif
        ) {
-        if (tryChangeFileAttr(CHMOD, {_dest, _mode}, errno)) {
-            warning(i18n("Could not change permissions for '%1'", dest));
+        const int errCode = errno;
+        KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(dest);
+        // Eat the error if the filesystem apparently doesn't support chmod.
+        if (mp && mp->testFileSystemFlag(KMountPoint::SupportsChmod)) {
+            if (tryChangeFileAttr(CHMOD, {_dest, _mode}, errCode)) {
+                warning(i18n("Could not change permissions for '%1'", dest));
+            }
         }
     }
 #if HAVE_POSIX_ACL
@@ -787,14 +792,6 @@ PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType
             return PrivilegeOperationReturnValue::canceled();
         }
         return PrivilegeOperationReturnValue::failure(errcode);
-    }
-
-    if (action == CHMOD || action == CHOWN || action == UTIME) {
-        KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(args.first().toString());
-        // Test for chmod and utime will return the same result as test for chown.
-        if (mp && !mp->testFileSystemFlag(KMountPoint::SupportsChown)) {
-            return PrivilegeOperationReturnValue::failure(errcode);
-        }
     }
 
     QByteArray helperArgs;
