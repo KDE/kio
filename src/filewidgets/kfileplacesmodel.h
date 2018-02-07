@@ -189,7 +189,8 @@ public:
     /**
      * Set the URL schemes that the file widget should allow navigating to.
      *
-     * If the returned list is empty, all schemes are supported.
+     * If the returned list is empty, all schemes are supported. Examples for
+     * schemes are @c "file" or @c "ftp".
      *
      * @sa QFileDialog::setSupportedSchemes
      * @since 5.43
