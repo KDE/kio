@@ -28,7 +28,7 @@
 inline
 QString concatPaths(const QString &path1, const QString &path2)
 {
-    // TODO Q_ASSERT(!path2.startsWith(QLatin1Char('/')));
+    Q_ASSERT(!path2.startsWith(QLatin1Char('/')));
 
     if (!path1.endsWith(QLatin1Char('/'))) {
         return path1 + QLatin1Char('/') + path2;
