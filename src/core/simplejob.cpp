@@ -128,38 +128,34 @@ void SimpleJobPrivate::start(Slave *slave)
     m_slave = slave;
 
     // Slave::setJob can send us SSL metadata if there is a persistent connection
-    q->connect(slave, SIGNAL(metaData(KIO::MetaData)),
-               SLOT(slotMetaData(KIO::MetaData)));
+    QObject::connect(slave, &Slave::metaData, q, &SimpleJob::slotMetaData);
 
     slave->setJob(q);
 
-    q->connect(slave, SIGNAL(error(int,QString)),
-               SLOT(slotError(int,QString)));
+    QObject::connect(slave, &Slave::error, q, &SimpleJob::slotError);
 
-    q->connect(slave, SIGNAL(warning(QString)),
-               SLOT(slotWarning(QString)));
+    QObject::connect(slave, &Slave::warning, q, &SimpleJob::slotWarning);
 
-    q->connect(slave, SIGNAL(infoMessage(QString)),
-               SLOT(_k_slotSlaveInfoMessage(QString)));
+    QObject::connect(slave, &Slave::finished, q, &SimpleJob::slotFinished);
 
-    q->connect(slave, SIGNAL(connected()),
-               SLOT(slotConnected()));
+    QObject::connect(slave, &Slave::infoMessage, q,
+        [this](const QString& message){ _k_slotSlaveInfoMessage(message);} );
 
-    q->connect(slave, SIGNAL(finished()),
-               SLOT(slotFinished()));
+    QObject::connect(slave, &Slave::connected, q,
+        [this](){ slotConnected();} );
 
-    q->connect(slave, SIGNAL(privilegeOperationRequested()),
-               SLOT(slotPrivilegeOperationRequested()));
+    QObject::connect(slave, &Slave::privilegeOperationRequested, q,
+        [this](){ slotPrivilegeOperationRequested();} );
 
     if ((m_extraFlags & EF_TransferJobDataSent) == 0) { // this is a "get" job
-        q->connect(slave, SIGNAL(totalSize(KIO::filesize_t)),
-                   SLOT(slotTotalSize(KIO::filesize_t)));
+        QObject::connect(slave, &Slave::totalSize, q,
+            [this](KIO::filesize_t size){ slotTotalSize(size);} );
 
-        q->connect(slave, SIGNAL(processedSize(KIO::filesize_t)),
-                   SLOT(slotProcessedSize(KIO::filesize_t)));
+        QObject::connect(slave, &Slave::processedSize, q,
+            [this](KIO::filesize_t size){ slotProcessedSize(size);} );
 
-        q->connect(slave, SIGNAL(speed(ulong)),
-                   SLOT(slotSpeed(ulong)));
+        QObject::connect(slave, &Slave::speed, q,
+            [this](ulong speed){ slotSpeed(speed);} );
     }
 
     const QVariant windowIdProp = q->property("window-id"); // see KJobWidgets::setWindow
