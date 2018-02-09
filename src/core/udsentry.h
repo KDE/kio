@@ -71,7 +71,6 @@ class KIOCORE_EXPORT UDSEntry
 public:
 
     UDSEntry();
-    UDSEntry(const UDSEntry &other);
 
     /**
      * Create a UDSEntry by QT_STATBUF
@@ -80,8 +79,33 @@ public:
      * @since 5.0
      */
     UDSEntry(const QT_STATBUF &buff, const QString &name = QString());
+
+    /**
+     * Copy constructor
+     */
+    UDSEntry(const UDSEntry&);
+
+    /**
+     * Destructor
+     */
     ~UDSEntry();
-    UDSEntry &operator=(const UDSEntry &other);
+
+    /**
+     * Move constructor
+     * @since 5.44
+     */
+    UDSEntry(UDSEntry&&);
+
+    /**
+     * Copy assignment
+     */
+    UDSEntry& operator=(const UDSEntry&);
+
+    /**
+     * Move assignment
+     * @since 5.44
+     */
+    UDSEntry& operator=(UDSEntry&&);
 
     /**
      * @return value of a textual field

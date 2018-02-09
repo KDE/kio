@@ -22,7 +22,9 @@
 #include <QTest>
 #include <QVector>
 #include <QDataStream>
+#include <QTemporaryFile>
 
+#include <kfileitem.h>
 #include <udsentry.h>
 
 struct UDSTestField {
@@ -218,6 +220,53 @@ void UDSEntryTest::testSaveLoad()
                 }
             }
         }
+    }
+}
+
+/**
+ * Test to verify that move semantics work. This is only useful when ran through callgrind.
+ */
+void UDSEntryTest::testMove()
+{
+    // Create a temporary file. Just to make a UDSEntry further down.
+    QTemporaryFile file;
+    QVERIFY(file.open());
+    const QByteArray filePath = file.fileName().toLocal8Bit();
+    const QString fileName = QUrl(file.fileName()).fileName(); // QTemporaryFile::fileName returns the full path.
+    QVERIFY(!fileName.isEmpty());
+
+    // We have a file now. Get the stat data from it to make the UDSEntry.
+    QT_STATBUF statBuf;
+    QVERIFY(QT_LSTAT(filePath.constData(), &statBuf) == 0);
+    KIO::UDSEntry entry(statBuf, fileName);
+
+    // Verify that the name in the UDSEntry is the same as we've got from the fileName var.
+    QCOMPARE(fileName, entry.stringValue(KIO::UDSEntry::UDS_NAME));
+
+    // That was the boilerplate code. Now for move semantics.
+    // First: move assignment.
+    {
+        // First a copy as we need to keep the entry for the next test.
+        KIO::UDSEntry entryCopy = entry;
+
+        // Now move-assignement (two lines to prevent compiler optimization)
+        KIO::UDSEntry movedEntry;
+        movedEntry = std::move(entryCopy);
+
+        // And veryfy that this works.
+        QCOMPARE(fileName, movedEntry.stringValue(KIO::UDSEntry::UDS_NAME));
+    }
+
+    // Move constructor
+    {
+        // First a copy again
+        KIO::UDSEntry entryCopy = entry;
+
+        // Now move-assignement
+        KIO::UDSEntry movedEntry(std::move(entryCopy));
+
+        // And veryfy that this works.
+        QCOMPARE(fileName, movedEntry.stringValue(KIO::UDSEntry::UDS_NAME));
     }
 }
 

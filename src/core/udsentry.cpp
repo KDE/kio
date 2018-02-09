@@ -72,11 +72,6 @@ UDSEntry::UDSEntry()
 {
 }
 
-UDSEntry::UDSEntry(const UDSEntry &other)
-    : d(other.d)
-{
-}
-
 // BUG: this API doesn't allow to handle symlinks correctly (we need buff from QT_LSTAT for most things, but buff from QT_STAT for st_mode and st_size)
 UDSEntry::UDSEntry(const QT_STATBUF &buff, const QString &name)
     : d(new UDSEntryPrivate())
@@ -96,15 +91,11 @@ UDSEntry::UDSEntry(const QT_STATBUF &buff, const QString &name)
 #endif
 }
 
-UDSEntry::~UDSEntry()
-{
-}
-
-UDSEntry &UDSEntry::operator=(const UDSEntry &other)
-{
-    d = other.d;
-    return *this;
-}
+UDSEntry::UDSEntry(const UDSEntry&) = default;
+UDSEntry::~UDSEntry() = default;
+UDSEntry::UDSEntry(UDSEntry&&) = default;
+UDSEntry& UDSEntry::operator=(const UDSEntry&) = default;
+UDSEntry& UDSEntry::operator=(UDSEntry&&) = default;
 
 QString UDSEntry::stringValue(uint field) const
 {
