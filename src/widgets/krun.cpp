@@ -1605,9 +1605,10 @@ void
 KProcessRunner::slotProcessExited(int exitCode, QProcess::ExitStatus exitStatus)
 {
     //qDebug() << m_executable << "exitCode=" << exitCode << "exitStatus=" << exitStatus;
-    Q_UNUSED(exitStatus);
+    Q_UNUSED(exitStatus)
 
     terminateStartupNotification(); // do this before the messagebox
+
     if (exitCode != 0 && !m_executable.isEmpty()) {
         // Let's see if the error is because the exe doesn't exist.
         // When this happens, waitForStarted returns false, but not if kioexec
@@ -1616,12 +1617,21 @@ KProcessRunner::slotProcessExited(int exitCode, QProcess::ExitStatus exitStatus)
         // We'll try to find the executable relatively to current directory,
         // (or with a full path, if m_executable is absolute), and then in the PATH.
         if (!QFile(m_executable).exists() && QStandardPaths::findExecutable(m_executable).isEmpty()) {
-            QEventLoopLocker locker;
-            KMessageBox::sorry(nullptr, i18n("Could not find the program '%1'", m_executable));
+            const QString &error = i18n("Could not find the program '%1'", m_executable);
+
+            if (qApp) {
+                QTimer::singleShot(0, qApp, [=]() {
+                        QEventLoopLocker locker;
+                        KMessageBox::sorry(nullptr, error);
+                    });
+            } else {
+                qWarning() << error;
+            }
         } else {
             //qDebug() << process->readAllStandardError();
         }
     }
+
     deleteLater();
 }
 
