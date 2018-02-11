@@ -76,6 +76,7 @@ void KRunUnitTest::testExecutableName_data()
     QTest::newRow("\"progname\" \"arg1\"") << "\"progname\" \"arg1\"" << "progname" << "progname";
     QTest::newRow("'quoted' \"arg1\"") << "'quoted' \"arg1\"" << "quoted" << "quoted";
     QTest::newRow(" 'leading space'   arg1") << " 'leading space'   arg1" << "leading space" << "leading space";
+    QTest::newRow("if_command") << "if test -e /tmp/foo; then kwrite ; else konsole ; fi" << "if" << "if";
 }
 
 void KRunUnitTest::testExecutableName()
