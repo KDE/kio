@@ -30,8 +30,8 @@ class KRunUnitTest : public QObject
 private Q_SLOTS:
     void initTestCase();
     void cleanupTestCase();
-    void testBinaryName_data();
-    void testBinaryName();
+    void testExecutableName_data();
+    void testExecutableName();
     void testProcessDesktopExec();
     void testProcessDesktopExecNoFile_data();
     void testProcessDesktopExecNoFile();

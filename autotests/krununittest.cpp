@@ -64,31 +64,27 @@ void KRunUnitTest::cleanupTestCase()
     });
 }
 
-void KRunUnitTest::testBinaryName_data()
+void KRunUnitTest::testExecutableName_data()
 {
     QTest::addColumn<QString>("execLine");
-    QTest::addColumn<bool>("removePath");
-    QTest::addColumn<QString>("expected");
+    QTest::addColumn<QString>("expectedPath");
+    QTest::addColumn<QString>("expectedName");
 
-    QTest::newRow("/usr/bin/ls true") << "/usr/bin/ls" << true << "ls";
-    QTest::newRow("/usr/bin/ls false") << "/usr/bin/ls" << false << "/usr/bin/ls";
-    QTest::newRow("/path/to/wine \"long argument with path\"") << "/path/to/wine \"long argument with path\"" << true << "wine";
-    QTest::newRow("/path/with/a/sp\\ ace/exe arg1 arg2") << "/path/with/a/sp\\ ace/exe arg1 arg2" << true << "exe";
-    QTest::newRow("\"progname\" \"arg1\"") << "\"progname\" \"arg1\"" << true << "progname";
-    QTest::newRow("'quoted' \"arg1\"") << "'quoted' \"arg1\"" << true << "quoted";
-    QTest::newRow(" 'leading space'   arg1") << " 'leading space'   arg1" << true << "leading space";
+    QTest::newRow("/usr/bin/ls") << "/usr/bin/ls" << "/usr/bin/ls" << "ls";
+    QTest::newRow("/path/to/wine \"long argument with path\"") << "/path/to/wine \"long argument with path\"" << "/path/to/wine" << "wine";
+    QTest::newRow("/path/with/a/sp\\ ace/exe arg1 arg2") << "/path/with/a/sp\\ ace/exe arg1 arg2" << "/path/with/a/sp ace/exe" << "exe";
+    QTest::newRow("\"progname\" \"arg1\"") << "\"progname\" \"arg1\"" << "progname" << "progname";
+    QTest::newRow("'quoted' \"arg1\"") << "'quoted' \"arg1\"" << "quoted" << "quoted";
+    QTest::newRow(" 'leading space'   arg1") << " 'leading space'   arg1" << "leading space" << "leading space";
 }
 
-void KRunUnitTest::testBinaryName()
+void KRunUnitTest::testExecutableName()
 {
     QFETCH(QString, execLine);
-    QFETCH(bool, removePath);
-    QFETCH(QString, expected);
-    if (removePath) {
-        QCOMPARE(KIO::DesktopExecParser::executableName(execLine), expected);
-    } else {
-        QCOMPARE(KIO::DesktopExecParser::executablePath(execLine), expected);
-    }
+    QFETCH(QString, expectedPath);
+    QFETCH(QString, expectedName);
+    QCOMPARE(KIO::DesktopExecParser::executableName(execLine), expectedName);
+    QCOMPARE(KIO::DesktopExecParser::executablePath(execLine), expectedPath);
 }
 
 //static const char *bt(bool tr) { return tr?"true":"false"; }
