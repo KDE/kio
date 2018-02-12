@@ -824,8 +824,8 @@ void KOpenWithDialogPrivate::addToMimeAppsList(const QString &serviceId /*menu i
     // kbuildsycoca is the one reading mimeapps.list, so we need to run it now
     KBuildSycocaProgressDialog::rebuildKSycoca(q);
 
+    // could be nullptr if the user canceled the dialog...
     m_pService = KService::serviceByStorageId(serviceId);
-    Q_ASSERT(m_pService);
 }
 
 bool KOpenWithDialogPrivate::checkAccept()
