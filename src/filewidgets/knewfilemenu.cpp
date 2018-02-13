@@ -38,6 +38,7 @@
 #include <QDebug>
 #include <kdesktopfile.h>
 #include <kdirwatch.h>
+#include <kdirnotify.h>
 #include <kjobwidgets.h>
 #include <klocalizedstring.h>
 #include <kmessagebox.h>
@@ -1242,6 +1243,7 @@ void KNewFileMenu::slotResult(KJob *job)
             emit fileCreated(destUrl);
         } else if (KIO::SimpleJob *simpleJob = ::qobject_cast<KIO::SimpleJob *>(job)) {
             // Called in the storedPut() case
+            org::kde::KDirNotify::emitFilesAdded(simpleJob->url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
             emit fileCreated(simpleJob->url());
         }  else {
             // Can be mkdir
