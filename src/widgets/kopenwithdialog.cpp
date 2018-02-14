@@ -30,6 +30,7 @@
 #include <QDialogButtonBox>
 #include <QtCore/QtAlgorithms>
 #include <QtCore/QList>
+#include <QKeyEvent>
 #include <QLabel>
 #include <QLayout>
 #include <QCheckBox>
@@ -191,6 +192,10 @@ KApplicationModel::KApplicationModel(QObject *parent)
     : QAbstractItemModel(parent), d(new KApplicationModelPrivate(this))
 {
     d->fillNode(QString(), d->root);
+    const int nRows = rowCount();
+    for (int i = 0; i < nRows; i++) {
+        fetchAll(index(i, 0));
+    }
 }
 
 KApplicationModel::~KApplicationModel()
@@ -251,6 +256,22 @@ void KApplicationModel::fetchMore(const QModelIndex &parent)
     d->fillNode(node->entryPath, node);
     node->fetched = true;
     emit layoutChanged();
+}
+
+void KApplicationModel::fetchAll(const QModelIndex &parent)
+{
+    if (!parent.isValid() || !canFetchMore(parent)) {
+        return;
+    }
+
+    fetchMore(parent);
+
+    int childCount = rowCount(parent);
+    for (int i = 0; i < childCount; i++) {
+        const QModelIndex &child = parent.child(i, 0);
+        // Recursively call the function for each child node.
+        fetchAll(child);
+    }
 }
 
 bool KApplicationModel::hasChildren(const QModelIndex &parent) const
@@ -355,15 +376,47 @@ bool KApplicationModel::isDirectory(const QModelIndex &index) const
     return node->isDir;
 }
 
+
+QTreeViewProxyFilter::QTreeViewProxyFilter(QObject *parent)
+    : QSortFilterProxyModel(parent)
+{
+}
+
+bool QTreeViewProxyFilter::filterAcceptsRow(int sourceRow, const QModelIndex &parent) const
+{
+    QModelIndex index = sourceModel()->index(sourceRow, 0, parent);
+
+    if (!index.isValid()) {
+        return false;
+    }
+
+    // Match the regexp only on leaf nodes
+    if (!sourceModel()->hasChildren(index) && index.data().toString().contains(filterRegExp())) {
+        return true;
+    }
+
+    //Show the non-leaf node also if the regexp matches one one of its children
+    int rows = sourceModel()->rowCount(index);
+    for (int crow = 0; crow < rows; crow++) {
+        if (filterAcceptsRow(crow, index)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 class KApplicationViewPrivate
 {
 public:
     KApplicationViewPrivate()
-        : appModel(nullptr)
+        : appModel(nullptr),
+          m_proxyModel(nullptr)
     {
     }
 
     KApplicationModel *appModel;
+    QSortFilterProxyModel *m_proxyModel;
 };
 
 KApplicationView::KApplicationView(QWidget *parent)
@@ -377,26 +430,33 @@ KApplicationView::~KApplicationView()
     delete d;
 }
 
-void KApplicationView::setModel(QAbstractItemModel *model)
+void KApplicationView::setModels(KApplicationModel *model, QSortFilterProxyModel *proxyModel)
 {
     if (d->appModel) {
         disconnect(selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
                    this, SLOT(slotSelectionChanged(QItemSelection,QItemSelection)));
     }
 
-    QTreeView::setModel(model);
+    QTreeView::setModel(proxyModel); // Here we set the proxy model
+    d->m_proxyModel = proxyModel; // Also store it in a member property to avoid many casts later
 
-    d->appModel = qobject_cast<KApplicationModel *>(model);
+    d->appModel = model;
     if (d->appModel) {
         connect(selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
                 this, SLOT(slotSelectionChanged(QItemSelection,QItemSelection)));
     }
 }
 
+QSortFilterProxyModel* KApplicationView::proxyModel()
+{
+    return d->m_proxyModel;
+}
+
 bool KApplicationView::isDirSel() const
 {
     if (d->appModel) {
         QModelIndex index = selectionModel()->currentIndex();
+        index = d->m_proxyModel->mapToSource(index);
         return d->appModel->isDirectory(index);
     }
     return false;
@@ -406,10 +466,13 @@ void KApplicationView::currentChanged(const QModelIndex &current, const QModelIn
 {
     QTreeView::currentChanged(current, previous);
 
-    if (d->appModel && !d->appModel->isDirectory(current)) {
-        QString exec = d->appModel->execFor(current);
-        if (!exec.isEmpty()) {
-            emit highlighted(d->appModel->entryPathFor(current), exec);
+    if (d->appModel) {
+        QModelIndex sourceCurrent = d->m_proxyModel->mapToSource(current);
+        if(!d->appModel->isDirectory(sourceCurrent)) {
+            QString exec = d->appModel->execFor(sourceCurrent);
+            if (!exec.isEmpty()) {
+                emit highlighted(d->appModel->entryPathFor(sourceCurrent), exec);
+            }
         }
     }
 }
@@ -418,12 +481,12 @@ void KApplicationView::slotSelectionChanged(const QItemSelection &selected, cons
 {
     Q_UNUSED(deselected)
 
-    const QModelIndexList indexes = selected.indexes();
-    if (indexes.count() == 1 && !d->appModel->isDirectory(indexes.at(0))) {
+    QItemSelection sourceSelected = d->m_proxyModel->mapSelectionToSource(selected);
+
+    const QModelIndexList indexes = sourceSelected.indexes();
+    if (indexes.count() == 1) {
         QString exec = d->appModel->execFor(indexes.at(0));
-        if (!exec.isEmpty()) {
-            emit this->selected(d->appModel->entryPathFor(indexes.at(0)), exec);
-        }
+        emit this->selected(d->appModel->entryPathFor(indexes.at(0)), exec);
     }
 }
 
@@ -596,16 +659,21 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     if (!bReadOnly) {
         // init the history combo and insert it into the URL-Requester
         KHistoryComboBox *combo = new KHistoryComboBox();
+        combo->setToolTip(i18n("Type to filter the applications below, or specify the name of a command.\nPress down arrow to navigate the results."));
+        KLineEdit *lineEdit = new KLineEdit(q);
+        lineEdit->setClearButtonShown(true);
+        combo->setLineEdit(lineEdit);
         combo->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLengthWithIcon);
         combo->setDuplicatesEnabled(false);
         KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("Open-with settings"));
         int max = cg.readEntry("Maximum history", 15);
         combo->setMaxCount(max);
-        int mode = cg.readEntry("CompletionMode", int(KCompletion::CompletionPopup));
+        int mode = cg.readEntry("CompletionMode", int(KCompletion::CompletionNone));
         combo->setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
         const QStringList list = cg.readEntry("History", QStringList());
         combo->setHistoryItems(list, true);
         edit = new KUrlRequester(combo, q);
+        edit->installEventFilter(q);
     } else {
         edit = new KUrlRequester(q);
         edit->lineEdit()->setReadOnly(true);
@@ -637,8 +705,13 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     QObject::connect(edit, SIGNAL(textChanged(QString)), q, SLOT(slotTextChanged()));
     QObject::connect(edit, SIGNAL(urlSelected(QUrl)), q, SLOT(_k_slotFileSelected()));
 
+    QTreeViewProxyFilter *proxyModel = new QTreeViewProxyFilter(view);
+    KApplicationModel *appModel = new KApplicationModel(proxyModel);
+    proxyModel->setSourceModel(appModel);
+    proxyModel->setFilterKeyColumn(0);
+    proxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
     view = new KApplicationView(q);
-    view->setModel(new KApplicationModel(view));
+    view->setModels(appModel, proxyModel);
     topLayout->addWidget(view);
     topLayout->setStretchFactor(view, 1);
 
@@ -727,9 +800,7 @@ KOpenWithDialog::~KOpenWithDialog()
 
 void KOpenWithDialog::slotSelected(const QString & /*_name*/, const QString &_exec)
 {
-    KService::Ptr pService = d->curService;
-    d->edit->setText(_exec); // calls slotTextChanged :(
-    d->curService = pService;
+    d->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(!_exec.isEmpty());
 }
 
 // ----------------------------------------------------------------------
@@ -750,9 +821,32 @@ void KOpenWithDialog::slotHighlighted(const QString &entryPath, const QString &)
 
 void KOpenWithDialog::slotTextChanged()
 {
-    // Forget about the service
-    d->curService = nullptr;
-    d->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(!d->edit->text().isEmpty());
+    // Forget about the service only when the selection is empty
+    // otherwise changing text but hitting the same result clears curService
+    bool selectionEmpty = !d->view->currentIndex().isValid();
+    if (d->curService && selectionEmpty) {
+        d->curService = nullptr;
+    }
+    d->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(!d->edit->text().isEmpty() || d->curService);
+
+    //Update the filter regexp with the new text in the lineedit
+    d->view->proxyModel()->setFilterFixedString(d->edit->text());
+
+    //Expand all the nodes when the search string is 3 characters long
+    //If the search string doesn't match anything there will be no nodes to expand
+    if (d->edit->text().size() > 2) {
+        d->view->expandAll();
+        //Automatically select the first result (first leaf node) when the filter has match
+        QModelIndex leafNodeIdx = d->view->model()->index(0, 0);
+        while (d->view->model()->hasChildren(leafNodeIdx)) {
+            leafNodeIdx = leafNodeIdx.child(0,0);
+        }
+        d->view->setCurrentIndex(leafNodeIdx);
+    } else {
+        d->view->collapseAll();
+        d->view->setCurrentIndex(d->view->rootIndex()); // Unset and deselect all the elements
+        d->curService = nullptr;
+    }
 }
 
 // ----------------------------------------------------------------------
@@ -831,9 +925,6 @@ void KOpenWithDialogPrivate::addToMimeAppsList(const QString &serviceId /*menu i
 bool KOpenWithDialogPrivate::checkAccept()
 {
     const QString typedExec(edit->text());
-    if (typedExec.isEmpty()) {
-        return false;
-    }
     QString fullExec(typedExec);
 
     QString serviceName;
@@ -995,6 +1086,29 @@ bool KOpenWithDialogPrivate::checkAccept()
 
     saveComboboxHistory();
     return true;
+}
+
+bool KOpenWithDialog::eventFilter(QObject *object, QEvent *event)
+{
+    // Detect DownArrow to navigate the results in the QTreeView
+    if (object == d->edit && event->type() == QEvent::ShortcutOverride) {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+        if (keyEvent->key() == Qt::Key_Down) {
+            KHistoryComboBox *combo = static_cast<KHistoryComboBox *>(d->edit->comboBox());
+            // FIXME: Disable arrow down in CompletionPopup and CompletionPopupAuto only when the dropdown list is shown.
+            // When popup completion mode is used the down arrow is used to navigate the dropdown list of results
+            if (combo->completionMode() != KCompletion::CompletionPopup && combo->completionMode() != KCompletion::CompletionPopupAuto) {
+                QModelIndex leafNodeIdx = d->view->model()->index(0, 0);
+                // Check if we have at least one result or the focus is passed to the empty QTreeView
+                if (d->view->model()->hasChildren(leafNodeIdx)) {
+                    d->view->setFocus(Qt::OtherFocusReason);
+                    QApplication::sendEvent(d->view, keyEvent);
+                    return true;
+                }
+            }
+        }
+    }
+    return QDialog::eventFilter(object, event);
 }
 
 void KOpenWithDialog::accept()

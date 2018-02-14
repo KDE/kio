@@ -22,6 +22,7 @@
 #define OPENWITHDIALOG_P_H
 
 #include <QtCore/QAbstractItemModel>
+#include <QSortFilterProxyModel>
 #include <QTreeView>
 
 class KApplicationModelPrivate;
@@ -50,12 +51,25 @@ public:
     QString entryPathFor(const QModelIndex &index) const;
     QString execFor(const QModelIndex &index) const;
     bool isDirectory(const QModelIndex &index) const;
+    void fetchAll(const QModelIndex &parent);
 
 private:
     friend class KApplicationModelPrivate;
     KApplicationModelPrivate *const d;
 
     Q_DISABLE_COPY(KApplicationModel)
+};
+
+/**
+ * @internal
+ */
+class QTreeViewProxyFilter : public QSortFilterProxyModel
+{
+     Q_OBJECT
+
+public:
+    QTreeViewProxyFilter(QObject *parent = nullptr);
+    bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const Q_DECL_OVERRIDE;
 };
 
 class KApplicationViewPrivate;
@@ -71,7 +85,8 @@ public:
     KApplicationView(QWidget *parent = nullptr);
     ~KApplicationView();
 
-    void setModel(QAbstractItemModel *model) Q_DECL_OVERRIDE;
+    void setModels(KApplicationModel *model, QSortFilterProxyModel *proxyModel);
+    QSortFilterProxyModel* proxyModel();
 
     bool isDirSel() const;
 

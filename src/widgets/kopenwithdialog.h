@@ -134,6 +134,8 @@ protected Q_SLOTS:
     void accept() Q_DECL_OVERRIDE;
 
 private:
+    bool eventFilter(QObject *object, QEvent *event) override;
+
     friend class KOpenWithDialogPrivate;
     KOpenWithDialogPrivate *const d;
 
