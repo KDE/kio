@@ -491,12 +491,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     menu->addSeparator();
     menu->addAction(coll->action(QStringLiteral("decoration menu")));
     menu->addSeparator();
-    QAction *showHidden = coll->action(QStringLiteral("show hidden"));
-    if (showHidden) {
-        showHidden->setShortcuts(
-            QList<QKeySequence>() << QKeySequence(Qt::ALT + Qt::Key_Period) << QKeySequence(Qt::Key_F8));
-    }
-    menu->addAction(showHidden);
+    menu->addAction(coll->action(QStringLiteral("show hidden")));
     menu->addAction(showSidebarAction);
     menu->addAction(showBookmarksAction);
     coll->action(QStringLiteral("inline preview"));
