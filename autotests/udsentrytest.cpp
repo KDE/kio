@@ -23,6 +23,7 @@
 #include <QVector>
 #include <QDataStream>
 #include <QTemporaryFile>
+#include <qplatformdefs.h>
 
 #include <kfileitem.h>
 #include <udsentry.h>
