@@ -1968,6 +1968,7 @@ void KDirOperator::setupActions()
     KToggleAction *inlinePreview = new KToggleAction(QIcon::fromTheme(QStringLiteral("view-preview")),
             i18n("Show Preview"), this);
     d->actionCollection->addAction(QStringLiteral("inline preview"), inlinePreview);
+    inlinePreview->setShortcut(Qt::Key_F12);
     connect(inlinePreview, SIGNAL(toggled(bool)), SLOT(_k_toggleInlinePreviews(bool)));
 
     QAction *fileManager = new QAction(i18n("Open File Manager"), this);

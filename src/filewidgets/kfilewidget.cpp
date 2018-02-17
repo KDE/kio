@@ -499,7 +499,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     menu->addAction(showHidden);
     menu->addAction(showSidebarAction);
     menu->addAction(showBookmarksAction);
-    coll->action(QStringLiteral("inline preview"))->setShortcut(QKeySequence(Qt::Key_F11));
+    coll->action(QStringLiteral("inline preview"));
     menu->addAction(coll->action(QStringLiteral("preview")));
 
     menu->setDelayed(false);
