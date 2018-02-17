@@ -127,6 +127,7 @@ public:
 
     /**
      * Move constructor
+     * @since 5.43
      */
     KFileItem(KFileItem&&);
 
@@ -137,6 +138,7 @@ public:
 
     /**
      * Move assignment
+     * @since 5.43
      */
     KFileItem& operator=(KFileItem&&);
 
