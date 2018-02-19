@@ -28,6 +28,8 @@
 #include <kfileitem.h>
 #include <udsentry.h>
 
+#include "kiotesthelper.h"
+
 struct UDSTestField {
     UDSTestField() {}
 
