@@ -72,14 +72,45 @@ void KUrlNavigatorPlacesSelector::updateMenu()
     m_placesMenu->clear();
 
     updateSelection(m_selectedUrl);
+
+    QString previousGroup;
+    QMenu *subMenu = nullptr;
+
     const int rowCount = m_placesModel->rowCount();
     for (int i = 0; i < rowCount; ++i) {
         QModelIndex index = m_placesModel->index(i, 0);
-        QAction *action = new QAction(m_placesModel->icon(index),
+        if (m_placesModel->isHidden(index)) {
+            continue;
+        }
+
+        QAction *placeAction = new QAction(m_placesModel->icon(index),
                                       m_placesModel->text(index),
                                       m_placesMenu);
-        m_placesMenu->addAction(action);
-        action->setData(i);
+        placeAction->setData(i);
+
+        const QString &groupName = index.data(KFilePlacesModel::GroupRole).toString();
+        if (previousGroup.isEmpty()) { // Skip first group heading.
+            previousGroup = groupName;
+        }
+
+        // Put all subsequent categories into a submenu.
+        if (previousGroup != groupName) {
+            QAction *subMenuAction = new QAction(groupName, m_placesMenu);
+            subMenu = new QMenu(m_placesMenu);
+            subMenu->installEventFilter(this);
+            subMenuAction->setMenu(subMenu);
+
+            m_placesMenu->addAction(subMenuAction);
+
+            previousGroup = groupName;
+        }
+
+        if (subMenu) {
+            subMenu->addAction(placeAction);
+        } else {
+            m_placesMenu->addAction(placeAction);
+        }
+
         if (i == m_selectedItem) {
             setIcon(m_placesModel->icon(index));
         }
@@ -246,12 +277,12 @@ void KUrlNavigatorPlacesSelector::onStorageSetupDone(const QModelIndex &index, b
 
 bool KUrlNavigatorPlacesSelector::eventFilter(QObject *watched, QEvent *event)
 {
-    if (watched == m_placesMenu) {
+    if (auto *menu = qobject_cast<QMenu *>(watched)) {
         if (event->type() == QEvent::MouseButtonRelease) {
             QMouseEvent *me = static_cast<QMouseEvent *>(event);
             if (me->button() == Qt::MiddleButton) {
-                if (QAction *action = m_placesMenu->activeAction()) {
-                    m_placesMenu->close();
+                if (QAction *action = menu->activeAction()) {
+                    m_placesMenu->close(); // always close top menu
 
                     QModelIndex index = m_placesModel->index(action->data().toInt(), 0);
                     emit tabRequested(m_placesModel->url(index));
