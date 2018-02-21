@@ -33,6 +33,7 @@
 #include "kurlcombobox.h"
 #include "kurlnavigator.h"
 #include "kfilepreviewgenerator.h"
+#include "kfilewidgetdocktitlebar_p.h"
 #include <config-kiofilewidgets.h>
 #include <defaults-kfile.h>
 
@@ -1355,7 +1356,8 @@ void KFileWidgetPrivate::initSpeedbar()
     }
 
     placesDock = new QDockWidget(i18nc("@title:window", "Places"), q);
-    placesDock->setFeatures(QDockWidget::DockWidgetClosable);
+    placesDock->setFeatures(QDockWidget::NoDockWidgetFeatures);
+    placesDock->setTitleBarWidget(new KDEPrivate::KFileWidgetDockTitleBar(placesDock));
 
     placesView = new KFilePlacesView(placesDock);
     placesView->setModel(model);

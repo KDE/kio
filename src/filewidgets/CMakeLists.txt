@@ -22,6 +22,7 @@ set(kiofilewidgets_SRCS
   kfilecustomdialog.cpp
   kfilefiltercombo.cpp
   kfilewidget.cpp
+  kfilewidgetdocktitlebar.cpp
   kfileplacesitem.cpp
   kfileplacesmodel.cpp
   kfileplacesview.cpp
