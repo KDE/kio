@@ -720,5 +720,38 @@ void FileUndoManagerTest::testBatchRename()
     QVERIFY(QFile::exists(srcList.at(2).path()));
 }
 
+void FileUndoManagerTest::testUndoCopyOfDeletedFile()
+{
+    const QUrl source = QUrl::fromLocalFile(homeTmpDir() + QLatin1String("source.txt"));
+    const QUrl dest = QUrl::fromLocalFile(homeTmpDir() + QLatin1String("copy.txt"));
+
+    createTestFile(source.toLocalFile(), "foo");
+    QVERIFY(QFileInfo::exists(source.toLocalFile()));
+
+    {
+        auto copyJob = KIO::copy(source, dest, KIO::HideProgressInfo);
+        copyJob->setUiDelegate(nullptr);
+        FileUndoManager::self()->recordCopyJob(copyJob);
+        QVERIFY2(copyJob->exec(), qPrintable(copyJob->errorString()));
+        QVERIFY(QFileInfo::exists(dest.toLocalFile()));
+    }
+
+    {
+        auto deleteJob = KIO::del(dest, KIO::HideProgressInfo);
+        deleteJob->setUiDelegate(nullptr);
+        QVERIFY2(deleteJob->exec(), qPrintable(deleteJob->errorString()));
+        QVERIFY(!QFileInfo::exists(dest.toLocalFile()));
+    }
+
+    QVERIFY(FileUndoManager::self()->undoAvailable());
+    QSignalSpy spyUndoAvailable(FileUndoManager::self(), static_cast<void (FileUndoManager::*)(bool)>(&FileUndoManager::undoAvailable));
+    QVERIFY(spyUndoAvailable.isValid());
+    // We can't use doUndo() because there is no UndoJob, so the nested event loop would never quit.
+    FileUndoManager::self()->undo();
+    QCOMPARE(spyUndoAvailable.count(), 1);
+    QVERIFY(!spyUndoAvailable.at(0).at(0).toBool());
+    QVERIFY(!FileUndoManager::self()->undoAvailable());
+}
+
 // TODO: add test (and fix bug) for  DND of remote urls / "Link here" (creates .desktop files) // Undo (doesn't do anything)
 // TODO: add test for interrupting a moving operation and then using Undo - bug:91579

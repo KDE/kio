@@ -38,6 +38,7 @@
 
 #include <QDateTime>
 #include <QDBusConnection>
+#include <QFileInfo>
 
 #include <assert.h>
 
@@ -382,10 +383,14 @@ void FileUndoManager::undo()
     BasicOperation::Stack::Iterator it = opStack.begin();
     for (; it != opStack.end(); ++it) {
         BasicOperation::Type type = (*it).m_type;
+        const auto destination = (*it).m_dst;
         if (type == BasicOperation::File && commandType == FileUndoManager::Copy) {
-            itemsToDelete.append((*it).m_dst);
+            if (destination.isLocalFile() && !QFileInfo::exists(destination.toLocalFile())) {
+                continue;
+            }
+            itemsToDelete.append(destination);
         } else if (commandType == FileUndoManager::Mkpath) {
-            itemsToDelete.append((*it).m_dst);
+            itemsToDelete.append(destination);
         }
     }
     if (commandType == FileUndoManager::Mkdir || commandType == FileUndoManager::Put) {
@@ -395,6 +400,9 @@ void FileUndoManager::undo()
         if (!d->m_uiInterface->confirmDeletion(itemsToDelete)) {
             return;
         }
+    } else if (commandType == FileUndoManager::Copy) {
+        d->slotPop();
+        return;
     }
 
     d->slotPop();
