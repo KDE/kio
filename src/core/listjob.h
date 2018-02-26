@@ -103,12 +103,6 @@ protected Q_SLOTS:
 
 protected:
     ListJob(ListJobPrivate &dd);
-
-private:
-    Q_PRIVATE_SLOT(d_func(), void slotListEntries(const KIO::UDSEntryList &list))
-    Q_PRIVATE_SLOT(d_func(), void slotRedirection(const QUrl &url))
-    Q_PRIVATE_SLOT(d_func(), void gotEntries(KIO::Job *subjob, const KIO::UDSEntryList &list))
-    Q_PRIVATE_SLOT(d_func(), void slotSubError(KIO::ListJob* job, KIO::ListJob* subJob))
     Q_DECLARE_PRIVATE(ListJob)
 };
 

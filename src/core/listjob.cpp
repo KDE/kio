@@ -136,10 +136,11 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
                                    m_displayPrefix + displayName + '/',
                                    includeHidden);
                     Scheduler::setJobPriority(job, 1);
-                    q->connect(job, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
-                               SLOT(gotEntries(KIO::Job*,KIO::UDSEntryList)));
-                    q->connect(job, SIGNAL(subError(KIO::ListJob*,KIO::ListJob*)),
-                               SLOT(slotSubError(KIO::ListJob*,KIO::ListJob*)));
+                    QObject::connect(job, &ListJob::entries, q,
+                        [this](KIO::Job *job, const KIO::UDSEntryList &list) {gotEntries(job, list);} );
+                    QObject::connect(job, &ListJob::subError, q,
+                        [this](KIO::ListJob *job, KIO::ListJob *ljob) {slotSubError(job, ljob);} );
+
                     q->addSubjob(job);
                 }
             }
@@ -283,12 +284,14 @@ void ListJobPrivate::start(Slave *slave)
         QTimer::singleShot(0, q, SLOT(slotFinished()));
         return;
     }
-    q->connect(slave, SIGNAL(listEntries(KIO::UDSEntryList)),
-               SLOT(slotListEntries(KIO::UDSEntryList)));
-    q->connect(slave, SIGNAL(totalSize(KIO::filesize_t)),
-               SLOT(slotTotalSize(KIO::filesize_t)));
-    q->connect(slave, SIGNAL(redirection(QUrl)),
-               SLOT(slotRedirection(QUrl)));
+    QObject::connect(slave, &Slave::listEntries, q,
+        [this](const KIO::UDSEntryList &list){ slotListEntries(list);} );
+
+    QObject::connect(slave, &Slave::totalSize, q,
+        [this](KIO::filesize_t size){ slotTotalSize(size);} );
+
+    QObject::connect(slave, &Slave::redirection, q,
+        [this](const QUrl &url){ slotRedirection(url);} );
 
     SimpleJobPrivate::start(slave);
 }
