@@ -1556,6 +1556,10 @@ KIO::Job *CopyJobPrivate::linkNextFile(const QUrl &uSource, const QUrl &uDest, J
                     config.writeEntry("Icon", QStringLiteral("text-x-texinfo"));
                 } else if (protocol == QLatin1String("mailto")) { // sven:
                     config.writeEntry("Icon", QStringLiteral("internet-mail"));    // added mailto: support
+                } else if (protocol == QLatin1String("trash") && url.path().length() <= 1) { // trash:/ link
+                    config.writeEntry("Name", i18n("Trash"));
+                    config.writeEntry("Icon", QStringLiteral("user-trash-full"));
+                    config.writeEntry("EmptyIcon", QStringLiteral("user-trash"));
                 } else {
                     config.writeEntry("Icon", QStringLiteral("unknown"));
                 }
