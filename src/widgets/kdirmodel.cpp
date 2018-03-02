@@ -1009,7 +1009,7 @@ QList<QUrl> KDirModel::simplifiedUrlList(const QList<QUrl> &urls)
     }
 
     QList<QUrl> ret(urls);
-    qSort(ret.begin(), ret.end(), lessThan);
+    std::sort(ret.begin(), ret.end(), lessThan);
 
     QList<QUrl>::iterator it = ret.begin();
     QUrl url = *it;

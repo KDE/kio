@@ -668,12 +668,12 @@ QScriptValue SortIpAddressList(QScriptContext *context, QScriptEngine *engine)
     QString sortedAddress(QLatin1String(""));
 
     if (!ipV6List.isEmpty()) {
-        qSort(ipV6List.begin(), ipV6List.end(), addressLessThanComparison);
+        std::sort(ipV6List.begin(), ipV6List.end(), addressLessThanComparison);
         sortedAddress += addressListToString(ipV6List, actualEntryMap);
     }
 
     if (!ipV4List.isEmpty()) {
-        qSort(ipV4List.begin(), ipV4List.end(), addressLessThanComparison);
+        std::sort(ipV4List.begin(), ipV4List.end(), addressLessThanComparison);
         if (!sortedAddress.isEmpty()) {
             sortedAddress += QLatin1Char(';');
         }

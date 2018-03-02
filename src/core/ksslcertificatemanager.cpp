@@ -328,8 +328,8 @@ void KSslCertificateManagerPrivate::setAllCertificates(const QList<KSslCaCertifi
     Q_ASSERT(knownCerts.isEmpty());
     QList<KSslCaCertificate> in = certsIn;
     QList<KSslCaCertificate> old = allCertificates();
-    qSort(in.begin(), in.end(), certLessThan);
-    qSort(old.begin(), old.end(), certLessThan);
+    std::sort(in.begin(), in.end(), certLessThan);
+    std::sort(old.begin(), old.end(), certLessThan);
 
     for (int ii = 0, oi = 0; ii < in.size() || oi < old.size(); ++ii, ++oi) {
         // look at all elements in both lists, even if we reach the end of one early.

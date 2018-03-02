@@ -573,7 +573,7 @@ KService::List KFileItemActions::associatedApplications(const QStringList &mimeT
         }
     }
 
-    qSort(rankings.begin(), rankings.end(), KFileItemActionsPrivate::lessRank);
+    std::sort(rankings.begin(), rankings.end(), KFileItemActionsPrivate::lessRank);
 
     KService::List result;
     Q_FOREACH (const KFileItemActionsPrivate::ServiceRank &tempRank, rankings) {

@@ -670,7 +670,7 @@ public:
 
             if (m_fileNameList.isEmpty()) {
                 // final step of phase one
-                qSort(m_fiList.begin(), m_fiList.end(), CacheFileInfoPtrLessThan);
+                std::sort(m_fiList.begin(), m_fiList.end(), CacheFileInfoPtrLessThan);
             }
             return false;
         }

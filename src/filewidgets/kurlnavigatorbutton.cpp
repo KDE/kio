@@ -499,7 +499,7 @@ void KUrlNavigatorButton::openSubDirsMenu(KJob *job)
     }
 
     NaturalLessThan nlt;
-    qSort(m_subDirs.begin(), m_subDirs.end(), nlt);
+    std::sort(m_subDirs.begin(), m_subDirs.end(), nlt);
     setDisplayHintEnabled(PopupActiveHint, true);
     update(); // ensure the button is drawn highlighted
 
@@ -544,7 +544,7 @@ void KUrlNavigatorButton::replaceButton(KJob *job)
     }
 
     NaturalLessThan nlt;
-    qSort(m_subDirs.begin(), m_subDirs.end(), nlt);
+    std::sort(m_subDirs.begin(), m_subDirs.end(), nlt);
 
     // Get index of the directory that is shown currently in the button
     const QString currentDir = m_url.fileName();
