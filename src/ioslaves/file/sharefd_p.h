@@ -74,9 +74,16 @@ public:
     FDMessageHeader()
         : io_buf{0}
         , cmsg_buf{0}
-        , io{io_buf, sizeof io_buf}
-        , msg{nullptr, 0,  &io, 1,  &cmsg_buf, sizeof cmsg_buf, 0}
     {
+        memset(&io, 0, sizeof io);
+        io.iov_base = &io_buf;
+        io.iov_len = sizeof io_buf;
+
+        memset(&msg, 0, sizeof msg);
+        msg.msg_iov = &io;
+        msg.msg_iovlen = 1;
+        msg.msg_control = &cmsg_buf;
+        msg.msg_controllen = sizeof cmsg_buf;
     }
 
     msghdr *message()
