@@ -346,7 +346,13 @@ void KUrlNavigator::Private::slotProtocolChanged(const QString &protocol)
 
     QUrl url;
     url.setScheme(protocol);
-    url.setPath((protocol == QLatin1String("file")) ? QStringLiteral("/") : QStringLiteral("//"));
+    if (protocol == QLatin1String("file")) {
+        url.setPath(QStringLiteral("/"));
+    } else {
+        // With no authority set we'll get e.g. "ftp:" instead of "ftp://".
+        // We want the latter, so let's set an empty authority.
+        url.setAuthority(QStringLiteral(""));
+    }
 
     m_pathBox->setEditUrl(url);
 }
