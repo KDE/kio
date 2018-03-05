@@ -301,9 +301,12 @@ QString KIO::favIconForUrl(const QUrl &url)
 
 QString KIO::iconNameForUrl(const QUrl &url)
 {
+    const QLatin1String unknown("unknown");
+    if (url.isEmpty()) {
+        return unknown;
+    }
     QMimeDatabase db;
     const QMimeType mt = db.mimeTypeForUrl(url);
-    const QLatin1String unknown("unknown");
     const QString mimeTypeIcon = mt.iconName();
     QString i = mimeTypeIcon;
 
