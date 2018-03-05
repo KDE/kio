@@ -22,6 +22,7 @@ Name[zh_TW]=以 root 身份執行動作。
 Description=Root privileges are required to complete the action.
 Description[ca]=Es requereixen privilegis d'administrador per completar l'acció.
 Description[ca@valencia]=Es requereixen privilegis d'administrador per completar l'acció.
+Description[de]=Zum Abschluss der Aktion sind Rechte als Systemverwalter erforderlich.
 Description[en_GB]=Root privileges are required to complete the action.
 Description[es]=Se necesitan permisos de administrador para completar la acción.
 Description[fr]=Vous devez disposer des privilèges du superutilisateur pour effectuer cette action.
