@@ -1104,6 +1104,9 @@ QString KProtocolManager::proxyConfigScript()
 
 static KProtocolInfoPrivate *findProtocol(const QUrl &url)
 {
+    if (!url.isValid()) {
+        return nullptr;
+    }
     QString protocol = url.scheme();
     if (!KProtocolInfo::proxiedBy(protocol).isEmpty()) {
         QString dummy;
