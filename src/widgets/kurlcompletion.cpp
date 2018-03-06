@@ -1016,7 +1016,7 @@ bool KUrlCompletionPrivate::urlCompletion(const KUrlCompletionPrivate::MyURL &ur
     }
 
     // url is malformed
-    if (!url_dir.isValid()) {
+    if (!url_dir.isValid() || url.scheme().isEmpty()) {
         return false;
     }
 

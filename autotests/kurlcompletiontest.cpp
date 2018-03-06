@@ -51,6 +51,7 @@ public:
     void testLocalURL();
     void testEmptyCwd();
     void testBug346920();
+    void testInvalidProtocol();
     void testUser();
     void testCancel();
 
@@ -339,7 +340,6 @@ void KUrlCompletionTest::testLocalURL()
 
 void KUrlCompletionTest::testEmptyCwd()
 {
-    qDebug();
     // Completion with empty string (with a KUrlCompletion whose cwd is "")
     qDebug() << endl << "now completing on '' with empty cwd";
     m_completionEmptyCwd->makeCompletion(QLatin1String(""));
@@ -353,6 +353,14 @@ void KUrlCompletionTest::testBug346920()
     m_completionEmptyCwd->makeCompletion(QStringLiteral("~/."));
     waitForCompletion(m_completionEmptyCwd);
     m_completionEmptyCwd->allMatches();
+    // just don't crash
+}
+
+void KUrlCompletionTest::testInvalidProtocol()
+{
+    m_completion->makeCompletion(QStringLiteral(":/"));
+    waitForCompletion(m_completion);
+    m_completion->allMatches();
     // just don't crash
 }
 
@@ -427,6 +435,7 @@ void KUrlCompletionTest::runAllTests()
     testLocalURL();
     testEmptyCwd();
     testBug346920();
+    testInvalidProtocol();
     testUser();
     testCancel();
     teardown();
