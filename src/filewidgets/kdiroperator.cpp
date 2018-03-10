@@ -1283,10 +1283,9 @@ bool KDirOperator::checkPreviewSupport()
 
 void KDirOperator::activatedMenu(const KFileItem &item, const QPoint &pos)
 {
-    Q_UNUSED(item);
     updateSelectionDependentActions();
 
-    d->newFileMenu->setPopupFiles(QList<QUrl>() << url());
+    d->newFileMenu->setPopupFiles(QList<QUrl>() << item.url());
     d->newFileMenu->setViewShowsHiddenFiles(showHiddenFiles());
     d->newFileMenu->checkUpToDate();
 
