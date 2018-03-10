@@ -61,7 +61,6 @@ class QWidget;
  * example:
  * \code
  * [Desktop Entry]
- * Encoding=UTF-8
  * Type=Service
  * Name=Foo Documents
  * ServiceTypes=ThumbCreator

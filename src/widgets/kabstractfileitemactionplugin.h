@@ -56,7 +56,6 @@ class KFileItemListProperties;
  *
  * \code
  * [Desktop Entry]
- * Encoding=UTF-8
  * Type=Service
  * Name=My fancy action plugin
  * X-KDE-Library=myactionplugin
