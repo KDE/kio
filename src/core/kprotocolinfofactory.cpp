@@ -37,7 +37,7 @@ KProtocolInfoFactory *KProtocolInfoFactory::self()
 }
 
 KProtocolInfoFactory::KProtocolInfoFactory()
-    : m_allProtocolsLoaded(false)
+    : m_cacheDirty(true)
 {
 }
 
@@ -46,7 +46,7 @@ KProtocolInfoFactory::~KProtocolInfoFactory()
     QMutexLocker locker(&m_mutex);
     qDeleteAll(m_cache);
     m_cache.clear();
-    m_allProtocolsLoaded = false;
+    m_cacheDirty = true;
 }
 
 QStringList KProtocolInfoFactory::protocols()
@@ -71,30 +71,31 @@ KProtocolInfoPrivate *KProtocolInfoFactory::findProtocol(const QString &protocol
 {
     QMutexLocker locker(&m_mutex);
 
-    // fill cache, if not already done and use it
-    fillCache();
+    const bool filled = fillCache();
+
     KProtocolInfoPrivate *info = m_cache.value(protocol);
-    if (!info) {
+    if (!info && !filled) {
         // Unknown protocol! Maybe it just got installed and our cache is out of date?
         qCDebug(KIO_CORE) << "Refilling KProtocolInfoFactory cache in the hope to find" << protocol;
-        m_allProtocolsLoaded = false;
-        qDeleteAll(m_cache);
-        m_cache.clear();
+        m_cacheDirty = true;
         fillCache();
         info = m_cache.value(protocol);
     }
     return info;
 }
 
-void KProtocolInfoFactory::fillCache()
+bool KProtocolInfoFactory::fillCache()
 {
     // mutex MUST be locked from the outside!
     Q_ASSERT(!m_mutex.tryLock());
 
     // no work if filled
-    if (m_allProtocolsLoaded) {
-        return;
+    if (!m_cacheDirty) {
+        return false;
     }
+
+    qDeleteAll(m_cache);
+    m_cache.clear();
 
     // first: search for meta data protocol info, that might be bundled with applications
     // we search in all library paths inside kf5/kio
@@ -134,5 +135,6 @@ void KProtocolInfoFactory::fillCache()
     }
 
     // all done, don't do it again
-    m_allProtocolsLoaded = true;
+    m_cacheDirty = false;
+    return true;
 }

@@ -69,11 +69,11 @@ private:
     /**
      * Fill the internal cache.
      */
-    void fillCache();
+    bool fillCache();
 
     typedef QHash<QString, KProtocolInfoPrivate *> ProtocolCache;
     ProtocolCache m_cache;
-    bool m_allProtocolsLoaded;
+    bool m_cacheDirty;
     mutable QMutex m_mutex; // protects m_cache and m_allProtocolsLoaded
 };
 
