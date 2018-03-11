@@ -25,7 +25,7 @@
 #include <kservice.h>
 #include <QPushButton>
 #include <QLayout>
-#include <QtTest/QtTest>
+#include <QtTest>
 
 #include <qplatformdefs.h>
 

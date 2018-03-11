@@ -21,7 +21,7 @@
 #ifndef ksambasharedata_p_h
 #define ksambasharedata_p_h
 
-#include <QtCore/QSharedData>
+#include <QSharedData>
 
 class QString;
 

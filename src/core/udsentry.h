@@ -21,10 +21,10 @@
 #ifndef UDSENTRY_H
 #define UDSENTRY_H
 
-#include <QtCore/QString>
-#include <QtCore/QList>
-#include <QtCore/QSharedData>
-#include <QtCore/QMetaType>
+#include <QString>
+#include <QList>
+#include <QSharedData>
+#include <QMetaType>
 #include <QtGlobal>
 #include <qplatformdefs.h>
 

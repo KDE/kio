@@ -20,8 +20,8 @@
 
 #include "davjob.h"
 
-#include <QtXml/QDomDocument>
-#include <QtCore/QDataStream>
+#include <QDomDocument>
+#include <QDataStream>
 
 #include "httpmethod_p.h"
 

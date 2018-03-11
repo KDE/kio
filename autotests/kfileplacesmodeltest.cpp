@@ -17,8 +17,8 @@
 
 */
 
-#include <QtCore/QObject>
-#include <QtDBus/QDBusInterface>
+#include <QObject>
+#include <QDBusInterface>
 
 #include <kbookmarkmanager.h>
 #include <kbookmark.h>
@@ -28,7 +28,7 @@
 #include <kconfig.h>
 #include <kconfiggroup.h>
 
-#include <QtTest/QtTest>
+#include <QtTest>
 
 #include <stdlib.h>
 #include <qstandardpaths.h>

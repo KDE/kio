@@ -22,7 +22,7 @@
 
 #include "kiofilewidgets_export.h"
 
-#include <QtCore/QStringList>
+#include <QStringList>
 
 #include <kcombobox.h>
 

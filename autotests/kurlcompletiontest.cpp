@@ -16,13 +16,13 @@
  *  Boston, MA 02110-1301, USA.
  */
 
-#include <QtTest/QtTest>
+#include <QtTest>
 #include <qapplication.h>
 #include <kurlcompletion.h>
 #include <KUser>
 #include <QDebug>
-#include <QtCore/QDir>
-#include <QtCore/QFile>
+#include <QDir>
+#include <QFile>
 #include <qtemporarydir.h>
 #include <QThread>
 #include <qplatformdefs.h>

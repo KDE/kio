@@ -23,7 +23,7 @@
 #ifndef KPROPERTIESDIALOG_H
 #define KPROPERTIESDIALOG_H
 
-#include <QtCore/QString>
+#include <QString>
 #include <QUrl>
 
 #include "kiowidgets_export.h"

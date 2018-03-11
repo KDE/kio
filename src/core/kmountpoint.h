@@ -24,7 +24,7 @@
 #include "kiocore_export.h"
 #include <QExplicitlySharedDataPointer>
 
-#include <QtCore/QStringList>
+#include <QStringList>
 
 /**
  * @class KMountPoint kmountpoint.h <KMountPoint>

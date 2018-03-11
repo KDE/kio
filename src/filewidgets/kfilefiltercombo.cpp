@@ -23,7 +23,7 @@
 #include <klocalizedstring.h>
 #include <qmimedatabase.h>
 #include <config-kiofilewidgets.h>
-#include <QtCore/QEvent>
+#include <QEvent>
 #include <QLineEdit>
 
 class Q_DECL_HIDDEN KFileFilterCombo::Private

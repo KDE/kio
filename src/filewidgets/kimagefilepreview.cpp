@@ -16,8 +16,8 @@
 #include <QComboBox>
 #include <QCheckBox>
 #include <QResizeEvent>
-#include <QtCore/QTimer>
-#include <QtCore/QTimeLine>
+#include <QTimer>
+#include <QTimeLine>
 
 #include <kconfig.h>
 #include <kiconloader.h>

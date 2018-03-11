@@ -26,12 +26,12 @@
 #include <QDebug>
 #include <QPointer>
 #include <QSignalSpy>
-#include <QtCore/QFileInfo>
-#include <QtCore/QEventLoop>
-#include <QtCore/QDir>
-#include <QtCore/QHash>
-#include <QtCore/QVariant>
-#include <QtCore/QBuffer>
+#include <QFileInfo>
+#include <QEventLoop>
+#include <QDir>
+#include <QHash>
+#include <QVariant>
+#include <QBuffer>
 #include <QTemporaryFile>
 #include <QUrl>
 

@@ -22,7 +22,7 @@
 #include <cstdlib>
 #include <cstring>
 
-#include <QtCore/QTextCodec>
+#include <QTextCodec>
 
 #include <klocalizedstring.h>
 #include <kio/job.h>

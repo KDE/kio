@@ -25,9 +25,9 @@
 
 #include "kiocore_export.h"
 
-#include <QtCore/QSharedDataPointer>
-#include <QtCore/QList>
-#include <QtCore/QUrl>
+#include <QSharedDataPointer>
+#include <QList>
+#include <QUrl>
 
 class KFileItemListPropertiesPrivate;
 class KFileItemList;

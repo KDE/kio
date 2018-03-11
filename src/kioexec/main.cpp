@@ -23,9 +23,9 @@
 #include "kio_version.h"
 #include "kioexecdinterface.h"
 
-#include <QtCore/QFile>
-#include <QtCore/QDir>
-#include <QtCore/Q_PID>
+#include <QFile>
+#include <QDir>
+#include <Q_PID>
 
 #include <job.h>
 #include <copyjob.h>

@@ -26,7 +26,7 @@
 #include "kiowidgets_export.h"
 #include <kcompletion.h>
 #include <kio/udsentry.h>
-#include <QtCore/QString>
+#include <QString>
 
 namespace KIO { class Job; }
 

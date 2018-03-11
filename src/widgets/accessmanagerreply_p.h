@@ -24,8 +24,8 @@
 #ifndef KIO_ACCESSMANAGERREPLY_P_H
 #define KIO_ACCESSMANAGERREPLY_P_H
 
-#include <QtCore/QPointer>
-#include <QtNetwork/QNetworkReply>
+#include <QPointer>
+#include <QNetworkReply>
 
 namespace KIO
 {

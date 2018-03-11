@@ -18,7 +18,7 @@
 
 #include "kmountpointtest.h"
 
-#include <QtTest/QtTest>
+#include <QtTest>
 #include "kmountpoint.h"
 #include <QDebug>
 #include <qplatformdefs.h>

@@ -22,7 +22,7 @@
 
 #include "ui_certificateparty.h"
 
-#include <QtNetwork/QSslCertificate>
+#include <QSslCertificate>
 
 class KSslCertificateBoxPrivate
 {

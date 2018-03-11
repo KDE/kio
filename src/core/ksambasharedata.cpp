@@ -18,9 +18,9 @@
  *   License along with this library.  If not, see <http://www.gnu.org/licenses/>
  */
 
-#include <QtCore/QRegExp>
-#include <QtCore/QFileInfo>
-#include <QtCore/QStringList>
+#include <QRegExp>
+#include <QFileInfo>
+#include <QStringList>
 
 #include "ksambashare.h"
 #include "ksambashare_p.h"

@@ -21,9 +21,9 @@
 
 #include "kiowidgets_export.h"
 
-#include <QtCore/QList>
-#include <QtCore/QMap>
-#include <QtCore/QStringList>
+#include <QList>
+#include <QMap>
+#include <QStringList>
 #include <QIcon>
 
 #include <kcombobox.h>

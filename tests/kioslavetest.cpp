@@ -12,7 +12,7 @@
 #include <QApplication>
 #include <QLayout>
 #include <QMessageBox>
-#include <QtCore/QDir>
+#include <QDir>
 #include <QGroupBox>
 #include <QStatusBar>
 #include <QDebug>
@@ -27,7 +27,7 @@
 #include <kio/deletejob.h>
 #include <kio/scheduler.h>
 #include <kprotocolinfo.h>
-#include <QtCore/QTimer>
+#include <QTimer>
 #include <qcommandlineparser.h>
 #include <qcommandlineoption.h>
 

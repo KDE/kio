@@ -20,8 +20,8 @@
 #ifndef KIO_FILEUNDOMANAGER_H
 #define KIO_FILEUNDOMANAGER_H
 
-#include <QtCore/QObject>
-#include <QtCore/QUrl>
+#include <QObject>
+#include <QUrl>
 
 #include "kiowidgets_export.h"
 

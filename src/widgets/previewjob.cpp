@@ -29,22 +29,22 @@
 
 #include <limits>
 
-#include <QtCore/QDir>
-#include <QtCore/QFile>
+#include <QDir>
+#include <QFile>
 #include <QImage>
 #include <QPixmap>
-#include <QtCore/QTimer>
-#include <QtCore/QRegExp>
+#include <QTimer>
+#include <QRegExp>
 #include <qtemporaryfile.h>
 #include <qsavefile.h>
 
-#include <QtCore/QCryptographicHash>
+#include <QCryptographicHash>
 
 #include <kfileitem.h>
 #include <kservicetypetrader.h>
 #include <kservice.h>
 #include <ksharedconfig.h>
-#include <QtCore/QLinkedList>
+#include <QLinkedList>
 #include <kconfiggroup.h>
 #include <kprotocolinfo.h>
 #include <qmimedatabase.h>

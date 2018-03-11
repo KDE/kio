@@ -35,22 +35,22 @@
 #include <sys/utsname.h>
 #endif
 
-#include <QtCore/QCoreApplication>
+#include <QCoreApplication>
 #include <QUrl>
-#include <QtNetwork/QSslSocket>
-#include <QtNetwork/QHostAddress>
-#include <QtNetwork/QHostInfo>
+#include <QSslSocket>
+#include <QHostAddress>
+#include <QHostInfo>
 #include <QDBusConnection>
 #include <QDBusReply>
 #include <QDBusInterface>
-#include <QtCore/QCache>
+#include <QCache>
 #include <QLocale>
 #include <qstandardpaths.h>
 #include <qmimedatabase.h>
 
 #if !defined(QT_NO_NETWORKPROXY) && (defined (Q_OS_WIN32) || defined(Q_OS_MAC))
-#include <QtNetwork/QNetworkProxyFactory>
-#include <QtNetwork/QNetworkProxyQuery>
+#include <QNetworkProxyFactory>
+#include <QNetworkProxyQuery>
 #endif
 
 #include <kio_version.h>

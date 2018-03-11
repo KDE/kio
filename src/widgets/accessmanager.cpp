@@ -34,18 +34,18 @@
 #include <kprotocolinfo.h>
 #include <klocalizedstring.h>
 
-#include <QtCore/QUrl>
+#include <QUrl>
 #include <QNetworkCookie>
 #include <QPointer>
 #include <QWidget>
-#include <QtDBus/QDBusInterface>
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusReply>
-#include <QtNetwork/QNetworkReply>
-#include <QtNetwork/QNetworkRequest>
-#include <QtNetwork/QSslCipher>
-#include <QtNetwork/QSslCertificate>
-#include <QtNetwork/QSslConfiguration>
+#include <QDBusInterface>
+#include <QDBusConnection>
+#include <QDBusReply>
+#include <QNetworkReply>
+#include <QNetworkRequest>
+#include <QSslCipher>
+#include <QSslCertificate>
+#include <QSslConfiguration>
 
 #define QL1S(x)   QLatin1String(x)
 #define QL1C(x)   QLatin1Char(x)

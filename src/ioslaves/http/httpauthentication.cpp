@@ -40,8 +40,8 @@
 #include <kio/authinfo.h>
 #include <kntlm.h>
 
-#include <QtCore/QTextCodec>
-#include <QtCore/QCryptographicHash>
+#include <QTextCodec>
+#include <QCryptographicHash>
 
 Q_LOGGING_CATEGORY(KIO_HTTP_AUTH, "kf5.kio.kio_http.auth")
 

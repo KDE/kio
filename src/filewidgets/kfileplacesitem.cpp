@@ -19,7 +19,7 @@
 
 #include "kfileplacesitem_p.h"
 
-#include <QtCore/QDateTime>
+#include <QDateTime>
 #include <QIcon>
 
 #include <kbookmarkmanager.h>

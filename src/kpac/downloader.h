@@ -20,7 +20,7 @@
 #ifndef KPAC_DOWNLOADER_H
 #define KPAC_DOWNLOADER_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 #include <QUrl>
 

@@ -22,7 +22,7 @@
 #define FILEUNDOMANAGER_P_H
 
 #include "fileundomanager.h"
-#include <QtCore/QStack>
+#include <QStack>
 #include <QUndoCommand>
 #include <QDateTime>
 

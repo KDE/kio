@@ -24,8 +24,8 @@
 #include <KProtocolInfo>
 #include <KPluginFactory>
 
-#include <QtCore/QStringBuilder>
-#include <QtNetwork/QHostInfo>
+#include <QStringBuilder>
+#include <QHostInfo>
 #include <QLoggingCategory>
 
 #define QL1C(x)   QLatin1Char(x)

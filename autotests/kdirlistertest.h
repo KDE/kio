@@ -20,11 +20,11 @@
 #define KDIRLISTERTEST_H
 
 #include <QSignalSpy>
-#include <QtCore/QObject>
+#include <QObject>
 #include <qtemporarydir.h>
-#include <QtCore/QDate>
+#include <QDate>
 #include <kdirlister.h>
-#include <QtCore/QEventLoop>
+#include <QEventLoop>
 
 Q_DECLARE_METATYPE(KFileItemList)
 

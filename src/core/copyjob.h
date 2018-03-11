@@ -22,8 +22,8 @@
 #ifndef KIO_COPYJOB_H
 #define KIO_COPYJOB_H
 
-#include <QtCore/QObject>
-#include <QtCore/QStringList>
+#include <QObject>
+#include <QStringList>
 #include <QDateTime>
 #include <QUrl>
 

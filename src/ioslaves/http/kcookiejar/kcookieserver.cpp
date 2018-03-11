@@ -28,8 +28,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #define SAVE_DELAY 3 // Save after 3 minutes
 
-#include <QtCore/QTimer>
-#include <QtCore/QFile>
+#include <QTimer>
+#include <QFile>
 #include <QDBusConnection>
 
 #include <kconfig.h>

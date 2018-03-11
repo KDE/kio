@@ -32,7 +32,7 @@
 #include <kprotocolinfo.h>
 #include <qmimedatabase.h>
 
-#include <QtNetwork/QSslConfiguration>
+#include <QSslConfiguration>
 
 #define QL1S(x)  QLatin1String(x)
 #define QL1C(x)  QLatin1Char(x)

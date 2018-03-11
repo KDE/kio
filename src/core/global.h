@@ -20,7 +20,7 @@
 
 #include "kiocore_export.h"
 
-#include <QtCore/QString>
+#include <QString>
 #include <QFile>  // for QFile::Permissions
 
 #include <kjob.h>

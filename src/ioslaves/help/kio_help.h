@@ -25,7 +25,7 @@
 #include <kio/global.h>
 #include <kio/slavebase.h>
 
-#include <QtCore/QString>
+#include <QString>
 
 #include <qplatformdefs.h>
 

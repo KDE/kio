@@ -21,11 +21,11 @@
 #ifndef KIO_DAVJOB_H
 #define KIO_DAVJOB_H
 
-#include <QtCore/QObject>
-#include <QtCore/QString>
-#include <QtCore/QStringList>
-#include <QtCore/QPointer>
-#include <QtXml/QDomDocument>
+#include <QObject>
+#include <QString>
+#include <QStringList>
+#include <QPointer>
+#include <QDomDocument>
 
 #include <sys/types.h>
 #include <sys/stat.h>

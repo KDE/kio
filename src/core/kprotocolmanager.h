@@ -21,7 +21,7 @@
 #ifndef KPROTOCOLMANAGER_H
 #define KPROTOCOLMANAGER_H
 
-#include <QtCore/QStringList>
+#include <QStringList>
 
 #include "kio/global.h" // KIO::CacheControl
 #include "kiocore_export.h"

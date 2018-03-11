@@ -31,7 +31,7 @@
 #include <kurlrequester.h>
 
 #include <QDialogButtonBox>
-#include <QtCore/QMimeData>
+#include <QMimeData>
 #include <QApplication>
 #include <QCheckBox>
 #include <qdrawutil.h>

@@ -24,7 +24,7 @@
 
 #include <time.h>
 
-#include <QtCore/QFile>
+#include <QFile>
 #include <QLinkedList>
 
 #include <klocalizedstring.h>

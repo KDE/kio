@@ -26,11 +26,11 @@
 
 #include <QDebug>
 #include <QUrl>
-#include <QtCore/QStringList>
-#include <QtNetwork/QSslKey>
-#include <QtNetwork/QSslCipher>
-#include <QtNetwork/QHostAddress>
-#include <QtNetwork/QNetworkProxy>
+#include <QStringList>
+#include <QSslKey>
+#include <QSslCipher>
+#include <QHostAddress>
+#include <QNetworkProxy>
 
 static KTcpSocket::SslVersion kSslVersionFromQ(QSsl::SslProtocol protocol)
 {

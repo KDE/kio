@@ -39,7 +39,7 @@
 #include "des.h"
 
 #include <string.h>
-#include <QtCore/qendian.h>
+#include <qendian.h>
 
 static void permute_ip(unsigned char *inblock, DES_KEY *key, unsigned char *outblock);
 static void permute_fp(unsigned char *inblock, DES_KEY *key, unsigned char *outblock);

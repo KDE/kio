@@ -44,9 +44,9 @@
 #include <resolv.h>
 #include <sys/utsname.h>
 
-#include <QtCore/QTimer>
-#include <QtCore/QProcess>
-#include <QtNetwork/QHostInfo>
+#include <QTimer>
+#include <QProcess>
+#include <QHostInfo>
 #include <qstandardpaths.h>
 #include <qurl.h>
 

@@ -18,7 +18,7 @@
     Boston, MA 02110-1301, USA.
 */
 
-#include <QtTest/QtTest>
+#include <QtTest>
 #include <accessmanager.h>
 #include <QNetworkReply>
 

@@ -18,7 +18,7 @@
     Boston, MA 02110-1301, USA.
 */
 
-#include <QtTest/QtTest>
+#include <QtTest>
 #include <kdiroperator.h>
 #include <kconfiggroup.h>
 #include <ksharedconfig.h>

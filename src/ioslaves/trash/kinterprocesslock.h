@@ -21,7 +21,7 @@
 #ifndef KINTERPROCESSLOCK_H
 #define KINTERPROCESSLOCK_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 class KInterProcessLockPrivate;
 

@@ -20,7 +20,7 @@
 #ifndef HTTPHEADERTOKENIZETEST_H
 #define HTTPHEADERTOKENIZETEST_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 class HeaderTokenizeTest : public QObject
 {

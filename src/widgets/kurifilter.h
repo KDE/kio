@@ -27,11 +27,11 @@
 
 #include "kiowidgets_export.h"
 
-#include <QtCore/QObject>
-#include <QtCore/QHash>
-#include <QtCore/QPair>
-#include <QtCore/QStringList>
-#include <QtCore/QUrl>
+#include <QObject>
+#include <QHash>
+#include <QPair>
+#include <QStringList>
+#include <QUrl>
 
 #ifdef Q_OS_WIN
 #undef ERROR

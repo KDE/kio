@@ -46,6 +46,7 @@ add_library(kio_help MODULE ${kio_help_PART_SRCS})
 
 target_link_libraries(kio_help
    Qt5::Gui # QTextDocument
+   Qt5::Network
    KF5::I18n
    KF5::Archive
    KF5::KIOCore
@@ -73,6 +74,7 @@ target_link_libraries(kio_ghelp
    KF5::Archive
    KF5::KIOCore
    KF5::DocTools
+   Qt5::Network
    ${LIBXML2_LIBRARIES}
    ${LIBXSLT_LIBRARIES}
    ${LIBXSLT_EXSLT_LIBRARIES}

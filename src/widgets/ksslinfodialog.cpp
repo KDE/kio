@@ -29,7 +29,7 @@
 #include <QLabel>
 #include <QLayout>
 
-#include <QtNetwork/QSslCertificate>
+#include <QSslCertificate>
 
 #include <klocalizedstring.h>
 #include <kiconloader.h> // BarIcon

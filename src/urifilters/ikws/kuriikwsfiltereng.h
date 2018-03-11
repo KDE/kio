@@ -25,9 +25,9 @@
 #ifndef KURIIKWSFILTERENG_H
 #define KURIIKWSFILTERENG_H
 
-#include <QtCore/QMap>
-#include <QtCore/QStringList>
-#include <QtCore/QUrl>
+#include <QMap>
+#include <QStringList>
+#include <QUrl>
 #include "searchproviderregistry.h"
 
 #define DEFAULT_PREFERRED_SEARCH_PROVIDERS \

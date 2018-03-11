@@ -23,7 +23,7 @@
 #ifndef TRASHSIZECACHE_H
 #define TRASHSIZECACHE_H
 
-#include <QtCore/QString>
+#include <QString>
 
 #include <kconfig.h>
 

@@ -48,16 +48,16 @@
 #endif
 
 
-#include <QtCore/QByteRef>
-#include <QtCore/QDate>
-#include <QtCore/QVarLengthArray>
-#include <QtCore/QCoreApplication>
-#include <QtCore/QRegExp>
-#include <QtCore/QFile>
+#include <QByteRef>
+#include <QDate>
+#include <QVarLengthArray>
+#include <QCoreApplication>
+#include <QRegExp>
+#include <QFile>
 #include <qtemporaryfile.h>
 #ifdef Q_OS_WIN
-#include <QtCore/QDir>
-#include <QtCore/QFileInfo>
+#include <QDir>
+#include <QFileInfo>
 #endif
 
 #include <QDebug>

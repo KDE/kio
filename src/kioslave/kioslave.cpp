@@ -26,9 +26,9 @@
 #include <errno.h>
 #include <locale.h>
 
-#include <QtCore/QString>
-#include <QtCore/QLibrary>
-#include <QtCore/QFile>
+#include <QString>
+#include <QLibrary>
+#include <QFile>
 
 #include <KPluginLoader>
 
@@ -37,9 +37,9 @@
 #endif
 
 #ifdef USE_KPROCESS_FOR_KIOSLAVES
-#include <QtCore/QDir>
-#include <QtCore/QProcess>
-#include <QtCore/QStringList>
+#include <QDir>
+#include <QProcess>
+#include <QStringList>
 #ifdef Q_OS_WIN
 #include <qt_windows.h>
 #include <process.h>

@@ -22,9 +22,9 @@
 
 #include <config-gssapi.h>
 
-#include <QtCore/QByteArray>
-#include <QtCore/QString>
-#include <QtCore/QList>
+#include <QByteArray>
+#include <QString>
+#include <QList>
 #include <QUrl>
 
 #include <QLoggingCategory>

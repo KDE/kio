@@ -21,7 +21,7 @@
 #include <QApplication>
 #include <QLayout>
 #include <QPushButton>
-#include <QtCore/QDir>
+#include <QDir>
 
 #include <kdirlister.h>
 #include <QDebug>

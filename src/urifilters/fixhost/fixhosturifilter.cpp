@@ -21,7 +21,7 @@
 
 #include "fixhosturifilter.h"
 
-#include <QtNetwork/QHostInfo>
+#include <QHostInfo>
 
 #include <KPluginFactory>
 

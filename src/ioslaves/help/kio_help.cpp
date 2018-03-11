@@ -30,13 +30,13 @@
 
 #include <QDebug>
 
-#include <QtCore/QDir>
-#include <QtCore/QFileInfo>
-#include <QtCore/QFile>
-#include <QtCore/QLocale>
+#include <QDir>
+#include <QFileInfo>
+#include <QFile>
+#include <QLocale>
 #include <QMimeDatabase>
-#include <QtCore/QRegExp>
-#include <QtCore/QTextCodec>
+#include <QRegExp>
+#include <QTextCodec>
 #include <QStandardPaths>
 #include <QTextDocument>
 #include <QUrl>

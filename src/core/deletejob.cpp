@@ -34,10 +34,10 @@
 #include <klocalizedstring.h>
 #include <kio/jobuidelegatefactory.h>
 
-#include <QtCore/QTimer>
-#include <QtCore/QFile>
-#include <QtCore/QFileInfo>
-#include <QtCore/QDir>
+#include <QTimer>
+#include <QFile>
+#include <QFileInfo>
+#include <QDir>
 #include <QPointer>
 
 #include "job_p.h"

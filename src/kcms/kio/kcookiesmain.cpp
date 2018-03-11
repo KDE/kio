@@ -16,7 +16,7 @@
 
 // Qt
 #include <QTabWidget>
-#include <QtDBus/QtDBus>
+#include <QtDBus>
 
 // KDE
 #include <KLocalizedString>

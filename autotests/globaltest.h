@@ -20,7 +20,7 @@
 #ifndef KIO_GLOBALTEST_H
 #define KIO_GLOBALTEST_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 class GlobalTest : public QObject
 {

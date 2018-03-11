@@ -19,9 +19,9 @@
 
 #include "httpobjecttest.h"
 
-#include <QtTest/QtTest>
+#include <QtTest>
 
-#include <QtCore/QByteArray>
+#include <QByteArray>
 
 QTEST_MAIN(HeaderObjectTest)
 

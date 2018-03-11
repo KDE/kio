@@ -29,7 +29,7 @@
 #include <QDialog>
 #include <QPixmap>
 #include <QTreeWidget>
-#include <QtCore/QHash>
+#include <QHash>
 
 #include <kcombobox.h>
 #include <kfileitem.h>

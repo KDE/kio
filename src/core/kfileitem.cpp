@@ -24,12 +24,12 @@
 #include "kiocoredebug.h"
 #include "../pathhelpers_p.h"
 
-#include <QtCore/QDate>
-#include <QtCore/QDir>
-#include <QtCore/QDirIterator>
-#include <QtCore/QFile>
-#include <QtCore/QMap>
-#include <QtCore/QDataStream>
+#include <QDate>
+#include <QDir>
+#include <QDirIterator>
+#include <QFile>
+#include <QMap>
+#include <QDataStream>
 #include <QMimeDatabase>
 #include <QDebug>
 #include <qplatformdefs.h>

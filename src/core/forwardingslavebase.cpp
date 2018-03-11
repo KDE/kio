@@ -26,7 +26,7 @@
 
 #include <qmimedatabase.h>
 
-#include <QtCore/QEventLoop>
+#include <QEventLoop>
 
 namespace KIO
 {

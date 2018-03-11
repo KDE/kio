@@ -23,11 +23,11 @@
 
 #include "ktcpsocket.h"
 
-#include <QtNetwork/QSslCertificate>
-#include <QtNetwork/QSslError>
-#include <QtCore/QString>
-#include <QtCore/QStringList>
-#include <QtCore/QDate>
+#include <QSslCertificate>
+#include <QSslError>
+#include <QString>
+#include <QStringList>
+#include <QDate>
 
 class QSslCertificate;
 class KSslCertificateRulePrivate;

@@ -22,7 +22,7 @@
 
 #include "kiofilewidgets_export.h"
 
-#include <QtCore/QAbstractItemModel>
+#include <QAbstractItemModel>
 #include <QUrl>
 #include <kbookmark.h>
 

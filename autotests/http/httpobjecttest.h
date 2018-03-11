@@ -20,7 +20,7 @@
 #ifndef HTTPOBJECTTEST_H
 #define HTTPOBJECTTEST_H
 
-#include <QtCore/QObject>
+#include <QObject>
 #include <http.h>
 
 class HeaderObjectTest : public QObject

@@ -21,7 +21,7 @@
 #ifndef ksambashare_p_h
 #define ksambashare_p_h
 
-#include <QtCore/QMap>
+#include <QMap>
 
 #include "ksambasharedata.h"
 

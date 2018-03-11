@@ -41,12 +41,12 @@
 #include <qsavefile.h>
 #include <QDebug>
 
-#include <QtCore/QString>
-#include <QtCore/QFile>
-#include <QtCore/QDir>
-#include <QtCore/QRegExp>
-#include <QtCore/QTextStream>
-#include <QtCore/QLocale>
+#include <QString>
+#include <QFile>
+#include <QDir>
+#include <QRegExp>
+#include <QTextStream>
+#include <QLocale>
 #include <QUrl>
 
 Q_LOGGING_CATEGORY(KIO_COOKIEJAR, "kf5.kio.cookiejar")

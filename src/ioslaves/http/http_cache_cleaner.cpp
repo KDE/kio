@@ -28,13 +28,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <cstring>
 #include <stdlib.h>
 
-#include <QtCore/QDateTime>
-#include <QtCore/QDir>
-#include <QtCore/QString>
-#include <QtCore/QTime>
+#include <QDateTime>
+#include <QDir>
+#include <QString>
+#include <QTime>
 #include <QDBusConnection>
-#include <QtNetwork/QLocalServer>
-#include <QtNetwork/QLocalSocket>
+#include <QLocalServer>
+#include <QLocalSocket>
 
 #include <QDebug>
 #include <klocalizedstring.h>

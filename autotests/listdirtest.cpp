@@ -18,7 +18,7 @@
 
 #include "listdirtest.h"
 
-#include <QtTest/QtTest>
+#include <QtTest>
 #include <QDebug>
 #include <QDir>
 #include <QFile>

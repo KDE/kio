@@ -20,11 +20,11 @@
 
 #include "klocalsockettest.h"
 
-#include <QtTest/QtTest>
+#include <QtTest>
 
-#include <QtCore/QFile>
-#include <QtCore/QDebug>
-#include <QtCore/QThread>
+#include <QFile>
+#include <QDebug>
+#include <QThread>
 #include "klocalsocket.h"
 
 static const char socketpath[] = "/tmp/testsocket";

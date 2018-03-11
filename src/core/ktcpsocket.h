@@ -21,8 +21,8 @@
 #ifndef KTCPSOCKET_H
 #define KTCPSOCKET_H
 
-#include <QtNetwork/QSslSocket>
-#include <QtNetwork/QSslConfiguration>
+#include <QSslSocket>
+#include <QSslConfiguration>
 
 #include "kiocore_export.h"
 

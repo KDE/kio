@@ -18,7 +18,7 @@
 
 #include "deletejobtest.h"
 
-#include <QtTest/QtTest>
+#include <QtTest>
 #include <QDir>
 #include <QFile>
 #include <QTemporaryDir>

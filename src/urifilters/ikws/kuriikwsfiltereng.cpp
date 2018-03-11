@@ -31,7 +31,7 @@
 #include <kconfig.h>
 #include <kprotocolinfo.h>
 
-#include <QtCore/QTextCodec>
+#include <QTextCodec>
 #include <QLoggingCategory>
 
 namespace {

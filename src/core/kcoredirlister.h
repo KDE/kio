@@ -24,8 +24,8 @@
 #include "kfileitem.h"
 #include "kdirnotify.h" // TODO SIC: remove
 
-#include <QtCore/QString>
-#include <QtCore/QStringList>
+#include <QString>
+#include <QStringList>
 #include <QUrl>
 
 class KJob;

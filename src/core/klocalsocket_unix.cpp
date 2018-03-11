@@ -98,9 +98,9 @@ static inline int kAccept(int fd)
 #undef accept
 #endif
 
-#include <QtCore/qfile.h>
-#include <QtCore/qsocketnotifier.h>
-#include <QtCore/qvarlengtharray.h>
+#include <qfile.h>
+#include <qsocketnotifier.h>
+#include <qvarlengtharray.h>
 
 #include "klocalsocket.h"
 #include "klocalsocket_p.h"

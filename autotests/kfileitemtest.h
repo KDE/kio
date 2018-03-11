@@ -19,7 +19,7 @@
 #ifndef KFILEITEMTEST_H
 #define KFILEITEMTEST_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 class KFileItemTest : public QObject
 {

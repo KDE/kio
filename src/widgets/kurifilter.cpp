@@ -28,10 +28,10 @@
 
 #include <KPluginMetaData>
 
-#include <QtCore/QHashIterator>
-#include <QtCore/QStringBuilder>
-#include <QtNetwork/QHostInfo>
-#include <QtNetwork/QHostAddress>
+#include <QHashIterator>
+#include <QStringBuilder>
+#include <QHostInfo>
+#include <QHostAddress>
 
 typedef QList<KUriFilterPlugin *> KUriFilterPluginList;
 typedef QMap<QString, KUriFilterSearchProvider *> SearchProviderMap;

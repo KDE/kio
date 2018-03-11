@@ -21,7 +21,7 @@
 #ifndef OPENWITHDIALOG_P_H
 #define OPENWITHDIALOG_P_H
 
-#include <QtCore/QAbstractItemModel>
+#include <QAbstractItemModel>
 #include <QSortFilterProxyModel>
 #include <QTreeView>
 

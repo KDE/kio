@@ -22,7 +22,7 @@
 #define KDIROPERATOR_H_
 
 #include <QWidget>
-#include <QtCore/QStack>
+#include <QStack>
 #include <QStyleOptionViewItem>
 
 #include <ktoggleaction.h>

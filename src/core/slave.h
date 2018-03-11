@@ -24,8 +24,8 @@
 
 #define KIO_SLAVE_EXPORT KIOCORE_EXPORT
 
-#include <QtCore/QObject>
-#include <QtCore/QDateTime>
+#include <QObject>
+#include <QDateTime>
 #include "kio/slaveinterface.h"
 
 namespace KIO

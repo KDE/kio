@@ -22,8 +22,8 @@
 #include <kdirmodel.h>
 #include <QDebug>
 
-#include <QtCore/QEvent>
-#include <QtCore/QTimer>
+#include <QEvent>
+#include <QTimer>
 #include <QAbstractProxyModel>
 #include <QApplication>
 #include <QHeaderView>

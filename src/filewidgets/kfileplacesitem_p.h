@@ -20,10 +20,10 @@
 #ifndef KFILEPLACESITEM_P_H
 #define KFILEPLACESITEM_P_H
 
-#include <QtCore/QObject>
-#include <QtCore/QPointer>
-#include <QtCore/QModelIndex>
-#include <QtCore/QStringList>
+#include <QObject>
+#include <QPointer>
+#include <QModelIndex>
+#include <QStringList>
 #include <QUrl>
 #include <kbookmark.h>
 #include <solid/device.h>

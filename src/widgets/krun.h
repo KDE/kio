@@ -23,9 +23,9 @@
 
 #include "kiowidgets_export.h"
 
-#include <QtCore/QObject>
-#include <QtCore/QString>
-#include <QtCore/QUrl>
+#include <QObject>
+#include <QString>
+#include <QUrl>
 
 class KService;
 class KJob;

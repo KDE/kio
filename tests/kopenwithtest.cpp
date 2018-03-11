@@ -20,8 +20,8 @@
 
 #include <QApplication>
 #include <QWidget>
-#include <QtCore/QMutableStringListIterator>
-#include <QtCore/QDir>
+#include <QMutableStringListIterator>
+#include <QDir>
 #include <kopenwithdialog.h>
 #include <QUrl>
 #include <QDebug>

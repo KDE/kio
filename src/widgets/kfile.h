@@ -18,7 +18,7 @@
 #ifndef KFILE_H
 #define KFILE_H
 
-#include <QtCore/QDir>
+#include <QDir>
 
 #include "kiowidgets_export.h"
 

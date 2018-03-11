@@ -24,8 +24,8 @@
 #include "kshorturifilter.h"
 #include "../../pathhelpers_p.h"
 
-#include <QtCore/QDir>
-#include <QtDBus/QtDBus>
+#include <QDir>
+#include <QtDBus>
 #include <QRegularExpression>
 #include <qplatformdefs.h>
 

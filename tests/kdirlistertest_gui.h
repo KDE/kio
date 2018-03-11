@@ -22,7 +22,7 @@
 #define _KDIRLISTERTEST_GUI_H_
 
 #include <QWidget>
-#include <QtCore/QString>
+#include <QString>
 #include <QUrl>
 
 #include <kfileitem.h>

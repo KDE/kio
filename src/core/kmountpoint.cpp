@@ -24,8 +24,8 @@
 
 #include <config-kmountpoint.h>
 
-#include <QtCore/QFile>
-#include <QtCore/QTextStream>
+#include <QFile>
+#include <QTextStream>
 #include <QFileInfo>
 
 #ifdef Q_OS_WIN

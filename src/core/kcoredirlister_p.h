@@ -22,11 +22,11 @@
 
 #include "kfileitem.h"
 
-#include <QtCore/QMap>
-#include <QtCore/QHash>
-#include <QtCore/QCache>
-#include <QtCore/QSet>
-#include <QtCore/QTimer>
+#include <QMap>
+#include <QHash>
+#include <QCache>
+#include <QSet>
+#include <QTimer>
 #include <QCoreApplication>
 #include <QFileInfo>
 #include <QUrl>

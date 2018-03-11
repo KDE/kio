@@ -21,8 +21,8 @@
 #define KPROTOCOLINFO_H
 
 #include "kiocore_export.h"
-#include <QtCore/QVariant>
-#include <QtCore/QStringList>
+#include <QVariant>
+#include <QStringList>
 
 /**
  * \class KProtocolInfo kprotocolinfo.h <KProtocolInfo>

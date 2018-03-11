@@ -22,14 +22,14 @@
 #ifndef KDIRNOTIFY_H
 #define KDIRNOTIFY_H
 
-#include <QtCore/QObject>
-#include <QtCore/QByteArray>
-#include <QtCore/QList>
-#include <QtCore/QMap>
-#include <QtCore/QString>
-#include <QtCore/QStringList>
-#include <QtCore/QVariant>
-#include <QtDBus/QDBusAbstractInterface>
+#include <QObject>
+#include <QByteArray>
+#include <QList>
+#include <QMap>
+#include <QString>
+#include <QStringList>
+#include <QVariant>
+#include <QDBusAbstractInterface>
 #include "kiocore_export.h"
 
 class QDBusConnection;

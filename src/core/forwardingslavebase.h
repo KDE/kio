@@ -24,8 +24,8 @@
 #include <kio/slavebase.h>
 #include "job_base.h" // JobFlags
 
-#include <QtCore/QObject>
-#include <QtCore/QEventLoop>
+#include <QObject>
+#include <QEventLoop>
 
 namespace KIO
 {

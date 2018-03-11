@@ -19,8 +19,8 @@
 #ifndef KAUTOMOUNT_H
 #define KAUTOMOUNT_H
 
-#include <QtCore/QObject>
-#include <QtCore/QString>
+#include <QObject>
+#include <QString>
 
 #include <QtGlobal>
 

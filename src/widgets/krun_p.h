@@ -21,11 +21,11 @@
 #ifndef KRUN_P_H
 #define KRUN_P_H
 
-#include <QtCore/QObject>
-#include <QtCore/QPointer>
-#include <QtCore/QTimer>
-#include <QtCore/QEventLoopLocker>
-#include <QtCore/QProcess>
+#include <QObject>
+#include <QPointer>
+#include <QTimer>
+#include <QEventLoopLocker>
+#include <QProcess>
 class KProcess;
 
 #include "kstartupinfo.h"

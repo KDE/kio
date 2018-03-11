@@ -22,7 +22,7 @@
 
 #include <qplatformdefs.h>
 
-#include <QtCore/QDateTime>
+#include <QDateTime>
 
 #include <kio/slavebase.h>
 

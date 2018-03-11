@@ -21,8 +21,8 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef HOSTINFO_H_
 #define HOSTINFO_H_
 
-#include <QtCore/QString>
-#include <QtCore/QObject>
+#include <QString>
+#include <QObject>
 #include "kiocore_export.h"
 
 class QHostInfo;

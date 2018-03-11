@@ -27,9 +27,9 @@
 
 #include <kconfig.h>
 #include <kconfiggroup.h>
-#include <QtCore/QFile>
+#include <QFile>
 
-#include <QtCore/QDate>
+#include <QDate>
 #include <kpluginfactory.h>
 #include <kpluginloader.h>
 

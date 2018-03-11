@@ -25,10 +25,10 @@
 #ifndef KCOOKIEJAR_H
 #define KCOOKIEJAR_H
 
-#include <QtCore/QString>
-#include <QtCore/QStringList>
-#include <QtCore/QHash>
-#include <QtCore/QSet>
+#include <QString>
+#include <QStringList>
+#include <QHash>
+#include <QSet>
 #include <qwindowdefs.h> //WId
 
 #include <QLoggingCategory>

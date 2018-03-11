@@ -22,10 +22,10 @@
 #ifndef KCOOKIESMANAGEMENT_H
 #define KCOOKIESMANAGEMENT_H
 
-#include <QtCore/QList>
-#include <QtCore/QStringList>
+#include <QList>
+#include <QStringList>
 #include <QTreeWidget>
-#include <QtCore/QHash>
+#include <QHash>
 
 #include <kcmodule.h>
 #include "ui_kcookiesmanagement.h"

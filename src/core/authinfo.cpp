@@ -20,13 +20,13 @@
 
 #include "authinfo.h"
 
-#include <QtCore/QByteArray>
-#include <QtCore/QDir>
-#include <QtCore/QFile>
-#include <QtCore/QTextStream>
-#include <QtCore/QDataStream>
-#include <QtDBus/QDBusArgument>
-#include <QtDBus/QDBusMetaType>
+#include <QByteArray>
+#include <QDir>
+#include <QFile>
+#include <QTextStream>
+#include <QDataStream>
+#include <QDBusArgument>
+#include <QDBusMetaType>
 
 #include <qstandardpaths.h>
 

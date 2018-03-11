@@ -30,7 +30,7 @@
 #include "kiocoredebug.h"
 #include "../pathhelpers_p.h"
 
-#include <QtCore/QRegExp>
+#include <QRegExp>
 #include <QFileInfo>
 #include <QFile>
 #include <QTextStream>

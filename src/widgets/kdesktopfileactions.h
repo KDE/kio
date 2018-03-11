@@ -22,8 +22,8 @@
 
 #include <kserviceaction.h>
 #include "kiowidgets_export.h"
-#include <QtCore/QList>
-#include <QtCore/QUrl>
+#include <QList>
+#include <QUrl>
 #include <QDebug>
 class KDesktopFile;
 class KService;

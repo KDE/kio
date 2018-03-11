@@ -19,12 +19,12 @@
 #ifndef KDIRMODELTEST_H
 #define KDIRMODELTEST_H
 
-#include <QtCore/QObject>
+#include <QObject>
 #include <qtemporarydir.h>
-#include <QtCore/QDate>
+#include <QDate>
 #include <kdirmodel.h>
-#include <QtCore/QEventLoop>
-#include <QtTest/QtTest>
+#include <QEventLoop>
+#include <QtTest>
 
 // If you disable this, you need to change all exitLoop into quit in connect() statements...
 #define USE_QTESTEVENTLOOP

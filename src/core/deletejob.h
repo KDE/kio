@@ -22,7 +22,7 @@
 #ifndef KIO_DELETEJOB_H
 #define KIO_DELETEJOB_H
 
-#include <QtCore/QStringList>
+#include <QStringList>
 
 #include "kiocore_export.h"
 #include "global.h"

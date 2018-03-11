@@ -23,10 +23,10 @@
 #include <qplatformdefs.h>
 #include <stdio.h>
 
-#include <QtCore/QFile>
-#include <QtCore/QStandardPaths>
-#include <QtCore/QTimer>
-#include <QtCore/QProcess>
+#include <QFile>
+#include <QStandardPaths>
+#include <QTimer>
+#include <QProcess>
 #include <QElapsedTimer>
 
 #include <QDBusConnection>

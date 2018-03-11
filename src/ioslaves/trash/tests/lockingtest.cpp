@@ -18,8 +18,8 @@
     Boston, MA 02110-1301, USA.
 */
 
-#include <QtCore/QCoreApplication>
-#include <QtCore/QThread>
+#include <QCoreApplication>
+#include <QThread>
 
 #include "kinterprocesslock.h"
 

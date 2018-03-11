@@ -20,7 +20,7 @@
 
 #include "slaveconfig.h"
 
-#include <QtCore/QHash>
+#include <QHash>
 #include <QThreadStorage>
 
 #include <kconfig.h>

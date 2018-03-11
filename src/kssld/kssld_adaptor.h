@@ -22,10 +22,10 @@
 #ifndef KSSLD_ADAPTOR_H
 #define KSSLD_ADAPTOR_H
 
-#include <QtDBus/QDBusInterface>
-#include <QtDBus/QDBusMetaType>
-#include <QtDBus/QDBusAbstractAdaptor>
-#include <QtDBus/QDBusArgument>
+#include <QDBusInterface>
+#include <QDBusMetaType>
+#include <QDBusAbstractAdaptor>
+#include <QDBusArgument>
 
 #include "kssld_dbusmetatypes.h"
 

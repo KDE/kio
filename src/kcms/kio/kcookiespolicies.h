@@ -26,7 +26,7 @@
 #ifndef KCOOKIESPOLICIES_H
 #define KCOOKIESPOLICIES_H
 
-#include <QtCore/QMap>
+#include <QMap>
 #include <kcmodule.h>
 
 #include "kcookiespolicyselectiondlg.h"

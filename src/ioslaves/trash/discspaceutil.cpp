@@ -22,8 +22,8 @@
 #include "discspaceutil.h"
 #include "kiotrashdebug.h"
 
-#include <QtCore/QDirIterator>
-#include <QtCore/QFileInfo>
+#include <QDirIterator>
+#include <QFileInfo>
 
 #include <kdiskfreespaceinfo.h>
 #include <QDebug>

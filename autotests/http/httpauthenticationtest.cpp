@@ -21,10 +21,10 @@
 
 #include <qtest.h>
 
-#include <QtCore/QList>
-#include <QtCore/QByteArray>
-#include <QtNetwork/QHostInfo>
-#include <QtCore/QtEndian>
+#include <QList>
+#include <QByteArray>
+#include <QHostInfo>
+#include <QtEndian>
 #include <KConfigCore/KConfig>
 
 #define ENABLE_HTTP_AUTH_NONCE_SETTER

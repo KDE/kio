@@ -23,7 +23,7 @@
 
 #include "kurlnavigatorbuttonbase_p.h"
 
-#include <QtCore/QHash>
+#include <QHash>
 
 class QMenu;
 

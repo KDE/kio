@@ -24,13 +24,13 @@
 
 #include "kdiskfreespaceinfo.h"
 
-#include <QtCore/QSharedData>
-#include <QtCore/QFile>
+#include <QSharedData>
+#include <QFile>
 
 #include <kmountpoint.h>
 
 #ifdef Q_OS_WIN
-#include <QtCore/QDir>
+#include <QDir>
 #include <qt_windows.h>
 #else
 #include <sys/statvfs.h>

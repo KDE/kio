@@ -21,7 +21,7 @@
 #ifndef KPAC_SCRIPT_H
 #define KPAC_SCRIPT_H
 
-#include <QtCore/QString>
+#include <QString>
 
 class QUrl;
 class QScriptEngine;

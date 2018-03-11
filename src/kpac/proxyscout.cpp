@@ -37,7 +37,7 @@
 
 #include <QNetworkConfigurationManager>
 
-#include <QtCore/QFileSystemWatcher>
+#include <QFileSystemWatcher>
 #include <QDBusConnection>
 
 #include <cstdlib>

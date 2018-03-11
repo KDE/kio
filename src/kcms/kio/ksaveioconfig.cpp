@@ -21,7 +21,7 @@
 #include "ksaveioconfig.h"
 
 // Qt
-#include <QtDBus/QtDBus>
+#include <QtDBus>
 
 // KDE
 #include <KConfig>

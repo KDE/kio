@@ -23,7 +23,7 @@
 #define KABSTRACTFILEITEMACTION_PLUGIN_H
 
 #include "kiowidgets_export.h"
-#include <QtCore/QObject>
+#include <QObject>
 
 class QAction;
 class QMenu;

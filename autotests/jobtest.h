@@ -20,8 +20,8 @@
 #ifndef JOBTEST_H
 #define JOBTEST_H
 
-#include <QtCore/QString>
-#include <QtCore/QObject>
+#include <QString>
+#include <QObject>
 #include <kio/job.h>
 
 class JobTest : public QObject

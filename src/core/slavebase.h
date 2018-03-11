@@ -25,8 +25,8 @@
 #include <kio/authinfo.h>
 #include "job_base.h" // for KIO::JobFlags
 
-#include <QtCore/QByteArray>
-#include <QtNetwork/QHostInfo>
+#include <QByteArray>
+#include <QHostInfo>
 
 class KConfigGroup;
 class KRemoteEncoding;

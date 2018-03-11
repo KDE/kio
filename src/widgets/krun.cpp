@@ -69,11 +69,11 @@
 #include <kjobwidgets.h>
 #include <ksharedconfig.h>
 
-#include <QtCore/QFile>
-#include <QtCore/QFileInfo>
-#include <QtCore/QTextStream>
-#include <QtCore/QDate>
-#include <QtCore/QRegExp>
+#include <QFile>
+#include <QFileInfo>
+#include <QTextStream>
+#include <QDate>
+#include <QRegExp>
 #include <QDir>
 #include <kdesktopfile.h>
 #include <kshell.h>

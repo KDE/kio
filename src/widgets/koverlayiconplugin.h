@@ -22,7 +22,7 @@
 #define KOVERLAYICONPLUGIN_H
 
 #include "kiowidgets_export.h"
-#include <QtCore/QObject>
+#include <QObject>
 
 class QUrl;
 

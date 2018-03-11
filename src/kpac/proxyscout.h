@@ -23,7 +23,7 @@
 #include <kdedmodule.h>
 
 #include <QUrl>
-#include <QtCore/QMap>
+#include <QMap>
 #include <QDBusMessage>
 
 class QFileSystemWatcher;

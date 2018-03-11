@@ -23,8 +23,8 @@
 #define KSSLD_H
 
 #include <kdedmodule.h>
-#include <QtCore/QList>
-#include <QtCore/QVariant>
+#include <QList>
+#include <QVariant>
 class QString;
 class QSslCertificate;
 

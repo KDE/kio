@@ -23,8 +23,8 @@
 #define _kio_scheduler_h
 
 #include "simplejob.h"
-#include <QtCore/QTimer>
-#include <QtCore/QMap>
+#include <QTimer>
+#include <QMap>
 
 namespace KIO
 {

@@ -37,9 +37,9 @@
 #include <QDebug>
 #include <kio/global.h>
 #include <kdesktopfile.h>
-#include <QtCore/QDir>
+#include <QDir>
 #include <QCoreApplication>
-#include <QtCore/QRegExp>
+#include <QRegExp>
 #include <qplatformdefs.h>
 
 #include <kconfiggroup.h>

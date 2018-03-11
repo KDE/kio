@@ -23,7 +23,7 @@
 #ifndef KDIRSORTFILTERPROXYMODEL_H
 #define KDIRSORTFILTERPROXYMODEL_H
 
-#include <QtCore/QFileInfo>
+#include <QFileInfo>
 
 #include <kcategorizedsortfilterproxymodel.h>
 

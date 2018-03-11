@@ -10,7 +10,7 @@ extern "C" int xmlLoadExtDtdDefaultValue;
 
 #include <QDebug>
 
-#include <QtCore/QString>
+#include <QString>
 
 #include <stdlib.h>
 #include <string.h>

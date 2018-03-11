@@ -22,7 +22,7 @@
 #include "smbrodlg.h"
 
 // Qt
-#include <QtCore/QTextCodec>
+#include <QTextCodec>
 #include <QLabel>
 #include <QGridLayout>
 

@@ -31,7 +31,7 @@
 #include <kprotocolinfo.h>
 //#include <kjobwidgets.h>
 
-#include <QtCore/QHash>
+#include <QHash>
 #include <QThread>
 #include <QThreadStorage>
 #include <QCoreApplication>

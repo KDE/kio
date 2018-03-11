@@ -23,7 +23,7 @@
 
 #include <KUriFilter>
 
-#include <QtCore/QRegExp>
+#include <QRegExp>
 
 class QHostInfo;
 class QEventLoop;

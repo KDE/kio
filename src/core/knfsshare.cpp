@@ -20,9 +20,9 @@
 
 #include <QFileInfo>
 #include <QSet>
-#include <QtCore/QFile>
-#include <QtCore/QMutableStringListIterator>
-#include <QtCore/QTextStream>
+#include <QFile>
+#include <QMutableStringListIterator>
+#include <QTextStream>
 #include <QDebug>
 
 #include <kdirwatch.h>

@@ -43,14 +43,14 @@
 #include <cstdlib>
 #include <cstring>
 
-#include <QtCore/QCoreApplication>
-#include <QtCore/QDir>
-#include <QtNetwork/QHostAddress>
-#include <QtNetwork/QNetworkProxy>
-#include <QtNetwork/QTcpSocket>
-#include <QtNetwork/QTcpServer>
-#include <QtNetwork/QSslSocket>
-#include <QtNetwork/QAuthenticator>
+#include <QCoreApplication>
+#include <QDir>
+#include <QHostAddress>
+#include <QNetworkProxy>
+#include <QTcpSocket>
+#include <QTcpServer>
+#include <QSslSocket>
+#include <QAuthenticator>
 #include <qmimedatabase.h>
 
 #include <QDebug>

@@ -22,11 +22,11 @@
 #ifndef KSSLDINTERFACE_H
 #define KSSLDINTERFACE_H
 
-#include <QtCore/QObject>
-#include <QtCore/QByteArray>
-#include <QtCore/QList>
-#include <QtCore/QString>
-#include <QtCore/QVariant>
+#include <QObject>
+#include <QByteArray>
+#include <QList>
+#include <QString>
+#include <QVariant>
 #include <QDBusConnection>
 #include <QDBusAbstractInterface>
 #include <QDBusReply>

@@ -52,9 +52,9 @@
 #include <assert.h>
 
 #include <qtemporaryfile.h>
-#include <QtCore/QTimer>
-#include <QtCore/QFile>
-#include <QtCore/QFileInfo>
+#include <QTimer>
+#include <QFile>
+#include <QFileInfo>
 #include <QLinkedList>
 #include <sys/stat.h> // mode_t
 #include <QPointer>

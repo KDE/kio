@@ -23,9 +23,9 @@
 #ifndef KSHORTURIFILTER_H
 #define KSHORTURIFILTER_H
 
-#include <QtCore/QList>
-#include <QtCore/QRegExp>
-#include <QtCore/QVariant>
+#include <QList>
+#include <QRegExp>
+#include <QVariant>
 
 #include <kurifilter.h>
 

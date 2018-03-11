@@ -22,7 +22,7 @@
 #ifndef DISCSPACEUTIL_H
 #define DISCSPACEUTIL_H
 
-#include <QtCore/QString>
+#include <QString>
 
 /**
  * A small utility class to access and calculate

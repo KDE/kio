@@ -20,10 +20,10 @@
 #ifndef kprotocolinfofactory_h
 #define kprotocolinfofactory_h
 
-#include <QtCore/QHash>
-#include <QtCore/QString>
-#include <QtCore/QStringList>
-#include <QtCore/QMutex>
+#include <QHash>
+#include <QString>
+#include <QStringList>
+#include <QMutex>
 
 class KProtocolInfoPrivate;
 

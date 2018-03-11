@@ -32,12 +32,12 @@
 #include <process.h>
 #endif
 
-#include <QtCore/QFile>
-#include <QtCore/QList>
-#include <QtCore/QDateTime>
-#include <QtCore/QElapsedTimer>
-#include <QtCore/QCoreApplication>
-#include <QtCore/QDataStream>
+#include <QFile>
+#include <QList>
+#include <QDateTime>
+#include <QElapsedTimer>
+#include <QCoreApplication>
+#include <QDataStream>
 
 #include <kconfig.h>
 #include <kconfiggroup.h>

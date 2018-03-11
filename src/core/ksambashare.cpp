@@ -23,14 +23,14 @@
 #include "ksambasharedata_p.h"
 #include "kiocoredebug.h"
 
-#include <QtCore/QMap>
-#include <QtCore/QMutableMapIterator>
-#include <QtCore/QFile>
-#include <QtCore/QRegExp>
-#include <QtCore/QFileInfo>
-#include <QtCore/QTextStream>
-#include <QtCore/QStringList>
-#include <QtCore/QProcess>
+#include <QMap>
+#include <QMutableMapIterator>
+#include <QFile>
+#include <QRegExp>
+#include <QFileInfo>
+#include <QTextStream>
+#include <QStringList>
+#include <QProcess>
 #include <QDebug>
 
 #include <kdirwatch.h>

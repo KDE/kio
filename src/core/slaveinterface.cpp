@@ -32,10 +32,10 @@
 #include <QDebug>
 
 #include <QDBusConnection>
-#include <QtCore/QPointer>
-#include <QtCore/QDataStream>
-#include <QtNetwork/QSslCertificate>
-#include <QtNetwork/QSslError>
+#include <QPointer>
+#include <QDataStream>
+#include <QSslCertificate>
+#include <QSslError>
 
 using namespace KIO;
 

@@ -20,9 +20,9 @@
 #include "kshellcompletion.h"
 
 #include <stdlib.h>
-#include <QtCore/QCharRef>
-#include <QtCore/QMutableStringListIterator>
-#include <QtCore/QRegExp>
+#include <QCharRef>
+#include <QMutableStringListIterator>
+#include <QRegExp>
 #include <kcompletion.h>
 #include <kcompletionmatches.h>
 

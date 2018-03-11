@@ -21,7 +21,7 @@
 #include "listjob.h"
 #include <kio/jobuidelegatefactory.h>
 #include <qdebug.h>
-#include <QtCore/QTimer>
+#include <QTimer>
 
 #include "job_p.h"
 

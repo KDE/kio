@@ -23,7 +23,7 @@
 #include <QFile>
 
 #include <qtest.h>
-#include <QtCore/QThread>
+#include <QThread>
 #include "klocalsocket.h"
 
 static const char afile[] = "/tmp/afile";

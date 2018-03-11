@@ -20,9 +20,9 @@
 #ifndef PARSINGHELPERS_H
 #define PARSINGHELPERS_H
 
-#include <QtCore/QList>
-#include <QtCore/QPair>
-#include <QtCore/QMap>
+#include <QList>
+#include <QPair>
+#include <QMap>
 
 struct HeaderField {
     HeaderField(bool multiValued)

@@ -19,7 +19,7 @@
 
 #include "kacltest.h"
 
-#include <QtTest/QtTest>
+#include <QtTest>
 #include <config-kiocore.h>
 
 #include <kacl.h>

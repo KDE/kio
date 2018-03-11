@@ -29,7 +29,7 @@
 #include <klocalizedstring.h>
 #include <kstringhandler.h>
 
-#include <QtCore/QTimer>
+#include <QTimer>
 #include <QPainter>
 #include <QKeyEvent>
 #include <QStyleOption>

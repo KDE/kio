@@ -28,8 +28,8 @@
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QDialogButtonBox>
-#include <QtCore/QtAlgorithms>
-#include <QtCore/QList>
+#include <QtAlgorithms>
+#include <QList>
 #include <QKeyEvent>
 #include <QLabel>
 #include <QLayout>

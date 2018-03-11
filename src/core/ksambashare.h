@@ -20,7 +20,7 @@
 #ifndef ksambashare_h
 #define ksambashare_h
 
-#include <QtCore/QObject>
+#include <QObject>
 #include "kiocore_export.h"
 
 class KSambaShareData;

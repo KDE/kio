@@ -37,9 +37,9 @@
 #include <kurlcompletion.h>
 #include <kurifilter.h>
 
-#include <QtCore/QDir>
-#include <QtCore/QLinkedList>
-#include <QtCore/QTimer>
+#include <QDir>
+#include <QLinkedList>
+#include <QTimer>
 #include <QApplication>
 #include <QBoxLayout>
 #include <QClipboard>

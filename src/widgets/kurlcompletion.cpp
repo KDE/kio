@@ -29,17 +29,17 @@
 #include <assert.h>
 #include <limits.h>
 
-#include <QtCore/QCoreApplication>
-#include <QtCore/QMutex>
-#include <QtCore/QRegExp>
-#include <QtCore/QTimer>
-#include <QtCore/QDir>
-#include <QtCore/QDirIterator>
-#include <QtCore/QFile>
-#include <QtCore/QTextStream>
-#include <QtCore/QThread>
-#include <QtCore/QUrl>
-#include <QtCore/QDebug>
+#include <QCoreApplication>
+#include <QMutex>
+#include <QRegExp>
+#include <QTimer>
+#include <QDir>
+#include <QDirIterator>
+#include <QFile>
+#include <QTextStream>
+#include <QThread>
+#include <QUrl>
+#include <QDebug>
 #include <QMimeDatabase>
 #include <QProcessEnvironment>
 #include <qplatformdefs.h> // QT_LSTAT, QT_STAT, QT_STATBUF

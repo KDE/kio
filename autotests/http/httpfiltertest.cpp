@@ -16,13 +16,13 @@
  *  Boston, MA 02110-1301, USA.
  */
 
-#include <QtTest/QtTest>
+#include <QtTest>
 
 #include "kfilterdev.h"
 #include "kfilterbase.h"
-#include <QtCore/QFile>
-#include <QtCore/QDebug>
-#include <QtCore/QDir>
+#include <QFile>
+#include <QDebug>
+#include <QDir>
 #include <zlib.h>
 #include "httpfilter.h"
 

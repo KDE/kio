@@ -21,7 +21,7 @@
 #ifndef KIO_SESSIONDATA_H
 #define KIO_SESSIONDATA_H
 
-#include <QtCore/QObject>
+#include <QObject>
 #include "kiocore_export.h"
 #include <kio/metadata.h>
 

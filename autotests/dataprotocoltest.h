@@ -7,8 +7,8 @@
 
 #include <kio/global.h>
 
-#include <QtCore/QObject>
-#include <QtCore/QString>
+#include <QObject>
+#include <QString>
 
 class DataProtocolTest : public QObject
 {

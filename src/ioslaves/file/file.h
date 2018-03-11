@@ -26,9 +26,9 @@
 #include <kio/global.h>
 #include <kio/slavebase.h>
 
-#include <QtCore/QObject>
-#include <QtCore/QHash>
-#include <QtCore/QFile>
+#include <QObject>
+#include <QHash>
+#include <QFile>
 #include <KUser>
 
 #include <qplatformdefs.h> // mode_t

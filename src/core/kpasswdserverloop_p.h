@@ -23,8 +23,8 @@
 #define KPASSWDSERVERLOOP_P_H
 
 #include <kio/authinfo.h>
-#include <QtCore/QByteArray>
-#include <QtCore/QEventLoop>
+#include <QByteArray>
+#include <QEventLoop>
 
 // Wait for the result of an asynchronous D-Bus request to KPasswdServer.
 // Objects of this class are one-way ie. as soon as they have received

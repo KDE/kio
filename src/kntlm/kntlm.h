@@ -20,8 +20,8 @@
 #ifndef KNTLM_H
 #define KNTLM_H
 
-#include <QtCore/QString>
-#include <QtCore/QByteArray>
+#include <QString>
+#include <QByteArray>
 
 #include "kntlm_export.h"
 

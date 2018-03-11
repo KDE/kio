@@ -20,7 +20,7 @@
 
 #include "privilegejobtest.h"
 
-#include <QtTest/QtTest>
+#include <QtTest>
 
 #include <KIO/ChmodJob>
 #include <KIO/CopyJob>

@@ -23,10 +23,10 @@
 #include "kcookiesmanagement.h"
 
 // Qt
-#include <QtCore/QTimer>
-#include <QtCore/QList>
+#include <QTimer>
+#include <QList>
 #include <QPushButton>
-#include <QtDBus/QtDBus>
+#include <QtDBus>
 
 // KDE
 #include <KLocalizedString>

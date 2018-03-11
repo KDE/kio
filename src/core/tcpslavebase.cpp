@@ -33,11 +33,11 @@
 #include <klocalizedstring.h>
 #include <ktcpsocket.h>
 
-#include <QtCore/QDataStream>
-#include <QtCore/QTime>
-#include <QtNetwork/QTcpSocket>
-#include <QtNetwork/QHostInfo>
-#include <QtNetwork/QSslConfiguration>
+#include <QDataStream>
+#include <QTime>
+#include <QTcpSocket>
+#include <QHostInfo>
+#include <QSslConfiguration>
 #include <QDBusConnection>
 
 using namespace KIO;

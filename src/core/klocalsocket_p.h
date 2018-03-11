@@ -20,8 +20,8 @@
 #ifndef KLOCALSOCKET_P_H
 #define KLOCALSOCKET_P_H
 
-#include <QtCore/QString>
-#include <QtCore/QQueue>
+#include <QString>
+#include <QQueue>
 #include "klocalsocket.h"
 #define MIN_SOCKADDR_UN_LEN (sizeof(quint16) + sizeof(char))
 

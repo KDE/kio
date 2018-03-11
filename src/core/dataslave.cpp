@@ -25,8 +25,8 @@
 
 #include <klocalizedstring.h>
 
-#include <QtCore/QTimer>
-#include <QtCore/QDataStream>
+#include <QTimer>
+#include <QDataStream>
 
 using namespace KIO;
 

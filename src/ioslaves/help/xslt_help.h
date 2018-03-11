@@ -1,7 +1,7 @@
 #ifndef _MEIN_XSLT_HELP_H_
 #define _MEIN_XSLT_HELP_H_
 
-#include <QtCore/QString>
+#include <QString>
 
 QString lookForCache(const QString &filename);
 

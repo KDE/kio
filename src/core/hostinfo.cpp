@@ -20,24 +20,24 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "hostinfo.h"
 
-#include <QtCore/QString>
-#include <QtCore/QHash>
-#include <QtCore/QCache>
-#include <QtCore/QMetaType>
-#include <QtCore/QTime>
-#include <QtCore/QTimer>
-#include <QtCore/QList>
-#include <QtCore/QPair>
-#include <QtCore/QThread>
+#include <QString>
+#include <QHash>
+#include <QCache>
+#include <QMetaType>
+#include <QTime>
+#include <QTimer>
+#include <QList>
+#include <QPair>
+#include <QThread>
 #include <QFutureWatcher>
-#include <QtCore/QMetaType>
-#include <QtCore/QSemaphore>
-#include <QtCore/QSharedPointer>
+#include <QMetaType>
+#include <QSemaphore>
+#include <QSharedPointer>
 #include <QtConcurrentRun>
-#include <QtNetwork/QHostInfo>
+#include <QHostInfo>
 
 #ifdef Q_OS_UNIX
-# include <QtCore/QFileInfo>
+# include <QFileInfo>
 # include <netinet/in.h>
 # include <arpa/nameser.h>
 # include <resolv.h>            // for _PATH_RESCONF

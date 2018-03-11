@@ -24,7 +24,7 @@
 #include "searchprovider.h"
 #include "ikwsopts.h"
 
-#include <QtDBus/QtDBus>
+#include <QtDBus>
 #include <KPluginFactory>
 #include <klocalizedstring.h>
 #include <kaboutdata.h>

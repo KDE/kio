@@ -21,7 +21,7 @@ set_package_properties(ACL PROPERTIES DESCRIPTION "LibACL" URL "ftp://oss.sgi.co
 configure_file(config-kioslave-file.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kioslave-file.h )
 
 add_library(kio_file MODULE ${kio_file_PART_SRCS})
-target_link_libraries(kio_file KF5::KIOCore KF5::I18n)
+target_link_libraries(kio_file KF5::KIOCore KF5::I18n Qt5::DBus Qt5::Network)
 
 if(UNIX)
   target_link_libraries(kio_file Qt5::Network KF5::Auth)

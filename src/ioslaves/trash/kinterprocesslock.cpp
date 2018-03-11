@@ -21,10 +21,10 @@
 #include "kinterprocesslock.h"
 #include "kiotrashdebug.h"
 
-#include <QtCore/QEventLoop>
-#include <QtDBus/QDBusConnectionInterface>
+#include <QEventLoop>
+#include <QDBusConnectionInterface>
 
-#include <QtCore/QDebug>
+#include <QDebug>
 
 class KInterProcessLockPrivate
 {

@@ -34,20 +34,20 @@
 
 #include <qplatformdefs.h> // must be explicitly included for MacOSX
 
-#include <QtXml/qdom.h>
-#include <QtCore/QFile>
-#include <QtCore/QLibraryInfo>
-#include <QtCore/QRegExp>
-#include <QtCore/QDateTime>
-#include <QtCore/QBuffer>
-#include <QtCore/QIODevice>
-#include <QtCore/QTemporaryFile>
-#include <QtCore/QStandardPaths>
+#include <qdom.h>
+#include <QFile>
+#include <QLibraryInfo>
+#include <QRegExp>
+#include <QDateTime>
+#include <QBuffer>
+#include <QIODevice>
+#include <QTemporaryFile>
+#include <QStandardPaths>
 #include <QDBusConnection>
-#include <QtCore/QMimeDatabase>
-#include <QtNetwork/QAuthenticator>
-#include <QtNetwork/QNetworkProxy>
-#include <QtNetwork/QTcpSocket>
+#include <QMimeDatabase>
+#include <QAuthenticator>
+#include <QNetworkProxy>
+#include <QTcpSocket>
 #include <QNetworkConfigurationManager>
 #include <QUrl>
 #include <QCoreApplication>

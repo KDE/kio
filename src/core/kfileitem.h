@@ -29,7 +29,7 @@
 #include <QFile>
 
 #include <qmimetype.h>
-#include <QtCore/QList>
+#include <QList>
 #include <qplatformdefs.h>
 
 class KFileItemPrivate;

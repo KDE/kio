@@ -28,7 +28,7 @@
 #ifndef __KRECENTDIRS_H
 #define __KRECENTDIRS_H
 
-#include <QtCore/QStringList>
+#include <QStringList>
 
 #include "kiofilewidgets_export.h"
 

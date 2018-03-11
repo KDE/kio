@@ -20,7 +20,7 @@
 #define KIO_PASTE_H
 
 #include "kiowidgets_export.h"
-#include <QtCore/QString>
+#include <QString>
 class QWidget;
 class QUrl;
 class QMimeData;

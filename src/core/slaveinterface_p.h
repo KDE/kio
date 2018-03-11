@@ -26,9 +26,9 @@
 
 #include "global.h"
 #include "connection_p.h"
-#include <QtCore/QTimer>
-#include <QtCore/QPointer>
-#include <QtNetwork/QHostInfo>
+#include <QTimer>
+#include <QPointer>
+#include <QHostInfo>
 
 #include "kiocoredebug.h"
 

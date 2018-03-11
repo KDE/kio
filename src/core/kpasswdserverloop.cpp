@@ -21,8 +21,8 @@
 
 #include "kpasswdserverloop_p.h"
 
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusServiceWatcher>
+#include <QDBusConnection>
+#include <QDBusServiceWatcher>
 
 KPasswdServerLoop::KPasswdServerLoop() : m_seqNr(-1)
 {

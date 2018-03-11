@@ -84,7 +84,7 @@ ecm_add_tests(
  accessmanagertest.cpp
  kurifiltersearchprovideractionstest.cpp
  NAME_PREFIX "kiowidgets-"
- LINK_LIBRARIES KF5::KIOCore KF5::KIOWidgets Qt5::Test
+ LINK_LIBRARIES KF5::KIOCore KF5::KIOWidgets Qt5::Test Qt5::DBus
 )
 set_target_properties(krununittest PROPERTIES COMPILE_FLAGS "-DCMAKE_INSTALL_FULL_LIBEXECDIR_KF5=\"\\\"${CMAKE_INSTALL_FULL_LIBEXECDIR_KF5}\\\"\"")
 

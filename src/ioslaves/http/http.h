@@ -25,10 +25,10 @@
 #ifndef HTTP_H
 #define HTTP_H
 
-#include <QtCore/QList>
-#include <QtCore/QStringList>
-#include <QtCore/QDateTime>
-#include <QtNetwork/QLocalSocket>
+#include <QList>
+#include <QStringList>
+#include <QDateTime>
+#include <QLocalSocket>
 #include <QUrl>
 
 #include "kio/tcpslavebase.h"

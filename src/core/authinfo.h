@@ -23,11 +23,11 @@
 
 #include "kiocore_export.h"
 
-#include <QtCore/QMap>
-#include <QtCore/QList>
-#include <QtCore/QStringList>
-#include <QtCore/QUrl>
-#include <QtCore/QVariant> // Q_DECLARE_METATYPE
+#include <QMap>
+#include <QList>
+#include <QStringList>
+#include <QUrl>
+#include <QVariant> // Q_DECLARE_METATYPE
 
 class QDBusArgument;
 

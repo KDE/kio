@@ -26,10 +26,10 @@
 #endif
 
 #include <QCoreApplication>
-#include <QtCore/QDir>
-#include <QtCore/QMimeData>
-#include <QtCore/QTimer>
-#include <QtCore/QFile>
+#include <QDir>
+#include <QMimeData>
+#include <QTimer>
+#include <QFile>
 #include <QColor>
 #include <QAction>
 #include <QUrlQuery>

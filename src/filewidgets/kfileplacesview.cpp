@@ -21,8 +21,8 @@
 #include "kfileplacesview.h"
 #include "kfileplacesview_p.h"
 
-#include <QtCore/QTimeLine>
-#include <QtCore/QTimer>
+#include <QTimeLine>
+#include <QTimer>
 #include <QPainter>
 #include <QAbstractItemDelegate>
 #include <QKeyEvent>

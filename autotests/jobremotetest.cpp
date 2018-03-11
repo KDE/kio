@@ -25,10 +25,10 @@
 #include <QDebug>
 #include <klocalizedstring.h>
 
-#include <QtCore/QFileInfo>
-#include <QtCore/QEventLoop>
-#include <QtCore/QDir>
-#include <QtCore/QVariant>
+#include <QFileInfo>
+#include <QEventLoop>
+#include <QDir>
+#include <QVariant>
 #include <QUrl>
 
 #include <kprotocolinfo.h>

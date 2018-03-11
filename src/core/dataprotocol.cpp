@@ -20,10 +20,10 @@
 
 #include "global.h"
 
-#include <QtCore/QByteArray>
-#include <QtCore/QCharRef>
-#include <QtCore/QMutableStringListIterator>
-#include <QtCore/QTextCodec>
+#include <QByteArray>
+#include <QCharRef>
+#include <QMutableStringListIterator>
+#include <QTextCodec>
 
 #ifdef DATAKIOSLAVE
 #  include <kinstance.h>

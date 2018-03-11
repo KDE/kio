@@ -25,10 +25,10 @@
 #ifndef KCOOKIESERVER_H
 #define KCOOKIESERVER_H
 
-#include <QtCore/QStringList>
+#include <QStringList>
 #include <kdedmodule.h>
 #include <QDBusConnection>
-#include <QtDBus/QDBusContext>
+#include <QDBusContext>
 
 class KHttpCookieList;
 class KCookieJar;

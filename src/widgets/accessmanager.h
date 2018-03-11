@@ -28,9 +28,9 @@
 #include "kiowidgets_export.h"
 #include <qwindowdefs.h> // WId
 
-#include <QtNetwork/QNetworkAccessManager>
-#include <QtNetwork/QNetworkRequest>
-#include <QtNetwork/QNetworkCookieJar>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkCookieJar>
 
 class QWidget;
 

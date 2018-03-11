@@ -20,7 +20,7 @@
 // This file can only be included once in a given binary
 
 #include <QDebug>
-#include <QtCore/qglobal.h>
+#include <qglobal.h>
 #include <qstandardpaths.h>
 #include <qplatformdefs.h>
 #include <QDir>

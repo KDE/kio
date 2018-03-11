@@ -22,7 +22,7 @@
 #include "klocalsocket_p.h"
 #include "kiocoredebug.h"
 
-#include <QtCore/QSocketNotifier>
+#include <QSocketNotifier>
 
 //#define LocalSocket (QAbstractSocket::SocketType(int(QAbstractSocket::UdpSocket) + 1))
 

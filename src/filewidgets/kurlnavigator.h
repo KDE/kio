@@ -27,7 +27,7 @@
 
 #include <QUrl>
 #include <QWidget>
-#include <QtCore/QByteArray>
+#include <QByteArray>
 
 class KFilePlacesModel;
 class KUrlComboBox;

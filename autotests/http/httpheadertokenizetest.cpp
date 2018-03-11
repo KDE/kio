@@ -21,8 +21,8 @@
 
 #include <qtest.h>
 
-#include <QtCore/QByteArray>
-#include <QtCore/QHash>
+#include <QByteArray>
+#include <QHash>
 #include <QDebug>
 
 #include <parsinghelpers.h>

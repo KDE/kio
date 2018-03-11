@@ -23,8 +23,8 @@
 #include <QApplication>
 #include <QTreeView>
 #include <QListView>
-#include <QtCore/QDir>
-#include <QtCore/QFile>
+#include <QDir>
+#include <QFile>
 #include <kfileitemdelegate.h>
 
 // Test controller for making the view open up while expandToUrl lists subdirs

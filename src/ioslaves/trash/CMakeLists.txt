@@ -36,6 +36,7 @@ target_link_libraries(kio_trash
   KF5::Solid
   KF5::KIOCore
   Qt5::DBus
+  Qt5::Network
   KF5::I18n
   KF5::ConfigCore
   KF5::ConfigGui

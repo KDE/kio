@@ -23,8 +23,8 @@
 #include <qplatformdefs.h>
 #include "kiocore_export.h"
 
-#include <QtCore/QPair>
-#include <QtCore/QList>
+#include <QPair>
+#include <QList>
 
 typedef QPair<QString, unsigned short> ACLUserPermissions;
 typedef QList<ACLUserPermissions> ACLUserPermissionsList;

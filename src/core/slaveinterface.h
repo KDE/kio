@@ -22,8 +22,8 @@
 
 #include <qplatformdefs.h>
 
-#include <QtCore/QObject>
-#include <QtNetwork/QHostInfo>
+#include <QObject>
+#include <QHostInfo>
 
 #include <kio/global.h>
 #include <kio/udsentry.h>

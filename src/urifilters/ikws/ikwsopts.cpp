@@ -30,8 +30,8 @@
 #include <kconfiggroup.h>
 #include <ksharedconfig.h>
 
-#include <QtCore/QFile>
-#include <QtDBus/QtDBus>
+#include <QFile>
+#include <QtDBus>
 #include <QSortFilterProxyModel>
 
 

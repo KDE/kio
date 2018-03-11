@@ -20,21 +20,21 @@
 
 #include "script.h"
 
-#include <QtCore/QString>
-#include <QtCore/QRegExp>
-#include <QtCore/QDateTime>
-#include <QtCore/QTimer>
-#include <QtCore/QEventLoop>
+#include <QString>
+#include <QRegExp>
+#include <QDateTime>
+#include <QTimer>
+#include <QEventLoop>
 #include <QUrl>
 
-#include <QtNetwork/QHostInfo>
-#include <QtNetwork/QHostAddress>
-#include <QtNetwork/QNetworkInterface>
+#include <QHostInfo>
+#include <QHostAddress>
+#include <QNetworkInterface>
 
-#include <QtScript/QScriptValue>
-#include <QtScript/QScriptEngine>
-#include <QtScript/QScriptProgram>
-#include <QtScript/QScriptContextInfo>
+#include <QScriptValue>
+#include <QScriptEngine>
+#include <QScriptProgram>
+#include <QScriptContextInfo>
 
 #include <klocalizedstring.h>
 #include <kio/hostinfo.h>
