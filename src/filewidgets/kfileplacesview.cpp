@@ -212,31 +212,32 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 
     QRect rectText;
 
-    const QUrl url = placesModel->url(index);
     bool drawCapacityBar = false;
-    if (url.isLocalFile()) {
-        const QString mountPointPath = placesModel->url(index).toLocalFile();
-        const KDiskFreeSpaceInfo info = KDiskFreeSpaceInfo::freeSpaceInfo(mountPointPath);
-        drawCapacityBar = info.size() != 0 &&
-                          placesModel->data(index, KFilePlacesModel::CapacityBarRecommendedRole).toBool();
+    if (placesModel->data(index, KFilePlacesModel::CapacityBarRecommendedRole).toBool()) {
+        const QUrl url = placesModel->url(index);
+        if (url.isLocalFile() && contentsOpacity(index) > 0) {
+            const QString mountPointPath = url.toLocalFile();
 
-        if (drawCapacityBar && contentsOpacity(index) > 0) {
-            painter->save();
-            painter->setOpacity(painter->opacity() * contentsOpacity(index));
+            const KDiskFreeSpaceInfo info = KDiskFreeSpaceInfo::freeSpaceInfo(mountPointPath);
+            drawCapacityBar = info.size() != 0;
+            if (drawCapacityBar) {
+                painter->save();
+                painter->setOpacity(painter->opacity() * contentsOpacity(index));
 
-            int height = opt.fontMetrics.height() + CAPACITYBAR_HEIGHT;
-            rectText = QRect(isLTR ? m_iconSize + LATERAL_MARGIN * 2 + opt.rect.left()
-                             : 0, opt.rect.top() + (opt.rect.height() / 2 - height / 2), opt.rect.width() - m_iconSize - LATERAL_MARGIN * 2, opt.fontMetrics.height());
-            painter->drawText(rectText, Qt::AlignLeft | Qt::AlignTop, opt.fontMetrics.elidedText(index.model()->data(index).toString(), Qt::ElideRight, rectText.width()));
-            QRect capacityRect(isLTR ? rectText.x() : LATERAL_MARGIN, rectText.bottom() - 1, rectText.width() - LATERAL_MARGIN, CAPACITYBAR_HEIGHT);
-            KCapacityBar capacityBar(KCapacityBar::DrawTextInline);
-            capacityBar.setValue((info.used() * 100) / info.size());
-            capacityBar.drawCapacityBar(painter, capacityRect);
+                int height = opt.fontMetrics.height() + CAPACITYBAR_HEIGHT;
+                rectText = QRect(isLTR ? m_iconSize + LATERAL_MARGIN * 2 + opt.rect.left()
+                                 : 0, opt.rect.top() + (opt.rect.height() / 2 - height / 2), opt.rect.width() - m_iconSize - LATERAL_MARGIN * 2, opt.fontMetrics.height());
+                painter->drawText(rectText, Qt::AlignLeft | Qt::AlignTop, opt.fontMetrics.elidedText(index.model()->data(index).toString(), Qt::ElideRight, rectText.width()));
+                QRect capacityRect(isLTR ? rectText.x() : LATERAL_MARGIN, rectText.bottom() - 1, rectText.width() - LATERAL_MARGIN, CAPACITYBAR_HEIGHT);
+                KCapacityBar capacityBar(KCapacityBar::DrawTextInline);
+                capacityBar.setValue((info.used() * 100) / info.size());
+                capacityBar.drawCapacityBar(painter, capacityRect);
 
-            painter->restore();
+                painter->restore();
 
-            painter->save();
-            painter->setOpacity(painter->opacity() * (1 - contentsOpacity(index)));
+                painter->save();
+                painter->setOpacity(painter->opacity() * (1 - contentsOpacity(index)));
+            }
         }
     }
 
@@ -244,7 +245,7 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
                      : 0, opt.rect.top(), opt.rect.width() - m_iconSize - LATERAL_MARGIN * 2, opt.rect.height());
     painter->drawText(rectText, Qt::AlignLeft | Qt::AlignVCenter, opt.fontMetrics.elidedText(index.model()->data(index).toString(), Qt::ElideRight, rectText.width()));
 
-    if (drawCapacityBar && contentsOpacity(index) > 0) {
+    if (drawCapacityBar) {
         painter->restore();
     }
 
