@@ -143,9 +143,9 @@ target_link_libraries(KF5KIOCore
 PUBLIC
  KF5::CoreAddons   # KJob
  KF5::Service
-PRIVATE
  Qt5::Network
  Qt5::Concurrent            # QtConcurrentRun in hostinfo.cpp
+PRIVATE
  Qt5::Xml                   # davjob.cpp uses QDom
  Qt5::DBus
  KF5::I18n
