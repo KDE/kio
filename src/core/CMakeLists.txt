@@ -145,9 +145,9 @@ PUBLIC
  KF5::Service
  Qt5::Network
  Qt5::Concurrent            # QtConcurrentRun in hostinfo.cpp
+ Qt5::DBus
 PRIVATE
  Qt5::Xml                   # davjob.cpp uses QDom
- Qt5::DBus
  KF5::I18n
  KF5::DBusAddons            # KDEInitInterface
 )
