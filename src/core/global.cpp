@@ -302,7 +302,7 @@ QString KIO::favIconForUrl(const QUrl &url)
 QString KIO::iconNameForUrl(const QUrl &url)
 {
     const QLatin1String unknown("unknown");
-    if (url.isEmpty()) {
+    if (url.scheme().isEmpty()) { // empty URL or relative URL (e.g. '~')
         return unknown;
     }
     QMimeDatabase db;

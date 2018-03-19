@@ -532,6 +532,10 @@ void KFileItemTest::testIconNameForUrl_data()
         QTest::newRow("videos") << QUrl::fromLocalFile(moviesPath) << (moviesPath == QDir::homePath() ? "user-home" : "folder-videos");
     }
 
+    QTest::newRow("empty") << QUrl() << "unknown";
+    QTest::newRow("relative") << QUrl("foo") << "unknown";
+    QTest::newRow("tilde") << QUrl("~") << "unknown";
+
     // TODO more tests
 }
 
