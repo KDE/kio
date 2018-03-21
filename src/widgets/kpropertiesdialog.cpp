@@ -2706,7 +2706,7 @@ bool KChecksumsPlugin::supports(const KFileItemList &items)
     }
 
     const KFileItem item = items.first();
-    return item.isFile() && item.isLocalFile() && item.isReadable() && !item.isDesktopFile() && !item.isLink();
+    return item.isFile() && !item.localPath().isEmpty() && item.isReadable() && !item.isDesktopFile() && !item.isLink();
 }
 
 void KChecksumsPlugin::slotInvalidateCache()
