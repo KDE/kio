@@ -650,19 +650,25 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
         if (!offers.isEmpty()) {
             QMenu *menu = topMenu;
 
-            if (offers.count() > 1) { // submenu 'open with'
+            // Always show the top app inline
+            QAction *act = d->createAppAction(offers.takeFirst(), true);
+            menu->addAction(act);
+
+            // If there are still more apps, show them in a sub-menu
+            if (!offers.isEmpty()) { // submenu 'open with'
                 menu = new QMenu(i18nc("@title:menu", "&Open With"), topMenu);
                 menu->menuAction()->setObjectName(QStringLiteral("openWith_submenu")); // for the unittest
                 topMenu->addMenu(menu);
-            }
-            //qDebug() << offers.count() << "offers" << topMenu << menu;
 
-            KService::List::ConstIterator it = offers.constBegin();
-            for (; it != offers.constEnd(); it++) {
-                QAction *act = d->createAppAction(*it,
-                                                  // no submenu -> prefix single offer
-                                                  menu == topMenu);
-                menu->addAction(act);
+                // Add other apps to the sub-menu
+                KService::List::ConstIterator it = offers.constBegin();
+                for (; it != offers.constEnd(); it++) {
+                    QAction *act = d->createAppAction(*it,
+                                                      // no submenu -> prefix single offer
+                                                      menu == topMenu);
+                    menu->addAction(act);
+                }
+                topMenu->addSeparator();
             }
 
             QString openWithActionName;
@@ -677,6 +683,7 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
             openWithAct->setObjectName(QStringLiteral("openwith_browse")); // for the unittest
             QObject::connect(openWithAct, SIGNAL(triggered()), d, SLOT(slotOpenWithDialog()));
             menu->addAction(openWithAct);
+            menu->addSeparator();
         } else { // no app offers -> Open With...
             QAction *act = new QAction(this);
             act->setText(i18nc("@title:menu", "&Open With..."));
