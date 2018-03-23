@@ -1591,13 +1591,17 @@ void KFileWidget::setSelectedUrl(const QUrl &url)
 
 void KFileWidgetPrivate::_k_slotLoadingFinished()
 {
-    if (locationEdit->currentText().isEmpty()) {
+    const QString currentText = locationEdit->currentText();
+    if (currentText.isEmpty()) {
         return;
     }
 
     ops->blockSignals(true);
     QUrl u(ops->url());
-    u.setPath(concatPaths(ops->url().path(), locationEdit->currentText()));
+    if (currentText.startsWith('/'))
+        u.setPath(currentText);
+    else
+        u.setPath(concatPaths(ops->url().path(), currentText));
     ops->setCurrentItem(u);
     ops->blockSignals(false);
 }
