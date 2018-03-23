@@ -60,6 +60,10 @@ find_package(KF5WidgetsAddons ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5WindowSystem ${KF5_DEP_VERSION} REQUIRED)
 endif()
 
+if (UNIX)
+    find_package(KF5Auth ${KF5_DEP_VERSION} REQUIRED)
+endif()
+
 # tell what is missing without doctools
 set_package_properties(KF5DocTools PROPERTIES DESCRIPTION "Provides tools to generate documentation in various format from DocBook files"
                        TYPE OPTIONAL
