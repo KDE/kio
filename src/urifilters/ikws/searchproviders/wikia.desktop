@@ -139,5 +139,5 @@ Query[wa]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=S
 Query[x-test]=xxhttp://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Searchxx
 Query[zh_CN]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[zh_TW]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
-ServiceTypes=SearchProvider
+X-KDE-ServiceTypes=SearchProvider
 Type=Service

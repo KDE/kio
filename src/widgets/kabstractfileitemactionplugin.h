@@ -59,7 +59,7 @@ class KFileItemListProperties;
  * Type=Service
  * Name=My fancy action plugin
  * X-KDE-Library=myactionplugin
- * ServiceTypes=KFileItemAction/Plugin
+ * X-KDE-ServiceTypes=KFileItemAction/Plugin
  * MimeType=some/mimetype;
  * \endcode
  *

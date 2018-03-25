@@ -140,5 +140,5 @@ Query[wa]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[x-test]=xxhttp://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0xx
 Query[zh_CN]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[zh_TW]=http://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
-ServiceTypes=SearchProvider
+X-KDE-ServiceTypes=SearchProvider
 Type=Service

@@ -63,7 +63,7 @@ class QWidget;
  * [Desktop Entry]
  * Type=Service
  * Name=Foo Documents
- * ServiceTypes=ThumbCreator
+ * X-KDE-ServiceTypes=ThumbCreator
  * MimeType=application/x-foo;
  * CacheThumbnail=true
  * X-KDE-Library=foothumbcreator

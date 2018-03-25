@@ -138,5 +138,5 @@ Query[wa]=http://www.amazon.fr/s/ref=nb_sb_noss?url=search-alias=aps&field-keywo
 Query[x-test]=xxhttp://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0xx
 Query[zh_CN]=http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[zh_TW]=http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
-ServiceTypes=SearchProvider
+X-KDE-ServiceTypes=SearchProvider
 Type=Service

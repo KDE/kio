@@ -123,5 +123,5 @@ Query[wa]=https://code.google.com/query/#q=\\{%2520}
 Query[x-test]=xxhttps://code.google.com/query/#q=\\{%2520}xx
 Query[zh_CN]=https://code.google.com/query/#q=\\{%2520}
 Query[zh_TW]=https://code.google.com/query/#q=\\{%2520}
-ServiceTypes=SearchProvider
+X-KDE-ServiceTypes=SearchProvider
 Type=Service

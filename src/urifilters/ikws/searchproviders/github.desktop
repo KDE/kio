@@ -125,5 +125,5 @@ Query[wa]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[x-test]=xxhttps://github.com/search?q=\\{@}&x=0&y=0xx
 Query[zh_CN]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[zh_TW]=https://github.com/search?q=\\{@}&x=0&y=0
-ServiceTypes=SearchProvider
+X-KDE-ServiceTypes=SearchProvider
 Type=Service

@@ -125,5 +125,5 @@ Query[wa]=https://gitorious.org/search?q=\\{@}&commit=Search
 Query[x-test]=xxhttps://gitorious.org/search?q=\\{@}&commit=Searchxx
 Query[zh_CN]=https://gitorious.org/search?q=\\{@}&commit=Search
 Query[zh_TW]=https://gitorious.org/search?q=\\{@}&commit=Search
-ServiceTypes=SearchProvider
+X-KDE-ServiceTypes=SearchProvider
 Type=Service

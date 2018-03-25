@@ -140,5 +140,5 @@ Query[wa]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[x-test]=xxhttp://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Searchxx
 Query[zh_CN]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[zh_TW]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
-ServiceTypes=SearchProvider
+X-KDE-ServiceTypes=SearchProvider
 Type=Service

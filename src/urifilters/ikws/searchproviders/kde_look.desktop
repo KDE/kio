@@ -140,5 +140,5 @@ Query[wa]=http://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[x-test]=xxhttp://www.kde-look.org/content/search.php?search=Search&name=\\{@}xx
 Query[zh_CN]=http://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[zh_TW]=http://www.kde-look.org/content/search.php?search=Search&name=\\{@}
-ServiceTypes=SearchProvider
+X-KDE-ServiceTypes=SearchProvider
 Type=Service

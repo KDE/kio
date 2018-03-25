@@ -139,5 +139,5 @@ Query[wa]=http://www.urbandictionary.com/define.php?term=\\{@}
 Query[x-test]=xxhttp://www.urbandictionary.com/define.php?term=\\{@}xx
 Query[zh_CN]=http://www.urbandictionary.com/define.php?term=\\{@}
 Query[zh_TW]=http://www.urbandictionary.com/define.php?term=\\{@}
-ServiceTypes=SearchProvider
+X-KDE-ServiceTypes=SearchProvider
 Type=Service

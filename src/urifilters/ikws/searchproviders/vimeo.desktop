@@ -125,5 +125,5 @@ Query[wa]=http://vimeo.com/search?q=\\{@}
 Query[x-test]=xxhttp://vimeo.com/search?q=\\{@}xx
 Query[zh_CN]=http://vimeo.com/search?q=\\{@}
 Query[zh_TW]=http://vimeo.com/search?q=\\{@}
-ServiceTypes=SearchProvider
+X-KDE-ServiceTypes=SearchProvider
 Type=Service

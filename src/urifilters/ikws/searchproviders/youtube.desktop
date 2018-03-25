@@ -123,6 +123,6 @@ Query[wa]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[x-test]=xxhttps://www.youtube.com/results?search_query=\\{@}&search_type=&aq=fxx
 Query[zh_CN]= http://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[zh_TW]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
-ServiceTypes=SearchProvider
+X-KDE-ServiceTypes=SearchProvider
 Type=Service
 Charset=utf8

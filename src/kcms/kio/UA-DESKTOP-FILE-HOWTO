@@ -17,7 +17,7 @@ must be set as shown below:
 
 Name=UADescription (XXXX)
 Type=Service
-ServiceTypes=UserAgentStrings
+X-KDE-ServiceTypes=UserAgentStrings
 
 Though the (XXXX) value shown above can be any text, it is a good idea 
 to make it a short identification of the browser being emulated.  However,
@@ -106,7 +106,7 @@ EXAMPLES:
 [Desktop Entry]
 Name=UADescription (IE 5.5 on Win 98)
 Type=Service
-ServiceTypes=UserAgentStrings
+X-KDE-ServiceTypes=UserAgentStrings
 X-KDE-UA-TAG=IE
 X-KDE-UA-FULL=Mozilla/4.0 (compatible; MSIE 5.5; Windows 98)
 X-KDE-UA-NAME=Internet Explorer
@@ -117,7 +117,7 @@ X-KDE-UA-SYSRELEASE=98
 [Desktop Entry]
 Name=UADescription (NN 4.76 on current)
 Type=Service
-ServiceTypes=UserAgentStrings
+X-KDE-ServiceTypes=UserAgentStrings
 X-KDE-UA-TAG=NN
 X-KDE-UA-FULL=Mozilla/4.76 (appPlatform; U; appSysName appSysRelease appMachineType)
 X-KDE-UA-NAME=Netscape Navigator

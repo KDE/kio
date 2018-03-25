@@ -139,5 +139,5 @@ Query[wa]=http://fr-be.7digital.com/Search?search=\\{@}&searchtype=global&submit
 Query[x-test]=xxhttp://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Searchxx
 Query[zh_CN]=http://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[zh_TW]=http://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
-ServiceTypes=SearchProvider
+X-KDE-ServiceTypes=SearchProvider
 Type=Service

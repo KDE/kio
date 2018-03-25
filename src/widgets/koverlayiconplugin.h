@@ -34,7 +34,7 @@ class QUrl;
  * Enables the file manager to show custom overlay icons on files.
  *
  * To write a custom plugin you need to create a .desktop file for your plugin with
- * KDE-ServiceTypes=KOverlayIconPlugin
+ * X-KDE-ServiceTypes=KOverlayIconPlugin
  *
  * @since 5.16
  */

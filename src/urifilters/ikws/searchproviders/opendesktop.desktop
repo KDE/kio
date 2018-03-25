@@ -138,5 +138,5 @@ Query[wa]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[x-test]=xxhttp://www.opendesktop.org/content/search.php?search=Search&name=\\{@}xx
 Query[zh_CN]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[zh_TW]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
-ServiceTypes=SearchProvider
+X-KDE-ServiceTypes=SearchProvider
 Type=Service

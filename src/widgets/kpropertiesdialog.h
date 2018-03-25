@@ -398,7 +398,7 @@ private:
  *
  * To make a plugin available, define a service that implements the KPropertiesDialog/Plugin
  * servicetype, as well as the mimetypes for which the plugin should be created.
- * For instance, ServiceTypes=KPropertiesDialog/Plugin,text/html,application/x-mymimetype.
+ * For instance, X-KDE-ServiceTypes=KPropertiesDialog/Plugin,text/html,application/x-mymimetype.
  *
  * You can also include X-KDE-Protocol=file if you want that plugin
  * to be loaded only for local files, for instance.

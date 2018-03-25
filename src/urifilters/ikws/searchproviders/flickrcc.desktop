@@ -123,5 +123,5 @@ Query[wa]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[x-test]=xxhttps://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1xx
 Query[zh_CN]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[zh_TW]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
-ServiceTypes=SearchProvider
+X-KDE-ServiceTypes=SearchProvider
 Type=Service
