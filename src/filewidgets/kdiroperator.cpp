@@ -55,6 +55,7 @@
 #include <kio/copyjob.h>
 #include <kio/jobuidelegate.h>
 #include <kio/previewjob.h>
+#include <KIO/OpenFileManagerWindowJob>
 #include <kfilepreviewgenerator.h>
 #include <krun.h>
 #include <kpropertiesdialog.h>
@@ -662,7 +663,12 @@ void KDirOperator::Private::_k_toggleInlinePreviews(bool show)
 
 void KDirOperator::Private::_k_slotOpenFileManager()
 {
-    new KRun(currUrl, parent);
+    const KFileItemList list = parent->selectedItems();
+    if (list.isEmpty()) {
+        KIO::highlightInFileManager({currUrl.adjusted(QUrl::StripTrailingSlash)});
+    } else {
+        KIO::highlightInFileManager(list.urlList());
+    }
 }
 
 void KDirOperator::Private::_k_slotSortByName()
@@ -1971,7 +1977,7 @@ void KDirOperator::setupActions()
     inlinePreview->setShortcut(Qt::Key_F12);
     connect(inlinePreview, SIGNAL(toggled(bool)), SLOT(_k_toggleInlinePreviews(bool)));
 
-    QAction *fileManager = new QAction(i18n("Open File Manager"), this);
+    QAction *fileManager = new QAction(i18n("Open Containing Folder"), this);
     d->actionCollection->addAction(QStringLiteral("file manager"), fileManager);
     fileManager->setIcon(QIcon::fromTheme(QStringLiteral("system-file-manager")));
     connect(fileManager, SIGNAL(triggered()), SLOT(_k_slotOpenFileManager()));
