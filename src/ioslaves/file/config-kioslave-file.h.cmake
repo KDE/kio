@@ -10,3 +10,6 @@
 /* Defined to if you have a d_type member in struct dirent */
 #cmakedefine01 HAVE_DIRENT_D_TYPE
 
+/* Defined if system has extended file attributes support. */
+#cmakedefine01 HAVE_SYS_XATTR_H
+

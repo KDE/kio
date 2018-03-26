@@ -37,7 +37,9 @@
 #include <kmountpoint.h>
 
 #include <errno.h>
+#if HAVE_SYS_XATTR_H
 #include <sys/xattr.h>
+#endif
 #include <utime.h>
 
 #include <KAuth>
@@ -411,7 +413,7 @@ static bool isLocalFileSameHost(const QUrl &url)
     return (QString::compare(url.host(), QLatin1String(hostname), Qt::CaseInsensitive) == 0);
 }
 
-#ifdef Q_OS_LINUX
+#if HAVE_SYS_XATTR_H
 static bool isNtfsHidden(const QString &filename)
 {
     constexpr auto attrName = "system.ntfs_attrib_be";
@@ -545,7 +547,7 @@ void FileProtocol::listDir(const QUrl &url)
 
         } else {
             if (createUDSEntry(filename, QByteArray(ep->d_name), entry, details)) {
-#ifdef Q_OS_LINUX
+#if HAVE_SYS_XATTR_H
                 if (isNtfsHidden(filename)) {
                     entry.insert(KIO::UDSEntry::UDS_HIDDEN, 1);
                 }

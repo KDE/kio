@@ -18,6 +18,8 @@ set(HAVE_POSIX_ACL ${ACL_FOUND})
 set_package_properties(ACL PROPERTIES DESCRIPTION "LibACL" URL "ftp://oss.sgi.com/projects/xfs/cmd_tars"
                        TYPE RECOMMENDED PURPOSE "Support for manipulating access control lists")
 
+check_include_files(sys/xattr.h HAVE_SYS_XATTR_H)
+
 configure_file(config-kioslave-file.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kioslave-file.h )
 
 add_library(kio_file MODULE ${kio_file_PART_SRCS})
