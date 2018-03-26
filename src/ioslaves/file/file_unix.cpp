@@ -37,6 +37,7 @@
 #include <kmountpoint.h>
 
 #include <errno.h>
+#include <sys/xattr.h>
 #include <utime.h>
 
 #include <KAuth>
@@ -410,6 +411,44 @@ static bool isLocalFileSameHost(const QUrl &url)
     return (QString::compare(url.host(), QLatin1String(hostname), Qt::CaseInsensitive) == 0);
 }
 
+#ifdef Q_OS_LINUX
+static bool isNtfsHidden(const QString &filename)
+{
+    constexpr auto attrName = "system.ntfs_attrib_be";
+    const auto filenameEncoded = QFile::encodeName(filename);
+    auto length = getxattr(filenameEncoded.data(), attrName, nullptr, 0);
+    if (length <= 0) {
+        return false;
+    }
+    constexpr size_t xattr_size = 1024;
+    char strAttr[xattr_size];
+    length = getxattr(filenameEncoded.data(), attrName, strAttr, xattr_size);
+    if (length <= 0) {
+        return false;
+    }
+
+    // Decode result to hex string
+    static constexpr auto digits = "0123456789abcdef";
+    QVarLengthArray<char> hexAttr(static_cast<int>(length) * 2 + 4);
+    char *c = strAttr;
+    char *e = hexAttr.data();
+    *e++ ='0';
+    *e++ = 'x';
+    for (auto n = 0; n < length; n++, c++) {
+        *e++ = digits[(static_cast<uchar>(*c) >> 4)];
+        *e++ = digits[(static_cast<uchar>(*c) & 0x0F)];
+    }
+    *e = '\0';
+
+    // Decode hex string to int
+    auto intAttr = static_cast<uint>(strtol(hexAttr.data(), nullptr, 16));
+
+    constexpr auto FILE_ATTRIBUTE_HIDDEN = 0x2u;
+    return static_cast<bool>(intAttr & FILE_ATTRIBUTE_HIDDEN);
+}
+#endif
+
+
 void FileProtocol::listDir(const QUrl &url)
 {
     if (!isLocalFileSameHost(url)) {
@@ -506,6 +545,11 @@ void FileProtocol::listDir(const QUrl &url)
 
         } else {
             if (createUDSEntry(filename, QByteArray(ep->d_name), entry, details)) {
+#ifdef Q_OS_LINUX
+                if (isNtfsHidden(filename)) {
+                    entry.insert(KIO::UDSEntry::UDS_HIDDEN, 1);
+                }
+#endif
                 listEntry(entry);
             }
         }
