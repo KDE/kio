@@ -63,6 +63,7 @@
 #else
 #include <sys/param.h>
 #endif
+#include <pwd.h>
 
 static bool expandTilde(QString &);
 static bool expandEnv(QString &);
@@ -275,6 +276,7 @@ public:
 protected:
     void run() Q_DECL_OVERRIDE
     {
+#ifndef Q_OS_ANDROID
         static const QChar tilde = '~';
 
         // we don't need to handle prepend here, right? ~user is always at pos 0
@@ -295,7 +297,7 @@ protected:
         }
 #endif
         addMatch(QString(tilde));
-
+#endif
         done();
     }
 };

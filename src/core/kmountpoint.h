@@ -83,6 +83,8 @@ public:
      * This function gives a list of all currently used mountpoints. (mtab)
      * @param infoNeeded Flags that specify which additional information
      * should be fetched.
+     *
+     * @note this method will return an empty list on Android
      */
     static List currentMountPoints(DetailsNeededFlags infoNeeded = BasicInfoNeeded);
 

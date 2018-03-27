@@ -17,7 +17,7 @@ add_subdirectory(kioexec)
 add_subdirectory(urifilters)
 add_subdirectory(kcms)
 
-if(NOT WIN32)
+if(NOT WIN32 AND NOT ANDROID)
   # arpa/nameser.h
   add_subdirectory(kpac)
 endif()

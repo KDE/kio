@@ -22,6 +22,7 @@
 #include <iostream>
 #include <unistd.h>
 #include <sys/socket.h>
+#include <string.h>
 
 // fix SOCK_NONBLOCK for e.g. macOS
 #ifndef SOCK_NONBLOCK

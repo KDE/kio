@@ -414,7 +414,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
     mp->d->mountPoint = QString("/");
     result.append(mp);
 
-#else
+#elif !defined(Q_OS_ANDROID)
     STRUCT_SETMNTENT mnttab;
     if ((mnttab = SETMNTENT(MNTTAB, "r")) == nullptr) {
         return result;

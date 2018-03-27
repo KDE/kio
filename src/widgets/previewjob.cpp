@@ -22,7 +22,9 @@
 
 #include "previewjob.h"
 
-#ifdef Q_OS_UNIX
+#define WITH_SHM defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID)
+
+#if WITH_SHM
 #include <sys/ipc.h>
 #include <sys/shm.h>
 #endif
@@ -194,7 +196,7 @@ PreviewJob::PreviewJob(const KFileItemList &items,
 
 PreviewJob::~PreviewJob()
 {
-#ifdef Q_OS_UNIX
+#if WITH_SHM
     Q_D(PreviewJob);
     if (d->shmaddr) {
         shmdt((char *)d->shmaddr);
@@ -640,7 +642,7 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
         job->addMetaData(QStringLiteral("sequence-index"), QString().setNum(sequenceIndex));
     }
 
-#ifdef Q_OS_UNIX
+#if WITH_SHM
     if (shmid == -1) {
         if (shmaddr) {
             shmdt((char *)shmaddr);
@@ -672,7 +674,7 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *, const QByteArray &data)
                  !currentItem.item.url().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot))
                 && !sequenceIndex;
     QImage thumb;
-#ifdef Q_OS_UNIX
+#if WITH_SHM
     if (shmaddr) {
         // Keep this in sync with kdebase/kioslave/thumbnail.cpp
         QDataStream str(data);

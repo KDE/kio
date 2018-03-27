@@ -20,6 +20,8 @@
 
 #include "../sharefd_p.h"
 #include "fdsender.h"
+#include <errno.h>
+#include <string.h>
 
 FdSender::FdSender(const std::string &path)
         : m_socketDes(-1)

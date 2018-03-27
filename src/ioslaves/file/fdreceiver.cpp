@@ -19,6 +19,7 @@
 ***/
 
 #include <QSocketNotifier>
+#include <errno.h>
 
 #include "sharefd_p.h"
 #include "fdreceiver.h"
