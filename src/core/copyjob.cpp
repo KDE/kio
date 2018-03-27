@@ -576,9 +576,7 @@ void CopyJobPrivate::slotReport()
     case STATE_RENAMING:
         q->setTotalAmount(KJob::Files, m_srcList.count());
     // fall-through intended
-#if QT_VERSION >= QT_VERSION_CHECK(5,8,0)
         Q_FALLTHROUGH();
-#endif
     case STATE_COPYING_FILES:
         q->setProcessedAmount(KJob::Files, m_processedFiles);
         if (m_bURLDirty) {
