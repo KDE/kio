@@ -282,12 +282,6 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
                                               QStringLiteral("Yesterday"), I18N_NOOP2("KFile System Bookmarks", "Yesterday"),
                                               QUrl(QStringLiteral("timeline:/yesterday")),  QStringLiteral("view-calendar-day"));
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              QStringLiteral("This Month"), I18N_NOOP2("KFile System Bookmarks", "This Month"),
-                                              QUrl(QStringLiteral("timeline:/thismonth")),  QStringLiteral("view-calendar-month"));
-        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              QStringLiteral("Last Month"), I18N_NOOP2("KFile System Bookmarks", "Last Month"),
-                                              QUrl(QStringLiteral("timeline:/lastmonth")),  QStringLiteral("view-calendar-month"));
-        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                               QStringLiteral("Documents"), I18N_NOOP2("KFile System Bookmarks", "Documents"),
                                              QUrl(QStringLiteral("search:/documents")),  QStringLiteral("folder-text"));
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
