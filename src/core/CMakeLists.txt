@@ -90,11 +90,11 @@ set(kiocore_SRCS
   ktcpsocket.cpp
   kssl/ksslsettings.cpp
 
-  kiocoredebug.cpp
-
   kioglobal_p.cpp
   batchrenamejob.cpp
 )
+
+ecm_qt_declare_logging_category(kiocore_SRCS HEADER kiocoredebug.h IDENTIFIER KIO_CORE CATEGORY_NAME kf5.kio.core)
 
 if (UNIX)
    set(kiocore_SRCS ${kiocore_SRCS}
