@@ -2,13 +2,15 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/.. )
 
 ########### next target ###############
 
+ecm_qt_declare_logging_category(kio_trash_PART_test_DEBUG_SRCS HEADER kiotrashdebug.h IDENTIFIER KIO_TRASH CATEGORY_NAME kf5.kio.trash)
+
 set(testtrash_SRCS
     testtrash.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../trashimpl.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../trashsizecache.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../discspaceutil.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../kinterprocesslock.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../kiotrashdebug.cpp
+    ${kio_trash_PART_test_DEBUG_SRCS}
 )
 
 include(ECMAddTests)
