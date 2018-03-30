@@ -603,7 +603,7 @@ static void copyLocalSymlink(const QString &src, const QString &dest, const QStr
     KIO::Job *job = KIO::copy(u, d, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     job->setUiDelegateExtension(nullptr);
-    QVERIFY2(job->exec(), qPrintable(job->error()));
+    QVERIFY2(job->exec(), qPrintable(QString::number(job->error())));
     QVERIFY(QT_LSTAT(QFile::encodeName(dest).constData(), &buf) == 0); // dest exists
     QCOMPARE(linkTarget(dest), expectedLinkTarget);
 
