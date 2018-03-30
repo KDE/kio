@@ -40,7 +40,7 @@ Name[tr]=Arch Linux Paket Araması
 Name[uk]=Пошук пакунків для Arch Linux
 Name[x-test]=xxArch Linux Package Searchxx
 Name[zh_CN]=Arch Linux 软件包搜索
-Name[zh_TW]=Arch Linux 套件搜尋
+Name[zh_TW]=Arch Linux 軟體包搜尋
 Query=http://www.archlinux.org/packages/?q=\\{@}
 Query[ast]=http://www.archlinux.org/packages/?q=\\{@}
 Query[ca]=http://www.archlinux.org/packages/?q=\\{@}
