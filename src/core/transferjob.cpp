@@ -186,7 +186,9 @@ void TransferJob::sendAsyncData(const QByteArray &dataForSlave)
 {
     Q_D(TransferJob);
     if (d->m_extraFlags & JobPrivate::EF_TransferJobNeedData) {
-        d->m_slave->send(MSG_DATA, dataForSlave);
+        if (d->m_slave) {
+            d->m_slave->send(MSG_DATA, dataForSlave);
+        }
         if (d->m_extraFlags & JobPrivate::EF_TransferJobDataSent) { // put job -> emit progress
             KIO::filesize_t size = processedAmount(KJob::Bytes) + dataForSlave.size();
             setProcessedAmount(KJob::Bytes, size);
