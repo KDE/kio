@@ -51,7 +51,9 @@ public:
 private:
     static sockaddr_un make_address(const std::string& path)
     {
-        sockaddr_un a{ AF_UNIX, {0}};
+        sockaddr_un a;
+        memset(&a, 0, sizeof a);
+        a.sun_family = AF_UNIX;
         std::string finalPath = "/tmp/" + path;
 #ifdef __linux__
         ::strcpy(&a.sun_path[1], finalPath.c_str());
