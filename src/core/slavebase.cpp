@@ -81,7 +81,7 @@ class SlaveBasePrivate
 public:
     SlaveBase *q;
     SlaveBasePrivate(SlaveBase *owner): q(owner), nextTimeoutMsecs(0), m_passwdServerClient(nullptr),
-                                        m_privilegeOperationStatus(OperationNotAllowed)
+                                        m_confirmationAsked(false), m_privilegeOperationStatus(OperationNotAllowed)
     {
         if (!qEnvironmentVariableIsEmpty("KIOSLAVE_ENABLE_TESTMODE")) {
             QStandardPaths::enableTestMode(true);
@@ -122,7 +122,23 @@ public:
     KPasswdServerClient *m_passwdServerClient;
     bool m_rootEntryListed = false;
 
+    bool m_confirmationAsked;
+    QString m_warningCaption;
+    QString m_warningMessage;
     int m_privilegeOperationStatus;
+
+    PrivilegeOperationStatus askConfirmation()
+    {
+        int status = q->messageBox(SlaveBase::WarningContinueCancel, m_warningMessage, m_warningCaption, QStringLiteral("Continue"), QStringLiteral("Cancel"));
+        switch (status) {
+        case SlaveBase::Continue:
+            return OperationAllowed;
+        case SlaveBase::Cancel:
+            return OperationCanceled;
+        default:
+            return OperationNotAllowed;
+        }
+    }
 
     // Reconstructs configGroup from configData and mIncomingMetaData
     void rebuildConfig()
@@ -455,6 +471,7 @@ void SlaveBase::error(int _errid, const QString &_text)
     //reset
     d->totalSize = 0;
     d->inOpenLoop = false;
+    d->m_confirmationAsked = false;
     d->m_privilegeOperationStatus = OperationNotAllowed;
 }
 
@@ -498,6 +515,7 @@ void SlaveBase::finished()
     d->totalSize = 0;
     d->inOpenLoop = false;
     d->m_rootEntryListed = false;
+    d->m_confirmationAsked = false;
     d->m_privilegeOperationStatus = OperationNotAllowed;
 }
 
@@ -1471,7 +1489,12 @@ PrivilegeOperationStatus SlaveBase::requestPrivilegeOperation()
         send(MSG_PRIVILEGE_EXEC);
         waitForAnswer(MSG_PRIVILEGE_EXEC, 0, buffer);
         QDataStream ds(buffer);
-        ds >> d->m_privilegeOperationStatus;
+        ds >> d->m_privilegeOperationStatus >> d->m_warningCaption >> d-> m_warningMessage;
+    }
+
+    if (d->m_privilegeOperationStatus == OperationAllowed && !d->m_confirmationAsked) {
+        d->m_privilegeOperationStatus = d->askConfirmation();
+        d->m_confirmationAsked = true;
     }
 
     return KIO::PrivilegeOperationStatus(d->m_privilegeOperationStatus);
