@@ -80,7 +80,8 @@ class SlaveBasePrivate
 {
 public:
     SlaveBase *q;
-    SlaveBasePrivate(SlaveBase *owner): q(owner), nextTimeoutMsecs(0), m_passwdServerClient(nullptr)
+    SlaveBasePrivate(SlaveBase *owner): q(owner), nextTimeoutMsecs(0), m_passwdServerClient(nullptr),
+                                        m_privilegeOperationStatus(OperationNotAllowed)
     {
         if (!qEnvironmentVariableIsEmpty("KIOSLAVE_ENABLE_TESTMODE")) {
             QStandardPaths::enableTestMode(true);
@@ -120,6 +121,8 @@ public:
 
     KPasswdServerClient *m_passwdServerClient;
     bool m_rootEntryListed = false;
+
+    int m_privilegeOperationStatus;
 
     // Reconstructs configGroup from configData and mIncomingMetaData
     void rebuildConfig()
@@ -452,6 +455,7 @@ void SlaveBase::error(int _errid, const QString &_text)
     //reset
     d->totalSize = 0;
     d->inOpenLoop = false;
+    d->m_privilegeOperationStatus = OperationNotAllowed;
 }
 
 void SlaveBase::connected()
@@ -494,6 +498,7 @@ void SlaveBase::finished()
     d->totalSize = 0;
     d->inOpenLoop = false;
     d->m_rootEntryListed = false;
+    d->m_privilegeOperationStatus = OperationNotAllowed;
 }
 
 void SlaveBase::needSubUrlData()
@@ -1461,8 +1466,13 @@ int SlaveBase::waitForHostInfo(QHostInfo &info)
 
 PrivilegeOperationStatus SlaveBase::requestPrivilegeOperation()
 {
-    QByteArray buffer;
-    send(MSG_PRIVILEGE_EXEC);
-    waitForAnswer(MSG_PRIVILEGE_EXEC, 0, buffer);
-    return KIO::PrivilegeOperationStatus(buffer.toInt());
+    if (d->m_privilegeOperationStatus == OperationNotAllowed) {
+        QByteArray buffer;
+        send(MSG_PRIVILEGE_EXEC);
+        waitForAnswer(MSG_PRIVILEGE_EXEC, 0, buffer);
+        QDataStream ds(buffer);
+        ds >> d->m_privilegeOperationStatus;
+    }
+
+    return KIO::PrivilegeOperationStatus(d->m_privilegeOperationStatus);
 }

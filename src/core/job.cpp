@@ -33,7 +33,6 @@
 #include <kio/jobuidelegateextension.h>
 #include "slave.h"
 #include "scheduler.h"
-#include "slavebase.h"
 
 using namespace KIO;
 
@@ -263,97 +262,73 @@ MetaData Job::outgoingMetaData() const
     return d_func()->m_outgoingMetaData;
 }
 
-PrivilegeOperationStatus JobPrivate::tryAskPrivilegeOpConfirmation()
+QByteArray JobPrivate::privilegeOperationData()
 {
-    if (m_confirmationAsked) {
-        return OperationAllowed;
-    }
+    PrivilegeOperationStatus status = OperationNotAllowed;
 
     if (m_parentJob) {
-        if (!m_parentJob->d_func()->m_privilegeExecutionEnabled) {
-            return OperationNotAllowed;
-        }
-
-        if (!m_parentJob->d_func()->m_confirmationAsked) {
-            PrivilegeOperationStatus opStatus = m_parentJob->d_func()->tryAskPrivilegeOpConfirmation();
-            if (opStatus == OperationAllowed) {
-                // Copy meta-data from parent job
-                m_incomingMetaData.insert(QStringLiteral("TestData"), m_parentJob->queryMetaData(QStringLiteral("TestData")));
-                m_confirmationAsked = true;
-            }
-            return opStatus;
-        } else {
-            return OperationAllowed;
-        }
+        QByteArray jobData = m_parentJob->d_func()->privilegeOperationData();
+        // Copy meta-data from parent job
+        m_incomingMetaData.insert(QStringLiteral("TestData"), m_parentJob->queryMetaData(QStringLiteral("TestData")));
+        return jobData;
     } else {
-        // In case of SimpleJob like chmod, chown, etc. which don't accept JobFlags
-        if (!m_privilegeExecutionEnabled) {
-            return OperationNotAllowed;
+        if (m_privilegeExecutionEnabled) {
+            status = OperationAllowed;
+            switch (m_operationType) {
+            case ChangeAttr:
+                m_caption = i18n("Change Attribute");
+                m_message = i18n("Root privileges are required to change file attributes. "
+                                 "Do you want to continue?");
+                break;
+            case Copy:
+                m_caption = i18n("Copy Files");
+                m_message = i18n("Root privileges are required to complete the copy operation. "
+                                 "Do you want to continue?");
+                break;
+            case Delete:
+                m_caption = i18n("Delete Files");
+                m_message = i18n("Root privileges are required to complete the delete operation. "
+                                 "However, doing so may damage your system. Do you want to continue?");
+                break;
+            case MkDir:
+                m_caption = i18n("Create Folder");
+                m_message = i18n("Root privileges are required to create this folder. "
+                                 "Do you want to continue?");
+                break;
+            case Move:
+                m_caption = i18n("Move Items");
+                m_message = i18n("Root privileges are required to complete the move operation. "
+                                 "Do you want to continue?");
+                break;
+            case Rename:
+                m_caption = i18n("Rename");
+                m_message = i18n("Root privileges are required to complete renaming. "
+                                 "Do you want to continue?");
+                break;
+            case Symlink:
+                m_caption = i18n("Create Symlink");
+                m_message = i18n("Root privileges are required to create a symlink. "
+                                 "Do you want to continue?");
+                break;
+            case Transfer:
+                m_caption = i18n("Transfer data");
+                m_message = i18n("Root privileges are required to complete transferring data. "
+                                 "Do you want to continue?");
+            default:
+                break;
+            }
+
+            if (m_outgoingMetaData.value(QStringLiteral("UnitTesting")) == QLatin1String("true")) {
+                // Set meta-data for the top-level job
+                m_incomingMetaData.insert(QStringLiteral("TestData"), QStringLiteral("PrivilegeOperationAllowed"));
+            }
         }
     }
 
-    switch (m_operationType) {
-    case ChangeAttr:
-        m_caption = i18n("Change Attribute");
-        m_message = i18n("Root privileges are required to change file attributes. "
-                         "Do you want to continue?");
-        break;
-    case Copy:
-        m_caption = i18n("Copy Files");
-        m_message = i18n("Root privileges are required to complete the copy operation. "
-                         "Do you want to continue?");
-        break;
-    case Delete:
-        m_caption = i18n("Delete Files");
-        m_message = i18n("Root privileges are required to complete the delete operation. "
-                         "However, doing so may damage your system. Do you want to continue?");
-        break;
-    case MkDir:
-        m_caption = i18n("Create Folder");
-        m_message = i18n("Root privileges are required to create this folder. "
-                         "Do you want to continue?");
-        break;
-    case Move:
-        m_caption = i18n("Move Items");
-        m_message = i18n("Root privileges are required to complete the move operation. "
-                         "Do you want to continue?");
-        break;
-    case Rename:
-        m_caption = i18n("Rename");
-        m_message = i18n("Root privileges are required to complete renaming. "
-                         "Do you want to continue?");
-        break;
-    case Symlink:
-        m_caption = i18n("Create Symlink");
-        m_message = i18n("Root privileges are required to create a symlink. "
-                         "Do you want to continue?");
-        break;
-    case Transfer:
-        m_caption = i18n("Transfer data");
-        m_message = i18n("Root privileges are required to complete transferring data. "
-                         "Do you want to continue?");
-    default:
-        break;
-    }
-
-    if (m_outgoingMetaData.value(QStringLiteral("UnitTesting")) == QLatin1String("true")) {
-        // Set meta-data for the top-level job
-        m_incomingMetaData.insert(QStringLiteral("TestData"), QStringLiteral("PrivilegeOperationAllowed"));
-        return OperationAllowed;
-    }
-
-    if (!m_uiDelegateExtension) {
-        return OperationNotAllowed;
-    }
-
-    int status = m_uiDelegateExtension->requestMessageBox(JobUiDelegateExtension::WarningContinueCancel,
-                                                          m_message, m_caption, i18n("Continue"), i18n("Cancel"));
-    m_confirmationAsked = true;
-
-    if (status == SlaveBase::Cancel) {
-        return OperationCanceled;
-    }
-    return OperationAllowed;
+    QByteArray parentJobData;
+    QDataStream ds(&parentJobData, QIODevice::WriteOnly);
+    ds << status << m_caption << m_message;
+    return parentJobData;
 }
 
 //////////////////////////

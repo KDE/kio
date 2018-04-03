@@ -49,7 +49,7 @@ public:
     JobPrivate()
         : m_parentJob(nullptr), m_extraFlags(0),
           m_uiDelegateExtension(KIO::defaultJobUiDelegateExtension()),
-          m_privilegeExecutionEnabled(false), m_confirmationAsked(false)
+          m_privilegeExecutionEnabled(false)
     {
     }
 
@@ -89,11 +89,10 @@ public:
     Job *q_ptr;
     // For privilege operation
     bool m_privilegeExecutionEnabled;
-    bool m_confirmationAsked;
     QString m_caption, m_message;
     FileOperationType m_operationType;
 
-    PrivilegeOperationStatus tryAskPrivilegeOpConfirmation();
+    QByteArray privilegeOperationData();
     void slotSpeed(KJob *job, unsigned long speed);
 
     static void emitMoving(KIO::Job *, const QUrl &src, const QUrl &dest);

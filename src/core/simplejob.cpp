@@ -338,7 +338,7 @@ void SimpleJob::storeSSLSessionFromJob(const QUrl &redirectionURL)
 
 void SimpleJobPrivate::slotPrivilegeOperationRequested()
 {
-    m_slave->send(MSG_PRIVILEGE_EXEC, QByteArray::number(tryAskPrivilegeOpConfirmation()));
+    m_slave->send(MSG_PRIVILEGE_EXEC, privilegeOperationData());
 }
 
 //////////
