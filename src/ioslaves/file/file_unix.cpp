@@ -847,7 +847,8 @@ PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType
         out << arg;
     }
 
-    KAuth::Action execAction(QStringLiteral("org.kde.kio.file.exec"));
+    const QString actionId = QStringLiteral("org.kde.kio.file.exec");
+    KAuth::Action execAction(actionId);
     execAction.setHelperId(QStringLiteral("org.kde.kio.file"));
 
     QVariantMap argv;
@@ -856,6 +857,7 @@ PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType
 
     auto reply = execAction.execute();
     if (reply->exec()) {
+        addTemporaryAuthorization(actionId);
         return PrivilegeOperationReturnValue::success();
     }
 

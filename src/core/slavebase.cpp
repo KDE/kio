@@ -123,6 +123,7 @@ public:
     bool m_rootEntryListed = false;
 
     bool m_confirmationAsked;
+    QSet<QString> m_tempAuths;
     QString m_warningCaption;
     QString m_warningMessage;
     int m_privilegeOperationStatus;
@@ -1498,4 +1499,9 @@ PrivilegeOperationStatus SlaveBase::requestPrivilegeOperation()
     }
 
     return KIO::PrivilegeOperationStatus(d->m_privilegeOperationStatus);
+}
+
+void SlaveBase::addTemporaryAuthorization(const QString &action)
+{
+    d->m_tempAuths.insert(action);
 }

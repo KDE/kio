@@ -943,6 +943,15 @@ public:
      */
     PrivilegeOperationStatus requestPrivilegeOperation();
 
+    /**
+      * Adds @p action to the list of PolicyKit actions which the
+      * slave is authorized to perform.
+      *
+      * @param action the PolicyKit action
+      * @since 5.45
+      */
+    void addTemporaryAuthorization(const QString &action);
+
 protected:
     /**
      * Name of the protocol supported by this slave
