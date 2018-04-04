@@ -38,6 +38,7 @@ public:
     QDateTime mBirthDate;
     bool mOnHold;
     QUrl mUrl;
+    bool mHasTempAuth;
 };
 
 IdleSlave::IdleSlave(QObject *parent)
@@ -49,6 +50,7 @@ IdleSlave::IdleSlave(QObject *parent)
     d->mPid = 0;
     d->mBirthDate = QDateTime::currentDateTime();
     d->mOnHold = false;
+    d->mHasTempAuth = false;
 }
 
 IdleSlave::~IdleSlave()
@@ -65,7 +67,7 @@ void IdleSlave::gotInput()
         deleteLater();
     } else if (cmd == MSG_SLAVE_ACK) {
         deleteLater();
-    } else if (cmd != MSG_SLAVE_STATUS) {
+    } else if (cmd != MSG_SLAVE_STATUS_V2 && cmd != MSG_SLAVE_STATUS) {
         qCritical() << "Unexpected data from KIO slave.";
         deleteLater();
     } else {
@@ -74,15 +76,26 @@ void IdleSlave::gotInput()
         QByteArray protocol;
         QString host;
         qint8 b;
-        stream >> pid >> protocol >> host >> b;
         // Overload with (bool) onHold, (QUrl) url.
-        if (!stream.atEnd()) {
+        stream >> pid >> protocol >> host >> b;
+        if (cmd == MSG_SLAVE_STATUS_V2) {
             QUrl url;
-            stream >> url;
-            d->mOnHold = true;
-            d->mUrl = url;
+            bool onHold;
+            bool tempAuth;
+            stream >> onHold >> url >> tempAuth;
+            d->mHasTempAuth = tempAuth;
+            if (onHold) {
+                d->mOnHold = onHold;
+                d->mUrl = url;
+            }
+        } else { // compat code for KF < 5.45. TODO KF6: remove
+            if (!stream.atEnd()) {
+                QUrl url;
+                stream >> url;
+                d->mOnHold = true;
+                d->mUrl = url;
+            }
         }
-
         d->mPid = pid;
         d->mConnected = (b != 0);
         d->mProtocol = QString::fromLatin1(protocol);
@@ -142,4 +155,9 @@ QString IdleSlave::protocol() const
 Connection *IdleSlave::connection() const
 {
     return &d->mConn;
+}
+
+bool IdleSlave::hasTempAuthorization() const
+{
+    return d->mHasTempAuth;
 }

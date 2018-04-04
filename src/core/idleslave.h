@@ -55,6 +55,7 @@ public:
     bool onHold(const QUrl &url) const;
     QString protocol() const;
     Connection *connection() const;
+    bool hasTempAuthorization() const;
 
 Q_SIGNALS:
     void statusUpdate(IdleSlave *);
