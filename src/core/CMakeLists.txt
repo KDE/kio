@@ -152,6 +152,10 @@ PRIVATE
  KF5::DBusAddons            # KDEInitInterface
 )
 
+if (UNIX)
+  target_link_libraries(KF5KIOCore PRIVATE KF5::Auth)   #SlaveBase uses KAuth::Action
+endif()
+
 if(ACL_FOUND)
   target_link_libraries(KF5KIOCore PRIVATE ${ACL_LIBS})
 endif()

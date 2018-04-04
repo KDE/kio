@@ -59,6 +59,10 @@
 #endif
 #endif
 
+#ifdef Q_OS_UNIX
+#include <KAuth>
+#endif
+
 extern "C" {
     Q_NORETURN static void sigsegv_handler(int sig);
     static void sigpipe_handler(int sig);
@@ -139,6 +143,26 @@ public:
         default:
             return OperationNotAllowed;
         }
+    }
+
+    void updateTempAuthStatus()
+    {
+#ifdef Q_OS_UNIX
+        QSet<QString>::const_iterator it = m_tempAuths.begin();
+        while (it != m_tempAuths.end()) {
+            KAuth::Action action(*it);
+            if (action.status() != KAuth::Action::AuthorizedStatus) {
+                it = m_tempAuths.erase(it);
+            } else {
+                ++it;
+            }
+        }
+#endif
+    }
+
+    bool hasTempAuth() const
+    {
+        return !m_tempAuths.isEmpty();
     }
 
     // Reconstructs configGroup from configData and mIncomingMetaData
@@ -332,6 +356,7 @@ void SlaveBase::dispatchLoop()
                 disconnectSlave();
                 d->isConnectedToApp = false;
                 closeConnection();
+                d->updateTempAuthStatus();
                 connectSlave(d->poolSocket);
             } else {
                 break;
@@ -529,7 +554,7 @@ void SlaveBase::slaveStatus(const QString &host, bool connected)
 {
     qint64 pid = getpid();
     qint8 b = connected ? 1 : 0;
-    KIO_DATA << pid << mProtocol << host << b << d->onHold << d->onHoldUrl;
+    KIO_DATA << pid << mProtocol << host << b << d->onHold << d->onHoldUrl << d->hasTempAuth();
     send(MSG_SLAVE_STATUS_V2, data);
 }
 
