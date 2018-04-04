@@ -85,7 +85,8 @@ enum Message {
     MSG_OPENED,
     MSG_WRITTEN,
     MSG_HOST_INFO_REQ,
-    MSG_PRIVILEGE_EXEC
+    MSG_PRIVILEGE_EXEC,
+    MSG_SLAVE_STATUS_V2
     // add new ones here once a release is done, to avoid breaking binary compatibility
 };
 

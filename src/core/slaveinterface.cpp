@@ -191,7 +191,8 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         //qDebug() << "error " << i << " " << str1;
         emit error(i, str1);
         break;
-    case MSG_SLAVE_STATUS: {
+    case MSG_SLAVE_STATUS:
+    case MSG_SLAVE_STATUS_V2: {
         qint64 pid;
         QByteArray protocol;
         stream >> pid >> protocol >> str1 >> b;

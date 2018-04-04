@@ -529,11 +529,8 @@ void SlaveBase::slaveStatus(const QString &host, bool connected)
 {
     qint64 pid = getpid();
     qint8 b = connected ? 1 : 0;
-    KIO_DATA << pid << mProtocol << host << b;
-    if (d->onHold) {
-        stream << d->onHoldUrl;
-    }
-    send(MSG_SLAVE_STATUS, data);
+    KIO_DATA << pid << mProtocol << host << b << d->onHold << d->onHoldUrl;
+    send(MSG_SLAVE_STATUS_V2, data);
 }
 
 void SlaveBase::canResume()
