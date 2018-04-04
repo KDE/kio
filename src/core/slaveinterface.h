@@ -74,7 +74,7 @@ enum Message {
     MSG_LIST_ENTRIES,
     MSG_RENAMED, ///< unused
     MSG_RESUME,
-    MSG_SLAVE_STATUS,
+    MSG_SLAVE_STATUS, ///< only for compatibility, use V2 for KF >= 5.45. TODO KF6: remove
     MSG_SLAVE_ACK, // 110
     MSG_NET_REQUEST,
     MSG_NET_DROP,
