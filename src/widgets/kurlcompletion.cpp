@@ -62,8 +62,8 @@
 #include <qt_windows.h>
 #else
 #include <sys/param.h>
-#endif
 #include <pwd.h>
+#endif
 
 static bool expandTilde(QString &);
 static bool expandEnv(QString &);
