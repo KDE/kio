@@ -52,6 +52,8 @@ KDirOperatorDetailView::~KDirOperatorDetailView()
 
 void KDirOperatorDetailView::setModel(QAbstractItemModel *model)
 {
+    QTreeView::setModel(model);
+
     if (model->rowCount() == 0) {
         // The model is empty. Assure that the columns get automatically resized
         // until the loading has been finished.
@@ -62,8 +64,6 @@ void KDirOperatorDetailView::setModel(QAbstractItemModel *model)
     } else {
         resetResizing();
     }
-
-    QTreeView::setModel(model);
 }
 
 bool KDirOperatorDetailView::setViewMode(KFile::FileView viewMode)
