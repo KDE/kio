@@ -1515,7 +1515,9 @@ PrivilegeOperationStatus SlaveBase::requestPrivilegeOperation()
         ds >> d->m_privilegeOperationStatus >> d->m_warningCaption >> d-> m_warningMessage;
     }
 
-    if (d->m_privilegeOperationStatus == OperationAllowed && !d->m_confirmationAsked) {
+    if (metaData(QStringLiteral("UnitTesting")) != QLatin1String("true") &&
+            d->m_privilegeOperationStatus == OperationAllowed &&
+            !d->m_confirmationAsked) {
         d->m_privilegeOperationStatus = d->askConfirmation();
         d->m_confirmationAsked = true;
     }
