@@ -1,0 +1,142 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % German "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="useragent" lang="&language;">
+<title
+>Browserkennung</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<othercredit role="translator"
+><firstname
+>Frank</firstname
+><surname
+>Schütte</surname
+><affiliation
+><address
+><email
+>F.Schuette@t-online.de</email
+></address
+></affiliation
+><contrib
+>Übersetzung</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systemeinstellungen</keyword>
+<keyword
+>Browserkennung</keyword>
+<keyword
+>Browser</keyword>
+<keyword
+>Kennung</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="user-agent">
+<title
+>Browserkennung</title>
+
+
+<sect2 id="user-agent-intro">
+<title
+>Einleitung</title>
+
+<para
+>Wenn &konqueror; die Verbindung zu einer Web-Seite herstellt, werden einige grundlegende Informationen zur Identifikation in Form einer <quote
+>Browserkennung</quote
+> übertragen.</para>
+
+<para
+>Da es geringe Unterschiede in der Arbeitsweise verschiedener Webbrowser gibt, werden Web-Seiten, die sehr von der Arbeitsweise eines bestimmten Browsers abhängen, auf anderen Browsern häufig nicht korrekt dargestellt. Intelligente Websites werten die Informationen der Browserkennung aus, um den &HTML;-Code ihrer Seiten an unterschiedliche Browser anzupassen.</para>
+
+<para
+>Einige Webserver gehen so weit, anderen als den <quote
+>geeigneten</quote
+> Browsern die Verbindung zu verweigern. In diesen Fällen könnte es für Sie notwendig werden, diesen Webserver zu täuschen, indem Sie &konqueror; dazu veranlassen, sich durch eine falsche Browserkennung als <quote
+>geeigneter</quote
+> Browser auszugeben.</para>
+
+</sect2>
+
+<sect2 id="user-agent-use">
+<title
+>Benutzung</title>
+
+<para
+>In diesem Modul können Sie festlegen, als welcher Browser-Typ sich &konqueror; identifiziert. Diese Informationen können für jeden Webserver einzeln festgelegt werden. Standardmäßig ist das Listenfeld <guilabel
+>Site/Domain-spezifische Kennung</guilabel
+> leer, sodass &konqueror; immer die eingestellte Standard-Kennung verwendet.</para>
+
+<para
+>Sie können das Versenden der Browserkennung auch komplett abschalten, indem Sie das Ankreuzfeld <guilabel
+>Kennung senden</guilabel
+> deaktivieren. Dies kann auf einigen Webseiten ein eigenartiges Verhalten hervorrufen. Einige dieser Seiten könnten Ihnen sogar den Zugriff verweigern. Sie sollten diese Deaktivierung also mit Vorsicht handhaben.</para>
+
+<para
+>Um eine neue Kennung einzutragen, klicken Sie auf <guibutton
+>Neu ...</guibutton
+>. Dann geben Sie den Namen eines Servers oder einer Domain in das Eingabefeld <guilabel
+>Bei Verbindung mit</guilabel
+> oben im angezeigten Dialog ein.</para>
+
+<para
+>Beachten Sie, dass das Zeichen <token
+>*</token
+> in diesem Eingabefeld <emphasis
+>nicht</emphasis
+> verwendet werden darf. Allerdings steht die Eingabe <userinput
+>kde.org</userinput
+> für alle Rechner der Domain <systemitem
+>kde.org</systemitem
+></para>
+
+<para
+>Als nächstes wählen Sie im Kombinationsfeld <guilabel
+>Folgende Kennung angeben</guilabel
+> die Kennung aus, mit der sich &konqueror; bei dem Server anmelden soll. Darunter wird die <guilabel
+>Reale Kennung</guilabel
+> angezeigt, die zum Server gesendet wird.</para>
+
+<para
+>Sie können auch auf einen vorhandenen Eintrag des Listenfeldes klicken und diesen über <guilabel
+>Ändern ...</guilabel
+> bearbeiten, um die Einträge Ihren Erfordernissen anzupassen.</para>
+
+<para
+>Um einen Eintrag aus dem Listenfeld zu entfernen, wählen Sie den Eintrag im Listenfeld aus und klicken Sie auf <guibutton
+>Löschen</guibutton
+>. Der Knopf <guibutton
+>Alle löschen</guibutton
+> entfernt alle Browserkennungen. Klicken Sie auf <guibutton
+>Anwenden</guibutton
+>, um Ihre Änderungen zu speichern.</para>
+
+<para
+>Sie können die Ankreuzfelder oben verwenden, um eine Browserkennung zu erstellen, die genau auf Ihr System angepasst ist. Wählen Sie dazu die von Ihnen gewünschte Kombination aus Betriebssystemname und -version, Plattform, Prozessortyp und Spracheinstellung.</para>
+
+<para
+>In allen Fällen wird die Browserkennung, die standardmäßig gesendet wird, in fetter Schrift oben auf der Seite angezeigt.</para>
+
+</sect2>
+
+</sect1>
+
+</article>
