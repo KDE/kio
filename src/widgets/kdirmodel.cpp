@@ -404,16 +404,16 @@ void KDirModel::setDirLister(KDirLister *dirLister)
     }
     d->m_dirLister = dirLister;
     d->m_dirLister->setParent(this);
-    connect(d->m_dirLister, SIGNAL(itemsAdded(QUrl,KFileItemList)),
-            this, SLOT(_k_slotNewItems(QUrl,KFileItemList)));
-    connect(d->m_dirLister, SIGNAL(itemsDeleted(KFileItemList)),
-            this, SLOT(_k_slotDeleteItems(KFileItemList)));
-    connect(d->m_dirLister, SIGNAL(refreshItems(QList<QPair<KFileItem,KFileItem> >)),
-            this, SLOT(_k_slotRefreshItems(QList<QPair<KFileItem,KFileItem> >)));
-    connect(d->m_dirLister, SIGNAL(clear()),
-            this, SLOT(_k_slotClear()));
-    connect(d->m_dirLister, SIGNAL(redirection(QUrl,QUrl)),
-            this, SLOT(_k_slotRedirection(QUrl,QUrl)));
+    connect(d->m_dirLister, &KCoreDirLister::itemsAdded, this,
+        [this](const QUrl &dirUrl, const KFileItemList &items){d->_k_slotNewItems(dirUrl, items);} );
+    connect(d->m_dirLister, &KCoreDirLister::itemsDeleted, this,
+        [this](const KFileItemList &items){d->_k_slotDeleteItems(items);} );
+    connect(d->m_dirLister, &KCoreDirLister::refreshItems, this,
+        [this](const QList<QPair<KFileItem,KFileItem> > &items){d->_k_slotRefreshItems(items);} );
+    connect(d->m_dirLister, QOverload<>::of(&KCoreDirLister::clear), this,
+        [this](){d->_k_slotClear();} );
+    connect(d->m_dirLister, QOverload<const QUrl&, const QUrl&>::of(&KCoreDirLister::redirection), this,
+        [this](const QUrl &oldUrl, const QUrl &newUrl){d->_k_slotRedirection(oldUrl, newUrl);} );
 }
 
 KDirLister *KDirModel::dirLister() const
