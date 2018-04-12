@@ -34,7 +34,7 @@
 
 KDirOperatorDetailView::KDirOperatorDetailView(QWidget *parent) :
     QTreeView(parent),
-    m_resizeColumns(true), m_hideDetailColumns(false)
+    m_hideDetailColumns(false)
 {
     setRootIsDecorated(false);
     setSortingEnabled(true);
@@ -48,22 +48,6 @@ KDirOperatorDetailView::KDirOperatorDetailView(QWidget *parent) :
 
 KDirOperatorDetailView::~KDirOperatorDetailView()
 {
-}
-
-void KDirOperatorDetailView::setModel(QAbstractItemModel *model)
-{
-    QTreeView::setModel(model);
-
-    if (model->rowCount() == 0) {
-        // The model is empty. Assure that the columns get automatically resized
-        // until the loading has been finished.
-        QAbstractProxyModel *proxyModel = static_cast<QAbstractProxyModel *>(model);
-        KDirModel *dirModel = static_cast<KDirModel *>(proxyModel->sourceModel());
-        connect(dirModel->dirLister(), SIGNAL(completed()),
-                this, SLOT(resetResizing()));
-    } else {
-        resetResizing();
-    }
 }
 
 bool KDirOperatorDetailView::setViewMode(KFile::FileView viewMode)
@@ -100,7 +84,9 @@ bool KDirOperatorDetailView::event(QEvent *event)
 {
     if (event->type() == QEvent::Polish) {
         QHeaderView *headerView = header();
-        headerView->setSectionResizeMode(QHeaderView::Interactive);
+        headerView->setSectionResizeMode(0, QHeaderView::Stretch);
+        headerView->setSectionResizeMode(1, QHeaderView::ResizeToContents);
+        headerView->setSectionResizeMode(2, QHeaderView::ResizeToContents);
         headerView->setStretchLastSection(false);
         headerView->setSectionsMovable(false);
 
@@ -127,12 +113,6 @@ void KDirOperatorDetailView::dragEnterEvent(QDragEnterEvent *event)
     }
 }
 
-void KDirOperatorDetailView::resizeEvent(QResizeEvent *event)
-{
-    QTreeView::resizeEvent(event);
-    expandNameColumn();
-}
-
 void KDirOperatorDetailView::mousePressEvent(QMouseEvent *event)
 {
     QTreeView::mousePressEvent(event);
@@ -150,32 +130,3 @@ void KDirOperatorDetailView::currentChanged(const QModelIndex &current, const QM
 {
     QTreeView::currentChanged(current, previous);
 }
-
-void KDirOperatorDetailView::resetResizing()
-{
-    connect(model(), &QAbstractItemModel::layoutChanged, this, &KDirOperatorDetailView::expandNameColumn,
-            Qt::UniqueConnection);
-
-    expandNameColumn();
-    m_resizeColumns = false;
-}
-
-void KDirOperatorDetailView::expandNameColumn()
-{
-    if (m_resizeColumns) {
-        QHeaderView *headerView = header();
-        headerView->resizeSections(QHeaderView::ResizeToContents);
-
-        int notNameWidth = 0;
-        const int count = headerView->count();
-        for (int i = 1; i < count; ++i) {
-            notNameWidth += headerView->sectionSize(i);
-        }
-
-        // try to stretch the name column if enough width is available
-        const int oldNameColumnWidth = headerView->sectionSize(KDirModel::Name);
-        const int nameColumnWidth = qMax(oldNameColumnWidth, viewport()->width() - notNameWidth);
-        headerView->resizeSection(KDirModel::Name, nameColumnWidth);
-    }
-}
-
