@@ -108,9 +108,9 @@ public:
     QDateTime tOrig;
     // Path to thumbnail cache for the current size
     QString thumbPath;
-    // Original URL of current item in TMS format
-    // (file:///path/to/file instead of file:/path/to/file)
-    QString origName;
+    // Original URL of current item in RFC2396 format
+    // (file:///path/to/a%20file instead of file:/path/to/a file)
+    QByteArray origName;
     // Thumbnail file name for current item
     QString thumbName;
     // Size of thumbnail
@@ -529,7 +529,7 @@ bool PreviewJobPrivate::statResultThumbnail()
     QUrl url = currentItem.item.mostLocalUrl();
     // Don't include the password if any
     url.setPassword(QString());
-    origName = url.toString();
+    origName = url.toEncoded();
 
     QCryptographicHash md5(QCryptographicHash::Md5);
     md5.addData(QFile::encodeName(origName));
