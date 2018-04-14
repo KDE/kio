@@ -674,7 +674,7 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
             QString openWithActionName;
             if (menu != topMenu) { // submenu
                 menu->addSeparator();
-                openWithActionName = i18nc("@action:inmenu Open With", "&Other...");
+                openWithActionName = i18nc("@action:inmenu Open With", "&Other Application...");
             } else {
                 openWithActionName = i18nc("@title:menu", "&Open With...");
             }
