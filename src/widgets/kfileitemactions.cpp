@@ -607,9 +607,6 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
     // "Open With..." for folders is really not very useful, especially for remote folders.
     // (media:/something, or trash:/, or ftp://...)
     if (!d->m_props.isDirectory() || isLocal) {
-        if (!topMenu->actions().isEmpty()) {
-            topMenu->addSeparator();
-        }
 
         QAction *runAct = new QAction(this);
         QString runActionName;
@@ -650,9 +647,11 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
         if (!offers.isEmpty()) {
             QMenu *menu = topMenu;
 
-            // Always show the top app inline
-            QAction *act = d->createAppAction(offers.takeFirst(), true);
-            menu->addAction(act);
+            // Show the top app inline for files, but not folders
+            if (!d->m_props.isDirectory()) {
+                QAction *act = d->createAppAction(offers.takeFirst(), true);
+                menu->addAction(act);
+            }
 
             // If there are still more apps, show them in a sub-menu
             if (!offers.isEmpty()) { // submenu 'open with'
