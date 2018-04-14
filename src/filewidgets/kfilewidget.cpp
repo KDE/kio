@@ -530,17 +530,23 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     QAction *separator2 = new QAction(this);
     separator2->setSeparator(true);
 
+    QAction *separator3 = new QAction(this);
+    separator3->setSeparator(true);
+
     d->toolbar->addAction(coll->action(QStringLiteral("back")));
     d->toolbar->addAction(coll->action(QStringLiteral("forward")));
     d->toolbar->addAction(coll->action(QStringLiteral("up")));
     d->toolbar->addAction(coll->action(QStringLiteral("reload")));
     d->toolbar->addAction(separator);
+    d->toolbar->addAction(coll->action(QStringLiteral("short view")));
+    d->toolbar->addAction(coll->action(QStringLiteral("detailed tree view")));
+    d->toolbar->addAction(separator2);
     d->toolbar->addAction(coll->action(QStringLiteral("inline preview")));
     d->toolbar->addWidget(midSpacer);
     d->toolbar->addAction(furtherAction);
     d->toolbar->addWidget(d->iconSizeSlider);
     d->toolbar->addAction(closerAction);
-    d->toolbar->addAction(separator2);
+    d->toolbar->addAction(separator3);
     d->toolbar->addAction(coll->action(QStringLiteral("mkdir")));
     d->toolbar->addAction(menu);
 
