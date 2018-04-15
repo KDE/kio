@@ -503,6 +503,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
 
     d->iconSizeSlider = new QSlider(this);
     d->iconSizeSlider->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
+    d->iconSizeSlider->setMinimumWidth(40);
     d->iconSizeSlider->setOrientation(Qt::Horizontal);
     d->iconSizeSlider->setMinimum(0);
     d->iconSizeSlider->setMaximum(100);
