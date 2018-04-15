@@ -69,6 +69,9 @@ QList<KProtocolInfoPrivate *> KProtocolInfoFactory::allProtocols()
 
 KProtocolInfoPrivate *KProtocolInfoFactory::findProtocol(const QString &protocol)
 {
+    Q_ASSERT(!protocol.isEmpty());
+    Q_ASSERT(!protocol.contains(':'));
+
     QMutexLocker locker(&m_mutex);
 
     const bool filled = fillCache();
