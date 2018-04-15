@@ -2025,11 +2025,8 @@ QPushButton *KFileWidget::cancelButton() const
 // Called by KFileDialog
 void KFileWidget::slotCancel()
 {
-//     qDebug();
-
-    d->ops->close();
-
     d->writeViewConfig();
+    d->ops->close();
 }
 
 void KFileWidget::setKeepLocation(bool keep)
