@@ -46,7 +46,6 @@
 #include <krecentdocument.h>
 #include <ktoolbar.h>
 #include <kurlcompletion.h>
-#include <kuser.h>
 #include <kprotocolmanager.h>
 #include <kio/pixmaploader.h>
 #include <kio/job.h>
@@ -451,8 +450,8 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     // http://lists.kde.org/?l=kde-core-devel&m=116888382514090&w=2
 
     coll->action(QStringLiteral("up"))->setWhatsThis(i18n("<qt>Click this button to enter the parent folder.<br /><br />"
-                                          "For instance, if the current location is file:/home/%1 clicking this "
-                                          "button will take you to file:/home.</qt>",  KUser().loginName()));
+                                          "For instance, if the current location is file:/home/konqi clicking this "
+                                          "button will take you to file:/home.</qt>"));
 
     coll->action(QStringLiteral("back"))->setWhatsThis(i18n("Click this button to move backwards one step in the browsing history."));
     coll->action(QStringLiteral("forward"))->setWhatsThis(i18n("Click this button to move forward one step in the browsing history."));
