@@ -2060,6 +2060,7 @@ void KDirOperator::setupMenu(int whichActions)
 
     if (whichActions & ViewActions) {
         d->actionMenu->addAction(d->actionCollection->action(QStringLiteral("view menu")));
+        d->actionMenu->addAction(d->actionCollection->action(QStringLiteral("reload")));
         d->actionMenu->addSeparator();
     }
 
