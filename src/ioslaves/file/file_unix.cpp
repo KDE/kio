@@ -418,13 +418,21 @@ static bool isNtfsHidden(const QString &filename)
 {
     constexpr auto attrName = "system.ntfs_attrib_be";
     const auto filenameEncoded = QFile::encodeName(filename);
+#ifdef Q_OS_MACOS
+    auto length = getxattr(filenameEncoded.data(), attrName, nullptr, 0, 0, XATTR_NOFOLLOW);
+#else
     auto length = getxattr(filenameEncoded.data(), attrName, nullptr, 0);
+#endif
     if (length <= 0) {
         return false;
     }
     constexpr size_t xattr_size = 1024;
     char strAttr[xattr_size];
+#ifdef Q_OS_MACOS
+    length = getxattr(filenameEncoded.data(), attrName, strAttr, xattr_size, 0, XATTR_NOFOLLOW);
+#else
     length = getxattr(filenameEncoded.data(), attrName, strAttr, xattr_size);
+#endif
     if (length <= 0) {
         return false;
     }

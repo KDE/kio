@@ -1941,6 +1941,9 @@ static bool fileSystemSupportsACL(const QByteArray &path)
 #ifdef Q_OS_FREEBSD
     struct statfs buf;
     fileSystemSupportsACLs = (statfs(path.data(), &buf) == 0) && (buf.f_flags & MNT_ACLS);
+#elif defined Q_OS_MACOS
+    fileSystemSupportsACLs =
+        getxattr(path.data(), "system.posix_acl_access", nullptr, 0, 0, XATTR_NOFOLLOW) >= 0 || errno == ENODATA;
 #else
     fileSystemSupportsACLs =
         getxattr(path.data(), "system.posix_acl_access", nullptr, 0) >= 0 || errno == ENODATA;
