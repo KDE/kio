@@ -74,28 +74,20 @@ void KFilePlacesViewTest::testUrlChanged_data()
 
     const QDate currentDate = QDate::currentDate();
     const QDate yesterdayDate = currentDate.addDays(-1);
-    const QDate lastMonthDate = currentDate.addMonths(-1);
     QTest::newRow("Today") << 4 << QStringLiteral("timeline:/today");
     QTest::newRow("Yesterday") << 5 << QString("timeline:/%1-%2/%1-%2-%3")
                                   .arg(yesterdayDate.year())
                                   .arg(yesterdayDate.month(), 2, 10, QChar('0'))
                                   .arg(yesterdayDate.day(), 2, 10, QChar('0'));
 
-    QTest::newRow("This Month") << 6 << QString("timeline:/%1-%2")
-                                   .arg(currentDate.year())
-                                   .arg(currentDate.month(), 2, 10, QChar('0'));
-    QTest::newRow("Last Month") << 7 << QString("timeline:/%1-%2")
-                                   .arg(lastMonthDate.year())
-                                   .arg(lastMonthDate.month(), 2, 10, QChar('0'));
-
     // search
     const QString baloonurl = QStringLiteral("baloosearch:?json=%7B%22dayFilter%22: 0, %22monthFilter%22: 0, %22yearFilter%22: 0, %22type%22: [ %22$TYPE$%22]%7D");
     const QString typeToReplace = QStringLiteral("$TYPE$");
 
-    QTest::newRow("Documents") << 8 << QString(baloonurl).replace(typeToReplace, QStringLiteral("Document"));
-    QTest::newRow("Images") << 9 << QString(baloonurl).replace(typeToReplace, QStringLiteral("Image"));
-    QTest::newRow("Audio Files") << 10 << QString(baloonurl).replace(typeToReplace, QStringLiteral("Audio"));
-    QTest::newRow("Videos") << 11 << QString(baloonurl).replace(typeToReplace, QStringLiteral("Video"));
+    QTest::newRow("Documents") << 6 << QString(baloonurl).replace(typeToReplace, QStringLiteral("Document"));
+    QTest::newRow("Images") << 7 << QString(baloonurl).replace(typeToReplace, QStringLiteral("Image"));
+    QTest::newRow("Audio Files") << 8 << QString(baloonurl).replace(typeToReplace, QStringLiteral("Audio"));
+    QTest::newRow("Videos") << 9 << QString(baloonurl).replace(typeToReplace, QStringLiteral("Video"));
 }
 
 void KFilePlacesViewTest::testUrlChanged()
