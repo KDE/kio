@@ -80,7 +80,8 @@ void KUrlNavigatorButton::setUrl(const QUrl &url)
     static const QSet<QString> protocolBlacklist = QSet<QString>()
         << QStringLiteral("nfs") << QStringLiteral("fish")
         << QStringLiteral("ftp") << QStringLiteral("sftp")
-        << QStringLiteral("smb") << QStringLiteral("webdav");
+        << QStringLiteral("smb") << QStringLiteral("webdav")
+        << QStringLiteral("mtp");
 
     const bool startTextResolving = m_url.isValid() && !m_url.isLocalFile()
                                 && !protocolBlacklist.contains(m_url.scheme());
