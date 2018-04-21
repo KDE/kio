@@ -119,6 +119,7 @@ public:
     void updateLocationWhatsThis();
     void updateAutoSelectExtension();
     void initSpeedbar();
+    void setPlacesViewSplitterSizes();
     void initGUI();
     void readViewConfig();
     void writeViewConfig();
@@ -1389,15 +1390,21 @@ void KFileWidgetPrivate::initSpeedbar()
     // initialize the size of the splitter
     placesViewWidth = configGroup.readEntry(SpeedbarWidth, placesView->sizeHint().width());
 
-    QList<int> sizes = placesViewSplitter->sizes();
-    if (placesViewWidth > 0) {
-        sizes[0] = placesViewWidth + 1;
-        sizes[1] = q->width() - placesViewWidth - 1;
-        placesViewSplitter->setSizes(sizes);
-    }
+    // Needed for when the dialog is shown with the places panel initially hidden
+    setPlacesViewSplitterSizes();
 
     QObject::connect(placesDock, SIGNAL(visibilityChanged(bool)),
                      q, SLOT(_k_toggleSpeedbar(bool)));
+}
+
+void KFileWidgetPrivate::setPlacesViewSplitterSizes()
+{
+    if (placesViewWidth > 0) {
+        QList<int> sizes = placesViewSplitter->sizes();
+        sizes[0] = placesViewWidth;
+        sizes[1] = q->width() - placesViewWidth - placesViewSplitter->handleWidth();
+        placesViewSplitter->setSizes(sizes);
+    }
 }
 
 void KFileWidgetPrivate::initGUI()
@@ -1835,10 +1842,7 @@ void KFileWidget::resizeEvent(QResizeEvent *event)
     if (d->placesDock) {
         // we don't want our places dock actually changing size when we resize
         // and qt doesn't make it easy to enforce such a thing with QSplitter
-        QList<int> sizes = d->placesViewSplitter->sizes();
-        sizes[0] = d->placesViewWidth + 1; // without this pixel, our places view is reduced 1 pixel each time is shown.
-        sizes[1] = width() - d->placesViewWidth - 1;
-        d->placesViewSplitter->setSizes(sizes);
+        d->setPlacesViewSplitterSizes();
     }
 }
 
