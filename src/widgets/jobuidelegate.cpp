@@ -224,19 +224,29 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls,
         const KMessageBox::Options options(KMessageBox::Notify | KMessageBox::WindowModal);
         switch (deletionType) {
         case Delete:
-            result = KMessageBox::warningContinueCancelList(
-                         widget,
-                         xi18ncp("@info", "Do you really want to permanently delete this item?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</emphasis>", "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</emphasis>", prettyList.count()),
-                         prettyList,
-                         i18n("Delete Files"),
-                         KStandardGuiItem::del(),
-                         KStandardGuiItem::cancel(),
-                         keyName, options);
+            if (prettyList.count() == 1) {
+                result = KMessageBox::warningContinueCancel(
+                            widget,
+                            xi18nc("@info", "Do you really want to permanently delete this item?<nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</emphasis>", prettyList.first()),
+                            QString(),
+                            KStandardGuiItem::del(),
+                            KStandardGuiItem::cancel(),
+                            keyName, options);
+            } else {
+                result = KMessageBox::warningContinueCancelList(
+                            widget,
+                            xi18nc("@info", "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</emphasis>", prettyList.count()),
+                            prettyList,
+                            i18n("Delete Files"),
+                            KStandardGuiItem::del(),
+                            KStandardGuiItem::cancel(),
+                            keyName, options);
+            }
             break;
         case EmptyTrash:
             result = KMessageBox::warningContinueCancel(
                          widget,
-                         xi18nc("@info", "Do you want to permanently delete all items from Trash?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</emphasis>"),
+                         xi18nc("@info", "Do you want to permanently delete all items from the Trash?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</emphasis>"),
                          QString(),
                          KGuiItem(i18nc("@action:button", "Empty Trash"),
                                   QIcon::fromTheme(QStringLiteral("user-trash"))),
@@ -245,14 +255,24 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls,
             break;
         case Trash:
         default:
-            result = KMessageBox::warningContinueCancelList(
-                         widget,
-                         i18np("Do you really want to move this item to the trash?", "Do you really want to move these %1 items to the trash?", prettyList.count()),
-                         prettyList,
-                         i18n("Move to Trash"),
-                         KGuiItem(i18nc("Verb", "&Trash"), QStringLiteral("user-trash")),
-                         KStandardGuiItem::cancel(),
-                         keyName, options);
+            if (prettyList.count() == 1) {
+                result = KMessageBox::warningContinueCancel(
+                            widget,
+                            xi18nc("@info", "Do you really want to move this item to the Trash?<nl/><filename>%1</filename>", prettyList.first()),
+                            QString(),
+                            KGuiItem(i18n("Move to Trash"), QStringLiteral("user-trash")),
+                            KStandardGuiItem::cancel(),
+                            keyName, options);
+            } else {
+                result = KMessageBox::warningContinueCancelList(
+                            widget,
+                            i18n("Do you really want to move these %1 items to the Trash?", prettyList.count()),
+                            prettyList,
+                            i18n("Move to Trash"),
+                            KGuiItem(i18n("Move to Trash"), QStringLiteral("user-trash")),
+                            KStandardGuiItem::cancel(),
+                            keyName, options);
+            }
         }
         if (!keyName.isEmpty()) {
             // Check kmessagebox setting... erase & copy to konquerorrc.
