@@ -120,6 +120,7 @@ public:
     void updateAutoSelectExtension();
     void initSpeedbar();
     void setPlacesViewSplitterSizes();
+    void setLafBoxColumnWidth();
     void initGUI();
     void readViewConfig();
     void writeViewConfig();
@@ -1407,6 +1408,15 @@ void KFileWidgetPrivate::setPlacesViewSplitterSizes()
     }
 }
 
+void KFileWidgetPrivate::setLafBoxColumnWidth()
+{
+    // In order to perfectly align the filename widget with KDirOperator's icon view
+    // - placesViewWidth needs to account for the size of the splitter handle
+    // - the lafBox grid layout spacing should only affect the label, but not the line edit
+    const int adjustment = placesViewSplitter->handleWidth() - lafBox->horizontalSpacing();
+    lafBox->setColumnMinimumWidth(0, placesViewWidth + adjustment);
+}
+
 void KFileWidgetPrivate::initGUI()
 {
     delete boxLayout; // deletes all sub layouts
@@ -2105,7 +2115,7 @@ void KFileWidgetPrivate::_k_placesViewSplitterMoved(int pos, int index)
     if (placesDock && index == 1) {
         placesViewWidth = pos;
 //         qDebug() << "setting lafBox minwidth to" << placesViewWidth;
-        lafBox->setColumnMinimumWidth(0, placesViewWidth);
+        setLafBoxColumnWidth();
     }
 }
 
@@ -2560,7 +2570,7 @@ void KFileWidgetPrivate::_k_toggleSpeedbar(bool show)
     if (show) {
         initSpeedbar();
         placesDock->show();
-        lafBox->setColumnMinimumWidth(0, placesViewWidth);
+        setLafBoxColumnWidth();
 
         // check to see if they have a home item defined, if not show the home button
         QUrl homeURL;
