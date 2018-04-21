@@ -58,21 +58,18 @@ KCoreDirListerCache::KCoreDirListerCache()
 {
     qCDebug(KIO_CORE_DIRLISTER);
 
-    connect(&pendingUpdateTimer, SIGNAL(timeout()), this, SLOT(processPendingUpdates()));
+    connect(&pendingUpdateTimer, &QTimer::timeout, this, &KCoreDirListerCache::processPendingUpdates);
     pendingUpdateTimer.setSingleShot(true);
 
-    connect(KDirWatch::self(), SIGNAL(dirty(QString)),
-            this, SLOT(slotFileDirty(QString)));
-    connect(KDirWatch::self(), SIGNAL(created(QString)),
-            this, SLOT(slotFileCreated(QString)));
-    connect(KDirWatch::self(), SIGNAL(deleted(QString)),
-            this, SLOT(slotFileDeleted(QString)));
+    connect(KDirWatch::self(), &KDirWatch::dirty,   this, &KCoreDirListerCache::slotFileDirty);
+    connect(KDirWatch::self(), &KDirWatch::created, this, &KCoreDirListerCache::slotFileCreated);
+    connect(KDirWatch::self(), &KDirWatch::deleted, this, &KCoreDirListerCache::slotFileDeleted);
 
     kdirnotify = new org::kde::KDirNotify(QString(), QString(), QDBusConnection::sessionBus(), this);
     connect(kdirnotify, &org::kde::KDirNotify::FileRenamedWithLocalPath, this, &KCoreDirListerCache::slotFileRenamed);
-    connect(kdirnotify, SIGNAL(FilesAdded(QString)), SLOT(slotFilesAdded(QString)));
-    connect(kdirnotify, SIGNAL(FilesChanged(QStringList)), SLOT(slotFilesChanged(QStringList)));
-    connect(kdirnotify, SIGNAL(FilesRemoved(QStringList)), SLOT(slotFilesRemoved(QStringList)));
+    connect(kdirnotify, &org::kde::KDirNotify::FilesAdded  , this, &KCoreDirListerCache::slotFilesAdded);
+    connect(kdirnotify, &org::kde::KDirNotify::FilesChanged, this, &KCoreDirListerCache::slotFilesChanged);
+    connect(kdirnotify, &org::kde::KDirNotify::FilesRemoved, this, QOverload<const QStringList&>::of(&KCoreDirListerCache::slotFilesRemoved));
 
     // Probably not needed in KF5 anymore:
     // The use of KUrl::url() in ~DirItem (sendSignal) crashes if the static for QRegExpEngine got deleted already,
@@ -238,12 +235,9 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &_u,
                 lister->jobStarted(job);
                 lister->d->connectJob(job);
 
-                connect(job, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
-                        this, SLOT(slotEntries(KIO::Job*,KIO::UDSEntryList)));
-                connect(job, SIGNAL(result(KJob*)),
-                        this, SLOT(slotResult(KJob*)));
-                connect(job, SIGNAL(redirection(KIO::Job*,QUrl)),
-                        this, SLOT(slotRedirection(KIO::Job*,QUrl)));
+                connect(job, &KIO::ListJob::entries, this, &KCoreDirListerCache::slotEntries);
+                connect(job, &KJob::result, this, &KCoreDirListerCache::slotResult);
+                connect(job, &KIO::ListJob::redirection, this, &KCoreDirListerCache::slotRedirection);
 
                 emit lister->started(_url);
             }
@@ -723,10 +717,8 @@ void KCoreDirListerCache::updateDirectory(const QUrl &_dir)
     job = KIO::listDir(dir, KIO::HideProgressInfo);
     runningListJobs.insert(job, KIO::UDSEntryList());
 
-    connect(job, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
-            this, SLOT(slotUpdateEntries(KIO::Job*,KIO::UDSEntryList)));
-    connect(job, SIGNAL(result(KJob*)),
-            this, SLOT(slotUpdateResult(KJob*)));
+    connect(job, &KIO::ListJob::entries, this, &KCoreDirListerCache::slotUpdateEntries);
+    connect(job, &KJob::result, this, &KCoreDirListerCache::slotUpdateResult);
 
     qCDebug(KIO_CORE_DIRLISTER) << "update started in" << dir;
 
@@ -1544,10 +1536,8 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
     // make the job an update job
     job->disconnect(this);
 
-    connect(job, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
-            this, SLOT(slotUpdateEntries(KIO::Job*,KIO::UDSEntryList)));
-    connect(job, SIGNAL(result(KJob*)),
-            this, SLOT(slotUpdateResult(KJob*)));
+    connect(job, &KIO::ListJob::entries, this, &KCoreDirListerCache::slotUpdateEntries);
+    connect(job, &KJob::result, this, &KCoreDirListerCache::slotUpdateResult);
 
     // FIXME: autoUpdate-Counts!!
 
@@ -2726,16 +2716,16 @@ void KCoreDirLister::jobStarted(KIO::ListJob *job)
 
 void KCoreDirLister::Private::connectJob(KIO::ListJob *job)
 {
-    m_parent->connect(job, SIGNAL(infoMessage(KJob*,QString,QString)),
-                      m_parent, SLOT(_k_slotInfoMessage(KJob*,QString)));
-    m_parent->connect(job, SIGNAL(percent(KJob*,ulong)),
-                      m_parent, SLOT(_k_slotPercent(KJob*,ulong)));
-    m_parent->connect(job, SIGNAL(totalSize(KJob*,qulonglong)),
-                      m_parent, SLOT(_k_slotTotalSize(KJob*,qulonglong)));
-    m_parent->connect(job, SIGNAL(processedSize(KJob*,qulonglong)),
-                      m_parent, SLOT(_k_slotProcessedSize(KJob*,qulonglong)));
-    m_parent->connect(job, SIGNAL(speed(KJob*,ulong)),
-                      m_parent, SLOT(_k_slotSpeed(KJob*,ulong)));
+    m_parent->connect(job, &KJob::infoMessage, m_parent,
+        [this](KJob *job, const QString &plain){ _k_slotInfoMessage(job, plain); });
+    m_parent->connect(job, QOverload<KJob*, ulong>::of(&KJob::percent), m_parent,
+        [this](KJob *job, ulong _percent){ _k_slotPercent(job, _percent); });
+    m_parent->connect(job, &KJob::totalSize, m_parent,
+        [this](KJob *job, qulonglong _size){ _k_slotTotalSize(job, _size); });
+    m_parent->connect(job, &KJob::processedSize, m_parent,
+        [this](KJob *job, qulonglong _psize){ _k_slotProcessedSize(job, _psize); });
+    m_parent->connect(job, &KJob::speed, m_parent,
+        [this](KJob *job, qulonglong _speed){ _k_slotSpeed(job, _speed); });
 }
 
 KFileItemList KCoreDirLister::items(WhichItems which) const

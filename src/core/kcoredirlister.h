@@ -618,12 +618,6 @@ private:
     class Private;
     Private *const d;
     friend class Private;
-
-    Q_PRIVATE_SLOT(d, void _k_slotInfoMessage(KJob *, const QString &))
-    Q_PRIVATE_SLOT(d, void _k_slotPercent(KJob *, unsigned long))
-    Q_PRIVATE_SLOT(d, void _k_slotTotalSize(KJob *, qulonglong))
-    Q_PRIVATE_SLOT(d, void _k_slotProcessedSize(KJob *, qulonglong))
-    Q_PRIVATE_SLOT(d, void _k_slotSpeed(KJob *, unsigned long))
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(KCoreDirLister::OpenUrlFlags)
