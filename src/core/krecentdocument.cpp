@@ -86,7 +86,12 @@ QStringList KRecentDocument::recentDocuments()
 
 void KRecentDocument::add(const QUrl &url)
 {
-    KRecentDocument::add(url, QCoreApplication::applicationName());
+    // desktopFileName is in QGuiApplication but we're in KIO Core here
+    QString desktopEntryName = QCoreApplication::instance()->property("desktopFileName").toString();
+    if (desktopEntryName.isEmpty()) {
+        desktopEntryName = QCoreApplication::applicationName();
+    }
+    KRecentDocument::add(url, desktopEntryName);
     // ### componentName might not match the service filename...
 }
 
