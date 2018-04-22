@@ -239,6 +239,22 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                               QStringLiteral("Home"), I18N_NOOP2("KFile System Bookmarks", "Home"),
                                               QUrl::fromLocalFile(QDir::homePath()), QStringLiteral("user-home"));
+
+        // Some distros may not create various standard XDG folders by default
+        // so check for their existance before adding bookmarks for them
+        const QString desktopFolder = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
+        if (QDir(desktopFolder).exists()) {
+            KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
+                                                QStringLiteral("Desktop"), I18N_NOOP2("KFile System Bookmarks", "Desktop"),
+                                                QUrl::fromLocalFile(desktopFolder), QStringLiteral("user-desktop"));
+        }
+        const QString downloadFolder = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
+        if (QDir(downloadFolder).exists()) {
+            KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
+                                                QStringLiteral("Downloads"), I18N_NOOP2("KFile System Bookmarks", "Downloads"),
+                                                QUrl::fromLocalFile(downloadFolder), QStringLiteral("folder-downloads"));
+        }
+
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                               QStringLiteral("Network"), I18N_NOOP2("KFile System Bookmarks", "Network"),
                                               QUrl(QStringLiteral("remote:/")), QStringLiteral("network-workgroup"));
