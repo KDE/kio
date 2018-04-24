@@ -518,7 +518,9 @@ void KUrlNavigator::Private::slotPathBoxChanged(const QString &text)
     if (text.isEmpty()) {
         const QString protocol = q->locationUrl().scheme();
         m_protocols->setProtocol(protocol);
-        m_protocols->show();
+        if (m_customProtocols.count() != 1) {
+            m_protocols->show();
+        }
     } else {
         m_protocols->hide();
     }
