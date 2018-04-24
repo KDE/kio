@@ -270,8 +270,7 @@ public:
      * If an application supports only some special protocols, they can be set
      * with \a protocols .
      */
-    // KDE5: Think about removing the custom-protocols-property. It had been used
-    // only by one application currently which uses a different approach now.
+    // TODO KF6 rename to setSupportedSchemes to match KDirOperator and KFileWidget
     void setCustomProtocols(const QStringList &protocols);
 
     /**
