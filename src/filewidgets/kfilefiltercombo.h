@@ -41,12 +41,12 @@ public:
      *
      * @param parent The parent widget.
      */
-    KFileFilterCombo(QWidget *parent = nullptr);
+    explicit KFileFilterCombo(QWidget *parent = nullptr);
 
     /**
      * Destroys the filter combo box.
      */
-    ~KFileFilterCombo();
+    ~KFileFilterCombo() Q_DECL_OVERRIDE;
 
     /**
      * Sets the @p filter string.

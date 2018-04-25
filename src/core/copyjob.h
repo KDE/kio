@@ -74,7 +74,7 @@ public:
      */
     enum CopyMode { Copy, Move, Link };
 
-    virtual ~CopyJob();
+    ~CopyJob() Q_DECL_OVERRIDE;
 
     /**
      * Returns the mode of the operation (copy, move, or link),

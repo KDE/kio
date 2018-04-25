@@ -40,7 +40,7 @@ class KIOCORE_EXPORT MkdirJob : public SimpleJob
     Q_OBJECT
 
 public:
-    ~MkdirJob();
+    ~MkdirJob() Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     /**

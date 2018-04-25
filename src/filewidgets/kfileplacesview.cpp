@@ -59,8 +59,8 @@ class KFilePlacesViewDelegate : public QAbstractItemDelegate
 {
     Q_OBJECT
 public:
-    KFilePlacesViewDelegate(KFilePlacesView *parent);
-    virtual ~KFilePlacesViewDelegate();
+    explicit KFilePlacesViewDelegate(KFilePlacesView *parent);
+    ~KFilePlacesViewDelegate() Q_DECL_OVERRIDE;
     QSize sizeHint(const QStyleOptionViewItem &option,
                    const QModelIndex &index) const Q_DECL_OVERRIDE;
     void paint(QPainter *painter,

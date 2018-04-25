@@ -40,7 +40,7 @@ class KIOCORE_EXPORT FileCopyJob : public Job
     Q_OBJECT
 
 public:
-    ~FileCopyJob();
+    ~FileCopyJob() Q_DECL_OVERRIDE;
     /**
      * If you know the size of the source file, call this method
      * to inform this job. It will be displayed in the "resume" dialog.

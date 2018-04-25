@@ -211,7 +211,7 @@ public:
         start();
     }
 
-    ~NameLookUpThread()
+    ~NameLookUpThread() Q_DECL_OVERRIDE
     {
         quit();
         wait();

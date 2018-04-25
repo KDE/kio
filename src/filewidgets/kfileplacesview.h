@@ -37,8 +37,8 @@ class KIOFILEWIDGETS_EXPORT KFilePlacesView : public QListView
 {
     Q_OBJECT
 public:
-    KFilePlacesView(QWidget *parent = nullptr);
-    ~KFilePlacesView();
+    explicit KFilePlacesView(QWidget *parent = nullptr);
+    ~KFilePlacesView() Q_DECL_OVERRIDE;
 
     /**
      * If \a enabled is true, it is allowed dropping items

@@ -40,7 +40,7 @@ class KIOCORE_EXPORT MultiGetJob : public TransferJob
     Q_OBJECT
 
 public:
-    virtual ~MultiGetJob();
+    ~MultiGetJob() Q_DECL_OVERRIDE;
 
     /**
      * Get an additional file.

@@ -148,7 +148,8 @@ void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName)
         it = list.begin();
         while (i > maxEntries - 1) {
             QFile::remove(dir.absolutePath() + QLatin1String("/") + (*it));
-            --i, ++it;
+            --i;
+            ++it;
         }
     }
 

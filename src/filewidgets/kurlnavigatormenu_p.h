@@ -39,7 +39,7 @@ class KUrlNavigatorMenu : public QMenu
 
 public:
     explicit KUrlNavigatorMenu(QWidget *parent);
-    virtual ~KUrlNavigatorMenu();
+    ~KUrlNavigatorMenu() Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     /**

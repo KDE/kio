@@ -41,7 +41,7 @@ class KIOCORE_EXPORT SimpleJob : public KIO::Job
     Q_OBJECT
 
 public:
-    ~SimpleJob();
+    ~SimpleJob() Q_DECL_OVERRIDE;
 
 protected:
     /**

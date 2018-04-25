@@ -36,7 +36,7 @@ public:
     MkpathJobPrivate(const QUrl &url, const QUrl &baseUrl, JobFlags flags)
         : JobPrivate(),
           m_url(url),
-          m_pathComponents(url.path().split('/', QString::SkipEmptyParts)),
+          m_pathComponents(url.path().split(QLatin1Char('/'), QString::SkipEmptyParts)),
           m_pathIterator(),
           m_flags(flags)
     {

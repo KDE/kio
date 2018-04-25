@@ -61,7 +61,7 @@ public:
                  const QByteArray &poolSocket, const QByteArray &appSocket,
                  bool autoSsl = false);
 
-    virtual ~TCPSlaveBase();
+    ~TCPSlaveBase() Q_DECL_OVERRIDE;
 
 protected:
     enum SslResultDetail {

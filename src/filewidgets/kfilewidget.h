@@ -93,7 +93,7 @@ public:
     /**
      * Destructor
      */
-    virtual ~KFileWidget();
+    ~KFileWidget() Q_DECL_OVERRIDE;
 
     /**
      * Defines some default behavior of the filedialog.

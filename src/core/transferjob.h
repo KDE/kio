@@ -40,7 +40,7 @@ class KIOCORE_EXPORT TransferJob : public SimpleJob
     Q_OBJECT
 
 public:
-    ~TransferJob();
+    ~TransferJob() Q_DECL_OVERRIDE;
 
     /**
      * Sets the modification time of the file to be created (by KIO::put)

@@ -45,7 +45,7 @@ public:
         DestinationSide
     };
 
-    ~StatJob();
+    ~StatJob() Q_DECL_OVERRIDE;
 
     /**
      * A stat() can have two meanings. Either we want to read from this URL,

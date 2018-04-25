@@ -37,7 +37,7 @@ class KIOFILEWIDGETS_EXPORT KFileCustomDialog : public QDialog
     Q_OBJECT
 public:
     explicit KFileCustomDialog(QWidget *parent = nullptr);
-    ~KFileCustomDialog();
+    ~KFileCustomDialog() Q_DECL_OVERRIDE;
 
     /**
      * Sets the directory to view.

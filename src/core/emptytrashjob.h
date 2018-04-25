@@ -41,7 +41,7 @@ class KIOCORE_EXPORT EmptyTrashJob : public SimpleJob
     Q_OBJECT
 
 public:
-    ~EmptyTrashJob();
+    ~EmptyTrashJob() Q_DECL_OVERRIDE;
 
 protected:
     void slotFinished() Q_DECL_OVERRIDE;

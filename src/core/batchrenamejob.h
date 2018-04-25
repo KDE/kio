@@ -40,7 +40,7 @@ class KIOCORE_EXPORT BatchRenameJob : public Job
     Q_OBJECT
 
 public:
-    virtual ~BatchRenameJob();
+    ~BatchRenameJob() Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     /**

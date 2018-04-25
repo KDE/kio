@@ -41,7 +41,7 @@ class KIOCORE_EXPORT MimetypeJob : public TransferJob
     Q_OBJECT
 
 public:
-    ~MimetypeJob();
+    ~MimetypeJob() Q_DECL_OVERRIDE;
 
 protected Q_SLOTS:
     void slotFinished() Q_DECL_OVERRIDE;

@@ -44,7 +44,7 @@ class KIOCORE_EXPORT MkpathJob : public Job
     Q_OBJECT
 
 public:
-    virtual ~MkpathJob();
+    ~MkpathJob() Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     /**

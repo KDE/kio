@@ -48,7 +48,7 @@ class KIOCORE_EXPORT DeleteJob : public Job
     Q_OBJECT
 
 public:
-    virtual ~DeleteJob();
+    ~DeleteJob() Q_DECL_OVERRIDE;
 
     /**
      * Returns the list of URLs.

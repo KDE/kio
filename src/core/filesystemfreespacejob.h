@@ -41,7 +41,7 @@ class KIOCORE_EXPORT FileSystemFreeSpaceJob : public SimpleJob
     Q_OBJECT
 
 public:
-    ~FileSystemFreeSpaceJob();
+    ~FileSystemFreeSpaceJob() Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     /**

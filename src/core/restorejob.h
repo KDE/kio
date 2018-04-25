@@ -45,7 +45,7 @@ class KIOCORE_EXPORT RestoreJob : public Job
     Q_OBJECT
 
 public:
-    virtual ~RestoreJob();
+    ~RestoreJob() Q_DECL_OVERRIDE;
 
     /**
      * Returns the list of trash URLs to restore.

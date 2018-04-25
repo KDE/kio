@@ -38,7 +38,7 @@ class KUrlNavigatorDropDownButton : public KUrlNavigatorButtonBase
 
 public:
     explicit KUrlNavigatorDropDownButton(QWidget *parent);
-    virtual ~KUrlNavigatorDropDownButton();
+    ~KUrlNavigatorDropDownButton() Q_DECL_OVERRIDE;
 
     /** @see QWidget::sizeHint() */
     QSize sizeHint() const Q_DECL_OVERRIDE;

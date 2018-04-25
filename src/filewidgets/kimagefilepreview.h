@@ -43,7 +43,7 @@ public:
     /**
      * Destroys the image file preview.
      */
-    ~KImageFilePreview();
+    ~KImageFilePreview() Q_DECL_OVERRIDE;
 
     /**
      * Returns the size hint for this widget.

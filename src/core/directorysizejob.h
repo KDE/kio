@@ -41,7 +41,7 @@ class KIOCORE_EXPORT DirectorySizeJob : public KIO::Job
     Q_OBJECT
 
 public:
-    ~DirectorySizeJob();
+    ~DirectorySizeJob() Q_DECL_OVERRIDE;
 
 public:
     /**

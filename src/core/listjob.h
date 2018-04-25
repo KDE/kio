@@ -42,7 +42,7 @@ class KIOCORE_EXPORT ListJob : public SimpleJob
     Q_OBJECT
 
 public:
-    ~ListJob();
+    ~ListJob() Q_DECL_OVERRIDE;
 
     /**
      * Returns the ListJob's redirection URL. This will be invalid if there

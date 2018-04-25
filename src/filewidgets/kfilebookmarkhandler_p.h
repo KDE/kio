@@ -33,8 +33,8 @@ class KFileBookmarkHandler : public QObject, public KBookmarkOwner
     Q_OBJECT
 
 public:
-    KFileBookmarkHandler(KFileWidget *widget);
-    ~KFileBookmarkHandler();
+    explicit KFileBookmarkHandler(KFileWidget *widget);
+    ~KFileBookmarkHandler() Q_DECL_OVERRIDE;
 
     QMenu *popupMenu();
 

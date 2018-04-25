@@ -45,7 +45,7 @@ public:
      * @param parentWidget parent widget for the file dialog and message boxes.
      * The parentWidget also serves as a parent for this object.
      */
-    KFileCopyToMenu(QWidget *parentWidget);
+    explicit KFileCopyToMenu(QWidget *parentWidget);
 
     /**
      * Destructor

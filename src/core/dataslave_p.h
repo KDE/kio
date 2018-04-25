@@ -53,7 +53,7 @@ class DataSlave : public KIO::Slave
 public:
     DataSlave();
 
-    virtual ~DataSlave();
+    ~DataSlave() Q_DECL_OVERRIDE;
 
     virtual void setHost(const QString &host, quint16 port,
                          const QString &user, const QString &passwd) Q_DECL_OVERRIDE;

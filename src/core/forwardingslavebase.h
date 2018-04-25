@@ -95,7 +95,7 @@ public:
     ForwardingSlaveBase(const QByteArray &protocol,
                         const QByteArray &poolSocket,
                         const QByteArray &appSocket);
-    virtual ~ForwardingSlaveBase();
+    ~ForwardingSlaveBase() Q_DECL_OVERRIDE;
 
     void get(const QUrl &url) Q_DECL_OVERRIDE;
 

@@ -52,7 +52,7 @@ public:
      */
     KUrlNavigatorPlacesSelector(QWidget *parent, KFilePlacesModel *placesModel);
 
-    virtual ~KUrlNavigatorPlacesSelector();
+    ~KUrlNavigatorPlacesSelector() Q_DECL_OVERRIDE;
 
     /**
      * Updates the selection dependent from the given URL \a url. The
