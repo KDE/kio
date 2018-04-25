@@ -2250,6 +2250,8 @@ void KDirOperator::resizeEvent(QResizeEvent *)
         // might be reparented into a statusbar
         d->progressBar->move(2, height() - d->progressBar->height() - 2);
     }
+
+    d->updateListViewGrid();
 }
 
 void KDirOperator::setOnlyDoubleClickSelectsFiles(bool enable)
@@ -2584,12 +2586,26 @@ void KDirOperator::Private::updateListViewGrid()
         }
     } else {
         const QFontMetrics metrics(itemView->viewport()->font());
-        int size = itemView->iconSize().height() + metrics.height() * 2;
-        // some heuristics for good looking. let's guess width = height * (3 / 2) is nice
-        view->setGridSize(QSize(size * (3.0 / 2.0), size + metrics.height()));
+
+        const int height = itemView->iconSize().height() + metrics.height() * 2.5;
+        const int minWidth = qMax(height, metrics.height() * 5);
+
+        const int scrollBarWidth = itemView->verticalScrollBar()->sizeHint().width();
+
+        // Subtract 1 px to prevent flickering when resizing the window
+        // For Oxygen a column is missing after showing the dialog without resizing it,
+        // therefore subtract 4 more (scaled) pixels
+        const int viewPortWidth = itemView->contentsRect().width() - scrollBarWidth - 1 - 4 * itemView->devicePixelRatioF();
+        const int itemsInRow = qMax(1, viewPortWidth / minWidth);
+        const int remainingWidth = viewPortWidth - (minWidth * itemsInRow);
+        const int width = minWidth + (remainingWidth / itemsInRow);
+        
+        const QSize itemSize(width, height);
+
+        view->setGridSize(itemSize);
         KFileItemDelegate *delegate = qobject_cast<KFileItemDelegate *>(view->itemDelegate());
         if (delegate) {
-            delegate->setMaximumSize(QSize(size * (3.0 / 2.0), size + metrics.height()));
+            delegate->setMaximumSize(itemSize);
         }
     }
 }
