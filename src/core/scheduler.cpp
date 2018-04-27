@@ -982,8 +982,11 @@ void SchedulerPrivate::scheduleJob(SimpleJob *job)
 void SchedulerPrivate::setJobPriority(SimpleJob *job, int priority)
 {
     //qDebug() << job << priority;
-    ProtoQueue *proto = protoQ(SimpleJobPrivate::get(job)->m_protocol, job->url().host());
-    proto->changeJobPriority(job, priority);
+    const QString protocol = SimpleJobPrivate::get(job)->m_protocol;
+    if (!protocol.isEmpty()) {
+        ProtoQueue *proto = protoQ(SimpleJobPrivate::get(job)->m_protocol, job->url().host());
+        proto->changeJobPriority(job, priority);
+    }
 }
 
 void SchedulerPrivate::cancelJob(SimpleJob *job)
