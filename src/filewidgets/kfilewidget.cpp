@@ -1973,10 +1973,8 @@ void KFileWidgetPrivate::writeViewConfig()
 
     const bool showSpeedbar = placesDock && !placesDock->isHidden();
     tmpGroup.writeEntry(ShowSpeedbar, showSpeedbar);
-    if (showSpeedbar) {
-        const QList<int> sizes = placesViewSplitter->sizes();
-        Q_ASSERT(sizes.count() > 0);
-        tmpGroup.writeEntry(SpeedbarWidth, sizes[0]);
+    if (placesViewWidth > 0) {
+        tmpGroup.writeEntry(SpeedbarWidth, placesViewWidth);
     }
 
     tmpGroup.writeEntry(ShowBookmarks, bookmarkHandler != nullptr);
