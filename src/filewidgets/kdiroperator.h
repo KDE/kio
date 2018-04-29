@@ -879,8 +879,8 @@ Q_SIGNALS:
 
     /**
      * Emitted when a file is highlighted or generally the selection changes in
-     * multiselection mode. In the latter case, @p item is 0L. You can access
-     * the selected items with selectedItems().
+     * multiselection mode. In the latter case, @p item is a null KFileItem.
+     * You can access the selected items with selectedItems().
      */
     void fileHighlighted(const KFileItem &item);
     void dirActivated(const KFileItem &item);
