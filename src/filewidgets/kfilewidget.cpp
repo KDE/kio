@@ -104,7 +104,9 @@ public:
           dummyAdded(false),
           confirmOverwrite(false),
           differentHierarchyLevelItemsEntered(false),
-          iconSizeSlider(nullptr)
+          iconSizeSlider(nullptr),
+          zoomOutAction(nullptr),
+          zoomInAction(nullptr)
     {
     }
 
@@ -284,6 +286,8 @@ public:
     bool differentHierarchyLevelItemsEntered;
 
     QSlider *iconSizeSlider;
+    QAction *zoomOutAction;
+    QAction *zoomInAction;
 
     // The group which stores app-specific settings. These settings are recent
     // files and urls. Visual settings (view mode, sorting criteria...) are not
@@ -514,13 +518,16 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
             this, SLOT(_k_slotIconSizeChanged(int)));
     connect(d->iconSizeSlider, SIGNAL(sliderMoved(int)),
             this, SLOT(_k_slotIconSizeSliderMoved(int)));
-    connect(d->ops, SIGNAL(currentIconSizeChanged(int)),
-            d->iconSizeSlider, SLOT(setValue(int)));
+    connect(d->ops, &KDirOperator::currentIconSizeChanged, [this](int value) {
+        d->iconSizeSlider->setValue(value);
+        d->zoomOutAction->setDisabled(value <= d->iconSizeSlider->minimum());
+        d->zoomInAction->setDisabled(value >= d->iconSizeSlider->maximum());
+    });
 
-    QAction *furtherAction = new QAction(QIcon::fromTheme(QStringLiteral("file-zoom-out")), i18n("Zoom out"), this);
-    connect(furtherAction, SIGNAL(triggered()), SLOT(_k_zoomOutIconsSize()));
-    QAction *closerAction = new QAction(QIcon::fromTheme(QStringLiteral("file-zoom-in")), i18n("Zoom in"), this);
-    connect(closerAction, SIGNAL(triggered()), SLOT(_k_zoomInIconsSize()));
+    d->zoomOutAction = new QAction(QIcon::fromTheme(QStringLiteral("file-zoom-out")), i18n("Zoom out"), this);
+    connect(d->zoomOutAction, SIGNAL(triggered()), SLOT(_k_zoomOutIconsSize()));
+    d->zoomInAction = new QAction(QIcon::fromTheme(QStringLiteral("file-zoom-in")), i18n("Zoom in"), this);
+    connect(d->zoomInAction, SIGNAL(triggered()), SLOT(_k_zoomInIconsSize()));
 
     QWidget *midSpacer = new QWidget(this);
     midSpacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -544,9 +551,9 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     d->toolbar->addAction(separator2);
     d->toolbar->addAction(coll->action(QStringLiteral("inline preview")));
     d->toolbar->addWidget(midSpacer);
-    d->toolbar->addAction(furtherAction);
+    d->toolbar->addAction(d->zoomOutAction);
     d->toolbar->addWidget(d->iconSizeSlider);
-    d->toolbar->addAction(closerAction);
+    d->toolbar->addAction(d->zoomInAction);
     d->toolbar->addAction(separator3);
     d->toolbar->addAction(coll->action(QStringLiteral("mkdir")));
     d->toolbar->addAction(menu);
