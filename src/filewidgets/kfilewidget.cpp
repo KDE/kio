@@ -1153,7 +1153,6 @@ void KFileWidgetPrivate::_k_fileHighlighted(const KFileItem &i)
     }
 
     locationEdit->lineEdit()->setModified(false);
-    locationEdit->lineEdit()->selectAll();
 }
 
 void KFileWidgetPrivate::_k_fileSelected(const KFileItem &i)
@@ -1288,8 +1287,7 @@ void KFileWidgetPrivate::setLocationText(const QUrl &url)
         removeDummyHistoryEntry();
     }
 
-    // don't change selection when user has clicked on an item
-    if (operationMode == KFileWidget::Saving && !locationEdit->isVisible()) {
+    if (operationMode == KFileWidget::Saving) {
         setNonExtSelection();
     }
 }
@@ -1328,8 +1326,7 @@ void KFileWidgetPrivate::setLocationText(const QList<QUrl> &urlList)
         removeDummyHistoryEntry();
     }
 
-    // don't change selection when user has clicked on an item
-    if (operationMode == KFileWidget::Saving && !locationEdit->isVisible()) {
+    if (operationMode == KFileWidget::Saving) {
         setNonExtSelection();
     }
 }
@@ -2739,6 +2736,8 @@ void KFileWidgetPrivate::setNonExtSelection()
         int lastDot = filename.lastIndexOf('.');
         if (lastDot > 0) {
             locationEdit->lineEdit()->setSelection(0, lastDot);
+        } else {
+            locationEdit->lineEdit()->selectAll();
         }
     }
 }
