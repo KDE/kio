@@ -1017,7 +1017,7 @@ void KFilePreviewGenerator::Private::limitToSize(QPixmap &icon, const QSize &max
             icon = icon.scaled(maxSize, Qt::KeepAspectRatio, Qt::FastTransformation);
         }
 #else
-        icon = icon.scaled(maxSize, Qt::KeepAspectRatio, Qt::FastTransformation);
+        icon = icon.scaled(maxSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 #endif
     }
 }
