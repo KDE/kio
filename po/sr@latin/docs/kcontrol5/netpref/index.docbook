@@ -1,0 +1,159 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian-Latin "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="netpref" lang="&language;">
+<articleinfo>
+<title
+>Postavke povezivanja</title>
+<authorgroup>
+<author
+><personname
+><firstname
+>Lori</firstname
+> <surname
+>Vots</surname
+></personname
+> &Lauri.Watts.mail;</author>
+
+<othercredit role="translator"
+><firstname
+>Dragan</firstname
+><surname
+>Pantelić</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>10. 11. 2016.</date>
+<releaseinfo
+>Radni okviri KDE‑a 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>K‑kontrola</keyword>
+<keyword
+>mreža</keyword>
+<keyword
+>prekovreme</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="timeouts">
+
+<title
+>Postavke povezivanja</title>
+
+<para
+>Ovde možete podesiti vrednosti prekovremenâ. Da ih naštelujete možete poželeti ako vam je veza vrlo spora, mada podrazumevane postavke odgovaraju većini korisnika.</para>
+
+<para
+><guilabel
+>Vrednosti prekovremena</guilabel
+> određuju najduže vreme koje programi treba da čekaju na odgovor od mrežnog postupka.</para>
+
+<para
+>Možete podesiti sledeća prekovremena:</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Čitanje soketa:</guilabel
+></term>
+<listitem>
+<para
+>Neki programi komuniciraju preko <firstterm
+>soketâ</firstterm
+>. Soket možete zamisliti kao slavinu za vodu: dok je odvrnuta, voda (u našem slučaju podaci) teče, bez ikakvog uplitanja spolja. Ako nešto zaustavi protok, program će čekati da stigne još podataka. To može biti veoma dugo vreme, ali ovom opcijom možete podesiti najduže koliko program zaista treba da čeka.</para>
+<para
+>Naravno, ova postavka će imati dejstva samo na KDE programe.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Povezivanje proksija:</guilabel
+></term>
+<listitem>
+<para
+>Zadaje koliko se čeka na vezu ka proksi serveru, ako je neki podešen. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Povezivanje servera:</guilabel
+></term>
+<listitem>
+<para
+>Zadaje dužinu čekanja na vezu ka udaljenom serveru. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Odgovor servera:</guilabel
+></term>
+<listitem>
+<para
+>Zadaje dužinu čekanja na odgovor od udaljenog servera. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Ovde možete podesiti i opcije FTP‑a. Trenutno postoje samo dve:</para>
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Uključi pasivni režim</guilabel
+></term>
+<listitem
+><para
+>Pasivni FTP često je neophodan kad ste iza mrežnog zaštitnog zida. Mnogi zaštitni zidovi dopuštaju samo povezivanja potekla „iznutra“. Pasivnim FTP‑om upravlja klijent, što ga čini upotrebljivim kroz zaštitne zidove.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Označi delimično otpremljene fajlove</guilabel
+></term>
+<listitem
+><para
+>Ako je ova kućica popunjena, delimično otpremljeni fajlovi dobiće nastavak <literal role="extension"
+>.part</literal
+> na kraju imena. Nastavak se uklanja kad se završi preuzimanje fajla. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+
+
+</sect1>
+</article>

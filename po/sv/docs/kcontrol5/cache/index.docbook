@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Swedish "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="cache" lang="&language;">
+<title
+>Cache</title>
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+><surname
+>Watts</surname
+></author>
+
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Ramverk 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systeminställningar</keyword>
+<keyword
+>Konqueror</keyword>
+<keyword
+>Cache</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Den här modulen låter dig kontrollera storleken på den lokala cachekatalogen som används av &konqueror;. Observera att varje användarkonto på din dator har en separat cachekatalog, och att denna katalog inte delas med andra webbläsare som &firefox;.</para>
+
+<para
+>Att lagra lokala kopior av webbsidor som du har besökt låter &konqueror; ladda deras innehåll snabbare vid efterföljande besök. Det är bara nödvändigt att ladda innehållet från originalplatsen om det har ändrats sedan ditt senaste besök, eller om du klickar på ladda om i &konqueror;.</para>
+
+<para
+>Om du verkligen inte vill att någon av webbsidorna du besöker ska lagras på din dator, kan du stänga av &konqueror;s diskcache genom att inte markera rutan med namnet <guilabel
+>Använd cache</guilabel
+>.</para>
+
+<para
+>Här kan du ställa in hur aggressivt &konqueror; håller cachen uppdaterad. <guilabel
+>Håll cachen synkroniserad</guilabel
+> betyder att &konqueror; letar efter alla objekt i cachen, laddar ner dem om de inte finns där, och därefter visar objekten från cachen. <guilabel
+>Använd cache om möjligt</guilabel
+> betyder att &konqueror; försöker med cachen, och om ett objekt inte finns där laddas det direkt ner för visning. <guilabel
+>Nedkopplat webbläsningsläge</guilabel
+> betyder att &konqueror; försöker med cachen, och om ett objekt inte finns där görs inget försök att ladda ner det från Internet.</para>
+
+<para
+>Du kan anpassa cachens storlek genom att skriva in ett värde i textrutan som heter <guilabel
+>Cachestorlek på disk</guilabel
+>. Det här är medelvärdet på utrymmet i Kibyte som cachekatalogen får använda. Om cachen växer sig för stor, tar &konqueror; bort äldre filer för att reducera filstorleken på cachekatalogen.</para>
+
+<para
+>Det här är dock bara ett medeltal, och under en webbläsningssession kan cachen bli väsentligt större.</para>
+
+<para
+>Du kan använda knappen <guibutton
+>Töm cache</guibutton
+> för att tömma cachen när som helst.</para>
+
+</article>
