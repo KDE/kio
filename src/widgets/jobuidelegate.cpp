@@ -235,7 +235,7 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls,
             } else {
                 result = KMessageBox::warningContinueCancelList(
                             widget,
-                            xi18nc("@info", "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</emphasis>", prettyList.count()),
+                            xi18ncp("@info", "Do you really want to permanently delete this item?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</emphasis>", "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</emphasis>", prettyList.count()),
                             prettyList,
                             i18n("Delete Files"),
                             KStandardGuiItem::del(),
@@ -266,7 +266,7 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls,
             } else {
                 result = KMessageBox::warningContinueCancelList(
                             widget,
-                            i18n("Do you really want to move these %1 items to the Trash?", prettyList.count()),
+                            i18np("Do you really want to move this item to the trash?", "Do you really want to move these %1 items to the trash?", prettyList.count()),
                             prettyList,
                             i18n("Move to Trash"),
                             KGuiItem(i18n("Move to Trash"), QStringLiteral("user-trash")),
