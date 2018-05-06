@@ -32,6 +32,7 @@ class KFileItemListPropertiesPrivate : public QSharedData
 public:
     KFileItemListPropertiesPrivate()
         : m_isDirectory(false),
+          m_isFile(false),
           m_supportsReading(false),
           m_supportsDeleting(false),
           m_supportsWriting(false),
@@ -46,6 +47,7 @@ public:
     mutable QString m_mimeType;
     mutable QString m_mimeGroup;
     bool m_isDirectory : 1;
+    bool m_isFile : 1;
     bool m_supportsReading : 1;
     bool m_supportsDeleting : 1;
     bool m_supportsWriting : 1;
@@ -78,6 +80,7 @@ void KFileItemListPropertiesPrivate::setItems(const KFileItemList &items)
     m_supportsWriting = initialValue;
     m_supportsMoving = initialValue;
     m_isDirectory = initialValue;
+    m_isFile = initialValue;
     m_isLocal = true;
     m_mimeType.clear();
     m_mimeGroup.clear();
@@ -112,6 +115,10 @@ void KFileItemListPropertiesPrivate::setItems(const KFileItemList &items)
 #endif
         if (m_isDirectory && !item.isDir()) {
             m_isDirectory = false;
+        }
+
+        if (m_isFile && !item.isFile()) {
+            m_isFile = false;
         }
     }
 }
@@ -168,6 +175,11 @@ QList<QUrl> KFileItemListProperties::urlList() const
 bool KFileItemListProperties::isDirectory() const
 {
     return d->m_isDirectory;
+}
+
+bool KFileItemListProperties::isFile() const
+{
+    return d->m_isFile;
 }
 
 QString KFileItemListProperties::mimeType() const

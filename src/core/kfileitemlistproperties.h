@@ -124,6 +124,12 @@ public:
     bool isDirectory() const;
 
     /**
+     * @return Whether all items are files, as reported by KFileItem::isFile().
+     * @since 5.47
+     */
+    bool isFile() const;
+
+    /**
      * @return the mimetype of all items, if they all have the same, otherwise empty
      */
     QString mimeType() const;

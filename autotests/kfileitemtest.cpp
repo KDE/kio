@@ -448,21 +448,22 @@ void KFileItemTest::testListProperties_data()
     QTest::addColumn<bool>("expectedDeleting");
     QTest::addColumn<bool>("expectedIsLocal");
     QTest::addColumn<bool>("expectedIsDirectory");
+    QTest::addColumn<bool>("expectedIsFile");
     QTest::addColumn<QString>("expectedMimeType");
     QTest::addColumn<QString>("expectedMimeGroup");
 
-    QTest::newRow("one file") << "f" << true << true << true << false << "text/plain" << "text";
-    QTest::newRow("one dir") << "d" << true << true << true << true << "inode/directory" << "inode";
-    QTest::newRow("root dir") << "/" << true << false << true << true << "inode/directory" << "inode";
-    QTest::newRow("file+dir") << "fd" << true << true << true << false << "" << "";
-    QTest::newRow("two dirs") << "dd" << true << true << true << true << "inode/directory" << "inode";
-    QTest::newRow("dir+root dir") << "d/" << true << false << true << true << "inode/directory" << "inode";
-    QTest::newRow("two (text+html) files") << "ff" << true << true << true << false << "" << "text";
-    QTest::newRow("three (text+html+empty) files") << "fff" << true << true << true << false << "" << "";
+    QTest::newRow("one file") << "f" << true << true << true << false << true << "text/plain" << "text";
+    QTest::newRow("one dir") << "d" << true << true << true << true << false << "inode/directory" << "inode";
+    QTest::newRow("root dir") << "/" << true << false << true << true << false << "inode/directory" << "inode";
+    QTest::newRow("file+dir") << "fd" << true << true << true << false << false << "" << "";
+    QTest::newRow("two dirs") << "dd" << true << true << true << true << false << "inode/directory" << "inode";
+    QTest::newRow("dir+root dir") << "d/" << true << false << true << true << false << "inode/directory" << "inode";
+    QTest::newRow("two (text+html) files") << "ff" << true << true << true << false << true << "" << "text";
+    QTest::newRow("three (text+html+empty) files") << "fff" << true << true << true << false << true << "" << "";
     QTest::newRow("http url") << "h" << true << true /*says kio_http...*/
-                              << false << false << "application/octet-stream" << "application";
+                              << false << false << true << "application/octet-stream" << "application";
     QTest::newRow("2 http urls") << "hh" << true << true /*says kio_http...*/
-                                 << false << false << "application/octet-stream" << "application";
+                                 << false << false << true << "application/octet-stream" << "application";
 }
 
 void KFileItemTest::testListProperties()
@@ -472,6 +473,7 @@ void KFileItemTest::testListProperties()
     QFETCH(bool, expectedDeleting);
     QFETCH(bool, expectedIsLocal);
     QFETCH(bool, expectedIsDirectory);
+    QFETCH(bool, expectedIsFile);
     QFETCH(QString, expectedMimeType);
     QFETCH(QString, expectedMimeGroup);
 
@@ -512,6 +514,7 @@ void KFileItemTest::testListProperties()
     QCOMPARE(props.supportsDeleting(), expectedDeleting);
     QCOMPARE(props.isLocal(), expectedIsLocal);
     QCOMPARE(props.isDirectory(), expectedIsDirectory);
+    QCOMPARE(props.isFile(), expectedIsFile);
     QCOMPARE(props.mimeType(), expectedMimeType);
     QCOMPARE(props.mimeGroup(), expectedMimeGroup);
 }
