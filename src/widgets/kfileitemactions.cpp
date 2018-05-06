@@ -457,10 +457,12 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
 
 int KFileItemActions::addPluginActionsTo(QMenu *mainMenu)
 {
+    QString commonMimeType = d->m_props.mimeType();
+    if (commonMimeType.isEmpty() && d->m_props.isFile()) {
+        commonMimeType = QStringLiteral("application/octet-stream");
+    }
+
     QStringList addedPlugins;
-    const QString commonMimeType = d->m_props.mimeType();
-    const QString commonMimeGroup = d->m_props.mimeGroup();
-    const QMimeDatabase db;
     int itemCount = 0;
 
     const KConfigGroup showGroup = d->m_config.group("Show");
@@ -480,6 +482,8 @@ int KFileItemActions::addPluginActionsTo(QMenu *mainMenu)
             addedPlugins.append(service->desktopEntryName());
         }
     }
+
+    const QMimeDatabase db;
     const auto jsonPlugins = KPluginLoader::findPlugins(QStringLiteral("kf5/kfileitemaction"), [&db, commonMimeType](const KPluginMetaData& metaData) {
         if (!metaData.serviceTypes().contains(QStringLiteral("KFileItemAction/Plugin"))) {
             return false;
