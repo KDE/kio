@@ -1,0 +1,3 @@
+
+install(FILES filepicker.upd
+    DESTINATION ${KDE_INSTALL_KCONFUPDATEDIR})

@@ -118,6 +118,8 @@ if(BUILD_TESTING)
     endif()
 endif()
 
+add_subdirectory(kconf_update)
+
 # create a Config.cmake and a ConfigVersion.cmake file and install them
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5KIO")
 

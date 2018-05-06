@@ -2160,7 +2160,7 @@ void KDirOperator::readConfig(const KConfigGroup &configGroup)
     d->updateSorting(sorting);
 
     if (d->inlinePreviewState == Private::NotForced) {
-        d->showPreviews = configGroup.readEntry(QStringLiteral("Previews"), false);
+        d->showPreviews = configGroup.readEntry(QStringLiteral("Show Inline Previews"), true);
         d->showPreviewsConfigEntry = d->showPreviews;
     }
     QStyleOptionViewItem::Position pos = (QStyleOptionViewItem::Position) configGroup.readEntry(QStringLiteral("Decoration position"), (int) QStyleOptionViewItem::Left);
@@ -2225,7 +2225,7 @@ void KDirOperator::writeConfig(KConfigGroup &configGroup)
     configGroup.writeEntry(QStringLiteral("View Style"), style);
 
     if (d->inlinePreviewState == Private::NotForced) {
-        configGroup.writeEntry(QStringLiteral("Previews"), d->showPreviewsConfigEntry);
+        configGroup.writeEntry(QStringLiteral("Show Inline Previews"), d->showPreviewsConfigEntry);
         if (qobject_cast<QListView *>(d->itemView)) {
             configGroup.writeEntry(QStringLiteral("listViewIconSize"), d->iconsZoom);
         } else {

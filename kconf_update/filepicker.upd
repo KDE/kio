@@ -1,0 +1,5 @@
+Version=5
+Id=filepicker-remove-old-previews-entry
+File=kdeglobals
+Group=KFileDialog Settings
+RemoveKey=Previews
