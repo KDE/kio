@@ -139,7 +139,7 @@ void KProtocolInfoTest::testProtocolForArchiveMimetype()
         QSKIP("kdebase not installed");
     } else {
         const QString zip = KProtocolManager::protocolForArchiveMimetype(QStringLiteral("application/zip"));
-        QCOMPARE(zip, QStringLiteral("zip"));
+        QVERIFY(zip == QLatin1String("zip") || zip == QLatin1String("krarc"));
     }
 }
 
