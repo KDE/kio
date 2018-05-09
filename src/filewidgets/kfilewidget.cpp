@@ -197,6 +197,7 @@ public:
     void _k_zoomInIconsSize();
     void _k_slotIconSizeSliderMoved(int);
     void _k_slotIconSizeChanged(int);
+    void _k_slotViewDoubleClicked(const QModelIndex&);
 
     void addToRecentDocuments();
 
@@ -1176,8 +1177,10 @@ void KFileWidgetPrivate::_k_fileSelected(const KFileItem &i)
         emit q->selectionChanged();
     }
 
-    // if we are saving, let another chance to the user before accepting the dialog (or trying to
-    // accept). This way the user can choose a file and add a "_2" for instance to the filename
+    // If we are saving, let another chance to the user before accepting the dialog (or trying to
+    // accept). This way the user can choose a file and add a "_2" for instance to the filename.
+    // Double clicking however will override this, regardless of single/double click mouse setting,
+    // see: _k_slotViewDoubleClicked
     if (operationMode == KFileWidget::Saving) {
         locationEdit->setFocus();
     } else {
@@ -1858,6 +1861,8 @@ void KFileWidget::showEvent(QShowEvent *event)
         d->ops->setView(KFile::Default);
         d->ops->view()->setSizePolicy(QSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum));
         d->hasView = true;
+
+        connect(d->ops->view(), SIGNAL(doubleClicked(QModelIndex)), this, SLOT(_k_slotViewDoubleClicked(QModelIndex)));
     }
     d->ops->clearHistory();
 
@@ -2169,6 +2174,14 @@ void KFileWidgetPrivate::_k_slotIconSizeSliderMoved(int _value)
     global.ry() += iconSizeSlider->height() / 2;
     QHelpEvent toolTipEvent(QEvent::ToolTip, QPoint(0, 0), iconSizeSlider->mapToGlobal(global));
     QApplication::sendEvent(iconSizeSlider, &toolTipEvent);
+}
+
+void KFileWidgetPrivate::_k_slotViewDoubleClicked(const QModelIndex &index)
+{
+    // double clicking to save should only work on files
+    if (operationMode == KFileWidget::Saving && index.isValid() && ops->selectedItems().first().isFile()) {
+        q->slotOk();
+    }
 }
 
 static QString getExtensionFromPatternList(const QStringList &patternList)

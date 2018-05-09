@@ -612,6 +612,7 @@ private:
     Q_PRIVATE_SLOT(d, void _k_zoomInIconsSize())
     Q_PRIVATE_SLOT(d, void _k_slotIconSizeSliderMoved(int))
     Q_PRIVATE_SLOT(d, void _k_slotIconSizeChanged(int))
+    Q_PRIVATE_SLOT(d, void _k_slotViewDoubleClicked(const QModelIndex&))
 };
 
 #endif
