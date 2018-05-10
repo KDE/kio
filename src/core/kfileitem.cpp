@@ -196,8 +196,9 @@ void KFileItemPrivate::init()
             const QString path = m_url.adjusted(QUrl::StripTrailingSlash).toLocalFile();
             const QByteArray pathBA = QFile::encodeName(path);
             if (QT_LSTAT(pathBA.constData(), &buf) == 0) {
-                m_entry.insert(KIO::UDSEntry::UDS_DEVICE_ID,           buf.st_dev);
-                m_entry.insert(KIO::UDSEntry::UDS_INODE,               buf.st_ino);
+                m_entry.reserve(9);
+                m_entry.replace(KIO::UDSEntry::UDS_DEVICE_ID,           buf.st_dev);
+                m_entry.replace(KIO::UDSEntry::UDS_INODE,               buf.st_ino);
 
                 mode_t mode = buf.st_mode;
                 if ((buf.st_mode & QT_STAT_MASK) == QT_STAT_LNK) {
@@ -208,14 +209,14 @@ void KFileItemPrivate::init()
                         mode = (QT_STAT_MASK - 1) | S_IRWXU | S_IRWXG | S_IRWXO;
                     }
                 }
-                m_entry.insert(KIO::UDSEntry::UDS_SIZE,      buf.st_size);
-                m_entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, buf.st_mode & QT_STAT_MASK); // extract file type
-                m_entry.insert(KIO::UDSEntry::UDS_ACCESS,    buf.st_mode & 07777); // extract permissions
-                m_entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME,   buf.st_mtime); // TODO: we could use msecs too...
-                m_entry.insert(KIO::UDSEntry::UDS_ACCESS_TIME,         buf.st_atime);
+                m_entry.replace(KIO::UDSEntry::UDS_SIZE,      buf.st_size);
+                m_entry.replace(KIO::UDSEntry::UDS_FILE_TYPE, buf.st_mode & QT_STAT_MASK); // extract file type
+                m_entry.replace(KIO::UDSEntry::UDS_ACCESS,    buf.st_mode & 07777); // extract permissions
+                m_entry.replace(KIO::UDSEntry::UDS_MODIFICATION_TIME,   buf.st_mtime); // TODO: we could use msecs too...
+                m_entry.replace(KIO::UDSEntry::UDS_ACCESS_TIME,         buf.st_atime);
 #ifndef Q_OS_WIN
-                m_entry.insert(KIO::UDSEntry::UDS_USER,                KUser(buf.st_uid).loginName());
-                m_entry.insert(KIO::UDSEntry::UDS_GROUP,               KUserGroup(buf.st_gid).name());
+                m_entry.replace(KIO::UDSEntry::UDS_USER,                KUser(buf.st_uid).loginName());
+                m_entry.replace(KIO::UDSEntry::UDS_GROUP,               KUserGroup(buf.st_gid).name());
 #endif
 
                 // TODO: these can be removed, we can use UDS_FILE_TYPE and UDS_ACCESS everywhere
@@ -303,7 +304,7 @@ static uint udsFieldForTime(KFileItem::FileTimes mappedWhich)
 
 void KFileItemPrivate::setTime(KFileItem::FileTimes mappedWhich, uint time_t_val) const
 {
-    m_entry.insert(udsFieldForTime(mappedWhich), time_t_val);
+    m_entry.replace(udsFieldForTime(mappedWhich), time_t_val);
 }
 
 void KFileItemPrivate::setTime(KFileItem::FileTimes mappedWhich, const QDateTime &val) const
@@ -547,7 +548,7 @@ void KFileItem::setLocalPath(const QString &path)
         return;
     }
 
-    d->m_entry.insert(KIO::UDSEntry::UDS_LOCAL_PATH, path);
+    d->m_entry.replace(KIO::UDSEntry::UDS_LOCAL_PATH, path);
 }
 
 void KFileItem::setName(const QString &name)
@@ -562,7 +563,7 @@ void KFileItem::setName(const QString &name)
         d->m_strText = KIO::decodeFileName(d->m_strName);
     }
     if (d->m_entry.contains(KIO::UDSEntry::UDS_NAME)) {
-        d->m_entry.insert(KIO::UDSEntry::UDS_NAME, d->m_strName);    // #195385
+        d->m_entry.replace(KIO::UDSEntry::UDS_NAME, d->m_strName);    // #195385
     }
 
 }

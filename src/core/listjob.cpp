@@ -172,8 +172,8 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
             if ((m_prefix.isNull() || (filename != QLatin1String("..") && filename != QLatin1String(".")))
                     && (includeHidden || (filename[0] != '.'))) {
                 // ## Didn't find a way to use the iterator instead of re-doing a key lookup
-                newone.insert(KIO::UDSEntry::UDS_NAME, m_prefix + filename);
-                newone.insert(KIO::UDSEntry::UDS_DISPLAY_NAME, m_displayPrefix + displayName);
+                newone.replace(KIO::UDSEntry::UDS_NAME, m_prefix + filename);
+                newone.replace(KIO::UDSEntry::UDS_DISPLAY_NAME, m_displayPrefix + displayName);
                 newlist.append(newone);
             }
         }

@@ -35,7 +35,14 @@ namespace KIO
 class UDSEntry;
 }
 
-void debugUDSEntry(QDebug stream, const KIO::UDSEntry &entry);
+KIOCORE_EXPORT QDataStream &operator<< (QDataStream &s, const KIO::UDSEntry &a);
+KIOCORE_EXPORT QDataStream &operator>> (QDataStream &s, KIO::UDSEntry &a);
+
+/**
+ * Support for qDebug() << aUDSEntry
+ * \since 5.22
+ */
+KIOCORE_EXPORT QDebug operator<<(QDebug stream, const KIO::UDSEntry &entry);
 
 namespace KIO
 {
@@ -136,6 +143,7 @@ public:
      * insert field with string value
      * @param field numeric field id
      * @param value to set
+     * @note since 5.47, it will assert if the field is already inserted. In that case, use replace() instead.
      */
     void insert(uint field, const QString &value);
 
@@ -143,6 +151,7 @@ public:
      * insert field with numeric value
      * @param field numeric field id
      * @param l value to set
+     * @note since 5.47, it will assert if the field is already inserted. In that case, use replace() instead.
      */
     void insert(uint field, long long l);
 
@@ -308,9 +317,26 @@ public:
     };
 
 private:
-    friend class UDSEntryPrivate;
-    friend void ::debugUDSEntry(QDebug stream, const KIO::UDSEntry &entry);
     QSharedDataPointer<UDSEntryPrivate> d;
+    friend KIOCORE_EXPORT QDataStream& ::operator<< (QDataStream &s, const KIO::UDSEntry &a);
+    friend KIOCORE_EXPORT QDataStream& ::operator>> (QDataStream &s, KIO::UDSEntry &a);
+    friend KIOCORE_EXPORT QDebug (::operator<<) (QDebug stream, const KIO::UDSEntry &entry);
+public:
+    /**
+     * Replace or insert field with string value
+     * @param field numeric field id
+     * @param value to set
+     * @since 5.47
+     */
+    void replace(uint field, const QString &value);
+
+    /**
+     * Replace or insert field with numeric value
+     * @param field numeric field id
+     * @param l value to set
+     * @since 5.47
+     */
+    void replace(uint field, long long l);
 };
 
 }
@@ -338,15 +364,6 @@ namespace KIO
  */
 typedef QList<UDSEntry> UDSEntryList;
 } // end namespace
-
-KIOCORE_EXPORT QDataStream &operator<< (QDataStream &s, const KIO::UDSEntry &a);
-KIOCORE_EXPORT QDataStream &operator>> (QDataStream &s, KIO::UDSEntry &a);
-
-/**
- * Support for qDebug() << aUDSEntry
- * \since 5.22
- */
-KIOCORE_EXPORT QDebug operator<<(QDebug stream, const KIO::UDSEntry &entry);
 
 Q_DECLARE_METATYPE(KIO::UDSEntry)
 
