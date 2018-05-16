@@ -38,6 +38,7 @@ set(kiofilewidgets_SRCS
   kurlnavigatortogglebutton.cpp
   kurlnavigator.cpp
   kurlnavigatormenu.cpp
+  kurlnavigatorpathselectoreventfilter.cpp
 
 
 )

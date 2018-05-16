@@ -27,6 +27,7 @@
 #include "kurlnavigatordropdownbutton_p.h"
 #include "kurlnavigatorbutton_p.h"
 #include "kurlnavigatortogglebutton_p.h"
+#include "kurlnavigatorpathselectoreventfilter_p.h"
 #include "urlutil_p.h"
 
 #include <kfileitem.h>
@@ -367,6 +368,11 @@ void KUrlNavigator::Private::openPathSelectorMenu()
 
     QString spacer;
     QPointer<QMenu> popup = new QMenu(q);
+
+    auto *popupFilter = new KUrlNavigatorPathSelectorEventFilter(popup.data());
+    connect(popupFilter, &KUrlNavigatorPathSelectorEventFilter::tabRequested, q, &KUrlNavigator::tabRequested);
+    popup->installEventFilter(popupFilter);
+
     popup->setLayoutDirection(Qt::LeftToRight);
 
     const QUrl placeUrl = retrievePlaceUrl();
