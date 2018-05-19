@@ -164,7 +164,8 @@ void TrashConfigModule::trashChanged(int value)
 void TrashConfigModule::useTypeChanged()
 {
     mDays->setEnabled(mUseTimeLimit->isChecked());
-    mSizeWidget->setEnabled(mUseSizeLimit->isChecked());
+    mPercent->setEnabled(mUseSizeLimit->isChecked());
+    mSizeLabel->setEnabled(mUseSizeLimit->isChecked());
 }
 
 void TrashConfigModule::readConfig()
@@ -252,10 +253,12 @@ void TrashConfigModule::setupGui()
         mCurrentTrash = map.value(0);
     }
 
-    QHBoxLayout *daysLayout = new QHBoxLayout();
-    layout->addLayout(daysLayout);
+    QFormLayout* formLayout = new QFormLayout();
+    layout->addLayout(formLayout);
 
-    mUseTimeLimit = new QCheckBox(i18n("Delete files older than:"), this);
+    QHBoxLayout *daysLayout = new QHBoxLayout();
+
+    mUseTimeLimit = new QCheckBox(i18n("Delete files older than"), this);
     mUseTimeLimit->setWhatsThis(xi18nc("@info:whatsthis",
                                        "<para>Check this box to allow <emphasis strong='true'>automatic deletion</emphasis> of files that are older than the value specified. "
                                        "Leave this disabled to <emphasis strong='true'>not</emphasis> automatically delete any items after a certain timespan</para>"));
@@ -270,25 +273,19 @@ void TrashConfigModule::setupGui()
                                "Any files older than this will be automatically deleted.</para>"));
     daysLayout->addWidget(mDays);
     daysLayout->addStretch();
+    formLayout->addRow(i18n("Cleanup:"), daysLayout);
 
-    QFormLayout *sizeLayout = new QFormLayout();
-    layout->addLayout(sizeLayout);
 
-    mUseSizeLimit = new QCheckBox(i18n("Limit to maximum size"), this);
+    QHBoxLayout *maximumSizeLayout = new QHBoxLayout();
+    mUseSizeLimit = new QCheckBox(i18n("Limit to"), this);
     mUseSizeLimit->setWhatsThis(xi18nc("@info:whatsthis",
                                        "<para>Check this box to limit the trash to the maximum amount of disk space that you specify below. "
                                        "Otherwise, it will be unlimited.</para>"));
-    sizeLayout->addRow(mUseSizeLimit);
+    maximumSizeLayout->addWidget(mUseSizeLimit);
+    formLayout->addRow(i18n("Size:"), maximumSizeLayout);
 
-    mSizeWidget = new QWidget(this);
-    sizeLayout->addRow(mSizeWidget);
 
-    QFormLayout *sizeWidgetLayout = new QFormLayout(mSizeWidget);
-    sizeWidgetLayout->setMargin(0);
-
-    QHBoxLayout *maximumSizeLayout = new QHBoxLayout();
-
-    mPercent = new QDoubleSpinBox(mSizeWidget);
+    mPercent = new QDoubleSpinBox(this);
     mPercent->setRange(0.001, 100);
     mPercent->setDecimals(3);
     mPercent->setSingleStep(1);
@@ -297,24 +294,20 @@ void TrashConfigModule::setupGui()
                                   "<para>This is the maximum percent of disk space that will be used for the trash.</para>"));
     maximumSizeLayout->addWidget(mPercent);
 
-    mSizeLabel = new QLabel(mSizeWidget);
+    mSizeLabel = new QLabel(this);
     mSizeLabel->setWhatsThis(xi18nc("@info:whatsthis",
                                     "<para>This is the calculated amount of disk space that will be allowed for the trash, the maximum.</para>"));
     maximumSizeLayout->addWidget(mSizeLabel);
 
-    sizeWidgetLayout->addRow(i18n("Maximum size:"), maximumSizeLayout);
 
-    QLabel *label = new QLabel(i18n("When limit reached:"));
-    sizeWidgetLayout->addRow(label);
-
-    mLimitReachedAction = new QComboBox(mSizeWidget);
-    mLimitReachedAction->addItem(i18n("Warn Me"));
+    mLimitReachedAction = new QComboBox();
+    mLimitReachedAction->addItem(i18n("Show a Warning"));
     mLimitReachedAction->addItem(i18n("Delete Oldest Files From Trash"));
     mLimitReachedAction->addItem(i18n("Delete Biggest Files From Trash"));
     mLimitReachedAction->setWhatsThis(xi18nc("@info:whatsthis",
                                       "<para>When the size limit is reached, it will prefer to delete the type of files that you specify, first. "
                                       "If this is set to warn you, it will do so instead of automatically deleting files.</para>"));
-    sizeWidgetLayout->addRow(nullptr, mLimitReachedAction);
+    formLayout->addRow(i18n("Full Trash:"), mLimitReachedAction);
 
     layout->addStretch();
 }
