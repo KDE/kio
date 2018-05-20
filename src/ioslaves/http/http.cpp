@@ -3467,9 +3467,11 @@ endParsing:
             // if we were at http://host/resource1#ref, we sent a GET for "/resource1"
             // if we got redirected to http://host/resource2, then we have to re-add
             // the fragment:
+            // http to https redirection included
             if (m_request.url.hasFragment() && !u.hasFragment() &&
                     (m_request.url.host() == u.host()) &&
-                    (m_request.url.scheme() == u.scheme())) {
+                    (m_request.url.scheme() == u.scheme() ||
+                    (m_request.url.scheme() ==  QLatin1String("http") && u.scheme() == QLatin1String("https")))) {
                 u.setFragment(m_request.url.fragment());
             }
 
