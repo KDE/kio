@@ -19,6 +19,7 @@
 
 #include <QObject>
 #include <QDBusInterface>
+#include <QTemporaryDir>
 
 #include <kbookmarkmanager.h>
 #include <kbookmark.h>
@@ -101,6 +102,7 @@ private:
     // but much harder to test
 
     QMap<QString, QDBusInterface *> m_interfacesMap;
+    QTemporaryDir m_tmpHome;
 };
 
 static QString bookmarksFile()
@@ -110,7 +112,10 @@ static QString bookmarksFile()
 
 void KFilePlacesModelTest::initTestCase()
 {
+    QVERIFY(m_tmpHome.isValid());
+    qputenv("HOME", m_tmpHome.path().toUtf8()); // use a empty home dir
     qputenv("KDE_FORK_SLAVES", "yes"); // to avoid a runtime dependency on klauncher
+
     QStandardPaths::setTestModeEnabled(true);
 
     // Ensure we'll have a clean bookmark file to start
@@ -209,12 +214,12 @@ static const QStringList initialListOfPlaces()
 
 static const QStringList initialListOfShared()
 {
-    return QStringList() << QStringLiteral("remote:/");
+    return QStringList() << QStringLiteral("remote:/") << QStringLiteral("/media/nfs");
 }
 
 static const QStringList initialListOfDevices()
 {
-    return QStringList() << QStringLiteral("/media/nfs") << QStringLiteral("/foreign");
+    return QStringList() << QStringLiteral("/foreign");
 }
 
 static const QStringList initialListOfRemovableDevices()
@@ -812,8 +817,6 @@ void KFilePlacesModelTest::testEnableBaloo()
 
     QVERIFY(urls.contains("timeline:/today"));
     QVERIFY(urls.contains("timeline:/yesterday"));
-    QVERIFY(urls.contains("timeline:/thismonth"));
-    QVERIFY(urls.contains("timeline:/lastmonth"));
 
     QVERIFY(urls.contains("search:/documents"));
     QVERIFY(urls.contains("search:/images"));
@@ -827,11 +830,11 @@ void KFilePlacesModelTest::testRemoteUrls_data()
     QTest::addColumn<int>("expectedRow");
     QTest::addColumn<QString>("expectedGroup");
 
-     QTest::newRow("Ftp") << QUrl(QStringLiteral("ftp://192.168.1.1/ftp")) << 4 << QStringLiteral("Remote");
-     QTest::newRow("Samba") << QUrl(QStringLiteral("smb://192.168.1.1/share")) << 4 << QStringLiteral("Remote");
-     QTest::newRow("Sftp") << QUrl(QStringLiteral("sftp://192.168.1.1/share")) << 4 << QStringLiteral("Remote");
-     QTest::newRow("Fish") << QUrl(QStringLiteral("fish://192.168.1.1/share")) << 4 << QStringLiteral("Remote");
-     QTest::newRow("Webdav") << QUrl(QStringLiteral("webdav://192.168.1.1/share")) << 4 << QStringLiteral("Remote");
+     QTest::newRow("Ftp") << QUrl(QStringLiteral("ftp://192.168.1.1/ftp")) << 5 << QStringLiteral("Remote");
+     QTest::newRow("Samba") << QUrl(QStringLiteral("smb://192.168.1.1/share")) << 5 << QStringLiteral("Remote");
+     QTest::newRow("Sftp") << QUrl(QStringLiteral("sftp://192.168.1.1/share")) << 5 << QStringLiteral("Remote");
+     QTest::newRow("Fish") << QUrl(QStringLiteral("fish://192.168.1.1/share")) << 5 << QStringLiteral("Remote");
+     QTest::newRow("Webdav") << QUrl(QStringLiteral("webdav://192.168.1.1/share")) << 5 << QStringLiteral("Remote");
 }
 
 void KFilePlacesModelTest::testRemoteUrls()
@@ -849,8 +852,8 @@ void KFilePlacesModelTest::testRemoteUrls()
     // check if url list is correct after insertion
     QStringList urls;
     urls << QDir::homePath() << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/") // places
-         << QStringLiteral("remote:/") << url.toString()
-         << QStringLiteral("/media/nfs") << QStringLiteral("/foreign")
+         << QStringLiteral("remote:/") << QStringLiteral("/media/nfs")
+         << url.toString() << QStringLiteral("/foreign")
          << QStringLiteral("/media/floppy0")  << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom");
     CHECK_PLACES_URLS(urls);
 
@@ -980,7 +983,7 @@ void KFilePlacesModelTest::testIconRole_data()
     QTest::newRow("Places - Root") << m_places->index(1, 0)
                                    << QStringLiteral("folder-red");
     QTest::newRow("Places - Trash") << m_places->index(2, 0)
-                                   << QStringLiteral("user-trash-full");
+                                   << QStringLiteral("user-trash");
     QTest::newRow("Remote - Network") << m_places->index(3, 0)
                                     << QStringLiteral("network-workgroup");
     QTest::newRow("Devices - Nfs") << m_places->index(4, 0)
@@ -998,7 +1001,7 @@ void KFilePlacesModelTest::testIconRole()
     QFETCH(QModelIndex, index);
     QFETCH(QString, expectedIconName);
 
-    QCOMPARE(index.data(KFilePlacesModel::IconNameRole).toString(), expectedIconName);
+    QVERIFY(index.data(KFilePlacesModel::IconNameRole).toString().startsWith(expectedIconName));
 }
 
 void KFilePlacesModelTest::testMoveFunction()
