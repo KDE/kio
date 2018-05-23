@@ -21,6 +21,7 @@
 #include <QDebug>
 #include <QStandardPaths>
 #include <QFile>
+#include <QTemporaryDir>
 
 #include <kfileplacesview.h>
 #include <kfileplacesmodel.h>
@@ -45,10 +46,14 @@ private Q_SLOTS:
 
     void testUrlChanged_data();
     void testUrlChanged();
+private:
+    QTemporaryDir m_tmpHome;
 };
 
 void KFilePlacesViewTest::initTestCase()
 {
+    QVERIFY(m_tmpHome.isValid());
+    qputenv("HOME", m_tmpHome.path().toUtf8());
     qputenv("KDE_FORK_SLAVES", "yes"); // to avoid a runtime dependency on klauncher
     QStandardPaths::setTestModeEnabled(true);
 
