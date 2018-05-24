@@ -622,8 +622,8 @@ void KPropertiesDialog::KPropertiesDialogPrivate::insertPages()
     }
 
     QString query = QStringLiteral(
-                        "((not exist [X-KDE-Protocol]) or ([X-KDE-Protocol] == '%1'))"
-                    ).arg(item.url().scheme());
+        "(((not exist [X-KDE-Protocol]) and (not exist [X-KDE-Protocols])) or ([X-KDE-Protocol] == '%1') or ('%1' in [X-KDE-Protocols]))"
+    ).arg(item.url().scheme());
 
     // qDebug() << "trader query: " << query;
     const KService::List offers = KMimeTypeTrader::self()->query(mimetype, QStringLiteral("KPropertiesDialog/Plugin"), query);

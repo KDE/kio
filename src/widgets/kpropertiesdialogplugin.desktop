@@ -55,3 +55,6 @@ Comment[zh_TW]=屬性對話盒的外掛程式
 
 [PropertyDef::X-KDE-Protocol]
 Type=QString
+
+[PropertyDef::X-KDE-Protocols]
+Type=QStringList
