@@ -294,10 +294,7 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
 
     const KConfigGroup showGroup = d->m_config.group("Show");
 
-    const QString commonMimeType = d->m_props.mimeType();
-    const QString commonMimeGroup = d->m_props.mimeGroup();
     const QMimeDatabase db;
-    const QMimeType mimeTypePtr = commonMimeType.isEmpty() ? QMimeType() : db.mimeTypeForName(commonMimeType);
     const KService::List entries = KServiceTypeTrader::self()->query(QStringLiteral("KonqPopupMenu/Plugin"));
     KService::List::const_iterator eEnd = entries.end();
     for (KService::List::const_iterator it2 = entries.begin(); it2 != eEnd; ++it2) {
@@ -405,7 +402,6 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
                                         items.constEnd(),
                                         [&types, &excludeTypes, this](const KFileItem &i)
             {
-                const QString mimetype = i.mimetype();
                 return mimeTypeListContains(types, i) && !mimeTypeListContains(excludeTypes, i);
             });
 
