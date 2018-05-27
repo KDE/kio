@@ -73,6 +73,37 @@ static KIO::Job *pasteClipboardUrls(const QMimeData *mimeData, const QUrl &destD
     return nullptr;
 }
 
+static QUrl getDestinationUrl(const QUrl &srcUrl, const QUrl &destUrl, QWidget *widget)
+{
+    KIO::StatJob *job = KIO::stat(destUrl, destUrl.isLocalFile() ? KIO::HideProgressInfo : KIO::DefaultFlags);
+    job->setDetails(0);
+    job->setSide(KIO::StatJob::DestinationSide);
+    KJobWidgets::setWindow(job, widget);
+
+    // Check for existing destination file.
+    // When we were using CopyJob, we couldn't let it do that (would expose
+    // an ugly tempfile name as the source URL)
+    // And now we're using a put job anyway, no destination checking included.
+    if (job->exec()) {
+        KIO::RenameDialog dlg(widget,
+                              i18n("File Already Exists"),
+                              srcUrl,
+                              destUrl,
+                              KIO::RenameDialog_Overwrite);
+        KIO::RenameDialog_Result res = static_cast<KIO::RenameDialog_Result>(dlg.exec());
+
+        if (res == KIO::Result_Rename) {
+            return dlg.newDestUrl();
+        } else if (res == KIO::Result_Cancel) {
+            return QUrl();
+        } else if (res == KIO::Result_Overwrite) {
+            return destUrl;
+        }
+    }
+
+    return QUrl();
+}
+
 static QUrl getNewFileName(const QUrl &u, const QString &text, const QString &suggestedFileName, QWidget *widget)
 {
     bool ok;
@@ -88,34 +119,7 @@ static QUrl getNewFileName(const QUrl &u, const QString &text, const QString &su
     QUrl myurl(u);
     myurl.setPath(concatPaths(myurl.path(), file));
 
-    KIO::StatJob *job = KIO::stat(myurl, myurl.isLocalFile() ? KIO::HideProgressInfo : KIO::DefaultFlags);
-    job->setDetails(0);
-    job->setSide(KIO::StatJob::DestinationSide);
-    KJobWidgets::setWindow(job, widget);
-
-    // Check for existing destination file.
-    // When we were using CopyJob, we couldn't let it do that (would expose
-    // an ugly tempfile name as the source URL)
-    // And now we're using a put job anyway, no destination checking included.
-    if (job->exec()) {
-        //qDebug() << "Paste will overwrite file.  Prompting...";
-        KIO::RenameDialog dlg(widget,
-                              i18n("File Already Exists"),
-                              u,
-                              myurl,
-                              KIO::RenameDialog_Overwrite);
-        KIO::RenameDialog_Result res = static_cast<KIO::RenameDialog_Result>(dlg.exec());
-
-        if (res == KIO::Result_Rename) {
-            myurl = dlg.newDestUrl();
-        } else if (res == KIO::Result_Cancel) {
-            return QUrl();
-        } else if (res == KIO::Result_Overwrite) {
-            // OK, proceed
-        }
-    }
-
-    return myurl;
+    return getDestinationUrl(u, myurl, widget);
 }
 
 static KIO::Job *putDataAsyncTo(const QUrl &url, const QByteArray &data, QWidget *widget, KIO::JobFlags flags)
@@ -170,6 +174,10 @@ static QByteArray chooseFormatAndUrl(const QUrl &u, const QMimeData *mimeData,
     //qDebug() << " result=" << result << " chosenFormat=" << chosenFormat;
     *newUrl = u;
     newUrl->setPath(concatPaths(newUrl->path(), result));
+
+    const QUrl destUrl = getDestinationUrl(u, *newUrl, widget);
+    *newUrl = destUrl;
+
     // In Qt3, the result of clipboard()->mimeData() only existed until the next
     // event loop run (see dlg.exec() above), so we re-fetched it.
     // TODO: This should not be necessary with Qt5; remove this conditional
@@ -232,7 +240,7 @@ KIO::Job *pasteMimeDataImpl(const QMimeData *mimeData, const QUrl &destUrl,
         } else if (formats.size() > 1) {
             QUrl newUrl;
             ba = chooseFormatAndUrl(destUrl, mimeData, formats, dialogText, suggestedFilename, widget, clipboard, &newUrl);
-            if (ba.isEmpty()) {
+            if (ba.isEmpty() || newUrl.isEmpty()) {
                 return nullptr;
             }
             return putDataAsyncTo(newUrl, ba, widget, KIO::Overwrite);
