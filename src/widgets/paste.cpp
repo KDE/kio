@@ -149,8 +149,8 @@ static QByteArray chooseFormatAndUrl(const QUrl &u, const QMimeData *mimeData,
     if (dialogText.isEmpty()) {
         dialogText = i18n("Filename for clipboard content:");
     }
-    //using QString() instead of QString::null didn't compile (with gcc 3.2.3), because the ctor was mistaken as a function declaration, Alex //krazy:exclude=nullstrassign
-    KIO::PasteDialog dlg(QString::null, dialogText, suggestedFileName, formatLabels, widget, clipboard);   //krazy:exclude=nullstrassign
+
+    KIO::PasteDialog dlg(QString(), dialogText, suggestedFileName, formatLabels, widget, clipboard);
 
     if (dlg.exec() != QDialog::Accepted) {
         return QByteArray();
