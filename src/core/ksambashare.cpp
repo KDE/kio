@@ -26,6 +26,7 @@
 #include <QMap>
 #include <QMutableMapIterator>
 #include <QFile>
+#include <QLoggingCategory>
 #include <QRegExp>
 #include <QFileInfo>
 #include <QTextStream>
@@ -35,6 +36,9 @@
 
 #include <kdirwatch.h>
 #include <kuser.h>
+
+Q_DECLARE_LOGGING_CATEGORY(KIO_CORE_SAMBASHARE)
+Q_LOGGING_CATEGORY(KIO_CORE_SAMBASHARE, "kf5.kio.core.sambashare", QtWarningMsg)
 
 // Default smb.conf locations
 // sorted by priority, most priority first
@@ -90,7 +94,7 @@ bool KSambaSharePrivate::findSmbConf()
         }
     }
 
-    qCDebug(KIO_CORE) << "KSambaShare: Could not find smb.conf!";
+    qCDebug(KIO_CORE_SAMBASHARE) << "KSambaShare: Could not find smb.conf!";
 
     return false;
 }
