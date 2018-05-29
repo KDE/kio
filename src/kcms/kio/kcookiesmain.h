@@ -25,10 +25,10 @@ public:
 
     KCookiesPolicies* policyDlg() { return policies; }
 
-    void save() Q_DECL_OVERRIDE;
-    void load() Q_DECL_OVERRIDE;
-    void defaults() Q_DECL_OVERRIDE;
-    QString quickHelp() const Q_DECL_OVERRIDE;
+    void save() override;
+    void load() override;
+    void defaults() override;
+    QString quickHelp() const override;
 
 private:
 

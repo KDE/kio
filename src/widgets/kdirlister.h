@@ -85,18 +85,18 @@ protected:
      * Reimplemented to customize error handling
      * @reimp
      */
-    void handleError(KIO::Job *) Q_DECL_OVERRIDE;
+    void handleError(KIO::Job *) override;
     /**
      * Reimplemented to customize error handling
      * @reimp
      */
-    void handleErrorMessage(const QString &message) Q_DECL_OVERRIDE;
+    void handleErrorMessage(const QString &message) override;
 
     /**
      * Reimplemented to associate a window with new jobs
      * @reimp
      */
-    void jobStarted(KIO::ListJob *) Q_DECL_OVERRIDE;
+    void jobStarted(KIO::ListJob *) override;
 
 private:
     class Private;

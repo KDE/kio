@@ -220,20 +220,20 @@ public:
 
 //---------------------- Re-implemented methods ----------------
     virtual void setHost(const QString &host, quint16 port, const QString &user,
-                         const QString &pass) Q_DECL_OVERRIDE;
+                         const QString &pass) override;
 
-    void slave_status() Q_DECL_OVERRIDE;
+    void slave_status() override;
 
-    void get(const QUrl &url) Q_DECL_OVERRIDE;
-    void put(const QUrl &url, int _mode, KIO::JobFlags flags) Q_DECL_OVERRIDE;
+    void get(const QUrl &url) override;
+    void put(const QUrl &url, int _mode, KIO::JobFlags flags) override;
 
 //----------------- Re-implemented methods for WebDAV -----------
-    void listDir(const QUrl &url) Q_DECL_OVERRIDE;
-    void mkdir(const QUrl &url, int _permissions) Q_DECL_OVERRIDE;
+    void listDir(const QUrl &url) override;
+    void mkdir(const QUrl &url, int _permissions) override;
 
-    void rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags) Q_DECL_OVERRIDE;
-    void copy(const QUrl &src, const QUrl &dest, int _permissions, KIO::JobFlags flags) Q_DECL_OVERRIDE;
-    void del(const QUrl &url, bool _isfile) Q_DECL_OVERRIDE;
+    void rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags) override;
+    void copy(const QUrl &src, const QUrl &dest, int _permissions, KIO::JobFlags flags) override;
+    void del(const QUrl &url, bool _isfile) override;
 
     // ask the host whether it supports WebDAV & cache this info
     bool davHostOk();
@@ -262,21 +262,21 @@ public:
      * 5 - DAV LOCK     (see
      * 6 - DAV UNLOCK     README.webdav)
      */
-    void special(const QByteArray &data) Q_DECL_OVERRIDE;
+    void special(const QByteArray &data) override;
 
-    void mimetype(const QUrl &url) Q_DECL_OVERRIDE;
+    void mimetype(const QUrl &url) override;
 
-    void stat(const QUrl &url) Q_DECL_OVERRIDE;
+    void stat(const QUrl &url) override;
 
-    void reparseConfiguration() Q_DECL_OVERRIDE;
+    void reparseConfiguration() override;
 
     /**
      * Forced close of connection
      */
-    void closeConnection() Q_DECL_OVERRIDE;
+    void closeConnection() override;
 
     void post(const QUrl &url, qint64 size = -1);
-    void multiGet(const QByteArray &data) Q_DECL_OVERRIDE;
+    void multiGet(const QByteArray &data) override;
     bool maybeSetRequestUrl(const QUrl &);
 
     /**
@@ -510,7 +510,7 @@ protected:
       */
     bool davStatDestination();
 
-    void virtual_hook(int id, void *data) Q_DECL_OVERRIDE;
+    void virtual_hook(int id, void *data) override;
 
 private:
     void fileSystemFreeSpace(const QUrl &url); // KF6 TODO: Once a virtual fileSystemFreeSpace method in SlaveBase exists, override it

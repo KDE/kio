@@ -34,10 +34,10 @@ class KFileWidgetDockTitleBar : public QWidget
 
 public:
     explicit KFileWidgetDockTitleBar(QWidget *parent);
-    ~KFileWidgetDockTitleBar() Q_DECL_OVERRIDE;
+    ~KFileWidgetDockTitleBar() override;
 
-    QSize minimumSizeHint() const Q_DECL_OVERRIDE;
-    QSize sizeHint() const Q_DECL_OVERRIDE;
+    QSize minimumSizeHint() const override;
+    QSize sizeHint() const override;
 };
 
 } // namespace KDEPrivate

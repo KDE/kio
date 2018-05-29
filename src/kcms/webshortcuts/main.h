@@ -31,9 +31,9 @@ public:
     KURIFilterModule(QWidget *parent, const QVariantList &args);
     ~KURIFilterModule();
 
-    void load() Q_DECL_OVERRIDE;
-    void save() Q_DECL_OVERRIDE;
-    void defaults() Q_DECL_OVERRIDE;
+    void load() override;
+    void save() override;
+    void defaults() override;
 
 private:
     KUriFilter *filter;

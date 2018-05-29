@@ -189,7 +189,7 @@ public:
                      const QString &qualifier = QString());
     virtual ~KACLListViewItem();
     QString key() const;
-    bool operator< (const QTreeWidgetItem &other) const Q_DECL_OVERRIDE;
+    bool operator< (const QTreeWidgetItem &other) const override;
 
     void calcEffectiveRights();
 

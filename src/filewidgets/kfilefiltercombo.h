@@ -46,7 +46,7 @@ public:
     /**
      * Destroys the filter combo box.
      */
-    ~KFileFilterCombo() Q_DECL_OVERRIDE;
+    ~KFileFilterCombo() override;
 
     /**
      * Sets the @p filter string.
@@ -106,7 +106,7 @@ public:
     bool isMimeFilter() const;
 
 protected:
-    bool eventFilter(QObject *, QEvent *) Q_DECL_OVERRIDE;
+    bool eventFilter(QObject *, QEvent *) override;
 
 Q_SIGNALS:
     /**

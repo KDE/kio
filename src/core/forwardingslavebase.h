@@ -95,34 +95,34 @@ public:
     ForwardingSlaveBase(const QByteArray &protocol,
                         const QByteArray &poolSocket,
                         const QByteArray &appSocket);
-    ~ForwardingSlaveBase() Q_DECL_OVERRIDE;
+    ~ForwardingSlaveBase() override;
 
-    void get(const QUrl &url) Q_DECL_OVERRIDE;
+    void get(const QUrl &url) override;
 
     void put(const QUrl &url, int permissions,
-                     JobFlags flags) Q_DECL_OVERRIDE;
+                     JobFlags flags) override;
 
-    void stat(const QUrl &url) Q_DECL_OVERRIDE;
+    void stat(const QUrl &url) override;
 
-    void mimetype(const QUrl &url) Q_DECL_OVERRIDE;
+    void mimetype(const QUrl &url) override;
 
-    void listDir(const QUrl &url) Q_DECL_OVERRIDE;
+    void listDir(const QUrl &url) override;
 
-    void mkdir(const QUrl &url, int permissions) Q_DECL_OVERRIDE;
+    void mkdir(const QUrl &url, int permissions) override;
 
-    void rename(const QUrl &src, const QUrl &dest, JobFlags flags) Q_DECL_OVERRIDE;
+    void rename(const QUrl &src, const QUrl &dest, JobFlags flags) override;
 
     void symlink(const QString &target, const QUrl &dest,
-                         JobFlags flags) Q_DECL_OVERRIDE;
+                         JobFlags flags) override;
 
-    void chmod(const QUrl &url, int permissions) Q_DECL_OVERRIDE;
+    void chmod(const QUrl &url, int permissions) override;
 
-    void setModificationTime(const QUrl &url, const QDateTime &mtime) Q_DECL_OVERRIDE;
+    void setModificationTime(const QUrl &url, const QDateTime &mtime) override;
 
     void copy(const QUrl &src, const QUrl &dest,
-                      int permissions, JobFlags flags) Q_DECL_OVERRIDE;
+                      int permissions, JobFlags flags) override;
 
-    void del(const QUrl &url, bool isfile) Q_DECL_OVERRIDE;
+    void del(const QUrl &url, bool isfile) override;
 
 protected:
     /**

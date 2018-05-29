@@ -89,7 +89,7 @@ Q_SIGNALS:
     void popupMenuAboutToShow(const KFileItemListProperties &itemProps);
 
 protected Q_SLOTS:
-    void slotResult(KJob *job) Q_DECL_OVERRIDE;
+    void slotResult(KJob *job) override;
 
 protected:
     DropJob(DropJobPrivate &dd);

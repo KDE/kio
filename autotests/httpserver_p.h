@@ -114,7 +114,7 @@ public:
     }
 
 protected:
-    /* \reimp */ void run() Q_DECL_OVERRIDE;
+    /* \reimp */ void run() override;
 
 private:
     QByteArray makeHttpResponse(const QByteArray &responseData) const;
@@ -159,7 +159,7 @@ public:
         }
     }
 
-    void incomingConnection(qintptr socketDescriptor) Q_DECL_OVERRIDE;
+    void incomingConnection(qintptr socketDescriptor) override;
 
     void disableSsl()
     {

@@ -31,9 +31,9 @@ public:
     explicit KUriSearchFilter(QObject *parent = nullptr, const QVariantList &args = QVariantList() );
     ~KUriSearchFilter();
 
-    bool filterUri( KUriFilterData& ) const Q_DECL_OVERRIDE;
-    KCModule *configModule(QWidget *parent = nullptr, const char *name = nullptr) const Q_DECL_OVERRIDE;
-    QString configName() const Q_DECL_OVERRIDE;
+    bool filterUri( KUriFilterData& ) const override;
+    KCModule *configModule(QWidget *parent = nullptr, const char *name = nullptr) const override;
+    QString configName() const override;
 
 public Q_SLOTS:
     void configure(); // maybe move to KUriFilterPlugin?

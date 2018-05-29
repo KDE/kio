@@ -36,12 +36,12 @@ class KIOFILEWIDGETS_EXPORT DefaultViewAdapter : public KAbstractViewAdapter
     Q_OBJECT
 public:
     DefaultViewAdapter(QAbstractItemView *view, QObject *parent);
-    QAbstractItemModel *model() const Q_DECL_OVERRIDE;
-    QSize iconSize() const Q_DECL_OVERRIDE;
-    QPalette palette() const Q_DECL_OVERRIDE;
-    QRect visibleArea() const Q_DECL_OVERRIDE;
-    QRect visualRect(const QModelIndex &index) const Q_DECL_OVERRIDE;
-    void connect(Signal signal, QObject *receiver, const char *slot) Q_DECL_OVERRIDE;
+    QAbstractItemModel *model() const override;
+    QSize iconSize() const override;
+    QPalette palette() const override;
+    QRect visibleArea() const override;
+    QRect visualRect(const QModelIndex &index) const override;
+    void connect(Signal signal, QObject *receiver, const char *slot) override;
 
 private:
     QAbstractItemView *m_view;

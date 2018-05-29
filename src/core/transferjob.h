@@ -40,7 +40,7 @@ class KIOCORE_EXPORT TransferJob : public SimpleJob
     Q_OBJECT
 
 public:
-    ~TransferJob() Q_DECL_OVERRIDE;
+    ~TransferJob() override;
 
     /**
      * Sets the modification time of the file to be created (by KIO::put)
@@ -122,12 +122,12 @@ protected:
      * Called when m_subJob finishes.
      * @param job the job that finished
      */
-    void slotResult(KJob *job) Q_DECL_OVERRIDE;
+    void slotResult(KJob *job) override;
 
     /**
      * Reimplemented for internal reasons
      */
-    bool doResume() Q_DECL_OVERRIDE;
+    bool doResume() override;
 
 Q_SIGNALS:
     /**
@@ -190,11 +190,11 @@ Q_SIGNALS:
 
 protected Q_SLOTS:
     virtual void slotRedirection(const QUrl &url);
-    void slotFinished() Q_DECL_OVERRIDE;
+    void slotFinished() override;
     virtual void slotData(const QByteArray &data);
     virtual void slotDataReq();
     virtual void slotMimetype(const QString &mimetype);
-    void slotMetaData(const KIO::MetaData &_metaData) Q_DECL_OVERRIDE;
+    void slotMetaData(const KIO::MetaData &_metaData) override;
 
 protected:
     TransferJob(TransferJobPrivate &dd);

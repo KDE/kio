@@ -61,7 +61,7 @@ public:
      * @param window the window to associate to
      * @see window()
      */
-    void setWindow(QWidget *window) Q_DECL_OVERRIDE;
+    void setWindow(QWidget *window) override;
 
     /**
      * Unregister the given window from kded.
@@ -103,7 +103,7 @@ public:
                                       const QDateTime &ctimeSrc = QDateTime(),
                                       const QDateTime &ctimeDest = QDateTime(),
                                       const QDateTime &mtimeSrc = QDateTime(),
-                                      const QDateTime &mtimeDest = QDateTime()) Q_DECL_OVERRIDE;
+                                      const QDateTime &mtimeDest = QDateTime()) override;
 
     /**
      * @internal
@@ -111,7 +111,7 @@ public:
      */
     SkipDialog_Result askSkip(KJob *job,
                               KIO::SkipDialog_Options options,
-                              const QString &error_text) Q_DECL_OVERRIDE;
+                              const QString &error_text) override;
 
     /**
      * Ask for confirmation before deleting/trashing @p urls.
@@ -126,7 +126,7 @@ public:
      * @return true if confirmed
      */
     bool askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType,
-                               ConfirmationType confirmationType) Q_DECL_OVERRIDE;
+                               ConfirmationType confirmationType) override;
 
     /**
     * This function allows for the delegation user prompts from the ioslaves.
@@ -152,16 +152,16 @@ public:
                           const QString &iconYes = QString(),
                           const QString &iconNo = QString(),
                           const QString &dontAskAgainName = QString(),
-                          const KIO::MetaData &sslMetaData = KIO::MetaData()) Q_DECL_OVERRIDE;
+                          const KIO::MetaData &sslMetaData = KIO::MetaData()) override;
 
     /**
      * Creates a clipboard updater
      */
-    ClipboardUpdater *createClipboardUpdater(Job *job, ClipboardUpdaterMode mode) Q_DECL_OVERRIDE;
+    ClipboardUpdater *createClipboardUpdater(Job *job, ClipboardUpdaterMode mode) override;
     /**
      * Update URL in clipboard, if present
      */
-    void updateUrlInClipboard(const QUrl &src, const QUrl &dest) Q_DECL_OVERRIDE;
+    void updateUrlInClipboard(const QUrl &src, const QUrl &dest) override;
 
 private:
     class Private;

@@ -41,7 +41,7 @@ class KIOCORE_EXPORT FileSystemFreeSpaceJob : public SimpleJob
     Q_OBJECT
 
 public:
-    ~FileSystemFreeSpaceJob() Q_DECL_OVERRIDE;
+    ~FileSystemFreeSpaceJob() override;
 
 Q_SIGNALS:
     /**
@@ -53,7 +53,7 @@ Q_SIGNALS:
     void result(KIO::Job *job, KIO::filesize_t size, KIO::filesize_t available);
 
 protected Q_SLOTS:
-    void slotFinished() Q_DECL_OVERRIDE;
+    void slotFinished() override;
 
 public:
     FileSystemFreeSpaceJob(FileSystemFreeSpaceJobPrivate &dd);

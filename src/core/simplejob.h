@@ -41,26 +41,26 @@ class KIOCORE_EXPORT SimpleJob : public KIO::Job
     Q_OBJECT
 
 public:
-    ~SimpleJob() Q_DECL_OVERRIDE;
+    ~SimpleJob() override;
 
 protected:
     /**
      * Suspend this job
      * @see resume
      */
-    bool doSuspend() Q_DECL_OVERRIDE;
+    bool doSuspend() override;
 
     /**
      * Resume this job
      * @see suspend
      */
-    bool doResume() Q_DECL_OVERRIDE;
+    bool doResume() override;
 
     /**
      * Abort job.
      * This kills all subjobs and deletes the job.
      */
-    bool doKill() Q_DECL_OVERRIDE;
+    bool doKill() override;
 
 public:
     /**

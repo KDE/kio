@@ -49,7 +49,7 @@ public:
 
     void setCustomProtocols(const QStringList &protocols);
 
-    QSize sizeHint() const Q_DECL_OVERRIDE;
+    QSize sizeHint() const override;
 
 public Q_SLOTS:
     void setProtocol(const QString &protocol);
@@ -58,8 +58,8 @@ Q_SIGNALS:
     void activated(const QString &protocol);
 
 protected:
-    void showEvent(QShowEvent *event) Q_DECL_OVERRIDE;
-    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+    void showEvent(QShowEvent *event) override;
+    void paintEvent(QPaintEvent *event) override;
 
 private Q_SLOTS:
     void setProtocol(QAction *action);

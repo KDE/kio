@@ -51,35 +51,35 @@ public:
     FileProtocol(const QByteArray &pool, const QByteArray &app);
     virtual ~FileProtocol();
 
-    void get(const QUrl &url) Q_DECL_OVERRIDE;
+    void get(const QUrl &url) override;
     virtual void put(const QUrl &url, int _mode,
-                     KIO::JobFlags _flags) Q_DECL_OVERRIDE;
+                     KIO::JobFlags _flags) override;
     virtual void copy(const QUrl &src, const QUrl &dest,
-                      int mode, KIO::JobFlags flags) Q_DECL_OVERRIDE;
+                      int mode, KIO::JobFlags flags) override;
     virtual void rename(const QUrl &src, const QUrl &dest,
-                        KIO::JobFlags flags) Q_DECL_OVERRIDE;
+                        KIO::JobFlags flags) override;
     virtual void symlink(const QString &target, const QUrl &dest,
-                         KIO::JobFlags flags) Q_DECL_OVERRIDE;
+                         KIO::JobFlags flags) override;
 
-    void stat(const QUrl &url) Q_DECL_OVERRIDE;
-    void listDir(const QUrl &url) Q_DECL_OVERRIDE;
-    void mkdir(const QUrl &url, int permissions) Q_DECL_OVERRIDE;
-    void chmod(const QUrl &url, int permissions) Q_DECL_OVERRIDE;
-    void chown(const QUrl &url, const QString &owner, const QString &group) Q_DECL_OVERRIDE;
-    void setModificationTime(const QUrl &url, const QDateTime &mtime) Q_DECL_OVERRIDE;
-    void del(const QUrl &url, bool isfile) Q_DECL_OVERRIDE;
-    void open(const QUrl &url, QIODevice::OpenMode mode) Q_DECL_OVERRIDE;
-    void read(KIO::filesize_t size) Q_DECL_OVERRIDE;
-    void write(const QByteArray &data) Q_DECL_OVERRIDE;
-    void seek(KIO::filesize_t offset) Q_DECL_OVERRIDE;
-    void close() Q_DECL_OVERRIDE;
+    void stat(const QUrl &url) override;
+    void listDir(const QUrl &url) override;
+    void mkdir(const QUrl &url, int permissions) override;
+    void chmod(const QUrl &url, int permissions) override;
+    void chown(const QUrl &url, const QString &owner, const QString &group) override;
+    void setModificationTime(const QUrl &url, const QDateTime &mtime) override;
+    void del(const QUrl &url, bool isfile) override;
+    void open(const QUrl &url, QIODevice::OpenMode mode) override;
+    void read(KIO::filesize_t size) override;
+    void write(const QByteArray &data) override;
+    void seek(KIO::filesize_t offset) override;
+    void close() override;
 
     /**
      * Special commands supported by this slave:
      * 1 - mount
      * 2 - unmount
      */
-    void special(const QByteArray &data) Q_DECL_OVERRIDE;
+    void special(const QByteArray &data) override;
     void unmount(const QString &point);
     void mount(bool _ro, const char *_fstype, const QString &dev, const QString &point);
     bool pumount(const QString &point);
@@ -90,7 +90,7 @@ public:
 #endif
 
 protected:
-    void virtual_hook(int id, void *data) Q_DECL_OVERRIDE;
+    void virtual_hook(int id, void *data) override;
 
 private:
     bool createUDSEntry(const QString &filename, const QByteArray &path, KIO::UDSEntry &entry,

@@ -61,7 +61,7 @@ public:
                  const QByteArray &poolSocket, const QByteArray &appSocket,
                  bool autoSsl = false);
 
-    ~TCPSlaveBase() Q_DECL_OVERRIDE;
+    ~TCPSlaveBase() override;
 
 protected:
     enum SslResultDetail {
@@ -212,7 +212,7 @@ protected:
     QIODevice *socket() const;
 
 protected:
-    void virtual_hook(int id, void *data) Q_DECL_OVERRIDE;
+    void virtual_hook(int id, void *data) override;
 
 private:
     // For the certificate verification code

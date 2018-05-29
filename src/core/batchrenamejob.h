@@ -40,7 +40,7 @@ class KIOCORE_EXPORT BatchRenameJob : public Job
     Q_OBJECT
 
 public:
-    ~BatchRenameJob() Q_DECL_OVERRIDE;
+    ~BatchRenameJob() override;
 
 Q_SIGNALS:
     /**
@@ -49,7 +49,7 @@ Q_SIGNALS:
     void fileRenamed(const QUrl &oldUrl, const QUrl &newUrl);
 
 protected Q_SLOTS:
-    void slotResult(KJob *job) Q_DECL_OVERRIDE;
+    void slotResult(KJob *job) override;
 
 protected:
     /// @internal

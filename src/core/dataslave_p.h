@@ -53,18 +53,18 @@ class DataSlave : public KIO::Slave
 public:
     DataSlave();
 
-    ~DataSlave() Q_DECL_OVERRIDE;
+    ~DataSlave() override;
 
     virtual void setHost(const QString &host, quint16 port,
-                         const QString &user, const QString &passwd) Q_DECL_OVERRIDE;
-    void setConfig(const MetaData &config) Q_DECL_OVERRIDE;
+                         const QString &user, const QString &passwd) override;
+    void setConfig(const MetaData &config) override;
 
-    void suspend() Q_DECL_OVERRIDE;
-    void resume() Q_DECL_OVERRIDE;
-    bool suspended() Q_DECL_OVERRIDE;
-    void send(int cmd, const QByteArray &arr = QByteArray()) Q_DECL_OVERRIDE;
+    void suspend() override;
+    void resume() override;
+    bool suspended() override;
+    void send(int cmd, const QByteArray &arr = QByteArray()) override;
 
-    void hold(const QUrl &url) Q_DECL_OVERRIDE;
+    void hold(const QUrl &url) override;
 
     // pure virtual methods that are defined by the actual protocol
     virtual void get(const QUrl &url) = 0;

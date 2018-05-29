@@ -52,7 +52,7 @@ public:
      */
     KUrlNavigatorPlacesSelector(QWidget *parent, KFilePlacesModel *placesModel);
 
-    ~KUrlNavigatorPlacesSelector() Q_DECL_OVERRIDE;
+    ~KUrlNavigatorPlacesSelector() override;
 
     /**
      * Updates the selection dependent from the given URL \a url. The
@@ -69,7 +69,7 @@ public:
     QString selectedPlaceText() const;
 
     /** @see QWidget::sizeHint() */
-    QSize sizeHint() const Q_DECL_OVERRIDE;
+    QSize sizeHint() const override;
 
 Q_SIGNALS:
     /**
@@ -89,11 +89,11 @@ protected:
      * Draws the icon of the selected Url as content of the Url
      * selector.
      */
-    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+    void paintEvent(QPaintEvent *event) override;
 
-    void dragEnterEvent(QDragEnterEvent *event) Q_DECL_OVERRIDE;
-    void dragLeaveEvent(QDragLeaveEvent *event) Q_DECL_OVERRIDE;
-    void dropEvent(QDropEvent *event) Q_DECL_OVERRIDE;
+    void dragEnterEvent(QDragEnterEvent *event) override;
+    void dragLeaveEvent(QDragLeaveEvent *event) override;
+    void dropEvent(QDropEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
 
     bool eventFilter(QObject *watched, QEvent *event) override;

@@ -44,7 +44,7 @@ class KIOCORE_EXPORT MkpathJob : public Job
     Q_OBJECT
 
 public:
-    ~MkpathJob() Q_DECL_OVERRIDE;
+    ~MkpathJob() override;
 
 Q_SIGNALS:
     /**
@@ -53,7 +53,7 @@ Q_SIGNALS:
     void directoryCreated(const QUrl &url);
 
 protected Q_SLOTS:
-    void slotResult(KJob *job) Q_DECL_OVERRIDE;
+    void slotResult(KJob *job) override;
 
 protected:
     MkpathJob(MkpathJobPrivate &dd);

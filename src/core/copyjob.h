@@ -74,7 +74,7 @@ public:
      */
     enum CopyMode { Copy, Move, Link };
 
-    ~CopyJob() Q_DECL_OVERRIDE;
+    ~CopyJob() override;
 
     /**
      * Returns the mode of the operation (copy, move, or link),
@@ -132,12 +132,12 @@ public:
     /**
      * Reimplemented for internal reasons
      */
-    bool doSuspend() Q_DECL_OVERRIDE;
+    bool doSuspend() override;
 
     /**
      * Reimplemented for internal reasons
      */
-    bool doResume() Q_DECL_OVERRIDE;
+    bool doResume() override;
 
 Q_SIGNALS:
 
@@ -259,7 +259,7 @@ Q_SIGNALS:
      */
     void copyingLinkDone(KIO::Job *job, const QUrl &from, const QString &target, const QUrl &to);
 protected Q_SLOTS:
-    void slotResult(KJob *job) Q_DECL_OVERRIDE;
+    void slotResult(KJob *job) override;
 
 protected:
     CopyJob(CopyJobPrivate &dd);

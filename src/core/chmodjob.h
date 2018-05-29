@@ -44,7 +44,7 @@ public:
     virtual ~ChmodJob();
 
 protected Q_SLOTS:
-    void slotResult(KJob *job) Q_DECL_OVERRIDE;
+    void slotResult(KJob *job) override;
 
 protected:
     ChmodJob(ChmodJobPrivate &dd);

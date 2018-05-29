@@ -74,7 +74,7 @@ public:
     * @todo kf6: merge contstructors
     */
     KFilePlacesModel(const QString &alternativeApplicationName, QObject *parent = nullptr);
-    ~KFilePlacesModel() Q_DECL_OVERRIDE;
+    ~KFilePlacesModel() override;
 
     QUrl url(const QModelIndex &index) const;
     bool setupNeeded(const QModelIndex &index) const;
@@ -123,27 +123,27 @@ public:
      *
      * @return the data for the given index and role.
      */
-    QVariant data(const QModelIndex &index, int role) const Q_DECL_OVERRIDE;
+    QVariant data(const QModelIndex &index, int role) const override;
 
     /**
      * @brief Get the children model index for the given row and column.
      */
-    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
+    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
 
     /**
      * @brief Get the parent QModelIndex for the given model child.
      */
-    QModelIndex parent(const QModelIndex &child) const Q_DECL_OVERRIDE;
+    QModelIndex parent(const QModelIndex &child) const override;
 
     /**
      * @brief Get the number of rows for a model index.
      */
-    int rowCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
     /**
      * @brief Get the number of columns for a model index.
      */
-    int columnCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
     /**
      * Returns the closest item for the URL \a url.
@@ -161,12 +161,12 @@ public:
      */
     QModelIndex closestItem(const QUrl &url) const;
 
-    Qt::DropActions supportedDropActions() const Q_DECL_OVERRIDE;
-    Qt::ItemFlags flags(const QModelIndex &index) const Q_DECL_OVERRIDE;
-    QStringList mimeTypes() const Q_DECL_OVERRIDE;
-    QMimeData *mimeData(const QModelIndexList &indexes) const Q_DECL_OVERRIDE;
+    Qt::DropActions supportedDropActions() const override;
+    Qt::ItemFlags flags(const QModelIndex &index) const override;
+    QStringList mimeTypes() const override;
+    QMimeData *mimeData(const QModelIndexList &indexes) const override;
     bool dropMimeData(const QMimeData *data, Qt::DropAction action,
-                      int row, int column, const QModelIndex &parent) Q_DECL_OVERRIDE;
+                      int row, int column, const QModelIndex &parent) override;
 
     /**
      * @brief Reload bookmark information

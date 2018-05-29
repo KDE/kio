@@ -313,7 +313,7 @@ public:
      * work on this job.
      * @param slave the slave that works on the job
      */
-    void start(KIO::Slave *slave) Q_DECL_OVERRIDE;
+    void start(KIO::Slave *slave) override;
     /**
      * @internal
      * Called when the ioslave needs the data to send the server. This slot

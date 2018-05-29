@@ -247,13 +247,13 @@ public:
             QWidget *parent = nullptr,
             const QString &caption = QString());
 
-    QSize sizeHint() const Q_DECL_OVERRIDE;
+    QSize sizeHint() const override;
 
 protected:
-    void hideEvent(QHideEvent *e) Q_DECL_OVERRIDE;
+    void hideEvent(QHideEvent *e) override;
 
 private Q_SLOTS:
-    void accept() Q_DECL_OVERRIDE;
+    void accept() override;
 
     void slotOk();
     void slotCancel();

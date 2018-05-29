@@ -48,7 +48,7 @@ class KIOCORE_EXPORT DeleteJob : public Job
     Q_OBJECT
 
 public:
-    ~DeleteJob() Q_DECL_OVERRIDE;
+    ~DeleteJob() override;
 
     /**
      * Returns the list of URLs.
@@ -93,7 +93,7 @@ Q_SIGNALS:
     void deleting(KIO::Job *job, const QUrl &file);
 
 protected Q_SLOTS:
-    void slotResult(KJob *job) Q_DECL_OVERRIDE;
+    void slotResult(KJob *job) override;
 
 protected:
     DeleteJob(DeleteJobPrivate &dd);

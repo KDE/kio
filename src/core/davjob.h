@@ -62,8 +62,8 @@ public:
     QDomDocument &response();
 
 protected Q_SLOTS:
-    void slotFinished() Q_DECL_OVERRIDE;
-    void slotData(const QByteArray &data) Q_DECL_OVERRIDE;
+    void slotFinished() override;
+    void slotData(const QByteArray &data) override;
 
 protected:
     DavJob(DavJobPrivate &dd, int, const QString &);

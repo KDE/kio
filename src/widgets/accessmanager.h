@@ -230,7 +230,7 @@ protected:
      * @see QNetworkAccessManager::createRequest
      * @internal
      */
-    QNetworkReply *createRequest(Operation op, const QNetworkRequest &req, QIODevice *outgoingData = nullptr) Q_DECL_OVERRIDE;
+    QNetworkReply *createRequest(Operation op, const QNetworkRequest &req, QIODevice *outgoingData = nullptr) override;
 
 private:
     class AccessManagerPrivate;
@@ -327,7 +327,7 @@ public:
      * @see QNetworkCookieJar::cookiesForUrl
      * @internal
      */
-    QList<QNetworkCookie> cookiesForUrl(const QUrl &url) const Q_DECL_OVERRIDE;
+    QList<QNetworkCookie> cookiesForUrl(const QUrl &url) const override;
 
     /**
      * Reimplemented for internal reasons, the API is not affected.
@@ -335,7 +335,7 @@ public:
      * @see QNetworkCookieJar::setCookiesFromUrl
      * @internal
      */
-    bool setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const QUrl &url) Q_DECL_OVERRIDE;
+    bool setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const QUrl &url) override;
 
     /**
      * Returns true if persistent caching of cookies is disabled.

@@ -42,7 +42,7 @@ class KIOCORE_EXPORT ListJob : public SimpleJob
     Q_OBJECT
 
 public:
-    ~ListJob() Q_DECL_OVERRIDE;
+    ~ListJob() override;
 
     /**
      * Returns the ListJob's redirection URL. This will be invalid if there
@@ -97,9 +97,9 @@ Q_SIGNALS:
     void permanentRedirection(KIO::Job *job, const QUrl &fromUrl, const QUrl &toUrl);
 
 protected Q_SLOTS:
-    void slotFinished() Q_DECL_OVERRIDE;
-    void slotMetaData(const KIO::MetaData &_metaData) Q_DECL_OVERRIDE;
-    void slotResult(KJob *job) Q_DECL_OVERRIDE;
+    void slotFinished() override;
+    void slotMetaData(const KIO::MetaData &_metaData) override;
+    void slotResult(KJob *job) override;
 
 protected:
     ListJob(ListJobPrivate &dd);

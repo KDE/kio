@@ -155,7 +155,7 @@ private:
     void addAnimationState(AnimationState *state, const QAbstractItemView *view);
     void startAnimation(AnimationState *state);
     int runAnimations(AnimationList *list, const QAbstractItemView *view);
-    void timerEvent(QTimerEvent *event) Q_DECL_OVERRIDE;
+    void timerEvent(QTimerEvent *event) override;
     void setSequenceIndex(int arg1);
 
 private:

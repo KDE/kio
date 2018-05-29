@@ -38,15 +38,15 @@ class KUrlNavigatorToggleButton : public KUrlNavigatorButtonBase
 
 public:
     explicit KUrlNavigatorToggleButton(QWidget *parent);
-    ~KUrlNavigatorToggleButton() Q_DECL_OVERRIDE;
+    ~KUrlNavigatorToggleButton() override;
 
     /** @see QWidget::sizeHint() */
-    QSize sizeHint() const Q_DECL_OVERRIDE;
+    QSize sizeHint() const override;
 
 protected:
-    void enterEvent(QEvent *event) Q_DECL_OVERRIDE;
-    void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
-    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+    void enterEvent(QEvent *event) override;
+    void leaveEvent(QEvent *event) override;
+    void paintEvent(QPaintEvent *event) override;
 
 private Q_SLOTS:
     void updateToolTip();

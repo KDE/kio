@@ -56,7 +56,7 @@ class OpenFileManagerWindowDBusStrategy : public AbstractOpenFileManagerWindowSt
 
 public:
     explicit OpenFileManagerWindowDBusStrategy(OpenFileManagerWindowJob *job) : AbstractOpenFileManagerWindowStrategy(job) {}
-    void start(const QList<QUrl> &urls, const QByteArray &asn) Q_DECL_OVERRIDE;
+    void start(const QList<QUrl> &urls, const QByteArray &asn) override;
 
 };
 
@@ -65,7 +65,7 @@ class OpenFileManagerWindowKRunStrategy : public AbstractOpenFileManagerWindowSt
 
 public:
     explicit OpenFileManagerWindowKRunStrategy(OpenFileManagerWindowJob *job) : AbstractOpenFileManagerWindowStrategy(job) {}
-    void start(const QList<QUrl> &urls, const QByteArray &asn) Q_DECL_OVERRIDE;
+    void start(const QList<QUrl> &urls, const QByteArray &asn) override;
 
 };
 

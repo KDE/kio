@@ -354,8 +354,8 @@ Q_SIGNALS:
     void urlSelected(const QUrl &);
 
 protected:
-    void changeEvent(QEvent *e) Q_DECL_OVERRIDE;
-    bool eventFilter(QObject *obj, QEvent *ev) Q_DECL_OVERRIDE;
+    void changeEvent(QEvent *e) override;
+    bool eventFilter(QObject *obj, QEvent *ev) override;
 
 private:
     class KUrlRequesterPrivate;

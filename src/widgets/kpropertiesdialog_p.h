@@ -58,7 +58,7 @@ public:
      * plugin in the dialog, since this function may rename the file which
      * may confuse other applyChanges functions.
      */
-    void applyChanges() Q_DECL_OVERRIDE;
+    void applyChanges() override;
 
     /**
      * Tests whether the files specified by _items need a 'General' plugin.
@@ -126,7 +126,7 @@ public:
     KFilePermissionsPropsPlugin(KPropertiesDialog *_props);
     virtual ~KFilePermissionsPropsPlugin();
 
-    void applyChanges() Q_DECL_OVERRIDE;
+    void applyChanges() override;
 
     /**
      * Tests whether the file specified by _items needs a 'Permissions' plugin.
@@ -220,7 +220,7 @@ public:
     KUrlPropsPlugin(KPropertiesDialog *_props);
     virtual ~KUrlPropsPlugin();
 
-    void applyChanges() Q_DECL_OVERRIDE;
+    void applyChanges() override;
 
     void setFileNameReadOnly(bool ro);
 
@@ -242,7 +242,7 @@ public:
     KDevicePropsPlugin(KPropertiesDialog *_props);
     virtual ~KDevicePropsPlugin();
 
-    void applyChanges() Q_DECL_OVERRIDE;
+    void applyChanges() override;
 
     static bool supports(const KFileItemList &_items);
 
@@ -278,7 +278,7 @@ public:
     KDesktopPropsPlugin(KPropertiesDialog *_props);
     virtual ~KDesktopPropsPlugin();
 
-    void applyChanges() Q_DECL_OVERRIDE;
+    void applyChanges() override;
 
     static bool supports(const KFileItemList &_items);
 

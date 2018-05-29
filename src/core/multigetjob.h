@@ -40,7 +40,7 @@ class KIOCORE_EXPORT MultiGetJob : public TransferJob
     Q_OBJECT
 
 public:
-    ~MultiGetJob() Q_DECL_OVERRIDE;
+    ~MultiGetJob() override;
 
     /**
      * Get an additional file.
@@ -77,10 +77,10 @@ Q_SIGNALS:
     void result(long id);
 
 protected Q_SLOTS:
-    void slotRedirection(const QUrl &url) Q_DECL_OVERRIDE;
-    void slotFinished() Q_DECL_OVERRIDE;
-    void slotData(const QByteArray &data) Q_DECL_OVERRIDE;
-    void slotMimetype(const QString &mimetype) Q_DECL_OVERRIDE;
+    void slotRedirection(const QUrl &url) override;
+    void slotFinished() override;
+    void slotData(const QByteArray &data) override;
+    void slotMimetype(const QString &mimetype) override;
 
 protected:
     MultiGetJob(MultiGetJobPrivate &dd);

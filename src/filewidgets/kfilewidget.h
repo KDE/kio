@@ -93,7 +93,7 @@ public:
     /**
      * Destructor
      */
-    ~KFileWidget() Q_DECL_OVERRIDE;
+    ~KFileWidget() override;
 
     /**
      * Defines some default behavior of the filedialog.
@@ -492,7 +492,7 @@ public:
     /**
      * Reimplemented
      */
-    QSize sizeHint() const Q_DECL_OVERRIDE;
+    QSize sizeHint() const override;
 
     /**
      * Set the URL schemes that the file widget should allow navigating to.
@@ -525,9 +525,9 @@ public Q_SLOTS:
     void slotCancel();
 
 protected:
-    void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
-    void showEvent(QShowEvent *event) Q_DECL_OVERRIDE;
-    bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
+    void resizeEvent(QResizeEvent *event) override;
+    void showEvent(QShowEvent *event) override;
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
 Q_SIGNALS:
     /**

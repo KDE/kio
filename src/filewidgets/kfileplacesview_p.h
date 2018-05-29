@@ -62,7 +62,7 @@ public Q_SLOTS:
     }
 
 protected:
-    bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE
+    bool eventFilter(QObject *watched, QEvent *event) override
     {
         switch (event->type()) {
         case QEvent::MouseMove: {

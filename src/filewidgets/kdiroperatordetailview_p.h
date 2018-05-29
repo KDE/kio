@@ -43,10 +43,10 @@ public:
     virtual bool setViewMode(KFile::FileView viewMode);
 
 protected:
-    bool event(QEvent *event) Q_DECL_OVERRIDE;
-    void dragEnterEvent(QDragEnterEvent *event) Q_DECL_OVERRIDE;
-    void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-    void currentChanged(const QModelIndex &current, const QModelIndex &previous) Q_DECL_OVERRIDE;
+    bool event(QEvent *event) override;
+    void dragEnterEvent(QDragEnterEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
+    void currentChanged(const QModelIndex &current, const QModelIndex &previous) override;
 
 private:
     bool m_hideDetailColumns;

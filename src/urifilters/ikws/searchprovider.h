@@ -39,7 +39,7 @@ public:
     void setCharset(const QString&);
     void setDirty(bool dirty);
 
-    QString iconName() const Q_DECL_OVERRIDE;
+    QString iconName() const override;
 
 private:
     QString m_query;

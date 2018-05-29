@@ -34,14 +34,14 @@ class KFileBookmarkHandler : public QObject, public KBookmarkOwner
 
 public:
     explicit KFileBookmarkHandler(KFileWidget *widget);
-    ~KFileBookmarkHandler() Q_DECL_OVERRIDE;
+    ~KFileBookmarkHandler() override;
 
     QMenu *popupMenu();
 
     // KBookmarkOwner interface:
-    QString currentTitle() const Q_DECL_OVERRIDE;
-    QUrl currentUrl() const Q_DECL_OVERRIDE;
-    QString currentIcon() const Q_DECL_OVERRIDE;
+    QString currentTitle() const override;
+    QUrl currentUrl() const override;
+    QString currentIcon() const override;
 
     QMenu *menu() const
     {
@@ -49,7 +49,7 @@ public:
     }
 
 public Q_SLOTS:
-    void openBookmark(const KBookmark &bm, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers) Q_DECL_OVERRIDE;
+    void openBookmark(const KBookmark &bm, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers) override;
 
 Q_SIGNALS:
     void openUrl(const QString &url);

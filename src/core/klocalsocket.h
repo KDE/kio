@@ -132,16 +132,16 @@ protected Q_SLOTS:
     void disconnectFromHostImplementation();
 
 public:
-    void connectToHost(const QHostAddress &address, quint16 port, OpenMode mode = ReadWrite) Q_DECL_OVERRIDE
+    void connectToHost(const QHostAddress &address, quint16 port, OpenMode mode = ReadWrite) override
     {
         connectToHostImplementation(address.toString(), port, mode);
     }
-    void connectToHost(const QString &hostName, quint16 port, OpenMode mode = ReadWrite, NetworkLayerProtocol protocol = AnyIPProtocol) Q_DECL_OVERRIDE
+    void connectToHost(const QString &hostName, quint16 port, OpenMode mode = ReadWrite, NetworkLayerProtocol protocol = AnyIPProtocol) override
     {
         Q_UNUSED(protocol)
         connectToHostImplementation(hostName, port, mode);
     }
-    void disconnectFromHost() Q_DECL_OVERRIDE
+    void disconnectFromHost() override
     {
         disconnectFromHostImplementation();
     }

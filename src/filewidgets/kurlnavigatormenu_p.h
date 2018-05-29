@@ -39,7 +39,7 @@ class KUrlNavigatorMenu : public QMenu
 
 public:
     explicit KUrlNavigatorMenu(QWidget *parent);
-    ~KUrlNavigatorMenu() Q_DECL_OVERRIDE;
+    ~KUrlNavigatorMenu() override;
 
 Q_SIGNALS:
     /**
@@ -53,11 +53,11 @@ Q_SIGNALS:
     void mouseButtonClicked(QAction *action, Qt::MouseButton button);
 
 protected:
-    void dragEnterEvent(QDragEnterEvent *event) Q_DECL_OVERRIDE;
-    void dragMoveEvent(QDragMoveEvent *event) Q_DECL_OVERRIDE;
-    void dropEvent(QDropEvent *event) Q_DECL_OVERRIDE;
-    void mouseMoveEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-    void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    void dragEnterEvent(QDragEnterEvent *event) override;
+    void dragMoveEvent(QDragMoveEvent *event) override;
+    void dropEvent(QDropEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
 
 private:
     const QPoint m_initialMousePosition;

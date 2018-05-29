@@ -114,11 +114,11 @@ public:
      * @internal
      * Do not call start(), KIO jobs are autostarted
      */
-    void start() Q_DECL_OVERRIDE {}
+    void start() override {}
 
 private Q_SLOTS:
     void doStart(); // not called start() so that exec() doesn't call it too
-    void slotResult(KJob *job) Q_DECL_OVERRIDE;
+    void slotResult(KJob *job) override;
 
 private:
     Q_PRIVATE_SLOT(d, void slotData(KIO::Job *, const QByteArray &))

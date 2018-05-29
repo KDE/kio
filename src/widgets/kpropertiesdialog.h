@@ -347,12 +347,12 @@ public Q_SLOTS:
      * Called when the user presses 'Ok'.
      * @since 5.25
      */
-    void accept() Q_DECL_OVERRIDE;
+    void accept() override;
     /**
      * Called when the user presses 'Cancel' or Esc.
      * @since 5.25
      */
-    void reject() Q_DECL_OVERRIDE;
+    void reject() override;
 
 Q_SIGNALS:
     /**

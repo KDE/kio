@@ -41,7 +41,7 @@ class KIOCORE_EXPORT DirectorySizeJob : public KIO::Job
     Q_OBJECT
 
 public:
-    ~DirectorySizeJob() Q_DECL_OVERRIDE;
+    ~DirectorySizeJob() override;
 
 public:
     /**
@@ -63,7 +63,7 @@ public:
     KIO::filesize_t totalSubdirs() const;
 
 protected Q_SLOTS:
-    void slotResult(KJob *job) Q_DECL_OVERRIDE;
+    void slotResult(KJob *job) override;
 
 protected:
     DirectorySizeJob(DirectorySizeJobPrivate &dd);

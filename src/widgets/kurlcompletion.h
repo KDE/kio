@@ -83,7 +83,7 @@ public:
      * @param text the text to complete
      * @return the first match, or QString() if not found
      */
-    QString makeCompletion(const QString &text) Q_DECL_OVERRIDE;
+    QString makeCompletion(const QString &text) override;
 
     /**
      * Sets the current directory (used as base for completion).
@@ -185,11 +185,11 @@ public:
 
 protected:
     // Called by KCompletion, adds '/' to directories
-    void postProcessMatch(QString *match) const Q_DECL_OVERRIDE;
-    void postProcessMatches(QStringList *matches) const Q_DECL_OVERRIDE;
-    void postProcessMatches(KCompletionMatches *matches) const Q_DECL_OVERRIDE;
+    void postProcessMatch(QString *match) const override;
+    void postProcessMatches(QStringList *matches) const override;
+    void postProcessMatches(KCompletionMatches *matches) const override;
 
-    void customEvent(QEvent *e) Q_DECL_OVERRIDE; // KF6 TODO: remove
+    void customEvent(QEvent *e) override; // KF6 TODO: remove
 
 private:
     KUrlCompletionPrivate *const d;

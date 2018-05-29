@@ -182,7 +182,7 @@ public:
      * Reimplemented from KComboBox (from KCompletion)
      * @internal
      */
-    void setCompletionObject(KCompletion *compObj, bool hsig = true) Q_DECL_OVERRIDE;
+    void setCompletionObject(KCompletion *compObj, bool hsig = true) override;
 
 Q_SIGNALS:
     /**
@@ -192,8 +192,8 @@ Q_SIGNALS:
     void urlActivated(const QUrl &url);
 
 protected:
-    void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-    void mouseMoveEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
 
 private:
     friend class KUrlComboBoxPrivate;

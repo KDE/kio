@@ -131,7 +131,7 @@ protected Q_SLOTS:
     /**
      * Reimplemented from QDialog::accept()
      */
-    void accept() Q_DECL_OVERRIDE;
+    void accept() override;
 
 private:
     bool eventFilter(QObject *object, QEvent *event) override;

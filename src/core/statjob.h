@@ -45,7 +45,7 @@ public:
         DestinationSide
     };
 
-    ~StatJob() Q_DECL_OVERRIDE;
+    ~StatJob() override;
 
     /**
      * A stat() can have two meanings. Either we want to read from this URL,
@@ -135,8 +135,8 @@ Q_SIGNALS:
     void permanentRedirection(KIO::Job *job, const QUrl &fromUrl, const QUrl &toUrl);
 
 protected Q_SLOTS:
-    void slotFinished() Q_DECL_OVERRIDE;
-    void slotMetaData(const KIO::MetaData &_metaData) Q_DECL_OVERRIDE;
+    void slotFinished() override;
+    void slotMetaData(const KIO::MetaData &_metaData) override;
 protected:
     StatJob(StatJobPrivate &dd);
 

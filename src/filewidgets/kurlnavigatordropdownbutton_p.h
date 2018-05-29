@@ -38,14 +38,14 @@ class KUrlNavigatorDropDownButton : public KUrlNavigatorButtonBase
 
 public:
     explicit KUrlNavigatorDropDownButton(QWidget *parent);
-    ~KUrlNavigatorDropDownButton() Q_DECL_OVERRIDE;
+    ~KUrlNavigatorDropDownButton() override;
 
     /** @see QWidget::sizeHint() */
-    QSize sizeHint() const Q_DECL_OVERRIDE;
+    QSize sizeHint() const override;
 
 protected:
-    void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
-    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+    void keyPressEvent(QKeyEvent *event) override;
+    void paintEvent(QPaintEvent *event) override;
 };
 
 } // namespace KDEPrivate

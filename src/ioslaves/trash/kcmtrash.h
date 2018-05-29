@@ -42,8 +42,8 @@ public:
     TrashConfigModule(QWidget *parent, const QVariantList &args);
     virtual ~TrashConfigModule();
 
-    void save() Q_DECL_OVERRIDE;
-    void defaults() Q_DECL_OVERRIDE;
+    void save() override;
+    void defaults() override;
 
 private Q_SLOTS:
     void percentChanged(double);

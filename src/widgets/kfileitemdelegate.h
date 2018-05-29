@@ -200,7 +200,7 @@ public:
      * @param option  The style options that should be used when painting the item.
      * @param index   The index to the item for which to return the size hint.
      */
-    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
     /**
      * Paints the item indicated by @p index, using @p painter.
@@ -223,32 +223,32 @@ public:
      * @param option  The style options that should be used when painting the item.
      * @param index   The index to the item that should be painted.
      */
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
     /**
      * Reimplemented from @ref QAbstractItemDelegate.
      */
-    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
     /**
      * Reimplemented from @ref QAbstractItemDelegate.
      */
-    bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) Q_DECL_OVERRIDE;
+    bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
     /**
      * Reimplemented from @ref QAbstractItemDelegate.
      */
-    void setEditorData(QWidget *editor, const QModelIndex &index) const Q_DECL_OVERRIDE;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
 
     /**
      * Reimplemented from @ref QAbstractItemDelegate.
      */
-    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const Q_DECL_OVERRIDE;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
 
     /**
      * Reimplemented from @ref QAbstractItemDelegate.
      */
-    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
     /**
      * Sets the list of information lines that are shown below the icon label in list views.
@@ -419,13 +419,13 @@ public:
     /**
      * Reimplemented from @ref QAbstractItemDelegate.
      */
-    bool eventFilter(QObject *object, QEvent *event) Q_DECL_OVERRIDE;
+    bool eventFilter(QObject *object, QEvent *event) override;
 
 public Q_SLOTS:
     /**
      * Reimplemented from @ref QAbstractItemDelegate.
      */
-    bool helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index) Q_DECL_OVERRIDE;
+    bool helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
     /**
      * Returns the shape of the item as a region.

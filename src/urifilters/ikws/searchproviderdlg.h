@@ -37,7 +37,7 @@ public:
     SearchProvider *provider() { return m_provider; }
 
 public Q_SLOTS:
-    void accept() Q_DECL_OVERRIDE;
+    void accept() override;
 
 protected Q_SLOTS:
     void slotChanged();

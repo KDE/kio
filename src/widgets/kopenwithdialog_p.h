@@ -37,16 +37,16 @@ class KApplicationModel : public QAbstractItemModel
 public:
     KApplicationModel(QObject *parent = nullptr);
     virtual ~KApplicationModel();
-    bool canFetchMore(const QModelIndex &parent) const Q_DECL_OVERRIDE;
-    int columnCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
-    void fetchMore(const QModelIndex &parent) Q_DECL_OVERRIDE;
-//        Qt::ItemFlags flags(const QModelIndex &index) const Q_DECL_OVERRIDE;
-    bool hasChildren(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
-    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
-    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
-    QModelIndex parent(const QModelIndex &index) const Q_DECL_OVERRIDE;
-    int rowCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
+    bool canFetchMore(const QModelIndex &parent) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    void fetchMore(const QModelIndex &parent) override;
+//        Qt::ItemFlags flags(const QModelIndex &index) const override;
+    bool hasChildren(const QModelIndex &parent = QModelIndex()) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
+    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
+    QModelIndex parent(const QModelIndex &index) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
     QString entryPathFor(const QModelIndex &index) const;
     QString execFor(const QModelIndex &index) const;
@@ -69,7 +69,7 @@ class QTreeViewProxyFilter : public QSortFilterProxyModel
 
 public:
     QTreeViewProxyFilter(QObject *parent = nullptr);
-    bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const Q_DECL_OVERRIDE;
+    bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 };
 
 class KApplicationViewPrivate;
@@ -95,7 +95,7 @@ Q_SIGNALS:
     void highlighted(const QString &_name, const QString &_exec);
 
 protected Q_SLOTS:
-    void currentChanged(const QModelIndex &current, const QModelIndex &previous) Q_DECL_OVERRIDE;
+    void currentChanged(const QModelIndex &current, const QModelIndex &previous) override;
 
 private Q_SLOTS:
     void slotSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);

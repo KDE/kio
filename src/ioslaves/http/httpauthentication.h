@@ -211,15 +211,15 @@ protected:
 class KHttpBasicAuthentication : public KAbstractHttpAuthentication
 {
 public:
-    QByteArray scheme() const Q_DECL_OVERRIDE;
-    void fillKioAuthInfo(KIO::AuthInfo *ai) const Q_DECL_OVERRIDE;
-    void generateResponse(const QString &user, const QString &password) Q_DECL_OVERRIDE;
-    bool supportsPathMatching() const Q_DECL_OVERRIDE
+    QByteArray scheme() const override;
+    void fillKioAuthInfo(KIO::AuthInfo *ai) const override;
+    void generateResponse(const QString &user, const QString &password) override;
+    bool supportsPathMatching() const override
     {
         return true;
     }
 protected:
-    QByteArray authDataToCache() const Q_DECL_OVERRIDE
+    QByteArray authDataToCache() const override
     {
         return m_challengeText;
     }
@@ -232,20 +232,20 @@ private:
 class KHttpDigestAuthentication : public KAbstractHttpAuthentication
 {
 public:
-    QByteArray scheme() const Q_DECL_OVERRIDE;
-    void setChallenge(const QByteArray &c, const QUrl &resource, const QByteArray &httpMethod) Q_DECL_OVERRIDE;
-    void fillKioAuthInfo(KIO::AuthInfo *ai) const Q_DECL_OVERRIDE;
-    void generateResponse(const QString &user, const QString &password) Q_DECL_OVERRIDE;
-    bool supportsPathMatching() const Q_DECL_OVERRIDE
+    QByteArray scheme() const override;
+    void setChallenge(const QByteArray &c, const QUrl &resource, const QByteArray &httpMethod) override;
+    void fillKioAuthInfo(KIO::AuthInfo *ai) const override;
+    void generateResponse(const QString &user, const QString &password) override;
+    bool supportsPathMatching() const override
     {
         return true;
     }
 #ifdef ENABLE_HTTP_AUTH_NONCE_SETTER
-    void setDigestNonceValue(const QByteArray &) Q_DECL_OVERRIDE;
+    void setDigestNonceValue(const QByteArray &) override;
 #endif
 
 protected:
-    QByteArray authDataToCache() const Q_DECL_OVERRIDE
+    QByteArray authDataToCache() const override
     {
         return m_challengeText;
     }
@@ -261,10 +261,10 @@ private:
 class KHttpNtlmAuthentication : public KAbstractHttpAuthentication
 {
 public:
-    QByteArray scheme() const Q_DECL_OVERRIDE;
-    void setChallenge(const QByteArray &c, const QUrl &resource, const QByteArray &httpMethod) Q_DECL_OVERRIDE;
-    void fillKioAuthInfo(KIO::AuthInfo *ai) const Q_DECL_OVERRIDE;
-    void generateResponse(const QString &user, const QString &password) Q_DECL_OVERRIDE;
+    QByteArray scheme() const override;
+    void setChallenge(const QByteArray &c, const QUrl &resource, const QByteArray &httpMethod) override;
+    void fillKioAuthInfo(KIO::AuthInfo *ai) const override;
+    void generateResponse(const QString &user, const QString &password) override;
 private:
     friend class KAbstractHttpAuthentication;
     KHttpNtlmAuthentication(KConfigGroup *config = nullptr)
@@ -281,10 +281,10 @@ private:
 class KHttpNegotiateAuthentication : public KAbstractHttpAuthentication
 {
 public:
-    QByteArray scheme() const Q_DECL_OVERRIDE;
-    void setChallenge(const QByteArray &c, const QUrl &resource, const QByteArray &httpMethod) Q_DECL_OVERRIDE;
-    void fillKioAuthInfo(KIO::AuthInfo *ai) const Q_DECL_OVERRIDE;
-    void generateResponse(const QString &user, const QString &password) Q_DECL_OVERRIDE;
+    QByteArray scheme() const override;
+    void setChallenge(const QByteArray &c, const QUrl &resource, const QByteArray &httpMethod) override;
+    void fillKioAuthInfo(KIO::AuthInfo *ai) const override;
+    void generateResponse(const QString &user, const QString &password) override;
 private:
     friend class KAbstractHttpAuthentication;
     KHttpNegotiateAuthentication(KConfigGroup *config = nullptr)

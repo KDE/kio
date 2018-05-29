@@ -40,7 +40,7 @@ class LocalDomainUriFilter : public KUriFilterPlugin
 
   public:
     LocalDomainUriFilter( QObject* parent, const QVariantList& args );
-    bool filterUri( KUriFilterData &data ) const Q_DECL_OVERRIDE;
+    bool filterUri( KUriFilterData &data ) const override;
 
   private:
     bool exists(const QString&) const;

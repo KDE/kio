@@ -57,7 +57,7 @@ Q_SIGNALS:
     void itemCreated(const QUrl &url);
 
 protected Q_SLOTS:
-    void slotResult(KJob *job) Q_DECL_OVERRIDE;
+    void slotResult(KJob *job) override;
 
 protected:
     PasteJob(PasteJobPrivate &dd);

@@ -40,7 +40,7 @@ class KIOCORE_EXPORT FileCopyJob : public Job
     Q_OBJECT
 
 public:
-    ~FileCopyJob() Q_DECL_OVERRIDE;
+    ~FileCopyJob() override;
     /**
      * If you know the size of the source file, call this method
      * to inform this job. It will be displayed in the "resume" dialog.
@@ -69,8 +69,8 @@ public:
      */
     QUrl destUrl() const;
 
-    bool doSuspend() Q_DECL_OVERRIDE;
-    bool doResume() Q_DECL_OVERRIDE;
+    bool doSuspend() override;
+    bool doResume() override;
 
 Q_SIGNALS:
     /**
@@ -90,7 +90,7 @@ protected Q_SLOTS:
      * Called whenever a subjob finishes.
      * @param job the job that emitted this signal
      */
-    void slotResult(KJob *job) Q_DECL_OVERRIDE;
+    void slotResult(KJob *job) override;
 
 protected:
     FileCopyJob(FileCopyJobPrivate &dd);

@@ -45,7 +45,7 @@ class KIOCORE_EXPORT RestoreJob : public Job
     Q_OBJECT
 
 public:
-    ~RestoreJob() Q_DECL_OVERRIDE;
+    ~RestoreJob() override;
 
     /**
      * Returns the list of trash URLs to restore.
@@ -55,7 +55,7 @@ public:
 Q_SIGNALS:
 
 protected Q_SLOTS:
-    void slotResult(KJob *job) Q_DECL_OVERRIDE;
+    void slotResult(KJob *job) override;
 
 protected:
     RestoreJob(RestoreJobPrivate &dd);

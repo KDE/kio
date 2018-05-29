@@ -40,7 +40,7 @@ class KIOCORE_EXPORT MkdirJob : public SimpleJob
     Q_OBJECT
 
 public:
-    ~MkdirJob() Q_DECL_OVERRIDE;
+    ~MkdirJob() override;
 
 Q_SIGNALS:
     /**
@@ -62,7 +62,7 @@ Q_SIGNALS:
     void permanentRedirection(KIO::Job *job, const QUrl &fromUrl, const QUrl &toUrl);
 
 protected Q_SLOTS:
-    void slotFinished() Q_DECL_OVERRIDE;
+    void slotFinished() override;
 
 public:
     MkdirJob(MkdirJobPrivate &dd);

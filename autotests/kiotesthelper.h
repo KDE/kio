@@ -141,7 +141,7 @@ public:
                                            const QDateTime  & = QDateTime(),
                                            const QDateTime  & = QDateTime(),
                                            const QDateTime  & = QDateTime(),
-                                           const QDateTime  & = QDateTime()) Q_DECL_OVERRIDE {
+                                           const QDateTime  & = QDateTime()) override {
         Q_UNUSED(job)
         Q_UNUSED(caption)
         Q_UNUSED(src)
@@ -154,7 +154,7 @@ public:
 
     KIO::SkipDialog_Result askSkip(KJob *job,
                                    KIO::SkipDialog_Options options,
-                                   const QString &error_text) Q_DECL_OVERRIDE {
+                                   const QString &error_text) override {
         Q_UNUSED(job)
         Q_UNUSED(options)
         Q_UNUSED(error_text)
@@ -163,7 +163,7 @@ public:
     }
 
     bool askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType,
-                               ConfirmationType confirmationType) Q_DECL_OVERRIDE {
+                               ConfirmationType confirmationType) override {
         Q_UNUSED(urls);
         Q_UNUSED(deletionType);
         Q_UNUSED(confirmationType);
@@ -178,7 +178,7 @@ public:
                           const QString &iconYes = QString(),
                           const QString &iconNo = QString(),
                           const QString &dontAskAgainName = QString(),
-                          const KIO::MetaData &sslMetaData = KIO::MetaData()) Q_DECL_OVERRIDE {
+                          const KIO::MetaData &sslMetaData = KIO::MetaData()) override {
         Q_UNUSED(type);
         Q_UNUSED(text);
         Q_UNUSED(caption);

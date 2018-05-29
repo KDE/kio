@@ -38,7 +38,7 @@ class KIOFILEWIDGETS_EXPORT KFilePlacesView : public QListView
     Q_OBJECT
 public:
     explicit KFilePlacesView(QWidget *parent = nullptr);
-    ~KFilePlacesView() Q_DECL_OVERRIDE;
+    ~KFilePlacesView() override;
 
     /**
      * If \a enabled is true, it is allowed dropping items
@@ -64,27 +64,27 @@ public:
 public Q_SLOTS:
     void setUrl(const QUrl &url);
     void setShowAll(bool showAll);
-    QSize sizeHint() const Q_DECL_OVERRIDE;
-    void setModel(QAbstractItemModel *model) Q_DECL_OVERRIDE;
+    QSize sizeHint() const override;
+    void setModel(QAbstractItemModel *model) override;
 
 protected:
-    void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
-    void contextMenuEvent(QContextMenuEvent *event) Q_DECL_OVERRIDE;
-    void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
-    void showEvent(QShowEvent *event) Q_DECL_OVERRIDE;
-    void hideEvent(QHideEvent *event) Q_DECL_OVERRIDE;
-    void dragEnterEvent(QDragEnterEvent *event) Q_DECL_OVERRIDE;
-    void dragLeaveEvent(QDragLeaveEvent *event) Q_DECL_OVERRIDE;
-    void dragMoveEvent(QDragMoveEvent *event) Q_DECL_OVERRIDE;
-    void dropEvent(QDropEvent *event) Q_DECL_OVERRIDE;
-    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
-    void startDrag(Qt::DropActions supportedActions) Q_DECL_OVERRIDE;
-    void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    void keyPressEvent(QKeyEvent *event) override;
+    void contextMenuEvent(QContextMenuEvent *event) override;
+    void resizeEvent(QResizeEvent *event) override;
+    void showEvent(QShowEvent *event) override;
+    void hideEvent(QHideEvent *event) override;
+    void dragEnterEvent(QDragEnterEvent *event) override;
+    void dragLeaveEvent(QDragLeaveEvent *event) override;
+    void dragMoveEvent(QDragMoveEvent *event) override;
+    void dropEvent(QDropEvent *event) override;
+    void paintEvent(QPaintEvent *event) override;
+    void startDrag(Qt::DropActions supportedActions) override;
+    void mousePressEvent(QMouseEvent *event) override;
 
 protected Q_SLOTS:
-    void rowsInserted(const QModelIndex &parent, int start, int end) Q_DECL_OVERRIDE;
+    void rowsInserted(const QModelIndex &parent, int start, int end) override;
     void dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight,
-                     const QVector<int> &roles) Q_DECL_OVERRIDE;
+                     const QVector<int> &roles) override;
 
 Q_SIGNALS:
     void urlChanged(const QUrl &url);

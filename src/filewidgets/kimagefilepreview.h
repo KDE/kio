@@ -43,23 +43,23 @@ public:
     /**
      * Destroys the image file preview.
      */
-    ~KImageFilePreview() Q_DECL_OVERRIDE;
+    ~KImageFilePreview() override;
 
     /**
      * Returns the size hint for this widget.
      */
-    QSize sizeHint() const Q_DECL_OVERRIDE;
+    QSize sizeHint() const override;
 
 public Q_SLOTS:
     /**
      * Shows a preview for the given @p url.
      */
-    void showPreview(const QUrl &url) Q_DECL_OVERRIDE;
+    void showPreview(const QUrl &url) override;
 
     /**
      * Clears the preview.
      */
-    void clearPreview() Q_DECL_OVERRIDE;
+    void clearPreview() override;
 
 protected Q_SLOTS:
     void showPreview();
@@ -68,7 +68,7 @@ protected Q_SLOTS:
     virtual void gotPreview(const KFileItem &, const QPixmap &);
 
 protected:
-    void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
+    void resizeEvent(QResizeEvent *event) override;
     virtual KIO::PreviewJob *createJob(const QUrl &url, int width, int height);
 
 private:

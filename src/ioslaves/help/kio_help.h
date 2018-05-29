@@ -38,9 +38,9 @@ public:
     HelpProtocol(bool ghelp, const QByteArray &pool, const QByteArray &app);
     virtual ~HelpProtocol() { }
 
-    void get(const QUrl &url) Q_DECL_OVERRIDE;
+    void get(const QUrl &url) override;
 
-    void mimetype(const QUrl &url) Q_DECL_OVERRIDE;
+    void mimetype(const QUrl &url) override;
 
 private:
 
