@@ -114,8 +114,6 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &_u,
     // like this we don't have to worry about trailing slashes any further
     _url = _url.adjusted(QUrl::StripTrailingSlash);
 
-    const QString urlStr = _url.toString();
-
     QString resolved;
     if (_url.isLocalFile()) {
         // Resolve symlinks (#213799)
@@ -173,9 +171,9 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &_u,
         lister->d->url = _url;
     }
 
-    DirItem *itemU = itemsInUse.value(urlStr);
+    DirItem *itemU = itemsInUse.value(_url);
 
-    KCoreDirListerCacheDirectoryData &dirData = directoryData[urlStr]; // find or insert
+    KCoreDirListerCacheDirectoryData &dirData = directoryData[_url]; // find or insert
 
     if (dirData.listersCurrentlyListing.isEmpty()) {
         // if there is an update running for _url already we get into
@@ -184,13 +182,13 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &_u,
         dirData.listersCurrentlyListing.append(lister);
 
         DirItem *itemFromCache = nullptr;
-        if (itemU || (!_reload && (itemFromCache = itemsCached.take(urlStr)))) {
+        if (itemU || (!_reload && (itemFromCache = itemsCached.take(_url)))) {
             if (itemU) {
                 qCDebug(KIO_CORE_DIRLISTER) << "Entry already in use:" << _url;
                 // if _reload is set, then we'll emit cached items and then updateDirectory.
             } else {
                 qCDebug(KIO_CORE_DIRLISTER) << "Entry in cache:" << _url;
-                itemsInUse.insert(urlStr, itemFromCache);
+                itemsInUse.insert(_url, itemFromCache);
                 itemU = itemFromCache;
             }
             if (lister->d->autoUpdate) {
@@ -211,13 +209,13 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &_u,
             // dir not in cache or _reload is true
             if (_reload) {
                 qCDebug(KIO_CORE_DIRLISTER) << "Reloading directory:" << _url;
-                itemsCached.remove(urlStr);
+                itemsCached.remove(_url);
             } else {
                 qCDebug(KIO_CORE_DIRLISTER) << "Listing directory:" << _url;
             }
 
             itemU = new DirItem(_url, resolved);
-            itemsInUse.insert(urlStr, itemU);
+            itemsInUse.insert(_url, itemU);
             if (lister->d->autoUpdate) {
                 itemU->incAutoUpdate();
             }
@@ -256,7 +254,7 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &_u,
         Q_ASSERT(!dirData.listersCurrentlyListing.contains(lister));
         dirData.listersCurrentlyListing.append(lister);
 
-        KIO::ListJob *job = jobForUrl(urlStr);
+        KIO::ListJob *job = jobForUrl(_url);
         // job will be 0 if we were listing from cache rather than listing from a kio job.
         if (job) {
             lister->jobStarted(job);
@@ -330,13 +328,12 @@ bool KCoreDirLister::Private::CachedItemsJob::doKill()
 
 void KCoreDirListerCache::emitItemsFromCache(KCoreDirLister::Private::CachedItemsJob *cachedItemsJob, KCoreDirLister *lister, const QUrl &_url, bool _reload, bool _emitCompleted)
 {
-    const QString urlStr = _url.toString();
     KCoreDirLister::Private *kdl = lister->d;
     kdl->complete = false;
 
-    DirItem *itemU = kDirListerCache()->itemsInUse.value(urlStr);
+    DirItem *itemU = kDirListerCache()->itemsInUse.value(_url);
     if (!itemU) {
-        qCWarning(KIO_CORE) << "Can't find item for directory" << urlStr << "anymore";
+        qCWarning(KIO_CORE) << "Can't find item for directory" << _url << "anymore";
     } else {
         const NonMovableFileItemList items = itemU->lstItems;
         const KFileItem rootItem = itemU->rootItem;
@@ -375,16 +372,15 @@ void KCoreDirListerCache::forgetCachedItemsJob(KCoreDirLister::Private::CachedIt
     // Modifications to data structures only below this point;
     // so that addNewItems is called with a consistent state
 
-    const QString urlStr = _url.toString();
     lister->d->m_cachedItemsJobs.removeAll(cachedItemsJob);
 
-    KCoreDirListerCacheDirectoryData &dirData = directoryData[urlStr];
+    KCoreDirListerCacheDirectoryData &dirData = directoryData[_url];
     Q_ASSERT(dirData.listersCurrentlyListing.contains(lister));
 
-    KIO::ListJob *listJob = jobForUrl(urlStr);
+    KIO::ListJob *listJob = jobForUrl(_url);
     if (!listJob) {
         Q_ASSERT(!dirData.listersCurrentlyHolding.contains(lister));
-        qCDebug(KIO_CORE_DIRLISTER) << "Moving from listing to holding, because no more job" << lister << urlStr;
+        qCDebug(KIO_CORE_DIRLISTER) << "Moving from listing to holding, because no more job" << lister << _url;
         dirData.listersCurrentlyHolding.append(lister);
         dirData.listersCurrentlyListing.removeAll(lister);
     } else {
@@ -437,7 +433,6 @@ void KCoreDirListerCache::stopListingUrl(KCoreDirLister *lister, const QUrl &_u,
 {
     QUrl url(_u);
     url = url.adjusted(QUrl::StripTrailingSlash);
-    const QString urlStr = url.toString();
 
     KCoreDirLister::Private::CachedItemsJob *cachedItemsJob = lister->d->cachedItemsJobForUrl(url);
     if (cachedItemsJob) {
@@ -450,16 +445,16 @@ void KCoreDirListerCache::stopListingUrl(KCoreDirLister *lister, const QUrl &_u,
     // TODO: consider to stop all the "child jobs" of url as well
     qCDebug(KIO_CORE_DIRLISTER) << lister << " url=" << url;
 
-    QHash<QString, KCoreDirListerCacheDirectoryData>::iterator dirit = directoryData.find(urlStr);
+    const auto dirit = directoryData.find(url);
     if (dirit == directoryData.end()) {
         return;
     }
     KCoreDirListerCacheDirectoryData &dirData = dirit.value();
     if (dirData.listersCurrentlyListing.contains(lister)) {
-        qCDebug(KIO_CORE_DIRLISTER) << " found lister" << lister << "in list - for" << urlStr;
+        qCDebug(KIO_CORE_DIRLISTER) << " found lister" << lister << "in list - for" << url;
         if (dirData.listersCurrentlyListing.count() == 1) {
             // This was the only dirlister interested in the list job -> kill the job
-            stopListJob(urlStr, silent);
+            stopListJob(url, silent);
         } else {
             // Leave the job running for the other dirlisters, just unsubscribe us.
             dirData.listersCurrentlyListing.removeAll(lister);
@@ -472,7 +467,7 @@ void KCoreDirListerCache::stopListingUrl(KCoreDirLister *lister, const QUrl &_u,
 }
 
 // Helper for stop() and stopListingUrl()
-void KCoreDirListerCache::stopListJob(const QString &url, bool silent)
+void KCoreDirListerCache::stopListJob(const QUrl &url, bool silent)
 {
     // Old idea: if it's an update job, let's just leave the job running.
     // After all, update jobs do run for "listersCurrentlyHolding",
@@ -497,9 +492,9 @@ void KCoreDirListerCache::setAutoUpdate(KCoreDirLister *lister, bool enable)
 {
     // IMPORTANT: this method does not check for the current autoUpdate state!
 
-    for (QList<QUrl>::const_iterator it = lister->d->lstDirs.constBegin();
-            it != lister->d->lstDirs.constEnd(); ++it) {
-        DirItem *dirItem = itemsInUse.value((*it).toString());
+    for (auto it = lister->d->lstDirs.constBegin(), cend = lister->d->lstDirs.constEnd();
+            it != cend; ++it) {
+        DirItem *dirItem = itemsInUse.value(*it);
         Q_ASSERT(dirItem);
         if (enable) {
             dirItem->incAutoUpdate();
@@ -549,11 +544,9 @@ void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, b
 {
     qCDebug(KIO_CORE_DIRLISTER) << lister << " _url: " << _url;
 
-    QUrl url(_url);
-    url = url.adjusted(QUrl::StripTrailingSlash);
-    const QString urlStr = url.toString();
+    const QUrl url = _url.adjusted(QUrl::StripTrailingSlash);
 
-    DirectoryDataHash::iterator dit = directoryData.find(urlStr);
+    DirectoryDataHash::iterator dit = directoryData.find(url);
     if (dit == directoryData.end()) {
         return;
     }
@@ -561,24 +554,24 @@ void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, b
     dirData.listersCurrentlyHolding.removeAll(lister);
 
     // This lister doesn't care for updates running in <url> anymore
-    KIO::ListJob *job = jobForUrl(urlStr);
+    KIO::ListJob *job = jobForUrl(url);
     if (job) {
         lister->d->jobDone(job);
     }
 
-    DirItem *item = itemsInUse.value(urlStr);
+    DirItem *item = itemsInUse.value(url);
     Q_ASSERT(item);
     bool insertIntoCache = false;
 
     if (dirData.listersCurrentlyHolding.isEmpty() && dirData.listersCurrentlyListing.isEmpty()) {
         // item not in use anymore -> move into cache if complete
         directoryData.erase(dit);
-        itemsInUse.remove(urlStr);
+        itemsInUse.remove(url);
 
         // this job is a running update which nobody cares about anymore
         if (job) {
             killJob(job);
-            qCDebug(KIO_CORE_DIRLISTER) << "Killing update job for " << urlStr;
+            qCDebug(KIO_CORE_DIRLISTER) << "Killing update job for " << url;
 
             // Well, the user of KCoreDirLister doesn't really care that we're stopping
             // a background-running job from a previous URL (in listDir) -> commented out.
@@ -645,7 +638,7 @@ void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, b
     // Inserting into QCache must be done last, since it might delete the item
     if (item && insertIntoCache) {
         qCDebug(KIO_CORE_DIRLISTER) << lister << "item moved into cache:" << url;
-        itemsCached.insert(urlStr, item);
+        itemsCached.insert(url, item);
     }
 }
 
@@ -669,15 +662,14 @@ void KCoreDirListerCache::updateDirectory(const QUrl &_dir)
     //   - only update a directory: the listers are in listersCurrentlyHolding
     //   - update a currently running listing: the listers are in both
 
-    QString urlStr = dir.toString();
-    KCoreDirListerCacheDirectoryData &dirData = directoryData[urlStr];
+    KCoreDirListerCacheDirectoryData &dirData = directoryData[dir];
     QList<KCoreDirLister *> listers = dirData.listersCurrentlyListing;
     QList<KCoreDirLister *> holders = dirData.listersCurrentlyHolding;
 
-    qCDebug(KIO_CORE_DIRLISTER) << urlStr << "listers=" << listers << "holders=" << holders;
+    qCDebug(KIO_CORE_DIRLISTER) << dir << "listers=" << listers << "holders=" << holders;
 
     bool killed = false;
-    KIO::ListJob *job = jobForUrl(urlStr);
+    KIO::ListJob *job = jobForUrl(dir);
     if (job) {
         // the job is running already, tell it to do another update at the end
         // (don't kill it, we would keep doing that during a long download to a slow sshfs mount)
@@ -742,9 +734,8 @@ void KCoreDirListerCache::updateDirectory(const QUrl &_dir)
 
 bool KCoreDirListerCache::checkUpdate(const QUrl &_dir)
 {
-    QString dir = _dir.toString();
-    if (!itemsInUse.contains(dir)) {
-        DirItem *item = itemsCached[dir];
+    if (!itemsInUse.contains(_dir)) {
+        DirItem *item = itemsCached[_dir];
         if (item && item->complete) {
             item->complete = false;
             item->watchedWhileInCache = false;
@@ -772,10 +763,10 @@ KFileItem KCoreDirListerCache::itemForUrl(const QUrl &url) const
 
 KCoreDirListerCache::DirItem *KCoreDirListerCache::dirItemForUrl(const QUrl &dir) const
 {
-    const QString urlStr = dir.toString(QUrl::StripTrailingSlash);
-    DirItem *item = itemsInUse.value(urlStr);
+    const QUrl url = dir.adjusted(QUrl::StripTrailingSlash);
+    DirItem *item = itemsInUse.value(url);
     if (!item) {
-        item = itemsCached[urlStr];
+        item = itemsCached[url];
     }
     return item;
 }
@@ -792,7 +783,7 @@ KFileItem KCoreDirListerCache::findByName(const KCoreDirLister *lister, const QS
 
     for (QList<QUrl>::const_iterator it = lister->d->lstDirs.constBegin();
             it != lister->d->lstDirs.constEnd(); ++it) {
-        DirItem *dirItem = itemsInUse.value((*it).toString());
+        DirItem *dirItem = itemsInUse.value(*it);
         Q_ASSERT(dirItem);
         const KFileItem item = dirItem->lstItems.findByName(_name);
         if (!item.isNull()) {
@@ -863,16 +854,16 @@ void KCoreDirListerCache::slotFilesRemoved(const QList<QUrl> &fileList)
 {
     qCDebug(KIO_CORE_DIRLISTER) << fileList.count();
     // Group notifications by parent dirs (usually there would be only one parent dir)
-    QMap<QString, KFileItemList> removedItemsByDir;
+    QMap<QUrl, KFileItemList> removedItemsByDir;
     QList<QUrl> deletedSubdirs;
 
-    for (QList<QUrl>::const_iterator it = fileList.begin(); it != fileList.end(); ++it) {
+    for (auto it = fileList.cbegin(), cend = fileList.end(); it != cend; ++it) {
         QUrl url(*it);
         DirItem *dirItem = dirItemForUrl(url); // is it a listed directory?
         if (dirItem) {
             deletedSubdirs.append(url);
             if (!dirItem->rootItem.isNull()) {
-                removedItemsByDir[url.toString()].append(dirItem->rootItem);
+                removedItemsByDir[url].append(dirItem->rootItem);
             }
         }
 
@@ -884,7 +875,7 @@ void KCoreDirListerCache::slotFilesRemoved(const QList<QUrl> &fileList)
         for (NonMovableFileItemList::iterator fit = dirItem->lstItems.begin(), fend = dirItem->lstItems.end(); fit != fend; ++fit) {
             if ((*fit).url() == url) {
                 const KFileItem fileitem = *fit;
-                removedItemsByDir[parentDir.toString()].append(fileitem);
+                removedItemsByDir[parentDir].append(fileitem);
                 // If we found a fileitem, we can test if it's a dir. If not, we'll go to deleteDir just in case.
                 if (fileitem.isNull() || fileitem.isDir()) {
                     deletedSubdirs.append(url);
@@ -895,11 +886,10 @@ void KCoreDirListerCache::slotFilesRemoved(const QList<QUrl> &fileList)
         }
     }
 
-    QMap<QString, KFileItemList>::const_iterator rit = removedItemsByDir.constBegin();
-    for (; rit != removedItemsByDir.constEnd(); ++rit) {
+    for (auto rit = removedItemsByDir.constBegin(), cend = removedItemsByDir.constEnd(); rit != cend; ++rit) {
         // Tell the views about it before calling deleteDir.
         // They might need the subdirs' file items (see the dirtree).
-        DirectoryDataHash::const_iterator dit = directoryData.constFind(rit.key());
+        auto dit = directoryData.constFind(rit.key());
         if (dit != directoryData.constEnd()) {
             itemsDeleted((*dit).listersCurrentlyHolding, rit.value());
         }
@@ -1025,8 +1015,7 @@ QSet<KCoreDirLister *> KCoreDirListerCache::emitRefreshItem(const KFileItem &old
                                 << "new:" << fileitem.name() << fileitem.url();
     // Look whether this item was shown in any view, i.e. held by any dirlister
     const QUrl parentDir = oldItem.url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
-    const QString parentDirURL = parentDir.toString();
-    DirectoryDataHash::iterator dit = directoryData.find(parentDirURL);
+    DirectoryDataHash::iterator dit = directoryData.find(parentDir);
     QList<KCoreDirLister *> listers;
     // Also look in listersCurrentlyListing, in case the user manages to rename during a listing
     if (dit != directoryData.end()) {
@@ -1034,7 +1023,7 @@ QSet<KCoreDirLister *> KCoreDirListerCache::emitRefreshItem(const KFileItem &old
     }
     if (oldItem.isDir()) {
         // For a directory, look for dirlisters where it's the root item.
-        dit = directoryData.find(oldItem.url().toString());
+        dit = directoryData.find(oldItem.url());
         if (dit != directoryData.end()) {
             listers += (*dit).listersCurrentlyHolding + (*dit).listersCurrentlyListing;
         }
@@ -1182,18 +1171,17 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
 {
     QUrl url(joburl(static_cast<KIO::ListJob *>(job)));
     url = url.adjusted(QUrl::StripTrailingSlash);
-    QString urlStr = url.toString();
 
     qCDebug(KIO_CORE_DIRLISTER) << "new entries for " << url;
 
-    DirItem *dir = itemsInUse.value(urlStr);
+    DirItem *dir = itemsInUse.value(url);
     if (!dir) {
         qCWarning(KIO_CORE) << "Internal error: job is listing" << url << "but itemsInUse only knows about" << itemsInUse.keys();
         Q_ASSERT(dir);
         return;
     }
 
-    DirectoryDataHash::iterator dit = directoryData.find(urlStr);
+    DirectoryDataHash::iterator dit = directoryData.find(url);
     if (dit == directoryData.end()) {
         qCWarning(KIO_CORE) << "Internal error: job is listing" << url << "but directoryData doesn't know about that url, only about:" << directoryData.keys();
         Q_ASSERT(dit != directoryData.end());
@@ -1201,7 +1189,7 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
     }
     KCoreDirListerCacheDirectoryData &dirData = *dit;
     if (dirData.listersCurrentlyListing.isEmpty()) {
-        qCWarning(KIO_CORE) << "Internal error: job is listing" << url << "but directoryData says no listers are currently listing " << urlStr;
+        qCWarning(KIO_CORE) << "Internal error: job is listing" << url << "but directoryData says no listers are currently listing " << url;
 #ifndef NDEBUG
         printDebug();
 #endif
@@ -1289,13 +1277,12 @@ void KCoreDirListerCache::slotResult(KJob *j)
 
     QUrl jobUrl(joburl(job));
     jobUrl = jobUrl.adjusted(QUrl::StripTrailingSlash);  // need remove trailing slashes again, in case of redirections
-    QString jobUrlStr = jobUrl.toString();
 
     qCDebug(KIO_CORE_DIRLISTER) << "finished listing" << jobUrl;
 
-    DirectoryDataHash::iterator dit = directoryData.find(jobUrlStr);
+    const auto dit = directoryData.find(jobUrl);
     if (dit == directoryData.end()) {
-        qCWarning(KIO_CORE) << "Nothing found in directoryData for URL" << jobUrlStr;
+        qCWarning(KIO_CORE) << "Nothing found in directoryData for URL" << jobUrl;
 #ifndef NDEBUG
         printDebug();
 #endif
@@ -1304,7 +1291,7 @@ void KCoreDirListerCache::slotResult(KJob *j)
     }
     KCoreDirListerCacheDirectoryData &dirData = *dit;
     if (dirData.listersCurrentlyListing.isEmpty()) {
-        qCWarning(KIO_CORE) << "OOOOPS, nothing in directoryData.listersCurrentlyListing for" << jobUrlStr;
+        qCWarning(KIO_CORE) << "OOOOPS, nothing in directoryData.listersCurrentlyListing for" << jobUrl;
         // We're about to assert; dump the current state...
 #ifndef NDEBUG
         printDebug();
@@ -1338,7 +1325,7 @@ void KCoreDirListerCache::slotResult(KJob *j)
             }
         }
     } else {
-        DirItem *dir = itemsInUse.value(jobUrlStr);
+        DirItem *dir = itemsInUse.value(jobUrl);
         Q_ASSERT(dir);
         dir->complete = true;
 
@@ -1385,9 +1372,6 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
         return;
     }
 
-    const QString oldUrlStr = oldUrl.toString();
-    const QString newUrlStr = newUrl.toString();
-
     qCDebug(KIO_CORE_DIRLISTER) << oldUrl << "->" << newUrl;
 
 #ifdef DEBUG_CACHE
@@ -1401,10 +1385,10 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
     // DF: redirection happens before listDir emits any item. Makes little sense otherwise.
 
     // oldUrl cannot be in itemsCached because only completed items are moved there
-    DirItem *dir = itemsInUse.take(oldUrlStr);
+    DirItem *dir = itemsInUse.take(oldUrl);
     Q_ASSERT(dir);
 
-    DirectoryDataHash::iterator dit = directoryData.find(oldUrlStr);
+    DirectoryDataHash::iterator dit = directoryData.find(oldUrl);
     Q_ASSERT(dit != directoryData.end());
     KCoreDirListerCacheDirectoryData oldDirData = *dit;
     directoryData.erase(dit);
@@ -1428,7 +1412,7 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
         kdl->d->redirect(oldUrl, newUrl, false /*clear items*/);
     }
 
-    DirItem *newDir = itemsInUse.value(newUrlStr);
+    DirItem *newDir = itemsInUse.value(newUrl);
     if (newDir) {
         qCDebug(KIO_CORE_DIRLISTER) << newUrl << "already in use";
 
@@ -1437,11 +1421,11 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
 
         // get the job if one's running for newUrl already (can be a list-job or an update-job), but
         // do not return this 'job', which would happen because of the use of redirectionURL()
-        KIO::ListJob *oldJob = jobForUrl(newUrlStr, job);
+        KIO::ListJob *oldJob = jobForUrl(newUrl, job);
 
         // listers of newUrl with oldJob: forget about the oldJob and use the already running one
         // which will be converted to an updateJob
-        KCoreDirListerCacheDirectoryData &newDirData = directoryData[newUrlStr];
+        KCoreDirListerCacheDirectoryData &newDirData = directoryData[newUrl];
 
         QList<KCoreDirLister *> &curListers = newDirData.listersCurrentlyListing;
         if (!curListers.isEmpty()) {
@@ -1496,12 +1480,12 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
             kdl->d->addNewItems(newUrl, newDir->lstItems);
             kdl->d->emitItems();
         }
-    } else if ((newDir = itemsCached.take(newUrlStr))) {
+    } else if ((newDir = itemsCached.take(newUrl))) {
         qCDebug(KIO_CORE_DIRLISTER) << newUrl << "is unused, but already in the cache.";
 
         delete dir;
-        itemsInUse.insert(newUrlStr, newDir);
-        KCoreDirListerCacheDirectoryData &newDirData = directoryData[newUrlStr];
+        itemsInUse.insert(newUrl, newDir);
+        KCoreDirListerCacheDirectoryData &newDirData = directoryData[newUrl];
         newDirData.listersCurrentlyListing = listers;
         newDirData.listersCurrentlyHolding = holders;
 
@@ -1520,8 +1504,8 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
         dir->rootItem = KFileItem();
         dir->lstItems.clear();
         dir->redirect(newUrl);
-        itemsInUse.insert(newUrlStr, dir);
-        KCoreDirListerCacheDirectoryData &newDirData = directoryData[newUrlStr];
+        itemsInUse.insert(newUrl, dir);
+        KCoreDirListerCacheDirectoryData &newDirData = directoryData[newUrl];
         newDirData.listersCurrentlyListing = listers;
         newDirData.listersCurrentlyHolding = holders;
 
@@ -1547,10 +1531,10 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
 }
 
 struct KCoreDirListerCache::ItemInUseChange {
-    ItemInUseChange(const QString &old, const QString &newU, DirItem *di)
+    ItemInUseChange(const QUrl &old, const QUrl &newU, DirItem *di)
         : oldUrl(old), newUrl(newU), dirItem(di) {}
-    QString oldUrl;
-    QString newUrl;
+    QUrl oldUrl;
+    QUrl newUrl;
     DirItem *dirItem;
 };
 
@@ -1568,9 +1552,7 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
     QSet<KCoreDirLister *> listers;
 
     // Look at all dirs being listed/shown
-    QHash<QString, DirItem *>::iterator itu = itemsInUse.begin();
-    const QHash<QString, DirItem *>::iterator ituend = itemsInUse.end();
-    for (; itu != ituend; ++itu) {
+    for (auto itu = itemsInUse.begin(), ituend = itemsInUse.end(); itu != ituend; ++itu) {
         DirItem *dir = itu.value();
         QUrl oldDirUrl(itu.key());
         qCDebug(KIO_CORE_DIRLISTER) << "itemInUse:" << oldDirUrl;
@@ -1588,8 +1570,8 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
             // Update URL in dir item and in itemsInUse
             dir->redirect(newDirUrl);
 
-            itemsToChange.append(ItemInUseChange(oldDirUrl.toString(QUrl::StripTrailingSlash),
-                                                 newDirUrl.toString(QUrl::StripTrailingSlash),
+            itemsToChange.append(ItemInUseChange(oldDirUrl.adjusted(QUrl::StripTrailingSlash),
+                                                 newDirUrl.adjusted(QUrl::StripTrailingSlash),
                                                  dir));
             // Rename all items under that dir
 
@@ -1597,8 +1579,7 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
                     kit != kend; ++kit) {
                 const KFileItem oldItem = *kit;
 
-                const QUrl oldItemUrl((*kit).url());
-                const QString oldItemUrlStr(oldItemUrl.toString(QUrl::StripTrailingSlash));
+                const QUrl oldItemUrl = (*kit).url().adjusted(QUrl::StripTrailingSlash);
                 QUrl newItemUrl(oldItemUrl);
                 newItemUrl.setPath(concatPaths(newDirUrl.path(), oldItemUrl.fileName()));
                 qCDebug(KIO_CORE_DIRLISTER) << "renaming" << oldItemUrl << "to" << newItemUrl;
@@ -1630,26 +1611,26 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
 }
 
 // helper for renameDir, not used for redirections from KIO::listDir().
-void KCoreDirListerCache::emitRedirections(const QUrl &oldUrl, const QUrl &newUrl)
+void KCoreDirListerCache::emitRedirections(const QUrl &_oldUrl, const QUrl &_newUrl)
 {
-    qCDebug(KIO_CORE_DIRLISTER) << oldUrl << "->" << newUrl;
-    const QString oldUrlStr = oldUrl.toString(QUrl::StripTrailingSlash);
-    const QString newUrlStr = newUrl.toString(QUrl::StripTrailingSlash);
+    qCDebug(KIO_CORE_DIRLISTER) << _oldUrl << "->" << _newUrl;
+    const QUrl oldUrl = _oldUrl.adjusted(QUrl::StripTrailingSlash);
+    const QUrl newUrl = _newUrl.adjusted(QUrl::StripTrailingSlash);
 
-    KIO::ListJob *job = jobForUrl(oldUrlStr);
+    KIO::ListJob *job = jobForUrl(oldUrl);
     if (job) {
         killJob(job);
     }
 
     // Check if we were listing this dir. Need to abort and restart with new name in that case.
-    DirectoryDataHash::iterator dit = directoryData.find(oldUrlStr);
+    DirectoryDataHash::iterator dit = directoryData.find(oldUrl);
     if (dit == directoryData.end()) {
         return;
     }
     const QList<KCoreDirLister *> listers = (*dit).listersCurrentlyListing;
     const QList<KCoreDirLister *> holders = (*dit).listersCurrentlyHolding;
 
-    KCoreDirListerCacheDirectoryData &newDirData = directoryData[newUrlStr];
+    KCoreDirListerCacheDirectoryData &newDirData = directoryData[newUrl];
 
     // Tell the world that the job listing the old url is dead.
     foreach (KCoreDirLister *kdl, listers) {
@@ -1688,10 +1669,9 @@ void KCoreDirListerCache::emitRedirections(const QUrl &oldUrl, const QUrl &newUr
 void KCoreDirListerCache::removeDirFromCache(const QUrl &dir)
 {
     qCDebug(KIO_CORE_DIRLISTER) << dir;
-    const QList<QString> cachedDirs = itemsCached.keys(); // seems slow, but there's no qcache iterator...
-    foreach (const QString &cachedDir, cachedDirs) {
-        const QUrl cachedDirUrl(cachedDir);
-        if (dir == cachedDirUrl || dir.isParentOf(cachedDirUrl)) {
+    const QList<QUrl> cachedDirs = itemsCached.keys(); // seems slow, but there's no qcache iterator...
+    foreach (const QUrl &cachedDir, cachedDirs) {
+        if (dir == cachedDir || dir.isParentOf(cachedDir)) {
             itemsCached.remove(cachedDir);
         }
     }
@@ -1709,11 +1689,10 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
 
     QUrl jobUrl(joburl(job));
     jobUrl = jobUrl.adjusted(QUrl::StripTrailingSlash);  // need remove trailing slashes again, in case of redirections
-    QString jobUrlStr(jobUrl.toString());
 
     qCDebug(KIO_CORE_DIRLISTER) << "finished update" << jobUrl;
 
-    KCoreDirListerCacheDirectoryData &dirData = directoryData[jobUrlStr];
+    KCoreDirListerCacheDirectoryData &dirData = directoryData[jobUrl];
     // Collect the dirlisters which were listing the URL using that ListJob
     // plus those that were already holding that URL - they all get updated.
     dirData.moveListersWithoutCachedItemsJob(jobUrl);
@@ -1750,9 +1729,9 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
         return;
     }
 
-    DirItem *dir = itemsInUse.value(jobUrlStr, nullptr);
+    DirItem *dir = itemsInUse.value(jobUrl, nullptr);
     if (!dir) {
-        qCWarning(KIO_CORE) << "Internal error: itemsInUse did not contain" << jobUrlStr;
+        qCWarning(KIO_CORE) << "Internal error: itemsInUse did not contain" << jobUrl;
 #ifndef NDEBUG
         printDebug();
 #endif
@@ -1887,14 +1866,14 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
 
 // private
 
-KIO::ListJob *KCoreDirListerCache::jobForUrl(const QString &url, KIO::ListJob *not_job)
+KIO::ListJob *KCoreDirListerCache::jobForUrl(const QUrl &url, KIO::ListJob *not_job)
 {
-    QMap< KIO::ListJob *, KIO::UDSEntryList >::const_iterator it = runningListJobs.constBegin();
+    auto it = runningListJobs.constBegin();
     while (it != runningListJobs.constEnd()) {
         KIO::ListJob *job = it.key();
-        QString jobUrlStr = joburl(job).toString(QUrl::StripTrailingSlash);
+        const QUrl jobUrl = joburl(job).adjusted(QUrl::StripTrailingSlash);
 
-        if (jobUrlStr == url && job != not_job) {
+        if (jobUrl == url && job != not_job) {
             return job;
         }
         ++it;
@@ -1964,8 +1943,8 @@ void KCoreDirListerCache::deleteDir(const QUrl &_dirUrl)
     // Separate itemsInUse iteration and calls to forgetDirs (which modify itemsInUse)
     QList<QUrl> affectedItems;
 
-    QHash<QString, DirItem *>::iterator itu = itemsInUse.begin();
-    const QHash<QString, DirItem *>::iterator ituend = itemsInUse.end();
+    auto itu = itemsInUse.begin();
+    const auto ituend = itemsInUse.end();
     for (; itu != ituend; ++itu) {
         const QUrl deletedUrl(itu.key());
         if (dirUrl == deletedUrl || dirUrl.isParentOf(deletedUrl)) {
@@ -1974,9 +1953,8 @@ void KCoreDirListerCache::deleteDir(const QUrl &_dirUrl)
     }
 
     foreach (const QUrl &deletedUrl, affectedItems) {
-        const QString deletedUrlStr = deletedUrl.toString();
         // stop all jobs for deletedUrlStr
-        DirectoryDataHash::iterator dit = directoryData.find(deletedUrlStr);
+        DirectoryDataHash::iterator dit = directoryData.find(deletedUrl);
         if (dit != directoryData.end()) {
             // we need a copy because stop modifies the list
             QList<KCoreDirLister *> listers = (*dit).listersCurrentlyListing;
@@ -2013,7 +1991,7 @@ void KCoreDirListerCache::deleteDir(const QUrl &_dirUrl)
 
         // delete the entry for deletedUrl - should not be needed, it's in
         // items cached now
-        int count = itemsInUse.remove(deletedUrlStr);
+        int count = itemsInUse.remove(deletedUrl);
         Q_ASSERT(count == 0);
         Q_UNUSED(count);   //keep gcc "unused variable" complaining quiet when in release mode
     }
@@ -2055,8 +2033,8 @@ void KCoreDirListerCache::processPendingUpdates()
 void KCoreDirListerCache::printDebug()
 {
     qCDebug(KIO_CORE_DIRLISTER) << "Items in use:";
-    QHash<QString, DirItem *>::const_iterator itu = itemsInUse.constBegin();
-    const QHash<QString, DirItem *>::const_iterator ituend = itemsInUse.constEnd();
+    auto itu = itemsInUse.constBegin();
+    const auto ituend = itemsInUse.constEnd();
     for (; itu != ituend; ++itu) {
         qCDebug(KIO_CORE_DIRLISTER) << "   " << itu.key() << "URL:" << itu.value()->url
                  << "rootItem:" << (!itu.value()->rootItem.isNull() ? itu.value()->rootItem.url() : QUrl())
@@ -2098,8 +2076,8 @@ void KCoreDirListerCache::printDebug()
     }
 
     qCDebug(KIO_CORE_DIRLISTER) << "Items in cache:";
-    const QList<QString> cachedDirs = itemsCached.keys();
-    foreach (const QString &cachedDir, cachedDirs) {
+    const QList<QUrl> cachedDirs = itemsCached.keys();
+    foreach (const QUrl &cachedDir, cachedDirs) {
         DirItem *dirItem = itemsCached.object(cachedDir);
         qCDebug(KIO_CORE_DIRLISTER) << "   " << cachedDir << "rootItem:"
                  << (!dirItem->rootItem.isNull() ? dirItem->rootItem.url().toString() : QStringLiteral("NULL"))

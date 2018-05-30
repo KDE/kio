@@ -313,9 +313,9 @@ private:
 
     bool validUrl(KCoreDirLister *lister, const QUrl &_url) const;
 
-    void stopListJob(const QString &url, bool silent);
+    void stopListJob(const QUrl &url, bool silent);
 
-    KIO::ListJob *jobForUrl(const QString &url, KIO::ListJob *not_job = nullptr);
+    KIO::ListJob *jobForUrl(const QUrl &url, KIO::ListJob *not_job = nullptr);
     const QUrl &joburl(KIO::ListJob *job);
 
     void killJob(KIO::ListJob *job);
@@ -492,13 +492,13 @@ private:
     QMap<KIO::ListJob *, KIO::UDSEntryList> runningListJobs;
 
     // an item is a complete directory
-    QHash<QString /*url*/, DirItem *> itemsInUse;
-    QCache<QString /*url*/, DirItem> itemsCached;
+    QHash<QUrl, DirItem *> itemsInUse;
+    QCache<QUrl, DirItem> itemsCached;
 
     // cache of ".hidden" files
     QCache<QString /*dot hidden file*/, CacheHiddenFile> m_cacheHiddenFiles;
 
-    typedef QHash<QString /*url*/, KCoreDirListerCacheDirectoryData> DirectoryDataHash;
+    typedef QHash<QUrl, KCoreDirListerCacheDirectoryData> DirectoryDataHash;
     DirectoryDataHash directoryData;
 
     // Symlink-to-directories are registered here so that we can
