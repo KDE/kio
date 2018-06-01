@@ -24,16 +24,16 @@
 #include "sharefd_p.h"
 #include "fdreceiver.h"
 
-FdReceiver::FdReceiver(const QString &path, QObject *parent)
+FdReceiver::FdReceiver(const std::string &path, QObject *parent)
           : QObject(parent)
           , m_readNotifier(nullptr)
           , m_path(path)
           , m_socketDes(-1)
           , m_fileDes(-1)
 {
-    const SocketAddress addr(m_path.toLocal8Bit().toStdString());
+    const SocketAddress addr(m_path);
     if (!addr.address()) {
-        std::cerr << "Invalid socket address:" << qPrintable(m_path) << std::endl;
+        std::cerr << "Invalid socket address:" << m_path << std::endl;
         return;
     }
 
@@ -43,7 +43,7 @@ FdReceiver::FdReceiver(const QString &path, QObject *parent)
         return;
     }
 
-    ::unlink(m_path.toLocal8Bit().constData());
+    ::unlink(m_path.c_str());
     if (bind(m_socketDes, addr.address(), addr.length()) != 0 || listen(m_socketDes, 5) != 0) {
         std::cerr << "bind/listen error:" << strerror(errno) << std::endl;
         ::close(m_socketDes);
@@ -60,7 +60,7 @@ FdReceiver::~FdReceiver()
     if (m_socketDes >= 0) {
         ::close(m_socketDes);
     }
-    ::unlink(m_path.toLocal8Bit().constData());
+    ::unlink(m_path.c_str());
 }
 
 bool FdReceiver::isListening() const

@@ -22,7 +22,6 @@
 #define FDRECEIVER_H
 
 #include <QObject>
-#include <QString>
 
 class QSocketNotifier;
 class FdReceiver : public QObject
@@ -30,7 +29,7 @@ class FdReceiver : public QObject
     Q_OBJECT
 
 public:
-    FdReceiver(const QString &path, QObject *parent = nullptr);
+    FdReceiver(const std::string &path, QObject *parent = nullptr);
     ~FdReceiver();
 
     bool isListening() const;
@@ -40,7 +39,7 @@ private:
     Q_SLOT void receiveFileDescriptor();
 
     QSocketNotifier *m_readNotifier;
-    QString m_path;
+    std::string m_path;
     int m_socketDes;
     int m_fileDes;
 };

@@ -87,7 +87,7 @@ bool FileProtocol::privilegeOperationUnitTestMode()
 PrivilegeOperationReturnValue FileProtocol::tryOpen(QFile &f, const QByteArray &path, int flags, int mode, int errcode)
 {
     const QString sockPath = socketPath();
-    FdReceiver fdRecv(sockPath);
+    FdReceiver fdRecv(QFile::encodeName(sockPath).toStdString());
     if (!fdRecv.isListening()) {
         return PrivilegeOperationReturnValue::failure(errcode);
     }
