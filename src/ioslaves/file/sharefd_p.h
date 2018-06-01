@@ -42,7 +42,7 @@ public:
 
     int length() const
     {
-        return sizeof addr;
+        return offsetof(struct sockaddr_un, sun_path) + strlen(addr.sun_path) + 1;
     }
     const sockaddr *address() const
     {
