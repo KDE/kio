@@ -26,13 +26,18 @@
 FdSender::FdSender(const std::string &path)
         : m_socketDes(-1)
 {
+    const SocketAddress addr(path);
+    if (!addr.address()) {
+        std::cerr << "Invalid socket address:" << path << std::endl;
+        return;
+    }
+
     m_socketDes = ::socket(AF_UNIX, SOCK_STREAM | SOCK_NONBLOCK, 0);
     if (m_socketDes == -1) {
         std::cerr << "socket error:" << strerror(errno) << std::endl;
         return;
     }
 
-    SocketAddress addr(path);
     if (::connect(m_socketDes, addr.address(), addr.length()) != 0) {
         std::cerr << "connection error:" << strerror(errno) << std::endl;
         ::close(m_socketDes);

@@ -31,13 +31,18 @@ FdReceiver::FdReceiver(const QString &path, QObject *parent)
           , m_socketDes(-1)
           , m_fileDes(-1)
 {
+    const SocketAddress addr(m_path.toLocal8Bit().toStdString());
+    if (!addr.address()) {
+        std::cerr << "Invalid socket address:" << qPrintable(m_path) << std::endl;
+        return;
+    }
+
     m_socketDes = ::socket(AF_LOCAL, SOCK_STREAM|SOCK_NONBLOCK, 0);
     if (m_socketDes == -1) {
         std::cerr << "socket error:" << strerror(errno) << std::endl;
         return;
     }
 
-    const SocketAddress addr(path.toStdString());
     ::unlink(m_path.toLocal8Bit().constData());
     if (bind(m_socketDes, addr.address(), addr.length()) != 0 || listen(m_socketDes, 5) != 0) {
         std::cerr << "bind/listen error:" << strerror(errno) << std::endl;
