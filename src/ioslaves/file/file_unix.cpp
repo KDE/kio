@@ -30,6 +30,7 @@
 #include <QFile>
 #include <QDir>
 #include <qplatformdefs.h>
+#include <QStandardPaths>
 
 #include <QDebug>
 #include <kconfiggroup.h>
@@ -43,6 +44,7 @@
 #include <utime.h>
 
 #include <KAuth>
+#include <KRandom>
 
 #include "fdreceiver.h"
 
@@ -72,7 +74,8 @@ same_inode(const QT_STATBUF &src, const QT_STATBUF &dest)
 
 static const QString socketPath()
 {
-    return QStringLiteral("org_kde_kio_file_helper_%1").arg(getpid());
+    const QString runtimeDir = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation);
+    return QStringLiteral("%1/filehelper%2%3").arg(runtimeDir).arg(KRandom::randomString(6)).arg(getpid());
 }
 
 bool FileProtocol::privilegeOperationUnitTestMode()

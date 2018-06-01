@@ -55,10 +55,9 @@ private:
         sockaddr_un a;
         memset(&a, 0, sizeof a);
         a.sun_family = AF_UNIX;
-        std::string finalPath = "/tmp/" + path;
-        const size_t pathSize = finalPath.size();
-        if (pathSize > 5 && pathSize < sizeof(a.sun_path) - 1) {
-            memcpy(a.sun_path, finalPath.c_str(), pathSize + 1);
+        const size_t pathSize = path.size();
+        if (pathSize > 0 && pathSize < sizeof(a.sun_path) - 1) {
+            memcpy(a.sun_path, path.c_str(), pathSize + 1);
         }
         return a;
     }
