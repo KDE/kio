@@ -55,6 +55,7 @@ FdReceiver::~FdReceiver()
     if (m_socketDes >= 0) {
         ::close(m_socketDes);
     }
+    ::unlink(m_path.toLocal8Bit().constData());
 }
 
 bool FdReceiver::isListening() const
