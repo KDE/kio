@@ -46,7 +46,7 @@ public:
     }
     const sockaddr *address() const
     {
-        return reinterpret_cast<const sockaddr*>(&addr);
+        return addr.sun_path[0] ? reinterpret_cast<const sockaddr*>(&addr) : nullptr;
     }
 
 private:
@@ -56,12 +56,11 @@ private:
         memset(&a, 0, sizeof a);
         a.sun_family = AF_UNIX;
         std::string finalPath = "/tmp/" + path;
-#ifdef __linux__
-        ::strcpy(&a.sun_path[1], finalPath.c_str());
-#else
-        ::strcpy(a.sun_path, finalPath.c_str());
-        ::unlink(finalPath.c_str());
-#endif
+        const size_t pathSize = finalPath.size();
+        if (pathSize > 5 && pathSize < sizeof(a.sun_path) - 1) {
+            memcpy(a.sun_path, finalPath.c_str(), pathSize + 1);
+            ::unlink(finalPath.c_str());
+        }
         return a;
     }
 };
