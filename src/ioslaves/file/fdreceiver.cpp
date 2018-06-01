@@ -27,6 +27,7 @@
 FdReceiver::FdReceiver(const QString &path, QObject *parent)
           : QObject(parent)
           , m_readNotifier(nullptr)
+          , m_path(path)
           , m_socketDes(-1)
           , m_fileDes(-1)
 {
@@ -37,6 +38,7 @@ FdReceiver::FdReceiver(const QString &path, QObject *parent)
     }
 
     const SocketAddress addr(path.toStdString());
+    ::unlink(m_path.toLocal8Bit().constData());
     if (bind(m_socketDes, addr.address(), addr.length()) != 0 || listen(m_socketDes, 5) != 0) {
         std::cerr << "bind/listen error:" << strerror(errno) << std::endl;
         ::close(m_socketDes);

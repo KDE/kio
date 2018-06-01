@@ -40,6 +40,7 @@ private:
     Q_SLOT void receiveFileDescriptor();
 
     QSocketNotifier *m_readNotifier;
+    QString m_path;
     int m_socketDes;
     int m_fileDes;
 };
