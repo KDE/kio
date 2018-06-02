@@ -290,7 +290,7 @@ void KTcpSocketTest::statesManyHosts()
                              "Host: ");
     QByteArray requestEpilog("\r\n\r\n");
     //Test rapid connection and disconnection to different hosts
-    static const char *hosts[] = {"www.google.de", "www.spiegel.de", "www.stern.de", "www.laut.de"};
+    static const char *hosts[] = {"www.google.de", "www.spiegel.de", "www.stern.de", "www.google.com"};
     static const int numHosts = 4;
     for (int i = 0; i < numHosts * 5; i++) {
         qDebug("\nNow trying %s...", hosts[i % numHosts]);
