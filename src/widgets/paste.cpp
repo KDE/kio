@@ -101,7 +101,7 @@ static QUrl getDestinationUrl(const QUrl &srcUrl, const QUrl &destUrl, QWidget *
         }
     }
 
-    return QUrl();
+    return destUrl;
 }
 
 static QUrl getNewFileName(const QUrl &u, const QString &text, const QString &suggestedFileName, QWidget *widget)
