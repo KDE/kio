@@ -530,7 +530,7 @@ public:
     }
 
 protected:
-    void showEvent(QShowEvent *e) Q_DECL_OVERRIDE
+    void showEvent(QShowEvent *e) override
     {
         // Now that we're shown, use our width to calculate a good
         // bounding box for the text, and resize m_textEdit appropriately.

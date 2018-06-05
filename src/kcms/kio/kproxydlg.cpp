@@ -53,7 +53,7 @@ class InputValidator : public QValidator
 {
     
 public:
-    State validate(QString& input, int& pos) const Q_DECL_OVERRIDE {
+    State validate(QString& input, int& pos) const override {
         if (input.isEmpty())
             return Acceptable;
 

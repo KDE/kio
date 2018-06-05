@@ -60,12 +60,12 @@ class KFilePlacesViewDelegate : public QAbstractItemDelegate
     Q_OBJECT
 public:
     explicit KFilePlacesViewDelegate(KFilePlacesView *parent);
-    ~KFilePlacesViewDelegate() Q_DECL_OVERRIDE;
+    ~KFilePlacesViewDelegate() override;
     QSize sizeHint(const QStyleOptionViewItem &option,
-                   const QModelIndex &index) const Q_DECL_OVERRIDE;
+                   const QModelIndex &index) const override;
     void paint(QPainter *painter,
                const QStyleOptionViewItem &option,
-               const QModelIndex &index) const Q_DECL_OVERRIDE;
+               const QModelIndex &index) const override;
 
     int iconSize() const;
     void setIconSize(int newSize);

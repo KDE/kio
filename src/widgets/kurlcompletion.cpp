@@ -274,7 +274,7 @@ public:
     {}
 
 protected:
-    void run() Q_DECL_OVERRIDE
+    void run() override
     {
 #ifndef Q_OS_ANDROID
         static const QChar tilde = '~';
@@ -324,7 +324,7 @@ public:
         m_appendSlashToDir(appendSlashToDir)
     {}
 
-    void run() Q_DECL_OVERRIDE;
+    void run() override;
 
 private:
     QStringList m_dirList;

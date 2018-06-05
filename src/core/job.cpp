@@ -314,6 +314,7 @@ QByteArray JobPrivate::privilegeOperationData()
                 m_caption = i18n("Transfer data");
                 m_message = i18n("Root privileges are required to complete transferring data. "
                                  "Do you want to continue?");
+                Q_FALLTHROUGH();
             default:
                 break;
             }
@@ -346,7 +347,7 @@ public:
      * work on this job.
      * @param slave the slave that starts working on this job
      */
-    void start(Slave *slave) Q_DECL_OVERRIDE;
+    void start(Slave *slave) override;
 
     Q_DECLARE_PUBLIC(DirectCopyJob)
 };

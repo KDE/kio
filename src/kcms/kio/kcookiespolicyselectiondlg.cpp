@@ -41,7 +41,7 @@ public:
         setObjectName(QStringLiteral("domainValidator"));
     }
 
-    State validate (QString& input, int&) const Q_DECL_OVERRIDE
+    State validate (QString& input, int&) const override
     {
         if (input.isEmpty() || (input == QLatin1String("."))) {
             return Intermediate;

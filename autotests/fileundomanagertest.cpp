@@ -173,17 +173,17 @@ public:
     {
         setShowProgressInfo(false);
     }
-    void jobError(KIO::Job *job) Q_DECL_OVERRIDE {
+    void jobError(KIO::Job *job) override {
         qFatal("%s", qPrintable(job->errorString()));
     }
-    bool copiedFileWasModified(const QUrl &src, const QUrl &dest, const QDateTime &srcTime, const QDateTime &destTime) Q_DECL_OVERRIDE {
+    bool copiedFileWasModified(const QUrl &src, const QUrl &dest, const QDateTime &srcTime, const QDateTime &destTime) override {
         Q_UNUSED(src);
         m_dest = dest;
         Q_UNUSED(srcTime);
         Q_UNUSED(destTime);
         return true;
     }
-    bool confirmDeletion(const QList<QUrl> &files) Q_DECL_OVERRIDE {
+    bool confirmDeletion(const QList<QUrl> &files) override {
         m_files = files;
         return m_nextReplyToConfirmDeletion;
     }

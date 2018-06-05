@@ -211,7 +211,7 @@ public:
         start();
     }
 
-    ~NameLookUpThread() Q_DECL_OVERRIDE
+    ~NameLookUpThread() override
     {
         quit();
         wait();
@@ -227,7 +227,7 @@ public:
         return &m_semaphore;
     }
 
-    void run() Q_DECL_OVERRIDE
+    void run() override
     {
         NameLookUpThreadWorker worker;
         m_worker = &worker;

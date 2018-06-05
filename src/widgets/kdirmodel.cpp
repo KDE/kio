@@ -118,7 +118,7 @@ public:
           m_childCount(KDirModel::ChildCountUnknown),
           m_populated(false)
     {}
-    virtual ~KDirModelDirNode() Q_DECL_OVERRIDE
+    virtual ~KDirModelDirNode() override
     {
         qDeleteAll(m_childNodes);
     }

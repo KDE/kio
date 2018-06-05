@@ -42,7 +42,7 @@ public:
      * work on this job.
      * @param slave the slave that starts working on this job
      */
-    void start(Slave *slave) Q_DECL_OVERRIDE;
+    void start(Slave *slave) override;
 
     Q_DECLARE_PUBLIC(MkdirJob)
 

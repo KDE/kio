@@ -1468,6 +1468,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
     case Result_AutoRename:
         m_bAutoRenameFiles = true;
     // fall through
+        Q_FALLTHROUGH();
     case Result_Rename: {
         QUrl newUrl((*it).uDest);
         newUrl.setPath(newPath);
@@ -1482,6 +1483,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
     case Result_AutoSkip:
         m_bAutoSkipFiles = true;
     // fall through
+        Q_FALLTHROUGH();
     case Result_Skip:
         // Move on to next file
         skip((*it).uSource, false);
@@ -2028,6 +2030,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                         m_bAutoRenameFiles = true;
                     }
                 // fall through
+                    Q_FALLTHROUGH();
                 case Result_Rename: {
                     // Set m_dest to the chosen destination
                     // This is only for this src url; the next one will revert to m_globalDest
@@ -2045,6 +2048,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                         m_bAutoSkipFiles = true;
                     }
                 // fall through
+                    Q_FALLTHROUGH();
                 case Result_Skip:
                     // Move on to next url
                     skipSrc(isDir);

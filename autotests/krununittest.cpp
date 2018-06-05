@@ -240,13 +240,13 @@ public:
     KRunImpl(const QUrl &url)
         : KRun(url, nullptr, false), m_errCode(-1) {}
 
-    void foundMimeType(const QString &type) Q_DECL_OVERRIDE {
+    void foundMimeType(const QString &type) override {
         m_mimeType = type;
         // don't call KRun::foundMimeType, we don't want to start an app ;-)
         setFinished(true);
     }
 
-    void handleInitError(int kioErrorCode, const QString &err) Q_DECL_OVERRIDE {
+    void handleInitError(int kioErrorCode, const QString &err) override {
         m_errCode = kioErrorCode;
         m_errText = err;
     }

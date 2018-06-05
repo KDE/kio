@@ -397,7 +397,7 @@ void KIO::JobUiDelegate::updateUrlInClipboard(const QUrl &src, const QUrl &dest)
 class KIOWidgetJobUiDelegateFactory : public KIO::JobUiDelegateFactory
 {
 public:
-    KJobUiDelegate *createDelegate() const Q_DECL_OVERRIDE
+    KJobUiDelegate *createDelegate() const override
     {
         return new KIO::JobUiDelegate;
     }

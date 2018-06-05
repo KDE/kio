@@ -49,7 +49,7 @@ public:
     bool hasSpec;
 
 protected:
-    int expandEscapedMacro(const QString &str, int pos, QStringList &ret) Q_DECL_OVERRIDE;
+    int expandEscapedMacro(const QString &str, int pos, QStringList &ret) override;
 
 private:
     const KService &service;
@@ -76,6 +76,7 @@ int KRunMX1::expandEscapedMacro(const QString &str, int pos, QStringList &ret)
     case 'u':
     case 'U':
         hasUrls = true;
+        Q_FALLTHROUGH();
     /* fallthrough */
     case 'f':
     case 'F':
@@ -85,6 +86,7 @@ int KRunMX1::expandEscapedMacro(const QString &str, int pos, QStringList &ret)
     case 'D':
     case 'v':
         hasSpec = true;
+        Q_FALLTHROUGH();
     /* fallthrough */
     default:
         return -2; // subst with same and skip
@@ -101,7 +103,7 @@ public:
     bool ignFile;
 
 protected:
-    int expandEscapedMacro(const QString &str, int pos, QStringList &ret) Q_DECL_OVERRIDE;
+    int expandEscapedMacro(const QString &str, int pos, QStringList &ret) override;
 
 private:
     void subst(int option, const QUrl &url, QStringList &ret);

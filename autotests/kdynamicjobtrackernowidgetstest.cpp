@@ -32,7 +32,7 @@ class TestJob : public KJob
 {
     Q_OBJECT
 public:
-    void start() Q_DECL_OVERRIDE { QTimer::singleShot(testJobRunningTime, this, &TestJob::doEmit); }
+    void start() override { QTimer::singleShot(testJobRunningTime, this, &TestJob::doEmit); }
 
 private Q_SLOTS:
     void doEmit() { emitResult(); }

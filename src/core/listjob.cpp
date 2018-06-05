@@ -52,7 +52,7 @@ public:
      * work on this job.
      * @param slave the slave that starts working on this job
      */
-    void start(Slave *slave) Q_DECL_OVERRIDE;
+    void start(Slave *slave) override;
 
     void slotListEntries(const KIO::UDSEntryList &list);
     void slotRedirection(const QUrl &url);
