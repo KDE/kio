@@ -1019,11 +1019,15 @@ QStringList KFileItem::overlays() const
         names.append(QStringLiteral("hidden"));
     }
 #ifndef Q_OS_WIN
-    if (((d->m_fileMode & QT_STAT_MASK) == QT_STAT_DIR) && d->m_bIsLocalUrl) {
-        if (KSambaShare::instance()->isDirectoryShared(d->m_url.toLocalFile()) ||
-                KNFSShare::instance()->isDirectoryShared(d->m_url.toLocalFile())) {
-            //qDebug() << d->m_url.path();
-            names.append(QStringLiteral("emblem-shared"));
+    if (isDir()) {
+        bool isLocalUrl;
+        const QUrl url = mostLocalUrl(&isLocalUrl);
+        if (isLocalUrl) {
+            const QString path = url.toLocalFile();
+            if (KSambaShare::instance()->isDirectoryShared(path)
+                    || KNFSShare::instance()->isDirectoryShared(path)) {
+                names.append(QStringLiteral("emblem-shared"));
+            }
         }
     }
 #endif  // Q_OS_WIN
