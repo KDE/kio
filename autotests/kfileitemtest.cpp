@@ -294,6 +294,42 @@ void KFileItemTest::testCmp()
     QVERIFY(fileItem.cmp(fileItem2));
 }
 
+void KFileItemTest::testCmpByUrl()
+{
+    const QUrl nulUrl;
+    const QUrl url  = QUrl::fromLocalFile(QStringLiteral("1foo"));
+    const QUrl url2 = QUrl::fromLocalFile(QStringLiteral("fo1"));
+    const QUrl url3 = QUrl::fromLocalFile(QStringLiteral("foo"));
+    KFileItem nulFileItem;
+    KFileItem nulFileItem2(nulUrl);
+    KFileItem fileItem(url);
+    KFileItem fileItem2(url2);
+    KFileItem fileItem3(url3);
+
+    // an invalid KFileItem is considered equal to any other invalid KFileItem or invalid QUrl.
+    QVERIFY(!(nulFileItem < nulFileItem));
+    QVERIFY(!(nulFileItem < nulFileItem2));
+    QVERIFY(!(nulFileItem2 < nulFileItem));
+    QVERIFY(!(nulFileItem < nulUrl));
+    // an invalid KFileItem is considered less than any valid KFileItem.
+    QVERIFY(nulFileItem < fileItem);
+    // a valid KFileItem is not less than an invalid KFileItem or invalid QUrl
+    QVERIFY(!(fileItem < nulUrl));
+    QVERIFY(!(fileItem < nulFileItem));
+    QVERIFY(!(fileItem < nulFileItem2));
+
+    QVERIFY(fileItem < fileItem2);
+    QVERIFY(fileItem < url2);
+    QVERIFY(!(fileItem2 < fileItem));
+    QVERIFY(fileItem2 < fileItem3);
+    QVERIFY(fileItem < url3);
+    QVERIFY(!(fileItem3 < fileItem2));
+    QVERIFY(!(fileItem3 < fileItem));
+    // Must be false as they are considered equal
+    QVERIFY(!(fileItem < fileItem));
+    QVERIFY(!(fileItem < url));
+}
+
 void KFileItemTest::testRename()
 {
     KIO::UDSEntry entry;

@@ -487,6 +487,18 @@ public:
     bool operator!=(const KFileItem &other) const;
 
     /**
+     * Returns true if this item's URL is lexically less than other's URL; otherwise returns false
+     * @since 5.48
+     */
+    bool operator<(const KFileItem &other) const;
+
+    /**
+     * Returns true if this item's URL is lexically less than url other; otherwise returns false
+     * @since 5.48
+     */
+    bool operator<(const QUrl &other) const;
+
+    /**
      * Converts this KFileItem to a QVariant, this allows to use KFileItem
      * in QVariant() constructor
      */

@@ -1240,6 +1240,25 @@ bool KFileItem::operator!=(const KFileItem &other) const
     return !operator==(other);
 }
 
+bool KFileItem::operator<(const KFileItem &other) const
+{
+    if (!other.d) {
+        return false;
+    }
+    if (!d) {
+        return other.d->m_url.isValid();
+    }
+    return d->m_url < other.d->m_url;
+}
+
+bool KFileItem::operator<(const QUrl &other) const
+{
+    if (!d) {
+        return other.isValid();
+    }
+    return d->m_url < other;
+}
+
 KFileItem::operator QVariant() const
 {
     return qVariantFromValue(*this);
