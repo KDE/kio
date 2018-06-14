@@ -25,6 +25,7 @@
 #include <kconfiggroup.h>
 #include <klocalizedstring.h>
 #include <ksharedconfig.h>
+#include <kformat.h>
 #include <qmimedatabase.h>
 #include <QUrl>
 #include <QLocale>
@@ -32,106 +33,29 @@
 
 #include "kiocoredebug.h"
 
-enum BinaryUnitDialect {
-    DefaultBinaryDialect = -1, ///< Used if no specific preference
-    IECBinaryDialect,          ///< KiB, MiB, etc. 2^(10*n)
-    JEDECBinaryDialect,        ///< KB, MB, etc. 2^(10*n)
-    MetricBinaryDialect,       ///< SI Units, kB, MB, etc. 10^(3*n)
-    LastBinaryDialect = MetricBinaryDialect
-};
+KFormat::BinaryUnitDialect _k_loadBinaryDialect();
+Q_GLOBAL_STATIC_WITH_ARGS(KFormat::BinaryUnitDialect, _k_defaultBinaryDialect, (_k_loadBinaryDialect()))
 
-BinaryUnitDialect _k_loadBinaryDialect();
-Q_GLOBAL_STATIC_WITH_ARGS(BinaryUnitDialect, _k_defaultBinaryDialect, (_k_loadBinaryDialect()))
-QStringList _k_loadBinaryDialectUnits();
-Q_GLOBAL_STATIC_WITH_ARGS(QStringList, _k_defaultBinaryDialectUnits, (_k_loadBinaryDialectUnits()))
-
-BinaryUnitDialect _k_loadBinaryDialect()
+KFormat::BinaryUnitDialect _k_loadBinaryDialect()
 {
     KConfigGroup mainGroup(KSharedConfig::openConfig(), "Locale");
 
-    BinaryUnitDialect dialect(BinaryUnitDialect(mainGroup.readEntry("BinaryUnitDialect", int(DefaultBinaryDialect))));
-    dialect = static_cast<BinaryUnitDialect>(mainGroup.readEntry("BinaryUnitDialect", int(dialect)));
+    KFormat::BinaryUnitDialect dialect(KFormat::BinaryUnitDialect(mainGroup.readEntry("BinaryUnitDialect", int(KFormat::DefaultBinaryDialect))));
+    dialect = static_cast<KFormat::BinaryUnitDialect>(mainGroup.readEntry("BinaryUnitDialect", int(dialect)));
 
     // Error checking
-    if (dialect <= DefaultBinaryDialect || dialect > LastBinaryDialect) {
-        dialect = IECBinaryDialect;
+    if (dialect <= KFormat::DefaultBinaryDialect || dialect > KFormat::LastBinaryDialect) {
+        dialect = KFormat::IECBinaryDialect;
     }
 
     return dialect;
 }
 
-QStringList _k_loadBinaryDialectUnits()
-{
-    BinaryUnitDialect dialect = *_k_defaultBinaryDialect();
-    // hack: i18nc expects all %-arguments to be replaced,
-    // so just pass a argument placeholder again
-    // That way just .arg(size) has to be called on the chosen unit string.
-    const QString dummyArgument = QStringLiteral("%1");
-
-    // Choose appropriate units.
-    QStringList dialectUnits;
-    dialectUnits.reserve(9);
-
-    dialectUnits << i18nc("size in bytes", "%1 B", dummyArgument);
-
-    switch (dialect) {
-    case MetricBinaryDialect:
-        dialectUnits << i18nc("size in 1000 bytes",  "%1 kB", dummyArgument)
-                     << i18nc("size in 10^6 bytes",  "%1 MB", dummyArgument)
-                     << i18nc("size in 10^9 bytes",  "%1 GB", dummyArgument)
-                     << i18nc("size in 10^12 bytes", "%1 TB", dummyArgument)
-                     << i18nc("size in 10^15 bytes", "%1 PB", dummyArgument)
-                     << i18nc("size in 10^18 bytes", "%1 EB", dummyArgument)
-                     << i18nc("size in 10^21 bytes", "%1 ZB", dummyArgument)
-                     << i18nc("size in 10^24 bytes", "%1 YB", dummyArgument);
-        break;
-
-    case JEDECBinaryDialect:
-        dialectUnits << i18nc("memory size in 1024 bytes", "%1 KB", dummyArgument)
-                     << i18nc("memory size in 2^20 bytes", "%1 MB", dummyArgument)
-                     << i18nc("memory size in 2^30 bytes", "%1 GB", dummyArgument)
-                     << i18nc("memory size in 2^40 bytes", "%1 TB", dummyArgument)
-                     << i18nc("memory size in 2^50 bytes", "%1 PB", dummyArgument)
-                     << i18nc("memory size in 2^60 bytes", "%1 EB", dummyArgument)
-                     << i18nc("memory size in 2^70 bytes", "%1 ZB", dummyArgument)
-                     << i18nc("memory size in 2^80 bytes", "%1 YB", dummyArgument);
-        break;
-
-    case IECBinaryDialect:
-    default:
-        dialectUnits << i18nc("size in 1024 bytes", "%1 KiB", dummyArgument)
-                     << i18nc("size in 2^20 bytes", "%1 MiB", dummyArgument)
-                     << i18nc("size in 2^30 bytes", "%1 GiB", dummyArgument)
-                     << i18nc("size in 2^40 bytes", "%1 TiB", dummyArgument)
-                     << i18nc("size in 2^50 bytes", "%1 PiB", dummyArgument)
-                     << i18nc("size in 2^60 bytes", "%1 EiB", dummyArgument)
-                     << i18nc("size in 2^70 bytes", "%1 ZiB", dummyArgument)
-                     << i18nc("size in 2^80 bytes", "%1 YiB", dummyArgument);
-        break;
-    }
-
-    return dialectUnits;
-}
-
 KIOCORE_EXPORT QString KIO::convertSize(KIO::filesize_t fileSize)
 {
-    const BinaryUnitDialect dialect = *_k_defaultBinaryDialect();
-    const QStringList &dialectUnits = *_k_defaultBinaryDialectUnits();
-    double size = fileSize;
-    int unit = 0; // Selects what unit to use from cached list
-    double multiplier = 1024.0;
+    const KFormat::BinaryUnitDialect dialect = *_k_defaultBinaryDialect();
 
-    if (dialect == MetricBinaryDialect) {
-        multiplier = 1000.0;
-    }
-
-    while (qAbs(size) >= multiplier && unit < (dialectUnits.size() - 1)) {
-        size /= multiplier;
-        unit++;
-    }
-
-    const int precision = (unit == 0) ? 0 : 1; // unit == 0 -> Bytes, no rounding
-    return dialectUnits.at(unit).arg(QLocale().toString(size, 'f', precision));
+    return KFormat().formatByteSize(fileSize, 1, dialect);
 }
 
 KIOCORE_EXPORT QString KIO::convertSizeFromKiB(KIO::filesize_t kibSize)
