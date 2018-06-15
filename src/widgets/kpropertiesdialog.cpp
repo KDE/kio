@@ -1035,6 +1035,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         boxLayout->setMargin(0);
 
         l = new QLabel(mimeComment, box);
+        l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
         grid->addWidget(box, curRow++, 2);
 
         QPushButton *button = new QPushButton(box);
@@ -1085,6 +1086,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     grid->addWidget(l, curRow, 0, Qt::AlignRight);
 
     d->m_sizeLabel = new QLabel(d->m_frame);
+    d->m_sizeLabel->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
     grid->addWidget(d->m_sizeLabel, curRow++, 2);
 
     if (!hasDirs) { // Only files [and symlinks]
@@ -1139,6 +1141,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             grid->addWidget(l, curRow, 0, Qt::AlignRight);
 
             l = new QLabel(dt.toString(Qt::DefaultLocaleLongDate), d->m_frame);
+            l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
             grid->addWidget(l, curRow++, 2);
         }
 
@@ -1148,6 +1151,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             grid->addWidget(l, curRow, 0, Qt::AlignRight);
 
             l = new QLabel(dt.toString(Qt::DefaultLocaleLongDate), d->m_frame);
+            l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
             grid->addWidget(l, curRow++, 2);
         }
     }
