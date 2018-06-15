@@ -1641,21 +1641,21 @@ const mode_t KFilePermissionsPropsPlugin::standardPermissions[4] = { 0, UniRead,
 // synced with PermissionsMode and standardPermissions
 const char *const KFilePermissionsPropsPlugin::permissionsTexts[4][4] = {
     {
-        I18N_NOOP("Forbidden"),
-        I18N_NOOP("Can Read"),
-        I18N_NOOP("Can Read & Write"),
+        I18N_NOOP("No Access"),
+        I18N_NOOP("Can Only View"),
+        I18N_NOOP("Can View & Modify"),
         nullptr
     },
     {
-        I18N_NOOP("Forbidden"),
-        I18N_NOOP("Can View Content"),
+        I18N_NOOP("No Access"),
+        I18N_NOOP("Can Only View Content"),
         I18N_NOOP("Can View & Modify Content"),
         nullptr
     },
     { nullptr, nullptr, nullptr, nullptr}, // no texts for links
     {
-        I18N_NOOP("Forbidden"),
-        I18N_NOOP("Can View Content & Read"),
+        I18N_NOOP("No Access"),
+        I18N_NOOP("Can Only View/Read Content"),
         I18N_NOOP("Can View/Read & Modify/Write"),
         nullptr
     }
