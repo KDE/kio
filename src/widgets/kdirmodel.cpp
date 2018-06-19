@@ -974,11 +974,6 @@ QModelIndex KDirModel::sibling(int row, int column, const QModelIndex &index) co
     return QModelIndex();
 }
 
-static bool lessThan(const QUrl &left, const QUrl &right)
-{
-    return left.toString().compare(right.toString()) < 0;
-}
-
 void KDirModel::requestSequenceIcon(const QModelIndex &index, int sequenceIndex)
 {
     emit needSequenceIcon(index, sequenceIndex);
@@ -1009,7 +1004,7 @@ QList<QUrl> KDirModel::simplifiedUrlList(const QList<QUrl> &urls)
     }
 
     QList<QUrl> ret(urls);
-    std::sort(ret.begin(), ret.end(), lessThan);
+    std::sort(ret.begin(), ret.end());
 
     QList<QUrl>::iterator it = ret.begin();
     QUrl url = *it;
