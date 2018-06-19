@@ -74,7 +74,6 @@
             "KDEDModule"
         ]
     },
-    "X-KDE-DBus-ModuleName": "kcookiejar",
     "X-KDE-DBus-ServiceName": "org.kde.kcookiejar5",
     "X-KDE-Kded-autoload": false,
     "X-KDE-Kded-load-on-demand": true

@@ -130,6 +130,5 @@ Comment[zh_CN]=为网络文件夹提供更改通知
 Comment[zh_TW]=提供網路資料夾的變更通知
 X-KDE-ServiceTypes=KDEDModule
 X-KDE-Library=remotenotifier
-X-KDE-DBus-ModuleName=remotenotifier
 X-KDE-Kded-load-on-demand=true
 X-KDE-Kded-autoload=true

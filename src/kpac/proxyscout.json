@@ -80,7 +80,6 @@
             "KDEDModule"
         ]
     },
-    "X-KDE-DBus-ModuleName": "proxyscout",
     "X-KDE-Kded-autoload": true,
     "X-KDE-Kded-load-on-demand": false
 }

@@ -80,6 +80,5 @@
             "KDEDModule"
         ]
     },
-    "X-KDE-DBus-ModuleName": "kpasswdserver",
     "X-KDE-DBus-ServiceName": "org.kde.kpasswdserver"
 }

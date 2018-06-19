@@ -66,6 +66,5 @@
             "KDEDModule"
         ]
     },
-    "X-KDE-DBus-ModuleName": "kioexecd",
     "X-KDE-DBus-ServiceName": "org.kde.kioexecd"
 }
