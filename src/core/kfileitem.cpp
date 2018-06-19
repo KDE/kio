@@ -991,7 +991,7 @@ QStringList KFileItem::overlays() const
     }
 
     if (!isReadable()) {
-        names.append(QStringLiteral("object-locked"));
+        names.append(QStringLiteral("emblem-locked"));
     }
 
     if (checkDesktopFile(*this, false)) {
