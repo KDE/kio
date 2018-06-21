@@ -640,6 +640,7 @@ void KNewFileMenuPrivate::fillMenu()
     m_newDirAction = nullptr;
 
     QSet<QString> seenTexts;
+    QString lastTemplatePath;
     // these shall be put at special positions
     QAction *linkURL = nullptr;
     QAction *linkApp = nullptr;
@@ -692,7 +693,11 @@ void KNewFileMenuPrivate::fillMenu()
                     sep->setSeparator(true);
                     menu->addAction(sep);
                 } else {
-
+                    if (lastTemplatePath.startsWith(QDir::homePath()) && !templatePath.startsWith(QDir::homePath())) {
+                        QAction *sep = new QAction(q);
+                        sep->setSeparator(true);
+                        menu->addAction(sep);
+                    }
                     if (!m_supportedMimeTypes.isEmpty()) {
                         bool keep = false;
 
@@ -752,6 +757,7 @@ void KNewFileMenuPrivate::fillMenu()
                     }
                 }
             }
+            lastTemplatePath = entry.templatePath;
         } else { // Separate system from personal templates
             Q_ASSERT(entry.entryType != 0);
 
@@ -893,7 +899,28 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
     //qDebug();
 
     const QStringList qrcTemplates = { QStringLiteral(":/kio5/newfile-templates") };
-    const QStringList installedTemplates = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("templates"), QStandardPaths::LocateDirectory);
+    QStringList installedTemplates = { QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("templates"), QStandardPaths::LocateDirectory) };
+    // Qt does not provide an easy way to receive the xdg dir for templates so we have to find it on our own
+    #ifdef Q_OS_UNIX
+        QString xdgUserDirs = QStandardPaths::locate(QStandardPaths::ConfigLocation, QStringLiteral("user-dirs.dirs"), QStandardPaths::LocateFile);
+        QFile xdgUserDirsFile(xdgUserDirs);
+        if (xdgUserDirsFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            QTextStream in(&xdgUserDirsFile);
+            while (!in.atEnd()) {
+                QString line = in.readLine();
+                if (line.startsWith("XDG_TEMPLATES_DIR=")) {
+                    QString xdgTemplates = line.mid(19, line.size()-20);
+                    xdgTemplates.replace(QString("$HOME"), QDir::homePath());
+                    QDir xdgTemplatesDir(xdgTemplates);
+                    if (xdgTemplatesDir.exists()) {
+                        installedTemplates << xdgTemplates;
+                    }
+                    break;
+                }
+            }
+        }
+    #endif
+
     const QStringList templates = qrcTemplates + installedTemplates;
 
     // Ensure any changes in the templates dir will call this
@@ -946,10 +973,12 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
             QString key = config.desktopGroup().readEntry("Name");
             if (file.endsWith(QLatin1String("Directory.desktop"))) {
                 key.prepend('0');
-            } else if (file.endsWith(QLatin1String("TextFile.desktop"))) {
+            } else if (file.startsWith(QDir::homePath())) {
                 key.prepend('1');
-            } else {
+            } else if (file.endsWith(QLatin1String("TextFile.desktop"))) {
                 key.prepend('2');
+            } else {
+                key.prepend('3');
             }
             EntryWithName en = { key, e };
             if (ulist.contains(url)) {
