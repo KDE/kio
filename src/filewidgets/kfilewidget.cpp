@@ -1541,8 +1541,8 @@ void KFileWidgetPrivate::_k_enterUrl(const QUrl &url)
     // append '/' if needed: url combo does not add it
     // tokenize() expects it because it uses QUrl::adjusted(QUrl::RemoveFilename)
     QUrl u(url);
-    if (!u.path().isEmpty()) {
-        u.setPath(u.path() + '/');
+    if (!u.path().isEmpty() && !u.path().endsWith(QLatin1Char('/'))) {
+        u.setPath(u.path() + QLatin1Char('/'));
     }
     q->setUrl(u);
 

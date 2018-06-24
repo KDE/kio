@@ -211,6 +211,34 @@ private Q_SLOTS:
         QCOMPARE(fw.baseUrl().adjusted(QUrl::StripTrailingSlash), expectedBaseUrl);
         QCOMPARE(fw.locationEdit()->currentText(), expectedCurrentText);
     }
+
+    void testCdUpToRoot_data()
+    {
+        QTest::addColumn<QUrl>("baseUrl");
+        QTest::addColumn<QUrl>("expectedUrl");
+
+        // When going up from file:///home/, it should become file:/// not file:///home/user
+        QTest::newRow("file") << QUrl::fromLocalFile("/home/") << QUrl::fromLocalFile("/");
+        QTest::newRow("trash") << QUrl("trash://home/") << QUrl("trash:/");
+        QTest::newRow("sftp") << QUrl("sftp://127.0.0.1/home/") << QUrl("sftp://127.0.0.1/");
+    }
+
+    void testCdUpToRoot()
+    {
+        // GIVEN
+        QFETCH(QUrl, baseUrl);
+        QFETCH(QUrl, expectedUrl);
+
+        KFileWidget fw(baseUrl);
+        fw.show();
+        QVERIFY(QTest::qWaitForWindowActive(&fw));
+
+        // WHEN
+        fw.dirOperator()->cdUp();
+
+        // THEN
+        QCOMPARE(fw.dirOperator()->url(), expectedUrl);
+    }
 };
 
 QTEST_MAIN(KFileWidgetTest)
