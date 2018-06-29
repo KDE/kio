@@ -19,7 +19,6 @@
  */
 
 #undef QT_USE_FAST_OPERATOR_PLUS
-#undef QT_USE_FAST_CONCATENATION
 
 #include "krununittest.h"
 
