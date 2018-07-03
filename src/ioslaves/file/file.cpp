@@ -1150,7 +1150,7 @@ void FileProtocol::unmount(const QString &_point)
         // qDebug() << "VOLMGT: looking for "
                 << _point.toLocal8Bit();
 
-        if ((mnttab = QT_FOPEN(MNTTAB, "r")) == NULL) {
+        if ((mnttab = QT_FOPEN(MNTTAB, "r")) == nullptr) {
             err = QLatin1String("could not open mnttab");
             // qDebug() << "VOLMGT: " << err;
             error(KIO::ERR_CANNOT_UNMOUNT, err);
@@ -1163,9 +1163,9 @@ void FileProtocol::unmount(const QString &_point)
          *  media_findname() won't work in this case), we have to
          *  look ourselves...
          */
-        devname = NULL;
+        devname = nullptr;
         rewind(mnttab);
-        while (getmntent(mnttab, &mnt) == 0) {
+        while (getmntent(mnttab, &mnt) == nullptr) {
             if (strcmp(_point.toLocal8Bit(), mnt.mnt_mountp) == 0) {
                 devname = mnt.mnt_special;
                 break;
@@ -1173,7 +1173,7 @@ void FileProtocol::unmount(const QString &_point)
         }
         fclose(mnttab);
 
-        if (devname == NULL) {
+        if (devname == nullptr) {
             err = QLatin1String("not in mnttab");
             // qDebug() << "VOLMGT: "
                     << QFile::encodeName(_point).data()

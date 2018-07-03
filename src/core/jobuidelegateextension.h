@@ -274,7 +274,7 @@ private:
 
 /**
  * Returns the default job UI delegate extension to be used by all KIO jobs (in which HideProgressInfo is not set)
- * Can return NULL, if no kio GUI library is loaded.
+ * Can return nullptr, if no kio GUI library is loaded.
  * @since 5.0
  */
 KIOCORE_EXPORT JobUiDelegateExtension *defaultJobUiDelegateExtension();

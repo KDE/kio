@@ -121,11 +121,11 @@ protected:
      *
      * @param host host name
      * @param port port number
-     * @param errorString if not NULL, this string will contain error information
+     * @param errorString if not nullptr, this string will contain error information
      *                    on why the connection request failed.
      *
      * @return  on success, 0 is returned. on failure, a KIO::Error code is returned.
-     *          @ref errorString, if not NULL, will contain the appropriate error message
+     *          @ref errorString, if not nullptr, will contain the appropriate error message
      *          that can be sent back to the client.
      *
      * @since 4.7.2

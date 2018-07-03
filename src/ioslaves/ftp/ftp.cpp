@@ -66,9 +66,9 @@ Q_DECLARE_LOGGING_CATEGORY(KIO_FTP)
 Q_LOGGING_CATEGORY(KIO_FTP, "kf5.kio.kio_ftp", QtWarningMsg)
 
 #if HAVE_STRTOLL
-#define charToLongLong(a) strtoll(a, 0, 10)
+#define charToLongLong(a) strtoll(a, nullptr, 10)
 #else
-#define charToLongLong(a) strtol(a, 0, 10)
+#define charToLongLong(a) strtol(a, nullptr, 10)
 #endif
 
 #define FTP_LOGIN   "anonymous"
@@ -257,7 +257,7 @@ const char *Ftp::ftpResponse(int iOffset)
         m_iRespCode = 0;
 
         if (!pTxt) {
-            return nullptr;    // avoid using a NULL when calling atoi.
+            return nullptr;    // avoid using a nullptr when calling atoi.
         }
 
         // If the server sends a multiline response starting with

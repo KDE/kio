@@ -137,7 +137,7 @@ private:
      * m_initialPath is set to the current working directory
      * if logging on was successful.
      *
-     * @param userChanged if not NULL, will be set to true if the user name
+     * @param userChanged if not nullptr, will be set to true if the user name
      *                    was changed during login.
      * @return true on success.
      */
@@ -384,7 +384,7 @@ private: // data members
     char m_cDataMode;
 
     /**
-     * true if logged on (m_control should also be non-NULL)
+     * true if logged on (m_control should also be non-nullptr)
      */
     bool m_bLoggedOn;
 

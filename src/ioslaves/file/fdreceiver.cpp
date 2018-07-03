@@ -70,7 +70,7 @@ bool FdReceiver::isListening() const
 
 void FdReceiver::receiveFileDescriptor()
 {
-    int client = ::accept(m_socketDes, NULL, NULL);
+    int client = ::accept(m_socketDes, nullptr, nullptr);
     if (client > 0) {
         FDMessageHeader msg;
         if (::recvmsg(client, msg.message(), 0) == 2) {

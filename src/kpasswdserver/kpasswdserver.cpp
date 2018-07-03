@@ -979,7 +979,7 @@ void KPasswdServer::passwordDialogDone(int result)
     Q_ASSERT(dlg);
 
     QScopedPointer<Request> request (m_authInProgress.take(dlg));
-    Q_ASSERT(request);  // request should never be NULL.
+    Q_ASSERT(request);  // request should never be nullptr.
 
     if (request) {
         KIO::AuthInfo& info = request->info;

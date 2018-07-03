@@ -264,10 +264,10 @@ public:
      * Returns an error message.
      *
      * This functions returns the error message set by the plugin whenever the
-     * uri type is set to KUriFilterData::ERROR. Otherwise, it returns a NULL
+     * uri type is set to KUriFilterData::ERROR. Otherwise, it returns a nullptr
      * string.
      *
-     * @return the error message or a NULL when there is none.
+     * @return the error message or a nullptr when there is none.
      */
     QString errorMsg() const;
 
