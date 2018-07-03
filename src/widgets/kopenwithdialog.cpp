@@ -661,7 +661,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
         KHistoryComboBox *combo = new KHistoryComboBox();
         combo->setToolTip(i18n("Type to filter the applications below, or specify the name of a command.\nPress down arrow to navigate the results."));
         KLineEdit *lineEdit = new KLineEdit(q);
-        lineEdit->setClearButtonShown(true);
+        lineEdit->setClearButtonEnabled(true);
         combo->setLineEdit(lineEdit);
         combo->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLengthWithIcon);
         combo->setDuplicatesEnabled(false);

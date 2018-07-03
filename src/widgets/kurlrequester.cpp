@@ -276,7 +276,7 @@ KUrlRequester::KUrlRequester(QWidget *editWidget, QWidget *parent)
     d->combo = qobject_cast<KComboBox *>(editWidget);
     d->edit = qobject_cast<KLineEdit *>(editWidget);
     if (d->edit) {
-        d->edit->setClearButtonShown(true);
+        d->edit->setClearButtonEnabled(true);
     }
 
     d->init();
@@ -307,7 +307,7 @@ void KUrlRequester::KUrlRequesterPrivate::init()
 
     if (!combo && !edit) {
         edit = new KLineEdit(m_parent);
-        edit->setClearButtonShown(true);
+        edit->setClearButtonEnabled(true);
     }
 
     QWidget *widget = combo ? static_cast<QWidget *>(combo) : static_cast<QWidget *>(edit);
