@@ -388,14 +388,24 @@ void UDSEntry::reserve(int size)
     d->reserve(size);
 }
 
-void UDSEntry::insert(uint field, const QString &value)
+void UDSEntry::fastInsert(uint field, const QString &value)
 {
     d->insert(field, value);
 }
 
-void UDSEntry::insert(uint field, long long value)
+void UDSEntry::fastInsert(uint field, long long value)
 {
     d->insert(field, value);
+}
+
+void UDSEntry::insert(uint field, const QString &value)
+{
+    d->replace(field, value);
+}
+
+void UDSEntry::insert(uint field, long long value)
+{
+    d->replace(field, value);
 }
 
 void UDSEntry::replace(uint field, const QString &value)

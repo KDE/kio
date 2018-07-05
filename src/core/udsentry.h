@@ -143,17 +143,33 @@ public:
      * insert field with string value
      * @param field numeric field id
      * @param value to set
-     * @note since 5.47, it will assert if the field is already inserted. In that case, use replace() instead.
+     * @deprecated since 5.48 in favor of fastInsert or replace
      */
-    void insert(uint field, const QString &value);
+    KIOCORE_DEPRECATED void insert(uint field, const QString &value);
 
     /**
      * insert field with numeric value
      * @param field numeric field id
      * @param l value to set
-     * @note since 5.47, it will assert if the field is already inserted. In that case, use replace() instead.
+     * @deprecated since 5.48 in favor of fastInsert or replace
      */
-    void insert(uint field, long long l);
+    KIOCORE_DEPRECATED void insert(uint field, long long l);
+
+    /**
+     * insert field with string value, it will assert if the field is already inserted. In that case, use replace() instead.
+     * @param field numeric field id
+     * @param value to set
+     * @since 5.48
+     */
+    void fastInsert(uint field, const QString &value);
+
+    /**
+     * insert field with numeric value, it will assert if the field is already inserted. In that case, use replace() instead.
+     * @param field numeric field id
+     * @param l value to set
+     * @since 5.48
+     */
+    void fastInsert(uint field, long long l);
 
     /**
      * count fields
