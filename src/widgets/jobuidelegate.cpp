@@ -188,21 +188,24 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls,
     if (!ask) {
         KSharedConfigPtr kioConfig = KSharedConfig::openConfig(QStringLiteral("kiorc"), KConfig::NoGlobals);
 
+        // The default value for confirmations is true for delete and false
+        // for trash. If you change this, please also update:
+        //      dolphin/src/settings/general/confirmationssettingspage.cpp
+        bool defaultValue = true;
+
         switch (deletionType) {
         case Delete:
             keyName = QStringLiteral("ConfirmDelete");
             break;
         case Trash:
             keyName = QStringLiteral("ConfirmTrash");
+            defaultValue = false;
             break;
         case EmptyTrash:
             keyName = QStringLiteral("ConfirmEmptyTrash");
             break;
         }
 
-        // The default value for confirmations is true (for both delete and trash)
-        // If you change this, update kdebase/apps/konqueror/settings/konq/behaviour.cpp
-        const bool defaultValue = true;
         ask = kioConfig->group("Confirmations").readEntry(keyName, defaultValue);
     }
     if (ask) {
