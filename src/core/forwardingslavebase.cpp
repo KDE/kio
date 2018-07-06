@@ -116,7 +116,7 @@ void ForwardingSlaveBase::prepareUDSEntry(KIO::UDSEntry &entry,
             new_url.setPath(concatPaths(new_url.path(), url.fileName()));
         }
         // ## Didn't find a way to use an iterator instead of re-doing a key lookup
-        entry.insert(KIO::UDSEntry::UDS_URL, new_url.toString());
+        entry.replace(KIO::UDSEntry::UDS_URL, new_url.toString());
         //qDebug() << "URL =" << url;
         //qDebug() << "New URL =" << new_url;
     }
@@ -132,7 +132,7 @@ void ForwardingSlaveBase::prepareUDSEntry(KIO::UDSEntry &entry,
         QMimeDatabase db;
         mimetype = db.mimeTypeForUrl(new_url).name();
 
-        entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, mimetype);
+        entry.replace(KIO::UDSEntry::UDS_MIME_TYPE, mimetype);
 
         //qDebug() << "New Mimetype = " << mimetype;
     }
@@ -143,7 +143,7 @@ void ForwardingSlaveBase::prepareUDSEntry(KIO::UDSEntry &entry,
             new_url.setPath(concatPaths(new_url.path(), name));
         }
 
-        entry.insert(KIO::UDSEntry::UDS_LOCAL_PATH, new_url.toLocalFile());
+        entry.replace(KIO::UDSEntry::UDS_LOCAL_PATH, new_url.toLocalFile());
     }
 }
 
