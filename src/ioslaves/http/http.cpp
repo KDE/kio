@@ -715,9 +715,9 @@ void HTTPProtocol::stat(const QUrl &url)
 
         // When downloading we assume it exists
         UDSEntry entry;
-        entry.insert(KIO::UDSEntry::UDS_NAME, url.fileName());
-        entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFREG);   // a file
-        entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IRGRP | S_IROTH);   // readable by everybody
+        entry.fastInsert(KIO::UDSEntry::UDS_NAME, url.fileName());
+        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFREG);   // a file
+        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IRGRP | S_IROTH);   // readable by everybody
 
         statEntry(entry);
         finished();
@@ -852,7 +852,7 @@ void HTTPProtocol::davStatList(const QUrl &url, bool stat)
                     name = adjustedThisURL.fileName();
                 }
 
-                entry.insert(KIO::UDSEntry::UDS_NAME, name.isEmpty() ? href.text() : name);
+                entry.fastInsert(KIO::UDSEntry::UDS_NAME, name.isEmpty() ? href.text() : name);
             }
 
             QDomNodeList propstats = thisResponse.elementsByTagName(QStringLiteral("propstat"));
@@ -867,7 +867,7 @@ void HTTPProtocol::davStatList(const QUrl &url, bool stat)
                 QMimeType mime = db.mimeTypeForFile(thisURL.path(), QMimeDatabase::MatchExtension);
                 if (mime.isValid() && !mime.isDefault()) {
                     qCDebug(KIO_HTTP) << "Setting" << mime.name() << "as guessed mime type for" << thisURL.path();
-                    entry.insert(KIO::UDSEntry::UDS_GUESSED_MIME_TYPE, mime.name());
+                    entry.fastInsert(KIO::UDSEntry::UDS_GUESSED_MIME_TYPE, mime.name());
                 }
             }
 
@@ -958,7 +958,7 @@ void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, UDSEntry &en
         if (hasMetaData(QStringLiteral("davRequestResponse"))) {
             QDomDocument doc;
             doc.appendChild(prop);
-            entry.insert(KIO::UDSEntry::UDS_XML_PROPERTIES, doc.toString());
+            entry.replace(KIO::UDSEntry::UDS_XML_PROPERTIES, doc.toString());
         }
 
         for (QDomNode n = prop.firstChild(); !n.isNull(); n = n.nextSibling()) {
@@ -974,11 +974,11 @@ void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, UDSEntry &en
 
             if (property.tagName() == QLatin1String("creationdate")) {
                 // Resource creation date. Should be is ISO 8601 format.
-                entry.insert(KIO::UDSEntry::UDS_CREATION_TIME,
+                entry.replace(KIO::UDSEntry::UDS_CREATION_TIME,
                              parseDateTime(property.text(), property.attribute(QStringLiteral("dt"))).toTime_t());
             } else if (property.tagName() == QLatin1String("getcontentlength")) {
                 // Content length (file size)
-                entry.insert(KIO::UDSEntry::UDS_SIZE, property.text().toULong());
+                entry.replace(KIO::UDSEntry::UDS_SIZE, property.text().toULong());
             } else if (property.tagName() == QLatin1String("displayname")) {
                 // Name suitable for presentation to the user
                 setMetaData(QStringLiteral("davDisplayName"), property.text());
@@ -1009,7 +1009,7 @@ void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, UDSEntry &en
 
             } else if (property.tagName() == QLatin1String("getlastmodified")) {
                 // Last modification date
-                entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME,
+                entry.replace(KIO::UDSEntry::UDS_MODIFICATION_TIME,
                              parseDateTime(property.text(), property.attribute(QStringLiteral("dt"))).toTime_t());
             } else if (property.tagName() == QLatin1String("getetag")) {
                 // Entity tag
@@ -1057,17 +1057,17 @@ void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, UDSEntry &en
     setMetaData(QStringLiteral("davLockCount"), QString::number(lockCount));
     setMetaData(QStringLiteral("davSupportedLockCount"), QString::number(supportedLockCount));
 
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, isDirectory ? S_IFDIR : S_IFREG);
+    entry.replace(KIO::UDSEntry::UDS_FILE_TYPE, isDirectory ? S_IFDIR : S_IFREG);
 
     if (foundExecutable || isDirectory) {
         // File was executable, or is a directory.
-        entry.insert(KIO::UDSEntry::UDS_ACCESS, 0700);
+        entry.replace(KIO::UDSEntry::UDS_ACCESS, 0700);
     } else {
-        entry.insert(KIO::UDSEntry::UDS_ACCESS, 0600);
+        entry.replace(KIO::UDSEntry::UDS_ACCESS, 0600);
     }
 
     if (!isDirectory && !mimeType.isEmpty()) {
-        entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, mimeType);
+        entry.replace(KIO::UDSEntry::UDS_MIME_TYPE, mimeType);
     }
 
     if (quotaUsed >= 0 && quotaAvailable >= 0) {
