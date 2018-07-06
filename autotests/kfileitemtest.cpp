@@ -178,8 +178,8 @@ void KFileItemTest::testRootDirectory()
     const QString rootPath = QDir::rootPath();
     QUrl url = QUrl::fromLocalFile(rootPath);
     KIO::UDSEntry entry;
-    entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     KFileItem fileItem(entry, url);
     QCOMPARE(fileItem.text(), QStringLiteral("."));
     QVERIFY(fileItem.isLocalFile());
@@ -334,8 +334,8 @@ void KFileItemTest::testRename()
 {
     KIO::UDSEntry entry;
     const QString origName = QStringLiteral("foo");
-    entry.insert(KIO::UDSEntry::UDS_NAME, origName);
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, origName);
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     KFileItem fileItem(entry, QUrl::fromLocalFile(QStringLiteral("/dir/foo")));
     QCOMPARE(fileItem.name(), origName);
     QCOMPARE(fileItem.text(), origName);
@@ -592,8 +592,8 @@ void KFileItemTest::testIconNameForUrl()
 void KFileItemTest::testMimetypeForRemoteFolder()
 {
     KIO::UDSEntry entry;
-    entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("foo"));
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("foo"));
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     QUrl url(QStringLiteral("smb://remoteFolder/foo"));
     KFileItem fileItem(entry, url);
 
@@ -606,9 +606,9 @@ void KFileItemTest::testMimetypeForRemoteFolderWithFileType()
     QVERIFY2(QMimeDatabase().mimeTypeForName(udsMimeType).isValid(),
              qPrintable(QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation).join(':'))); // kcoreaddons installed? XDG_DATA_DIRS set?
     KIO::UDSEntry entry;
-    entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("foo"));
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-    entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, udsMimeType);
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("foo"));
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, udsMimeType);
 
     QUrl url(QStringLiteral("smb://remoteFolder/foo"));
     KFileItem fileItem(entry, url);
@@ -619,8 +619,8 @@ void KFileItemTest::testMimetypeForRemoteFolderWithFileType()
 void KFileItemTest::testCurrentMimetypeForRemoteFolder()
 {
     KIO::UDSEntry entry;
-    entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("foo"));
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("foo"));
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     QUrl url(QStringLiteral("smb://remoteFolder/foo"));
     KFileItem fileItem(entry, url);
 
@@ -631,9 +631,9 @@ void KFileItemTest::testCurrentMimetypeForRemoteFolderWithFileType()
 {
     QString udsMimeType = QStringLiteral("application/x-smb-workgroup");
     KIO::UDSEntry entry;
-    entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("foo"));
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-    entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, udsMimeType);
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("foo"));
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, udsMimeType);
 
     QUrl url(QStringLiteral("smb://remoteFolder/foo"));
     KFileItem fileItem(entry, url);
@@ -654,7 +654,7 @@ void KFileItemTest::testIconNameForCustomFolderIcons()
     cfg.sync();
 
     KIO::UDSEntry entry;
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     KFileItem fileItem(entry, url);
 
     QCOMPARE(fileItem.iconName(), iconName);
@@ -667,7 +667,7 @@ void KFileItemTest::testIconNameForStandardPath()
     QStandardPaths::setTestModeEnabled(true);
 
     KIO::UDSEntry entry;
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     KFileItem fileItem(entry, url);
 
     QCOMPARE(fileItem.iconName(), iconName);
