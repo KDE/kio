@@ -280,12 +280,12 @@ void TrashProtocol::copyOrMove(const QUrl &src, const QUrl &dest, bool overwrite
 void TrashProtocol::createTopLevelDirEntry(KIO::UDSEntry &entry)
 {
     entry.clear();
-    entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-    entry.insert(KIO::UDSEntry::UDS_ACCESS, 0700);
-    entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
-    entry.insert(KIO::UDSEntry::UDS_USER, m_userName);
-    entry.insert(KIO::UDSEntry::UDS_GROUP, m_groupName);
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0700);
+    entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
+    entry.fastInsert(KIO::UDSEntry::UDS_USER, m_userName);
+    entry.fastInsert(KIO::UDSEntry::UDS_GROUP, m_groupName);
 }
 
 void TrashProtocol::stat(const QUrl &url)
@@ -448,7 +448,7 @@ bool TrashProtocol::createUDSEntry(const QString &physicalPath, const QString &d
             buffer2[ n ] = 0;
         }
 
-        entry.insert(KIO::UDSEntry::UDS_LINK_DEST, QFile::decodeName(buffer2));
+        entry.fastInsert(KIO::UDSEntry::UDS_LINK_DEST, QFile::decodeName(buffer2));
         // Follow symlink
         // That makes sense in kio_file, but not in the trash, especially for the size
         // #136876
@@ -467,25 +467,25 @@ bool TrashProtocol::createUDSEntry(const QString &physicalPath, const QString &d
     mode_t access = buff.st_mode & 07777; // extract permissions
     access &= 07555; // make it readonly, since it's in the trashcan
     Q_ASSERT(!internalFileName.isEmpty());
-    entry.insert(KIO::UDSEntry::UDS_NAME, internalFileName);   // internal filename, like "0-foo"
-    entry.insert(KIO::UDSEntry::UDS_DISPLAY_NAME, displayFileName);   // user-visible filename, like "foo"
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, type);
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, internalFileName);   // internal filename, like "0-foo"
+    entry.fastInsert(KIO::UDSEntry::UDS_DISPLAY_NAME, displayFileName);   // user-visible filename, like "foo"
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, type);
     //if ( !url.isEmpty() )
     //    entry.insert( KIO::UDSEntry::UDS_URL, url );
 
     QMimeDatabase db;
     QMimeType mt = db.mimeTypeForFile(physicalPath);
     if (mt.isValid()) {
-        entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, mt.name());
+        entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, mt.name());
     }
-    entry.insert(KIO::UDSEntry::UDS_ACCESS, access);
-    entry.insert(KIO::UDSEntry::UDS_SIZE, buff.st_size);
-    entry.insert(KIO::UDSEntry::UDS_USER, m_userName);   // assumption
-    entry.insert(KIO::UDSEntry::UDS_GROUP, m_groupName);   // assumption
-    entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME, buff.st_mtime);
-    entry.insert(KIO::UDSEntry::UDS_ACCESS_TIME, buff.st_atime);   // ## or use it for deletion time?
-    entry.insert(KIO::UDSEntry::UDS_EXTRA, info.origPath);
-    entry.insert(KIO::UDSEntry::UDS_EXTRA + 1, info.deletionDate.toString(Qt::ISODate));
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, access);
+    entry.fastInsert(KIO::UDSEntry::UDS_SIZE, buff.st_size);
+    entry.fastInsert(KIO::UDSEntry::UDS_USER, m_userName);   // assumption
+    entry.fastInsert(KIO::UDSEntry::UDS_GROUP, m_groupName);   // assumption
+    entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, buff.st_mtime);
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, buff.st_atime);   // ## or use it for deletion time?
+    entry.fastInsert(KIO::UDSEntry::UDS_EXTRA, info.origPath);
+    entry.fastInsert(KIO::UDSEntry::UDS_EXTRA + 1, info.deletionDate.toString(Qt::ISODate));
     return true;
 }
 
