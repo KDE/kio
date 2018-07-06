@@ -1292,17 +1292,17 @@ void Ftp::ftpCreateUDSEntry(const QString &filename, const FtpEntry &ftpEnt, UDS
 {
     Q_ASSERT(entry.count() == 0); // by contract :-)
 
-    entry.insert(KIO::UDSEntry::UDS_NAME, filename);
-    entry.insert(KIO::UDSEntry::UDS_SIZE, ftpEnt.size);
-    entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME, ftpEnt.date.toTime_t());
-    entry.insert(KIO::UDSEntry::UDS_ACCESS, ftpEnt.access);
-    entry.insert(KIO::UDSEntry::UDS_USER, ftpEnt.owner);
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
+    entry.fastInsert(KIO::UDSEntry::UDS_SIZE, ftpEnt.size);
+    entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, ftpEnt.date.toTime_t());
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, ftpEnt.access);
+    entry.fastInsert(KIO::UDSEntry::UDS_USER, ftpEnt.owner);
     if (!ftpEnt.group.isEmpty()) {
-        entry.insert(KIO::UDSEntry::UDS_GROUP, ftpEnt.group);
+        entry.fastInsert(KIO::UDSEntry::UDS_GROUP, ftpEnt.group);
     }
 
     if (!ftpEnt.link.isEmpty()) {
-        entry.insert(KIO::UDSEntry::UDS_LINK_DEST, ftpEnt.link);
+        entry.fastInsert(KIO::UDSEntry::UDS_LINK_DEST, ftpEnt.link);
 
         QMimeDatabase db;
         QMimeType mime = db.mimeTypeForUrl(QUrl("ftp://host/" + filename));
@@ -1312,12 +1312,12 @@ void Ftp::ftpCreateUDSEntry(const QString &filename, const FtpEntry &ftpEnt, UDS
         // --> we do better than Netscape :-)
         if (mime.isDefault()) {
             qCDebug(KIO_FTP) << "Setting guessed mime type to inode/directory for " << filename;
-            entry.insert(KIO::UDSEntry::UDS_GUESSED_MIME_TYPE, QStringLiteral("inode/directory"));
+            entry.fastInsert(KIO::UDSEntry::UDS_GUESSED_MIME_TYPE, QStringLiteral("inode/directory"));
             isDir = true;
         }
     }
 
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, isDir ? S_IFDIR : ftpEnt.type);
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, isDir ? S_IFDIR : ftpEnt.type);
     // entry.insert KIO::UDSEntry::UDS_ACCESS_TIME,buff.st_atime);
     // entry.insert KIO::UDSEntry::UDS_CREATION_TIME,buff.st_ctime);
 }
@@ -1326,11 +1326,11 @@ void Ftp::ftpShortStatAnswer(const QString &filename, bool isDir)
 {
     UDSEntry entry;
 
-    entry.insert(KIO::UDSEntry::UDS_NAME, filename);
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, isDir ? S_IFDIR : S_IFREG);
-    entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, isDir ? S_IFDIR : S_IFREG);
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
     if (isDir) {
-        entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
+        entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
     }
     // No details about size, ownership, group, etc.
 
@@ -1374,12 +1374,12 @@ void Ftp::stat(const QUrl &url)
     if (path.isEmpty() || path == QLatin1String("/")) {
         UDSEntry entry;
         //entry.insert( KIO::UDSEntry::UDS_NAME, UDSField( QString() ) );
-        entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
-        entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-        entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
-        entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
-        entry.insert(KIO::UDSEntry::UDS_USER, QStringLiteral("root"));
-        entry.insert(KIO::UDSEntry::UDS_GROUP, QStringLiteral("root"));
+        entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
+        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+        entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
+        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
+        entry.fastInsert(KIO::UDSEntry::UDS_USER, QStringLiteral("root"));
+        entry.fastInsert(KIO::UDSEntry::UDS_GROUP, QStringLiteral("root"));
         // no size
 
         statEntry(entry);
@@ -1423,9 +1423,9 @@ void Ftp::stat(const QUrl &url)
         // Don't list the parent dir. Too slow, might not show it, etc.
         // Just return that it's a dir.
         UDSEntry entry;
-        entry.insert(KIO::UDSEntry::UDS_NAME, filename);
-        entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-        entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
+        entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
+        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
         // No clue about size, ownership, group, etc.
 
         statEntry(entry);
