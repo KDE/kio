@@ -535,9 +535,9 @@ void FileProtocol::listDir(const QUrl &url)
          *
          */
         if (details == 0) {
-            entry.insert(KIO::UDSEntry::UDS_NAME, filename);
+            entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
 #ifdef HAVE_DIRENT_D_TYPE
-            entry.insert(KIO::UDSEntry::UDS_FILE_TYPE,
+            entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE,
                          (ep->d_type == DT_DIR) ? S_IFDIR : S_IFREG);
             const bool isSymLink = (ep->d_type == DT_LNK);
 #else
@@ -545,14 +545,14 @@ void FileProtocol::listDir(const QUrl &url)
             if (QT_LSTAT(ep->d_name, &st) == -1) {
                 continue; // how can stat fail?
             }
-            entry.insert(KIO::UDSEntry::UDS_FILE_TYPE,
+            entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE,
                          ((st.st_mode & QT_STAT_MASK) == QT_STAT_DIR) ? S_IFDIR : S_IFREG);
             const bool isSymLink = ((st.st_mode & QT_STAT_MASK) == QT_STAT_LNK);
 #endif
             if (isSymLink) {
                 // for symlinks obey the UDSEntry contract and provide UDS_LINK_DEST
                 // even if we don't know the link dest (and DeleteJob doesn't care...)
-                entry.insert(KIO::UDSEntry::UDS_LINK_DEST, QStringLiteral("Dummy Link Target"));
+                entry.fastInsert(KIO::UDSEntry::UDS_LINK_DEST, QStringLiteral("Dummy Link Target"));
             }
             listEntry(entry);
 
@@ -560,7 +560,7 @@ void FileProtocol::listDir(const QUrl &url)
             if (createUDSEntry(filename, QByteArray(ep->d_name), entry, details)) {
 #if HAVE_SYS_XATTR_H
                 if (isNtfsHidden(filename)) {
-                    entry.insert(KIO::UDSEntry::UDS_HIDDEN, 1);
+                    entry.fastInsert(KIO::UDSEntry::UDS_HIDDEN, 1);
                 }
 #endif
                 listEntry(entry);
