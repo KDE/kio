@@ -220,10 +220,10 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
         } else {
             UDSEntry srcUds;
 
-            srcUds.insert(UDSEntry::UDS_NAME, d->src.fileName());
-            srcUds.insert(UDSEntry::UDS_MODIFICATION_TIME, mtimeSrc.toMSecsSinceEpoch() / 1000);
-            srcUds.insert(UDSEntry::UDS_CREATION_TIME, ctimeSrc.toMSecsSinceEpoch() / 1000);
-            srcUds.insert(UDSEntry::UDS_SIZE, sizeSrc);
+            srcUds.fastInsert(UDSEntry::UDS_NAME, d->src.fileName());
+            srcUds.fastInsert(UDSEntry::UDS_MODIFICATION_TIME, mtimeSrc.toMSecsSinceEpoch() / 1000);
+            srcUds.fastInsert(UDSEntry::UDS_CREATION_TIME, ctimeSrc.toMSecsSinceEpoch() / 1000);
+            srcUds.fastInsert(UDSEntry::UDS_SIZE, sizeSrc);
 
             d->srcItem = KFileItem(srcUds, d->src);
         }
@@ -233,10 +233,10 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
         } else {
             UDSEntry destUds;
 
-            destUds.insert(UDSEntry::UDS_NAME, d->dest.fileName());
-            destUds.insert(UDSEntry::UDS_MODIFICATION_TIME, mtimeDest.toMSecsSinceEpoch() / 1000);
-            destUds.insert(UDSEntry::UDS_CREATION_TIME, ctimeDest.toMSecsSinceEpoch() / 1000);
-            destUds.insert(UDSEntry::UDS_SIZE, sizeDest);
+            destUds.fastInsert(UDSEntry::UDS_NAME, d->dest.fileName());
+            destUds.fastInsert(UDSEntry::UDS_MODIFICATION_TIME, mtimeDest.toMSecsSinceEpoch() / 1000);
+            destUds.fastInsert(UDSEntry::UDS_CREATION_TIME, ctimeDest.toMSecsSinceEpoch() / 1000);
+            destUds.fastInsert(UDSEntry::UDS_SIZE, sizeDest);
 
             d->destItem = KFileItem(destUds, d->dest);
         }
