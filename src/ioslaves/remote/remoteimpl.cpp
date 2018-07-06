@@ -117,13 +117,13 @@ QUrl RemoteImpl::findBaseURL(const QString &filename) const
 void RemoteImpl::createTopLevelEntry(KIO::UDSEntry &entry) const
 {
     entry.clear();
-    entry.insert(KIO::UDSEntry::UDS_NAME, QString::fromLatin1("."));
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-    entry.insert(KIO::UDSEntry::UDS_ACCESS, 0777);
-    entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, QString::fromLatin1("inode/directory"));
-    entry.insert(KIO::UDSEntry::UDS_ICON_NAME, QString::fromLatin1("folder-remote"));
-    entry.insert(KIO::UDSEntry::UDS_USER, QString::fromLatin1("root"));
-    entry.insert(KIO::UDSEntry::UDS_GROUP, QString::fromLatin1("root"));
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, QString::fromLatin1("."));
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0777);
+    entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QString::fromLatin1("inode/directory"));
+    entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, QString::fromLatin1("folder-remote"));
+    entry.fastInsert(KIO::UDSEntry::UDS_USER, QString::fromLatin1("root"));
+    entry.fastInsert(KIO::UDSEntry::UDS_GROUP, QString::fromLatin1("root"));
 }
 
 static QUrl findWizardRealURL()
@@ -149,13 +149,13 @@ bool RemoteImpl::createWizardEntry(KIO::UDSEntry &entry) const
         return false;
     }
 
-    entry.insert(KIO::UDSEntry::UDS_NAME, i18n("Add Network Folder"));
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFREG);
-    entry.insert(KIO::UDSEntry::UDS_URL, QString::fromLatin1(WIZARD_URL));
-    entry.insert(KIO::UDSEntry::UDS_LOCAL_PATH, url.path());
-    entry.insert(KIO::UDSEntry::UDS_ACCESS, 0500);
-    entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, QString::fromLatin1("application/x-desktop"));
-    entry.insert(KIO::UDSEntry::UDS_ICON_NAME, QString::fromLatin1("folder-new"));
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, i18n("Add Network Folder"));
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFREG);
+    entry.fastInsert(KIO::UDSEntry::UDS_URL, QString::fromLatin1(WIZARD_URL));
+    entry.fastInsert(KIO::UDSEntry::UDS_LOCAL_PATH, url.path());
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0500);
+    entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QString::fromLatin1("application/x-desktop"));
+    entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, QString::fromLatin1("folder-new"));
 
     return true;
 }
@@ -187,17 +187,17 @@ bool RemoteImpl::createEntry(KIO::UDSEntry &entry, const QString &directory,
     QString new_filename = file;
     new_filename.truncate(file.length()-8);
 
-    entry.insert(KIO::UDSEntry::UDS_NAME, desktop.readName());
-    entry.insert(KIO::UDSEntry::UDS_URL, "remote:/"+new_filename);
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, desktop.readName());
+    entry.fastInsert(KIO::UDSEntry::UDS_URL, "remote:/"+new_filename);
 
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-    entry.insert(KIO::UDSEntry::UDS_ACCESS, 0500);
-    entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, QString::fromLatin1("inode/directory"));
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0500);
+    entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QString::fromLatin1("inode/directory"));
 
     const QString icon = desktop.readIcon();
-    entry.insert(KIO::UDSEntry::UDS_ICON_NAME, icon);
-    entry.insert(KIO::UDSEntry::UDS_LINK_DEST, desktop.readUrl());
-    entry.insert(KIO::UDSEntry::UDS_TARGET_URL, desktop.readUrl());
+    entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, icon);
+    entry.fastInsert(KIO::UDSEntry::UDS_LINK_DEST, desktop.readUrl());
+    entry.fastInsert(KIO::UDSEntry::UDS_TARGET_URL, desktop.readUrl());
     return true;
 }
 
