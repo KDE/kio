@@ -1,0 +1,75 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Catalan  "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="cache" lang="&language;">
+<title
+>Memòria cau</title>
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+><surname
+>Watts</surname
+></author>
+
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<date
+>10 de novembre de 2016</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Arranjament del sistema</keyword>
+<keyword
+>Konqueror</keyword>
+<keyword
+>Memòria cau</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Aquest mòdul us permetrà controlar la mida de la carpeta de la memòria cau local utilitzada pel &konqueror;. Tingueu present que cada compte d'usuari al vostre ordinador disposa d'una carpeta cau a part i que aquesta carpeta no està compartida amb altres navegadors web, com ara el &firefox;.</para>
+
+<para
+>L'emmagatzematge de còpies locals de les pàgines web que heu visitat li permet al &konqueror; carregar més ràpidament els seus continguts en les següents visites. De manera que, tan sols serà necessari tornar a carregar els continguts des del lloc original si aquests han canviat des de la vostra última visita o si premeu el botó Refresca en el &konqueror;.</para>
+
+<para
+>Si realment no desitgeu que s'emmagatzemi a l'ordinador cap de les pàgines visitades, podeu desactivar la memòria cau del disc del &konqueror; netejant la casella de selecció anomenada <guilabel
+>Usa la memòria cau</guilabel
+>.</para>
+
+<para
+>Podeu configurar com haurà de ser d'agressiu el &konqueror; per a mantenir la memòria cau actualitzada. <guilabel
+>Mantén la memòria cau sincronitzada</guilabel
+>, significa que el &konqueror; cercarà en la memòria cau per a tots els objectes, baixant-los si no es troben allí i després mostrant l'element des de la memòria cau. <guilabel
+>Usa la memòria cau si és possible</guilabel
+>, significa que el &konqueror; provarà la memòria cau i si l'element no està allí, el baixarà per a mostrar-lo. <guilabel
+>Mode de navegació desconnectat</guilabel
+> significa que el &konqueror; provarà la memòria cau i si un element no està allí, no intentarà baixar-lo des de la Internet.</para>
+
+<para
+>Podeu controlar la mida màxima de la memòria cau introduint un número al quadre de text anomenat <guilabel
+>Mida de la memòria cau del disc</guilabel
+>. Aquest serà l'espai en kilobytes del que disposarà la carpeta de memòria cau. Si la memòria cau es fa molt gran, el &konqueror; suprimirà els fitxers més antics per a fer-hi espai.</para>
+
+<para
+>Tot i això, és un valor mitjà i durant una sessió de navegació la memòria cau podria ser substancialment més gran.</para>
+
+<para
+>En qualsevol moment podeu utilitzar el botó <guibutton
+>Neteja la memòria cau</guibutton
+> per a buidar-la.</para>
+
+</article>
