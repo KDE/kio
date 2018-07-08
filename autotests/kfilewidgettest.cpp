@@ -212,32 +212,32 @@ private Q_SLOTS:
         QCOMPARE(fw.locationEdit()->currentText(), expectedCurrentText);
     }
 
-    void testCdUpToRoot_data()
+    void testEnterUrl_data()
     {
-        QTest::addColumn<QUrl>("baseUrl");
         QTest::addColumn<QUrl>("expectedUrl");
 
-        // When going up from file:///home/, it should become file:/// not file:///home/user
-        QTest::newRow("file") << QUrl::fromLocalFile("/home/") << QUrl::fromLocalFile("/");
-        QTest::newRow("trash") << QUrl("trash://home/") << QUrl("trash:/");
-        QTest::newRow("sftp") << QUrl("sftp://127.0.0.1/home/") << QUrl("sftp://127.0.0.1/");
+        // Check if the root urls are well transformed into themself, otherwise
+        // when going up from file:///home/ it will become file:///home/user
+        QTest::newRow("file") << QUrl::fromLocalFile("/");
+        QTest::newRow("trash") << QUrl("trash:/");
+        QTest::newRow("sftp") << QUrl("sftp://127.0.0.1/");
     }
 
-    void testCdUpToRoot()
+    void testEnterUrl()
     {
         // GIVEN
-        QFETCH(QUrl, baseUrl);
         QFETCH(QUrl, expectedUrl);
 
-        KFileWidget fw(baseUrl);
-        fw.show();
-        QVERIFY(QTest::qWaitForWindowActive(&fw));
-
         // WHEN
-        fw.dirOperator()->cdUp();
-
+        // These lines are copied from src/filewidgets/kfilewidget.cpp
+        // void KFileWidgetPrivate::_k_enterUrl(const QUrl &url)
+        QUrl u(expectedUrl);
+        if (!u.path().isEmpty() && !u.path().endsWith(QLatin1Char('/'))) {
+            u.setPath(u.path() + QLatin1Char('/'));
+        }
         // THEN
-        QCOMPARE(fw.dirOperator()->url(), expectedUrl);
+        QVERIFY(u.isValid());
+        QCOMPARE(u, expectedUrl);
     }
 };
 
