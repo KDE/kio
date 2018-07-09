@@ -834,17 +834,22 @@ bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &pat
     assert(entry.count() == 0); // by contract :-)
     entry.reserve(8);
 
-    entry.insert(KIO::UDSEntry::UDS_NAME, filename);
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
 
     mode_t type;
     mode_t access;
+    bool isBrokenSymLink = false;
+    long long size = 0LL;
+#if HAVE_POSIX_ACL
+    QByteArray targetPath = path;
+#endif
     QT_STATBUF buff;
 
     if (QT_LSTAT(path.data(), &buff) == 0)  {
 
         if (details > 2) {
-            entry.insert(KIO::UDSEntry::UDS_DEVICE_ID, buff.st_dev);
-            entry.insert(KIO::UDSEntry::UDS_INODE, buff.st_ino);
+            entry.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, buff.st_dev);
+            entry.fastInsert(KIO::UDSEntry::UDS_INODE, buff.st_ino);
         }
 
         if ((buff.st_mode & QT_STAT_MASK) == QT_STAT_LNK) {
@@ -872,19 +877,18 @@ bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &pat
             }
             const QString linkTarget = QFile::decodeName(linkTargetBuffer);
 #endif
-            entry.insert(KIO::UDSEntry::UDS_LINK_DEST, linkTarget);
+            entry.fastInsert(KIO::UDSEntry::UDS_LINK_DEST, linkTarget);
 
             // A symlink -> follow it only if details>1
-            if (details > 1 && QT_STAT(path.constData(), &buff) == -1) {
-                // It is a link pointing to nowhere
-                type = S_IFMT - 1;
-                access = S_IRWXU | S_IRWXG | S_IRWXO;
-
-                entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, type);
-                entry.insert(KIO::UDSEntry::UDS_ACCESS, access);
-                entry.insert(KIO::UDSEntry::UDS_SIZE, 0LL);
-                goto notype;
-
+            if (details > 1) {
+                if (QT_STAT(path.constData(), &buff) == -1) {
+                    isBrokenSymLink = true;
+                } else {
+#if HAVE_POSIX_ACL
+                    // valid symlink, will get the ACLs of the destination
+                    targetPath = linkTargetBuffer;
+#endif
+                }
             }
         }
     } else {
@@ -892,33 +896,39 @@ bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &pat
         return false;
     }
 
-    type = buff.st_mode & S_IFMT; // extract file type
-    access = buff.st_mode & 07777; // extract permissions
+    if (isBrokenSymLink) {
+        // It is a link pointing to nowhere
+        type = S_IFMT - 1;
+        access = S_IRWXU | S_IRWXG | S_IRWXO;
+        size = 0LL;
+    } else {
+        type = buff.st_mode & S_IFMT; // extract file type
+        access = buff.st_mode & 07777; // extract permissions
+        size = buff.st_size;
+    }
 
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, type);
-    entry.insert(KIO::UDSEntry::UDS_ACCESS, access);
-
-    entry.insert(KIO::UDSEntry::UDS_SIZE, buff.st_size);
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, type);
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, access);
+    entry.fastInsert(KIO::UDSEntry::UDS_SIZE, size);
 
 #if HAVE_POSIX_ACL
     if (details > 1) {
         /* Append an atom indicating whether the file has extended acl information
          * and if withACL is specified also one with the acl itself. If it's a directory
          * and it has a default ACL, also append that. */
-        appendACLAtoms(path, entry, type);
+        appendACLAtoms(targetPath, entry, type);
     }
 #endif
 
-notype:
     if (details > 0) {
-        entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME, buff.st_mtime);
+        entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, buff.st_mtime);
 #ifndef Q_OS_WIN
-        entry.insert(KIO::UDSEntry::UDS_USER, getUserName(KUserId(buff.st_uid)));
-        entry.insert(KIO::UDSEntry::UDS_GROUP, getGroupName(KGroupId(buff.st_gid)));
+        entry.fastInsert(KIO::UDSEntry::UDS_USER, getUserName(KUserId(buff.st_uid)));
+        entry.fastInsert(KIO::UDSEntry::UDS_GROUP, getGroupName(KGroupId(buff.st_gid)));
 #else
 #pragma message("TODO: st_uid and st_gid are always zero, use GetSecurityInfo to find the owner")
 #endif
-        entry.insert(KIO::UDSEntry::UDS_ACCESS_TIME, buff.st_atime);
+        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, buff.st_atime);
 #ifdef st_birthtime
         /* For example FreeBSD's and NetBSD's stat contains a field for
          * the inode birth time: st_birthtime
@@ -926,13 +936,12 @@ notype:
          * Instead of setting a bogus fallback like st_mtime, only use
          * it if it is greater than 0. */
         if (buff.st_birthtime > 0) {
-            entry.insert(KIO::UDSEntry::UDS_CREATION_TIME, buff.st_birthtime);
+            entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, buff.st_birthtime);
         }
-#endif
-#ifdef __st_birthtime
+#elif defined __st_birthtime
         /* As above, but OpenBSD calls it slightly differently. */
         if (buff.__st_birthtime > 0) {
-            entry.insert(KIO::UDSEntry::UDS_CREATION_TIME, buff.__st_birthtime);
+            entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, buff.__st_birthtime);
         }
 #endif
     }
@@ -1359,18 +1368,18 @@ static void appendACLAtoms(const QByteArray &path, UDSEntry &entry, mode_t type)
     }
     if (acl || defaultAcl) {
         // qDebug() << path.constData() << "has extended ACL entries";
-        entry.insert(KIO::UDSEntry::UDS_EXTENDED_ACL, 1);
+        entry.fastInsert(KIO::UDSEntry::UDS_EXTENDED_ACL, 1);
 
         if (acl) {
             const QString str = aclToText(acl);
-            entry.insert(KIO::UDSEntry::UDS_ACL_STRING, str);
+            entry.fastInsert(KIO::UDSEntry::UDS_ACL_STRING, str);
             // qDebug() << path.constData() << "ACL:" << str;
             acl_free(acl);
         }
 
         if (defaultAcl) {
             const QString str = aclToText(defaultAcl);
-            entry.insert(KIO::UDSEntry::UDS_DEFAULT_ACL_STRING, str);
+            entry.fastInsert(KIO::UDSEntry::UDS_DEFAULT_ACL_STRING, str);
             // qDebug() << path.constData() << "DEFAULT ACL:" << str;
             acl_free(defaultAcl);
         }
