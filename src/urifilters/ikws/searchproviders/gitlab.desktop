@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Hidden=false
+Keys=gitlab,gt
+Name=GitLab
+Query=https://gitlab.com/search?search=\\{@}
+X-KDE-ServiceTypes=SearchProvider
