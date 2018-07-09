@@ -4,7 +4,7 @@
    Copyright (C) 2000-2002 Dawit Alemayehu <adawit@kde.org>
    Copyright (C) 2001,2002 Hamish Rodda <rodda@kde.org>
    Copyright (C) 2007      Nick Shaforostoff <shafff@ukr.net>
-   Copyright (C) 2007      Daniel Nicoletti <mirttex@users.sourceforge.net>
+   Copyright (C) 2007-2018 Daniel Nicoletti <dantti12@gmail.com>
    Copyright (C) 2008,2009 Andreas Hartmetz <ahartmetz@gmail.com>
 
    This library is free software; you can redistribute it and/or
@@ -1338,7 +1338,7 @@ void HTTPProtocol::copy(const QUrl &src, const QUrl &dest, int, KIO::JobFlags fl
         changeProtocolToHttp(&newDest);
 
         m_request.method = DAV_COPY;
-        m_request.davData.desturl = newDest.url();
+        m_request.davData.desturl = newDest.toString(QUrl::FullyEncoded);
         m_request.davData.overwrite = (flags & KIO::Overwrite);
         m_request.url.setQuery(QString());
         m_request.cacheTag.policy = CC_Reload;
@@ -1368,7 +1368,7 @@ void HTTPProtocol::rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags
     changeProtocolToHttp(&newDest);
 
     m_request.method = DAV_MOVE;
-    m_request.davData.desturl = newDest.toString();
+    m_request.davData.desturl = newDest.toString(QUrl::FullyEncoded);
     m_request.davData.overwrite = (flags & KIO::Overwrite);
     m_request.url.setQuery(QString());
     m_request.cacheTag.policy = CC_Reload;
