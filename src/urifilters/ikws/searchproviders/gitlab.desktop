@@ -5,6 +5,9 @@ Keys=gitlab,gt
 Name=GitLab
 Name[ca]=GitLab
 Name[ca@valencia]=GitLab
+Name[da]=GitLab
+Name[fi]=GitLab
+Name[fr]=GitLab
 Name[nl]=GitLab
 Name[pt]=GitLab
 Name[sv]=GitLab
@@ -15,6 +18,9 @@ Query=https://gitlab.com/search?search=\\{@}
 Query[ca]=https://gitlab.com/search?search=\\{@}
 Query[ca@valencia]=https://gitlab.com/search?search=\\{@}
 Query[cs]=https://gitlab.com/search?search=\\{@}
+Query[da]=https://gitlab.com/search?search=\\{@}
+Query[fi]=https://gitlab.com/search?search=\\{@}
+Query[fr]=https://gitlab.com/search?search=\\{@}
 Query[nl]=https://gitlab.com/search?search=\\{@}
 Query[pt]=https://gitlab.com/search?search=\\{@}
 Query[sv]=https://gitlab.com/search?search=\\{@}
