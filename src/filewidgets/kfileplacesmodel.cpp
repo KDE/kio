@@ -128,40 +128,27 @@ namespace {
         return timelineUrl;
     }
 
-    static QUrl searchUrlForType(const QString &type)
-    {
-        const QString jsonQuery(QStringLiteral("{\"dayFilter\": 0,\
-                                                 \"monthFilter\": 0, \
-                                                 \"yearFilter\": 0, \
-                                                 \"type\": [ \"%1\"]}"));
-        QUrl url;
-        url.setScheme(QStringLiteral("baloosearch"));
-
-        QUrlQuery urlQuery;
-        urlQuery.addQueryItem(QStringLiteral("json"), jsonQuery.arg(type).simplified());
-        url.setQuery(urlQuery);
-
-        return url;
-    }
-
     static QUrl createSearchUrl(const QUrl &url)
     {
-        QUrl searchUrl;
+        QUrl searchUrl = url;
 
         const QString path = url.toDisplayString(QUrl::PreferLocalFile);
 
-        if (path.endsWith(QLatin1String("/documents"))) {
-            searchUrl = searchUrlForType(QStringLiteral("Document"));
-        } else if (path.endsWith(QLatin1String("/images"))) {
-            searchUrl = searchUrlForType(QStringLiteral("Image"));
-        } else if (path.endsWith(QLatin1String("/audio"))) {
-            searchUrl = searchUrlForType(QStringLiteral("Audio"));
-        } else if (path.endsWith(QLatin1String("/videos"))) {
-            searchUrl = searchUrlForType(QStringLiteral("Video"));
-        } else {
-            qWarning() << "Invalid search url:" << url;
-            searchUrl = url;
+        const QStringList validSearchPaths = {
+            QStringLiteral("/documents"),
+            QStringLiteral("/images"),
+            QStringLiteral("/audio"),
+            QStringLiteral("/videos")
+        };
+
+        for (const QString &validPath : validSearchPaths) {
+            if (path.endsWith(validPath)) {
+                searchUrl.setScheme(QStringLiteral("baloosearch"));
+                return searchUrl;
+            }
         }
+
+        qWarning() << "Invalid search url:" << url;
 
         return searchUrl;
     }

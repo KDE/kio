@@ -899,18 +899,11 @@ void KFilePlacesModelTest::testConvertedUrl_data()
                                    << QUrl::fromLocalFile(QDir::homePath());
 
     // baloo -search
-    const QString jsonQuery(QStringLiteral("{\"dayFilter\": 0,\
-                                             \"monthFilter\": 0, \
-                                             \"yearFilter\": 0, \
-                                             \"type\": [ \"Document\"]}"));
-    QUrl url;
-    url.setScheme(QStringLiteral("baloosearch"));
-    QUrlQuery urlQuery;
-    urlQuery.addQueryItem(QStringLiteral("json"), jsonQuery.simplified());
-    url.setQuery(urlQuery);
-
     QTest::newRow("Baloo - Documents") << QUrl("search:/documents")
-                                       << url;
+                                       << QUrl("baloosearch:/documents");
+
+    QTest::newRow("Baloo - Unknown Type") << QUrl("search:/unknown")
+                                          << QUrl("search:/unknown");
 
     // baloo - timeline
     const QDate lastMonthDate = QDate::currentDate().addMonths(-1);
