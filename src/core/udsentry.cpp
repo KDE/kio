@@ -339,21 +339,21 @@ UDSEntry::UDSEntry(const QT_STATBUF &buff, const QString &name)
     : d(new UDSEntryPrivate())
 {
 #ifndef Q_OS_WIN
-    reserve(10);
+    d->reserve(10);
 #else
-    reserve(8);
+    d->reserve(8);
 #endif
-    insert(UDS_NAME,                name);
-    insert(UDS_SIZE,                buff.st_size);
-    insert(UDS_DEVICE_ID,           buff.st_dev);
-    insert(UDS_INODE,               buff.st_ino);
-    insert(UDS_FILE_TYPE,           buff.st_mode & QT_STAT_MASK); // extract file type
-    insert(UDS_ACCESS,              buff.st_mode & 07777); // extract permissions
-    insert(UDS_MODIFICATION_TIME,   buff.st_mtime);
-    insert(UDS_ACCESS_TIME,         buff.st_atime);
+    d->insert(UDS_NAME,                name);
+    d->insert(UDS_SIZE,                buff.st_size);
+    d->insert(UDS_DEVICE_ID,           buff.st_dev);
+    d->insert(UDS_INODE,               buff.st_ino);
+    d->insert(UDS_FILE_TYPE,           buff.st_mode & QT_STAT_MASK); // extract file type
+    d->insert(UDS_ACCESS,              buff.st_mode & 07777); // extract permissions
+    d->insert(UDS_MODIFICATION_TIME,   buff.st_mtime);
+    d->insert(UDS_ACCESS_TIME,         buff.st_atime);
 #ifndef Q_OS_WIN
-    insert(UDS_USER,                KUser(buff.st_uid).loginName());
-    insert(UDS_GROUP,               KUserGroup(buff.st_gid).name());
+    d->insert(UDS_USER,                KUser(buff.st_uid).loginName());
+    d->insert(UDS_GROUP,               KUserGroup(buff.st_gid).name());
 #endif
 }
 
