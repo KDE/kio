@@ -171,7 +171,7 @@ void Slave::accept()
     d->slaveconnserver->deleteLater();
     d->slaveconnserver = nullptr;
 
-    connect(d->connection, SIGNAL(readyRead()), SLOT(gotInput()));
+    connect(d->connection, &Connection::readyRead, this, &Slave::gotInput);
 }
 
 void Slave::timeout()
@@ -218,7 +218,7 @@ Slave::Slave(const QString &protocol, QObject *parent)
     Q_D(Slave);
     d->slaveconnserver->setParent(this);
     d->connection = new Connection(this);
-    connect(d->slaveconnserver, SIGNAL(newConnection()), SLOT(accept()));
+    connect(d->slaveconnserver, &ConnectionServer::newConnection, this, &Slave::accept);
 }
 
 Slave::~Slave()

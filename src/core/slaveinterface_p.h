@@ -42,7 +42,7 @@ public:
           nums(0), slave_calcs_speed(false)
     {
     }
-    ~SlaveInterfacePrivate()
+    virtual ~SlaveInterfacePrivate()
     {
         delete connection;
     }
