@@ -109,8 +109,9 @@ public:
 
     virtual ~SlaveInterface();
 
-    void setConnection(Connection *connection);
-    Connection *connection() const;
+    // TODO KF6: remove these methods, Connection isn't an exported class
+    KIOCORE_DEPRECATED void setConnection(Connection *connection);
+    KIOCORE_DEPRECATED Connection *connection() const;
 
     // Send our answer to the MSG_RESUME (canResume) request
     // (to tell the "put" job whether to resume or not)
