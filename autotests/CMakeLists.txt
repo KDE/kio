@@ -30,6 +30,7 @@ ecm_add_tests(
  threadtest.cpp
  udsentrytest.cpp
  udsentry_benchmark.cpp
+ kcoredirlister_benchmark.cpp
  deletejobtest.cpp
  urlutiltest.cpp
  batchrenamejobtest.cpp
