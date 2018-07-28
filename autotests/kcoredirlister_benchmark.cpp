@@ -336,12 +336,13 @@ template <class T> void fillNumberOfFiles() {
 template <class T> void createFiles(int powerOfTen)
 {
     T data;
-    data.reserve(pow(10, powerOfTen+1));
+    const int numberOfFiles = pow(10, powerOfTen+1);
+    data.reserve(numberOfFiles);
     QBENCHMARK {
         data.clear();
         data.insert(powerOfTen);
     }
-    QCOMPARE(data.lstItems.size(), pow(10, powerOfTen+1));
+    QCOMPARE(data.lstItems.size(), numberOfFiles);
 }
 
 template <class T> void findByName(int powerOfTen)
