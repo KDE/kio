@@ -58,7 +58,7 @@ public:
          * Returns the mount point associated with @p device,
          * i.e. the one where mountedFrom() == @p device
          * (after symlink resolution).
-         * @return the mountpoint, or 0 if this device doesn't exist or isn't mounted
+         * @return the mountpoint, or @c nullptr if this device doesn't exist or isn't mounted
          */
         Ptr findByDevice(const QString &device) const;
     };

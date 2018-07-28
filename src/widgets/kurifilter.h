@@ -658,7 +658,7 @@ public:
     /**
      * Constructs a filter plugin with a given name
      *
-     * @param parent the parent object, or 0 for no parent
+     * @param parent the parent object, or @c nullptr for no parent
      * @param name the name of the plugin, mandatory
      */
     explicit KUriFilterPlugin(const QString &name, QObject *parent = nullptr);
@@ -679,7 +679,7 @@ public:
      * It is the responsibility of the caller to delete the module once it is
      * not needed anymore.
      *
-     * @return A configuration module, 0 if the filter isn't configurable.
+     * @return A configuration module, or @c nullptr if the filter isn't configurable.
      */
     virtual KCModule *configModule(QWidget *, const char *) const;
 

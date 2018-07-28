@@ -103,7 +103,7 @@ public:
      * Returns an action for the preferred application only.
      * @param traderConstraint this constraint allows to exclude the current application
      * from the "open with" list. Example: "DesktopEntryName != 'kfmclient'".
-     * @return the action - or 0 if no application was found.
+     * @return the action - or @c nullptr if no application was found.
      */
     QAction *preferredOpenWithAction(const QString &traderConstraint);
 

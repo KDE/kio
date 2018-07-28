@@ -185,7 +185,7 @@ public:
      *            connect with.
      * @param config Configuration data for the slave.
      *
-     * @return A pointer to a connected slave or 0 if an error occurred.
+     * @return A pointer to a connected slave or @c nullptr if an error occurred.
      * @see assignJobToSlave()
      * @see disconnectSlave()
      */

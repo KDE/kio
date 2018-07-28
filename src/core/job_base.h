@@ -152,7 +152,7 @@ public:
 
     /**
      * Returns the parent job, if there is one.
-     * @return the parent job, or 0 if there is none
+     * @return the parent job, or @c nullptr if there is none
      * @see setParentJob
      */
     Job *parentJob() const;

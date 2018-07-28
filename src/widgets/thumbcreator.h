@@ -147,7 +147,7 @@ public:
      * The caller will take ownership of the returned instance and must ensure
      * its deletion.
      *
-     * The default implementation returns 0.
+     * The default implementation returns @c nullptr.
      *
      * The following key in the thumbcreator .desktop file must be set to
      * mark the plugin as configurable:
@@ -155,7 +155,7 @@ public:
      * Configurable=true
      * \endcode
      *
-     * @return A QWidget instance, which the caller takes ownership of, or 0.
+     * @return A QWidget instance, which the caller takes ownership of, or @c nullptr.
      */
     virtual QWidget *createConfigurationWidget();
 

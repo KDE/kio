@@ -294,7 +294,7 @@ public:
      */
     virtual bool hasPendingConnections() const;
     /**
-     * Returns a new socket if one is available or 0 if none is.
+     * Returns a new socket if one is available or @c nullptr if none is.
      *
      * Note that the objects returned by this function will have the
      * current KLocalSocketServer object as its parent. You may want

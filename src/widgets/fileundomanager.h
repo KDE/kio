@@ -83,7 +83,7 @@ public:
         void setParentWidget(QWidget *parentWidget);
 
         /**
-         * @return the parent widget passed to the last call to undo(parentWidget), or 0.
+         * @return the parent widget passed to the last call to undo(parentWidget), or @c nullptr.
          */
         QWidget *parentWidget() const;
 

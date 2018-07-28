@@ -53,7 +53,7 @@
  * @param mimeData the mimeData to paste, usually QApplication::clipboard()->mimeData()
  * @param destDir Destination directory where the items will be copied/moved.
  * @param flags the flags are passed to KIO::copy or KIO::move.
- * @return the copy or move job handling the operation, or 0 if there is nothing to do
+ * @return the copy or move job handling the operation, or @c nullptr if there is nothing to do
  * @since ...
  */
 //KIOWIDGETS_EXPORT Job *pasteClipboardUrls(const QUrl& destDir, JobFlags flags = DefaultFlags);

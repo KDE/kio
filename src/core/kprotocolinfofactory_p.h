@@ -50,7 +50,7 @@ public:
      *
      * Does not take proxy settings into account.
      * @param protocol the protocol to search for
-     * @return the pointer to the KProtocolInfo, or 0 if not found
+     * @return the pointer to the KProtocolInfo, or @c nullptr if not found
      */
     KProtocolInfoPrivate *findProtocol(const QString &protocol);
 
