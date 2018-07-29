@@ -856,6 +856,33 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
         if (QDir::isAbsolutePath(name)) {
             url = QUrl::fromLocalFile(name);
         } else {
+            if (name == QLatin1String(".") || name == QLatin1String("..")) {
+                KGuiItem cancelGuiItem(KStandardGuiItem::cancel());
+                cancelGuiItem.setText(i18nc("@action:button", "Enter a different name"));
+
+                QDialog *confirmDialog = new QDialog(m_parentWidget);
+                confirmDialog->setWindowTitle(i18n("Invalid Directory Name"));
+                confirmDialog->setModal(m_modal);
+                confirmDialog->setAttribute(Qt::WA_DeleteOnClose);
+
+                QDialogButtonBox *buttonBox = new QDialogButtonBox(confirmDialog);
+                buttonBox->setStandardButtons(QDialogButtonBox::Cancel);
+                KGuiItem::assign(buttonBox->button(QDialogButtonBox::Cancel), cancelGuiItem);
+                
+                KMessageBox::createKMessageBox(confirmDialog, buttonBox, QMessageBox::Critical,
+                                   xi18n("Folder <filename>%1</filename> could not be created:<nl/><filename>%1</filename> is reserved for use by the operating system.", name),
+                                   QStringList(),
+                                   QString(),
+                                   nullptr,
+                                   KMessageBox::NoExec,
+                                   QString());
+                
+                QObject::connect(buttonBox, SIGNAL(rejected()), q, SLOT(createDirectory()));
+                m_fileDialog = confirmDialog;
+                confirmDialog->show();
+                _k_slotAbortDialog();
+                return;
+            }
             if (!m_viewShowsHiddenFiles && name.startsWith('.')) {
                 if (!writeHiddenDir) {
                     confirmCreatingHiddenDir(name);
