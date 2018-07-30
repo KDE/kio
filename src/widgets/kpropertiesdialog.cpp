@@ -1083,7 +1083,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     }
 
     l = new QLabel(i18n("Size:"), d->m_frame);
-    grid->addWidget(l, curRow, 0, Qt::AlignRight);
+    grid->addWidget(l, curRow, 0, Qt::AlignRight | Qt::AlignTop);
 
     d->m_sizeLabel = new QLabel(d->m_frame);
     d->m_sizeLabel->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
