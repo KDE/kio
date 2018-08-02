@@ -62,7 +62,9 @@ bool KFilePlaceEditDialog::getInformation(bool allowGlobal, QUrl &url,
         // set the return parameters
         url         = dialog->url();
         label       = dialog->label();
-        icon        = dialog->icon();
+        if (dialog->isIconEditable()) {
+            icon = dialog->icon();
+        }
         appLocal    = dialog->applicationLocal();
 
         delete dialog;
@@ -79,7 +81,7 @@ KFilePlaceEditDialog::KFilePlaceEditDialog(bool allowGlobal, const QUrl &url,
         bool isAddingNewPlace,
         bool appLocal, int iconSize,
         QWidget *parent)
-    : QDialog(parent)
+    : QDialog(parent), m_iconButton(nullptr)
 {
     if (isAddingNewPlace) {
         setWindowTitle(i18n("Add Places Entry"));
@@ -117,20 +119,22 @@ KFilePlaceEditDialog::KFilePlaceEditDialog(bool allowGlobal, const QUrl &url,
     // Room for at least 40 chars (average char width is half of height)
     m_urlEdit->setMinimumWidth(m_urlEdit->fontMetrics().height() * (40 / 2));
 
-    whatsThisText = i18n("<qt>This is the icon that will appear in the Places panel.<br /><br />"
-                         "Click on the button to select a different icon.</qt>");
-    m_iconButton = new KIconButton(this);
-    layout->addRow(i18n("Choose an &icon:"), m_iconButton);
-    m_iconButton->setObjectName(QStringLiteral("icon button"));
-    m_iconButton->setIconSize(iconSize);
-    m_iconButton->setIconType(KIconLoader::NoGroup, KIconLoader::Place);
-    if (icon.isEmpty()) {
-        m_iconButton->setIcon(KIO::iconNameForUrl(url));
-    } else {
-        m_iconButton->setIcon(icon);
+    if (url.scheme() != QLatin1String("trash")) {
+        whatsThisText = i18n("<qt>This is the icon that will appear in the Places panel.<br /><br />"
+                             "Click on the button to select a different icon.</qt>");
+        m_iconButton = new KIconButton(this);
+        layout->addRow(i18n("Choose an &icon:"), m_iconButton);
+        m_iconButton->setObjectName(QStringLiteral("icon button"));
+        m_iconButton->setIconSize(iconSize);
+        m_iconButton->setIconType(KIconLoader::NoGroup, KIconLoader::Place);
+        if (icon.isEmpty()) {
+            m_iconButton->setIcon(KIO::iconNameForUrl(url));
+        } else {
+            m_iconButton->setIcon(icon);
+        }
+        m_iconButton->setWhatsThis(whatsThisText);
+        layout->labelForField(m_iconButton)->setWhatsThis(whatsThisText);
     }
-    m_iconButton->setWhatsThis(whatsThisText);
-    layout->labelForField(m_iconButton)->setWhatsThis(whatsThisText);
 
     if (allowGlobal) {
         QString appName;
@@ -212,3 +216,7 @@ bool KFilePlaceEditDialog::applicationLocal() const
     return m_appLocal->isChecked();
 }
 
+bool KFilePlaceEditDialog::isIconEditable() const
+{
+    return m_iconButton;
+}

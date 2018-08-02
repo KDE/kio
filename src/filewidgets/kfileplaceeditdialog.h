@@ -116,6 +116,13 @@ public:
     const QString &icon() const;
 
     /**
+     * @returns whether the item's icon is editable, beacause all icons are not
+     * (e.g. the Trash can display two icons, representing its full and empty states, and
+     * it is simpler to make these icons non-editable rather than to provide an interface to edit them both)
+     */
+    bool isIconEditable() const;
+
+    /**
      * @returns whether the item should be local to the application or global.
      * If allowGlobal was set to false in the constructor, this will always
      * return true.
