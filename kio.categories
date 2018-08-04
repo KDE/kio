@@ -1,0 +1,19 @@
+kf5.kio.cookiejar
+kf5.kio.core.copyjob KIO::CopyJob (KIO) [WARNING]
+kf5.kio.core.dirlister KCoreDirLister (KIO) [WARNING]
+kf5.kio.core KIOCore (KIO)
+kf5.kio.core.sambashare
+kf5.kiod KIO Daemon (KIO)
+kf5.kio.favicons FavIcons (KIO)
+kf5.kio.kio_file
+kf5.kio.kio_ftp
+kf5.kio.kio_http KIO HTTP slave (KIO) [WARNING]
+kf5.kio.kio_http.auth
+kf5.kio.kio_http.filter
+kf5.kio.trash
+kf5.kio.useragentdlg
+kf5.kio.widgets KIOWidgets (KIO)
+org.kde.kio.kpasswdserver KPasswdServer (KIO)
+org.kde.kurifilter-localdomain KUriFilter Local Domain (KIO)
+org.kde.kurifilter-ikws KUriFilter IKWS (KIO)
+org.kde.kurifilter-shorturi KUriFilter Shorturi (KIO)
