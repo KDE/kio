@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Brazilian-Portuguese "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="telnet">
+<title
+>telnet</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Ferdinand.Gassauer; &Ferdinand.Gassauer.mail;</author>
+<othercredit role="translator"
+><firstname
+>Lisiane</firstname
+> <surname
+>Sztoltz</surname
+><affiliation
+><address
+> <email
+>lisiane@conectiva.com.br</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+<para
+>O protocolo de terminal de rede (TELNET) permite a um usuário logar-se em outro computador da rede com suporte ao TELNET. </para>
+
+<para
+>Veja o manual: <ulink url="man:/telnet"
+>telnet</ulink
+>. </para>
+
+</article>
