@@ -202,7 +202,7 @@ QString KFilePlaceEditDialog::label() const
     return url.scheme();
 }
 
-const QString &KFilePlaceEditDialog::icon() const
+QString KFilePlaceEditDialog::icon() const
 {
     return m_iconButton->icon();
 }

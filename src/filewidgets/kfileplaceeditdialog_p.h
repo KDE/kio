@@ -113,7 +113,7 @@ public:
     /**
      * @returns the configured icon
      */
-    const QString &icon() const;
+    QString icon() const;
 
     /**
      * @returns whether the item's icon is editable, beacause all icons are not
