@@ -60,6 +60,9 @@ private Q_SLOTS:
     // KFileItemListProperties tests
     void testListProperties_data();
     void testListProperties();
+#ifndef Q_OS_WIN
+    void testNonWritableDirectory();
+#endif
 
     // KIO global tests
     void testIconNameForUrl_data();

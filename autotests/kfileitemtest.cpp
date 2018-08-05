@@ -700,4 +700,48 @@ void KFileItemTest::testIsReadable()
     QCOMPARE(fileItem.isReadable(), readable);
 }
 
+// Restore permissions so that the QTemporaryDir cleanup can happen (taken from tst_qsavefile.cpp)
+class PermissionRestorer
+{
+    Q_DISABLE_COPY(PermissionRestorer)
+public:
+    explicit PermissionRestorer(const QString& path) : m_path(path) {}
+    ~PermissionRestorer()  { restore(); }
+
+    inline void restore()
+    {
+        QFile file(m_path);
+#ifdef Q_OS_UNIX
+        file.setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner));
+#else
+        file.setPermissions(QFile::WriteOwner);
+        file.remove();
 #endif
+    }
+private:
+    const QString m_path;
+};
+
+void KFileItemTest::testNonWritableDirectory()
+{
+    // Given a directory with a file in it
+    QTemporaryDir dir;
+    QVERIFY2(dir.isValid(), qPrintable(dir.errorString()));
+    QFile file(dir.path() + "/file1");
+    QVERIFY(file.open(QIODevice::WriteOnly));
+    QCOMPARE(file.write("Hello"), Q_INT64_C(5));
+    file.close();
+    // ... which is then made non-writable
+    QVERIFY(QFile(dir.path()).setPermissions(QFile::ReadOwner | QFile::ExeOwner));
+    PermissionRestorer permissionRestorer(dir.path());
+
+    // When using KFileItemListProperties on the file
+    const KFileItem item(QUrl::fromLocalFile(file.fileName()));
+    KFileItemListProperties props(KFileItemList() << item);
+
+    // Then it should say moving is not supported
+    QVERIFY(!props.supportsMoving());
+    QVERIFY(props.supportsWriting()); // but we can write to the file itself
+}
+
+#endif // Q_OS_WIN
