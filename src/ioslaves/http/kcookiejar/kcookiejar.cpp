@@ -119,6 +119,7 @@ static QDateTime parseDate(const QString &_value)
         for (int i = 0; date_formats[i]; ++i) {
             dt = cLocale.toDateTime(value, QL1S(date_formats[i]));
             if (dt.isValid()) {
+                dt.setTimeSpec(Qt::UTC);
                 break;
             }
         }
