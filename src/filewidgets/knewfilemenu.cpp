@@ -413,7 +413,7 @@ void KNewFileMenuPrivate::confirmCreatingHiddenDir(const QString &name)
     KGuiItem continueGuiItem(KStandardGuiItem::cont());
     continueGuiItem.setText(i18nc("@action:button", "Create directory"));
     KGuiItem cancelGuiItem(KStandardGuiItem::cancel());
-    cancelGuiItem.setText(i18nc("@action:button", "Enter a different name"));
+    cancelGuiItem.setText(i18nc("@action:button", "Enter a Different Name"));
 
     QDialog *confirmDialog = new QDialog(m_parentWidget);
     confirmDialog->setWindowTitle(i18n("Create hidden directory?"));
@@ -858,7 +858,7 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
         } else {
             if (name == QLatin1String(".") || name == QLatin1String("..")) {
                 KGuiItem cancelGuiItem(KStandardGuiItem::cancel());
-                cancelGuiItem.setText(i18nc("@action:button", "Enter a different name"));
+                cancelGuiItem.setText(i18nc("@action:button", "Enter a Different Name"));
 
                 QDialog *confirmDialog = new QDialog(m_parentWidget);
                 confirmDialog->setWindowTitle(i18n("Invalid Directory Name"));
