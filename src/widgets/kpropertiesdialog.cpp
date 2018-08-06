@@ -984,7 +984,8 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     }
     grid->addWidget(d->iconArea, curRow, 0, Qt::AlignCenter);
 
-    if (d->bMultiple || isTrash || hasRoot) {
+    KFileItemListProperties itemList(KFileItemList() << item);
+    if (d->bMultiple || isTrash || hasRoot || !(d->m_bFromTemplate || itemList.supportsMoving())) {
         QLabel *lab = new QLabel(d->m_frame);
         if (d->bMultiple) {
             lab->setText(KIO::itemsSummaryString(iFileCount + iDirCount, iFileCount, iDirCount, 0, false));
@@ -998,10 +999,6 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         d->m_lined->setText(filename);
         d->nameArea = d->m_lined;
         d->m_lined->setFocus();
-
-        //if we don't have permissions to rename, we need to make "m_lined" read only.
-        KFileItemListProperties itemList(KFileItemList() << item);
-        setFileNameReadOnly(!itemList.supportsMoving());
 
         // Enhanced rename: Don't highlight the file extension.
         QString extension = db.suffixForFileName(filename);
