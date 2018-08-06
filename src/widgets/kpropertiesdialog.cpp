@@ -987,6 +987,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     KFileItemListProperties itemList(KFileItemList() << item);
     if (d->bMultiple || isTrash || hasRoot || !(d->m_bFromTemplate || itemList.supportsMoving())) {
         QLabel *lab = new QLabel(d->m_frame);
+        lab->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
         if (d->bMultiple) {
             lab->setText(KIO::itemsSummaryString(iFileCount + iDirCount, iFileCount, iDirCount, 0, false));
         } else {
