@@ -858,9 +858,9 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
             url = QUrl::fromLocalFile(name);
         } else {
             if (name == QLatin1String(".") || name == QLatin1String("..")) {
-                KGuiItem cancelGuiItem(KStandardGuiItem::cancel());
-                cancelGuiItem.setText(i18nc("@action:button", "Enter a Different Name"));
-                cancelGuiItem.setIcon(QIcon::fromTheme(QStringLiteral("edit-rename")));
+                KGuiItem enterNewNameGuiItem(KStandardGuiItem::ok());
+                enterNewNameGuiItem.setText(i18nc("@action:button", "Enter a Different Name"));
+                enterNewNameGuiItem.setIcon(QIcon::fromTheme(QStringLiteral("edit-rename")));
 
                 QDialog *confirmDialog = new QDialog(m_parentWidget);
                 confirmDialog->setWindowTitle(i18n("Invalid Directory Name"));
@@ -868,8 +868,8 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
                 confirmDialog->setAttribute(Qt::WA_DeleteOnClose);
 
                 QDialogButtonBox *buttonBox = new QDialogButtonBox(confirmDialog);
-                buttonBox->setStandardButtons(QDialogButtonBox::Cancel);
-                KGuiItem::assign(buttonBox->button(QDialogButtonBox::Cancel), cancelGuiItem);
+                buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+                KGuiItem::assign(buttonBox->button(QDialogButtonBox::Ok), enterNewNameGuiItem);
                 
                 KMessageBox::createKMessageBox(confirmDialog, buttonBox, QMessageBox::Critical,
                                    xi18n("Could not create a folder with the name <filename>%1</filename><nl/>because it is reserved for use by the operating system.", name),
@@ -879,7 +879,7 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
                                    KMessageBox::NoExec,
                                    QString());
                 
-                QObject::connect(buttonBox, SIGNAL(rejected()), q, SLOT(createDirectory()));
+                QObject::connect(buttonBox, SIGNAL(accepted()), q, SLOT(createDirectory()));
                 m_fileDialog = confirmDialog;
                 confirmDialog->show();
                 _k_slotAbortDialog();
