@@ -29,6 +29,8 @@ class KUrlComboBoxTest : public QObject
 private Q_SLOTS:
     void testTextForItem();
     void testTextForItem_data();
+    void testSetUrlMultipleTimes();
+    void testRemoveUrl();
 };
 
 #endif //KURLCOMBOBOXTEST_H
