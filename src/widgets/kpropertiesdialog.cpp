@@ -775,9 +775,10 @@ public:
     QString mimeType;
     QString oldFileName;
     KLineEdit *m_lined;
+    QLabel *m_fileNameLabel = nullptr;
+    QGridLayout *m_grid = nullptr;
 
     QWidget *iconArea;
-    QWidget *nameArea;
 
     QLabel *m_sizeLabel;
     QPushButton *m_sizeDetermineButton;
@@ -849,6 +850,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     vbl->setMargin(0);
     vbl->setObjectName(QStringLiteral("vbl"));
     QGridLayout *grid = new QGridLayout(); // unknown rows
+    d->m_grid = grid;
     grid->setColumnStretch(0, 0);
     grid->setColumnStretch(1, 0);
     grid->setColumnStretch(2, 1);
@@ -986,19 +988,15 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 
     KFileItemListProperties itemList(KFileItemList() << item);
     if (d->bMultiple || isTrash || hasRoot || !(d->m_bFromTemplate || itemList.supportsMoving())) {
-        QLabel *lab = new QLabel(d->m_frame);
-        lab->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+        setFileNameReadOnly(true);
         if (d->bMultiple) {
-            lab->setText(KIO::itemsSummaryString(iFileCount + iDirCount, iFileCount, iDirCount, 0, false));
-        } else {
-            lab->setText(filename);
+            d->m_fileNameLabel->setText(KIO::itemsSummaryString(iFileCount + iDirCount, iFileCount, iDirCount, 0, false));
         }
-        d->nameArea = lab;
+
     } else {
         d->m_lined = new KLineEdit(d->m_frame);
         d->m_lined->setObjectName("KFilePropsPlugin::nameLineEdit");
         d->m_lined->setText(filename);
-        d->nameArea = d->m_lined;
         d->m_lined->setFocus();
 
         // Enhanced rename: Don't highlight the file extension.
@@ -1014,9 +1012,9 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 
         connect(d->m_lined, SIGNAL(textChanged(QString)),
                 this, SLOT(nameFileChanged(QString)));
+        grid->addWidget(d->m_lined, curRow, 2);
     }
-
-    grid->addWidget(d->nameArea, curRow++, 2);
+    ++curRow;
 
     KSeparator *sep = new KSeparator(Qt::Horizontal, d->m_frame);
     grid->addWidget(sep, curRow, 0, 1, 3);
@@ -1205,12 +1203,15 @@ bool KFilePropsPlugin::enableIconButton() const
 
 void KFilePropsPlugin::setFileNameReadOnly(bool ro)
 {
-    if (d->m_lined && !d->m_bFromTemplate) {
-        d->m_lined->setReadOnly(ro);
-        if (ro) {
-            // Don't put the initial focus on the line edit when it is ro
-            properties->buttonBox()->button(QDialogButtonBox::Ok)->setFocus();
-        }
+    Q_ASSERT(ro); // false isn't supported
+    if (ro && !d->m_fileNameLabel) {
+        Q_ASSERT(!d->m_bFromTemplate);
+        delete d->m_lined;
+        d->m_lined = nullptr;
+        d->m_fileNameLabel = new QLabel(d->m_frame);
+        d->m_fileNameLabel->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+        d->m_fileNameLabel->setText(d->oldName); // will get overwritten if d->bMultiple
+        d->m_grid->addWidget(d->m_fileNameLabel, 0, 2);
     }
 }
 
@@ -1373,8 +1374,8 @@ void KFilePropsPlugin::applyChanges()
 
     // qDebug() << "KFilePropsPlugin::applyChanges";
 
-    if (qobject_cast<QLineEdit *>(d->nameArea)) {
-        QString n = ((QLineEdit *) d->nameArea)->text();
+    if (d->m_lined) {
+        QString n = d->m_lined->text();
         // Remove trailing spaces (#4345)
         while (! n.isEmpty() && n[n.length() - 1].isSpace()) {
             n.truncate(n.length() - 1);
