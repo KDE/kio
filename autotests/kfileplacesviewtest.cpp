@@ -86,13 +86,10 @@ void KFilePlacesViewTest::testUrlChanged_data()
                                   .arg(yesterdayDate.day(), 2, 10, QChar('0'));
 
     // search
-    const QString baloonurl = QStringLiteral("baloosearch:?json=%7B%22dayFilter%22: 0, %22monthFilter%22: 0, %22yearFilter%22: 0, %22type%22: [ %22$TYPE$%22]%7D");
-    const QString typeToReplace = QStringLiteral("$TYPE$");
-
-    QTest::newRow("Documents") << 6 << QString(baloonurl).replace(typeToReplace, QStringLiteral("Document"));
-    QTest::newRow("Images") << 7 << QString(baloonurl).replace(typeToReplace, QStringLiteral("Image"));
-    QTest::newRow("Audio Files") << 8 << QString(baloonurl).replace(typeToReplace, QStringLiteral("Audio"));
-    QTest::newRow("Videos") << 9 << QString(baloonurl).replace(typeToReplace, QStringLiteral("Video"));
+    QTest::newRow("Documents") << 6 << QStringLiteral("baloosearch:/documents");
+    QTest::newRow("Images") << 7 << QStringLiteral("baloosearch:/images");
+    QTest::newRow("Audio Files") << 8 << QStringLiteral("baloosearch:/audio");
+    QTest::newRow("Videos") << 9 << QStringLiteral("baloosearch:/videos");
 }
 
 void KFilePlacesViewTest::testUrlChanged()
