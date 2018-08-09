@@ -560,7 +560,20 @@ void FileProtocol::listDir(const QUrl &url)
             if (createUDSEntry(filename, QByteArray(ep->d_name), entry, details)) {
 #if HAVE_SYS_XATTR_H
                 if (isNtfsHidden(filename)) {
-                    entry.fastInsert(KIO::UDSEntry::UDS_HIDDEN, 1);
+                    bool ntfsHidden = true;
+
+                    // Bug 392913: NTFS root volume is always "hidden", ignore this
+                    if (ep->d_type == DT_DIR || ep->d_type == DT_UNKNOWN) {
+                        const QString fullFilePath = QDir::cleanPath(QDir().absoluteFilePath(filename));
+                        auto mountPoint = KMountPoint::currentMountPoints().findByPath(fullFilePath);
+                        if (mountPoint && mountPoint->mountPoint() == fullFilePath) {
+                            ntfsHidden = false;
+                        }
+                    }
+
+                    if (ntfsHidden) {
+                        entry.fastInsert(KIO::UDSEntry::UDS_HIDDEN, 1);
+                    }
                 }
 #endif
                 listEntry(entry);
