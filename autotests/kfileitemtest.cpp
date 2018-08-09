@@ -381,8 +381,16 @@ void KFileItemTest::testRefresh()
 #endif
     // Qt 5.8 adds milliseconds (but UDSEntry has no support for that)
     lastModified = dirInfo.lastModified();
+    // Truncate away the milliseconds...
     lastModified = lastModified.addMSecs(-lastModified.time().msec());
-    QCOMPARE(fileItem.time(KFileItem::ModificationTime), lastModified);
+    // ...but it looks like the kernel rounds up when the msecs are .998 or .999,
+    // so add a bit of tolerance
+    auto expectedLastModified = lastModified;
+    if (fileItem.time(KFileItem::ModificationTime) != lastModified &&
+            fileItem.time(KFileItem::ModificationTime) == lastModified.addSecs(1)) {
+        expectedLastModified = expectedLastModified.addSecs(1);
+    }
+    QCOMPARE(fileItem.time(KFileItem::ModificationTime), expectedLastModified);
     fileItem.refresh();
     QVERIFY(fileItem.isFile());
     QVERIFY(!fileItem.isLink());
@@ -390,7 +398,7 @@ void KFileItemTest::testRefresh()
 #ifndef Q_OS_WIN
     QCOMPARE(fileItem.user(), KUser().loginName());
 #endif
-    QCOMPARE(fileItem.time(KFileItem::ModificationTime), lastModified);
+    QCOMPARE(fileItem.time(KFileItem::ModificationTime), expectedLastModified);
 
     // Refresh on a symlink to a file
     const QString symlink = tempDir.path() + "/asymlink";
