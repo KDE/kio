@@ -41,7 +41,7 @@ void KMountPointTest::testCurrentMountPoints()
     foreach (KMountPoint::Ptr mountPoint, mountPoints) {
         qDebug() << "Mount: " << mountPoint->mountedFrom()
                  << " (" << mountPoint->realDeviceName() << ") "
-                 << mountPoint->mountPoint() << " " << mountPoint->mountType() << endl;
+                 << mountPoint->mountPoint() << " " << mountPoint->mountType();
         QVERIFY(!mountPoint->mountedFrom().isEmpty());
         QVERIFY(!mountPoint->mountPoint().isEmpty());
         QVERIFY(!mountPoint->mountType().isEmpty());
@@ -86,7 +86,7 @@ void KMountPointTest::testCurrentMountPoints()
         if (sameDevice) {
             QCOMPARE(homeMountPoint->mountPoint(), QStringLiteral("/"));
         } else {
-            QCOMPARE(homeMountPoint->mountPoint(), QStringLiteral("/home"));
+            QCOMPARE(homeMountPoint->mountPoint(), QDir(QStringLiteral("/home")).canonicalPath());
         }
     } else {
         qDebug() << "/home doesn't seem to exist, skipping test";
@@ -106,7 +106,7 @@ void KMountPointTest::testPossibleMountPoints()
         qDebug() << "Possible mount: " << mountPoint->mountedFrom()
                  << " (" << mountPoint->realDeviceName() << ") "
                  << mountPoint->mountPoint() << " " << mountPoint->mountType()
-                 << " options:" << mountPoint->mountOptions() << endl;
+                 << " options:" << mountPoint->mountOptions();
         QVERIFY(!mountPoint->mountedFrom().isEmpty());
         QVERIFY(!mountPoint->mountPoint().isEmpty());
         QVERIFY(!mountPoint->mountType().isEmpty());
