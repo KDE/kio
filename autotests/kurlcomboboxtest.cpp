@@ -64,49 +64,49 @@ void KUrlComboBoxTest::testRemoveUrl()
 
     QCOMPARE(combo.urls(), urls);
     QCOMPARE(combo.count(), 4);
-    QCOMPARE(combo.itemText(0), "http://kde.org");
-    QCOMPARE(combo.itemText(1), "http://www.kde.org");
-    QCOMPARE(combo.itemText(2), "http://foo.org");
-    QCOMPARE(combo.itemText(3), "http://bar.org");
+    QCOMPARE(combo.itemText(0), QString("http://kde.org"));
+    QCOMPARE(combo.itemText(1), QString("http://www.kde.org"));
+    QCOMPARE(combo.itemText(2), QString("http://foo.org"));
+    QCOMPARE(combo.itemText(3), QString("http://bar.org"));
 
     // Remove a url
     combo.removeUrl(QUrl("http://foo.org"));
     QCOMPARE(combo.count(), 3);
     QCOMPARE(combo.urls(), QStringList{"http://bar.org"});
-    QCOMPARE(combo.itemText(0), "http://kde.org");
-    QCOMPARE(combo.itemText(1), "http://www.kde.org");
-    QCOMPARE(combo.itemText(2), "http://bar.org");
+    QCOMPARE(combo.itemText(0), QString("http://kde.org"));
+    QCOMPARE(combo.itemText(1), QString("http://www.kde.org"));
+    QCOMPARE(combo.itemText(2), QString("http://bar.org"));
 
     // Removing a default url with checkDefaultURLs=true removes the url
     combo.removeUrl(QUrl("http://kde.org"));
     QCOMPARE(combo.count(), 2);
     QCOMPARE(combo.urls(), QStringList{"http://bar.org"});
-    QCOMPARE(combo.itemText(0), "http://www.kde.org");
-    QCOMPARE(combo.itemText(1), "http://bar.org");
+    QCOMPARE(combo.itemText(0), QString("http://www.kde.org"));
+    QCOMPARE(combo.itemText(1), QString("http://bar.org"));
 
     // Removing a default url with checkDefaultURLs=false does not remove the url
     combo.removeUrl(QUrl("http://www.kde.org"), false);
     QCOMPARE(combo.count(), 2);
     QCOMPARE(combo.urls(), QStringList{"http://bar.org"});
-    QCOMPARE(combo.itemText(0), "http://www.kde.org");
-    QCOMPARE(combo.itemText(1), "http://bar.org");
+    QCOMPARE(combo.itemText(0), QString("http://www.kde.org"));
+    QCOMPARE(combo.itemText(1), QString("http://bar.org"));
 
     // Removing a non-existing url is a no-op
     combo.removeUrl(QUrl("http://www.foo.org"));
     QCOMPARE(combo.count(), 2);
     QCOMPARE(combo.urls(), QStringList{"http://bar.org"});
-    QCOMPARE(combo.itemText(0), "http://www.kde.org");
-    QCOMPARE(combo.itemText(1), "http://bar.org");
+    QCOMPARE(combo.itemText(0), QString("http://www.kde.org"));
+    QCOMPARE(combo.itemText(1), QString("http://bar.org"));
 
     // Remove the last user provided url
     combo.removeUrl(QUrl("http://bar.org"));
     QCOMPARE(combo.count(), 1);
     QCOMPARE(combo.urls(), QStringList{});
-    QCOMPARE(combo.itemText(0), "http://www.kde.org");
+    QCOMPARE(combo.itemText(0), QString("http://www.kde.org"));
 
     // Remove the last url
     combo.removeUrl(QUrl("http://www.kde.org"));
     QCOMPARE(combo.count(), 0);
     QCOMPARE(combo.urls(), QStringList{});
-    QCOMPARE(combo.itemText(0), "");
+    QCOMPARE(combo.itemText(0), QString());
 }
