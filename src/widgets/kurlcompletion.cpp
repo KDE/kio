@@ -882,14 +882,8 @@ bool KUrlCompletionPrivate::exeCompletion(const KUrlCompletionPrivate::MyURL &ur
 
     if (!url.file().isEmpty()) {
         // $PATH
-        // ### maybe Qt should have a QDir::pathSeparator() to avoid ifdefs..
-#ifdef Q_OS_WIN
-#define KPATH_SEPARATOR ';'
-#else
-#define KPATH_SEPARATOR ':'
-#endif
         dirList = QString::fromLocal8Bit(qgetenv("PATH")).split(
-                      KPATH_SEPARATOR, QString::SkipEmptyParts);
+                      QDir::listSeparator(), QString::SkipEmptyParts);
 
         QStringList::Iterator it = dirList.begin();
 
