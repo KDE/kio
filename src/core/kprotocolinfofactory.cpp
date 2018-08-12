@@ -106,6 +106,7 @@ bool KProtocolInfoFactory::fillCache()
         // get slave name & protocols it supports, if any
         const QString slavePath = md.fileName();
         const QJsonObject protocols(md.rawData().value(QStringLiteral("KDE-KIO-Protocols")).toObject());
+        qCDebug(KIO_CORE) << slavePath << "supports protocols" << protocols.keys();
 
         // add all protocols, does nothing if object invalid
         for (auto it = protocols.begin(); it != protocols.end(); ++it) {
