@@ -6,6 +6,7 @@ Name=GitLab
 Name[ca]=GitLab
 Name[ca@valencia]=GitLab
 Name[da]=GitLab
+Name[en_GB]=GitLab
 Name[es]=GitLab
 Name[eu]=GitLab
 Name[fi]=GitLab
@@ -28,6 +29,7 @@ Query[ca]=https://gitlab.com/search?search=\\{@}
 Query[ca@valencia]=https://gitlab.com/search?search=\\{@}
 Query[cs]=https://gitlab.com/search?search=\\{@}
 Query[da]=https://gitlab.com/search?search=\\{@}
+Query[en_GB]=https://gitlab.com/search?search=\\{@}
 Query[es]=https://gitlab.com/search?search=\\{@}
 Query[eu]=https://gitlab.com/search?search=\\{@}
 Query[fi]=https://gitlab.com/search?search=\\{@}
