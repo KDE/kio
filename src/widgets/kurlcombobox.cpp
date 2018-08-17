@@ -38,7 +38,7 @@ class KUrlComboBoxPrivate
 public:
     KUrlComboBoxPrivate(KUrlComboBox *parent)
         : m_parent(parent),
-          dirIcon(QStringLiteral("folder"))
+          dirIcon(QIcon::fromTheme(QStringLiteral("folder")))
     {}
 
     struct KUrlComboItem {
