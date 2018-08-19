@@ -88,12 +88,14 @@ private Q_SLOTS:
     void cleanup();
     void testOpenUrl();
     void testOpenUrlFromCache();
+    void testNewItem();
     void testNewItems();
     void testNewItemByCopy();
     void testNewItemsInSymlink();
     void testRefreshItems();
     void testRefreshRootItem();
     void testDeleteItem();
+    void testDeleteItems();
     void testRenameItem();
     void testRenameAndOverwrite();
     void testConcurrentListing();
@@ -115,7 +117,6 @@ private Q_SLOTS:
     void testDeleteCurrentDir(); // must be last!
 
 protected Q_SLOTS: // 'more private than private slots' - i.e. not seen by qtestlib
-    void exitLoop();
     void slotNewItems(const KFileItemList &);
     void slotNewItems2(const KFileItemList &);
     void slotRefreshItems(const QList<QPair<KFileItem, KFileItem> > &);
@@ -126,13 +127,11 @@ Q_SIGNALS:
     void refreshItemsReceived();
 
 private:
-    void enterLoop(int exitCount = 1);
     int fileCount() const;
     QString path() const
     {
         return m_tempDir.path() + '/';
     }
-    bool waitForRefreshedItems();
     void createSimpleFile(const QString &fileName);
     void fillDirLister2(MyDirLister &lister, const QString &path);
     void waitUntilMTimeChange(const QString &path);
