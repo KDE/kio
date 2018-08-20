@@ -17,8 +17,8 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2012-01-28</date>
-<releaseinfo>&kde; 4.8</releaseinfo>
+<date>2018-08-20</date>
+<releaseinfo>Frameworks 5.50</releaseinfo>
 </articleinfo>
 <para>
 The kioslave mailto is responsible for launching the mail composer of your
@@ -78,7 +78,7 @@ may be hard limits on how long an &URL; may be.</para></listitem>
 <varlistentry>
 <term>Configuration</term>
 <listitem><para>   
-Choose the application to handle mailto locators in &systemsettings; <menuchoice><guimenu>Workspace Appearance and Behaviour</guimenu><guimenuitem>Default Applications</guimenuitem></menuchoice>. 
+Choose the application to handle mailto locators in &systemsettings; module <menuchoice><guimenu>Applications</guimenu><guimenuitem>Default Applications</guimenuitem></menuchoice> in the category <guilabel>Personalization</guilabel>.
 </para></listitem>
 </varlistentry>
 
