@@ -940,16 +940,9 @@ void KFilePreviewGenerator::Private::applyCutItemEffect(const KFileItemList &ite
 bool KFilePreviewGenerator::Private::applyImageFrame(QPixmap &icon)
 {
     const QSize maxSize = m_viewAdapter->iconSize();
-
-    // The original size of an image is not exported by the thumbnail mechanism.
-    // Still it would be helpful to not apply an image frame for e. g. icons that
-    // fit into the given boundaries:
-    const bool isIconCandidate = (icon.width() == icon.height()) &&
-                                 ((icon.width() & 0x7) == 0);
-
     const bool applyFrame = (maxSize.width()  > KIconLoader::SizeSmallMedium) &&
                             (maxSize.height() > KIconLoader::SizeSmallMedium) &&
-                            !isIconCandidate;
+                            !icon.hasAlpha();
     if (!applyFrame) {
         // the maximum size or the image itself is too small for a frame
         return false;
