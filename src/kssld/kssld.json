@@ -1,7 +1,7 @@
 {
     "KPlugin": {
         "Description": "Provides SSL certificate policy to applications",
-        "Description[ar]": "يوفّر سياسة شهادة SSL للتّطبيقات",
+        "Description[ar]": "يُوفّر سياسة شهادة SSL للتطبيقات",
         "Description[ast]": "Forne la política de certificaos SSL a les aplicaciones",
         "Description[ca@valencia]": "Proporciona la política pels certificats SSL a les aplicacions",
         "Description[ca]": "Proporciona la política pels certificats SSL a les aplicacions",

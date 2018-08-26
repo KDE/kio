@@ -1,7 +1,7 @@
 {
     "KPlugin": {
         "Description": "Stores network cookies",
-        "Description[ar]": "يخزّن كعكات الشّبكة",
+        "Description[ar]": "يُخزّن كعكات الشبكة",
         "Description[ast]": "Atroxa cookies de rede",
         "Description[ca@valencia]": "Emmagatzema les galetes de la xarxa",
         "Description[ca]": "Emmagatzema les galetes de la xarxa",
