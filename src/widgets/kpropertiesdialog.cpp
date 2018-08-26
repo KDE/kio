@@ -1159,6 +1159,15 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 
         if (isLocal) {
             KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(url.toLocalFile());
+
+            l = new QLabel(i18n("File System:"), d->m_frame);
+            grid->addWidget(l, curRow, 0, Qt::AlignRight);
+
+            l = new QLabel(d->m_frame);
+            grid->addWidget(l, curRow++, 2);
+            l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+            l->setText(mp->mountType());
+
             if (mp && mp->mountPoint() != QLatin1String("/")) {
                 l = new QLabel(i18n("Mounted on:"), d->m_frame);
                 grid->addWidget(l, curRow, 0, Qt::AlignRight);
@@ -1166,6 +1175,14 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
                 l = new KSqueezedTextLabel(mp->mountPoint(), d->m_frame);
                 l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
                 grid->addWidget(l, curRow++, 2);
+
+                l = new QLabel(i18n("Mounted from:"), d->m_frame);
+                grid->addWidget(l, curRow, 0, Qt::AlignRight);
+
+                l = new QLabel(d->m_frame);
+                grid->addWidget(l, curRow++, 2);
+                l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+                l->setText(mp->mountedFrom());
             }
         }
 
