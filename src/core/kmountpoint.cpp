@@ -139,27 +139,8 @@ KMountPoint::~KMountPoint()
 #define FSNAME(var) var.mnt_special
 #endif
 
-/**
- * When using supermount, the device name is in the options field
- * as dev=/my/device
- */
-static QString devNameFromOptions(const QStringList &options)
-{
-    // Search options to find the device name
-    for (QStringList::ConstIterator it = options.begin(); it != options.end(); ++it) {
-        if ((*it).startsWith(QLatin1String("dev="))) {
-            return (*it).mid(4);
-        }
-    }
-    return QStringLiteral("none");
-}
-
 void KMountPoint::Private::finalizePossibleMountPoint(DetailsNeededFlags infoNeeded)
 {
-    if (mountType == QLatin1String("supermount")) {
-        mountedFrom = devNameFromOptions(mountOptions);
-    }
-
     if (mountedFrom.startsWith(QLatin1String("UUID="))) {
         const QString uuid = mountedFrom.mid(5);
         const QString potentialDevice = QFile::symLinkTarget(QLatin1String("/dev/disk/by-uuid/") + uuid);
@@ -214,9 +195,7 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
         mp->d->mountPoint = QFile::decodeName(MOUNTPOINT(fe));
         mp->d->mountType = QFile::decodeName(MOUNTTYPE(fe));
 
-        //Devices using supermount have their device names in the mount options
-        //instead of the device field. That's why we need to read the mount options
-        if (infoNeeded & NeedMountOptions || (mp->d->mountType == QLatin1String("supermount"))) {
+        if (infoNeeded & NeedMountOptions) {
             QString options = QFile::decodeName(MOUNTOPTIONS(fe));
             mp->d->mountOptions = options.split(QLatin1Char(','));
         }
@@ -349,9 +328,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
         mp->d->mountPoint = QFile::decodeName(MOUNTPOINT(fe));
         mp->d->mountType = QFile::decodeName(MOUNTTYPE(fe));
 
-        //Devices using supermount have their device names in the mount options
-        //instead of the device field. That's why we need to read the mount options
-        if (infoNeeded & NeedMountOptions || (mp->d->mountType == QLatin1String("supermount"))) {
+        if (infoNeeded & NeedMountOptions) {
             QString options = QFile::decodeName(MOUNTOPTIONS(fe));
             mp->d->mountOptions = options.split(QLatin1Char(','));
         }

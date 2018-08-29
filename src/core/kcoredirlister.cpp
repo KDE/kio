@@ -532,10 +532,6 @@ static bool manually_mounted(const QString &path, const KMountPoint::List &possi
         }
         return true;
     }
-    const bool supermount = mp->mountType() == QLatin1String("supermount");
-    if (supermount) {
-        return true;
-    }
     // noauto -> manually mounted. Otherwise, mounted at boot time, won't be unmounted any time soon hopefully.
     return mp->mountOptions().contains(QStringLiteral("noauto"));
 }
