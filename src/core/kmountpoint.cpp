@@ -320,7 +320,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
         result.append(mp);
     }
 
-#elif defined(Q_OS_WIN) && !defined(_WIN32_WCE)
+#elif defined(Q_OS_WIN)
     //nothing fancy with infoNeeded but it gets the job done
     DWORD bits = GetLogicalDrives();
     if (!bits) {
@@ -334,11 +334,6 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
             result.append(mp);
         }
     }
-
-#elif defined(_WIN32_WCE)
-    Ptr mp(new KMountPoint);
-    mp->d->mountPoint = QString("/");
-    result.append(mp);
 
 #elif !defined(Q_OS_ANDROID)
     STRUCT_SETMNTENT mnttab;
