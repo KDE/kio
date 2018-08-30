@@ -538,7 +538,7 @@ bool KMountPoint::probablySlow() const
         || d->mountType == QLatin1String("nfs4")
         || d->mountType == QLatin1String("cifs")
         || d->mountType == QLatin1String("autofs")
-        || d->mountType == QLatin1String("smbfs");
+        || d->mountType == QLatin1String("subfs");
 }
 
 bool KMountPoint::testFileSystemFlag(FileSystemFlag flag) const
