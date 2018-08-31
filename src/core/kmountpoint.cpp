@@ -24,6 +24,7 @@
 
 #include <config-kmountpoint.h>
 
+#include <QDir>
 #include <QFile>
 #include <QTextStream>
 #include <QFileInfo>
@@ -332,6 +333,25 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
             QString options = QFile::decodeName(MOUNTOPTIONS(fe));
             mp->d->mountOptions = options.split(QLatin1Char(','));
         }
+
+        // Resolve gvfs mountpoints
+        if (mp->d->mountedFrom == QLatin1String("gvfsd-fuse")) {
+            const QDir gvfsDir(mp->d->mountPoint);
+            const QStringList mountDirs = gvfsDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+            for (const auto &mountDir : mountDirs) {
+                const QString type = mountDir.section(QLatin1Char(':'), 0, 0);
+                if (type.isEmpty()) {
+                    continue;
+                }
+
+                Ptr gvfsmp(new KMountPoint);
+                gvfsmp->d->mountedFrom = mp->d->mountedFrom;
+                gvfsmp->d->mountPoint = mp->d->mountPoint + QLatin1Char('/') + mountDir;
+                gvfsmp->d->mountType = type;
+                result.append(gvfsmp);
+            }
+        }
+
         mp->d->finalizeCurrentMountPoint(infoNeeded);
 
         result.append(mp);
