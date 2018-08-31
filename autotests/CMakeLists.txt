@@ -34,6 +34,7 @@ ecm_add_tests(
  deletejobtest.cpp
  urlutiltest.cpp
  batchrenamejobtest.cpp
+ ksambasharetest.cpp
  NAME_PREFIX "kiocore-"
  LINK_LIBRARIES KF5::KIOCore KF5::I18n Qt5::Test Qt5::Network
 )

@@ -285,7 +285,7 @@ KSambaShareData::UserShareError KSambaSharePrivate::isPathValid(const QString &p
 
 KSambaShareData::UserShareError KSambaSharePrivate::isAclValid(const QString &acl) const
 {
-    const QRegExp aclRx(QStringLiteral("(?:(?:(\\w+\\s*)\\\\|)(\\w+\\s*):([fFrRd]{1})(?:,|))*"));
+    const QRegExp aclRx(QStringLiteral("(?:(?:(\\w(\\w|\\s)*)\\\\|)(\\w+\\s*):([fFrRd]{1})(?:,|))*"));
     // TODO: check if user is a valid smb user
     return aclRx.exactMatch(acl) ? KSambaShareData::UserShareAclOk
            : KSambaShareData::UserShareAclInvalid;
