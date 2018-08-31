@@ -465,7 +465,10 @@ bool KMountPoint::testFileSystemFlag(FileSystemFlag flag) const
     const bool isNtfs = d->mountType.contains(QLatin1String("fuse.ntfs")) || d->mountType.contains(QLatin1String("fuseblk.ntfs"))
                         // fuseblk could really be anything. But its most common use is for NTFS mounts, these days.
                         || d->mountType == QLatin1String("fuseblk");
-    const bool isSmb = d->mountType == QLatin1String("cifs") || d->mountType == QLatin1String("smbfs");
+    const bool isSmb = d->mountType == QLatin1String("cifs")
+                    || d->mountType == QLatin1String("smbfs")
+                    // gvfs-fuse mounted SMB share
+                    || d->mountType == QLatin1String("smb-share");
 
     switch (flag)  {
     case SupportsChmod:
