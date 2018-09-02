@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="ftp">
+<title
+>ФТП</title>
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Лори</firstname
+> <surname
+>Вотс</surname
+></personname
+> &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Драган</firstname
+><surname
+>Пантелић</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>превод</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>ФТП је интернет сервис за пренос фајлова са диска једног рачунара на диск другог, без обзира на оперативне системе под којима су. </para>
+
+<para
+>Слично другим интернет протоколима, ФТП користи прилаз клијент-сервер — корисник позива ФТП програм на свом рачунару, задаје му да контактира удаљени рачунар, а затим тражи пренос једног или више фајлова. Локални ФТП програм постаје клијент који користи ТЦП за контакт са серверским ФТП програмом на удаљеном рачунару. Сваки пут кад корисник затражи пренос фајла, програми клијента и сервера сарађују на слању копије података преко Интернета. </para>
+
+<para
+>Неки ФТП сервери допуштају „анонимни ФТП“, када било који корисник, а не само онај с налогом на домаћину, може да прегледа ФТП архиве и преузима фајлове. Неки ФТП сервери су подешени да корисници могу и да отпремају фајлове. </para>
+
+<para
+>ФТП се обично користи за добављање података и софтвера складиштеног по фајловима на архивским ФТП сајтовима широм света. </para>
+
+
+<para
+>Извор: парафразирано из <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
+> </para>
+
+<para
+>Погледајте <ulink url="man:/ftp"
+>упутну страницу ФТП‑а</ulink
+>.</para>
+
+</article>
