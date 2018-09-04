@@ -19,8 +19,6 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include <QDebug>
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <errno.h>
@@ -79,7 +77,6 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    qDebug() << "trying to load" << libname << "from" << libpath;
     QLibrary lib(libpath);
     if (!lib.load()) {
         fprintf(stderr, "could not open %s: %s\n", qPrintable(libname),
