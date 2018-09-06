@@ -25,6 +25,7 @@
 
 #include <QMap>
 #include <QUrl>
+#include <QTimer>
 
 class KDirWatch;
 
@@ -43,10 +44,16 @@ public Q_SLOTS:
 private Q_SLOTS:
     void slotDirty(const QString &path);
     void slotDeleted(const QString &path);
+    void slotCreated(const QString &path);
+    void slotCheckDeletedFiles();
 
 private:
     KDirWatch *m_watcher;
+    // temporary file and associated remote file
     QMap<QString, QUrl> m_watched;
+    // temporary file and the last date it was removed
+    QMap<QString, QDateTime> m_deleted;
+    QTimer m_timer;
 };
 
 #endif

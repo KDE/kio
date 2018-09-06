@@ -33,6 +33,8 @@
 #include <QStandardPaths>
 #include <QUrl>
 
+static const int predefinedTimeout = 30000; // 30s
+
 K_PLUGIN_FACTORY_WITH_JSON(KIOExecdFactory,
                            "kioexecd.json",
                            registerPlugin<KIOExecd>();)
@@ -46,11 +48,16 @@ KIOExecd::KIOExecd(QObject *parent, const QList<QVariant> &)
     m_watcher = new KDirWatch(this);
 
     connect(m_watcher, &KDirWatch::dirty, this, &KIOExecd::slotDirty);
+    connect(m_watcher, &KDirWatch::created, this, &KIOExecd::slotCreated);
     connect(m_watcher, &KDirWatch::deleted, this, &KIOExecd::slotDeleted);
+    m_timer.setSingleShot(true);
+    m_timer.setInterval(predefinedTimeout);
+    connect(&m_timer, &QTimer::timeout, this, &KIOExecd::slotCheckDeletedFiles);
 }
 
 KIOExecd::~KIOExecd()
 {
+    // Remove the remaining temporary files and if possible their parent directories
     for (auto it = m_watched.constBegin(); it != m_watched.constEnd(); ++it) {
         QFileInfo info(it.key());
         const auto parentDir = info.path();
@@ -69,8 +76,17 @@ void KIOExecd::watch(const QString &path, const QString &destUrl)
 
     qCDebug(KIOEXEC) << "Going to watch" << path << "for changes, remote destination is" << destUrl;
 
+    // Watch the temporary file for modifications, creations or deletions
     m_watcher->addFile(path);
     m_watched.insert(path, QUrl(destUrl));
+}
+
+void KIOExecd::slotCreated(const QString &path)
+{
+    m_deleted.remove(path);
+
+    // When the file is recreated, it is not signaled as dirty.
+    slotDirty(path);
 }
 
 void KIOExecd::slotDirty(const QString &path)
@@ -102,9 +118,31 @@ void KIOExecd::slotDeleted(const QString &path)
         return;
     }
 
-    qCDebug(KIOEXEC) << "Going to forget" << path;
-    m_watcher->removeFile(path);
-    m_watched.remove(path);
+    m_deleted.insert(path, QDateTime::currentDateTimeUtc());
+    m_timer.start();
+}
+
+void KIOExecd::slotCheckDeletedFiles()
+{
+    const QDateTime currentDateTime = QDateTime::currentDateTimeUtc();
+    // check if the deleted (and not recreated) files where deleted 30s ago or more
+    for (auto it = m_deleted.begin(); it != m_deleted.end();) {
+        if (it.value().msecsTo(currentDateTime) >= predefinedTimeout) {
+            qCDebug(KIOEXEC) << "Going to forget" << it.key();
+            m_watcher->removeFile(it.key());
+            m_watched.remove(it.key());
+            QFileInfo info(it.key());
+            const auto parentDir = info.path();
+            qCDebug(KIOEXEC) << "About to delete" << parentDir;
+            QDir().rmdir(parentDir);
+            it = m_deleted.erase(it);
+        } else {
+            ++it;
+        }
+    }
+    if (!m_deleted.isEmpty()) {
+        m_timer.start();
+    }
 }
 
 #include "kioexecd.moc"
