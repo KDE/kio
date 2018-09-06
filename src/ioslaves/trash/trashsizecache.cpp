@@ -96,8 +96,8 @@ void TrashSizeCache::clear()
 }
 
 struct CacheData {
-    qint64 mtime;
     qulonglong size;
+    qint64 mtime;
 };
 
 qulonglong TrashSizeCache::calculateSize()
@@ -112,9 +112,9 @@ qulonglong TrashSizeCache::calculateSize()
             const int firstSpace = line.indexOf(' ');
             const int secondSpace = line.indexOf(' ', firstSpace + 1);
             CacheData data;
-            data.mtime = line.left(firstSpace).toLongLong();
+            data.size = line.left(firstSpace).toULongLong();
             // "012 4567 name" -> firstSpace=3, secondSpace=8, we want mid(4,4)
-            data.size = line.mid(firstSpace + 1, secondSpace - firstSpace - 1).toULongLong();
+            data.mtime = line.mid(firstSpace + 1, secondSpace - firstSpace - 1).toLongLong();
             dirCache.insert(line.mid(secondSpace + 1), data);
         }
     }
