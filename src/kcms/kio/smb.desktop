@@ -7,7 +7,7 @@ Exec=kcmshell5 smb
 
 X-KDE-Library=kcm_kio
 X-KDE-PluginKeyword=smb
-X-KDE-System-Settings-Parent-Category=connectivity
+X-KDE-System-Settings-Parent-Category=networksettings
 X-KDE-ParentApp=kcontrol
 
 Name=Windows Shares
