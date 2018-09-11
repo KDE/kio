@@ -32,6 +32,7 @@
 #include <kprotocolinfo.h>
 #include <qmimedatabase.h>
 
+#include <QtMath>
 #include <QSslConfiguration>
 
 #define QL1S(x)  QLatin1String(x)
@@ -46,6 +47,7 @@ AccessManagerReply::AccessManagerReply(const QNetworkAccessManager::Operation op
                                        bool emitReadyReadOnMetaDataChange,
                                        QObject *parent)
     : QNetworkReply(parent),
+      m_offset(0),
       m_metaDataRead(false),
       m_ignoreContentDisposition(false),
       m_emitReadyReadOnMetaDataChange(emitReadyReadOnMetaDataChange),
@@ -84,6 +86,7 @@ AccessManagerReply::AccessManagerReply(const QNetworkAccessManager::Operation op
                                        QObject *parent)
     : QNetworkReply(parent),
       m_data(data),
+      m_offset(0),
       m_ignoreContentDisposition(false),
       m_emitReadyReadOnMetaDataChange(false)
 {
@@ -106,7 +109,8 @@ AccessManagerReply::AccessManagerReply(const QNetworkAccessManager::Operation op
                                        QNetworkReply::NetworkError errorCode,
                                        const QString &errorMessage,
                                        QObject *parent)
-    : QNetworkReply(parent)
+    : QNetworkReply(parent),
+      m_offset(0)
 {
     setRequest(request);
     setOpenMode(QIODevice::ReadOnly);
@@ -131,21 +135,29 @@ void AccessManagerReply::abort()
     }
     m_kioJob.clear();
     m_data.clear();
+    m_offset = 0;
     m_metaDataRead = false;
 }
 
 qint64 AccessManagerReply::bytesAvailable() const
 {
-    return (QNetworkReply::bytesAvailable() + m_data.length());
+    return (QNetworkReply::bytesAvailable() + m_data.length() - m_offset);
 }
 
 qint64 AccessManagerReply::readData(char *data, qint64 maxSize)
 {
-    const qint64 length = qMin(qint64(m_data.length()), maxSize);
+    const qint64 length = qMin(qint64(m_data.length() - m_offset), maxSize);
 
-    if (length) {
-        memcpy(data, m_data.constData(), length);
-        m_data.remove(0, length);
+    if (length <= 0) {
+        return 0;
+    }
+
+    memcpy(data, m_data.constData() + m_offset, length);
+    m_offset += length;
+
+    if (m_data.length() == m_offset) {
+        m_data.clear();
+        m_offset = 0;
     }
 
     return length;
@@ -395,10 +407,32 @@ int AccessManagerReply::jobError(KJob *kJob)
 void AccessManagerReply::slotData(KIO::Job *kioJob, const QByteArray &data)
 {
     Q_UNUSED(kioJob);
-    m_data += data;
-    if (!data.isEmpty()) {
-        emit readyRead();
+    if (data.isEmpty()) {
+        return;
     }
+
+    qint64 newSizeWithOffset = m_data.size() + data.size();
+    if (newSizeWithOffset <= m_data.capacity()) {
+        // Already enough space
+    } else if (newSizeWithOffset - m_offset <= m_data.capacity()) {
+        // We get enough space with ::remove.
+        m_data.remove(0, m_offset);
+        m_offset = 0;
+    } else {
+        // We have to resize the array, which implies an expensive memmove.
+        // Do it ourselves to save m_offset bytes.
+        QByteArray newData;
+        // Leave some free space to avoid that every slotData call results in
+        // a reallocation. qNextPowerOfTwo is what QByteArray does internally.
+        newData.reserve(qNextPowerOfTwo(newSizeWithOffset - m_offset));
+        newData.append(m_data.constData() + m_offset, m_data.size() - m_offset);
+        m_data = newData;
+        m_offset = 0;
+    }
+
+    m_data += data;
+
+    emit readyRead();
 }
 
 void AccessManagerReply::slotMimeType(KIO::Job *kioJob, const QString &mimeType)

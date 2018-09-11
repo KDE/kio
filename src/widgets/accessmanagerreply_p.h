@@ -96,6 +96,7 @@ private Q_SLOTS:
 
 private:
     QByteArray m_data;
+    qint64 m_offset;
     bool m_metaDataRead;
     bool m_ignoreContentDisposition;
     bool m_emitReadyReadOnMetaDataChange;
