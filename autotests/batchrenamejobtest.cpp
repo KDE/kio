@@ -61,7 +61,7 @@ private:
 private Q_SLOTS:
     void initTestCase()
     {
-        QStandardPaths::enableTestMode(true);
+        QStandardPaths::setTestModeEnabled(true);
 
         // To avoid a runtime dependency on klauncher
         qputenv("KDE_FORK_SLAVES", "yes");

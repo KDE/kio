@@ -78,7 +78,7 @@ static QString realSystemPath()
 
 void JobTest::initTestCase()
 {
-    QStandardPaths::enableTestMode(true);
+    QStandardPaths::setTestModeEnabled(true);
     QCoreApplication::instance()->setApplicationName("kio/jobtest"); // testing for #357499
 
     // To avoid a runtime dependency on klauncher

@@ -214,7 +214,7 @@ void FileUndoManagerTest::initTestCase()
 {
     qDebug("initTestCase");
 
-    QStandardPaths::enableTestMode(true);
+    QStandardPaths::setTestModeEnabled(true);
 
     // Get kio_trash to share our environment so that it writes trashrc to the right kdehome
     qputenv("KDE_FORK_SLAVES", "yes");

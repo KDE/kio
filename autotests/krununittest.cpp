@@ -43,7 +43,7 @@ QTEST_GUILESS_MAIN(KRunUnitTest)
 
 void KRunUnitTest::initTestCase()
 {
-    QStandardPaths::enableTestMode(true);
+    QStandardPaths::setTestModeEnabled(true);
     // testProcessDesktopExec works only if your terminal application is set to "x-term"
     KConfigGroup cg(KSharedConfig::openConfig(), "General");
     cg.writeEntry("TerminalApplication", "x-term");

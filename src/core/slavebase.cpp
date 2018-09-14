@@ -88,7 +88,7 @@ public:
                                         m_confirmationAsked(false), m_privilegeOperationStatus(OperationNotAllowed)
     {
         if (!qEnvironmentVariableIsEmpty("KIOSLAVE_ENABLE_TESTMODE")) {
-            QStandardPaths::enableTestMode(true);
+            QStandardPaths::setTestModeEnabled(true);
         }
         pendingListEntries.reserve(KIO_MAX_ENTRIES_PER_BATCH);
     }

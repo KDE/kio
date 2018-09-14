@@ -247,7 +247,7 @@ class KCookieJarTest : public QObject
 private Q_SLOTS:
     void initTestCase()
     {
-        QStandardPaths::enableTestMode(true);
+        QStandardPaths::setTestModeEnabled(true);
         jar = new KCookieJar;
         QDateTime dt = QDateTime::currentDateTime();
         lastYear = new QString(dt.addYears(-1).toString(Qt::RFC2822Date));
