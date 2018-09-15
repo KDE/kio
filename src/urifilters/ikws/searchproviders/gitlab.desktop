@@ -20,6 +20,7 @@ Name[nn]=GitLab
 Name[pl]=GitLab
 Name[pt]=GitLab
 Name[pt_BR]=GitLab
+Name[ru]=GitLab
 Name[sv]=GitLab
 Name[uk]=GitLab
 Name[x-test]=xxGitLabxx
@@ -44,6 +45,7 @@ Query[nn]=https://gitlab.com/search?search=\\{@}
 Query[pl]=https://gitlab.com/search?search=\\{@}
 Query[pt]=https://gitlab.com/search?search=\\{@}
 Query[pt_BR]=https://gitlab.com/search?search=\\{@}
+Query[ru]=https://gitlab.com/search?search=\\{@}
 Query[sv]=https://gitlab.com/search?search=\\{@}
 Query[uk]=https://gitlab.com/search?search=\\{@}
 Query[x-test]=xxhttps://gitlab.com/search?search=\\{@}xx
