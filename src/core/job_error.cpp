@@ -216,7 +216,7 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
         result = errorText;
         break;
     case KIO::ERR_DISK_FULL:
-        result = i18n("Could not write file %1.\nDisk full.",  errorText);
+        result = i18n("There is not enough space on the disk to write %1.",  errorText);
         break;
     case KIO::ERR_IDENTICAL_FILES:
         result = i18n("The source and destination are the same file.\n%1",  errorText);
