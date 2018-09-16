@@ -884,7 +884,12 @@ void CopyJobPrivate::statCurrentSrc()
         slotReport();
 
         qCDebug(KIO_COPYJOB_DEBUG)<<"Stating finished. To copy:"<<m_totalSize<<", available:"<<m_freeSpace;
-        //TODO warn user beforehand if space is not enough
+        if (m_totalSize > m_freeSpace && m_freeSpace != static_cast<KIO::filesize_t>(-1)) {
+            q->setError(ERR_DISK_FULL);
+            q->setErrorText(m_currentSrcURL.toDisplayString());
+            q->emitResult();
+            return;
+        }
 
         if (!dirs.isEmpty()) {
             emit q->aboutToCreate(q, dirs);
