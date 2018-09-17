@@ -43,6 +43,7 @@ add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt 
 find_package(KF5Archive ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5Config ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5CoreAddons ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5Crash ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5DBusAddons ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5I18n ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5Service ${KF5_DEP_VERSION} REQUIRED)

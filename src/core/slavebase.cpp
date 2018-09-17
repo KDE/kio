@@ -41,6 +41,7 @@
 
 #include <kconfig.h>
 #include <kconfiggroup.h>
+#include <kcrash.h>
 #include <klocalizedstring.h>
 
 #include "kremoteencoding.h"
@@ -53,18 +54,11 @@
 #include "kpasswdserverclient.h"
 #include "kiocoredebug.h"
 
-#ifndef NDEBUG
-#if HAVE_BACKTRACE
-#include <execinfo.h>
-#endif
-#endif
-
 #ifdef Q_OS_UNIX
 #include <KAuth>
 #endif
 
 extern "C" {
-    Q_NORETURN static void sigsegv_handler(int sig);
     static void sigpipe_handler(int sig);
 }
 
@@ -246,32 +240,10 @@ SlaveBase::SlaveBase(const QByteArray &protocol,
     Q_ASSERT(!app_socket.isEmpty());
     d->poolSocket = QFile::decodeName(pool_socket);
     s_protocol = protocol.data();
-#ifdef Q_OS_UNIX
-    if (qEnvironmentVariableIsEmpty("KDE_DEBUG")) {
-        ::signal(SIGSEGV, &sigsegv_handler);
-        ::signal(SIGILL, &sigsegv_handler);
-        ::signal(SIGTRAP, &sigsegv_handler);
-        ::signal(SIGABRT, &sigsegv_handler);
-        ::signal(SIGBUS, &sigsegv_handler);
-        ::signal(SIGALRM, &sigsegv_handler);
-        ::signal(SIGFPE, &sigsegv_handler);
-#ifdef SIGPOLL
-        ::signal(SIGPOLL, &sigsegv_handler);
-#endif
-#ifdef SIGSYS
-        ::signal(SIGSYS, &sigsegv_handler);
-#endif
-#ifdef SIGVTALRM
-        ::signal(SIGVTALRM, &sigsegv_handler);
-#endif
-#ifdef SIGXCPU
-        ::signal(SIGXCPU, &sigsegv_handler);
-#endif
-#ifdef SIGXFSZ
-        ::signal(SIGXFSZ, &sigsegv_handler);
-#endif
-    }
 
+    KCrash::initialize();
+
+#ifdef Q_OS_UNIX
     struct sigaction act;
     act.sa_handler = sigpipe_handler;
     sigemptyset(&act.sa_mask);
@@ -782,33 +754,6 @@ void SlaveBase::listEntries(const UDSEntryList &list)
     }
 
     send(MSG_LIST_ENTRIES, data);
-}
-
-Q_NORETURN static void sigsegv_handler(int sig)
-{
-#ifdef Q_OS_UNIX
-    ::signal(sig, SIG_DFL); // Next one kills
-
-    //Kill us if we deadlock
-    ::signal(SIGALRM, SIG_DFL);
-    alarm(5);  //generate an alarm signal in 5 seconds, in this time the slave has to exit
-
-    // Debug and printf should be avoided because they might
-    // call malloc.. and get in a nice recursive malloc loop
-    char buffer[120];
-    qsnprintf(buffer, sizeof(buffer), "kioslave: ####### CRASH ###### protocol = %s pid = %d signal = %d\n", s_protocol, getpid(), sig);
-    write(2, buffer, strlen(buffer));
-#ifndef NDEBUG
-#if HAVE_BACKTRACE
-    void *trace[256];
-    int n = backtrace(trace, 256);
-    if (n) {
-        backtrace_symbols_fd(trace, n, 2);
-    }
-#endif
-#endif
-    ::exit(1);
-#endif
 }
 
 static void sigpipe_handler(int)

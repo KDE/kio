@@ -149,6 +149,7 @@ PUBLIC
 PRIVATE
  Qt5::Xml                   # davjob.cpp uses QDom
  KF5::I18n
+ KF5::Crash
  KF5::DBusAddons            # KDEInitInterface
 )
 
