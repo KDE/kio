@@ -349,7 +349,7 @@ void FilterOptions::save()
     KConfig _service(path + provider->desktopEntryName() + ".desktop", KConfig::SimpleConfig );
     KConfigGroup service(&_service, "Desktop Entry");
     service.writeEntry("Type", "Service");
-    service.writeEntry("ServiceTypes", "SearchProvider");
+    service.writeEntry("X-KDE-ServiceTypes", "SearchProvider");
     service.writeEntry("Name", provider->name());
     service.writeEntry("Query", provider->query());
     service.writeEntry("Keys", provider->keys());
@@ -384,7 +384,7 @@ void FilterOptions::save()
     KConfig _service(path + providerName + ".desktop", KConfig::SimpleConfig );
     KConfigGroup service(&_service,     "Desktop Entry");
     service.writeEntry("Type",          "Service");
-    service.writeEntry("ServiceTypes",  "SearchProvider");
+    service.writeEntry("X-KDE-ServiceTypes",  "SearchProvider");
     service.writeEntry("Hidden",        true);
   }
 
