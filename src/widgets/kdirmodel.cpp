@@ -698,7 +698,7 @@ void KDirModelPrivate::_k_slotJobUrlsChanged(const QStringList &urlList)
 
     m_allCurrentDestUrls = urlList;
 
-    for (const QString &dirtyUrl : dirtyUrls) {
+    for (const QString &dirtyUrl : qAsConst(dirtyUrls)) {
         if (KDirModelNode *node = nodeForUrl(QUrl(dirtyUrl))) {
             const QModelIndex idx = indexForNode(node);
             emit q->dataChanged(idx, idx, {KDirModel::HasJobRole});
@@ -711,7 +711,7 @@ void KDirModelPrivate::clearAllPreviews(KDirModelDirNode *dirNode)
     const int numRows = dirNode->m_childNodes.count();
     if (numRows > 0) {
         KDirModelNode *lastNode = nullptr;
-        for (KDirModelNode *node : dirNode->m_childNodes) {
+        for (KDirModelNode *node : qAsConst(dirNode->m_childNodes)) {
             node->setPreview(QIcon());
             //node->setPreview(QIcon::fromTheme(node->item().iconName()));
             if (isDir(node)) {

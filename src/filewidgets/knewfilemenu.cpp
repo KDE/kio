@@ -955,7 +955,7 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
     // Ensure any changes in the templates dir will call this
     if (! s->dirWatch) {
         s->dirWatch = new KDirWatch;
-        for (const QString &dir : installedTemplates) {
+        for (const QString &dir : qAsConst(installedTemplates)) {
             s->dirWatch->addDir(dir);
         }
         QObject::connect(s->dirWatch, SIGNAL(dirty(QString)),

@@ -192,10 +192,10 @@ void DropMenu::addExtraActions(const QList<QAction *> &appActions, const QList<Q
     removeAction(m_cancelAction);
 
     removeAction(m_extraActionsSeparator);
-    for (QAction *action : m_appActions) {
+    for (QAction *action : qAsConst(m_appActions)) {
         removeAction(action);
     }
-    for (QAction *action : m_pluginActions) {
+    for (QAction *action : qAsConst(m_pluginActions)) {
         removeAction(action);
     }
 
@@ -403,7 +403,7 @@ void DropJob::setApplicationActions(const QList<QAction *> &actions)
 
     d->m_appActions = actions;
 
-    for (KIO::DropMenu *menu : d->m_menus) {
+    for (KIO::DropMenu *menu : qAsConst(d->m_menus)) {
         menu->addExtraActions(d->m_appActions, d->m_pluginActions);
     }
 }

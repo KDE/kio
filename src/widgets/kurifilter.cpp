@@ -589,7 +589,7 @@ bool KUriFilter::filterUri(KUriFilterData &data, const QStringList &filters)
 {
     bool filtered = false;
 
-    for (KUriFilterPlugin *plugin : d->pluginList) {
+    for (KUriFilterPlugin *plugin : qAsConst(d->pluginList)) {
         // If no specific filters were requested, iterate through all the plugins.
         // Otherwise, only use available filters.
         if (filters.isEmpty() || filters.contains(plugin->objectName())) {

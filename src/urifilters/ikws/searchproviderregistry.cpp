@@ -54,13 +54,15 @@ void SearchProviderRegistry::reload()
     const QStringList servicesDirs = directories();
     for (const QString &dirPath : servicesDirs) {
         QDir dir(dirPath);
-        for (const QString &file : dir.entryList({QStringLiteral("*.desktop")}, QDir::Files)) {
+        const auto files = dir.entryList({QStringLiteral("*.desktop")}, QDir::Files);
+        for (const QString &file : files) {
             if (!m_searchProvidersByDesktopName.contains(file)) {
                 const QString filePath = dir.path() + QLatin1Char('/') + file;
                 auto *provider = new SearchProvider(filePath);
                 m_searchProvidersByDesktopName.insert(file, provider);
                 m_searchProviders.append(provider);
-                for (const QString &key : provider->keys()) {
+                const auto keys = provider->keys();
+                for (const QString &key : keys) {
                     m_searchProvidersByKey.insert(key, provider);
                 }
             }
