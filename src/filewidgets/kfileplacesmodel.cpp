@@ -657,35 +657,36 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
     QVector<QString> devices = availableDevices;
 
     while (!bookmark.isNull()) {
-        QString udi = bookmark.metaDataItem(QStringLiteral("UDI"));
-        QString appName = bookmark.metaDataItem(QStringLiteral("OnlyInApp"));
-        QUrl url = bookmark.url();
-        auto it = std::find(devices.begin(), devices.end(), udi);
-        bool deviceAvailable = (it != devices.end());
-        if (it != devices.end()) {
-            devices.erase(it);
-        }
-
-        bool allowedHere = appName.isEmpty() ||
-                ((appName == QCoreApplication::instance()->applicationName()) ||
-                 (appName == alternativeApplicationName));
-        bool isSupportedUrl = isBalooUrl(url) ? fileIndexingEnabled : true;
-        bool isSupportedScheme = supportedSchemes.isEmpty() || supportedSchemes.contains(url.scheme());
-
-        if (isSupportedScheme && ((isSupportedUrl && udi.isEmpty() && allowedHere) || deviceAvailable)) {
-
-            KFilePlacesItem *item;
+        if (bookmark.url().isValid()) {
+            QString udi = bookmark.metaDataItem(QStringLiteral("UDI"));
+            QString appName = bookmark.metaDataItem(QStringLiteral("OnlyInApp"));
+            QUrl url = bookmark.url();
+            auto it = std::find(devices.begin(), devices.end(), udi);
+            bool deviceAvailable = (it != devices.end());
             if (deviceAvailable) {
-                item = new KFilePlacesItem(bookmarkManager, bookmark.address(), udi);
-                // TODO: Update bookmark internal element
-            } else {
-                item = new KFilePlacesItem(bookmarkManager, bookmark.address());
+                devices.erase(it);
             }
-            connect(item, SIGNAL(itemChanged(QString)),
-                    q, SLOT(_k_itemChanged(QString)));
-            items << item;
-        }
 
+            bool allowedHere = appName.isEmpty() ||
+                    ((appName == QCoreApplication::instance()->applicationName()) ||
+                    (appName == alternativeApplicationName));
+            bool isSupportedUrl = isBalooUrl(url) ? fileIndexingEnabled : true;
+            bool isSupportedScheme = supportedSchemes.isEmpty() || supportedSchemes.contains(url.scheme());
+
+            if (isSupportedScheme && ((isSupportedUrl && udi.isEmpty() && allowedHere) || deviceAvailable)) {
+
+                KFilePlacesItem *item;
+                if (deviceAvailable) {
+                    item = new KFilePlacesItem(bookmarkManager, bookmark.address(), udi);
+                    // TODO: Update bookmark internal element
+                } else {
+                    item = new KFilePlacesItem(bookmarkManager, bookmark.address());
+                }
+                connect(item, SIGNAL(itemChanged(QString)),
+                        q, SLOT(_k_itemChanged(QString)));
+                items << item;
+            }
+        }
         bookmark = root.next(bookmark);
     }
 
