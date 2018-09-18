@@ -28,6 +28,7 @@
 #include "kprotocolmanager.h"
 #include "../pathhelpers_p.h"
 
+#include <kdirnotify.h>
 #include <kjobwidgets.h>
 #include <klocalizedstring.h>
 #include <kmessagebox.h>
@@ -125,6 +126,11 @@ static QUrl getNewFileName(const QUrl &u, const QString &text, const QString &su
 static KIO::Job *putDataAsyncTo(const QUrl &url, const QByteArray &data, QWidget *widget, KIO::JobFlags flags)
 {
     KIO::Job *job = KIO::storedPut(data, url, -1, flags);
+    QObject::connect(job, &KIO::Job::result, [url](KJob *job) {
+        if (job->error() == KJob::NoError) {
+            org::kde::KDirNotify::emitFilesAdded(url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
+        }
+    });
     KJobWidgets::setWindow(job, widget);
     return job;
 }
