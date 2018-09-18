@@ -1004,7 +1004,7 @@ void KDirOperator::setUrl(const QUrl &_newurl, bool clearforward)
     if (!_newurl.isValid()) {
         newurl = QUrl::fromLocalFile(QDir::homePath());
     } else {
-        newurl = _newurl;
+        newurl = _newurl.adjusted(QUrl::NormalizePathSegments);
     }
 
     if (!newurl.path().isEmpty() && !newurl.path().endsWith(QLatin1Char('/'))) {
@@ -1235,7 +1235,8 @@ QUrl KDirOperator::url() const
 
 void KDirOperator::cdUp()
 {
-    QUrl tmp(d->currUrl);
+    // Allow /d/c// to go up to /d/ instead of /d/c/
+    QUrl tmp(d->currUrl.adjusted(QUrl::NormalizePathSegments));
     setUrl(tmp.resolved(QUrl(QStringLiteral(".."))), true);
 }
 

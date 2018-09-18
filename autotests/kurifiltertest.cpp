@@ -233,7 +233,7 @@ void KUriFilterTest::noFiltering_data()
     setupColumns();
     // URI that should require no filtering
     addRow("http://www.kde.org", QStringLiteral("http://www.kde.org"), KUriFilterData::NetProtocol);
-    addRow("http://www.kde.org/developer//index.html", QStringLiteral("http://www.kde.org/developer//index.html"), KUriFilterData::NetProtocol);
+    addRow("http://www.kde.org/developer//index.html", QStringLiteral("http://www.kde.org/developer/index.html"), KUriFilterData::NetProtocol);
     addRow("file:///", QStringLiteral("/"), KUriFilterData::LocalDir);
     addRow("file:///etc", QStringLiteral("/etc"), KUriFilterData::LocalDir);
     addRow("file:///etc/passwd", QStringLiteral("/etc/passwd"), KUriFilterData::LocalFile);
@@ -253,6 +253,9 @@ void KUriFilterTest::localFiles_data()
     addRow("///", QStringLiteral("/"), KUriFilterData::LocalDir);
     addRow("////", QStringLiteral("/"), KUriFilterData::LocalDir);
     addRow("///tmp", QStringLiteral("/tmp"), KUriFilterData::LocalDir);
+    addRow("///tmp/", QStringLiteral("/tmp/"), KUriFilterData::LocalDir);
+    addRow("///tmp//", QStringLiteral("/tmp/"), KUriFilterData::LocalDir);
+    addRow("///tmp///", QStringLiteral("/tmp/"), KUriFilterData::LocalDir);
 
     if (QFile::exists(QDir::homePath() + QLatin1String("/.bashrc"))) {
         addRow("~/.bashrc", QDir::homePath() + QStringLiteral("/.bashrc"), KUriFilterData::LocalFile, QStringList(QStringLiteral("kshorturifilter")));
@@ -304,7 +307,9 @@ void KUriFilterTest::shortUris_data()
     setupColumns();
     // hostnames are lowercased by QUrl
     addRow("http://www.myDomain.commyPort/ViewObjectRes//Default:name=hello",
-           QStringLiteral("http://www.mydomain.commyport/ViewObjectRes//Default:name=hello"), KUriFilterData::NetProtocol);
+           QStringLiteral("http://www.mydomain.commyport/ViewObjectRes/Default:name=hello"), KUriFilterData::NetProtocol);
+    addRow("http://www.myDomain.commyPort/ViewObjectRes/Default:name=hello?a=a///////",
+           QStringLiteral("http://www.mydomain.commyport/ViewObjectRes/Default:name=hello?a=a///////"), KUriFilterData::NetProtocol);
     addRow("ftp://ftp.kde.org", QStringLiteral("ftp://ftp.kde.org"), KUriFilterData::NetProtocol);
     addRow("ftp://username@ftp.kde.org:500", QStringLiteral("ftp://username@ftp.kde.org:500"), KUriFilterData::NetProtocol);
 

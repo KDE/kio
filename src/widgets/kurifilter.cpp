@@ -179,7 +179,7 @@ public:
           wasModified(true),
           uriType(KUriFilterData::Unknown),
           searchFilterOptions(KUriFilterData::SearchFilterOptionNone),
-          url(u),
+          url(u.adjusted(QUrl::NormalizePathSegments)),
           typedString(typedUrl)
     {
     }
@@ -195,7 +195,7 @@ public:
         uriType = KUriFilterData::Unknown;
         searchFilterOptions = KUriFilterData::SearchFilterOptionNone;
 
-        url = u;
+        url = u.adjusted(QUrl::NormalizePathSegments);
         typedString = typedUrl;
 
         errMsg.clear();
@@ -497,7 +497,7 @@ QString KUriFilterPlugin::configName() const
 
 void KUriFilterPlugin::setFilteredUri(KUriFilterData &data, const QUrl &uri) const
 {
-    data.d->url = uri;
+    data.d->url = uri.adjusted(QUrl::NormalizePathSegments);
     data.d->wasModified = true;
     //qDebug() << "Got filtered to:" << uri;
 }

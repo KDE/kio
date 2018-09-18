@@ -105,6 +105,7 @@ private Q_SLOTS:
         QTest::newRow("with_host") << QUrl(QStringLiteral("ftp://foo.com/folder")) << QUrl(QStringLiteral("ftp://foo.com/folder/"));
         QTest::newRow("with_no_host") << QUrl(QStringLiteral("smb://")) << QUrl(QStringLiteral("smb://"));
         QTest::newRow("with_host_without_path") << QUrl(QStringLiteral("ftp://user@example.com")) << QUrl(QStringLiteral("ftp://user@example.com"));
+        QTest::newRow("with_trailing_slashs") << QUrl::fromLocalFile(QDir::tempPath() + QLatin1String("////////")) << QUrl::fromLocalFile(QDir::tempPath() + QLatin1Char('/'));
     }
 
     void testSetUrlPathAdjustment()
