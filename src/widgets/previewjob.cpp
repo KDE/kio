@@ -638,7 +638,7 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
     job->addMetaData(QStringLiteral("iconSize"), QString().setNum(save ? 64 : iconSize));
     job->addMetaData(QStringLiteral("iconAlpha"), QString().setNum(iconAlpha));
     job->addMetaData(QStringLiteral("plugin"), currentItem.plugin->library());
-    //job->addMetaData(QStringLiteral("enabledPlugins"), enabledPlugins.join(QLatin1Char(',')));
+    job->addMetaData(QStringLiteral("enabledPlugins"), enabledPlugins.join(QLatin1Char(',')));
     if (sequenceIndex) {
         job->addMetaData(QStringLiteral("sequence-index"), QString().setNum(sequenceIndex));
     }
