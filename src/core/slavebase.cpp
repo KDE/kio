@@ -1287,7 +1287,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
     } break;
     default: {
         // Some command we don't understand.
-        // Just ignore it, it may come from some future version of KDE.
+        // Just ignore it, it may come from some future version of KIO.
     } break;
     }
 }
@@ -1327,7 +1327,7 @@ void SlaveBase::dispatchOpenCommand(int command, const QByteArray &data)
         break;
     default:
         // Some command we don't understand.
-        // Just ignore it, it may come from some future version of KDE.
+        // Just ignore it, it may come from some future version of KIO.
         break;
     }
 }
