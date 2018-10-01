@@ -108,6 +108,7 @@ Comment[eu]=Konfiguratu HTTP kioslave-k agerian jarriko duen erabiltzailearen ag
 Comment[fi]=Aseta HTTP-KIO-palvelun käyttäjäagentti
 Comment[fr]=Configurer l'agent utilisateur montré par le module d'entrées / sorties HTTP
 Comment[gl]=Configurar o axente de usuario que expón o kioslave de HTTP
+Comment[hu]=A HTTP kioslave által közzétett böngészőazonosító beállítása
 Comment[ia]=Configura le Agente Udstor exponite per le kioslave de HTTP
 Comment[id]=Konfigurasi User Agent yang terpapar oleh HTTP kioslave
 Comment[it]=Configura l'User Agent esposta dal kioslave HTTP
