@@ -978,7 +978,7 @@ void KFilePlacesModelTest::testIconRole_data()
     QTest::newRow("Places - Trash") << m_places->index(2, 0)
                                    << QStringLiteral("user-trash");
     QTest::newRow("Remote - Network") << m_places->index(3, 0)
-                                    << QStringLiteral("network-workgroup");
+                                    << QStringLiteral("folder-network");
     QTest::newRow("Devices - Nfs") << m_places->index(4, 0)
                                     << QStringLiteral("hwinfo");
     QTest::newRow("Devices - foreign") << m_places->index(5, 0)

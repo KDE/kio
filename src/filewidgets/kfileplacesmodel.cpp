@@ -244,7 +244,7 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
 
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                               QStringLiteral("Network"), I18N_NOOP2("KFile System Bookmarks", "Network"),
-                                              QUrl(QStringLiteral("remote:/")), QStringLiteral("network-workgroup"));
+                                              QUrl(QStringLiteral("remote:/")), QStringLiteral("folder-network"));
 #if defined(_WIN32_WCE)
         // adding drives
         foreach (const QFileInfo &info, QDir::drives()) {
