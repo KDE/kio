@@ -1168,7 +1168,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
             l->setText(mp->mountType());
 
-            if (mp && mp->mountPoint() != QLatin1String("/")) {
+            if (mp) {
                 l = new QLabel(i18n("Mounted on:"), d->m_frame);
                 grid->addWidget(l, curRow, 0, Qt::AlignRight);
 
