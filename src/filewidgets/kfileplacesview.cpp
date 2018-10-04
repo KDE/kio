@@ -756,7 +756,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             }
             add = menu.addAction(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Add Entry..."));
             mainSeparator = menu.addSeparator();
-            edit = menu.addAction(QIcon::fromTheme(QStringLiteral("document-properties")), i18n("&Edit Entry '%1'...", label));
+            edit = menu.addAction(QIcon::fromTheme(QStringLiteral("edit-entry")), i18n("&Edit Entry '%1'...", label));
         } else {
             eject = placesModel->ejectActionForIndex(index);
             if (eject != nullptr) {
