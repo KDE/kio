@@ -37,6 +37,7 @@
 #include <kdirnotify.h>
 #include <klocalizedstring.h>
 #include <kmessagebox.h>
+#include <kpropertiesdialog.h>
 #include <kio/emptytrashjob.h>
 #include <kio/jobuidelegate.h>
 #include <kjob.h>
@@ -738,6 +739,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     QAction *add = nullptr;
     QAction *mainSeparator = nullptr;
     QAction *hideSection = nullptr;
+    QAction *properties = nullptr;
 
     const bool clickOverHeader = delegate->pointIsHeaderArea(event->pos());
     if (clickOverHeader) {
@@ -756,7 +758,6 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             }
             add = menu.addAction(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Add Entry..."));
             mainSeparator = menu.addSeparator();
-            edit = menu.addAction(QIcon::fromTheme(QStringLiteral("edit-entry")), i18n("&Edit Entry '%1'...", label));
         } else {
             eject = placesModel->ejectActionForIndex(index);
             if (eject != nullptr) {
@@ -776,6 +777,12 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         }
         if (add == nullptr) {
             add = menu.addAction(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Add Entry..."));
+        }
+        if (placesModel->url(index).isLocalFile()) {
+            properties = menu.addAction(QIcon::fromTheme(QStringLiteral("document-properties")), i18n("Properties"));
+        }
+        if (!placesModel->isDevice(index)) {
+            edit = menu.addAction(QIcon::fromTheme(QStringLiteral("edit-entry")), i18n("&Edit Entry '%1'...", label));
         }
 
         hide = menu.addAction(i18n("&Hide Entry '%1'", label));
@@ -821,6 +828,8 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             KJobWidgets::setWindow(job, window());
             job->uiDelegate()->setAutoErrorHandlingEnabled(true);
         }
+    } else if (properties && (result == properties)) {
+        KPropertiesDialog::showDialog(placesModel->url(index), this);
     } else if (edit && (result == edit)) {
         KBookmark bookmark = placesModel->bookmarkForIndex(index);
         QUrl url = bookmark.url();
