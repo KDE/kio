@@ -740,6 +740,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     QAction *mainSeparator = nullptr;
     QAction *hideSection = nullptr;
     QAction *properties = nullptr;
+    QAction *mount = nullptr;
 
     const bool clickOverHeader = delegate->pointIsHeaderArea(event->pos());
     if (clickOverHeader) {
@@ -771,7 +772,11 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
                 menu.addAction(teardown);
             }
 
-            if (teardown != nullptr || eject != nullptr) {
+            if (placesModel->setupNeeded(index)) {
+                mount = menu.addAction(QIcon::fromTheme(QStringLiteral("media-mount")), i18nc("@action:inmenu", "Mount"));
+            }
+
+            if (teardown != nullptr || eject != nullptr || mount != nullptr) {
                 mainSeparator = menu.addSeparator();
             }
         }
@@ -885,6 +890,8 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
 
             placesModel->addPlace(label, url, iconName, appName, index);
         }
+    } else if (mount && (result == mount)) {
+        placesModel->requestSetup(index);
     }
 
     index = placesModel->closestItem(d->currentUrl);
