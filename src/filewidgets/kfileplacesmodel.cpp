@@ -657,10 +657,10 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
     QVector<QString> devices = availableDevices;
 
     while (!bookmark.isNull()) {
-        if (bookmark.url().isValid()) {
-            QString udi = bookmark.metaDataItem(QStringLiteral("UDI"));
+        const QString udi = bookmark.metaDataItem(QStringLiteral("UDI"));
+        const QUrl url = bookmark.url();
+        if (!udi.isEmpty() || url.isValid()) {
             QString appName = bookmark.metaDataItem(QStringLiteral("OnlyInApp"));
-            QUrl url = bookmark.url();
             auto it = std::find(devices.begin(), devices.end(), udi);
             bool deviceAvailable = (it != devices.end());
             if (deviceAvailable) {

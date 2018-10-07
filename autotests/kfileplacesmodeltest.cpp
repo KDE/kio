@@ -282,7 +282,7 @@ void KFilePlacesModelTest::testInternalBookmarksHaveIds()
     KBookmark bookmark = root.first();
     while (!bookmark.isNull()) {
         QVERIFY(!bookmark.metaDataItem(QStringLiteral("ID")).isEmpty() || !bookmark.metaDataItem(QStringLiteral("UDI")).isEmpty());
-        // It's mutualy exclusive though
+        // It's mutually exclusive though
         QVERIFY(bookmark.metaDataItem(QStringLiteral("ID")).isEmpty() || bookmark.metaDataItem(QStringLiteral("UDI")).isEmpty());
 
         bookmark = root.next(bookmark);
@@ -312,7 +312,14 @@ void KFilePlacesModelTest::testInternalBookmarksHaveIds()
             id = bookmark.metaDataItem(QStringLiteral("ID"));
         }
 
-        QVERIFY2(!ids.contains(id), "Duplicated ID found!");
+        if (ids.contains(id)) {
+            // Some debugging help
+            qDebug() << "Bookmarks file:" << bookmarksFile() << "contains one (or more) duplicated bookmarks:";
+            QFile debugFile(bookmarksFile());
+            QVERIFY(debugFile.open(QIODevice::ReadOnly));
+            qDebug() << QString::fromUtf8(debugFile.readAll());
+            QVERIFY2(!ids.contains(id), qPrintable("Duplicated ID found: " + id));
+        }
         ids << id;
         bookmark = root.next(bookmark);
     }
