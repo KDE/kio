@@ -355,11 +355,7 @@ void FileProtocol::chown(const QUrl &url, const QString &, const QString &)
 void FileProtocol::stat(const QUrl &url)
 {
     if (!url.isLocalFile()) {
-        QUrl redir(url);
-        redir.setScheme(config()->readEntry("DefaultRemoteProtocol", "smb"));
-        redirection(redir);
-        // qDebug() << "redirecting to " << redir;
-        finished();
+        redirect(url);
         return;
     }
 

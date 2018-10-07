@@ -329,13 +329,29 @@ void FileProtocol::mkdir(const QUrl &url, int permissions)
     return;
 }
 
+void FileProtocol::redirect(const QUrl &url)
+{
+    QUrl redir(url);
+    redir.setScheme(config()->readEntry("DefaultRemoteProtocol", "smb"));
+
+    // if we would redirect into the Windows world, let's also check for the
+    // DavWWWRoot "token" which in the Windows world tells win explorer to access
+    // a webdav url
+    // https://www.webdavsystem.com/server/access/windows
+    if ((redir.scheme() == QLatin1String("smb")) &&
+        redir.path().startsWith(QLatin1String("/DavWWWRoot/"))) {
+        redir.setPath(redir.path().mid(11));  // remove /DavWWWRoot
+        redir.setScheme(QLatin1String("webdav"));
+    }
+
+    redirection(redir);
+    finished();
+}
+
 void FileProtocol::get(const QUrl &url)
 {
     if (!url.isLocalFile()) {
-        QUrl redir(url);
-        redir.setScheme(config()->readEntry("DefaultRemoteProtocol", "smb"));
-        redirection(redir);
-        finished();
+        redirect(url);
         return;
     }
 

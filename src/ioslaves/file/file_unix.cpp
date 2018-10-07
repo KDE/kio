@@ -802,11 +802,7 @@ void FileProtocol::chown(const QUrl &url, const QString &owner, const QString &g
 void FileProtocol::stat(const QUrl &url)
 {
     if (!isLocalFileSameHost(url)) {
-        QUrl redir(url);
-        redir.setScheme(config()->readEntry("DefaultRemoteProtocol", "smb"));
-        redirection(redir);
-        // qDebug() << "redirecting to " << redir;
-        finished();
+        redirect(url);
         return;
     }
 

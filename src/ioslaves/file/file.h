@@ -110,6 +110,9 @@ private:
     // only during the brief period privileges are elevated. If it's not the case show
     // a warning and continue.
     PrivilegeOperationReturnValue tryChangeFileAttr(ActionType action, const QVariantList &args, int errcode);
+
+    void redirect(const QUrl &url);
+
 private:
     mutable QHash<KUserId, QString> mUsercache;
     mutable QHash<KGroupId, QString> mGroupcache;
