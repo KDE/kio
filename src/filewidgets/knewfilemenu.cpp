@@ -933,7 +933,7 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
     #ifdef Q_OS_UNIX
         QString xdgUserDirs = QStandardPaths::locate(QStandardPaths::ConfigLocation, QStringLiteral("user-dirs.dirs"), QStandardPaths::LocateFile);
         QFile xdgUserDirsFile(xdgUserDirs);
-        if (xdgUserDirsFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        if (!xdgUserDirs.isEmpty() && xdgUserDirsFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
             QTextStream in(&xdgUserDirsFile);
             while (!in.atEnd()) {
                 QString line = in.readLine();
