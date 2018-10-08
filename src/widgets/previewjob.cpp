@@ -22,7 +22,11 @@
 
 #include "previewjob.h"
 
-#define WITH_SHM defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID)
+#define WITH_SHM 1
+#else
+#define WITH_SHM 0
+#endif
 
 #if WITH_SHM
 #include <sys/ipc.h>
