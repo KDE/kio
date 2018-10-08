@@ -1,0 +1,242 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Portuguese "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="cookies" lang="&language;">
+<articleinfo>
+<title
+>'Cookies'</title>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<author
+>&Jost.Schenck; &Jost.Schenck.mail;</author>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Plataformas 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systemsettings</keyword>
+<keyword
+>cookie</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="cookie">
+<title
+>'Cookies'</title>
+
+<para
+>Os 'cookies' são um mecanismo utilizado pelos 'sites' Web para guardar e obter informações utilizando o seu navegador Web. Por exemplo, um 'site' Web pode permitir a personalização do conteúdo e formato das páginas que vê, de modo a que as suas opções fiquem persistentes entre vários acessos seus a esse 'site' Web.</para>
+
+<para
+>O 'site' Web consegue lembrar-se das suas preferências, guardando um 'cookie' no seu computador. Assim, nas visitas futuras, o 'site' Web obtém as informações guardadas no 'cookie' para formatar o conteúdo do 'site' de acordo com as suas preferências especificadas anteriormente.</para>
+
+<para
+>Assim, os 'cookies' desempenham um papel muito útil na navegação Web. Infelizmente, os 'sites' Web guardam e obtêm frequentemente informações nos 'cookies' sem o seu conhecimento ou consentimento explícito. Alguma dessa informação pode ser bastante útil aos donos do 'site' Web, por exemplo, permitindo-lhes reunir informações sobre o número de visitas a diferentes áreas dos 'sites' Web ou personalizar a publicidade.</para>
+
+<para
+>O módulo de 'cookies' permite-lhe definir políticas para a utilização de 'cookies' enquanto você navega na Web com o &konqueror;. </para>
+
+<warning
+><para
+>Lembre-se que as políticas que configurar neste módulo de controlo <emphasis
+>não</emphasis
+> serão aplicadas a outros navegadores Web, como o &firefox;.</para
+></warning>
+
+<sect2 id="cookie-policy">
+
+<title
+>Política</title>
+
+<para
+>Na página <guilabel
+>Política</guilabel
+> pode configurar como as aplicações do &kde; tratarão os 'cookies'. Pode fazê-lo indicando uma política geral de 'cookies' e também através de políticas de 'cookies' específicas para certos domínios ou servidores.</para>
+
+<para
+>No topo da página da política existe uma opção chamada <guilabel
+>Activar os 'cookies'</guilabel
+>. Se deixar esta opção desligada, os 'cookies' serão desactivados por completo. Porém, isto pode tornar a navegação pouco funcional, especialmente porque alguns 'sites' necessitam de navegadores com suporte de 'cookies' activo.</para>
+
+<para
+>Provavelmente quererá activar os 'cookies' e depois definir políticas específicas de como os quer tratar.</para>
+
+<para
+>O primeiro grupo de opções cria a configuração que será aplicada a todos os 'cookies'.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Só aceitar os 'cookies' do servidor original</guilabel
+></term>
+<listitem>
+<para
+>Algumas páginas tentam definir os 'cookies' a partir de servidores que não o mesmo no qual está a ver a página em &HTML;. Por exemplo, eles mostram-lhe publicidade, sendo esta de outro computador - normalmente essa publicidade provém de um grupo publicitário importante. Estes anúncios poderão tentar definir um 'cookie', o que lhes pode permitir registar as páginas que você vê pelos vários 'sites' Web.</para>
+<para
+>Se activar esta opção significa que só os 'cookies' que provêm do mesmo servidor Web ao qual se encontra explicitamente ligado é que serão aceites.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Aceitar automaticamente os 'cookies' de sessão</guilabel
+></term>
+<listitem>
+
+<para
+>Uma utilização cada vez mais comum para os 'cookies' não é o registo dos seus movimentos pelas várias visitas a um determinado 'site' Web, mas apenas para saber o que está a fazer numa única visita. Os 'cookies' de sessão são gravados enquanto estiver a consultar o 'site', e serão removidos quando sair dele.</para>
+
+<para
+>Os 'sites' Web poderão usar esta informação para várias coisas, mas uma das utilizações mais comuns é como conveniência para que não seja necessário estar sempre a autenticar-se para ver as páginas. Por exemplo, num 'site' de e-mail por Web, se não tivesse algum tipo de <acronym
+>ID</acronym
+> de sessão, teria de estar sempre a dar a sua senha para cada mensagem que lesse. Existem várias formas de implementar isto, mas os 'cookies' são simples e muito comuns.</para>
+
+<para
+>Se activar esta opção, significa que os 'cookies' de sessão são sempre aceites, mesmo que não aceite de qualquer outro tipo; para além disso, mesmo que opte por rejeitar os 'cookies' de um 'site' em particular, os 'cookies' de sessão desse 'site' serão aceites.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>A secção da <guilabel
+>Política por Omissão</guilabel
+> define algumas opções adicionais que são mutuamente exclusivas &mdash; pode escolher apenas uma destas opções por omissão, mas está à vontade para escolher uma opção diferente para um servidor Web específico.</para>
+<note
+><para
+>As políticas específicas do servidor têm sempre precedência sobre a política predefinida.</para
+></note>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Aceitar todos os 'cookies'</guilabel
+></term>
+<listitem>
+<para
+>Se esta opção for seleccionada, todos os 'cookies' serão aceites sem ser necessária a confirmação.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Aceitar até ao fim da sessão</guilabel
+></term>
+<listitem>
+<para
+>Os 'cookies' serão aceites, mas irão expirar no fim da sessão.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Pedir a confirmação</guilabel
+></term>
+<listitem>
+<para
+>Se esta opção estiver seleccionada, ser-lhe-á pedida uma confirmação de cada vez que é guardado ou obtido um 'cookie'. Pode aceitar ou rejeitar de forma selectiva cada 'cookie'. A janela de confirmação também lhe permite definir uma política específica do domínio, se não quiser confirmar cada 'cookie' proveniente deste domínio.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Rejeitar todos os 'cookies'</guilabel
+></term>
+<listitem>
+<para
+>Se esta opção estiver seleccionada, todos os 'cookies' serão rejeitados sem haver confirmação.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Para além da política por omissão de tratamento dos 'cookies', a qual pode definir seleccionando uma das três opções acima descritas, também pode definir políticas para domínios ou máquinas específicos, utilizando as opções no grupo <guilabel
+>Política do Servidor</guilabel
+>.</para>
+
+<para
+>A política de Perguntar, Aceitar, Aceitar Até ao Fim da Sessão ou Rejeitar pode ser aplicada a um domínio específico carregando no botão <guibutton
+>Novo...</guibutton
+>, que fará aparecer uma janela. Nesta poderá indicar o nome do domínio (com um '.' inicial) e seleccionar a política que quer aplicar a esse domínio. Repare que os registos também podem ser adicionados à medida que vai navegando, se a política por omissão for o pedido de uma confirmação e você escolher uma política geral para uma máquina em particular (por exemplo, seleccionando <guilabel
+>Rejeitar todos os 'cookies' deste domínio</guilabel
+> quando lhe for pedida a confirmação de um 'cookie').</para>
+
+<para
+>Também pode seleccionar um domínio ou máquina específico na lista e carregar no botão <guibutton
+>Alterar</guibutton
+> para escolher uma política diferente para esse domínio.</para>
+
+<para
+>Para apagar uma política específica do domínio, escolha-a na lista e carregue no botão <guibutton
+>Apagar</guibutton
+>. A política por omissão passará a ser aplicada aos domínios que foram retirados da lista.</para>
+
+</sect2>
+
+<sect2 id="cookie-management">
+<title
+>Gestão</title>
+
+<para
+>Na página <guilabel
+>Gestão</guilabel
+> pode escolher e apagar de forma selectiva 'cookies' anteriormente definidos.</para>
+
+<para
+>Na parte superior desta janela, pode ver uma lista de domínios representada em árvore. Carregue no pequeno <guiicon
+>&gt;</guiicon
+> associado a um domínio para ver todos os 'cookies' que foram definidos por este domínio em particular. Se seleccionar um desses 'cookies' o seu conteúdo será mostrado na área <guilabel
+>Detalhes</guilabel
+> em baixo.</para>
+
+<para
+>Se carregar no botão <guibutton
+>Apagar</guibutton
+> pode apagar o 'cookie' seleccionado. Carregue em <guibutton
+>Apagar Tudo</guibutton
+> para apagar todos os 'cookies' guardados.</para>
+
+<para
+>Se for seleccionado um domínio, poderá usar a opção <guibutton
+>Configurar a Política</guibutton
+> para definir a política de um dado servidor.</para>
+
+<para
+>Escolha a opção <guibutton
+>Reler a Lista</guibutton
+> para actualizar a lista a partir do disco rígido. Pode querer fazer isto se tiver deixado aberto o módulo anteriormente e estiver a testar 'sites' Web, ou se tiver feito muitas alterações no módulo em si.</para>
+
+</sect2>
+
+</sect1>
+
+</article>

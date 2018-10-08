@@ -1,0 +1,126 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Catalan  "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="useragent" lang="&language;">
+<title
+>Identificació del navegador</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<date
+>10 de novembre de 2016</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Arranjament del sistema</keyword>
+<keyword
+>agent d'usuari</keyword>
+<keyword
+>navegador</keyword>
+<keyword
+>identificació</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="user-agent">
+<title
+>Identificació del navegador</title>
+
+
+<sect2 id="user-agent-intro">
+<title
+>Introducció</title>
+
+<para
+>Quan el &konqueror; es connecta a un lloc web per a baixar informació, s'envia alguna informació bàsica per a identificar-se al lloc web en el formulari d'una capçalera <quote
+>User Agent</quote
+>.</para>
+
+<para
+>A causa de petites diferències en el mode en què funcionen els diferents navegadors, els llocs web que pressuposen l'ús d'un sol navegador poden no mostrar-se adequadament quan es troben amb un altre navegador. Alguns llocs web estan dissenyats per a examinar el contingut de la capçalera de l'agent d'usuari i incorporar aquesta informació en el codi &HTML;, de manera que el contingut es mostri correctament independentment del navegador utilitzat.</para>
+
+<para
+>De tota manera, podria ser que trobéssiu algun lloc web que refusi funcionar correctament, tret que estigueu utilitzant un navegador reconegut com a <quote
+>adequat</quote
+> per aquest lloc. En aquests casos podria ser necessari enganyar al lloc web fent que el &konqueror; s'identifiqui com a un altre navegador utilitzant el contingut de la capçalera agent d'usuari.</para>
+
+</sect2>
+
+<sect2 id="user-agent-use">
+<title
+>Ús</title>
+
+<para
+>En aquest mòdul podeu configurar el tipus de navegador amb el qual s'identificarà el &konqueror;. Podeu controlar aquesta informació en funció del lloc web. Usualment, el quadre de llista anomenat <guilabel
+>Identificació específica del lloc</guilabel
+>, estarà buit, de manera que el &konqueror; utilitzi la identificació per omissió.</para>
+
+<para
+>Podeu inhabilitar directament l'enviament d'un agent d'usuari, desmarcant la casella de selecció <guilabel
+>Envia la identificació</guilabel
+>. Això pot ocasionar comportaments estranys en alguns llocs i fins i tot poden denegar-vos l'accés a certs llocs web, de manera que inhabiliteu-lo amb precaució.</para>
+
+<para
+>Per a configurar una nova associació de l'agent, premeu el botó <guibutton
+>Nou...</guibutton
+>. Introduïu el nom del servidor o domini en el quadre de text en la part superior del diàleg emergent, que està anomenat com a <guilabel
+>En navegar el lloc següent</guilabel
+>.</para>
+
+<para
+>Noteu que <emphasis
+>no</emphasis
+> podeu utilitzar el comodí <token
+>*</token
+> en aquest quadre de text. Tot i que, la cadena <userinput
+>kde.org</userinput
+> servirà per a totes les màquines en el domini <systemitem
+>kde.org</systemitem
+></para>
+
+<para
+>Després d'introduir el nom del servidor, seleccioneu la cadena identificativa en el següent quadre combinat, el qual s'anomena <guilabel
+>Usa la identificació següent:</guilabel
+>. Amb l'opció <guilabel
+>Identificació real</guilabel
+>, &ead;, les cadenes enviades al servidor es mostren al camp.</para>
+
+<para
+>Podeu fer clic a sobre de qualsevol entrada existent a la llista, i després modificar els continguts dels quadres de text fent clic sobre el botó <guibutton
+>Canvia...</guibutton
+>.</para>
+
+<para
+>El botó <guilabel
+>Suprimeix</guilabel
+> es pot utilitzar per suprimir l'entrada seleccionada en la llista d'associacions dels agents configurats. El botó <guibutton
+>Suprimeix-ho tot</guibutton
+> eliminarà totes les cadenes d'agent d'usuari configurades. Feu clic a <guibutton
+>Aplica</guibutton
+> perquè els vostres canvis tinguin efecte.</para>
+
+<para
+>Podeu utilitzar les caselles de selecció a la part superior de la pantalla per a crear un agent d'usuari que sigui únicament vostre, escollint la vostra pròpia combinació de nom del sistema operatiu i versió, plataforma, tipus de processador i idioma.</para>
+
+<para
+>En tots els casos, l'agent d'usuari que s'envia per omissió es mostra en negreta a la part superior de la pàgina.</para>
+
+</sect2>
+
+</sect1>
+
+</article>
