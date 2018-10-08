@@ -539,6 +539,8 @@ KService::List KFileItemActions::associatedApplications(const QStringList &mimeT
     // Second, it ranks them based on their preference level in the associated applications list.
     // The more often a service appear near the front of the list, the LOWER its score.
 
+    rankings.reserve(firstOffers.count());
+    serviceList.reserve(firstOffers.count());
     for (int i = 0; i < firstOffers.count(); ++i) {
         KFileItemActionsPrivate::ServiceRank tempRank;
         tempRank.service = firstOffers[i];
@@ -550,6 +552,7 @@ KService::List KFileItemActions::associatedApplications(const QStringList &mimeT
     for (int j = 1; j < mimeTypeList.count(); ++j) {
         QStringList subservice; // list of services that support this mimetype
         const KService::List offers = KMimeTypeTrader::self()->query(mimeTypeList[j], QStringLiteral("Application"), traderConstraint);
+        subservice.reserve(offers.count());
         for (int i = 0; i != offers.count(); ++i) {
             const QString serviceId = offers[i]->storageId();
             subservice << serviceId;

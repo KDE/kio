@@ -145,6 +145,7 @@ static QByteArray chooseFormatAndUrl(const QUrl &u, const QMimeData *mimeData,
 {
     QMimeDatabase db;
     QStringList formatLabels;
+    formatLabels.reserve(formats.size());
     for (int i = 0; i < formats.size(); ++i) {
         const QString &fmt = formats[i];
         QMimeType mime = db.mimeTypeForName(fmt);
