@@ -1,13 +1,13 @@
 kf5.kio.cookiejar kcookiejar (KIO)
-kf5.kio.core.copyjob KIO::CopyJob (KIO) [WARNING]
-kf5.kio.core.dirlister KCoreDirLister (KIO) [WARNING]
+kf5.kio.core.copyjob KIO::CopyJob (KIO) DEFAULT_SEVERITY [WARNING]
+kf5.kio.core.dirlister KCoreDirLister (KIO) DEFAULT_SEVERITY [WARNING]
 kf5.kio.core KIOCore (KIO)
-kf5.kio.core.sambashare sambashare (KIO) [WARNING]
+kf5.kio.core.sambashare sambashare (KIO) DEFAULT_SEVERITY [WARNING]
 kf5.kiod KIO Daemon (KIO)
 kf5.kio.favicons FavIcons (KIO)
 kf5.kio.kio_file kiofile (KIO)
-kf5.kio.kio_ftp kio ftp (KIO) [WARNING]
-kf5.kio.kio_http KIO HTTP slave (KIO) [WARNING]
+kf5.kio.kio_ftp kio ftp (KIO) DEFAULT_SEVERITY [WARNING]
+kf5.kio.kio_http KIO HTTP slave (KIO) DEFAULT_SEVERITY [WARNING]
 kf5.kio.kio_http.auth kio http auth (KIO)
 kf5.kio.kio_http.filter kio http filter (KIO)
 kf5.kio.trash kio trash (KIO)
