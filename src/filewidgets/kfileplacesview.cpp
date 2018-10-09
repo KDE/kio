@@ -745,7 +745,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     const bool clickOverHeader = delegate->pointIsHeaderArea(event->pos());
     if (clickOverHeader) {
         const KFilePlacesModel::GroupType type = placesModel->groupType(index);
-        hideSection = menu.addAction(i18n("Hide Section"));
+        hideSection = menu.addAction(QIcon::fromTheme(QStringLiteral("hint")), i18n("Hide Section"));
         hideSection->setCheckable(true);
         hideSection->setChecked(placesModel->isGroupHidden(type));
     }
@@ -790,7 +790,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             edit = menu.addAction(QIcon::fromTheme(QStringLiteral("edit-entry")), i18n("&Edit Entry '%1'...", label));
         }
 
-        hide = menu.addAction(i18n("&Hide Entry '%1'", label));
+        hide = menu.addAction(QIcon::fromTheme(QStringLiteral("hint")), i18n("&Hide Entry '%1'", label));
         hide->setCheckable(true);
         hide->setChecked(placesModel->isHidden(index));
         // if a parent is hidden no interaction should be possible with children, show it first to do so
@@ -802,7 +802,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
 
     QAction *showAll = nullptr;
     if (placesModel->hiddenCount() > 0) {
-        showAll = new QAction(i18n("&Show All Entries"), &menu);
+        showAll = new QAction(QIcon::fromTheme(QStringLiteral("visibility")), i18n("&Show All Entries"), &menu);
         showAll->setCheckable(true);
         showAll->setChecked(d->showAll);
         if (mainSeparator == nullptr) {
