@@ -90,6 +90,7 @@ private Q_SLOTS:
     void testOpenUrlFromCache();
     void testNewItem();
     void testNewItems();
+    void benchFindByUrl();
     void testNewItemByCopy();
     void testNewItemsInSymlink();
     void testRefreshItems();

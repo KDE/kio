@@ -247,6 +247,18 @@ void KDirListerTest::testNewItems()
     QCOMPARE(itemForUrl.entry().stringValue(KIO::UDSEntry::UDS_NAME), fileName);
 }
 
+void KDirListerTest::benchFindByUrl()
+{
+    // The time used should be in the order of O(100*log2(100))
+    const QString path = m_tempDir.path() + '/';
+    QBENCHMARK {
+        for (int i = 100; i > 0; i--) {
+            KFileItem cachedItem = m_dirLister.findByUrl(QUrl::fromLocalFile(path + QString("toplevelfile_new_%1").arg(i)));
+            QVERIFY(!cachedItem.isNull());
+        }
+    }
+}
+
 void KDirListerTest::testNewItemByCopy()
 {
     // This test creates a file using KIO::copyAs, like knewmenu.cpp does.
