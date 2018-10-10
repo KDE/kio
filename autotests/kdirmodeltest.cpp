@@ -1271,13 +1271,13 @@ void KDirModelTest::testOverwriteFileWithDir() // #151851 c4
 
     bool removalWithinTopLevel = false;
     bool dataChangedAtFirstLevel = false;
-    connect(m_dirModel, &KDirModel::rowsRemoved, this, [&removalWithinTopLevel](const QModelIndex &index) {
+    auto rrc = connect(m_dirModel, &KDirModel::rowsRemoved, this, [&removalWithinTopLevel](const QModelIndex &index) {
         if (!index.isValid()) {
             // yes, that's what we have been waiting for
             removalWithinTopLevel = true;
         }
     });
-    connect(m_dirModel, &KDirModel::dataChanged, this, [&dataChangedAtFirstLevel](const QModelIndex &index) {
+    auto dcc = connect(m_dirModel, &KDirModel::dataChanged, this, [&dataChangedAtFirstLevel](const QModelIndex &index) {
         if (index.isValid() && !index.parent().isValid()) {
             // a change of a node whose parent is root, yay, that's it
             dataChangedAtFirstLevel = true;
@@ -1306,6 +1306,9 @@ void KDirModelTest::testOverwriteFileWithDir() // #151851 c4
     }
     QVERIFY(removalWithinTopLevel);
     QVERIFY(dataChangedAtFirstLevel);
+
+    m_dirModel->disconnect(rrc);
+    m_dirModel->disconnect(dcc);
 
     // If we come here, then rowsRemoved() was emitted - all good.
     const int topLevelRowCount = m_dirModel->rowCount();
