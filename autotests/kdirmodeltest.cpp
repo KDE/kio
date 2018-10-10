@@ -1126,6 +1126,7 @@ void KDirModelTest::testMimeData()
     QVERIFY(mimeData->hasUrls());
     const QList<QUrl> urls = mimeData->urls();
     QCOMPARE(urls.count(), indexes.count());
+    delete mimeData;
 }
 
 void KDirModelTest::testDotHiddenFile_data()
