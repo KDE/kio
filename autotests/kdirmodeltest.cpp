@@ -120,6 +120,8 @@ void KDirModelTest::cleanupTestCase()
     m_tempDir = nullptr;
     delete m_dirModel;
     m_dirModel = nullptr;
+    delete m_dirModelForExpand;
+    m_dirModelForExpand = nullptr;
 }
 
 void KDirModelTest::fillModel(bool reload, bool expectAllIndexes)
