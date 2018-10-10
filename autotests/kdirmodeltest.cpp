@@ -1269,10 +1269,23 @@ void KDirModelTest::testOverwriteFileWithDir() // #151851 c4
     const QString file = path + "toplevelfile_1";
     const int oldTopLevelRowCount = m_dirModel->rowCount();
 
-    QSignalSpy spyRowsRemoved(m_dirModel, SIGNAL(rowsRemoved(QModelIndex,int,int)));
+    bool removalWithinTopLevel = false;
+    bool dataChangedAtFirstLevel = false;
+    connect(m_dirModel, &KDirModel::rowsRemoved, this, [&removalWithinTopLevel](const QModelIndex &index) {
+        if (!index.isValid()) {
+            // yes, that's what we have been waiting for
+            removalWithinTopLevel = true;
+        }
+    });
+    connect(m_dirModel, &KDirModel::dataChanged, this, [&dataChangedAtFirstLevel](const QModelIndex &index) {
+        if (index.isValid() && !index.parent().isValid()) {
+            // a change of a node whose parent is root, yay, that's it
+            dataChangedAtFirstLevel = true;
+        }
+    });
+
     checkedConnect(m_dirModel, SIGNAL(rowsRemoved(QModelIndex,int,int)),
                    &m_eventLoop, SLOT(exitLoop()));
-    QSignalSpy spyDataChanged(m_dirModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)));
 
     KIO::Job *job = KIO::move(QUrl::fromLocalFile(dir), QUrl::fromLocalFile(file), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
@@ -1285,24 +1298,9 @@ void KDirModelTest::testOverwriteFileWithDir() // #151851 c4
 
     // Wait for a removal within the top level (that's for the old file going away), and also
     // for a dataChanged which notifies us that a file has become a directory
-    bool removalWithinTopLevel = false;
-    bool dataChangedAtFirstLevel = false;
+
     int retries = 0;
     while ((!removalWithinTopLevel || !dataChangedAtFirstLevel) && retries < 100) {
-        for (int i = 0; i < spyRowsRemoved.size() && !removalWithinTopLevel; ++i) {
-            QModelIndex parent = spyRowsRemoved[i][0].value<QModelIndex>();
-            if (!parent.isValid()) {
-                // yes, that's what we have been waiting for
-                removalWithinTopLevel = true;
-            }
-        }
-        for (int i = 0; i < spyDataChanged.size() && !dataChangedAtFirstLevel; ++i) {
-            QModelIndex idx = spyDataChanged[i][0].value<QModelIndex>();
-            if (idx.isValid() && !idx.parent().isValid()) {
-                // a change of a node whose parent is root, yay, that's it
-                dataChangedAtFirstLevel = true;
-            }
-        }
         QTest::qWait(10);
         ++retries;
     }
