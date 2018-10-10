@@ -129,7 +129,6 @@ void TransferJob::slotFinished()
             }
             d->m_internalSuspended = false;
             // The very tricky part is the packed arguments business
-            QString dummyStr;
             QUrl dummyUrl;
             QDataStream istream(d->m_packedArgs);
             switch (d->m_command) {

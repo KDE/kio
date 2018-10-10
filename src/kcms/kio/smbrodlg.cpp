@@ -98,7 +98,6 @@ void SMBRoOptions::load()
 {
    KConfig *cfg = new KConfig(QStringLiteral("kioslaverc"));
 
-   QString tmp;
    KConfigGroup group = cfg->group("Browser Settings/SMBro" );
    m_userLe->setText(group.readEntry("User"));
 //   m_workgroupLe->setText(group.readEntry("Workgroup"));

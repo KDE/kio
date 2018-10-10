@@ -509,7 +509,6 @@ void FileProtocol::read(KIO::filesize_t bytes)
     // qDebug() << "File::open -- read";
     Q_ASSERT(mFile && mFile->isOpen());
 
-    QVarLengthArray<char> buffer(bytes);
     while (true) {
         QByteArray res = mFile->read(bytes);
 
@@ -619,7 +618,6 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
 
     int result;
     QString dest;
-    QByteArray _dest;
     QFile f;
 
     // Loop until we got 0 (end of data)

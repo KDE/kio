@@ -499,7 +499,6 @@ void TrashProtocol::listRoot()
     listEntry(entry);
     for (TrashedFileInfoList::ConstIterator it = lst.begin(); it != lst.end(); ++it) {
         const QUrl url = TrashImpl::makeURL((*it).trashId, (*it).fileId, QString());
-        QUrl origURL = QUrl::fromLocalFile((*it).origPath);
         entry.clear();
         const QString fileDisplayName = (*it).fileId;
 

@@ -1683,8 +1683,6 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     d->cbRecursive = nullptr;
     d->grpCombo = nullptr; d->grpEdit = nullptr;
     d->usrEdit = nullptr;
-    QString path = properties->url().path();
-    QString fname = properties->url().fileName();
     bool isLocal = properties->url().isLocalFile();
     bool isTrash = (properties->url().scheme() == QLatin1String("trash"));
     KUser myself(KUser::UseEffectiveUID);
@@ -1710,7 +1708,6 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
         KFileItemList::const_iterator it = items.begin();
         const KFileItemList::const_iterator kend = items.end();
         for (++it /*no need to check the first one again*/; it != kend; ++it) {
-            const QUrl url = (*it).url();
             if (!d->isIrregular)
                 d->isIrregular |= isIrregular((*it).permissions(),
                                               (*it).isDir() == isDir,
@@ -1888,7 +1885,6 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     /*** Set Group ***/
 
     QStringList groupList;
-    QByteArray strUser;
     KUser user(KUser::UseEffectiveUID);
     const bool isMyGroup = user.groupNames().contains(d->strGroup);
 

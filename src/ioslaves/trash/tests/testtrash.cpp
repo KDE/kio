@@ -351,7 +351,6 @@ void TestTrash::trashFile(const QString &origFilePath, const QString &fileId)
     QMap<QString, QString>::ConstIterator it = metaData.constBegin();
     for (; it != metaData.constEnd(); ++it) {
         if (it.key().startsWith(QLatin1String("trashURL"))) {
-            const QString origPath = it.key().mid(9);
             QUrl trashURL(it.value());
             qDebug() << trashURL;
             QVERIFY(!trashURL.isEmpty());
@@ -449,7 +448,6 @@ void TestTrash::trashFileIntoOtherPartition()
     QMap<QString, QString>::ConstIterator it = metaData.constBegin();
     for (; it != metaData.constEnd(); ++it) {
         if (it.key().startsWith(QLatin1String("trashURL"))) {
-            const QString origPath = it.key().mid(9);
             QUrl trashURL(it.value());
             qDebug() << trashURL;
             QVERIFY(!trashURL.isEmpty());
@@ -474,7 +472,6 @@ void TestTrash::trashFileOwnedByRoot()
     job->setUiDelegate(nullptr); // no skip dialog, thanks
     bool ok = job->exec();
     QVERIFY(!ok);
-    QMap<QString, QString> metaData = job->metaData();
 
     QVERIFY(job->error() == KIO::ERR_ACCESS_DENIED);
     const QString infoPath(m_trashDir + QLatin1String("/info/") + fileId + QLatin1String(".trashinfo"));
@@ -1018,7 +1015,6 @@ void TestTrash::trashDirectoryOwnedByRoot()
     job->setUiDelegate(nullptr); // no skip dialog, thanks
     bool ok = job->exec();
     QVERIFY(!ok);
-    QMap<QString, QString> metaData = job->metaData();
     const int err = job->error();
     QVERIFY(err == KIO::ERR_ACCESS_DENIED
             || err == KIO::ERR_CANNOT_OPEN_FOR_READING);

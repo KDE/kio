@@ -867,7 +867,6 @@ void KFileWidget::slotOk()
           * This example has been written for 2 urls, but this works for any number of urls.
           */
         if (!d->differentHierarchyLevelItemsEntered) {     // avoid infinite recursion. running this
-            QList<QUrl> urlList;                            // one time is always enough.
             int start = 0;
             QUrl topMostUrl;
             KIO::StatJob *statJob = nullptr;

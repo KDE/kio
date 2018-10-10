@@ -166,7 +166,6 @@ static QByteArray createBlob(const QByteArray &targetinfo)
 
 static QByteArray hmacMD5(const QByteArray &data, const QByteArray &key)
 {
-    QByteArray ret;
     QByteArray ipad(64, 0x36);
     QByteArray opad(64, 0x5c);
 

@@ -103,7 +103,6 @@ void UserAgentDlg::on_deleteButton_clicked()
     SiteList selectedItems = ui.sitePolicyTreeWidget->selectedItems();
     SiteListIterator endIt = selectedItems.end();
 
-    QString siteName;
     for (SiteListIterator it = selectedItems.begin(); it != endIt; ++it)
         delete (*it);
 

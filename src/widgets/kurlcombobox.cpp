@@ -78,7 +78,6 @@ QString KUrlComboBoxPrivate::textForItem(const KUrlComboItem *item) const
     if (!item->text.isEmpty()) {
         return item->text;
     }
-    QString text;
     QUrl url = item->url;
 
     if (myMode == KUrlComboBox::Directories) {

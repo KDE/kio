@@ -46,7 +46,6 @@ namespace
 static int findString(const QString &s, const char *const *values)
 {
     int index = 0;
-    const QString lower = s.toLower();
     for (const char *const *p = values; *p; ++p, ++index) {
         if (s.compare(QLatin1String(*p), Qt::CaseInsensitive) == 0) {
             return index;

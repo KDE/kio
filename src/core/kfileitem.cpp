@@ -874,7 +874,6 @@ static QString iconFromDesktopFile(const QString &path)
     if (cfg.hasLinkType()) {
         const KConfigGroup group = cfg.desktopGroup();
         const QString emptyIcon = group.readEntry("EmptyIcon");
-        const QString type = cfg.readPath();
         if (!emptyIcon.isEmpty()) {
             const QString u = cfg.readUrl();
             const QUrl url(u);

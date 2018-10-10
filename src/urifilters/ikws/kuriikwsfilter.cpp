@@ -65,7 +65,6 @@ void KAutoWebSearch::populateProvidersList(QList<KUriFilterSearchProvider*>& sea
 {
   QList<SearchProvider*> providers;
   KURISearchFilterEngine *filter = KURISearchFilterEngine::self();
-  const QString searchTerm = filter->keywordDelimiter() + data.typedString();
 
   if (allproviders)
     providers = filter->registry()->findAll();
