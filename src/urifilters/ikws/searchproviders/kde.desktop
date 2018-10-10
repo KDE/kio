@@ -96,7 +96,6 @@ Query=http://api.kde.org/classmapper.php?class=\\{@}
 Query[af]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[ar]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[as]=http://api.kde.org/classmapper.php?class=\\{@}
-Query[ast]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[be@latin]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[bg]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[bn]=http://api.kde.org/classmapper.php?class=\\{@}

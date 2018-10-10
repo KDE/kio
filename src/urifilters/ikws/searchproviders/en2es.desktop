@@ -93,7 +93,6 @@ Query=http://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[af]=http://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[ar]=http://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[as]=http://www.wordreference.com/es/translation.asp?tranword=\\{@}
-Query[ast]=http://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[be]=http://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[be@latin]=http://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[bg]=http://www.wordreference.com/es/translation.asp?tranword=\\{@}

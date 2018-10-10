@@ -89,7 +89,6 @@ Keys=mt,mtde
 Query=http://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[ar]=http://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[as]=http://multitran.ru/c/m.exe?l1=23&s=\\{@}
-Query[ast]=http://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[be@latin]=http://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[bg]=http://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[bn]=http://multitran.ru/c/m.exe?l1=23&s=\\{@}

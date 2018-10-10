@@ -92,7 +92,6 @@ Query=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[af]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[ar]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[as]=http://dict.leo.org/?lp=frde&search=\\{@}
-Query[ast]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[be]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[be@latin]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[bg]=http://dict.leo.org/?lp=frde&search=\\{@}

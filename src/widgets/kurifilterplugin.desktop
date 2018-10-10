@@ -3,7 +3,6 @@ Type=ServiceType
 X-KDE-ServiceType=KUriFilter/Plugin
 Name=Enhanced Browsing Plugin
 Name[ar]=ملحقة تصفّح محسنة
-Name[ast]=Complementu de restolar ameyoráu
 Name[ca]=Connector per a la navegació millorada
 Name[ca@valencia]=Connector per a la navegació millorada
 Name[cs]=Modul rozšířeného procházení

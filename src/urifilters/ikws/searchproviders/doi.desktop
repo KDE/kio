@@ -92,7 +92,6 @@ Query=http://dx.doi.org/\\{@}
 Query[af]=http://dx.doi.org/\\{@}
 Query[ar]=http://dx.doi.org/\\{@}
 Query[as]=http://dx.doi.org/\\{@}
-Query[ast]=http://dx.doi.org/\\{@}
 Query[be]=http://dx.doi.org/\\{@}
 Query[be@latin]=http://dx.doi.org/\\{@}
 Query[bg]=http://dx.doi.org/\\{@}

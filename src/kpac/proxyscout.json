@@ -2,7 +2,6 @@
     "KPlugin": {
         "Description": "Automatic proxy configuration",
         "Description[ar]": "ضبط آلي للوسيط",
-        "Description[ast]": "Configuración automática del proxy",
         "Description[ca@valencia]": "Configuració automàtica de l'intermediari",
         "Description[ca]": "Configuració automàtica de l'intermediari",
         "Description[cs]": "Automatické nastavení proxy",
@@ -40,7 +39,6 @@
         "Description[zh_TW]": "自動代理伺服器組態",
         "Name": "Network Proxy Configuration",
         "Name[ar]": "ضبط وسيط الشبكة",
-        "Name[ast]": "Configuración de proxy de rede",
         "Name[ca@valencia]": "Configuració del servidor intermediari de la xarxa",
         "Name[ca]": "Configuració del servidor intermediari de la xarxa",
         "Name[cs]": "Nastavení proxy sítě",

@@ -4,7 +4,6 @@ Hidden=false
 Keys=wikia,wka
 Name=Wikia
 Name[ar]=ويكيا
-Name[ast]=Wikia
 Name[bg]=Wikia
 Name[bn]=উইকিয়া
 Name[bs]=Vikija
@@ -72,7 +71,6 @@ Name[zh_CN]=Wikia
 Name[zh_TW]=Wikia
 Query=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[ar]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
-Query[ast]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[bg]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[bn]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[bs]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search

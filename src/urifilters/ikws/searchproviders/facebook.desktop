@@ -4,7 +4,6 @@ Hidden=false
 Keys=facebook,face,fb
 Name=Facebook
 Name[ar]=فيس بوك
-Name[ast]=Facebook
 Name[bg]=Facebook
 Name[bn]=ফেসবুক
 Name[bs]=Fejsbuk
@@ -73,7 +72,6 @@ Name[zh_CN]=Facebook
 Name[zh_TW]=Facebook
 Query=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[ar]=https://www.facebook.com/search/?q=\\{@}&init=quick
-Query[ast]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[bg]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[bs]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[ca]=https://www.facebook.com/search/?q=\\{@}&init=quick

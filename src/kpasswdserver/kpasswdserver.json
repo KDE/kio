@@ -2,7 +2,6 @@
     "KPlugin": {
         "Description": "Temporary password caching",
         "Description[ar]": "تخبئة مؤقتة لكلمات السر",
-        "Description[ast]": "Contraseñes que tán temporalmente na caché",
         "Description[ca@valencia]": "Cau temporal de les contrasenyes",
         "Description[ca]": "Cau temporal de les contrasenyes",
         "Description[cs]": "Dočasné ukládání hesel do mezipaměti",
@@ -40,7 +39,6 @@
         "Description[zh_TW]": "暫時密碼快取",
         "Name": "Password Caching",
         "Name[ar]": "تخبئة كلمات السر",
-        "Name[ast]": "Contraseñes na caché",
         "Name[ca@valencia]": "Cau de les contrasenyes",
         "Name[ca]": "Cau de les contrasenyes",
         "Name[cs]": "Ukládání hesel do mezipaměti",

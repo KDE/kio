@@ -43,7 +43,6 @@ Name[x-test]=xxQwant Socialxx
 Name[zh_CN]=Qwant 社会
 Name[zh_TW]=Qwant Social
 Query=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
-Query[ast]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[ca]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[ca@valencia]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social
 Query[cs]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social

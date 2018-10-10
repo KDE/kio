@@ -4,7 +4,6 @@ Name=HyperDictionary.com
 Name[af]=HyperDictionary.com
 Name[ar]=HyperDictionary.com
 Name[as]=HyperDictionary.com
-Name[ast]=HyperDictionary.com
 Name[be]=HyperDictionary.com
 Name[be@latin]=HyperDictionary.com
 Name[bg]=HyperDictionary.com
@@ -97,7 +96,6 @@ Query=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[af]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[ar]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[as]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
-Query[ast]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[be]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[be@latin]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[bg]=http://www.hyperdictionary.com/search.aspx?define=\\{@}

@@ -2,7 +2,6 @@
 IconName=preferences-system-network-proxy
 Comment=Network Proxy Configuration
 Comment[ar]=ضبط وسيط الشّبكة
-Comment[ast]=Configura'l proxy de rede
 Comment[ca]=Configuració del servidor intermediari de la xarxa
 Comment[ca@valencia]=Configuració del servidor intermediari de la xarxa
 Comment[cs]=Nastavení proxy sítě
@@ -53,7 +52,6 @@ Comment[zh_TW]=網路代理組態
 [Event/script-error]
 Name=Invalid Proxy Script
 Name[ar]=سكرِبت وسيط غير صالح
-Name[ast]=Script non válidu de proxy
 Name[ca]=L'script de l'intermediari no és vàlid
 Name[ca@valencia]=L'script de l'intermediari no és vàlid
 Name[cs]=Neplatný proxy skript
@@ -102,7 +100,6 @@ Name[zh_CN]=无效的代理脚本
 Name[zh_TW]=不合法的代理文稿
 Comment=The downloaded proxy configuration script is invalid
 Comment[ar]=سكرِبت ضبط الوسيط المُنزّل غير صالح
-Comment[ast]=El script baxáu de configuración del proxy nun ye válidu
 Comment[ca]=L'script de configuració baixat de l'intermediari no és vàlid
 Comment[ca@valencia]=L'script de configuració baixat de l'intermediari no és vàlid
 Comment[cs]=Stažený konfigurační skript pro proxy je neplatný
@@ -155,7 +152,6 @@ Action=Popup
 [Event/download-error]
 Name=Script Download Error
 Name[ar]=خطأ في تحميل السكرِبت
-Name[ast]=Fallu de descarga del proxy
 Name[ca]=Error en baixar l'script
 Name[ca@valencia]=Error en baixar l'script
 Name[cs]=Chyba ve stažení skriptu
@@ -204,7 +200,6 @@ Name[zh_CN]=脚本下载错误
 Name[zh_TW]=文稿下載錯誤
 Comment=The proxy configuration script could not be downloaded
 Comment[ar]=تعذّر تحميل سكرِبت تضبيط الوسيط
-Comment[ast]=Nun pudo baxase'l script de configuración del proxy
 Comment[ca]=L'script de configuració de l'intermediari no es pot baixar
 Comment[ca@valencia]=L'script de configuració de l'intermediari no es pot baixar
 Comment[cs]=Nelze stáhnout konfigurační skript pro proxy
@@ -257,7 +252,6 @@ Action=Popup
 
 [Event/evaluation-error]
 Name=Script Evaluation Error
-Name[ast]=Fallu d'evaluación de script
 Name[ca]=Error en avaluar l'script
 Name[ca@valencia]=Error en avaluar l'script
 Name[cs]=Chyba v analýze skriptu
@@ -305,7 +299,6 @@ Name[zh_CN]=脚本执行错误
 Name[zh_TW]=文稿執行錯誤
 Comment=There was an error executing the proxy configuration script
 Comment[ar]=خطأ في تنفيذ سكرِبت تضبيط الوسيط
-Comment[ast]=Hebo un fallu executando'l script de configuración del proxy
 Comment[ca]=S'ha produït un error en executar l'script de configuració de l'intermediari
 Comment[ca@valencia]=S'ha produït un error en executar l'script de configuració de l'intermediari
 Comment[cs]=Nastala chyba při spouštění konfiguračního skriptu proxy

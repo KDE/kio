@@ -14,7 +14,6 @@ Name=Windows Shares
 Name[af]=Vensters Gedeelde bronne
 Name[ar]=مشاركات وندوز
 Name[as]=Windows Shares
-Name[ast]=Comparticiones de Windows
 Name[be]=Агульныя тэчкі Windows
 Name[be@latin]=Supolna dastupnyja katalohi „Windows”
 Name[bg]=Споделяне с Windows
@@ -130,7 +129,6 @@ Comment[zh_CN]=访问 SMB 共享的凭证
 Comment[zh_TW]=用於存取 SMB 分享的憑證
 
 X-KDE-Keywords=SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords
-X-KDE-Keywords[ast]=SMB,SAMBA,Veceru SMB,Rede de Windows,LAN,Rede,vecinderu,Sirvidor,Broadcast,WINS,Compartir,Compartición,Aniciu de sesión,Contraseñes
 X-KDE-Keywords[ca]=SMB,SAMBA,Client SMB,Xarxa Windows,LAN,Xarxa,veïnat,Servidor,Difusió,WINS,Compartició,Connexió,Contrasenyes
 X-KDE-Keywords[ca@valencia]=SMB,SAMBA,Client SMB,Xarxa Windows,LAN,Xarxa,veïnat,Servidor,Difusió,WINS,Compartició,Connexió,Contrasenyes
 X-KDE-Keywords[da]=SMB,SAMBA,SMB-klient,Windows netværk,LAN,netværk,nabolag,Server,Broadcast,WINS,Share,Login,adgangskoder
