@@ -21,6 +21,7 @@
 #include "kfileplacesview.h"
 #include "kfileplacesview_p.h"
 
+#include <QDir>
 #include <QTimeLine>
 #include <QTimer>
 #include <QPainter>
@@ -37,6 +38,7 @@
 #include <kdirnotify.h>
 #include <klocalizedstring.h>
 #include <kmessagebox.h>
+#include <kmountpoint.h>
 #include <kpropertiesdialog.h>
 #include <kio/emptytrashjob.h>
 #include <kio/jobuidelegate.h>
@@ -731,6 +733,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
 
     QModelIndex index = indexAt(event->pos());
     const QString label = placesModel->text(index).replace(QLatin1Char('&'), QLatin1String("&&"));
+    const QUrl placeUrl = placesModel->url(index);
 
     QMenu menu;
 
@@ -754,7 +757,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     }
     else if (index.isValid()) {
         if (!placesModel->isDevice(index)) {
-            if (placesModel->url(index).toString() == QLatin1String("trash:/")) {
+            if (placeUrl.toString() == QLatin1String("trash:/")) {
                 emptyTrash = menu.addAction(QIcon::fromTheme(QStringLiteral("trash-empty")), i18nc("@action:inmenu", "Empty Trash"));
                 KConfig trashConfig(QStringLiteral("trashrc"), KConfig::SimpleConfig);
                 emptyTrash->setEnabled(!trashConfig.group("Status").readEntry("Empty", true));
@@ -771,6 +774,16 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
 
             teardown = placesModel->teardownActionForIndex(index);
             if (teardown != nullptr) {
+                // Disable teardown option for root and home partitions
+                bool teardownEnabled = placeUrl != QUrl::fromLocalFile(QDir::rootPath());
+                if (teardownEnabled) {
+                    KMountPoint::Ptr mountPoint = KMountPoint::currentMountPoints().findByPath(QDir::homePath());
+                    if (mountPoint && placeUrl == QUrl::fromLocalFile(mountPoint->mountPoint())) {
+                        teardownEnabled = false;
+                    }
+                }
+                teardown->setEnabled(teardownEnabled);
+
                 teardown->setParent(&menu);
                 menu.addAction(teardown);
             }
@@ -786,7 +799,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         if (add == nullptr) {
             add = menu.addAction(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Add Entry..."));
         }
-        if (placesModel->url(index).isLocalFile()) {
+        if (placeUrl.isLocalFile()) {
             properties = menu.addAction(QIcon::fromTheme(QStringLiteral("document-properties")), i18n("Properties"));
         }
         if (!placesModel->isDevice(index)) {
@@ -837,7 +850,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             job->uiDelegate()->setAutoErrorHandlingEnabled(true);
         }
     } else if (properties && (result == properties)) {
-        KPropertiesDialog::showDialog(placesModel->url(index), this);
+        KPropertiesDialog::showDialog(placeUrl, this);
     } else if (edit && (result == edit)) {
         KBookmark bookmark = placesModel->bookmarkForIndex(index);
         QUrl url = bookmark.url();
