@@ -10,6 +10,7 @@ extern "C" int xmlLoadExtDtdDefaultValue;
 
 #include <QDebug>
 
+#include <QCoreApplication>
 #include <QString>
 
 #include <stdlib.h>
@@ -40,6 +41,9 @@ extern "C"
 {
     Q_DECL_EXPORT int kdemain(int argc, char **argv)
     {
+        QCoreApplication app(argc, argv);   // needed for KCrash
+        app.setApplicationName(QStringLiteral("kio_help"));
+
         KDocTools::setupStandardDirs();
 
         //qDebug() << "Starting " << getpid();
