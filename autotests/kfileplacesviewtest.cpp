@@ -99,6 +99,7 @@ void KFilePlacesViewTest::testUrlChanged()
 
     KFilePlacesView pv;
     pv.show();
+    pv.activateWindow();
     pv.setModel(new KFilePlacesModel());
     QVERIFY(QTest::qWaitForWindowActive(&pv));
 

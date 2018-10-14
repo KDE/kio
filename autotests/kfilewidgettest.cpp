@@ -66,6 +66,7 @@ private Q_SLOTS:
     {
         KFileWidget fw(QUrl::fromLocalFile(QDir::homePath()));
         fw.show();
+        fw.activateWindow();
         QVERIFY(QTest::qWaitForWindowActive(&fw));
 
         QVERIFY(findLocationLabel(&fw)->hasFocus());
@@ -76,6 +77,7 @@ private Q_SLOTS:
         KFileWidget fw(QUrl::fromLocalFile(QDir::homePath()));
         fw.setUrl(QUrl::fromLocalFile(QDir::tempPath()));
         fw.show();
+        fw.activateWindow();
         QVERIFY(QTest::qWaitForWindowActive(&fw));
 
         QVERIFY(findLocationLabel(&fw)->hasFocus());
@@ -85,6 +87,7 @@ private Q_SLOTS:
     {
         KFileWidget fw(QUrl::fromLocalFile(QDir::homePath()));
         fw.show();
+        fw.activateWindow();
         QVERIFY(QTest::qWaitForWindowActive(&fw));
 
         fw.setUrl(QUrl::fromLocalFile(QDir::tempPath()));
@@ -96,6 +99,7 @@ private Q_SLOTS:
     {
         KFileWidget fw(QUrl::fromLocalFile(QDir::homePath()));
         fw.show();
+        fw.activateWindow();
         QVERIFY(QTest::qWaitForWindowActive(&fw));
 
         const QList<KUrlNavigator*> nav = fw.findChildren<KUrlNavigator*>();
@@ -156,6 +160,7 @@ private Q_SLOTS:
 
         KFileWidget fw(baseUrl);
         fw.show();
+        fw.activateWindow();
         QVERIFY(QTest::qWaitForWindowActive(&fw));
 
         // WHEN
@@ -202,6 +207,7 @@ private Q_SLOTS:
         const QUrl expectedBaseUrl = QUrl::fromLocalFile(expectedBaseDir);
         KFileWidget fw(baseUrl);
         fw.show();
+        fw.activateWindow();
         QVERIFY(QTest::qWaitForWindowActive(&fw));
 
         // WHEN
