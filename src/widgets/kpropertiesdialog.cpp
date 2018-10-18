@@ -3114,7 +3114,7 @@ void KUrlPropsPlugin::applyChanges()
     const QUrl url = job->mostLocalUrl();
 
     if (!url.isLocalFile()) {
-        KMessageBox::sorry(0, i18n("Could not save properties. Only entries on local file systems are supported."));
+        KMessageBox::sorry(nullptr, i18n("Could not save properties. Only entries on local file systems are supported."));
         return;
     }
 
