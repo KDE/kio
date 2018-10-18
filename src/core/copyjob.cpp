@@ -652,7 +652,8 @@ void CopyJobPrivate::addCopyInfoFromUDSEntry(const UDSEntry &entry, const QUrl &
     info.permissions = entry.numberValue(KIO::UDSEntry::UDS_ACCESS, -1);
     info.mtime = QDateTime::fromMSecsSinceEpoch(1000 * entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1));
     info.ctime = QDateTime::fromMSecsSinceEpoch(1000 * entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1));
-    info.size = (KIO::filesize_t) entry.numberValue(KIO::UDSEntry::UDS_SIZE, -1);
+    info.size = static_cast<KIO::filesize_t>(entry.numberValue(KIO::UDSEntry::UDS_SIZE, -1));
+
     if (info.size != (KIO::filesize_t) - 1) {
         m_totalSize += info.size;
     }
@@ -884,6 +885,7 @@ void CopyJobPrivate::statCurrentSrc()
         slotReport();
 
         qCDebug(KIO_COPYJOB_DEBUG)<<"Stating finished. To copy:"<<m_totalSize<<", available:"<<m_freeSpace;
+
         if (m_totalSize > m_freeSpace && m_freeSpace != static_cast<KIO::filesize_t>(-1)) {
             q->setError(ERR_DISK_FULL);
             q->setErrorText(m_currentSrcURL.toDisplayString());

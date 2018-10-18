@@ -1057,7 +1057,8 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
                            "service for requesting passwords (kpasswdserver) couldn't be contacted");
         solutions << i18n("Try restarting your session, or look in the logs for errors from kiod.");
         break;
-    case  KIO::ERR_CANNOT_CREATE_SLAVE:
+
+    case KIO::ERR_CANNOT_CREATE_SLAVE:
         errorName = i18n("Cannot Initiate the %1 Protocol",  protocol);
         techName = i18n("Unable to Create io-slave");
         description = i18n("The io-slave which provides access "
