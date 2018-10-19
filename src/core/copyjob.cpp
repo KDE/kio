@@ -49,7 +49,6 @@
 #ifdef Q_OS_UNIX
 #include <utime.h>
 #endif
-#include <assert.h>
 
 #include <qtemporaryfile.h>
 #include <QTimer>
@@ -370,7 +369,7 @@ void CopyJobPrivate::slotResultStating(KJob *job)
             // We'll assume a file, and try to download anyway.
             qCDebug(KIO_COPYJOB_DEBUG) << "Error while stating source. Activating hack";
             q->removeSubjob(job);
-            assert(!q->hasSubjobs());    // We should have only one job at a time ...
+            Q_ASSERT(!q->hasSubjobs());    // We should have only one job at a time ...
             struct CopyInfo info;
             info.permissions = (mode_t) - 1;
             info.size = (KIO::filesize_t) - 1;
@@ -444,7 +443,7 @@ void CopyJobPrivate::slotResultStating(KJob *job)
         }
 
         q->removeSubjob(job);
-        assert(!q->hasSubjobs());
+        Q_ASSERT(!q->hasSubjobs());
 
         // After knowing what the dest is, we can start stat'ing the first src.
         statCurrentSrc();
@@ -1096,7 +1095,7 @@ void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
 
                         Q_ASSERT(((SimpleJob *)job)->url() == (*it).uDest);
                         q->removeSubjob(job);
-                        assert(!q->hasSubjobs());  // We should have only one job at a time ...
+                        Q_ASSERT(!q->hasSubjobs());  // We should have only one job at a time ...
 
                         // We need to stat the existing dir, to get its last-modification time
                         QUrl existingDest((*it).uDest);
@@ -1124,7 +1123,7 @@ void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
     m_processedDirs++;
     //emit processedAmount( this, KJob::Directories, m_processedDirs );
     q->removeSubjob(job);
-    assert(!q->hasSubjobs());   // We should have only one job at a time ...
+    Q_ASSERT(!q->hasSubjobs());   // We should have only one job at a time ...
     createNextDir();
 }
 
@@ -1146,7 +1145,7 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
     const QString linkDest = entry.stringValue(KIO::UDSEntry::UDS_LINK_DEST);
 
     q->removeSubjob(job);
-    assert(!q->hasSubjobs());    // We should have only one job at a time ...
+    Q_ASSERT(!q->hasSubjobs());    // We should have only one job at a time ...
 
     // Always multi and skip (since there are files after that)
     RenameDialog_Options options(RenameDialog_MultipleItems | RenameDialog_Skip | RenameDialog_IsDirectory);
@@ -1216,7 +1215,7 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
         m_processedDirs++;
         break;
     default:
-        assert(0);
+        Q_ASSERT(0);
     }
     state = STATE_CREATING_DIRS;
     //emit processedAmount( this, KJob::Directories, m_processedDirs );
@@ -1309,7 +1308,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
                     }
 
                     q->removeSubjob(job);
-                    assert(!q->hasSubjobs());
+                    Q_ASSERT(!q->hasSubjobs());
                     // We need to stat the existing file, to get its last-modification time
                     QUrl existingFile((*it).uDest);
                     SimpleJob *newJob = KIO::stat(existingFile, StatJob::DestinationSide, 2, KIO::HideProgressInfo);
@@ -1343,7 +1342,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
                 && !qobject_cast<KIO::DeleteJob *>(job)   // Deleting source not already done
            ) {
             q->removeSubjob(job);
-            assert(!q->hasSubjobs());
+            Q_ASSERT(!q->hasSubjobs());
             // The only problem with this trick is that the error handling for this del operation
             // is not going to be right... see 'Very special case' above.
             KIO::Job *newjob = KIO::del((*it).uSource, HideProgressInfo);
@@ -1386,7 +1385,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
     Q_ASSERT(kiojob);
     m_incomingMetaData += kiojob->metaData();
     q->removeSubjob(job);
-    assert(!q->hasSubjobs());   // We should have only one job at a time ...
+    Q_ASSERT(!q->hasSubjobs());   // We should have only one job at a time ...
     copyNextFile();
 }
 
@@ -1466,7 +1465,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
     }
 
     q->removeSubjob(job);
-    assert(!q->hasSubjobs());
+    Q_ASSERT(!q->hasSubjobs());
     switch (res) {
     case Result_Cancel:
         q->setError(ERR_USER_CANCELED);
@@ -1509,7 +1508,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
         // Do nothing, copy file again
         break;
     default:
-        assert(0);
+        Q_ASSERT(0);
     }
     state = STATE_COPYING_FILES;
     copyNextFile();
@@ -1847,7 +1846,7 @@ void CopyJobPrivate::slotResultDeletingDirs(KJob *job)
         m_successSrcList.append(static_cast<KIO::SimpleJob *>(job)->url());
     }
     q->removeSubjob(job);
-    assert(!q->hasSubjobs());
+    Q_ASSERT(!q->hasSubjobs());
     deleteNextDir();
 }
 
@@ -1860,7 +1859,7 @@ void CopyJobPrivate::slotResultSettingDirAttributes(KJob *job)
         // Let's not display warnings for each dir like "cp -a" does.
     }
     q->removeSubjob(job);
-    assert(!q->hasSubjobs());
+    Q_ASSERT(!q->hasSubjobs());
     setNextDirAttribute();
 }
 
@@ -1875,7 +1874,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
     Q_ASSERT(kiojob);
     m_incomingMetaData += kiojob->metaData();
     q->removeSubjob(job);
-    assert(!q->hasSubjobs());
+    Q_ASSERT(!q->hasSubjobs());
     // Determine dest again
     QUrl dest = m_dest;
     if (destinationState == DEST_IS_DIR && !m_asMethod) {
@@ -2077,7 +2076,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                     m_overwriteList.insert(dest.path());
                     break;
                 default:
-                    //assert( 0 );
+                    //Q_ASSERT( 0 );
                     break;
                 }
             } else if (err != KIO::ERR_UNSUPPORTED_ACTION) {
@@ -2135,7 +2134,7 @@ void CopyJob::slotResult(KJob *job)
         }
 
         removeSubjob(job);
-        assert(!hasSubjobs());
+        Q_ASSERT(!hasSubjobs());
 
         d->statNextSrc();
         break;
@@ -2158,7 +2157,7 @@ void CopyJob::slotResult(KJob *job)
         d->slotResultSettingDirAttributes(job);
         break;
     default:
-        assert(0);
+        Q_ASSERT(0);
     }
 }
 
