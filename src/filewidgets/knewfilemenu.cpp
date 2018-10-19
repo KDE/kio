@@ -689,15 +689,10 @@ void KNewFileMenuPrivate::fillMenu()
                     }
 
                     menu->addAction(act);
-
-                    QAction *sep = new QAction(q);
-                    sep->setSeparator(true);
-                    menu->addAction(sep);
+                    menu->addSeparator();
                 } else {
                     if (lastTemplatePath.startsWith(QDir::homePath()) && !templatePath.startsWith(QDir::homePath())) {
-                        QAction *sep = new QAction(q);
-                        sep->setSeparator(true);
-                        menu->addAction(sep);
+                        menu->addSeparator();
                     }
                     if (!m_supportedMimeTypes.isEmpty()) {
                         bool keep = false;
@@ -761,17 +756,12 @@ void KNewFileMenuPrivate::fillMenu()
             lastTemplatePath = entry.templatePath;
         } else { // Separate system from personal templates
             Q_ASSERT(entry.entryType != 0);
-
-            QAction *sep = new QAction(q);
-            sep->setSeparator(true);
-            menu->addAction(sep);
+            menu->addSeparator();
         }
     }
 
     if (m_supportedMimeTypes.isEmpty()) {
-        QAction *sep = new QAction(q);
-        sep->setSeparator(true);
-        menu->addAction(sep);
+        menu->addSeparator();
         if (linkURL) {
             menu->addAction(linkURL);
         }

@@ -535,23 +535,17 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     QWidget *midSpacer = new QWidget(this);
     midSpacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    QAction *separator = new QAction(this);
-    separator->setSeparator(true);
-
-    QAction *separator2 = new QAction(this);
-    separator2->setSeparator(true);
-
     d->toolbar->addAction(coll->action(QStringLiteral("back")));
     d->toolbar->addAction(coll->action(QStringLiteral("forward")));
     d->toolbar->addAction(coll->action(QStringLiteral("up")));
     d->toolbar->addAction(coll->action(QStringLiteral("reload")));
-    d->toolbar->addAction(separator);
+    d->toolbar->addSeparator();
     d->toolbar->addAction(coll->action(QStringLiteral("inline preview")));
     d->toolbar->addWidget(midSpacer);
     d->toolbar->addAction(d->zoomOutAction);
     d->toolbar->addWidget(d->iconSizeSlider);
     d->toolbar->addAction(d->zoomInAction);
-    d->toolbar->addAction(separator2);
+    d->toolbar->addSeparator();
     d->toolbar->addAction(coll->action(QStringLiteral("mkdir")));
     d->toolbar->addAction(menu);
 
