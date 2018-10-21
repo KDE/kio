@@ -65,7 +65,7 @@ Q_SIGNALS:
      */
     void totalFiles(KJob *job, unsigned long files);
     /**
-    * Emitted when the toal number of direcotries is known.
+    * Emitted when the total number of directories is known.
      * @param job the job that emitted this signal
      * @param dirs the total number of directories
      */

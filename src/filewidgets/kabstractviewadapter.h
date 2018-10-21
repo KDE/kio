@@ -47,9 +47,9 @@ class QSize;
  * listen to that signal.
  * A related problem is that while the adapter is supposed to inter-
  * face a view to the generator, it is sometimes the generator that
- * is responsible for instanciating the adapter: KDirOperator in this
+ * is responsible for instantiating the adapter: KDirOperator in this
  * framework uses the KFilePreviewGenerator constructor that doesn't
- * take an adapter instance, which makes the generator instanciate a
+ * take an adapter instance, which makes the generator instantiate a
  * KIO::DefaultViewAdapter internally, which it doesn't expose to the
  * outside. That means even when a setIconSize() is added,
  * KDirOperator won't be able to call it on the adapter. This mis-

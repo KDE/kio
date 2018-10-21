@@ -277,7 +277,7 @@ public:
     bool cookieIsPersistent(const KHttpCookie &cookie) const;
 
     /**
-     * This function advices whether a single KHttpCookie object should
+     * This function advises whether a single KHttpCookie object should
      * be added to the cookie jar.
      *
      * Possible return values are:

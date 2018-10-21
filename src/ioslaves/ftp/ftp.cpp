@@ -237,7 +237,7 @@ void Ftp::ftpCloseControlConnection()
     delete m_control;
     m_control = nullptr;
     m_cDataMode = 0;
-    m_bLoggedOn = false;    // logon needs control connction
+    m_bLoggedOn = false;    // logon needs control connection
     m_bTextMode = false;
     m_bBusy = false;
 }
@@ -892,7 +892,7 @@ int Ftp::ftpOpenPASVDataConnection()
 
     // we ignore the host part on purpose for two reasons
     // a) it might be wrong anyway
-    // b) it would make us being suceptible to a port scanning attack
+    // b) it would make us being susceptible to a port scanning attack
 
     // now connect the data socket ...
     quint16 port = i[4] << 8 | i[5];
@@ -1620,7 +1620,7 @@ bool Ftp::ftpReadDir(FtpEntry &de)
 {
     Q_ASSERT(m_data);
 
-    // get a line from the data connecetion ...
+    // get a line from the data connection ...
     while (true) {
         while (!m_data->canReadLine() && m_data->waitForReadyRead((readTimeout() * 1000))) {}
         QByteArray data = m_data->readLine();

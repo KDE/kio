@@ -68,7 +68,7 @@ class QString;
                rule_1=list,,,,file,,,false
                rule_2=list,,,,file,,$HOME,true
                @endverbatim
- *             The first rule disables browing any directories on the
+ *             The first rule disables browsing any directories on the
  *             local filesystem. The second rule then enables browsing
  *             the users home directory.
  * - open:     This controls which files can be opened by the user in

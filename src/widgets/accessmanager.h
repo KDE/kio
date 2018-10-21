@@ -61,7 +61,7 @@ namespace KIO
  *   KIO::Integration::AccessManager *manager = qobject_cast<KIO::Integration::AccessManager*>(view->page()->accessManager());
  * @endcode
  *
- * Please note that this class is in the KIO namespace for backward compatablity.
+ * Please note that this class is in the KIO namespace for backward compatibility.
  * You should use KIO::Integration::AccessManager to access this class in your
  * code.
  *

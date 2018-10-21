@@ -400,7 +400,7 @@ private: // data members
      * When the user cancels a get or put command the Ftp dtor will be called,
      * which in turn calls closeConnection(). The later would try to send QUIT
      * which won't work until timeout. ftpOpenCommand sets the m_bBusy flag so
-     * that the sockets will be closed immedeately - the server should be
+     * that the sockets will be closed immediately - the server should be
      * capable of handling this and return an error code on thru the control
      * connection. The m_bBusy gets cleared by the ftpCloseCommand() routine.
      */

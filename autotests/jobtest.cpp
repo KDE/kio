@@ -1474,7 +1474,7 @@ void JobTest::statSymlink()
     const QString symlink = otherTmpDir() + "link";
     QVERIFY(QFile(filePath).link(symlink));
     QVERIFY(QFile::exists(symlink));
-    setTimeStamp(symlink, QDateTime::currentDateTime().addSecs(-20)); // differenciate link time and source file time
+    setTimeStamp(symlink, QDateTime::currentDateTime().addSecs(-20)); // differentiate link time and source file time
 
     const QUrl url(QUrl::fromLocalFile(symlink));
     KIO::StatJob *job = KIO::stat(url, KIO::HideProgressInfo);

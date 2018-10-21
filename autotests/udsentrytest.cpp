@@ -240,7 +240,7 @@ void UDSEntryTest::testMove()
         // First a copy as we need to keep the entry for the next test.
         KIO::UDSEntry entryCopy = entry;
 
-        // Now move-assignement (two lines to prevent compiler optimization)
+        // Now move-assignment (two lines to prevent compiler optimization)
         KIO::UDSEntry movedEntry;
         movedEntry = std::move(entryCopy);
 
@@ -253,10 +253,10 @@ void UDSEntryTest::testMove()
         // First a copy again
         KIO::UDSEntry entryCopy = entry;
 
-        // Now move-assignement
+        // Now move-assignment
         KIO::UDSEntry movedEntry(std::move(entryCopy));
 
-        // And veryfy that this works.
+        // And verify that this works.
         QCOMPARE(fileName, movedEntry.stringValue(KIO::UDSEntry::UDS_NAME));
     }
 }

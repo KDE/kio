@@ -54,7 +54,6 @@
 #include <KUser>
 #include <kio_widgets_debug.h>
 
-#include <qplatformdefs.h>
 #include <time.h>
 #include <kconfiggroup.h>
 

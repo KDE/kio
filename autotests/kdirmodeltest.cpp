@@ -1014,7 +1014,7 @@ void KDirModelTest::testUrlWithRef() // #171117
     KDirLister *dirLister = m_dirModel->dirLister();
     QUrl url = QUrl::fromLocalFile(path);
     url.setFragment(QStringLiteral("ref"));
-    QVERIFY(url.url().endsWith("#ref"));
+    QVERIFY(url.url().endsWith(QLatin1String("#ref")));
     dirLister->openUrl(url, KDirLister::NoFlags);
     checkedConnect(dirLister, SIGNAL(completed()), this, SLOT(slotListingCompleted()));
     enterLoop();

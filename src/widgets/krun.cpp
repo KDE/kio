@@ -65,7 +65,6 @@
 #include <klocalizedstring.h>
 #include <kprotocolmanager.h>
 #include <kprocess.h>
-#include <kiconloader.h>
 #include <kjobwidgets.h>
 #include <ksharedconfig.h>
 
@@ -87,7 +86,6 @@
 #elif defined(Q_OS_WIN)
 #include <QDesktopServices>
 #endif
-#include <qplatformdefs.h>
 #include <qstandardpaths.h>
 
 KRun::KRunPrivate::KRunPrivate(KRun *parent)
@@ -234,7 +232,7 @@ bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, RunF
 
     if (!offer) {
 #ifdef Q_OS_WIN
-        // As KDE on windows doesnt know about the windows default applications offers will be empty in nearly all cases.
+        // As KDE on windows doesn't know about the windows default applications offers will be empty in nearly all cases.
         // So we use QDesktopServices::openUrl to let windows decide how to open the file
         return QDesktopServices::openUrl(u);
 #else

@@ -91,7 +91,7 @@ int main(int argc, char **argv)
     }
 
 #ifdef Q_OS_WIN
-    // enter debugger in case debugging is actived
+    // enter debugger in case debugging is activated
     QString slaveDebugWait(QString::fromLocal8Bit(qgetenv("KDE_SLAVE_DEBUG_WAIT")));
     if (slaveDebugWait == QLatin1String("all") || slaveDebugWait == argv[2]) {
 # ifdef Q_CC_MSVC

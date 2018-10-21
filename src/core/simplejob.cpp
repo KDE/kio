@@ -306,7 +306,7 @@ int SimpleJobPrivate::requestMessageBox(int _type, const QString &text, const QS
         return m_uiDelegateExtension->requestMessageBox(type, text, caption, buttonYes, buttonNo,
                 iconYes, iconNo, dontAskAgainName, sslMetaData);
     }
-    qCWarning(KIO_CORE) << "JobUiDelegate not set! Returing -1";
+    qCWarning(KIO_CORE) << "JobUiDelegate not set! Returning -1";
     return -1;
 }
 

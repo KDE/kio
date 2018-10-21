@@ -199,7 +199,7 @@ public:
 
     /**
      * Returns the access permissions for the file as a string.
-     * @return the access persmission as string
+     * @return the access permission as string
      */
     QString permissionsString() const;
 

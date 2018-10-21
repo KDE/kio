@@ -220,7 +220,7 @@ void KShellCompletionPrivate::splitText(const QString &text, QString &text_start
  * Add quotations to 'text' if needed or if 'force' = true
  * Returns true if quotes were added
  *
- * skip_last => ignore the last charachter (we add a space or '/' to all filenames)
+ * skip_last => ignore the last character (we add a space or '/' to all filenames)
  */
 bool KShellCompletionPrivate::quoteText(QString *text, bool force, bool skip_last) const
 {

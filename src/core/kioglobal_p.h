@@ -23,7 +23,6 @@ Boston, MA 02110-1301, USA.
 #include <qplatformdefs.h>
 #include "kiocore_export.h"
 
-#include <qplatformdefs.h>
 #include <KUser>
 
 #ifdef Q_OS_WIN

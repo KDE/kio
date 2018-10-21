@@ -88,29 +88,29 @@ KCookiesPolicies::KCookiesPolicies (QWidget* parent)
     mUi.pbDeleteAll->setIcon (QIcon::fromTheme(QStringLiteral("edit-delete")));
 
     // Connect the main swicth :) Enable/disable cookie support
-    connect (mUi.cbEnableCookies, SIGNAL (toggled (bool)),
-             SLOT (cookiesEnabled (bool)));
-    connect (mUi.cbEnableCookies, SIGNAL (toggled (bool)),
+    connect (mUi.cbEnableCookies, SIGNAL (toggled(bool)),
+             SLOT (cookiesEnabled(bool)));
+    connect (mUi.cbEnableCookies, SIGNAL (toggled(bool)),
              SLOT (configChanged()));
 
     // Connect the preference check boxes...
-    connect (mUi.cbRejectCrossDomainCookies, SIGNAL (toggled (bool)),
+    connect (mUi.cbRejectCrossDomainCookies, SIGNAL (toggled(bool)),
              SLOT (configChanged()));
-    connect (mUi.cbAutoAcceptSessionCookies, SIGNAL (toggled (bool)),
+    connect (mUi.cbAutoAcceptSessionCookies, SIGNAL (toggled(bool)),
              SLOT (configChanged()));
 
-    connect (mUi.rbPolicyAsk, SIGNAL (toggled (bool)),
+    connect (mUi.rbPolicyAsk, SIGNAL (toggled(bool)),
              SLOT (configChanged()));
-    connect (mUi.rbPolicyAccept, SIGNAL (toggled (bool)),
+    connect (mUi.rbPolicyAccept, SIGNAL (toggled(bool)),
              SLOT (configChanged()));
     connect (mUi.rbPolicyAcceptForSession, SIGNAL(toggled(bool)),
               SLOT(configChanged()));
-    connect (mUi.rbPolicyReject, SIGNAL (toggled (bool)),
+    connect (mUi.rbPolicyReject, SIGNAL (toggled(bool)),
              SLOT (configChanged()));
     // Connect signals from the domain specific policy listview.
     connect (mUi.policyTreeWidget, SIGNAL (itemSelectionChanged()),
              SLOT (selectionChanged()));
-    connect (mUi.policyTreeWidget, SIGNAL (itemDoubleClicked (QTreeWidgetItem*, int)),
+    connect (mUi.policyTreeWidget, SIGNAL (itemDoubleClicked(QTreeWidgetItem*,int)),
              SLOT (changePressed()));
 
     // Connect the buttons...

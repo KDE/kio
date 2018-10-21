@@ -97,10 +97,10 @@ UserAgentSelectorDlg::UserAgentSelectorDlg (UserAgentInfo* info, QWidget* parent
     mUi.siteLineEdit->setValidator (validator);
     mUi.siteLineEdit->setFocus();
 
-    connect (mUi.siteLineEdit, SIGNAL (textEdited (QString)),
-             SLOT (onHostNameChanged (QString)));
-    connect (mUi.aliasComboBox, SIGNAL (activated (QString)),
-             SLOT (onAliasChanged (QString)));
+    connect (mUi.siteLineEdit, SIGNAL (textEdited(QString)),
+             SLOT (onHostNameChanged(QString)));
+    connect (mUi.aliasComboBox, SIGNAL (activated(QString)),
+             SLOT (onAliasChanged(QString)));
 
     mButtonBox->button(QDialogButtonBox::Ok)->setEnabled (false);
 }

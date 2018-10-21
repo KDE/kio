@@ -96,7 +96,7 @@ public:
     void dataReq();
 
     /**
-     * open succedes
+     * open succeeds
      * @see open
      */
     void opened();
@@ -111,7 +111,7 @@ public:
      * of the error message.
      *
      * For all other error codes, _text should match the corresponding
-     * error code. Usually,, _text is a file or host name, or the error which
+     * error code. Usually, _text is a file or host name, or the error which
      * was passed from the server.<br>
      * For example, for KIO::ERR_DOES_NOT_EXIST, _text may only
      * be the file or folder which does not exist, nothing else. Otherwise,
@@ -855,7 +855,7 @@ public:
      *
      * @param host tells the netmgr the host the slave wants to connect
      *             to. As this could also be a proxy, we can't just take
-     *             the host currenctly connected to (but that's the default
+     *             the host currently connected to (but that's the default
      *             value)
      *
      * @return true in theory, the host is reachable

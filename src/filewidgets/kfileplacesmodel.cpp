@@ -228,7 +228,7 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
                                               QUrl::fromLocalFile(QDir::homePath()), QStringLiteral("user-home"));
 
         // Some distros may not create various standard XDG folders by default
-        // so check for their existance before adding bookmarks for them
+        // so check for their existence before adding bookmarks for them
         const QString desktopFolder = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
         if (QDir(desktopFolder).exists()) {
             KFilePlacesItem::createSystemBookmark(d->bookmarkManager,

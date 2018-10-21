@@ -307,7 +307,7 @@ KIOCORE_EXPORT TransferJob *http_post(const QUrl &url, QIODevice *device,
  * HTTP DELETE.
  *
  * Though this function servers the same purpose as KIO::file_delete, unlike
- * file_delete it accommodates HTTP sepecific actions such as redirections.
+ * file_delete it accommodates HTTP specific actions such as redirections.
  *
  * @param url url resource to delete.
  * @param flags Can be HideProgressInfo here

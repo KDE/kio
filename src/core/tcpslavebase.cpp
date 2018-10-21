@@ -344,7 +344,7 @@ int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *erro
        3.) KTcpSocket::TlsV1_1
        4.) KTcpSocket::TlsV1_0
 
-       Note that we indivially attempt connection with each TLS version
+       Note that we individually attempt connection with each TLS version
        because some sites don't support SSL negotiation. #275524
 
        The version used to successfully make encrypted connection with the

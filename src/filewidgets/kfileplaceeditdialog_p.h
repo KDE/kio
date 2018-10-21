@@ -116,7 +116,7 @@ public:
     QString icon() const;
 
     /**
-     * @returns whether the item's icon is editable, beacause all icons are not
+     * @returns whether the item's icon is editable, because all icons are not
      * (e.g. the Trash can display two icons, representing its full and empty states, and
      * it is simpler to make these icons non-editable rather than to provide an interface to edit them both)
      */

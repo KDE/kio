@@ -210,7 +210,7 @@ bool KDirSortFilterProxyModel::subSortLessThan(const QModelIndex &left,
             }
 
             // If one of them has unknown child items, place them on the end. If we
-            // were comparing two unknown childed items, the previous comparation
+            // were comparing two unknown childed items, the previous comparison
             // sorted them by QCollator between them. This case is when we
             // have an unknown childed item, and another known.
             if (leftCount == KDirModel::ChildCountUnknown) {

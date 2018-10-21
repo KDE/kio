@@ -5,7 +5,6 @@
 // Qt
 #include <QCheckBox>
 #include <QGroupBox>
-#include <KPluralHandlingSpinBox>
 #include <QFormLayout>
 
 // KDE

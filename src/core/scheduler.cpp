@@ -38,8 +38,6 @@
 #include <QDBusConnection>
 #include <QDBusMessage>
 
-#include <QDBusConnection>
-
 // Slaves may be idle for a certain time (3 minutes) before they are killed.
 static const int s_idleSlaveLifetime = 3 * 60;
 

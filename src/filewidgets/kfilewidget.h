@@ -458,7 +458,7 @@ public:
 
     /**
      * Sets whether the user should be asked for confirmation
-     * when an overwrite might occurr.
+     * when an overwrite might occur.
      *
      * @param enable Set this to true to enable checking.
      * @since 4.2

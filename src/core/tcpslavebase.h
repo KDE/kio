@@ -110,7 +110,7 @@ protected:
      * @param host hostname
      * @param port port number
      *
-     * @return on succes, true is returned.
+     * @return on success, true is returned.
      *         on failure, false is returned and an appropriate
      *         error message is sent to the application.
      */

@@ -224,7 +224,7 @@ void tst_KLocalSocketServer::setMaxPendingConnections()
     QTest::qWait(100);          // 100 ms doing absolutely nothing
     QVERIFY(!server.hasPendingConnections());
 
-    // now check if we get that conenction
+    // now check if we get that connection
     server.setMaxPendingConnections(1);
     QTest::qWait(100);
     QVERIFY(server.hasPendingConnections());

@@ -406,7 +406,7 @@ void KFileItemTest::testRefresh()
     QDateTime symlinkTime = QDateTime::currentDateTime().addSecs(-20);
     // we currently lose milliseconds....
     symlinkTime = symlinkTime.addMSecs(-symlinkTime.time().msec());
-    setTimeStamp(symlink, symlinkTime); // differenciate link time and source file time
+    setTimeStamp(symlink, symlinkTime); // differentiate link time and source file time
     const QUrl symlinkUrl = QUrl::fromLocalFile(symlink);
     KFileItem symlinkItem(symlinkUrl);
     QVERIFY(symlinkItem.isFile());

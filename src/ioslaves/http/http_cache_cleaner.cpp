@@ -380,7 +380,7 @@ static CacheCleanerCommand readCommand(const QByteArray &cmd, CacheFileInfo *fi)
     return static_cast<CacheCleanerCommand>(ret);
 }
 
-// never istantiated, on-disk format only
+// never instantiated, on-disk format only
 struct ScoreboardEntry {
 // from scoreboard file
     quint8 index[s_hashedUrlBytes];

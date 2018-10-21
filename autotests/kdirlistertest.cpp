@@ -489,7 +489,7 @@ void KDirListerTest::testDeleteItem()
     // the remove() doesn't always trigger kdirwatch in stat mode, if this all happens in the same second
     KDirWatch::self()->setDirty(path);
 
-    // The signal should be emited once with the deleted file
+    // The signal should be emitted once with the deleted file
     QTRY_COMPARE(m_dirLister.spyItemsDeleted.count(), 1);
 
     // OK now kdirlister told us the file was deleted, let's try a re-listing
@@ -521,7 +521,7 @@ void KDirListerTest::testDeleteItems()
     // the remove() doesn't always trigger kdirwatch in stat mode, if this all happens in the same second
     KDirWatch::self()->setDirty(path);
 
-    // The signal could be emited 1 time with all the deleted files or more times
+    // The signal could be emitted 1 time with all the deleted files or more times
     QTRY_VERIFY(m_dirLister.spyItemsDeleted.count() > 0);
 
     // OK now kdirlister told us the file was deleted, let's try a re-listing
@@ -956,7 +956,7 @@ void KDirListerTest::testBug211472()
 
         // Return to 'newsubdir'. It will be emitted from the cache, then an update will happen.
         dirLister.openUrl(QUrl::fromLocalFile(path));
-        // Check that completed is emited twice
+        // Check that completed is emitted twice
         QVERIFY(spyCompleted.wait(1000));
         QVERIFY(spyCompleted.wait(1000));
         QTRY_VERIFY(dirLister.isFinished());
@@ -1022,7 +1022,7 @@ void KDirListerTest::testRenameCurrentDirOpenUrl()
 
     m_dirLister.openUrl(QUrl::fromLocalFile(path));
     QSignalSpy spyCompleted(&m_dirLister, SIGNAL(completed()));
-    // Wait for the signal completed to be emited
+    // Wait for the signal completed to be emitted
     QVERIFY(spyCompleted.wait(1000));
     QVERIFY(m_dirLister.isFinished());
 

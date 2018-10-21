@@ -47,7 +47,7 @@ public:
      * Choose the best authentication mechanism from the offered ones
      *
      * This will return the most secure mechanism from the list of
-     * mechanisms retuned by the server.
+     * mechanisms returned by the server.
      */
     static QByteArray bestOffer(const QList<QByteArray> &offers);
 

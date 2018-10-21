@@ -204,7 +204,7 @@ static DataHeader parseDataHeader(const QUrl &url, const bool mimeOnly)
         const QString attribute = extract(raw_url, header_info.data_offset, '=').trimmed();
         if (header_info.data_offset >= raw_url_len
                 || raw_url[header_info.data_offset] != QLatin1Char('=')) {
-            // no assigment, must be base64 option
+            // no assignment, must be base64 option
             if (attribute == QLatin1String("base64")) {
                 header_info.is_base64 = true;
             }

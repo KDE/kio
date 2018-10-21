@@ -131,7 +131,7 @@ private Q_SLOTS:
         QVERIFY(checkFileExistence(oldFilenames));
         KIO::Job *job = KIO::batchRename(createUrlList(oldFilenames), baseName, index, indexPlaceholder);
         job->setUiDelegate(nullptr);
-        QSignalSpy spy(job, SIGNAL(fileRenamed(QUrl, QUrl)));
+        QSignalSpy spy(job, SIGNAL(fileRenamed(QUrl,QUrl)));
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
         QCOMPARE(spy.count(), oldFilenames.count());
         QVERIFY(!checkFileExistence(oldFilenames));

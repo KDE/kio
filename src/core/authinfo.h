@@ -53,7 +53,7 @@ class AuthInfoPrivate;
  * <em>SPECIAL NOTE:</em> If you extend this class to add additional
  * parameters do not forget to overload the stream insertion and
  * extraction operators ("<<" and ">>") so that the added data can
- * be correctly serialzed.
+ * be correctly serialized.
  *
  * @short A two way messaging class for passing authentication information.
  * @author Dawit Alemayehu <adawit@kde.org>

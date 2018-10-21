@@ -135,7 +135,7 @@ void FavIconRequestJob::doStart()
     metaData.insert(QStringLiteral("no-www-auth"), QStringLiteral("true"));
     metaData.insert(QStringLiteral("errorPage"), QStringLiteral("false"));
     job->addMetaData(metaData);
-    QObject::connect(job, SIGNAL(data(KIO::Job *, QByteArray)), this, SLOT(slotData(KIO::Job *, QByteArray)));
+    QObject::connect(job, SIGNAL(data(KIO::Job*,QByteArray)), this, SLOT(slotData(KIO::Job*,QByteArray)));
     addSubjob(job);
 }
 

@@ -522,7 +522,7 @@ void KUrlNavigatorButton::openSubDirsMenu(KJob *job)
     m_subDirsMenu->exec(popupPos);
 
     // If 'this' has been deleted in the menu's nested event loop, we have to return
-    // immediatedely because any access to a member variable might cause a crash.
+    // immediately because any access to a member variable might cause a crash.
     if (!guard) {
         return;
     }
@@ -660,8 +660,8 @@ void KUrlNavigatorButton::updateMinimumWidth()
 
 void KUrlNavigatorButton::initMenu(KUrlNavigatorMenu *menu, int startIndex)
 {
-    connect(menu, SIGNAL(mouseButtonClicked(QAction*, Qt::MouseButton)),
-            this, SLOT(slotMenuActionClicked(QAction*, Qt::MouseButton)));
+    connect(menu, SIGNAL(mouseButtonClicked(QAction*,Qt::MouseButton)),
+            this, SLOT(slotMenuActionClicked(QAction*,Qt::MouseButton)));
     connect(menu, SIGNAL(urlsDropped(QAction*,QDropEvent*)),
             this, SLOT(urlsDropped(QAction*,QDropEvent*)));
 

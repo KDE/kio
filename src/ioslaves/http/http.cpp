@@ -101,7 +101,7 @@ static bool supportedProxyScheme(const QString &scheme)
 // see filenameFromUrl(): a sha1 hash is 160 bits
 static const int s_hashedUrlBits = 160;   // this number should always be divisible by eight
 static const int s_hashedUrlNibbles = s_hashedUrlBits / 4;
-static const int s_MaxInMemPostBufSize = 256 * 1024;   // Write anyting over 256 KB to file...
+static const int s_MaxInMemPostBufSize = 256 * 1024;   // Write anything over 256 KB to file...
 
 using namespace KIO;
 
@@ -3058,7 +3058,7 @@ try_again:
             }
         } else if (m_request.responseCode >= 301 && m_request.responseCode <= 308) {
             // NOTE: According to RFC 2616 (section 10.3.[2-4,8]), 301 and 302
-            // redirects for a POST operation should not be convered to a GET
+            // redirects for a POST operation should not be converted to a GET
             // request. That should only be done for a 303 response. However,
             // because almost all other client implementations do exactly that
             // in violation of the spec, many servers have simply adapted to
@@ -3867,7 +3867,7 @@ bool HTTPProtocol::sendBody()
     }
 
     if (m_iPostDataSize == NO_SIZE) {
-        // Try the old approach of retireving content data from the job
+        // Try the old approach of retrieving content data from the job
         // before giving up.
         if (retrieveAllData()) {
             return sendCachedBody();
@@ -4424,7 +4424,7 @@ bool HTTPProtocol::readBody(bool dataInternal /* = false */)
     // now decode all of the content encodings
     // -- Why ?? We are not
     // -- a proxy server, be a client side implementation!!  The applications
-    // -- are capable of determinig how to extract the encoded implementation.
+    // -- are capable of determining how to extract the encoded implementation.
     // WB: That's a misunderstanding. We are free to remove the encoding.
     // WB: Some braindead www-servers however, give .tgz files an encoding
     // WB: of "gzip" (or even "x-gzip") and a content-type of "applications/tar"
@@ -5136,13 +5136,13 @@ QString HTTPProtocol::authenticationHeader()
     QByteArray ret;
 
     // If the internal meta-data "cached-www-auth" is set, then check for cached
-    // authentication data and preemtively send the authentication header if a
+    // authentication data and preemptively send the authentication header if a
     // matching one is found.
     if (!m_wwwAuth && config()->readEntry("cached-www-auth", false)) {
         KIO::AuthInfo authinfo;
         authinfo.url = m_request.url;
         authinfo.realmValue = config()->readEntry("www-auth-realm", QString());
-        // If no relam metadata, then make sure path matching is turned on.
+        // If no realm metadata, then make sure path matching is turned on.
         authinfo.verifyPath = (authinfo.realmValue.isEmpty());
 
         const bool useCachedAuth = (m_request.responseCode == 401 || !config()->readEntry("no-preemptive-auth-reuse", false));
@@ -5152,7 +5152,7 @@ QString HTTPProtocol::authenticationHeader()
             if (!cachedChallenge.isEmpty()) {
                 m_wwwAuth = KAbstractHttpAuthentication::newAuth(cachedChallenge, config());
                 if (m_wwwAuth) {
-                    qCDebug(KIO_HTTP) << "creating www authentcation header from cached info";
+                    qCDebug(KIO_HTTP) << "creating www authentication header from cached info";
                     m_wwwAuth->setChallenge(cachedChallenge, m_request.url, m_request.sentMethodString);
                     m_wwwAuth->generateResponse(authinfo.username, authinfo.password);
                 }
@@ -5161,13 +5161,13 @@ QString HTTPProtocol::authenticationHeader()
     }
 
     // If the internal meta-data "cached-proxy-auth" is set, then check for cached
-    // authentication data and preemtively send the authentication header if a
+    // authentication data and preemptively send the authentication header if a
     // matching one is found.
     if (!m_proxyAuth && config()->readEntry("cached-proxy-auth", false)) {
         KIO::AuthInfo authinfo;
         authinfo.url = m_request.proxyUrl;
         authinfo.realmValue = config()->readEntry("proxy-auth-realm", QString());
-        // If no relam metadata, then make sure path matching is turned on.
+        // If no realm metadata, then make sure path matching is turned on.
         authinfo.verifyPath = (authinfo.realmValue.isEmpty());
 
         if (checkCachedAuthentication(authinfo)) {
@@ -5175,7 +5175,7 @@ QString HTTPProtocol::authenticationHeader()
             if (!cachedChallenge.isEmpty()) {
                 m_proxyAuth = KAbstractHttpAuthentication::newAuth(cachedChallenge, config());
                 if (m_proxyAuth) {
-                    qCDebug(KIO_HTTP) << "creating proxy authentcation header from cached info";
+                    qCDebug(KIO_HTTP) << "creating proxy authentication header from cached info";
                     m_proxyAuth->setChallenge(cachedChallenge, m_request.proxyUrl, m_request.sentMethodString);
                     m_proxyAuth->generateResponse(authinfo.username, authinfo.password);
                 }
@@ -5410,7 +5410,7 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
                 //  WORKAROUND: The following piece of code prevents brain dead IIS
                 // servers that send back multiple "WWW-Authenticate" headers from
                 // screwing up our authentication logic during the challenge
-                // phase (Type 2) of NTLM authenticaiton.
+                // phase (Type 2) of NTLM authentication.
                 QMutableListIterator<QByteArray> it(authTokens);
                 const QByteArray authScheme((*auth)->scheme().trimmed());
                 while (it.hasNext()) {

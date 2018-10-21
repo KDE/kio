@@ -19,7 +19,7 @@ TODO
  Like application/x-trash-desktop, inheriting application/x-desktop. 
  And a "trash.trashdesktop" filename or so (ouch, migration issues...)
 
-* Detect removeable media to avoid .Trash-foo on it. How?
+* Detect removable media to avoid .Trash-foo on it. How?
 
 * Trashcan properties (properties for trash:/? hmm. Easier with separate dialog)
      -  Maximum size for trash can (#18109 suggests a %, but a MB size is easier).

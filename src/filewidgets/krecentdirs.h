@@ -60,7 +60,7 @@ namespace KRecentDirs
 KIOFILEWIDGETS_EXPORT QStringList list(const QString &fileClass);
 
 /**
- * Returns the most recently used directory accociated with this file-class.
+ * Returns the most recently used directory associated with this file-class.
  *
  * @since 4.6
  */

@@ -30,7 +30,6 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 #include <QPair>
 #include <QThread>
 #include <QFutureWatcher>
-#include <QMetaType>
 #include <QSemaphore>
 #include <QSharedPointer>
 #include <QtConcurrentRun>

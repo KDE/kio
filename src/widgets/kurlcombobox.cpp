@@ -277,7 +277,7 @@ void KUrlComboBox::setUrl(const QUrl &url)
     setDefaults();
 
     KUrlComboBoxPrivate::KUrlComboItemList::size_type offset = qMax(KUrlComboBoxPrivate::KUrlComboItemList::size_type(0), d->itemList.size() - d->myMaximum + d->defaultList.size());
-    for (auto i = offset; i < d->itemList.size(); i++) {
+    for (auto i = offset; i < d->itemList.size(); ++i) {
         d->insertUrlItem(d->itemList.at(i).get());
     }
 
@@ -330,7 +330,7 @@ void KUrlComboBox::setMaxItems(int max)
         setDefaults();
 
         KUrlComboBoxPrivate::KUrlComboItemList::size_type offset = qMax(KUrlComboBoxPrivate::KUrlComboItemList::size_type(0), d->itemList.size() - d->myMaximum + d->defaultList.size());
-        for (auto i = offset; i < d->itemList.size(); i++) {
+        for (auto i = offset; i < d->itemList.size(); ++i) {
             d->insertUrlItem(d->itemList.at(i).get());
         }
 

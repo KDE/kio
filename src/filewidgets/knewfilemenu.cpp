@@ -927,7 +927,7 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
             QTextStream in(&xdgUserDirsFile);
             while (!in.atEnd()) {
                 QString line = in.readLine();
-                if (line.startsWith("XDG_TEMPLATES_DIR=")) {
+                if (line.startsWith(QLatin1String("XDG_TEMPLATES_DIR="))) {
                     QString xdgTemplates = line.mid(19, line.size()-20);
                     xdgTemplates.replace(QString("$HOME"), QDir::homePath());
                     QDir xdgTemplatesDir(xdgTemplates);

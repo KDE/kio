@@ -244,7 +244,7 @@ void AccessManagerReply::setHeaderFromMetaData(const KIO::MetaData &_metaData)
                 continue;
             }
 
-            // Without overridding the corrected mime-type sent by kio_http, add
+            // Without overriding the corrected mime-type sent by kio_http, add
             // back the "charset=" portion of the content-type header if present.
             if (headerName.startsWith(QLatin1String("content-type"), Qt::CaseInsensitive)) {
 

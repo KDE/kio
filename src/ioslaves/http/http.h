@@ -315,7 +315,7 @@ protected:
 
     /**
       * Add an encoding on to the appropriate stack this
-      * is nececesary because transfer encodings and
+      * is necessary because transfer encodings and
       * content encodings must be handled separately.
       */
     void addEncoding(const QString &, QStringList &);
@@ -571,7 +571,7 @@ protected:
     QByteArray m_mimeTypeBuffer;
 
     // Holds the POST data so it won't get lost on if we
-    // happend to get a 401/407 response when submitting
+    // happenned to get a 401/407 response when submitting
     // a form.
     QIODevice *m_POSTbuf;
 

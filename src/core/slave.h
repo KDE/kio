@@ -73,7 +73,7 @@ public:
      * the one obtained by using protocol() if a
      * proxy-server is used for the given protocol.  This
      * usually means that this method will return "http"
-     * when the actuall request was to retrieve a resource
+     * when the actual request was to retrieve a resource
      * from an "ftp" server by going through a proxy server.
      *
      * @return the actual protocol (io-slave) that handled the request

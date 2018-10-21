@@ -31,7 +31,6 @@
 
 #ifdef Q_OS_WIN
 #include <qt_windows.h>
-#include <QDir>
 #endif
 
 #ifdef Q_OS_WIN

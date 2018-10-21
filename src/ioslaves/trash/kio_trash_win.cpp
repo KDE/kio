@@ -24,7 +24,6 @@
 #include "kiotrashdebug.h"
 #include "kioglobal_p.h"
 #include "kio/job.h"
-#include "kiotrashdebug.h"
 
 #include <QDataStream>
 #include <QCoreApplication>

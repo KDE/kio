@@ -75,7 +75,7 @@ public:
      *
      * Remote URLs are listed with KIO. For performance reasons, local files
      * are listed with KIO only if KURLCOMPLETION_LOCAL_KIO is set.
-     * The completion is done asyncronously if KIO is used.
+     * The completion is done asynchronously if KIO is used.
      *
      * Returns the first match for user, environment, and local dir completion
      * and QString() for asynchronous completion (KIO or threaded).

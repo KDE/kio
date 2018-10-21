@@ -301,7 +301,7 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
         break;
     }
     default: {
-        qCWarning(KIO_WIDGETS) << "Unsupported KIO operation requested! Defering to QNetworkAccessManager...";
+        qCWarning(KIO_WIDGETS) << "Unsupported KIO operation requested! Deferring to QNetworkAccessManager...";
         return QNetworkAccessManager::createRequest(op, req, outgoingData);
     }
     }

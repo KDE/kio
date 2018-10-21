@@ -690,7 +690,7 @@ bool TrashImpl::emptyTrash()
     // On the other hand, we certainly want to remove any file that has no associated
     // .trashinfo file for some reason (#167051)
 
-    QSet<QString> unremoveableFiles;
+    QSet<QString> unremovableFiles;
 
     int myErrorCode = 0;
     QString myErrorMsg;
@@ -709,8 +709,8 @@ bool TrashImpl::emptyTrash()
             myErrorCode = m_lastErrorCode;
             myErrorMsg = m_lastErrorMessage;
             // and remember not to remove this file
-            unremoveableFiles.insert(filesPath);
-            qCDebug(KIO_TRASH) << "Unremoveable:" << filesPath;
+            unremovableFiles.insert(filesPath);
+            qCDebug(KIO_TRASH) << "Unremovable:" << filesPath;
         }
 
         TrashSizeCache trashSize(trashDirectoryPath(info.trashId));
@@ -728,7 +728,7 @@ bool TrashImpl::emptyTrash()
                 continue;
             }
             const QString filePath = filesDir + QLatin1Char('/') + fileName;
-            if (!unremoveableFiles.contains(filePath)) {
+            if (!unremovableFiles.contains(filePath)) {
                 qCWarning(KIO_TRASH) << "Removing orphaned file" << filePath;
                 QFile::remove(filePath);
             }
@@ -746,7 +746,7 @@ bool TrashImpl::emptyTrash()
 TrashImpl::TrashedFileInfoList TrashImpl::list()
 {
     // Here we scan for trash directories unconditionally. This allows
-    // noticing plugged-in [e.g. removeable] devices, or new mounts etc.
+    // noticing plugged-in [e.g. removable] devices, or new mounts etc.
     scanTrashDirectories();
 
     TrashedFileInfoList lst;
@@ -930,7 +930,6 @@ void TrashImpl::fileRemoved()
 #ifdef Q_OS_OSX
 #include <CoreFoundation/CoreFoundation.h>
 #include <DiskArbitration/DiskArbitration.h>
-#include <sys/param.h>
 #include <sys/mount.h>
 
 int TrashImpl::idForMountPoint(const QString &mountPoint) const

@@ -37,7 +37,6 @@
 #include <KRun>
 #include <KService>
 #include <KLocalizedString>
-#include <KAboutData>
 #include <KDBusService>
 
 #include <QCommandLineParser>

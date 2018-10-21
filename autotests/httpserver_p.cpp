@@ -110,7 +110,7 @@ QByteArray HttpServerThread::makeHttpResponse(const QByteArray &responseData) co
     httpResponse += QByteArray::number(responseData.size());
     httpResponse += "\r\n";
 
-    // We don't support multiple connexions so let's ask the client
+    // We don't support multiple connections so let's ask the client
     // to close the connection every time.
     httpResponse += "Connection: close\r\n";
     httpResponse += "\r\n";

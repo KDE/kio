@@ -1018,7 +1018,7 @@ void KCookieJar::addCookie(KHttpCookie &cookie)
 }
 
 //
-// This function advices whether a single KHttpCookie object should
+// This function advises whether a single KHttpCookie object should
 // be added to the cookie jar.
 //
 KCookieAdvice KCookieJar::cookieAdvice(const KHttpCookie &cookie) const
@@ -1293,7 +1293,7 @@ static QString hostWithPort(const KHttpCookie *cookie)
 
 //
 // Saves all cookies to the file '_filename'.
-// On succes 'true' is returned.
+// On success 'true' is returned.
 // On failure 'false' is returned.
 bool KCookieJar::saveCookies(const QString &_filename)
 {
@@ -1423,7 +1423,7 @@ static QString extractHostAndPorts(const QString &str, QList<int> *ports = nullp
 
 //
 // Reloads all cookies from the file '_filename'.
-// On succes 'true' is returned.
+// On success 'true' is returned.
 // On failure 'false' is returned.
 bool KCookieJar::loadCookies(const QString &_filename)
 {

@@ -35,7 +35,7 @@ class QAction;
  * @class KFilePlacesModel kfileplacesmodel.h <KFilePlacesModel>
  *
  * This class is a list view model. Each entry represents a "place"
- * where user can access files. Only revelant when
+ * where user can access files. Only relevant when
  * used with QListView or QTableView.
  */
 class KIOFILEWIDGETS_EXPORT KFilePlacesModel : public QAbstractItemModel
@@ -71,7 +71,7 @@ public:
     * @param alternativeApplicationName This value will be used to filter bookmarks in addition to the actual application name
     * @param parent Parent object
     * @since 5.43
-    * @todo kf6: merge contstructors
+    * @todo kf6: merge constructors
     */
     KFilePlacesModel(const QString &alternativeApplicationName, QObject *parent = nullptr);
     ~KFilePlacesModel() override;

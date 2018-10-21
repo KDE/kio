@@ -461,7 +461,7 @@ static QByteArray calculateResponse(const DigestAuthInfo &info, const QUrl &reso
 
     // qDebug() << "A1 => " << HA1;
 
-    // Calcualte H(A2)
+    // Calculate H(A2)
     authStr = info.method;
     authStr += ':';
     authStr += resource.path(QUrl::FullyEncoded).toLatin1();
@@ -480,7 +480,7 @@ static QByteArray calculateResponse(const DigestAuthInfo &info, const QUrl &reso
 
     // qDebug() << "A2 => " << HA2;
 
-    // Calcualte the response.
+    // Calculate the response.
     authStr = HA1;
     authStr += ':';
     authStr += info.nonce;

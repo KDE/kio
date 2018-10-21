@@ -762,7 +762,7 @@ public Q_SLOTS:
     QString makeCompletion(const QString &);
 
     /**
-     * Tries to complete the given string (only completes directores).
+     * Tries to complete the given string (only completes directories).
      */
     QString makeDirCompletion(const QString &);
 

@@ -31,7 +31,7 @@ class FileJobPrivate;
 /**
  * @class KIO::FileJob filejob.h <KIO/FileJob>
  *
- *  The file-job is an asynchronious version of normal file handling.
+ *  The file-job is an asynchronous version of normal file handling.
  *  It allows block-wise reading and writing, and allows seeking. Results are returned through signals.
  *
  *  Should always be created using KIO::open(QUrl)

@@ -532,7 +532,7 @@ public:
      * a QUrl, make sure you set the argument for this function to the result
      * of calling path () instead of url ().
      *
-     * @param abs_path  the abolute path to the local resource.
+     * @param abs_path  the absolute path to the local resource.
      *
      * @return true if absolute path is successfully set. Otherwise, false.
      */
@@ -592,7 +592,7 @@ public:
       * It is important to note that the options set through this function can
       * prevent any filtering from being performed by search filter plugins.
       * As such, @ref uriTypes can return KUriFilterData::Unknown and @ref uri
-      * can return an invalid url eventhough the filtering request returned
+      * can return an invalid url even though the filtering request returned
       * a successful response.
       *
       * @see searchFilteringOptions
@@ -601,7 +601,7 @@ public:
     void setSearchFilteringOptions(SearchFilterOptions options);
 
     /**
-     * Overloaded assigenment operator.
+     * Overloaded assignment operator.
      *
      * This function allows you to easily assign a QUrl
      * to a KUriFilterData object.
@@ -611,7 +611,7 @@ public:
     KUriFilterData &operator=(const QUrl &url);
 
     /**
-     * Overloaded assigenment operator.
+     * Overloaded assignment operator.
      *
      * This function allows you to easily assign a QString to a KUriFilterData
      * object.
@@ -708,7 +708,7 @@ protected:
 
     /**
      * Sets the arguments and options string in @p data to @p args if any were
-     * found during filterting.
+     * found during filtering.
      */
     void setArguments(KUriFilterData &data, const QString &args) const;
 
@@ -798,7 +798,7 @@ private:
  * "http://kde.org".
  *
  * You can also restrict the filters to be used by supplying the name of the
- * filters you want to use. By defualt all available filters are used.
+ * filters you want to use. By default all available filters are used.
  *
  * To use specific filters, add the names of the filters you want to use to a
  * QStringList and invoke the appropriate filtering function.

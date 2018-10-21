@@ -26,7 +26,6 @@
 
 #include <defaults-kfile.h>
 
-#include <kfilewidget.h>
 #include <kcombobox.h>
 #include <kconfiggroup.h>
 #include <klocalizedstring.h>

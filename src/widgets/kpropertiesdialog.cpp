@@ -80,7 +80,6 @@
 #include <QTextStream>
 #include <QUrl>
 #include <QVector>
-#include <qplatformdefs.h>
 
 #if HAVE_POSIX_ACL
 extern "C" {
@@ -2784,7 +2783,7 @@ void KChecksumsPlugin::slotVerifyChecksum(const QString &input)
 
     const QString checksum = cachedChecksum(algorithm);
 
-    // Checksum alread in cache.
+    // Checksum already in cache.
     if (!checksum.isEmpty()) {
         const bool isMatch = (checksum == input);
         if (isMatch) {

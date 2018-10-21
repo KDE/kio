@@ -335,7 +335,7 @@ void HeaderDispositionTest::runAllTests_data()
 }
 
 #if 0
-// currently unclear if our behaviour is only accidentially correct
+// currently unclear if our behaviour is only accidentally correct
 // invalid syntax
 {  "inline; attachment; filename=foo.html",
     "type\tinline"

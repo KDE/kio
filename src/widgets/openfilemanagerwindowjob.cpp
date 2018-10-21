@@ -146,7 +146,7 @@ void OpenFileManagerWindowKRunStrategy::start(const QList<QUrl> &urls, const QBy
                       KJobWidgets::window(job), // window
                       false, // delete temp files
                       false, // run executables
-                      QString(), // sugested file name
+                      QString(), // suggested file name
                       asn)) {
         emitResultProxy(OpenFileManagerWindowJob::LaunchFailedError);
         return;

@@ -304,7 +304,7 @@ static bool specialChar(const QChar &ch, const char *specials)
     // characters should NOT be allowed in unquoted content-disposition file
     // names. However, since none of the major browsers follow this rule, we do
     // the same thing here and allow all printable unicode characters. See
-    // https://bugs.kde.org/show_bug.cgi?id=261223 for the detials.
+    // https://bugs.kde.org/show_bug.cgi?id=261223 for the details.
     if (!ch.isPrint()) {
         return true;
     }

@@ -31,7 +31,7 @@
  *
  * Uses KMimeType::pixmapForURL() to resolve icons.
  *
- * Instatiate this class and supply it to the desired class, e.g.
+ * Instantiate this class and supply it to the desired class, e.g.
  * \code
  * KHistoryComboBox *combo = new KHistoryComboBox(this);
  * combo->setPixmapProvider(new KUrlPixmapProvider);
