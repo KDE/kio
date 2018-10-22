@@ -793,6 +793,7 @@ void KDirListerTest::testConcurrentListingAndStop()
     qDebug("waiting for completed");
     QTRY_COMPARE(m_items.count(), 3);
     QTRY_COMPARE(m_items2.count(), 0);
+    QTRY_VERIFY(m_dirLister.isFinished());
 
     //QCOMPARE(m_dirLister.spyStarted.count(), 1); // 2 when in cache
     QCOMPARE(m_dirLister.spyCompleted.count(), 1);
