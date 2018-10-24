@@ -242,6 +242,7 @@ public:
         : m_menuItemsVersion(0),
           m_modal(true),
           m_viewShowsHiddenFiles(false),
+          m_firstFileEntry(nullptr),
           q(qq)
     {}
 
@@ -371,6 +372,8 @@ public:
     QString m_tempFileToDelete; // set when a tempfile was created for a Type=URL desktop file
     QString m_text;
     bool m_viewShowsHiddenFiles;
+
+    KNewFileMenuSingleton::Entry *m_firstFileEntry;
 
     KNewFileMenu * const q;
 
@@ -749,6 +752,20 @@ void KNewFileMenuPrivate::fillMenu()
                             menu->addAction(act);
                         }
                     } else {
+                        if (!m_firstFileEntry) {
+                            m_firstFileEntry = &entry;
+                            // If there is a shortcut available in the action collection, use it.
+                            QAction *act2 = m_actionCollection->action(QStringLiteral("create_file"));
+                            if (act2) {
+                                act->setShortcuts(act2->shortcuts());
+                                // Both actions have now the same shortcut, so this will prevent the "Ambiguous shortcut detected" dialog.
+                                act->setShortcutContext(Qt::WidgetShortcut);
+                                // We also need to react to shortcut changes.
+                                QObject::connect(act2, &QAction::changed, act, [=]() {
+                                    act->setShortcuts(act2->shortcuts());
+                                });
+                            }
+                        }
                         menu->addAction(act);
                     }
                 }
@@ -1225,6 +1242,20 @@ void KNewFileMenu::createDirectory()
     fileDialog->show();
     lineEdit->selectAll();
     lineEdit->setFocus();
+}
+
+void KNewFileMenu::createFile()
+{
+    if (d->m_popupFiles.isEmpty()) {
+        return;
+    }
+
+    checkUpToDate();
+    if (!d->m_firstFileEntry) {
+        return;
+    }
+
+    d->executeRealFileOrDir(*d->m_firstFileEntry);
 }
 
 bool KNewFileMenu::isModal() const

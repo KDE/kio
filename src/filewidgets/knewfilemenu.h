@@ -67,6 +67,9 @@ public:
      * @note If you want the "Create directory..." action shortcut to show up next to its text,
      *       make sure to have an action with name "create_dir" (and shortcut set) in @p collection.
      *       This will only work with KIO >= 5.27.
+     *       From KIO >= 5.53, an action named "create_file" (and shortcut set) in @p collection
+     *       will be linked to the creation of the first file template (either from XDG_TEMPLATES_DIR
+     *       or from :/kio5/newfile-templates)
      */
     KNewFileMenu(KActionCollection *collection, const QString &name, QObject *parent);
 
@@ -147,6 +150,17 @@ public Q_SLOTS:
      * alive (the mkdir is async).
      */
     void createDirectory();
+
+    /**
+     * Call this to create a new file as if the user had done it using
+     * a popupmenu. This is useful to make sure that creating a directory with
+     * a key shortcut (e.g. Shift-F10) triggers the exact same code as when using
+     * the New menu.
+     * Requirements: call setPopupFiles first, and keep this KNewFileMenu instance
+     * alive (the copy is async).
+     * @since 5.53
+     */
+    void createFile();
 
 Q_SIGNALS:
     /**
