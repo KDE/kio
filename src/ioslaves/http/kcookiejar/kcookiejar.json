@@ -8,6 +8,7 @@
         "Description[da]": "Gemmer netværks-cookies",
         "Description[de]": "Speichert Netzwerk-Cookies",
         "Description[el]": "Αποθηκεύει δικτυακά cookies",
+        "Description[en_GB]": "Stores network cookies",
         "Description[es]": "Guarda las cookies de la red",
         "Description[et]": "Võrguküpsiste salvestamine",
         "Description[eu]": "Sareko cookiak biltegiratzen ditu",
@@ -42,8 +43,11 @@
         "Name[ar]": "إناء الكعك",
         "Name[ca@valencia]": "Repositori de les galetes",
         "Name[ca]": "Repositori de les galetes",
+        "Name[cs]": "Cookie Jar",
         "Name[da]": "Cookie jar",
         "Name[de]": "Cookie-Behälter",
+        "Name[el]": "Cookie Jar",
+        "Name[en_GB]": "Cookie Jar",
         "Name[es]": "Tarro de las galletas",
         "Name[et]": "Küpsisekarp",
         "Name[eu]": "Cookie ontzia",
@@ -52,6 +56,8 @@
         "Name[gd]": "Crogan bhriosgaidean",
         "Name[gl]": "Bote de cookies",
         "Name[hu]": "Sütitároló",
+        "Name[ia]": "Cookie Jar",
+        "Name[id]": "Cookie Jar",
         "Name[it]": "Contenitore dei cookie",
         "Name[ko]": "쿠키 통",
         "Name[nl]": "Cookie-depot",
@@ -70,6 +76,8 @@
         "Name[tr]": "Kurabiye Kavanozu",
         "Name[uk]": "Глечик з куками",
         "Name[x-test]": "xxCookie Jarxx",
+        "Name[zh_CN]": "Cookie Jar",
+        "Name[zh_TW]": "Cookie Jar",
         "ServiceTypes": [
             "KDEDModule"
         ]
