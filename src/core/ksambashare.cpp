@@ -397,7 +397,13 @@ bool KSambaSharePrivate::sync()
             KSambaShareData shareData = getShareByName(currentShare);
 
             if (key == QLatin1String("path")) {
-                shareData.dd->path = value;
+                // Samba accepts paths with and w/o trailing slash, we
+                // use and expect path without slash
+                if (value.endsWith(QLatin1Char('/'))) {
+                    shareData.dd->path = value.chopped(1);
+                } else {
+                    shareData.dd->path = value;
+                }
             } else if (key == QLatin1String("comment")) {
                 shareData.dd->comment = value;
             } else if (key == QLatin1String("usershare_acl")) {
