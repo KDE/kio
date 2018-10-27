@@ -63,7 +63,7 @@ KSambaSharePrivate::KSambaSharePrivate(KSambaShare *parent)
 {
     setUserSharePath();
     findSmbConf();
-    sync();
+    data = parse(getNetUserShareInfo());
 }
 
 KSambaSharePrivate::~KSambaSharePrivate()
@@ -365,7 +365,7 @@ KSambaShareData::UserShareError KSambaSharePrivate::remove(const KSambaShareData
     return (result == 0) ? KSambaShareData::UserShareOk : KSambaShareData::UserShareSystemError;
 }
 
-bool KSambaSharePrivate::sync()
+QMap<QString, KSambaShareData> KSambaSharePrivate::parse(const QByteArray &usershareData)
 {
     const QRegExp headerRx(QString::fromLatin1("^\\s*\\["
                                          "([^%<>*\?|/\\+=;:\",]+)"
@@ -375,26 +375,25 @@ bool KSambaSharePrivate::sync()
                                          "="
                                          "(.*)$"));
 
-    QTextStream stream(getNetUserShareInfo());
+    QTextStream stream(usershareData);
     QString currentShare;
-    QStringList shareList;
+    QMap<QString, KSambaShareData> shares;
 
     while (!stream.atEnd()) {
         const QString line = stream.readLine().trimmed();
 
         if (headerRx.exactMatch(line)) {
             currentShare = headerRx.cap(1).trimmed();
-            shareList << currentShare;
 
-            if (!data.contains(currentShare)) {
+            if (!shares.contains(currentShare)) {
                 KSambaShareData shareData;
                 shareData.dd->name = currentShare;
-                data.insert(currentShare, shareData);
+                shares.insert(currentShare, shareData);
             }
         } else if (OptValRx.exactMatch(line)) {
             const QString key = OptValRx.cap(1).trimmed();
             const QString value = OptValRx.cap(2).trimmed();
-            KSambaShareData shareData = getShareByName(currentShare);
+            KSambaShareData shareData = shares[currentShare];
 
             if (key == QLatin1String("path")) {
                 // Samba accepts paths with and w/o trailing slash, we
@@ -417,19 +416,11 @@ bool KSambaSharePrivate::sync()
         } else if (line.trimmed().isEmpty()) {
             continue;
         } else {
-            return false;
+            return shares;
         }
     }
 
-    QMutableMapIterator<QString, KSambaShareData> i(data);
-    while (i.hasNext()) {
-        i.next();
-        if (!shareList.contains(i.key())) {
-            i.remove();
-        }
-    }
-
-    return true;
+    return shares;
 }
 
 void KSambaSharePrivate::_k_slotFileChange(const QString &path)
@@ -437,7 +428,7 @@ void KSambaSharePrivate::_k_slotFileChange(const QString &path)
     if (path != userSharePath) {
         return;
     }
-    sync();
+    data = parse(getNetUserShareInfo());
     //qDebug() << "path changed:" << path;
     Q_Q(KSambaShare);
     emit q->changed();

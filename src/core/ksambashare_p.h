@@ -58,7 +58,7 @@ public:
 
     KSambaShareData::UserShareError add(const KSambaShareData &shareData);
     KSambaShareData::UserShareError remove(const KSambaShareData &shareName) const;
-    bool sync();
+    static QMap<QString, KSambaShareData> parse(const QByteArray &usershareData);
 
     void _k_slotFileChange(const QString &path);
 
