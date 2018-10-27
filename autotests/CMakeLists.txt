@@ -130,6 +130,15 @@ ecm_add_tests(
  LINK_LIBRARIES KF5::KIOFileWidgets KF5::KIOWidgets KF5::XmlGui KF5::Bookmarks Qt5::Test KF5::I18n
 )
 
+ecm_add_test(
+    ksambashareprivatetest.cpp
+    ../src/core/ksambashare.cpp
+    ../src/core/kiocoredebug.cpp
+    TEST_NAME ksambashareprivatetest
+    NAME_PREFIX "kiocore-"
+    LINK_LIBRARIES KF5::KIOCore Qt5::Test Qt5::Network
+)
+
 set_tests_properties(kiofilewidgets-kfileplacesmodeltest PROPERTIES RUN_SERIAL TRUE)
 set_tests_properties(kiofilewidgets-kfileplacesviewtest PROPERTIES RUN_SERIAL TRUE)
 endif()
