@@ -400,7 +400,7 @@ bool KSambaSharePrivate::sync()
                 // Samba accepts paths with and w/o trailing slash, we
                 // use and expect path without slash
                 if (value.endsWith(QLatin1Char('/'))) {
-                    shareData.dd->path = value.chopped(1);
+                    shareData.dd->path = value.left(value.size() - 1);
                 } else {
                     shareData.dd->path = value;
                 }
