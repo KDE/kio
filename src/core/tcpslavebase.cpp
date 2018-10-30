@@ -336,111 +336,51 @@ int TCPSlaveBase::connectToHost(const QString &host, quint16 port, QString *erro
         }
     }
 
-    /*
-       SSL handshake is attempted in the following order:
-
-       1.) KTcpSocket::SecureProtocols
-       2.) KTcpSocket::TlsV1_2
-       3.) KTcpSocket::TlsV1_1
-       4.) KTcpSocket::TlsV1_0
-
-       Note that we individually attempt connection with each TLS version
-       because some sites don't support SSL negotiation. #275524
-
-       The version used to successfully make encrypted connection with the
-       remote server is cached within the process to make subsequent
-       connection requests to the same server faster.
-     */
-
-    const int lastSslVerson = config()->readEntry("LastUsedSslVersion", static_cast<int>(KTcpSocket::SecureProtocols));
-    KTcpSocket::SslVersion trySslVersion = static_cast<KTcpSocket::SslVersion>(lastSslVerson);
-    KTcpSocket::SslVersions alreadyTriedSslVersions = trySslVersion;
-
     const int timeout = (connectTimeout() * 1000); // 20 sec timeout value
-    while (true) {
-        disconnectFromHost();  //Reset some state, even if we are already disconnected
-        d->host = host;
 
-        d->socket.connectToHost(host, port);
-        /*const bool connectOk = */d->socket.waitForConnected(timeout > -1 ? timeout : -1);
+    disconnectFromHost();  //Reset some state, even if we are already disconnected
+    d->host = host;
 
-        /*qDebug() << "Socket: state=" << d->socket.state()
-          << ", error=" << d->socket.error()
-          << ", connected?" << connectOk;*/
+    d->socket.connectToHost(host, port);
+    /*const bool connectOk = */d->socket.waitForConnected(timeout > -1 ? timeout : -1);
 
-        if (d->socket.state() != KTcpSocket::ConnectedState) {
-            if (errorString) {
-                *errorString = host + QLatin1String(": ") + d->socket.errorString();
-            }
-            switch (d->socket.error()) {
-            case KTcpSocket::UnsupportedSocketOperationError:
-                return ERR_UNSUPPORTED_ACTION;
-            case KTcpSocket::RemoteHostClosedError:
-                return ERR_CONNECTION_BROKEN;
-            case KTcpSocket::SocketTimeoutError:
-                return ERR_SERVER_TIMEOUT;
-            case KTcpSocket::HostNotFoundError:
-                return ERR_UNKNOWN_HOST;
-            default:
-                return ERR_CANNOT_CONNECT;
-            }
+    /*qDebug() << "Socket: state=" << d->socket.state()
+        << ", error=" << d->socket.error()
+        << ", connected?" << connectOk;*/
+
+    if (d->socket.state() != KTcpSocket::ConnectedState) {
+        if (errorString) {
+            *errorString = host + QLatin1String(": ") + d->socket.errorString();
         }
-
-        //### check for proxyAuthenticationRequiredError
-
-        d->ip = d->socket.peerAddress().toString();
-        d->port = d->socket.peerPort();
-
-        if (d->autoSSL) {
-            SslResult res = d->startTLSInternal(trySslVersion, timeout);
-            if ((res & ResultFailed) && (res & ResultFailedEarly)) {
-                if (!(alreadyTriedSslVersions & KTcpSocket::SecureProtocols)) {
-                    trySslVersion = KTcpSocket::SecureProtocols;
-                    alreadyTriedSslVersions |= trySslVersion;
-                    continue;
-                }
-
-                if (!(alreadyTriedSslVersions & KTcpSocket::TlsV1_2)) {
-                    trySslVersion = KTcpSocket::TlsV1;
-                    alreadyTriedSslVersions |= trySslVersion;
-                    continue;
-                }
-
-                if (!(alreadyTriedSslVersions & KTcpSocket::TlsV1_1)) {
-                    trySslVersion = KTcpSocket::TlsV1;
-                    alreadyTriedSslVersions |= trySslVersion;
-                    continue;
-                }
-
-                if (!(alreadyTriedSslVersions & KTcpSocket::TlsV1_0)) {
-                    trySslVersion = KTcpSocket::TlsV1_0;
-                    alreadyTriedSslVersions |= trySslVersion;
-                    continue;
-                }
-            }
-
-            //### SSL 2.0 is (close to) dead and it's a good thing, too.
-            if (res & ResultFailed) {
-                if (errorString) {
-                    *errorString = i18nc("%1 is a host name", "%1: SSL negotiation failed", host);
-                }
-                return ERR_CANNOT_CONNECT;
-            }
+        switch (d->socket.error()) {
+        case KTcpSocket::UnsupportedSocketOperationError:
+            return ERR_UNSUPPORTED_ACTION;
+        case KTcpSocket::RemoteHostClosedError:
+            return ERR_CONNECTION_BROKEN;
+        case KTcpSocket::SocketTimeoutError:
+            return ERR_SERVER_TIMEOUT;
+        case KTcpSocket::HostNotFoundError:
+            return ERR_UNKNOWN_HOST;
+        default:
+            return ERR_CANNOT_CONNECT;
         }
-        // If the SSL handshake was done with anything protocol other than the default,
-        // save that information so that any subsequent requests do not have to do thesame thing.
-        if (trySslVersion != KTcpSocket::SecureProtocols && lastSslVerson == KTcpSocket::SecureProtocols) {
-            setMetaData(QStringLiteral("{internal~currenthost}LastUsedSslVersion"),
-                        QString::number(trySslVersion));
-        }
-        return 0;
     }
-    Q_ASSERT(false);
-    // Code flow never gets here but let's make the compiler happy.
-    // More: the stack allocation of QSslSettings seems to be confusing the compiler;
-    //       in fact, any non-POD allocation does.
-    //       even a 'return 0;' directly after the allocation (so before the while(true))
-    //       is ignored. definitely seems to be a compiler bug? - aseigo
+
+    //### check for proxyAuthenticationRequiredError
+
+    d->ip = d->socket.peerAddress().toString();
+    d->port = d->socket.peerPort();
+
+    if (d->autoSSL) {
+        const SslResult res = d->startTLSInternal(KTcpSocket::SecureProtocols, timeout);
+
+        if (res & ResultFailed) {
+            if (errorString) {
+                *errorString = i18nc("%1 is a host name", "%1: SSL negotiation failed", host);
+            }
+            return ERR_CANNOT_CONNECT;
+        }
+    }
     return 0;
 }
 
