@@ -813,7 +813,6 @@ void KFileWidget::slotOk()
 {
 //     qDebug() << "slotOk\n";
 
-    const KFileItemList items = d->ops->selectedItems();
     const QString locationEditCurrentText(KShell::tildeExpand(d->locationEditCurrentText()));
 
     QList<QUrl> locationEditCurrentTextList(d->tokenize(locationEditCurrentText));
@@ -2310,7 +2309,6 @@ void KFileWidgetPrivate::updateAutoSelectExtension()
         }
 
         const QString locationLabelText = stripUndisplayable(locationLabel->text());
-        const QString filterLabelText = stripUndisplayable(filterLabel->text());
         autoSelectExtCheckBox->setWhatsThis("<qt>" +
                                             i18n(
                                                 "This option enables some convenient features for "

@@ -381,7 +381,6 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
     QString cProtocol = i18n("A protocol error or incompatibility may have occurred.");
     QString sExists = i18n("Ensure that the resource exists, and try again.");
     QString cExists = i18n("The specified resource may not exist.");
-    QString cTypo = i18n("You may have incorrectly typed the location.");
     QString sTypo = i18n("Double-check that you have entered the correct location "
                          "and try again.");
     QString sNetwork = i18n("Check your network connection status.");
