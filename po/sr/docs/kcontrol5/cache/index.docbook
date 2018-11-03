@@ -1,0 +1,107 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="cache" lang="&language;">
+<title
+>Кеш</title>
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Лори</firstname
+> <surname
+>Вотс</surname
+></author>
+
+<othercredit role="translator"
+><firstname
+>Драган</firstname
+><surname
+>Пантелић</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>превод</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>10. 11. 2016.</date>
+<releaseinfo
+>Радни оквири КДЕ‑а 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>КДЕ</keyword>
+<keyword
+>Системске поставке</keyword>
+<keyword
+>К‑освајач</keyword>
+<keyword
+>кеш</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Овим модулом можете управљати величином локалне фасцикле кеша коју користи <application
+>К‑освајач</application
+>. Имајте у виду да сваки кориснички налог на рачунару има сопствену фасциклу кеша, и да се не дели са другим веб прегледачима, нпр. <application
+>Фајерфоксом</application
+>.</para>
+
+<para
+>Чување локалних копија веб страница које сте посећивали допушта <application
+>К‑освајачу</application
+> да брзо учита њихове садржаје при следећим посетама. Садржај са изворног сајта биће потребно поново учитати само ако се променио од ваше последње посете, или ако кликнете на дугме за поновно учитавање.</para>
+
+<para
+>Ако заиста не желите да на вашем рачунару буде сачувана иједна посећена веб страница, можете искључити <application
+>К‑освајачев</application
+> кеш на диску пражњењем кућице <guilabel
+>Користи кеш</guilabel
+>.</para>
+
+<para
+>Овде можете подесити колико се <application
+>К‑освајач</application
+> упире да одржи кеш ажурним. <guilabel
+>Синхронизуј кеш</guilabel
+> значи да ће <application
+>К‑освајач</application
+> сваки објекат прво потражити у кешу, преузети га у кеш ако већ није тамо, а затим приказати ставку из кеша. <guilabel
+>Користи кеш када је могуће</guilabel
+> значи да ће <application
+>К‑освајач</application
+> прво покушати с кешом, па ако објект није тамо, преузеће га непосредно ради приказа. Уз <guilabel
+>Прегледање ван везе</guilabel
+>, <application
+>К‑освајач</application
+> ће покушати с кешом, а ако објекат није тамо, неће ни покушати да га преузме са Интернета.</para>
+
+<para
+>Величину кеша можете одредити уписом броја у поље <guilabel
+>Величина кеша на диску:</guilabel
+>, као просечни простор у килобајтима који се може употребити за фасциклу кеша. Ако кеш исувише нарасте, <application
+>К‑освајач</application
+> ће обрисати старије фајлове да смањи његову величину.</para>
+
+<para
+>Међутим, ово је само просек, и током једне прегледачке сесије кеш се може знатно увећати.</para>
+
+<para
+>За пражњење кеша у било ком тренутку можете употребити дугме <guibutton
+>Очисти кеш</guibutton
+>.</para>
+
+</article>

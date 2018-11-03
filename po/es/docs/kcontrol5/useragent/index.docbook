@@ -1,0 +1,150 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Spanish "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="useragent" lang="&language;">
+<title
+>Identificación del navegador</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<othercredit role="translator"
+> <firstname
+>Pablo</firstname
+> <surname
+>de Vicente</surname
+> <affiliation
+><address
+><email
+>pablo.devicente@gmail.com</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> <othercredit role="translator"
+> <firstname
+>Marcos</firstname
+> <surname
+>Fouces Lago</surname
+> <affiliation
+><address
+><email
+>mfouces@yahoo.es</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Preferencias del sistema</keyword>
+<keyword
+>Agente de usuario</keyword>
+<keyword
+>navegador</keyword>
+<keyword
+>identificación</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="user-agent">
+<title
+>Identificación del navegador</title>
+
+
+<sect2 id="user-agent-intro">
+<title
+>Introducción</title>
+
+<para
+>Cuando &konqueror; se conecta a un sitio web para descargar información, se envía información identificativa al sitio web en una cabecera de datos denominada «Agente de usuario».</para>
+
+<para
+>Debido a pequeñas diferencias en el modo en que los diferentes navegadores funcionan, los sitios web que presuponen el uso de un solo navegador pueden no mostrarse adecuadamente cuando se ven con otro navegador. Algunos sitios web están diseñados para examinar el contenido de la cabecera del agente de usuario e incorporar esta información en el código &HTML;, de modo que el contenido se muestre correctamente independientemente del navegador utilizado.</para>
+
+<para
+>Sin embargo, puede que encuentre algún servidor web que rehúse funcionar correctamente a no ser que esté utilizando un navegador considerado como «correcto» por dicho sitio. En estos casos puede ser necesario engañar al sitio web haciendo que &konqueror; se identifique como otro navegador utilizando el contenido de la cabecera de agente de usuario.</para>
+
+</sect2>
+
+<sect2 id="user-agent-use">
+<title
+>Uso</title>
+
+<para
+>En este módulo usted puede configurar el tipo de navegador con el que &konqueror; se identificará. Puede controlar dicha información en función del sitio web. Usualmente en el cuadro con la lista etiquetado como <guilabel
+>Identificación específica del sitio</guilabel
+>, estará vacío, de modo que &konqueror; siempre utilizará su cadena de agente de usuario predeterminada.</para>
+
+<para
+>Puede desactivar el envío del agente de usuario por completo, desmarcando la casilla <guilabel
+>Enviar identificación</guilabel
+>. Esto puede ocasionar un comportamiento extraño en algunos sitios, e incluso puede denegarle el acceso a ciertos servidores web, de modo que desactive esto con precaución.</para>
+
+<para
+>Para configurar una nueva asociación de agente, pulse el botón <guibutton
+>Nuevo...</guibutton
+>. Introduzca el nombre del servidor o dominio en el recuadro de texto en la parte superior del diálogo emergente, que está etiquetado como <guilabel
+>Al conectarse al siguiente lugar</guilabel
+>.</para>
+
+<para
+>Advierta que <emphasis
+>no</emphasis
+> puede utilizar el comodín <token
+>*</token
+> en este cuadro de texto. Sin embargo la cadena <userinput
+>kde.org</userinput
+> servirá para todos las máquinas en el dominio <systemitem
+>kde.org</systemitem
+>.</para>
+
+<para
+>Después de introducir el nombre del servidor, seleccione la cadena identificativa en la siguiente caja combo, etiquetada como <guilabel
+>Usar la siguiente identificación:</guilabel
+>. La <guilabel
+>Identificación real</guilabel
+> (&ie;, la cadena enviada al servidor) se muestra en el campo.</para>
+
+<para
+>Puede pulsar sobre cualquier entrada existente en la lista, y después modificar los contenidos en los cuadros de texto, pulsando a continuación sobre el botón <guibutton
+>Cambiar...</guibutton
+>.</para>
+
+<para
+>El botón <guilabel
+>Eliminar</guilabel
+> se puede utilizar para suprimir la entrada seleccionada de la lista de identificaciones de agente configuradas. El botón <guibutton
+>Borrar todo</guibutton
+> borrará todas las cadenas configuradas de de agente de usuario. Pulse <guibutton
+>Aplicar</guibutton
+> para que sus cambios tengan efecto.</para>
+
+<para
+>Puede utilizar las casillas de selección en la parte superior de la pantalla para crear un agente de usuario que sea únicamente suyo, eligiendo su propia combinación de nombre de sistema operativo y versión, plataforma, tipo de procesador, e idioma.</para>
+
+<para
+>En todos los casos, el agente de usuario que se envía de forma predeterminada se muestra en negrita en la parte superior de la página.</para>
+
+</sect2>
+
+</sect1>
+
+</article>
