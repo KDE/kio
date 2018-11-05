@@ -441,7 +441,7 @@ void KUrlNavigatorButton::urlsDropped(QAction *action, QDropEvent *event)
     const int result = action->data().toInt();
     QUrl url(m_url);
     url.setPath(concatPaths(url.path(), m_subDirs.at(result).first));
-    urlsDropped(url, event);
+    emit urlsDropped(url, event);
 }
 
 void KUrlNavigatorButton::slotMenuActionClicked(QAction *action, Qt::MouseButton button)

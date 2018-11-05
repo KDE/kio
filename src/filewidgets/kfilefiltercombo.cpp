@@ -132,7 +132,7 @@ QStringList KFileFilterCombo::filters() const
 void KFileFilterCombo::setCurrentFilter(const QString &filter)
 {
     setCurrentIndex(d->m_filters.indexOf(filter));
-    filterChanged();
+    emit filterChanged();
 }
 
 void KFileFilterCombo::setMimeFilter(const QStringList &types,
