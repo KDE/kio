@@ -5,6 +5,9 @@ find_package(KF5XmlGui ${KF5_DEP_VERSION} REQUIRED)
 
 configure_file(config-kiofilewidgets.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kiofilewidgets.h)
 
+# TODO: Remove these
+remove_definitions(-DQT_NO_CAST_FROM_ASCII)
+
 set(kiofilewidgets_SRCS
   kstatusbarofflineindicator.cpp
   kfilemetapreview.cpp

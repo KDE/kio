@@ -2,6 +2,7 @@ if(POLICY CMP0028)
   cmake_policy(SET CMP0028 OLD)
 endif()
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
+remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
 
 include(ECMAddTests)
 

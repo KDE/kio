@@ -1,3 +1,6 @@
+# TODO: Remove these
+remove_definitions(-DQT_NO_CAST_FROM_ASCII)
+
 set(kioexecd_SRCS kioexecd.cpp)
 
 qt5_generate_dbus_interface(${CMAKE_CURRENT_SOURCE_DIR}/kioexecd.h org.kde.KIOExecd.xml)

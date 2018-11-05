@@ -118,7 +118,7 @@ void TrashConfigModule::percentChanged(double percent)
     double size = ((double)(partitionSize / 100)) * percent;
 
     KFormat format;
-    mSizeLabel->setText("(" + format.formatByteSize(size, 2) + ")");
+    mSizeLabel->setText(QLatin1Char('(') + format.formatByteSize(size, 2) + QLatin1Char(')'));
 }
 
 void TrashConfigModule::trashChanged(QListWidgetItem *item)
@@ -175,7 +175,7 @@ void TrashConfigModule::readConfig()
 
     const QStringList groups = config.groupList();
     for (int i = 0; i < groups.count(); ++i) {
-        if (groups[ i ].startsWith('/')) {
+        if (groups[ i ].startsWith(QLatin1Char('/'))) {
             const KConfigGroup group = config.group(groups[ i ]);
 
             ConfigEntry entry;
@@ -196,7 +196,7 @@ void TrashConfigModule::writeConfig()
     // first delete all existing groups
     const QStringList groups = config.groupList();
     for (int i = 0; i < groups.count(); ++i)
-        if (groups[ i ].startsWith('/')) {
+        if (groups[ i ].startsWith(QLatin1Char('/'))) {
             config.deleteGroup(groups[ i ]);
         }
 

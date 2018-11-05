@@ -17,8 +17,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-#define QT_NO_CAST_FROM_ASCII
-
 #include "kio_trash.h"
 #include "kiotrashdebug.h"
 #include "../../pathhelpers_p.h"
@@ -125,7 +123,7 @@ void TrashProtocol::restore(const QUrl &trashURL)
     const QString destDir = dest.adjusted(QUrl::RemoveFilename).path();
     QT_STATBUF buff;
 
-    if (QT_LSTAT(QFile::encodeName(destDir), &buff) == -1) {
+    if (QT_LSTAT(QFile::encodeName(destDir).constData(), &buff) == -1) {
         error(KIO::ERR_SLAVE_DEFINED,
               i18n("The directory %1 does not exist anymore, so it is not possible to restore this item to its original location. "
                    "You can either recreate that directory and use the restore operation again, or drag the item anywhere else to restore it.", destDir));
@@ -437,13 +435,13 @@ bool TrashProtocol::createUDSEntry(const QString &physicalPath, const QString &d
 {
     QByteArray physicalPath_c = QFile::encodeName(physicalPath);
     QT_STATBUF buff;
-    if (QT_LSTAT(physicalPath_c, &buff) == -1) {
+    if (QT_LSTAT(physicalPath_c.constData(), &buff) == -1) {
         qCWarning(KIO_TRASH) << "couldn't stat " << physicalPath;
         return false;
     }
     if (S_ISLNK(buff.st_mode)) {
         char buffer2[ 1000 ];
-        int n = readlink(physicalPath_c, buffer2, 999);
+        int n = ::readlink(physicalPath_c.constData(), buffer2, 999);
         if (n != -1) {
             buffer2[ n ] = 0;
         }

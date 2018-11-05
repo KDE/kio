@@ -98,8 +98,9 @@ QString RemoteImpl::findDesktopFile(const QString &filename) const
     qCDebug(KIOREMOTE_LOG) << "RemoteImpl::findDesktopFile";
 
     QString directory;
-    if (findDirectory(filename+".desktop", directory)) {
-        return directory+filename+".desktop";
+    const QString desktopFileName = filename + QLatin1String(".desktop");
+    if (findDirectory(desktopFileName, directory)) {
+        return directory + desktopFileName;
     }
 
     return QString();
@@ -192,7 +193,7 @@ bool RemoteImpl::createEntry(KIO::UDSEntry &entry, const QString &directory,
     new_filename.truncate(file.length()-8);
 
     entry.fastInsert(KIO::UDSEntry::UDS_NAME, desktop.readName());
-    entry.fastInsert(KIO::UDSEntry::UDS_URL, "remote:/"+new_filename);
+    entry.fastInsert(KIO::UDSEntry::UDS_URL, QLatin1String("remote:/") + new_filename);
 
     entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0500);
@@ -210,8 +211,9 @@ bool RemoteImpl::statNetworkFolder(KIO::UDSEntry &entry, const QString &filename
     qCDebug(KIOREMOTE_LOG) << "RemoteImpl::statNetworkFolder: " << filename;
 
     QString directory;
-    return findDirectory(filename+".desktop", directory)
-        && createEntry(entry, directory, filename+".desktop");
+    const QString desktopFileName = filename + QLatin1String(".desktop");
+    return findDirectory(desktopFileName, directory)
+        && createEntry(entry, directory, desktopFileName);
 }
 
 bool RemoteImpl::deleteNetworkFolder(const QString &filename) const
@@ -219,9 +221,10 @@ bool RemoteImpl::deleteNetworkFolder(const QString &filename) const
     qCDebug(KIOREMOTE_LOG) << "RemoteImpl::deleteNetworkFolder: " << filename;
 
     QString directory;
-    if (findDirectory(filename+".desktop", directory)) {
+    const QString desktopFileName = filename + QLatin1String(".desktop");
+    if (findDirectory(desktopFileName, directory)) {
         qCDebug(KIOREMOTE_LOG) << "Removing " << directory << filename << ".desktop";
-        return QFile::remove(directory+filename+".desktop");
+        return QFile::remove(directory + desktopFileName);
     }
 
     return false;
@@ -233,16 +236,19 @@ bool RemoteImpl::renameFolders(const QString &src, const QString &dest, bool ove
                            << src << ", " << dest << endl;
 
     QString directory;
-    if (findDirectory(src+".desktop", directory)) {
-        if (!overwrite && QFile::exists(directory+dest+".desktop")) {
+    const QString srcDesktopFileName = src + QLatin1String(".desktop");
+    if (findDirectory(srcDesktopFileName, directory)) {
+        const QString destDesktopFileName = dest + QLatin1String(".desktop");
+        const QString destDesktopFilePath = directory + destDesktopFileName;
+        if (!overwrite && QFile::exists(destDesktopFilePath)) {
             return false;
         }
 
         qCDebug(KIOREMOTE_LOG) << "Renaming " << directory << src << ".desktop";
         QDir dir(directory);
-        bool res = dir.rename(src+".desktop", dest+".desktop");
+        bool res = dir.rename(srcDesktopFileName, destDesktopFileName);
         if (res) {
-            KDesktopFile desktop(directory+dest+".desktop");
+            KDesktopFile desktop(destDesktopFilePath);
             desktop.desktopGroup().writeEntry("Name", dest);
         }
         return res;
@@ -257,13 +263,15 @@ bool RemoteImpl::changeFolderTarget(const QString &src, const QString &target, b
                            << src << ", " << target << endl;
 
     QString directory;
-    if (findDirectory(src+".desktop", directory)) {
-        if (!overwrite || !QFile::exists(directory+src+".desktop")) {
+    const QString srcDesktopFileName = src + QLatin1String(".desktop");
+    if (findDirectory(srcDesktopFileName, directory)) {
+        const QString srcDesktopFilePath = directory + srcDesktopFileName;
+        if (!overwrite || !QFile::exists(srcDesktopFilePath)) {
             return false;
         }
 
         qCDebug(KIOREMOTE_LOG) << "Changing target " << directory << src << ".desktop";
-        KDesktopFile desktop(directory+src+".desktop");
+        KDesktopFile desktop(srcDesktopFilePath);
         desktop.desktopGroup().writeEntry("URL", target);
         return true;
     }

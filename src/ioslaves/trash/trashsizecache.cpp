@@ -61,7 +61,7 @@ void TrashSizeCache::add(const QString &directoryName, qulonglong directorySize)
             }
         }
 
-        const QString fileInfoPath = mTrashPath + "/info/" + directoryName + ".trashinfo";
+        const QString fileInfoPath = mTrashPath + QLatin1String("/info/") + directoryName + QLatin1String(".trashinfo");
         QDateTime mtime = QFileInfo(fileInfoPath).lastModified();
         QByteArray newLine = QByteArray::number(directorySize) + ' ' + QByteArray::number(mtime.toMSecsSinceEpoch()) + spaceAndDirAndNewline;
         out.write(newLine);
@@ -131,7 +131,7 @@ qulonglong TrashSizeCache::calculateSize()
         if (file.isSymLink()) {
             // QFileInfo::size does not return the actual size of a symlink. #253776
             QT_STATBUF buff;
-            return static_cast<qulonglong>(QT_LSTAT(QFile::encodeName(file.absoluteFilePath()), &buff) == 0 ? buff.st_size : 0);
+            return static_cast<qulonglong>(QT_LSTAT(QFile::encodeName(file.absoluteFilePath()).constData(), &buff) == 0 ? buff.st_size : 0);
         } else if (file.isFile()) {
             sum += file.size();
         } else {
@@ -140,7 +140,7 @@ qulonglong TrashSizeCache::calculateSize()
             DirCacheHash::const_iterator it = dirCache.constFind(QFile::encodeName(fileId));
             if (it != dirCache.constEnd()) {
                 const CacheData &data = *it;
-                const QString fileInfoPath = mTrashPath + "/info/" + fileId + ".trashinfo";
+                const QString fileInfoPath = mTrashPath + QLatin1String("/info/") + fileId + QLatin1String(".trashinfo");
                 if (QFileInfo(fileInfoPath).lastModified().toMSecsSinceEpoch() == data.mtime) {
                     sum += data.size;
                     usableCache = true;

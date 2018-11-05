@@ -1,5 +1,9 @@
 project(KIOWidgets)
 
+# TODO: Remove these
+remove_definitions(-DQT_NO_CAST_FROM_ASCII)
+remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
+
 #include (ConfigureChecks.cmake)
 
 # Device desktop files aren't really used anymore

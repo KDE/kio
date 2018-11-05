@@ -1,5 +1,8 @@
 include(ECMMarkNonGuiExecutable)
 
+# TODO: Remove these
+remove_definitions(-DQT_NO_CAST_FROM_ASCII)
+
 set(kiod_SRCS kiod_main.cpp)
 if (APPLE)
     set(kiod_SRCS ${kiod_SRCS} kiod_agent.mm)

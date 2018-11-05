@@ -46,7 +46,7 @@ qulonglong DiscSpaceUtil::sizeOfPath(const QString &path)
     if (info.isSymLink()) {
         // QFileInfo::size does not return the actual size of a symlink. #253776
         QT_STATBUF buff;
-        return static_cast<qulonglong>(QT_LSTAT(QFile::encodeName(path), &buff) == 0 ? buff.st_size : 0);
+        return static_cast<qulonglong>(QT_LSTAT(QFile::encodeName(path).constData(), &buff) == 0 ? buff.st_size : 0);
     } else if (info.isFile()) {
         return info.size();
     } else if (info.isDir()) {

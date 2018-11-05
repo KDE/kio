@@ -63,7 +63,7 @@ void RemoteProtocol::listDir(const QUrl &url)
         return;
     }
 
-    int second_slash_idx = url.path().indexOf('/', 1);
+    int second_slash_idx = url.path().indexOf(QLatin1Char('/'), 1);
     const QString root_dirname = url.path().mid(1, second_slash_idx-1);
 
     QUrl target = m_impl.findBaseURL(root_dirname);
@@ -136,7 +136,7 @@ void RemoteProtocol::stat(const QUrl &url)
         return;
     }
 
-    int second_slash_idx = url.path().indexOf('/', 1);
+    int second_slash_idx = url.path().indexOf(QLatin1Char('/'), 1);
     const QString root_dirname = url.path().mid(1, second_slash_idx-1);
 
     if (second_slash_idx == -1 || ((int)url.path().length()) == second_slash_idx+1) {

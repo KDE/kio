@@ -15,6 +15,10 @@ endif()
 
 configure_file(config-kpac.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kpac.h)
 
+# TODO: Remove these
+remove_definitions(-DQT_NO_CAST_FROM_ASCII)
+remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
+
 ########### next target ###############
 
 find_package(Qt5Script ${REQUIRED_QT_VERSION})

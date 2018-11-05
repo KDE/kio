@@ -17,8 +17,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-#define QT_NO_CAST_FROM_ASCII
-
 #include "trashimpl.h"
 #include "discspaceutil.h"
 #include "trashsizecache.h"
@@ -70,7 +68,7 @@ TrashImpl::TrashImpl() :
     m_config(QStringLiteral("trashrc"), KConfig::SimpleConfig)
 {
     QT_STATBUF buff;
-    if (QT_LSTAT(QFile::encodeName(QDir::homePath()), &buff) == 0) {
+    if (QT_LSTAT(QFile::encodeName(QDir::homePath()).constData(), &buff) == 0) {
         m_homeDevice = buff.st_dev;
     } else {
         qCWarning(KIO_TRASH) << "Should never happen: couldn't stat $HOME" << strerror(errno);
@@ -85,7 +83,7 @@ TrashImpl::TrashImpl() :
  */
 int TrashImpl::testDir(const QString &_name) const
 {
-    DIR *dp = opendir(QFile::encodeName(_name));
+    DIR *dp = ::opendir(QFile::encodeName(_name).constData());
     if (!dp) {
         QString name = _name;
         if (name.endsWith(QLatin1Char('/'))) {
@@ -298,7 +296,7 @@ bool TrashImpl::createInfo(const QString &origPath, int &trashId, QString &fileI
     QString fileName;
     do {
         //qCDebug(KIO_TRASH) << "trying to create" << url.path();
-        fd = ::open(QFile::encodeName(url.path()), O_WRONLY | O_CREAT | O_EXCL, 0600);
+        fd = ::open(QFile::encodeName(url.path()).constData(), O_WRONLY | O_CREAT | O_EXCL, 0600);
         if (fd < 0) {
             if (errno == EEXIST) {
                 fileName = url.fileName();
@@ -551,7 +549,7 @@ bool TrashImpl::directRename(const QString &src, const QString &dest)
     //qCDebug(KIO_TRASH) << src << "->" << dest;
     // Do not use QFile::rename here, we need to be able to move broken symlinks too
     // (and we need to make sure errno is set)
-    if (::rename(QFile::encodeName(src), QFile::encodeName(dest)) != 0) {
+    if (::rename(QFile::encodeName(src).constData(), QFile::encodeName(dest).constData()) != 0) {
         if (errno == EXDEV) {
             error(KIO::ERR_UNSUPPORTED_ACTION, QStringLiteral("rename"));
         } else {
@@ -885,7 +883,7 @@ bool TrashImpl::isEmpty() const
         QString infoPath = it.value();
         infoPath += QLatin1String("/info");
 
-        DIR *dp = opendir(QFile::encodeName(infoPath));
+        DIR *dp = ::opendir(QFile::encodeName(infoPath).constData());
         if (dp) {
             struct dirent *ep;
             ep = readdir(dp);
@@ -1028,7 +1026,7 @@ int TrashImpl::findTrashDirectory(const QString &origPath)
     //qCDebug(KIO_TRASH) << origPath;
     // First check if same device as $HOME, then we use the home trash right away.
     QT_STATBUF buff;
-    if (QT_LSTAT(QFile::encodeName(origPath), &buff) == 0
+    if (QT_LSTAT(QFile::encodeName(origPath).constData(), &buff) == 0
             && buff.st_dev == m_homeDevice) {
         return 0;
     }
@@ -1159,11 +1157,11 @@ QString TrashImpl::trashForMountPoint(const QString &topdir, bool createIfNeeded
     uid_t uid = getuid();
     QT_STATBUF buff;
     const unsigned int requiredBits = S_ISVTX; // Sticky bit required
-    if (QT_LSTAT(rootTrashDir_c, &buff) == 0) {
+    if (QT_LSTAT(rootTrashDir_c.constData(), &buff) == 0) {
         if ((S_ISDIR(buff.st_mode))  // must be a dir
                 && (!S_ISLNK(buff.st_mode)) // not a symlink
                 && ((buff.st_mode & requiredBits) == requiredBits)
-                && (::access(rootTrashDir_c, W_OK) == 0) // must be user-writable
+                && (::access(rootTrashDir_c.constData(), W_OK) == 0) // must be user-writable
            ) {
 #ifndef Q_OS_OSX
             const QString trashDir = rootTrashDir + QLatin1Char('/') + QString::number(uid);
@@ -1171,7 +1169,7 @@ QString TrashImpl::trashForMountPoint(const QString &topdir, bool createIfNeeded
             QString trashDir = rootTrashDir + QLatin1Char('/') + QString::number(uid);
 #endif
             const QByteArray trashDir_c = QFile::encodeName(trashDir);
-            if (QT_LSTAT(trashDir_c, &buff) == 0) {
+            if (QT_LSTAT(trashDir_c.constData(), &buff) == 0) {
                 if ((buff.st_uid == uid)  // must be owned by user
                         && (S_ISDIR(buff.st_mode)) // must be a dir
                         && (!S_ISLNK(buff.st_mode)) // not a symlink
@@ -1194,7 +1192,7 @@ QString TrashImpl::trashForMountPoint(const QString &topdir, bool createIfNeeded
     // (2) $topdir/.Trash-$uid
     const QString trashDir = topdir + QLatin1String("/.Trash-") + QString::number(uid);
     const QByteArray trashDir_c = QFile::encodeName(trashDir);
-    if (QT_LSTAT(trashDir_c, &buff) == 0) {
+    if (QT_LSTAT(trashDir_c.constData(), &buff) == 0) {
         if ((buff.st_uid == uid)  // must be owned by user
                 && (S_ISDIR(buff.st_mode)) // must be a dir
                 && (!S_ISLNK(buff.st_mode)) // not a symlink
@@ -1230,7 +1228,7 @@ int TrashImpl::idForTrashDirectory(const QString &trashDir) const
 bool TrashImpl::initTrashDirectory(const QByteArray &trashDir_c) const
 {
     //qCDebug(KIO_TRASH) << trashDir_c;
-    if (mkdir(trashDir_c, 0700) != 0) {
+    if (mkdir(trashDir_c.constData(), 0700) != 0) {
         return false;
     }
     //qCDebug(KIO_TRASH);
@@ -1238,7 +1236,7 @@ bool TrashImpl::initTrashDirectory(const QByteArray &trashDir_c) const
     // In theory this is the case, but not on e.g. USB keys...
     uid_t uid = getuid();
     QT_STATBUF buff;
-    if (QT_LSTAT(trashDir_c, &buff) != 0) {
+    if (QT_LSTAT(trashDir_c.constData(), &buff) != 0) {
         return false;    // huh?
     }
     if ((buff.st_uid == uid)  // must be owned by user
@@ -1248,7 +1246,7 @@ bool TrashImpl::initTrashDirectory(const QByteArray &trashDir_c) const
 
     } else {
         qCWarning(KIO_TRASH) << trashDir_c << "just created, by it doesn't have the right permissions, probably some strange unsupported filesystem";
-        ::rmdir(trashDir_c);
+        ::rmdir(trashDir_c.constData());
         return false;
     }
     return true;
