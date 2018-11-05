@@ -304,7 +304,7 @@ QString UDSEntryPrivate::nameOfUdsField(uint field)
         case UDSEntry::UDS_EXTRA_END:
             return QStringLiteral("UDS_EXTRA_END");
         default:
-            return QString("Unknown uds field %1").arg(field);
+            return QStringLiteral("Unknown uds field %1").arg(field);
     }
 }
 

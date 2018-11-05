@@ -42,7 +42,7 @@ static bool sendFileDescriptor(int fd, const char *socketPath)
 ActionReply FileHelper::exec(const QVariantMap &args)
 {
     ActionReply reply;
-    QByteArray data = args["arguments"].toByteArray();
+    QByteArray data = args[QStringLiteral("arguments")].toByteArray();
     QDataStream in(data);
     int action;
     QVariant arg1, arg2, arg3, arg4;

@@ -28,8 +28,12 @@
 #include <QDir>
 #include <QFile>
 
-#define WIZARD_URL "remote:/x-wizard_service.desktop"
-#define WIZARD_SERVICE "org.kde.knetattach"
+namespace {
+namespace Strings {
+QString wizardUrl()     { return QStringLiteral("remote:/x-wizard_service.desktop"); }
+QString wizardService() { return QStringLiteral("org.kde.knetattach"); }
+}
+}
 
 RemoteImpl::RemoteImpl()
 {
@@ -117,23 +121,23 @@ QUrl RemoteImpl::findBaseURL(const QString &filename) const
 void RemoteImpl::createTopLevelEntry(KIO::UDSEntry &entry) const
 {
     entry.clear();
-    entry.fastInsert(KIO::UDSEntry::UDS_NAME, QString::fromLatin1("."));
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
     entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0777);
-    entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QString::fromLatin1("inode/directory"));
-    entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, QString::fromLatin1("folder-remote"));
-    entry.fastInsert(KIO::UDSEntry::UDS_USER, QString::fromLatin1("root"));
-    entry.fastInsert(KIO::UDSEntry::UDS_GROUP, QString::fromLatin1("root"));
+    entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
+    entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, QStringLiteral("folder-remote"));
+    entry.fastInsert(KIO::UDSEntry::UDS_USER, QStringLiteral("root"));
+    entry.fastInsert(KIO::UDSEntry::UDS_GROUP, QStringLiteral("root"));
 }
 
 static QUrl findWizardRealURL()
 {
     QUrl url;
-    KService::Ptr service = KService::serviceByDesktopName(WIZARD_SERVICE);
+    KService::Ptr service = KService::serviceByDesktopName(Strings::wizardService());
 
     if (service && service->isValid()) {
         url = QUrl::fromLocalFile(QStandardPaths::locate(QStandardPaths::ApplicationsLocation,
-                                                         QStringLiteral("%1.desktop").arg(WIZARD_SERVICE)));
+                                                         QStringLiteral("%1.desktop").arg(Strings::wizardService())));
     }
 
     return url;
@@ -151,18 +155,18 @@ bool RemoteImpl::createWizardEntry(KIO::UDSEntry &entry) const
 
     entry.fastInsert(KIO::UDSEntry::UDS_NAME, i18n("Add Network Folder"));
     entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFREG);
-    entry.fastInsert(KIO::UDSEntry::UDS_URL, QString::fromLatin1(WIZARD_URL));
+    entry.fastInsert(KIO::UDSEntry::UDS_URL, Strings::wizardUrl());
     entry.fastInsert(KIO::UDSEntry::UDS_LOCAL_PATH, url.path());
     entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0500);
-    entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QString::fromLatin1("application/x-desktop"));
-    entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, QString::fromLatin1("folder-new"));
+    entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("application/x-desktop"));
+    entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, QStringLiteral("folder-new"));
 
     return true;
 }
 
 bool RemoteImpl::isWizardURL(const QUrl &url) const
 {
-    return url == QUrl(WIZARD_URL);
+    return url == QUrl(Strings::wizardUrl());
 }
 
 bool RemoteImpl::createEntry(KIO::UDSEntry &entry, const QString &directory,
@@ -192,7 +196,7 @@ bool RemoteImpl::createEntry(KIO::UDSEntry &entry, const QString &directory,
 
     entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0500);
-    entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QString::fromLatin1("inode/directory"));
+    entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
 
     const QString icon = desktop.readIcon();
     entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, icon);

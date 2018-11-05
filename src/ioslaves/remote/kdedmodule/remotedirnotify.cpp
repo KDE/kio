@@ -38,5 +38,5 @@ RemoteDirNotify::RemoteDirNotify()
 
 void RemoteDirNotify::slotRemoteChanged()
 {
-    org::kde::KDirNotify::emitFilesAdded(QUrl("remote:/"));
+    org::kde::KDirNotify::emitFilesAdded(QUrl(QStringLiteral("remote:/")));
 }

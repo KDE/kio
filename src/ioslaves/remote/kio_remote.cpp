@@ -35,7 +35,7 @@ int Q_DECL_EXPORT kdemain(int argc, char **argv)
 {
     // necessary to use other kio slaves
     QCoreApplication app(argc, argv);
-    app.setApplicationName("kio_remote");
+    app.setApplicationName(QStringLiteral("kio_remote"));
 
     // start the slave
     RemoteProtocol slave(argv[1], argv[2], argv[3]);

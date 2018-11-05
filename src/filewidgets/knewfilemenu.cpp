@@ -929,7 +929,7 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
                 QString line = in.readLine();
                 if (line.startsWith(QLatin1String("XDG_TEMPLATES_DIR="))) {
                     QString xdgTemplates = line.mid(19, line.size()-20);
-                    xdgTemplates.replace(QString("$HOME"), QDir::homePath());
+                    xdgTemplates.replace(QStringLiteral("$HOME"), QDir::homePath());
                     QDir xdgTemplatesDir(xdgTemplates);
                     if (xdgTemplatesDir.exists()) {
                         installedTemplates << xdgTemplates;

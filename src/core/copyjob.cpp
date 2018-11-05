@@ -377,7 +377,7 @@ void CopyJobPrivate::slotResultStating(KJob *job)
             info.uDest = m_dest;
             // Append filename or dirname to destination URL, if allowed
             if (destinationState == DEST_IS_DIR && !m_asMethod) {
-                const QString fileName = srcurl.scheme() == "data" ? "data" : srcurl.fileName(); // #379093
+                const QString fileName = srcurl.scheme() == QLatin1String("data") ? QStringLiteral("data") : srcurl.fileName(); // #379093
                 info.uDest = addPathToUrl(info.uDest, fileName);
             }
 

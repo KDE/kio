@@ -93,7 +93,7 @@ int main (int argc, char *argv[])
 
     // constructed the json data by parsing all .protocol files
     QVariantMap protocolsData;
-    const QRegularExpression localeRegex("^\\w+\\[(.*)\\]=");
+    const QRegularExpression localeRegex(QStringLiteral("^\\w+\\[(.*)\\]="));
     Q_FOREACH(const QString &file, parser.positionalArguments()) {
         // get full path
         const QString fullFilePath(QDir::current().absoluteFilePath(file));
@@ -157,7 +157,7 @@ int main (int argc, char *argv[])
             // insert all entries for all found locales, reparse config for this
             Q_FOREACH(const QString &locale, foundLocalesForKey) {
                 sconfig.setLocale(locale);
-                protocolData.insert(QString("%1[%2]").arg(key, locale), config.readEntry(key, QStringList()));
+                protocolData.insert(QStringLiteral("%1[%2]").arg(key, locale), config.readEntry(key, QStringList()));
             }
         }
 

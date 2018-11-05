@@ -994,7 +994,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 
     } else {
         d->m_lined = new KLineEdit(d->m_frame);
-        d->m_lined->setObjectName("KFilePropsPlugin::nameLineEdit");
+        d->m_lined->setObjectName(QStringLiteral("KFilePropsPlugin::nameLineEdit"));
         d->m_lined->setText(filename);
         d->m_lined->setFocus();
 

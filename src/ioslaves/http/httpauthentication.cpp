@@ -825,7 +825,7 @@ void KHttpNegotiateAuthentication::fillKioAuthInfo(KIO::AuthInfo *ai) const
 {
     authInfoBoilerplate(ai);
     //### does GSSAPI supply anything realm-like? dummy value for now.
-    ai->realmValue = QLatin1String("Negotiate");
+    ai->realmValue = QStringLiteral("Negotiate");
 }
 
 void KHttpNegotiateAuthentication::generateResponse(const QString &user, const QString &password)

@@ -490,7 +490,7 @@ KFilePreviewGenerator::Private::Private(KFilePreviewGenerator *parent,
     connect(m_changedItemsTimer, SIGNAL(timeout()),
             q, SLOT(delayedIconUpdate()));
 
-    KConfigGroup globalConfig(KSharedConfig::openConfig("dolphinrc"), "PreviewSettings");
+    KConfigGroup globalConfig(KSharedConfig::openConfig(QStringLiteral("dolphinrc")), "PreviewSettings");
     m_enabledPlugins = globalConfig.readEntry("Plugins", QStringList()
                        << QStringLiteral("directorythumbnail")
                        << QStringLiteral("imagethumbnail")

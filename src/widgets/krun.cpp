@@ -1083,7 +1083,7 @@ void KRun::KRunPrivate::showPrompt()
 
 bool KRun::KRunPrivate::isPromptNeeded()
 {
-    if (m_strURL == QUrl("remote:/x-wizard_service.desktop")) {
+    if (m_strURL == QUrl(QStringLiteral("remote:/x-wizard_service.desktop"))) {
         return false;
     }
     const QMimeDatabase db;

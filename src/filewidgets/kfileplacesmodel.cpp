@@ -90,11 +90,11 @@ namespace {
 
     static QString timelineDateString(int year, int month, int day = 0)
     {
-        const QString dateFormat("%1-%2");
+        const QString dateFormat = QStringLiteral("%1-%2");
 
         QString date = dateFormat.arg(year).arg(month, 2, 10, QChar('0'));
         if (day > 0) {
-            date += QString("-%1").arg(day, 2, 10, QChar('0'));
+            date += QStringLiteral("-%1").arg(day, 2, 10, QChar('0'));
         }
         return date;
     }
