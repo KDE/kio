@@ -17,9 +17,9 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include <qtest.h>
-
 #include "jobtest.h"
+
+#include <qtest.h>
 
 #include <klocalizedstring.h>
 

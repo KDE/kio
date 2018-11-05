@@ -18,8 +18,9 @@
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 ***/
 
-#include "../sharefd_p.h"
 #include "fdsender.h"
+
+#include "../sharefd_p.h"
 #include <errno.h>
 #include <string.h>
 

@@ -18,8 +18,9 @@
     Boston, MA 02110-1301, USA.
 */
 
-#include "job_p.h"
 #include "statjob.h"
+
+#include "job_p.h"
 #include "slave.h"
 #include "scheduler.h"
 #include <kurlauthorized.h>

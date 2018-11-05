@@ -10,8 +10,9 @@
 #  define TESTKIO
 #endif
 
-#include <qtest.h>
 #include "dataprotocoltest.h"
+
+#include <qtest.h>
 #include <QDebug>
 
 #include <kio/global.h>

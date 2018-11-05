@@ -18,6 +18,8 @@
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 ***/
 
+#include "filehelper.h"
+
 #include <utime.h>
 #include <fcntl.h>
 #include <unistd.h>
@@ -25,7 +27,6 @@
 #include <sys/stat.h>
 #include <errno.h>
 
-#include "filehelper.h"
 #include "fdsender.h"
 #include "../file_p.h"
 

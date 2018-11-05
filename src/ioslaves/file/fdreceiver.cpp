@@ -18,11 +18,12 @@
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 ***/
 
+#include "fdreceiver.h"
+
 #include <QSocketNotifier>
 #include <errno.h>
 
 #include "sharefd_p.h"
-#include "fdreceiver.h"
 
 FdReceiver::FdReceiver(const std::string &path, QObject *parent)
           : QObject(parent)

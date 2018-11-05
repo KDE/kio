@@ -17,9 +17,9 @@
     Boston, MA 02110-1301, USA.
 */
 
-#include <qtest.h>
-
 #include "fileundomanagertest.h"
+
+#include <qtest.h>
 #include <QSignalSpy>
 #include <QDateTime>
 #include <QDir>

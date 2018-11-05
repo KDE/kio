@@ -18,14 +18,14 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "kdirlistertest_gui.h"
+
 #include <QApplication>
 #include <QLayout>
 #include <QPushButton>
 #include <QDir>
 
-#include <kdirlister.h>
 #include <QDebug>
-#include "kdirlistertest_gui.h"
 
 #include <cstdlib>
 

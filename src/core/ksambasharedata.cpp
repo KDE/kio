@@ -18,14 +18,15 @@
  *   License along with this library.  If not, see <http://www.gnu.org/licenses/>
  */
 
+#include "ksambasharedata.h"
+#include "ksambasharedata_p.h"
+
 #include <QRegExp>
 #include <QFileInfo>
 #include <QStringList>
 
 #include "ksambashare.h"
 #include "ksambashare_p.h"
-#include "ksambasharedata.h"
-#include "ksambasharedata_p.h"
 
 //TODO: add support for this samba options
 // usershare allow guests=P_BOOL,FLAG_ADVANCED

@@ -17,8 +17,9 @@
     Boston, MA 02110-1301, USA.
 */
 
-#include <qtest.h>
+#include "pastetest.h"
 
+#include <qtest.h>
 #include <QDir>
 #include <QMimeData>
 #include <QStandardPaths>
@@ -29,7 +30,6 @@
 #include <kio/paste.h>
 #include <kio/pastejob.h>
 #include <KFileItem>
-#include "pastetest.h"
 
 QTEST_MAIN(KIOPasteTest)
 

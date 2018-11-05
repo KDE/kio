@@ -23,7 +23,12 @@
 
 #include "kio/job.h"
 #include "kio/global.h"
+#include <kio/scheduler.h>
 #include "kstatusbarjobtracker.h"
+
+namespace KIO {
+class Slave;
+}
 
 class KioslaveTest : public KMainWindow
 {

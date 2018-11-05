@@ -17,9 +17,10 @@
     Boston, MA 02110-1301, USA.
 */
 
+#include "clipboardupdatertest.h"
+
 #include <QtTestWidgets>
 
-#include "clipboardupdatertest.h"
 #include "kiotesthelper.h"
 #include "clipboardupdater_p.h"
 

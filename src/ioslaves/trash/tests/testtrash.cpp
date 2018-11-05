@@ -17,10 +17,11 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "testtrash.h"
+
 #include <qtest.h>
 
 #include "kio_trash.h"
-#include "testtrash.h"
 #include "../../../pathhelpers_p.h"
 
 #include <kprotocolinfo.h>

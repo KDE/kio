@@ -25,6 +25,7 @@
 #include <QString>
 #include <QUrl>
 
+#include <kdirlister.h>
 #include <kfileitem.h>
 
 #include <iostream>

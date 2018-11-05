@@ -9,6 +9,8 @@
  LGPL version 2.
 */
 
+#include "kioslavetest.h"
+
 #include <QApplication>
 #include <QLayout>
 #include <QMessageBox>
@@ -25,13 +27,10 @@
 #include <kio/job.h>
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
-#include <kio/scheduler.h>
 #include <kprotocolinfo.h>
 #include <QTimer>
 #include <qcommandlineparser.h>
 #include <qcommandlineoption.h>
-
-#include "kioslavetest.h"
 
 using namespace KIO;
 

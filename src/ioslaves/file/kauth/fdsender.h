@@ -21,6 +21,9 @@
 #ifndef FDSENDER_H
 #define FDSENDER_H
 
+// std
+#include <string>
+
 class FdSender
 {
 public:
