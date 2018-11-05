@@ -51,17 +51,17 @@ private:
 public Q_SLOTS:
     inline Q_NOREPLY void setRule(const KSslCertificateRule &rule)
     {
-        return p()->setRule(rule);
+        p()->setRule(rule);
     }
 
     inline Q_NOREPLY void clearRule__rule(const KSslCertificateRule &rule)
     {
-        return p()->clearRule(rule);
+        p()->clearRule(rule);
     }
 
     inline Q_NOREPLY void clearRule__certHost(const QSslCertificate &cert, const QString &hostName)
     {
-        return p()->clearRule(cert, hostName);
+        p()->clearRule(cert, hostName);
     }
 
     inline KSslCertificateRule rule(const QSslCertificate &cert, const QString &hostName)

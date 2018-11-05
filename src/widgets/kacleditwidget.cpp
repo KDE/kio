@@ -148,12 +148,12 @@ KACL KACLEditWidget::getDefaultACL() const
 
 void KACLEditWidget::setACL(const KACL &acl)
 {
-    return d->m_listView->setACL(acl);
+    d->m_listView->setACL(acl);
 }
 
 void KACLEditWidget::setDefaultACL(const KACL &acl)
 {
-    return d->m_listView->setDefaultACL(acl);
+    d->m_listView->setDefaultACL(acl);
 }
 
 void KACLEditWidget::setAllowDefaults(bool value)
