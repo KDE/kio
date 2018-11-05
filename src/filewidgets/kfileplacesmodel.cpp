@@ -192,8 +192,8 @@ public:
     void _k_deviceRemoved(const QString &udi);
     void _k_itemChanged(const QString &udi);
     void _k_reloadBookmarks();
-    void _k_storageSetupDone(Solid::ErrorType error, QVariant errorData);
-    void _k_storageTeardownDone(Solid::ErrorType error, QVariant errorData);
+    void _k_storageSetupDone(Solid::ErrorType error, const QVariant &errorData);
+    void _k_storageTeardownDone(Solid::ErrorType error, const QVariant &errorData);
 
 private:
     bool isBalooUrl(const QUrl &url) const;
@@ -1233,7 +1233,7 @@ void KFilePlacesModel::requestSetup(const QModelIndex &index)
     }
 }
 
-void KFilePlacesModel::Private::_k_storageSetupDone(Solid::ErrorType error, QVariant errorData)
+void KFilePlacesModel::Private::_k_storageSetupDone(Solid::ErrorType error, const QVariant &errorData)
 {
     QPersistentModelIndex index = setupInProgress.take(q->sender());
 
@@ -1257,7 +1257,7 @@ void KFilePlacesModel::Private::_k_storageSetupDone(Solid::ErrorType error, QVar
 
 }
 
-void KFilePlacesModel::Private::_k_storageTeardownDone(Solid::ErrorType error, QVariant errorData)
+void KFilePlacesModel::Private::_k_storageTeardownDone(Solid::ErrorType error, const QVariant &errorData)
 {
     if (error && errorData.isValid()) {
         emit q->errorMessage(errorData.toString());

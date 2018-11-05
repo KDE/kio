@@ -93,7 +93,7 @@ private:
     struct URLHint
     {
         URLHint() {}
-        URLHint( QString r, QString p,
+        URLHint( const QString &r, const QString &p,
                  KUriFilterData::UriTypes t = KUriFilterData::NetProtocol )
                : regexp(QRegExp(r)), prepend(p), type(t) {}
         QRegExp regexp; // if this matches, then...

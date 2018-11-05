@@ -379,7 +379,7 @@ public:
      * Update your KHttpCookieList by calling getCookieList after
      * calling this function.
      */
-    void eatCookie(KHttpCookieList::iterator cookieIterator);
+    void eatCookie(const KHttpCookieList::iterator &cookieIterator);
 
     /**
      * Remove & delete all cookies for @p domain.

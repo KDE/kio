@@ -253,7 +253,7 @@ KCookieAdvice KCookieWin::advice(KCookieJar *cookiejar, const KHttpCookie &cooki
     return advice;
 }
 
-KCookieDetail::KCookieDetail(KHttpCookieList cookieList, int cookieCount,
+KCookieDetail::KCookieDetail(const KHttpCookieList &cookieList, int cookieCount,
                              QWidget *parent)
     : QGroupBox(parent)
 {

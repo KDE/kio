@@ -41,7 +41,7 @@ class CachedRendering : public QObject
     Q_OBJECT
 public:
 
-    CachedRendering(QStyle::State state, const QSize &size, QModelIndex validityIndex, qreal devicePixelRatio = 1.0);
+    CachedRendering(QStyle::State state, const QSize &size, const QModelIndex &validityIndex, qreal devicePixelRatio = 1.0);
     bool checkValidity(QStyle::State current) const
     {
         return state == current && valid;
@@ -150,7 +150,7 @@ private Q_SLOTS:
     void sequenceTimerTimeout();
 
 private:
-    void eventuallyStartIteration(QModelIndex index);
+    void eventuallyStartIteration(const QModelIndex &index);
     AnimationState *findAnimationState(const QAbstractItemView *view, const QModelIndex &index) const;
     void addAnimationState(AnimationState *state, const QAbstractItemView *view);
     void startAnimation(AnimationState *state);

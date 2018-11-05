@@ -50,7 +50,7 @@ JobUrlCache::~JobUrlCache()
 {
 }
 
-void JobUrlCache::slotJobUrlsChanged(QStringList urlList)
+void JobUrlCache::slotJobUrlsChanged(const QStringList &urlList)
 {
     m_destUrls = urlList;
     emit jobUrlsChanged(urlList);

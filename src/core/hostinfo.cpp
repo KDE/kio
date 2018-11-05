@@ -82,7 +82,7 @@ class HostInfoAgentPrivate::Result : public QObject
 {
     Q_OBJECT
 Q_SIGNALS:
-    void result(QHostInfo);
+    void result(const QHostInfo &);
 private:
     friend class HostInfoAgentPrivate;
 };
@@ -106,7 +106,7 @@ public:
         return m_hostName;
     }
 Q_SIGNALS:
-    void result(QHostInfo);
+    void result(const QHostInfo &);
 private Q_SLOTS:
     void relayFinished()
     {

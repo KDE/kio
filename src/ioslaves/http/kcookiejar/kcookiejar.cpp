@@ -1182,7 +1182,7 @@ KHttpCookieList *KCookieJar::getCookieList(const QString &_domain,
 // Eat a cookie out of the jar.
 // cookieIterator should be one of the cookies returned by getCookieList()
 //
-void KCookieJar::eatCookie(KHttpCookieList::iterator cookieIterator)
+void KCookieJar::eatCookie(const KHttpCookieList::iterator &cookieIterator)
 {
     const KHttpCookie &cookie = *cookieIterator;
     const QString domain = stripDomain(cookie); // We file the cookie under this domain.

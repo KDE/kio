@@ -240,7 +240,7 @@ public:
     bool shouldOverwriteFile(const QString &path) const;
     bool shouldSkip(const QString &path) const;
     void skipSrc(bool isDir);
-    void renameDirectory(QList<CopyInfo>::iterator it, const QUrl &newUrl);
+    void renameDirectory(const QList<CopyInfo>::iterator &it, const QUrl &newUrl);
     QUrl finalDestUrl(const QUrl &src, const QUrl &dest) const;
 
     void slotStart();
@@ -1001,7 +1001,7 @@ bool CopyJobPrivate::shouldSkip(const QString &path) const
     return false;
 }
 
-void CopyJobPrivate::renameDirectory(QList<CopyInfo>::iterator it, const QUrl &newUrl)
+void CopyJobPrivate::renameDirectory(const QList<CopyInfo>::iterator &it, const QUrl &newUrl)
 {
     Q_Q(CopyJob);
     emit q->renamed(q, (*it).uDest, newUrl); // for e.g. KPropertiesDialog

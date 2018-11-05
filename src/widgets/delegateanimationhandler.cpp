@@ -53,7 +53,7 @@ public:
 
 // ---------------------------------------------------------------------------
 
-CachedRendering::CachedRendering(QStyle::State state, const QSize &size, QModelIndex index, qreal devicePixelRatio)
+CachedRendering::CachedRendering(QStyle::State state, const QSize &size, const QModelIndex &index, qreal devicePixelRatio)
     : state(state), regular(QPixmap(size*devicePixelRatio)), hover(QPixmap(size*devicePixelRatio)), valid(true), validityIndex(index)
 {
     regular.setDevicePixelRatio(devicePixelRatio);
@@ -239,7 +239,7 @@ void DelegateAnimationHandler::setSequenceIndex(int sequenceIndex)
     }
 }
 
-void DelegateAnimationHandler::eventuallyStartIteration(QModelIndex index)
+void DelegateAnimationHandler::eventuallyStartIteration(const QModelIndex &index)
 {
 //      if (KGlobalSettings::graphicEffectsLevel() & KGlobalSettings::SimpleAnimationEffects) {
     ///Think about it.
