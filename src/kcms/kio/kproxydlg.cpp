@@ -434,7 +434,7 @@ void KProxyDialog::defaults()
 
 bool KProxyDialog::autoDetectSystemProxy(QLineEdit* edit, const QString& envVarStr, bool showValue)
 {
-    const QStringList envVars = envVarStr.split(QL1S(","), QString::SkipEmptyParts);
+    const QStringList envVars = envVarStr.split(QL1C(','), QString::SkipEmptyParts);
     Q_FOREACH (const QString & envVar, envVars) {
         const QByteArray envVarUtf8(envVar.toUtf8());
         const QByteArray envVarValue = qgetenv(envVarUtf8.constData());
