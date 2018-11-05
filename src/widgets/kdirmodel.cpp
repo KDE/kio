@@ -21,7 +21,6 @@
 #include "kdirlister.h"
 #include "kfileitem.h"
 #include "kio_widgets_debug.h"
-#include <kiconloader.h>
 #include <klocalizedstring.h>
 #include <kjobuidelegate.h>
 #include <kio/simplejob.h>
