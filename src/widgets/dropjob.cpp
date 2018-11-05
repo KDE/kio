@@ -63,6 +63,7 @@ class DropMenu;
 
 class KIO::DropMenu : public QMenu
 {
+    Q_OBJECT
 public:
     explicit DropMenu(QWidget *parent = nullptr);
     ~DropMenu();
@@ -569,3 +570,4 @@ DropJob * KIO::drop(const QDropEvent *dropEvent, const QUrl &destUrl, JobFlags f
 }
 
 #include "moc_dropjob.cpp"
+#include "dropjob.moc"
