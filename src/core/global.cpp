@@ -235,7 +235,7 @@ QString KIO::iconNameForUrl(const QUrl &url)
     QString i = mimeTypeIcon;
 
     // check whether it's a xdg location (e.g. Pictures folder)
-    if (url.isLocalFile() && mt.inherits(QLatin1String("inode/directory"))) {
+    if (url.isLocalFile() && mt.inherits(QStringLiteral("inode/directory"))) {
         i = KIOPrivate::iconForStandardPath(url.toLocalFile());
     }
 

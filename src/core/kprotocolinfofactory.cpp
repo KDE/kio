@@ -124,7 +124,7 @@ bool KProtocolInfoFactory::fillCache()
     }
 
     // second: fallback to .protocol files
-    Q_FOREACH (const QString &serviceDir, QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QLatin1String("kservices5"), QStandardPaths::LocateDirectory)) {
+    Q_FOREACH (const QString &serviceDir, QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kservices5"), QStandardPaths::LocateDirectory)) {
         QDirIterator it(serviceDir);
         while (it.hasNext()) {
             const QString file = it.next();

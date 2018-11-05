@@ -3511,12 +3511,12 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
     if (s_gpuCheck == NotChecked) {
         // Check whether we have a discrete gpu
         bool hasDiscreteGpu = false;
-        QDBusInterface iface(QLatin1String("org.kde.Solid.PowerManagement"),
-                             QLatin1String("/org/kde/Solid/PowerManagement"),
-                             QLatin1String("org.kde.Solid.PowerManagement"),
+        QDBusInterface iface(QStringLiteral("org.kde.Solid.PowerManagement"),
+                             QStringLiteral("/org/kde/Solid/PowerManagement"),
+                             QStringLiteral("org.kde.Solid.PowerManagement"),
                              QDBusConnection::sessionBus());
         if (iface.isValid()) {
-            QDBusReply<bool> reply = iface.call(QLatin1String("hasDualGpu"));
+            QDBusReply<bool> reply = iface.call(QStringLiteral("hasDualGpu"));
             if (reply.isValid()) {
                 hasDiscreteGpu = reply.value();
             }

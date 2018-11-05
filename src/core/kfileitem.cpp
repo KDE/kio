@@ -815,7 +815,7 @@ QString KFileItem::mimeComment() const
     // Support for .directory file in directories
     if (isLocalUrl && isDir() && !d->isSlow() && isDirectoryMounted(url)) {
         QUrl u(url);
-        u.setPath(concatPaths(u.path(), QLatin1String(".directory")));
+        u.setPath(concatPaths(u.path(), QStringLiteral(".directory")));
         const KDesktopFile cfg(u.toLocalFile());
         const QString comment = cfg.readComment();
         if (!comment.isEmpty()) {

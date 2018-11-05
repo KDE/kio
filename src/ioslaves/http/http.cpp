@@ -2623,7 +2623,7 @@ bool HTTPProtocol::sendQuery()
     }
 
     qCDebug(KIO_HTTP) << "============ Sending Header:";
-    Q_FOREACH (const QString &s, header.split(QLatin1String("\r\n"), QString::SkipEmptyParts)) {
+    Q_FOREACH (const QString &s, header.split(QStringLiteral("\r\n"), QString::SkipEmptyParts)) {
         qCDebug(KIO_HTTP) << s;
     }
 

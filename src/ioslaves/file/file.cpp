@@ -341,7 +341,7 @@ void FileProtocol::redirect(const QUrl &url)
     if ((redir.scheme() == QLatin1String("smb")) &&
         redir.path().startsWith(QLatin1String("/DavWWWRoot/"))) {
         redir.setPath(redir.path().mid(11));  // remove /DavWWWRoot
-        redir.setScheme(QLatin1String("webdav"));
+        redir.setScheme(QStringLiteral("webdav"));
     }
 
     redirection(redir);
