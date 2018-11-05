@@ -352,7 +352,7 @@ void KUrlNavigator::Private::slotProtocolChanged(const QString &protocol)
     } else {
         // With no authority set we'll get e.g. "ftp:" instead of "ftp://".
         // We want the latter, so let's set an empty authority.
-        url.setAuthority(QStringLiteral(""));
+        url.setAuthority(QString());
     }
 
     m_pathBox->setEditUrl(url);

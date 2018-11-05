@@ -1003,7 +1003,7 @@ QString KSslCipher::digestMethod() const
     } else if (d->name.endsWith(QLatin1String("MD5"))) {
         return QStringLiteral("MD5");
     } else {
-        return QStringLiteral("");    // ## probably QString() is enough
+        return QString();
     }
 }
 
