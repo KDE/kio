@@ -530,7 +530,7 @@ void TestTrash::trashDirectory(const QString &origPath, const QString &fileId)
 {
     qDebug() << fileId;
     // setup
-    if (!QFileInfo(origPath).exists()) {
+    if (!QFileInfo::exists(origPath)) {
         QDir dir;
         bool ok = dir.mkdir(origPath);
         QVERIFY(ok);

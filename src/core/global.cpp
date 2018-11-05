@@ -328,7 +328,7 @@ QString KIO::suggestName(const QUrl &baseURL, const QString &oldName)
     // TODO: network transparency. However, using NetAccess from a modal dialog
     // could be a problem, no? (given that it uses a modal widget itself....)
     if (baseURL.isLocalFile()) {
-        exists = QFileInfo(baseURL.toLocalFile() + '/' + suggestedName).exists();
+        exists = QFileInfo::exists(baseURL.toLocalFile() + QLatin1Char('/') + suggestedName);
     }
 
     if (!exists) {

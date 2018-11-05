@@ -1187,7 +1187,7 @@ void KNewFileMenu::createDirectory()
     QString name = d->m_text.isEmpty() ? i18nc("Default name for a new folder", "New Folder") :
                    d->m_text;
 
-    if (baseUrl.isLocalFile() && QFileInfo(baseUrl.toLocalFile() + '/' + name).exists()) {
+    if (baseUrl.isLocalFile() && QFileInfo::exists(baseUrl.toLocalFile() + QLatin1Char('/') + name)) {
         name = KIO::suggestName(baseUrl, name);
     }
 
