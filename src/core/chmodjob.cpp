@@ -134,8 +134,7 @@ void ChmodJobPrivate::_k_processList()
             if (item.isDir() && m_recursive) {
                 //qDebug() << "ChmodJob::processList dir -> listing";
                 KIO::ListJob *listJob = KIO::listRecursive(item.url(), KIO::HideProgressInfo);
-                q->connect(listJob, SIGNAL(entries(KIO::Job *,
-                                                   const KIO::UDSEntryList &)),
+                q->connect(listJob, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
                            SLOT(_k_slotEntries(KIO::Job*,KIO::UDSEntryList)));
                 q->addSubjob(listJob);
                 return; // we'll come back later, when this one's finished

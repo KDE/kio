@@ -547,7 +547,7 @@ void KDirListerTest::testRenameItem()
     KIO::SimpleJob *job = KIO::rename(QUrl::fromLocalFile(path), QUrl::fromLocalFile(newPath), KIO::HideProgressInfo);
     QVERIFY(job->exec());
 
-    QSignalSpy spyRefreshItems(&m_dirLister, SIGNAL(refreshItems(QList<QPair<KFileItem,KFileItem> >)));
+    QSignalSpy spyRefreshItems(&m_dirLister, SIGNAL(refreshItems(QList<QPair<KFileItem,KFileItem>>)));
     QVERIFY(spyRefreshItems.wait(2000));
     QTRY_COMPARE(m_refreshedItems2.count(), 1);
     QPair<KFileItem, KFileItem> entry = m_refreshedItems2.first();
@@ -1235,7 +1235,7 @@ void KDirListerTest::testDirPermissionChange()
     KIO::SimpleJob *job = KIO::chmod(list.first().url(), permissions);
     QVERIFY(job->exec());
 
-    QSignalSpy spyRefreshItems(&mylister, SIGNAL(refreshItems(QList<QPair<KFileItem,KFileItem> >)));
+    QSignalSpy spyRefreshItems(&mylister, SIGNAL(refreshItems(QList<QPair<KFileItem,KFileItem>>)));
     QVERIFY(spyRefreshItems.wait(2000));
 
     list = mylister.items();
