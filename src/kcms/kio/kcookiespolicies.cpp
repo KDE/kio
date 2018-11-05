@@ -33,7 +33,8 @@
 // Qt
 #include <QCheckBox>
 #include <QPushButton>
-#include <QtDBus>
+#include <QDBusReply>
+#include <QDBusInterface>
 
 // KDE
 #include <kiconloader.h>

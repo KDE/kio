@@ -25,7 +25,8 @@
 #include "../../pathhelpers_p.h"
 
 #include <QDir>
-#include <QtDBus>
+#include <QDBusConnection>
+#include <QLoggingCategory>
 #include <QRegularExpression>
 #include <qplatformdefs.h>
 

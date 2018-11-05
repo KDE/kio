@@ -24,10 +24,12 @@
 #include "searchprovider.h"
 #include "ikwsopts.h"
 
-#include <QtDBus>
 #include <KPluginFactory>
 #include <klocalizedstring.h>
 #include <kaboutdata.h>
+
+#include <QDBusConnection>
+#include <QLoggingCategory>
 
 /**
  * IMPORTANT: If you change anything here, make sure you run the kurifiltertest

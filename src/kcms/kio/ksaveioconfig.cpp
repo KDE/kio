@@ -21,7 +21,10 @@
 #include "ksaveioconfig.h"
 
 // Qt
-#include <QtDBus>
+#include <QDBusMessage>
+#include <QDBusConnection>
+#include <QDBusReply>
+#include <QDBusInterface>
 
 // KDE
 #include <KConfig>
