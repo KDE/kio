@@ -112,8 +112,8 @@ void MultiGetJobPrivate::flushQueue(RequestQueue &queue)
     }
     // Send number of URLs, (URL, metadata)*
     KIO_ARGS << (qint32) queue.count();
-    RequestQueue::const_iterator qit = queue.begin();
-    const RequestQueue::const_iterator qend = queue.end();
+    RequestQueue::const_iterator qit = queue.constBegin();
+    const RequestQueue::const_iterator qend = queue.constEnd();
     for (; qit != qend; ++qit) {
         stream << (*qit).url << (*qit).metaData;
     }
@@ -149,8 +149,8 @@ bool MultiGetJobPrivate::findCurrentEntry()
 {
     if (b_multiGetActive) {
         long id = m_incomingMetaData[QStringLiteral("request-id")].toLong();
-        RequestQueue::const_iterator qit = m_activeQueue.begin();
-        const RequestQueue::const_iterator qend = m_activeQueue.end();
+        RequestQueue::const_iterator qit = m_activeQueue.constBegin();
+        const RequestQueue::const_iterator qend = m_activeQueue.constEnd();
         for (; qit != qend; ++qit) {
             if ((*qit).id == id) {
                 m_currentEntry = *qit;
