@@ -397,7 +397,7 @@ void FileProtocol::get(const QUrl &url)
     // need, so for local files, better use mimeTypeForFile.
     QMimeDatabase db;
     QMimeType mt = db.mimeTypeForFile(url.toLocalFile());
-    emit mimeType(mt.name());
+    mimeType(mt.name());
     // Emit total size AFTER mimetype
     totalSize(buff.st_size);
 
@@ -495,13 +495,13 @@ void FileProtocol::open(const QUrl &url, QIODevice::OpenMode mode)
     if (mode & QIODevice::ReadOnly) {
         QMimeDatabase db;
         QMimeType mt = db.mimeTypeForFile(url.toLocalFile());
-        emit mimeType(mt.name());
+        mimeType(mt.name());
     }
 
     totalSize(buff.st_size);
     position(0);
 
-    emit opened();
+    opened();
 }
 
 void FileProtocol::read(KIO::filesize_t bytes)

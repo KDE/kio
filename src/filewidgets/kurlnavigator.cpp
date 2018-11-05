@@ -436,7 +436,7 @@ void KUrlNavigator::Private::switchView()
         m_pathBox->setFocus();
     }
 
-    emit q->requestActivation();
+    q->requestActivation();
     emit q->editableStateChanged(m_editable);
 }
 
