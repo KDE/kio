@@ -17,6 +17,9 @@
     Boston, MA 02110-1301, USA.
 */
 
+#ifndef HTTPAUTHENTICATIONTEST_H
+#define HTTPAUTHENTICATIONTEST_H
+
 #include <QObject>
 
 class HTTPAuthenticationTest : public QObject
@@ -31,3 +34,5 @@ private Q_SLOTS:
     void testAuthentication_data();
     void testAuthenticationNTLMv2();
 };
+
+#endif

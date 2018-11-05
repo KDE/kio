@@ -17,8 +17,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef KIOSLAVE_HTTP_H_
-#define KIOSLAVE_HTTP_H_
+#ifndef KIOSLAVE_HTTPMETHOD_P_H_
+#define KIOSLAVE_HTTPMETHOD_P_H_
 
 namespace KIO
 {

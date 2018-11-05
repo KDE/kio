@@ -23,8 +23,8 @@
    Don't forget the trailing slash!
 */
 
-#ifndef JOBTEST_H
-#define JOBTEST_H
+#ifndef JOBREMOTETEST_H
+#define JOBREMOTETEST_H
 
 #include <QString>
 #include <QObject>

@@ -19,8 +19,8 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
-#ifndef KIO_DATASLAVE_H
-#define KIO_DATASLAVE_H
+#ifndef KIO_DATASLAVE_P_H
+#define KIO_DATASLAVE_P_H
 
 #include "global.h"
 #include "slave.h"

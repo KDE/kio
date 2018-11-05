@@ -17,8 +17,8 @@
     Boston, MA 02110-1301, USA.
 */
 
-#ifndef KIO_CONNECTION_P_H
-#define KIO_CONNECTION_P_H
+#ifndef KIO_CONNECTIONBACKEND_P_H
+#define KIO_CONNECTIONBACKEND_P_H
 
 #include <QUrl>
 #include <QObject>

@@ -17,6 +17,9 @@
    Boston, MA 02110-1301, USA.
 */
 
+#ifndef KFILECOPYTOMENU_P_H
+#define KFILECOPYTOMENU_P_H
+
 #include <kconfiggroup.h>
 #include <QMenu>
 #include <QActionGroup>
@@ -83,3 +86,5 @@ private:
     KFileCopyToMainMenu *m_mainMenu;
     QString m_path;
 };
+
+#endif

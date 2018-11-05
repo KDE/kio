@@ -16,8 +16,8 @@
     the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
     Boston, MA 02110-1301, USA.
 */
-#ifndef CONFIG_KFILE_H
-#define CONFIG_KFILE_H
+#ifndef DEFAULTS_KFILE_H
+#define DEFAULTS_KFILE_H
 
 const int kfile_area = 250;
 

@@ -18,6 +18,9 @@
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 ***/
 
+#ifndef SHAREFD_P_H
+#define SHAREFD_P_H
+
 #include <sys/un.h>
 #include <iostream>
 #include <unistd.h>
@@ -97,3 +100,5 @@ public:
         return CMSG_FIRSTHDR(&msg);
     }
 };
+
+#endif
