@@ -107,7 +107,7 @@ class FileUndoManagerPrivate : public QObject
 {
     Q_OBJECT
 public:
-    FileUndoManagerPrivate(FileUndoManager *qq);
+    explicit FileUndoManagerPrivate(FileUndoManager *qq);
 
     ~FileUndoManagerPrivate()
     {

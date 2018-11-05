@@ -35,7 +35,7 @@ class KApplicationModel : public QAbstractItemModel
     Q_OBJECT
 
 public:
-    KApplicationModel(QObject *parent = nullptr);
+    explicit KApplicationModel(QObject *parent = nullptr);
     virtual ~KApplicationModel();
     bool canFetchMore(const QModelIndex &parent) const override;
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -68,7 +68,7 @@ class QTreeViewProxyFilter : public QSortFilterProxyModel
      Q_OBJECT
 
 public:
-    QTreeViewProxyFilter(QObject *parent = nullptr);
+    explicit QTreeViewProxyFilter(QObject *parent = nullptr);
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 };
 
@@ -82,7 +82,7 @@ class KApplicationView : public QTreeView
     Q_OBJECT
 
 public:
-    KApplicationView(QWidget *parent = nullptr);
+    explicit KApplicationView(QWidget *parent = nullptr);
     ~KApplicationView();
 
     void setModels(KApplicationModel *model, QSortFilterProxyModel *proxyModel);

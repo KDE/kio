@@ -43,7 +43,7 @@ class KPasswdServer : public KDEDModule, protected QDBusContext
   Q_OBJECT
 
 public:
-  KPasswdServer(QObject* parent, const QList<QVariant>& = QList<QVariant>());
+  explicit KPasswdServer(QObject* parent, const QList<QVariant>& = QList<QVariant>());
   ~KPasswdServer();
 
   // Called by the unit test

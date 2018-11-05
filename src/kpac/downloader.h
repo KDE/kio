@@ -36,7 +36,7 @@ class Downloader : public QObject
 {
     Q_OBJECT
 public:
-    Downloader(QObject *);
+    explicit Downloader(QObject *);
 
     void download(const QUrl &);
     const QUrl &scriptUrl()

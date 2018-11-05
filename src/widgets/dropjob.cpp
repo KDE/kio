@@ -64,7 +64,7 @@ class DropMenu;
 class KIO::DropMenu : public QMenu
 {
 public:
-    DropMenu(QWidget *parent = nullptr);
+    explicit DropMenu(QWidget *parent = nullptr);
     ~DropMenu();
 
     void addCancelAction();

@@ -56,7 +56,7 @@ public:
         QHash<MessageBoxDataType, QVariant> data;
     };
 
-    UserNotificationHandler(QObject *parent = nullptr);
+    explicit UserNotificationHandler(QObject *parent = nullptr);
     virtual ~UserNotificationHandler();
 
     void requestMessageBox(SlaveInterface *iface, int type, const QHash<MessageBoxDataType, QVariant> &data);

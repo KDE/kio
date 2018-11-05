@@ -68,7 +68,7 @@ public:
                      AllTypes = 63
                    };
 
-    KACLListView(QWidget *parent = nullptr);
+    explicit KACLListView(QWidget *parent = nullptr);
     ~KACLListView();
 
     bool hasMaskEntry() const

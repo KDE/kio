@@ -42,7 +42,7 @@ public:
     /**
      * Creates a new trash size cache object for the given trash @p path.
      */
-    TrashSizeCache(const QString &path);
+    explicit TrashSizeCache(const QString &path);
 
     /**
      * Adds a directory to the cache.

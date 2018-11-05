@@ -84,7 +84,7 @@ class HTTPFilterGZip : public HTTPFilterBase
 {
     Q_OBJECT
 public:
-    HTTPFilterGZip(bool deflate = false /* for subclass HTTPFilterDeflate */);
+    explicit HTTPFilterGZip(bool deflate = false /* for subclass HTTPFilterDeflate */);
     ~HTTPFilterGZip();
 
 public Q_SLOTS:

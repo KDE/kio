@@ -20,7 +20,7 @@ class KIOFILEWIDGETS_EXPORT KFileMetaPreview : public KPreviewWidgetBase
     Q_OBJECT
 
 public:
-    KFileMetaPreview(QWidget *parent);
+    explicit KFileMetaPreview(QWidget *parent);
     ~KFileMetaPreview();
 
     virtual void addPreviewProvider(const QString &mimeType,

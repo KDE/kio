@@ -69,7 +69,7 @@ public:
      *                 the resource and every client that wants to access the resource must
      *                 know it.
      */
-    KInterProcessLock(const QString &resource);
+    explicit KInterProcessLock(const QString &resource);
 
     /**
      * Destroys the inter process lock object.

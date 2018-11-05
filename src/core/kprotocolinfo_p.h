@@ -30,7 +30,7 @@
 class KProtocolInfoPrivate
 {
 public:
-    KProtocolInfoPrivate(const QString &path);
+    explicit KProtocolInfoPrivate(const QString &path);
     KProtocolInfoPrivate(const QString &name, const QString &exec, const QJsonObject &json);
 
     QString m_name;

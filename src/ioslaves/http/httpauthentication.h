@@ -40,7 +40,7 @@ class KConfigGroup;
 class KAbstractHttpAuthentication
 {
 public:
-    KAbstractHttpAuthentication(KConfigGroup *config = nullptr);
+    explicit KAbstractHttpAuthentication(KConfigGroup *config = nullptr);
     virtual ~KAbstractHttpAuthentication();
 
     /**
@@ -267,7 +267,7 @@ public:
     void generateResponse(const QString &user, const QString &password) override;
 private:
     friend class KAbstractHttpAuthentication;
-    KHttpNtlmAuthentication(KConfigGroup *config = nullptr)
+    explicit KHttpNtlmAuthentication(KConfigGroup *config = nullptr)
         : KAbstractHttpAuthentication(config), m_stage1State(Init) {}
     enum Stage1State {
         Init = 0,
@@ -287,7 +287,7 @@ public:
     void generateResponse(const QString &user, const QString &password) override;
 private:
     friend class KAbstractHttpAuthentication;
-    KHttpNegotiateAuthentication(KConfigGroup *config = nullptr)
+    explicit KHttpNegotiateAuthentication(KConfigGroup *config = nullptr)
         : KAbstractHttpAuthentication(config) {}
 };
 #endif // HAVE_LIBGSSAPI

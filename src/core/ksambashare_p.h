@@ -32,7 +32,7 @@ class KSambaSharePrivate
 {
 
 public:
-    KSambaSharePrivate(KSambaShare *parent);
+    explicit KSambaSharePrivate(KSambaShare *parent);
     ~KSambaSharePrivate();
 
     static bool isSambaInstalled();

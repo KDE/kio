@@ -59,7 +59,7 @@ public:
     QTcpServer *listener;
     QTcpSocket *socket;
     quint16 port;
-    Server(quint16 _port);
+    explicit Server(quint16 _port);
     ~Server();
 private:
     void cleanupSocket();

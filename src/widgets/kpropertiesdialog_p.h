@@ -50,7 +50,7 @@ public:
     /**
      * Constructor
      */
-    KFilePropsPlugin(KPropertiesDialog *_props);
+    explicit KFilePropsPlugin(KPropertiesDialog *_props);
     virtual ~KFilePropsPlugin();
 
     /**
@@ -123,7 +123,7 @@ public:
     /**
      * Constructor
      */
-    KFilePermissionsPropsPlugin(KPropertiesDialog *_props);
+    explicit KFilePermissionsPropsPlugin(KPropertiesDialog *_props);
     virtual ~KFilePermissionsPropsPlugin();
 
     void applyChanges() override;
@@ -166,7 +166,7 @@ class KChecksumsPlugin : public KPropertiesDialogPlugin
 {
     Q_OBJECT
 public:
-    KChecksumsPlugin(KPropertiesDialog *dialog);
+    explicit KChecksumsPlugin(KPropertiesDialog *dialog);
     virtual ~KChecksumsPlugin();
 
     static bool supports(const KFileItemList &items);
@@ -217,7 +217,7 @@ public:
     /**
      * Constructor
      */
-    KUrlPropsPlugin(KPropertiesDialog *_props);
+    explicit KUrlPropsPlugin(KPropertiesDialog *_props);
     virtual ~KUrlPropsPlugin();
 
     void applyChanges() override;
@@ -239,7 +239,7 @@ class KDevicePropsPlugin : public KPropertiesDialogPlugin
 {
     Q_OBJECT
 public:
-    KDevicePropsPlugin(KPropertiesDialog *_props);
+    explicit KDevicePropsPlugin(KPropertiesDialog *_props);
     virtual ~KDevicePropsPlugin();
 
     void applyChanges() override;
@@ -275,7 +275,7 @@ public:
     /**
      * Constructor
      */
-    KDesktopPropsPlugin(KPropertiesDialog *_props);
+    explicit KDesktopPropsPlugin(KPropertiesDialog *_props);
     virtual ~KDesktopPropsPlugin();
 
     void applyChanges() override;

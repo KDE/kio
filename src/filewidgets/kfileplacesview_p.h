@@ -28,7 +28,7 @@ class KFilePlacesEventWatcher
     Q_OBJECT
 
 public:
-    KFilePlacesEventWatcher(QObject *parent = nullptr)
+    explicit KFilePlacesEventWatcher(QObject *parent = nullptr)
         : QObject(parent) {}
 
     const QModelIndex &hoveredIndex() const

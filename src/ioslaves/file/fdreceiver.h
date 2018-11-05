@@ -29,7 +29,7 @@ class FdReceiver : public QObject
     Q_OBJECT
 
 public:
-    FdReceiver(const std::string &path, QObject *parent = nullptr);
+    explicit FdReceiver(const std::string &path, QObject *parent = nullptr);
     ~FdReceiver();
 
     bool isListening() const;

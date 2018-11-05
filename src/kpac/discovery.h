@@ -30,7 +30,7 @@ class Discovery : public Downloader
 {
     Q_OBJECT
 public:
-    Discovery(QObject *);
+    explicit Discovery(QObject *);
 
 protected Q_SLOTS:
     void failed() override;

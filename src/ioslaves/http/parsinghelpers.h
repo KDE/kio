@@ -68,7 +68,7 @@ private:
 class HeaderTokenizer : public QHash<QByteArray, HeaderField>
 {
 public:
-    HeaderTokenizer(char *buffer);
+    explicit HeaderTokenizer(char *buffer);
     // note that buffer is not const - in the parsed area CR/LF will be overwritten
     // with spaces if there is a line continuation.
     /// @return: index of first char after header or end

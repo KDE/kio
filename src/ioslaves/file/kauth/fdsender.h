@@ -24,7 +24,7 @@
 class FdSender
 {
 public:
-    FdSender(const std::string &path);
+    explicit FdSender(const std::string &path);
     ~FdSender();
 
     bool sendFileDescriptor(int fd);

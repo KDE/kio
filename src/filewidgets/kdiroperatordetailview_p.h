@@ -34,7 +34,7 @@ class KDirOperatorDetailView : public QTreeView
     Q_OBJECT
 
 public:
-    KDirOperatorDetailView(QWidget *parent = nullptr);
+    explicit KDirOperatorDetailView(QWidget *parent = nullptr);
     virtual ~KDirOperatorDetailView();
 
     /**

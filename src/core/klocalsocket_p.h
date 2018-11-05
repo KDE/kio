@@ -31,7 +31,7 @@ class KLocalSocketPrivate
 {
 public:
     KLocalSocket *const q;
-    KLocalSocketPrivate(KLocalSocket *qq)
+    explicit KLocalSocketPrivate(KLocalSocket *qq)
         : q(qq), type(KLocalSocket::UnknownLocalSocketType)
     { }
 
@@ -54,7 +54,7 @@ class KLocalSocketServerPrivate
 {
 public:
     KLocalSocketServer *const q;
-    KLocalSocketServerPrivate(KLocalSocketServer *qq);
+    explicit KLocalSocketServerPrivate(KLocalSocketServer *qq);
 
     int descriptor;
     int maxPendingConnections;

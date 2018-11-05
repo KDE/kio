@@ -34,7 +34,7 @@ public:
     class Error
     {
     public:
-        Error(const QString &message)
+        explicit Error(const QString &message)
             : m_message(message) {}
         const QString &message() const
         {
@@ -45,7 +45,7 @@ public:
         QString m_message;
     };
 
-    Script(const QString &code);
+    explicit Script(const QString &code);
     ~Script();
     QString evaluate(const QUrl &);
 

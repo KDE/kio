@@ -36,7 +36,7 @@ class SocketAddress
     const sockaddr_un addr;
 
 public:
-    SocketAddress(const std::string &path)
+    explicit SocketAddress(const std::string &path)
         : addr(make_address(path))
     {
     }

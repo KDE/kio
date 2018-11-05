@@ -35,7 +35,7 @@ class KSSLDAdaptor: public QDBusAbstractAdaptor
     Q_CLASSINFO("D-Bus Interface", "org.kde.KSSLD")
 
 public:
-    KSSLDAdaptor(KSSLD *parent)
+    explicit KSSLDAdaptor(KSSLD *parent)
         : QDBusAbstractAdaptor(parent)
     {
         Q_ASSERT(parent);

@@ -109,7 +109,7 @@ public:
     }
 
 private:
-    AnimationState(const QModelIndex &index);
+    explicit AnimationState(const QModelIndex &index);
     bool update();
 
     QPersistentModelIndex index;
@@ -136,7 +136,7 @@ class DelegateAnimationHandler : public QObject
     typedef QMutableMapIterator<const QAbstractItemView *, AnimationList *> MutableAnimationListsIterator;
 
 public:
-    DelegateAnimationHandler(QObject *parent = nullptr);
+    explicit DelegateAnimationHandler(QObject *parent = nullptr);
     ~DelegateAnimationHandler();
 
     AnimationState *animationState(const QStyleOption &option, const QModelIndex &index, const QAbstractItemView *view);
