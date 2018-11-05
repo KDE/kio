@@ -21,7 +21,7 @@
 #include <klocalizedstring.h>
 #include <QDBusConnection>
 #include <QDBusInterface>
-#include <QtCore/QProcess>
+#include <QProcess>
 
 class KBuildSycocaProgressDialogPrivate
 {

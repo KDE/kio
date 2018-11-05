@@ -19,7 +19,7 @@
 #ifndef KBUILDSYCOCAPROGRESSDIALOG_H
 #define KBUILDSYCOCAPROGRESSDIALOG_H
 
-#include <QtCore/QTimer>
+#include <QTimer>
 #include <QProgressDialog>
 #include "kiowidgets_export.h"
 
