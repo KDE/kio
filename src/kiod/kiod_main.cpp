@@ -49,7 +49,7 @@ private:
 void KIOD::loadModule(const QString &name)
 {
     // Make sure this method is only called with valid module names.
-    Q_ASSERT(name.indexOf('/') == -1);
+    Q_ASSERT(name.indexOf(QLatin1Char('/')) == -1);
 
     KDEDModule *module = m_modules.value(name, nullptr);
     if (module) {
@@ -57,7 +57,7 @@ void KIOD::loadModule(const QString &name)
     }
 
     qCDebug(KIOD_CATEGORY) << "loadModule" << name;
-    KPluginLoader loader("kf5/kiod/" + name);
+    KPluginLoader loader(QLatin1String("kf5/kiod/") + name);
     KPluginFactory *factory = loader.factory();
     if (factory) {
         module = factory->create<KDEDModule>();

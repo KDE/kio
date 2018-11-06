@@ -62,7 +62,7 @@ Discovery::Discovery(QObject *parent)
     m_helper->setProcessChannelMode(QProcess::SeparateChannels);
     connect(m_helper, SIGNAL(readyReadStandardOutput()), SLOT(helperOutput()));
     connect(m_helper, SIGNAL(finished(int,QProcess::ExitStatus)), SLOT(failed()));
-    m_helper->start(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kpac_dhcp_helper", QStringList());
+    m_helper->start(QStringLiteral(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kpac_dhcp_helper"), QStringList());
     if (!m_helper->waitForStarted()) {
         QTimer::singleShot(0, this, SLOT(failed()));
     }
@@ -84,7 +84,7 @@ bool Discovery::checkDomain() const
         unsigned char buf[ PACKETSZ ];
     } response;
 
-    int len = res_query(m_domainName.toLocal8Bit(), C_IN, T_SOA,
+    int len = res_query(m_domainName.toLocal8Bit().constData(), C_IN, T_SOA,
                         response.buf, sizeof(response.buf));
     if (len <= int(sizeof(response.header)) ||
             ntohs(response.header.ancount) != 1) {
@@ -121,7 +121,7 @@ void Discovery::failed()
         return;
     }
 
-    const int dot = m_domainName.indexOf('.');
+    const int dot = m_domainName.indexOf(QLatin1Char('.'));
     if (dot > -1 || firstQuery) {
         QString address(QStringLiteral("http://wpad."));
         address += m_domainName;

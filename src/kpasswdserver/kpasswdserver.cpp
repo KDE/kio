@@ -114,7 +114,7 @@ KPasswdServer::~KPasswdServer()
 // Helper - returns the wallet key to use for read/store/checking for existence.
 static QString makeWalletKey( const QString& key, const QString& realm )
 {
-    return realm.isEmpty() ? key : key + '-' + realm;
+    return realm.isEmpty() ? key : key + QLatin1Char('-') + realm;
 }
 
 // Helper for storeInWallet/readFromWallet
@@ -122,7 +122,7 @@ static QString makeMapKey( const char* key, int entryNumber )
 {
     QString str = QLatin1String( key );
     if ( entryNumber > 1 )
-        str += '-' + QString::number( entryNumber );
+        str += QLatin1Char('-') + QString::number( entryNumber );
     return str;
 }
 
@@ -204,14 +204,14 @@ static bool readFromWallet( KWallet::Wallet* wallet, const QString& key, const Q
 
 bool KPasswdServer::hasPendingQuery(const QString &key, const KIO::AuthInfo &info)
 {
-    const QString path2 (info.url.path().left(info.url.path().indexOf('/')+1));
+    const QString path2 (info.url.path().left(info.url.path().indexOf(QLatin1Char('/'))+1));
     Q_FOREACH(const Request *request, m_authPending) {
         if (request->key != key) {
             continue;
         }
 
         if (info.verifyPath) {
-            const QString path1 (request->info.url.path().left(info.url.path().indexOf('/')+1));
+            const QString path1 (request->info.url.path().left(info.url.path().indexOf(QLatin1Char('/'))+1));
             if (!path2.startsWith(path1)) {
                 continue;
             }
@@ -620,17 +620,17 @@ QString KPasswdServer::createCacheKey( const KIO::AuthInfo &info )
 
     // Generate the basic key sequence.
     QString key = info.url.scheme();
-    key += '-';
+    key += QLatin1Char('-');
     if (!info.url.userName().isEmpty())
     {
        key += info.url.userName();
-       key += '@';
+       key += QLatin1Char('@');
     }
     key += info.url.host();
     int port = info.url.port();
     if( port )
     {
-      key += ':';
+      key += QLatin1Char(':');
       key += QString::number(port);
     }
 
@@ -651,7 +651,7 @@ KPasswdServer::findAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
    AuthInfoContainerList *authList = m_authDict.value(key);
    if (authList)
    {
-      QString path2 = info.url.path().left(info.url.path().indexOf('/')+1);
+      QString path2 = info.url.path().left(info.url.path().indexOf(QLatin1Char('/'))+1);
       Q_FOREACH(AuthInfoContainer *current, *authList)
       {
           if (current->expire == AuthInfoContainer::expTime &&
@@ -737,7 +737,7 @@ KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, ql
    }
 
    authItem->info = info;
-   authItem->directory = info.url.path().left(info.url.path().indexOf('/')+1);
+   authItem->directory = info.url.path().left(info.url.path().indexOf(QLatin1Char('/'))+1);
    authItem->seqNr = seqNr;
    authItem->isCanceled = canceled;
 

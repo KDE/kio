@@ -11,9 +11,6 @@ if (KF5Wallet_FOUND)
     set(WALLET_LIB KF5::Wallet)
 endif()
 
-# TODO: Remove these
-remove_definitions(-DQT_NO_CAST_FROM_ASCII)
-
 if(BUILD_TESTING)
     add_subdirectory(autotests)
 endif()
