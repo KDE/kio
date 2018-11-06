@@ -175,7 +175,7 @@ int KDirModelNode::rowNumber() const
 class KDirModelPrivate
 {
 public:
-    KDirModelPrivate(KDirModel *model)
+    explicit KDirModelPrivate(KDirModel *model)
         : q(model), m_dirLister(nullptr),
           m_rootNode(new KDirModelDirNode(nullptr, KFileItem())),
           m_dropsAllowed(KDirModel::NoDrops), m_jobTransfersVisible(false)

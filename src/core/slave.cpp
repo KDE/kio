@@ -125,7 +125,7 @@ namespace KIO
 class SlavePrivate: public SlaveInterfacePrivate
 {
 public:
-    SlavePrivate(const QString &protocol) :
+    explicit SlavePrivate(const QString &protocol) :
         m_protocol(protocol),
         m_slaveProtocol(protocol),
         slaveconnserver(new KIO::ConnectionServer),

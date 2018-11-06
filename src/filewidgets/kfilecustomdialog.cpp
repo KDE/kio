@@ -28,7 +28,7 @@
 class KFileCustomDialogPrivate
 {
 public:
-    KFileCustomDialogPrivate(KFileCustomDialog *qq)
+    explicit KFileCustomDialogPrivate(KFileCustomDialog *qq)
         : q(qq)
     {
         init();

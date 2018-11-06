@@ -116,7 +116,7 @@ static bool AppNodeLessThan(KDEPrivate::AppNode *n1, KDEPrivate::AppNode *n2)
 class KApplicationModelPrivate
 {
 public:
-    KApplicationModelPrivate(KApplicationModel *qq)
+    explicit KApplicationModelPrivate(KApplicationModel *qq)
         : q(qq), root(new KDEPrivate::AppNode())
     {
     }
@@ -498,7 +498,7 @@ void KApplicationView::slotSelectionChanged(const QItemSelection &selected, cons
 class KOpenWithDialogPrivate
 {
 public:
-    KOpenWithDialogPrivate(KOpenWithDialog *qq)
+    explicit KOpenWithDialogPrivate(KOpenWithDialog *qq)
         : q(qq), saveNewApps(false)
     {
     }

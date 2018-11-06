@@ -66,7 +66,7 @@ class Q_DECL_HIDDEN KFileItemDelegate::Private
 public:
     enum MarginType { ItemMargin = 0, TextMargin, IconMargin, NMargins };
 
-    Private(KFileItemDelegate *parent);
+    explicit Private(KFileItemDelegate *parent);
     ~Private() {}
 
     QSize decorationSizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;

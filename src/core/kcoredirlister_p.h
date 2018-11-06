@@ -46,7 +46,7 @@ struct KCoreDirListerCacheDirectoryData;
 class Q_DECL_HIDDEN KCoreDirLister::Private
 {
 public:
-    Private(KCoreDirLister *parent)
+    explicit Private(KCoreDirLister *parent)
         : m_parent(parent)
     {
         complete = false;

@@ -33,7 +33,7 @@
 class Q_DECL_HIDDEN KNFSShare::KNFSSharePrivate
 {
 public:
-    KNFSSharePrivate(KNFSShare *parent);
+    explicit KNFSSharePrivate(KNFSShare *parent);
 
     void _k_slotFileChange(const QString &);
 

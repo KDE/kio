@@ -36,7 +36,7 @@ using namespace KIO;
 class KIO::DavJobPrivate: public KIO::TransferJobPrivate
 {
 public:
-    DavJobPrivate(const QUrl &url)
+    explicit DavJobPrivate(const QUrl &url)
         : TransferJobPrivate(url, KIO::CMD_SPECIAL, QByteArray(), QByteArray())
     {}
     QByteArray savedStaticData;

@@ -69,7 +69,7 @@ static const char* const s_states[] = {
 class DeleteJobPrivate: public KIO::JobPrivate
 {
 public:
-    DeleteJobPrivate(const QList<QUrl> &src)
+    explicit DeleteJobPrivate(const QList<QUrl> &src)
         : state(DELETEJOB_STATE_STATING)
         , m_processedFiles(0)
         , m_processedDirs(0)

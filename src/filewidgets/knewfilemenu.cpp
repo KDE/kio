@@ -238,7 +238,7 @@ public:
 class KNewFileMenuPrivate
 {
 public:
-    KNewFileMenuPrivate(KNewFileMenu *qq)
+    explicit KNewFileMenuPrivate(KNewFileMenu *qq)
         : m_menuItemsVersion(0),
           m_modal(true),
           m_viewShowsHiddenFiles(false),

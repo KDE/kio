@@ -31,7 +31,7 @@
 class KStatusBarOfflineIndicatorPrivate
 {
 public:
-    KStatusBarOfflineIndicatorPrivate(KStatusBarOfflineIndicator *parent)
+    explicit KStatusBarOfflineIndicatorPrivate(KStatusBarOfflineIndicator *parent)
         : q(parent)
         , networkConfiguration(new QNetworkConfigurationManager(parent))
     {

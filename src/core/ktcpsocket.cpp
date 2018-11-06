@@ -270,7 +270,7 @@ QSslCertificate KSslError::certificate() const
 class KTcpSocketPrivate
 {
 public:
-    KTcpSocketPrivate(KTcpSocket *qq)
+    explicit KTcpSocketPrivate(KTcpSocket *qq)
         : q(qq),
           certificatesLoaded(false),
           emittedReadyRead(false)

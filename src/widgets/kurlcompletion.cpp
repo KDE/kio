@@ -109,7 +109,7 @@ static int initialWaitDuration()
 class KUrlCompletionPrivate
 {
 public:
-    KUrlCompletionPrivate(KUrlCompletion *parent)
+    explicit KUrlCompletionPrivate(KUrlCompletion *parent)
         : q(parent),
           url_auto_completion(true),
           userListThread(nullptr),

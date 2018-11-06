@@ -31,7 +31,10 @@
 class KNameAndUrlInputDialogPrivate
 {
 public:
-    KNameAndUrlInputDialogPrivate(KNameAndUrlInputDialog *qq) : m_fileNameEdited(false), q(qq) {}
+    explicit KNameAndUrlInputDialogPrivate(KNameAndUrlInputDialog *qq)
+        : m_fileNameEdited(false)
+        , q(qq)
+    {}
 
     void _k_slotNameTextChanged(const QString &);
     void _k_slotURLTextChanged(const QString &);

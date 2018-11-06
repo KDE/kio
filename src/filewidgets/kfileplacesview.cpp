@@ -484,7 +484,10 @@ int KFilePlacesViewDelegate::sectionHeaderHeight() const
 class Q_DECL_HIDDEN KFilePlacesView::Private
 {
 public:
-    Private(KFilePlacesView *parent) : q(parent), watcher(new KFilePlacesEventWatcher(q)) { }
+    explicit Private(KFilePlacesView *parent)
+        : q(parent)
+        , watcher(new KFilePlacesEventWatcher(q))
+    {}
 
     enum FadeType {
         FadeIn = 0,

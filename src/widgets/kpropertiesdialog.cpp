@@ -170,11 +170,11 @@ const mode_t KFilePermissionsPropsPlugin::fperm[3][4] = {
 class Q_DECL_HIDDEN KPropertiesDialog::KPropertiesDialogPrivate
 {
 public:
-    KPropertiesDialogPrivate(KPropertiesDialog *qq)
+    explicit KPropertiesDialogPrivate(KPropertiesDialog *qq)
+        : q(qq)
+        , m_aborted(false)
+        , fileSharePage(nullptr)
     {
-        q = qq;
-        m_aborted = false;
-        fileSharePage = nullptr;
     }
     ~KPropertiesDialogPrivate()
     {

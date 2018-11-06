@@ -29,7 +29,7 @@
 class Q_DECL_HIDDEN KFileFilterCombo::Private
 {
 public:
-    Private(KFileFilterCombo *_parent)
+    explicit Private(KFileFilterCombo *_parent)
         : parent(_parent),
           hasAllSupportedFiles(false),
           isMimeFilter(false),

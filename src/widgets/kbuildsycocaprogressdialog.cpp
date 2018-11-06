@@ -26,7 +26,7 @@
 class KBuildSycocaProgressDialogPrivate
 {
 public:
-    KBuildSycocaProgressDialogPrivate(KBuildSycocaProgressDialog *parent)
+    explicit KBuildSycocaProgressDialogPrivate(KBuildSycocaProgressDialog *parent)
         : m_parent(parent)
     {
     }

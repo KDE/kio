@@ -33,7 +33,7 @@
 class KUrlRequesterDialogPrivate
 {
 public:
-    KUrlRequesterDialogPrivate(KUrlRequesterDialog *qq)
+    explicit KUrlRequesterDialogPrivate(KUrlRequesterDialog *qq)
         : q(qq)
     {
     }

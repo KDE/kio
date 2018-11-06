@@ -37,7 +37,7 @@ public:
         , m_currentItem(0)
     {
     }
-    DirectorySizeJobPrivate(const KFileItemList &lstItems)
+    explicit DirectorySizeJobPrivate(const KFileItemList &lstItems)
         : m_totalSize(0L)
         , m_totalFiles(0L)
         , m_totalSubdirs(0L)

@@ -42,7 +42,7 @@ class KUrlDragPushButton : public QPushButton
 {
     Q_OBJECT
 public:
-    KUrlDragPushButton(QWidget *parent)
+    explicit KUrlDragPushButton(QWidget *parent)
         : QPushButton(parent)
     {
         new DragDecorator(this);
@@ -59,7 +59,7 @@ private:
     class DragDecorator : public KDragWidgetDecoratorBase
     {
     public:
-        DragDecorator(KUrlDragPushButton *button)
+        explicit DragDecorator(KUrlDragPushButton *button)
             : KDragWidgetDecoratorBase(button), m_button(button) {}
 
     protected:
@@ -86,7 +86,7 @@ private:
 class Q_DECL_HIDDEN KUrlRequester::KUrlRequesterPrivate
 {
 public:
-    KUrlRequesterPrivate(KUrlRequester *parent)
+    explicit KUrlRequesterPrivate(KUrlRequester *parent)
         : m_parent(parent),
           edit(nullptr),
           combo(nullptr),

@@ -47,7 +47,7 @@ public:
 #endif
     {}
 #if HAVE_POSIX_ACL
-    KACLPrivate(acl_t acl)
+    explicit KACLPrivate(acl_t acl)
         : m_acl(acl) {}
 #endif
 #if HAVE_POSIX_ACL

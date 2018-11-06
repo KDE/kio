@@ -83,7 +83,9 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(TCPSlaveBase::SslResult)
 class Q_DECL_HIDDEN TCPSlaveBase::TcpSlaveBasePrivate
 {
 public:
-    TcpSlaveBasePrivate(TCPSlaveBase *qq) : q(qq) {}
+    explicit TcpSlaveBasePrivate(TCPSlaveBase *qq)
+        : q(qq)
+    {}
 
     void setSslMetaData()
     {

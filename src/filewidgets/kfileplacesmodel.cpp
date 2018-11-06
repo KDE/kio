@@ -157,7 +157,7 @@ namespace {
 class Q_DECL_HIDDEN KFilePlacesModel::Private
 {
 public:
-    Private(KFilePlacesModel *self)
+    explicit Private(KFilePlacesModel *self)
         : q(self),
           bookmarkManager(nullptr),
           fileIndexingEnabled(isFileIndexingEnabled())

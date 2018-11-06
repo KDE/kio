@@ -80,7 +80,7 @@
 class KFileWidgetPrivate
 {
 public:
-    KFileWidgetPrivate(KFileWidget *widget)
+    explicit KFileWidgetPrivate(KFileWidget *widget)
         : q(widget),
           boxLayout(nullptr),
           placesDock(nullptr),

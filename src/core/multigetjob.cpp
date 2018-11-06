@@ -31,7 +31,7 @@ using namespace KIO;
 class KIO::MultiGetJobPrivate: public KIO::TransferJobPrivate
 {
 public:
-    MultiGetJobPrivate(const QUrl &url)
+    explicit MultiGetJobPrivate(const QUrl &url)
         : TransferJobPrivate(url, 0, QByteArray(), QByteArray()),
           m_currentEntry(0, QUrl(), MetaData())
     {}

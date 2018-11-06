@@ -170,7 +170,7 @@ void KDirOperator::keyPressEvent(QKeyEvent *e)
 class Q_DECL_HIDDEN KDirOperator::Private
 {
 public:
-    Private(KDirOperator *parent);
+    explicit Private(KDirOperator *parent);
     ~Private();
 
     enum InlinePreviewState {
