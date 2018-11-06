@@ -285,7 +285,7 @@ void FilterOptions::setDefaultEngine(int index)
 
 void FilterOptions::load()
 {
-  KConfig config(KURISearchFilterEngine::self()->name() + QStringLiteral("rc"), KConfig::NoGlobals);
+  KConfig config(QString::fromUtf8(KURISearchFilterEngine::self()->name()) + QLatin1String("rc"), KConfig::NoGlobals);
   KConfigGroup group = config.group("General");
 
   const QString defaultSearchEngine = group.readEntry("DefaultWebShortcut");
@@ -327,7 +327,7 @@ void FilterOptions::setDelimiter (char sep)
 
 void FilterOptions::save()
 {
-  KConfig config(KURISearchFilterEngine::self()->name() + QStringLiteral("rc"), KConfig::NoGlobals );
+  KConfig config(QString::fromUtf8(KURISearchFilterEngine::self()->name()) + QLatin1String("rc"), KConfig::NoGlobals );
 
   KConfigGroup group = config.group("General");
   group.writeEntry("EnableWebShortcuts", m_dlg.cbEnableShortcuts->isChecked());
@@ -338,7 +338,7 @@ void FilterOptions::save()
 
   int changedProviderCount = 0;
   QList<SearchProvider*> providers = m_providersModel->providers();
-  const QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/kservices5/searchproviders/";
+  const QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/searchproviders/");
 
   Q_FOREACH(SearchProvider* provider, providers)
   {
@@ -347,7 +347,7 @@ void FilterOptions::save()
 
     changedProviderCount++;
 
-    KConfig _service(path + provider->desktopEntryName() + ".desktop", KConfig::SimpleConfig );
+    KConfig _service(path + provider->desktopEntryName() + QLatin1String(".desktop"), KConfig::SimpleConfig);
     KConfigGroup service(&_service, "Desktop Entry");
     service.writeEntry("Type", "Service");
     service.writeEntry("X-KDE-ServiceTypes", "SearchProvider");
@@ -363,7 +363,7 @@ void FilterOptions::save()
   {
     QStringList matches;
     foreach(const QString& dir, servicesDirs) {
-      QString current = dir + '/' + providerName + ".desktop";
+      QString current = dir + QLatin1Char('/') + providerName + QLatin1String(".desktop");
       if(QFile::exists(current))
         matches += current;
     }
@@ -382,7 +382,7 @@ void FilterOptions::save()
       continue;
     }
 
-    KConfig _service(path + providerName + ".desktop", KConfig::SimpleConfig );
+    KConfig _service(path + providerName + QLatin1String(".desktop"), KConfig::SimpleConfig);
     KConfigGroup service(&_service,     "Desktop Entry");
     service.writeEntry("Type",          "Service");
     service.writeEntry("X-KDE-ServiceTypes",  "SearchProvider");

@@ -75,15 +75,15 @@ static QString removeArgs( const QString& _cmd )
 {
   QString cmd( _cmd );
 
-  if( cmd[0] != '\'' && cmd[0] != '"' )
+  if( cmd[0] != QLatin1Char('\'') && cmd[0] != QLatin1Char('"'))
   {
     // Remove command-line options (look for first non-escaped space)
     int spacePos = 0;
 
     do
     {
-      spacePos = cmd.indexOf( ' ', spacePos+1 );
-    } while ( spacePos > 1 && cmd[spacePos - 1] == '\\' );
+      spacePos = cmd.indexOf(QLatin1Char(' '), spacePos+1 );
+    } while (spacePos > 1 && cmd[spacePos - 1] == QLatin1Char('\\'));
 
     if( spacePos > 0 )
     {
@@ -131,7 +131,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   QString cmd = data.typedString();
 
   int firstNonSlash = 0;
-  while (firstNonSlash < cmd.length() && (cmd.at(firstNonSlash) == '/')) {
+  while (firstNonSlash < cmd.length() && (cmd.at(firstNonSlash) == QLatin1Char('/'))) {
       firstNonSlash++;
   }
   if (firstNonSlash > 1) {
@@ -152,7 +152,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   if (cmd.count(QLatin1Char('@')) > 1) {
     const int lastIndex = cmd.lastIndexOf(QLatin1Char('@'));
     // Percent encode all but the last '@'.
-    QString encodedCmd = QUrl::toPercentEncoding(cmd.left(lastIndex), ":/");
+    QString encodedCmd = QString::fromUtf8(QUrl::toPercentEncoding(cmd.left(lastIndex), QByteArrayLiteral(":/")));
     encodedCmd += cmd.midRef(lastIndex);
     cmd = encodedCmd;
     url.setUrl(encodedCmd);
@@ -166,7 +166,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   // Fix misparsing of "foo:80", QUrl thinks "foo" is the protocol and "80" is the path.
   // However, be careful not to do that for valid hostless URLs, e.g. file:///foo!
   if (!protocol.isEmpty() && url.host().isEmpty() && !url.path().isEmpty()
-      && cmd.contains(':') && !isKnownProtocol(protocol)) {
+      && cmd.contains(QLatin1Char(':')) && !isKnownProtocol(protocol)) {
     protocol.clear();
   }
 
@@ -188,17 +188,17 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   // Handle MAN & INFO pages shortcuts...
   const QString man_proto = QStringLiteral("man:");
   const QString info_proto = QStringLiteral("info:");
-  if( cmd[0] == '#' ||
+  if( cmd[0] == QLatin1Char('#') ||
       cmd.indexOf( man_proto ) == 0 ||
       cmd.indexOf( info_proto ) == 0 )
   {
     if( cmd.leftRef(2) == QLatin1String("##") )
       cmd = QStringLiteral("info:/") + cmd.mid(2);
-    else if ( cmd[0] == '#' )
+    else if ( cmd[0] == QLatin1Char('#') )
       cmd = QStringLiteral("man:/") + cmd.mid(1);
 
     else if ((cmd==info_proto) || (cmd==man_proto))
-      cmd+='/';
+      cmd += QLatin1Char('/');
 
     setFilteredUri( data, QUrl( cmd ));
     setUriType( data, KUriFilterData::Help );
@@ -209,7 +209,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   if ( cmd.startsWith( QLatin1String( "\\\\") ) )
   {
     // make sure path is unix style
-    cmd.replace('\\', '/');
+    cmd.replace(QLatin1Char('\\'), QLatin1Char('/'));
     cmd.prepend( QLatin1String( "smb:" ) );
     setFilteredUri( data, QUrl( cmd ));
     setUriType( data, KUriFilterData::NetProtocol );
@@ -242,7 +242,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
         qCDebug(category) << "isLocalFile set path to" << path << "and ref to" << ref;
         query = url.query();
         if (path.isEmpty() && !url.host().isEmpty())
-          path = '/';
+          path = QStringLiteral("/");
       }
       else
       {
@@ -256,9 +256,9 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
     }
   }
 
-  if( path[0] == '~' )
+  if( path[0] == QLatin1Char('~'))
   {
-    int slashPos = path.indexOf('/');
+    int slashPos = path.indexOf(QLatin1Char('/'));
     if( slashPos == -1 )
       slashPos = path.length();
     if( slashPos == 1 )   // ~/
@@ -288,7 +288,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
     }
     expanded = true;
   }
-  else if ( path[0] == '$' ) {
+  else if ( path[0] == QLatin1Char('$') ) {
     // Environment variable expansion.
     auto match = sEnvVarExp.match(path);
     if ( match.hasMatch() )
@@ -301,11 +301,11 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
     }
   }
 
-  if ( expanded || cmd.startsWith( '/' ) )
+  if ( expanded || cmd.startsWith(QLatin1Char('/')) )
   {
     // Look for #ref again, after $ and ~ expansion (testcase: $QTDIR/doc/html/functions.html#s)
     // Can't use QUrl here, setPath would escape it...
-    const int pos = path.indexOf('#');
+    const int pos = path.indexOf(QLatin1Char('#'));
     if ( pos > -1 )
     {
       const QString newPath = path.left( pos );
@@ -328,7 +328,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   const QString abs_path = data.absolutePath();
 
   const bool canBeAbsolute = (protocol.isEmpty() && !abs_path.isEmpty());
-  const bool canBeLocalAbsolute = (canBeAbsolute && abs_path[0] =='/' && !isMalformed);
+  const bool canBeLocalAbsolute = (canBeAbsolute && abs_path[0] == QLatin1Char('/') && !isMalformed);
   bool exists = false;
 
   /*qCDebug(category) << "abs_path=" << abs_path
@@ -343,13 +343,13 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
     QString abs = QDir::cleanPath( abs_path );
     // combine absolute path (abs_path) and relative path (cmd) into abs_path
     int len = path.length();
-    if( (len==1 && path[0]=='.') || (len==2 && path[0]=='.' && path[1]=='.') )
-        path += '/';
+    if( (len==1 && path[0]==QLatin1Char('.')) || (len==2 && path[0]==QLatin1Char('.') && path[1]==QLatin1Char('.')) )
+        path += QLatin1Char('/');
     qCDebug(category) << "adding " << abs << " and " << path;
-    abs = QDir::cleanPath(abs + '/' + path);
+    abs = QDir::cleanPath(abs + QLatin1Char('/') + path);
     qCDebug(category) << "checking whether " << abs << " exists.";
     // Check if it exists
-    if(QT_STAT(QFile::encodeName(abs), &buff) == 0) {
+    if(QT_STAT(QFile::encodeName(abs).constData(), &buff) == 0) {
       path = abs; // yes -> store as the new cmd
       exists = true;
       isLocalFullPath = true;
@@ -357,18 +357,18 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   }
 
   if (isLocalFullPath && !exists && !isMalformed) {
-    exists = QT_STAT(QFile::encodeName(path), &buff) == 0;
+    exists = QT_STAT(QFile::encodeName(path).constData(), &buff) == 0;
 
     if ( !exists ) {
       // Support for name filter (/foo/*.txt), see also KonqMainWindow::detectNameFilter
       // If the app using this filter doesn't support it, well, it'll simply error out itself
-      int lastSlash = path.lastIndexOf( '/' );
-      if ( lastSlash > -1 && path.indexOf( ' ', lastSlash ) == -1 ) // no space after last slash, otherwise it's more likely command-line arguments
+      int lastSlash = path.lastIndexOf(QLatin1Char('/'));
+      if ( lastSlash > -1 && path.indexOf(QLatin1Char(' '), lastSlash ) == -1 ) // no space after last slash, otherwise it's more likely command-line arguments
       {
         QString fileName = path.mid( lastSlash + 1 );
         QString testPath = path.left(lastSlash);
-        if ((fileName.indexOf('*') != -1 || fileName.indexOf('[') != -1 || fileName.indexOf( '?' ) != -1)
-                && QT_STAT(QFile::encodeName(testPath), &buff) == 0) {
+        if ((fileName.indexOf(QLatin1Char('*')) != -1 || fileName.indexOf(QLatin1Char('[')) != -1 || fileName.indexOf(QLatin1Char('?')) != -1)
+                && QT_STAT(QFile::encodeName(testPath).constData(), &buff) == 0) {
           nameFilter = fileName;
           qCDebug(category) << "Setting nameFilter to" << nameFilter << "and path to" << testPath;
           path = testPath;
@@ -459,8 +459,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
   }
 
   // Short url matches
-  if ( !cmd.contains( ' ' ) )
-  {
+  if (!cmd.contains(QLatin1Char(' '))) {
     // Okay this is the code that allows users to supply custom matches for
     // specific URLs using Qt's regexp class. This is hard-coded for now.
     // TODO: Make configurable at some point...

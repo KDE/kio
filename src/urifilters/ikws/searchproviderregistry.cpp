@@ -82,5 +82,5 @@ SearchProvider* SearchProviderRegistry::findByKey(const QString& key) const
 
 SearchProvider* SearchProviderRegistry::findByDesktopName(const QString &name) const
 {
-    return m_searchProvidersByDesktopName.value(name + ".desktop");
+    return m_searchProvidersByDesktopName.value(name + QLatin1String(".desktop"));
 }

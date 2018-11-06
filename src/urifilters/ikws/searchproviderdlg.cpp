@@ -99,12 +99,12 @@ void SearchProviderDialog::shortcutsChanged(const QString& newShorthands) {
     // setText() will reset it to the end, which is not what we want when
     // backspacing something in the middle.
     int savedCursorPosition = m_dlg.leShortcut->cursorPosition();
-    QString normalizedShorthands = QString(newShorthands).replace(' ', ',');
+    QString normalizedShorthands = QString(newShorthands).replace(QLatin1Char(' '), QLatin1Char(','));
     m_dlg.leShortcut->setText(normalizedShorthands);
     m_dlg.leShortcut->setCursorPosition(savedCursorPosition);
 
     QHash<QString, const SearchProvider*> contenders;
-    QSet<QString> shorthands = normalizedShorthands.split(',').toSet();
+    QSet<QString> shorthands = normalizedShorthands.split(QLatin1Char(',')).toSet();
 
     // Look at each shorthand the user entered and wade through the search
     // provider list in search of a conflicting shorthand. Do not continue
@@ -155,7 +155,7 @@ void SearchProviderDialog::accept()
 
     const QString name = m_dlg.leName->text().trimmed();
     const QString query = m_dlg.leQuery->text().trimmed();
-    QStringList keys = m_dlg.leShortcut->text().trimmed().toLower().split(',', QString::SkipEmptyParts);
+    QStringList keys = m_dlg.leShortcut->text().trimmed().toLower().split(QLatin1Char(','), QString::SkipEmptyParts);
     keys.removeDuplicates();// #169801. Remove duplicates...
     const QString charset = (m_dlg.cbCharset->currentIndex() ? m_dlg.cbCharset->currentText().trimmed() : QString());
 
