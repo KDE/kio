@@ -78,11 +78,11 @@ void KFileFilterCombo::setFilter(const QString &filter)
 
     if (!filter.isEmpty()) {
         QString tmp = filter;
-        int index = tmp.indexOf('\n');
+        int index = tmp.indexOf(QLatin1Char('\n'));
         while (index > 0) {
             d->m_filters.append(tmp.left(index));
             tmp = tmp.mid(index + 1);
-            index = tmp.indexOf('\n');
+            index = tmp.indexOf(QLatin1Char('\n'));
         }
         d->m_filters.append(tmp);
     } else {
@@ -92,7 +92,7 @@ void KFileFilterCombo::setFilter(const QString &filter)
     QStringList::ConstIterator it;
     QStringList::ConstIterator end(d->m_filters.constEnd());
     for (it = d->m_filters.constBegin(); it != end; ++it) {
-        int tab = (*it).indexOf('|');
+        int tab = (*it).indexOf(QLatin1Char('|'));
         addItem((tab < 0) ? *it :
                 (*it).mid(tab + 1));
     }
@@ -111,7 +111,7 @@ QString KFileFilterCombo::currentFilter() const
         }
     }
 
-    int tab = f.indexOf('|');
+    int tab = f.indexOf(QLatin1Char('|'));
     if (tab < 0) {
         return f;
     } else {
@@ -159,7 +159,7 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types,
 
         if (d->m_allTypes && it != types.begin()) {
             allComments += delim;
-            allTypes += ' ';
+            allTypes += QLatin1Char(' ');
         }
 
         d->m_filters.append(type.name());

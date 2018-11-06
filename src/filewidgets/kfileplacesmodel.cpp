@@ -92,9 +92,9 @@ namespace {
     {
         const QString dateFormat = QStringLiteral("%1-%2");
 
-        QString date = dateFormat.arg(year).arg(month, 2, 10, QChar('0'));
+        QString date = dateFormat.arg(year).arg(month, 2, 10, QLatin1Char('0'));
         if (day > 0) {
-            date += QStringLiteral("-%1").arg(day, 2, 10, QChar('0'));
+            date += QStringLiteral("-%1").arg(day, 2, 10, QLatin1Char('0'));
         }
         return date;
     }
@@ -113,7 +113,7 @@ namespace {
             const int day = date.day();
 
             timelineUrl = QUrl(timelinePrefix + timelineDateString(year, month) +
-                  '/' + timelineDateString(year, month, day));
+                  QLatin1Char('/') + timelineDateString(year, month, day));
         } else if (path.endsWith(QLatin1String("/thismonth"))) {
             const QDate date = QDate::currentDate();
             timelineUrl = QUrl(timelinePrefix + timelineDateString(date.year(), date.month()));
@@ -202,7 +202,7 @@ private:
 KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QObject *parent)
     : QAbstractItemModel(parent), d(new Private(this))
 {
-    const QString file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/user-places.xbel";
+    const QString file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/user-places.xbel");
     d->bookmarkManager = KBookmarkManager::managerForExternalFile(file);
     d->alternativeApplicationName = alternativeApplicationName;
 
@@ -312,8 +312,8 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
                       "StorageAccess.ignored == false ]"));
 
     if (KProtocolInfo::isKnownProtocol(QStringLiteral("mtp"))) {
-        predicate.prepend("[");
-        predicate.append(" OR PortableMediaPlayer.supportedProtocols == 'mtp']");
+        predicate.prepend(QLatin1Char('['));
+        predicate.append(QLatin1String(" OR PortableMediaPlayer.supportedProtocols == 'mtp']"));
     }
 
     d->predicate = Solid::Predicate::fromString(predicate);
@@ -1146,7 +1146,7 @@ QAction *KFilePlacesModel::teardownActionForIndex(const QModelIndex &index) cons
 
         QString iconName;
         QString text;
-        QString label = data(index, Qt::DisplayRole).toString().replace('&', QLatin1String("&&"));
+        QString label = data(index, Qt::DisplayRole).toString().replace(QLatin1Char('&'), QLatin1String("&&"));
 
         if (device.is<Solid::OpticalDisc>()) {
             text = i18n("&Release '%1'", label);
@@ -1174,7 +1174,7 @@ QAction *KFilePlacesModel::ejectActionForIndex(const QModelIndex &index) const
 
     if (device.is<Solid::OpticalDisc>()) {
 
-        QString label = data(index, Qt::DisplayRole).toString().replace('&', QLatin1String("&&"));
+        QString label = data(index, Qt::DisplayRole).toString().replace(QLatin1Char('&'), QLatin1String("&&"));
         QString text = i18n("&Eject '%1'", label);
 
         return new QAction(QIcon::fromTheme(QStringLiteral("media-eject")), text, nullptr);
@@ -1208,7 +1208,7 @@ void KFilePlacesModel::requestEject(const QModelIndex &index)
 
         drive->eject();
     } else {
-        QString label = data(index, Qt::DisplayRole).toString().replace('&', QLatin1String("&&"));
+        QString label = data(index, Qt::DisplayRole).toString().replace(QLatin1Char('&'), QLatin1String("&&"));
         QString message = i18n("The device '%1' is not a disk and cannot be ejected.", label);
         emit errorMessage(message);
     }

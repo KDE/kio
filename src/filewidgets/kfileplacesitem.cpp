@@ -345,7 +345,7 @@ QString KFilePlacesItem::generateNewId()
 //    return QString::number(count++);
 
     return QString::number(QDateTime::currentDateTimeUtc().toTime_t())
-           + '/' + QString::number(count++);
+           + QLatin1Char('/') + QString::number(count++);
 
 //    return QString::number(QDateTime::currentDateTime().toTime_t())
 //         + '/' + QString::number(qrand());
@@ -409,7 +409,7 @@ void KFilePlacesItem::onAccessibilityChanged(bool isAccessible)
 QString KFilePlacesItem::iconNameForBookmark(const KBookmark &bookmark) const
 {
     if (!m_folderIsEmpty && isTrash(bookmark)) {
-        return bookmark.icon() + "-full";
+        return bookmark.icon() + QLatin1String("-full");
     } else {
         return bookmark.icon();
     }

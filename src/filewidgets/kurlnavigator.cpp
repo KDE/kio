@@ -400,8 +400,8 @@ void KUrlNavigator::Private::openPathSelectorMenu()
         popup->addAction(action);
 
         ++idx;
-        spacer.append("  ");
-        dirName = path.section('/', idx, idx);
+        spacer.append(QLatin1String("  "));
+        dirName = path.section(QLatin1Char('/'), idx, idx);
     } while (!dirName.isEmpty());
 
     const QPoint pos = q->mapToGlobal(m_dropDownButton->geometry().bottomRight());
@@ -570,7 +570,7 @@ void KUrlNavigator::Private::updateContent()
         QString placePath = placeUrl.path();
         removeTrailingSlash(placePath);
 
-        const int startIndex = placePath.count('/');
+        const int startIndex = placePath.count(QLatin1Char('/'));
         updateButtons(startIndex);
     }
 }
@@ -776,7 +776,7 @@ QUrl KUrlNavigator::Private::buttonUrl(int index) const
             path = QStringLiteral("/");
 #endif
         } else {
-            path = path.section('/', 0, index);
+            path = path.section(QLatin1Char('/'), 0, index);
         }
     }
 
@@ -824,7 +824,7 @@ bool KUrlNavigator::Private::isCompressedPath(const QUrl &url) const
 void KUrlNavigator::Private::removeTrailingSlash(QString &url) const
 {
     const int length = url.length();
-    if ((length > 0) && (url.at(length - 1) == QChar('/'))) {
+    if ((length > 0) && (url.at(length - 1) == QLatin1Char('/'))) {
         url.remove(length - 1, 1);
     }
 }

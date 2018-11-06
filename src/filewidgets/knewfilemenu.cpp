@@ -63,7 +63,7 @@
 
 static QString expandTilde(const QString &name, bool isfile = false)
 {
-    if (!name.isEmpty() && (!isfile || name[0] == '\\')) {
+    if (!name.isEmpty() && (!isfile || name[0] == QLatin1Char('\\'))) {
         const QString expandedName = KShell::tildeExpand(name);
         // When a tilde mark cannot be properly expanded, the above call
         // returns an empty string...
@@ -167,12 +167,12 @@ void KNewFileMenuSingleton::parseFiles()
                 QString type = desktopFile.readType();
                 if (type == QLatin1String("Link")) {
                     templatePath = desktopFile.desktopGroup().readPathEntry("URL", QString());
-                    if (templatePath[0] != '/' && !templatePath.startsWith(QLatin1String("__"))) {
+                    if (templatePath[0] != QLatin1Char('/') && !templatePath.startsWith(QLatin1String("__"))) {
                         if (templatePath.startsWith(QLatin1String("file:/"))) {
                             templatePath = QUrl(templatePath).toLocalFile();
                         } else {
                             // A relative path, then (that's the default in the files we ship)
-                            QString linkDir = filePath.left(filePath.lastIndexOf('/') + 1 /*keep / */);
+                            QString linkDir = filePath.left(filePath.lastIndexOf(QLatin1Char('/')) + 1 /*keep / */);
                             //qDebug() << "linkDir=" << linkDir;
                             templatePath = linkDir + templatePath;
                         }
@@ -459,7 +459,7 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
         text.append(QStringLiteral(".desktop"));
 
         const QUrl directory = mostLocalUrl(*it);
-        const QUrl defaultFile = QUrl::fromLocalFile(directory.toLocalFile() + '/' + KIO::encodeFileName(text));
+        const QUrl defaultFile = QUrl::fromLocalFile(directory.toLocalFile() + QLatin1Char('/') + KIO::encodeFileName(text));
         if (defaultFile.isLocalFile() && QFile::exists(defaultFile.toLocalFile())) {
             text = KIO::suggestName(directory, text);
         }
@@ -503,7 +503,7 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
     m_copyData.m_src = entry.templatePath;
 
     const QUrl directory = mostLocalUrl(m_popupFiles.first());
-    const QUrl defaultFile = QUrl::fromLocalFile(directory.toLocalFile() + '/' + KIO::encodeFileName(text));
+    const QUrl defaultFile = QUrl::fromLocalFile(directory.toLocalFile() + QLatin1Char('/') + KIO::encodeFileName(text));
     if (defaultFile.isLocalFile() && QFile::exists(defaultFile.toLocalFile())) {
         text = KIO::suggestName(directory, text);
     }
@@ -875,7 +875,7 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
                 _k_slotAbortDialog();
                 return;
             }
-            if (!m_viewShowsHiddenFiles && name.startsWith('.')) {
+            if (!m_viewShowsHiddenFiles && name.startsWith(QLatin1Char('.'))) {
                 if (!writeHiddenDir) {
                     confirmCreatingHiddenDir(name);
                     return;
@@ -978,7 +978,7 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
     QMap<QString, EntryWithName> ulist; // entries with unique URLs
     Q_FOREACH (const QString &file, files) {
         //qDebug() << file;
-        if (file[0] != '.') {
+        if (file[0] != QLatin1Char('.')) {
             KNewFileMenuSingleton::Entry e;
             e.filePath = file;
             e.entryType = KNewFileMenuSingleton::Unknown; // not parsed yet
@@ -991,13 +991,13 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
             QString url = config.desktopGroup().readEntry("URL");
             QString key = config.desktopGroup().readEntry("Name");
             if (file.endsWith(QLatin1String("Directory.desktop"))) {
-                key.prepend('0');
+                key.prepend(QLatin1Char('0'));
             } else if (file.startsWith(QDir::homePath())) {
-                key.prepend('1');
+                key.prepend(QLatin1Char('1'));
             } else if (file.endsWith(QLatin1String("TextFile.desktop"))) {
-                key.prepend('2');
+                key.prepend(QLatin1Char('2'));
             } else {
-                key.prepend('3');
+                key.prepend(QLatin1Char('3'));
             }
             EntryWithName en = { key, e };
             if (ulist.contains(url)) {

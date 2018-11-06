@@ -374,7 +374,7 @@ KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent) :
 
     if (_url.isEmpty()) { // no dir specified -> current dir
         QString strPath = QDir::currentPath();
-        strPath.append(QChar('/'));
+        strPath.append(QLatin1Char('/'));
         d->currUrl = QUrl::fromLocalFile(strPath);
     } else {
         d->currUrl = _url;
@@ -383,8 +383,8 @@ KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent) :
         }
 
         QString path = d->currUrl.path();
-        if (!path.endsWith('/')) {
-            path.append('/'); // make sure we have a trailing slash!
+        if (!path.endsWith(QLatin1Char('/'))) {
+            path.append(QLatin1Char('/')); // make sure we have a trailing slash!
         }
         d->currUrl.setPath(path);
     }
@@ -749,7 +749,7 @@ bool KDirOperator::mkdir(const QString &directory, bool enterDirectory)
     bool exists = false;
     QUrl folderurl(d->currUrl);
 
-    const QStringList dirs = directory.split('/', QString::SkipEmptyParts);
+    const QStringList dirs = directory.split(QLatin1Char('/'), QString::SkipEmptyParts);
     QStringList::ConstIterator it = dirs.begin();
 
     for (; it != dirs.end(); ++it) {
@@ -1403,7 +1403,7 @@ bool KDirOperator::Private::checkPreviewInternal() const
     }
 
     QStringList mimeTypes = dirLister->mimeFilters();
-    const QStringList nameFilter = dirLister->nameFilter().split(' ', QString::SkipEmptyParts);
+    const QStringList nameFilter = dirLister->nameFilter().split(QLatin1Char(' '), QString::SkipEmptyParts);
     QMimeDatabase db;
 
     if (mimeTypes.isEmpty() && nameFilter.isEmpty() && !supported.isEmpty()) {

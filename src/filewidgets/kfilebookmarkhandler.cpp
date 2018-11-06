@@ -41,7 +41,7 @@ KFileBookmarkHandler::KFileBookmarkHandler(KFileWidget *widget)
 
     QString file = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kfile/bookmarks.xml"));
     if (file.isEmpty()) {
-        file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "kfile/bookmarks.xml";
+        file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kfile/bookmarks.xml");
     }
 
     KBookmarkManager *manager = KBookmarkManager::managerForFile(file, QStringLiteral("kfile"));

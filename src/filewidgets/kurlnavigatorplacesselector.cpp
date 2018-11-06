@@ -138,7 +138,7 @@ void KUrlNavigatorPlacesSelector::updateTeardownAction()
     QAction *teardown = m_placesModel->teardownActionForIndex(index);
     if (teardown != nullptr) {
         teardown->setParent(m_placesMenu);
-        teardown->setData("teardownAction");
+        teardown->setData(QStringLiteral("teardownAction"));
 
         m_placesMenu->addSeparator();
         m_placesMenu->addAction(teardown);

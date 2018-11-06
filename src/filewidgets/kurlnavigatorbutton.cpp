@@ -93,7 +93,7 @@ void KUrlNavigatorButton::setUrl(const QUrl &url)
                 this, SLOT(statFinished(KJob*)));
         emit startedTextResolving();
     } else {
-        setText(m_url.fileName().replace('&', QLatin1String("&&")));
+        setText(m_url.fileName().replace(QLatin1Char('&'), QLatin1String("&&")));
     }
 }
 

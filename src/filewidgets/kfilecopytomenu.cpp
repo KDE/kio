@@ -122,26 +122,26 @@ void KFileCopyToMainMenu::slotAboutToShow()
     act->setObjectName(QStringLiteral("root"));
 #else
     foreach (const QFileInfo &info, QDir::drives()) {
-        QString driveIcon = "drive-harddisk";
+        QString driveIcon = QStringLiteral("drive-harddisk");
         const uint type = GetDriveTypeW((wchar_t *)info.absoluteFilePath().utf16());
         switch (type) {
         case DRIVE_REMOVABLE:
-            driveIcon = "drive-removable-media";
+            driveIcon = QStringLiteral("drive-removable-media");
             break;
         case DRIVE_FIXED:
-            driveIcon = "drive-harddisk";
+            driveIcon = QStringLiteral("drive-harddisk");
             break;
         case DRIVE_REMOTE:
-            driveIcon = "network-server";
+            driveIcon = QStringLiteral("network-server");
             break;
         case DRIVE_CDROM:
-            driveIcon = "drive-optical";
+            driveIcon = QStringLiteral("drive-optical");
             break;
         case DRIVE_RAMDISK:
         case DRIVE_UNKNOWN:
         case DRIVE_NO_ROOT_DIR:
         default:
-            driveIcon = "drive-harddisk";
+            driveIcon = QStringLiteral("drive-harddisk");
         }
         subMenu = new KFileCopyToDirectoryMenu(this, this, info.absoluteFilePath());
         subMenu->setTitle(info.absoluteFilePath());
@@ -203,8 +203,8 @@ void KFileCopyToMainMenu::copyOrMoveTo(const QUrl &dest)
     // dest doesn't exist anymore: it was creating a file with the name of
     // the now non-existing dest.
     QUrl dirDest = dest;
-    if (!dirDest.path().endsWith('/')) {
-        dirDest.setPath(dirDest.path() + '/');
+    if (!dirDest.path().endsWith(QLatin1Char('/'))) {
+        dirDest.setPath(dirDest.path() + QLatin1Char('/'));
     }
 
     // And now let's do the copy or move -- with undo/redo support.
@@ -222,8 +222,8 @@ void KFileCopyToMainMenu::copyOrMoveTo(const QUrl &dest)
 KFileCopyToDirectoryMenu::KFileCopyToDirectoryMenu(QMenu *parent, KFileCopyToMainMenu *mainMenu, const QString &path)
     : QMenu(parent), m_mainMenu(mainMenu), m_path(path)
 {
-    if (!m_path.endsWith('/')) {
-        m_path.append('/');
+    if (!m_path.endsWith(QLatin1Char('/'))) {
+        m_path.append(QLatin1Char('/'));
     }
     connect(this, &KFileCopyToDirectoryMenu::aboutToShow, this, &KFileCopyToDirectoryMenu::slotAboutToShow);
 }
@@ -255,7 +255,7 @@ void KFileCopyToDirectoryMenu::slotAboutToShow()
         QString menuTitle(subDir);
         // Replace '&' by "&&" to make sure that '&' inside the directory name is displayed
         // correctly and not misinterpreted as an indicator for a keyboard shortcut
-        subMenu->setTitle(menuTitle.replace('&', QLatin1String("&&")));
+        subMenu->setTitle(menuTitle.replace(QLatin1Char('&'), QLatin1String("&&")));
         const QString iconName = dirMime.iconName();
         subMenu->setIcon(QIcon::fromTheme(iconName));
         if (QFileInfo(subPath).isSymLink()) {

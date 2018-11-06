@@ -690,13 +690,13 @@ void KFileWidget::setLocationLabel(const QString &text)
 
 void KFileWidget::setFilter(const QString &filter)
 {
-    int pos = filter.indexOf('/');
+    int pos = filter.indexOf(QLatin1Char('/'));
 
     // Check for an un-escaped '/', if found
     // interpret as a MIME filter.
 
-    if (pos > 0 && filter[pos - 1] != '\\') {
-        QStringList filters = filter.split(' ', QString::SkipEmptyParts);
+    if (pos > 0 && filter[pos - 1] != QLatin1Char('\\')) {
+        QStringList filters = filter.split(QLatin1Char(' '), QString::SkipEmptyParts);
         setMimeFilter(filters);
         return;
     }
@@ -729,7 +729,7 @@ void KFileWidget::setMimeFilter(const QStringList &mimeTypes,
 {
     d->filterWidget->setMimeFilter(mimeTypes, defaultType);
 
-    QStringList types = d->filterWidget->currentFilter().split(' ', QString::SkipEmptyParts); //QStringList::split(" ", d->filterWidget->currentFilter());
+    QStringList types = d->filterWidget->currentFilter().split(QLatin1Char(' '), QString::SkipEmptyParts); //QStringList::split(" ", d->filterWidget->currentFilter());
     types.append(QStringLiteral("inode/directory"));
     d->ops->clearFilter();
     d->ops->setMimeFilter(types);
@@ -942,8 +942,8 @@ void KFileWidget::slotOk()
                         fileName = url.fileName();
                         url = url.adjusted(QUrl::RemoveFilename); // keeps trailing slash
                     } else {
-                        if (!url.path().endsWith('/')) {
-                            url.setPath(url.path() + '/');
+                        if (!url.path().endsWith(QLatin1Char('/'))) {
+                            url.setPath(url.path() + QLatin1Char('/'));
                         }
                     }
                 }
@@ -1297,7 +1297,7 @@ static QString relativePathOrUrl(const QUrl &baseUrl, const QUrl &url)
         const QString basePath(QDir::cleanPath(baseUrl.path()));
         QString relPath(QDir::cleanPath(url.path()));
         relPath.remove(0, basePath.length());
-        if (relPath.startsWith('/')) {
+        if (relPath.startsWith(QLatin1Char('/'))) {
             relPath = relPath.mid(1);
         }
         return relPath;
@@ -1313,7 +1313,7 @@ void KFileWidgetPrivate::setLocationText(const QList<QUrl> &urlList)
     if (urlList.count() > 1) {
         QString urls;
         foreach (const QUrl &url, urlList) {
-            urls += QStringLiteral("\"%1\"").arg(relativePathOrUrl(currUrl, url)) + ' ';
+            urls += QStringLiteral("\"%1\"").arg(relativePathOrUrl(currUrl, url)) + QLatin1Char(' ');
         }
         urls = urls.left(urls.size() - 1);
 
@@ -1334,15 +1334,15 @@ void KFileWidgetPrivate::updateLocationWhatsThis()
 {
     QString whatsThisText;
     if (operationMode == KFileWidget::Saving) {
-        whatsThisText = "<qt>" + i18n("This is the name to save the file as.") +
+        whatsThisText = QLatin1String("<qt>") + i18n("This is the name to save the file as.") +
                         i18n(autocompletionWhatsThisText);
     } else if (ops->mode() & KFile::Files) {
-        whatsThisText = "<qt>" + i18n("This is the list of files to open. More than "
+        whatsThisText = QLatin1String("<qt>") + i18n("This is the list of files to open. More than "
                                       "one file can be specified by listing several "
                                       "files, separated by spaces.") +
                         i18n(autocompletionWhatsThisText);
     } else {
-        whatsThisText = "<qt>" + i18n("This is the name of the file to open.") +
+        whatsThisText = QLatin1String("<qt>") + i18n("This is the name of the file to open.") +
                         i18n(autocompletionWhatsThisText);
     }
 
@@ -1461,14 +1461,14 @@ void KFileWidgetPrivate::_k_slotFilterChanged()
     QString filter = filterWidget->currentFilter();
     ops->clearFilter();
 
-    if (filter.contains('/')) {
-        QStringList types = filter.split(' ', QString::SkipEmptyParts);
+    if (filter.contains(QLatin1Char('/'))) {
+        QStringList types = filter.split(QLatin1Char(' '), QString::SkipEmptyParts);
         types.prepend(QStringLiteral("inode/directory"));
         ops->setMimeFilter(types);
-    } else if (filter.contains('*') || filter.contains('?') || filter.contains('[')) {
+    } else if (filter.contains(QLatin1Char('*')) || filter.contains(QLatin1Char('?')) || filter.contains(QLatin1Char('['))) {
         ops->setNameFilter(filter);
     } else {
-        ops->setNameFilter('*' + filter.replace(' ', '*') + '*');
+        ops->setNameFilter(QLatin1Char('*') + filter.replace(QLatin1Char(' '), QLatin1Char('*')) + QLatin1Char('*'));
     }
 
     updateAutoSelectExtension();
@@ -1614,7 +1614,7 @@ void KFileWidgetPrivate::_k_slotLoadingFinished()
 
     ops->blockSignals(true);
     QUrl u(ops->url());
-    if (currentText.startsWith('/'))
+    if (currentText.startsWith(QLatin1Char('/')))
         u.setPath(currentText);
     else
         u.setPath(concatPaths(ops->url().path(), currentText));
@@ -1626,7 +1626,7 @@ void KFileWidgetPrivate::_k_fileCompletion(const QString &match)
 {
 //     qDebug();
 
-    if (match.isEmpty() || locationEdit->currentText().contains('"')) {
+    if (match.isEmpty() || locationEdit->currentText().contains(QLatin1Char('"'))) {
         return;
     }
 
@@ -1694,7 +1694,7 @@ QList<QUrl> &KFileWidgetPrivate::parseSelectedUrls()
     }
 
     urlList.clear();
-    if (filenames.contains('/')) {    // assume _one_ absolute filename
+    if (filenames.contains(QLatin1Char('/'))) {    // assume _one_ absolute filename
         QUrl u;
         if (containsProtocolSection(filenames)) {
             u = QUrl(filenames);
@@ -1750,8 +1750,8 @@ QList<QUrl> KFileWidgetPrivate::tokenize(const QString &line) const
     int start = 0;
     int index1 = -1, index2 = -1;
     while (true) {
-        index1 = line.indexOf('"', start);
-        index2 = line.indexOf('"', index1 + 1);
+        index1 = line.indexOf(QLatin1Char('"'), start);
+        index2 = line.indexOf(QLatin1Char('"'), index1 + 1);
 
         if (index1 < 0 || index2 < 0) {
             break;
@@ -2198,7 +2198,7 @@ static QString getExtensionFromPatternList(const QStringList &patternList)
         // *.JP?
         if ((*it).startsWith(QLatin1String("*.")) &&
                 (*it).length() > 2 &&
-                (*it).indexOf('*', 2) < 0 && (*it).indexOf('?', 2) < 0) {
+                (*it).indexOf(QLatin1Char('*'), 2) < 0 && (*it).indexOf(QLatin1Char('?'), 2) < 0) {
             ret = (*it).mid(1);
             break;
         }
@@ -2211,7 +2211,7 @@ static QString stripUndisplayable(const QString &string)
 {
     QString ret = string;
 
-    ret.remove(':');
+    ret.remove(QLatin1Char(':'));
     ret = KLocalizedString::removeAcceleratorMarker(ret);
 
     return ret;
@@ -2261,8 +2261,8 @@ void KFileWidgetPrivate::updateAutoSelectExtension()
             QStringList extensionList;
 
             // e.g. "*.cpp"
-            if (filter.indexOf('/') < 0) {
-                extensionList = filter.split(' ', QString::SkipEmptyParts);
+            if (filter.indexOf(QLatin1Char('/')) < 0) {
+                extensionList = filter.split(QLatin1Char(' '), QString::SkipEmptyParts);
                 defaultExtension = getExtensionFromPatternList(extensionList);
             }
             // e.g. "text/html"
@@ -2309,7 +2309,7 @@ void KFileWidgetPrivate::updateAutoSelectExtension()
         }
 
         const QString locationLabelText = stripUndisplayable(locationLabel->text());
-        autoSelectExtCheckBox->setWhatsThis("<qt>" +
+        autoSelectExtCheckBox->setWhatsThis(QLatin1String("<qt>") +
                                             i18n(
                                                 "This option enables some convenient features for "
                                                 "saving files with extensions:<br />"
@@ -2338,7 +2338,7 @@ void KFileWidgetPrivate::updateAutoSelectExtension()
                                                 locationLabelText,
                                                 locationLabelText,
                                                 whatsThisExtension)
-                                            + "</qt>"
+                                            + QLatin1String("</qt>")
                                            );
 
         autoSelectExtCheckBox->show();
@@ -2370,10 +2370,10 @@ void KFileWidgetPrivate::updateLocationEditExtension(const QString &lastExtensio
     QUrl url = getCompleteUrl(urlStr);
 //     qDebug() << "updateLocationEditExtension (" << url << ")";
 
-    const int fileNameOffset = urlStr.lastIndexOf('/') + 1;
+    const int fileNameOffset = urlStr.lastIndexOf(QLatin1Char('/')) + 1;
     QString fileName = urlStr.mid(fileNameOffset);
 
-    const int dot = fileName.lastIndexOf('.');
+    const int dot = fileName.lastIndexOf(QLatin1Char('.'));
     const int len = fileName.length();
     if (dot > 0 && // has an extension already and it's not a hidden file
             // like ".hidden" (but we do accept ".hidden.ext")
@@ -2440,9 +2440,9 @@ void KFileWidgetPrivate::updateFilter()
                 }
             }
         } else {
-            QString filename = urlStr.mid(urlStr.lastIndexOf('/') + 1);     // only filename
+            QString filename = urlStr.mid(urlStr.lastIndexOf(QLatin1Char('/')) + 1);     // only filename
             foreach (const QString &filter, filterWidget->filters()) {
-                QStringList patterns = filter.left(filter.indexOf('|')).split(' ', QString::SkipEmptyParts);       // '*.foo *.bar|Foo type' -> '*.foo', '*.bar'
+                QStringList patterns = filter.left(filter.indexOf(QLatin1Char('|'))).split(QLatin1Char(' '), QString::SkipEmptyParts);       // '*.foo *.bar|Foo type' -> '*.foo', '*.bar'
                 foreach (const QString &p, patterns) {
                     QRegExp rx(p);
                     rx.setPatternSyntax(QRegExp::Wildcard);
@@ -2475,7 +2475,7 @@ void KFileWidgetPrivate::appendExtension(QUrl &url)
 //     qDebug() << "appendExtension(" << url << ")";
 
     const int len = fileName.length();
-    const int dot = fileName.lastIndexOf('.');
+    const int dot = fileName.lastIndexOf(QLatin1Char('.'));
 
     const bool suppressExtension = (dot == len - 1);
     const bool unspecifiedExtension = (dot <= 0);
@@ -2751,7 +2751,7 @@ void KFileWidgetPrivate::setNonExtSelection()
     if (!extension.isEmpty()) {
         locationEdit->lineEdit()->setSelection(0, filename.length() - extension.length() - 1);
     } else {
-        int lastDot = filename.lastIndexOf('.');
+        int lastDot = filename.lastIndexOf(QLatin1Char('.'));
         if (lastDot > 0) {
             locationEdit->lineEdit()->setSelection(0, lastDot);
         } else {
