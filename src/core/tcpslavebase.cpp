@@ -90,10 +90,11 @@ public:
         sslMetaData.insert(QStringLiteral("ssl_in_use"), QStringLiteral("TRUE"));
         KSslCipher cipher = socket.sessionCipher();
         sslMetaData.insert(QStringLiteral("ssl_protocol_version"), socket.negotiatedSslVersionName());
-        QString sslCipher = cipher.encryptionMethod() + '\n';
-        sslCipher += cipher.authenticationMethod() + '\n';
-        sslCipher += cipher.keyExchangeMethod() + '\n';
-        sslCipher += cipher.digestMethod();
+        const QString sslCipher =
+            cipher.encryptionMethod() + QLatin1Char('\n') +
+            cipher.authenticationMethod() + QLatin1Char('\n') +
+            cipher.keyExchangeMethod() + QLatin1Char('\n') +
+            cipher.digestMethod();
         sslMetaData.insert(QStringLiteral("ssl_cipher"), sslCipher);
         sslMetaData.insert(QStringLiteral("ssl_cipher_name"), cipher.name());
         sslMetaData.insert(QStringLiteral("ssl_cipher_used_bits"), QString::number(cipher.usedBits()));
@@ -115,21 +116,21 @@ public:
         Q_FOREACH (const QSslCertificate &cert, socket.peerCertificateChain()) {
             Q_FOREACH (const KSslError &error, sslErrors) {
                 if (error.certificate() == cert) {
-                    errorStr += QString::number(static_cast<int>(error.error())) + '\t';
+                    errorStr += QString::number(static_cast<int>(error.error())) + QLatin1Char('\t');
                 }
             }
-            if (errorStr.endsWith('\t')) {
+            if (errorStr.endsWith(QLatin1Char('\t'))) {
                 errorStr.chop(1);
             }
-            errorStr += '\n';
+            errorStr += QLatin1Char('\n');
         }
         errorStr.chop(1);
         sslMetaData.insert(QStringLiteral("ssl_cert_errors"), errorStr);
 
         QString peerCertChain;
         Q_FOREACH (const QSslCertificate &cert, socket.peerCertificateChain()) {
-            peerCertChain.append(cert.toPem());
-            peerCertChain.append('\x01');
+            peerCertChain.append(QString::fromUtf8(cert.toPem()));
+            peerCertChain.append(QLatin1Char('\x01'));
         }
         peerCertChain.chop(1);
         sslMetaData.insert(QStringLiteral("ssl_peer_chain"), peerCertChain);
@@ -746,7 +747,7 @@ TCPSlaveBase::SslResult TCPSlaveBase::verifyServerCertificate()
     QString message = i18n("The server failed the authenticity check (%1).\n\n", d->host);
     Q_FOREACH (const KSslError &err, d->sslErrors) {
         message.append(err.errorString());
-        message.append('\n');
+        message.append(QLatin1Char('\n'));
     }
     message = message.trimmed();
 

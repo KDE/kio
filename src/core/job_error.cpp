@@ -648,7 +648,7 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
                            "<strong>L</strong>ocator (URL) that you entered did not refer to "
                            "a valid mechanism of accessing the specific resource, "
                            "<strong>%1%2</strong>.",
-                           !host.isNull() ? host + '/' : QString(), path);
+                           !host.isNull() ? host + QLatin1Char('/') : QString(), path);
         causes << i18n("KDE is able to communicate through a protocol within a "
                        "protocol. This request specified a protocol be used as such, however "
                        "this protocol is not capable of such an action. This is a rare event, "

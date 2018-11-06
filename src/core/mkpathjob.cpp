@@ -40,7 +40,7 @@ public:
           m_pathIterator(),
           m_flags(flags)
     {
-        const QStringList basePathComponents = baseUrl.path().split('/', QString::SkipEmptyParts);
+        const QStringList basePathComponents = baseUrl.path().split(QLatin1Char('/'), QString::SkipEmptyParts);
         m_url.setPath(QStringLiteral("/"));
         int i = 0;
         for (; i < basePathComponents.count() && i < m_pathComponents.count(); ++i) {
@@ -64,7 +64,7 @@ public:
                 if (localFile == QLatin1String("/")) {
                     testDir = localFile + m_pathComponents.at(i);
                 } else {
-                    testDir = localFile + '/' + m_pathComponents.at(i);
+                    testDir = localFile + QLatin1Char('/') + m_pathComponents.at(i);
                 }
                 if (QFileInfo(testDir).isDir()) {
                     m_url.setPath(testDir);

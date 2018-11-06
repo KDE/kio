@@ -1077,7 +1077,7 @@ MetaData SchedulerPrivate::metaDataFor(const QString &protocol, const QStringLis
                 QString macdef;
                 QMap<QString, QStringList>::ConstIterator it = l.macdef.constBegin();
                 for (; it != l.macdef.constEnd(); ++it) {
-                    macdef += it.key() + '\\' + it.value().join(QStringLiteral("\\")) + '\n';
+                    macdef += it.key() + QLatin1Char('\\') + it.value().join(QStringLiteral("\\")) + QLatin1Char('\n');
                 }
                 configData[QStringLiteral("autoLoginMacro")] = macdef;
             }

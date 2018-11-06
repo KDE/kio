@@ -106,7 +106,7 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &path)
     QStringList::const_iterator it = extraNames.begin();
     QStringList::const_iterator typeit = extraTypes.begin();
     for (; it != extraNames.end() && typeit != extraTypes.end(); ++it, ++typeit) {
-        QVariant::Type type = QVariant::nameToType((*typeit).toLatin1());
+        QVariant::Type type = QVariant::nameToType((*typeit).toLatin1().constData());
         // currently QVariant::Type and ExtraField::Type use the same subset of values, so we can just cast.
         m_extraFields.append(KProtocolInfo::ExtraField(*it, static_cast<KProtocolInfo::ExtraField::Type>(type)));
     }
@@ -210,7 +210,7 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &name, const QString &e
     QStringList::const_iterator it = extraNames.begin();
     QStringList::const_iterator typeit = extraTypes.begin();
     for (; it != extraNames.end() && typeit != extraTypes.end(); ++it, ++typeit) {
-        QVariant::Type type = QVariant::nameToType((*typeit).toLatin1());
+        QVariant::Type type = QVariant::nameToType((*typeit).toLatin1().constData());
         // currently QVariant::Type and ExtraField::Type use the same subset of values, so we can just cast.
         m_extraFields.append(KProtocolInfo::ExtraField(*it, static_cast<KProtocolInfo::ExtraField::Type>(type)));
     }

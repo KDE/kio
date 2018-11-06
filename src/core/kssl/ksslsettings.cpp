@@ -30,7 +30,7 @@ class CipherNode
 {
 public:
     CipherNode(const char *_name, int _keylen) :
-        name(_name), keylen(_keylen) {}
+        name(QString::fromUtf8(_name)), keylen(_keylen) {}
     QString name;
     int keylen;
     inline int operator==(CipherNode &x)
@@ -133,8 +133,8 @@ void KSSLSettings::load()
     d->m_EGDPath = cfg.readPathEntry("EGDPath", QString());
 
     cfg = KConfigGroup(d->m_cfg, "Auth");
-    d->m_bSendX509 = ("send" == cfg.readEntry("AuthMethod", ""));
-    d->m_bPromptX509 = ("prompt" == cfg.readEntry("AuthMethod", ""));
+    d->m_bSendX509 = (QLatin1String("send") == cfg.readEntry("AuthMethod", ""));
+    d->m_bPromptX509 = (QLatin1String("prompt") == cfg.readEntry("AuthMethod", ""));
 }
 
 void KSSLSettings::defaults()

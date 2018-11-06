@@ -105,7 +105,7 @@ void SlaveConfigPrivate::readConfigProtocolHost(const QString &, SlaveConfigProt
     // Break host into domains
     QString domain = host;
 
-    if (!domain.contains('.')) {
+    if (!domain.contains(QLatin1Char('.'))) {
         // Host without domain.
         if (scp->configFile->hasGroup("<local>")) {
             readConfig(scp->configFile, QStringLiteral("<local>"), &metaData);
@@ -115,7 +115,7 @@ void SlaveConfigPrivate::readConfigProtocolHost(const QString &, SlaveConfigProt
 
     int pos = 0;
     do {
-        pos = host.lastIndexOf('.', pos - 1);
+        pos = host.lastIndexOf(QLatin1Char('.'), pos - 1);
 
         if (pos < 0) {
             domain = host;

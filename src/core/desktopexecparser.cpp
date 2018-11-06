@@ -42,8 +42,12 @@
 class KRunMX1 : public KMacroExpanderBase
 {
 public:
-    KRunMX1(const KService &_service) :
-        KMacroExpanderBase('%'), hasUrls(false), hasSpec(false), service(_service) {}
+    explicit KRunMX1(const KService &_service)
+        : KMacroExpanderBase(QLatin1Char('%'))
+        , hasUrls(false)
+        , hasSpec(false)
+        , service(_service)
+    {}
 
     bool hasUrls;
     bool hasSpec;
@@ -60,13 +64,13 @@ int KRunMX1::expandEscapedMacro(const QString &str, int pos, QStringList &ret)
     uint option = str[pos + 1].unicode();
     switch (option) {
     case 'c':
-        ret << service.name().replace('%', QLatin1String("%%"));
+        ret << service.name().replace(QLatin1Char('%'), QLatin1String("%%"));
         break;
     case 'k':
-        ret << service.entryPath().replace('%', QLatin1String("%%"));
+        ret << service.entryPath().replace(QLatin1Char('%'), QLatin1String("%%"));
         break;
     case 'i':
-        ret << QStringLiteral("--icon") << service.icon().replace('%', QLatin1String("%%"));
+        ret << QStringLiteral("--icon") << service.icon().replace(QLatin1Char('%'), QLatin1String("%%"));
         break;
     case 'm':
 //       ret << "-miniicon" << service.icon().replace( '%', "%%" );
@@ -97,8 +101,11 @@ int KRunMX1::expandEscapedMacro(const QString &str, int pos, QStringList &ret)
 class KRunMX2 : public KMacroExpanderBase
 {
 public:
-    KRunMX2(const QList<QUrl> &_urls) :
-        KMacroExpanderBase('%'), ignFile(false), urls(_urls) {}
+    explicit KRunMX2(const QList<QUrl> &_urls)
+        : KMacroExpanderBase(QLatin1Char('%'))
+        , ignFile(false),
+        urls(_urls)
+    {}
 
     bool ignFile;
 
@@ -220,7 +227,7 @@ bool KIO::DesktopExecParser::hasSchemeHandler(const QUrl &url)
     }
     const KService::Ptr service = KMimeTypeTrader::self()->preferredService(QLatin1String("x-scheme-handler/") + url.scheme());
     if (service) {
-        qCDebug(KIO_CORE) << "preferred service for x-scheme-handler/" + url.scheme() << service->desktopEntryName();
+        qCDebug(KIO_CORE) << QLatin1String("preferred service for x-scheme-handler/") + url.scheme() << service->desktopEntryName();
     }
     return service;
 }
@@ -258,9 +265,9 @@ void KIO::DesktopExecParser::setSuggestedFileName(const QString &suggestedFileNa
 
 static const QString kioexecPath()
 {
-    QString kioexec = QCoreApplication::applicationDirPath() + "/kioexec";
+    QString kioexec = QCoreApplication::applicationDirPath() + QLatin1String("/kioexec");
     if (!QFileInfo::exists(kioexec))
-        kioexec = CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kioexec";
+        kioexec = QStringLiteral(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kioexec");
     Q_ASSERT(QFileInfo::exists(kioexec));
     return kioexec;
 }
@@ -368,11 +375,11 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         QString terminal = cg.readPathEntry("TerminalApplication", QStringLiteral("konsole"));
         if (terminal == QLatin1String("konsole")) {
             if (!d->service.path().isEmpty()) {
-                terminal += " --workdir " + KShell::quoteArg(d->service.path());
+                terminal += QLatin1String(" --workdir ") + KShell::quoteArg(d->service.path());
             }
             terminal += QLatin1String(" -qwindowtitle '%c' %i");
         }
-        terminal += ' ';
+        terminal += QLatin1Char(' ');
         terminal += d->service.terminalOptions();
         if (!mx1.expandMacrosShellQuote(terminal)) {
             qCWarning(KIO_CORE) << "KRun: syntax error in command" << terminal << ", service" << d->service.name();
@@ -415,7 +422,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
 
         result << d->service.username() << QStringLiteral("-c");
         if (err == KShell::FoundMeta) {
-            exec = "/bin/sh -c " + KShell::quoteArg(exec);
+            exec = QLatin1String("/bin/sh -c ") + KShell::quoteArg(exec);
         } else {
             exec = KShell::joinArgs(execlist);
         }
@@ -435,7 +442,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
 QString KIO::DesktopExecParser::executableName(const QString &execLine)
 {
     const QString bin = executablePath(execLine);
-    return bin.mid(bin.lastIndexOf('/') + 1);
+    return bin.mid(bin.lastIndexOf(QLatin1Char('/')) + 1);
 }
 
 //static
@@ -444,7 +451,7 @@ QString KIO::DesktopExecParser::executablePath(const QString &execLine)
     // Remove parameters and/or trailing spaces.
     const QStringList args = KShell::splitArgs(execLine);
     for (QStringList::ConstIterator it = args.begin(); it != args.end(); ++it) {
-        if (!(*it).contains('=')) {
+        if (!(*it).contains(QLatin1Char('='))) {
             return *it;
         }
     }

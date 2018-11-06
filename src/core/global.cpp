@@ -152,7 +152,7 @@ KIOCORE_EXPORT QString KIO::itemsSummaryString(uint items, uint files, uint dirs
 KIOCORE_EXPORT QString KIO::encodeFileName(const QString &_str)
 {
     QString str(_str);
-    str.replace('/', QChar(0x2044)); // "Fraction slash"
+    str.replace(QLatin1Char('/'), QChar(0x2044)); // "Fraction slash"
     return str;
 }
 
@@ -293,11 +293,11 @@ QString KIO::suggestName(const QUrl &baseURL, const QString &oldName)
     QMimeDatabase db;
     QString nameSuffix = db.suffixForFileName(oldName);
 
-    if (oldName.lastIndexOf('.') == 0) {
+    if (oldName.lastIndexOf(QLatin1Char('.')) == 0) {
         basename = QStringLiteral(".");
         nameSuffix = oldName;
     } else if (nameSuffix.isEmpty()) {
-        const int lastDot = oldName.lastIndexOf('.');
+        const int lastDot = oldName.lastIndexOf(QLatin1Char('.'));
         if (lastDot == -1) {
             basename = oldName;
         } else {
@@ -305,7 +305,7 @@ QString KIO::suggestName(const QUrl &baseURL, const QString &oldName)
             nameSuffix = oldName.mid(lastDot);
         }
     } else {
-        nameSuffix.prepend('.');
+        nameSuffix.prepend(QLatin1Char('.'));
         basename = oldName.left(oldName.length() - nameSuffix.length());
     }
 
@@ -315,7 +315,7 @@ QString KIO::suggestName(const QUrl &baseURL, const QString &oldName)
     if (start != -1) {
         QString numAsStr = numSearch.cap(0);
         QString number = QString::number(numAsStr.midRef(1, numAsStr.size() - 2).toInt() + 1);
-        basename = basename.left(start) + '(' + number + ')';
+        basename = basename.left(start) + QLatin1Char('(') + number + QLatin1Char(')');
     } else {
         // number does not exist, so just append " (1)" to filename
         basename += QLatin1String(" (1)");

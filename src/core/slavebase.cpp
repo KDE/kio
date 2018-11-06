@@ -260,8 +260,7 @@ SlaveBase::SlaveBase(const QByteArray &protocol,
     d->isConnectedToApp = true;
 
     // by kahl for netmgr (need a way to identify slaves)
-    d->slaveid = protocol;
-    d->slaveid += QString::number(getpid());
+    d->slaveid = QString::fromUtf8(protocol) + QString::number(getpid());
     d->resume = false;
     d->needSendCanResume = false;
     d->config = new KConfig(QString(), KConfig::SimpleConfig);
@@ -424,7 +423,7 @@ KRemoteEncoding *SlaveBase::remoteEncoding()
     }
 
     const QByteArray charset(metaData(QStringLiteral("Charset")).toLatin1());
-    return (d->remotefile = new KRemoteEncoding(charset));
+    return (d->remotefile = new KRemoteEncoding(charset.constData()));
 }
 
 void SlaveBase::data(const QByteArray &data)

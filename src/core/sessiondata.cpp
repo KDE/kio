@@ -116,7 +116,7 @@ void SessionData::configDataFor(MetaData &configData, const QString &proto,
             configData[QStringLiteral("Charsets")] = d->charsets;
         }
         if (configData[QStringLiteral("CacheDir")].isEmpty()) {
-            const QString httpCacheDir = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + "/kio_http";
+            const QString httpCacheDir = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/kio_http");
             QDir().mkpath(httpCacheDir);
             configData[QStringLiteral("CacheDir")] = httpCacheDir;
         }

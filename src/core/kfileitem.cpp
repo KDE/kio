@@ -203,7 +203,7 @@ void KFileItemPrivate::init()
                 mode_t mode = buf.st_mode;
                 if ((buf.st_mode & QT_STAT_MASK) == QT_STAT_LNK) {
                     m_bLink = true;
-                    if (QT_STAT(pathBA, &buf) == 0) {
+                    if (QT_STAT(pathBA.constData(), &buf) == 0) {
                         mode = buf.st_mode;
                     } else {// link pointing to nowhere (see FileProtocol::createUDSEntry() in ioslaves/file/file.cpp)
                         mode = (QT_STAT_MASK - 1) | S_IRWXU | S_IRWXG | S_IRWXO;
@@ -983,7 +983,7 @@ QStringList KFileItem::overlays() const
         return QStringList();
     }
 
-    QStringList names = d->m_entry.stringValue(KIO::UDSEntry::UDS_ICON_OVERLAY_NAMES).split(',',QString::SkipEmptyParts);
+    QStringList names = d->m_entry.stringValue(KIO::UDSEntry::UDS_ICON_OVERLAY_NAMES).split(QLatin1Char(','), QString::SkipEmptyParts);
 
     if (d->m_bLink) {
         names.append(QStringLiteral("emblem-symbolic-link"));
@@ -1123,7 +1123,7 @@ bool KFileItem::isHidden() const
     if (fileName.isEmpty()) { // e.g. "trash:/"
         fileName = d->m_strName;
     }
-    return fileName.length() > 1 && fileName[0] == '.';  // Just "." is current directory, not hidden.
+    return fileName.length() > 1 && fileName[0] == QLatin1Char('.');  // Just "." is current directory, not hidden.
 }
 
 void KFileItem::setHidden()
@@ -1192,7 +1192,7 @@ QString KFileItem::getStatusBarInfo() const
     const QString comment = mimeComment();
 
     if (d->m_bLink) {
-        text += ' ';
+        text += QLatin1Char(' ');
         if (comment.isEmpty()) {
             text += i18n("(Symbolic Link to %1)", linkDest());
         } else {

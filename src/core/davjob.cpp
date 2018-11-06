@@ -119,7 +119,7 @@ void DavJob::slotFinished()
         d->m_response.appendChild(root);
 
         QDomElement el = d->m_response.createElementNS(QStringLiteral("DAV:"), QStringLiteral("offending-response"));
-        QDomText textnode = d->m_response.createTextNode(d->str_response);
+        QDomText textnode = d->m_response.createTextNode(QString::fromUtf8(d->str_response));
         el.appendChild(textnode);
         root.appendChild(el);
     }

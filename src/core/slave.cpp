@@ -199,7 +199,7 @@ void Slave::timeout()
     d->dead = true;
     QString arg = d->m_protocol;
     if (!d->m_host.isEmpty()) {
-        arg += "://" + d->m_host;
+        arg += QLatin1String("://") + d->m_host;
     }
     //qDebug() << "slave died pid = " << d->m_pid;
 
@@ -408,7 +408,7 @@ void Slave::gotInput()
         d->dead = true;
         QString arg = d->m_protocol;
         if (!d->m_host.isEmpty()) {
-            arg += "://" + d->m_host;
+            arg += QLatin1String("://") + d->m_host;
         }
         //qDebug() << "slave died pid = " << d->m_pid;
         // Tell the job about the problem.

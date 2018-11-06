@@ -87,7 +87,7 @@ bool KSambaSharePrivate::isSambaInstalled()
 bool KSambaSharePrivate::findSmbConf()
 {
     for (int i = 0; i < DefaultSambaConfigFilePathListSize; ++i) {
-        const QString filePath(DefaultSambaConfigFilePathList[i]);
+        const QString filePath = QString::fromLatin1(DefaultSambaConfigFilePathList[i]);
         if (QFile::exists(filePath)) {
             smbConf = filePath;
             return true;

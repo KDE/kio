@@ -1097,15 +1097,15 @@ void KCoreDirListerCache::handleDirDirty(const QUrl &url)
     // This also means we can forget about pending updates to individual files in that dir
     const QString dir = url.toLocalFile();
     QString dirPath = dir;
-    if (!dirPath.endsWith('/')) {
-        dirPath += '/';
+    if (!dirPath.endsWith(QLatin1Char('/'))) {
+        dirPath += QLatin1Char('/');
     }
     QMutableSetIterator<QString> pendingIt(pendingUpdates);
     while (pendingIt.hasNext()) {
         const QString updPath = pendingIt.next();
         qCDebug(KIO_CORE_DIRLISTER) << "had pending update" << updPath;
         if (updPath.startsWith(dirPath) &&
-                updPath.indexOf('/', dirPath.length()) == -1) { // direct child item
+                updPath.indexOf(QLatin1Char('/'), dirPath.length()) == -1) { // direct child item
             qCDebug(KIO_CORE_DIRLISTER) << "forgetting about individual update to" << updPath;
             pendingIt.remove();
         }
@@ -2047,7 +2047,7 @@ void KCoreDirListerCache::printDebug()
     for (; dit != directoryData.constEnd(); ++dit) {
         QString list;
         foreach (KCoreDirLister *listit, (*dit).listersCurrentlyListing) {
-            list += " 0x" + QString::number(reinterpret_cast<qlonglong>(listit), 16);
+            list += QLatin1String(" 0x") + QString::number(reinterpret_cast<qlonglong>(listit), 16);
         }
         qCDebug(KIO_CORE_DIRLISTER) << "  " << dit.key() << (*dit).listersCurrentlyListing.count() << "listers:" << list;
         foreach (KCoreDirLister *listit, (*dit).listersCurrentlyListing) {
@@ -2062,7 +2062,7 @@ void KCoreDirListerCache::printDebug()
 
         list.clear();
         foreach (KCoreDirLister *listit, (*dit).listersCurrentlyHolding) {
-            list += " 0x" + QString::number(reinterpret_cast<qlonglong>(listit), 16);
+            list += QLatin1String(" 0x") + QString::number(reinterpret_cast<qlonglong>(listit), 16);
         }
         qCDebug(KIO_CORE_DIRLISTER) << "  " << dit.key() << (*dit).listersCurrentlyHolding.count() << "holders:" << list;
     }
@@ -2297,7 +2297,7 @@ void KCoreDirLister::setNameFilter(const QString &nameFilter)
     d->settings.lstFilters.clear();
     d->nameFilter = nameFilter;
     // Split on white space
-    const QStringList list = nameFilter.split(' ', QString::SkipEmptyParts);
+    const QStringList list = nameFilter.split(QLatin1Char(' '), QString::SkipEmptyParts);
     for (QStringList::const_iterator it = list.begin(); it != list.end(); ++it) {
         d->settings.lstFilters.append(QRegExp(*it, Qt::CaseInsensitive, QRegExp::Wildcard));
     }
@@ -2774,7 +2774,7 @@ KFileItem KCoreDirLister::cachedItemForUrl(const QUrl &url)
 
 QSet<QString> KCoreDirListerCache::filesInDotHiddenForDir(const QString& dir)
 {
-    const QString path = dir + "/.hidden";
+    const QString path = dir + QLatin1String("/.hidden");
     QFile dotHiddenFile(path);
 
     if (dotHiddenFile.exists()) {

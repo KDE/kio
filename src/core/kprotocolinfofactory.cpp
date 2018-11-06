@@ -70,7 +70,7 @@ QList<KProtocolInfoPrivate *> KProtocolInfoFactory::allProtocols()
 KProtocolInfoPrivate *KProtocolInfoFactory::findProtocol(const QString &protocol)
 {
     Q_ASSERT(!protocol.isEmpty());
-    Q_ASSERT(!protocol.contains(':'));
+    Q_ASSERT(!protocol.contains(QLatin1Char(':')));
 
     QMutexLocker locker(&m_mutex);
 

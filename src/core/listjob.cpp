@@ -129,11 +129,11 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
                     displayName = filename;
                 }
                 // skip hidden dirs when listing if requested
-                if (filename != QLatin1String("..") && filename != QLatin1String(".") && (includeHidden || filename[0] != '.')) {
+                if (filename != QLatin1String("..") && filename != QLatin1String(".") && (includeHidden || filename[0] != QLatin1Char('.'))) {
                     ListJob *job = ListJobPrivate::newJobNoUi(itemURL,
                                    true /*recursive*/,
-                                   m_prefix + filename + '/',
-                                   m_displayPrefix + displayName + '/',
+                                   m_prefix + filename + QLatin1Char('/'),
+                                   m_displayPrefix + displayName + QLatin1Char('/'),
                                    includeHidden);
                     Scheduler::setJobPriority(job, 1);
                     QObject::connect(job, &ListJob::entries, q,
@@ -170,7 +170,7 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
             // Avoid returning entries like subdir/. and subdir/.., but include . and .. for
             // the toplevel dir, and skip hidden files/dirs if that was requested
             if ((m_prefix.isNull() || (filename != QLatin1String("..") && filename != QLatin1String(".")))
-                    && (includeHidden || (filename[0] != '.'))) {
+                    && (includeHidden || (filename[0] != QLatin1Char('.')))) {
                 // ## Didn't find a way to use the iterator instead of re-doing a key lookup
                 newone.replace(KIO::UDSEntry::UDS_NAME, m_prefix + filename);
                 newone.replace(KIO::UDSEntry::UDS_DISPLAY_NAME, m_displayPrefix + displayName);

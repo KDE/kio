@@ -697,11 +697,11 @@ void CopyJobPrivate::addCopyInfoFromUDSEntry(const UDSEntry &entry, const QUrl &
                     fnu == KProtocolInfo::FromUrl) {
                 //destFileName = url.fileName(); // Doesn't work for recursive listing
                 // Count the number of prefixes used by the recursive listjob
-                int numberOfSlashes = fileName.count('/'); // don't make this a find()!
+                int numberOfSlashes = fileName.count(QLatin1Char('/')); // don't make this a find()!
                 QString path = url.path();
                 int pos = 0;
                 for (int n = 0; n < numberOfSlashes + 1; ++n) {
-                    pos = path.lastIndexOf('/', pos - 1);
+                    pos = path.lastIndexOf(QLatin1Char('/'), pos - 1);
                     if (pos == -1) { // error
                         qCWarning(KIO_CORE) << "kioslave bug: not enough slashes in UDS_URL" << path << "- looking for" << numberOfSlashes << "slashes";
                         break;
@@ -747,7 +747,7 @@ QUrl CopyJobPrivate::finalDestUrl(const QUrl& src, const QUrl &dest) const
     Q_Q(const CopyJob);
     if (dest.scheme() == QLatin1String("trash")) {
         const QMap<QString, QString>& metaData = q->metaData();
-        QMap<QString, QString>::ConstIterator it = metaData.find("trashURL-" + src.path());
+        QMap<QString, QString>::ConstIterator it = metaData.find(QLatin1String("trashURL-") + src.path());
         if (it != metaData.constEnd()) {
             qCDebug(KIO_COPYJOB_DEBUG) << "finalDestUrl=" << it.value();
             return QUrl(it.value());
@@ -806,7 +806,7 @@ void CopyJobPrivate::statCurrentSrc()
                     // Different protocols, we'll create a .desktop file
                     // We have to change the extension anyway, so while we're at it,
                     // name the file like the URL
-                    info.uDest = addPathToUrl(info.uDest, KIO::encodeFileName(m_currentSrcURL.toDisplayString()) + ".desktop");
+                    info.uDest = addPathToUrl(info.uDest, KIO::encodeFileName(m_currentSrcURL.toDisplayString()) + QLatin1String(".desktop"));
                 }
             }
             files.append(info);   // Files and any symlinks
@@ -1007,16 +1007,16 @@ void CopyJobPrivate::renameDirectory(const QList<CopyInfo>::iterator &it, const 
     emit q->renamed(q, (*it).uDest, newUrl); // for e.g. KPropertiesDialog
 
     QString oldPath = (*it).uDest.path();
-    if (!oldPath.endsWith('/')) {
-        oldPath += '/';
+    if (!oldPath.endsWith(QLatin1Char('/'))) {
+        oldPath += QLatin1Char('/');
     }
 
     // Change the current one and strip the trailing '/'
     (*it).uDest = newUrl.adjusted(QUrl::StripTrailingSlash);
 
     QString newPath = newUrl.path(); // With trailing slash
-    if (!newPath.endsWith('/')) {
-        newPath += '/';
+    if (!newPath.endsWith(QLatin1Char('/'))) {
+        newPath += QLatin1Char('/');
     }
     QList<CopyInfo>::Iterator renamedirit = it;
     ++renamedirit;
@@ -1068,8 +1068,8 @@ void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
             if (m_bAutoSkipDirs) {
                 // We don't want to copy files in this directory, so we put it on the skip list
                 QString path = oldURL.path();
-                if (!path.endsWith('/')) {
-                    path += '/';
+                if (!path.endsWith(QLatin1Char('/'))) {
+                    path += QLatin1Char('/');
                 }
                 m_skipList.append(path);
                 skip(oldURL, true);
@@ -1893,7 +1893,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
             if (_src != _dest && QString::compare(_src, _dest, Qt::CaseInsensitive) == 0) {
                 qCDebug(KIO_COPYJOB_DEBUG) << "Couldn't rename directly, dest already exists. Detected special case of lower/uppercase renaming in same dir, try with 2 rename calls";
                 const QString srcDir = QFileInfo(_src).absolutePath();
-                QTemporaryFile tmpFile(srcDir + "kio_XXXXXX");
+                QTemporaryFile tmpFile(srcDir + QLatin1String("kio_XXXXXX"));
                 const bool openOk = tmpFile.open();
                 if (!openOk) {
                     qCWarning(KIO_CORE) << "Couldn't open temp file in" << srcDir;

@@ -213,7 +213,7 @@ static void printACL(acl_t acl, const QString &comment)
 
 static int getUidForName(const QString &name)
 {
-    struct passwd *user = getpwnam(name.toLocal8Bit());
+    struct passwd *user = getpwnam(name.toLocal8Bit().constData());
     if (user) {
         return user->pw_uid;
     } else {
@@ -223,7 +223,7 @@ static int getUidForName(const QString &name)
 
 static int getGidForName(const QString &name)
 {
-    struct group *group = getgrnam(name.toLocal8Bit());
+    struct group *group = getgrnam(name.toLocal8Bit().constData());
     if (group) {
         return group->gr_gid;
     } else {
@@ -641,7 +641,7 @@ bool KACL::setACL(const QString &aclStr)
 {
     bool ret = false;
 #if HAVE_POSIX_ACL
-    acl_t temp = acl_from_text(aclStr.toLatin1());
+    acl_t temp = acl_from_text(aclStr.toLatin1().constData());
     if (acl_valid(temp) != 0) {
         // TODO errno is set, what to do with it here?
         acl_free(temp);

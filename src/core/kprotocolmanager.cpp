@@ -204,7 +204,7 @@ bool KProtocolManagerPrivate::shouldIgnoreProxyFor(const QUrl &url)
         QByteArray host = qhost.toLatin1();
         const QString qno_proxy = noProxyFor.trimmed().toLower();
         const QByteArray no_proxy = qno_proxy.toLatin1();
-        isMatch = revmatch(host, no_proxy);
+        isMatch = revmatch(host.constData(), no_proxy.constData());
 
         // If no match is found and the request url has a port
         // number, try the combination of "host:port". This allows
@@ -213,13 +213,13 @@ bool KProtocolManagerPrivate::shouldIgnoreProxyFor(const QUrl &url)
             qhost += QL1C(':');
             qhost += QString::number(url.port());
             host = qhost.toLatin1();
-            isMatch = revmatch(host, no_proxy);
+            isMatch = revmatch(host.constData(), no_proxy.constData());
         }
 
         // If the hostname does not contain a dot, check if
         // <local> is part of noProxy.
-        if (!isMatch && !host.isEmpty() && (strchr(host, '.') == nullptr)) {
-            isMatch = revmatch("<local>", no_proxy);
+        if (!isMatch && !host.isEmpty() && (strchr(host.constData(), '.') == nullptr)) {
+            isMatch = revmatch("<local>", no_proxy.constData());
         }
     }
 
@@ -311,7 +311,7 @@ QString KProtocolManagerPrivate::readNoProxyFor()
 {
     QString noProxy = config()->group("Proxy Settings").readEntry("NoProxyFor");
     if (proxyType() == KProtocolManager::EnvVarProxy) {
-        noProxy = QString::fromLocal8Bit(qgetenv(noProxy.toLocal8Bit()));
+        noProxy = QString::fromLocal8Bit(qgetenv(noProxy.toLocal8Bit().constData()));
     }
     return noProxy;
 }
@@ -424,7 +424,7 @@ QString KProtocolManager::cacheDir()
 {
     PRIVATE_DATA;
     QMutexLocker lock(&d->mutex);
-    return http_config().readPathEntry("CacheDir", QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + "/kio_http");
+    return http_config().readPathEntry("CacheDir", QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/kio_http"));
 }
 
 int KProtocolManager::maxCacheAge()
@@ -532,7 +532,7 @@ QStringList KProtocolManagerPrivate::getSystemProxyFor(const QUrl &url)
     QString proxyVar(proxyFor(url.scheme()));
     // Check for SOCKS proxy, if not proxy is found for given url.
     if (!proxyVar.isEmpty()) {
-        const QString proxy(QString::fromLocal8Bit(qgetenv(proxyVar.toLocal8Bit())).trimmed());
+        const QString proxy(QString::fromLocal8Bit(qgetenv(proxyVar.toLocal8Bit().constData())).trimmed());
         if (!proxy.isEmpty()) {
             proxies << proxy;
         }
@@ -540,7 +540,7 @@ QStringList KProtocolManagerPrivate::getSystemProxyFor(const QUrl &url)
     // Add the socks proxy as an alternate proxy if it exists,
     proxyVar = proxyFor(QStringLiteral("socks"));
     if (!proxyVar.isEmpty()) {
-        QString proxy = QString::fromLocal8Bit(qgetenv(proxyVar.toLocal8Bit())).trimmed();
+        QString proxy = QString::fromLocal8Bit(qgetenv(proxyVar.toLocal8Bit().constData())).trimmed();
         // Make sure the scheme of SOCKS proxy is always set to "socks://".
         const int index = proxy.indexOf(QL1S("://"));
         proxy = QL1S("socks://") + (index == -1 ? proxy : proxy.mid(index + 3));
@@ -812,21 +812,21 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
         supp += platform();
 
         if (sysInfoFound) {
-            if (modifiers.contains('o')) {
+            if (modifiers.contains(QL1C('o'))) {
                 supp += QL1S("; ");
                 supp += systemName;
-                if (modifiers.contains('v')) {
+                if (modifiers.contains(QL1C('v'))) {
                     supp += QL1C(' ');
                     supp += systemVersion;
                 }
 
-                if (modifiers.contains('m')) {
+                if (modifiers.contains(QL1C('m'))) {
                     supp += QL1C(' ');
                     supp += machine;
                 }
             }
 
-            if (modifiers.contains('l')) {
+            if (modifiers.contains(QL1C('l'))) {
                 supp += QL1S("; ");
                 supp += QLocale::languageToString(QLocale().language());
             }
@@ -878,18 +878,18 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
             agentStr.replace(QL1S("%platform%"), platform(), Qt::CaseInsensitive);
 
             // Operating system (e.g. Linux)
-            if (modifiers.contains('o')) {
+            if (modifiers.contains(QL1C('o'))) {
                 agentStr.replace(QL1S("%osname%"), systemName, Qt::CaseInsensitive);
 
                 // OS version (e.g. 2.6.36)
-                if (modifiers.contains('v')) {
+                if (modifiers.contains(QL1C('v'))) {
                     agentStr.replace(QL1S("%osversion%"), systemVersion, Qt::CaseInsensitive);
                 } else {
                     agentStr.remove(QStringLiteral("%osversion%"), Qt::CaseInsensitive);
                 }
 
                 // Machine type (i686, x86-64, etc.)
-                if (modifiers.contains('m')) {
+                if (modifiers.contains(QL1C('m'))) {
                     agentStr.replace(QL1S("%systype%"), machine, Qt::CaseInsensitive);
                 } else {
                     agentStr.remove(QStringLiteral("%systype%"), Qt::CaseInsensitive);
@@ -901,7 +901,7 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
             }
 
             // Language (e.g. en_US)
-            if (modifiers.contains('l')) {
+            if (modifiers.contains(QL1C('l'))) {
                 agentStr.replace(QL1S("%language%"), QLocale::languageToString(QLocale().language()), Qt::CaseInsensitive);
             } else {
                 agentStr.remove(QStringLiteral("%language%"), Qt::CaseInsensitive);
@@ -983,9 +983,9 @@ bool KProtocolManager::getSystemNameVersionAndMachine(
     if (0 != uname(&unameBuf)) {
         return false;
     }
-    systemName = unameBuf.sysname;
-    systemVersion = unameBuf.release;
-    machine = unameBuf.machine;
+    systemName = QString::fromUtf8(unameBuf.sysname);
+    systemVersion = QString::fromUtf8(unameBuf.release);
+    machine = QString::fromUtf8(unameBuf.machine);
 #endif
     return true;
 }
@@ -1049,8 +1049,8 @@ QString KProtocolManager::acceptLanguagesHeader()
     // Some of the languages may have country specifier delimited by
     // underscore, or modifier delimited by at-sign.
     // The header should use dashes instead.
-    header.replace('_', '-');
-    header.replace('@', '-');
+    header.replace(QL1C('_'), QL1C('-'));
+    header.replace(QL1C('@'), QL1C('-'));
 
     return header;
 }

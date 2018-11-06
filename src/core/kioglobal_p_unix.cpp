@@ -34,10 +34,10 @@ KIOCORE_EXPORT void KIOPrivate::sendTerminateSignal(qint64 pid)
 KIOCORE_EXPORT bool KIOPrivate::createSymlink(const QString &source, const QString &destination, SymlinkType type)
 {
     Q_UNUSED(type)
-    return ::symlink(QFile::encodeName(source), QFile::encodeName(destination)) == 0;
+    return ::symlink(QFile::encodeName(source).constData(), QFile::encodeName(destination).constData()) == 0;
 }
 
 KIOCORE_EXPORT bool KIOPrivate::changeOwnership(const QString& file, KUserId newOwner, KGroupId newGroup)
 {
-    return chown(QFile::encodeName(file), newOwner.nativeId(), newGroup.nativeId()) == 0;
+    return ::chown(QFile::encodeName(file).constData(), newOwner.nativeId(), newGroup.nativeId()) == 0;
 }

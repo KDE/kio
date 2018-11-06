@@ -203,14 +203,14 @@ void KFileItemListPropertiesPrivate::determineMimeTypeAndGroup() const
 {
     if (!m_items.isEmpty()) {
         m_mimeType = m_items.first().mimetype();
-        m_mimeGroup = m_mimeType.left(m_mimeType.indexOf('/'));
+        m_mimeGroup = m_mimeType.left(m_mimeType.indexOf(QLatin1Char('/')));
     }
     foreach (const KFileItem &item, m_items) {
         const QString itemMimeType = item.mimetype();
         // Determine if common mimetype among all items
         if (m_mimeType != itemMimeType) {
             m_mimeType.clear();
-            if (m_mimeGroup != itemMimeType.left(itemMimeType.indexOf('/'))) {
+            if (m_mimeGroup != itemMimeType.left(itemMimeType.indexOf(QLatin1Char('/')))) {
                 m_mimeGroup.clear(); // mimetype groups are different as well!
             }
         }
