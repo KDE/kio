@@ -814,11 +814,11 @@ KIOCORE_EXPORT QString KIO::unsupportedActionErrorString(const QString &protocol
     }/*end switch*/
 }
 
-void SlaveBase::openConnection(void)
+void SlaveBase::openConnection()
 {
     error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_CONNECT));
 }
-void SlaveBase::closeConnection(void)
+void SlaveBase::closeConnection()
 { } // No response!
 void SlaveBase::stat(QUrl const &)
 {
