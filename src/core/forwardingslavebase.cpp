@@ -34,10 +34,11 @@ namespace KIO
 class ForwardingSlaveBasePrivate
 {
 public:
-    ForwardingSlaveBasePrivate(QObject *eventLoopParent) :
-        eventLoop(eventLoopParent)
+    ForwardingSlaveBasePrivate(QObject *eventLoopParent, ForwardingSlaveBase *qq)
+        : q(qq)
+        , eventLoop(eventLoopParent)
     {}
-    ForwardingSlaveBase *q;
+    ForwardingSlaveBase * const q;
 
     QUrl m_processedURL;
     QUrl m_requestedURL;
@@ -74,9 +75,8 @@ ForwardingSlaveBase::ForwardingSlaveBase(const QByteArray &protocol,
         const QByteArray &poolSocket,
         const QByteArray &appSocket)
     : QObject(), SlaveBase(protocol, poolSocket, appSocket),
-      d(new ForwardingSlaveBasePrivate(this))
+      d(new ForwardingSlaveBasePrivate(this, this))
 {
-    d->q = this;
 }
 
 ForwardingSlaveBase::~ForwardingSlaveBase()
