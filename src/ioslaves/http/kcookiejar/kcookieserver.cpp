@@ -393,7 +393,7 @@ KCookieServer::findDomains()
     Q_FOREACH (const QString &domain, mCookieJar->getDomainList()) {
         // Ignore domains that have policy set for but contain
         // no cookies whatsoever...
-        const KHttpCookieList *list =  mCookieJar->getCookieList(domain, QLatin1String(""));
+        const KHttpCookieList *list =  mCookieJar->getCookieList(domain, QString());
         if (list && !list->isEmpty()) {
             result << domain;
         }

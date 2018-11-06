@@ -109,9 +109,10 @@ void SMBRoOptions::load()
 
    // unscramble
    QString scrambled = group.readEntry( "Password" );
-   QString password = QLatin1String("");
-   for (int i=0; i<scrambled.length()/3; i++)
-   {
+   QString password;
+   const int passwordLength = scrambled.length() / 3;
+   password.reserve(passwordLength);
+   for (int i=0; i<passwordLength; ++i) {
       QChar qc1 = scrambled[i*3];
       QChar qc2 = scrambled[i*3+1];
       QChar qc3 = scrambled[i*3+2];
@@ -159,8 +160,8 @@ void SMBRoOptions::save()
 
 void SMBRoOptions::defaults()
 {
-   m_userLe->setText(QLatin1String(""));
-   m_passwordLe->setText(QLatin1String(""));
+   m_userLe->setText(QString());
+   m_passwordLe->setText(QString());
 //   m_workgroupLe->setText("");
 //   m_showHiddenShares->setChecked(false);
 }

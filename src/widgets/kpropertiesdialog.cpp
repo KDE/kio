@@ -1780,7 +1780,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     gl = new QGridLayout(gb);
     gl->setColumnStretch(1, 1);
 
-    l = d->explanationLabel = new QLabel(QLatin1String(""), gb);
+    l = d->explanationLabel = new QLabel(gb);
     if (isLink)
         d->explanationLabel->setText(i18np("This file is a link and does not have permissions.",
                                            "All files are links and do not have permissions.",
@@ -2399,7 +2399,7 @@ void KFilePermissionsPropsPlugin::updateAccessControls()
             d->explanationLabel->setText(d->isIrregular || d->hasExtendedACL ?
                                          i18np("This file uses advanced permissions",
                                                "These files use advanced permissions.",
-                                               properties->items().count()) : QLatin1String(""));
+                                               properties->items().count()) : QString());
         if (d->partialPermissions & UniExec) {
             d->extraCheckbox->setTristate();
             d->extraCheckbox->setCheckState(Qt::PartiallyChecked);
@@ -2420,7 +2420,7 @@ void KFilePermissionsPropsPlugin::updateAccessControls()
             d->explanationLabel->setText(d->isIrregular || d->hasExtendedACL ?
                                          i18np("This folder uses advanced permissions.",
                                                "These folders use advanced permissions.",
-                                               properties->items().count()) : QLatin1String(""));
+                                               properties->items().count()) : QString());
         if (d->partialPermissions & S_ISVTX) {
             d->extraCheckbox->setTristate();
             d->extraCheckbox->setCheckState(Qt::PartiallyChecked);
@@ -2433,7 +2433,7 @@ void KFilePermissionsPropsPlugin::updateAccessControls()
         enableAccessControls(d->canChangePermissions && !d->isIrregular && !d->hasExtendedACL);
         if (d->canChangePermissions)
             d->explanationLabel->setText(d->isIrregular || d->hasExtendedACL ?
-                                         i18n("These files use advanced permissions.") : QLatin1String(""));
+                                         i18n("These files use advanced permissions.") : QString());
         if (d->partialPermissions & S_ISVTX) {
             d->extraCheckbox->setTristate();
             d->extraCheckbox->setCheckState(Qt::PartiallyChecked);

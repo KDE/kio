@@ -110,7 +110,7 @@ void KDynamicJobTracker::registerJob(KJob *job)
 
         trackers.widgetTracker = nullptr;
         if (canHaveWidgets) {
-            QDBusInterface interface(QStringLiteral("org.kde.kuiserver"), QStringLiteral("/JobViewServer"), QLatin1String(""),
+            QDBusInterface interface(QStringLiteral("org.kde.kuiserver"), QStringLiteral("/JobViewServer"), QString(),
                                     QDBusConnection::sessionBus(), this);
             QDBusReply<bool> reply = interface.call(QStringLiteral("requiresJobTracker"));
 

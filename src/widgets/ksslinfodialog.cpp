@@ -185,8 +185,8 @@ void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
                                .arg(cipherInfo[1], cipherInfo[2],
                                     cipherInfo[3]));
     } else {
-        d->ui.encryption->setText(QLatin1String(""));
-        d->ui.details->setText(QLatin1String(""));
+        d->ui.encryption->setText(QString());
+        d->ui.details->setText(QString());
     }
 }
 
