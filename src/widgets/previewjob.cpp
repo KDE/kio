@@ -369,7 +369,7 @@ void PreviewJobPrivate::startPreview()
         } else {
             cacheWidth = cacheHeight = 256;
         }
-        thumbPath = thumbRoot + (cacheWidth == 128 ? "normal/" : "large/");
+        thumbPath = thumbRoot + QLatin1String(cacheWidth == 128 ? "normal/" : "large/");
         if (!QDir(thumbPath).exists()) {
             if (QDir().mkpath(thumbPath)) { // Qt5 TODO: mkpath(dirPath, permissions)
                 QFile f(thumbPath);
@@ -536,15 +536,15 @@ bool PreviewJobPrivate::statResultThumbnail()
     origName = url.toEncoded();
 
     QCryptographicHash md5(QCryptographicHash::Md5);
-    md5.addData(QFile::encodeName(origName));
-    thumbName = QFile::encodeName(md5.result().toHex()) + ".png";
+    md5.addData(QFile::encodeName(QString::fromUtf8(origName)));
+    thumbName = QString::fromUtf8(QFile::encodeName(QString::fromLatin1(md5.result().toHex()))) + QLatin1String(".png");
 
     QImage thumb;
     if (!thumb.load(thumbPath + thumbName)) {
         return false;
     }
 
-    if (thumb.text(QStringLiteral("Thumb::URI")) != origName ||
+    if (thumb.text(QStringLiteral("Thumb::URI")) != QString::fromUtf8(origName) ||
             thumb.text(QStringLiteral("Thumb::MTime")).toLongLong() != tOrig.toTime_t()) {
         return false;
     }
@@ -698,14 +698,14 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *, const QByteArray &data)
     }
 
     if (save) {
-        thumb.setText(QStringLiteral("Thumb::URI"), origName);
+        thumb.setText(QStringLiteral("Thumb::URI"), QString::fromUtf8(origName));
         thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(tOrig.toTime_t()));
         thumb.setText(QStringLiteral("Thumb::Size"), number(currentItem.item.size()));
         thumb.setText(QStringLiteral("Thumb::Mimetype"), currentItem.item.mimetype());
         QString thumbnailerVersion = currentItem.plugin->property(QStringLiteral("ThumbnailerVersion"), QVariant::String).toString();
-        QString signature = QString("KDE Thumbnail Generator " + currentItem.plugin->name());
+        QString signature = QLatin1String("KDE Thumbnail Generator ") + currentItem.plugin->name();
         if (!thumbnailerVersion.isEmpty()) {
-            signature.append(" (v" + thumbnailerVersion + ')');
+            signature.append(QLatin1String(" (v") + thumbnailerVersion + QLatin1Char(')'));
         }
         thumb.setText(QStringLiteral("Software"), signature);
         QSaveFile saveFile(thumbPath + thumbName);

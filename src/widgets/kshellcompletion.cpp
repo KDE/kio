@@ -30,10 +30,10 @@ class KShellCompletionPrivate
 {
 public:
     KShellCompletionPrivate()
-        : m_word_break_char(' ')
-        , m_quote_char1('\"')
-        , m_quote_char2('\'')
-        , m_escape_char('\\')
+        : m_word_break_char(QLatin1Char(' '))
+        , m_quote_char1(QLatin1Char('\"'))
+        , m_quote_char2(QLatin1Char('\''))
+        , m_escape_char(QLatin1Char('\\'))
     {
     }
 

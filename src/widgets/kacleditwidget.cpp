@@ -182,28 +182,28 @@ QString KACLListViewItem::key() const
 {
     QString key;
     if (!isDefault) {
-        key = 'A';
+        key = QLatin1Char('A');
     } else {
-        key = 'B';
+        key = QLatin1Char('B');
     }
     switch (type) {
     case KACLListView::User:
-        key += 'A';
+        key += QLatin1Char('A');
         break;
     case KACLListView::Group:
-        key += 'B';
+        key += QLatin1Char('B');
         break;
     case KACLListView::Others:
-        key += 'C';
+        key += QLatin1Char('C');
         break;
     case KACLListView::Mask:
-        key += 'D';
+        key += QLatin1Char('D');
         break;
     case KACLListView::NamedUser:
-        key += 'E' + text(1);
+        key += QLatin1Char('E') + text(1);
         break;
     case KACLListView::NamedGroup:
-        key += 'F' + text(1);
+        key += QLatin1Char('F') + text(1);
         break;
     default:
         key += text(0);
@@ -658,7 +658,7 @@ KACLListView::KACLListView(QWidget *parent)
 
     // Load the avatars
     for (int i = 0; i < LAST_IDX; ++i) {
-        s_itemAttributes[i].pixmap = new QPixmap(QStringLiteral(":/images/%1").arg(s_itemAttributes[i].pixmapName));
+        s_itemAttributes[i].pixmap = new QPixmap(QLatin1String(":/images/") + QLatin1String(s_itemAttributes[i].pixmapName));
     }
     m_yesPixmap = new QPixmap(QStringLiteral(":/images/yes.png"));
     m_yesPartialPixmap = new QPixmap(QStringLiteral(":/images/yespartial.png"));

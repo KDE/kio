@@ -341,7 +341,7 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
     case SSLMessageBox: {
         QPointer<KSslInfoDialog> kid(new KSslInfoDialog(window()));
         //### this is boilerplate code and appears in khtml_part.cpp almost unchanged!
-        const QStringList sl = sslMetaData.value(QStringLiteral("ssl_peer_chain")).split('\x01', QString::SkipEmptyParts);
+        const QStringList sl = sslMetaData.value(QStringLiteral("ssl_peer_chain")).split(QLatin1Char('\x01'), QString::SkipEmptyParts);
         QList<QSslCertificate> certChain;
         bool decodedOk = true;
         foreach (const QString &s, sl) {

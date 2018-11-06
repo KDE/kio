@@ -249,7 +249,7 @@ QString KFileItemDelegate::Private::information(const QStyleOptionViewItem &opti
             break;
 
         case KFileItemDelegate::OctalPermissions:
-            string += QString('0') + QString::number(item.permissions(), 8);
+            string += QLatin1Char('0') + QString::number(item.permissions(), 8);
             break;
 
         case KFileItemDelegate::Owner:
@@ -257,7 +257,7 @@ QString KFileItemDelegate::Private::information(const QStyleOptionViewItem &opti
             break;
 
         case KFileItemDelegate::OwnerAndGroup:
-            string += item.user() + ':' + item.group();
+            string += item.user() + QLatin1Char(':') + item.group();
             break;
 
         case KFileItemDelegate::CreationTime:

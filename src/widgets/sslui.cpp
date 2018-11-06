@@ -67,8 +67,7 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
 
     QString message = i18n("The server failed the authenticity check (%1).\n\n", ud->host);
     foreach (const KSslError &err, ud->sslErrors) {
-        message.append(err.errorString());
-        message.append('\n');
+        message.append(err.errorString() + QLatin1Char('\n'));
     }
     message = message.trimmed();
 

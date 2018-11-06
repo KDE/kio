@@ -176,7 +176,7 @@ DropMenu::DropMenu(QWidget *parent)
     : QMenu(parent),
       m_extraActionsSeparator(nullptr)
 {
-    m_cancelAction = new QAction(i18n("C&ancel") + '\t' + QKeySequence(Qt::Key_Escape).toString(), this);
+    m_cancelAction = new QAction(i18n("C&ancel") + QLatin1Char('\t') + QKeySequence(Qt::Key_Escape).toString(), this);
     m_cancelAction->setIcon(QIcon::fromTheme(QStringLiteral("process-stop")));
 
     m_lastSeparator = new QAction(this);
@@ -335,21 +335,21 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
     const bool sMoving = itemProps.supportsMoving();
 
     QString seq = QKeySequence(Qt::ShiftModifier).toString();
-    Q_ASSERT(seq.endsWith('+'));
+    Q_ASSERT(seq.endsWith(QLatin1Char('+')));
     seq.chop(1); // chop superfluous '+'
-    QAction* popupMoveAction = new QAction(i18n("&Move Here") + '\t' + seq, popup);
+    QAction* popupMoveAction = new QAction(i18n("&Move Here") + QLatin1Char('\t') + seq, popup);
     popupMoveAction->setIcon(QIcon::fromTheme(QStringLiteral("go-jump")));
     popupMoveAction->setData(QVariant::fromValue(Qt::MoveAction));
     seq = QKeySequence(Qt::ControlModifier).toString();
-    Q_ASSERT(seq.endsWith('+'));
+    Q_ASSERT(seq.endsWith(QLatin1Char('+')));
     seq.chop(1);
-    QAction* popupCopyAction = new QAction(i18n("&Copy Here") + '\t' + seq, popup);
+    QAction* popupCopyAction = new QAction(i18n("&Copy Here") + QLatin1Char('\t') + seq, popup);
     popupCopyAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
     popupCopyAction->setData(QVariant::fromValue(Qt::CopyAction));
     seq = QKeySequence(Qt::ControlModifier + Qt::ShiftModifier).toString();
-    Q_ASSERT(seq.endsWith('+'));
+    Q_ASSERT(seq.endsWith(QLatin1Char('+')));
     seq.chop(1);
-    QAction* popupLinkAction = new QAction(i18n("&Link Here") + '\t' + seq, popup);
+    QAction* popupLinkAction = new QAction(i18n("&Link Here") + QLatin1Char('\t') + seq, popup);
     popupLinkAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-link")));
     popupLinkAction->setData(QVariant::fromValue(Qt::LinkAction));
 

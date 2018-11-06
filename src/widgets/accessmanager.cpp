@@ -297,7 +297,7 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
             kioJob = KIO::get(reqUrl, KIO::NoReload, KIO::HideProgressInfo);
         }
 
-        metaData.insert(QStringLiteral("CustomHTTPMethod"), method);
+        metaData.insert(QStringLiteral("CustomHTTPMethod"), QString::fromUtf8(method));
         break;
     }
     default: {
@@ -384,6 +384,15 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
     return reply;
 }
 
+static inline
+void moveMetaData(KIO::MetaData &metaData, const QString &metaDataKey, QNetworkRequest &request, const QByteArray &requestKey)
+{
+    if (request.hasRawHeader(requestKey)) {
+        metaData.insert(metaDataKey, QString::fromUtf8(request.rawHeader(requestKey)));
+        request.setRawHeader(requestKey, QByteArray());
+    }
+}
+
 void AccessManager::AccessManagerPrivate::setMetaDataForRequest(QNetworkRequest request, KIO::MetaData &metaData)
 {
     // Add any meta data specified within request...
@@ -394,35 +403,12 @@ void AccessManager::AccessManagerPrivate::setMetaDataForRequest(QNetworkRequest 
 
     metaData.insert(QStringLiteral("PropagateHttpHeader"), QStringLiteral("true"));
 
-    if (request.hasRawHeader("User-Agent")) {
-        metaData.insert(QStringLiteral("UserAgent"), request.rawHeader("User-Agent"));
-        request.setRawHeader("User-Agent", QByteArray());
-    }
-
-    if (request.hasRawHeader("Accept")) {
-        metaData.insert(QStringLiteral("accept"), request.rawHeader("Accept"));
-        request.setRawHeader("Accept", QByteArray());
-    }
-
-    if (request.hasRawHeader("Accept-Charset")) {
-        metaData.insert(QStringLiteral("Charsets"), request.rawHeader("Accept-Charset"));
-        request.setRawHeader("Accept-Charset", QByteArray());
-    }
-
-    if (request.hasRawHeader("Accept-Language")) {
-        metaData.insert(QStringLiteral("Languages"), request.rawHeader("Accept-Language"));
-        request.setRawHeader("Accept-Language", QByteArray());
-    }
-
-    if (request.hasRawHeader("Referer")) {
-        metaData.insert(QStringLiteral("referrer"), request.rawHeader("Referer"));
-        request.setRawHeader("Referer", QByteArray());
-    }
-
-    if (request.hasRawHeader("Content-Type")) {
-        metaData.insert(QStringLiteral("content-type"), request.rawHeader("Content-Type"));
-        request.setRawHeader("Content-Type", QByteArray());
-    }
+    moveMetaData(metaData, QStringLiteral("UserAgent"),    request, QByteArrayLiteral("User-Agent"));
+    moveMetaData(metaData, QStringLiteral("accept"),       request, QByteArrayLiteral("Accept"));
+    moveMetaData(metaData, QStringLiteral("Charsets"),     request, QByteArrayLiteral("Accept-Charset"));
+    moveMetaData(metaData, QStringLiteral("Languages"),    request, QByteArrayLiteral("Accept-Language"));
+    moveMetaData(metaData, QStringLiteral("referrer"),     request, QByteArrayLiteral("Referer")); //Don't try to correct spelling!
+    moveMetaData(metaData, QStringLiteral("content-type"), request, QByteArrayLiteral("Content-Type"));
 
     if (request.attribute(QNetworkRequest::AuthenticationReuseAttribute) == QNetworkRequest::Manual) {
         metaData.insert(QStringLiteral("no-preemptive-auth-reuse"), QStringLiteral("true"));
@@ -438,7 +424,7 @@ void AccessManager::AccessManagerPrivate::setMetaDataForRequest(QNetworkRequest 
     Q_FOREACH (const QByteArray &key, request.rawHeaderList()) {
         const QByteArray value = request.rawHeader(key);
         if (value.length()) {
-            customHeaders << (key + QStringLiteral(": ") + value);
+            customHeaders << (QString::fromUtf8(key) + QLatin1String(": ") + QString::fromUtf8(value));
         }
     }
 

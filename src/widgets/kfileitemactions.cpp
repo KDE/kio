@@ -75,12 +75,12 @@ static bool mimeTypeListContains(const QStringList &list, const KFileItem &item)
             return true;
         }
 
-        const int iSlashPos = i.indexOf('/');
-        Q_ASSERT(i > nullptr);
+        const int iSlashPos = i.indexOf(QLatin1Char(QLatin1Char('/')));
+        Q_ASSERT(iSlashPos > 0);
         const QStringRef iSubType = i.midRef(iSlashPos+1);
 
-        if (iSubType == "*") {
-            const int itemSlashPos = itemMimeType.indexOf('/');
+        if (iSubType == QLatin1String("*")) {
+            const int itemSlashPos = itemMimeType.indexOf(QLatin1Char('/'));
             Q_ASSERT(itemSlashPos > 0);
             const QStringRef iTopLevelType = i.midRef(0, iSlashPos);
             const QStringRef itemTopLevelType = itemMimeType.midRef(0, itemSlashPos);
@@ -191,7 +191,7 @@ int KFileItemActionsPrivate::insertServices(const ServiceList &list,
             QAction *act = new QAction(q);
             act->setObjectName(QStringLiteral("menuaction")); // for the unittest
             QString text = (*it).text();
-            text.replace('&', QLatin1String("&&"));
+            text.replace(QLatin1Char('&'), QLatin1String("&&"));
             act->setText(text);
             if (!(*it).icon().isEmpty()) {
                 act->setIcon(QIcon::fromTheme((*it).icon()));
@@ -278,7 +278,7 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
 
     // first check the .directory if this is a directory
     if (d->m_props.isDirectory() && isSingleLocal) {
-        QString dotDirectoryFile = QUrl::fromLocalFile(firstItem.localPath()).path().append("/.directory");
+        QString dotDirectoryFile = QUrl::fromLocalFile(firstItem.localPath()).path().append(QLatin1String("/.directory"));
         if (QFile::exists(dotDirectoryFile)) {
             const KDesktopFile desktopFile(dotDirectoryFile);
             const KConfigGroup cfg = desktopFile.desktopGroup();
@@ -314,7 +314,7 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
         }
         if (cfg.hasKey("X-KDE-ShowIfDBusCall")) {
             QString calldata = cfg.readEntry("X-KDE-ShowIfDBusCall");
-            const QStringList parts = calldata.split(' ');
+            const QStringList parts = calldata.split(QLatin1Char(' '));
             const QString &app = parts.at(0);
             const QString &obj = parts.at(1);
             QString interface = parts.at(2);
@@ -337,7 +337,7 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
         }
         if (cfg.hasKey("X-KDE-Protocol")) {
             const QString theProtocol = cfg.readEntry("X-KDE-Protocol");
-            if (theProtocol.startsWith('!')) {
+            if (theProtocol.startsWith(QLatin1Char('!'))) {
                 const QString excludedProtocol = theProtocol.mid(1);
                 if (excludedProtocol == protocol) {
                     continue;
@@ -791,7 +791,7 @@ QStringList KFileItemActionsPrivate::listPreferredServiceIds(const QStringList &
 
 QAction *KFileItemActionsPrivate::createAppAction(const KService::Ptr &service, bool singleOffer)
 {
-    QString actionName(service->name().replace('&', QLatin1String("&&")));
+    QString actionName(service->name().replace(QLatin1Char('&'), QLatin1String("&&")));
     if (singleOffer) {
         actionName = i18n("Open &with %1", actionName);
     } else {

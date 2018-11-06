@@ -289,8 +289,8 @@ KDirModelNode *KDirModelPrivate::expandAllParentsUntil(const QUrl &_url) const /
 
     for (;;) {
         QString nodePath = nodeUrl.path();
-        if (!nodePath.endsWith('/')) {
-            nodePath += '/';
+        if (!nodePath.endsWith(QLatin1Char('/'))) {
+            nodePath += QLatin1Char('/');
         }
         if (!pathStr.startsWith(nodePath)) {
             qCWarning(KIO_WIDGETS) << "The kioslave for" << url.scheme() << "violates the hierarchy structure:"
@@ -299,7 +299,7 @@ KDirModelNode *KDirModelPrivate::expandAllParentsUntil(const QUrl &_url) const /
         }
 
         // E.g. pathStr is /a/b/c and nodePath is /a/. We want to find the node with url /a/b
-        const int nextSlash = pathStr.indexOf('/', nodePath.length());
+        const int nextSlash = pathStr.indexOf(QLatin1Char('/'), nodePath.length());
         const QString newPath = pathStr.left(nextSlash); // works even if nextSlash==-1
         nodeUrl.setPath(newPath);
         nodeUrl = nodeUrl.adjusted(QUrl::StripTrailingSlash); // #172508
@@ -373,11 +373,11 @@ static QString debugIndex(const QModelIndex &index)
         str = QStringLiteral("[invalid index, i.e. root]");
     } else {
         KDirModelNode *node = static_cast<KDirModelNode *>(index.internalPointer());
-        str = "[index for " + node->item().url().toString();
+        str = QLatin1String("[index for ") + node->item().url().toString();
         if (index.column() > 0) {
-            str += ", column " + QString::number(index.column());
+            str += QLatin1String(", column ") + QString::number(index.column());
         }
-        str += ']';
+        str += QLatin1Char(']');
     }
     return str;
 }
@@ -836,7 +836,7 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
                             FindClose(hFile);
                         }
 #else
-                        DIR *dir = QT_OPENDIR(QFile::encodeName(path));
+                        DIR *dir = QT_OPENDIR(QFile::encodeName(path).constData());
                         if (dir) {
                             count = 0;
                             QT_DIRENT *dirEntry = nullptr;

@@ -270,7 +270,7 @@ QList<KServiceAction> KDesktopFileActions::userDefinedServices(const KService &s
     QStringList keys;
     const QString actionMenu = service.property(QStringLiteral("X-KDE-GetActionMenu"), QVariant::String).toString();
     if (!actionMenu.isEmpty()) {
-        const QStringList dbuscall = actionMenu.split(QChar(' '));
+        const QStringList dbuscall = actionMenu.split(QLatin1Char(' '));
         if (dbuscall.count() >= 4) {
             const QString &app       = dbuscall.at(0);
             const QString &object    = dbuscall.at(1);

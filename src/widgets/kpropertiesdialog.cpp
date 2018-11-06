@@ -947,10 +947,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     }
 
     if (!isReallyLocal && !protocol.isEmpty()) {
-        directory += ' ';
-        directory += '(';
-        directory += protocol;
-        directory += ')';
+        directory += QLatin1String(" (") + protocol + QLatin1Char(')');
     }
 
     if (!isTrash && (bDesktopFile || ((mode & QT_STAT_MASK) == QT_STAT_DIR))
@@ -1003,7 +1000,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         if (!extension.isEmpty()) {
             d->m_lined->setSelection(0, filename.length() - extension.length() - 1);
         } else {
-            int lastDot = filename.lastIndexOf('.');
+            int lastDot = filename.lastIndexOf(QLatin1Char('.'));
             if (lastDot > 0) {
                 d->m_lined->setSelection(0, lastDot);
             }
@@ -1235,11 +1232,11 @@ void KFilePropsPlugin::slotEditFileType()
 {
     QString mime;
     if (d->mimeType == QLatin1String("application/octet-stream")) {
-        const int pos = d->oldFileName.lastIndexOf('.');
+        const int pos = d->oldFileName.lastIndexOf(QLatin1Char('.'));
         if (pos != -1) {
-            mime = '*' + d->oldFileName.mid(pos);
+            mime = QLatin1Char('*') + d->oldFileName.mid(pos);
         } else {
-            mime = '*';
+            mime = QStringLiteral("*");
         }
     }  else {
         mime = d->mimeType;
@@ -1476,7 +1473,7 @@ void KFilePropsPlugin::slotCopyFinished(KJob *job)
     // Save the file locally
     if (d->bDesktopFile && !d->m_sRelativePath.isEmpty()) {
         // qDebug() << "KFilePropsPlugin::slotCopyFinished " << d->m_sRelativePath;
-        const QString newPath = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation) + '/' + d->m_sRelativePath;
+        const QString newPath = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation) + QLatin1Char('/') + d->m_sRelativePath;
         const QUrl newURL = QUrl::fromLocalFile(newPath);
         // qDebug() << "KFilePropsPlugin::slotCopyFinished path=" << newURL;
         properties->updateUrl(newURL);
@@ -3885,7 +3882,7 @@ void KDesktopPropsPlugin::slotAdvanced()
         d->m_startupBool = w.startupInfoCheck->isChecked();
 
         if (w.terminalCloseCheck->isChecked()) {
-            d->m_terminalOptionStr.append(" --noclose");
+            d->m_terminalOptionStr.append(QLatin1String(" --noclose"));
         }
 
         switch (w.dbusCombo->currentIndex()) {

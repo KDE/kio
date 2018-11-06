@@ -174,7 +174,7 @@ void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
     d->ui.address->setText(host);
     d->ui.sslVersion->setText(sslProtocol);
 
-    const QStringList cipherInfo = cipher.split('\n', QString::SkipEmptyParts);
+    const QStringList cipherInfo = cipher.split(QLatin1Char('\n'), QString::SkipEmptyParts);
     if (cipherInfo.size() >= 4) {
         d->ui.encryption->setText(i18nc("%1, using %2 bits of a %3 bit key", "%1, %2 %3", cipherInfo[0],
                                         i18ncp("Part of: %1, using %2 bits of a %3 bit key",
@@ -199,7 +199,7 @@ void KSslInfoDialog::displayFromChain(int i)
         trusted = i18nc("The certificate is not trusted", "NO, there were errors:");
         foreach (KSslError::Error e, d->certificateErrors[i]) {
             KSslError classError(e);
-            trusted.append('\n');
+            trusted.append(QLatin1Char('\n'));
             trusted.append(classError.errorString());
         }
     } else {
@@ -212,9 +212,9 @@ void KSslInfoDialog::displayFromChain(int i)
                        cert.expiryDate().toString());
     d->ui.validityPeriod->setText(vp);
 
-    d->ui.serial->setText(cert.serialNumber());
-    d->ui.digest->setText(cert.digest().toHex());
-    d->ui.sha1Digest->setText(cert.digest(QCryptographicHash::Sha1).toHex());
+    d->ui.serial->setText(QString::fromUtf8(cert.serialNumber()));
+    d->ui.digest->setText(QString::fromUtf8(cert.digest().toHex()));
+    d->ui.sha1Digest->setText(QString::fromUtf8(cert.digest(QCryptographicHash::Sha1).toHex()));
 
     d->subject->setCertificate(cert, KSslCertificateBox::Subject);
     d->issuer->setCertificate(cert, KSslCertificateBox::Issuer);
@@ -223,11 +223,11 @@ void KSslInfoDialog::displayFromChain(int i)
 //static
 QList<QList<KSslError::Error> > KSslInfoDialog::errorsFromString(const QString &es)
 {
-    QStringList sl = es.split('\n', QString::KeepEmptyParts);
+    QStringList sl = es.split(QLatin1Char('\n'), QString::KeepEmptyParts);
     QList<QList<KSslError::Error> > ret;
     foreach (const QString &s, sl) {
         QList<KSslError::Error> certErrors;
-        QStringList sl2 = s.split('\t', QString::SkipEmptyParts);
+        QStringList sl2 = s.split(QLatin1Char('\t'), QString::SkipEmptyParts);
         foreach (const QString &s2, sl2) {
             bool didConvert;
             KSslError::Error error = static_cast<KSslError::Error>(s2.toInt(&didConvert));

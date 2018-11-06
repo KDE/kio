@@ -276,7 +276,7 @@ protected:
     void run() override
     {
 #ifndef Q_OS_ANDROID
-        static const QChar tilde = '~';
+        const QChar tilde = QLatin1Char('~');
 
         // we don't need to handle prepend here, right? ~user is always at pos 0
         assert(m_prepend.isEmpty());
@@ -951,7 +951,7 @@ bool KUrlCompletionPrivate::fileCompletion(const KUrlCompletionPrivate::MyURL &u
         // current directory
         QString dirToAdd = cwd.toLocalFile();
         if (!directory.isEmpty()) {
-            if (!dirToAdd.endsWith('/')) {
+            if (!dirToAdd.endsWith(QLatin1Char('/'))) {
                 dirToAdd.append(QLatin1Char('/'));
             }
             dirToAdd.append(directory);
@@ -1469,7 +1469,7 @@ static bool expandEnv(QString &text)
                 int len = pos2 - pos;
                 QString key = text.mid(pos + 1, len - 1);
                 QString value =
-                    QString::fromLocal8Bit(qgetenv(key.toLocal8Bit()));
+                    QString::fromLocal8Bit(qgetenv(key.toLocal8Bit().constData()));
 
                 if (!value.isEmpty()) {
                     expanded = true;

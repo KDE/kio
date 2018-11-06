@@ -318,7 +318,7 @@ void AccessManagerReply::readHttpResponseHeaders(KIO::Job *job)
         // Allow handling of local resources such as man pages and file url...
         if (isLocalRequest(url())) {
             setHeader(QNetworkRequest::ContentLengthHeader, job->totalAmount(KJob::Bytes));
-            setAttribute(QNetworkRequest::HttpStatusCodeAttribute, "200");
+            setAttribute(QNetworkRequest::HttpStatusCodeAttribute, QStringLiteral("200"));
             emit metaDataChanged();
         }
         return;
@@ -343,7 +343,7 @@ int AccessManagerReply::jobError(KJob *kJob)
     case KIO::ERR_IS_DIRECTORY:
         // This error condition can happen if you click on an ftp link that points
         // to a directory instead of a file, e.g. ftp://ftp.kde.org/pub
-        setHeader(QNetworkRequest::ContentTypeHeader, "inode/directory");
+        setHeader(QNetworkRequest::ContentTypeHeader, QByteArrayLiteral("inode/directory"));
         setError(QNetworkReply::NoError, kJob->errorText());
         break;
     case KIO::ERR_CANNOT_CONNECT:

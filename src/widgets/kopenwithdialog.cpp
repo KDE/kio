@@ -975,7 +975,7 @@ bool KOpenWithDialogPrivate::checkAccept()
             }
             if (!ok) { // service was found, but it was different -> keep looking
                 ++i;
-                serviceName = initialServiceName + '-' + QString::number(i);
+                serviceName = initialServiceName + QLatin1Char('-') + QString::number(i);
             }
         } while (!ok);
     }

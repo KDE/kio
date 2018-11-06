@@ -230,10 +230,10 @@ public:
     // Converts from "*.foo *.bar|Comment" to "Comment (*.foo *.bar)"
     QStringList kToQFilters(const QString &filters) const
     {
-        QStringList qFilters = filters.split('\n', QString::SkipEmptyParts);
+        QStringList qFilters = filters.split(QLatin1Char('\n'), QString::SkipEmptyParts);
 
         for (QStringList::iterator it = qFilters.begin(); it != qFilters.end(); ++it) {
-            int sep = it->indexOf('|');
+            int sep = it->indexOf(QLatin1Char('|'));
             QString globs = it->left(sep);
             QString desc  = it->mid(sep + 1);
             *it = QStringLiteral("%1 (%2)").arg(desc, globs);
@@ -576,7 +576,7 @@ void KUrlRequester::KUrlRequesterPrivate::_k_slotUpdateUrl()
     const QUrl visibleUrl = url();
     QUrl u = visibleUrl;
     if (visibleUrl.isRelative()) {
-        u = QUrl::fromLocalFile(QDir::currentPath() + '/').resolved(visibleUrl);
+        u = QUrl::fromLocalFile(QDir::currentPath() + QLatin1Char('/')).resolved(visibleUrl);
     }
     myButton->setURL(u);
 }
