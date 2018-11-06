@@ -55,9 +55,6 @@ private:
     QLineEdit *m_lineEdit;
     KComboBox *m_comboBox;
     bool m_clipboardChanged;
-
-    class Private;
-    Private *d;
 };
 
 } // namespace
