@@ -38,7 +38,7 @@ public:
     {
     }
 
-    KUrlRequesterDialog *q;
+    KUrlRequesterDialog * const q;
 
     void initDialog(const QString &text, const QUrl &url);
 

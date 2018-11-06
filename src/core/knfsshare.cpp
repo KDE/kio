@@ -40,7 +40,7 @@ public:
     bool readExportsFile();
     bool findExportsFile();
 
-    KNFSShare *q;
+    KNFSShare * const q;
     QSet<QString> sharedPaths;
     QString exportsFile;
 };

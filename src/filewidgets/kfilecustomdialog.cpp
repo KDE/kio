@@ -36,7 +36,7 @@ public:
     void init();
 
     KFileWidget *mFileWidget = nullptr;
-    KFileCustomDialog *q;
+    KFileCustomDialog * const q;
 };
 
 void KFileCustomDialogPrivate::init()

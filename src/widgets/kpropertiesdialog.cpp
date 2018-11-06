@@ -189,7 +189,7 @@ public:
      */
     void insertPages();
 
-    KPropertiesDialog *q;
+    KPropertiesDialog * const q;
     bool m_aborted;
     QWidget *fileSharePage;
     /**

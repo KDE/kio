@@ -157,7 +157,7 @@ public:
     SslResult startTLSInternal(KTcpSocket::SslVersion sslVersion,
                                int waitForEncryptedTimeout = -1);
 
-    TCPSlaveBase *q;
+    TCPSlaveBase * const q;
 
     bool isBlocking;
 

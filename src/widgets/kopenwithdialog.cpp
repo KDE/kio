@@ -127,7 +127,7 @@ public:
 
     void fillNode(const QString &entryPath, KDEPrivate::AppNode *node);
 
-    KApplicationModel *q;
+    KApplicationModel * const q;
 
     KDEPrivate::AppNode *root;
 };
@@ -503,7 +503,7 @@ public:
     {
     }
 
-    KOpenWithDialog *q;
+    KOpenWithDialog * const q;
 
     /**
      * Determine mime type from URLs

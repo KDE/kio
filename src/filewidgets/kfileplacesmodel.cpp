@@ -169,7 +169,7 @@ public:
         qDeleteAll(items);
     }
 
-    KFilePlacesModel *q;
+    KFilePlacesModel * const q;
 
     QList<KFilePlacesItem *> items;
     QVector<QString> availableDevices;

@@ -232,7 +232,7 @@ public:
     void dump();
 #endif
 
-    KDirModel *q;
+    KDirModel * const q;
     KDirLister *m_dirLister;
     KDirModelDirNode *m_rootNode;
     KDirModel::DropsAllowed m_dropsAllowed;

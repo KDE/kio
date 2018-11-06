@@ -254,7 +254,7 @@ public:
 
     QUrl m_startDir;
     bool m_startDirCustomized;
-    KUrlRequester *m_parent; // TODO: rename to 'q'
+    KUrlRequester * const m_parent; // TODO: rename to 'q'
     KLineEdit *edit;
     KComboBox *combo;
     KFile::Modes fileDialogMode;

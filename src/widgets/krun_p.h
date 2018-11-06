@@ -95,7 +95,7 @@ public:
     bool isPromptNeeded();
     void onDialogFinished(int result, bool isDontAskAgainSet);
 
-    KRun *q;
+    KRun * const q;
     bool m_showingDialog;
     bool m_runExecutables;
 

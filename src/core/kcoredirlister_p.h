@@ -102,7 +102,7 @@ public:
     class CachedItemsJob;
     CachedItemsJob *cachedItemsJobForUrl(const QUrl &url) const;
 
-    KCoreDirLister *m_parent;
+    KCoreDirLister * const m_parent;
 
     /**
      * List of dirs handled by this dirlister. The first entry is the base URL.

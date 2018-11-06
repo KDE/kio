@@ -39,7 +39,7 @@ public:
 
     void _k_slotFilterChanged();
 
-    KFileFilterCombo *parent;
+    KFileFilterCombo * const parent;
     // when we have more than 3 mimefilters and no default-filter,
     // we don't show the comments of all mimefilters in one line,
     // instead we show "All supported files". We have to translate

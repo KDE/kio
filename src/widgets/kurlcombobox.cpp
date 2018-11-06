@@ -57,7 +57,7 @@ public:
 
     void _k_slotActivated(int);
 
-    KUrlComboBox *m_parent;
+    KUrlComboBox * const m_parent;
     QIcon dirIcon;
     bool urlAdded;
     int myMaximum;

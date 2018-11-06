@@ -233,7 +233,7 @@ public:
     int iconSizeForViewType(QAbstractItemView *itemView) const;
 
     // private members
-    KDirOperator *parent;
+    KDirOperator * const parent;
     QStack<QUrl *> backStack;   ///< Contains all URLs you can reach with the back button.
     QStack<QUrl *> forwardStack; ///< Contains all URLs you can reach with the forward button.
 

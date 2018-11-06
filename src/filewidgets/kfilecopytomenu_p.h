@@ -31,7 +31,7 @@ class KFileCopyToMenuPrivate
 public:
     KFileCopyToMenuPrivate(KFileCopyToMenu *qq, QWidget *parentWidget);
 
-    KFileCopyToMenu *q;
+    KFileCopyToMenu * const q;
     QList<QUrl> m_urls;
     QWidget *m_parentWidget;
     bool m_readOnly;

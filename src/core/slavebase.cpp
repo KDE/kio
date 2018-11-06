@@ -77,7 +77,7 @@ namespace KIO
 class SlaveBasePrivate
 {
 public:
-    SlaveBase *q;
+    SlaveBase * const q;
     explicit SlaveBasePrivate(SlaveBase *owner)
         : q(owner)
         , nextTimeoutMsecs(0)

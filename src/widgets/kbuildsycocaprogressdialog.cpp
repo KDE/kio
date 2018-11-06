@@ -31,7 +31,7 @@ public:
     {
     }
 
-    KBuildSycocaProgressDialog *m_parent;
+    KBuildSycocaProgressDialog * const m_parent;
 };
 
 void KBuildSycocaProgressDialog::rebuildKSycoca(QWidget *parent)

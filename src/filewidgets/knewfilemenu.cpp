@@ -372,7 +372,7 @@ public:
     QString m_text;
     bool m_viewShowsHiddenFiles;
 
-    KNewFileMenu *q;
+    KNewFileMenu * const q;
 
     KNewFileMenuCopyData m_copyData;
 };

@@ -160,7 +160,7 @@ public:
                      const QString &filter = QString(),
                      bool no_hidden = false);
 
-    KUrlCompletion *q;
+    KUrlCompletion * const q;
     QList<QUrl> list_urls;
 
     bool onlyLocalProto;

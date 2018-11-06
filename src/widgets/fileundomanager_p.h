@@ -150,7 +150,7 @@ public:
     UndoJob *m_undoJob;
     quint64 m_nextCommandIndex;
 
-    FileUndoManager *q;
+    FileUndoManager * const q;
 
     // DBUS interface
 Q_SIGNALS:

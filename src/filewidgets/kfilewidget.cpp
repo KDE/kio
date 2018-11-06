@@ -212,7 +212,7 @@ public:
 
     void setInlinePreviewShown(bool show);
 
-    KFileWidget *q;
+    KFileWidget * const q;
 
     // the last selected url
     QUrl url;

@@ -54,7 +54,7 @@ public:
 
     QDialogButtonBox *m_buttonBox;
 
-    KNameAndUrlInputDialog *q;
+    KNameAndUrlInputDialog * const q;
 };
 
 KNameAndUrlInputDialog::KNameAndUrlInputDialog(const QString &nameLabel, const QString &urlLabel, const QUrl &startDir, QWidget *parent)

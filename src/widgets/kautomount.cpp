@@ -109,7 +109,7 @@ public:
     KAutoUnmountPrivate(KAutoUnmount *qq, const QString &_mountpoint, const QString &_desktopFile)
         : q(qq), m_desktopFile(_desktopFile), m_mountpoint(_mountpoint)
     {}
-    KAutoUnmount *q;
+    KAutoUnmount * const q;
     QString m_desktopFile;
     QString m_mountpoint;
 

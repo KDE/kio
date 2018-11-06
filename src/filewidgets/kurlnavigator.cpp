@@ -192,7 +192,7 @@ public:
     QUrl m_homeUrl;
     QStringList m_customProtocols;
     QWidget *m_dropWidget;
-    KUrlNavigator *q;
+    KUrlNavigator * const q;
 };
 
 KUrlNavigator::Private::Private(KUrlNavigator *q, KFilePlacesModel *placesModel) :

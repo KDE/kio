@@ -65,7 +65,7 @@ Q_SIGNALS:
 private:
     FavIconsCache();
     ~FavIconsCache();
-    FavIconsCachePrivate *d;
+    FavIconsCachePrivate * const d;
 };
 
 }

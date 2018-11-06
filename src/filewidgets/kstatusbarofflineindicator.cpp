@@ -40,7 +40,7 @@ public:
     void initialize();
     void _k_networkStatusChanged(bool isOnline);
 
-    KStatusBarOfflineIndicator *q;
+    KStatusBarOfflineIndicator * const q;
     QNetworkConfigurationManager *networkConfiguration;
 };
 
