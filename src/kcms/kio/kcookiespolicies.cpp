@@ -55,7 +55,7 @@ QString tolerantFromAce (const QByteArray& _domain)
         domain.remove (0, 1);
     QString ret = QUrl::fromAce(domain);
     if (hasDot) {
-        ret.prepend ('.');
+        ret.prepend(QLatin1Char('.'));
     }
     return ret;
 }
@@ -63,7 +63,7 @@ QString tolerantFromAce (const QByteArray& _domain)
 static QByteArray tolerantToAce (const QString& _domain)
 {
     QString domain (_domain);
-    const bool hasDot = domain.startsWith ('.');
+    const bool hasDot = domain.startsWith(QLatin1Char('.'));
     if (hasDot)
         domain.remove (0, 1);
     QByteArray ret = QUrl::toAce (domain);
@@ -419,7 +419,7 @@ void KCookiesPolicies::defaults()
 void KCookiesPolicies::splitDomainAdvice (const QString& cfg, QString& domain,
         KCookieAdvice::Value& advice)
 {
-    int sepPos = cfg.lastIndexOf (':');
+    int sepPos = cfg.lastIndexOf(QLatin1Char(':'));
 
     // Ignore any policy that does not contain a domain...
     if (sepPos <= 0)

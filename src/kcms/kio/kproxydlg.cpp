@@ -82,7 +82,7 @@ static void setManualProxyFromText(const QString& value, QLineEdit* edit, QSpinB
     if (value.isEmpty())
         return;
 
-    const QStringList values = value.split(' ');
+    const QStringList values = value.split(QLatin1Char(' '));
     edit->setText(values.at(0));
     bool ok = false;
     const int num = values.at(1).toInt(&ok);
@@ -441,7 +441,7 @@ bool KProxyDialog::autoDetectSystemProxy(QLineEdit* edit, const QString& envVarS
         if (!envVarValue.isEmpty()) {
             if (showValue) {
                 mProxyMap[edit->objectName()] = envVar;
-                edit->setText(envVarValue);
+                edit->setText(QString::fromUtf8(envVarValue));
             } else {
                 edit->setText(envVar);
             }

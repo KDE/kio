@@ -176,7 +176,7 @@ void UserAgentDlg::changeDefaultUAModifiers()
     if (ui.languageCheckBox->isChecked())
         m_ua_keys += QLatin1Char('l');
 
-    ui.osVersionCheckBox->setEnabled (m_ua_keys.contains ('o'));
+    ui.osVersionCheckBox->setEnabled(m_ua_keys.contains(QLatin1Char('o')));
 
     QString modVal = KProtocolManager::defaultUserAgent (m_ua_keys);
     if (ui.defaultIdLineEdit->text() != modVal) {
@@ -268,10 +268,10 @@ void UserAgentDlg::load()
     ui.sendUACheckBox->setChecked (b);
     m_ua_keys = cg2.readEntry ("UserAgentKeys", DEFAULT_USER_AGENT_KEYS).toLower();
     ui.defaultIdLineEdit->setText (KProtocolManager::defaultUserAgent (m_ua_keys));
-    ui.osNameCheckBox->setChecked (m_ua_keys.contains ('o'));
-    ui.osVersionCheckBox->setChecked (m_ua_keys.contains ('v'));
-    ui.processorTypeCheckBox->setChecked (m_ua_keys.contains ('m'));
-    ui.languageCheckBox->setChecked (m_ua_keys.contains ('l'));
+    ui.osNameCheckBox->setChecked (m_ua_keys.contains(QLatin1Char('o')));
+    ui.osVersionCheckBox->setChecked (m_ua_keys.contains(QLatin1Char('v')));
+    ui.processorTypeCheckBox->setChecked (m_ua_keys.contains(QLatin1Char('m')));
+    ui.languageCheckBox->setChecked (m_ua_keys.contains(QLatin1Char('l')));
 
     updateButtons();
     configChanged (false);
@@ -282,10 +282,10 @@ void UserAgentDlg::defaults()
     ui.sitePolicyTreeWidget->clear();
     m_ua_keys = QStringLiteral(DEFAULT_USER_AGENT_KEYS);
     ui.defaultIdLineEdit->setText (KProtocolManager::defaultUserAgent (m_ua_keys));
-    ui.osNameCheckBox->setChecked (m_ua_keys.contains ('o'));
-    ui.osVersionCheckBox->setChecked (m_ua_keys.contains ('v'));
-    ui.processorTypeCheckBox->setChecked (m_ua_keys.contains ('m'));
-    ui.languageCheckBox->setChecked (m_ua_keys.contains ('l'));
+    ui.osNameCheckBox->setChecked (m_ua_keys.contains (QLatin1Char('o')));
+    ui.osVersionCheckBox->setChecked (m_ua_keys.contains (QLatin1Char('v')));
+    ui.processorTypeCheckBox->setChecked (m_ua_keys.contains (QLatin1Char('m')));
+    ui.languageCheckBox->setChecked (m_ua_keys.contains(QLatin1Char('l')));
     ui.sendUACheckBox->setChecked (true);
 
     updateButtons();

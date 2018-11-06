@@ -49,7 +49,7 @@ UserAgentInfo::StatusCode UserAgentInfo::createNewUAProvider( const QString& uaS
 
   if ( pos == -1 )
   {
-    pos = (uaStr).indexOf(':');
+    pos = (uaStr).indexOf(QLatin1Char(':'));
     if ( pos != -1 )
     {
       split.append(uaStr.left(pos));
@@ -99,9 +99,9 @@ void UserAgentInfo::parseDescription()
       struct utsname utsn;
       uname( &utsn );
 
-      tmp.replace( QFL("appSysName"), QString(utsn.sysname) );
-      tmp.replace( QFL("appSysRelease"), QString(utsn.release) );
-      tmp.replace( QFL("appMachineType"), QString(utsn.machine) );
+      tmp.replace( QFL("appSysName"), QString::fromUtf8(utsn.sysname) );
+      tmp.replace( QFL("appSysRelease"), QString::fromUtf8(utsn.release) );
+      tmp.replace( QFL("appMachineType"), QString::fromUtf8(utsn.machine) );
 #else
       tmp.replace( QFL("appSysName"),  QLatin1String("Windows") );
       // TODO: maybe we can use QSysInfo also on linux?
@@ -133,11 +133,11 @@ void UserAgentInfo::parseDescription()
 
     tmp = QStringLiteral("%1 %2").arg(UA_PTOS(QStringLiteral("X-KDE-UA-SYSNAME")), UA_PTOS(QStringLiteral("X-KDE-UA-SYSRELEASE")));
     if ( tmp.trimmed().isEmpty() )
-      tmp = QStringLiteral("%1 %2").arg(UA_PTOS("X-KDE-UA-"
-                    "NAME"), UA_PTOS(QStringLiteral("X-KDE-UA-VERSION")));
+      tmp = QStringLiteral("%1 %2").arg(UA_PTOS(QStringLiteral("X-KDE-UA-"
+                    "NAME")), UA_PTOS(QStringLiteral("X-KDE-UA-VERSION")));
     else
-      tmp = QStringLiteral("%1 %2 on %3").arg(UA_PTOS("X-KDE-UA-"
-                    "NAME"), UA_PTOS(QStringLiteral("X-KDE-UA-VERSION")), tmp);
+      tmp = QStringLiteral("%1 %2 on %3").arg(UA_PTOS(QStringLiteral("X-KDE-UA-"
+                    "NAME")), (QStringLiteral("X-KDE-UA-VERSION")), tmp);
 
     m_lstAlias << tmp;
   }

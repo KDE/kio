@@ -51,13 +51,13 @@ public:
         if (input.isEmpty())
             return Intermediate;
 
-        if (input.startsWith (QChar ('.')))
+        if (input.startsWith(QLatin1Char('.')))
             return Invalid;
 
         const int length = input.length();
 
         for (int i = 0 ; i < length; i++) {
-            if (!input[i].isLetterOrNumber() && input[i] != '.' && input[i] != '-')
+            if (!input[i].isLetterOrNumber() && input[i] != QLatin1Char('.') && input[i] != QLatin1Char('-'))
                 return Invalid;
         }
 
