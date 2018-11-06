@@ -72,7 +72,7 @@ bool KDesktopFileActions::runWithStartup(const QUrl &u, bool _is_local, const QB
 
     if (u.fileName() == QLatin1String(".directory")) {
         // We cannot execute a .directory file. Open with a text editor instead.
-        return KRun::runUrl(u, QStringLiteral("text/plain"), nullptr, false /*tempFile*/, false /*runExecutables*/, QString(), asn);
+        return KRun::runUrl(u, QStringLiteral("text/plain"), nullptr, KRun::RunFlags(), QString(), asn);
     }
 
     KDesktopFile cfg(u.toLocalFile());
@@ -117,7 +117,7 @@ static bool runFSDevice(const QUrl &_url, const KDesktopFile &cfg, const QByteAr
     if (mp) {
         const QUrl mpURL = QUrl::fromLocalFile(mp->mountPoint());
         // Open a new window
-        retval = KRun::runUrl(mpURL, QStringLiteral("inode/directory"), nullptr /*TODO - window*/, false, true, QString(), asn);
+        retval = KRun::runUrl(mpURL, QStringLiteral("inode/directory"), nullptr /*TODO - window*/, KRun::RunFlags(KRun::RunExecutables), QString(), asn);
     } else {
         KConfigGroup cg = cfg.desktopGroup();
         bool ro = cg.readEntry("ReadOnly", false);

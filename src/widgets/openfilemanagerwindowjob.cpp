@@ -144,8 +144,7 @@ void OpenFileManagerWindowKRunStrategy::start(const QList<QUrl> &urls, const QBy
     if (!KRun::runUrl(urls.value(0).adjusted(QUrl::RemoveFilename),
                       QStringLiteral("inode/directory"),
                       KJobWidgets::window(job), // window
-                      false, // delete temp files
-                      false, // run executables
+                      KRun::RunFlags(),
                       QString(), // suggested file name
                       asn)) {
         emitResultProxy(OpenFileManagerWindowJob::LaunchFailedError);

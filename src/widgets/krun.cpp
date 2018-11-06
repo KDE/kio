@@ -1349,7 +1349,11 @@ void KRun::foundMimeType(const QString &type)
         d->m_strURL = QUrl::fromLocalFile(d->m_localPath);
     }
 
-    if (!KRun::runUrl(d->m_strURL, type, d->m_window, false /*tempfile*/, d->m_runExecutables, d->m_suggestedFileName, d->m_asn)) {
+    KRun::RunFlags runFlags;
+    if (d->m_runExecutables) {
+        runFlags |= KRun::RunExecutables;
+    }
+    if (!KRun::runUrl(d->m_strURL, type, d->m_window, runFlags, d->m_suggestedFileName, d->m_asn)) {
         d->m_bFault = true;
     }
     setFinished(true);
