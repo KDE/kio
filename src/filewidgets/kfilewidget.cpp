@@ -2171,7 +2171,7 @@ void KFileWidgetPrivate::_k_slotIconSizeSliderMoved(int _value)
 void KFileWidgetPrivate::_k_slotViewDoubleClicked(const QModelIndex &index)
 {
     // double clicking to save should only work on files
-    if (operationMode == KFileWidget::Saving && index.isValid() && ops->selectedItems().first().isFile()) {
+    if (operationMode == KFileWidget::Saving && index.isValid() && ops->selectedItems().constFirst().isFile()) {
         q->slotOk();
     }
 }

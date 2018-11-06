@@ -439,7 +439,7 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
             (s.user.count() > 0 ||
              s.userSubmenus.count() > 0 ||
              s.builtin.count() > 0) &&
-            !actionMenu->actions().last()->isSeparator()) {
+            !actionMenu->actions().constLast()->isSeparator()) {
         actionMenu->addSeparator();
     }
     userItemCount += d->insertServicesSubmenus(s.userSubmenus, actionMenu, false);

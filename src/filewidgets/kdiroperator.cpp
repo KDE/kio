@@ -2405,7 +2405,7 @@ void KDirOperator::Private::_k_slotSelectionChanged()
         KFileItem nullItem;
         parent->highlightFile(nullItem);
     } else {
-        KFileItem selectedItem = parent->selectedItems().first();
+        const KFileItem selectedItem = parent->selectedItems().constFirst();
         parent->highlightFile(selectedItem);
     }
 }

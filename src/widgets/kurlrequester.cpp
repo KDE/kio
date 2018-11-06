@@ -462,7 +462,7 @@ void KUrlRequester::KUrlRequesterPrivate::_k_slotFileDialogAccepted()
         return;
     }
 
-    QUrl newUrl = myFileDialog->selectedUrls().first();
+    const QUrl newUrl = myFileDialog->selectedUrls().constFirst();
     if (newUrl.isValid()) {
         m_parent->setUrl(newUrl);
         emit m_parent->urlSelected(url());

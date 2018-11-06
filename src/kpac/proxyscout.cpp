@@ -142,7 +142,7 @@ QString ProxyScout::proxyForUrl(const QString &checkUrl, const QDBusMessage &msg
     }
 
     if (m_script) {
-        return handleRequest(url).first();
+        return handleRequest(url).constFirst();
     }
 
     if (m_downloader || startDownload()) {
@@ -258,7 +258,7 @@ void ProxyScout::downloadResult(bool success)
                 const QVariant result(handleRequest((*it).url));
                 QDBusConnection::sessionBus().send((*it).transaction.createReply(result));
             } else {
-                const QVariant result(handleRequest((*it).url).first());
+                const QVariant result(handleRequest((*it).url).constFirst());
                 QDBusConnection::sessionBus().send((*it).transaction.createReply(result));
             }
         }

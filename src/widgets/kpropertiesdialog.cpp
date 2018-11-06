@@ -1461,7 +1461,7 @@ void KFilePropsPlugin::slotCopyFinished(KJob *job)
         if (job->error()) {
             job->uiDelegate()->showErrorMessage();
             // Didn't work. Revert the URL to the old one
-            properties->updateUrl(static_cast<KIO::CopyJob *>(job)->srcUrls().first());
+            properties->updateUrl(static_cast<KIO::CopyJob *>(job)->srcUrls().constFirst());
             properties->abortApplying(); // Don't apply the changes to the wrong file !
             return;
         }
@@ -1513,7 +1513,7 @@ void KFilePropsPlugin::slotCopyFinished(KJob *job)
     // is an Application now.
     if (d->m_bFromTemplate) {
         // destination is not necessarily local, use the src template
-        KDesktopFile templateResult(static_cast<KIO::CopyJob *>(job)->srcUrls().first().toLocalFile());
+        KDesktopFile templateResult(static_cast<KIO::CopyJob *>(job)->srcUrls().constFirst().toLocalFile());
         if (templateResult.hasApplicationType()) {
             // We can either stat the file and add the +x bit or use the larger chmod() job
             // with a umask designed to only touch u+x.  This is only one KIO job, so let's
@@ -2178,7 +2178,7 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
             extendedACLs->setDefaultACL(d->defaultACL);
         }
 
-        if (properties->items().first().isDir()) {
+        if (properties->items().constFirst().isDir()) {
             extendedACLs->setAllowDefaults(true);
         }
     }
