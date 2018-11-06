@@ -29,15 +29,16 @@
 class KInterProcessLockPrivate
 {
     Q_DECLARE_PUBLIC(KInterProcessLock)
-    KInterProcessLock *q_ptr;
+    KInterProcessLock * const q_ptr;
 public:
-    KInterProcessLockPrivate(const QString &resource, KInterProcessLock *parent)
-        : m_resource(resource), m_parent(parent)
+    KInterProcessLockPrivate(const QString &resource, KInterProcessLock *q)
+        : q_ptr(q)
+        , m_resource(resource)
     {
         m_serviceName = QStringLiteral("org.kde.private.lock-%1").arg(m_resource);
 
-        m_parent->connect(QDBusConnection::sessionBus().interface(), SIGNAL(serviceRegistered(QString)),
-                          m_parent, SLOT(_k_serviceRegistered(QString)));
+        q_ptr->connect(QDBusConnection::sessionBus().interface(), SIGNAL(serviceRegistered(QString)),
+                       q_ptr, SLOT(_k_serviceRegistered(QString)));
     }
 
     ~KInterProcessLockPrivate()
@@ -47,19 +48,17 @@ public:
     void _k_serviceRegistered(const QString &service)
     {
         if (service == m_serviceName) {
-            emit m_parent->lockGranted(m_parent);
+            emit q_ptr->lockGranted(q_ptr);
         }
     }
 
     QString m_resource;
     QString m_serviceName;
-    KInterProcessLock *m_parent;
 };
 
 KInterProcessLock::KInterProcessLock(const QString &resource)
     : d_ptr(new KInterProcessLockPrivate(resource, this))
 {
-    d_ptr->q_ptr = this;
 }
 
 KInterProcessLock::~KInterProcessLock()
