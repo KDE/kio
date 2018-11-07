@@ -26,7 +26,9 @@
 #include <QTimer>
 #include <QList>
 #include <QPushButton>
-#include <QtDBus>
+#include <QDBusConnection>
+#include <QDBusReply>
+#include <QDBusInterface>
 
 // KDE
 #include <KLocalizedString>
