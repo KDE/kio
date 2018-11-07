@@ -217,7 +217,7 @@ MetaData SlaveConfig::configData(const QString &protocol, const QString &host)
 
 QString SlaveConfig::configData(const QString &protocol, const QString &host, const QString &key)
 {
-    return configData(protocol, host)[key];
+    return configData(protocol, host).value(key);
 }
 
 void SlaveConfig::reset()
