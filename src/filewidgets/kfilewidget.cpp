@@ -757,7 +757,7 @@ QString KFileWidget::currentMimeFilter() const
         return QString();    // The "all types" item has no mimetype
     }
 
-    return d->filterWidget->filters()[i];
+    return d->filterWidget->filters().at(i);
 }
 
 QMimeType KFileWidget::currentFilterMimeType()
