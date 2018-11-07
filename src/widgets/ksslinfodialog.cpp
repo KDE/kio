@@ -75,8 +75,8 @@ KSslInfoDialog::KSslInfoDialog(QWidget *parent)
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(this);
     buttonBox->setStandardButtons(QDialogButtonBox::Close);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     layout->addWidget(buttonBox);
 
 #if 0
@@ -163,8 +163,8 @@ void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
     if (certificateChain.size() < 2) {
         d->ui.certSelector->setEnabled(false);
     }
-    connect(d->ui.certSelector, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(displayFromChain(int)));
+    connect(d->ui.certSelector, QOverload<int>::of(&QComboBox::currentIndexChanged),
+            this, &KSslInfoDialog::displayFromChain);
     if (d->certificateChain.isEmpty()) {
         d->certificateChain.append(QSslCertificate());
     }

@@ -433,8 +433,8 @@ KApplicationView::~KApplicationView()
 void KApplicationView::setModels(KApplicationModel *model, QSortFilterProxyModel *proxyModel)
 {
     if (d->appModel) {
-        disconnect(selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-                   this, SLOT(slotSelectionChanged(QItemSelection,QItemSelection)));
+        disconnect(selectionModel(), &QItemSelectionModel::selectionChanged,
+                   this, &KApplicationView::slotSelectionChanged);
     }
 
     QTreeView::setModel(proxyModel); // Here we set the proxy model
@@ -442,8 +442,8 @@ void KApplicationView::setModels(KApplicationModel *model, QSortFilterProxyModel
 
     d->appModel = model;
     if (d->appModel) {
-        connect(selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-                this, SLOT(slotSelectionChanged(QItemSelection,QItemSelection)));
+        connect(selectionModel(), &QItemSelectionModel::selectionChanged,
+                this, &KApplicationView::slotSelectionChanged);
     }
 }
 
@@ -702,7 +702,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
         edit->comboBox()->setAutoDeleteCompletionObject(true);
     }
 
-    QObject::connect(edit, SIGNAL(textChanged(QString)), q, SLOT(slotTextChanged()));
+    QObject::connect(edit, &KUrlRequester::textChanged, q, &KOpenWithDialog::slotTextChanged);
     QObject::connect(edit, SIGNAL(urlSelected(QUrl)), q, SLOT(_k_slotFileSelected()));
 
     QTreeViewProxyFilter *proxyModel = new QTreeViewProxyFilter(view);
@@ -715,10 +715,10 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     topLayout->addWidget(view);
     topLayout->setStretchFactor(view, 1);
 
-    QObject::connect(view, SIGNAL(selected(QString,QString)),
-                     q, SLOT(slotSelected(QString,QString)));
-    QObject::connect(view, SIGNAL(highlighted(QString,QString)),
-                     q, SLOT(slotHighlighted(QString,QString)));
+    QObject::connect(view, &KApplicationView::selected,
+                     q, &KOpenWithDialog::slotSelected);
+    QObject::connect(view, &KApplicationView::highlighted,
+                     q, &KOpenWithDialog::slotHighlighted);
     QObject::connect(view, SIGNAL(doubleClicked(QModelIndex)),
                      q, SLOT(_k_slotDbClick()));
 
@@ -741,7 +741,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     if (bReadOnly) {
         terminal->hide();
     }
-    QObject::connect(terminal, SIGNAL(toggled(bool)), q, SLOT(slotTerminalToggled(bool)));
+    QObject::connect(terminal, &QAbstractButton::toggled, q, &KOpenWithDialog::slotTerminalToggled);
 
     dialogExtensionLayout->addWidget(terminal);
 
@@ -776,8 +776,8 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
 
     buttonBox = new QDialogButtonBox(q);
     buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    q->connect(buttonBox, SIGNAL(accepted()), q, SLOT(accept()));
-    q->connect(buttonBox, SIGNAL(rejected()), q, SLOT(reject()));
+    q->connect(buttonBox, &QDialogButtonBox::accepted, q, &QDialog::accept);
+    q->connect(buttonBox, &QDialogButtonBox::rejected, q, &QDialog::reject);
     topLayout->addWidget(buttonBox);
 
     q->setMinimumSize(q->minimumSizeHint());

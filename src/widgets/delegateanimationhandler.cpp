@@ -62,9 +62,10 @@ CachedRendering::CachedRendering(QStyle::State state, const QSize &size, const Q
     hover.fill(Qt::transparent);
 
     if (index.model()) {
-        connect(index.model(), SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-                SLOT(dataChanged(QModelIndex,QModelIndex)));
-        connect(index.model(), SIGNAL(modelReset()), SLOT(modelReset()));
+        connect(index.model(), &QAbstractItemModel::dataChanged,
+                this, &CachedRendering::dataChanged);
+        connect(index.model(), &QAbstractItemModel::modelReset,
+                this, &CachedRendering::modelReset);
     }
 }
 
@@ -177,7 +178,7 @@ DelegateAnimationHandler::DelegateAnimationHandler(QObject *parent)
 {
     iconSequenceTimer.setSingleShot(true);
     iconSequenceTimer.setInterval(switchIconInterval);
-    connect(&iconSequenceTimer, SIGNAL(timeout()), SLOT(sequenceTimerTimeout()));;
+    connect(&iconSequenceTimer, &QTimer::timeout, this, &DelegateAnimationHandler::sequenceTimerTimeout);;
 }
 
 DelegateAnimationHandler::~DelegateAnimationHandler()
@@ -346,7 +347,7 @@ void DelegateAnimationHandler::addAnimationState(AnimationState *state, const QA
 
     // If this is the first time we've seen this view
     if (!list) {
-        connect(view, SIGNAL(destroyed(QObject*)), SLOT(viewDeleted(QObject*)));
+        connect(view, &QObject::destroyed, this, &DelegateAnimationHandler::viewDeleted);
 
         list = new AnimationList;
         animationLists.insert(view, list);

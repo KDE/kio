@@ -97,15 +97,15 @@ KACLEditWidget::KACLEditWidget(QWidget *parent)
     d->m_AddBtn = new QPushButton(i18n("Add Entry..."), this);
     vbox->addWidget(d->m_AddBtn);
     d->m_AddBtn->setObjectName(QStringLiteral("add_entry_button"));
-    connect(d->m_AddBtn, SIGNAL(clicked()), d->m_listView, SLOT(slotAddEntry()));
+    connect(d->m_AddBtn, &QAbstractButton::clicked, d->m_listView, &KACLListView::slotAddEntry);
     d->m_EditBtn = new QPushButton(i18n("Edit Entry..."), this);
     vbox->addWidget(d->m_EditBtn);
     d->m_EditBtn->setObjectName(QStringLiteral("edit_entry_button"));
-    connect(d->m_EditBtn, SIGNAL(clicked()), d->m_listView, SLOT(slotEditEntry()));
+    connect(d->m_EditBtn, &QAbstractButton::clicked, d->m_listView, &KACLListView::slotEditEntry);
     d->m_DelBtn = new QPushButton(i18n("Delete Entry"), this);
     vbox->addWidget(d->m_DelBtn);
     d->m_DelBtn->setObjectName(QStringLiteral("delete_entry_button"));
-    connect(d->m_DelBtn, SIGNAL(clicked()), d->m_listView, SLOT(slotRemoveEntry()));
+    connect(d->m_DelBtn, &QAbstractButton::clicked, d->m_listView, &KACLListView::slotRemoveEntry);
     vbox->addItem(new QSpacerItem(10, 10, QSizePolicy::Fixed, QSizePolicy::Expanding));
     d->_k_slotUpdateButtons();
 }
@@ -440,10 +440,10 @@ EditACLEntryDialog::EditACLEntryDialog(KACLListView *listView, KACLListViewItem 
         m_defaultCB = new QCheckBox(i18n("Default for new files in this folder"), this);
         m_defaultCB->setObjectName(QStringLiteral("defaultCB"));
         mainLayout->addWidget(m_defaultCB);
-        connect(m_defaultCB, SIGNAL(toggled(bool)),
-                this, SLOT(slotUpdateAllowedUsersAndGroups()));
-        connect(m_defaultCB, SIGNAL(toggled(bool)),
-                this, SLOT(slotUpdateAllowedTypes()));
+        connect(m_defaultCB, &QAbstractButton::toggled,
+                this, &EditACLEntryDialog::slotUpdateAllowedUsersAndGroups);
+        connect(m_defaultCB, &QAbstractButton::toggled,
+                this, &EditACLEntryDialog::slotUpdateAllowedTypes);
     }
 
     QRadioButton *ownerType = new QRadioButton(i18n("Owner"), gb);
@@ -479,8 +479,8 @@ EditACLEntryDialog::EditACLEntryDialog(KACLListView *listView, KACLListViewItem 
 
     mainLayout->addWidget(gb);
 
-    connect(m_buttonGroup, SIGNAL(buttonClicked(QAbstractButton*)),
-            this, SLOT(slotSelectionChanged(QAbstractButton*)));
+    connect(m_buttonGroup, QOverload<QAbstractButton*>::of(&QButtonGroup::buttonClicked),
+            this, &EditACLEntryDialog::slotSelectionChanged);
 
     m_widgetStack = new QStackedWidget(this);
     mainLayout->addWidget(m_widgetStack);
@@ -538,8 +538,8 @@ EditACLEntryDialog::EditACLEntryDialog(KACLListView *listView, KACLListViewItem 
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(this);
     buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(slotOk()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &EditACLEntryDialog::slotOk);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     mainLayout->addWidget(buttonBox);
 
     adjustSize();
@@ -680,8 +680,8 @@ KACLListView::KACLListView(QWidget *parent)
     m_allUsers.sort();
     m_allGroups.sort();
 
-    connect(this, SIGNAL(itemClicked(QTreeWidgetItem*,int)),
-            this, SLOT(slotItemClicked(QTreeWidgetItem*,int)));
+    connect(this, &QTreeWidget::itemClicked,
+            this, &KACLListView::slotItemClicked);
 
     connect(this, &KACLListView::itemDoubleClicked,
             this, &KACLListView::slotItemDoubleClicked);

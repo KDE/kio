@@ -97,8 +97,8 @@ public:
             // access QWidget::winId() (already destructed)
             WId windowId = window->winId();
             m_windowList.insert(obj, windowId);
-            connect(window, SIGNAL(destroyed(QObject*)),
-                    this, SLOT(slotUnregisterWindow(QObject*)));
+            connect(window, &QObject::destroyed,
+                    this, &JobUiDelegateStatic::slotUnregisterWindow);
             QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/kded"), QStringLiteral("org.kde.kded5")).
             call(QDBus::NoBlock, QStringLiteral("registerWindowId"), qlonglong(windowId));
         }
@@ -115,8 +115,8 @@ public Q_SLOTS:
             return;
         }
         WId windowId = it.value();
-        disconnect(it.key(), SIGNAL(destroyed(QObject*)),
-                   this, SLOT(slotUnregisterWindow(QObject*)));
+        disconnect(it.key(), &QObject::destroyed,
+                   this, &JobUiDelegateStatic::slotUnregisterWindow);
         m_windowList.erase(it);
         QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/kded"), QStringLiteral("org.kde.kded5")).
         call(QDBus::NoBlock, QStringLiteral("unregisterWindowId"), qlonglong(windowId));
@@ -159,7 +159,7 @@ KIO::RenameDialog_Result KIO::JobUiDelegate::askFileRename(KJob *job,
                           ctimeSrc, ctimeDest, mtimeSrc,
                           mtimeDest);
     dlg.setWindowModality(Qt::WindowModal);
-    connect(job, SIGNAL(finished(KJob*)), &dlg, SLOT(reject())); // #192976
+    connect(job, &KJob::finished, &dlg, &QDialog::reject); // #192976
     KIO::RenameDialog_Result res = static_cast<RenameDialog_Result>(dlg.exec());
     if (res == R_AUTO_RENAME) {
         newDest = dlg.autoDestUrl().path();
@@ -175,7 +175,7 @@ KIO::SkipDialog_Result KIO::JobUiDelegate::askSkip(KJob *job,
 {
     KIO::SkipDialog dlg(KJobWidgets::window(job), options, error_text);
     dlg.setWindowModality(Qt::WindowModal);
-    connect(job, SIGNAL(finished(KJob*)), &dlg, SLOT(reject())); // #192976
+    connect(job, &KJob::finished, &dlg, &QDialog::reject); // #192976
     return static_cast<KIO::SkipDialog_Result>(dlg.exec());
 }
 

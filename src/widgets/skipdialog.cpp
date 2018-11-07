@@ -46,21 +46,21 @@ SkipDialog::SkipDialog(QWidget *parent, KIO::SkipDialog_Options options, const Q
     layout->addWidget(buttonBox);
 
     QPushButton *retryButton = new QPushButton(i18n("Retry"));
-    connect(retryButton, SIGNAL(clicked()), SLOT(retryPressed()));
+    connect(retryButton, &QAbstractButton::clicked, this, &SkipDialog::retryPressed);
     buttonBox->addButton(retryButton, QDialogButtonBox::ActionRole);
 
     if (options & SkipDialog_MultipleItems) {
         QPushButton *skipButton = new QPushButton(i18n("Skip"));
-        connect(skipButton, SIGNAL(clicked()), SLOT(skipPressed()));
+        connect(skipButton, &QAbstractButton::clicked, this, &SkipDialog::skipPressed);
         buttonBox->addButton(skipButton, QDialogButtonBox::ActionRole);
 
         QPushButton *autoSkipButton = new QPushButton(i18n("AutoSkip"));
-        connect(autoSkipButton, SIGNAL(clicked()), SLOT(autoSkipPressed()));
+        connect(autoSkipButton, &QAbstractButton::clicked, this, &SkipDialog::autoSkipPressed);
         buttonBox->addButton(autoSkipButton, QDialogButtonBox::ActionRole);
     }
 
     buttonBox->addButton(QDialogButtonBox::Cancel);
-    connect(buttonBox, SIGNAL(rejected()), SLOT(cancelPressed()));
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &SkipDialog::cancelPressed);
 
     resize(sizeHint());
 }

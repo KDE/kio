@@ -140,10 +140,10 @@ KFileItemActionsPrivate::KFileItemActionsPrivate(KFileItemActions *qq)
       m_parentWidget(nullptr),
       m_config(QStringLiteral("kservicemenurc"), KConfig::NoGlobals)
 {
-    QObject::connect(&m_executeServiceActionGroup, SIGNAL(triggered(QAction*)),
-                     this, SLOT(slotExecuteService(QAction*)));
-    QObject::connect(&m_runApplicationActionGroup, SIGNAL(triggered(QAction*)),
-                     this, SLOT(slotRunApplication(QAction*)));
+    QObject::connect(&m_executeServiceActionGroup, &QActionGroup::triggered,
+                     this, &KFileItemActionsPrivate::slotExecuteService);
+    QObject::connect(&m_runApplicationActionGroup, &QActionGroup::triggered,
+                     this, &KFileItemActionsPrivate::slotRunApplication);
 }
 
 KFileItemActionsPrivate::~KFileItemActionsPrivate()
@@ -643,7 +643,8 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
 
             d->m_traderConstraint = traderConstraint;
             d->m_fileOpenList = d->m_props.items();
-            QObject::connect(runAct, SIGNAL(triggered()), d, SLOT(slotRunPreferredApplications()));
+            QObject::connect(runAct, &QAction::triggered,
+                             d, &KFileItemActionsPrivate::slotRunPreferredApplications);
             topMenu->addAction(runAct);
         }
 
@@ -683,14 +684,16 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
             QAction *openWithAct = new QAction(this);
             openWithAct->setText(openWithActionName);
             openWithAct->setObjectName(QStringLiteral("openwith_browse")); // for the unittest
-            QObject::connect(openWithAct, SIGNAL(triggered()), d, SLOT(slotOpenWithDialog()));
+            QObject::connect(openWithAct, &QAction::triggered,
+                             d, &KFileItemActionsPrivate::slotOpenWithDialog);
             menu->addAction(openWithAct);
             menu->addSeparator();
         } else { // no app offers -> Open With...
             QAction *act = new QAction(this);
             act->setText(i18nc("@title:menu", "&Open With..."));
             act->setObjectName(QStringLiteral("openwith")); // for the unittest
-            QObject::connect(act, SIGNAL(triggered()), d, SLOT(slotOpenWithDialog()));
+            QObject::connect(act, &QAction::triggered,
+                             d, &KFileItemActionsPrivate::slotOpenWithDialog);
             topMenu->addAction(act);
         }
 

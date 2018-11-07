@@ -88,8 +88,8 @@ void KUrlRequesterDialogPrivate::initDialog(const QString &text, const QUrl &url
 
     buttonBox = new QDialogButtonBox(q);
     buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    QObject::connect(buttonBox, SIGNAL(accepted()), q, SLOT(accept()));
-    QObject::connect(buttonBox, SIGNAL(rejected()), q, SLOT(reject()));
+    QObject::connect(buttonBox, &QDialogButtonBox::accepted, q, &QDialog::accept);
+    QObject::connect(buttonBox, &QDialogButtonBox::rejected, q, &QDialog::reject);
     topLayout->addWidget(buttonBox);
 
     _k_slotTextChanged(urlName.toString());

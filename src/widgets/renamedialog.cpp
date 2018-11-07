@@ -166,40 +166,40 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
 
     d->bCancel = new QPushButton(this);
     KGuiItem::assign(d->bCancel, KStandardGuiItem::cancel());
-    connect(d->bCancel, SIGNAL(clicked()), this, SLOT(cancelPressed()));
+    connect(d->bCancel, &QAbstractButton::clicked, this, &RenameDialog::cancelPressed);
 
     if (_options & RenameDialog_MultipleItems) {
         d->bApplyAll = new QCheckBox(i18n("Appl&y to All"), this);
         d->bApplyAll->setToolTip((_options & RenameDialog_IsDirectory) ? i18n("When this is checked the button pressed will be applied to all subsequent folder conflicts for the remainder of the current job.\nUnless you press Skip you will still be prompted in case of a conflict with an existing file in the directory.")
                                  : i18n("When this is checked the button pressed will be applied to all subsequent conflicts for the remainder of the current job."));
-        connect(d->bApplyAll, SIGNAL(clicked()), this, SLOT(applyAllPressed()));
+        connect(d->bApplyAll, &QAbstractButton::clicked, this, &RenameDialog::applyAllPressed);
     }
 
     if (!(_options & RenameDialog_NoRename)) {
         d->bRename = new QPushButton(i18n("&Rename"), this);
         d->bRename->setEnabled(false);
         d->bSuggestNewName = new QPushButton(i18n("Suggest New &Name"), this);
-        connect(d->bSuggestNewName, SIGNAL(clicked()), this, SLOT(suggestNewNamePressed()));
-        connect(d->bRename, SIGNAL(clicked()), this, SLOT(renamePressed()));
+        connect(d->bSuggestNewName, &QAbstractButton::clicked, this, &RenameDialog::suggestNewNamePressed);
+        connect(d->bRename, &QAbstractButton::clicked, this, &RenameDialog::renamePressed);
     }
 
     if ((_options & RenameDialog_MultipleItems) && (_options & RenameDialog_Skip)) {
         d->bSkip = new QPushButton(i18n("&Skip"), this);
         d->bSkip->setToolTip((_options & RenameDialog_IsDirectory) ? i18n("Do not copy or move this folder, skip to the next item instead")
                              : i18n("Do not copy or move this file, skip to the next item instead"));
-        connect(d->bSkip, SIGNAL(clicked()), this, SLOT(skipPressed()));
+        connect(d->bSkip, &QAbstractButton::clicked, this, &RenameDialog::skipPressed);
     }
 
     if (_options & RenameDialog_Overwrite) {
         const QString text = (_options & RenameDialog_IsDirectory) ? i18nc("Write files into an existing folder", "&Write Into") : i18n("&Overwrite");
         d->bOverwrite = new QPushButton(text, this);
         d->bOverwrite->setToolTip(i18n("Files and folders will be copied into the existing directory, alongside its existing contents.\nYou will be prompted again in case of a conflict with an existing file in the directory."));
-        connect(d->bOverwrite, SIGNAL(clicked()), this, SLOT(overwritePressed()));
+        connect(d->bOverwrite, &QAbstractButton::clicked, this, &RenameDialog::overwritePressed);
     }
 
     if (_options & RenameDialog_Resume) {
         d->bResume = new QPushButton(i18n("&Resume"), this);
-        connect(d->bResume, SIGNAL(clicked()), this, SLOT(resumePressed()));
+        connect(d->bResume, &QAbstractButton::clicked, this, &RenameDialog::resumePressed);
     }
 
     QVBoxLayout *pLayout = new QVBoxLayout(this);
@@ -257,10 +257,10 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
         d->m_srcArea = createContainerLayout(parent, d->srcItem, d->m_srcPreview);
         d->m_destArea = createContainerLayout(parent, d->destItem, d->m_destPreview);
 
-        connect(d->m_srcArea->verticalScrollBar(), SIGNAL(valueChanged(int)), d->m_destArea->verticalScrollBar(), SLOT(setValue(int)));
-        connect(d->m_destArea->verticalScrollBar(), SIGNAL(valueChanged(int)), d->m_srcArea->verticalScrollBar(), SLOT(setValue(int)));
-        connect(d->m_srcArea->horizontalScrollBar(), SIGNAL(valueChanged(int)), d->m_destArea->horizontalScrollBar(), SLOT(setValue(int)));
-        connect(d->m_destArea->horizontalScrollBar(), SIGNAL(valueChanged(int)), d->m_srcArea->horizontalScrollBar(), SLOT(setValue(int)));
+        connect(d->m_srcArea->verticalScrollBar(), &QAbstractSlider::valueChanged, d->m_destArea->verticalScrollBar(), &QAbstractSlider::setValue);
+        connect(d->m_destArea->verticalScrollBar(), &QAbstractSlider::valueChanged, d->m_srcArea->verticalScrollBar(), &QAbstractSlider::setValue);
+        connect(d->m_srcArea->horizontalScrollBar(), &QAbstractSlider::valueChanged, d->m_destArea->horizontalScrollBar(), &QAbstractSlider::setValue);
+        connect(d->m_destArea->horizontalScrollBar(), &QAbstractSlider::valueChanged, d->m_srcArea->horizontalScrollBar(), &QAbstractSlider::setValue);
 
         // create layout
         QGridLayout *gridLayout = new QGridLayout();
@@ -340,8 +340,8 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
         const QString fileName = d->dest.fileName();
         d->setRenameBoxText(KIO::decodeFileName(fileName));
 
-        connect(d->m_pLineEdit, SIGNAL(textChanged(QString)),
-                SLOT(enableRenameButton(QString)));
+        connect(d->m_pLineEdit, &QLineEdit::textChanged,
+                this, &RenameDialog::enableRenameButton);
 
         d->m_pLineEdit->setFocus();
     } else {
@@ -623,14 +623,14 @@ void RenameDialog::resizePanels()
                                QSize(d->m_destPreview->width() * qreal(0.9), d->m_destPreview->height()));
     destJob->setScaleType(KIO::PreviewJob::Unscaled);
 
-    connect(srcJob, SIGNAL(gotPreview(KFileItem,QPixmap)),
-            this, SLOT(showSrcPreview(KFileItem,QPixmap)));
-    connect(destJob, SIGNAL(gotPreview(KFileItem,QPixmap)),
-            this, SLOT(showDestPreview(KFileItem,QPixmap)));
-    connect(srcJob, SIGNAL(failed(KFileItem)),
-            this, SLOT(showSrcIcon(KFileItem)));
-    connect(destJob, SIGNAL(failed(KFileItem)),
-            this, SLOT(showDestIcon(KFileItem)));
+    connect(srcJob, &PreviewJob::gotPreview,
+            this, &RenameDialog::showSrcPreview);
+    connect(destJob, &PreviewJob::gotPreview,
+            this, &RenameDialog::showDestPreview);
+    connect(srcJob, &PreviewJob::failed,
+            this, &RenameDialog::showSrcIcon);
+    connect(destJob, &PreviewJob::failed,
+            this, &RenameDialog::showDestIcon);
 }
 
 QScrollArea *RenameDialog::createContainerLayout(QWidget *parent, const KFileItem &item, QLabel *preview)

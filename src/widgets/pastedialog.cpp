@@ -63,8 +63,8 @@ KIO::PasteDialog::PasteDialog(const QString &caption, const QString &label,
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(this);
     buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     topLayout->addWidget(buttonBox);
 
     //connect( m_lineEdit, SIGNAL(textChanged(QString)),
@@ -76,8 +76,8 @@ KIO::PasteDialog::PasteDialog(const QString &caption, const QString &label,
 
     m_clipboardChanged = false;
     if (clipboard)
-        connect(QApplication::clipboard(), SIGNAL(dataChanged()),
-                this, SLOT(slotClipboardDataChanged()));
+        connect(QApplication::clipboard(), &QClipboard::dataChanged,
+                this, &PasteDialog::slotClipboardDataChanged);
 }
 
 void KIO::PasteDialog::slotClipboardDataChanged()

@@ -65,12 +65,12 @@ AccessManagerReply::AccessManagerReply(const QNetworkAccessManager::Operation op
     }
 
     connect(kioJob, SIGNAL(redirection(KIO::Job*,QUrl)), SLOT(slotRedirection(KIO::Job*,QUrl)));
-    connect(kioJob, SIGNAL(percent(KJob*,ulong)), SLOT(slotPercent(KJob*,ulong)));
+    connect(kioJob, QOverload<KJob*,ulong>::of(&KJob::percent), this, &AccessManagerReply::slotPercent);
 
     if (qobject_cast<KIO::StatJob *>(kioJob)) {
-        connect(kioJob, SIGNAL(result(KJob*)), SLOT(slotStatResult(KJob*)));
+        connect(kioJob, &KJob::result, this, &AccessManagerReply::slotStatResult);
     } else {
-        connect(kioJob, SIGNAL(result(KJob*)), SLOT(slotResult(KJob*)));
+        connect(kioJob, &KJob::result, this, &AccessManagerReply::slotResult);
         connect(kioJob, SIGNAL(data(KIO::Job*,QByteArray)),
                 SLOT(slotData(KIO::Job*,QByteArray)));
         connect(kioJob, SIGNAL(mimetype(KIO::Job*,QString)),

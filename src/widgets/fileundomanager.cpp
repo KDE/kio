@@ -159,13 +159,13 @@ CommandRecorder::CommandRecorder(FileUndoManager::CommandType op, const QList<QU
     m_cmd.m_serialNumber = FileUndoManager::self()->newCommandSerialNumber();
     m_cmd.m_src = src;
     m_cmd.m_dst = dst;
-    connect(job, SIGNAL(result(KJob*)),
-            this, SLOT(slotResult(KJob*)));
-    if (qobject_cast<KIO::CopyJob *>(job)) {
-        connect(job, SIGNAL(copyingDone(KIO::Job*,QUrl,QUrl,QDateTime,bool,bool)),
-                this, SLOT(slotCopyingDone(KIO::Job*,QUrl,QUrl,QDateTime,bool,bool)));
-        connect(job, SIGNAL(copyingLinkDone(KIO::Job*,QUrl,QString,QUrl)),
-                this, SLOT(slotCopyingLinkDone(KIO::Job*,QUrl,QString,QUrl)));
+    connect(job, &KJob::result,
+            this, &CommandRecorder::slotResult);
+    if (auto *copyJob = qobject_cast<KIO::CopyJob*>(job)) {
+        connect(copyJob, &KIO::CopyJob::copyingDone,
+                this, &CommandRecorder::slotCopyingDone);
+        connect(copyJob, &KIO::CopyJob::copyingLinkDone,
+                this, &CommandRecorder::slotCopyingLinkDone);
     } else if (KIO::MkpathJob *mkpathJob = qobject_cast<KIO::MkpathJob *>(job)) {
         connect(mkpathJob, &KIO::MkpathJob::directoryCreated,
                 this, &CommandRecorder::slotDirectoryCreated);
@@ -529,8 +529,8 @@ void FileUndoManagerPrivate::undoStep()
         if (m_uiInterface) {
             KJobWidgets::setWindow(m_currentJob, m_uiInterface->parentWidget());
         }
-        QObject::connect(m_currentJob, SIGNAL(result(KJob*)),
-                         this, SLOT(slotResult(KJob*)));
+        QObject::connect(m_currentJob, &KJob::result,
+                         this, &FileUndoManagerPrivate::slotResult);
     }
 }
 

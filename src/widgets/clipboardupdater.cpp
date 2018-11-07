@@ -186,5 +186,5 @@ ClipboardUpdater::ClipboardUpdater(Job *job, JobUiDelegateExtension::ClipboardUp
       m_mode(mode)
 {
     Q_ASSERT(job);
-    connect(job, SIGNAL(result(KJob*)), this, SLOT(slotResult(KJob*)));
+    connect(job, &KJob::result, this, &ClipboardUpdater::slotResult);
 }

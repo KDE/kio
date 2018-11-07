@@ -700,8 +700,8 @@ static bool makeServiceExecutable(const KService &service, QWidget *window)
     KGuiItem::assign(buttonBox->button(QDialogButtonBox::Ok), KStandardGuiItem::cont());
     buttonBox->button(QDialogButtonBox::Cancel)->setDefault(true);
     buttonBox->button(QDialogButtonBox::Cancel)->setFocus();
-    QObject::connect(buttonBox, SIGNAL(accepted()), baseDialog, SLOT(accept()));
-    QObject::connect(buttonBox, SIGNAL(rejected()), baseDialog, SLOT(reject()));
+    QObject::connect(buttonBox, &QDialogButtonBox::accepted, baseDialog, &QDialog::accept);
+    QObject::connect(buttonBox, &QDialogButtonBox::rejected, baseDialog, &QDialog::reject);
     topLayout->addWidget(buttonBox);
 
     // Constrain maximum size.  Minimum size set in
@@ -920,7 +920,7 @@ void KRun::KRunPrivate::init(const QUrl &url, QWidget *window,
     // Reason: We must complete the constructor before we do anything else.
     m_bCheckPrompt = false;
     m_bInit = true;
-    q->connect(m_timer, SIGNAL(timeout()), q, SLOT(slotTimeout()));
+    q->connect(m_timer, &QTimer::timeout, q, &KRun::slotTimeout);
     startTimer();
     //qDebug() << "new KRun" << q << url << "timer=" << m_timer;
 }
@@ -1033,8 +1033,8 @@ void KRun::init()
     KIO::JobFlags flags = d->m_bProgressInfo ? KIO::DefaultFlags : KIO::HideProgressInfo;
     KIO::StatJob *job = KIO::stat(d->m_strURL, KIO::StatJob::SourceSide, 0 /* no details */, flags);
     KJobWidgets::setWindow(job, d->m_window);
-    connect(job, SIGNAL(result(KJob*)),
-            this, SLOT(slotStatResult(KJob*)));
+    connect(job, &KJob::result,
+            this, &KRun::slotStatResult);
     d->m_job = job;
     //qDebug() << "Job" << job << "is about stating" << d->m_strURL;
 }
@@ -1156,10 +1156,10 @@ void KRun::scanFile()
     KIO::JobFlags flags = d->m_bProgressInfo ? KIO::DefaultFlags : KIO::HideProgressInfo;
     KIO::TransferJob *job = KIO::get(d->m_strURL, KIO::NoReload /*reload*/, flags);
     KJobWidgets::setWindow(job, d->m_window);
-    connect(job, SIGNAL(result(KJob*)),
-            this, SLOT(slotScanFinished(KJob*)));
-    connect(job, SIGNAL(mimetype(KIO::Job*,QString)),
-            this, SLOT(slotScanMimeType(KIO::Job*,QString)));
+    connect(job, &KJob::result,
+            this, &KRun::slotScanFinished);
+    connect(job, QOverload<KIO::Job*,const QString&>::of(&KIO::TransferJob::mimetype),
+            this, &KRun::slotScanMimeType);
     d->m_job = job;
     //qDebug() << "Job" << job << "is about getting from" << d->m_strURL;
 }
@@ -1566,8 +1566,8 @@ KProcessRunner::KProcessRunner(KProcess *p, const QString &executable, const KSt
     m_pid = 0;
     process = p;
     m_executable = executable;
-    connect(process, SIGNAL(finished(int,QProcess::ExitStatus)),
-            this, SLOT(slotProcessExited(int,QProcess::ExitStatus)));
+    connect(process, QOverload<int,QProcess::ExitStatus>::of(&QProcess::finished),
+            this, &KProcessRunner::slotProcessExited);
 
     process->start();
     if (!process->waitForStarted()) {

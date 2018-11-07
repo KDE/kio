@@ -37,6 +37,7 @@ typedef QList<KServiceAction> ServiceList;
 class KFileItemActionsPrivate : public QObject
 {
     Q_OBJECT
+    friend class KFileItemActions;
 public:
     explicit KFileItemActionsPrivate(KFileItemActions *qq);
     ~KFileItemActionsPrivate();
