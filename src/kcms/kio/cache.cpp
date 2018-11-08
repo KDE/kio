@@ -66,11 +66,16 @@ void CacheConfigModule::load()
       ui.rbCacheIfPossible->setChecked( true );
 
   // Config changed notifications...
-  connect ( ui.cbUseCache, SIGNAL(toggled(bool)), SLOT(configChanged()) );
-  connect ( ui.rbVerifyCache, SIGNAL(toggled(bool)), SLOT(configChanged()) );
-  connect ( ui.rbOfflineMode, SIGNAL(toggled(bool)), SLOT(configChanged()) );
-  connect ( ui.rbCacheIfPossible, SIGNAL(toggled(bool)), SLOT(configChanged()) );
-  connect ( ui.sbMaxCacheSize, SIGNAL(valueChanged(int)), SLOT(configChanged()) );
+  connect(ui.cbUseCache, &QAbstractButton::toggled,
+          this, &CacheConfigModule::configChanged);
+  connect(ui.rbVerifyCache, &QAbstractButton::toggled,
+          this, &CacheConfigModule::configChanged);
+  connect(ui.rbOfflineMode, &QAbstractButton::toggled,
+          this, &CacheConfigModule::configChanged);
+  connect(ui.rbCacheIfPossible, &QAbstractButton::toggled,
+          this, &CacheConfigModule::configChanged);
+  connect(ui.sbMaxCacheSize, QOverload<int>::of(&QSpinBox::valueChanged),
+          this, &CacheConfigModule::configChanged);
   emit changed( false );
 }
 

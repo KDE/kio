@@ -79,8 +79,8 @@ UserAgentSelectorDlg::UserAgentSelectorDlg (UserAgentInfo* info, QWidget* parent
     mButtonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     mainLayout->addWidget(mButtonBox);
 
-    connect(mButtonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(mButtonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(mButtonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(mButtonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 
     if (!mUserAgentInfo) {
         setEnabled (false);
@@ -97,10 +97,10 @@ UserAgentSelectorDlg::UserAgentSelectorDlg (UserAgentInfo* info, QWidget* parent
     mUi.siteLineEdit->setValidator (validator);
     mUi.siteLineEdit->setFocus();
 
-    connect (mUi.siteLineEdit, SIGNAL (textEdited(QString)),
-             SLOT (onHostNameChanged(QString)));
-    connect (mUi.aliasComboBox, SIGNAL (activated(QString)),
-             SLOT (onAliasChanged(QString)));
+    connect (mUi.siteLineEdit, &QLineEdit::textEdited,
+             this, &UserAgentSelectorDlg::onHostNameChanged);
+    connect (mUi.aliasComboBox, QOverload<const QString &>::of(&QComboBox::activated),
+             this, &UserAgentSelectorDlg::onAliasChanged);
 
     mButtonBox->button(QDialogButtonBox::Ok)->setEnabled (false);
 }

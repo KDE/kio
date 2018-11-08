@@ -37,12 +37,14 @@ KCookiesMain::KCookiesMain (QWidget* parent, const QVariantList&)
 
     policies = new KCookiesPolicies (this);
     tab->addTab (policies, i18n ("&Policy"));
-    connect (policies, SIGNAL (changed(bool)), SIGNAL (changed(bool)));
+    connect(policies, QOverload<bool>::of(&KCModule::changed),
+            this, QOverload<bool>::of(&KCModule::changed));
 
     if (managerOK) {
         management = new KCookiesManagement (this);
         tab->addTab (management, i18n ("&Management"));
-        connect (management, SIGNAL (changed(bool)), SIGNAL (changed(bool)));
+        connect(management, QOverload<bool>::of(&KCModule::changed),
+                this, QOverload<bool>::of(&KCModule::changed));
     }
 }
 

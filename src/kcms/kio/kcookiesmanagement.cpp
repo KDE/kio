@@ -116,7 +116,7 @@ KCookiesManagement::KCookiesManagement(QWidget *parent)
   mUi.setupUi(this);
   mUi.searchLineEdit->setTreeWidget(mUi.cookiesTreeWidget);
   mUi.cookiesTreeWidget->setColumnWidth(0, 150);
-  connect(mUi.cookiesTreeWidget, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), SLOT(on_configPolicyButton_clicked()));
+  connect(mUi.cookiesTreeWidget, &QTreeWidget::itemDoubleClicked, this, &KCookiesManagement::on_configPolicyButton_clicked);
 }
 
 KCookiesManagement::~KCookiesManagement()

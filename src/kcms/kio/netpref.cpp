@@ -42,25 +42,29 @@ KIOPreferences::KIOPreferences(QWidget *parent, const QVariantList &)
     QFormLayout* timeoutLayout = new QFormLayout(gb_Timeout);
     sb_socketRead = new KPluralHandlingSpinBox( this );
     sb_socketRead->setSuffix( ki18np( " second", " seconds" ) );
-    connect(sb_socketRead, SIGNAL(valueChanged(int)), SLOT(configChanged()));
+    connect(sb_socketRead, QOverload<int>::of(&QSpinBox::valueChanged),
+            this, &KIOPreferences::configChanged);
     timeoutLayout->addRow(i18n( "Soc&ket read:" ), sb_socketRead);
 
     sb_proxyConnect = new KPluralHandlingSpinBox( this );
     sb_proxyConnect->setValue(0);
     sb_proxyConnect->setSuffix( ki18np( " second", " seconds" ) );
-    connect(sb_proxyConnect, SIGNAL(valueChanged(int)), SLOT(configChanged()));
+    connect(sb_proxyConnect, QOverload<int>::of(&QSpinBox::valueChanged),
+            this, &KIOPreferences::configChanged);
     timeoutLayout->addRow(i18n( "Pro&xy connect:" ), sb_proxyConnect);
 
     sb_serverConnect = new KPluralHandlingSpinBox( this );
     sb_serverConnect->setValue(0);
     sb_serverConnect->setSuffix( ki18np( " second", " seconds" ) );
-    connect(sb_serverConnect, SIGNAL(valueChanged(int)), SLOT(configChanged()));
+    connect(sb_serverConnect, QOverload<int>::of(&QSpinBox::valueChanged),
+            this, &KIOPreferences::configChanged);
     timeoutLayout->addRow(i18n("Server co&nnect:"), sb_serverConnect);
 
     sb_serverResponse = new KPluralHandlingSpinBox( this );
     sb_serverResponse->setValue(0);
     sb_serverResponse->setSuffix( ki18np( " second", " seconds" ) );
-    connect(sb_serverResponse, SIGNAL(valueChanged(int)), SLOT(configChanged()));
+    connect(sb_serverResponse, QOverload<int>::of(&QSpinBox::valueChanged),
+            this, &KIOPreferences::configChanged);
     timeoutLayout->addRow(i18n("&Server response:"), sb_serverResponse);
 
     QGroupBox* gb_Global = new QGroupBox( i18n( "Global Options" ), this );
@@ -75,7 +79,8 @@ KIOPreferences::KIOPreferences(QWidget *parent, const QVariantList &)
                                            "will have a \".part\" extension. "
                                            "This extension will be removed "
                                            "once the transfer is complete.</p>") );
-    connect(cb_globalMarkPartial, SIGNAL(toggled(bool)), SLOT(configChanged()));
+    connect(cb_globalMarkPartial, &QAbstractButton::toggled,
+            this, &KIOPreferences::configChanged);
     globalLayout->addWidget(cb_globalMarkPartial);
 
     gb_Ftp = new QGroupBox( i18n( "FTP Options" ), this );
@@ -86,7 +91,8 @@ KIOPreferences::KIOPreferences(QWidget *parent, const QVariantList &)
     cb_ftpEnablePasv->setWhatsThis( i18n("Enables FTP's \"passive\" mode. "
                                          "This is required to allow FTP to "
                                          "work from behind firewalls.") );
-    connect(cb_ftpEnablePasv, SIGNAL(toggled(bool)), SLOT(configChanged()));
+    connect(cb_ftpEnablePasv, &QAbstractButton::toggled,
+            this, &KIOPreferences::configChanged);
     ftpLayout->addWidget(cb_ftpEnablePasv);
 
     cb_ftpMarkPartial = new QCheckBox( i18n( "Mark &partially uploaded files" ), this );
@@ -96,7 +102,8 @@ KIOPreferences::KIOPreferences(QWidget *parent, const QVariantList &)
                                            "will have a \".part\" extension. "
                                            "This extension will be removed "
                                            "once the transfer is complete.</p>") );
-    connect(cb_ftpMarkPartial, SIGNAL(toggled(bool)), SLOT(configChanged()));
+    connect(cb_ftpMarkPartial, &QAbstractButton::toggled,
+            this, &KIOPreferences::configChanged);
     ftpLayout->addWidget(cb_ftpMarkPartial);
 
     mainLayout->addStretch( 1 );

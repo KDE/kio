@@ -81,8 +81,8 @@ SMBRoOptions::SMBRoOptions(QWidget *parent, const QVariantList &)
    layout->addWidget(new QWidget(this),4,0);
 
 //   connect(m_showHiddenShares, SIGNAL(toggled(bool)), this, SLOT(changed()));
-   connect(m_userLe, SIGNAL(textChanged(QString)), this, SLOT(changed()));
-   connect(m_passwordLe, SIGNAL(textChanged(QString)), this, SLOT(changed()));
+   connect(m_userLe, &QLineEdit::textChanged, this, &SMBRoOptions::changed);
+   connect(m_passwordLe, &QLineEdit::textChanged, this, &SMBRoOptions::changed);
 //   connect(m_workgroupLe, SIGNAL(textChanged(QString)), this, SLOT(changed()));
 //   connect( m_encodingList, SIGNAL(activated(QString)), this , SLOT(changed()) );
 

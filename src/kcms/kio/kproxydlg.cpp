@@ -240,40 +240,40 @@ KProxyDialog::KProxyDialog(QWidget* parent, const QVariantList& args)
     mUi.manualNoProxyEdit->setValidator(v);
 
 #if defined(Q_OS_LINUX) || defined (Q_OS_UNIX)
-    connect(mUi.systemProxyRadioButton, SIGNAL(toggled(bool)), mUi.systemProxyGroupBox, SLOT(setVisible(bool)));
+    connect(mUi.systemProxyRadioButton, &QAbstractButton::toggled, mUi.systemProxyGroupBox, &QWidget::setVisible);
 #else
     mUi.autoDetectButton->setVisible(false);
     connect(mUi.systemProxyRadioButton, SIGNAL(clicked()), SLOT(slotChanged()));
 #endif
 
     // signals and slots connections
-    connect(mUi.noProxyRadioButton, SIGNAL(clicked()), SLOT(slotChanged()));
-    connect(mUi.autoDiscoverProxyRadioButton, SIGNAL(clicked()), SLOT(slotChanged()));
-    connect(mUi.autoScriptProxyRadioButton, SIGNAL(clicked()), SLOT(slotChanged()));
-    connect(mUi.manualProxyRadioButton, SIGNAL(clicked()), SLOT(slotChanged()));
-    connect(mUi.systemProxyRadioButton, SIGNAL(clicked()), SLOT(slotChanged()));
-    connect(mUi.noProxyRadioButton, SIGNAL(clicked()), SLOT(slotChanged()));
-    connect(mUi.useReverseProxyCheckBox, SIGNAL(clicked()), SLOT(slotChanged()));
-    connect(mUi.useSameProxyCheckBox, SIGNAL(clicked()), SLOT(slotChanged()));
+    connect(mUi.noProxyRadioButton, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
+    connect(mUi.autoDiscoverProxyRadioButton, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
+    connect(mUi.autoScriptProxyRadioButton, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
+    connect(mUi.manualProxyRadioButton, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
+    connect(mUi.systemProxyRadioButton, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
+    connect(mUi.noProxyRadioButton, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
+    connect(mUi.useReverseProxyCheckBox, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
+    connect(mUi.useSameProxyCheckBox, &QAbstractButton::clicked, this, &KProxyDialog::slotChanged);
 
-    connect(mUi.proxyScriptUrlRequester, SIGNAL(textChanged(QString)), SLOT(slotChanged()));
+    connect(mUi.proxyScriptUrlRequester, &KUrlRequester::textChanged, this, &KProxyDialog::slotChanged);
 
-    connect(mUi.manualProxyHttpEdit, SIGNAL(textChanged(QString)), SLOT(slotChanged()));
-    connect(mUi.manualProxyHttpsEdit, SIGNAL(textChanged(QString)), SLOT(slotChanged()));
-    connect(mUi.manualProxyFtpEdit, SIGNAL(textChanged(QString)), SLOT(slotChanged()));
-    connect(mUi.manualProxySocksEdit, SIGNAL(textChanged(QString)), SLOT(slotChanged()));
-    connect(mUi.manualNoProxyEdit, SIGNAL(textChanged(QString)), SLOT(slotChanged()));
+    connect(mUi.manualProxyHttpEdit, &QLineEdit::textChanged, this, &KProxyDialog::slotChanged);
+    connect(mUi.manualProxyHttpsEdit, &QLineEdit::textChanged, this, &KProxyDialog::slotChanged);
+    connect(mUi.manualProxyFtpEdit, &QLineEdit::textChanged, this, &KProxyDialog::slotChanged);
+    connect(mUi.manualProxySocksEdit, &QLineEdit::textChanged, this, &KProxyDialog::slotChanged);
+    connect(mUi.manualNoProxyEdit, &QLineEdit::textChanged, this, &KProxyDialog::slotChanged);
 
-    connect(mUi.manualProxyHttpSpinBox, SIGNAL(valueChanged(int)), SLOT(slotChanged()));
-    connect(mUi.manualProxyHttpsSpinBox, SIGNAL(valueChanged(int)), SLOT(slotChanged()));
-    connect(mUi.manualProxyFtpSpinBox, SIGNAL(valueChanged(int)), SLOT(slotChanged()));
-    connect(mUi.manualProxySocksSpinBox, SIGNAL(valueChanged(int)), SLOT(slotChanged()));
+    connect(mUi.manualProxyHttpSpinBox, QOverload<int>::of(&QSpinBox::valueChanged), this, &KProxyDialog::slotChanged);
+    connect(mUi.manualProxyHttpsSpinBox, QOverload<int>::of(&QSpinBox::valueChanged), this, &KProxyDialog::slotChanged);
+    connect(mUi.manualProxyFtpSpinBox, QOverload<int>::of(&QSpinBox::valueChanged), this, &KProxyDialog::slotChanged);
+    connect(mUi.manualProxySocksSpinBox, QOverload<int>::of(&QSpinBox::valueChanged), this, &KProxyDialog::slotChanged);
 
-    connect(mUi.systemProxyHttpEdit, SIGNAL(textEdited(QString)), SLOT(slotChanged()));
-    connect(mUi.systemProxyHttpsEdit, SIGNAL(textEdited(QString)), SLOT(slotChanged()));
-    connect(mUi.systemProxyFtpEdit, SIGNAL(textEdited(QString)), SLOT(slotChanged()));
-    connect(mUi.systemProxySocksEdit, SIGNAL(textEdited(QString)), SLOT(slotChanged()));
-    connect(mUi.systemNoProxyEdit, SIGNAL(textEdited(QString)), SLOT(slotChanged()));
+    connect(mUi.systemProxyHttpEdit, &QLineEdit::textEdited, this, &KProxyDialog::slotChanged);
+    connect(mUi.systemProxyHttpsEdit, &QLineEdit::textEdited, this, &KProxyDialog::slotChanged);
+    connect(mUi.systemProxyFtpEdit, &QLineEdit::textEdited, this, &KProxyDialog::slotChanged);
+    connect(mUi.systemProxySocksEdit, &QLineEdit::textEdited, this, &KProxyDialog::slotChanged);
+    connect(mUi.systemNoProxyEdit, &QLineEdit::textEdited, this, &KProxyDialog::slotChanged);
 }
 
 KProxyDialog::~KProxyDialog()
