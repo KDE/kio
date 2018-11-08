@@ -93,7 +93,7 @@ int main(int argc, char **argv)
 #ifdef Q_OS_WIN
     // enter debugger in case debugging is activated
     QString slaveDebugWait(QString::fromLocal8Bit(qgetenv("KDE_SLAVE_DEBUG_WAIT")));
-    if (slaveDebugWait == QLatin1String("all") || slaveDebugWait == argv[2]) {
+    if (slaveDebugWait == QLatin1String("all") || slaveDebugWait == QString::fromLocal8Bit(argv[2])) {
 # ifdef Q_CC_MSVC
         // msvc debugger or windbg supports jit debugging, the latter requires setting up windbg jit with windbg -i
         DebugBreak();
@@ -111,12 +111,13 @@ int main(int argc, char **argv)
 # if defined(Q_CC_MSVC) && !defined(_WIN32_WCE)
     else {
         QString slaveDebugPopup(QString::fromLocal8Bit(qgetenv("KDE_SLAVE_DEBUG_POPUP")));
-        if (slaveDebugPopup == QLatin1String("all") || slaveDebugPopup == argv[2]) {
+        if (slaveDebugPopup == QLatin1String("all") || slaveDebugPopup == QString::fromLocal8Bit(argv[2])) {
             // A workaround for OSes where DebugBreak() does not work in administrative mode (actually Vista with msvc 2k5)
             // - display a native message box so developer can attach the debugger to the KIO slave process and click OK.
             MessageBoxA(NULL,
-                        QStringLiteral("Please attach the debugger to process #%1 (%2)").arg(getpid()).arg(argv[0]).toLatin1(),
-                        QStringLiteral("\"%1\" KIO Slave Debugging").arg(argv[2]).toLatin1(), MB_OK | MB_ICONINFORMATION | MB_TASKMODAL);
+                        QStringLiteral("Please attach the debugger to process #%1 (%2)").arg(getpid()).arg(QString::fromLocal8Bit(argv[0])).toLatin1().constData(),
+                        QStringLiteral("\"%1\" KIO Slave Debugging").arg(QString::fromLocal8Bit(argv[2])).toLatin1().constData(),
+                        MB_OK | MB_ICONINFORMATION | MB_TASKMODAL);
         }
     }
 # endif
