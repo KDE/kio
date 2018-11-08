@@ -124,8 +124,8 @@ void KImageFilePreview::showPreview(const QUrl &url, bool force)
     if (d->m_job) {
         disconnect(d->m_job, SIGNAL(result(KJob*)),
                    this, SLOT(_k_slotResult(KJob*)));
-        disconnect(d->m_job, SIGNAL(gotPreview(KFileItem,QPixmap)),
-                   this, SLOT(gotPreview(KFileItem,QPixmap)));
+        disconnect(d->m_job, &KIO::PreviewJob::gotPreview,
+                   this, &KImageFilePreview::gotPreview);
 
         disconnect(d->m_job, SIGNAL(failed(KFileItem)),
                    this, SLOT(_k_slotFailed(KFileItem)));
@@ -140,8 +140,8 @@ void KImageFilePreview::showPreview(const QUrl &url, bool force)
 
     connect(d->m_job, SIGNAL(result(KJob*)),
             this, SLOT(_k_slotResult(KJob*)));
-    connect(d->m_job, SIGNAL(gotPreview(KFileItem,QPixmap)),
-            SLOT(gotPreview(KFileItem,QPixmap)));
+    connect(d->m_job, &KIO::PreviewJob::gotPreview,
+            this, &KImageFilePreview::gotPreview);
 
     connect(d->m_job, SIGNAL(failed(KFileItem)),
             this, SLOT(_k_slotFailed(KFileItem)));

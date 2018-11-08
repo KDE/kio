@@ -395,8 +395,8 @@ KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent) :
     setLayoutDirection(Qt::LeftToRight);
     setDirLister(new KDirLister());
 
-    connect(&d->completion, SIGNAL(match(QString)),
-            SLOT(slotCompletionMatch(QString)));
+    connect(&d->completion, &KCompletion::match,
+            this, &KDirOperator::slotCompletionMatch);
 
     d->progressBar = new QProgressBar(this);
     d->progressBar->setObjectName(QStringLiteral("d->progressBar"));
@@ -1885,13 +1885,13 @@ void KDirOperator::setupActions()
     d->actionCollection->addAction(QStringLiteral("trash"), trash);
     trash->setIcon(QIcon::fromTheme(QStringLiteral("user-trash")));
     trash->setShortcut(Qt::Key_Delete);
-    connect(trash, SIGNAL(triggered(bool)), SLOT(trashSelected()));
+    connect(trash, &QAction::triggered, this, &KDirOperator::trashSelected);
 
     QAction *action = new QAction(i18n("Delete"), this);
     d->actionCollection->addAction(QStringLiteral("delete"), action);
     action->setIcon(QIcon::fromTheme(QStringLiteral("edit-delete")));
     action->setShortcut(Qt::SHIFT + Qt::Key_Delete);
-    connect(action, SIGNAL(triggered(bool)), this, SLOT(deleteSelected()));
+    connect(action, &QAction::triggered, this, &KDirOperator::deleteSelected);
 
     // the sort menu actions
     KActionMenu *sortMenu = new KActionMenu(i18n("Sorting"), this);

@@ -88,8 +88,8 @@ KNameAndUrlInputDialog::KNameAndUrlInputDialog(const QString &nameLabel, const Q
 
     d->m_buttonBox = new QDialogButtonBox(this);
     d->m_buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    connect(d->m_buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(d->m_buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(d->m_buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(d->m_buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     topLayout->addWidget(d->m_buttonBox);
 
     d->m_fileNameEdited = false;

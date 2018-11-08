@@ -46,7 +46,7 @@ KUrlNavigatorProtocolCombo::KUrlNavigatorProtocolCombo(const QString &protocol, 
     m_categories()
 {
     m_menu = new QMenu(this);
-    connect(m_menu, SIGNAL(triggered(QAction*)), this, SLOT(setProtocol(QAction*)));
+    connect(m_menu, &QMenu::triggered, this, QOverload<QAction*>::of(&KUrlNavigatorProtocolCombo::setProtocol));
     setText(protocol);
     setMenu(m_menu);
 }

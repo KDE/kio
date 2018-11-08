@@ -60,9 +60,9 @@ KUrlNavigatorButton::KUrlNavigatorButton(const QUrl &url, QWidget *parent) :
     m_openSubDirsTimer = new QTimer(this);
     m_openSubDirsTimer->setSingleShot(true);
     m_openSubDirsTimer->setInterval(300);
-    connect(m_openSubDirsTimer, SIGNAL(timeout()), this, SLOT(startSubDirsJob()));
+    connect(m_openSubDirsTimer, &QTimer::timeout, this, &KUrlNavigatorButton::startSubDirsJob);
 
-    connect(this, SIGNAL(pressed()), this, SLOT(requestSubDirs()));
+    connect(this, &QAbstractButton::pressed, this, &KUrlNavigatorButton::requestSubDirs);
 }
 
 KUrlNavigatorButton::~KUrlNavigatorButton()
@@ -89,8 +89,8 @@ void KUrlNavigatorButton::setUrl(const QUrl &url)
     if (startTextResolving) {
         m_pendingTextChange = true;
         KIO::StatJob *job = KIO::stat(m_url, KIO::HideProgressInfo);
-        connect(job, SIGNAL(result(KJob*)),
-                this, SLOT(statFinished(KJob*)));
+        connect(job, &KJob::result,
+                this, &KUrlNavigatorButton::statFinished);
         emit startedTextResolving();
     } else {
         setText(m_url.fileName().replace(QLatin1Char('&'), QLatin1String("&&")));
@@ -407,13 +407,13 @@ void KUrlNavigatorButton::startSubDirsJob()
     m_subDirsJob = KIO::listDir(url, KIO::HideProgressInfo, false /*no hidden files*/);
     m_subDirs.clear(); // just to be ++safe
 
-    connect(m_subDirsJob, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
-            this, SLOT(addEntriesToSubDirs(KIO::Job*,KIO::UDSEntryList)));
+    connect(m_subDirsJob, &KIO::ListJob::entries,
+            this, &KUrlNavigatorButton::addEntriesToSubDirs);
 
     if (m_replaceButton) {
-        connect(m_subDirsJob, SIGNAL(result(KJob*)), this, SLOT(replaceButton(KJob*)));
+        connect(m_subDirsJob, &KJob::result, this, &KUrlNavigatorButton::replaceButton);
     } else {
-        connect(m_subDirsJob, SIGNAL(result(KJob*)), this, SLOT(openSubDirsMenu(KJob*)));
+        connect(m_subDirsJob, &KJob::result, this, &KUrlNavigatorButton::openSubDirsMenu);
     }
 }
 
@@ -660,10 +660,10 @@ void KUrlNavigatorButton::updateMinimumWidth()
 
 void KUrlNavigatorButton::initMenu(KUrlNavigatorMenu *menu, int startIndex)
 {
-    connect(menu, SIGNAL(mouseButtonClicked(QAction*,Qt::MouseButton)),
-            this, SLOT(slotMenuActionClicked(QAction*,Qt::MouseButton)));
-    connect(menu, SIGNAL(urlsDropped(QAction*,QDropEvent*)),
-            this, SLOT(urlsDropped(QAction*,QDropEvent*)));
+    connect(menu, &KUrlNavigatorMenu::mouseButtonClicked,
+            this, &KUrlNavigatorButton::slotMenuActionClicked);
+    connect(menu, &KUrlNavigatorMenu::urlsDropped,
+            this, QOverload<QAction*,QDropEvent*>::of(&KUrlNavigatorButton::urlsDropped));
 
     menu->setLayoutDirection(Qt::LeftToRight);
 

@@ -36,6 +36,7 @@ class QPaintEvent;
 
 namespace KIO
 {
+class ListJob;
 class Job;
 }
 
@@ -190,7 +191,7 @@ private:
 
     QString m_subDir;
     QTimer *m_openSubDirsTimer;
-    KIO::Job *m_subDirsJob;
+    KIO::ListJob *m_subDirsJob;
 
     /// pair of name and display name
     QList<QPair<QString, QString> > m_subDirs;

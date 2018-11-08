@@ -33,10 +33,10 @@ KUrlNavigatorToggleButton::KUrlNavigatorToggleButton(QWidget *parent) :
     KUrlNavigatorButtonBase(parent)
 {
     setCheckable(true);
-    connect(this, SIGNAL(toggled(bool)),
-            this, SLOT(updateToolTip()));
-    connect(this, SIGNAL(clicked(bool)),
-            this, SLOT(updateCursor()));
+    connect(this, &QAbstractButton::toggled,
+            this, &KUrlNavigatorToggleButton::updateToolTip);
+    connect(this, &QAbstractButton::clicked,
+            this, &KUrlNavigatorToggleButton::updateCursor);
     m_pixmap = QIcon::fromTheme(QStringLiteral("dialog-ok")).pixmap(QSize(22, 22).expandedTo(iconSize()));
 
 #ifndef QT_NO_ACCESSIBILITY

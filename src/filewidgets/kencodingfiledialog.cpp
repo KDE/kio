@@ -76,10 +76,10 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
     mainLayout->addWidget(d->w);
 
     d->w->okButton()->show();
-    connect(d->w->okButton(), SIGNAL(clicked()), SLOT(slotOk()));
+    connect(d->w->okButton(), &QAbstractButton::clicked, this, &KEncodingFileDialog::slotOk);
     d->w->cancelButton()->show();
-    connect(d->w->cancelButton(), SIGNAL(clicked()), SLOT(slotCancel()));
-    connect(d->w, SIGNAL(accepted()), SLOT(accept()));
+    connect(d->w->cancelButton(), &QAbstractButton::clicked, this, &KEncodingFileDialog::slotCancel);
+    connect(d->w, &KFileWidget::accepted, this, &KEncodingFileDialog::accept);
 
     d->encoding = new KComboBox(this);
     d->w->setCustomWidget(i18n("Encoding:"), d->encoding);

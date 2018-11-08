@@ -505,8 +505,8 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     menu->addAction(coll->action(QStringLiteral("preview")));
 
     menu->setDelayed(false);
-    connect(menu->menu(), SIGNAL(aboutToShow()),
-            d->ops, SLOT(updateSelectionDependentActions()));
+    connect(menu->menu(), &QMenu::aboutToShow,
+            d->ops, &KDirOperator::updateSelectionDependentActions);
 
     d->iconSizeSlider = new QSlider(this);
     d->iconSizeSlider->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
@@ -515,8 +515,8 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     d->iconSizeSlider->setMinimum(0);
     d->iconSizeSlider->setMaximum(100);
     d->iconSizeSlider->installEventFilter(this);
-    connect(d->iconSizeSlider, SIGNAL(valueChanged(int)),
-            d->ops, SLOT(setIconsZoom(int)));
+    connect(d->iconSizeSlider, &QAbstractSlider::valueChanged,
+            d->ops, &KDirOperator::setIconsZoom);
     connect(d->iconSizeSlider, SIGNAL(valueChanged(int)),
             this, SLOT(_k_slotIconSizeChanged(int)));
     connect(d->iconSizeSlider, SIGNAL(sliderMoved(int)),
@@ -558,8 +558,8 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
 
     connect(d->urlNavigator, SIGNAL(urlChanged(QUrl)),
             this,  SLOT(_k_enterUrl(QUrl)));
-    connect(d->urlNavigator, SIGNAL(returnPressed()),
-            d->ops,  SLOT(setFocus()));
+    connect(d->urlNavigator, &KUrlNavigator::returnPressed,
+            d->ops, QOverload<>::of(&QWidget::setFocus));
 
     QString whatsThisText;
 
@@ -606,7 +606,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
 
     d->filterDelayTimer.setSingleShot(true);
     d->filterDelayTimer.setInterval(300);
-    connect(d->filterWidget, SIGNAL(editTextChanged(QString)), &d->filterDelayTimer, SLOT(start()));
+    connect(d->filterWidget, &QComboBox::editTextChanged, &d->filterDelayTimer, QOverload<>::of(&QTimer::start));
     connect(&d->filterDelayTimer, SIGNAL(timeout()), SLOT(_k_slotFilterChanged()));
 
     // the Automatically Select Extension checkbox

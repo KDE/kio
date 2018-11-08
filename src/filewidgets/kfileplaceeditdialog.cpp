@@ -153,7 +153,7 @@ KFilePlaceEditDialog::KFilePlaceEditDialog(bool allowGlobal, const QUrl &url,
     } else {
         m_appLocal = nullptr;
     }
-    connect(m_urlEdit->lineEdit(), SIGNAL(textChanged(QString)), this, SLOT(urlChanged(QString)));
+    connect(m_urlEdit->lineEdit(), &QLineEdit::textChanged, this, &KFilePlaceEditDialog::urlChanged);
     if (!label.isEmpty()) {
         // editing existing entry
         m_labelEdit->setFocus();
@@ -164,8 +164,8 @@ KFilePlaceEditDialog::KFilePlaceEditDialog(bool allowGlobal, const QUrl &url,
 
     m_buttonBox = new QDialogButtonBox(this);
     m_buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    connect(m_buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(m_buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(m_buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(m_buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     box->addWidget(m_buttonBox);
 
     setLayout(box);

@@ -1060,8 +1060,8 @@ void KFilePlacesView::setModel(QAbstractItemModel *model)
     // it after the remove only).
     connect(model, SIGNAL(rowsRemoved(QModelIndex,int,int)),
             this, SLOT(adaptItemSize()), Qt::QueuedConnection);
-    connect(selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
-            d->watcher, SLOT(currentIndexChanged(QModelIndex)));
+    connect(selectionModel(), &QItemSelectionModel::currentChanged,
+            d->watcher, &KFilePlacesEventWatcher::currentIndexChanged);
 }
 
 void KFilePlacesView::rowsInserted(const QModelIndex &parent, int start, int end)

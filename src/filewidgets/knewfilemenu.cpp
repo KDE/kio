@@ -435,7 +435,7 @@ void KNewFileMenuPrivate::confirmCreatingHiddenDir(const QString &name)
                                    QString());
 
     QObject::connect(buttonBox, SIGNAL(accepted()), q, SLOT(_k_slotCreateHiddenDirectory()));
-    QObject::connect(buttonBox, SIGNAL(rejected()), q, SLOT(createDirectory()));
+    QObject::connect(buttonBox, &QDialogButtonBox::rejected, q, &KNewFileMenu::createDirectory);
 
     m_fileDialog = confirmDialog;
     confirmDialog->show();
@@ -524,8 +524,8 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(fileDialog);
     buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    QObject::connect(buttonBox, SIGNAL(accepted()), fileDialog, SLOT(accept()));
-    QObject::connect(buttonBox, SIGNAL(rejected()), fileDialog, SLOT(reject()));
+    QObject::connect(buttonBox, &QDialogButtonBox::accepted, fileDialog, &QDialog::accept);
+    QObject::connect(buttonBox, &QDialogButtonBox::rejected, fileDialog, &QDialog::reject);
 
     layout->addWidget(label);
     layout->addWidget(lineEdit);
@@ -617,7 +617,7 @@ void KNewFileMenuPrivate::executeStrategy()
             KIO::FileUndoManager::self()->recordCopyJob(job);
         }
         KJobWidgets::setWindow(kjob, m_parentWidget);
-        QObject::connect(kjob, SIGNAL(result(KJob*)), q, SLOT(slotResult(KJob*)));
+        QObject::connect(kjob, &KJob::result, q, &KNewFileMenu::slotResult);
     }
 }
 
@@ -869,7 +869,7 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
                                    KMessageBox::NoExec,
                                    QString());
 
-                QObject::connect(buttonBox, SIGNAL(accepted()), q, SLOT(createDirectory()));
+                QObject::connect(buttonBox, &QDialogButtonBox::accepted, q, &KNewFileMenu::createDirectory);
                 m_fileDialog = confirmDialog;
                 confirmDialog->show();
                 _k_slotAbortDialog();
@@ -897,7 +897,7 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
     if (job) {
         // We want the error handling to be done by slotResult so that subclasses can reimplement it
         job->uiDelegate()->setAutoErrorHandlingEnabled(false);
-        QObject::connect(job, SIGNAL(result(KJob*)), q, SLOT(slotResult(KJob*)));
+        QObject::connect(job, &KJob::result, q, &KNewFileMenu::slotResult);
     }
     _k_slotAbortDialog();
 }
@@ -1208,8 +1208,8 @@ void KNewFileMenu::createDirectory()
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(fileDialog);
     buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    QObject::connect(buttonBox, SIGNAL(accepted()), fileDialog, SLOT(accept()));
-    QObject::connect(buttonBox, SIGNAL(rejected()), fileDialog, SLOT(reject()));
+    QObject::connect(buttonBox, &QDialogButtonBox::accepted, fileDialog, &QDialog::accept);
+    QObject::connect(buttonBox, &QDialogButtonBox::rejected, fileDialog, &QDialog::reject);
 
     layout->addWidget(label);
     layout->addWidget(lineEdit);

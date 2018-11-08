@@ -221,8 +221,8 @@ KUrlNavigator::Private::Private(KUrlNavigator *q, KFilePlacesModel *placesModel)
 
     if (placesModel != nullptr) {
         m_placesSelector = new KUrlNavigatorPlacesSelector(q, placesModel);
-        connect(m_placesSelector, SIGNAL(placeActivated(QUrl)),
-                q, SLOT(setLocationUrl(QUrl)));
+        connect(m_placesSelector, &KUrlNavigatorPlacesSelector::placeActivated,
+                q, &KUrlNavigator::setLocationUrl);
         connect(m_placesSelector, &KUrlNavigatorPlacesSelector::tabRequested,
                 q, &KUrlNavigator::tabRequested);
 
@@ -257,8 +257,8 @@ KUrlNavigator::Private::Private(KUrlNavigator *q, KFilePlacesModel *placesModel)
 
     connect(m_pathBox, SIGNAL(returnPressed()),
             q, SLOT(slotReturnPressed()));
-    connect(m_pathBox, SIGNAL(urlActivated(QUrl)),
-            q, SLOT(setLocationUrl(QUrl)));
+    connect(m_pathBox, &KUrlComboBox::urlActivated,
+            q, &KUrlNavigator::setLocationUrl);
     connect(m_pathBox, SIGNAL(editTextChanged(QString)),
             q, SLOT(slotPathBoxChanged(QString)));
 
