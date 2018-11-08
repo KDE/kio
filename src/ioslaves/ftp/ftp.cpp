@@ -471,8 +471,8 @@ bool Ftp::ftpOpenControlConnection(const QString &host, int port)
         port = 21;    // default FTP port
     }
     m_control = synchronousConnectToHost(host, port);
-    connect(m_control, SIGNAL(proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)),
-            this, SLOT(proxyAuthentication(QNetworkProxy,QAuthenticator*)));
+    connect(m_control, &QAbstractSocket::proxyAuthenticationRequired,
+            this, &Ftp::proxyAuthentication);
     int iErrorCode = m_control->state() == QAbstractSocket::ConnectedState ? 0 : ERR_CANNOT_CONNECT;
 
     // on connect success try to read the server message...
@@ -2607,7 +2607,7 @@ void Ftp::proxyAuthentication(const QNetworkProxy &proxy, QAuthenticator *authen
     if (!haveCachedCredentials || m_socketProxyAuth) {
         // Save authentication info if the connection succeeds. We need to disconnect
         // this after saving the auth data (or an error) so we won't save garbage afterwards!
-        connect(m_control, SIGNAL(connected()), this, SLOT(saveProxyAuthentication()));
+        connect(m_control, &QAbstractSocket::connected, this, &Ftp::saveProxyAuthentication);
         //### fillPromptInfo(&info);
         info.prompt = i18n("You need to supply a username and a password for "
                            "the proxy server listed below before you are allowed "
@@ -2639,7 +2639,7 @@ void Ftp::proxyAuthentication(const QNetworkProxy &proxy, QAuthenticator *authen
 void Ftp::saveProxyAuthentication()
 {
     qCDebug(KIO_FTP);
-    disconnect(m_control, SIGNAL(connected()), this, SLOT(saveProxyAuthentication()));
+    disconnect(m_control, &QAbstractSocket::connected, this, &Ftp::saveProxyAuthentication);
     Q_ASSERT(m_socketProxyAuth);
     if (m_socketProxyAuth) {
         qCDebug(KIO_FTP) << "-- realm:" << m_socketProxyAuth->realm() << "user:" << m_socketProxyAuth->user();

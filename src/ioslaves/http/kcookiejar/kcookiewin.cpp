@@ -113,7 +113,7 @@ KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList,
 #ifndef QT_NO_TOOLTIP
     m_detailsButton->setToolTip(i18n("See or modify the cookie information"));
 #endif
-    connect(m_detailsButton, SIGNAL(clicked()), this, SLOT(slotToggleDetails()));
+    connect(m_detailsButton, &QAbstractButton::clicked, this, &KCookieWin::slotToggleDetails);
 
     QPushButton *sessionOnlyButton = new QPushButton;
     sessionOnlyButton->setText(i18n("Accept for this &session"));
@@ -121,7 +121,7 @@ KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList,
 #ifndef QT_NO_TOOLTIP
     sessionOnlyButton->setToolTip(i18n("Accept cookie(s) until the end of the current session"));
 #endif
-    connect(sessionOnlyButton, SIGNAL(clicked()), this, SLOT(slotSessionOnlyClicked()));
+    connect(sessionOnlyButton, &QAbstractButton::clicked, this, &KCookieWin::slotSessionOnlyClicked);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(this);
     buttonBox->addButton(m_detailsButton, QDialogButtonBox::ActionRole);
@@ -130,10 +130,10 @@ KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList,
     buttonBox->setStandardButtons(QDialogButtonBox::Yes | QDialogButtonBox::No);
     QPushButton *but = buttonBox->button(QDialogButtonBox::Yes);
     but->setText(i18n("&Accept"));
-    connect(but, SIGNAL(clicked(bool)), SLOT(accept()));
+    connect(but, &QAbstractButton::clicked, this, &QDialog::accept);
     but = buttonBox->button(QDialogButtonBox::No);
     but->setText(i18n("&Reject"));
-    connect(but, SIGNAL(clicked(bool)), SLOT(reject()));
+    connect(but, &QAbstractButton::clicked, this, &QDialog::reject);
 
     topLayout->addWidget(buttonBox);
 
@@ -309,7 +309,7 @@ KCookieDetail::KCookieDetail(const KHttpCookieList &cookieList, int cookieCount,
         QPushButton *btnNext = new QPushButton(i18nc("Next cookie", "&Next >>"), this);
         btnNext->setFixedSize(btnNext->sizeHint());
         grid->addWidget(btnNext, 8, 0, 1, 2);
-        connect(btnNext, SIGNAL(clicked()), SLOT(slotNextCookie()));
+        connect(btnNext, &QAbstractButton::clicked, this, &KCookieDetail::slotNextCookie);
 #ifndef QT_NO_TOOLTIP
         btnNext->setToolTip(i18n("Show details of the next cookie"));
 #endif

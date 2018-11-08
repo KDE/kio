@@ -54,8 +54,8 @@ void
 HTTPFilterBase::chain(HTTPFilterBase *previous)
 {
     last = previous;
-    connect(last, SIGNAL(output(QByteArray)),
-            this, SLOT(slotInput(QByteArray)));
+    connect(last, &HTTPFilterBase::output,
+            this, &HTTPFilterBase::slotInput);
 }
 
 HTTPFilterChain::HTTPFilterChain()
@@ -73,10 +73,10 @@ HTTPFilterChain::addFilter(HTTPFilterBase *filter)
         filter->chain(last);
     }
     last = filter;
-    connect(filter, SIGNAL(output(QByteArray)),
-            this, SIGNAL(output(QByteArray)));
-    connect(filter, SIGNAL(error(QString)),
-            this, SIGNAL(error(QString)));
+    connect(filter, &HTTPFilterBase::output,
+            this, &HTTPFilterBase::output);
+    connect(filter, &HTTPFilterBase::error,
+            this, &HTTPFilterBase::error);
 }
 
 void

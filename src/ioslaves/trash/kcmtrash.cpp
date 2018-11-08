@@ -57,22 +57,22 @@ TrashConfigModule::TrashConfigModule(QWidget *parent, const QVariantList &)
 
     useTypeChanged();
 
-    connect(mUseTimeLimit, SIGNAL(toggled(bool)),
-            this, SLOT(changed()));
-    connect(mUseTimeLimit, SIGNAL(toggled(bool)),
-            this, SLOT(useTypeChanged()));
-    connect(mDays, SIGNAL(valueChanged(int)),
-            this, SLOT(changed()));
-    connect(mUseSizeLimit, SIGNAL(toggled(bool)),
-            this, SLOT(changed()));
-    connect(mUseSizeLimit, SIGNAL(toggled(bool)),
-            this, SLOT(useTypeChanged()));
-    connect(mPercent, SIGNAL(valueChanged(double)),
-            this, SLOT(percentChanged(double)));
-    connect(mPercent, SIGNAL(valueChanged(double)),
-            this, SLOT(changed()));
-    connect(mLimitReachedAction, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(changed()));
+    connect(mUseTimeLimit, &QAbstractButton::toggled,
+            this, QOverload<>::of(&TrashConfigModule::changed));
+    connect(mUseTimeLimit, &QAbstractButton::toggled,
+            this, &TrashConfigModule::useTypeChanged);
+    connect(mDays, QOverload<int>::of(&QSpinBox::valueChanged),
+            this, QOverload<>::of(&TrashConfigModule::changed));
+    connect(mUseSizeLimit, &QAbstractButton::toggled,
+            this, QOverload<>::of(&TrashConfigModule::changed));
+    connect(mUseSizeLimit, &QAbstractButton::toggled,
+            this, &TrashConfigModule::useTypeChanged);
+    connect(mPercent, QOverload<double>::of(&QDoubleSpinBox::valueChanged),
+            this, &TrashConfigModule::percentChanged);
+    connect(mPercent, QOverload<double>::of(&QDoubleSpinBox::valueChanged),
+            this, QOverload<>::of(&TrashConfigModule::changed));
+    connect(mLimitReachedAction, QOverload<int>::of(&QComboBox::currentIndexChanged),
+            this, QOverload<>::of(&TrashConfigModule::changed));
 
     trashChanged(0);
     trashInitialize = true;
@@ -247,8 +247,8 @@ void TrashConfigModule::setupGui()
 
         mountPoints->setCurrentRow(0);
 
-        connect(mountPoints, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),
-                this, SLOT(trashChanged(QListWidgetItem*)));
+        connect(mountPoints, &QListWidget::currentItemChanged,
+                this, QOverload<QListWidgetItem*>::of(&TrashConfigModule::trashChanged));
     } else {
         mCurrentTrash = map.value(0);
     }

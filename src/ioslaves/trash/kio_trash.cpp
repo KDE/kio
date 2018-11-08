@@ -94,8 +94,8 @@ TrashProtocol::~TrashProtocol()
 void TrashProtocol::enterLoop()
 {
     QEventLoop eventLoop;
-    connect(this, SIGNAL(leaveModality()),
-            &eventLoop, SLOT(quit()));
+    connect(this, &TrashProtocol::leaveModality,
+            &eventLoop, &QEventLoop::quit);
     eventLoop.exec(QEventLoop::ExcludeUserInputEvents);
 }
 
@@ -579,13 +579,13 @@ void TrashProtocol::get(const QUrl &url)
     // Usually we run jobs in TrashImpl (for e.g. future kdedmodule)
     // But for this one we wouldn't use DCOP for every bit of data...
     QUrl fileURL = QUrl::fromLocalFile(physicalPath);
-    KIO::Job *job = KIO::get(fileURL, KIO::NoReload, KIO::HideProgressInfo);
-    connect(job, SIGNAL(data(KIO::Job*,QByteArray)),
-            this, SLOT(slotData(KIO::Job*,QByteArray)));
-    connect(job, SIGNAL(mimetype(KIO::Job*,QString)),
-            this, SLOT(slotMimetype(KIO::Job*,QString)));
-    connect(job, SIGNAL(result(KJob*)),
-            this, SLOT(jobFinished(KJob*)));
+    KIO::TransferJob *job = KIO::get(fileURL, KIO::NoReload, KIO::HideProgressInfo);
+    connect(job, &KIO::TransferJob::data,
+            this, &TrashProtocol::slotData);
+    connect(job,  QOverload<KIO::Job*,const QString&>::of(&KIO::TransferJob::mimetype),
+            this, &TrashProtocol::slotMimetype);
+    connect(job, &KJob::result,
+            this, &TrashProtocol::jobFinished);
     enterLoop();
 }
 

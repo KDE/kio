@@ -112,13 +112,13 @@ KCookieServer::KCookieServer(QObject *parent, const QList<QVariant> &)
     mAdvicePending = false;
     mTimer = new QTimer();
     mTimer->setSingleShot(true);
-    connect(mTimer, SIGNAL(timeout()), SLOT(slotSave()));
+    connect(mTimer, &QTimer::timeout, this, &KCookieServer::slotSave);
     mConfig = new KConfig(QStringLiteral("kcookiejarrc"));
     mCookieJar->loadConfig(mConfig);
     mFilename = getOrCreateCookieJarDir().absoluteFilePath(QStringLiteral("cookies"));
     mCookieJar->loadCookies(mFilename);
-    connect(this, SIGNAL(windowUnregistered(qlonglong)),
-            this, SLOT(slotDeleteSessionCookies(qlonglong)));
+    connect(this, &KDEDModule::windowUnregistered,
+            this, &KCookieServer::slotDeleteSessionCookies);
 }
 
 KCookieServer::~KCookieServer()

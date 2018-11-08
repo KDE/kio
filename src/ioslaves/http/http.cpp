@@ -4393,11 +4393,11 @@ bool HTTPProtocol::readBody(bool dataInternal /* = false */)
 
     // redirection ignores the body
     if (!m_isRedirection) {
-        QObject::connect(&chain, SIGNAL(output(QByteArray)),
-                         this, SLOT(slotData(QByteArray)));
+        QObject::connect(&chain, &HTTPFilterBase::output,
+                         this, &HTTPProtocol::slotData);
     }
-    QObject::connect(&chain, SIGNAL(error(QString)),
-                     this, SLOT(slotFilterError(QString)));
+    QObject::connect(&chain, &HTTPFilterBase::error,
+                     this, &HTTPProtocol::slotFilterError);
 
     // decode all of the transfer encodings
     while (!m_transferEncodings.isEmpty()) {

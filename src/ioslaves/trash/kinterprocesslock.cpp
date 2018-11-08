@@ -86,7 +86,7 @@ void KInterProcessLock::unlock()
 void KInterProcessLock::waitForLockGranted()
 {
     QEventLoop loop;
-    connect(this, SIGNAL(lockGranted(KInterProcessLock*)), &loop, SLOT(quit()));
+    connect(this, &KInterProcessLock::lockGranted, &loop, &QEventLoop::quit);
     loop.exec();
 }
 

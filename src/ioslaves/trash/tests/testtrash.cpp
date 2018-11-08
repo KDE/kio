@@ -1150,8 +1150,8 @@ void TestTrash::listRootDir()
     m_listResult.clear();
     m_displayNameListResult.clear();
     KIO::ListJob *job = KIO::listDir(QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
-    connect(job, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
-            SLOT(slotEntries(KIO::Job*,KIO::UDSEntryList)));
+    connect(job, &KIO::ListJob::entries,
+            this, &TestTrash::slotEntries);
     bool ok = job->exec();
     QVERIFY(ok);
     qDebug() << "listDir done - m_entryCount=" << m_entryCount;
@@ -1170,8 +1170,8 @@ void TestTrash::listRecursiveRootDir()
     m_listResult.clear();
     m_displayNameListResult.clear();
     KIO::ListJob *job = KIO::listRecursive(QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
-    connect(job, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
-            SLOT(slotEntries(KIO::Job*,KIO::UDSEntryList)));
+    connect(job, &KIO::ListJob::entries,
+            this, &TestTrash::slotEntries);
     bool ok = job->exec();
     QVERIFY(ok);
     qDebug() << "listDir done - m_entryCount=" << m_entryCount;
@@ -1197,8 +1197,8 @@ void TestTrash::listSubDir()
     m_listResult.clear();
     m_displayNameListResult.clear();
     KIO::ListJob *job = KIO::listDir(QUrl(QStringLiteral("trash:/0-trashDirFromHome")), KIO::HideProgressInfo);
-    connect(job, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
-            SLOT(slotEntries(KIO::Job*,KIO::UDSEntryList)));
+    connect(job, &KIO::ListJob::entries,
+            this, &TestTrash::slotEntries);
     bool ok = job->exec();
     QVERIFY(ok);
     qDebug() << "listDir done - m_entryCount=" << m_entryCount;

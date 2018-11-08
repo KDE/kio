@@ -375,8 +375,8 @@ QString TrashImpl::makeRelativePath(const QString &topdir, const QString &path)
 void TrashImpl::enterLoop()
 {
     QEventLoop eventLoop;
-    connect(this, SIGNAL(leaveModality()),
-            &eventLoop, SLOT(quit()));
+    connect(this, &TrashImpl::leaveModality,
+            &eventLoop, &QEventLoop::quit);
     eventLoop.exec(QEventLoop::ExcludeUserInputEvents);
 }
 
@@ -477,8 +477,8 @@ bool TrashImpl::move(const QString &src, const QString &dest)
     //qCDebug(KIO_TRASH) << urlSrc << "->" << urlDest;
     KIO::CopyJob *job = KIO::moveAs(urlSrc, urlDest, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
-    connect(job, SIGNAL(result(KJob*)),
-            this, SLOT(jobFinished(KJob*)));
+    connect(job, &KJob::result,
+            this, &TrashImpl::jobFinished);
     enterLoop();
 
     return m_lastErrorCode == 0;
@@ -537,8 +537,8 @@ bool TrashImpl::copy(const QString &src, const QString &dest)
     //qCDebug(KIO_TRASH) << "copying" << src << "to" << dest;
     KIO::CopyJob *job = KIO::copyAs(urlSrc, urlDest, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
-    connect(job, SIGNAL(result(KJob*)),
-            this, SLOT(jobFinished(KJob*)));
+    connect(job, &KJob::result,
+            this, &TrashImpl::jobFinished);
     enterLoop();
 
     return m_lastErrorCode == 0;
@@ -660,14 +660,14 @@ bool TrashImpl::synchronousDel(const QString &path, bool setLastErrorCode, bool 
         KFileItemList fileItemList;
         fileItemList.append(fileItem);
         KIO::ChmodJob *chmodJob = KIO::chmod(fileItemList, 0200, 0200, QString(), QString(), true /*recursive*/, KIO::HideProgressInfo);
-        connect(chmodJob, SIGNAL(result(KJob*)),
-                this, SLOT(jobFinished(KJob*)));
+        connect(chmodJob, &KJob::result,
+                this, &TrashImpl::jobFinished);
         enterLoop();
     }
 
     KIO::DeleteJob *job = KIO::del(url, KIO::HideProgressInfo);
-    connect(job, SIGNAL(result(KJob*)),
-            this, SLOT(jobFinished(KJob*)));
+    connect(job, &KJob::result,
+            this, &TrashImpl::jobFinished);
     enterLoop();
     bool ok = m_lastErrorCode == 0;
     if (!setLastErrorCode) {
