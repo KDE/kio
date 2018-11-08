@@ -131,6 +131,8 @@ ecm_add_tests(
  LINK_LIBRARIES KF5::KIOFileWidgets KF5::KIOWidgets KF5::XmlGui KF5::Bookmarks Qt5::Test KF5::I18n
 )
 
+# TODO: fix symbol exports for windows -> 'KSambaShare::KSambaShare': inconsistent dll linkage 
+if (NOT WIN32)
 ecm_add_test(
     ksambashareprivatetest.cpp
     ../src/core/ksambashare.cpp
@@ -139,6 +141,7 @@ ecm_add_test(
     NAME_PREFIX "kiocore-"
     LINK_LIBRARIES KF5::KIOCore Qt5::Test Qt5::Network
 )
+endif()
 
 set_tests_properties(kiofilewidgets-kfileplacesmodeltest PROPERTIES RUN_SERIAL TRUE)
 set_tests_properties(kiofilewidgets-kfileplacesviewtest PROPERTIES RUN_SERIAL TRUE)
