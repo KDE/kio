@@ -60,11 +60,11 @@ Discovery::Discovery(QObject *parent)
       m_helper(new QProcess(this))
 {
     m_helper->setProcessChannelMode(QProcess::SeparateChannels);
-    connect(m_helper, SIGNAL(readyReadStandardOutput()), SLOT(helperOutput()));
-    connect(m_helper, SIGNAL(finished(int,QProcess::ExitStatus)), SLOT(failed()));
+    connect(m_helper, &QProcess::readyReadStandardOutput, this, &Discovery::helperOutput);
+    connect(m_helper, QOverload<int,QProcess::ExitStatus>::of(&QProcess::finished), this, &Discovery::failed);
     m_helper->start(QStringLiteral(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5 "/kpac_dhcp_helper"), QStringList());
     if (!m_helper->waitForStarted()) {
-        QTimer::singleShot(0, this, SLOT(failed()));
+        QTimer::singleShot(0, this, &Discovery::failed);
     }
 }
 

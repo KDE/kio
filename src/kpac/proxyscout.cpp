@@ -88,7 +88,8 @@ ProxyScout::ProxyScout(QObject *parent, const QList<QVariant> &)
       m_watcher(nullptr),
       m_networkConfig(new QNetworkConfigurationManager(this))
 {
-    connect(m_networkConfig, SIGNAL(configurationChanged(QNetworkConfiguration)), SLOT(disconnectNetwork(QNetworkConfiguration)));
+    connect(m_networkConfig, &QNetworkConfigurationManager::configurationChanged,
+            this, &ProxyScout::disconnectNetwork);
 }
 
 ProxyScout::~ProxyScout()
@@ -182,7 +183,7 @@ bool ProxyScout::startDownload()
         }
         if (!m_downloader) {
             m_downloader = new Discovery(this);
-            connect(m_downloader, SIGNAL(result(bool)), this, SLOT(downloadResult(bool)));
+            connect(m_downloader, QOverload<bool>::of(&Downloader::result), this, &ProxyScout::downloadResult);
         }
         break;
     case KProtocolManager::PACProxy: {
@@ -192,14 +193,14 @@ bool ProxyScout::startDownload()
         }
         if (!m_downloader) {
             m_downloader = new Downloader(this);
-            connect(m_downloader, SIGNAL(result(bool)), this, SLOT(downloadResult(bool)));
+            connect(m_downloader, QOverload<bool>::of(&Downloader::result), this, &ProxyScout::downloadResult);
         }
 
         const QUrl url(KProtocolManager::proxyConfigScript());
         if (url.isLocalFile()) {
             if (!m_watcher) {
                 m_watcher = new QFileSystemWatcher(this);
-                connect(m_watcher, SIGNAL(fileChanged(QString)), SLOT(proxyScriptFileChanged(QString)));
+                connect(m_watcher, &QFileSystemWatcher::fileChanged, this, &ProxyScout::proxyScriptFileChanged);
             }
             proxyScriptFileChanged(url.path());
         } else {

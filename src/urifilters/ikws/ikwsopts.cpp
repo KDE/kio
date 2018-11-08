@@ -140,15 +140,16 @@ int ProvidersModel::rowCount(const QModelIndex & parent) const
 QAbstractListModel* ProvidersModel::createListModel()
 {
   ProvidersListModel* pListModel = new ProvidersListModel(m_providers, this);
-  connect(this, SIGNAL(modelAboutToBeReset()),        pListModel, SIGNAL(modelAboutToBeReset()));
-  connect(this, SIGNAL(modelReset()),                 pListModel, SIGNAL(modelReset()));
+  connect(this, &QAbstractItemModel::modelAboutToBeReset,   pListModel, &QAbstractItemModel::modelAboutToBeReset);
+  connect(this, &QAbstractItemModel::modelReset,            pListModel, &QAbstractItemModel::modelReset);
+  // TODO: next two are private signals, does this still work? and is this needed?
   connect(this, SIGNAL(layoutAboutToBeChanged()),     pListModel, SIGNAL(modelReset()));
   connect(this, SIGNAL(layoutChanged()),              pListModel, SIGNAL(modelReset()));
-  connect(this, SIGNAL(dataChanged(QModelIndex,QModelIndex)),       pListModel, SLOT(emitDataChanged(QModelIndex,QModelIndex)));
-  connect(this, SIGNAL(rowsAboutToBeInserted(QModelIndex,int,int)), pListModel, SLOT(emitRowsAboutToBeInserted(QModelIndex,int,int)));
-  connect(this, SIGNAL(rowsAboutToBeRemoved(QModelIndex,int,int)),  pListModel, SLOT(emitRowsAboutToBeRemoved(QModelIndex,int,int)));
-  connect(this, SIGNAL(rowsInserted(QModelIndex,int,int)),          pListModel, SLOT(emitRowsInserted(QModelIndex,int,int)));
-  connect(this, SIGNAL(rowsRemoved(QModelIndex,int,int)),           pListModel, SLOT(emitRowsRemoved(QModelIndex,int,int)));
+  connect(this, &QAbstractItemModel::dataChanged,           pListModel, &ProvidersListModel::emitDataChanged);
+  connect(this, &QAbstractItemModel::rowsAboutToBeInserted, pListModel, &ProvidersListModel::emitRowsAboutToBeInserted);
+  connect(this, &QAbstractItemModel::rowsAboutToBeRemoved,  pListModel, &ProvidersListModel::emitRowsAboutToBeRemoved);
+  connect(this, &QAbstractItemModel::rowsInserted,          pListModel, &ProvidersListModel::emitRowsInserted);
+  connect(this, &QAbstractItemModel::rowsRemoved,           pListModel, &ProvidersListModel::emitRowsRemoved);
 
   return pListModel;
 }
@@ -241,22 +242,21 @@ FilterOptions::FilterOptions(const KAboutData* about, QWidget *parent)
   m_dlg.cmbDefaultEngine->setModel(wrapInProxyModel(m_providersModel->createListModel()));
 
   // Connect all the signals/slots...
-  connect(m_dlg.cbEnableShortcuts, SIGNAL(toggled(bool)), SLOT(changed()));
-  connect(m_dlg.cbEnableShortcuts, SIGNAL(toggled(bool)), SLOT(updateSearchProviderEditingButons()));
-  connect(m_dlg.cbUseSelectedShortcutsOnly, SIGNAL(toggled(bool)), SLOT(changed()));
+  connect(m_dlg.cbEnableShortcuts,  &QAbstractButton::toggled, this, QOverload<>::of(&FilterOptions::changed));
+  connect(m_dlg.cbEnableShortcuts, &QAbstractButton::toggled, this, &FilterOptions::updateSearchProviderEditingButons);
+  connect(m_dlg.cbUseSelectedShortcutsOnly,  &QAbstractButton::toggled, this, QOverload<>::of(&FilterOptions::changed));
 
-  connect(m_providersModel, SIGNAL(dataModified()), SLOT(changed()));
-  connect(m_dlg.cmbDefaultEngine, SIGNAL(currentIndexChanged(int)),  SLOT(changed()));
-  connect(m_dlg.cmbDelimiter,     SIGNAL(currentIndexChanged(int)),  SLOT(changed()));
+  connect(m_providersModel, &ProvidersModel::dataModified, this, QOverload<>::of(&FilterOptions::changed));
+  connect(m_dlg.cmbDefaultEngine, QOverload<int>::of(&QComboBox::currentIndexChanged), this, QOverload<>::of(&FilterOptions::changed));
+  connect(m_dlg.cmbDelimiter,     QOverload<int>::of(&QComboBox::currentIndexChanged), this, QOverload<>::of(&FilterOptions::changed));
 
-  connect(m_dlg.pbNew,    SIGNAL(clicked()), SLOT(addSearchProvider()));
-  connect(m_dlg.pbDelete, SIGNAL(clicked()), SLOT(deleteSearchProvider()));
-  connect(m_dlg.pbChange, SIGNAL(clicked()), SLOT(changeSearchProvider()));
-  connect(m_dlg.lvSearchProviders->selectionModel(),
-           SIGNAL(currentChanged(QModelIndex,QModelIndex)),
-           SLOT(updateSearchProviderEditingButons()));
-  connect(m_dlg.lvSearchProviders, SIGNAL(doubleClicked(QModelIndex)),SLOT(changeSearchProvider()));
-  connect(m_dlg.searchLineEdit, SIGNAL(textEdited(QString)), searchProviderModel, SLOT(setFilterFixedString(QString)));
+  connect(m_dlg.pbNew,    &QAbstractButton::clicked, this, &FilterOptions::addSearchProvider);
+  connect(m_dlg.pbDelete, &QAbstractButton::clicked, this, &FilterOptions::deleteSearchProvider);
+  connect(m_dlg.pbChange, &QAbstractButton::clicked, this, &FilterOptions::changeSearchProvider);
+  connect(m_dlg.lvSearchProviders->selectionModel(), &QItemSelectionModel::currentChanged,
+           this, &FilterOptions::updateSearchProviderEditingButons);
+  connect(m_dlg.lvSearchProviders, &QAbstractItemView::doubleClicked,this, &FilterOptions::changeSearchProvider);
+  connect(m_dlg.searchLineEdit, &QLineEdit::textEdited, searchProviderModel, &QSortFilterProxyModel::setFilterFixedString);
 }
 
 QString FilterOptions::quickHelp() const

@@ -34,8 +34,8 @@ SearchProviderDialog::SearchProviderDialog(SearchProvider *provider, QList<Searc
     setModal(true);
 
     m_buttons = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
-    connect(m_buttons, SIGNAL(accepted()), SLOT(accept()));
-    connect(m_buttons, SIGNAL(rejected()), SLOT(reject()));
+    connect(m_buttons, &QDialogButtonBox::accepted, this, &SearchProviderDialog::accept);
+    connect(m_buttons, &QDialogButtonBox::rejected, this, &QDialog::reject);
 
     QWidget* mainWidget = new QWidget(this);
     m_dlg.setupUi(mainWidget);
@@ -46,11 +46,11 @@ SearchProviderDialog::SearchProviderDialog(SearchProvider *provider, QList<Searc
 
     m_dlg.leQuery->setMinimumWidth(m_dlg.leQuery->fontMetrics().averageCharWidth() * 50);
 
-    connect(m_dlg.leName,      SIGNAL(textChanged(QString)), SLOT(slotChanged()));
-    connect(m_dlg.leQuery,     SIGNAL(textChanged(QString)), SLOT(slotChanged()));
-    connect(m_dlg.leShortcut,  SIGNAL(textChanged(QString)), SLOT(slotChanged()));
-    connect(m_dlg.leShortcut,  SIGNAL(textChanged(QString)), SLOT(shortcutsChanged(QString)));
-    connect(m_dlg.pbPaste,     SIGNAL(clicked()),            SLOT(pastePlaceholder()));
+    connect(m_dlg.leName,     &QLineEdit::textChanged,   this, &SearchProviderDialog::slotChanged);
+    connect(m_dlg.leQuery,    &QLineEdit::textChanged,   this, &SearchProviderDialog::slotChanged);
+    connect(m_dlg.leShortcut, &QLineEdit::textChanged,   this, &SearchProviderDialog::slotChanged);
+    connect(m_dlg.leShortcut, &QLineEdit::textChanged,   this, &SearchProviderDialog::shortcutsChanged);
+    connect(m_dlg.pbPaste,    &QAbstractButton::clicked, this, &SearchProviderDialog::pastePlaceholder);
 
     // Data init
     m_providers = providers;

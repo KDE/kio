@@ -41,11 +41,12 @@ void Downloader::download(const QUrl &url)
     m_scriptURL = url;
 
     KIO::TransferJob *job = KIO::get(url, KIO::NoReload, KIO::HideProgressInfo);
-    connect(job, SIGNAL(data(KIO::Job*,QByteArray)),
-            SLOT(data(KIO::Job*,QByteArray)));
-    connect(job, SIGNAL(redirection(KIO::Job*,QUrl)),
-            SLOT(redirection(KIO::Job*,QUrl)));
-    connect(job, SIGNAL(result(KJob*)), SLOT(result(KJob*)));
+    connect(job, &KIO::TransferJob::data,
+            this, &Downloader::data);
+    connect(job, &KIO::TransferJob::redirection,
+            this, &Downloader::redirection);
+    connect(job, &KJob::result,
+            this, QOverload<KJob*>::of(&Downloader::result));
 }
 
 void Downloader::failed()

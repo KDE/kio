@@ -78,20 +78,16 @@ KPasswdServer::KPasswdServer(QObject* parent, const QList<QVariant>&)
 
     KPasswdServerAdaptor *adaptor = new KPasswdServerAdaptor(this);
     // connect signals to the adaptor
-    connect(this,
-            SIGNAL(checkAuthInfoAsyncResult(qlonglong,qlonglong,KIO::AuthInfo)),
-            adaptor,
-            SIGNAL(checkAuthInfoAsyncResult(qlonglong,qlonglong,KIO::AuthInfo)));
-    connect(this,
-            SIGNAL(queryAuthInfoAsyncResult(qlonglong,qlonglong,KIO::AuthInfo)),
-            adaptor,
-            SIGNAL(queryAuthInfoAsyncResult(qlonglong,qlonglong,KIO::AuthInfo)));
+    connect(this, &KPasswdServer::checkAuthInfoAsyncResult,
+            adaptor, &KPasswdServerAdaptor::checkAuthInfoAsyncResult);
+    connect(this, &KPasswdServer::queryAuthInfoAsyncResult,
+            adaptor, &KPasswdServerAdaptor::queryAuthInfoAsyncResult);
 
-    connect(this, SIGNAL(windowUnregistered(qlonglong)),
-            this, SLOT(removeAuthForWindowId(qlonglong)));
+    connect(this, &KDEDModule::windowUnregistered,
+            this, &KPasswdServer::removeAuthForWindowId);
 
-    connect(KWindowSystem::self(), SIGNAL(windowRemoved(WId)),
-            this, SLOT(windowRemoved(WId)));
+    connect(KWindowSystem::self(), &KWindowSystem::windowRemoved,
+            this, &KPasswdServer::windowRemoved);
 }
 
 KPasswdServer::~KPasswdServer()
@@ -392,7 +388,7 @@ QByteArray KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &e
     m_authPending.append(request);
 
     if (m_authPending.count() == 1)
-       QTimer::singleShot(0, this, SLOT(processRequest()));
+       QTimer::singleShot(0, this, &KPasswdServer::processRequest);
 
     return QByteArray();        // return value is going to be ignored
 }
@@ -429,7 +425,7 @@ KPasswdServer::queryAuthInfoAsync(const KIO::AuthInfo &info, const QString &erro
     m_authPending.append(request);
 
     if (m_authPending.count() == 1) {
-        QTimer::singleShot(0, this, SLOT(processRequest()));
+        QTimer::singleShot(0, this, &KPasswdServer::processRequest);
     }
 
     return request->requestId;
@@ -568,8 +564,8 @@ KPasswdServer::processRequest()
             prompt += i18n("Do you want to retry?");
 
             QDialog* dlg = new QDialog;
-            connect(dlg, SIGNAL(finished(int)), this, SLOT(retryDialogDone(int)));
-            connect(this, SIGNAL(destroyed(QObject*)), dlg, SLOT(deleteLater()));
+            connect(dlg, &QDialog::finished, this, &KPasswdServer::retryDialogDone);
+            connect(this, &QObject::destroyed, dlg, &QObject::deleteLater);
             dlg->setWindowTitle(i18n("Retry Authentication"));
             dlg->setWindowIcon(QIcon::fromTheme(QStringLiteral("dialog-password")));
             dlg->setObjectName(QStringLiteral("warningOKCancel"));
@@ -864,8 +860,8 @@ void KPasswdServer::showPasswordDialog (KPasswdServer::Request* request)
 #endif
 
     KPasswordDialog* dlg = new KPasswordDialog(nullptr, dialogFlags);
-    connect(dlg, SIGNAL(finished(int)), this, SLOT(passwordDialogDone(int)));
-    connect(this, SIGNAL(destroyed(QObject*)), dlg, SLOT(deleteLater()));
+    connect(dlg, &QDialog::finished, this, &KPasswdServer::passwordDialogDone);
+    connect(this, &QObject::destroyed, dlg, &QObject::deleteLater);
 
     dlg->setPrompt(info.prompt);
     dlg->setUsername(username);
@@ -970,7 +966,7 @@ void KPasswdServer::sendResponse (KPasswdServer::Request* request)
     m_authPrompted.removeAll(request->key);
 
     if (m_authPending.count())
-       QTimer::singleShot(0, this, SLOT(processRequest()));
+       QTimer::singleShot(0, this, &KPasswdServer::processRequest);
 }
 
 void KPasswdServer::passwordDialogDone(int result)
