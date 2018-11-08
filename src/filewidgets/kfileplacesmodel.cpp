@@ -247,8 +247,8 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
                                               QUrl(QStringLiteral("remote:/")), QStringLiteral("folder-network"));
 #if defined(_WIN32_WCE)
         // adding drives
+        const QString driveIcon = QStringLiteral("drive-harddisk");
         foreach (const QFileInfo &info, QDir::drives()) {
-            QString driveIcon = "drive-harddisk";
             KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                                   info.absoluteFilePath(), info.absoluteFilePath(),
                                                   QUrl::fromLocalFile(info.absoluteFilePath()), driveIcon);

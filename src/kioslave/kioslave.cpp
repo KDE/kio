@@ -104,7 +104,7 @@ int main(int argc, char **argv)
         QStringList params;
         params << QString::fromUtf16((const unsigned short *)buf);
         params << QString::number(GetCurrentProcessId());
-        QProcess::startDetached("gdb", params);
+        QProcess::startDetached(QStringLiteral("gdb"), params);
         Sleep(1000);
 # endif
     }
@@ -115,8 +115,8 @@ int main(int argc, char **argv)
             // A workaround for OSes where DebugBreak() does not work in administrative mode (actually Vista with msvc 2k5)
             // - display a native message box so developer can attach the debugger to the KIO slave process and click OK.
             MessageBoxA(NULL,
-                        QString("Please attach the debugger to process #%1 (%2)").arg(getpid()).arg(argv[0]).toLatin1(),
-                        QString("\"%1\" KIO Slave Debugging").arg(argv[2]).toLatin1(), MB_OK | MB_ICONINFORMATION | MB_TASKMODAL);
+                        QStringLiteral("Please attach the debugger to process #%1 (%2)").arg(getpid()).arg(argv[0]).toLatin1(),
+                        QStringLiteral("\"%1\" KIO Slave Debugging").arg(argv[2]).toLatin1(), MB_OK | MB_ICONINFORMATION | MB_TASKMODAL);
         }
     }
 # endif

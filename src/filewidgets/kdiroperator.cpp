@@ -443,7 +443,7 @@ bool KDirOperator::isRoot() const
     if (url().isLocalFile()) {
         const QString path = url().toLocalFile();
         if (path.length() == 3) {
-            return (path[0].isLetter() && path[1] == ':' && path[2] == '/');
+            return (path[0].isLetter() && path[1] == QLatin1Char(':') && path[2] == QLatin1Char('/'));
         }
         return false;
     } else

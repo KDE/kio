@@ -135,7 +135,7 @@ bool KRun::isExecutableFile(const QUrl &url, const QString &mimetype)
         QMimeType mimeType = db.mimeTypeForName(mimetype);
         if (mimeType.inherits(QStringLiteral("application/x-executable")) ||
 #ifdef Q_OS_WIN
-                mimeType.inherits(QLatin1String("application/x-ms-dos-executable")) ||
+                mimeType.inherits(QStringLiteral("application/x-ms-dos-executable")) ||
 #endif
                 mimeType.inherits(QStringLiteral("application/x-executable-script")) ||
                 mimeType.inherits(QStringLiteral("application/x-sharedlib"))
@@ -256,7 +256,7 @@ bool KRun::displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool t
     }
 
 #ifdef Q_OS_WIN
-    KConfigGroup cfgGroup(KSharedConfig::openConfig(), "KOpenWithDialog Settings");
+    KConfigGroup cfgGroup(KSharedConfig::openConfig(), QStringLiteral("KOpenWithDialog Settings"));
     if (cfgGroup.readEntry("Native", true)) {
         return KRun::KRunPrivate::displayNativeOpenWithDialog(lst, window, tempFiles,
                 suggestedFileName, asn);
