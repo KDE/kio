@@ -281,7 +281,7 @@ void ListJobPrivate::start(Slave *slave)
             !(m_extraFlags & EF_ListJobUnrestricted)) {
         q->setError(ERR_ACCESS_DENIED);
         q->setErrorText(m_url.toDisplayString());
-        QTimer::singleShot(0, q, SLOT(slotFinished()));
+        QTimer::singleShot(0, q, &ListJob::slotFinished);
         return;
     }
     QObject::connect(slave, &Slave::listEntries, q,

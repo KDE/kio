@@ -60,7 +60,7 @@ void UserNotificationHandler::requestMessageBox(SlaveInterface *iface, int type,
 
     m_pendingRequests.append(r);
     if (m_pendingRequests.count() == 1) {
-        QTimer::singleShot(0, this, SLOT(processRequest()));
+        QTimer::singleShot(0, this, &UserNotificationHandler::processRequest);
     }
 }
 
@@ -109,6 +109,6 @@ void UserNotificationHandler::processRequest()
     if (m_pendingRequests.isEmpty()) {
         m_cachedResults.clear();
     } else {
-        QTimer::singleShot(0, this, SLOT(processRequest()));
+        QTimer::singleShot(0, this, &UserNotificationHandler::processRequest);
     }
 }

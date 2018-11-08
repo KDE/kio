@@ -59,7 +59,7 @@ void ConnectionServer::listenForRemote()
         return;
     }
 
-    connect(d->backend, SIGNAL(newConnection()), SIGNAL(newConnection()));
+    connect(d->backend, &ConnectionBackend::newConnection, this, &ConnectionServer::newConnection);
     //qDebug() << "Listening on" << d->backend->address;
 }
 

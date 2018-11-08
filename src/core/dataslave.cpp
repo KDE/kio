@@ -62,7 +62,7 @@ DataSlave::DataSlave() :
     //qDebug() << this;
     _suspended = false;
     timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), SLOT(dispatchNext()));
+    connect(timer, &QTimer::timeout, this, &DataSlave::dispatchNext);
 }
 
 DataSlave::~DataSlave()

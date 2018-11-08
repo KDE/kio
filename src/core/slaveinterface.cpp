@@ -44,7 +44,7 @@ Q_GLOBAL_STATIC(UserNotificationHandler, globalUserNotificationHandler)
 SlaveInterface::SlaveInterface(SlaveInterfacePrivate &dd, QObject *parent)
     : QObject(parent), d_ptr(&dd)
 {
-    connect(&d_ptr->speed_timer, SIGNAL(timeout()), SLOT(calcSpeed()));
+    connect(&d_ptr->speed_timer, &QTimer::timeout, this, &SlaveInterface::calcSpeed);
 }
 
 SlaveInterface::~SlaveInterface()

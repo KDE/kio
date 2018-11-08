@@ -42,7 +42,7 @@ void SimpleJobPrivate::simpleJobInit()
         qCWarning(KIO_CORE) << "Invalid URL:" << m_url;
         q->setError(ERR_MALFORMED_URL);
         q->setErrorText(m_url.toString());
-        QTimer::singleShot(0, q, SLOT(slotFinished()));
+        QTimer::singleShot(0, q, &SimpleJob::slotFinished);
         return;
     }
 

@@ -44,7 +44,7 @@ public:
 IdleSlave::IdleSlave(QObject *parent)
     : QObject(parent), d(new IdleSlavePrivate)
 {
-    QObject::connect(&d->mConn, SIGNAL(readyRead()), this, SLOT(gotInput()));
+    QObject::connect(&d->mConn, &Connection::readyRead, this, &IdleSlave::gotInput);
     // Send it a SLAVE_STATUS command.
     d->mConn.send(CMD_SLAVE_STATUS);
     d->mPid = 0;

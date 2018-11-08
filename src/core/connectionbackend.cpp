@@ -117,8 +117,8 @@ bool ConnectionBackend::connectToRemote(const QUrl &url)
             return false;
         }
     }
-    connect(socket, SIGNAL(readyRead()), SLOT(socketReadyRead()));
-    connect(socket, SIGNAL(disconnected()), SLOT(socketDisconnected()));
+    connect(socket, &QIODevice::readyRead, this, &ConnectionBackend::socketReadyRead);
+    connect(socket, &QAbstractSocket::disconnected, this, &ConnectionBackend::socketDisconnected);
     state = Connected;
     return true;
 }
@@ -161,7 +161,7 @@ bool ConnectionBackend::listenForRemote()
             return false;
         }
 
-        connect(localServer, SIGNAL(newConnection()), SIGNAL(newConnection()));
+        connect(localServer, &KLocalSocketServer::newConnection, this, &ConnectionBackend::newConnection);
     } else {
         tcpServer = new QTcpServer(this);
         tcpServer->listen(QHostAddress::LocalHost);
@@ -173,7 +173,7 @@ bool ConnectionBackend::listenForRemote()
         }
 
         address = QUrl(QLatin1String("tcp://127.0.0.1:") + QString::number(tcpServer->serverPort()));
-        connect(tcpServer, SIGNAL(newConnection()), SIGNAL(newConnection()));
+        connect(tcpServer, &QTcpServer::newConnection, this, &ConnectionBackend::newConnection);
     }
 
     state = Listening;
@@ -261,8 +261,8 @@ ConnectionBackend *ConnectionBackend::nextPendingConnection()
     result->state = Connected;
     result->socket = newSocket;
     newSocket->setParent(result);
-    connect(newSocket, SIGNAL(readyRead()), result, SLOT(socketReadyRead()));
-    connect(newSocket, SIGNAL(disconnected()), result, SLOT(socketDisconnected()));
+    connect(newSocket, &QIODevice::readyRead, result, &ConnectionBackend::socketReadyRead);
+    connect(newSocket, &QAbstractSocket::disconnected, result, &ConnectionBackend::socketDisconnected);
 
     return result;
 }

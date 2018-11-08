@@ -77,7 +77,7 @@ int SerialPicker::changedPrioritySerial(int oldSerial, int newPriority) const
 SlaveKeeper::SlaveKeeper()
 {
     m_grimTimer.setSingleShot(true);
-    connect(&m_grimTimer, SIGNAL(timeout()), SLOT(grimReaper()));
+    connect(&m_grimTimer, &QTimer::timeout, this, &SlaveKeeper::grimReaper);
 }
 
 SlaveKeeper::~SlaveKeeper()
@@ -222,7 +222,7 @@ QList<Slave *> HostQueue::allSlaves() const
 ConnectedSlaveQueue::ConnectedSlaveQueue()
 {
     m_startJobsTimer.setSingleShot(true);
-    connect(&m_startJobsTimer, SIGNAL(timeout()), SLOT(startRunnableJobs()));
+    connect(&m_startJobsTimer, &QTimer::timeout, this, &ConnectedSlaveQueue::startRunnableJobs);
 }
 
 bool ConnectedSlaveQueue::queueJob(SimpleJob *job, Slave *slave)
@@ -402,7 +402,7 @@ ProtoQueue::ProtoQueue(int maxSlaves, int maxSlavesPerHost)
     Q_ASSERT(m_maxConnectionsPerHost >= 1);
     Q_ASSERT(maxSlaves >= maxSlavesPerHost);
     m_startJobTimer.setSingleShot(true);
-    connect(&m_startJobTimer, SIGNAL(timeout()), SLOT(startAJob()));
+    connect(&m_startJobTimer, &QTimer::timeout, this, &ProtoQueue::startAJob);
 }
 
 ProtoQueue::~ProtoQueue()

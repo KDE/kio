@@ -31,6 +31,7 @@
 #include <QSslCipher>
 #include <QHostAddress>
 #include <QNetworkProxy>
+#include <QAuthenticator>
 
 static KTcpSocket::SslVersion kSslVersionFromQ(QSsl::SslProtocol protocol)
 {
@@ -409,22 +410,22 @@ KTcpSocket::KTcpSocket(QObject *parent)
 {
     d->advertisedSslVersion = SslV3;
 
-    connect(&d->sock, SIGNAL(aboutToClose()), this, SIGNAL(aboutToClose()));
-    connect(&d->sock, SIGNAL(bytesWritten(qint64)), this, SIGNAL(bytesWritten(qint64)));
-    connect(&d->sock, SIGNAL(encryptedBytesWritten(qint64)), this, SIGNAL(encryptedBytesWritten(qint64)));
+    connect(&d->sock, &QIODevice::aboutToClose, this, &QIODevice::aboutToClose);
+    connect(&d->sock, &QIODevice::bytesWritten, this, &QIODevice::bytesWritten);
+    connect(&d->sock, &QSslSocket::encryptedBytesWritten, this, &KTcpSocket::encryptedBytesWritten);
     connect(&d->sock, SIGNAL(readyRead()), this, SLOT(reemitReadyRead()));
-    connect(&d->sock, SIGNAL(connected()), this, SIGNAL(connected()));
-    connect(&d->sock, SIGNAL(encrypted()), this, SIGNAL(encrypted()));
-    connect(&d->sock, SIGNAL(disconnected()), this, SIGNAL(disconnected()));
+    connect(&d->sock, &QAbstractSocket::connected, this, &KTcpSocket::connected);
+    connect(&d->sock, &QSslSocket::encrypted, this, &KTcpSocket::encrypted);
+    connect(&d->sock, &QAbstractSocket::disconnected, this, &KTcpSocket::disconnected);
 #ifndef QT_NO_NETWORKPROXY
-    connect(&d->sock, SIGNAL(proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)),
-            this, SIGNAL(proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)));
+    connect(&d->sock, &QAbstractSocket::proxyAuthenticationRequired,
+            this, &KTcpSocket::proxyAuthenticationRequired);
 #endif
     connect(&d->sock, SIGNAL(error(QAbstractSocket::SocketError)),
             this, SLOT(reemitSocketError(QAbstractSocket::SocketError)));
     connect(&d->sock, SIGNAL(sslErrors(QList<QSslError>)),
             this, SLOT(reemitSslErrors(QList<QSslError>)));
-    connect(&d->sock, SIGNAL(hostFound()), this, SIGNAL(hostFound()));
+    connect(&d->sock, &QAbstractSocket::hostFound, this, &KTcpSocket::hostFound);
     connect(&d->sock, SIGNAL(stateChanged(QAbstractSocket::SocketState)),
             this, SLOT(reemitStateChanged(QAbstractSocket::SocketState)));
     connect(&d->sock, SIGNAL(modeChanged(QSslSocket::SslMode)),

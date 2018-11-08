@@ -66,8 +66,8 @@ bool KPasswdServerClient::checkAuthInfo(KIO::AuthInfo *info, qlonglong windowId,
 
     // create the loop for waiting for a result before sending the request
     KPasswdServerLoop loop;
-    QObject::connect(m_interface, SIGNAL(checkAuthInfoAsyncResult(qlonglong,qlonglong,KIO::AuthInfo)),
-                     &loop, SLOT(slotQueryResult(qlonglong,qlonglong,KIO::AuthInfo)));
+    QObject::connect(m_interface, &OrgKdeKPasswdServerInterface::checkAuthInfoAsyncResult,
+                     &loop, &KPasswdServerLoop::slotQueryResult);
 
     QDBusReply<qlonglong> reply = m_interface->checkAuthInfoAsync(*info, windowId,
                                   usertime);
@@ -109,8 +109,8 @@ int KPasswdServerClient::queryAuthInfo(KIO::AuthInfo *info, const QString &error
 
     // create the loop for waiting for a result before sending the request
     KPasswdServerLoop loop;
-    QObject::connect(m_interface, SIGNAL(queryAuthInfoAsyncResult(qlonglong,qlonglong,KIO::AuthInfo)),
-                     &loop, SLOT(slotQueryResult(qlonglong,qlonglong,KIO::AuthInfo)));
+    QObject::connect(m_interface, &OrgKdeKPasswdServerInterface::queryAuthInfoAsyncResult,
+                     &loop, &KPasswdServerLoop::slotQueryResult);
 
     QDBusReply<qlonglong> reply = m_interface->queryAuthInfoAsync(*info, errorMsg,
                                   windowId, d->seqNr,

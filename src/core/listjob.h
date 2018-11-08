@@ -104,6 +104,7 @@ protected Q_SLOTS:
 protected:
     ListJob(ListJobPrivate &dd);
     Q_DECLARE_PRIVATE(ListJob)
+    friend class ListJobPrivate;
 };
 
 /**

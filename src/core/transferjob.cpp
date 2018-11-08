@@ -310,8 +310,8 @@ void TransferJobPrivate::start(Slave *slave)
     Q_Q(TransferJob);
     Q_ASSERT(slave);
     JobPrivate::emitTransferring(q, m_url);
-    q->connect(slave, SIGNAL(data(QByteArray)),
-               SLOT(slotData(QByteArray)));
+    q->connect(slave, &SlaveInterface::data,
+               q, &TransferJob::slotData);
 
     if (m_outgoingDataSource) {
         if (m_extraFlags & JobPrivate::EF_TransferJobAsync) {
@@ -333,14 +333,14 @@ void TransferJobPrivate::start(Slave *slave)
                     SLOT(slotDataReqFromDevice()));
         }
     } else
-        q->connect(slave, SIGNAL(dataReq()),
-                   SLOT(slotDataReq()));
+        q->connect(slave, &SlaveInterface::dataReq,
+                   q, &TransferJob::slotDataReq);
 
-    q->connect(slave, SIGNAL(redirection(QUrl)),
-               SLOT(slotRedirection(QUrl)));
+    q->connect(slave, &SlaveInterface::redirection,
+               q, &TransferJob::slotRedirection);
 
-    q->connect(slave, SIGNAL(mimeType(QString)),
-               SLOT(slotMimetype(QString)));
+    q->connect(slave, &SlaveInterface::mimeType,
+               q, &TransferJob::slotMimetype);
 
     q->connect(slave, SIGNAL(errorPage()),
                SLOT(slotErrorPage()));

@@ -93,7 +93,7 @@ class HostInfoAgentPrivate::Query : public QObject
 public:
     Query(): m_watcher(), m_hostName()
     {
-        connect(&m_watcher, SIGNAL(finished()), this, SLOT(relayFinished()));
+        connect(&m_watcher, &QFutureWatcher<QHostInfo>::finished, this, &Query::relayFinished);
     }
     void start(const QString &hostName)
     {
@@ -355,7 +355,7 @@ void HostInfoAgentPrivate::lookupHost(const QString &hostName,
 
     Query *query = new Query();
     openQueries.insert(hostName, query);
-    connect(query, SIGNAL(result(QHostInfo)), this, SLOT(queryFinished(QHostInfo)));
+    connect(query, &Query::result, this, &HostInfoAgentPrivate::queryFinished);
     if (receiver) {
         connect(query, SIGNAL(result(QHostInfo)), receiver, member);
     }

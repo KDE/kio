@@ -190,7 +190,7 @@ void Slave::timeout()
         int delta_t = d->contact_started.elapsed() / 1000;
         //qDebug() << "slave is slow... pid=" << d->m_pid << " t=" << delta_t;
         if (delta_t < SLAVE_CONNECTION_TIMEOUT_MAX) {
-            QTimer::singleShot(1000 * SLAVE_CONNECTION_TIMEOUT_MIN, this, SLOT(timeout()));
+            QTimer::singleShot(1000 * SLAVE_CONNECTION_TIMEOUT_MIN, this, &Slave::timeout);
             return;
         }
     }
@@ -536,7 +536,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
         return nullptr;
     }
     slave->setPID(pid);
-    QTimer::singleShot(1000 * SLAVE_CONNECTION_TIMEOUT_MIN, slave, SLOT(timeout()));
+    QTimer::singleShot(1000 * SLAVE_CONNECTION_TIMEOUT_MIN, slave, &Slave::timeout);
     return slave;
 }
 
@@ -565,7 +565,7 @@ Slave *Slave::holdSlave(const QString &protocol, const QUrl &url)
         return nullptr;
     }
     slave->setPID(pid);
-    QTimer::singleShot(1000 * SLAVE_CONNECTION_TIMEOUT_MIN, slave, SLOT(timeout()));
+    QTimer::singleShot(1000 * SLAVE_CONNECTION_TIMEOUT_MIN, slave, &Slave::timeout);
     return slave;
 }
 

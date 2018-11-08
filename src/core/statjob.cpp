@@ -185,7 +185,7 @@ StatJob *KIO::mostLocalUrl(const QUrl &url, JobFlags flags)
 {
     StatJob *job = stat(url, StatJob::SourceSide, 2, flags);
     if (url.isLocalFile()) {
-        QTimer::singleShot(0, job, SLOT(slotFinished()));
+        QTimer::singleShot(0, job, &StatJob::slotFinished);
         Scheduler::cancelJob(job); // deletes the slave if not 0
     }
     return job;

@@ -365,8 +365,8 @@ DirectCopyJob::~DirectCopyJob()
 void DirectCopyJobPrivate::start(Slave *slave)
 {
     Q_Q(DirectCopyJob);
-    q->connect(slave, SIGNAL(canResume(KIO::filesize_t)),
-               SLOT(slotCanResume(KIO::filesize_t)));
+    q->connect(slave, &SlaveInterface::canResume,
+               q, &DirectCopyJob::slotCanResume);
     SimpleJobPrivate::start(slave);
 }
 
