@@ -819,7 +819,7 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
 //                        count = dir.entryList(QDir::AllEntries|QDir::NoDotAndDotDot|QDir::System).count();
 #ifdef Q_OS_WIN
                         QString s = path + QLatin1String("\\*.*");
-                        s.replace('/', '\\');
+                        s.replace(QLatin1Char('/'), QLatin1Char('\\'));
                         count = 0;
                         WIN32_FIND_DATA findData;
                         HANDLE hFile = FindFirstFile((LPWSTR)s.utf16(), &findData);
