@@ -308,7 +308,7 @@ bool NetRC::lookup(const QUrl &url, AutoLogin &login, bool userealnetrc,
     if (d->loginMap.isEmpty() || d->isDirty) {
         d->loginMap.clear();
 
-        QString filename = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + QLatin1Char('/') + QLatin1String("kionetrc");
+        QString filename = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + QLatin1String("/kionetrc");
         bool kionetrcStatus = parse(filename);
         bool netrcStatus = false;
         if (userealnetrc) {

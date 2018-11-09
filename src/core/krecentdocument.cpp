@@ -48,7 +48,7 @@
 QString KRecentDocument::recentDocumentDirectory()
 {
     // need to change this path, not sure where
-    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + QLatin1String("RecentDocuments/");
+    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/RecentDocuments/");
 }
 
 QStringList KRecentDocument::recentDocuments()
