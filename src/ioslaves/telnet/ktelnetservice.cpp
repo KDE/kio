@@ -20,8 +20,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-#undef QT_NO_CAST_FROM_ASCII
-
 #include <QApplication>
 #include <ktoolinvocation.h>
 #include <kauthorized.h>
@@ -45,7 +43,7 @@ int main(int argc, char **argv)
     KConfigGroup cg(&config, "General");
     QString terminal = cg.readPathEntry("TerminalApplication", QStringLiteral("konsole"));
 
-    QUrl url(argv[1]);
+    QUrl url(QString::fromLocal8Bit(argv[1]));
     QStringList cmd;
     if (terminal == QLatin1String("konsole")) {
         cmd << QStringLiteral("--noclose");
@@ -81,7 +79,7 @@ int main(int argc, char **argv)
         host = url.path();    // telnet:host
     }
 
-    if (host.isEmpty() || host.startsWith('-')) {
+    if (host.isEmpty() || host.startsWith(QLatin1Char('-'))) {
         qCritical() << "Invalid hostname " << host << endl;
         return 2;
     }
