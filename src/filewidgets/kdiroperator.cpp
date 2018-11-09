@@ -448,7 +448,7 @@ bool KDirOperator::isRoot() const
         return false;
     } else
 #endif
-        return url().path() == QString(QLatin1Char('/'));
+        return url().path() == QLatin1String("/");
 }
 
 KDirLister *KDirOperator::dirLister() const
