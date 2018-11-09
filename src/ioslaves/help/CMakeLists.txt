@@ -3,8 +3,6 @@ if (KF5DocTools_FOUND)
 
 project(kioslave-help)
 
-remove_definitions(-DQT_NO_CAST_FROM_ASCII)
-
 find_package(KF5Archive ${KF5_DEP_VERSION} REQUIRED)
 find_package(LibXslt)
 set_package_properties(LibXslt PROPERTIES

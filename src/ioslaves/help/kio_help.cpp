@@ -83,7 +83,7 @@ QString HelpProtocol::langLookup(const QString &fname)
         }
 
         if ((*it).endsWith(QLatin1String(".html"))) {
-            QString file = (*it).left((*it).lastIndexOf('/')) + "/index.docbook";
+            const QString file = (*it).leftRef((*it).lastIndexOf(QLatin1Char('/'))) + QLatin1String("/index.docbook");
             //qDebug() << "Looking for help in: " << file;
             info.setFile(file);
             if (info.exists() && info.isFile() && info.isReadable()) {
@@ -104,11 +104,11 @@ QString HelpProtocol::lookupFile(const QString &fname,
 
     QString result = langLookup(path);
     if (result.isEmpty()) {
-        result = langLookup(path + "/index.html");
+        result = langLookup(path + QLatin1String("/index.html"));
         if (!result.isEmpty()) {
             QUrl red;
             red.setScheme(QStringLiteral("help"));
-            red.setPath(path + "/index.html");
+            red.setPath(path + QLatin1String("/index.html"));
             red.setQuery(query);
             redirection(red);
             //qDebug() << "redirect to " << red;
@@ -144,7 +144,7 @@ void HelpProtocol::sendError(const QString &t)
 HelpProtocol *slave = nullptr;
 
 HelpProtocol::HelpProtocol(bool ghelp, const QByteArray &pool, const QByteArray &app)
-    : SlaveBase(ghelp ? "ghelp" : "help", pool, app), mGhelp(ghelp)
+    : SlaveBase(ghelp ? QByteArrayLiteral("ghelp") : QByteArrayLiteral("help"), pool, app), mGhelp(ghelp)
 {
     slave = this;
 }
@@ -156,17 +156,17 @@ void HelpProtocol::get(const QUrl &url)
 
     bool redirect;
     QString doc = QDir::cleanPath(url.path());
-    if (doc.contains(QStringLiteral(".."))) {
+    if (doc.contains(QLatin1String(".."))) {
         error(KIO::ERR_DOES_NOT_EXIST, url.toString());
         return;
     }
 
     if (!mGhelp) {
-        if (!doc.startsWith('/')) {
+        if (!doc.startsWith(QLatin1Char('/'))) {
             doc = doc.prepend(QLatin1Char('/'));
         }
 
-        if (doc.endsWith('/')) {
+        if (doc.endsWith(QLatin1Char('/'))) {
             doc += QLatin1String("index.html");
         }
     }
@@ -203,13 +203,13 @@ void HelpProtocol::get(const QUrl &url)
             return;
         }
     } else {
-        QString docbook_file = file.left(file.lastIndexOf('/')) + "/index.docbook";
+        const QString docbook_file = file.leftRef(file.lastIndexOf(QLatin1Char('/'))) + QLatin1String("/index.docbook");
         if (!QFile::exists(file)) {
             file = docbook_file;
         } else {
             QFileInfo fi(file);
             if (fi.isDir()) {
-                file = file + "/index.docbook";
+                file = file + QLatin1String("/index.docbook");
             } else {
                 if (!file.endsWith(QLatin1String(".html")) || !compareTimeStamps(file, docbook_file)) {
                     get_file(file);
@@ -235,7 +235,7 @@ void HelpProtocol::get(const QUrl &url)
         } else {
             int pos1 = mParsed.indexOf(QStringLiteral("charset="));
             if (pos1 > 0) {
-                int pos2 = mParsed.indexOf('"', pos1);
+                int pos2 = mParsed.indexOf(QLatin1Char('"'), pos1);
                 if (pos2 > 0) {
                     mParsed.replace(pos1, pos2 - pos1, QStringLiteral("charset=UTF-8"));
                 }
@@ -262,12 +262,12 @@ void HelpProtocol::get(const QUrl &url)
                 // when using usb sticks - this may affect unix/mac systems also
                 const QString installPath = KDocTools::documentationDirs().last();
 
-                QString cache = '/' + fi.absolutePath().remove(installPath, Qt::CaseInsensitive).replace('/', '_') + '_' + fi.baseName() + '.';
+                QString cache = QLatin1Char('/') + fi.absolutePath().remove(installPath, Qt::CaseInsensitive).replace(QLatin1Char('/'), QLatin1Char('_')) + QLatin1Char('_') + fi.baseName() + QLatin1Char('.');
 #else
                 QString cache = file.left(file.length() - 7);
 #endif
                 KDocTools::saveToCache(mParsed, QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation)
-                                       + "/kio_help" + cache + "cache.bz2");
+                                       + QLatin1String("/kio_help") + cache + QLatin1String("cache.bz2"));
             }
         } else {
             infoMessage(i18n("Using cached version"));
@@ -313,9 +313,9 @@ void HelpProtocol::get(const QUrl &url)
                         index = mParsed.lastIndexOf(QLatin1String("<FILENAME filename="), index) +
                                 strlen("<FILENAME filename=\"");
                         QString filename = mParsed.mid(index, 2000);
-                        filename = filename.left(filename.indexOf('\"'));
+                        filename = filename.left(filename.indexOf(QLatin1Char('\"')));
                         QString path = target.path();
-                        path = path.left(path.lastIndexOf('/') + 1) + filename;
+                        path = path.leftRef(path.lastIndexOf(QLatin1Char('/')) + 1) + filename;
                         target.setPath(path);
                         //qDebug() << "anchor found in " << target;
                         break;
@@ -334,7 +334,7 @@ void HelpProtocol::emitFile(const QUrl &url)
 {
     infoMessage(i18n("Looking up section"));
 
-    QString filename = url.path().mid(url.path().lastIndexOf('/') + 1);
+    QString filename = url.path().mid(url.path().lastIndexOf(QLatin1Char('/')) + 1);
 
     QByteArray result = KDocTools::extractFileToBuffer(mParsed, filename);
 

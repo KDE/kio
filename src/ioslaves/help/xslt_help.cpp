@@ -68,7 +68,7 @@ QString lookForCache(const QString &filename)
     Q_ASSERT(QDir::isAbsolutePath(filename));
     QString cache = filename.left(filename.length() - 7);
     QString output;
-    if (readCache(filename, cache + "cache.bz2", output)) {
+    if (readCache(filename, cache + QLatin1String("cache.bz2"), output)) {
         return output;
     }
 #ifdef Q_OS_WIN
@@ -78,10 +78,10 @@ QString lookForCache(const QString &filename)
     // Accessing user data under a different path is possible
     // when using usb sticks - this may affect unix/mac systems also
     const QString installPath = KDocTools::documentationDirs().last();
-    cache = '/' + fi.absolutePath().remove(installPath, Qt::CaseInsensitive).replace('/', '_') + '_' + fi.baseName() + '.';
+    cache = QLatin1Char('/') + fi.absolutePath().remove(installPath, Qt::CaseInsensitive).replace(QLatin1Char('/'), QLatin1Char('_')) + QLatin1Char('_') + fi.baseName() + QLatin1Char('.');
 #endif
     if (readCache(filename,
-                  QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1Char('/') + "kio_help" + cache + "cache.bz2", output)) {
+                  QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/kio_help") + cache + QLatin1String("cache.bz2"), output)) {
         return output;
     }
 
