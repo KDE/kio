@@ -399,7 +399,7 @@ bool Ftp::ftpOpenConnection(LoginMode loginMode)
             realURL.setPort(m_port);
         }
         if (m_initialPath.isEmpty()) {
-            m_initialPath = '/';
+            m_initialPath = QLatin1Char('/');
         }
         realURL.setPath(m_initialPath);
         qCDebug(KIO_FTP) << "User name changed! Redirecting to" << realURL;
@@ -625,7 +625,7 @@ bool Ftp::ftpLogin(bool *userChanged)
         // Prompt user for login info if we do not
         // get back a "230" or "331".
         if (!loggedIn && !needPass) {
-            lastServerResponse = ftpResponse(0);
+            lastServerResponse = QString::fromUtf8(ftpResponse(0));
             qCDebug(KIO_FTP) << "Login failed: " << lastServerResponse;
             ++failedAuth;
             continue;  // Well we failed, prompt the user please!!
@@ -661,7 +661,7 @@ bool Ftp::ftpLogin(bool *userChanged)
         } else {
             // some servers don't let you login anymore
             // if you fail login once, so restart the connection here
-            lastServerResponse = ftpResponse(0);
+            lastServerResponse = QString::fromUtf8(ftpResponse(0));
             if (!ftpOpenControlConnection()) {
                 return false;
             }
@@ -703,12 +703,12 @@ bool Ftp::ftpLogin(bool *userChanged)
     }
 
     QString sTmp = remoteEncoding()->decode(ftpResponse(3));
-    int iBeg = sTmp.indexOf('"');
-    int iEnd = sTmp.lastIndexOf('"');
+    const int iBeg = sTmp.indexOf(QLatin1Char('"'));
+    const int iEnd = sTmp.lastIndexOf(QLatin1Char('"'));
     if (iBeg > 0 && iBeg < iEnd) {
         m_initialPath = sTmp.mid(iBeg + 1, iEnd - iBeg - 1);
-        if (m_initialPath[0] != '/') {
-            m_initialPath.prepend('/');
+        if (m_initialPath[0] != QLatin1Char('/')) {
+            m_initialPath.prepend(QLatin1Char('/'));
         }
         qCDebug(KIO_FTP) << "Initial path set to: " << m_initialPath;
         m_currentPath = m_initialPath;
@@ -724,11 +724,11 @@ void Ftp::ftpAutoLoginMacro()
         return;
     }
 
-    const QStringList list = macro.split('\n', QString::SkipEmptyParts);
+    const QStringList list = macro.split(QLatin1Char('\n'), QString::SkipEmptyParts);
 
     for (QStringList::const_iterator it = list.begin(); it != list.end(); ++it) {
         if ((*it).startsWith(QLatin1String("init"))) {
-            const QStringList list2 = macro.split('\\', QString::SkipEmptyParts);
+            const QStringList list2 = macro.split(QLatin1Char('\\'), QString::SkipEmptyParts);
             it = list2.begin();
             ++it;  // ignore the macro name
 
@@ -1204,7 +1204,7 @@ bool Ftp::ftpRename(const QString &src, const QString &dst, KIO::JobFlags jobFla
     }
 
     // CD into parent folder
-    const int pos = src.lastIndexOf('/');
+    const int pos = src.lastIndexOf(QLatin1Char('/'));
     if (pos >= 0) {
         if (!ftpFolder(src.left(pos + 1), false)) {
             return false;
@@ -1260,7 +1260,7 @@ bool Ftp::ftpChmod(const QString &path, int permissions)
 
     // we need to do bit AND 777 to get permissions, in case
     // we were sent a full mode (unlikely)
-    QString cmd = QLatin1String("SITE CHMOD ") + QString::number(permissions & 511, 8 /*octal*/) + ' ';
+    QString cmd = QLatin1String("SITE CHMOD ") + QString::number(permissions & 511, 8 /*octal*/) + QLatin1Char(' ');
     cmd += path;
 
     ftpSendCmd(remoteEncoding()->encode(cmd));
@@ -1305,7 +1305,7 @@ void Ftp::ftpCreateUDSEntry(const QString &filename, const FtpEntry &ftpEnt, UDS
         entry.fastInsert(KIO::UDSEntry::UDS_LINK_DEST, ftpEnt.link);
 
         QMimeDatabase db;
-        QMimeType mime = db.mimeTypeForUrl(QUrl("ftp://host/" + filename));
+        QMimeType mime = db.mimeTypeForUrl(QUrl(QLatin1String("ftp://host/") + filename));
         // Links on ftp sites are often links to dirs, and we have no way to check
         // that. Let's do like Netscape : assume dirs generally.
         // But we do this only when the mimetype can't be known from the filename.
@@ -1523,7 +1523,7 @@ void Ftp::listDir(const QUrl &url)
             realURL.setPort(m_port);
         }
         if (m_initialPath.isEmpty()) {
-            m_initialPath = '/';
+            m_initialPath = QStringLiteral("/");
         }
         realURL.setPath(m_initialPath);
         qCDebug(KIO_FTP) << "REDIRECTION to " << realURL;
@@ -2332,7 +2332,7 @@ bool Ftp::ftpFolder(const QString &path, bool bReportError)
 {
     QString newPath = path;
     int iLen = newPath.length();
-    if (iLen > 1 && newPath[iLen - 1] == '/') {
+    if (iLen > 1 && newPath[iLen - 1] == QLatin1Char('/')) {
         newPath.truncate(iLen - 1);
     }
 
