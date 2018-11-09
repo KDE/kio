@@ -219,7 +219,7 @@ void KSslCertificateManagerPrivate::loadDefaultCaCertificates()
     KConfig config(QStringLiteral("ksslcablacklist"), KConfig::SimpleConfig);
     KConfigGroup group = config.group("Blacklist of CA Certificates");
 
-    certs.append(QSslCertificate::fromPath(userCertDir + QStringLiteral("*"), QSsl::Pem,
+    certs.append(QSslCertificate::fromPath(userCertDir + QLatin1Char('*'), QSsl::Pem,
                                            QRegExp::Wildcard));
     foreach (const QSslCertificate &cert, certs) {
         const QByteArray digest = cert.digest().toHex();

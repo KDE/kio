@@ -2678,7 +2678,7 @@ void HTTPProtocol::forwardHttpResponseHeader(bool forwardImmediately)
         return;
     }
 
-    setMetaData(QStringLiteral("HTTP-Headers"), m_responseHeaders.join(QString(QLatin1Char('\n'))));
+    setMetaData(QStringLiteral("HTTP-Headers"), m_responseHeaders.join(QLatin1Char('\n')));
 
     if (forwardImmediately) {
         sendMetaData();
@@ -3549,7 +3549,7 @@ endParsing:
         // available to the client before it receives mimetype information.
         // The support for putting ioslaves on hold in the KIO-QNAM integration
         // will break if this line is removed.
-        setMetaData(QStringLiteral("HTTP-Headers"), m_responseHeaders.join(QString(QLatin1Char('\n'))));
+        setMetaData(QStringLiteral("HTTP-Headers"), m_responseHeaders.join(QLatin1Char('\n')));
     }
 
     // Let the app know about the mime-type iff this is not a redirection and
@@ -4742,7 +4742,7 @@ void HTTPProtocol::cacheFileWriteTextHeader()
     writeLine(file, storableUrl(m_request.url).toEncoded());
     writeLine(file, m_request.cacheTag.etag.toLatin1());
     writeLine(file, m_mimeType.toLatin1());
-    writeLine(file, m_responseHeaders.join(QString(QLatin1Char('\n'))).toLatin1());
+    writeLine(file, m_responseHeaders.join(QLatin1Char('\n')).toLatin1());
     // join("\n") adds no \n to the end, but writeLine() does.
     // Add another newline to mark the end of text.
     writeLine(file, QByteArray());

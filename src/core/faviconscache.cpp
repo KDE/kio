@@ -39,7 +39,7 @@ using namespace KIO;
 static QString portForUrl(const QUrl &url)
 {
     if (url.port() > 0) {
-        return QString(QLatin1Char('_')) + QString::number(url.port());
+        return QLatin1Char('_') + QString::number(url.port());
     }
     return QString();
 }

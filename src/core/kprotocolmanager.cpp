@@ -1039,7 +1039,7 @@ QString KProtocolManager::acceptLanguagesHeader()
             header += QString::number(prio);
         }
         // do not add cosmetic whitespace in here : it is less compatible (#220677)
-        header += QL1S(",");
+        header += QL1C(',');
         if (prio > 1) {
             --prio;
         }

@@ -632,7 +632,7 @@ QScriptValue MyIpAddressEx(QScriptContext *context, QScriptEngine *engine)
         }
     }
 
-    return engine->toScriptValue(ipAddressList.join(QStringLiteral(";")));
+    return engine->toScriptValue(ipAddressList.join(QLatin1Char(';')));
 }
 
 // sortIpAddressList(ipAddressList)

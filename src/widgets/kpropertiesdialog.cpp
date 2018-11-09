@@ -3196,7 +3196,7 @@ KDevicePropsPlugin::KDevicePropsPlugin(KPropertiesDialog *_props) : KPropertiesD
         if ((mountPoint != QLatin1String("-")) && (mountPoint != QLatin1String("none")) && !mountPoint.isEmpty()
                 && device != QLatin1String("none")) {
             devices.append(device + QLatin1String(" (")
-                           + mountPoint + QLatin1String(")"));
+                           + mountPoint + QLatin1Char(')'));
             d->m_devicelist.append(device);
             d->mountpointlist.append(mountPoint);
         }

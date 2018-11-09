@@ -393,7 +393,7 @@ bool NetRC::parse(const QString &fileName)
         line = d->fstream.readLine().simplified();
 
         // If line is a comment or is empty, read next line
-        if ((line.startsWith(QLatin1String("#")) || line.isEmpty())) {
+        if ((line.startsWith(QLatin1Char('#')) || line.isEmpty())) {
             continue;
         }
 
@@ -433,7 +433,7 @@ void NetRC::NetRCPrivate::getMachinePart(const QString &line)
     QString buf = line;
     while (!(buf.contains(QStringLiteral("login"))
              && (buf.contains(QStringLiteral("password")) || buf.contains(QStringLiteral("account")) || buf.contains(QStringLiteral("type"))))) {
-        buf += QStringLiteral(" ");
+        buf += QLatin1Char(' ');
         buf += fstream.readLine().simplified();
     }
 
@@ -471,7 +471,7 @@ void NetRC::NetRCPrivate::getMacdefPart(const QString &line)
     while (!fstream.atEnd()) {
         newLine = fstream.readLine().simplified();
         if (!newLine.isEmpty()) {
-            buf += QStringLiteral("\n");
+            buf += QLatin1Char('\n');
             buf += newLine;
         } else {
             break;

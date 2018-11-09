@@ -448,7 +448,7 @@ QSize KFileItemDelegate::Private::displaySizeHint(const QStyleOptionViewItem &op
     // the information string to the label
     const QString info = information(option, index, item);
     if (!info.isEmpty()) {
-        label += QString(QChar::LineSeparator) + info;
+        label += QChar(QChar::LineSeparator) + info;
     }
 
     QTextLayout layout;

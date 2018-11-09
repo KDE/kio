@@ -66,7 +66,7 @@ QStringList KRecentDocument::recentDocuments()
     for (QStringList::ConstIterator it = list.begin(); it != list.end(); ++it) {
         QString fileName = *it;
         QString pathDesktop;
-        if (fileName.startsWith(QLatin1String(":"))) {
+        if (fileName.startsWith(QLatin1Char(':'))) {
             // See: https://bugreports.qt.io/browse/QTBUG-11223
             pathDesktop = KRecentDocument::recentDocumentDirectory() + *it;
         } else {
@@ -147,7 +147,7 @@ void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName)
         QStringList::ConstIterator it;
         it = list.begin();
         while (i > maxEntries - 1) {
-            QFile::remove(dir.absolutePath() + QLatin1String("/") + (*it));
+            QFile::remove(dir.absolutePath() + QLatin1Char('/') + (*it));
             --i;
             ++it;
         }

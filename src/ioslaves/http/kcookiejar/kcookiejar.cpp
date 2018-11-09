@@ -1339,8 +1339,8 @@ bool KCookieJar::saveCookies(const QString &_filename)
                     ts << '[' << domain.toLocal8Bit().data() << "]\n";
                 }
                 // Store persistent cookies
-                const QString path = QL1S("\"") + cookie.path() + QL1C('"');
-                const QString domain = QL1S("\"") + cookie.domain() + QL1C('"');
+                const QString path = QL1C('"') + cookie.path() + QL1C('"');
+                const QString domain = QL1C('"') + cookie.domain() + QL1C('"');
                 const QString host = hostWithPort(&cookie);
 
                 // TODO: replace with direct QTextStream output ?
