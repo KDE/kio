@@ -87,7 +87,7 @@ int TrashImpl::testDir(const QString &_name) const
     if (!dp) {
         QString name = _name;
         if (name.endsWith(QLatin1Char('/'))) {
-            name.truncate(name.length() - 1);
+            name.chop(1);
         }
 
         bool ok = QDir().mkdir(name);
@@ -312,7 +312,7 @@ bool TrashImpl::createInfo(const QString &origPath, int &trashId, QString &fileI
     const QString infoPath = url.path();
     fileId = url.fileName();
     Q_ASSERT(fileId.endsWith(QLatin1String(".trashinfo")));
-    fileId.truncate(fileId.length() - 10);   // remove .trashinfo from fileId
+    fileId.chop(10);   // remove .trashinfo from fileId
 
     FILE *file = ::fdopen(fd, "w");
     if (!file) {   // can't see how this would happen
@@ -770,7 +770,7 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
                 qCWarning(KIO_TRASH) << "Invalid info file found in" << infoPath << ":" << fileName;
                 continue;
             }
-            fileName.truncate(fileName.length() - 10);
+            fileName.chop(10);
 
             TrashedFileInfo info;
             if (infoForFile(trashId, fileName, info)) {

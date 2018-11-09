@@ -190,7 +190,7 @@ bool RemoteImpl::createEntry(KIO::UDSEntry &entry, const QString &directory,
         return false;
 
     QString new_filename = file;
-    new_filename.truncate(file.length()-8);
+    new_filename.chop(8);
 
     entry.fastInsert(KIO::UDSEntry::UDS_NAME, desktop.readName());
     entry.fastInsert(KIO::UDSEntry::UDS_URL, QLatin1String("remote:/") + new_filename);

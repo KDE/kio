@@ -2045,7 +2045,7 @@ size_t HTTPProtocol::readBuffered(char *buf, size_t size, bool unlimited)
         for (size_t i = 0; i < bytesRead; i++) {
             buf[i] = m_unreadBuf.constData()[bufSize - i - 1];
         }
-        m_unreadBuf.truncate(bufSize - bytesRead);
+        m_unreadBuf.chop(bytesRead);
 
         // If we have an unread buffer and the size of the content returned by the
         // server is unknown, e.g. chuncked transfer, return the bytes read here since

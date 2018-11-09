@@ -467,7 +467,7 @@ QString KCookieJar::findCookies(const QString &_url, bool useDOMFormat, WId wind
             cookieStr = cookieStr + cookie.cookieStr(useDOMFormat) + QStringLiteral("; ");
         }
 
-        cookieStr.truncate(cookieStr.length() - 2); // Remove the trailing ';'
+        cookieStr.chop(2); // Remove the trailing '; '
     }
 
     return cookieStr;

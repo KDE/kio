@@ -2333,7 +2333,7 @@ bool Ftp::ftpFolder(const QString &path, bool bReportError)
     QString newPath = path;
     int iLen = newPath.length();
     if (iLen > 1 && newPath[iLen - 1] == QLatin1Char('/')) {
-        newPath.truncate(iLen - 1);
+        newPath.chop(1);
     }
 
     qCDebug(KIO_FTP) << "want" << newPath << "has" << m_currentPath;

@@ -151,10 +151,10 @@ using namespace KDEPrivate;
 static QString nameFromFileName(QString nameStr)
 {
     if (nameStr.endsWith(QLatin1String(".desktop"))) {
-        nameStr.truncate(nameStr.length() - 8);
+        nameStr.chop(8);
     }
     if (nameStr.endsWith(QLatin1String(".kdelnk"))) {
-        nameStr.truncate(nameStr.length() - 7);
+        nameStr.chop(7);
     }
     // Make it human-readable (%2F => '/', ...)
     nameStr = KIO::decodeFileName(nameStr);
@@ -1392,7 +1392,7 @@ void KFilePropsPlugin::applyChanges()
         QString n = d->m_lined->text();
         // Remove trailing spaces (#4345)
         while (! n.isEmpty() && n[n.length() - 1].isSpace()) {
-            n.truncate(n.length() - 1);
+            n.chop(1);
         }
         if (n.isEmpty()) {
             KMessageBox::sorry(properties, i18n("The new file name is empty."));

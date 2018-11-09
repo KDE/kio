@@ -191,7 +191,7 @@ void KNewFileMenuSingleton::parseFiles()
             if (text.isEmpty()) {
                 text = QUrl(filePath).fileName();
                 if (text.endsWith(QLatin1String(".desktop"))) {
-                    text.truncate(text.length() - 8);
+                    text.chop(8);
                 }
             }
             templ.text = text;
