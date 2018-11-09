@@ -62,7 +62,7 @@ SearchProviderDialog::SearchProviderDialog(SearchProvider *provider, QList<Searc
         setWindowTitle(i18n("Modify Web Shortcut"));
         m_dlg.leName->setText(m_provider->name());
         m_dlg.leQuery->setText(m_provider->query());
-        m_dlg.leShortcut->setText(m_provider->keys().join(QStringLiteral(",")));
+        m_dlg.leShortcut->setText(m_provider->keys().join(QLatin1Char(',')));
         m_dlg.cbCharset->setCurrentIndex(m_provider->charset().isEmpty() ? 0 : charsets.indexOf(m_provider->charset()));
         m_dlg.leName->setEnabled(false);
         m_dlg.leQuery->setFocus();

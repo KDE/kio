@@ -1062,7 +1062,7 @@ MetaData SchedulerPrivate::metaDataFor(const QString &protocol, const QStringLis
         configData.remove(QStringLiteral("ProxyUrls"));
     } else {
         configData[QStringLiteral("UseProxy")] = proxyList.first();
-        configData[QStringLiteral("ProxyUrls")] = proxyList.join(QStringLiteral(","));
+        configData[QStringLiteral("ProxyUrls")] = proxyList.join(QLatin1Char(','));
     }
 
     if (configData.contains(QStringLiteral("EnableAutoLogin")) &&
@@ -1077,7 +1077,7 @@ MetaData SchedulerPrivate::metaDataFor(const QString &protocol, const QStringLis
                 QString macdef;
                 QMap<QString, QStringList>::ConstIterator it = l.macdef.constBegin();
                 for (; it != l.macdef.constEnd(); ++it) {
-                    macdef += it.key() + QLatin1Char('\\') + it.value().join(QStringLiteral("\\")) + QLatin1Char('\n');
+                    macdef += it.key() + QLatin1Char('\\') + it.value().join(QLatin1Char('\\')) + QLatin1Char('\n');
                 }
                 configData[QStringLiteral("autoLoginMacro")] = macdef;
             }

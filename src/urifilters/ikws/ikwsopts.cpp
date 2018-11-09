@@ -98,7 +98,7 @@ QVariant ProvidersModel::data(const QModelIndex& index, int role) const
       if (index.column()==Name)
         return m_providers.at(index.row())->name();
       if (index.column()==Shortcuts)
-        return m_providers.at(index.row())->keys().join(QStringLiteral(","));
+        return m_providers.at(index.row())->keys().join(QLatin1Char(','));
     }
 
     if (role == Qt::ToolTipRole || role == Qt::WhatsThisRole)

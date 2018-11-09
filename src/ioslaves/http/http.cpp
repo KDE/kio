@@ -3318,10 +3318,10 @@ endParsing:
                 }
             }
             if (!policyrefs.isEmpty()) {
-                setMetaData(QStringLiteral("PrivacyPolicy"), policyrefs.join(QStringLiteral("\n")));
+                setMetaData(QStringLiteral("PrivacyPolicy"), policyrefs.join(QLatin1Char('\n')));
             }
             if (!compact.isEmpty()) {
-                setMetaData(QStringLiteral("PrivacyCompactPolicy"), compact.join(QStringLiteral("\n")));
+                setMetaData(QStringLiteral("PrivacyCompactPolicy"), compact.join(QLatin1Char('\n')));
             }
         }
 

@@ -606,7 +606,7 @@ QScriptValue DNSResolveEx(QScriptContext *context, QScriptEngine *engine)
             }
         }
         if (!addressList.isEmpty()) {
-            resolvedAddress = addressList.join(QStringLiteral(";"));
+            resolvedAddress = addressList.join(QLatin1Char(';'));
         }
 
         return engine->toScriptValue(resolvedAddress);

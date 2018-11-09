@@ -207,7 +207,7 @@ void KIOExec::slotRunApp()
     KIO::DesktopExecParser execParser(service, list);
     QStringList params = execParser.resultingArguments();
 
-    qDebug() << "EXEC " << params.join(QStringLiteral(" "));
+    qDebug() << "EXEC " << params.join(QLatin1Char(' '));
 
     // propagate the startup identification to the started process
     KStartupInfoId id;

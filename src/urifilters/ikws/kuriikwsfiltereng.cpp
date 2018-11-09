@@ -342,7 +342,7 @@ QString KURISearchFilterEngine::substituteQuery(const QString& url, SubstMap &ma
     {
       PDVAR ("  newurl", newurl);
       // Generate list of unmatched strings:
-      QString v = ql.join(QStringLiteral(" ")).simplified();
+      QString v = ql.join(QLatin1Char(' ')).simplified();
 
       PDVAR ("    rest", v);
       v = encodeString(v, codec);

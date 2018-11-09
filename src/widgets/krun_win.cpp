@@ -96,6 +96,6 @@ bool KRun::KRunPrivate::displayNativeOpenWithDialog(const QList<QUrl> &lst, QWid
     int result = runDll(window,
                         QLatin1String("shell32.dll"),
                         "OpenAs_RunDLLW",
-                        fnames.join(QLatin1String(" ")));
+                        fnames.join(QLatin1Char(' ')));
     return result == 0;
 }
