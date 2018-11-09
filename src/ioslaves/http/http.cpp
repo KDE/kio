@@ -26,8 +26,6 @@
 
 // TODO delete / do not save very big files; "very big" to be defined
 
-#define QT_NO_CAST_FROM_ASCII
-
 #include "http.h"
 
 #include <config-kioslave-http.h>
