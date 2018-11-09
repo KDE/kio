@@ -77,11 +77,11 @@ KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList,
     const int count = cookieList.count();
     const KHttpCookie &cookie = cookieList.first();
     QString host(cookie.host());
-    int pos = host.indexOf(':');
+    const int pos = host.indexOf(QLatin1Char(':'));
     if (pos > 0) {
         QString portNum = host.left(pos);
         host.remove(0, pos + 1);
-        host += ':';
+        host += QLatin1Char(':');
         host += portNum;
     }
 
@@ -108,7 +108,7 @@ KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList,
     topLayout->addWidget(vBox1);
 
     m_detailsButton = new QPushButton;
-    m_detailsButton->setText(i18n("Details") + " >>");
+    m_detailsButton->setText(i18n("Details") + QLatin1String(" >>"));
     m_detailsButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-information")));
 #ifndef QT_NO_TOOLTIP
     m_detailsButton->setToolTip(i18n("See or modify the cookie information"));
@@ -378,10 +378,10 @@ void KCookieWin::slotToggleDetails()
     const QString baseText = i18n("Details");
 
     if (!m_detailView->isHidden()) {
-        m_detailsButton->setText(baseText + " >>");
+        m_detailsButton->setText(baseText + QLatin1String(" >>"));
         m_detailView->hide();
     } else {
-        m_detailsButton->setText(baseText + " <<");
+        m_detailsButton->setText(baseText + QLatin1String(" <<"));
         m_detailView->show();
     }
 }

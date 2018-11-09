@@ -546,7 +546,7 @@ void KHttpDigestAuthentication::generateResponse(const QString &user, const QStr
     }
 
     Q_FOREACH (const QByteArray &path, valueForKey(m_challenge, "domain").split(' ')) {
-        QUrl u = m_resource.resolved(QUrl(path));
+        QUrl u = m_resource.resolved(QUrl(QString::fromUtf8(path)));
         if (u.isValid()) {
             info.digestURIs.append(u);
         }

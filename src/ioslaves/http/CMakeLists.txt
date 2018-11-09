@@ -27,8 +27,6 @@ configure_file(config-gssapi.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-gssapi.h
 
 include_directories(${ZLIB_INCLUDE_DIR})
 
-remove_definitions(-DQT_NO_CAST_FROM_ASCII)
-
 if (NOT KIOCORE_ONLY)
 add_subdirectory( kcookiejar )
 endif()

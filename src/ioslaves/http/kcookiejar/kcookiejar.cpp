@@ -260,7 +260,7 @@ bool KHttpCookie::match(const QString &fqdn, const QStringList &domains,
             return false;
         }
     } else if (!domains.contains(mDomain)) {
-        if (mDomain[0] == '.') {
+        if (mDomain[0] == QL1C('.')) {
             return false;
         }
 
@@ -625,12 +625,12 @@ void KCookieJar::extractDomains(const QString &_fqdn,
     }
 
     // Return numeric IPv6 addresses as is...
-    if (_fqdn[0] == '[') {
+    if (_fqdn[0] == QL1C('[')) {
         _domains.append(_fqdn);
         return;
     }
     // Return numeric IPv4 addresses as is...
-    if (_fqdn[0] >= '0' && _fqdn[0] <= '9' && _fqdn.indexOf(QRegExp(IP_ADDRESS_EXPRESSION)) > -1) {
+    if (_fqdn[0] >= QL1C('0') && _fqdn[0] <= QL1C('9') && _fqdn.indexOf(QRegExp(QStringLiteral(IP_ADDRESS_EXPRESSION))) > -1) {
         _domains.append(_fqdn);
         return;
     }
@@ -778,11 +778,11 @@ KHttpCookieList KCookieJar::makeCookies(const QString &_url,
                 QString dom = Value.toLower();
                 // RFC2965 3.2.2: If an explicitly specified value does not
                 // start with a dot, the user agent supplies a leading dot
-                if (dom.length() && dom[0] != '.') {
-                    dom.prepend(".");
+                if (dom.length() > 0 && dom[0] != QL1C('.')) {
+                    dom.prepend(QL1C('.'));
                 }
                 // remove a trailing dot
-                if (dom.length() > 2 && dom[dom.length() - 1] == '.') {
+                if (dom.length() > 2 && dom[dom.length() - 1] == QL1C('.')) {
                     dom = dom.left(dom.length() - 1);
                 }
 
@@ -1511,7 +1511,7 @@ bool KCookieJar::loadCookies(const QString &_filename)
                 continue;
             }
 
-            KHttpCookie cookie(host, domain, path, name, value, expDate,
+            KHttpCookie cookie(host, domain, path, name, QString::fromUtf8(value), expDate,
                                protVer, secure, httpOnly, explicitPath);
             if (ports.count()) {
                 cookie.mPorts = ports;

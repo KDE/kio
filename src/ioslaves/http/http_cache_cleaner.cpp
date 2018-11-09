@@ -189,14 +189,14 @@ static QString filenameFromUrl(const QByteArray &url)
 
 static QString cacheDir()
 {
-    return QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + "/kio_http";
+    return QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/kio_http");
 }
 
 static QString filePath(const QString &baseName)
 {
     QString cacheDirName = cacheDir();
-    if (!cacheDirName.endsWith('/')) {
-        cacheDirName.append('/');
+    if (!cacheDirName.endsWith(QLatin1Char('/'))) {
+        cacheDirName.append(QLatin1Char('/'));
     }
     return cacheDirName + baseName;
 }
@@ -597,7 +597,7 @@ static void removeOldFiles()
         QString dirName = QString::fromLatin1(&oldDirs[i], 1);
         // delete files in directory...
         Q_FOREACH (const QString &baseName, QDir(filePath(dirName)).entryList()) {
-            QFile::remove(filePath(dirName + '/' + baseName));
+            QFile::remove(filePath(dirName + QLatin1Char('/') + baseName));
         }
         // delete the (now hopefully empty!) directory itself
         cacheRootDir.rmdir(dirName);
@@ -632,7 +632,7 @@ public:
                 bool nameOk = true;
                 for (int i = 0; i < s_hashedUrlNibbles && nameOk; i++) {
                     QChar c = baseName[i];
-                    nameOk = (c >= '0' && c <= '9') || (c >= 'a' && c <= 'f');
+                    nameOk = (c >= QLatin1Char('0') && c <= QLatin1Char('9')) || (c >= QLatin1Char('a') && c <= QLatin1Char('f'));
                 }
                 if (!nameOk) {
                     continue;
@@ -749,7 +749,7 @@ int main(int argc, char **argv)
             return 1;
         }
 
-        if (!QDBusConnection::sessionBus().registerService(appFullName)) {
+        if (!QDBusConnection::sessionBus().registerService(QString::fromLatin1(appFullName))) {
             fprintf(stderr, "%s: Already running!\n", appName);
             return 0;
         }
@@ -780,7 +780,7 @@ int main(int argc, char **argv)
     }
 
     QLocalServer lServer;
-    QString socketFileName = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation) + QLatin1Char('/') + "kio_http_cache_cleaner";
+    const QString socketFileName = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation) + QLatin1String("/kio_http_cache_cleaner");
     // we need to create the file by opening the socket, otherwise it won't work
     QFile::remove(socketFileName);
     if (!lServer.listen(socketFileName)) {

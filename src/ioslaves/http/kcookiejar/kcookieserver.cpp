@@ -573,7 +573,7 @@ KCookieServer::getDomainAdvice(const QString &url)
             // that we only want to check "domain" if it matches the
             // fqdn of the requested URL.
             const QString &domain = it.next();
-            if (domain.at(0) == '.' || domain == fqdn) {
+            if (domain.at(0) == QLatin1Char('.') || domain == fqdn) {
                 advice = mCookieJar->getDomainAdvice(domain);
             }
         }
