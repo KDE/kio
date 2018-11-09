@@ -21,6 +21,9 @@
  *
  **/
 
+// TODO: remove me
+#undef QT_NO_CAST_FROM_ASCII
+
 #include "slavebase.h"
 
 #include <config-kiocore.h>

@@ -16,6 +16,9 @@
    Boston, MA 02110-1301, USA.
 */
 
+// TODO: remove me
+#undef QT_NO_CAST_FROM_BYTEARRAY
+
 #include "kremoteencoding.h"
 
 #include <kstringhandler.h>

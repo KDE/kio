@@ -18,10 +18,6 @@ configure_file(config-kmountpoint.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kmo
 #   include_directories(${OPENSSL_INCLUDE_DIR})
 #endif()
 
-# TODO: Remove these
-remove_definitions(-DQT_NO_CAST_FROM_ASCII)
-remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
-
 set(kiocore_SRCS
   idleslave.cpp
   klocalsocket.cpp

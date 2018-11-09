@@ -16,6 +16,9 @@
  *                                                                         *
  ***************************************************************************/
 
+// TODO: remove me
+#undef QT_NO_CAST_FROM_ASCII
+
 #include "dataprotocol_p.h"
 
 #include "global.h"

@@ -17,6 +17,10 @@
     Boston, MA 02110-1301, USA.
 
 */
+
+// TODO: remove me
+#undef QT_NO_CAST_FROM_ASCII
+
 #include "kfileplacesmodel.h"
 #include "kfileplacesitem_p.h"
 
