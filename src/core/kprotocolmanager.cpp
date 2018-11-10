@@ -210,8 +210,7 @@ bool KProtocolManagerPrivate::shouldIgnoreProxyFor(const QUrl &url)
         // number, try the combination of "host:port". This allows
         // users to enter host:port in the No-proxy-For list.
         if (!isMatch && url.port() > 0) {
-            qhost += QL1C(':');
-            qhost += QString::number(url.port());
+            qhost += QL1C(':') + QString::number(url.port());
             host = qhost.toLatin1();
             isMatch = revmatch(host.constData(), no_proxy.constData());
         }
@@ -813,40 +812,37 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
 
         if (sysInfoFound) {
             if (modifiers.contains(QL1C('o'))) {
-                supp += QL1S("; ");
-                supp += systemName;
+                supp += QL1S("; ") + systemName;
                 if (modifiers.contains(QL1C('v'))) {
-                    supp += QL1C(' ');
-                    supp += systemVersion;
+                    supp += QL1C(' ') + systemVersion;
                 }
 
                 if (modifiers.contains(QL1C('m'))) {
-                    supp += QL1C(' ');
-                    supp += machine;
+                    supp += QL1C(' ') + machine;
                 }
             }
 
             if (modifiers.contains(QL1C('l'))) {
-                supp += QL1S("; ");
-                supp += QLocale::languageToString(QLocale().language());
+                supp += QL1S("; ") + QLocale::languageToString(QLocale().language());
             }
         }
 
         // Full format: Mozilla/5.0 (Linux
-        d->useragent = QStringLiteral("Mozilla/5.0 (");
-        d->useragent += supp;
-        d->useragent += QStringLiteral(") KHTML/");
-        d->useragent += QString::number(KIO_VERSION_MAJOR);
-        d->useragent += QL1C('.');
-        d->useragent += QString::number(KIO_VERSION_MINOR);
-        d->useragent += QL1C('.');
-        d->useragent += QString::number(KIO_VERSION_PATCH);
-        d->useragent += QStringLiteral(" (like Gecko) Konqueror/");
-        d->useragent += QString::number(KIO_VERSION_MAJOR);
-        d->useragent += QStringLiteral(" KIO/");
-        d->useragent += QString::number(KIO_VERSION_MAJOR);
-        d->useragent += QL1C('.');
-        d->useragent += QString::number(KIO_VERSION_MINOR);
+        d->useragent =
+            QL1S("Mozilla/5.0 (") +
+            supp +
+            QL1S(") KHTML/") +
+            QString::number(KIO_VERSION_MAJOR) +
+            QL1C('.') +
+            QString::number(KIO_VERSION_MINOR) +
+            QL1C('.') +
+            QString::number(KIO_VERSION_PATCH) +
+            QL1S(" (like Gecko) Konqueror/") +
+            QString::number(KIO_VERSION_MAJOR) +
+            QL1S(" KIO/") +
+            QString::number(KIO_VERSION_MAJOR) +
+            QL1C('.') +
+            QString::number(KIO_VERSION_MINOR);
     } else {
         QString appName = QCoreApplication::applicationName();
         if (appName.isEmpty() || appName.startsWith(QLatin1String("kcmshell"), Qt::CaseInsensitive)) {
@@ -855,15 +851,15 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
 
         QString appVersion = QCoreApplication::applicationVersion();
         if (appVersion.isEmpty()) {
-            appVersion += QString::number(KIO_VERSION_MAJOR);
-            appVersion += QL1C('.');
-            appVersion += QString::number(KIO_VERSION_MINOR);
-            appVersion += QL1C('.');
-            appVersion += QString::number(KIO_VERSION_PATCH);
+            appVersion +=
+                QString::number(KIO_VERSION_MAJOR) +
+                QL1C('.') +
+                QString::number(KIO_VERSION_MINOR) +
+                QL1C('.') +
+                QString::number(KIO_VERSION_PATCH);
         }
 
-        appName += QL1C('/');
-        appName += appVersion;
+        appName += QL1C('/') + appVersion;
 
         agentStr.replace(QL1S("%appversion%"), appName, Qt::CaseInsensitive);
 
@@ -933,26 +929,22 @@ QString KProtocolManager::userAgentForApplication(const QString &appName, const 
     QString systemName, systemVersion, machine, info;
 
     if (getSystemNameVersionAndMachine(systemName, systemVersion, machine)) {
-        info +=  systemName;
-        info += QL1C('/');
-        info += systemVersion;
-        info += QStringLiteral("; ");
+        info += systemName + QL1C('/') + systemVersion + QL1S("; ");
     }
 
-    info += QStringLiteral("KDE/");
-    info += QString::number(KIO_VERSION_MAJOR);
-    info += QL1C('.');
-    info += QString::number(KIO_VERSION_MINOR);
-    info += QL1C('.');
-    info += QString::number(KIO_VERSION_PATCH);
+    info +=
+        QL1S("KDE/") +
+        QString::number(KIO_VERSION_MAJOR) +
+        QL1C('.') +
+        QString::number(KIO_VERSION_MINOR) +
+        QL1C('.') +
+        QString::number(KIO_VERSION_PATCH);
 
     if (!machine.isEmpty()) {
-        info += QStringLiteral("; ");
-        info += machine;
+        info += QL1S("; ") + machine;
     }
 
-    info += QStringLiteral("; ");
-    info += extraInfo.join(QStringLiteral("; "));
+    info += QL1S("; ") + extraInfo.join(QStringLiteral("; "));
 
     return (appName + QL1C('/') + appVersion + QStringLiteral(" (") + info + QL1C(')'));
 }
@@ -1035,8 +1027,7 @@ QString KProtocolManager::acceptLanguagesHeader()
     Q_FOREACH (const QString &lang, languageListFinal) {
         header += lang;
         if (prio < 10) {
-            header += QL1S(";q=0.");
-            header += QString::number(prio);
+            header += QL1S(";q=0.") + QString::number(prio);
         }
         // do not add cosmetic whitespace in here : it is less compatible (#220677)
         header += QL1C(',');

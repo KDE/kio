@@ -776,9 +776,7 @@ void KHttpNtlmAuthentication::generateResponse(const QString &_user, const QStri
         }
     }
 
-    m_headerFragment = "NTLM ";
-    m_headerFragment += buf.toBase64();
-    m_headerFragment += "\r\n";
+    m_headerFragment = "NTLM " + buf.toBase64() + "\r\n";
 
     return;
 }

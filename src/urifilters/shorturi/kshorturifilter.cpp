@@ -193,9 +193,9 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
       cmd.indexOf( info_proto ) == 0 )
   {
     if( cmd.leftRef(2) == QLatin1String("##") )
-      cmd = QStringLiteral("info:/") + cmd.mid(2);
+      cmd = QLatin1String("info:/") + cmd.midRef(2);
     else if ( cmd[0] == QLatin1Char('#') )
-      cmd = QStringLiteral("man:/") + cmd.mid(1);
+      cmd = QLatin1String("man:/") + cmd.midRef(1);
 
     else if ((cmd==info_proto) || (cmd==man_proto))
       cmd += QLatin1Char('/');

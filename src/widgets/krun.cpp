@@ -1053,8 +1053,8 @@ bool KRun::KRunPrivate::runExecutable(const QString &_exec)
     QList<QUrl> urls;
     urls.append(m_strURL);
     if (_exec.startsWith(QLatin1Char('!'))) {
-        QString exec = _exec.mid(1); // Literal command
-        exec += QLatin1String(" %u");
+        // Literal command
+        const QString exec = _exec.midRef(1) + QLatin1String(" %u");
         if (q->run(exec, urls, m_window, QString(), QString(), m_asn)) {
             m_bFinished = true;
             startTimer();

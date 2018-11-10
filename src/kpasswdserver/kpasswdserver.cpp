@@ -559,9 +559,8 @@ KPasswdServer::processRequest()
         m_seqNr++;
         if (result && !request->errorMsg.isEmpty())
         {
-            QString prompt (request->errorMsg.trimmed());
-            prompt += QLatin1Char('\n');
-            prompt += i18n("Do you want to retry?");
+            const QString prompt = request->errorMsg.trimmed() + QLatin1Char('\n') +
+                i18n("Do you want to retry?");
 
             QDialog* dlg = new QDialog;
             connect(dlg, &QDialog::finished, this, &KPasswdServer::retryDialogDone);
@@ -619,15 +618,13 @@ QString KPasswdServer::createCacheKey( const KIO::AuthInfo &info )
     key += QLatin1Char('-');
     if (!info.url.userName().isEmpty())
     {
-       key += info.url.userName();
-       key += QLatin1Char('@');
+       key += info.url.userName() + QLatin1Char('@');
     }
     key += info.url.host();
     int port = info.url.port();
     if( port )
     {
-      key += QLatin1Char(':');
-      key += QString::number(port);
+      key += QLatin1Char(':') + QString::number(port);
     }
 
     return key;

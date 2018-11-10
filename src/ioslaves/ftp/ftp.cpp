@@ -399,7 +399,7 @@ bool Ftp::ftpOpenConnection(LoginMode loginMode)
             realURL.setPort(m_port);
         }
         if (m_initialPath.isEmpty()) {
-            m_initialPath = QLatin1Char('/');
+            m_initialPath = QStringLiteral("/");
         }
         realURL.setPath(m_initialPath);
         qCDebug(KIO_FTP) << "User name changed! Redirecting to" << realURL;
@@ -607,14 +607,11 @@ bool Ftp::ftpLogin(bool *userChanged)
             }
         }
 
-        tempbuf = "USER ";
-        tempbuf += user.toLatin1();
+        tempbuf = "USER " + user.toLatin1();
         if (m_proxyURL.isValid()) {
-            tempbuf += '@';
-            tempbuf += m_host.toLatin1();
+            tempbuf += '@' + m_host.toLatin1();
             if (m_port > 0 && m_port != DEFAULT_FTP_PORT) {
-                tempbuf += ':';
-                tempbuf += QString::number(m_port).toLatin1();
+                tempbuf += ':' + QByteArray::number(m_port);
             }
         }
 
@@ -632,8 +629,7 @@ bool Ftp::ftpLogin(bool *userChanged)
         }
 
         if (needPass) {
-            tempbuf = "PASS ";
-            tempbuf += pass.toLatin1();
+            tempbuf = "PASS " + pass.toLatin1();
             qCDebug(KIO_FTP) << "Sending Login password: " << "[protected]";
             loggedIn = (ftpSendCmd(tempbuf) && (m_iRespCode == 230));
         }
@@ -776,8 +772,7 @@ bool Ftp::ftpSendCmd(const QByteArray &cmd, int maxretries)
 #endif
 
     // Send the message...
-    QByteArray buf = cmd;
-    buf += "\r\n";      // Yes, must use CR/LF - see http://cr.yp.to/ftp/request.html
+    const QByteArray buf = cmd + "\r\n";      // Yes, must use CR/LF - see http://cr.yp.to/ftp/request.html
     int num = m_control->write(buf);
     while (m_control->bytesToWrite() && m_control->waitForBytesWritten()) {}
 
@@ -1079,8 +1074,7 @@ bool Ftp::ftpOpenCommand(const char *_command, const QString &_path, char _mode,
     QString errormessage;
 
     if (!_path.isEmpty()) {
-        tmp += ' ';
-        tmp += remoteEncoding()->encode(ftpCleanPath(_path));
+        tmp += ' ' + remoteEncoding()->encode(ftpCleanPath(_path));
     }
 
     if (!ftpSendCmd(tmp) || (m_iRespType != 1)) {
@@ -1211,15 +1205,13 @@ bool Ftp::ftpRename(const QString &src, const QString &dst, KIO::JobFlags jobFla
         }
     }
 
-    QByteArray from_cmd = "RNFR ";
-    from_cmd += remoteEncoding()->encode(src.mid(pos + 1));
+    const QByteArray from_cmd = "RNFR " + remoteEncoding()->encode(src.mid(pos + 1));
     if (!ftpSendCmd(from_cmd) || (m_iRespType != 3)) {
         error(ERR_CANNOT_RENAME, src);
         return false;
     }
 
-    QByteArray to_cmd = "RNTO ";
-    to_cmd += remoteEncoding()->encode(dst);
+    const QByteArray to_cmd = "RNTO " + remoteEncoding()->encode(dst);
     if (!ftpSendCmd(to_cmd) || (m_iRespType != 2)) {
         error(ERR_CANNOT_RENAME, src);
         return false;
@@ -1240,8 +1232,7 @@ void Ftp::del(const QUrl &url, bool isfile)
         ftpFolder(remoteEncoding()->directory(url), false);    // ignore errors
     }
 
-    QByteArray cmd = isfile ? "DELE " : "RMD ";
-    cmd += remoteEncoding()->encode(url);
+    const QByteArray cmd = (isfile ? "DELE " : "RMD ") + remoteEncoding()->encode(url);
 
     if (!ftpSendCmd(cmd) || (m_iRespType != 2)) {
         error(ERR_CANNOT_DELETE, url.path());
@@ -1260,10 +1251,9 @@ bool Ftp::ftpChmod(const QString &path, int permissions)
 
     // we need to do bit AND 777 to get permissions, in case
     // we were sent a full mode (unlikely)
-    QString cmd = QLatin1String("SITE CHMOD ") + QString::number(permissions & 511, 8 /*octal*/) + QLatin1Char(' ');
-    cmd += path;
+    const QByteArray cmd = "SITE CHMOD " + QByteArray::number(permissions & 0777/*octal*/, 8 /*octal*/) + ' ' + remoteEncoding()->encode(path);
 
-    ftpSendCmd(remoteEncoding()->encode(cmd));
+    ftpSendCmd(cmd);
     if (m_iRespType == 2) {
         return true;
     }
@@ -2105,14 +2095,12 @@ Ftp::StatusCode Ftp::ftpPut(int &iError, int iCopyFile, const QUrl &dest_url,
     }
 
     QString dest_orig = dest_url.path();
-    QString dest_part(dest_orig);
-    dest_part += QLatin1String(".part");
+    const QString dest_part = dest_orig + QLatin1String(".part");
 
     if (ftpSize(dest_orig, 'I')) {
         if (m_size == 0) {
             // delete files with zero size
-            QByteArray cmd = "DELE ";
-            cmd += remoteEncoding()->encode(dest_orig);
+            const QByteArray cmd = "DELE " + remoteEncoding()->encode(dest_orig);
             if (!ftpSendCmd(cmd) || (m_iRespType != 2)) {
                 iError = ERR_CANNOT_DELETE_PARTIAL;
                 return statusServerError;
@@ -2133,8 +2121,7 @@ Ftp::StatusCode Ftp::ftpPut(int &iError, int iCopyFile, const QUrl &dest_url,
         // file with extension .part exists
         if (m_size == 0) {
             // delete files with zero size
-            QByteArray cmd = "DELE ";
-            cmd += remoteEncoding()->encode(dest_part);
+            const QByteArray cmd = "DELE " + remoteEncoding()->encode(dest_part);
             if (!ftpSendCmd(cmd) || (m_iRespType != 2)) {
                 iError = ERR_CANNOT_DELETE_PARTIAL;
                 return statusServerError;
@@ -2217,8 +2204,7 @@ Ftp::StatusCode Ftp::ftpPut(int &iError, int iCopyFile, const QUrl &dest_url,
             // Remove if smaller than minimum size
             if (ftpSize(dest, 'I') &&
                     (processed_size < config()->readEntry("MinimumKeepSize", DEFAULT_MINIMUM_KEEP_SIZE))) {
-                QByteArray cmd = "DELE ";
-                cmd += remoteEncoding()->encode(dest);
+                const QByteArray cmd = "DELE " + remoteEncoding()->encode(dest);
                 (void) ftpSendCmd(cmd);
             }
         }
@@ -2263,9 +2249,7 @@ bool Ftp::ftpSize(const QString &path, char mode)
         return false;
     }
 
-    QByteArray buf;
-    buf = "SIZE ";
-    buf += remoteEncoding()->encode(path);
+    const QByteArray buf = "SIZE " + remoteEncoding()->encode(path);
     if (!ftpSendCmd(buf) || (m_iRespType != 2)) {
         return false;
     }
@@ -2285,9 +2269,7 @@ bool Ftp::ftpSize(const QString &path, char mode)
 
 bool Ftp::ftpFileExists(const QString &path)
 {
-    QByteArray buf;
-    buf = "SIZE ";
-    buf += remoteEncoding()->encode(path);
+    const QByteArray buf = "SIZE " + remoteEncoding()->encode(path);
     if (!ftpSendCmd(buf) || (m_iRespType != 2)) {
         return false;
     }
@@ -2319,8 +2301,7 @@ bool Ftp::ftpDataMode(char cMode)
         return true;
     }
 
-    QByteArray buf = "TYPE ";
-    buf += cMode;
+    const QByteArray buf = QByteArrayLiteral("TYPE ") + cMode;
     if (!ftpSendCmd(buf) || (m_iRespType != 2)) {
         return false;
     }
@@ -2341,8 +2322,7 @@ bool Ftp::ftpFolder(const QString &path, bool bReportError)
         return true;
     }
 
-    QByteArray tmp = "cwd ";
-    tmp += remoteEncoding()->encode(newPath);
+    const QByteArray tmp = "cwd " + remoteEncoding()->encode(newPath);
     if (!ftpSendCmd(tmp)) {
         return false;    // connection failure
     }

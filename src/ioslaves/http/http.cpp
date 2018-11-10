@@ -178,8 +178,7 @@ static QString sanitizeCustomHTTPHeader(const QString &_header)
             continue;
         }
 
-        sanitizedHeaders += (*it);
-        sanitizedHeaders += QLatin1String("\r\n");
+        sanitizedHeaders += (*it) + QLatin1String("\r\n");
     }
     sanitizedHeaders.chop(2);
 
@@ -2430,12 +2429,13 @@ bool HTTPProtocol::sendQuery()
             break;
         case DAV_COPY:
         case DAV_MOVE:
-            davHeader = QLatin1String("Destination: ") + m_request.davData.desturl;
+            davHeader =
+                QLatin1String("Destination: ") + m_request.davData.desturl +
             // infinity depth means copy recursively
             // (optional for copy -> but is the desired action)
-            davHeader += QLatin1String("\r\nDepth: infinity\r\nOverwrite: ");
-            davHeader += QLatin1Char(m_request.davData.overwrite ? 'T' : 'F');
-            davHeader += QLatin1String("\r\n");
+                QLatin1String("\r\nDepth: infinity\r\nOverwrite: ") +
+                QLatin1Char(m_request.davData.overwrite ? 'T' : 'F') +
+                QLatin1String("\r\n");
             break;
         case DAV_LOCK:
             davHeader = QStringLiteral("Timeout: ");
@@ -2495,28 +2495,20 @@ bool HTTPProtocol::sendQuery()
         }
 
         if (!m_request.userAgent.isEmpty()) {
-            header += QLatin1String("User-Agent: ");
-            header += m_request.userAgent;
-            header += QLatin1String("\r\n");
+            header += QLatin1String("User-Agent: ") + m_request.userAgent + QLatin1String("\r\n");
         }
 
         if (!m_request.referrer.isEmpty()) {
-            header += QLatin1String("Referer: "); //Don't try to correct spelling!
-            header += m_request.referrer;
-            header += QLatin1String("\r\n");
+            // Don't try to correct spelling!
+            header += QLatin1String("Referer: ") + m_request.referrer + QLatin1String("\r\n");
         }
 
         if (m_request.endoffset > m_request.offset) {
-            header += QLatin1String("Range: bytes=");
-            header += KIO::number(m_request.offset);
-            header += QLatin1Char('-');
-            header += KIO::number(m_request.endoffset);
-            header += QLatin1String("\r\n");
+            header += QLatin1String("Range: bytes=") + KIO::number(m_request.offset) + QLatin1Char('-') +
+                KIO::number(m_request.endoffset) + QLatin1String("\r\n");
             qCDebug(KIO_HTTP) << "kio_http : Range =" << KIO::number(m_request.offset) << "-"  << KIO::number(m_request.endoffset);
         } else if (m_request.offset > 0 && m_request.endoffset == 0) {
-            header += QLatin1String("Range: bytes=");
-            header += KIO::number(m_request.offset);
-            header += QLatin1String("-\r\n");
+            header += QLatin1String("Range: bytes=") + KIO::number(m_request.offset) + QLatin1String("-\r\n");
             qCDebug(KIO_HTTP) << "kio_http: Range =" << KIO::number(m_request.offset);
         }
 
@@ -2533,7 +2525,7 @@ bool HTTPProtocol::sendQuery()
 
             if (m_request.cacheTag.lastModifiedDate.isValid()) {
                 const QString httpDate = formatHttpDate(m_request.cacheTag.lastModifiedDate);
-                header += QStringLiteral("If-Modified-Since: ") + httpDate + QStringLiteral("\r\n");
+                header += QLatin1String("If-Modified-Since: ") + httpDate + QLatin1String("\r\n");
                 setMetaData(QStringLiteral("modified"), httpDate);
             }
         }
@@ -2580,8 +2572,7 @@ bool HTTPProtocol::sendQuery()
 
         const QString customHeader = metaData(QStringLiteral("customHTTPHeader"));
         if (!customHeader.isEmpty()) {
-            header += sanitizeCustomHTTPHeader(customHeader);
-            header += QLatin1String("\r\n");
+            header += sanitizeCustomHTTPHeader(customHeader) + QLatin1String("\r\n");
         }
 
         const QString contentType = metaData(QStringLiteral("content-type"));
@@ -2589,8 +2580,7 @@ bool HTTPProtocol::sendQuery()
             if (!contentType.startsWith(QLatin1String("content-type"), Qt::CaseInsensitive)) {
                 header += QLatin1String("Content-Type: ");
             }
-            header += contentType;
-            header += QLatin1String("\r\n");
+            header += contentType + QLatin1String("\r\n");
         }
 
         // DoNotTrack feature...
@@ -3398,9 +3388,7 @@ endParsing:
         QByteArray cookieStr; // In case we get a cookie.
         tIt = tokenizer.iterator("set-cookie");
         while (tIt.hasNext()) {
-            cookieStr += "Set-Cookie: ";
-            cookieStr += tIt.next();
-            cookieStr += '\n';
+            cookieStr += "Set-Cookie: " + tIt.next() + '\n';
         }
         if (!cookieStr.isEmpty()) {
             if ((m_request.cookieMode == HTTPRequest::CookiesAuto) && m_request.useCookieJar) {
@@ -3820,9 +3808,7 @@ bool HTTPProtocol::sendCachedBody()
     infoMessage(i18n("Sending data to %1",  m_request.url.host()));
 
     const qint64 size = m_POSTbuf->size();
-    QByteArray cLength("Content-Length: ");
-    cLength += QByteArray::number(size);
-    cLength += "\r\n\r\n";
+    const QByteArray cLength = "Content-Length: " + QByteArray::number(size) + "\r\n\r\n";
 
     //qDebug() << "sending cached data (size=" << size << ")";
 
@@ -3879,9 +3865,7 @@ bool HTTPProtocol::sendBody()
 
     infoMessage(i18n("Sending data to %1",  m_request.url.host()));
 
-    QByteArray cLength("Content-Length: ");
-    cLength += QByteArray::number(m_iPostDataSize);
-    cLength += "\r\n\r\n";
+    const QByteArray cLength = "Content-Length: " + QByteArray::number(m_iPostDataSize) + "\r\n\r\n";
 
     qCDebug(KIO_HTTP) << cLength.trimmed();
 
@@ -5183,13 +5167,11 @@ QString HTTPProtocol::authenticationHeader()
 
     // the authentication classes don't know if they are for proxy or webserver authentication...
     if (m_wwwAuth && !m_wwwAuth->isError()) {
-        ret += "Authorization: ";
-        ret += m_wwwAuth->headerFragment();
+        ret += "Authorization: " + m_wwwAuth->headerFragment();
     }
 
     if (m_proxyAuth && !m_proxyAuth->isError()) {
-        ret += "Proxy-Authorization: ";
-        ret += m_proxyAuth->headerFragment();
+        ret += "Proxy-Authorization: " + m_proxyAuth->headerFragment();
     }
 
     return toQString(ret); // ## encoding ok?

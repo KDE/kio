@@ -123,9 +123,7 @@ void Discovery::failed()
 
     const int dot = m_domainName.indexOf(QLatin1Char('.'));
     if (dot > -1 || firstQuery) {
-        QString address(QStringLiteral("http://wpad."));
-        address += m_domainName;
-        address += QLatin1String("/wpad.dat");
+        const QString address = QLatin1String("http://wpad.") + m_domainName + QLatin1String("/wpad.dat");
         if (dot > -1) {
             m_domainName.remove(0, dot + 1);    // remove one domain level
         }

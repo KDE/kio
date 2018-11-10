@@ -1051,12 +1051,10 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
     QByteArray dev;
     if (_dev.startsWith(QLatin1String("LABEL="))) { // turn LABEL=foo into -L foo (#71430)
         QString labelName = _dev.mid(6);
-        dev = "-L ";
-        dev += QFile::encodeName(KShell::quoteArg(labelName));     // is it correct to assume same encoding as filesystem?
+        dev = "-L " + QFile::encodeName(KShell::quoteArg(labelName));     // is it correct to assume same encoding as filesystem?
     } else if (_dev.startsWith(QLatin1String("UUID="))) { // and UUID=bar into -U bar
         QString uuidName = _dev.mid(5);
-        dev = "-U ";
-        dev += QFile::encodeName(KShell::quoteArg(uuidName));
+        dev = "-U " + QFile::encodeName(KShell::quoteArg(uuidName));
     } else {
         dev = QFile::encodeName(KShell::quoteArg(_dev));    // get those ready to be given to a shell
     }
@@ -1312,9 +1310,7 @@ bool FileProtocol::pumount(const QString &point)
         return false;
     }
 
-    QByteArray buffer = QFile::encodeName(pumountProg);
-    buffer += ' ';
-    buffer += QFile::encodeName(KShell::quoteArg(dev));
+    const QByteArray buffer = QFile::encodeName(pumountProg) + ' ' + QFile::encodeName(KShell::quoteArg(dev));
 
     int res = system(buffer.data());
 

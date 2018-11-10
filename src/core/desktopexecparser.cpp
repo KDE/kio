@@ -379,8 +379,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
             }
             terminal += QLatin1String(" -qwindowtitle '%c' %i");
         }
-        terminal += QLatin1Char(' ');
-        terminal += d->service.terminalOptions();
+        terminal += QLatin1Char(' ') + d->service.terminalOptions();
         if (!mx1.expandMacrosShellQuote(terminal)) {
             qCWarning(KIO_CORE) << "KRun: syntax error in command" << terminal << ", service" << d->service.name();
             return QStringList();

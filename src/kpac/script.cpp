@@ -270,9 +270,7 @@ QScriptValue IsInNet(QScriptContext *context, QScriptEngine *engine)
     try {
         const Address info = Address::resolve(context->argument(0).toString());
         bool isInSubNet = false;
-        QString subnetStr = context->argument(1).toString();
-        subnetStr += QLatin1Char('/');
-        subnetStr += context->argument(2).toString();
+        const QString subnetStr = context->argument(1).toString() + QLatin1Char('/') + context->argument(2).toString();
         const QPair<QHostAddress, int> subnet = QHostAddress::parseSubnet(subnetStr);
         Q_FOREACH (const QHostAddress &address, info.addresses()) {
             if (!isSpecialAddress(address) && isIPv4Address(address) && address.isInSubnet(subnet)) {

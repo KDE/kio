@@ -332,9 +332,7 @@ bool TrashImpl::createInfo(const QString &origPath, int &trashId, QString &fileI
         info += QUrl::toPercentEncoding(makeRelativePath(topDirectoryPath(trashId), origPath), "/");
     }
     info += '\n';
-    info += "DeletionDate=";
-    info += QDateTime::currentDateTime().toString(Qt::ISODate).toLatin1();
-    info += '\n';
+    info += "DeletionDate=" + QDateTime::currentDateTime().toString(Qt::ISODate).toLatin1() + '\n';
     size_t sz = info.size();
 
     size_t written = ::fwrite(info.data(), 1, sz, file);
@@ -382,18 +380,13 @@ void TrashImpl::enterLoop()
 
 QString TrashImpl::infoPath(int trashId, const QString &fileId) const
 {
-    QString trashPath = trashDirectoryPath(trashId);
-    trashPath += QLatin1String("/info/");
-    trashPath += fileId;
-    trashPath += QLatin1String(".trashinfo");
+    const QString trashPath = trashDirectoryPath(trashId) + QLatin1String("/info/") + fileId + QLatin1String(".trashinfo");
     return trashPath;
 }
 
 QString TrashImpl::filesPath(int trashId, const QString &fileId) const
 {
-    QString trashPath = trashDirectoryPath(trashId);
-    trashPath += QLatin1String("/files/");
-    trashPath += fileId;
+    const QString trashPath = trashDirectoryPath(trashId) + QLatin1String("/files/") + fileId;
     return trashPath;
 }
 
@@ -446,8 +439,7 @@ bool TrashImpl::moveFromTrash(const QString &dest, int trashId, const QString &f
 {
     QString src = filesPath(trashId, fileId);
     if (!relativePath.isEmpty()) {
-        src += QLatin1Char('/');
-        src += relativePath;
+        src += QLatin1Char('/') + relativePath;
     }
     if (!move(src, dest)) {
         return false;
@@ -522,8 +514,7 @@ bool TrashImpl::copyFromTrash(const QString &dest, int trashId, const QString &f
 {
     QString src = filesPath(trashId, fileId);
     if (!relativePath.isEmpty()) {
-        src += QLatin1Char('/');
-        src += relativePath;
+        src += QLatin1Char('/') + relativePath;
     }
     return copy(src, dest);
 }
@@ -857,8 +848,7 @@ QString TrashImpl::physicalPath(int trashId, const QString &fileId, const QStrin
 {
     QString filePath = filesPath(trashId, fileId);
     if (!relativePath.isEmpty()) {
-        filePath += QLatin1Char('/');
-        filePath += relativePath;
+        filePath += QLatin1Char('/') + relativePath;
     }
     return filePath;
 }
@@ -1294,13 +1284,9 @@ QUrl TrashImpl::makeURL(int trashId, const QString &fileId, const QString &relat
 {
     QUrl url;
     url.setScheme(QStringLiteral("trash"));
-    QString path = QStringLiteral("/");
-    path += QString::number(trashId);
-    path += QLatin1Char('-');
-    path += fileId;
+    QString path = QLatin1Char('/') + QString::number(trashId) + QLatin1Char('-') + fileId;
     if (!relativePath.isEmpty()) {
-        path += QLatin1Char('/');
-        path += relativePath;
+        path += QLatin1Char('/') + relativePath;
     }
     url.setPath(path);
     return url;

@@ -1002,8 +1002,7 @@ bool KOpenWithDialogPrivate::checkAccept()
         if (preferredTerminal == QStringLiteral("konsole") && nocloseonexit->isChecked()) {
             m_command += QStringLiteral(" --noclose");
         }
-        m_command += QStringLiteral(" -e ");
-        m_command += edit->text();
+        m_command += QLatin1String(" -e ") + edit->text();
         // qDebug() << "Setting m_command to" << m_command;
     }
     if (m_pService && terminal->isChecked() != m_pService->terminal()) {
@@ -1032,8 +1031,7 @@ bool KOpenWithDialogPrivate::checkAccept()
                         index = serviceExec.indexOf(QLatin1String("%f"), 0, Qt::CaseInsensitive);
                     }
                     if (index > -1) {
-                        fullExec += QLatin1Char(' ');
-                        fullExec += serviceExec.midRef(index, 2);
+                        fullExec += QLatin1Char(' ') + serviceExec.midRef(index, 2);
                     }
                 }
                 // qDebug() << "Creating service with Exec=" << fullExec;

@@ -433,8 +433,7 @@ void NetRC::NetRCPrivate::getMachinePart(const QString &line)
     QString buf = line;
     while (!(buf.contains(QStringLiteral("login"))
              && (buf.contains(QStringLiteral("password")) || buf.contains(QStringLiteral("account")) || buf.contains(QStringLiteral("type"))))) {
-        buf += QLatin1Char(' ');
-        buf += fstream.readLine().simplified();
+        buf += QLatin1Char(' ') + fstream.readLine().simplified();
     }
 
     // Once we've got all the info, process it.
@@ -471,8 +470,7 @@ void NetRC::NetRCPrivate::getMacdefPart(const QString &line)
     while (!fstream.atEnd()) {
         newLine = fstream.readLine().simplified();
         if (!newLine.isEmpty()) {
-            buf += QLatin1Char('\n');
-            buf += newLine;
+            buf += QLatin1Char('\n') + newLine;
         } else {
             break;
         }

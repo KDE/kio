@@ -401,8 +401,7 @@ void TrashProtocol::listDir(const QUrl &url)
         return;
     }
     if (!relativePath.isEmpty()) {
-        info.physicalPath += QLatin1Char('/');
-        info.physicalPath += relativePath;
+        info.physicalPath += QLatin1Char('/') + relativePath;
     }
 
     // List subdir. Can't use kio_file here since we provide our own info...
@@ -421,8 +420,7 @@ void TrashProtocol::listDir(const QUrl &url)
         //const QString url = TrashImpl::makeURL( trashId, fileId, relativePath + '/' + fileName );
         entry.clear();
         TrashedFileInfo infoForItem(info);
-        infoForItem.origPath += QLatin1Char('/');
-        infoForItem.origPath += fileName;
+        infoForItem.origPath += QLatin1Char('/') + fileName;
         if (createUDSEntry(filePath, fileName, fileName, entry, infoForItem)) {
             listEntry(entry);
         }

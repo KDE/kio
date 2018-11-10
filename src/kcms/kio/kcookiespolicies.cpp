@@ -375,9 +375,7 @@ void KCookiesPolicies::save()
     QMapIterator<QString, const char*> it (mDomainPolicyMap);
     while (it.hasNext()) {
         it.next();
-        QString policy = tolerantToAce(it.key());
-        policy += QLatin1Char (':');
-        policy += QLatin1String (it.value());
+        const QString policy = tolerantToAce(it.key()) + QLatin1Char(':') + QLatin1String(it.value());
         domainConfig << policy;
     }
 

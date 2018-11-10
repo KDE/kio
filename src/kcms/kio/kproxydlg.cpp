@@ -68,11 +68,7 @@ public:
 
 static QString manualProxyToText(const QLineEdit* edit, const QSpinBox* spinBox, const QChar& separator)
 {
-    QString value;
-
-    value = edit->text();
-    value += separator;
-    value +=  QString::number(spinBox->value());
+    const QString value = edit->text() + separator + QString::number(spinBox->value());
 
     return value;
 }
@@ -133,14 +129,12 @@ static QString proxyUrlFromInput(KProxyDialog::DisplayUrlFlags* flags,
 
         proxyStr = url.url();
         if (portNum > -1) {
-            proxyStr += QL1C(' ');
-            proxyStr += QString::number(portNum);
+            proxyStr += QL1C(' ') + QString::number(portNum);
         }
     } else {
         proxyStr = edit->text();
         if (spinBox->value() > 0) {
-            proxyStr += QL1C(' ');
-            proxyStr += QString::number(spinBox->value());
+            proxyStr += QL1C(' ') + QString::number(spinBox->value());
         }
     }
 
