@@ -230,7 +230,7 @@ void AccessManagerReply::setHeaderFromMetaData(const KIO::MetaData &_metaData)
                 continue;
             }
 
-            const QString headerName = httpHeader.left(index);
+            const QStringRef headerName = httpHeader.leftRef(index);
             QString headerValue = httpHeader.mid(index + 1);
 
             // Ignore cookie header since it is handled by the http ioslave.

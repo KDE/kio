@@ -315,7 +315,7 @@ QString KIO::suggestName(const QUrl &baseURL, const QString &oldName)
     if (start != -1) {
         QString numAsStr = numSearch.cap(0);
         QString number = QString::number(numAsStr.midRef(1, numAsStr.size() - 2).toInt() + 1);
-        basename = basename.left(start) + QLatin1Char('(') + number + QLatin1Char(')');
+        basename = basename.leftRef(start) + QLatin1Char('(') + number + QLatin1Char(')');
     } else {
         // number does not exist, so just append " (1)" to filename
         basename += QLatin1String(" (1)");

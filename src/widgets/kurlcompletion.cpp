@@ -1229,7 +1229,7 @@ void KUrlCompletionPrivate::_k_slotEntries(KIO::Job *, const KIO::UDSEntryList &
             continue;
         }
 
-        if (filter_len != 0 && entry_name.left(filter_len) != filter) {
+        if (filter_len != 0 && entry_name.leftRef(filter_len) != filter) {
             continue;
         }
 

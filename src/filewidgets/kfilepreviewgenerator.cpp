@@ -651,7 +651,7 @@ void KFilePreviewGenerator::Private::addToPreviewQueue(const KFileItem &item, co
 
     const QString mimeType = item.mimetype();
     const int slashIndex = mimeType.indexOf(QLatin1Char('/'));
-    const QString mimeTypeGroup = mimeType.left(slashIndex);
+    const QStringRef mimeTypeGroup = mimeType.leftRef(slashIndex);
     if ((mimeTypeGroup != QLatin1String("image")) || !applyImageFrame(icon)) {
         limitToSize(icon, m_viewAdapter->iconSize());
     }
@@ -1032,11 +1032,10 @@ void KFilePreviewGenerator::Private::createPreviews(const KFileItemList &items)
     KFileItemList imageItems;
     KFileItemList otherItems;
     QString mimeType;
-    QString mimeTypeGroup;
     foreach (const KFileItem &item, items) {
         mimeType = item.mimetype();
         const int slashIndex = mimeType.indexOf(QLatin1Char('/'));
-        mimeTypeGroup = mimeType.left(slashIndex);
+        const QStringRef mimeTypeGroup = mimeType.leftRef(slashIndex);
         if (mimeTypeGroup == QLatin1String("image")) {
             imageItems.append(item);
         } else {

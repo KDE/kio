@@ -573,7 +573,7 @@ void HTTPProtocol::setHost(const QString &host, quint16 port,
         } else
             // don't send the scope-id in IPv6 addresses to the server
         {
-            m_request.encoded_hostname = QLatin1Char('[') + host.left(pos) + QLatin1Char(']');
+            m_request.encoded_hostname = QLatin1Char('[') + host.leftRef(pos) + QLatin1Char(']');
         }
     }
     m_request.url.setPort((port > 0 && port != defaultPort()) ? port : -1);

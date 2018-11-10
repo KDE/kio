@@ -172,7 +172,7 @@ void KNewFileMenuSingleton::parseFiles()
                             templatePath = QUrl(templatePath).toLocalFile();
                         } else {
                             // A relative path, then (that's the default in the files we ship)
-                            QString linkDir = filePath.left(filePath.lastIndexOf(QLatin1Char('/')) + 1 /*keep / */);
+                            const QStringRef linkDir = filePath.leftRef(filePath.lastIndexOf(QLatin1Char('/')) + 1 /*keep / */);
                             //qDebug() << "linkDir=" << linkDir;
                             templatePath = linkDir + templatePath;
                         }

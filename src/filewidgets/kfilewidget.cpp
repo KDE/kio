@@ -2410,9 +2410,9 @@ void KFileWidgetPrivate::updateLocationEditExtension(const QString &lastExtensio
         }
 
         // add extension
-        const QString newText = urlStr.left(fileNameOffset) + fileName + extension;
+        const QString newText = urlStr.leftRef(fileNameOffset) + fileName + extension;
         if (newText != locationEditCurrentText()) {
-            locationEdit->setItemText(locationEdit->currentIndex(), urlStr.left(fileNameOffset) + fileName + extension);
+            locationEdit->setItemText(locationEdit->currentIndex(), newText);
             locationEdit->lineEdit()->setModified(true);
         }
     }

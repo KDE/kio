@@ -234,9 +234,9 @@ public:
 
         for (QStringList::iterator it = qFilters.begin(); it != qFilters.end(); ++it) {
             int sep = it->indexOf(QLatin1Char('|'));
-            QString globs = it->left(sep);
-            QString desc  = it->mid(sep + 1);
-            *it = QStringLiteral("%1 (%2)").arg(desc, globs);
+            const QStringRef globs = it->leftRef(sep);
+            const QStringRef desc  = it->midRef(sep + 1);
+            *it = desc + QLatin1String(" (") + globs + QLatin1Char(')');
         }
 
         return qFilters;
