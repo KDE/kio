@@ -56,8 +56,7 @@ int main(int argc, char *argv[])
     if (!restoreArg.isEmpty()) {
 
         if (restoreArg.indexOf(QLatin1String("system:/trash")) == 0) {
-            restoreArg.remove(0, 13);
-            restoreArg.prepend(QStringLiteral("trash:"));
+            restoreArg.replace(0, 13, QStringLiteral("trash:"));
         }
 
         QUrl trashURL(restoreArg);
