@@ -475,7 +475,7 @@ QString KProtocolManagerPrivate::proxyFor(const QString &protocol)
 
     if (index > -1)  {
         bool ok = false;
-        const QString portStr(proxyStr.right(proxyStr.length() - index - 1));
+        const QStringRef portStr(proxyStr.rightRef(proxyStr.length() - index - 1));
         portStr.toInt(&ok);
         if (ok) {
             proxyStr = proxyStr.leftRef(index) + QL1C(':') + portStr;

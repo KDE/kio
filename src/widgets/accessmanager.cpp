@@ -522,7 +522,7 @@ QList<QNetworkCookie> CookieJar::cookiesForUrl(const QUrl &url) const
     Q_FOREACH (const QString &cookie, cookies) {
         const int index = cookie.indexOf(QL1C('='));
         const QStringRef name = cookie.leftRef(index);
-        const QString value = cookie.right((cookie.length() - index - 1));
+        const QStringRef value = cookie.rightRef((cookie.length() - index - 1));
         cookieList << QNetworkCookie(name.toUtf8(), value.toUtf8());
         //qDebug() << "cookie: name=" << name << ", value=" << value;
     }
