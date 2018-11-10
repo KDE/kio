@@ -981,7 +981,7 @@ void KFilePlacesModelTest::testIconRole_data()
     QTest::newRow("Places - Home") << m_places->index(0, 0)
                                    << QStringLiteral("user-home");
     QTest::newRow("Places - Root") << m_places->index(1, 0)
-                                   << QStringLiteral("folder-red");
+                                   << QStringLiteral("folder-root");
     QTest::newRow("Places - Trash") << m_places->index(2, 0)
                                    << QStringLiteral("user-trash");
     QTest::newRow("Remote - Network") << m_places->index(3, 0)

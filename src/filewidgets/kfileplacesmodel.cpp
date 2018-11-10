@@ -260,7 +260,7 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
 #elif !defined(Q_OS_WIN)
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                               QStringLiteral("Root"), I18N_NOOP2("KFile System Bookmarks", "Root"),
-                                              QUrl::fromLocalFile(QStringLiteral("/")), QStringLiteral("folder-red"));
+                                              QUrl::fromLocalFile(QStringLiteral("/")), QStringLiteral("folder-root"));
 #endif
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                               QStringLiteral("Trash"), I18N_NOOP2("KFile System Bookmarks", "Trash"),
