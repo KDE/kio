@@ -87,7 +87,7 @@ static QString removeArgs( const QString& _cmd )
 
     if( spacePos > 0 )
     {
-      cmd = cmd.left( spacePos );
+      cmd.truncate(spacePos);
       qCDebug(category) << "spacePos=" << spacePos << " returning " << cmd;
     }
   }
