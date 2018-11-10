@@ -66,6 +66,7 @@ QString HelpProtocol::langLookup(const QString &fname)
 
     // look up the different languages
     int ldCount = localDoc.count();
+    search.reserve(ldCount * langs.size());
     for (int id = 0; id < ldCount; id++) {
         QStringList::ConstIterator lang;
         for (lang = langs.constBegin(); lang != langs.constEnd(); ++lang) {

@@ -505,6 +505,7 @@ QStringList KProtocolManagerPrivate::getSystemProxyFor(const QUrl &url)
 #if !defined(QT_NO_NETWORKPROXY) && (defined(Q_OS_WIN32) || defined(Q_OS_MAC))
     QNetworkProxyQuery query(url);
     const QList<QNetworkProxy> proxyList = QNetworkProxyFactory::systemProxyForQuery(query);
+    proxies.reserve(proxyList.size());
     Q_FOREACH (const QNetworkProxy &proxy, proxyList) {
         QUrl url;
         const QNetworkProxy::ProxyType type = proxy.type();

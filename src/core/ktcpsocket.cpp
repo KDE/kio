@@ -359,6 +359,7 @@ public:
         q->setErrorString(sock.errorString());
         q->showSslErrors(); //H4X
         QList<KSslError> kErrors;
+        kErrors.reserve(errors.size());
         foreach (const QSslError &e, errors) {
             kErrors.append(KSslError(e));
         }
@@ -553,8 +554,10 @@ QList<KSslError> KTcpSocket::sslErrors() const
     //### pretty slow; also consider throwing out duplicate error codes. We may get
     //    duplicates even though there were none in the original list because KSslError
     //    has a smallest common denominator range of SSL error codes.
+    const auto qsslErrors = d->sock.sslErrors();
     QList<KSslError> ret;
-    foreach (const QSslError &e, d->sock.sslErrors()) {
+    ret.reserve(qsslErrors.size());
+    for (const QSslError &e : qsslErrors) {
         ret.append(KSslError(e));
     }
     return ret;
@@ -711,6 +714,7 @@ void KTcpSocket::setCiphers(const QList<KSslCipher> &ciphers)
 {
     d->ciphers = ciphers;
     QList<QSslCipher> cl;
+    cl.reserve(d->ciphers.size());
     foreach (const KSslCipher &c, d->ciphers) {
         cl.append(d->ccc.converted(c));
     }
@@ -1028,6 +1032,7 @@ QList<KSslCipher> KSslCipher::supportedCiphers()
 {
     QList<KSslCipher> ret;
     QList<QSslCipher> candidates = QSslSocket::supportedCiphers();
+    ret.reserve(candidates.size());
     foreach (const QSslCipher &c, candidates) {
         ret.append(KSslCipher(c));
     }
@@ -1060,7 +1065,9 @@ KSslErrorUiData::KSslErrorUiData(const QSslSocket *socket)
     d->certificateChain = socket->peerCertificateChain();
 
     // See KTcpSocket::sslErrors()
-    foreach (const QSslError &e, socket->sslErrors()) {
+    const auto qsslErrors = socket->sslErrors();
+    d->sslErrors.reserve(qsslErrors.size());
+    for (const QSslError &e : qsslErrors) {
         d->sslErrors.append(KSslError(e));
     }
 

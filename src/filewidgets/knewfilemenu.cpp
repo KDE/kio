@@ -968,6 +968,7 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
     for (const QString &path : templates) {
         dir.setPath(path);
         const QStringList &entryList(dir.entryList(QStringList() << QStringLiteral("*.desktop"), QDir::Files));
+        files.reserve(files.size() + entryList.size());
         Q_FOREACH (const QString &entry, entryList) {
             const QString file = concatPaths(dir.path(), entry);
             files.append(file);

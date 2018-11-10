@@ -109,6 +109,7 @@ QByteArray TokenIterator::current() const
 QList<QByteArray> TokenIterator::all() const
 {
     QList<QByteArray> ret;
+    ret.reserve(m_tokens.count());
     for (int i = 0; i < m_tokens.count(); i++) {
         QPair<int, int> token = m_tokens[i];
         ret.append(QByteArray(&m_buffer[token.first], token.second - token.first));

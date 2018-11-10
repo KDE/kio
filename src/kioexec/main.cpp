@@ -195,6 +195,7 @@ void KIOExec::slotRunApp()
     KService service(QStringLiteral("dummy"), command, QString());
 
     QList<QUrl> list;
+    list.reserve(fileList.size());
     // Store modification times
     QList<FileInfo>::Iterator it = fileList.begin();
     for (; it != fileList.end() ; ++it) {

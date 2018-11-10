@@ -42,7 +42,9 @@ static void overwriteUrlsInClipboard(KJob *job)
     QList<QUrl> newUrls;
 
     if (copyJob) {
-        Q_FOREACH (const QUrl &url, copyJob->srcUrls()) {
+        const auto srcUrls = copyJob->srcUrls();
+        newUrls.reserve(srcUrls.size());
+        for (const QUrl &url : srcUrls) {
             QUrl dUrl = copyJob->destUrl().adjusted(QUrl::StripTrailingSlash);
             dUrl.setPath(concatPaths(dUrl.path(), url.fileName()));
             newUrls.append(dUrl);

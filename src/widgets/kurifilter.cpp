@@ -531,6 +531,7 @@ void KUriFilterPlugin::setSearchProvider(KUriFilterData &data, const QString &pr
 
 void KUriFilterPlugin::setSearchProviders(KUriFilterData &data, const QList<KUriFilterSearchProvider *> &providers) const
 {
+    data.d->searchProviderList.reserve(data.d->searchProviderList.size() + providers.size());
     Q_FOREACH (KUriFilterSearchProvider *searchProvider, providers) {
         data.d->searchProviderList << searchProvider->name();
         data.d->searchProviderMap.insert(searchProvider->name(), searchProvider);

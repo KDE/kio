@@ -81,6 +81,7 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
 
             QList<QList<KSslError::Error> > meh;    // parallel list to cert list :/
 
+            meh.reserve(ud->certificateChain.size());
             foreach (const QSslCertificate &cert, ud->certificateChain) {
                 QList<KSslError::Error> errors;
                 foreach (const KSslError &error, ud->sslErrors) {

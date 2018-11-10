@@ -145,6 +145,7 @@ void KSslCertificateRule::setIgnoredErrors(const QList<KSslError::Error> &errors
 void KSslCertificateRule::setIgnoredErrors(const QList<KSslError> &errors)
 {
     QList<KSslError::Error> el;
+    el.reserve(errors.size());
     foreach (const KSslError &e, errors) {
         el.append(e.error());
     }

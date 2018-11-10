@@ -211,6 +211,7 @@ bool HostQueue::removeJob(SimpleJob *job)
 QList<Slave *> HostQueue::allSlaves() const
 {
     QList<Slave *> ret;
+    ret.reserve(m_runningJobs.size());
     Q_FOREACH (SimpleJob *job, m_runningJobs) {
         Slave *slave = jobSlave(job);
         Q_ASSERT(slave);

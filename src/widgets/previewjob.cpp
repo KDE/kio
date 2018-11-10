@@ -779,6 +779,7 @@ PreviewJob *KIO::filePreview(const QList<QUrl> &items, int width, int height,
                              const QStringList *enabledPlugins)
 {
     KFileItemList fileItems;
+    fileItems.reserve(items.size());
     for (QList<QUrl>::const_iterator it = items.begin(); it != items.end(); ++it) {
         Q_ASSERT((*it).isValid());   // please call us with valid urls only
         fileItems.append(KFileItem(*it));

@@ -536,6 +536,7 @@ void KFilePlacesModel::Private::_k_initDeviceList()
 
     const QList<Solid::Device> &deviceList = Solid::Device::listFromQuery(predicate);
 
+    availableDevices.reserve(deviceList.size());
     foreach (const Solid::Device &device, deviceList) {
         availableDevices << device.udi();
     }

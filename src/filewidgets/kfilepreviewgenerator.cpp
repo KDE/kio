@@ -546,6 +546,7 @@ void KFilePreviewGenerator::Private::updateIcons(const KFileItemList &items)
     KFileItemList orderedItems = items;
     orderItems(orderedItems);
 
+    m_pendingItems.reserve(m_pendingItems.size() + orderedItems.size());
     foreach (const KFileItem &item, orderedItems) {
         m_pendingItems.append(item);
     }
@@ -712,6 +713,7 @@ void KFilePreviewGenerator::Private::updateCutItems()
     KFileItemList items;
     KDirLister *dirLister = dirModel->dirLister();
     const QList<QUrl> dirs = dirLister->directories();
+    items.reserve(dirs.size());
     foreach (const QUrl &url, dirs) {
         items << dirLister->itemsForDir(url);
     }

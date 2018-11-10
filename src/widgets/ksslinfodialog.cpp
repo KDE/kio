@@ -224,6 +224,7 @@ QList<QList<KSslError::Error> > KSslInfoDialog::errorsFromString(const QString &
 {
     QStringList sl = es.split(QLatin1Char('\n'), QString::KeepEmptyParts);
     QList<QList<KSslError::Error> > ret;
+    ret.reserve(sl.size());
     foreach (const QString &s, sl) {
         QList<KSslError::Error> certErrors;
         QStringList sl2 = s.split(QLatin1Char('\t'), QString::SkipEmptyParts);

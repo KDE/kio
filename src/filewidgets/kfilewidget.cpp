@@ -907,6 +907,7 @@ void KFileWidget::slotOk()
 
             // now recalculate all paths for them being relative in base of the top most url
             QStringList stringList;
+            stringList.reserve(locationEditCurrentTextList.count());
             for (int i = 0; i < locationEditCurrentTextList.count(); ++i) {
                 Q_ASSERT(topMostUrl.isParentOf(locationEditCurrentTextList[i]));
                 stringList << relativePathOrUrl(topMostUrl, locationEditCurrentTextList[i]);

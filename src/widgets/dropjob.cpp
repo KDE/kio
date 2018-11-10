@@ -323,6 +323,7 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
     // TODO: Determining the mimetype of the source URLs is difficult for remote URLs,
     // we would need to KIO::stat each URL in turn, asynchronously....
     KFileItemList fileItems;
+    fileItems.reserve(m_urls.size());
     foreach (const QUrl &url, m_urls) {
         fileItems.append(KFileItem(url));
     }
@@ -547,6 +548,7 @@ void DropJobPrivate::handleDropToExecutable()
     Q_Q(DropJob);
     // Launch executable for each of the files
     QStringList args;
+    args.reserve(m_urls.size());
     Q_FOREACH(const QUrl &url, m_urls) {
         args << url.toLocalFile(); // assume local files
     }

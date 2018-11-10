@@ -210,6 +210,7 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls,
     }
     if (ask) {
         QStringList prettyList;
+        prettyList.reserve(urls.size());
         Q_FOREACH (const QUrl &url, urls) {
             if (url.scheme() == QLatin1String("trash")) {
                 QString path = url.path();

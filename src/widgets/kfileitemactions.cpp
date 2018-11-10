@@ -579,6 +579,7 @@ KService::List KFileItemActions::associatedApplications(const QStringList &mimeT
     std::sort(rankings.begin(), rankings.end(), KFileItemActionsPrivate::lessRank);
 
     KService::List result;
+    result.reserve(rankings.size());
     Q_FOREACH (const KFileItemActionsPrivate::ServiceRank &tempRank, rankings) {
         result << tempRank.service;
     }
@@ -783,6 +784,7 @@ QStringList KFileItemActionsPrivate::listMimeTypes(const KFileItemList &items)
 QStringList KFileItemActionsPrivate::listPreferredServiceIds(const QStringList &mimeTypeList, const QString &traderConstraint)
 {
     QStringList serviceIdList;
+    serviceIdList.reserve(mimeTypeList.size());
     Q_FOREACH (const QString &mimeType, mimeTypeList) {
         const KService::Ptr serv = preferredService(mimeType, traderConstraint);
         const QString newOffer = serv ? serv->storageId() : QString();

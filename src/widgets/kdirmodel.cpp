@@ -148,6 +148,7 @@ public:
     // For removing all child urls from the global hash.
     void collectAllChildUrls(QList<QUrl> &urls) const
     {
+        urls.reserve(urls.size() + m_childNodes.size());
         Q_FOREACH (KDirModelNode *node, m_childNodes) {
             const KFileItem &item = node->item();
             urls.append(cleanupUrl(item.url()));
@@ -459,6 +460,7 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
 
     QList<QModelIndex> emitExpandFor;
 
+    dirNode->m_childNodes.reserve(newRowCount);
     KFileItemList::const_iterator it = items.begin();
     KFileItemList::const_iterator end = items.end();
     for (; it != end; ++it) {
@@ -1028,6 +1030,8 @@ QStringList KDirModel::mimeTypes() const
 QMimeData *KDirModel::mimeData(const QModelIndexList &indexes) const
 {
     QList<QUrl> urls, mostLocalUrls;
+    urls.reserve(indexes.size());
+    mostLocalUrls.reserve(indexes.size());
     bool canUseMostLocalUrls = true;
     foreach (const QModelIndex &index, indexes) {
         const KFileItem &item = d->nodeForIndex(index)->item();

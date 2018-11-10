@@ -843,7 +843,7 @@ bool KUrlCompletionPrivate::envCompletion(const KUrlCompletionPrivate::MyURL &ur
         QString dollar = QStringLiteral("$");
 
         QStringList l;
-
+        l.reserve(keys.size());
         Q_FOREACH(const QString &key, keys) {
             l.append(prepend + dollar + key);
         }
@@ -1142,6 +1142,7 @@ QString KUrlCompletionPrivate::listDirectories(
     QStringList::ConstIterator it = dirList.constBegin();
     QStringList::ConstIterator end = dirList.constEnd();
 
+    url_list.reserve(dirList.size());
     for (; it != end; ++it) {
         url_list.append(QUrl(*it));
     }

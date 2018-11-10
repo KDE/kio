@@ -285,6 +285,7 @@ KPropertiesDialog::KPropertiesDialog(const QList<QUrl>& urls,
     d->m_singleUrl = urls.first();
     Q_ASSERT(!d->m_singleUrl.isEmpty());
 
+    d->m_items.reserve(urls.size());
     foreach (const QUrl& url, urls) {
         KIO::StatJob *job = KIO::stat(url);
         KJobWidgets::setWindow(job, parent);
