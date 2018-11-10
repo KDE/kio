@@ -642,13 +642,14 @@ KACLListView::KACLListView(QWidget *parent)
 {
     // Add the columns
     setColumnCount(6);
-    QStringList headers;
-    headers <<  i18n("Type");
-    headers <<  i18n("Name");
-    headers <<  i18nc("read permission", "r");
-    headers <<  i18nc("write permission", "w");
-    headers <<  i18nc("execute permission", "x");
-    headers <<  i18n("Effective");
+    const QStringList headers {
+        i18n("Type"),
+        i18n("Name"),
+        i18nc("read permission", "r"),
+        i18nc("write permission", "w"),
+        i18nc("execute permission", "x"),
+        i18n("Effective"),
+    };
     setHeaderLabels(headers);
 
     setSortingEnabled(false);

@@ -1009,7 +1009,10 @@ void FileProtocol::special(const QByteArray &data)
 
 static QStringList fallbackSystemPath()
 {
-    return QStringList() << QStringLiteral("/sbin") << QStringLiteral("/bin");
+    return QStringList{
+        QStringLiteral("/sbin"),
+        QStringLiteral("/bin"),
+    };
 }
 
 void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, const QString &_point)

@@ -271,8 +271,7 @@ void KCookiesManagement::on_cookiesTreeWidget_itemExpanded(QTreeWidgetItem *item
     return;
 
   QStringList cookies;
-  QList<int> fields;
-  fields << 0 << 1 << 2 << 3;  
+  const QList<int> fields { 0, 1, 2, 3 };
   // Always check for cookies in both "foo.bar" and ".foo.bar" domains...
   const QString domain = cookieDom->domain() + QLatin1String(" .") + cookieDom->domain();
   QDBusInterface kded(QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"), QDBusConnection::sessionBus());
@@ -302,8 +301,7 @@ void KCookiesManagement::on_cookiesTreeWidget_itemExpanded(QTreeWidgetItem *item
 
 bool KCookiesManagement::cookieDetails(CookieProp *cookie)
 {
-  QList<int> fields;
-  fields << 4 << 5 << 7;
+  const QList<int> fields{ 4, 5, 7 };
 
   QDBusInterface kded(QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"), QDBusConnection::sessionBus());
   QDBusReply<QStringList> reply = kded.call( QStringLiteral("findCookies"),

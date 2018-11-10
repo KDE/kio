@@ -1018,7 +1018,7 @@ QUrl KUrlNavigator::uncommittedUrl() const
 {
     KUriFilterData filteredData(d->m_pathBox->currentText().trimmed());
     filteredData.setCheckForExecutables(false);
-    if (KUriFilter::self()->filterUri(filteredData, QStringList() << QStringLiteral("kshorturifilter") << QStringLiteral("kurisearchfilter"))) {
+    if (KUriFilter::self()->filterUri(filteredData, QStringList{ QStringLiteral("kshorturifilter"), QStringLiteral("kurisearchfilter")})) {
         return filteredData.uri();
     } else {
         return QUrl::fromUserInput(filteredData.typedString());

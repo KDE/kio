@@ -129,12 +129,15 @@ QString KSambaSharePrivate::testparmParamValue(const QString &parameterName)
         return QString();
     }
 
-    QStringList args;
     QByteArray stdErr;
     QByteArray stdOut;
 
-    args << QStringLiteral("-d0") << QStringLiteral("-s") << QStringLiteral("--parameter-name")
-         << parameterName;
+    const QStringList args{
+        QStringLiteral("-d0"),
+        QStringLiteral("-s"),
+        QStringLiteral("--parameter-name"),
+        parameterName,
+    };
 
     runProcess(QStringLiteral("testparm"), args, stdOut, stdErr);
 
@@ -166,11 +169,13 @@ QByteArray KSambaSharePrivate::getNetUserShareInfo()
         return QByteArray();
     }
 
-    QStringList args;
     QByteArray stdOut;
     QByteArray stdErr;
 
-    args << QStringLiteral("usershare") << QStringLiteral("info");
+    const QStringList args{
+        QStringLiteral("usershare"),
+        QStringLiteral("info"),
+    };
 
     runProcess(QStringLiteral("net"), args, stdOut, stdErr);
 
@@ -313,7 +318,6 @@ KSambaShareData::UserShareError KSambaSharePrivate::add(const KSambaShareData &s
         return KSambaShareData::UserShareSystemError;
     }
 
-    QStringList args;
     QByteArray stdOut;
     QByteArray stdErr;
 
@@ -331,8 +335,15 @@ KSambaShareData::UserShareError KSambaSharePrivate::add(const KSambaShareData &s
                           (shareData.guestPermission() == KSambaShareData::GuestsNotAllowed)
                           ? QStringLiteral("n") : QStringLiteral("y"));
 
-    args << QStringLiteral("usershare") << QStringLiteral("add") << shareData.name()
-         << shareData.path() << shareData.comment() << shareData.acl() << guestok;
+    const QStringList args{
+        QStringLiteral("usershare"),
+        QStringLiteral("add"),
+        shareData.name(),
+        shareData.path(),
+        shareData.comment(),
+        shareData.acl(),
+        guestok,
+    };
 
     int ret = runProcess(QStringLiteral("net"), args, stdOut, stdErr);
 
@@ -353,13 +364,16 @@ KSambaShareData::UserShareError KSambaSharePrivate::remove(const KSambaShareData
         return KSambaShareData::UserShareSystemError;
     }
 
-    QStringList args;
 
     if (!data.contains(shareData.name())) {
         return KSambaShareData::UserShareNameInvalid;
     }
 
-    args << QStringLiteral("usershare") << QStringLiteral("delete") << shareData.name();
+    const QStringList args{
+        QStringLiteral("usershare"),
+        QStringLiteral("delete"),
+        shareData.name(),
+    };
 
     int result = QProcess::execute(QStringLiteral("net"), args);
     return (result == 0) ? KSambaShareData::UserShareOk : KSambaShareData::UserShareSystemError;

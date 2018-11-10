@@ -209,7 +209,11 @@ void KCookiesPolicies::addPressed(const QString& domain, bool state)
 
         if (!handleDuplicate (domain, advice)) {
             const char* strAdvice = KCookieAdvice::adviceToStr (advice);
-            QTreeWidgetItem* item = new QTreeWidgetItem (mUi.policyTreeWidget, QStringList() << domain << i18n (strAdvice));
+            const QStringList items {
+                domain,
+                i18n(strAdvice),
+            };
+            QTreeWidgetItem* item = new QTreeWidgetItem(mUi.policyTreeWidget, items);
             mDomainPolicyMap.insert (item->text(0), strAdvice);
             configChanged();
             updateButtons();
@@ -289,8 +293,10 @@ void KCookiesPolicies::updateDomainList (const QStringList& domainConfig)
         KCookieAdvice::Value advice = KCookieAdvice::Dunno;
         splitDomainAdvice (*it, domain, advice);
         if (!domain.isEmpty()) {
-            QStringList items;
-            items << tolerantFromAce(domain.toLatin1()) << i18n(KCookieAdvice::adviceToStr(advice));
+            const QStringList items {
+                tolerantFromAce(domain.toLatin1()),
+                i18n(KCookieAdvice::adviceToStr(advice)),
+            };
             QTreeWidgetItem* item = new QTreeWidgetItem (mUi.policyTreeWidget, items);
             mDomainPolicyMap[item->text(0)] = KCookieAdvice::adviceToStr(advice);
         }

@@ -188,10 +188,10 @@ PreviewJob::PreviewJob(const KFileItemList &items,
         d->enabledPlugins = *enabledPlugins;
     } else {
         const KConfigGroup globalConfig(KSharedConfig::openConfig(), "PreviewSettings");
-        d->enabledPlugins = globalConfig.readEntry("Plugins", QStringList()
-                            << QStringLiteral("directorythumbnail")
-                            << QStringLiteral("imagethumbnail")
-                            << QStringLiteral("jpegthumbnail"));
+        d->enabledPlugins = globalConfig.readEntry("Plugins", QStringList {
+                                                                  QStringLiteral("directorythumbnail"),
+                                                                  QStringLiteral("imagethumbnail"),
+                                                                  QStringLiteral("jpegthumbnail")});
     }
 
     // Return to event loop first, determineNextFile() might delete this;
