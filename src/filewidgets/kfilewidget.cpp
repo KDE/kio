@@ -1315,7 +1315,7 @@ void KFileWidgetPrivate::setLocationText(const QList<QUrl> &urlList)
         foreach (const QUrl &url, urlList) {
             urls += QStringLiteral("\"%1\"").arg(relativePathOrUrl(currUrl, url)) + QLatin1Char(' ');
         }
-        urls = urls.left(urls.size() - 1);
+        urls.chop(1);
 
         setDummyHistoryEntry(urls, QPixmap(), false);
     } else if (urlList.count() == 1) {

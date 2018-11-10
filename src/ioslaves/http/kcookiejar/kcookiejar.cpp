@@ -783,7 +783,7 @@ KHttpCookieList KCookieJar::makeCookies(const QString &_url,
                 }
                 // remove a trailing dot
                 if (dom.length() > 2 && dom[dom.length() - 1] == QL1C('.')) {
-                    dom = dom.left(dom.length() - 1);
+                    dom.chop(1);
                 }
 
                 if (dom.count(QL1C('.')) > 1 || dom == QLatin1String(".local")) {
