@@ -4893,7 +4893,7 @@ static QByteArray makeCacheCleanerCommand(const HTTPProtocol::CacheTag &cacheTag
     // append the filename
     QString fileName = cacheTag.file->fileName();
     int basenameStart = fileName.lastIndexOf(QLatin1Char('/')) + 1;
-    QByteArray baseName = fileName.mid(basenameStart, s_hashedUrlNibbles).toLatin1();
+    const QByteArray baseName = fileName.midRef(basenameStart, s_hashedUrlNibbles).toLatin1();
     stream.writeRawData(baseName.constData(), baseName.size());
 
     Q_ASSERT(ret.size() == BinaryCacheFileHeader::size + sizeof(quint32) + s_hashedUrlNibbles);

@@ -542,7 +542,8 @@ QStringList KProtocolManagerPrivate::getSystemProxyFor(const QUrl &url)
         QString proxy = QString::fromLocal8Bit(qgetenv(proxyVar.toLocal8Bit().constData())).trimmed();
         // Make sure the scheme of SOCKS proxy is always set to "socks://".
         const int index = proxy.indexOf(QL1S("://"));
-        proxy = QL1S("socks://") + (index == -1 ? proxy : proxy.mid(index + 3));
+        const int offset = (index == -1) ? 0 : (index + 3);
+        proxy = QL1S("socks://") + proxy.midRef(offset);
         if (!proxy.isEmpty()) {
             proxies << proxy;
         }
@@ -587,7 +588,8 @@ QStringList KProtocolManager::proxiesForUrl(const QUrl &url)
             if (!proxy.isEmpty()) {
                 // Make sure the scheme of SOCKS proxy is always set to "socks://".
                 const int index = proxy.indexOf(QL1S("://"));
-                proxy = QStringLiteral("socks://") + (index == -1 ? proxy : proxy.mid(index + 3));
+                const int offset = (index == -1) ? 0 : (index + 3);
+                proxy = QL1S("socks://") + proxy.midRef(offset);
                 proxyList << proxy;
             }
         }

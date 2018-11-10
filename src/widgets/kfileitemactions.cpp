@@ -338,7 +338,7 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
         if (cfg.hasKey("X-KDE-Protocol")) {
             const QString theProtocol = cfg.readEntry("X-KDE-Protocol");
             if (theProtocol.startsWith(QLatin1Char('!'))) {
-                const QString excludedProtocol = theProtocol.mid(1);
+                const QStringRef excludedProtocol = theProtocol.midRef(1);
                 if (excludedProtocol == protocol) {
                     continue;
                 }

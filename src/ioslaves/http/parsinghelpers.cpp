@@ -548,7 +548,7 @@ static QMap<QString, QString> contentDispositionParserInternal(const QString &di
         }
 
         const QString charset = val.left(spos);
-        const QByteArray encodedVal = val.mid(npos + 1).toLatin1();
+        const QByteArray encodedVal = val.midRef(npos + 1).toLatin1();
 
         if (! isValidPercentEncoding(encodedVal)) {
             continue;

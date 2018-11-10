@@ -142,14 +142,14 @@ KMountPoint::~KMountPoint()
 void KMountPoint::Private::finalizePossibleMountPoint(DetailsNeededFlags infoNeeded)
 {
     if (mountedFrom.startsWith(QLatin1String("UUID="))) {
-        const QString uuid = mountedFrom.mid(5);
+        const QStringRef uuid = mountedFrom.midRef(5);
         const QString potentialDevice = QFile::symLinkTarget(QLatin1String("/dev/disk/by-uuid/") + uuid);
         if (QFile::exists(potentialDevice)) {
             mountedFrom = potentialDevice;
         }
     }
     if (mountedFrom.startsWith(QLatin1String("LABEL="))) {
-        const QString label = mountedFrom.mid(6);
+        const QStringRef label = mountedFrom.midRef(6);
         const QString potentialDevice = QFile::symLinkTarget(QLatin1String("/dev/disk/by-label/") + label);
         if (QFile::exists(potentialDevice)) {
             mountedFrom = potentialDevice;

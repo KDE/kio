@@ -293,7 +293,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
     auto match = sEnvVarExp.match(path);
     if ( match.hasMatch() )
     {
-      QByteArray exp = qgetenv( path.mid( 1, match.capturedLength() - 1 ).toLocal8Bit().data() );
+      const QByteArray exp = qgetenv(path.midRef(1, match.capturedLength() - 1).toLocal8Bit().data());
       if (!exp.isEmpty()) {
         path.replace( 0, match.capturedLength(), QFile::decodeName(exp) );
         expanded = true;
