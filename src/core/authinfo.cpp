@@ -175,18 +175,20 @@ void AuthInfo::setExtraFieldFlags(const QString &fieldName, const FieldFlags fla
 
 QVariant AuthInfo::getExtraField(const QString &fieldName) const
 {
-    if (!d->extraFields.contains(fieldName)) {
+    const auto it = d->extraFields.constFind(fieldName);
+    if (it == d->extraFields.constEnd()) {
         return QVariant();
     }
-    return d->extraFields[fieldName].value;
+    return it->value;
 }
 
 AuthInfo::FieldFlags AuthInfo::getExtraFieldFlags(const QString &fieldName) const
 {
-    if (!d->extraFields.contains(fieldName)) {
+    const auto it = d->extraFields.constFind(fieldName);
+    if (it == d->extraFields.constEnd()) {
         return AuthInfo::ExtraFieldNoFlags;
     }
-    return d->extraFields[fieldName].flags;
+    return it->flags;
 }
 
 void AuthInfo::registerMetaTypes()
@@ -321,11 +323,12 @@ bool NetRC::lookup(const QUrl &url, AutoLogin &login, bool userealnetrc,
         }
     }
 
-    if (!d->loginMap.contains(type)) {
+    const auto loginIt = d->loginMap.constFind(type);
+    if (loginIt == d->loginMap.constEnd()) {
         return false;
     }
 
-    const LoginList &l = d->loginMap[type];
+    const LoginList &l = *loginIt;
     if (l.isEmpty()) {
         return false;
     }

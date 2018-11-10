@@ -809,16 +809,16 @@ QString FileProtocol::getUserName(KUserId uid) const
     if (Q_UNLIKELY(!uid.isValid())) {
         return QString();
     }
-    if (!mUsercache.contains(uid)) {
+    auto it = mUsercache.find(uid);
+    if (it == mUsercache.end()) {
         KUser user(uid);
         QString name = user.loginName();
         if (name.isEmpty()) {
             name = uid.toString();
         }
-        mUsercache.insert(uid, name);
-        return name;
+        it = mUsercache.insert(uid, name);
     }
-    return mUsercache[uid];
+    return *it;
 }
 
 QString FileProtocol::getGroupName(KGroupId gid) const
@@ -826,16 +826,16 @@ QString FileProtocol::getGroupName(KGroupId gid) const
     if (Q_UNLIKELY(!gid.isValid())) {
         return QString();
     }
-    if (!mGroupcache.contains(gid)) {
+    auto it = mGroupcache.find(gid);
+    if (it == mGroupcache.end()) {
         KUserGroup group(gid);
         QString name = group.name();
         if (name.isEmpty()) {
             name = gid.toString();
         }
-        mGroupcache.insert(gid, name);
-        return name;
+        it = mGroupcache.insert(gid, name);
     }
-    return mGroupcache[gid];
+    return *it;
 }
 
 bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &path, UDSEntry &entry,

@@ -676,28 +676,30 @@ QString KACL::asString() const
 #if HAVE_POSIX_ACL
 QString KACL::KACLPrivate::getUserName(uid_t uid) const
 {
-    if (!m_usercache.contains(uid)) {
+    auto it = m_usercache.find(uid);
+    if (it == m_usercache.end()) {
         struct passwd *user = getpwuid(uid);
         if (user) {
-            m_usercache.insert(uid, QString::fromLatin1(user->pw_name));
+            it = m_usercache.insert(uid, QString::fromLatin1(user->pw_name));
         } else {
             return QString::number(uid);
         }
     }
-    return m_usercache[uid];
+    return *it;
 }
 
 QString KACL::KACLPrivate::getGroupName(gid_t gid) const
 {
-    if (!m_groupcache.contains(gid)) {
+    auto it = m_groupcache.find(gid);
+    if (it == m_groupcache.end()) {
         struct group *grp = getgrgid(gid);
         if (grp) {
-            m_groupcache.insert(gid, QString::fromLatin1(grp->gr_name));
+            it = m_groupcache.insert(gid, QString::fromLatin1(grp->gr_name));
         } else {
             return QString::number(gid);
         }
     }
-    return m_groupcache[gid];
+    return *it;
 }
 #endif
 

@@ -201,9 +201,10 @@ void AccessManagerReply::setHeaderFromMetaData(const KIO::MetaData &_metaData)
     // Set the raw header information...
     const QStringList httpHeaders(metaData.value(QStringLiteral("HTTP-Headers")).split(QL1C('\n'), QString::SkipEmptyParts));
     if (httpHeaders.isEmpty()) {
-        if (metaData.contains(QStringLiteral("charset"))) {
+        const auto charSetIt = metaData.constFind(QStringLiteral("charset"));
+        if (charSetIt != metaData.constEnd()) {
             QString mimeType = header(QNetworkRequest::ContentTypeHeader).toString();
-            mimeType += QLatin1String(" ; charset=") + metaData.value(QStringLiteral("charset"));
+            mimeType += QLatin1String(" ; charset=") + *charSetIt;
             //qDebug() << "changed content-type to" << mimeType;
             setHeader(QNetworkRequest::ContentTypeHeader, mimeType.toUtf8());
         }

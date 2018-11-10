@@ -141,8 +141,9 @@ void TrashConfigModule::trashChanged(int value)
     }
 
     mCurrentTrash = map[ value ];
-    if (mConfigMap.contains(mCurrentTrash)) {
-        const ConfigEntry entry = mConfigMap[ mCurrentTrash ];
+    const auto currentTrashIt = mConfigMap.constFind(mCurrentTrash);
+    if (currentTrashIt != mConfigMap.constEnd()) {
+        const ConfigEntry &entry = *currentTrashIt;
         mUseTimeLimit->setChecked(entry.useTimeLimit);
         mDays->setValue(entry.days);
         mUseSizeLimit->setChecked(entry.useSizeLimit);
