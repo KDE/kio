@@ -131,8 +131,7 @@ public:
 
         QString peerCertChain;
         Q_FOREACH (const QSslCertificate &cert, socket.peerCertificateChain()) {
-            peerCertChain.append(QString::fromUtf8(cert.toPem()));
-            peerCertChain.append(QLatin1Char('\x01'));
+            peerCertChain += QString::fromUtf8(cert.toPem()) + QLatin1Char('\x01');
         }
         peerCertChain.chop(1);
         sslMetaData.insert(QStringLiteral("ssl_peer_chain"), peerCertChain);
@@ -748,8 +747,7 @@ TCPSlaveBase::SslResult TCPSlaveBase::verifyServerCertificate()
 
     QString message = i18n("The server failed the authenticity check (%1).\n\n", d->host);
     Q_FOREACH (const KSslError &err, d->sslErrors) {
-        message.append(err.errorString());
-        message.append(QLatin1Char('\n'));
+        message += err.errorString() + QLatin1Char('\n');
     }
     message = message.trimmed();
 

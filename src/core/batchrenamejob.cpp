@@ -171,8 +171,7 @@ void BatchRenameJobPrivate::slotStart()
         QMimeDatabase db;
         const QString extension = db.suffixForFileName(oldUrl.path().toLower());
         if (!extension.isEmpty()) {
-            newName.append(QLatin1Char('.'));
-            newName.append(extension);
+            newName += QLatin1Char('.') + extension;
         }
 
         m_newUrl = oldUrl.adjusted(QUrl::RemoveFilename);

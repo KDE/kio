@@ -316,8 +316,7 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
                       "StorageAccess.ignored == false ]"));
 
     if (KProtocolInfo::isKnownProtocol(QStringLiteral("mtp"))) {
-        predicate.prepend(QLatin1Char('['));
-        predicate.append(QLatin1String(" OR PortableMediaPlayer.supportedProtocols == 'mtp']"));
+        predicate = QLatin1Char('[') + predicate + QLatin1String(" OR PortableMediaPlayer.supportedProtocols == 'mtp']");
     }
 
     d->predicate = Solid::Predicate::fromString(predicate);

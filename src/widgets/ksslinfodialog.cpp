@@ -199,8 +199,7 @@ void KSslInfoDialog::displayFromChain(int i)
         trusted = i18nc("The certificate is not trusted", "NO, there were errors:");
         foreach (KSslError::Error e, d->certificateErrors[i]) {
             KSslError classError(e);
-            trusted.append(QLatin1Char('\n'));
-            trusted.append(classError.errorString());
+            trusted += QLatin1Char('\n') + classError.errorString();
         }
     } else {
         trusted = i18nc("The certificate is trusted", "Yes");

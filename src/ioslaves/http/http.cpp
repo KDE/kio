@@ -756,17 +756,15 @@ void HTTPProtocol::davStatList(const QUrl &url, bool stat)
     // Maybe it's a disguised SEARCH...
     QString query = metaData(QStringLiteral("davSearchQuery"));
     if (!query.isEmpty()) {
-        QByteArray request = "<?xml version=\"1.0\"?>\r\n";
-        request.append("<D:searchrequest xmlns:D=\"DAV:\">\r\n");
-        request.append(query.toUtf8());
-        request.append("</D:searchrequest>\r\n");
+        const QByteArray request =
+            "<?xml version=\"1.0\"?>\r\n"
+            "<D:searchrequest xmlns:D=\"DAV:\">\r\n" + query.toUtf8() + "</D:searchrequest>\r\n";
 
         davSetRequest(request);
     } else {
         // We are only after certain features...
-        QByteArray request;
-        request = "<?xml version=\"1.0\" encoding=\"utf-8\" ?>"
-                  "<D:propfind xmlns:D=\"DAV:\">";
+        QByteArray request = QByteArrayLiteral("<?xml version=\"1.0\" encoding=\"utf-8\" ?>"
+                  "<D:propfind xmlns:D=\"DAV:\">");
 
         // insert additional XML request from the davRequestResponse metadata
         if (hasMetaData(QStringLiteral("davRequestResponse"))) {
