@@ -39,10 +39,10 @@ static KConfigGroup recentdirs_readList(QString &key, QStringList &result)
         key = QStringLiteral(":default");
     }
     if (key[1] == QLatin1Char(':')) {
-        key = key.mid(2);
+        key.remove(0, 2);
         cg = KConfigGroup(KSharedConfig::openConfig(QStringLiteral("krecentdirsrc")), QString());
     } else {
-        key = key.mid(1);
+        key.remove(0, 1);
     }
 
     result = cg.readPathEntry(key, QStringList());

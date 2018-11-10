@@ -1298,7 +1298,7 @@ static QString relativePathOrUrl(const QUrl &baseUrl, const QUrl &url)
         QString relPath(QDir::cleanPath(url.path()));
         relPath.remove(0, basePath.length());
         if (relPath.startsWith(QLatin1Char('/'))) {
-            relPath = relPath.mid(1);
+            relPath.remove(0, 1);
         }
         return relPath;
     } else {

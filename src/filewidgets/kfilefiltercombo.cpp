@@ -81,7 +81,7 @@ void KFileFilterCombo::setFilter(const QString &filter)
         int index = tmp.indexOf(QLatin1Char('\n'));
         while (index > 0) {
             d->m_filters.append(tmp.left(index));
-            tmp = tmp.mid(index + 1);
+            tmp.remove(0, index + 1);
             index = tmp.indexOf(QLatin1Char('\n'));
         }
         d->m_filters.append(tmp);

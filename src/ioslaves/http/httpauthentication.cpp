@@ -93,7 +93,7 @@ static QList<QByteArray> parseChallenge(QByteArray &ba, QByteArray *scheme, QByt
 
     // drop empty stuff from the given string, it would have to be skipped over and over again
     if (start != 0) {
-        ba = ba.mid(start);
+        ba.remove(0, start);
         end -= start;
         len -= start;
         start = 0;

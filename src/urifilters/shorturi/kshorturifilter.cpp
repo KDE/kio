@@ -135,7 +135,7 @@ bool KShortUriFilter::filterUri( KUriFilterData& data ) const
       firstNonSlash++;
   }
   if (firstNonSlash > 1) {
-      cmd = cmd.mid(firstNonSlash - 1);
+      cmd.remove(0, firstNonSlash - 1);
   }
 
   // Replicate what KUrl(cmd) did in KDE4. This could later be folded into the checks further down...
