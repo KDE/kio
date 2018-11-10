@@ -840,12 +840,10 @@ bool KUrlCompletionPrivate::envCompletion(const KUrlCompletionPrivate::MyURL &ur
         QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
         QStringList keys = env.keys();
 
-        QString dollar = QStringLiteral("$");
-
         QStringList l;
         l.reserve(keys.size());
         Q_FOREACH(const QString &key, keys) {
-            l.append(prepend + dollar + key);
+            l.append(prepend + QLatin1Char('$') + key);
         }
 
         addMatches(l);
