@@ -17,8 +17,8 @@
     Boston, MA 02110-1301, USA.
 */
 
-#ifndef KFILEPLACEEDITDIALOG_H
-#define KFILEPLACEEDITDIALOG_H
+#ifndef KFILEPLACEEDITDIALOG_P_H
+#define KFILEPLACEEDITDIALOG_P_H
 
 // Not exported anymore, only used internally.
 //#include "kiofilewidgets_export.h"
@@ -153,4 +153,4 @@ private:
     QDialogButtonBox *m_buttonBox;
 };
 
-#endif // KURLBAR_H
+#endif // KFILEPLACEEDITDIALOG_P_H
