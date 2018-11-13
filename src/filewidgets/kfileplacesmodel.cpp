@@ -50,6 +50,7 @@
 
 #include <kio/job.h>
 #include <kprotocolinfo.h>
+#include <KCoreDirLister>
 
 #include <kconfig.h>
 #include <kconfiggroup.h>
@@ -80,6 +81,8 @@ namespace {
                 return QStringLiteral("GroupState-Devices-IsHidden");
         case KFilePlacesModel::RemovableDevicesType:
                 return QStringLiteral("GroupState-RemovableDevices-IsHidden");
+        case KFilePlacesModel::TagsType:
+                return QStringLiteral("GroupState-Tags-IsHidden");
         default:
             Q_UNREACHABLE();
         }
@@ -164,8 +167,51 @@ public:
     explicit Private(KFilePlacesModel *self)
         : q(self),
           bookmarkManager(nullptr),
-          fileIndexingEnabled(isFileIndexingEnabled())
+          fileIndexingEnabled(isFileIndexingEnabled()),
+          tags(),
+          tagsLister(new KCoreDirLister())
     {
+        if (KProtocolInfo::isKnownProtocol(QStringLiteral("tags"))) {
+            connect(tagsLister, &KCoreDirLister::itemsAdded, q, [this](const QUrl& directoryUrl, const KFileItemList& items) {
+
+                Q_UNUSED(directoryUrl);
+                const int maxTags = 8;
+
+                QList<QUrl> existingBookmarks;
+
+                KBookmarkGroup root = bookmarkManager->root();
+                KBookmark bookmark = root.first();
+                QVector<QString> devices = availableDevices;
+
+                while (!bookmark.isNull()) {
+                    existingBookmarks.append(bookmark.url());
+                    bookmark = root.next(bookmark);
+                }
+
+                if (tags.isEmpty() && !existingBookmarks.contains(QUrl(tagsUrlBase))) {
+                    KFilePlacesItem::createSystemBookmark(bookmarkManager,
+                                          QStringLiteral("All tags"), I18N_NOOP2("KFile System Bookmarks", "All tags"),
+                                          QUrl(tagsUrlBase),  QStringLiteral("tag"));
+                }
+
+                for (const KFileItem &item: items) {
+                    const QString name = item.name();
+
+                    if (!tags.contains(name) && tags.size() < maxTags) {
+                        tags.append(name);
+                        if (!existingBookmarks.contains(QUrl(item.url()))) {
+                            KFilePlacesItem::createSystemBookmark(bookmarkManager,name, name, QUrl(item.url()),  QStringLiteral("tag"));
+                        }
+                    }
+                }
+
+                bookmarkManager->save();
+
+                _k_reloadBookmarks();
+            });
+
+            tagsLister->openUrl(QUrl(tagsUrlBase), KCoreDirLister::OpenUrlFlag::Reload);
+        }
     }
 
     ~Private()
@@ -190,6 +236,10 @@ public:
     void reloadAndSignal();
     QList<KFilePlacesItem *> loadBookmarkList();
     int findNearestPosition(int source, int target);
+
+    QList<QString> tags;
+    const QString tagsUrlBase = QStringLiteral("tags:/");
+    KCoreDirLister* tagsLister;
 
     void _k_initDeviceList();
     void _k_deviceAdded(const QString &udi);
@@ -270,6 +320,7 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
         setDefaultMetadataItemForGroup(RemoteType);
         setDefaultMetadataItemForGroup(DevicesType);
         setDefaultMetadataItemForGroup(RemovableDevicesType);
+        setDefaultMetadataItemForGroup(TagsType);
 
         // Force bookmarks to be saved. If on open/save dialog and the bookmarks are not saved, QFile::exists
         // will always return false, which opening/closing all the time the open/save dialog would case the
@@ -1054,7 +1105,7 @@ void KFilePlacesModel::setGroupHidden(const GroupType type, bool hidden)
     if (isGroupHidden(type) == hidden)
         return;
 
-    d->bookmarkManager->root().setMetaDataItem(stateNameForGroupType(type), (hidden ? QStringLiteral("true") : QStringLiteral("false")));    
+    d->bookmarkManager->root().setMetaDataItem(stateNameForGroupType(type), (hidden ? QStringLiteral("true") : QStringLiteral("false")));
     d->reloadAndSignal();
     emit groupHiddenChanged(type, hidden);
 }
