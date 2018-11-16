@@ -90,7 +90,7 @@ Name[zh_CN]=Technorati
 Name[zh_TW]=Technorati
 X-KDE-ServiceTypes=SearchProvider
 Keys=tr,technorati
-Query=http://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ar]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[bg]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[bs]=http://technorati.com/search?return=sites&authority=high&q=\\{@}

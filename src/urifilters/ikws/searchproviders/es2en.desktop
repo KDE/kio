@@ -89,7 +89,7 @@ Name[wa]=WordReference.com ratournaedje do castiyan viè l' inglès
 Name[x-test]=xxWordReference.com Translation: Spanish to Englishxx
 Name[zh_CN]=WordReference.com 翻译：西班牙语译英语
 Name[zh_TW]=WordReference.com 翻譯: 西班牙文至英文
-Query=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
+Query=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[af]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[ar]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[as]=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}

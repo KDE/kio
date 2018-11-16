@@ -70,7 +70,7 @@ Name[wa]=Flickr
 Name[x-test]=xxFlickrxx
 Name[zh_CN]=Flickr
 Name[zh_TW]=Flickr
-Query=http://www.flickr.com/search/?q=\\{@}
+Query=https://www.flickr.com/search/?q=\\{@}
 Query[ar]=http://www.flickr.com/search/?q=\\{@}
 Query[bg]=http://www.flickr.com/search/?q=\\{@}
 Query[bn]=http://www.flickr.com/search/?q=\\{@}

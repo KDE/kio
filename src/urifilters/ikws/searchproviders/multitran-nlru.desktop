@@ -86,7 +86,7 @@ Name[zh_CN]=Multitran - 在荷兰语和俄语之间互译
 Name[zh_TW]=Multitran - 翻譯荷蘭語和俄語
 X-KDE-ServiceTypes=SearchProvider
 Keys=mt,mtde
-Query=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
+Query=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[ar]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[as]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[be@latin]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}

@@ -91,7 +91,7 @@ Name[zh_CN]=Google 电影
 Name[zh_TW]=Google 電影
 X-KDE-ServiceTypes=SearchProvider
 Keys=ggmovie
-Query=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ar]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[bg]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[bs]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8

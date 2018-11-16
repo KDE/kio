@@ -92,7 +92,7 @@ Name[zh_CN]=RPM-Find
 Name[zh_TW]=RPM-Find
 X-KDE-ServiceTypes=SearchProvider
 Keys=rf,rpmfind
-Query=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[af]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ar]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[as]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

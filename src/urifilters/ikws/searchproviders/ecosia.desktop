@@ -70,7 +70,7 @@ Name[zh_CN]=Ecosia 搜索引擎
 Name[zh_TW]=Ecosia 搜索引擎
 X-KDE-ServiceTypes=SearchProvider
 Keys=ec
-Query=http://ecosia.org/search.php?q=\\{@}&meta=normal
+Query=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ar]=http://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[bg]=http://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[bn]=http://ecosia.org/search.php?q=\\{@}&meta=normal

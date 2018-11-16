@@ -70,7 +70,7 @@ Name[wa]=7Digital
 Name[x-test]=xx7Digitalxx
 Name[zh_CN]=7Digital
 Name[zh_TW]=7Digital
-Query=http://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[ar]=http://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[bg]=http://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[bn]=http://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search

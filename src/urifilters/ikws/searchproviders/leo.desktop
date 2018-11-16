@@ -91,7 +91,7 @@ Name[zh_CN]=LEO-Translate
 Name[zh_TW]=LEO-Translate
 X-KDE-ServiceTypes=SearchProvider
 Keys=leo
-Query=http://dict.leo.org/?search=\\{@}
+Query=https://dict.leo.org/?search=\\{@}
 Query[af]=http://dict.leo.org/?search=\\{@}
 Query[ar]=http://dict.leo.org/?search=\\{@}
 Query[as]=http://dict.leo.org/?search=\\{@}

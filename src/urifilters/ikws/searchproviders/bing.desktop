@@ -69,7 +69,7 @@ Name[zh_CN]=必应
 Name[zh_TW]=Bing
 X-KDE-ServiceTypes=SearchProvider
 Keys=bing
-Query=http://www.bing.com/search?q=\\{@}
+Query=https://www.bing.com/search?q=\\{@}
 Query[ar]=http://www.bing.com/search?q=\\{@}
 Query[bg]=http://www.bing.com/search?q=\\{@}
 Query[bn]=http://www.bing.com/search?q=\\{@}

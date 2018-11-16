@@ -88,7 +88,7 @@ Name[zh_CN]=LEO - 在德语和法语之间互译
 Name[zh_TW]=LEO - 翻譯德語和法語
 X-KDE-ServiceTypes=SearchProvider
 Keys=de2fr
-Query=http://dict.leo.org/?lp=frde&search=\\{@}
+Query=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[af]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[ar]=http://dict.leo.org/?lp=frde&search=\\{@}
 Query[as]=http://dict.leo.org/?lp=frde&search=\\{@}

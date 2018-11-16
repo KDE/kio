@@ -69,7 +69,7 @@ Name[wa]=KDE TechBase (Tecnike)
 Name[x-test]=xxKDE TechBasexx
 Name[zh_CN]=KDE 技术信息库
 Name[zh_TW]=KDE TechBase
-Query=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ar]=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[bg]=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[bn]=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

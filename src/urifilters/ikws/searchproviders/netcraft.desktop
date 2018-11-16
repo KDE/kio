@@ -91,7 +91,7 @@ Name[zh_CN]=Netcraft
 Name[zh_TW]=Netcraft
 X-KDE-ServiceTypes=SearchProvider
 Keys=nc,netcraft
-Query=http://uptime.netcraft.com/up/graph?site=\\{@}
+Query=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[af]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ar]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[as]=http://uptime.netcraft.com/up/graph?site=\\{@}

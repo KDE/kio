@@ -89,7 +89,7 @@ Name[wa]=WordReference.com ratournaedje di l' inglès viè l' itålyin
 Name[x-test]=xxWordReference.com Translation: English to Italianxx
 Name[zh_CN]=WordReference.com 翻译：英语译意大利语
 Name[zh_TW]=WordReference.com 翻譯: 英文至義大利文
-Query=http://www.wordreference.com/it/translation.asp?enit=\\{@}
+Query=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[af]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ar]=http://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[as]=http://www.wordreference.com/it/translation.asp?enit=\\{@}

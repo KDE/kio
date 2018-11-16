@@ -69,7 +69,7 @@ Name[wa]=Wikia
 Name[x-test]=xxWikiaxx
 Name[zh_CN]=Wikia
 Name[zh_TW]=Wikia
-Query=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
+Query=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[ar]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[bg]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[bn]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search

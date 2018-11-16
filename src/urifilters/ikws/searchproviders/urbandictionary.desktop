@@ -69,7 +69,7 @@ Name[wa]=Urban Dictionary
 Name[x-test]=xxUrban Dictionaryxx
 Name[zh_CN]=都市词典
 Name[zh_TW]=Urban Dictionary
-Query=http://www.urbandictionary.com/define.php?term=\\{@}
+Query=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ar]=http://www.urbandictionary.com/define.php?term=\\{@}
 Query[bg]=http://www.urbandictionary.com/define.php?term=\\{@}
 Query[bn]=http://www.urbandictionary.com/define.php?term=\\{@}

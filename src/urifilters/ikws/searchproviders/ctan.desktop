@@ -89,7 +89,7 @@ Name[xh]=CTAN - Enomxholo TeX Indawo yokugcina Yomsebenzi womnatha
 Name[x-test]=xxCTAN - Comprehensive TeX Archive Networkxx
 Name[zh_CN]=CTAN - 综合性 TeX 档案网络
 Name[zh_TW]=CTAN - 全面的 Tex 收集網路
-Query=http://ctan.org/search?phrase=\\{@}
+Query=https://ctan.org/search?phrase=\\{@}
 Query[ar]=http://ctan.org/search?phrase=\\{@}
 Query[bg]=http://ctan.org/search?phrase=\\{@}
 Query[bs]=http://ctan.org/search?phrase=\\{@}

@@ -91,7 +91,7 @@ Name[zh_CN]=KDE 应用程序搜索
 Name[zh_TW]=KDE 程式搜尋
 X-KDE-ServiceTypes=SearchProvider
 Keys=apps,appsy
-Query=http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
+Query=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[af]=http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ar]=http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[as]=http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}

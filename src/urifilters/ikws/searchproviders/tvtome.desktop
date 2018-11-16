@@ -90,7 +90,7 @@ Name[x-test]=xxTV Tomexx
 Name[zh_CN]=TV Tome
 Name[zh_TW]=TV Tome
 X-KDE-ServiceTypes=SearchProvider
-Query=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
+Query=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[af]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[ar]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[as]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0

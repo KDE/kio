@@ -92,7 +92,7 @@ Name[wa]=Documintåcion di l' API di KDE
 Name[x-test]=xxKDE API Documentationxx
 Name[zh_CN]=KDE API 文档
 Name[zh_TW]=KDE API 文件
-Query=http://api.kde.org/classmapper.php?class=\\{@}
+Query=https://api.kde.org/classmapper.php?class=\\{@}
 Query[af]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[ar]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[as]=http://api.kde.org/classmapper.php?class=\\{@}
