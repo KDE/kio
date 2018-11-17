@@ -92,7 +92,7 @@ Name[zh_CN]=MetaCrawler
 Name[zh_TW]=MetaCrawler
 X-KDE-ServiceTypes=SearchProvider
 Keys=mc,meta,metacrawler
-Query=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
+Query=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ar]=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[bg]=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[bs]=http://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}

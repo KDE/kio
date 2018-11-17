@@ -92,7 +92,7 @@ Name[zh_CN]=韦氏词典
 Name[zh_TW]=韋氏詞典
 X-KDE-ServiceTypes=SearchProvider
 Keys=dict,webster
-Query=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
+Query=https://www.merriam-webster.com/dictionary/\\{@}
 Query[af]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[ar]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
 Query[as]=http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}

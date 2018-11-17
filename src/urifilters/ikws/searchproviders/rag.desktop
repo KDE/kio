@@ -51,7 +51,7 @@ Name[uk]=Словник галісійської академії (RAG)
 Name[x-test]=xxDictionary of the Galician Academy (RAG)xx
 Name[zh_CN]=西班牙皇家学院字典(RAG)
 Name[zh_TW]=西班牙加里西亞學院字典 (RAG)
-Query=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}
+Query=https://academia.gal/dicionario/-/termo/busca/\\{@}
 Query[ar]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}
 Query[bg]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}
 Query[bs]=http://www.realacademiagalega.org/dicionario#searchNoun.do?nounTitle=\\{@}
