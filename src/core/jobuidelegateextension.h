@@ -33,25 +33,16 @@ class Job;
 class ClipboardUpdater;
 
 /**
- * RenameDialog_Overwrite: We have an existing dest, show details about it and offer to overwrite it.
- * RenameDialog_OverwriteItself: Warn that the current operation would overwrite a file with itself,
- *                     which is not allowed.
- * RenameDialog_Skip: Offer a "Skip" button, to skip other files too. Requires RenameDialog_MultipleItems.
- * RenameDialog_MultipleItems: Set if the current operation concerns multiple files, so it makes sense
- *  to offer buttons that apply the user's choice to all files/folders.
- * RenameDialog_Resume: Offer a "Resume" button (plus "Resume All" if RenameDialog_MultipleItems).
- * RenameDialog_NoRename: Don't offer a "Rename" button
- * RenameDialog_IsDirectory: The dest is a directory, so label the "overwrite" button something like "merge" instead.
  * @since 5.0
  */
 enum RenameDialog_Option {
-    RenameDialog_Overwrite = 1,
-    RenameDialog_OverwriteItself = 2,
-    RenameDialog_Skip = 4,
-    RenameDialog_MultipleItems = 8,
-    RenameDialog_Resume = 16,
-    RenameDialog_NoRename = 64,
-    RenameDialog_IsDirectory = 128
+    RenameDialog_Overwrite = 1, ///< We have an existing destination, show details about it and offer to overwrite it.
+    RenameDialog_OverwriteItself = 2, ///< Warn that the current operation would overwrite a file with itself, which is not allowed.
+    RenameDialog_Skip = 4, ///< Offer a "Skip" button, to skip other files too. Requires RenameDialog_MultipleItems.
+    RenameDialog_MultipleItems = 8, ///< Set if the current operation concerns multiple files, so it makes sense to offer buttons that apply the user's choice to all files/folders.
+    RenameDialog_Resume = 16, ///< Offer a "Resume" button (plus "Resume All" if RenameDialog_MultipleItems).
+    RenameDialog_NoRename = 64, ///< Don't offer a "Rename" button.
+    RenameDialog_IsDirectory = 128 ///< The destination is a directory, the dialog updates labels and tooltips accordingly.
 };
 Q_DECLARE_FLAGS(RenameDialog_Options, RenameDialog_Option)
 
