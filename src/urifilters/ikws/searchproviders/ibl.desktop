@@ -140,7 +140,7 @@ Query[mr]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[nb]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[nds]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[ne]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
-Query[nl]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
+Query[nl]=https://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[nn]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[oc]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search
 Query[or]=http://www.iblist.com/search/search.php?item=\\{@}&submit=Search

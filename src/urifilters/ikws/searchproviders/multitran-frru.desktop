@@ -87,3 +87,9 @@ Name[zh_TW]=Multitran - 翻譯法語和俄語
 X-KDE-ServiceTypes=SearchProvider
 Keys=mt,mtde
 Query=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
+Query[ca]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
+Query[gl]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
+Query[nl]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
+Query[pt]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
+Query[uk]=http://multitran.ru/c/m.exe?l1=4&s=\\{@}
+Query[x-test]=xxhttps://multitran.ru/c/m.exe?l1=4&s=\\{@}xx

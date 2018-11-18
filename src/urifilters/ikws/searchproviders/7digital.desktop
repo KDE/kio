@@ -71,5 +71,11 @@ Name[x-test]=xx7Digitalxx
 Name[zh_CN]=7Digital
 Name[zh_TW]=7Digital
 Query=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[ca]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[gl]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[nl]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[pt]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[uk]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[x-test]=xxhttps://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Searchxx
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

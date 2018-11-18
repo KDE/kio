@@ -90,5 +90,11 @@ Name[x-test]=xxWordReference.com Translation: English to Italianxx
 Name[zh_CN]=WordReference.com 翻译：英语译意大利语
 Name[zh_TW]=WordReference.com 翻譯: 英文至義大利文
 Query=https://www.wordreference.com/it/translation.asp?enit=\\{@}
+Query[ca]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
+Query[gl]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
+Query[nl]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
+Query[pt]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
+Query[uk]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
+Query[x-test]=xxhttps://www.wordreference.com/it/translation.asp?enit=\\{@}xx
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

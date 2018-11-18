@@ -90,5 +90,11 @@ Name[x-test]=xxWordReference.com Translation: English to Spanishxx
 Name[zh_CN]=WordReference.com 翻译：英语译西班牙语
 Name[zh_TW]=WordReference.com 翻譯: 英文至西班牙文
 Query=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
+Query[ca]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
+Query[gl]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
+Query[nl]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
+Query[pt]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
+Query[uk]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
+Query[x-test]=xxhttps://www.wordreference.com/es/translation.asp?tranword=\\{@}xx
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

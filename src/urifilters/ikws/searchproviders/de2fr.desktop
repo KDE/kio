@@ -89,3 +89,9 @@ Name[zh_TW]=LEO - 翻譯德語和法語
 X-KDE-ServiceTypes=SearchProvider
 Keys=de2fr
 Query=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[ca]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[gl]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[nl]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[pt]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[uk]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[x-test]=xxhttps://dict.leo.org/?lp=frde&search=\\{@}xx

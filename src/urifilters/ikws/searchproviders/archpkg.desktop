@@ -41,5 +41,11 @@ Name[x-test]=xxArch Linux Package Searchxx
 Name[zh_CN]=Arch Linux 软件包搜索
 Name[zh_TW]=Arch Linux 軟體包搜尋
 Query=https://www.archlinux.org/packages/?q=\\{@}
+Query[ca]=https://www.archlinux.org/packages/?q=\\{@}
+Query[gl]=https://www.archlinux.org/packages/?q=\\{@}
+Query[nl]=https://www.archlinux.org/packages/?q=\\{@}
+Query[pt]=https://www.archlinux.org/packages/?q=\\{@}
+Query[uk]=https://www.archlinux.org/packages/?q=\\{@}
+Query[x-test]=xxhttps://www.archlinux.org/packages/?q=\\{@}xx
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

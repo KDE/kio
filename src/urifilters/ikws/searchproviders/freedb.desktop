@@ -146,7 +146,7 @@ Query[ms]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[nb]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[nds]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[ne]=http://www.freedb.org/freedb_search.php?words=\\{@}
-Query[nl]=http://www.freedb.org/freedb_search.php?words=\\{@}
+Query[nl]=https://www.freedb.org/freedb_search.php?words=\\{@}
 Query[nn]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[oc]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[or]=http://www.freedb.org/freedb_search.php?words=\\{@}

@@ -93,3 +93,9 @@ Name[zh_TW]=Ruby 應用程式檔案庫
 X-KDE-ServiceTypes=SearchProvider
 Keys=raa
 Query=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[ca]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[gl]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[nl]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[pt]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[uk]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[x-test]=xxhttps://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}xx

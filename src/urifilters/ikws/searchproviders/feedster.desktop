@@ -92,4 +92,10 @@ Name[zh_TW]=Feedster
 X-KDE-ServiceTypes=SearchProvider
 Keys=blog,rss,feedster
 Query=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
+Query[ca]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
+Query[gl]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
+Query[nl]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
+Query[pt]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
+Query[uk]=http://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
+Query[x-test]=xxhttps://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}xx
 Charset=utf8

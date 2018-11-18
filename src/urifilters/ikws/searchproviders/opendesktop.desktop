@@ -70,5 +70,11 @@ Name[x-test]=xxopenDesktop.orgxx
 Name[zh_CN]=openDesktop.org
 Name[zh_TW]=openDesktop.org
 Query=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[ca]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[gl]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[nl]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[pt]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[uk]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[x-test]=xxhttps://www.opendesktop.org/content/search.php?search=Search&name=\\{@}xx
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

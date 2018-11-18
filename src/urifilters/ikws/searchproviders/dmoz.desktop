@@ -147,7 +147,7 @@ Query[ms]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[nb]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[nds]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[ne]=http://search.dmoz.org/cgi-bin/search?खोज्नुहोस्=\\{@}
-Query[nl]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
+Query[nl]=https://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[nn]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[oc]=http://search.dmoz.org/cgi-bin/search?search=\\{@}
 Query[or]=http://search.dmoz.org/cgi-bin/search?search=\\{@}

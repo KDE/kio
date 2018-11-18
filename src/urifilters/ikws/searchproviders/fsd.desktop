@@ -89,5 +89,11 @@ Name[zh_TW]=FSF/UNESCO 自由軟體目錄
 X-KDE-ServiceTypes=SearchProvider
 Keys=fsd
 Query=https://directory.fsf.org/search/?query=\\{@}
+Query[ca]=https://directory.fsf.org/search/?query=\\{@}
+Query[gl]=https://directory.fsf.org/search/?query=\\{@}
+Query[nl]=https://directory.fsf.org/search/?query=\\{@}
+Query[pt]=https://directory.fsf.org/search/?query=\\{@}
+Query[uk]=http://directory.fsf.org/search/?query=\\{@}
+Query[x-test]=xxhttps://directory.fsf.org/search/?query=\\{@}xx
 
 

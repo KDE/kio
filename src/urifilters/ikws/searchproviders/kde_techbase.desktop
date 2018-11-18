@@ -70,5 +70,11 @@ Name[x-test]=xxKDE TechBasexx
 Name[zh_CN]=KDE 技术信息库
 Name[zh_TW]=KDE TechBase
 Query=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[ca]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[gl]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[nl]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[pt]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[uk]=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[x-test]=xxhttps://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Searchxx
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

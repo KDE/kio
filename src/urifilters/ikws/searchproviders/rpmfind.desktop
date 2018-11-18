@@ -93,3 +93,9 @@ Name[zh_TW]=RPM-Find
 X-KDE-ServiceTypes=SearchProvider
 Keys=rf,rpmfind
 Query=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[ca]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[gl]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[nl]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[pt]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[uk]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[x-test]=xxhttps://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}xx
