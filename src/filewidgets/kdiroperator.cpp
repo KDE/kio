@@ -1895,7 +1895,7 @@ void KDirOperator::setupActions()
 
     // the sort menu actions
     KActionMenu *sortMenu = new KActionMenu(i18n("Sorting"), this);
-    sortMenu->setIcon(QIcon::fromTheme(QStringLiteral("view-sort-ascending")));
+    sortMenu->setIcon(QIcon::fromTheme(QStringLiteral("view-sort")));
     sortMenu->setDelayed(false);
     d->actionCollection->addAction(QStringLiteral("sorting menu"),  sortMenu);
 
