@@ -321,8 +321,8 @@ RenameDialog::RenameDialog(QWidget *parent, const QString &_caption,
         pLayout->addWidget(lb);
     }
 
-    if ((_options != RenameDialog_OverwriteItself) && (_options != RenameDialog_NoRename)) {
-        if (_options == RenameDialog_Overwrite) {
+    if (!(_options & RenameDialog_OverwriteItself) && !(_options & RenameDialog_NoRename)) {
+        if (_options & RenameDialog_Overwrite) {
             pLayout->addSpacing(15);    // spacer
         }
 
