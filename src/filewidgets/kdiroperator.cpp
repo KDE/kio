@@ -1895,21 +1895,23 @@ void KDirOperator::setupActions()
 
     // the sort menu actions
     KActionMenu *sortMenu = new KActionMenu(i18n("Sorting"), this);
+    sortMenu->setIcon(QIcon::fromTheme(QStringLiteral("view-sort-ascending")));
+    sortMenu->setDelayed(false);
     d->actionCollection->addAction(QStringLiteral("sorting menu"),  sortMenu);
 
-    KToggleAction *byNameAction = new KToggleAction(i18n("By Name"), this);
+    KToggleAction *byNameAction = new KToggleAction(i18n("Sort by Name"), this);
     d->actionCollection->addAction(QStringLiteral("by name"), byNameAction);
     connect(byNameAction, SIGNAL(triggered(bool)), this, SLOT(_k_slotSortByName()));
 
-    KToggleAction *bySizeAction = new KToggleAction(i18n("By Size"), this);
+    KToggleAction *bySizeAction = new KToggleAction(i18n("Sort by Size"), this);
     d->actionCollection->addAction(QStringLiteral("by size"), bySizeAction);
     connect(bySizeAction, SIGNAL(triggered(bool)), this, SLOT(_k_slotSortBySize()));
 
-    KToggleAction *byDateAction = new KToggleAction(i18n("By Date"), this);
+    KToggleAction *byDateAction = new KToggleAction(i18n("Sort by Date"), this);
     d->actionCollection->addAction(QStringLiteral("by date"), byDateAction);
     connect(byDateAction, SIGNAL(triggered(bool)), this, SLOT(_k_slotSortByDate()));
 
-    KToggleAction *byTypeAction = new KToggleAction(i18n("By Type"), this);
+    KToggleAction *byTypeAction = new KToggleAction(i18n("Sort by Type"), this);
     d->actionCollection->addAction(QStringLiteral("by type"), byTypeAction);
     connect(byTypeAction, SIGNAL(triggered(bool)), this, SLOT(_k_slotSortByType()));
 

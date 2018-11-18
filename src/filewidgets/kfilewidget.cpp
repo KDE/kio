@@ -493,7 +493,6 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
                             "<li>the Places navigation panel</li>"
                             "<li>file previews</li>"
                             "<li>separating folders from files</li></ul></qt>"));
-    menu->addAction(coll->action(QStringLiteral("sorting menu")));
     menu->addAction(coll->action(QStringLiteral("view menu")));
     menu->addSeparator();
     menu->addAction(coll->action(QStringLiteral("decoration menu")));
@@ -541,6 +540,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     d->toolbar->addAction(coll->action(QStringLiteral("reload")));
     d->toolbar->addSeparator();
     d->toolbar->addAction(coll->action(QStringLiteral("inline preview")));
+    d->toolbar->addAction(coll->action(QStringLiteral("sorting menu")));
     d->toolbar->addWidget(midSpacer);
     d->toolbar->addAction(d->zoomOutAction);
     d->toolbar->addWidget(d->iconSizeSlider);
