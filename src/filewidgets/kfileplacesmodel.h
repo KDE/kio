@@ -63,6 +63,7 @@ public:
         DevicesType,
         RemovableDevicesType,
         UnknownType,
+        /// @since 5.53
         TagsType
     };
 
