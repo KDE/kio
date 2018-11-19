@@ -72,6 +72,7 @@ Name[zh_CN]=Vimeo
 Name[zh_TW]=Vimeo
 Query=https://vimeo.com/search?q=\\{@}
 Query[ca]=https://vimeo.com/search?q=\\{@}
+Query[ca@valencia]=https://vimeo.com/search?q=\\{@}
 Query[gl]=https://vimeo.com/search?q=\\{@}
 Query[nl]=https://vimeo.com/search?q=\\{@}
 Query[pt]=https://vimeo.com/search?q=\\{@}

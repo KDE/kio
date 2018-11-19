@@ -71,6 +71,7 @@ Name[zh_CN]=openDesktop.org
 Name[zh_TW]=openDesktop.org
 Query=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[ca]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[ca@valencia]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[gl]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[nl]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[pt]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}

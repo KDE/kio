@@ -72,6 +72,7 @@ Name[zh_CN]=7Digital
 Name[zh_TW]=7Digital
 Query=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[ca]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[ca@valencia]=https://vos.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[gl]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[nl]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[pt]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search

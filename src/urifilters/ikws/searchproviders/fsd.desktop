@@ -90,6 +90,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=fsd
 Query=https://directory.fsf.org/search/?query=\\{@}
 Query[ca]=https://directory.fsf.org/search/?query=\\{@}
+Query[ca@valencia]=https://directory.fsf.org/search/?query=\\{@}
 Query[gl]=https://directory.fsf.org/search/?query=\\{@}
 Query[nl]=https://directory.fsf.org/search/?query=\\{@}
 Query[pt]=https://directory.fsf.org/search/?query=\\{@}

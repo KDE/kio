@@ -93,6 +93,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=apps,appsy
 Query=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ca]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
+Query[ca@valencia]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[gl]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[nl]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[pt]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}

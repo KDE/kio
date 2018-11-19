@@ -93,6 +93,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=leo
 Query=https://dict.leo.org/?search=\\{@}
 Query[ca]=https://dict.leo.org/?search=\\{@}
+Query[ca@valencia]=https://dict.leo.org/?search=\\{@}
 Query[gl]=https://dict.leo.org/?search=\\{@}
 Query[nl]=https://dict.leo.org/?search=\\{@}
 Query[pt]=https://dict.leo.org/?search=\\{@}

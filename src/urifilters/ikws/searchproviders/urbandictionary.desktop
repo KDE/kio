@@ -71,6 +71,7 @@ Name[zh_CN]=都市词典
 Name[zh_TW]=Urban Dictionary
 Query=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ca]=https://www.urbandictionary.com/define.php?term=\\{@}
+Query[ca@valencia]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[gl]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[nl]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[pt]=https://www.urbandictionary.com/define.php?term=\\{@}

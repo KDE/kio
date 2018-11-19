@@ -71,6 +71,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=bing
 Query=https://www.bing.com/search?q=\\{@}
 Query[ca]=https://www.bing.com/search?q=\\{@}
+Query[ca@valencia]=https://www.bing.com/search?q=\\{@}
 Query[gl]=https://www.bing.com/search?q=\\{@}
 Query[nl]=https://www.bing.com/search?q=\\{@}
 Query[pt]=https://www.bing.com/search?q=\\{@}

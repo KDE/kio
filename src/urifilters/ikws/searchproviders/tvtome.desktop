@@ -92,6 +92,7 @@ Name[zh_TW]=TV Tome
 X-KDE-ServiceTypes=SearchProvider
 Query=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[ca]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
+Query[ca@valencia]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[gl]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[nl]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[pt]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0

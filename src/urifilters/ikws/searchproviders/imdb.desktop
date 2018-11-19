@@ -93,6 +93,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=imdb
 Query=https://imdb.com/find?s=all&q=\\{@}
 Query[ca]=https://imdb.com/find?s=all&q=\\{@}
+Query[ca@valencia]=https://imdb.com/find?s=all&q=\\{@}
 Query[gl]=https://imdb.com/find?s=all&q=\\{@}
 Query[nl]=https://imdb.com/find?s=all&q=\\{@}
 Query[pt]=https://imdb.com/find?s=all&q=\\{@}

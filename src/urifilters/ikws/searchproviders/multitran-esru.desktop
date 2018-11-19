@@ -88,6 +88,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=mt,mtde
 Query=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[ca]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
+Query[ca@valencia]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[gl]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[nl]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[pt]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}

@@ -42,6 +42,7 @@ Name[zh_CN]=Arch Linux 软件包搜索
 Name[zh_TW]=Arch Linux 軟體包搜尋
 Query=https://www.archlinux.org/packages/?q=\\{@}
 Query[ca]=https://www.archlinux.org/packages/?q=\\{@}
+Query[ca@valencia]=https://www.archlinux.org/packages/?q=\\{@}
 Query[gl]=https://www.archlinux.org/packages/?q=\\{@}
 Query[nl]=https://www.archlinux.org/packages/?q=\\{@}
 Query[pt]=https://www.archlinux.org/packages/?q=\\{@}

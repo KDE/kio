@@ -89,6 +89,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=tags,tag,technoratitags
 Query=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ca]=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[ca@valencia]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[gl]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[nl]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[pt]=https://technorati.com/tag/\\{@}?sourceid=kde-search

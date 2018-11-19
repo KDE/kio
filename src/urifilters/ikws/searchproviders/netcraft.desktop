@@ -93,6 +93,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=nc,netcraft
 Query=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ca]=https://uptime.netcraft.com/up/graph?site=\\{@}
+Query[ca@valencia]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[gl]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[nl]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[pt]=https://uptime.netcraft.com/up/graph?site=\\{@}

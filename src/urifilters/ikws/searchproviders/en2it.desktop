@@ -91,6 +91,7 @@ Name[zh_CN]=WordReference.com 翻译：英语译意大利语
 Name[zh_TW]=WordReference.com 翻譯: 英文至義大利文
 Query=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ca]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
+Query[ca@valencia]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[gl]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[nl]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[pt]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
