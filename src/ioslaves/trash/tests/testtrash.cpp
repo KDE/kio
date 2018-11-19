@@ -640,6 +640,21 @@ void TestTrash::trashDirectoryWithTrailingSlash()
     trashDirectory(homeTmpDir() + dirName, QStringLiteral("dirwithslash"));
 }
 
+void TestTrash::trashBrokenSymlinkIntoSubdir()
+{
+    QString origPath = homeTmpDir() + QStringLiteral("subDirBrokenSymlink");
+
+    if (!QFileInfo::exists(origPath)) {
+        QDir dir;
+        bool ok = dir.mkdir(origPath);
+        QVERIFY(ok);
+    }
+    bool ok = ::symlink("/nonexistent", QFile::encodeName(origPath + "/link")) == 0;
+    QVERIFY(ok);
+
+    trashDirectory(origPath, QStringLiteral("subDirBrokenSymlink"));
+}
+
 void TestTrash::delRootFile()
 {
     // test deleting a trashed file
@@ -781,6 +796,20 @@ void TestTrash::statFileInDirectory()
     QVERIFY(!item.isWritable());
     QVERIFY(!item.isHidden());
     QCOMPARE(item.text(), QStringLiteral("testfile"));
+}
+
+void TestTrash::statBrokenSymlinkInSubdir()
+{
+    QUrl url(QStringLiteral("trash:/0-subDirBrokenSymlink/link"));
+    KIO::UDSEntry entry;
+    bool ok = MyNetAccess_stat(url, entry);
+    QVERIFY(ok);
+    KFileItem item(entry, url);
+    QVERIFY(item.isLink());
+    QVERIFY(item.isReadable());
+    QVERIFY(!item.isWritable());
+    QVERIFY(!item.isHidden());
+    QCOMPARE(item.linkDest(), QLatin1String("/nonexistent"));
 }
 
 void TestTrash::copyFromTrash(const QString &fileId, const QString &destPath, const QString &relativePath)
@@ -1184,11 +1213,12 @@ void TestTrash::listRecursiveRootDir()
     QCOMPARE(m_listResult.count(QStringLiteral("0-fileFromHome (1)")), 1);
     QCOMPARE(m_listResult.count(QStringLiteral("0-trashDirFromHome/testfile")), 1);
     QCOMPARE(m_listResult.count(QStringLiteral("0-readonly/readonly_subdir/testfile_in_subdir")), 1);
+    QCOMPARE(m_listResult.count(QStringLiteral("0-subDirBrokenSymlink/link")), 1);
     QCOMPARE(m_displayNameListResult.count(QStringLiteral("fileFromHome")), 1);
     QCOMPARE(m_displayNameListResult.count(QStringLiteral("fileFromHome (1)")), 1);
     QCOMPARE(m_displayNameListResult.count(QStringLiteral("trashDirFromHome/testfile")), 1);
     QCOMPARE(m_displayNameListResult.count(QStringLiteral("readonly/readonly_subdir/testfile_in_subdir")), 1);
-
+    QCOMPARE(m_displayNameListResult.count(QStringLiteral("subDirBrokenSymlink/link")), 1);
 }
 
 void TestTrash::listSubDir()

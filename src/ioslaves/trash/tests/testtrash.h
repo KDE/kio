@@ -59,12 +59,14 @@ private Q_SLOTS:
     void trashDirectoryFromOther();
     void trashDirectoryOwnedByRoot();
     void trashDirectoryWithTrailingSlash();
+    void trashBrokenSymlinkIntoSubdir();
 
     void statRoot();
     void statFileInRoot();
     void statDirectoryInRoot();
     void statSymlinkInRoot();
     void statFileInDirectory();
+    void statBrokenSymlinkInSubdir();
 
     void copyFileFromTrash();
     void copyFileInDirectoryFromTrash();
