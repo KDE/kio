@@ -94,8 +94,10 @@ Keys=nc,netcraft
 Query=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ca]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ca@valencia]=https://uptime.netcraft.com/up/graph?site=\\{@}
+Query[de]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[gl]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[nl]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[pt]=https://uptime.netcraft.com/up/graph?site=\\{@}
+Query[ru]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[uk]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[x-test]=xxhttps://uptime.netcraft.com/up/graph?site=\\{@}xx

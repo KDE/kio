@@ -89,8 +89,10 @@ Keys=mt,mtde
 Query=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[ca]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[ca@valencia]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
+Query[de]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[gl]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[nl]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[pt]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
+Query[ru]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[uk]=http://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[x-test]=xxhttps://multitran.ru/c/m.exe?l1=24&s=\\{@}xx

@@ -73,9 +73,11 @@ Name[zh_TW]=Flickr
 Query=https://www.flickr.com/search/?q=\\{@}
 Query[ca]=https://www.flickr.com/search/?q=\\{@}
 Query[ca@valencia]=https://www.flickr.com/search/?q=\\{@}
+Query[de]=https://www.flickr.com/search/?q=\\{@}
 Query[gl]=https://www.flickr.com/search/?q=\\{@}
 Query[nl]=https://www.flickr.com/search/?q=\\{@}
 Query[pt]=https://www.flickr.com/search/?q=\\{@}
+Query[ru]=https://www.flickr.com/search/?q=\\{@}
 Query[uk]=http://www.flickr.com/search/?q=\\{@}
 Query[x-test]=xxhttps://www.flickr.com/search/?q=\\{@}xx
 X-KDE-ServiceTypes=SearchProvider

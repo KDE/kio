@@ -92,9 +92,11 @@ Name[zh_TW]=CTAN - 全面的 Tex 收集網路
 Query=https://ctan.org/search?phrase=\\{@}
 Query[ca]=https://ctan.org/search?phrase=\\{@}
 Query[ca@valencia]=https://ctan.org/search?phrase=\\{@}
+Query[de]=https://ctan.org/search?phrase=\\{@}
 Query[gl]=https://ctan.org/search?phrase=\\{@}
 Query[nl]=https://ctan.org/search?phrase=\\{@}
 Query[pt]=https://ctan.org/search?phrase=\\{@}
+Query[ru]=https://ctan.org/search?phrase=\\{@}
 Query[uk]=https://ctan.org/search?phrase=\\{@}
 Query[x-test]=xxhttps://ctan.org/search?phrase=\\{@}xx
 X-KDE-ServiceTypes=SearchProvider

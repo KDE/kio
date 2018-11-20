@@ -95,9 +95,11 @@ Name[zh_TW]=KDE API 文件
 Query=https://api.kde.org/classmapper.php?class=\\{@}
 Query[ca]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[ca@valencia]=https://api.kde.org/classmapper.php?class=\\{@}
+Query[de]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[gl]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[nl]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[pt]=https://api.kde.org/classmapper.php?class=\\{@}
+Query[ru]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[uk]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[x-test]=xxhttps://api.kde.org/classmapper.php?class=\\{@}xx
 X-KDE-ServiceTypes=SearchProvider

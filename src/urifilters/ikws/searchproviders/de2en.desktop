@@ -91,9 +91,11 @@ Name[zh_TW]=dict.cc 翻譯: 德文至英文
 Query=https://www.dict.cc/?s=\\{@}
 Query[ca]=https://www.dict.cc/?s=\\{@}
 Query[ca@valencia]=https://www.dict.cc/?s=\\{@}
+Query[de]=https://www.dict.cc/?s=\\{@}
 Query[gl]=https://www.dict.cc/?s=\\{@}
 Query[nl]=https://www.dict.cc/?s=\\{@}
 Query[pt]=https://www.dict.cc/?s=\\{@}
+Query[ru]=https://www.dict.cc/?s=\\{@}
 Query[uk]=https://www.dict.cc/?s=\\{@}
 Query[x-test]=xxhttps://www.dict.cc/?s=\\{@}xx
 X-KDE-ServiceTypes=SearchProvider

@@ -73,9 +73,11 @@ Name[zh_TW]=KDE UserBase
 Query=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ca]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ca@valencia]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[de]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[gl]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[nl]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[pt]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[ru]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[uk]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[x-test]=xxhttps://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Searchxx
 X-KDE-ServiceTypes=SearchProvider

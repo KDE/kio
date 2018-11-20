@@ -73,8 +73,10 @@ Keys=ec
 Query=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ca]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ca@valencia]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[de]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[gl]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[nl]=https://www.ethicle.com/search.php?q=\\{@}
 Query[pt]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[ru]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[uk]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[x-test]=xxhttps://ecosia.org/search.php?q=\\{@}&meta=normalxx

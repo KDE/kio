@@ -93,9 +93,11 @@ Name[zh_TW]=WordReference.com 英文字典
 Query=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ca]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ca@valencia]=https://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[de]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[gl]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[nl]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[pt]=https://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[ru]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[uk]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[x-test]=xxhttps://www.wordreference.com/english/definition.asp?en=\\{@}xx
 X-KDE-ServiceTypes=SearchProvider

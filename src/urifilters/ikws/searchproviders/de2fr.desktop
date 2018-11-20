@@ -91,8 +91,10 @@ Keys=de2fr
 Query=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ca]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ca@valencia]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[de]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[gl]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[nl]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[pt]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[ru]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[uk]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[x-test]=xxhttps://dict.leo.org/?lp=frde&search=\\{@}xx
