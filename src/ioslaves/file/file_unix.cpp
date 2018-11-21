@@ -251,7 +251,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
 
     KIO::filesize_t processed_size = 0;
     char buffer[ MAX_IPC_SIZE ];
-    int n;
+    ssize_t n = 0;
 #ifdef USE_SENDFILE
     bool use_sendfile = buff_src.st_size < 0x7FFFFFFF;
 #endif
