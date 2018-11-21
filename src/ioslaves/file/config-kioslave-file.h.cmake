@@ -13,3 +13,5 @@
 /* Defined if system has extended file attributes support. */
 #cmakedefine01 HAVE_SYS_XATTR_H
 
+/* Defined if system has the sendfile function. */
+#cmakedefine01 HAVE_SENDFILE

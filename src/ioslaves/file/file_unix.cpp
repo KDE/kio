@@ -49,7 +49,7 @@
 #include "fdreceiver.h"
 
 //sendfile has different semantics in different platforms
-#if defined HAVE_SENDFILE && defined Q_OS_LINUX
+#if HAVE_SENDFILE && defined Q_OS_LINUX
 #define USE_SENDFILE 1
 #endif
 
