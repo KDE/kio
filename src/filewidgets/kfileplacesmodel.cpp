@@ -217,6 +217,7 @@ public:
     ~Private()
     {
         qDeleteAll(items);
+        delete tagsLister;
     }
 
     KFilePlacesModel * const q;
@@ -239,7 +240,7 @@ public:
 
     QList<QString> tags;
     const QString tagsUrlBase = QStringLiteral("tags:/");
-    KCoreDirLister* tagsLister;
+    KCoreDirLister* tagsLister = nullptr;
 
     void _k_initDeviceList();
     void _k_deviceAdded(const QString &udi);
