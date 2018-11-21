@@ -45,6 +45,7 @@ Query[ca]=https://www.archlinux.org/packages/?q=\\{@}
 Query[ca@valencia]=https://www.archlinux.org/packages/?q=\\{@}
 Query[de]=https://www.archlinux.org/packages/?q=\\{@}
 Query[gl]=https://www.archlinux.org/packages/?q=\\{@}
+Query[it]=https://www.archlinux.org/packages/?q=\\{@}
 Query[nl]=https://www.archlinux.org/packages/?q=\\{@}
 Query[pt]=https://www.archlinux.org/packages/?q=\\{@}
 Query[ru]=https://www.archlinux.org/packages/?q=\\{@}
