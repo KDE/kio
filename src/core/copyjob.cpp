@@ -1606,6 +1606,16 @@ void CopyJobPrivate::copyNextFile()
         if (!bCopyFile) {
             it = files.erase(it);
         }
+
+        if ((*it).size > ((1ul << 32) -1)) { // (1ul << 32 -1) = 4 GB
+            const auto fileSystem = KFileSystemType::fileSystemType(m_globalDest.toString());
+            if (fileSystem == KFileSystemType::Fat) {
+                q->setError(ERR_FILE_TOO_LARGE_FOR_FAT32);
+                q->setErrorText(m_globalDest.toDisplayString());
+                q->emitResult();
+                return;
+            }
+        }
     }
 
     if (bCopyFile) { // any file to create, finally ?
@@ -1616,7 +1626,6 @@ void CopyJobPrivate::copyNextFile()
                 q->emitResult();
                 return;
             }
-            //TODO check if dst mount is msdos and (*it).size exceeds it's limits
         }
 
         const QUrl &uSource = (*it).uSource;
