@@ -464,6 +464,11 @@ protected:
      */
     void mouseReleaseEvent(QMouseEvent *event) override;
 
+    /**
+     * Reimplemented to activate on middle mousse button click
+     */
+    void mousePressEvent(QMouseEvent *event) override;
+
     void resizeEvent(QResizeEvent *event) override;
 
     void wheelEvent(QWheelEvent *event) override;
