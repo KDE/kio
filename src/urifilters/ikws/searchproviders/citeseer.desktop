@@ -94,6 +94,7 @@ Query[ca]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=d
 Query[ca@valencia]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[de]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[gl]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[id]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[it]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[nl]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[pt]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc

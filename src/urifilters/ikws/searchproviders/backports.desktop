@@ -89,6 +89,7 @@ Query[ca]=https://packages.debian.org/search?suite=squeeze-backports&section=all
 Query[ca@valencia]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[de]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[gl]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
+Query[id]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[it]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[nl]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[pt]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}

@@ -93,6 +93,7 @@ Query[ca]=https://directory.fsf.org/search/?query=\\{@}
 Query[ca@valencia]=https://directory.fsf.org/search/?query=\\{@}
 Query[de]=https://directory.fsf.org/search/?query=\\{@}
 Query[gl]=https://directory.fsf.org/search/?query=\\{@}
+Query[id]=https://directory.fsf.org/search/?query=\\{@}
 Query[it]=https://directory.fsf.org/search/?query=\\{@}
 Query[nl]=https://directory.fsf.org/search/?query=\\{@}
 Query[pt]=https://directory.fsf.org/search/?query=\\{@}

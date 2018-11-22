@@ -28,7 +28,7 @@ Name[hi]=बिओलिंगस ऑनलाइन शब्दकोश
 Name[hr]=Beolingus Online Rječnik
 Name[hu]=Beolingus online szótár
 Name[ia]=Dictionario in linea Beolingus
-Name[id]=Kamus Daring Beolingus
+Name[id]=Kamus Online Beolingus
 Name[is]=Beolingus netorðabókin
 Name[it]=Dizionario in rete Beolingus
 Name[kk]=Beolingus онлайн сөздігі
@@ -74,6 +74,7 @@ Query[ca]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0
 Query[ca@valencia]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[de]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[gl]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
+Query[id]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[it]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[nl]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[pt]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email

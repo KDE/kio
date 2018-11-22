@@ -93,6 +93,7 @@ Query[ca]=https://packages.debian.org/\\{@}
 Query[ca@valencia]=https://packages.debian.org/\\{@}
 Query[de]=https://packages.debian.org/\\{@}
 Query[gl]=https://packages.debian.org/\\{@}
+Query[id]=https://packages.debian.org/\\{@}
 Query[it]=https://packages.debian.org/\\{@}
 Query[nl]=https://packages.debian.org/\\{@}
 Query[pt]=https://packages.debian.org/\\{@}

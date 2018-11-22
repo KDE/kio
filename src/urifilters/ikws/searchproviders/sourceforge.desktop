@@ -95,6 +95,7 @@ Query[ca]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\
 Query[ca@valencia]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[de]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[gl]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
+Query[id]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[it]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[nl]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[pt]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
