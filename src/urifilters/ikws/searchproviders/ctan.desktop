@@ -99,6 +99,7 @@ Query[it]=https://ctan.org/search?phrase=\\{@}
 Query[nl]=https://ctan.org/search?phrase=\\{@}
 Query[pt]=https://ctan.org/search?phrase=\\{@}
 Query[ru]=https://ctan.org/search?phrase=\\{@}
+Query[sv]=https://ctan.org/search?phrase=\\{@}
 Query[uk]=https://ctan.org/search?phrase=\\{@}
 Query[x-test]=xxhttps://ctan.org/search?phrase=\\{@}xx
 X-KDE-ServiceTypes=SearchProvider

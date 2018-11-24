@@ -81,6 +81,7 @@ Query[it]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[nl]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[pt]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ru]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[sv]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[uk]=http://www.jamendo.com/en/search?qs=q=\\{@}
 Query[x-test]=xxhttps://www.jamendo.com/en/search?qs=q=\\{@}xx
 X-KDE-ServiceTypes=SearchProvider

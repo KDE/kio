@@ -99,6 +99,7 @@ Query[it]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[nl]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[pt]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[ru]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
+Query[sv]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[uk]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[x-test]=xxhttps://www.wordreference.com/es/en/translation.asp?spen=\\{@}xx
 X-KDE-ServiceTypes=SearchProvider

@@ -50,6 +50,7 @@ Query[it]=https://www.archlinux.org/packages/?q=\\{@}
 Query[nl]=https://www.archlinux.org/packages/?q=\\{@}
 Query[pt]=https://www.archlinux.org/packages/?q=\\{@}
 Query[ru]=https://www.archlinux.org/packages/?q=\\{@}
+Query[sv]=https://www.archlinux.org/packages/?q=\\{@}
 Query[uk]=https://www.archlinux.org/packages/?q=\\{@}
 Query[x-test]=xxhttps://www.archlinux.org/packages/?q=\\{@}xx
 X-KDE-ServiceTypes=SearchProvider

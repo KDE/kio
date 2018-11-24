@@ -79,6 +79,7 @@ Query[it]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@
 Query[nl]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[pt]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[ru]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[sv]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[uk]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[x-test]=xxhttps://www.opendesktop.org/content/search.php?search=Search&name=\\{@}xx
 X-KDE-ServiceTypes=SearchProvider

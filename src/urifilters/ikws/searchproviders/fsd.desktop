@@ -98,6 +98,7 @@ Query[it]=https://directory.fsf.org/search/?query=\\{@}
 Query[nl]=https://directory.fsf.org/search/?query=\\{@}
 Query[pt]=https://directory.fsf.org/search/?query=\\{@}
 Query[ru]=https://directory.fsf.org/search/?query=\\{@}
+Query[sv]=https://directory.fsf.org/search/?query=\\{@}
 Query[uk]=http://directory.fsf.org/search/?query=\\{@}
 Query[x-test]=xxhttps://directory.fsf.org/search/?query=\\{@}xx
 

@@ -79,6 +79,7 @@ Query[it]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[nl]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[pt]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ru]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[sv]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[uk]=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[x-test]=xxhttps://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Searchxx
 X-KDE-ServiceTypes=SearchProvider

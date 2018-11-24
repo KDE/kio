@@ -79,6 +79,7 @@ Query[it]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=
 Query[nl]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[pt]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[ru]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
+Query[sv]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[uk]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[x-test]=xxhttps://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Searchxx
 X-KDE-ServiceTypes=SearchProvider

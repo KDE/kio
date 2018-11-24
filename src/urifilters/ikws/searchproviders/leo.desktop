@@ -101,5 +101,6 @@ Query[it]=https://dict.leo.org/?search=\\{@}
 Query[nl]=https://dict.leo.org/?search=\\{@}
 Query[pt]=https://dict.leo.org/?search=\\{@}
 Query[ru]=https://dict.leo.org/?search=\\{@}
+Query[sv]=https://dict.leo.org/?search=\\{@}
 Query[uk]=http://dict.leo.org/?search=\\{@}
 Query[x-test]=xxhttps://dict.leo.org/?search=\\{@}xx
