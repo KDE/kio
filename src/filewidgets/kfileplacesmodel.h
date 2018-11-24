@@ -62,9 +62,7 @@ public:
         SearchForType,
         DevicesType,
         RemovableDevicesType,
-        UnknownType,
-        /// @since 5.53
-        TagsType
+        UnknownType
     };
 
     explicit KFilePlacesModel(QObject *parent = nullptr);

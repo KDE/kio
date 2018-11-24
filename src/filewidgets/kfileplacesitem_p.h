@@ -51,8 +51,7 @@ public:
         RecentlySavedType,
         SearchForType,
         DevicesType,
-        RemovableDevicesType,
-        TagsType
+        RemovableDevicesType
     };
 
     KFilePlacesItem(KBookmarkManager *manager,
