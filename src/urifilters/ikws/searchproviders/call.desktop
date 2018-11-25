@@ -91,6 +91,7 @@ Query=https://www.qrz.com/db/\\{@}
 Query[ca]=https://www.qrz.com/db/\\{@}
 Query[ca@valencia]=https://www.qrz.com/db/\\{@}
 Query[de]=https://www.qrz.com/db/\\{@}
+Query[es]=https://www.qrz.com/db/\\{@}
 Query[gl]=https://www.qrz.com/db/\\{@}
 Query[id]=https://www.qrz.com/db/\\{@}
 Query[it]=https://www.qrz.com/db/\\{@}

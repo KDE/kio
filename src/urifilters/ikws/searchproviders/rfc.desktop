@@ -89,6 +89,7 @@ Query=https://tools.ietf.org/id/\\{@}
 Query[ca]=https://tools.ietf.org/id/\\{@}
 Query[ca@valencia]=https://tools.ietf.org/id/\\{@}
 Query[de]=https://tools.ietf.org/id/\\{@}
+Query[es]=https://tools.ietf.org/id/\\{@}
 Query[gl]=https://tools.ietf.org/id/\\{@}
 Query[id]=https://tools.ietf.org/id/\\{@}
 Query[it]=https://tools.ietf.org/id/\\{@}

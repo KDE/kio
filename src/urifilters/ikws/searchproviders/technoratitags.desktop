@@ -91,6 +91,7 @@ Query=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ca]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ca@valencia]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[de]=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[es]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[gl]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[id]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[it]=https://technorati.com/tag/\\{@}?sourceid=kde-search

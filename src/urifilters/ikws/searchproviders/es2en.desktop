@@ -93,6 +93,7 @@ Query=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[ca]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[ca@valencia]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[de]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
+Query[es]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[gl]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[id]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[it]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}

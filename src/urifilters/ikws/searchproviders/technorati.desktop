@@ -94,6 +94,7 @@ Query=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ca]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ca@valencia]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[de]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[es]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[gl]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[id]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[it]=https://technorati.com/search?return=sites&authority=high&q=\\{@}

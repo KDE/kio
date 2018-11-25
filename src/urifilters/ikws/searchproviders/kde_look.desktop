@@ -74,6 +74,7 @@ Query=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[ca]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[ca@valencia]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[de]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
+Query[es]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[gl]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[id]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[it]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}

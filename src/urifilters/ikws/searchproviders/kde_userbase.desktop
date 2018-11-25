@@ -74,6 +74,7 @@ Query=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ca]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ca@valencia]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[de]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[es]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[gl]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[id]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[it]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

@@ -73,6 +73,7 @@ Query=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Sear
 Query[ca]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[ca@valencia]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[de]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
+Query[es]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[gl]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[id]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[it]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search

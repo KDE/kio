@@ -74,6 +74,7 @@ Query=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Searc
 Query[ca]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[ca@valencia]=https://vos.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[de]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[es]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[gl]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[id]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[it]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
