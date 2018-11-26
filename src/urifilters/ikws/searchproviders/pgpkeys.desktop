@@ -89,5 +89,14 @@ Name[x-test]=xxOpenPGP Key Searchxx
 Name[zh_CN]=OpenPGP 密钥搜索
 Name[zh_TW]=OpenPGP 金鑰搜尋
 Query=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[ca]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[es]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[gl]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[nl]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[pt]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[ru]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[sv]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[uk]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[x-test]=xxhttps://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindexxx
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

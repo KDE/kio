@@ -79,6 +79,7 @@ Query[gl]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[id]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[it]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[nl]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[nn]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[pt]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ru]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sv]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

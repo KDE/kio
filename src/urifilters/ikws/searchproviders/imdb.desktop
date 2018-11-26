@@ -100,6 +100,7 @@ Query[gl]=https://imdb.com/find?s=all&q=\\{@}
 Query[id]=https://imdb.com/find?s=all&q=\\{@}
 Query[it]=https://imdb.com/find?s=all&q=\\{@}
 Query[nl]=https://imdb.com/find?s=all&q=\\{@}
+Query[nn]=https://imdb.com/find?s=all&q=\\{@}
 Query[pt]=https://imdb.com/find?s=all&q=\\{@}
 Query[ru]=https://imdb.com/find?s=all&q=\\{@}
 Query[sv]=https://imdb.com/find?s=all&q=\\{@}
