@@ -419,8 +419,7 @@ void PreviewJob::setIgnoreMaximumSize(bool ignoreSize)
 void PreviewJobPrivate::cleanupTempFile()
 {
     if (!tempName.isEmpty()) {
-        Q_ASSERT(!QFileInfo(tempName).isDir());
-        Q_ASSERT(QFileInfo(tempName).isFile());
+        Q_ASSERT((!QFileInfo(tempName).isDir() && QFileInfo(tempName).isFile()) || QFileInfo(tempName).isSymLink());
         QFile::remove(tempName);
         tempName.clear();
     }
