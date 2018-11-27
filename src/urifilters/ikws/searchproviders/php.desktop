@@ -93,6 +93,7 @@ Name[zh_TW]=PHP 搜尋
 Query=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[ca]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[es]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[eu]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[gl]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[nl]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[pt]=https://secure.php.net/manual-lookup.php?pattern=\\{@}

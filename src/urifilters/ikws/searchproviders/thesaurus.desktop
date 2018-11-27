@@ -94,6 +94,7 @@ Keys=ths,thesaurus
 Query=https://www.merriam-webster.com/thesaurus/\\{@}
 Query[ca]=https://www.merriam-webster.com/thesaurus/\\{@}
 Query[es]=https://www.merriam-webster.com/thesaurus/\\{@}
+Query[eu]=https://www.merriam-webster.com/thesaurus/\\{@}
 Query[gl]=https://www.merriam-webster.com/thesaurus/\\{@}
 Query[nl]=https://www.merriam-webster.com/thesaurus/\\{@}
 Query[pt]=https://www.merriam-webster.com/thesaurus/\\{@}

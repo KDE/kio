@@ -96,6 +96,7 @@ Query[ca]=https://imdb.com/find?s=all&q=\\{@}
 Query[ca@valencia]=https://imdb.com/find?s=all&q=\\{@}
 Query[de]=https://imdb.com/find?s=all&q=\\{@}
 Query[es]=https://imdb.com/find?s=all&q=\\{@}
+Query[eu]=https://imdb.com/find?s=all&q=\\{@}
 Query[gl]=https://imdb.com/find?s=all&q=\\{@}
 Query[id]=https://imdb.com/find?s=all&q=\\{@}
 Query[it]=https://imdb.com/find?s=all&q=\\{@}

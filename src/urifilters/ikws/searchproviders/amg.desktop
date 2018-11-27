@@ -92,6 +92,7 @@ Query[ca]=https://www.allmusic.com/search/all/\\{@}
 Query[ca@valencia]=https://www.allmusic.com/search/all/\\{@}
 Query[de]=https://www.allmusic.com/search/all/\\{@}
 Query[es]=https://www.allmusic.com/search/all/\\{@}
+Query[eu]=https://www.allmusic.com/search/all/\\{@}
 Query[gl]=https://www.allmusic.com/search/all/\\{@}
 Query[id]=https://www.allmusic.com/search/all/\\{@}
 Query[it]=https://www.allmusic.com/search/all/\\{@}

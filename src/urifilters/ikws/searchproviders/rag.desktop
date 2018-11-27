@@ -54,6 +54,7 @@ Name[zh_TW]=西班牙加里西亞學院字典 (RAG)
 Query=https://academia.gal/dicionario/-/termo/busca/\\{@}
 Query[ca]=https://academia.gal/dicionario/-/termo/busca/\\{@}
 Query[es]=https://academia.gal/dicionario/-/termo/busca/\\{@}
+Query[eu]=https://academia.gal/dicionario/-/termo/busca/\\{@}
 Query[gl]=https://academia.gal/dicionario/-/termo/busca/\\{@}
 Query[nl]=https://academia.gal/dicionario/-/termo/busca/\\{@}
 Query[pt]=https://academia.gal/dicionario/-/termo/busca/\\{@}

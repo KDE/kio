@@ -93,6 +93,7 @@ Query[ca]=https://dx.doi.org/\\{@}
 Query[ca@valencia]=https://dx.doi.org/\\{@}
 Query[de]=https://dx.doi.org/\\{@}
 Query[es]=https://dx.doi.org/\\{@}
+Query[eu]=https://dx.doi.org/\\{@}
 Query[gl]=https://dx.doi.org/\\{@}
 Query[id]=https://dx.doi.org/\\{@}
 Query[it]=https://dx.doi.org/\\{@}

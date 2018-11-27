@@ -75,6 +75,7 @@ Query[ca]=https://www.flickr.com/search/?q=\\{@}
 Query[ca@valencia]=https://www.flickr.com/search/?q=\\{@}
 Query[de]=https://www.flickr.com/search/?q=\\{@}
 Query[es]=https://www.flickr.com/search/?q=\\{@}
+Query[eu]=https://www.flickr.com/search/?q=\\{@}
 Query[gl]=https://www.flickr.com/search/?q=\\{@}
 Query[id]=https://www.flickr.com/search/?q=\\{@}
 Query[it]=https://www.flickr.com/search/?q=\\{@}
