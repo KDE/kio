@@ -30,30 +30,8 @@
 namespace KIO
 {
 
-class Connection;
-
-// Separated from Connection only for historical reasons - they are both private now
-class ConnectionPrivate
-{
-public:
-    inline ConnectionPrivate()
-        : backend(nullptr), q(nullptr), suspended(false)
-    { }
-
-    void dequeue();
-    void commandReceived(const Task &task);
-    void disconnected();
-    void setBackend(ConnectionBackend *b);
-
-    QVector<Task> outgoingTasks;
-    QVector<Task> incomingTasks;
-    ConnectionBackend *backend;
-    Connection *q;
-    bool suspended;
-};
-
 class ConnectionServer;
-
+class ConnectionPrivate;
 /**
  * @private
  *
@@ -65,7 +43,12 @@ class ConnectionServer;
 class Connection : public QObject
 {
     Q_OBJECT
+
 public:
+    enum class ReadMode {
+        Polled,  ///Any new tasks will be polled
+        EventDriven ///We need to emit signals when we have pending events. Requires a working QEventLoop
+    };
     /**
      * Creates a new connection.
      * @see connectToRemote, listenForRemote
@@ -151,6 +134,8 @@ public:
            */
     bool suspended() const;
 
+    void setReadMode(ReadMode mode);
+
 Q_SIGNALS:
     void readyRead();
 
@@ -161,6 +146,27 @@ private:
     friend class ConnectionPrivate;
     friend class ConnectionServer;
     class ConnectionPrivate *const d;
+};
+
+// Separated from Connection only for historical reasons - they are both private now
+class ConnectionPrivate
+{
+public:
+    inline ConnectionPrivate()
+        : backend(nullptr), q(nullptr), suspended(false), readMode(Connection::ReadMode::EventDriven)
+    { }
+
+    void dequeue();
+    void commandReceived(const Task &task);
+    void disconnected();
+    void setBackend(ConnectionBackend *b);
+
+    QVector<Task> outgoingTasks;
+    QVector<Task> incomingTasks;
+    ConnectionBackend *backend;
+    Connection *q;
+    bool suspended;
+    Connection::ReadMode readMode;
 };
 
 class ConnectionServerPrivate;

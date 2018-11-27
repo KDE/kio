@@ -92,6 +92,7 @@ public:
             QStandardPaths::setTestModeEnabled(true);
         }
         pendingListEntries.reserve(KIO_MAX_ENTRIES_PER_BATCH);
+        appConnection.setReadMode(Connection::ReadMode::Polled);
     }
     ~SlaveBasePrivate()
     {
