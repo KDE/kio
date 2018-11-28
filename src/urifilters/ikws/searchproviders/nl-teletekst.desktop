@@ -91,6 +91,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=tt,teletekst
 Query=https://nos.nl/teletekst#\\{@}
 Query[ca]=https://nos.nl/teletekst#\\{@}
+Query[de]=https://nos.nl/teletekst#\\{@}
 Query[es]=https://nos.nl/teletekst#\\{@}
 Query[eu]=https://nos.nl/teletekst#\\{@}
 Query[gl]=https://nos.nl/teletekst#\\{@}

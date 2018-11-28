@@ -94,6 +94,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=dict,webster
 Query=https://www.merriam-webster.com/dictionary/\\{@}
 Query[ca]=https://www.merriam-webster.com/dictionary/\\{@}
+Query[de]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[es]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[eu]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[gl]=https://www.merriam-webster.com/dictionary/\\{@}

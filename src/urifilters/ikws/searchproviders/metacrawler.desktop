@@ -94,6 +94,7 @@ X-KDE-ServiceTypes=SearchProvider
 Keys=mc,meta,metacrawler
 Query=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ca]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
+Query[de]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[es]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[eu]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[gl]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
