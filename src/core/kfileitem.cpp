@@ -957,7 +957,6 @@ static bool checkDesktopFile(const KFileItem &item, bool _determineMimeType)
 {
     // only local files
     bool isLocal;
-    const QUrl url = item.mostLocalUrl(&isLocal);
     if (!isLocal) {
         return false;
     }
