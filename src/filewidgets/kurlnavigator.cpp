@@ -1035,7 +1035,7 @@ void KUrlNavigator::setLocationUrl(const QUrl &newUrl)
 
     // This will be used below; we define it here because in the lower part of the
     // code locationUrl() and url become the same URLs
-    const QUrl firstChildUrl = KIO::UrlUtil::firstChildUrl(locationUrl(), url);
+    QUrl firstChildUrl = KIO::UrlUtil::firstChildUrl(locationUrl(), url);
 
     if ((url.scheme() == QLatin1String("tar")) || (url.scheme() == QLatin1String("zip"))) {
         // The URL represents a tar- or zip-file. Check whether
@@ -1058,6 +1058,7 @@ void KUrlNavigator::setLocationUrl(const QUrl &newUrl)
             // drop the tar: or zip: protocol since we are not
             // inside the compressed path
             url.setScheme(QStringLiteral("file"));
+            firstChildUrl.setScheme(QStringLiteral("file"));
         }
     }
 
