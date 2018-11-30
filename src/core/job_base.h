@@ -261,13 +261,6 @@ protected:
     JobPrivate *const d_ptr;
 
 private:
-    /**
-     * Forward signal from subjob.
-     * @param job the subjob
-     * @param speed the speed in bytes/s
-     * @see speed()
-     */
-    Q_PRIVATE_SLOT(d_func(), void slotSpeed(KJob *job, unsigned long speed))
     Q_DECLARE_PRIVATE(Job)
 };
 

@@ -96,15 +96,6 @@ protected:
     FileCopyJob(FileCopyJobPrivate &dd);
 
 private:
-    Q_PRIVATE_SLOT(d_func(), void slotStart())
-    Q_PRIVATE_SLOT(d_func(), void slotData(KIO::Job *, const QByteArray &data))
-    Q_PRIVATE_SLOT(d_func(), void slotDataReq(KIO::Job *, QByteArray &data))
-    Q_PRIVATE_SLOT(d_func(), void slotMimetype(KIO::Job *, const QString &type))
-    Q_PRIVATE_SLOT(d_func(), void slotProcessedSize(KJob *job, qulonglong size))
-    Q_PRIVATE_SLOT(d_func(), void slotTotalSize(KJob *job, qulonglong size))
-    Q_PRIVATE_SLOT(d_func(), void slotPercent(KJob *job, unsigned long pct))
-    Q_PRIVATE_SLOT(d_func(), void slotCanResume(KIO::Job *job, KIO::filesize_t offset))
-
     Q_DECLARE_PRIVATE(FileCopyJob)
 };
 

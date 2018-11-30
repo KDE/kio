@@ -85,9 +85,10 @@ bool Job::addSubjob(KJob *jobBase)
         job->mergeMetaData(d->m_outgoingMetaData);
 
         // Forward information from that subjob.
-        connect(job, SIGNAL(speed(KJob*,ulong)),
-                SLOT(slotSpeed(KJob*,ulong)));
-
+        connect(job, &KJob::speed, this, [this](KJob *job, ulong speed) {
+            Q_UNUSED(job);
+            emitSpeed(speed);
+        });
         job->setProperty("window", property("window")); // see KJobWidgets
         job->setProperty("userTimestamp", property("userTimestamp")); // see KJobWidgets
         job->setUiDelegateExtension(d->m_uiDelegateExtension);
@@ -193,12 +194,6 @@ bool Job::doResume()
     }
 
     return true;
-}
-
-void JobPrivate::slotSpeed(KJob *, unsigned long speed)
-{
-    //qDebug() << speed;
-    q_func()->emitSpeed(speed);
 }
 
 //Job::errorString is implemented in job_error.cpp

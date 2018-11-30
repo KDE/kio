@@ -76,24 +76,6 @@ public:
     /**
      * Forward signal from subjob
      * @param job the job that emitted this signal
-     * @param size the processed size in bytes
-     */
-    void slotProcessedSize(KJob *job, qulonglong size);
-    /**
-     * Forward signal from subjob
-     * @param job the job that emitted this signal
-     * @param size the total size
-     */
-    void slotTotalSize(KJob *job, qulonglong size);
-    /**
-     * Forward signal from subjob
-     * @param job the job that emitted this signal
-     * @param pct the percentage
-     */
-    void slotPercent(KJob *job, unsigned long pct);
-    /**
-     * Forward signal from subjob
-     * @param job the job that emitted this signal
      * @param offset the offset to resume from
      */
     void slotCanResume(KIO::Job *job, KIO::filesize_t offset);
@@ -129,8 +111,10 @@ public:
 FileCopyJob::FileCopyJob(FileCopyJobPrivate &dd)
     : Job(dd)
 {
-    //qDebug();
-    QTimer::singleShot(0, this, SLOT(slotStart()));
+    Q_D(FileCopyJob);
+    QTimer::singleShot(0, this, [d]() {
+        d->slotStart();
+    });
 }
 
 void FileCopyJobPrivate::slotStart()
@@ -220,15 +204,17 @@ void FileCopyJobPrivate::startCopyJob(const QUrl &slave_url)
     Q_Q(FileCopyJob);
     //qDebug();
     KIO_ARGS << m_src << m_dest << m_permissions << (qint8)(m_flags & Overwrite);
-    m_copyJob = new DirectCopyJob(slave_url, packedArgs);
+    auto job = new DirectCopyJob(slave_url, packedArgs);
+    m_copyJob = job;
     m_copyJob->setParentJob(q);
     if (m_modificationTime.isValid()) {
         m_copyJob->addMetaData(QStringLiteral("modified"), m_modificationTime.toString(Qt::ISODate));     // #55804
     }
     q->addSubjob(m_copyJob);
     connectSubjob(m_copyJob);
-    q->connect(m_copyJob, SIGNAL(canResume(KIO::Job*,KIO::filesize_t)),
-               SLOT(slotCanResume(KIO::Job*,KIO::filesize_t)));
+    q->connect(job, &DirectCopyJob::canResume, q, [this](KIO::Job *job, KIO::filesize_t offset) {
+        slotCanResume(job, offset);
+    });
 }
 
 void FileCopyJobPrivate::startRenameJob(const QUrl &slave_url)
@@ -248,14 +234,25 @@ void FileCopyJobPrivate::startRenameJob(const QUrl &slave_url)
 void FileCopyJobPrivate::connectSubjob(SimpleJob *job)
 {
     Q_Q(FileCopyJob);
-    q->connect(job, SIGNAL(totalSize(KJob*,qulonglong)),
-               SLOT(slotTotalSize(KJob*,qulonglong)));
+    q->connect(job, &KJob::totalSize, q, [q](KJob *job, qulonglong totalSize) {
+        Q_UNUSED(job);
+        if (totalSize != q->totalAmount(KJob::Bytes)) {
+            q->setTotalAmount(KJob::Bytes, totalSize);
+        }
+    });
 
-    q->connect(job, SIGNAL(processedSize(KJob*,qulonglong)),
-               SLOT(slotProcessedSize(KJob*,qulonglong)));
+    q->connect(job, &KJob::processedSize, q, [q](KJob *job, qulonglong processedSize) {
+        Q_UNUSED(job);
+        q->setProcessedAmount(KJob::Bytes, processedSize);
+    });
 
-    q->connect(job, SIGNAL(percent(KJob*,ulong)),
-               SLOT(slotPercent(KJob*,ulong)));
+    q->connect(job, QOverload<KJob*,ulong>::of(&KJob::percent), q, [q](KJob *job, ulong percent) {
+        Q_UNUSED(job);
+        if (percent > q->percent()) {
+            q->setPercent(percent);
+        }
+    });
+
     if (q->isSuspended()) {
         job->suspend();
     }
@@ -307,28 +304,6 @@ bool FileCopyJob::doResume()
     return true;
 }
 
-void FileCopyJobPrivate::slotProcessedSize(KJob *, qulonglong size)
-{
-    Q_Q(FileCopyJob);
-    q->setProcessedAmount(KJob::Bytes, size);
-}
-
-void FileCopyJobPrivate::slotTotalSize(KJob *, qulonglong size)
-{
-    Q_Q(FileCopyJob);
-    if (size != q->totalAmount(KJob::Bytes)) {
-        q->setTotalAmount(KJob::Bytes, size);
-    }
-}
-
-void FileCopyJobPrivate::slotPercent(KJob *, unsigned long pct)
-{
-    Q_Q(FileCopyJob);
-    if (pct > q->percent()) {
-        q->setPercent(pct);
-    }
-}
-
 void FileCopyJobPrivate::startDataPump()
 {
     Q_Q(FileCopyJob);
@@ -346,10 +321,12 @@ void FileCopyJobPrivate::startDataPump()
 
     // The first thing the put job will tell us is whether we can
     // resume or not (this is always emitted)
-    q->connect(m_putJob, SIGNAL(canResume(KIO::Job*,KIO::filesize_t)),
-               SLOT(slotCanResume(KIO::Job*,KIO::filesize_t)));
-    q->connect(m_putJob, SIGNAL(dataReq(KIO::Job*,QByteArray&)),
-               SLOT(slotDataReq(KIO::Job*,QByteArray&)));
+    q->connect(m_putJob, &KIO::TransferJob::canResume, q, [this](KIO::Job *job, KIO::filesize_t offset) {
+        slotCanResume(job, offset);
+    });
+    q->connect(m_putJob, &KIO::TransferJob::dataReq, q, [this](KIO::Job *job, QByteArray &data) {
+        slotDataReq(job, data);
+    });
     q->addSubjob(m_putJob);
 }
 
@@ -408,8 +385,9 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
                 m_getJob->addMetaData(QStringLiteral("range-start"), KIO::number(offset));
 
                 // Might or might not get emitted
-                q->connect(m_getJob, SIGNAL(canResume(KIO::Job*,KIO::filesize_t)),
-                           SLOT(slotCanResume(KIO::Job*,KIO::filesize_t)));
+                q->connect(m_getJob, &KIO::TransferJob::canResume, q, [this](KIO::Job *job, KIO::filesize_t offset) {
+                    slotCanResume(job, offset);
+                });
             }
             jobSlave(m_putJob)->setOffset(offset);
 
@@ -418,10 +396,12 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
             connectSubjob(m_getJob);   // Progress info depends on get
             m_getJob->d_func()->internalResume(); // Order a beer
 
-            q->connect(m_getJob, SIGNAL(data(KIO::Job*,QByteArray)),
-                       SLOT(slotData(KIO::Job*,QByteArray)));
-            q->connect(m_getJob, SIGNAL(mimetype(KIO::Job*,QString)),
-                       SLOT(slotMimetype(KIO::Job*,QString)));
+            q->connect(m_getJob, &KIO::TransferJob::data, q, [this](KIO::Job *job, const QByteArray &data) {
+                slotData(job, data);
+            });
+            q->connect(m_getJob, QOverload<KIO::Job *, const QString &>::of(&KIO::TransferJob::mimetype), q, [this](KIO::Job *job, const QString &type) {
+                slotMimetype(job, type);
+            });
         } else { // copyjob
             jobSlave(m_copyJob)->sendResumeAnswer(offset != 0);
         }
