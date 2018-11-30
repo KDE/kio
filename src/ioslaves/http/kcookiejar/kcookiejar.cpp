@@ -569,7 +569,7 @@ void KCookieJar::stripDomain(const QString &_fqdn, QString &_domain) const
     extractDomains(_fqdn, domains);
     if (domains.count() > 3) {
         _domain = domains[3];
-    } else if (domains.count() > 0) {
+    } else if (!domains.isEmpty()) {
         _domain = domains[0];
     } else {
         _domain = QL1S("");
@@ -642,7 +642,7 @@ void KCookieJar::extractDomains(const QString &_fqdn,
 
     QStringList partList = _fqdn.split(QL1C('.'), QString::SkipEmptyParts);
 
-    if (partList.count()) {
+    if (!partList.isEmpty()) {
         partList.erase(partList.begin());    // Remove hostname
     }
 
@@ -1513,7 +1513,7 @@ bool KCookieJar::loadCookies(const QString &_filename)
 
             KHttpCookie cookie(host, domain, path, name, QString::fromUtf8(value), expDate,
                                protVer, secure, httpOnly, explicitPath);
-            if (ports.count()) {
+            if (!ports.isEmpty()) {
                 cookie.mPorts = ports;
             }
             addCookie(cookie);

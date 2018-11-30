@@ -1078,7 +1078,7 @@ void KDirModelTest::testSmb()
     QSignalSpy spyCanceled(dirLister, SIGNAL(canceled()));
     enterLoop(); // wait for completed signal
 
-    if (spyCanceled.count() > 0) {
+    if (!spyCanceled.isEmpty()) {
         QSKIP("smb:/ returns an error, probably no network available");
     }
 

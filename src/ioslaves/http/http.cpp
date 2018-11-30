@@ -1205,7 +1205,7 @@ bool HTTPProtocol::davHostOk()
 
     proceedUntilResponseHeader();
 
-    if (m_davCapabilities.count()) {
+    if (!m_davCapabilities.isEmpty()) {
         for (int i = 0; i < m_davCapabilities.count(); i++) {
             bool ok;
             uint verNo = m_davCapabilities[i].toUInt(&ok);

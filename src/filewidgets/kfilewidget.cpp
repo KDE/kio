@@ -819,7 +819,7 @@ void KFileWidget::slotOk()
     KFile::Modes mode = d->ops->mode();
 
     // if there is nothing to do, just return from here
-    if (!locationEditCurrentTextList.count()) {
+    if (locationEditCurrentTextList.isEmpty()) {
         return;
     }
 
@@ -925,7 +925,7 @@ void KFileWidget::slotOk()
         /**
           * end multi relative urls
           */
-    } else if (locationEditCurrentTextList.count()) {
+    } else if (!locationEditCurrentTextList.isEmpty()) {
         // if we are on file or files mode, and we have an absolute url written by
         // the user, convert it to relative
         if (!locationEditCurrentText.isEmpty() && !(mode & KFile::Directory) &&

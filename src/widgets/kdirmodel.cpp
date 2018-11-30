@@ -1000,7 +1000,7 @@ bool KDirModel::jobTransfersVisible() const
 
 QList<QUrl> KDirModel::simplifiedUrlList(const QList<QUrl> &urls)
 {
-    if (!urls.count()) {
+    if (urls.isEmpty()) {
         return urls;
     }
 

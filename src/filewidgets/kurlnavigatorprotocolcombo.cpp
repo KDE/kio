@@ -168,7 +168,7 @@ void KUrlNavigatorProtocolCombo::updateMenu()
     // categories are placed in sub menus.
     QMenu *menu = m_menu;
     for (int category = 0; category < CategoryCount; ++category) {
-        if (items[category].count() > 0) {
+        if (!items[category].isEmpty()) {
             switch (category) {
             case DevicesCategory:
                 menu = m_menu->addMenu(i18nc("@item:inmenu", "Devices"));

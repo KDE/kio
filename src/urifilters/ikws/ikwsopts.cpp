@@ -369,7 +369,7 @@ void FilterOptions::save()
     }
 
     // Shouldn't happen
-    if (!matches.size())
+    if (matches.isEmpty())
       continue;
 
     changedProviderCount++;

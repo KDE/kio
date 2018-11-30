@@ -2608,7 +2608,7 @@ void KFilePermissionsPropsPlugin::applyChanges()
     }
 
     KIO::Job *job;
-    if (files.count() > 0) {
+    if (!files.isEmpty()) {
         job = KIO::chmod(files, orFilePermissions, ~andFilePermissions,
                          owner, group, false);
         if (ACLChange && d->fileSystemSupportsACLs) {
@@ -2625,7 +2625,7 @@ void KFilePermissionsPropsPlugin::applyChanges()
                 &eventLoop, &QEventLoop::quit);
         eventLoop.exec(QEventLoop::ExcludeUserInputEvents);
     }
-    if (dirs.count() > 0) {
+    if (!dirs.isEmpty()) {
         job = KIO::chmod(dirs, orDirPermissions, ~andDirPermissions,
                          owner, group, recursive);
         if (ACLChange && d->fileSystemSupportsACLs) {

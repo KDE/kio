@@ -742,7 +742,7 @@ void KFilePreviewGenerator::Private::clearCutItemsCache()
     }
     m_cutItemsCache.clear();
 
-    if (previews.size() > 0) {
+    if (!previews.isEmpty()) {
         // assure that the previews gets restored
         Q_ASSERT(m_previewShown);
         orderItems(previews);
@@ -1055,7 +1055,7 @@ void KFilePreviewGenerator::Private::createPreviews(const KFileItemList &items)
 
 void KFilePreviewGenerator::Private::startPreviewJob(const KFileItemList &items, int width, int height)
 {
-    if (items.count() > 0) {
+    if (!items.isEmpty()) {
         KIO::PreviewJob *job = KIO::filePreview(items, QSize(width, height), &m_enabledPlugins);
 
         // Set the sequence index to the target. We only need to check if items.count() == 1,

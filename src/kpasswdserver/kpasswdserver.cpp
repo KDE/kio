@@ -962,7 +962,7 @@ void KPasswdServer::sendResponse (KPasswdServer::Request* request)
     m_authPrompted.removeAll(QString::number(request->windowId));
     m_authPrompted.removeAll(request->key);
 
-    if (m_authPending.count())
+    if (!m_authPending.isEmpty())
        QTimer::singleShot(0, this, &KPasswdServer::processRequest);
 }
 

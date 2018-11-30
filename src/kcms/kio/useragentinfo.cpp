@@ -109,7 +109,7 @@ void UserAgentInfo::parseDescription()
       tmp.replace( QFL("appMachineType"), QSysInfo::currentCpuArchitecture() );
 #endif
       QStringList languageList = QLocale().uiLanguages();
-      if ( languageList.count() )
+      if ( !languageList.isEmpty() )
       {
         int ind = languageList.indexOf( QStringLiteral("C") );
         if( ind >= 0 )
@@ -169,7 +169,7 @@ QStringList UserAgentInfo::userAgentStringList()
   if ( m_bIsDirty )
   {
     loadFromDesktopFiles();
-    if ( !m_providers.count() )
+    if ( m_providers.isEmpty() )
       return QStringList();
     parseDescription();
   }
@@ -181,7 +181,7 @@ QStringList UserAgentInfo::userAgentAliasList ()
   if ( m_bIsDirty )
   {
     loadFromDesktopFiles();
-    if ( !m_providers.count() )
+    if ( m_providers.isEmpty() )
       return QStringList();
     parseDescription();
   }
