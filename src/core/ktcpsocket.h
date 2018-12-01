@@ -163,6 +163,7 @@ public:
         TlsV1_0 = TlsV1,
         TlsV1_1 = 0x40,
         TlsV1_2 = 0x80,
+        TlsV1_3 = 0x100,
         AnySslVersion = SslV2 | SslV3 | TlsV1
     };
     Q_DECLARE_FLAGS(SslVersions, SslVersion)
