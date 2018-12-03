@@ -73,6 +73,7 @@ Query=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[ca]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[ca@valencia]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[de]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[en_GB]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[es]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[eu]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[fi]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
@@ -86,5 +87,6 @@ Query[ru]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@
 Query[sv]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[uk]=http://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[x-test]=xxhttps://www.opendesktop.org/content/search.php?search=Search&name=\\{@}xx
+Query[zh_TW]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

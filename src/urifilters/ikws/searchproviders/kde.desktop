@@ -96,6 +96,7 @@ Query=https://api.kde.org/classmapper.php?class=\\{@}
 Query[ca]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[ca@valencia]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[de]=https://api.kde.org/classmapper.php?class=\\{@}
+Query[en_GB]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[es]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[eu]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[fi]=https://api.kde.org/classmapper.php?class=\\{@}
@@ -109,5 +110,6 @@ Query[ru]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[sv]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[uk]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[x-test]=xxhttps://api.kde.org/classmapper.php?class=\\{@}xx
+Query[zh_TW]=https://api.kde.org/classmapper.php?class=\\{@}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

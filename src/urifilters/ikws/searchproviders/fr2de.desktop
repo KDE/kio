@@ -92,6 +92,7 @@ Query=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ca]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ca@valencia]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[de]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[en_GB]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[es]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[eu]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[fi]=https://dict.leo.org/?lp=frde&search=\\{@}
@@ -105,3 +106,4 @@ Query[ru]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[sv]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[uk]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[x-test]=xxhttps://dict.leo.org/?lp=frde&search=\\{@}xx
+Query[zh_TW]=https://dict.leo.org/?lp=frde&search=\\{@}

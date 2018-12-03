@@ -96,6 +96,7 @@ Query=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ca]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ca@valencia]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[de]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[en_GB]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[es]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[eu]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[fi]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
@@ -109,3 +110,4 @@ Query[ru]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[sv]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[uk]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[x-test]=xxhttps://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}xx
+Query[zh_TW]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

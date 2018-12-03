@@ -95,6 +95,7 @@ Query=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ca]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ca@valencia]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[de]=https://uptime.netcraft.com/up/graph?site=\\{@}
+Query[en_GB]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[es]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[eu]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[fi]=https://uptime.netcraft.com/up/graph?site=\\{@}
@@ -108,3 +109,4 @@ Query[ru]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[sv]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[uk]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[x-test]=xxhttps://uptime.netcraft.com/up/graph?site=\\{@}xx
+Query[zh_TW]=https://uptime.netcraft.com/up/graph?site=\\{@}

@@ -90,6 +90,7 @@ Query=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[ca]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[ca@valencia]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[de]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
+Query[en_GB]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[es]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[eu]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[fi]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
@@ -103,3 +104,4 @@ Query[ru]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[sv]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[uk]=http://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[x-test]=xxhttps://multitran.ru/c/m.exe?l1=23&s=\\{@}xx
+Query[zh_TW]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}

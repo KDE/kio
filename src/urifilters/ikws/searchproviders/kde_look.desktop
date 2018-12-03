@@ -74,6 +74,7 @@ Query=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[ca]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[ca@valencia]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[de]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
+Query[en_GB]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[es]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[eu]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[fi]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
@@ -87,5 +88,6 @@ Query[ru]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[sv]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[uk]=http://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[x-test]=xxhttps://www.kde-look.org/content/search.php?search=Search&name=\\{@}xx
+Query[zh_TW]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

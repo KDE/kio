@@ -94,6 +94,7 @@ Query=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ca]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ca@valencia]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[de]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[en_GB]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[es]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[eu]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[fi]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
@@ -107,4 +108,5 @@ Query[ru]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[sv]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[uk]=http://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[x-test]=xxhttps://technorati.com/search?return=sites&authority=high&q=\\{@}xx
+Query[zh_TW]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Charset=utf8

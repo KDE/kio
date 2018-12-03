@@ -96,6 +96,7 @@ Query=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ca]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ca@valencia]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[de]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
+Query[en_GB]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[es]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[eu]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[fi]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
@@ -107,3 +108,4 @@ Query[ru]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[sv]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[uk]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[x-test]=xxhttps://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}xx
+Query[zh_TW]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}

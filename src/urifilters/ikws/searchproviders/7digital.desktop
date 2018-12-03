@@ -74,6 +74,7 @@ Query=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Searc
 Query[ca]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[ca@valencia]=https://vos.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[de]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[en_GB]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[es]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[eu]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[fi]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
@@ -87,5 +88,6 @@ Query[ru]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=S
 Query[sv]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[uk]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[x-test]=xxhttps://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Searchxx
+Query[zh_TW]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

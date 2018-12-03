@@ -73,6 +73,7 @@ Query=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Sear
 Query[ca]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[ca@valencia]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[de]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
+Query[en_GB]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[es]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[eu]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[fi]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
@@ -86,5 +87,6 @@ Query[ru]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=
 Query[sv]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[uk]=http://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[x-test]=xxhttps://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Searchxx
+Query[zh_TW]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

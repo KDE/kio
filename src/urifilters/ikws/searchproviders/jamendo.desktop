@@ -75,6 +75,7 @@ Query=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ca]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ca@valencia]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[de]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[en_GB]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[es]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[eu]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[fi]=https://www.jamendo.com/en/search?qs=q=\\{@}
@@ -88,5 +89,6 @@ Query[ru]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[sv]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[uk]=http://www.jamendo.com/en/search?qs=q=\\{@}
 Query[x-test]=xxhttps://www.jamendo.com/en/search?qs=q=\\{@}xx
+Query[zh_TW]=https://www.jamendo.com/en/search?qs=q=\\{@}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

@@ -74,6 +74,7 @@ Query=https://vimeo.com/search?q=\\{@}
 Query[ca]=https://vimeo.com/search?q=\\{@}
 Query[ca@valencia]=https://vimeo.com/search?q=\\{@}
 Query[de]=https://vimeo.com/search?q=\\{@}
+Query[en_GB]=https://vimeo.com/search?q=\\{@}
 Query[es]=https://vimeo.com/search?q=\\{@}
 Query[eu]=https://vimeo.com/search?q=\\{@}
 Query[fi]=https://vimeo.com/search?q=\\{@}
@@ -87,5 +88,6 @@ Query[ru]=https://vimeo.com/search?q=\\{@}
 Query[sv]=https://vimeo.com/search?q=\\{@}
 Query[uk]=http://vimeo.com/search?q=\\{@}
 Query[x-test]=xxhttps://vimeo.com/search?q=\\{@}xx
+Query[zh_TW]=https://vimeo.com/search?q=\\{@}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

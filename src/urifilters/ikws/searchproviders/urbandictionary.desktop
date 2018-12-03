@@ -73,6 +73,7 @@ Query=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ca]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ca@valencia]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[de]=https://www.urbandictionary.com/define.php?term=\\{@}
+Query[en_GB]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[es]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[eu]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[fi]=https://www.urbandictionary.com/define.php?term=\\{@}
@@ -86,5 +87,6 @@ Query[ru]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[sv]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[uk]=http://www.urbandictionary.com/define.php?term=\\{@}
 Query[x-test]=xxhttps://www.urbandictionary.com/define.php?term=\\{@}xx
+Query[zh_TW]=https://www.urbandictionary.com/define.php?term=\\{@}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

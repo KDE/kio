@@ -74,6 +74,7 @@ Query=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyo
 Query[ca]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[ca@valencia]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[de]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
+Query[en_GB]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[es]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[eu]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[fi]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
@@ -87,5 +88,6 @@ Query[ru]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1
 Query[sv]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[uk]=http://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[x-test]=xxhttps://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701xx
+Query[zh_TW]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

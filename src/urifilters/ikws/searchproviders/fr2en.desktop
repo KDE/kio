@@ -93,6 +93,7 @@ Query=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[ca]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[ca@valencia]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[de]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
+Query[en_GB]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[es]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[eu]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[fi]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
@@ -106,5 +107,6 @@ Query[ru]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[sv]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[uk]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[x-test]=xxhttps://www.wordreference.com/fr/en/translation.asp?fren=\\{@}xx
+Query[zh_TW]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

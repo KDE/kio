@@ -93,6 +93,7 @@ Query=https://ctan.org/search?phrase=\\{@}
 Query[ca]=https://ctan.org/search?phrase=\\{@}
 Query[ca@valencia]=https://ctan.org/search?phrase=\\{@}
 Query[de]=https://ctan.org/search?phrase=\\{@}
+Query[en_GB]=https://ctan.org/search?phrase=\\{@}
 Query[es]=https://ctan.org/search?phrase=\\{@}
 Query[eu]=https://ctan.org/search?phrase=\\{@}
 Query[fi]=https://ctan.org/search?phrase=\\{@}
@@ -106,5 +107,6 @@ Query[ru]=https://ctan.org/search?phrase=\\{@}
 Query[sv]=https://ctan.org/search?phrase=\\{@}
 Query[uk]=https://ctan.org/search?phrase=\\{@}
 Query[x-test]=xxhttps://ctan.org/search?phrase=\\{@}xx
+Query[zh_TW]=https://ctan.org/search?phrase=\\{@}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

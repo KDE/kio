@@ -93,6 +93,7 @@ Query=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ca]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ca@valencia]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[de]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[en_GB]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[es]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[eu]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[fi]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
@@ -106,5 +107,6 @@ Query[ru]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[sv]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[uk]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[x-test]=xxhttps://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}xx
+Query[zh_TW]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

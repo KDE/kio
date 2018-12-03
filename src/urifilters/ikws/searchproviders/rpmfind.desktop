@@ -96,6 +96,7 @@ Query=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ca]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ca@valencia]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[de]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[en_GB]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[es]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[eu]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[fi]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
@@ -109,3 +110,4 @@ Query[ru]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[sv]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[uk]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[x-test]=xxhttps://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}xx
+Query[zh_TW]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

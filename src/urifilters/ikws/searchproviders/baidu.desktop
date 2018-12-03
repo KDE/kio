@@ -73,6 +73,7 @@ Query=https://www.baidu.com/s?wd=\\{@}
 Query[ca]=https://www.baidu.com/s?wd=\\{@}
 Query[ca@valencia]=https://www.baidu.com/s?wd=\\{@}
 Query[de]=https://www.baidu.com/s?wd=\\{@}
+Query[en_GB]=https://www.baidu.com/s?wd=\\{@}
 Query[es]=https://www.baidu.com/s?wd=\\{@}
 Query[eu]=https://www.baidu.com/s?wd=\\{@}
 Query[fi]=https://www.baidu.com/s?wd=\\{@}
@@ -86,3 +87,4 @@ Query[ru]=https://www.baidu.com/s?wd=\\{@}
 Query[sv]=https://www.baidu.com/s?wd=\\{@}
 Query[uk]=https://www.baidu.com/s?wd=\\{@}
 Query[x-test]=xxhttps://www.baidu.com/s?wd=\\{@}xx
+Query[zh_TW]=https://www.baidu.com/s?wd=\\{@}

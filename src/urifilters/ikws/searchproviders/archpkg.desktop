@@ -44,6 +44,7 @@ Query=https://www.archlinux.org/packages/?q=\\{@}
 Query[ca]=https://www.archlinux.org/packages/?q=\\{@}
 Query[ca@valencia]=https://www.archlinux.org/packages/?q=\\{@}
 Query[de]=https://www.archlinux.org/packages/?q=\\{@}
+Query[en_GB]=https://www.archlinux.org/packages/?q=\\{@}
 Query[es]=https://www.archlinux.org/packages/?q=\\{@}
 Query[eu]=https://www.archlinux.org/packages/?q=\\{@}
 Query[fi]=https://www.archlinux.org/packages/?q=\\{@}
@@ -57,5 +58,6 @@ Query[ru]=https://www.archlinux.org/packages/?q=\\{@}
 Query[sv]=https://www.archlinux.org/packages/?q=\\{@}
 Query[uk]=https://www.archlinux.org/packages/?q=\\{@}
 Query[x-test]=xxhttps://www.archlinux.org/packages/?q=\\{@}xx
+Query[zh_TW]=https://www.archlinux.org/packages/?q=\\{@}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

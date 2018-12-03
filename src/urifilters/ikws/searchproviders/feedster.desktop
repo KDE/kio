@@ -95,6 +95,7 @@ Query=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[ca]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[ca@valencia]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[de]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
+Query[en_GB]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[es]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[eu]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[fi]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
@@ -108,4 +109,5 @@ Query[ru]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{
 Query[sv]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[uk]=http://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[x-test]=xxhttps://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}xx
+Query[zh_TW]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Charset=utf8

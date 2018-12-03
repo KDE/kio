@@ -73,6 +73,7 @@ Query=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ca]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ca@valencia]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[de]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[en_GB]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[es]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[eu]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[fi]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
@@ -86,5 +87,6 @@ Query[ru]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sv]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[uk]=http://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[x-test]=xxhttps://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Searchxx
+Query[zh_TW]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

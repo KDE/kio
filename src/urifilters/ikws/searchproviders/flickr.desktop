@@ -74,6 +74,7 @@ Query=https://www.flickr.com/search/?q=\\{@}
 Query[ca]=https://www.flickr.com/search/?q=\\{@}
 Query[ca@valencia]=https://www.flickr.com/search/?q=\\{@}
 Query[de]=https://www.flickr.com/search/?q=\\{@}
+Query[en_GB]=https://www.flickr.com/search/?q=\\{@}
 Query[es]=https://www.flickr.com/search/?q=\\{@}
 Query[eu]=https://www.flickr.com/search/?q=\\{@}
 Query[fi]=https://www.flickr.com/search/?q=\\{@}
@@ -87,5 +88,6 @@ Query[ru]=https://www.flickr.com/search/?q=\\{@}
 Query[sv]=https://www.flickr.com/search/?q=\\{@}
 Query[uk]=http://www.flickr.com/search/?q=\\{@}
 Query[x-test]=xxhttps://www.flickr.com/search/?q=\\{@}xx
+Query[zh_TW]=https://www.flickr.com/search/?q=\\{@}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service
