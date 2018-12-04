@@ -2356,7 +2356,7 @@ void KFileWidgetPrivate::updateAutoSelectExtension()
 
 // Updates the extension of the filename specified in d->locationEdit if the
 // Automatically Select Extension feature is enabled.
-// (this prevents you from accidently saving "file.kwd" as RTF, for example)
+// (this prevents you from accidentally saving "file.kwd" as RTF, for example)
 void KFileWidgetPrivate::updateLocationEditExtension(const QString &lastExtension)
 {
     if (!autoSelectExtCheckBox->isChecked() || extension.isEmpty()) {

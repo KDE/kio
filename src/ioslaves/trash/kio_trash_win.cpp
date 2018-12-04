@@ -84,7 +84,7 @@ TrashProtocol::TrashProtocol(const QByteArray &protocol, const QByteArray &pool,
     : SlaveBase(protocol, pool, app)
     , m_config(QString::fromLatin1("trashrc"), KConfig::SimpleConfig)
 {
-    // create a hidden window to receive notifications thorugh window messages
+    // create a hidden window to receive notifications through window messages
     const QString className = QLatin1String("TrashProtocol_Widget") + QString::number(quintptr(trash_internal_proc));
     HINSTANCE hi = GetModuleHandle(nullptr);
     WNDCLASS wc;

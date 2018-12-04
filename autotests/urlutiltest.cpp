@@ -41,7 +41,7 @@ void UrlUtilTest::testFirstChildUrl()
     QCOMPARE(KIO::UrlUtil::firstChildUrl(lUrl("/te"), lUrl("/")), lUrl("/te"));
     // One letter under root is also a valid child
     QCOMPARE(KIO::UrlUtil::firstChildUrl(lUrl("/d"), lUrl("/")), lUrl("/d"));
-    // Same urls sould return QUrl()
+    // Same urls should return QUrl()
     QCOMPARE(KIO::UrlUtil::firstChildUrl(lUrl("/home/test/data"), lUrl("/home/test/data/")), QUrl());
     QCOMPARE(KIO::UrlUtil::firstChildUrl(lUrl("/home/test/data/"), lUrl("/home/test/data")), QUrl());
     QCOMPARE(KIO::UrlUtil::firstChildUrl(lUrl("/home/test/"), lUrl("/home/test/")), QUrl());

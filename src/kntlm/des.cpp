@@ -1,5 +1,5 @@
 /*
- * Sofware DES functions
+ * Software DES functions
  *
  * Copyright 1988-1991 Phil Karn <karn@ka9q.net>
  * Copyright 2003      Nikos Mavroyanopoulos <nmav@hellug.gr>
@@ -21,7 +21,7 @@
  * MA  02110-1301  USA
  */
 
-/* Sofware DES functions
+/* Software DES functions
  * written 12 Dec 1986 by Phil Karn, KA9Q; large sections adapted from
  * the 1977 public-domain program by Jim Gillogly
  * Modified for additional speed - 6 December 1988 Phil Karn

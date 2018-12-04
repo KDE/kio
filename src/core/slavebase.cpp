@@ -1043,7 +1043,7 @@ int SlaveBase::readData(QByteArray &buffer)
 void SlaveBase::setTimeoutSpecialCommand(int timeout, const QByteArray &data)
 {
     if (timeout > 0) {
-        d->nextTimeoutMsecs = timeout*1000; // from seconds to miliseconds
+        d->nextTimeoutMsecs = timeout*1000; // from seconds to milliseconds
         d->nextTimeout.start();
     } else if (timeout == 0) {
         d->nextTimeoutMsecs = 1000;  // Immediate timeout

@@ -271,7 +271,7 @@ private:
      * @param iOffset -1 to read a new line from the server<br>
      *                 0 to return the whole response string
      *                >0 to return the response with iOffset chars skipped
-     * @return the reponse message with iOffset chars skipped (or "" if iOffset points
+     * @return the response message with iOffset chars skipped (or "" if iOffset points
      *         behind the available data)
      */
     const char *ftpResponse(int iOffset);

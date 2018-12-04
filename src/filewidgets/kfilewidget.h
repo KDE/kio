@@ -548,7 +548,7 @@ Q_SIGNALS:
     void fileHighlighted(const QUrl &);
 
     /**
-     * Emitted when the user hilights one or more files in multiselection mode.
+     * Emitted when the user highlights one or more files in multiselection mode.
      *
      * Note: fileHighlighted() or fileSelected() are @em not
      * emitted in multiselection mode. You may use selectedItems() to

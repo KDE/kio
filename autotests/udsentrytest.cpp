@@ -244,7 +244,7 @@ void UDSEntryTest::testMove()
         KIO::UDSEntry movedEntry;
         movedEntry = std::move(entryCopy);
 
-        // And veryfy that this works.
+        // And verify that this works.
         QCOMPARE(fileName, movedEntry.stringValue(KIO::UDSEntry::UDS_NAME));
     }
 

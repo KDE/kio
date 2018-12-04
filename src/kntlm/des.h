@@ -1,5 +1,5 @@
 /*
- * Sofware DES functions
+ * Software DES functions
  *
  * Copyright 1988-1991 Phil Karn <karn@ka9q.net>
  * Copyright 2003      Nikos Mavroyanopoulos <nmav@hellug.gr>

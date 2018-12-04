@@ -1073,7 +1073,7 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
 
     case KIO::ERR_FILE_TOO_LARGE_FOR_FAT32:
         errorName = xi18n("Cannot transfer <filename>%1</filename>", errorText);
-        description = xi18n("The file <filename>%1</filename> cannot be transeferred,"
+        description = xi18n("The file <filename>%1</filename> cannot be transferred,"
                             " because the destination filesystem does not support files that large", errorText);
         solutions << i18n("Reformat the destination drive to use a filesystem that supports files that large.");
         break;
