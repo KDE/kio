@@ -103,6 +103,7 @@ Query[it]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[nl]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[nn]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[pt]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
+Query[pt_BR]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[ru]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[sv]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[uk]=http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}

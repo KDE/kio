@@ -105,6 +105,7 @@ Query[it]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[nl]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[nn]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[pt]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
+Query[pt_BR]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ru]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[sv]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[uk]=http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}

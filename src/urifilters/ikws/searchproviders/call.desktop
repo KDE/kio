@@ -101,6 +101,7 @@ Query[it]=https://www.qrz.com/db/\\{@}
 Query[nl]=https://www.qrz.com/db/\\{@}
 Query[nn]=https://www.qrz.com/db/\\{@}
 Query[pt]=https://www.qrz.com/db/\\{@}
+Query[pt_BR]=https://www.qrz.com/db/\\{@}
 Query[ru]=https://www.qrz.com/db/\\{@}
 Query[sv]=https://www.qrz.com/db/\\{@}
 Query[uk]=https://www.qrz.com/db/\\{@}

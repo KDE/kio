@@ -99,6 +99,7 @@ Query[it]=https://tools.ietf.org/id/\\{@}
 Query[nl]=https://tools.ietf.org/id/\\{@}
 Query[nn]=https://tools.ietf.org/id/\\{@}
 Query[pt]=https://tools.ietf.org/id/\\{@}
+Query[pt_BR]=https://tools.ietf.org/id/\\{@}
 Query[ru]=https://tools.ietf.org/id/\\{@}
 Query[sv]=https://tools.ietf.org/id/\\{@}
 Query[uk]=http://tools.ietf.org/id/\\{@}

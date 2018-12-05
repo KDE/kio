@@ -103,6 +103,7 @@ Query[gl]=https://www.merriam-webster.com/thesaurus/\\{@}
 Query[it]=https://www.merriam-webster.com/thesaurus/\\{@}
 Query[nl]=https://www.merriam-webster.com/thesaurus/\\{@}
 Query[pt]=https://www.merriam-webster.com/thesaurus/\\{@}
+Query[pt_BR]=https://www.merriam-webster.com/thesaurus/\\{@}
 Query[ru]=https://www.merriam-webster.com/thesaurus/\\{@}
 Query[sv]=https://www.merriam-webster.com/thesaurus/\\{@}
 Query[uk]=https://www.merriam-webster.com/thesaurus/\\{@}

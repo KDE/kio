@@ -102,6 +102,7 @@ Query[it]=https://directory.fsf.org/search/?query=\\{@}
 Query[nl]=https://directory.fsf.org/search/?query=\\{@}
 Query[nn]=https://directory.fsf.org/search/?query=\\{@}
 Query[pt]=https://directory.fsf.org/search/?query=\\{@}
+Query[pt_BR]=https://directory.fsf.org/search/?query=\\{@}
 Query[ru]=https://directory.fsf.org/search/?query=\\{@}
 Query[sv]=https://directory.fsf.org/search/?query=\\{@}
 Query[uk]=http://directory.fsf.org/search/?query=\\{@}
