@@ -396,8 +396,7 @@ bool KNewFileMenuPrivate::checkSourceExists(const QString &src)
 
         KMessageBox::createKMessageBox(dialog, buttonBox, QMessageBox::Warning,
                                        i18n("<qt>The template file <b>%1</b> does not exist.</qt>", src),
-                                       QStringList(), QString(), nullptr, KMessageBox::NoExec,
-                                       QString());
+                                       QStringList(), QString(), nullptr, KMessageBox::NoExec);
 
         dialog->show();
 
@@ -434,8 +433,7 @@ void KNewFileMenuPrivate::confirmCreatingHiddenDir(const QString &name)
                                    QStringList(),
                                    i18n("Do not ask again"),
                                    nullptr,
-                                   KMessageBox::NoExec,
-                                   QString());
+                                   KMessageBox::NoExec);
 
     QObject::connect(buttonBox, SIGNAL(accepted()), q, SLOT(_k_slotCreateHiddenDirectory()));
     QObject::connect(buttonBox, &QDialogButtonBox::rejected, q, &KNewFileMenu::createDirectory);
