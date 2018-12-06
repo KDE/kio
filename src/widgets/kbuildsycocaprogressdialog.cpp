@@ -22,6 +22,7 @@
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QProcess>
+#include <QDialogButtonBox>
 
 class KBuildSycocaProgressDialogPrivate
 {
@@ -67,6 +68,8 @@ KBuildSycocaProgressDialog::KBuildSycocaProgressDialog(QWidget *_parent,
     setLabelText(text);
     setRange(0, 0);
     setAutoClose(false);
+    QDialogButtonBox* dialogButtonBox = new QDialogButtonBox(QDialogButtonBox::Cancel, this);
+    setCancelButton(dialogButtonBox->button(QDialogButtonBox::Cancel));
 }
 
 KBuildSycocaProgressDialog::~KBuildSycocaProgressDialog()
