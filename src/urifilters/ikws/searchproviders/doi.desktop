@@ -91,6 +91,7 @@ Name[zh_TW]=數位物件識別
 Query=https://dx.doi.org/\\{@}
 Query[ca]=https://dx.doi.org/\\{@}
 Query[ca@valencia]=https://dx.doi.org/\\{@}
+Query[da]=https://dx.doi.org/\\{@}
 Query[de]=https://dx.doi.org/\\{@}
 Query[en_GB]=https://dx.doi.org/\\{@}
 Query[es]=https://dx.doi.org/\\{@}

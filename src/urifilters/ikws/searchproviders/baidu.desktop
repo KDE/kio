@@ -72,6 +72,7 @@ Keys=baidu
 Query=https://www.baidu.com/s?wd=\\{@}
 Query[ca]=https://www.baidu.com/s?wd=\\{@}
 Query[ca@valencia]=https://www.baidu.com/s?wd=\\{@}
+Query[da]=https://www.baidu.com/s?wd=\\{@}
 Query[de]=https://www.baidu.com/s?wd=\\{@}
 Query[en_GB]=https://www.baidu.com/s?wd=\\{@}
 Query[es]=https://www.baidu.com/s?wd=\\{@}

@@ -91,6 +91,7 @@ Keys=fsd
 Query=https://directory.fsf.org/search/?query=\\{@}
 Query[ca]=https://directory.fsf.org/search/?query=\\{@}
 Query[ca@valencia]=https://directory.fsf.org/search/?query=\\{@}
+Query[da]=https://directory.fsf.org/search/?query=\\{@}
 Query[de]=https://directory.fsf.org/search/?query=\\{@}
 Query[en_GB]=https://directory.fsf.org/search/?query=\\{@}
 Query[es]=https://directory.fsf.org/search/?query=\\{@}

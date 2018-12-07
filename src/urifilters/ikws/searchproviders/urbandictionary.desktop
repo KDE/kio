@@ -72,6 +72,7 @@ Name[zh_TW]=Urban Dictionary
 Query=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ca]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ca@valencia]=https://www.urbandictionary.com/define.php?term=\\{@}
+Query[da]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[de]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[en_GB]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[es]=https://www.urbandictionary.com/define.php?term=\\{@}

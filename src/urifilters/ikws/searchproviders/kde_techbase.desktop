@@ -72,6 +72,7 @@ Name[zh_TW]=KDE TechBase
 Query=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ca]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ca@valencia]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[da]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[de]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[en_GB]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[es]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

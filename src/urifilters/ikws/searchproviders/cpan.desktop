@@ -92,6 +92,7 @@ Name[zh_TW]=CPAN - 全面的 Perl 收集網路
 Query=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ca]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ca@valencia]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[da]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[de]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[en_GB]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[es]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}

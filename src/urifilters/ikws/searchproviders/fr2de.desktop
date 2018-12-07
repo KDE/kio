@@ -91,6 +91,7 @@ Keys=fr2de
 Query=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ca]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ca@valencia]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[da]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[de]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[en_GB]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[es]=https://dict.leo.org/?lp=frde&search=\\{@}

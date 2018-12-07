@@ -93,6 +93,7 @@ Name[zh_TW]=WordReference.com 英文字典
 Query=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ca]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ca@valencia]=https://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[da]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[de]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[en_GB]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[es]=https://www.wordreference.com/english/definition.asp?en=\\{@}

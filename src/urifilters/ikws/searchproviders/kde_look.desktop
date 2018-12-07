@@ -73,6 +73,7 @@ Name[zh_TW]=KDE Look
 Query=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[ca]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[ca@valencia]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
+Query[da]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[de]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[en_GB]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}
 Query[es]=https://www.kde-look.org/content/search.php?search=Search&name=\\{@}

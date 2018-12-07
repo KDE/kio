@@ -91,6 +91,7 @@ Name[zh_TW]=dict.cc 翻譯: 英文至德文
 Query=https://www.dict.cc/?s=\\{@}
 Query[ca]=https://www.dict.cc/?s=\\{@}
 Query[ca@valencia]=https://www.dict.cc/?s=\\{@}
+Query[da]=https://www.dict.cc/?s=\\{@}
 Query[de]=https://www.dict.cc/?s=\\{@}
 Query[en_GB]=https://www.dict.cc/?s=\\{@}
 Query[es]=https://www.dict.cc/?s=\\{@}

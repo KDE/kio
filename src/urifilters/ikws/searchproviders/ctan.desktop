@@ -92,6 +92,7 @@ Name[zh_TW]=CTAN - 全面的 Tex 收集網路
 Query=https://ctan.org/search?phrase=\\{@}
 Query[ca]=https://ctan.org/search?phrase=\\{@}
 Query[ca@valencia]=https://ctan.org/search?phrase=\\{@}
+Query[da]=https://ctan.org/search?phrase=\\{@}
 Query[de]=https://ctan.org/search?phrase=\\{@}
 Query[en_GB]=https://ctan.org/search?phrase=\\{@}
 Query[es]=https://ctan.org/search?phrase=\\{@}

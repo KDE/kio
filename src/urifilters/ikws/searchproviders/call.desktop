@@ -90,6 +90,7 @@ Name[zh_TW]=QRZ.com Callsign 資料庫
 Query=https://www.qrz.com/db/\\{@}
 Query[ca]=https://www.qrz.com/db/\\{@}
 Query[ca@valencia]=https://www.qrz.com/db/\\{@}
+Query[da]=https://www.qrz.com/db/\\{@}
 Query[de]=https://www.qrz.com/db/\\{@}
 Query[en_GB]=https://www.qrz.com/db/\\{@}
 Query[es]=https://www.qrz.com/db/\\{@}

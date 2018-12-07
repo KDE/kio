@@ -92,6 +92,7 @@ Name[zh_TW]=WordReference.com 翻譯: 義大利文至英文
 Query=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[ca]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[ca@valencia]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
+Query[da]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[de]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[en_GB]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 Query[es]=https://www.wordreference.com/it/en/translation.asp?iten=\\{@}

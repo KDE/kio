@@ -73,6 +73,7 @@ Name[zh_TW]=Flickr
 Query=https://www.flickr.com/search/?q=\\{@}
 Query[ca]=https://www.flickr.com/search/?q=\\{@}
 Query[ca@valencia]=https://www.flickr.com/search/?q=\\{@}
+Query[da]=https://www.flickr.com/search/?q=\\{@}
 Query[de]=https://www.flickr.com/search/?q=\\{@}
 Query[en_GB]=https://www.flickr.com/search/?q=\\{@}
 Query[es]=https://www.flickr.com/search/?q=\\{@}
