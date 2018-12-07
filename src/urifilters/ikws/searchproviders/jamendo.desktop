@@ -74,6 +74,7 @@ Name[zh_TW]=Jamendo
 Query=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ca]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ca@valencia]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[da]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[de]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[en_GB]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[es]=https://www.jamendo.com/en/search?qs=q=\\{@}

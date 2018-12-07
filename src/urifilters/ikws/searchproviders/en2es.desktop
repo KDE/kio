@@ -92,6 +92,7 @@ Name[zh_TW]=WordReference.com 翻譯: 英文至西班牙文
 Query=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[ca]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[ca@valencia]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
+Query[da]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[de]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[en_GB]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[es]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}

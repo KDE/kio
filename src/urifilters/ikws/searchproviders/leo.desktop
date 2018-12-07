@@ -94,6 +94,7 @@ Keys=leo
 Query=https://dict.leo.org/?search=\\{@}
 Query[ca]=https://dict.leo.org/?search=\\{@}
 Query[ca@valencia]=https://dict.leo.org/?search=\\{@}
+Query[da]=https://dict.leo.org/?search=\\{@}
 Query[de]=https://dict.leo.org/?search=\\{@}
 Query[en_GB]=https://dict.leo.org/?search=\\{@}
 Query[es]=https://dict.leo.org/?search=\\{@}

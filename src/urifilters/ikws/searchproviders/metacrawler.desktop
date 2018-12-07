@@ -95,6 +95,7 @@ Keys=mc,meta,metacrawler
 Query=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ca]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ca@valencia]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
+Query[da]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[de]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[en_GB]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[es]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}

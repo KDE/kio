@@ -91,6 +91,7 @@ Name[zh_TW]=Debian 軟體包搜尋
 Query=https://packages.debian.org/\\{@}
 Query[ca]=https://packages.debian.org/\\{@}
 Query[ca@valencia]=https://packages.debian.org/\\{@}
+Query[da]=https://packages.debian.org/\\{@}
 Query[de]=https://packages.debian.org/\\{@}
 Query[en_GB]=https://packages.debian.org/\\{@}
 Query[es]=https://packages.debian.org/\\{@}

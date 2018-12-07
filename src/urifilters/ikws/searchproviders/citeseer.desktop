@@ -92,6 +92,7 @@ Name[zh_TW]=CiteSeer: 科學文獻數位圖書館
 Query=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[ca]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[ca@valencia]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[da]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[de]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[en_GB]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[es]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc

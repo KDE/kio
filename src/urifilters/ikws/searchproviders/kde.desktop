@@ -95,6 +95,7 @@ Name[zh_TW]=KDE API 文件
 Query=https://api.kde.org/classmapper.php?class=\\{@}
 Query[ca]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[ca@valencia]=https://api.kde.org/classmapper.php?class=\\{@}
+Query[da]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[de]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[en_GB]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[es]=https://api.kde.org/classmapper.php?class=\\{@}

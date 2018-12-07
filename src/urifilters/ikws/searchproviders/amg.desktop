@@ -90,6 +90,7 @@ Name[zh_TW]=所有音樂指南
 Query=https://www.allmusic.com/search/all/\\{@}
 Query[ca]=https://www.allmusic.com/search/all/\\{@}
 Query[ca@valencia]=https://www.allmusic.com/search/all/\\{@}
+Query[da]=https://www.allmusic.com/search/all/\\{@}
 Query[de]=https://www.allmusic.com/search/all/\\{@}
 Query[en_GB]=https://www.allmusic.com/search/all/\\{@}
 Query[es]=https://www.allmusic.com/search/all/\\{@}
