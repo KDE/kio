@@ -87,7 +87,7 @@ bool KDirOperatorDetailView::event(QEvent *event)
 {
     if (event->type() == QEvent::Polish) {
         QHeaderView *headerView = header();
-        headerView->setSectionResizeMode(0, QHeaderView::Stretch);
+        headerView->setSectionResizeMode(0, QHeaderView::ResizeToContents);
         headerView->setSectionResizeMode(1, QHeaderView::ResizeToContents);
         headerView->setSectionResizeMode(2, QHeaderView::ResizeToContents);
         headerView->setStretchLastSection(false);
