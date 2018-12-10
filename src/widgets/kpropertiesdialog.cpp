@@ -1177,10 +1177,9 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
                 l = new QLabel(i18n("Mounted from:"), d->m_frame);
                 grid->addWidget(l, curRow, 0, Qt::AlignRight);
 
-                l = new QLabel(d->m_frame);
+                l = new QLabel(mp->mountedFrom(), d->m_frame);
                 grid->addWidget(l, curRow++, 2);
                 l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
-                l->setText(mp->mountedFrom());
             }
         }
 
