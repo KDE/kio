@@ -92,7 +92,7 @@ bool SlaveInterface::dispatch()
 void SlaveInterface::calcSpeed()
 {
     Q_D(SlaveInterface);
-    if (d->slave_calcs_speed) {
+    if (d->slave_calcs_speed || !d->connection->isConnected()) { // killing a job results in disconnection but the timer never stops
         d->speed_timer.stop();
         return;
     }
