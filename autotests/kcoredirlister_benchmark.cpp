@@ -172,7 +172,9 @@ class QMapImplementation
 public:
     void reserve(int size)
     {
+        Q_UNUSED(size);
     }
+
     KFileItem findByName(const QString &fileName) const
     {
         const auto itend = lstItems.cend();
