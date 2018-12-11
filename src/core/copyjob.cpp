@@ -1137,10 +1137,7 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
 
     const UDSEntry entry = ((KIO::StatJob *)job)->statResult();
 
-    // Its modification time:
-    const QDateTime destmtime = QDateTime::fromMSecsSinceEpoch(1000 * entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1));
-    const QDateTime destctime = QDateTime::fromMSecsSinceEpoch(1000 * entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1));
-
+    QDateTime destmtime, destctime;
     const KIO::filesize_t destsize = entry.numberValue(KIO::UDSEntry::UDS_SIZE);
     const QString linkDest = entry.stringValue(KIO::UDSEntry::UDS_LINK_DEST);
 
@@ -1156,7 +1153,9 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
                  (*it).uSource.adjusted(QUrl::StripTrailingSlash).path() == linkDest)) {
             options |= RenameDialog_OverwriteItself;
         } else {
-            options |= RenameDialog_Overwrite;
+                options |= RenameDialog_Overwrite;
+                destmtime = QDateTime::fromMSecsSinceEpoch(1000 * entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1), Qt::UTC);
+                destctime = QDateTime::fromMSecsSinceEpoch(1000 * entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1), Qt::UTC);
         }
     }
 
@@ -1409,8 +1408,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
         // Its modification time:
         const UDSEntry entry = static_cast<KIO::StatJob *>(job)->statResult();
 
-        const QDateTime destmtime = QDateTime::fromMSecsSinceEpoch(1000 * entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1));
-        const QDateTime destctime = QDateTime::fromMSecsSinceEpoch(1000 * entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1));
+        QDateTime destmtime, destctime;
         const KIO::filesize_t destsize = entry.numberValue(KIO::UDSEntry::UDS_SIZE);
         const QString linkDest = entry.stringValue(KIO::UDSEntry::UDS_LINK_DEST);
 
@@ -1428,6 +1426,9 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
                 options = RenameDialog_OverwriteItself;
             } else {
                 options = RenameDialog_Overwrite;
+                // These timestamps are used only when RenameDialog_Overwrite is set.
+                destmtime = QDateTime::fromMSecsSinceEpoch(1000 * entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1), Qt::UTC);
+                destctime = QDateTime::fromMSecsSinceEpoch(1000 * entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1), Qt::UTC);
             }
             isDir = false;
         }
