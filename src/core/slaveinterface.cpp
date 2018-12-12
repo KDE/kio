@@ -45,6 +45,7 @@ SlaveInterface::SlaveInterface(SlaveInterfacePrivate &dd, QObject *parent)
     : QObject(parent), d_ptr(&dd)
 {
     connect(&d_ptr->speed_timer, &QTimer::timeout, this, &SlaveInterface::calcSpeed);
+    d_ptr->transfer_details.reserve(max_count);
 }
 
 SlaveInterface::~SlaveInterface()
@@ -97,36 +98,24 @@ void SlaveInterface::calcSpeed()
         return;
     }
 
-    const qint64 currentTime = QDateTime::currentMSecsSinceEpoch();
-    const qint64 diff = currentTime - d->start_time;
-    if (diff - d->last_time >= 900) {
-        d->last_time = diff;
-        if (d->nums == max_nums) {
-            // let's hope gcc can optimize that well enough
-            // otherwise I'd try memcpy :)
-            for (unsigned int i = 1; i < max_nums; ++i) {
-                d->times[i - 1] = d->times[i];
-                d->sizes[i - 1] = d->sizes[i];
-            }
-            d->nums--;
+    // Note for future reference: A list is maintained for sizes and times.
+    // Minimum list size is 1 and maximum list size is 8. Delta is calculated
+    // using first and last item from the list.
+
+    const qint64 elapsed_time = d->elapsed_timer.elapsed();
+    if (elapsed_time >= 900) {
+        if (d->transfer_details.count() == max_count) {
+            d->transfer_details.removeFirst();
         }
-        d->times[d->nums] = diff;
-        d->sizes[d->nums++] = d->filesize - d->offset;
 
-        KIO::filesize_t lspeed = 1000 * (d->sizes[d->nums - 1] - d->sizes[0]) / (d->times[d->nums - 1] - d->times[0]);
-
-//qDebug() << (long)d->filesize << diff
-//          << long(d->sizes[d->nums-1] - d->sizes[0])
-//          << d->times[d->nums-1] - d->times[0]
-//          << long(lspeed) << double(d->filesize) / diff
-//          << convertSize(lspeed)
-//          << convertSize(long(double(d->filesize) / diff) * 1000);
-
+        const SlaveInterfacePrivate::TransferInfo first = d->transfer_details.first();
+        const SlaveInterfacePrivate::TransferInfo last = {elapsed_time, (d->filesize - d->offset)};
+        KIO::filesize_t lspeed = 1000 * (last.size - first.size) / (last.time - first.time);
         if (!lspeed) {
-            d->nums = 1;
-            d->times[0] = diff;
-            d->sizes[0] = d->filesize - d->offset;
+            d->transfer_details.clear();
         }
+        d->transfer_details.append(last);
+
         emit speed(lspeed);
     }
 }
@@ -209,13 +198,10 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
     }
     case INF_TOTAL_SIZE: {
         KIO::filesize_t size = readFilesize_t(stream);
-        d->start_time = QDateTime::currentMSecsSinceEpoch();
-        d->last_time = 0;
         d->filesize = d->offset;
-        d->sizes[0] = d->filesize - d->offset;
-        d->times[0] = 0;
-        d->nums = 1;
+        d->transfer_details.append({0, 0});
         d->speed_timer.start(1000);
+        d->elapsed_timer.start();
         d->slave_calcs_speed = false;
         emit totalSize(size);
         break;
