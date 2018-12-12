@@ -70,6 +70,7 @@ Query[ru]=https://academia.gal/dicionario/-/termo/busca/\\{@}
 Query[sv]=https://academia.gal/dicionario/-/termo/busca/\\{@}
 Query[uk]=https://academia.gal/dicionario/-/termo/busca/\\{@}
 Query[x-test]=xxhttps://academia.gal/dicionario/-/termo/busca/\\{@}xx
+Query[zh_CN]=https://academia.gal/dicionario/-/termo/busca/\\{@}
 Query[zh_TW]=https://academia.gal/dicionario/-/termo/busca/\\{@}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

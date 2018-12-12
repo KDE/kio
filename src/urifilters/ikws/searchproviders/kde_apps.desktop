@@ -111,4 +111,5 @@ Query[ru]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[sv]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[uk]=http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[x-test]=xxhttps://www.kde-apps.org/content/search.php?search=Search&name=\\{@}xx
+Query[zh_CN]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[zh_TW]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}

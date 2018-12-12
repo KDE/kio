@@ -111,4 +111,5 @@ Query[ru]=https://dict.leo.org/?search=\\{@}
 Query[sv]=https://dict.leo.org/?search=\\{@}
 Query[uk]=http://dict.leo.org/?search=\\{@}
 Query[x-test]=xxhttps://dict.leo.org/?search=\\{@}xx
+Query[zh_CN]=https://dict.leo.org/?search=\\{@}
 Query[zh_TW]=https://dict.leo.org/?search=\\{@}

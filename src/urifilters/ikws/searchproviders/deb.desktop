@@ -108,6 +108,7 @@ Query[ru]=https://packages.debian.org/\\{@}
 Query[sv]=https://packages.debian.org/\\{@}
 Query[uk]=https://packages.debian.org/\\{@}
 Query[x-test]=xxhttps://packages.debian.org/\\{@}xx
+Query[zh_CN]=https://packages.debian.org/\\{@}
 Query[zh_TW]=https://packages.debian.org/\\{@}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

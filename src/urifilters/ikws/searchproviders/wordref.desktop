@@ -110,6 +110,7 @@ Query[ru]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[sv]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[uk]=http://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[x-test]=xxhttps://www.wordreference.com/english/definition.asp?en=\\{@}xx
+Query[zh_CN]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[zh_TW]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

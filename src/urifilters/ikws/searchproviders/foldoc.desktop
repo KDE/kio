@@ -110,4 +110,5 @@ Query[ru]=https://foldoc.org/\\{@}
 Query[sv]=https://foldoc.org/\\{@}
 Query[uk]=http://foldoc.org/\\{@}
 Query[x-test]=xxhttps://foldoc.org/\\{@}xx
+Query[zh_CN]=https://foldoc.org/\\{@}
 Query[zh_TW]=https://foldoc.org/\\{@}

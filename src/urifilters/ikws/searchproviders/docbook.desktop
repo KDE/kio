@@ -111,6 +111,7 @@ Query[ru]=https://www.docbook.org/tdg/en/html/\\{1}.html
 Query[sv]=https://www.docbook.org/tdg/en/html/\\{1}.html
 Query[uk]=https://www.docbook.org/tdg/en/html/\\{1}.html
 Query[x-test]=xxhttps://www.docbook.org/tdg/en/html/\\{1}.htmlxx
+Query[zh_CN]=https://www.docbook.org/tdg/en/html/\\{1}.html
 Query[zh_TW]=https://www.docbook.org/tdg/en/html/\\{1}.html
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

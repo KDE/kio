@@ -90,6 +90,7 @@ Query[ru]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sv]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[uk]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[x-test]=xxhttps://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Searchxx
+Query[zh_CN]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[zh_TW]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

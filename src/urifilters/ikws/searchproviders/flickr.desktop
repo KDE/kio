@@ -90,6 +90,7 @@ Query[ru]=https://www.flickr.com/search/?q=\\{@}
 Query[sv]=https://www.flickr.com/search/?q=\\{@}
 Query[uk]=http://www.flickr.com/search/?q=\\{@}
 Query[x-test]=xxhttps://www.flickr.com/search/?q=\\{@}xx
+Query[zh_CN]=https://www.flickr.com/search/?q=\\{@}
 Query[zh_TW]=https://www.flickr.com/search/?q=\\{@}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

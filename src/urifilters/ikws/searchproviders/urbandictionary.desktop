@@ -89,6 +89,7 @@ Query[ru]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[sv]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[uk]=http://www.urbandictionary.com/define.php?term=\\{@}
 Query[x-test]=xxhttps://www.urbandictionary.com/define.php?term=\\{@}xx
+Query[zh_CN]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[zh_TW]=https://www.urbandictionary.com/define.php?term=\\{@}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

@@ -111,5 +111,6 @@ Query[ru]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{
 Query[sv]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[uk]=http://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[x-test]=xxhttps://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}xx
+Query[zh_CN]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[zh_TW]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Charset=utf8

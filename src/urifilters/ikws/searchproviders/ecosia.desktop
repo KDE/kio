@@ -90,4 +90,5 @@ Query[ru]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[sv]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[uk]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[x-test]=xxhttps://ecosia.org/search.php?q=\\{@}&meta=normalxx
+Query[zh_CN]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[zh_TW]=https://ecosia.org/search.php?q=\\{@}&meta=normal

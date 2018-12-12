@@ -109,6 +109,7 @@ Query[ru]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=d
 Query[sv]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[uk]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[x-test]=xxhttps://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=docxx
+Query[zh_CN]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[zh_TW]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

@@ -109,6 +109,7 @@ Query[ru]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[sv]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[uk]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[x-test]=xxhttps://www.wordreference.com/es/translation.asp?tranword=\\{@}xx
+Query[zh_CN]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[zh_TW]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

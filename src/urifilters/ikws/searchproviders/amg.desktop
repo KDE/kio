@@ -107,6 +107,7 @@ Query[ru]=https://www.allmusic.com/search/all/\\{@}
 Query[sv]=https://www.allmusic.com/search/all/\\{@}
 Query[uk]=https://www.allmusic.com/search/all/\\{@}
 Query[x-test]=xxhttps://www.allmusic.com/search/all/\\{@}xx
+Query[zh_CN]=https://www.allmusic.com/search/all/\\{@}
 Query[zh_TW]=https://www.allmusic.com/search/all/\\{@}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

@@ -107,6 +107,7 @@ Query[ru]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[sv]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[uk]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[x-test]=xxhttps://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindexxx
+Query[zh_CN]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[zh_TW]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 X-KDE-ServiceTypes=SearchProvider
 Type=Service

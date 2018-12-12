@@ -112,4 +112,5 @@ Query[ru]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[sv]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[uk]=http://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[x-test]=xxhttps://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}xx
+Query[zh_CN]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[zh_TW]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

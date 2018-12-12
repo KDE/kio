@@ -105,6 +105,7 @@ Query[ru]=https://bugs.debian.org/\\{@}
 Query[sv]=https://bugs.debian.org/\\{@}
 Query[uk]=https://bugs.debian.org/\\{@}
 Query[x-test]=xxhttps://bugs.debian.org/\\{@}xx
+Query[zh_CN]=https://bugs.debian.org/\\{@}
 Query[zh_TW]=https://bugs.debian.org/\\{@}
 X-KDE-ServiceTypes=SearchProvider
 Type=Service
