@@ -246,7 +246,7 @@ enum Error {
     ERR_CANNOT_MOVE_INTO_ITSELF = KJob::UserDefinedError + 71, ///< emitted by KIO::move, @since 5.18
     ERR_PASSWD_SERVER = KJob::UserDefinedError + 72, ///< returned by SlaveBase::openPasswordDialogV2, @since 5.24
     ERR_CANNOT_CREATE_SLAVE = KJob::UserDefinedError + 73, ///< used by Slave::createSlave, @since 5.30
-    ERR_FILE_TOO_LARGE_FOR_FAT32 = KJob::UserDefinedError + 74 ///< @since 5.52
+    ERR_FILE_TOO_LARGE_FOR_FAT32 = KJob::UserDefinedError + 74 ///< @since 5.54
 };
 
 /**
