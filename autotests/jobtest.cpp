@@ -19,8 +19,6 @@
 
 #include "jobtest.h"
 
-#include <qtest.h>
-
 #include <klocalizedstring.h>
 
 #include <QDebug>
@@ -33,6 +31,7 @@
 #include <QVariant>
 #include <QBuffer>
 #include <QTemporaryFile>
+#include <QTest>
 #include <QUrl>
 
 #include <kprotocolinfo.h>
