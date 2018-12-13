@@ -956,7 +956,9 @@ QString KFileItem::iconName() const
 static bool checkDesktopFile(const KFileItem &item, bool _determineMimeType)
 {
     // only local files
-    if (!item.isLocalFile()) {
+    bool isLocalUrl;
+    item.mostLocalUrl(&isLocalUrl);
+    if (!isLocalUrl) {
         return false;
     }
 
