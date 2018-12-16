@@ -877,7 +877,7 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
                 KGuiItem::assign(buttonBox->button(QDialogButtonBox::Ok), enterNewNameGuiItem);
 
                 KMessageBox::createKMessageBox(confirmDialog, buttonBox, QMessageBox::Critical,
-                                   xi18n("Could not create a folder with the name <filename>%1</filename><nl/>because it is reserved for use by the operating system.", name),
+                                   xi18nc("@info", "Could not create a folder with the name <filename>%1</filename><nl/>because it is reserved for use by the operating system.", name),
                                    QStringList(),
                                    QString(),
                                    nullptr,
