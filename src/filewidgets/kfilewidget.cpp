@@ -2115,10 +2115,18 @@ void KFileWidgetPrivate::_k_activateUrlNavigator()
 {
 //     qDebug();
 
-    urlNavigator->setUrlEditable(!urlNavigator->isUrlEditable());
-    if (urlNavigator->isUrlEditable()) {
+    QLineEdit* lineEdit = urlNavigator->editor()->lineEdit();
+
+    // If the text field currently has focus and everything is selected,
+    // pressing the keyboard shortcut returns the whole thing to breadcrumb mode
+    if (urlNavigator->isUrlEditable()
+        && lineEdit->hasFocus()
+        && lineEdit->selectedText() == lineEdit->text() ) {
+        urlNavigator->setUrlEditable(false);
+    } else {
+        urlNavigator->setUrlEditable(true);
         urlNavigator->setFocus();
-        urlNavigator->editor()->lineEdit()->selectAll();
+        lineEdit->selectAll();
     }
 }
 
