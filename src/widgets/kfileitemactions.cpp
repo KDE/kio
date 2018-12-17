@@ -400,7 +400,7 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
 
             const bool ok = std::all_of(items.constBegin(),
                                         items.constEnd(),
-                                        [&types, &excludeTypes, this](const KFileItem &i)
+                                        [&types, &excludeTypes](const KFileItem &i)
             {
                 return mimeTypeListContains(types, i) && !mimeTypeListContains(excludeTypes, i);
             });
