@@ -105,9 +105,9 @@ public:
      * of the navigator if the left mouse button has been used. If the middle
      * mouse button has been used, the signal tabRequested() will be emitted.
      */
-    void slotNavigatorButtonClicked(const QUrl &url, Qt::MouseButton button);
+    void slotNavigatorButtonClicked(const QUrl &url, Qt::MouseButton button, Qt::KeyboardModifiers modifiers);
 
-    void openContextMenu();
+    void openContextMenu(const QPoint &p);
 
     void slotPathBoxChanged(const QString &text);
 
@@ -280,7 +280,7 @@ KUrlNavigator::Private::Private(KUrlNavigator *q, KFilePlacesModel *placesModel)
 
     q->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(q, SIGNAL(customContextMenuRequested(QPoint)),
-            q, SLOT(openContextMenu()));
+            q, SLOT(openContextMenu(QPoint)));
 }
 
 void KUrlNavigator::Private::initialize(const QUrl &url)
@@ -448,16 +448,16 @@ void KUrlNavigator::Private::dropUrls(const QUrl &destination, QDropEvent *event
     }
 }
 
-void KUrlNavigator::Private::slotNavigatorButtonClicked(const QUrl &url, Qt::MouseButton button)
+void KUrlNavigator::Private::slotNavigatorButtonClicked(const QUrl &url, Qt::MouseButton button, Qt::KeyboardModifiers modifiers)
 {
-    if (button & Qt::LeftButton) {
-        q->setLocationUrl(url);
-    } else if (button & Qt::MidButton) {
+    if (button & Qt::MidButton || (button & Qt::LeftButton && modifiers & Qt::ControlModifier)) {
         emit q->tabRequested(url);
+    } else if (button & Qt::LeftButton) {
+        q->setLocationUrl(url);
     }
 }
 
-void KUrlNavigator::Private::openContextMenu()
+void KUrlNavigator::Private::openContextMenu(const QPoint &p)
 {
     q->setActive(true);
 
@@ -474,6 +474,18 @@ void KUrlNavigator::Private::openContextMenu()
     pasteAction->setEnabled(!clipboard->text().isEmpty());
 
     popup->addSeparator();
+
+    //We are checking for receivers because it's odd to have a tab entry even if it's not supported, like in the case of the open dialog
+    if (q->receivers(SIGNAL(tabRequested(QUrl))) > 0) {
+        for (auto button : qAsConst(m_navButtons)) {
+            if (button->geometry().contains(p)) {
+                const auto url = button->url();
+                QAction* openInTab = popup->addAction(QIcon::fromTheme(QStringLiteral("tab-new")), i18n("Open %1 in tab", button->text()));
+                q->connect(openInTab, &QAction::triggered, q, [this, url](){ Q_EMIT q->tabRequested(url); });
+                break;
+            }
+        }
+    }
 
     // provide radiobuttons for toggling between the edit and the navigation mode
     QAction *editAction = popup->addAction(i18n("Edit"));
@@ -602,8 +614,8 @@ void KUrlNavigator::Private::updateButtons(int startIndex)
                 button->setForegroundRole(QPalette::WindowText);
                 connect(button, SIGNAL(urlsDropped(QUrl,QDropEvent*)),
                         q, SLOT(dropUrls(QUrl,QDropEvent*)));
-                connect(button, SIGNAL(clicked(QUrl,Qt::MouseButton)),
-                        q, SLOT(slotNavigatorButtonClicked(QUrl,Qt::MouseButton)));
+                connect(button, SIGNAL(clicked(QUrl,Qt::MouseButton,Qt::KeyboardModifiers)),
+                        q, SLOT(slotNavigatorButtonClicked(QUrl,Qt::MouseButton,Qt::KeyboardModifiers)));
                 connect(button, SIGNAL(finishedTextResolving()),
                         q, SLOT(updateButtonVisibility()));
                 appendWidget(button);
