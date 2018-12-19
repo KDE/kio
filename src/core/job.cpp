@@ -78,7 +78,7 @@ bool Job::addSubjob(KJob *jobBase)
     //qDebug() << "addSubjob(" << jobBase << ") this=" << this;
 
     bool ok = KCompositeJob::addSubjob(jobBase);
-    KIO::Job *job = dynamic_cast<KIO::Job *>(jobBase);
+    KIO::Job *job = qobject_cast<KIO::Job *>(jobBase);
     if (ok && job) {
         // Copy metadata into subjob (e.g. window-id, user-timestamp etc.)
         Q_D(Job);

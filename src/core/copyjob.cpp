@@ -1380,7 +1380,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
     qCDebug(KIO_COPYJOB_DEBUG) << files.count() << "files remaining";
 
     // Merge metadata from subjob
-    KIO::Job *kiojob = dynamic_cast<KIO::Job *>(job);
+    KIO::Job *kiojob = qobject_cast<KIO::Job *>(job);
     Q_ASSERT(kiojob);
     m_incomingMetaData += kiojob->metaData();
     q->removeSubjob(job);
@@ -1880,7 +1880,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
     int err = job->error();
     const QString errText = job->errorText();
     // Merge metadata from subjob
-    KIO::Job *kiojob = dynamic_cast<KIO::Job *>(job);
+    KIO::Job *kiojob = qobject_cast<KIO::Job *>(job);
     Q_ASSERT(kiojob);
     m_incomingMetaData += kiojob->metaData();
     q->removeSubjob(job);
