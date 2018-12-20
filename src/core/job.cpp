@@ -114,40 +114,54 @@ KIO::JobPrivate::~JobPrivate()
 
 void JobPrivate::emitMoving(KIO::Job *job, const QUrl &src, const QUrl &dest)
 {
-    emit job->description(job, i18nc("@title job", "Moving"),
-                          qMakePair(i18nc("The source of a file operation", "Source"), url_description_string(src)),
-                          qMakePair(i18nc("The destination of a file operation", "Destination"), url_description_string(dest)));
+    static const QString s_title = i18nc("@title job", "Moving");
+    static const QString s_source = i18nc("The source of a file operation", "Source");
+    static const QString s_destination = i18nc("The destination of a file operation", "Destination");
+    emit job->description(job, s_title,
+                          qMakePair(s_source, url_description_string(src)),
+                          qMakePair(s_destination, url_description_string(dest)));
 }
 
 void JobPrivate::emitCopying(KIO::Job *job, const QUrl &src, const QUrl &dest)
 {
-    emit job->description(job, i18nc("@title job", "Copying"),
-                          qMakePair(i18nc("The source of a file operation", "Source"), url_description_string(src)),
-                          qMakePair(i18nc("The destination of a file operation", "Destination"), url_description_string(dest)));
+    static const QString s_title = i18nc("@title job", "Copying");
+    static const QString s_source = i18nc("The source of a file operation", "Source");
+    static const QString s_destination = i18nc("The destination of a file operation", "Destination");
+    emit job->description(job, s_title,
+                          qMakePair(s_source, url_description_string(src)),
+                          qMakePair(s_destination, url_description_string(dest)));
 }
 
 void JobPrivate::emitCreatingDir(KIO::Job *job, const QUrl &dir)
 {
-    emit job->description(job, i18nc("@title job", "Creating directory"),
-                          qMakePair(i18n("Directory"), url_description_string(dir)));
+    static const QString s_title = i18nc("@title job", "Creating directory");
+    static const QString s_directory = i18n("Directory");
+    emit job->description(job, s_title,
+                          qMakePair(s_directory, url_description_string(dir)));
 }
 
 void JobPrivate::emitDeleting(KIO::Job *job, const QUrl &url)
 {
-    emit job->description(job, i18nc("@title job", "Deleting"),
-                          qMakePair(i18n("File"), url_description_string(url)));
+    static const QString s_title = i18nc("@title job", "Deleting");
+    static const QString s_file = i18n("File");
+    emit job->description(job, s_title,
+                          qMakePair(s_file, url_description_string(url)));
 }
 
 void JobPrivate::emitStating(KIO::Job *job, const QUrl &url)
 {
-    emit job->description(job, i18nc("@title job", "Examining"),
-                          qMakePair(i18n("File"), url_description_string(url)));
+    static const QString s_title = i18nc("@title job", "Examining");
+    static const QString s_file = i18n("File");
+    emit job->description(job, s_title,
+                          qMakePair(s_file, url_description_string(url)));
 }
 
 void JobPrivate::emitTransferring(KIO::Job *job, const QUrl &url)
 {
-    emit job->description(job, i18nc("@title job", "Transferring"),
-                          qMakePair(i18nc("The source of a file operation", "Source"), url_description_string(url)));
+    static const QString s_title = i18nc("@title job", "Transferring");
+    static const QString s_source = i18nc("The source of a file operation", "Source");
+    emit job->description(job, s_title,
+                          qMakePair(s_source, url_description_string(url)));
 }
 
 void JobPrivate::emitMounting(KIO::Job *job, const QString &dev, const QString &point)
