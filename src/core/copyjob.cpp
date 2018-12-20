@@ -1702,10 +1702,12 @@ void CopyJobPrivate::copyNextFile()
             m_bURLDirty = true;
         }
         q->addSubjob(newjob);
-        q->connect(newjob, SIGNAL(processedSize(KJob*,qulonglong)),
-                   SLOT(slotProcessedSize(KJob*,qulonglong)));
-        q->connect(newjob, SIGNAL(totalSize(KJob*,qulonglong)),
-                   SLOT(slotTotalSize(KJob*,qulonglong)));
+        q->connect(newjob, &Job::processedSize, q, [this](KJob *job, qulonglong processedSize) {
+            slotProcessedSize(job, processedSize);
+        });
+        q->connect(newjob, &Job::totalSize, q, [this](KJob *job, qulonglong totalSize) {
+            slotTotalSize(job, totalSize);
+        });
     } else {
         // We're done
         qCDebug(KIO_COPYJOB_DEBUG) << "copyNextFile finished";

@@ -269,8 +269,6 @@ private:
     Q_PRIVATE_SLOT(d_func(), void slotStart())
     Q_PRIVATE_SLOT(d_func(), void slotEntries(KIO::Job *, const KIO::UDSEntryList &list))
     Q_PRIVATE_SLOT(d_func(), void slotSubError(KIO::ListJob *, KIO::ListJob *))
-    Q_PRIVATE_SLOT(d_func(), void slotProcessedSize(KJob *, qulonglong data_size))
-    Q_PRIVATE_SLOT(d_func(), void slotTotalSize(KJob *, qulonglong size))
     Q_PRIVATE_SLOT(d_func(), void slotReport())
     Q_PRIVATE_SLOT(d_func(), void sourceStated(const KIO::UDSEntry &entry, const QUrl &sourceUrl))
 
