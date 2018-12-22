@@ -2205,9 +2205,13 @@ static QString getExtensionFromPatternList(const QStringList &patternList)
         // *.*
         // *.JP*G
         // *.JP?
+        // *.[Jj][Pp][Gg]
         if ((*it).startsWith(QLatin1String("*.")) &&
                 (*it).length() > 2 &&
-                (*it).indexOf(QLatin1Char('*'), 2) < 0 && (*it).indexOf(QLatin1Char('?'), 2) < 0) {
+                (*it).indexOf(QLatin1Char('*'), 2) < 0 &&
+                (*it).indexOf(QLatin1Char('?'), 2) < 0 &&
+                (*it).indexOf(QLatin1Char('['), 2) < 0 &&
+                (*it).indexOf(QLatin1Char(']'), 2) < 0) {
             ret = (*it).mid(1);
             break;
         }
