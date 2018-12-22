@@ -982,6 +982,58 @@ void JobTest::moveDirectoryNoPermissions()
     QVERIFY(QDir(subdir).removeRecursively());
 }
 
+void JobTest::moveDirectoryToReadonlyFilesystem_data()
+{
+    QTest::addColumn<QList<QUrl>>("sources");
+    QTest::addColumn<int>("expectedErrorCode");
+
+    const QString srcFileHomePath = homeTmpDir() + "srcFileHome";
+    const QUrl srcFileHome = QUrl::fromLocalFile(srcFileHomePath);
+    createTestFile(srcFileHomePath);
+
+    const QString srcFileOtherPath = otherTmpDir() + "srcFileOther";
+    const QUrl srcFileOther = QUrl::fromLocalFile(srcFileOtherPath);
+    createTestFile(srcFileOtherPath);
+
+    const QString srcDirHomePath = homeTmpDir() + "srcDirHome";
+    const QUrl srcDirHome = QUrl::fromLocalFile(srcDirHomePath);
+    createTestDirectory(srcDirHomePath);
+
+    const QString srcDirOtherPath = otherTmpDir() + "srcDirOther";
+    const QUrl srcDirOther = QUrl::fromLocalFile(srcDirOtherPath);
+    createTestDirectory(srcDirOtherPath);
+
+    QTest::newRow("file_same_partition") << QList<QUrl>{srcFileHome} << int(KIO::ERR_WRITE_ACCESS_DENIED);
+    QTest::newRow("file_other_partition") << QList<QUrl>{srcFileOther} << int(KIO::ERR_WRITE_ACCESS_DENIED);
+    QTest::newRow("one_dir_same_partition") << QList<QUrl>{srcDirHome} << int(KIO::ERR_WRITE_ACCESS_DENIED);
+    QTest::newRow("one_dir_other_partition") << QList<QUrl>{srcDirOther} << int(KIO::ERR_WRITE_ACCESS_DENIED);
+    QTest::newRow("dirs_same_partition") << QList<QUrl>{srcDirHome, QUrl::fromLocalFile(homeTmpDir())} << int(KIO::ERR_WRITE_ACCESS_DENIED);
+    QTest::newRow("dirs_both_partitions") << QList<QUrl>{srcDirOther, srcDirHome} << int(KIO::ERR_WRITE_ACCESS_DENIED);
+}
+
+void JobTest::moveDirectoryToReadonlyFilesystem()
+{
+    QFETCH(QList<QUrl>, sources);
+    QFETCH(int, expectedErrorCode);
+
+    const QString dst_dir = otherTmpDir() + "readonlyDest";
+    const QUrl dst = QUrl::fromLocalFile(dst_dir);
+    QVERIFY2(QDir().mkdir(dst_dir), qPrintable(dst_dir));
+    QFile(dst_dir).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::ExeOwner)); // Make it readonly, moving should throw some errors
+
+    KIO::CopyJob *job = KIO::move(sources, dst, KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), expectedErrorCode);
+    for (const QUrl &srcUrl : qAsConst(sources)) {
+        QVERIFY(QFileInfo::exists(srcUrl.toLocalFile())); // no moving happened
+    }
+
+    // Cleanup
+    QVERIFY(QFile(dst_dir).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner)));
+    QVERIFY(QDir(dst_dir).removeRecursively());
+}
+
 void JobTest::listRecursive()
 {
     // Note: many other tests must have been run before since we rely on the files they created

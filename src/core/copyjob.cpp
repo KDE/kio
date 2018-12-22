@@ -417,6 +417,7 @@ void CopyJobPrivate::slotResultStating(KJob *job)
                 // copying. The target file or directory does not exist yet, which
                 // might confuse KDiskFreeSpaceInfo.
                 path = fileInfo.absolutePath();
+                fileInfo.setFile(path);
             }
             KDiskFreeSpaceInfo freeSpaceInfo = KDiskFreeSpaceInfo::freeSpaceInfo(path);
             if (freeSpaceInfo.isValid()) {
@@ -426,6 +427,16 @@ void CopyJobPrivate::slotResultStating(KJob *job)
              }
             //TODO actually preliminary check is even more valuable for slow NFS/SMB mounts,
             //but we need to find a way to report connection errors to user
+
+            // Also check for writability, before spending time stat'ing everything (#141564)
+            // TODO: this is done only for local files, but we could use the UDSEntry to do this portably
+            // ... assuming all kioslaves set permissions correctly
+            if (fileInfo.exists() && !fileInfo.isWritable()) {
+                q->setError(ERR_WRITE_ACCESS_DENIED);
+                q->setErrorText(path);
+                q->emitResult();
+                return;
+            }
         }
 
         const bool isGlobalDest = m_dest == m_globalDest;
@@ -874,7 +885,7 @@ void CopyJobPrivate::statCurrentSrc()
             }
         }
 
-        // if the file system doesn't support deleting, we do not even stat
+        // if the source file system doesn't support deleting, we do not even stat
         if (m_mode == CopyJob::Move && !KProtocolManager::supportsDeleting(m_currentSrcURL)) {
             QPointer<CopyJob> that = q;
             emit q->warning(q, buildErrorString(ERR_CANNOT_DELETE, m_currentSrcURL.toDisplayString()));

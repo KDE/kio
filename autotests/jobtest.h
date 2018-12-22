@@ -72,6 +72,8 @@ private Q_SLOTS:
     void moveDirectoryToOtherPartition();
     void moveFileNoPermissions();
     void moveDirectoryNoPermissions();
+    void moveDirectoryToReadonlyFilesystem_data();
+    void moveDirectoryToReadonlyFilesystem();
     void deleteFile();
     void deleteDirectory();
     void deleteSymlink();
