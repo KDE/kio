@@ -1418,6 +1418,19 @@ void KRun::setEnableExternalBrowser(bool b)
 {
     if (b) {
         d->m_externalBrowser = KConfigGroup(KSharedConfig::openConfig(), "General").readEntry("BrowserApplication");
+
+        // If a default browser isn't set in kdeglobals, fall back to mimeapps.list
+        if (!d->m_externalBrowser.isEmpty()) {
+            return;
+        }
+
+        KSharedConfig::Ptr profile = KSharedConfig::openConfig(QStringLiteral("mimeapps.list"), KConfig::NoGlobals, QStandardPaths::GenericConfigLocation);
+        KConfigGroup defaultApps(profile, "Default Applications");
+
+        d->m_externalBrowser = defaultApps.readEntry("x-scheme-handler/https");
+        if (d->m_externalBrowser.isEmpty()) {
+            d->m_externalBrowser = defaultApps.readEntry("x-scheme-handler/http");
+        }
     } else {
         d->m_externalBrowser.clear();
     }
