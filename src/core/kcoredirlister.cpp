@@ -1571,19 +1571,20 @@ void KCoreDirListerCache::renameDir(const QUrl &oldUrl, const QUrl &newUrl)
                                                  newDirUrl.adjusted(QUrl::StripTrailingSlash),
                                                  dir));
             // Rename all items under that dir
-
+            // If all items of the directory change the same part of their url, the order is not
+            // changed, therefore just change it in the list.
             for (auto kit = dir->lstItems.begin(), kend = dir->lstItems.end(); kit != kend; ++kit) {
                 const KFileItem oldItem = *kit;
                 KFileItem newItem = oldItem;
-
                 const QUrl &oldItemUrl = oldItem.url();
                 QUrl newItemUrl(oldItemUrl);
                 newItemUrl.setPath(concatPaths(newDirUrl.path(), oldItemUrl.fileName()));
                 qCDebug(KIO_CORE_DIRLISTER) << "renaming" << oldItemUrl << "to" << newItemUrl;
                 newItem.setUrl(newItemUrl);
-                reinsert(newItem, oldItemUrl);
 
                 listers |= emitRefreshItem(oldItem, newItem);
+                // Change the item
+                kit->setUrl(newItemUrl);
             }
         }
     }

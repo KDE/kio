@@ -115,6 +115,7 @@ private Q_SLOTS:
     void testRemoveWatchedDirectory();
     void testDirPermissionChange();
     void testCopyAfterListingAndMove(); // #353195
+    void testRenameDirectory(); // #401552
     void testDeleteCurrentDir(); // must be last!
 
 protected Q_SLOTS: // 'more private than private slots' - i.e. not seen by qtestlib

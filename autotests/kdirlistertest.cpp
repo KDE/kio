@@ -1293,6 +1293,61 @@ void KDirListerTest::testCopyAfterListingAndMove() // #353195
     QVERIFY(QFileInfo(m_tempDir.path() + "/subdir/a/b").isDir());
 }
 
+void KDirListerTest::testRenameDirectory() // #401552
+{
+    // Create the directory structure to reproduce the bug in a reliable way
+    const QString dirW = m_tempDir.path() + "/w";
+    QVERIFY(QDir().mkdir(dirW));
+    const QString dirW1 = m_tempDir.path() + "/w/Files";
+    QVERIFY(QDir().mkdir(dirW1));
+    const QString dirW2 = m_tempDir.path() + "/w/Files/Files";
+    QVERIFY(QDir().mkdir(dirW2));
+    // Place some empty files in each directory
+    for (int i=0; i < 50; i++) {
+        createSimpleFile(dirW + QString("t_%1").arg(i));
+    }
+    for (int i=0; i < 50; i++) {
+        createSimpleFile(dirW + QString("z_%1").arg(i));
+    }
+    // Place some empty files with prefix Files in w. Note that / is missing.
+    for (int i=0; i < 50; i++) {
+        createSimpleFile(dirW1 + QString("t_%1").arg(i));
+    }
+    for (int i=0; i < 50; i++) {
+        createSimpleFile(dirW1 + QString("z_%1").arg(i));
+    }
+    // Place some empty files with prefix Files in w/Files. Note that / is missing.
+    for (int i=0; i < 50; i++) {
+        createSimpleFile(dirW2 + QString("t_%1").arg(i));
+    }
+    for (int i=0; i < 50; i++) {
+        createSimpleFile(dirW2 + QString("z_%1").arg(i));
+    }
+    // Listen to the w directory
+    m_dirLister.openUrl(QUrl::fromLocalFile(dirW), KDirLister::NoFlags);
+
+    // Try to reproduce the bug #401552 renaming the w directory several times if needed
+    const QStringList dirs = { dirW + "___", dirW + "_", dirW + "______",  dirW + "_c",
+        dirW + "___", dirW + "_________" };
+
+    QString currDir = dirW;
+    KIO::SimpleJob *job = nullptr;
+    //Connect the redirection to openURL, so that on a rename the new location is opened.
+    connect(&m_dirLister, QOverload<const QUrl&>::of(&KCoreDirLister::redirection), this, &KDirListerTest::slotOpenUrlOnRename);
+    for (int i=0; i < dirs.size(); i++) {
+        // Wait for the listener to get all files
+        QTRY_VERIFY(m_dirLister.isFinished());
+        // Do the rename
+        QString newDir = dirs.at(i);
+        job = KIO::rename(QUrl::fromLocalFile(currDir), QUrl::fromLocalFile(newDir), KIO::HideProgressInfo);
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
+        QTest::qWait(500); // Without the delay the crash doesn't happen
+        currDir = newDir;
+    }
+    disconnect(&m_dirLister, nullptr, this, nullptr);
+}
+
+
 void KDirListerTest::testDeleteCurrentDir()
 {
     // ensure m_dirLister holds the items.
