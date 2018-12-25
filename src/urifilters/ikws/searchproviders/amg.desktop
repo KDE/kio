@@ -101,6 +101,7 @@ Query[id]=https://www.allmusic.com/search/all/\\{@}
 Query[it]=https://www.allmusic.com/search/all/\\{@}
 Query[nl]=https://www.allmusic.com/search/all/\\{@}
 Query[nn]=https://www.allmusic.com/search/all/\\{@}
+Query[pl]=https://www.allmusic.com/search/all/\\{@}
 Query[pt]=https://www.allmusic.com/search/all/\\{@}
 Query[pt_BR]=https://www.allmusic.com/search/all/\\{@}
 Query[ru]=https://www.allmusic.com/search/all/\\{@}

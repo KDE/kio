@@ -102,6 +102,7 @@ Query[id]=https://dx.doi.org/\\{@}
 Query[it]=https://dx.doi.org/\\{@}
 Query[nl]=https://dx.doi.org/\\{@}
 Query[nn]=https://dx.doi.org/\\{@}
+Query[pl]=https://dx.doi.org/\\{@}
 Query[pt]=https://dx.doi.org/\\{@}
 Query[pt_BR]=https://dx.doi.org/\\{@}
 Query[ru]=https://dx.doi.org/\\{@}

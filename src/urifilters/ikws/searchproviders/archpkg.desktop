@@ -54,6 +54,7 @@ Query[id]=https://www.archlinux.org/packages/?q=\\{@}
 Query[it]=https://www.archlinux.org/packages/?q=\\{@}
 Query[nl]=https://www.archlinux.org/packages/?q=\\{@}
 Query[nn]=https://www.archlinux.org/packages/?q=\\{@}
+Query[pl]=https://www.archlinux.org/packages/?q=\\{@}
 Query[pt]=https://www.archlinux.org/packages/?q=\\{@}
 Query[pt_BR]=https://www.archlinux.org/packages/?q=\\{@}
 Query[ru]=https://www.archlinux.org/packages/?q=\\{@}

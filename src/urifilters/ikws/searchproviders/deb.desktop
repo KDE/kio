@@ -102,6 +102,7 @@ Query[id]=https://packages.debian.org/\\{@}
 Query[it]=https://packages.debian.org/\\{@}
 Query[nl]=https://packages.debian.org/\\{@}
 Query[nn]=https://packages.debian.org/\\{@}
+Query[pl]=https://packages.debian.org/\\{@}
 Query[pt]=https://packages.debian.org/\\{@}
 Query[pt_BR]=https://packages.debian.org/\\{@}
 Query[ru]=https://packages.debian.org/\\{@}
