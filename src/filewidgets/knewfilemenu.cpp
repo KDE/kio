@@ -901,13 +901,19 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
         }
     }
 
-    // Note that we use mkpath so that a/b/c works.
-    // On the other hand it means that passing the name of a directory that already exists will do nothing.
-    KIO::Job *job = KIO::mkpath(url, baseUrl);
-    job->setProperty("mkpathUrl", url);
-    KJobWidgets::setWindow(job, m_parentWidget);
+    KIO::Job *job;
+    if (name.contains(QLatin1Char('/'))) {
+        // If the name contains any slashes, use mkpath so that a/b/c works.
+        job = KIO::mkpath(url, baseUrl);
+        KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Mkpath, QList<QUrl>(), url, job);
+    } else {
+        // If not, use mkdir so it will fail if the name of an existing folder was used
+        job = KIO::mkdir(url);
+        KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Mkdir, QList<QUrl>(), url, job);
+    }
+    job->setProperty("newDirectoryURL", url);
     job->uiDelegate()->setAutoErrorHandlingEnabled(true);
-    KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Mkpath, QList<QUrl>(), url, job);
+    KJobWidgets::setWindow(job, m_parentWidget);
 
     if (job) {
         // We want the error handling to be done by slotResult so that subclasses can reimplement it
@@ -1324,10 +1330,9 @@ void KNewFileMenu::slotResult(KJob *job)
             org::kde::KDirNotify::emitFilesAdded(simpleJob->url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
             emit fileCreated(simpleJob->url());
         }  else {
-            // Can be mkdir
-            QUrl mkpathUrl = job->property("mkpathUrl").toUrl();
-            if (mkpathUrl.isValid()) {
-                emit directoryCreated(mkpathUrl);
+            QUrl newDirectoryURL = job->property("newDirectoryURL").toUrl();
+            if (newDirectoryURL.isValid()) {
+                emit directoryCreated(newDirectoryURL);
             } else {
                 qWarning() << "Neither copy, put nor mkdir, internal error";
             }
