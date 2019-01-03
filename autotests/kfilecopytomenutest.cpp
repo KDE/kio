@@ -50,7 +50,7 @@ private Q_SLOTS:
         m_srcDir = m_tempDir.path();
         m_destDir = m_tempDestDir.path();
 
-        m_srcFile = m_srcDir + "/srcfile";
+        m_srcFile = m_srcDir + QStringLiteral("/srcfile");
 
         KIO::setDefaultJobUiDelegateExtension(nullptr); // no "skip" dialogs
 
@@ -96,7 +96,7 @@ private Q_SLOTS:
         generator.addActionsTo(&menu);
         QList<QUrl> urls; urls << QUrl::fromLocalFile(m_srcFile);
         generator.setUrls(urls);
-        QCOMPARE(extractActionNames(menu), QStringList() << "copyTo_submenu" << "moveTo_submenu");
+        QCOMPARE(extractActionNames(menu), QStringList() << QStringLiteral("copyTo_submenu") << QStringLiteral("moveTo_submenu"));
         //menu.popup(QPoint(-50, -50));
         QMenu *copyMenu = menu.actions().at(0)->menu(); // "copy" submenu
         QVERIFY(copyMenu);
@@ -106,8 +106,8 @@ private Q_SLOTS:
 
         // Then
         const QStringList actionNames = extractActionNames(*copyMenu);
-        QCOMPARE(actionNames.first(), QString("home"));
-        QVERIFY(actionNames.contains("browse"));
+        QCOMPARE(actionNames.first(), QStringLiteral("home"));
+        QVERIFY(actionNames.contains(QStringLiteral("browse")));
         QCOMPARE(actionNames.at(actionNames.count() - 2), m_nonWritableTempDir.path());
         QCOMPARE(actionNames.last(), m_destDir);
     }
@@ -151,7 +151,7 @@ private Q_SLOTS:
         if (expectedErrorCode) {
             QCOMPARE(spy.at(0).at(0).toInt(), expectedErrorCode);
         } else {
-            QTRY_VERIFY(QFile::exists(m_destDir + "/srcfile"));
+            QTRY_VERIFY(QFile::exists(m_destDir + QStringLiteral("/srcfile")));
         }
     }
 

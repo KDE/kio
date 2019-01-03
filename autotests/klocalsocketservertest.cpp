@@ -31,20 +31,20 @@ static const char asocket[] = "/tmp/asocket";
 
 tst_KLocalSocketServer::tst_KLocalSocketServer()
 {
-    QFile f(QFile::encodeName(afile));
+    QFile f(QString::fromLatin1(QFile::encodeName(QLatin1String(afile))));
     f.open(QIODevice::ReadWrite | QIODevice::Truncate);
 }
 
 tst_KLocalSocketServer::~tst_KLocalSocketServer()
 {
-    QFile::remove(afile);
+    QFile::remove(QLatin1String(afile));
 }
 
 class TimedConnection: public QThread
 {
     Q_OBJECT
 public:
-    ~TimedConnection()
+    ~TimedConnection() override
     {
         wait();
     }
@@ -52,14 +52,14 @@ protected:
     void run() override {
         KLocalSocket socket;
         QThread::usleep(200);
-        socket.connectToPath(asocket);
+        socket.connectToPath(QLatin1String(asocket));
         socket.waitForConnected();
     }
 };
 
 void tst_KLocalSocketServer::cleanup()
 {
-    QFile::remove(asocket);
+    QFile::remove(QLatin1String(asocket));
 }
 
 void tst_KLocalSocketServer::listen_data()
@@ -85,12 +85,12 @@ void tst_KLocalSocketServer::listen()
 void tst_KLocalSocketServer::waitForConnection()
 {
     KLocalSocketServer server;
-    QVERIFY(server.listen(asocket));
+    QVERIFY(server.listen(QLatin1String(asocket)));
     QVERIFY(!server.hasPendingConnections());
 
     {
         KLocalSocket socket;
-        socket.connectToPath(asocket);
+        socket.connectToPath(QLatin1String(asocket));
         QVERIFY(socket.waitForConnected());
 
         // make sure we can accept that connection
@@ -117,14 +117,14 @@ void tst_KLocalSocketServer::waitForConnection()
 void tst_KLocalSocketServer::newConnection()
 {
     KLocalSocketServer server;
-    QVERIFY(server.listen(asocket));
+    QVERIFY(server.listen(QLatin1String(asocket)));
     QVERIFY(!server.hasPendingConnections());
 
     // catch the signal
     QSignalSpy spy(&server, SIGNAL(newConnection()));
 
     KLocalSocket socket;
-    socket.connectToPath(asocket);
+    socket.connectToPath(QLatin1String(asocket));
     QVERIFY(socket.waitForConnected());
 
     // let the events be processed
@@ -136,11 +136,11 @@ void tst_KLocalSocketServer::newConnection()
 void tst_KLocalSocketServer::accept()
 {
     KLocalSocketServer server;
-    QVERIFY(server.listen(asocket));
+    QVERIFY(server.listen(QLatin1String(asocket)));
     QVERIFY(!server.hasPendingConnections());
 
     KLocalSocket socket;
-    socket.connectToPath(asocket);
+    socket.connectToPath(QLatin1String(asocket));
     QVERIFY(socket.waitForConnected());
     QVERIFY(server.waitForNewConnection());
     QVERIFY(server.hasPendingConnections());
@@ -173,9 +173,9 @@ void tst_KLocalSocketServer::state()
     QVERIFY(!timedOut);
 
     // start listening:
-    QVERIFY(server.listen(asocket));
+    QVERIFY(server.listen(QLatin1String(asocket)));
     QVERIFY(server.isListening());
-    QCOMPARE(server.localPath(), QString(asocket));
+    QCOMPARE(server.localPath(), QString(QLatin1String(asocket)));
     QCOMPARE(int(server.localSocketType()), int(KLocalSocket::UnixSocket));
     QVERIFY(!server.hasPendingConnections());
     QVERIFY(!server.nextPendingConnection());
@@ -187,7 +187,7 @@ void tst_KLocalSocketServer::state()
 
     // make a connection:
     KLocalSocket socket;
-    socket.connectToPath(asocket);
+    socket.connectToPath(QLatin1String(asocket));
     QVERIFY(socket.waitForConnected());
 
     // it mustn't time out now:
@@ -214,13 +214,13 @@ void tst_KLocalSocketServer::state()
 void tst_KLocalSocketServer::setMaxPendingConnections()
 {
     KLocalSocketServer server;
-    QVERIFY(server.listen(asocket));
+    QVERIFY(server.listen(QLatin1String(asocket)));
     QVERIFY(!server.hasPendingConnections());
     server.setMaxPendingConnections(0); // we don't want to receive
 
     // check if the event loop won't cause a connection to accepted
     KLocalSocket socket;
-    socket.connectToPath(asocket);
+    socket.connectToPath(QLatin1String(asocket));
     QTest::qWait(100);          // 100 ms doing absolutely nothing
     QVERIFY(!server.hasPendingConnections());
 
@@ -233,8 +233,8 @@ void tst_KLocalSocketServer::setMaxPendingConnections()
 
     // check if we receive only one of the two pending connections
     KLocalSocket socket2;
-    socket.connectToPath(asocket);
-    socket2.connectToPath(asocket);
+    socket.connectToPath(QLatin1String(asocket));
+    socket2.connectToPath(QLatin1String(asocket));
     QTest::qWait(100);
 
     QVERIFY(server.hasPendingConnections());

@@ -331,7 +331,7 @@ template <class T> void fillNumberOfFiles() {
     QTest::addColumn<int>("numberOfFiles");
     for (int i=0; i < maxPowerOfTen; ++i) {
         // it shows numberOfFiles: 10, 100 or 1000 but the data is the power of ten
-        QTest::newRow( QString("%1").arg(pow(10, i+1)).toLatin1() ) << i;
+        QTest::newRow( QStringLiteral("%1").arg(pow(10, i+1)).toLatin1() ) << i;
     }
 }
 
@@ -356,7 +356,7 @@ template <class T> void findByName(int powerOfTen)
 
     QBENCHMARK {
         for (int i=0; i<powerOfTen; i++) {
-            QString randName = QString("a%1.txt").arg(pow(10,i));
+            QString randName = QStringLiteral("a%1.txt").arg(pow(10,i));
             KFileItem item = data.findByName(randName);
             // QCOMPARE(item.name(), randName);
         }

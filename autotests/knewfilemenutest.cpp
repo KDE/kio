@@ -60,11 +60,11 @@ private Q_SLOTS:
     void storedPutIODeviceQrcFile()
     {
         // Given a source (in a Qt resource file) and a destination file
-        const QString src = ":/kio5/newfile-templates/.source/HTMLFile.html";
+        const QString src = QStringLiteral(":/kio5/newfile-templates/.source/HTMLFile.html");
         QVERIFY(QFile::exists(src));
         QFile srcFile(src);
         QVERIFY(srcFile.open(QIODevice::ReadOnly));
-        const QString dest = m_tmpDir.path() + "/dest";
+        const QString dest = m_tmpDir.path() + QStringLiteral("/dest");
         QFile::remove(dest);
         const QUrl destUrl = QUrl::fromLocalFile(dest);
 
@@ -135,7 +135,7 @@ private Q_SLOTS:
             Q_FOREACH (QAction *act, action->menu()->actions()) {
                 qDebug() << act << act->text() << act->data();
             }
-            const QString err = "action with text \"" + actionText + "\" not found.";
+            const QString err = QStringLiteral("action with text \"") + actionText + QStringLiteral("\" not found.");
             QVERIFY2(textAct, qPrintable(err));
         }
         textAct->trigger();
@@ -146,7 +146,7 @@ private Q_SLOTS:
             nauiDialog->setSuggestedName(typedFilename);
             nauiDialog->setSuggestedUrl(QUrl(QStringLiteral("file:///etc")));
         } else if (KPropertiesDialog *propsDialog = qobject_cast<KPropertiesDialog *>(dialog)) {
-            QLineEdit *lineEdit = propsDialog->findChild<QLineEdit *>("KFilePropsPlugin::nameLineEdit");
+            QLineEdit *lineEdit = propsDialog->findChild<QLineEdit *>(QStringLiteral("KFilePropsPlugin::nameLineEdit"));
             QVERIFY(lineEdit);
             QCOMPARE(lineEdit->text(), expectedDefaultFilename);
             lineEdit->setText(typedFilename);
@@ -160,7 +160,7 @@ private Q_SLOTS:
         QSignalSpy spy(&menu, SIGNAL(fileCreated(QUrl)));
         QSignalSpy folderSpy(&menu, SIGNAL(directoryCreated(QUrl)));
         dialog->accept();
-        const QString path = m_tmpDir.path() + '/' + expectedFilename;
+        const QString path = m_tmpDir.path() + QLatin1Char('/') + expectedFilename;
         if (actionText == QLatin1String("Folder...")) {
             QVERIFY(folderSpy.wait(1000));
             emittedUrl = folderSpy.at(0).at(0).toUrl();

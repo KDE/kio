@@ -82,34 +82,34 @@ void KUrlCompletionTest::setup()
     m_completionWithMimeFilter->setDir(m_completion->dir());
     m_dirURL = QUrl::fromLocalFile(m_dir);
 
-    QFile f1(m_dir + "/file1");
+    QFile f1(m_dir + QStringLiteral("/file1"));
     bool ok = f1.open(QIODevice::WriteOnly);
     QVERIFY(ok);
     f1.close();
 
-    QFile f2(m_dir + "/file#a");
+    QFile f2(m_dir + QStringLiteral("/file#a"));
     ok = f2.open(QIODevice::WriteOnly);
     QVERIFY(ok);
     f2.close();
 
-    QFile f3(m_dir + "/file.");
+    QFile f3(m_dir + QStringLiteral("/file."));
     ok = f3.open(QIODevice::WriteOnly);
     QVERIFY(ok);
     f3.close();
 
-    QFile f4(m_dir + "/source.cpp");
+    QFile f4(m_dir + QStringLiteral("/source.cpp"));
     ok = f4.open(QIODevice::WriteOnly);
     QVERIFY(ok);
     f4.close();
 
-    QFile f5(m_dir + "/source.php");
+    QFile f5(m_dir + QStringLiteral("/source.php"));
     ok = f5.open(QIODevice::WriteOnly);
     QVERIFY(ok);
     f5.close();
 
-    QDir().mkdir(m_dir + "/file_subdir");
-    QDir().mkdir(m_dir + "/.1_hidden_file_subdir");
-    QDir().mkdir(m_dir + "/.2_hidden_file_subdir");
+    QDir().mkdir(m_dir + QStringLiteral("/file_subdir"));
+    QDir().mkdir(m_dir + QStringLiteral("/.1_hidden_file_subdir"));
+    QDir().mkdir(m_dir + QStringLiteral("/.2_hidden_file_subdir"));
 
     m_completionEmptyCwd = new KUrlCompletion;
     m_completionEmptyCwd->setDir(QUrl());
@@ -146,12 +146,12 @@ void KUrlCompletionTest::testLocalRelativePath()
     QStringList comp1all = m_completion->allMatches();
     qDebug() << comp1all;
     QCOMPARE(comp1all.count(), 4);
-    QVERIFY(comp1all.contains("file1"));
-    QVERIFY(comp1all.contains("file#a"));
-    QVERIFY(comp1all.contains("file."));
-    QVERIFY(comp1all.contains("file_subdir/"));
+    QVERIFY(comp1all.contains(QStringLiteral("file1")));
+    QVERIFY(comp1all.contains(QStringLiteral("file#a")));
+    QVERIFY(comp1all.contains(QStringLiteral("file.")));
+    QVERIFY(comp1all.contains(QStringLiteral("file_subdir/")));
     QString comp1 = m_completion->replacedPath(QStringLiteral("file1")); // like KUrlRequester does
-    QCOMPARE(comp1, QString("file1"));
+    QCOMPARE(comp1, QStringLiteral("file1"));
 
     // Completion from relative path
     qDebug() << endl << "now completing on 'file#'";
@@ -160,9 +160,9 @@ void KUrlCompletionTest::testLocalRelativePath()
     QStringList compall = m_completion->allMatches();
     qDebug() << compall;
     QCOMPARE(compall.count(), 1);
-    QCOMPARE(compall.first(), QString("file#a"));
+    QCOMPARE(compall.first(), QStringLiteral("file#a"));
     QString comp2 = m_completion->replacedPath(compall.first()); // like KUrlRequester does
-    QCOMPARE(comp2, QString("file#a"));
+    QCOMPARE(comp2, QStringLiteral("file#a"));
 
     // Completion with empty string
     qDebug() << endl << "now completing on ''";
@@ -171,40 +171,40 @@ void KUrlCompletionTest::testLocalRelativePath()
     QStringList compEmpty = m_completion->allMatches();
     QCOMPARE(compEmpty.count(), 0);
 
-    m_completion->makeCompletion(".");
+    m_completion->makeCompletion(QStringLiteral("."));
     waitForCompletion(m_completion);
     const auto compAllHidden = m_completion->allMatches();
     QCOMPARE(compAllHidden.count(), 2);
-    QVERIFY(compAllHidden.contains(".1_hidden_file_subdir/"));
-    QVERIFY(compAllHidden.contains(".2_hidden_file_subdir/"));
+    QVERIFY(compAllHidden.contains(QStringLiteral(".1_hidden_file_subdir/")));
+    QVERIFY(compAllHidden.contains(QStringLiteral(".2_hidden_file_subdir/")));
 
     // Completion with '.2', should find only hidden folders starting with '2'
-    m_completion->makeCompletion(".2");
+    m_completion->makeCompletion(QStringLiteral(".2"));
     waitForCompletion(m_completion);
     const auto compHiddenStartingWith2 = m_completion->allMatches();
     QCOMPARE(compHiddenStartingWith2.count(), 1);
-    QVERIFY(compHiddenStartingWith2.contains(".2_hidden_file_subdir/"));
+    QVERIFY(compHiddenStartingWith2.contains(QStringLiteral(".2_hidden_file_subdir/")));
 
     // Completion with 'file.', should only find one file
-    m_completion->makeCompletion("file.");
+    m_completion->makeCompletion(QStringLiteral("file."));
     waitForCompletion(m_completion);
     const auto compFileEndingWithDot = m_completion->allMatches();
     QCOMPARE(compFileEndingWithDot.count(), 1);
-    QVERIFY(compFileEndingWithDot.contains("file."));
+    QVERIFY(compFileEndingWithDot.contains(QStringLiteral("file.")));
 
     // Completion with 'source' should only find the C++ file
-    m_completionWithMimeFilter->makeCompletion("source");
+    m_completionWithMimeFilter->makeCompletion(QStringLiteral("source"));
     waitForCompletion(m_completionWithMimeFilter);
     const auto compSourceFile = m_completionWithMimeFilter->allMatches();
     QCOMPARE(compSourceFile.count(), 1);
-    QVERIFY(compSourceFile.contains("source.cpp"));
+    QVERIFY(compSourceFile.contains(QStringLiteral("source.cpp")));
 
     // But it should also be able to find folders
-    m_completionWithMimeFilter->makeCompletion("file_subdir");
+    m_completionWithMimeFilter->makeCompletion(QStringLiteral("file_subdir"));
     waitForCompletion(m_completionWithMimeFilter);
     const auto compMimeFolder = m_completionWithMimeFilter->allMatches();
     QCOMPARE(compMimeFolder.count(), 1);
-    QVERIFY(compMimeFolder.contains("file_subdir/"));
+    QVERIFY(compMimeFolder.contains(QStringLiteral("file_subdir/")));
 }
 
 void KUrlCompletionTest::testLocalAbsolutePath()
@@ -312,30 +312,30 @@ void KUrlCompletionTest::testLocalURL()
     waitForCompletion(m_completion);
     const auto compHiddenStartingWith2 = m_completion->allMatches();
     QCOMPARE(compHiddenStartingWith2.count(), 1);
-    QVERIFY(compHiddenStartingWith2.contains(m_dirURL.toString() + ".2_hidden_file_subdir/"));
+    QVERIFY(compHiddenStartingWith2.contains(m_dirURL.toString() + QStringLiteral(".2_hidden_file_subdir/")));
 
     // Completion with 'file.', should only find one file
-    url = QUrl::fromLocalFile(m_dirURL.toLocalFile() + "file.");
+    url = QUrl::fromLocalFile(m_dirURL.toLocalFile() + QStringLiteral("file."));
     qDebug() << "makeCompletion(" << url << ")";
     m_completion->makeCompletion(url.toString());
     waitForCompletion(m_completion);
     const auto compFileEndingWithDot = m_completion->allMatches();
     QCOMPARE(compFileEndingWithDot.count(), 1);
-    QVERIFY(compFileEndingWithDot.contains(m_dirURL.toString() + "file."));
+    QVERIFY(compFileEndingWithDot.contains(m_dirURL.toString() + QStringLiteral("file.")));
 
     // Completion with 'source' should only find the C++ file
-    m_completionWithMimeFilter->makeCompletion(m_dirURL.toString() + "source");
+    m_completionWithMimeFilter->makeCompletion(m_dirURL.toString() + QStringLiteral("source"));
     waitForCompletion(m_completionWithMimeFilter);
     const auto compSourceFile = m_completionWithMimeFilter->allMatches();
     QCOMPARE(compSourceFile.count(), 1);
-    QVERIFY(compSourceFile.contains(m_dirURL.toString() + "source.cpp"));
+    QVERIFY(compSourceFile.contains(m_dirURL.toString() + QStringLiteral("source.cpp")));
 
     // But it should also be able to find folders
-    m_completionWithMimeFilter->makeCompletion(m_dirURL.toString() + "file_subdir");
+    m_completionWithMimeFilter->makeCompletion(m_dirURL.toString() + QStringLiteral("file_subdir"));
     waitForCompletion(m_completionWithMimeFilter);
     const auto compMimeFolder = m_completionWithMimeFilter->allMatches();
     QCOMPARE(compMimeFolder.count(), 1);
-    QVERIFY(compMimeFolder.contains(m_dirURL.toString() + "file_subdir/"));
+    QVERIFY(compMimeFolder.contains(m_dirURL.toString() + QStringLiteral("file_subdir/")));
 }
 
 void KUrlCompletionTest::testEmptyCwd()
@@ -373,7 +373,7 @@ void KUrlCompletionTest::testUser()
         Q_ASSERT(!matches.isEmpty());
     }
     foreach (const auto &user, KUser::allUserNames()) {
-        QVERIFY2(matches.contains(QLatin1Char('~') + user), qPrintable(matches.join(' ')));
+        QVERIFY2(matches.contains(QLatin1Char('~') + user), qPrintable(matches.join(QLatin1Char(' '))));
     }
 
     // Check that the same query doesn't re-list
@@ -412,11 +412,11 @@ void KUrlCompletionTest::testCancel()
     const QStringList matchesA = comp.allMatches();
     //qDebug() << "got" << matchesA.count() << "matches";
     foreach (const QString &match, matchesA) {
-        QVERIFY2(!match.startsWith('g'), qPrintable(match));
+        QVERIFY2(!match.startsWith(QLatin1Char('g')), qPrintable(match));
     }
     waitForCompletion(&comp);
     foreach (const QString &match, comp.allMatches()) {
-        QVERIFY2(!match.startsWith('g'), qPrintable(match));
+        QVERIFY2(!match.startsWith(QLatin1Char('g')), qPrintable(match));
     }
 }
 

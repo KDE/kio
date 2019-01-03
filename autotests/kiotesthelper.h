@@ -35,7 +35,7 @@
 
 QString homeTmpDir()
 {
-    const QString dir(QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/kiotests/");
+    const QString dir(QStandardPaths::writableLocation(QStandardPaths::DataLocation) + QStringLiteral("/kiotests/"));
     if (!QFile::exists(dir)) {
         const bool ok = QDir().mkpath(dir);
         if (!ok) {
@@ -81,7 +81,7 @@ static void createTestFile(const QString &path, bool plainText = false)
 static void createTestSymlink(const QString &path, const QByteArray &target = "/IDontExist")
 {
     QFile::remove(path);
-    bool ok = KIOPrivate::createSymlink(target, path);     // broken symlink
+    bool ok = KIOPrivate::createSymlink(QString::fromLatin1(target), path);     // broken symlink
     if (!ok) {
         qFatal("couldn't create symlink: %s", strerror(errno));
     }
@@ -100,14 +100,14 @@ static inline void createTestDirectory(const QString &path, CreateTestDirectoryO
     if (!ok && !dir.exists()) {
         qFatal("Couldn't create %s", qPrintable(path));
     }
-    createTestFile(path + "/testfile");
+    createTestFile(path + QStringLiteral("/testfile"));
     if ((opt & NoSymlink) == 0) {
 #ifndef Q_OS_WIN
-        createTestSymlink(path + "/testlink");
-        QVERIFY(QFileInfo(path + "/testlink").isSymLink());
+        createTestSymlink(path + QStringLiteral("/testlink"));
+        QVERIFY(QFileInfo(path + QStringLiteral("/testlink")).isSymLink());
 #else
         // to not change the filecount everywhere in the tests
-        createTestFile(path + "/testlink");
+        createTestFile(path + QStringLiteral("/testlink"));
 #endif
     }
     setTimeStamp(path, s_referenceTimeStamp);
