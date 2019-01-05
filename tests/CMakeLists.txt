@@ -1,7 +1,3 @@
-if(POLICY CMP0028)
-  cmake_policy(SET CMP0028 OLD)
-endif()
-
 include(ECMMarkAsTest)
 
 find_package(KF5XmlGui ${KF5_DEP_VERSION} REQUIRED)
