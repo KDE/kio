@@ -71,7 +71,7 @@ set_package_properties(KF5DocTools PROPERTIES DESCRIPTION "Provides tools to gen
                        PURPOSE "Required to build help ioslave and documentation"
                       )
 
-set(REQUIRED_QT_VERSION 5.9.0)
+set(REQUIRED_QT_VERSION 5.10.0)
 find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets DBus Network Concurrent Xml Test)
 
 find_package(GSSAPI)
