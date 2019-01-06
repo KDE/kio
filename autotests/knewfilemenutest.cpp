@@ -103,7 +103,8 @@ private Q_SLOTS:
         QTest::newRow("symlink") << "Basic link" << "" << "thelink" << "thelink";
         QTest::newRow("folder") << "Folder..." << "New Folder" << "folder1" << "folder1";
         QTest::newRow("folder_default_name") << "Folder..." << "New Folder" << "New Folder" << "New Folder";
-        QTest::newRow("folder_with_suggested_name") << "Folder..." << "New Folder (1)" << "New Folder" << "New Folder";
+        QTest::newRow("folder_with_suggested_name") << "Folder..." << "New Folder (1)" << "New Folder (1)" << "New Folder (1)";
+        QTest::newRow("folder_with_suggested_name_but_user_overrides") << "Folder..." << "New Folder (2)" << "New Folder" << "";
         QTest::newRow("application") << "Link to Application..." << "Link to Application" << "app1" << "app1.desktop";
     }
 
@@ -160,11 +161,18 @@ private Q_SLOTS:
         QSignalSpy spy(&menu, SIGNAL(fileCreated(QUrl)));
         QSignalSpy folderSpy(&menu, SIGNAL(directoryCreated(QUrl)));
         dialog->accept();
-        const QString path = m_tmpDir.path() + QLatin1Char('/') + expectedFilename;
+        QString path = m_tmpDir.path() + QLatin1Char('/') + expectedFilename;
         if (actionText == QLatin1String("Folder...")) {
-            QVERIFY(folderSpy.wait(1000));
-            emittedUrl = folderSpy.at(0).at(0).toUrl();
-            QVERIFY(QFileInfo(path).isDir());
+            if (expectedFilename.isEmpty()) {
+                // This is the "Folder already exists" case; expect an error dialog
+                dialog = parentWidget.findChild<QDialog *>();
+                dialog->accept();
+                path.clear();
+            } else {
+                QVERIFY(folderSpy.wait(1000));
+                emittedUrl = folderSpy.at(0).at(0).toUrl();
+                QVERIFY(QFileInfo(path).isDir());
+            }
         } else {
             if (spy.isEmpty()) {
                 QVERIFY(spy.wait(1000));
