@@ -1329,13 +1329,11 @@ void KNewFileMenu::slotResult(KJob *job)
             // Called in the storedPut() case
             org::kde::KDirNotify::emitFilesAdded(simpleJob->url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
             emit fileCreated(simpleJob->url());
-        }  else {
+        }
+
+        if (job->property("newDirectoryURL").isValid()) {
             QUrl newDirectoryURL = job->property("newDirectoryURL").toUrl();
-            if (newDirectoryURL.isValid()) {
-                emit directoryCreated(newDirectoryURL);
-            } else {
-                qWarning() << "Neither copy, put nor mkdir, internal error";
-            }
+            emit directoryCreated(newDirectoryURL);
         }
     }
     if (!d->m_tempFileToDelete.isEmpty()) {
