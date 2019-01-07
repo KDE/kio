@@ -172,9 +172,11 @@ static bool readBinaryHeader(const QByteArray &d, CacheFileInfo *fi)
 
     stream >> fi->useCount;
 
-    stream >> fi->servedDate;
-    stream >> fi->lastModifiedDate;
-    stream >> fi->expireDate;
+    SerializedCacheFileInfo serialized;
+
+    stream >> serialized.servedDate; fi->servedDate.setSecsSinceEpoch(serialized.servedDate);
+    stream >> serialized.lastModifiedDate; fi->lastModifiedDate.setSecsSinceEpoch(serialized.lastModifiedDate);
+    stream >> serialized.expireDate; fi->expireDate.setSecsSinceEpoch(serialized.expireDate);
 
     stream >> fi->bytesCached;
     return true;
@@ -433,8 +435,8 @@ public:
             stream.writeRawData(indexData, s_hashedUrlBytes);
 
             stream << it.value().useCount;
-            stream << it.value().lastUsedDate;
-            stream << it.value().sizeOnDisk;
+            stream << it.value().lastUsedDate.toSecsSinceEpoch();
+            stream << qint32(it.value().sizeOnDisk);
         }
     }
 
@@ -549,8 +551,12 @@ private:
         QDataStream stream(rawData);
         stream >> mcfi->useCount;
         // check those against filesystem
-        stream >> mcfi->lastUsedDate;
-        stream >> mcfi->sizeOnDisk;
+        qint64 lastUsedDate;
+        stream >> lastUsedDate; mcfi->lastUsedDate.setSecsSinceEpoch(lastUsedDate);
+
+        qint32 sizeOnDisk;
+        stream >> sizeOnDisk; mcfi->sizeOnDisk = sizeOnDisk;
+        //qDebug() << basename << "sizeOnDisk" << mcfi->sizeOnDisk;
 
         QFileInfo fileInfo(filePath(basename));
         if (!fileInfo.exists()) {
@@ -612,7 +618,7 @@ public:
         : m_totalSizeOnDisk(0)
     {
         // qDebug();
-        m_fileNameList = cacheDir.entryList();
+        m_fileNameList = cacheDir.entryList(QDir::Files);
     }
 
     // Delete some of the files that need to be deleted. Return true when done, false otherwise.
@@ -776,6 +782,7 @@ int main(int argc, char **argv)
         //qDebug() << "time to refresh the cacheDir QDir:" << t.elapsed();
         CacheCleaner cleaner(cacheDir);
         while (!cleaner.processSlice()) { }
+        QFile::remove(filePath(QStringLiteral("scoreboard")));
         return 0;
     }
 
@@ -791,20 +798,13 @@ int main(int argc, char **argv)
 
     Scoreboard scoreboard;
     CacheCleaner *cleaner = nullptr;
-    while (true) {
+    while (QDBusConnection::sessionBus().isConnected()) {
         g_currentDate = QDateTime::currentDateTime();
-        if (cleaner) {
-            QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
-        } else {
-            // We will not immediately know when a socket was disconnected. Causes:
-            // - WaitForMoreEvents does not make processEvents() return when a socket disconnects
-            // - WaitForMoreEvents *and* a timeout is not possible.
-            QCoreApplication::processEvents(QEventLoop::WaitForMoreEvents);
-        }
+
         if (!lServer.isListening()) {
             return 1;
         }
-        lServer.waitForNewConnection(1);
+        lServer.waitForNewConnection(100);
 
         while (QLocalSocket *sock = lServer.nextPendingConnection()) {
             sock->waitForConnected();
