@@ -48,7 +48,7 @@ class KFileItemListProperties;
  * actions() to return the actions to want to add to the context menu.  Then
  * create a plugin in the usual KPluginFactory based way:
  * \code
- * K_PLUGIN_FACTORY_WITH_JSON(MyActionPluginFactory, myactionplugin.json, registerPlugin<MyActionPlugin>();)
+ * K_PLUGIN_CLASS_WITH_JSON(MyActionPlugin, myactionplugin.json)
  * #include <thisfile.moc>
  * \endcode
  *

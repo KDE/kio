@@ -35,9 +35,7 @@
 
 static const int predefinedTimeout = 30000; // 30s
 
-K_PLUGIN_FACTORY_WITH_JSON(KIOExecdFactory,
-                           "kioexecd.json",
-                           registerPlugin<KIOExecd>();)
+K_PLUGIN_CLASS_WITH_JSON(KIOExecd, "kioexecd.json")
 
 KIOExecd::KIOExecd(QObject *parent, const QList<QVariant> &)
     : KDEDModule(parent)

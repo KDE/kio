@@ -49,9 +49,7 @@ Q_DECLARE_LOGGING_CATEGORY(KIO_COOKIEJAR)
 #include "kcookiewin.h"
 #include "kcookieserveradaptor.h"
 
-K_PLUGIN_FACTORY_WITH_JSON(KdedCookieServerFactory,
-                           "kcookiejar.json",
-                           registerPlugin<KCookieServer>();)
+K_PLUGIN_CLASS_WITH_JSON(KCookieServer, "kcookiejar.json")
 
 static QDir getOrCreateCookieJarDir()
 {

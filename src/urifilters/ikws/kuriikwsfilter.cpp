@@ -41,7 +41,7 @@ QLoggingCategory category("org.kde.kurifilter-ikws", QtWarningMsg);
  * regression test (this should be included as part of "make test").
  */
 
-K_PLUGIN_FACTORY_WITH_JSON(KAutoWebSearchFactory, "kuriikwsfilter.json", registerPlugin<KAutoWebSearch>();)
+K_PLUGIN_CLASS_WITH_JSON(KAutoWebSearch, "kuriikwsfilter.json")
 
 KAutoWebSearch::KAutoWebSearch(QObject *parent, const QVariantList&)
                :KUriFilterPlugin( QStringLiteral("kuriikwsfilter"), parent )

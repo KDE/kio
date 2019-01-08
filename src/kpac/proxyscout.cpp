@@ -43,12 +43,11 @@
 #include <cstdlib>
 #include <ctime>
 
-K_PLUGIN_FACTORY_WITH_JSON(ProxyScoutFactory,
-                           "proxyscout.json",
-                           registerPlugin<KPAC::ProxyScout>();)
-
 namespace KPAC
 {
+
+K_PLUGIN_CLASS_WITH_JSON(ProxyScout, "proxyscout.json")
+
 enum ProxyType {
     Unknown = -1,
     Proxy,

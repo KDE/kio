@@ -33,7 +33,7 @@
 #include <kpluginfactory.h>
 #include <kpluginloader.h>
 
-K_PLUGIN_FACTORY_WITH_JSON(KSSLDFactory, "kssld.json", registerPlugin<KSSLD>();)
+K_PLUGIN_CLASS_WITH_JSON(KSSLD, "kssld.json")
 
 class KSSLDPrivate
 {

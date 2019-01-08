@@ -36,7 +36,7 @@
  * regression test (this should be included as part of "make test").
  */
 
-K_PLUGIN_FACTORY_WITH_JSON(KUriSearchFilterFactory, "kurisearchfilter.json", registerPlugin<KUriSearchFilter>();)
+K_PLUGIN_CLASS_WITH_JSON(KUriSearchFilter, "kurisearchfilter.json")
 
 namespace {
 QLoggingCategory category("org.kde.kurifilter-ikws", QtWarningMsg);

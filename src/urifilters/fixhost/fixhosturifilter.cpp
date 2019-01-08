@@ -90,6 +90,6 @@ bool FixHostUriFilter::exists(const QString& host) const
     return (info.error() == QHostInfo::NoError);
 }
 
-K_PLUGIN_FACTORY_WITH_JSON(FixHostUriFilterFactory, "fixhosturifilter.json", registerPlugin<FixHostUriFilter>();)
+K_PLUGIN_CLASS_WITH_JSON(FixHostUriFilter, "fixhosturifilter.json")
 
 #include "fixhosturifilter.moc"
