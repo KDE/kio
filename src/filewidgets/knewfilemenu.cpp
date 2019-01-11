@@ -1316,24 +1316,24 @@ void KNewFileMenu::slotResult(KJob *job)
         static_cast<KIO::Job *>(job)->uiDelegate()->showErrorMessage();
     } else {
         // Was this a copy or a mkdir?
-        KIO::CopyJob *copyJob = ::qobject_cast<KIO::CopyJob *>(job);
-        if (copyJob) {
-            const QUrl destUrl = copyJob->destUrl();
-            const QUrl localUrl = d->mostLocalUrl(destUrl);
-            if (localUrl.isLocalFile()) {
-                // Normal (local) file. Need to "touch" it, kio_file copied the mtime.
-                (void) ::utime(QFile::encodeName(localUrl.toLocalFile()).constData(), nullptr);
-            }
-            emit fileCreated(destUrl);
-        } else if (KIO::SimpleJob *simpleJob = ::qobject_cast<KIO::SimpleJob *>(job)) {
-            // Called in the storedPut() case
-            org::kde::KDirNotify::emitFilesAdded(simpleJob->url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
-            emit fileCreated(simpleJob->url());
-        }
-
         if (job->property("newDirectoryURL").isValid()) {
             QUrl newDirectoryURL = job->property("newDirectoryURL").toUrl();
             emit directoryCreated(newDirectoryURL);
+        } else {
+            KIO::CopyJob *copyJob = ::qobject_cast<KIO::CopyJob *>(job);
+            if (copyJob) {
+                const QUrl destUrl = copyJob->destUrl();
+                const QUrl localUrl = d->mostLocalUrl(destUrl);
+                if (localUrl.isLocalFile()) {
+                    // Normal (local) file. Need to "touch" it, kio_file copied the mtime.
+                    (void) ::utime(QFile::encodeName(localUrl.toLocalFile()).constData(), nullptr);
+                }
+                emit fileCreated(destUrl);
+            } else if (KIO::SimpleJob *simpleJob = ::qobject_cast<KIO::SimpleJob *>(job)) {
+                // Called in the storedPut() case
+                org::kde::KDirNotify::emitFilesAdded(simpleJob->url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
+                emit fileCreated(simpleJob->url());
+            }
         }
     }
     if (!d->m_tempFileToDelete.isEmpty()) {
