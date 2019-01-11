@@ -135,7 +135,7 @@ To add a new policy, simply click on the &lt;b&gt;Add...&lt;/b&gt; button and su
          <string>Search interactively for domains</string>
         </property>
         <property name="placeholderText">
-         <string>Search</string>
+         <string>Search...</string>
         </property>
        </widget>
       </item>
