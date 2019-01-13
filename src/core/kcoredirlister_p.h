@@ -358,6 +358,9 @@ private:
             lstItems.clear();
         }
 
+        DirItem(const DirItem &) = delete;
+        DirItem &operator=(const DirItem &) = delete;
+
         void sendSignal(bool entering, const QUrl &url)
         {
             // Note that "entering" means "start watching", and "leaving" means "stop watching"

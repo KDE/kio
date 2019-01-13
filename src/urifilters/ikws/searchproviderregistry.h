@@ -43,6 +43,9 @@ public:
      */
     ~SearchProviderRegistry();
 
+    SearchProviderRegistry(const SearchProviderRegistry &) = delete;
+    SearchProviderRegistry& operator=(const SearchProviderRegistry &) = delete;
+
     QList<SearchProvider *> findAll();
 
     SearchProvider *findByKey(const QString &key) const;

@@ -30,6 +30,9 @@ public:
     explicit FdSender(const std::string &path);
     ~FdSender();
 
+    FdSender(const FdSender &) = delete;
+    FdSender &operator=(const FdSender &) = delete;
+
     bool sendFileDescriptor(int fd);
     bool isConnected() const;
 

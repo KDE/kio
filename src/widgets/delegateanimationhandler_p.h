@@ -62,6 +62,9 @@ class AnimationState
 {
 public:
     ~AnimationState();
+    AnimationState(const AnimationState &) = delete;
+    AnimationState &operator=(const AnimationState &) = delete;
+
     //Progress of the mouse hovering animation
     qreal hoverProgress() const;
     //Progress of the icon fading animation

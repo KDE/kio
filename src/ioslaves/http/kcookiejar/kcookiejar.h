@@ -203,6 +203,9 @@ public:
      */
     ~KCookieJar();
 
+    KCookieJar(const KCookieJar &) = delete;
+    KCookieJar &operator=(const KCookieJar &) = delete;
+
     /**
      * Returns whether the cookiejar has been changed
      */

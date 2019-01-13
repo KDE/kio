@@ -81,6 +81,8 @@ public:
     {
         qDeleteAll(children);
     }
+    AppNode(const AppNode &) = delete;
+    AppNode &operator=(const AppNode &) = delete;
 
     QString icon;
     QString text;

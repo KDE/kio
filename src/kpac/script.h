@@ -47,6 +47,8 @@ public:
 
     explicit Script(const QString &code);
     ~Script();
+    Script(const Script &) = delete;
+    Script &operator=(const Script &) = delete;
     QString evaluate(const QUrl &);
 
 private:

@@ -42,6 +42,9 @@ public:
         delete configFile;
     }
 
+    SlaveConfigProtocol(const SlaveConfigProtocol &) = delete;
+    SlaveConfigProtocol &operator=(const SlaveConfigProtocol &) = delete;
+
 public:
     MetaData global;
     QHash<QString, MetaData> host;
