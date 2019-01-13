@@ -371,6 +371,9 @@ private:
     NetRC();
     ~NetRC();
 
+    NetRC(const NetRC &) = delete;
+    NetRC& operator=(const NetRC &) = delete;
+
 private:
     static NetRC *instance;
 
