@@ -55,6 +55,9 @@ public:
      */
     ~KPasswdServerClient();
 
+    KPasswdServerClient(const KPasswdServerClient &) = delete;
+    KPasswdServerClient& operator=(const KPasswdServerClient &) = delete;
+
     /**
      * Check if kpasswdserver has cached authentication information regarding
      * an AuthInfo object.
