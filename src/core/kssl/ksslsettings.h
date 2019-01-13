@@ -53,6 +53,9 @@ public:
      */
     ~KSSLSettings();
 
+    KSSLSettings(const KSSLSettings &) = delete;
+    KSSLSettings& operator=(const KSSLSettings &) = delete;
+
     /**
      *  Does the user want to be warned on entering SSL mode
      *  @return true if the user wants to be warned
