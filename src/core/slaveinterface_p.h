@@ -29,19 +29,17 @@
 #include <QTimer>
 #include <QPointer>
 #include <QHostInfo>
-#include <QVector>
-#include <QElapsedTimer>
 
 #include "kiocoredebug.h"
 
-static const unsigned int max_count = 8;
+static const unsigned int max_nums = 8;
 
 class KIO::SlaveInterfacePrivate
 {
 public:
     SlaveInterfacePrivate()
-        : connection(nullptr), filesize(0), offset(0),
-          slave_calcs_speed(false)
+        : connection(nullptr), filesize(0), offset(0), last_time(0), start_time(0),
+          nums(0), slave_calcs_speed(false)
     {
     }
     virtual ~SlaveInterfacePrivate()
@@ -55,14 +53,13 @@ public:
     // We need some metadata here for our SSL code in messageBox() and for sslMetaData().
     MetaData sslMetaData;
 
-    struct TransferInfo {
-        qint64 time;
-        KIO::filesize_t size;
-    };
-    QVector<TransferInfo> transfer_details;
-    QElapsedTimer elapsed_timer;
+    KIO::filesize_t sizes[max_nums];
+    qint64 times[max_nums];
 
     KIO::filesize_t filesize, offset;
+    size_t last_time;
+    qint64 start_time;
+    uint nums;
     bool slave_calcs_speed;
 
     void slotHostInfo(const QHostInfo &info);
