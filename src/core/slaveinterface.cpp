@@ -103,9 +103,7 @@ void SlaveInterface::calcSpeed()
     // using first and last item from the list.
 
     const qint64 elapsed_time = d->elapsed_timer.elapsed();
-    const qint64 last_time = d->transfer_details.isEmpty() ? 0 : d->transfer_details.last().time;
-
-    if (elapsed_time - last_time >= 900) {
+    if (elapsed_time >= 900) {
         if (d->transfer_details.count() == max_count) {
             d->transfer_details.removeFirst();
         }
