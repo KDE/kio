@@ -155,6 +155,14 @@ public:
     void setRunExecutables(bool b);
 
     /**
+     * Sets whether KRun should follow URLs redirections.
+     * This is enabled by default
+     * @param b whether to follow redirections or not.
+     * @since 5.55
+     */
+    void setFollowRedirections(bool b);
+
+    /**
      * Sets whether the external webbrowser setting should be honoured.
      * This is enabled by default.
      * This should only be disabled in webbrowser applications.

@@ -98,6 +98,7 @@ public:
     KRun * const q;
     bool m_showingDialog;
     bool m_runExecutables;
+    bool m_followRedirections;
 
     // Don't exit the app while a KRun is running.
     QEventLoopLocker m_eventLoopLocker;

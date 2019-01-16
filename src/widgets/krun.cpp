@@ -911,6 +911,7 @@ void KRun::KRunPrivate::init(const QUrl &url, QWidget *window,
     m_bScanFile = false;
     m_bIsDirectory = false;
     m_runExecutables = true;
+    m_followRedirections = true;
     m_window = window;
     m_asn = asn;
     q->setEnableExternalBrowser(true);
@@ -1314,7 +1315,9 @@ void KRun::foundMimeType(const QString &type)
     KIO::TransferJob *job = qobject_cast<KIO::TransferJob *>(d->m_job);
     if (job) {
         // Update our URL in case of a redirection
-        setUrl(job->url());
+        if (d->m_followRedirections) {
+            setUrl(job->url());
+        }
 
         job->putOnHold();
         KIO::Scheduler::publishSlaveOnHold();
@@ -1454,6 +1457,11 @@ void KRun::setSuggestedFileName(const QString &fileName)
 void KRun::setShowScriptExecutionPrompt(bool showPrompt)
 {
     d->m_bCheckPrompt = showPrompt;
+}
+
+void KRun::setFollowRedirections(bool followRedirections)
+{
+    d->m_followRedirections = followRedirections;
 }
 
 QString KRun::suggestedFileName() const
