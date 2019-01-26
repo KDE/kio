@@ -95,12 +95,14 @@ Name[zh_TW]=KDE API 文件
 Query=https://api.kde.org/classmapper.php?class=\\{@}
 Query[ca]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[ca@valencia]=https://api.kde.org/classmapper.php?class=\\{@}
+Query[cs]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[da]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[de]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[en_GB]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[es]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[eu]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[fi]=https://api.kde.org/classmapper.php?class=\\{@}
+Query[fr]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[gl]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[id]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[it]=https://api.kde.org/classmapper.php?class=\\{@}

@@ -73,12 +73,14 @@ Name[zh_TW]=Vimeo
 Query=https://vimeo.com/search?q=\\{@}
 Query[ca]=https://vimeo.com/search?q=\\{@}
 Query[ca@valencia]=https://vimeo.com/search?q=\\{@}
+Query[cs]=https://vimeo.com/search?q=\\{@}
 Query[da]=https://vimeo.com/search?q=\\{@}
 Query[de]=https://vimeo.com/search?q=\\{@}
 Query[en_GB]=https://vimeo.com/search?q=\\{@}
 Query[es]=https://vimeo.com/search?q=\\{@}
 Query[eu]=https://vimeo.com/search?q=\\{@}
 Query[fi]=https://vimeo.com/search?q=\\{@}
+Query[fr]=https://vimeo.com/search?q=\\{@}
 Query[gl]=https://vimeo.com/search?q=\\{@}
 Query[id]=https://vimeo.com/search?q=\\{@}
 Query[it]=https://vimeo.com/search?q=\\{@}

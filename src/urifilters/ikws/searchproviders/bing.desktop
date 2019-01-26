@@ -72,12 +72,14 @@ Keys=bing
 Query=https://www.bing.com/search?q=\\{@}
 Query[ca]=https://www.bing.com/search?q=\\{@}
 Query[ca@valencia]=https://www.bing.com/search?q=\\{@}
+Query[cs]=https://www.bing.com/search?q=\\{@}
 Query[da]=https://www.bing.com/search?q=\\{@}
 Query[de]=https://www.bing.de/search/?q=\\{@}
 Query[en_GB]=https://www.bing.com/search?q=\\{@}
 Query[es]=https://www.bing.com/search?q=\\{@}
 Query[eu]=https://www.bing.com/search?q=\\{@}
 Query[fi]=https://www.bing.com/search?q=\\{@}
+Query[fr]=https://www.bing.com/search?q=\\{@}
 Query[gl]=https://www.bing.com/search?q=\\{@}
 Query[id]=https://www.bing.com/search?q=\\{@}
 Query[it]=https://www.bing.com/search?q=\\{@}

@@ -90,12 +90,14 @@ Keys=tags,tag,technoratitags
 Query=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ca]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ca@valencia]=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[cs]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[da]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[de]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[en_GB]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[es]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[eu]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[fi]=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[fr]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[gl]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[id]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[it]=https://technorati.com/tag/\\{@}?sourceid=kde-search

@@ -74,12 +74,14 @@ Name[zh_TW]=Jamendo
 Query=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ca]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ca@valencia]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[cs]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[da]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[de]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[en_GB]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[es]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[eu]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[fi]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[fr]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[gl]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[id]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[it]=https://www.jamendo.com/en/search?qs=q=\\{@}

@@ -93,12 +93,14 @@ Name[zh_TW]=WordReference.com 英文字典
 Query=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ca]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ca@valencia]=https://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[cs]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[da]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[de]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[en_GB]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[es]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[eu]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[fi]=https://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[fr]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[gl]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[id]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[it]=https://www.wordreference.com/english/definition.asp?en=\\{@}

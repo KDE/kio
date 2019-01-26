@@ -93,12 +93,14 @@ Name[zh_TW]=PHP 搜尋
 Query=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[ca]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[ca@valencia]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[cs]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[da]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[de]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[en_GB]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[es]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[eu]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[fi]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[fr]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[gl]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[id]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[it]=https://secure.php.net/manual-lookup.php?pattern=\\{@}

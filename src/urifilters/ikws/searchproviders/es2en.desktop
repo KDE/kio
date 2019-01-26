@@ -92,12 +92,14 @@ Name[zh_TW]=WordReference.com 翻譯: 西班牙文至英文
 Query=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[ca]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[ca@valencia]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
+Query[cs]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[da]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[de]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[en_GB]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[es]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[eu]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[fi]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
+Query[fr]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[gl]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[id]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[it]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
