@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Russian "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="help">
+<title
+>help</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Ferdinand.Gassauer;&Ferdinand.Gassauer.mail;</author>
+<othercredit role="translator"
+><firstname
+>Григорий</firstname
+><surname
+>Мохин</surname
+><affiliation
+><address
+><email
+>mok@kde.ru</email
+></address
+></affiliation
+><contrib
+>Перевод на русский</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>Справочная система &kde;. </para>
+<para
+>См. <ulink url="help:/khelpcenter/index.html"
+>&khelpcenter;</ulink
+>. </para>
+
+</article>

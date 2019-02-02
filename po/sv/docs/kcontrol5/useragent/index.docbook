@@ -1,0 +1,140 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Swedish "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="useragent" lang="&language;">
+<title
+>Webbläsarindentifikation</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Ramverk 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Systeminställningar</keyword>
+<keyword
+>användaragent</keyword>
+<keyword
+>webbläsare</keyword>
+<keyword
+>identifikation</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="user-agent">
+<title
+>Webbläsarindentifikation</title>
+
+
+<sect2 id="user-agent-intro">
+<title
+>Inledning</title>
+
+<para
+>När &konqueror; ansluter till en webbplats för att hämta information, skickas en del grundläggande identifikationsinformation till webbplatsen i form av en <quote
+>användaragentsträng</quote
+>.</para>
+
+<para
+>Beroende på mindre skillnader i hur olika webbläsare fungerar, visas webbplatser som litar för mycket på en enda läsare ibland inte som avsett när en annan läsare används. En del webbplatser är smarta nog att undersöka innehållet i användaragentsträngen och inkludera den här informationen i &HTML;-koden så att innehållet visas på ett riktigt sätt oavsett vilken webbläsare som används.</para>
+
+<para
+>Du kan dock märka att en del webbplatser vägrar att fungera på ett riktigt sätt om du inte använder en webbläsare som känns igen som <quote
+>passande</quote
+> av den platsen. För dessa fall, kan du finna att det är nödvändigt att lura webbplatsen genom att låta &konqueror; rapportera att den är en annan webbläsare med hjälp av användaragentsträngen.</para>
+
+</sect2>
+
+<sect2 id="user-agent-use">
+<title
+>Användning</title>
+
+<para
+>I den här modulen kan du ställa in vilken sorts webbläsare &konqueror; rapporterar att den är. Du kan styra den här informationen per webbplats. Vanligtvis är listrutan som heter <guilabel
+>Identifiering för varje plats</guilabel
+> tom, så att &konqueror; alltid använder den normala användaragentsträngen.</para>
+
+<para
+>Du kan inaktivera att webbläsaridentifiering skickas helt och hållet, genom att inte markera kryssrutan <guilabel
+>Skicka identifiering</guilabel
+>. Det  kan ge upphov till underligt beteende på vissa webbplatser,och kan till och med göra det omöjligt att komma åt vissa webbplatser, så använd det med försiktighet.</para>
+
+<para
+>För att ställa in en ny agentbindning, tryck på knappen <guibutton
+>Ny...</guibutton
+>. Skriv in namnet på servern eller en domän i textrutan överst på dialogrutan som dyker upp, som heter <guilabel
+>Vid anslutning till följande plats:</guilabel
+>.</para>
+
+<para
+>Observera att du kan <emphasis
+>inte</emphasis
+> använda jokertecken som <token
+>*</token
+> i textrutan. Strängen <userinput
+>kde.org</userinput
+> kommer dock att matcha alla värddatorer i domänen <systemitem
+>kde.org</systemitem
+>.</para>
+
+<para
+>Efter att ha skrivit in namnet på servern, skriv in identifikationssträngen i nästa kombinationsruta, som heter <guilabel
+>Använd följande identifiering</guilabel
+>. <guilabel
+>Verklig identifiering</guilabel
+>, dvs strängarna som skickas till servern, visas i fältet.</para>
+
+<para
+>Du kan klicka på en befintlig post i listan, och sedan ändra innehållet i textrutorna, följt av ett klick på <guibutton
+>Ändra...</guibutton
+>.</para>
+
+<para
+>Knappen <guibutton
+>Ta bort</guibutton
+> kan användas för att ta bort den valda posten i listan med inställda agentbindningar. Knappen <guibutton
+>Ta bort alla</guibutton
+> tar bort alla inställda agentbindningar. Klicka på <guibutton
+>Verkställ</guibutton
+> för att låta dina ändringar få effekt.</para>
+
+<para
+>Du kan använda rutorna överst på skärmen för att bygga en användaragent som är unik för dig, genom att välja din egen kombination av version och namn på operativsystem, plattform, processortyp och språk.</para>
+
+<para
+>Den förvalda användaragenten som skickas visas alltid i fetstil överst på sidan.</para>
+
+</sect2>
+
+</sect1>
+
+</article>
