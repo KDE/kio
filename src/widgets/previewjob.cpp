@@ -444,6 +444,7 @@ void PreviewJobPrivate::determineNextFile()
         succeeded = false;
         items.removeFirst();
         KIO::Job *job = KIO::stat(currentItem.item.url(), KIO::HideProgressInfo);
+        job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
         job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
         q->addSubjob(job);
     }
