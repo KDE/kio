@@ -502,10 +502,16 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
         const QStringList args = QStringList() << lib_path << protocol << QLatin1String("") << slaveAddress.toString();
         //qDebug() << "kioslave" << ", " << lib_path << ", " << protocol << ", " << QString() << ", " << slaveAddress;
 
+        // look where libexec path is (can be set in qt.conf)
+        const QString qlibexec = QLibraryInfo::location(QLibraryInfo::LibraryExecutablesPath);
+        // on !win32 we use a kf5 suffix
+        const QString qlibexecKF5 = QDir(qlibexec).filePath(QStringLiteral("kf5"));
+
         // search paths
         const QStringList searchPaths = QStringList()
             << QCoreApplication::applicationDirPath() // then look where our application binary is located
-            << QLibraryInfo::location(QLibraryInfo::LibraryExecutablesPath) // look where libexec path is (can be set in qt.conf)
+            << qlibexec
+            << qlibexecKF5
             << QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5); // look at our installation location
         const QString kioslaveExecutable = QStandardPaths::findExecutable(QStringLiteral("kioslave"), searchPaths);
         if (kioslaveExecutable.isEmpty()) {
