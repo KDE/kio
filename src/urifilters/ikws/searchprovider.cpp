@@ -38,6 +38,7 @@ SearchProvider::SearchProvider(const QString &servicePath)
 
     m_query = group.readEntry(QStringLiteral("Query"));
     m_charset = group.readEntry(QStringLiteral("Charset"));
+    m_iconName = group.readEntry(QStringLiteral("Icon"));
 }
 
 SearchProvider::~SearchProvider()
@@ -119,6 +120,10 @@ void SearchProvider::setCharset(const QString &charset)
 
 QString SearchProvider::iconName() const
 {
+    if (!m_iconName.isEmpty()) {
+        return m_iconName;
+    }
+
     return KIO::iconNameForUrl(QUrl(m_query));
 }
 

@@ -44,6 +44,7 @@ public:
 private:
     QString m_query;
     QString m_charset;
+    QString m_iconName;
     bool m_dirty;
 };
 
