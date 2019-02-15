@@ -789,7 +789,13 @@ QUrl KFileWidgetPrivate::getCompleteUrl(const QString &_url) const
                 !KProtocolInfo::isKnownProtocol(relativeUrlTest)) {
             u = relativeUrlTest;
         } else {
-            u = QUrl(url); // keep it relative
+            // Try to preserve URLs if they have a scheme (for example,
+            // "https://example.com/foo.txt") and otherwise resolve relative
+            // paths to absolute ones (e.g. "foo.txt" -> "file:///tmp/foo.txt").
+            u = QUrl(url);
+            if (u.isRelative()) {
+                u = relativeUrlTest;
+            }
         }
     }
 
@@ -1588,7 +1594,8 @@ void KFileWidget::setSelection(const QString &url)
     }
 
     QUrl u = d->getCompleteUrl(url);
-    if (!u.isValid()) { // if it still is
+    if (!u.isValid()) {
+        // Relative path was treated as URL, but it was found to be invalid.
         qWarning() << url << " is not a correct argument for setSelection!";
         return;
     }

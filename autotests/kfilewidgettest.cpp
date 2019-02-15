@@ -29,6 +29,8 @@
 #include <klocalizedstring.h>
 #include <kurlnavigator.h>
 #include <KUrlComboBox>
+#include <KFileFilterCombo>
+#include "kiotesthelper.h" // createTestFile
 
 /**
  * Unit test for KFileWidget
@@ -244,6 +246,123 @@ private Q_SLOTS:
         // THEN
         QVERIFY(u.isValid());
         QCOMPARE(u, expectedUrl);
+    }
+
+    void testSetFilterForSave_data()
+    {
+        QTest::addColumn<QString>("fileName");
+        QTest::addColumn<QString>("filter");
+        QTest::addColumn<QString>("expectedCurrentText");
+        QTest::addColumn<QString>("expectedSelectedFileName");
+
+        const QString filter = QStringLiteral("*.txt|Text files\n*.HTML|HTML files");
+
+        QTest::newRow("some.txt")
+            << "some.txt"
+            << filter
+            << QStringLiteral("some.txt")
+            << QStringLiteral("some.txt");
+
+        // If an application provides a name without extension, then the
+        // displayed name will not receive an extension. It will however be
+        // appended when the dialog is closed.
+        QTest::newRow("extensionless name")
+            << "some"
+            << filter
+            << QStringLiteral("some")
+            << QStringLiteral("some.txt");
+
+        // If the file literally exists, then no new extension will be appended.
+        QTest::newRow("existing file")
+            << "README"
+            << filter
+            << QStringLiteral("README")
+            << QStringLiteral("README");
+
+        // XXX perhaps the "extension" should not be modified when it does not
+        // match any of the existing types? Should "some.2019.txt" be expected?
+        QTest::newRow("some.2019")
+            << "some.2019"
+            << filter
+            << QStringLiteral("some.txt")
+            << QStringLiteral("some.txt");
+
+        // XXX be smarter and do not change the extension if one of the other
+        // filters match. Should "some.html" be expected?
+        QTest::newRow("some.html")
+            << "some.html"
+            << filter
+            << QStringLiteral("some.txt")
+            << QStringLiteral("some.txt");
+    }
+
+    void testSetFilterForSave()
+    {
+        QFETCH(QString, fileName);
+        QFETCH(QString, filter);
+        QFETCH(QString, expectedCurrentText);
+        QFETCH(QString, expectedSelectedFileName);
+
+        // Use a temporary directory since the presence of existing files
+        // influences whether an extension is automatically appended.
+        QTemporaryDir tempDir;
+        const QUrl dirUrl = QUrl::fromLocalFile(tempDir.path());
+        const QUrl fileUrl = QUrl::fromLocalFile(tempDir.filePath(fileName));
+        const QUrl expectedFileUrl = QUrl::fromLocalFile(tempDir.filePath(expectedSelectedFileName));
+        createTestFile(tempDir.filePath("README"));
+
+        KFileWidget fw(dirUrl);
+        fw.setOperationMode(KFileWidget::Saving);
+        fw.setSelectedUrl(fileUrl);
+        // Calling setFilter has side-effects and changes the file name.
+        fw.setFilter(filter);
+        fw.show();
+        fw.activateWindow();
+        QVERIFY(QTest::qWaitForWindowActive(&fw));
+
+        // Verify the expected populated name.
+        QCOMPARE(fw.baseUrl().adjusted(QUrl::StripTrailingSlash), dirUrl);
+        QCOMPARE(fw.locationEdit()->currentText(), expectedCurrentText);
+
+        // QFileDialog ends up calling KDEPlatformFileDialog::selectedFiles()
+        // which calls KFileWidget::selectedUrls().
+        // Accept the filename to ensure that a filename is selected.
+        connect(&fw, &KFileWidget::accepted, &fw, &KFileWidget::accept);
+        QTest::keyClick(fw.locationEdit(), Qt::Key_Return);
+        QList<QUrl> urls = fw.selectedUrls();
+        QCOMPARE(urls.size(), 1);
+        QCOMPARE(urls[0], expectedFileUrl);
+    }
+
+    void testFilterChange()
+    {
+        QTemporaryDir tempDir;
+        createTestFile(tempDir.filePath("some.c"));
+        bool created = QDir(tempDir.path()).mkdir("directory");
+        Q_ASSERT(created);
+
+        KFileWidget fw(QUrl::fromLocalFile(tempDir.path()));
+        fw.setOperationMode(KFileWidget::Saving);
+        fw.setSelectedUrl(QUrl::fromLocalFile(tempDir.filePath("some.txt")));
+        fw.setFilter("*.txt|Txt\n*.c|C");
+        fw.show();
+        fw.activateWindow();
+        QVERIFY(QTest::qWaitForWindowActive(&fw));
+
+        // Initial filename.
+        QCOMPARE(fw.locationEdit()->currentText(), QStringLiteral("some.txt"));
+        QCOMPARE(fw.filterWidget()->currentFilter(), QStringLiteral("*.txt"));
+
+        // Select type with an existing file.
+        fw.filterWidget()->setCurrentFilter("*.c|C");
+        QCOMPARE(fw.locationEdit()->currentText(), QStringLiteral("some.c"));
+        QCOMPARE(fw.filterWidget()->currentFilter(), QStringLiteral("*.c"));
+
+        // Do not update extension if the current selection is a directory.
+        fw.setSelectedUrl(QUrl::fromLocalFile(tempDir.filePath("directory")));
+        fw.filterWidget()->setCurrentFilter("*.txt|Txt");
+        QCOMPARE(fw.locationEdit()->currentText(), QStringLiteral("directory"));
+        QCOMPARE(fw.filterWidget()->currentFilter(), QStringLiteral("*.txt"));
     }
 };
 
