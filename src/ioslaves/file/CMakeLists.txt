@@ -26,7 +26,7 @@ add_library(kio_file MODULE ${kio_file_PART_SRCS})
 target_link_libraries(kio_file KF5::KIOCore KF5::I18n Qt5::DBus Qt5::Network)
 
 if(UNIX)
-  target_link_libraries(kio_file Qt5::Network KF5::Auth)
+  target_link_libraries(kio_file Qt5::Network KF5::AuthCore)
 endif()
 
 if (HAVE_VOLMGT AND CMAKE_SYSTEM_NAME MATCHES SunOS)

@@ -154,7 +154,7 @@ PRIVATE
 )
 
 if (UNIX)
-  target_link_libraries(KF5KIOCore PRIVATE KF5::Auth)   #SlaveBase uses KAuth::Action
+  target_link_libraries(KF5KIOCore PRIVATE KF5::AuthCore)   #SlaveBase uses KAuth::Action
 endif()
 
 if(ACL_FOUND)
