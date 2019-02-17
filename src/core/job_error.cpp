@@ -20,10 +20,14 @@
 #include "kioglobal_p.h"
 #include <kprotocolmanager.h>
 #include <klocalizedstring.h>
+#include <KStringHandler>
+
 #include <QUrl>
 #include <QDateTime>
 #include <QDataStream>
 #include <sys/stat.h> // S_IRUSR etc
+
+static const int maxFilePathLength = 80;
 
 QString KIO::Job::errorString() const
 {
@@ -39,7 +43,7 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
         result = i18n("Could not read %1.",  errorText);
         break;
     case  KIO::ERR_CANNOT_OPEN_FOR_WRITING:
-        result = i18n("Could not write to %1.",  errorText);
+        result = i18n("Could not write to %1.",  KStringHandler::csqueeze(errorText, maxFilePathLength));
         break;
     case  KIO::ERR_CANNOT_LAUNCH_PROCESS:
         result = i18n("Could not start process %1.",  errorText);
@@ -142,7 +146,7 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
         result = i18n("Could not terminate listing %1.",  errorText);
         break;
     case  KIO::ERR_CANNOT_MKDIR:
-        result = i18n("Could not make folder %1.",  errorText);
+        result = i18n("Could not make folder %1.",  KStringHandler::csqueeze(errorText, maxFilePathLength));
         break;
     case  KIO::ERR_CANNOT_RMDIR:
         result = i18n("Could not remove folder %1.",  errorText);
@@ -151,7 +155,7 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
         result = i18n("Could not resume file %1.",  errorText);
         break;
     case  KIO::ERR_CANNOT_RENAME:
-        result = i18n("Could not rename file %1.",  errorText);
+        result = i18n("Could not rename file %1.",  KStringHandler::csqueeze(errorText, maxFilePathLength));
         break;
     case  KIO::ERR_CANNOT_CHMOD:
         result = i18n("Could not change permissions for %1.",  errorText);
@@ -403,7 +407,7 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
         errorName = i18n("Cannot Open Resource For Writing");
         description = i18n("This means that the file, <strong>%1</strong>, could "
                            "not be written to as requested, because access with permission to "
-                           "write could not be obtained.",  filename);
+                           "write could not be obtained.",  KStringHandler::csqueeze(filename, maxFilePathLength));
         causes << cAccess << cLocked << cHardware;
         solutions << sAccess << sQuerylock << sSysadmin;
         break;
@@ -831,7 +835,7 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
     case  KIO::ERR_CANNOT_RENAME:
         errorName = i18n("Could Not Rename Resource");
         description = i18n("An attempt to rename the specified resource "
-                           "<strong>%1</strong> failed.",  url);
+                           "<strong>%1</strong> failed.",  KStringHandler::csqueeze(url, maxFilePathLength));
         causes << cAccess << cExists;
         if (!isSlaveNetwork) {
             causes << cProtocol;
