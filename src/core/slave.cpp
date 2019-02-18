@@ -519,8 +519,8 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
             error = KIO::ERR_CANNOT_CREATE_SLAVE;
             delete slave;
             return nullptr;
-
         }
+
         QProcess::startDetached(kioslaveExecutable, args);
 
         return slave;
