@@ -353,6 +353,31 @@ private Q_SLOTS:
         QVERIFY2(items.contains("trash:" + QChar(0x2044) + ".desktop"), qPrintable(items.join(',')));
     }
 
+    void shouldDropFromTrashToTrash() // #378051
+    {
+        // Given a file in the trash
+        QVERIFY(QFileInfo(m_srcFile).isWritable());
+        KIO::CopyJob *copyJob = KIO::move(QUrl::fromLocalFile(m_srcFile), QUrl(QStringLiteral("trash:/")));
+        QSignalSpy copyingDoneSpy(copyJob, &KIO::CopyJob::copyingDone);
+        QVERIFY(copyJob->exec());
+        const QUrl trashUrl = copyingDoneSpy.at(0).at(2).value<QUrl>();
+        QVERIFY(trashUrl.isValid());
+        QVERIFY(!QFile::exists(m_srcFile));
+
+        // When dropping the trashed file in the trash
+        m_mimeData.setUrls(QList<QUrl>() << trashUrl);
+        QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
+        KIO::DropJob *job = KIO::drop(&dropEvent, QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
+        job->setUiDelegate(nullptr);
+        QSignalSpy copyJobSpy(job, SIGNAL(copyJobStarted(KIO::CopyJob*)));
+        QSignalSpy spy(job, SIGNAL(itemCreated(QUrl)));
+
+        // Then an error should be reported and no files action should occur
+        QVERIFY(!job->exec());
+        QCOMPARE(job->error(), KIO::ERR_DROP_ON_ITSELF);
+    }
+
+
     void shouldDropToDirectoryWithPopup_data()
     {
         QTest::addColumn<QString>("dest"); // empty for a temp dir

@@ -285,6 +285,10 @@ int DropJobPrivate::determineDropAction()
 
     const bool trashing = m_destUrl.scheme() == QLatin1String("trash");
     if (trashing) {
+        if (allItemsAreFromTrash) {
+            qCDebug(KIO_WIDGETS) << "Dropping items from trash to trash";
+            return KIO::ERR_DROP_ON_ITSELF;
+        }
         m_dropAction = Qt::MoveAction;
         if (!q->uiDelegateExtension()->askDeleteConfirmation(m_urls, KIO::JobUiDelegate::Trash, KIO::JobUiDelegate::DefaultConfirmation)) {
             return KIO::ERR_USER_CANCELED;
