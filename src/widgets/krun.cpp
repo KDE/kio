@@ -46,6 +46,7 @@
 #include <QDBusInterface>
 #include <QDBusReply>
 #include <QHostInfo>
+#include <QDesktopServices>
 
 #include <kiconloader.h>
 #include <kjobuidelegate.h>
@@ -83,8 +84,6 @@
 
 #if HAVE_X11
 #include <kwindowsystem.h>
-#elif defined(Q_OS_WIN)
-#include <QDesktopServices>
 #endif
 #include <qstandardpaths.h>
 
@@ -120,6 +119,13 @@ static QString schemeHandler(const QString &protocol)
     }
     Q_ASSERT(KProtocolInfo::isHelperProtocol(protocol));
     return KProtocolInfo::exec(protocol);
+}
+
+static bool checkNeedPortalSupport()
+{
+    return !QStandardPaths::locate(QStandardPaths::RuntimeLocation,
+                                   QLatin1String("flatpak-info")).isEmpty() ||
+            qEnvironmentVariableIsSet("SNAP");
 }
 
 // ---------------------------------------------------------------------------
@@ -947,6 +953,14 @@ void KRun::init()
         return;
     }
 
+    if (d->m_externalBrowserEnabled && checkNeedPortalSupport()) {
+        // use the function from QDesktopServices as it handles portals correctly
+        d->m_bFault = !QDesktopServices::openUrl(d->m_strURL);
+        d->m_bFinished = true;
+        d->startTimer();
+        return;
+    }
+
     if (!d->m_externalBrowser.isEmpty() && d->m_strURL.scheme().startsWith(QLatin1String("http"))) {
         if (d->runExecutable(d->m_externalBrowser)) {
             return;
@@ -1419,7 +1433,8 @@ void KRun::setAutoDelete(bool b)
 
 void KRun::setEnableExternalBrowser(bool b)
 {
-    if (b) {
+    d->m_externalBrowserEnabled = b;
+    if (d->m_externalBrowserEnabled) {
         d->m_externalBrowser = KConfigGroup(KSharedConfig::openConfig(), "General").readEntry("BrowserApplication");
 
         // If a default browser isn't set in kdeglobals, fall back to mimeapps.list

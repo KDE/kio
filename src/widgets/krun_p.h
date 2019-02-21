@@ -136,6 +136,8 @@ public:
      * This action is invoked from slotTimeout.
      */
     bool m_bCheckPrompt;
+
+    bool m_externalBrowserEnabled;
 };
 
 #endif  // KRUN_P_H
