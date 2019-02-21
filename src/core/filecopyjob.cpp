@@ -491,6 +491,18 @@ void FileCopyJob::slotResult(KJob *job)
                 d->m_getJob->kill(Quietly);
                 removeSubjob(d->m_getJob);
             }
+        } else if (job == d->m_chmodJob) {
+            d->m_chmodJob = nullptr;
+            if (d->m_delJob) {
+                d->m_delJob->kill(Quietly);
+                removeSubjob(d->m_delJob);
+            }
+        } else if (job == d->m_delJob) {
+            d->m_delJob = nullptr;
+            if (d->m_chmodJob) {
+                d->m_chmodJob->kill(Quietly);
+                removeSubjob(d->m_chmodJob);
+            }
         }
         setError(job->error());
         setErrorText(job->errorText());
