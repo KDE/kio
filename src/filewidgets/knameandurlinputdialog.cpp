@@ -64,7 +64,7 @@ KNameAndUrlInputDialog::KNameAndUrlInputDialog(const QString &nameLabel, const Q
     setLayout(topLayout);
 
     QFormLayout *formLayout = new QFormLayout;
-    formLayout->setMargin(0);
+    formLayout->setContentsMargins(0, 0, 0, 0);
 
     // First line: filename
     d->m_leName = new QLineEdit(this);

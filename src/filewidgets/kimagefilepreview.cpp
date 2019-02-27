@@ -69,7 +69,7 @@ KImageFilePreview::KImageFilePreview(QWidget *parent)
     : KPreviewWidgetBase(parent), d(new KImageFilePreviewPrivate)
 {
     QVBoxLayout *vb = new QVBoxLayout(this);
-    vb->setMargin(0);
+    vb->setContentsMargins(0, 0, 0, 0);
 
     d->imageLabel = new QLabel(this);
     d->imageLabel->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);

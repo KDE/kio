@@ -737,7 +737,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     dialogExtension->setTitle(i18n("Terminal options"));
 
     QVBoxLayout *dialogExtensionLayout = new QVBoxLayout;
-    dialogExtensionLayout->setMargin(0);
+    dialogExtensionLayout->setContentsMargins(0, 0, 0, 0);
 
     terminal = new QCheckBox(i18n("Run in &terminal"), q);
     if (bReadOnly) {
@@ -753,7 +753,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     checkBoxIndentation += terminal->style()->pixelMetric(QStyle::PM_CheckBoxLabelSpacing, &checkBoxOption, terminal);
 
     QBoxLayout *nocloseonexitLayout = new QHBoxLayout();
-    nocloseonexitLayout->setMargin(0);
+    nocloseonexitLayout->setContentsMargins(0, 0, 0, 0);
     QSpacerItem *spacer = new QSpacerItem(checkBoxIndentation, 0, QSizePolicy::Fixed, QSizePolicy::Minimum);
     nocloseonexitLayout->addItem(spacer);
 

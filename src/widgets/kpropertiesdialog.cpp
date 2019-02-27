@@ -847,7 +847,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     properties->addPage(d->m_frame, i18nc("@title:tab File properties", "&General"));
 
     QVBoxLayout *vbl = new QVBoxLayout(d->m_frame);
-    vbl->setMargin(0);
+    vbl->setContentsMargins(0, 0, 0, 0);
     vbl->setObjectName(QStringLiteral("vbl"));
     QGridLayout *grid = new QGridLayout(); // unknown rows
     d->m_grid = grid;
@@ -1025,7 +1025,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         QFrame *box = new QFrame(d->m_frame);
         QVBoxLayout *boxLayout = new QVBoxLayout(box);
         boxLayout->setSpacing(2); // without that spacing the button literally “sticks” to the label ;)
-        boxLayout->setMargin(0);
+        boxLayout->setContentsMargins(0, 0, 0, 0);
 
         l = new QLabel(mimeComment, box);
         l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
@@ -1766,7 +1766,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     properties->addPage(d->m_frame, i18n("&Permissions"));
 
     QBoxLayout *box = new QVBoxLayout(d->m_frame);
-    box->setMargin(0);
+    box->setContentsMargins(0, 0, 0, 0);
 
     QWidget *l;
     QLabel *lbl;
@@ -3030,7 +3030,7 @@ KUrlPropsPlugin::KUrlPropsPlugin(KPropertiesDialog *_props)
     d->m_frame = new QFrame();
     properties->addPage(d->m_frame, i18n("U&RL"));
     QVBoxLayout *layout = new QVBoxLayout(d->m_frame);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
 
     QLabel *l;
     l = new QLabel(d->m_frame);
@@ -3204,7 +3204,7 @@ KDevicePropsPlugin::KDevicePropsPlugin(KPropertiesDialog *_props) : KPropertiesD
 
     QGridLayout *layout = new QGridLayout(d->m_frame);
 
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->setColumnStretch(1, 1);
 
     QLabel *label;

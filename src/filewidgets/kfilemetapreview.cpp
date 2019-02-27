@@ -24,7 +24,7 @@ KFileMetaPreview::KFileMetaPreview(QWidget *parent)
       haveAudioPreview(false)
 {
     QHBoxLayout *layout = new QHBoxLayout(this);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     m_stack = new QStackedWidget(this);
     layout->addWidget(m_stack);
 

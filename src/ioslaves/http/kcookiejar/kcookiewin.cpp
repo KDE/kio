@@ -139,14 +139,14 @@ KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList,
 
     QVBoxLayout *vBox1Layout = new QVBoxLayout(vBox1);
     vBox1Layout->setSpacing(-1);
-    vBox1Layout->setMargin(0);
+    vBox1Layout->setContentsMargins(0, 0, 0, 0);
 
     // Cookie image and message to user
     QFrame *hBox = new QFrame(vBox1);
     vBox1Layout->addWidget(hBox);
     QHBoxLayout *hBoxLayout = new QHBoxLayout(hBox);
     hBoxLayout->setSpacing(0);
-    hBoxLayout->setMargin(0);
+    hBoxLayout->setContentsMargins(0, 0, 0, 0);
     QLabel *icon = new QLabel(hBox);
     hBoxLayout->addWidget(icon);
     icon->setPixmap(QIcon::fromTheme(QStringLiteral("dialog-warning")).pixmap(style()->pixelMetric(QStyle::PM_LargeIconSize)));
@@ -156,7 +156,7 @@ KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList,
     QFrame *vBox = new QFrame(hBox);
     QVBoxLayout *vBoxLayout = new QVBoxLayout(vBox);
     vBoxLayout->setSpacing(0);
-    vBoxLayout->setMargin(0);
+    vBoxLayout->setContentsMargins(0, 0, 0, 0);
     hBoxLayout->addWidget(vBox);
     QLabel *lbl = new QLabel(txt, vBox);
     vBoxLayout->addWidget(lbl);

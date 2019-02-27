@@ -313,7 +313,7 @@ void KUrlRequester::KUrlRequesterPrivate::init()
     QWidget *widget = combo ? static_cast<QWidget *>(combo) : static_cast<QWidget *>(edit);
 
     QHBoxLayout *topLayout = new QHBoxLayout(m_parent);
-    topLayout->setMargin(0);
+    topLayout->setContentsMargins(0, 0, 0, 0);
     topLayout->setSpacing(-1); // use default spacing
     topLayout->addWidget(widget);
 

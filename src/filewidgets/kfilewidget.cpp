@@ -367,7 +367,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
 
     d->opsWidget = new QWidget(this);
     QVBoxLayout *opsWidgetLayout = new QVBoxLayout(d->opsWidget);
-    opsWidgetLayout->setMargin(0);
+    opsWidgetLayout->setContentsMargins(0, 0, 0, 0);
     opsWidgetLayout->setSpacing(0);
     //d->toolbar = new KToolBar(this, true);
     d->toolbar = new KToolBar(d->opsWidget, true);
@@ -1412,7 +1412,7 @@ void KFileWidgetPrivate::initGUI()
     delete boxLayout; // deletes all sub layouts
 
     boxLayout = new QVBoxLayout(q);
-    boxLayout->setMargin(0); // no additional margin to the already existing
+    boxLayout->setContentsMargins(0, 0, 0, 0); // no additional margin to the already existing
 
     placesViewSplitter = new QSplitter(q);
     placesViewSplitter->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -1424,7 +1424,7 @@ void KFileWidgetPrivate::initGUI()
     placesViewSplitter->insertWidget(0, opsWidget);
 
     vbox = new QVBoxLayout();
-    vbox->setMargin(0);
+    vbox->setContentsMargins(0, 0, 0, 0);
     boxLayout->addLayout(vbox);
 
     lafBox = new QGridLayout();

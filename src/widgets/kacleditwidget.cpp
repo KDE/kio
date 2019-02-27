@@ -85,7 +85,7 @@ KACLEditWidget::KACLEditWidget(QWidget *parent)
     : QWidget(parent), d(new KACLEditWidgetPrivate)
 {
     QHBoxLayout *hbox = new QHBoxLayout(this);
-    hbox->setMargin(0);
+    hbox->setContentsMargins(0, 0, 0, 0);
     d->m_listView = new KACLListView(this);
     hbox->addWidget(d->m_listView);
     connect(d->m_listView->selectionModel(),

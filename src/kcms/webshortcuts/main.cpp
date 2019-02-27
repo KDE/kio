@@ -88,7 +88,7 @@ KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
     } else if (modules.count() == 1) {
         m_widget = modules.first();
         if (m_widget->layout()) {
-            m_widget->layout()->setMargin(0);
+            m_widget->layout()->setContentsMargins(0, 0, 0, 0);
         }
     }
 
