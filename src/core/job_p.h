@@ -323,9 +323,6 @@ public:
     virtual void slotDataReqFromDevice();
     void slotIODeviceClosed();
     void slotIODeviceClosedBeforeStart();
-
-    void slotErrorPage();
-    void slotCanResume(KIO::filesize_t offset);
     void slotPostRedirection();
     void slotNeedSubUrlData();
     void slotSubUrlData(KIO::Job *, const QByteArray &);

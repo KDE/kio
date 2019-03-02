@@ -296,8 +296,11 @@ public:
 CopyJob::CopyJob(CopyJobPrivate &dd)
     : Job(dd)
 {
+    Q_D(CopyJob);
     setProperty("destUrl", d_func()->m_dest.toString());
-    QTimer::singleShot(0, this, SLOT(slotStart()));
+    QTimer::singleShot(0, this, [d]() {
+        d->slotStart();
+    });
     qRegisterMetaType<KIO::UDSEntry>();
 }
 
@@ -342,7 +345,9 @@ void CopyJobPrivate::slotStart()
     */
     m_reportTimer = new QTimer(q);
 
-    q->connect(m_reportTimer, SIGNAL(timeout()), q, SLOT(slotReport()));
+    q->connect(m_reportTimer, &QTimer::timeout, q, [this]() {
+        slotReport();
+    });
     m_reportTimer->start(REPORT_TIMEOUT);
 
     // Stat the dest
@@ -555,7 +560,9 @@ bool CopyJob::doResume()
     Q_D(CopyJob);
     switch (d->state) {
         case STATE_INITIAL:
-            QTimer::singleShot(0, this, SLOT(slotStart()));
+            QTimer::singleShot(0, this, [d]() {
+                d->slotStart();
+            });
             break;
         default:
             // not implemented
@@ -954,10 +961,12 @@ void CopyJobPrivate::startListing(const QUrl &src)
     m_bURLDirty = true;
     ListJob *newjob = listRecursive(src, KIO::HideProgressInfo);
     newjob->setUnrestricted(true);
-    q->connect(newjob, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
-               SLOT(slotEntries(KIO::Job*,KIO::UDSEntryList)));
-    q->connect(newjob, SIGNAL(subError(KIO::ListJob*,KIO::ListJob*)),
-               SLOT(slotSubError(KIO::ListJob*,KIO::ListJob*)));
+    q->connect(newjob, &ListJob::entries, q, [this](KIO::Job *job, KIO::UDSEntryList list) {
+        slotEntries(job, list);
+    });
+    q->connect(newjob, &ListJob::subError, q, [this](KIO::ListJob *job, KIO::ListJob *subJob) {
+        slotSubError(job, subJob);
+    });
     q->addSubjob(newjob);
 }
 

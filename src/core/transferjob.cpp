@@ -315,8 +315,9 @@ void TransferJobPrivate::start(Slave *slave)
 
     if (m_outgoingDataSource) {
         if (m_extraFlags & JobPrivate::EF_TransferJobAsync) {
-            q->connect(m_outgoingDataSource, SIGNAL(readyRead()),
-                    SLOT(slotDataReqFromDevice()));
+            q->connect(m_outgoingDataSource, &QIODevice::readyRead, q, [this]() {
+                slotDataReqFromDevice();
+            });
             q->connect(m_outgoingDataSource, SIGNAL(readChannelFinished()),
                     SLOT(slotIODeviceClosed()));
             // We don't really need to disconnect since we're never checking
@@ -329,8 +330,9 @@ void TransferJobPrivate::start(Slave *slave)
                 QMetaObject::invokeMethod(q, "slotDataReqFromDevice", Qt::QueuedConnection);
             }
         } else {
-            q->connect(slave, SIGNAL(dataReq()),
-                    SLOT(slotDataReqFromDevice()));
+            q->connect(slave, &SlaveInterface::dataReq, q, [this]() {
+                slotDataReqFromDevice();
+            });
         }
     } else
         q->connect(slave, &SlaveInterface::dataReq,
@@ -342,14 +344,17 @@ void TransferJobPrivate::start(Slave *slave)
     q->connect(slave, &SlaveInterface::mimeType,
                q, &TransferJob::slotMimetype);
 
-    q->connect(slave, SIGNAL(errorPage()),
-               SLOT(slotErrorPage()));
+    q->connect(slave, &SlaveInterface::errorPage, q, [this]() {
+        m_errorPage = true;
+    });
 
-    q->connect(slave, SIGNAL(needSubUrlData()),
-               SLOT(slotNeedSubUrlData()));
+    q->connect(slave, &SlaveInterface::needSubUrlData, q, [this]() {
+        slotNeedSubUrlData();
+    });
 
-    q->connect(slave, SIGNAL(canResume(KIO::filesize_t)),
-               SLOT(slotCanResume(KIO::filesize_t)));
+    q->connect(slave, &SlaveInterface::canResume, q, [q](KIO::filesize_t offset) {
+        emit q->canResume(q, offset);
+    });
 
     if (slave->suspended()) {
         m_mimetype = QStringLiteral("unknown");
@@ -369,8 +374,9 @@ void TransferJobPrivate::slotNeedSubUrlData()
     // Job needs data from subURL.
     m_subJob = KIO::get(m_subUrl, NoReload, HideProgressInfo);
     internalSuspend(); // Put job on hold until we have some data.
-    q->connect(m_subJob, SIGNAL(data(KIO::Job*,QByteArray)),
-               SLOT(slotSubUrlData(KIO::Job*,QByteArray)));
+    q->connect(m_subJob, &TransferJob::data, q, [this](KIO::Job *job, const QByteArray &data) {
+        slotSubUrlData(job, data);
+    });
     q->addSubjob(m_subJob);
 }
 
@@ -387,17 +393,6 @@ void TransferJob::slotMetaData(const KIO::MetaData &_metaData)
     Q_D(TransferJob);
     SimpleJob::slotMetaData(_metaData);
     storeSSLSessionFromJob(d->m_redirectionURL);
-}
-
-void TransferJobPrivate::slotErrorPage()
-{
-    m_errorPage = true;
-}
-
-void TransferJobPrivate::slotCanResume(KIO::filesize_t offset)
-{
-    Q_Q(TransferJob);
-    emit q->canResume(q, offset);
 }
 
 void TransferJobPrivate::slotDataReqFromDevice()

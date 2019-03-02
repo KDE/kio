@@ -266,10 +266,6 @@ protected:
     void emitResult();
 
 private:
-    Q_PRIVATE_SLOT(d_func(), void slotStart())
-    Q_PRIVATE_SLOT(d_func(), void slotEntries(KIO::Job *, const KIO::UDSEntryList &list))
-    Q_PRIVATE_SLOT(d_func(), void slotSubError(KIO::ListJob *, KIO::ListJob *))
-    Q_PRIVATE_SLOT(d_func(), void slotReport())
     Q_PRIVATE_SLOT(d_func(), void sourceStated(const KIO::UDSEntry &entry, const QUrl &sourceUrl))
 
     Q_DECLARE_PRIVATE(CopyJob)
