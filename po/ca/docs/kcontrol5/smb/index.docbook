@@ -1,0 +1,126 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Catalan  "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="smb" lang="&language;">
+<articleinfo>
+<title
+>Recursos compartits de Windows</title>
+<authorgroup>
+<author
+>&Mike.McBride; &Mike.McBride.mail;</author>
+<author
+>&Jost.Schenck; &Jost.Schenck.mail;</author>
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<date
+>10 de novembre de 2016</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Arranjament del sistema</keyword>
+<keyword
+>Recursos compartits de Windows</keyword>
+</keywordset>
+</articleinfo>
+<sect1 id="windows-shares">
+<title
+>Recursos compartits de Windows</title>
+
+<sect2 id="windows-shares-intro">
+<title
+>Introducció</title>
+
+<para
+>En moltes xarxes petites d'àrea local el protocol <acronym
+>SMB</acronym
+> s'usa per a proporcionar serveis de xarxa. Sovint també s'usen noms com <quote
+>Xarxa de &Windows;</quote
+>, <quote
+>&Windows; per a xarxa de grups de treball</quote
+> o <quote
+>LanManager</quote
+>. Utilitzant <acronym
+>SMB</acronym
+> podreu accedir als anomenats directoris <quote
+>compartits</quote
+> (&pex; els disponibles mitjançant el servidor) així com les impressores. </para>
+
+<para
+>El &kde; conté la implementació integrada per al protocol <acronym
+>SMB</acronym
+>. Com el &kde; és transparent a la xarxa, això significa que podeu accedir als serveis <acronym
+>SMB</acronym
+> compartits des de qualsevol lloc des del qual pugueu accedir als vostres fitxers locals, per exemple el gestor de fitxers &konqueror; i el diàleg de fitxers. Per a usar això haureu de proporcionar al &kde; algunes dades de la vostra xarxa <acronym
+>SMB</acronym
+>. Però no us preocupeu, perquè això és tan senzill com, per exemple, que tots els clients Windows de la vostra xarxa necessiten i tenen la mateixa informació.</para>
+
+<!-- Don't know if the following info should go in the base
+documentation --> 
+
+<!-- this smb-ioslave doesn't support showing a list
+of hosts (like e.g. smb:/), for this you need the lan or rlan-ioslave,
+very cool thing (TM) btw. If you want to write some documentation for
+this one too, have a look at kdenetwork/lanbrowsing/lisa/README and
+contact me if you have questions. -->
+
+<note
+><para
+>Perquè funcioni el protocol <acronym
+>SMB</acronym
+> és necessari que <application
+>Samba</application
+> estigui correctament instal·lat.</para
+></note>
+
+<!-- TODO: link to some place which explains USING SMB, i.e. konqueror
+or file dialog manual -->
+
+</sect2>
+
+<sect2 id="windows-shares-use">
+<title
+>Ús</title>
+
+<para
+>Tot i que existeixen moltes xarxes <acronym
+>SMB</acronym
+> insegures que permeten l'accés a tothom, en principi haureu d'autenticar-vos per accedir als serveis d'un servidor <acronym
+>SMB</acronym
+>. Per omissió, el &kde; usarà les dades introduïdes en els camps <guilabel
+>Nom de l'usuari per omissió</guilabel
+> i <guilabel
+>Contrasenya per omissió</guilabel
+> per a autenticar-se en màquines <acronym
+>SMB</acronym
+>. Si deixeu buit el camp <guilabel
+>Nom de l'usuari per omissió</guilabel
+>, el &kde; intentarà accedir a les màquines <acronym
+>SMB</acronym
+> sense nom d'usuari. Si deixeu el camp de la contrasenya buit, ho intentarà sense contrasenya. Si el &kde; no hi aconsegueix accedir usant aquests valors, se us demanarà un nom d'usuari i una contrasenya.</para>
+
+<important
+><para
+>Si bé és molt còmode que el &kde; desi les vostres contrasenyes <acronym
+>SMB</acronym
+>, això pot resultar en un problema de seguretat. Si useu <acronym
+>SMB</acronym
+> en un entorn insegur, no hauríeu de desar les vostres contrasenyes, sinó introduir-les cada vegada que necessiteu accedir a una màquina <acronym
+>SMB</acronym
+>.</para
+></important>
+
+</sect2>
+
+</sect1>
+
+</article>
