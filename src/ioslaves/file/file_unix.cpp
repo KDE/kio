@@ -589,7 +589,7 @@ void FileProtocol::listDir(const QUrl &url)
                     bool ntfsHidden = true;
 
                     // Bug 392913: NTFS root volume is always "hidden", ignore this
-                    if (ep->d_type == DT_DIR || ep->d_type == DT_UNKNOWN) {
+                    if (ep->d_type == DT_DIR || ep->d_type == DT_UNKNOWN || ep->d_type == DT_LNK) {
                         const QString fullFilePath = QDir(filename).canonicalPath();
                         auto mountPoint = KMountPoint::currentMountPoints().findByPath(fullFilePath);
                         if (mountPoint && mountPoint->mountPoint() == fullFilePath) {
