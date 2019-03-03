@@ -395,7 +395,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
         (void)::chown(_dest.data(), buff_src.st_uid, -1 /*keep group*/);
     } else {
         if (tryChangeFileAttr(CHOWN, {_dest, buff_src.st_uid, buff_src.st_gid}, errno)) {
-            qCWarning(KIO_FILE) << QStringLiteral("Couldn't preserve group for '%1'").arg(dest);
+            qCWarning(KIO_FILE) << "Couldn't preserve group for" << dest;
         }
     }
 
@@ -405,7 +405,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
     ut.modtime = buff_src.st_mtime;
     if (::utime(_dest.data(), &ut) != 0) {
         if (tryChangeFileAttr(UTIME, {_dest, qint64(ut.actime), qint64(ut.modtime)}, errno)) {
-            qCWarning(KIO_FILE) << QStringLiteral("Couldn't preserve access and modification time for '%1'").arg(dest);
+            qCWarning(KIO_FILE) << "Couldn't preserve access and modification time for" << dest;
         }
     }
 
