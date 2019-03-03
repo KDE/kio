@@ -1721,6 +1721,53 @@ void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveD
     }
 }
 
+void JobTest::safeOverwrite_data()
+{
+    QTest::addColumn<bool>("destFileExists");
+
+    QTest::newRow("dest file exists") << true;
+    QTest::newRow("dest file doesn't exist") << false;
+}
+
+void JobTest::safeOverwrite()
+{
+#ifdef Q_OS_WIN
+    QSKIP("Test skipped on Windows");
+#endif
+
+    QFETCH(bool, destFileExists);
+    const QString srcDir = homeTmpDir() + "overwrite";
+    const QString srcFile = srcDir + "/testfile";
+    const QString destDir = otherTmpDir() + "overwrite_other";
+    const QString destFile = destDir + "/testfile";
+    const QString destPartFile = destFile + ".part";
+
+    createTestDirectory(srcDir);
+    createTestDirectory(destDir);
+
+    QVERIFY(QFile::resize(srcFile, 1000000)); //~1MB
+    if (!destFileExists) {
+        QVERIFY(QFile::remove(destFile));
+    }
+
+    KIO::FileCopyJob *job = KIO::file_move(QUrl::fromLocalFile(srcFile), QUrl::fromLocalFile(destFile), -1, KIO::HideProgressInfo | KIO::Overwrite);
+    job->setUiDelegate(nullptr);
+    QSignalSpy spyTotalSize(job, &KIO::Job::totalSize);
+    connect(job, &KIO::Job::totalSize, this, [destFileExists, destPartFile](KJob *job, qulonglong totalSize) {
+        Q_UNUSED(job);
+        Q_UNUSED(totalSize);
+        QCOMPARE(destFileExists,  QFile::exists(destPartFile));
+    });
+    QVERIFY(job->exec());
+    QVERIFY(QFile::exists(destFile));
+    QVERIFY(!QFile::exists(srcFile));
+    QVERIFY(!QFile::exists(destPartFile));
+    QCOMPARE(spyTotalSize.count(), 1);
+
+    QDir(srcDir).removeRecursively();
+    QDir(destDir).removeRecursively();
+}
+
 void JobTest::moveAndOverwrite()
 {
     const QString sourceFile = homeTmpDir() + "fileFromHome";

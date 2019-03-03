@@ -141,9 +141,10 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
     // qDebug() << "copy(): " << srcUrl << " -> " << destUrl << ", mode=" << _mode;
 
     const QString src = srcUrl.toLocalFile();
-    const QString dest = destUrl.toLocalFile();
+    QString dest = destUrl.toLocalFile();
     QByteArray _src(QFile::encodeName(src));
     QByteArray _dest(QFile::encodeName(dest));
+    QByteArray _dest_backup;
 
     QT_STATBUF buff_src;
 #if HAVE_POSIX_ACL
@@ -180,24 +181,28 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
             return;
         }
 
-        if (!(_flags & KIO::Overwrite)) {
+        if (_flags & KIO::Overwrite) {
+            // If the destination is a symlink and overwrite is TRUE,
+            // remove the symlink first to prevent the scenario where
+            // the symlink actually points to current source!
+            if ((buff_dest.st_mode & QT_STAT_MASK) == QT_STAT_LNK) {
+                //qDebug() << "copy(): LINK DESTINATION";
+                if (!QFile::remove(dest)) {
+                    if (auto err = execWithElevatedPrivilege(DEL, {_dest}, errno)) {
+                        if (!err.wasCanceled()) {
+                            error(KIO::ERR_CANNOT_DELETE_ORIGINAL, dest);
+                        }
+                        return;
+                    }
+                }
+            } else if ((buff_dest.st_mode & QT_STAT_MASK) == QT_STAT_REG) {
+                _dest_backup = _dest;
+                dest.append(QStringLiteral(".part"));
+                _dest = QFile::encodeName(dest);
+            }
+        } else {
             error(KIO::ERR_FILE_ALREADY_EXIST, dest);
             return;
-        }
-
-        // If the destination is a symlink and overwrite is TRUE,
-        // remove the symlink first to prevent the scenario where
-        // the symlink actually points to current source!
-        if ((_flags & KIO::Overwrite) && ((buff_dest.st_mode & QT_STAT_MASK) == QT_STAT_LNK)) {
-            //qDebug() << "copy(): LINK DESTINATION";
-            if (!QFile::remove(dest)) {
-                if (auto err = execWithElevatedPrivilege(DEL, {_dest}, errno)) {
-                    if (!err.wasCanceled()) {
-                        error(KIO::ERR_CANNOT_DELETE_ORIGINAL, dest);
-                    }
-                    return;
-                }
-            }
         }
     }
 
@@ -255,6 +260,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
 #ifdef USE_SENDFILE
     bool use_sendfile = buff_src.st_size < 0x7FFFFFFF;
 #endif
+    bool existing_dest_delete_attempted = false;
     while (1) {
 #ifdef USE_SENDFILE
         if (use_sendfile) {
@@ -278,6 +284,11 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
             if (use_sendfile) {
                 // qDebug() << "sendfile() error:" << strerror(errno);
                 if (errno == ENOSPC) { // disk full
+                    if (!_dest_backup.isEmpty() && !existing_dest_delete_attempted) {
+                        ::unlink(_dest_backup.constData());
+                        existing_dest_delete_attempted = true;
+                        continue;
+                    }
                     error(KIO::ERR_DISK_FULL, dest);
                 } else {
                     error(KIO::ERR_SLAVE_DEFINED,
@@ -307,6 +318,11 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
 #endif
             if (dest_file.write(buffer, n) != n) {
                 if (dest_file.error() == QFileDevice::ResourceError) {  // disk full
+                    if (!_dest_backup.isEmpty() && !existing_dest_delete_attempted) {
+                        ::unlink(_dest_backup.constData());
+                        existing_dest_delete_attempted = true;
+                        continue;
+                    }
                     error(KIO::ERR_DISK_FULL, dest);
                 } else {
                     qCWarning(KIO_FILE) << "Couldn't write[2]. Error:" << dest_file.errorString();
@@ -390,6 +406,16 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
     if (::utime(_dest.data(), &ut) != 0) {
         if (tryChangeFileAttr(UTIME, {_dest, qint64(ut.actime), qint64(ut.modtime)}, errno)) {
             qCWarning(KIO_FILE) << QStringLiteral("Couldn't preserve access and modification time for '%1'").arg(dest);
+        }
+    }
+
+    if (!_dest_backup.isEmpty()) {
+        if (::unlink(_dest_backup.constData()) == -1) {
+            qCWarning(KIO_FILE) << "Couldn't remove original dest" <<  _dest_backup << "(" << strerror(errno) << ")";
+        }
+
+        if (::rename(_dest.constData(), _dest_backup.constData()) == -1) {
+            qCWarning(KIO_FILE) << "Couldn't rename" << _dest << "to" << _dest_backup << "(" << strerror(errno) << ")";
         }
     }
 
