@@ -1914,7 +1914,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
             if (_src != _dest && QString::compare(_src, _dest, Qt::CaseInsensitive) == 0) {
                 qCDebug(KIO_COPYJOB_DEBUG) << "Couldn't rename directly, dest already exists. Detected special case of lower/uppercase renaming in same dir, try with 2 rename calls";
                 const QString srcDir = QFileInfo(_src).absolutePath();
-                QTemporaryFile tmpFile(srcDir + QLatin1String("kio_XXXXXX"));
+                QTemporaryFile tmpFile(srcDir + QLatin1String("/kio_XXXXXX"));
                 const bool openOk = tmpFile.open();
                 if (!openOk) {
                     qCWarning(KIO_CORE) << "Couldn't open temp file in" << srcDir;
