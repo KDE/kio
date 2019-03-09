@@ -1617,8 +1617,8 @@ void CopyJobPrivate::copyNextFile()
             it = files.erase(it);
         }
 
-        if ((*it).size > ((1ul << 32) -1)) { // (1ul << 32 -1) = 4 GB
-            const auto fileSystem = KFileSystemType::fileSystemType(m_globalDest.toString());
+        if ((*it).size > ((1ul << 32) - 1)) { // ((1ul << 32) - 1) = 4 GB
+            const auto fileSystem = KFileSystemType::fileSystemType(m_globalDest.toLocalFile());
             if (fileSystem == KFileSystemType::Fat) {
                 q->setError(ERR_FILE_TOO_LARGE_FOR_FAT32);
                 q->setErrorText(m_globalDest.toDisplayString());
