@@ -1752,8 +1752,8 @@ void JobTest::safeOverwrite()
 
     KIO::FileCopyJob *job = KIO::file_move(QUrl::fromLocalFile(srcFile), QUrl::fromLocalFile(destFile), -1, KIO::HideProgressInfo | KIO::Overwrite);
     job->setUiDelegate(nullptr);
-    QSignalSpy spyTotalSize(job, &KIO::FileCopyJob::totalSize);
-    connect(job, &KIO::Job::totalSize, this, [destFileExists, destPartFile](KJob *job, qulonglong totalSize) {
+    QSignalSpy spyTotalSize(job, SIGNAL(totalSize(KJob*,qulonglong)));
+    connect(job, &KIO::FileCopyJob::totalSize, this, [destFileExists, destPartFile](KJob *job, qulonglong totalSize) {
         Q_UNUSED(job);
         Q_UNUSED(totalSize);
         QCOMPARE(destFileExists,  QFile::exists(destPartFile));
