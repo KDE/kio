@@ -88,7 +88,7 @@ void KUrlNavigatorProtocolCombo::showEvent(QShowEvent *event)
     KUrlNavigatorButtonBase::showEvent(event);
     if (!event->spontaneous() && m_protocols.isEmpty()) {
         m_protocols = KProtocolInfo::protocols();
-        qSort(m_protocols);
+        std::sort(m_protocols.begin(), m_protocols.end());
 
         QStringList::iterator it = m_protocols.begin();
         while (it != m_protocols.end()) {
@@ -150,7 +150,7 @@ void KUrlNavigatorProtocolCombo::setProtocol(QAction *action)
 void KUrlNavigatorProtocolCombo::updateMenu()
 {
     initializeCategories();
-    qSort(m_protocols);
+    std::sort(m_protocols.begin(), m_protocols.end());
 
     // move all protocols into the corresponding category of 'items'
     QList<QString> items[CategoryCount];

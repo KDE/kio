@@ -80,7 +80,7 @@ void KAutoWebSearch::populateProvidersList(QList<KUriFilterSearchProvider*>& sea
     favEngines.removeDuplicates();
 
     // Sort the items...
-    qStableSort(favEngines);
+    std::stable_sort(favEngines.begin(), favEngines.end());
 
     // Add the search engine set as the default provider...
     const QString defaultEngine = filter->defaultSearchEngine();
