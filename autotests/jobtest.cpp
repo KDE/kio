@@ -2044,3 +2044,59 @@ void JobTest::multiGet()
     }
 }
 
+void JobTest::cancelCopyAndCleanDest_data()
+{
+    QTest::addColumn<bool>("suspend");
+    QTest::addColumn<bool>("overwrite");
+
+    QTest::newRow("suspend job (without overwrite flag)") << true << false;
+    QTest::newRow("don't suspend job (without overwrite flag)") << false << false;
+
+#ifndef Q_OS_WIN
+    QTest::newRow("suspend job (with overwrite flag)") << true << true;
+    QTest::newRow("don't suspend job (with overwrite flag)") << false << true;
+#endif
+}
+
+void JobTest::cancelCopyAndCleanDest()
+{
+    QFETCH(bool, suspend);
+    QFETCH(bool, overwrite);
+
+    const QString baseDir = homeTmpDir();
+    const QString srcTemplate = baseDir + QStringLiteral("testfile_XXXXXX");
+    const QString destFile = baseDir + QStringLiteral("testfile_copy");
+
+
+    QTemporaryFile f(srcTemplate);
+    if (!f.open()) {
+        qFatal("Couldn't open %s", qPrintable(f.fileName()));
+    }
+    f.seek(9999999);
+    f.write("0");
+    f.close();
+    QCOMPARE(f.size(), 10000000); //~10MB
+
+    if (overwrite) {
+        createTestFile(destFile);
+    }
+
+    KIO::JobFlag m_overwriteFlag = overwrite ? KIO::Overwrite : KIO::DefaultFlags;
+    KIO::FileCopyJob *copyJob = KIO::file_copy(QUrl::fromLocalFile(f.fileName()), QUrl::fromLocalFile(destFile), -1, KIO::HideProgressInfo | m_overwriteFlag);
+    copyJob->setUiDelegate(nullptr);
+    QSignalSpy spyProcessedSize(copyJob, &KIO::Job::processedSize);
+    connect(copyJob, &KIO::Job::processedSize, this, [destFile, suspend, overwrite](KJob *job, qulonglong processedSize) {
+        if (processedSize > 0) {
+            const QString destToCheck = (!overwrite) ? destFile : destFile + QStringLiteral(".part");
+            QVERIFY(QFile::exists(destToCheck));
+            if (suspend) {
+                job->suspend();
+            }
+            job->kill();
+            QVERIFY(!QFile::exists(destToCheck));
+        }
+    });
+    QVERIFY(!copyJob->exec());
+    QCOMPARE(spyProcessedSize.count(), 1);
+}
+

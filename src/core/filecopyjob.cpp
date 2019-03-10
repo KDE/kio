@@ -20,6 +20,7 @@
 
 #include "filecopyjob.h"
 #include "job_p.h"
+#include <QFile>
 #include <QTimer>
 #include "kprotocolmanager.h"
 #include "scheduler.h"
@@ -41,7 +42,7 @@ public:
                        bool move, JobFlags flags)
         : m_sourceSize(filesize_t(-1)), m_src(src), m_dest(dest), m_moveJob(nullptr), m_copyJob(nullptr), m_delJob(nullptr),
           m_chmodJob(nullptr), m_getJob(nullptr), m_putJob(nullptr), m_permissions(permissions),
-          m_move(move), m_mustChmod(0), m_flags(flags)
+          m_move(move), m_mustChmod(0), m_bFileCopyInProgress(false), m_flags(flags)
     {
     }
     KIO::filesize_t m_sourceSize;
@@ -60,6 +61,7 @@ public:
     bool m_canResume: 1;
     bool m_resumeAnswerSent: 1;
     bool m_mustChmod: 1;
+    bool m_bFileCopyInProgress: 1;
     JobFlags m_flags;
 
     void startBestCopyMethod();
@@ -241,8 +243,10 @@ void FileCopyJobPrivate::connectSubjob(SimpleJob *job)
         }
     });
 
-    q->connect(job, &KJob::processedSize, q, [q](KJob *job, qulonglong processedSize) {
-        Q_UNUSED(job);
+    q->connect(job, &KJob::processedSize, q, [q, this](KJob *job, qulonglong processedSize) {
+        if (job == m_copyJob) {
+            m_bFileCopyInProgress = processedSize > 0;
+        }
         q->setProcessedAmount(KJob::Bytes, processedSize);
     });
 
@@ -469,6 +473,12 @@ void FileCopyJob::slotResult(KJob *job)
     Q_D(FileCopyJob);
     //qDebug() << "this=" << this << "job=" << job;
     removeSubjob(job);
+
+    // If result comes from copyjob then we are not writing anymore.
+    if (job == d->m_copyJob) {
+        d->m_bFileCopyInProgress = false;
+    }
+
     // Did job have an error ?
     if (job->error()) {
         if ((job == d->m_moveJob) && (job->error() == ERR_UNSUPPORTED_ACTION)) {
@@ -564,6 +574,26 @@ void FileCopyJob::slotResult(KJob *job)
     if (!hasSubjobs()) {
         emitResult();
     }
+}
+
+bool FileCopyJob::doKill()
+{
+    Q_D(FileCopyJob);
+
+    // If we are interrupted in the middle of file copying,
+    // we may end up with corrupted file at the destination.
+    // It is better to clean up this file. If a copy is being
+    // made as part of move operation then delete the dest only if
+    // source file is intact (m_delJob == NULL).
+    if (d->m_bFileCopyInProgress && d->m_copyJob && d->m_dest.isLocalFile()) {
+        if (d->m_flags & Overwrite) {
+            QFile::remove(d->m_dest.toLocalFile() + QStringLiteral(".part"));
+        } else {
+            QFile::remove(d->m_dest.toLocalFile());
+        }
+    }
+
+    return Job::doKill();
 }
 
 FileCopyJob *KIO::file_copy(const QUrl &src, const QUrl &dest, int permissions,

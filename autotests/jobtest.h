@@ -109,6 +109,9 @@ private Q_SLOTS:
     void createSymlinkWithOverwriteShouldWork();
     void createBrokenSymlink();
 
+    void cancelCopyAndCleanDest();
+    void cancelCopyAndCleanDest_data();
+
     // Remote tests
     //void copyFileToSystem();
 

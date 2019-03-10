@@ -71,6 +71,7 @@ public:
 
     bool doSuspend() override;
     bool doResume() override;
+    bool doKill() override;
 
 Q_SIGNALS:
     /**
