@@ -188,6 +188,7 @@ public:
     }
 
     void _k_slotNewItems(const QUrl &directoryUrl, const KFileItemList &);
+    void _k_slotCompleted(const QUrl &directoryUrl);
     void _k_slotDeleteItems(const KFileItemList &);
     void _k_slotRefreshItems(const QList<QPair<KFileItem, KFileItem> > &);
     void _k_slotClear();
@@ -406,6 +407,8 @@ void KDirModel::setDirLister(KDirLister *dirLister)
     d->m_dirLister->setParent(this);
     connect(d->m_dirLister, &KCoreDirLister::itemsAdded, this,
         [this](const QUrl &dirUrl, const KFileItemList &items){d->_k_slotNewItems(dirUrl, items);} );
+    connect(d->m_dirLister, static_cast<void (KCoreDirLister::*)(const QUrl&)>(&KCoreDirLister::completed), this,
+        [this](const QUrl &dirUrl){d->_k_slotCompleted(dirUrl);} );
     connect(d->m_dirLister, &KCoreDirLister::itemsDeleted, this,
         [this](const KFileItemList &items){d->_k_slotDeleteItems(items);} );
     connect(d->m_dirLister, &KCoreDirLister::refreshItems, this,
@@ -500,8 +503,6 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
         }
     }
 
-    m_urlsBeingFetched.remove(dirNode);
-
     q->endInsertRows();
 
     // Emit expand signal after rowsInserted signal has been emitted,
@@ -509,6 +510,14 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
     Q_FOREACH (const QModelIndex &idx, emitExpandFor) {
         emit q->expand(idx);
     }
+}
+
+void KDirModelPrivate::_k_slotCompleted(const QUrl &directoryUrl)
+{
+    KDirModelNode *result = nodeForUrl(directoryUrl); // O(depth)
+    Q_ASSERT(isDir(result));
+    KDirModelDirNode *dirNode = static_cast<KDirModelDirNode *>(result);
+    m_urlsBeingFetched.remove(dirNode);
 }
 
 void KDirModelPrivate::_k_slotDeleteItems(const KFileItemList &items)
