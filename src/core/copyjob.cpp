@@ -1490,6 +1490,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
         newUrl.setPath(newPath);
         emit q->renamed(q, (*it).uDest, newUrl);   // for e.g. kpropsdlg
         (*it).uDest = newUrl;
+        m_bURLDirty = true;
 
         QList<CopyInfo> files;
         files.append(*it);
