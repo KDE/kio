@@ -232,6 +232,17 @@ public:
     static bool determineMimetypeFromExtension(const QString &protocol);
 
     /**
+     * Returns the default mimetype for the specified protocol, if one exists.
+     *
+     * This corresponds to the "defaultMimetype=" field in the protocol description file.
+     *
+     * @param protocol the protocol to check
+     * @return the default mimetype of the protocol, or an empty string if none set or protocol unknown
+     * @since 5.60
+     */
+    static QString defaultMimetype(const QString &protocol);
+
+    /**
      * Returns the documentation path for the specified protocol.
      *
      * This corresponds to the "X-DocPath=" or "DocPath=" field in the protocol description file.

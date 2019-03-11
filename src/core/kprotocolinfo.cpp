@@ -316,6 +316,16 @@ KProtocolInfo::ExtraFieldList KProtocolInfo::extraFields(const QUrl &url)
     return prot->m_extraFields;
 }
 
+QString KProtocolInfo::defaultMimetype(const QString &_protocol)
+{
+    KProtocolInfoPrivate *prot = KProtocolInfoFactory::self()->findProtocol(_protocol);
+    if (!prot) {
+        return QString();
+    }
+
+    return prot->m_defaultMimetype;
+}
+
 QString KProtocolInfo::docPath(const QString &_protocol)
 {
     KProtocolInfoPrivate *prot = KProtocolInfoFactory::self()->findProtocol(_protocol);
