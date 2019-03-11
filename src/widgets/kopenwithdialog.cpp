@@ -397,14 +397,6 @@ bool QTreeViewProxyFilter::filterAcceptsRow(int sourceRow, const QModelIndex &pa
         return true;
     }
 
-    //Show the non-leaf node also if the regexp matches one of its children
-    int rows = sourceModel()->rowCount(index);
-    for (int crow = 0; crow < rows; crow++) {
-        if (filterAcceptsRow(crow, index)) {
-            return true;
-        }
-    }
-
     return false;
 }
 
@@ -712,6 +704,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     proxyModel->setSourceModel(appModel);
     proxyModel->setFilterKeyColumn(0);
     proxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+    proxyModel->setRecursiveFilteringEnabled(true);
     view = new KApplicationView(q);
     view->setModels(appModel, proxyModel);
     topLayout->addWidget(view);
