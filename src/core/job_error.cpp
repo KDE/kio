@@ -250,7 +250,7 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
         result = i18n("Unable to create io-slave. %1", errorText);
         break;
     case KIO::ERR_FILE_TOO_LARGE_FOR_FAT32:
-        result = xi18nc("@info", "Cannot transfer <filename>%1</filename> because it is too large. The destination filesystem only supports files up to 4GB", errorText);
+        result = xi18nc("@info", "Cannot transfer <filename>%1</filename> because it is too large. The destination filesystem only supports files up to 4GiB", errorText);
         break;
     default:
         result = i18n("Unknown error code %1\n%2\nPlease send a full bug report at https://bugs.kde.org.",  errorCode,  errorText);
