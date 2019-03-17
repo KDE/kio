@@ -1622,7 +1622,7 @@ void CopyJobPrivate::copyNextFile()
             const auto fileSystem = KFileSystemType::fileSystemType(m_globalDest.toLocalFile());
             if (fileSystem == KFileSystemType::Fat) {
                 q->setError(ERR_FILE_TOO_LARGE_FOR_FAT32);
-                q->setErrorText(m_globalDest.toDisplayString());
+                q->setErrorText((*it).uDest.toDisplayString());
                 q->emitResult();
                 return;
             }
