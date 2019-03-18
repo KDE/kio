@@ -1157,6 +1157,15 @@ void KFileWidgetPrivate::_k_fileHighlighted(const KFileItem &i)
     }
 
     locationEdit->lineEdit()->setModified(false);
+
+    // When saving, and when double-click mode is being used, highlight the
+    // filename after a file is single-clicked so the user has a chance to quickly
+    // rename it if desired
+    // Note that double-clicking will override this and overwrite regardless of
+    // single/double click mouse setting (see _k_slotViewDoubleClicked() )
+    if (operationMode == KFileWidget::Saving) {
+        locationEdit->setFocus();
+    }
 }
 
 void KFileWidgetPrivate::_k_fileSelected(const KFileItem &i)
@@ -1176,10 +1185,7 @@ void KFileWidgetPrivate::_k_fileSelected(const KFileItem &i)
         emit q->selectionChanged();
     }
 
-    // If we are saving, let another chance to the user before accepting the dialog (or trying to
-    // accept). This way the user can choose a file and add a "_2" for instance to the filename.
-    // Double clicking however will override this, regardless of single/double click mouse setting,
-    // see: _k_slotViewDoubleClicked
+    // Same as above in _k_fileHighlighted(), but for single-click mode
     if (operationMode == KFileWidget::Saving) {
         locationEdit->setFocus();
     } else {
