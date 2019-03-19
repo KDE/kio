@@ -121,6 +121,9 @@ void KFilePlacesItem::setBookmark(const KBookmark &bookmark)
     case KFilePlacesModel::RemovableDevicesType:
         m_groupName = i18nc("@item", "Removable Devices");
         break;
+    case KFilePlacesModel::TagsType:
+        m_groupName = i18nc("@item", "Tags");
+        break;
     default:
         Q_UNREACHABLE();
         break;
@@ -160,6 +163,10 @@ KFilePlacesModel::GroupType KFilePlacesItem::groupType() const
             protocol == QLatin1String("obexftp") ||
             protocol == QLatin1String("kdeconnect")) {
             return KFilePlacesModel::DevicesType;
+        }
+
+        if (protocol == QLatin1String("tags")) {
+            return KFilePlacesModel::TagsType;
         }
 
         if (protocol == QLatin1String("remote") ||
@@ -335,6 +342,16 @@ KBookmark KFilePlacesItem::createDeviceBookmark(KBookmarkManager *manager,
     KBookmark bookmark = root.createNewSeparator();
     bookmark.setMetaDataItem(QStringLiteral("UDI"), udi);
     bookmark.setMetaDataItem(QStringLiteral("isSystemItem"), QStringLiteral("true"));
+    return bookmark;
+}
+
+KBookmark KFilePlacesItem::createTagBookmark(KBookmarkManager *manager,
+        const QString &tag)
+{
+    KBookmark bookmark = createSystemBookmark(manager, tag, tag, QUrl(QStringLiteral("tags:/") + tag), QStringLiteral("tag"));
+    bookmark.setMetaDataItem(QStringLiteral("tag"), tag);
+    bookmark.setMetaDataItem(QStringLiteral("isSystemItem"), QStringLiteral("true"));
+
     return bookmark;
 }
 

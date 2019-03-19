@@ -50,6 +50,7 @@
 
 #include <kio/job.h>
 #include <kprotocolinfo.h>
+#include <KCoreDirLister>
 
 #include <kconfig.h>
 #include <kconfiggroup.h>
@@ -80,6 +81,8 @@ namespace {
                 return QStringLiteral("GroupState-Devices-IsHidden");
         case KFilePlacesModel::RemovableDevicesType:
                 return QStringLiteral("GroupState-RemovableDevices-IsHidden");
+        case KFilePlacesModel::TagsType:
+                return QStringLiteral("GroupState-Tags-IsHidden");
         default:
             Q_UNREACHABLE();
         }
@@ -164,8 +167,48 @@ public:
     explicit Private(KFilePlacesModel *self)
         : q(self),
           bookmarkManager(nullptr),
-          fileIndexingEnabled(isFileIndexingEnabled())
+          fileIndexingEnabled(isFileIndexingEnabled()),
+          tags(),
+          tagsLister(new KCoreDirLister())
     {
+        if (KProtocolInfo::isKnownProtocol(QStringLiteral("tags"))) {
+            connect(tagsLister, &KCoreDirLister::itemsAdded, q, [this](const QUrl&, const KFileItemList& items) {
+
+                if(tags.isEmpty()) {
+                    QList<QUrl> existingBookmarks;
+
+                    KBookmarkGroup root = bookmarkManager->root();
+                    KBookmark bookmark = root.first();
+
+                    while (!bookmark.isNull()) {
+                        existingBookmarks.append(bookmark.url());
+                        bookmark = root.next(bookmark);
+                    }
+
+                    if (!existingBookmarks.contains(QUrl(tagsUrlBase))) {
+                        KBookmark alltags = KFilePlacesItem::createSystemBookmark(bookmarkManager, QStringLiteral("All tags"), i18n("All tags"), QUrl(tagsUrlBase), QStringLiteral("tag"));
+                    }
+                }
+
+                for (const KFileItem &item: items) {
+                    const QString name = item.name();
+
+                     if (!tags.contains(name)) {
+                         tags.append(name);
+                    }
+                }
+                _k_reloadBookmarks();
+            });
+
+            connect(tagsLister, &KCoreDirLister::itemsDeleted, q, [this](const KFileItemList& items) {
+                for (const KFileItem &item: items) {
+                    tags.removeAll(item.name());
+                }
+                _k_reloadBookmarks();
+            });
+
+            tagsLister->openUrl(QUrl(tagsUrlBase), KCoreDirLister::OpenUrlFlag::Reload);
+        }
     }
 
     ~Private()
@@ -190,6 +233,10 @@ public:
     void reloadAndSignal();
     QList<KFilePlacesItem *> loadBookmarkList();
     int findNearestPosition(int source, int target);
+
+    QVector<QString> tags;
+    const QString tagsUrlBase = QStringLiteral("tags:/");
+    KCoreDirLister* tagsLister;
 
     void _k_initDeviceList();
     void _k_deviceAdded(const QString &udi);
@@ -270,6 +317,7 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
         setDefaultMetadataItemForGroup(RemoteType);
         setDefaultMetadataItemForGroup(DevicesType);
         setDefaultMetadataItemForGroup(RemovableDevicesType);
+        setDefaultMetadataItemForGroup(TagsType);
 
         // Force bookmarks to be saved. If on open/save dialog and the bookmarks are not saved, QFile::exists
         // will always return false, which opening/closing all the time the open/save dialog would case the
@@ -659,38 +707,55 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
     KBookmarkGroup root = bookmarkManager->root();
     KBookmark bookmark = root.first();
     QVector<QString> devices = availableDevices;
+    QVector<QString> tagsList = tags;
 
     while (!bookmark.isNull()) {
         const QString udi = bookmark.metaDataItem(QStringLiteral("UDI"));
         const QUrl url = bookmark.url();
+        const QString tag = bookmark.metaDataItem(QStringLiteral("tag"));
         if (!udi.isEmpty() || url.isValid()) {
             QString appName = bookmark.metaDataItem(QStringLiteral("OnlyInApp"));
-            auto it = std::find(devices.begin(), devices.end(), udi);
-            bool deviceAvailable = (it != devices.end());
-            if (deviceAvailable) {
-                devices.erase(it);
-            }
 
-            bool allowedHere = appName.isEmpty() ||
-                    ((appName == QCoreApplication::instance()->applicationName()) ||
-                    (appName == alternativeApplicationName));
-            bool isSupportedUrl = isBalooUrl(url) ? fileIndexingEnabled : true;
-            bool isSupportedScheme = supportedSchemes.isEmpty() || supportedSchemes.contains(url.scheme());
-
-            if (isSupportedScheme && ((isSupportedUrl && udi.isEmpty() && allowedHere) || deviceAvailable)) {
-
-                KFilePlacesItem *item;
+            // If it's not a tag it's a device
+            if (tag.isEmpty()) {
+                auto it = std::find(devices.begin(), devices.end(), udi);
+                bool deviceAvailable = (it != devices.end());
                 if (deviceAvailable) {
-                    item = new KFilePlacesItem(bookmarkManager, bookmark.address(), udi);
-                    // TODO: Update bookmark internal element
-                } else {
-                    item = new KFilePlacesItem(bookmarkManager, bookmark.address());
+                    devices.erase(it);
                 }
-                connect(item, SIGNAL(itemChanged(QString)),
-                        q, SLOT(_k_itemChanged(QString)));
-                items << item;
+
+                bool allowedHere = appName.isEmpty() ||
+                        ((appName == QCoreApplication::instance()->applicationName()) ||
+                        (appName == alternativeApplicationName));
+                bool isSupportedUrl = isBalooUrl(url) ? fileIndexingEnabled : true;
+                bool isSupportedScheme = supportedSchemes.isEmpty() || supportedSchemes.contains(url.scheme());
+
+                if (isSupportedScheme && ((isSupportedUrl && udi.isEmpty() && allowedHere) || deviceAvailable)) {
+
+                    KFilePlacesItem *item;
+                    if (deviceAvailable) {
+                        item = new KFilePlacesItem(bookmarkManager, bookmark.address(), udi);
+                        // TODO: Update bookmark internal element
+                    } else {
+                        item = new KFilePlacesItem(bookmarkManager, bookmark.address());
+                    }
+                    connect(item, SIGNAL(itemChanged(QString)),
+                            q, SLOT(_k_itemChanged(QString)));
+
+                    items << item;
+                }
+            } else {
+                auto it = std::find(tagsList.begin(), tagsList.end(), tag);
+                if (it != tagsList.end()) {
+                    tagsList.removeAll(tag);
+                    KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address());
+                    items << item;
+                    connect(item, SIGNAL(itemChanged(QString)),
+                                q, SLOT(_k_itemChanged(QString)));
+                }
             }
         }
+
         bookmark = root.next(bookmark);
     }
 
@@ -703,6 +768,17 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
             connect(item, SIGNAL(itemChanged(QString)),
                     q, SLOT(_k_itemChanged(QString)));
             // TODO: Update bookmark internal element
+            items << item;
+        }
+    }
+
+    for (const QString& tag: tagsList) {
+        bookmark = KFilePlacesItem::createTagBookmark(bookmarkManager, tag);
+        if (!bookmark.isNull()) {
+            KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager,
+                    bookmark.address(), tag);
+            connect(item, SIGNAL(itemChanged(QString)),
+                    q, SLOT(_k_itemChanged(QString)));
             items << item;
         }
     }
@@ -1054,7 +1130,7 @@ void KFilePlacesModel::setGroupHidden(const GroupType type, bool hidden)
     if (isGroupHidden(type) == hidden)
         return;
 
-    d->bookmarkManager->root().setMetaDataItem(stateNameForGroupType(type), (hidden ? QStringLiteral("true") : QStringLiteral("false")));    
+    d->bookmarkManager->root().setMetaDataItem(stateNameForGroupType(type), (hidden ? QStringLiteral("true") : QStringLiteral("false")));
     d->reloadAndSignal();
     emit groupHiddenChanged(type, hidden);
 }

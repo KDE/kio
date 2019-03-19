@@ -51,7 +51,8 @@ public:
         RecentlySavedType,
         SearchForType,
         DevicesType,
-        RemovableDevicesType
+        RemovableDevicesType,
+        TagsType
     };
 
     KFilePlacesItem(KBookmarkManager *manager,
@@ -82,6 +83,8 @@ public:
                                           const QString &iconName);
     static KBookmark createDeviceBookmark(KBookmarkManager *manager,
                                           const QString &udi);
+    static KBookmark createTagBookmark(KBookmarkManager *manager,
+                                          const QString &tag);
 
 Q_SIGNALS:
     void itemChanged(const QString &id);
