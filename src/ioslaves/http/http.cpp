@@ -1375,15 +1375,17 @@ void HTTPProtocol::rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags
     // (strangely enough it accepts Destination: without a trailing slash)
     // See BR# 209508 and BR#187970
     if (m_request.responseCode == 301) {
-        m_request.url = m_request.redirectUrl;
+        QUrl redir = m_request.redirectUrl;
+
+        resetSessionSettings();
+
+        m_request.url = redir;
         m_request.method = DAV_MOVE;
         m_request.davData.desturl = newDest.toString();
         m_request.davData.overwrite = (flags & KIO::Overwrite);
         m_request.url.setQuery(QString());
         m_request.cacheTag.policy = CC_Reload;
-        // force re-authentication...
-        delete m_wwwAuth;
-        m_wwwAuth = nullptr;
+
         proceedUntilResponseHeader();
     }
 
