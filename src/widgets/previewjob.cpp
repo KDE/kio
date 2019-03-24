@@ -313,7 +313,7 @@ void PreviewJobPrivate::startPreview()
                  [&thumbRootMount] (KMountPoint::Ptr mount) {
                      return (thumbRootMount != mount) &&
                             (mount->mountType() == QLatin1String("fuse.cryfs") ||
-                             mount->mountType() == QLatin1String("fise.encfs"));
+                             mount->mountType() == QLatin1String("fuse.encfs"));
                  });
 
     // Look for images and store the items in our todo list :)
