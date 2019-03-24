@@ -49,7 +49,7 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
         result = i18n("Could not start process %1.",  errorText);
         break;
     case  KIO::ERR_INTERNAL:
-        result = i18n("Internal Error\nPlease send a full bug report at http://bugs.kde.org\n%1",  errorText);
+        result = i18n("Internal Error\nPlease send a full bug report at https://bugs.kde.org\n%1",  errorText);
         break;
     case  KIO::ERR_MALFORMED_URL:
         result = i18n("Malformed URL %1.",  errorText);
@@ -373,7 +373,7 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
                               "high quality bug report. If the software is provided by a third party, "
                               "please contact them directly. Otherwise, first look to see if "
                               "the same bug has been submitted by someone else by searching at the "
-                              "<a href=\"http://bugs.kde.org/\">KDE bug reporting website</a>. If not, take "
+                              "<a href=\"https://bugs.kde.org/\">KDE bug reporting website</a>. If not, take "
                               "note of the details given above, and include them in your bug report, along "
                               "with as many other details as you think might help.");
     QString cNetwork = i18n("There may have been a problem with your network "
@@ -454,8 +454,8 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
                        "the server may be incompatible.",  protocol);
         solutions << i18n("You may perform a search on the Internet for a KDE "
                           "program (called a kioslave or ioslave) which supports this protocol. "
-                          "Places to search include <a href=\"http://kde-apps.org/\">"
-                          "http://kde-apps.org/</a> and <a href=\"http://freshmeat.net/\">"
+                          "Places to search include <a href=\"https://kde-apps.org/\">"
+                          "https://kde-apps.org/</a> and <a href=\"http://freshmeat.net/\">"
                           "http://freshmeat.net/</a>.")
                   << sUpdate << sSysadmin;
         break;
@@ -906,8 +906,8 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
                            "authentication details, the authentication failed because the "
                            "method that the server is using is not supported by the KDE "
                            "program implementing the protocol %1.",  protocol);
-        solutions << i18n("Please file a bug at <a href=\"http://bugs.kde.org/\">"
-                          "http://bugs.kde.org/</a> to inform the KDE team of the unsupported "
+        solutions << i18n("Please file a bug at <a href=\"https://bugs.kde.org/\">"
+                          "https://bugs.kde.org/</a> to inform the KDE team of the unsupported "
                           "authentication method.") << sSysadmin;
         break;
 

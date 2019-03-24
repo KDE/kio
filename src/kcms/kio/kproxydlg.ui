@@ -42,7 +42,7 @@ If you are uncertain whether or not you need to use a proxy server to connect to
       <string>&lt;qt&gt;
 Automatically detect and configure the proxy settings.&lt;p&gt;
 Automatic detection is performed using the &lt;b&gt;Web Proxy Auto-Discovery Protocol (WPAD)&lt;/b&gt;.&lt;p&gt;
-&lt;b&gt;NOTE:&lt;/b&gt; This option might not work properly or not work at all in some UNIX/Linux distributions. If you encounter a problem when using this option, please check the FAQ section at http://konqueror.kde.org.
+&lt;b&gt;NOTE:&lt;/b&gt; This option might not work properly or not work at all in some UNIX/Linux distributions. If you encounter a problem when using this option, please check the FAQ section at https://konqueror.org.
 &lt;/qt&gt;</string>
      </property>
      <property name="text">

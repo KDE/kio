@@ -22,7 +22,7 @@
 </articleinfo>
 <para>
 The kioslave mailto is responsible for launching the mail composer of your
-choice when you open a &URL; in the mailto scheme (<ulink url="http://tools.ietf.org/html/rfc6068">RFC6068</ulink>).
+choice when you open a &URL; in the mailto scheme (<ulink url="https://tools.ietf.org/html/rfc6068">RFC6068</ulink>).
 </para>
 
 <variablelist>

@@ -31,7 +31,7 @@ with the application.</para>
 <title>How to solve this issue</title>
 
 <para>If the application is &kde; software, start by searching the <ulink
-url="http://docs.kde.org/">KDE Documentation site</ulink> for the requested
+url="https://docs.kde.org/">KDE Documentation site</ulink> for the requested
 documentation. If you find the documentation on that site, your distribution
 might ship a separate package for documentation (&eg;  called plasma-doc for
 documentation related to &plasma;). Please use the package manager of your
@@ -45,20 +45,20 @@ might have disabled the installation of the documentation.
 <para>If you have done that, but still get this page displayed instead of the
 application handbook, you probably found a bug in the help
 system.  In this case, please report this on the <ulink
-url="http://bugs.kde.org/">KDE Bug Tracker</ulink> under the KIO product.
+url="https://bugs.kde.org/">KDE Bug Tracker</ulink> under the KIO product.
 </para>
 
 <para>If you do not find any documentation on the <ulink
-url="http://docs.kde.org/">KDE Documentation site</ulink>, the
+url="https://docs.kde.org/">KDE Documentation site</ulink>, the
 application may not have offline documentation.  Please report this on
-the <ulink url="http://bugs.kde.org/">KDE Bug Tracker</ulink> under the
+the <ulink url="https://bugs.kde.org/">KDE Bug Tracker</ulink> under the
 product for the application.
 </para>
 
 <para>In case the application does not have offline documentation, you should
 use the online resources <ulink
-url="http://userbase.kde.org/">UserBase Documentation</ulink> and
-<ulink url="http://forum.kde.org/">KDE Community Forums</ulink> to get
+url="https://userbase.kde.org/">UserBase Documentation</ulink> and
+<ulink url="https://forum.kde.org/">KDE Community Forums</ulink> to get
 help.
 </para>
 

@@ -47,7 +47,7 @@ whereas omitting the charset attribute might lead to something like
 <literal>Gr??e aus Schl?gl</literal>
 </para>
 
-<para><ulink url="http://www.ietf.org/rfc/rfc2397.txt">IETF
+<para><ulink url="https://www.ietf.org/rfc/rfc2397.txt">IETF
 RFC2397</ulink> provides more information.</para>
 
 </article>
