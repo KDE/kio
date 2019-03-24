@@ -55,6 +55,9 @@
 #include <kprotocolinfo.h>
 #include <qmimedatabase.h>
 #include <qstandardpaths.h>
+#include <KMountPoint>
+
+#include <algorithm>
 
 #include "job_p.h"
 
@@ -270,6 +273,7 @@ void PreviewJobPrivate::startPreview()
     const KService::List plugins = KServiceTypeTrader::self()->query(QStringLiteral("ThumbCreator"));
     QMap<QString, KService::Ptr> mimeMap;
     QHash<QString, QHash<QString, KService::Ptr> > protocolMap;
+
     for (KService::List::ConstIterator it = plugins.constBegin(); it != plugins.constEnd(); ++it) {
         QStringList protocols = (*it)->property(QStringLiteral("X-KDE-Protocols")).toStringList();
         const QString p = (*it)->property(QStringLiteral("X-KDE-Protocol")).toString();
@@ -300,6 +304,18 @@ void PreviewJobPrivate::startPreview()
         }
     }
 
+    const auto mountsList = KMountPoint::currentMountPoints();
+    KMountPoint::List encryptedMountsList;
+    const auto thumbRootMount = mountsList.findByPath(thumbRoot);
+
+    std::copy_if(mountsList.begin(), mountsList.end(),
+                 std::back_inserter(encryptedMountsList),
+                 [&thumbRootMount] (KMountPoint::Ptr mount) {
+                     return (thumbRootMount != mount) &&
+                            (mount->mountType() == QLatin1String("fuse.cryfs") ||
+                             mount->mountType() == QLatin1String("fise.encfs"));
+                 });
+
     // Look for images and store the items in our todo list :)
     bool bNeedCache = false;
     KFileItemList::const_iterator kit = initialItems.constBegin();
@@ -307,6 +323,11 @@ void PreviewJobPrivate::startPreview()
     for (; kit != kend; ++kit) {
         PreviewItem item;
         item.item = *kit;
+
+        if (encryptedMountsList.findByPath(item.item.localPath())) {
+            continue;
+        }
+
         const QString mimeType = item.item.mimetype();
         KService::Ptr plugin(nullptr);
 
