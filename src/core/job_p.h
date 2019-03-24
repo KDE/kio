@@ -262,6 +262,8 @@ public:
             case CMD_SYMLINK:
                 opType = Symlink;
                 break;
+            default:
+                return job;
             }
             job->d_func()->m_operationType = opType;
         }
