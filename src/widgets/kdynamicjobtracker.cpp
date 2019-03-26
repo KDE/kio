@@ -20,6 +20,7 @@
 
 #include "kdynamicjobtracker_p.h"
 #include "kio_widgets_debug.h"
+#include "kuiserver_interface.h"
 
 #include <kuiserverjobtracker.h>
 #include <kwidgetjobtracker.h>
@@ -110,9 +111,11 @@ void KDynamicJobTracker::registerJob(KJob *job)
 
         trackers.widgetTracker = nullptr;
         if (canHaveWidgets) {
-            QDBusInterface interface(QStringLiteral("org.kde.kuiserver"), QStringLiteral("/JobViewServer"), QString(),
-                                    QDBusConnection::sessionBus(), this);
-            QDBusReply<bool> reply = interface.call(QStringLiteral("requiresJobTracker"));
+            org::kde::kuiserver interface(QStringLiteral("org.kde.kuiserver"),
+                                          QStringLiteral("/JobViewServer"),
+                                          QDBusConnection::sessionBus(),
+                                          this);
+            QDBusReply<bool> reply = interface.requiresJobTracker();
 
             if (reply.isValid() && reply.value()) {
                 // create a widget tracker in addition to kuiservertracker.
