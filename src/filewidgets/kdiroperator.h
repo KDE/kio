@@ -912,6 +912,12 @@ Q_SIGNALS:
      */
     void currentIconSizeChanged(int size);
 
+    /**
+     * Triggered when the user hit Enter/Return
+     * @since 5.57
+     */
+    void keyEnterReturnPressed();
+
 private:
     class Private;
     Private *const d;

@@ -40,5 +40,6 @@ KIOWIDGETS_EXECUTABLE_TESTS(
   kurlnavigatortest_gui
   kprotocolinfo_dumper
   kfilewidgettest_gui
+  kfilewidgettest_saving_gui
   runapplication
 )

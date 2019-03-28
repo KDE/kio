@@ -198,6 +198,7 @@ public:
     void _k_slotIconSizeSliderMoved(int);
     void _k_slotIconSizeChanged(int);
     void _k_slotViewDoubleClicked(const QModelIndex&);
+    void _k_slotViewKeyEnterReturnPressed();
 
     void addToRecentDocuments();
 
@@ -441,6 +442,8 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
             SLOT(_k_fileSelected(KFileItem)));
     connect(d->ops, SIGNAL(finishedLoading()),
             SLOT(_k_slotLoadingFinished()));
+    connect(d->ops, SIGNAL(keyEnterReturnPressed()),
+            SLOT(_k_slotViewKeyEnterReturnPressed()));
 
     d->ops->setupMenu(KDirOperator::SortActions |
                       KDirOperator::FileActions |
@@ -2194,6 +2197,15 @@ void KFileWidgetPrivate::_k_slotViewDoubleClicked(const QModelIndex &index)
 {
     // double clicking to save should only work on files
     if (operationMode == KFileWidget::Saving && index.isValid() && ops->selectedItems().constFirst().isFile()) {
+        q->slotOk();
+    }
+}
+
+void KFileWidgetPrivate::_k_slotViewKeyEnterReturnPressed()
+{
+    // an enter/return event occured in the view
+    // when we are saving one file and there is no selection in the view (otherwise we get an activated event)
+    if (operationMode == KFileWidget::Saving && (ops->mode() & KFile::File) && ops->selectedItems().isEmpty()) {
         q->slotOk();
     }
 }
