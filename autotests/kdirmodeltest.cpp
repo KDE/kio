@@ -734,9 +734,10 @@ void KDirModelTest::testExpandToUrl_data()
 #ifndef Q_OS_WIN
     // Expand a symlink to a directory (#219547)
     const QString dirlink = m_tempDir->path() + "/dirlink";
-    createTestSymlink(dirlink, "/");
+    createTestSymlink(dirlink, "subdir"); // dirlink -> subdir
+    QVERIFY(QFileInfo(dirlink).isSymLink());
     QTest::newRow("dirlink")
-            << int(NoFlag) << "dirlink/tmp" << (QStringList() << QStringLiteral("dirlink") << QStringLiteral("dirlink/tmp"));
+            << int(NoFlag) << "dirlink/subsubdir" << (QStringList() << QStringLiteral("dirlink") << QStringLiteral("dirlink/subsubdir"));
 #endif
 
     // Do a cold-cache test too, but nowadays it doesn't change anything anymore,
@@ -799,6 +800,7 @@ void KDirModelTest::testExpandToUrl()
     // If KDirModel doesn't know this URL yet, then we want to see rowsInserted signals
     // being emitted, so that the slots can get the index to that url then.
     m_expectRowsInserted = !expandToPath.isEmpty() && !m_dirModelForExpand->indexForUrl(m_urlToExpandTo).isValid();
+    QVERIFY(QFileInfo::exists(m_urlToExpandTo.toLocalFile()));
     m_dirModelForExpand->expandToUrl(m_urlToExpandTo);
     if (expectedExpandSignals.isEmpty()) {
         QTest::qWait(20); // to make sure we process queued connection calls, otherwise spyExpand.count() is always 0 even if there's a bug...
