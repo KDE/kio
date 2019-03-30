@@ -34,6 +34,7 @@
 #include <QTest>
 #include <QUrl>
 
+#include <kmountpoint.h>
 #include <kprotocolinfo.h>
 #include <kio/scheduler.h>
 #include <kio/directorysizejob.h>
@@ -1750,13 +1751,21 @@ void JobTest::safeOverwrite()
         QVERIFY(QFile::remove(destFile));
     }
 
+    KMountPoint::Ptr srcMountPoint = KMountPoint::currentMountPoints().findByPath(srcDir);
+    KMountPoint::Ptr destMountPoint = KMountPoint::currentMountPoints().findByPath(destDir);
+    QVERIFY(srcMountPoint);
+    QVERIFY(destMountPoint);
+    if (srcMountPoint->mountedFrom() == destMountPoint->mountedFrom()) {
+        QSKIP(qPrintable(QStringLiteral("This test requires %1 and %2 to be on different partitions").arg(srcDir, destDir)));
+    }
+
     KIO::FileCopyJob *job = KIO::file_move(QUrl::fromLocalFile(srcFile), QUrl::fromLocalFile(destFile), -1, KIO::HideProgressInfo | KIO::Overwrite);
     job->setUiDelegate(nullptr);
-    QSignalSpy spyTotalSize(job, SIGNAL(totalSize(KJob*,qulonglong)));
+    QSignalSpy spyTotalSize(job, &KIO::FileCopyJob::totalSize);
     connect(job, &KIO::FileCopyJob::totalSize, this, [destFileExists, destPartFile](KJob *job, qulonglong totalSize) {
         Q_UNUSED(job);
         Q_UNUSED(totalSize);
-        QCOMPARE(destFileExists,  QFile::exists(destPartFile));
+        QCOMPARE(destFileExists, QFile::exists(destPartFile));
     });
     QVERIFY(job->exec());
     QVERIFY(QFile::exists(destFile));
