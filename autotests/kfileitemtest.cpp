@@ -294,6 +294,33 @@ void KFileItemTest::testCmp()
     QVERIFY(fileItem.cmp(fileItem2));
 }
 
+void KFileItemTest::testCmpAndInit()
+{
+    QTemporaryDir tempDir;
+    KFileItem dirItem(QUrl::fromLocalFile(tempDir.path()));
+    QVERIFY(dirItem.isDir()); // this calls init()
+
+    KFileItem dirItem2(QUrl::fromLocalFile(tempDir.path()));
+    // not yet init() called on dirItem2, but must be equal
+    // compare init()ialized to un-init()ialized KFileItem
+    QVERIFY(dirItem.cmp(dirItem2));
+    QVERIFY(dirItem2.isDir());
+    QVERIFY(dirItem.cmp(dirItem2));
+    QVERIFY(dirItem == dirItem2);
+    QVERIFY(dirItem.d != dirItem2.d);
+    QVERIFY(!(dirItem != dirItem2));
+
+    // now the other way around, compare un-init()ialized to init()ialized KFileItem
+    KFileItem dirItem3(QUrl::fromLocalFile(tempDir.path()));
+    // not yet init() called on dirItem3, but must be equal
+    QVERIFY(dirItem3.cmp(dirItem));
+    QVERIFY(dirItem3.isDir());
+    QVERIFY(dirItem3.cmp(dirItem));
+    QVERIFY(dirItem == dirItem3);
+    QVERIFY(dirItem.d != dirItem3.d);
+    QVERIFY(!(dirItem != dirItem3));
+}
+
 void KFileItemTest::testCmpByUrl()
 {
     const QUrl nulUrl;

@@ -51,7 +51,8 @@ public:
                      mode_t mode, mode_t permissions,
                      const QUrl &itemOrDirUrl,
                      bool urlIsDirectory,
-                     bool delayedMimeTypes)
+                     bool delayedMimeTypes,
+                     KFileItem::MimeTypeDetermination mimeTypeDetermination)
         : m_entry(entry),
           m_url(itemOrDirUrl),
           m_strName(),
@@ -67,7 +68,9 @@ public:
           m_delayedMimeTypes(delayedMimeTypes),
           m_useIconNameCache(false),
           m_hidden(Auto),
-          m_slow(SlowUnknown)
+          m_slow(SlowUnknown),
+          m_bSkipMimeTypeFromContent(mimeTypeDetermination == KFileItem::SkipMimeTypeFromContent),
+          m_bInitCalled(false)
     {
         if (entry.count() != 0) {
             readUDSEntry(urlIsDirectory);
@@ -76,16 +79,17 @@ public:
             m_strName = itemOrDirUrl.fileName();
             m_strText = KIO::decodeFileName(m_strName);
         }
-        init();
     }
 
     /**
-     * Computes the text and mode from the UDSEntry
-     * Called by constructor, but can be called again later
-     * Nothing does that anymore though (I guess some old KonqFileItem did)
-     * so it's not a protected method of the public class anymore.
+     * Call init() if not yet done.
      */
-    void init();
+    void ensureInitialized() const;
+
+    /**
+     * Computes the text and mode from the UDSEntry.
+     */
+    void init() const;
 
     QString localPath() const;
     KIO::filesize_t size() const;
@@ -105,6 +109,11 @@ public:
      * Parses the given permission set and provides it for access()
      */
     QString parsePermissions(mode_t perm) const;
+
+    /**
+     * Mime type helper
+     */
+    void determineMimeTypeHelper(const QUrl &url) const;
 
     /**
      * The UDSEntry that contains the data for this fileitem, if it came from a directory listing.
@@ -144,16 +153,16 @@ public:
     /**
      * The file mode
      */
-    mode_t m_fileMode;
+    mutable mode_t m_fileMode;
     /**
      * The permissions
      */
-    mode_t m_permissions;
+    mutable mode_t m_permissions;
 
     /**
      * Whether the file is a link
      */
-    bool m_bLink: 1;
+    mutable bool m_bLink: 1;
     /**
      * True if local file
      */
@@ -171,18 +180,35 @@ public:
     // Slow? (nfs/smb/ssh)
     mutable enum { SlowUnknown, Fast, Slow } m_slow: 3;
 
+    /**
+     * True if mime type determination by content should be skipped
+     */
+    bool m_bSkipMimeTypeFromContent: 1;
+
+    /**
+     * True if init() was called on demand
+     */
+    mutable bool m_bInitCalled: 1;
+
     // For special case like link to dirs over FTP
     QString m_guessedMimeType;
     mutable QString m_access;
+
 };
 
-void KFileItemPrivate::init()
+void KFileItemPrivate::ensureInitialized() const
+{
+    if (!m_bInitCalled) {
+        init();
+    }
+}
+
+void KFileItemPrivate::init() const
 {
     m_access.clear();
     //  metaInfo = KFileMetaInfo();
 
     // stat() local files if needed
-    // TODO: delay this until requested
     if (m_fileMode == KFileItem::Unknown || m_permissions == KFileItem::Unknown || m_entry.count() == 0) {
         if (m_url.isLocalFile()) {
             /* directories may not have a slash at the end if
@@ -229,7 +255,10 @@ void KFileItemPrivate::init()
             }
         }
     }
+
+    m_bInitCalled = true;
 }
+
 void KFileItemPrivate::readUDSEntry(bool _urlIsDirectory)
 {
     // extract fields from the KIO::UDS Entry
@@ -276,6 +305,8 @@ void KFileItemPrivate::readUDSEntry(bool _urlIsDirectory)
 inline //because it is used only in one place
 KIO::filesize_t KFileItemPrivate::size() const
 {
+    ensureInitialized();
+
     // Extract it from the KIO::UDSEntry
     long long fieldVal = m_entry.numberValue(KIO::UDSEntry::UDS_SIZE, -1);
     if (fieldVal != -1) {
@@ -315,6 +346,8 @@ void KFileItemPrivate::setTime(KFileItem::FileTimes mappedWhich, const QDateTime
 
 QDateTime KFileItemPrivate::time(KFileItem::FileTimes mappedWhich) const
 {
+    ensureInitialized();
+
     // Extract it from the KIO::UDSEntry
     const uint uds = udsFieldForTime(mappedWhich);
     if (uds > 0) {
@@ -330,6 +363,14 @@ QDateTime KFileItemPrivate::time(KFileItem::FileTimes mappedWhich) const
 inline //because it is used only in one place
 bool KFileItemPrivate::cmp(const KFileItemPrivate &item) const
 {
+    if (item.m_bInitCalled) {
+        ensureInitialized();
+    }
+
+    if (m_bInitCalled) {
+        item.ensureInitialized();
+    }
+
 #if 0
     //qDebug() << "Comparing" << m_url << "and" << item.m_url;
     //qDebug() << " name" << (m_strName == item.m_strName);
@@ -368,6 +409,8 @@ bool KFileItemPrivate::cmp(const KFileItemPrivate &item) const
 inline //because it is used only in one place
 QString KFileItemPrivate::parsePermissions(mode_t perm) const
 {
+    ensureInitialized();
+
     static char buffer[ 12 ];
 
     char uxbit, gxbit, oxbit;
@@ -448,6 +491,20 @@ QString KFileItemPrivate::parsePermissions(mode_t perm) const
     return QString::fromLatin1(buffer);
 }
 
+void KFileItemPrivate::determineMimeTypeHelper(const QUrl &url) const
+{
+    QMimeDatabase db;
+    if (m_bSkipMimeTypeFromContent) {
+        const QString scheme = url.scheme();
+        if (scheme.startsWith(QLatin1String("http")) || scheme == QLatin1String("mailto"))
+            m_mimeType = db.mimeTypeForName(QLatin1String("application/octet-stream"));
+        else
+            m_mimeType = db.mimeTypeForFile(url.path(), QMimeDatabase::MatchMode::MatchExtension);
+    } else {
+        m_mimeType = db.mimeTypeForUrl(url);
+    }
+}
+
 ///////
 
 KFileItem::KFileItem()
@@ -457,19 +514,19 @@ KFileItem::KFileItem()
 
 KFileItem::KFileItem(const KIO::UDSEntry &entry, const QUrl &itemOrDirUrl,
                      bool delayedMimeTypes, bool urlIsDirectory)
-    : d(new KFileItemPrivate(entry, KFileItem::Unknown, KFileItem::Unknown, itemOrDirUrl, urlIsDirectory, delayedMimeTypes))
+    : d(new KFileItemPrivate(entry, KFileItem::Unknown, KFileItem::Unknown, itemOrDirUrl, urlIsDirectory, delayedMimeTypes, KFileItem::NormalMimeTypeDetermination))
 {
 }
 
 KFileItem::KFileItem(mode_t mode, mode_t permissions, const QUrl &url, bool delayedMimeTypes)
     : d(new KFileItemPrivate(KIO::UDSEntry(), mode, permissions,
-                             url, false, delayedMimeTypes))
+                             url, false, delayedMimeTypes, KFileItem::NormalMimeTypeDetermination))
 {
 }
 
 KFileItem::KFileItem(const QUrl &url, const QString &mimeType, mode_t mode)
     : d(new KFileItemPrivate(KIO::UDSEntry(), mode, KFileItem::Unknown,
-                             url, false, false))
+                             url, false, false, KFileItem::NormalMimeTypeDetermination))
 {
     d->m_bMimeTypeKnown = !mimeType.isEmpty();
     if (d->m_bMimeTypeKnown) {
@@ -477,6 +534,13 @@ KFileItem::KFileItem(const QUrl &url, const QString &mimeType, mode_t mode)
         d->m_mimeType = db.mimeTypeForName(mimeType);
     }
 }
+
+KFileItem::KFileItem(const QUrl &url, KFileItem::MimeTypeDetermination mimeTypeDetermination)
+    : d(new KFileItemPrivate(KIO::UDSEntry(), KFileItem::Unknown, KFileItem::Unknown,
+                             url, false, false, mimeTypeDetermination))
+{
+}
+
 
 // Default implementations for:
 // - Copy constructor
@@ -558,6 +622,8 @@ void KFileItem::setName(const QString &name)
         return;
     }
 
+    d->ensureInitialized();
+
     d->m_strName = name;
     if (!d->m_strName.isEmpty()) {
         d->m_strText = KIO::decodeFileName(d->m_strName);
@@ -573,6 +639,8 @@ QString KFileItem::linkDest() const
     if (!d) {
         return QString();
     }
+
+    d->ensureInitialized();
 
     // Extract it from the KIO::UDSEntry
     const QString linkStr = d->m_entry.stringValue(KIO::UDSEntry::UDS_LINK_DEST);
@@ -592,6 +660,8 @@ QString KFileItemPrivate::localPath() const
     if (m_bIsLocalUrl) {
         return m_url.toLocalFile();
     }
+
+    ensureInitialized();
 
     // Extract the local path from the KIO::UDSEntry
     return m_entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH);
@@ -622,7 +692,7 @@ bool KFileItem::hasExtendedACL() const
     }
 
     // Check if the field exists; its value doesn't matter
-    return d->m_entry.contains(KIO::UDSEntry::UDS_EXTENDED_ACL);
+    return entry().contains(KIO::UDSEntry::UDS_EXTENDED_ACL);
 }
 
 KACL KFileItem::ACL() const
@@ -638,6 +708,7 @@ KACL KFileItem::ACL() const
             return KACL(fieldVal);
         }
     }
+
     // create one from the basic permissions
     return KACL(d->m_permissions);
 }
@@ -649,7 +720,7 @@ KACL KFileItem::defaultACL() const
     }
 
     // Extract it from the KIO::UDSEntry
-    const QString fieldVal = d->m_entry.stringValue(KIO::UDSEntry::UDS_DEFAULT_ACL_STRING);
+    const QString fieldVal = entry().stringValue(KIO::UDSEntry::UDS_DEFAULT_ACL_STRING);
     if (!fieldVal.isEmpty()) {
         return KACL(fieldVal);
     } else {
@@ -672,7 +743,7 @@ QString KFileItem::user() const
         return QString();
     }
 
-    return d->m_entry.stringValue(KIO::UDSEntry::UDS_USER);
+    return entry().stringValue(KIO::UDSEntry::UDS_USER);
 }
 
 QString KFileItem::group() const
@@ -681,7 +752,7 @@ QString KFileItem::group() const
         return QString();
     }
 
-    return d->m_entry.stringValue(KIO::UDSEntry::UDS_GROUP);
+    return entry().stringValue(KIO::UDSEntry::UDS_GROUP);
 }
 
 bool KFileItemPrivate::isSlow() const
@@ -730,7 +801,8 @@ QMimeType KFileItem::determineMimeType() const
         } else {
             bool isLocalUrl;
             const QUrl url = mostLocalUrl(&isLocalUrl);
-            d->m_mimeType = db.mimeTypeForUrl(url);
+            d->determineMimeTypeHelper(url);
+
             // was:  d->m_mimeType = KMimeType::findByUrl( url, d->m_fileMode, isLocalUrl );
             // => we are no longer using d->m_fileMode for remote URLs.
             Q_ASSERT(d->m_mimeType.isValid());
@@ -983,6 +1055,8 @@ QStringList KFileItem::overlays() const
         return QStringList();
     }
 
+    d->ensureInitialized();
+
     QStringList names = d->m_entry.stringValue(KIO::UDSEntry::UDS_ICON_OVERLAY_NAMES).split(QLatin1Char(','), QString::SkipEmptyParts);
 
     if (d->m_bLink) {
@@ -1049,6 +1123,8 @@ bool KFileItem::isReadable() const
         return false;
     }
 
+    d->ensureInitialized();
+
     /*
       struct passwd * user = getpwuid( geteuid() );
       bool isMyFile = (QString::fromLocal8Bit(user->pw_name) == d->m_user);
@@ -1083,6 +1159,8 @@ bool KFileItem::isWritable() const
     if (!d) {
         return false;
     }
+
+    d->ensureInitialized();
 
     /*
       struct passwd * user = getpwuid( geteuid() );
@@ -1138,6 +1216,12 @@ bool KFileItem::isDir() const
     if (!d) {
         return false;
     }
+
+    if (d->m_bSkipMimeTypeFromContent) {
+        return false;
+    }
+
+    d->ensureInitialized();
 
     if (d->m_fileMode == KFileItem::Unknown) {
         // Probably the file was deleted already, and KDirLister hasn't told the world yet.
@@ -1269,6 +1353,8 @@ QString KFileItem::permissionsString() const
         return QString();
     }
 
+    d->ensureInitialized();
+
     if (d->m_access.isNull() && d->m_permissions != KFileItem::Unknown) {
         d->m_access = d->parsePermissions(d->m_permissions);
     }
@@ -1393,6 +1479,8 @@ mode_t KFileItem::permissions() const
         return 0;
     }
 
+    d->ensureInitialized();
+
     return d->m_permissions;
 }
 
@@ -1402,6 +1490,8 @@ mode_t KFileItem::mode() const
         return 0;
     }
 
+    d->ensureInitialized();
+
     return d->m_fileMode;
 }
 
@@ -1410,6 +1500,8 @@ bool KFileItem::isLink() const
     if (!d) {
         return false;
     }
+
+    d->ensureInitialized();
 
     return d->m_bLink;
 }
@@ -1499,7 +1591,7 @@ QMimeType KFileItem::currentMimeType() const
             }
         } else {
             // ## d->m_fileMode isn't used anymore (for remote urls)
-            d->m_mimeType = db.mimeTypeForUrl(url);
+            d->determineMimeTypeHelper(url);
             d->m_bMimeTypeKnown = true;
         }
     }
@@ -1511,6 +1603,8 @@ KIO::UDSEntry KFileItem::entry() const
     if (!d) {
         return KIO::UDSEntry();
     }
+
+    d->ensureInitialized();
 
     return d->m_entry;
 }
@@ -1585,6 +1679,8 @@ bool KFileItem::isRegularFile() const
     if (!d) {
         return false;
     }
+
+    d->ensureInitialized();
 
     return (d->m_fileMode & QT_STAT_MASK) == QT_STAT_REG;
 }

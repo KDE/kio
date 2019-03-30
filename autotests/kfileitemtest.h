@@ -36,6 +36,7 @@ private Q_SLOTS:
     void testHiddenFile();
     void testMimeTypeOnDemand();
     void testCmp();
+    void testCmpAndInit();
     void testCmpByUrl();
     void testRename();
     void testRefresh();

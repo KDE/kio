@@ -63,6 +63,11 @@ public:
                        //ChangeTime
     };
 
+    enum MimeTypeDetermination {
+        NormalMimeTypeDetermination = 0,
+        SkipMimeTypeFromContent
+    };
+
     /**
      * Null KFileItem. Doesn't represent any file, only exists for convenience.
      */
@@ -114,6 +119,20 @@ public:
      * @param mode the mode (S_IFDIR...)
      */
     KFileItem(const QUrl &url, const QString &mimeType = QString(), mode_t mode = KFileItem::Unknown); // KF6 TODO: explicit!
+
+    /**
+     * Creates an item representing a file, with the option of skipping mime type determination.
+     * @param url the file url
+     * @param mimeTypeDetermination the mode of determining the mime type:
+     *       NormalMimeTypeDetermination by content if local file, i.e. access the file,
+     *                                   open and read part of it;
+     *                                   by QMimeDatabase::MatchMode::MatchExtension if not local.
+     *       SkipMimeTypeFromContent     always by QMimeDatabase::MatchMode::MatchExtension,
+     *                                   i.e. won't access the file by stat() or opening it;
+     *                                   only suitable for files, directories won't be recognized.
+     * @since 5.57
+     */
+    KFileItem(const QUrl &url, KFileItem::MimeTypeDetermination mimeTypeDetermination);
 
     /**
      * Copy constructor
