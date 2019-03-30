@@ -133,7 +133,7 @@ void HTTPFilterTest::test_httpFilterGzip()
         m_filterOutput.clear();
         HTTPFilterGZip filter;
         QSignalSpy spyOutput(&filter, SIGNAL(output(QByteArray)));
-        connect(&filter, SIGNAL(output(QByteArray)), this, SLOT(slotFilterOutput(QByteArray)));
+        connect(&filter, &HTTPFilterBase::output, this, &HTTPFilterTest::slotFilterOutput);
         QSignalSpy spyError(&filter, SIGNAL(error(QString)));
         for (int i = 0; i < compressed.size(); ++i) {
             //qDebug() << "sending byte number" << i << ":" << (uchar)compressed[i];

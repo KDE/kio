@@ -253,8 +253,8 @@ void FileUndoManagerTest::cleanupTestCase()
 void FileUndoManagerTest::doUndo()
 {
     QEventLoop eventLoop;
-    bool ok = connect(FileUndoManager::self(), SIGNAL(undoJobFinished()),
-                      &eventLoop, SLOT(quit()));
+    bool ok = connect(FileUndoManager::self(), &FileUndoManager::undoJobFinished,
+                      &eventLoop, &QEventLoop::quit);
     QVERIFY(ok);
 
     FileUndoManager::self()->undo();

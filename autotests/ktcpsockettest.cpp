@@ -212,7 +212,7 @@ void KTcpSocketTest::statesIana()
     QSKIP("Too unreliable");
     //A connection to a real internet host
     KTcpSocket *s = new KTcpSocket(this);
-    connect(s, SIGNAL(hostFound()), this, SLOT(states_hostFound()));
+    connect(s, &KTcpSocket::hostFound, this, &KTcpSocketTest::states_hostFound);
     QCOMPARE(s->state(), KTcpSocket::UnconnectedState);
     s->connectToHost(QStringLiteral("www.iana.org"), 80);
     QCOMPARE(s->state(), KTcpSocket::HostLookupState);
@@ -256,7 +256,7 @@ void KTcpSocketTest::statesLocalHost()
     invokeOnServer("states");
 
     KTcpSocket *s = new KTcpSocket(this);
-    connect(s, SIGNAL(hostFound()), this, SLOT(states_hostFound()));
+    connect(s, &KTcpSocket::hostFound, this, &KTcpSocketTest::states_hostFound);
     s->connectToHost(QStringLiteral("127.0.0.1"), testPort);
     QCOMPARE(s->state(), KTcpSocket::ConnectingState);
     s->waitForConnected(40);

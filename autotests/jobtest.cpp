@@ -124,8 +124,8 @@ void JobTest::cleanupTestCase()
 void JobTest::enterLoop()
 {
     QEventLoop eventLoop;
-    connect(this, SIGNAL(exitLoop()),
-            &eventLoop, SLOT(quit()));
+    connect(this, &JobTest::exitLoop,
+            &eventLoop, &QEventLoop::quit);
     eventLoop.exec(QEventLoop::ExcludeUserInputEvents);
 }
 
@@ -141,8 +141,8 @@ void JobTest::storedGet()
     QSignalSpy spyPercent(job, SIGNAL(percent(KJob*,ulong)));
     QVERIFY(spyPercent.isValid());
     job->setUiDelegate(nullptr);
-    connect(job, SIGNAL(result(KJob*)),
-            this, SLOT(slotGetResult(KJob*)));
+    connect(job, &KJob::result,
+            this, &JobTest::slotGetResult);
     enterLoop();
     QCOMPARE(m_result, 0);   // no error
     QCOMPARE(m_data, QByteArray("Hello\0world", 11));
@@ -166,10 +166,10 @@ void JobTest::put()
     mtime.setTime_t(mtime.toTime_t()); // hack for losing the milliseconds
     job->setModificationTime(mtime);
     job->setUiDelegate(nullptr);
-    connect(job, SIGNAL(result(KJob*)),
-            this, SLOT(slotResult(KJob*)));
-    connect(job, SIGNAL(dataReq(KIO::Job*,QByteArray&)),
-            this, SLOT(slotDataReq(KIO::Job*,QByteArray&)));
+    connect(job, &KJob::result,
+            this, &JobTest::slotResult);
+    connect(job, &KIO::TransferJob::dataReq,
+            this, &JobTest::slotDataReq);
     m_result = -1;
     m_dataReqCount = 0;
     enterLoop();
@@ -996,8 +996,8 @@ void JobTest::listRecursive()
 #endif
     KIO::ListJob *job = KIO::listRecursive(QUrl::fromLocalFile(src), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
-    connect(job, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
-            SLOT(slotEntries(KIO::Job*,KIO::UDSEntryList)));
+    connect(job, &KIO::ListJob::entries,
+            this, &JobTest::slotEntries);
     bool ok = job->exec();
     QVERIFY(ok);
     m_names.sort();
