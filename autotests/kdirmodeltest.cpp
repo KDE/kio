@@ -734,6 +734,7 @@ void KDirModelTest::testExpandToUrl_data()
     const QString dirlink = m_tempDir->path() + "/dirlink";
     createTestSymlink(dirlink, "subdir"); // dirlink -> subdir
     QVERIFY(QFileInfo(dirlink).isSymLink());
+    // If this test fails, your first move should be to enable all debug output and see if KDirWatch says inotify failed
     QTest::newRow("dirlink")
             << int(NoFlag) << "dirlink/subsubdir" << (QStringList() << QStringLiteral("dirlink") << QStringLiteral("dirlink/subsubdir"));
 #endif
