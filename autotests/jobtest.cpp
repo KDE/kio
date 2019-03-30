@@ -2063,12 +2063,12 @@ void JobTest::cancelCopyAndCleanDest_data()
     QTest::addColumn<bool>("suspend");
     QTest::addColumn<bool>("overwrite");
 
-    QTest::newRow("suspend job (without overwrite flag)") << true << false;
-    QTest::newRow("don't suspend job (without overwrite flag)") << false << false;
+    QTest::newRow("suspend_no_overwrite") << true << false;
+    QTest::newRow("no_suspend_no_overwrite") << false << false;
 
 #ifndef Q_OS_WIN
-    QTest::newRow("suspend job (with overwrite flag)") << true << true;
-    QTest::newRow("don't suspend job (with overwrite flag)") << false << true;
+    QTest::newRow("suspend_with_overwrite") << true << true;
+    QTest::newRow("no_suspend_with_overwrite") << false << true;
 #endif
 }
 
@@ -2102,7 +2102,7 @@ void JobTest::cancelCopyAndCleanDest()
     connect(copyJob, &KIO::Job::processedSize, this, [destFile, suspend, overwrite](KJob *job, qulonglong processedSize) {
         if (processedSize > 0) {
             const QString destToCheck = (!overwrite) ? destFile : destFile + QStringLiteral(".part");
-            QVERIFY(QFile::exists(destToCheck));
+            QVERIFY2(QFile::exists(destToCheck), qPrintable(destToCheck));
             if (suspend) {
                 job->suspend();
             }
@@ -2112,5 +2112,9 @@ void JobTest::cancelCopyAndCleanDest()
     });
     QVERIFY(!copyJob->exec());
     QCOMPARE(spyProcessedSize.count(), 1);
+    // Give time to the kioslave to finish copy() and warn about chown/chmod failing (because FileCopyJob::doKill removed the file)
+    // Less confusing if the warnings show here.
+    QTest::qWait(500);
+    QVERIFY(!QFile::exists(destFile));
 }
 
