@@ -70,16 +70,16 @@ Receiver::Receiver()
 
     start = new QPushButton(QStringLiteral("Launch KRuns"), this);
     lay->addWidget(start);
-    connect(start, SIGNAL(clicked()), this, SLOT(slotStart()));
+    connect(start, &QAbstractButton::clicked, this, &Receiver::slotStart);
 
     stop = new QPushButton(QStringLiteral("Stop those KRuns"), this);
     stop->setEnabled(false);
     lay->addWidget(stop);
-    connect(stop, SIGNAL(clicked()), this, SLOT(slotStop()));
+    connect(stop, &QAbstractButton::clicked, this, &Receiver::slotStop);
 
     QPushButton *launchOne = new QPushButton(QStringLiteral("Launch one http KRun"), this);
     lay->addWidget(launchOne);
-    connect(launchOne, SIGNAL(clicked()), this, SLOT(slotLaunchOne()));
+    connect(launchOne, &QAbstractButton::clicked, this, &Receiver::slotLaunchOne);
 
     for (uint i = 0; i < sizeof(s_tests) / sizeof(*s_tests); ++i) {
         QHBoxLayout *hbox = new QHBoxLayout;
@@ -89,7 +89,7 @@ Receiver::Receiver()
         hbox->addWidget(button);
         QLabel *label = new QLabel(s_tests[i].expectedResult, this);
         hbox->addWidget(label);
-        connect(button, SIGNAL(clicked()), this, SLOT(slotLaunchTest()));
+        connect(button, &QAbstractButton::clicked, this, &Receiver::slotLaunchTest);
         hbox->addStretch();
     }
 

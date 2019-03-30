@@ -48,13 +48,13 @@ KDirListerTest::KDirListerTest(QWidget *parent)
     layout->addWidget(test);
     resize(layout->sizeHint());
 
-    connect(startR, SIGNAL(clicked()), SLOT(startRoot()));
-    connect(startH, SIGNAL(clicked()), SLOT(startHome()));
-    connect(startT, SIGNAL(clicked()), SLOT(startTar()));
-    connect(test, SIGNAL(clicked()), SLOT(test()));
+    connect(startR, &QAbstractButton::clicked, this, &KDirListerTest::startRoot);
+    connect(startH, &QAbstractButton::clicked, this, &KDirListerTest::startHome);
+    connect(startT, &QAbstractButton::clicked, this, &KDirListerTest::startTar);
+    connect(test, &QAbstractButton::clicked, this, &KDirListerTest::test);
 
-    connect(lister, SIGNAL(started(QUrl)),
-            debug,  SLOT(started(QUrl)));
+    connect(lister, &KCoreDirLister::started,
+            debug,  &PrintSignals::started);
     connect(lister, SIGNAL(completed()),
             debug,  SLOT(completed()));
     connect(lister, SIGNAL(completed(QUrl)),
@@ -69,24 +69,24 @@ KDirListerTest::KDirListerTest(QWidget *parent)
             debug,  SLOT(redirection(QUrl,QUrl)));
     connect(lister, SIGNAL(clear()),
             debug,  SLOT(clear()));
-    connect(lister, SIGNAL(newItems(KFileItemList)),
-            debug,  SLOT(newItems(KFileItemList)));
-    connect(lister, SIGNAL(itemsFilteredByMime(KFileItemList)),
-            debug,  SLOT(itemsFilteredByMime(KFileItemList)));
-    connect(lister, SIGNAL(itemsDeleted(KFileItemList)),
-            debug,  SLOT(itemsDeleted(KFileItemList)));
-    connect(lister, SIGNAL(refreshItems(QList<QPair<KFileItem,KFileItem>>)),
-            debug,  SLOT(refreshItems(QList<QPair<KFileItem,KFileItem>>)));
-    connect(lister, SIGNAL(infoMessage(QString)),
-            debug,  SLOT(infoMessage(QString)));
-    connect(lister, SIGNAL(percent(int)),
-            debug,  SLOT(percent(int)));
-    connect(lister, SIGNAL(totalSize(KIO::filesize_t)),
-            debug,  SLOT(totalSize(KIO::filesize_t)));
-    connect(lister, SIGNAL(processedSize(KIO::filesize_t)),
-            debug,  SLOT(processedSize(KIO::filesize_t)));
-    connect(lister, SIGNAL(speed(int)),
-            debug,  SLOT(speed(int)));
+    connect(lister, &KCoreDirLister::newItems,
+            debug,  &PrintSignals::newItems);
+    connect(lister, &KCoreDirLister::itemsFilteredByMime,
+            debug,  &PrintSignals::itemsFilteredByMime);
+    connect(lister, &KCoreDirLister::itemsDeleted,
+            debug,  &PrintSignals::itemsDeleted);
+    connect(lister, &KCoreDirLister::refreshItems,
+            debug,  &PrintSignals::refreshItems);
+    connect(lister, &KCoreDirLister::infoMessage,
+            debug,  &PrintSignals::infoMessage);
+    connect(lister, &KCoreDirLister::percent,
+            debug,  &PrintSignals::percent);
+    connect(lister, &KCoreDirLister::totalSize,
+            debug,  &PrintSignals::totalSize);
+    connect(lister, &KCoreDirLister::processedSize,
+            debug,  &PrintSignals::processedSize);
+    connect(lister, &KCoreDirLister::speed,
+            debug,  &PrintSignals::speed);
 
     connect(lister, SIGNAL(completed()),
             this,  SLOT(completed()));

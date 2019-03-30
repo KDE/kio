@@ -27,7 +27,7 @@ PreviewTest::PreviewTest()
     m_url->setText(path);
     layout->addWidget(m_url, 0, 0);
     QPushButton *btn = new QPushButton(QStringLiteral("Generate"), this);
-    connect(btn, SIGNAL(clicked()), SLOT(slotGenerate()));
+    connect(btn, &QAbstractButton::clicked, this, &PreviewTest::slotGenerate);
     layout->addWidget(btn, 0, 1);
 
     const KConfigGroup globalConfig(KSharedConfig::openConfig(), "PreviewSettings");
@@ -55,9 +55,9 @@ void PreviewTest::slotGenerate()
         enabledPlugins << plugin.trimmed();
 
     KIO::PreviewJob *job = KIO::filePreview(items, QSize(m_preview->width(), m_preview->height()), &enabledPlugins);
-    connect(job, SIGNAL(result(KJob*)), SLOT(slotResult(KJob*)));
-    connect(job, SIGNAL(gotPreview(KFileItem,QPixmap)), SLOT(slotPreview(KFileItem,QPixmap)));
-    connect(job, SIGNAL(failed(KFileItem)), SLOT(slotFailed()));
+    connect(job, &KJob::result, this, &PreviewTest::slotResult);
+    connect(job, &KIO::PreviewJob::gotPreview, this, &PreviewTest::slotPreview);
+    connect(job, &KIO::PreviewJob::failed, this, &PreviewTest::slotFailed);
 }
 
 void PreviewTest::slotResult(KJob *)

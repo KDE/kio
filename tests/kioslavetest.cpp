@@ -152,19 +152,19 @@ KioslaveTest::KioslaveTest(QString src, QString dest, uint op, uint pr)
 
     pbStart = new QPushButton(QStringLiteral("&Start"), main_widget);
     pbStart->setFixedSize(pbStart->sizeHint());
-    connect(pbStart, SIGNAL(clicked()), SLOT(startJob()));
+    connect(pbStart, &QAbstractButton::clicked, this, &KioslaveTest::startJob);
     hbLayout->addWidget(pbStart, 5);
 
     pbStop = new QPushButton(QStringLiteral("Sto&p"), main_widget);
     pbStop->setFixedSize(pbStop->sizeHint());
     pbStop->setEnabled(false);
-    connect(pbStop, SIGNAL(clicked()), SLOT(stopJob()));
+    connect(pbStop, &QAbstractButton::clicked, this, &KioslaveTest::stopJob);
     hbLayout->addWidget(pbStop, 5);
 
     // close button
     close = new QPushButton(QStringLiteral("&Close"), main_widget);
     close->setFixedSize(close->sizeHint());
-    connect(close, SIGNAL(clicked()), this, SLOT(slotQuit()));
+    connect(close, &QAbstractButton::clicked, this, &KioslaveTest::slotQuit);
 
     topLayout->addWidget(close, 5);
 
@@ -263,8 +263,8 @@ void KioslaveTest::startJob()
         KIO::TransferJob *tjob = KIO::put(src, -1, KIO::Overwrite);
         tjob->setTotalSize(48 * 1024 * 1024);
         myJob = tjob;
-        connect(tjob, SIGNAL(dataReq(KIO::Job*,QByteArray&)),
-                SLOT(slotDataReq(KIO::Job*,QByteArray&)));
+        connect(tjob, &TransferJob::dataReq,
+                this, &KioslaveTest::slotDataReq);
         break;
     }
 
@@ -297,11 +297,11 @@ void KioslaveTest::startJob()
 
     statusBar()->addWidget(statusTracker->widget(job), 0);
 
-    connect(job, SIGNAL(result(KJob*)),
-            SLOT(slotResult(KJob*)));
+    connect(job, &KJob::result,
+            this, &KioslaveTest::slotResult);
 
-    connect(job, SIGNAL(canceled(KJob*)),
-            SLOT(slotResult(KJob*)));
+    connect(job, &Job::canceled,
+            this, &KioslaveTest::slotResult);
 
     if (progressMode == ProgressStatus) {
         statusTracker->registerJob(job);

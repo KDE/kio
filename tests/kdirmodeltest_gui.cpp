@@ -35,8 +35,8 @@ public:
     explicit TreeController(QTreeView *view, KDirModel *model)
         : QObject(view), m_treeView(view), m_model(model)
     {
-        connect(model, SIGNAL(expand(QModelIndex)),
-                this, SLOT(slotExpand(QModelIndex)));
+        connect(model, &KDirModel::expand,
+                this, &TreeController::slotExpand);
     }
 private Q_SLOTS:
     void slotExpand(const QModelIndex &index)

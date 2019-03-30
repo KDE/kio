@@ -50,8 +50,8 @@ SpeedTest::SpeedTest(const QUrl &url)
     : QObject(nullptr)
 {
     Job *job = listRecursive(url);
-    connect(job, SIGNAL(result(KJob*)),
-            SLOT(finished(KJob*)));
+    connect(job, &KJob::result,
+            this, &SpeedTest::finished);
     /*connect(job, SIGNAL(entries(KIO::Job*,KIO::UDSEntryList)),
         SLOT(entries(KIO::Job*,KIO::UDSEntryList)));
     */
