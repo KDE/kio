@@ -60,6 +60,15 @@ static QString otherTmpDir()
 #endif
 }
 
+static bool otherTmpDirIsOnSamePartition() // true on CI because it's a LXC container
+{
+    KMountPoint::Ptr srcMountPoint = KMountPoint::currentMountPoints().findByPath(homeTmpDir());
+    KMountPoint::Ptr destMountPoint = KMountPoint::currentMountPoints().findByPath(otherTmpDir());
+    Q_ASSERT(srcMountPoint);
+    Q_ASSERT(destMountPoint);
+    return srcMountPoint->mountedFrom() == destMountPoint->mountedFrom();
+}
+
 #if 0
 static QUrl systemTmpDir()
 {
@@ -1751,11 +1760,7 @@ void JobTest::safeOverwrite()
         QVERIFY(QFile::remove(destFile));
     }
 
-    KMountPoint::Ptr srcMountPoint = KMountPoint::currentMountPoints().findByPath(srcDir);
-    KMountPoint::Ptr destMountPoint = KMountPoint::currentMountPoints().findByPath(destDir);
-    QVERIFY(srcMountPoint);
-    QVERIFY(destMountPoint);
-    if (srcMountPoint->mountedFrom() == destMountPoint->mountedFrom()) {
+    if (otherTmpDirIsOnSamePartition()) {
         QSKIP(qPrintable(QStringLiteral("This test requires %1 and %2 to be on different partitions").arg(srcDir, destDir)));
     }
 
