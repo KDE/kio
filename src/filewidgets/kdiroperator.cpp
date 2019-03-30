@@ -2107,7 +2107,7 @@ void KDirOperator::updateViewActions()
 void KDirOperator::readConfig(const KConfigGroup &configGroup)
 {
     d->defaultView = 0;
-    QString viewStyle = configGroup.readEntry("View Style", "Simple");
+    QString viewStyle = configGroup.readEntry("View Style", "DetailTree");
     if (viewStyle == QLatin1String("Detail")) {
         d->defaultView |= KFile::Detail;
     } else if (viewStyle == QLatin1String("Tree")) {
