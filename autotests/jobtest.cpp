@@ -172,8 +172,8 @@ void JobTest::put()
     const QString filePath = homeTmpDir() + "fileFromHome";
     QUrl u = QUrl::fromLocalFile(filePath);
     KIO::TransferJob *job = KIO::put(u, 0600, KIO::Overwrite | KIO::HideProgressInfo);
-    QDateTime mtime = QDateTime::currentDateTime().addSecs(-30);   // 30 seconds ago
-    mtime.setTime_t(mtime.toTime_t()); // hack for losing the milliseconds
+    quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
+    QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago
     job->setModificationTime(mtime);
     job->setUiDelegate(nullptr);
     connect(job, &KJob::result,
@@ -222,8 +222,8 @@ void JobTest::storedPut()
     KIO::TransferJob *job = KIO::storedPut(putData, u, 0600, KIO::Overwrite | KIO::HideProgressInfo);
     QSignalSpy spyPercent(job, SIGNAL(percent(KJob*,ulong)));
     QVERIFY(spyPercent.isValid());
-    QDateTime mtime = QDateTime::currentDateTime().addSecs(-30);   // 30 seconds ago
-    mtime.setTime_t(mtime.toTime_t()); // hack for losing the milliseconds
+    quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
+    QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago
     job->setModificationTime(mtime);
     job->setUiDelegate(nullptr);
     QVERIFY(job->exec());
@@ -244,8 +244,8 @@ void JobTest::storedPutIODevice()
     KIO::TransferJob *job = KIO::storedPut(&putData, QUrl::fromLocalFile(filePath), 0600, KIO::Overwrite | KIO::HideProgressInfo);
     QSignalSpy spyPercent(job, SIGNAL(percent(KJob*,ulong)));
     QVERIFY(spyPercent.isValid());
-    QDateTime mtime = QDateTime::currentDateTime().addSecs(-30);   // 30 seconds ago
-    mtime.setTime_t(mtime.toTime_t()); // hack for losing the milliseconds
+    quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
+    QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago
     job->setModificationTime(mtime);
     job->setUiDelegate(nullptr);
     QVERIFY(job->exec());
@@ -317,8 +317,8 @@ void JobTest::storedPutIODeviceFastDevice()
     KIO::StoredTransferJob *job = KIO::storedPut(&putDataBuffer, u, 0600, KIO::Overwrite | KIO::HideProgressInfo);
     QSignalSpy spyPercent(job, SIGNAL(percent(KJob*,ulong)));
     QVERIFY(spyPercent.isValid());
-    QDateTime mtime = QDateTime::currentDateTime().addSecs(-30);   // 30 seconds ago
-    mtime.setTime_t(mtime.toTime_t()); // hack for losing the milliseconds
+    quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
+    QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago
     job->setModificationTime(mtime);
     job->setTotalSize(putDataContents.size());
     job->setUiDelegate(nullptr);
@@ -353,8 +353,8 @@ void JobTest::storedPutIODeviceSlowDevice()
     KIO::StoredTransferJob *job = KIO::storedPut(&putDataBuffer, u, 0600, KIO::Overwrite | KIO::HideProgressInfo);
     QSignalSpy spyPercent(job, SIGNAL(percent(KJob*,ulong)));
     QVERIFY(spyPercent.isValid());
-    QDateTime mtime = QDateTime::currentDateTime().addSecs(-30);   // 30 seconds ago
-    mtime.setTime_t(mtime.toTime_t()); // hack for losing the milliseconds
+    quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
+    QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago
     job->setModificationTime(mtime);
     job->setTotalSize(putDataContents.size());
     job->setUiDelegate(nullptr);
@@ -396,8 +396,8 @@ void JobTest::storedPutIODeviceSlowDeviceBigChunk()
     KIO::StoredTransferJob *job = KIO::storedPut(&putDataBuffer, u, 0600, KIO::Overwrite | KIO::HideProgressInfo);
     QSignalSpy spyPercent(job, SIGNAL(percent(KJob*,ulong)));
     QVERIFY(spyPercent.isValid());
-    QDateTime mtime = QDateTime::currentDateTime().addSecs(-30);   // 30 seconds ago
-    mtime.setTime_t(mtime.toTime_t()); // hack for losing the milliseconds
+    quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
+    QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago
     job->setModificationTime(mtime);
     job->setTotalSize(putDataContents.size());
     job->setUiDelegate(nullptr);
