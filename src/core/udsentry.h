@@ -68,7 +68,7 @@ class UDSEntryPrivate;
  *
  * To know the modification time of the file/url:
  * \code
- *  QDateTime mtime = QDateTime::fromTime_t(entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, 0));
+ *  QDateTime mtime = QDateTime::fromSecsSinceEpoch(entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, 0));
  *  if (mtime.isValid())
  *      ...
  * \endcode

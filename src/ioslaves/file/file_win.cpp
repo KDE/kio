@@ -100,10 +100,10 @@ static UDSEntry createUDSEntryWin(const QFileInfo &fileInfo)
         entry.insert(KIO::UDSEntry::UDS_HIDDEN, true);
     }
 
-    entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME, fileInfo.lastModified().toTime_t());
+    entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME, fileInfo.lastModified().toSecsSinceEpoch());
     entry.insert(KIO::UDSEntry::UDS_USER, fileInfo.owner());
     entry.insert(KIO::UDSEntry::UDS_GROUP, fileInfo.group());
-    entry.insert(KIO::UDSEntry::UDS_ACCESS_TIME, fileInfo.lastRead().toTime_t());
+    entry.insert(KIO::UDSEntry::UDS_ACCESS_TIME, fileInfo.lastRead().toSecsSinceEpoch());
 
     return entry;
 }

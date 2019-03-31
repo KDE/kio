@@ -341,7 +341,7 @@ void KFileItemPrivate::setTime(KFileItem::FileTimes mappedWhich, uint time_t_val
 void KFileItemPrivate::setTime(KFileItem::FileTimes mappedWhich, const QDateTime &val) const
 {
     const QDateTime dt = val.toLocalTime(); // #160979
-    setTime(mappedWhich, dt.toTime_t());
+    setTime(mappedWhich, dt.toSecsSinceEpoch());
 }
 
 QDateTime KFileItemPrivate::time(KFileItem::FileTimes mappedWhich) const

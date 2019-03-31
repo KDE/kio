@@ -1284,7 +1284,7 @@ void Ftp::ftpCreateUDSEntry(const QString &filename, const FtpEntry &ftpEnt, UDS
 
     entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
     entry.fastInsert(KIO::UDSEntry::UDS_SIZE, ftpEnt.size);
-    entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, ftpEnt.date.toTime_t());
+    entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, ftpEnt.date.toSecsSinceEpoch());
     entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, ftpEnt.access);
     entry.fastInsert(KIO::UDSEntry::UDS_USER, ftpEnt.owner);
     if (!ftpEnt.group.isEmpty()) {
@@ -2522,8 +2522,8 @@ Ftp::StatusCode Ftp::ftpCopyGet(int &iError, int &iCopyFile, const QString &sCop
             if (dt.isValid()) {
                 qCDebug(KIO_FTP) << "Updating modified timestamp to" << mtimeStr;
                 struct utimbuf utbuf;
-                utbuf.actime = sPartInfo.lastRead().toTime_t(); // access time, unchanged
-                utbuf.modtime = dt.toTime_t(); // modification time
+                utbuf.actime = sPartInfo.lastRead().toSecsSinceEpoch(); // access time, unchanged
+                utbuf.modtime = dt.toSecsSinceEpoch(); // modification time
                 ::utime(QFile::encodeName(sCopyFile).constData(), &utbuf);
             }
         }

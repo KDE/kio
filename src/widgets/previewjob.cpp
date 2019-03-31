@@ -485,7 +485,7 @@ void PreviewJob::slotResult(KJob *job)
             return;
         }
         const KIO::UDSEntry entry = static_cast<KIO::StatJob *>(job)->statResult();
-        d->tOrig = QDateTime::fromTime_t(entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, 0));
+        d->tOrig = QDateTime::fromSecsSinceEpoch(entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, 0));
 
         bool skipCurrentItem = false;
         const KIO::filesize_t size = (KIO::filesize_t)entry.numberValue(KIO::UDSEntry::UDS_SIZE, 0);
@@ -566,7 +566,7 @@ bool PreviewJobPrivate::statResultThumbnail()
     }
 
     if (thumb.text(QStringLiteral("Thumb::URI")) != QString::fromUtf8(origName) ||
-            thumb.text(QStringLiteral("Thumb::MTime")).toLongLong() != tOrig.toTime_t()) {
+            thumb.text(QStringLiteral("Thumb::MTime")).toLongLong() != tOrig.toSecsSinceEpoch()) {
         return false;
     }
 
@@ -720,7 +720,7 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *, const QByteArray &data)
 
     if (save) {
         thumb.setText(QStringLiteral("Thumb::URI"), QString::fromUtf8(origName));
-        thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(tOrig.toTime_t()));
+        thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(tOrig.toSecsSinceEpoch()));
         thumb.setText(QStringLiteral("Thumb::Size"), number(currentItem.item.size()));
         thumb.setText(QStringLiteral("Thumb::Mimetype"), currentItem.item.mimetype());
         QString thumbnailerVersion = currentItem.plugin->property(QStringLiteral("ThumbnailerVersion"), QVariant::String).toString();

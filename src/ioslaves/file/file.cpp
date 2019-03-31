@@ -263,7 +263,7 @@ void FileProtocol::setModificationTime(const QUrl &url, const QDateTime &mtime)
     if (QT_LSTAT(QFile::encodeName(path).constData(), &statbuf) == 0) {
         struct utimbuf utbuf;
         utbuf.actime = statbuf.st_atime; // access time, unchanged
-        utbuf.modtime = mtime.toTime_t(); // modification time
+        utbuf.modtime = mtime.toSecsSinceEpoch(); // modification time
         if (::utime(QFile::encodeName(path).constData(), &utbuf) != 0) {
             if (auto err = execWithElevatedPrivilege(UTIME, {path, qint64(utbuf.actime), qint64(utbuf.modtime)}, errno)) {
                 if (!err.wasCanceled()) {
@@ -784,13 +784,13 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
                 utbuf[0].tv_sec = dest_statbuf.st_atime; // access time, unchanged  ## TODO preserve msec
                 utbuf[0].tv_usec = 0;
                 // modification time
-                utbuf[1].tv_sec = dt.toTime_t();
+                utbuf[1].tv_sec = dt.toSecsSinceEpoch();
                 utbuf[1].tv_usec = dt.time().msec() * 1000;
                 utimes(QFile::encodeName(dest_orig).constData(), utbuf);
 #else
                 struct utimbuf utbuf;
                 utbuf.actime = dest_statbuf.st_atime;
-                utbuf.modtime = dt.toTime_t();
+                utbuf.modtime = dt.toSecsSinceEpoch();
                 if (utime(QFile::encodeName(dest_orig).constData(), &utbuf) != 0) {
                     tryChangeFileAttr(UTIME, {dest_orig, qint64(utbuf.actime), qint64(utbuf.modtime)}, errno);
                 }

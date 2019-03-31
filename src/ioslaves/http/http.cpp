@@ -970,7 +970,7 @@ void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, UDSEntry &en
             if (property.tagName() == QLatin1String("creationdate")) {
                 // Resource creation date. Should be is ISO 8601 format.
                 entry.replace(KIO::UDSEntry::UDS_CREATION_TIME,
-                             parseDateTime(property.text(), property.attribute(QStringLiteral("dt"))).toTime_t());
+                             parseDateTime(property.text(), property.attribute(QStringLiteral("dt"))).toSecsSinceEpoch());
             } else if (property.tagName() == QLatin1String("getcontentlength")) {
                 // Content length (file size)
                 entry.replace(KIO::UDSEntry::UDS_SIZE, property.text().toULong());
@@ -1005,7 +1005,7 @@ void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, UDSEntry &en
             } else if (property.tagName() == QLatin1String("getlastmodified")) {
                 // Last modification date
                 entry.replace(KIO::UDSEntry::UDS_MODIFICATION_TIME,
-                             parseDateTime(property.text(), property.attribute(QStringLiteral("dt"))).toTime_t());
+                             parseDateTime(property.text(), property.attribute(QStringLiteral("dt"))).toSecsSinceEpoch());
             } else if (property.tagName() == QLatin1String("getetag")) {
                 // Entity tag
                 setMetaData(QStringLiteral("davEntityTag"), property.text());
@@ -3795,10 +3795,10 @@ void HTTPProtocol::setCacheabilityMetadata(bool cachingAllowed)
         setMetaData(QStringLiteral("expire-date"), QStringLiteral("1")); // Expired
     } else {
         QString tmp;
-        tmp.setNum(m_request.cacheTag.expireDate.toTime_t());
+        tmp.setNum(m_request.cacheTag.expireDate.toSecsSinceEpoch());
         setMetaData(QStringLiteral("expire-date"), tmp);
         // slightly changed semantics from old creationDate, probably more correct now
-        tmp.setNum(m_request.cacheTag.servedDate.toTime_t());
+        tmp.setNum(m_request.cacheTag.servedDate.toSecsSinceEpoch());
         setMetaData(QStringLiteral("cache-creation-date"), tmp);
     }
 }
