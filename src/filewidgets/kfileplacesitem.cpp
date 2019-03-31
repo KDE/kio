@@ -361,10 +361,10 @@ QString KFilePlacesItem::generateNewId()
 
 //    return QString::number(count++);
 
-    return QString::number(QDateTime::currentDateTimeUtc().toTime_t())
+    return QString::number(QDateTime::currentSecsSinceEpoch())
            + QLatin1Char('/') + QString::number(count++);
 
-//    return QString::number(QDateTime::currentDateTime().toTime_t())
+//    return QString::number(QDateTime::currentSecsSinceEpoch())
 //         + '/' + QString::number(qrand());
 }
 
