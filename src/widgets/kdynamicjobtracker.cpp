@@ -117,8 +117,9 @@ void KDynamicJobTracker::registerJob(KJob *job)
                                           this);
             QDBusReply<bool> reply = interface.requiresJobTracker();
 
-            if (reply.isValid() && reply.value()) {
-                // create a widget tracker in addition to kuiservertracker.
+            // If kuiserver isn't available or it tells us a job tracker is required
+            // create a widget tracker.
+            if (!reply.isValid() || reply.value()) {
                 if (!d->widgetTracker) {
                     d->widgetTracker = new KWidgetJobTracker();
                 }
