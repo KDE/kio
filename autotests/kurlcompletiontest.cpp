@@ -411,7 +411,7 @@ void KUrlCompletionTest::testCancel()
     }
     const QStringList matchesA = comp.allMatches();
     //qDebug() << "got" << matchesA.count() << "matches";
-    foreach (const QString &match, matchesA) {
+    for (const QString &match : matchesA) {
         QVERIFY2(!match.startsWith(QLatin1Char('g')), qPrintable(match));
     }
     waitForCompletion(&comp);

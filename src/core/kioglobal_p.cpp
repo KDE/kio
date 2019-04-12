@@ -42,8 +42,8 @@ static QMap<QString, QString> standardLocationsMap()
 
     QMap<QString, QString> map;
     for (int i = 0 ; i < count; ++i) {
-        auto locations = QStandardPaths::standardLocations(mapping[i].location);
-        Q_FOREACH(const QString &location, locations) {
+        const auto locations = QStandardPaths::standardLocations(mapping[i].location);
+        for (const QString &location : locations) {
             map.insert(location, mapping[i].name);
         }
     }

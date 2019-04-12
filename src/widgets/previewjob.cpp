@@ -350,7 +350,7 @@ void PreviewJobPrivate::startPreview()
                     const QMimeType mimeInfo = db.mimeTypeForName(mimeType);
                     if (mimeInfo.isValid()) {
                         const QStringList parentMimeTypes = mimeInfo.allAncestors();
-                        Q_FOREACH (const QString &parentMimeType, parentMimeTypes) {
+                        for (const QString &parentMimeType : parentMimeTypes) {
                             pluginIt = mimeMap.constFind(parentMimeType);
                             if (pluginIt != mimeMap.constEnd()) {
                                 break;
@@ -765,11 +765,11 @@ QStringList PreviewJob::availablePlugins()
 
 QStringList PreviewJob::defaultPlugins()
 {
-    QStringList blacklist = QStringList()
+    const QStringList blacklist = QStringList()
                             << QStringLiteral("textthumbnail");
 
     QStringList defaultPlugins = availablePlugins();
-    foreach (const QString plugin, blacklist) {
+    for (const QString plugin : blacklist) {
         defaultPlugins.removeAll(plugin);
     }
 

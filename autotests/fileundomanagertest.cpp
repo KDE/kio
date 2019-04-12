@@ -589,7 +589,7 @@ void FileUndoManagerTest::testRestoreTrashedFiles()
 
     const QMap<QString, QString> metaData = job->metaData();
     QList<QUrl> trashUrls;
-    foreach (const QUrl &src, lst) {
+    for (const QUrl &src : qAsConst(lst)) {
         QMap<QString, QString>::ConstIterator it = metaData.find("trashURL-" + src.path());
         QVERIFY(it != metaData.constEnd());
         trashUrls.append(QUrl(it.value()));
@@ -671,7 +671,7 @@ void FileUndoManagerTest::testPasteClipboardUndo()
 
     // Check if the clipboard was updated after paste operation
     QList<QUrl> urls2;
-    Q_FOREACH (const QUrl &url, urls) {
+    for (const QUrl &url : urls) {
         QUrl dUrl = destDirUrl.adjusted(QUrl::StripTrailingSlash);
         dUrl.setPath(dUrl.path() + '/' + url.fileName());
         urls2 << dUrl;

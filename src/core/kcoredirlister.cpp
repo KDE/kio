@@ -412,7 +412,7 @@ void KCoreDirListerCache::stop(KCoreDirLister *lister, bool silent)
     qCDebug(KIO_CORE_DIRLISTER) << "lister:" << lister << "silent=" << silent;
 
     const QList<QUrl> urls = lister->d->lstDirs;
-    Q_FOREACH (const QUrl &url, urls) {
+    for (const QUrl &url : urls) {
         stopListingUrl(lister, url, silent);
     }
 
@@ -1669,7 +1669,7 @@ void KCoreDirListerCache::removeDirFromCache(const QUrl &dir)
 {
     qCDebug(KIO_CORE_DIRLISTER) << dir;
     const QList<QUrl> cachedDirs = itemsCached.keys(); // seems slow, but there's no qcache iterator...
-    foreach (const QUrl &cachedDir, cachedDirs) {
+    for (const QUrl &cachedDir : cachedDirs) {
         if (dir == cachedDir || dir.isParentOf(cachedDir)) {
             itemsCached.remove(cachedDir);
         }
@@ -1921,7 +1921,7 @@ void KCoreDirListerCache::itemsDeleted(const QList<KCoreDirLister *> &listers, c
         kdl->d->emitItemsDeleted(deletedItems);
     }
 
-    Q_FOREACH (const KFileItem &item, deletedItems) {
+    for (const KFileItem &item : deletedItems) {
         if (item.isDir()) {
             deleteDir(item.url());
         }
@@ -2076,7 +2076,7 @@ void KCoreDirListerCache::printDebug()
 
     qCDebug(KIO_CORE_DIRLISTER) << "Items in cache:";
     const QList<QUrl> cachedDirs = itemsCached.keys();
-    foreach (const QUrl &cachedDir, cachedDirs) {
+    for (const QUrl &cachedDir : cachedDirs) {
         DirItem *dirItem = itemsCached.object(cachedDir);
         qCDebug(KIO_CORE_DIRLISTER) << "   " << cachedDir << "rootItem:"
                  << (!dirItem->rootItem.isNull() ? dirItem->rootItem.url().toString() : QStringLiteral("NULL"))

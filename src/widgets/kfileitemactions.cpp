@@ -60,7 +60,7 @@ static bool mimeTypeListContains(const QStringList &list, const KFileItem &item)
 {
     const QString itemMimeType = item.mimetype();
 
-    foreach (const QString &i, list) {
+    for (const QString &i : list) {
 
         if (i == itemMimeType || i == QLatin1String("all/all")) {
             return true;
@@ -412,7 +412,7 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
 
                 ServiceList &list = s.selectList(priority, submenuName);
                 const ServiceList userServices = KDesktopFileActions::userDefinedServices(*(*it2), isLocal, urlList);
-                foreach (const KServiceAction &action, userServices) {
+                for (const KServiceAction &action : userServices) {
                     if (showGroup.readEntry(action.name(), true)) {
                         list += action;
                     }
@@ -580,7 +580,7 @@ KService::List KFileItemActions::associatedApplications(const QStringList &mimeT
 
     KService::List result;
     result.reserve(rankings.size());
-    Q_FOREACH (const KFileItemActionsPrivate::ServiceRank &tempRank, rankings) {
+    for (const KFileItemActionsPrivate::ServiceRank &tempRank : qAsConst(rankings)) {
         result << tempRank.service;
     }
 
@@ -708,9 +708,9 @@ void KFileItemActionsPrivate::slotRunPreferredApplications()
     const QStringList mimeTypeList = listMimeTypes(fileItems);
     const QStringList serviceIdList = listPreferredServiceIds(mimeTypeList, m_traderConstraint);
 
-    foreach (const QString& serviceId, serviceIdList) {
+    for (const QString& serviceId : serviceIdList) {
         KFileItemList serviceItems;
-        foreach (const KFileItem &item, fileItems) {
+        for (const KFileItem &item : fileItems) {
             const KService::Ptr serv = preferredService(item.mimetype(), m_traderConstraint);
             const QString preferredServiceId = serv ? serv->storageId() : QString();
             if (preferredServiceId == serviceId) {
@@ -742,9 +742,9 @@ void KFileItemActions::runPreferredApplications(const KFileItemList &fileOpenLis
 void KFileItemActionsPrivate::openWithByMime(const KFileItemList &fileItems)
 {
     const QStringList mimeTypeList = listMimeTypes(fileItems);
-    foreach (const QString& mimeType, mimeTypeList) {
+    for (const QString& mimeType : mimeTypeList) {
         KFileItemList mimeItems;
-        foreach (const KFileItem &item, fileItems) {
+        for (const KFileItem &item : fileItems) {
             if (item.mimetype() == mimeType) {
                 mimeItems << item;
             }
@@ -773,7 +773,7 @@ void KFileItemActionsPrivate::slotOpenWithDialog()
 QStringList KFileItemActionsPrivate::listMimeTypes(const KFileItemList &items)
 {
     QStringList mimeTypeList;
-    foreach (const KFileItem &item, items) {
+    for (const KFileItem &item : items) {
         if (!mimeTypeList.contains(item.mimetype())) {
             mimeTypeList << item.mimetype();
         }
@@ -785,7 +785,7 @@ QStringList KFileItemActionsPrivate::listPreferredServiceIds(const QStringList &
 {
     QStringList serviceIdList;
     serviceIdList.reserve(mimeTypeList.size());
-    Q_FOREACH (const QString &mimeType, mimeTypeList) {
+    for (const QString &mimeType : mimeTypeList) {
         const KService::Ptr serv = preferredService(mimeType, traderConstraint);
         const QString newOffer = serv ? serv->storageId() : QString();
         serviceIdList << newOffer;

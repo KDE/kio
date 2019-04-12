@@ -104,14 +104,14 @@ void SearchProviderDialog::shortcutsChanged(const QString& newShorthands) {
     m_dlg.leShortcut->setCursorPosition(savedCursorPosition);
 
     QHash<QString, const SearchProvider*> contenders;
-    QSet<QString> shorthands = normalizedShorthands.split(QLatin1Char(',')).toSet();
+    const QSet<QString> shorthands = normalizedShorthands.split(QLatin1Char(',')).toSet();
 
     // Look at each shorthand the user entered and wade through the search
     // provider list in search of a conflicting shorthand. Do not continue
     // search after finding one, because shorthands should be assigned only
     // once. Act like data inconsistencies regarding this don't exist (should
     // probably be handled on load).
-    Q_FOREACH (const QString &shorthand, shorthands) {
+    for (const QString &shorthand : shorthands) {
         Q_FOREACH (const SearchProvider* provider, m_providers) {
             if (provider != m_provider && provider->keys().contains(shorthand)) {
                 contenders.insert(shorthand, provider);

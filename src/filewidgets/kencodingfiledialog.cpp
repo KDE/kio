@@ -97,7 +97,7 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
     const QStringList encodings(KCharsets::charsets()->availableEncodingNames());
     int insert = 0, system = 0;
     bool foundRequested = false;
-    foreach (const QString &encoding, encodings) {
+    for (const QString &encoding : encodings) {
         bool found = false;
         QTextCodec *codecForEnc = KCharsets::charsets()->codecForName(encoding, found);
 

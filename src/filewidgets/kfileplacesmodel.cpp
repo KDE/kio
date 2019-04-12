@@ -585,7 +585,7 @@ void KFilePlacesModel::Private::_k_initDeviceList()
     const QList<Solid::Device> &deviceList = Solid::Device::listFromQuery(predicate);
 
     availableDevices.reserve(deviceList.size());
-    foreach (const Solid::Device &device, deviceList) {
+    for (const Solid::Device &device : deviceList) {
         availableDevices << device.udi();
     }
 
@@ -760,7 +760,7 @@ QList<KFilePlacesItem *> KFilePlacesModel::Private::loadBookmarkList()
     }
 
     // Add bookmarks for the remaining devices, they were previously unknown
-    foreach (const QString &udi, devices) {
+    for (const QString &udi : qAsConst(devices)) {
         bookmark = KFilePlacesItem::createDeviceBookmark(bookmarkManager, udi);
         if (!bookmark.isNull()) {
             KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager,
@@ -873,7 +873,7 @@ QMimeData *KFilePlacesModel::mimeData(const QModelIndexList &indexes) const
 
     QDataStream stream(&itemData, QIODevice::WriteOnly);
 
-    foreach (const QModelIndex &index, indexes) {
+    for (const QModelIndex &index : qAsConst(indexes)) {
         QUrl itemUrl = url(index);
         if (itemUrl.isValid()) {
             urls << itemUrl;
@@ -947,7 +947,7 @@ bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action
 
         KBookmarkGroup group = d->bookmarkManager->root();
 
-        foreach (const QUrl &url, urls) {
+        for (const QUrl &url : urls) {
             // TODO: use KIO::stat in order to get the UDS_DISPLAY_NAME too
             KIO::MimetypeJob *job = KIO::mimetype(url);
 

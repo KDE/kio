@@ -222,13 +222,13 @@ void KSslInfoDialog::displayFromChain(int i)
 //static
 QList<QList<KSslError::Error> > KSslInfoDialog::errorsFromString(const QString &es)
 {
-    QStringList sl = es.split(QLatin1Char('\n'), QString::KeepEmptyParts);
+    const QStringList sl = es.split(QLatin1Char('\n'), QString::KeepEmptyParts);
     QList<QList<KSslError::Error> > ret;
     ret.reserve(sl.size());
-    foreach (const QString &s, sl) {
+    for (const QString &s : sl) {
         QList<KSslError::Error> certErrors;
-        QStringList sl2 = s.split(QLatin1Char('\t'), QString::SkipEmptyParts);
-        foreach (const QString &s2, sl2) {
+        const QStringList sl2 = s.split(QLatin1Char('\t'), QString::SkipEmptyParts);
+        for (const QString &s2 : sl2) {
             bool didConvert;
             KSslError::Error error = static_cast<KSslError::Error>(s2.toInt(&didConvert));
             if (didConvert) {

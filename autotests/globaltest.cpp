@@ -107,7 +107,7 @@ void GlobalTest::testSuggestName()
 
     QTemporaryDir dir;
     const QUrl baseUrl = QUrl::fromLocalFile(dir.path());
-    foreach (const QString &localFile, existingFiles) {
+    for (const QString &localFile : qAsConst(existingFiles)) {
         QFile file(dir.path() + '/' + localFile);
         QVERIFY(file.open(QIODevice::WriteOnly));
     }

@@ -239,7 +239,7 @@ QString KHttpCookie::cookieStr(bool useDOMFormat) const
                 result += QL1S("; $Port");
             } else {
                 QString portNums;
-                Q_FOREACH (int port, mPorts) {
+                for (int port : qAsConst(mPorts)) {
                     portNums += QString::number(port) + QL1C(' ');
                 }
                 result += QL1S("; $Port=\"") + portNums.trimmed() + QL1C('"');
@@ -448,7 +448,7 @@ QString KCookieJar::findCookies(const QString &_url, bool useDOMFormat, WId wind
     }
 
     int protVersion = 0;
-    Q_FOREACH (const KHttpCookie &cookie, allCookies) {
+    for (const KHttpCookie &cookie : qAsConst(allCookies)) {
         if (cookie.protocolVersion() > protVersion) {
             protVersion = cookie.protocolVersion();
         }
@@ -463,7 +463,7 @@ QString KCookieJar::findCookies(const QString &_url, bool useDOMFormat, WId wind
             cookieStr = cookieStr + QStringLiteral("$Version=") + QString::number(protVersion) + QStringLiteral("; ");
         }
 
-        Q_FOREACH (const KHttpCookie &cookie, allCookies) {
+        for (const KHttpCookie &cookie : qAsConst(allCookies)) {
             cookieStr = cookieStr + cookie.cookieStr(useDOMFormat) + QStringLiteral("; ");
         }
 
@@ -837,7 +837,7 @@ KHttpCookieList KCookieJar::makeCookies(const QString &_url,
                 } else {
                     bool ok;
                     const QStringList portNums = Value.split(QL1C(' '), QString::SkipEmptyParts);
-                    Q_FOREACH (const QString &portNum, portNums) {
+                    for (const QString &portNum : portNums) {
                         const int port = portNum.toInt(&ok);
                         if (ok) {
                             lastCookie.mPorts.append(port);
@@ -1284,7 +1284,7 @@ static QString hostWithPort(const KHttpCookie *cookie)
     }
 
     QStringList portList;
-    Q_FOREACH (int port, ports) {
+    for (int port : ports) {
         portList << QString::number(port);
     }
 
@@ -1605,7 +1605,7 @@ QDebug operator<<(QDebug dbg, const KHttpCookie &cookie)
 
 QDebug operator<<(QDebug dbg, const KHttpCookieList &list)
 {
-    Q_FOREACH (const KHttpCookie &cookie, list) {
+    for (const KHttpCookie &cookie : list) {
         dbg << cookie;
     }
     return dbg;

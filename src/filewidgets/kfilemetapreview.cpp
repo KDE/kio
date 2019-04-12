@@ -67,7 +67,7 @@ KPreviewWidgetBase *KFileMetaPreview::findExistingProvider(const QString &mimeTy
     if (mimeInfo.isValid()) {
         // check mime type inheritance
         const QStringList parentMimeTypes = mimeInfo.allAncestors();
-        Q_FOREACH (const QString &parentMimeType, parentMimeTypes) {
+        for (const QString &parentMimeType : parentMimeTypes) {
             provider = m_previewProviders.value(parentMimeType);
             if (provider) {
                 return provider;

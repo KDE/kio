@@ -246,7 +246,7 @@ KSslCertificateRule KSSLD::rule(const QSslCertificate &cert, const QString &host
 
     QList<KSslError::Error> ignoredErrors;
     bool isRejected = false;
-    foreach (const QString &s, sl) {
+    for (const QString &s : qAsConst(sl)) {
         if (s == QLatin1String("Reject")) {
             isRejected = true;
             ignoredErrors.clear();

@@ -112,7 +112,7 @@ int main(int argc, char *argv[])
     // Also register as all the names we should respond to (org.kde.kssld, org.kde.kcookiejar, etc.)
     // so that the calling code is independent from the physical "location" of the service.
     const QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(QStringLiteral("kf5/kiod"));
-    foreach (const KPluginMetaData &metaData, plugins) {
+    for (const KPluginMetaData &metaData : plugins) {
         const QString serviceName = metaData.rawData().value(QStringLiteral("X-KDE-DBus-ServiceName")).toString();
         if (serviceName.isEmpty()) {
             qCWarning(KIOD_CATEGORY) << "No X-KDE-DBus-ServiceName found in" << metaData.fileName();

@@ -714,7 +714,7 @@ void KFilePreviewGenerator::Private::updateCutItems()
     KDirLister *dirLister = dirModel->dirLister();
     const QList<QUrl> dirs = dirLister->directories();
     items.reserve(dirs.size());
-    foreach (const QUrl &url, dirs) {
+    for (const QUrl &url : dirs) {
         items << dirLister->itemsForDir(url);
     }
     applyCutItemEffect(items);
@@ -918,7 +918,7 @@ void KFilePreviewGenerator::Private::applyCutItemEffect(const KFileItemList &ite
 
     DataChangeObtainer obt(this);
     KIconEffect *iconEffect = KIconLoader::global()->iconEffect();
-    foreach (const KFileItem &item, items) {
+    for (const KFileItem &item : items) {
         if (cutUrls.contains(item.url())) {
             const QModelIndex index = dirModel->indexForItem(item);
             const QVariant value = dirModel->data(index, Qt::DecorationRole);

@@ -40,7 +40,7 @@ static void runTest(const QString &header, const QByteArray &result)
         results.clear();
     }
 
-    foreach (const QByteArray &ba, results) {
+    for (const QByteArray &ba : qAsConst(results)) {
         QList<QByteArray> values = ba.split('\t');
         const QString key(QString::fromLatin1(values.takeFirst()));
 

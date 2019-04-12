@@ -889,7 +889,7 @@ PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType
     QByteArray helperArgs;
     QDataStream out(&helperArgs, QIODevice::WriteOnly);
     out << action;
-    foreach (const QVariant &arg, args) {
+    for (const QVariant &arg : args) {
         out << arg;
     }
 

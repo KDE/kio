@@ -271,7 +271,7 @@ static bool operator==(const UDSEntry &a, const UDSEntry &b)
     }
 
     const QVector<uint> fields = a.fields();
-    foreach (uint field, fields) {
+    for (uint field : fields) {
         if (!b.contains(field)) {
             return false;
         }

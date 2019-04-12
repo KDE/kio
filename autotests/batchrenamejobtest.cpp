@@ -31,14 +31,14 @@ class BatchRenameJobTest : public QObject
 private:
     void createTestFiles(const QStringList &fileList)
     {
-        foreach (const QString &filename, fileList) {
+        for (const QString &filename : fileList) {
             createTestFile(m_homeDir + filename);
         }
     }
 
     bool checkFileExistence(const QStringList &fileList)
     {
-        foreach (const QString &filename, fileList) {
+        for (const QString &filename : fileList) {
             const QString filePath = m_homeDir + filename;
             if (!QFile::exists(filePath)) {
                 return false;
@@ -51,7 +51,7 @@ private:
     {
         QList<QUrl> srcList;
         srcList.reserve(fileList.count());
-        foreach (const QString &filename, fileList) {
+        for (const QString &filename : fileList) {
             const QString filePath = m_homeDir + filename;
             srcList.append(QUrl::fromLocalFile(filePath));
         }

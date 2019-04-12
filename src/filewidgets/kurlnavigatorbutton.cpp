@@ -426,7 +426,7 @@ void KUrlNavigatorButton::addEntriesToSubDirs(KIO::Job *job, const KIO::UDSEntry
     Q_ASSERT(job == m_subDirsJob);
     Q_UNUSED(job);
 
-    foreach (const KIO::UDSEntry &entry, entries) {
+    for (const KIO::UDSEntry &entry : entries) {
         if (entry.isDir()) {
             const QString name = entry.stringValue(KIO::UDSEntry::UDS_NAME);
             QString displayName = entry.stringValue(KIO::UDSEntry::UDS_DISPLAY_NAME);

@@ -56,7 +56,7 @@ void KUrlNavigatorProtocolCombo::setCustomProtocols(const QStringList &protocols
     m_protocols = protocols;
     m_menu->clear();
 
-    foreach (const QString &protocol, protocols) {
+    for (const QString &protocol : protocols) {
         QAction *action = m_menu->addAction(protocol);
         action->setData(protocol);
     }

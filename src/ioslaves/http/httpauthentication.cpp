@@ -229,7 +229,7 @@ QByteArray KAbstractHttpAuthentication::bestOffer(const QList<QByteArray> &offer
     QByteArray digestOffer;
     QByteArray ntlmOffer;
     QByteArray basicOffer;
-    Q_FOREACH (const QByteArray &offer, offers) {
+    for (const QByteArray &offer : offers) {
         const QByteArray scheme = offer.mid(0, offer.indexOf(' ')).toLower();
 #if HAVE_LIBGSSAPI
         if (scheme == "negotiate") { // krazy:exclude=strings
@@ -282,7 +282,7 @@ QList< QByteArray > KAbstractHttpAuthentication::splitOffers(const QList< QByteA
 {
     // first detect if one entry may contain multiple offers
     QList<QByteArray> alloffers;
-    foreach (QByteArray offer, offers) {
+    for (QByteArray offer : offers) {
         QByteArray scheme, cont;
 
         parseChallenge(offer, &scheme, &cont);

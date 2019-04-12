@@ -316,7 +316,7 @@ void KCookieServer::saveCookieJar()
 void KCookieServer::putCookie(QStringList &out, const KHttpCookie &cookie,
                               const QList<int> &fields)
 {
-    foreach (int i, fields) {
+    for (int i : fields) {
         switch (i) {
         case CF_DOMAIN :
             out << cookie.domain();
@@ -412,7 +412,7 @@ KCookieServer::findCookies(const QList<int> &fields,
     const QStringList domainList = _domain.split(QLatin1Char(' '));
 
     if (allCookies) {
-        Q_FOREACH (const QString &domain, domainList) {
+        for (const QString &domain : domainList) {
             const KHttpCookieList *list =  mCookieJar->getCookieList(domain, fqdn);
             if (!list) {
                 continue;
@@ -425,7 +425,7 @@ KCookieServer::findCookies(const QList<int> &fields,
             }
         }
     } else {
-        Q_FOREACH (const QString &domain, domainList) {
+        for (const QString &domain : domainList) {
             const KHttpCookieList *list =  mCookieJar->getCookieList(domain, fqdn);
             if (!list) {
                 continue;

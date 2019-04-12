@@ -391,8 +391,8 @@ void DropJobPrivate::addPluginActions(KIO::DropMenu *popup, const KFileItemListP
         if (factory) {
             KIO::DndPopupMenuPlugin *plugin = factory->create<KIO::DndPopupMenuPlugin>();
             if (plugin) {
-                auto actions = plugin->setup(itemProps, m_destUrl);
-                foreach (auto action, actions) {
+                const auto actions = plugin->setup(itemProps, m_destUrl);
+                for (auto action : actions) {
                     action->setParent(popup);
                 }
                 m_pluginActions += actions;
@@ -553,7 +553,7 @@ void DropJobPrivate::handleDropToExecutable()
     // Launch executable for each of the files
     QStringList args;
     args.reserve(m_urls.size());
-    Q_FOREACH(const QUrl &url, m_urls) {
+    for (const QUrl &url : qAsConst(m_urls)) {
         args << url.toLocalFile(); // assume local files
     }
     QProcess::startDetached(m_destUrl.toLocalFile(), args);

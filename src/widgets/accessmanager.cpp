@@ -519,7 +519,7 @@ QList<QNetworkCookie> CookieJar::cookiesForUrl(const QUrl &url) const
 
     const QString cookieStr = reply.value();
     const QStringList cookies = cookieStr.split(QStringLiteral("; "), QString::SkipEmptyParts);
-    Q_FOREACH (const QString &cookie, cookies) {
+    for (const QString &cookie : cookies) {
         const int index = cookie.indexOf(QL1C('='));
         const QStringRef name = cookie.leftRef(index);
         const QStringRef value = cookie.rightRef((cookie.length() - index - 1));
@@ -537,7 +537,7 @@ bool CookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const
     }
 
     QDBusInterface kcookiejar(QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"));
-    Q_FOREACH (const QNetworkCookie &cookie, cookieList) {
+    for (const QNetworkCookie &cookie : cookieList) {
         QByteArray cookieHeader("Set-Cookie: ");
         if (d->isStorageDisabled && !cookie.isSessionCookie()) {
             QNetworkCookie sessionCookie(cookie);

@@ -286,7 +286,7 @@ KPropertiesDialog::KPropertiesDialog(const QList<QUrl>& urls,
     Q_ASSERT(!d->m_singleUrl.isEmpty());
 
     d->m_items.reserve(urls.size());
-    foreach (const QUrl& url, urls) {
+    for (const QUrl& url : urls) {
         KIO::StatJob *job = KIO::stat(url);
         KJobWidgets::setWindow(job, parent);
         job->exec();
@@ -627,7 +627,7 @@ void KPropertiesDialog::KPropertiesDialogPrivate::insertPages()
 
     // qDebug() << "trader query: " << query;
     const KService::List offers = KMimeTypeTrader::self()->query(mimetype, QStringLiteral("KPropertiesDialog/Plugin"), query);
-    foreach (const KService::Ptr &ptr, offers) {
+    for (const KService::Ptr &ptr : offers) {
         KPropertiesDialogPlugin *plugin = ptr->createInstance<KPropertiesDialogPlugin>(q);
         if (!plugin) {
             continue;

@@ -56,7 +56,7 @@ private Q_SLOTS:
     QWidget *findLocationLabel(QWidget *parent)
     {
         const QList<QLabel*> labels = parent->findChildren<QLabel*>();
-        foreach(QLabel *label, labels) {
+        for (QLabel *label : labels) {
             if (label->text() == i18n("&Name:"))
                 return label->buddy();
         }

@@ -155,7 +155,7 @@ int main (int argc, char *argv[])
             }
 
             // insert all entries for all found locales, reparse config for this
-            Q_FOREACH(const QString &locale, foundLocalesForKey) {
+            for (const QString &locale : qAsConst(foundLocalesForKey)) {
                 sconfig.setLocale(locale);
                 protocolData.insert(QStringLiteral("%1[%2]").arg(key, locale), config.readEntry(key, QStringList()));
             }

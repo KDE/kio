@@ -215,7 +215,7 @@ void KUrlNavigatorPlacesSelector::dropEvent(QDropEvent *event)
 
     QMimeDatabase db;
     const QList<QUrl> urlList = KUrlMimeData::urlsFromMimeData(event->mimeData());
-    foreach (const QUrl &url, urlList) {
+    for (const QUrl &url : urlList) {
         QMimeType mimetype = db.mimeTypeForUrl(url);
         if (mimetype.inherits(QStringLiteral("inode/directory"))) {
             m_placesModel->addPlace(url.fileName(), url);

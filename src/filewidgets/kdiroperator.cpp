@@ -541,7 +541,7 @@ KFileItemList KDirOperator::selectedItems() const
     const QItemSelection selection = d->proxyModel->mapSelectionToSource(d->itemView->selectionModel()->selection());
 
     const QModelIndexList indexList = selection.indexes();
-    foreach (const QModelIndex &index, indexList) {
+    for (const QModelIndex &index : indexList) {
         KFileItem item = d->dirModel->itemForIndex(index);
         if (!item.isNull()) {
             itemList.append(item);
@@ -1758,7 +1758,7 @@ void KDirOperator::setCurrentItems(const QList<QUrl> &urls)
     }
 
     KFileItemList itemList;
-    foreach (const QUrl &url, urls) {
+    for (const QUrl &url : urls) {
         KFileItem item = d->dirLister->findByUrl(url);
         if (d->shouldFetchForItems && item.isNull()) {
             d->itemsToBeSetAsCurrent << url;
@@ -1783,7 +1783,7 @@ void KDirOperator::setCurrentItems(const KFileItemList &items)
     if (selModel) {
         selModel->clear();
         QModelIndex proxyIndex;
-        foreach (const KFileItem &item, items) {
+        for (const KFileItem &item : items) {
             if (!item.isNull()) {
                 const QModelIndex dirIndex = d->dirModel->indexForItem(item);
                 proxyIndex = d->proxyModel->mapFromSource(dirIndex);
@@ -1826,7 +1826,7 @@ void KDirOperator::prepareCompletionObjects()
 
     if (d->completeListDirty) {   // create the list of all possible completions
         const KFileItemList itemList = d->dirLister->items();
-        foreach (const KFileItem &item, itemList) {
+        for (const KFileItem &item : itemList) {
             d->completion.addItem(item.name());
             if (item.isDir()) {
                 d->dirCompletion.addItem(item.name());

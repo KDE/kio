@@ -337,10 +337,10 @@ void FilterOptions::save()
   group.writeEntry("UsePreferredWebShortcutsOnly", m_dlg.cbUseSelectedShortcutsOnly->isChecked());
 
   int changedProviderCount = 0;
-  QList<SearchProvider*> providers = m_providersModel->providers();
+  const QList<SearchProvider*> providers = m_providersModel->providers();
   const QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/searchproviders/");
 
-  Q_FOREACH(SearchProvider* provider, providers)
+  for (SearchProvider* provider : providers)
   {
     if (!provider->isDirty())
       continue;
@@ -362,7 +362,7 @@ void FilterOptions::save()
   Q_FOREACH(const QString& providerName, m_deletedProviders)
   {
     QStringList matches;
-    foreach(const QString& dir, servicesDirs) {
+    for (const QString& dir : servicesDirs) {
       QString current = dir + QLatin1Char('/') + providerName + QLatin1String(".desktop");
       if(QFile::exists(current))
         matches += current;

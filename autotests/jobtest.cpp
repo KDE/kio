@@ -1330,7 +1330,7 @@ void JobTest::deleteManyDirs(bool using_fast_path)
     job->setUiDelegate(nullptr);
     bool ok = job->exec();
     QVERIFY(ok);
-    Q_FOREACH (const QUrl &dir, dirs) {
+    for (const QUrl &dir : qAsConst(dirs)) {
         QVERIFY(!QFile::exists(dir.toLocalFile()));
     }
 
@@ -1684,13 +1684,13 @@ void JobTest::moveDestAlreadyExistsAutoRename()
 void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveDirs) // #256650
 {
     const QString prefix = moveDirs ? QStringLiteral("dir ") : QStringLiteral("file ");
-    QStringList sources;
+
     const QString file1 = homeTmpDir() + prefix + "(1)";
     const QString file2 = homeTmpDir() + prefix + "(2)";
     const QString existingDest1 = destDir + prefix + "(1)";
     const QString existingDest2 = destDir + prefix + "(2)";
-    sources << file1 << file2 << existingDest1 << existingDest2;
-    Q_FOREACH (const QString &source, sources) {
+    const QStringList sources = QStringList() << file1 << file2 << existingDest1 << existingDest2;
+    for (const QString &source : sources) {
         if (moveDirs) {
             QVERIFY(QDir().mkdir(source));
         } else {

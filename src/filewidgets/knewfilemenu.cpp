@@ -714,7 +714,7 @@ void KNewFileMenuPrivate::fillMenu()
                             } else {
                                 mime = db.mimeTypeForName(entry.mimeType);
                             }
-                            Q_FOREACH (const QString &supportedMime, m_supportedMimeTypes) {
+                            for (const QString &supportedMime : qAsConst(m_supportedMimeTypes)) {
                                 if (mime.inherits(supportedMime)) {
                                     keep = true;
                                     break;
@@ -990,7 +990,7 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
         dir.setPath(path);
         const QStringList &entryList(dir.entryList(QStringList() << QStringLiteral("*.desktop"), QDir::Files));
         files.reserve(files.size() + entryList.size());
-        Q_FOREACH (const QString &entry, entryList) {
+        for (const QString &entry : entryList) {
             const QString file = concatPaths(dir.path(), entry);
             files.append(file);
         }
@@ -998,7 +998,7 @@ void KNewFileMenuPrivate::_k_slotFillTemplates()
 
     QMap<QString, KNewFileMenuSingleton::Entry> slist; // used for sorting
     QMap<QString, EntryWithName> ulist; // entries with unique URLs
-    Q_FOREACH (const QString &file, files) {
+    for (const QString &file : qAsConst(files)) {
         //qDebug() << file;
         if (file[0] != QLatin1Char('.')) {
             KNewFileMenuSingleton::Entry e;

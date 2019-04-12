@@ -200,7 +200,7 @@ static QStringList extractFormats(const QMimeData *mimeData)
 {
     QStringList formats;
     const QStringList allFormats = mimeData->formats();
-    Q_FOREACH (const QString &format, allFormats) {
+    for (const QString &format : allFormats) {
         if (format == QLatin1String("application/x-qiconlist")) { // Q3IconView and kde4's libkonq
             continue;
         }

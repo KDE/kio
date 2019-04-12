@@ -12,25 +12,25 @@ int main(int argc, char *argv[])
 
 //for (int i = 0 ; i < 2 ; ++i ) { // test twice to see if they got deleted
     qDebug() << "All services";
-    KService::List services = KService::allServices();
+    const KService::List services = KService::allServices();
     qDebug() << "got " << services.count() << " services";
-    Q_FOREACH (const KService::Ptr s, services) {
+    for (const KService::Ptr s : services) {
         qDebug() << s->name() << " " << s->entryPath();
     }
 //}
 
     qDebug() << "All mimeTypes";
     QMimeDatabase db;
-    QList<QMimeType> mimeTypes = db.allMimeTypes();
+    const QList<QMimeType> mimeTypes = db.allMimeTypes();
     qDebug() << "got " << mimeTypes.count() << " mimeTypes";
-    Q_FOREACH (const QMimeType &m, mimeTypes) {
+    for (const QMimeType &m : mimeTypes) {
         qDebug() << m.name();
     }
 
     qDebug() << "All service types";
-    KServiceType::List list = KServiceType::allServiceTypes();
+    const KServiceType::List list = KServiceType::allServiceTypes();
     qDebug() << "got " << list.count() << " service types";
-    Q_FOREACH (const KServiceType::Ptr st, list) {
+    for (const KServiceType::Ptr st : list) {
         qDebug() << st->name();
     }
 

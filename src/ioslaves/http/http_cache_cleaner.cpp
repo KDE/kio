@@ -532,7 +532,7 @@ public:
         }
         // qDebug() << "we have too many fake/stale entries, cleaning up...";
         QSet<CacheIndex> realFiles;
-        Q_FOREACH (CacheFileInfo *fi, fiList) {
+        for (CacheFileInfo *fi : fiList) {
             realFiles.insert(CacheIndex(fi->baseName));
         }
         QHash<CacheIndex, MiniCacheFileInfo>::Iterator it = m_scoreboard.begin();

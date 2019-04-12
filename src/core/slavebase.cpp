@@ -756,7 +756,7 @@ void SlaveBase::listEntries(const UDSEntryList &list)
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
 
-    foreach (const UDSEntry &entry, list) {
+    for (const UDSEntry &entry : list) {
         stream << entry;
     }
 

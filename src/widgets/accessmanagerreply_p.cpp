@@ -209,7 +209,7 @@ void AccessManagerReply::setHeaderFromMetaData(const KIO::MetaData &_metaData)
             setHeader(QNetworkRequest::ContentTypeHeader, mimeType.toUtf8());
         }
     } else {
-        Q_FOREACH (const QString &httpHeader, httpHeaders) {
+        for (const QString &httpHeader : httpHeaders) {
             int index = httpHeader.indexOf(QL1C(':'));
             // Handle HTTP status line...
             if (index == -1) {

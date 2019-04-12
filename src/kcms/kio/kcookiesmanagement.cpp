@@ -247,7 +247,7 @@ void KCookiesManagement::on_reloadButton_clicked()
 
   CookieListViewItem *dom;
   const QStringList domains (reply.value());
-  Q_FOREACH(const QString& domain, domains)
+  for (const QString& domain : domains)
   {
     const QString siteName = (domain.startsWith(QLatin1Char('.')) ? domain.mid(1) : domain);
     if (mUi.cookiesTreeWidget->findItems(siteName, Qt::MatchFixedString).isEmpty()) {

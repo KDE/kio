@@ -375,7 +375,7 @@ public:
         q->showSslErrors(); //H4X
         QList<KSslError> kErrors;
         kErrors.reserve(errors.size());
-        foreach (const QSslError &e, errors) {
+        for (const QSslError &e : errors) {
             kErrors.append(KSslError(e));
         }
         emit q->sslErrors(kErrors);
@@ -1046,9 +1046,9 @@ int KSslCipher::usedBits() const
 QList<KSslCipher> KSslCipher::supportedCiphers()
 {
     QList<KSslCipher> ret;
-    QList<QSslCipher> candidates = QSslSocket::supportedCiphers();
+    const QList<QSslCipher> candidates = QSslSocket::supportedCiphers();
     ret.reserve(candidates.size());
-    foreach (const QSslCipher &c, candidates) {
+    for (const QSslCipher &c : candidates) {
         ret.append(KSslCipher(c));
     }
     return ret;

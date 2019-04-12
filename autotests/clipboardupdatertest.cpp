@@ -67,7 +67,7 @@ void ClipboardUpdaterTest::testPasteAfterRenameFiles()
     mimeData->setUrls(urls);
     clipboard->setMimeData(mimeData);
 
-    Q_FOREACH (const QUrl &url, urls) {
+    for (const QUrl &url : urls) {
         QUrl newUrl = url;
         newUrl.setPath(url.path() + QLatin1String("_renamed"));
         KIO::SimpleJob *job = KIO::rename(url, newUrl, KIO::HideProgressInfo);

@@ -319,7 +319,7 @@ QScriptValue MyIpAddress(QScriptContext *context, QScriptEngine *engine)
 
     QString ipAddress;
     const QList<QHostAddress> addresses = QNetworkInterface::allAddresses();
-    Q_FOREACH (const QHostAddress& address, addresses) {
+    for (const QHostAddress& address : addresses) {
         if (isIPv4Address(address) && !isSpecialAddress(address) && !isLocalHostAddress(address)) {
             ipAddress = address.toString();
             break;
@@ -624,7 +624,7 @@ QScriptValue MyIpAddressEx(QScriptContext *context, QScriptEngine *engine)
 
     QStringList ipAddressList;
     const QList<QHostAddress> addresses = QNetworkInterface::allAddresses();
-    Q_FOREACH (const QHostAddress& address, addresses) {
+    for (const QHostAddress& address : addresses) {
         if (!isSpecialAddress(address) && !isLocalHostAddress(address)) {
             ipAddressList << address.toString();
         }
@@ -646,7 +646,7 @@ QScriptValue SortIpAddressList(QScriptContext *context, QScriptEngine *engine)
     QList<QHostAddress> ipV4List, ipV6List;
     const QStringList ipAddressList = context->argument(0).toString().split(QLatin1Char(';'));
 
-    Q_FOREACH (const QString &ipAddress, ipAddressList) {
+    for (const QString &ipAddress : ipAddressList) {
         QHostAddress address(ipAddress);
         switch (address.protocol()) {
         case QAbstractSocket::IPv4Protocol:

@@ -139,7 +139,7 @@ void runTest(const QByteArray &mimetype, const QStringList &metalist, const QByt
 
     kio_data.setExpectedMimeType(mimetype);
     MetaData exp_attrs;
-    foreach (const QString &meta, metalist) {
+    for (const QString &meta : metalist) {
         const QStringList metadata = meta.split(QLatin1Char('='));
         Q_ASSERT(metadata.count() == 2);
         exp_attrs[metadata[0]] = metadata[1];

@@ -72,7 +72,7 @@ void KUriFilterSearchProviderActionsTest::shouldAddActionToMenu()
     QVERIFY(!menu->actions().at(0)->menu()->actions().isEmpty());
 
     QStringList actionData;
-    Q_FOREACH (const QString &str, searchProviders) {
+    for (const QString &str : qAsConst(searchProviders)) {
         actionData.append(filterData.queryForPreferredSearchProvider(str));
     }
 

@@ -260,7 +260,7 @@ void KDirModelPrivate::removeFromNodeHash(KDirModelNode *node, const QUrl &url)
     if (node->item().isDir()) {
         QList<QUrl> urls;
         static_cast<KDirModelDirNode *>(node)->collectAllChildUrls(urls);
-        Q_FOREACH (const QUrl &u, urls) {
+        for (const QUrl &u : qAsConst(urls)) {
             m_nodeHash.remove(u);
         }
     }
@@ -435,7 +435,7 @@ void KDirModelPrivate::_k_slotNewItems(const QUrl &directoryUrl, const KFileItem
         qCWarning(KIO_WIDGETS) << "Items emitted in directory" << directoryUrl
                    << "but that directory isn't in KDirModel!"
                    << "Root directory:" << urlForNode(m_rootNode);
-        Q_FOREACH (const KFileItem &item, items) {
+        for (const KFileItem &item : items) {
             qDebug() << "Item:" << item.url();
         }
 #ifndef NDEBUG
@@ -556,7 +556,7 @@ void KDirModelPrivate::_k_slotDeleteItems(const KFileItemList &items)
     // Let's use a bit array where each bit represents a given child node.
     const int childCount = dirNode->m_childNodes.count();
     QBitArray rowNumbers(childCount, false);
-    Q_FOREACH (const KFileItem &item, items) {
+    for (const KFileItem &item : items) {
         if (!node) { // don't lookup the first item twice
             url = item.url();
             node = nodeForUrl(url);
@@ -1042,7 +1042,7 @@ QMimeData *KDirModel::mimeData(const QModelIndexList &indexes) const
     urls.reserve(indexes.size());
     mostLocalUrls.reserve(indexes.size());
     bool canUseMostLocalUrls = true;
-    foreach (const QModelIndex &index, indexes) {
+    for (const QModelIndex &index : indexes) {
         const KFileItem &item = d->nodeForIndex(index)->item();
         urls << item.url();
         bool isLocal;

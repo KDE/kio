@@ -1328,7 +1328,7 @@ void KFileWidgetPrivate::setLocationText(const QList<QUrl> &urlList)
 
     if (urlList.count() > 1) {
         QString urls;
-        foreach (const QUrl &url, urlList) {
+        for (const QUrl &url : urlList) {
             urls += QStringLiteral("\"%1\"").arg(relativePathOrUrl(currUrl, url)) + QLatin1Char(' ');
         }
         urls.chop(1);
@@ -2480,8 +2480,8 @@ void KFileWidgetPrivate::updateFilter()
         } else {
             QString filename = urlStr.mid(urlStr.lastIndexOf(QLatin1Char('/')) + 1);     // only filename
             foreach (const QString &filter, filterWidget->filters()) {
-                QStringList patterns = filter.left(filter.indexOf(QLatin1Char('|'))).split(QLatin1Char(' '), QString::SkipEmptyParts);       // '*.foo *.bar|Foo type' -> '*.foo', '*.bar'
-                foreach (const QString &p, patterns) {
+                const QStringList patterns = filter.left(filter.indexOf(QLatin1Char('|'))).split(QLatin1Char(' '), QString::SkipEmptyParts);       // '*.foo *.bar|Foo type' -> '*.foo', '*.bar'
+                for (const QString &p : patterns) {
                     QRegExp rx(p);
                     rx.setPatternSyntax(QRegExp::Wildcard);
                     if (rx.exactMatch(filename)) {

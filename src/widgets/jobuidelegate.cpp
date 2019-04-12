@@ -211,7 +211,7 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls,
     if (ask) {
         QStringList prettyList;
         prettyList.reserve(urls.size());
-        Q_FOREACH (const QUrl &url, urls) {
+        for (const QUrl &url : urls) {
             if (url.scheme() == QLatin1String("trash")) {
                 QString path = url.path();
                 // HACK (#98983): remove "0-foo". Note that it works better than
@@ -345,7 +345,7 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
         const QStringList sl = sslMetaData.value(QStringLiteral("ssl_peer_chain")).split(QLatin1Char('\x01'), QString::SkipEmptyParts);
         QList<QSslCertificate> certChain;
         bool decodedOk = true;
-        foreach (const QString &s, sl) {
+        for (const QString &s : sl) {
             certChain.append(QSslCertificate(s.toLatin1())); //or is it toLocal8Bit or whatever?
             if (certChain.last().isNull()) {
                 decodedOk = false;

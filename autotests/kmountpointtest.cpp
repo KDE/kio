@@ -38,7 +38,7 @@ void KMountPointTest::testCurrentMountPoints()
         return;
     }
     KMountPoint::Ptr mountWithDevice;
-    foreach (KMountPoint::Ptr mountPoint, mountPoints) {
+    for (KMountPoint::Ptr mountPoint : mountPoints) {
         qDebug() << "Mount: " << mountPoint->mountedFrom()
                  << " (" << mountPoint->realDeviceName() << ") "
                  << mountPoint->mountPoint() << " " << mountPoint->mountType();
@@ -102,7 +102,7 @@ void KMountPointTest::testPossibleMountPoints()
         return;
     }
     KMountPoint::Ptr mountWithDevice;
-    foreach (KMountPoint::Ptr mountPoint, mountPoints) {
+    for (KMountPoint::Ptr mountPoint : mountPoints) {
         qDebug() << "Possible mount: " << mountPoint->mountedFrom()
                  << " (" << mountPoint->realDeviceName() << ") "
                  << mountPoint->mountPoint() << " " << mountPoint->mountType()

@@ -136,7 +136,7 @@ void KSslCertificateRule::setIgnoredErrors(const QList<KSslError::Error> &errors
 {
     d->ignoredErrors.clear();
     //### Quadratic runtime, woohoo! Use a QSet if that should ever be an issue.
-    foreach (KSslError::Error e, errors)
+    for (KSslError::Error e : errors)
         if (!isErrorIgnored(e)) {
             d->ignoredErrors.append(e);
         }
@@ -146,7 +146,7 @@ void KSslCertificateRule::setIgnoredErrors(const QList<KSslError> &errors)
 {
     QList<KSslError::Error> el;
     el.reserve(errors.size());
-    foreach (const KSslError &e, errors) {
+    for (const KSslError &e : errors) {
         el.append(e.error());
     }
     setIgnoredErrors(el);
@@ -160,7 +160,7 @@ QList<KSslError::Error> KSslCertificateRule::ignoredErrors() const
 QList<KSslError::Error> KSslCertificateRule::filterErrors(const QList<KSslError::Error> &errors) const
 {
     QList<KSslError::Error> ret;
-    foreach (KSslError::Error error, errors) {
+    for (KSslError::Error error : errors) {
         if (!isErrorIgnored(error)) {
             ret.append(error);
         }
@@ -171,7 +171,7 @@ QList<KSslError::Error> KSslCertificateRule::filterErrors(const QList<KSslError:
 QList<KSslError> KSslCertificateRule::filterErrors(const QList<KSslError> &errors) const
 {
     QList<KSslError> ret;
-    foreach (const KSslError &error, errors) {
+    for (const KSslError &error : errors) {
         if (!isErrorIgnored(error.error())) {
             ret.append(error);
         }
@@ -185,7 +185,7 @@ static QList<QSslCertificate> deduplicate(const QList<QSslCertificate> &certs)
 {
     QSet<QByteArray> digests;
     QList<QSslCertificate> ret;
-    foreach (const QSslCertificate &cert, certs) {
+    for (const QSslCertificate &cert : certs) {
         QByteArray digest = cert.digest();
         if (!digests.contains(digest)) {
             digests.insert(digest);
@@ -222,7 +222,7 @@ void KSslCertificateManagerPrivate::loadDefaultCaCertificates()
 
     certs.append(QSslCertificate::fromPath(userCertDir + QLatin1Char('*'), QSsl::Pem,
                                            QRegExp::Wildcard));
-    foreach (const QSslCertificate &cert, certs) {
+    for (const QSslCertificate &cert : qAsConst(certs)) {
         const QByteArray digest = cert.digest().toHex();
         if (!group.hasKey(digest.constData())) {
             defaultCaCertificates += cert;

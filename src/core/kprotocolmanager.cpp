@@ -506,7 +506,7 @@ QStringList KProtocolManagerPrivate::getSystemProxyFor(const QUrl &url)
     QNetworkProxyQuery query(url);
     const QList<QNetworkProxy> proxyList = QNetworkProxyFactory::systemProxyForQuery(query);
     proxies.reserve(proxyList.size());
-    Q_FOREACH (const QNetworkProxy &proxy, proxyList) {
+    for (const QNetworkProxy &proxy : proxyList) {
         QUrl url;
         const QNetworkProxy::ProxyType type = proxy.type();
         if (type == QNetworkProxy::NoProxy || type == QNetworkProxy::DefaultProxy) {
@@ -615,7 +615,7 @@ void KProtocolManager::badProxy(const QString &proxy)
     PRIVATE_DATA;
     QMutexLocker lock(&d->mutex);
     const QStringList keys(d->cachedProxyData.keys());
-    Q_FOREACH (const QString &key, keys) {
+    for (const QString &key : keys) {
         d->cachedProxyData[key]->removeAddress(proxy);
     }
 }
@@ -682,7 +682,7 @@ QString KProtocolManager::slaveProtocol(const QUrl &url, QStringList &proxyList)
     const int count = proxies.count();
 
     if (count > 0 && !(count == 1 && proxies.first() == QL1S("DIRECT"))) {
-        Q_FOREACH (const QString &proxy, proxies) {
+        for (const QString &proxy : proxies) {
             if (proxy == QL1S("DIRECT")) {
                 proxyList << proxy;
             } else {
@@ -1012,7 +1012,7 @@ QString KProtocolManager::acceptLanguagesHeader()
     KConfig acclangConf(QStringLiteral("accept-languages.codes"), KConfig::NoGlobals);
     KConfigGroup replacementCodes(&acclangConf, "ReplacementCodes");
     QStringList languageListFinal;
-    Q_FOREACH (const QString &lang, languageList) {
+    for (const QString &lang : qAsConst(languageList)) {
         const QStringList langs = replacementCodes.readEntry(lang, QStringList());
         if (langs.isEmpty()) {
             languageListFinal += lang;
@@ -1027,7 +1027,7 @@ QString KProtocolManager::acceptLanguagesHeader()
     // the value evenly
     int prio = 10;
     QString header;
-    Q_FOREACH (const QString &lang, languageListFinal) {
+    for (const QString &lang : qAsConst(languageListFinal)) {
         header += lang;
         if (prio < 10) {
             header += QL1S(";q=0.") + QString::number(prio);
@@ -1309,7 +1309,7 @@ QString KProtocolManager::protocolForArchiveMimetype(const QString &mimeType)
         for (QList<KProtocolInfoPrivate *>::const_iterator it = allProtocols.begin();
                 it != allProtocols.end(); ++it) {
             const QStringList archiveMimetypes = (*it)->m_archiveMimeTypes;
-            Q_FOREACH (const QString &mime, archiveMimetypes) {
+            for (const QString &mime : archiveMimetypes) {
                 d->protocolForArchiveMimetypes.insert(mime, (*it)->m_name);
             }
         }

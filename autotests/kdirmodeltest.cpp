@@ -99,7 +99,7 @@ void KDirModelTest::recreateTestData()
      * PATH/subdir/subsubdir/testfile
      */
     const QString path = m_tempDir->path() + '/';
-    foreach (const QString &f, m_topLevelFileNames) {
+    for (const QString &f : qAsConst(m_topLevelFileNames)) {
         createTestFile(path + f);
     }
     createTestFile(path + ".hiddenfile");

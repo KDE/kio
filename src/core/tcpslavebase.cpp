@@ -746,7 +746,7 @@ TCPSlaveBase::SslResult TCPSlaveBase::verifyServerCertificate()
     //### We don't ask to permanently reject the certificate
 
     QString message = i18n("The server failed the authenticity check (%1).\n\n", d->host);
-    Q_FOREACH (const KSslError &err, d->sslErrors) {
+    for (const KSslError &err : qAsConst(d->sslErrors)) {
         message += err.errorString() + QLatin1Char('\n');
     }
     message = message.trimmed();

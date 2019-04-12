@@ -76,7 +76,7 @@ void SearchProvider::setKeys(const QStringList &keys)
   // Take the longest search shortcut as filename,
   // if such a file already exists, append a number and increase it
   // until the name is unique
-  Q_FOREACH(const QString& key, keys)
+  for (const QString& key : keys)
   {
     if (key.length() > name.length())
       name = key.toLower();

@@ -160,7 +160,7 @@ void KFileCopyToMainMenu::slotAboutToShow()
 
     // Recent Destinations
     const QStringList recentDirs = m_recentDirsGroup.readPathEntry("Paths", QStringList());
-    Q_FOREACH (const QString &recentDir, recentDirs) {
+    for (const QString &recentDir : recentDirs) {
         const QUrl url = QUrl::fromLocalFile(recentDir);
         const QString text = KStringHandler::csqueeze(url.toDisplayString(QUrl::PreferLocalFile), 60); // shorten very long paths (#61386)
         QAction *act = new QAction(text, this);
@@ -249,7 +249,7 @@ void KFileCopyToDirectoryMenu::slotAboutToShow()
     const QStringList entries = dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::LocaleAware);
     const QMimeDatabase db;
     const QMimeType dirMime = db.mimeTypeForName(QStringLiteral("inode/directory"));
-    Q_FOREACH (const QString &subDir, entries) {
+    for (const QString &subDir : entries) {
         QString subPath = m_path + subDir;
         KFileCopyToDirectoryMenu *subMenu = new KFileCopyToDirectoryMenu(this, m_mainMenu, subPath);
         QString menuTitle(subDir);

@@ -445,7 +445,7 @@ private:
         qlonglong seqNr = 0;
         QList<qlonglong> idList;
 
-        Q_FOREACH(const KIO::AuthInfo& info, infos) {
+        for (const KIO::AuthInfo& info : infos) {
             const qlonglong id = server.queryAuthInfoAsync(
                 info,
                 QString(),

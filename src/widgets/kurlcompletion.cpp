@@ -290,8 +290,8 @@ protected:
         ::endpwent();
 #else
         //currently terminationRequested is ignored on Windows
-        QStringList allUsers = KUser::allUserNames();
-        Q_FOREACH(const QString& s, allUsers) {
+        const QStringList allUsers = KUser::allUserNames();
+        for (const QString& s : allUsers) {
             addMatch(tilde + s);
         }
 #endif
@@ -838,11 +838,11 @@ bool KUrlCompletionPrivate::envCompletion(const KUrlCompletionPrivate::MyURL &ur
         q->clear();
 
         QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-        QStringList keys = env.keys();
+        const QStringList keys = env.keys();
 
         QStringList l;
         l.reserve(keys.size());
-        Q_FOREACH(const QString &key, keys) {
+        for (const QString &key : keys) {
             l.append(prepend + QLatin1Char('$') + key);
         }
 
