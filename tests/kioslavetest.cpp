@@ -347,6 +347,8 @@ void KioslaveTest::printUDSEntry(const KIO::UDSEntry &entry)
     // It's rather rare to iterate that way, usually you'd use numberValue/stringValue directly.
     // This is just to print out all that we got
 
+    QDateTime timestamp;
+
     const QVector<uint> keys = entry.fields();
     QVector<uint>::const_iterator it = keys.begin();
     for (; it != keys.end(); ++it) {
@@ -356,6 +358,9 @@ void KioslaveTest::printUDSEntry(const KIO::UDSEntry &entry)
             qDebug() << "File Type : " << mode;
             if ((mode & QT_STAT_MASK) == QT_STAT_DIR) {
                 qDebug() << "is a dir";
+            }
+            if ((mode & QT_STAT_MASK) == QT_STAT_LNK) {
+                qDebug() << "is a link";
             }
         }
         break;
@@ -383,6 +388,18 @@ void KioslaveTest::printUDSEntry(const KIO::UDSEntry &entry)
             break;
         case KIO::UDSEntry::UDS_SIZE:
             qDebug() << "Size: " << KIO::convertSize(entry.numberValue(*it));
+            break;
+        case KIO::UDSEntry::UDS_CREATION_TIME:
+            timestamp = QDateTime::fromSecsSinceEpoch(entry.numberValue(*it));
+            qDebug() << "CreationTime: " << timestamp.toString(Qt::SystemLocaleShortDate);
+            break;
+        case KIO::UDSEntry::UDS_MODIFICATION_TIME:
+            timestamp = QDateTime::fromSecsSinceEpoch(entry.numberValue(*it));
+            qDebug() << "ModificationTime: " << timestamp.toString(Qt::SystemLocaleShortDate);
+            break;
+        case KIO::UDSEntry::UDS_ACCESS_TIME:
+            timestamp = QDateTime::fromSecsSinceEpoch(entry.numberValue(*it));
+            qDebug() << "AccessTime: " << timestamp.toString(Qt::SystemLocaleShortDate);
             break;
         }
     }

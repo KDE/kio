@@ -15,3 +15,6 @@
 
 /* Defined if system has the sendfile function. */
 #cmakedefine01 HAVE_SENDFILE
+
+/* Defined if system has the statx function, meaning glibc >= 2.28 */
+#cmakedefine01 HAVE_STATX
