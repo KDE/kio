@@ -931,12 +931,14 @@ bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &pat
                     return false;
                 }
                 size_t size = (size_t) s;
+                using SizeType = size_t;
             #else
                 off_t lowerBound = 256;
                 off_t higherBound = 1024;
                 off_t size = stat_size(buff);
+                using SizeType = off_t;
             #endif
-            auto bufferSize = qBound(lowerBound, size +1, higherBound);
+            SizeType bufferSize = qBound(lowerBound, size +1, higherBound);
             QByteArray linkTargetBuffer;
             linkTargetBuffer.resize(bufferSize);
             while (true) {
@@ -944,7 +946,7 @@ bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &pat
                 if (n < 0 && errno != ERANGE) {
                     qCWarning(KIO_FILE) << "readlink failed!" << path;
                     return false;
-                } else if (n > 0 && static_cast<size_t>(n) != bufferSize) {
+                } else if (n > 0 && static_cast<SizeType>(n) != bufferSize) {
                     // the buffer was not filled in the last iteration
                     // we are finished reading, break the loop
                     linkTargetBuffer.truncate(n);
