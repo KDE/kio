@@ -864,8 +864,10 @@ inline static mode_t stat_mode(QT_STATBUF &buf) { return buf.st_mode; }
 inline static dev_t stat_dev(QT_STATBUF &buf) { return buf.st_dev; }
 inline static ino_t stat_ino(QT_STATBUF &buf) { return buf.st_ino; }
 inline static off_t stat_size(QT_STATBUF &buf) { return buf.st_size; }
+#ifndef Q_OS_WIN
 inline static uid_t stat_uid(QT_STATBUF &buf) { return buf.st_uid; }
 inline static gid_t stat_gid(QT_STATBUF &buf) { return buf.st_gid; }
+#endif
 inline static time_t stat_atime(QT_STATBUF &buf) { return buf.st_atime; }
 inline static time_t stat_mtime(QT_STATBUF &buf) { return buf.st_mtime; }
 #endif
