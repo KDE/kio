@@ -161,7 +161,11 @@ void KMountPoint::Private::finalizePossibleMountPoint(DetailsNeededFlags infoNee
             device = QFileInfo(mountedFrom).canonicalFilePath();
         }
     }
-    // TODO: Strip trailing '/' ?
+
+    // Chop trailing slash
+    if (mountedFrom.endsWith(QLatin1Char('/'))) {
+        mountedFrom.chop(1);
+    }
 }
 
 void KMountPoint::Private::finalizeCurrentMountPoint(DetailsNeededFlags infoNeeded)
