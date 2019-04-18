@@ -1183,7 +1183,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             }
         }
 
-        l = new QLabel(i18n("Device usage:"), d->m_frame);
+        l = new QLabel(i18nc("Amount of used and available space on this device or partition", "Free space:"), d->m_frame);
         grid->addWidget(l, curRow, 0, Qt::AlignRight);
 
         d->m_capacityBar = new KCapacityBar(KCapacityBar::DrawTextOutline, d->m_frame);
@@ -3246,7 +3246,7 @@ KDevicePropsPlugin::KDevicePropsPlugin(KPropertiesDialog *_props) : KPropertiesD
     layout->addWidget(d->mountpoint, 3, 1);
 
     // show disk free
-    d->m_freeSpaceText = new QLabel(i18n("Device usage:"), d->m_frame);
+    d->m_freeSpaceText = new QLabel(i18nc("Amount of used and available space on this device or partition", "Free space:"), d->m_frame);
     layout->addWidget(d->m_freeSpaceText, 4, 0, Qt::AlignRight);
 
     d->m_freeSpaceLabel = new QLabel(d->m_frame);
