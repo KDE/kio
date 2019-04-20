@@ -233,7 +233,12 @@ void KUriFilterTest::noFiltering_data()
     setupColumns();
     // URI that should require no filtering
     addRow("http://www.kde.org", QStringLiteral("http://www.kde.org"), KUriFilterData::NetProtocol);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 1)
+    // qtbase commit eaf4438b3511c preserves the double slashes
+    addRow("http://www.kde.org/developer//index.html", QStringLiteral("http://www.kde.org/developer//index.html"), KUriFilterData::NetProtocol);
+#else
     addRow("http://www.kde.org/developer//index.html", QStringLiteral("http://www.kde.org/developer/index.html"), KUriFilterData::NetProtocol);
+#endif
     addRow("file:///", QStringLiteral("/"), KUriFilterData::LocalDir);
     addRow("file:///etc", QStringLiteral("/etc"), KUriFilterData::LocalDir);
     addRow("file:///etc/passwd", QStringLiteral("/etc/passwd"), KUriFilterData::LocalFile);
@@ -306,8 +311,14 @@ void KUriFilterTest::shortUris_data()
 {
     setupColumns();
     // hostnames are lowercased by QUrl
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 1)
+    // qtbase commit eaf4438b3511c preserves the double slashes
+    addRow("http://www.myDomain.commyPort/ViewObjectRes//Default:name=hello",
+           QStringLiteral("http://www.mydomain.commyport/ViewObjectRes//Default:name=hello"), KUriFilterData::NetProtocol);
+#else
     addRow("http://www.myDomain.commyPort/ViewObjectRes//Default:name=hello",
            QStringLiteral("http://www.mydomain.commyport/ViewObjectRes/Default:name=hello"), KUriFilterData::NetProtocol);
+#endif
     addRow("http://www.myDomain.commyPort/ViewObjectRes/Default:name=hello?a=a///////",
            QStringLiteral("http://www.mydomain.commyport/ViewObjectRes/Default:name=hello?a=a///////"), KUriFilterData::NetProtocol);
     addRow("ftp://ftp.kde.org", QStringLiteral("ftp://ftp.kde.org"), KUriFilterData::NetProtocol);
