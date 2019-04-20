@@ -542,7 +542,7 @@ void KDirListerTest::testRenameItem()
     const QString dirPath = m_tempDir.path() + '/';
     connect(&m_dirLister, &KCoreDirLister::refreshItems, this, &KDirListerTest::slotRefreshItems2);
     const QString path = dirPath + "toplevelfile_2";
-    const QString newPath = dirPath + "toplevelfile_2.renamed.html";
+    const QString newPath = dirPath + "toplevelfile_2.renamed.cpp";
 
     KIO::SimpleJob *job = KIO::rename(QUrl::fromLocalFile(path), QUrl::fromLocalFile(newPath), KIO::HideProgressInfo);
     QVERIFY(job->exec());
@@ -554,7 +554,7 @@ void KDirListerTest::testRenameItem()
     QCOMPARE(entry.first.url().toLocalFile(), path);
     QCOMPARE(entry.first.mimetype(), QString("application/octet-stream"));
     QCOMPARE(entry.second.url().toLocalFile(), newPath);
-    QCOMPARE(entry.second.mimetype(), QString("text/html"));
+    QCOMPARE(entry.second.mimetype(), QString("text/x-c++src"));
     disconnect(&m_dirLister, nullptr, this, nullptr);
 
     // Let's see what KDirLister has in cache now
@@ -584,7 +584,7 @@ void KDirListerTest::testRenameAndOverwrite() // has to be run after testRenameI
 
     m_refreshedItems.clear();
     connect(&m_dirLister, &KCoreDirLister::refreshItems, this, &KDirListerTest::slotRefreshItems);
-    const QString newPath = dirPath + "toplevelfile_2.renamed.html";
+    const QString newPath = dirPath + "toplevelfile_2.renamed.cpp";
 
     KIO::SimpleJob *job = KIO::rename(QUrl::fromLocalFile(newPath), QUrl::fromLocalFile(path), KIO::Overwrite | KIO::HideProgressInfo);
     bool ok = job->exec();

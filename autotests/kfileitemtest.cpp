@@ -560,9 +560,11 @@ void KFileItemTest::testListProperties()
             }
             QFile file(fileName);
             QVERIFY(file.open(QIODevice::WriteOnly));
-            if (i != 2) { // 3rd file is empty
+            if (i == 0) {
                 file.write("Hello");
-            }
+            } else if (i == 1) {
+                file.write("<html>");
+            } // i == 2: leave the file empty
             file.close();
             KFileItem item(QUrl::fromLocalFile(fileName), QString(), KFileItem::Unknown);
             if (i == 0)
