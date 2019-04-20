@@ -844,8 +844,11 @@ QString FileProtocol::getGroupName(KGroupId gid) const
 
 #if HAVE_STATX
 // statx syscall is available
-inline int STAT(const char* path, struct statx * buff) {
+inline int LSTAT(const char* path, struct statx * buff) {
     return statx(AT_FDCWD, path, AT_SYMLINK_NOFOLLOW, STATX_BASIC_STATS | STATX_BTIME, buff);
+}
+inline int STAT(const char* path, struct statx * buff) {
+    return statx(AT_FDCWD, path, AT_STATX_SYNC_AS_STAT, STATX_BASIC_STATS | STATX_BTIME, buff);
 }
 inline static uint16_t stat_mode(struct statx &buf) { return buf.stx_mode; }
 inline static uint32_t stat_dev(struct statx &buf) { return buf.stx_dev_major; }
@@ -854,11 +857,14 @@ inline static uint64_t stat_size(struct statx &buf) { return buf.stx_size; }
 inline static uint32_t stat_uid(struct statx &buf) { return buf.stx_uid; }
 inline static uint32_t stat_gid(struct statx &buf) { return buf.stx_gid; }
 inline static int64_t stat_atime(struct statx &buf) { return buf.stx_atime.tv_sec; }
-inline static uint64_t stat_mtime(struct statx &buf) { return buf.stx_mtime.tv_sec; }
+inline static int64_t stat_mtime(struct statx &buf) { return buf.stx_mtime.tv_sec; }
 #else
 // regular stat struct
-inline int STAT(const char* path, QT_STATBUF * buff) {
+inline int LSTAT(const char* path, QT_STATBUF * buff) {
     return QT_LSTAT(path, buff);
+}
+inline int STAT(const char* path, QT_STATBUF * buff) {
+    return QT_STAT(path, buff);
 }
 inline static mode_t stat_mode(QT_STATBUF &buf) { return buf.st_mode; }
 inline static dev_t stat_dev(QT_STATBUF &buf) { return buf.st_dev; }
@@ -911,7 +917,7 @@ bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &pat
     QT_STATBUF buff;
 #endif
 
-    if (STAT(path.data(), &buff) == 0)  {
+    if (LSTAT(path.data(), &buff) == 0)  {
 
         if (details > 2) {
             entry.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, stat_dev(buff));
@@ -932,7 +938,7 @@ bool FileProtocol::createUDSEntry(const QString &filename, const QByteArray &pat
                     qCWarning(KIO_FILE) << "file size bigger than SIZE_MAX, too big for readlink use!" << path;
                     return false;
                 }
-                size_t size = (size_t) s;
+                size_t size = static_cast<size_t>(s);
                 using SizeType = size_t;
             #else
                 off_t lowerBound = 256;
