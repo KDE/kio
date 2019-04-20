@@ -563,7 +563,15 @@ void KFileItemTest::testListProperties()
             if (i != 2) { // 3rd file is empty
                 file.write("Hello");
             }
-            items << KFileItem(QUrl::fromLocalFile(fileName), QString(), KFileItem::Unknown);
+            file.close();
+            KFileItem item(QUrl::fromLocalFile(fileName), QString(), KFileItem::Unknown);
+            if (i == 0)
+                QCOMPARE(item.mimetype(), "text/plain");
+            else if (i == 1)
+                QCOMPARE(item.mimetype(), "text/html");
+            else if (i == 2)
+                QCOMPARE(item.mimetype(), "application/x-zerosize");
+            items.push_back(std::move(item));
         }
         break;
         case 'd':
