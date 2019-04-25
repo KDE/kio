@@ -474,14 +474,14 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     goToNavigatorAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_L));
 
     KToggleAction *showSidebarAction =
-        new KToggleAction(i18n("Show Places Navigation Panel"), this);
+        new KToggleAction(i18n("Show Places Panel"), this);
     coll->addAction(QStringLiteral("toggleSpeedbar"), showSidebarAction);
     showSidebarAction->setShortcut(QKeySequence(Qt::Key_F9));
     connect(showSidebarAction, SIGNAL(toggled(bool)),
             SLOT(_k_toggleSpeedbar(bool)));
 
     KToggleAction *showBookmarksAction =
-        new KToggleAction(i18n("Show Bookmarks"), this);
+        new KToggleAction(i18n("Show Bookmarks Button"), this);
     coll->addAction(QStringLiteral("toggleBookmarks"), showBookmarksAction);
     connect(showBookmarksAction, SIGNAL(toggled(bool)),
             SLOT(_k_toggleBookmarks(bool)));
@@ -493,7 +493,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
                             "<li>how files are sorted in the list</li>"
                             "<li>types of view, including icon and list</li>"
                             "<li>showing of hidden files</li>"
-                            "<li>the Places navigation panel</li>"
+                            "<li>the Places panel</li>"
                             "<li>file previews</li>"
                             "<li>separating folders from files</li></ul></qt>"));
     menu->addAction(coll->action(QStringLiteral("view menu")));
@@ -501,9 +501,9 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     menu->addAction(coll->action(QStringLiteral("decoration menu")));
     menu->addSeparator();
     menu->addAction(coll->action(QStringLiteral("show hidden")));
+    menu->addSeparator();
     menu->addAction(showSidebarAction);
     menu->addAction(showBookmarksAction);
-    coll->action(QStringLiteral("inline preview"));
     menu->addAction(coll->action(QStringLiteral("preview")));
 
     menu->setDelayed(false);

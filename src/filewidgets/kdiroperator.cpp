@@ -1915,12 +1915,6 @@ void KDirOperator::setupActions()
     d->actionCollection->addAction(QStringLiteral("dirs first"), dirsFirstAction);
     connect(dirsFirstAction, SIGNAL(triggered(bool)), this, SLOT(_k_slotToggleDirsFirst()));
 
-    QActionGroup *sortGroup = new QActionGroup(this);
-    byNameAction->setActionGroup(sortGroup);
-    bySizeAction->setActionGroup(sortGroup);
-    byDateAction->setActionGroup(sortGroup);
-    byTypeAction->setActionGroup(sortGroup);
-
     d->decorationMenu = new KActionMenu(i18n("Icon Position"), this);
     d->actionCollection->addAction(QStringLiteral("decoration menu"), d->decorationMenu);
 
@@ -1970,7 +1964,7 @@ void KDirOperator::setupActions()
     showHiddenAction->setShortcuts({Qt::ALT + Qt::Key_Period, Qt::CTRL + Qt::Key_H, Qt::Key_F8});
     connect(showHiddenAction, SIGNAL(toggled(bool)), SLOT(_k_slotToggleHidden(bool)));
 
-    KToggleAction *previewAction = new KToggleAction(i18n("Show Aside Preview"), this);
+    KToggleAction *previewAction = new KToggleAction(i18n("Show Preview Panel"), this);
     d->actionCollection->addAction(QStringLiteral("preview"), previewAction);
     previewAction->setShortcut(Qt::Key_F11);
     connect(previewAction, SIGNAL(toggled(bool)),
