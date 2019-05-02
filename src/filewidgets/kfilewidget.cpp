@@ -130,6 +130,7 @@ public:
     void appendExtension(QUrl &url);
     void updateLocationEditExtension(const QString &);
     void updateFilter();
+    void updateFilterText();
     QList<QUrl> &parseSelectedUrls();
     /**
      * Parses the string "line" for files. If line doesn't contain any ", the
@@ -590,20 +591,13 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
             this,  SLOT(_k_locationAccepted(QString)));
 
     // the Filter label/edit
-    whatsThisText = i18n("<qt>This is the filter to apply to the file list. "
-                         "File names that do not match the filter will not be shown.<p>"
-                         "You may select from one of the preset filters in the "
-                         "drop down menu, or you may enter a custom filter "
-                         "directly into the text area.</p><p>"
-                         "Wildcards such as * and ? are allowed.</p></qt>");
-    d->filterLabel = new QLabel(i18n("&Filter:"), this);
-    d->filterLabel->setWhatsThis(whatsThisText);
+    d->filterLabel = new QLabel(this);
     d->filterWidget = new KFileFilterCombo(this);
+    d->updateFilterText();
     // Properly let the dialog be resized (to smaller). Otherwise we could have
     // huge dialogs that can't be resized to smaller (it would be as big as the longest
     // item in this combo box). (ereslibre)
     d->filterWidget->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLength);
-    d->filterWidget->setWhatsThis(whatsThisText);
     d->filterLabel->setBuddy(d->filterWidget);
     connect(d->filterWidget, SIGNAL(filterChanged()), SLOT(_k_slotFilterChanged()));
 
@@ -741,6 +735,7 @@ void KFileWidget::setMimeFilter(const QStringList &mimeTypes,
                                  d->operationMode != Saving);
 
     d->updateAutoSelectExtension();
+    d->updateFilterText();
 }
 
 void KFileWidget::clearFilter()
@@ -2095,6 +2090,7 @@ void KFileWidget::setOperationMode(OperationMode mode)
     if (d->ops) {
         d->ops->setIsSaving(mode == Saving);
     }
+    d->updateFilterText();
 }
 
 KFileWidget::OperationMode KFileWidget::operationMode() const
@@ -2795,6 +2791,35 @@ void KFileWidgetPrivate::setNonExtSelection()
         } else {
             locationEdit->lineEdit()->selectAll();
         }
+    }
+}
+
+// Sets the filter text to "File type" if the dialog is saving and a mimetype
+// filter has been set; otherwise, the text is "Filter:"
+void KFileWidgetPrivate::updateFilterText()
+{
+    QString label;
+    QString whatsThisText;
+
+    if (operationMode == KFileWidget::Saving && filterWidget->isMimeFilter()) {
+        label = i18n("&File type:");
+        whatsThisText = i18n("<qt>This is the file type selector. It is used to select the format that the file will be saved as.</qt>");
+    } else {
+        label = i18n("&Filter:");
+        whatsThisText = i18n("<qt>This is the filter to apply to the file list. "
+                         "File names that do not match the filter will not be shown.<p>"
+                         "You may select from one of the preset filters in the "
+                         "drop down menu, or you may enter a custom filter "
+                         "directly into the text area.</p><p>"
+                         "Wildcards such as * and ? are allowed.</p></qt>");
+    }
+
+    if (filterLabel) {
+        filterLabel->setText(label);
+        filterLabel->setWhatsThis(whatsThisText);
+    }
+    if (filterWidget) {
+        filterWidget->setWhatsThis(whatsThisText);
     }
 }
 
