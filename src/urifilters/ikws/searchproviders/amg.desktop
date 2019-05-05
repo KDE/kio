@@ -107,6 +107,7 @@ Query[pl]=https://www.allmusic.com/search/all/\\{@}
 Query[pt]=https://www.allmusic.com/search/all/\\{@}
 Query[pt_BR]=https://www.allmusic.com/search/all/\\{@}
 Query[ru]=https://www.allmusic.com/search/all/\\{@}
+Query[sk]=https://www.allmusic.com/search/all/\\{@}
 Query[sv]=https://www.allmusic.com/search/all/\\{@}
 Query[uk]=https://www.allmusic.com/search/all/\\{@}
 Query[x-test]=xxhttps://www.allmusic.com/search/all/\\{@}xx

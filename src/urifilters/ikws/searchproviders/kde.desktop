@@ -112,6 +112,7 @@ Query[pl]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[pt]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[pt_BR]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[ru]=https://api.kde.org/classmapper.php?class=\\{@}
+Query[sk]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[sv]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[uk]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[x-test]=xxhttps://api.kde.org/classmapper.php?class=\\{@}xx

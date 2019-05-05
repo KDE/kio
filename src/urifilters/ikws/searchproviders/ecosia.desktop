@@ -90,6 +90,7 @@ Query[pl]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[pt]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[pt_BR]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ru]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[sk]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[sv]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[uk]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[x-test]=xxhttps://ecosia.org/search.php?q=\\{@}&meta=normalxx

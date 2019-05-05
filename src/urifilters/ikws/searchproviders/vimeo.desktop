@@ -90,6 +90,7 @@ Query[pl]=https://vimeo.com/search?q=\\{@}
 Query[pt]=https://vimeo.com/search?q=\\{@}
 Query[pt_BR]=https://vimeo.com/search?q=\\{@}
 Query[ru]=https://vimeo.com/search?q=\\{@}
+Query[sk]=https://vimeo.com/search?q=\\{@}
 Query[sv]=https://vimeo.com/search?q=\\{@}
 Query[uk]=http://vimeo.com/search?q=\\{@}
 Query[x-test]=xxhttps://vimeo.com/search?q=\\{@}xx

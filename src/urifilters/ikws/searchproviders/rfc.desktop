@@ -105,6 +105,7 @@ Query[pl]=https://tools.ietf.org/id/\\{@}
 Query[pt]=https://tools.ietf.org/id/\\{@}
 Query[pt_BR]=https://tools.ietf.org/id/\\{@}
 Query[ru]=https://tools.ietf.org/id/\\{@}
+Query[sk]=https://tools.ietf.org/id/\\{@}
 Query[sv]=https://tools.ietf.org/id/\\{@}
 Query[uk]=http://tools.ietf.org/id/\\{@}
 Query[x-test]=xxhttps://tools.ietf.org/id/\\{@}xx

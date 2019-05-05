@@ -60,6 +60,7 @@ Query[pl]=https://www.archlinux.org/packages/?q=\\{@}
 Query[pt]=https://www.archlinux.org/packages/?q=\\{@}
 Query[pt_BR]=https://www.archlinux.org/packages/?q=\\{@}
 Query[ru]=https://www.archlinux.org/packages/?q=\\{@}
+Query[sk]=https://www.archlinux.org/packages/?q=\\{@}
 Query[sv]=https://www.archlinux.org/packages/?q=\\{@}
 Query[uk]=https://www.archlinux.org/packages/?q=\\{@}
 Query[x-test]=xxhttps://www.archlinux.org/packages/?q=\\{@}xx

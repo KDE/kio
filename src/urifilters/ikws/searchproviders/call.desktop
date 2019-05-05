@@ -107,6 +107,7 @@ Query[pl]=https://www.qrz.com/db/\\{@}
 Query[pt]=https://www.qrz.com/db/\\{@}
 Query[pt_BR]=https://www.qrz.com/db/\\{@}
 Query[ru]=https://www.qrz.com/db/\\{@}
+Query[sk]=https://www.qrz.com/db/\\{@}
 Query[sv]=https://www.qrz.com/db/\\{@}
 Query[uk]=https://www.qrz.com/db/\\{@}
 Query[x-test]=xxhttps://www.qrz.com/db/\\{@}xx

@@ -111,6 +111,7 @@ Query[pl]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{
 Query[pt]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[pt_BR]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[ru]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
+Query[sk]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[sv]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[uk]=http://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[x-test]=xxhttps://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}xx

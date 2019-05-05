@@ -105,6 +105,7 @@ Query[pl]=https://bugs.debian.org/\\{@}
 Query[pt]=https://bugs.debian.org/\\{@}
 Query[pt_BR]=https://bugs.debian.org/\\{@}
 Query[ru]=https://bugs.debian.org/\\{@}
+Query[sk]=https://bugs.debian.org/\\{@}
 Query[sv]=https://bugs.debian.org/\\{@}
 Query[uk]=https://bugs.debian.org/\\{@}
 Query[x-test]=xxhttps://bugs.debian.org/\\{@}xx
