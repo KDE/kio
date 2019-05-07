@@ -1,0 +1,107 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian-Latin "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="cache" lang="&language;">
+<title
+>Keš</title>
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Lori</firstname
+> <surname
+>Vots</surname
+></author>
+
+<othercredit role="translator"
+><firstname
+>Dragan</firstname
+><surname
+>Pantelić</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>10. 11. 2016.</date>
+<releaseinfo
+>Radni okviri KDE‑a 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Sistemske postavke</keyword>
+<keyword
+>K‑osvajač</keyword>
+<keyword
+>keš</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Ovim modulom možete upravljati veličinom lokalne fascikle keša koju koristi <application
+>K‑osvajač</application
+>. Imajte u vidu da svaki korisnički nalog na računaru ima sopstvenu fasciklu keša, i da se ne deli sa drugim veb pregledačima, npr. <application
+>Firefoxom</application
+>.</para>
+
+<para
+>Čuvanje lokalnih kopija veb stranica koje ste posećivali dopušta <application
+>K‑osvajaču</application
+> da brzo učita njihove sadržaje pri sledećim posetama. Sadržaj sa izvornog sajta biće potrebno ponovo učitati samo ako se promenio od vaše poslednje posete, ili ako kliknete na dugme za ponovno učitavanje.</para>
+
+<para
+>Ako zaista ne želite da na vašem računaru bude sačuvana ijedna posećena veb stranica, možete isključiti <application
+>K‑osvajačev</application
+> keš na disku pražnjenjem kućice <guilabel
+>Koristi keš</guilabel
+>.</para>
+
+<para
+>Ovde možete podesiti koliko se <application
+>K‑osvajač</application
+> upire da održi keš ažurnim. <guilabel
+>Sinhronizuj keš</guilabel
+> znači da će <application
+>K‑osvajač</application
+> svaki objekat prvo potražiti u kešu, preuzeti ga u keš ako već nije tamo, a zatim prikazati stavku iz keša. <guilabel
+>Koristi keš kada je moguće</guilabel
+> znači da će <application
+>K‑osvajač</application
+> prvo pokušati s kešom, pa ako objekt nije tamo, preuzeće ga neposredno radi prikaza. Uz <guilabel
+>Pregledanje van veze</guilabel
+>, <application
+>K‑osvajač</application
+> će pokušati s kešom, a ako objekat nije tamo, neće ni pokušati da ga preuzme sa Interneta.</para>
+
+<para
+>Veličinu keša možete odrediti upisom broja u polje <guilabel
+>Veličina keša na disku:</guilabel
+>, kao prosečni prostor u kilobajtima koji se može upotrebiti za fasciklu keša. Ako keš isuviše naraste, <application
+>K‑osvajač</application
+> će obrisati starije fajlove da smanji njegovu veličinu.</para>
+
+<para
+>Međutim, ovo je samo prosek, i tokom jedne pregledačke sesije keš se može znatno uvećati.</para>
+
+<para
+>Za pražnjenje keša u bilo kom trenutku možete upotrebiti dugme <guibutton
+>Očisti keš</guibutton
+>.</para>
+
+</article>
