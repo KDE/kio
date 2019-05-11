@@ -60,7 +60,7 @@ public Q_SLOTS: // METHODS
     Q_NOREPLY void setRule(const KSslCertificateRule &rule)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(rule);
+        argumentList << QVariant::fromValue(rule);
         callWithArgumentList(QDBus::Block, QStringLiteral("setRule"),
                              argumentList);
     }
@@ -68,7 +68,7 @@ public Q_SLOTS: // METHODS
     Q_NOREPLY void clearRule(const KSslCertificateRule &rule)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(rule);
+        argumentList << QVariant::fromValue(rule);
         callWithArgumentList(QDBus::Block, QStringLiteral("clearRule__rule"),
                              argumentList);
     }
@@ -76,7 +76,7 @@ public Q_SLOTS: // METHODS
     Q_NOREPLY void clearRule(const QSslCertificate &cert, const QString &hostName)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(cert) << qVariantFromValue(hostName);
+        argumentList << QVariant::fromValue(cert) << QVariant::fromValue(hostName);
         callWithArgumentList(QDBus::Block, QStringLiteral("clearRule__certHost"),
                              argumentList);
     }
@@ -84,7 +84,7 @@ public Q_SLOTS: // METHODS
     QDBusReply<KSslCertificateRule> rule(const QSslCertificate &cert, const QString &hostName)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(cert) << qVariantFromValue(hostName);
+        argumentList << QVariant::fromValue(cert) << QVariant::fromValue(hostName);
         return callWithArgumentList(QDBus::Block, QStringLiteral("rule"),
                                     argumentList);
     }

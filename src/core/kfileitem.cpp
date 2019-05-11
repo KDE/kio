@@ -1344,7 +1344,7 @@ bool KFileItem::operator<(const QUrl &other) const
 
 KFileItem::operator QVariant() const
 {
-    return qVariantFromValue(*this);
+    return QVariant::fromValue(*this);
 }
 
 QString KFileItem::permissionsString() const
