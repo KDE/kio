@@ -72,6 +72,14 @@ using namespace KIO;
 //this will update the report dialog with 5 Hz, I think this is fast enough, aleXXX
 #define REPORT_TIMEOUT 200
 
+#if !defined(NAME_MAX)
+    #if defined(_MAX_FNAME)
+        #define NAME_MAX _MAX_FNAME //For Windows
+    #else
+        #define NAME_MAX 0
+    #endif
+#endif
+
 enum DestinationState {
     DEST_NOT_STATED,
     DEST_IS_DIR,
@@ -813,7 +821,12 @@ void CopyJobPrivate::statCurrentSrc()
                     // Different protocols, we'll create a .desktop file
                     // We have to change the extension anyway, so while we're at it,
                     // name the file like the URL
-                    info.uDest = addPathToUrl(info.uDest, KIO::encodeFileName(m_currentSrcURL.toDisplayString()) + QLatin1String(".desktop"));
+                    QString encodedFilename = KIO::encodeFileName(m_currentSrcURL.toDisplayString());
+                    const int truncatePos = NAME_MAX - (info.uDest.toDisplayString().length() + 8); // length(.desktop) = 8
+                    if (truncatePos > 0) {
+                        encodedFilename.truncate(truncatePos);
+                    }
+                    info.uDest = addPathToUrl(info.uDest, encodedFilename + QLatin1String(".desktop"));
                 }
             }
             files.append(info);   // Files and any symlinks
