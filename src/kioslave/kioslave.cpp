@@ -125,5 +125,15 @@ int main(int argc, char **argv)
 
     int (*func)(int, char *[]) = (int (*)(int, char *[])) sym;
 
-    exit(func(argc - 1, argv + 1)); /* Launch! */
+    // We need argv[0] to remain /path/to/kioslave
+    // so that applicationDirPath() is correct on non-Linux (no /proc)
+    // and we want to skip argv[1] so the kioslave exe is transparent to kdemain.
+    const int newArgc = argc - 1;
+    QVarLengthArray<char*, 5> newArgv(newArgc);
+    newArgv[0] = argv[0];
+    for (int i = 1; i < newArgc; ++i) {
+        newArgv[i] = argv[i+1];
+    }
+
+    exit(func(newArgc, newArgv.data())); /* Launch! */
 }
