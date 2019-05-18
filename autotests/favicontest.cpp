@@ -210,13 +210,13 @@ void FavIconTest::failedDownloadShouldBeRemembered()
 
     // Set icon URL to a non-existing favicon
     KIO::FavIconRequestJob *job = new KIO::FavIconRequestJob(url);
-    job->setIconUrl(QUrl("http://www.davidfaure.fr/favicon.ico"));
+    job->setIconUrl(QUrl("https://kde.org/doesnotexist/favicon.ico"));
     QVERIFY(willDownload(job));
     QVERIFY(!job->exec());
     QVERIFY(job->iconFile().isEmpty());
     qDebug() << job->errorString();
     QCOMPARE(job->error(), int(KIO::ERR_DOES_NOT_EXIST));
-    QCOMPARE(job->errorString(), QStringLiteral("The file or folder http://www.davidfaure.fr/favicon.ico does not exist."));
+    QCOMPARE(job->errorString(), QStringLiteral("The file or folder https://kde.org/doesnotexist/favicon.ico does not exist."));
 
     // Second job should use the cache and not do anything
     KIO::FavIconRequestJob *secondJob = new KIO::FavIconRequestJob(url);
@@ -224,7 +224,7 @@ void FavIconTest::failedDownloadShouldBeRemembered()
     QVERIFY(!secondJob->exec());
     QVERIFY(secondJob->iconFile().isEmpty());
     QCOMPARE(job->error(), int(KIO::ERR_DOES_NOT_EXIST));
-    QCOMPARE(job->errorString(), QStringLiteral("The file or folder http://www.davidfaure.fr/favicon.ico does not exist."));
+    QCOMPARE(job->errorString(), QStringLiteral("The file or folder https://kde.org/doesnotexist/favicon.ico does not exist."));
 }
 
 void FavIconTest::tooBigFaviconShouldAbort()
