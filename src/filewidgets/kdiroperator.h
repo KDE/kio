@@ -550,7 +550,7 @@ public:
     void setupMenu(int whichActions);
 
     /**
-     * Reimplemented - allow dropping of files if @p b is true
+     * Reimplemented - allow dropping of files if @p b is true, defaults to true since 5.59
      * @param b true if the widget should allow dropping of files
      */
     virtual void setAcceptDrops(bool b);

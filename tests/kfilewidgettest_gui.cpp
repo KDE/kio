@@ -31,6 +31,8 @@ int main(int argc, char **argv)
     fileWidget->setAttribute(Qt::WA_DeleteOnClose);
     fileWidget->show();
 
+    QObject::connect(fileWidget, &KFileWidget::destroyed, &app, &QApplication::quit);
+
     return app.exec();
 }
 

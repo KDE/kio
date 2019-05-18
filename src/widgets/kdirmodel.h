@@ -243,6 +243,8 @@ public:
      */
     bool jobTransfersVisible() const;
 
+    Qt::DropActions supportedDropActions() const override;
+
 Q_SIGNALS:
     /**
      * Emitted for each subdirectory that is a parent of a url passed to expandToUrl

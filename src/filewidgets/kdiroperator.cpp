@@ -28,6 +28,7 @@
 #include "kfilemetapreview_p.h"
 #include "kpreviewwidgetbase.h"
 #include "knewfilemenu.h"
+#include <kurlmimedata.h>
 #include "../pathhelpers_p.h"
 
 #include <config-kiofilewidgets.h>
@@ -193,6 +194,8 @@ public:
     bool isSchemeSupported(const QString &scheme) const;
 
     KFile::FileView allViews();
+
+    QMetaObject::Connection m_connection;
 
     // private slots
     void _k_slotDetailedView();
@@ -414,6 +417,7 @@ KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent) :
     d->updateSorting(QDir::Name | QDir::DirsFirst);
 
     setFocusPolicy(Qt::WheelFocus);
+    setAcceptDrops(true);
 }
 
 KDirOperator::~KDirOperator()
@@ -1379,6 +1383,77 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
         }
     }
     break;
+    case QEvent::DragEnter: {
+        // Accepts drops of one file or folder only
+        QDragEnterEvent *evt = static_cast<QDragEnterEvent *>(event);
+        const QList<QUrl> urls = KUrlMimeData::urlsFromMimeData(evt->mimeData(), KUrlMimeData::DecodeOptions::PreferLocalUrls);
+
+        // only one file/folder can be dropped at the moment
+        if (urls.size() != 1) {
+            evt->ignore();
+
+        } else {
+            // mimetype filtering
+            bool mimeFilterPass = true;
+            const QStringList mimeFilters = d->dirLister->mimeFilters();
+
+            if (mimeFilters.size() > 1) {
+                mimeFilterPass = false;
+                const QUrl url = urls.constFirst();
+
+                QMimeDatabase mimeDataBase;
+                QMimeType fileMimeType = mimeDataBase.mimeTypeForUrl(url);
+
+                QRegularExpression regex;
+                for (const auto& mimeFilter : mimeFilters) {
+                    regex.setPattern(mimeFilter);
+                    if (regex.match(fileMimeType.name()).hasMatch()) {   // matches!
+                        mimeFilterPass = true;
+                        break;
+                    }
+                }
+            }
+
+            event->setAccepted(mimeFilterPass);
+        }
+
+        return true;
+    }
+    case QEvent::Drop: {
+        QDropEvent *evt = static_cast<QDropEvent *>(event);
+        const QList<QUrl> urls = KUrlMimeData::urlsFromMimeData(evt->mimeData(), KUrlMimeData::DecodeOptions::PreferLocalUrls);
+
+        const QUrl url = urls.constFirst();
+
+        // stat the url to get details
+        KIO::StatJob *job = KIO::stat(url, KIO::HideProgressInfo);
+        job->exec();
+
+        setFocus();
+
+        KIO::UDSEntry entry = job->statResult();
+
+        if (entry.isDir()) {
+            // if this was a directory
+            setUrl(url, false);
+        } else {
+            // if the current url is not known
+            if (d->dirLister->findByUrl(url).isNull()) {
+                setUrl(url.adjusted(QUrl::RemoveFilename), false);
+
+                // Will set the current item once loading has finished
+                auto urlSetterClosure = [this, url](){
+                    setCurrentItem(url);
+                    QObject::disconnect(d->m_connection);
+                };
+                d->m_connection = connect(this, &KDirOperator::finishedLoading, this, urlSetterClosure);
+            } else {
+                setCurrentItem(url);
+            }
+        }
+        evt->accept();
+        return true;
+    }
     default:
         break;
     }
@@ -1461,12 +1536,17 @@ QAbstractItemView *KDirOperator::createView(QWidget *parent, KFile::FileView vie
     return itemView;
 }
 
-void KDirOperator::setAcceptDrops(bool b)
+void KDirOperator::setAcceptDrops(bool acceptsDrops)
 {
-    // TODO:
-    //if (d->fileView)
-    //   d->fileView->widget()->setAcceptDrops(b);
-    QWidget::setAcceptDrops(b);
+    QWidget::setAcceptDrops(acceptsDrops);
+    if (view()) {
+        view()->setAcceptDrops(acceptsDrops);
+        if (acceptsDrops) {
+            view()->installEventFilter(this);
+        } else {
+            view()->removeEventFilter(this);
+        }
+    }
 }
 
 void KDirOperator::setDropOptions(int options)
@@ -1502,6 +1582,11 @@ void KDirOperator::setView(KFile::FileView viewKind)
 
     QAbstractItemView *newView = createView(this, viewKind);
     setView(newView);
+
+    if (acceptDrops()) {
+        newView->setAcceptDrops(true);
+        newView->installEventFilter(this);
+    }
 
     d->_k_togglePreview(preview);
 }

@@ -419,6 +419,12 @@ void KDirModel::setDirLister(KDirLister *dirLister)
         [this](const QUrl &oldUrl, const QUrl &newUrl){d->_k_slotRedirection(oldUrl, newUrl);} );
 }
 
+Qt::DropActions KDirModel::supportedDropActions() const
+{
+    return Qt::CopyAction | Qt::MoveAction | Qt::LinkAction | Qt::IgnoreAction;
+}
+
+
 KDirLister *KDirModel::dirLister() const
 {
     return d->m_dirLister;

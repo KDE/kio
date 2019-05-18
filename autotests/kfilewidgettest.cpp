@@ -32,6 +32,10 @@
 #include <KFileFilterCombo>
 #include "kiotesthelper.h" // createTestFile
 
+#include <QAbstractItemView>
+#include <QDropEvent>
+#include <QMimeData>
+
 /**
  * Unit test for KFileWidget
  */
@@ -363,6 +367,79 @@ private Q_SLOTS:
         fw.filterWidget()->setCurrentFilter("*.txt|Txt");
         QCOMPARE(fw.locationEdit()->currentText(), QStringLiteral("directory"));
         QCOMPARE(fw.filterWidget()->currentFilter(), QStringLiteral("*.txt"));
+    }
+
+    void testDropFile_data()
+    {
+        QTest::addColumn<QString>("dir");
+        QTest::addColumn<QString>("fileName");
+        QTest::addColumn<QString>("expectedCurrentText");
+
+        QTest::newRow("some.txt")
+            << ""
+            << "some.txt"
+            << "some.txt";
+
+        QTest::newRow("subdir/some.txt")
+            << "subdir"
+            << "subdir/some.txt"
+            << "some.txt";
+    }
+
+    void testDropFile()
+    {
+        QFETCH(QString, dir);
+        QFETCH(QString, fileName);
+        QFETCH(QString, expectedCurrentText);
+
+        // Use a temporary directory since the presence of existing files
+        // influences whether an extension is automatically appended.
+        QTemporaryDir tempDir;
+        QUrl dirUrl = QUrl::fromLocalFile(tempDir.path());
+        const QUrl fileUrl = QUrl::fromLocalFile(tempDir.filePath(fileName));
+        if (!dir.isEmpty()) {
+            createTestDirectory(tempDir.filePath(dir));
+            dirUrl = QUrl::fromLocalFile(tempDir.filePath(dir));
+        }
+        createTestFile(tempDir.filePath(fileName));
+
+        KFileWidget fileWidget(QUrl::fromLocalFile(tempDir.path()));
+        fileWidget.setOperationMode(KFileWidget::Saving);
+        fileWidget.setMode(KFile::File);
+        fileWidget.show();
+        fileWidget.activateWindow();
+        QVERIFY(QTest::qWaitForWindowActive(&fileWidget));
+
+        QMimeData *mimeData = new QMimeData();
+        mimeData->setUrls(QList<QUrl>() << fileUrl);
+
+        QDragEnterEvent event1(QPoint(), Qt::DropAction::MoveAction, mimeData, Qt::MouseButton::LeftButton, Qt::KeyboardModifier::NoModifier);
+
+        QVERIFY(qApp->sendEvent(fileWidget.dirOperator()->view()->viewport(), &event1));
+
+        // Fake drop
+        QDropEvent event(QPoint(), Qt::DropAction::MoveAction, mimeData, Qt::MouseButton::LeftButton, Qt::KeyboardModifier::NoModifier);
+
+        QVERIFY(qApp->sendEvent(fileWidget.dirOperator()->view()->viewport(), &event));
+
+        // QVERIFY(QTest::qWaitForWindowActive(&fileWidget));
+
+        // once we drop a file the dirlister scans the dir
+        // wait a bit to the dirlister time to finish
+        QTest::qWait(100);
+
+        // Verify the expected populated name.
+        QCOMPARE(fileWidget.baseUrl().adjusted(QUrl::StripTrailingSlash), dirUrl);
+        QCOMPARE(fileWidget.locationEdit()->currentText(), expectedCurrentText);
+
+        // QFileDialog ends up calling KDEPlatformFileDialog::selectedFiles()
+        // which calls KFileWidget::selectedUrls().
+        // Accept the filename to ensure that a filename is selected.
+        connect(&fileWidget, &KFileWidget::accepted, &fileWidget, &KFileWidget::accept);
+        QTest::keyClick(fileWidget.locationEdit(), Qt::Key_Return);
+        QList<QUrl> urls = fileWidget.selectedUrls();
+        QCOMPARE(urls.size(), 1);
+        QCOMPARE(urls[0], fileUrl);
     }
 };
 
