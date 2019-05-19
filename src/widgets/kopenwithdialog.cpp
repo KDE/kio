@@ -270,7 +270,7 @@ void KApplicationModel::fetchAll(const QModelIndex &parent)
 
     int childCount = rowCount(parent);
     for (int i = 0; i < childCount; i++) {
-        const QModelIndex &child = parent.child(i, 0);
+        const QModelIndex &child = index(i, 0, parent);
         // Recursively call the function for each child node.
         fetchAll(child);
     }
@@ -831,10 +831,11 @@ void KOpenWithDialog::slotTextChanged()
     //If the search string doesn't match anything there will be no nodes to expand
     if (d->edit->text().size() > 2) {
         d->view->expandAll();
+        QAbstractItemModel *model = d->view->model();
         //Automatically select the first result (first leaf node) when the filter has match
-        QModelIndex leafNodeIdx = d->view->model()->index(0, 0);
-        while (d->view->model()->hasChildren(leafNodeIdx)) {
-            leafNodeIdx = leafNodeIdx.child(0,0);
+        QModelIndex leafNodeIdx = model->index(0, 0);
+        while (model->hasChildren(leafNodeIdx)) {
+            leafNodeIdx = model->index(0, 0, leafNodeIdx);
         }
         d->view->setCurrentIndex(leafNodeIdx);
     } else {

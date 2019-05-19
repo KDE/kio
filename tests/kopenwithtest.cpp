@@ -55,7 +55,7 @@ int main(int argc, char **argv)
 
     // Test with a mimetype
     QString mimetype = QStringLiteral("text/plain");
-    dlg = new KOpenWithDialog(mimetype, QStringLiteral("kedit"), nullptr);
+    dlg = new KOpenWithDialog(mimetype, QStringLiteral("kwrite"), nullptr);
     if (dlg->exec()) {
         qDebug() << "Dialog ended successfully\ntext: " << dlg->text();
     } else {
