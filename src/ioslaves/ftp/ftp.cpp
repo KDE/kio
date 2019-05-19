@@ -1081,8 +1081,8 @@ bool Ftp::ftpOpenCommand(const char *_command, const QString &_path, char _mode,
         if (_offset > 0 && qstrcmp(_command, "retr") == 0 && (m_iRespType == 4)) {
             errorcode = ERR_CANNOT_RESUME;
         }
-        // The error here depends on the command
-        errormessage = _path;
+        // The error code here depends on the command
+        errormessage = _path + i18n("\nThe server said: \"%1\"", QString::fromUtf8(ftpResponse(0)).trimmed());
     }
 
     else {
@@ -2354,16 +2354,10 @@ void Ftp::copy(const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags
         sCopyFile = src.toLocalFile();
         qCDebug(KIO_FTP) << "local file" << sCopyFile << "-> ftp" << dest.path();
         cs = ftpCopyPut(iError, iCopyFile, sCopyFile, dest, permissions, flags);
-        if (cs == statusServerError) {
-            sCopyFile = dest.toString();
-        }
     } else if (!bSrcLocal && bDestLocal) {          // Ftp -> File
         sCopyFile = dest.toLocalFile();
         qCDebug(KIO_FTP) << "ftp" << src.path() << "-> local file" << sCopyFile;
         cs = ftpCopyGet(iError, iCopyFile, sCopyFile, src, permissions, flags);
-        if (cs == statusServerError) {
-            sCopyFile = src.toString();
-        }
     } else {
         error(ERR_UNSUPPORTED_ACTION, QString());
         return;
@@ -2374,10 +2368,12 @@ void Ftp::copy(const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags
         QT_CLOSE(iCopyFile);
     }
     ftpCloseCommand();                        // must close command!
-    if (iError) {
-        error(iError, sCopyFile);
-    } else {
-        finished();
+    if (cs != statusServerError) {
+        if (iError) {
+            error(iError, sCopyFile);
+        } else {
+            finished();
+        }
     }
 }
 
