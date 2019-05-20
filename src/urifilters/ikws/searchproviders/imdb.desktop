@@ -105,6 +105,7 @@ Query[fr]=https://imdb.com/find?s=all&q=\\{@}
 Query[gl]=https://imdb.com/find?s=all&q=\\{@}
 Query[id]=https://imdb.com/find?s=all&q=\\{@}
 Query[it]=https://imdb.com/find?s=all&q=\\{@}
+Query[ko]=https://imdb.com/find?s=all&q=\\{@}
 Query[nl]=https://imdb.com/find?s=all&q=\\{@}
 Query[nn]=https://imdb.com/find?s=all&q=\\{@}
 Query[pl]=https://imdb.com/find?s=all&q=\\{@}

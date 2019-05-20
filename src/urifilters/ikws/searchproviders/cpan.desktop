@@ -103,6 +103,7 @@ Query[fr]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[gl]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[id]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[it]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[ko]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[nl]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[nn]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[pl]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
