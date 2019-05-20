@@ -286,6 +286,12 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
                                                 QStringLiteral("Desktop"), I18N_NOOP2("KFile System Bookmarks", "Desktop"),
                                                 QUrl::fromLocalFile(desktopFolder), QStringLiteral("user-desktop"));
         }
+        const QString documentsFolder = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+        if (QDir(documentsFolder).exists()) {
+            KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
+                                                QStringLiteral("Documents"), I18N_NOOP2("KFile System Bookmarks", "Documents"),
+                                                QUrl::fromLocalFile(documentsFolder), QStringLiteral("folder-documents"));
+        }
         const QString downloadFolder = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
         if (QDir(downloadFolder).exists()) {
             KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
