@@ -504,7 +504,7 @@ void TestTrash::trashSymlink(const QString &origFilePath, const QString &fileId,
 
     QFileInfo files(m_trashDir + QLatin1String("/files/") + fileId);
     QVERIFY(files.isSymLink());
-    QVERIFY(files.readLink() == QFile::decodeName(target));
+    QVERIFY(files.symLinkTarget() == QFile::decodeName(target));
     QVERIFY(!QFile::exists(origFilePath));
 }
 

@@ -135,7 +135,7 @@ class CipherCc
 public:
     CipherCc()
     {
-        foreach (const QSslCipher &c, QSslSocket::supportedCiphers()) {
+        foreach (const QSslCipher &c, QSslConfiguration::supportedCiphers()) {
             allCiphers.insert(c.name(), c);
         }
     }
@@ -406,8 +406,7 @@ public:
     void maybeLoadCertificates()
     {
         if (!certificatesLoaded) {
-            sock.setCaCertificates(KSslCertificateManager::self()->caCertificates());
-            certificatesLoaded = true;
+            q->setCaCertificates(KSslCertificateManager::self()->caCertificates());
         }
     }
 
@@ -683,7 +682,7 @@ void KTcpSocket::addCaCertificates(const QList<QSslCertificate> &certificates)
 QList<QSslCertificate> KTcpSocket::caCertificates() const
 {
     d->maybeLoadCertificates();
-    return d->sock.caCertificates();
+    return d->sock.sslConfiguration().caCertificates();
 }
 
 QList<KSslCipher> KTcpSocket::ciphers() const
@@ -721,7 +720,9 @@ KSslCipher KTcpSocket::sessionCipher() const
 
 void KTcpSocket::setCaCertificates(const QList<QSslCertificate> &certificates)
 {
-    d->sock.setCaCertificates(certificates);
+    QSslConfiguration configuration = d->sock.sslConfiguration();
+    configuration.setCaCertificates(certificates);
+    d->sock.setSslConfiguration(configuration);
     d->certificatesLoaded = true;
 }
 
@@ -733,7 +734,9 @@ void KTcpSocket::setCiphers(const QList<KSslCipher> &ciphers)
     foreach (const KSslCipher &c, d->ciphers) {
         cl.append(d->ccc.converted(c));
     }
-    d->sock.setCiphers(cl);
+    QSslConfiguration configuration = d->sock.sslConfiguration();
+    configuration.setCiphers(cl);
+    d->sock.setSslConfiguration(configuration);
 }
 
 void KTcpSocket::setLocalCertificate(const QSslCertificate &certificate)
@@ -1046,7 +1049,7 @@ int KSslCipher::usedBits() const
 QList<KSslCipher> KSslCipher::supportedCiphers()
 {
     QList<KSslCipher> ret;
-    const QList<QSslCipher> candidates = QSslSocket::supportedCiphers();
+    const QList<QSslCipher> candidates = QSslConfiguration::supportedCiphers();
     ret.reserve(candidates.size());
     for (const QSslCipher &c : candidates) {
         ret.append(KSslCipher(c));
