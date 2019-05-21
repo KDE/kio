@@ -22,14 +22,9 @@
 // std
 #include <time.h>
 
-#ifndef Q_OS_WIN
-#include <sys/utsname.h>
-#else
-#include <QSysInfo>
-#endif
-
 // Qt
 #include <QLocale>
+#include <QSysInfo>
 
 // KDE
 #include <kservicetypetrader.h>
@@ -95,19 +90,10 @@ void UserAgentInfo::parseDescription()
 
     if ( (*it)->property(QStringLiteral("X-KDE-UA-DYNAMIC-ENTRY")).toBool() )
     {
-#ifndef Q_OS_WIN
-      struct utsname utsn;
-      uname( &utsn );
-
-      tmp.replace( QFL("appSysName"), QString::fromUtf8(utsn.sysname) );
-      tmp.replace( QFL("appSysRelease"), QString::fromUtf8(utsn.release) );
-      tmp.replace( QFL("appMachineType"), QString::fromUtf8(utsn.machine) );
-#else
-      tmp.replace( QFL("appSysName"),  QLatin1String("Windows") );
-      // TODO: maybe we can use QSysInfo also on linux?
+      tmp.replace( QFL("appSysName"),   QSysInfo::productType() );
       tmp.replace( QFL("appSysRelease"), QSysInfo::kernelVersion() );
       tmp.replace( QFL("appMachineType"), QSysInfo::currentCpuArchitecture() );
-#endif
+
       QStringList languageList = QLocale().uiLanguages();
       if ( !languageList.isEmpty() )
       {
