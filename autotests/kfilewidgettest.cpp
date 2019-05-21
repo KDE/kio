@@ -26,6 +26,7 @@
 #include <QStandardPaths>
 
 #include <kdiroperator.h>
+#include <KFileFilterCombo>
 #include <klocalizedstring.h>
 #include <kurlnavigator.h>
 #include <KUrlComboBox>
@@ -66,6 +67,68 @@ private Q_SLOTS:
         }
         Q_ASSERT(false);
         return nullptr;
+    }
+
+    void testFilterCombo()
+    {
+        KFileWidget fw(QUrl(QStringLiteral("kfiledialog:///SaveDialog")), nullptr);
+        fw.setOperationMode(KFileWidget::Saving);
+        fw.setMode(KFile::File);
+
+        fw.setFilter(QStringLiteral(
+            "*.xml *.a|Word 2003 XML (.xml)\n"
+            "*.odt|ODF Text Document (.odt)\n"
+            "*.xml *.b|DocBook (.xml)\n"
+            "*|Raw (*)"));
+
+        // default filter is selected
+        QCOMPARE(fw.currentFilter(), QStringLiteral("*.xml *.a"));
+
+        // setUrl runs with blocked signals, so use setUrls.
+        // auto-select ODT filter via filename
+        fw.locationEdit()->setUrls(QStringList(QStringLiteral("test.odt")));
+        QCOMPARE(fw.currentFilter(), QStringLiteral("*.odt"));
+        QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.odt"));
+
+        // select 2nd duplicate XML filter (see bug 407642)
+        fw.filterWidget()->setCurrentFilter("*.xml *.b|DocBook (.xml)");
+        QCOMPARE(fw.currentFilter(), QStringLiteral("*.xml *.b"));
+        QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.xml"));
+
+        // keep filter after file change with same extension
+        fw.locationEdit()->setUrls(QStringList(QStringLiteral("test2.xml")));
+        QCOMPARE(fw.currentFilter(), QStringLiteral("*.xml *.b"));
+        QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test2.xml"));
+
+        // back to the non-xml / ODT filter
+        fw.locationEdit()->setUrls(QStringList(QStringLiteral("test.odt")));
+        QCOMPARE(fw.currentFilter(), QStringLiteral("*.odt"));
+        QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.odt"));
+
+        // auto-select 1st XML filter
+        fw.locationEdit()->setUrls(QStringList(QStringLiteral("test.xml")));
+        QCOMPARE(fw.currentFilter(), QStringLiteral("*.xml *.a"));
+        QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.xml"));
+
+        // select Raw '*' filter
+        fw.filterWidget()->setCurrentFilter("*|Raw (*)");
+        QCOMPARE(fw.currentFilter(), QStringLiteral("*"));
+        QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.xml"));
+
+        // keep Raw '*' filter with matching file extension
+        fw.locationEdit()->setUrls(QStringList(QStringLiteral("test.odt")));
+        QCOMPARE(fw.currentFilter(), QStringLiteral("*"));
+        QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.odt"));
+
+        // keep Raw '*' filter with non-matching file extension
+        fw.locationEdit()->setUrls(QStringList(QStringLiteral("test.core")));
+        QCOMPARE(fw.currentFilter(), QStringLiteral("*"));
+        QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.core"));
+
+        // select 2nd XML filter
+        fw.filterWidget()->setCurrentFilter("*.xml *.b|DocBook (.xml)");
+        QCOMPARE(fw.currentFilter(), QStringLiteral("*.xml *.b"));
+        QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.xml"));
     }
 
     void testFocusOnLocationEdit()

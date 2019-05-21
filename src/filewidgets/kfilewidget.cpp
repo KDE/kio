@@ -129,6 +129,7 @@ public:
     void setLocationText(const QList<QUrl> &);
     void appendExtension(QUrl &url);
     void updateLocationEditExtension(const QString &);
+    QString findMatchingFilter(const QString &filter, const QString &filename) const;
     void updateFilter();
     void updateFilterText();
     QList<QUrl> &parseSelectedUrls();
@@ -2452,6 +2453,19 @@ void KFileWidgetPrivate::updateLocationEditExtension(const QString &lastExtensio
     }
 }
 
+QString KFileWidgetPrivate::findMatchingFilter(const QString &filter, const QString &filename) const
+{
+    const QStringList patterns = filter.left(filter.indexOf(QLatin1Char('|'))).split(QLatin1Char(' '), QString::SkipEmptyParts);       // '*.foo *.bar|Foo type' -> '*.foo', '*.bar'
+    for (const QString &p : patterns) {
+        QRegExp rx(p);
+        rx.setPatternSyntax(QRegExp::Wildcard);
+        if (rx.exactMatch(filename)) {
+            return p;
+        }
+    }
+    return QString();
+}
+
 // Updates the filter if the extension of the filename specified in d->locationEdit is changed
 // (this prevents you from accidently saving "file.kwd" as RTF, for example)
 void KFileWidgetPrivate::updateFilter()
@@ -2475,17 +2489,17 @@ void KFileWidgetPrivate::updateFilter()
             }
         } else {
             QString filename = urlStr.mid(urlStr.lastIndexOf(QLatin1Char('/')) + 1);     // only filename
+            // accept any match to honor the user's selection; see later code handling the "*" match
+            if (!findMatchingFilter(filterWidget->currentFilter(), filename).isEmpty()) {
+                return;
+            }
             foreach (const QString &filter, filterWidget->filters()) {
-                const QStringList patterns = filter.left(filter.indexOf(QLatin1Char('|'))).split(QLatin1Char(' '), QString::SkipEmptyParts);       // '*.foo *.bar|Foo type' -> '*.foo', '*.bar'
-                for (const QString &p : patterns) {
-                    QRegExp rx(p);
-                    rx.setPatternSyntax(QRegExp::Wildcard);
-                    if (rx.exactMatch(filename)) {
-                        if (p != QLatin1String("*")) {   // never match the catch-all filter
-                            filterWidget->setCurrentFilter(filter);
-                        }
-                        return; // do not repeat, could match a later filter
+                QString match = findMatchingFilter(filter, filename);
+                if (!match.isEmpty()) {
+                    if (match != QLatin1String("*")) {   // never match the catch-all filter
+                        filterWidget->setCurrentFilter(filter);
                     }
+                    return; // do not repeat, could match a later filter
                 }
             }
         }
