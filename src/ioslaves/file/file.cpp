@@ -33,6 +33,10 @@
 
 #include "kioglobal_p.h"
 
+#ifdef Q_OS_UNIX
+#include "legacycodec.h"
+#endif
+
 #include <assert.h>
 #include <errno.h>
 #ifdef Q_OS_WIN
@@ -105,6 +109,10 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
         fprintf(stderr, "Usage: kio_file protocol domain-socket1 domain-socket2\n");
         exit(-1);
     }
+
+#ifdef Q_OS_UNIX
+    LegacyCodec codec;
+#endif
 
     FileProtocol slave(argv[2], argv[3]);
 

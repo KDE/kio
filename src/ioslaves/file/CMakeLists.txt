@@ -8,7 +8,7 @@ include(ConfigureChecks.cmake)
 if(WIN32)
   set(kio_file_PART_SRCS file.cpp file_win.cpp )
 else()
-  set(kio_file_PART_SRCS file.cpp file_unix.cpp fdreceiver.cpp )
+  set(kio_file_PART_SRCS file.cpp file_unix.cpp fdreceiver.cpp legacycodec.cpp )
 endif()
 
 find_package(ACL)
