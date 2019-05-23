@@ -135,5 +135,5 @@ int main(int argc, char **argv)
         newArgv[i] = argv[i+1];
     }
 
-    exit(func(newArgc, newArgv.data())); /* Launch! */
+    return func(newArgc, newArgv.data()); /* Launch! */
 }
