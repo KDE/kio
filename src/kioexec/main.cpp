@@ -210,7 +210,7 @@ void KIOExec::slotRunApp()
     KIO::DesktopExecParser execParser(service, list);
     QStringList params = execParser.resultingArguments();
 
-    qDebug() << "EXEC " << params.join(QLatin1Char(' '));
+    qDebug() << "EXEC" << params.join(QLatin1Char(' '));
 
     // propagate the startup identification to the started process
     KStartupInfoId id;
@@ -259,12 +259,16 @@ void KIOExec::slotRunApp()
 
         if ((uploadChanges || mTempFiles) && exit_code == 0) {            // Wait for a reasonable time so that even if the application forks on startup (like OOo or amarok)
             // it will have time to start up and read the file before it gets deleted. #130709.
-            qDebug() << "sleeping...";
-            QThread::currentThread()->sleep(180); // 3 mn
+            const int sleepSecs = 180;
+            qDebug() << "sleeping for" << sleepSecs << "seconds before deleting file...";
+            QThread::currentThread()->sleep(sleepSecs);
             const QString parentDir = info.path();
-            qDebug() << "about to delete" << parentDir << "containing" << info.fileName();
+            qDebug() << sleepSecs << "seconds have passed, deleting" << info.filePath();
             QFile(QFile::encodeName(src)).remove();
-            QDir().rmdir(parentDir);
+            // NOTE: this is not necessarily a temporary directory.
+            if (QDir().rmdir(parentDir)) {
+                qDebug() << "Removed empty parent directory" << parentDir;
+            }
         }
     }
 
