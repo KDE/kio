@@ -37,6 +37,8 @@
 #include <QHBoxLayout>
 #include <QMimeData>
 #include <QtGlobal>
+#include <QMenu>
+#include <QAction>
 
 class KUrlDragPushButton : public QPushButton
 {
@@ -87,7 +89,8 @@ class Q_DECL_HIDDEN KUrlRequester::KUrlRequesterPrivate
 {
 public:
     explicit KUrlRequesterPrivate(KUrlRequester *parent)
-        : m_parent(parent),
+        : m_fileDialogModeWasDirAndFile(false),
+          m_parent(parent),
           edit(nullptr),
           combo(nullptr),
           fileDialogMode(KFile::File | KFile::ExistingOnly | KFile::LocalOnly),
@@ -207,11 +210,12 @@ public:
     static void applyFileMode(QFileDialog *dlg, KFile::Modes m, QFileDialog::AcceptMode acceptMode)
     {
         QFileDialog::FileMode fileMode;
+        bool dirsOnly = false;
         if (m & KFile::Directory) {
             fileMode = QFileDialog::Directory;
             if ((m & KFile::File) == 0 &&
                     (m & KFile::Files) == 0) {
-                dlg->setOption(QFileDialog::ShowDirsOnly, true);
+                dirsOnly = true;
             }
         } else if (m & KFile::Files &&
                    m & KFile::ExistingOnly) {
@@ -225,6 +229,7 @@ public:
 
         dlg->setFileMode(fileMode);
         dlg->setAcceptMode(acceptMode);
+        dlg->setOption(QFileDialog::ShowDirsOnly, dirsOnly);
     }
 
     // Converts from "*.foo *.bar|Comment" to "Comment (*.foo *.bar)"
@@ -247,6 +252,35 @@ public:
         return QFileDialog::getExistingDirectoryUrl(m_parent, QString(), openUrl, QFileDialog::ShowDirsOnly);
     }
 
+    void createFileDialog()
+    {
+        //Creates the fileDialog if it doesn't exist yet
+        QFileDialog *dlg = m_parent->fileDialog();
+
+        if (!url().isEmpty() && !url().isRelative()) {
+            QUrl u(url());
+            // If we won't be able to list it (e.g. http), then don't try :)
+            if (KProtocolManager::supportsListing(u)) {
+                dlg->selectUrl(u);
+            }
+        } else {
+            dlg->setDirectoryUrl(m_startDir);
+        }
+
+        dlg->setAcceptMode(fileDialogAcceptMode);
+
+        //Update the file dialog window modality
+        if (dlg->windowModality() != fileDialogModality) {
+            dlg->setWindowModality(fileDialogModality);
+        }
+
+        if (fileDialogModality == Qt::NonModal) {
+            dlg->show();
+        } else {
+            dlg->exec();
+        }
+    }
+
     // slots
     void _k_slotUpdateUrl();
     void _k_slotOpenDialog();
@@ -254,6 +288,7 @@ public:
 
     QUrl m_startDir;
     bool m_startDirCustomized;
+    bool m_fileDialogModeWasDirAndFile;
     KUrlRequester * const m_parent; // TODO: rename to 'q'
     KLineEdit *edit;
     KComboBox *combo;
@@ -405,10 +440,11 @@ void KUrlRequester::KUrlRequesterPrivate::_k_slotOpenDialog()
             return;
         }
 
-    if (((fileDialogMode & KFile::Directory) && !(fileDialogMode & KFile::File)) ||
-            /* catch possible fileDialog()->setMode( KFile::Directory ) changes */
-            (myFileDialog && (myFileDialog->fileMode() == QFileDialog::Directory &&
-                              myFileDialog->testOption(QFileDialog::ShowDirsOnly)))) {
+    if (!m_fileDialogModeWasDirAndFile &&
+            (((fileDialogMode & KFile::Directory) && !(fileDialogMode & KFile::File)) ||
+             /* catch possible fileDialog()->setMode( KFile::Directory ) changes */
+             (myFileDialog && (myFileDialog->fileMode() == QFileDialog::Directory &&
+                               myFileDialog->testOption(QFileDialog::ShowDirsOnly))))) {
         const QUrl openUrl = (!m_parent->url().isEmpty() && !m_parent->url().isRelative())
                              ? m_parent->url() : m_startDir;
 
@@ -428,31 +464,33 @@ void KUrlRequester::KUrlRequesterPrivate::_k_slotOpenDialog()
     } else {
         emit m_parent->openFileDialog(m_parent);
 
-        //Creates the fileDialog if it doesn't exist yet
-        QFileDialog *dlg = m_parent->fileDialog();
+        if (((fileDialogMode & KFile::Directory) && (fileDialogMode & KFile::File)) || m_fileDialogModeWasDirAndFile) {
+            QMenu *dirOrFileMenu = new QMenu();
+            QAction *fileAction = new QAction(QIcon::fromTheme(QStringLiteral("document-new")), i18n("File"));
+            QAction *dirAction = new QAction(QIcon::fromTheme(QStringLiteral("folder-new")), i18n("Directory"));
+            dirOrFileMenu->addAction(fileAction);
+            dirOrFileMenu->addAction(dirAction);
 
-        if (!url().isEmpty() && !url().isRelative()) {
-            QUrl u(url());
-            // If we won't be able to list it (e.g. http), then don't try :)
-            if (KProtocolManager::supportsListing(u)) {
-                dlg->selectUrl(u);
-            }
-        } else {
-            dlg->setDirectoryUrl(m_startDir);
+            connect(fileAction, &QAction::triggered, [this]() {
+                fileDialogMode = KFile::File;
+                applyFileMode(m_parent->fileDialog(), fileDialogMode, fileDialogAcceptMode);
+                m_fileDialogModeWasDirAndFile = true;
+                createFileDialog();
+            });
+
+            connect(dirAction, &QAction::triggered, [this]() {
+                fileDialogMode = KFile::Directory;
+                applyFileMode(m_parent->fileDialog(), fileDialogMode, fileDialogAcceptMode);
+                m_fileDialogModeWasDirAndFile = true;
+                createFileDialog();
+            });
+
+            dirOrFileMenu->exec(m_parent->mapToGlobal(QPoint(m_parent->width(), m_parent->height())));
+
+            return;
         }
 
-        dlg->setAcceptMode(fileDialogAcceptMode);
-
-        //Update the file dialog window modality
-        if (dlg->windowModality() != fileDialogModality) {
-            dlg->setWindowModality(fileDialogModality);
-        }
-
-        if (fileDialogModality == Qt::NonModal) {
-            dlg->show();
-        } else {
-            dlg->exec();
-        }
+        createFileDialog();
     }
 }
 
@@ -538,6 +576,13 @@ QStringList KUrlRequester::mimeTypeFilters() const
 #ifndef KIOWIDGETS_NO_DEPRECATED
 QFileDialog *KUrlRequester::fileDialog() const
 {
+    if (d->myFileDialog &&
+            (   (d->myFileDialog->fileMode() == QFileDialog::Directory && !(d->fileDialogMode & KFile::Directory))
+             || (d->myFileDialog->fileMode() != QFileDialog::Directory &&  (d->fileDialogMode & KFile::Directory)))) {
+        delete d->myFileDialog;
+        d->myFileDialog = nullptr;
+    }
+
     if (!d->myFileDialog) {
         d->myFileDialog = new QFileDialog(window(), windowTitle());
         if (!d->mimeTypeFilters.isEmpty()) {
