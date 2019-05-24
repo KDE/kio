@@ -424,8 +424,8 @@ void Slave::kill()
 {
     Q_D(Slave);
     d->dead = true; // OO can be such simple.
-    /*qDebug() << "killing slave pid" << d->m_pid
-                 << "(" << QString(d->m_protocol) + "://" + d->m_host << ")";*/
+    //qDebug() << "killing slave pid" << d->m_pid
+    //         << "(" << d->m_protocol + QLatin1String("://") + d->m_host << ")";
     if (d->m_pid) {
         KIOPrivate::sendTerminateSignal(d->m_pid);
         d->m_pid = 0;
@@ -521,7 +521,9 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
             return nullptr;
         }
 
-        QProcess::startDetached(kioslaveExecutable, args);
+        qint64 pid = 0;
+        QProcess::startDetached(kioslaveExecutable, args, QString(), &pid);
+        slave->setPID(pid);
 
         return slave;
     }
