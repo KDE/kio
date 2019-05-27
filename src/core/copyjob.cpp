@@ -821,12 +821,13 @@ void CopyJobPrivate::statCurrentSrc()
                     // Different protocols, we'll create a .desktop file
                     // We have to change the extension anyway, so while we're at it,
                     // name the file like the URL
-                    QString encodedFilename = KIO::encodeFileName(m_currentSrcURL.toDisplayString());
+                    QByteArray encodedFilename = QFile::encodeName(m_currentSrcURL.toDisplayString());
                     const int truncatePos = NAME_MAX - (info.uDest.toDisplayString().length() + 8); // length(.desktop) = 8
                     if (truncatePos > 0) {
                         encodedFilename.truncate(truncatePos);
                     }
-                    info.uDest = addPathToUrl(info.uDest, encodedFilename + QLatin1String(".desktop"));
+                    const QString decodedFilename = QFile::decodeName(encodedFilename);
+                    info.uDest = addPathToUrl(info.uDest, KIO::encodeFileName(decodedFilename) + QLatin1String(".desktop"));
                 }
             }
             files.append(info);   // Files and any symlinks
