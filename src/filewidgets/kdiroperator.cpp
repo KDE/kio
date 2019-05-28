@@ -23,6 +23,7 @@
 #include <kiconloader.h>
 #include "kdirmodel.h"
 #include "kdiroperatordetailview_p.h"
+#include "kdiroperatoriconview_p.h"
 #include "kdirsortfilterproxymodel.h"
 #include "kfileitem.h"
 #include "kfilemetapreview_p.h"
@@ -38,9 +39,7 @@
 #include <QHeaderView>
 #include <QListView>
 #include <QMenu>
-#include <QMimeData>
 #include <QProgressBar>
-#include <QScrollBar>
 #include <QSplitter>
 #include <QWheelEvent>
 #include <QTimer>
@@ -70,96 +69,6 @@ template class QHash<QString, KFileItem>;
 // sorting mode.
 static const int QDirSortMask = QDir::SortByMask | QDir::Type;
 
-/**
- * Default icon view for KDirOperator using
- * custom view options.
- */
-class KDirOperatorIconView : public QListView
-{
-    Q_OBJECT
-public:
-    KDirOperatorIconView(KDirOperator *dirOperator, QWidget *parent = nullptr);
-    virtual ~KDirOperatorIconView();
-
-protected:
-    QStyleOptionViewItem viewOptions() const override;
-    void dragEnterEvent(QDragEnterEvent *event) override;
-    void mousePressEvent(QMouseEvent *event) override;
-    void wheelEvent(QWheelEvent *event) override;
-
-private:
-    KDirOperator *ops;
-};
-
-KDirOperatorIconView::KDirOperatorIconView(KDirOperator *dirOperator, QWidget *parent) :
-    QListView(parent),
-    ops(dirOperator)
-{
-    setViewMode(QListView::IconMode);
-    setFlow(QListView::TopToBottom);
-    setResizeMode(QListView::Adjust);
-    setSpacing(0);
-    setMovement(QListView::Static);
-    setDragDropMode(QListView::DragOnly);
-    setVerticalScrollMode(QListView::ScrollPerPixel);
-    setHorizontalScrollMode(QListView::ScrollPerPixel);
-    setEditTriggers(QAbstractItemView::NoEditTriggers);
-    setWordWrap(true);
-    setIconSize(QSize(KIconLoader::SizeSmall, KIconLoader::SizeSmall));
-}
-
-KDirOperatorIconView::~KDirOperatorIconView()
-{
-}
-
-QStyleOptionViewItem KDirOperatorIconView::viewOptions() const
-{
-    QStyleOptionViewItem viewOptions = QListView::viewOptions();
-    viewOptions.showDecorationSelected = true;
-    viewOptions.decorationPosition = ops->decorationPosition();
-    if (viewOptions.decorationPosition == QStyleOptionViewItem::Left) {
-        viewOptions.displayAlignment = Qt::AlignLeft | Qt::AlignVCenter;
-    } else {
-        viewOptions.displayAlignment = Qt::AlignCenter;
-    }
-
-    return viewOptions;
-}
-
-void KDirOperatorIconView::dragEnterEvent(QDragEnterEvent *event)
-{
-    if (event->mimeData()->hasUrls()) {
-        event->acceptProposedAction();
-    }
-}
-
-void KDirOperatorIconView::mousePressEvent(QMouseEvent *event)
-{
-    if (!indexAt(event->pos()).isValid()) {
-        const Qt::KeyboardModifiers modifiers = QApplication::keyboardModifiers();
-        if (!(modifiers & Qt::ShiftModifier) && !(modifiers & Qt::ControlModifier)) {
-            clearSelection();
-        }
-    }
-
-    QListView::mousePressEvent(event);
-}
-
-void KDirOperatorIconView::wheelEvent(QWheelEvent *event)
-{
-    QListView::wheelEvent(event);
-
-    // apply the vertical wheel event to the horizontal scrollbar, as
-    // the items are aligned from left to right
-    if (event->orientation() == Qt::Vertical) {
-        QWheelEvent horizEvent(event->pos(),
-                               event->delta(),
-                               event->buttons(),
-                               event->modifiers(),
-                               Qt::Horizontal);
-        QApplication::sendEvent(horizontalScrollBar(), &horizEvent);
-    }
-}
 
 void KDirOperator::keyPressEvent(QKeyEvent *e)
 {
@@ -203,6 +112,7 @@ public:
     void _k_slotTreeView();
     void _k_slotDetailedTreeView();
     void _k_slotToggleHidden(bool);
+    void _k_slotToggleAllowExpansion(bool);
     void _k_togglePreview(bool);
     void _k_toggleInlinePreviews(bool);
     void _k_slotOpenFileManager();
@@ -212,6 +122,9 @@ public:
     void _k_slotSortByType();
     void _k_slotSortReversed(bool doReverse);
     void _k_slotToggleDirsFirst();
+    void _k_slotToggleIconsView();
+    void _k_slotToggleCompactView();
+    void _k_slotToggleDetailsView();
     void _k_slotToggleIgnoreCase();
     void _k_slotStarted();
     void _k_slotProgress(int);
@@ -233,7 +146,6 @@ public:
     void _k_slotItemsChanged();
     void _k_slotDirectoryCreated(const QUrl &);
 
-    void updateListViewGrid();
     int iconSizeForViewType(QAbstractItemView *itemView) const;
 
     // private members
@@ -620,6 +532,14 @@ void KDirOperator::Private::_k_slotDetailedTreeView()
     parent->setView(view);
 }
 
+void KDirOperator::Private::_k_slotToggleAllowExpansion(bool allow) {
+    KFile::FileView view = KFile::Detail;
+    if (allow) {
+        view = KFile::DetailTree;
+    }
+    parent->setView(view);
+}
+
 void KDirOperator::Private::_k_slotToggleHidden(bool show)
 {
     dirLister->setShowingDotFiles(show);
@@ -710,6 +630,39 @@ void KDirOperator::Private::_k_slotToggleDirsFirst()
 {
     QDir::SortFlags s = (sorting ^ QDir::DirsFirst);
     updateSorting(s);
+}
+
+void KDirOperator::Private::_k_slotToggleIconsView()
+{
+    // Put the icons on top
+    actionCollection->action(QStringLiteral("decorationAtTop"))->setChecked(true);
+    decorationPosition = QStyleOptionViewItem::Top;
+
+    // Switch to simple view
+    KFile::FileView fileView = static_cast<KFile::FileView>((viewKind & ~allViews()) | KFile::Simple);
+    parent->setView(fileView);
+}
+
+void KDirOperator::Private::_k_slotToggleCompactView()
+{
+    // Put the icons on the side
+    actionCollection->action(QStringLiteral("decorationAtLeft"))->setChecked(true);
+    decorationPosition = QStyleOptionViewItem::Left;
+
+    // Switch to simple view
+    KFile::FileView fileView = static_cast<KFile::FileView>((viewKind & ~allViews()) | KFile::Simple);
+    parent->setView(fileView);
+}
+
+void KDirOperator::Private::_k_slotToggleDetailsView()
+{
+    KFile::FileView view;
+    if (actionCollection->action(QStringLiteral("allow expansion"))->isChecked()) {
+        view = static_cast<KFile::FileView>((viewKind & ~allViews()) | KFile::DetailTree);
+    } else {
+        view = static_cast<KFile::FileView>((viewKind & ~allViews()) | KFile::Detail);
+    }
+    parent->setView(view);
 }
 
 void KDirOperator::Private::_k_slotToggleIgnoreCase()
@@ -920,7 +873,6 @@ void KDirOperator::setIconsZoom(int _value)
     const int maxSize = KIconLoader::SizeEnormous - KIconLoader::SizeSmall;
     const int val = (maxSize * value / 100) + KIconLoader::SizeSmall;
     d->itemView->setIconSize(QSize(val, val));
-    d->updateListViewGrid();
     d->previewGenerator->updatePreviews();
 
     emit currentIconSizeChanged(value);
@@ -1530,7 +1482,7 @@ QAbstractItemView *KDirOperator::createView(QWidget *parent, KFile::FileView vie
         detailView->setViewMode(viewKind);
         itemView = detailView;
     } else {
-        itemView = new KDirOperatorIconView(this, parent);
+        itemView = new KDirOperatorIconView(parent, decorationPosition());
     }
 
     return itemView;
@@ -1678,7 +1630,6 @@ void KDirOperator::setView(QAbstractItemView *view)
     connect(d->itemView, SIGNAL(entered(QModelIndex)),
             this, SLOT(_k_triggerPreview(QModelIndex)));
 
-    updateViewActions();
     d->splitter->insertWidget(0, d->itemView);
 
     d->splitter->resize(size());
@@ -1723,6 +1674,7 @@ void KDirOperator::setView(QAbstractItemView *view)
 
     // ensure we change everything needed
     d->_k_slotChangeDecorationPosition();
+    updateViewActions();
 
     emit viewChanged(view);
 
@@ -2000,6 +1952,28 @@ void KDirOperator::setupActions()
     d->actionCollection->addAction(QStringLiteral("dirs first"), dirsFirstAction);
     connect(dirsFirstAction, SIGNAL(triggered(bool)), this, SLOT(_k_slotToggleDirsFirst()));
 
+    // View modes that match those of Dolphin
+    KToggleAction *iconsViewAction = new KToggleAction(i18n("Icons View"), this);
+    iconsViewAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-icons")));
+    d->actionCollection->addAction(QStringLiteral("icons view"), iconsViewAction);
+    connect(iconsViewAction, SIGNAL(triggered(bool)), this, SLOT(_k_slotToggleIconsView()));
+
+    KToggleAction *compactViewAction = new KToggleAction(i18n("Compact View"), this);
+    compactViewAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-details")));
+    d->actionCollection->addAction(QStringLiteral("compact view"), compactViewAction);
+    connect(compactViewAction, SIGNAL(triggered(bool)), this, SLOT(_k_slotToggleCompactView()));
+
+    KToggleAction *detailsViewAction = new KToggleAction(i18n("Details View"), this);
+    detailsViewAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-tree")));
+    d->actionCollection->addAction(QStringLiteral("details view"), detailsViewAction);
+    connect(detailsViewAction, SIGNAL(triggered(bool)), this, SLOT(_k_slotToggleDetailsView()));
+
+    QActionGroup *viewModeGroup = new QActionGroup(this);
+    viewModeGroup->setExclusive(true);
+    iconsViewAction->setActionGroup(viewModeGroup);
+    compactViewAction->setActionGroup(viewModeGroup);
+    detailsViewAction->setActionGroup(viewModeGroup);
+
     d->decorationMenu = new KActionMenu(i18n("Icon Position"), this);
     d->actionCollection->addAction(QStringLiteral("decoration menu"), d->decorationMenu);
 
@@ -2015,6 +1989,7 @@ void KDirOperator::setupActions()
     d->decorationMenu->addAction(topAction);
 
     QActionGroup *decorationGroup = new QActionGroup(this);
+    decorationGroup->setExclusive(true);
     d->leftAction->setActionGroup(decorationGroup);
     topAction->setActionGroup(decorationGroup);
 
@@ -2043,6 +2018,10 @@ void KDirOperator::setupActions()
     detailedAction->setActionGroup(viewGroup);
     treeAction->setActionGroup(viewGroup);
     detailedTreeAction->setActionGroup(viewGroup);
+
+    KToggleAction *allowExpansionAction = new KToggleAction(i18n("Allow Expansion in Details View"), this);
+    d->actionCollection->addAction(QStringLiteral("allow expansion"), allowExpansionAction);
+    connect(allowExpansionAction, SIGNAL(toggled(bool)), SLOT(_k_slotToggleAllowExpansion(bool)));
 
     KToggleAction *showHiddenAction = new KToggleAction(i18n("Show Hidden Files"), this);
     d->actionCollection->addAction(QStringLiteral("show hidden"), showHiddenAction);
@@ -2181,6 +2160,11 @@ void KDirOperator::updateViewActions()
     d->actionCollection->action(QStringLiteral("detailed view"))->setChecked(KFile::isDetailView(fv));
     d->actionCollection->action(QStringLiteral("tree view"))->setChecked(KFile::isTreeView(fv));
     d->actionCollection->action(QStringLiteral("detailed tree view"))->setChecked(KFile::isDetailTreeView(fv));
+
+    // dolphin style views
+    d->actionCollection->action(QStringLiteral("icons view"))->setChecked(KFile::isSimpleView(fv) && d->decorationPosition == QStyleOptionViewItem::Top);
+    d->actionCollection->action(QStringLiteral("compact view"))->setChecked(KFile::isSimpleView(fv) && d->decorationPosition == QStyleOptionViewItem::Left);
+    d->actionCollection->action(QStringLiteral("details view"))->setChecked(KFile::isDetailTreeView(fv) || KFile::isDetailView(fv));
 }
 
 void KDirOperator::readConfig(const KConfigGroup &configGroup)
@@ -2212,6 +2196,11 @@ void KDirOperator::readConfig(const KConfigGroup &configGroup)
         d->dirLister->setShowingDotFiles(true);
     }
 
+    if (configGroup.readEntry(QStringLiteral("Allow Expansion"),
+                              DefaultShowHidden)) {
+        d->actionCollection->action(QStringLiteral("allow expansion"))->setChecked(true);
+    }
+
     QDir::SortFlags sorting = QDir::Name;
     if (configGroup.readEntry(QStringLiteral("Sort directories first"),
                               DefaultDirsFirst)) {
@@ -2236,7 +2225,7 @@ void KDirOperator::readConfig(const KConfigGroup &configGroup)
     if (d->inlinePreviewState == Private::NotForced) {
         d->showPreviews = configGroup.readEntry(QStringLiteral("Show Inline Previews"), true);
     }
-    QStyleOptionViewItem::Position pos = (QStyleOptionViewItem::Position) configGroup.readEntry(QStringLiteral("Decoration position"), (int) QStyleOptionViewItem::Left);
+    QStyleOptionViewItem::Position pos = (QStyleOptionViewItem::Position) configGroup.readEntry(QStringLiteral("Decoration position"), (int) QStyleOptionViewItem::Top);
     setDecorationPosition(pos);
 }
 
@@ -2284,6 +2273,9 @@ void KDirOperator::writeConfig(KConfigGroup &configGroup)
     configGroup.writeEntry(QStringLiteral("Show hidden files"),
                            d->actionCollection->action(QStringLiteral("show hidden"))->isChecked());
 
+    configGroup.writeEntry(QStringLiteral("Allow Expansion"),
+                           d->actionCollection->action(QStringLiteral("allow expansion"))->isChecked());
+
     KFile::FileView fv = static_cast<KFile::FileView>(d->viewKind);
     QString style;
     if (KFile::isDetailView(fv)) {
@@ -2300,14 +2292,15 @@ void KDirOperator::writeConfig(KConfigGroup &configGroup)
     if (d->inlinePreviewState == Private::NotForced) {
         configGroup.writeEntry(QStringLiteral("Show Inline Previews"), d->showPreviews);
         if (qobject_cast<QListView *>(d->itemView)) {
-            configGroup.writeEntry(QStringLiteral("listViewIconSize"), d->iconsZoom);
+             configGroup.writeEntry(QStringLiteral("listViewIconSize"), d->iconsZoom);
         } else {
-            configGroup.writeEntry(QStringLiteral("detailedViewIconSize"), d->iconsZoom);
+             configGroup.writeEntry(QStringLiteral("detailedViewIconSize"), d->iconsZoom);
         }
     }
 
     configGroup.writeEntry(QStringLiteral("Decoration position"), (int) d->decorationPosition);
 }
+
 
 void KDirOperator::resizeEvent(QResizeEvent *)
 {
@@ -2334,8 +2327,6 @@ void KDirOperator::resizeEvent(QResizeEvent *)
         // might be reparented into a statusbar
         d->progressBar->move(2, height() - d->progressBar->height() - 2);
     }
-
-    d->updateListViewGrid();
 }
 
 void KDirOperator::setOnlyDoubleClickSelectsFiles(bool enable)
@@ -2580,7 +2571,7 @@ void KDirOperator::Private::_k_slotChangeDecorationPosition()
         return;
     }
 
-    QListView *view = qobject_cast<QListView *>(itemView);
+    KDirOperatorIconView *view = qobject_cast<KDirOperatorIconView *>(itemView);
 
     if (!view) {
         return;
@@ -2589,14 +2580,10 @@ void KDirOperator::Private::_k_slotChangeDecorationPosition()
     const bool leftChecked = actionCollection->action(QStringLiteral("decorationAtLeft"))->isChecked();
 
     if (leftChecked) {
-        decorationPosition = QStyleOptionViewItem::Left;
-        view->setFlow(QListView::TopToBottom);
+        view->setDecorationPosition(QStyleOptionViewItem::Left);
     } else {
-        decorationPosition = QStyleOptionViewItem::Top;
-        view->setFlow(QListView::LeftToRight);
+        view->setDecorationPosition(QStyleOptionViewItem::Top);
     }
-
-    updateListViewGrid();
 
     itemView->update();
 }
@@ -2648,52 +2635,6 @@ void KDirOperator::Private::_k_slotItemsChanged()
     completeListDirty = true;
 }
 
-void KDirOperator::Private::updateListViewGrid()
-{
-    if (!itemView) {
-        return;
-    }
-
-    QListView *view = qobject_cast<QListView *>(itemView);
-
-    if (!view) {
-        return;
-    }
-
-    const bool leftChecked = actionCollection->action(QStringLiteral("decorationAtLeft"))->isChecked();
-
-    if (leftChecked) {
-        view->setGridSize(QSize());
-        KFileItemDelegate *delegate = qobject_cast<KFileItemDelegate *>(view->itemDelegate());
-        if (delegate) {
-            delegate->setMaximumSize(QSize());
-        }
-    } else {
-        const QFontMetrics metrics(itemView->viewport()->font());
-
-        const int height = itemView->iconSize().height() + metrics.height() * 2.5;
-        const int minWidth = qMax(height, metrics.height() * 5);
-
-        const int scrollBarWidth = itemView->verticalScrollBar()->sizeHint().width();
-
-        // Subtract 1 px to prevent flickering when resizing the window
-        // For Oxygen a column is missing after showing the dialog without resizing it,
-        // therefore subtract 4 more (scaled) pixels
-        const int viewPortWidth = itemView->contentsRect().width() - scrollBarWidth - 1 - 4 * itemView->devicePixelRatioF();
-        const int itemsInRow = qMax(1, viewPortWidth / minWidth);
-        const int remainingWidth = viewPortWidth - (minWidth * itemsInRow);
-        const int width = minWidth + (remainingWidth / itemsInRow);
-        
-        const QSize itemSize(width, height);
-
-        view->setGridSize(itemSize);
-        KFileItemDelegate *delegate = qobject_cast<KFileItemDelegate *>(view->itemDelegate());
-        if (delegate) {
-            delegate->setMaximumSize(itemSize);
-        }
-    }
-}
-
 int KDirOperator::Private::iconSizeForViewType(QAbstractItemView *itemView) const
 {
     if (!itemView || !configGroup) {
@@ -2701,9 +2642,9 @@ int KDirOperator::Private::iconSizeForViewType(QAbstractItemView *itemView) cons
     }
 
     if (qobject_cast<QListView *>(itemView)) {
-        return configGroup->readEntry("listViewIconSize", 0);
+         return configGroup->readEntry("listViewIconSize", 0);
     } else {
-        return configGroup->readEntry("detailedViewIconSize", 0);
+         return configGroup->readEntry("detailedViewIconSize", 0);
     }
 }
 

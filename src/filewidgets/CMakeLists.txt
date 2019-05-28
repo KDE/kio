@@ -15,6 +15,7 @@ set(kiofilewidgets_SRCS
 
   kdiroperator.cpp
   kdiroperatordetailview.cpp
+  kdiroperatoriconview.cpp
   kdirsortfilterproxymodel.cpp #used in combination with kdirmodel.cpp
   kencodingfiledialog.cpp
   kfilebookmarkhandler.cpp

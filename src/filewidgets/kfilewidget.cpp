@@ -488,6 +488,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     connect(showBookmarksAction, SIGNAL(toggled(bool)),
             SLOT(_k_toggleBookmarks(bool)));
 
+    // Build the settings menu
     KActionMenu *menu = new KActionMenu(QIcon::fromTheme(QStringLiteral("configure")), i18n("Options"), this);
     coll->addAction(QStringLiteral("extra menu"), menu);
     menu->setWhatsThis(i18n("<qt>This is the preferences menu for the file dialog. "
@@ -498,12 +499,10 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
                             "<li>the Places panel</li>"
                             "<li>file previews</li>"
                             "<li>separating folders from files</li></ul></qt>"));
-    menu->addAction(coll->action(QStringLiteral("view menu")));
-    menu->addSeparator();
-    menu->addAction(coll->action(QStringLiteral("decoration menu")));
+
+    menu->addAction(coll->action(QStringLiteral("allow expansion")));
     menu->addSeparator();
     menu->addAction(coll->action(QStringLiteral("show hidden")));
-    menu->addSeparator();
     menu->addAction(showSidebarAction);
     menu->addAction(showBookmarksAction);
     menu->addAction(coll->action(QStringLiteral("preview")));
@@ -543,6 +542,10 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     d->toolbar->addAction(coll->action(QStringLiteral("forward")));
     d->toolbar->addAction(coll->action(QStringLiteral("up")));
     d->toolbar->addAction(coll->action(QStringLiteral("reload")));
+    d->toolbar->addSeparator();
+    d->toolbar->addAction(coll->action(QStringLiteral("icons view")));
+    d->toolbar->addAction(coll->action(QStringLiteral("compact view")));
+    d->toolbar->addAction(coll->action(QStringLiteral("details view")));
     d->toolbar->addSeparator();
     d->toolbar->addAction(coll->action(QStringLiteral("inline preview")));
     d->toolbar->addAction(coll->action(QStringLiteral("sorting menu")));
