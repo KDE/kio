@@ -1974,6 +1974,12 @@ void KDirOperator::setupActions()
     compactViewAction->setActionGroup(viewModeGroup);
     detailsViewAction->setActionGroup(viewModeGroup);
 
+    QActionGroup *sortGroup = new QActionGroup(this);
+    byNameAction->setActionGroup(sortGroup);
+    bySizeAction->setActionGroup(sortGroup);
+    byDateAction->setActionGroup(sortGroup);
+    byTypeAction->setActionGroup(sortGroup);
+
     d->decorationMenu = new KActionMenu(i18n("Icon Position"), this);
     d->actionCollection->addAction(QStringLiteral("decoration menu"), d->decorationMenu);
 
