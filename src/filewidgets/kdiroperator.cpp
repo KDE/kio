@@ -106,11 +106,20 @@ public:
 
     QMetaObject::Connection m_connection;
 
+    // A pair to store zoom settings for view kinds
+    struct ZoomSettingsForView {
+        QString name;
+        int defaultValue;
+    };
+
     // private slots
     void _k_slotDetailedView();
     void _k_slotSimpleView();
     void _k_slotTreeView();
     void _k_slotDetailedTreeView();
+    void _k_slotIconsView();
+    void _k_slotCompactView();
+    void _k_slotDetailsView();
     void _k_slotToggleHidden(bool);
     void _k_slotToggleAllowExpansion(bool);
     void _k_togglePreview(bool);
@@ -147,6 +156,8 @@ public:
     void _k_slotDirectoryCreated(const QUrl &);
 
     int iconSizeForViewType(QAbstractItemView *itemView) const;
+    void writeIconZoomSettingsIfNeeded();
+    ZoomSettingsForView zoomSettingsForViewForView() const;
 
     // private members
     KDirOperator * const parent;
@@ -510,24 +521,36 @@ KFile::FileView KDirOperator::Private::allViews()
 
 void KDirOperator::Private::_k_slotDetailedView()
 {
+    // save old zoom settings
+    writeIconZoomSettingsIfNeeded();
+
     KFile::FileView view = static_cast<KFile::FileView>((viewKind & ~allViews()) | KFile::Detail);
     parent->setView(view);
 }
 
 void KDirOperator::Private::_k_slotSimpleView()
 {
+    // save old zoom settings
+    writeIconZoomSettingsIfNeeded();
+
     KFile::FileView view = static_cast<KFile::FileView>((viewKind & ~allViews()) | KFile::Simple);
     parent->setView(view);
 }
 
 void KDirOperator::Private::_k_slotTreeView()
 {
+    // save old zoom settings
+    writeIconZoomSettingsIfNeeded();
+
     KFile::FileView view = static_cast<KFile::FileView>((viewKind & ~allViews()) | KFile::Tree);
     parent->setView(view);
 }
 
 void KDirOperator::Private::_k_slotDetailedTreeView()
 {
+    // save old zoom settings
+    writeIconZoomSettingsIfNeeded();
+
     KFile::FileView view = static_cast<KFile::FileView>((viewKind & ~allViews()) | KFile::DetailTree);
     parent->setView(view);
 }
@@ -632,8 +655,11 @@ void KDirOperator::Private::_k_slotToggleDirsFirst()
     updateSorting(s);
 }
 
-void KDirOperator::Private::_k_slotToggleIconsView()
+void KDirOperator::Private::_k_slotIconsView()
 {
+    // save old zoom settings
+    writeIconZoomSettingsIfNeeded();
+
     // Put the icons on top
     actionCollection->action(QStringLiteral("decorationAtTop"))->setChecked(true);
     decorationPosition = QStyleOptionViewItem::Top;
@@ -643,8 +669,11 @@ void KDirOperator::Private::_k_slotToggleIconsView()
     parent->setView(fileView);
 }
 
-void KDirOperator::Private::_k_slotToggleCompactView()
+void KDirOperator::Private::_k_slotCompactView()
 {
+    // save old zoom settings
+    writeIconZoomSettingsIfNeeded();
+
     // Put the icons on the side
     actionCollection->action(QStringLiteral("decorationAtLeft"))->setChecked(true);
     decorationPosition = QStyleOptionViewItem::Left;
@@ -654,8 +683,11 @@ void KDirOperator::Private::_k_slotToggleCompactView()
     parent->setView(fileView);
 }
 
-void KDirOperator::Private::_k_slotToggleDetailsView()
+void KDirOperator::Private::_k_slotDetailsView()
 {
+    // save old zoom settings
+    writeIconZoomSettingsIfNeeded();
+
     KFile::FileView view;
     if (actionCollection->action(QStringLiteral("allow expansion"))->isChecked()) {
         view = static_cast<KFile::FileView>((viewKind & ~allViews()) | KFile::DetailTree);
@@ -1956,17 +1988,17 @@ void KDirOperator::setupActions()
     KToggleAction *iconsViewAction = new KToggleAction(i18n("Icons View"), this);
     iconsViewAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-icons")));
     d->actionCollection->addAction(QStringLiteral("icons view"), iconsViewAction);
-    connect(iconsViewAction, SIGNAL(triggered(bool)), this, SLOT(_k_slotToggleIconsView()));
+    connect(iconsViewAction, SIGNAL(triggered(bool)), this, SLOT(_k_slotIconsView()));
 
     KToggleAction *compactViewAction = new KToggleAction(i18n("Compact View"), this);
     compactViewAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-details")));
     d->actionCollection->addAction(QStringLiteral("compact view"), compactViewAction);
-    connect(compactViewAction, SIGNAL(triggered(bool)), this, SLOT(_k_slotToggleCompactView()));
+    connect(compactViewAction, SIGNAL(triggered(bool)), this, SLOT(_k_slotCompactView()));
 
     KToggleAction *detailsViewAction = new KToggleAction(i18n("Details View"), this);
     detailsViewAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-tree")));
     d->actionCollection->addAction(QStringLiteral("details view"), detailsViewAction);
-    connect(detailsViewAction, SIGNAL(triggered(bool)), this, SLOT(_k_slotToggleDetailsView()));
+    connect(detailsViewAction, SIGNAL(triggered(bool)), this, SLOT(_k_slotDetailsView()));
 
     QActionGroup *viewModeGroup = new QActionGroup(this);
     viewModeGroup->setExclusive(true);
@@ -2297,16 +2329,19 @@ void KDirOperator::writeConfig(KConfigGroup &configGroup)
 
     if (d->inlinePreviewState == Private::NotForced) {
         configGroup.writeEntry(QStringLiteral("Show Inline Previews"), d->showPreviews);
-        if (qobject_cast<QListView *>(d->itemView)) {
-             configGroup.writeEntry(QStringLiteral("listViewIconSize"), d->iconsZoom);
-        } else {
-             configGroup.writeEntry(QStringLiteral("detailedViewIconSize"), d->iconsZoom);
-        }
+        d->writeIconZoomSettingsIfNeeded();
     }
 
     configGroup.writeEntry(QStringLiteral("Decoration position"), (int) d->decorationPosition);
 }
 
+void KDirOperator::Private::writeIconZoomSettingsIfNeeded() {
+     // must match behavior of iconSizeForViewType
+     if (configGroup && itemView) {
+         ZoomSettingsForView zoomSettings = zoomSettingsForViewForView();
+         configGroup->writeEntry(zoomSettings.name, iconsZoom);
+     }
+}
 
 void KDirOperator::resizeEvent(QResizeEvent *)
 {
@@ -2643,14 +2678,34 @@ void KDirOperator::Private::_k_slotItemsChanged()
 
 int KDirOperator::Private::iconSizeForViewType(QAbstractItemView *itemView) const
 {
+    // must match behavior of writeIconZoomSettingsIfNeeded
     if (!itemView || !configGroup) {
         return 0;
     }
 
-    if (qobject_cast<QListView *>(itemView)) {
-         return configGroup->readEntry("listViewIconSize", 0);
+    ZoomSettingsForView ZoomSettingsForView = zoomSettingsForViewForView();
+    return configGroup->readEntry(ZoomSettingsForView.name, ZoomSettingsForView.defaultValue);
+}
+
+KDirOperator::Private::ZoomSettingsForView KDirOperator::Private::zoomSettingsForViewForView() const {
+     KFile::FileView fv = static_cast<KFile::FileView>(viewKind);
+     if (KFile::isSimpleView(fv)) {
+         if (decorationPosition == QStyleOptionViewItem::Top){
+             // Simple view decoration above, aka Icons View
+             // default to 43% aka 64px
+             return {QStringLiteral("iconViewIconSize"), 43};
+         } else {
+             // Simple view decoration left, aka compact view
+             // default to 15% aka 32px
+             return {QStringLiteral("listViewIconSize"), 15};
+         }
     } else {
-         return configGroup->readEntry("detailedViewIconSize", 0);
+         if (KFile::isTreeView(fv)) {
+             return {QStringLiteral("treeViewIconSize"), 0};
+         } else {
+             // DetailView and DetailTreeView
+             return {QStringLiteral("detailViewIconSize"), 0};
+         }
     }
 }
 
