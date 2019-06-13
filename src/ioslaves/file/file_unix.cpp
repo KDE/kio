@@ -886,6 +886,19 @@ PrivilegeOperationReturnValue FileProtocol::execWithElevatedPrivilege(ActionType
         return PrivilegeOperationReturnValue::failure(errcode);
     }
 
+    const QUrl targetUrl = QUrl::fromLocalFile(args.first().toString()); // target is always the first item.
+    const bool useParent = action != CHOWN && action != CHMOD && action != UTIME;
+    const QString targetPath = useParent ? targetUrl.adjusted(QUrl::RemoveFilename).toLocalFile() : targetUrl.toLocalFile();
+    bool userIsOwner = QFileInfo(targetPath).ownerId() == getuid();
+    if (action == RENAME) { // for rename check src and dest owner
+        QString dest = QUrl(args[1].toString()).toLocalFile();
+        userIsOwner = userIsOwner && QFileInfo(dest).ownerId() == getuid();
+    }
+    if (userIsOwner) {
+        error(KIO::ERR_PRIVILEGE_NOT_REQUIRED, targetPath);
+        return PrivilegeOperationReturnValue::canceled();
+    }
+
     QByteArray helperArgs;
     QDataStream out(&helperArgs, QIODevice::WriteOnly);
     out << action;

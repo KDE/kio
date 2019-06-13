@@ -248,6 +248,7 @@ enum Error {
     ERR_CANNOT_CREATE_SLAVE = KJob::UserDefinedError + 73, ///< used by Slave::createSlave, @since 5.30
     ERR_FILE_TOO_LARGE_FOR_FAT32 = KJob::UserDefinedError + 74, ///< @since 5.54
     ERR_OWNER_DIED = KJob::UserDefinedError + 75, ///< Value used between kuiserver and views when the job owner disappears unexpectedly. It should not be emitted by slaves. @since 5.54
+    ERR_PRIVILEGE_NOT_REQUIRED = KJob::UserDefinedError + 76, ///< used by file ioslave, @since 5.60
 };
 
 /**

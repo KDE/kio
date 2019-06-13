@@ -252,6 +252,9 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
     case KIO::ERR_FILE_TOO_LARGE_FOR_FAT32:
         result = xi18nc("@info", "Cannot transfer <filename>%1</filename> because it is too large. The destination filesystem only supports files up to 4GiB", errorText);
         break;
+    case KIO::ERR_PRIVILEGE_NOT_REQUIRED:
+        result = i18n("Privilege escalation is not necessary because \n'%1' is owned by the current user.\nPlease retry after changing permissions.", errorText);
+        break;
     default:
         result = i18n("Unknown error code %1\n%2\nPlease send a full bug report at https://bugs.kde.org.",  errorCode,  errorText);
         break;
