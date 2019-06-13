@@ -79,17 +79,17 @@ void KFilePlacesViewTest::testUrlChanged_data()
 
     const QDate currentDate = QDate::currentDate();
     const QDate yesterdayDate = currentDate.addDays(-1);
-    QTest::newRow("Today") << 4 << QStringLiteral("timeline:/today");
-    QTest::newRow("Yesterday") << 5 << QString("timeline:/%1-%2/%1-%2-%3")
+    QTest::newRow("Today") << 3 << QStringLiteral("timeline:/today");
+    QTest::newRow("Yesterday") << 4 << QString("timeline:/%1-%2/%1-%2-%3")
                                   .arg(yesterdayDate.year())
                                   .arg(yesterdayDate.month(), 2, 10, QChar('0'))
                                   .arg(yesterdayDate.day(), 2, 10, QChar('0'));
 
     // search
-    QTest::newRow("Documents") << 6 << QStringLiteral("baloosearch:/documents");
-    QTest::newRow("Images") << 7 << QStringLiteral("baloosearch:/images");
-    QTest::newRow("Audio Files") << 8 << QStringLiteral("baloosearch:/audio");
-    QTest::newRow("Videos") << 9 << QStringLiteral("baloosearch:/videos");
+    QTest::newRow("Documents") << 5 << QStringLiteral("baloosearch:/documents");
+    QTest::newRow("Images") << 6 << QStringLiteral("baloosearch:/images");
+    QTest::newRow("Audio Files") << 7 << QStringLiteral("baloosearch:/audio");
+    QTest::newRow("Videos") << 8 << QStringLiteral("baloosearch:/videos");
 }
 
 void KFilePlacesViewTest::testUrlChanged()

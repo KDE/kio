@@ -36,13 +36,6 @@
 
 Q_DECLARE_METATYPE(KFilePlacesModel::GroupType)
 
-#ifdef Q_OS_WIN
-//c:\ as root for windows
-#define KDE_ROOT_PATH "C:\\"
-#else
-#define KDE_ROOT_PATH "/"
-#endif
-
 // Avoid QHash randomization so that the order of the devices is stable
 static void seedInit()
 {
@@ -202,14 +195,14 @@ QDBusInterface *KFilePlacesModelTest::fakeDevice(const QString &udi)
 
 void KFilePlacesModelTest::testInitialState()
 {
-    QCOMPARE(m_places->rowCount(), 4); // when the xbel file is empty, KFilePlacesModel fills it with 4 default items
+    QCOMPARE(m_places->rowCount(), 3); // when the xbel file is empty, KFilePlacesModel fills it with 3 default items
     QCoreApplication::processEvents(); // Devices have a delayed loading
-    QCOMPARE(m_places->rowCount(), 9);
+    QCOMPARE(m_places->rowCount(), 8);
 }
 
 static const QStringList initialListOfPlaces()
 {
-    return QStringList() << QDir::homePath() << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/");
+    return QStringList() << QDir::homePath() << QStringLiteral("trash:/");
 }
 
 static const QStringList initialListOfShared()
@@ -253,7 +246,7 @@ void KFilePlacesModelTest::testReparse()
     urls = initialListOfUrls();
 
     // it will be added at the end of places section
-    urls.insert(3, QStringLiteral("/foo"));
+    urls.insert(2, QStringLiteral("/foo"));
     CHECK_PLACES_URLS(urls);
 
     // reparse the bookmark file
@@ -267,7 +260,7 @@ void KFilePlacesModelTest::testReparse()
     CHECK_PLACES_URLS(urls);
 
     // try to remove item
-    m_places->removePlace(m_places->index(3, 0));
+    m_places->removePlace(m_places->index(2, 0));
 
     urls = initialListOfUrls();
     CHECK_PLACES_URLS(urls);
@@ -387,8 +380,8 @@ void KFilePlacesModelTest::testMove()
 
     KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile(), QStringLiteral("kfilePlaces"));
     KBookmarkGroup root = bookmarkManager->root();
-    KBookmark system_root = m_places->bookmarkForIndex(m_places->index(1, 0));
-    KBookmark before_system_root = m_places->bookmarkForIndex(m_places->index(0, 0));
+
+    KBookmark system_home = m_places->bookmarkForIndex(m_places->index(0, 0));
 
     // Trying move the root at the end of the list, should move it to the end of places section instead
     // to keep it grouped
@@ -396,11 +389,11 @@ void KFilePlacesModelTest::testMove()
     while (!root.next(last).isNull()) {
         last = root.next(last);
     }
-    root.moveBookmark(system_root, last);
+    root.moveBookmark(system_home, last);
     bookmarkManager->emitChanged(root);
 
     QStringList urls;
-    urls << QDir::homePath() << QStringLiteral("trash:/") << QStringLiteral(KDE_ROOT_PATH)
+    urls << QStringLiteral("trash:/") << QDir::homePath()
          << initialListOfShared()
          << initialListOfDevices()
          << initialListOfRemovableDevices();
@@ -408,39 +401,17 @@ void KFilePlacesModelTest::testMove()
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 1);
     args = spy_inserted.takeFirst();
-    QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 2);
-    QCOMPARE(args.at(2).toInt(), 2);
-    QCOMPARE(spy_removed.count(), 1);
-    args = spy_removed.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
     QCOMPARE(args.at(1).toInt(), 1);
     QCOMPARE(args.at(2).toInt(), 1);
-
-    // Move the root at the beginning of the list
-    root.moveBookmark(system_root, KBookmark());
-    bookmarkManager->emitChanged(root);
-
-    urls.clear();
-    urls << QStringLiteral(KDE_ROOT_PATH) << QDir::homePath() <<  QStringLiteral("trash:/")
-         << initialListOfShared()
-         << initialListOfDevices()
-         << initialListOfRemovableDevices();
-
-    CHECK_PLACES_URLS(urls);
-    QCOMPARE(spy_inserted.count(), 1);
-    args = spy_inserted.takeFirst();
-    QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 0);
-    QCOMPARE(args.at(2).toInt(), 0);
     QCOMPARE(spy_removed.count(), 1);
     args = spy_removed.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 3);
-    QCOMPARE(args.at(2).toInt(), 3);
+    QCOMPARE(args.at(1).toInt(), 0);
+    QCOMPARE(args.at(2).toInt(), 0);
 
-    // Move the root in the list (at its original place)
-    root.moveBookmark(system_root, before_system_root);
+    // Move home at the beginning of the list (at its original place)
+    root.moveBookmark(system_home, KBookmark());
     bookmarkManager->emitChanged(root);
     urls.clear();
     urls << initialListOfPlaces()
@@ -460,6 +431,7 @@ void KFilePlacesModelTest::testMove()
     QCOMPARE(args.at(2).toInt(), 0);
 }
 
+
 void KFilePlacesModelTest::testDragAndDrop()
 {
     QList<QVariant> args;
@@ -470,58 +442,15 @@ void KFilePlacesModelTest::testDragAndDrop()
     QSignalSpy spy_inserted(m_places, SIGNAL(rowsInserted(QModelIndex,int,int)));
     QSignalSpy spy_removed(m_places, SIGNAL(rowsRemoved(QModelIndex,int,int)));
 
-    // Move the KDE_ROOT_PATH at the end of the places list
+
+    // Move /home at the end of the places list
     QModelIndexList indexes;
-    indexes << m_places->index(1, 0);
-    QMimeData *mimeData = m_places->mimeData(indexes);
-    QVERIFY(m_places->dropMimeData(mimeData, Qt::MoveAction, 3, 0, QModelIndex()));
-
-    QStringList urls;
-    urls << QDir::homePath() << QStringLiteral("trash:/") << QStringLiteral(KDE_ROOT_PATH)
-         << initialListOfShared()
-         << initialListOfDevices()
-         << initialListOfRemovableDevices();
-    CHECK_PLACES_URLS(urls);
-    QCOMPARE(spy_inserted.count(), 0);
-    QCOMPARE(spy_removed.count(), 0);
-    QCOMPARE(spy_moved.count(), 1);
-    args = spy_moved.takeFirst();
-    QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 1);
-    QCOMPARE(args.at(2).toInt(), 1);
-    QCOMPARE(args.at(3).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(4).toInt(), 3);
-
-    // Move the KDE_ROOT_PATH at the beginning of the list
-    indexes.clear();
-    indexes << m_places->index(2, 0);
-    mimeData = m_places->mimeData(indexes);
-    QVERIFY(m_places->dropMimeData(mimeData, Qt::MoveAction, 0, 0, QModelIndex()));
-
-    urls.clear();
-    urls << QStringLiteral(KDE_ROOT_PATH) << QDir::homePath() << QStringLiteral("trash:/")
-         << initialListOfShared()
-         << initialListOfDevices()
-         << initialListOfRemovableDevices();
-    CHECK_PLACES_URLS(urls);
-    QCOMPARE(spy_inserted.count(), 0);
-    QCOMPARE(spy_removed.count(), 0);
-    QCOMPARE(spy_moved.count(), 1);
-    args = spy_moved.takeFirst();
-    QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 2);
-    QCOMPARE(args.at(2).toInt(), 2);
-    QCOMPARE(args.at(3).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(4).toInt(), 0);
-
-    // Move the KDE_ROOT_PATH in the list (at its original place)
-    indexes.clear();
     indexes << m_places->index(0, 0);
-    mimeData = m_places->mimeData(indexes);
+    QMimeData *mimeData = m_places->mimeData(indexes);
     QVERIFY(m_places->dropMimeData(mimeData, Qt::MoveAction, 2, 0, QModelIndex()));
 
-    urls.clear();
-    urls << initialListOfPlaces()
+    QStringList urls;
+    urls << QStringLiteral("trash:/") << QDir::homePath()
          << initialListOfShared()
          << initialListOfDevices()
          << initialListOfRemovableDevices();
@@ -535,6 +464,28 @@ void KFilePlacesModelTest::testDragAndDrop()
     QCOMPARE(args.at(2).toInt(), 0);
     QCOMPARE(args.at(3).toModelIndex(), QModelIndex());
     QCOMPARE(args.at(4).toInt(), 2);
+
+    // Move home back at the beginning of the list
+    indexes.clear();
+    indexes << m_places->index(1, 0);
+    mimeData = m_places->mimeData(indexes);
+    QVERIFY(m_places->dropMimeData(mimeData, Qt::MoveAction, 0, 0, QModelIndex()));
+
+    urls.clear();
+    urls << QDir::homePath() << QStringLiteral("trash:/")
+         << initialListOfShared()
+         << initialListOfDevices()
+         << initialListOfRemovableDevices();
+    CHECK_PLACES_URLS(urls);
+    QCOMPARE(spy_inserted.count(), 0);
+    QCOMPARE(spy_removed.count(), 0);
+    QCOMPARE(spy_moved.count(), 1);
+    args = spy_moved.takeFirst();
+    QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
+    QCOMPARE(args.at(1).toInt(), 1);
+    QCOMPARE(args.at(2).toInt(), 1);
+    QCOMPARE(args.at(3).toModelIndex(), QModelIndex());
+    QCOMPARE(args.at(4).toInt(), 0);
 
     // Dropping on an item is not allowed
     indexes.clear();
@@ -565,20 +516,20 @@ void KFilePlacesModelTest::testPlacesLifecycle()
     QCOMPARE(spy_inserted.count(), 1);
     args = spy_inserted.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 3);
-    QCOMPARE(args.at(2).toInt(), 3);
+    QCOMPARE(args.at(1).toInt(), 2);
+    QCOMPARE(args.at(2).toInt(), 2);
     QCOMPARE(spy_removed.count(), 0);
 
     KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile(), QStringLiteral("kfilePlaces"));
     KBookmarkGroup root = bookmarkManager->root();
-    KBookmark before_trash = m_places->bookmarkForIndex(m_places->index(1, 0));
-    KBookmark foo = m_places->bookmarkForIndex(m_places->index(3, 0));
+    KBookmark before_trash = m_places->bookmarkForIndex(m_places->index(0, 0));
+    KBookmark foo = m_places->bookmarkForIndex(m_places->index(2, 0));
 
     root.moveBookmark(foo, before_trash);
     bookmarkManager->emitChanged(root);
 
     urls.clear();
-    urls << QDir::homePath() << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("/home/foo") << QStringLiteral("trash:/")
+    urls << QDir::homePath() << QStringLiteral("/home/foo") << QStringLiteral("trash:/")
          << initialListOfShared()
          << initialListOfDevices()
          << initialListOfRemovableDevices();
@@ -586,18 +537,18 @@ void KFilePlacesModelTest::testPlacesLifecycle()
     QCOMPARE(spy_inserted.count(), 1);
     args = spy_inserted.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 3);
-    QCOMPARE(args.at(2).toInt(), 3);
+    QCOMPARE(args.at(1).toInt(), 2);
+    QCOMPARE(args.at(2).toInt(), 2);
     QCOMPARE(spy_removed.count(), 1);
     args = spy_removed.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 2);
-    QCOMPARE(args.at(2).toInt(), 2);
+    QCOMPARE(args.at(1).toInt(), 1);
+    QCOMPARE(args.at(2).toInt(), 1);
 
-    m_places->editPlace(m_places->index(2, 0), QStringLiteral("Foo"), QUrl::fromLocalFile(QStringLiteral("/mnt/foo")));
+    m_places->editPlace(m_places->index(1, 0), QStringLiteral("Foo"), QUrl::fromLocalFile(QStringLiteral("/mnt/foo")));
 
     urls.clear();
-    urls << QDir::homePath() << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("/mnt/foo") << QStringLiteral("trash:/")
+    urls << QDir::homePath() << QStringLiteral("/mnt/foo") << QStringLiteral("trash:/")
          << initialListOfShared()
          << initialListOfDevices()
          << initialListOfRemovableDevices();
@@ -606,15 +557,15 @@ void KFilePlacesModelTest::testPlacesLifecycle()
     QCOMPARE(spy_removed.count(), 0);
     QCOMPARE(spy_changed.count(), 1);
     args = spy_changed.takeFirst();
-    QCOMPARE(args.at(0).toModelIndex(), m_places->index(2, 0));
-    QCOMPARE(args.at(1).toModelIndex(), m_places->index(2, 0));
+    QCOMPARE(args.at(0).toModelIndex(), m_places->index(1, 0));
+    QCOMPARE(args.at(1).toModelIndex(), m_places->index(1, 0));
 
-    foo = m_places->bookmarkForIndex(m_places->index(2, 0));
+    foo = m_places->bookmarkForIndex(m_places->index(1, 0));
     foo.setFullText(QStringLiteral("Bar"));
     bookmarkManager->notifyCompleteChange(QString());
 
     urls.clear();
-    urls << QDir::homePath() << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("/mnt/foo") << QStringLiteral("trash:/")
+    urls << QDir::homePath() << QStringLiteral("/mnt/foo") << QStringLiteral("trash:/")
          << initialListOfShared()
          << initialListOfDevices()
          << initialListOfRemovableDevices();
@@ -622,13 +573,13 @@ void KFilePlacesModelTest::testPlacesLifecycle()
     CHECK_PLACES_URLS(urls);
     QCOMPARE(spy_inserted.count(), 0);
     QCOMPARE(spy_removed.count(), 0);
-    QCOMPARE(spy_changed.count(), 10);
+    QCOMPARE(spy_changed.count(), 9);
     args = spy_changed[2];
     QCOMPARE(args.at(0).toModelIndex(), m_places->index(2, 0));
     QCOMPARE(args.at(1).toModelIndex(), m_places->index(2, 0));
     spy_changed.clear();
 
-    m_places->removePlace(m_places->index(2, 0));
+    m_places->removePlace(m_places->index(1, 0));
 
     urls.clear();
     urls << initialListOfPlaces()
@@ -640,13 +591,13 @@ void KFilePlacesModelTest::testPlacesLifecycle()
     QCOMPARE(spy_removed.count(), 1);
     args = spy_removed.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 2);
-    QCOMPARE(args.at(2).toInt(), 2);
+    QCOMPARE(args.at(1).toInt(), 1);
+    QCOMPARE(args.at(2).toInt(), 1);
 
     m_places->addPlace(QStringLiteral("Foo"), QUrl::fromLocalFile(QStringLiteral("/home/foo")), QString(), QString(), m_places->index(0, 0));
 
     urls.clear();
-    urls << QDir::homePath() << QStringLiteral("/home/foo") << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/")
+    urls << QDir::homePath() << QStringLiteral("/home/foo") << QStringLiteral("trash:/")
          << initialListOfShared()
          << initialListOfDevices()
          << initialListOfRemovableDevices();
@@ -679,8 +630,8 @@ void KFilePlacesModelTest::testDevicePlugging()
     QCOMPARE(spy_removed.count(), 1);
     args = spy_removed.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 7);
-    QCOMPARE(args.at(2).toInt(), 7);
+    QCOMPARE(args.at(1).toInt(), 6);
+    QCOMPARE(args.at(2).toInt(), 6);
 
     fakeManager()->call(QStringLiteral("plug"), "/org/kde/solid/fakehw/volume_part1_size_993284096");
 
@@ -693,8 +644,8 @@ void KFilePlacesModelTest::testDevicePlugging()
     QCOMPARE(spy_inserted.count(), 1);
     args = spy_inserted.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 7);
-    QCOMPARE(args.at(2).toInt(), 7);
+    QCOMPARE(args.at(1).toInt(), 6);
+    QCOMPARE(args.at(2).toInt(), 6);
     QCOMPARE(spy_removed.count(), 0);
 
     // Move the device in the list, and check that it memorizes the position across plug/unplug
@@ -703,9 +654,9 @@ void KFilePlacesModelTest::testDevicePlugging()
     KBookmarkGroup root = bookmarkManager->root();
     KBookmark before_floppy;
 
-    KBookmark device = root.first(); // The device we'll move is the 7th bookmark
-    for (int i = 0; i < 6; i++) {
-        if (i == 3) {
+    KBookmark device = root.first(); // The device we'll move is the 6th bookmark
+    for (int i = 0; i < 5; i++) {
+        if (i == 2) {
             // store item before to be able to move it back to original position
             device = before_floppy = root.next(device);
         } else {
@@ -725,13 +676,13 @@ void KFilePlacesModelTest::testDevicePlugging()
     QCOMPARE(spy_inserted.count(), 1);
     args = spy_inserted.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 7);
-    QCOMPARE(args.at(2).toInt(), 7);
+    QCOMPARE(args.at(1).toInt(), 6);
+    QCOMPARE(args.at(2).toInt(), 6);
     QCOMPARE(spy_removed.count(), 1);
     args = spy_removed.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 6);
-    QCOMPARE(args.at(2).toInt(), 6);
+    QCOMPARE(args.at(1).toInt(), 5);
+    QCOMPARE(args.at(2).toInt(), 5);
 
     fakeManager()->call(QStringLiteral("unplug"), "/org/kde/solid/fakehw/volume_part1_size_993284096");
 
@@ -745,8 +696,8 @@ void KFilePlacesModelTest::testDevicePlugging()
     QCOMPARE(spy_removed.count(), 1);
     args = spy_removed.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 6);
-    QCOMPARE(args.at(2).toInt(), 6);
+    QCOMPARE(args.at(1).toInt(), 5);
+    QCOMPARE(args.at(2).toInt(), 5);
 
     fakeManager()->call(QStringLiteral("plug"), "/org/kde/solid/fakehw/volume_part1_size_993284096");
 
@@ -759,15 +710,15 @@ void KFilePlacesModelTest::testDevicePlugging()
     QCOMPARE(spy_inserted.count(), 1);
     args = spy_inserted.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 6);
-    QCOMPARE(args.at(2).toInt(), 6);
+    QCOMPARE(args.at(1).toInt(), 5);
+    QCOMPARE(args.at(2).toInt(), 5);
     QCOMPARE(spy_removed.count(), 0);
 
-    KBookmark seventh = root.first();
-    for (int i = 0; i < 6; i++) {
-        seventh = root.next(seventh);
+    KBookmark sixth = root.first();
+    for (int i = 0; i < 5; i++) {
+        sixth = root.next(sixth);
     }
-    root.moveBookmark(device, seventh);
+    root.moveBookmark(device, sixth);
     bookmarkManager->emitChanged(root);
 
     urls.clear();
@@ -779,13 +730,13 @@ void KFilePlacesModelTest::testDevicePlugging()
     QCOMPARE(spy_inserted.count(), 1);
     args = spy_inserted.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 7);
-    QCOMPARE(args.at(2).toInt(), 7);
+    QCOMPARE(args.at(1).toInt(), 6);
+    QCOMPARE(args.at(2).toInt(), 6);
     QCOMPARE(spy_removed.count(), 1);
     args = spy_removed.takeFirst();
     QCOMPARE(args.at(0).toModelIndex(), QModelIndex());
-    QCOMPARE(args.at(1).toInt(), 6);
-    QCOMPARE(args.at(2).toInt(), 6);
+    QCOMPARE(args.at(1).toInt(), 5);
+    QCOMPARE(args.at(2).toInt(), 5);
 }
 
 void KFilePlacesModelTest::testDeviceSetupTeardown()
@@ -797,15 +748,15 @@ void KFilePlacesModelTest::testDeviceSetupTeardown()
 
     QCOMPARE(spy_changed.count(), 1);
     args = spy_changed.takeFirst();
-    QCOMPARE(args.at(0).toModelIndex().row(), 7);
-    QCOMPARE(args.at(1).toModelIndex().row(), 7);
+    QCOMPARE(args.at(0).toModelIndex().row(), 6);
+    QCOMPARE(args.at(1).toModelIndex().row(), 6);
 
     fakeDevice(QStringLiteral("/org/kde/solid/fakehw/volume_part1_size_993284096/StorageAccess"))->call(QStringLiteral("setup"));
 
     QCOMPARE(spy_changed.count(), 1);
     args = spy_changed.takeFirst();
-    QCOMPARE(args.at(0).toModelIndex().row(), 7);
-    QCOMPARE(args.at(1).toModelIndex().row(), 7);
+    QCOMPARE(args.at(0).toModelIndex().row(), 6);
+    QCOMPARE(args.at(1).toModelIndex().row(), 6);
 }
 
 void KFilePlacesModelTest::testEnableBaloo()
@@ -837,11 +788,11 @@ void KFilePlacesModelTest::testRemoteUrls_data()
     QTest::addColumn<int>("expectedRow");
     QTest::addColumn<QString>("expectedGroup");
 
-     QTest::newRow("Ftp") << QUrl(QStringLiteral("ftp://192.168.1.1/ftp")) << 5 << QStringLiteral("Remote");
-     QTest::newRow("Samba") << QUrl(QStringLiteral("smb://192.168.1.1/share")) << 5 << QStringLiteral("Remote");
-     QTest::newRow("Sftp") << QUrl(QStringLiteral("sftp://192.168.1.1/share")) << 5 << QStringLiteral("Remote");
-     QTest::newRow("Fish") << QUrl(QStringLiteral("fish://192.168.1.1/share")) << 5 << QStringLiteral("Remote");
-     QTest::newRow("Webdav") << QUrl(QStringLiteral("webdav://192.168.1.1/share")) << 5 << QStringLiteral("Remote");
+    QTest::newRow("Ftp") << QUrl(QStringLiteral("ftp://192.168.1.1/ftp")) << 4 << QStringLiteral("Remote");
+    QTest::newRow("Samba") << QUrl(QStringLiteral("smb://192.168.1.1/share")) << 4 << QStringLiteral("Remote");
+    QTest::newRow("Sftp") << QUrl(QStringLiteral("sftp://192.168.1.1/share")) << 4 << QStringLiteral("Remote");
+    QTest::newRow("Fish") << QUrl(QStringLiteral("fish://192.168.1.1/share")) << 4 << QStringLiteral("Remote");
+    QTest::newRow("Webdav") << QUrl(QStringLiteral("webdav://192.168.1.1/share")) << 4 << QStringLiteral("Remote");
 }
 
 void KFilePlacesModelTest::testRemoteUrls()
@@ -858,7 +809,7 @@ void KFilePlacesModelTest::testRemoteUrls()
 
     // check if url list is correct after insertion
     QStringList urls;
-    urls << QDir::homePath() << QStringLiteral(KDE_ROOT_PATH) << QStringLiteral("trash:/") // places
+    urls << QDir::homePath() << QStringLiteral("trash:/") // places
          << QStringLiteral("remote:/") << QStringLiteral("/media/nfs")
          << url.toString() << QStringLiteral("/foreign")
          << QStringLiteral("/media/floppy0")  << QStringLiteral("/media/XO-Y4") << QStringLiteral("/media/cdrom");
@@ -980,19 +931,17 @@ void KFilePlacesModelTest::testIconRole_data()
     // places
     QTest::newRow("Places - Home") << m_places->index(0, 0)
                                    << QStringLiteral("user-home");
-    QTest::newRow("Places - Root") << m_places->index(1, 0)
-                                   << QStringLiteral("folder-root");
-    QTest::newRow("Places - Trash") << m_places->index(2, 0)
+    QTest::newRow("Places - Trash") << m_places->index(1, 0)
                                    << QStringLiteral("user-trash");
-    QTest::newRow("Remote - Network") << m_places->index(3, 0)
+    QTest::newRow("Remote - Network") << m_places->index(2, 0)
                                     << QStringLiteral("folder-network");
-    QTest::newRow("Devices - Nfs") << m_places->index(4, 0)
+    QTest::newRow("Devices - Nfs") << m_places->index(3, 0)
                                     << QStringLiteral("hwinfo");
-    QTest::newRow("Devices - foreign") << m_places->index(5, 0)
+    QTest::newRow("Devices - foreign") << m_places->index(4, 0)
                                     << QStringLiteral("blockdevice");
-    QTest::newRow("Devices - Floppy") << m_places->index(6, 0)
+    QTest::newRow("Devices - Floppy") << m_places->index(5, 0)
                                     << QStringLiteral("blockdevice");
-    QTest::newRow("Devices - cdrom") << m_places->index(7, 0)
+    QTest::newRow("Devices - cdrom") << m_places->index(6, 0)
                                     << QStringLiteral("blockdevice");
 }
 
@@ -1010,24 +959,24 @@ void KFilePlacesModelTest::testMoveFunction()
     QStringList urls = initialListOfUrls();
     QSignalSpy rowsMoved(m_places, &KFilePlacesModel::rowsMoved);
 
-    // move item 0 to pos 2
-    QVERIFY(m_places->movePlace(0, 3));
-    urls.move(0, 2);
+    // move item 0 to pos 1
+    QVERIFY(m_places->movePlace(0, 2));
+    urls.move(0, 1);
     QTRY_COMPARE(rowsMoved.count(), 1);
     args = rowsMoved.takeFirst();
     QCOMPARE(args.at(1).toInt(), 0); // start
     QCOMPARE(args.at(2).toInt(), 0); // end
-    QCOMPARE(args.at(4).toInt(), 3); // row (destination)
+    QCOMPARE(args.at(4).toInt(), 2); // row (destination)
     QCOMPARE(placesUrls(), urls);
     rowsMoved.clear();
 
     // move it back
-    QVERIFY(m_places->movePlace(2, 0));
-    urls.move(2, 0);
+    QVERIFY(m_places->movePlace(1, 0));
+    urls.move(1, 0);
     QTRY_COMPARE(rowsMoved.count(), 1);
     args = rowsMoved.takeFirst();
-    QCOMPARE(args.at(1).toInt(), 2); // start
-    QCOMPARE(args.at(2).toInt(), 2); // end
+    QCOMPARE(args.at(1).toInt(), 1); // start
+    QCOMPARE(args.at(2).toInt(), 1); // end
     QCOMPARE(args.at(4).toInt(), 0); // row (destination)
     QCOMPARE(placesUrls(), urls);
     rowsMoved.clear();
@@ -1035,44 +984,44 @@ void KFilePlacesModelTest::testMoveFunction()
     // target position is greater than model rows
     // will move to the end of the first group
     QVERIFY(m_places->movePlace(0, 20));
-    urls.move(0, 2);
+    urls.move(0, 1);
     QTRY_COMPARE(rowsMoved.count(), 1);
     args = rowsMoved.takeFirst();
     QCOMPARE(args.at(1).toInt(), 0); // start
     QCOMPARE(args.at(2).toInt(), 0); // end
-    QCOMPARE(args.at(4).toInt(), 3); // row (destination)
+    QCOMPARE(args.at(4).toInt(), 2); // row (destination)
     QCOMPARE(placesUrls(), urls);
     rowsMoved.clear();
 
     // move it back
-    QVERIFY(m_places->movePlace(2, 0));
-    urls.move(2, 0);
+    QVERIFY(m_places->movePlace(1, 0));
+    urls.move(1, 0);
     QTRY_COMPARE(rowsMoved.count(), 1);
     args = rowsMoved.takeFirst();
-    QCOMPARE(args.at(1).toInt(), 2); // start
-    QCOMPARE(args.at(2).toInt(), 2); // end
+    QCOMPARE(args.at(1).toInt(), 1); // start
+    QCOMPARE(args.at(2).toInt(), 1); // end
     QCOMPARE(args.at(4).toInt(), 0); // row (destination)
     QCOMPARE(placesUrls(), urls);
     rowsMoved.clear();
 
-    QVERIFY(m_places->movePlace(8, 6));
-    urls.move(8, 6);
+    QVERIFY(m_places->movePlace(7, 5));
+    urls.move(7, 5);
     QTRY_COMPARE(rowsMoved.count(), 1);
     args = rowsMoved.takeFirst();
-    QCOMPARE(args.at(1).toInt(), 8); // start
-    QCOMPARE(args.at(2).toInt(), 8); // end
-    QCOMPARE(args.at(4).toInt(), 6); // row (destination)
+    QCOMPARE(args.at(1).toInt(), 7); // start
+    QCOMPARE(args.at(2).toInt(), 7); // end
+    QCOMPARE(args.at(4).toInt(), 5); // row (destination)
     QCOMPARE(placesUrls(), urls);
     rowsMoved.clear();
 
     // move it back
-    QVERIFY(m_places->movePlace(6, 9));
-    urls.move(6, 8);
+    QVERIFY(m_places->movePlace(5, 8));
+    urls.move(5, 7);
     QTRY_COMPARE(rowsMoved.count(), 1);
     args = rowsMoved.takeFirst();
-    QCOMPARE(args.at(1).toInt(), 6); // start
-    QCOMPARE(args.at(2).toInt(), 6); // end
-    QCOMPARE(args.at(4).toInt(), 9); // row (destination)
+    QCOMPARE(args.at(1).toInt(), 5); // start
+    QCOMPARE(args.at(2).toInt(), 5); // end
+    QCOMPARE(args.at(4).toInt(), 8); // row (destination)
     QCOMPARE(placesUrls(), urls);
     rowsMoved.clear();
 

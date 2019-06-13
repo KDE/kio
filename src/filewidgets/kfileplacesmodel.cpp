@@ -302,19 +302,7 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                               QStringLiteral("Network"), I18N_NOOP2("KFile System Bookmarks", "Network"),
                                               QUrl(QStringLiteral("remote:/")), QStringLiteral("folder-network"));
-#if defined(_WIN32_WCE)
-        // adding drives
-        const QString driveIcon = QStringLiteral("drive-harddisk");
-        foreach (const QFileInfo &info, QDir::drives()) {
-            KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                                  info.absoluteFilePath(), info.absoluteFilePath(),
-                                                  QUrl::fromLocalFile(info.absoluteFilePath()), driveIcon);
-        }
-#elif !defined(Q_OS_WIN)
-        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              QStringLiteral("Root"), I18N_NOOP2("KFile System Bookmarks", "Root"),
-                                              QUrl::fromLocalFile(QStringLiteral("/")), QStringLiteral("folder-root"));
-#endif
+
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                               QStringLiteral("Trash"), I18N_NOOP2("KFile System Bookmarks", "Trash"),
                                               QUrl(QStringLiteral("trash:/")), QStringLiteral("user-trash"));
