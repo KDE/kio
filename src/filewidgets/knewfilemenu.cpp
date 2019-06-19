@@ -30,6 +30,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QMenu>
+#include <QPushButton>
 #include <QStandardPaths>
 
 #include <qtemporaryfile.h>
@@ -42,6 +43,7 @@
 #include <kjobwidgets.h>
 #include <klocalizedstring.h>
 #include <kmessagebox.h>
+#include <kmessagewidget.h>
 #include <kprotocolinfo.h>
 #include <kprotocolmanager.h>
 #include <krun.h>
@@ -243,15 +245,13 @@ public:
           m_modal(true),
           m_viewShowsHiddenFiles(false),
           m_firstFileEntry(nullptr),
+          m_messageWidget(nullptr),
+          m_buttonBox(nullptr),
+          m_creatingDirectory(false),
           q(qq)
     {}
 
     bool checkSourceExists(const QString &src);
-
-    /**
-      * Asks user whether to create a hidden directory with a dialog
-      */
-    void confirmCreatingHiddenDir(const QString &name);
 
     /**
       * The strategy used for other desktop files than Type=Link. Example: Application, Device.
@@ -355,6 +355,12 @@ public:
     int m_menuItemsVersion;
     bool m_modal;
     QAction *m_newDirAction;
+    KMessageWidget* m_messageWidget;
+    QDialogButtonBox* m_buttonBox;
+
+    // This is used to allow _k_slotTextChanged to know whether it's being used to
+    // create a file or a directory without duplicating code across two functions
+    bool m_creatingDirectory;
 
     /**
      * The action group that our actions belong to
@@ -391,10 +397,10 @@ bool KNewFileMenuPrivate::checkSourceExists(const QString &src)
         dialog->setModal(q->isModal());
         dialog->setAttribute(Qt::WA_DeleteOnClose);
 
-        QDialogButtonBox *buttonBox = new QDialogButtonBox(dialog);
-        buttonBox->setStandardButtons(QDialogButtonBox::Ok);
+        m_buttonBox = new QDialogButtonBox(dialog);
+        m_buttonBox->setStandardButtons(QDialogButtonBox::Ok);
 
-        KMessageBox::createKMessageBox(dialog, buttonBox, QMessageBox::Warning,
+        KMessageBox::createKMessageBox(dialog, m_buttonBox, QMessageBox::Warning,
                                        i18n("<qt>The template file <b>%1</b> does not exist.</qt>", src),
                                        QStringList(), QString(), nullptr, KMessageBox::NoExec);
 
@@ -403,44 +409,6 @@ bool KNewFileMenuPrivate::checkSourceExists(const QString &src)
         return false;
     }
     return true;
-}
-
-void KNewFileMenuPrivate::confirmCreatingHiddenDir(const QString &name)
-{
-    if (!KMessageBox::shouldBeShownContinue(QStringLiteral("confirm_create_hidden_dir"))) {
-        _k_slotCreateHiddenDirectory();
-        return;
-    }
-
-    KGuiItem continueGuiItem(KStandardGuiItem::cont());
-    continueGuiItem.setText(i18nc("@action:button", "Create directory"));
-    KGuiItem cancelGuiItem(KStandardGuiItem::cancel());
-    cancelGuiItem.setText(i18nc("@action:button", "Enter a Different Name"));
-    cancelGuiItem.setIcon(QIcon::fromTheme(QStringLiteral("edit-rename")));
-
-    QDialog *confirmDialog = new QDialog(m_parentWidget);
-    confirmDialog->setWindowTitle(i18n("Create hidden directory?"));
-    confirmDialog->setModal(m_modal);
-    confirmDialog->setAttribute(Qt::WA_DeleteOnClose);
-
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(confirmDialog);
-    buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    KGuiItem::assign(buttonBox->button(QDialogButtonBox::Ok), continueGuiItem);
-    KGuiItem::assign(buttonBox->button(QDialogButtonBox::Cancel), cancelGuiItem);
-
-    KMessageBox::createKMessageBox(confirmDialog, buttonBox, QMessageBox::Warning,
-                                   i18n("The name \"%1\" starts with a dot, so the directory will be hidden by default.", name),
-                                   QStringList(),
-                                   i18n("Do not ask again"),
-                                   nullptr,
-                                   KMessageBox::NoExec);
-
-    QObject::connect(buttonBox, SIGNAL(accepted()), q, SLOT(_k_slotCreateHiddenDirectory()));
-    QObject::connect(buttonBox, &QDialogButtonBox::rejected, q, &KNewFileMenu::createDirectory);
-
-    m_fileDialog = confirmDialog;
-    confirmDialog->show();
-
 }
 
 void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::Entry &entry)
@@ -511,26 +479,38 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
 
     QDialog *fileDialog = new QDialog(m_parentWidget);
     fileDialog->setAttribute(Qt::WA_DeleteOnClose);
+    fileDialog->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     fileDialog->setModal(q->isModal());
+    m_fileDialog = fileDialog;
 
     QVBoxLayout *layout = new QVBoxLayout;
+    layout->setSizeConstraint(QLayout::SetFixedSize);
+
+    m_messageWidget = new KMessageWidget(fileDialog);
+    m_messageWidget->setCloseButtonVisible(false);
+    m_messageWidget->setWordWrap(true);
+    m_messageWidget->hide();
     QLabel *label = new QLabel(entry.comment, fileDialog);
 
     QLineEdit *lineEdit = new QLineEdit(fileDialog);
     lineEdit->setClearButtonEnabled(true);
     lineEdit->setText(text);
+    lineEdit->setMinimumWidth(400);
 
+    m_buttonBox = new QDialogButtonBox(fileDialog);
+    m_buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    QObject::connect(m_buttonBox, &QDialogButtonBox::accepted, fileDialog, &QDialog::accept);
+    QObject::connect(m_buttonBox, &QDialogButtonBox::rejected, fileDialog, &QDialog::reject);
+
+    m_creatingDirectory = false;
     _k_slotTextChanged(text);
     QObject::connect(lineEdit, SIGNAL(textChanged(QString)), q, SLOT(_k_slotTextChanged(QString)));
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(fileDialog);
-    buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    QObject::connect(buttonBox, &QDialogButtonBox::accepted, fileDialog, &QDialog::accept);
-    QObject::connect(buttonBox, &QDialogButtonBox::rejected, fileDialog, &QDialog::reject);
-
     layout->addWidget(label);
     layout->addWidget(lineEdit);
-    layout->addWidget(buttonBox);
+    layout->addWidget(m_buttonBox);
+    layout->addWidget(m_messageWidget);
+    layout->addStretch();
 
     fileDialog->setLayout(layout);
     QObject::connect(fileDialog, SIGNAL(accepted()), q, SLOT(_k_slotRealFileOrDir()));
@@ -872,11 +852,11 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
                 confirmDialog->setModal(m_modal);
                 confirmDialog->setAttribute(Qt::WA_DeleteOnClose);
 
-                QDialogButtonBox *buttonBox = new QDialogButtonBox(confirmDialog);
-                buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-                KGuiItem::assign(buttonBox->button(QDialogButtonBox::Ok), enterNewNameGuiItem);
+                m_buttonBox = new QDialogButtonBox(confirmDialog);
+                m_buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+                KGuiItem::assign(m_buttonBox->button(QDialogButtonBox::Ok), enterNewNameGuiItem);
 
-                KMessageBox::createKMessageBox(confirmDialog, buttonBox, QMessageBox::Critical,
+                KMessageBox::createKMessageBox(confirmDialog, m_buttonBox, QMessageBox::Critical,
                                    xi18nc("@info", "Could not create a folder with the name <filename>%1</filename><nl/>because it is reserved for use by the operating system.", name),
                                    QStringList(),
                                    QString(),
@@ -884,17 +864,12 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
                                    KMessageBox::NoExec,
                                    QString());
 
-                QObject::connect(buttonBox, &QDialogButtonBox::accepted, q, &KNewFileMenu::createDirectory);
+                m_creatingDirectory = true;
+                QObject::connect(m_buttonBox, &QDialogButtonBox::accepted, q, &KNewFileMenu::createDirectory);
                 m_fileDialog = confirmDialog;
                 confirmDialog->show();
                 _k_slotAbortDialog();
                 return;
-            }
-            if (!m_viewShowsHiddenFiles && name.startsWith(QLatin1Char('.'))) {
-                if (!writeHiddenDir) {
-                    confirmCreatingHiddenDir(name);
-                    return;
-                }
             }
             url = baseUrl;
             url.setPath(concatPaths(url.path(), name));
@@ -1072,6 +1047,86 @@ void KNewFileMenuPrivate::_k_slotSymLink()
 
 void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
 {
+    m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true);
+    // Validate input, displaying a KMessageWidget for questionable names
+
+    if (text.length() == 0) {
+        m_messageWidget->hide();
+        m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
+    }
+
+    // Don't allow creating folders that would mask . or ..
+    else if (text == QLatin1String(".") || text == QLatin1String("..")) {
+        m_messageWidget->setText(xi18nc("@info", "The name <filename>%1</filename> cannot be used because it is reserved for use by the operating system.", text));
+        m_messageWidget->setMessageType(KMessageWidget::Error);
+        m_messageWidget->animatedShow();
+        m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
+    }
+
+    // File or folder would be hidden; show warning
+    else if (text.startsWith(QLatin1Char('.'))) {
+        m_messageWidget->setText(xi18nc("@info", "The name <filename>%1</filename> starts with a dot, so it will be hidden by default.", text));
+        m_messageWidget->setMessageType(KMessageWidget::Warning);
+        m_messageWidget->animatedShow();
+    }
+
+#ifndef Q_OS_WIN
+    // Inform the user that slashes in folder names create a directory tree
+    else if (text.contains(QLatin1Char('/'))) {
+        if (m_creatingDirectory) {
+            QStringList folders = text.split(QLatin1Char('/'));
+            if (!folders.isEmpty()) {
+                if (folders.first().isEmpty()) {
+                    folders.removeFirst();
+                }
+            }
+            QString label;
+            if (folders.count() > 1) {
+                label = i18n("Using slashes in folder names will create sub-folders, like so:");
+                QString indentation = QString();
+                for (const QString &folder : folders) {
+                    label.append(QStringLiteral("\n"));
+                    label.append(indentation);
+                    label.append(folder);
+                    label.append(QStringLiteral("/"));
+                    indentation.append(QStringLiteral("    "));
+                }
+            } else {
+                label = i18n("Using slashes in folder names will create sub-folders.");
+            }
+            m_messageWidget->setText(label);
+            m_messageWidget->setMessageType(KMessageWidget::Information);
+            m_messageWidget->animatedShow();
+        }
+    }
+#endif
+
+#ifdef Q_OS_WIN
+    // Slashes and backslashes are not allowed in Windows filenames; show error
+    else if (text.contains(QLatin1Char('/'))) {
+        m_messageWidget->setText(i18n("Slashes cannot be used in file and folder names."));
+        m_messageWidget->setMessageType(KMessageWidget::Error);
+        m_messageWidget->animatedShow();
+        m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
+    }
+    else if (text.contains(QLatin1Char('\\'))) {
+        m_messageWidget->setText(i18n("Backslashes cannot be used in file and folder names."));
+        m_messageWidget->setMessageType(KMessageWidget::Error);
+        m_messageWidget->animatedShow();
+        m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
+    }
+#endif
+
+    // Using a tilde to begin a file or folder name is not recommended
+    else if (text.startsWith(QLatin1Char('~'))) {
+        m_messageWidget->setText(i18n("Starting a file or folder name with a tilde is not recommended because it may be confusing or dangerous when using the terminal to delete things.", text));
+        m_messageWidget->setMessageType(KMessageWidget::Warning);
+        m_messageWidget->animatedShow();
+    }
+
+    else {
+        m_messageWidget->hide();
+    }
     m_text = text;
 }
 
@@ -1216,32 +1271,43 @@ void KNewFileMenu::createDirectory()
     QDialog *fileDialog = new QDialog(d->m_parentWidget);
     fileDialog->setModal(isModal());
     fileDialog->setAttribute(Qt::WA_DeleteOnClose);
+    fileDialog->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     fileDialog->setWindowTitle(i18nc("@title:window", "New Folder"));
+    d->m_fileDialog = fileDialog;
 
     QVBoxLayout *layout = new QVBoxLayout;
-    QLabel *label = new QLabel(i18n("Create new folder in:\n%1", baseUrl.toDisplayString(QUrl::PreferLocalFile)), fileDialog);
+    layout->setSizeConstraint(QLayout::SetFixedSize);
+
+    d->m_messageWidget = new KMessageWidget(fileDialog);
+    d->m_messageWidget->setCloseButtonVisible(false);
+    d->m_messageWidget->setWordWrap(true);
+    d->m_messageWidget->hide();
+    QLabel *label = new QLabel(i18n("Create new folder in %1:", baseUrl.toDisplayString(QUrl::PreferLocalFile)), fileDialog);
 
     QLineEdit *lineEdit = new QLineEdit(fileDialog);
     lineEdit->setClearButtonEnabled(true);
     lineEdit->setText(name);
+    lineEdit->setMinimumWidth(400);
 
+    d->m_buttonBox = new QDialogButtonBox(fileDialog);
+    d->m_buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    QObject::connect(d->m_buttonBox, &QDialogButtonBox::accepted, fileDialog, &QDialog::accept);
+    QObject::connect(d->m_buttonBox, &QDialogButtonBox::rejected, fileDialog, &QDialog::reject);
+
+    d->m_creatingDirectory = true;
     d->_k_slotTextChanged(name); // have to save string in d->m_text in case user does not touch dialog
     connect(lineEdit, SIGNAL(textChanged(QString)), this, SLOT(_k_slotTextChanged(QString)));
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(fileDialog);
-    buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    QObject::connect(buttonBox, &QDialogButtonBox::accepted, fileDialog, &QDialog::accept);
-    QObject::connect(buttonBox, &QDialogButtonBox::rejected, fileDialog, &QDialog::reject);
-
     layout->addWidget(label);
     layout->addWidget(lineEdit);
-    layout->addWidget(buttonBox);
+    layout->addWidget(d->m_buttonBox);
+    layout->addWidget(d->m_messageWidget);
+    layout->addStretch();
 
     fileDialog->setLayout(layout);
     connect(fileDialog, SIGNAL(accepted()), this, SLOT(_k_slotCreateDirectory()));
     connect(fileDialog, SIGNAL(rejected()), this, SLOT(_k_slotAbortDialog()));
 
-    d->m_fileDialog = fileDialog;
 
     fileDialog->show();
     lineEdit->selectAll();
