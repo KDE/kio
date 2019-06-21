@@ -23,36 +23,12 @@
 #include <utime.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <errno.h>
-#include <libgen.h>
-#include <grp.h>
+#include <dirent.h>
 #include <sys/stat.h>
-#include <sys/time.h>
+#include <errno.h>
 
 #include "fdsender.h"
 #include "../file_p.h"
-
-struct Privilege {
-    uid_t uid;
-    gid_t gid;
-};
-
-static ActionType intToActionType(int action)
-{
-    switch (action) {
-        case 1: return CHMOD;
-        case 2: return CHOWN;
-        case 3: return DEL;
-        case 4: return MKDIR;
-        case 5: return OPEN;
-        case 6: return OPENDIR;
-        case 7: return RENAME;
-        case 8: return RMDIR;
-        case 9: return SYMLINK;
-        case 10: return UTIME;
-        default: return UNKNOWN;
-    }
-}
 
 static bool sendFileDescriptor(int fd, const char *socketPath)
 {
@@ -63,194 +39,102 @@ static bool sendFileDescriptor(int fd, const char *socketPath)
     return false;
 }
 
-static Privilege *getTargetPrivilege(int target_fd)
-{
-    struct stat buf = {0};
-    if (fstat(target_fd, &buf) == -1) {
-        return nullptr;
-    }
-    return new Privilege{buf.st_uid, buf.st_gid};
-}
-
-static bool dropPrivilege(Privilege *p)
-{
-    if (!p) {
-        return false;
-    }
-
-    uid_t newuid = p->uid;
-    gid_t newgid = p->gid;
-
-    //drop ancillary groups first because it requires root privileges.
-    if (setgroups(1, &newgid) == -1) {
-        return false;
-    }
-    //change effective gid and uid.
-    if (setegid(newgid) == -1 || seteuid(newuid) == -1) {
-        return false;
-    }
-
-    return true;
-}
-
-static void gainPrivilege(Privilege *p)
-{
-    if (!p) {
-        return;
-    }
-
-    uid_t olduid = p->uid;
-    gid_t oldgid = p->gid;
-
-    seteuid(olduid);
-    setegid(oldgid);
-    setgroups(1, &oldgid);
-}
-
 ActionReply FileHelper::exec(const QVariantMap &args)
 {
     ActionReply reply;
     QByteArray data = args[QStringLiteral("arguments")].toByteArray();
     QDataStream in(data);
-    int act;
+    int action;
     QVariant arg1, arg2, arg3, arg4;
-    in >> act >> arg1 >> arg2 >> arg3 >> arg4; // act=action, arg1=source file, arg$n=dest file, mode, uid, gid, etc.
-    ActionType action = intToActionType(act);
+    in >> action >> arg1 >> arg2 >> arg3 >> arg4;
 
-    //chown requires privilege (CAP_CHOWN) to change user but the group can be changed without it.
-    //It's much simpler to do it in one privileged call.
-    if (action == CHOWN) {
-        if (lchown(arg1.toByteArray().constData(), arg2.toInt(), arg3.toInt()) == -1) {
-            reply.setError(errno);
+    // the path of an existing or a new file/dir upon which the method will operate
+    const QByteArray path = arg1.toByteArray();
+
+    switch(action) {
+    case CHMOD: {
+        int mode = arg2.toInt();
+        if (chmod(path.data(), mode) == 0) {
+            return reply;
         }
-        return reply;
+        break;
     }
-
-    QByteArray tempPath1, tempPath2;
-    tempPath1 = tempPath2 = arg1.toByteArray();
-    const QByteArray parentDir = dirname(tempPath1.data());
-    const QByteArray baseName = basename(tempPath2.data());
-    int parent_fd = -1, base_fd = -1;
-
-    if ((parent_fd = open(parentDir.data(), O_DIRECTORY | O_PATH | O_NOFOLLOW)) == -1) {
-        reply.setError(errno);
-        return reply;
-    }
-
-    Privilege *origPrivilege = new Privilege{geteuid(), getegid()};
-    Privilege *targetPrivilege = nullptr;
-
-    if (action != CHMOD && action != UTIME) {
-        targetPrivilege = getTargetPrivilege(parent_fd);
-    } else {
-        if ((base_fd = openat(parent_fd, baseName.data(), O_NOFOLLOW)) != -1) {
-            targetPrivilege = getTargetPrivilege(base_fd);
-        } else {
-            reply.setError(errno);
+    case CHOWN: {
+        int uid = arg2.toInt();
+        int gid = arg3.toInt();
+        if (chown(path.data(), uid, gid) == 0) {
+            return reply;
         }
+        break;
     }
-
-    if (dropPrivilege(targetPrivilege)) {
-        switch(action) {
-            case CHMOD: {
-                int mode = arg2.toInt();
-                if (fchmod(base_fd, mode) == -1) {
-                    reply.setError(errno);
-                }
-                close(base_fd);
-                break;
-            }
-
-            case DEL:
-            case RMDIR: {
-                int flags = 0;
-                if (action == RMDIR) {
-                    flags |= AT_REMOVEDIR;
-                }
-                if (unlinkat(parent_fd, baseName.data(), flags) == -1) {
-                    reply.setError(errno);
-                }
-                break;
-            }
-
-            case MKDIR: {
-                int mode = arg2.toInt();
-                if (mkdirat(parent_fd, baseName.data(), mode) == -1) {
-                    reply.setError(errno);
-                }
-                break;
-            }
-
-            case OPEN:
-            case OPENDIR: {
-                int oflags = arg2.toInt();
-                int mode = arg3.toInt();
-                int extraFlag = O_NOFOLLOW;
-                if (action == OPENDIR) {
-                    extraFlag |= O_DIRECTORY;
-                }
-                if (int fd = openat(parent_fd, baseName.data(), oflags | extraFlag, mode) != -1) {
-                    gainPrivilege(origPrivilege);
-                    if (!sendFileDescriptor(fd, arg4.toByteArray().constData())) {
-                        reply.setError(errno);
-                    }
-                } else {
-                    reply.setError(errno);
-                }
-                break;
-            }
-
-            case RENAME: {
-                tempPath1 = tempPath2 = arg2.toByteArray();
-                const QByteArray newParentDir = dirname(tempPath1.data());
-                const QByteArray newBaseName = basename(tempPath2.data());
-                int new_parent_fd = open(newParentDir.constData(), O_DIRECTORY | O_PATH | O_NOFOLLOW);
-                if (renameat(parent_fd, baseName.data(), new_parent_fd, newBaseName.constData()) == -1) {
-                        reply.setError(errno);
-                }
-                close(new_parent_fd);
-                break;
-            }
-
-            case SYMLINK: {
-                const QByteArray target = arg2.toByteArray();
-                if (symlinkat(target.data(), parent_fd, baseName.data()) == -1) {
-                    reply.setError(errno);
-                }
-                break;
-            }
-
-            case UTIME: {
-                timespec times[2];
-                time_t actime = arg2.toULongLong();
-                time_t modtime = arg3.toULongLong();
-                times[0].tv_sec = actime / 1000;
-                times[0].tv_nsec = actime * 1000;
-                times[1].tv_sec = modtime / 1000;
-                times[1].tv_nsec = modtime * 1000;
-                if (futimens(base_fd, times) == -1) {
-                    reply.setError(errno);
-                }
-                close(base_fd);
-                break;
-            }
-
-            default:
-                reply.setError(ENOTSUP);
-                break;
+    case DEL: {
+        if (unlink(path.data()) == 0) {
+            return reply;
         }
-        gainPrivilege(origPrivilege);
-    } else {
-        reply.setError(errno);
+        break;
     }
+    case MKDIR: {
+        if (mkdir(path.data(), 0777) == 0) {
+            return reply;
+        }
+        break;
+    }
+    case OPEN: {
+        int oflags = arg2.toInt();
+        int mode = arg3.toInt();
+        int fd = open(path.data(), oflags, mode);
+        bool success = (fd != -1) && sendFileDescriptor(fd, arg4.toByteArray().constData());
+        close(fd);
+        if (success) {
+            return reply;
+        }
+        break;
+    }
+    case OPENDIR: {
+        DIR *dp = opendir(path.data());
+        bool success = false;
+        if (dp) {
+            int fd = dirfd(dp);
+            success = (fd != -1) && sendFileDescriptor(fd, arg4.toByteArray().constData());
+            closedir(dp);
+            if (success) {
+                return reply;
+            }
+        }
+        break;
+    }
+    case RENAME: {
+        const QByteArray newName = arg2.toByteArray();
+        if (rename(path.data(), newName.data()) == 0) {
+            return reply;
+        }
+        break;
+    }
+    case RMDIR: {
+        if (rmdir(path.data()) == 0) {
+            return reply;
+        }
+        break;
+    }
+    case SYMLINK: {
+        const QByteArray target = arg2.toByteArray();
+        if (symlink(target.data(), path.data()) == 0) {
+            return reply;
+        }
+        break;
+    }
+    case UTIME: {
+        utimbuf ut;
+        ut.actime = arg2.toULongLong();
+        ut.modtime = arg3.toULongLong();
+        if (utime(path.data(), &ut) == 0) {
+            return reply;
+        }
+        break;
+    }
+    };
 
-    if (origPrivilege) {
-        delete origPrivilege;
-    }
-    if (targetPrivilege) {
-        delete targetPrivilege;
-    }
-    close(parent_fd);
+    reply.setError(errno ? errno : -1);
     return reply;
 }
 

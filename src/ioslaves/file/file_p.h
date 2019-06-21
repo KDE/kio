@@ -24,7 +24,6 @@
 #include <errno.h>
 
 enum ActionType {
-    UNKNOWN,
     CHMOD = 1,
     CHOWN,
     DEL,
