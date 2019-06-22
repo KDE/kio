@@ -28,9 +28,14 @@
 #include <grp.h>
 #include <sys/stat.h>
 #include <sys/time.h>
+#include <sys/types.h>
 
 #include "fdsender.h"
 #include "../file_p.h"
+
+#ifndef O_PATH
+#define O_PATH O_RDONLY
+#endif
 
 struct Privilege {
     uid_t uid;
