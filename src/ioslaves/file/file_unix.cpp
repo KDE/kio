@@ -376,9 +376,11 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl,
         const int errCode = errno;
         KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(dest);
         // Eat the error if the filesystem apparently doesn't support chmod.
+        // This test isn't fullproof though, vboxsf (VirtualBox shared folder) supports
+        // chmod if the host is Linux, and doesn't if the host is Windows. Hard to detect.
         if (mp && mp->testFileSystemFlag(KMountPoint::SupportsChmod)) {
             if (tryChangeFileAttr(CHMOD, {_dest, _mode}, errCode)) {
-                warning(i18n("Could not change permissions for '%1'", dest));
+                qCWarning(KIO_FILE) << "Could not change permissions for" << dest;
             }
         }
     }
