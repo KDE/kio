@@ -79,6 +79,7 @@ ecm_generate_headers(KIOFileWidgets_HEADERS
   KDirOperator
   KDirSortFilterProxyModel
   KFileCopyToMenu
+  KFileCustomDialog
   KFileFilterCombo
   KFilePlaceEditDialog
   KFilePlacesModel
