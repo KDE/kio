@@ -23,6 +23,7 @@
 #include <kprotocolinfo.h>
 #include <kconfig.h>
 #include <kconfiggroup.h>
+#include <kfileitem.h>
 #include <klocalizedstring.h>
 #include <ksharedconfig.h>
 #include <kformat.h>
@@ -234,19 +235,28 @@ QString KIO::iconNameForUrl(const QUrl &url)
     const QString mimeTypeIcon = mt.iconName();
     QString i = mimeTypeIcon;
 
-    // check whether it's a xdg location (e.g. Pictures folder)
-    if (url.isLocalFile() && mt.inherits(QStringLiteral("inode/directory"))) {
-        i = KIOPrivate::iconForStandardPath(url.toLocalFile());
-    }
+    if (url.isLocalFile()) {
+        // Check to see whether it's an xdg location (e.g. Pictures folder)
+        if (mt.inherits(QStringLiteral("inode/directory"))) {
+            i = KIOPrivate::iconForStandardPath(url.toLocalFile());
+        }
 
-    // if we don't find an icon, maybe we can use the one for the protocol
-    if (i == unknown || i.isEmpty() || mt.isDefault()
-            // and for the root of the protocol (e.g. trash:/) the protocol icon has priority over the mimetype icon
-            || url.path().length() <= 1) {
-        i = favIconForUrl(url); // maybe there is a favicon?
+        // Let KFileItem::iconName handle things for us
+        if (i == unknown || i.isEmpty() || mt.isDefault()) {
+            const KFileItem item(url, mt.name());
+            i = item.iconName();
+        }
 
-        // reflect actual fill state of trash can
-        if (url.scheme() == QLatin1String("trash") && url.path().length() <= 1) {
+    } else {
+        // It's non-local and maybe on a slow filesystem
+
+        // Look for a favicon
+        if (url.scheme().startsWith(QLatin1String("http"))) {
+            i = favIconForUrl(url);
+        }
+
+        // Then handle the trash
+        else if (url.scheme() == QLatin1String("trash") && url.path().length() <= 1) {
             KConfig trashConfig(QStringLiteral("trashrc"), KConfig::SimpleConfig);
             if (trashConfig.group("Status").readEntry("Empty", true)) {
                 i = QStringLiteral("user-trash");
