@@ -593,6 +593,7 @@ void CopyJobPrivate::slotReport()
         Q_FALLTHROUGH();
     case STATE_COPYING_FILES:
         q->setProcessedAmount(KJob::Files, m_processedFiles);
+        q->setProcessedAmount(KJob::Bytes, m_processedSize + m_fileProcessedSize);
         if (m_bURLDirty) {
             // Only emit urls when they changed. This saves time, and fixes #66281
             m_bURLDirty = false;
@@ -1848,7 +1849,6 @@ void CopyJobPrivate::slotProcessedSize(KJob *, qulonglong data_size)
     Q_Q(CopyJob);
     qCDebug(KIO_COPYJOB_DEBUG) << data_size;
     m_fileProcessedSize = data_size;
-    q->setProcessedAmount(KJob::Bytes, m_processedSize + m_fileProcessedSize);
 
     if (m_processedSize + m_fileProcessedSize > m_totalSize) {
         // Example: download any attachment from bugs.kde.org
@@ -1857,7 +1857,6 @@ void CopyJobPrivate::slotProcessedSize(KJob *, qulonglong data_size)
         q->setTotalAmount(KJob::Bytes, m_totalSize); // safety
     }
     qCDebug(KIO_COPYJOB_DEBUG) << "emit processedSize" << (unsigned long) (m_processedSize + m_fileProcessedSize);
-    q->setProcessedAmount(KJob::Bytes, m_processedSize + m_fileProcessedSize);
 }
 
 void CopyJobPrivate::slotTotalSize(KJob *, qulonglong size)
