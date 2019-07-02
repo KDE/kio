@@ -1738,6 +1738,9 @@ void CopyJobPrivate::copyNextFile()
     } else {
         // We're done
         qCDebug(KIO_COPYJOB_DEBUG) << "copyNextFile finished";
+        --m_processedFiles; // undo the "start at 1" hack
+        slotReport(); // display final numbers, important if progress dialog stays up
+
         deleteNextDir();
     }
 }
@@ -1805,8 +1808,6 @@ void CopyJobPrivate::setNextDirAttribute()
         if (m_reportTimer) {
             m_reportTimer->stop();
         }
-        --m_processedFiles; // undo the "start at 1" hack
-        slotReport(); // display final numbers, important if progress dialog stays up
 
         q->emitResult();
     }
