@@ -2518,7 +2518,8 @@ Ftp::StatusCode Ftp::ftpCopyGet(int &iError, int &iCopyFile, const QString &sCop
             if (dt.isValid()) {
                 qCDebug(KIO_FTP) << "Updating modified timestamp to" << mtimeStr;
                 struct utimbuf utbuf;
-                utbuf.actime = sPartInfo.lastRead().toSecsSinceEpoch(); // access time, unchanged
+                info.refresh();
+                utbuf.actime = info.lastRead().toSecsSinceEpoch(); // access time, unchanged
                 utbuf.modtime = dt.toSecsSinceEpoch(); // modification time
                 ::utime(QFile::encodeName(sCopyFile).constData(), &utbuf);
             }
