@@ -1119,7 +1119,7 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
 
     // Using a tilde to begin a file or folder name is not recommended
     else if (text.startsWith(QLatin1Char('~'))) {
-        m_messageWidget->setText(i18n("Starting a file or folder name with a tilde is not recommended because it may be confusing or dangerous when using the terminal to delete things.", text));
+        m_messageWidget->setText(i18n("Starting a file or folder name with a tilde is not recommended because it may be confusing or dangerous when using the terminal to delete things."));
         m_messageWidget->setMessageType(KMessageWidget::Warning);
         m_messageWidget->animatedShow();
     }
