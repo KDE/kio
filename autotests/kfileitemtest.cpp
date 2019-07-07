@@ -605,7 +605,7 @@ void KFileItemTest::testIconNameForUrl_data()
     QTest::addColumn<QUrl>("url");
     QTest::addColumn<QString>("expectedIcon");
 
-    QTest::newRow("root") << QUrl("file:/") << "folder"; // the icon comes from KProtocolInfo
+    QTest::newRow("root") << QUrl("file:/") << "inode-directory"; // the icon comes from KFileItem
     if (QFile::exists(QStringLiteral("/tmp"))) {
         QTest::newRow("subdir") << QUrl::fromLocalFile("/tmp") << "folder-temp";
     }
