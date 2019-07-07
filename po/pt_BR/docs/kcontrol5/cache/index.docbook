@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Brazilian-Portuguese "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="cache" lang="&language;">
+<title
+>Cache</title>
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+><surname
+>Watts</surname
+></author>
+
+<othercredit role="translator"
+><firstname
+>Lisiane</firstname
+> <surname
+>Sztoltz</surname
+><affiliation
+><address
+> <email
+>lisiane@conectiva.com.br</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>10/11/2016</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Configurações do sistema</keyword>
+<keyword
+>Konqueror</keyword>
+<keyword
+>Cache</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Este módulo permite que você controle o tamanho da pasta de cache local usada pelo &konqueror;. Note que cada conta de usuário em seu computador possui uma pasta de cache separada e esta pasta não é compartilhada com outros navegadores, como o &firefox;.</para>
+
+<para
+>Armazenar cópias locais das páginas Web dos sites visitados permitirá ao &konqueror; carregar os conteúdos das mesmas rapidamente, em visitas subsequentes. Será necessário somente recarregar o conteúdo do site original e suas mudanças desde a última visita, ou clicar no botão Recarregar do &konqueror;.</para>
+
+<para
+>Se você realmente não deseja que as páginas visitadas sejam armazenadas em seu computador, você pode desabilitar a cache no &konqueror; desmarcando a opção <guilabel
+>Usar cache</guilabel
+>.</para>
+
+<para
+>Você pode configurar aqui como o &konqueror; mantém a cache atualizada. <guilabel
+>Manter cache em sincronia</guilabel
+> significa que o &konqueror; irá atualizar a cache para todos os objetos, carregando-os se eles não estiverem lá, e então exibir o item da cache. <guilabel
+>Usar cache sempre que possível</guilabel
+> significa que o &konqueror; irá tentar usar a cache e, se o objeto não estiver lá, ele será carregado diretamente para exibição. <guilabel
+>Modo de navegação offline</guilabel
+> significa que o &konqueror; tentará usar a cache e, se o objeto não estiver lá, ele não irá tentar carregá-lo da Internet.</para>
+
+<para
+>Você pode controlar o tamanho da cache digitando um número dentro da caixa de texto chamada <guilabel
+>Tamanho do cache de disco</guilabel
+>. Esta é a quantidade média de espaço em disco, em kilobytes, que será autorizada para uso da pasta de cache. Quando a cache alcançar um tamanho muito grande, o &konqueror; irá remover arquivos antigos para reduzir o tamanho da pasta.</para>
+
+<para
+>Isto é, no entanto, somente uma média, e durante uma sessão de navegação, a cache pode tornar-se substancialmente maior.</para>
+
+<para
+>Você pode usar o botão <guibutton
+>Limpar cache</guibutton
+> para limpar a cache a qualquer momento.</para>
+
+</article>
