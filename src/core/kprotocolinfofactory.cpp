@@ -24,6 +24,7 @@
 #include <KPluginLoader>
 #include <KPluginMetaData>
 
+#include <QCoreApplication>
 #include <QDirIterator>
 #include <qstandardpaths.h>
 
@@ -124,7 +125,9 @@ bool KProtocolInfoFactory::fillCache()
     }
 
     // second: fallback to .protocol files
-    Q_FOREACH (const QString &serviceDir, QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kservices5"), QStandardPaths::LocateDirectory)) {
+    const QStringList serviceDirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kservices5"), QStandardPaths::LocateDirectory)
+        << QCoreApplication::applicationDirPath() + QLatin1String("/kservices5");
+    for (const QString &serviceDir : serviceDirs) {
         QDirIterator it(serviceDir);
         while (it.hasNext()) {
             const QString file = it.next();
