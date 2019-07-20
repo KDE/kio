@@ -240,14 +240,8 @@ public:
 class KNewFileMenuPrivate
 {
 public:
-    explicit KNewFileMenuPrivate(KNewFileMenu *qq)
-        : m_menuItemsVersion(0),
-          m_modal(true),
-          m_viewShowsHiddenFiles(false),
-          m_firstFileEntry(nullptr),
-          m_messageWidget(nullptr),
-          m_buttonBox(nullptr),
-          m_creatingDirectory(false),
+    explicit KNewFileMenuPrivate(KActionCollection *collection, KNewFileMenu *qq)
+        : m_actionCollection(collection),
           q(qq)
     {}
 
@@ -352,15 +346,16 @@ public:
     QDialog *m_fileDialog;
 
     KActionMenu *m_menuDev;
-    int m_menuItemsVersion;
-    bool m_modal;
+    int m_menuItemsVersion = 0;
     QAction *m_newDirAction;
-    KMessageWidget* m_messageWidget;
-    QDialogButtonBox* m_buttonBox;
+    KMessageWidget* m_messageWidget = nullptr;
+    QDialogButtonBox* m_buttonBox = nullptr;
 
     // This is used to allow _k_slotTextChanged to know whether it's being used to
     // create a file or a directory without duplicating code across two functions
-    bool m_creatingDirectory;
+    bool m_creatingDirectory = false;
+    bool m_viewShowsHiddenFiles = false;
+    bool m_modal = true;
 
     /**
      * The action group that our actions belong to
@@ -377,9 +372,8 @@ public:
     QStringList m_supportedMimeTypes;
     QString m_tempFileToDelete; // set when a tempfile was created for a Type=URL desktop file
     QString m_text;
-    bool m_viewShowsHiddenFiles;
 
-    KNewFileMenuSingleton::Entry *m_firstFileEntry;
+    KNewFileMenuSingleton::Entry *m_firstFileEntry = nullptr;
 
     KNewFileMenu * const q;
 
@@ -1193,13 +1187,12 @@ void KNewFileMenuPrivate::_k_slotUrlDesktopFile()
 
 KNewFileMenu::KNewFileMenu(KActionCollection *collection, const QString &name, QObject *parent)
     : KActionMenu(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Create New"), parent),
-      d(new KNewFileMenuPrivate(this))
+      d(new KNewFileMenuPrivate(collection, this))
 {
     // Don't fill the menu yet
     // We'll do that in checkUpToDate (should be connected to aboutToShow)
     d->m_newMenuGroup = new QActionGroup(this);
     connect(d->m_newMenuGroup, SIGNAL(triggered(QAction*)), this, SLOT(_k_slotActionTriggered(QAction*)));
-    d->m_actionCollection = collection;
     d->m_parentWidget = qobject_cast<QWidget *>(parent);
     d->m_newDirAction = nullptr;
 
