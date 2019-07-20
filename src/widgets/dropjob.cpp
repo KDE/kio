@@ -526,7 +526,7 @@ void DropJobPrivate::handleDropToDesktopFile()
     if (desktopFile.hasApplicationType()) {
         // Drop to application -> start app with urls as argument
         KService service(destFile);
-        if (!KRun::runService(service, m_urls, KJobWidgets::window(q))) {
+        if (!KRun::runApplication(service, m_urls, KJobWidgets::window(q))) {
             q->setError(KIO::ERR_CANNOT_LAUNCH_PROCESS);
             q->setErrorText(destFile);
         }

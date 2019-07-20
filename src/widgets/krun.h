@@ -211,7 +211,7 @@ public:
      * @param asn Application startup notification id, if any (otherwise "").
      * @return @c true on success, @c false on error
      *
-     * @deprecated since 5.6, use runService instead. No change needed on the application side,
+     * @deprecated since 5.6, use runApplication instead. No change needed on the application side,
      * the only difference is the return value (qint64 instead of bool).
      */
     static KIOWIDGETS_DEPRECATED bool run(const KService &service, const QList<QUrl> &urls, QWidget *window,
@@ -387,7 +387,7 @@ public:
      */
     static bool displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window,
                                       bool tempFiles = false, const QString &suggestedFileName = QString(),
-                                      const QByteArray &asn = QByteArray());
+                                      const QByteArray &asn = QByteArray()); // TODO deprecate and provide RunFlags() overload
 
     /**
      * Quotes a string for the shell.

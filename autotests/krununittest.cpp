@@ -357,7 +357,7 @@ void KRunUnitTest::KRunRunService()
     // When calling KRun::runService or KRun::runApplication
     qint64 pid = useRunApplication
         ? KRun::runApplication(service, urls, nullptr, tempFile ? KRun::RunFlags(KRun::DeleteTemporaryFiles) : KRun::RunFlags())
-        : KRun::runService(service, urls, nullptr, tempFile);
+        : KRun::runService(service, urls, nullptr, tempFile); // DEPRECATED
 
     // Then the service should be executed (which copies the source file to "dest")
     QVERIFY(pid != 0);

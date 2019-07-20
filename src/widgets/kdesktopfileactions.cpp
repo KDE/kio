@@ -145,8 +145,7 @@ static bool runApplication(const QUrl &_url, const QString &_serviceFile, const 
         return false;
     }
 
-    QList<QUrl> lst;
-    return KRun::runService(s, lst, nullptr /*TODO - window*/, false, QString(), asn);
+    return KRun::runApplication(s, QList<QUrl>(), nullptr /*TODO - window*/, KRun::RunFlags{}, QString(), asn);
 }
 
 static bool runLink(const QUrl &_url, const KDesktopFile &cfg, const QByteArray &asn)
