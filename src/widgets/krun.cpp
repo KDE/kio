@@ -325,7 +325,7 @@ static qint64 runCommandInternal(KProcess *proc, const KService *service, const 
     }
 
     QString bin = KIO::DesktopExecParser::executableName(executable);
-#if HAVE_X11 // Startup notification doesn't work with QT/E, service isn't needed without Startup notification
+#if HAVE_X11
     static bool isX11 = QGuiApplication::platformName() == QStringLiteral("xcb");
     if (isX11) {
         bool silent;
