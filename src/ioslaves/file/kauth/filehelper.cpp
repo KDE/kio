@@ -70,7 +70,7 @@ static bool sendFileDescriptor(int fd, const char *socketPath)
 
 static Privilege *getTargetPrivilege(int target_fd)
 {
-    struct stat buf = {0};
+    struct stat buf;
     if (fstat(target_fd, &buf) == -1) {
         return nullptr;
     }
