@@ -129,14 +129,14 @@ void UDSEntryBenchmark::createSmallEntries()
         for (int i = 0; i < numberOfSmallUDSEntries; ++i) {
             KIO::UDSEntry entry;
             entry.reserve(8);
-            entry.insert(KIO::UDSEntry::UDS_NAME, names[i]);
-            entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, i);
-            entry.insert(KIO::UDSEntry::UDS_ACCESS, i);
-            entry.insert(KIO::UDSEntry::UDS_SIZE, i);
-            entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME, i);
-            entry.insert(KIO::UDSEntry::UDS_USER, user);
-            entry.insert(KIO::UDSEntry::UDS_GROUP, group);
-            entry.insert(KIO::UDSEntry::UDS_ACCESS_TIME, i);
+            entry.fastInsert(KIO::UDSEntry::UDS_NAME, names[i]);
+            entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, i);
+            entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, i);
+            entry.fastInsert(KIO::UDSEntry::UDS_SIZE, i);
+            entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, i);
+            entry.fastInsert(KIO::UDSEntry::UDS_USER, user);
+            entry.fastInsert(KIO::UDSEntry::UDS_GROUP, group);
+            entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, i);
             m_smallEntries.append(entry);
         }
     }
@@ -160,9 +160,9 @@ void UDSEntryBenchmark::createLargeEntries()
             entry.reserve(m_fieldsForLargeEntries.count());
             foreach (uint field, m_fieldsForLargeEntries) {
                 if (field & KIO::UDSEntry::UDS_STRING) {
-                    entry.insert(field, names[i]);
+                    entry.fastInsert(field, names[i]);
                 } else {
-                    entry.insert(field, i);
+                    entry.fastInsert(field, i);
                 }
             }
             m_largeEntries.append(entry);
