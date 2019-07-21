@@ -1597,9 +1597,13 @@ bool Ftp::ftpOpenDir(const QString &path)
     // Pass KJob::NoError first because we don't want to emit error before we
     // have tried all commands.
     if (!ftpOpenCommand("list -la", QString(), 'I', KJob::NoError)) {
-        if (!ftpOpenCommand("list", QString(), 'I', ERR_CANNOT_ENTER_DIRECTORY)) {
-            qCWarning(KIO_FTP) << "Can't open for listing";
-            return false;
+        if (!ftpOpenCommand("list", QString(), 'I', KJob::NoError)) {
+            // Servers running with Turkish locale having problems converting 'i' letter to upper case.
+            // So we send correct upper case command as last resort.
+            if (!ftpOpenCommand("LIST -la", QString(), 'I', ERR_CANNOT_ENTER_DIRECTORY)) {
+                qCWarning(KIO_FTP) << "Can't open for listing";
+                return false;
+            }
         }
     }
     qCDebug(KIO_FTP) << "Starting of list was ok";
