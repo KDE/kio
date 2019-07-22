@@ -54,6 +54,7 @@
 #include <kio/fileundomanager.h>
 #include <kio/mkpathjob.h>
 #include <kurifilter.h>
+#include <kfileutils.h>
 
 #include <kpropertiesdialog.h>
 #include <qmimedatabase.h>
@@ -424,7 +425,7 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
         const QUrl directory = mostLocalUrl(*it);
         const QUrl defaultFile = QUrl::fromLocalFile(directory.toLocalFile() + QLatin1Char('/') + KIO::encodeFileName(text));
         if (defaultFile.isLocalFile() && QFile::exists(defaultFile.toLocalFile())) {
-            text = KIO::suggestName(directory, text);
+            text = KFileUtils::suggestName(directory, text);
         }
 
         QUrl templateUrl;
@@ -468,7 +469,7 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
     const QUrl directory = mostLocalUrl(m_popupFiles.first());
     const QUrl defaultFile = QUrl::fromLocalFile(directory.toLocalFile() + QLatin1Char('/') + KIO::encodeFileName(text));
     if (defaultFile.isLocalFile() && QFile::exists(defaultFile.toLocalFile())) {
-        text = KIO::suggestName(directory, text);
+        text = KFileUtils::suggestName(directory, text);
     }
 
     QDialog *fileDialog = new QDialog(m_parentWidget);
@@ -1258,7 +1259,7 @@ void KNewFileMenu::createDirectory()
                    d->m_text;
 
     if (baseUrl.isLocalFile() && QFileInfo::exists(baseUrl.toLocalFile() + QLatin1Char('/') + name)) {
-        name = KIO::suggestName(baseUrl, name);
+        name = KFileUtils::suggestName(baseUrl, name);
     }
 
     QDialog *fileDialog = new QDialog(d->m_parentWidget);

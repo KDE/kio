@@ -61,6 +61,7 @@
 #include "job_p.h"
 #include <kdiskfreespaceinfo.h>
 #include <kfilesystemtype.h>
+#include <kfileutils.h>
 
 
 #include <QLoggingCategory>
@@ -1110,7 +1111,7 @@ void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
                 } else {
                     if (m_bAutoRenameDirs) {
                         const QUrl destDirectory = (*it).uDest.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
-                        const QString newName = KIO::suggestName(destDirectory, (*it).uDest.fileName());
+                        const QString newName = KFileUtils::suggestName(destDirectory, (*it).uDest.fileName());
                         QUrl newUrl(destDirectory);
                         newUrl.setPath(concatPaths(newUrl.path(), newName));
                         renameDirectory(it, newUrl);
@@ -1318,7 +1319,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
                     || (m_conflictError == ERR_IDENTICAL_FILES)) {
                 if (m_bAutoRenameFiles) {
                     QUrl destDirectory = (*it).uDest.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
-                    const QString newName = KIO::suggestName(destDirectory, (*it).uDest.fileName());
+                    const QString newName = KFileUtils::suggestName(destDirectory, (*it).uDest.fileName());
                     QUrl newDest(destDirectory);
                     newDest.setPath(concatPaths(newDest.path(), newName));
                     emit q->renamed(q, (*it).uDest, newDest); // for e.g. kpropsdlg
@@ -1985,7 +1986,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                 ; // nothing to do, stat+copy+del will overwrite
             } else if ((isDir && m_bAutoRenameDirs) || (!isDir && m_bAutoRenameFiles)) {
                 QUrl destDirectory = m_currentDestURL.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash); // m_currendDestURL includes filename
-                const QString newName = KIO::suggestName(destDirectory, m_currentDestURL.fileName());
+                const QString newName = KFileUtils::suggestName(destDirectory, m_currentDestURL.fileName());
 
                 m_dest = destDirectory;
                 m_dest.setPath(concatPaths(m_dest.path(), newName));

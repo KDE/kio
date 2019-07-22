@@ -34,6 +34,7 @@
 #include <kfileitem.h>
 #include <kconfiggroup.h>
 #include <kmountpoint.h>
+#include <kfileutils.h>
 
 #include <QCoreApplication>
 #include <QEventLoop>
@@ -301,7 +302,7 @@ bool TrashImpl::createInfo(const QString &origPath, int &trashId, QString &fileI
             if (errno == EEXIST) {
                 fileName = url.fileName();
                 url = url.adjusted(QUrl::RemoveFilename);
-                url.setPath(url.path() + KIO::suggestName(baseDirectory,  fileName));
+                url.setPath(url.path() + KFileUtils::suggestName(baseDirectory,  fileName));
                 // and try again on the next iteration
             } else {
                 error(KIO::ERR_COULD_NOT_WRITE, url.path());

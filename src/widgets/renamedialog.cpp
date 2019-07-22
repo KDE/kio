@@ -53,6 +53,7 @@
 #include <kfilemetadatawidget.h>
 #endif
 #include <previewjob.h>
+#include <kfileutils.h>
 
 using namespace KIO;
 
@@ -433,7 +434,7 @@ QUrl RenameDialog::newDestUrl()
 QUrl RenameDialog::autoDestUrl() const
 {
     const QUrl destDirectory = d->dest.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
-    const QString newName = KIO::suggestName(destDirectory, d->dest.fileName());
+    const QString newName = KFileUtils::suggestName(destDirectory, d->dest.fileName());
     QUrl newDest(destDirectory);
     newDest.setPath(concatPaths(newDest.path(), newName));
     return newDest;
@@ -468,7 +469,7 @@ void RenameDialog::renamePressed()
 #ifndef KIOWIDGETS_NO_DEPRECATED
 QString RenameDialog::suggestName(const QUrl &baseURL, const QString &oldName)
 {
-    return KIO::suggestName(baseURL, oldName);
+    return KFileUtils::suggestName(baseURL, oldName);
 }
 #endif
 
@@ -481,7 +482,7 @@ void RenameDialog::suggestNewNamePressed()
     }
 
     QUrl destDirectory = d->dest.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
-    d->setRenameBoxText(KIO::suggestName(destDirectory, d->m_pLineEdit->text()));
+    d->setRenameBoxText(KFileUtils::suggestName(destDirectory, d->m_pLineEdit->text()));
 }
 
 void RenameDialog::skipPressed()
