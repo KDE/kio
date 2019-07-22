@@ -33,8 +33,6 @@ private Q_SLOTS:
     void testUserPermissionConversion();
     void testGroupPermissionConversion();
     void testOtherPermissionConversion();
-    void testSuggestName_data();
-    void testSuggestName();
 };
 
 #endif

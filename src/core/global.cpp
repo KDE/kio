@@ -27,6 +27,7 @@
 #include <klocalizedstring.h>
 #include <ksharedconfig.h>
 #include <kformat.h>
+#include <kfileutils.h>
 #include <qmimedatabase.h>
 #include <QUrl>
 #include <QLocale>
@@ -297,53 +298,5 @@ QUrl KIO::upUrl(const QUrl &url)
 
 QString KIO::suggestName(const QUrl &baseURL, const QString &oldName)
 {
-    QString basename;
-
-    // Extract the original file extension from the filename
-    QMimeDatabase db;
-    QString nameSuffix = db.suffixForFileName(oldName);
-
-    if (oldName.lastIndexOf(QLatin1Char('.')) == 0) {
-        basename = QStringLiteral(".");
-        nameSuffix = oldName;
-    } else if (nameSuffix.isEmpty()) {
-        const int lastDot = oldName.lastIndexOf(QLatin1Char('.'));
-        if (lastDot == -1) {
-            basename = oldName;
-        } else {
-            basename = oldName.left(lastDot);
-            nameSuffix = oldName.mid(lastDot);
-        }
-    } else {
-        nameSuffix.prepend(QLatin1Char('.'));
-        basename = oldName.left(oldName.length() - nameSuffix.length());
-    }
-
-    // check if (number) exists from the end of the oldName and increment that number
-    QRegExp numSearch(QStringLiteral("\\(\\d+\\)"));
-    int start = numSearch.lastIndexIn(oldName);
-    if (start != -1) {
-        QString numAsStr = numSearch.cap(0);
-        QString number = QString::number(numAsStr.midRef(1, numAsStr.size() - 2).toInt() + 1);
-        basename = basename.leftRef(start) + QLatin1Char('(') + number + QLatin1Char(')');
-    } else {
-        // number does not exist, so just append " (1)" to filename
-        basename += QLatin1String(" (1)");
-    }
-    const QString suggestedName = basename + nameSuffix;
-
-    // Check if suggested name already exists
-    bool exists = false;
-
-    // TODO: network transparency. However, using NetAccess from a modal dialog
-    // could be a problem, no? (given that it uses a modal widget itself....)
-    if (baseURL.isLocalFile()) {
-        exists = QFileInfo::exists(baseURL.toLocalFile() + QLatin1Char('/') + suggestedName);
-    }
-
-    if (!exists) {
-        return suggestedName;
-    } else { // already exists -> recurse
-        return suggestName(baseURL, suggestedName);
-    }
+    return KFileUtils::suggestName(baseURL, oldName);
 }
