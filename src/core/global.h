@@ -141,8 +141,11 @@ KIOCORE_EXPORT QString decodeFileName(const QString &str);
  * in that directory. The existence is only checked for local urls though.
  * The suggested file name is of the form "foo 1", "foo 2" etc.
  * @since 5.0
+ * @deprecated since 5.61, use KFileUtils::suggestName() from KCoreAddons
  */
-KIOCORE_EXPORT QString suggestName(const QUrl &baseURL, const QString &oldName);
+#ifndef KIOCORE_NO_DEPRECATED
+KIOCORE_DEPRECATED_EXPORT QString suggestName(const QUrl &baseURL, const QString &oldName);
+#endif
 
 /**
  * Error codes that can be emitted by KIO.

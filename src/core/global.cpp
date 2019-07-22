@@ -296,7 +296,9 @@ QUrl KIO::upUrl(const QUrl &url)
     return u.adjusted(QUrl::RemoveFilename);
 }
 
+#ifndef KIOCORE_NO_DEPRECATED
 QString KIO::suggestName(const QUrl &baseURL, const QString &oldName)
 {
     return KFileUtils::suggestName(baseURL, oldName);
 }
+#endif
