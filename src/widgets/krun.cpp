@@ -745,12 +745,14 @@ static bool makeServiceExecutable(const KService &service, QWidget *window)
     return true;
 }
 
+#ifndef KIOWIDGETS_NO_DEPRECATED
 bool KRun::run(const KService &_service, const QList<QUrl> &_urls, QWidget *window,
                bool tempFiles, const QString &suggestedFileName, const QByteArray &asn)
 {
     const RunFlags flags = tempFiles ? KRun::DeleteTemporaryFiles : RunFlags();
     return runApplication(_service, _urls, window, flags, suggestedFileName, asn) != 0;
 }
+#endif
 
 qint64 KRun::runApplication(const KService &service, const QList<QUrl> &urls, QWidget *window,
                             RunFlags flags, const QString &suggestedFileName,
