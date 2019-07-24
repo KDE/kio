@@ -118,6 +118,7 @@ Comment[pl]=Ustawienia User Agent pokazywanego przez HTTP kioslave
 Comment[pt]=Configurar o Agente de Utilizador exposto pelo 'kioslave' de HTTP
 Comment[pt_BR]=Configurar o agente de usuário exposto pelo kioslave HTTP
 Comment[ru]=Отправка версии браузера при использовании kioslave для HTTP
+Comment[sk]=Nastaviť Používateľského agenta odhaleného cez HTTP kioslave
 Comment[sl]=Nastavi uporabniškega posrednika, ki je izpostavljen s strani kioslave-a HTTP
 Comment[sr]=Подесите кориснички агент који издаје ХТТП У/И захват
 Comment[sr@ijekavian]=Подесите кориснички агент који издаје ХТТП У/И захват
