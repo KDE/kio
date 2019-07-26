@@ -24,6 +24,7 @@
 #include <QLabel>
 #include <QTest>
 #include <QStandardPaths>
+#include <QSignalSpy>
 
 #include <kdiroperator.h>
 #include <KFileFilterCombo>
@@ -476,6 +477,9 @@ private Q_SLOTS:
         QMimeData *mimeData = new QMimeData();
         mimeData->setUrls(QList<QUrl>() << fileUrl);
 
+        KDirLister *dirLister = fileWidget.dirOperator()->dirLister();
+        QSignalSpy spy(dirLister, SIGNAL(completed(const QUrl &_url)));
+
         QDragEnterEvent event1(QPoint(), Qt::DropAction::MoveAction, mimeData, Qt::MouseButton::LeftButton, Qt::KeyboardModifier::NoModifier);
 
         QVERIFY(qApp->sendEvent(fileWidget.dirOperator()->view()->viewport(), &event1));
@@ -488,8 +492,8 @@ private Q_SLOTS:
         // QVERIFY(QTest::qWaitForWindowActive(&fileWidget));
 
         // once we drop a file the dirlister scans the dir
-        // wait a bit to the dirlister time to finish
-        QTest::qWait(100);
+        // wait for the completed signal from the dirlister
+        spy.wait();
 
         // Verify the expected populated name.
         QCOMPARE(fileWidget.baseUrl().adjusted(QUrl::StripTrailingSlash), dirUrl);
