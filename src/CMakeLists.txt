@@ -34,6 +34,10 @@ set(NON_KIOCORE_LINK_QCHS
     KF5Solid_QCH
 )
 
+if(BUILD_DESIGNERPLUGIN)
+    add_subdirectory(designer)
+endif()
+
 endif()
 
 if (BUILD_QCH)
