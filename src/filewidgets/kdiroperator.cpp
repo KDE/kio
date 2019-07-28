@@ -2768,4 +2768,3 @@ QStringList KDirOperator::supportedSchemes() const
 }
 
 #include "moc_kdiroperator.cpp"
-#include "kdiroperator.moc"
