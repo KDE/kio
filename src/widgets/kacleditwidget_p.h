@@ -27,7 +27,6 @@
 #include <kacl.h>
 
 #include <QDialog>
-#include <QPixmap>
 #include <QTreeWidget>
 #include <QHash>
 
@@ -104,15 +103,6 @@ public:
     KACL getACL();
     KACL getDefaultACL();
 
-    QPixmap getYesPixmap() const
-    {
-        return *m_yesPixmap;
-    }
-    QPixmap getYesPartialPixmap() const
-    {
-        return *m_yesPartialPixmap;
-    }
-
 public Q_SLOTS:
     void slotAddEntry();
     void slotEditEntry();
@@ -137,8 +127,6 @@ private:
     bool m_allowDefaults;
     QStringList m_allUsers;
     QStringList m_allGroups;
-    QPixmap *m_yesPixmap;
-    QPixmap *m_yesPartialPixmap;
 };
 
 class EditACLEntryDialog : public QDialog
@@ -203,7 +191,7 @@ public:
                            int column, int width, int alignment);
 #endif
 
-    void updatePermPixmaps();
+    void updatePermissionIcons();
     void repaint();
 
     KACLListView::EntryType type;

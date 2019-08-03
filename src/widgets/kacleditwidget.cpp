@@ -52,19 +52,6 @@ extern "C" {
 }
 #include <assert.h>
 
-static struct {
-    const char *label;
-    const char *pixmapName;
-    QPixmap *pixmap;
-} s_itemAttributes[] = {
-    { I18N_NOOP("Owner"), "user-grey", nullptr },
-    { I18N_NOOP("Owning Group"), "group-grey", nullptr },
-    { I18N_NOOP("Others"), "others-grey", nullptr },
-    { I18N_NOOP("Mask"), "mask", nullptr },
-    { I18N_NOOP("Named User"), "user", nullptr },
-    { I18N_NOOP("Named Group"), "group", nullptr },
-};
-
 class KACLEditWidget::KACLEditWidgetPrivate
 {
 public:
@@ -248,30 +235,30 @@ void KACLListViewItem::paintCell(QPainter *p, const QColorGroup &cg,
 }
 #endif
 
-void KACLListViewItem::updatePermPixmaps()
+void KACLListViewItem::updatePermissionIcons()
 {
     unsigned int partialPerms = value;
 
     if (value & ACL_READ) {
-        setIcon(2, m_pACLListView->getYesPixmap());
+        setIcon(2, QIcon::fromTheme(QStringLiteral("checkmark")));
     } else if (partialPerms & ACL_READ) {
-        setIcon(2, m_pACLListView->getYesPartialPixmap());
+        setIcon(2, QIcon::fromTheme(QStringLiteral("checkmark-partial")));
     } else {
         setIcon(2, QIcon());
     }
 
     if (value & ACL_WRITE) {
-        setIcon(3, m_pACLListView->getYesPixmap());
+        setIcon(3, QIcon::fromTheme(QStringLiteral("checkmark")));
     } else if (partialPerms & ACL_WRITE) {
-        setIcon(3, m_pACLListView->getYesPartialPixmap());
+        setIcon(3, QIcon::fromTheme(QStringLiteral("checkmark-partial")));
     } else {
         setIcon(3, QIcon());
     }
 
     if (value & ACL_EXECUTE) {
-        setIcon(4, m_pACLListView->getYesPixmap());
+        setIcon(4, QIcon::fromTheme(QStringLiteral("checkmark")));
     } else if (partialPerms & ACL_EXECUTE) {
-        setIcon(4, m_pACLListView->getYesPartialPixmap());
+        setIcon(4, QIcon::fromTheme(QStringLiteral("checkmark-partial")));
     } else {
         setIcon(4, QIcon());
     }
@@ -280,37 +267,44 @@ void KACLListViewItem::updatePermPixmaps()
 void KACLListViewItem::repaint()
 {
     int idx = 0;
+    QString text;
+    QString icon;
+
     switch (type) {
     case KACLListView::User:
-        idx = KACLListView::OWNER_IDX;
+    default:
+        text = i18nc("Unix permissions", "Owner");
+        icon = QStringLiteral("user-gray");
         break;
     case KACLListView::Group:
-        idx = KACLListView::GROUP_IDX;
+        text = i18nc("UNIX permissions", "Owning Group");
+        icon = QStringLiteral("group-gray");
         break;
     case KACLListView::Others:
-        idx = KACLListView::OTHERS_IDX;
+        text = i18nc("UNIX permissions", "Others");
+        icon = QStringLiteral("users-other-gray");
         break;
     case KACLListView::Mask:
-        idx = KACLListView::MASK_IDX;
+        text = i18nc("UNIX permissions", "Mask");
+        icon = QStringLiteral("view-filter");
         break;
     case KACLListView::NamedUser:
-        idx = KACLListView::NAMED_USER_IDX;
+        text = i18nc("UNIX permissions", "Named User");
+        icon = QStringLiteral("user");
         break;
     case KACLListView::NamedGroup:
-        idx = KACLListView::NAMED_GROUP_IDX;
-        break;
-    default:
-        idx = KACLListView::OWNER_IDX;
+        text = i18nc("UNIX permissions", "Others");
+        icon = QStringLiteral("users-other");
         break;
     }
-    setText(0, i18n(s_itemAttributes[idx].label));
-    setIcon(0, *s_itemAttributes[idx].pixmap);
+    setText(0, text);
+    setIcon(0, QIcon::fromTheme(icon));
     if (isDefault) {
-        setText(0, text(0) + i18n(" (Default)"));
+        setText(0, i18n("Owner (Default)"));
     }
     setText(1, qualifier);
-    // Set the pixmaps for which of the perms are set
-    updatePermPixmaps();
+    // Set the icons for which of the perms are set
+    updatePermissionIcons();
 }
 
 void KACLListViewItem::calcEffectiveRights()
@@ -393,7 +387,7 @@ void KACLListViewItem::togglePerm(acl_perm_t perm)
         m_pACLListView->setMaskPermissions(value);
     }
     calcEffectiveRights();
-    updatePermPixmaps();
+    updatePermissionIcons();
     /*
         // If the perm is in the partial perms then remove it. i.e. Once
         // a user changes a partial perm it then applies to all selected files.
@@ -657,13 +651,6 @@ KACLListView::KACLListView(QWidget *parent)
     header()->setSectionResizeMode(QHeaderView::ResizeToContents);
     setRootIsDecorated(false);
 
-    // Load the avatars
-    for (int i = 0; i < LAST_IDX; ++i) {
-        s_itemAttributes[i].pixmap = new QPixmap(QLatin1String(":/images/") + QLatin1String(s_itemAttributes[i].pixmapName));
-    }
-    m_yesPixmap = new QPixmap(QStringLiteral(":/images/yes.png"));
-    m_yesPartialPixmap = new QPixmap(QStringLiteral(":/images/yespartial.png"));
-
     // fill the lists of all legal users and groups
     struct passwd *user = nullptr;
     setpwent();
@@ -690,11 +677,6 @@ KACLListView::KACLListView(QWidget *parent)
 
 KACLListView::~KACLListView()
 {
-    for (int i = 0; i < LAST_IDX; ++i) {
-        delete s_itemAttributes[i].pixmap;
-    }
-    delete m_yesPixmap;
-    delete m_yesPartialPixmap;
 }
 
 QStringList KACLListView::allowedUsers(bool defaults, KACLListViewItem *allowedItem)
