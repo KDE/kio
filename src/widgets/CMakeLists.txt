@@ -86,8 +86,6 @@ ki18n_wrap_ui(kiowidgets_SRCS
   kpropertiesdesktopbase.ui
 )
 
-qt5_add_resources(kiowidgets_SRCS kacleditwidget.qrc)
-
 add_library(KF5KIOWidgets ${kiowidgets_SRCS})
 generate_export_header(KF5KIOWidgets BASE_NAME KIOWidgets)
 add_library(KF5::KIOWidgets ALIAS KF5KIOWidgets)
