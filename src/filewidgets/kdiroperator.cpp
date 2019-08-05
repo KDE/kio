@@ -1976,9 +1976,22 @@ void KDirOperator::setupActions()
     d->actionCollection->addAction(QStringLiteral("by type"), byTypeAction);
     connect(byTypeAction, SIGNAL(triggered(bool)), this, SLOT(_k_slotSortByType()));
 
+    QActionGroup *sortOrderGroup = new QActionGroup(this);
+    sortOrderGroup->setExclusive(true);
+
+    KToggleAction *ascendingAction = new KToggleAction(i18n("Ascending"), this);
+    d->actionCollection->addAction(QStringLiteral("ascending"), ascendingAction);
+    ascendingAction->setActionGroup(sortOrderGroup);
+    connect(ascendingAction, &QAction::triggered, this, [this]() {
+        this->d->_k_slotSortReversed(false);
+    });
+
     KToggleAction *descendingAction = new KToggleAction(i18n("Descending"), this);
     d->actionCollection->addAction(QStringLiteral("descending"), descendingAction);
-    connect(descendingAction, SIGNAL(triggered(bool)), this, SLOT(_k_slotSortReversed(bool)));
+    descendingAction->setActionGroup(sortOrderGroup);
+    connect(descendingAction, &QAction::triggered, this, [this]() {
+        this->d->_k_slotSortReversed(true);
+    });
 
     KToggleAction *dirsFirstAction = new KToggleAction(i18n("Folders First"), this);
     d->actionCollection->addAction(QStringLiteral("dirs first"), dirsFirstAction);
@@ -2124,7 +2137,9 @@ void KDirOperator::setupMenu(int whichActions)
     sortMenu->addAction(d->actionCollection->action(QStringLiteral("by date")));
     sortMenu->addAction(d->actionCollection->action(QStringLiteral("by type")));
     sortMenu->addSeparator();
+    sortMenu->addAction(d->actionCollection->action(QStringLiteral("ascending")));
     sortMenu->addAction(d->actionCollection->action(QStringLiteral("descending")));
+    sortMenu->addSeparator();
     sortMenu->addAction(d->actionCollection->action(QStringLiteral("dirs first")));
 
     // now plug everything into the popupmenu
@@ -2173,16 +2188,28 @@ void KDirOperator::setupMenu(int whichActions)
 
 void KDirOperator::updateSortActions()
 {
+    QAction *ascending = d->actionCollection->action(QStringLiteral("ascending"));
+    QAction *descending = d->actionCollection->action(QStringLiteral("descending"));
+
     if (KFile::isSortByName(d->sorting)) {
         d->actionCollection->action(QStringLiteral("by name"))->setChecked(true);
+        descending->setText(i18nc("Sort descending", "Z-A"));
+        ascending->setText(i18nc("Sort ascending", "A-Z"));
     } else if (KFile::isSortByDate(d->sorting)) {
         d->actionCollection->action(QStringLiteral("by date"))->setChecked(true);
+        descending->setText(i18nc("Sort descending", "Newest First"));
+        ascending->setText(i18nc("Sort ascending", "Oldest First"));
     } else if (KFile::isSortBySize(d->sorting)) {
         d->actionCollection->action(QStringLiteral("by size"))->setChecked(true);
+        descending->setText(i18nc("Sort descending", "Largest First"));
+        ascending->setText(i18nc("Sort ascending", "Smallest First"));
     } else if (KFile::isSortByType(d->sorting)) {
         d->actionCollection->action(QStringLiteral("by type"))->setChecked(true);
+        descending->setText(i18nc("Sort descending", "Z-A"));
+        ascending->setText(i18nc("Sort ascending", "A-Z"));
     }
-    d->actionCollection->action(QStringLiteral("descending"))->setChecked(d->sorting & QDir::Reversed);
+    ascending->setChecked(!(d->sorting & QDir::Reversed));
+    descending->setChecked(d->sorting & QDir::Reversed);
     d->actionCollection->action(QStringLiteral("dirs first"))->setChecked(d->sorting & QDir::DirsFirst);
 }
 
