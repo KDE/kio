@@ -28,7 +28,6 @@
 
 #include <QFile>
 #include <QDir>
-#include <Q_PID>
 
 #include <job.h>
 #include <copyjob.h>
@@ -37,7 +36,6 @@
 #include <QDebug>
 #include <KMessageBox>
 #include <KAboutData>
-#include <KRun>
 #include <KService>
 #include <KLocalizedString>
 #include <KDBusService>

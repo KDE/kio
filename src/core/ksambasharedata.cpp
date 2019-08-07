@@ -21,9 +21,6 @@
 #include "ksambasharedata.h"
 #include "ksambasharedata_p.h"
 
-#include <QRegExp>
-#include <QFileInfo>
-#include <QStringList>
 
 #include "ksambashare.h"
 #include "ksambashare_p.h"

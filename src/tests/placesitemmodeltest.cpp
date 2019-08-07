@@ -23,7 +23,6 @@
 #include <QList>
 #include <QByteArray>
 #include <QStandardPaths>
-#include <QAction>
 #include <QDBusInterface>
 
 #include <KBookmarkManager>

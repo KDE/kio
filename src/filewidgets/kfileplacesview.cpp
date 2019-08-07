@@ -31,7 +31,6 @@
 #include <QMenu>
 #include <QScrollBar>
 
-#include <QDebug>
 
 #include <kconfig.h>
 #include <kconfiggroup.h>

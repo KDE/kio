@@ -24,7 +24,6 @@
 #include <KProtocolInfo>
 #include <KPluginFactory>
 
-#include <QStringBuilder>
 #include <QHostInfo>
 #include <QLoggingCategory>
 

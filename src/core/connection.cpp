@@ -26,8 +26,6 @@
 
 #include <errno.h>
 
-#include <QQueue>
-#include <QCoreApplication>
 
 using namespace KIO;
 

@@ -25,10 +25,8 @@
 #include <QDebug>
 #include <klocalizedstring.h>
 
-#include <QFileInfo>
 #include <QEventLoop>
 #include <QDir>
-#include <QVariant>
 #include <QUrl>
 
 #include <kprotocolinfo.h>

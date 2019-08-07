@@ -21,7 +21,6 @@
  */
 
 // Qt
-#include <QFile>
 
 // KDE
 #include <kpluginfactory.h>

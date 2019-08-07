@@ -20,7 +20,6 @@
 
 #include <qtest.h>
 #include <QSignalSpy>
-#include <QDir>
 #include <QMenu>
 #include <QTemporaryDir>
 

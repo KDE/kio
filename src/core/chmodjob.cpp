@@ -24,7 +24,6 @@
 
 #include <KLocalizedString>
 #include <KUser>
-#include <QFile>
 #include <QLinkedList>
 #include <QDebug>
 

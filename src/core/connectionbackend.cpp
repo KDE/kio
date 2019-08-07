@@ -29,7 +29,6 @@
 #include <qstandardpaths.h>
 #include <QTemporaryFile>
 #include <QPointer>
-#include <QTime>
 #include <QElapsedTimer>
 
 #include "kiocoredebug.h"

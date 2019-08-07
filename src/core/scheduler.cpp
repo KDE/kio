@@ -34,7 +34,6 @@
 #include <QHash>
 #include <QThread>
 #include <QThreadStorage>
-#include <QCoreApplication>
 #include <QDBusConnection>
 #include <QDBusMessage>
 

@@ -25,8 +25,6 @@
 #include <QSemaphore>
 #include <QTcpServer>
 #include <QTcpSocket>
-#include <QUrl>
-#include <QStringList>
 #include <QSslError>
 
 class BlockingHttpServer;

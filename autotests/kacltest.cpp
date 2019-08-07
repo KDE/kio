@@ -23,9 +23,7 @@
 #include <config-kiocore.h>
 
 #include <kacl.h>
-#include <QDebug>
 
-#include <QDir>
 
 // The code comes partly from kdebase/kioslave/trash/testtrash.cpp
 

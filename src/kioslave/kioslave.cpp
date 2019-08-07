@@ -35,7 +35,6 @@
 #endif
 
 #ifdef USE_KPROCESS_FOR_KIOSLAVES
-#include <QDir>
 #include <QProcess>
 #include <QStringList>
 #ifdef Q_OS_WIN

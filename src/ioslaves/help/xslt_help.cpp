@@ -10,10 +10,9 @@
 #include <libxml/parserInternals.h>
 #include <libxml/catalog.h>
 
-#include <QDate>
 #include <QDir>
-#include <QRegExp>
 #include <QStandardPaths>
+#include <QDateTime>
 
 #include <QDebug>
 #include <kfilterdev.h>

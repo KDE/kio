@@ -24,9 +24,7 @@
 #include <ksslcertificatemanager.h>
 #include <klocalizedstring.h>
 
-#include <QDebug>
 #include <QUrl>
-#include <QStringList>
 #include <QSslKey>
 #include <QSslCipher>
 #include <QHostAddress>

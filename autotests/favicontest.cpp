@@ -20,11 +20,8 @@
 #include <qtest.h>
 #include <QStandardPaths>
 #include <KIO/Job>
-#include <KConfigGroup>
 #include <KIO/FavIconRequestJob>
-#include <QDateTime>
 #include <QDir>
-#include <QSignalSpy>
 #include <QLoggingCategory>
 
 #include <QFutureSynchronizer>

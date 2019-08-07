@@ -24,7 +24,6 @@
 #include "slave.h"
 #include <kurlauthorized.h>
 #include <QLinkedList>
-#include <QDebug>
 
 using namespace KIO;
 

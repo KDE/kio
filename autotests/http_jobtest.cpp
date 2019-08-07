@@ -20,7 +20,6 @@
 
 #include <kio/job.h>
 
-#include <QDebug>
 #include <QTest>
 #include <QSignalSpy>
 #include <QStandardPaths>

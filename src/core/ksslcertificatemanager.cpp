@@ -32,7 +32,6 @@
 #include <QFile>
 #include <QDir>
 #include <QDBusConnection>
-#include <QDBusReply>
 #include <QDBusConnectionInterface>
 
 #include "kssld_interface.h"

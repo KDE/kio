@@ -23,7 +23,6 @@
 #define KPASSWDSERVERLOOP_P_H
 
 #include <kio/authinfo.h>
-#include <QByteArray>
 #include <QEventLoop>
 
 // Wait for the result of an asynchronous D-Bus request to KPasswdServer.

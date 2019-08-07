@@ -25,7 +25,6 @@
 #include <KLocalizedString>
 #include <QMenu>
 #include <QIcon>
-#include <QDebug>
 
 using namespace KIO;
 

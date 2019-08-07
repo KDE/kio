@@ -20,16 +20,13 @@
 
 #include <kdirlister.h>
 #include <kdirmodel.h>
-#include <QDebug>
 
 #include <QEvent>
-#include <QTimer>
-#include <QAbstractProxyModel>
+#include <QDragEnterEvent>
 #include <QApplication>
 #include <QHeaderView>
 #include <QListView>
 #include <QMimeData>
-#include <QResizeEvent>
 #include <QScrollBar>
 
 KDirOperatorDetailView::KDirOperatorDetailView(QWidget *parent) :

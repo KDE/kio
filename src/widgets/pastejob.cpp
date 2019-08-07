@@ -22,8 +22,6 @@
 
 #include "paste.h"
 
-#include <QDebug>
-#include <QFileInfo>
 #include <QMimeData>
 #include <QTimer>
 

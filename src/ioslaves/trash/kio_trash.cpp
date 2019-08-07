@@ -26,7 +26,6 @@
 #include <KLocalizedString>
 #include <KDirNotify>
 
-#include <QDebug>
 #include <QMimeDatabase>
 #include <QMimeType>
 #include <QCoreApplication>

@@ -26,7 +26,6 @@
 #include <QDoubleSpinBox>
 #include <QFormLayout>
 #include <QLabel>
-#include <QLayout>
 #include <QListWidget>
 #include <QListWidgetItem>
 
@@ -39,7 +38,6 @@
 #include <kpluginloader.h>
 #include <KFormat>
 #include <QSpinBox>
-#include <QDebug>
 
 K_PLUGIN_FACTORY(KCMTrashConfigFactory, registerPlugin<TrashConfigModule>(QStringLiteral("trash"));)
 K_EXPORT_PLUGIN(KCMTrashConfigFactory("kcmtrash"))

@@ -23,7 +23,6 @@
 #include <QStandardPaths>
 #include <KIO/Global> // KIO::iconNameForUrl
 #include <QFileInfo>
-#include <QDebug>
 #include <KDesktopFile>
 #include <KConfigGroup>
 

@@ -22,11 +22,8 @@
 
 #include <klocalizedstring.h>
 
-#include <QApplication>
-#include <QClipboard>
-#include <QMimeData>
 #include <QStyle>
-#include <QStyleOptionFocusRect>
+#include <QStyleOptionViewItem>
 
 namespace KDEPrivate
 {

@@ -30,9 +30,7 @@
 #include <QApplication>
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
-#include <QDBusInterface>
 #include <QMap>
-#include <QDebug>
 
 struct AllTrackers {
     KUiServerJobTracker *kuiserverTracker;

@@ -71,6 +71,7 @@
 #include <QPushButton>
 #include <QStandardPaths>
 #include <qmimedatabase.h>
+#include <QTimer>
 
 #include <kshell.h>
 #include <kmessagebox.h>

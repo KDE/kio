@@ -33,6 +33,7 @@
 #include <QTemporaryFile>
 #include <QTest>
 #include <QUrl>
+#include <QTimer>
 
 #include <kmountpoint.h>
 #include <kprotocolinfo.h>

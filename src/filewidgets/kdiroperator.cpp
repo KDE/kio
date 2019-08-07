@@ -45,6 +45,7 @@
 #include <QTimer>
 #include <QDebug>
 #include <QMimeDatabase>
+#include <QStack>
 
 #include <kdirlister.h>
 #include <kfileitemdelegate.h>

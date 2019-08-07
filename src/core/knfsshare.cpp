@@ -21,7 +21,6 @@
 #include <QFileInfo>
 #include <QSet>
 #include <QFile>
-#include <QMutableStringListIterator>
 #include <QTextStream>
 #include <QDebug>
 

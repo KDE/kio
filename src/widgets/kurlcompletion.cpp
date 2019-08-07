@@ -29,14 +29,11 @@
 #include <assert.h>
 #include <limits.h>
 
-#include <QCoreApplication>
 #include <QMutex>
 #include <QRegExp>
-#include <QTimer>
 #include <QDir>
 #include <QDirIterator>
 #include <QFile>
-#include <QTextStream>
 #include <QThread>
 #include <QUrl>
 #include <QDebug>

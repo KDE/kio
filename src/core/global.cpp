@@ -30,8 +30,6 @@
 #include <kfileutils.h>
 #include <qmimedatabase.h>
 #include <QUrl>
-#include <QLocale>
-#include <QFileInfo>
 
 #include "kiocoredebug.h"
 

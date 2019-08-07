@@ -18,7 +18,6 @@
 */
 
 #include <QObject>
-#include <QDebug>
 #include <QStandardPaths>
 #include <QFile>
 #include <QTemporaryDir>

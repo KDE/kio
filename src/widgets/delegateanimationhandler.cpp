@@ -21,7 +21,6 @@
 
 #include "delegateanimationhandler_p.h"
 
-#include <QListView>
 #include <QAbstractItemView>
 #include <QPersistentModelIndex>
 #include <QTime>

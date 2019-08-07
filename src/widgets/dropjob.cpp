@@ -44,8 +44,6 @@
 #include <KRun>
 #include <KService>
 
-#include <QApplication>
-#include <QDebug>
 #include <QDropEvent>
 #include <QFileInfo>
 #include <QMenu>

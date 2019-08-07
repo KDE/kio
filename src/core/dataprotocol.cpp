@@ -25,7 +25,6 @@
 
 #include <QByteArray>
 #include <QCharRef>
-#include <QMutableStringListIterator>
 #include <QTextCodec>
 
 #ifdef DATAKIOSLAVE

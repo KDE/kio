@@ -20,7 +20,6 @@
 #include <QApplication>
 #include <KFileWidget>
 #include <QUrl>
-#include <QDebug>
 
 int main(int argc, char **argv)
 {

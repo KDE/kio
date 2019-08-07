@@ -23,7 +23,6 @@
 #include "job_p.h"
 #include <kdirnotify.h>
 
-#include <QDebug>
 #include <QTimer>
 
 using namespace KIO;

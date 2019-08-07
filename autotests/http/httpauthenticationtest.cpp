@@ -23,8 +23,8 @@
 
 #include <QList>
 #include <QByteArray>
-#include <QHostInfo>
 #include <QtEndian>
+
 #include <KConfigCore/KConfig>
 
 #define ENABLE_HTTP_AUTH_NONCE_SETTER

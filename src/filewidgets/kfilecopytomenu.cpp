@@ -20,7 +20,6 @@
 #include "kfilecopytomenu.h"
 #include "kfilecopytomenu_p.h"
 #include <QAction>
-#include <QDebug>
 #include <QDir>
 #include <QIcon>
 #include <QFileDialog>

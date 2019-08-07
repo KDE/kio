@@ -18,12 +18,10 @@
 */
 
 #include <QApplication>
-#include <QWidget>
 #include <KUrlNavigator>
 #include <KFilePlacesModel>
 #include <QUrl>
 #include <QDir>
-#include <QDebug>
 
 int main(int argc, char **argv)
 {

@@ -21,10 +21,8 @@
 #include <kurlrequester.h>
 #include <kfilewidget.h>
 #include <kdiroperator.h>
-
 #include <KComboBox>
 
-#include <QDebug>
 #include <QLineEdit>
 #include <QSignalSpy>
 #include <QTemporaryFile>

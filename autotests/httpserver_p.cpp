@@ -20,8 +20,6 @@
 #include "httpserver_p.h"
 #include <KIO/Job>
 #include <QBuffer>
-#include <QDateTime>
-#include <QFile>
 #include <QSslSocket>
 
 static bool splitHeadersAndData(const QByteArray &request, QByteArray &header, QByteArray &data)

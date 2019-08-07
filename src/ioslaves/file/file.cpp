@@ -48,11 +48,9 @@
 #endif
 
 
-#include <QByteRef>
 #include <QDate>
 #include <QVarLengthArray>
 #include <QCoreApplication>
-#include <QRegExp>
 #include <QFile>
 #include <qtemporaryfile.h>
 #ifdef Q_OS_WIN

@@ -21,8 +21,6 @@
 
 #include <stdlib.h>
 #include <QCharRef>
-#include <QMutableStringListIterator>
-#include <QRegExp>
 #include <kcompletion.h>
 #include <kcompletionmatches.h>
 

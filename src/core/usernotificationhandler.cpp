@@ -22,7 +22,6 @@
 #include "job_p.h"
 #include "kiocoredebug.h"
 
-#include <QDebug>
 
 #include <QTimer>
 

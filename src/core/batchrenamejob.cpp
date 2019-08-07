@@ -23,7 +23,6 @@
 #include "copyjob.h"
 
 #include <QTimer>
-#include <QDebug>
 #include <QSet>
 #include <QMimeDatabase>
 

@@ -20,7 +20,6 @@
 
 #include "authinfo.h"
 
-#include <QByteArray>
 #include <QDir>
 #include <QFile>
 #include <QTextStream>

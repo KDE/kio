@@ -24,7 +24,6 @@
 #include <QEventLoop>
 #include <QDBusConnectionInterface>
 
-#include <QDebug>
 
 class KInterProcessLockPrivate
 {

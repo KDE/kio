@@ -25,7 +25,6 @@
 #include <kprotocolmanager.h>
 #include <QDialogButtonBox>
 #include <QFormLayout>
-#include <QLabel>
 #include <QVBoxLayout>
 
 class KNameAndUrlInputDialogPrivate

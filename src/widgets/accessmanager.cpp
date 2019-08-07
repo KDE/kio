@@ -39,7 +39,6 @@
 #include <QPointer>
 #include <QWidget>
 #include <QDBusInterface>
-#include <QDBusConnection>
 #include <QDBusReply>
 #include <QNetworkReply>
 #include <QNetworkRequest>

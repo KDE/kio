@@ -71,10 +71,6 @@
 
 #include <QFile>
 #include <QFileInfo>
-#include <QTextStream>
-#include <QDate>
-#include <QRegExp>
-#include <QDir>
 #include <kdesktopfile.h>
 #include <kshell.h>
 #include <kconfiggroup.h>

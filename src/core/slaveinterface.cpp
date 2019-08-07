@@ -30,12 +30,8 @@
 #include <time.h>
 
 #include <QDebug>
-
-#include <QDBusConnection>
-#include <QPointer>
+#include <QDateTime>
 #include <QDataStream>
-#include <QSslCertificate>
-#include <QSslError>
 
 using namespace KIO;
 

@@ -21,7 +21,6 @@
 #include "sessiondata_p.h"
 
 #include <QDir>
-#include <QList>
 #include <QStandardPaths>
 #include <QTextCodec>
 

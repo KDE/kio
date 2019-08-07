@@ -11,7 +11,6 @@
 #include <ioslave_defaults.h>
 #include <KLocalizedString>
 #include <KPluralHandlingSpinBox>
-#include <QDialog>
 #include <kconfig.h>
 #include <kpluginfactory.h>
 #include <KConfigGroup>

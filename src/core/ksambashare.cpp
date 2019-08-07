@@ -24,7 +24,6 @@
 #include "kiocoredebug.h"
 
 #include <QMap>
-#include <QMutableMapIterator>
 #include <QFile>
 #include <QLoggingCategory>
 #include <QRegExp>

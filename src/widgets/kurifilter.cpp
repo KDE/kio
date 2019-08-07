@@ -29,7 +29,6 @@
 #include <KPluginMetaData>
 
 #include <QHashIterator>
-#include <QStringBuilder>
 #include <QHostInfo>
 #include <QHostAddress>
 

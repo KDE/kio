@@ -37,7 +37,6 @@
 #include <QAbstractItemView>
 #include <QAbstractProxyModel>
 #include <QClipboard>
-#include <QColor>
 #include <QHash>
 #include <QList>
 #include <QListView>
@@ -46,7 +45,6 @@
 #include <QPixmap>
 #include <QPointer>
 #include <QTimer>
-#include <QScrollBar>
 #include <QIcon>
 
 #if HAVE_X11 && HAVE_XRENDER

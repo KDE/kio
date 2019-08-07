@@ -42,16 +42,13 @@
 #include <QLinkedList>
 #include <QTimer>
 #include <QApplication>
-#include <QBoxLayout>
 #include <QClipboard>
 #include <QDropEvent>
 #include <QKeyEvent>
-#include <QLabel>
 #include <QMenu>
-#include <QPainter>
-#include <QStyleOption>
 #include <qmimedatabase.h>
 #include <QMimeData>
+#include <QHBoxLayout>
 
 using namespace KDEPrivate;
 

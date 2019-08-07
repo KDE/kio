@@ -25,7 +25,6 @@
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
 
-#include <QDebug>
 
 #include <KRun>
 #include <KJobWidgets>

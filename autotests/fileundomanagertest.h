@@ -21,7 +21,6 @@
 #define FILEUNDOMANAGERTEST_H
 
 #include <QObject>
-#include <QEventLoop>
 class TestUiInterface;
 
 class FileUndoManagerTest : public QObject

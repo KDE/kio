@@ -37,7 +37,6 @@
 #include <QPainter>
 #include <QImage>
 #include <QColor>
-#include <QDebug>
 
 #include <cmath>
 #include <string.h>

@@ -34,9 +34,7 @@
 #include <QMimeData>
 #include <QTimer>
 #include <QFile>
-#include <QColor>
 #include <QAction>
-#include <QUrlQuery>
 #include <qmimedatabase.h>
 
 #include <kfileitem.h>

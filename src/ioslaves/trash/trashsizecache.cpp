@@ -31,7 +31,6 @@
 #include <QFile>
 #include <QDateTime>
 #include <QSaveFile>
-#include <QDebug>
 
 TrashSizeCache::TrashSizeCache(const QString &path)
     : mTrashSizeCachePath(path + QLatin1String("/directorysizes")),

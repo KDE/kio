@@ -32,7 +32,6 @@
 #include <kcombobox.h>
 #include <QLineEdit>
 #include <kurllabel.h>
-#include <KConfigGroup>
 #include <QVBoxLayout>
 
 

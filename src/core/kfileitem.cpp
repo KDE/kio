@@ -28,7 +28,6 @@
 #include <QDir>
 #include <QDirIterator>
 #include <QFile>
-#include <QMap>
 #include <QDataStream>
 #include <QMimeDatabase>
 #include <QDebug>

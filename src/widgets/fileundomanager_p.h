@@ -23,7 +23,6 @@
 
 #include "fileundomanager.h"
 #include <QStack>
-#include <QUndoCommand>
 #include <QDateTime>
 
 class KJob;

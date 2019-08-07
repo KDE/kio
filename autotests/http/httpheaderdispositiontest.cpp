@@ -22,7 +22,6 @@
 #include <qtest.h>
 
 #include <QByteArray>
-#include <QDebug>
 
 #include <parsinghelpers.h>
 

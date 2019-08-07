@@ -22,7 +22,6 @@
 #include "kfilecustomdialog.h"
 
 #include <KFileWidget>
-#include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(KFileCustomDialogTest)

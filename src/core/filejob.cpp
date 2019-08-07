@@ -24,7 +24,6 @@
 #include "scheduler.h"
 #include "slave.h"
 
-#include <QTimer>
 
 #include "job_p.h"
 

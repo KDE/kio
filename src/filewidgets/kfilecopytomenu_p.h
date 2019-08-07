@@ -23,7 +23,6 @@
 #include <kconfiggroup.h>
 #include <QMenu>
 #include <QActionGroup>
-#include <QObject>
 #include <QUrl>
 
 class KFileCopyToMenuPrivate

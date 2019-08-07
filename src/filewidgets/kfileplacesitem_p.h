@@ -22,7 +22,6 @@
 
 #include <QObject>
 #include <QPointer>
-#include <QModelIndex>
 #include <QStringList>
 #include <QUrl>
 #include <kbookmark.h>

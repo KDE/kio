@@ -24,7 +24,6 @@
 
 #include <QStandardPaths>
 #include <QDir>
-#include <QDebug>
 
 SearchProviderRegistry::SearchProviderRegistry()
 {

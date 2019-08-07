@@ -41,11 +41,9 @@
 #include <QIODevice>
 #include <QTemporaryFile>
 #include <QStandardPaths>
-#include <QDBusConnection>
 #include <QMimeDatabase>
 #include <QAuthenticator>
 #include <QNetworkProxy>
-#include <QTcpSocket>
 #include <QNetworkConfigurationManager>
 #include <QUrl>
 #include <QCoreApplication>

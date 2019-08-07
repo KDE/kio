@@ -40,7 +40,6 @@
 #include <QSslSocket>
 #include <QHostAddress>
 #include <QHostInfo>
-#include <QDBusConnection>
 #include <QDBusReply>
 #include <QDBusInterface>
 #include <QCache>

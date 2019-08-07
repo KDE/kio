@@ -33,7 +33,6 @@
 #include <kcharsets.h>
 #include <kcombobox.h>
 #include <kconfig.h>
-#include <QDialog>
 #include <kpluginfactory.h>
 #include <KLocalizedString>
 //#include <config-apps.h>

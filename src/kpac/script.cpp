@@ -23,8 +23,6 @@
 #include <QString>
 #include <QRegExp>
 #include <QDateTime>
-#include <QTimer>
-#include <QEventLoop>
 #include <QUrl>
 
 #include <QHostInfo>
@@ -34,7 +32,6 @@
 #include <QScriptValue>
 #include <QScriptEngine>
 #include <QScriptProgram>
-#include <QScriptContextInfo>
 
 #include <klocalizedstring.h>
 #include <kio/hostinfo.h>

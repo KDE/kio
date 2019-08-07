@@ -30,13 +30,11 @@
 
 #include <QAction>
 #include <QApplication>
-#include <QDebug>
 #include <QDrag>
 #include <QEvent>
 #include <QKeySequence>
 #include <QHBoxLayout>
 #include <QMimeData>
-#include <QtGlobal>
 #include <QMenu>
 #include <QAction>
 

@@ -11,7 +11,6 @@ extern "C" int xmlLoadExtDtdDefaultValue;
 
 #include <QDebug>
 
-#include <QString>
 
 #include <qplatformdefs.h>
 

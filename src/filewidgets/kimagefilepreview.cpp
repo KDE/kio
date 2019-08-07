@@ -10,18 +10,16 @@
 
 #include "kimagefilepreview.h"
 
-#include <QLayout>
 #include <QLabel>
 #include <QPainter>
-#include <QComboBox>
 #include <QCheckBox>
 #include <QResizeEvent>
-#include <QTimer>
 #include <QTimeLine>
+#include <QVBoxLayout>
+#include <QStyle>
 
 #include <kconfig.h>
 #include <kiconloader.h>
-#include <QDebug>
 #include <klocalizedstring.h>
 #include <kfileitem.h>
 #include <kio/previewjob.h>

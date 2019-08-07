@@ -41,7 +41,6 @@
 
 #include <klocalizedstring.h>
 #include <kfileitem.h>
-#include <QDebug>
 
 #if HAVE_ACL_LIBACL_H
 # include <acl/libacl.h>

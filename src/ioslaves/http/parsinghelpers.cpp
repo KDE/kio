@@ -23,7 +23,6 @@
 #include <QDir>
 #include <QMap>
 #include <QTextCodec>
-#include <QUrl>
 
 #include <QDebug>
 

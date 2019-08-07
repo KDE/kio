@@ -19,7 +19,6 @@ Boston, MA 02110-1301, USA.
 #ifndef KIO_KIOGLOBAL_P_H
 #define KIO_KIOGLOBAL_P_H
 
-#include <QtGlobal>
 #include <qplatformdefs.h>
 #include "kiocore_export.h"
 

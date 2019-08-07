@@ -27,7 +27,6 @@
 
 #include <kconfig.h>
 #include <kconfiggroup.h>
-#include <QFile>
 
 #include <QDate>
 #include <kpluginfactory.h>

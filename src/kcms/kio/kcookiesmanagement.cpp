@@ -23,7 +23,6 @@
 #include "kcookiesmanagement.h"
 
 // Qt
-#include <QTimer>
 #include <QList>
 #include <QPushButton>
 #include <QDBusConnection>
@@ -32,13 +31,9 @@
 
 // KDE
 #include <KLocalizedString>
-#include <QDialog>
 #include <QDateTime>
 #include <kiconloader.h>
-#include <QLineEdit>
 #include <kmessagebox.h>
-#include <QUrl>
-#include <KConfigGroup>
 #include <QLocale>
 // Local
 #include "kcookiesmain.h"

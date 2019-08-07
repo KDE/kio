@@ -22,9 +22,8 @@
 #include <klocalizedstring.h>
 
 #include <QPainter>
+#include <QPaintEvent>
 #include <QStyle>
-#include <QKeyEvent>
-#include <QApplication>
 
 namespace KDEPrivate
 {

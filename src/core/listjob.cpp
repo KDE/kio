@@ -24,6 +24,7 @@
 #include <kurlauthorized.h>
 #include "slave.h"
 #include "../pathhelpers_p.h"
+#include <QTimer>
 
 #include <QDebug>
 

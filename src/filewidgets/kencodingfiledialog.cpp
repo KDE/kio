@@ -38,7 +38,6 @@
 #include <kwindowconfig.h>
 
 #include <QBoxLayout>
-#include <QDialogButtonBox>
 #include <QPushButton>
 #include <QTextCodec>
 

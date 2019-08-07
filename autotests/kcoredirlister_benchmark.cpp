@@ -24,7 +24,6 @@
 #include <QList>
 #include <QHash>
 #include <QMap>
-#include <QMimeDatabase>
 
 #include <algorithm>
 #include <random>

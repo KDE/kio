@@ -33,12 +33,9 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QFile>
-#include <QLocale>
 #include <QMimeDatabase>
 #include <QRegExp>
-#include <QTextCodec>
 #include <QStandardPaths>
-#include <QTextDocument>
 #include <QUrl>
 
 #include <libxslt/xsltutils.h>

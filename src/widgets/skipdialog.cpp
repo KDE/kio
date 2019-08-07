@@ -24,8 +24,8 @@
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QWidget>
-#include <QLayout>
 #include <QLabel>
+#include <QVBoxLayout>
 
 #include <klocalizedstring.h>
 #include <kio/jobuidelegateextension.h>

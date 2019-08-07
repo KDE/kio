@@ -43,7 +43,6 @@
 
 #include <QString>
 #include <QFile>
-#include <QDir>
 #include <QRegExp>
 #include <QTextStream>
 #include <QLocale>

@@ -24,8 +24,6 @@
 #include "../pathhelpers_p.h"
 
 #include <QTimer>
-#include <QDebug>
-#include <QDir>
 #include <QFileInfo>
 
 using namespace KIO;

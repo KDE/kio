@@ -24,7 +24,6 @@
 
 #include <QMenu>
 #include <QTest>
-#include <QVector>
 #include <QStandardPaths>
 
 /**

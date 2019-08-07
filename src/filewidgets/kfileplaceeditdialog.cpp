@@ -21,7 +21,6 @@
 
 #include <kaboutdata.h>
 #include <kconfig.h>
-#include <QDebug>
 #include <kiconbutton.h>
 #include <kiconloader.h>
 #include <klineedit.h>
@@ -31,17 +30,10 @@
 #include <kurlrequester.h>
 
 #include <QDialogButtonBox>
-#include <QMimeData>
-#include <QApplication>
 #include <QCheckBox>
 #include <qdrawutil.h>
-#include <QFontMetrics>
 #include <QFormLayout>
-#include <QItemDelegate>
-#include <QLabel>
-#include <QMenu>
-#include <QPainter>
-#include <QStyle>
+#include <QApplication>
 
 #include <qplatformdefs.h>
 #include <kconfiggroup.h>

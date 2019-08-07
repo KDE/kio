@@ -24,9 +24,9 @@
 #include <QApplication>
 #include <QDialogButtonBox>
 #include <QLabel>
-#include <QLayout>
 #include <QLineEdit>
 #include <QClipboard>
+#include <QVBoxLayout>
 
 KIO::PasteDialog::PasteDialog(const QString &caption, const QString &label,
                               const QString &value, const QStringList &items,

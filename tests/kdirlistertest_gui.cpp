@@ -21,9 +21,9 @@
 #include "kdirlistertest_gui.h"
 
 #include <QApplication>
-#include <QLayout>
 #include <QPushButton>
 #include <QDir>
+#include <QVBoxLayout>
 
 #include <QDebug>
 

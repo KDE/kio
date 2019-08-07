@@ -23,11 +23,8 @@
 #include "ui_sslinfo.h"
 #include "ksslcertificatebox.h"
 
-#include <QProcess>
 
 #include <QDialogButtonBox>
-#include <QLabel>
-#include <QLayout>
 
 #include <QSslCertificate>
 

@@ -21,8 +21,8 @@
 
 #include <QDialogButtonBox>
 #include <QLabel>
-#include <QLayout>
 #include <QFileDialog>
+#include <QVBoxLayout>
 
 #include <klineedit.h>
 #include <klocalizedstring.h>

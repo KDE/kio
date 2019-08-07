@@ -24,7 +24,6 @@
 #include "kioglobal_p.h"
 
 #include <QFile>
-#include <QTemporaryDir>
 
 #include <sys/stat.h>
 

@@ -21,7 +21,6 @@
 
 #include <QObject>
 #include <qtemporarydir.h>
-#include <QDate>
 #include <kdirmodel.h>
 #include <QEventLoop>
 #include <QtTest>

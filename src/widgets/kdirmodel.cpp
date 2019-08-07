@@ -35,7 +35,6 @@
 #include <QFileInfo>
 #include <QDir>
 #include <QIcon>
-#include <QLocale>
 #include <qplatformdefs.h>
 
 #include <algorithm>

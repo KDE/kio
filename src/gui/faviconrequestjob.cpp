@@ -23,18 +23,15 @@
 #include "favicons_debug.h"
 
 #include <KConfig>
-#include <KConfigGroup>
 #include <KIO/TransferJob>
 #include <KLocalizedString>
 
 #include <QBuffer>
 #include <QCache>
 #include <QDate>
-#include <QDebug>
 #include <QFileInfo>
 #include <QImage>
 #include <QImageReader>
-#include <QLoggingCategory>
 #include <QUrl>
 #include <QStandardPaths>
 #include <QSaveFile>

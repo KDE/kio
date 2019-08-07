@@ -26,17 +26,15 @@
 #include <QApplication>
 #include <QCheckBox>
 #include <QDate>
-#include <QDebug>
 #include <QDesktopWidget>
-#include <QDir>
 #include <QLabel>
-#include <QLayout>
 #include <QLineEdit>
 #include <QMimeDatabase>
 #include <QPixmap>
 #include <QPushButton>
 #include <QScrollArea>
 #include <QScrollBar>
+#include <QLayout>
 
 #include <kiconloader.h>
 #include <kmessagebox.h>

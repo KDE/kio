@@ -69,17 +69,14 @@
 #include <QLayout>
 #include <QLocale>
 #include <QMimeDatabase>
-#include <QMutableStringListIterator>
-#include <QPainter>
 #include <QProgressBar>
 #include <QPushButton>
 #include <QRegularExpression>
 #include <QStandardPaths>
 #include <QStyle>
-#include <QtConcurrentRun>
-#include <QTextStream>
 #include <QUrl>
 #include <QVector>
+#include <QtConcurrent>
 
 #if HAVE_POSIX_ACL
 extern "C" {
