@@ -335,7 +335,7 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
                                               QStringLiteral("Images"), I18N_NOOP2("KFile System Bookmarks", "Images"),
                                               QUrl(QStringLiteral("search:/images")),  QStringLiteral("folder-images"));
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              QStringLiteral("Audio Files"), I18N_NOOP2("KFile System Bookmarks", "Audio Files"),
+                                              QStringLiteral("Audio"), I18N_NOOP2("KFile System Bookmarks", "Audio"),
                                               QUrl(QStringLiteral("search:/audio")),  QStringLiteral("folder-sound"));
         KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
                                               QStringLiteral("Videos"), I18N_NOOP2("KFile System Bookmarks", "Videos"),
