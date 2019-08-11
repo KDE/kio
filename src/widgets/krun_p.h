@@ -41,20 +41,19 @@ class KProcessRunner : public QObject
     Q_OBJECT
 
 public:
-
-    static qint64 run(KProcess *p, const QString &executable, const KStartupInfoId &id);
+    KProcessRunner(KProcess *p, const QString &binName, const KStartupInfoId &id);
 
     virtual ~KProcessRunner();
 
     qint64 pid() const;
 
-protected Q_SLOTS:
+Q_SIGNALS:
+    void error(const QString &errorString);
 
+protected Q_SLOTS:
     void slotProcessExited(int, QProcess::ExitStatus);
 
 private:
-    KProcessRunner(KProcess *p, const QString &binName, const KStartupInfoId &id);
-
     void terminateStartupNotification();
 
     KProcess *process;

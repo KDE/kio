@@ -124,6 +124,16 @@ static bool checkNeedPortalSupport()
             qEnvironmentVariableIsSet("SNAP");
 }
 
+static qint64 runProcessRunner(KProcess *p, const QString &executable, const KStartupInfoId &id, QWidget *widget)
+{
+    auto *processRunner = new KProcessRunner(p, executable, id);
+    QObject::connect(processRunner, &KProcessRunner::error, widget, [widget](const QString &errorString) {
+        QEventLoopLocker locker;
+        KMessageBox::sorry(widget, errorString);
+    });
+    return processRunner->pid();
+}
+
 // ---------------------------------------------------------------------------
 
 bool KRun::isExecutableFile(const QUrl &url, const QString &mimetype)
@@ -363,7 +373,7 @@ static qint64 runCommandInternal(KProcess *proc, const KService *service, const 
             }
             KStartupInfo::sendStartup(id, data);
         }
-        qint64 pid = KProcessRunner::run(proc, executable, id);
+        const qint64 pid = runProcessRunner(proc, executable, id, window);
         if (startup_notify && pid) {
             KStartupInfoData data;
             data.addPid(pid);
@@ -376,7 +386,7 @@ static qint64 runCommandInternal(KProcess *proc, const KService *service, const 
     Q_UNUSED(userVisibleName);
     Q_UNUSED(iconName);
 #endif
-    return KProcessRunner::run(proc, bin, KStartupInfoId());
+    return runProcessRunner(proc, bin, KStartupInfoId(), window);
 }
 
 // This code is also used in klauncher.
@@ -1591,11 +1601,6 @@ bool KRun::isLocalFile() const
 
 /****************/
 
-qint64 KProcessRunner::run(KProcess *p, const QString &executable, const KStartupInfoId &id)
-{
-    return (new KProcessRunner(p, executable, id))->pid();
-}
-
 KProcessRunner::KProcessRunner(KProcess *p, const QString &executable, const KStartupInfoId &id) :
     id(id)
 {
@@ -1610,7 +1615,11 @@ KProcessRunner::KProcessRunner(KProcess *p, const QString &executable, const KSt
         //qDebug() << "wait for started failed, exitCode=" << process->exitCode()
         //         << "exitStatus=" << process->exitStatus();
         // Note that exitCode is 255 here (the first time), and 0 later on (bug?).
-        slotProcessExited(255, process->exitStatus());
+
+        // Use delayed invocation so the caller has time to connect to the signal
+        QMetaObject::invokeMethod(this, [this]() {
+            slotProcessExited(255, process->exitStatus());
+        }, Qt::QueuedConnection);
     } else {
         m_pid = process->processId();
     }
@@ -1655,16 +1664,9 @@ KProcessRunner::slotProcessExited(int exitCode, QProcess::ExitStatus exitStatus)
         // We'll try to find the executable relatively to current directory,
         // (or with a full path, if m_executable is absolute), and then in the PATH.
         if (!QFile(m_executable).exists() && QStandardPaths::findExecutable(m_executable).isEmpty()) {
-            const QString &error = i18n("Could not find the program '%1'", m_executable);
-
-            if (qApp) {
-                QTimer::singleShot(0, qApp, [=]() {
-                        QEventLoopLocker locker;
-                        KMessageBox::sorry(nullptr, error);
-                    });
-            } else {
-                qWarning() << error;
-            }
+            const QString &errorString = i18n("Could not find the program '%1'", m_executable);
+            qWarning() << errorString;
+            emit error(errorString);
         } else {
             //qDebug() << process->readAllStandardError();
         }
