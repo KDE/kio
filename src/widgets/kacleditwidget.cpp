@@ -265,7 +265,6 @@ void KACLListViewItem::updatePermissionIcons()
 
 void KACLListViewItem::repaint()
 {
-    int idx = 0;
     QString text;
     QString icon;
 
