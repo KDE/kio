@@ -37,17 +37,20 @@ class JobPrivate;
  * For all jobs created in an application, the code looks like
  *
  * \code
- *   KIO::Job * job = KIO::someoperation( some parameters );
- *   connect( job, SIGNAL( result( KJob * ) ),
- *            this, SLOT( slotResult( KJob * ) ) );
+ *   KIO::Job* job = KIO::someoperation(some parameters);
+ *   connect(job, &KJob::result, this, &MyClass::slotResult);
  * \endcode
  *   (other connects, specific to the job)
  *
  * And slotResult is usually at least:
  *
  * \code
- *  if ( job->error() )
- *      job->uiDelegate()->showErrorMessage();
+ * void MyClass::slotResult(KJob *job)
+ * {
+ *   if (job->error()) {
+ *     job->uiDelegate()->showErrorMessage();
+ *   }
+ * }
  * \endcode
  * @see KIO::Scheduler
  */

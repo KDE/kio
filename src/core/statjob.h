@@ -99,9 +99,9 @@ public:
      * @code
      * KIO::StatJob* job = KIO::mostLocalUrl("desktop:/foo");
      * job->uiDelegate()->setWindow(this);
-     * connect(job, SIGNAL(result(KJob*)), this, SLOT(slotMostLocalUrlResult(KJob*)));
+     * connect(job, &KJob::result, this, &MyClass::slotMostLocalUrlResult);
      * [...]
-     * // and in the slot
+     * // and in the slot slotMostLocalUrlResult(KJob *job)
      * if (job->error()) {
      *    [...] // doesn't exist
      * } else {
