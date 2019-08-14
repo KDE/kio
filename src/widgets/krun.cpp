@@ -127,7 +127,8 @@ static bool checkNeedPortalSupport()
 static qint64 runProcessRunner(KProcess *p, const QString &executable, const KStartupInfoId &id, QWidget *widget)
 {
     auto *processRunner = new KProcessRunner(p, executable, id);
-    QObject::connect(processRunner, &KProcessRunner::error, widget, [widget](const QString &errorString) {
+    QObject *receiver = widget ? static_cast<QObject *>(widget) : static_cast<QObject *>(qApp);
+    QObject::connect(processRunner, &KProcessRunner::error, receiver, [widget](const QString &errorString) {
         QEventLoopLocker locker;
         KMessageBox::sorry(widget, errorString);
     });
