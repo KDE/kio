@@ -43,6 +43,7 @@ public:
     virtual bool setViewMode(KFile::FileView viewMode);
 
 protected:
+    QStyleOptionViewItem viewOptions() const override;
     bool event(QEvent *event) override;
     void dragEnterEvent(QDragEnterEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;

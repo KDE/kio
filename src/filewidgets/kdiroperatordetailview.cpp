@@ -80,6 +80,13 @@ bool KDirOperatorDetailView::setViewMode(KFile::FileView viewMode)
     return true;
 }
 
+QStyleOptionViewItem KDirOperatorDetailView::viewOptions() const
+{
+    QStyleOptionViewItem viewOptions = QTreeView::viewOptions();
+    viewOptions.textElideMode = Qt::ElideMiddle;
+    return viewOptions;
+}
+
 bool KDirOperatorDetailView::event(QEvent *event)
 {
     if (event->type() == QEvent::Polish) {

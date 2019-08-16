@@ -61,6 +61,7 @@ QStyleOptionViewItem KDirOperatorIconView::viewOptions() const
 {
     QStyleOptionViewItem viewOptions = QListView::viewOptions();
     viewOptions.showDecorationSelected = true;
+    viewOptions.textElideMode = Qt::ElideMiddle;
     viewOptions.decorationPosition = decorationPosition;
     if (viewOptions.decorationPosition == QStyleOptionViewItem::Left) {
         viewOptions.displayAlignment = Qt::AlignLeft | Qt::AlignVCenter;
