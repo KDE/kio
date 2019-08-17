@@ -67,7 +67,8 @@ KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList,
     setWindowIcon(QIcon::fromTheme(QStringLiteral("preferences-web-browser-cookies")));
     // all cookies in the list should have the same window at this time, so let's take the first
     if (!cookieList.first().windowIds().isEmpty()) {
-        KWindowSystem::setMainWindow(this, cookieList.first().windowIds().first());
+        setAttribute(Qt::WA_NativeWindow, true);
+        KWindowSystem::setMainWindow(windowHandle(), cookieList.first().windowIds().first());
     } else {
         // No window associated... make sure the user notices our dialog.
         KWindowSystem::setState(winId(), NET::KeepAbove);

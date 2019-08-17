@@ -575,11 +575,8 @@ KPasswdServer::processRequest()
                                            QStringList(), QString(), nullptr,
                                            (KMessageBox::Notify | KMessageBox::NoExec));
 
-        #ifndef Q_WS_WIN
-            KWindowSystem::setMainWindow(dlg, request->windowId);
-        #else
-            KWindowSystem::setMainWindow(dlg, (HWND)(long)request->windowId);
-        #endif
+            dlg->setAttribute(Qt::WA_NativeWindow, true);
+            KWindowSystem::setMainWindow(dlg->windowHandle(), request->windowId);
 
             qCDebug(category) << "Calling open on retry dialog" << dlg;
             m_authRetryInProgress.insert(dlg, request.take());
@@ -850,11 +847,7 @@ void KPasswdServer::showPasswordDialog (KPasswdServer::Request* request)
 #endif
 
     // instantiate dialog
-#ifndef Q_WS_WIN
     qCDebug(category) << "Widget for" << request->windowId << QWidget::find(request->windowId);
-#else
-    qCDebug(category) << "Widget for" << request->windowId << QWidget::find((HWND)request->windowId);
-#endif
 
     KPasswordDialog* dlg = new KPasswordDialog(nullptr, dialogFlags);
     connect(dlg, &QDialog::finished, this, &KPasswdServer::passwordDialogDone);
@@ -888,11 +881,8 @@ void KPasswdServer::showPasswordDialog (KPasswdServer::Request* request)
         dlg->setAnonymousMode(info.getExtraField(AUTHINFO_EXTRAFIELD_ANONYMOUS).toBool());
 
 #ifndef Q_OS_MACOS
-#ifndef Q_WS_WIN
-    KWindowSystem::setMainWindow(dlg, request->windowId);
-#else
-    KWindowSystem::setMainWindow(dlg, (HWND)request->windowId);
-#endif
+    dlg->setAttribute(Qt::WA_NativeWindow, true);
+    KWindowSystem::setMainWindow(dlg->windowHandle(), request->windowId);
 #else
     KWindowSystem::forceActiveWindow(dlg->winId(), 0);
 #endif
