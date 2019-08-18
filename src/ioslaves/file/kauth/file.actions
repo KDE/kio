@@ -29,6 +29,7 @@ Name[x-test]=xxExecute action as root.xx
 Name[zh_CN]=以 Root 身份执行操作。
 Name[zh_TW]=以 root 身份執行動作。
 Description=Root privileges are required to complete the action.
+Description[ast]=Ríquense los privilexos de root pa completar l'aición.
 Description[ca]=Es requereixen privilegis d'administrador per completar l'acció.
 Description[ca@valencia]=Es requereixen privilegis d'administrador per completar l'acció.
 Description[cs]=Pro dokončení této činnosti jsou vyžadována práva uživatele root.

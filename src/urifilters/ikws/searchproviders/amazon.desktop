@@ -4,6 +4,7 @@ Hidden=false
 Keys=amazon,amz
 Name=Amazon
 Name[ar]=أمازون
+Name[ast]=Amazon
 Name[bg]=Amazon
 Name[bn]=অ্যামাজন
 Name[bs]=Amazon
@@ -70,6 +71,7 @@ Name[x-test]=xxAmazonxx
 Name[zh_CN]=Amazon
 Name[zh_TW]=Amazon
 Query=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
+Query[ast]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[ca]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[ca@valencia]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[cs]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0

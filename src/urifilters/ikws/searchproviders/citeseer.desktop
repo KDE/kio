@@ -90,6 +90,7 @@ Name[x-test]=xxCiteSeer: Scientific Literature Digital Libraryxx
 Name[zh_CN]=CiteSeer：科学文献数字图书馆
 Name[zh_TW]=CiteSeer: 科學文獻數位圖書館
 Query=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[ast]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[ca]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[ca@valencia]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[cs]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc

@@ -2,6 +2,7 @@
 Type=Service
 Name=Bing
 Name[ar]=Bing
+Name[ast]=Bing
 Name[bg]=Bing
 Name[bn]=বিং
 Name[bs]=Bing
@@ -70,6 +71,7 @@ Name[zh_TW]=Bing
 X-KDE-ServiceTypes=SearchProvider
 Keys=bing
 Query=https://www.bing.com/search?q=\\{@}
+Query[ast]=https://www.bing.com/search?q=\\{@}
 Query[ca]=https://www.bing.com/search?q=\\{@}
 Query[ca@valencia]=https://www.bing.com/search?q=\\{@}
 Query[cs]=https://www.bing.com/search?q=\\{@}

@@ -88,6 +88,7 @@ Name[x-test]=xxAll Music Guidexx
 Name[zh_CN]=所有音乐指南
 Name[zh_TW]=所有音樂指南
 Query=https://www.allmusic.com/search/all/\\{@}
+Query[ast]=https://www.allmusic.com/search/all/\\{@}
 Query[ca]=https://www.allmusic.com/search/all/\\{@}
 Query[ca@valencia]=https://www.allmusic.com/search/all/\\{@}
 Query[cs]=https://www.allmusic.com/search/all/\\{@}

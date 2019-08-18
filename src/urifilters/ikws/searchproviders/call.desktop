@@ -88,6 +88,7 @@ Name[x-test]=xxQRZ.com Callsign Databasexx
 Name[zh_CN]=QRZ.com Callsign 数据库
 Name[zh_TW]=QRZ.com Callsign 資料庫
 Query=https://www.qrz.com/db/\\{@}
+Query[ast]=https://www.qrz.com/db/\\{@}
 Query[ca]=https://www.qrz.com/db/\\{@}
 Query[ca@valencia]=https://www.qrz.com/db/\\{@}
 Query[cs]=https://www.qrz.com/db/\\{@}
