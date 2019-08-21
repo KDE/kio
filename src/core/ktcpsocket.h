@@ -26,6 +26,8 @@
 
 #include "kiocore_export.h"
 
+class QNetworkReply;
+
 /*
   Notes on QCA::TLS compatibility
   In order to check for all validation problems as far as possible we need to use:
@@ -410,6 +412,12 @@ public:
      * Create an instance and initialize it with SSL error data from @p socket.
      */
     KSslErrorUiData(const QSslSocket *socket);
+    /**
+     * Create an instance and initialize it with SSL error data from @p reply.
+     * @since 5.62
+     */
+    KSslErrorUiData(const QNetworkReply *reply, const QList<QSslError> &sslErrors);
+
     KSslErrorUiData(const KSslErrorUiData &other);
     KSslErrorUiData &operator=(const KSslErrorUiData &);
     /**

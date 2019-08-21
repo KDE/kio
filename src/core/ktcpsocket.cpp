@@ -29,6 +29,7 @@
 #include <QSslCipher>
 #include <QHostAddress>
 #include <QNetworkProxy>
+#include <QNetworkReply>
 #include <QAuthenticator>
 
 static KTcpSocket::SslVersion kSslVersionFromQ(QSsl::SslProtocol protocol)
@@ -1095,6 +1096,24 @@ KSslErrorUiData::KSslErrorUiData(const QSslSocket *socket)
     d->cipher = socket->sessionCipher().name();
     d->usedBits = socket->sessionCipher().usedBits();
     d->bits = socket->sessionCipher().supportedBits();
+}
+
+KSslErrorUiData::KSslErrorUiData(const QNetworkReply *reply, const QList<QSslError> &sslErrors)
+    : d(new Private())
+{
+    const auto sslConfig = reply->sslConfiguration();
+    d->certificateChain = sslConfig.peerCertificateChain();
+
+    d->sslErrors.reserve(sslErrors.size());
+    for (const QSslError &e : sslErrors) {
+        d->sslErrors.append(KSslError(e));
+    }
+
+    d->host = reply->request().url().host();
+    d->sslProtocol = sslConfig.sessionCipher().protocolString();
+    d->cipher = sslConfig.sessionCipher().name();
+    d->usedBits = sslConfig.sessionCipher().usedBits();
+    d->bits = sslConfig.sessionCipher().supportedBits();
 }
 
 KSslErrorUiData::KSslErrorUiData(const KSslErrorUiData &other)
