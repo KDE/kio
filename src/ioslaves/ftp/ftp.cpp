@@ -2372,12 +2372,10 @@ void Ftp::copy(const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags
         QT_CLOSE(iCopyFile);
     }
     ftpCloseCommand();                        // must close command!
-    if (cs != statusServerError) {
-        if (iError) {
-            error(iError, sCopyFile);
-        } else {
-            finished();
-        }
+    if (cs == statusServerError && iError) {
+        error(iError, sCopyFile);
+    } else {
+        finished();
     }
 }
 
