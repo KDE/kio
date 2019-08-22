@@ -1287,6 +1287,8 @@ void KDirOperator::activatedMenu(const KFileItem &item, const QPoint &pos)
     d->newFileMenu->setViewShowsHiddenFiles(showHiddenFiles());
     d->newFileMenu->checkUpToDate();
 
+    d->actionCollection->action(QStringLiteral("new"))->setEnabled(item.isDir());
+
     emit contextMenuAboutToShow(item, d->actionMenu->menu());
 
     d->actionMenu->menu()->exec(pos);
