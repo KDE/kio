@@ -61,6 +61,12 @@
 #include <KAuth>
 #endif
 
+#if KIO_ASSERT_SLAVE_STATES
+#define KIO_STATE_ASSERT(cond, where, what) Q_ASSERT_X(cond, where, what)
+#else
+#define KIO_STATE_ASSERT(cond, where, what) do { if (!(cond)) qCWarning(KIO_CORE) << what; } while (false)
+#endif
+
 extern "C" {
     static void sigpipe_handler(int sig);
 }
@@ -123,6 +129,7 @@ public:
     KIO::filesize_t totalSize;
     KRemoteEncoding *remotefile;
     enum { Idle, InsideMethod, FinishedCalled, ErrorCalled } m_state;
+    bool m_finalityCommand = true; // whether finished() or error() may/must be called
     QByteArray timeoutData;
 
     KPasswdServerClient *m_passwdServerClient;
@@ -185,18 +192,34 @@ public:
         }
     }
 
+    bool finalState() const
+    {
+        return ((m_state == FinishedCalled) || (m_state == ErrorCalled));
+    }
+
     void verifyState(const char *cmdName)
     {
-        if ((m_state != FinishedCalled) && (m_state != ErrorCalled)) {
-            qCWarning(KIO_CORE) << cmdName << "did not call finished() or error()! Please fix the" << QCoreApplication::applicationName() << "KIO slave";
+        KIO_STATE_ASSERT(finalState(),
+                         Q_FUNC_INFO,
+                         qUtf8Printable(QStringLiteral("%1 did not call finished() or error()! Please fix the %2 KIO slave")
+                                        .arg(cmdName)
+                                        .arg(QCoreApplication::applicationName())));
+        // Force the command into finished state. We'll not reach this for Debug builds
+        // that fail the assertion. For Release builds we'll have made sure that the
+        // command is actually finished after the verification regardless of what
+        // the slave did.
+        if (!finalState()) {
+            q->finished();
         }
     }
 
     void verifyErrorFinishedNotCalled(const char *cmdName)
     {
-        if (m_state == FinishedCalled || m_state == ErrorCalled) {
-            qCWarning(KIO_CORE) << cmdName << "called finished() or error(), but it's not supposed to! Please fix the" << QCoreApplication::applicationName() << "KIO slave";
-        }
+        KIO_STATE_ASSERT(!finalState(),
+                         Q_FUNC_INFO,
+                         qUtf8Printable(QStringLiteral("%1 called finished() or error(), but it's not supposed to! Please fix the %2 KIO slave")
+                                        .arg(cmdName)
+                                        .arg(QCoreApplication::applicationName())));
     }
 
     KPasswdServerClient *passwdServerClient()
@@ -458,11 +481,22 @@ void SlaveBase::opened()
 
 void SlaveBase::error(int _errid, const QString &_text)
 {
+    KIO_STATE_ASSERT(d->m_finalityCommand,
+                     Q_FUNC_INFO,
+                     qUtf8Printable(QStringLiteral("error() was called, but it's not supposed to! Please fix the %1 KIO slave")
+                                    .arg(QCoreApplication::applicationName())));
+
     if (d->m_state == d->ErrorCalled) {
-        qCWarning(KIO_CORE) << "error() called twice! Please fix the" << QCoreApplication::applicationName() << "KIO slave";
+        KIO_STATE_ASSERT(false,
+                         Q_FUNC_INFO,
+                         qUtf8Printable(QStringLiteral("error() called twice! Please fix the %1 KIO slave")
+                                        .arg(QCoreApplication::applicationName())));
         return;
     } else if (d->m_state == d->FinishedCalled) {
-        qCWarning(KIO_CORE) << "error() called after finished()! Please fix the" << QCoreApplication::applicationName() << "KIO slave";
+        KIO_STATE_ASSERT(false,
+                         Q_FUNC_INFO,
+                         qUtf8Printable(QStringLiteral("error() called after finished()! Please fix the %1 KIO slave")
+                                        .arg(QCoreApplication::applicationName())));
         return;
     }
 
@@ -502,11 +536,22 @@ void SlaveBase::finished()
         d->pendingListEntries.clear();
     }
 
+    KIO_STATE_ASSERT(d->m_finalityCommand,
+                     Q_FUNC_INFO,
+                     qUtf8Printable(QStringLiteral("finished() was called, but it's not supposed to! Please fix the %2 KIO slave")
+                                    .arg(QCoreApplication::applicationName())));
+
     if (d->m_state == d->FinishedCalled) {
-        qCWarning(KIO_CORE) << "finished() called twice! Please fix the" << QCoreApplication::applicationName() << "KIO slave";
+        KIO_STATE_ASSERT(false,
+                         Q_FUNC_INFO,
+                         qUtf8Printable(QStringLiteral("finished() called twice! Please fix the %1 KIO slave")
+                                        .arg(QCoreApplication::applicationName())));
         return;
     } else if (d->m_state == d->ErrorCalled) {
-        qCWarning(KIO_CORE) << "finished() called after error()! Please fix the" << QCoreApplication::applicationName() << "KIO slave";
+        KIO_STATE_ASSERT(false,
+                         Q_FUNC_INFO,
+                         qUtf8Printable(QStringLiteral("finished() called after error()! Please fix the %1 KIO slave")
+                                        .arg(QCoreApplication::applicationName())));
         return;
     }
 
@@ -1062,6 +1107,8 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
     QUrl url;
     int i;
 
+    d->m_finalityCommand = true; // default
+
     switch (command) {
     case CMD_HOST: {
         QString passwd;
@@ -1069,8 +1116,8 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
         quint16 port;
         stream >> host >> port >> user >> passwd;
         d->m_state = d->InsideMethod;
+        d->m_finalityCommand = false;
         setHost(host, port, user, passwd);
-        d->verifyErrorFinishedNotCalled("setHost()");
         d->m_state = d->Idle;
     } break;
     case CMD_CONNECT: {
@@ -1081,9 +1128,9 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
     } break;
     case CMD_SLAVE_STATUS: {
         d->m_state = d->InsideMethod;
+        d->m_finalityCommand = false;
         slave_status();
         // TODO verify that the slave has called slaveStatus()?
-        d->verifyErrorFinishedNotCalled("slave_status()");
         d->m_state = d->Idle;
     } break;
     case CMD_SLAVE_CONNECT: {
@@ -1110,8 +1157,8 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
     } break;
     case CMD_REPARSECONFIGURATION: {
         d->m_state = d->InsideMethod;
+        d->m_finalityCommand = false;
         reparseConfiguration();
-        d->verifyErrorFinishedNotCalled("reparseConfiguration()");
         d->m_state = d->Idle;
     } break;
     case CMD_CONFIG: {
