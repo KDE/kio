@@ -491,6 +491,34 @@ public:
     bool onlyDoubleClickSelectsFiles() const;
 
     /**
+     * Toggles whether setUrl is called on newly created directories.
+     * @since 5.62
+     */
+    void setFollowNewDirectories(bool enable);
+
+    /**
+     * @returns true if setUrl is called on newly created directories, false 
+     * otherwise. Enabled by default.
+     * @since 5.62
+     * @see setFollowNewDirectories
+     */
+    bool followNewDirectories() const;
+
+    /**
+     * Toggles whether setUrl is called on selected directories when a tree view
+     * is used.
+     * @since 5.62
+     */
+    void setFollowSelectedDirectories(bool enable);
+
+    /**
+     * @returns whether setUrl is called on selected directories when a tree
+     * view is used. Enabled by default.
+     * @since 5.62
+     */
+    bool followSelectedDirectories() const;
+
+    /**
      * Creates the given directory/url. If it is a relative path,
      * it will be completed with the current directory.
      * If enterDirectory is true, the directory will be entered after a

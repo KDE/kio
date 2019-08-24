@@ -197,6 +197,8 @@ public:
 
     bool dirHighlighting;
     bool onlyDoubleClickSelectsFiles;
+    bool followNewDirectories;
+    bool followSelectedDirectories;
     QString lastURL; // used for highlighting a directory on cdUp
     QTimer *progressDelayTimer;
     int dropOptions;
@@ -237,6 +239,8 @@ KDirOperator::Private::Private(KDirOperator *_parent) :
     previewWidth(0),
     dirHighlighting(false),
     onlyDoubleClickSelectsFiles(!qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)),
+    followNewDirectories(true),
+    followSelectedDirectories(true),
     progressDelayTimer(nullptr),
     dropOptions(0),
     actionMenu(nullptr),
@@ -2414,6 +2418,26 @@ bool KDirOperator::onlyDoubleClickSelectsFiles() const
     return d->onlyDoubleClickSelectsFiles;
 }
 
+void KDirOperator::setFollowNewDirectories(bool enable)
+{
+    d->followNewDirectories = enable;
+}
+
+bool KDirOperator::followNewDirectories() const
+{
+    return d->followNewDirectories;
+}
+
+void KDirOperator::setFollowSelectedDirectories(bool enable)
+{
+    d->followSelectedDirectories = enable;
+}
+
+bool KDirOperator::followSelectedDirectories() const
+{
+    return d->followSelectedDirectories;
+}
+
 void KDirOperator::Private::_k_slotStarted()
 {
     progressBar->setValue(0);
@@ -2518,7 +2542,15 @@ void KDirOperator::Private::_k_slotActivated(const QModelIndex &index)
     }
 
     if (item.isDir()) {
-        parent->selectDir(item);
+        // Only allow disabling following selected directories on Tree and
+        // DetailTree views as selected directories in these views still expand
+        // when selected. For other views, disabling following selected
+        // directories would make selecting a directory a noop which is
+        // unintuitive.
+        if (followSelectedDirectories ||
+            (viewKind != KFile::Tree && viewKind != KFile::DetailTree)) {
+            parent->selectDir(item);
+        }
     } else {
         parent->selectFile(item);
     }
@@ -2783,7 +2815,9 @@ bool KDirOperator::Private::isReadable(const QUrl &url)
 
 void KDirOperator::Private::_k_slotDirectoryCreated(const QUrl &url)
 {
-    parent->setUrl(url, true);
+    if (followNewDirectories) {
+        parent->setUrl(url, true);
+    }
 }
 
 void KDirOperator::setSupportedSchemes(const QStringList &schemes)
