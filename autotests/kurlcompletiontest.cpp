@@ -146,10 +146,10 @@ void KUrlCompletionTest::testLocalRelativePath()
     QStringList comp1all = m_completion->allMatches();
     qDebug() << comp1all;
     QCOMPARE(comp1all.count(), 4);
-    QVERIFY(comp1all.contains(QStringLiteral("file1")));
-    QVERIFY(comp1all.contains(QStringLiteral("file#a")));
-    QVERIFY(comp1all.contains(QStringLiteral("file.")));
-    QVERIFY(comp1all.contains(QStringLiteral("file_subdir/")));
+    QVERIFY(comp1all.contains(QLatin1String("file1")));
+    QVERIFY(comp1all.contains(QLatin1String("file#a")));
+    QVERIFY(comp1all.contains(QLatin1String("file.")));
+    QVERIFY(comp1all.contains(QLatin1String("file_subdir/")));
     QString comp1 = m_completion->replacedPath(QStringLiteral("file1")); // like KUrlRequester does
     QCOMPARE(comp1, QStringLiteral("file1"));
 
@@ -175,36 +175,36 @@ void KUrlCompletionTest::testLocalRelativePath()
     waitForCompletion(m_completion);
     const auto compAllHidden = m_completion->allMatches();
     QCOMPARE(compAllHidden.count(), 2);
-    QVERIFY(compAllHidden.contains(QStringLiteral(".1_hidden_file_subdir/")));
-    QVERIFY(compAllHidden.contains(QStringLiteral(".2_hidden_file_subdir/")));
+    QVERIFY(compAllHidden.contains(QLatin1String(".1_hidden_file_subdir/")));
+    QVERIFY(compAllHidden.contains(QLatin1String(".2_hidden_file_subdir/")));
 
     // Completion with '.2', should find only hidden folders starting with '2'
     m_completion->makeCompletion(QStringLiteral(".2"));
     waitForCompletion(m_completion);
     const auto compHiddenStartingWith2 = m_completion->allMatches();
     QCOMPARE(compHiddenStartingWith2.count(), 1);
-    QVERIFY(compHiddenStartingWith2.contains(QStringLiteral(".2_hidden_file_subdir/")));
+    QVERIFY(compHiddenStartingWith2.contains(QLatin1String(".2_hidden_file_subdir/")));
 
     // Completion with 'file.', should only find one file
     m_completion->makeCompletion(QStringLiteral("file."));
     waitForCompletion(m_completion);
     const auto compFileEndingWithDot = m_completion->allMatches();
     QCOMPARE(compFileEndingWithDot.count(), 1);
-    QVERIFY(compFileEndingWithDot.contains(QStringLiteral("file.")));
+    QVERIFY(compFileEndingWithDot.contains(QLatin1String("file.")));
 
     // Completion with 'source' should only find the C++ file
     m_completionWithMimeFilter->makeCompletion(QStringLiteral("source"));
     waitForCompletion(m_completionWithMimeFilter);
     const auto compSourceFile = m_completionWithMimeFilter->allMatches();
     QCOMPARE(compSourceFile.count(), 1);
-    QVERIFY(compSourceFile.contains(QStringLiteral("source.cpp")));
+    QVERIFY(compSourceFile.contains(QLatin1String("source.cpp")));
 
     // But it should also be able to find folders
     m_completionWithMimeFilter->makeCompletion(QStringLiteral("file_subdir"));
     waitForCompletion(m_completionWithMimeFilter);
     const auto compMimeFolder = m_completionWithMimeFilter->allMatches();
     QCOMPARE(compMimeFolder.count(), 1);
-    QVERIFY(compMimeFolder.contains(QStringLiteral("file_subdir/")));
+    QVERIFY(compMimeFolder.contains(QLatin1String("file_subdir/")));
 }
 
 void KUrlCompletionTest::testLocalAbsolutePath()

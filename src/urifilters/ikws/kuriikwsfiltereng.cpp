@@ -153,7 +153,7 @@ QStringList KURISearchFilterEngine::modifySubstitutionMap(SubstMap& map,
       QString s = userquery.mid (pos, qsexpr.matchedLength());
       s.replace(QLatin1Char(' '), QLatin1String("%20"));
       start = pos + s.length(); // Move after last quote
-      userquery = userquery.replace (pos, qsexpr.matchedLength(), s);
+      userquery.replace (pos, qsexpr.matchedLength(), s);
     }
   }
 
@@ -216,12 +216,12 @@ QString KURISearchFilterEngine::substituteQuery(const QString& url, SubstMap &ma
   // Check, if old style '\1' is found and replace it with \{@} (compatibility mode):
   {
     int pos = -1;
-    if ((pos = newurl.indexOf(QStringLiteral("\\1"))) >= 0)
+    if ((pos = newurl.indexOf(QLatin1String("\\1"))) >= 0)
     {
       qCWarning(category) << "WARNING: Using compatibility mode for newurl='" << newurl
                    << "'. Please replace old style '\\1' with new style '\\{0}' "
                       "in the query definition.\n";
-      newurl = newurl.replace(pos, 2, QStringLiteral("\\{@}"));
+      newurl.replace(pos, 2, QStringLiteral("\\{@}"));
     }
   }
 
@@ -374,7 +374,7 @@ QUrl KURISearchFilterEngine::formatResult( const QString& url,
 {
   // Return nothing if userquery is empty and it contains
   // substitution strings...
-  if (userquery.isEmpty() && url.indexOf(QStringLiteral("\\{")) > 0)
+  if (userquery.isEmpty() && url.indexOf(QLatin1String("\\{")) > 0)
     return QUrl();
 
   // Debug info of map:

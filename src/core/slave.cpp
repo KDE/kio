@@ -515,7 +515,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
             << QFile::decodeName(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5); // look at our installation location
         const QString kioslaveExecutable = QStandardPaths::findExecutable(QStringLiteral("kioslave5"), searchPaths);
         if (kioslaveExecutable.isEmpty()) {
-            error_text = i18n("Can not find 'kioslave5' executable at '%1'", searchPaths.join(QStringLiteral(", ")));
+            error_text = i18n("Can not find 'kioslave5' executable at '%1'", searchPaths.join(QLatin1String(", ")));
             error = KIO::ERR_CANNOT_CREATE_SLAVE;
             delete slave;
             return nullptr;

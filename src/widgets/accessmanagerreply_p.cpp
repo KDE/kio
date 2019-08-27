@@ -169,7 +169,7 @@ bool AccessManagerReply::ignoreContentDisposition(const KIO::MetaData &metaData)
         return true;
     }
 
-    if (!metaData.contains(QStringLiteral("content-disposition-type"))) {
+    if (!metaData.contains(QLatin1String("content-disposition-type"))) {
         return true;
     }
 

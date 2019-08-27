@@ -707,7 +707,7 @@ void KFileWidget::setFilter(const QString &filter)
     // escaped '/' characters.
 
     QString copy(filter);
-    for (pos = 0; (pos = copy.indexOf(QStringLiteral("\\/"), pos)) != -1; ++pos) {
+    for (pos = 0; (pos = copy.indexOf(QLatin1String("\\/"), pos)) != -1; ++pos) {
         copy.remove(pos, 1);
     }
 

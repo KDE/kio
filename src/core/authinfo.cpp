@@ -433,8 +433,8 @@ QString NetRC::NetRCPrivate::extract(const QString &buf, const QString &key)
 void NetRC::NetRCPrivate::getMachinePart(const QString &line)
 {
     QString buf = line;
-    while (!(buf.contains(QStringLiteral("login"))
-             && (buf.contains(QStringLiteral("password")) || buf.contains(QStringLiteral("account")) || buf.contains(QStringLiteral("type"))))) {
+    while (!(buf.contains(QLatin1String("login"))
+             && (buf.contains(QLatin1String("password")) || buf.contains(QStringLiteral("account")) || buf.contains(QStringLiteral("type"))))) {
         buf += QLatin1Char(' ') + fstream.readLine().simplified();
     }
 
@@ -442,9 +442,9 @@ void NetRC::NetRCPrivate::getMachinePart(const QString &line)
     AutoLogin l;
     l.machine = extract(buf, QStringLiteral("machine"));
     if (l.machine.isEmpty()) {
-        if (buf.contains(QStringLiteral("default"))) {
+        if (buf.contains(QLatin1String("default"))) {
             l.machine = QStringLiteral("default");
-        } else if (buf.contains(QStringLiteral("preset"))) {
+        } else if (buf.contains(QLatin1String("preset"))) {
             l.machine = QStringLiteral("preset");
         }
     }

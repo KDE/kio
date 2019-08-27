@@ -296,7 +296,7 @@ QList<KServiceAction> KDesktopFileActions::userDefinedServices(const KService &s
     foreach (const KServiceAction &action, service.actions()) {
         if (keys.isEmpty() || keys.contains(action.name())) {
             const QString exec = action.exec();
-            if (bLocalFiles || exec.contains(QStringLiteral("%U")) || exec.contains(QStringLiteral("%u"))) {
+            if (bLocalFiles || exec.contains(QLatin1String("%U")) || exec.contains(QStringLiteral("%u"))) {
                 result.append(action);
             }
         }

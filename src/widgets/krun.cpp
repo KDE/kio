@@ -505,7 +505,7 @@ static QList<QUrl> resolveURLs(const QList<QUrl> &_urls, const KService &_servic
     // This can be a list of actual protocol names, or just KIO for KDE apps.
     QStringList appSupportedProtocols = KIO::DesktopExecParser::supportedProtocols(_service);
     QList<QUrl> urls(_urls);
-    if (!appSupportedProtocols.contains(QStringLiteral("KIO"))) {
+    if (!appSupportedProtocols.contains(QLatin1String("KIO"))) {
         for (QList<QUrl>::Iterator it = urls.begin(); it != urls.end(); ++it) {
             const QUrl url = *it;
             bool supported = KIO::DesktopExecParser::isProtocolInSupportedList(url, appSupportedProtocols);

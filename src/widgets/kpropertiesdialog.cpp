@@ -3808,7 +3808,7 @@ void KDesktopPropsPlugin::slotAdvanced()
     bool terminalCloseBool = false;
 
     if (preferredTerminal == QLatin1String("konsole")) {
-        terminalCloseBool = d->m_terminalOptionStr.contains(QStringLiteral("--noclose"));
+        terminalCloseBool = d->m_terminalOptionStr.contains(QLatin1String("--noclose"));
         w.terminalCloseCheck->setChecked(terminalCloseBool);
         d->m_terminalOptionStr.remove(QStringLiteral("--noclose"));
     } else {

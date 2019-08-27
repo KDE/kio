@@ -304,12 +304,12 @@ QStringList KIO::Job::detailedErrorStrings(const QUrl *reqUrl /*= 0*/,
             QLatin1String("</ul>");
     if (!causes.isEmpty()) {
         ret2 += QLatin1String("<p>") + i18n("<b>Possible causes</b>:") +
-                QLatin1String("</p><ul><li>") + causes.join(QStringLiteral("</li><li>")) +
+                QLatin1String("</p><ul><li>") + causes.join(QLatin1String("</li><li>")) +
                 QLatin1String("</li></ul>");
     }
     if (!solutions.isEmpty()) {
         ret2 += QLatin1String("<p>") + i18n("<b>Possible solutions</b>:") +
-                QLatin1String("</p><ul><li>") + solutions.join(QStringLiteral("</li><li>")) +
+                QLatin1String("</p><ul><li>") + solutions.join(QLatin1String("</li><li>")) +
                 QLatin1String("</li></ul>");
     }
     ret2 += QLatin1String("</qt>");

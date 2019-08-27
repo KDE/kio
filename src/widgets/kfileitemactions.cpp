@@ -359,7 +359,7 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
 
         if (cfg.hasKey("X-KDE-Require")) {
             const QStringList capabilities = cfg.readEntry("X-KDE-Require", QStringList());
-            if (capabilities.contains(QStringLiteral("Write")) && !d->m_props.supportsWriting()) {
+            if (capabilities.contains(QLatin1String("Write")) && !d->m_props.supportsWriting()) {
                 continue;
             }
         }
@@ -481,7 +481,7 @@ int KFileItemActions::addPluginActionsTo(QMenu *mainMenu)
 
     const QMimeDatabase db;
     const auto jsonPlugins = KPluginLoader::findPlugins(QStringLiteral("kf5/kfileitemaction"), [&db, commonMimeType](const KPluginMetaData& metaData) {
-        if (!metaData.serviceTypes().contains(QStringLiteral("KFileItemAction/Plugin"))) {
+        if (!metaData.serviceTypes().contains(QLatin1String("KFileItemAction/Plugin"))) {
             return false;
         }
 

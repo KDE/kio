@@ -40,7 +40,7 @@ UserAgentInfo::UserAgentInfo()
 UserAgentInfo::StatusCode UserAgentInfo::createNewUAProvider( const QString& uaStr )
 {
   QStringList split;
-  int pos = (uaStr).indexOf(QStringLiteral("::"));
+  int pos = (uaStr).indexOf(QLatin1String("::"));
 
   if ( pos == -1 )
   {
@@ -97,10 +97,10 @@ void UserAgentInfo::parseDescription()
       QStringList languageList = QLocale().uiLanguages();
       if ( !languageList.isEmpty() )
       {
-        int ind = languageList.indexOf( QStringLiteral("C") );
+        int ind = languageList.indexOf(QLatin1String("C") );
         if( ind >= 0 )
         {
-          if( languageList.contains( QStringLiteral("en") ) )
+          if( languageList.contains(QLatin1String("en") ) )
             languageList.removeAt( ind );
           else
             languageList.value(ind) = QStringLiteral("en");

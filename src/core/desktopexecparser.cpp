@@ -194,7 +194,7 @@ QStringList KIO::DesktopExecParser::supportedProtocols(const KService &service)
         if (supportedProtocols.isEmpty()) {
             // compat mode: assume KIO if not set and it's a KDE app (or a KDE service)
             const QStringList categories = service.property(QStringLiteral("Categories")).toStringList();
-            if (categories.contains(QStringLiteral("KDE"))
+            if (categories.contains(QLatin1String("KDE"))
                     || !service.isApplication()
                     || service.entryPath().isEmpty() /*temp service*/) {
                 supportedProtocols.append(QStringLiteral("KIO"));
@@ -211,7 +211,7 @@ QStringList KIO::DesktopExecParser::supportedProtocols(const KService &service)
 
 bool KIO::DesktopExecParser::isProtocolInSupportedList(const QUrl &url, const QStringList &supportedProtocols)
 {
-    if (supportedProtocols.contains(QStringLiteral("KIO"))) {
+    if (supportedProtocols.contains(QLatin1String("KIO"))) {
         return true;
     }
     return url.isLocalFile() || supportedProtocols.contains(url.scheme().toLower());

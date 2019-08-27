@@ -946,7 +946,7 @@ QString KProtocolManager::userAgentForApplication(const QString &appName, const 
         info += QL1S("; ") + machine;
     }
 
-    info += QL1S("; ") + extraInfo.join(QStringLiteral("; "));
+    info += QL1S("; ") + extraInfo.join(QLatin1String("; "));
 
     return (appName + QL1C('/') + appVersion + QStringLiteral(" (") + info + QL1C(')'));
 }
@@ -994,7 +994,7 @@ QString KProtocolManager::acceptLanguagesHeader()
     // Replace possible "C" in the language list with "en", unless "en" is
     // already pressent. This is to keep user's priorities in order.
     // If afterwards "en" is still not present, append it.
-    int idx = languageList.indexOf(QStringLiteral("C"));
+    int idx = languageList.indexOf(QLatin1String("C"));
     if (idx != -1) {
         if (languageList.contains(english)) {
             languageList.removeAt(idx);

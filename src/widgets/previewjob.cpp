@@ -572,7 +572,7 @@ bool PreviewJobPrivate::statResultThumbnail()
 
     QString thumbnailerVersion = currentItem.plugin->property(QStringLiteral("ThumbnailerVersion"), QVariant::String).toString();
 
-    if (!thumbnailerVersion.isEmpty() && thumb.text(QStringLiteral("Software")).startsWith(QStringLiteral("KDE Thumbnail Generator"))) {
+    if (!thumbnailerVersion.isEmpty() && thumb.text(QStringLiteral("Software")).startsWith(QLatin1String("KDE Thumbnail Generator"))) {
         //Check if the version matches
         //The software string should read "KDE Thumbnail Generator pluginName (vX)"
         QString softwareString = thumb.text(QStringLiteral("Software")).remove(QStringLiteral("KDE Thumbnail Generator")).trimmed();

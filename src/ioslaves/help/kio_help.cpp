@@ -231,7 +231,7 @@ void HelpProtocol::get(const QUrl &url)
         if (mParsed.isEmpty()) {
             sendError(i18n("The requested help file could not be parsed:<br />%1",  file));
         } else {
-            int pos1 = mParsed.indexOf(QStringLiteral("charset="));
+            int pos1 = mParsed.indexOf(QLatin1String("charset="));
             if (pos1 > 0) {
                 int pos2 = mParsed.indexOf(QLatin1Char('"'), pos1);
                 if (pos2 > 0) {

@@ -297,14 +297,14 @@ static void checkInfoFile(const QString &infoPath, const QString &origFilePath)
     const QString origPath = group.readEntry("Path");
     QVERIFY(!origPath.isEmpty());
     QCOMPARE(origPath.toUtf8(), QUrl::toPercentEncoding(origFilePath, "/"));
-    if (origFilePath.contains(QChar(0x2153)) || origFilePath.contains(QLatin1Char('%')) || origFilePath.contains(QStringLiteral("umlaut"))) {
+    if (origFilePath.contains(QChar(0x2153)) || origFilePath.contains(QLatin1Char('%')) || origFilePath.contains(QLatin1String("umlaut"))) {
         QVERIFY(origPath.contains(QLatin1Char('%')));
     } else {
         QVERIFY(!origPath.contains(QLatin1Char('%')));
     }
     const QString date = group.readEntry("DeletionDate");
     QVERIFY(!date.isEmpty());
-    QVERIFY(date.contains(QStringLiteral("T")));
+    QVERIFY(date.contains(QLatin1String("T")));
 }
 
 static void createTestFile(const QString &path)

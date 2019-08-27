@@ -1456,7 +1456,7 @@ bool KDirOperator::Private::checkPreviewInternal() const
 {
     const QStringList supported = KIO::PreviewJob::supportedMimeTypes();
     // no preview support for directories?
-    if (parent->dirOnlyMode() && supported.indexOf(QStringLiteral("inode/directory")) == -1) {
+    if (parent->dirOnlyMode() && supported.indexOf(QLatin1String("inode/directory")) == -1) {
         return false;
     }
 

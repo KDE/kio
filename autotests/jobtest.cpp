@@ -1025,7 +1025,7 @@ void JobTest::listRecursive()
 #endif
                                       "fileFromHome");
 
-    const QString joinedNames = m_names.join(QStringLiteral(","));
+    const QString joinedNames = m_names.join(QLatin1String(","));
     if (joinedNames.toLatin1() != ref_names) {
         qDebug("%s", qPrintable(joinedNames));
         qDebug("%s", ref_names.data());

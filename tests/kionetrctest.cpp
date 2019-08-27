@@ -26,7 +26,7 @@ void output(const QUrl &u)
     QMap<QString, QStringList>::ConstIterator it = l.macdef.constBegin();
     for (; it != l.macdef.constEnd(); ++it) {
         qDebug() << "Macro: " << it.key() << "= "
-                 << it.value().join(QStringLiteral("   ")) << endl;
+                 << it.value().join(QLatin1String("   ")) << endl;
     }
 }
 

@@ -127,7 +127,7 @@ void KMountPointTest::testPossibleMountPoints()
     QVERIFY(rootMountPoint);
     QCOMPARE(rootMountPoint->mountPoint(), QStringLiteral("/"));
     QVERIFY(rootMountPoint->realDeviceName().startsWith(QLatin1String("/"))); // Usually /dev, but can be /host/ubuntu/disks/root.disk...
-    QVERIFY(!rootMountPoint->mountOptions().contains(QStringLiteral("noauto"))); // how would this work?
+    QVERIFY(!rootMountPoint->mountOptions().contains(QLatin1String("noauto"))); // how would this work?
     QVERIFY(!rootMountPoint->probablySlow());
 #endif
 }

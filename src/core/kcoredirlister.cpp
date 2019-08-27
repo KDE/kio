@@ -533,7 +533,7 @@ static bool manually_mounted(const QString &path, const KMountPoint::List &possi
         return true;
     }
     // noauto -> manually mounted. Otherwise, mounted at boot time, won't be unmounted any time soon hopefully.
-    return mp->mountOptions().contains(QStringLiteral("noauto"));
+    return mp->mountOptions().contains(QLatin1String("noauto"));
 }
 
 void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, bool notify)
@@ -2316,7 +2316,7 @@ void KCoreDirLister::setMimeFilter(const QStringList &mimeFilter)
     }
 
     d->prepareForSettingsChange();
-    if (mimeFilter.contains(QStringLiteral("application/octet-stream")) || mimeFilter.contains(QStringLiteral("all/allfiles"))) { // all files
+    if (mimeFilter.contains(QLatin1String("application/octet-stream")) || mimeFilter.contains(QStringLiteral("all/allfiles"))) { // all files
         d->settings.mimeFilter.clear();
     } else {
         d->settings.mimeFilter = mimeFilter;

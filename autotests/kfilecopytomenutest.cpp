@@ -106,7 +106,7 @@ private Q_SLOTS:
         // Then
         const QStringList actionNames = extractActionNames(*copyMenu);
         QCOMPARE(actionNames.first(), QStringLiteral("home"));
-        QVERIFY(actionNames.contains(QStringLiteral("browse")));
+        QVERIFY(actionNames.contains(QLatin1String("browse")));
         QCOMPARE(actionNames.at(actionNames.count() - 2), m_nonWritableTempDir.path());
         QCOMPARE(actionNames.last(), m_destDir);
     }

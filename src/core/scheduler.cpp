@@ -1065,7 +1065,7 @@ MetaData SchedulerPrivate::metaDataFor(const QString &protocol, const QStringLis
         configData[QStringLiteral("ProxyUrls")] = proxyList.join(QLatin1Char(','));
     }
 
-    if (configData.contains(QStringLiteral("EnableAutoLogin")) &&
+    if (configData.contains(QLatin1String("EnableAutoLogin")) &&
             configData.value(QStringLiteral("EnableAutoLogin")).compare(QLatin1String("true"), Qt::CaseInsensitive) == 0) {
         NetRC::AutoLogin l;
         l.login = url.userName();

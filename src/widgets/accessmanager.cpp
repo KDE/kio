@@ -264,7 +264,7 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
     }
     case PostOperation: {
         kioJob = KIO::storedHttpPost(outgoingData, reqUrl, sizeFromRequest(req), KIO::HideProgressInfo);
-        if (!metaData.contains(QStringLiteral("content-type")))  {
+        if (!metaData.contains(QLatin1String("content-type")))  {
             const QVariant header = req.header(QNetworkRequest::ContentTypeHeader);
             if (header.isValid()) {
                 metaData.insert(QStringLiteral("content-type"),
@@ -428,7 +428,7 @@ void AccessManager::AccessManagerPrivate::setMetaDataForRequest(QNetworkRequest 
     }
 
     if (!customHeaders.isEmpty()) {
-        metaData.insert(QStringLiteral("customHTTPHeader"), customHeaders.join(QStringLiteral("\r\n")));
+        metaData.insert(QStringLiteral("customHTTPHeader"), customHeaders.join(QLatin1String("\r\n")));
     }
 
     // Append per request meta data, if any...

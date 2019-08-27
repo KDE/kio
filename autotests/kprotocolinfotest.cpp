@@ -54,7 +54,7 @@ void KProtocolInfoTest::testBasic()
 {
     QVERIFY(KProtocolInfo::isKnownProtocol(QUrl(QStringLiteral("http:/"))));
     QVERIFY(KProtocolInfo::isKnownProtocol(QUrl(QStringLiteral("file:/"))));
-    QVERIFY(KProtocolInfo::exec(QStringLiteral("file")).contains(QStringLiteral("kf5/kio/file")));
+    QVERIFY(KProtocolInfo::exec(QStringLiteral("file")).contains(QLatin1String("kf5/kio/file")));
     QCOMPARE(KProtocolInfo::protocolClass(QStringLiteral("file")), QStringLiteral(":local"));
 
     QCOMPARE(KProtocolInfo::protocolClass(QStringLiteral("http")), QStringLiteral(":internet"));
