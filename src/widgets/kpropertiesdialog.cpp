@@ -3206,7 +3206,7 @@ KDevicePropsPlugin::KDevicePropsPlugin(KPropertiesDialog *_props) : KPropertiesD
 
     QLabel *label;
     label = new QLabel(d->m_frame);
-    label->setText(devices.count() == 0 ?
+    label->setText(devices.isEmpty() ?
                    i18n("Device (/dev/fd0):") : // old style
                    i18n("Device:"));  // new style (combobox)
     layout->addWidget(label, 0, 0, Qt::AlignRight);
@@ -3232,7 +3232,7 @@ KDevicePropsPlugin::KDevicePropsPlugin(KPropertiesDialog *_props) : KPropertiesD
     layout->addWidget(fileSystem, 2, 1);
 
     label = new QLabel(d->m_frame);
-    label->setText(devices.count() == 0 ?
+    label->setText(devices.isEmpty() ?
                    i18n("Mount point (/mnt/floppy):") : // old style
                    i18n("Mount point:")); // new style (combobox)
     layout->addWidget(label, 3, 0, Qt::AlignRight);

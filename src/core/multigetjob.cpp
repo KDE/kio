@@ -195,8 +195,8 @@ void MultiGetJob::slotFinished()
     setError(0);
     d->m_incomingMetaData.clear();
     d->m_activeQueue.removeAll(d->m_currentEntry);
-    if (d->m_activeQueue.count() == 0) {
-        if (d->m_waitQueue.count() == 0) {
+    if (d->m_activeQueue.isEmpty()) {
+        if (d->m_waitQueue.isEmpty()) {
             // All done
             TransferJob::slotFinished();
         } else {

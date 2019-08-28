@@ -1017,7 +1017,7 @@ void KFilePreviewGenerator::Private::limitToSize(QPixmap &icon, const QSize &max
 
 void KFilePreviewGenerator::Private::createPreviews(const KFileItemList &items)
 {
-    if (items.count() == 0) {
+    if (items.isEmpty()) {
         return;
     }
 
