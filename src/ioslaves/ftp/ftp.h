@@ -1,5 +1,6 @@
 /*  This file is part of the KDE libraries
     Copyright (C) 2000 David Faure <faure@kde.org>
+    Copyright (C) 2019 Harald Sitter <sitter@kde.org>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Library General Public
@@ -43,16 +44,69 @@ struct FtpEntry {
     QDateTime date;
 };
 
+class FtpInternal;
+
+/**
+ * Login Mode for ftpOpenConnection
+ */
+enum class LoginMode {
+    Defered,
+    Explicit,
+    Implicit
+};
+
+/**
+ * Result type for returning error context.
+ *
+ * This is meant to be returned by functions that do not have a simple
+ * error conditions that could be represented by returning a bool, or
+ * when the contextual error string can only be correctly constructed
+ * inside the function. When using the Result type always mark the
+ * function Q_REQUIRED_RESULT to enforce handling of the Result.
+ *
+ * The Result is forwared all the way to the frontend API where it is
+ * turned into an error() or finished() call.
+ */
+struct Result
+{
+    bool success;
+    int error;
+    QString errorString;
+
+    inline static Result fail(int _error = KIO::ERR_UNKNOWN,
+                              const QString &_errorString = QString())
+    {
+        return Result { false, _error, _errorString };
+    }
+
+    inline static Result pass()
+    {
+        return Result { true, 0, QString() };
+    }
+};
+
+/**
+ * Special Result composite for errors during connection.
+ */
+struct ConnectionResult
+{
+    QTcpSocket *socket;
+    Result result;
+};
+
+QDebug operator<<(QDebug dbg, const Result &r);
+
 //===============================================================================
 // Ftp
+// The API class. This class should not contain *any* FTP logic. It acts
+// as a container for FtpInternal to prevent the latter from directly doing
+// state manipulation via error/finished/opened etc.
 //===============================================================================
-class Ftp : public QObject, public KIO::SlaveBase
+class Ftp : public KIO::SlaveBase
 {
-    Q_OBJECT
-
 public:
     Ftp(const QByteArray &pool, const QByteArray &app);
-    virtual ~Ftp();
+    ~Ftp() override;
 
     void setHost(const QString &host, quint16 port, const QString &user, const QString &pass) override;
 
@@ -79,7 +133,6 @@ public:
 
     void get(const QUrl &url) override;
     void put(const QUrl &url, int permissions, KIO::JobFlags flags) override;
-    //virtual void mimetype( const QUrl& url );
 
     void slave_status() override;
 
@@ -89,31 +142,103 @@ public:
     void copy(const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags flags) override;
 
 private:
-    // ------------------------------------------------------------------------
-    // All the methods named ftpXyz are lowlevel methods that are not exported.
-    // The implement functionality used by the public high-level methods. Some
-    // low-level methods still use error() to emit errors. This behaviour is not
-    // recommended - please return a boolean status or an error code instead!
-    // ------------------------------------------------------------------------
+    // WARNING: All members and all logic not confined to one of the public functions
+    //   must go into FtpInternal!
 
     /**
-     * Status Code returned from ftpPut() and ftpGet(), used to select
-     * source or destination url for error messages
+     * Overridden to prevent FtpInternal from easily calling
+     * q->opened(). Use a Result return type on error conditions
+     * instead. When there was no error Result the
+     * connection is considered opened.
+     *
+     * FtpInternal must not call any state-changing signals!
      */
-    typedef enum {
-        statusSuccess,
-        statusClientError,
-        statusServerError
-    } StatusCode;
+    void opened()
+    {
+        SlaveBase::opened();
+    }
 
     /**
-     * Login Mode for ftpOpenConnection
+     * @see opened()
      */
-    typedef enum {
-        loginDefered,
-        loginExplicit,
-        loginImplicit
-    } LoginMode;
+    void error(int _errid, const QString &_text)
+    {
+        SlaveBase::error(_errid, _text);
+    }
+
+    /**
+     * @see opened()
+     */
+    void finished()
+    {
+        SlaveBase::finished();
+    }
+
+    /**
+     * Calls finished() or error() as appropriate
+     */
+    void finalize(const Result &result);
+
+    QScopedPointer<FtpInternal> d;
+};
+
+/**
+ * Internal logic class.
+ *
+ * This class implements strict separation between the API (Ftp) and
+ * the logic behind the API (FtpInternal). This class' functions
+ * are meant to return Result objects up the call stack to Ftp where
+ * they will be turned into command results (e.g. error(),
+ * finished(), etc.). This class cannot and must not call these signals
+ * directly as it leads to unclear states.
+ */
+class FtpInternal : public QObject
+{
+    Q_OBJECT
+public:
+    explicit FtpInternal(Ftp *qptr);
+    ~FtpInternal();
+
+    // ---------------------------------------- API
+
+    void setHost(const QString &host, quint16 port, const QString &user, const QString &pass);
+
+    /**
+     * Connects to a ftp server and logs us in
+     * m_bLoggedOn is set to true if logging on was successful.
+     * It is set to false if the connection becomes closed.
+     *
+     */
+    Result openConnection() Q_REQUIRED_RESULT;
+
+    /**
+     * Closes the connection
+     */
+    void closeConnection();
+
+    Result stat(const QUrl &url) Q_REQUIRED_RESULT;
+
+    Result listDir(const QUrl &url);
+    Result mkdir(const QUrl &url, int permissions) Q_REQUIRED_RESULT;
+    Result rename(const QUrl &src, const QUrl &dst, KIO::JobFlags flags) Q_REQUIRED_RESULT;
+    Result del(const QUrl &url, bool isfile) Q_REQUIRED_RESULT;
+    Result chmod(const QUrl &url, int permissions) Q_REQUIRED_RESULT;
+
+    Result get(const QUrl &url) Q_REQUIRED_RESULT;
+    Result put(const QUrl &url, int permissions, KIO::JobFlags flags) Q_REQUIRED_RESULT;
+    //virtual void mimetype( const QUrl& url );
+
+    void slave_status();
+
+    /**
+     * Handles the case that one side of the job is a local file
+     */
+    Result copy(const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags flags) Q_REQUIRED_RESULT;
+
+    // ---------------------------------------- END API
+
+    static bool isSocksProxyScheme(const QString &scheme);
+    bool isSocksProxy() const;
 
     /**
      * Connect and login to the FTP server.
@@ -125,7 +250,7 @@ private:
      *
      * @return true on success (a login failure would return false).
      */
-    bool ftpOpenConnection(LoginMode loginMode);
+    Result ftpOpenConnection(LoginMode loginMode) Q_REQUIRED_RESULT;
 
     /**
      * Executes any auto login macro's as specified in a .netrc file.
@@ -141,7 +266,7 @@ private:
      *                    was changed during login.
      * @return true on success.
      */
-    bool ftpLogin(bool *userChanged = nullptr);
+    Result ftpLogin(bool *userChanged = nullptr) Q_REQUIRED_RESULT;
 
     /**
      * ftpSendCmd - send a command (@p cmd) and read response
@@ -152,7 +277,7 @@ private:
      *
      * return true if any response received, false on error
      */
-    bool ftpSendCmd(const QByteArray &cmd, int maxretries = 1);
+    bool ftpSendCmd(const QByteArray &cmd, int maxretries = 1) Q_REQUIRED_RESULT;
 
     /**
      * Use the SIZE command to get the file size.
@@ -171,7 +296,7 @@ private:
     /**
      * Set the current working directory, but only if not yet current
      */
-    bool ftpFolder(const QString &path, bool bReportError);
+    bool ftpFolder(const QString &path) Q_REQUIRED_RESULT;
 
     /**
      * Runs a command on the ftp server like "list" or "retr". In contrast to
@@ -184,8 +309,8 @@ private:
      *
      * @return true if the command was accepted by the server.
      */
-    bool ftpOpenCommand(const char *command, const QString &path, char mode,
-                        int errorcode, KIO::fileoffset_t offset = 0);
+    Result ftpOpenCommand(const char *command, const QString &path, char mode,
+                        int errorcode, KIO::fileoffset_t offset = 0) Q_REQUIRED_RESULT;
 
     /**
      * The counterpart to openCommand.
@@ -231,7 +356,7 @@ private:
     bool ftpChmod(const QString &path, int permissions);
 
     // used by listDir
-    bool ftpOpenDir(const QString &path);
+    Result ftpOpenDir(const QString &path) Q_REQUIRED_RESULT;
     /**
       * Called to parse directory listings, call this until it returns false
       */
@@ -244,22 +369,22 @@ private:
 
     void ftpShortStatAnswer(const QString &filename, bool isDir);
 
-    void ftpStatAnswerNotFound(const QString &path, const QString &filename);
+    Result ftpStatAnswerNotFound(const QString &path, const QString &filename) Q_REQUIRED_RESULT;
 
     /**
      * This is the internal implementation of rename() - set put().
      *
      * @return true on success.
      */
-    bool ftpRename(const QString &src, const QString &dst, KIO::JobFlags flags);
+    Result ftpRename(const QString &src, const QString &dst, KIO::JobFlags flags) Q_REQUIRED_RESULT;
 
     /**
      * Called by openConnection. It opens the control connection to the ftp server.
      *
      * @return true on success.
      */
-    bool ftpOpenControlConnection();
-    bool ftpOpenControlConnection(const QString &host, int port);
+    Result ftpOpenControlConnection() Q_REQUIRED_RESULT;
+    Result ftpOpenControlConnection(const QString &host, int port) Q_REQUIRED_RESULT;
 
     /**
      * closes the socket holding the control connection (see ftpOpenControlConnection)
@@ -287,7 +412,7 @@ private:
      * @param hCopyOffset local file only: non-zero for resume
      * @return 0 for success, -1 for server error, -2 for client error
      */
-    StatusCode ftpGet(int &iError, int iCopyFile, const QUrl &url, KIO::fileoffset_t hCopyOffset);
+    Result ftpGet(int iCopyFile, const QString &sCopyFile, const QUrl &url, KIO::fileoffset_t hCopyOffset) Q_REQUIRED_RESULT;
 
     /**
      * This is the internal implementation of put() - see copy().
@@ -299,7 +424,7 @@ private:
      * @param iCopyFile   -1 -or- handle of a local source file
      * @return 0 for success, -1 for server error, -2 for client error
      */
-    StatusCode ftpPut(int &iError, int iCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags);
+    Result ftpPut(int iCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags) Q_REQUIRED_RESULT;
 
     /**
      * helper called from copy() to implement FILE -> FTP transfers
@@ -309,7 +434,7 @@ private:
      * @param sCopyFile   path of the local source file
      * @return 0 for success, -1 for server error, -2 for client error
      */
-    StatusCode ftpCopyPut(int &iError, int &iCopyFile, const QString &sCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags);
+    Result ftpCopyPut(int &iCopyFile, const QString &sCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags) Q_REQUIRED_RESULT;
 
     /**
      * helper called from copy() to implement FTP -> FILE transfers
@@ -319,7 +444,7 @@ private:
      * @param sCopyFile   path of the local destination file
      * @return 0 for success, -1 for server error, -2 for client error
      */
-    StatusCode ftpCopyGet(int &iError, int &iCopyFile, const QString &sCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags);
+    Result ftpCopyGet(int &iCopyFile, const QString &sCopyFile, const QUrl &url, int permissions, KIO::JobFlags flags) Q_REQUIRED_RESULT;
 
     /**
      * Sends the mime type of the content to retrieved.
@@ -327,7 +452,7 @@ private:
      * @param iError      set to an ERR_xxxx code on error
      * @return 0 for success, -1 for server error, -2 for client error
      */
-    StatusCode ftpSendMimeType(int &iError, const QUrl &url);
+    Result ftpSendMimeType(const QUrl &url) Q_REQUIRED_RESULT;
 
     /**
      * Fixes up an entry name so that extraneous whitespaces do not cause
@@ -341,18 +466,15 @@ private:
     bool maybeEmitStatEntry(FtpEntry &ftpEnt, const QString &search, const QString &filename, bool isDir);
 
     /**
-     * Setup the connection to the server
+     * Setup the connection to the server.
      */
-    QTcpSocket *synchronousConnectToHost(const QString &host, quint16 port);
-
-private Q_SLOTS:
-    void proxyAuthentication(const QNetworkProxy &, QAuthenticator *);
-    void saveProxyAuthentication();
+    ConnectionResult synchronousConnectToHost(const QString &host, quint16 port) Q_REQUIRED_RESULT;
 
 private: // data members
+    Ftp *const q;
 
     QString m_host;
-    int m_port;
+    int m_port = 0;
     QString m_user;
     QString m_pass;
     /**
@@ -370,12 +492,12 @@ private: // data members
     /**
      * the status returned by the FTP protocol, set in ftpResponse()
      */
-    int  m_iRespCode;
+    int m_iRespCode = 0;
 
     /**
      * the status/100 returned by the FTP protocol, set in ftpResponse()
      */
-    int  m_iRespType;
+    int m_iRespType = 0;
 
     /**
      * This flag is maintained by ftpDataMode() and contains I or A after
@@ -424,24 +546,20 @@ private: // data members
     /**
      * control connection socket, only set if openControl() succeeded
      */
-    QTcpSocket  *m_control;
+    QTcpSocket  *m_control = nullptr;
     QByteArray m_lastControlLine;
 
     /**
      * data connection socket
      */
-    QTcpSocket  *m_data;
+    QTcpSocket  *m_data = nullptr;
 
     /**
      * active mode server socket
      */
-    QTcpServer *m_server;
-
-    /**
-     * proxy server authenticator
-     */
-    QAuthenticator *m_socketProxyAuth;
+    QTcpServer *m_server = nullptr;
 };
+
 
 #endif // KDELIBS_FTP_H
 

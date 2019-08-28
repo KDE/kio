@@ -1,0 +1,99 @@
+#!/usr/bin/env ruby
+# Copyright (c) 2019 Harald Sitter <sitter@kde.org>
+#
+# This library is free software; you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation; either version 2 of the License or ( at
+# your option ) version 3 or, at the discretion of KDE e.V. ( which shall
+# act as a proxy as in section 14 of the GPLv3 ), any later version.
+#
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Library General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public License
+# along with this library; see the file COPYING.LIB.  If not, write to
+# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+# Boston, MA 02110-1301, USA.
+
+require 'ftpd'
+require 'tmpdir'
+
+STDOUT.sync = true
+
+# Monkey patch the site handler, it's not implemented so fake it a bit for ftp
+# slave purposes.
+
+# FIXME: and yet I seee kio_ftp(8319)/(kf5.kio.kio_ftp) Ftp::ftpChmod: ftpChmod: CHMOD not supported - disabling
+
+module Ftpd
+  class CmdSite
+    alias cmd_site_orig cmd_site
+    def cmd_site(_argument)
+      # We don't support chmod bugger off.
+      reply '500 cmd_site.'
+    end
+  end
+end
+
+module Ftpd
+  class CmdRest
+    def cmd_rest(_argument)
+      reply "350 cmd_rest."
+    end
+  end
+end
+
+module Ftpd
+  class CmdStor
+    alias cmd_stor_orig cmd_stor
+    def cmd_stor(argument)
+      if argument.include?('__badResume__')
+        reply '550 out of quota'
+      else
+        cmd_stor_orig(argument)
+      end
+    end
+  end
+end
+
+# Add some simulation capabilities to the file sytem
+class MangledDiskFileSystem < Ftpd::DiskFileSystem
+  def accessible?(path, *args)
+    return false if path.include?('__inaccessiblePath__')
+
+    super(path, *args)
+  end
+end
+
+class Driver
+  def initialize(temp_dir)
+    @temp_dir = temp_dir
+  end
+
+  def authenticate(_user, _password)
+    true
+  end
+
+  def file_system(_user)
+    MangledDiskFileSystem.new(@temp_dir)
+  end
+end
+
+# NB: stderr is used to communicate with the parent!
+
+port = ARGV.fetch(0)
+temp_dir = ARGV.fetch(1)
+
+require 'logger/colors'
+driver = Driver.new(temp_dir)
+server = Ftpd::FtpServer.new(driver)
+server.port = port
+server.log = Logger.new($stdout)
+server.start
+warn "port = #{server.bound_port}"
+puts "Server listening on port #{server.bound_port}"
+loop do
+  sleep(1)
+end

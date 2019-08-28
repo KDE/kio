@@ -47,6 +47,20 @@ ecm_add_test(
     LINK_LIBRARIES KF5::KIOCore KF5::I18n Qt5::Test Qt5::Network
 )
 
+include(FindGem)
+find_gem(ftpd REQUIRED)
+set_package_properties(Gem_ftpd PROPERTIES
+    DESCRIPTION "Ruby gem 'ftpd' required for testing the ftp slave.")
+
+if(Gem_ftpd_FOUND)
+    add_definitions(-DRubyExe_EXECUTABLE="${RubyExe_EXECUTABLE}")
+    ecm_add_tests(
+        ftptest.cpp
+        NAME_PREFIX "kiocore-"
+        LINK_LIBRARIES KF5::KIOCore KF5::I18n Qt5::Test Qt5::Network
+    )
+endif()
+
 if(UNIX)
   ecm_add_tests(
     klocalsockettest.cpp
