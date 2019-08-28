@@ -29,8 +29,8 @@
 #include <QKeyEvent>
 #include <QApplication>
 #include <QMenu>
+#include <QPointer>
 #include <QScrollBar>
-
 
 #include <kconfig.h>
 #include <kconfiggroup.h>
@@ -40,11 +40,11 @@
 #include <kmountpoint.h>
 #include <kpropertiesdialog.h>
 #include <kio/emptytrashjob.h>
+#include <kio/filesystemfreespacejob.h>
 #include <kio/jobuidelegate.h>
 #include <kjob.h>
 #include <kjobwidgets.h>
 #include <kcapacitybar.h>
-#include <kdiskfreespaceinfo.h>
 #include <solid/storageaccess.h>
 #include <solid/storagedrive.h>
 #include <solid/storagevolume.h>
@@ -56,6 +56,14 @@
 
 #define LATERAL_MARGIN 4
 #define CAPACITYBAR_HEIGHT 6
+
+struct PlaceFreeSpaceInfo
+{
+    QDateTime lastUpdated;
+    KIO::filesize_t used = 0;
+    KIO::filesize_t size = 0;
+    QPointer<KIO::FileSystemFreeSpaceJob> job;
+};
 
 class KFilePlacesViewDelegate : public QAbstractItemDelegate
 {
@@ -93,6 +101,8 @@ public:
 
     int sectionHeaderHeight() const;
 
+    void clearFreeSpaceInfo();
+
 private:
     QString groupNameFromIndex(const QModelIndex &index) const;
     QModelIndex previousVisibleIndex(const QModelIndex &index) const;
@@ -121,6 +131,8 @@ private:
 
     QMap<QPersistentModelIndex, QTimeLine *> m_timeLineMap;
     QMap<QTimeLine *, QPersistentModelIndex> m_timeLineInverseMap;
+
+    mutable QMap<QPersistentModelIndex, PlaceFreeSpaceInfo> m_freeSpaceInfo;
 };
 
 KFilePlacesViewDelegate::KFilePlacesViewDelegate(KFilePlacesView *parent) :
@@ -217,11 +229,11 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     bool drawCapacityBar = false;
     if (placesModel->data(index, KFilePlacesModel::CapacityBarRecommendedRole).toBool()) {
         const QUrl url = placesModel->url(index);
-        if (url.isLocalFile() && contentsOpacity(index) > 0) {
-            const QString mountPointPath = url.toLocalFile();
+        if (contentsOpacity(index) > 0) {
+            QPersistentModelIndex persistentIndex(index);
+            PlaceFreeSpaceInfo &info = m_freeSpaceInfo[persistentIndex];
 
-            const KDiskFreeSpaceInfo info = KDiskFreeSpaceInfo::freeSpaceInfo(mountPointPath);
-            drawCapacityBar = info.size() != 0;
+            drawCapacityBar = info.size > 0;
             if (drawCapacityBar) {
                 painter->save();
                 painter->setOpacity(painter->opacity() * contentsOpacity(index));
@@ -232,13 +244,33 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
                 painter->drawText(rectText, Qt::AlignLeft | Qt::AlignTop, opt.fontMetrics.elidedText(index.model()->data(index).toString(), Qt::ElideRight, rectText.width()));
                 QRect capacityRect(isLTR ? rectText.x() : LATERAL_MARGIN, rectText.bottom() - 1, rectText.width() - LATERAL_MARGIN, CAPACITYBAR_HEIGHT);
                 KCapacityBar capacityBar(KCapacityBar::DrawTextInline);
-                capacityBar.setValue((info.used() * 100) / info.size());
+                capacityBar.setValue((info.used * 100) / info.size);
                 capacityBar.drawCapacityBar(painter, capacityRect);
 
                 painter->restore();
 
                 painter->save();
                 painter->setOpacity(painter->opacity() * (1 - contentsOpacity(index)));
+            }
+
+            if (!info.job &&
+                    (!info.lastUpdated.isValid() || info.lastUpdated.secsTo(QDateTime::currentDateTimeUtc()) > 60)) {
+                info.job = KIO::fileSystemFreeSpace(url);
+                connect(info.job, &KIO::FileSystemFreeSpaceJob::result, this, [this, persistentIndex](KIO::Job *job, KIO::filesize_t size, KIO::filesize_t available) {
+                    PlaceFreeSpaceInfo &info = m_freeSpaceInfo[persistentIndex];
+
+                    // even if we receive an error we want to refresh lastUpdated to avoid repeatedly querying in this case
+                    info.lastUpdated = QDateTime::currentDateTimeUtc();
+
+                    if (job->error()) {
+                        return;
+                    }
+
+                    info.size = size;
+                    info.used = size - available;
+
+                    // FIXME scheduleDelayedItemsLayout but we're in the delegate here, not the view
+                });
             }
         }
     }
@@ -384,6 +416,11 @@ void KFilePlacesViewDelegate::startDrag()
     m_dragStarted = true;
 }
 
+void KFilePlacesViewDelegate::clearFreeSpaceInfo()
+{
+    m_freeSpaceInfo.clear();
+}
+
 QString KFilePlacesViewDelegate::groupNameFromIndex(const QModelIndex &index) const
 {
     if (index.isValid()) {
@@ -511,6 +548,7 @@ public:
     void setCurrentIndex(const QModelIndex &index);
     void adaptItemSize();
     void updateHiddenRows();
+    void clearFreeSpaceInfos();
     bool insertAbove(const QRect &itemRect, const QPoint &pos) const;
     bool insertBelow(const QRect &itemRect, const QPoint &pos) const;
     int insertIndicatorHeight(int itemHeight) const;
@@ -1074,6 +1112,8 @@ void KFilePlacesView::setModel(QAbstractItemModel *model)
             this, SLOT(adaptItemSize()), Qt::QueuedConnection);
     connect(selectionModel(), &QItemSelectionModel::currentChanged,
             d->watcher, &KFilePlacesEventWatcher::currentIndexChanged);
+
+    static_cast<KFilePlacesViewDelegate *>(itemDelegate())->clearFreeSpaceInfo();
 }
 
 void KFilePlacesView::rowsInserted(const QModelIndex &parent, int start, int end)
