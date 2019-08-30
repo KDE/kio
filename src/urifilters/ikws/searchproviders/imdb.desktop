@@ -77,7 +77,7 @@ Name[sr@latin]=Internet baza filmova
 Name[sv]=Internet filmdatabas
 Name[ta]=இணைய திரைப்பட தரவுத்தளம்
 Name[te]=ఇంటర్‌నెట్ చలనచిత్ర డాటాబేస్
-Name[tg]=Маълумоти филмҳои онлайн
+Name[tg]=Пойгоҳи иттилоотии интернетӣ
 Name[th]=ฐานข้อมูลภาพยนตร์ทางอินเทอร์เน็ต
 Name[tr]=İnternet Film Veritabanı
 Name[ug]=ئىنتېرنېت كىنو ساندىنى
@@ -114,6 +114,7 @@ Query[pt_BR]=https://imdb.com/find?s=all&q=\\{@}
 Query[ru]=https://imdb.com/find?s=all&q=\\{@}
 Query[sk]=https://imdb.com/find?s=all&q=\\{@}
 Query[sv]=https://imdb.com/find?s=all&q=\\{@}
+Query[tg]=https://imdb.com/find?s=all&q=\\{@}
 Query[uk]=http://imdb.com/find?s=all&q=\\{@}
 Query[x-test]=xxhttps://imdb.com/find?s=all&q=\\{@}xx
 Query[zh_CN]=https://imdb.com/find?s=all&q=\\{@}

@@ -60,7 +60,7 @@ Name[sr@ijekavian]=Дак дак го (куповина)
 Name[sr@ijekavianlatin]=Duck Duck Go (kupovina)
 Name[sr@latin]=Duck Duck Go (kupovina)
 Name[sv]=Duck Duck Go Shopping
-Name[tg]=Мағозаи Duck Duck Go
+Name[tg]=Дукони онлайни Duck Duck Go
 Name[th]=ช้อปปิ้งของ Duck Duck Go
 Name[tr]=Duck Duck Go Alışveriş
 Name[ug]=Duck Duck Go ئېلىم-سېتىم
@@ -115,6 +115,7 @@ Query[sr@ijekavian]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[sr@ijekavianlatin]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[sr@latin]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[sv]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
+Query[tg]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[tr]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[ug]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[uk]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde

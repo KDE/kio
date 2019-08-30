@@ -77,7 +77,7 @@ Name[sr@latin]=CiteSeer: digitalna biblioteka naučne literature
 Name[sv]=CiteSeer: Scientific Literature Digital Library
 Name[ta]=சைட்சீர்: அறிவியல் சம்மந்தமான கல்வி டிஜிட்டல் நூலகம்
 Name[te]=CiteSeer: శాస్త్రీయ పాండిత్య డిజిటల్ గ్రంధాలయం
-Name[tg]=Китобхонаи рақамии адабиёти илмӣ: CiteSeer
+Name[tg]=Китобхонаи рақамии адабиёти илмии CiteSeer
 Name[th]=CiteSeer: ห้องสมุดดิจิทัลของข้อเขียนทางวิทยาศาสตร์
 Name[tr]=CiteSeer: Bilimsel Literatür Kitaplığı
 Name[ug]=CiteSeer: پەن-تېخنىكا ئەسەرلىرى رەقەملىك كۇتۇپخانىسى
@@ -113,6 +113,7 @@ Query[pt_BR]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&
 Query[ru]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[sk]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[sv]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[tg]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[uk]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[x-test]=xxhttps://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=docxx
 Query[zh_CN]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc

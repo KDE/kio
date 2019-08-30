@@ -36,6 +36,7 @@ Name[sr@ijekavian]=Пакети Арч линукса
 Name[sr@ijekavianlatin]=Paketi Arch Linuxa
 Name[sr@latin]=Paketi Arch Linuxa
 Name[sv]=Arch Linux-paketsökning
+Name[tg]=Ҷустуҷӯи бастаҳои Arch Linux
 Name[tr]=Arch Linux Paket Araması
 Name[uk]=Пошук пакунків для Arch Linux
 Name[x-test]=xxArch Linux Package Searchxx
@@ -65,6 +66,7 @@ Query[pt_BR]=https://www.archlinux.org/packages/?q=\\{@}
 Query[ru]=https://www.archlinux.org/packages/?q=\\{@}
 Query[sk]=https://www.archlinux.org/packages/?q=\\{@}
 Query[sv]=https://www.archlinux.org/packages/?q=\\{@}
+Query[tg]=https://www.archlinux.org/packages/?q=\\{@}
 Query[uk]=https://www.archlinux.org/packages/?q=\\{@}
 Query[x-test]=xxhttps://www.archlinux.org/packages/?q=\\{@}xx
 Query[zh_CN]=https://www.archlinux.org/packages/?q=\\{@}

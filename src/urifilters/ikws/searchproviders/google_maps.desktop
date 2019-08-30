@@ -115,6 +115,7 @@ Query[sr@ijekavian]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[sr@ijekavianlatin]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[sr@latin]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[sv]=https://maps.google.se/maps?q=\\{@}&ie=UTF8&iwloc=addr
+Query[tg]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[tr]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[ug]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[uk]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr

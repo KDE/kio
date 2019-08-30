@@ -80,7 +80,7 @@ Name[sr@latin]=KDE API dokumentacija
 Name[sv]=Dokumentation av KDE:s programmeringsgränssnitt
 Name[ta]=KDE  API ஆவணமாக்கல்
 Name[te]=KDE API పత్రికీకరణ
-Name[tg]=Китобҳои KDE дар бораи API
+Name[tg]=Санадҳои KDE API
 Name[th]=เอกสารอธิบาย API ของระบบ KDE
 Name[tr]=KDE API Belgeleri
 Name[ug]=KDE API پۈتۈكلىرى
@@ -115,6 +115,7 @@ Query[pt_BR]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[ru]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[sk]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[sv]=https://api.kde.org/classmapper.php?class=\\{@}
+Query[tg]=https://api.kde.org/classmapper.php?class=\\{@}
 Query[uk]=http://api.kde.org/classmapper.php?class=\\{@}
 Query[x-test]=xxhttps://api.kde.org/classmapper.php?class=\\{@}xx
 Query[zh_CN]=https://api.kde.org/classmapper.php?class=\\{@}

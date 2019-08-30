@@ -111,6 +111,7 @@ Query[pt_BR]=https://directory.fsf.org/search/?query=\\{@}
 Query[ru]=https://directory.fsf.org/search/?query=\\{@}
 Query[sk]=https://directory.fsf.org/search/?query=\\{@}
 Query[sv]=https://directory.fsf.org/search/?query=\\{@}
+Query[tg]=https://directory.fsf.org/search/?query=\\{@}
 Query[uk]=http://directory.fsf.org/search/?query=\\{@}
 Query[x-test]=xxhttps://directory.fsf.org/search/?query=\\{@}xx
 Query[zh_CN]=https://directory.fsf.org/search/?query=\\{@}

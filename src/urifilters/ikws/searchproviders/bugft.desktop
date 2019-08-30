@@ -76,7 +76,7 @@ Name[sr@latin]=KDE‑ova baza grešaka (tekstualno)
 Name[sv]=Full textsökning i KDE:s feldatabas
 Name[ta]=KDE பிழை தகவல்தள முழு உரை தேடுதல்
 Name[te]=KDE బగ్ డాటాబేస్ పూర్తిపాఠ్యము శోధన
-Name[tg]=Системаи ҷустуҷӯи номҳои хатоҳои KDE
+Name[tg]=Ҷустуҷӯи матни пурра дар пойгоҳи иттилоотии хатоҳои KDE
 Name[th]=ค้นหาข้อความจากฐานข้อมูลบั๊กของ KDE
 Name[tr]=KDE Hata Veritabanı Tam Sözcük Arama
 Name[ug]=KDE كەمتۈك ساندان تولۇق تېكىست ئىزدە
@@ -135,6 +135,7 @@ Query[sr@ijekavian]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[sr@ijekavianlatin]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[sr@latin]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[sv]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Query[tg]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[tr]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ug]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[uk]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

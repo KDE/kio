@@ -59,7 +59,7 @@ Name[sr@ijekavian]=Идентика‑људи
 Name[sr@ijekavianlatin]=identi.ca‑ljudi
 Name[sr@latin]=identi.ca‑ljudi
 Name[sv]=Identi.ca personer
-Name[tg]=Мардуми Identi.ca
+Name[tg]=Одамони Identi.ca
 Name[th]=ผู้คน Identi.ca
 Name[tr]=Identi.ca Kişi
 Name[ug]=Identi.ca كىشىلەر
@@ -115,6 +115,7 @@ Query[sr@ijekavian]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[sr@ijekavianlatin]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[sr@latin]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[sv]=https://identi.ca/search/people?q=\\{@}&search=Search
+Query[tg]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[tr]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[ug]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[uk]=https://identi.ca/search/people?q=\\{@}&search=Search

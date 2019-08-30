@@ -59,7 +59,7 @@ Name[sr@ijekavian]=Фликр (Криејтив комонс)
 Name[sr@ijekavianlatin]=Flickr (Creative Commons)
 Name[sr@latin]=Flickr (Creative Commons)
 Name[sv]=Flickr Creative Commons
-Name[tg]=Офариниши суратҳои Flickr
+Name[tg]=Flickr: Иҷозатномаи Creative Commons
 Name[tr]=Flickr Creative Commons
 Name[ug]=Flickr ئاممىۋى ئىجادىيەت
 Name[uk]=Flickr Creative Commons
@@ -114,6 +114,7 @@ Query[sr@ijekavian]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=
 Query[sr@ijekavianlatin]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[sr@latin]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[sv]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
+Query[tg]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[tr]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[ug]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[uk]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1

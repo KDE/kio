@@ -75,7 +75,7 @@ Name[sr@latin]=Debianovi bekportovi
 Name[sv]=Debian Backports Search
 Name[ta]=டெபியன் பின்முனையங்கள் தேடல்
 Name[te]=Debian బ్యాక్‌పోర్‍ట్స్   శోధన
-Name[tg]=Ҷустуҷӯи даргоҳи Debian
+Name[tg]=Ҷустуҷӯи низоми пуштибонии Debian
 Name[th]=ค้นหา Debian Backports
 Name[tr]=Debian Backport Arama
 Name[ug]=Debian ئامبار ئىزدە
@@ -109,6 +109,7 @@ Query[pt_BR]=https://packages.debian.org/search?suite=squeeze-backports&section=
 Query[ru]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[sk]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[sv]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
+Query[tg]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[uk]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[x-test]=xxhttps://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}xx
 Query[zh_CN]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}

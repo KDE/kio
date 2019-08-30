@@ -114,6 +114,7 @@ Query[pt_BR]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ru]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[sk]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[sv]=https://uptime.netcraft.com/up/graph?site=\\{@}
+Query[tg]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[uk]=http://uptime.netcraft.com/up/graph?site=\\{@}
 Query[x-test]=xxhttps://uptime.netcraft.com/up/graph?site=\\{@}xx
 Query[zh_CN]=https://uptime.netcraft.com/up/graph?site=\\{@}

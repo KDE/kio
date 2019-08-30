@@ -45,6 +45,7 @@ Name[sr@ijekavian]=Гугл‑шопинг
 Name[sr@ijekavianlatin]=Google Shopping
 Name[sr@latin]=Google Shopping
 Name[sv]=Google shopping
+Name[tg]=Дукони онлайни Google
 Name[tr]=Google Mağaza
 Name[ug]=گۇگىل دۇكىنى
 Name[uk]=Google Shopping
@@ -100,6 +101,7 @@ Query[sr@ijekavian]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[sr@ijekavianlatin]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[sr@latin]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[sv]=https://www.google.se/search?hl=en&tbm=shop&q=\\{@}
+Query[tg]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[tr]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ug]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[uk]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

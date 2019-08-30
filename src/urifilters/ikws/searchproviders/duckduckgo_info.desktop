@@ -59,7 +59,7 @@ Name[sr@ijekavian]=Дак дак го (информације)
 Name[sr@ijekavianlatin]=Duck Duck Go (informacije)
 Name[sr@latin]=Duck Duck Go (informacije)
 Name[sv]=Duck Duck Go Info
-Name[tg]=Маълумоти Duck Duck Go
+Name[tg]=Иттилооти Duck Duck Go
 Name[th]=ข้อมูลของ Duck Duck Go
 Name[tr]=Duck Duck Go Bilgileri
 Name[ug]=Duck Duck Go ئۇچۇرى
@@ -114,6 +114,7 @@ Query[sr@ijekavian]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[sr@ijekavianlatin]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[sr@latin]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[sv]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
+Query[tg]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[tr]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ug]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[uk]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde

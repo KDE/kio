@@ -76,7 +76,7 @@ Name[sr@latin]=Majkrosoftova razvojna mreža (MSDN)
 Name[sv]=Microsoft Developer-nätverkssökning
 Name[ta]=மைக்ரோசாப்ட் டெவலப்பர் வலைத்தள தேடுதல்
 Name[te]=Microsoft Developer Network శోధన
-Name[tg]=Шабакаи ҷустуҷӯи тараққиёти Microsoft
+Name[tg]=Ҷустуҷӯ дар шабакаи барномасозони Microsoft
 Name[th]=เครื่องมือค้นหาเกี่ยวกับเครือข่ายผู้พัฒนาของไมโครซอฟต์
 Name[tr]=Microsoft Developer Network Tarayıcı
 Name[ug]=مىكروسوفت ئىجادكارلار تورىدىن ئىزدە
@@ -137,6 +137,7 @@ Query[sr@ijekavian]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[sr@ijekavianlatin]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[sr@latin]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[sv]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
+Query[tg]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[tr]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[ug]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[uk]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}

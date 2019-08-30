@@ -60,7 +60,7 @@ Name[sr@ijekavian]=Корисничка база КДЕ‑а
 Name[sr@ijekavianlatin]=Korisnička baza KDE‑a
 Name[sr@latin]=Korisnička baza KDE‑a
 Name[sv]=KDE:s användarbas
-Name[tg]=Маълумоти корбари KDE
+Name[tg]=Пойгоҳи корбарии KDE
 Name[th]=KDE UserBase
 Name[tr]=KDE UserBase
 Name[ug]=KDE UserBase
@@ -93,6 +93,7 @@ Query[pt_BR]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Searc
 Query[ru]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sk]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sv]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[tg]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[uk]=http://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[x-test]=xxhttps://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Searchxx
 Query[zh_CN]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

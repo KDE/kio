@@ -60,7 +60,7 @@ Name[sr@ijekavian]=Идентика-обавештења
 Name[sr@ijekavianlatin]=identi.ca‑obaveštenja
 Name[sr@latin]=identi.ca‑obaveštenja
 Name[sv]=Identi.ca underrättelser
-Name[tg]=Хабарҳои Identi.ca
+Name[tg]=Эзоҳҳои Identi.ca
 Name[th]=การแจ้ง Identi.ca
 Name[tr]=Identi.ca Bildirimleri
 Name[ug]=Identi.ca ئۇقتۇرۇشلار
@@ -116,6 +116,7 @@ Query[sr@ijekavian]=https://identi.ca/search/notice?q=\\{@}
 Query[sr@ijekavianlatin]=https://identi.ca/search/notice?q=\\{@}
 Query[sr@latin]=https://identi.ca/search/notice?q=\\{@}
 Query[sv]=https://identi.ca/search/notice?q=\\{@}
+Query[tg]=https://identi.ca/search/notice?q=\\{@}
 Query[tr]=https://identi.ca/search/notice?q=\\{@}
 Query[ug]=https://identi.ca/search/notice?q=\\{@}
 Query[uk]=https://identi.ca/search/notice?q=\\{@}

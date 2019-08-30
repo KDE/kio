@@ -78,7 +78,7 @@ Name[sr@latin]=Google-vesti
 Name[sv]=Google nyheter
 Name[ta]=கூகுல் செய்திகள்
 Name[te]=గూగుల్ వార్తలు
-Name[tg]=Ахбороти Google
+Name[tg]=Ахбори Google
 Name[th]=กลุ่มข่าวต่าง ๆ จากกูเกิล
 Name[tr]=Google Haberleri
 Name[ug]=گۇگىل  خەۋەرلىرى
@@ -138,6 +138,7 @@ Query[sr@ijekavian]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sr@ijekavianlatin]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sr@latin]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sv]=https://news.google.se/news?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[tg]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[tr]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ug]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[uk]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
