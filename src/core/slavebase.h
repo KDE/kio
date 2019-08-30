@@ -97,7 +97,7 @@ public:
 
     /**
      * open succeeds
-     * @see open
+     * @see open()
      */
     void opened();
 
@@ -418,9 +418,28 @@ public:
      */
     virtual void open(const QUrl &url, QIODevice::OpenMode mode);
 
+    /**
+     * read.
+     * @param size the requested amount of data to read
+     * @see KIO::FileJob::read()
+     */
     virtual void read(KIO::filesize_t size);
+    /**
+     * write.
+     * @param data the data to write
+     * @see KIO::FileJob::write()
+     */
     virtual void write(const QByteArray &data);
+    /**
+     * seek.
+     * @param offset the requested amount of data to read
+     * @see KIO::FileJob::read()
+     */
     virtual void seek(KIO::filesize_t offset);
+    /**
+     * close.
+     * @see KIO::FileJob::close()
+     */
     virtual void close();
 
     /**

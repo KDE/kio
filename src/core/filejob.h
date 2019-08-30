@@ -45,31 +45,55 @@ public:
     ~FileJob();
 
     /**
-     * Read block
+     * This function attempts to read up to \p size bytes from the URL passed to
+     * KIO::open() and returns the bytes received via the data() signal.
      *
-     * The slave emits the data through data().
-     * @param size the requested amount of data
+     * The read operation commences at the current file offset, and the file
+     * offset is incremented by the number of bytes read, but this change in the
+     * offset does not result in the position() signal being emitted.
+     *
+     * If the current file offset is at or past the end of file (i.e. EOD), no
+     * bytes are read, and the data() signal returns an empty QByteArray.
+     *
+     * On error the data() signal is not emitted. To catch errors please connect
+     * to the result() signal.
+     *
+     * @param size the requested amount of data to read
+     *
      */
     void read(KIO::filesize_t size);
 
     /**
-     * Write block
+     * This function attempts to write all the bytes in \p data to the URL
+     * passed to KIO::open() and returns the bytes written received via the
+     * written() signal.
+     *
+     * The write operation commences at the current file offset, and the file
+     * offset is incremented by the number of bytes read, but this change in the
+     * offset does not result in the position() being emitted.
+     *
+     * On error the written() signal is not emitted. To catch errors please
+     * connect to the result() signal.
      *
      * @param data the data to write
      */
     void write(const QByteArray &data);
 
     /**
-     * Close
-     *
      * Closes the file-slave
+     *
+     * The slave emits close() and result().
      */
     void close();
 
     /**
      * Seek
      *
-     * The slave emits position()
+     * The slave emits position() on successful seek to the specified \p offset.
+     *
+     * On error the position() signal is not emitted. To catch errors please
+     * connect to the result() signal.
+     *
      * @param offset the position from start to go to
      */
     void seek(KIO::filesize_t offset);
@@ -83,9 +107,14 @@ public:
 
 Q_SIGNALS:
     /**
-     * Data from the slave has arrived.
+     * Data from the slave has arrived. Emitted after read().
+     *
+     * Unless a read() request was sent for 0 bytes, End of data (EOD) has been
+     * reached if data.size() == 0
+     *
      * @param job the job that emitted this signal
      * @param data data received from the slave.
+     *
      */
     void data(KIO::Job *job, const QByteArray &data);
 
@@ -112,7 +141,7 @@ Q_SIGNALS:
     void open(KIO::Job *job);
 
     /**
-     * Bytes written to the file.
+     * \p written bytes were written to the file. Emitted after write().
      * @param job the job that emitted this signal
      * @param written bytes written.
      */
@@ -125,7 +154,7 @@ Q_SIGNALS:
     void close(KIO::Job *job);
 
     /**
-     * The file has reached this position. Emitted after seek.
+     * The file has reached this position. Emitted after seek().
      * @param job the job that emitted this signal
      * @param offset the new position
      */
@@ -151,6 +180,10 @@ private:
  * Open ( random access I/O )
  *
  * The file-job emits open() when opened
+ *
+ * On error the open() signal is not emitted. To catch errors please
+ * connect to the result() signal.
+ *
  * @param url the URL of the file
  * @param mode the access privileges: see \ref OpenMode
  *

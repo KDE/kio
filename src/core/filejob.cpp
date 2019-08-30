@@ -180,10 +180,11 @@ void FileJobPrivate::slotFinished()
 {
     Q_Q(FileJob);
     //qDebug() << this << m_url;
+    m_open = false;
     emit q->close(q);
     // Return slave to the scheduler
     slaveDone();
-//     Scheduler::doJob(this);
+    // Scheduler::doJob(this);
     q->emitResult();
 }
 
@@ -201,6 +202,9 @@ void FileJobPrivate::start(Slave *slave)
 
     q->connect(slave, SIGNAL(open()),
                SLOT(slotOpen()));
+
+    q->connect(slave, SIGNAL(finished()),
+               SLOT(slotFinished()));
 
     q->connect(slave, SIGNAL(position(KIO::filesize_t)),
                SLOT(slotPosition(KIO::filesize_t)));

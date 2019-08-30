@@ -146,6 +146,7 @@ Q_SIGNALS:
 
     void open();
     void written(KIO::filesize_t);
+    void close();
 
     void privilegeOperationRequested();
 

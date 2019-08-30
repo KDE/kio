@@ -515,24 +515,17 @@ void FileProtocol::read(KIO::filesize_t bytes)
     // qDebug() << "File::open -- read";
     Q_ASSERT(mFile && mFile->isOpen());
 
-    while (true) {
-        QByteArray res = mFile->read(bytes);
+    QVarLengthArray<char> buffer(bytes);
 
-        if (!res.isEmpty()) {
-            data(res);
-            bytes -= res.size();
-        } else {
-            // empty array designates eof
-            data(QByteArray());
-            if (!mFile->atEnd()) {
-                error(KIO::ERR_CANNOT_READ, mFile->fileName());
-                close();
-            }
-            break;
-        }
-        if (bytes <= 0) {
-            break;
-        }
+    qint64 bytesRead = mFile->read(buffer.data(), bytes);
+
+    if (bytesRead == -1) {
+        qCWarning(KIO_FILE) << "Couldn't read. Error:" << mFile->errorString();
+        error(KIO::ERR_CANNOT_READ, mFile->fileName());
+        closeWithoutFinish();
+    } else {
+        const QByteArray fileData = QByteArray::fromRawData(buffer.data(), bytesRead);
+        data(fileData);
     }
 }
 
@@ -541,17 +534,19 @@ void FileProtocol::write(const QByteArray &data)
     // qDebug() << "File::open -- write";
     Q_ASSERT(mFile && mFile->isWritable());
 
-    if (mFile->write(data) != data.size()) {
+    qint64 bytesWritten = mFile->write(data);
+
+    if (bytesWritten == -1) {
         if (mFile->error() == QFileDevice::ResourceError) { // disk full
             error(KIO::ERR_DISK_FULL, mFile->fileName());
-            close();
+            closeWithoutFinish();
         } else {
             qCWarning(KIO_FILE) << "Couldn't write. Error:" << mFile->errorString();
             error(KIO::ERR_CANNOT_WRITE, mFile->fileName());
-            close();
+            closeWithoutFinish();
         }
     } else {
-        written(data.size());
+        written(bytesWritten);
     }
 }
 
@@ -564,18 +559,22 @@ void FileProtocol::seek(KIO::filesize_t offset)
         position(offset);
     } else {
         error(KIO::ERR_CANNOT_SEEK, mFile->fileName());
-        close();
+        closeWithoutFinish();
     }
+}
+
+void FileProtocol::closeWithoutFinish()
+{
+    Q_ASSERT(mFile);
+
+    delete mFile;
+    mFile = nullptr;
 }
 
 void FileProtocol::close()
 {
     // qDebug() << "File::open -- close ";
-    Q_ASSERT(mFile);
-
-    delete mFile;
-    mFile = nullptr;
-
+    closeWithoutFinish();
     finished();
 }
 

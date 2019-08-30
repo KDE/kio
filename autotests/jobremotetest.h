@@ -45,6 +45,7 @@ private Q_SLOTS:
     void putAndGet();
     void openFileWriting();
     void openFileReading();
+    void openFileRead0Bytes();
 
     //void calculateRemainingSeconds();
 
@@ -74,11 +75,17 @@ protected Q_SLOTS:
     void slotFileJob2Position(KIO::Job *job, KIO::filesize_t offset);
     void slotFileJob2Close(KIO::Job *job);
 
+    void slotFileJob3Open(KIO::Job *job);
+    void slotFileJob3Position(KIO::Job *job, KIO::filesize_t offset);
+    void slotFileJob3Data(KIO::Job *job, const QByteArray &data);
+    void slotFileJob3Close(KIO::Job *job);
+
 private:
     void enterLoop();
     enum { AlreadyExists = 1 };
 
     int m_result;
+    bool m_closeSignalCalled;
     QByteArray m_data;
     QStringList m_names;
     int m_dataReqCount;

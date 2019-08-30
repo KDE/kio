@@ -206,9 +206,10 @@ void JobRemoteTest::openFileWriting()
             this, &JobRemoteTest::slotFileJobWritten);
     connect(fileJob, &KIO::FileJob::position,
             this, &JobRemoteTest::slotFileJobPosition);
-    connect(fileJob, SIGNAL(close(KIO::Job*)),
-            this, SLOT(slotFileJobClose(KIO::Job*)));
+    connect(fileJob, QOverload<KIO::Job*>::of(&KIO::FileJob::close),
+            this, &JobRemoteTest::slotFileJobClose);
     m_result = -1;
+    m_closeSignalCalled = false;
 
     enterLoop();
     QEXPECT_FAIL("", "Needs fixing in kio_file", Abort);
@@ -220,6 +221,7 @@ void JobRemoteTest::openFileWriting()
             this, &JobRemoteTest::slotGetResult);
     enterLoop();
     QCOMPARE(m_result, 0);   // no error
+    QVERIFY(m_closeSignalCalled); // close signal called.
     qDebug() << "m_data: " << m_data;
     QCOMPARE(m_data, QByteArray("test....test....test....test....test....test....end"));
 
@@ -273,6 +275,7 @@ void JobRemoteTest::slotFileJobPosition(KIO::Job *job, KIO::filesize_t offset)
 void JobRemoteTest::slotFileJobClose(KIO::Job *job)
 {
     Q_UNUSED(job);
+    m_closeSignalCalled = true;
     qDebug() << "+++++++++ closed";
 }
 
@@ -316,12 +319,14 @@ void JobRemoteTest::openFileReading()
             this, &JobRemoteTest::slotFileJob2Written);
     connect(fileJob, &KIO::FileJob::position,
             this, &JobRemoteTest::slotFileJob2Position);
-    connect(fileJob, SIGNAL(close(KIO::Job*)),
-            this, SLOT(slotFileJob2Close(KIO::Job*)));
+    connect(fileJob, QOverload<KIO::Job*>::of(&KIO::FileJob::close),
+            this, &JobRemoteTest::slotFileJob2Close);
     m_result = -1;
+    m_closeSignalCalled = false;
 
     enterLoop();
     QVERIFY(m_result == 0);   // no error
+    QVERIFY(m_closeSignalCalled); // close signal called.
     qDebug() << "resulting m_data: " << QString(m_data);
     QCOMPARE(m_data, QByteArray("test5test4test3test2test1"));
 
@@ -374,6 +379,7 @@ void JobRemoteTest::slotFileJob2Position(KIO::Job *job, KIO::filesize_t offset)
 void JobRemoteTest::slotFileJob2Close(KIO::Job *job)
 {
     Q_UNUSED(job);
+    m_closeSignalCalled = true;
     qDebug() << "+++++++++ job2 closed";
 }
 
@@ -385,3 +391,79 @@ void JobRemoteTest::slotMimetype(KIO::Job *job, const QString &type)
     m_mimetype = type;
 }
 
+void JobRemoteTest::openFileRead0Bytes()
+{
+    QUrl u(remoteTmpUrl());
+    u.setPath(u.path() + "openFileReading");
+
+    const QByteArray putData("Doesn't matter");
+
+    KIO::StoredTransferJob *putJob = KIO::storedPut(putData,
+                                     u,
+                                     0600, KIO::Overwrite | KIO::HideProgressInfo
+                                                   );
+
+    quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
+    QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago
+    putJob->setModificationTime(mtime);
+    putJob->setUiDelegate(nullptr);
+    connect(putJob, &KJob::result,
+            this, &JobRemoteTest::slotResult);
+    m_result = -1;
+    enterLoop();
+    QVERIFY(m_result == 0);   // no error
+
+    m_data = QByteArray();
+
+    fileJob = KIO::open(u, QIODevice::ReadOnly);
+
+    fileJob->setUiDelegate(nullptr);
+    connect(fileJob, &KJob::result,
+            this, &JobRemoteTest::slotResult);
+    connect(fileJob, &KIO::FileJob::data,
+            this, &JobRemoteTest::slotFileJob3Data);
+    connect(fileJob, &KIO::FileJob::open,
+            this, &JobRemoteTest::slotFileJob3Open);
+    // Can reuse this slot (it's a noop).
+    connect(fileJob, &KIO::FileJob::written,
+            this, &JobRemoteTest::slotFileJob2Written);
+    connect(fileJob, &KIO::FileJob::position,
+            this, &JobRemoteTest::slotFileJob3Position);
+    // Can reuse this as well.
+    connect(fileJob, QOverload<KIO::Job*>::of(&KIO::FileJob::close),
+            this, &JobRemoteTest::slotFileJob3Close);
+    m_result = -1;
+    m_closeSignalCalled = false;
+
+    enterLoop();
+    // Previously reading 0 bytes would cause both data() and error() being emitted...
+    QVERIFY(m_result == 0);   // no error
+    QVERIFY(m_closeSignalCalled); // close signal called.
+}
+
+void JobRemoteTest::slotFileJob3Open(KIO::Job *job)
+{
+    Q_UNUSED(job);
+    fileJob->seek(0);
+}
+
+void JobRemoteTest::slotFileJob3Position(KIO::Job *job, KIO::filesize_t offset)
+{
+    Q_UNUSED(job);
+    qDebug() << "position : " << offset << " -> read (0)";
+    fileJob->read(0);
+}
+
+void JobRemoteTest::slotFileJob3Data(KIO::Job *job, const QByteArray& data)
+{
+    Q_UNUSED(job);
+    QVERIFY(data.isEmpty());
+    fileJob->close();
+}
+
+void JobRemoteTest::slotFileJob3Close(KIO::Job *job)
+{
+    Q_UNUSED(job);
+    m_closeSignalCalled = true;
+    qDebug() << "+++++++++ job2 closed";
+}

@@ -113,6 +113,9 @@ private:
 
     void redirect(const QUrl &url);
 
+    // Close without calling finish(). Use this to close after error.
+    void closeWithoutFinish();
+
 private:
     mutable QHash<KUserId, QString> mUsercache;
     mutable QHash<KGroupId, QString> mGroupcache;
