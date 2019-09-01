@@ -78,7 +78,7 @@ Name[sr@latin]=Najnovija dokumentacija Qt‑a na vezi
 Name[sv]=Senaste Qt-dokumentation på nätet
 Name[ta]=புதிய க்யூ டீ இணை ஆவணப்பதிவு
 Name[te]=సరికొత్త Qt ఆన్‌లైన్ పత్రికీకరణ
-Name[tg]=Китобҳои навтарини онлайни Qt
+Name[tg]=Ҳуҷҷатҳои навтарини онлайни Qt
 Name[th]=เอกสารออนไลน์ล่าสุดเกี่ยวกับ Qt
 Name[tr]=Güncel Qt Dokümantasyonu
 Name[ug]=ئەڭ يېڭى Qt3 توردىكى پۈتۈكلىرى
@@ -119,6 +119,7 @@ Query[sr@ijekavian]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[sr@ijekavianlatin]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[sr@latin]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[sv]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
+Query[tg]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[uk]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[x-test]=xxhttps://doc.qt.io/qt-5/search-results.html?q=\\{@}xx
 Query[zh_CN]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}

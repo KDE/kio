@@ -77,7 +77,7 @@ Name[sr@latin]=TV Tome
 Name[sv]=TV Tome
 Name[ta]=TV Tome
 Name[te]=టివి టొమ్
-Name[tg]=Барномаҳои телевизионӣ
+Name[tg]=Телевизиони хонагӣ
 Name[th]=TV Tome
 Name[tr]=TV Kanalları
 Name[ug]=TV Tome
@@ -113,6 +113,7 @@ Query[pt_BR]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[ru]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[sk]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[sv]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
+Query[tg]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[uk]=http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[x-test]=xxhttps://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0xx
 Query[zh_CN]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0

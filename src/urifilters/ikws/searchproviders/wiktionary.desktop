@@ -75,7 +75,7 @@ Name[sr@latin]=Wikirečnik — slobodni rečnik
 Name[sv]=Wiktionary - den fria ordboken
 Name[ta]=விக்சனரி - கட்டற்ற அகராதி
 Name[te]=విక్షనరి - స్వేఛ్ఛా పదకోశము
-Name[tg]=Луғати озоди Wiktionary
+Name[tg]=Wiktionary - Луғати озод
 Name[th]=วิกิชันนารี - พจนานุุกรมเสรี
 Name[tr]=VikiSözlük - Özgür Sözlük
 Name[ug]=Wiktionary - ھەقسىز لۇغەت
@@ -135,6 +135,7 @@ Query[sr@ijekavian]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&g
 Query[sr@ijekavianlatin]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[sr@latin]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[sv]=https://sv.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[tg]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[tr]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ug]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[uk]=https://uk.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go

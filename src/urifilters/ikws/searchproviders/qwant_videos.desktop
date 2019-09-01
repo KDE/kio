@@ -38,6 +38,7 @@ Name[sr@ijekavian]=Квант-видео
 Name[sr@ijekavianlatin]=Qwant-video
 Name[sr@latin]=Qwant-video
 Name[sv]=Qwant-videor
+Name[tg]=Видеоҳои Qwant
 Name[tr]=Qwant Videoları
 Name[uk]=Відео Qwant
 Name[x-test]=xxQwant Videosxx
@@ -81,6 +82,7 @@ Query[sr@ijekavian]=https://www.qwant.com/single?q=\\{@}&client=kde&source=video
 Query[sr@ijekavianlatin]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[sr@latin]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[sv]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
+Query[tg]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[tr]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[uk]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
 Query[x-test]=xxhttps://www.qwant.com/single?q=\\{@}&client=kde&source=videosxx

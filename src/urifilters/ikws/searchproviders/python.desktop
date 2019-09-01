@@ -78,7 +78,7 @@ Name[sr@latin]=Referentni priručnik Pythona
 Name[sv]=Python-referensmanual
 Name[ta]=பைதான் பார்வை கையேடு
 Name[te]=Python సంప్రదింపు మాన్యువల్
-Name[tg]=Дастуруламали Python
+Name[tg]=Маълумотномаи Python
 Name[th]=คู่มืออ้างอิงภาษาไพธอน
 Name[tr]=Python Başvuru El Kitabı
 Name[ug]=Python پايدىلىنىش قوللانمىسى
@@ -137,6 +137,7 @@ Query[sr@ijekavian]=https://www.google.com/search?sourceid=python-search&q=\\{@}
 Query[sr@ijekavianlatin]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[sr@latin]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[sv]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
+Query[tg]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[tr]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[ug]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[uk]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org

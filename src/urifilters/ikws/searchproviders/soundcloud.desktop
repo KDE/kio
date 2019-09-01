@@ -33,6 +33,7 @@ Name[sr@ijekavian]=Саундклауд
 Name[sr@ijekavianlatin]=SoundCloud
 Name[sr@latin]=SoundCloud
 Name[sv]=Soundcloud
+Name[tg]=Абри садо
 Name[tr]=Soundcloud
 Name[uk]=Soundcloud
 Name[x-test]=xxSoundcloudxx
@@ -73,6 +74,7 @@ Query[sr@ijekavian]=https://soundcloud.com/search?q=\\{@}
 Query[sr@ijekavianlatin]=https://soundcloud.com/search?q=\\{@}
 Query[sr@latin]=https://soundcloud.com/search?q=\\{@}
 Query[sv]=https://soundcloud.com/search?q=\\{@}
+Query[tg]=https://soundcloud.com/search?q=\\{@}
 Query[tr]=https://soundcloud.com/search?q=\\{@}
 Query[uk]=https://soundcloud.com/search?q=\\{@}
 Query[x-test]=xxhttps://soundcloud.com/search?q=\\{@}xx

@@ -75,7 +75,7 @@ Name[sr@latin]=Technoratijeve oznake
 Name[sv]=Technorati etiketter
 Name[ta]=Technorati Tags
 Name[te]=Technorati టాగ్‍స్‌
-Name[tg]=Қайдҳои Technorati
+Name[tg]=Барчаспҳои Technorati
 Name[th]=Technorati Tags
 Name[tr]=Technorati Etiketleri
 Name[ug]=Technorati بەلگە
@@ -110,6 +110,7 @@ Query[pt_BR]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ru]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[sk]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[sv]=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[tg]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[uk]=http://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[x-test]=xxhttps://technorati.com/tag/\\{@}?sourceid=kde-searchxx
 Query[zh_CN]=https://technorati.com/tag/\\{@}?sourceid=kde-search

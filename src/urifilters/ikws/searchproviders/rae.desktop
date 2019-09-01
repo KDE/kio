@@ -137,6 +137,7 @@ Query[sr@ijekavian]=http://www.rae.es/drae/?val=\\{@}
 Query[sr@ijekavianlatin]=http://www.rae.es/drae/?val=\\{@}
 Query[sr@latin]=http://www.rae.es/drae/?val=\\{@}
 Query[sv]=http://www.rae.es/drae/?val=\\{@}
+Query[tg]=http://www.rae.es/drae/?val=\\{@}
 Query[tr]=http://www.rae.es/drae/?val=\\{@}
 Query[ug]=http://www.rae.es/drae/?val=\\{@}
 Query[uk]=http://www.rae.es/drae/?val=\\{@}

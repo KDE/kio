@@ -77,7 +77,7 @@ Name[sr@latin]=RPM‑traženje
 Name[sv]=RPM-Find
 Name[ta]=RPM-தேடு
 Name[te]=RPM-Find
-Name[tg]=Ҷустуҷӯи RPM
+Name[tg]=Ёфтани RPM
 Name[th]=บริการค้นหา RPM
 Name[tr]=RPM-Find
 Name[ug]=RPM-Find
@@ -115,6 +115,7 @@ Query[pt_BR]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ru]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[sk]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[sv]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[tg]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[uk]=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[x-test]=xxhttps://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}xx
 Query[zh_CN]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

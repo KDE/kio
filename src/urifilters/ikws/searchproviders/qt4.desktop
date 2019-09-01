@@ -46,6 +46,7 @@ Name[sr@ijekavian]=Документација КуТ‑а 4
 Name[sr@ijekavianlatin]=Dokumentacija Qt‑a 4
 Name[sr@latin]=Dokumentacija Qt‑a 4
 Name[sv]=Qt4-dokumentation
+Name[tg]=Ҳуҷҷатҳои Qt4
 Name[tr]=Qt4 Belgelendirmesi
 Name[ug]=Qt4 قوللانمىسى
 Name[uk]=Документація з Qt4
@@ -84,6 +85,7 @@ Query[sr@ijekavian]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@
 Query[sr@ijekavianlatin]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[sr@latin]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[sv]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
+Query[tg]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[uk]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}
 Query[x-test]=xxhttps://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}xx
 Query[zh_CN]=https://doc.qt.io/archives/qt-4.8/search-results.html?q=\\{@}

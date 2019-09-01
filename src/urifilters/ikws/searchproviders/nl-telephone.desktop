@@ -72,6 +72,7 @@ Name[sr@latin]=Telefonski imenik (Holandija)
 Name[sv]=Telephonebook söktjänst
 Name[ta]=தொலைபேசிபுத்தக தேடுதலை அளிப்பான்
 Name[te]=టెలిఫోన్‌బుక్ శోధన కర్త
+Name[tg]=Таҳвилгари ҷустуҷӯ дар китоби телефонӣ
 Name[th]=ผู้ให้บริการค้นหาสมุดโทรศัพท์
 Name[tr]=Telefon Defteri Arama Sağlayıcı
 Name[ug]=تېلېفون دەپتىرىدىن ئىزدەشنى تەمىنلىگۈچى
@@ -109,6 +110,7 @@ Query[pt_BR]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=
 Query[ru]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[sk]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[sv]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
+Query[tg]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[uk]=http://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[x-test]=xxhttps://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}xx
 Query[zh_CN]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}

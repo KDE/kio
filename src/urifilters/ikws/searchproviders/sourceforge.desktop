@@ -113,6 +113,7 @@ Query[pt_BR]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exac
 Query[ru]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[sk]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[sv]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
+Query[tg]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[uk]=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[x-test]=xxhttps://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}xx
 Query[zh_CN]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
