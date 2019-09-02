@@ -278,9 +278,11 @@ void TrashProtocol::createTopLevelDirEntry(KIO::UDSEntry &entry)
 {
     entry.clear();
     entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
+    entry.fastInsert(KIO::UDSEntry::UDS_DISPLAY_NAME, i18n("Trash"));
     entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0700);
     entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
+    entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, impl.isEmpty() ? QStringLiteral("user-trash") : QStringLiteral("user-trash-full") );
     entry.fastInsert(KIO::UDSEntry::UDS_USER, m_userName);
     entry.fastInsert(KIO::UDSEntry::UDS_GROUP, m_groupName);
 }

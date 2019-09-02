@@ -35,6 +35,7 @@
 #include <kconfiggroup.h>
 #include <kmountpoint.h>
 #include <kfileutils.h>
+#include <kdirnotify.h>
 
 #include <QCoreApplication>
 #include <QEventLoop>
@@ -910,6 +911,7 @@ void TrashImpl::fileRemoved()
         KConfigGroup group = m_config.group("Status");
         group.writeEntry("Empty", true);
         m_config.sync();
+        org::kde::KDirNotify::emitFilesChanged({QUrl::fromEncoded("trash:/")});
     }
     // The apps showing the trash (e.g. kdesktop) will be notified
     // of this change when KDirNotify::FilesRemoved(...) is emitted,
