@@ -142,21 +142,24 @@ bool KRun::isExecutableFile(const QUrl &url, const QString &mimetype)
     if (!url.isLocalFile()) {
         return false;
     }
-    QFileInfo file(url.toLocalFile());
-    if (file.isExecutable()) {    // Got a prospective file to run
-        QMimeDatabase db;
-        QMimeType mimeType = db.mimeTypeForName(mimetype);
-        if (mimeType.inherits(QStringLiteral("application/x-executable")) ||
+
+    QMimeDatabase db;
+    QMimeType mimeType = db.mimeTypeForName(mimetype);
+    if (!mimeType.inherits(QStringLiteral("application/x-executable"))
 #ifdef Q_OS_WIN
-                mimeType.inherits(QStringLiteral("application/x-ms-dos-executable")) ||
+            && !mimeType.inherits(QStringLiteral("application/x-ms-dos-executable"))
 #endif
-                mimeType.inherits(QStringLiteral("application/x-executable-script")) ||
-                mimeType.inherits(QStringLiteral("application/x-sharedlib"))
-           ) {
-            return true;
-        }
+            && !mimeType.inherits(QStringLiteral("application/x-executable-script"))
+            && !mimeType.inherits(QStringLiteral("application/x-sharedlib"))) {
+        return false;
     }
-    return false;
+
+    QFileInfo file(url.toLocalFile());
+    if (!file.isExecutable()) {
+        return false;
+    }
+
+    return true;
 }
 
 void KRun::handleInitError(int kioErrorCode, const QString &errorMsg)
