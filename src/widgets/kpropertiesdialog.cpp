@@ -1155,15 +1155,15 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         if (isLocal) {
             KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(url.toLocalFile());
 
-            l = new QLabel(i18n("File System:"), d->m_frame);
-            grid->addWidget(l, curRow, 0, Qt::AlignRight);
-
-            l = new QLabel(d->m_frame);
-            grid->addWidget(l, curRow++, 2);
-            l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
-            l->setText(mp->mountType());
-
             if (mp) {
+                l = new QLabel(i18n("File System:"), d->m_frame);
+                grid->addWidget(l, curRow, 0, Qt::AlignRight);
+
+                l = new QLabel(d->m_frame);
+                grid->addWidget(l, curRow++, 2);
+                l->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
+                l->setText(mp->mountType());
+
                 l = new QLabel(i18n("Mounted on:"), d->m_frame);
                 grid->addWidget(l, curRow, 0, Qt::AlignRight);
 
