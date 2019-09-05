@@ -818,7 +818,7 @@ bool KUrlNavigator::Private::isCompressedPath(const QUrl &url) const
 {
     QMimeDatabase db;
     const QMimeType mime = db.mimeTypeForUrl(QUrl(url.toString(QUrl::StripTrailingSlash)));
-    // Note: this list of MIME types depends on the protocols implemented by kio_archive
+    // Note: this list of MIME types depends on the protocols implemented by kio_archive and krarc
     return  mime.inherits(QStringLiteral("application/x-compressed-tar")) ||
             mime.inherits(QStringLiteral("application/x-bzip-compressed-tar")) ||
             mime.inherits(QStringLiteral("application/x-lzma-compressed-tar")) ||
@@ -827,7 +827,13 @@ bool KUrlNavigator::Private::isCompressedPath(const QUrl &url) const
             mime.inherits(QStringLiteral("application/x-tarz")) ||
             mime.inherits(QStringLiteral("application/x-tzo")) || // (not sure KTar supports those?)
             mime.inherits(QStringLiteral("application/zip")) ||
-            mime.inherits(QStringLiteral("application/x-archive"));
+            mime.inherits(QStringLiteral("application/x-archive")) ||
+            mime.inherits(QStringLiteral("application/vnd.rar")) || // the following depends on krarc
+            mime.inherits(QStringLiteral("application/x-7z-compressed")) ||
+            mime.inherits(QStringLiteral("application/x-ace")) ||
+            mime.inherits(QStringLiteral("application/x-arj")) ||
+            mime.inherits(QStringLiteral("application/x-cpio")) ||
+            mime.inherits(QStringLiteral("application/x-lha"));
 }
 
 void KUrlNavigator::Private::removeTrailingSlash(QString &url) const
