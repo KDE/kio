@@ -224,7 +224,7 @@ void TrashImpl::migrateOldTrash()
     for (QStringList::const_iterator entryIt = entries.begin(), entryEnd = entries.end();
             entryIt != entryEnd; ++entryIt) {
         QString srcPath = *entryIt;
-        if (srcPath == QLatin1String(".") || srcPath == QLatin1String("..") || srcPath == QLatin1String(".directory")) {
+        if (srcPath == QLatin1Char('.') || srcPath == QLatin1String("..") || srcPath == QLatin1String(".directory")) {
             continue;
         }
         srcPath.prepend(oldTrashDir);   // make absolute
@@ -715,7 +715,7 @@ bool TrashImpl::emptyTrash()
         QString filesDir = trit.value();
         filesDir += QLatin1String("/files");
         Q_FOREACH (const QString &fileName, listDir(filesDir)) {
-            if (fileName == QLatin1String(".") || fileName == QLatin1String("..")) {
+            if (fileName == QLatin1Char('.') || fileName == QLatin1String("..")) {
                 continue;
             }
             const QString filePath = filesDir + QLatin1Char('/') + fileName;
@@ -756,7 +756,7 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
         for (QStringList::const_iterator entryIt = entryNames.constBegin(), entryEnd = entryNames.constEnd();
                 entryIt != entryEnd; ++entryIt) {
             QString fileName = *entryIt;
-            if (fileName == QLatin1String(".") || fileName == QLatin1String("..")) {
+            if (fileName == QLatin1Char('.') || fileName == QLatin1String("..")) {
                 continue;
             }
             if (!fileName.endsWith(QLatin1String(".trashinfo"))) {

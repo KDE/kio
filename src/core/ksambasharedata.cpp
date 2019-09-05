@@ -70,7 +70,7 @@ QString KSambaShareData::acl() const
 
 KSambaShareData::GuestPermission KSambaShareData::guestPermission() const
 {
-    return (dd->guestPermission == QLatin1String("n")) ? GuestsNotAllowed : GuestsAllowed;
+    return (dd->guestPermission == QLatin1Char('n')) ? GuestsNotAllowed : GuestsAllowed;
 }
 
 KSambaShareData::UserShareError KSambaShareData::setName(const QString &name)

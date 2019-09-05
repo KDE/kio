@@ -136,7 +136,7 @@ private Q_SLOTS:
             Q_FOREACH (QAction *act, action->menu()->actions()) {
                 qDebug() << act << act->text() << act->data();
             }
-            const QString err = QStringLiteral("action with text \"") + actionText + QStringLiteral("\" not found.");
+            const QString err = QLatin1String("action with text \"") + actionText + QLatin1String("\" not found.");
             QVERIFY2(textAct, qPrintable(err));
         }
         textAct->trigger();

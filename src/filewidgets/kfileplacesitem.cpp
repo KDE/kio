@@ -348,7 +348,7 @@ KBookmark KFilePlacesItem::createDeviceBookmark(KBookmarkManager *manager,
 KBookmark KFilePlacesItem::createTagBookmark(KBookmarkManager *manager,
         const QString &tag)
 {
-    KBookmark bookmark = createSystemBookmark(manager, tag, tag, QUrl(QStringLiteral("tags:/") + tag), QStringLiteral("tag"));
+    KBookmark bookmark = createSystemBookmark(manager, tag, tag, QUrl(QLatin1String("tags:/") + tag), QLatin1String("tag"));
     bookmark.setMetaDataItem(QStringLiteral("tag"), tag);
     bookmark.setMetaDataItem(QStringLiteral("isSystemItem"), QStringLiteral("true"));
 

@@ -996,7 +996,7 @@ void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, UDSEntry &en
                 }
             } else if (property.tagName() == QLatin1String("executable")) {
                 // File executable status
-                if (property.text() == QLatin1String("T")) {
+                if (property.text() == QLatin1Char('T')) {
                     foundExecutable = true;
                 }
 

@@ -507,7 +507,7 @@ static qint64 runCommandInternal(KProcess *proc, const KService *service, const 
 
     QString bin = KIO::DesktopExecParser::executableName(executable);
 #if HAVE_X11
-    static bool isX11 = QGuiApplication::platformName() == QStringLiteral("xcb");
+    static bool isX11 = QGuiApplication::platformName() == QLatin1String("xcb");
     if (isX11) {
         bool silent;
         QByteArray wmclass;

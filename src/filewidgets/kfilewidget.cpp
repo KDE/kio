@@ -2317,7 +2317,7 @@ void KFileWidgetPrivate::updateAutoSelectExtension()
             }
 
             if ((!currentExtension.isEmpty() && extensionList.contains(QLatin1String("*.") + currentExtension))
-                    || filter == QStringLiteral("application/octet-stream")) {
+                    || filter == QLatin1String("application/octet-stream")) {
                 extension = QLatin1Char('.') + currentExtension;
             } else {
                 extension = defaultExtension;

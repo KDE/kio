@@ -434,7 +434,7 @@ void NetRC::NetRCPrivate::getMachinePart(const QString &line)
 {
     QString buf = line;
     while (!(buf.contains(QLatin1String("login"))
-             && (buf.contains(QLatin1String("password")) || buf.contains(QStringLiteral("account")) || buf.contains(QStringLiteral("type"))))) {
+             && (buf.contains(QLatin1String("password")) || buf.contains(QLatin1String("account")) || buf.contains(QLatin1String("type"))))) {
         buf += QLatin1Char(' ') + fstream.readLine().simplified();
     }
 

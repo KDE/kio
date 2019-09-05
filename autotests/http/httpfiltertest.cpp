@@ -101,7 +101,7 @@ void HTTPFilterTest::test_deflateWithZlibHeader()
         QSignalSpy spyOutput(&filter, SIGNAL(output(QByteArray)));
         QSignalSpy spyError(&filter, SIGNAL(error(QString)));
         QByteArray rawDeflate = deflatedData.mid(2); // remove CMF+FLG
-        rawDeflate.truncate(rawDeflate.size() - 4); // remove trailing Adler32.
+        rawDeflate.chop(4); // remove trailing Adler32.
         filter.slotInput(rawDeflate);
         QCOMPARE(spyOutput.count(), 2);
         QCOMPARE(spyOutput[0][0].toByteArray(), data);

@@ -301,7 +301,7 @@ QString KURISearchFilterEngine::substituteQuery(const QString& url, SubstMap &ma
 
           // Remove used value from ql (needed for \{@}):
           QString c = rlitem.left(1);
-          if (c==QLatin1String("0"))
+          if (c== QLatin1Char('0'))
           {
             // It's a numeric reference to '0'
             for (QStringList::Iterator it = ql.begin(); it!=ql.end(); ++it)
@@ -382,7 +382,7 @@ QUrl KURISearchFilterEngine::formatResult( const QString& url,
   {
     qCDebug(category) << "Got non-empty substitution map:\n";
     for(SubstMap::Iterator it = map.begin(); it != map.end(); ++it)
-      PDVAR (QLatin1Literal("    map['") + it.key() + QLatin1Literal("']"), it.value());
+      PDVAR (QLatin1String("    map['") + it.key() + QLatin1String("']"), it.value());
   }
 
   // Create a codec for the desired encoding so that we can transcode the user's "url".

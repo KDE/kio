@@ -1144,7 +1144,7 @@ void KDirListerTest::testWatchingAfterCopyJob() // #331582
 
     // Create a new file and verify that the dir lister notices it.
     m_items.clear();
-    createTestFile(path + "a");
+    createTestFile(path + QLatin1Char('a'));
     QVERIFY(spyCompleted.wait(1000));
     QTRY_VERIFY(m_dirLister.isFinished());
     QTRY_COMPARE(m_items.count(), 1);
@@ -1160,7 +1160,7 @@ void KDirListerTest::testWatchingAfterCopyJob() // #331582
     // Now try to create a second new file and verify that the
     // dir lister notices it.
     m_items.clear();
-    createTestFile(path + "b");
+    createTestFile(path + QLatin1Char('b'));
 
     // This should end up in "KCoreDirListerCache::slotFileDirty"
     QTRY_COMPARE(m_items.count(), 1);
@@ -1327,7 +1327,7 @@ void KDirListerTest::testRenameDirectory() // #401552
     m_dirLister.openUrl(QUrl::fromLocalFile(dirW), KDirLister::NoFlags);
 
     // Try to reproduce the bug #401552 renaming the w directory several times if needed
-    const QStringList dirs = { dirW + "___", dirW + "_", dirW + "______",  dirW + "_c",
+    const QStringList dirs = { dirW + "___", dirW + QLatin1Char('_'), dirW + "______",  dirW + "_c",
         dirW + "___", dirW + "_________" };
 
     QString currDir = dirW;

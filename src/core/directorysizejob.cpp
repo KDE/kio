@@ -158,7 +158,7 @@ void DirectorySizeJobPrivate::slotEntries(KIO::Job *, const KIO::UDSEntryList &l
         }
         const KIO::filesize_t size = entry.numberValue(KIO::UDSEntry::UDS_SIZE, 0);
         const QString name = entry.stringValue(KIO::UDSEntry::UDS_NAME);
-        if (name == QLatin1String(".")) {
+        if (name == QLatin1Char('.')) {
             m_totalSize += size;
             //qDebug() << "'.': added" << size << "->" << m_totalSize;
         } else if (name != QLatin1String("..")) {

@@ -107,7 +107,7 @@ namespace {
     static QUrl createTimelineUrl(const QUrl &url)
     {
         // based on dolphin urls
-        const QString timelinePrefix = QStringLiteral("timeline:") + QLatin1Char('/');
+        const QString timelinePrefix = QLatin1String("timeline:") + QLatin1Char('/');
         QUrl timelineUrl;
 
         const QString path = url.toDisplayString(QUrl::PreferLocalFile);
@@ -411,7 +411,7 @@ bool KFilePlacesModel::isHidden(const QModelIndex &index) const
 bool KFilePlacesModel::isGroupHidden(const GroupType type) const
 {
     const QString hidden = d->bookmarkManager->root().metaDataItem(stateNameForGroupType(type));
-    return hidden == QStringLiteral("true") ? true : false;
+    return hidden == QLatin1String("true") ? true : false;
 }
 
 bool KFilePlacesModel::isGroupHidden(const QModelIndex &index) const

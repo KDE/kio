@@ -903,7 +903,7 @@ bool KDirModel::setData(const QModelIndex &index, const QVariant &value, int rol
             KDirModelNode *node = static_cast<KDirModelNode *>(index.internalPointer());
             const KFileItem &item = node->item();
             const QString newName = value.toString();
-            if (newName.isEmpty() || newName == item.text() || (newName == QLatin1String(".")) || (newName == QLatin1String(".."))) {
+            if (newName.isEmpty() || newName == item.text() || (newName == QLatin1Char('.')) || (newName == QLatin1String(".."))) {
                 return true;
             }
             QUrl newUrl = item.url().adjusted(QUrl::RemoveFilename);

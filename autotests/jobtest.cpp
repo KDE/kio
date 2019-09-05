@@ -1025,7 +1025,7 @@ void JobTest::listRecursive()
 #endif
                                       "fileFromHome");
 
-    const QString joinedNames = m_names.join(QLatin1String(","));
+    const QString joinedNames = m_names.join(QLatin1Char(','));
     if (joinedNames.toLatin1() != ref_names) {
         qDebug("%s", qPrintable(joinedNames));
         qDebug("%s", ref_names.data());
@@ -1809,8 +1809,8 @@ void JobTest::moveAndOverwrite()
 
     // Now same thing when the target is a symlink to another file
     createTestFile(sourceFile);
-    createTestFile(sourceFile + "2");
-    createTestSymlink(existingDest, QFile::encodeName(sourceFile + "2"));
+    createTestFile(sourceFile + QLatin1Char('2'));
+    createTestSymlink(existingDest, QFile::encodeName(sourceFile + QLatin1Char('2')));
     QVERIFY(QFile::exists(existingDest));
     job = KIO::file_move(QUrl::fromLocalFile(sourceFile), QUrl::fromLocalFile(existingDest), -1, KIO::HideProgressInfo | KIO::Overwrite);
     job->setUiDelegate(nullptr);
@@ -1984,16 +1984,16 @@ void JobTest::createSymlinkWithOverwriteShouldWork()
     QVERIFY(QFileInfo(dest).isSymLink());
 
     // Changing the link target, with overwrite, works
-    job = KIO::linkAs(QUrl::fromLocalFile(sourceFile + "2"), QUrl::fromLocalFile(dest), KIO::Overwrite | KIO::HideProgressInfo);
+    job = KIO::linkAs(QUrl::fromLocalFile(sourceFile + QLatin1Char('2')), QUrl::fromLocalFile(dest), KIO::Overwrite | KIO::HideProgressInfo);
     QVERIFY(job->exec());
     QVERIFY(QFileInfo(dest).isSymLink());
-    QCOMPARE(QFileInfo(dest).symLinkTarget(), QString(sourceFile + "2"));
+    QCOMPARE(QFileInfo(dest).symLinkTarget(), QString(sourceFile + QLatin1Char('2')));
 
     // Changing the link target using KIO::symlink, with overwrite, works
-    KIO::Job *symlinkJob = KIO::symlink(sourceFile + "3", QUrl::fromLocalFile(dest), KIO::Overwrite | KIO::HideProgressInfo);
+    KIO::Job *symlinkJob = KIO::symlink(sourceFile + QLatin1Char('3'), QUrl::fromLocalFile(dest), KIO::Overwrite | KIO::HideProgressInfo);
     QVERIFY(symlinkJob->exec());
     QVERIFY(QFileInfo(dest).isSymLink());
-    QCOMPARE(QFileInfo(dest).symLinkTarget(), QString(sourceFile + "3"));
+    QCOMPARE(QFileInfo(dest).symLinkTarget(), QString(sourceFile + QLatin1Char('3')));
 
     // Cleanup
     QVERIFY(QFile::remove(dest));

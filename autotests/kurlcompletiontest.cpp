@@ -222,7 +222,7 @@ void KUrlCompletionTest::testLocalAbsolutePath()
     QCOMPARE(comp, QString(m_dir + "file#a"));
 
     // Completion with '.', should find all hidden folders
-    m_completion->makeCompletion(m_dir + ".");
+    m_completion->makeCompletion(m_dir + QLatin1Char('.'));
     waitForCompletion(m_completion);
     const auto compAllHidden = m_completion->allMatches();
     QCOMPARE(compAllHidden.count(), 2);
@@ -297,8 +297,8 @@ void KUrlCompletionTest::testLocalURL()
     QVERIFY(m_completion->allMatches().isEmpty());
 
     // Completion with '.', should find all hidden folders
-    qDebug() << "makeCompletion(" << (m_dirURL.toString() + ".") << ")";
-    m_completion->makeCompletion(m_dirURL.toString() + ".");
+    qDebug() << "makeCompletion(" << (m_dirURL.toString() + QLatin1Char('.')) << ")";
+    m_completion->makeCompletion(m_dirURL.toString() + QLatin1Char('.'));
     waitForCompletion(m_completion);
     const auto compAllHidden = m_completion->allMatches();
     QCOMPARE(compAllHidden.count(), 2);

@@ -124,7 +124,7 @@ qulonglong TrashSizeCache::calculateSize()
     qulonglong sum = 0;
     while (it.hasNext()) {
         const QFileInfo file = it.next();
-        if (file.fileName() == QLatin1String(".") || file.fileName() == QLatin1String("..")) {
+        if (file.fileName() == QLatin1Char('.') || file.fileName() == QLatin1String("..")) {
             continue;
         }
         if (file.isSymLink()) {

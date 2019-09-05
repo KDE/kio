@@ -459,7 +459,7 @@ QString KCookieJar::findCookies(const QString &_url, bool useDOMFormat, WId wind
         }
 
         if (protVersion > 0) {
-            cookieStr = cookieStr + QStringLiteral("$Version=") + QString::number(protVersion) + QStringLiteral("; ");
+            cookieStr = cookieStr + QLatin1String("$Version=") + QString::number(protVersion) + QLatin1String("; ");
         }
 
         for (const KHttpCookie &cookie : qAsConst(allCookies)) {

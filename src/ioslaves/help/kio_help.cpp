@@ -161,7 +161,7 @@ void HelpProtocol::get(const QUrl &url)
 
     if (!mGhelp) {
         if (!doc.startsWith(QLatin1Char('/'))) {
-            doc = doc.prepend(QLatin1Char('/'));
+            doc.prepend(QLatin1Char('/'));
         }
 
         if (doc.endsWith(QLatin1Char('/'))) {

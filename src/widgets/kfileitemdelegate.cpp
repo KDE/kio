@@ -1578,7 +1578,7 @@ bool KFileItemDelegate::eventFilter(QObject *object, QEvent *event)
         case Qt::Key_Enter:
         case Qt::Key_Return: {
             const QString text = editor->toPlainText();
-            if (text.isEmpty() || (text == QLatin1String(".")) || (text == QLatin1String(".."))) {
+            if (text.isEmpty() || (text == QLatin1Char('.')) || (text == QLatin1String(".."))) {
                 return true;    // So a newline doesn't get inserted
             }
 

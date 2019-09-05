@@ -837,7 +837,7 @@ void KNewFileMenuPrivate::_k_slotCreateDirectory(bool writeHiddenDir)
         if (QDir::isAbsolutePath(name)) {
             url = QUrl::fromLocalFile(name);
         } else {
-            if (name == QLatin1String(".") || name == QLatin1String("..")) {
+            if (name == QLatin1Char('.') || name == QLatin1String("..")) {
                 KGuiItem enterNewNameGuiItem(KStandardGuiItem::ok());
                 enterNewNameGuiItem.setText(i18nc("@action:button", "Enter a Different Name"));
                 enterNewNameGuiItem.setIcon(QIcon::fromTheme(QStringLiteral("edit-rename")));
@@ -1051,7 +1051,7 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
     }
 
     // Don't allow creating folders that would mask . or ..
-    else if (text == QLatin1String(".") || text == QLatin1String("..")) {
+    else if (text == QLatin1Char('.') || text == QLatin1String("..")) {
         m_messageWidget->setText(xi18nc("@info", "The name <filename>%1</filename> cannot be used because it is reserved for use by the operating system.", text));
         m_messageWidget->setMessageType(KMessageWidget::Error);
         m_messageWidget->animatedShow();
@@ -1080,7 +1080,7 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
                 label = i18n("Using slashes in folder names will create sub-folders, like so:");
                 QString indentation = QString();
                 for (const QString &folder : folders) {
-                    label.append(QStringLiteral("\n"));
+                    label.append(QLatin1Char('\n'));
                     label.append(indentation);
                     label.append(folder);
                     label.append(QStringLiteral("/"));

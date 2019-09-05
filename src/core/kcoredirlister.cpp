@@ -1211,7 +1211,7 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
             continue;
         }
 
-        if (name == QLatin1String(".")) {
+        if (name == QLatin1Char('.')) {
             Q_ASSERT(dir->rootItem.isNull());
             // Try to reuse an existing KFileItem (if we listed the parent dir)
             // rather than creating a new one. There are many reasons:
@@ -1772,7 +1772,7 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
             continue;
         }
 
-        if (name == QLatin1String(".")) {
+        if (name == QLatin1Char('.')) {
             // if the update was started before finishing the original listing
             // there is no root item yet
             if (dir->rootItem.isNull()) {
@@ -2241,7 +2241,7 @@ void KCoreDirLister::Private::emitChanges()
         for (; kit != kend; ++kit) {
             KFileItem &item = *kit;
             const QString text = item.text();
-            if (text == QLatin1String(".") || text == QLatin1String("..")) {
+            if (text == QLatin1Char('.') || text == QLatin1String("..")) {
                 continue;
             }
             const bool wasVisible = oldVisibleItems.contains(item.name());
@@ -2316,7 +2316,7 @@ void KCoreDirLister::setMimeFilter(const QStringList &mimeFilter)
     }
 
     d->prepareForSettingsChange();
-    if (mimeFilter.contains(QLatin1String("application/octet-stream")) || mimeFilter.contains(QStringLiteral("all/allfiles"))) { // all files
+    if (mimeFilter.contains(QLatin1String("application/octet-stream")) || mimeFilter.contains(QLatin1String("all/allfiles"))) { // all files
         d->settings.mimeFilter.clear();
     } else {
         d->settings.mimeFilter = mimeFilter;

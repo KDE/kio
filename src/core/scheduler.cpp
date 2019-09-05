@@ -1197,7 +1197,7 @@ Slave *SchedulerPrivate::heldSlaveForJob(SimpleJob *job)
                 const QString resume = outgoing.value(QStringLiteral("resume"));
                 const QString rangeStart = outgoing.value(QStringLiteral("range-start"));
                 //qDebug() << "Resume metadata is" << resume;
-                canJobReuse = (resume.isEmpty() || resume == QLatin1String("0")) && (rangeStart.isEmpty() || rangeStart == QLatin1String("0"));
+                canJobReuse = (resume.isEmpty() || resume == QLatin1Char('0')) && (rangeStart.isEmpty() || rangeStart == QLatin1Char('0'));
             }
         }
 

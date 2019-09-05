@@ -759,7 +759,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     KConfigGroup confGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
     QString preferredTerminal = confGroup.readPathEntry("TerminalApplication", QStringLiteral("konsole"));
 
-    if (bReadOnly || preferredTerminal != QStringLiteral("konsole")) {
+    if (bReadOnly || preferredTerminal != QLatin1String("konsole")) {
         nocloseonexit->hide();
     }
 
@@ -995,7 +995,7 @@ bool KOpenWithDialogPrivate::checkAccept()
         preferredTerminal = confGroup.readPathEntry("TerminalApplication", QStringLiteral("konsole"));
         m_command = preferredTerminal;
         // only add --noclose when we are sure it is konsole we're using
-        if (preferredTerminal == QStringLiteral("konsole") && nocloseonexit->isChecked()) {
+        if (preferredTerminal == QLatin1String("konsole") && nocloseonexit->isChecked()) {
             m_command += QStringLiteral(" --noclose");
         }
         m_command += QLatin1String(" -e ") + edit->text();

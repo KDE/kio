@@ -42,7 +42,7 @@ public:
 
     State validate (QString& input, int&) const override
     {
-        if (input.isEmpty() || (input == QLatin1String("."))) {
+        if (input.isEmpty() || (input == QLatin1Char('.'))) {
             return Intermediate;
         }
 

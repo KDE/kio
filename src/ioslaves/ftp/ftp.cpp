@@ -574,7 +574,7 @@ bool Ftp::ftpLogin(bool *userChanged)
                                 , user, lastServerResponse);
             }
 
-            if (user != QStringLiteral(FTP_LOGIN)) {
+            if (user != QLatin1String(FTP_LOGIN)) {
                 info.username = user;
             }
 

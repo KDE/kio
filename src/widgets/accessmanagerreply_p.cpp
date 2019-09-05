@@ -253,7 +253,7 @@ void AccessManagerReply::setHeaderFromMetaData(const KIO::MetaData &_metaData)
                 if (m_ignoreContentDisposition) {
                     // If the server returned application/octet-stream, try to determine the
                     // real content type from the disposition filename.
-                    if (mimeType == QStringLiteral("application/octet-stream")) {
+                    if (mimeType == QLatin1String("application/octet-stream")) {
                         const QString fileName(metaData.value(QStringLiteral("content-disposition-filename")));
                         QMimeDatabase db;
                         QMimeType mime = db.mimeTypeForFile((fileName.isEmpty() ? url().path() : fileName), QMimeDatabase::MatchExtension);

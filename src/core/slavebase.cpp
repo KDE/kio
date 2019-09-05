@@ -759,7 +759,7 @@ void SlaveBase::listEntry(const UDSEntry &entry, bool _ready)
     if (_ready) {
         // #366795: many slaves don't create an entry for ".", so we keep track if they do
         // and we provide a fallback in finished() otherwise.
-        if (entry.stringValue(KIO::UDSEntry::UDS_NAME) == QLatin1String(".")) {
+        if (entry.stringValue(KIO::UDSEntry::UDS_NAME) == QLatin1Char('.')) {
             d->m_rootEntryListed = true;
         }
         listEntries(d->pendingListEntries);
@@ -774,7 +774,7 @@ void SlaveBase::listEntry(const UDSEntry &entry)
 {
     // #366795: many slaves don't create an entry for ".", so we keep track if they do
     // and we provide a fallback in finished() otherwise.
-    if (entry.stringValue(KIO::UDSEntry::UDS_NAME) == QLatin1String(".")) {
+    if (entry.stringValue(KIO::UDSEntry::UDS_NAME) == QLatin1Char('.')) {
         d->m_rootEntryListed = true;
     }
 
