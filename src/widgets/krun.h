@@ -436,10 +436,10 @@ public:
 #endif
 
     /**
-     * Returns whether @p serviceType refers to an executable program instead
+     * Returns whether @p mimeType refers to an executable program instead
      * of a data file.
      */
-    static bool isExecutable(const QString &serviceType);
+    static bool isExecutable(const QString &mimeType);
 
     /**
      * Returns whether the @p url of @p mimetype is executable.

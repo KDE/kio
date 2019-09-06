@@ -1563,10 +1563,10 @@ QString KRun::suggestedFileName() const
     return d->m_suggestedFileName;
 }
 
-bool KRun::isExecutable(const QString &serviceType)
+bool KRun::isExecutable(const QString &mimeTypeName)
 {
     QMimeDatabase db;
-    QMimeType mimeType = db.mimeTypeForName(serviceType);
+    QMimeType mimeType = db.mimeTypeForName(mimeTypeName);
     return (mimeType.inherits(QLatin1String("application/x-desktop")) ||
             mimeType.inherits(QLatin1String("application/x-executable")) ||
             /* See https://bugs.freedesktop.org/show_bug.cgi?id=97226 */
