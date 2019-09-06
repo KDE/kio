@@ -129,7 +129,7 @@ void TrashProtocol::restore(const QUrl &trashURL)
         return;
     }
 
-    copyOrMove(trashURL, dest, false /*overwrite*/, Move);
+    copyOrMoveFromTrash(trashURL, dest, false /*overwrite*/, Move);
 }
 
 void TrashProtocol::rename(const QUrl &oldURL, const QUrl &newURL, KIO::JobFlags flags)
@@ -172,7 +172,13 @@ void TrashProtocol::rename(const QUrl &oldURL, const QUrl &newURL, KIO::JobFlags
         return;
     }
 
-    copyOrMove(oldURL, newURL, (flags & KIO::Overwrite), Move);
+    if (oldURL.scheme() == QLatin1String("trash") && newURL.isLocalFile()) {
+        copyOrMoveFromTrash(oldURL, newURL, (flags & KIO::Overwrite), Move);
+    } else if (oldURL.isLocalFile() && newURL.scheme() == QLatin1String("trash")) {
+        copyOrMoveToTrash(oldURL, newURL, Move);
+    } else {
+        error(KIO::ERR_UNSUPPORTED_ACTION, i18n("Invalid combination of protocols."));
+    }
 }
 
 void TrashProtocol::copy(const QUrl &src, const QUrl &dest, int /*permissions*/, KIO::JobFlags flags)
@@ -186,91 +192,93 @@ void TrashProtocol::copy(const QUrl &src, const QUrl &dest, int /*permissions*/,
         return;
     }
 
-    copyOrMove(src, dest, (flags & KIO::Overwrite), Copy);
+    if (src.scheme() == QLatin1String("trash") && dest.isLocalFile()) {
+        copyOrMoveFromTrash(src, dest, (flags & KIO::Overwrite), Copy);
+    } else if (src.isLocalFile() && dest.scheme() == QLatin1String("trash")) {
+        copyOrMoveToTrash(src, dest, Copy);
+    } else {
+        error(KIO::ERR_UNSUPPORTED_ACTION, i18n("Invalid combination of protocols."));
+    }
 }
 
-void TrashProtocol::copyOrMove(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action)
+void TrashProtocol::copyOrMoveFromTrash(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action)
 {
-    if (src.scheme() == QLatin1String("trash") && dest.isLocalFile()) {
-        // Extracting (e.g. via dnd). Ignore original location stored in info file.
-        int trashId;
-        QString fileId, relativePath;
-        bool ok = TrashImpl::parseURL(src, trashId, fileId, relativePath);
-        if (!ok) {
-            error(KIO::ERR_SLAVE_DEFINED, i18n("Malformed URL %1", src.toString()));
+    // Extracting (e.g. via dnd). Ignore original location stored in info file.
+    int trashId;
+    QString fileId, relativePath;
+    bool ok = TrashImpl::parseURL(src, trashId, fileId, relativePath);
+    if (!ok) {
+        error(KIO::ERR_SLAVE_DEFINED, i18n("Malformed URL %1", src.toString()));
+        return;
+    }
+    const QString destPath = dest.path();
+    if (QFile::exists(destPath)) {
+        if (overwrite) {
+            ok = QFile::remove(destPath);
+            Q_ASSERT(ok);   // ### TODO
+        } else {
+            error(KIO::ERR_FILE_ALREADY_EXIST, destPath);
             return;
         }
-        const QString destPath = dest.path();
-        if (QFile::exists(destPath)) {
-            if (overwrite) {
-                ok = QFile::remove(destPath);
-                Q_ASSERT(ok);   // ### TODO
-            } else {
-                error(KIO::ERR_FILE_ALREADY_EXIST, destPath);
-                return;
-            }
-        }
+    }
 
-        if (action == Move) {
-            qCDebug(KIO_TRASH) << "calling moveFromTrash(" << destPath << " " << trashId << " " << fileId << ")";
-            ok = impl.moveFromTrash(destPath, trashId, fileId, relativePath);
-        } else { // Copy
-            qCDebug(KIO_TRASH) << "calling copyFromTrash(" << destPath << " " << trashId << " " << fileId << ")";
-            ok = impl.copyFromTrash(destPath, trashId, fileId, relativePath);
+    if (action == Move) {
+        qCDebug(KIO_TRASH) << "calling moveFromTrash(" << destPath << " " << trashId << " " << fileId << ")";
+        ok = impl.moveFromTrash(destPath, trashId, fileId, relativePath);
+    } else { // Copy
+        qCDebug(KIO_TRASH) << "calling copyFromTrash(" << destPath << " " << trashId << " " << fileId << ")";
+        ok = impl.copyFromTrash(destPath, trashId, fileId, relativePath);
+    }
+    if (!ok) {
+        error(impl.lastErrorCode(), impl.lastErrorMessage());
+    } else {
+        if (action == Move && relativePath.isEmpty()) {
+            (void)impl.deleteInfo(trashId, fileId);
         }
-        if (!ok) {
+        finished();
+    }
+}
+
+void TrashProtocol::copyOrMoveToTrash(const QUrl &src, const QUrl &dest, CopyOrMove action)
+{
+    qCDebug(KIO_TRASH) << "trashing a file" << src << dest;
+
+    // Trashing a file
+    // We detect the case where this isn't normal trashing, but
+    // e.g. if kwrite tries to save (moving tempfile over destination)
+    if (isTopLevelEntry(dest) && src.fileName() == dest.fileName()) { // new toplevel entry
+        const QString srcPath = src.path();
+        // In theory we should use TrashImpl::parseURL to give the right filename to createInfo,
+        // in case the trash URL didn't contain the same filename as srcPath.
+        // But this can only happen with copyAs/moveAs, not available in the GUI
+        // for the trash (New/... or Rename from iconview/listview).
+        int trashId;
+        QString fileId;
+        if (!impl.createInfo(srcPath, trashId, fileId)) {
             error(impl.lastErrorCode(), impl.lastErrorMessage());
         } else {
-            if (action == Move && relativePath.isEmpty()) {
-                (void)impl.deleteInfo(trashId, fileId);
+            bool ok;
+            if (action == Move) {
+                qCDebug(KIO_TRASH) << "calling moveToTrash(" << srcPath << " " << trashId << " " << fileId << ")";
+                ok = impl.moveToTrash(srcPath, trashId, fileId);
+            } else { // Copy
+                qCDebug(KIO_TRASH) << "calling copyToTrash(" << srcPath << " " << trashId << " " << fileId << ")";
+                ok = impl.copyToTrash(srcPath, trashId, fileId);
             }
-            finished();
-        }
-        return;
-    } else if (src.isLocalFile() && dest.scheme() == QLatin1String("trash")) {
-        qCDebug(KIO_TRASH) << "trashing a file" << src << dest;
-
-        // Trashing a file
-        // We detect the case where this isn't normal trashing, but
-        // e.g. if kwrite tries to save (moving tempfile over destination)
-        if (isTopLevelEntry(dest) && src.fileName() == dest.fileName()) { // new toplevel entry
-            const QString srcPath = src.path();
-            // In theory we should use TrashImpl::parseURL to give the right filename to createInfo,
-            // in case the trash URL didn't contain the same filename as srcPath.
-            // But this can only happen with copyAs/moveAs, not available in the GUI
-            // for the trash (New/... or Rename from iconview/listview).
-            int trashId;
-            QString fileId;
-            if (!impl.createInfo(srcPath, trashId, fileId)) {
+            if (!ok) {
+                (void)impl.deleteInfo(trashId, fileId);
                 error(impl.lastErrorCode(), impl.lastErrorMessage());
             } else {
-                bool ok;
-                if (action == Move) {
-                    qCDebug(KIO_TRASH) << "calling moveToTrash(" << srcPath << " " << trashId << " " << fileId << ")";
-                    ok = impl.moveToTrash(srcPath, trashId, fileId);
-                } else { // Copy
-                    qCDebug(KIO_TRASH) << "calling copyToTrash(" << srcPath << " " << trashId << " " << fileId << ")";
-                    ok = impl.copyToTrash(srcPath, trashId, fileId);
-                }
-                if (!ok) {
-                    (void)impl.deleteInfo(trashId, fileId);
-                    error(impl.lastErrorCode(), impl.lastErrorMessage());
-                } else {
-                    // Inform caller of the final URL. Used by konq_undo.
-                    const QUrl url = impl.makeURL(trashId, fileId, QString());
-                    setMetaData(QLatin1String("trashURL-") + srcPath, url.url());
-                    finished();
-                }
+                // Inform caller of the final URL. Used by konq_undo.
+                const QUrl url = impl.makeURL(trashId, fileId, QString());
+                setMetaData(QLatin1String("trashURL-") + srcPath, url.url());
+                finished();
             }
-            return;
-        } else {
-            qCDebug(KIO_TRASH) << "returning KIO::ERR_ACCESS_DENIED, it's not allowed to add a file to an existing trash directory";
-            // It's not allowed to add a file to an existing trash directory.
-            error(KIO::ERR_ACCESS_DENIED, dest.toString());
-            return;
         }
     } else {
-        error(KIO::ERR_UNSUPPORTED_ACTION, i18n("Internal error in copyOrMove, should never happen"));
+        qCDebug(KIO_TRASH) << "returning KIO::ERR_ACCESS_DENIED, it's not allowed to add a file to an existing trash directory";
+        // It's not allowed to add a file to an existing trash directory.
+        error(KIO::ERR_ACCESS_DENIED, dest.toString());
     }
 }
 

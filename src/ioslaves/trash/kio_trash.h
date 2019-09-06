@@ -66,7 +66,8 @@ private Q_SLOTS:
 
 private:
     typedef enum { Copy, Move } CopyOrMove;
-    void copyOrMove(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action);
+    void copyOrMoveFromTrash(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action);
+    void copyOrMoveToTrash(const QUrl &src, const QUrl &dest, CopyOrMove action);
     void createTopLevelDirEntry(KIO::UDSEntry &entry);
     bool createUDSEntry(const QString &physicalPath, const QString &displayFileName, const QString &internalFileName,
                         KIO::UDSEntry &entry, const TrashedFileInfo &info);
