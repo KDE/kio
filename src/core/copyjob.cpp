@@ -2142,7 +2142,9 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
     } else {
         qCDebug(KIO_COPYJOB_DEBUG) << "Renaming succeeded, move on";
         ++m_processedFiles;
-        emit q->copyingDone(q, *m_currentStatSrc, finalDestUrl(*m_currentStatSrc, dest), QDateTime() /*mtime unknown, and not needed*/, true, true);
+        // Emit copyingDone for FileUndoManager to remember what we did.
+        // Use resolved URL m_currentSrcURL since that's what we just used for renaming. See bug 391606 and kio_desktop's testTrashAndUndo().
+        emit q->copyingDone(q, m_currentSrcURL, finalDestUrl(m_currentSrcURL, dest), QDateTime() /*mtime unknown, and not needed*/, m_bCurrentSrcIsDir, true);
         m_successSrcList.append(*m_currentStatSrc);
         statNextSrc();
     }
