@@ -369,6 +369,8 @@ quint64 FileUndoManager::currentCommandSerialNumber() const
 
 void FileUndoManager::undo()
 {
+    Q_ASSERT(!d->m_commands.isEmpty()); // forgot to record before calling undo?
+
     // Make a copy of the command to undo before slotPop() pops it.
     UndoCommand cmd = d->m_commands.last();
     assert(cmd.m_valid);
