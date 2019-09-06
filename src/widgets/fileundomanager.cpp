@@ -35,6 +35,7 @@
 #include <kjobtrackerinterface.h>
 #include <kio/jobuidelegate.h>
 #include <job_p.h>
+#include "kio_widgets_debug.h"
 
 #include <QDateTime>
 #include <QDBusConnection>
@@ -44,13 +45,11 @@
 
 using namespace KIO;
 
-#if 0
 static const char *undoStateToString(UndoState state)
 {
     static const char *const s_undoStateToString[] = { "MAKINGDIRS", "MOVINGFILES", "STATINGFILE", "REMOVINGDIRS", "REMOVINGLINKS" };
     return s_undoStateToString[state];
 }
-#endif
 
 static QDataStream &operator<<(QDataStream &stream, const KIO::BasicOperation &op)
 {
@@ -83,6 +82,16 @@ static QDataStream &operator>>(QDataStream &stream, UndoCommand &cmd)
     return stream;
 }
 
+QDebug operator<<(QDebug dbg, const BasicOperation &op)
+{
+    if (op.m_valid) {
+        static const char* s_types[] = { "File", "Link", "Directory" };
+        dbg << "BasicOperation: type" << s_types[op.m_type] << "src" << op.m_src << "dest" << op.m_dst << "target" << op.m_target << "renamed" << op.m_renamed;
+    } else {
+        dbg << "Invalid BasicOperation";
+    }
+    return dbg;
+}
 /**
  * checklist:
  * copy dir -> overwrite -> works
@@ -182,6 +191,7 @@ CommandRecorder::~CommandRecorder()
 void CommandRecorder::slotResult(KJob *job)
 {
     if (job->error()) {
+        qWarning() << job->errorString();
         return;
     }
 
@@ -197,6 +207,7 @@ void CommandRecorder::slotCopyingDone(KIO::Job *, const QUrl &from, const QUrl &
     op.m_src = from;
     op.m_dst = to;
     op.m_mtime = mtime;
+    //qDebug() << op;
     m_cmd.m_opStack.prepend(op);
 }
 
@@ -451,7 +462,7 @@ void FileUndoManager::undo()
         d->m_fileCleanupStack.append(d->m_current.m_dst);
     }
 
-    //qDebug() << "starting with" << undoStateToString(d->m_undoState);
+    qCDebug(KIO_WIDGETS) << "starting with" << undoStateToString(d->m_undoState);
     d->m_undoJob = new UndoJob(d->m_uiInterface->showProgressInfo());
     QMetaObject::invokeMethod(d, "undoStep", Qt::QueuedConnection);
 }
@@ -479,6 +490,7 @@ void FileUndoManagerPrivate::slotResult(KJob *job)
 {
     m_currentJob = nullptr;
     if (job->error()) {
+        qWarning() << job->errorString();
         m_uiInterface->jobError(static_cast<KIO::Job *>(job));
         delete m_undoJob;
         stopUndo(false);
