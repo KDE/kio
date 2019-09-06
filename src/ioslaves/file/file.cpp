@@ -710,6 +710,9 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
                     result = -1;
                 }
             }
+        } else {
+            qCWarning(KIO_FILE) << "readData() returned" << result;
+            error(KIO::ERR_CANNOT_WRITE, dest_orig);
         }
     } while (result > 0);
 
@@ -728,8 +731,7 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
                 }
             }
         }
-
-        ::exit(255);
+        return;
     }
 
     if (!f.isOpen()) { // we got nothing to write out, so we never opened the file
