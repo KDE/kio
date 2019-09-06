@@ -1732,6 +1732,37 @@ void JobTest::moveDestAlreadyExistsAutoRename(const QString &destDir, bool moveD
     }
 }
 
+void JobTest::copyDirectoryAlreadyExistsSkip()
+{
+    // when copying a directory (which contains at least one file) to some location, and then
+    // copying the same dir to the same location again, and clicking "Skip" there should be no
+    // segmentation fault, bug 408350
+
+    const QString src = homeTmpDir() + "a";
+    createTestDirectory(src);
+    const QString dest = homeTmpDir() + "dest";
+    createTestDirectory(dest);
+
+    QUrl u = QUrl::fromLocalFile(src);
+    QUrl d = QUrl::fromLocalFile(dest);
+
+    KIO::Job *job = KIO::copy(u, d, KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    QVERIFY(job->exec());
+    QVERIFY(QFile::exists(dest + QStringLiteral("/a/testfile")));
+
+    job = KIO::copy(u, d, KIO::HideProgressInfo);
+    // Simulate the user pressing "Skip" in the dialog.
+    PredefinedAnswerJobUiDelegate extension;
+    extension.m_skipResult = KIO::S_SKIP;
+    job->setUiDelegateExtension(&extension);
+    QVERIFY(job->exec());
+    QVERIFY(QFile::exists(dest + QStringLiteral("/a/testfile")));
+
+    QDir(src).removeRecursively();
+    QDir(dest).removeRecursively();
+}
+
 void JobTest::safeOverwrite_data()
 {
     QTest::addColumn<bool>("destFileExists");
