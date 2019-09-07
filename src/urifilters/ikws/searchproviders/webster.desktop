@@ -93,6 +93,7 @@ Name[zh_TW]=韋氏詞典
 X-KDE-ServiceTypes=SearchProvider
 Keys=dict,webster
 Query=https://www.merriam-webster.com/dictionary/\\{@}
+Query[ast]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[ca]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[ca@valencia]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[cs]=https://www.merriam-webster.com/dictionary/\\{@}

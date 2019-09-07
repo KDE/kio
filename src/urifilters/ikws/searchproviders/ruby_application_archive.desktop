@@ -93,6 +93,7 @@ Name[zh_TW]=Ruby 應用程式檔案庫
 X-KDE-ServiceTypes=SearchProvider
 Keys=raa
 Query=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[ast]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ca]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ca@valencia]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[cs]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

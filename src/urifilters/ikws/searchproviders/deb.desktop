@@ -89,6 +89,7 @@ Name[x-test]=xxDebian Package Searchxx
 Name[zh_CN]=Debian 软件包搜索
 Name[zh_TW]=Debian 軟體包搜尋
 Query=https://packages.debian.org/\\{@}
+Query[ast]=https://packages.debian.org/\\{@}
 Query[ca]=https://packages.debian.org/\\{@}
 Query[ca@valencia]=https://packages.debian.org/\\{@}
 Query[cs]=https://packages.debian.org/\\{@}

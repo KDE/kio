@@ -91,6 +91,7 @@ Name[x-test]=xxPHP Searchxx
 Name[zh_CN]=PHP 搜索
 Name[zh_TW]=PHP 搜尋
 Query=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[ast]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[ca]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[ca@valencia]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[cs]=https://secure.php.net/manual-lookup.php?pattern=\\{@}

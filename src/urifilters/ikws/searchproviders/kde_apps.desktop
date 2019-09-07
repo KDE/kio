@@ -92,6 +92,7 @@ Name[zh_TW]=KDE 程式搜尋
 X-KDE-ServiceTypes=SearchProvider
 Keys=apps,appsy
 Query=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
+Query[ast]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ca]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ca@valencia]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[cs]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}

@@ -86,6 +86,7 @@ Name[x-test]=xxIETF Requests for Commentsxx
 Name[zh_CN]=IETF 评论请求
 Name[zh_TW]=IETF RFC 文件
 Query=https://tools.ietf.org/id/\\{@}
+Query[ast]=https://tools.ietf.org/id/\\{@}
 Query[ca]=https://tools.ietf.org/id/\\{@}
 Query[ca@valencia]=https://tools.ietf.org/id/\\{@}
 Query[cs]=https://tools.ietf.org/id/\\{@}

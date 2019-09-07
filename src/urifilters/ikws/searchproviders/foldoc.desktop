@@ -91,6 +91,7 @@ Name[zh_TW]=免費的線上電腦辭典
 X-KDE-ServiceTypes=SearchProvider
 Keys=fd,foldoc
 Query=https://foldoc.org/\\{@}
+Query[ast]=https://foldoc.org/\\{@}
 Query[ca]=https://foldoc.org/\\{@}
 Query[ca@valencia]=https://foldoc.org/\\{@}
 Query[cs]=https://foldoc.org/\\{@}

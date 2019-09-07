@@ -3,6 +3,7 @@ Type=Service
 Hidden=false
 Keys=gitlab,gt
 Name=GitLab
+Name[ast]=GitLab
 Name[ca]=GitLab
 Name[ca@valencia]=GitLab
 Name[cs]=GitLab
@@ -32,6 +33,7 @@ Name[x-test]=xxGitLabxx
 Name[zh_CN]=GitLab
 Name[zh_TW]=GitLab
 Query=https://gitlab.com/search?search=\\{@}
+Query[ast]=https://gitlab.com/search?search=\\{@}
 Query[ca]=https://gitlab.com/search?search=\\{@}
 Query[ca@valencia]=https://gitlab.com/search?search=\\{@}
 Query[cs]=https://gitlab.com/search?search=\\{@}

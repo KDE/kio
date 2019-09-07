@@ -71,6 +71,7 @@ Name[zh_TW]=Ecosia 搜索引擎
 X-KDE-ServiceTypes=SearchProvider
 Keys=ec,et,ethicle
 Query=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[ast]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ca]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ca@valencia]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[cs]=https://ecosia.org/search.php?q=\\{@}&meta=normal

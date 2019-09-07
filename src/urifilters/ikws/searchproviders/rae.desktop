@@ -93,6 +93,7 @@ Name[zh_CN]=西班牙学院的字典(RAE)
 Name[zh_TW]=西班牙金像獎字典 (RAE)
 Query=http://www.rae.es/drae/?val=\\{@}
 Query[ar]=http://www.rae.es/drae/?val=\\{@}
+Query[ast]=http://www.rae.es/drae/?val=\\{@}
 Query[bg]=http://www.rae.es/drae/?val=\\{@}
 Query[bs]=http://www.rae.es/drae/?val=\\{@}
 Query[ca]=http://www.rae.es/drae/?val=\\{@}

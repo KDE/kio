@@ -4,6 +4,7 @@ Name=Technorati
 Name[af]=Technorati
 Name[ar]=Technorati
 Name[as]=Technorati
+Name[ast]=Technorati
 Name[be]=Technorati
 Name[be@latin]=Technorati
 Name[bg]=Technorati
@@ -91,6 +92,7 @@ Name[zh_TW]=Technorati
 X-KDE-ServiceTypes=SearchProvider
 Keys=tr,technorati
 Query=https://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[ast]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ca]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ca@valencia]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[cs]=https://technorati.com/search?return=sites&authority=high&q=\\{@}

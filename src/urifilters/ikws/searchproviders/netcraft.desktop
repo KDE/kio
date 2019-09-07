@@ -4,6 +4,7 @@ Name=Netcraft
 Name[af]=Netcraft
 Name[ar]=Netcraft
 Name[as]=Netcraft
+Name[ast]=Netcraft
 Name[be]=Netcraft
 Name[be@latin]=Netcraft
 Name[bg]=Netcraft
@@ -92,6 +93,7 @@ Name[zh_TW]=Netcraft
 X-KDE-ServiceTypes=SearchProvider
 Keys=nc,netcraft
 Query=https://uptime.netcraft.com/up/graph?site=\\{@}
+Query[ast]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ca]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ca@valencia]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[cs]=https://uptime.netcraft.com/up/graph?site=\\{@}

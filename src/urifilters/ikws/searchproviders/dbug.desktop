@@ -86,6 +86,7 @@ Name[x-test]=xxDebian BTS Bug Searchxx
 Name[zh_CN]=Debian BTS Bug 搜索
 Name[zh_TW]=Debian BTS 臭蟲搜尋
 Query=https://bugs.debian.org/\\{@}
+Query[ast]=https://bugs.debian.org/\\{@}
 Query[ca]=https://bugs.debian.org/\\{@}
 Query[ca@valencia]=https://bugs.debian.org/\\{@}
 Query[cs]=https://bugs.debian.org/\\{@}

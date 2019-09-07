@@ -4,6 +4,7 @@ Name=RPM-Find
 Name[af]=RPM-Vind
 Name[ar]=RPM-Find
 Name[as]=RPM-Find
+Name[ast]=RPM-Find
 Name[be]=Пошук RPM
 Name[be@latin]=Pošuk pakunka „RPM”
 Name[bg]=Търсене на пакети RPM
@@ -93,6 +94,7 @@ Name[zh_TW]=RPM-Find
 X-KDE-ServiceTypes=SearchProvider
 Keys=rf,rpmfind
 Query=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[ast]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ca]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ca@valencia]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[cs]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

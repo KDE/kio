@@ -4,6 +4,7 @@ Hidden=false
 Keys=vimeo,vm
 Name=Vimeo
 Name[ar]=ڤيميو
+Name[ast]=Vimeo
 Name[bg]=Vimeo
 Name[bn]=ভিমিও
 Name[bs]=Vimeo
@@ -71,6 +72,7 @@ Name[x-test]=xxVimeoxx
 Name[zh_CN]=Vimeo
 Name[zh_TW]=Vimeo
 Query=https://vimeo.com/search?q=\\{@}
+Query[ast]=https://vimeo.com/search?q=\\{@}
 Query[ca]=https://vimeo.com/search?q=\\{@}
 Query[ca@valencia]=https://vimeo.com/search?q=\\{@}
 Query[cs]=https://vimeo.com/search?q=\\{@}

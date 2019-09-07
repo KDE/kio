@@ -4,6 +4,7 @@ Hidden=false
 Keys=opendesktop,odesk,od
 Name=openDesktop.org
 Name[ar]=openDesktop.org
+Name[ast]=openDesktop.org
 Name[bg]=openDesktop.org
 Name[bn]=ওপেন-ডেস্কটপ.অর্গ
 Name[bs]=Otvorena površ
@@ -70,6 +71,7 @@ Name[x-test]=xxopenDesktop.orgxx
 Name[zh_CN]=openDesktop.org
 Name[zh_TW]=openDesktop.org
 Query=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[ast]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[ca]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[ca@valencia]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[cs]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
