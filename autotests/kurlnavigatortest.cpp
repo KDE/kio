@@ -29,7 +29,7 @@ QTEST_MAIN(KUrlNavigatorTest)
 
 void KUrlNavigatorTest::initTestCase()
 {
-    m_navigator = new KUrlNavigator(nullptr, QUrl(QStringLiteral("A")), nullptr);
+    m_navigator = new KUrlNavigator(nullptr, QUrl(QStringLiteral("file:///A")), nullptr);
 }
 
 void KUrlNavigatorTest::cleanupTestCase()
@@ -43,17 +43,17 @@ void KUrlNavigatorTest::testHistorySizeAndIndex()
     QCOMPARE(m_navigator->historyIndex(), 0);
     QCOMPARE(m_navigator->historySize(), 1);
 
-    m_navigator->setLocationUrl(QUrl(QStringLiteral("A")));
+    m_navigator->setLocationUrl(QUrl(QStringLiteral("file:///A")));
 
     QCOMPARE(m_navigator->historyIndex(), 0);
     QCOMPARE(m_navigator->historySize(), 1);
 
-    m_navigator->setLocationUrl(QUrl(QStringLiteral("B")));
+    m_navigator->setLocationUrl(QUrl(QStringLiteral("file:///B")));
 
     QCOMPARE(m_navigator->historyIndex(), 0);
     QCOMPARE(m_navigator->historySize(), 2);
 
-    m_navigator->setLocationUrl(QUrl(QStringLiteral("C")));
+    m_navigator->setLocationUrl(QUrl(QStringLiteral("file:///C")));
 
     QCOMPARE(m_navigator->historyIndex(), 0);
     QCOMPARE(m_navigator->historySize(), 3);
@@ -112,7 +112,7 @@ void KUrlNavigatorTest::testHistoryInsert()
     QCOMPARE(m_navigator->historyIndex(), 0);
     QCOMPARE(m_navigator->historySize(), 3);
 
-    m_navigator->setLocationUrl(QUrl(QStringLiteral("D")));
+    m_navigator->setLocationUrl(QUrl(QStringLiteral("file:///D")));
 
     QCOMPARE(m_navigator->historyIndex(), 0);
     QCOMPARE(m_navigator->historySize(), 4);
@@ -122,11 +122,11 @@ void KUrlNavigatorTest::testHistoryInsert()
     QCOMPARE(m_navigator->historyIndex(), 1);
     QCOMPARE(m_navigator->historySize(), 4);
 
-    m_navigator->setLocationUrl(QUrl(QStringLiteral("E")));
+    m_navigator->setLocationUrl(QUrl(QStringLiteral("file:///E")));
     QCOMPARE(m_navigator->historyIndex(), 0);
     QCOMPARE(m_navigator->historySize(), 4);
 
-    m_navigator->setLocationUrl(QUrl(QStringLiteral("F")));
+    m_navigator->setLocationUrl(QUrl(QStringLiteral("file:///F")));
     QCOMPARE(m_navigator->historyIndex(), 0);
     QCOMPARE(m_navigator->historySize(), 5);
 
@@ -137,18 +137,18 @@ void KUrlNavigatorTest::testHistoryInsert()
     QCOMPARE(m_navigator->historyIndex(), 2);
     QCOMPARE(m_navigator->historySize(), 5);
 
-    m_navigator->setLocationUrl(QUrl(QStringLiteral("G")));
+    m_navigator->setLocationUrl(QUrl(QStringLiteral("file:///G")));
 
     QCOMPARE(m_navigator->historyIndex(), 0);
     QCOMPARE(m_navigator->historySize(), 4);
 
     // insert same URL as the current history index
-    m_navigator->setLocationUrl(QUrl(QStringLiteral("G")));
+    m_navigator->setLocationUrl(QUrl(QStringLiteral("file:///G")));
     QCOMPARE(m_navigator->historyIndex(), 0);
     QCOMPARE(m_navigator->historySize(), 4);
 
     // insert same URL with a trailing slash as the current history index
-    m_navigator->setLocationUrl(QUrl(QStringLiteral("G/")));
+    m_navigator->setLocationUrl(QUrl(QStringLiteral("file:///G/")));
     QCOMPARE(m_navigator->historyIndex(), 0);
     QCOMPARE(m_navigator->historySize(), 4);
 
@@ -158,7 +158,7 @@ void KUrlNavigatorTest::testHistoryInsert()
     QCOMPARE(m_navigator->historyIndex(), 1);
     QCOMPARE(m_navigator->historySize(), 4);
 
-    m_navigator->setLocationUrl(QUrl(QStringLiteral("C")));
+    m_navigator->setLocationUrl(QUrl(QStringLiteral("file:///C")));
     QCOMPARE(m_navigator->historyIndex(), 1);
     QCOMPARE(m_navigator->historySize(), 4);
 }
