@@ -24,7 +24,7 @@
 #include <QString>
 
 class QUrl;
-class QScriptEngine;
+class QJSEngine;
 
 namespace KPAC
 {
@@ -52,7 +52,7 @@ public:
     QString evaluate(const QUrl &);
 
 private:
-    QScriptEngine *m_engine;
+    QJSEngine *m_engine;
 };
 }
 

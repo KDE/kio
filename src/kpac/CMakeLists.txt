@@ -17,9 +17,9 @@ configure_file(config-kpac.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kpac.h)
 
 ########### next target ###############
 
-find_package(Qt5Script ${REQUIRED_QT_VERSION})
+find_package(Qt5Qml ${REQUIRED_QT_VERSION})
 
-if (Qt5Script_FOUND)
+if (Qt5Qml_FOUND)
 
     set(kded_proxyscout_PART_SRCS
       proxyscout.cpp
@@ -34,7 +34,7 @@ if (Qt5Script_FOUND)
     )
     target_link_libraries(kded_proxyscout
        Qt5::Network
-       Qt5::Script
+       Qt5::Qml
        ${KPAC_EXTRA_LIBS}
        KF5::KIOCore      # KIO::get
        KF5::DBusAddons  # KDEDModule

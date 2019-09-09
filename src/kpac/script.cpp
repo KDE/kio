@@ -29,9 +29,9 @@
 #include <QHostAddress>
 #include <QNetworkInterface>
 
-#include <QScriptValue>
-#include <QScriptEngine>
-#include <QScriptProgram>
+#include <QJSEngine>
+#include <QJSValue>
+#include <QJSValueIterator>
 
 #include <klocalizedstring.h>
 #include <kio/hostinfo.h>
@@ -51,9 +51,8 @@ static int findString(const QString &s, const char *const *values)
     return -1;
 }
 
-static const QDateTime getTime(QScriptContext *context)
+static const QDateTime getTime(QString tz)
 {
-    const QString tz = context->argument(context->argumentCount() - 1).toString();
     if (tz.compare(QLatin1String("gmt"), Qt::CaseInsensitive) == 0) {
         return QDateTime::currentDateTimeUtc();
     }
@@ -191,55 +190,42 @@ private:
     QList<QHostAddress> m_addressList;
 };
 
+class ScriptHelper : public QObject {
+    Q_OBJECT
+    QJSEngine *m_engine;
+public:
+    ScriptHelper(QJSEngine *engine, QObject *parent) : QObject(parent), m_engine(engine) { }
+
 // isPlainHostName(host)
 // @returns true if @p host doesn't contains a domain part
-QScriptValue IsPlainHostName(QScriptContext *context, QScriptEngine *engine)
+Q_INVOKABLE QJSValue IsPlainHostName(QString string)
 {
-    if (context->argumentCount() != 1) {
-        return engine->undefinedValue();
-    }
-    return engine->toScriptValue(context->argument(0).toString().indexOf(QLatin1Char('.')) == -1);
+    return QJSValue(string.indexOf(QLatin1Char('.')) == -1);
 }
 
 // dnsDomainIs(host, domain)
 // @returns true if the domain part of @p host matches @p domain
-QScriptValue DNSDomainIs(QScriptContext *context, QScriptEngine *engine)
+Q_INVOKABLE QJSValue DNSDomainIs(QString host, QString domain)
 {
-    if (context->argumentCount() != 2) {
-        return engine->undefinedValue();
-    }
-
-    const QString host = context->argument(0).toString();
-    const QString domain = context->argument(1).toString();
-    return engine->toScriptValue(host.endsWith(domain, Qt::CaseInsensitive));
+    return QJSValue(host.endsWith(domain, Qt::CaseInsensitive));
 }
 
 // localHostOrDomainIs(host, fqdn)
 // @returns true if @p host is unqualified or equals @p fqdn
-QScriptValue LocalHostOrDomainIs(QScriptContext *context, QScriptEngine *engine)
+Q_INVOKABLE QJSValue LocalHostOrDomainIs(QString host, QString fqdn)
 {
-    if (context->argumentCount() != 2) {
-        return engine->undefinedValue();
-    }
-
-    const QString host = context->argument(0).toString();
     if (!host.contains(QLatin1Char('.'))) {
-        return engine->toScriptValue(true);
+        return QJSValue(true);
     }
-    const QString fqdn = context->argument(1).toString();
-    return engine->toScriptValue((host.compare(fqdn, Qt::CaseInsensitive) == 0));
+    return QJSValue(host.compare(fqdn, Qt::CaseInsensitive) == 0);
 }
 
 // isResolvable(host)
 // @returns true if host is resolvable to a IPv4 address.
-QScriptValue IsResolvable(QScriptContext *context, QScriptEngine *engine)
+Q_INVOKABLE QJSValue IsResolvable(QString host)
 {
-    if (context->argumentCount() != 1) {
-        return engine->undefinedValue();
-    }
-
     try {
-        const Address info = Address::resolve(context->argument(0).toString());
+        const Address info = Address::resolve(host);
         bool hasResolvableIPv4Address = false;
 
         Q_FOREACH (const QHostAddress &address, info.addresses()) {
@@ -249,25 +235,21 @@ QScriptValue IsResolvable(QScriptContext *context, QScriptEngine *engine)
             }
         }
 
-        return engine->toScriptValue(hasResolvableIPv4Address);
+        return QJSValue(hasResolvableIPv4Address);
     } catch (const Address::Error &) {
-        return engine->toScriptValue(false);
+        return QJSValue(false);
     }
 }
 
 // isInNet(host, subnet, mask)
 // @returns true if the IPv4 address of host is within the specified subnet
 // and mask, false otherwise.
-QScriptValue IsInNet(QScriptContext *context, QScriptEngine *engine)
+Q_INVOKABLE QJSValue IsInNet(QString host, QString subnet, QString mask)
 {
-    if (context->argumentCount() != 3) {
-        return engine->undefinedValue();
-    }
-
     try {
-        const Address info = Address::resolve(context->argument(0).toString());
+        const Address info = Address::resolve(host);
         bool isInSubNet = false;
-        const QString subnetStr = context->argument(1).toString() + QLatin1Char('/') + context->argument(2).toString();
+        const QString subnetStr = subnet + QLatin1Char('/') + mask;
         const QPair<QHostAddress, int> subnet = QHostAddress::parseSubnet(subnetStr);
         Q_FOREACH (const QHostAddress &address, info.addresses()) {
             if (!isSpecialAddress(address) && isIPv4Address(address) && address.isInSubnet(subnet)) {
@@ -275,22 +257,18 @@ QScriptValue IsInNet(QScriptContext *context, QScriptEngine *engine)
                 break;
             }
         }
-        return engine->toScriptValue(isInSubNet);
+        return QJSValue(isInSubNet);
     } catch (const Address::Error &) {
-        return engine->toScriptValue(false);
+        return QJSValue(false);
     }
 }
 
 // dnsResolve(host)
 // @returns the IPv4 address for host or an empty string if host is not resolvable.
-QScriptValue DNSResolve(QScriptContext *context, QScriptEngine *engine)
+Q_INVOKABLE QJSValue DNSResolve(QString host)
 {
-    if (context->argumentCount() != 1) {
-        return engine->undefinedValue();
-    }
-
     try {
-        const Address info = Address::resolve(context->argument(0).toString());
+        const Address info = Address::resolve(host);
         QString resolvedAddress(QLatin1String(""));
         Q_FOREACH (const QHostAddress &address, info.addresses()) {
             if (!isSpecialAddress(address) && isIPv4Address(address)) {
@@ -298,9 +276,9 @@ QScriptValue DNSResolve(QScriptContext *context, QScriptEngine *engine)
                 break;
             }
         }
-        return engine->toScriptValue(resolvedAddress);
+        return QJSValue(resolvedAddress);
     } catch (const Address::Error &) {
-        return engine->toScriptValue(QString(QLatin1String("")));
+        return QJSValue(QString(QLatin1String("")));
     }
 }
 
@@ -308,12 +286,8 @@ QScriptValue DNSResolve(QScriptContext *context, QScriptEngine *engine)
 // @returns the local machine's IPv4 address. Note that this will return
 // the address for the first interfaces that match its criteria even if the
 // machine has multiple interfaces.
-QScriptValue MyIpAddress(QScriptContext *context, QScriptEngine *engine)
+Q_INVOKABLE QJSValue MyIpAddress()
 {
-    if (context->argumentCount()) {
-        return engine->undefinedValue();
-    }
-
     QString ipAddress;
     const QList<QHostAddress> addresses = QNetworkInterface::allAddresses();
     for (const QHostAddress& address : addresses) {
@@ -323,66 +297,54 @@ QScriptValue MyIpAddress(QScriptContext *context, QScriptEngine *engine)
         }
     }
 
-    return engine->toScriptValue(ipAddress);
+    return QJSValue(ipAddress);
 }
 
 // dnsDomainLevels(host)
 // @returns the number of dots ('.') in @p host
-QScriptValue DNSDomainLevels(QScriptContext *context, QScriptEngine *engine)
+Q_INVOKABLE QJSValue DNSDomainLevels(QString host)
 {
-    if (context->argumentCount() != 1) {
-        return engine->undefinedValue();
-    }
-
-    const QString host = context->argument(0).toString();
     if (host.isNull()) {
-        return engine->toScriptValue(0);
+        return QJSValue(0);
     }
 
-    return engine->toScriptValue(host.count(QLatin1Char('.')));
+    return QJSValue(host.count(QLatin1Char('.')));
 }
 
 // shExpMatch(str, pattern)
 // @returns true if @p str matches the shell @p pattern
-QScriptValue ShExpMatch(QScriptContext *context, QScriptEngine *engine)
+Q_INVOKABLE QJSValue ShExpMatch(QString str, QString patternStr)
 {
-    if (context->argumentCount() != 2) {
-        return engine->undefinedValue();
-    }
-
-    QRegExp pattern(context->argument(1).toString(), Qt::CaseSensitive, QRegExp::Wildcard);
-    return engine->toScriptValue(pattern.exactMatch(context->argument(0).toString()));
+    QRegExp pattern(patternStr, Qt::CaseSensitive, QRegExp::Wildcard);
+    return QJSValue(pattern.exactMatch(str));
 }
 
 // weekdayRange(day [, "GMT" ])
 // weekdayRange(day1, day2 [, "GMT" ])
 // @returns true if the current day equals day or between day1 and day2 resp.
 // If the last argument is "GMT", GMT timezone is used, otherwise local time
-QScriptValue WeekdayRange(QScriptContext *context, QScriptEngine *engine)
+Q_INVOKABLE QJSValue WeekdayRange(QString day1, QString arg2 = QString(), QString tz = QString())
 {
-    if (context->argumentCount() < 1 || context->argumentCount() > 3) {
-        return engine->undefinedValue();
-    }
-
     static const char *const days[] = { "sun", "mon", "tue", "wed", "thu", "fri", "sat", nullptr };
 
-    const int d1 = findString(context->argument(0).toString(), days);
+    const int d1 = findString(day1, days);
     if (d1 == -1) {
-        return engine->undefinedValue();
+        return QJSValue::UndefinedValue;
     }
 
-    int d2 = findString(context->argument(1).toString(), days);
+    int d2 = findString(arg2, days);
     if (d2 == -1) {
         d2 = d1;
+        tz = arg2;
     }
 
     // Adjust the days of week coming from QDateTime since it starts
     // counting with Monday as 1 and ends with Sunday as day 7.
-    int dayOfWeek = getTime(context).date().dayOfWeek();
+    int dayOfWeek = getTime(tz).date().dayOfWeek();
     if (dayOfWeek == 7) {
         dayOfWeek = 0;
     }
-    return engine->toScriptValue(checkRange(dayOfWeek, d1, d2));
+    return QJSValue(checkRange(dayOfWeek, d1, d2));
 }
 
 // dateRange(day [, "GMT" ])
@@ -396,24 +358,29 @@ QScriptValue WeekdayRange(QScriptContext *context, QScriptEngine *engine)
 // dateRange(day1, month1, year1, day2, month2, year2 [, "GMT" ])
 // @returns true if the current date (GMT or local time according to
 // presence of "GMT" as last argument) is within the given range
-QScriptValue DateRange(QScriptContext *context, QScriptEngine *engine)
+QJSValue dateRangeInternal(QJSValue args)
 {
-    if (context->argumentCount() < 1 || context->argumentCount() > 7) {
-        return engine->undefinedValue();
-    }
-
     static const char *const months[] = { "jan", "feb", "mar", "apr", "may", "jun",
                                           "jul", "aug", "sep", "oct", "nov", "dec", nullptr
                                         };
 
     QVector<int> values;
-    for (int i = 0; i < context->argumentCount(); ++i) {
+    QJSValueIterator it(args);
+    QString tz;
+    bool onlySeenNumbers = true;
+    int initialNumbers = 0;
+    while (it.next()) {
         int value = -1;
-        if (context->argument(i).isNumber()) {
-            value = context->argument(i).toInt32();
+        if (it.value().isNumber()) {
+            value = it.value().toInt();
+            if (onlySeenNumbers)
+                initialNumbers++;
         } else {
+            onlySeenNumbers = false;
             // QDate starts counting months from 1, so we add 1 here.
-            value = findString(context->argument(i).toString(), months) + 1;
+            value = findString(it.value().toString(), months) + 1;
+            if (value <= 0)
+                tz = it.value().toString();
         }
 
         if (value > 0) {
@@ -422,53 +389,55 @@ QScriptValue DateRange(QScriptContext *context, QScriptEngine *engine)
             break;
         }
     }
+    if (values.count() < 1 || values.count() > 6)
+        return QJSValue::UndefinedValue;
 
-    const QDate now = getTime(context).date();
+    const QDate now = getTime(tz).date();
 
     // day1, month1, year1, day2, month2, year2
     if (values.size() == 6) {
         const QDate d1(values[2], values[1], values[0]);
         const QDate d2(values[5], values[4], values[3]);
-        return engine->toScriptValue(checkRange(now, d1, d2));
+        return QJSValue(checkRange(now, d1, d2));
     }
     // day1, month1, day2, month2
     else if (values.size() == 4 && values[ 1 ] < 13 && values[ 3 ] < 13) {
         const QDate d1(now.year(), values[1], values[0]);
         const QDate d2(now.year(), values[3], values[2]);
-        return engine->toScriptValue(checkRange(now, d1, d2));
+        return QJSValue(checkRange(now, d1, d2));
     }
     // month1, year1, month2, year2
     else if (values.size() == 4) {
         const QDate d1(values[1], values[0], now.day());
         const QDate d2(values[3], values[2], now.day());
-        return engine->toScriptValue(checkRange(now, d1, d2));
+        return QJSValue(checkRange(now, d1, d2));
     }
     // year1, year2
     else if (values.size() == 2 && values[0] >= 1000 && values[1] >= 1000) {
-        return engine->toScriptValue(checkRange(now.year(), values[0], values[1]));
+        return QJSValue(checkRange(now.year(), values[0], values[1]));
     }
     // day1, day2
-    else if (values.size() == 2 && context->argument(0).isNumber() && context->argument(1).isNumber()) {
-        return engine->toScriptValue(checkRange(now.day(), values[0], values[1]));
+    else if (values.size() == 2 && initialNumbers == 2) {
+        return QJSValue(checkRange(now.day(), values[0], values[1]));
     }
     // month1, month2
     else if (values.size() == 2) {
-        return engine->toScriptValue(checkRange(now.month(), values[0], values[1]));
+        return QJSValue(checkRange(now.month(), values[0], values[1]));
     }
     // year
     else if (values.size() == 1 && values[ 0 ] >= 1000) {
-        return engine->toScriptValue(checkRange(now.year(), values[0], values[0]));
+        return QJSValue(checkRange(now.year(), values[0], values[0]));
     }
     // day
-    else if (values.size() == 1 && context->argument(0).isNumber()) {
-        return engine->toScriptValue(checkRange(now.day(), values[0], values[0]));
+    else if (values.size() == 1 && initialNumbers == 1) {
+        return QJSValue(checkRange(now.day(), values[0], values[0]));
     }
     // month
     else if (values.size() == 1) {
-        return engine->toScriptValue(checkRange(now.month(), values[0], values[0]));
+        return QJSValue(checkRange(now.month(), values[0], values[0]));
     }
 
-    return engine->undefinedValue();
+    return QJSValue::UndefinedValue;
 }
 
 // timeRange(hour [, "GMT" ])
@@ -477,44 +446,33 @@ QScriptValue DateRange(QScriptContext *context, QScriptEngine *engine)
 // timeRange(hour1, min1, sec1, hour2, min2, sec2 [, "GMT" ])
 // @returns true if the current time (GMT or local based on presence
 // of "GMT" argument) is within the given range
-QScriptValue TimeRange(QScriptContext *context, QScriptEngine *engine)
+Q_INVOKABLE QJSValue TimeRange(int hour, QString tz = QString())
 {
-    if (context->argumentCount() < 1 || context->argumentCount() > 7) {
-        return engine->undefinedValue();
-    }
+    const QTime now = getTime(tz).time();
+    return m_engine->toScriptValue(checkRange(now.hour(), hour, hour));
+}
 
-    QVector<int> values;
-    for (int i = 0; i < context->argumentCount(); ++i) {
-        if (!context->argument(i).isNumber()) {
-            break;
-        }
-        values.append(context->argument(i).toNumber());
-    }
+Q_INVOKABLE QJSValue TimeRange(int hour1, int hour2, QString tz = QString())
+{
+    const QTime now = getTime(tz).time();
+    return m_engine->toScriptValue(checkRange(now.hour(), hour1, hour2));
+}
 
-    const QTime now = getTime(context).time();
+Q_INVOKABLE QJSValue TimeRange(int hour1, int min1, int hour2, int min2, QString tz = QString())
+{
+    const QTime now = getTime(tz).time();
+    const QTime t1(hour1, min1);
+    const QTime t2(hour2, min2);
+    return m_engine->toScriptValue(checkRange(now, t1, t2));
+}
 
-    // hour1, min1, sec1, hour2, min2, sec2
-    if (values.size() == 6) {
-        const QTime t1(values[0], values[1], values[2]);
-        const QTime t2(values[3], values[4], values[5]);
-        return engine->toScriptValue(checkRange(now, t1, t2));
-    }
-    // hour1, min1, hour2, min2
-    else if (values.size() == 4) {
-        const QTime t1(values[0], values[1]);
-        const QTime t2(values[2], values[3]);
-        return engine->toScriptValue(checkRange(now, t1, t2));
-    }
-    // hour1, hour2
-    else if (values.size() == 2) {
-        return engine->toScriptValue(checkRange(now.hour(), values[0], values[1]));
-    }
-    // hour
-    else if (values.size() == 1) {
-        return engine->toScriptValue(checkRange(now.hour(), values[0], values[0]));
-    }
+Q_INVOKABLE QJSValue TimeRange(int hour1, int min1, int sec1, int hour2, int min2, int sec2, QString tz = QString())
+{
+    const QTime now = getTime(tz).time();
 
-    return engine->undefinedValue();
+    const QTime t1(hour1, min1, sec1);
+    const QTime t2(hour2, min2, sec2);
+    return m_engine->toScriptValue(checkRange(now, t1, t2));
 }
 
 /*
@@ -529,14 +487,10 @@ QScriptValue TimeRange(QScriptContext *context, QScriptEngine *engine)
 
 // isResolvableEx(host)
 // @returns true if host is resolvable to an IPv4 or IPv6 address.
-QScriptValue IsResolvableEx(QScriptContext *context, QScriptEngine *engine)
+Q_INVOKABLE QJSValue IsResolvableEx(QString host)
 {
-    if (context->argumentCount() != 1) {
-        return engine->undefinedValue();
-    }
-
     try {
-        const Address info = Address::resolve(context->argument(0).toString());
+        const Address info = Address::resolve(host);
         bool hasResolvableIPAddress = false;
         Q_FOREACH (const QHostAddress &address, info.addresses()) {
             if (isIPv4Address(address) || isIPv6Address(address)) {
@@ -544,24 +498,20 @@ QScriptValue IsResolvableEx(QScriptContext *context, QScriptEngine *engine)
                 break;
             }
         }
-        return engine->toScriptValue(hasResolvableIPAddress);
+        return QJSValue(hasResolvableIPAddress);
     } catch (const Address::Error &) {
-        return engine->toScriptValue(false);
+        return QJSValue(false);
     }
 }
 
 // isInNetEx(ipAddress, ipPrefix )
 // @returns true if ipAddress is within the specified ipPrefix.
-QScriptValue IsInNetEx(QScriptContext *context, QScriptEngine *engine)
+Q_INVOKABLE QJSValue IsInNetEx(QString ipAddress, QString ipPrefix)
 {
-    if (context->argumentCount() != 2) {
-        return engine->undefinedValue();
-    }
-
     try {
-        const Address info = Address::resolve(context->argument(0).toString());
+        const Address info = Address::resolve(ipAddress);
         bool isInSubNet = false;
-        const QString subnetStr = context->argument(1).toString();
+        const QString subnetStr = ipPrefix;
         const QPair<QHostAddress, int> subnet = QHostAddress::parseSubnet(subnetStr);
 
         Q_FOREACH (const QHostAddress &address, info.addresses()) {
@@ -574,23 +524,19 @@ QScriptValue IsInNetEx(QScriptContext *context, QScriptEngine *engine)
                 break;
             }
         }
-        return engine->toScriptValue(isInSubNet);
+        return QJSValue(isInSubNet);
     } catch (const Address::Error &) {
-        return engine->toScriptValue(false);
+        return QJSValue(false);
     }
 }
 
 // dnsResolveEx(host)
 // @returns a semi-colon delimited string containing IPv6 and IPv4 addresses
 // for host or an empty string if host is not resolvable.
-QScriptValue DNSResolveEx(QScriptContext *context, QScriptEngine *engine)
+Q_INVOKABLE QJSValue DNSResolveEx(QString host)
 {
-    if (context->argumentCount() != 1) {
-        return engine->undefinedValue();
-    }
-
     try {
-        const Address info = Address::resolve(context->argument(0).toString());
+        const Address info = Address::resolve(host);
 
         QStringList addressList;
         QString resolvedAddress(QLatin1String(""));
@@ -604,21 +550,17 @@ QScriptValue DNSResolveEx(QScriptContext *context, QScriptEngine *engine)
             resolvedAddress = addressList.join(QLatin1Char(';'));
         }
 
-        return engine->toScriptValue(resolvedAddress);
+        return QJSValue(resolvedAddress);
     } catch (const Address::Error &) {
-        return engine->toScriptValue(QString(QLatin1String("")));
+        return QJSValue(QString(QLatin1String("")));
     }
 }
 
 // myIpAddressEx()
 // @returns a semi-colon delimited string containing all IP addresses for localhost (IPv6 and/or IPv4),
 // or an empty string if unable to resolve localhost to an IP address.
-QScriptValue MyIpAddressEx(QScriptContext *context, QScriptEngine *engine)
+Q_INVOKABLE QJSValue MyIpAddressEx()
 {
-    if (context->argumentCount()) {
-        return engine->undefinedValue();
-    }
-
     QStringList ipAddressList;
     const QList<QHostAddress> addresses = QNetworkInterface::allAddresses();
     for (const QHostAddress& address : addresses) {
@@ -627,21 +569,17 @@ QScriptValue MyIpAddressEx(QScriptContext *context, QScriptEngine *engine)
         }
     }
 
-    return engine->toScriptValue(ipAddressList.join(QLatin1Char(';')));
+    return m_engine->toScriptValue(ipAddressList.join(QLatin1Char(';')));
 }
 
 // sortIpAddressList(ipAddressList)
 // @returns a sorted ipAddressList. If both IPv4 and IPv6 addresses are present in
 // the list. The sorted IPv6 addresses will precede the sorted IPv4 addresses.
-QScriptValue SortIpAddressList(QScriptContext *context, QScriptEngine *engine)
+Q_INVOKABLE QJSValue SortIpAddressList(QString ipAddressListStr)
 {
-    if (context->argumentCount() != 1) {
-        return engine->undefinedValue();
-    }
-
     QHash<QString, QString> actualEntryMap;
     QList<QHostAddress> ipV4List, ipV6List;
-    const QStringList ipAddressList = context->argument(0).toString().split(QLatin1Char(';'));
+    const QStringList ipAddressList = ipAddressListStr.split(QLatin1Char(';'));
 
     for (const QString &ipAddress : ipAddressList) {
         QHostAddress address(ipAddress);
@@ -674,60 +612,60 @@ QScriptValue SortIpAddressList(QScriptContext *context, QScriptEngine *engine)
         sortedAddress += addressListToString(ipV4List, actualEntryMap);
     }
 
-    return engine->toScriptValue(sortedAddress);
+    return QJSValue(sortedAddress);
 
 }
 
 // getClientVersion
 // @return the version number of this engine for future extension. We too start
 // this at version 1.0.
-QScriptValue GetClientVersion(QScriptContext *context, QScriptEngine *engine)
+Q_INVOKABLE QJSValue GetClientVersion()
 {
-    if (context->argumentCount()) {
-        return engine->undefinedValue();
-    }
-
     const QString version(QStringLiteral("1.0"));
-    return engine->toScriptValue(version);
+    return QJSValue(version);
 }
+}; // class ScriptHelper
 
-void registerFunctions(QScriptEngine *engine)
+void registerFunctions(QJSEngine *engine)
 {
-    QScriptValue value = engine->globalObject();
-    value.setProperty(QStringLiteral("isPlainHostName"), engine->newFunction(IsPlainHostName));
-    value.setProperty(QStringLiteral("dnsDomainIs"), engine->newFunction(DNSDomainIs));
-    value.setProperty(QStringLiteral("localHostOrDomainIs"), engine->newFunction(LocalHostOrDomainIs));
-    value.setProperty(QStringLiteral("isResolvable"), engine->newFunction(IsResolvable));
-    value.setProperty(QStringLiteral("isInNet"), engine->newFunction(IsInNet));
-    value.setProperty(QStringLiteral("dnsResolve"), engine->newFunction(DNSResolve));
-    value.setProperty(QStringLiteral("myIpAddress"), engine->newFunction(MyIpAddress));
-    value.setProperty(QStringLiteral("dnsDomainLevels"), engine->newFunction(DNSDomainLevels));
-    value.setProperty(QStringLiteral("shExpMatch"), engine->newFunction(ShExpMatch));
-    value.setProperty(QStringLiteral("weekdayRange"), engine->newFunction(WeekdayRange));
-    value.setProperty(QStringLiteral("dateRange"), engine->newFunction(DateRange));
-    value.setProperty(QStringLiteral("timeRange"), engine->newFunction(TimeRange));
+    QJSValue value = engine->globalObject();
+    auto scriptHelper = new ScriptHelper(engine, engine);
+    QJSValue functions = engine->newQObject(scriptHelper);
+
+    value.setProperty(QStringLiteral("isPlainHostName"), functions.property(QStringLiteral("IsPlainHostName")));
+    value.setProperty(QStringLiteral("dnsDomainIs"), functions.property(QStringLiteral("DNSDomainIs")));
+    value.setProperty(QStringLiteral("localHostOrDomainIs"), functions.property(QStringLiteral("LocalHostOrDomainIs")));
+    value.setProperty(QStringLiteral("isResolvable"), functions.property(QStringLiteral("IsResolvable")));
+    value.setProperty(QStringLiteral("isInNet"), functions.property(QStringLiteral("IsInNet")));
+    value.setProperty(QStringLiteral("dnsResolve"), functions.property(QStringLiteral("DNSResolve")));
+    value.setProperty(QStringLiteral("myIpAddress"), functions.property(QStringLiteral("MyIpAddress")));
+    value.setProperty(QStringLiteral("dnsDomainLevels"), functions.property(QStringLiteral("DNSDomainLevels")));
+    value.setProperty(QStringLiteral("shExpMatch"), functions.property(QStringLiteral("ShExpMatch")));
+    value.setProperty(QStringLiteral("weekdayRange"), functions.property(QStringLiteral("WeekdayRange")));
+    value.setProperty(QStringLiteral("timeRange"), functions.property(QStringLiteral("TimeRange")));
+    value.setProperty(QStringLiteral("dateRangeInternal"), functions.property(QStringLiteral("dateRangeInternal")));
+    engine->evaluate(QStringLiteral("dateRange = function() { return dateRangeInternal(Array.prototype.slice.call(arguments)); };"));
 
     // Microsoft's IPv6 PAC Extensions...
-    value.setProperty(QStringLiteral("isResolvableEx"), engine->newFunction(IsResolvableEx));
-    value.setProperty(QStringLiteral("isInNetEx"), engine->newFunction(IsInNetEx));
-    value.setProperty(QStringLiteral("dnsResolveEx"), engine->newFunction(DNSResolveEx));
-    value.setProperty(QStringLiteral("myIpAddressEx"), engine->newFunction(MyIpAddressEx));
-    value.setProperty(QStringLiteral("sortIpAddressList"), engine->newFunction(SortIpAddressList));
-    value.setProperty(QStringLiteral("getClientVersion"), engine->newFunction(GetClientVersion));
+    value.setProperty(QStringLiteral("isResolvableEx"), functions.property(QStringLiteral("IsResolvableEx")));
+    value.setProperty(QStringLiteral("isInNetEx"), functions.property(QStringLiteral("IsInNetEx")));
+    value.setProperty(QStringLiteral("dnsResolveEx"), functions.property(QStringLiteral("DNSResolveEx")));
+    value.setProperty(QStringLiteral("myIpAddressEx"), functions.property(QStringLiteral("MyIpAddressEx")));
+    value.setProperty(QStringLiteral("sortIpAddressList"), functions.property(QStringLiteral("SortIpAddressList")));
+    value.setProperty(QStringLiteral("getClientVersion"), functions.property(QStringLiteral("GetClientVersion")));
 }
-}
+} // namespace
 
 namespace KPAC
 {
 Script::Script(const QString &code)
 {
-    m_engine = new QScriptEngine;
+    m_engine = new QJSEngine;
     registerFunctions(m_engine);
 
-    QScriptProgram program(code);
-    const QScriptValue result = m_engine->evaluate(program);
-    if (m_engine->hasUncaughtException() || result.isError()) {
-        throw Error(m_engine->uncaughtException().toString());
+    const QJSValue result = m_engine->evaluate(code);
+    if (result.isError()) {
+        throw Error(result.toString());
     }
 }
 
@@ -738,11 +676,11 @@ Script::~Script()
 
 QString Script::evaluate(const QUrl &url)
 {
-    QScriptValue func = m_engine->globalObject().property(QStringLiteral("FindProxyForURL"));
+    QJSValue func = m_engine->globalObject().property(QStringLiteral("FindProxyForURL"));
 
-    if (!func.isValid()) {
+    if (!func.isCallable()) {
         func = m_engine->globalObject().property(QStringLiteral("FindProxyForURLEx"));
-        if (!func.isValid()) {
+        if (!func.isCallable()) {
             throw Error(i18n("Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"));
             return QString();
         }
@@ -755,16 +693,17 @@ QString Script::evaluate(const QUrl &url)
         cleanUrl.setQuery(QString());
     }
 
-    QScriptValueList args;
+    QJSValueList args;
     args << cleanUrl.url();
     args << cleanUrl.host();
 
-    QScriptValue result = func.call(QScriptValue(), args);
+    QJSValue result = func.call(args);
     if (result.isError()) {
         throw Error(i18n("Got an invalid reply when calling %1", func.toString()));
     }
 
     return result.toString();
 }
-}
+} // namespace KPAC
 
+#include "script.moc"
