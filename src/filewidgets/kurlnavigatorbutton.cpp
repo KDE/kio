@@ -386,7 +386,7 @@ void KUrlNavigatorButton::mouseMoveEvent(QMouseEvent *event)
 void KUrlNavigatorButton::wheelEvent(QWheelEvent *event)
 {
     if (event->orientation() == Qt::Vertical) {
-        m_wheelSteps = event->delta() / 120;
+        m_wheelSteps = event->angleDelta().y() / 120;
         m_replaceButton = true;
         startSubDirsJob();
     }

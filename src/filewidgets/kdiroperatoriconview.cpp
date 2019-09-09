@@ -99,7 +99,7 @@ void KDirOperatorIconView::wheelEvent(QWheelEvent *event)
     // the items are aligned from left to right
     if (event->orientation() == Qt::Vertical) {
         QWheelEvent horizEvent(event->pos(),
-                               event->delta(),
+                               event->angleDelta().y(),
                                event->buttons(),
                                event->modifiers(),
                                Qt::Horizontal);

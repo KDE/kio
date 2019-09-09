@@ -1365,7 +1365,7 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
     case QEvent::Wheel: {
         QWheelEvent *evt = static_cast<QWheelEvent *>(event);
         if (evt->modifiers() & Qt::ControlModifier) {
-            if (evt->delta() > 0) {
+            if (evt->angleDelta().y() > 0) {
                 setIconsZoom(d->iconsZoom + 10);
             } else {
                 setIconsZoom(d->iconsZoom - 10);
