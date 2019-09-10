@@ -22,7 +22,7 @@
 #include "ksslcertificatemanager_p.h"
 
 #include "ktcpsocket.h"
-#include "ktcpsocket_p.h"
+#include "ksslerroruidata_p.h"
 #include <kconfig.h>
 #include <kconfiggroup.h>
 #include <klocalizedstring.h>

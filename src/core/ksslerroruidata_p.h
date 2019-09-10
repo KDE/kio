@@ -17,8 +17,14 @@
     Boston, MA 02110-1301, USA.
 */
 
-#ifndef KTCPSOCKET_P_H
-#define KTCPSOCKET_P_H
+#ifndef KSSLERRORUIDATA_P_H
+#define KSSLERRORUIDATA_P_H
+
+#include "ksslerroruidata.h"
+#include "ktcpsocket.h"
+
+#include <QString>
+#include <QSslCertificate>
 
 class Q_DECL_HIDDEN KSslErrorUiData::Private
 {
@@ -38,4 +44,4 @@ public:
     int bits;
 };
 
-#endif // KTCPSOCKET_P_H
+#endif // KSSLERRORUIDATA_P_H

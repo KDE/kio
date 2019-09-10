@@ -87,6 +87,7 @@ set(kiocore_SRCS
   faviconscache.cpp
 
   ksslcertificatemanager.cpp
+  ksslerroruidata.cpp
   ktcpsocket.cpp
   kssl/ksslsettings.cpp
 
@@ -264,6 +265,7 @@ ecm_generate_headers(KIOCore_HEADERS
   KProtocolManager
   KRecentDocument
   KSslCertificateManager
+  KSslErrorUiData
   KTcpSocket
 
   REQUIRED_HEADERS KIOCore_HEADERS
