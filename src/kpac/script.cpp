@@ -358,12 +358,11 @@ Q_INVOKABLE QJSValue WeekdayRange(QString day1, QString arg2 = QString(), QStrin
 // dateRange(day1, month1, year1, day2, month2, year2 [, "GMT" ])
 // @returns true if the current date (GMT or local time according to
 // presence of "GMT" as last argument) is within the given range
-QJSValue dateRangeInternal(QJSValue args)
+Q_INVOKABLE QJSValue DateRangeInternal(QJSValue args)
 {
     static const char *const months[] = { "jan", "feb", "mar", "apr", "may", "jun",
                                           "jul", "aug", "sep", "oct", "nov", "dec", nullptr
                                         };
-
     QVector<int> values;
     QJSValueIterator it(args);
     QString tz;
@@ -389,7 +388,12 @@ QJSValue dateRangeInternal(QJSValue args)
             break;
         }
     }
-    if (values.count() < 1 || values.count() > 6)
+    // Our variable args calling indirection means argument.length was appended
+    if (values.count() == initialNumbers)
+        --initialNumbers;
+    values.resize(values.size() - 1);
+
+    if (values.count() < 1 || values.count() > 7)
         return QJSValue::UndefinedValue;
 
     const QDate now = getTime(tz).date();
@@ -643,7 +647,7 @@ void registerFunctions(QJSEngine *engine)
     value.setProperty(QStringLiteral("shExpMatch"), functions.property(QStringLiteral("ShExpMatch")));
     value.setProperty(QStringLiteral("weekdayRange"), functions.property(QStringLiteral("WeekdayRange")));
     value.setProperty(QStringLiteral("timeRange"), functions.property(QStringLiteral("TimeRange")));
-    value.setProperty(QStringLiteral("dateRangeInternal"), functions.property(QStringLiteral("dateRangeInternal")));
+    value.setProperty(QStringLiteral("dateRangeInternal"), functions.property(QStringLiteral("DateRangeInternal")));
     engine->evaluate(QStringLiteral("dateRange = function() { return dateRangeInternal(Array.prototype.slice.call(arguments)); };"));
 
     // Microsoft's IPv6 PAC Extensions...
@@ -699,7 +703,7 @@ QString Script::evaluate(const QUrl &url)
 
     QJSValue result = func.call(args);
     if (result.isError()) {
-        throw Error(i18n("Got an invalid reply when calling %1", func.toString()));
+        throw Error(i18n("Got an invalid reply when calling %1 -> %2", func.toString(), result.toString()));
     }
 
     return result.toString();

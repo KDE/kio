@@ -50,7 +50,7 @@ if (Qt5Qml_FOUND)
     endif ()
 endif()
 
-set_package_properties(Qt5Script PROPERTIES DESCRIPTION "QtScript, one of the Qt5 modules"
+set_package_properties(Qt5Qml PROPERTIES DESCRIPTION "QtQml, one of the Qt5 modules"
    TYPE OPTIONAL
    PURPOSE "Required to build support for auto-configuration of network proxies"
    )
