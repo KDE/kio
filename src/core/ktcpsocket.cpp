@@ -195,57 +195,100 @@ public:
         }
     }
 
-    static QString errorString(KSslError::Error e)
+    static QSslError::SslError errorFromKSslError(KSslError::Error e)
     {
         switch (e) {
-        case KSslError::NoError:
+            case KSslError::NoError:
+                return QSslError::NoError;
+            case KSslError::InvalidCertificateAuthorityCertificate:
+                return QSslError::InvalidCaCertificate;
+            case KSslError::InvalidCertificate:
+                return QSslError::UnableToDecodeIssuerPublicKey;
+            case KSslError::CertificateSignatureFailed:
+                return QSslError::CertificateSignatureFailed;
+            case KSslError::SelfSignedCertificate:
+                return QSslError::SelfSignedCertificate;
+            case KSslError::ExpiredCertificate:
+                return QSslError::CertificateExpired;
+            case KSslError::RevokedCertificate:
+                return QSslError::CertificateRevoked;
+            case KSslError::InvalidCertificatePurpose:
+                return QSslError::InvalidPurpose;
+            case KSslError::RejectedCertificate:
+                return QSslError::CertificateRejected;
+            case KSslError::UntrustedCertificate:
+                return QSslError::CertificateUntrusted;
+            case KSslError::NoPeerCertificate:
+                return QSslError::NoPeerCertificate;
+            case KSslError::HostNameMismatch:
+                return QSslError::HostNameMismatch;
+            case KSslError::PathLengthExceeded:
+                return QSslError::PathLengthExceeded;
+            case KSslError::UnknownError:
+            default:
+                return QSslError::UnspecifiedError;
+        }
+    }
+
+    static QString errorString(QSslError::SslError e)
+    {
+        switch (e) {
+        case QSslError::NoError:
             return i18nc("SSL error", "No error");
-        case KSslError::InvalidCertificateAuthorityCertificate:
+        case QSslError::UnableToGetLocalIssuerCertificate:
+        case QSslError::InvalidCaCertificate:
             return i18nc("SSL error", "The certificate authority's certificate is invalid");
-        case KSslError::ExpiredCertificate:
+        case QSslError::InvalidNotBeforeField:
+        case QSslError::InvalidNotAfterField:
+        case QSslError::CertificateNotYetValid:
+        case QSslError::CertificateExpired:
             return i18nc("SSL error", "The certificate has expired");
-        case KSslError::InvalidCertificate:
+        case QSslError::UnableToDecodeIssuerPublicKey:
+        case QSslError::SubjectIssuerMismatch:
+        case QSslError::AuthorityIssuerSerialNumberMismatch:
             return i18nc("SSL error", "The certificate is invalid");
-        case KSslError::SelfSignedCertificate:
+        case QSslError::SelfSignedCertificate:
+        case QSslError::SelfSignedCertificateInChain:
             return i18nc("SSL error", "The certificate is not signed by any trusted certificate authority");
-        case KSslError::RevokedCertificate:
+        case QSslError::CertificateRevoked:
             return i18nc("SSL error", "The certificate has been revoked");
-        case KSslError::InvalidCertificatePurpose:
+        case QSslError::InvalidPurpose:
             return i18nc("SSL error", "The certificate is unsuitable for this purpose");
-        case KSslError::UntrustedCertificate:
+        case QSslError::CertificateUntrusted:
             return i18nc("SSL error", "The root certificate authority's certificate is not trusted for this purpose");
-        case KSslError::RejectedCertificate:
+        case QSslError::CertificateRejected:
             return i18nc("SSL error", "The certificate authority's certificate is marked to reject this certificate's purpose");
-        case KSslError::NoPeerCertificate:
+        case QSslError::NoPeerCertificate:
             return i18nc("SSL error", "The peer did not present any certificate");
-        case KSslError::HostNameMismatch:
+        case QSslError::HostNameMismatch:
             return i18nc("SSL error", "The certificate does not apply to the given host");
-        case KSslError::CertificateSignatureFailed:
+        case QSslError::UnableToVerifyFirstCertificate:
+        case QSslError::UnableToDecryptCertificateSignature:
+        case QSslError::UnableToGetIssuerCertificate:
+        case QSslError::CertificateSignatureFailed:
             return i18nc("SSL error", "The certificate cannot be verified for internal reasons");
-        case KSslError::PathLengthExceeded:
+        case QSslError::PathLengthExceeded:
             return i18nc("SSL error", "The certificate chain is too long");
-        case KSslError::UnknownError:
-        default:
+        case QSslError::UnspecifiedError:
+        case QSslError::NoSslSupport:
+        default: // ### this captures ~15 more enum values that we might want to give better descriptions
             return i18nc("SSL error", "Unknown error");
         }
     }
 
-    KSslError::Error error;
-    QSslCertificate certificate;
+    QSslError error;
 };
 
 KSslError::KSslError(Error errorCode, const QSslCertificate &certificate)
     : d(new KSslErrorPrivate())
 {
-    d->error = errorCode;
-    d->certificate = certificate;
+    d->error = QSslError(d->errorFromKSslError(errorCode), certificate);
 }
 
 KSslError::KSslError(const QSslError &other)
     : d(new KSslErrorPrivate())
 {
-    d->error = KSslErrorPrivate::errorFromQSslError(other.error());
-    d->certificate = other.certificate();
+    d->error = other;
 }
 
 KSslError::KSslError(const KSslError &other)
@@ -267,17 +310,17 @@ KSslError &KSslError::operator=(const KSslError &other)
 
 KSslError::Error KSslError::error() const
 {
-    return d->error;
+    return KSslErrorPrivate::errorFromQSslError(d->error.error());
 }
 
 QString KSslError::errorString() const
 {
-    return KSslErrorPrivate::errorString(d->error);
+    return KSslErrorPrivate::errorString(d->error.error());
 }
 
 QSslCertificate KSslError::certificate() const
 {
-    return d->certificate;
+    return d->error.certificate();
 }
 
 class KTcpSocketPrivate
