@@ -595,7 +595,7 @@ QString KUrlNavigatorButton::plainText() const
     const int sourceLength = source.length();
 
     QString dest;
-    dest.reserve(sourceLength);
+    dest.resize(sourceLength);
 
     int sourceIndex = 0;
     int destIndex = 0;
@@ -610,6 +610,8 @@ QString KUrlNavigatorButton::plainText() const
         ++sourceIndex;
         ++destIndex;
     }
+
+    dest.resize(destIndex);
 
     return dest;
 }

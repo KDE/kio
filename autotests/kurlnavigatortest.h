@@ -43,6 +43,7 @@ private Q_SLOTS:
 
     void testButtonUrl_data();
     void testButtonUrl();
+    void testButtonText();
 
     void testInitWithRedundantPathSeparators();
 

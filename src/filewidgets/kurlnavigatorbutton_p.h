@@ -54,6 +54,7 @@ namespace KDEPrivate
 class KUrlNavigatorButton : public KUrlNavigatorButtonBase
 {
     Q_OBJECT
+    Q_PROPERTY(QString plainText READ plainText) // for the unittest
 
 public:
     explicit KUrlNavigatorButton(const QUrl &url, QWidget *parent);

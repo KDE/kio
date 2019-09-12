@@ -20,7 +20,10 @@
 #include "kurlnavigatortest.h"
 #include <QtTestWidgets>
 #include <QDir>
+#include <QPushButton>
+#include <QStandardPaths>
 #include <KUser>
+#include <KFilePlacesModel>
 
 #include "kurlnavigator.h"
 #include "kurlcombobox.h"
@@ -29,6 +32,7 @@ QTEST_MAIN(KUrlNavigatorTest)
 
 void KUrlNavigatorTest::initTestCase()
 {
+    QStandardPaths::setTestModeEnabled(true);
     m_navigator = new KUrlNavigator(nullptr, QUrl(QStringLiteral("file:///A")), nullptr);
 }
 
@@ -253,6 +257,21 @@ void KUrlNavigatorTest::testButtonUrl()
 
     // THEN
     QCOMPARE(buttonUrl, expectedButtonUrl);
+}
+
+void KUrlNavigatorTest::testButtonText()
+{
+    KFilePlacesModel model;
+    const QUrl url = QUrl::fromLocalFile(QDir::currentPath());
+    model.addPlace("&Here", url);
+    KUrlNavigator navigator(&model, url, nullptr);
+
+    QList<QPushButton *> buttons = navigator.findChildren<QPushButton *>();
+    const auto it = std::find_if(buttons.cbegin(), buttons.cend(), [](QPushButton *button) {
+            return button->text() == QLatin1String("&Here");
+            });
+    QVERIFY(it != buttons.cend());
+    QCOMPARE((*it)->property("plainText").toString(), QStringLiteral("Here"));
 }
 
 void KUrlNavigatorTest::testInitWithRedundantPathSeparators()
