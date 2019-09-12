@@ -2450,16 +2450,11 @@ void KDirOperator::Private::_k_slotShowProgress()
 {
     progressBar->raise();
     progressBar->show();
-    QApplication::flush();
 }
 
 void KDirOperator::Private::_k_slotProgress(int percent)
 {
     progressBar->setValue(percent);
-    // we have to redraw this as fast as possible
-    if (progressBar->isVisible()) {
-        QApplication::flush();
-    }
 }
 
 void KDirOperator::Private::_k_slotIOFinished()

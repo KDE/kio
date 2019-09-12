@@ -345,8 +345,7 @@ void KCookieDetail::displayCookieDetails()
         m_domain->setText(cookie.domain());
     }
     m_path->setText(cookie.path());
-    QDateTime cookiedate;
-    cookiedate.setTime_t(cookie.expireDate());
+    QDateTime cookiedate = QDateTime::fromSecsSinceEpoch(cookie.expireDate());
     if (cookie.expireDate()) {
         m_expires->setText(cookiedate.toString());
     } else {

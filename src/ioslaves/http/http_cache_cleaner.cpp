@@ -31,7 +31,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <QDateTime>
 #include <QDir>
 #include <QString>
-#include <QTime>
+#include <QElapsedTimer>
 #include <QDBusConnection>
 #include <QLocalServer>
 #include <QLocalSocket>
@@ -625,7 +625,7 @@ public:
     // This makes interleaved cleaning / serving ioslaves possible.
     bool processSlice(Scoreboard *scoreboard = nullptr)
     {
-        QTime t;
+        QElapsedTimer t;
         t.start();
         // phase one: gather information about cache files
         if (!m_fileNameList.isEmpty()) {
@@ -776,7 +776,7 @@ int main(int argc, char **argv)
     removeOldFiles();
 
     if (mode == DeleteCache) {
-        QTime t;
+        QElapsedTimer t;
         t.start();
         cacheDir.refresh();
         //qDebug() << "time to refresh the cacheDir QDir:" << t.elapsed();

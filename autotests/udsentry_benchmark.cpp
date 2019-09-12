@@ -44,7 +44,7 @@ public:
     UdsEntryBenchmark()
         : nameStr(QStringLiteral("name")),
           now(QDateTime::currentDateTime()),
-          now_time_t(now.toTime_t())
+          now_time_t(now.toSecsSinceEpoch())
     {}
 private Q_SLOTS:
     void testKDE3Slave();

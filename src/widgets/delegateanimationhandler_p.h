@@ -23,6 +23,7 @@
 #define DELEGATEANIMATIONHANDLER_P_H
 
 #include <QBasicTimer>
+#include <QElapsedTimer>
 #include <QMap>
 #include <QLinkedList>
 #include <QPersistentModelIndex>
@@ -122,8 +123,8 @@ private:
     qreal progress;
     qreal m_fadeProgress;
     qreal m_jobAnimationAngle;
-    QTime time;
-    QTime creationTime;
+    QElapsedTimer time;
+    QElapsedTimer creationTime;
     CachedRendering *renderCache;
     CachedRendering *fadeFromRenderCache;
 
@@ -163,7 +164,7 @@ private:
 
 private:
     QMap<const QAbstractItemView *, AnimationList *> animationLists;
-    QTime fadeInAddTime;
+    QElapsedTimer fadeInAddTime;
     QBasicTimer timer;
     //Icon sequence handling:
     QPersistentModelIndex sequenceModelIndex;

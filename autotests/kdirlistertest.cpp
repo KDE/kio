@@ -1397,8 +1397,8 @@ void KDirListerTest::waitUntilMTimeChange(const QString &path)
 
     QFileInfo fi(path);
     QVERIFY(fi.exists());
-    const QDateTime ctime = qMax(fi.lastModified(), fi.created());
-    waitUntilAfter(ctime);
+    const QDateTime mtime = fi.lastModified();
+    waitUntilAfter(mtime);
 }
 
 void KDirListerTest::waitUntilAfter(const QDateTime &ctime)
@@ -1407,7 +1407,7 @@ void KDirListerTest::waitUntilAfter(const QDateTime &ctime)
     QDateTime now;
     Q_FOREVER {
         now = QDateTime::currentDateTime();
-        if (now.toTime_t() == ctime.toTime_t()) { // truncate milliseconds
+        if (now.toSecsSinceEpoch() == ctime.toSecsSinceEpoch()) { // truncate milliseconds
             totalWait += 50;
             QTest::qWait(50);
         } else {

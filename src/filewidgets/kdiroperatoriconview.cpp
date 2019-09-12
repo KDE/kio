@@ -97,12 +97,24 @@ void KDirOperatorIconView::wheelEvent(QWheelEvent *event)
 
     // apply the vertical wheel event to the horizontal scrollbar, as
     // the items are aligned from left to right
-    if (event->orientation() == Qt::Vertical) {
+    if (event->angleDelta().y() != 0) {
+#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
         QWheelEvent horizEvent(event->pos(),
                                event->angleDelta().y(),
                                event->buttons(),
                                event->modifiers(),
                                Qt::Horizontal);
+#else
+        QWheelEvent horizEvent(event->position(),
+                               event->globalPosition(),
+                               QPoint(event->pixelDelta().y(), 0),
+                               QPoint(event->angleDelta().y(), 0),
+                               event->buttons(),
+                               event->modifiers(),
+                               event->phase(),
+                               event->inverted(),
+                               event->source());
+#endif
         QApplication::sendEvent(horizontalScrollBar(), &horizEvent);
     }
 }

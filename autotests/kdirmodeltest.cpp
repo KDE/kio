@@ -1496,7 +1496,7 @@ void KDirModelTest::testQUrlHash()
     }
     QHash<QUrl, int> qurlHash;
     QHash<QUrl, int> kurlHash;
-    QTime dt; dt.start();
+    QElapsedTimer dt; dt.start();
     for (int i = 0; i < count; ++i) {
         qurlHash.insert(urls[i], i);
     }

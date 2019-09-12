@@ -33,7 +33,7 @@
 #include <QTemporaryFile>
 #include <QTest>
 #include <QUrl>
-#include <QTimer>
+#include <QElapsedTimer>
 
 #include <kmountpoint.h>
 #include <kprotocolinfo.h>
@@ -1303,7 +1303,7 @@ void JobTest::deleteManyDirs(bool using_fast_path)
         createTestDirectory(dir);
         dirs << QUrl::fromLocalFile(dir);
     }
-    QTime dt;
+    QElapsedTimer dt;
     dt.start();
     KIO::Job *job = KIO::del(dirs, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
@@ -1341,7 +1341,7 @@ static QList<QUrl> createManyFiles(const QString &baseDir, int numFiles)
 
 void JobTest::deleteManyFilesIndependently()
 {
-    QTime dt;
+    QElapsedTimer dt;
     dt.start();
     const int numFiles = 100; // Use 1000 for performance testing
     const QString baseDir = homeTmpDir();
@@ -1366,7 +1366,7 @@ void JobTest::deleteManyFilesTogether(bool using_fast_path)
     extern KIOCORE_EXPORT bool kio_resolve_local_urls;
     kio_resolve_local_urls = !using_fast_path;
 
-    QTime dt;
+    QElapsedTimer dt;
     dt.start();
     const int numFiles = 100; // Use 1000 for performance testing
     const QString baseDir = homeTmpDir();

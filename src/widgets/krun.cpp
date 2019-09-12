@@ -47,6 +47,7 @@
 #include <QDBusReply>
 #include <QHostInfo>
 #include <QDesktopServices>
+#include <QScreen>
 
 #include <kiconloader.h>
 #include <kjobuidelegate.h>

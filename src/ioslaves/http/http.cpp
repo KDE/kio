@@ -4045,7 +4045,7 @@ void HTTPProtocol::special(const QByteArray &data)
 
         m_request.url = url;
         if (cacheFileOpenRead()) {
-            m_request.cacheTag.expireDate.setTime_t(expireDate);
+            m_request.cacheTag.expireDate.setSecsSinceEpoch(expireDate);
             cacheFileClose(); // this sends an update command to the cache cleaner process
         }
 

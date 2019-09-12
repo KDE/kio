@@ -2016,7 +2016,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                     QFileInfo info(m_currentSrcURL.toLocalFile());
                     if (info.exists()) {
                         sizeSrc = info.size();
-                        ctimeSrc = info.created();
+                        ctimeSrc = info.birthTime();
                         mtimeSrc = info.lastModified();
                         isDir = info.isDir();
                     }
@@ -2025,7 +2025,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                     QFileInfo destInfo(dest.toLocalFile());
                     if (destInfo.exists()) {
                         sizeDest = destInfo.size();
-                        ctimeDest = destInfo.created();
+                        ctimeDest = destInfo.birthTime();
                         mtimeDest = destInfo.lastModified();
                         destIsDir = destInfo.isDir();
                     }

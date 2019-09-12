@@ -98,8 +98,13 @@ UserAgentSelectorDlg::UserAgentSelectorDlg (UserAgentInfo* info, QWidget* parent
 
     connect (mUi.siteLineEdit, &QLineEdit::textEdited,
              this, &UserAgentSelectorDlg::onHostNameChanged);
+#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
     connect (mUi.aliasComboBox, QOverload<const QString &>::of(&QComboBox::activated),
              this, &UserAgentSelectorDlg::onAliasChanged);
+#else
+    connect (mUi.aliasComboBox, &QComboBox::textActivated,
+             this, &UserAgentSelectorDlg::onAliasChanged);
+#endif
 
     mButtonBox->button(QDialogButtonBox::Ok)->setEnabled (false);
 }

@@ -467,14 +467,13 @@ void KUriFilterTest::environmentVariables()
 void KUriFilterTest::internetKeywords_data()
 {
     setupColumns();
-    QString sc;
-    addRow(sc.sprintf("gg%cfoo bar", s_delimiter).toUtf8(), QStringLiteral("https://www.google.com/search?q=foo+bar&ie=UTF-8"), KUriFilterData::NetProtocol);
-    addRow(sc.sprintf("bug%c55798", s_delimiter).toUtf8(), QStringLiteral("https://bugs.kde.org/show_bug.cgi?id=55798"), KUriFilterData::NetProtocol);
+    addRow(QString::asprintf("gg%cfoo bar", s_delimiter).toUtf8(), QStringLiteral("https://www.google.com/search?q=foo+bar&ie=UTF-8"), KUriFilterData::NetProtocol);
+    addRow(QString::asprintf("bug%c55798", s_delimiter).toUtf8(), QStringLiteral("https://bugs.kde.org/show_bug.cgi?id=55798"), KUriFilterData::NetProtocol);
 
-    addRow(sc.sprintf("gg%cC++", s_delimiter).toUtf8(), QStringLiteral("https://www.google.com/search?q=C%2B%2B&ie=UTF-8"), KUriFilterData::NetProtocol);
-    addRow(sc.sprintf("gg%cC#", s_delimiter).toUtf8(), QStringLiteral("https://www.google.com/search?q=C%23&ie=UTF-8"), KUriFilterData::NetProtocol);
-    addRow(sc.sprintf("ya%cfoo bar was here", s_delimiter).toUtf8(), nullptr, -1);   // this triggers default search, i.e. google
-    addRow(sc.sprintf("gg%cwww.kde.org", s_delimiter).toUtf8(), QStringLiteral("https://www.google.com/search?q=www.kde.org&ie=UTF-8"), KUriFilterData::NetProtocol);
+    addRow(QString::asprintf("gg%cC++", s_delimiter).toUtf8(), QStringLiteral("https://www.google.com/search?q=C%2B%2B&ie=UTF-8"), KUriFilterData::NetProtocol);
+    addRow(QString::asprintf("gg%cC#", s_delimiter).toUtf8(), QStringLiteral("https://www.google.com/search?q=C%23&ie=UTF-8"), KUriFilterData::NetProtocol);
+    addRow(QString::asprintf("ya%cfoo bar was here", s_delimiter).toUtf8(), nullptr, -1);   // this triggers default search, i.e. google
+    addRow(QString::asprintf("gg%cwww.kde.org", s_delimiter).toUtf8(), QStringLiteral("https://www.google.com/search?q=www.kde.org&ie=UTF-8"), KUriFilterData::NetProtocol);
     addRow(QStringLiteral("gg%1é").arg(s_delimiter).toUtf8() /*eaccent in utf8*/, QStringLiteral("https://www.google.com/search?q=%C3%A9&ie=UTF-8"), KUriFilterData::NetProtocol);
     addRow(QStringLiteral("gg%1прйвет").arg(s_delimiter).toUtf8() /* greetings in russian utf-8*/, QStringLiteral("https://www.google.com/search?q=%D0%BF%D1%80%D0%B9%D0%B2%D0%B5%D1%82&ie=UTF-8"), KUriFilterData::NetProtocol);
 }

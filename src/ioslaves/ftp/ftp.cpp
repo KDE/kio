@@ -1028,7 +1028,7 @@ int Ftp::ftpOpenPortDataConnection()
         data.port = m_server->serverPort();
 
         unsigned char *pData = reinterpret_cast<unsigned char *>(&data);
-        command.sprintf("PORT %d,%d,%d,%d,%d,%d", pData[3], pData[2], pData[1], pData[0], pData[5], pData[4]);
+        command = QStringLiteral("PORT %1,%2,%3,%4,%5,%6").arg(pData[3]).arg(pData[2]).arg(pData[1]).arg(pData[0]).arg(pData[5]).arg(pData[4]);
     } else if (localAddress.protocol() == QAbstractSocket::IPv6Protocol) {
         command = QStringLiteral("EPRT |2|%2|%3|").arg(localAddress.toString()).arg(m_server->serverPort());
     }

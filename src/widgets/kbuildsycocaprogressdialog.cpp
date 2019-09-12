@@ -52,7 +52,7 @@ void KBuildSycocaProgressDialog::rebuildKSycoca(QWidget *parent)
 
     QProcess *proc = new QProcess(&dlg);
     proc->start(QStringLiteral(KBUILDSYCOCA_EXENAME), QStringList());
-    QObject::connect(proc, QOverload<int>::of(&QProcess::finished),
+    QObject::connect(proc, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
                      &dlg, &QWidget::close);
 
     dlg.exec();

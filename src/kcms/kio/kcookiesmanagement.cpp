@@ -322,8 +322,7 @@ bool KCookiesManagement::cookieDetails(CookieProp *cookie)
     cookie->expireDate = i18n("End of session");
   else
   {
-    QDateTime expDate;
-    expDate.setTime_t(tmp);
+    QDateTime expDate = QDateTime::fromSecsSinceEpoch(tmp);
     cookie->expireDate = QLocale().toString((expDate), QLocale::ShortFormat);
   }
 

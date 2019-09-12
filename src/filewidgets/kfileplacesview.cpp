@@ -1152,7 +1152,7 @@ QSize KFilePlacesView::sizeHint() const
     for (int i = 0; i < placesModel->rowCount(); ++i) {
         QModelIndex index = placesModel->index(i, 0);
         if (!placesModel->isHidden(index)) {
-            textWidth = qMax(textWidth, fm.width(index.data(Qt::DisplayRole).toString()));
+            textWidth = qMax(textWidth, fm.boundingRect(index.data(Qt::DisplayRole).toString()).width());
         }
     }
 
@@ -1233,7 +1233,7 @@ void KFilePlacesView::Private::adaptItemSize()
         QModelIndex index = placesModel->index(i, 0);
 
         if (!placesModel->isHidden(index)) {
-            textWidth = qMax(textWidth, fm.width(index.data(Qt::DisplayRole).toString()));
+            textWidth = qMax(textWidth, fm.boundingRect(index.data(Qt::DisplayRole).toString()).width());
         }
     }
 

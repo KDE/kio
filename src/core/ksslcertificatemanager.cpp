@@ -214,7 +214,7 @@ void KSslCertificateManagerPrivate::loadDefaultCaCertificates()
 {
     defaultCaCertificates.clear();
 
-    QList<QSslCertificate> certs = deduplicate(QSslSocket::systemCaCertificates());
+    QList<QSslCertificate> certs = deduplicate(QSslConfiguration::systemCaCertificates());
 
     KConfig config(QStringLiteral("ksslcablacklist"), KConfig::SimpleConfig);
     KConfigGroup group = config.group("Blacklist of CA Certificates");
@@ -370,7 +370,7 @@ QList<KSslCaCertificate> KSslCertificateManagerPrivate::allCertificates() const
 {
     //qDebug() << Q_FUNC_INFO;
     QList<KSslCaCertificate> ret;
-    foreach (const QSslCertificate &cert, deduplicate(QSslSocket::systemCaCertificates())) {
+    foreach (const QSslCertificate &cert, deduplicate(QSslConfiguration::systemCaCertificates())) {
         ret += KSslCaCertificate(cert, KSslCaCertificate::SystemStore, false);
     }
 
