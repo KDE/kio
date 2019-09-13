@@ -27,39 +27,77 @@
 #include <QEventLoopLocker>
 #include <QProcess>
 class KProcess;
+class KService;
 
 #include "kstartupinfo.h"
 
 /**
  * @internal
- * This class watches a process launched by KRun.
- * It sends a notification when the process exits (for the taskbar)
- * and it will show an error message if necessary (e.g. "program not found").
+ * This class runs a KService or a shell command, using QProcess internally.
+ * It creates a startup notification and finishes it on success or on error (for the taskbar)
+ * It also shows an error message if necessary (e.g. "program not found").
  */
 class KProcessRunner : public QObject
 {
     Q_OBJECT
 
 public:
-    KProcessRunner(KProcess *p, const QString &binName, const KStartupInfoId &id);
+    /**
+     * Run a KService (application desktop file) to open @p urls.
+     * @param service the service to run
+     * @param urls the list of URLs, can be empty
+     * @param windowId the identifier of window of the app that invoked this class.
+     * @param flags various flags
+     * @param suggestedFileName see KRun::setSuggestedFileName
+     * @param asn Application startup notification id, if any (otherwise "").
+
+     */
+    KProcessRunner(const KService &service, const QList<QUrl> &urls, WId windowId,
+                   KRun::RunFlags flags = {}, const QString &suggestedFileName = {}, const QByteArray &asn = {});
+
+    /**
+     * Run a shell command
+     * @param cmd must be a shell command. No need to append "&" to it.
+     * @param execName the name of the executable, if known. This improves startup notification,
+     * as well as honoring various flags coming from the desktop file for this executable, if there's one.
+     * @param iconName icon for the startup notification
+     * @param windowId the identifier of window of the app that invoked this class.
+     * @param asn Application startup notification id, if any (otherwise "").
+     * @param workingDirectory the working directory for the started process. The default
+     *                         (if passing an empty string) is the user's document path.
+     *                         This allows a command like "kwrite file.txt" to find file.txt from the right place.
+     */
+    KProcessRunner(const QString &cmd, const QString &execName, const QString &iconName,
+                   WId windowId, const QByteArray &asn = {}, const QString &workingDirectory = {});
 
     virtual ~KProcessRunner();
 
+    /**
+     * @return the PID of the process that was started, on success
+     */
     qint64 pid() const;
 
 Q_SIGNALS:
+    /**
+     * @brief Emitted on error
+     * @param errorString the error message
+     */
     void error(const QString &errorString);
 
-protected Q_SLOTS:
+private Q_SLOTS:
     void slotProcessExited(int, QProcess::ExitStatus);
 
 private:
+    void init(const KService *service, const QString &bin, const QString &userVisibleName,
+              const QString &iconName, WId windowId, const QByteArray &asn);
+    void startProcess();
     void terminateStartupNotification();
+    void emitDelayedError(const QString &errorMsg);
 
-    KProcess *process;
-    QString m_executable; // can be a full path
-    KStartupInfoId id;
-    qint64 m_pid;
+    std::unique_ptr<KProcess> m_process;
+    const QString m_executable; // can be a full path
+    KStartupInfoId m_startupId;
+    qint64 m_pid = 0;
 
     Q_DISABLE_COPY(KProcessRunner)
 };
