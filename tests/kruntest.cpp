@@ -54,11 +54,11 @@ static const struct {
     { "run(doesnotexit, no url)", "should show error message", "doesnotexist", nullptr },
     { "run(doesnotexit, file url)", "should show error message", "doesnotexist", testFile },
     { "run(doesnotexit, remote url)", "should use kioexec and show error message", "doesnotexist", "http://www.kde.org" },
-    { "run(missing lib, no url)", "should show error message (remove libqca.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)", "qcatool", nullptr },
-    { "run(missing lib, file url)", "should show error message (remove libqca.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)", "qcatool", testFile },
-    { "run(missing lib, remote url)", "should show error message (remove libqca.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)", "qcatool", "http://www.kde.org" },
+    { "run(missing lib, no url)", "should show error message (remove libqca-qt5.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)", "qcatool-qt5", nullptr },
+    { "run(missing lib, file url)", "should show error message (remove libqca-qt5.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)", "qcatool-qt5", testFile },
+    { "run(missing lib, remote url)", "should show error message (remove libqca-qt5.so.2 for this, e.g. by editing LD_LIBRARY_PATH if qca is in its own prefix)", "qcatool-qt5", "http://www.kde.org" },
     { "runCommand(empty)", "should error", "", "" }, // #186036
-    { "runCommand(full path)", "should work normally", "../../kdecore/tests/kurltest", "" }
+    { "runCommand(full path)", "should work normally", "kruntest", "" }
 };
 
 Receiver::Receiver()
@@ -104,7 +104,11 @@ void Receiver::slotLaunchTest()
     const int testNumber = button->property("testNumber").toInt();
     QList<QUrl> urls;
     if (QByteArray(s_tests[testNumber].text).startsWith("runCommand")) {
-        KRun::runCommand(s_tests[testNumber].exec, this);
+        QString exec = s_tests[testNumber].exec;
+        if (exec == QLatin1String("kruntest")) {
+            exec = QCoreApplication::applicationFilePath();
+        }
+        KRun::runCommand(exec, this);
     } else {
         if (s_tests[testNumber].url) {
             QString urlStr(s_tests[testNumber].url);
@@ -120,7 +124,7 @@ void Receiver::slotLaunchTest()
 void Receiver::slotStop()
 {
     for (int i = 0; i < MAXKRUNS; i++) {
-        qDebug() << " deleting krun " << i;
+        qDebug() << "deleting krun" << i;
         delete myArray[i];
     }
     start->setEnabled(true);
@@ -130,7 +134,7 @@ void Receiver::slotStop()
 void Receiver::slotStart()
 {
     for (int i = 0; i < MAXKRUNS; i++) {
-        qDebug() << "creating testKRun " << i;
+        qDebug() << "creating testKRun" << i;
         myArray[i] = new testKRun(QUrl::fromLocalFile(QStringLiteral("file:///tmp")), window());
         myArray[i]->setAutoDelete(false);
     }
