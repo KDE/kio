@@ -21,6 +21,7 @@
 #ifndef KRUN_P_H
 #define KRUN_P_H
 
+#include <memory>
 #include <QObject>
 #include <QPointer>
 #include <QTimer>
