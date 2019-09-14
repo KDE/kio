@@ -263,33 +263,6 @@ void UDSEntryBenchmark::saveLargeEntries()
         stream << m_largeEntries;
     }
 }
-namespace KIO {
-static bool operator==(const UDSEntry &a, const UDSEntry &b)
-{
-    if (a.count() != b.count()) {
-        return false;
-    }
-
-    const QVector<uint> fields = a.fields();
-    for (uint field : fields) {
-        if (!b.contains(field)) {
-            return false;
-        }
-
-        if (field & UDSEntry::UDS_STRING) {
-            if (a.stringValue(field) != b.stringValue(field)) {
-                return false;
-            }
-        } else {
-            if (a.numberValue(field) != b.numberValue(field)) {
-                return false;
-            }
-        }
-    }
-
-    return true;
-}
-}
 void UDSEntryBenchmark::loadSmallEntries()
 {
     // Save the entries if that has not been done yet.

@@ -463,3 +463,34 @@ KIOCORE_EXPORT QDataStream &operator>>(QDataStream &s, KIO::UDSEntry &a)
     a.d->load(s);
     return s;
 }
+
+KIOCORE_EXPORT bool operator==(const KIO::UDSEntry &entry, const KIO::UDSEntry &other)
+{
+    if (entry.count() != other.count()) {
+         return false;
+     }
+
+     const QVector<uint> fields = entry.fields();
+     for (uint field : fields) {
+         if (!other.contains(field)) {
+             return false;
+         }
+
+         if (field & UDSEntry::UDS_STRING) {
+             if (entry.stringValue(field) != other.stringValue(field)) {
+                 return false;
+             }
+         } else {
+             if (entry.numberValue(field) != other.numberValue(field)) {
+                 return false;
+             }
+         }
+     }
+
+     return true;
+}
+
+KIOCORE_EXPORT bool operator!=(const KIO::UDSEntry &entry, const KIO::UDSEntry &other)
+{
+    return !(entry == other);
+}

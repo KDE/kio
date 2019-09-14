@@ -44,6 +44,18 @@ KIOCORE_EXPORT QDataStream &operator>> (QDataStream &s, KIO::UDSEntry &a);
  */
 KIOCORE_EXPORT QDebug operator<<(QDebug stream, const KIO::UDSEntry &entry);
 
+/**
+ * Returns true if the entry contains the same data as the other
+ * @since 5.63
+ */
+KIOCORE_EXPORT bool operator== (const KIO::UDSEntry &entry, const KIO::UDSEntry &other);
+
+/**
+ * Returns true if the entry does not contain the same data as the other
+ * @since 5.63
+ */
+KIOCORE_EXPORT bool operator!= (const KIO::UDSEntry &entry, const KIO::UDSEntry &other);
+
 namespace KIO
 {
 class UDSEntryPrivate;
@@ -337,6 +349,7 @@ private:
     friend KIOCORE_EXPORT QDataStream& ::operator<< (QDataStream &s, const KIO::UDSEntry &a);
     friend KIOCORE_EXPORT QDataStream& ::operator>> (QDataStream &s, KIO::UDSEntry &a);
     friend KIOCORE_EXPORT QDebug (::operator<<) (QDebug stream, const KIO::UDSEntry &entry);
+
 public:
     /**
      * Replace or insert field with string value

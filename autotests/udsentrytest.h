@@ -29,6 +29,7 @@ class UDSEntryTest : public QObject
 private Q_SLOTS:
     void testSaveLoad();
     void testMove();
+    void testEquality();
 };
 
 #endif

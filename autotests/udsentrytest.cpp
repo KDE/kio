@@ -261,4 +261,74 @@ void UDSEntryTest::testMove()
     }
 }
 
+/**
+ * Test to verify that equal semantics work.
+ */
+void UDSEntryTest::testEquality()
+{
+    KIO::UDSEntry entry;
+    entry.fastInsert(KIO::UDSEntry::UDS_SIZE, 1);
+    entry.fastInsert(KIO::UDSEntry::UDS_USER, QStringLiteral("user1"));
+    entry.fastInsert(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group1"));
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename1"));
+    entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, 123456);
+    entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, 12345);
+    entry.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, 2);
+    entry.fastInsert(KIO::UDSEntry::UDS_INODE, 56);
+
+    // Same as entry
+    KIO::UDSEntry entry2;
+    entry2.fastInsert(KIO::UDSEntry::UDS_SIZE, 1);
+    entry2.fastInsert(KIO::UDSEntry::UDS_USER, QStringLiteral("user1"));
+    entry2.fastInsert(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group1"));
+    entry2.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename1"));
+    entry2.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, 123456);
+    entry2.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, 12345);
+    entry2.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, 2);
+    entry2.fastInsert(KIO::UDSEntry::UDS_INODE, 56);
+
+    // 3nd entry: different user.
+    KIO::UDSEntry entry3;
+    entry3.fastInsert(KIO::UDSEntry::UDS_SIZE, 1);
+    entry3.fastInsert(KIO::UDSEntry::UDS_USER, QStringLiteral("other user"));
+    entry3.fastInsert(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group1"));
+    entry3.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename1"));
+    entry3.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, 123456);
+    entry3.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, 12345);
+    entry3.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, 2);
+    entry3.fastInsert(KIO::UDSEntry::UDS_INODE, 56);
+
+    // 4th entry : an additional field
+    KIO::UDSEntry entry4;
+    entry4.fastInsert(KIO::UDSEntry::UDS_SIZE, 1);
+    entry4.fastInsert(KIO::UDSEntry::UDS_USER, QStringLiteral("user1"));
+    entry4.fastInsert(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group1"));
+    entry4.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename1"));
+    entry4.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, QStringLiteral("home"));
+    entry4.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, 123456);
+    entry4.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, 12345);
+    entry4.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, 2);
+    entry4.fastInsert(KIO::UDSEntry::UDS_INODE, 56);
+
+    // ==
+    QVERIFY(entry == entry2);
+    QVERIFY(!(entry == entry3));
+    QVERIFY(!(entry == entry4));
+    QVERIFY(!(entry2 == entry3));
+
+    // !=
+    QVERIFY(!(entry != entry2));
+    QVERIFY(entry != entry3);
+    QVERIFY(entry != entry4);
+    QVERIFY(entry2 != entry3);
+
+    // make entry3 == entry
+    entry3.replace(KIO::UDSEntry::UDS_USER, QStringLiteral("user1"));
+
+    QVERIFY(entry == entry3);
+    QVERIFY(entry2 == entry3);
+    QVERIFY(!(entry != entry3));
+    QVERIFY(!(entry2 != entry3));
+}
+
 QTEST_MAIN(UDSEntryTest)
