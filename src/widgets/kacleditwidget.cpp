@@ -280,7 +280,7 @@ void KACLListViewItem::repaint()
         break;
     case KACLListView::Others:
         text = i18nc("UNIX permissions", "Others");
-        icon = QStringLiteral("users-other-gray");
+        icon = QStringLiteral("user-others-gray");
         break;
     case KACLListView::Mask:
         text = i18nc("UNIX permissions", "Mask");
@@ -292,7 +292,7 @@ void KACLListViewItem::repaint()
         break;
     case KACLListView::NamedGroup:
         text = i18nc("UNIX permissions", "Others");
-        icon = QStringLiteral("users-other");
+        icon = QStringLiteral("user-others");
         break;
     }
     setText(0, text);
