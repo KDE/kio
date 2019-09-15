@@ -427,6 +427,7 @@ int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
             s.userPriority.count() + s.userPrioritySubmenus.count() > 1) {
         // we have more than one item, so let's make a submenu
         actionMenu = new QMenu(i18nc("@title:menu", "&Actions"), mainMenu);
+        actionMenu->setIcon(QIcon::fromTheme(QStringLiteral("view-more-symbolic")));
         actionMenu->menuAction()->setObjectName(QStringLiteral("actions_submenu")); // for the unittest
         mainMenu->addMenu(actionMenu);
     }
@@ -658,6 +659,7 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
             // If there are still more apps, show them in a sub-menu
             if (!offers.isEmpty()) { // submenu 'open with'
                 menu = new QMenu(i18nc("@title:menu", "&Open With"), topMenu);
+                menu->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
                 menu->menuAction()->setObjectName(QStringLiteral("openWith_submenu")); // for the unittest
                 topMenu->addMenu(menu);
 
@@ -689,6 +691,7 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
         } else { // no app offers -> Open With...
             QAction *act = new QAction(this);
             act->setText(i18nc("@title:menu", "&Open With..."));
+            act->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
             act->setObjectName(QStringLiteral("openwith")); // for the unittest
             QObject::connect(act, &QAction::triggered,
                              d, &KFileItemActionsPrivate::slotOpenWithDialog);
