@@ -531,11 +531,11 @@ bool KRun::checkStartupNotify(const QString & /*binName*/, const KService *servi
     return true;
 }
 
-static qint64 runApplicationImpl(const KService &_service, const QList<QUrl> &_urls, QWidget *window,
+static qint64 runApplicationImpl(const KService::Ptr &service, const QList<QUrl> &_urls, QWidget *window,
                                  KRun::RunFlags flags, const QString &suggestedFileName, const QByteArray &asn)
 {
     QList<QUrl> urlsToRun = _urls;
-    if ((_urls.count() > 1) && !_service.allowMultipleFiles()) {
+    if ((_urls.count() > 1) && !service->allowMultipleFiles()) {
         // We need to launch the application N times. That sucks.
         // We ignore the result for application 2 to N.
         // For the first file we launch the application in the
@@ -545,7 +545,7 @@ static qint64 runApplicationImpl(const KService &_service, const QList<QUrl> &_u
         while (++it != _urls.end()) {
             QList<QUrl> singleUrl;
             singleUrl.append(*it);
-            runApplicationImpl(_service, singleUrl, window, flags, suggestedFileName, QByteArray());
+            runApplicationImpl(service, singleUrl, window, flags, suggestedFileName, QByteArray());
         }
         urlsToRun.clear();
         urlsToRun.append(_urls.first());
@@ -559,7 +559,7 @@ static qint64 runApplicationImpl(const KService &_service, const QList<QUrl> &_u
         windowId = window ? window->winId() : WId{};
     }
 
-    auto *processRunner = new KProcessRunner(_service, urlsToRun,
+    auto *processRunner = new KProcessRunner(service, urlsToRun,
                                              windowId, flags, suggestedFileName, asn);
     return runProcessRunner(processRunner, window);
 }
@@ -732,7 +732,8 @@ qint64 KRun::runApplication(const KService &service, const QList<QUrl> &urls, QW
         return 0;
     }
 
-    return runApplicationImpl(service, urls, window, flags, suggestedFileName, asn);
+    KService::Ptr servicePtr(new KService(service)); // clone
+    return runApplicationImpl(servicePtr, urls, window, flags, suggestedFileName, asn);
 }
 
 qint64 KRun::runService(const KService &_service, const QList<QUrl> &_urls, QWidget *window,
@@ -767,7 +768,8 @@ qint64 KRun::runService(const KService &_service, const QList<QUrl> &_urls, QWid
     }
 
     if (!useKToolInvocation) {
-        return runApplicationImpl(_service, _urls, window, tempFiles ? RunFlags(DeleteTemporaryFiles) : RunFlags(), suggestedFileName, asn);
+        KService::Ptr servicePtr(new KService(_service)); // clone
+        return runApplicationImpl(servicePtr, _urls, window, tempFiles ? RunFlags(DeleteTemporaryFiles) : RunFlags(), suggestedFileName, asn);
     }
 
     // Resolve urls if needed, depending on what the app supports
@@ -1558,17 +1560,17 @@ bool KRun::isLocalFile() const
 
 /****************/
 
-KProcessRunner::KProcessRunner(const KService &service, const QList<QUrl> &urls, WId windowId,
+KProcessRunner::KProcessRunner(const KService::Ptr &service, const QList<QUrl> &urls, WId windowId,
                                KRun::RunFlags flags, const QString &suggestedFileName, const QByteArray &asn)
     : m_process{new KProcess},
-      m_executable(KIO::DesktopExecParser::executablePath(service.exec()))
+      m_executable(KIO::DesktopExecParser::executablePath(service->exec()))
 {
-    KIO::DesktopExecParser execParser(service, urls);
+    KIO::DesktopExecParser execParser(*service, urls);
     execParser.setUrlsAreTempFiles(flags & KRun::DeleteTemporaryFiles);
     execParser.setSuggestedFileName(suggestedFileName);
     const QStringList args = execParser.resultingArguments();
     if (args.isEmpty()) {
-        emitDelayedError(i18n("Error processing Exec field in %1", service.entryPath()));
+        emitDelayedError(i18n("Error processing Exec field in %1", service->entryPath()));
         return;
     }
     //qDebug() << "runTempService: KProcess args=" << args;
@@ -1577,7 +1579,7 @@ KProcessRunner::KProcessRunner(const KService &service, const QList<QUrl> &urls,
     enum DiscreteGpuCheck { NotChecked, Present, Absent };
     static DiscreteGpuCheck s_gpuCheck = NotChecked;
 
-    if (service.runOnDiscreteGpu() && s_gpuCheck == NotChecked) {
+    if (service->runOnDiscreteGpu() && s_gpuCheck == NotChecked) {
         // Check whether we have a discrete gpu
         bool hasDiscreteGpu = false;
         QDBusInterface iface(QStringLiteral("org.kde.Solid.PowerManagement"),
@@ -1594,11 +1596,11 @@ KProcessRunner::KProcessRunner(const KService &service, const QList<QUrl> &urls,
         s_gpuCheck = hasDiscreteGpu ? Present : Absent;
     }
 
-    if (service.runOnDiscreteGpu() && s_gpuCheck == Present) {
+    if (service->runOnDiscreteGpu() && s_gpuCheck == Present) {
         m_process->setEnv(QStringLiteral("DRI_PRIME"), QStringLiteral("1"));
     }
 
-    QString workingDir(service.path());
+    QString workingDir(service->workingDirectory());
     if (workingDir.isEmpty() && !urls.isEmpty() && urls.first().isLocalFile()) {
         workingDir = urls.first().adjusted(QUrl::RemoveFilename).toLocalFile();
     }
@@ -1607,12 +1609,12 @@ KProcessRunner::KProcessRunner(const KService &service, const QList<QUrl> &urls,
     if ((flags & KRun::DeleteTemporaryFiles) == 0) {
         // Remember we opened those urls, for the "recent documents" menu in kicker
         for (const QUrl &url : urls) {
-            KRecentDocument::add(url, service.desktopEntryName());
+            KRecentDocument::add(url, service->desktopEntryName());
         }
     }
 
     const QString bin = KIO::DesktopExecParser::executableName(m_executable);
-    init(&service, bin, service.name(), service.icon(), windowId, asn);
+    init(service, bin, service->name(), service->icon(), windowId, asn);
 }
 
 KProcessRunner::KProcessRunner(const QString &cmd, const QString &execName, const QString &iconName, WId windowId, const QByteArray &asn, const QString &workingDirectory)
@@ -1625,13 +1627,13 @@ KProcessRunner::KProcessRunner(const QString &cmd, const QString &execName, cons
     }
     QString bin = KIO::DesktopExecParser::executableName(m_executable);
     KService::Ptr service = KService::serviceByDesktopName(bin);
-    init(service.data(), bin,
+    init(service, bin,
          execName /*user-visible name*/,
          iconName, windowId, asn);
 
 }
 
-void KProcessRunner::init(const KService *service, const QString &bin, const QString &userVisibleName, const QString &iconName, WId windowId, const QByteArray &asn)
+void KProcessRunner::init(const KService::Ptr &service, const QString &bin, const QString &userVisibleName, const QString &iconName, WId windowId, const QByteArray &asn)
 {
     if (service && !service->entryPath().isEmpty()
             && !KDesktopFile::isAuthorizedDesktopFile(service->entryPath())) {
@@ -1645,7 +1647,7 @@ void KProcessRunner::init(const KService *service, const QString &bin, const QSt
     if (isX11) {
         bool silent;
         QByteArray wmclass;
-        const bool startup_notify = (asn != "0" && KRun::checkStartupNotify(QString() /*unused*/, service, &silent, &wmclass));
+        const bool startup_notify = (asn != "0" && KRun::checkStartupNotify(QString() /*unused*/, service.data(), &silent, &wmclass));
         if (startup_notify) {
             m_startupId.initId(asn);
             m_startupId.setupStartupEnv();

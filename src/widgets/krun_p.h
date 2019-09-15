@@ -27,8 +27,8 @@
 #include <QTimer>
 #include <QEventLoopLocker>
 #include <QProcess>
+#include <KService>
 class KProcess;
-class KService;
 
 #include "kstartupinfo.h"
 
@@ -53,7 +53,7 @@ public:
      * @param asn Application startup notification id, if any (otherwise "").
 
      */
-    KProcessRunner(const KService &service, const QList<QUrl> &urls, WId windowId,
+    KProcessRunner(const KService::Ptr &service, const QList<QUrl> &urls, WId windowId,
                    KRun::RunFlags flags = {}, const QString &suggestedFileName = {}, const QByteArray &asn = {});
 
     /**
@@ -89,7 +89,7 @@ private Q_SLOTS:
     void slotProcessExited(int, QProcess::ExitStatus);
 
 private:
-    void init(const KService *service, const QString &bin, const QString &userVisibleName,
+    void init(const KService::Ptr &service, const QString &bin, const QString &userVisibleName,
               const QString &iconName, WId windowId, const QByteArray &asn);
     void startProcess();
     void terminateStartupNotification();
