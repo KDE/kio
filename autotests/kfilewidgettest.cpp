@@ -22,6 +22,7 @@
 #include "kfilewidget.h"
 
 #include <QLabel>
+#include <QTemporaryDir>
 #include <QTest>
 #include <QStandardPaths>
 #include <QSignalSpy>
@@ -507,6 +508,28 @@ private Q_SLOTS:
         QList<QUrl> urls = fileWidget.selectedUrls();
         QCOMPARE(urls.size(), 1);
         QCOMPARE(urls[0], fileUrl);
+    }
+
+    void testCreateNestedNewFolders()
+    {
+        // when creating multiple nested new folders in the "save as" dialog, where folders are
+        //created and entered, kdirlister would hit an assert (in reinsert()), bug 408801
+        QTemporaryDir tempDir;
+        QVERIFY(tempDir.isValid());
+        const QString dir = tempDir.path();
+        const QUrl url = QUrl::fromLocalFile(dir);
+        KFileWidget fw(url);
+        fw.setOperationMode(KFileWidget::Saving);
+        fw.setMode(KFile::File);
+
+        // create the nested folders
+        for (int i = 1; i < 6; ++i) {
+            fw.dirOperator()->mkdir(QStringLiteral("folder%1").arg(i), true);
+            // simulate the time the user will take to type the new folder name
+            QTest::qWait(1000);
+        }
+
+        QVERIFY(QFile::exists(dir + QStringLiteral("/folder1/folder2/folder3/folder4/folder5")));
     }
 };
 

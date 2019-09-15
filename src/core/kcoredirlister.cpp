@@ -644,12 +644,6 @@ void KCoreDirListerCache::updateDirectory(const QUrl &_dir)
 
     const QUrl dir = _dir.adjusted(QUrl::StripTrailingSlash);
     if (!checkUpdate(dir)) {
-        if (dir.isLocalFile() && !(findByUrl(nullptr, dir).isNull())) {
-            pendingUpdates.insert(dir.toLocalFile());
-            if (!pendingUpdateTimer.isActive()) {
-                pendingUpdateTimer.start(500);
-            }
-        }
         return;
     }
 
