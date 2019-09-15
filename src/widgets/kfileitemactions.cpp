@@ -613,7 +613,6 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
     if (!d->m_props.isDirectory() || isLocal) {
 
         QAction *runAct = new QAction(this);
-        QString runActionName;
 
         const QStringList serviceIdList = d->listPreferredServiceIds(d->m_mimeTypeList, traderConstraint);
         //qDebug() << "serviceIdList=" << serviceIdList;
@@ -626,7 +625,7 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
 
             if (serviceIdList.count() == 1) {
                 const KService::Ptr app = preferredService(d->m_mimeTypeList.first(), traderConstraint);
-                runActionName = i18n("&Open with %1", app->name());
+                runAct->setText(("&Open with %1", app->name()));
                 runAct->setIcon(QIcon::fromTheme(app->icon()));
 
                 // Remove that app from the offers list (#242731)
@@ -637,10 +636,8 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
                     }
                 }
             } else {
-                runActionName = i18n("&Open");
+                runAct->setText(i18n("&Open"));
             }
-
-            runAct->setText(runActionName);
 
             d->m_traderConstraint = traderConstraint;
             d->m_fileOpenList = d->m_props.items();
