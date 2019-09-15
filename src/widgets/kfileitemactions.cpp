@@ -625,7 +625,7 @@ void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &trade
 
             if (serviceIdList.count() == 1) {
                 const KService::Ptr app = preferredService(d->m_mimeTypeList.first(), traderConstraint);
-                runAct->setText(("&Open with %1", app->name()));
+                runAct->setText(i18n("&Open with %1", app->name()));
                 runAct->setIcon(QIcon::fromTheme(app->icon()));
 
                 // Remove that app from the offers list (#242731)
