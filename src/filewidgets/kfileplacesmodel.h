@@ -48,10 +48,9 @@ public:
         SetupNeededRole = 0x059A935D,
         FixedDeviceRole = 0x332896C1,
         CapacityBarRecommendedRole = 0x1548C5C4,
-        GroupRole = 0x0a5b64ee,
-        /// @since 5.41
-        IconNameRole = 0x00a45c00,
-        GroupHiddenRole = 0x21a4b936
+        GroupRole = 0x0a5b64ee, ///< @since 5.40
+        IconNameRole = 0x00a45c00, ///< @since 5.41
+        GroupHiddenRole = 0x21a4b936 ///< @since 5.42
     };
 
     /// @since 5.42
@@ -63,8 +62,7 @@ public:
         DevicesType,
         RemovableDevicesType,
         UnknownType,
-        /// @since 5.54
-        TagsType
+        TagsType ///< @since 5.54
     };
 
     explicit KFilePlacesModel(QObject *parent = nullptr);
@@ -92,6 +90,7 @@ public:
     KBookmark bookmarkForIndex(const QModelIndex &index) const;
     /// @since 5.42
     GroupType groupType(const QModelIndex &index) const;
+    /// @since 5.42
     QModelIndexList groupIndexes(const GroupType type) const;
 
     QAction *teardownActionForIndex(const QModelIndex &index) const;
@@ -212,6 +211,7 @@ public:
 Q_SIGNALS:
     void errorMessage(const QString &message);
     void setupDone(const QModelIndex &index, bool success);
+    /// @since 5.42
     void groupHiddenChanged(KFilePlacesModel::GroupType group, bool hidden);
 
 private:
