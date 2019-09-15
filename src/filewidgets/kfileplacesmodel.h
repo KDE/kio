@@ -43,14 +43,14 @@ class KIOFILEWIDGETS_EXPORT KFilePlacesModel : public QAbstractItemModel
     Q_OBJECT
 public:
     enum AdditionalRoles {
-        UrlRole = 0x069CD12B,
-        HiddenRole = 0x0741CAAC,
-        SetupNeededRole = 0x059A935D,
-        FixedDeviceRole = 0x332896C1,
-        CapacityBarRecommendedRole = 0x1548C5C4,
-        GroupRole = 0x0a5b64ee, ///< @since 5.40
-        IconNameRole = 0x00a45c00, ///< @since 5.41
-        GroupHiddenRole = 0x21a4b936 ///< @since 5.42
+        UrlRole = 0x069CD12B, /// @see url()
+        HiddenRole = 0x0741CAAC, /// @see isHidden()
+        SetupNeededRole = 0x059A935D, /// @see setupNeeded()
+        FixedDeviceRole = 0x332896C1, /// Whether the place is a fixed device (neither hotpluggable nor removable).
+        CapacityBarRecommendedRole = 0x1548C5C4, /// Whether the place should have its free space displayed in a capacity bar.
+        GroupRole = 0x0a5b64ee, ///< @since 5.40 /// The name of the group, for example "Remote" or "Devices".
+        IconNameRole = 0x00a45c00, ///< @since 5.41 @see icon()
+        GroupHiddenRole = 0x21a4b936 ///< @since 5.42 @see isGroupHidden()
     };
 
     /// @since 5.42
@@ -76,43 +76,165 @@ public:
     KFilePlacesModel(const QString &alternativeApplicationName, QObject *parent = nullptr);
     ~KFilePlacesModel() override;
 
+    /**
+     * @return The URL of the place at index @p index.
+     */
     QUrl url(const QModelIndex &index) const;
+
+    /**
+     * @return Whether the place at index @p index needs to be mounted before it can be used.
+     */
     bool setupNeeded(const QModelIndex &index) const;
+
+    /**
+     * @return The icon of the place at index @p index.
+     */
     QIcon icon(const QModelIndex &index) const;
+
+    /**
+     * @return The user-visible text of the place at index @p index.
+     */
     QString text(const QModelIndex &index) const;
+
+    /**
+     * @return Whether the place at index @p index is hidden or is inside an hidden group.
+     */
     bool isHidden(const QModelIndex &index) const;
-    /// @since 5.42
+
+    /**
+     * @return Whether the group type @p type is hidden.
+     * @since 5.42
+     */
     bool isGroupHidden(const GroupType type) const;
-    /// @since 5.42
+
+    /**
+     * @return Whether the group of the place at index @p index is hidden.
+     * @since 5.42
+     */
     bool isGroupHidden(const QModelIndex &index) const;
+
+    /**
+     * @return Whether the place at index @p index is a device handled by Solid.
+     * @see deviceForIndex()
+     */
     bool isDevice(const QModelIndex &index) const;
+
+    /**
+     * @return The solid device of the place at index @p index, if it is a device. Otherwise a default Solid::Device() instance is returned.
+     * @see isDevice()
+     */
     Solid::Device deviceForIndex(const QModelIndex &index) const;
+
+    /**
+     * @return The KBookmark instance of the place at index @p index.
+     * If the index is not valid, a default KBookmark instance is returned.
+     */
     KBookmark bookmarkForIndex(const QModelIndex &index) const;
-    /// @since 5.42
+
+    /**
+     * @return The group type of the place at index @p index.
+     * @since 5.42
+     */
     GroupType groupType(const QModelIndex &index) const;
-    /// @since 5.42
+
+    /**
+    * @return The list of model indexes that have @ type as their group type.
+    * @see groupType()
+    * @since 5.42
+    */
     QModelIndexList groupIndexes(const GroupType type) const;
 
+    /**
+     * @return A QAction with a proper translated label that can be used to trigger the requestTeardown()
+     * method for the place at index @p index.
+     * @see requestTeardown()
+     */
     QAction *teardownActionForIndex(const QModelIndex &index) const;
+
+    /**
+     * @return A QAction with a proper translated label that can be used to trigger the requestEject()
+     * method for the place at index @p index.
+     * @see requestEject()
+     */
     QAction *ejectActionForIndex(const QModelIndex &index) const;
+
+    /**
+     * Unmounts the place at index @p index by triggering the teardown functionality of its Solid device.
+     * @see deviceForIndex()
+     */
     void requestTeardown(const QModelIndex &index);
+
+    /**
+     * Ejects the place at index @p index by triggering the ejetc functionality of its Solid device.
+     * @see deviceForIndex()
+     */
     void requestEject(const QModelIndex &index);
+
+    /**
+     * Mounts the place at index @p index by triggering the setup functionality of its Solid device.
+     * @see deviceForIndex()
+     */
     void requestSetup(const QModelIndex &index);
 
+    /**
+     * Adds a new place to the model.
+     * @param text The user-visible text for the place
+     * @param url The URL of the place. It will be stored in its QUrl::FullyEncoded string format.
+     * @param iconName The icon of the place
+     * @param appName If set as the value of QCoreApplication::applicationName(), will make the place visible only in this application.
+     */
     void addPlace(const QString &text, const QUrl &url, const QString &iconName = QString(), const QString &appName = QString());
+
+    /**
+     * Adds a new place to the model.
+     * @param text The user-visible text for the place
+     * @param url The URL of the place. It will be stored in its QUrl::FullyEncoded string format.
+     * @param iconName The icon of the place
+     * @param appName If set as the value of QCoreApplication::applicationName(), will make the place visible only in this application.
+     * @param after The index after which the new place will be added.
+     */
     void addPlace(const QString &text, const QUrl &url, const QString &iconName, const QString &appName, const QModelIndex &after);
+
+    /**
+     * Edits the place with index @p index.
+     * @param text The new user-visible text for the place
+     * @param url The new URL of the place
+     * @param iconName The new icon of the place
+     * @param appName The new application-local filter for the place (@see addPlace()).
+     */
     void editPlace(const QModelIndex &index, const QString &text, const QUrl &url, const QString &iconName = QString(), const QString &appName = QString());
+
+    /**
+     * Deletes the place with index @p index from the model.
+     */
     void removePlace(const QModelIndex &index) const;
+
+    /**
+     * Changes the visibility of the place with index @p index, but only if the place is not inside an hidden group.
+     * @param hidden Whether the place should be hidden or visible.
+     * @see isGroupHidden()
+     */
     void setPlaceHidden(const QModelIndex &index, bool hidden);
-    /// @since 5.42
+
+    /**
+     * Changes the visibility of the group with type @p type.
+     * @param hidden Whether the group should be hidden or visible.
+     * @see isGroupHidden()
+     * @since 5.42
+     */
     void setGroupHidden(const GroupType type, bool hidden);
 
     /**
      * @brief Move place at @p itemRow to a position before @p row
+     * @return Whether the place has been moved.
      * @since 5.41
      */
     bool movePlace(int itemRow, int row);
 
+    /**
+     * @return The number of hidden places in the model.
+     * @see isHidden()
+     */
     int hiddenCount() const;
 
     /**
@@ -209,9 +331,24 @@ public:
     QStringList supportedSchemes() const;
 
 Q_SIGNALS:
+    /**
+     * @p message An error message explaining what went wrong.
+     */
     void errorMessage(const QString &message);
+
+    /**
+     * Emitted after the Solid setup ends.
+     * @param success Whether the Solid setup has been successful.
+     * @see requestSetup()
+     */
     void setupDone(const QModelIndex &index, bool success);
-    /// @since 5.42
+
+    /**
+     * Emitted whenever the visibility of the group @p group changes.
+     * @param hidden The new visibility of the group.
+     * @see setGroupHidden()
+     * @since 5.42
+     */
     void groupHiddenChanged(KFilePlacesModel::GroupType group, bool hidden);
 
 private:
