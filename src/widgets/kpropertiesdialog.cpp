@@ -1091,6 +1091,8 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         // buttons
         d->m_sizeDetermineButton = new QPushButton(i18n("Calculate"), d->m_frame);
         d->m_sizeStopButton = new QPushButton(i18n("Stop"), d->m_frame);
+        d->m_sizeDetermineButton->setIcon(QIcon::fromTheme(QStringLiteral("view-refresh")));
+        d->m_sizeStopButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-cancel")));
         connect(d->m_sizeDetermineButton, &QAbstractButton::clicked, this, &KFilePropsPlugin::slotSizeDetermine);
         connect(d->m_sizeStopButton, &QAbstractButton::clicked, this, &KFilePropsPlugin::slotSizeStop);
         sizelay->addWidget(d->m_sizeDetermineButton, 0);
