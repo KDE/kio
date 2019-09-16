@@ -730,7 +730,6 @@ bool KCoreDirListerCache::checkUpdate(const QUrl &_dir)
             item->complete = false;
             item->watchedWhileInCache = false;
             item->decAutoUpdate();
-            // Hmm, this debug output might include login/password from the _dir URL.
             qCDebug(KIO_CORE_DIRLISTER) << "directory " << _dir << " not in use, marked dirty.";
         }
         //else
@@ -823,7 +822,7 @@ void KCoreDirListerCache::slotFilesAdded(const QString &dir /*url*/)   // from K
 
 void KCoreDirListerCache::itemsAddedInDirectory(const QUrl &urlDir)
 {
-    qCDebug(KIO_CORE_DIRLISTER) << urlDir; // output urls, not qstrings, since they might contain a password
+    qCDebug(KIO_CORE_DIRLISTER) << urlDir;
     Q_FOREACH (const QUrl &u, directoriesForCanonicalPath(urlDir)) {
         updateDirectory(u);
     }
