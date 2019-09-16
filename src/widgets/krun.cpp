@@ -361,9 +361,21 @@ bool KRun::runUrl(const QUrl &u, const QString &_mimetype, QWidget *window, RunF
                 bool canRun = true;
                 bool isFileExecutable = hasExecuteBit(u.toLocalFile());
 
-                // For executables that aren't scripts and without execute bit,
-                // show prompt asking user if he wants to run the program.
-                if (!isFileExecutable && !isTextFile) {
+#ifdef Q_OS_WIN
+                // On Windows, run all executables normally
+                const bool supportsRunningExecutable = true;
+#else
+                // On non-Windows systems, this will prevent Windows executables
+                // from being run, so that programs like Wine can handle them instead.
+                const bool supportsRunningExecutable = !mime.inherits(QStringLiteral("application/x-ms-dos-executable"));
+#endif
+
+                if (!supportsRunningExecutable) {
+                    // Don't run Windows executables on non-Windows platform
+                    canRun = false;
+                } else if (!isFileExecutable && !isTextFile) {
+                    // For executables that aren't scripts and without execute bit,
+                    // show prompt asking user if he wants to run the program.
                     canRun = false;
                     int result = showUntrustedProgramWarning(u.fileName(), window);
                     if (result == QDialog::Accepted) {
