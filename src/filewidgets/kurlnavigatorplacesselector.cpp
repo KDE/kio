@@ -121,26 +121,23 @@ void KUrlNavigatorPlacesSelector::updateMenu()
 
 void KUrlNavigatorPlacesSelector::updateTeardownAction()
 {
-    const int rowCount = m_placesModel->rowCount();
-    if (m_placesMenu->actions().size() == rowCount + 2) {
-        // remove teardown action
-        QAction *action = m_placesMenu->actions().at(rowCount + 1);
-        m_placesMenu->removeAction(action);
-        delete action;
+    const QString teardownActionId = QStringLiteral("teardownAction");
 
-        // remove separator
-        action = m_placesMenu->actions().at(rowCount);
-        m_placesMenu->removeAction(action);
-        delete action;
+    const auto actions = m_placesMenu->actions();
+    for (QAction *action : actions) {
+        if (action->data() == teardownActionId) {
+            delete action;
+        }
     }
 
     const QModelIndex index = m_placesModel->index(m_selectedItem, 0);
     QAction *teardown = m_placesModel->teardownActionForIndex(index);
-    if (teardown != nullptr) {
-        teardown->setParent(m_placesMenu);
-        teardown->setData(QStringLiteral("teardownAction"));
+    if (teardown) {
+        QAction *separator = m_placesMenu->addSeparator();
+        separator->setData(teardownActionId);
 
-        m_placesMenu->addSeparator();
+        teardown->setParent(m_placesMenu);
+        teardown->setData(teardownActionId);
         m_placesMenu->addAction(teardown);
     }
 }
