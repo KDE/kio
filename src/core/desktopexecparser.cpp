@@ -374,8 +374,8 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         KConfigGroup cg(KSharedConfig::openConfig(), "General");
         QString terminal = cg.readPathEntry("TerminalApplication", QStringLiteral("konsole"));
         if (terminal == QLatin1String("konsole")) {
-            if (!d->service.path().isEmpty()) {
-                terminal += QLatin1String(" --workdir ") + KShell::quoteArg(d->service.path());
+            if (!d->service.workingDirectory().isEmpty()) {
+                terminal += QLatin1String(" --workdir ") + KShell::quoteArg(d->service.workingDirectory());
             }
             terminal += QLatin1String(" -qwindowtitle '%c' %i");
         }
