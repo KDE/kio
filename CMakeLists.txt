@@ -106,7 +106,11 @@ if (HAVE_X11)
     find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED X11Extras)
 endif()
 
+# Qt 5.13 deprecated QComboBox::currentIndexChanged(QString) and Qt 5.14 undid that...
+if (Qt5Widgets_VERSION VERSION_GREATER_EQUAL 5.14.0)
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050d00)
+endif()
+
 add_definitions(-DTRANSLATION_DOMAIN=\"kio5\")
 if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
     ki18n_install(po)
