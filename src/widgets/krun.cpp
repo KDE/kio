@@ -299,7 +299,7 @@ static int showUntrustedProgramWarning(const QString &programName, QWidget *wind
     // Constrain maximum size.  Minimum size set in
     // the dialog's show event.
 #if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-    const QSize screenSize = QApplication::screens()->at(0)->size();
+    const QSize screenSize = QApplication::screens().at(0)->size();
 #else
     const QSize screenSize = baseDialog->screen()->size();
 #endif
