@@ -781,7 +781,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     // The resize is what caused "can't click on items before clicking on Name header" in previous versions.
     // Probably due to the resizeEvent handler using width().
 #if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-    q->resize( q->minimumWidth(), 0.6*QApplication::desktop()->availableGeometry().height());
+    q->resize( q->minimumWidth(), 0.6 * QApplication::screens().at(0)->availableGeometry().height());
 #else
     q->resize( q->minimumWidth(), 0.6 * q->screen()->availableGeometry().height());
 #endif
