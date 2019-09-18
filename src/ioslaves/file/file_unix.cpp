@@ -660,7 +660,7 @@ void FileProtocol::rename(const QUrl &srcUrl, const QUrl &destUrl,
         if (auto err = execWithElevatedPrivilege(RENAME, {_src, _dest}, errno)) {
             if (!err.wasCanceled()) {
                 if ((err == EACCES) || (err == EPERM)) {
-                    error(KIO::ERR_ACCESS_DENIED, dest);
+                    error(KIO::ERR_WRITE_ACCESS_DENIED, dest);
                 } else if (err == EXDEV) {
                     error(KIO::ERR_UNSUPPORTED_ACTION, QStringLiteral("rename"));
                 } else if (err == EROFS) { // The file is on a read-only filesystem

@@ -985,7 +985,8 @@ void JobTest::moveDirectoryNoPermissions()
 void JobTest::moveDirectoryToReadonlyFilesystem_data()
 {
     QTest::addColumn<QList<QUrl>>("sources");
-    QTest::addColumn<int>("expectedErrorCode");
+    QTest::addColumn<int>("expectedErrorCodeNoPrivilege");
+    QTest::addColumn<int>("expectedErrorCode"); // can be different because QDir::mkdir doesn't give us error codes like "access denied", see TODO in kio_file's mkdir()
 
     const QString srcFileHomePath = homeTmpDir() + "srcFileHome";
     const QUrl srcFileHome = QUrl::fromLocalFile(srcFileHomePath);
@@ -999,21 +1000,26 @@ void JobTest::moveDirectoryToReadonlyFilesystem_data()
     const QUrl srcDirHome = QUrl::fromLocalFile(srcDirHomePath);
     createTestDirectory(srcDirHomePath);
 
+    const QString srcDirHome2Path = homeTmpDir() + "srcDirHome2";
+    const QUrl srcDirHome2 = QUrl::fromLocalFile(srcDirHome2Path);
+    createTestDirectory(srcDirHome2Path);
+
     const QString srcDirOtherPath = otherTmpDir() + "srcDirOther";
     const QUrl srcDirOther = QUrl::fromLocalFile(srcDirOtherPath);
     createTestDirectory(srcDirOtherPath);
 
-    QTest::newRow("file_same_partition") << QList<QUrl>{srcFileHome} << int(KIO::ERR_WRITE_ACCESS_DENIED);
-    QTest::newRow("file_other_partition") << QList<QUrl>{srcFileOther} << int(KIO::ERR_WRITE_ACCESS_DENIED);
-    QTest::newRow("one_dir_same_partition") << QList<QUrl>{srcDirHome} << int(KIO::ERR_WRITE_ACCESS_DENIED);
-    QTest::newRow("one_dir_other_partition") << QList<QUrl>{srcDirOther} << int(KIO::ERR_WRITE_ACCESS_DENIED);
-    QTest::newRow("dirs_same_partition") << QList<QUrl>{srcDirHome, QUrl::fromLocalFile(homeTmpDir())} << int(KIO::ERR_WRITE_ACCESS_DENIED);
-    QTest::newRow("dirs_both_partitions") << QList<QUrl>{srcDirOther, srcDirHome} << int(KIO::ERR_WRITE_ACCESS_DENIED);
+    QTest::newRow("file_same_partition") << QList<QUrl>{srcFileHome} << int(KIO::ERR_WRITE_ACCESS_DENIED) << int(KIO::ERR_WRITE_ACCESS_DENIED);
+    QTest::newRow("file_other_partition") << QList<QUrl>{srcFileOther} << int(KIO::ERR_WRITE_ACCESS_DENIED) << int(KIO::ERR_WRITE_ACCESS_DENIED);
+    QTest::newRow("one_dir_same_partition") << QList<QUrl>{srcDirHome} << int(KIO::ERR_WRITE_ACCESS_DENIED) << int(KIO::ERR_CANNOT_MKDIR);
+    QTest::newRow("one_dir_other_partition") << QList<QUrl>{srcDirOther} << int(KIO::ERR_WRITE_ACCESS_DENIED) << int(KIO::ERR_WRITE_ACCESS_DENIED);
+    QTest::newRow("dirs_same_partition") << QList<QUrl>{srcDirHome, srcDirHome2} << int(KIO::ERR_WRITE_ACCESS_DENIED) << int(KIO::ERR_CANNOT_MKDIR);
+    QTest::newRow("dirs_both_partitions") << QList<QUrl>{srcDirOther, srcDirHome} << int(KIO::ERR_WRITE_ACCESS_DENIED) << int(KIO::ERR_WRITE_ACCESS_DENIED);
 }
 
 void JobTest::moveDirectoryToReadonlyFilesystem()
 {
     QFETCH(QList<QUrl>, sources);
+    QFETCH(int, expectedErrorCodeNoPrivilege);
     QFETCH(int, expectedErrorCode);
 
     const QString dst_dir = otherTmpDir() + "readonlyDest";
@@ -1021,10 +1027,18 @@ void JobTest::moveDirectoryToReadonlyFilesystem()
     QVERIFY2(QDir().mkdir(dst_dir), qPrintable(dst_dir));
     QFile(dst_dir).setPermissions(QFile::Permissions(QFile::ReadOwner | QFile::ExeOwner)); // Make it readonly, moving should throw some errors
 
-    KIO::CopyJob *job = KIO::move(sources, dst, KIO::HideProgressInfo);
+    KIO::CopyJob *job = KIO::move(sources, dst, KIO::HideProgressInfo | KIO::NoPrivilegeExecution);
     job->setUiDelegate(nullptr);
     QVERIFY(!job->exec());
-    QCOMPARE(job->error(), expectedErrorCode);
+    QCOMPARE(job->error(), expectedErrorCodeNoPrivilege);
+    for (const QUrl &srcUrl : qAsConst(sources)) {
+        QVERIFY(QFileInfo::exists(srcUrl.toLocalFile())); // no moving happened
+    }
+
+    KIO::CopyJob *job2 = KIO::move(sources, dst, KIO::HideProgressInfo);
+    job2->setUiDelegate(nullptr);
+    QVERIFY(!job2->exec());
+    QCOMPARE(job2->error(), expectedErrorCode);
     for (const QUrl &srcUrl : qAsConst(sources)) {
         QVERIFY(QFileInfo::exists(srcUrl.toLocalFile())); // no moving happened
     }
