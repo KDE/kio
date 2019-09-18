@@ -64,7 +64,7 @@ void PrivilegeJobTest::privilegeChmod()
     KIO::Job *job = KIO::chmod(items, newPerm, S_IWGRP, QString(), QString(), false, KIO::HideProgressInfo);
     job->addMetaData("UnitTesting", "true");
     job->setUiDelegate(nullptr);
-    QVERIFY(job->exec());
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(job->queryMetaData("TestData"), QLatin1String("PrivilegeOperationAllowed"));
     // Bring it back
     QVERIFY(QFile::setPermissions(homeTmpDir(), QFileDevice::ReadOwner | QFileDevice::ExeOwner));
@@ -77,7 +77,7 @@ void PrivilegeJobTest::privilegeCopy()
     KIO::CopyJob *job = KIO::copy(src, dest, KIO::HideProgressInfo);
     job->addMetaData("UnitTesting", "true");
     job->setUiDelegate(nullptr);
-    QVERIFY(job->exec());
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(job->queryMetaData("TestData"), QStringLiteral("PrivilegeOperationAllowed"));
 }
 
@@ -87,7 +87,7 @@ void PrivilegeJobTest::privilegeDelete()
     KIO::DeleteJob *job = KIO::del(url, KIO::HideProgressInfo);
     job->addMetaData("UnitTesting", "true");
     job->setUiDelegate(nullptr);
-    QVERIFY(job->exec());
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(job->queryMetaData("TestData"), QStringLiteral("PrivilegeOperationAllowed"));
 }
 
@@ -97,7 +97,7 @@ void PrivilegeJobTest::privilegeMkpath()
     KIO::MkpathJob *job = KIO::mkpath(dirUrl, QUrl(), KIO::HideProgressInfo);
     job->addMetaData("UnitTesting", "true");
     job->setUiDelegate(nullptr);
-    QVERIFY(job->exec());
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(job->queryMetaData("TestData"), QStringLiteral("PrivilegeOperationAllowed"));
 }
 
@@ -107,7 +107,7 @@ void PrivilegeJobTest::privilegePut()
     KIO::TransferJob *job = KIO::put(url, -1, KIO::HideProgressInfo);
     job->addMetaData("UnitTesting", "true");
     job->setUiDelegate(nullptr);
-    QVERIFY(job->exec());
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(job->queryMetaData("TestData"), QStringLiteral("PrivilegeOperationAllowed"));
 }
 
@@ -118,7 +118,7 @@ void PrivilegeJobTest::privilegeRename()
     KIO::SimpleJob *job = KIO::rename(src, dest, KIO::HideProgressInfo);
     job->addMetaData("UnitTesting", "true");
     job->setUiDelegate(nullptr);
-    QVERIFY(job->exec());
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(job->queryMetaData("TestData"), QStringLiteral("PrivilegeOperationAllowed"));
 }
 
@@ -129,6 +129,6 @@ void PrivilegeJobTest::privileSymlink()
     KIO::SimpleJob *job = KIO::symlink(target, dest, KIO::HideProgressInfo);
     job->addMetaData("UnitTesting", "true");
     job->setUiDelegate(nullptr);
-    QVERIFY(job->exec());
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(job->queryMetaData("TestData"), QStringLiteral("PrivilegeOperationAllowed"));
 }
