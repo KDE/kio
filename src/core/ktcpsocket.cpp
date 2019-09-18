@@ -230,52 +230,6 @@ public:
         }
     }
 
-    static QString errorString(QSslError::SslError e)
-    {
-        switch (e) {
-        case QSslError::NoError:
-            return i18nc("SSL error", "No error");
-        case QSslError::UnableToGetLocalIssuerCertificate:
-        case QSslError::InvalidCaCertificate:
-            return i18nc("SSL error", "The certificate authority's certificate is invalid");
-        case QSslError::InvalidNotBeforeField:
-        case QSslError::InvalidNotAfterField:
-        case QSslError::CertificateNotYetValid:
-        case QSslError::CertificateExpired:
-            return i18nc("SSL error", "The certificate has expired");
-        case QSslError::UnableToDecodeIssuerPublicKey:
-        case QSslError::SubjectIssuerMismatch:
-        case QSslError::AuthorityIssuerSerialNumberMismatch:
-            return i18nc("SSL error", "The certificate is invalid");
-        case QSslError::SelfSignedCertificate:
-        case QSslError::SelfSignedCertificateInChain:
-            return i18nc("SSL error", "The certificate is not signed by any trusted certificate authority");
-        case QSslError::CertificateRevoked:
-            return i18nc("SSL error", "The certificate has been revoked");
-        case QSslError::InvalidPurpose:
-            return i18nc("SSL error", "The certificate is unsuitable for this purpose");
-        case QSslError::CertificateUntrusted:
-            return i18nc("SSL error", "The root certificate authority's certificate is not trusted for this purpose");
-        case QSslError::CertificateRejected:
-            return i18nc("SSL error", "The certificate authority's certificate is marked to reject this certificate's purpose");
-        case QSslError::NoPeerCertificate:
-            return i18nc("SSL error", "The peer did not present any certificate");
-        case QSslError::HostNameMismatch:
-            return i18nc("SSL error", "The certificate does not apply to the given host");
-        case QSslError::UnableToVerifyFirstCertificate:
-        case QSslError::UnableToDecryptCertificateSignature:
-        case QSslError::UnableToGetIssuerCertificate:
-        case QSslError::CertificateSignatureFailed:
-            return i18nc("SSL error", "The certificate cannot be verified for internal reasons");
-        case QSslError::PathLengthExceeded:
-            return i18nc("SSL error", "The certificate chain is too long");
-        case QSslError::UnspecifiedError:
-        case QSslError::NoSslSupport:
-        default: // ### this captures ~15 more enum values that we might want to give better descriptions
-            return i18nc("SSL error", "Unknown error");
-        }
-    }
-
     QSslError error;
 };
 
@@ -315,7 +269,7 @@ KSslError::Error KSslError::error() const
 
 QString KSslError::errorString() const
 {
-    return KSslErrorPrivate::errorString(d->error.error());
+    return d->error.errorString();
 }
 
 QSslCertificate KSslError::certificate() const
