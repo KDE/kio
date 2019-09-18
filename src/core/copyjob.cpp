@@ -431,7 +431,7 @@ void CopyJobPrivate::slotResultStating(KJob *job)
             // Also check for writability, before spending time stat'ing everything (#141564)
             // TODO: this is done only for local files, but we could use the UDSEntry to do this portably
             // ... assuming all kioslaves set permissions correctly
-            if (fileInfo.exists() && !fileInfo.isWritable()) {
+            if (!m_privilegeExecutionEnabled && fileInfo.exists() && !fileInfo.isWritable()) {
                 q->setError(ERR_WRITE_ACCESS_DENIED);
                 q->setErrorText(path);
                 q->emitResult();
