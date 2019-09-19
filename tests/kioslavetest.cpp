@@ -300,9 +300,6 @@ void KioslaveTest::startJob()
     connect(job, &KJob::result,
             this, &KioslaveTest::slotResult);
 
-    connect(job, &Job::canceled,
-            this, &KioslaveTest::slotResult);
-
     if (progressMode == ProgressStatus) {
         statusTracker->registerJob(job);
     }
