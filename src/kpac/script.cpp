@@ -136,7 +136,7 @@ static QString addressListToString(const QList<QHostAddress> &addressList,
                                    const QHash<QString, QString> &actualEntryMap)
 {
     QString result;
-    Q_FOREACH (const QHostAddress &address, addressList) {
+    for (const QHostAddress &address : addressList) {
         if (!result.isEmpty()) {
             result += QLatin1Char(';');
         }
@@ -154,7 +154,7 @@ public:
         return Address(host);
     }
 
-    QList<QHostAddress> addresses() const
+    const QList<QHostAddress> &addresses() const
     {
         return m_addressList;
     }
@@ -227,8 +227,7 @@ Q_INVOKABLE QJSValue IsResolvable(QString host)
     try {
         const Address info = Address::resolve(host);
         bool hasResolvableIPv4Address = false;
-
-        Q_FOREACH (const QHostAddress &address, info.addresses()) {
+        for (const QHostAddress &address : info.addresses()) {
             if (!isSpecialAddress(address) && isIPv4Address(address)) {
                 hasResolvableIPv4Address = true;
                 break;
@@ -251,7 +250,7 @@ Q_INVOKABLE QJSValue IsInNet(QString host, QString subnet, QString mask)
         bool isInSubNet = false;
         const QString subnetStr = subnet + QLatin1Char('/') + mask;
         const QPair<QHostAddress, int> subnet = QHostAddress::parseSubnet(subnetStr);
-        Q_FOREACH (const QHostAddress &address, info.addresses()) {
+        for (const QHostAddress &address : info.addresses()) {
             if (!isSpecialAddress(address) && isIPv4Address(address) && address.isInSubnet(subnet)) {
                 isInSubNet = true;
                 break;
@@ -270,7 +269,7 @@ Q_INVOKABLE QJSValue DNSResolve(QString host)
     try {
         const Address info = Address::resolve(host);
         QString resolvedAddress(QLatin1String(""));
-        Q_FOREACH (const QHostAddress &address, info.addresses()) {
+        for (const QHostAddress &address : info.addresses()) {
             if (!isSpecialAddress(address) && isIPv4Address(address)) {
                 resolvedAddress = address.toString();
                 break;
@@ -496,7 +495,7 @@ Q_INVOKABLE QJSValue IsResolvableEx(QString host)
     try {
         const Address info = Address::resolve(host);
         bool hasResolvableIPAddress = false;
-        Q_FOREACH (const QHostAddress &address, info.addresses()) {
+        for (const QHostAddress &address : info.addresses()) {
             if (isIPv4Address(address) || isIPv6Address(address)) {
                 hasResolvableIPAddress = true;
                 break;
@@ -517,8 +516,7 @@ Q_INVOKABLE QJSValue IsInNetEx(QString ipAddress, QString ipPrefix)
         bool isInSubNet = false;
         const QString subnetStr = ipPrefix;
         const QPair<QHostAddress, int> subnet = QHostAddress::parseSubnet(subnetStr);
-
-        Q_FOREACH (const QHostAddress &address, info.addresses()) {
+        for (const QHostAddress &address : info.addresses()) {
             if (isSpecialAddress(address)) {
                 continue;
             }
@@ -544,8 +542,7 @@ Q_INVOKABLE QJSValue DNSResolveEx(QString host)
 
         QStringList addressList;
         QString resolvedAddress(QLatin1String(""));
-
-        Q_FOREACH (const QHostAddress &address, info.addresses()) {
+        for (const QHostAddress &address : info.addresses()) {
             if (!isSpecialAddress(address)) {
                 addressList << address.toString();
             }
