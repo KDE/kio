@@ -26,6 +26,8 @@
 #include <QVBoxLayout>
 #include <kiconloader.h>
 #include <klocalizedstring.h>
+
+#include <QIcon>
 #include <QNetworkConfigurationManager>
 
 class KStatusBarOfflineIndicatorPrivate
@@ -51,7 +53,7 @@ KStatusBarOfflineIndicator::KStatusBarOfflineIndicator(QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setContentsMargins(2, 2, 2, 2);
     QLabel *label = new QLabel(this);
-    label->setPixmap(SmallIcon(QStringLiteral("network-disconnect")));
+    label->setPixmap(QIcon::fromTheme(QStringLiteral("network-disconnect")).pixmap(KIconLoader::SizeSmall));
     label->setToolTip(i18n("The desktop is offline"));
     layout->addWidget(label);
     d->initialize();

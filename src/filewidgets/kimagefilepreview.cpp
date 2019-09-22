@@ -197,8 +197,8 @@ void KImageFilePreview::KImageFilePreviewPrivate::_k_slotFailed(const KFileItem 
     if (item.isDir()) {
         imageLabel->clear();
     } else if (item.url() == currentURL) // should always be the case
-        imageLabel->setPixmap(SmallIcon(QStringLiteral("image-missing"), KIconLoader::SizeLarge,
-                                        KIconLoader::DisabledState));
+        imageLabel->setPixmap(QIcon::fromTheme(QStringLiteral("image-missing"))
+            .pixmap(KIconLoader::SizeLarge, QIcon::Disabled));
 }
 
 void KImageFilePreview::KImageFilePreviewPrivate::_k_slotResult(KJob *job)

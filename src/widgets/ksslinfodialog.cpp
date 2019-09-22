@@ -113,20 +113,24 @@ void KSslInfoDialog::updateWhichPartsEncrypted()
 {
     if (d->isMainPartEncrypted) {
         if (d->auxPartsEncrypted) {
-            d->ui.encryptionIndicator->setPixmap(BarIcon(QStringLiteral("security-high")));
+            d->ui.encryptionIndicator->setPixmap(QIcon::fromTheme(QStringLiteral("security-high"))
+                .pixmap(KIconLoader::SizeSmallMedium));
             d->ui.explanation->setText(i18n("Current connection is secured with SSL."));
         } else {
-            d->ui.encryptionIndicator->setPixmap(BarIcon(QStringLiteral("security-medium")));
+            d->ui.encryptionIndicator->setPixmap(QIcon::fromTheme(QStringLiteral("security-medium"))
+                .pixmap(KIconLoader::SizeSmallMedium));
             d->ui.explanation->setText(i18n("The main part of this document is secured "
                                             "with SSL, but some parts are not."));
         }
     } else {
         if (d->auxPartsEncrypted) {
-            d->ui.encryptionIndicator->setPixmap(BarIcon(QStringLiteral("security-medium")));
+            d->ui.encryptionIndicator->setPixmap(QIcon::fromTheme(QStringLiteral("security-medium"))
+                .pixmap(KIconLoader::SizeSmallMedium));
             d->ui.explanation->setText(i18n("Some of this document is secured with SSL, "
                                             "but the main part is not."));
         } else {
-            d->ui.encryptionIndicator->setPixmap(BarIcon(QStringLiteral("security-low")));
+            d->ui.encryptionIndicator->setPixmap(QIcon::fromTheme(QStringLiteral("security-low"))
+                .pixmap(KIconLoader::SizeSmallMedium));
             d->ui.explanation->setText(i18n("Current connection is not secured with SSL."));
         }
     }
