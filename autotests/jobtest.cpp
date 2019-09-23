@@ -1833,8 +1833,9 @@ void JobTest::safeOverwrite()
     QSignalSpy spyTotalSize(job, &KIO::FileCopyJob::totalSize);
     connect(job, &KIO::FileCopyJob::totalSize, this, [destFileExists, destPartFile](KJob *job, qulonglong totalSize) {
         Q_UNUSED(job);
-        Q_UNUSED(totalSize);
-        QCOMPARE(destFileExists, QFile::exists(destPartFile));
+        if (totalSize > 0) {
+            QCOMPARE(destFileExists, QFile::exists(destPartFile));
+        }
     });
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QVERIFY(QFile::exists(destFile));
