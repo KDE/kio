@@ -109,7 +109,8 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
     }
 
 #ifdef Q_OS_UNIX
-    LegacyCodec codec;
+    // From Qt doc : "Note that you should not delete codecs yourself: once created they become Qt's responsibility"
+    (void)new LegacyCodec;
 #endif
 
     FileProtocol slave(argv[2], argv[3]);
