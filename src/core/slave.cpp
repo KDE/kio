@@ -142,7 +142,7 @@ public:
             qCWarning(KIO_CORE) << "KIO Connection server not listening, could not connect";
         }
     }
-    ~SlavePrivate()
+    ~SlavePrivate() override
     {
         delete slaveconnserver;
     }

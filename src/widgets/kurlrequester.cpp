@@ -47,7 +47,7 @@ public:
     {
         new DragDecorator(this);
     }
-    ~KUrlDragPushButton() {}
+    ~KUrlDragPushButton() override {}
 
     void setURL(const QUrl &url)
     {

@@ -64,7 +64,7 @@ class KIO::DropMenu : public QMenu
     Q_OBJECT
 public:
     explicit DropMenu(QWidget *parent = nullptr);
-    ~DropMenu();
+    ~DropMenu() override;
 
     void addCancelAction();
     void addExtraActions(const QList<QAction *> &appActions, const QList<QAction *> &pluginActions);

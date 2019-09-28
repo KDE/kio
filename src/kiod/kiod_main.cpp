@@ -37,7 +37,7 @@ class KIOD : public QObject
 {
     Q_OBJECT
 public:
-    ~KIOD();
+    ~KIOD() override;
 
 public Q_SLOTS:
     void loadModule(const QString &name);

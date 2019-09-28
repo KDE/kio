@@ -130,7 +130,7 @@ public:
         d_ptr->m_caption = i18n("Undo Changes");
         d_ptr->m_message = i18n("Undoing this operation requires root privileges. Do you want to continue?");
     }
-    virtual ~UndoJob() {}
+    ~UndoJob() override {}
 
     virtual void kill(bool)
     {
