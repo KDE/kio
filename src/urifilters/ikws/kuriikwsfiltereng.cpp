@@ -265,7 +265,7 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
                     for (int i = first; i <= last; i++) {
                         v += map[QString::number(i)] + QLatin1Char(' ');
                         // Remove used value from ql (needed for \{@}):
-                        ql[i-1] = QLatin1String("");
+                        ql[i-1].clear();
                     }
 
                     v = v.trimmed();
@@ -292,12 +292,12 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
                     if (c == QLatin1Char('0')) {
                         // It's a numeric reference to '0'
                         for (QStringList::Iterator it = ql.begin(); it != ql.end(); ++it) {
-                            (*it) = QLatin1String("");
+                            (*it).clear();
                         }
                     } else if ((c >= QLatin1String("0")) && (c <= QLatin1String("9"))) { // krazy:excludeall=doublequote_chars
                         // It's a numeric reference > '0'
                         int n = rlitem.toInt();
-                        ql[n-1] = QLatin1String("");
+                        ql[n-1].clear();
                     } else {
                         // It's a alphanumeric reference
                         QStringList::Iterator it = ql.begin();
