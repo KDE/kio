@@ -1204,7 +1204,8 @@ void KFilePlacesModelTest::testPlaceGroupHiddenRole()
                            KFilePlacesModel::DevicesType,
                            KFilePlacesModel::RemovableDevicesType}) {
         const bool groupShouldBeHidden = (groupType == KFilePlacesModel::SearchForType);
-        for (auto index : m_places->groupIndexes(groupType)) {
+        const QModelIndexList indexes = m_places->groupIndexes(groupType);
+        for (const QModelIndex &index : indexes) {
             QCOMPARE(index.data(KFilePlacesModel::GroupHiddenRole).toBool(), groupShouldBeHidden);
         }
     }

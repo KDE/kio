@@ -1079,7 +1079,7 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
             if (folders.count() > 1) {
                 label = i18n("Using slashes in folder names will create sub-folders, like so:");
                 QString indentation = QString();
-                for (const QString &folder : folders) {
+                for (const QString &folder : qAsConst(folders)) {
                     label.append(QLatin1Char('\n'));
                     label.append(indentation);
                     label.append(folder);

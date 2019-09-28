@@ -341,7 +341,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
         if (mp->d->mountedFrom == QLatin1String("gvfsd-fuse")) {
             const QDir gvfsDir(mp->d->mountPoint);
             const QStringList mountDirs = gvfsDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
-            for (const auto &mountDir : mountDirs) {
+            for (const QString &mountDir : mountDirs) {
                 const QString type = mountDir.section(QLatin1Char(':'), 0, 0);
                 if (type.isEmpty()) {
                     continue;
